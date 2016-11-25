@@ -1,7 +1,7 @@
 {
   "name": "@schibstedspain/sui-components",
   "version": "1.0.0",
-  "description": "Mono repo containing all SUI components. Multi package for every component.",
+  "description": "Mono repo containing all SUI components. Multi package for every SUI component.",
   "private": true,
   "scripts": {
     "phoenix": "rm -Rf node_modules && npm it",

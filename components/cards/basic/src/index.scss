@@ -1,0 +1,51 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+$m-pri-container: 0;
+$p-pri-container: 0;
+
+$m-sec-container: 0;
+$p-sec-container: 1em;
+
+$m-title: 0;
+$p-title: 0;
+
+$m-description: 1em 0 0;
+$p-description: 0;
+
+.sui-Card {
+  background-color: $c-gray-light;
+
+  &-primary {
+    margin: $m-pri-container;
+    padding: $p-pri-container;
+  }
+
+  &-secondary {
+    margin: $m-sec-container;
+    padding: $p-sec-container;
+  }
+
+  &-title {
+    margin: $m-title;
+    padding: $p-title;
+  }
+
+  &-description {
+    margin: $m-description;
+    padding: $p-description;
+  }
+
+  &--landscape {
+    overflow: hidden;
+
+    .sui-Card-primary {
+      float: left;
+    }
+  }
+
+  &--contentfirst {
+    .sui-Card-primary {
+      float: right;
+    }
+  }
+}

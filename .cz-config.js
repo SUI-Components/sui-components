@@ -3,8 +3,7 @@ const readFileSync = require('fs').readFileSync
 
 var packageScopes = readFileSync('./.COMPONENTS', 'utf8')
                       .trim()
-                      .split('
-')
+                      .split('')
                       .sort()
 
 var otherScopes = [

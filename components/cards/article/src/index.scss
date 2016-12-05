@@ -1,0 +1,77 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+// TODO: Move it to Motor Theme.
+$bgc-label: #c7c3c0 !default;
+$label-types: (
+  'presentacion': #83c3d6,
+  'pruebas': #6891c9,
+  'comparativas': #f77a5d,
+  'novedades': #ffb400,
+  'actualidad': #70c0bf,
+  'videos': #98cc8f
+) !default;
+
+.sui-CardArticle {
+  @extend %sui-card;
+
+  &-link {
+    @extend %reset-link;
+  }
+
+  &-media {
+    @extend %sui-card-media;
+  }
+
+  &-info {
+    align-items: center;
+    border-bottom: 1px solid $c-gray-light;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 $m-h;
+    padding: $p-v 0;
+  }
+
+  &-label {
+    @extend %reset-link;
+    background-color: $bgc-label;
+    border-radius: $bdrs-small;
+    color: $c-white;
+    font-weight: $fw-bold;
+    padding: $p-v-xsmall $p-h-xsmall;
+    text-transform: uppercase;
+
+    @each $type, $color in $label-types {
+      &--#{$type} {
+        background-color: $color;
+      }
+    }
+  }
+
+  &-comments {
+    @extend %reset-link;
+    $c-comments: $c-gray-light;
+    align-items: center;
+    color: $c-comments;
+    display: flex;
+
+    &Icon {
+      $size-icon: 16px;
+      fill: $c-comments !important;
+      height: $size-icon;
+      margin-right: $m-h-xsmall;
+      width: $size-icon;
+    }
+  }
+
+  &-content {
+    @extend %sui-card--default-content;
+  }
+
+  &-title {
+    @extend %sui-card--default-title;
+  }
+
+  &-description {
+    @extend %sui-card--default-description;
+  }
+}

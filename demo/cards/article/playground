@@ -1,0 +1,18 @@
+return (
+  <div style={{ width: 360 }}>
+    <CardArticle
+      link='https://github.com/SUI-Components/sui-components'
+      media={{ src: 'http://lorempicsum.com/simpsons/360/180/3' }}
+      tag={{
+        url: 'http://www.coches.net/novedades/',
+        text: 'News'
+      }}
+      comments={{
+        url: 'http://www.coches.net/opiniones/nuevo-hyundai-i10-presentacion',
+        count: 109
+      }}
+      title='Article card'
+      description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore voluptatum minus nihil, eum perspiciatis?'
+    />
+  </div>
+)

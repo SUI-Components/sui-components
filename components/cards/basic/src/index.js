@@ -1,35 +1,86 @@
+/* eslint-disable react/prop-types */
 import React, { PropTypes } from 'react'
 import cx from 'classnames'
 
-export default function Basic (props) {
-  const classNames = cx({
-    'sui-Card': !props.className,
-    [`${props.className}`]: props.className,
-    'sui-Card--landscape': props.landscapeLayout,
-    'sui-Card--contentfirst': props.landscapeLayout && props.contentFirst
-  })
+/**
+ * Basic card containing a media object, an optional title and a description
+ * text.
+ */
+export default function CardBasic (props) {
+  const {
+    link,
+    media,
+    title,
+    description,
+    size
+  } = props
+  const Link = props.linkFactory
+  const { src, alt } = media
+  const cardBasicClassName = cx(
+    'sui-CardBasic',
+    `sui-CardBasic--${size}`
+  )
 
   return (
-    <div className={classNames}>
-      <div className='sui-Card-primary'>
-        {props.primary}
-      </div>
-      {
-        props.secondary &&
-          <div className='sui-Card-secondary'>
-            {props.secondary}
-          </div>
-      }
+    <div className={cardBasicClassName}>
+      <Link href={link} className='sui-CardBasic-link'>
+        <div className='sui-CardBasic-media'>
+          <img src={src} alt={alt} />
+        </div>
+        <div className='sui-CardBasic-content'>
+          {title &&
+            <header className='sui-CardBasic-title'>{title}</header>
+          }
+          <div className='sui-CardBasic-description'>{description}</div>
+        </div>
+      </Link>
     </div>
   )
 }
 
-Basic.propTypes = {
-  landscapeLayout: PropTypes.bool,
-  contentFirst: PropTypes.bool,
-  primary: PropTypes.any.isRequired,
-  secondary: PropTypes.any,
-  className: PropTypes.string
+CardBasic.propTypes = {
+  /**
+   * URL for the link that wraps the whole card.
+   */
+  link: PropTypes.string.isRequired,
+  /**
+   * Factory for the component that will hold the card link.
+   */
+  linkFactory: PropTypes.func,
+  /**
+   * Media object (now only image).
+   */
+  media: PropTypes.shape({
+    /**
+     * Alternative text for the image.
+     */
+    alt: PropTypes.string,
+    /**
+     * Image source.
+     */
+    src: PropTypes.string.isRequired
+  }),
+  /**
+   * Optional card title.
+   */
+  title: PropTypes.string,
+  /**
+   * Text description.
+   */
+  description: PropTypes.string.isRequired,
+  /**
+   * Card size.
+   */
+  size: PropTypes.oneOf([
+    'default',
+    'small'
+  ])
 }
 
-Basic.displayName = 'Basic'
+CardBasic.defaultProps = {
+  linkFactory: ({ href, className, children }) =>
+    <a href={href} className={className}>{children}</a>,
+  size: 'default'
+}
+
+CardBasic.displayName = 'CardBasic'

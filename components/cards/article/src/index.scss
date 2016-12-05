@@ -1,0 +1,69 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+$bgc-tag: $c-gray-light !default;
+$tag-types: () !default;
+
+.sui-CardArticle {
+  @extend %sui-card;
+
+  &-link {
+    @extend %reset-link;
+  }
+
+  &-media {
+    @extend %sui-card-media;
+  }
+
+  &-info {
+    align-items: center;
+    border-bottom: 1px solid $c-gray-light;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 $m-h;
+    padding: $p-v 0;
+  }
+
+  &-tag {
+    @extend %reset-link;
+    background-color: $bgc-tag;
+    border-radius: $bdrs-small;
+    color: $c-white;
+    font-weight: $fw-bold;
+    padding: $p-v-xsmall $p-h-xsmall;
+    text-transform: uppercase;
+
+    @each $type, $color in $tag-types {
+      &--#{$type} {
+        background-color: $color;
+      }
+    }
+  }
+
+  &-comments {
+    @extend %reset-link;
+    $c-comments: $c-gray-light;
+    align-items: center;
+    color: $c-comments;
+    display: flex;
+
+    &Icon {
+      $size-icon: 16px;
+      fill: $c-comments !important;
+      height: $size-icon;
+      margin-right: $m-h-xsmall;
+      width: $size-icon;
+    }
+  }
+
+  &-content {
+    @extend %sui-card--default-content;
+  }
+
+  &-title {
+    @extend %sui-card--default-title;
+  }
+
+  &-description {
+    @extend %sui-card--default-description;
+  }
+}

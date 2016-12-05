@@ -24,6 +24,9 @@
   },
   "dependencies": {},
   "config": {
+    "suistudio": {
+      "font": "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i"
+    },
     "ghooks": {
       "pre-commit": "echo \"Precommits...\"",
       "commit-msg": "validate-commit-msg"

@@ -1,15 +1,7 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
-// TODO: Move it to Motor Theme.
-$bgc-tag: #c7c3c0 !default;
-$tag-types: (
-  'presentacion': #83c3d6,
-  'pruebas': #6891c9,
-  'comparativas': #f77a5d,
-  'novedades': #ffb400,
-  'actualidad': #70c0bf,
-  'videos': #98cc8f
-) !default;
+$bgc-tag: $c-gray-light !default;
+$tag-types: () !default;
 
 .sui-CardArticle {
   @extend %sui-card;

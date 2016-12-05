@@ -8,7 +8,7 @@ return (
         text: 'News'
       }}
       comments={{
-        url: 'http://www.coches.net//opiniones/nuevo-hyundai-i10-presentacion',
+        url: 'http://www.coches.net/opiniones/nuevo-hyundai-i10-presentacion',
         count: 109
       }}
       title='Article card'

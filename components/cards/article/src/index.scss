@@ -1,8 +1,8 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
 // TODO: Move it to Motor Theme.
-$bgc-label: #c7c3c0 !default;
-$label-types: (
+$bgc-tag: #c7c3c0 !default;
+$tag-types: (
   'presentacion': #83c3d6,
   'pruebas': #6891c9,
   'comparativas': #f77a5d,
@@ -31,16 +31,16 @@ $label-types: (
     padding: $p-v 0;
   }
 
-  &-label {
+  &-tag {
     @extend %reset-link;
-    background-color: $bgc-label;
+    background-color: $bgc-tag;
     border-radius: $bdrs-small;
     color: $c-white;
     font-weight: $fw-bold;
     padding: $p-v-xsmall $p-h-xsmall;
     text-transform: uppercase;
 
-    @each $type, $color in $label-types {
+    @each $type, $color in $tag-types {
       &--#{$type} {
         background-color: $color;
       }

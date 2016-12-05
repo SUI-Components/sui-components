@@ -60,7 +60,7 @@ CardArticle.propTypes = {
   /**
    * Factory for the component that will hold the card link.
    */
-  linkFactory: PropTypes.element,
+  linkFactory: PropTypes.func,
   /**
    * Media object (now only image).
    */

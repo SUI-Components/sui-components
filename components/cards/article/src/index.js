@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { PropTypes } from 'react'
 import cx from 'classnames'
-import { Commentsquare } from '@schibstedspain/sui-svgiconset'
+import Commentsquare from '@schibstedspain/sui-svgiconset/lib/Commentsquare'
 
 /**
  * Article card containing a media object, title, description and some editorial

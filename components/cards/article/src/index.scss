@@ -1,3 +1,4 @@
+/* sass-lint:disable no-important */
 @import '~@schibstedspain/theme-basic/lib/index';
 
 $bgc-tag: $c-gray-light !default;
@@ -28,6 +29,7 @@ $tag-types: () !default;
     background-color: $bgc-tag;
     border-radius: $bdrs-small;
     color: $c-white;
+    font-size: $fz-s;
     font-weight: $fw-bold;
     padding: $p-v-xsmall $p-h-xsmall;
     text-transform: uppercase;
@@ -45,6 +47,7 @@ $tag-types: () !default;
     align-items: center;
     color: $c-comments;
     display: flex;
+    font-size: $fz-s;
 
     &Icon {
       $size-icon: 16px;

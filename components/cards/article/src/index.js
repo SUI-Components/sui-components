@@ -114,7 +114,7 @@ CardArticle.propTypes = {
     /**
      * Comments custom icon (React component).
      */
-    icon: PropTypes.element
+    icon: PropTypes.func
   })
 }
 

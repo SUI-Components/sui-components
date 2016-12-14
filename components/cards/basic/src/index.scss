@@ -1,45 +1,15 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-CardBasic {
-  @extend %sui-card;
+  @include sui-card;
 
   &-link {
     @extend %reset-link;
   }
-
-  &-media {
-    @extend %sui-card-media;
-  }
-}
-
-.sui-CardBasic--default {
-  .sui-CardBasic {
-    &-content {
-      @extend %sui-card--default-content;
-    }
-
-    &-title {
-      @extend %sui-card--default-title;
-    }
-
-    &-description {
-      @extend %sui-card--default-description;
-    }
-  }
 }
 
 .sui-CardBasic--small {
-  .sui-CardBasic {
-    &-content {
-      @extend %sui-card--small-content;
-    }
-
-    &-title {
-      @extend %sui-card--small-title;
-    }
-
-    &-description {
-      @extend %sui-card--small-description;
-    }
+  & .sui-CardBasic {
+    @include sui-card--small;
   }
 }

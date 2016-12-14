@@ -5,14 +5,10 @@ $bgc-tag: $c-gray-light !default;
 $tag-types: () !default;
 
 .sui-CardArticle {
-  @extend %sui-card;
+  @include sui-card;
 
   &-link {
-    @extend %reset-link;
-  }
-
-  &-media {
-    @extend %sui-card-media;
+    @include reset-link;
   }
 
   &-info {
@@ -25,7 +21,7 @@ $tag-types: () !default;
   }
 
   &-tag {
-    @extend %reset-link;
+    @include reset-link;
     background-color: $bgc-tag;
     border-radius: $bdrs-small;
     color: $c-white;
@@ -42,7 +38,7 @@ $tag-types: () !default;
   }
 
   &-comments {
-    @extend %reset-link;
+    @include reset-link;
     $c-comments: $c-gray-light;
     align-items: center;
     color: $c-comments;
@@ -56,17 +52,5 @@ $tag-types: () !default;
       margin-right: $m-h-xsmall;
       width: $size-icon;
     }
-  }
-
-  &-content {
-    @extend %sui-card--default-content;
-  }
-
-  &-title {
-    @extend %sui-card--default-title;
-  }
-
-  &-description {
-    @extend %sui-card--default-description;
   }
 }

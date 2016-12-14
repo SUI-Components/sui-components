@@ -18,7 +18,7 @@ export default function CardBasic (props) {
   const { src, alt } = media
   const cardBasicClassName = cx(
     'sui-CardBasic',
-    `sui-CardBasic--${size}`
+    { [`sui-CardBasic--${size}`]: typeof size !== 'undefined' }
   )
 
   return (
@@ -71,16 +71,12 @@ CardBasic.propTypes = {
   /**
    * Card size.
    */
-  size: PropTypes.oneOf([
-    'default',
-    'small'
-  ])
+  size: PropTypes.oneOf(['small'])
 }
 
 CardBasic.defaultProps = {
   linkFactory: ({ href, className, children }) =>
-    <a href={href} className={className}>{children}</a>,
-  size: 'default'
+    <a href={href} className={className}>{children}</a>
 }
 
 CardBasic.displayName = 'CardBasic'

@@ -4,7 +4,7 @@
   @include sui-card;
 
   &-link {
-    @extend %reset-link;
+    @include reset-link;
   }
 }
 

@@ -1,0 +1,77 @@
+/* sass-lint:disable class-name-format */
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-DropdownBasic {
+  $size-arrow-up: 9px;
+  display: inline-block;
+
+  &-button {
+    @include reset-button;
+    display: flex;
+    justify-content: center;
+    padding: $p-v $p-h;
+    position: relative;
+
+    &Icon {
+      @include media-breakpoint-up(s) {
+        display: none;
+      }
+
+      margin-right: $m-h-small;
+    }
+
+    .is-expanded > &::after {
+      @include arrow-up($size-arrow-up, $c-primary);
+      bottom: -$size-arrow-up;
+      content: '';
+      left: calc(50% - (#{$size-arrow-up} / 2));
+      position: absolute;
+    }
+  }
+
+  &Menu {
+    display: none;
+
+    .is-expanded > & {
+      @include sui-grid;
+      background-color: $c-white;
+      border-top: 4px solid $c-primary;
+      box-shadow: $bxsh-base;
+      margin-top: $size-arrow-up;
+      padding-top: $p-v-large;
+      position: absolute;
+    }
+
+    &-item {
+      @include sui-cell;
+    }
+
+    &-title {
+      border-bottom: 1px solid $c-gray-light;
+      color: $c-gray-light;
+      font-weight: $fw-bold;
+      margin-bottom: $m-v;
+      padding-bottom: $p-v;
+      text-transform: uppercase;
+    }
+
+    &-list {
+      @include reset-list;
+
+      &Item {
+        &:not(:first-child) {
+          margin-top: $m-v;
+        }
+      }
+
+      &Link {
+        @include reset-link;
+        display: block;
+
+        &:hover {
+          color: $c-primary;
+        }
+      }
+    }
+  }
+}

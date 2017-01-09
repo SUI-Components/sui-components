@@ -1,7 +1,12 @@
 /* eslint-disable react/prop-types */
 import React, { Component, PropTypes } from 'react'
 import cx from 'classnames'
+import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
 
+/**
+ * Dropdown menu containing sections of links, triggered from a simple button
+ * with an optional icon.
+ */
 class DropdownBasic extends Component {
   constructor (...args) {
     super(...args)
@@ -12,24 +17,39 @@ class DropdownBasic extends Component {
     }
   }
 
+  /**
+   * Empty function.
+   */
   _doNothing = () => {}
 
+  /**
+   * Toggle menu state: expanded/collapsed.
+   */
   _toggleMenu = () => {
     const { expanded } = this.state
 
     this.setState({ expanded: !expanded })
   }
 
+  /**
+   * Mouser over event handler.
+   */
   _onMouseOver = () => {
     this._toggleMenu()
     this.setState({ collapseByTouch: true })
   }
 
+  /**
+   * Mouser out event handler.
+   */
   _onMouseOut = () => {
     this._toggleMenu()
     this.setState({ collapseByTouch: false })
   }
 
+  /**
+   * Function rendering menu element.
+   */
   _renderMenuItem = ({ title, links }, index) => (
     <div key={index} className={'sui-DropdownBasicMenu-item'}>
       {title &&
@@ -41,6 +61,9 @@ class DropdownBasic extends Component {
     </div>
   )
 
+  /**
+   * Function rendering a simple list item link.
+   */
   _renderLink = ({ text, url }, index) => {
     const Link = this.props.linkFactory
 
@@ -58,6 +81,7 @@ class DropdownBasic extends Component {
     const { button, menu, expandOnMouseOver } = this.props
     const { text } = button
     const Icon = button.icon
+    const ArrowButtonIcon = button.arrowButtonIcon || Chevronbottom
     const wrapperClassName = cx('sui-DropdownBasic', {
       'is-expanded': expanded
     })
@@ -68,17 +92,22 @@ class DropdownBasic extends Component {
         onMouseOver={expandOnMouseOver ? this._onMouseOver : this._doNothing}
         onMouseOut={expandOnMouseOver ? this._onMouseOut : this._doNothing}
       >
-        <button
-          className='sui-DropdownBasic-button'
-          onClick={expandOnMouseOver ? this._doNothing : this._toggleMenu}
-          onTouchStart={expandOnMouseOver && collapseByTouch
-            ? this._toggleMenu
-            : this._doNothing
-          }
-        >
-          {Icon && <Icon svgClass='sui-DropdownBasic-buttonIcon' />}
-          {text}
-        </button>
+        <div className='sui-DropdownBasic-buttonWrap'>
+          <button
+            className='sui-DropdownBasic-button'
+            onClick={expandOnMouseOver ? this._doNothing : this._toggleMenu}
+            onTouchStart={expandOnMouseOver && collapseByTouch
+              ? this._toggleMenu
+              : this._doNothing
+            }
+          >
+            <div className='sui-DropdownBasic-buttonContent'>
+              {Icon && <Icon svgClass='sui-DropdownBasic-buttonIcon' />}
+              <span>{text}</span>
+            </div>
+            <ArrowButtonIcon svgClass='sui-DropdownBasic-buttonIcon' />
+          </button>
+        </div>
         <div className='sui-DropdownBasicMenu'>
           {menu.map(this._renderMenuItem)}
         </div>
@@ -90,18 +119,48 @@ class DropdownBasic extends Component {
 DropdownBasic.displayName = 'DropdownBasic'
 
 DropdownBasic.propTypes = {
+  /**
+   * Dropdown button object.
+   */
   button: PropTypes.shape({
+    /**
+     * Optional button icon.
+     */
     icon: PropTypes.func,
+    /**
+     * Button text.
+     */
     text: PropTypes.string.isRequired
   }),
+  /**
+   * Menu array of sections.
+   */
   menu: PropTypes.arrayOf(PropTypes.shape({
+    /**
+     * Menu section title.
+     */
     title: PropTypes.string,
+    /**
+     * Menu section links.
+     */
     links: PropTypes.arrayOf(PropTypes.shape({
+      /**
+       * Link text.
+       */
       text: PropTypes.string.isRequired,
+      /**
+       * Link url.
+       */
       url: PropTypes.string.isRequired
     }))
   })).isRequired,
+  /**
+   * Flag to expand on mouse over event.
+   */
   expandOnMouseOver: PropTypes.bool,
+  /**
+   * Factory for the component that will hold the menu links.
+   */
   linkFactory: PropTypes.func
 }
 

@@ -1,14 +1,10 @@
 @import '~@schibstedspain/theme-basic/lib/index';
-* {
-  background: black;
-  padding: 100px
-}
+
 .sui-ListTagcloud {
-  //@include sui-card;
-  padding: 10px 0;
+  margin-bottom: $m-h-large;
 
   &-link {
-    padding: 5px;
     @include reset-link;
+    @include sui-tag;
   }
 }

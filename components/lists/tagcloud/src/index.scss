@@ -1,0 +1,10 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-ListTagcloud {
+  margin-bottom: $m-h-large;
+
+  &-link {
+    @include reset-link;
+    @include sui-tag;
+  }
+}

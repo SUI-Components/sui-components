@@ -1,0 +1,39 @@
+const tags = [
+  {
+    label: 'accusantium',
+    link: 'https://github.com/SUI-Components/sui-components'
+  },
+  {
+    label: 'et quibusdam',
+    link: 'https://github.com/SUI-Components/sui-components'
+  },
+  {
+    label: 'dolores vitae',
+    link: 'https://github.com/SUI-Components/sui-components'
+  },
+  {
+    label: 'reprehenderit',
+    link: 'https://github.com/SUI-Components/sui-components'
+  },
+  {
+    label: 'ullam hic',
+    link: 'https://github.com/SUI-Components/sui-components'
+  },
+  {
+    label: 'rem nulla',
+    link: 'https://github.com/SUI-Components/sui-components'
+  },
+  {
+    label: 'voluptatem',
+    link: 'https://github.com/SUI-Components/sui-components'
+  },
+  {
+    label: 'sit mollitia',
+    link: 'https://github.com/SUI-Components/sui-components'
+  },
+  {
+    label: 'ipsum',
+    link: 'https://github.com/SUI-Components/sui-components'
+  }
+]
+return (<ListTagcloud title='Lorem ipsum' tags={tags} />)

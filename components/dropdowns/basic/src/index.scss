@@ -1,0 +1,119 @@
+/* sass-lint:disable class-name-format, no-important */
+@import '~@schibstedspain/theme-basic/lib/index';
+
+// TO-DO: Move it to theme basic.
+$bgc-dropdown-menu: $c-gray-lightest !default;
+$bdw-dropdown-menu: 4px !default;
+$size-dropdown-arrow-up: 9px !default;
+$size-dropdown-icon: 18px !default;
+
+.sui-DropdownBasic {
+  @include media-breakpoint-down(xs) {
+    position: relative;
+  }
+  @include media-breakpoint-up(s) {
+    display: inline-block;
+  }
+
+  &-button {
+    @include reset-button;
+    @include media-breakpoint-down(xs) {
+      background-color: $c-white;
+      width: 100%;
+    }
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: $p-v $p-h;
+
+    &Wrap {
+      @include media-breakpoint-up(s) {
+        padding-bottom: $size-dropdown-arrow-up;
+        position: relative;
+
+        .is-expanded > &::after {
+          @include arrow-up($size-dropdown-arrow-up, $c-primary);
+          bottom: 0;
+          content: '';
+          left: calc(50% - (#{$size-dropdown-arrow-up} / 2));
+          position: absolute;
+        }
+      }
+    }
+
+    &Content {
+      align-items: center;
+      display: flex;
+    }
+
+    &Icon {
+      @include media-breakpoint-up(s) {
+        display: none;
+      }
+      fill: inherit !important;
+      height: $size-dropdown-icon;
+      width: $size-dropdown-icon;
+
+      &:not(:last-child) {
+        margin-right: $m-h-small;
+      }
+    }
+  }
+
+  &Menu {
+    display: none;
+
+    .is-expanded > & {
+      @include sui-grid;
+      @include media-breakpoint-down(xs) {
+        background-color: $bgc-dropdown-menu;
+        width: 100%;
+      }
+      @include media-breakpoint-up(s) {
+        box-shadow: $bxsh-base;
+      }
+      background-color: $c-white;
+      border-top: $bdw-dropdown-menu solid $c-primary;
+      padding-top: $p-v-large;
+      position: absolute;
+    }
+
+    &-item {
+      @include sui-cell-of(1);
+      @include media-breakpoint-up(s) {
+        @include sui-cell;
+      }
+    }
+
+    &-title {
+      @include media-breakpoint-up(s) {
+        border-bottom: 1px solid $c-gray-light;
+      }
+      color: $c-gray-light;
+      font-weight: $fw-bold;
+      margin-bottom: $m-v;
+      padding-bottom: $p-v;
+      text-transform: uppercase;
+    }
+
+    &-list {
+      @include reset-list;
+
+      &Item {
+        &:not(:first-child) {
+          margin-top: $m-v;
+        }
+      }
+
+      &Link {
+        @include reset-link;
+        display: block;
+
+        &:hover {
+          color: $c-primary;
+        }
+      }
+    }
+  }
+}

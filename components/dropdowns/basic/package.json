@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-dropdown-basic",
-  "version": "1.1.0",
+  "version": "1.6.0",
   "description": "SUI Dropdown Basic",
   "main": "lib/index.js",
   "scripts": {
@@ -25,7 +25,8 @@
       "stage-3"
     ],
     "plugins": [
-      "transform-runtime"
+      "transform-runtime",
+      "transform-class-properties"
     ]
   }
 }

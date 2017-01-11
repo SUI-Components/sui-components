@@ -1,0 +1,32 @@
+const userAvatar = 'http://static9.comicvine.com/uploads/square_small/5/50734/1375968-ba8.jpg'
+
+const menu = [
+  {
+    text: 'Link text 1',
+    url: '#link-1',
+    icon: '(i)'
+  },
+  {
+    text: 'Link text 2',
+    url: '#link-2',
+    icon: '(i)'
+  },
+  {
+    text: 'Link text 3',
+    url: '#link-3',
+    icon: '(i)'
+  },
+  {
+    text: 'Link text 4',
+    url: '#link-4',
+    icon: '(i)'
+  }
+]
+
+return (
+  <DropdownUser
+    button={{ avatar: userAvatar, text: 'My dropdown with large name' }}
+    menu={menu}
+    expandOnMouseOver
+  />
+)

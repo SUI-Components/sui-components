@@ -1,0 +1,112 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-DropdownUser {
+  @include media-breakpoint-down(xs) {
+    background-color: $bgc-dropdown-user;
+  }
+  @include media-breakpoint-up(s) {
+    display: inline-block;
+  }
+
+  &-button {
+    @include reset-button;
+    @include media-breakpoint-up(s) {
+      background: none;
+      padding: $p-v $p-h;
+      width: auto;
+    }
+
+    align-items: center;
+    background: $bg-dropdown-user-button;
+    display: flex;
+    padding: $p-v-large $p-h;
+    position: relative;
+    text-align: left;
+    width: 100%;
+
+    &Wrap {
+      @include media-breakpoint-up(s) {
+        padding-bottom: $size-dropdown-arrow-up;
+        padding-top: $size-dropdown-arrow-up;
+        position: relative;
+
+        .is-expanded > &::after {
+          @include arrow-up($size-dropdown-arrow-up, $c-primary);
+          bottom: 0;
+          content: '';
+          left: 29px;
+          position: absolute;
+        }
+      }
+    }
+
+    &Avatar {
+      border-radius: 100%;
+      margin-right: $m-h-small;
+    }
+
+    &Text {
+      @include media-breakpoint-down(xs) {
+        color: $c-white;
+      }
+
+      @include media-breakpoint-up(s) {
+        max-width: 100px;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &Menu {
+    @include media-breakpoint-up(s) {
+      background-color: $c-white;
+      display: none;
+      margin-top: 0;
+
+      .is-expanded > & {
+        background-color: $c-white;
+        border-top: 4px solid $c-primary;
+        box-shadow: $bxsh-base;
+        display: inline-block;
+        position: absolute;
+      }
+    }
+
+    background-color: $bgc-dropdown-menu;
+    margin-top: $m-v;
+
+    &-list {
+      @include reset-list;
+      @include media-breakpoint-up(s) {
+        margin-top: $m-v-small;
+      }
+
+      &Item {
+        &:last-child {
+          border-top: $bd-dropdown-user-last-item;
+        }
+      }
+
+      &Link {
+        @include reset-link;
+        @include media-breakpoint-down(xs) {
+          @include h3;
+          font-weight: normal;
+        }
+
+        display: flex;
+        padding: $p-v $p-h;
+
+        &:hover {
+          color: $c-primary;
+        }
+      }
+
+      &Icon {
+        margin-right: $m-h-small;
+      }
+    }
+  }
+}

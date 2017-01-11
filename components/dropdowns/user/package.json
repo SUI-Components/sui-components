@@ -2,7 +2,7 @@
 {
   "name": "@schibstedspain/sui-dropdown-user",
   "version": "1.0.0",
-  "description": "",
+  "description": "SUI Dropdown User",
   "main": "lib/index.js",
   "scripts": {
     "build": "rm -Rf ./lib && mkdir -p ./lib && npm run babel && npm run sass",

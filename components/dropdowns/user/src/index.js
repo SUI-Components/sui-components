@@ -84,7 +84,7 @@ DropdownUser.displayName = 'DropdownUser'
 
 DropdownUser.propTypes = {
   /**
-   * Dropdown button object.
+   * Dropdown user object.
    */
   user: PropTypes.shape({
     /**

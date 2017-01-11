@@ -1,6 +1,6 @@
 
 {
-  "name": "sui-user",
+  "name": "@schibstedspain/sui-dropdown-user",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
@@ -10,7 +10,7 @@
     "sass": "../../../node_modules/.bin/cpx \"./src/**/*.scss\" ./lib",
     "preversion": "echo \"preversion\"",
     "version": "npm run build",
-    "postversion": "git add ${PWD} && git commit -m \"release(dropdowns/user): v$(node -p -e \"require('./package.json').version\")\" && git push origin master"
+    "postversion": "git add ${PWD} && git commit -m \"release(dropdowns/user): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish --access=public"
   },
   "keywords": [],
   "author": "",

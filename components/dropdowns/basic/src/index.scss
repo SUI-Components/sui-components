@@ -16,6 +16,11 @@
       background-color: $c-white;
       width: 100%;
     }
+    @include media-breakpoint-up(s) {
+      .is-expanded & {
+        background-color: $bgc-dropdown-button-hover;
+      }
+    }
     align-items: center;
     cursor: pointer;
     display: flex;
@@ -28,7 +33,7 @@
         position: relative;
 
         .is-expanded > &::after {
-          @include arrow-up($size-dropdown-arrow-up, $c-primary);
+          @include arrow-up($size-dropdown-arrow-up, $c-dropdown-arrow);
           bottom: 0;
           content: '';
           left: calc(50% - (#{$size-dropdown-arrow-up} / 2));
@@ -62,13 +67,14 @@
     .is-expanded > & {
       @include sui-grid;
       @include media-breakpoint-down(xs) {
-        background-color: $bgc-dropdown-menu;
+        background-color: $c-white;
         width: 100%;
       }
       @include media-breakpoint-up(s) {
-        box-shadow: $bxsh-base;
+        background-color: $bgc-dropdown-menu-hover;
+        box-shadow: $bxsh-dropdown-menu;
       }
-      background-color: $c-white;
+      background-color: $bgc-dropdown-menu;
       border-top: $bdw-dropdown-menu solid $c-primary;
       padding-top: $p-v-large;
       position: absolute;

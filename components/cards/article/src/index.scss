@@ -1,8 +1,8 @@
 /* sass-lint:disable no-important */
 @import '~@schibstedspain/theme-basic/lib/index';
 
-$bgc-tag: $c-gray-light !default;
-$tag-types: () !default;
+$c-article-tag: $c-gray-light !default;
+$c-article-tag-types: () !default;
 
 .sui-CardArticle {
   @include sui-card;

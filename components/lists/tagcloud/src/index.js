@@ -24,7 +24,7 @@ ListTagcloud.propTypes = {
      * URL for the tab link
      */
     link: PropTypes.string.isRequired
-  })).isRequired,
+  })).isRequired
 }
 
 export default ListTagcloud

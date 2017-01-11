@@ -1,4 +1,6 @@
 @import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/mt-theme/lib/shared';
+
 
 .sui-DropdownUser {
   @include media-breakpoint-down(xs) {
@@ -12,7 +14,7 @@
     @include reset-button;
     @include media-breakpoint-up(s) {
       background: none;
-      padding: $p-v $p-h;
+      padding: $p-v-small $p-h;
       width: auto;
 
       .is-expanded & {
@@ -38,7 +40,7 @@
           @include arrow-up($size-dropdown-arrow-up, $c-dropdown-arrow);
           bottom: 0;
           content: '';
-          left: 29px;
+          left: ($w-dropdown-user-avatar / 2) + ($size-dropdown-arrow-up);
           position: absolute;
         }
       }
@@ -47,6 +49,7 @@
     &Avatar {
       border-radius: 100%;
       margin-right: $m-h-small;
+      width: $w-dropdown-user-avatar;
     }
 
     &Text {

@@ -14,6 +14,10 @@
       background: none;
       padding: $p-v $p-h;
       width: auto;
+
+      .is-expanded & {
+        background-color: $bgc-dropdown-button-hover;
+      }
     }
 
     align-items: center;
@@ -31,7 +35,7 @@
         position: relative;
 
         .is-expanded > &::after {
-          @include arrow-up($size-dropdown-arrow-up, $c-primary);
+          @include arrow-up($size-dropdown-arrow-up, $c-dropdown-arrow);
           bottom: 0;
           content: '';
           left: 29px;
@@ -61,21 +65,21 @@
 
   &Menu {
     @include media-breakpoint-up(s) {
-      background-color: $c-white;
+      background-color: $bgc-dropdown-menu;
       display: none;
-      margin-top: 0;
+      padding-top: 0;
 
       .is-expanded > & {
-        background-color: $c-white;
-        border-top: 4px solid $c-primary;
-        box-shadow: $bxsh-base;
+        background-color: $bgc-dropdown-menu-hover;
+        border-top: $bd-dropdown-menu-top;
+        box-shadow: $bxsh-dropdown-menu;
         display: inline-block;
         position: absolute;
       }
     }
 
-    background-color: $bgc-dropdown-menu;
-    margin-top: $m-v;
+    background-color: $c-white;
+    padding-top: $p-v;
 
     &-list {
       @include reset-list;

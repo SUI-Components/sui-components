@@ -1,12 +1,6 @@
 /* sass-lint:disable class-name-format, no-important */
 @import '~@schibstedspain/theme-basic/lib/index';
 
-// TO-DO: Move it to theme basic.
-$bgc-dropdown-menu: $c-gray-lightest !default;
-$bdw-dropdown-menu: 4px !default;
-$size-dropdown-arrow-up: 9px !default;
-$size-dropdown-icon: 18px !default;
-
 .sui-DropdownBasic {
   @include media-breakpoint-down(xs) {
     position: relative;
@@ -21,6 +15,11 @@ $size-dropdown-icon: 18px !default;
       background-color: $c-white;
       width: 100%;
     }
+    @include media-breakpoint-up(s) {
+      .is-expanded & {
+        background-color: $bgc-dropdown-button-hover;
+      }
+    }
     align-items: center;
     cursor: pointer;
     display: flex;
@@ -29,11 +28,11 @@ $size-dropdown-icon: 18px !default;
 
     &Wrap {
       @include media-breakpoint-up(s) {
-        padding-bottom: $size-dropdown-arrow-up;
+        padding: $size-dropdown-arrow-up 0;
         position: relative;
 
         .is-expanded > &::after {
-          @include arrow-up($size-dropdown-arrow-up, $c-primary);
+          @include arrow-up($size-dropdown-arrow-up, $c-dropdown-arrow);
           bottom: 0;
           content: '';
           left: calc(50% - (#{$size-dropdown-arrow-up} / 2));
@@ -67,13 +66,14 @@ $size-dropdown-icon: 18px !default;
     .is-expanded > & {
       @include sui-grid;
       @include media-breakpoint-down(xs) {
-        background-color: $bgc-dropdown-menu;
+        background-color: $c-white;
         width: 100%;
       }
       @include media-breakpoint-up(s) {
-        box-shadow: $bxsh-base;
+        background-color: $bgc-dropdown-menu-hover;
+        box-shadow: $bxsh-dropdown-menu;
       }
-      background-color: $c-white;
+      background-color: $bgc-dropdown-menu;
       border-top: $bdw-dropdown-menu solid $c-primary;
       padding-top: $p-v-large;
       position: absolute;

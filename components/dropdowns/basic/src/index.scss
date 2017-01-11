@@ -1,13 +1,8 @@
 /* sass-lint:disable class-name-format, no-important */
 @import '~@schibstedspain/theme-basic/lib/index';
 
-// TO-DO: Move it to theme basic.
-$bgc-dropdown-menu: $c-gray-lightest !default;
-$bdw-dropdown-menu: 4px !default;
-$size-dropdown-arrow-up: 9px !default;
-$size-dropdown-icon: 18px !default;
-
 .sui-DropdownBasic {
+
   @include media-breakpoint-down(xs) {
     position: relative;
   }
@@ -29,7 +24,7 @@ $size-dropdown-icon: 18px !default;
 
     &Wrap {
       @include media-breakpoint-up(s) {
-        padding-bottom: $size-dropdown-arrow-up;
+        padding: $size-dropdown-arrow-up 0;
         position: relative;
 
         .is-expanded > &::after {

@@ -1,0 +1,34 @@
+{
+  "name": "@schibstedspain/sui-topbar-user",
+  "version": "1.0.0",
+  "description": "SUI Topbar User",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "rm -Rf ./lib && mkdir -p ./lib && npm run babel && npm run sass",
+    "babel": "../../../node_modules/.bin/babel ./src --out-dir ./lib",
+    "sass": "../../../node_modules/.bin/cpx \"./src/**/*.scss\" ./lib",
+    "preversion": "echo \"preversion\"",
+    "version": "npm run build",
+    "postversion": "git add ${PWD} && git commit -m \"release(topbars/user): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish --access=public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@schibstedspain/sui-dropdown-basic": "1",
+    "@schibstedspain/sui-dropdown-user": "1",
+    "@schibstedspain/sui-svgiconset": "1",
+    "@schibstedspain/suistudio-fatigue-deps": "github:SUI-Components/suistudio-fatigue-deps"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-3"
+    ],
+    "plugins": [
+      "transform-runtime",
+      "transform-class-properties"
+    ]
+  }
+}

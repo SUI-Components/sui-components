@@ -1,8 +1,8 @@
 /* sass-lint:disable no-important */
 @import '~@schibstedspain/theme-basic/lib/index';
 
-$bgc-tag: $c-gray-light !default;
-$tag-types: () !default;
+$c-article-tag: $c-gray-light !default;
+$c-article-tag-types: () !default;
 
 .sui-CardArticle {
   @include sui-card;
@@ -22,7 +22,7 @@ $tag-types: () !default;
 
   &-tag {
     @include reset-link;
-    background-color: $bgc-tag;
+    background-color: $c-article-tag;
     border-radius: $bdrs-small;
     color: $c-white;
     font-size: $fz-s;
@@ -30,7 +30,7 @@ $tag-types: () !default;
     padding: $p-v-xsmall $p-h-xsmall;
     text-transform: uppercase;
 
-    @each $type, $color in $tag-types {
+    @each $type, $color in $c-article-tag-types {
       &--#{$type} {
         background-color: $color;
       }

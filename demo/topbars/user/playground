@@ -1,0 +1,68 @@
+const navMain = [
+  {
+    label: 'Nav 1',
+    menu: [
+      {
+        title: 'Section 1',
+        links: [
+          {
+            text: 'Link 1',
+            url: '#link-1'
+          },
+          {
+            text: 'Link 2',
+            url: '#link-2'
+          }
+        ]
+      },
+      {
+        title: 'Section 2',
+        links: [
+          {
+            text: 'Link 3',
+            url: '#link-3'
+          },
+          {
+            text: 'Link 4',
+            url: '#link-4'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    label: 'Nav 2',
+    menu: [
+      {
+        title: 'Section 3',
+        links: [
+          {
+            text: 'Link 5',
+            url: '#link-5'
+          },
+          {
+            text: 'Link 6',
+            url: '#link-6'
+          }
+        ]
+      },
+      {
+        title: 'Section 4',
+        links: [
+          {
+            text: 'Link 7',
+            url: '#link-7'
+          },
+          {
+            text: 'Link 8',
+            url: '#link-8'
+          }
+        ]
+      }
+    ]
+  }
+]
+
+return (
+  <TopbarUser navMain={navMain} brandName='Coches.net' />
+)

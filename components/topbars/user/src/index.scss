@@ -1,0 +1,84 @@
+/* sass-lint:disable class-name-format, no-important */
+@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-dropdown-basic/lib/index';
+@import '~@schibstedspain/sui-dropdown-user/lib/index';
+
+// TODO: Move!
+$bgc-topbar-user: $c-white !default;
+$bxsh-topbar-user: $bxsh-base !default;
+$bg-topbar-user-brand: image-url('logo-coches.svg', 'https://drive.coches.net/drive2/img/') no-repeat !default;
+$h-topbar-user-brand: 22px !default;
+$w-topbar-user-brand: 136px !default;
+$size-topbar-user-toggle-icon: 24px !default;
+$w-topbar-user-nav: 75% !default;
+
+.sui-TopbarUser {
+  align-items: center;
+  background-color: $bgc-topbar-user;
+  box-shadow: $bxsh-topbar-user;
+  display: flex;
+  padding: $p-v-large $p-h;
+  position: relative;
+
+  &-toggle {
+    @include reset-button;
+    @include media-breakpoint-up(s) {
+      display: none;
+    }
+    margin-right: $m-h;
+
+    &Icon {
+      fill: $c-primary !important;
+      height: $size-topbar-user-toggle-icon;
+      width: $size-topbar-user-toggle-icon;
+    }
+  }
+
+  &-brand {
+    @include reset-button;
+    @include text-hide;
+    background: $bg-topbar-user-brand;
+    height: $h-topbar-user-brand;
+    margin-right: $m-h;
+    width: $w-topbar-user-brand;
+  }
+
+  &-nav {
+    @include media-breakpoint-down(xs) {
+      background-color: $c-white;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transform: translateX(-100%);
+      transition: transform $trs-base;
+      width: $w-topbar-user-nav;
+
+      .is-expanded > & {
+        transform: translateX(0);
+      }
+
+      &Wrap {
+        overflow: hidden;
+        position: fixed;
+
+        &::before {
+          background-color: $c-black;
+          content: '';
+          height: 100%;
+          left: 0;
+          opacity: 0;
+          position: absolute;
+          top: 0;
+          transition: opacity $trs-base;
+          width: 100%;
+          z-index: -1;
+        }
+
+        &.is-expanded::before {
+          opacity: .6;
+        }
+      }
+    }
+  }
+}

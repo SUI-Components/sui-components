@@ -73,11 +73,11 @@
       @include media-breakpoint-up(s) {
         background-color: $bgc-dropdown-menu-hover;
         box-shadow: $bxsh-dropdown-menu;
+        position: absolute;
       }
       background-color: $bgc-dropdown-menu;
-      border-top: $bdw-dropdown-menu solid $c-primary;
+      border-top: $bdt-dropdown-menu;
       padding-top: $p-v-large;
-      position: absolute;
     }
 
     &-item {

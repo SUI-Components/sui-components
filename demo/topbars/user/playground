@@ -29,6 +29,37 @@ const navMain = [
         ]
       }
     ]
+  },
+  {
+    label: 'Nav 2',
+    menu: [
+      {
+        title: 'Section 3',
+        links: [
+          {
+            text: 'Link 5',
+            url: '#link-5'
+          },
+          {
+            text: 'Link 6',
+            url: '#link-6'
+          }
+        ]
+      },
+      {
+        title: 'Section 4',
+        links: [
+          {
+            text: 'Link 7',
+            url: '#link-7'
+          },
+          {
+            text: 'Link 8',
+            url: '#link-8'
+          }
+        ]
+      }
+    ]
   }
 ]
 

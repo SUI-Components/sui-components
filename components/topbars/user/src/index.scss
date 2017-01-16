@@ -10,7 +10,7 @@ $bg-topbar-user-brand: image-url('logo-coches.svg', 'https://drive.coches.net/dr
 $h-topbar-user-brand: 22px !default;
 $w-topbar-user-brand: 136px !default;
 $size-topbar-user-toggle-icon: 24px !default;
-$w-topbar-user-nav: 300px !default;
+$w-topbar-user-nav: 75% !default;
 
 .sui-TopbarUser {
   align-items: center;
@@ -50,7 +50,7 @@ $w-topbar-user-nav: 300px !default;
       left: 0;
       position: absolute;
       top: 0;
-      transform: translateX(-$w-topbar-user-nav);
+      transform: translateX(-100%);
       transition: transform $trs-base;
       width: $w-topbar-user-nav;
 

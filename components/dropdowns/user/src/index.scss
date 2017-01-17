@@ -1,3 +1,4 @@
+/* sass-lint:disable class-name-format, no-important */
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-DropdownUser {
@@ -9,7 +10,9 @@
   }
 
   &-button {
-    @include reset-button;
+    @include media-breakpoint-down(xs) {
+      padding: $p-v-large $p-h;
+    }
     @include media-breakpoint-up(s) {
       background: none;
       padding: $p-v-small $p-h;
@@ -23,7 +26,6 @@
     align-items: center;
     background: $bg-dropdown-user-button;
     display: flex;
-    padding: $p-v-large $p-h;
     position: relative;
     text-align: left;
     width: 100%;
@@ -54,13 +56,13 @@
       @include media-breakpoint-down(xs) {
         color: $c-white;
       }
-
       @include media-breakpoint-up(s) {
         max-width: $w-dropdown-user-text;
         overflow-x: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
       }
+      font-weight: $fw-bold;
     }
   }
 
@@ -76,6 +78,7 @@
         box-shadow: $bxsh-dropdown-menu;
         display: inline-block;
         position: absolute;
+        z-index: 1;
       }
     }
 
@@ -97,12 +100,15 @@
       &Link {
         @include reset-link;
         @include media-breakpoint-down(xs) {
-          @include h3;
+          font-size: $fz-h3;
           font-weight: normal;
+          padding: $p-v-large $p-h;
         }
-
+        @include media-breakpoint-up(s) {
+          padding: $p-v $p-h;
+        }
+        align-items: center;
         display: flex;
-        padding: $p-v $p-h;
 
         &:hover {
           color: $c-primary;
@@ -110,7 +116,14 @@
       }
 
       &Icon {
+        fill: $c-text-base !important;
+        height: $size-dropdown-icon;
         margin-right: $m-h-small;
+        width: $size-dropdown-icon;
+
+        :hover > & {
+          fill: $c-primary !important;
+        }
       }
     }
   }

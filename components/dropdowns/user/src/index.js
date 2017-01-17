@@ -36,7 +36,7 @@ class DropdownUser extends Component {
     return (
       <li key={index} className='sui-DropdownUserMenu-listItem'>
         <Link href={url} className='sui-DropdownUserMenu-listLink'>
-          <span className='sui-DropdownUserMenu-listIcon'><Icon/></span>
+          <Icon svgClass='sui-DropdownUserMenu-listIcon' />
           <span>{text}</span>
         </Link>
       </li>
@@ -58,7 +58,7 @@ class DropdownUser extends Component {
         onMouseOut={expandOnMouseOver ? this._onMouseOut : this._doNothing}
       >
         <div className='sui-DropdownUser-buttonWrap'>
-          <button
+          <div
             className='sui-DropdownUser-button'
             onClick={expandOnMouseOver ? this._doNothing : this._toggleMenu}
             onTouchStart={expandOnMouseOver && collapseByTouch
@@ -66,9 +66,9 @@ class DropdownUser extends Component {
               : this._doNothing
             }
           >
-            <img className='sui-DropdownUser-buttonAvatar' src={avatar} width='44'/>
+            <img className='sui-DropdownUser-buttonAvatar' src={avatar} />
             <span className='sui-DropdownUser-buttonText'>{name}</span>
-          </button>
+          </div>
         </div>
         <div className='sui-DropdownUserMenu'>
           <ul className={'sui-DropdownUserMenu-list'}>
@@ -88,10 +88,17 @@ DropdownUser.propTypes = {
    */
   user: PropTypes.shape({
     /**
-     * Button text.
+     * User name.
      */
-    text: PropTypes.string.isRequired
-  }),
+    name: PropTypes.string.isRequired,
+    /**
+     * User avatar.
+     */
+    avatar: PropTypes.string.isRequired
+  }).isRequired,
+  /**
+   * Dropdown user menu.
+   */
   menu: PropTypes.arrayOf(PropTypes.shape({
     /**
      * Menu links text.

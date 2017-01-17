@@ -129,7 +129,11 @@ DropdownBasic.propTypes = {
     /**
      * Button text.
      */
-    text: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired,
+    /**
+     * Optional arrow button icon.
+     */
+    arrowButtonIcon: PropTypes.func
   }),
   /**
    * Menu array of sections.

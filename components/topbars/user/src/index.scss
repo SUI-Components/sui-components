@@ -3,15 +3,6 @@
 @import '~@schibstedspain/sui-dropdown-basic/lib/index';
 @import '~@schibstedspain/sui-dropdown-user/lib/index';
 
-// TODO: Move!
-$bgc-topbar-user: $c-white !default;
-$bxsh-topbar-user: $bxsh-base !default;
-$bg-topbar-user-brand: image-url('logo-coches.svg', 'https://drive.coches.net/drive2/img/') no-repeat !default;
-$h-topbar-user-brand: 22px !default;
-$w-topbar-user-brand: 136px !default;
-$size-topbar-user-toggle-icon: 24px !default;
-$w-topbar-user-nav: 75% !default;
-
 .sui-TopbarUser {
   align-items: center;
   background-color: $bgc-topbar-user;
@@ -35,19 +26,27 @@ $w-topbar-user-nav: 75% !default;
   }
 
   &-brand {
-    @include reset-button;
-    @include text-hide;
-    background: $bg-topbar-user-brand;
-    height: $h-topbar-user-brand;
+    @if $bg-topbar-user-brand != null {
+      @include text-hide;
+      background: $bg-topbar-user-brand;
+      background-size: 100%;
+      height: $h-topbar-user-brand;
+      width: $w-topbar-user-brand;
+    }
+    @include reset-link;
+    font-size: $fz-h2;
+    font-weight: $fw-bold;
     margin-right: $m-h;
-    width: $w-topbar-user-brand;
   }
 
   &-nav {
     @include media-breakpoint-down(xs) {
       background-color: $c-white;
+      display: flex;
+      flex-direction: column;
       height: 100%;
       left: 0;
+      overflow-y: auto;
       position: absolute;
       top: 0;
       transform: translateX(-100%);
@@ -60,6 +59,7 @@ $w-topbar-user-nav: 75% !default;
 
       &Wrap {
         overflow: hidden;
+        pointer-events: none;
         position: fixed;
 
         &::before {
@@ -75,8 +75,73 @@ $w-topbar-user-nav: 75% !default;
           z-index: -1;
         }
 
-        &.is-expanded::before {
-          opacity: .6;
+        &.is-expanded {
+          pointer-events: all;
+
+          &::before {
+            opacity: .6;
+          }
+        }
+      }
+
+      &Main {
+        order: 2;
+      }
+
+      &User {
+        order: 1;
+      }
+
+      &CTA {
+        order: 3;
+
+        &Link {
+          @include reset-link;
+          display: block;
+          font-size: $fz-h3;
+          font-weight: normal;
+          padding: $p-v-large $p-h;
+
+          &:hover {
+            color: $c-primary;
+          }
+        }
+
+        &Icon {
+          fill: $c-text-base !important;
+          height: $size-dropdown-icon;
+          margin-right: $m-h-small;
+          width: $size-dropdown-icon;
+
+          :hover > & {
+            fill: $c-primary !important;
+          }
+        }
+      }
+    }
+    @include media-breakpoint-up(s) {
+      display: flex;
+      justify-content: space-between;
+
+      &Wrap {
+        flex: 1;
+      }
+
+      &Main,
+      &User,
+      &CTA {
+        align-items: center;
+        display: flex;
+      }
+
+      &Main {
+        flex: 1;
+      }
+
+      &CTA {
+        &Link {
+          @include reset-link;
+          @include sui-button($color: $bgc-topbar-user-cta);
         }
       }
     }

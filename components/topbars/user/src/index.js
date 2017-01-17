@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 import React, { Component, PropTypes } from 'react'
 import cx from 'classnames'
 import Menu from '@schibstedspain/sui-svgiconset/lib/Menu'
 import DropdownBasic from '@schibstedspain/sui-dropdown-basic'
+import DropdownUser from '@schibstedspain/sui-dropdown-user'
 
 const DEFAULT_NAV_WRAP_STYLE = {
   top: 'inherit',
@@ -10,6 +12,9 @@ const DEFAULT_NAV_WRAP_STYLE = {
   width: 'inherit'
 }
 
+/**
+ * Topbar containing a dropdown with user data (login, logout, secured links...).
+ */
 class TopbarUser extends Component {
   constructor (...args) {
     super(...args)
@@ -33,6 +38,9 @@ class TopbarUser extends Component {
     window.removeEventListener('resize', this._setToggleDisplayState)
   }
 
+  /**
+   * Set the display state for toggle button.
+   */
   _setToggleDisplayState = () => {
     const { display } = window.getComputedStyle(this._topbarUserToggleNode)
     const isToggleHidden = display === 'none'
@@ -43,6 +51,9 @@ class TopbarUser extends Component {
     }
   }
 
+  /**
+   * Set navigation wrap inline styles.
+   */
   _setNavWrapStyles = () => {
     const { top, left, height, width } = this._topbarUserNode.getBoundingClientRect()
     const navWrapTop = top + height
@@ -66,6 +77,9 @@ class TopbarUser extends Component {
     this.setState({ menuExpanded: !menuExpanded })
   }
 
+  /**
+   * Render main navigation function.
+   */
   _renderNavMain = ({ icon, label: text, menu }, index) => {
     return (
       <DropdownBasic
@@ -77,9 +91,29 @@ class TopbarUser extends Component {
     )
   }
 
+  /**
+   * Handle click on navigation wrap.
+   */
+  _handleNavWrapClick = ({ target, currentTarget }) => {
+    const { menuExpanded } = this.state
+
+    if (menuExpanded && target === currentTarget) {
+      this._toggleMenu()
+    }
+  }
+
   render () {
     const { menuExpanded, isToggleHidden, navWrapStyle } = this.state
-    const { toggleIcon: ToggleIcon, brandName, navMain } = this.props
+    const {
+      toggleIcon: ToggleIcon,
+      brand,
+      navMain,
+      navUser,
+      navCTA,
+      linkFactory: Link
+    } = this.props
+    const { name: brandName, url: brandUrl } = brand
+    const { avatar, name, menu } = navUser
     const navWrapClassName = cx('sui-TopbarUser-navWrap', {
       'is-expanded': menuExpanded
     })
@@ -96,17 +130,35 @@ class TopbarUser extends Component {
         >
           <ToggleIcon svgClass='sui-TopbarUser-toggleIcon' />
         </button>
-        <button className='sui-TopbarUser-brand'>{brandName}</button>
+        <Link href={brandUrl} className='sui-TopbarUser-brand'>
+          {brandName}
+        </Link>
         <div
           className={navWrapClassName}
           style={isToggleHidden ? DEFAULT_NAV_WRAP_STYLE : navWrapStyle}
+          onClick={this._handleNavWrapClick}
         >
           <div className='sui-TopbarUser-nav'>
             <div className='sui-TopbarUser-navMain'>
               {navMain.map(this._renderNavMain)}
             </div>
-            <div className='sui-TopbarUser-user' />
-            <div className='sui-TopbarUser-navSecondary' />
+            <div className='sui-TopbarUser-navUser'>
+              <DropdownUser
+                user={{ avatar, name }}
+                menu={menu}
+                expandOnMouseOver
+              />
+            </div>
+            {navCTA &&
+              <div className='sui-TopbarUser-navCTA'>
+                <Link href={navCTA.url} className='sui-TopbarUser-navCTALink'>
+                  {navCTA.icon &&
+                    <navCTA.icon svgClass='sui-TopbarUser-navCTAIcon' />
+                  }
+                  <span>{navCTA.text}</span>
+                </Link>
+              </div>
+            }
           </div>
         </div>
       </div>
@@ -117,18 +169,45 @@ class TopbarUser extends Component {
 TopbarUser.displayName = 'TopbarUser'
 
 TopbarUser.propTypes = {
+  /**
+   * Optional toggle icon.
+   */
   toggleIcon: PropTypes.func,
-  brandName: PropTypes.string.isRequired,
+  /**
+   * Brand object.
+   */
+  brand: PropTypes.shape({
+    /**
+     * Brand url.
+     */
+    url: PropTypes.string.isRequired,
+    /**
+     * Brand name.
+     */
+    name: PropTypes.string.isRequired
+  }).isRequired,
+  /**
+   * Main navigation containing an array of dropdown menus.
+   */
   navMain: PropTypes.arrayOf(PropTypes.shape({
+    /**
+     * Nav optional icon.
+     */
     icon: PropTypes.func,
+    /**
+     * Nav label.
+     */
     label: PropTypes.string,
+    /**
+     * Nav menu.
+     */
     menu: PropTypes.arrayOf(PropTypes.shape({
       /**
-       * Main nav menu section title.
+       * Nav menu section title.
        */
       title: PropTypes.string,
       /**
-       * Main nav menu section links.
+       * Nav menu section links.
        */
       links: PropTypes.arrayOf(PropTypes.shape({
         /**
@@ -141,11 +220,64 @@ TopbarUser.propTypes = {
         url: PropTypes.string.isRequired
       }))
     }))
-  }))
+  })),
+  /**
+   * Dropdown user object.
+   */
+  navUser: PropTypes.shape({
+    /**
+     * User name.
+     */
+    name: PropTypes.string.isRequired,
+    /**
+     * User avatar.
+     */
+    avatar: PropTypes.string.isRequired,
+    /**
+     * User menu.
+     */
+    menu: PropTypes.arrayOf(PropTypes.shape({
+      /**
+       * Menu links text.
+       */
+      text: PropTypes.string.isRequired,
+      /**
+       * Menu links url.
+       */
+      url: PropTypes.string.isRequired,
+      /**
+       * Menu links icon.
+       */
+      icon: PropTypes.func.isRequired
+    }))
+  }).isRequired,
+  /**
+   * CTA data.
+   */
+  navCTA: PropTypes.shape({
+    /**
+     * Call to action url.
+     */
+    url: PropTypes.string.isRequired,
+    /**
+     * Call to action optional icon.
+     */
+    icon: PropTypes.func,
+    /**
+     * Call to action text.
+     */
+    text: PropTypes.string.isRequired
+  }),
+  /**
+   * Factory for the component that will hold any link.
+   */
+  linkFactory: PropTypes.func
 }
 
 TopbarUser.defaultProps = {
-  toggleIcon: Menu
+  toggleIcon: Menu,
+  linkFactory: ({ href, className, children }) =>
+    <a href={href} className={className}>{children}</a>
 }
 
 export default TopbarUser

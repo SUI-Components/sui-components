@@ -2,7 +2,6 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-DropdownBasic {
-
   @include media-breakpoint-down(xs) {
     position: relative;
   }
@@ -14,9 +13,12 @@
     @include reset-button;
     @include media-breakpoint-down(xs) {
       background-color: $c-white;
+      padding: $p-v-large $p-h;
       width: 100%;
     }
     @include media-breakpoint-up(s) {
+      padding: $p-v $p-h;
+
       .is-expanded & {
         background-color: $bgc-dropdown-button-hover;
       }
@@ -25,7 +27,10 @@
     cursor: pointer;
     display: flex;
     justify-content: space-between;
-    padding: $p-v $p-h;
+
+    &:hover {
+      color: $c-primary;
+    }
 
     &Wrap {
       @include media-breakpoint-up(s) {
@@ -43,6 +48,10 @@
     }
 
     &Content {
+      @include media-breakpoint-down(xs) {
+        font-size: $fz-h3;
+        font-weight: normal;
+      }
       align-items: center;
       display: flex;
     }
@@ -51,9 +60,13 @@
       @include media-breakpoint-up(s) {
         display: none;
       }
-      fill: inherit !important;
+      fill: $c-text-base !important;
       height: $size-dropdown-icon;
       width: $size-dropdown-icon;
+
+      [class$='-button']:hover &:first-child {
+        fill: $c-primary !important;
+      }
 
       &:not(:last-child) {
         margin-right: $m-h-small;
@@ -73,15 +86,18 @@
       @include media-breakpoint-up(s) {
         background-color: $bgc-dropdown-menu-hover;
         box-shadow: $bxsh-dropdown-menu;
+        position: absolute;
+        z-index: 1;
       }
       background-color: $bgc-dropdown-menu;
-      border-top: $bdw-dropdown-menu solid $c-primary;
+      border-top: $bdt-dropdown-menu;
       padding-top: $p-v-large;
-      position: absolute;
     }
 
     &-item {
-      @include sui-cell-of(1);
+      @include media-breakpoint-down(xs) {
+        @include sui-cell-of(1);
+      }
       @include media-breakpoint-up(s) {
         @include sui-cell;
       }

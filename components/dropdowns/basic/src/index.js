@@ -79,8 +79,7 @@ class DropdownBasic extends Component {
   render () {
     const { expanded, collapseByTouch } = this.state
     const { button, menu, expandOnMouseOver } = this.props
-    const { text } = button
-    const Icon = button.icon
+    const { text, icon: Icon } = button
     const ArrowButtonIcon = button.arrowButtonIcon || Chevronbottom
     const wrapperClassName = cx('sui-DropdownBasic', {
       'is-expanded': expanded
@@ -130,7 +129,11 @@ DropdownBasic.propTypes = {
     /**
      * Button text.
      */
-    text: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired,
+    /**
+     * Optional arrow button icon.
+     */
+    arrowButtonIcon: PropTypes.func
   }),
   /**
    * Menu array of sections.

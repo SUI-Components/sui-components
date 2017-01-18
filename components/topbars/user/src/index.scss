@@ -1,0 +1,149 @@
+/* sass-lint:disable class-name-format, no-important */
+@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-dropdown-basic/lib/index';
+@import '~@schibstedspain/sui-dropdown-user/lib/index';
+
+.sui-TopbarUser {
+  align-items: center;
+  background-color: $bgc-topbar-user;
+  box-shadow: $bxsh-topbar-user;
+  display: flex;
+  padding: $p-v-large $p-h;
+  position: relative;
+
+  &-toggle {
+    @include reset-button;
+    @include media-breakpoint-up(s) {
+      display: none;
+    }
+    margin-right: $m-h;
+
+    &Icon {
+      fill: $c-primary !important;
+      height: $size-topbar-user-toggle-icon;
+      width: $size-topbar-user-toggle-icon;
+    }
+  }
+
+  &-brand {
+    @if $bg-topbar-user-brand != null {
+      @include text-hide;
+      background: $bg-topbar-user-brand;
+      background-size: 100%;
+      height: $h-topbar-user-brand;
+      width: $w-topbar-user-brand;
+    }
+    @include reset-link;
+    font-size: $fz-h2;
+    font-weight: $fw-bold;
+    margin-right: $m-h;
+  }
+
+  &-nav {
+    @include media-breakpoint-down(xs) {
+      background-color: $c-white;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      left: 0;
+      overflow-y: auto;
+      position: absolute;
+      top: 0;
+      transform: translateX(-100%);
+      transition: transform $trs-base;
+      width: $w-topbar-user-nav;
+
+      .is-expanded > & {
+        transform: translateX(0);
+      }
+
+      &Wrap {
+        overflow: hidden;
+        pointer-events: none;
+        position: fixed;
+
+        &::before {
+          background-color: $c-black;
+          content: '';
+          height: 100%;
+          left: 0;
+          opacity: 0;
+          position: absolute;
+          top: 0;
+          transition: opacity $trs-base;
+          width: 100%;
+          z-index: -1;
+        }
+
+        &.is-expanded {
+          pointer-events: all;
+
+          &::before {
+            opacity: .6;
+          }
+        }
+      }
+
+      &Main {
+        order: 2;
+      }
+
+      &User {
+        order: 1;
+      }
+
+      &CTA {
+        order: 3;
+
+        &Link {
+          @include reset-link;
+          display: block;
+          font-size: $fz-h3;
+          font-weight: normal;
+          padding: $p-v-large $p-h;
+
+          &:hover {
+            color: $c-primary;
+          }
+        }
+
+        &Icon {
+          fill: $c-text-base !important;
+          height: $size-dropdown-icon;
+          margin-right: $m-h-small;
+          width: $size-dropdown-icon;
+
+          :hover > & {
+            fill: $c-primary !important;
+          }
+        }
+      }
+    }
+    @include media-breakpoint-up(s) {
+      display: flex;
+      justify-content: space-between;
+
+      &Wrap {
+        flex: 1;
+      }
+
+      &Main,
+      &User,
+      &CTA {
+        align-items: center;
+        display: flex;
+      }
+
+      &Main {
+        flex: 1;
+      }
+
+      &CTA {
+        &Link {
+          @include reset-link;
+          @include sui-button($color: $bgc-topbar-user-cta);
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-topbar-user",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "SUI Topbar User",
   "main": "lib/index.js",
   "scripts": {

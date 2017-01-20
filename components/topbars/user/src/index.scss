@@ -26,6 +26,7 @@
   }
 
   &-brand {
+    @include reset-link;
     @if $bg-topbar-user-brand != null {
       @include text-hide;
       background: $bg-topbar-user-brand;
@@ -33,7 +34,6 @@
       height: $h-topbar-user-brand;
       width: $w-topbar-user-brand;
     }
-    @include reset-link;
     font-size: $fz-h2;
     font-weight: $fw-bold;
     margin-right: $m-h;
@@ -61,6 +61,7 @@
         overflow: hidden;
         pointer-events: none;
         position: fixed;
+        z-index: 1;
 
         &::before {
           background-color: $c-black;
@@ -72,7 +73,6 @@
           top: 0;
           transition: opacity $trs-base;
           width: 100%;
-          z-index: -1;
         }
 
         &.is-expanded {

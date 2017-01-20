@@ -38,6 +38,28 @@ class TopbarUser extends Component {
     window.removeEventListener('resize', this._setToggleDisplayState)
   }
 
+  componentWillUpdate (nextProps, { menuExpanded, isToggleHidden }) {
+    if (menuExpanded && !isToggleHidden) {
+      this._lockBodyScroll()
+    } else {
+      this._unlockBodyScroll()
+    }
+  }
+
+  /**
+   * Lock body element scroll.
+   */
+  _lockBodyScroll () {
+    window.document.body.style.overflowY = 'hidden'
+  }
+
+  /**
+   * Unlock body element scroll.
+   */
+  _unlockBodyScroll () {
+    window.document.body.style.overflowY = ''
+  }
+
   /**
    * Set the display state for toggle button.
    */

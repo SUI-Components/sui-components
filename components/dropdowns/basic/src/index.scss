@@ -13,6 +13,7 @@
     @include reset-button;
     @include media-breakpoint-down(xs) {
       background-color: $c-white;
+      color: $c-text-base;
       padding: $p-v-large $p-h;
       width: 100%;
     }
@@ -54,6 +55,7 @@
       }
       align-items: center;
       display: flex;
+      text-align: left;
     }
 
     &Icon {

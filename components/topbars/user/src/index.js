@@ -80,11 +80,16 @@ class TopbarUser extends Component {
   /**
    * Render main navigation function.
    */
-  _renderNavMain = ({ icon, label: text, menu }, index) => {
+  _renderNavMain = ({
+    icon,
+    label: text,
+    menu,
+    arrowButtonIcon
+  }, index) => {
     return (
       <DropdownBasic
         key={index}
-        button={{ icon, text }}
+        button={{ icon, text, arrowButtonIcon }}
         menu={menu}
         expandOnMouseOver
       />

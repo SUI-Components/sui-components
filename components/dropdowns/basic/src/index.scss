@@ -27,6 +27,7 @@
     align-items: center;
     cursor: pointer;
     display: flex;
+    font-size: $fz-m;
     justify-content: space-between;
 
     &:hover {
@@ -42,7 +43,7 @@
           @include arrow-up($size-dropdown-arrow-up, $c-dropdown-arrow);
           bottom: 0;
           content: '';
-          left: calc(50% - (#{$size-dropdown-arrow-up} / 2));
+          left: calc(50% - #{$size-dropdown-arrow-up});
           position: absolute;
         }
       }

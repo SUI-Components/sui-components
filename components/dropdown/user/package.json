@@ -9,7 +9,7 @@
     "sass": "../../../node_modules/.bin/cpx \"./src/**/*.scss\" ./lib",
     "preversion": "echo \"preversion\"",
     "version": "npm run build",
-    "postversion": "git add ${PWD} && git commit -m \"release(dropdowns/user): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish --access=public"
+    "postversion": "git add ${PWD} && git commit -m \"release(dropdown/user): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish --access=public"
   },
   "keywords": [],
   "author": "",

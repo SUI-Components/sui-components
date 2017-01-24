@@ -1,7 +1,7 @@
 {
-  "name": "@schibstedspain/sui-topbar-user",
-  "version": "1.3.0",
-  "description": "SUI Topbar User",
+  "name": "@schibstedspain/sui-card-basic",
+  "version": "1.5.0",
+  "description": "SUI Card Basic",
   "main": "lib/index.js",
   "scripts": {
     "build": "rm -Rf ./lib && mkdir -p ./lib && npm run babel && npm run sass",
@@ -9,15 +9,12 @@
     "sass": "../../../node_modules/.bin/cpx \"./src/**/*.scss\" ./lib",
     "preversion": "echo \"preversion\"",
     "version": "npm run build",
-    "postversion": "git add ${PWD} && git commit -m \"release(topbars/user): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish --access=public"
+    "postversion": "git add ${PWD} && git commit -m \"release(card/basic): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish --access=public"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@schibstedspain/sui-dropdown-basic": "1",
-    "@schibstedspain/sui-dropdown-user": "1",
-    "@schibstedspain/sui-svgiconset": "1",
     "@schibstedspain/suistudio-fatigue-deps": "github:SUI-Components/suistudio-fatigue-deps"
   },
   "babel": {
@@ -27,8 +24,7 @@
       "stage-3"
     ],
     "plugins": [
-      "transform-runtime",
-      "transform-class-properties"
+      "transform-runtime"
     ]
   }
 }

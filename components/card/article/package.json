@@ -1,7 +1,7 @@
 {
-  "name": "@schibstedspain/sui-dropdown-basic",
-  "version": "1.10.0",
-  "description": "SUI Dropdown Basic",
+  "name": "@schibstedspain/sui-card-article",
+  "version": "1.4.0",
+  "description": "SUI Card Article",
   "main": "lib/index.js",
   "scripts": {
     "build": "rm -Rf ./lib && mkdir -p ./lib && npm run babel && npm run sass",
@@ -9,7 +9,7 @@
     "sass": "../../../node_modules/.bin/cpx \"./src/**/*.scss\" ./lib",
     "preversion": "echo \"preversion\"",
     "version": "npm run build",
-    "postversion": "git add ${PWD} && git commit -m \"release(dropdowns/basic): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish --access=public"
+    "postversion": "git add ${PWD} && git commit -m \"release(card/article): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish --access=public"
   },
   "keywords": [],
   "author": "",
@@ -25,8 +25,7 @@
       "stage-3"
     ],
     "plugins": [
-      "transform-runtime",
-      "transform-class-properties"
+      "transform-runtime"
     ]
   }
 }

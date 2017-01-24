@@ -1,7 +1,7 @@
 {
-  "name": "@schibstedspain/sui-card-basic",
-  "version": "1.5.0",
-  "description": "SUI Card Basic",
+  "name": "@schibstedspain/sui-list-tagcloud",
+  "version": "1.2.0",
+  "description": "SUI TagCloud",
   "main": "lib/index.js",
   "scripts": {
     "build": "rm -Rf ./lib && mkdir -p ./lib && npm run babel && npm run sass",
@@ -9,7 +9,7 @@
     "sass": "../../../node_modules/.bin/cpx \"./src/**/*.scss\" ./lib",
     "preversion": "echo \"preversion\"",
     "version": "npm run build",
-    "postversion": "git add ${PWD} && git commit -m \"release(cards/basic): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish --access=public"
+    "postversion": "git add ${PWD} && git commit -m \"release(list/tagcloud): v$(node -p -e \"require('./package.json').version\")\" && git push origin master"
   },
   "keywords": [],
   "author": "",

@@ -11,7 +11,7 @@
   max-width: $w-layout-large;
   padding-right: 300px;
 
-  &Top {
+  &-top {
     @include media-breakpoint-down(m) {
       display: none;
     }
@@ -20,7 +20,7 @@
     width: $w-ad-l-top;
   }
 
-  &Fixed {
+  &-fixed {
     @include media-breakpoint-down(l) {
       display: none;
     }
@@ -31,7 +31,7 @@
     width: $w-ad-l-right;
   }
 
-  &Inner {
+  &-inner {
     @include media-breakpoint-up(xl) {
       padding-right: $m-h;
     }

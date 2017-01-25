@@ -1,0 +1,39 @@
+
+@import '~@schibstedspain/theme-basic/lib/index';
+
+
+.sui-AdL {
+  @include media-breakpoint-down(l) {
+    max-width: $w-layout;
+    padding-right: 0;
+  }
+  margin: 0 auto;
+  max-width: $w-layout-large;
+  padding-right: 300px;
+
+  &Top {
+    @include media-breakpoint-down(m) {
+      display: none;
+    }
+    height: $h-ad-l-top;
+    margin: $m-v auto 0;
+    width: $w-ad-l-top;
+  }
+
+  &Fixed {
+    @include media-breakpoint-down(l) {
+      display: none;
+    }
+    height: $h-ad-l-right;
+    margin-left: $w-layout;
+    position: fixed;
+    top: $m-v;
+    width: $w-ad-l-right;
+  }
+
+  &Inner {
+    @include media-breakpoint-up(xl) {
+      padding-right: $m-h;
+    }
+  }
+}

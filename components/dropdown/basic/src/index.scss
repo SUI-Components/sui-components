@@ -31,7 +31,7 @@
     justify-content: space-between;
 
     &:hover {
-      color: $c-primary;
+      color: $c-accent;
     }
 
     &Wrap {
@@ -68,7 +68,7 @@
       width: $size-dropdown-icon;
 
       [class$='-button']:hover &:first-child {
-        fill: $c-primary !important;
+        fill: $c-accent !important;
       }
 
       &:not(:last-child) {
@@ -110,7 +110,7 @@
       @include media-breakpoint-up(m) {
         border-bottom: 1px solid $c-gray-light;
       }
-      color: $c-gray-light;
+      color: $c-gray;
       font-weight: $fw-bold;
       margin-bottom: $m-v;
       padding-bottom: $p-v;
@@ -131,7 +131,7 @@
         display: block;
 
         &:hover {
-          color: $c-primary;
+          color: $c-accent;
         }
       }
     }

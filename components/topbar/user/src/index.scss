@@ -8,12 +8,12 @@
   background-color: $bgc-topbar-user;
   box-shadow: $bxsh-topbar-user;
   display: flex;
-  padding: $p-v-large $p-h;
+  padding: $p-v $p-h;
   position: relative;
 
   &-toggle {
     @include reset-button;
-    @include media-breakpoint-up(s) {
+    @include media-breakpoint-up(m) {
       display: none;
     }
     margin-right: $m-h;
@@ -40,7 +40,7 @@
   }
 
   &-nav {
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(s) {
       background-color: $c-white;
       display: flex;
       flex-direction: column;
@@ -119,7 +119,7 @@
         }
       }
     }
-    @include media-breakpoint-up(s) {
+    @include media-breakpoint-up(m) {
       display: flex;
       justify-content: space-between;
 

@@ -13,7 +13,7 @@ $c-article-tag-types: () !default;
 
   &-info {
     align-items: center;
-    border-bottom: 1px solid $c-gray-light;
+    border-bottom: 1px solid $c-gray-lightest;
     display: flex;
     justify-content: space-between;
     margin: 0 $m-h;
@@ -39,7 +39,7 @@ $c-article-tag-types: () !default;
 
   &-comments {
     @include reset-link;
-    $c-comments: $c-gray-light;
+    $c-comments: $c-gray;
     align-items: center;
     color: $c-comments;
     display: flex;

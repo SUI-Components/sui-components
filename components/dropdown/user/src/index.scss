@@ -2,18 +2,18 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-DropdownUser {
-  @include media-breakpoint-down(xs) {
+  @include media-breakpoint-down(s) {
     background-color: $bgc-dropdown-user;
   }
-  @include media-breakpoint-up(s) {
+  @include media-breakpoint-up(m) {
     display: inline-block;
   }
 
   &-button {
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(s) {
       padding: $p-v-large $p-h;
     }
-    @include media-breakpoint-up(s) {
+    @include media-breakpoint-up(m) {
       background: none;
       padding: $p-v-small $p-h;
       width: auto;
@@ -31,7 +31,7 @@
     width: 100%;
 
     &Wrap {
-      @include media-breakpoint-up(s) {
+      @include media-breakpoint-up(m) {
         padding-bottom: $size-dropdown-arrow-up;
         padding-top: $size-dropdown-arrow-up;
         position: relative;
@@ -53,10 +53,10 @@
     }
 
     &Text {
-      @include media-breakpoint-down(xs) {
+      @include media-breakpoint-down(s) {
         color: $c-white;
       }
-      @include media-breakpoint-up(s) {
+      @include media-breakpoint-up(m) {
         max-width: $w-dropdown-user-text;
         overflow-x: hidden;
         text-overflow: ellipsis;
@@ -67,7 +67,7 @@
   }
 
   &Menu {
-    @include media-breakpoint-up(s) {
+    @include media-breakpoint-up(m) {
       background-color: $bgc-dropdown-menu;
       display: none;
       padding-top: 0;
@@ -87,7 +87,7 @@
 
     &-list {
       @include reset-list;
-      @include media-breakpoint-up(s) {
+      @include media-breakpoint-up(m) {
         margin-top: $m-v-small;
       }
 
@@ -99,12 +99,12 @@
 
       &Link {
         @include reset-link;
-        @include media-breakpoint-down(xs) {
+        @include media-breakpoint-down(s) {
           font-size: $fz-h3;
           font-weight: normal;
           padding: $p-v-large $p-h;
         }
-        @include media-breakpoint-up(s) {
+        @include media-breakpoint-up(m) {
           padding: $p-v $p-h;
         }
         align-items: center;

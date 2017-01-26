@@ -111,7 +111,7 @@
         display: flex;
 
         &:hover {
-          color: $c-primary;
+          color: $c-accent;
         }
       }
 
@@ -122,7 +122,7 @@
         width: $size-dropdown-icon;
 
         :hover > & {
-          fill: $c-primary !important;
+          fill: $c-accent !important;
         }
       }
     }

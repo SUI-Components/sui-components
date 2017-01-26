@@ -2,22 +2,22 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-DropdownBasic {
-  @include media-breakpoint-down(xs) {
+  @include media-breakpoint-down(s) {
     position: relative;
   }
-  @include media-breakpoint-up(s) {
+  @include media-breakpoint-up(m) {
     display: inline-block;
   }
 
   &-button {
     @include reset-button;
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(s) {
       background-color: $c-white;
       color: $c-text-base;
       padding: $p-v-large $p-h;
       width: 100%;
     }
-    @include media-breakpoint-up(s) {
+    @include media-breakpoint-up(m) {
       padding: $p-v $p-h;
 
       .is-expanded & {
@@ -35,7 +35,7 @@
     }
 
     &Wrap {
-      @include media-breakpoint-up(s) {
+      @include media-breakpoint-up(m) {
         padding: $size-dropdown-arrow-up 0;
         position: relative;
 
@@ -50,7 +50,7 @@
     }
 
     &Content {
-      @include media-breakpoint-down(xs) {
+      @include media-breakpoint-down(s) {
         font-size: $fz-h3;
         font-weight: normal;
       }
@@ -60,7 +60,7 @@
     }
 
     &Icon {
-      @include media-breakpoint-up(s) {
+      @include media-breakpoint-up(m) {
         display: none;
       }
       fill: $c-text-base !important;
@@ -82,11 +82,11 @@
 
     .is-expanded > & {
       @include sui-grid;
-      @include media-breakpoint-down(xs) {
+      @include media-breakpoint-down(s) {
         background-color: $c-white;
         width: 100%;
       }
-      @include media-breakpoint-up(s) {
+      @include media-breakpoint-up(m) {
         background-color: $bgc-dropdown-menu-hover;
         box-shadow: $bxsh-dropdown-menu;
         position: absolute;
@@ -98,16 +98,16 @@
     }
 
     &-item {
-      @include media-breakpoint-down(xs) {
+      @include media-breakpoint-down(s) {
         @include sui-cell-of(1);
       }
-      @include media-breakpoint-up(s) {
+      @include media-breakpoint-up(m) {
         @include sui-cell;
       }
     }
 
     &-title {
-      @include media-breakpoint-up(s) {
+      @include media-breakpoint-up(m) {
         border-bottom: 1px solid $c-gray-light;
       }
       color: $c-gray-light;

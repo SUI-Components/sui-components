@@ -128,6 +128,9 @@
 
       &Link {
         @include reset-link;
+        @include media-breakpoint-up(m) {
+          white-space: nowrap;
+        }
         display: block;
 
         &:hover {

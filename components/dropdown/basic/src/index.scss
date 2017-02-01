@@ -81,7 +81,6 @@
     display: none;
 
     .is-expanded > & {
-      @include sui-grid;
       @include media-breakpoint-down(s) {
         background-color: $c-white;
         width: 100%;
@@ -90,23 +89,35 @@
         background-color: $bgc-dropdown-menu-hover;
         box-shadow: $bxsh-dropdown-menu;
         position: absolute;
+        white-space: nowrap;
         z-index: 1;
       }
+
       background-color: $bgc-dropdown-menu;
       border-top: $bdt-dropdown-menu;
-      padding-top: $p-v-large;
+      display: block;
+      padding: $gutter;
     }
 
     &-item {
-      @include media-breakpoint-down(s) {
-        @include sui-cell-of(1);
-      }
       @include media-breakpoint-up(m) {
-        @include sui-cell;
+        float: left;
+
+        &:not(:last-child) {
+          padding-right: $gutter;
+        }
+      }
+      @include media-breakpoint-down(s) {
+        &:not(:last-child) {
+          margin-bottom: $m-v;
+        }
       }
     }
 
     &-title {
+      @include media-breakpoint-down(s) {
+        margin-top: $m-v-large;
+      }
       @include media-breakpoint-up(m) {
         border-bottom: 1px solid $c-gray-light;
       }

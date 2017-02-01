@@ -17,7 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@schibstedspain/suistudio-fatigue-dev": "https://github.com/SUI-Components/suistudio-fatigue-dev.git"
+    "@schibstedspain/suistudio-fatigue-dev": "SUI-Components/suistudio-fatigue-dev"
   },
   "peerDependencies": {
     "react": "15",

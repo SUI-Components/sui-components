@@ -13,7 +13,6 @@ before_install:
 after_success:
 - suistudio run-all npm i
 - npm run deploy
-- suistudio release
 branches:
   only:
   - master

@@ -12,6 +12,7 @@ before_install:
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 after_success:
   - git remote set-url origin https://${GH_TOKEN}@github.com/SUI-Components/sui-components.git
+  - git remote -v
   - suistudio run-all npm i
   - npm run deploy
   - suistudio check-release

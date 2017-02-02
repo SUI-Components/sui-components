@@ -15,7 +15,7 @@ export default function BreadcrumbBasic (props) {
           <a key={index} href={link} className='sui-BreadcrumbBasic-link'>
             {label}
           </a>
-          { index < numLinks && <IconAngle svgClass='sui-CardArticle-commentsIcon' /> }
+          { index < numLinks && <IconAngle svgClass='sui-BreadcrumbBasic-icon' /> }
         </li>
       )}
     </ul>

@@ -9,6 +9,7 @@
     "co": "git-cz",
     "lint:js": "node_modules/.bin/eslint --ext .js,.jsx src/",
     "lint:sass": "node_modules/.bin/sass-lint src/**/*.scss -c -v",
+    "test": "true",
     "lint": "npm run lint:js && npm run lint:sass"
   },
   "repository": {},
@@ -16,7 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@schibstedspain/suistudio-fatigue-dev": "github:SUI-Components/suistudio-fatigue-dev"
+    "@schibstedspain/suistudio-fatigue-dev": "SUI-Components/suistudio-fatigue-dev"
   },
   "peerDependencies": {
     "react": "15",

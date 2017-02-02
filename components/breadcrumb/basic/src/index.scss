@@ -1,0 +1,19 @@
+
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-BreadcrumbBasic {
+  @include reset-list;
+
+  &-listItem {
+    align-items: center;
+    display: inline-flex;
+  }
+
+  &-link {
+    @include reset-link;
+
+    &:hover {
+      color: $c-accent;
+    }
+  }
+}

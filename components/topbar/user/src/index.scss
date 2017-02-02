@@ -30,7 +30,7 @@
     @if $bg-topbar-user-brand != null {
       @include text-hide;
       background: $bg-topbar-user-brand;
-      background-size: 100%;
+      background-size: $bgsz-topbar-user-brand;
       height: $h-topbar-user-brand;
       width: $w-topbar-user-brand;
     }

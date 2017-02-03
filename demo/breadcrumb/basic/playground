@@ -3,23 +3,23 @@ const ArrowRight = ({ svgClass }) => <svg viewBox="0 0 24 24" width='24' height=
 const links = [
   {
     label: 'accusantium',
-    link: 'https://github.com/SUI-Components/sui-components'
+    url: 'https://github.com/SUI-Components/sui-components'
   },
   {
     label: 'et quibusdam',
-    link: 'https://github.com/SUI-Components/sui-components'
+    url: 'https://github.com/SUI-Components/sui-components'
   },
   {
     label: 'dolores vitae',
-    link: 'https://github.com/SUI-Components/sui-components'
+    url: 'https://github.com/SUI-Components/sui-components'
   },
   {
     label: 'reprehenderit',
-    link: 'https://github.com/SUI-Components/sui-components'
+    url: 'https://github.com/SUI-Components/sui-components'
   },
   {
     label: 'ullam hic',
-    link: 'https://github.com/SUI-Components/sui-components'
+    url: 'https://github.com/SUI-Components/sui-components'
   }
 ]
 

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, {PropTypes} from 'react'
 import Chevronright from '@schibstedspain/sui-svgiconset/lib/Chevronright'
 
@@ -6,15 +7,16 @@ export default function BreadcrumbBasic (props) {
     links,
     icon
   } = props
+  const Link = props.linkFactory
   const IconAngle = icon || Chevronright
   const numLinks = links.length - 1
   return (
     <ul className='sui-BreadcrumbBasic'>
-      {links.map(({link, label}, index) =>
-        <li className='sui-BreadcrumbBasic-listItem'>
-          <a key={index} href={link} className='sui-BreadcrumbBasic-link'>
+      {links.map(({url, label}, index) =>
+        <li className='sui-BreadcrumbBasic-listItem' key={index}>
+          <Link href={url} className='sui-BreadcrumbBasic-link'>
             {label}
-          </a>
+          </Link>
           { index < numLinks && <IconAngle svgClass='sui-BreadcrumbBasic-icon' /> }
         </li>
       )}
@@ -35,10 +37,15 @@ BreadcrumbBasic.propTypes = {
     /**
      * URL for the link
      */
-    link: PropTypes.string.isRequired
+    url: PropTypes.string.isRequired
   })).isRequired,
   /**
    * Comments custom icon (React component).
    */
   icon: PropTypes.func
+}
+
+BreadcrumbBasic.defaultProps = {
+  linkFactory: ({ href, className, children }) =>
+    <a href={href} className={className}>{children}</a>
 }

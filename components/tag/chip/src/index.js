@@ -2,30 +2,34 @@ import React, {PropTypes} from 'react'
 import CircleX from '@schibstedspain/sui-svgiconset/lib/CircleX'
 import cx from 'classnames'
 
-// onClick handler
-
 const IconDelete = ({icon: Icon} = {}) => Icon
-  ? <Icon svgClass='sui-TagChip-delete-icon' />
-  : <CircleX svgClass='sui-TagChip-delete-icon' />
+  ? <Icon svgClass='sui-TagChip-delete-icon' props />
+  : <CircleX svgClass='sui-TagChip-delete-icon' props />
 
-const Tag = ({Link, url, children, className}) => url
-  ? <Link href={url} className={className}>{children}</Link>
-  : <span className={className}>{children}</span>
+const Tag = ({Link, children, url, ...rest}) => url
+  ? <Link href={url} {...rest}>{children}</Link>
+  : <span {...rest}>{children}</span>
 
-const tagChipClassName = linkCondition => cx('sui-TagChip', {
+const tagChipClassName = ({linkCondition}) => cx('sui-TagChip', {
   'sui-TagChip-link': linkCondition
 })
 
+const preventDefaultHandler = handler => event => {
+  event.preventDefault()
+  event.stopPropagation()
+  handler.apply()
+}
+
 const TagChip = ({onRequestDelete, onClick, label, link: url, linkFactory, icon}) =>
   <Tag
-    onClick={onClick}
-    url={url}
+    onClick={preventDefaultHandler(onClick)}
+    href={url}
     Link={linkFactory}
-    className={tagChipClassName(url || onClick)}
+    className={tagChipClassName({linkCondition: url || onClick})}
     >
     {label}
     {onRequestDelete &&
-      <span onClick={onRequestDelete} className='sui-TagChip-delete'>
+      <span onClick={preventDefaultHandler(onRequestDelete)} className='sui-TagChip-delete'>
         <IconDelete icon={icon} />
       </span>
     }

@@ -12,14 +12,16 @@ const Tag = ({Link, url, children, className}) => url
   ? <Link href={url} className={className}>{children}</Link>
   : <span className={className}>{children}</span>
 
+const tagChipClassName = linkCondition => cx('sui-TagChip', {
+  'sui-TagChip-link': linkCondition
+})
+
 const TagChip = ({onRequestDelete, onClick, label, link: url, linkFactory, icon}) =>
   <Tag
     onClick={onClick}
     url={url}
     Link={linkFactory}
-    className={cx('sui-TagChip', {
-      'sui-TagChip-link': url || onClick
-    })}
+    className={tagChipClassName(url || onClick)}
     >
     {label}
     {onRequestDelete &&

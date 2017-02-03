@@ -5,6 +5,7 @@ return (
     <TagChip label='deletable tag' onRequestDelete={()=>alert('delete!')} />
     <TagChip label='clickable tag' onClick={()=>alert('click!')} />
     <TagChip label='deletable link tag' link='http://www.coches.net' onRequestDelete={()=>alert('delete!')} />
+    <TagChip label='deletable clickable tag' onClick={()=>alert('click')} onRequestDelete={()=>alert('delete!')} />
     <TagChip label='deletable link clickable tag' onClick={()=>alert('click')} link='http://www.coches.net' onRequestDelete={()=>alert('delete!')} />
   </div>
 )

@@ -1,0 +1,9 @@
+return (
+ <div>
+  	<TagChip label='link tag' link='http://www.coches.net'/>
+	<TagChip label='only label' />
+    <TagChip label='deletable tag' onRequestDelete={()=>alert('delete!')} />
+    <TagChip label='clickable tag' onClick={()=>alert('click!')} />
+    <TagChip label='deletable link tag' link='http://www.coches.net' onRequestDelete={()=>alert('delete!')} />
+  </div>
+)

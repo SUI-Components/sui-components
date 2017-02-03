@@ -14,16 +14,16 @@ const tagChipClassName = ({linkCondition}) => cx('sui-TagChip', {
   'sui-TagChip-link': linkCondition
 })
 
-const preventDefaultHandler = handler => event => {
-  event.preventDefault()
-  event.stopPropagation()
+const preventDefaultHandler = handler => event =>
+  handler &&
+  event.preventDefault() ||
+  event.stopPropagation() ||
   handler.apply()
-}
 
 const TagChip = ({onRequestDelete, onClick, label, link: url, linkFactory, icon}) =>
   <Tag
     onClick={preventDefaultHandler(onClick)}
-    href={url}
+    url={url}
     Link={linkFactory}
     className={tagChipClassName({linkCondition: url || onClick})}
     >

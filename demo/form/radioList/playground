@@ -1,24 +1,37 @@
-const items = [
+const options = [
   {
-    id: 'p2',
+    value: 'value2',
     label: '2'
   },
   {
-    id: 'p3',
+    value: 'value3',
     label: '3'
   },
   {
-    id: 'p4',
+    value: 'value4',
     label: '4'
   },
   {
-    id: 'p5',
+    value: 'value5',
     label: '5'
   },
   {
-    id: 'p6',
+    value: 'value6',
     label: '6'
   }
 ]
 
-return (<FormRadioList name='doors' items={items}/>)
+class MyFormRadioList extends React.Component {
+  constructor(...args) {
+    super(...args)
+    this.state = {
+      selectedValue : this.props.selectedValue
+    }
+  }
+  render(){
+    return (
+      <FormRadioList name='doors' handleChange={({target}) => { this.setState({selectedValue: target.value })}} selectedValue={this.state.selectedValue} options={options}/>
+    )
+  }
+}
+return (<MyFormRadioList selectedValue='value2'/>)

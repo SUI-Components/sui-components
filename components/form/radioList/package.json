@@ -1,6 +1,6 @@
 
 {
-  "name": "@schibstedspain/form-radioList",
+  "name": "@schibstedspain/sui-form-radioList",
   "version": "1.0.0",
   "description": "Form radio list",
   "main": "lib/index.js",

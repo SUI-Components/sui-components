@@ -1,38 +1,64 @@
 import React, {PropTypes} from 'react'
-
-export default function FormRadioList ({name, items}) {
+import cx from 'classnames'
+export default function FormRadioList ({
+  name,
+  className,
+  options,
+  handleChange,
+  selectedValue
+}) {
+  function _renderOptions () {
+    return options.map(({ value, label }, index) => {
+      const checked = selectedValue === value
+      const labelClassName = cx(
+        `sui-FormRadioList-label`,
+        `${className}--item`,
+        `${className}--${value}`,
+        { 'is-active': checked }
+      )
+      return (
+        <label key={index} className={labelClassName}>
+          <input
+            type='radio'
+            value={value}
+            checked={checked}
+            name={name}
+            onChange={handleChange}
+            className='sui-FormRadioList-input'
+          />
+          {label}
+        </label>
+      )
+    })
+  }
+  const componentClassName = cx(
+    className,
+    `sui-FormRadioList`
+  )
   return (
-    <ul className='sui-FormRadioList'>
-      {items.map(({id, label}, index) =>
-        <li className='sui-FormRadioList-listItem' index={index}>
-          <input type='radio' name={name} id={id} className='sui-FormRadioList-input' />
-          <label htmlFor={id} className='sui-FormRadioList-label'>
-            {label}
-          </label>
-        </li>
-      )}
-    </ul>
+    <div className={componentClassName}>
+      {_renderOptions()}
+    </div>
   )
 }
 
 FormRadioList.displayName = 'FormRadioList'
 
 FormRadioList.propTypes = {
-  /**
-   * Comments custom icon (React component).
-   */
   name: PropTypes.string.isRequired,
-  /**
-   * List of radio buttons
-   */
-  items: PropTypes.arrayOf(PropTypes.shape({
-    /**
-     * Radio button id
-     */
-    id: PropTypes.string.isRequired,
-    /**
-    * label text
-    */
-    label: PropTypes.string.isRequired
-  })).isRequired
+  className: PropTypes.string,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.oneOfType([
+        PropTypes.number.isRequired,
+        PropTypes.string.isRequired
+      ]),
+      label: PropTypes.string.isRequired
+    }
+  )),
+  handleChange: PropTypes.func.isRequired,
+  selectedValue: PropTypes.oneOfType([
+    PropTypes.number.isRequired,
+    PropTypes.string.isRequired
+  ])
 }

@@ -9,12 +9,13 @@
     "sass": "../../../node_modules/.bin/cpx \"./src/**/*.scss\" ./lib",
     "preversion": "echo \"preversion\"",
     "version": "npm run build",
-    "postversion": "git add ${PWD} && git commit -m \"release(list/tagcloud): v$(node -p -e \"require('./package.json').version\")\" && git push origin master"
+    "postversion": "git add ${PWD} && git commit -m \"release(list/tagcloud): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish --access=public"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@schibstedspain/sui-tag-chip": "1",
     "@schibstedspain/suistudio-fatigue-deps": "github:SUI-Components/suistudio-fatigue-deps"
   },
   "babel": {

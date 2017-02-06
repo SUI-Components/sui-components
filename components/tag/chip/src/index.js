@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import CircleX from '@schibstedspain/sui-svgiconset/lib/CircleX'
+import CircleX from '@schibstedspain/sui-svgiconset/lib/Circlex'
 import cx from 'classnames'
 
 const Tag = ({Link, children, url, ...rest} = {}) => url
@@ -27,7 +27,7 @@ const TagChip = ({onRequestDelete, onClick, label, link: url, linkFactory, icon:
     {label}
     {onRequestDelete &&
       <span onClick={preventDefaultHandler(onRequestDelete)} className='sui-TagChip-delete'>
-        <Icon svgClass='sui-TagChip-delete-icon' />
+        <Icon svgClass='sui-TagChip-deleteIcon' />
       </span>
     }
   </Tag>

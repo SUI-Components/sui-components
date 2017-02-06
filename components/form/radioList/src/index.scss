@@ -1,0 +1,37 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-FormRadioList {
+  @include reset-list;
+
+  &-listItem {
+    display: inline-block;
+
+    &:first-child .sui-FormRadioList-label {
+      border-bottom-left-radius: $bdrs-radio-list;
+      border-top-left-radius: $bdrs-radio-list;
+    }
+
+    &:last-child .sui-FormRadioList-label {
+      border-bottom-right-radius: $bdrs-radio-list;
+      border-right: $bd-radio-list;
+      border-top-right-radius: $bdrs-radio-list;
+    }
+  }
+
+  &-input {
+    display: none;
+
+    &[type='radio']:checked + .sui-FormRadioList-label {
+      background-color: $bgc-radio-list-checked;
+      color: $c-radio-list-checked;
+    }
+  }
+
+  &-label {
+    background-color: $bgc-radio-list;
+    border: $bd-radio-list;
+    border-right: 0;
+    display: inline-block;
+    padding: $p-radio-list;
+  }
+}

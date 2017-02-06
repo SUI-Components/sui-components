@@ -1,0 +1,24 @@
+const items = [
+  {
+    id: 'p2',
+    label: '2'
+  },
+  {
+    id: 'p3',
+    label: '3'
+  },
+  {
+    id: 'p4',
+    label: '4'
+  },
+  {
+    id: 'p5',
+    label: '5'
+  },
+  {
+    id: 'p6',
+    label: '6'
+  }
+]
+
+return (<FormRadioList name='doors' items={items}/>)

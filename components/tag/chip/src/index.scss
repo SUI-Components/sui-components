@@ -1,0 +1,13 @@
+
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-TagChip {
+  @include sui-tag;
+  &-link {
+    @include sui-tag-link;
+  }
+  
+  &-deleteIcon {
+    @include sui-tag-icon;
+  }  
+}

@@ -1,6 +1,6 @@
 
 {
-  "name": "@schibstedspain/tag-chip",
+  "name": "@schibstedspain/sui-tag-chip",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

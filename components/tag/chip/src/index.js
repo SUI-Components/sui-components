@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import CircleX from '@schibstedspain/sui-svgiconset/lib/CircleX'
+import CircleX from '@schibstedspain/sui-svgiconset/lib/Circlex'
 import cx from 'classnames'
 
 const Tag = ({Link, children, url, ...rest} = {}) => url

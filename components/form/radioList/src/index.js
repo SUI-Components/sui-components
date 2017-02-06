@@ -3,6 +3,7 @@ import cx from 'classnames'
 export default function FormRadioList ({
   name,
   className,
+  classNameItem,
   options,
   handleChange,
   selectedValue
@@ -10,12 +11,10 @@ export default function FormRadioList ({
   function _renderOptions () {
     return options.map(({ value, label }, index) => {
       const checked = selectedValue === value
-      const labelClassName = cx(
-        `sui-FormRadioList-label`,
-        `${className}--item`,
-        `${className}--${value}`,
-        { 'is-active': checked }
-      )
+      const labelClassName = cx(`sui-FormRadioList-label`, {
+        'is-active': checked,
+        [classNameItem]: !!classNameItem
+      })
       return (
         <label key={index} className={labelClassName}>
           <input
@@ -32,8 +31,8 @@ export default function FormRadioList ({
     })
   }
   const componentClassName = cx(
-    className,
-    `sui-FormRadioList`
+    `sui-FormRadioList`,
+    {[className]: !!className}
   )
   return (
     <div className={componentClassName}>
@@ -47,6 +46,7 @@ FormRadioList.displayName = 'FormRadioList'
 FormRadioList.propTypes = {
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
+  classNameItem: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.oneOfType([

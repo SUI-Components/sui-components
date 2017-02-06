@@ -8,14 +8,14 @@
     @include reset-link;
     cursor: pointer;    
   }
-  &-delete-icon {
+  &-deleteIcon {
     @include reset-button;
     height: 15px;
     margin-bottom: -3px;
     margin-right: -10px;
     fill: $c-gray-light !important;
   }
-  &-delete-icon:hover {
+  &-deleteIcon:hover {
     fill: $c-accent !important;
   }
 }

@@ -3,19 +3,11 @@
 
 .sui-TagChip {
   @include sui-tag;
-
   &-link {
-    @include reset-link;
-    cursor: pointer;    
+    @include sui-tag-link;
   }
+  
   &-deleteIcon {
-    @include reset-button;
-    height: 15px;
-    margin-bottom: -3px;
-    margin-right: -10px;
-    fill: $c-gray-light !important;
-  }
-  &-deleteIcon:hover {
-    fill: $c-accent !important;
-  }
+    @include sui-tag-icon;
+  }  
 }

@@ -1,0 +1,35 @@
+
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-AlertBasic {
+  // Alert basic default props
+  $c-alert-basic-default: $c-primary;
+  $bd-alert-basic-default: 1px solid $c-alert-basic-default;
+
+  // Alert basic
+  $bdrs-alert-basic: $bdrs-base;
+  $bgc-alert-basic: $c-white;
+
+  align-items: center;
+  display: flex;
+
+  &--default {
+    background-color: $bgc-alert-basic;
+    border: $bd-alert-basic-default;
+    border-radius: $bdrs-alert-basic;
+    padding: $p-v-large $p-h;
+
+    .sui-AlertBasic-icon {
+      fill: $c-alert-basic-default;
+    }
+  }
+
+  &-icon {
+    margin-right: $m-h-small;
+  }
+
+  a {
+    @include reset-link;
+    color: $c-primary;
+  }
+}

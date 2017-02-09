@@ -1,40 +1,37 @@
 import React, {PropTypes} from 'react'
+import Info from '@schibstedspain/sui-svgiconset/lib/Info'
 
-export default function AlertBasic ({alert}) {
-  const {
-    type,
-    content,
-    icon: AlertIcon
-  } = alert
-  const alertType = `sui-AlertBasic sui-AlertBasic--${type}`
-
+export default function AlertBasic ({ type, children, icon: AlertIcon }) {
   return (
     <div>
-      <div className={alertType}>
+      <div className={`sui-AlertBasic sui-AlertBasic--${type}`}>
         <div>
           <AlertIcon svgClass='sui-AlertBasic-icon' />
         </div>
-        <div>{content}</div>
+        <div>{children}</div>
       </div>
     </div>
   )
 }
 
 AlertBasic.propTypes = {
-  alert: PropTypes.arrayOf(PropTypes.shape({
-    /**
-     * Alert type
-     */
-    type: PropTypes.string,
-    /**
-     * Alert content
-     */
-    content: PropTypes.string,
-    /**
-     * Alert content
-     */
-    icon: PropTypes.function
-  })).isRequired
+  /**
+   * Alert type
+   */
+  type: PropTypes.oneOf(['info']),
+  /**
+   * Alert content
+   */
+  children: PropTypes.element,
+  /**
+   * Alert icon
+   */
+  icon: PropTypes.function
+}
+
+AlertBasic.defaultProps = {
+  type: 'info',
+  icon: Info
 }
 
 AlertBasic.displayName = 'AlertBasic'

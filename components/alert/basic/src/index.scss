@@ -2,25 +2,26 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-AlertBasic {
-  // Alert basic default props
-  $c-alert-basic-default: $c-primary;
-  $bd-alert-basic-default: 1px solid $c-alert-basic-default;
 
-  // Alert basic
+
   $bdrs-alert-basic: $bdrs-base;
-  $bgc-alert-basic: $c-white;
+
+  $c-alert-basic-info: $c-primary;
+  $c-alert-basic-info-link: $c-alert-basic-info;
+  $bd-alert-basic-info: 1px solid $c-alert-basic-info;
+  $bgc-alert-basic-info: $c-white;
 
   align-items: center;
   display: flex;
 
-  &--default {
-    background-color: $bgc-alert-basic;
-    border: $bd-alert-basic-default;
+  &--info {
+    background-color: $bgc-alert-basic-info;
+    border: $bd-alert-basic-info;
     border-radius: $bdrs-alert-basic;
     padding: $p-v-large $p-h;
 
     .sui-AlertBasic-icon {
-      fill: $c-alert-basic-default;
+      fill: $c-alert-basic-info !important;
     }
   }
 
@@ -30,6 +31,6 @@
 
   a {
     @include reset-link;
-    color: $c-primary;
+    color: $c-alert-basic-info-link;
   }
 }

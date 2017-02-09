@@ -1,16 +1,7 @@
-
+/* sass-lint:disable no-important */
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-AlertBasic {
-
-
-  $bdrs-alert-basic: $bdrs-base;
-
-  $c-alert-basic-info: $c-primary;
-  $c-alert-basic-info-link: $c-alert-basic-info;
-  $bd-alert-basic-info: 1px solid $c-alert-basic-info;
-  $bgc-alert-basic-info: $c-white;
-
   align-items: center;
   display: flex;
 

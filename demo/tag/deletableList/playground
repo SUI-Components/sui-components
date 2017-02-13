@@ -21,4 +21,28 @@ const tags = [
   }
 ]
 
-return (<TagDeletableList tags={tags} onChange = {tags => alert(JSON.stringify(tags))}/>)
+class MyTagDeletableList extends React.Component {
+  constructor (...args) {
+    super(...args)
+    this.state = {
+      myTags: this.props.tags
+    }
+  }
+
+  _handleDelete(index) {
+    const myTags = [
+        ...this.state.myTags.slice(0, index),
+        ...this.state.myTags.slice(index + 1)
+      ]
+    this.setState({myTags}) 
+    alert(JSON.stringify(myTags))
+  }
+
+  render () {
+    const { state: { myTags }, _handleDelete } = this
+    return (
+      <TagDeletableList tags={myTags} onDelete={_handleDelete.bind(this)} />
+    )
+  }
+}
+return (<MyTagDeletableList tags={tags} />)

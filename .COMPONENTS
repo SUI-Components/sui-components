@@ -7,5 +7,7 @@ topbar/user
 ad/l
 breadcrumb/basic
 tag/chip
+tag/deletableList
 form/radioList
 form/checkboxImage
+alert/basic

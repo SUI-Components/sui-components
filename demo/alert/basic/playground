@@ -1,10 +1,50 @@
-const ArrowRight = ({ svgClass }) => <svg className={svgClass} viewBox="0 0 24 24" width='24' height='24'><path fill="none" d="M0,0h24v24H0V0z"/><path d="M16.6,12l-8.2,8.2c-0.2,0.2-0.6,0.2-0.8,0c-0.2-0.2-0.2-0.6,0-0.8L15,12L7.6,4.6C7.4,4.4,7.4,4,7.6,3.8	c0.2-0.2,0.6-0.2,0.8,0L16.6,12z"/></svg>
+const IconArrowRight = ({ svgClass }) => <svg className={svgClass} viewBox="0 0 24 24" width='24' height='24'><path fill="none" d="M0,0h24v24H0V0z"/><path d="M16.6,12l-8.2,8.2c-0.2,0.2-0.6,0.2-0.8,0c-0.2-0.2-0.2-0.6,0-0.8L15,12L7.6,4.6C7.4,4.4,7.4,4,7.6,3.8	c0.2-0.2,0.6-0.2,0.8,0L16.6,12z"/></svg>
+
+const IconOk = ({ svgClass }) => <svg className={svgClass} viewBox="0 0 64 64" width='24' height='24'><path fill="none" d="M0,0h24v24H0V0z"/><path  d="M32,64A32,32,0,1,1,64,32,32,32,0,0,1,32,64ZM32,4A28,28,0,1,0,60,32,28,28,0,0,0,32,4ZM26,44.83,14.59,33.41a2,2,0,0,1,2.83-2.83L26,39.17,44.59,20.59a2,2,0,0,1,2.83,2.83Z"/></svg>
+
+const IconError = ({ svgClass }) => <svg className={svgClass} viewBox="0 0 64 64" width='24' height='24'><path fill="none" d="M0,0h24v24H0V0z"/><path  d="M56.62,64H7.38A6,6,0,0,1,2,55.38L26.6,4.56a6,6,0,0,1,10.8,0L62,55.38A6,6,0,0,1,56.62,64ZM32,5.18A2,2,0,0,0,30.2,6.3L5.58,57.13A2,2,0,0,0,7.38,60H56.62a2,2,0,0,0,1.8-2.87L33.8,6.3A2,2,0,0,0,32,5.18ZM32,54a4,4,0,1,1,4-4A4,4,0,0,1,32,54Zm0-12a2,2,0,0,1-2-2V18a2,2,0,0,1,4,0V40A2,2,0,0,1,32,42Z"/></svg>
 
 const Link = ({ href, className, children }) =>
   <a href={href} className={className}>{children}</a>
 
+function handleAccept() {
+  console.log('Accepted')
+}
+function handleCancel() {
+  console.log('Canceled')
+}
+
 return (
-  <AlertBasic type={'info'} icon={ArrowRight}>
-    <p>Lorem ipsum dolor sit amet, consectetur <Link href="/wherever">adipisicing elit</Link>.</p>
-  </AlertBasic>
+  <div>
+    <div style={{ margin: 20 }}>
+      <AlertBasic
+        type={'info'}
+        icon={IconArrowRight}
+        actions={[
+          {
+            handle: handleAccept,
+            text: 'Accept',
+            className: 'accept-button'
+          },
+          {
+            handle: handleCancel,
+            text: 'Cancel',
+            className: 'cancel-button'
+          }
+        ]}
+      >
+        <p>Lorem ipsum dolor sit amet, consectetur <Link href="/wherever">adipisicing elit</Link>.</p>
+      </AlertBasic>
+    </div>
+    <div style={{ margin: 20 }}>
+      <AlertBasic type={'error'} icon={IconError}>
+        <p>Lorem ipsum dolor sit amet, consectetur <Link href="/wherever">adipisicing elit</Link>.</p>
+      </AlertBasic>
+    </div>
+    <div style={{ margin: 20 }}>
+      <AlertBasic type={'success'} icon={IconOk}>
+        <p>Lorem ipsum dolor sit amet, consectetur <Link href="/wherever">adipisicing elit</Link>.</p>
+      </AlertBasic>
+    </div>
+  </div>
 )

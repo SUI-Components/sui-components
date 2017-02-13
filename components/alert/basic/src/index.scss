@@ -2,17 +2,56 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-AlertBasic {
-  align-items: center;
-  display: flex;
+  box-shadow: $bxsh-alert-basic;
+
+  &-message {
+    align-items: center;
+    display: flex;
+    padding: $p-v-large $p-h;
+  }
+
+  &-actions {
+    border-top: 1px solid $c-gray-lightest;
+    display: flex;
+    justify-content: flex-end;
+    padding: $p-v $p-h;
+  }
+
+  &-button {
+    @include sui-button('ghost', 'small');
+    margin-left: $m-h-small;
+  }
 
   &--info {
     background-color: $bgc-alert-basic-info;
     border: $bd-alert-basic-info;
+    border-left: $bdl-alert-basic-info;
     border-radius: $bdrs-alert-basic;
-    padding: $p-v-large $p-h;
 
     .sui-AlertBasic-icon {
       fill: $c-alert-basic-info !important;
+    }
+  }
+
+  &--error {
+    background-color: $bgc-alert-basic-error;
+    border: $bd-alert-basic-error;
+    border-left: $bdl-alert-basic-error;
+    border-radius: $bdrs-alert-basic;
+
+    .sui-AlertBasic-icon {
+      fill: $c-alert-basic-error !important;
+    }
+  }
+
+  &--success {
+    background-color: $bgc-alert-basic-success;
+    border: $bd-alert-basic-success;
+    border-left: $bdl-alert-basic-success;
+    border-radius: $bdrs-alert-basic;
+
+    .sui-AlertBasic-icon {
+      fill: $c-alert-basic-success !important;
     }
   }
 
@@ -22,6 +61,6 @@
 
   a {
     @include reset-link;
-    color: $c-alert-basic-info-link;
+    color: $c-alert-basic-link;
   }
 }

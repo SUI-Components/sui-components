@@ -1,0 +1,24 @@
+const tags = [
+  {
+    label: 'accusantium',
+    id: 1
+  },
+  {
+    label: 'et quibusdam',
+    id: 2
+  },
+  {
+    label: 'dolores vitae',
+    id: 3
+  },
+  {
+    label: 'reprehenderit',
+    id: 4
+  },
+  {
+    label: 'ullam hic',
+    id: 5
+  }
+]
+
+return (<TagDeletableList tags={tags} onChange = {tags => alert(JSON.stringify(tags))}/>)

@@ -1,0 +1,37 @@
+const options = [
+  {
+    value: 'value2',
+    label: '2'
+  },
+  {
+    value: 'value3',
+    label: '3'
+  },
+  {
+    value: 'value4',
+    label: '4'
+  },
+  {
+    value: 'value5',
+    label: '5'
+  },
+  {
+    value: 'value6',
+    label: '6'
+  }
+]
+
+class MyFormRadioList extends React.Component {
+  constructor(...args) {
+    super(...args)
+    this.state = {
+      selectedValue : this.props.selectedValue
+    }
+  }
+  render(){
+    return (
+      <FormRadioList name='doors' handleChange={({target}) => { this.setState({selectedValue: target.value })}} selectedValue={this.state.selectedValue} options={options}/>
+    )
+  }
+}
+return (<MyFormRadioList selectedValue='value2'/>)

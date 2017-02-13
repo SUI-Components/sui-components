@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-tag-deletableList",
+  "name": "@schibstedspain/sui-tag-deletable-list",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

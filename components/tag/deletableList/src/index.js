@@ -4,7 +4,7 @@ import TagChip from '@schibstedspain/sui-tag-chip'
 const TagDeletableList = ({tags, onDelete} = {}) =>
   <div className='sui-TagDeletableList'>
     {tags.map(({...props}, index) =>
-      <TagChip key={index} onRequestDelete={() => onDelete(index)} {...props} />
+      <TagChip key={index} onRequestDelete={onDelete(index)} {...props} />
     )}
   </div>
 

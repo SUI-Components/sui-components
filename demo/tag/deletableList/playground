@@ -30,12 +30,15 @@ class MyTagDeletableList extends React.Component {
   }
 
   _handleDelete(index) {
-    const myTags = [
-        ...this.state.myTags.slice(0, index),
-        ...this.state.myTags.slice(index + 1)
-      ]
-    this.setState({myTags}) 
-    alert(JSON.stringify(myTags))
+    const self = this
+    return function() {
+      const myTags = [
+          ...self.state.myTags.slice(0, index),
+          ...self.state.myTags.slice(index + 1)
+        ]
+      self.setState({myTags}) 
+      alert(JSON.stringify(myTags))
+    }
   }
 
   render () {
@@ -45,4 +48,5 @@ class MyTagDeletableList extends React.Component {
     )
   }
 }
+
 return (<MyTagDeletableList tags={tags} />)

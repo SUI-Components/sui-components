@@ -1,6 +1,5 @@
-
 {
-  "name": "sui-checkboxImage",
+  "name": "sui-checkbox-list",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
@@ -10,7 +9,7 @@
     "sass": "../../../node_modules/.bin/cpx \"./src/**/*.scss\" ./lib",
     "preversion": "echo \"preversion\"",
     "version": "npm run build",
-    "postversion": "git add ${PWD} && git commit -m \"release(form/checkboxImage): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish"
+    "postversion": "git add ${PWD} && git commit -m \"release(form/checkboxList): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish"
   },
   "keywords": [],
   "author": "",

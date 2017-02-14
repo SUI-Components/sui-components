@@ -2,8 +2,6 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-FormCheckboxList {
-  @include reset-list;
-
   &-label {
     cursor: pointer;
     background-color: $bgc-radio-list;

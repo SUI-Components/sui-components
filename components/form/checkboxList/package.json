@@ -1,5 +1,5 @@
 {
-  "name": "sui-checkbox-list",
+  "name": "@schibstedspain/sui-form-checkbox-list",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

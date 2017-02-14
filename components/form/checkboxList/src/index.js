@@ -6,7 +6,8 @@ const isChecked = ({selectedValues = [], value} = {}) => {
 }
 
 const labelClassName = ({classNameItem, checked}) => cx('sui-FormCheckboxList-label', {
-  'is-active': checked
+  'is-active': checked,
+  [classNameItem]: !!classNameItem
 })
 
 const FormCheckboxList = ({name, className, classNameItem, options, handleChange, selectedValues} = {}) =>

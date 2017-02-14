@@ -1,0 +1,35 @@
+/* sass-lint:disable class-name-format */
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-FormCheckboxList {
+  @include reset-list;
+
+  &-label {
+    cursor: pointer;
+    background-color: $bgc-radio-list;
+    border: $bd-radio-list;
+    border-right: 0;
+    display: inline-block;
+    padding: $p-radio-list;
+
+    &.is-active {
+      background-color: $bgc-radio-list-checked;
+      color: $c-radio-list-checked;
+    }
+
+    &:first-child {
+      border-bottom-left-radius: $bdrs-radio-list;
+      border-top-left-radius: $bdrs-radio-list;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: $bdrs-radio-list;
+      border-right: $bd-radio-list;
+      border-top-right-radius: $bdrs-radio-list;
+    }
+  }
+
+  &-input {
+    display: none;
+  }
+}

@@ -42,7 +42,7 @@ FormCheckboxList.propTypes = {
     }
   )),
   handleChange: PropTypes.func.isRequired,
-  selectedValue: PropTypes.arrayOf(
+  selectedValues: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.number.isRequired,
       PropTypes.string.isRequired

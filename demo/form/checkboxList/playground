@@ -1,0 +1,53 @@
+const options = [
+  {
+    value: 'value2',
+    label: '2'
+  },
+  {
+    value: 'value3',
+    label: '3'
+  },
+  {
+    value: 'value4',
+    label: '4'
+  },
+  {
+    value: 'value5',
+    label: '5'
+  },
+  {
+    value: 'value6',
+    label: '6'
+  }
+]
+
+class MyFormCheckboxList extends React.Component {
+  constructor(...args) {
+    super(...args)
+    this.state = {
+      selectedValues : this.props.selectedValues
+    }
+  }
+  _addSelectedValue(value) {
+    return [...this.state.selectedValues, value]
+  }
+  _removeSelectedValue(value) {
+    const position = this.state.selectedValues.indexOf(value)
+    return [
+      ...this.state.selectedValues.slice(0, position),
+      ...this.state.selectedValues.slice(position + 1),
+    ]
+  }
+  _handleChange({target: {value}}) {
+    const newSelectedValues = this.state.selectedValues.indexOf(value) === -1
+      ? this._addSelectedValue(value)
+      : this._removeSelectedValue(value)
+    return this.setState({selectedValues: newSelectedValues })
+  }
+  render() {
+    return (
+      <FormCheckboxList name='doors' handleChange={this._handleChange.bind(this)} selectedValues={this.state.selectedValues} options={options}/>
+    )
+  }
+}
+return (<MyFormCheckboxList selectedValues={['value2']}/>)

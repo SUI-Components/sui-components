@@ -9,4 +9,5 @@ breadcrumb/basic
 tag/chip
 tag/deletableList
 form/radioList
+form/checkboxList
 alert/basic

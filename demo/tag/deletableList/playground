@@ -1,0 +1,52 @@
+const tags = [
+  {
+    label: 'accusantium',
+    id: 1
+  },
+  {
+    label: 'et quibusdam',
+    id: 2
+  },
+  {
+    label: 'dolores vitae',
+    id: 3
+  },
+  {
+    label: 'reprehenderit',
+    id: 4
+  },
+  {
+    label: 'ullam hic',
+    id: 5
+  }
+]
+
+class MyTagDeletableList extends React.Component {
+  constructor (...args) {
+    super(...args)
+    this.state = {
+      myTags: this.props.tags
+    }
+  }
+
+  _handleDelete(index) {
+    const self = this
+    return function() {
+      const myTags = [
+          ...self.state.myTags.slice(0, index),
+          ...self.state.myTags.slice(index + 1)
+        ]
+      self.setState({myTags}) 
+      alert(JSON.stringify(myTags))
+    }
+  }
+
+  render () {
+    const { state: { myTags }, _handleDelete } = this
+    return (
+      <TagDeletableList tags={myTags} onDelete={_handleDelete.bind(this)} />
+    )
+  }
+}
+
+return (<MyTagDeletableList tags={tags} />)

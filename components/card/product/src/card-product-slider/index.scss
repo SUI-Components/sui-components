@@ -1,0 +1,23 @@
+/* sass-lint:disable no-important */
+@import '~swiper/dist/css/swiper';
+
+.sui-CardProductSlider {
+  &:hover &-nav {
+    display: flex;
+  }
+
+  &-nav {
+    align-items: center;
+    background: none;
+    display: none;
+    height: $size-card-product-slider-nav-icon;
+    margin-top: -($size-card-product-slider-nav-icon / 2);
+    width: $size-card-product-slider-nav-icon;
+
+    &Icon {
+      fill: $c-card-product-slider-nav-icon !important;
+      height: $size-card-product-slider-nav-icon;
+      width: $size-card-product-slider-nav-icon;
+    }
+  }
+}

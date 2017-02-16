@@ -1,0 +1,120 @@
+/* sass-lint:disable no-important, class-name-format */
+@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-tag-chip/lib/index';
+@import './card-product-slider/index';
+
+.sui-CardProduct {
+  @include reset-link;
+  @include sui-card;
+  @include media-breakpoint-down(s) {
+    flex-direction: column;
+  }
+  display: flex;
+  position: relative;
+
+  &-media {
+    @include aspect-ratio(4, 3);
+    @include media-breakpoint-up(s) {
+      flex-grow: .5;
+    }
+  }
+
+  &-content {
+    @include media-breakpoint-up(s) {
+      flex: 1;
+    }
+  }
+
+  &-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-title,
+  &-description {
+    .is-highlighted & {
+      background-color: $c-highlighted;
+    }
+  }
+
+  &-title {
+    color: $c-card-product-title !important;
+    font-size: $fz-h1;
+    margin-bottom: $m-v-xsmall;
+
+    &Wrap {
+      align-items: center;
+      display: flex;
+    }
+  }
+
+  &-tags {
+    @include media-breakpoint-down(s) {
+      align-self: flex-start;
+      margin-left: 0;
+      padding-bottom: $p-v;
+      position: absolute;
+      z-index: 1;
+    }
+    margin-left: $m-h;
+  }
+
+  &-description {
+    font-size: $fz-l;
+  }
+
+  &-attributes {
+    @include reset-list;
+    margin-top: $m-v;
+
+    &Item {
+      color: $c-gray-light;
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-right: $m-h-xsmall;
+
+        &::after {
+          content: '|';
+          margin-left: $m-h-xsmall;
+        }
+      }
+    }
+  }
+
+  &-favorite {
+    padding: $p-v-small $p-h-xsmall;
+
+    &Icon {
+      $size-icon: 24px;
+      fill: $c-gray-light !important;
+      height: $size-icon;
+      width: $size-icon;
+
+      &:hover,
+      &.is-favorited {
+        fill: $c-card-product-favorited !important;
+      }
+    }
+  }
+
+  &-date {
+    @include media-breakpoint-down(xs) {
+      display: flex;
+      justify-content: center;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+    }
+    @include media-breakpoint-up(s) {
+      margin-top: $m-v;
+    }
+  }
+
+  .sui-TagChip {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,51 @@
+/* eslint-disable no-undef, react/react-in-jsx-scope, react/jsx-no-undef */
+
+class MyCardProduct extends React.Component {
+  constructor (...args) {
+    super(...args)
+
+    this.state = { favorited: false }
+    this._handleFavorite = this._handleFavorite.bind(this)
+  }
+
+  _handleFavorite () {
+    let { favorited } = this.state
+    favorited = !favorited
+
+    console.log(favorited ? 'added favorite' : 'removed favorite')
+    this.setState({ favorited })
+  }
+
+  render () {
+    const { favorited } = this.state
+
+    return (
+      <CardProduct
+        url='http://www.coches.net/ofertas_especiales/audi/q7/madrid/nuevo-30_tdi_272cv_quattro_tiptronic_design-diesel-31292213-nuvn.aspx'
+        images={[
+          'http://a.ccdn.es/cnet/2016/01/27/31292213/92548260_g.jpg',
+          'http://a.ccdn.es/cnet/2016/01/27/31292213/92547859_g.jpg',
+          'http://a.ccdn.es/cnet/2016/01/27/31292213/92547876_g.jpg'
+        ]}
+        title='67.850 €'
+        description='AUDI Q7 3.0 TDI 272CV quattro tiptronic Design 5p.'
+        date='Hace 3 min.'
+        attributes={[
+          'Madrid',
+          'Diesel',
+          '2013',
+          '99.000 km'
+        ]}
+        highlighted
+        tags={[
+          'Financiado',
+          'Con Garantía'
+        ]}
+        favorited={favorited}
+        handleFavorite={this._handleFavorite}
+      />
+    )
+  }
+}
+
+return (<MyCardProduct />)

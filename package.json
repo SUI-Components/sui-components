@@ -7,7 +7,7 @@
     "phoenix": "rm -Rf node_modules && npm it",
     "deploy": "suistudio build && surge public/ -d sui-components.surge.sh",
     "co": "git-cz",
-    "lint:js": "node_modules/.bin/eslint --ext .js,.jsx src/",
+    "lint:js": "node_modules/.bin/eslint --ext .js,.jsx ./",
     "lint:sass": "node_modules/.bin/sass-lint src/**/*.scss -c -v",
     "test": "true",
     "lint": "npm run lint:js && npm run lint:sass"

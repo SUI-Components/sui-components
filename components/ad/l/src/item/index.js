@@ -5,18 +5,6 @@ import { loadScript } from '../libs/load-script'
 import { sandBoxDocumentWrite } from '../libs/sandbox-document.write'
 import postscribe from 'postscribe'
 
-// const sendTrackingPixel = (url) => {
-//   const img = new Image()
-//   const [head] = url.split(/&XE&/)
-//   const [params] = head.split(/\?/)
-//   const rnd = parseInt(Math.random() * 1000000, 10)
-//   const va = params
-//     .replace(/&/gi, '|')
-//     .replace(/\=/gi, '_')
-//   img.src = `http://pao.scmspain.com/RealMedia/ads/adstream.cap?1${rnd}&c=oasCK_Fotocasa&va=${va}&e=1M`
-// http://pao.scmspain.com/RealMedia/ads/adstream.cap?1345275679&c=oasCK_Coches&va=oasSite_coches|wsite_coches|oasTypeApp_desktop|oasMake_7|oasMakeStr_BMW|marca_bmw|oasSubsection_0|subseccion_0|oasSubsection2_0|subseccion2_0|oasSubsection3_0|subseccion3_0|tipomoto_0|oasWarranty_0|oasVehicle_Status_-1|oasVehicle_StatusStr_|oasKeyword_bmw|XE|oasSite_coches|wsite_coches|oasTypeApp_desktop|oasMake_7|oasMakeStr_BMW|marca_bmw|oasSubsection_0|subseccion_0|oasSubsection2_0|subseccion2_0|oasSubsection3_0|subseccion3_0|tipomoto_0|oasWarranty_0|oasVehicle_Status_-1|oasVehicle_StatusStr_|oasKeyword_bmw|tax23_RefDocLoc_http://www.coches.net/|if_nt_CookieAccept_Y|XE&e=1M
-// }
-
 export default class AdItem extends Component {
   static get SYMBOL () {
     return 'OAS_RICH'
@@ -63,7 +51,6 @@ export default class AdItem extends Component {
       symbol: AdItem.SYMBOL
     })
     .then(() => {
-      // sendTrackingPixel(url)
       postscribe(
         this.adItem,
         sandBoxDocumentWrite(window[AdItem.SYMBOL], id)

@@ -4,7 +4,7 @@
   "description": "Mono repo containing all SUI components. Multi package for every SUI component.",
   "private": true,
   "scripts": {
-    "phoenix": "rm -Rf node_modules && npm it",
+    "phoenix": "rm -Rf node_modules && npm i && suistudio clean-modules && suistudio run-all npm i",
     "deploy": "suistudio build && surge public/ -d sui-components.surge.sh",
     "co": "git-cz",
     "lint:js": "node_modules/.bin/eslint --ext .js,.jsx ./",
@@ -17,7 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@schibstedspain/suistudio-fatigue-dev": "SUI-Components/suistudio-fatigue-dev"
+    "@schibstedspain/suistudio-fatigue-dev": "SUI-Components/suistudio-fatigue-dev#6c9267d"
   },
   "peerDependencies": {
     "react": "15",

@@ -1,5 +1,10 @@
+const displayInfo = {
+  	url: '',
+  	positions:[]
+  }
 return (
-  <AdL>
-    Content
+  <AdL display={displayInfo}>
+    <p>INNER CONTENT</p>
   </AdL>
 )
+ 

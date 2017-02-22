@@ -29,7 +29,20 @@ AdL.propTypes = {
    * Inner element
    */
   children: PropTypes.element.isRequired,
-  display: PropTypes.object.isRequired
+
+  /**
+   * display info object.
+   */
+  display: PropTypes.shape({
+    /**
+     * display URL.
+     */
+    url: PropTypes.string.isRequired,
+    /**
+     * positions array.
+     */
+    positions: PropTypes.array.isRequired
+  })
 }
 
 export default AdL

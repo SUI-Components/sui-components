@@ -10,23 +10,6 @@ export default class AdItem extends Component {
     return 'OAS_RICH'
   }
 
-  static get propTypes () {
-    return {
-      id: PropTypes.string.isRequired,
-      url: PropTypes.string,
-      classNamePrefix: PropTypes.string,
-      debounce: PropTypes.bool,
-      offsetVertical: PropTypes.number
-    }
-  }
-
-  static get defaultProps () {
-    return {
-      debounce: false,
-      offsetVertical: 200
-    }
-  }
-
   constructor () {
     super()
     this.adItem = null
@@ -36,7 +19,7 @@ export default class AdItem extends Component {
     }
   }
 
-  loadAd (id, url) {
+  _loadAd (id, url) {
     const isAdAlreadyLoaded = this.adsLoaded.indexOf(id) !== -1
 
     if (isAdAlreadyLoaded) {
@@ -67,7 +50,7 @@ export default class AdItem extends Component {
       window[AdItem.SYMBOL] = null
       this.adsLoaded = []
 
-      this.loadAd(nextProps.id, nextProps.url)
+      this._loadAd(nextProps.id, nextProps.url)
     }
   }
 
@@ -81,7 +64,7 @@ export default class AdItem extends Component {
     } = this.props
 
     const onContentVisible = () => {
-      this.loadAd(id, url)
+      this._loadAd(id, url)
     }
 
     return (
@@ -92,10 +75,38 @@ export default class AdItem extends Component {
       >
         <div
           key={this.state.adUrl}
-          ref={node => this.adItem = node}
+          ref={node => (this.adItem = node)}
           className={`${classNamePrefix}-item`}
         />
       </LazyLoad>
     )
   }
+}
+
+AdItem.propTypes = {
+  /**
+   * Display position id
+   */
+  id: PropTypes.string.isRequired,
+  /**
+   * Ad platform request url
+   */
+  url: PropTypes.string.isRequired,
+  /**
+   * Optional className prefix for styling
+   */
+  classNamePrefix: PropTypes.string,
+  /**
+   * Optional lazy load debounce
+   */
+  debounce: PropTypes.bool,
+  /**
+   * Optional lazy load vertical offset
+   */
+  offsetVertical: PropTypes.number
+}
+
+AdItem.defaultProps = {
+  debounce: false,
+  offsetVertical: 200
 }

@@ -11,7 +11,7 @@
       border-right: 0;
       border-top: 0;
 
-      &:before {
+      &::before {
         border-top: $w-toolip-basic-arrow solid $bdr-tooltip-basic;
       }
     }
@@ -21,7 +21,7 @@
       border-left: 0;
       border-right: 0;
 
-      &:before {
+      &::before {
         border-bottom: $w-toolip-basic-arrow solid $bdr-tooltip-basic;
       }
     }
@@ -31,7 +31,7 @@
       border-left: 0;
       border-top: 0;
 
-      &:before {
+      &::before {
         border-left: $w-toolip-basic-arrow solid $bdr-tooltip-basic;
       }
     }
@@ -41,7 +41,7 @@
       border-right: 0;
       border-top: 0;
 
-      &:before {
+      &::before {
         border-right: $w-toolip-basic-arrow solid $bdr-tooltip-basic;
       }
     }
@@ -63,8 +63,8 @@
     visibility: hidden;
     z-index: 999;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       content: '';
       height: 0;
       position: absolute;
@@ -109,7 +109,7 @@
     &.place-top {
       margin-top: -$w-toolip-basic-arrow;
 
-      &:before {
+      &::before {
         border-left: $w-toolip-basic-arrow solid transparent;
         border-right: $w-toolip-basic-arrow solid transparent;
         bottom: -$w-toolip-basic-arrow;
@@ -121,7 +121,7 @@
     &.place-bottom {
       margin-top: $w-toolip-basic-arrow;
 
-      &:before {
+      &::before {
         border-left: $w-toolip-basic-arrow solid transparent;
         border-right: $w-toolip-basic-arrow solid transparent;
         left: 50%;
@@ -133,7 +133,7 @@
     &.place-left {
       margin-left: -$w-toolip-basic-arrow;
 
-      &:before {
+      &::before {
         border-bottom: $w-toolip-basic-arrow solid transparent;
         border-top: $w-toolip-basic-arrow solid transparent;
         margin-top: -$w-toolip-basic-arrow;
@@ -145,7 +145,7 @@
     &.place-right {
       margin-left: $w-toolip-basic-arrow;
 
-      &:before {
+      &::before {
         border-bottom: $w-toolip-basic-arrow solid transparent;
         border-top: $w-toolip-basic-arrow  solid transparent;
         left: -$w-toolip-basic-arrow;

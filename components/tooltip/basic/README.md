@@ -1,4 +1,3 @@
-
 ### TooltipBasic
 This component has installed as a dependency [react tooltip](https://github.com/wwayne/react-tooltip), so check its documentation to view the complete API.
 

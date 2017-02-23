@@ -1,0 +1,20 @@
+const html = '<p>Lorem ipsum dolor sit amet, consectetur <strong>adipisicing</strong> elit, sed do eiusmod tempor incididunt</p>'
+
+return (
+  <div style={{'text-align': 'center'}}>
+    <img style={{'margin': '10px'}} data-tip='hello world' data-place='right' src='https://placeholdit.imgix.net/~text?txtsize=20&txt=position%20right&w=210&h=110' />
+    <img style={{'margin': '10px'}} data-tip='hello world' data-place='left' src='https://placeholdit.imgix.net/~text?txtsize=20&txt=position%20left&w=210&h=110' />
+    <img style={{'margin': '10px'}} data-tip='hello world' data-place='top' src='https://placeholdit.imgix.net/~text?txtsize=20&txt=position%20top&w=210&h=110' />
+    <img style={{'margin': '10px'}} data-tip='hello world' data-place='bottom' src='https://placeholdit.imgix.net/~text?txtsize=20&txt=position%20bottom&w=210&h=110' /><br />
+    <img style={{'margin': '10px'}} data-tip='hello world' data-type='dark' src='https://placeholdit.imgix.net/~text?txtsize=20&txt=dark&w=210&h=110' />
+    <img style={{'margin': '10px'}} data-tip='hello world' data-type='success' src='https://placeholdit.imgix.net/~text?txtsize=20&txt=success&w=210&h=110' />
+    <img style={{'margin': '10px'}} data-tip='hello world' data-type='error' src='https://placeholdit.imgix.net/~text?txtsize=20&txt=error&w=210&h=110' />
+    <img style={{'margin': '10px'}} data-tip='hello world' data-type='info' src='https://placeholdit.imgix.net/~text?txtsize=20&txt=info&w=210&h=110' /><br />
+    <img style={{'margin': '10px'}} data-tip='Lorem ipsum dolor sit amet, <br /> consectetur adipisicing elit, <br />sed do eiusmod tempor incididunt' data-multiline={true} src='https://placeholdit.imgix.net/~text?txtsize=20&txt=multiline&w=210&h=110' />
+    <img style={{'margin': '10px'}} data-html={true} data-type='error'  data-tip={html} src='https://placeholdit.imgix.net/~text?txtsize=20&txt=HTML&w=210&h=110' />
+    <TooltipBasic className='custom-classname'/>
+
+    <img style={{'margin': '10px'}} data-for='multiline-tooltip' data-tip='data-for correspond to the id of <TooltipBasic />' data-type='success' src='https://placeholdit.imgix.net/~text?txtsize=20&txt=custom%20classname&w=210&h=110' />
+    <TooltipBasic className='another-custom-classname' id='multiline-tooltip'/>
+  </div>
+)

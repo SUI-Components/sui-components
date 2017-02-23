@@ -11,4 +11,5 @@ form/radioList
 list/tagcloud
 tag/chip
 tag/deletableList
+tooltip/basic
 topbar/user

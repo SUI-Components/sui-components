@@ -38,15 +38,15 @@ AdL.propTypes = {
    */
   positionIds: PropTypes.shape({
     /**
-     * top position id
+     * optional top position id
      */
     top: PropTypes.string,
     /**
-     * aside1 position id
+     * optional aside1 position id
      */
     aside1: PropTypes.string,
     /**
-     * aside2 position id
+     * optional aside2 position id
      */
     aside2: PropTypes.string
   })

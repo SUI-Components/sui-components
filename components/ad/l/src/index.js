@@ -40,15 +40,24 @@ AdL.propTypes = {
     /**
      * optional top position id
      */
-    top: PropTypes.string,
+    top: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.bool
+    ]),
     /**
      * optional aside1 position id
      */
-    aside1: PropTypes.string,
+    aside1: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.bool
+    ]),
     /**
      * optional aside2 position id
      */
-    aside2: PropTypes.string
+    aside2: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.bool
+    ])
   })
 }
 

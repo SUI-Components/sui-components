@@ -3,7 +3,6 @@ import React, { Component, PropTypes } from 'react'
 import LazyLoad from 'react-lazy-load'
 import { loadScript } from '../libs/load-script'
 import { sandBoxDocumentWrite } from '../libs/sandbox-document.write'
-import postscribe from 'postscribe'
 
 export default class AdItem extends Component {
   static get SYMBOL () {
@@ -21,6 +20,7 @@ export default class AdItem extends Component {
 
   _loadAd (id, url) {
     const isAdAlreadyLoaded = this.adsLoaded.indexOf(id) !== -1
+    const postscribe = require('postscribe')
 
     if (isAdAlreadyLoaded) {
       return

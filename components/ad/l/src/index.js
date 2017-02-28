@@ -1,16 +1,24 @@
 
 import React, { PropTypes } from 'react'
+import AdItem from './item'
 
-const AdL = ({children}) =>
+const AdL = ({children, url, positionIds: {top, aside1, aside2}}) =>
   <div className='sui-AdL'>
     <div className='sui-AdL-top'>
-      <img src='https://placeholdit.imgix.net/~text?txtsize=33&txt=980%C3%9790&w=980&h=90' />
+      {top &&
+        <AdItem id={top} url={url} />
+      }
     </div>
     <div className='sui-AdL-inner'>
       {children}
     </div>
     <div className='sui-AdL-fixed'>
-      <img src='https://placeholdit.imgix.net/~text?txtsize=33&txt=300%C3%97600&w=300&h=600' />
+      {aside1 &&
+        <AdItem id={aside1} url={url} />
+      }
+      {aside2 &&
+        <AdItem id={aside2} url={url} />
+      }
     </div>
   </div>
 
@@ -20,7 +28,37 @@ AdL.propTypes = {
   /**
    * Inner element
    */
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
+  /**
+   * display URL.
+   */
+  url: PropTypes.string.isRequired,
+  /**
+   * display position ids
+   */
+  positionIds: PropTypes.shape({
+    /**
+     * optional top position id
+     */
+    top: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.bool
+    ]),
+    /**
+     * optional aside1 position id
+     */
+    aside1: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.bool
+    ]),
+    /**
+     * optional aside2 position id
+     */
+    aside2: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.bool
+    ])
+  })
 }
 
 export default AdL

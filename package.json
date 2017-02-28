@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "phoenix": "rm -Rf node_modules && npm i && suistudio clean-modules && suistudio run-all npm i",
-    "deploy": "suistudio build && surge public/ -d sui-components.surge.sh",
+    "deploy": "suistudio build && cp public/index.html public/200.html && surge public/ -d sui-components.surge.sh",
     "co": "git-cz",
     "lint:js": "node_modules/.bin/eslint --ext .js,.jsx ./",
     "lint:sass": "node_modules/.bin/sass-lint src/**/*.scss -c -v",

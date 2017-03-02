@@ -1,32 +1,40 @@
 /* eslint-disable react/prop-types */
 import React, { PropTypes } from 'react'
 import cx from 'classnames'
+import CardBasicLazyLoad from './card-basic-lazy-load'
+
+const renderCardBasicMedia = ({ src, alt }) => (
+  <div className='sui-CardBasic-media'>
+    <img src={src} alt={alt} />
+  </div>
+)
 
 /**
  * Basic card containing a media object, an optional title and a description
  * text.
  */
-export default function CardBasic (props) {
-  const {
-    link,
-    media,
-    title,
-    description,
-    size
-  } = props
-  const Link = props.linkFactory
-  const { src, alt } = media
+export default function CardBasic ({
+  link,
+  linkFactory: Link,
+  media,
+  title,
+  description,
+  size,
+  lazyLoad
+}) {
   const cardBasicClassName = cx(
     'sui-CardBasic',
     { [`sui-CardBasic--${size}`]: typeof size !== 'undefined' }
   )
+  const cardBasicMedia = renderCardBasicMedia(media)
 
   return (
     <div className={cardBasicClassName}>
       <Link href={link} className='sui-CardBasic-link'>
-        <div className='sui-CardBasic-media'>
-          <img src={src} alt={alt} />
-        </div>
+        {lazyLoad
+          ? <CardBasicLazyLoad {...lazyLoad}>{cardBasicMedia}</CardBasicLazyLoad>
+          : cardBasicMedia
+        }
         <div className='sui-CardBasic-content'>
           {title &&
             <header className='sui-CardBasic-title'>{title}</header>
@@ -71,12 +79,20 @@ CardBasic.propTypes = {
   /**
    * Card size.
    */
-  size: PropTypes.oneOf(['small'])
+  size: PropTypes.oneOf(['small']),
+  /**
+   * Lazy load flag / config.
+   */
+  lazyLoad: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object
+  ])
 }
 
 CardBasic.defaultProps = {
   linkFactory: ({ href, className, children }) =>
-    <a href={href} className={className}>{children}</a>
+    <a href={href} className={className}>{children}</a>,
+  lazyLoad: false
 }
 
 CardBasic.displayName = 'CardBasic'

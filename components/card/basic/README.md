@@ -28,6 +28,7 @@ class MyComponent extends Component {
           size='small'
           title='My small basic card'
           description='Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+          lazyLoad={{ debounce: true, offsetVertical: 300 }}
         />
       <div>
     )

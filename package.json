@@ -7,9 +7,9 @@
     "phoenix": "rm -Rf node_modules && npm i && suistudio clean-modules && suistudio run-all npm i",
     "deploy": "suistudio build && cp public/index.html public/200.html && surge public/ -d sui-components.surge.sh",
     "co": "git-cz",
-    "lint:js": "node_modules/.bin/eslint --ext .js,.jsx ./",
-    "lint:sass": "node_modules/.bin/sass-lint src/**/*.scss -c -v",
     "test": "true",
+    "lint:js": "linting-rules js",
+    "lint:sass": "linting-rules sass",
     "lint": "npm run lint:js && npm run lint:sass"
   },
   "repository": {},
@@ -17,7 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@schibstedspain/suistudio-fatigue-dev": "SUI-Components/suistudio-fatigue-dev#9edf485"
+    "@schibstedspain/suistudio-fatigue-dev": "SUI-Components/suistudio-fatigue-dev#9585c13"
   },
   "peerDependencies": {
     "react": "15",
@@ -27,10 +27,6 @@
   "config": {
     "suistudio": {
       "font": "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i"
-    },
-    "ghooks": {
-      "pre-commit": "echo \"Precommits...\"",
-      "commit-msg": "validate-commit-msg"
     },
     "validate-commit-msg": {
       "types": [
@@ -54,5 +50,14 @@
   "pre-commit": [
     "lint",
     "test"
-  ]
+  ],
+  "commit-msg": [
+    "validate-commit-msg"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@schibstedspain/linting-rules/eslintrc.js"
+    ]
+  },
+  "sasslintConfig": "./node_modules/@schibstedspain/linting-rules/sass-lint.yml"
 }

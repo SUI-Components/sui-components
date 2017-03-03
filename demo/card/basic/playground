@@ -1,3 +1,4 @@
+/* eslint react/react-in-jsx-scope:0, react/jsx-no-undef:0 */
 return (
   <div>
     <div style={{ width: 360, marginBottom: '30px' }}>
@@ -15,6 +16,7 @@ return (
         media={{ src: 'http://lorempicsum.com/simpsons/360/180/2' }}
         title='Basic card'
         description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore voluptatum minus nihil, eum perspiciatis?'
+        lazyLoad={{ debounce: true, offsetVertical: 300 }}
       />
     </div>
   </div>

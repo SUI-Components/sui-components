@@ -14,21 +14,27 @@ export default class AdItem extends Component {
     this.adItem = null
     this.adsLoaded = []
     this.state = {
-      adUrl: ''
+      url: ''
     }
   }
 
+  /**
+   * loadAd will load the script file from pao, the steps are the following:
+   *
+   * loadScript will create an object on window (SYMBOL)
+   * window[SYMBOL] is a function that, given a ad position it creates the add using document.write
+   *
+   * Then we send the tracking pixel
+   * Then we send the output of the window[SYMBOL] through a sandbox that will convert all the document.write calls
+   * into a string
+   * And finally we render that output ad using postscribe in the `this.adItem` DOM object
+   *
+   * @param {String} id The position of the add (Middle1, Middle2, Top, etc..)
+   * @param {String} The PAO url of the ad script
+   *
+   */
   _loadAd (id, url) {
-    const isAdAlreadyLoaded = this.adsLoaded.indexOf(id) !== -1
     const postscribe = require('postscribe')
-
-    if (isAdAlreadyLoaded) {
-      return
-    }
-
-    this.adsLoaded.push(id)
-    this.setState({adUrl: url})
-
     loadScript({
       url,
       symbol: AdItem.SYMBOL
@@ -42,15 +48,21 @@ export default class AdItem extends Component {
     .catch(console.error.bind(console))
   }
 
+  /**
+   * We reload the Ad every time the url changes
+   * The url comes with a random, so, even if we don't change the url
+   * we will reload the Ad
+   *
+   * @params {Object} nextProps
+   */
   componentWillReceiveProps (nextProps) {
-    const stateAdUrlSuffix = this.state.adUrl.split('@')[1]
-    const nextPropsUrlSuffix = nextProps.url.split('@')[1]
-
-    if (stateAdUrlSuffix !== nextPropsUrlSuffix) {
+    const {id, url: nextPropsUrl} = nextProps
+    const {url: stateUrl} = this.state
+    if (nextPropsUrl !== stateUrl) {
       window[AdItem.SYMBOL] = null
-      this.adsLoaded = []
 
-      this._loadAd(nextProps.id, nextProps.url)
+      this.setState({ nextPropsUrl })
+      this._loadAd(id, nextPropsUrl)
     }
   }
 
@@ -63,9 +75,21 @@ export default class AdItem extends Component {
       offsetVertical
     } = this.props
 
-    const onContentVisible = () => {
-      this._loadAd(id, url)
-    }
+    /**
+     * This is the magic function
+     * It will be called when the lazyload renders the inner component
+     * For reasons I don't understand, this function will be called 2 times
+     *
+     * The first time the node (this.adItem) is null so we will not be able to render the ad
+     * So we update the state of the component to force a second load
+     *
+     * The second call the node exists and then we are able to render the add
+     *
+     * It will never be called again, it's only called twice on first render
+     */
+    const onContentVisible = () => this.adItem
+      ? this._loadAd(id, url)
+      : this.setState({ url })
 
     return (
       <LazyLoad
@@ -74,7 +98,7 @@ export default class AdItem extends Component {
         onContentVisible={onContentVisible}
       >
         <div
-          key={this.state.adUrl}
+          key={this.state.url}
           ref={node => (this.adItem = node)}
           className={`${classNamePrefix}-item`}
         />

@@ -1,5 +1,123 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
-.sui-ModalBasic {
-  // Do your magic
+
+// Modal settings.
+$maw-modal: 50% !default;
+$p-modal: 30px !default;
+$m-modal: 30px !default;
+$bg-modal: rgba(0, 0, 0, .6) !default;
+$b-modal: 0 !default;
+$bxsh-modal: 0 3px 9px rgba(0, 0, 0, .6) !default;
+$screen-mobile-modal: 768px !default;
+$z-modal: 100 !default;
+$w-modal: auto !default;
+
+// Modal dialog.
+$bg-modal-dialog: #ffffff !default;
+
+// Modal header.
+$p-modal-header: 15px !default;
+$m-modal-header: $p-modal-header !default;
+$bg-modal-header: transparent !default;
+$c-modal-header: inherit !default;
+
+// Modal content.
+$p-modal-content: 15px !default;
+$b-modal-content: 1px solid #cccccc !default;
+
+// Modal footer.
+$p-modal-footer: 15px !default;
+
+.sui-ModalBasic  {
+  background-color: $bg-modal;
+  bottom: 0;
+  display: none;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  white-space: nowrap;
+  z-index: $z-modal;
+
+  &--open {
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  &--verticallyCentered {
+    align-items: center;
+  }
+
+  &-dialog {
+    background-color: $bg-modal-dialog;
+    border: $b-modal;
+    box-shadow: $bxsh-modal;
+    display: flex;
+    flex-direction: column;
+    margin: $m-modal;
+    max-height: 100%;
+    text-align: left;
+    vertical-align: middle;
+    white-space: normal;
+
+    @media screen and (max-width: $screen-mobile-modal - 1) {
+      &--full {
+        height: 100%;
+        margin: 0;
+        width: 100%;
+      }
+    }
+
+    @media screen and (min-width: $screen-mobile-modal) {
+      max-width: $maw-modal;
+      width: $w-modal;
+    }
+  }
+
+  &-header {
+    align-items: center;
+    background-color: $bg-modal-header;
+    color: $c-modal-header;
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: space-between;
+    padding: 0 ($p-modal / 2) 0 $p-modal;
+    position: relative;
+  }
+
+  &-close {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    padding: $m-modal-header ($p-modal / 2) $m-modal-header $m-modal-header;
+
+    &TextHidden {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+  }
+
+  &-content {
+    -webkit-overflow-scrolling: touch;
+    border-bottom: $b-modal-content;
+    border-top: $b-modal-content;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: $p-modal-content $p-modal;
+    position: relative;
+  }
+
+  &-footer {
+    padding: $p-modal-footer $p-modal;
+  }
 }

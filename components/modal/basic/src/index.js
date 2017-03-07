@@ -3,43 +3,11 @@ import IconX from '@schibstedspain/sui-svgiconset/lib/X'
 import cx from 'classnames'
 
 class ModalBasic extends Component {
-  static get defaultProps () {
-    return {
-      centerVertically: false,
-      closeOnOutsideClick: false,
-      disableWindowScroll: true,
-      fitWindow: false,
-      iconClose: <IconX fillColor='#000000' size='16' />,
-      open: false,
-      textClose: 'Close',
-      textCloseHidden: true,
-      onClose: () => {}
-    }
-  }
-
-  static get propTypes () {
-    return {
-      centerVertically: PropTypes.bool,
-      closeOnOutsideClick: PropTypes.bool,
-      content: PropTypes.element.isRequired,
-      disableWindowScroll: PropTypes.bool,
-      fitWindow: PropTypes.bool,
-      footer: PropTypes.element,
-      header: PropTypes.element,
-      iconClose: PropTypes.element,
-      open: PropTypes.bool,
-      textClose: PropTypes.string,
-      textCloseHidden: PropTypes.bool,
-      onClose: PropTypes.func
-    }
-  }
-
   constructor (...args) {
     super(...args)
 
     this.contentDOMEl = null
     this.wrapperDOMEl = null
-
     this.avoidOverscroll = this.avoidOverscroll.bind(this)
     this.handleCloseClick = this.handleCloseClick.bind(this)
     this.handleOutsideClick = this.handleOutsideClick.bind(this)
@@ -105,7 +73,7 @@ class ModalBasic extends Component {
   }
 
   renderHeader () {
-    const { header, iconClose, textClose, textCloseHidden } = this.props
+    const { header, IconClose, textClose, textCloseHidden } = this.props
     return (
       <div
         className='sui-ModalBasic-header'
@@ -116,7 +84,7 @@ class ModalBasic extends Component {
           className='sui-ModalBasic-close'
           onClick={this.handleCloseClick}
         >
-          {iconClose}
+          <IconClose svgClass='sui-ModalBasic-closeIcon' />
           {textCloseHidden
             ? <span className='sui-ModalBasic-closeTextHidden'>{textClose}</span>
             : textClose
@@ -130,7 +98,7 @@ class ModalBasic extends Component {
     const { header, content, footer } = this.props
 
     const wrapperClassName = cx('sui-ModalBasic', {
-      'sui-ModalBasic--open': this.state.open,
+      'is-open': this.state.open,
       'sui-ModalBasic--verticallyCentered': this.props.centerVertically
     })
 
@@ -162,6 +130,33 @@ class ModalBasic extends Component {
       </div>
     )
   }
+}
+
+ModalBasic.propTypes = {
+  centerVertically: PropTypes.bool,
+  closeOnOutsideClick: PropTypes.bool,
+  content: PropTypes.element.isRequired,
+  disableWindowScroll: PropTypes.bool,
+  fitWindow: PropTypes.bool,
+  footer: PropTypes.element,
+  header: PropTypes.element,
+  IconClose: PropTypes.element,
+  open: PropTypes.bool,
+  textClose: PropTypes.string,
+  textCloseHidden: PropTypes.bool,
+  onClose: PropTypes.func
+}
+
+ModalBasic.defaultProps = {
+  centerVertically: false,
+  closeOnOutsideClick: false,
+  disableWindowScroll: true,
+  fitWindow: false,
+  IconClose: IconX,
+  open: false,
+  textClose: 'Close',
+  textCloseHidden: true,
+  onClose: () => {}
 }
 
 ModalBasic.displayName = 'ModalBasic'

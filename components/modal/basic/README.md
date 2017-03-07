@@ -1,7 +1,7 @@
 # SUI ModalBasic
 
 ## Description
-The SUI ModalBasic component renders a smart dialog prompt over your site's content. It supplies some interface methods to meet the minimum required functionality.
+The `sui-modal-basic` component renders a smart dialog prompt over your site's content. It supplies some interface methods to meet the minimum required functionality.
 
 ## Usage
 Render component passing the following params:
@@ -17,7 +17,7 @@ Render component passing the following params:
 * `content`: Required param to pass the content elements within a required wrapper (DOM element).
 * `footer`: Optional param to pass the footer elements within a required wrapper (DOM element).
 
-An example of the `sui-modal` component implementation is:
+An example of the `sui-modal-basic` component implementation is:
 
 ```javascript
 // JSX file.

@@ -3,63 +3,25 @@ import IconX from '@schibstedspain/sui-svgiconset/lib/X'
 import cx from 'classnames'
 
 class ModalBasic extends Component {
-  static get defaultProps () {
-    return {
-      centerVertically: false,
-      closeOnOutsideClick: false,
-      disableWindowScroll: true,
-      fitWindow: false,
-      iconClose: <IconX fillColor='#000000' size='16' />,
-      open: false,
-      textClose: 'Close',
-      textCloseHidden: true,
-      onClose: () => {}
-    }
-  }
-
-  static get propTypes () {
-    return {
-      centerVertically: PropTypes.bool,
-      closeOnOutsideClick: PropTypes.bool,
-      content: PropTypes.element.isRequired,
-      disableWindowScroll: PropTypes.bool,
-      fitWindow: PropTypes.bool,
-      footer: PropTypes.element,
-      header: PropTypes.element,
-      iconClose: PropTypes.element,
-      open: PropTypes.bool,
-      textClose: PropTypes.string,
-      textCloseHidden: PropTypes.bool,
-      onClose: PropTypes.func
-    }
-  }
-
   constructor (...args) {
     super(...args)
 
     this.contentDOMEl = null
     this.wrapperDOMEl = null
-
-    this.avoidOverscroll = this.avoidOverscroll.bind(this)
-    this.handleCloseClick = this.handleCloseClick.bind(this)
-    this.handleOutsideClick = this.handleOutsideClick.bind(this)
-    this.preventDefaultEvent = this.preventDefaultEvent.bind(this)
-    this.preventScrollIfNeeded = this.preventScrollIfNeeded.bind(this)
-
     this.state = {
       open: this.props.open
     }
   }
 
-  preventDefaultEvent (e) {
+  _preventDefaultEvent (e) {
     e.preventDefault()
   }
 
-  preventScrollIfNeeded (e) {
+  _preventScrollIfNeeded = (e) => {
     if (this.noScroll) e.preventDefault()
   }
 
-  avoidOverscroll (e) {
+  _avoidOverscroll = () => {
     const {clientHeight, offsetHeight, scrollTop, scrollHeight} = this.contentDOMEl
     const currentScroll = scrollTop + offsetHeight
     // check if the content has to scroll in order to prevent the default
@@ -76,7 +38,7 @@ class ModalBasic extends Component {
 
   componentWillReceiveProps ({open, disableWindowScroll}) {
     if (open && disableWindowScroll) {
-      this.toggleWindowScroll(true)
+      this._toggleWindowScroll(true)
     }
 
     if (open !== this.state.open) {
@@ -84,39 +46,39 @@ class ModalBasic extends Component {
     }
   }
 
-  closeModal () {
-    this.toggleWindowScroll(false)
+  _closeModal () {
+    this._toggleWindowScroll(false)
     this.setState({ open: false })
     this.props.onClose()
   }
 
-  toggleWindowScroll (disableScroll) {
+  _toggleWindowScroll (disableScroll) {
     window.document.body.style.overflowY = disableScroll ? 'hidden' : ''
   }
 
-  handleCloseClick () {
-    this.closeModal()
+  _handleCloseClick = () => {
+    this._closeModal()
   }
 
-  handleOutsideClick (event) {
+  _handleOutsideClick = (event) => {
     if (this.props.closeOnOutsideClick && event.target === this.wrapperDOMEl) {
-      this.closeModal()
+      this._closeModal()
     }
   }
 
-  renderHeader () {
-    const { header, iconClose, textClose, textCloseHidden } = this.props
+  _renderHeader () {
+    const { header, IconClose, textClose, textCloseHidden } = this.props
     return (
       <div
         className='sui-ModalBasic-header'
-        onTouchMove={this.preventDefaultEvent}>
+        onTouchMove={this._preventDefaultEvent}>
         {header}
         <button
           type='button'
           className='sui-ModalBasic-close'
-          onClick={this.handleCloseClick}
+          onClick={this._handleCloseClick}
         >
-          {iconClose}
+          <IconClose svgClass='sui-ModalBasic-closeIcon' />
           {textCloseHidden
             ? <span className='sui-ModalBasic-closeTextHidden'>{textClose}</span>
             : textClose
@@ -130,7 +92,7 @@ class ModalBasic extends Component {
     const { header, content, footer } = this.props
 
     const wrapperClassName = cx('sui-ModalBasic', {
-      'sui-ModalBasic--open': this.state.open,
+      'is-open': this.state.open,
       'sui-ModalBasic--verticallyCentered': this.props.centerVertically
     })
 
@@ -142,14 +104,14 @@ class ModalBasic extends Component {
       <div
         className={wrapperClassName}
         ref={node => { this.wrapperDOMEl = node }}
-        onClick={this.handleOutsideClick}
+        onClick={this._handleOutsideClick}
       >
         <div className={dialogClassName}>
-          {header && this.renderHeader() }
+          {header && this._renderHeader() }
           <div
             className='sui-ModalBasic-content'
-            onTouchStart={this.avoidOverscroll}
-            onTouchMove={this.preventScrollIfNeeded}
+            onTouchStart={this._avoidOverscroll}
+            onTouchMove={this._preventScrollIfNeeded}
             ref={node => { this.contentDOMEl = node }}>
             {content}
           </div>
@@ -162,6 +124,33 @@ class ModalBasic extends Component {
       </div>
     )
   }
+}
+
+ModalBasic.propTypes = {
+  centerVertically: PropTypes.bool,
+  closeOnOutsideClick: PropTypes.bool,
+  content: PropTypes.element.isRequired,
+  disableWindowScroll: PropTypes.bool,
+  fitWindow: PropTypes.bool,
+  footer: PropTypes.element,
+  header: PropTypes.element,
+  IconClose: PropTypes.element,
+  open: PropTypes.bool,
+  textClose: PropTypes.string,
+  textCloseHidden: PropTypes.bool,
+  onClose: PropTypes.func
+}
+
+ModalBasic.defaultProps = {
+  centerVertically: false,
+  closeOnOutsideClick: false,
+  disableWindowScroll: true,
+  fitWindow: false,
+  IconClose: IconX,
+  open: false,
+  textClose: 'Close',
+  textCloseHidden: true,
+  onClose: () => {}
 }
 
 ModalBasic.displayName = 'ModalBasic'

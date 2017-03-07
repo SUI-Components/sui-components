@@ -1,0 +1,22 @@
+{
+  "name": "@schibstedspain/sui-image-lazy-load",
+  "version": "1.0.0",
+  "description": "SUI Image Lazy Load",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "rm -Rf ./lib && mkdir -p ./lib && npm run babel && npm run sass",
+    "babel": "../../../node_modules/.bin/babel --presets schibsted-spain ./src --out-dir ./lib",
+    "sass": "../../../node_modules/.bin/cpx \"./src/**/*.scss\" ./lib",
+    "preversion": "echo \"preversion\"",
+    "version": "npm run build",
+    "postversion": "git add ${PWD} && git commit -m \"release(image/lazyLoad): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish --access=public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@schibstedspain/sui-spinner": "1",
+    "@schibstedspain/suistudio-fatigue-deps": "github:SUI-Components/suistudio-fatigue-deps",
+    "react-lazy-load": "3.0.11"
+  }
+}

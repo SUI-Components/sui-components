@@ -1,0 +1,30 @@
+/* sass-lint:disable class-name-format */
+@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-spinner/dist/index';
+@import './config.json';
+
+.sui-ImageLazyLoad {
+  overflow: hidden;
+
+  @each $ratio in $aspect-ratios {
+    $ratio-values: str-split($ratio, ':');
+    $horizontal: to-number(nth($ratio-values, 1));
+    $vertical: to-number(nth($ratio-values, 2));
+
+    &--ratio-#{$horizontal}-#{$vertical} {
+      @include aspect-ratio($horizontal, $vertical);
+    }
+  }
+
+  &-image {
+    height: auto;
+    vertical-align: bottom;
+    width: 100%;
+  }
+
+  .LazyLoad {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+}

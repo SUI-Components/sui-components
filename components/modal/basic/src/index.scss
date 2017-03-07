@@ -35,14 +35,14 @@
     vertical-align: middle;
     white-space: normal;
 
-    @include media-breakpoint-down($bp-modal-basic) {
+    @include media-breakpoint-down(s) {
       &--full {
         height: 100%;
         margin: 0;
         width: 100%;
       }
     }
-    @include media-breakpoint-up(breakpoint-next($bp-modal-basic)) {
+    @include media-breakpoint-up(m) {
       max-width: $maw-modal-basic;
       width: $w-modal-basic;
     }

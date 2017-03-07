@@ -8,26 +8,20 @@ class ModalBasic extends Component {
 
     this.contentDOMEl = null
     this.wrapperDOMEl = null
-    this.avoidOverscroll = this.avoidOverscroll.bind(this)
-    this.handleCloseClick = this.handleCloseClick.bind(this)
-    this.handleOutsideClick = this.handleOutsideClick.bind(this)
-    this.preventDefaultEvent = this.preventDefaultEvent.bind(this)
-    this.preventScrollIfNeeded = this.preventScrollIfNeeded.bind(this)
-
     this.state = {
       open: this.props.open
     }
   }
 
-  preventDefaultEvent (e) {
+  _preventDefaultEvent (e) {
     e.preventDefault()
   }
 
-  preventScrollIfNeeded (e) {
+  _preventScrollIfNeeded = (e) => {
     if (this.noScroll) e.preventDefault()
   }
 
-  avoidOverscroll (e) {
+  _avoidOverscroll = () => {
     const {clientHeight, offsetHeight, scrollTop, scrollHeight} = this.contentDOMEl
     const currentScroll = scrollTop + offsetHeight
     // check if the content has to scroll in order to prevent the default
@@ -44,7 +38,7 @@ class ModalBasic extends Component {
 
   componentWillReceiveProps ({open, disableWindowScroll}) {
     if (open && disableWindowScroll) {
-      this.toggleWindowScroll(true)
+      this._toggleWindowScroll(true)
     }
 
     if (open !== this.state.open) {
@@ -52,37 +46,37 @@ class ModalBasic extends Component {
     }
   }
 
-  closeModal () {
-    this.toggleWindowScroll(false)
+  _closeModal () {
+    this._toggleWindowScroll(false)
     this.setState({ open: false })
     this.props.onClose()
   }
 
-  toggleWindowScroll (disableScroll) {
+  _toggleWindowScroll (disableScroll) {
     window.document.body.style.overflowY = disableScroll ? 'hidden' : ''
   }
 
-  handleCloseClick () {
-    this.closeModal()
+  _handleCloseClick = () => {
+    this._closeModal()
   }
 
-  handleOutsideClick (event) {
+  _handleOutsideClick = (event) => {
     if (this.props.closeOnOutsideClick && event.target === this.wrapperDOMEl) {
-      this.closeModal()
+      this._closeModal()
     }
   }
 
-  renderHeader () {
+  _renderHeader () {
     const { header, IconClose, textClose, textCloseHidden } = this.props
     return (
       <div
         className='sui-ModalBasic-header'
-        onTouchMove={this.preventDefaultEvent}>
+        onTouchMove={this._preventDefaultEvent}>
         {header}
         <button
           type='button'
           className='sui-ModalBasic-close'
-          onClick={this.handleCloseClick}
+          onClick={this._handleCloseClick}
         >
           <IconClose svgClass='sui-ModalBasic-closeIcon' />
           {textCloseHidden
@@ -110,14 +104,14 @@ class ModalBasic extends Component {
       <div
         className={wrapperClassName}
         ref={node => { this.wrapperDOMEl = node }}
-        onClick={this.handleOutsideClick}
+        onClick={this._handleOutsideClick}
       >
         <div className={dialogClassName}>
-          {header && this.renderHeader() }
+          {header && this._renderHeader() }
           <div
             className='sui-ModalBasic-content'
-            onTouchStart={this.avoidOverscroll}
-            onTouchMove={this.preventScrollIfNeeded}
+            onTouchStart={this._avoidOverscroll}
+            onTouchMove={this._preventScrollIfNeeded}
             ref={node => { this.contentDOMEl = node }}>
             {content}
           </div>

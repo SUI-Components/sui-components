@@ -1,19 +1,31 @@
 /* sass-lint:disable class-name-format */
 @import '~@schibstedspain/theme-basic/lib/index';
-@import '~@schibstedspain/sui-spinner/dist/index';
+@import '~@schibstedspain/sui-spinner-basic/lib/index';
 @import './config.json';
 
 .sui-ImageLazyLoad {
-  overflow: hidden;
+  position: relative;
 
   @each $ratio in $aspect-ratios {
     $ratio-values: str-split($ratio, ':');
     $horizontal: to-number(nth($ratio-values, 1));
     $vertical: to-number(nth($ratio-values, 2));
 
-    &--ratio-#{$horizontal}-#{$vertical} {
+    &--ratio-#{$horizontal}-#{$vertical} &-imageWrap {
       @include aspect-ratio($horizontal, $vertical);
+      overflow: hidden;
     }
+  }
+
+  &-spinner {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    padding: $p-v-large $p-h-large;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
   }
 
   &-image {

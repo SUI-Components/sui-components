@@ -8,7 +8,8 @@ const aspectRatios = require('./config.json')['aspect-ratios'].map(
 )
 
 /**
- * Component that will print defer loading images.
+ * Component that will print defer loading images with an optional and specific
+ * aspect ratio.
  */
 export default class ImageLazyLoad extends Component {
   constructor (...args) {
@@ -20,7 +21,7 @@ export default class ImageLazyLoad extends Component {
   }
 
   _hideSpinner = () => {
-    // this.setState({ loading: false })
+    this.setState({ loading: false })
   }
 
   _doNothing = () => {}
@@ -45,13 +46,15 @@ export default class ImageLazyLoad extends Component {
             <SpinnerBasic />
           </div>
         }
-        <LazyLoad
-          debounce={debounce}
-          offsetVertical={offsetVertical}
-          onContentVisible={showSpinner ? this._hideSpinner : this._doNothing}
-        >
-          <img className='sui-ImageLazyLoad-image' src={src} />
-        </LazyLoad>
+        <div className='sui-ImageLazyLoad-imageWrap'>
+          <LazyLoad
+            debounce={debounce}
+            offsetVertical={offsetVertical}
+            onContentVisible={showSpinner ? this._hideSpinner : this._doNothing}
+          >
+            <img className='sui-ImageLazyLoad-image' src={src} />
+          </LazyLoad>
+        </div>
       </div>
     )
   }

@@ -10,6 +10,7 @@ form/checkboxList
 form/radioList
 image/lazyLoad
 list/tagcloud
+modal/basic
 spinner/basic
 tag/chip
 tag/deletableList

@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@schibstedspain/sui-spinner": "1",
+    "@schibstedspain/sui-spinner-basic": "1",
     "@schibstedspain/suistudio-fatigue-deps": "github:SUI-Components/suistudio-fatigue-deps",
     "react-lazy-load": "3.0.11"
   }

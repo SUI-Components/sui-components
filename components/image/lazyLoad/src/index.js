@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import cx from 'classnames'
 import LazyLoad from 'react-lazy-load'
-import Spinner from '@schibstedspain/sui-spinner'
+import SpinnerBasic from '@schibstedspain/sui-spinner-basic'
 
 const aspectRatios = require('./config.json')['aspect-ratios'].map(
   aspectRatio => aspectRatio.replace(new RegExp(/'/, 'g'), '')
@@ -42,7 +42,7 @@ export default class ImageLazyLoad extends Component {
       <div className={lazyLoadWrapClassName}>
         {(loading && showSpinner) &&
           <div className='sui-ImageLazyLoad-spinner'>
-            <Spinner />
+            <SpinnerBasic />
           </div>
         }
         <LazyLoad

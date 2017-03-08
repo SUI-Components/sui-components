@@ -8,9 +8,10 @@ dropdown/basic
 dropdown/user
 form/checkboxList
 form/radioList
+image/lazyLoad
 list/tagcloud
+spinner/basic
 tag/chip
 tag/deletableList
 tooltip/basic
 topbar/user
-image/lazyLoad

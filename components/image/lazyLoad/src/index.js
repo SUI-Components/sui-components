@@ -12,12 +12,8 @@ const aspectRatios = require('./config.json')['aspect-ratios'].map(
  * aspect ratio.
  */
 export default class ImageLazyLoad extends Component {
-  constructor (...args) {
-    super(...args)
-
-    this.state = {
-      loading: true
-    }
+  state = {
+    loading: true
   }
 
   _hideSpinner = () => {
@@ -36,7 +32,7 @@ export default class ImageLazyLoad extends Component {
       aspectRatio = ''
     } = this.props
     const lazyLoadWrapClassName = cx('sui-ImageLazyLoad', {
-      [`sui-ImageLazyLoad--ratio-${aspectRatio.replace(':', '-')}`]: aspectRatio !== ''
+      [`sui-ImageLazyLoad--ratio-${aspectRatio.replace(':', '-')}`]: aspectRatio
     })
 
     return (

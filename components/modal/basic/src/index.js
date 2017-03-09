@@ -13,10 +13,6 @@ class ModalBasic extends Component {
     }
   }
 
-  _preventDefaultEvent (e) {
-    e.preventDefault()
-  }
-
   _preventScrollIfNeeded = (e) => {
     if (this.noScroll) e.preventDefault()
   }
@@ -36,17 +32,7 @@ class ModalBasic extends Component {
     }
   }
 
-  componentWillReceiveProps ({open, disableWindowScroll}) {
-    if (open && disableWindowScroll) {
-      this._toggleWindowScroll(true)
-    }
-
-    if (open !== this.state.open) {
-      this.setState({ open })
-    }
-  }
-
-  _closeModal () {
+  _closeModal = () => {
     this._toggleWindowScroll(false)
     this.setState({ open: false })
     this.props.onClose()
@@ -66,12 +52,12 @@ class ModalBasic extends Component {
     }
   }
 
-  _renderHeader () {
+  _renderHeader = () => {
     const { header, IconClose, textClose, textCloseHidden } = this.props
     return (
       <div
         className='sui-ModalBasic-header'
-        onTouchMove={this._preventDefaultEvent}>
+        onTouchMove={(e) => e.preventDefault()}>
         {header}
         <button
           type='button'
@@ -86,6 +72,16 @@ class ModalBasic extends Component {
         </button>
       </div>
     )
+  }
+
+  componentWillReceiveProps ({open, disableWindowScroll}) {
+    if (open && disableWindowScroll) {
+      this._toggleWindowScroll(true)
+    }
+
+    if (open !== this.state.open) {
+      this.setState({ open })
+    }
   }
 
   render () {

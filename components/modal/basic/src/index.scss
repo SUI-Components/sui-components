@@ -67,7 +67,7 @@
     padding: $p-modal-basic ($p-modal-basic / 2) $p-modal-basic $p-modal-basic;
 
     &Icon {
-      fill: $c-modal-basic-icon;
+      fill: $c-modal-basic-icon !important;
       height: $h-modal-basic-icon;
       width: $w-modal-basic-icon;
     }

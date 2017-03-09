@@ -28,6 +28,7 @@ export default class ImageLazyLoad extends Component {
       debounce,
       offsetVertical,
       src,
+      alt,
       showSpinner,
       aspectRatio = ''
     } = this.props
@@ -48,7 +49,7 @@ export default class ImageLazyLoad extends Component {
             offsetVertical={offsetVertical}
             onContentVisible={showSpinner ? this._hideSpinner : this._doNothing}
           >
-            <img className='sui-ImageLazyLoad-image' src={src} />
+            <img className='sui-ImageLazyLoad-image' src={src} alt={alt} />
           </LazyLoad>
         </div>
       </div>
@@ -74,6 +75,10 @@ ImageLazyLoad.propTypes = {
    */
   src: PropTypes.string.isRequired,
   /**
+   * Image alternative text.
+   */
+  alt: PropTypes.string,
+  /**
    * Flag to show a spinner while the image resource is loading.
    */
   showSpinner: PropTypes.bool,
@@ -86,6 +91,7 @@ ImageLazyLoad.propTypes = {
 ImageLazyLoad.defaultProps = {
   debounce: false,
   offsetVertical: 100,
+  alt: '',
   showSpinner: true
 }
 

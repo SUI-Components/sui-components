@@ -1,0 +1,22 @@
+/* eslint react/react-in-jsx-scope:0, react/jsx-no-undef:0 */
+return (
+  <div>
+    <h1>Scroll down 👇🏻</h1>
+    <div style={{ width: '300px', marginTop: '1000px', marginBottom: '60px' }}>
+      <h2>Simple image</h2>
+      <ImageLazyLoad src='http://lorempicsum.com/simpsons/255/200/1' />
+    </div>
+    <div style={{ width: '300px', marginBottom: '60px' }}>
+      <h2>Image with aspect ratio 3:2</h2>
+      <ImageLazyLoad aspectRatio='3:2' src='http://lorempicsum.com/simpsons/255/200/2' />
+    </div>
+    <div style={{ width: '300px', marginBottom: '60px' }}>
+      <h2>Image with aspect ratio 4:3</h2>
+      <ImageLazyLoad aspectRatio='4:3' src='http://lorempicsum.com/simpsons/255/200/3' />
+    </div>
+    <div style={{ width: '300px', marginBottom: '60px' }}>
+      <h2>Image with aspect ratio 16:9</h2>
+      <ImageLazyLoad aspectRatio='16:9' src='http://lorempicsum.com/simpsons/255/200/4' />
+    </div>
+  </div>
+)

@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-modal-basic",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "sui-modal-basic",
   "main": "lib/index.js",
   "scripts": {

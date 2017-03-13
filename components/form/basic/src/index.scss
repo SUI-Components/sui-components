@@ -1,0 +1,100 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+$c-form-basic-submit-icon: $c-white;
+$ml-form-basic-submit: $m-h;
+
+$bd-autocompleted: 1px solid $c-gray !default;
+$mt-autocompleted: 3px;
+$bdr-autocompleted: $bdrs-base;
+$bgc-autocompleted: $c-white;
+$bgc-autocompleted-item-active: $c-gray-lightest;
+$bgc-autocompleted-item-hover: $c-gray-lightest;
+$p-autocompleted-item: $p-v $p-h;
+$r-autocompleted-clear: 12px;
+$t-autocompleted-clear: 12px;
+
+.sui-FormBasic {
+  display: flex;
+  position: relative;
+
+  &-wrap {
+    position: relative;
+  }
+
+  &-input {
+    @include sui-input;
+
+    &Wrap {
+      flex: 1;
+      position: relative;
+    }
+
+    .is-collapsed & {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+      &,
+      &:hover,
+      &:active,
+      &:focus {
+        border-right: 0;
+      }
+    }
+  }
+  &-clear {
+    cursor: pointer;
+
+    &::after {
+      content: 'X';
+      position: absolute;
+      right: $r-autocompleted-clear;
+      top: $t-autocompleted-clear;
+    }
+  }
+
+  &-autocompleted {
+    @include reset-list;
+    background: $bgc-autocompleted;
+    border-radius: $bdr-autocompleted;
+    border: $bd-autocompleted;
+    left: 0;
+    margin-top: $mt-autocompleted;
+    position: absolute;
+    right: 0;
+
+    &Item {
+      padding: $p-autocompleted-item;
+
+      &:first-child {
+        border-top-left-radius: $bdr-autocompleted;
+        border-top-right-radius: $bdr-autocompleted;
+      }
+      &:last-child {
+        border-bottom-left-radius: $bdr-autocompleted;
+        border-bottom-right-radius: $bdr-autocompleted;
+      }
+
+      &:hover {
+        background: $bgc-autocompleted-item-hover;
+        cursor: pointer;
+      }
+      &.is-active {
+        background: $bgc-autocompleted-item-active;
+      }
+    }
+  }
+
+  &-submit {
+    @include sui-button()
+    margin-left: $ml-form-basic-submit;
+
+    .is-collapsed & {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      margin-left: 0;
+    }
+
+    &Icon {
+      fill: $c-form-basic-submit-icon !important;
+    }
+  }
+}

@@ -4,7 +4,7 @@ import cx from 'classnames'
 import Commentsquare from '@schibstedspain/sui-svgiconset/lib/Commentsquare'
 import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
 
-const renderCardArticleMedia = ({ src, alt = '' }) => (
+const CardArticleMedia = ({ src, alt = '' }) => (
   <div className='sui-CardArticle-media'>
     <img src={src} alt={alt} />
   </div>
@@ -35,7 +35,7 @@ export default function CardArticle (props) {
       <Link href={link} className='sui-CardArticle-link'>
         {lazyLoad
           ? <ImageLazyLoad {...lazyLoad} {...media} />
-          : renderCardArticleMedia(media)
+          : <CardArticleMedia {...media} />
         }
       </Link>
       <div className='sui-CardArticle-info'>

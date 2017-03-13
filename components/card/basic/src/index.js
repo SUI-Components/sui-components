@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 import cx from 'classnames'
 import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
 
-const renderCardBasicMedia = ({ src, alt = '' }) => (
+const CardBasicMedia = ({ src, alt = '' }) => (
   <div className='sui-CardBasic-media'>
     <img src={src} alt={alt} />
   </div>
@@ -32,7 +32,7 @@ export default function CardBasic ({
       <Link href={link} className='sui-CardBasic-link'>
         {lazyLoad
           ? <ImageLazyLoad {...lazyLoad} {...media} />
-          : renderCardBasicMedia(media)
+          : <CardBasicMedia {...media} />
         }
         <div className='sui-CardBasic-content'>
           {title &&

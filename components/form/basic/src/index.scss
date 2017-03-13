@@ -1,18 +1,5 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
-$c-form-basic-submit-icon: $c-white;
-$ml-form-basic-submit: $m-h;
-
-$bd-autocompleted: 1px solid $c-gray !default;
-$mt-autocompleted: 3px;
-$bdr-autocompleted: $bdrs-base;
-$bgc-autocompleted: $c-white;
-$bgc-autocompleted-item-active: $c-gray-lightest;
-$bgc-autocompleted-item-hover: $c-gray-lightest;
-$p-autocompleted-item: $p-v $p-h;
-$r-autocompleted-clear: 12px;
-$t-autocompleted-clear: 12px;
-
 .sui-FormBasic {
   display: flex;
   position: relative;

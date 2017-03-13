@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, { PropTypes } from 'react'
 import cx from 'classnames'
-import CardBasicLazyLoad from './card-basic-lazy-load'
+import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
 
-const renderCardBasicMedia = ({ src, alt }) => (
+const CardBasicMedia = ({ src, alt = '' }) => (
   <div className='sui-CardBasic-media'>
     <img src={src} alt={alt} />
   </div>
@@ -26,14 +26,13 @@ export default function CardBasic ({
     'sui-CardBasic',
     { [`sui-CardBasic--${size}`]: typeof size !== 'undefined' }
   )
-  const cardBasicMedia = renderCardBasicMedia(media)
 
   return (
     <div className={cardBasicClassName}>
       <Link href={link} className='sui-CardBasic-link'>
         {lazyLoad
-          ? <CardBasicLazyLoad {...lazyLoad}>{cardBasicMedia}</CardBasicLazyLoad>
-          : cardBasicMedia
+          ? <ImageLazyLoad {...lazyLoad} {...media} />
+          : <CardBasicMedia {...media} />
         }
         <div className='sui-CardBasic-content'>
           {title &&

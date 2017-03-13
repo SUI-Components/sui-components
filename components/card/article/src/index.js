@@ -2,6 +2,13 @@
 import React, { PropTypes } from 'react'
 import cx from 'classnames'
 import Commentsquare from '@schibstedspain/sui-svgiconset/lib/Commentsquare'
+import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
+
+const CardArticleMedia = ({ src, alt = '' }) => (
+  <div className='sui-CardArticle-media'>
+    <img src={src} alt={alt} />
+  </div>
+)
 
 /**
  * Article card containing a media object, title, description and some editorial
@@ -14,22 +21,22 @@ export default function CardArticle (props) {
     title,
     description,
     tag,
-    comments
+    comments,
+    lazyLoad
   } = props
   const Link = props.linkFactory
   const IconComment = comments.icon || Commentsquare
-  const { src, alt } = media
-  const tagClassName = cx(
-    'sui-CardArticle-tag', {
-      [`sui-CardArticle-tag--${tag.type}`]: typeof tag.type !== 'undefined'
-    })
+  const tagClassName = cx('sui-CardArticle-tag', {
+    [`sui-CardArticle-tag--${tag.type}`]: typeof tag.type !== 'undefined'
+  })
 
   return (
     <div className='sui-CardArticle'>
       <Link href={link} className='sui-CardArticle-link'>
-        <div className='sui-CardArticle-media'>
-          <img src={src} alt={alt} />
-        </div>
+        {lazyLoad
+          ? <ImageLazyLoad {...lazyLoad} {...media} />
+          : <CardArticleMedia {...media} />
+        }
       </Link>
       <div className='sui-CardArticle-info'>
         <Link href={tag.url} className={tagClassName}>
@@ -115,7 +122,14 @@ CardArticle.propTypes = {
      * Comments custom icon (React component).
      */
     icon: PropTypes.func
-  })
+  }),
+  /**
+   * Lazy load flag / config.
+   */
+  lazyLoad: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object
+  ])
 }
 
 CardArticle.defaultProps = {

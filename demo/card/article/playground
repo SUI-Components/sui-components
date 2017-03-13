@@ -1,18 +1,38 @@
+/* eslint react/react-in-jsx-scope:0, react/jsx-no-undef:0 */
 return (
-  <div style={{ width: 360 }}>
-    <CardArticle
-      link='https://github.com/SUI-Components/sui-components'
-      media={{ src: 'http://lorempicsum.com/simpsons/360/180/3' }}
-      tag={{
-        url: 'http://www.coches.net/novedades/',
-        text: 'News'
-      }}
-      comments={{
-        url: 'http://www.coches.net/opiniones/nuevo-hyundai-i10-presentacion',
-        count: 109
-      }}
-      title='Article card'
-      description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore voluptatum minus nihil, eum perspiciatis?'
-    />
+  <div>
+    <div style={{ width: 360, marginBottom: '30px' }}>
+      <CardArticle
+        link='https://github.com/SUI-Components/sui-components'
+        media={{ src: 'http://lorempicsum.com/simpsons/360/180/3' }}
+        tag={{
+          url: 'http://www.coches.net/novedades/',
+          text: 'News'
+        }}
+        comments={{
+          url: 'http://www.coches.net/opiniones/nuevo-hyundai-i10-presentacion',
+          count: 109
+        }}
+        title='Article card'
+        description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore voluptatum minus nihil, eum perspiciatis?'
+      />
+    </div>
+    <div style={{ width: 360 }}>
+      <CardArticle
+        link='https://github.com/SUI-Components/sui-components'
+        media={{ src: 'http://lorempicsum.com/simpsons/360/300/4' }}
+        tag={{
+          url: 'http://www.coches.net/pruebas/',
+          text: 'Pruebas'
+        }}
+        comments={{
+          url: 'http://www.coches.net/videos/bmw-serie_4-gts#ctrl_comments',
+          count: 2
+        }}
+        title='Article card with lazy load'
+        description='Cras ac justo nunc. Vestibulum dignissim bibendum eros, porttitor maximus eros ullamcorper vitae. Quisque ut suscipit risus. Duis a turpis in metus rutrum volutpat.'
+        lazyLoad={{ debounce: true, offsetVertical: 300, aspectRatio: '4:3' }}
+      />
+    </div>
   </div>
 )

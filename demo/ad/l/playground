@@ -2,4 +2,4 @@ return (
   <AdL positionIds={{top: false, aside1: false, aside2: false}} url='' >
     <p>INNER CONTENT</p>
   </AdL>
-))
+)

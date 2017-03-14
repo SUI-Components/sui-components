@@ -1,9 +1,9 @@
 import React, {PropTypes} from 'react'
 import ListItem from './list-item'
 
-export default function ResultsList (props) {
+export default function SuggestsList (props) {
   return (
-    <ul className='sui-FormAutocompleted-results'>
+    <ul className='sui-FormAutocompleted-suggests'>
       {props.suggests.map((suggest, index) =>
         (<ListItem
           {...props}
@@ -16,7 +16,7 @@ export default function ResultsList (props) {
   )
 }
 
-ResultsList.propTypes = {
+SuggestsList.propTypes = {
   suggests: PropTypes.array.isRequired,
   active: PropTypes.number
 }

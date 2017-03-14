@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import ResultsList from './results-list'
+import SuggestsList from './suggests-list'
 import cx from 'classnames'
 
 const DELTA_MOVE = 1
@@ -19,7 +19,7 @@ export default class FormAutocompleted extends Component {
     this.state = {
       active: this.defaultPosition,
       value: initialValue,
-      showResultList: false,
+      showSuggestsList: false,
       focus
     }
   }
@@ -61,7 +61,7 @@ export default class FormAutocompleted extends Component {
 
   _escapeHandler = () => {
     this.setState({
-      showResultList: false,
+      showSuggestsList: false,
       active: null
     })
   }
@@ -101,7 +101,7 @@ export default class FormAutocompleted extends Component {
 
   _handleKeyDown = (event) => {
     this.setState({
-      showResultList: true
+      showSuggestsList: true
     })
 
     switch (event.key) {
@@ -118,13 +118,13 @@ export default class FormAutocompleted extends Component {
     }
   }
 
-  _renderResultList () {
+  _renderSuggestsList () {
     const { suggests } = this.props
     const { active } = this.state
 
     return suggests && suggests.length > 0
       ? (
-        <ResultsList
+        <SuggestsList
           {...this.props}
           handleSelect={this._handleSelect}
           active={active}
@@ -154,7 +154,7 @@ export default class FormAutocompleted extends Component {
   render () {
     const { placeholder, handleFocus, handleBlur, submit, collapsed } = this.props
     const { text: submitText, icon: SubmitIcon } = submit
-    const { value, showResultList } = this.state
+    const { value, showSuggestsList } = this.state
     const formAutocompletedClassName = cx('sui-FormAutocompleted', {
       'is-collapsed': submit && collapsed
     })
@@ -187,7 +187,7 @@ export default class FormAutocompleted extends Component {
             </button>
           }
         </div>
-        {showResultList && this._renderResultList()}
+        {showSuggestsList && this._renderSuggestsList()}
       </div>
     )
   }

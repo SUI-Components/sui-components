@@ -194,18 +194,71 @@ export default class FormBasic extends Component {
 }
 
 FormBasic.propTypes = {
+
+  /**
+   * This function is called everytime user exits the input
+   */
   handleBlur: PropTypes.func,
+
+  /**
+   * This function is called everytime user change the input field value
+   */
   handleChange: PropTypes.func.isRequired,
+
+  /**
+   * This function is called everytime user focus on the input
+   */
   handleFocus: PropTypes.func,
+
+  /**
+   * This function is called everytime user click on clear icon
+   */
   handleClear: PropTypes.func,
+
+  /**
+   * This function is called when one suggestion is selected (via click or
+   * enter pressed)
+   */
   handleSelect: PropTypes.func.isRequired,
+
+  /**
+   * This function is called everytime user click the submit button
+   */
   handleSubmit: PropTypes.func,
+
+  /**
+   * Inicial input value
+   */
   initialValue: PropTypes.string,
+
+  /**
+   * Input placeholder
+   */
   placeholder: PropTypes.string,
+
+  /**
+   * Suggest content
+   */
   suggests: PropTypes.array.isRequired,
+
+  /**
+   * Auto select first suggested item
+   */
   selectFirstByDefault: PropTypes.bool,
+
+  /**
+   * Input focus state
+   */
   focus: PropTypes.bool,
+
+  /**
+   * Stick input and button
+   */
   collapsed: PropTypes.bool,
+
+  /**
+   * Submit button
+   */
   submit: PropTypes.shape({
     icon: PropTypes.func,
     text: PropTypes.string

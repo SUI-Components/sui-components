@@ -6,6 +6,7 @@ card/basic
 card/product
 dropdown/basic
 dropdown/user
+form/autocompleted
 form/checkboxList
 form/radioList
 image/lazyLoad
@@ -16,4 +17,3 @@ tag/chip
 tag/deletableList
 tooltip/basic
 topbar/user
-form/basic

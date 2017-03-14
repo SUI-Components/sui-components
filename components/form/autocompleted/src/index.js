@@ -8,7 +8,7 @@ const DOWN = 'ArrowDown'
 const ENTER = 'Enter'
 const ESCAPE = 'Escape'
 
-export default class FormBasic extends Component {
+export default class FormAutocompleted extends Component {
   constructor (...args) {
     super(...args)
 
@@ -155,18 +155,18 @@ export default class FormBasic extends Component {
     const { placeholder, handleFocus, handleBlur, submit, collapsed } = this.props
     const { text: submitText, icon: SubmitIcon } = submit
     const { value, showResultList } = this.state
-    const formBasicClassName = cx('sui-FormBasic', {
+    const formAutocompletedClassName = cx('sui-FormAutocompleted', {
       'is-collapsed': submit && collapsed
     })
     return (
-      <div className='sui-FormBasic-wrap'>
-        <div className={formBasicClassName}>
-          <div className='sui-FormBasic-inputWrap'>
+      <div className='sui-FormAutocompleted-wrap'>
+        <div className={formAutocompletedClassName}>
+          <div className='sui-FormAutocompleted-inputWrap'>
             <input
               ref={node => { this.input = node }}
               value={value}
               placeholder={placeholder}
-              className='sui-FormBasic-input'
+              className='sui-FormAutocompleted-input'
               type='text'
               onChange={this._handleChange}
               onKeyDown={this._handleKeyDown}
@@ -175,14 +175,14 @@ export default class FormBasic extends Component {
             />
             {value &&
               <span
-                className='sui-FormBasic-clear'
+                className='sui-FormAutocompleted-clear'
                 onClick={this._handleClear}
               />
             }
           </div>
           {submit &&
-            <button className='sui-FormBasic-submit' onClick={this._handleSubmit}>
-              {SubmitIcon && <SubmitIcon svgClass='sui-FormBasic-submitIcon' />}
+            <button className='sui-FormAutocompleted-submit' onClick={this._handleSubmit}>
+              {SubmitIcon && <SubmitIcon svgClass='sui-FormAutocompleted-submitIcon' />}
               {submitText && submitText}
             </button>
           }
@@ -193,7 +193,7 @@ export default class FormBasic extends Component {
   }
 }
 
-FormBasic.propTypes = {
+FormAutocompleted.propTypes = {
 
   /**
    * This function is called everytime user exits the input
@@ -265,11 +265,11 @@ FormBasic.propTypes = {
   })
 }
 
-FormBasic.defaultProps = {
+FormAutocompleted.defaultProps = {
   initialValue: '',
   selectFirstByDefault: true,
   focus: false,
   submit: false
 }
 
-FormBasic.displayName = 'FormBasic'
+FormAutocompleted.displayName = 'FormAutocompleted'

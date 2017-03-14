@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react'
 import cx from 'classnames'
 
 export default function ListItem ({handleSelect, isActive, item}) {
-  const classes = cx('sui-FormBasic-autocompletedItem', {
+  const classes = cx('sui-FormAutocompleted-resultsItem', {
     'is-active': isActive
   })
 

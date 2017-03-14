@@ -3,7 +3,7 @@ import ListItem from './list-item'
 
 export default function ResultsList (props) {
   return (
-    <ul className='sui-FormBasic-autocompleted'>
+    <ul className='sui-FormAutocompleted-results'>
       {props.suggests.map((suggest, index) =>
         (<ListItem
           {...props}

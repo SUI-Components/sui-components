@@ -1,4 +1,4 @@
-# Form Autocompleted
+# Form Basic
 
 React component that shows a form which contains:
 - an input
@@ -29,7 +29,7 @@ The component exposes the following props:
 * submit (object): **Optional** contains an optional icon and an optional text for the submit button
 
 
-An example of the `sui-form-autocompleted` component implementation is:
+An example of the `sui-form-basic` component implementation is:
 
 ```javascript
 // JSX file.
@@ -48,7 +48,7 @@ const fakedResults = [
   }
 ]
 
-class MyFormAutocompleted extends React.Component {
+class MyFormBasic extends React.Component {
   constructor () {
     super()
     this.state = {suggests: EMPTY_SUGGESTS}
@@ -68,8 +68,8 @@ class MyFormAutocompleted extends React.Component {
 
   render () {
     return (
-      <FormAutocompleted
-        placeholder='Form autocompleted'
+      <FormBasic
+        placeholder='Form basic'
         handleChange={this._handleChange}
         handleSelect={this._handleSelect}
         handleSubmit={this._handleSubmit}
@@ -81,7 +81,7 @@ class MyFormAutocompleted extends React.Component {
   }
 }
 
-return (<MyFormAutocompleted />)
+return (<MyFormBasic />)
 
 ```
 
@@ -102,11 +102,11 @@ An SuggestObject is a plain JS Object with these specials keys:
 
 There are several classes in order to apply a theme to the component:
 
-* sui-formAutocompleted
-* sui-formAutocompleted-input
-* sui-formAutocompleted-clear
-* sui-formAutocompleted-results
-* sui-formAutocompleted-item
+* sui-formBasic
+* sui-formBasic-input
+* sui-formBasic-clear
+* sui-formBasic-results
+* sui-formBasic-item
 ...
 
 The component exports a basic CSS that you can include from the package in the node_modules.

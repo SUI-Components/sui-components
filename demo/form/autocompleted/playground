@@ -127,7 +127,7 @@ const fakedResults = [
   }
 ]
 
-class MyFormBasic extends React.Component {
+class MyFormAutocompleted extends React.Component {
   constructor () {
     super()
     this.state = {suggests: EMPTY_SUGGESTS}
@@ -158,7 +158,7 @@ class MyFormBasic extends React.Component {
 
   render () {
     return (
-      <FormBasic
+      <FormAutocompleted
         placeholder='Github users names'
         handleChange={this._handleChange}
         handleSelect={this._handleSelect}
@@ -171,4 +171,4 @@ class MyFormBasic extends React.Component {
   }
 }
 
-return (<MyFormBasic />)
+return (<MyFormAutocompleted />)

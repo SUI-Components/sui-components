@@ -1,0 +1,87 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-FormAutocompleted {
+  display: flex;
+  position: relative;
+
+  &-wrap {
+    position: relative;
+  }
+
+  &-input {
+    @include sui-input;
+
+    &Wrap {
+      flex: 1;
+      position: relative;
+    }
+
+    .is-collapsed & {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+      &,
+      &:hover,
+      &:active,
+      &:focus {
+        border-right: 0;
+      }
+    }
+  }
+  &-clear {
+    cursor: pointer;
+
+    &::after {
+      content: 'X';
+      position: absolute;
+      right: $r-form-autocompleted-clear;
+      top: $t-form-autocompleted-clear;
+    }
+  }
+
+  &-suggests {
+    @include reset-list;
+    background: $bgc-form-autocompleted;
+    border-radius: $bdr-form-autocompleted;
+    border: $bd-form-autocompleted;
+    left: 0;
+    margin-top: $mt-form-autocompleted;
+    position: absolute;
+    right: 0;
+
+    &Item {
+      padding: $p-form-autocompleted-item;
+
+      &:first-child {
+        border-top-left-radius: $bdr-form-autocompleted;
+        border-top-right-radius: $bdr-form-autocompleted;
+      }
+      &:last-child {
+        border-bottom-left-radius: $bdr-form-autocompleted;
+        border-bottom-right-radius: $bdr-form-autocompleted;
+      }
+
+      &:hover {
+        background: $bgc-form-autocompleted-item-hover;
+        cursor: pointer;
+      }
+      &.is-active {
+        background: $bgc-form-autocompleted-item-active;
+      }
+    }
+  }
+
+  &-submit {
+    @include sui-button()
+    margin-left: $ml-form-autocompleted-submit;
+
+    .is-collapsed & {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      margin-left: 0;
+    }
+
+    &Icon {
+      fill: $c-form-autocompleted-submit-icon !important;
+    }
+  }
+}

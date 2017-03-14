@@ -1,0 +1,174 @@
+/* eslint-disable no-console, no-undef, react/prop-types, react/react-in-jsx-scope, react/jsx-no-undef */
+
+const EMPTY_SUGGESTS = []
+
+const SearchIcon = ({ svgClass }) => <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' className={svgClass} viewBox='0 0 64 64' style={{ fill: 'inherit' }}><path d='M56.49,62.49a6,6,0,0,1-4.24-1.76l-9.9-9.9a4,4,0,0,1,0-5.66L41.2,44A25,25,0,1,1,44,41.2l1.14,1.14h0a4.09,4.09,0,0,1,5.66,0l9.9,9.9a6,6,0,0,1,0,8.48h0A6,6,0,0,1,56.49,62.49Zm-10-15.84L45.17,48l9.9,9.9a2,2,0,0,0,2.83,0h0a2,2,0,0,0,0-2.83L48,45.17l-1.36,1.36-.05.06ZM25,4A21,21,0,1,0,46,25,21,21,0,0,0,25,4Zm0,38A17,17,0,1,1,42,25,17,17,0,0,1,25,42Zm0-30A13,13,0,1,0,38,25,13,13,0,0,0,25,12Zm6.93,14.93a2,2,0,0,1-2-2,5,5,0,0,0-5-5,2,2,0,0,1,0-4,9,9,0,0,1,9,9A2,2,0,0,1,31.93,26.93Z' /> </svg>
+
+const fakedResults = [
+  {
+    'login': 'A',
+    'id': 1410106
+  },
+  {
+    'login': 'snyff',
+    'id': 45491
+  },
+  {
+    'login': 'aarizaq',
+    'id': 62071
+  },
+  {
+    'login': 'Amichai',
+    'id': 313874
+  },
+  {
+    'login': 'anneCarlson',
+    'id': 1570088
+  },
+  {
+    'login': 'prodigeni',
+    'id': 1476070
+  },
+  {
+    'login': 'schachmat',
+    'id': 2626530
+  },
+  {
+    'login': 'testeot',
+    'id': 6573268
+  },
+  {
+    'login': 'adamwiggins',
+    'id': 177
+  },
+  {
+    'login': 'ngs',
+    'id': 18631
+  },
+  {
+    'login': 'adulau',
+    'id': 3309
+  },
+  {
+    'login': 'fzzr-',
+    'id': 888526
+  },
+  {
+    'login': 'machinaut',
+    'id': 79779
+  },
+  {
+    'login': 'bluetomlee',
+    'id': 3226165
+  },
+  {
+    'login': 'amonks',
+    'id': 50010
+  },
+  {
+    'login': 'Saqoosha',
+    'id': 27694
+  },
+  {
+    'login': 'enyim',
+    'id': 78400
+  },
+  {
+    'login': 'andykamath',
+    'id': 7597423
+  },
+  {
+    'login': 'abemassry',
+    'id': 1616275
+  },
+  {
+    'login': 'noidontdig',
+    'id': 1229810
+  },
+  {
+    'login': 'asonge',
+    'id': 90809
+  },
+  {
+    'login': 'alvatar',
+    'id': 191694
+  },
+  {
+    'login': 'iayt',
+    'id': 3597965
+  },
+  {
+    'login': 'adiloztaser',
+    'id': 14043036
+  },
+  {
+    'login': 'vmatreshke',
+    'id': 519597
+  },
+  {
+    'login': 'abrookins',
+    'id': 97182
+  },
+  {
+    'login': 'expandrew',
+    'id': 3157928
+  },
+  {
+    'login': 'pyrat',
+    'id': 892
+  },
+  {
+    'login': 'hfdiao',
+    'id': 725240
+  },
+  {
+    'login': 'webhacking',
+    'id': 10232178
+  }
+]
+
+class MyFormAutocompleted extends React.Component {
+  constructor () {
+    super()
+    this.state = {suggests: EMPTY_SUGGESTS}
+    this._handleChange = this._handleChange.bind(this)
+    this._handleSelect = this._handleSelect.bind(this)
+  }
+
+  _handleChange (string) {
+    if (string) {
+      const suggests = fakedResults
+        .filter(user => user.login.includes(string))
+        .map(user => ({id: user.id, content: user.login, value: user.login}))
+      this.setState({ suggests: suggests })
+    } else {
+      this.setState({suggests: EMPTY_SUGGESTS})
+    }
+  }
+
+  _handleSelect (suggest) {
+    console.log(suggest)
+    alert(suggest.content)
+    this.setState({suggests: EMPTY_SUGGESTS})
+  }
+
+  _handleSubmit (content) {
+    console.log(content)
+  }
+
+  render () {
+    return (
+      <FormAutocompleted
+        placeholder='Github users names'
+        handleChange={this._handleChange}
+        handleSelect={this._handleSelect}
+        handleSubmit={this._handleSubmit}
+        suggests={this.state.suggests}
+        submit={{ icon: SearchIcon, text: 'Submit' }}
+        collapsed
+        />
+    )
+  }
+}
+
+return (<MyFormAutocompleted />)

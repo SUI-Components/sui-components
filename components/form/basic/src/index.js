@@ -20,7 +20,7 @@ export default class FormBasic extends Component {
       active: this.defaultPosition,
       value: initialValue,
       showResultList: false,
-      focus: focus
+      focus
     }
   }
 

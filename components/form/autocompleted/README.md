@@ -37,7 +37,7 @@ An example of the `sui-form-autocompleted` component implementation is:
 const EMPTY_SUGGESTS = []
 
 
-const fakedResults = [
+const fakedSuggests = [
   {
     'login': 'A',
     'id': 1410106
@@ -105,8 +105,8 @@ There are several classes in order to apply a theme to the component:
 * sui-formAutocompleted
 * sui-formAutocompleted-input
 * sui-formAutocompleted-clear
-* sui-formAutocompleted-results
-* sui-formAutocompleted-item
+* sui-formAutocompleted-suggests
+* sui-formAutocompleted-suggestsItem
 ...
 
 The component exports a basic CSS that you can include from the package in the node_modules.

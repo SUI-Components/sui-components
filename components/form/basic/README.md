@@ -1,6 +1,9 @@
 # Form Basic
 
-React component that shows a form with list of suggestions under an input file when you start to write something.
+React component that shows a form which contains:
+- an input
+- an optional list of suggestions
+- an optional button
 
 ## Component Properties
 
@@ -33,7 +36,6 @@ An example of the `sui-form-basic` component implementation is:
 
 const EMPTY_SUGGESTS = []
 
-const SearchIcon = ({ svgClass }) => <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' className={svgClass} viewBox='0 0 64 64' style={{ fill: 'inherit' }}><path d='M56.49,62.49a6,6,0,0,1-4.24-1.76l-9.9-9.9a4,4,0,0,1,0-5.66L41.2,44A25,25,0,1,1,44,41.2l1.14,1.14h0a4.09,4.09,0,0,1,5.66,0l9.9,9.9a6,6,0,0,1,0,8.48h0A6,6,0,0,1,56.49,62.49Zm-10-15.84L45.17,48l9.9,9.9a2,2,0,0,0,2.83,0h0a2,2,0,0,0,0-2.83L48,45.17l-1.36,1.36-.05.06ZM25,4A21,21,0,1,0,46,25,21,21,0,0,0,25,4Zm0,38A17,17,0,1,1,42,25,17,17,0,0,1,25,42Zm0-30A13,13,0,1,0,38,25,13,13,0,0,0,25,12Zm6.93,14.93a2,2,0,0,1-2-2,5,5,0,0,0-5-5,2,2,0,0,1,0-4,9,9,0,0,1,9,9A2,2,0,0,1,31.93,26.93Z' /> </svg>
 
 const fakedResults = [
   {
@@ -50,40 +52,29 @@ class MyFormBasic extends React.Component {
   constructor () {
     super()
     this.state = {suggests: EMPTY_SUGGESTS}
-    this._handleChange = this._handleChange.bind(this)
-    this._handleSelect = this._handleSelect.bind(this)
   }
 
   _handleChange (string) {
-    if (string) {
-      const suggests = fakedResults
-        .filter(user => user.login.includes(string))
-        .map(user => ({id: user.id, content: user.login, value: user.login}))
-      this.setState({ suggests: suggests })
-    } else {
-      this.setState({suggests: EMPTY_SUGGESTS})
-    }
+    // actions to do on input change
   }
 
   _handleSelect (suggest) {
-    console.log(suggest)
-    alert(suggest.content)
-    this.setState({suggests: EMPTY_SUGGESTS})
+    // actions to do on select item
   }
 
   _handleSubmit (content) {
-    console.log(content)
+    // actions to do on submit button
   }
 
   render () {
     return (
       <FormBasic
-        placeholder='Github users names'
+        placeholder='Form basic'
         handleChange={this._handleChange}
         handleSelect={this._handleSelect}
         handleSubmit={this._handleSubmit}
         suggests={this.state.suggests}
-        submit={{ icon: SearchIcon, text: 'Submit' }}
+        submit={{ text: 'Submit' }}
         collapsed
         />
     )

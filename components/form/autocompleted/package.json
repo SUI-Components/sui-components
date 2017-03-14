@@ -1,7 +1,7 @@
 {
-  "name": "@schibstedspain/sui-form-basic",
+  "name": "@schibstedspain/sui-form-autocompleted",
   "version": "1.0.0",
-  "description": "",
+  "description": "sui-form-autocompleted",
   "main": "lib/index.js",
   "scripts": {
     "build": "rm -Rf ./lib && mkdir -p ./lib && npm run babel && npm run sass",
@@ -9,7 +9,7 @@
     "sass": "../../../node_modules/.bin/cpx \"./src/**/*.scss\" ./lib",
     "preversion": "echo \"preversion\"",
     "version": "npm run build",
-    "postversion": "git add ${PWD} && git commit -m \"release(form/basic): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish --access=public"
+    "postversion": "git add ${PWD} && git commit -m \"release(form/autocompleted): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish --access=public"
   },
   "keywords": [],
   "author": "",

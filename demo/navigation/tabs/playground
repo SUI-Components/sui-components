@@ -1,0 +1,38 @@
+const tabs = [
+  {
+    label: 'Vincent',
+    url: '/vincent'
+  },
+  {
+    label: 'Jules',
+    url: '/jules'
+  },
+  {
+    label: 'Marcellus',
+    url: '/marcellus'
+  },
+  {
+    label: 'Mia',
+    url: '/mia'
+  },
+  {
+    label: 'Winston',
+    url: '/winston'
+  },
+  {
+    label: 'Butch',
+    url: '/butch'
+  }
+]
+
+function handleClick (tab) {
+  console.log(tab)
+}
+
+return (
+  <NavigationTabs
+    handleClick={handleClick}
+    tabsList={tabs}
+    activeTab={0}
+  />
+)

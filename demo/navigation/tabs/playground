@@ -25,8 +25,8 @@ const tabs = [
   }
 ]
 
-function handleClick (tab) {
-  console.log(tab)
+function handleClick (tab, index) {
+  console.log(tab, index)
 }
 
 return (

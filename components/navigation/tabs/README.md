@@ -2,7 +2,7 @@
 ### NavigationTabs
 
 SUI `NavigationTabs` component is a list of tabs.
-By clicking on every single tab, a handler is triggered and receives an object with the item information.
+By clicking on every single tab, a handler is triggered and receives an object with the item information and position in the array.
 
 ## Installation
 ```
@@ -15,7 +15,7 @@ import React, { Component } from 'react'
 import SpinnerBasic from '@schibstedspain/sui-navigation-tabs'
 
 class MyComponent extends Component {
-  _handleClick (tab) {
+  _handleClick (tab, index) {
     // do stuff
   }
   render () {

@@ -16,7 +16,7 @@ export default class NavigationTabs extends Component {
       const _handleClick = (index) => (event) => {
         event.preventDefault()
         this.setState({ activeTab: index })
-        handleClick(this.props.tabsList[index])
+        handleClick(this.props.tabsList[index], index)
       }
       const tabLinkClassName = cx('sui-NavigationTabs-link', {
         'is-active': this.state.activeTab === index
@@ -63,8 +63,8 @@ NavigationTabs.propTypes = {
   activeTab: PropTypes.number,
 
   /**
-   * By clicking on every single tab, a handler is triggered and receives an
-   * object with the item information
+   * By clicking on every single tab, a handler is triggered and sends an
+   * object with the item information and position in the array.
    */
   handleClick: PropTypes.func.isRequired
 }

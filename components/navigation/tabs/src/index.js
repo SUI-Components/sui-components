@@ -63,7 +63,7 @@ NavigationTabs.propTypes = {
   activeTab: PropTypes.number,
 
   /**
-   * By clicking on every single tab, a handler is triggered and sends an
+   * By clicking on every single tab, `handleClick` is triggered and sends an
    * object with the item information and position in the array.
    */
   handleClick: PropTypes.func.isRequired

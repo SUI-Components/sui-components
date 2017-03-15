@@ -46,9 +46,25 @@ NavigationTabs.defaultProps = {
 }
 
 NavigationTabs.propTypes = {
+  /**
+   * List of tabs
+   */
   tabsList: PropTypes.arrayOf(PropTypes.shape({
+
+    /**
+     * Tab content
+     */
     label: PropTypes.string.isRequired
   })).isRequired,
+
+  /**
+   * Point at the selected tab
+   */
   activeTab: PropTypes.number,
+
+  /**
+   * By clicking on every single tab, a handler is triggered and receives an
+   * object with the item information
+   */
   handleClick: PropTypes.func.isRequired
 }

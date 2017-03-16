@@ -1,7 +1,16 @@
 /* sass-lint:disable class-name-format */
 @import '~@schibstedspain/theme-basic/lib/index';
 @import '~@schibstedspain/sui-spinner-basic/lib/index';
-@import './config.json';
+
+$aspect-ratios: (
+  '1:1',
+  '5:4',
+  '4:3',
+  '3:2',
+  '5:3',
+  '16:9',
+  '3:1'
+);
 
 .sui-ImageLazyLoad {
   position: relative;

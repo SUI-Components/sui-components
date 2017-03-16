@@ -3,10 +3,6 @@ import cx from 'classnames'
 import LazyLoad from 'react-lazy-load'
 import SpinnerBasic from '@schibstedspain/sui-spinner-basic'
 
-const aspectRatios = require('./config.json')['aspect-ratios'].map(
-  aspectRatio => aspectRatio.replace(new RegExp(/'/, 'g'), '')
-)
-
 /**
  * Component that will print defer loading images with an optional and specific
  * aspect ratio.
@@ -85,7 +81,15 @@ ImageLazyLoad.propTypes = {
   /**
    * Optional aspect ratio of the image.
    */
-  aspectRatio: PropTypes.oneOf(aspectRatios)
+  aspectRatio: PropTypes.oneOf([
+    '1:1',
+    '5:4',
+    '4:3',
+    '3:2',
+    '5:3',
+    '16:9',
+    '3:1'
+  ])
 }
 
 ImageLazyLoad.defaultProps = {

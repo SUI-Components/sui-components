@@ -1,0 +1,12 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-NavigationTabs {
+  @include reset-list;
+  &-item {
+    display: inline-block;
+  }
+  &-link {
+    @include reset-link;
+    @include sui-tab;
+  }
+}

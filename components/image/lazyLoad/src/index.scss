@@ -3,22 +3,21 @@
 @import '~@schibstedspain/sui-spinner-basic/lib/index';
 
 $aspect-ratios: (
-  '1:1',
-  '5:4',
-  '4:3',
-  '3:2',
-  '5:3',
-  '16:9',
-  '3:1'
+  (h: 1, v: 1),
+  (h: 5, v: 4),
+  (h: 4, v: 3),
+  (h: 3, v: 2),
+  (h: 5, v: 3),
+  (h: 16, v: 9),
+  (h: 3, v: 1)
 );
 
 .sui-ImageLazyLoad {
   position: relative;
 
   @each $ratio in $aspect-ratios {
-    $ratio-values: str-split($ratio, ':');
-    $horizontal: to-number(nth($ratio-values, 1));
-    $vertical: to-number(nth($ratio-values, 2));
+    $horizontal: map-get($ratio, h);
+    $vertical: map-get($ratio, v);
 
     &--ratio-#{$horizontal}-#{$vertical} &-imageWrap {
       @include aspect-ratio($horizontal, $vertical);

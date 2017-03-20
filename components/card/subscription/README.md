@@ -4,9 +4,8 @@
 SUI `CArdSubscription` component is a card with a title, an image, an input and a button.
 
 By submitting the form, a handler is triggered via prop and receives the input value.
-Use `status` prop to send the type of the response. It can be `success` or `fail`.
-In case of `success`, the component will replace the form by the `responseContent`.
-In case of `error`, the component will add `responseContent`, next to the form and a `has-error` class will be added to the input form.
+Use `hasError` prop to flag the input with class `has-error`. It can be `true` or `false`.
+In case of `hasError === true`, the component will render `responseContent`, next to the form. Otherwise `responseContent` will replace the form.
 
 ## Installation
 ```
@@ -18,6 +17,7 @@ $ npm install --save @schibstedspain/sui-card-subscription
 import React, { Component } from 'react'
 import CardSubscription from '@schibstedspain/sui-card-subscription'
 
+const errorEmail = 'error@test.com'
 const responseOk = () => (
   <p>Success message</p>
 )
@@ -30,21 +30,20 @@ class MyCardSubscription extends React.Component {
     super(...args)
     this.state = {
       responseContent: null,
-      status: null
+      hasError: null
     }
-    this._handleSubmit = this._handleSubmit.bind(this)
   }
 
-  _handleSubmit (value) {
-    if (value === 'test@test.com') {
+  _handleSubmit = (value) => {
+    if (value === errorEmail) {
       this.setState({
         responseContent: responseKo,
-        status: 'fail'
+        hasError: true
       })
     } else {
       this.setState({
         responseContent: responseOk,
-        status: 'success'
+        hasError: false
       })
     }
   }
@@ -56,7 +55,7 @@ class MyCardSubscription extends React.Component {
         onSubmit={this._handleSubmit}
         placeholder={placeholder}
         responseContent={this.state.responseContent}
-        status={this.state.status}
+        hasError={this.state.hasError}
         title={title}
       />
     )

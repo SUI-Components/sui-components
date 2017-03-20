@@ -1,0 +1,62 @@
+/* sass-lint:disable class-name-format, no-important */
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-CardSubscription {
+  @include sui-card;
+
+  padding-top: $pt-card-subscription;
+  position: relative;
+
+  &::before {
+    background: $bg-card-subscription-image;
+    content: '';
+    height: $h-card-subscription-image;
+    position: absolute;
+    width: 100%;
+  }
+
+  &-title {
+    @include h4;
+    color: $c-card-subscription-title;
+    margin-bottom: $m-v-small;
+  }
+
+  &:hover &-title {
+    color: $c-card-subscription-title;
+  }
+
+  &-content {
+    background-color: $bgc-card-subscription-content;
+  }
+
+  &-form {
+    display: flex;
+    margin-bottom: 0;
+  }
+
+  &-input {
+    @include sui-input;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    font-size: $fz-card-subscription-input;
+
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      border-right: 0;
+
+      &.has-error {
+        border-right: 0;
+      }
+    }
+  }
+
+  &-button {
+    @include sui-button;
+
+    &Icon {
+      fill: $c-card-subscription-icon !important;
+    }
+  }
+}

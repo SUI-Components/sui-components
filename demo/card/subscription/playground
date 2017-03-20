@@ -1,0 +1,72 @@
+/* eslint-disable no-undef, react/prop-types, react/react-in-jsx-scope, react/jsx-no-undef */
+
+const ArrowRight = ({ svgClass }) => <svg className={svgClass} viewBox='0 0 24 24'><path fill='none' d='M0,0h24v24H0V0z' /><path d='M16.6,12l-8.2,8.2c-0.2,0.2-0.6,0.2-0.8,0c-0.2-0.2-0.2-0.6,0-0.8L15,12L7.6,4.6C7.4,4.4,7.4,4,7.6,3.8 c0.2-0.2,0.6-0.2,0.8,0L16.6,12z' /> </svg>
+
+const errorEmail = 'error@test.com'
+const placeholder = 'Escribe tu email'
+const title = 'Recibe todas las novedades'
+const successStyles = {
+  color: '#2ecc71',
+  'margin-bottom': 0
+}
+const errorStyles = {
+  color: '#d92b2b',
+  'font-size': '12px',
+  'margin-top': '4px',
+  'margin-bottom': '0'
+}
+const helpStyles = {
+  color: '#bbbbbb',
+  'font-size': '12px',
+  'margin-top': '10px',
+  'margin-bottom': '0'
+}
+const responseOk = () => (
+  <p style={successStyles}>Hello! This is a success message</p>
+)
+const responseKo = () => (
+  <p style={errorStyles}>This is an error message</p>
+)
+
+class MyCardSubscription extends React.Component {
+  constructor (...args) {
+    super(...args)
+    this.state = {
+      responseContent: null,
+      hasError: null
+    }
+    this._handleSubmit = this._handleSubmit.bind(this)
+  }
+
+  _handleSubmit (value) {
+    if (value === errorEmail) {
+      this.setState({
+        responseContent: responseKo,
+        hasError: true
+      })
+    } else {
+      this.setState({
+        responseContent: responseOk,
+        hasError: false
+      })
+    }
+  }
+
+  render () {
+    return (
+      <div>
+        <CardSubscription
+          iconButton={ArrowRight}
+          onSubmit={this._handleSubmit}
+          placeholder={placeholder}
+          responseContent={this.state.responseContent}
+          hasError={this.state.hasError}
+          title={title}
+        />
+        <p style={helpStyles}>Use '{errorEmail}' to show the error message, or  any other email address to submit the form.</p>
+      </div>
+    )
+  }
+}
+
+return (<MyCardSubscription />)

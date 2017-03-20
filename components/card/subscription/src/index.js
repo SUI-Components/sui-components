@@ -12,48 +12,41 @@ export default class CardSubscription extends Component {
   }
 
   _printCardContent = () => {
-    const { placeholder, iconButton, title, status } = this.props
+    const { placeholder, iconButton, hasError } = this.props
     const IconAngle = iconButton || Chevronright
     const inputClassName = cx('sui-CardSubscription-input', {
-      'has-error': status === 'fail'
+      'has-error': hasError
     })
     return (
-      <div>
-        <p className='sui-CardSubscription-title'>{title}</p>
-        <form onSubmit={this._handleSubmit} className='sui-CardSubscription-form'>
-          <input
-            className={inputClassName} placeholder={placeholder}
-            type='email'
-            ref={node => { this.input = node }}
-            required
-          />
-          <button type='submit' className='sui-CardSubscription-button'>
-            <IconAngle svgClass='sui-CardSubscription-buttonIcon' />
-          </button>
-        </form>
-      </div>
-    )
-  }
-
-  _printResponse = () => {
-    const { responseContent: ResponseContent } = this.props
-    return (
-      <div>
-        <ResponseContent />
-      </div>
+      <form onSubmit={this._handleSubmit} className='sui-CardSubscription-form'>
+        <input
+          className={inputClassName} placeholder={placeholder}
+          type='email'
+          ref={node => { this.input = node }}
+          required
+        />
+        <button type='submit' className='sui-CardSubscription-button'>
+          <IconAngle svgClass='sui-CardSubscription-buttonIcon' />
+        </button>
+      </form>
     )
   }
 
   render () {
-    const { responseContent, status } = this.props
+    const {
+      responseContent: ResponseContent,
+      hasError,
+      title
+    } = this.props
     return (
       <div className='sui-CardSubscription'>
         <div className='sui-CardSubscription-content'>
-          {(responseContent === null || status === 'fail') &&
+          <p className='sui-CardSubscription-title'>{title}</p>
+          {(ResponseContent === null || hasError) &&
             this._printCardContent()
           }
-          {responseContent &&
-            this._printResponse()
+          {ResponseContent &&
+            <ResponseContent />
           }
         </div>
       </div>
@@ -90,7 +83,7 @@ CardSubscription.propTypes = {
   /**
    * Response Status
    */
-  status: PropTypes.string
+  hasError: PropTypes.bool
 }
 
 CardSubscription.displayName = 'CardSubscription'

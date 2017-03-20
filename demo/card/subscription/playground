@@ -6,7 +6,8 @@ const errorEmail = 'error@test.com'
 const placeholder = 'Escribe tu email'
 const title = 'Recibe todas las novedades'
 const successStyles = {
-  color: '#2ecc71'
+  color: '#2ecc71',
+  'margin-bottom': 0
 }
 const errorStyles = {
   color: '#d92b2b',
@@ -32,7 +33,7 @@ class MyCardSubscription extends React.Component {
     super(...args)
     this.state = {
       responseContent: null,
-      status: null
+      hasError: null
     }
     this._handleSubmit = this._handleSubmit.bind(this)
   }
@@ -41,12 +42,12 @@ class MyCardSubscription extends React.Component {
     if (value === errorEmail) {
       this.setState({
         responseContent: responseKo,
-        status: 'fail'
+        hasError: true
       })
     } else {
       this.setState({
         responseContent: responseOk,
-        status: 'success'
+        hasError: false
       })
     }
   }
@@ -59,7 +60,7 @@ class MyCardSubscription extends React.Component {
           onSubmit={this._handleSubmit}
           placeholder={placeholder}
           responseContent={this.state.responseContent}
-          status={this.state.status}
+          hasError={this.state.hasError}
           title={title}
         />
         <p style={helpStyles}>Use '{errorEmail}' to show the error message, or  any other email address to submit the form.</p>

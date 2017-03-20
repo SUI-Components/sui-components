@@ -2,8 +2,17 @@
 
 .sui-CardSubscription {
   @include sui-card;
-  background: $bg-card-subscription;
+
   padding-top: $pt-card-subscription;
+  position: relative;
+
+  &::before {
+    background: $bg-card-subscription-image;
+    content: '';
+    height: $h-card-subscription-image;
+    position: absolute;
+    width: 100%;
+  }
 
   &-title {
     @include h4;

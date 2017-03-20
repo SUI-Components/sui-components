@@ -2,11 +2,7 @@
 
 .sui-CardSubscription {
   @include sui-card;
-  background-color: $bgc-card-subscription;
-  background-image: url($bgi-card-subscription);
-  background-position: $bgp-card-subscription;
-  background-repeat: $bgr-card-subscription;
-  background-size: $bgsz-card-subscription ;
+  background: $bg-card-subscription;
   padding-top: $pt-card-subscription;
 
   &-title {

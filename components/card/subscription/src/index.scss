@@ -1,3 +1,4 @@
+/* sass-lint:disable class-name-format, no-important */
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-CardSubscription {
@@ -35,8 +36,8 @@
 
   &-input {
     @include sui-input;
-    border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
     font-size: $fz-card-subscription-input;
 
     &,

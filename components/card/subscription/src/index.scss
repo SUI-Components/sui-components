@@ -10,16 +10,20 @@
     color: $c-card-subscription-title;
     margin-bottom: $m-v-small;
   }
+
   &:hover &-title {
     color: $c-card-subscription-title;
   }
+
   &-content {
     background-color: $bgc-card-subscription-content;
   }
+
   &-form {
     display: flex;
     margin-bottom: 0;
   }
+
   &-input {
     @include sui-input;
     border-top-right-radius: 0;
@@ -32,12 +36,12 @@
     &:focus {
       border-right: 0;
 
-      &.has-error{
+      &.has-error {
         border-right: 0;
       }
     }
-
   }
+
   &-button {
     @include sui-button;
 

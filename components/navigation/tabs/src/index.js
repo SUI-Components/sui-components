@@ -41,6 +41,7 @@ export default class NavigationTabs extends Component {
     )
   }
 }
+NavigationTabs.displayName = 'NavigationTabs'
 NavigationTabs.defaultProps = {
   activeTab: 0
 }

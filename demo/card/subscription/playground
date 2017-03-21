@@ -7,19 +7,19 @@ const placeholder = 'Escribe tu email'
 const title = 'Recibe todas las novedades'
 const successStyles = {
   color: '#2ecc71',
-  'margin-bottom': 0
+  marginBottom: 0
 }
 const errorStyles = {
   color: '#d92b2b',
-  'font-size': '12px',
-  'margin-top': '4px',
-  'margin-bottom': '0'
+  fontSize: '12px',
+  marginTop: '4px',
+  marginBottom: '0'
 }
 const helpStyles = {
   color: '#bbbbbb',
-  'font-size': '12px',
-  'margin-top': '10px',
-  'margin-bottom': '0'
+  fontSize: '12px',
+  marginTop: '10px',
+  marginBottom: '0'
 }
 const responseOk = () => (
   <p style={successStyles}>Hello! This is a success message</p>

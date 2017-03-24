@@ -86,7 +86,7 @@ CardSubscription.propTypes = {
   responseContent: PropTypes.element,
 
   /**
-   * Response Status
+   * Response error message
    */
   validationErrorMessage: PropTypes.element
 }

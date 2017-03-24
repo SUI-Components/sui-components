@@ -21,10 +21,10 @@ const helpStyles = {
   marginTop: '10px',
   marginBottom: '0'
 }
-const responseOk = () => (
+const responseContent = () => (
   <p style={successStyles}>Hello! This is a success message</p>
 )
-const responseKo = () => (
+const validationErrorMessage = () => (
   <p style={errorStyles}>This is an error message</p>
 )
 
@@ -33,7 +33,7 @@ class MyCardSubscription extends React.Component {
     super(...args)
     this.state = {
       responseContent: null,
-      hasError: null
+      validationErrorMessage: null
     }
     this._handleSubmit = this._handleSubmit.bind(this)
   }
@@ -41,13 +41,13 @@ class MyCardSubscription extends React.Component {
   _handleSubmit (value) {
     if (value === errorEmail) {
       this.setState({
-        responseContent: responseKo,
-        hasError: true
+        validationErrorMessage: validationErrorMessage,
+        responseContent: null
       })
     } else {
       this.setState({
-        responseContent: responseOk,
-        hasError: false
+        validationErrorMessage: null,
+        responseContent: responseContent
       })
     }
   }
@@ -60,7 +60,7 @@ class MyCardSubscription extends React.Component {
           onSubmit={this._handleSubmit}
           placeholder={placeholder}
           responseContent={this.state.responseContent}
-          hasError={this.state.hasError}
+          validationErrorMessage={this.state.validationErrorMessage}
           title={title}
         />
         <p style={helpStyles}>Use '{errorEmail}' to show the error message, or  any other email address to submit the form.</p>

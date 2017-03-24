@@ -12,10 +12,10 @@ export default class CardSubscription extends Component {
   }
 
   _printCardContent = () => {
-    const { placeholder, iconButton, hasError } = this.props
+    const { placeholder, iconButton, validationErrorMessage } = this.props
     const IconAngle = iconButton || Chevronright
     const inputClassName = cx('sui-CardSubscription-input', {
-      'has-error': hasError
+      'has-error': !!validationErrorMessage
     })
     return (
       <form onSubmit={this._handleSubmit} className='sui-CardSubscription-form'>
@@ -35,20 +35,25 @@ export default class CardSubscription extends Component {
   render () {
     const {
       responseContent: ResponseContent,
-      hasError,
+      validationErrorMessage: ValidationErrorMessage,
       title
     } = this.props
     return (
-      <div className='sui-CardSubscription'>
-        <div className='sui-CardSubscription-content'>
-          <p className='sui-CardSubscription-title'>{title}</p>
-          {(ResponseContent === null || hasError) &&
-            this._printCardContent()
-          }
-          {ResponseContent &&
-            <ResponseContent />
-          }
-        </div>
+      <div>
+        {ResponseContent === null &&
+          <div className='sui-CardSubscription'>
+            <div className='sui-CardSubscription-content'>
+              <p className='sui-CardSubscription-title'>{title}</p>
+              {this._printCardContent()}
+              {ValidationErrorMessage &&
+                <ValidationErrorMessage />
+              }
+            </div>
+          </div>
+        }
+        {ResponseContent &&
+          <ResponseContent />
+        }
       </div>
     )
   }
@@ -83,7 +88,7 @@ CardSubscription.propTypes = {
   /**
    * Response Status
    */
-  hasError: PropTypes.bool
+  validationErrorMessage: PropTypes.element
 }
 
 CardSubscription.displayName = 'CardSubscription'

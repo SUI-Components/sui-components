@@ -40,7 +40,7 @@ export default class CardSubscription extends Component {
     } = this.props
     return (
       <div>
-        {ResponseContent === null &&
+        {!ResponseContent &&
           <div className='sui-CardSubscription'>
             <div className='sui-CardSubscription-content'>
               <p className='sui-CardSubscription-title'>{title}</p>

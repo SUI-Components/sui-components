@@ -1,8 +1,7 @@
-import React, {Component} from 'react'
+import React, {Component, PropTypes} from 'react'
 import IconCloseDefault from '@schibstedspain/sui-svgiconset/lib/X'
 
 export default class AdSmartbanner extends Component {
-
   IconClose = this.props.icon || IconCloseDefault
 
   _handleClick = (event) => {
@@ -36,10 +35,14 @@ export default class AdSmartbanner extends Component {
   }
 }
 
+AdSmartbanner.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
+  icon: PropTypes.func.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired
+}
+
 AdSmartbanner.displayName = 'AdSmartbanner'
-
-
-// Remove these comments if you need
-// AdSmartbanner.contextTypes = {i18n: React.PropTypes.object}
-// AdSmartbanner.propTypes = {}
-// AdSmartbanner.defaultProps = {}

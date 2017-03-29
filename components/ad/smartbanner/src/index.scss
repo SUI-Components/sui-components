@@ -3,20 +3,20 @@
 .sui-AdSmartbanner {
   background-color: $bgc-ad-smartbanner;
   border-bottom: $bb-ad-smartbanner;
+  bottom: $b-ad-smartbanner;
+  display: flex;
   height: $h-ad-smartbanner;
+  left: $l-ad-smartbanner;
+  padding: $p-ad-smartbanner-secondary;
   position: fixed;
   top: $t-ad-smartbanner;
-  bottom: $b-ad-smartbanner;
-  left: $l-ad-smartbanner;
   width: 100%;
   z-index: $z-ad-smartbanner;
-  padding: $p-ad-smartbanner-secondary;
-  display: flex;
 
   &-logo {
     height: $h-ad-smartbanner-logo;
-    width: $w-ad-smartbanner-logo;
     margin: $m-ad-smartbanner-logo;
+    width: $w-ad-smartbanner-logo;
   }
 
   &-secondary {
@@ -29,8 +29,8 @@
   }
 
   &-text {
-    margin: 0;
     font-size: $fz-s;
+    margin: 0;
   }
 
   &-button {
@@ -44,9 +44,9 @@
       margin: $m-ad-smartbanner-button-close-container;
 
       &Icon {
-        width: $w-ad-smartbanner-button-close-icon;
-        height: $h-ad-smartbanner-button-close-icon;
         fill: $c-ad-smartbanner-button-close-icon !important;
+        height: $h-ad-smartbanner-button-close-icon;
+        width: $w-ad-smartbanner-button-close-icon;
       }
     }
   }

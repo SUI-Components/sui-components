@@ -1,0 +1,61 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-AdSmartbanner {
+  background-color: $bgc-ad-smartbanner;
+  border-bottom: $bb-ad-smartbanner;
+  height: $h-ad-smartbanner;
+  position: fixed;
+  top: $t-ad-smartbanner;
+  bottom: $b-ad-smartbanner;
+  left: $l-ad-smartbanner;
+  width: 100%;
+  z-index: $z-ad-smartbanner;
+  padding: $p-ad-smartbanner-secondary;
+  display: flex;
+
+  &-logo {
+    height: $h-ad-smartbanner-logo;
+    width: $w-ad-smartbanner-logo;
+    margin: $m-ad-smartbanner-logo;
+  }
+
+  &-secondary {
+    flex: 1;
+  }
+
+  &-title {
+    @include h5;
+    margin: $m-ad-smartbanner-title;
+  }
+
+  &-text {
+    margin: 0;
+    font-size: $fz-s;
+  }
+
+  &-button {
+
+    &Install {
+      @include sui-button('primary')
+    }
+
+    &Close {
+      @include reset-button;
+      margin: $m-ad-smartbanner-button-close-container;
+
+      &Icon {
+        width: $w-ad-smartbanner-button-close-icon;
+        height: $h-ad-smartbanner-button-close-icon;
+        fill: $c-ad-smartbanner-button-close-icon !important;
+      }
+    }
+  }
+
+  &-visible {
+    margin-top: 70px;
+  }
+
+  &-hidden {
+    margin-top: 0;
+  }
+}

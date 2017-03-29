@@ -1,0 +1,37 @@
+/* eslint-disable no-undef, react/prop-types, react/react-in-jsx-scope, react/jsx-no-undef */
+
+const imageUrl = 'https://placeholdit.imgix.net/~text?txtsize=33&txt=ico&w=100&h=100'
+const title = 'Component Title'
+const text = 'Lorem ipsum'
+const buttonText = 'Instalar'
+
+class MyAdSmartbanner extends React.Component {
+  constructor (...args) {
+    super(...args)
+    this._handleClick = this._handleClick.bind(this)
+    this._handleClose = this._handleClose.bind(this)
+  }
+
+  _handleClick () {
+    console.log('Install App')
+  }
+
+  _handleClose () {
+    console.log('Close Smartbanner')
+  }
+
+  render () {
+    return (
+      <AdSmartbanner
+        imageUrl={imageUrl}
+        title={title}
+        text={text}
+        buttonText={buttonText}
+        onClick={this._handleClick}
+        onClose={this._handleClose}
+        />
+    )
+  }
+}
+
+return (<MyAdSmartbanner />)

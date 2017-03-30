@@ -40,7 +40,7 @@ class MyCardSubscription extends React.Component {
   _handleSubmit = (value) => {
     this.setState({
       responseContent: value === errorEmail ? responseKo : responseOk,
-      responseError: value === errorEmail ? true : false
+      responseError: value === errorEmail
     })
   }
 

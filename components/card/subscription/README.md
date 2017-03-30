@@ -4,7 +4,7 @@
 SUI `CArdSubscription` component is a card with a title, an image, an input and a button.
 
 By submitting the form, a handler is triggered via prop and receives the input value.
-In case of `validationErrorMessage`, the component will render this message next to the form and will flag the input with class `has-error`. Otherwise `responseContent` will replace the component.
+In case of `responseError`, the component will render the `responseContent` next to the form and will flag the input with class `has-error`. Otherwise `responseContent` will replace the component.
 
 ## Installation
 ```
@@ -15,49 +15,47 @@ $ npm install --save @schibstedspain/sui-card-subscription
 ```js
 import React, { Component } from 'react'
 import CardSubscription from '@schibstedspain/sui-card-subscription'
-
 const errorEmail = 'error@test.com'
+const placeholder = 'Escribe tu email'
+const title = 'Recibe todas las novedades'
 
-const responseContent = () => (
-    <p>Success message</p>
+const responseOk = () => (
+  <p style={successStyles}>Hello! This is a success message</p>
 )
-const validationErrorMessage = () => (
-  <p>Error message</p>
+
+const responseKo = () => (
+  <p style={errorStyles}>This is an error message</p>
 )
+
+
 
 class MyCardSubscription extends React.Component {
   constructor (...args) {
     super(...args)
     this.state = {
-      responseContent: null,
-      validationErrorMessage: null
+      responseContent: null
     }
   }
 
   _handleSubmit = (value) => {
-    if (value === errorEmail) {
-      this.setState({
-        validationErrorMessage: validationErrorMessage,
-        responseContent: null
-      })
-    } else {
-      this.setState({
-        validationErrorMessage: null,
-        responseContent: responseContent
-      })
-    }
+    this.setState({
+      responseContent: value === errorEmail ? responseKo : responseOk,
+      responseError: value === errorEmail ? true : false
+    })
   }
 
   render () {
     return (
-      <CardSubscription
-        iconButton={ArrowRight}
-        onSubmit={this._handleSubmit}
-        placeholder={placeholder}
-        responseContent={this.state.responseContent}
-        validationErrorMessage={this.state.validationErrorMessage}
-        title={title}
-      />
+      <div>
+        <CardSubscription
+          iconButton={ArrowRight}
+          onSubmit={this._handleSubmit}
+          placeholder={placeholder}
+          responseContent={this.state.responseContent}
+          responseError={this.state.responseError}
+          title={title}
+        />
+      </div>
     )
   }
 }

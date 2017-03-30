@@ -12,18 +12,16 @@ export default class CardSubscription extends Component {
   }
 
   _printCardContent = () => {
-    const { placeholder, iconButton, validationErrorMessage } = this.props
+    const { placeholder, iconButton, responseError } = this.props
     const IconAngle = iconButton || Chevronright
     const inputClassName = cx('sui-CardSubscription-input', {
-      'has-error': !!validationErrorMessage
+      'has-error': !!responseError
     })
     return (
       <form onSubmit={this._handleSubmit} className='sui-CardSubscription-form'>
         <input
           className={inputClassName} placeholder={placeholder}
-          type='email'
           ref={node => { this.input = node }}
-          required
         />
         <button type='submit' className='sui-CardSubscription-button'>
           <IconAngle svgClass='sui-CardSubscription-buttonIcon' />
@@ -35,23 +33,23 @@ export default class CardSubscription extends Component {
   render () {
     const {
       responseContent: ResponseContent,
-      validationErrorMessage: ValidationErrorMessage,
+      responseError,
       title
     } = this.props
     return (
       <div>
-        {!ResponseContent &&
+        {(!ResponseContent || !!responseError) &&
           <div className='sui-CardSubscription'>
             <div className='sui-CardSubscription-content'>
               <p className='sui-CardSubscription-title'>{title}</p>
               {this._printCardContent()}
-              {ValidationErrorMessage &&
-                <ValidationErrorMessage />
+              {(ResponseContent && responseError) &&
+                <ResponseContent />
               }
             </div>
           </div>
         }
-        {ResponseContent &&
+        {(ResponseContent && !responseError) &&
           <ResponseContent />
         }
       </div>
@@ -86,9 +84,9 @@ CardSubscription.propTypes = {
   responseContent: PropTypes.element,
 
   /**
-   * Response error message
+   * Response error flag
    */
-  validationErrorMessage: PropTypes.element
+  responseError: PropTypes.bool
 }
 
 CardSubscription.displayName = 'CardSubscription'

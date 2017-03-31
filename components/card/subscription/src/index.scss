@@ -53,7 +53,7 @@
   }
 
   &-button {
-    @include sui-button--custom($c-card-subscription-button);
+    @include sui-button($type-card-subscription-button);
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
 

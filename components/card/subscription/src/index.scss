@@ -54,6 +54,8 @@
 
   &-button {
     @include sui-button;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
 
     &Icon {
       fill: $c-card-subscription-icon !important;

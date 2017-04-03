@@ -3,6 +3,7 @@
 
 .sui-AlertBasic {
   box-shadow: $bxsh-alert-basic;
+  position: relative;
 
   &-message {
     align-items: center;
@@ -20,6 +21,19 @@
   &-button {
     @include sui-button('ghost', 'small');
     margin-left: $m-h-small;
+
+    &Close {
+      @include reset-button;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+
+      &Icon {
+        fill: $c-text-base !important;
+        height: 10px;
+        width: 10px;
+      }
+    }
   }
 
   &--info {

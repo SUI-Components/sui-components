@@ -25,7 +25,7 @@ export const loadScript = ({url, symbol} = {}) => {
         resolve('success')
       } else if (new Date().getTime() > expire) {
           // Timed out, tell the callback
-        reject('timeout')
+        reject(new Error('timeout'))
       } else {
           // Schedule the next check
         setTimeout(lookForSymbol, delta)

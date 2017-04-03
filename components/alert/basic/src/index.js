@@ -36,12 +36,19 @@ export default function AlertBasic ({
   type,
   children,
   icon,
-  actions
+  actions,
+  iconClose: IconClose,
+  handleClose
 }) {
   const AlertIcon = icon || icons[type]
   return (
     <div>
       <div className={`sui-AlertBasic sui-AlertBasic--${type}`}>
+        {IconClose &&
+          <button className='sui-AlertBasic-buttonClose' onClick={handleClose}>
+            <IconClose svgClass='sui-AlertBasic-buttonCloseIcon' />
+          </button>
+        }
         <div className='sui-AlertBasic-message'>
           <div>
             <AlertIcon svgClass='sui-AlertBasic-icon' />
@@ -57,7 +64,9 @@ export default function AlertBasic ({
 AlertBasic.propTypes = {
   type: PropTypes.oneOf(['info', 'error', 'success']),
   children: PropTypes.element,
-  icon: PropTypes.function,
+  icon: PropTypes.func,
+  iconClose: PropTypes.func,
+  handleClose: PropTypes.func,
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       handle: PropTypes.func,

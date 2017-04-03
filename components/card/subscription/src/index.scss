@@ -12,6 +12,7 @@
     content: '';
     height: $h-card-subscription-image;
     position: absolute;
+    top: $t-card-subscription-image;
     width: 100%;
   }
 
@@ -53,7 +54,9 @@
   }
 
   &-button {
-    @include sui-button;
+    @include sui-button($type-card-subscription-button);
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
 
     &Icon {
       fill: $c-card-subscription-icon !important;

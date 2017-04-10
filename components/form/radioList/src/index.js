@@ -13,8 +13,9 @@ export default function FormRadioList ({
       const checked = selectedValue === value
       const labelClassName = cx(`sui-FormRadioList-label`, {
         'is-active': checked,
-        [classNameItem]: !!classNameItem
+        [`${classNameItem} ${classNameItem}--${value}`]: !!classNameItem
       })
+
       return (
         <label key={index} className={labelClassName}>
           <input

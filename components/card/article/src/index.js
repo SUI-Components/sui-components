@@ -10,6 +10,17 @@ const CardArticleMedia = ({ src, alt = '' }) => (
   </div>
 )
 
+const _renderComments = ({ icon, url, count }, Link) => {
+  const IconComment = icon || Commentsquare
+
+  return (
+    <Link href={url} className='sui-CardArticle-comments'>
+      <IconComment svgClass='sui-CardArticle-commentsIcon' />
+      {count}
+    </Link>
+  )
+}
+
 /**
  * Article card containing a media object, title, description and some editorial
  * information (tag and comments).
@@ -25,7 +36,6 @@ export default function CardArticle (props) {
     lazyLoad
   } = props
   const Link = props.linkFactory
-  const IconComment = comments.icon || Commentsquare
   const tagClassName = cx('sui-CardArticle-tag', {
     [`sui-CardArticle-tag--${tag.type}`]: typeof tag.type !== 'undefined'
   })
@@ -42,10 +52,7 @@ export default function CardArticle (props) {
         <Link href={tag.url} className={tagClassName}>
           {tag.text}
         </Link>
-        <Link href={comments.url} className='sui-CardArticle-comments'>
-          <IconComment svgClass='sui-CardArticle-commentsIcon' />
-          {comments.count}
-        </Link>
+        {comments && _renderComments(comments, Link)}
       </div>
       <Link href={link} className='sui-CardArticle-link'>
         <div className='sui-CardArticle-content'>

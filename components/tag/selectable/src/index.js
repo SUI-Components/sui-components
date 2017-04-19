@@ -2,14 +2,14 @@ import React, {PropTypes} from 'react'
 import cx from 'classnames'
 import Check from '@schibstedspain/sui-svgiconset/lib/Check'
 
-const TagSelectableClassName = ({isSelected}) => cx('sui-TagSelectable', {
+const tagSelectableClassName = ({isSelected}) => cx('sui-TagSelectable', {
   'is-selected': isSelected
 })
 
 const TagSelectable = ({onClick, isSelected, label, icon: Icon = Check} = {}) =>
   <button
     onClick={onClick}
-    className={TagSelectableClassName({isSelected: isSelected})}>
+    className={tagSelectableClassName({isSelected})}>
     {Icon &&
       <Icon svgClass='sui-TagSelectable-icon' />
     }

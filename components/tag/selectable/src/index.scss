@@ -1,0 +1,16 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-TagSelectable {
+  @include reset-button;
+  @include sui-tag;
+
+  &.is-selected {
+    border-color: $c-primary;
+  }
+
+  &-icon {
+    fill: $c-primary !important;
+    margin-right: $m-h-small;
+    width: 14px;
+  }
+}

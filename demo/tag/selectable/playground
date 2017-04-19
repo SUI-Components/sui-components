@@ -1,0 +1,46 @@
+/* eslint-disable react/react-in-jsx-scope, react/jsx-no-bind, no-undef, react/jsx-no-undef */
+
+const checkIcon = ({ svgClass }) => <svg className={svgClass} viewBox='0 0 64 64'><path d='M21.92,54.91,2.51,33.34a2,2,0,0,1,3-2.68L22.08,49.09,58.59,12.59a2,2,0,0,1,2.83,2.83Z' /></svg>
+
+const tagLabel = 'Tag selectable'
+
+class MyTagSelectable extends React.Component {
+  constructor (...args) {
+    super(...args)
+    this.state = {
+      isSelected: false,
+      icon: null
+    }
+  }
+
+  _toggleSelected () {
+    this.setState({
+      isSelected: !this.state.isSelected
+    })
+  }
+
+  _toggleIcon () {
+    this.setState({
+      icon: !this.state.isSelected ? checkIcon : null
+    })
+  }
+
+  _handleClick (event) {
+    event.preventDefault()
+    this._toggleSelected()
+    this._toggleIcon()
+  }
+
+  render () {
+    return (
+      <TagSelectable
+        onClick={this._handleClick.bind(this)}
+        isSelected={this.state.isSelected}
+        label={tagLabel}
+        icon={this.state.icon}
+      />
+    )
+  }
+}
+
+return (<MyTagSelectable />)

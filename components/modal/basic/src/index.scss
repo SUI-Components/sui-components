@@ -86,7 +86,6 @@
 
   &-content {
     -webkit-overflow-scrolling: touch;
-    border-bottom: $bd-modal-basic-content;
     border-top: $bd-modal-basic-content;
     flex: 1 1 auto;
     overflow-y: auto;
@@ -95,6 +94,7 @@
   }
 
   &-footer {
+    border-top: $bd-modal-basic-content;
     padding: $p-modal-basic-footer;
   }
 }

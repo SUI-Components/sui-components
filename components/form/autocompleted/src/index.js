@@ -66,7 +66,7 @@ export default class FormAutocompleted extends Component {
     })
   }
 
-  _focusInput = () => {
+  focusInput = () => {
     this.input.focus()
   }
 
@@ -89,7 +89,7 @@ export default class FormAutocompleted extends Component {
         value: ''
       }
     })
-    this._focusInput()
+    this.focusInput()
   }
 
   _handleSelect = (suggest) => {
@@ -135,7 +135,7 @@ export default class FormAutocompleted extends Component {
 
   componentDidMount () {
     if (this.state.focus) {
-      this._focusInput()
+      this.focusInput()
     }
   }
 
@@ -147,7 +147,7 @@ export default class FormAutocompleted extends Component {
 
   componentWillUpdate (nextProps, { focus }) {
     if (focus) {
-      this._focusInput()
+      this.focusInput()
     }
   }
 

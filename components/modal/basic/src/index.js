@@ -53,7 +53,7 @@ class ModalBasic extends Component {
   }
 
   _renderHeader = () => {
-    const { header, IconClose, textClose, textCloseHidden } = this.props
+    const { header, iconClose: IconClose, textClose, textCloseHidden } = this.props
     return (
       <div
         className='sui-ModalBasic-header'
@@ -130,7 +130,7 @@ ModalBasic.propTypes = {
   fitWindow: PropTypes.bool,
   footer: PropTypes.element,
   header: PropTypes.element,
-  IconClose: PropTypes.element,
+  iconClose: PropTypes.func,
   open: PropTypes.bool,
   textClose: PropTypes.string,
   textCloseHidden: PropTypes.bool,
@@ -142,7 +142,7 @@ ModalBasic.defaultProps = {
   closeOnOutsideClick: false,
   disableWindowScroll: true,
   fitWindow: false,
-  IconClose: IconX,
+  iconClose: IconX,
   open: false,
   textClose: 'Close',
   textCloseHidden: true,

@@ -33,15 +33,19 @@ export default function CardArticle (props) {
     description,
     tag,
     comments,
-    lazyLoad
+    lazyLoad,
+    featured = false
   } = props
   const Link = props.linkFactory
   const tagClassName = cx('sui-CardArticle-tag', {
     [`sui-CardArticle-tag--${tag.type}`]: typeof tag.type !== 'undefined'
   })
+  const cardClassName = cx('sui-CardArticle', {
+    'is-featured': featured
+  })
 
   return (
-    <div className='sui-CardArticle'>
+    <div className={cardClassName}>
       <Link href={link} className='sui-CardArticle-link'>
         {lazyLoad
           ? <ImageLazyLoad {...lazyLoad} {...media} />
@@ -49,10 +53,12 @@ export default function CardArticle (props) {
         }
       </Link>
       <div className='sui-CardArticle-info'>
-        <Link href={tag.url} className={tagClassName}>
-          {tag.text}
-        </Link>
-        {comments && _renderComments(comments, Link)}
+        <div className='sui-CardArticle-infoInner'>
+          <Link href={tag.url} className={tagClassName}>
+            {tag.text}
+          </Link>
+          {comments && _renderComments(comments, Link)}
+        </div>
       </div>
       <Link href={link} className='sui-CardArticle-link'>
         <div className='sui-CardArticle-content'>
@@ -130,6 +136,10 @@ CardArticle.propTypes = {
      */
     icon: PropTypes.func
   }),
+  /**
+   * Featured flag
+   */
+  featured: PropTypes.bool,
   /**
    * Lazy load flag / config.
    */

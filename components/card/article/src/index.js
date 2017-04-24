@@ -34,7 +34,7 @@ export default function CardArticle (props) {
     tag,
     comments,
     lazyLoad,
-    featured = false
+    featured
   } = props
   const Link = props.linkFactory
   const tagClassName = cx('sui-CardArticle-tag', {
@@ -150,6 +150,7 @@ CardArticle.propTypes = {
 }
 
 CardArticle.defaultProps = {
+  featured: false,
   linkFactory: ({ href, className, children }) =>
     <a href={href} className={className}>{children}</a>
 }

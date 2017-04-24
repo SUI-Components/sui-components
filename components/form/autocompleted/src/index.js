@@ -118,6 +118,13 @@ export default class FormAutocompleted extends Component {
     }
   }
 
+  _renderSubmitButton = ({ text, icon: Icon }) => (
+    <button className='sui-FormAutocompleted-submit' onClick={this._handleSubmit}>
+      {Icon && <Icon svgClass='sui-FormAutocompleted-submitIcon' />}
+      {text}
+    </button>
+  )
+
   _renderSuggestsList () {
     const { suggests } = this.props
     const { active } = this.state
@@ -153,7 +160,6 @@ export default class FormAutocompleted extends Component {
 
   render () {
     const { placeholder, handleFocus, handleBlur, submit, collapsed } = this.props
-    const { text: submitText, icon: SubmitIcon } = submit
     const { value, showSuggestsList } = this.state
     const formAutocompletedClassName = cx('sui-FormAutocompleted', {
       'is-collapsed': submit && collapsed
@@ -180,12 +186,7 @@ export default class FormAutocompleted extends Component {
               />
             }
           </div>
-          {submit &&
-            <button className='sui-FormAutocompleted-submit' onClick={this._handleSubmit}>
-              {SubmitIcon && <SubmitIcon svgClass='sui-FormAutocompleted-submitIcon' />}
-              {submitText && submitText}
-            </button>
-          }
+          {submit && this._renderSubmitButton(submit)}
         </div>
         {showSuggestsList && this._renderSuggestsList()}
       </div>
@@ -268,8 +269,7 @@ FormAutocompleted.propTypes = {
 FormAutocompleted.defaultProps = {
   initialValue: '',
   selectFirstByDefault: true,
-  focus: false,
-  submit: false
+  focus: false
 }
 
 FormAutocompleted.displayName = 'FormAutocompleted'

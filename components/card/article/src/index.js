@@ -25,19 +25,22 @@ const _renderComments = ({ icon, url, count }, Link) => {
  * Article card containing a media object, title, description and some editorial
  * information (tag and comments).
  */
-export default function CardArticle (props) {
-  const {
-    link,
-    media,
-    title,
-    description,
-    tag,
-    comments,
-    lazyLoad
-  } = props
-  const Link = props.linkFactory
+export default function CardArticle ({
+  linkFactory: Link,
+  link,
+  media,
+  title,
+  description,
+  tag,
+  comments,
+  lazyLoad,
+  featured
+}) {
   const tagClassName = cx('sui-CardArticle-tag', {
     [`sui-CardArticle-tag--${tag.type}`]: typeof tag.type !== 'undefined'
+  })
+  const cardInfoClassName = cx('sui-CardArticle-info', {
+    'is-featured': featured
   })
 
   return (
@@ -48,11 +51,13 @@ export default function CardArticle (props) {
           : <CardArticleMedia {...media} />
         }
       </Link>
-      <div className='sui-CardArticle-info'>
-        <Link href={tag.url} className={tagClassName}>
-          {tag.text}
-        </Link>
-        {comments && _renderComments(comments, Link)}
+      <div className={cardInfoClassName}>
+        <div className='sui-CardArticle-infoInner'>
+          <Link href={tag.url} className={tagClassName}>
+            {tag.text}
+          </Link>
+          {comments && _renderComments(comments, Link)}
+        </div>
       </div>
       <Link href={link} className='sui-CardArticle-link'>
         <div className='sui-CardArticle-content'>
@@ -131,6 +136,10 @@ CardArticle.propTypes = {
     icon: PropTypes.func
   }),
   /**
+   * Featured flag
+   */
+  featured: PropTypes.bool,
+  /**
    * Lazy load flag / config.
    */
   lazyLoad: PropTypes.oneOfType([
@@ -140,6 +149,7 @@ CardArticle.propTypes = {
 }
 
 CardArticle.defaultProps = {
+  featured: false,
   linkFactory: ({ href, className, children }) =>
     <a href={href} className={className}>{children}</a>
 }

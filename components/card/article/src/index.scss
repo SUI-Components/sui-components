@@ -1,4 +1,4 @@
-/* sass-lint:disable no-important */
+/* sass-lint:disable no-important, class-name-format*/
 @import '~@schibstedspain/theme-basic/lib/index';
 @import '~@schibstedspain/sui-image-lazy-load/lib/index';
 
@@ -13,11 +13,17 @@ $c-article-tag-types: () !default;
   }
 
   &-info {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 $m-h;
-    padding: $p-v 0;
+    &.is-featured {
+      border-top: $bd-article-featured;
+    }
+
+    &Inner {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 $m-h;
+      padding: $p-v 0;
+    }
   }
 
   &-tag {

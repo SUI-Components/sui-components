@@ -13,7 +13,7 @@ $c-article-tag-types: () !default;
   }
 
   &-info {
-    .is-featured & {
+    &.is-featured {
       border-top: $bd-article-featured;
     }
 

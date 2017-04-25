@@ -25,34 +25,33 @@ const _renderComments = ({ icon, url, count }, Link) => {
  * Article card containing a media object, title, description and some editorial
  * information (tag and comments).
  */
-export default function CardArticle (props) {
-  const {
-    link,
-    media,
-    title,
-    description,
-    tag,
-    comments,
-    lazyLoad,
-    featured
-  } = props
-  const Link = props.linkFactory
+export default function CardArticle ({
+  linkFactory: Link,
+  link,
+  media,
+  title,
+  description,
+  tag,
+  comments,
+  lazyLoad,
+  featured
+}) {
   const tagClassName = cx('sui-CardArticle-tag', {
     [`sui-CardArticle-tag--${tag.type}`]: typeof tag.type !== 'undefined'
   })
-  const cardClassName = cx('sui-CardArticle', {
+  const cardInfoClassName = cx('sui-CardArticle-info', {
     'is-featured': featured
   })
 
   return (
-    <div className={cardClassName}>
+    <div className='sui-CardArticle'>
       <Link href={link} className='sui-CardArticle-link'>
         {lazyLoad
           ? <ImageLazyLoad {...lazyLoad} {...media} />
           : <CardArticleMedia {...media} />
         }
       </Link>
-      <div className='sui-CardArticle-info'>
+      <div className={cardInfoClassName}>
         <div className='sui-CardArticle-infoInner'>
           <Link href={tag.url} className={tagClassName}>
             {tag.text}

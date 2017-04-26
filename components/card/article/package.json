@@ -17,6 +17,7 @@
   "dependencies": {
     "@schibstedspain/sui-image-lazy-load": "1",
     "@schibstedspain/sui-svgiconset": "1",
+    "@schibstedspain/sui-tag-chip": "1",
     "@schibstedspain/suistudio-fatigue-deps": "github:SUI-Components/suistudio-fatigue-deps"
   }
 }

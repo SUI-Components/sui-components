@@ -6,8 +6,9 @@ const Tag = ({Link, children, url, ...rest} = {}) => url
   ? <Link href={url} {...rest}>{children}</Link>
   : <span {...rest}>{children}</span>
 
-const tagChipClassName = ({isClickable}) => cx('sui-TagChip', {
-  'sui-TagChip-link': isClickable
+const tagChipClassName = ({isClickable, className}) => cx('sui-TagChip', {
+  'sui-TagChip-link': isClickable,
+  [className]: className
 })
 
 const preventDefaultHandler = handler => event =>
@@ -17,12 +18,12 @@ const preventDefaultHandler = handler => event =>
     handler.apply()
   )
 
-const TagChip = ({onRequestDelete, onClick, label, link: url, linkFactory, icon: Icon = CircleX} = {}) =>
+const TagChip = ({onRequestDelete, onClick, label, link: url, linkFactory, className, icon: Icon = CircleX} = {}) =>
   <Tag
     onClick={preventDefaultHandler(onClick)}
     url={url}
     Link={linkFactory}
-    className={tagChipClassName({isClickable: url || onClick})}
+    className={tagChipClassName({isClickable: url || onClick, className})}
     >
     {label}
     {onRequestDelete &&

@@ -1,3 +1,4 @@
+/* sass-lint:disable no-important, class-name-format*/
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-FormAutocompleted {
@@ -19,6 +20,7 @@
     .is-collapsed & {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
+
       &,
       &:hover,
       &:active,
@@ -27,6 +29,7 @@
       }
     }
   }
+
   &-clear {
     cursor: pointer;
 
@@ -41,12 +44,13 @@
   &-suggests {
     @include reset-list;
     background: $bgc-form-autocompleted;
-    border-radius: $bdr-form-autocompleted;
     border: $bd-form-autocompleted;
+    border-radius: $bdr-form-autocompleted;
     left: 0;
     margin-top: $mt-form-autocompleted;
     position: absolute;
     right: 0;
+    z-index: 1;
 
     &Item {
       padding: $p-form-autocompleted-item;
@@ -55,6 +59,7 @@
         border-top-left-radius: $bdr-form-autocompleted;
         border-top-right-radius: $bdr-form-autocompleted;
       }
+
       &:last-child {
         border-bottom-left-radius: $bdr-form-autocompleted;
         border-bottom-right-radius: $bdr-form-autocompleted;
@@ -64,6 +69,7 @@
         background: $bgc-form-autocompleted-item-hover;
         cursor: pointer;
       }
+
       &.is-active {
         background: $bgc-form-autocompleted-item-active;
       }

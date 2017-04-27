@@ -3,6 +3,7 @@ import React, { PropTypes } from 'react'
 import cx from 'classnames'
 import Commentsquare from '@schibstedspain/sui-svgiconset/lib/Commentsquare'
 import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
+import TagChip from '@schibstedspain/sui-tag-chip'
 
 const CardArticleMedia = ({ src, alt = '' }) => (
   <div className='sui-CardArticle-media'>
@@ -53,9 +54,7 @@ export default function CardArticle ({
       </Link>
       <div className={cardInfoClassName}>
         <div className='sui-CardArticle-infoInner'>
-          <Link href={tag.url} className={tagClassName}>
-            {tag.text}
-          </Link>
+          <TagChip label={tag.text} link={tag.url} className={tagClassName} />
           {comments && _renderComments(comments, Link)}
         </div>
       </div>

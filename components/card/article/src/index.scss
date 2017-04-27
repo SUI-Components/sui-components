@@ -1,8 +1,8 @@
 /* sass-lint:disable no-important, class-name-format*/
 @import '~@schibstedspain/theme-basic/lib/index';
 @import '~@schibstedspain/sui-image-lazy-load/lib/index';
+@import '~@schibstedspain/sui-tag-chip/lib/index';
 
-$c-article-tag: $c-gray-light !default;
 $c-article-tag-types: () !default;
 
 .sui-CardArticle {
@@ -28,17 +28,13 @@ $c-article-tag-types: () !default;
 
   &-tag {
     @include reset-link;
-    background-color: $c-article-tag;
-    border-radius: $bdrs-small;
-    color: $c-white;
-    font-size: $fz-s;
-    font-weight: $fw-bold;
-    padding: $p-v-xsmall $p-h-xsmall;
+    margin-bottom: 0;
     text-transform: uppercase;
 
-    @each $type, $color in $c-article-tag-types {
+    @each $type, $attrs in $c-article-tag-types {
       &--#{$type} {
-        background-color: $color;
+        background-color: map-get($attrs, background-color);
+        color: map-get($attrs, color);
       }
     }
   }

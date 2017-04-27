@@ -6,9 +6,8 @@ const Tag = ({Link, children, url, ...rest} = {}) => url
   ? <Link href={url} {...rest}>{children}</Link>
   : <span {...rest}>{children}</span>
 
-const tagChipClassName = ({isClickable, className}) => cx('sui-TagChip', {
-  'sui-TagChip-link': isClickable,
-  [className]: className
+const tagChipClassName = ({isClickable, className = null}) => cx('sui-TagChip', className, {
+  'sui-TagChip-link': isClickable
 })
 
 const preventDefaultHandler = handler => event =>

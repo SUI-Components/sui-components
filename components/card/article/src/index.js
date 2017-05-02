@@ -152,7 +152,6 @@ CardArticle.propTypes = {
 
 CardArticle.defaultProps = {
   featured: false,
-  tagClassName: null,
   linkFactory: ({ href, className, children }) =>
     <a href={href} className={className}>{children}</a>
 }

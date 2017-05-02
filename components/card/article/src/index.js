@@ -35,11 +35,10 @@ export default function CardArticle ({
   tag,
   comments,
   lazyLoad,
+  tagClassName,
   featured
 }) {
-  const tagClassName = cx('sui-CardArticle-tag', {
-    [`sui-CardArticle-tag--${tag.type}`]: typeof tag.type !== 'undefined'
-  })
+  const suiTagClassName = cx('sui-CardArticle-tag', tagClassName)
   const cardInfoClassName = cx('sui-CardArticle-info', {
     'is-featured': featured
   })
@@ -54,7 +53,7 @@ export default function CardArticle ({
       </Link>
       <div className={cardInfoClassName}>
         <div className='sui-CardArticle-infoInner'>
-          <TagChip label={tag.text} link={tag.url} className={tagClassName} />
+          <TagChip label={tag.text} link={tag.url} className={suiTagClassName} />
           {comments && _renderComments(comments, Link)}
         </div>
       </div>
@@ -138,6 +137,10 @@ CardArticle.propTypes = {
    * Featured flag
    */
   featured: PropTypes.bool,
+  /**
+   *  Custom tag class name
+   */
+  tagClassName: PropTypes.string,
   /**
    * Lazy load flag / config.
    */

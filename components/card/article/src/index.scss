@@ -27,16 +27,7 @@ $c-article-tag-types: () !default;
   }
 
   &-tag {
-    @include reset-link;
     margin-bottom: 0;
-    text-transform: uppercase;
-
-    @each $type, $attrs in $c-article-tag-types {
-      &--#{$type} {
-        background-color: map-get($attrs, background-color);
-        color: map-get($attrs, color);
-      }
-    }
   }
 
   &-comments {

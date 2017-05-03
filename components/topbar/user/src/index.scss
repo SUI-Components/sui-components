@@ -142,7 +142,11 @@
       &CTA {
         &Link {
           @include reset-link;
-          @include sui-button($color: $bgc-topbar-user-cta);
+          @include sui-button(
+            'custom',
+            $background-color: $bgc-topbar-user-cta,
+            $icon-fill: $c-white
+          );
         }
       }
     }

@@ -102,7 +102,7 @@ class TopbarUser extends Component {
   /**
    * Render main navigation function.
    */
-  _renderNavMain = ({
+  _renderNavMain = isToggleHidden => ({
     icon,
     label: text,
     menu,
@@ -113,7 +113,7 @@ class TopbarUser extends Component {
         key={index}
         button={{ icon, text, arrowButtonIcon }}
         menu={menu}
-        expandOnMouseOver
+        expandOnMouseOver={isToggleHidden}
       />
     )
   }
@@ -167,7 +167,7 @@ class TopbarUser extends Component {
         >
           <div className='sui-TopbarUser-nav'>
             <div className='sui-TopbarUser-navMain'>
-              {navMain.map(this._renderNavMain)}
+              {navMain.map(this._renderNavMain(isToggleHidden))}
             </div>
             <div className='sui-TopbarUser-navUser'>
               <DropdownUser

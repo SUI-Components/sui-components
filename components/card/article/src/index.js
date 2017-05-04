@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 import cx from 'classnames'
 import Commentsquare from '@schibstedspain/sui-svgiconset/lib/Commentsquare'
 import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
-import TagChip from '@schibstedspain/sui-tag-chip'
+import SuiTagChip from '@schibstedspain/sui-tag-chip'
 
 const CardArticleMedia = ({ src, alt = '' }) => (
   <div className='sui-CardArticle-media'>
@@ -33,6 +33,7 @@ export default function CardArticle ({
   title,
   description,
   tag,
+  tagChip: TagChip,
   comments,
   lazyLoad,
   tagClassName,
@@ -147,10 +148,15 @@ CardArticle.propTypes = {
   lazyLoad: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.object
-  ])
+  ]),
+  /**
+   * Tag chip component
+   */
+  tagChip: PropTypes.func
 }
 
 CardArticle.defaultProps = {
+  tagChip: SuiTagChip,
   featured: false,
   linkFactory: ({ href, className, children }) =>
     <a href={href} className={className}>{children}</a>

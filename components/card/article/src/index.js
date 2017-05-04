@@ -148,7 +148,11 @@ CardArticle.propTypes = {
   lazyLoad: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.object
-  ])
+  ]),
+  /**
+   * Tag chip component
+   */
+  tagChip: PropTypes.func
 }
 
 CardArticle.defaultProps = {

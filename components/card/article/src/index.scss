@@ -27,7 +27,9 @@ $c-article-tag-types: () !default;
   }
 
   &-tag {
-    margin-bottom: 0;
+    &.sui-TagChip {
+      margin: 0;
+    }
   }
 
   &-comments {

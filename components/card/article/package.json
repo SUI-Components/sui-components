@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-card-article",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "description": "SUI Card Article",
   "main": "lib/index.js",
   "scripts": {

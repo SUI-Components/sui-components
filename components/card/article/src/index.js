@@ -2,14 +2,19 @@
 import React, { PropTypes } from 'react'
 import cx from 'classnames'
 import Commentsquare from '@schibstedspain/sui-svgiconset/lib/Commentsquare'
+import MediaPlay from '@schibstedspain/sui-svgiconset/lib/Mediaplay'
 import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
 import SuiTagChip from '@schibstedspain/sui-tag-chip'
 
-const CardArticleMedia = ({ src, alt = '' }) => (
-  <div className='sui-CardArticle-media'>
+const cardArticleMediaClassName = (video) => cx('sui-CardArticle-media', {
+  'sui-CardArticle-media--video': video
+})
+
+const CardArticleMedia = ({ src, alt = '' }) => {
+  return (
     <img src={src} alt={alt} />
-  </div>
-)
+  )
+}
 
 const _renderComments = ({ icon, url, count }, Link) => {
   const IconComment = icon || Commentsquare
@@ -37,20 +42,25 @@ export default function CardArticle ({
   comments,
   lazyLoad,
   tagClassName,
-  featured
+  featured,
+  video
 }) {
   const suiTagClassName = cx('sui-CardArticle-tag', tagClassName)
   const cardInfoClassName = cx('sui-CardArticle-info', {
     'is-featured': featured
   })
+  const MediaIcon = media.icon || MediaPlay
 
   return (
     <div className='sui-CardArticle'>
       <Link href={link} className='sui-CardArticle-link'>
-        {lazyLoad
-          ? <ImageLazyLoad {...lazyLoad} {...media} />
-          : <CardArticleMedia {...media} />
-        }
+        <div className={cardArticleMediaClassName(video)}>
+          {video && <MediaIcon svgClass='sui-CardArticle-mediaIcon' /> }
+          {lazyLoad
+            ? <ImageLazyLoad {...lazyLoad} {...media} />
+          : <CardArticleMedia {...media} video={video} />
+          }
+        </div>
       </Link>
       <div className={cardInfoClassName}>
         <div className='sui-CardArticle-infoInner'>
@@ -90,7 +100,11 @@ CardArticle.propTypes = {
     /**
      * Image source.
      */
-    src: PropTypes.string.isRequired
+    src: PropTypes.string.isRequired,
+    /**
+     * media icon
+     */
+    icon: PropTypes.func
   }),
   /**
    * Optional card title.
@@ -152,7 +166,11 @@ CardArticle.propTypes = {
   /**
    * Tag chip component
    */
-  tagChip: PropTypes.func
+  tagChip: PropTypes.func,
+  /**
+   * Video flag (displays media icon)
+   */
+  video: PropTypes.bool
 }
 
 CardArticle.defaultProps = {

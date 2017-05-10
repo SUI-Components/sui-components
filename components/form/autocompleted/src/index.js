@@ -56,6 +56,8 @@ export default class FormAutocompleted extends Component {
       const value = suggest.literal || suggest.content
       this.setState({ value })
       this._handleSelect(suggest)
+    } else {
+      this._handleSubmit()
     }
   }
 

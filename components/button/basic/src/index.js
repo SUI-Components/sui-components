@@ -12,10 +12,10 @@ function ButtonBasic ({
 }) {
   const className = cx(
     'sui-ButtonBasic',
+    `sui-ButtonBasic--${size}`,
     `sui-ButtonBasic--${type}`,
     {
-      [`sui-ButtonBasic--${layout}`]: layout,
-      [`sui-ButtonBasic--${size}`]: size
+      [`sui-ButtonBasic--${layout}`]: layout
     }
   )
 

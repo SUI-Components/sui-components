@@ -1,3 +1,16 @@
-
 ### ButtonBasic
-Dont forget write a README
+
+This button is following Schibsted Spain UX Guide Style.
+
+It offers different types, that will change colors. Those flavours are: 'primary', 'secondary', 'accent', 'ghost', 'flat'.
+
+Also, you can use it in three different sizes: 'small', 'medium', 'large'.
+
+Obviously you can use both type and size in order to get your desired button. For example:
+
+<ButtonBasic
+  size='small'
+  type='flat'
+/>
+
+Check the playground and the available propTypes of the component in order to get a complete view of the possibilities of the component.

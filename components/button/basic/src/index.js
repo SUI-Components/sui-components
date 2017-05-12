@@ -35,18 +35,17 @@ function ButtonBasic ({
 ButtonBasic.displayName = 'ButtonBasic'
 
 ButtonBasic.defaultProps = {
-  type: 'primary',
-  size: 'medium'
+  size: 'medium',
+  type: 'primary'
 }
 
 ButtonBasic.propTypes = {
   disabled: PropTypes.bool,
-  fullWidth: PropTypes.bool,
   icon: PropTypes.element,
-  text: PropTypes.string,
   layout: PropTypes.oneOf(['full']),
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  text: PropTypes.string,
   type: PropTypes.oneOf(
           ['primary', 'secondary', 'accent', 'ghost', 'flat']
         )

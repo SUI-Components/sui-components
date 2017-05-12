@@ -59,4 +59,10 @@ const demoButtons = types.reduce((acc, type) => {
   return acc
 }, [])
 
-return (<div>{demoButtons}</div>)
+return (
+  <div>
+    <h2>Button default</h2>
+    <ButtonBasic text='Default Button' />
+    {demoButtons}
+  </div>
+)

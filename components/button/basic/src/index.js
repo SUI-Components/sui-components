@@ -44,7 +44,7 @@ ButtonBasic.propTypes = {
   layout: PropTypes.oneOf(['full']),
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  text: PropTypes.string,
+  text: PropTypes.string.isRequired,
   type: PropTypes.oneOf(
           ['primary', 'secondary', 'accent', 'ghost', 'flat']
         )

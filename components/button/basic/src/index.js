@@ -3,7 +3,6 @@ import cx from 'classnames'
 
 function ButtonBasic ({
   disabled,
-  fullWidth,
   icon,
   text,
   layout,

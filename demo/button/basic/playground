@@ -44,15 +44,17 @@ const demoButtons = types.reduce((acc, type) => {
       />
     )
 
-    acc.push(
-      <ButtonBasic
-        key={type + size + 'full width'}
-        layout='full'
-        size={size}
-        text={`Button ${capitalize(type)} ${capitalize(size)} full width`}
-        type={type}
-      />
-    )
+    layouts.forEach(layout => {
+      acc.push(
+        <ButtonBasic
+          key={type + size + layout}
+          layout={layout}
+          size={size}
+          text={`Button ${capitalize(type)} ${capitalize(size)} ${layout}`}
+          type={type}
+        />
+      )
+    })
   })
   return acc
 }, [])

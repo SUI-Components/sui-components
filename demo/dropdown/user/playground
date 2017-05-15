@@ -24,7 +24,7 @@ const menu = [
 ]
 
 const user = {
-  avatar: 'http://static9.comicvine.com/uploads/square_small/5/50734/1375968-ba8.jpg',
+  avatar: 'https://s.ccdn.es/images/user-default.jpg',
   name: 'User name with long name'
 }
 

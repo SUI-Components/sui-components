@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-button-basic",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "SUI Button Basic",
   "main": "lib/index.js",
   "scripts": {

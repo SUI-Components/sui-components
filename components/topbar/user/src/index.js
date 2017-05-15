@@ -157,7 +157,7 @@ class TopbarUser extends Component {
         >
           <ToggleIcon svgClass='sui-TopbarUser-toggleIcon' />
         </button>
-        <Link href={brandUrl} className='sui-TopbarUser-brand'>
+        <Link href={brandUrl} className='sui-TopbarUser-brand' title={brandName}>
           {brandName}
         </Link>
         <div
@@ -178,7 +178,7 @@ class TopbarUser extends Component {
             </div>
             {navCTA &&
               <div className='sui-TopbarUser-navCTA'>
-                <Link href={navCTA.url} className='sui-TopbarUser-navCTALink'>
+                <Link href={navCTA.url} className='sui-TopbarUser-navCTALink' title={navCTA.text}>
                   {navCTA.icon &&
                     <navCTA.icon svgClass='sui-TopbarUser-navCTAIcon' />
                   }
@@ -303,8 +303,8 @@ TopbarUser.propTypes = {
 
 TopbarUser.defaultProps = {
   toggleIcon: Menu,
-  linkFactory: ({ href, className, children }) =>
-    <a href={href} className={className}>{children}</a>
+  linkFactory: ({ href, className, children, title }) =>
+    <a href={href} className={className} title={title}>{children}</a>
 }
 
 export default TopbarUser

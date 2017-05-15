@@ -69,7 +69,7 @@ class DropdownBasic extends Component {
 
     return (
       <li key={index} className='sui-DropdownBasicMenu-listItem'>
-        <Link href={url} className='sui-DropdownBasicMenu-listLink'>
+        <Link href={url} className='sui-DropdownBasicMenu-listLink' title={text}>
           {text}
         </Link>
       </li>
@@ -169,8 +169,8 @@ DropdownBasic.propTypes = {
 
 DropdownBasic.defaultProps = {
   expandOnMouseOver: false,
-  linkFactory: ({ href, className, children }) =>
-    <a href={href} className={className}>{children}</a>
+  linkFactory: ({ href, className, children, title }) =>
+    <a href={href} className={className} title={title}>{children}</a>
 }
 
 export default DropdownBasic

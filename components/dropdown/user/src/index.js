@@ -35,7 +35,7 @@ class DropdownUser extends Component {
 
     return (
       <li key={index} className='sui-DropdownUserMenu-listItem'>
-        <Link href={url} className='sui-DropdownUserMenu-listLink'>
+        <Link href={url} className='sui-DropdownUserMenu-listLink' title={text}>
           <Icon svgClass='sui-DropdownUserMenu-listIcon' />
           <span>{text}</span>
         </Link>
@@ -125,8 +125,8 @@ DropdownUser.propTypes = {
 
 DropdownUser.defaultProps = {
   expandOnMouseOver: false,
-  linkFactory: ({ href, className, children }) =>
-    <a href={href} className={className}>{children}</a>
+  linkFactory: ({ href, className, children, title }) =>
+    <a href={href} className={className} title={title}>{children}</a>
 }
 
 export default DropdownUser

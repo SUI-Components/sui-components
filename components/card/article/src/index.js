@@ -20,7 +20,7 @@ const _renderComments = ({ icon, url, count }, Link) => {
   const IconComment = icon || Commentsquare
 
   return (
-    <Link href={url} className='sui-CardArticle-comments'>
+    <Link href={url} className='sui-CardArticle-comments' title={count}>
       <IconComment svgClass='sui-CardArticle-commentsIcon' />
       {count}
     </Link>
@@ -53,7 +53,7 @@ export default function CardArticle ({
 
   return (
     <div className='sui-CardArticle'>
-      <Link href={link} className='sui-CardArticle-link'>
+      <Link href={link} className='sui-CardArticle-link' title={title}>
         <div className={cardArticleMediaClassName(video)}>
           {video && <MediaIcon svgClass='sui-CardArticle-mediaIcon' /> }
           {lazyLoad
@@ -68,7 +68,7 @@ export default function CardArticle ({
           {comments && _renderComments(comments, Link)}
         </div>
       </div>
-      <Link href={link} className='sui-CardArticle-link'>
+      <Link href={link} className='sui-CardArticle-link' title={title}>
         <div className='sui-CardArticle-content'>
           {title &&
             <header className='sui-CardArticle-title'>{title}</header>
@@ -176,8 +176,8 @@ CardArticle.propTypes = {
 CardArticle.defaultProps = {
   tagChip: SuiTagChip,
   featured: false,
-  linkFactory: ({ href, className, children }) =>
-    <a href={href} className={className}>{children}</a>
+  linkFactory: ({ href, className, children, title }) =>
+    <a href={href} className={className} title={title}>{children}</a>
 }
 
 CardArticle.displayName = 'CardArticle'

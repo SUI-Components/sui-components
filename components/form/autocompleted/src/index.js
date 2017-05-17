@@ -72,6 +72,12 @@ export default class FormAutocompleted extends Component {
     this.input.focus()
   }
 
+  setValue = value => {
+    this.setState({
+      value
+    })
+  }
+
   _handleChange = (event) => {
     const value = event.target.value
     this.setState({

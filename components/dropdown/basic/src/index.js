@@ -35,16 +35,20 @@ class DropdownBasic extends Component {
    * Mouser over event handler.
    */
   _onMouseOver = () => {
-    this._toggleMenu()
-    this.setState({ collapseByTouch: true })
+    this.setState({
+      expanded: true,
+      collapseByTouch: true
+    })
   }
 
   /**
    * Mouser out event handler.
    */
   _onMouseOut = () => {
-    this._toggleMenu()
-    this.setState({ collapseByTouch: false })
+    this.setState({
+      expanded: false,
+      collapseByTouch: false
+    })
   }
 
   /**

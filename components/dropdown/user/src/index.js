@@ -21,13 +21,17 @@ class DropdownUser extends Component {
   }
 
   _onMouseOver = () => {
-    this._toggleMenu()
-    this.setState({ collapseByTouch: true })
+    this.setState({
+      expanded: true,
+      collapseByTouch: true
+    })
   }
 
   _onMouseOut = () => {
-    this._toggleMenu()
-    this.setState({ collapseByTouch: false })
+    this.setState({
+      expanded: false,
+      collapseByTouch: false
+    })
   }
 
   _renderLink = ({ text, url, icon: Icon }, index) => {

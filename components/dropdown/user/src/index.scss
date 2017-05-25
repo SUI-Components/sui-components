@@ -58,7 +58,7 @@
       }
       @include media-breakpoint-up(m) {
         max-width: $w-dropdown-user-text;
-        overflow-x: hidden;
+        overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
       }

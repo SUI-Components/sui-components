@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-dropdown-user",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "SUI Dropdown User",
   "main": "lib/index.js",
   "scripts": {

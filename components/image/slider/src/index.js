@@ -22,7 +22,7 @@ const ImageSlider = (props) => {
  * @param {Array} images List given by props.images.
  * @return {boolean}
  */
-const hasMoreThanOneImage = (images) => (1 < images.length)
+const hasMoreThanOneImage = (images) => (images && 1 < images.length)
 
 /**
  * @param {Array} images List given by props.images.
@@ -30,10 +30,13 @@ const hasMoreThanOneImage = (images) => (1 < images.length)
  * @return {Array} List of SuiMultimedia components.
  */
 const getSlides = (images, lazyLoad) => {
-  if (images.length) {
+  if (images && images.length) {
     return images.map( (image, index) => {
       return (<SuiMultimedia key={index} images={image} lazyLoad={lazyLoad} />)
     })
+  }
+  else{
+    return []
   }
 }
 

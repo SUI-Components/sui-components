@@ -1,0 +1,23 @@
+const props = {
+  lazyLoad: false,
+  images: [
+    {
+      src: 'http://lorempixel.com/400/300/food/',
+      alt: 'Some Text'
+    },
+    {
+      src: 'http://lorempixel.com/400/300/abstract/',
+      alt: 'Text B',
+      link: 'google.es'
+    },
+    {
+      src: 'http://lorempixel.com/400/300/food/'
+    },
+    {
+      src: 'http://lorempixel.com/400/300/abstract/',
+      alt: 'Text D'
+    }
+  ]
+}
+
+return (<ImageSlider { ...props } />)

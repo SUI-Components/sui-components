@@ -1,10 +1,22 @@
+const readdirSync = require('fs').readdirSync
+const statSync = require('fs').statSync
+const path = require('path')
+const BASE_DIR = process.cwd() + '/components'
 
-const readFileSync = require('fs').readFileSync
+const onlyFolders = (filePath) => statSync(filePath).isDirectory()
+const flatten = (x, y) => x.concat(y)
 
-var packageScopes = readFileSync('./.COMPONENTS', 'utf8')
-                      .trim()
-                      .split('\n')
-                      .sort()
+var packageScopes = readdirSync(BASE_DIR)
+  .map(file => path.join(BASE_DIR, file))
+  .filter(onlyFolders)
+  .map(folder => readdirSync(folder)
+    .map(file => path.join(folder, file))
+    .filter(onlyFolders)
+  ).reduce(flatten, [])
+  .map(folder => {
+    const [component, category] = folder.split('/').reverse()
+    return category + '/' + component
+  })
 
 var otherScopes = [
   'META',

@@ -4,6 +4,7 @@ import cx from 'classnames'
 import Menu from '@schibstedspain/sui-svgiconset/lib/Menu'
 import DropdownBasic from '@schibstedspain/sui-dropdown-basic'
 import DropdownUser from '@schibstedspain/sui-dropdown-user'
+import DefaultCallToAction from './default-call-to-action'
 
 const DEFAULT_NAV_WRAP_STYLE = {
   top: 'inherit',
@@ -132,6 +133,7 @@ class TopbarUser extends Component {
   render () {
     const { menuExpanded, isToggleHidden, navWrapStyle } = this.state
     const {
+      callToActionComponent: CallToActionComponent,
       toggleIcon: ToggleIcon,
       brand,
       navMain,
@@ -176,16 +178,7 @@ class TopbarUser extends Component {
                 expandOnMouseOver
               />
             </div>
-            {navCTA &&
-              <div className='sui-TopbarUser-navCTA'>
-                <Link href={navCTA.url} className='sui-TopbarUser-navCTALink' title={navCTA.text}>
-                  {navCTA.icon &&
-                    <navCTA.icon svgClass='sui-TopbarUser-navCTAIcon' />
-                  }
-                  <span>{navCTA.text}</span>
-                </Link>
-              </div>
-            }
+            {navCTA && <CallToActionComponent url={navCTA.url} text={navCTA.text} icon={navCTA.icon} linkFactory={Link} />}
           </div>
         </div>
       </div>
@@ -213,6 +206,10 @@ TopbarUser.propTypes = {
      */
     name: PropTypes.string.isRequired
   }).isRequired,
+  /**
+   * Component to use as Call to Action
+   */
+  callToActionComponent: PropTypes.func,
   /**
    * Main navigation containing an array of dropdown menus.
    */
@@ -303,6 +300,7 @@ TopbarUser.propTypes = {
 
 TopbarUser.defaultProps = {
   toggleIcon: Menu,
+  callToActionComponent: DefaultCallToAction,
   linkFactory: ({ href, className, children, title }) =>
     <a href={href} className={className} title={title}>{children}</a>
 }

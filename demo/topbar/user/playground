@@ -105,6 +105,7 @@ const navCTA = {
   url: 'https://github.com/SUI-Components/sui-components',
   icon: PencilIcon,
   text: 'Check our code',
+  notifications: 5
 }
 
 return (

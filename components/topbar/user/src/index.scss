@@ -102,6 +102,7 @@
           font-size: $fz-h3;
           font-weight: normal;
           padding: $p-v-large $p-h;
+          position: relative;
 
           &:hover {
             color: $c-primary;
@@ -117,6 +118,19 @@
           :hover > & {
             fill: $c-primary !important;
           }
+        }
+
+        &Notifications {
+          background-color: $c-primary;
+          border-radius: 50%;
+          color: $c-white;
+          font-size: $fz-xs;
+          height: 17px;
+          line-height: 17px;
+          position: absolute;
+          right: 7px;
+          text-align: center;
+          width: 17px;
         }
       }
     }
@@ -147,6 +161,21 @@
             $background-color: $bgc-topbar-user-cta,
             $icon-fill: $c-white
           );
+          position: relative;
+        }
+
+        &Notifications {
+          background-color: $c-primary;
+          border-radius: 50%;
+          color: $c-white;
+          font-size: $fz-xs;
+          height: 17px;
+          line-height: 17px;
+          position: absolute;
+          right: -7;
+          text-align: center;
+          top: -7;
+          width: 17px;
         }
       }
     }

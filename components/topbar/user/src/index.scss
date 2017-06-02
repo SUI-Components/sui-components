@@ -3,6 +3,22 @@
 @import '~@schibstedspain/sui-dropdown-basic/lib/index';
 @import '~@schibstedspain/sui-dropdown-user/lib/index';
 
+@mixin notifications($right, $top: false) {
+  $notifications-size: 17px;
+
+  background-color: $c-primary;
+  border-radius: 50%;
+  color: $c-white;
+  font-size: $fz-xs;
+  height: $notifications-size;
+  line-height: $notifications-size;
+  position: absolute;
+  right: $right;
+  text-align: center;
+  @if $top { top: $top; }
+  width: $notifications-size;
+}
+
 .sui-TopbarUser {
   align-items: center;
   background-color: $bgc-topbar-user;
@@ -121,16 +137,7 @@
         }
 
         &Notifications {
-          background-color: $c-primary;
-          border-radius: 50%;
-          color: $c-white;
-          font-size: $fz-xs;
-          height: 17px;
-          line-height: 17px;
-          position: absolute;
-          right: 7px;
-          text-align: center;
-          width: 17px;
+          @include notifications($right: 7px);
         }
       }
     }
@@ -165,17 +172,7 @@
         }
 
         &Notifications {
-          background-color: $c-primary;
-          border-radius: 50%;
-          color: $c-white;
-          font-size: $fz-xs;
-          height: 17px;
-          line-height: 17px;
-          position: absolute;
-          right: -7;
-          text-align: center;
-          top: -7;
-          width: 17px;
+          @include notifications($right: -7px, $top: -7px);
         }
       }
     }

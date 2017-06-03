@@ -26,7 +26,7 @@ const hasMoreThanOneImage = (images) => (images && 1 < images.length)
 /**
  * @param {Array} images List given by props.images.
  * @param {boolean} lazyLoad
- * @return {Array} List of SuiMultimedia components.
+ * @return {Array} List of img elements.
  */
 const getSlides = (images, lazyLoad) => {
   if (images && images.length) {

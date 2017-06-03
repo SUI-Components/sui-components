@@ -16,7 +16,6 @@
   "license": "ISC",
   "dependencies": {
     "@schibstedspain/suistudio-fatigue-deps": "github:SUI-Components/suistudio-fatigue-deps",
-    "react-slidy": "1.2",
-    "@schibstedspain/sui-multimedia": "0.4"
+    "react-slidy": "1.2"
   }
 }

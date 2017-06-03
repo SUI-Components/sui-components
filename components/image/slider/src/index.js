@@ -1,13 +1,12 @@
 import React, {PropTypes} from 'react'
 import ReactSlidy from 'react-slidy'
-import SuiMultimedia from '@schibstedspain/sui-multimedia'
 
 const ImageSlider = (props) => {
 
   const slides = getSlides(props.images, props.lazyLoad)
 
   return (
-    <div className="sui-ImageSlider">
+    <div onClick={props.onClickCB} className="sui-ImageSlider">
       { hasMoreThanOneImage(props.images)
         ? (<ReactSlidy>{ slides }</ReactSlidy>)
         : slides
@@ -32,7 +31,7 @@ const hasMoreThanOneImage = (images) => (images && 1 < images.length)
 const getSlides = (images, lazyLoad) => {
   if (images && images.length) {
     return images.map( (image, index) => {
-      return (<SuiMultimedia key={index} images={image} lazyLoad={lazyLoad} />)
+      return (<img key={index} src={image.src} alt={image.alt} />)
     })
   }
   else{
@@ -41,18 +40,23 @@ const getSlides = (images, lazyLoad) => {
 }
 
 ImageSlider.propTypes = {
+  /**
+   * List of objects with src and alt properties.
+   */
   images: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.string.isRequired,
-      alt: PropTypes.string,
-      link: PropTypes.string
+      alt: PropTypes.string
     }).isRequired
   ),
-  lazyLoad: PropTypes.bool
+  /**
+   * Callback executed when clicking over the slider.
+   */
+  onClickCB: PropTypes.func
 }
 
 ImageSlider.defaultProps = {
-  lazyLoad: false
+  onClickCB: (...args) => {}
 }
 
 ImageSlider.displayName = 'ImageSlider'

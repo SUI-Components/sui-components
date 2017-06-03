@@ -7,8 +7,7 @@ const props = {
     },
     {
       src: 'http://lorempixel.com/400/300/abstract/',
-      alt: 'Text B',
-      link: 'google.es'
+      alt: 'Text B'
     },
     {
       src: 'http://lorempixel.com/400/300/food/'
@@ -16,6 +15,18 @@ const props = {
     {
       src: 'http://lorempixel.com/400/300/abstract/',
       alt: 'Text D'
+    },
+    {
+      src: 'http://lorempixel.com/400/300/abstract/',
+      alt: 'Text E'
+    },
+    {
+      src: 'http://lorempixel.com/400/300/abstract/',
+      alt: 'Text F'
+    },
+    {
+      src: 'http://lorempixel.com/400/300/abstract/',
+      alt: 'Text G'
     }
   ]
 }

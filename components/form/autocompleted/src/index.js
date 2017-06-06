@@ -187,6 +187,10 @@ export default class FormAutocompleted extends Component {
     }
   }
 
+  componentWillUnmount () {
+    window.removeEventListener('click', this._handleOutsideClick, false)
+  }
+
   render () {
     const { placeholder, handleFocus, handleBlur, submit, collapsed } = this.props
     const { value, showSuggestsList } = this.state

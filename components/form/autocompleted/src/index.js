@@ -15,6 +15,9 @@ export default class FormAutocompleted extends Component {
     const { selectFirstByDefault, initialValue, focus } = this.props
 
     this.input = null
+    this.submit = null
+    this.suggestList = null
+
     this.excludeFromOutsideClick = []
     this.defaultPosition = selectFirstByDefault ? 0 : -1
     this.state = {

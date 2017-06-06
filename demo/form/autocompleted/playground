@@ -166,6 +166,7 @@ class MyFormAutocompleted extends React.Component {
         suggests={this.state.suggests}
         submit={{ icon: SearchIcon, text: 'Submit' }}
         collapsed
+        closeOnOutsideClick
         />
     )
   }

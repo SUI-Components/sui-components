@@ -15,6 +15,7 @@ export default class FormAutocompleted extends Component {
     const { selectFirstByDefault, initialValue, focus } = this.props
 
     this.input = null
+    this.excludeFromOutsideClick = []
     this.defaultPosition = selectFirstByDefault ? 0 : -1
     this.state = {
       active: this.defaultPosition,
@@ -127,7 +128,11 @@ export default class FormAutocompleted extends Component {
   }
 
   _renderSubmitButton = ({ text, icon: Icon }) => (
-    <button className='sui-FormAutocompleted-submit' onClick={this._handleSubmit}>
+    <button
+      className='sui-FormAutocompleted-submit'
+      onClick={this._handleSubmit}
+      ref={node => { this.submit = node }}
+    >
       {Icon && <Icon svgClass='sui-FormAutocompleted-submitIcon' />}
       {text}
     </button>
@@ -143,15 +148,28 @@ export default class FormAutocompleted extends Component {
           {...this.props}
           handleSelect={this._handleSelect}
           active={active}
+          ref={node => { this.suggestList = node }}
           />
         )
       : null
   }
+  _handleOutsideClick = (event) =>
+    !this.excludeFromOutsideClick.includes(event.target) &&
+    this.setState({
+      showSuggestsList: false
+    })
 
   componentDidMount () {
     if (this.state.focus) {
       this.focusInput()
     }
+    this.excludeFromOutsideClick = [
+      this.input,
+      this.submit,
+      this.suggestList
+    ]
+    this.props.closeOnOutsideClick === true &&
+    window.addEventListener('click', this._handleOutsideClick, false)
   }
 
   componentWillReceiveProps ({ focus }) {
@@ -236,6 +254,11 @@ FormAutocompleted.propTypes = {
   handleSubmit: PropTypes.func,
 
   /**
+   * Close suggestions on click ouside the form
+   */
+  closeOnOutsideClick: PropTypes.bool,
+
+  /**
    * Inicial input value
    */
   initialValue: PropTypes.string,
@@ -277,7 +300,8 @@ FormAutocompleted.propTypes = {
 FormAutocompleted.defaultProps = {
   initialValue: '',
   selectFirstByDefault: true,
-  focus: false
+  focus: false,
+  closeOnOutsideClick: false
 }
 
 FormAutocompleted.displayName = 'FormAutocompleted'

@@ -25,6 +25,7 @@ The component exposes the following props:
 * handleBlur (Function): This function is called everytime user exits the input.
 * handleFocus (Function): This function is called everytime user focus on the input.
 * selectFirstByDefault (Boolean): **Optional** It sets first position for the autocomplete default active option. Defaults to `true`.
+* closeOnOutsideClick (Boolean): **Optional** Enables close suggestions on click outside feature
 * focus (Boolean): **Optional** It trigger focus in the input. Defaults to `false`.
 * submit (object): **Optional** contains an optional icon and an optional text for the submit button
 
@@ -76,6 +77,7 @@ class MyFormAutocompleted extends React.Component {
         suggests={this.state.suggests}
         submit={{ text: 'Submit' }}
         collapsed
+				closeOnOutsideClick
         />
     )
   }

@@ -178,7 +178,7 @@ class TopbarUser extends Component {
                 expandOnMouseOver
               />
             </div>
-            {navCTA && <CallToActionComponent url={navCTA.url} text={navCTA.text} icon={navCTA.icon} linkFactory={Link} />}
+            {navCTA && <CallToActionComponent url={navCTA.url} text={navCTA.text} icon={navCTA.icon} notifications={navCTA.notifications} linkFactory={Link} />}
           </div>
         </div>
       </div>
@@ -290,7 +290,11 @@ TopbarUser.propTypes = {
     /**
      * Call to action text.
      */
-    text: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired,
+    /**
+     * Notifications to be displayed in the CTA.
+     */
+    notifications: PropTypes.number
   }),
   /**
    * Factory for the component that will hold any link.

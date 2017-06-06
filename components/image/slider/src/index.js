@@ -3,7 +3,7 @@ import ReactSlidy from 'react-slidy'
 
 const ImageSlider = (props) => {
 
-  const slides = getSlides(props.images, props.lazyLoad)
+  const slides = getSlides(props.images)
 
   return (
     <div onClick={props.onClickCB} className="sui-ImageSlider">
@@ -25,10 +25,9 @@ const hasMoreThanOneImage = (images) => (images && 1 < images.length)
 
 /**
  * @param {Array} images List given by props.images.
- * @param {boolean} lazyLoad
  * @return {Array} List of img elements.
  */
-const getSlides = (images, lazyLoad) => {
+const getSlides = (images) => {
   if (images && images.length) {
     return images.map( (image, index) => {
       return (<img key={index} src={image.src} alt={image.alt} />)

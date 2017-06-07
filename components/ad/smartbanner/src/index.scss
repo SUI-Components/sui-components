@@ -51,11 +51,11 @@
     }
   }
 
-  &--visible {
-    margin-top: 70px;
+  &.is-visible {
+    margin-top: $h-ad-smartbanner;
   }
 
-  &--static {
+  &.is-static {
     position: static;
   }
 }

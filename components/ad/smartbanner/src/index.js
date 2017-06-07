@@ -20,7 +20,7 @@ class AdSmartbanner extends Component {
   render () {
     const { imageUrl, title, text, buttonText, staticPosition } = this.props
     const className = cx('sui-AdSmartbanner', {
-      'sui-AdSmartbanner-static': staticPosition
+      'is-static': staticPosition
     })
 
     return (

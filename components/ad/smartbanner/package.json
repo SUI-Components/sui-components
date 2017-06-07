@@ -16,7 +16,6 @@
   "license": "ISC",
   "dependencies": {
     "@schibstedspain/sui-svgiconset": "1",
-    "@schibstedspain/suistudio-fatigue-deps": "github:SUI-Components/suistudio-fatigue-deps",
-    "classnames": "2.2.5"
+    "@schibstedspain/suistudio-fatigue-deps": "github:SUI-Components/suistudio-fatigue-deps"
   }
 }

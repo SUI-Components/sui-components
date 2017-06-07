@@ -18,12 +18,12 @@ export default class AdSmartbanner extends Component {
   }
 
   render () {
-    const positioning = cx('sui-AdSmartbanner', {
+    const className = cx('sui-AdSmartbanner', {
       'sui-AdSmartbanner-static': this.props.static
     })
 
     return (
-      <div className={positioning}>
+      <div className={className}>
         <button className='sui-AdSmartbanner-buttonClose' onClick={this._handleClose}>
           <this.IconClose svgClass='sui-AdSmartbanner-buttonCloseIcon' />
         </button>

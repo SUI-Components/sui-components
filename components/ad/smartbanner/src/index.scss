@@ -51,15 +51,15 @@
     }
   }
 
-  &-visible {
+  &--visible {
     margin-top: 70px;
   }
 
-  &-hidden {
+  &--hidden {
     margin-top: 0;
   }
 
-  &-static {
+  &--static {
     position: static;
   }
 }

@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import IconCloseDefault from '@schibstedspain/sui-svgiconset/lib/X'
+import cx from 'classnames'
 
 export default class AdSmartbanner extends Component {
   IconClose = this.props.icon || IconCloseDefault
@@ -17,8 +18,12 @@ export default class AdSmartbanner extends Component {
   }
 
   render () {
+    const positioning = cx('sui-AdSmartbanner', {
+      'sui-AdSmartbanner-static': this.props.static
+    })
+
     return (
-      <div className='sui-AdSmartbanner'>
+      <div className={positioning}>
         <button className='sui-AdSmartbanner-buttonClose' onClick={this._handleClose}>
           <this.IconClose svgClass='sui-AdSmartbanner-buttonCloseIcon' />
         </button>
@@ -42,7 +47,8 @@ AdSmartbanner.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  buttonText: PropTypes.string.isRequired
+  buttonText: PropTypes.string.isRequired,
+  static: PropTypes.bool
 }
 
 AdSmartbanner.displayName = 'AdSmartbanner'

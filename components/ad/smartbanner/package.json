@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-ad-smartbanner",
-  "version": "2.0.0",
+  "version": "1.2.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@schibstedspain/sui-svgiconset": "1",
-    "@schibstedspain/suistudio-fatigue-deps": "github:SUI-Components/suistudio-fatigue-deps"
+    "@schibstedspain/suistudio-fatigue-deps": "github:SUI-Components/suistudio-fatigue-deps",
+    "classnames": "2.2.5"
   }
 }

@@ -3,14 +3,8 @@
 .sui-AdSmartbanner {
   background-color: $bgc-ad-smartbanner;
   border-bottom: $bb-ad-smartbanner;
-  bottom: $b-ad-smartbanner;
   display: flex;
-  height: $h-ad-smartbanner;
-  left: $l-ad-smartbanner;
   padding: $p-ad-smartbanner-secondary;
-  position: fixed;
-  top: $t-ad-smartbanner;
-  width: 100%;
   z-index: $z-ad-smartbanner;
 
   &-logo {

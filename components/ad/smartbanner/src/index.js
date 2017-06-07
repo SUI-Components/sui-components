@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import IconCloseDefault from '@schibstedspain/sui-svgiconset/lib/X'
 import cx from 'classnames'
 
-export default class AdSmartbanner extends Component {
+class AdSmartbanner extends Component {
   IconClose = this.props.icon || IconCloseDefault
 
   _handleClick = (event) => {
@@ -18,8 +18,9 @@ export default class AdSmartbanner extends Component {
   }
 
   render () {
+    const { imageUrl, title, text, buttonText, staticPosition } = this.props
     const className = cx('sui-AdSmartbanner', {
-      'sui-AdSmartbanner-static': this.props.static
+      'sui-AdSmartbanner-static': staticPosition
     })
 
     return (
@@ -28,13 +29,13 @@ export default class AdSmartbanner extends Component {
           <this.IconClose svgClass='sui-AdSmartbanner-buttonCloseIcon' />
         </button>
         <div className='sui-AdSmartbanner-primary'>
-          <img src={this.props.imageUrl} className='sui-AdSmartbanner-logo' />
+          <img src={imageUrl} className='sui-AdSmartbanner-logo' />
         </div>
         <div className='sui-AdSmartbanner-secondary'>
-          <h3 className='sui-AdSmartbanner-title'>{this.props.title}</h3>
-          <p className='sui-AdSmartbanner-text'>{this.props.text}</p>
+          <h3 className='sui-AdSmartbanner-title'>{title}</h3>
+          <p className='sui-AdSmartbanner-text'>{text}</p>
         </div>
-        <button className='sui-AdSmartbanner-buttonInstall' onClick={this._handleClick}>{this.props.buttonText}</button>
+        <button className='sui-AdSmartbanner-buttonInstall' onClick={this._handleClick}>{buttonText}</button>
       </div>
     )
   }
@@ -48,7 +49,13 @@ AdSmartbanner.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
-  static: PropTypes.bool
+  staticPosition: PropTypes.bool
+}
+
+AdSmartbanner.defaultProps = {
+  staticPosition: false
 }
 
 AdSmartbanner.displayName = 'AdSmartbanner'
+
+export default AdSmartbanner

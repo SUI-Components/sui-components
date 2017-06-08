@@ -8,7 +8,7 @@
     "deploy": "suistudio build && cp public/index.html public/200.html && surge public/ -d sui-components.surge.sh",
     "co": "git-cz",
     "test": "true",
-    "lint:js": "linting-rules js",
+    "lint:js": "linting-rules js --ignore-pattern public",
     "lint:sass": "linting-rules sass",
     "lint": "npm run lint:js && npm run lint:sass"
   },

@@ -2,11 +2,10 @@ import React, {PropTypes} from 'react'
 import ReactSlidy from 'react-slidy'
 
 const ImageSlider = (props) => {
-
   const slides = getSlides(props.images)
 
   return (
-    <div onClick={props.handleClick} className="sui-ImageSlider">
+    <div onClick={props.handleClick} className='sui-ImageSlider'>
       { hasMoreThanOneImage(props.images)
         ? (<ReactSlidy>{ slides }</ReactSlidy>)
         : slides
@@ -21,7 +20,7 @@ const ImageSlider = (props) => {
  * @param {Array} images List given by props.images.
  * @return {boolean}
  */
-const hasMoreThanOneImage = (images) => (images && 1 < images.length)
+const hasMoreThanOneImage = (images) => (images && images.length > 1)
 
 /**
  * @param {Array} images List given by props.images.
@@ -29,11 +28,10 @@ const hasMoreThanOneImage = (images) => (images && 1 < images.length)
  */
 const getSlides = (images) => {
   if (images && images.length) {
-    return images.map( (image, index) => {
+    return images.map((image, index) => {
       return (<img key={index} src={image.src} alt={image.alt} />)
     })
-  }
-  else{
+  } else {
     return []
   }
 }

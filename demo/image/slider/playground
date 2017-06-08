@@ -1,0 +1,33 @@
+const props = {
+  images: [
+    {
+      src: 'http://lorempixel.com/400/300/food/',
+      alt: 'Some Text'
+    },
+    {
+      src: 'http://lorempixel.com/400/300/abstract/',
+      alt: 'Text B'
+    },
+    {
+      src: 'http://lorempixel.com/400/300/food/'
+    },
+    {
+      src: 'http://lorempixel.com/400/300/abstract/',
+      alt: 'Text D'
+    },
+    {
+      src: 'http://lorempixel.com/400/300/abstract/',
+      alt: 'Text E'
+    },
+    {
+      src: 'http://lorempixel.com/400/300/abstract/',
+      alt: 'Text F'
+    },
+    {
+      src: 'http://lorempixel.com/400/300/abstract/',
+      alt: 'Text G'
+    }
+  ]
+}
+
+return (<ImageSlider { ...props } />)

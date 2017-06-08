@@ -53,7 +53,10 @@ ImageSlider.propTypes = {
 }
 
 ImageSlider.defaultProps = {
-  handleClick: (...args) => {}
+  /**
+   * This function will receive the onClick arguments
+   */
+  handleClick: () => {}
 }
 
 ImageSlider.displayName = 'ImageSlider'

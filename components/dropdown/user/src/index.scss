@@ -30,22 +30,6 @@
     text-align: left;
     width: 100%;
 
-    &Wrap {
-      @include media-breakpoint-up(m) {
-        padding-bottom: $size-dropdown-arrow-up;
-        padding-top: $size-dropdown-arrow-up;
-        position: relative;
-
-        .is-expanded > &::after {
-          @include arrow-up($size-dropdown-arrow-up, $c-dropdown-arrow);
-          bottom: 0;
-          content: '';
-          left: ($w-dropdown-user-avatar / 2) + ($size-dropdown-arrow-up);
-          position: absolute;
-        }
-      }
-    }
-
     &Avatar {
       border-radius: 100%;
       margin-right: $m-h-small;
@@ -69,21 +53,35 @@
   &Menu {
     @include media-breakpoint-up(m) {
       background-color: $bgc-dropdown-menu;
-      display: none;
-      padding-top: 0;
 
-      .is-expanded > & {
+      &-wrap {
+        display: none;
+        padding-top: 0;
+      }
+
+      .is-expanded > &-wrap {
+        display: inline-block;
+        padding-top: $size-dropdown-arrow-up;
+        position: absolute;
+        z-index: 1;
+
+        &::after {
+          @include arrow-up($size-dropdown-arrow-up, $c-dropdown-arrow);
+          top: 0;
+          content: '';
+          left: ($w-dropdown-user-avatar / 2) + ($size-dropdown-arrow-up);
+          position: absolute;
+        }
+      }
+
+      .is-expanded > &-wrap > & {
         background-color: $bgc-dropdown-menu-hover;
         border-top: $bdt-dropdown-menu;
         box-shadow: $bxsh-dropdown-menu;
-        display: inline-block;
-        position: absolute;
-        z-index: 1;
       }
     }
 
     background-color: $c-white;
-    padding-top: $p-v;
 
     &-list {
       @include reset-list;

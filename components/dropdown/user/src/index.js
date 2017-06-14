@@ -3,13 +3,9 @@ import React, { Component, PropTypes } from 'react'
 import cx from 'classnames'
 
 class DropdownUser extends Component {
-  constructor (...args) {
-    super(...args)
-
-    this.state = {
-      expanded: false,
-      collapseByTouch: false
-    }
+  state = {
+    expanded: false,
+    collapseByTouch: false
   }
 
   _doNothing = () => {}
@@ -61,23 +57,23 @@ class DropdownUser extends Component {
         onMouseOver={expandOnMouseOver ? this._onMouseOver : this._doNothing}
         onMouseOut={expandOnMouseOver ? this._onMouseOut : this._doNothing}
       >
-        <div className='sui-DropdownUser-buttonWrap'>
-          <div
-            className='sui-DropdownUser-button'
-            onClick={expandOnMouseOver ? this._doNothing : this._toggleMenu}
-            onTouchStart={expandOnMouseOver && collapseByTouch
-              ? this._toggleMenu
-              : this._doNothing
-            }
-          >
-            <img className='sui-DropdownUser-buttonAvatar' src={avatar} />
-            <span className='sui-DropdownUser-buttonText'>{name}</span>
-          </div>
+        <div
+          className='sui-DropdownUser-button'
+          onClick={expandOnMouseOver ? this._doNothing : this._toggleMenu}
+          onTouchStart={expandOnMouseOver && collapseByTouch
+            ? this._toggleMenu
+            : this._doNothing
+          }
+        >
+          <img className='sui-DropdownUser-buttonAvatar' src={avatar} />
+          <span className='sui-DropdownUser-buttonText'>{name}</span>
         </div>
-        <div className='sui-DropdownUserMenu'>
-          <ul className={'sui-DropdownUserMenu-list'}>
-            {menu.map(this._renderLink)}
-          </ul>
+        <div className='sui-DropdownUserMenu-wrap'>
+          <div className='sui-DropdownUserMenu'>
+            <ul className={'sui-DropdownUserMenu-list'}>
+              {menu.map(this._renderLink)}
+            </ul>
+          </div>
         </div>
       </div>
     )

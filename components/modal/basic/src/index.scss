@@ -54,6 +54,8 @@
     color: $c-modal-basic-header;
     display: flex;
     flex: 0 0 auto;
+    font-weight: $fw-regular;
+    font-size: $fz-xl;
     justify-content: space-between;
     padding: 0 ($p-modal-basic-header / 2) 0 $p-modal-basic-header;
     position: relative;

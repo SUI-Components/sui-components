@@ -2,6 +2,7 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-BreadcrumbBasic {
+  color: $c-breadcrumb;
   display: flex;
 
   &-btn {
@@ -9,7 +10,7 @@
     @include media-breakpoint-up(l) {
       display: none;
     }
-    margin-right: $m-h-small;
+    margin-right: $m-breadcrumb-items;
 
     .is-expanded & {
       display: none;
@@ -30,7 +31,7 @@
 
       align-items: center;
       display: inline-flex;
-      margin-right: $m-h-small;
+      margin-right: $m-breadcrumb-items;
 
       .is-expanded & {
         display: inline-flex;
@@ -39,14 +40,18 @@
   }
 
   &-icon {
-    margin-right: $m-h-small;
+    fill: $c-breadcrumb-icon;
+    height: $size-breadcrumb-icon;
+    margin-right: $m-breadcrumb-items;
+    width: $size-breadcrumb-icon;
   }
 
   &-link {
     @include reset-link;
+    color: $c-breadcrumb-link;
 
     &:hover {
-      color: $c-accent;
+      color: $c-breadcrumb-link-hover;
     }
   }
 }

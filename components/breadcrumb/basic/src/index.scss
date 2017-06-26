@@ -1,12 +1,45 @@
-
+/* sass-lint:disable class-name-format*/
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-BreadcrumbBasic {
-  @include reset-list;
+  display: flex;
 
-  &-listItem {
-    align-items: center;
-    display: inline-flex;
+  &-btn {
+    @include reset-button;
+    @include media-breakpoint-up(l) {
+      display: none;
+    }
+    margin-right: $m-h-small;
+
+    .is-expanded & {
+      display: none;
+    }
+  }
+
+  &-list {
+    @include reset-list;
+    display: flex;
+    flex-wrap: wrap;
+
+    &Item {
+      @include media-breakpoint-down(m) {
+        &:not(:last-child) {
+          display: none;
+        }
+      }
+
+      align-items: center;
+      display: inline-flex;
+      margin-right: $m-h-small;
+
+      .is-expanded & {
+        display: inline-flex;
+      }
+    }
+  }
+
+  &-icon {
+    margin-right: $m-h-small;
   }
 
   &-link {

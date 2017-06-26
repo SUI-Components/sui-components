@@ -1,27 +1,42 @@
 /* eslint-disable react/prop-types */
-import React, {PropTypes} from 'react'
+import React, {Component, PropTypes} from 'react'
 import Chevronright from '@schibstedspain/sui-svgiconset/lib/Chevronright'
 
-export default function BreadcrumbBasic (props) {
-  const {
-    links,
-    icon
-  } = props
-  const Link = props.linkFactory
-  const IconAngle = icon || Chevronright
-  const numLinks = links.length - 1
-  return (
-    <ul className='sui-BreadcrumbBasic'>
-      {links.map(({url, label}, index) =>
-        <li className='sui-BreadcrumbBasic-listItem' key={index}>
-          <Link href={url} className='sui-BreadcrumbBasic-link'>
-            {label}
-          </Link>
-          { index < numLinks && <IconAngle svgClass='sui-BreadcrumbBasic-icon' /> }
-        </li>
-      )}
-    </ul>
-  )
+export default class BreadcrumbBasic extends Component {
+  constructor (...args) {
+    super(...args)
+    this._breadcrumb = null
+  }
+
+  _expandBreadcrumb = () => {
+    this._breadcrumb.classList.add('is-expanded')
+  }
+
+  render () {
+    const {
+      items,
+      icon,
+      linkFactory: Link
+    } = this.props
+    const IconAngle = icon || Chevronright
+    const numItems = items.length - 1
+    return (
+      <div className='sui-BreadcrumbBasic' ref={node => { this._breadcrumb = node }}>
+        <button
+          onClick={this._expandBreadcrumb}
+          className='sui-BreadcrumbBasic-btn'>...
+        </button>
+        <ul className='sui-BreadcrumbBasic-list'>
+          {items.map(({url, label}, index) =>
+            <li className='sui-BreadcrumbBasic-listItem' key={index}>
+              { index !== 0 && index <= numItems && <IconAngle svgClass='sui-BreadcrumbBasic-icon' /> }
+              { url ? <Link href={url} className='sui-BreadcrumbBasic-link'>{label}</Link> : label}
+            </li>
+          )}
+        </ul>
+      </div>
+    )
+  }
 }
 BreadcrumbBasic.displayName = 'BreadcrumbBasic'
 
@@ -29,7 +44,7 @@ BreadcrumbBasic.propTypes = {
   /**
    * List of link objects
    */
-  links: PropTypes.arrayOf(PropTypes.shape({
+  items: PropTypes.arrayOf(PropTypes.shape({
     /**
      * link text
      */
@@ -37,7 +52,7 @@ BreadcrumbBasic.propTypes = {
     /**
      * URL for the link
      */
-    url: PropTypes.string.isRequired
+    url: PropTypes.string
   })).isRequired,
   /**
    * Comments custom icon (React component).

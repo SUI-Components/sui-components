@@ -4,10 +4,7 @@ import Chevronright from '@schibstedspain/sui-svgiconset/lib/Chevronright'
 import cx from 'classnames'
 
 export default class BreadcrumbBasic extends Component {
-  constructor (...args) {
-    super(...args)
-    this.state = {isExpanded: false}
-  }
+  state = { isExpanded: false }
 
   _expandBreadcrumb = () => {
     this.setState({isExpanded: true})

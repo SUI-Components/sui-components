@@ -1,19 +1,57 @@
-
+/* sass-lint:disable class-name-format*/
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-BreadcrumbBasic {
-  @include reset-list;
+  color: $c-breadcrumb;
+  display: flex;
 
-  &-listItem {
-    align-items: center;
-    display: inline-flex;
+  &-btn {
+    @include reset-button;
+    @include media-breakpoint-up(l) {
+      display: none;
+    }
+    margin-right: $m-breadcrumb-items;
+
+    .is-expanded & {
+      display: none;
+    }
+  }
+
+  &-list {
+    @include reset-list;
+    display: flex;
+    flex-wrap: wrap;
+
+    &Item {
+      @include media-breakpoint-down(m) {
+        &:not(:last-child) {
+          display: none;
+        }
+      }
+
+      align-items: center;
+      display: inline-flex;
+      margin-right: $m-breadcrumb-items;
+
+      .is-expanded & {
+        display: inline-flex;
+      }
+    }
+  }
+
+  &-icon {
+    fill: $c-breadcrumb-icon;
+    height: $size-breadcrumb-icon;
+    margin-right: $m-breadcrumb-items;
+    width: $size-breadcrumb-icon;
   }
 
   &-link {
     @include reset-link;
+    color: $c-breadcrumb-link;
 
     &:hover {
-      color: $c-accent;
+      color: $c-breadcrumb-link-hover;
     }
   }
 }

@@ -1,16 +1,21 @@
 /* eslint-disable react/prop-types */
 import React, {Component, PropTypes} from 'react'
 import Chevronright from '@schibstedspain/sui-svgiconset/lib/Chevronright'
+import cx from 'classnames'
 
 export default class BreadcrumbBasic extends Component {
   constructor (...args) {
     super(...args)
-    this._breadcrumb = null
+    this.state = {isExpanded: false}
   }
 
   _expandBreadcrumb = () => {
-    this._breadcrumb.classList.add('is-expanded')
+    this.setState({isExpanded: true})
   }
+
+  _inputClassName = () => cx('sui-BreadcrumbBasic', {
+    'is-expanded': this.state.isExpanded
+  })
 
   render () {
     const {
@@ -21,7 +26,7 @@ export default class BreadcrumbBasic extends Component {
     const IconAngle = icon || Chevronright
     const numItems = items.length - 1
     return (
-      <div className='sui-BreadcrumbBasic' ref={node => { this._breadcrumb = node }}>
+      <div className={this._inputClassName()}>
         <button
           onClick={this._expandBreadcrumb}
           className='sui-BreadcrumbBasic-btn'>...

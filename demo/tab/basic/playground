@@ -1,0 +1,20 @@
+const tabs = [
+  'Vincent',
+  'Jules',
+  'Marcellus',
+  'Mia',
+  'Winston',
+  'Butch'
+]
+
+function handleClick (tab, index) {
+  console.log(tab, index)
+}
+
+return (
+  <TabBasic
+    handleClick={handleClick}
+    tabsList={tabs}
+    activeTab={0}
+  />
+)

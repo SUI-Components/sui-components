@@ -1,0 +1,16 @@
+const panels = [
+  {
+    title: 'Vincent',
+    content: <h1>Content 1</h1>
+  },
+  {
+    title: 'Jules',
+    content: <h2>Content 2</h2>
+  },
+  {
+    title: 'Marcellus',
+    content: <h3>Content 3</h3>
+  }
+]
+
+return (<TabContent renderInactiveContent={true} panels={panels} />)

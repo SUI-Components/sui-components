@@ -7,8 +7,8 @@ const tabs = [
   'Butch'
 ]
 
-function handleClick (tab, index) {
-  console.log(tab, index)
+function handleClick (index, label) {
+  console.log(index, label)
 }
 
 return (

@@ -25,12 +25,13 @@ export default class TabBasic extends Component {
 
       return (
         <li className='sui-TabBasic-item' key={index}>
-          <a
+          <button
             className={tabLinkClassName}
             onClick={this._createHandleClick(index)}
+            role='tab'
           >
             {tabLabel}
-          </a>
+          </button>
         </li>
       )
     })

@@ -1,0 +1,14 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-tab-basic/lib/index';
+
+.sui-TabContent {
+
+  &-content {
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+
+  }
+}

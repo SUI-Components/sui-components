@@ -1,0 +1,11 @@
+const cookiePolicy = {
+  message: 'Más información',
+  link: '#'
+}
+
+return (
+  <CookieBanner
+    message='xxx.es utiliza cookies propias y de terceros para mejorar nuestros servicios y mostrarte publicidad. Al continuar navegando aceptas su uso. Puedes obtener más información aquí:'
+    cookiePolicy={cookiePolicy}
+  />
+)

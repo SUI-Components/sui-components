@@ -1,0 +1,34 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-CookieBanner {
+  background-color: #dcdcdc; // var
+  bottom: 0;
+  color: gray; // var
+  font-size: 12px; // var
+  left: 0;
+  position: fixed; // var
+  right: 0;
+  z-index: 50; // var
+
+  &-content {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1280px; // var
+    padding: 8px 16px; // var
+    text-align: center; // var
+  }
+
+  &-message {
+    margin-right: 8px;
+  }
+
+  &-link {
+    color: #09f; // var
+    margin-left: 4px;
+    text-decoration: none;
+  }
+
+  &-closeButton {
+    margin-left: auto;
+  }
+}

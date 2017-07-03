@@ -1,11 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, {PropTypes} from 'react'
 import cx from 'classnames'
-import {
-  Info,
-  Bell,
-  Check
-} from '@schibstedspain/sui-svgiconset/lib/'
+import Info from '@schibstedspain/sui-svgiconset/lib/Info'
+import Bell from '@schibstedspain/sui-svgiconset/lib/Bell'
+import Check from '@schibstedspain/sui-svgiconset/lib/Check'
 
 const icons = {
   'info': Info,

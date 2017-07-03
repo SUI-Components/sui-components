@@ -2,6 +2,8 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-BreadcrumbBasic {
+  background-color: $bgc-breadcrumb;
+  box-shadow: $bxsh-breadcrumb;
   color: $c-breadcrumb;
   display: flex;
 
@@ -10,6 +12,7 @@
     @include media-breakpoint-up(l) {
       display: none;
     }
+    color: $c-breadcrumb-link;
     margin-right: $m-breadcrumb-items;
 
     .is-expanded & {

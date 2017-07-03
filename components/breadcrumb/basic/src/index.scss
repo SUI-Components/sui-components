@@ -1,4 +1,4 @@
-/* sass-lint:disable class-name-format*/
+/* sass-lint:disable no-important, class-name-format*/
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-BreadcrumbBasic {
@@ -40,7 +40,7 @@
   }
 
   &-icon {
-    fill: $c-breadcrumb-icon;
+    fill: $c-breadcrumb-icon !important;
     height: $size-breadcrumb-icon;
     margin-right: $m-breadcrumb-items;
     width: $size-breadcrumb-icon;

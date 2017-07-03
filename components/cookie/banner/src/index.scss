@@ -1,21 +1,21 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
 .sui-CookieBanner {
-  background-color: #dcdcdc; // var
+  background-color: $bgc-cookie-banner;
   bottom: 0;
-  color: gray; // var
-  font-size: 12px; // var
+  color: $c-cookie-banner;
+  font-size: $fz-cookie-banner;
   left: 0;
   position: fixed; // var
   right: 0;
-  z-index: 50; // var
+  z-index: $z-cookie-banner;
 
   &-content {
     display: flex;
     margin: 0 auto;
-    max-width: 1280px; // var
-    padding: 8px 16px; // var
-    text-align: center; // var
+    max-width: $maw-cookie-banner-content;
+    padding: $p-cookie-banner-content;
+    text-align: $ta-cookie-banner-context;
   }
 
   &-message {
@@ -23,7 +23,7 @@
   }
 
   &-link {
-    color: #09f; // var
+    color: $c-cookie-banner-link;
     margin-left: 4px;
     text-decoration: none;
   }

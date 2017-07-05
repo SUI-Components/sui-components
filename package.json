@@ -4,60 +4,50 @@
   "description": "Mono repo containing all SUI components. Multi package for every SUI component.",
   "private": true,
   "scripts": {
-    "phoenix": "rm -Rf node_modules && npm i && suistudio clean-modules && suistudio run-all npm i",
-    "deploy": "suistudio build && cp public/index.html public/200.html && surge public/ -d sui-components.surge.sh",
-    "co": "git-cz",
-    "test": "true",
-    "lint:js": "linting-rules js --ignore-pattern public",
-    "lint:sass": "linting-rules sass",
-    "lint": "npm run lint:js && npm run lint:sass"
+    "phoenix": "rm -Rf node_modules && npm i && sui-studio clean-modules && sui-studio run-all npm i",
+    "deploy": "sui-studio build && cp public/index.html public/200.html && surge public/ -d sui-components.surge.sh",
+    "co": "sui-studio commit",
+    "lint:js": "sui-lint js",
+    "lint:sass": "sui-lint sass",
+    "lint": "npm run lint:js && npm run lint:sass",
+    "start": "sui-studio start",
+    "precommit": "sui-precommit run",
+    "commitmsg": "validate-commit-msg"
+
   },
   "repository": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@schibstedspain/suistudio-fatigue-dev": "SUI-Components/suistudio-fatigue-dev"
+    "@schibstedspain/sui-precommit": "2",
+    "@schibstedspain/sui-studio": "4",
+    "husky": "0.13.4",
+    "validate-commit-msg": "2.12.2"
   },
-  "peerDependencies": {
-    "react": "15",
-    "react-dom": "15"
+  "dependencies": {
+    "@schibstedspain/sui-component-dependencies": "latest"
   },
-  "dependencies": {},
   "config": {
-    "suistudio": {
-      "font": "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i"
+    "sui-studio": {
+      "font": "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i",
+      "name": "SUIComponents"
+    },
+    "sui-mono": {
+      "packagesFolder": "components",
+      "deepLevel": 2
     },
     "validate-commit-msg": {
-      "types": [
-        "feat",
-        "fix",
-        "refactor",
-        "test",
-        "docs",
-        "release",
-        "chore",
-        "perf"
-      ]
-    },
-    "commitizen": {
-      "path": "node_modules/cz-customizable"
-    },
-    "cz-customizable": {
-      "config": "./.cz-config.js"
+      "types": "@schibstedspain/sui-mono/src/types"
     }
   },
-  "pre-commit": [
-    "lint",
-    "test"
-  ],
   "commit-msg": [
     "validate-commit-msg"
   ],
   "eslintConfig": {
     "extends": [
-      "./node_modules/@schibstedspain/linting-rules/eslintrc.js"
+      "./node_modules/@schibstedspain/sui-lint/eslintrc.js"
     ]
   },
-  "sasslintConfig": "./node_modules/@schibstedspain/linting-rules/sass-lint.yml"
+  "sasslintConfig": "./node_modules/@schibstedspain/sui-lint/sass-lint.yml"
 }

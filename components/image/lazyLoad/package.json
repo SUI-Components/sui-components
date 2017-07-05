@@ -5,18 +5,15 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "rm -Rf ./lib && mkdir -p ./lib && npm run babel && npm run lib",
-    "babel": "../../../node_modules/.bin/babel --presets schibsted-spain ./src --out-dir ./lib",
-    "lib": "../../../node_modules/.bin/cpx \"./src/**/*.{scss,json}\" ./lib",
-    "preversion": "echo \"preversion\"",
-    "version": "npm run build",
-    "postversion": "git add ${PWD} && git commit -m \"release(image/lazyLoad): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish --access=public"
+    "babel": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
+    "sass": "../../../node_modules/.bin/cpx \"./src/**/*.scss\" ./lib"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@schibstedspain/sui-spinner-basic": "1",
-    "@schibstedspain/suistudio-fatigue-deps": "github:SUI-Components/suistudio-fatigue-deps",
+    "@schibstedspain/sui-component-dependencies": "latest",
     "react-lazy-load": "3.0.11"
   }
 }

@@ -22,8 +22,17 @@ ListTagcloud.propTypes = {
     /**
      * URL for the tab link
      */
-    link: PropTypes.string.isRequired
+    link: PropTypes.string.isRequired,
+    /**
+     * Factory used to create navigation links
+     */
+    linkFactory: PropTypes.func
   })).isRequired
+}
+
+ListTagcloud.defaultProps = {
+  linkFactory: ({ href, className, children } = {}) =>
+    <a href={href} className={className}>{children}</a>
 }
 
 export default ListTagcloud

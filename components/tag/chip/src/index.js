@@ -48,6 +48,10 @@ TagChip.propTypes = {
    */
   link: PropTypes.string,
   /**
+   * Factory used to create navigation links
+   */
+  linkFactory: PropTypes.func,
+  /**
    * tag text
    */
   label: PropTypes.string.isRequired,

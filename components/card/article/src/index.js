@@ -64,7 +64,7 @@ export default function CardArticle ({
       </Link>
       <div className={cardInfoClassName}>
         <div className='sui-CardArticle-infoInner'>
-          <TagChip label={tag.text} link={tag.url} className={suiTagClassName} />
+          <TagChip label={tag.text} link={tag.url} linkFactory={Link} className={suiTagClassName} />
           {comments && _renderComments(comments, Link)}
         </div>
       </div>

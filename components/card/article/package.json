@@ -1,15 +1,12 @@
 {
   "name": "@schibstedspain/sui-card-article",
-  "version": "1.15.0",
+  "version": "1.16.0",
   "description": "SUI Card Article",
   "main": "lib/index.js",
   "scripts": {
     "build": "rm -Rf ./lib && mkdir -p ./lib && npm run babel && npm run sass",
-    "babel": "../../../node_modules/.bin/babel --presets schibsted-spain ./src --out-dir ./lib",
-    "sass": "../../../node_modules/.bin/cpx \"./src/**/*.scss\" ./lib",
-    "preversion": "echo \"preversion\"",
-    "version": "npm run build",
-    "postversion": "git add ${PWD} && git commit -m \"release(card/article): v$(node -p -e \"require('./package.json').version\")\" && git push origin master && npm publish --access=public"
+    "babel": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
+    "sass": "../../../node_modules/.bin/cpx \"./src/**/*.scss\" ./lib"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +15,6 @@
     "@schibstedspain/sui-image-lazy-load": "1",
     "@schibstedspain/sui-svgiconset": "1",
     "@schibstedspain/sui-tag-chip": "1",
-    "@schibstedspain/suistudio-fatigue-deps": "github:SUI-Components/suistudio-fatigue-deps"
+    "@schibstedspain/sui-component-dependencies": "latest"
   }
 }

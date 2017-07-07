@@ -1,0 +1,46 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-CookieBanner {
+  background-color: $bgc-cookie-banner;
+  bottom: 0;
+  color: $c-cookie-banner;
+  font-size: $fz-cookie-banner;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: $z-cookie-banner;
+
+  &-content {
+    display: flex;
+    margin: 0 auto;
+    max-width: $maw-cookie-banner-content;
+    padding: $p-cookie-banner-content;
+    text-align: $ta-cookie-banner-context;
+  }
+
+  &-message {
+    margin-right: 8px;
+  }
+
+  &-link {
+    color: $c-cookie-banner-link;
+    margin-left: 4px;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &-closeButton {
+    @include reset-button;
+    margin-left: auto;
+  }
+
+  &-closeIcon {
+    cursor: pointer;
+    fill: $c-cookie-banner-close-icon !important;
+    &:hover {
+      fill: $c-cookie-banner-close-icon-hover !important;
+    }
+  }
+}

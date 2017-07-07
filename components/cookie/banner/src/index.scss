@@ -6,7 +6,7 @@
   color: $c-cookie-banner;
   font-size: $fz-cookie-banner;
   left: 0;
-  position: fixed; // var
+  position: fixed;
   right: 0;
   z-index: $z-cookie-banner;
 
@@ -26,9 +26,21 @@
     color: $c-cookie-banner-link;
     margin-left: 4px;
     text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &-closeButton {
+    @include reset-button;
     margin-left: auto;
+  }
+
+  &-closeIcon {
+    cursor: pointer;
+    fill: $c-cookie-banner-close-icon !important;
+    &:hover {
+      fill: $c-cookie-banner-close-icon-hover !important;
+    }
   }
 }

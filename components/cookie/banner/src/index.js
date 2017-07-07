@@ -2,22 +2,11 @@ import React, {Component, PropTypes} from 'react'
 import IconX from '@schibstedspain/sui-svgiconset/lib/X'
 
 class CookieBanner extends Component {
-  state = { listeningScroll: false }
-
-  componentDidMount () {
-    this._addScrollListener()
-  }
-
-  componentWillUnmount () {
-    this._removeScrollListener()
-  }
+  state = { hasAcceptedCookies: true, listeningScroll: false }
 
   _addScrollListener = () => {
-    if (!this.state.listeningScroll &&
-      !this._getHasAcceptedCookie() &&
-      this.props.dismissOnScroll
-    ) {
-      window.addEventListener('scroll', this.onScroll, false)
+    if (!this.state.hasAcceptedCookies && this.props.dismissOnScroll) {
+      window.addEventListener('scroll', this._onScroll, false)
       this.setState({ listeningScroll: true })
     }
   }
@@ -31,18 +20,22 @@ class CookieBanner extends Component {
   }
 
   _setHasAcceptedCookie () {
+    // save the cookie with a true value
     const value = `${this.props.cookieKey}=true`
+    // one year for max-age for the cookie
     const maxAge = `max-age=31557600`
+    // TODO: Add expires for better browser support
     document.cookie = `${value};${maxAge}`
+  }
+
+  _handleClick = () => {
+    this._onAcceptCookies()
   }
 
   _onAcceptCookies () {
     this._setHasAcceptedCookie()
-    if (this.state.listeningScroll) {
-      this._removeScrollListener()
-    } else {
-      this.forceUpdate()
-    }
+    this._removeScrollListener()
+    this.setState({ hasAcceptedCookies: true })
   }
 
   _onScroll = () => {
@@ -53,7 +46,7 @@ class CookieBanner extends Component {
 
   _removeScrollListener = () => {
     if (this.state.listeningScroll) {
-      window.removeEventListener('scroll', this.onScroll)
+      window.removeEventListener('scroll', this._onScroll)
       this.setState({ listeningScroll: false })
     }
   }
@@ -68,8 +61,19 @@ class CookieBanner extends Component {
     }
   }
 
-  shouldComponentUpdate () {
-    return false
+  componentDidMount () {
+    // when mounting, to avoid showing the banner on the server, get the cookie
+    const hasAcceptedCookies = this._getHasAcceptedCookie()
+    // we set the state with the value, and add the scroll listener then if user hasn't accepted the cookies
+    this.setState({ hasAcceptedCookies }, this._addScrollListener)
+  }
+
+  componentWillUnmount () {
+    this._removeScrollListener()
+  }
+
+  shouldComponentUpdate (nextProps, nextState) {
+    return this.state.hasAcceptedCookies !== nextState.hasAcceptedCookies
   }
 
   render () {
@@ -87,7 +91,9 @@ class CookieBanner extends Component {
             {message}
             {this._renderCookiePolicy(cookiePolicy)}
           </span>
-          <IconClose svgClass='sui-CookieBanner-closeIcon' />
+          <button className='sui-CookieBanner-closeButton' onClick={this._handleClick}>
+            <IconClose svgClass='sui-CookieBanner-closeIcon' size={16} />
+          </button>
         </div>
       </div>
     )
@@ -132,9 +138,5 @@ CookieBanner.propTypes = {
    */
   message: PropTypes.string.isRequired
 }
-// Remove these comments if you need
-// CookieBanner.contextTypes = {i18n: React.PropTypes.object}
-// CookieBanner.propTypes = {}
-// CookieBanner.defaultProps = {}
 
 export default CookieBanner

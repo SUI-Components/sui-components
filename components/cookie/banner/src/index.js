@@ -1,6 +1,8 @@
 import React, {Component, PropTypes} from 'react'
 import IconX from '@schibstedspain/sui-svgiconset/lib/X'
 
+const COOKIE_TTL = 31557600000
+
 class CookieBanner extends Component {
   state = { hasAcceptedCookies: true, listeningScroll: false }
 
@@ -22,10 +24,10 @@ class CookieBanner extends Component {
   _setHasAcceptedCookie () {
     // save the cookie with a true value
     const value = `${this.props.cookieKey}=true`
-    // one year for max-age for the cookie
-    const maxAge = `max-age=31557600`
-    // TODO: Add expires for better browser support
-    document.cookie = `${value};${maxAge}`
+    // set the expiration date for a better browser support (IE11 has problems with max-age)
+    const expires = `expires=${new Date(+new Date() + COOKIE_TTL).toUTCString()}`
+    // Set the cookie with the value and the expiration date
+    document.cookie = `${value};${expires}`
   }
 
   _handleClick = () => {

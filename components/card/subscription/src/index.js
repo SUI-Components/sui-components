@@ -81,7 +81,7 @@ CardSubscription.propTypes = {
   /**
    * Response HTML
    */
-  responseContent: PropTypes.element,
+  responseContent: PropTypes.func,
 
   /**
    * Response error flag

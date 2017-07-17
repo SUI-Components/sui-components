@@ -1,0 +1,7 @@
+return (
+<div style={{width: 250 + 'px'}}>
+  <ThumbnailBasic image={{
+    src: 'http://lorempicsum.com/simpsons/250/250/1',
+    alt: 'Lorem ipsum'
+  }} captionText='Show!' />
+</div>)

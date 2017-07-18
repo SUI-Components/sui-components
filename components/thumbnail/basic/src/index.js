@@ -18,8 +18,11 @@ class ThumbnailBasic extends Component {
 ThumbnailBasic.displayName = 'ThumbnailBasic'
 
 ThumbnailBasic.propTypes = {
-  image: PropTypes.object.isRequired,
-  captionText: PropTypes.string
+  image: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired
+  }),
+  captionText: PropTypes.string.isRequired
 }
 
 export default ThumbnailBasic

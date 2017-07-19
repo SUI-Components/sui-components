@@ -1,5 +1,5 @@
-# react-ab-testing-toggle
-> Wraps a set of components and shows the one corresponding to `variation` key.
+# @s-ui/abtesting-toggle
+> A React component that wraps a set of components and renders the one corresponding to `variation` key.
 
 
 ```html

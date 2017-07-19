@@ -6,8 +6,8 @@ class ThumbnailBasic extends Component {
     const { image, captionText } = this.props
     return (
       <figure className='sui-ThumbnailBasic'>
-        <img className='sui-ThumbnailBasic-Image' src={image.src} alt={image.alt} />
-        <figcaption className='sui-ThumbnailBasic-Caption'>
+        <img className='sui-ThumbnailBasic-image' src={image.src} alt={image.alt} />
+        <figcaption className='sui-ThumbnailBasic-caption'>
           <span>{captionText}</span>
         </figcaption>
       </figure>

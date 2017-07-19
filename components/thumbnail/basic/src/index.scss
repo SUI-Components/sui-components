@@ -8,12 +8,12 @@
   padding: $p-thumbnail-basic;
   position: relative;
 
-  &-Image {
+  &-image {
     display: block;
     vertical-align: bottom;
   }
 
-  &-Caption {
+  &-caption {
     @include reset-basic;
     background: $bgc-thumbnail-basic-caption;
     bottom: 0;

@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/react-ab-testing-optimizely-x",
+  "name": "@s-ui/abtesting-optimizely-x",
   "version": "1.3.0",
   "description": "<AbTestOptimizelyXExperiment experimentId />",
   "main": "lib/index.js",
@@ -12,6 +12,6 @@
   "author": "David Almeida <davidbarna@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@schibstedspain/react-ab-testing-toggle": "1.2"
+    "@s-ui/abtesting-toggle": "1"
   }
 }

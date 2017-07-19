@@ -12,7 +12,7 @@
 ## Installation
 
 ```sh
-npm install @schibstedspain/react-ab-testing-optimizely-x --save
+npm install @s-ui/abtesting-optimizely-x --save
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Navigate to: https://app.optimizely.com/v2/ **>** Edit Experiment **>** API Name
 ### 2. Create your variations and assign its respective ids as below
 
 ```javascript
-import OptimizelyXExperiment from '@schibstedspain/react-ab-testing-optimizely-x'
+import OptimizelyXExperiment from '@s-ui/abtesting-optimizely-x'
 ```
 ```html
 <OptimizelyXExperiment experimentId={8470306415}>

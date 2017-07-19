@@ -1,6 +1,6 @@
 /* eslint handle-callback-err: "off" */
 import React, {Component, PropTypes} from 'react'
-import AbTestToggle from '@schibstedspain/react-ab-testing-toggle'
+import AbTestToggle from '@s-ui/abtesting-toggle'
 import {createExperimentUseCase} from './optimizely-x'
 
 class AbTestOptimizelyXExperiment extends Component {

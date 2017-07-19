@@ -13,14 +13,14 @@
 ## Installation
 
 ```sh
-npm install @schibstedspain/react-ab-testing-toggle --save
+npm install @s-ui/abtesting-toggle --save
 ```
 
 
 ## Usage
 
 ```javascript
-import AbTestToggle from '@schibstedspain/react-ab-testing-toggle'
+import AbTestToggle from '@s-ui/abtesting-toggle'
 ```
 
 ```html

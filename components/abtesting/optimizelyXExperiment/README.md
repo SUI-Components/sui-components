@@ -1,5 +1,5 @@
-# react-ab-testing-optimizely-x
-> Shows variation according to OptimizelyX's decision.
+# @s-ui/abtesting-optimizely-x
+> A React component that renders one single variation according to OptimizelyX's experiment decision.
 
 ```html
 <OptimizelyExperiment experimentId={100}>

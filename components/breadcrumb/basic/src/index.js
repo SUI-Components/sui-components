@@ -10,7 +10,7 @@ export default class BreadcrumbBasic extends Component {
     this.setState({isExpanded: true})
   }
 
-  _inputClassName = () => cx('sui-BreadcrumbBasic', {
+  _breadcrumbClassName = () => cx('sui-BreadcrumbBasic', {
     'is-expanded': this.state.isExpanded
   })
 
@@ -24,7 +24,7 @@ export default class BreadcrumbBasic extends Component {
     const numItems = items.length - 1
     return (
       <nav aria-label='breadcrumb' role='navigation'>
-        <div className={this._inputClassName()}>
+        <div className={this._breadcrumbClassName()}>
           <button
             onClick={this._expandBreadcrumb}
             className='sui-BreadcrumbBasic-btn'>...

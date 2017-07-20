@@ -4,8 +4,8 @@
   "description": "<AbTestOptimizelyXExperiment experimentId />",
   "main": "lib/index.js",
   "scripts": {
-    "build": "rm -Rf ./lib && mkdir -p ./lib && npm run babel",
-    "babel": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
+    "build": "rm -Rf ./lib && mkdir -p ./lib && npm run build:js",
+    "build:js": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
     "version": "npm run build"
   },
   "keywords": [],

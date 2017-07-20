@@ -4,10 +4,7 @@ import AbTestToggle from '@s-ui/abtesting-toggle'
 import {createExperimentUseCase} from './optimizely-x'
 
 class AbTestOptimizelyXExperiment extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {}
-  }
+  state = { variation: undefined }
 
   componentDidMount () {
     this._experiment = createExperimentUseCase(this.props.experimentId)
@@ -16,8 +13,7 @@ class AbTestOptimizelyXExperiment extends Component {
   }
 
   render () {
-    let {variation} = this.state
-    return <AbTestToggle variation={variation}>{this.props.children}</AbTestToggle>
+    return <AbTestToggle variation={this.state.variation}>{this.props.children}</AbTestToggle>
   }
 }
 

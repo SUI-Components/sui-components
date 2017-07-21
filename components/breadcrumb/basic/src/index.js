@@ -10,7 +10,7 @@ export default class BreadcrumbBasic extends Component {
     this.setState({isExpanded: true})
   }
 
-  _inputClassName = () => cx('sui-BreadcrumbBasic', {
+  _breadcrumbClassName = () => cx('sui-BreadcrumbBasic', {
     'is-expanded': this.state.isExpanded
   })
 
@@ -23,20 +23,22 @@ export default class BreadcrumbBasic extends Component {
     const IconAngle = icon || Chevronright
     const numItems = items.length - 1
     return (
-      <div className={this._inputClassName()}>
-        <button
-          onClick={this._expandBreadcrumb}
-          className='sui-BreadcrumbBasic-btn'>...
-        </button>
-        <ul className='sui-BreadcrumbBasic-list'>
-          {items.map(({url, label}, index) =>
-            <li className='sui-BreadcrumbBasic-listItem' key={index}>
-              { index !== 0 && index <= numItems && <IconAngle svgClass='sui-BreadcrumbBasic-icon' /> }
-              { url ? <Link href={url} className='sui-BreadcrumbBasic-link'>{label}</Link> : label}
-            </li>
-          )}
-        </ul>
-      </div>
+      <nav aria-label='breadcrumb' role='navigation'>
+        <div className={this._breadcrumbClassName()}>
+          <button
+            onClick={this._expandBreadcrumb}
+            className='sui-BreadcrumbBasic-btn'>...
+          </button>
+          <ul className='sui-BreadcrumbBasic-list'>
+            {items.map(({url, label}, index) =>
+              <li className='sui-BreadcrumbBasic-listItem' key={index}>
+                { index !== 0 && index <= numItems && <IconAngle svgClass='sui-BreadcrumbBasic-icon' /> }
+                { url ? <Link href={url} className='sui-BreadcrumbBasic-link'>{label}</Link> : label}
+              </li>
+            )}
+          </ul>
+        </div>
+      </nav>
     )
   }
 }

@@ -1,0 +1,44 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-ThumbnailBasic {
+  @include reset-basic;
+  background: $bgc-thumbnail-basic;
+  border: $bd-thumbnail-basic;
+  display: inline-block;
+  padding: $p-thumbnail-basic;
+  position: relative;
+
+  &-image {
+    display: block;
+    vertical-align: bottom;
+  }
+
+  &-caption {
+    @include reset-basic;
+    background: $bgc-thumbnail-basic-caption;
+    bottom: 0;
+    color: $c-thumbnail-basic-caption;
+    display: block;
+    font-size: $fz-thumbnail-basic-caption;
+    left: 0;
+    max-height: 0;
+    opacity: .9;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    transition: $trs-thumbnail-basic;
+    width: 100%;
+    word-wrap: break-word;
+
+    span {
+      display: block;
+      padding: $p-thumbnail-basic-caption;
+    }
+  }
+
+  &:hover {
+    .sui-ThumbnailBasic-Caption {
+      max-height: 100%;
+    }
+  }
+}

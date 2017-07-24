@@ -8,10 +8,10 @@ const CoverBasic = (props) => {
 
   return (
     <div className={'sui-CoverBasic' + clickableClass} onClick={buildClickHandler(props)}>
-      <div className={(props.gradient ? 'gradient' : '')}>
-        <img src={props.src} />
+      <div className={(props.gradient ? 'sui-CoverBasic-gradient' : '')}>
+        <img className='sui-CoverBasic-image' src={props.src} />
       </div>
-      <div className='buttonList'>
+      <div className='sui-CoverBasic-buttonList'>
         {buttons}
       </div>
     </div>

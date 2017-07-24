@@ -14,9 +14,11 @@ const CoverBasic = (props) => {
       <div className={(props.gradient ? 'sui-CoverBasic-gradient' : '')}>
         <img className='sui-CoverBasic-image' src={props.src} />
       </div>
-      <div className='sui-CoverBasic-buttonList'>
-        {buttons}
-      </div>
+      {buttons.length > 0 &&
+        <div className='sui-CoverBasic-buttonList'>
+          {buttons}
+        </div>
+      }
     </div>
   )
 }

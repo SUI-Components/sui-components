@@ -4,10 +4,10 @@ const CoverBasic = (props) => {
   const buttons = buildButtons(props)
 
   // Custom css class is attached when component is clickable.
-  const clickableClass = isClickable(props) ? ' clickable' : ''
+  const isClickableClass = isClickable(props) ? ' is-clickable' : ''
 
   return (
-    <div className={'sui-CoverBasic' + clickableClass} onClick={buildClickHandler(props)}>
+    <div className={'sui-CoverBasic' + isClickableClass} onClick={buildClickHandler(props)}>
       <div className={(props.gradient ? 'sui-CoverBasic-gradient' : '')}>
         <img className='sui-CoverBasic-image' src={props.src} />
       </div>

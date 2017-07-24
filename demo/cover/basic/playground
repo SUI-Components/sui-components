@@ -1,0 +1,43 @@
+const handleClick = () => {
+  alert('handling click')
+}
+
+const buttons1 = [
+  {
+    label: 'Go back',
+    handleClick: () => { alert('Going back!'); },
+    svg: <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10"><path fill="none" fill-rule="evenodd" stroke="#00A3EB" stroke-linecap="round" stroke-width="1.5" d="M5 1L1 5l4 4"/></svg>
+  }
+]
+
+const buttons2 = [
+  {
+    label: 'To be a button with icon',
+    handleClick: () => {},
+    svg: <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10">
+            <path fill="none" fill-rule="evenodd" stroke="#00A3EB" stroke-linecap="round" stroke-width="1.5" d="M5 1L1 5l4 4"/>
+         </svg>
+  },
+  {
+    label: 'Or not to be',
+    handleClick: () => { alert('Or not to be'); }
+  }
+]
+
+return (
+  <div>
+    <div>Resize to see how the image behaves.</div>
+    <div>#1 Full width - with gradient - with one button - clickable</div>
+    <div>#2 Forced to 60% width by its container - no gradient - with more buttons</div>
+    <div>#3 Full width - no gradient - no buttons</div>
+    <br/>
+
+    <CoverBasic src="http://lorempixel.com/1440/676/nature/" gradient buttons={buttons1} handleClick={handleClick}/>
+    <br/>
+    <div style={{width:'60%', margin:'auto'}}>
+      <CoverBasic src="http://lorempixel.com/1440/676/nature/" buttons={buttons2}/>
+    </div>
+    <br/>
+    <CoverBasic src="http://lorempixel.com/1440/676/nature/" />
+  </div>
+)

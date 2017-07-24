@@ -1,13 +1,16 @@
 import React, {PropTypes} from 'react'
+import cx from 'classnames'
 
 const CoverBasic = (props) => {
   const buttons = buildButtons(props)
 
   // Custom css class is attached when component is clickable.
-  const isClickableClass = isClickable(props) ? ' is-clickable' : ''
+  const coverBasicClassNames = cx('sui-CoverBasic', {
+    'is-clickable': isClickable(props)
+  })
 
   return (
-    <div className={'sui-CoverBasic' + isClickableClass} onClick={buildClickHandler(props)}>
+    <div className={coverBasicClassNames} onClick={buildClickHandler(props)}>
       <div className={(props.gradient ? 'sui-CoverBasic-gradient' : '')}>
         <img className='sui-CoverBasic-image' src={props.src} />
       </div>

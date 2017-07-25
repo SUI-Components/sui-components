@@ -1,0 +1,60 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+$c-title-multisize-primary: #a81c4f !default;
+$c-title-multisize-secondary: $c-gray !default;
+
+$ff-roboto-sans-serif: 'Roboto', sans-serif; // Will be moved to nc-theme-basic
+
+$fw-title-multisize-pre-title: 500 !default;
+$fw-title-multisize-main-title: 500 !default;
+$fw-title-multisize-post-title: $fw-regular !default;
+
+$fz-title-multisize-pre-title: $fz-h2 !default;
+$fz-title-multisize-main-title: 48px !default;
+$fz-title-multisize-post-title: $fz-h2 !default;
+
+$maw-phone: 480px !default; // Will be moved to nc-theme-basic
+
+$p-h-title-multisize-between-elements: $p-h-small;
+
+$phone: 'screen and (max-width: $maw-phone)'; // Will be moved to nc-theme-basic
+
+@mixin sui-title-multisize-element ($color: $c-title-multisize-primary, $font-size: $fz-title-multisize-main-title, $font-weight: $fw-title-multisize-main-title) {
+  align-self: baseline;
+  color: $color;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  margin: 0;
+
+  @media #{$phone} {
+    align-self: flex-start;
+    padding: 0;
+    text-align: left;
+  }
+}
+
+.sui-TitleMultisize {
+  display: inline-flex;
+  flex-direction: row;
+  font-family: $ff-roboto-sans-serif;
+
+  @media #{$phone} {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+  }
+
+  &-preTitle {
+    @include sui-title-multisize-element($c-title-multisize-primary, $fz-title-multisize-pre-title, $fw-title-multisize-pre-title);
+  }
+
+  &-title {
+    @include sui-title-multisize-element;
+    padding: 0 $p-h-title-multisize-between-elements;
+  }
+
+  &-postTitle {
+    @include sui-title-multisize-element($c-title-multisize-secondary, $fz-title-multisize-post-title, $fw-title-multisize-post-title);
+  }
+}

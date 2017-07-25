@@ -22,7 +22,7 @@ $mt-cover-basic-buttons: $m-base !default;
   }
 
   &-gradient:after {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.75));
+    background: linear-gradient(to bottom, rgba($c-black, 0) 25%, rgba($c-black, .75));
     content: '';
     display: inline-block;
     height: 100%;

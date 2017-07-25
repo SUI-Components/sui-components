@@ -1,0 +1,17 @@
+{
+  "name": "@s-ui/abtesting-optimizely-x",
+  "version": "1.4.0",
+  "description": "<AbTestOptimizelyXExperiment experimentId />",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "rm -Rf ./lib && mkdir -p ./lib && npm run build:js",
+    "build:js": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
+    "version": "npm run build"
+  },
+  "keywords": [],
+  "author": "David Almeida <davidbarna@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@s-ui/abtesting-toggle": "1"
+  }
+}

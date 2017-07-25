@@ -1,0 +1,14 @@
+{
+  "name": "@s-ui/abtesting-toggle",
+  "version": "1.4.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "rm -Rf ./lib && mkdir -p ./lib && npm run build:js",
+    "build:js": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}

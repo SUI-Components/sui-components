@@ -1,0 +1,35 @@
+const experimentsInfo = {
+   40000:{
+      id:"8401924730",
+      isActive: true,
+      isInExperimentHoldback: false,
+      variation:{
+         id:"400002",
+         name:"Variation #2"
+      }
+   }
+}
+
+window.optimizely = {
+  get: () => ({ getExperimentStates: () => experimentsInfo })
+}
+
+return (<section>
+  <h2>Inactive OptimizelyX Experiment</h2>
+  <p>When experiment is not active or OptimizelyX API is not available, no variation should be assigned.</p>
+  <AbTestOptimizelyXExperiment experimentId={30000}>
+    <button variationId={300000} defaultVariation>Original (Expected)</button>
+    <button variationId={300001}>Variation #1 (Not Expected)</button>
+    <button variationId={300002}>Variation #2 (Not Expected)</button>
+    <button variationId={300003}>Variation #3 (Not Expected)</button>
+  </AbTestOptimizelyXExperiment>
+
+  <h2>Active OptimizelyX Experiment</h2>
+  <p>When experiment is active, it should show the accurate variation.</p>
+  <AbTestOptimizelyXExperiment experimentId={40000}>
+    <button variationId={400000} defaultVariation>Original (Not Expected)</button>
+    <button variationId={400001}>Variation #1 (Not Expected)</button>
+    <button variationId={400002}>Variation #2 (Expected)</button>
+    <button variationId={400003}>Variation #3 (Not Expected)</button>
+  </AbTestOptimizelyXExperiment>
+</section>)

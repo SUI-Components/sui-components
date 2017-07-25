@@ -1,0 +1,48 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+$c-title-basic: $c-white;
+$c-subtitle-basic: $c-white;
+
+$ff-roboto-sans-serif: 'Roboto', sans-serif; // Will be moved to nc-theme-basic
+
+$fw-title-basic: 500 !default;
+$fw-subtitle-basic: $fw-regular !default;
+
+$fz-title-basic: 48px !default;
+$fz-subtitle-basic: $fz-h2 !default;
+
+
+.sui-TitleBasic {
+  display: flex;
+  flex-direction: column;
+  font-family: $ff-roboto-sans-serif;
+
+  &-title {
+    color: $c-title-basic;
+    font-size: $fz-title-basic;
+    font-weight: $fw-title-basic;
+    margin: 0;
+  }
+
+  &-subtitle {
+    color: $c-subtitle-basic;
+    font-size: $fz-subtitle-basic;
+    font-weight: $fw-subtitle-basic;
+    margin: 0;
+  }
+
+  &--alignLeft {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  &--alignCenter {
+    justify-content: center;
+    text-align: center;
+  }
+
+  &--alignRight {
+    justify-content: flex-end;
+    text-align: right;
+  }
+}

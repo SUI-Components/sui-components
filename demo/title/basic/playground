@@ -1,0 +1,29 @@
+const containerStyle = bg => ({
+  maxWidth: 1440,
+  backgroundColor: bg || '#000',
+  margin: '64px 0'
+})
+
+return (
+  <div>
+    <div style={containerStyle()}>
+      <TitleBasic
+        title="Els jardins de Cerdanyola"
+        subtitle="Carrer Josep Vidal i Granés" />
+    </div>
+
+    <div style={containerStyle('#333333')}>
+      <TitleBasic
+		align="left"
+        title="Els jardins de Cerdanyola"
+        subtitle="Carrer Josep Vidal i Granés" />
+    </div>
+
+    <div style={containerStyle('#666666')}>
+      <TitleBasic
+        align="right"
+        title="Els jardins de Cerdanyola"
+        subtitle="Carrer Josep Vidal i Granés" />
+    </div>
+  </div>
+)

@@ -1,7 +1,10 @@
 @import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-button-basic/lib/index';
 
-$mah-cover-basic: 676px !default;
-$fz-cover-basic-button: 16px !default;
+$mah-cover-basic: map-get($breakpoints, 's') !default;
+$fz-cover-basic-button: $fz-base !default;
+$ml-cover-basic-buttons: $m-base !default;
+$mt-cover-basic-buttons: $m-base !default;
 
 .sui-CoverBasic {
   max-height: $mah-cover-basic;
@@ -39,32 +42,9 @@ $fz-cover-basic-button: 16px !default;
   &-buttonList {
     display: flex;
     flex-direction: row;
-    margin: 30px 0 0 52px;
+    margin-left: $ml-cover-basic-buttons;
+    margin-top: $mt-cover-basic-buttons;
     position: absolute;
     top: 0;
-
-    button {
-      background-color: $c-white;
-      border: 0;
-      border-radius: 4px;
-      color: $c-black;
-      font-size: $fz-cover-basic-button;
-      line-height: 1.5;
-      margin-right: 10px;
-      min-width: 90px;
-      min-height: 40px;
-      opacity: 0.75;
-      padding: 0 15px;
-
-      &:hover {
-        cursor: hand;
-        opacity: 1;
-      }
-
-      svg {
-        margin-right: 8px;
-      }
-    }
   }
 }
-

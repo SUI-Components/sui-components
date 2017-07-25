@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react'
 import cx from 'classnames'
+import ButtonBasic from '@schibstedspain/sui-button-basic'
 
 const CoverBasic = (props) => {
   const buttons = buildButtons(props)
@@ -40,12 +41,13 @@ const buildButtons = (props) => {
       event.stopPropagation()
       item.handleClick(event)
     }
-
     return (
-      <button key={index} onClick={handler}>
-        {item.svg ? item.svg : ''}
-        <span>{item.label}</span>
-      </button>
+      <ButtonBasic
+        key={index}
+        icon={item.svg}
+        text={item.label}
+        onClick={handler}
+      />
     )
   })
 }

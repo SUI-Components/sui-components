@@ -1,4 +1,27 @@
 import ExperimentUseCase from './use-case'
+const DETECTION_DELAY = 5000
+
+/**
+ * Wais until func returns a value and calls callback with it
+ * @param  {Function}   truthyFn       Function to execute to check value
+ * @param  {Function} callback       Callback callled passing value
+ * @param  {Number}   [delay=100]    Delay allowed to wait for value
+ * @param  {Number}   [interval=100] Interval time for checks
+ */
+const waitUntil = (truthyFn, callback, delay = 100, interval = 100) => {
+  let intervalId = setInterval(() => {
+    let value = truthyFn()
+    if (value || delay <= 0) {
+      clearInterval(intervalId)
+      callback(value)
+    }
+    delay -= interval
+  }, interval)
+}
+
+const getOptmizely = () => window && window.optimizely
+
+let optimizelyPromise
 
 class OptimizelyXExperimentsService {
   /**
@@ -6,7 +29,10 @@ class OptimizelyXExperimentsService {
    * @return Promise<Object>
    */
   static async getSDK () {
-    return window && window.optimizely
+    optimizelyPromise = optimizelyPromise || new Promise((resolve) => {
+      waitUntil(getOptmizely, resolve, DETECTION_DELAY)
+    })
+    return optimizelyPromise
   }
 
   /**

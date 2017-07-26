@@ -2,7 +2,12 @@ import React, {PropTypes} from 'react'
 import cx from 'classnames'
 
 export default function TitleBasic ({align, className, subtitle, title}) {
-  function buildAlignClassName (alignProp) {
+  /**
+   * Builds the modifier className to apply to the component following the SUIT naming convention (sui-TitleBasic--modifierInCamelCase).
+   * @param alignProp {string} property value for Title alignment.
+   * @returns {string} SUIT formatted classname.
+   */
+  function _buildAlignClassName (alignProp) {
     let alignClassName = ''
     if (alignProp) {
       alignClassName = 'sui-TitleBasic--align' + alignProp.charAt(0).toUpperCase() + alignProp.slice(1)
@@ -10,9 +15,7 @@ export default function TitleBasic ({align, className, subtitle, title}) {
     return alignClassName
   }
 
-  const titleBasicClassName = cx('sui-TitleBasic', className, {
-    [`${buildAlignClassName(align)}`]: true
-  })
+  const titleBasicClassName = cx('sui-TitleBasic', className, `${_buildAlignClassName(align)}`)
 
   return (
     <div className={titleBasicClassName}>
@@ -36,7 +39,7 @@ TitleBasic.propTypes = {
   /**
    * CSS classNames to apply to Title Basic container.
    */
-  className: PropTypes.node,
+  className: PropTypes.string,
   /**
    * Title to display.
    */

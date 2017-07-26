@@ -1,3 +1,13 @@
 return (
-    <TitleMultisize preTitle="desde" title="250.000 €" postTitle={['1.234 €/m', <sup>2</sup>]}/>
+    <div>
+        <TitleMultisize preTitle="desde" title="250.000 €"  postTitle={['1.234 €/m', <sup>2</sup>]} titleSize="l"/>
+
+        <br />
+
+        <TitleMultisize preTitle="desde" title="250.000 €" postTitle={['1.234 €/m', <sup>2</sup>]} preTitleSize="s" postTitleSize="l" titleSize="m"/>
+
+        <br />
+
+        <TitleMultisize preTitle="desde" title="250.000 €" postTitle={['1.234 €/m', <sup>2</sup>]} preTitleSize="l" postTitleSize="l" titleSize="l"/>
+    </div>
 )

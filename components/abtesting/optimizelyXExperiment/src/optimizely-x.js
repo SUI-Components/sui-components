@@ -2,9 +2,9 @@ import ExperimentUseCase from './use-case'
 const DETECTION_DELAY = 5000
 
 /**
- * Wais until func returns a value and calls callback with it
+ * Waits until func returns a value and calls callback with it
  * @param  {Function}   truthyFn       Function to execute to check value
- * @param  {Function} callback       Callback callled passing value
+ * @param  {Function} callback       Callback called passing value
  * @param  {Number}   [delay=100]    Delay allowed to wait for value
  * @param  {Number}   [interval=100] Interval time for checks
  */
@@ -51,7 +51,7 @@ class OptimizelyXExperimentsService {
    * }
    */
   static async getInfo (experimentId) {
-    let sdk = await this.getSDK()
+    const sdk = await this.getSDK()
     return sdk && sdk.get &&
       sdk.get('state').getExperimentStates()[experimentId]
   }

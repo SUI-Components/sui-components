@@ -27,12 +27,15 @@ const buttons2 = [
 return (
   <div>
     <div>Resize to see how the image behaves.</div>
-    <div>#1 Full width - with gradient - with one button - clickable</div>
+    <div>#1 Full width - with gradient - with one button - clickable - with a title as children displayed</div>
     <div>#2 Forced to 60% width by its container - no gradient - with more buttons</div>
     <div>#3 Full width - no gradient - no buttons</div>
     <br/>
 
-    <CoverBasic src="http://lorempixel.com/1440/676/nature/" gradient buttons={buttons1} handleClick={handleClick}/>
+    <CoverBasic src="http://lorempixel.com/1440/676/nature/" gradient buttons={buttons1} handleClick={handleClick}>
+      <h1>I'm a title h1 passed as children. And I'm centered.</h1>
+      <h2>I'm an h2 title</h2>
+    </CoverBasic>
     <br/>
     <div style={{width:'60%', margin:'auto'}}>
       <CoverBasic src="http://lorempixel.com/1440/676/nature/" buttons={buttons2}/>

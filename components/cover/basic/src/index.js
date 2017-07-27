@@ -10,14 +10,21 @@ const CoverBasic = (props) => {
     'is-clickable': isClickable(props)
   })
 
+  const gradientClassNames = cx({'sui-CoverBasic-gradient': props.gradient})
+
   return (
     <div className={coverBasicClassNames} onClick={buildClickHandler(props)}>
-      <div className={(props.gradient ? 'sui-CoverBasic-gradient' : '')}>
+      <div className={gradientClassNames}>
         <img className='sui-CoverBasic-image' src={props.src} />
       </div>
       {buttons.length > 0 &&
         <div className='sui-CoverBasic-buttonList'>
           {buttons}
+        </div>
+      }
+      {props.children &&
+        <div className='sui-CoverBasic-children'>
+          {props.children}
         </div>
       }
     </div>
@@ -55,6 +62,10 @@ const buildButtons = (props) => {
 CoverBasic.displayName = 'CoverBasic'
 
 CoverBasic.propTypes = {
+  /**
+   * Children will be displayed.
+   */
+  children: PropTypes.node,
   /**
    * Image source.
    */

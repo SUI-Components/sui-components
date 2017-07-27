@@ -1,6 +1,13 @@
 import React, {PropTypes} from 'react'
 import cx from 'classnames'
 
+// Map object for title sizes and HTML Tags.
+const TAG_FOR_SIZE = {
+  'l': 'h1',
+  'm': 'h2',
+  's': 'h3'
+}
+
 /**
  * Builds an HTML/React Element depending on the size declared (s: H3, m: H2, l: H1).
  * @param size {string} Size (s, m, l) of title element.
@@ -10,17 +17,10 @@ import cx from 'classnames'
  * @private
  */
 const _buildTitleElement = (size, className, content) => {
-  let element = null
-  if (content) {
-    if (size === 'l') {
-      element = <h1 className={className}>{content}</h1>
-    } else if (size === 'm') {
-      element = <h2 className={className}>{content}</h2>
-    } else if (size === 's') {
-      element = <h3 className={className}>{content}</h3>
-    }
-  }
-  return element
+  // get the corresponding tag for requested size
+  const Tag = TAG_FOR_SIZE[size]
+  // return the element if has content title
+  return content && <Tag className={className}>{content}</Tag>
 }
 
 const TitleMultisize = ({className, postTitle, postTitleSize, preTitle, preTitleSize, title, titleSize}) => (

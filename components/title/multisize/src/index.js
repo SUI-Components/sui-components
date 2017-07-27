@@ -8,18 +8,17 @@ const TAG_FOR_SIZE = {
   's': 'h3'
 }
 
+const TITLE_SIZES = Object.keys(TAG_FOR_SIZE)
+
 /**
  * Builds an HTML/React Element depending on the size declared (s: H3, m: H2, l: H1).
  * @param size {string} Size (s, m, l) of title element.
  * @param className {string} CSS classNames to apply to element.
  * @param content {element} Children of title element. Could be an element (HTML/React Element), string, or an array of both.
  * @returns {element} React Title Element.
- * @private
  */
 const _buildTitleElement = (size, className, content) => {
-  // get the corresponding tag for requested size
   const Tag = TAG_FOR_SIZE[size]
-  // return the element if has content title
   return content && <Tag className={className}>{content}</Tag>
 }
 
@@ -45,9 +44,7 @@ TitleMultisize.propTypes = {
   /**
    * Size of post-title: s = h3, m = h2, l = h1.
    */
-  postTitleSize: PropTypes.oneOf([
-    's', 'm', 'l'
-  ]),
+  postTitleSize: PropTypes.oneOf(TITLE_SIZES),
   /**
    * Text to display before main title (h3).
    */
@@ -55,9 +52,7 @@ TitleMultisize.propTypes = {
   /**
    * Size of pre-title: s = h3, m = h2, l = h1.
    */
-  preTitleSize: PropTypes.oneOf([
-    's', 'm', 'l'
-  ]),
+  preTitleSize: PropTypes.oneOf(TITLE_SIZES),
   /**
    * Text to display as main title (h1).
    */
@@ -65,9 +60,7 @@ TitleMultisize.propTypes = {
   /**
    * Size of title: s = h3, m = h2, l = h1.
    */
-  titleSize: PropTypes.oneOf([
-    's', 'm', 'l'
-  ])
+  titleSize: PropTypes.oneOf(TITLE_SIZES)
 }
 
 TitleMultisize.defaultProps = {

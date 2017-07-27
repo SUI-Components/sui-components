@@ -1,16 +1,18 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
-$c-title-basic-main-title: $c-white !default;
-$c-title-basic-subtitle: $c-white !default;
+$c-title-basic-main-title: $c-primary !default;
+$c-title-basic-subtitle: $c-primary !default;
 
 .sui-TitleBasic {
 
   &-title {
+    @include h1;
     color: $c-title-basic-main-title;
     font-weight: $fw-semi-bold;
   }
 
   &-subtitle {
+    @include h2;
     color: $c-title-basic-subtitle;
     font-weight: $fw-regular;
   }

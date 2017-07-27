@@ -1,8 +1,5 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
-$c-title-multisize-primary: $c-primary !default;
-$c-title-multisize-secondary: $c-gray !default;
-
 @mixin sui-title-multisize-sizes ($fw: $fw-semi-bold) {
   &--s {
     @include h3;

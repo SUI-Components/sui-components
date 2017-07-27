@@ -17,16 +17,16 @@ const TITLE_SIZES = Object.keys(TAG_FOR_SIZE)
  * @param content {element} Children of title element. Could be an element (HTML/React Element), string, or an array of both.
  * @returns {element} React Title Element.
  */
-const _buildTitleElement = (size, className, content) => {
+const buildTitleElement = (size, className, content) => {
   const Tag = TAG_FOR_SIZE[size]
   return content && <Tag className={className}>{content}</Tag>
 }
 
 const TitleMultisize = ({className, postTitle, postTitleSize, preTitle, preTitleSize, title, titleSize}) => (
   <div className={cx('sui-TitleMultisize', className)}>
-    {_buildTitleElement(preTitleSize, cx('sui-TitleMultisize-preTitle', `sui-TitleMultisize-preTitle--${preTitleSize}`), preTitle)}
-    {_buildTitleElement(titleSize, cx('sui-TitleMultisize-title', `sui-TitleMultisize-title--${titleSize}`), title)}
-    {_buildTitleElement(postTitleSize, cx('sui-TitleMultisize-postTitle', `sui-TitleMultisize-postTitle--${postTitleSize}`), postTitle)}
+    {buildTitleElement(preTitleSize, cx('sui-TitleMultisize-preTitle', `sui-TitleMultisize-preTitle--${preTitleSize}`), preTitle)}
+    {buildTitleElement(titleSize, cx('sui-TitleMultisize-title', `sui-TitleMultisize-title--${titleSize}`), title)}
+    {buildTitleElement(postTitleSize, cx('sui-TitleMultisize-postTitle', `sui-TitleMultisize-postTitle--${postTitleSize}`), postTitle)}
   </div>
 )
 

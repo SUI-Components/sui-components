@@ -1,10 +1,12 @@
 import React, { PropTypes } from 'react'
 import cx from 'classnames'
 
+const DEFAULT_COLS = 1
+
 class ListMasonry extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {columns: 1}
+    this.state = {columns: DEFAULT_COLS}
   }
   componentDidMount () {
     this._onResize()
@@ -24,7 +26,7 @@ class ListMasonry extends React.Component {
   _onResize = () => {
     const columns = this._getColumns(this.refs.ListMasonry.offsetWidth)
     if (columns !== this.state.columns) {
-      this.setState({columns: columns})
+      this.setState({columns})
     }
   }
 

@@ -11,6 +11,10 @@ class ListMasonry extends React.Component {
     window.addEventListener('resize', this._onResize)
   }
 
+  componentWillUnmount () {
+    window.removeEventListener('resize', this._onResize)
+  }
+
   _getColumns (width) {
     return this.props.breakPoints.reduceRight((collector, current, index) => {
       return current < width ? collector : index

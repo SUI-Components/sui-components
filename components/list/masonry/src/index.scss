@@ -1,0 +1,16 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-ListMasonry {
+  align-content: stretch;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  &-column {
+    align-content: stretch;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}

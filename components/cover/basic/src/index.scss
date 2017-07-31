@@ -27,6 +27,16 @@
     width: 100%;
   }
 
+  &-objectFitFix {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    img {
+      opacity: 0;
+    }
+  }
+
   &-image {
     display: block;
     height: 100%;

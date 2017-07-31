@@ -24,7 +24,7 @@ class ListMasonry extends React.Component {
   }
 
   _onResize = () => {
-    const columns = this._getColumns(this.refs.ListMasonry.offsetWidth)
+    const columns = this._getColumns(this.listMasonry.offsetWidth)
     if (columns !== this.state.columns) {
       this.setState({columns})
     }
@@ -45,7 +45,7 @@ class ListMasonry extends React.Component {
   render () {
     const masonryClassName = cx('sui-ListMasonry', this.props.className)
     return (
-      <div className={masonryClassName} ref='ListMasonry'>
+      <div className={masonryClassName} ref={node => (this.listMasonry = node)} >
         {this._mapChildren().map((col, columnIndex) => {
           return (
             <div className='sui-ListMasonry-column' key={columnIndex} >

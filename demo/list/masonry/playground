@@ -1,0 +1,43 @@
+const breakPoints = [600, 900]
+const containerStyles = {
+  maxWidth: '1280px'
+}
+const itemStyles = {
+  margin: '10px'
+}
+const imageStyles = {
+  maxWidth: '100%'
+}
+return (
+  <div style={containerStyles}>
+    <ListMasonry breakPoints={breakPoints} className='extra-class'>
+      <div style={itemStyles}>
+        <img style={imageStyles} src='http://lorempicsum.com/simpsons/455/300/1' />
+      </div>
+      <div style={itemStyles}>
+        <img style={imageStyles} src='http://lorempicsum.com/simpsons/455/400/2' />
+      </div>
+      <div style={itemStyles}>
+        <img style={imageStyles} src='http://lorempicsum.com/simpsons/455/300/3' />
+      </div>
+      <div style={itemStyles}>
+        <img style={imageStyles} src='http://lorempicsum.com/simpsons/455/400/4' />
+      </div>
+      <div style={itemStyles}>
+        <img style={imageStyles} src='http://lorempicsum.com/simpsons/455/400/5' />
+      </div>
+      <div style={itemStyles}>
+        <img style={imageStyles} src='http://lorempicsum.com/simpsons/455/400/6' />
+      </div>
+      <div style={itemStyles}>
+        <img style={imageStyles} src='http://lorempicsum.com/simpsons/455/400/7' />
+      </div>
+      <div style={itemStyles}>
+        <img style={imageStyles} src='http://lorempicsum.com/simpsons/455/300/8' />
+      </div>
+      <div style={itemStyles}>
+        <img style={imageStyles} src='http://lorempicsum.com/simpsons/455/400/9' />
+      </div>
+    </ListMasonry>
+  </div>
+)

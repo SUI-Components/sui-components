@@ -1,0 +1,55 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+@mixin sui-title-multisize-sizes ($fw: $fw-semi-bold) {
+  &--s {
+    @include h3;
+    font-weight: $fw;
+  }
+
+  &--m {
+    @include h2;
+    font-weight: $fw;
+  }
+
+  &--l {
+    @include h1;
+    font-weight: $fw;
+  }
+}
+
+@mixin sui-title-multisize-element ($c: $c-title-multisize-primary, $fw: $fw-semi-bold) {
+  @include sui-title-multisize-sizes($fw);
+  @include media-breakpoint-down(s) {
+    align-self: flex-start;
+    padding: 0;
+    text-align: left;
+  }
+  align-self: baseline;
+  color: $c;
+  margin: 0;
+}
+
+
+.sui-TitleMultisize {
+  @include media-breakpoint-down(s) {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+  }
+  display: inline-flex;
+  flex-direction: row;
+
+  &-preTitle {
+    @include sui-title-multisize-element($c-title-multisize-primary);
+  }
+
+  &-title {
+    @include sui-title-multisize-element;
+    padding: 0 $p-h-small;
+  }
+
+  &-postTitle {
+    @include sui-title-multisize-element($c-title-multisize-secondary, $fw-regular);
+  }
+}

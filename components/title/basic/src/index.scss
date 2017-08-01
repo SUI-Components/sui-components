@@ -1,0 +1,28 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-TitleBasic {
+
+  &-title {
+    @include h1;
+    color: $c-title-basic-main-title;
+    font-weight: $fw-semi-bold;
+  }
+
+  &-subtitle {
+    @include h2;
+    color: $c-title-basic-subtitle;
+    font-weight: $fw-regular;
+  }
+
+  &--alignLeft {
+    text-align: left;
+  }
+
+  &--alignCenter {
+    text-align: center;
+  }
+
+  &--alignRight {
+    text-align: right;
+  }
+}

@@ -1,0 +1,71 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-button-basic/lib/index';
+
+.sui-CoverBasic {
+  max-height: $mah-cover-basic;
+  position: relative;
+  width: 100%;
+
+  &.is-clickable {
+    cursor: hand;
+  }
+
+  &-gradient {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+  }
+
+  &-gradient:after {
+    background: linear-gradient(to bottom, rgba($c-black, 0) 25%, rgba($c-black, .75));
+    content: '';
+    display: inline-block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &-objectFitFix {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    img {
+      opacity: 0;
+    }
+  }
+
+  &-image {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &-buttonList {
+    display: flex;
+    flex-direction: row;
+    margin-left: $ml-cover-basic-buttons;
+    margin-top: $mt-cover-basic-buttons;
+    position: absolute;
+    top: 0;
+
+    button {
+      font-size: $fz-cover-basic-button;
+    }
+  }
+
+  &-children {
+    align-items: center;
+    color: $c-cover-basic-children;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}

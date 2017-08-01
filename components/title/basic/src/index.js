@@ -12,8 +12,8 @@ export default function TitleBasic ({align, className, subtitle, title}) {
 
   return (
     <div className={titleBasicClassName}>
-      <h1 className={`sui-TitleBasic-title`}>{title}</h1>
-      {subtitle && <h2 className={`sui-TitleBasic-subtitle`}>{subtitle}</h2>}
+      <h1 className='sui-TitleBasic-title'>{title}</h1>
+      {subtitle && <h2 className='sui-TitleBasic-subtitle'>{subtitle}</h2>}
     </div>
   )
 }

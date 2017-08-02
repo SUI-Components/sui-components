@@ -2,6 +2,14 @@
 @import '~@schibstedspain/sui-button-basic/lib/index';
 
 .sui-CoverBasic {
+  @include media-breakpoint-down(s) {
+    height: $hmediabreaks-cover-basic;
+
+    .sui-CoverBasic-buttonList {
+      display: none;
+    }
+  }
+
   max-height: $mah-cover-basic;
   position: relative;
   width: 100%;

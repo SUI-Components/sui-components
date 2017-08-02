@@ -7,10 +7,12 @@
   display: inline-block;
   padding: $p-thumbnail-basic;
   position: relative;
+  width: 100%;
 
   &-image {
     display: block;
     vertical-align: bottom;
+    width: 100%;
   }
 
   &-caption {

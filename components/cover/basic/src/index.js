@@ -6,9 +6,10 @@ const CoverBasic = (props) => {
   const buttons = buildButtons(props)
 
   // Custom css class is attached when component is clickable.
-  const coverBasicClassNames = cx('sui-CoverBasic', {
-    'is-clickable': isClickable(props)
-  })
+  const coverBasicClassNames = cx(
+    'sui-CoverBasic',
+    props.className,
+    {'is-clickable': isClickable(props)})
 
   const imageContainerClassNames = cx(
     {'sui-CoverBasic-gradient': props.gradient},
@@ -77,6 +78,10 @@ CoverBasic.propTypes = {
    * Children will be displayed.
    */
   children: PropTypes.node,
+  /**
+   * Classname appended to the main container.
+   */
+  className: PropTypes.string,
   /**
    * Image source.
    */

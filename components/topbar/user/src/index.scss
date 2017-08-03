@@ -15,7 +15,9 @@
   position: absolute;
   right: $right;
   text-align: center;
-  @if $top { top: $top; }
+  @if $top {
+    top: $top;
+  }
   width: $notifications-size;
 }
 
@@ -24,8 +26,14 @@
   background-color: $bgc-topbar-user;
   box-shadow: $bxsh-topbar-user;
   display: flex;
+  justify-content: space-between;
   padding: $p-v $p-h;
   position: relative;
+
+  &-wrap {
+    display: flex;
+    flex: 1;
+  }
 
   &-toggle {
     @include reset-button;
@@ -50,6 +58,7 @@
       height: $h-topbar-user-brand;
       width: $w-topbar-user-brand;
     }
+    align-self: center;
     font-size: $fz-h2;
     font-weight: $fw-bold;
     margin-right: $m-h;
@@ -108,38 +117,6 @@
       &User {
         order: 1;
       }
-
-      &CTA {
-        order: 3;
-
-        &Link {
-          @include reset-link;
-          display: block;
-          font-size: $fz-h3;
-          font-weight: normal;
-          padding: $p-v-large $p-h;
-          position: relative;
-
-          &:hover {
-            color: $c-primary;
-          }
-        }
-
-        &Icon {
-          fill: $c-text-base !important;
-          height: $size-dropdown-icon;
-          margin-right: $m-h-small;
-          width: $size-dropdown-icon;
-
-          :hover > & {
-            fill: $c-primary !important;
-          }
-        }
-
-        &Notifications {
-          @include notifications($right: 7px);
-        }
-      }
     }
     @include media-breakpoint-up(m) {
       display: flex;
@@ -150,8 +127,7 @@
       }
 
       &Main,
-      &User,
-      &CTA {
+      &User {
         align-items: center;
         display: flex;
       }
@@ -159,21 +135,65 @@
       &Main {
         flex: 1;
       }
+    }
+  }
 
-      &CTA {
-        &Link {
-          @include reset-link;
+  &-cta {
+    &Button {
+      &Link {
+        @include reset-link;
+        @include sui-button(
+          'custom',
+          'small',
+          $background-color: $bgc-topbar-user-cta,
+          $icon-fill: $c-white
+        );
+        @include media-breakpoint-up(m) {
           @include sui-button(
             'custom',
             $background-color: $bgc-topbar-user-cta,
             $icon-fill: $c-white
           );
-          position: relative;
         }
+        position: relative;
+      }
 
-        &Notifications {
-          @include notifications($right: -7px, $top: -7px);
+      &Notifications {
+        @include notifications($right: -7px, $top: -7px);
+      }
+    }
+
+    &Text {
+      @include media-breakpoint-up(m) {
+        display: none;
+      }
+
+      &Link {
+        @include reset-link;
+        display: block;
+        font-size: $fz-h3;
+        font-weight: normal;
+        padding: $p-v-large $p-h;
+        position: relative;
+
+        &:hover {
+          color: $c-primary;
         }
+      }
+
+      &Icon {
+        fill: $c-text-base !important;
+        height: $size-dropdown-icon;
+        margin-right: $m-h-small;
+        width: $size-dropdown-icon;
+
+        :hover > & {
+          fill: $c-primary !important;
+        }
+      }
+
+      &Notifications {
+        @include notifications($right: 7px);
       }
     }
   }

@@ -1,52 +1,71 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
-@mixin sui-title-multisize-sizes ($fw: $fw-semi-bold) {
-  &--s {
-    @include h3;
+@mixin sui-title-multisize-sizes ($fw: $fw-semi-bold, $mb: $m-v) {
+  &--xs {
+    @include h5;
     font-weight: $fw;
+    margin: 0 0 $mb;
+  }
+
+  &--s {
+    @include h4;
+    font-weight: $fw;
+    margin: 0 0 $mb;
   }
 
   &--m {
-    @include h2;
+    @include h3;
     font-weight: $fw;
+    margin: 0 0 $mb;
   }
 
   &--l {
+    @include h2;
+    font-weight: $fw;
+    margin: 0 0 $mb;
+  }
+
+  &--xl {
     @include h1;
     font-weight: $fw;
+    margin: 0 0 $mb;
   }
 }
 
-@mixin sui-title-multisize-element ($c: $c-title-multisize-primary, $fw: $fw-semi-bold) {
+@mixin sui-title-multisize-element ($c: $c-title-multisize-primary, $fw: $fw-bold) {
   @include sui-title-multisize-sizes($fw);
-  @include media-breakpoint-down(s) {
-    align-self: flex-start;
-    padding: 0;
-    text-align: left;
-  }
   align-self: baseline;
   color: $c;
-  margin: 0;
 }
 
 
 .sui-TitleMultisize {
-  @include media-breakpoint-down(s) {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    padding: 0;
+  display: flex;
+
+  &--horizontal {
+    @include media-breakpoint-down(s) {
+      flex-direction: column;
+    }
+
+    @include media-breakpoint-up(m) {
+      .sui-TitleMultisize-title {
+        padding: 0 $p-h-small;
+      }
+    }
+
+    flex-direction: row;
   }
-  display: inline-flex;
-  flex-direction: row;
+
+  &--vertical {
+    flex-direction: column;
+  }
 
   &-preTitle {
-    @include sui-title-multisize-element($c-title-multisize-primary);
+    @include sui-title-multisize-element($c-title-multisize-secondary, $fw-semi-bold);
   }
 
   &-title {
     @include sui-title-multisize-element;
-    padding: 0 $p-h-small;
   }
 
   &-postTitle {

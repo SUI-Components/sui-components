@@ -152,35 +152,38 @@ class TopbarUser extends Component {
         ref={node => { this._topbarUserNode = node }}
         className='sui-TopbarUser'
       >
-        <button
-          ref={node => { this._topbarUserToggleNode = node }}
-          className='sui-TopbarUser-toggle'
-          onClick={this._toggleMenu}
-        >
-          <ToggleIcon svgClass='sui-TopbarUser-toggleIcon' />
-        </button>
-        <Link href={brandUrl} className='sui-TopbarUser-brand' title={brandName}>
-          {brandName}
-        </Link>
-        <div
-          className={navWrapClassName}
-          style={isToggleHidden ? DEFAULT_NAV_WRAP_STYLE : navWrapStyle}
-          onClick={this._handleNavWrapClick}
-        >
-          <div className='sui-TopbarUser-nav'>
-            <div className='sui-TopbarUser-navMain'>
-              {navMain.map(this._renderNavMain(isToggleHidden))}
+        <div className='sui-TopbarUser-wrap'>
+          <button
+            ref={node => { this._topbarUserToggleNode = node }}
+            className='sui-TopbarUser-toggle'
+            onClick={this._toggleMenu}
+          >
+            <ToggleIcon svgClass='sui-TopbarUser-toggleIcon' />
+          </button>
+          <Link href={brandUrl} className='sui-TopbarUser-brand' title={brandName}>
+            {brandName}
+          </Link>
+          <div
+            className={navWrapClassName}
+            style={isToggleHidden ? DEFAULT_NAV_WRAP_STYLE : navWrapStyle}
+            onClick={this._handleNavWrapClick}
+          >
+            <div className='sui-TopbarUser-nav'>
+              <div className='sui-TopbarUser-navMain'>
+                {navMain.map(this._renderNavMain(isToggleHidden))}
+                {navCTA && <CallToActionComponent url={navCTA.url} text={navCTA.text} icon={navCTA.icon} notifications={navCTA.notifications} linkFactory={Link} className='sui-TopbarUser-ctaText' />}
+              </div>
+              <div className='sui-TopbarUser-navUser'>
+                <DropdownUser
+                  user={{ avatar, name }}
+                  menu={menu}
+                  expandOnMouseOver
+                />
+              </div>
             </div>
-            <div className='sui-TopbarUser-navUser'>
-              <DropdownUser
-                user={{ avatar, name }}
-                menu={menu}
-                expandOnMouseOver
-              />
-            </div>
-            {navCTA && <CallToActionComponent url={navCTA.url} text={navCTA.text} icon={navCTA.icon} notifications={navCTA.notifications} linkFactory={Link} />}
           </div>
         </div>
+        {navCTA && <CallToActionComponent url={navCTA.url} text={navCTA.text} icon={navCTA.icon} notifications={navCTA.notifications} linkFactory={Link} className='sui-TopbarUser-ctaButton' />}
       </div>
     )
   }

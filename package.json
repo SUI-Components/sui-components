@@ -11,7 +11,7 @@
     "lint:sass": "sui-lint sass",
     "lint": "npm run lint:js && npm run lint:sass",
     "start": "sui-studio start",
-    "test": "jest",
+    "test": "true",
     "precommit": "sui-precommit run",
     "commitmsg": "validate-commit-msg"
   },

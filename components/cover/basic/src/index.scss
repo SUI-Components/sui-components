@@ -3,7 +3,7 @@
 
 .sui-CoverBasic {
   @include media-breakpoint-down(s) {
-    height: $hmediabreaks-cover-basic;
+    height: $h-cover-basic-small;
 
     .sui-CoverBasic-buttonList {
       display: none;

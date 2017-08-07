@@ -84,7 +84,7 @@ class CookieBanner extends Component {
       return null
     }
 
-    const { cookiePolicy, iconClose: IconClose, message } = this.props
+    const { cookiePolicy, iconClose, message } = this.props
 
     return (
       <div className='sui-CookieBanner'>
@@ -94,7 +94,7 @@ class CookieBanner extends Component {
             {this._renderCookiePolicy(cookiePolicy)}
           </span>
           <button className='sui-CookieBanner-closeButton' onClick={this._handleClick}>
-            <IconClose svgClass='sui-CookieBanner-closeIcon' size={16} />
+            {iconClose}
           </button>
         </div>
       </div>
@@ -108,7 +108,7 @@ CookieBanner.defaultProps = {
   cookieKey: 'user-has-accepted-cookies',
   dismissOnScroll: true,
   dismissOnScrollThreshold: 0,
-  iconClose: IconX
+  iconClose: <IconX svgClass='sui-CookieBanner-closeIcon' fill='#000' size={16} />
 }
 
 CookieBanner.propTypes = {
@@ -134,7 +134,7 @@ CookieBanner.propTypes = {
   /**
    * Icon to close the cookie banner
    */
-  iconClose: PropTypes.func,
+  iconClose: PropTypes.element,
   /**
    * Message written inside default cookie banner
    */

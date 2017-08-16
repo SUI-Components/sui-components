@@ -9,13 +9,13 @@ before_install:
   - npm i -g npm@^3.0.0
   - npm i -g surge
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-after_success:
-  - sui-studio run-all npm i
-  - npm run deploy
-  - sui-studio check-release
-branches:
-  only:
-    - master
+before_deploy:
+  - npm run build
+deploy:
+  skip_cleanup: true
+  provider: surge
+  project: ./public/
+  domain: sui-components.surge.sh
 env:
   global:
     - secure: >-

@@ -9,9 +9,6 @@ before_install:
   - npm i -g npm@^3.0.0
   - npm i -g surge
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-install:
-  - npm i
-  - sui-studio run-all npm i
 before_deploy:
   - npm run build
 deploy:

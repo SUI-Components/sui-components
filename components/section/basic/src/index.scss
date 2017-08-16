@@ -1,0 +1,58 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+$c-section-basic-main-title: #484848 !default;
+$c-section-basic-subtitle: #5aa8bd !default;
+$c-section-basic-content-text-paragraph: $c-gray !default;
+$mb-section-basic: $m-v-xlarge * 2 !default;
+$mb-section-basic-header: $m-v-xlarge !default;
+$m-v-section-basic-content-text-paragraph: $m-v-xlarge !default;
+
+@mixin section-title-text-alignments {
+  width: 100%;
+
+  &--left {
+    text-align: left;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--right {
+    text-align: right;
+  }
+}
+
+.sui-SectionBasic {
+  margin-bottom: $mb-section-basic;
+
+  &-header {
+    margin-bottom: $mb-section-basic-header;
+  }
+
+  &-title {
+    @include h3;
+    @include section-title-text-alignments;
+
+    color: $c-section-basic-main-title;
+    font-weight: $fw-regular;
+  }
+
+  &-subtitle {
+    @include h5;
+    @include section-title-text-alignments;
+
+    color: $c-section-basic-subtitle;
+    font-weight: $fw-regular;
+  }
+
+  &-content {
+    &OnlyText {
+      color: $c-section-basic-content-text-paragraph;
+      font-size: $fz-body;
+      font-weight: $fw-regular;
+      line-height: $lh-base;
+      margin: $m-v-section-basic-content-text-paragraph 0;
+    }
+  }
+}

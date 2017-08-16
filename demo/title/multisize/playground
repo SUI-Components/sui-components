@@ -1,13 +1,34 @@
 return (
     <div>
-        <TitleMultisize preTitle="desde" title="250.000 €"  postTitle={['1.234 €/m', <sup key="1">2</sup>]} titleSize="l"/>
-
+        <TitleMultisize
+            preTitle="Inmuebles desde"
+            title="250.000 €"
+            postTitle={['1.234 €/m', <sup key="0">2</sup>]}
+            titleSize="xl"/>
         <br />
 
-        <TitleMultisize preTitle="desde" title="250.000 €" postTitle={['1.234 €/m', <sup key="2">2</sup>]} preTitleSize="s" postTitleSize="l" titleSize="m"/>
-
+        <TitleMultisize
+            preTitle="Desde"
+            title="480.000 €"
+            postTitle={['2.234 €/m', <sup key="1">2</sup>]} titleSize="xl" orientation="horizontal"/>
         <br />
 
-        <TitleMultisize preTitle="desde" title="250.000 €" postTitle={['1.234 €/m', <sup key="3">2</sup>]} preTitleSize="l" postTitleSize="l" titleSize="l"/>
+        <TitleMultisize
+            preTitle="Inmuebles desde"
+            title="650.000 €"
+            postTitle={['3.456 €/m', <sup key="2">2</sup>]}
+            preTitleSize="xs"
+            postTitleSize="xl"
+            titleSize="l"/>
+        <br />
+
+        <TitleMultisize
+            orientation="horizontal"
+            preTitle="Desde"
+            title="170.000 €"
+            postTitle={['765 €/m', <sup key="3">2</sup>]}
+            preTitleSize="xl"
+            postTitleSize="xs"
+            titleSize="m"/>
     </div>
 )

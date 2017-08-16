@@ -13,7 +13,7 @@
     "lint": "npm run lint:js && npm run lint:sass",
     "postinstall": "sui-studio run-all npm i",
     "start": "sui-studio start",
-    "test": "true",
+    "test": "jest",
     "precommit": "sui-precommit run",
     "commitmsg": "validate-commit-msg"
   },

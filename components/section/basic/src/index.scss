@@ -1,12 +1,5 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
-$c-section-basic-main-title: #484848 !default;
-$c-section-basic-subtitle: #5aa8bd !default;
-$c-section-basic-content-text-paragraph: $c-gray !default;
-$mb-section-basic: $m-v-xlarge * 2 !default;
-$mb-section-basic-header: $m-v-xlarge !default;
-$m-v-section-basic-content-text-paragraph: $m-v-xlarge !default;
-
 @mixin section-title-text-alignments {
   width: 100%;
 
@@ -39,19 +32,20 @@ $m-v-section-basic-content-text-paragraph: $m-v-xlarge !default;
   }
 
   &-subtitle {
-    @include h5;
     @include section-title-text-alignments;
 
     color: $c-section-basic-subtitle;
+    font-size: $fz-section-basic-subtitle;
     font-weight: $fw-regular;
+    margin: 0 0 $m-v-small;
   }
 
   &-content {
-    &OnlyText {
+    &OnlyText, p {
       color: $c-section-basic-content-text-paragraph;
-      font-size: $fz-body;
+      font-size: $fz-section-basic-content-text-paragraph;
       font-weight: $fw-regular;
-      line-height: $lh-base;
+      line-height: $lh-section-basic-paragraph;
       margin: $m-v-section-basic-content-text-paragraph 0;
     }
   }

@@ -27,7 +27,7 @@
   box-shadow: $bxsh-topbar-user;
   display: flex;
   justify-content: space-between;
-  padding: $p-v $p-h;
+  padding: 0 $p-h;
   position: relative;
 
   &-wrap {
@@ -40,7 +40,8 @@
     @include media-breakpoint-up(m) {
       display: none;
     }
-    margin-right: $m-h;
+    margin-left: -$m-h;
+    padding: $p-v $p-h;
 
     &Icon {
       fill: $c-primary !important;
@@ -55,7 +56,9 @@
       @include text-hide;
       background: $bg-topbar-user-brand;
       background-size: $bgsz-topbar-user-brand;
+      box-sizing: content-box;
       height: $h-topbar-user-brand;
+      padding: $p-v 0;
       width: $w-topbar-user-brand;
     }
     align-self: center;
@@ -124,6 +127,7 @@
 
       &Wrap {
         flex: 1;
+        padding: $p-v 0;
       }
 
       &Main,
@@ -140,6 +144,8 @@
 
   &-cta {
     &Button {
+      padding: $p-v 0;
+
       &Link {
         @include reset-link;
         @include sui-button(

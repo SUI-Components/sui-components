@@ -64,7 +64,7 @@ export default class TagSelectableList extends Component {
     const isAllSelected = this.isAllSelected()
     const {all} = this.props
     return (
-      <div className='sui-TagDeletableList'>
+      <div className='sui-TagSelectableList'>
         {all && <TagSelectable
           onClick={this.allHandler}
           isSelected={isAllSelected}

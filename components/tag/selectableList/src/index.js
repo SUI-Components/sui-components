@@ -62,13 +62,13 @@ export default class TagSelectableList extends Component {
 
   render () {
     const isAllSelected = this.isAllSelected()
-    const {all} = this.props
+    const {allLabel} = this.props
     return (
       <div className='sui-TagSelectableList'>
-        {all && <TagSelectable
+        {allLabel && <TagSelectable
           onClick={this.allHandler}
           isSelected={isAllSelected}
-          label={all}
+          label={allLabel}
           icon={isAllSelected && this.props.checkIcon}
         />}
         {this._renderTags()}
@@ -85,14 +85,15 @@ TagSelectableList.propTypes = {
    */
   checkIcon: PropTypes.func,
   /**
-   * Optional string. When is setted show a button `All` at first position
+   * Optional string. When is setted show a button `All` at first position.
+   * The string content is the label of the button.
    */
-  all: PropTypes.string,
+  allLabel: PropTypes.string,
    /**
    * By clicking on every tag, `onChange` is triggered and sends an
    * object with the selected items in the array.
    */
-  onChange: PropTypes.func.isRequire,
+  onChange: PropTypes.func,
   /**
    * List of tag objects
    */

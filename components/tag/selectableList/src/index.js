@@ -18,7 +18,7 @@ export default class TagSelectableList extends Component {
 
   toggleValue (value) {
     let selectedValues = this.state.selectedValues
-    if (selectedValues.indexOf(value) !== -1) {
+    if (selectedValues.includes(value)) {
       selectedValues = removeFromArray(selectedValues, value)
     } else {
       selectedValues.push(value)
@@ -27,19 +27,17 @@ export default class TagSelectableList extends Component {
   }
 
   toggleAll () {
-    let selectedValues
-    if (this.isAllSelected()) {
-      selectedValues = []
-    } else {
-      selectedValues = this.props.tagsList.map(item => item.value)
-    }
-    this.setState({selectedValues})
+    this.setState({
+      selectedValues: this.isAllSelected()
+        ? []
+        : this.props.tagsList.map(item => item.value)
+    })
   }
 
   _renderTags () {
     const { tagsList } = this.props
     return tagsList.map((tag, index) => {
-      const isSelected = this.state.selectedValues.indexOf(tag.value) !== -1
+      const isSelected = this.state.selectedValues.includes(tag.value)
       return (
         <TagSelectable
           key={tag.value}

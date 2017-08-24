@@ -12,6 +12,8 @@ const DEFAULT_NAV_WRAP_STYLE = {
   height: 'inherit',
   width: 'inherit'
 }
+const HTML_DISABLED_SCROLL_STYLE = 'overflow: hidden; position: relative;'
+const BODY_DISABLED_SCROLL_STYLE = 'height: 100%; overflow: hidden; position: fixed; width: 100%;'
 
 /**
  * Topbar containing a dropdown with user data (login, logout, secured links...).
@@ -51,14 +53,16 @@ class TopbarUser extends Component {
    * Lock body element scroll.
    */
   _lockBodyScroll () {
-    window.document.body.style.overflowY = 'hidden'
+    window.document.documentElement.style = HTML_DISABLED_SCROLL_STYLE
+    window.document.body.style = BODY_DISABLED_SCROLL_STYLE
   }
 
   /**
    * Unlock body element scroll.
    */
   _unlockBodyScroll () {
-    window.document.body.style.overflowY = ''
+    window.document.documentElement.style = ''
+    window.document.body.style = ''
   }
 
   /**

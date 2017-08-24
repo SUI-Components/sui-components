@@ -12,11 +12,12 @@ export default class TagSelectableList extends Component {
 
   constructor (...props) {
     super(...props)
-    this.tagHandlers = this.props.tagsList.map((tag) => this.toggleValue.bind(this, tag.value))
-    this.allHandler = this.toggleAll.bind(this)
+
+    this.tagHandlers = this.props.tagsList.map((tag) => this.toggleValue(tag.value))
+    this.allHandler = this.toggleAll
   }
 
-  toggleValue (value) {
+  toggleValue = (value) => () => {
     let selectedValues = this.state.selectedValues
     if (selectedValues.includes(value)) {
       selectedValues = removeFromArray(selectedValues, value)
@@ -26,7 +27,7 @@ export default class TagSelectableList extends Component {
     this.setState({selectedValues})
   }
 
-  toggleAll () {
+  toggleAll = () => {
     this.setState({
       selectedValues: this.isAllSelected()
         ? []

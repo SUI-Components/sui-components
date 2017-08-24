@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-tag-selectableList",
+  "name": "@schibstedspain/sui-tag-selectable-list",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
@@ -16,4 +16,3 @@
   "author": "",
   "license": "MIT"
 }
-

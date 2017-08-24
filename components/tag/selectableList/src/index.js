@@ -10,14 +10,7 @@ export default class TagSelectableList extends Component {
     selectedValues: []
   }
 
-  constructor (...props) {
-    super(...props)
-
-    this.tagHandlers = this.props.tagsList.map((tag) => this.toggleValue(tag.value))
-    this.allHandler = this.toggleAll
-  }
-
-  toggleValue = (value) => () => {
+  toggleValue = (event, value) => {
     let selectedValues = this.state.selectedValues
     if (selectedValues.includes(value)) {
       selectedValues = removeFromArray(selectedValues, value)
@@ -42,7 +35,8 @@ export default class TagSelectableList extends Component {
       return (
         <TagSelectable
           key={tag.value}
-          onClick={this.tagHandlers[index]}
+          value={tag.value}
+          onClick={this.toggleValue}
           isSelected={isSelected}
           label={tag.label}
           icon={isSelected ? this.props.checkIcon : null}
@@ -65,7 +59,8 @@ export default class TagSelectableList extends Component {
     return (
       <div className='sui-TagSelectableList'>
         {allLabel && <TagSelectable
-          onClick={this.allHandler}
+          value={allLabel}
+          onClick={this.toggleAll}
           isSelected={isAllSelected}
           label={allLabel}
           icon={isAllSelected && this.props.checkIcon}

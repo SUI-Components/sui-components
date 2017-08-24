@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@schibstedspain/sui-component-dependencies": "latest",
-    "@schibstedspain/sui-tag-selectable": "1"
+    "@schibstedspain/sui-tag-selectable": "2"
   },
   "keywords": [],
   "author": "",

@@ -55,6 +55,10 @@ export default class TagSelectableList extends Component {
     return this.props.tagsList.length === this.state.selectedValues.length
   }
 
+  componentWillReceiveProps (nextProps) {
+    this.tagHandlers = nextProps.tagsList.map((tag) => this.toggleValue(tag.value))
+  }
+
   componentDidUpdate () {
     this.props.onChange(this.state.selectedValues)
   }

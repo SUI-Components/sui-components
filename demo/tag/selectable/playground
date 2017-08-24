@@ -25,15 +25,18 @@ class MyTagSelectable extends React.Component {
     })
   }
 
-  _handleClick (event) {
+  _handleClick (event, value) {
     event.preventDefault()
     this._toggleSelected()
     this._toggleIcon()
+
+    console.log('The value is: ' + value)
   }
 
   render () {
     return (
       <TagSelectable
+        value="test"
         onClick={this._handleClick.bind(this)}
         isSelected={this.state.isSelected}
         label={tagLabel}

@@ -6,9 +6,9 @@ const tagSelectableClassName = ({isSelected}) => cx('sui-TagSelectable', {
   'is-selected': isSelected
 })
 
-const TagSelectable = ({onClick, isSelected, label, icon: Icon = Check} = {}) =>
+const TagSelectable = ({onClick, isSelected, value, label, icon: Icon = Check} = {}) =>
   <button
-    onClick={onClick}
+    onClick={event => onClick(event, value)}
     className={tagSelectableClassName({isSelected})}>
     {Icon &&
       <Icon svgClass='sui-TagSelectable-icon' />
@@ -20,15 +20,19 @@ TagSelectable.displayName = 'TagSelectable'
 
 TagSelectable.propTypes = {
   /**
-   * onClick event handler
+   * Click event that will send the value of the tag
    */
   onClick: PropTypes.func,
   /**
-   * Tag text
+   * The label to display
    */
   label: PropTypes.string.isRequired,
   /**
-   * Tag state
+   * The value of the selectable tag
+   */
+  value: PropTypes.any.isRequired,
+  /**
+   * True if the tag is selected
    */
   isSelected: PropTypes.bool.isRequired,
   /**

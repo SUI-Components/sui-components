@@ -1,0 +1,52 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+@mixin section-title-text-alignments {
+  width: 100%;
+
+  &--left {
+    text-align: left;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--right {
+    text-align: right;
+  }
+}
+
+.sui-SectionBasic {
+  margin-bottom: $mb-section-basic;
+
+  &-header {
+    margin-bottom: $mb-section-basic-header;
+  }
+
+  &-title {
+    @include h3;
+    @include section-title-text-alignments;
+
+    color: $c-section-basic-main-title;
+    font-weight: $fw-regular;
+  }
+
+  &-subtitle {
+    @include section-title-text-alignments;
+
+    color: $c-section-basic-subtitle;
+    font-size: $fz-section-basic-subtitle;
+    font-weight: $fw-regular;
+    margin: 0 0 $m-v-small;
+  }
+
+  &-content {
+    &OnlyText, p {
+      color: $c-section-basic-content-text-paragraph;
+      font-size: $fz-section-basic-content-text-paragraph;
+      font-weight: $fw-regular;
+      line-height: $lh-section-basic-paragraph;
+      margin: $m-v-section-basic-content-text-paragraph 0;
+    }
+  }
+}

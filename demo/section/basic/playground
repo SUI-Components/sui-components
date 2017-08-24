@@ -1,0 +1,21 @@
+return (
+    <div>
+        <SectionBasic
+            title='Descripci&oacute;n'
+            subtitle='Descargar Memoria de Calidades'
+            textContent='Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.' />
+
+        <SectionBasic
+            title='Equipamientos comunidad'
+            textContent='Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.'>
+            <img src="https://irp-cdn.multiscreensite.com/dd482778/dms3rep/multi/desktop/sundollar-pools-imgslider-6-1350x598.jpg" height="299" width="625" />
+        </SectionBasic>
+
+        <SectionBasic
+            title='Ubicaci&oacute;n'
+            subtitle='Pla&ccedil;a de Xavier Cugat, 2, 08174 Sant Cugat del Vall&egrave;s, Barcelona'
+            subtitleAlign='left'>
+            <iframe style={{width: '100%', minHeight: 500}} src="https://wego.here.com/?map=41.49434,2.08047,15,normal"></iframe>
+        </SectionBasic>
+    </div>
+)

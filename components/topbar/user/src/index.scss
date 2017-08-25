@@ -21,6 +21,18 @@
   width: $notifications-size;
 }
 
+.html-has-scroll-disabled {
+  overflow: hidden;
+  position: fixed;
+}
+
+.body-has-scroll-disabled {
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
 .sui-TopbarUser {
   align-items: center;
   background-color: $bgc-topbar-user;

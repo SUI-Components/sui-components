@@ -17,15 +17,19 @@ export default class TagSelectableList extends Component {
     } else {
       selectedValues.push(value)
     }
-    this.setState({selectedValues})
+    this.setSelectedValues(selectedValues)
   }
 
   toggleAll = () => {
-    this.setState({
-      selectedValues: this.isAllSelected()
+    this.setSelectedValues(this.isAllSelected()
         ? []
         : this.props.tagsList.map(item => item.value)
-    })
+    )
+  }
+
+  setSelectedValues (selectedValues) {
+    this.setState({selectedValues})
+    this.props.onChange(selectedValues)
   }
 
   _renderTags () {
@@ -47,10 +51,6 @@ export default class TagSelectableList extends Component {
 
   isAllSelected () {
     return this.props.tagsList.length === this.state.selectedValues.length
-  }
-
-  componentDidUpdate () {
-    this.props.onChange(this.state.selectedValues)
   }
 
   render () {

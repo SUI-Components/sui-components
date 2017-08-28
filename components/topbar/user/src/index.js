@@ -12,8 +12,8 @@ const DEFAULT_NAV_WRAP_STYLE = {
   height: 'inherit',
   width: 'inherit'
 }
-const HTML_DISABLED_SCROLL_STYLE = 'overflow: hidden; position: relative;'
-const BODY_DISABLED_SCROLL_STYLE = 'height: 100%; overflow: hidden; position: fixed; width: 100%;'
+const HTML_HAS_SCROLL_DISABLED = 'html-has-scroll-disabled'
+const BODY_HAS_SCROLL_DISABLED = 'body-has-scroll-disabled'
 
 /**
  * Topbar containing a dropdown with user data (login, logout, secured links...).
@@ -24,6 +24,7 @@ class TopbarUser extends Component {
 
     this._topbarUserNode = null
     this._topbarUserToggleNode = null
+    this._verticalScrollPosition = null
 
     this.state = {
       menuExpanded: false,
@@ -52,17 +53,28 @@ class TopbarUser extends Component {
   /**
    * Lock body element scroll.
    */
-  _lockBodyScroll () {
-    window.document.documentElement.style = HTML_DISABLED_SCROLL_STYLE
-    window.document.body.style = BODY_DISABLED_SCROLL_STYLE
+  _lockBodyScroll = () => {
+    const { elementsToKeepScrollOnToggleMenu } = this.props
+    this._verticalScrollPosition = window.scrollY
+    const transformStyleToKeepScroll = `translate3d(0, -${this._verticalScrollPosition}px, 0)`
+    window.document.documentElement.classList.add(HTML_HAS_SCROLL_DISABLED)
+    window.document.body.classList.add(BODY_HAS_SCROLL_DISABLED)
+    elementsToKeepScrollOnToggleMenu.forEach(selector => {
+      document.querySelector(selector).style.transform = transformStyleToKeepScroll
+    })
   }
 
   /**
    * Unlock body element scroll.
    */
-  _unlockBodyScroll () {
-    window.document.documentElement.style = ''
-    window.document.body.style = ''
+  _unlockBodyScroll = () => {
+    const { elementsToKeepScrollOnToggleMenu } = this.props
+    elementsToKeepScrollOnToggleMenu.forEach(selector => {
+      document.querySelector(selector).style.transform = ''
+    })
+    window.document.documentElement.classList.remove(HTML_HAS_SCROLL_DISABLED)
+    window.document.body.classList.remove(BODY_HAS_SCROLL_DISABLED)
+    elementsToKeepScrollOnToggleMenu.length && window.scrollTo(0, this._verticalScrollPosition)
   }
 
   /**
@@ -306,14 +318,20 @@ TopbarUser.propTypes = {
   /**
    * Factory for the component that will hold any link.
    */
-  linkFactory: PropTypes.func
+  linkFactory: PropTypes.func,
+  /**
+   * Array of elements to keep scroll while side menu is being toggled (since
+   * we are fixing the `body` element position due to momentum scrolling on iOS).
+   */
+  elementsToKeepScrollOnToggleMenu: PropTypes.arrayOf(PropTypes.string)
 }
 
 TopbarUser.defaultProps = {
   toggleIcon: Menu,
   callToActionComponent: DefaultCallToAction,
   linkFactory: ({ href, className, children, title }) =>
-    <a href={href} className={className} title={title}>{children}</a>
+    <a href={href} className={className} title={title}>{children}</a>,
+  elementsToKeepScrollOnToggleMenu: []
 }
 
 export default TopbarUser

@@ -326,10 +326,7 @@ TopbarUser.defaultProps = {
   callToActionComponent: DefaultCallToAction,
   linkFactory: ({ href, className, children, title }) =>
     <a href={href} className={className} title={title}>{children}</a>,
-  elementsToKeepScrollOnToggleMenu: [
-    '.mt-Container',
-    '.mt-SharedFooter'
-  ]
+  elementsToKeepScrollOnToggleMenu: []
 }
 
 export default TopbarUser

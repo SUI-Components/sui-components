@@ -22,6 +22,7 @@ class TopbarUser extends Component {
 
     this._topbarUserNode = null
     this._topbarUserToggleNode = null
+    this._verticalScrollPosition = null
 
     this.state = {
       menuExpanded: false,
@@ -50,17 +51,25 @@ class TopbarUser extends Component {
   /**
    * Lock body element scroll.
    */
-  _lockBodyScroll () {
+  _lockBodyScroll = () => {
+    this._verticalScrollPosition = window.scrollY
     window.document.documentElement.classList.add('html-has-scroll-disabled')
     window.document.body.classList.add('body-has-scroll-disabled')
+    this.props.elementsToKeepScrollOnToggleMenu.forEach(selector => {
+      document.querySelector(selector).style.transform = `translate3d(0, -${this._verticalScrollPosition}px, 0)`
+    })
   }
 
   /**
    * Unlock body element scroll.
    */
-  _unlockBodyScroll () {
+  _unlockBodyScroll = () => {
+    this.props.elementsToKeepScrollOnToggleMenu.forEach(selector => {
+      document.querySelector(selector).style.transform = ''
+    })
     window.document.documentElement.classList.remove('html-has-scroll-disabled')
     window.document.body.classList.remove('body-has-scroll-disabled')
+    window.scrollTo(0, this._verticalScrollPosition)
   }
 
   /**
@@ -304,14 +313,23 @@ TopbarUser.propTypes = {
   /**
    * Factory for the component that will hold any link.
    */
-  linkFactory: PropTypes.func
+  linkFactory: PropTypes.func,
+  /**
+   * Array of elements to keep scroll while side menu is being toggled (since
+   * we are fixing the `body` element position due to momentum scrolling on iOS).
+   */
+  elementsToKeepScrollOnToggleMenu: PropTypes.arrayOf(PropTypes.string)
 }
 
 TopbarUser.defaultProps = {
   toggleIcon: Menu,
   callToActionComponent: DefaultCallToAction,
   linkFactory: ({ href, className, children, title }) =>
-    <a href={href} className={className} title={title}>{children}</a>
+    <a href={href} className={className} title={title}>{children}</a>,
+  elementsToKeepScrollOnToggleMenu: [
+    '.mt-Container',
+    '.mt-SharedFooter'
+  ]
 }
 
 export default TopbarUser

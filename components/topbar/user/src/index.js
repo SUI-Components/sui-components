@@ -12,6 +12,8 @@ const DEFAULT_NAV_WRAP_STYLE = {
   height: 'inherit',
   width: 'inherit'
 }
+const HTML_HAS_SCROLL_DISABLED = 'html-has-scroll-disabled'
+const BODY_HAS_SCROLL_DISABLED = 'body-has-scroll-disabled'
 
 /**
  * Topbar containing a dropdown with user data (login, logout, secured links...).
@@ -52,11 +54,13 @@ class TopbarUser extends Component {
    * Lock body element scroll.
    */
   _lockBodyScroll = () => {
+    const { elementsToKeepScrollOnToggleMenu } = this.props
     this._verticalScrollPosition = window.scrollY
-    window.document.documentElement.classList.add('html-has-scroll-disabled')
-    window.document.body.classList.add('body-has-scroll-disabled')
-    this.props.elementsToKeepScrollOnToggleMenu.forEach(selector => {
-      document.querySelector(selector).style.transform = `translate3d(0, -${this._verticalScrollPosition}px, 0)`
+    const transformStyleToKeepScroll = `translate3d(0, -${this._verticalScrollPosition}px, 0)`
+    window.document.documentElement.classList.add(HTML_HAS_SCROLL_DISABLED)
+    window.document.body.classList.add(BODY_HAS_SCROLL_DISABLED)
+    elementsToKeepScrollOnToggleMenu.forEach(selector => {
+      document.querySelector(selector).style.transform = transformStyleToKeepScroll
     })
   }
 
@@ -64,12 +68,13 @@ class TopbarUser extends Component {
    * Unlock body element scroll.
    */
   _unlockBodyScroll = () => {
-    this.props.elementsToKeepScrollOnToggleMenu.forEach(selector => {
+    const { elementsToKeepScrollOnToggleMenu } = this.props
+    elementsToKeepScrollOnToggleMenu.forEach(selector => {
       document.querySelector(selector).style.transform = ''
     })
-    window.document.documentElement.classList.remove('html-has-scroll-disabled')
-    window.document.body.classList.remove('body-has-scroll-disabled')
-    window.scrollTo(0, this._verticalScrollPosition)
+    window.document.documentElement.classList.remove(HTML_HAS_SCROLL_DISABLED)
+    window.document.body.classList.remove(BODY_HAS_SCROLL_DISABLED)
+    elementsToKeepScrollOnToggleMenu.length && window.scrollTo(0, this._verticalScrollPosition)
   }
 
   /**

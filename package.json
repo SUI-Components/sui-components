@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "phoenix": "rm -Rf node_modules && npm i && sui-studio clean-modules && sui-studio run-all npm i",
-    "build": "sui-studio build && cp public/index.html public/200.html",
-    "deploy": "npm run build && surge public/ -d sui-components.surge.sh",
+    "build": "sui-studio build",
+    "deploy": "sui-studio deploy --name=sui-components",
     "co": "sui-studio commit",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",

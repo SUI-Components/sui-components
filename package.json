@@ -11,6 +11,7 @@
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
     "lint": "npm run lint:js && npm run lint:sass",
+    "postinstall": "sui-studio run-all npm i",
     "start": "sui-studio start",
     "test": "jest",
     "precommit": "sui-precommit run",

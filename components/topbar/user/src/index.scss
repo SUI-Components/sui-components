@@ -22,13 +22,13 @@
 }
 
 .html-has-scroll-disabled {
-  overflow: hidden;
+  overflow-y: hidden;
   position: fixed;
 }
 
 .body-has-scroll-disabled {
   height: 100%;
-  overflow: hidden;
+  overflow-y: hidden;
   position: fixed;
   width: 100%;
 }

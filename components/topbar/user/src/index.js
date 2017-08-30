@@ -81,6 +81,10 @@ class TopbarUser extends Component {
    * Set the display state for toggle button.
    */
   _setToggleDisplayState = () => {
+    // Only go on if user has been resized the browser window horizontally.
+    if (window.innerWidth === this._windowWidth) return
+    // Then save the new global value again.
+    this._windowWidth = window.innerWidth
     const { display } = window.getComputedStyle(this._topbarUserToggleNode)
     const isToggleHidden = display === 'none'
 

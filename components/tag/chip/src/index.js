@@ -54,7 +54,7 @@ TagChip.propTypes = {
   /**
    * tag text
    */
-  label: PropTypes.string.isRequired,
+  label: PropTypes.node.isRequired,
   /**
    * Delete custom icon
    */

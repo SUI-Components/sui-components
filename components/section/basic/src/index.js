@@ -3,7 +3,7 @@ import cx from 'classnames'
 
 const SECTION_TITLE_ALIGNMENTS = ['left', 'center', 'right']
 
-const SectionBasic = ({className, children, textContent, title, titleAlign, subtitle, subtitleAlign}) => (
+const SectionBasic = ({className, children, textContent, title, titleAlign, subtitle, subtitleAlign, lineSeparator}) => (
   <section className={cx('sui-SectionBasic', className)}>
     <div className='sui-SectionBasic-header'>
       <h3 className={cx('sui-SectionBasic-title', `sui-SectionBasic-title--${titleAlign}`)}>{title}</h3>
@@ -14,6 +14,7 @@ const SectionBasic = ({className, children, textContent, title, titleAlign, subt
       {textContent && <p className='sui-SectionBasic-contentOnlyText'>{textContent}</p>}
       {children}
     </div>
+    {lineSeparator && <hr className='sui-SectionBasic-lineSeparator' />}
   </section>
 )
 
@@ -28,6 +29,10 @@ SectionBasic.propTypes = {
    * CSS className to apply to Section Basic container.
    */
   className: PropTypes.string,
+  /**
+   *
+   */
+  lineSeparator: PropTypes.bool,
   /**
    * Text to be displayed as subtitle at the top of the Section (below section's main title).
    */
@@ -52,8 +57,9 @@ SectionBasic.propTypes = {
 }
 
 SectionBasic.defaultProps = {
-  titleAlign: 'left',
-  subtitleAlign: 'right'
+  lineSeparator: true,
+  subtitleAlign: 'right',
+  titleAlign: 'left'
 }
 
 export default SectionBasic

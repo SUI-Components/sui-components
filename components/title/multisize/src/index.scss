@@ -1,34 +1,29 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
-@mixin sui-title-multisize-sizes ($fw: $fw-semi-bold, $mb: $m-v) {
+@mixin sui-title-multisize-sizes ($fw: $fw-regular, $mb: $m-v) {
   &--xs {
     @include h5;
     font-weight: $fw;
-    margin: 0 0 $mb;
   }
 
   &--s {
     @include h4;
     font-weight: $fw;
-    margin: 0 0 $mb;
   }
 
   &--m {
     @include h3;
     font-weight: $fw;
-    margin: 0 0 $mb;
   }
 
   &--l {
     @include h2;
     font-weight: $fw;
-    margin: 0 0 $mb;
   }
 
   &--xl {
     @include h1;
     font-weight: $fw;
-    margin: 0 0 $mb;
   }
 }
 
@@ -61,7 +56,7 @@
   }
 
   &-preTitle {
-    @include sui-title-multisize-element($c-title-multisize-secondary, $fw-semi-bold);
+    @include sui-title-multisize-element($c-title-multisize-secondary);
   }
 
   &-title {
@@ -69,6 +64,6 @@
   }
 
   &-postTitle {
-    @include sui-title-multisize-element($c-title-multisize-secondary, $fw-regular);
+    @include sui-title-multisize-element($c-title-multisize-secondary);
   }
 }

@@ -30,7 +30,7 @@ SectionBasic.propTypes = {
    */
   className: PropTypes.string,
   /**
-   *
+   * If true, include an "hr" separator element at the bottom of the section.
    */
   lineSeparator: PropTypes.bool,
   /**

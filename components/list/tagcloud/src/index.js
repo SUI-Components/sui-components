@@ -18,11 +18,11 @@ ListTagcloud.propTypes = {
     /**
      * tag text
      */
-    label: PropTypes.string.isRequired,
+    label: PropTypes.node.isRequired,
     /**
      * URL for the tab link
      */
-    link: PropTypes.string.isRequired
+    link: PropTypes.string
   })).isRequired,
   /**
    * Factory used to create navigation links

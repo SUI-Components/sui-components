@@ -65,7 +65,7 @@ TitleMultisize.propTypes = {
   /**
    * Text to display as main title (h1).
    */
-  title: PropTypes.string.isRequired,
+  title: PropTypes.node.isRequired,
   /**
    * Size of title: xs = h5, s = h4, m = h3, l = h2, xl = h1.
    */

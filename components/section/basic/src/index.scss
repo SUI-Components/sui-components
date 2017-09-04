@@ -24,11 +24,12 @@
   }
 
   &-title {
-    @include h3;
     @include section-title-text-alignments;
 
     color: $c-section-basic-main-title;
+    font-size: $fz-section-basic-title;
     font-weight: $fw-regular;
+    margin: 0 0 $m-v;
   }
 
   &-subtitle {
@@ -41,12 +42,19 @@
   }
 
   &-content {
-    &OnlyText, p {
+    &OnlyText,
+    p {
       color: $c-section-basic-content-text-paragraph;
       font-size: $fz-section-basic-content-text-paragraph;
       font-weight: $fw-regular;
       line-height: $lh-section-basic-paragraph;
       margin: $m-v-section-basic-content-text-paragraph 0;
     }
+  }
+
+  &-lineSeparator {
+    border: $bd-section-basic-line-separator;
+    height: 0;
+    width: 100%;
   }
 }

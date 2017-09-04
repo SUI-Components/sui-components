@@ -1,0 +1,50 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-button-basic/lib/index';
+
+.sui-FormRangeDatepicker {
+  display: flex;
+  justify-content: $jc-range-datepicker-inputs;
+
+  &-item {
+    display: flex;
+    padding-right: $p-xsmall;
+  }
+
+  &-box {
+    margin-left: -$m-h-xlarge;
+    padding: $p-base;
+    pointer-events: none;
+    z-index: $z-range-datepicker-icon;
+  }
+
+  &-icon {
+    @include sui-icon--small;
+    fill: $c-text-base !important;
+  }
+
+  &-input {
+    @include sui-input;
+    cursor: pointer;
+  }
+
+  /* Overwrite react-datepicker styles */
+  .react-datepicker__day {
+
+    &--selected,
+    &--in-selecting-range,
+    &--in-range {
+      background-color: $c-primary;
+
+      &:hover {
+        background-color: darken($c-primary, 5%);
+      }
+    }
+
+    &--in-selecting-range:not(&--in-range) {
+      background-color: rgba($c-primary, .5);
+    }
+  }
+}
+
+
+

@@ -1,0 +1,13 @@
+function handleClick (range) {
+  console.log('handleClick', range)
+}
+
+function handleChangeStart (date) {
+  console.log('handleChangeStart', date)
+}
+
+function handleChangeEnd (date) {
+  console.log('handleChangeEnd', date)
+}
+
+return (<FormRangeDatepicker buttonLabel='Test' handleClickButton={handleClick} handleChangeStart={handleChangeStart} handleChangeEnd={handleChangeEnd} />)

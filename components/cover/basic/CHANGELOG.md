@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2017-09-05)
+
+
+
+<a name="1.5.0"></a>
+# 1.5.0 (2017-09-04)
+
+
+### Bug Fixes
+
+* fix height and cursor issues for IE. ([0c34c21](https://github.com/SUI-Components/sui-components/commit/0c34c21))
+
+
+### Features
+
+* modify cover gradient color and opacity. ([9d7d0c0](https://github.com/SUI-Components/sui-components/commit/9d7d0c0))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2017-08-03)
 

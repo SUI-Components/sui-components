@@ -12,7 +12,8 @@
     "@schibstedspain/sui-component-dependencies": "latest",
     "@schibstedspain/sui-svgiconset": "1",
     "@schibstedspain/sui-button-basic": "1.1.0",
-    "react-datepicker": "0.52.0"
+    "react-datepicker": "0.52.0",
+    "moment": "2"
   },
   "keywords": [],
   "author": "",

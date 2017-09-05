@@ -1,6 +1,11 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 @import '~@schibstedspain/sui-button-basic/lib/index';
 
+/* Overwrite react-datepicker variables */
+$datepicker__selected-color: $bgc-range-datepicker-selected;
+/* Load react-datepicker styles */
+@import '../node_modules/react-datepicker/src/stylesheets/datepicker.scss';
+
 .sui-FormRangeDatepicker {
   display: flex;
   justify-content: $jc-range-datepicker-inputs;
@@ -25,24 +30,6 @@
   &-input {
     @include sui-input;
     cursor: pointer;
-  }
-
-  /* Overwrite react-datepicker styles */
-  .react-datepicker__day {
-
-    &--selected,
-    &--in-selecting-range,
-    &--in-range {
-      background-color: $c-primary;
-
-      &:hover {
-        background-color: darken($c-primary, 5%);
-      }
-    }
-
-    &--in-selecting-range:not(&--in-range) {
-      background-color: rgba($c-primary, .5);
-    }
   }
 }
 

@@ -5,8 +5,6 @@ import moment from 'moment'
 import ButtonBasic from '@schibstedspain/sui-button-basic'
 import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
 
-import 'react-datepicker/dist/react-datepicker.css'
-
 const locale = 'es-es'
 
 class FormRangeDatepicker extends Component {
@@ -14,8 +12,8 @@ class FormRangeDatepicker extends Component {
     super(props)
 
     this.state = {
-      startDate: !(this.props.startDate) ? null : moment(this.props.startDate),
-      endDate: !(this.props.endDate) ? null : moment(this.props.endDate)
+      startDate: !this.props.startDate ? null : moment(this.props.startDate),
+      endDate: !this.props.endDate ? null : moment(this.props.endDate)
     }
 
     this._handleChangeStart = this._handleChangeStart.bind(this)
@@ -27,22 +25,22 @@ class FormRangeDatepicker extends Component {
     this.setState({
       startDate: date
     })
-    if (this.props.handleChangeStart) {
-      this.props.handleChangeStart(date)
-    }
   }
 
   _handleChangeEnd (date) {
     this.setState({
       endDate: date
     })
-    if (this.props.handleChangeEnd) {
-      this.props.handleChangeEnd(date)
-    }
   }
 
   _handleClickButton () {
     this.props.handleClickButton([this.state.startDate, this.state.endDate])
+  }
+
+  componentWillUpdate (nextProps, nextState) {
+    if (this.props.handleChange) {
+      this.props.handleChange(nextState)
+    }
   }
 
   render () {
@@ -102,15 +100,11 @@ FormRangeDatepicker.propTypes = {
   /**
    * End date of the selected range
    */
-  endDate: PropTypes.object,
+  endDate: PropTypes.instanceOf(Date),
   /**
    * Event that will send the init date
    */
-  handleChangeStart: PropTypes.func,
-  /**
-   * Event that will send the end date
-   */
-  handleChangeEnd: PropTypes.func,
+  handleChange: PropTypes.func,
   /**
    * Click event that will send the date range
    */
@@ -118,11 +112,11 @@ FormRangeDatepicker.propTypes = {
   /**
    * Maximum date that the calendar allows to select
    */
-  maxDate: PropTypes.object,
+  maxDate: PropTypes.instanceOf(Date),
   /**
    * Init date of the selected range
    */
-  startDate: PropTypes.object
+  startDate: PropTypes.instanceOf(Date)
 }
 
 export default FormRangeDatepicker

@@ -6,7 +6,7 @@
   "scripts": {
     "phoenix": "rm -Rf node_modules && npm i && sui-studio clean-modules && sui-studio run-all npm i",
     "build": "sui-studio build",
-    "deploy": "sui-studio deploy --name=sui-components",
+    "deploy": "sui-deploy sui-components --now",
     "co": "sui-studio commit",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
@@ -22,6 +22,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@s-ui/deploy": "1",
     "@schibstedspain/sui-precommit": "2",
     "@schibstedspain/sui-studio": "4",
     "babel-jest": "20.0.3",

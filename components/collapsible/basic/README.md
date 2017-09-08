@@ -1,0 +1,4 @@
+### CollapsibleBasic
+
+Expandable/collapsable block.
+  

@@ -33,28 +33,28 @@ const renderImageItem = (image, index) => (
 )
 
 /**
- * Creates an special list item, which has a regular image and an additional cover box over it (lack 65% opacity
- * background) with a customisable message and onClick event callback.
- * The HTML structure of this list-item is slightly differnet that the regular Image Item.
+ * Creates an special list item, which has a regular image and an additional cover box over it with customisable message
+ * and onClick event callback.
+ * The HTML structure of this list-item is slightly different that the regular Image Item.
  * @param image {Object} src, alt and onClick callback configuration of the image to display.
  * @param index {Number} Order index of the li element to create.
- * @param showMoreItemsBox {Obhect} Text and onClick callback configuration for the list-item to be created.
+ * @param moreItemsBox {Object} Text and onClick callback configuration for the list-item to be created.
  */
-const renderImageWithMoreItemsBox = (image, index, showMoreItemsBox) => (
-  image && <li className='sui-ListImage-item' key={index} onClick={ensureFunction(showMoreItemsBox.onClick)}>
+const renderImageWithMoreItemsBox = (image, index, moreItemsBox) => (
+  image && <li className='sui-ListImage-item' key={index} onClick={ensureFunction(moreItemsBox.onClick)}>
     <div className='sui-ListImage-lastItemContainer'>
       {renderSuiLazyloadImage(image)}
       <div className='sui-ListImage-moreItemsBox'>
-        {showMoreItemsBox.label && <span>{showMoreItemsBox.label}</span>}
+        {moreItemsBox.label && <span className='sui-ListImage-moreItemsBoxLabel'>{moreItemsBox.label}</span>}
       </div>
     </div>
   </li>
 )
 
-const ListImage = ({className, images, maxItems, showMoreItemsBox}) => (
+const ListImage = ({className, images, maxItems, moreItemsBox}) => (
   <ul className={cx('sui-ListImage', className)}>
     {images.slice(0, maxItems - 1).map(renderImageItem)}
-    {images.length > maxItems && !!showMoreItemsBox ? renderImageWithMoreItemsBox(images[maxItems - 1], maxItems - 1, showMoreItemsBox) : renderImageItem(images[maxItems - 1], maxItems - 1)}
+    {images.length > maxItems && !!moreItemsBox ? renderImageWithMoreItemsBox(images[maxItems - 1], maxItems - 1, moreItemsBox) : renderImageItem(images[maxItems - 1], maxItems - 1)}
   </ul>
 )
 
@@ -81,10 +81,10 @@ ListImage.propTypes = {
    */
   maxItems: PropTypes.number,
   /**
-   * When showMoreItemsBox is set and the length of "images" prop is greater than "maxItems" prop value, the last item of the list
+   * When moreItemsBox is set and the length of "images" prop is greater than "maxItems" prop value, the last item of the list
    * is displayed with an extra cover where the text label and onClick action can be customised.
    */
-  showMoreItemsBox: PropTypes.shape({
+  moreItemsBox: PropTypes.shape({
     label: PropTypes.string,
     onClick: PropTypes.func
   })

@@ -37,7 +37,7 @@ return (
     <div style={{width: '100%', background: '#fff'}}>
         <ListImage
             images={ imagesList }
-            showMoreItemsBox={{
+            moreItemsBox={{
                 label: 'Ver las 35 imagenes en pantalla completa',
                 onClick: () => { alert('Last item clicked!') }
             }}

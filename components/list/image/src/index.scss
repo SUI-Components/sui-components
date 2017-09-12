@@ -3,9 +3,10 @@
 
 $m-h-list-image-item-half-gutter: ceil($m-h-list-image-item-full-gutter / 2) !default;
 $m-v-list-image-item-half-gutter: ceil($m-v-list-image-item-full-gutter / 2) !default;
-$m-h-list-image-item-breakpoint-l-gutter: $m-h-list-image-item-full-gutter - 1px !default;
+$m-h-list-image-item-breakpoint-l-gutter: $m-h-list-image-item-half-gutter !default;
 
 .sui-ListImage {
+  @include sui-list('custom');
   @include media-breakpoint-only(xl) {
     margin: -($m-v-list-image-item-half-gutter);
   }
@@ -15,11 +16,7 @@ $m-h-list-image-item-breakpoint-l-gutter: $m-h-list-image-item-full-gutter - 1px
   @include media-breakpoint-down(m) {
     justify-content: space-between;
   }
-  display: flex;
   flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  position: relative;
 
   &-item {
     @include media-breakpoint-only(xl) {
@@ -53,7 +50,7 @@ $m-h-list-image-item-breakpoint-l-gutter: $m-h-list-image-item-full-gutter - 1px
     top: 0;
     width: 100%;
 
-    span {
+    &Label {
       color: $c-white;
       padding: 0 $p-h;
       text-align: center;

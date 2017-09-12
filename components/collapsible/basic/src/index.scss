@@ -1,0 +1,50 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-CollapsibleBasic {
+  background-color: $bgc-collapsible-basic;
+  width: 100%;
+
+  &-trigger {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    line-height: $lh-collapsible-basic;
+    padding: $p-v $p-h;
+
+    &-icon {
+      transition: transform $trs-base;
+    }
+
+    &-label {
+      color: $c-collapsible-basic;
+      font-size: $fz-l;
+      font-weight: $fw-semi-bold;
+    }
+  }
+
+  &-collapsibleContent {
+    overflow: hidden;
+    transition: max-height $trs-base;
+  }
+
+  /* Keep root parent ref to avoid string repetition on nesting */
+  $root-parent: &;
+
+  &.is-collapsed {
+    #{$root-parent}-collapsibleContent {
+      max-height: 0;
+    }
+  }
+
+  &.is-expanded {
+    #{$root-parent}-trigger {
+      &-icon {
+        transform: rotateZ(180deg);
+      }
+    }
+
+    #{$root-parent}-collapsibleContent {
+      max-height: 100%;
+    }
+  }
+}

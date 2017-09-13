@@ -1,0 +1,9 @@
+function handleClick (range) {
+  console.log('handleClick', range)
+}
+
+function handleChange (range) {
+  console.log('handleChange', range)
+}
+
+return (<FormRangeDatepicker buttonLabel='Test' handleClickButton={handleClick} handleChange={handleChange} />)

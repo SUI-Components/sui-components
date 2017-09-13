@@ -1,0 +1,37 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-button-basic/lib/index';
+
+/* Overwrite react-datepicker variables */
+$datepicker__selected-color: $bgc-range-datepicker-selected;
+/* Load react-datepicker styles */
+@import '../node_modules/react-datepicker/src/stylesheets/datepicker.scss';
+
+.sui-FormRangeDatepicker {
+  display: flex;
+  justify-content: $jc-range-datepicker-inputs;
+
+  &-item {
+    display: flex;
+    padding-right: $p-xsmall;
+  }
+
+  &-box {
+    margin-left: -$m-h-xlarge;
+    padding: $p-base;
+    pointer-events: none;
+    z-index: $z-range-datepicker-icon;
+  }
+
+  &-icon {
+    @include sui-icon--small;
+    fill: $c-text-base !important;
+  }
+
+  &-input {
+    @include sui-input;
+    cursor: pointer;
+  }
+}
+
+
+

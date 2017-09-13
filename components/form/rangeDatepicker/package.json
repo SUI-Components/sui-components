@@ -1,0 +1,22 @@
+{
+  "name": "@schibstedspain/sui-form-range-datepicker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "rm -Rf ./lib && mkdir -p ./lib && npm run build:js && npm run build:styles",
+    "build:js": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
+    "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
+  },
+  "dependencies": {
+    "@schibstedspain/sui-component-dependencies": "latest",
+    "@schibstedspain/sui-svgiconset": "1",
+    "@schibstedspain/sui-button-basic": "1.1.0",
+    "react-datepicker": "0.52.0",
+    "moment": "2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
+

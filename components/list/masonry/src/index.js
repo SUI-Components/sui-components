@@ -62,6 +62,8 @@ class ListMasonry extends React.Component {
 
 export default ListMasonry
 
+ListMasonry.displayName = 'ListMasonry'
+
 ListMasonry.propTypes = {
   children: PropTypes.node.isRequired,
   breakPoints: PropTypes.array.isRequired,

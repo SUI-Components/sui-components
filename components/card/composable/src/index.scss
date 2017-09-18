@@ -1,0 +1,28 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-CardComposable {
+  background-color: $bgc-card-composable;
+
+  &-primary {
+    padding: $p-card-composable-primary;
+  }
+
+  &-secondary {
+    padding: $p-card-composable-secondary;
+  }
+
+  &--contentfirst {
+    .sui-CardComposable-primary {
+      float: right;
+    }
+  }
+
+  &--landscape {
+    overflow: hidden;
+
+    .sui-CardComposable-primary {
+      float: left;
+    }
+  }
+
+}

@@ -1,0 +1,23 @@
+const image = {
+  src: 'https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e15/11199623_633712610062793_1285693904_n.jpg',
+  type: 'image',
+  alt: 'Test',
+  link: 'https://www.instagram.com/p/TNUdPKpMgM/?taken-by=davecarter'
+}
+
+return (
+  <div style={{ 'maxWidth': '500px' }}>
+    <p>Keep in mind, as this card is completely composable, it doesn't have any inner style for content provided on the card. So you should to make sure that the content of the card fits it and have the proper style.</p>
+    <CardComposable
+      primary={
+        <a href={image.link}><img src={image.src} style={{ 'width': '100%' }} /></a>
+      }
+      secondary={
+        <div>
+          <h2>This is the Card Title</h2>
+          <p>This is the description text of this Card</p>
+        </div>
+      }
+    />
+  </div>
+)

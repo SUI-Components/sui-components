@@ -1,8 +1,12 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
+$bdc-collapsible-basic: $c-gray-lightest !default;
+$bd-collapsible-basic: 1px solid $bdc-collapsible-basic !default;
+
 .sui-CollapsibleBasic {
   background-color: $bgc-collapsible-basic;
   width: 100%;
+  border: $bd-collapsible-basic;
 
   &-trigger {
     align-items: center;

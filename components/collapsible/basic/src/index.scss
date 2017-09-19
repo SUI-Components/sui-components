@@ -5,8 +5,8 @@ $bd-collapsible-basic: 1px solid $bdc-collapsible-basic !default;
 
 .sui-CollapsibleBasic {
   background-color: $bgc-collapsible-basic;
-  width: 100%;
   border: $bd-collapsible-basic;
+  width: 100%;
 
   &-trigger {
     align-items: center;

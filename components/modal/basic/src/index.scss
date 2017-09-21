@@ -1,5 +1,9 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
+body.is-modal-open {
+  overflow-y: hidden;
+}
+
 .sui-ModalBasic  {
   background-color: $bg-modal-basic;
   bottom: 0;

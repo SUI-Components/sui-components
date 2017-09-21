@@ -39,7 +39,7 @@ class ModalBasic extends Component {
   }
 
   _toggleWindowScroll (disableScroll) {
-    window.document.body.style.overflowY = disableScroll ? 'hidden' : ''
+    window.document.body.classList.toggle('is-modal-open', disableScroll)
   }
 
   _handleCloseClick = () => {

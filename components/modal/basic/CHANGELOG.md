@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2017-09-21)
+
+
+### Bug Fixes
+
+* use classname instead direct styles in body ([6a97125](https://github.com/SUI-Components/sui-components/commit/6a97125))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2017-06-15)
 

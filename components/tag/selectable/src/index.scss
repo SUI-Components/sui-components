@@ -11,6 +11,7 @@
   &-icon {
     fill: $c-primary !important;
     margin-right: $m-h-small;
-    width: 14px;
+    width: $size-tag-icon;
+    height: $size-tag-icon;
   }
 }

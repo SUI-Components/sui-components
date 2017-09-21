@@ -4,7 +4,7 @@
 /* Overwrite react-datepicker variables */
 $datepicker__selected-color: $bgc-range-datepicker-selected;
 /* Load react-datepicker styles */
-@import '../node_modules/react-datepicker/src/stylesheets/datepicker.scss';
+@import '~react-datepicker/src/stylesheets/datepicker.scss';
 
 .sui-FormRangeDatepicker {
   display: flex;

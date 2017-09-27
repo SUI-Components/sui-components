@@ -1,5 +1,5 @@
 {
-  "name": "@sui/sui-tag-standard",
+  "name": "@sui/tag-basic",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

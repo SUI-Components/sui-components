@@ -1,0 +1,41 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-TagBasic {
+  align-items: baseline;
+  background-color: color-variation($c-gray, 3);
+  border-radius: 25px;
+  box-sizing: border-box;
+  display: inline-flex;
+  height: 32px;
+  line-height: 32px;
+  margin: 0 8px 8px 0;
+  max-width: 240px;
+  padding: 0 $p-base;
+
+  &-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &-icon {
+    position: relative;
+    right: 4px;
+  }
+
+  &-delete-icon {
+    left: 8px;
+    position: relative;
+
+    &:hover {
+      background-color: #000;
+      border-radius: 50%;
+      fill: color-variation($c-gray, 3);
+    }
+  }
+
+  & [class$='icon'] {
+    @include sui-icon--small;
+    top: 2px;
+  }
+}

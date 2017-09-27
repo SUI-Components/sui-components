@@ -1,5 +1,5 @@
 {
-  "name": "@s-ui/sui-badges-basic",
+  "name": "@s-ui/badge-basic",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

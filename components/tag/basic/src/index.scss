@@ -38,4 +38,14 @@
     @include sui-icon--small;
     top: 2px;
   }
+
+  &-actionable {
+    background-color: $c-primary-light;
+    color: #fff;
+    fill: #fff;
+
+    &:hover, &:active {
+      background-color: $c-primary-dark;
+    }
+  }
 }

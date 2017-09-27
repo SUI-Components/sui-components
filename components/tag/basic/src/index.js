@@ -7,11 +7,13 @@ class TagBasic extends Component {
 
   /**
    * @param  {string} options.className custom classname
+   * @param {fn} options.onClick
    * @return {string} all classnames joined by whitespace
    */
-  _classNames ({className}) {
+  _classNames ({className, onClick}) {
     return cx(
       'sui-TagBasic',
+      onClick && 'sui-TagBasic-actionable',
       className
     )
   }
@@ -28,13 +30,24 @@ class TagBasic extends Component {
   }
 
   /**
-   * @param  {Object} event click event
+   * @param {Object} event
    */
-  onClose = (event) => {
+  _stopEvent (event) {
     event.preventDefault()
     event.stopPropagation()
+  }
 
+  /**
+   * @param  {Object} event
+   */
+  onClose = (event) => {
+    this._stopEvent()
     this.props.onClose()
+  }
+
+  onClick = (event) => {
+    this._stopEvent(event)
+    this.props.onClick()
   }
 
   render () {
@@ -42,13 +55,16 @@ class TagBasic extends Component {
       className,
       Icon,
       onClose,
-      CloseIcon
+      CloseIcon,
+      onClick
     } = this.props
 
     const label = this._truncate(this.props.label)
 
     return (
-      <div className={this._classNames({className})}>
+      <div
+        className={this._classNames({className, onClick})}
+        onClick={this.onClick}>
         {
           Icon &&
             <span>
@@ -59,7 +75,7 @@ class TagBasic extends Component {
           {label}
         </span>
         {
-          onClose &&
+          !onClick && onClose &&
             <span onClick={this.onClose}>
               <CloseIcon svgClass='sui-TagBasic-delete-icon' />
             </span>
@@ -77,12 +93,16 @@ TagBasic.propTypes = {
    */
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
-  Icon: PropTypes.func.isRequired,
+  Icon: PropTypes.func,
   onClose: PropTypes.func,
   /**
    * Will only be shown if the onClose fn is defined
    */
-  CloseIcon: PropTypes.func
+  CloseIcon: PropTypes.func,
+  /**
+   * If defined, onClose will be ignored
+   */
+  onClick: PropTypes.func
 }
 
 export default TagBasic

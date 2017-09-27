@@ -19,5 +19,6 @@ return (
     <TagBasic label='Maximum Tag Width. Truncated text, icon, no close' Icon={Icon} />
     <TagBasic label='Maximum Tag Width. Truncated text, with icon and close' Icon={Icon} onClose={() => alert('close!')} CloseIcon={CloseIcon} />
     <TagBasic label='101 char length, truncated to 100 char890123456789012345678901234567890123456789012345678901234567890' />
+    <TagBasic label='Tag Structure' onClick={() => alert('click!')} />
   </div>
 )

@@ -45,9 +45,15 @@ class TagBasic extends Component {
     this.props.onClose()
   }
 
+  /**
+   * @param  {Object} event
+   */
   onClick = (event) => {
+    const onClick = this.props.onClick
+    if (!onClick) return
+
     this._stopEvent(event)
-    this.props.onClick()
+    onClick()
   }
 
   render () {

@@ -38,6 +38,8 @@
   }
 
   &.is-expanded {
+    background-color: $bgc-expanded-collapsible-basic;
+
     #{$root-parent}-trigger {
       &-icon {
         transform: rotateZ(180deg);

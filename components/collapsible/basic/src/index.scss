@@ -38,7 +38,7 @@
   }
 
   &.is-expanded {
-    background-color: $bgc-expanded-collapsible-basic;
+    background-color: $bgc-collapsible-basic-expanded;
 
     #{$root-parent}-trigger {
       &-icon {

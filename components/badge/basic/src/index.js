@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-class BadgesBasic extends Component {
+class BadgeBasic extends Component {
   /**
    * @type {String}
    */
@@ -28,6 +28,17 @@ class BadgesBasic extends Component {
   }
 
   /**
+   * Cuts off exceeded char limit
+   * @param  {string} label
+   * @return {string}
+  */
+  _truncate (label) {
+    return label.length < BadgeBasic.MAX_LABEL_LENGTH
+      ? label
+      : label.substr(0, BadgeBasic.MAX_LABEL_LENGTH)
+  }
+
+  /**
    * @param  {boolean} options.success
    * @param  {boolean} options.warning
    * @param  {boolean} options.error
@@ -35,11 +46,11 @@ class BadgesBasic extends Component {
    * @return {string}
    */
   _type ({success, warning, error, info}) {
-    return (error && BadgesBasic.TYPE.ERROR) ||
-      (warning && BadgesBasic.TYPE.WARNING) ||
-      (success && BadgesBasic.TYPE.SUCCESS) ||
-      (info && BadgesBasic.TYPE.INFO) ||
-      BadgesBasic.TYPE.DEFAULT
+    return (error && BadgeBasic.TYPE.ERROR) ||
+      (warning && BadgeBasic.TYPE.WARNING) ||
+      (success && BadgeBasic.TYPE.SUCCESS) ||
+      (info && BadgeBasic.TYPE.INFO) ||
+      BadgeBasic.TYPE.DEFAULT
   }
 
   /**
@@ -48,25 +59,25 @@ class BadgesBasic extends Component {
    * @return {string}
    */
   _size ({small, large}) {
-    return (small && BadgesBasic.SIZE.SMALL) ||
-      (large && BadgesBasic.SIZE.LARGE) ||
-      BadgesBasic.SIZE.DEFAULT
+    return (small && BadgeBasic.SIZE.SMALL) ||
+      (large && BadgeBasic.SIZE.LARGE) ||
+      BadgeBasic.SIZE.DEFAULT
   }
 
   /**
    * @param  {string} options.className
    * @param  {string} options.size
    * @param  {boolean} options.transparent
-   * @param  {[type]} options.type
-   * @return {[type]}
+   * @param  {string} options.type
+   * @return {string}
    */
   _classNames ({className, size, transparent, type}) {
-    const transparentClass = (transparent && `--${BadgesBasic.TRANSPARENT}`) || ''
+    const transparentClass = (transparent && `--${BadgeBasic.TRANSPARENT}`) || ''
 
     return cx(
-      'sui-BadgesBasic',
-      `sui-BadgesBasic-${size}`,
-      `sui-BadgesBasic-${type}${transparentClass}`,
+      'sui-BadgeBasic',
+      `sui-BadgeBasic-${size}`,
+      `sui-BadgeBasic-${type}${transparentClass}`,
       className
     )
   }
@@ -79,7 +90,7 @@ class BadgesBasic extends Component {
    * @return {boolean}
    */
   _shouldRenderIcon ({Icon, size, transparent}) {
-    return Icon && (size !== BadgesBasic.SIZE.SMALL || transparent)
+    return Icon && (size !== BadgeBasic.SIZE.SMALL || transparent)
   }
 
   render () {
@@ -96,7 +107,7 @@ class BadgesBasic extends Component {
         {
           this._shouldRenderIcon({Icon, size, transparent}) &&
             <span>
-              <Icon svgClass='sui-BadgesBasic-icon' />
+              <Icon svgClass='sui-BadgeBasic-icon' />
             </span>
         }
         <span title={label}>
@@ -107,9 +118,9 @@ class BadgesBasic extends Component {
   }
 }
 
-BadgesBasic.displayName = 'BadgesBasic'
+BadgeBasic.displayName = 'BadgeBasic'
 
-BadgesBasic.propTypes = {
+BadgeBasic.propTypes = {
   /**
    * CSS Classes to be added to the component
    */
@@ -153,7 +164,7 @@ BadgesBasic.propTypes = {
   small: PropTypes.bool
 }
 
-BadgesBasic.defaultProps = {
+BadgeBasic.defaultProps = {
   error: false,
   info: false,
   large: false,
@@ -163,4 +174,4 @@ BadgesBasic.defaultProps = {
   warning: false
 }
 
-export default BadgesBasic
+export default BadgeBasic

@@ -44,11 +44,11 @@ For compound component, we may need to provide several callbacks.
 ```html
 <MyDialogModal
   onClick={onClickHandler}
-  onClickCancel={onClickCancelHandler}
+  onCancelClick={onCancelClickHandler}
 />
 <MyFilters
   onChange={onChangeHandler}
   onFilterChange={onFilterChangeHandler}
-  onClickReset={onClickResetHandler}
+  onResetClick={onResetClickHandler}
 />
 ```

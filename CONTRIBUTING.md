@@ -1,12 +1,12 @@
 # Contributing to SUI Components
 
-The following is a set of guidelines for contributing with developping new components.
+The following is a set of guidelines for contributing with developing new components.
 
 ## Getting started
 
 ### Environment
 
-To develop new packages, you only need to install Node with NPM. Fin below the default versions this repo was built with:
+To develop new packages, you only need to install Node with NPM. Find below the default versions this repo was built with:
 * Node: `v6+`
 * NPM: `v3`
 
@@ -17,7 +17,7 @@ This repo is managed with [sui-studio](https://www.npmjs.com/package/@s-ui/studi
 Some base commands (based on sui-studio) you should acknowledge :
 * `npm run generate <category> <name>` to create a new component.
 * `npm run co` to commit your changes with a wizard.
-* `npm run release` publish all your changes for al packages (once your PR is merge).
+* `npm run release` publish all your changes for all packages (once your PR is merge).
 
 ## Naming Conventions
 

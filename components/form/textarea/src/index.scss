@@ -1,0 +1,34 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+@mixin sui-textarea ($default-border: false, $default-focus: false) {
+  background-color: $bgc-form-textarea;
+  @if not($default-border) {
+    border: 0;
+    border-radius: 2px;
+  }
+  color: $c-form-textarea-inner-text;
+  font-size: $fz-form-textarea-inner-text;
+  font-weight: $fw-light;
+  padding: $p-v;
+
+  @if not($default-focus) {
+    &:focus {
+      outline-width: 0;
+    }
+  }
+}
+
+.sui-FormTextarea {
+  &-label {
+    color: $c-gray;
+    font-size: $fz-s;
+    font-weight: $fw-regular;
+  }
+
+  &-element {
+    @include sui-textarea;
+    margin-top: $m-v-small;
+    max-width: 100%;
+    width: 100%;
+  }
+}

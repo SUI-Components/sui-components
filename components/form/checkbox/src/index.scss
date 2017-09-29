@@ -1,0 +1,34 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-FormCheckbox {
+  &-input {
+    display: none;
+  }
+
+  &-icon {
+    @include sui-icon--small;
+    cursor: pointer;
+  }
+
+  &-label {
+    color: $c-form-checkbox-text-label;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: $fz-form-checkbox-text-label;
+    font-weight: $fw-regular;
+    padding-left: $p-xxsmall;
+    vertical-align: top;
+  }
+
+  &-errorMessage {
+    cursor: default;
+    margin: $m-v-small 0 0 $m-h;
+    padding-left: $p-xxsmall;
+
+    &Label {
+      color: $c-form-checkbox-error-message;
+      font-size: $fz-form-checkbox-error-message;
+      font-weight: $fw-light;
+    }
+  }
+}

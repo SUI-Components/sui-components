@@ -1,0 +1,75 @@
+
+const boxStyle = { padding:20, paddingTop: 0, width: 310, textAlign: 'center', background: 'white' }
+const icon = (<svg viewBox="2 2 24 24"><g><path id="a" d="M21.14 11a1.51 1.51 0 0 0-.86-2.65L15.64 8a.51.51 0 0 1-.43-.31l-1.82-4.27a1.51 1.51 0 0 0-2.78 0L8.8 7.7a.51.51 0 0 1-.43.3l-4.64.4a1.51 1.51 0 0 0-.86 2.6l3.52 3.1a.51.51 0 0 1 .16.5l-1 4.48a1.54 1.54 0 0 0 2.25 1.67l3.94-2.37a.51.51 0 0 1 .53 0l4 2.41a1.49 1.49 0 0 0 1.67-.07 1.49 1.49 0 0 0 .58-1.57l-1.06-4.54a.51.51 0 0 1 .16-.5L21.14 11z"/></g></svg>)
+const Title = props => <p style={{color: 'rgba(0,0,0,.4)',  marginTop: 40}}>{props.children}</p>
+const buttons = (<div>
+    <Title>PRIMARY (@primary) (default)</Title>
+    <p><AtomButton>Normal</AtomButton></p>
+    <p><AtomButton focused>Focused</AtomButton></p>
+    <p><AtomButton disabled>Disabled</AtomButton></p>
+    <Title>SECONDARY (@secondary)</Title>
+    <p><AtomButton secondary>Normal</AtomButton></p>
+    <p><AtomButton secondary focused>Focused</AtomButton></p>
+    <p><AtomButton secondary disabled>Disabled</AtomButton></p>
+    <Title>TERTIARY (@tertiary)</Title>
+    <p><AtomButton tertiary>Normal</AtomButton></p>
+    <p><AtomButton tertiary focused>Focused</AtomButton></p>
+    <p><AtomButton tertiary disabled>Disabled</AtomButton></p>
+</div>)
+
+return (<div style={{background: '#fff'}}>
+  <div style={Object.assign({float: 'left', background: 'white' }, boxStyle)}>
+    {buttons}
+    <Title>ACCENT (@accent)</Title>
+    <p><AtomButton accent>Normal</AtomButton></p>
+    <p><AtomButton accent focused>Focused</AtomButton></p>
+    <p><AtomButton accent disabled>Disabled</AtomButton></p>
+  </div>
+  <div className="sui-Global--contrast" style={Object.assign({}, boxStyle, {float: 'left', background: '#2b91c1' })}>
+    {buttons}
+  </div>
+  <div style={{clear: 'both', padding:20}}>
+    <Title>SIZES (@small, @size-m (default), @large)</Title>
+    <p>
+      <AtomButton small>Small button</AtomButton>
+      <AtomButton>Medium button</AtomButton>
+      <AtomButton large>Big button</AtomButton>
+    </p>
+    <p>
+      <AtomButton accent small>Small button</AtomButton>
+      <AtomButton accent>Medium button</AtomButton>
+      <AtomButton accent large>Big button</AtomButton>
+    </p>
+    <Title>FULL WIDTH (@fullWidth)</Title>
+    <div style={boxStyle}>
+      <p><AtomButton fullWidth>Button fullWidth</AtomButton></p>
+      <p><AtomButton secondary fullWidth>Secondary fullWidth</AtomButton></p>
+      <p><AtomButton accent fullWidth>Accent fullWidth</AtomButton></p>
+    </div>
+  </div>
+  <div style={{clear: 'both', padding:20}}>
+    <Title>LEFT ICONS (@leftIcon=node)</Title>
+    <p>
+      <AtomButton leftIcon={icon} small>Small button</AtomButton>
+      <AtomButton leftIcon={icon}>Medium button</AtomButton>
+      <AtomButton leftIcon={icon} large>Big button</AtomButton>
+    </p>
+    <p>
+      <AtomButton leftIcon={icon} secondary small>Small button</AtomButton>
+      <AtomButton leftIcon={icon} secondary>Medium button</AtomButton>
+      <AtomButton leftIcon={icon} secondary large>Big button</AtomButton>
+    </p>
+    <Title>RIGHT ICONS (@rightIcon=node)</Title>
+    <p>
+      <AtomButton accent rightIcon={icon} small>Small button</AtomButton>
+      <AtomButton accent rightIcon={icon}>Medium button</AtomButton>
+      <AtomButton accent rightIcon={icon} large>Big button</AtomButton>
+    </p>
+    <Title>ICONS FULL WITH (@leftIcon=node @fullWidth)</Title>
+    <div style={boxStyle}>
+      <p><AtomButton leftIcon={icon} fullWidth>Button fullWidth</AtomButton></p>
+      <p><AtomButton leftIcon={icon} secondary fullWidth>Secondary fullWidth</AtomButton></p>
+      <p><AtomButton leftIcon={icon} accent fullWidth>Accent fullWidth</AtomButton></p>
+    </div>
+  </div>
+</div>)

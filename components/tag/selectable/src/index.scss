@@ -10,7 +10,8 @@
 
   &-icon {
     fill: $c-primary !important;
+    height: $size-tag-icon;
     margin-right: $m-h-small;
-    width: 14px;
+    width: $size-tag-icon;
   }
 }

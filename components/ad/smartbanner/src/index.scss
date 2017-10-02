@@ -30,7 +30,7 @@
 
   &-text {
     font-size: $fz-s;
-    margin: 0;
+    margin: $m-ad-smartbanner-text;
   }
 
   &-button {
@@ -49,6 +49,15 @@
         width: $w-ad-smartbanner-button-close-icon;
       }
     }
+  }
+
+  &-rating {
+    padding: $p-ad-smartbanner-rating-container;
+
+    &Icon {
+        @include sui-icon--small;
+        fill: $c-ad-smartbanner-rating-icon !important;
+     }
   }
 
   &.is-visible {

@@ -10,7 +10,6 @@
     align-items: center;
     display: flex;
     line-height: $lh-collapsible-basic;
-    padding: $p-v $p-h;
 
     &-icon {
       flex: 1;
@@ -23,6 +22,10 @@
       font-size: $fz-l;
       font-weight: $fw-semi-bold;
     }
+  }
+
+  &-defaultIcon {
+    margin: auto $m-h;
   }
 
   &-collapsibleContent {

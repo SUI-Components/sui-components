@@ -17,8 +17,7 @@ class AdSmartbanner extends Component {
   }
 
   render () {
-    const { imageUrl, title, text, buttonText, staticPosition, icon, ratingValue, ratingMax, customRatingIcons } = this.props
-    const IconClose = icon || IconCloseDefault
+    const { imageUrl, title, text, buttonText, staticPosition, icon: IconClose, ratingValue, ratingMax, customRatingIcons } = this.props
     const className = cx('sui-AdSmartbanner', {
       'is-static': staticPosition
     })
@@ -58,7 +57,8 @@ AdSmartbanner.propTypes = {
 
 AdSmartbanner.defaultProps = {
   staticPosition: false,
-  ratingValue: null
+  ratingValue: null,
+  icon: IconCloseDefault
 }
 
 AdSmartbanner.displayName = 'AdSmartbanner'

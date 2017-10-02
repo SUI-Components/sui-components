@@ -1,0 +1,139 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$c-button: $c-primary !default;
+$c-button-light: color-variation($c-primary, 4) !default;
+$c-button-dark: $c-primary-dark !default;
+$c-button-light-contrast: color-variation($c-primary, 3) !default;
+$c-button-white: #ffffff !default;
+$bw-button: 1px !default;
+
+// Set all color properties for text and icons
+@mixin button-foreground-color ($color) {
+  color: $color;
+
+  & svg path {
+    fill: $color;
+    stroke: $color;
+  }
+}
+
+// Sets active states when button is not disabled
+@mixin button-focused {
+  &:not(.sui-AtomButton--disabled) {
+    &.sui-AtomButton--focused,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+.sui-AtomButton {
+  @include reset-button;
+  border-radius: $bdrs-m;
+  font: {
+    family: $ff-sans-serif;
+    size: $fz-m;
+    weight: $fw-semi-bold;
+  }
+  line-height: $lh-m;
+  padding: $p-m $p-l;
+
+  & + & {
+    margin-left: $m-m;
+  }
+
+  // Types and colors
+  &--primary {
+    @include button-foreground-color($c-button-white);
+    @include button-focused {
+      background-color: $c-button-dark;
+    }
+    background-color: $c-button;
+  }
+
+  &--secondary,
+  &--tertiary {
+    @include button-foreground-color($c-button);
+    @include button-focused {
+      background-color: $c-button-light;
+    }
+  }
+
+  &--secondary {
+    box-shadow: inset 0 0 0 $bw-button;
+  }
+
+  &--accent {
+    @include button-foreground-color($c-button-white);
+    @include button-focused {
+      background-color: $c-alert-dark;
+    }
+    background-color: $c-alert;
+  }
+
+  // Modifiers
+  &--disabled {
+    cursor: not-allowed;
+    opacity: .3;
+  }
+
+  &--small {
+    font-size: $fz-s;
+    line-height: $lh-s;
+    padding: $p-s $p-l;
+  }
+
+  &--large {
+    padding: $p-l;
+  }
+
+  &--fullWidth {
+    width: 100%;
+  }
+
+  // Icons
+  &LeftIcon,
+  &RightIcon {
+    display: inline-block;
+    height: $sz-icon-s;
+    vertical-align: middle;
+    width: $sz-icon-s;
+
+    .sui-AtomButton--large & {
+      height: $sz-icon-m;
+      width: $sz-icon-m;
+    }
+  }
+
+  &LeftIcon {
+    margin-right: $m-m;
+  }
+
+  &RightIcon {
+    margin-left: $m-m;
+  }
+}
+
+// Variations in contrast context
+.sui-Global--contrast {
+  .sui-AtomButton {
+    // Types and colors
+    &--primary {
+      @include button-foreground-color($c-button);
+      @include button-focused {
+        background-color: $c-button-light-contrast;
+      }
+      background-color: $c-button-white;
+    }
+
+    &--secondary,
+    &--tertiary {
+      @include button-foreground-color($c-button-white);
+      @include button-focused {
+        background-color: $c-button-dark;
+      }
+    }
+  }
+}

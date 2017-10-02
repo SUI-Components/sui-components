@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-class TagBasic extends Component {
+class AtomTag extends Component {
   static MAX_LABEL_LENGTH = 100
 
   /**
@@ -12,8 +12,8 @@ class TagBasic extends Component {
    */
   _classNames ({className, onClick}) {
     return cx(
-      'sui-TagBasic',
-      onClick && 'sui-TagBasic-actionable',
+      'sui-AtomTag',
+      onClick && 'sui-AtomTag-actionable',
       className
     )
   }
@@ -24,9 +24,9 @@ class TagBasic extends Component {
    * @return {string}
    */
   _truncate (label) {
-    return label.length < TagBasic.MAX_LABEL_LENGTH
+    return label.length < AtomTag.MAX_LABEL_LENGTH
       ? label
-      : label.substr(0, TagBasic.MAX_LABEL_LENGTH)
+      : label.substr(0, AtomTag.MAX_LABEL_LENGTH)
   }
 
   /**
@@ -74,16 +74,16 @@ class TagBasic extends Component {
         {
           Icon &&
             <span>
-              <Icon svgClass='sui-TagBasic-icon' />
+              <Icon svgClass='sui-AtomTag-icon' />
             </span>
         }
-        <span className='sui-TagBasic-label' title={label}>
+        <span className='sui-AtomTag-label' title={label}>
           {label}
         </span>
         {
           !onClick && onClose &&
             <span onClick={this.onClose}>
-              <CloseIcon svgClass='sui-TagBasic-delete-icon' />
+              <CloseIcon svgClass='sui-AtomTag-delete-icon' />
             </span>
         }
       </div>
@@ -91,9 +91,9 @@ class TagBasic extends Component {
   }
 }
 
-TagBasic.displayName = 'TagBasic'
+AtomTag.displayName = 'AtomTag'
 
-TagBasic.propTypes = {
+AtomTag.propTypes = {
   /**
    * Custom classes
    */
@@ -111,4 +111,4 @@ TagBasic.propTypes = {
   onClick: PropTypes.func
 }
 
-export default TagBasic
+export default AtomTag

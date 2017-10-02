@@ -1,5 +1,5 @@
 {
-  "name": "@sui/tag-basic",
+  "name": "@s-ui/atom-tag",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

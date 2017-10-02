@@ -10,15 +10,15 @@ const CloseIcon = ({svgClass}) =>
 
 return (
   <div>
-    <TagBasic label='Tag Structure' />
-    <TagBasic label='Close Tag' onClose={() => alert('close!')} CloseIcon={CloseIcon} />
-    <TagBasic label='Icon Tag' Icon={Icon} />
-    <TagBasic label='Icon & Close Tag' Icon={Icon} onClose={() => alert('close!')} CloseIcon={CloseIcon} />
-    <TagBasic label='Maximum Tag Width. Truncated text, without close nor icon' />
-    <TagBasic label='Maximum Tag Width. Truncated text, no icon, close' onClose={() => alert('close!')} CloseIcon={CloseIcon} />
-    <TagBasic label='Maximum Tag Width. Truncated text, icon, no close' Icon={Icon} />
-    <TagBasic label='Maximum Tag Width. Truncated text, with icon and close' Icon={Icon} onClose={() => alert('close!')} CloseIcon={CloseIcon} />
-    <TagBasic label='101 char length, truncated to 100 char890123456789012345678901234567890123456789012345678901234567890' />
-    <TagBasic label='Tag Structure' onClick={() => alert('click!')} />
+    <AtomTag label='Tag Structure' />
+    <AtomTag label='Close Tag' onClose={() => alert('close!')} CloseIcon={CloseIcon} />
+    <AtomTag label='Icon Tag' Icon={Icon} />
+    <AtomTag label='Icon & Close Tag' Icon={Icon} onClose={() => alert('close!')} CloseIcon={CloseIcon} />
+    <AtomTag label='Maximum Tag Width. Truncated text, without close nor icon' />
+    <AtomTag label='Maximum Tag Width. Truncated text, no icon, close' onClose={() => alert('close!')} CloseIcon={CloseIcon} />
+    <AtomTag label='Maximum Tag Width. Truncated text, icon, no close' Icon={Icon} />
+    <AtomTag label='Maximum Tag Width. Truncated text, with icon and close' Icon={Icon} onClose={() => alert('close!')} CloseIcon={CloseIcon} />
+    <AtomTag label='101 char length, truncated to 100 char890123456789012345678901234567890123456789012345678901234567890' />
+    <AtomTag label='Tag Structure' onClick={() => alert('click!')} />
   </div>
 )

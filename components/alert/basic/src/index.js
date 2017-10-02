@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, {PropTypes} from 'react'
+import PropTypes from 'prop-types'
+
+import React from 'react'
 import cx from 'classnames'
 import Info from '@schibstedspain/sui-svgiconset/lib/Info'
 import Bell from '@schibstedspain/sui-svgiconset/lib/Bell'

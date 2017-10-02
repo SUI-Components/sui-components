@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2017-10-02)
+
+
+### Features
+
+* allow flex grow/shrink in label and trigger elements. ([92159de](https://github.com/SUI-Components/sui-components/commit/92159de))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2017-09-28)
 
@@ -20,6 +30,16 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * add border variable. ([6168c85](https://github.com/SUI-Components/sui-components/commit/6168c85))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2017-09-12)
+
+
+### Features
+
+* collapsible/expandible component. ([bcb1277](https://github.com/SUI-Components/sui-components/commit/bcb1277))
 
 
 

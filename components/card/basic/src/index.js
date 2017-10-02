@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+
+import React from 'react'
 import cx from 'classnames'
 import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
 

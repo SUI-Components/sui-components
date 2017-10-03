@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "latest",
-    "schibstedspain/sui-theme": "8"
+    "@schibstedspain/sui-theme": "8"
   },
   "keywords": [],
   "author": "",

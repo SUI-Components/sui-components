@@ -1,26 +1,40 @@
 import React, {PropTypes} from 'react'
+import CheckboxChecked from '@schibstedspain/sui-svgiconset/lib/Checkboxchecked'
+import CheckboxUnchecked from '@schibstedspain/sui-svgiconset/lib/Checkboxunchecked'
 import cx from 'classnames'
 
-const FormCheckbox = ({checked, className, errorMessage, label, name, onChange, svgIcons}) => (
-  <div className={cx('sui-FormCheckbox', className)}>
-    <label className='sui-FormCheckbox-container'>
-      <input
-        checked={checked}
-        className={cx('sui-FormCheckbox-input', {'is-checked': checked})}
-        name={name}
-        onChange={onChange}
-        type='checkbox' />
-      {checked ? svgIcons.checked : svgIcons.unchecked}
-      <span className='sui-FormCheckbox-label'>{label}</span>
-    </label>
-    {errorMessage &&
-    <div className='sui-FormCheckbox-errorMessage'>
-      <span className='sui-FormCheckbox-errorMessageLabel'>{errorMessage}</span>
-    </div>
-    }
-  </div>
-)
+const getCheckboxIcon = (checked, customIcons) => {
+  let icon
+  if (checked) {
+    icon = customIcons ? customIcons.checked : CheckboxChecked
+  } else {
+    icon = customIcons ? customIcons.unchecked : CheckboxUnchecked
+  }
+  return icon
+}
 
+const FormCheckbox = ({checked, className, errorMessage, label, name, onChange, svgIcons}) => {
+  const CheckboxIcon = getCheckboxIcon(checked, svgIcons)
+  return (
+    <div className={cx('sui-FormCheckbox', className)}>
+      <label className='sui-FormCheckbox-container'>
+        <input
+          checked={checked}
+          className={cx('sui-FormCheckbox-input', {'is-checked': checked})}
+          name={name}
+          onChange={onChange}
+          type='checkbox' />
+        <CheckboxIcon svgClass='sui-FormCheckbox-icon' />
+        <span className='sui-FormCheckbox-label'>{label}</span>
+      </label>
+      {errorMessage &&
+      <div className='sui-FormCheckbox-errorMessage'>
+        <span className='sui-FormCheckbox-errorMessageLabel'>{errorMessage}</span>
+      </div>
+      }
+    </div>
+  )
+}
 FormCheckbox.displayName = 'FormCheckbox'
 
 FormCheckbox.propTypes = {
@@ -55,20 +69,6 @@ FormCheckbox.propTypes = {
     checked: PropTypes.node.isRequired,
     unchecked: PropTypes.node.isRequired
   })
-}
-
-FormCheckbox.defaultProps = {
-  svgIcons: {
-    checked: <svg className='sui-FormCheckbox-icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'>
-      <g fill='none' fillRule='evenodd' stroke='#2899B6' transform='translate(1 1)'>
-        <rect width='13' height='13' x='.5' y='.5' rx='1' />
-        <path strokeLinecap='round' strokeLinejoin='round' d='M2.5 7.5l3 3 6-6' />
-      </g>
-    </svg>,
-    unchecked: <svg className='sui-FormCheckbox-icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'>
-      <rect width='13' height='13' x='.5' y='.5' fill='none' fillRule='evenodd' stroke='#2899B6' rx='1' transform='translate(1 1)' />
-    </svg>
-  }
 }
 
 export default FormCheckbox

@@ -9,6 +9,7 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
+    "@schibstedspain/sui-svgiconset": "1",
     "@s-ui/component-dependencies": "latest"
   },
   "keywords": [],

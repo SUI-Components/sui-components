@@ -1,34 +1,53 @@
-@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$c-label-white: #fff;
+$mw-label: 240px;
+$bgc-AtomTag: color-variation($c-gray, 3);
+$h-AtomTag: $p-xxl;
 
 .sui-AtomTag {
-  align-items: baseline;
-  background-color: color-variation($c-gray, 3);
-  border-radius: 25px;
+  background-color: $bgc-AtomTag;
+  border-radius: $lh-s + $p-s;
   box-sizing: border-box;
-  display: inline-flex;
-  height: 32px;
-  line-height: 32px;
-  margin: 0 8px 8px 0;
-  max-width: 240px;
-  padding: 0 $p-base;
+  display: inline-block;
+  height: $h-AtomTag;
+  line-height: $lh-s;
+  padding: $p-m $p-l;
+  white-space: nowrap;
+
+  & + & {
+    margin-left: $m-m;
+  }
 
   &-label {
+    // max width - 2 icon size
+    $w-label-base: $mw-label - ($p-l * 2);
+    display: inline-block;
+    max-width: $w-label-base;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    // if only one icon is set
+    .sui-AtomTag-hasIcon &, .sui-AtomTag-hasClose & {
+      max-width: $w-label-base - 20px;
+    }
+
+    // if both icons are set
+    .sui-AtomTag-hasIcon.sui-AtomTag-hasClose & {
+      max-width: $w-label-base - 40px;
+    }
   }
 
   &-icon {
-    position: relative;
-    right: 4px;
+    margin-right: $p-s;
   }
 
   &-delete-icon {
-    left: 8px;
-    position: relative;
+    margin: 0 -4px 0 8px;
 
     &:hover {
-      background-color: #000;
+      background-color: $c-system;
       border-radius: 50%;
       fill: color-variation($c-gray, 3);
     }
@@ -36,13 +55,13 @@
 
   & [class$='icon'] {
     @include sui-icon--small;
-    top: 2px;
+    display: inline-block;
   }
 
   &-actionable {
-    background-color: $c-primary-light;
-    color: #fff;
-    fill: #fff;
+    background-color: $c-primary;
+    color: $c-label-white;
+    fill: $c-label-white;
 
     &:hover, &:active {
       background-color: $c-primary-dark;

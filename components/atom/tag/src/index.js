@@ -8,13 +8,17 @@ class AtomTag extends Component {
   /**
    * @param  {string} options.className custom classname
    * @param {fn} options.onClick
+   * @param {Object} icon
+   * @param {Object} closeIcon
    * @return {string} all classnames joined by whitespace
    */
-  _classNames ({className, onClick}) {
+  _classNames ({className, onClick, icon, closeIcon}) {
     return cx(
       'sui-AtomTag',
       onClick && 'sui-AtomTag-actionable',
-      className
+      className,
+      icon && 'sui-AtomTag-hasIcon',
+      closeIcon && 'sui-AtomTag-hasClose'
     )
   }
 
@@ -58,10 +62,9 @@ class AtomTag extends Component {
 
   render () {
     const {
-      className,
-      Icon,
+      icon,
       onClose,
-      CloseIcon,
+      closeIcon,
       onClick
     } = this.props
 
@@ -69,12 +72,12 @@ class AtomTag extends Component {
 
     return (
       <div
-        className={this._classNames({className, onClick})}
+        className={this._classNames(this.props)}
         onClick={this.onClick}>
         {
-          Icon &&
-            <span>
-              <Icon svgClass='sui-AtomTag-icon' />
+          icon &&
+            <span className='sui-AtomTag-icon'>
+              { icon }
             </span>
         }
         <span className='sui-AtomTag-label' title={label}>
@@ -82,8 +85,8 @@ class AtomTag extends Component {
         </span>
         {
           !onClick && onClose &&
-            <span onClick={this.onClose}>
-              <CloseIcon svgClass='sui-AtomTag-delete-icon' />
+            <span className='sui-AtomTag-delete-icon'>
+              { closeIcon }
             </span>
         }
       </div>
@@ -99,12 +102,12 @@ AtomTag.propTypes = {
    */
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
-  Icon: PropTypes.func,
+  icon: PropTypes.node,
   onClose: PropTypes.func,
   /**
    * Will only be shown if the onClose fn is defined
    */
-  CloseIcon: PropTypes.func,
+  closeIcon: PropTypes.node,
   /**
    * If defined, onClose will be ignored
    */

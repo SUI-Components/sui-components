@@ -1,24 +1,29 @@
-### BadgeStandard
+# AtomBadge
 
+> Atom Element: SUI badge
 
+![](./assets/screenshot.png)
 
 ## Installation
-```
->
+
+```sh
+npm install @schibstedspain/sui-atom-badge --save
 ```
 
 ## Usage
 
-```
-<BadgeStandard label='SUI-Badge' success small />
-```
+```js
+import AtomBadge from '@schibstedspain/sui-atom-badge'
+
+(
+  <div>
+    <AtomBadge label='Badge xBasic' large />
+    <AtomBadge label='Badge xIcon' alert icon={icon} large />
+    <AtomBadge label='Error badge' error icon={icon} transparent
+    />
+  </div>
+)
 
 ```
-<BadgeStandard error label='SUI-Badge' />
-```
 
-
-## Definitions
-* [Paper](https://paper.dropbox.com/doc/SUI-Tags-Badges-bOSL4L5TFYZqPaK0wnCHb)
-* [Zeplin](https://zpl.io/2y0kGqb)
-
+**Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/badge).**

@@ -7,6 +7,12 @@ const MODIFIERS = ['disabled', 'small', 'large', 'fullWidth', 'focused']
 
 const appendClass = (suffix) => `${CLASS}--${suffix}`
 const includes = (array, item) => array.indexOf(item) !== -1
+const cleanProps = (props, Component) => {
+  let newProps = {...props}
+  Object.keys(Component.propTypes).forEach(key => delete newProps[key])
+  return newProps
+}
+
 const getTypes = (props) => {
   let types = Object.keys(props)
     .filter(name => includes(TYPES, name))
@@ -25,8 +31,8 @@ const AtomButton = (props) => {
     getModifiers(props).map(appendClass),
     className
   )
-
-  return (<button className={classNames} disabled={disabled}>
+  const newProps = cleanProps(props, AtomButton)
+  return (<button {...newProps} className={classNames} disabled={disabled}>
     {leftIcon && <span className={`${CLASS}LeftIcon`}>{leftIcon}</span>}
     {children}
     {rightIcon && <span className={`${CLASS}RightIcon`}>{rightIcon}</span>}

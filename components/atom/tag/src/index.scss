@@ -30,12 +30,12 @@ $h-AtomTag: $p-xxl;
 
     // if only one icon is set
     .sui-AtomTag-hasIcon &, .sui-AtomTag-hasClose & {
-      max-width: $w-label-base - 20px;
+      max-width: $w-label-base - ($p-l + $m-s);
     }
 
     // if both icons are set
     .sui-AtomTag-hasIcon.sui-AtomTag-hasClose & {
-      max-width: $w-label-base - 40px;
+      max-width: $w-label-base - ($p-l + $m-s) * 2;
     }
   }
 
@@ -44,7 +44,7 @@ $h-AtomTag: $p-xxl;
   }
 
   &-delete-icon {
-    margin: 0 -4px 0 8px;
+    margin: 0 (-$m-s) 0 $m-m;
 
     &:hover {
       background-color: $c-system;

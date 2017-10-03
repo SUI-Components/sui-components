@@ -2,23 +2,20 @@ import React, {PropTypes} from 'react'
 import cx from 'classnames'
 
 const renderErrorMessage = error => (
-  error && (
-    <div className='sui-FormTextInput-errorMessage'>
-      <span className='sui-FormTextInput-errorMessageLabel'>{error}</span>
-    </div>
-  )
+  <div className='sui-FormTextInput-errorMessage'>
+    <span className='sui-FormTextInput-errorMessageLabel'>{error}</span>
+  </div>
 )
 
-const FormTextInput = ({className, errorMessage, name, onChange, placeholder, value}) => (
+const FormTextInput = ({className, errorMessage, onChange, placeholder, value}) => (
   <div className={cx('sui-FormTextInput', className)}>
     <input
       className='sui-FormTextInput-value'
-      name={name}
       type='text'
       placeholder={placeholder}
       value={value}
       onChange={onChange} />
-    {renderErrorMessage(errorMessage)}
+    {errorMessage && renderErrorMessage(errorMessage)}
   </div>
 )
 
@@ -33,10 +30,6 @@ FormTextInput.propTypes = {
    * Error message text to show below the input.
    */
   errorMessage: PropTypes.string,
-  /**
-   * Specifies a name for a text input.
-   */
-  name: PropTypes.string.isRequired,
   /**
    * Custom callback function to execute when the value of the text input has changed.
    */

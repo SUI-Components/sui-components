@@ -1,4 +1,4 @@
-# AtomButton
+# Button
 
 > Atom Element: SUI button
 
@@ -13,12 +13,12 @@ npm install @schibstedspain/sui-atom-button --save
 ## Usage
 
 ```js
-import AtomButton from '@schibstedspain/sui-atom-button'
+import Button from '@schibstedspain/sui-atom-button'
 
 (<div>
-  <AtomButton>Normal</AtomButton>
-  <AtomButton focused>Focused</AtomButton>
-  <AtomButton disabled>Disabled</AtomButton>
+  <Button>Normal</Button>
+  <Button focused>Focused</Button>
+  <Button disabled>Disabled</Button>
 </div>)
 
 ```

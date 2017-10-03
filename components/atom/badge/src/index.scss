@@ -1,0 +1,85 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$c-label-white: #ffffff;
+$c-label-black: #000000;
+$bdrs-AtomBadge: 2px;
+
+.sui-AtomBadge {
+  border-radius: $bdrs-AtomBadge;
+  box-sizing: border-box;
+  display: inline-block;
+  white-space: nowrap;
+
+  & + & {
+    margin-left: $m-m;
+  }
+
+  &-small {
+    font-size: $fz-xs;
+    height: $p-l;
+    line-height: $lh-xs;
+    padding: 0 $p-m;
+  }
+
+  &-large {
+    font-size: $fz-m;
+    height: $p-xl;
+    line-height: $lh-m;
+    padding: 0 $p-m;
+  }
+
+  & [class$='icon'] {
+    @include sui-icon--small;
+    display: inline-block;
+    margin-right: $p-s;
+    vertical-align: middle;
+  }
+
+  &-success {
+    background-color: $c-success;
+    color: $c-label-white;
+    fill: $c-label-white;
+  }
+
+  &-error {
+    background-color: $c-error;
+    color: $c-label-white;
+    fill: $c-label-white;
+  }
+
+  &-alert {
+    background-color: $c-alert;
+    color: $c-label-black;
+    fill: $c-label-black;
+  }
+
+  &-info {
+    background-color: $c-gray-light;
+    color: $c-label-black;
+    fill: $c-label-black;
+  }
+
+  &-success--transparent {
+    background-color: transparent;
+    color: $c-success;
+    fill: $c-success;
+  }
+
+  &-error--transparent {
+    background-color: transparent;
+    color: $c-error;
+    fill: $c-error;
+  }
+
+  &-alert--transparent {
+    background-color: transparent;
+    color: $c-alert;
+    fill: $c-alert;
+  }
+
+  &-info--transparent {
+    background-color: transparent;
+    color: $c-gray;
+    fill: $c-gray;
+  }
+}

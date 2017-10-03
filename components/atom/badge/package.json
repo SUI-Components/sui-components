@@ -1,5 +1,5 @@
 {
-  "name": "@s-ui/badge-basic",
+  "name": "@schibstedspain/sui-atom-badge",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
@@ -9,7 +9,8 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "latest"
+    "@s-ui/component-dependencies": "latest",
+    "schibstedspain/sui-theme": "8"
   },
   "keywords": [],
   "author": "",

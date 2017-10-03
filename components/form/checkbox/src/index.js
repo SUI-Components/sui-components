@@ -13,7 +13,7 @@ const getCheckboxIcon = (checked, customIcons) => {
   return icon
 }
 
-const FormCheckbox = ({checked, className, errorMessage, label, name, onChange, svgIcons}) => {
+const FormCheckbox = ({checked, className, errorMessage, label, onChange, svgIcons}) => {
   const CheckboxIcon = getCheckboxIcon(checked, svgIcons)
   return (
     <div className={cx('sui-FormCheckbox', className)}>
@@ -21,7 +21,6 @@ const FormCheckbox = ({checked, className, errorMessage, label, name, onChange, 
         <input
           checked={checked}
           className={cx('sui-FormCheckbox-input', {'is-checked': checked})}
-          name={name}
           onChange={onChange}
           type='checkbox' />
         <CheckboxIcon svgClass='sui-FormCheckbox-icon' />
@@ -54,10 +53,6 @@ FormCheckbox.propTypes = {
    * Text to display as a description message on the right side of the chechbox input.
    */
   label: PropTypes.node,
-  /**
-   * Specifies the name of the checkbox component.
-   */
-  name: PropTypes.string.isRequired,
   /**
    * Custom callback function to execute when the checked/uncheched status of the checkbox has changed.
    */

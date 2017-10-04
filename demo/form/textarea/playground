@@ -1,0 +1,34 @@
+class SampleForm extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      textareaValue: ''
+    }
+    this._handleChange = this._handleChange.bind(this)
+  }
+
+  _handleChange (event) {
+    this.setState({
+      textareaValue: event.target.value
+    })
+  }
+
+  render () {
+    return (
+      <FormTextarea
+        label='Write something in the following textarea!'
+        name='my-text-area'
+        placeholder='This message specifies a short hint that describes the expected value of the text area.'
+        rows={6}
+        value={this.state.textareaValue}
+        onChange={this._handleChange} />
+    )
+  }
+}
+
+return (
+  <div style={{maxWidth: 500, backgroundColor: '#ffffff', padding: 16}}>
+    <h2>Interactive textarea</h2>
+    <SampleForm />
+  </div>
+)

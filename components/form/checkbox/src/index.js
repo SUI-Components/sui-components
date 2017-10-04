@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import CheckboxChecked from '@schibstedspain/sui-svgiconset/lib/Checkboxchecked'
 import CheckboxUnchecked from '@schibstedspain/sui-svgiconset/lib/Checkboxunchecked'
 import cx from 'classnames'

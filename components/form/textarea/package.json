@@ -1,6 +1,6 @@
 {
-  "name": "@schibstedspain/sui-form-range-datepicker",
-  "version": "1.2.0",
+  "name": "@schibstedspain/sui-form-textarea",
+  "version": "1.1.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -9,11 +9,7 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@schibstedspain/sui-component-dependencies": "latest",
-    "@schibstedspain/sui-svgiconset": "1",
-    "@schibstedspain/sui-button-basic": "1.1.0",
-    "react-datepicker": "0.52.0",
-    "moment": "2"
+    "@s-ui/component-dependencies": "latest"
   },
   "keywords": [],
   "author": "",

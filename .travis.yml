@@ -8,6 +8,8 @@ node_js:
 before_install:
   - npm i -g npm@^3.0.0
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+install:
+  - npm run phoenix
 before_deploy:
   - npm i -g now@7
   - npm run build

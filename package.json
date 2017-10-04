@@ -13,8 +13,7 @@
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
-    "phoenix": "rm -Rf node_modules && npm i && sui-studio clean-modules && sui-studio run-all npm i",
-    "postinstall": "sui-studio run-all npm i",
+    "phoenix": "rm -Rf node_modules && npm i && sui-studio clean-modules && sui-studio run-parallel npm i",
     "precommit": "sui-precommit run",
     "release": "sui-studio release",
     "start": "sui-studio start",
@@ -26,8 +25,8 @@
   "license": "ISC",
   "devDependencies": {
     "@s-ui/deploy": "1",
-    "@schibstedspain/sui-precommit": "2",
-    "@schibstedspain/sui-studio": "4",
+    "@s-ui/precommit": "2",
+    "@s-ui/studio": "4",
     "babel-jest": "20.0.3",
     "enzyme": "2.9.1",
     "husky": "0.13.4",
@@ -36,12 +35,13 @@
     "validate-commit-msg": "2.12.2"
   },
   "dependencies": {
-    "@schibstedspain/sui-component-dependencies": "latest"
+    "@s-ui/component-dependencies": "latest"
   },
   "config": {
     "sui-studio": {
       "font": "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i",
-      "name": "SUIComponents"
+      "name": "SUIComponents",
+      "compliant": ["breadcrumb/basic"]
     },
     "sui-mono": {
       "access": "public",
@@ -49,7 +49,7 @@
       "deepLevel": 2
     },
     "validate-commit-msg": {
-      "types": "@schibstedspain/sui-mono/src/types"
+      "types": "@s-ui/mono/src/types"
     }
   },
   "commit-msg": [
@@ -57,8 +57,8 @@
   ],
   "eslintConfig": {
     "extends": [
-      "./node_modules/@schibstedspain/sui-lint/eslintrc.js"
+      "./node_modules/@s-ui/lint/eslintrc.js"
     ]
   },
-  "sasslintConfig": "./node_modules/@schibstedspain/sui-lint/sass-lint.yml"
+  "sasslintConfig": "./node_modules/@s-ui/lint/sass-lint.yml"
 }

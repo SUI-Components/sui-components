@@ -1,0 +1,42 @@
+class SampleForm extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      checkboxValue: false
+    }
+    this._handleChange = this._handleChange.bind(this)
+  }
+
+  _handleChange (event) {
+    this.setState({
+      checkboxValue: !this.state.checkboxValue
+    })
+  }
+
+  _getError () {
+    return !this.state.checkboxValue ?  this.props.error : null
+  }
+
+  render () {
+    return (
+      <FormCheckbox name='my-checkbox' label='You can change the value of this checkbox by clicking on it' checked={this.state.checkboxValue} onChange={this._handleChange} errorMessage={this._getError()} />
+    )
+  }
+}
+
+const doNothing = () => {}
+
+return (
+  <div style={{maxWidth: 500, backgroundColor: '#ffffff', padding: 16}}>
+    <h2>Interactive checkbox</h2>
+    <SampleForm error='Error! This checkbox must be checked!' />
+
+    <br />
+    <h2>Checkbox Status</h2>
+    <FormCheckbox name='cb-checked' label='This checkbox is checked' checked onChange={doNothing} />
+    <br />
+    <FormCheckbox name='cb-unchecked' label='This checkbox is unchecked' onChange={doNothing} />
+    <br />
+    <FormCheckbox name='cb-error' label='This checkbox display an error message below.' errorMessage='This is an error message.' onChange={doNothing} />
+  </div>
+)

@@ -1,4 +1,5 @@
-@import '~@schibstedspain/theme-basic/lib/index';
+// sass-lint:disable class-name-format
+@import '~@schibstedspain/sui-theme/lib/index';
 
 .sui-CollapsibleBasic {
   background-color: $bgc-collapsible-basic;
@@ -8,16 +9,17 @@
   &-trigger {
     align-items: center;
     display: flex;
-    justify-content: space-between;
     line-height: $lh-collapsible-basic;
     padding: $p-v $p-h;
 
     &-icon {
+      flex: 1;
       transition: transform $trs-base;
     }
 
     &-label {
       color: $c-collapsible-basic;
+      flex: 1 1 100%;
       font-size: $fz-l;
       font-weight: $fw-semi-bold;
     }
@@ -38,6 +40,8 @@
   }
 
   &.is-expanded {
+    background-color: $bgc-collapsible-basic-expanded;
+
     #{$root-parent}-trigger {
       &-icon {
         transform: rotateZ(180deg);

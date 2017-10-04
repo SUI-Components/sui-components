@@ -19,7 +19,11 @@
     "start": "sui-studio start",
     "test": "jest"
   },
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SUI-Components/sui-components.git"
+  },
+  "homepage": "https://github.com/SUI-Components/sui-components/tree/master#readme",
   "keywords": [],
   "author": "",
   "license": "ISC",

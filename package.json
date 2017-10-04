@@ -28,10 +28,12 @@
     "@s-ui/precommit": "2",
     "@s-ui/studio": "beta",
     "babel-jest": "20.0.3",
-    "enzyme": "2.9.1",
+    "enzyme": "3.1.0",
+    "enzyme-adapter-react-16": "1.0.1",
     "husky": "0.13.4",
     "jest": "20.0.4",
     "react-addons-test-utils": "15.6.0",
+    "react-test-renderer": "16.0.0",
     "validate-commit-msg": "2.12.2"
   },
   "dependencies": {
@@ -41,7 +43,9 @@
     "sui-studio": {
       "font": "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i",
       "name": "SUIComponents",
-      "compliant": ["breadcrumb/basic"]
+      "compliant": [
+        "breadcrumb/basic"
+      ]
     },
     "sui-mono": {
       "access": "public",

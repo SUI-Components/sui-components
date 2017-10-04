@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const DefaultCallToAction = ({ text, url, notifications, icon: Icon, linkFactory: Link, className }) =>
   <div className={className}>

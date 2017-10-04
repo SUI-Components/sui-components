@@ -1,0 +1,48 @@
+class FormSample extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      value: props.value || ''
+    }
+    this._handleChange = this._handleChange.bind(this)
+  }
+
+  _handleChange (event) {
+    this.setState({
+      value: event.target.value
+    })
+  }
+
+  _getError () {
+    return this.state.value === 'error' ? 'The "name" error is incorrect.' : ''
+  }
+
+  render () {
+    return <FormTextInput name='form-input' placeholder='Please type your name.' value={this.state.value} onChange={this._handleChange} errorMessage={this._getError()} />
+  }
+}
+
+const doNothing = () => {}
+
+return (
+  <div style={{maxWidth: 500, backgroundColor: '#ffffff', padding: 16}}>
+    <h1>Interactive text input</h1>
+    <h4>(type "error" to get an error message)</h4>
+    <FormSample />
+
+    <br />
+    <h1>Text input states</h1>
+
+    <h3>Simple empty input</h3>
+    <FormTextInput name="input-simple" onChange={doNothing} />
+
+    <h3>Input with placeholder</h3>
+    <FormTextInput name="input-with-placeholder" placeholder='This is a placeholder text example.' onChange={doNothing} />
+
+    <h3>Input with a text value</h3>
+    <FormTextInput name="input-with-value" value='This a fixed text value example' onChange={doNothing} />
+
+    <h3>Input with error</h3>
+  	<FormTextInput name="input-with-error" value='Invalid text' errorMessage='This is an error message example for this input.' onChange={doNothing} />
+  </div>
+)

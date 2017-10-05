@@ -3,12 +3,12 @@
 @import './sui-topbar-composable-dropdown/sui-topbar-composable-dropdown';
 @import './sui-topbar-composable-dropdown-item/sui-topbar-composable-dropdown-item';
 
-.sui-Topbar {
+.sui-Topbarmenu {
   display: flex;
   justify-content: space-between;
 }
 
-.sui-Topbar-left,
-.sui-Topbar-right {
+.sui-Topbarmenu-left,
+.sui-Topbarmenu-right {
   display: flex;
 }

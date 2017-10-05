@@ -9,11 +9,11 @@ class TopbarComposable extends Component {
 
   render () {
     return (
-      <header className='sui-Topbar'>
-        <div className='sui-Topbar-left'>
+      <header className='sui-Topbarmenu'>
+        <div className='sui-Topbarmenu-left'>
           {this.props.left}
         </div>
-        <div className='sui-Topbar-right'>
+        <div className='sui-Topbarmenu-right'>
           {this.props.right}
         </div>
       </header>

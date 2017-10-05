@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2017-10-05)
+
+
+### Features
+
+* merge changes to resolve conflict with master. ([102d7e1](https://github.com/SUI-Components/sui-components/commit/102d7e1))
+* remove default paddings. ([dfcaccf](https://github.com/SUI-Components/sui-components/commit/dfcaccf))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2017-10-02)
 

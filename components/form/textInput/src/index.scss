@@ -1,0 +1,32 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+.sui-FormTextInput {
+  &-value {
+    @include input-placeholder {
+      color: $c-form-text-input-placeholder;
+      opacity: 1;
+    }
+    border: 0;
+    border-bottom: 1px solid $c-gray-light;
+    color: $c-form-text-input-value;
+    font-size: $fz-form-text-input-inner-text;
+    font-weight: $fw-form-text-input-inner-text;
+    padding-bottom: $p-v-small;
+    white-space: nowrap;
+    width: 100%;
+
+    &:focus {
+      outline-width: 0;
+    }
+  }
+
+  &-errorMessage {
+    margin-top: $m-v-small;
+
+    &Label {
+      color: $c-form-text-input-error-message;
+      font-size: $fz-s;
+      font-weight: $fw-light;
+    }
+  }
+}

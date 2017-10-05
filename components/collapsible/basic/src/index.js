@@ -65,7 +65,7 @@ CollapsibleBasic.propTypes = {
 }
 
 CollapsibleBasic.defaultProps = {
-  icon: <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><path fill='none' fillRule='evenodd' stroke='#2097B6' strokeLinecap='round' strokeLinejoin='round' d='M1.5 6L8 12l6.5-6' /></svg>,
+  icon: <svg className='sui-CollapsibleBasic-defaultIcon' xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><path fill='none' fillRule='evenodd' stroke='#2097B6' strokeLinecap='round' strokeLinejoin='round' d='M1.5 6L8 12l6.5-6' /></svg>,
   collapsed: true,
   handleClick: () => {}
 }

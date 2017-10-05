@@ -1,0 +1,14 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+@import './settings';
+@import './sui-topbar-composable-dropdown/sui-topbar-composable-dropdown';
+@import './sui-topbar-composable-dropdown-item/sui-topbar-composable-dropdown-item';
+
+.sui-Topbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sui-Topbar-left,
+.sui-Topbar-right {
+  display: flex;
+}

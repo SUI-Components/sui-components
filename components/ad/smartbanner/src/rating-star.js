@@ -8,13 +8,10 @@ const checkRatingValue = ({ ratingValue, ratingMax }) =>
   (ratingValue % baseNumber === 0) && ratingValue <= ratingMax
 
 const RatingStar = ({ratingValue, ratingMax, icons}) => {
-  const IconStarFull = icons.starFull || IconStarFullDefault
-  const IconStarHalf = icons.starHalf || IconStarHalfDefault
-  const IconStarEmpty = icons.starEmpty || IconStarEmptyDefault
   const svgIconsType = {
-    half: IconStarHalf,
-    full: IconStarFull,
-    empty: IconStarEmpty
+    half: icons.starHalf,
+    full: icons.starFull,
+    empty: icons.starEmpty
   }
 
   const _renderStar = (_, index) => {
@@ -34,7 +31,6 @@ const RatingStar = ({ratingValue, ratingMax, icons}) => {
       typeStar = 'empty'
     }
     const SvgIconsCall = svgIconsType[typeStar]
-
     return (<SvgIconsCall key={index} svgClass='sui-AdSmartbanner-ratingIcon' />)
   }
 
@@ -62,7 +58,11 @@ RatingStar.propTypes = {
 }
 
 RatingStar.defaultProps = {
-  icons: {},
+  icons: {
+    starEmpty: IconStarEmptyDefault,
+    starFull: IconStarFullDefault,
+    starHalf: IconStarHalfDefault
+  },
   ratingValue: 0,
   ratingMax: 5
 }

@@ -14,8 +14,13 @@ const imageUrl = 'https://placeholdit.imgix.net/~text?txtsize=33&txt=ico&w=100&h
 const title = 'Component Title'
 const text = 'Lorem ipsum'
 const buttonText = 'Instalar'
-const ratingValue = 0.5
+const ratingValue = 0
 const ratingMax = 5
+const icons = {
+  starEmpty: RatingStarEmpty,
+  starFull: RatingStarFull,
+  starHalf: RatingStarHalf
+}
 
 class MyAdSmartbanner extends React.Component {
   constructor (...args) {
@@ -43,7 +48,7 @@ class MyAdSmartbanner extends React.Component {
         onClose={this._handleClose}
         ratingValue={ratingValue}
         ratingMax={ratingMax}
-        customRatingIcons={{ starEmpty: RatingStarEmpty, starFull: RatingStarFull, starHalf: RatingStarHalf }}
+        customRatingIcons={icons}
       />
     )
   }

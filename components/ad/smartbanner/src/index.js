@@ -50,7 +50,7 @@ AdSmartbanner.propTypes = {
   text: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
   staticPosition: PropTypes.bool,
-  customRatingIcons: PropTypes.obj,
+  customRatingIcons: PropTypes.object,
   ratingValue: PropTypes.number,
   ratingMax: PropTypes.number
 }

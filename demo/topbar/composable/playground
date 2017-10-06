@@ -1,0 +1,12 @@
+return (
+  <TopbarComposable
+    left={[
+      <button>Left button</button>,
+      <h2>Insert logo here</h2>
+    ]}
+    right={[
+      <button>Right button</button>,
+      <button>Action button</button>
+    ]}
+  />
+)

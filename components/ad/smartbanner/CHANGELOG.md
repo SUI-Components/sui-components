@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2017-10-06)
+
+
+### Features
+
+* add star rating in smarbanner component ([f73f71b](https://github.com/SUI-Components/sui-components/commit/f73f71b))
+* add star rating in smartbanner component ([6923e00](https://github.com/SUI-Components/sui-components/commit/6923e00))
+* add star rating in smartbanner component (fix linter) ([095336b](https://github.com/SUI-Components/sui-components/commit/095336b))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2017-06-07)
 

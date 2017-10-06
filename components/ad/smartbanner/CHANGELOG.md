@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2017-10-06)
+
+
+### Features
+
+* fix PR in smartbanner component ([1313a45](https://github.com/SUI-Components/sui-components/commit/1313a45))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2017-10-06)
 

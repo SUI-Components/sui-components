@@ -14,7 +14,7 @@ const imageUrl = 'https://placeholdit.imgix.net/~text?txtsize=33&txt=ico&w=100&h
 const title = 'Component Title'
 const text = 'Lorem ipsum'
 const buttonText = 'Instalar'
-const ratingValue = 0.5
+const ratingValue = 0
 const ratingMax = 5
 
 class MyAdSmartbanner extends React.Component {

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2017-10-09)
+
+
+### Features
+
+* disable important lint in ad-smartbanner ([c37617b](https://github.com/SUI-Components/sui-components/commit/c37617b))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2017-10-09)
 

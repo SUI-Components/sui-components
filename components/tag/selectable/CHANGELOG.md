@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.2.0"></a>
+# 2.2.0 (2017-10-09)
+
+
+### Features
+
+* add new variables seletable tag selected ([9d331e5](https://github.com/SUI-Components/sui-components/commit/9d331e5))
+* switch to s-ui/component-dependencies and sui-theme@8 ([4c15630](https://github.com/SUI-Components/sui-components/commit/4c15630))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2017-09-28)
 
@@ -25,6 +36,17 @@ All notable changes to this project will be documented in this file.
 ### BREAKING CHANGES
 
 * Value is requiered for the selectable component
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2017-04-19)
+
+
+### Features
+
+* init tag selectable ([e54526a](https://github.com/SUI-Components/sui-components/commit/e54526a))
+* minor changes ([a445612](https://github.com/SUI-Components/sui-components/commit/a445612))
 
 
 

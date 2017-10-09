@@ -35,7 +35,7 @@
     "validate-commit-msg": "2.12.2"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "latest"
+    "@s-ui/component-dependencies": "1"
   },
   "config": {
     "sui-studio": {

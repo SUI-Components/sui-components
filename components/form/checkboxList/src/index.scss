@@ -1,5 +1,6 @@
 /* sass-lint:disable class-name-format */
-@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/index';
 
 .sui-FormCheckboxList {
   &-label {

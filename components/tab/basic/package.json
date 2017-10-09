@@ -12,6 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@schibstedspain/sui-component-dependencies": "latest"
+    "@s-ui/component-dependencies": "1"
   }
 }

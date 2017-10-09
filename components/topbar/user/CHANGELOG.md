@@ -2,6 +2,59 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.17.0"></a>
+# 1.17.0 (2017-10-09)
+
+
+### Features
+
+* switch to s-ui/component-dependencies and sui-theme@8 ([8fba008](https://github.com/SUI-Components/sui-components/commit/8fba008))
+
+
+
+<a name="1.16.0"></a>
+# 1.16.0 (2017-08-30)
+
+
+### Bug Fixes
+
+* avoid to execute resize handler when user is scrolling down (safari ios does) ([3598765](https://github.com/SUI-Components/sui-components/commit/3598765))
+
+
+
+<a name="1.15.0"></a>
+# 1.15.0 (2017-08-28)
+
+
+### Bug Fixes
+
+* cache some strings and check if have to restore window scroll ([5224cf1](https://github.com/SUI-Components/sui-components/commit/5224cf1))
+* fix body scroll position while side menu is being toggled ([af24d0c](https://github.com/SUI-Components/sui-components/commit/af24d0c))
+* remove wrong default values ([bea247e](https://github.com/SUI-Components/sui-components/commit/bea247e))
+* switch from set styles to set css classnames in order to avoid ios errors ([177535e](https://github.com/SUI-Components/sui-components/commit/177535e))
+
+
+
+<a name="1.14.0"></a>
+# 1.14.0 (2017-08-25)
+
+
+### Bug Fixes
+
+* disable scroll on html and body elements when topbar aside menu is open ([a83b513](https://github.com/SUI-Components/sui-components/commit/a83b513))
+
+
+
+<a name="1.13.0"></a>
+# 1.13.0 (2017-08-23)
+
+
+### Features
+
+* make topbar main buttons clickable area bigger ([457cdd8](https://github.com/SUI-Components/sui-components/commit/457cdd8))
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2017-08-03)
 

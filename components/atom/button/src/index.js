@@ -4,12 +4,15 @@ import cx from 'classnames'
 const CLASS = 'sui-AtomButton'
 const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
 const MODIFIERS = ['disabled', 'small', 'large', 'fullWidth', 'focused']
+const OWN_PROPS = [
+  ...TYPES, ...MODIFIERS, 'leftIcon', 'rightIcon', 'className', 'children'
+]
 
 const appendClass = (suffix) => `${CLASS}--${suffix}`
 const includes = (array, item) => array.indexOf(item) !== -1
-const cleanProps = (props, Component) => {
+const cleanProps = (props) => {
   let newProps = {...props}
-  Object.keys(Component.propTypes).forEach(key => delete newProps[key])
+  OWN_PROPS.forEach(key => delete newProps[key])
   return newProps
 }
 
@@ -31,7 +34,7 @@ const AtomButton = (props) => {
     getModifiers(props).map(appendClass),
     className
   )
-  const newProps = cleanProps(props, AtomButton)
+  const newProps = cleanProps(props)
   return (<button {...newProps} className={classNames} disabled={disabled}>
     {leftIcon && <span className={`${CLASS}LeftIcon`}>{leftIcon}</span>}
     {children}

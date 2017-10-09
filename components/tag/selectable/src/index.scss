@@ -6,7 +6,9 @@
   @include sui-tag;
 
   &.is-selected {
-    border-color: $c-primary;
+    background: $bgc-tag-selected;
+    border: $bd-tag-selected;
+    color: $c-tag-selected;
   }
 
   &-icon {

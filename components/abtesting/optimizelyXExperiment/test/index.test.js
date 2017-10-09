@@ -18,7 +18,7 @@ describe('<AbTestOptimizelyXExperiment />', () => {
   </AbTestOptimizelyXExperiment>)
 
   it('should render nothing when OptimizelyX is not available', () => {
-    expect(render(component).html()).toEqual('<button>Original</button>')
+    expect(render(component).html()).toEqual('Original')
   })
 
   describe('When OptimizelyX API is present', () => {

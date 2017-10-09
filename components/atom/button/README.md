@@ -47,16 +47,3 @@ return (<div>
 
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/button).**
-
-
-
-
-
-
-<!--
-TODO: Fix Design Problems
-* Horizontal padding is not even
-* Colors are not real
-* Wrong font
-* small big medium size paddings inconsistent
--->

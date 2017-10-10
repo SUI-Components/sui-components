@@ -5,7 +5,6 @@ $c-button-light: color-variation($c-primary, 4) !default;
 $c-button-dark: $c-primary-dark !default;
 $c-button-light-contrast: color-variation($c-primary, 3) !default;
 $c-button-white: #ffffff !default;
-$bw-button: 1px !default;
 
 // Set all color properties for text and icons
 @mixin button-foreground-color ($color) {
@@ -38,6 +37,8 @@ $bw-button: 1px !default;
     weight: $fw-semi-bold;
   }
   line-height: $lh-m;
+  min-height: 40px;
+  min-width: 52px;
   padding: $p-m $p-l;
 
   & + & {
@@ -62,7 +63,7 @@ $bw-button: 1px !default;
   }
 
   &--secondary {
-    box-shadow: inset 0 0 0 $bw-button;
+    box-shadow: inset 0 0 0 1px;
   }
 
   &--accent {
@@ -82,11 +83,15 @@ $bw-button: 1px !default;
   &--small {
     font-size: $fz-s;
     line-height: $lh-s;
+    min-height: 32px;
+    min-width: 48px;
     padding: $p-s $p-l;
   }
 
   &--large {
     padding: $p-l;
+    min-height: 48px;
+    min-width: 58px;
   }
 
   &--fullWidth {

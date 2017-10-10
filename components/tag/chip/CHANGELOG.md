@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2017-10-09)
+
+
+### Features
+
+* switch to s-ui/component-dependencies and sui-theme@8 ([af3c8d4](https://github.com/SUI-Components/sui-components/commit/af3c8d4))
+
+
+
+<a name="1.5.0"></a>
+# 1.5.0 (2017-09-04)
+
+
+### Features
+
+* modify label proptype in sui-tag-chip to support "node" property. ([4891a68](https://github.com/SUI-Components/sui-components/commit/4891a68))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2017-07-05)
 

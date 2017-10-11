@@ -50,7 +50,7 @@ class DropdownUser extends Component {
     const { name, avatar } = user
     const wrapperClassName = cx('sui-DropdownUser', {
       'is-expanded': expanded,
-      'has-notifications': this.props.menu.some(({ notifications }) => Boolean(notifications))
+      'has-notifications': menu.some(({ notifications }) => Boolean(notifications))
     })
     return (
       <div

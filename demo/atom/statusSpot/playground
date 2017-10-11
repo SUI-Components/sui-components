@@ -1,0 +1,12 @@
+return (
+  <div>
+    <AtomStatusSpot />
+    <br />
+    <AtomStatusSpot status='high' />
+    <br />
+    <AtomStatusSpot status='medium' />
+    <br />
+    <AtomStatusSpot status='low' />
+    <br />
+  </div>
+)

@@ -16,7 +16,7 @@ AtomStatusSpot.propTypes = {
   /**
    * The string content is the status spot
    */
-  status: PropTypes.string
+  status: PropTypes.oneOf(['high', 'medium', 'low'])
 }
 
 AtomStatusSpot.defaultProps = {

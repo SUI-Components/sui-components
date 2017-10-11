@@ -1,26 +1,20 @@
 const items = [{
-  captionText: 'Caption 0',
   image: {
     alt: '',
     src: 'https://satyr.io/500?delay=3g'
   },
   link: 'https://item0'
 }, {
-  captionText: 'Caption 1',
   image: {
     alt: '',
     src: 'https://satyr.io/500?delay=3g'
-  },
-  link: 'https://item1'
+  }
 }, {
-  captionText: 'Caption 2',
   image: {
     alt: '',
     src: 'https://satyr.io/500?delay=3g'
-  },
-  link: 'https://item2'
+  }
 }, {
-  captionText: 'Caption 3',
   image: {
     alt: '',
     src: 'https://satyr.io/500?delay=3g'
@@ -28,4 +22,4 @@ const items = [{
   link: 'https://item3'
 }]
 
-return (<ThumbnailList items={items}/>)
+return (<ThumbnailList items={items} captionText='Lorem' />)

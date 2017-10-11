@@ -2,18 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ThumbnailBasic from '@schibstedspain/sui-thumbnail-basic'
 
-const ThumbnailList = ({items}) =>
+const ThumbnailList = ({items, captionText}) =>
   <ul className='sui-ThumbnailList'>
     {
       items.map((item, index) =>
-        <li className='sui-ThumbnailList-item'>
+        <li className='sui-ThumbnailList-item' key={index}>
           <ThumbnailBasic
-            key={index}
-            image={{
-              src: item.image.src,
-              alt: item.image.alt
-            }}
-            captionText={item.captionText}
+            image={item.image}
+            link={item.link}
+            captionText={captionText}
           />
         </li>
       )
@@ -23,14 +20,16 @@ const ThumbnailList = ({items}) =>
 ThumbnailList.displayName = 'ThumbnailList'
 
 ThumbnailList.propTypes = {
-  items: PropTypes.shape({
-    captionText: PropTypes.string.isRequired,
-    image: PropTypes.shape({
-      alt: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired
-    }),
-    link: PropTypes.string
-  })
+  captionText: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      image: PropTypes.shape({
+        alt: PropTypes.string.isRequired,
+        src: PropTypes.string.isRequired
+      }),
+      link: PropTypes.string
+    })
+  )
 }
 
 ThumbnailList.defaultProps = {

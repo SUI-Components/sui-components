@@ -4,7 +4,8 @@ const menu = [
   {
     text: 'Link text 1',
     url: '#link-1',
-    icon: Audio
+    icon: Audio,
+    notifications: 8
   },
   {
     text: 'Link text 2',

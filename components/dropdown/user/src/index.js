@@ -30,7 +30,7 @@ class DropdownUser extends Component {
     })
   }
 
-  _renderLink = ({ text, url, icon: Icon }, index) => {
+  _renderLink = ({ text, url, icon: Icon, notifications }, index) => {
     const Link = this.props.linkFactory
 
     return (
@@ -38,6 +38,7 @@ class DropdownUser extends Component {
         <Link href={url} className='sui-DropdownUserMenu-listLink' title={text}>
           <Icon svgClass='sui-DropdownUserMenu-listIcon' />
           <span>{text}</span>
+          {!!notifications && <span className='sui-DropdownUserMenu-listNotification'>{notifications}</span>}
         </Link>
       </li>
     )
@@ -48,9 +49,9 @@ class DropdownUser extends Component {
     const { user, menu, expandOnMouseOver } = this.props
     const { name, avatar } = user
     const wrapperClassName = cx('sui-DropdownUser', {
-      'is-expanded': expanded
+      'is-expanded': expanded,
+      'has-notifications': this.props.menu.some(({ notifications }) => Boolean(notifications))
     })
-
     return (
       <div
         className={wrapperClassName}
@@ -65,7 +66,9 @@ class DropdownUser extends Component {
             : this._doNothing
           }
         >
-          <img className='sui-DropdownUser-buttonAvatar' src={avatar} />
+          <div className='sui-DropdownUser-buttonAvatarWrap'>
+            <img className='sui-DropdownUser-buttonAvatar' src={avatar} />
+          </div>
           <span className='sui-DropdownUser-buttonText'>{name}</span>
         </div>
         <div className='sui-DropdownUserMenu-wrap'>
@@ -111,7 +114,12 @@ DropdownUser.propTypes = {
     /**
      * Menu links icon.
      */
-    icon: PropTypes.func.isRequired
+    icon: PropTypes.func.isRequired,
+     /**
+     * Menu links notification.
+     */
+    notifications: PropTypes.number
+
   })).isRequired,
   /**
    * Flag to expand on mouse over event.
@@ -124,6 +132,7 @@ DropdownUser.propTypes = {
 }
 
 DropdownUser.defaultProps = {
+  notifications: 0,
   expandOnMouseOver: false,
   linkFactory: ({ href, className, children, title }) =>
     <a href={href} className={className} title={title}>{children}</a>

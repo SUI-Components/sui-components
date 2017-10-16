@@ -22,25 +22,34 @@ class CardCollapsible extends Component {
   }
 
   /**
-   * Render a single text info item, that will be displayed in the card's header positioned depending on the expanded/collapsed state.
-   * @param label {string} Text to display.
-   * @param link {string} If set, item will be displayed as a text link.
-   * @param highlighted {boolean} Highlight the item (bold style).
+   * Renders a single text info item, that will be displayed in the card's header positioned depending on the expanded/collapsed state.
+   * @param {Object} itemProps              Properties to include in text info item HTML Element.
+   * @param {string} itemProps.label        Text to display.
+   * @param {string} itemProps.link         If set, item will be displayed as a text link.
+   * @param {boolean} itemProps.highlighted Highlight the item (bold style).
+   * @return {Element} Item to display on card's header info area.
    */
   _renderInfoItem ({label, link, highlighted}, index) {
-    const Element = link ? 'a' : 'span'
+    const InfoItemElement = link ? 'a' : 'span'
     const props = link ? {href: link, target: '_blank'} : {}
 
     return (
-      <Element key={`header-info-item-${index}`}
+      <InfoItemElement key={`header-info-item-${index}`}
         className={cx('sui-CardCollapsible-headerInfoItem', {'sui-CardCollapsible-headerInfoItemLink': !!link, 'is-highlighted': !!highlighted})} {...props}>
         {label}
-      </Element>
+      </InfoItemElement>
     )
   }
 
   /**
-   * Renders the card header, which may be different depending on its collapsed state, and the configuration defined in prop "headerInfo".
+   * Renders the card's header, which may be different depending on its collapsed state, and the configuration defined in prop "headerInfo".
+   * @param {Object} headerImage Configuration of the image to display in card's header.
+   * @param {string} [headerImage.alt=logo]
+   * @param {string} headerImage.href
+   * @param {string} headerImage.src
+   * @param {string} [headerImage.target=_blank]
+   * @param {Object[]} info List of item info labels to show in card's header.
+   * @return {Element} Card' header element.
    */
   _renderCardHeader ({alt = 'logo', href, src, target = '_blank'}, info) {
     const Image = <img src={src} alt={alt} />
@@ -60,8 +69,9 @@ class CardCollapsible extends Component {
   }
 
   /**
-   * Render the action button which trigger the expand/collapse action of the card.
+   * Renders the action button which trigger the expand/collapse action of the card.
    * @param config {object} Button configuration (prop "label" : Text label of expand/collapse action button).
+   * @return {Element} Expand or collapse action button element.
    */
   _renderActionButton (config) {
     return (

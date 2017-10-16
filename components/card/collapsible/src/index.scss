@@ -1,0 +1,82 @@
+// sass-lint:disable class-name-format
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/sui-button-basic/lib/index';
+@import '~@schibstedspain/sui-collapsible-basic/lib/index';
+
+$bgc-card-collapsible: $c-white !default;
+$h-card-collapsible-header-image: 100px;
+$c-card-collapsible-info-item: $c-gray-dark !default;
+$fz-card-collapsible-info-item-collapsed: $fz-l + 2 !default;
+$fz-card-collapsible-info-item-expanded: $fz-m !default;
+$lh-card-collapsible-info-item: 1.2 !default;
+
+.sui-CardCollapsible {
+  background-color: $bgc-card-collapsible;
+
+  &-header {
+    @include sui-list;
+    align-items: center;
+    $root-parent: &;
+
+    &Image {
+      @include sui-list;
+      height: $h-card-collapsible-header-image;
+      justify-content: center;
+      margin-top: $m-xl;
+    }
+
+    &Info {
+      @include sui-list;
+
+      &Item {
+        color: $c-card-collapsible-info-item;
+        font-size: $fz-card-collapsible-info-item-collapsed;
+        line-height: $lh-card-collapsible-info-item;
+        margin-bottom: $m-l;
+
+        svg {
+          @include sui-icon--large;
+          fill: $c-card-collapsible-info-item;
+          margin-right: $m-m;
+          vertical-align: middle;
+        }
+
+        &Link {
+          @include reset-link;
+          color: $c-primary;
+        }
+
+        &.is-highlighted {
+          font-weight: $fw-semi-bold;
+        }
+      }
+    }
+
+    &.is-expanded {
+      flex-direction: row;
+
+      #{$root-parent} {
+        &Image {
+          margin: $m-s 0;
+        }
+
+        &Info {
+          margin: $m-xl 0 $m-m;
+        }
+
+        &InfoItem {
+          font-size: $fz-card-collapsible-info-item-expanded;
+          margin-bottom: $m-s;
+
+          &:last-child {
+            margin: $m-m 0 0;
+          }
+        }
+      }
+    }
+  }
+
+  .sui-CollapsibleBasic {
+    border: 0;
+  }
+}

@@ -46,7 +46,7 @@ class DropdownUser extends Component {
 
   render () {
     const { expanded, collapseByTouch } = this.state
-    const { user, menu, expandOnMouseOver, hasNotifications } = this.props
+    const { user, menu, expandOnMouseOver, hasNotifications = this.props.menu.some(({ notifications }) => Boolean(notifications)) } = this.props
     const { name, avatar } = user
     const wrapperClassName = cx('sui-DropdownUser', {
       'is-expanded': expanded,

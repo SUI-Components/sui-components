@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2017-10-17)
+
+
+### Features
+
+* add badge notification in dropdown component ([b136c77](https://github.com/SUI-Components/sui-components/commit/b136c77))
+* add notifications badge in dropdown user component ([95783b7](https://github.com/SUI-Components/sui-components/commit/95783b7))
+* add notifications badge in dropdown user component (fix PR) ([fda47a8](https://github.com/SUI-Components/sui-components/commit/fda47a8))
+* add notifications badge in dropdown user component (fix PR) ([c8071c3](https://github.com/SUI-Components/sui-components/commit/c8071c3))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2017-10-09)
 

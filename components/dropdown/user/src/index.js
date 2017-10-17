@@ -46,11 +46,11 @@ class DropdownUser extends Component {
 
   render () {
     const { expanded, collapseByTouch } = this.state
-    const { user, menu, expandOnMouseOver } = this.props
+    const { user, menu, expandOnMouseOver, hasNotifications } = this.props
     const { name, avatar } = user
     const wrapperClassName = cx('sui-DropdownUser', {
       'is-expanded': expanded,
-      'has-notifications': menu.some(({ notifications }) => Boolean(notifications))
+      'has-notifications': hasNotifications
     })
     return (
       <div
@@ -128,7 +128,11 @@ DropdownUser.propTypes = {
   /**
    * Factory for the component that will hold the menu links.
    */
-  linkFactory: PropTypes.func
+  linkFactory: PropTypes.func,
+  /**
+   * Hasnotifications to show a badge notification.
+   */
+  hasNotifications: PropTypes.bool
 }
 
 DropdownUser.defaultProps = {

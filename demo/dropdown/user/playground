@@ -33,6 +33,7 @@ return (
   <DropdownUser
     user={user}
     menu={menu}
+    hasNotifications
     expandOnMouseOver
   />
 )

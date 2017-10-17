@@ -164,7 +164,12 @@ class TopbarUser extends Component {
     const navWrapClassName = cx('sui-TopbarUser-navWrap', {
       'is-expanded': menuExpanded
     })
+    const hasNotifications = navUser.menu.some(({ notifications }) => Boolean(notifications))
+    const toggleMenuClassName = cx('sui-TopbarUser-toggle', {
+      'has-notifications': hasNotifications
+    })
     const { icon: NavCtaIcon, url: navCtaUrl, text: navCtaText } = navCTA
+
     return (
       <div
         ref={node => { this._topbarUserNode = node }}
@@ -173,7 +178,7 @@ class TopbarUser extends Component {
         <div className='sui-TopbarUser-wrap'>
           <button
             ref={node => { this._topbarUserToggleNode = node }}
-            className='sui-TopbarUser-toggle'
+            className={toggleMenuClassName}
             onClick={this._toggleMenu}
           >
             <ToggleIcon svgClass='sui-TopbarUser-toggleIcon' />
@@ -201,6 +206,7 @@ class TopbarUser extends Component {
                   user={{ avatar, name }}
                   menu={menu}
                   expandOnMouseOver
+                  hasNotifications={hasNotifications && !menuExpanded}
                 />
               </div>
             </div>

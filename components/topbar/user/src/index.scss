@@ -31,6 +31,9 @@
   }
 
   &-toggle {
+    &.has-notifications {
+      @include sui-badge-notification(true, 2px, 12px);
+    }
     @include reset-button;
     @include media-breakpoint-up(m) {
       display: none;

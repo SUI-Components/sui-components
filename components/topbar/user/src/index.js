@@ -4,7 +4,6 @@ import cx from 'classnames'
 import Menu from '@schibstedspain/sui-svgiconset/lib/Menu'
 import DropdownBasic from '@schibstedspain/sui-dropdown-basic'
 import DropdownUser from '@schibstedspain/sui-dropdown-user'
-import DefaultCallToAction from './default-call-to-action'
 
 const DEFAULT_NAV_WRAP_STYLE = {
   top: 'inherit',
@@ -153,7 +152,6 @@ class TopbarUser extends Component {
   render () {
     const { menuExpanded, isToggleHidden, navWrapStyle } = this.state
     const {
-      callToActionComponent: CallToActionComponent,
       toggleIcon: ToggleIcon,
       brand,
       navMain,
@@ -166,7 +164,7 @@ class TopbarUser extends Component {
     const navWrapClassName = cx('sui-TopbarUser-navWrap', {
       'is-expanded': menuExpanded
     })
-
+    const { icon: NavCtaIcon, url: navCtaUrl, text: navCtaText } = navCTA
     return (
       <div
         ref={node => { this._topbarUserNode = node }}
@@ -191,7 +189,12 @@ class TopbarUser extends Component {
             <div className='sui-TopbarUser-nav'>
               <div className='sui-TopbarUser-navMain'>
                 {navMain.map(this._renderNavMain(isToggleHidden))}
-                {navCTA && <CallToActionComponent url={navCTA.url} text={navCTA.text} icon={navCTA.icon} notifications={navCTA.notifications} linkFactory={Link} className='sui-TopbarUser-ctaText' />}
+                <div className='sui-TopbarUser-ctaText'>
+                  <Link href={navCtaUrl} className='sui-TopbarUser-ctaTextLink' title={navCtaText}>
+                    {NavCtaIcon && <NavCtaIcon svgClass='sui-TopbarUser-ctaTextIcon' />}
+                    <span>{navCtaText}</span>
+                  </Link>
+                </div>
               </div>
               <div className='sui-TopbarUser-navUser'>
                 <DropdownUser
@@ -203,7 +206,12 @@ class TopbarUser extends Component {
             </div>
           </div>
         </div>
-        {navCTA && <CallToActionComponent url={navCTA.url} text={navCTA.text} icon={navCTA.icon} notifications={navCTA.notifications} linkFactory={Link} className='sui-TopbarUser-ctaButton' />}
+        <div className='sui-TopbarUser-ctaButton'>
+          <Link href={navCtaUrl} className='sui-TopbarUser-ctaButtonLink' title={navCtaText}>
+            {navCTA.icon && <navCTA.icon svgClass='sui-TopbarUser-ctaButtonIcon' />}
+            <span>{navCtaText}</span>
+          </Link>
+        </div>
       </div>
     )
   }
@@ -229,10 +237,6 @@ TopbarUser.propTypes = {
      */
     name: PropTypes.string.isRequired
   }).isRequired,
-  /**
-   * Component to use as Call to Action
-   */
-  callToActionComponent: PropTypes.func,
   /**
    * Main navigation containing an array of dropdown menus.
    */
@@ -313,11 +317,7 @@ TopbarUser.propTypes = {
     /**
      * Call to action text.
      */
-    text: PropTypes.string.isRequired,
-    /**
-     * Notifications to be displayed in the CTA.
-     */
-    notifications: PropTypes.number
+    text: PropTypes.string.isRequired
   }),
   /**
    * Factory for the component that will hold any link.
@@ -332,7 +332,6 @@ TopbarUser.propTypes = {
 
 TopbarUser.defaultProps = {
   toggleIcon: Menu,
-  callToActionComponent: DefaultCallToAction,
   linkFactory: ({ href, className, children, title }) =>
     <a href={href} className={className} title={title}>{children}</a>,
   elementsToKeepScrollOnToggleMenu: []

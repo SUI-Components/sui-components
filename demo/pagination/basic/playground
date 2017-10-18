@@ -1,0 +1,31 @@
+const handlePaginate = (pageNumber, event) => {
+  console.log(`Go to page: ${pageNumber}`);
+  event.preventDefault();
+};
+
+const factoryLink = ({className, destinationURL, pageText}) => {
+  return (
+    <a className={className} href={`#${destinationURL}`}>
+      {pageText}
+    </a>
+  );
+};
+
+return (
+  <div>
+    <h4>Default example with currentPage is 20</h4>
+    <PaginationBasic currentPage={20} showFirstLast={true} totalPages={40} window={10} handlePaginate={handlePaginate} />
+    <h4>Using a firstLastSeparatorText and currentPage is 6</h4>
+    <PaginationBasic currentPage={6} showFirstLast={true} firstLastSeparatorText={' and '} totalPages={12} window={3} handlePaginate={handlePaginate} />
+    <h4>Using a customized prevText and nextText and currentPage is 2</h4>
+    <PaginationBasic prevText={'<'} nextText={'>'} currentPage={2} totalPages={12} window={3} handlePaginate={handlePaginate} />
+    <h4>With a window equal to 0 and currentPage is 1</h4>
+    <PaginationBasic currentPage={1} totalPages={6} window={0} handlePaginate={handlePaginate} />
+    <h4>With the currentPage is the last page and window 0</h4>
+    <PaginationBasic currentPage={6} totalPages={6} window={0} handlePaginate={handlePaginate} />
+    <h4>Using a patternUrl</h4>
+    <PaginationBasic currentPage={3} totalPages={6} patternUrl={'/articles?page=%{pageNumber}'} window={2} handlePaginate={handlePaginate} />
+    <h4>Using a patternUrl and a factoryLink with Link of React Router and without handlePaginate</h4>
+    <PaginationBasic currentPage={3} totalPages={6} patternUrl={'/articles?page=%{pageNumber}'} window={2} factoryLink={factoryLink} />
+  </div>
+);

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2017-10-09)
+
+
+### Features
+
+* switch to s-ui/component-dependencies and sui-theme@8 ([9563a27](https://github.com/SUI-Components/sui-components/commit/9563a27))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2017-03-13)
 

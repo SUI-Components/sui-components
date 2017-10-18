@@ -2,7 +2,6 @@
 @import './settings';
 
 .sui-PaginationBasic {
-  font-size: $fz-pagination-basic;
   padding: $p-pagination-basic;
 
   &-list {
@@ -13,6 +12,7 @@
 
   &-item {
     display: inline-block;
+    font-size: $fz-pagination-basic-item;
     margin: $m-pagination-basic-item;
 
     &--selected {

@@ -1,7 +1,14 @@
+const placeholder= (
+  <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="10" width="100" height="100"/>
+  </svg>
+)
+
 return (
-<div style={{width: 250 + 'px'}}>
   <ThumbnailBasic image={{
-    src: 'http://lorempicsum.com/simpsons/250/250/1',
+    src: 'https://satyr.io/500?delay=3g',
     alt: 'Lorem ipsum'
-  }} captionText='Show!' />
-</div>)
+  }}
+  captionText='Show!'
+  placeholder={placeholder} />
+)

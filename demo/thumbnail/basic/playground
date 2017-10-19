@@ -1,14 +1,16 @@
 const placeholder= (
-  <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-    <rect x="10" y="10" width="100" height="100"/>
+  <svg viewBox="0 0 1 1">
+      <rect width="100%" height="100%" />
   </svg>
 )
 
 return (
-  <ThumbnailBasic image={{
-    src: 'https://satyr.io/500?delay=3g',
-    alt: 'Lorem ipsum'
-  }}
-  captionText='Show!'
-  placeholder={placeholder} />
-)
+  <div style={{width: '20%'}}>
+    <ThumbnailBasic image={{
+      src: 'https://satyr.io/500?delay=3g',
+      alt: 'Lorem ipsum'
+    }}
+    captionText='Show!'
+    placeholder={placeholder} />
+  </div>
+  )

@@ -37,7 +37,7 @@ class DropdownUser extends Component {
       <li key={index} className='sui-DropdownUserMenu-listItem'>
         <Link href={url} className='sui-DropdownUserMenu-listLink' title={text}>
           <Icon svgClass='sui-DropdownUserMenu-listIcon' />
-          <span>{text}</span>
+          <span className='sui-DropdownUserMenu-listText'>{text}</span>
           {!!notifications && <span className='sui-DropdownUserMenu-listNotification'>{notifications}</span>}
         </Link>
       </li>

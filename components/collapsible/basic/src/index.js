@@ -12,7 +12,15 @@ class CollapsibleBasic extends Component {
     // const with new state
     const isCollapsed = !this.state.isCollapsed
     this.setState({isCollapsed: isCollapsed})
-    this.props.handleClick(isCollapsed)
+    this.props.handleClick(isCollapsed, this.props.id)
+  }
+
+  componentWillReceiveProps (nextProps) {
+    this.setState({isCollapsed: nextProps.collapsed})
+  }
+
+  shouldComponentUpdate (nextProps, nextState) {
+    return this.state.isCollapsed !== nextState.isCollapsed
   }
 
   render () {
@@ -41,6 +49,10 @@ class CollapsibleBasic extends Component {
 CollapsibleBasic.displayName = 'CollapsibleBasic'
 
 CollapsibleBasic.propTypes = {
+  /**
+   * Item id. Only necessary when use various elements.
+   */
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /**
    * label to be displayed.
    */

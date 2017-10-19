@@ -4,29 +4,30 @@ import CollapsibleBasic from '@schibstedspain/sui-collapsible-basic'
 class CollapsibleAccordion extends Component {
   constructor (props) {
     super(props)
-    this.state = {vehicles: props.vehicles}
+    this.state = {items: props.items}
     this._handleClick = this._handleClick.bind(this)
     this._collapseItems = this._collapseItems.bind(this)
   }
 
-  _handleClick (collapsed, id) {
-    this._collapseItems(collapsed, id)
+  _handleClick (id) {
+    return (collapsed) =>
+      this._collapseItems(collapsed, id)
   }
 
   _collapseItems (collapsed, id) {
-    const vehicles = this.state.vehicles
-    this.setState({vehicles: vehicles.map((vehicle, index) => {
-      vehicle.collapsed = (index === id) ? collapsed : true
-      return vehicle
+    const items = this.state.items
+    this.setState({items: items.map((item, index) => {
+      item.collapsed = (index === id) ? collapsed : true
+      return item
     })})
   }
 
   _renderCollapsible () {
-    const { vehicles } = this.state
-    return vehicles.map((vehicle, index) => {
+    const { items } = this.state
+    return items.map((item, index) => {
       return (
-        <CollapsibleBasic key={index} handleClick={this._handleClick} id={index} collapsed={vehicle.collapsed} label={<div style={{padding: '8px'}}>{vehicle.label}</div>} >
-          {vehicle.content}
+        <CollapsibleBasic key={index} handleClick={this._handleClick(index)} collapsed={item.collapsed} label={<div style={{padding: '8px'}}>{item.label}</div>} >
+          {item.content}
         </CollapsibleBasic>
       )
     })
@@ -45,9 +46,9 @@ CollapsibleAccordion.displayName = 'CollapsibleAccordion'
 
 CollapsibleAccordion.propTypes = {
   /**
-   * Array vehicles
+   * Items array
    */
-  vehicles: PropTypes.array.isRequired
+  items: PropTypes.array.isRequired
 }
 
 export default CollapsibleAccordion

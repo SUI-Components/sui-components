@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-links-basic --save
+$ npm install @schibstedspain/sui-link-basic --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import LinkBasic from '@schibstedspain/sui-links-basic'
+import LinkBasic from '@schibstedspain/sui-link-basic'
 
 return (
   <LinkBasic

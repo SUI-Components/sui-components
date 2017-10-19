@@ -1,5 +1,11 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
+$c-status-spot-default: $c-primary !default;
+$c-status-spot-high: $c-success !default;
+$c-status-spot-medium: $c-alert !default;
+$c-status-spot-low: $c-error !default;
+$size-status-spot: 15px !default;
+
 .sui-AtomStatusSpot {
   position: relative;
 

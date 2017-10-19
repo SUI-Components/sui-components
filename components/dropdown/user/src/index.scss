@@ -107,6 +107,7 @@
       &Link {
         @include reset-link;
         @include media-breakpoint-down(s) {
+          display: flex;
           font-size: $fz-h3;
           font-weight: normal;
           padding: $p-v-large $p-h;
@@ -134,7 +135,9 @@
           fill: $c-accent !important;
         }
       }
-
+      &Text {
+        flex: 1;
+      }
       &Notification {
         @include sui-badge-notification();
       }

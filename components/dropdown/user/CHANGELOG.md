@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2017-10-19)
+
+
+### Features
+
+* add new class to dropdown user menu list text ([b4dd8df](https://github.com/SUI-Components/sui-components/commit/b4dd8df))
+* align span badge notification to right ([cb9e147](https://github.com/SUI-Components/sui-components/commit/cb9e147))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2017-10-17)
 

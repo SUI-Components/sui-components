@@ -66,6 +66,10 @@ class LinkBasic extends Component {
 
 LinkBasic.displayName = 'LinkBasic'
 
+LinkBasic.defaultProps = {
+  url: '#'
+}
+
 LinkBasic.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,

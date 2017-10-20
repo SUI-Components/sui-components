@@ -81,7 +81,8 @@ const navUser = {
     {
       text: 'Link text 1',
       url: '#link-1',
-      icon: AudioIcon
+      icon: AudioIcon,
+      notifications: 5
     },
     {
       text: 'Link text 2',
@@ -104,8 +105,7 @@ const navUser = {
 const navCTA = {
   url: 'https://github.com/SUI-Components/sui-components',
   icon: PencilIcon,
-  text: 'Check our code',
-  notifications: 5
+  text: 'Check our code'
 }
 
 return (

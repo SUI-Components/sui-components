@@ -1,0 +1,17 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-link-basic/lib/index';
+
+$m-list-link-item-inline: $m-m;
+
+.sui-ListLink {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  &-item {
+    &--inline {
+      display: inline-block;
+      margin-right: $m-list-link-item-inline;
+    }
+  }
+}

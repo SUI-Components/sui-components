@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.18.0"></a>
+# 1.18.0 (2017-10-17)
+
+
+### Features
+
+* add badge notification in topbar user component ([d46c3a8](https://github.com/SUI-Components/sui-components/commit/d46c3a8))
+* remove notifications in top bar component ([dc86362](https://github.com/SUI-Components/sui-components/commit/dc86362))
+
+
+
 <a name="1.17.0"></a>
 # 1.17.0 (2017-10-09)
 

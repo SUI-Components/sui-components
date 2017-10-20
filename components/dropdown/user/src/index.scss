@@ -6,6 +6,7 @@
   @include media-breakpoint-down(s) {
     background-color: $bgc-dropdown-user;
   }
+
   @include media-breakpoint-up(m) {
     display: inline-block;
   }
@@ -14,6 +15,7 @@
     @include media-breakpoint-down(s) {
       padding: $p-v-large $p-h;
     }
+
     @include media-breakpoint-up(m) {
       background: none;
       padding: $p-v-small $p-h;
@@ -35,18 +37,24 @@
       border-radius: 100%;
       margin-right: $m-h-small;
       width: $w-dropdown-user-avatar;
+
+      .has-notifications &Wrap {
+        @include sui-badge-notification(true, 2px, 2px);
+      }
     }
 
     &Text {
       @include media-breakpoint-down(s) {
         color: $c-white;
       }
+
       @include media-breakpoint-up(m) {
         max-width: $w-dropdown-user-text;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
       }
+
       font-weight: $fw-bold;
     }
   }
@@ -68,10 +76,10 @@
 
         &::after {
           @include arrow-up($size-dropdown-arrow-up, $c-dropdown-arrow);
-          top: 0;
           content: '';
           left: ($w-dropdown-user-avatar / 2) + ($size-dropdown-arrow-up);
           position: absolute;
+          top: 0;
         }
       }
 
@@ -99,13 +107,16 @@
       &Link {
         @include reset-link;
         @include media-breakpoint-down(s) {
+          display: flex;
           font-size: $fz-h3;
           font-weight: normal;
           padding: $p-v-large $p-h;
         }
+
         @include media-breakpoint-up(m) {
           padding: $p-v $p-h;
         }
+
         align-items: center;
         display: flex;
 
@@ -124,6 +135,13 @@
           fill: $c-accent !important;
         }
       }
+      &Text {
+        flex: 1;
+      }
+      &Notification {
+        @include sui-badge-notification();
+      }
+
     }
   }
 }

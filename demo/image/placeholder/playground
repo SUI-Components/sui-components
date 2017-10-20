@@ -6,25 +6,23 @@ const placeholder= (
 
 return (
   <div>
-    <h2>Thumbnail basic</h2>
+    <h2>Image Placeholder</h2>
     <div style={{width: '20%'}}>
-      <ThumbnailBasic
+      <ImagePlaceholder
         image={{
           src: 'https://satyr.io/1000?delay=3g',
           alt: 'Some alt'
         }}
-        captionText='Show!'
         placeholder={placeholder}
       />
     </div>
     <h2>Fallback example</h2>
     <div style={{width: '20%'}}>
-      <ThumbnailBasic
+      <ImagePlaceholder
         image={{
           src: 'http://404',
           alt: 'Some alt'
         }}
-        captionText='Show!'
         placeholder={placeholder}
         fallbackImage={{
           src: 'https://satyr.io/500',

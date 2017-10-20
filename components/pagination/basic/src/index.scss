@@ -1,0 +1,45 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import './settings';
+
+.sui-PaginationBasic {
+  padding: $p-pagination-basic;
+
+  &-list {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  &-item {
+    display: inline-block;
+    font-size: $fz-pagination-basic-item;
+    margin: $m-pagination-basic-item;
+
+    &--selected {
+      font-weight: $fw-pagination-basic-item-selected;
+    }
+  }
+
+  &-link {
+    color: $c-pagination-basic-link;
+    display: block;
+    font-weight: $fw-pagination-basic-item-link;
+    padding: $p-pagination-basic-item-link;
+    text-decoration: none;
+  }
+
+  &-text {
+    padding: $p-pagination-basic-item-text;
+  }
+
+  @include media-breakpoint-down(m) {
+    &-item {
+      display: none;
+    }
+
+    &-item--control,
+    &-item--selected {
+      display: inline-block;
+    }
+  }
+}

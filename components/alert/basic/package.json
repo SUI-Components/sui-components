@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-alert-basic",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "SUI alert basic",
   "main": "lib/index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@schibstedspain/sui-component-dependencies": "latest",
+    "@s-ui/component-dependencies": "1",
     "@schibstedspain/sui-svgiconset": "1"
   }
 }

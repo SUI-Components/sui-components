@@ -1,25 +1,8 @@
 /* sass-lint:disable class-name-format, no-important */
-@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/index';
 @import '~@schibstedspain/sui-dropdown-basic/lib/index';
 @import '~@schibstedspain/sui-dropdown-user/lib/index';
-
-@mixin notifications($right, $top: false) {
-  $notifications-size: 17px;
-
-  background-color: $c-primary;
-  border-radius: 50%;
-  color: $c-white;
-  font-size: $fz-xs;
-  height: $notifications-size;
-  line-height: $notifications-size;
-  position: absolute;
-  right: $right;
-  text-align: center;
-  @if $top {
-    top: $top;
-  }
-  width: $notifications-size;
-}
 
 .html-has-scroll-disabled {
   overflow-y: hidden;
@@ -48,6 +31,9 @@
   }
 
   &-toggle {
+    &.has-notifications {
+      @include sui-badge-notification(true, 2px, 12px);
+    }
     @include reset-button;
     @include media-breakpoint-up(m) {
       display: none;
@@ -175,10 +161,6 @@
         }
         position: relative;
       }
-
-      &Notifications {
-        @include notifications($right: -7px, $top: -7px);
-      }
     }
 
     &Text {
@@ -208,10 +190,6 @@
         :hover > & {
           fill: $c-primary !important;
         }
-      }
-
-      &Notifications {
-        @include notifications($right: 7px);
       }
     }
   }

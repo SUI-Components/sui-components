@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-list-tagcloud",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "SUI TagCloud",
   "main": "lib/index.js",
   "scripts": {
@@ -13,6 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "@schibstedspain/sui-tag-chip": "1",
-    "@schibstedspain/sui-component-dependencies": "latest"
+    "@s-ui/component-dependencies": "1"
   }
 }

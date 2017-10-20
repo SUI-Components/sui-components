@@ -1,4 +1,5 @@
-@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/index';
 
 @mixin sui-title-multisize-sizes ($fw: $fw-regular, $mb: $m-v) {
   &--xs {

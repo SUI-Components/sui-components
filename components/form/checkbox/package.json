@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-form-checkbox",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@schibstedspain/sui-svgiconset": "1",
-    "@s-ui/component-dependencies": "latest"
+    "@s-ui/component-dependencies": "1"
   },
   "keywords": [],
   "author": "",

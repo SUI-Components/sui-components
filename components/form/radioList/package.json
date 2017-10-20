@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-form-radio-list",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Form radio list",
   "main": "lib/index.js",
   "scripts": {
@@ -12,6 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@schibstedspain/sui-component-dependencies": "latest"
+    "@s-ui/component-dependencies": "1"
   }
 }

@@ -1,5 +1,6 @@
 @import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/sui-image-placeholder/lib/index';
 
 .sui-ThumbnailBasic {
   @include reset-basic;
@@ -9,19 +10,6 @@
   padding: $p-thumbnail-basic;
   position: relative;
   width: 100%;
-
-  svg {
-    fill: $c-gray;
-  }
-
-  &-image {
-    display: block;
-    width: 100%;
-
-    &--hidden {
-      display: none;
-    }
-  }
 
   &-caption {
     @include reset-basic;

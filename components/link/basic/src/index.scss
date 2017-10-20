@@ -1,0 +1,14 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+@import './settings';
+
+.sui-LinkBasic {
+  color: $c-link-basic;
+  cursor: pointer;
+  font-size: $fz-link-basic;
+  margin: $m-link-basic;
+  text-decoration: $td-link-basic;
+
+  &-icon {
+    margin-right: $m-link-basic-icon;
+  }
+}

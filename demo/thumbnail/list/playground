@@ -1,25 +1,37 @@
+const placeholder= (
+  <svg viewBox="0 0 1 1">
+      <rect width="100%" height="100%" />
+  </svg>
+)
+
 const items = [{
   image: {
-    alt: '',
-    src: 'https://satyr.io/500?delay=3g'
+    alt: '500x500 image, 5 seconds delay',
+    src: 'https://satyr.io/200?delay=3g'
   },
   link: 'https://item0'
 }, {
   image: {
-    alt: '',
-    src: 'https://satyr.io/500?delay=3g'
+    alt: 'random 200x200 image',
+    src: 'https://satyr.io/200?delay=5g'
   }
 }, {
   image: {
-    alt: '',
-    src: 'https://satyr.io/500?delay=3g'
-  }
+    alt: 'Will not load',
+    src: 'https://'
+  },
+  fallbackImage: {
+    alt: '50x50 image',
+    src: 'https://satyr.io/50'
+  },
 }, {
   image: {
-    alt: '',
-    src: 'https://satyr.io/500?delay=3g'
+    alt: 'Will not load',
+    src: 'http://'
   },
   link: 'https://item3'
 }]
 
-return (<ThumbnailList items={items} captionText='Lorem' />)
+return (
+  <ThumbnailList items={items} captionText='Lorem' placeholder={placeholder}/>
+)

@@ -5,12 +5,32 @@ const placeholder= (
 )
 
 return (
-  <div style={{width: '20%'}}>
-    <ThumbnailBasic image={{
-      src: 'https://satyr.io/500?delay=3g',
-      alt: 'Lorem ipsum'
-    }}
-    captionText='Show!'
-    placeholder={placeholder} />
+  <div>
+    <h2>Thumbnail basic</h2>
+    <div style={{width: '20%'}}>
+      <ThumbnailBasic
+        image={{
+          src: 'https://satyr.io/1000?delay=3g',
+          alt: 'Some alt'
+        }}
+        captionText='Show!'
+        placeholder={placeholder}
+      />
+    </div>
+    <h2>Fallback example</h2>
+    <div style={{width: '20%'}}>
+      <ThumbnailBasic
+        image={{
+          src: 'http://404',
+          alt: 'Some alt'
+        }}
+        captionText='Show!'
+        placeholder={placeholder}
+        fallbackImage={{
+          src: 'https://satyr.io/500',
+          alt: 'Fallback alt'
+        }}
+      />
+    </div>
   </div>
-  )
+)

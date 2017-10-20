@@ -1,0 +1,34 @@
+const placeholder= (
+  <svg viewBox="0 0 1 1">
+      <rect width="100%" height="100%" />
+  </svg>
+)
+
+return (
+  <div>
+    <h2>Image Placeholder</h2>
+    <div style={{width: '20%'}}>
+      <ImagePlaceholder
+        image={{
+          src: 'https://satyr.io/1000?delay=3g',
+          alt: 'Some alt'
+        }}
+        placeholder={placeholder}
+      />
+    </div>
+    <h2>Fallback example</h2>
+    <div style={{width: '20%'}}>
+      <ImagePlaceholder
+        image={{
+          src: 'http://404',
+          alt: 'Some alt'
+        }}
+        placeholder={placeholder}
+        fallbackImage={{
+          src: 'https://satyr.io/500',
+          alt: 'Fallback alt'
+        }}
+      />
+    </div>
+  </div>
+)

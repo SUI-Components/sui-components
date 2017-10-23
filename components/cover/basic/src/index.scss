@@ -1,7 +1,14 @@
 // sass-lint:disable class-name-format
-@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~@schibstedspain/sui-button-basic/lib/index';
+
+$mah-cover-basic: map-get($breakpoints, 's') !default;
+$h-cover-basic-small: 30% !default;
+$fz-cover-basic-button: $fz-base !default;
+$ml-cover-basic-buttons: $m-base !default;
+$mt-cover-basic-buttons: $m-base !default;
+$c-cover-basic-children: $c-white !default;
+$op-cover-basic-gradient-after: .35 !default;
 
 .sui-CoverBasic {
   @include media-breakpoint-down(s) {
@@ -62,10 +69,6 @@
     margin-top: $mt-cover-basic-buttons;
     position: absolute;
     top: 0;
-
-    button {
-      font-size: $fz-cover-basic-button;
-    }
   }
 
   &-children {

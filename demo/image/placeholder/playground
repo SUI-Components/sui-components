@@ -9,25 +9,35 @@ return (
     <h2>Image Placeholder</h2>
     <div style={{width: '20%'}}>
       <ImagePlaceholder
-        image={{
-          src: 'https://satyr.io/1000?delay=3g',
-          alt: 'Some alt'
-        }}
+        src='https://satyr.io/1000?delay=3g'
+        alt='Some alt'
         placeholder={placeholder}
       />
     </div>
     <h2>Fallback example</h2>
     <div style={{width: '20%'}}>
       <ImagePlaceholder
-        image={{
-          src: 'http://404',
-          alt: 'Some alt'
-        }}
+        src='http://404'
+        alt='Some alt'
         placeholder={placeholder}
-        fallbackImage={{
-          src: 'https://satyr.io/500',
-          alt: 'Fallback alt'
-        }}
+        fallback={<img src='https://satyr.io/500' className='some-important-class' alt='Fallback alt' />}
+      />
+    </div>
+    <h2>Error without Fallback example</h2>
+    <div style={{width: '20%'}}>
+      <ImagePlaceholder
+        src='http://404'
+        alt='Some alt'
+        placeholder={placeholder}
+      />
+    </div>
+    <h2>Failing Fallback example</h2>
+    <div style={{width: '20%'}}>
+      <ImagePlaceholder
+        src='http://404'
+        alt='Some alt'
+        placeholder={placeholder}
+        fallback={<img src='https://404' alt='Fallback alt' />}
       />
     </div>
   </div>

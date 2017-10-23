@@ -1,0 +1,18 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+$c-image-placeholder-fill: $c-gray;
+
+.sui-ImagePlaceholder {
+  &-image {
+    display: block;
+    width: 100%;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  svg {
+    fill: $c-image-placeholder-fill;
+  }
+}

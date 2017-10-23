@@ -10,33 +10,25 @@ class CollapsibleAccordion extends Component {
   }
 
   _handleClick (id) {
-    return (collapsed) =>
-      this._collapseItems(collapsed, id)
+    return collapsed => this._collapseItems(collapsed, id)
   }
 
   _collapseItems (collapsed, id) {
-    const items = this.state.items
-    this.setState({items: items.map((item, index) => {
-      item.collapsed = (index === id) ? collapsed : true
-      return item
-    })})
-  }
-
-  _renderCollapsible () {
-    const { items } = this.state
-    return items.map((item, index) => {
-      return (
-        <CollapsibleBasic key={index} handleClick={this._handleClick(index)} collapsed={item.collapsed} label={<div style={{padding: '8px'}}>{item.label}</div>} >
-          {item.content}
-        </CollapsibleBasic>
-      )
-    })
+    this.setState({ openIndex: id === this.state.openIndex ? null : id })
   }
 
   render () {
+    const { items } = this.props
+    const { openIndex } = this.state
     return (
       <div>
-        {this._renderCollapsible()}
+        {
+          items.map((item, index) => (
+            <CollapsibleBasic key={index} {...item} collapsed={openIndex !== index} handleClick={this._handleClick(index)}>
+              {item.content}
+            </CollapsibleBasic>
+          ))
+        }
       </div>
     )
   }
@@ -48,7 +40,20 @@ CollapsibleAccordion.propTypes = {
   /**
    * Items array
    */
-  items: PropTypes.array.isRequired
+  items: PropTypes.arrayOf(PropTypes.shape({
+    /**
+     * label to be displayed.
+     */
+    label: PropTypes.node.isRequired,
+    /**
+     * children to be displayed when expanding component.
+     */
+    content: PropTypes.node.isRequired,
+    /**
+     * first state.
+     */
+    collapsed: PropTypes.bool
+  })).isRequired
 }
 
 export default CollapsibleAccordion

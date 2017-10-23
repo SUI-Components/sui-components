@@ -16,7 +16,27 @@ $ npm install @schibstedspain/sui-collapsible-accordion --save
 ```js
 import CollapsibleAccordion from '@schibstedspain/sui-collapsible-accordion'
 
-return (<CollapsibleAccordion />)
+
+
+const items = [
+  {
+    label: 'Item 1',
+    content: 'Content item 1',
+    collapsed: true
+  },
+  {
+    label: 'Item 3',
+    content: 'Content item 3',
+    collapsed: true
+  },
+  {
+    label: 'Item 3',
+    content: 'Content item 3',
+    collapsed: true
+  }
+]
+
+return (<CollapsibleAccordion items={items} />)
 ```
 
 

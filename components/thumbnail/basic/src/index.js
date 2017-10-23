@@ -6,6 +6,7 @@ class ThumbnailBasic extends Component {
   static BASE_CLASS = 'sui-ThumbnailBasic'
   static IMAGE_CLASS = 'sui-ThumbnailBasic-image'
   static CAPTION_CLASS = 'sui-ThumbnailBasic-caption'
+  static CAPTION_TEXT_CLASS = 'sui-ThumbnailBasic-caption-text'
 
   render () {
     const {captionText} = this.props
@@ -19,7 +20,9 @@ class ThumbnailBasic extends Component {
         {
           captionText &&
             <figcaption className={ThumbnailBasic.CAPTION_CLASS}>
-              <span>{captionText}</span>
+              <div className={ThumbnailBasic.CAPTION_TEXT_CLASS}>
+                {captionText}
+              </div>
             </figcaption>
         }
       </figure>

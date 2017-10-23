@@ -28,7 +28,7 @@
     width: 100%;
     word-wrap: break-word;
 
-    span {
+    &-text {
       display: block;
       padding: $p-thumbnail-basic-caption;
     }

@@ -6,20 +6,31 @@ class ThumbnailBasic extends Component {
   static BASE_CLASS = 'sui-ThumbnailBasic'
   static IMAGE_CLASS = 'sui-ThumbnailBasic-image'
   static CAPTION_CLASS = 'sui-ThumbnailBasic-caption'
+  static CAPTION_TEXT_CLASS = 'sui-ThumbnailBasic-caption-text'
+
+  get _imagePlaceholderProps () {
+    const props = Object.assign(
+      {},
+      this.props
+    )
+
+    delete props.captionText
+    return props
+  }
 
   render () {
     const {captionText} = this.props
     return (
       <figure className={ThumbnailBasic.BASE_CLASS}>
         <ImagePlaceholder
-          image={this.props.image}
-          placeholder={this.props.placeholder}
-          fallbackImage={this.props.fallbackImage}
+          {...this._imagePlaceholderProps}
         />
         {
           captionText &&
             <figcaption className={ThumbnailBasic.CAPTION_CLASS}>
-              <span>{captionText}</span>
+              <div className={ThumbnailBasic.CAPTION_TEXT_CLASS}>
+                {captionText}
+              </div>
             </figcaption>
         }
       </figure>
@@ -30,16 +41,11 @@ class ThumbnailBasic extends Component {
 ThumbnailBasic.displayName = 'ThumbnailBasic'
 
 ThumbnailBasic.propTypes = {
-  image: PropTypes.shape({
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired
-  }),
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
   captionText: PropTypes.string,
   placeholder: PropTypes.node,
-  fallbackImage: PropTypes.shape({
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired
-  })
+  fallback: PropTypes.node
 }
 
 export default ThumbnailBasic

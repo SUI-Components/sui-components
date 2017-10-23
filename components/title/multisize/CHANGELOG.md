@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2017-10-23)
+
+
+### Features
+
+* adjust styles and sizes, adapt to sui-theme@8 ([fdc4a2f](https://github.com/SUI-Components/sui-components/commit/fdc4a2f))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2017-10-09)
 

@@ -62,6 +62,8 @@ const buildButtons = (props) => {
         icon={item.svg}
         text={item.label}
         onClick={handler}
+        type='secondary'
+        size='large'
       />
     )
   })

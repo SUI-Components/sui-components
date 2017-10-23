@@ -1,4 +1,5 @@
 /* sass-lint:disable class-name-format, no-important */
+
 @import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/sui-theme/lib/index';
 
@@ -91,7 +92,7 @@
         box-shadow: $bxsh-dropdown-menu;
         position: absolute;
         white-space: nowrap;
-        z-index: 1;
+        z-index: $z-dropdown-menu;
       }
 
       background-color: $bgc-dropdown-menu;

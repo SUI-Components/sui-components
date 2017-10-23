@@ -72,7 +72,7 @@
         display: inline-block;
         padding-top: $size-dropdown-arrow-up;
         position: absolute;
-        z-index: 1;
+        z-index: $z-dropdown-menu;
 
         &::after {
           @include arrow-up($size-dropdown-arrow-up, $c-dropdown-arrow);

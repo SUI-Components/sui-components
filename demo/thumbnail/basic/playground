@@ -12,6 +12,7 @@ return (
         src='https://satyr.io/1000?delay=3g'
         alt='Some alt'
         href='https://someLink'
+        target='_blank'
         captionText='Show!'
         placeholder={placeholder}
       />

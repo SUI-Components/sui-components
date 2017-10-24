@@ -82,7 +82,7 @@ ThumbnailBasic.propTypes = {
   /**
    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
    */
-  target: PropTypes.oneOf('_self', '_blank', '_parent', '_top')
+  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
 }
 
 ThumbnailBasic.defaultProps = {

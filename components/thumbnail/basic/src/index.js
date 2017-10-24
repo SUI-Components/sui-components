@@ -15,10 +15,13 @@ class ThumbnailBasic extends Component {
     )
 
     delete props.captionText
+    delete props.link
+    delete props.target
+    delete props.href
     return props
   }
 
-  render () {
+  get _figure () {
     const {captionText} = this.props
     return (
       <figure className={ThumbnailBasic.BASE_CLASS}>
@@ -36,16 +39,54 @@ class ThumbnailBasic extends Component {
       </figure>
     )
   }
+
+  render () {
+    const {href, target} = this.props
+
+    return href ? (
+      <a href={href} target={target}>
+        {this._figure}
+      </a>
+    )
+    : this._figure
+  }
 }
 
 ThumbnailBasic.displayName = 'ThumbnailBasic'
 
 ThumbnailBasic.propTypes = {
+  /**
+   * Image source
+   */
   src: PropTypes.string.isRequired,
+  /**
+   * Image alt
+   */
   alt: PropTypes.string.isRequired,
+  /**
+   * Text shown at the buttom of the component
+   */
   captionText: PropTypes.string,
+  /**
+   * Node to be shown until the image loads
+   */
   placeholder: PropTypes.node,
-  fallback: PropTypes.node
+  /**
+   * Node to be shown if the image fails loading
+   */
+  fallback: PropTypes.node,
+  /**
+   * Anchor link
+   */
+  href: PropTypes.string,
+  /**
+   * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
+   */
+  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
+}
+
+ThumbnailBasic.defaultProps = {
+  target: '_blank'
 }
 
 export default ThumbnailBasic

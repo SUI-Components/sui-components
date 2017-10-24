@@ -1,0 +1,36 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+$c-status-spot-default: $c-primary !default;
+$c-status-spot-high: $c-success !default;
+$c-status-spot-medium: $c-alert !default;
+$c-status-spot-low: $c-error !default;
+$size-status-spot: 15px !default;
+
+.sui-AtomStatusSpot {
+  position: relative;
+
+  .sui-AtomStatusSpot-status {
+    border-radius: 100%;
+    height: $size-status-spot;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: $size-status-spot;
+
+    &-default {
+      background: $c-status-spot-default;
+    }
+
+    &-low {
+      background: $c-status-spot-low;
+    }
+
+    &-medium {
+      background: $c-status-spot-medium;
+    }
+
+    &-high {
+      background: $c-status-spot-high;
+    }
+  }
+}

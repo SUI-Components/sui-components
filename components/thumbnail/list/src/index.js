@@ -8,7 +8,7 @@ const ThumbnailList = ({items, captionText, placeholder, fallback}) =>
       items.map((item, index) =>
         <li className='sui-ThumbnailList-item' key={index}>
           <ThumbnailBasic
-            link={item.link}
+            href={item.href}
             fallback={fallback}
             captionText={captionText}
             placeholder={placeholder}

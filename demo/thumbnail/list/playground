@@ -14,7 +14,7 @@ const items = [
       alt: '500x500 image, 5 seconds delay',
       src: 'https://satyr.io/200?delay=3g'
     },
-    link: 'https://item0'
+    href: 'https://item0'
   }, {
     image: {
       alt: 'random 200x200 image',
@@ -30,7 +30,7 @@ const items = [
       alt: 'Will not load',
       src: 'http://'
     },
-    link: 'https://item3'
+    href: 'https://item3'
   }
 ]
 

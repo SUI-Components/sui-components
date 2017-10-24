@@ -2,17 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ThumbnailBasic from '@schibstedspain/sui-thumbnail-basic'
 
-const ThumbnailList = ({items, captionText, placeholder}) =>
+const ThumbnailList = ({items, captionText, placeholder, fallback}) =>
   <ul className='sui-ThumbnailList'>
     {
       items.map((item, index) =>
         <li className='sui-ThumbnailList-item' key={index}>
           <ThumbnailBasic
-            image={item.image}
             link={item.link}
-            fallbackImage={item.fallbackImage}
+            fallback={fallback}
             captionText={captionText}
             placeholder={placeholder}
+            {...item.image}
           />
         </li>
       )
@@ -23,17 +23,22 @@ ThumbnailList.displayName = 'ThumbnailList'
 
 ThumbnailList.propTypes = {
   /**
-   * array of thumbnail/basic images
+   * array of thumbnail/basic props
+   * https://sui-components.now.sh/workbench/thumbnail/basic/documentation/api
    */
-  items: PropTypes.any.isRequired,
+  items: PropTypes.array.isRequired,
   /**
-   * see thumbnail/basic for description
+   * https://sui-components.now.sh/workbench/thumbnail/basic/documentation/api
    */
   captionText: PropTypes.string.isRequired,
   /**
-   * see thumbnail/basic for description
+   * @link https://sui-components.now.sh/workbench/thumbnail/basic/documentation/api
    */
-  placeholder: PropTypes.node.isRequired
+  placeholder: PropTypes.node.isRequired,
+  /**
+   * @link https://sui-components.now.sh/workbench/thumbnail/basic/documentation/api
+   */
+  fallback: PropTypes.node
 }
 
 ThumbnailList.defaultProps = {

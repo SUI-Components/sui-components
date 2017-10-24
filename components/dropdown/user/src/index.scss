@@ -1,4 +1,5 @@
 /* sass-lint:disable class-name-format, no-important */
+
 @import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/sui-theme/lib/index';
 
@@ -72,7 +73,7 @@
         display: inline-block;
         padding-top: $size-dropdown-arrow-up;
         position: absolute;
-        z-index: 1;
+        z-index: $z-dropdown-menu;
 
         &::after {
           @include arrow-up($size-dropdown-arrow-up, $c-dropdown-arrow);
@@ -107,6 +108,7 @@
       &Link {
         @include reset-link;
         @include media-breakpoint-down(s) {
+          display: flex;
           font-size: $fz-h3;
           font-weight: normal;
           padding: $p-v-large $p-h;
@@ -134,7 +136,9 @@
           fill: $c-accent !important;
         }
       }
-
+      &Text {
+        flex: 1;
+      }
       &Notification {
         @include sui-badge-notification();
       }

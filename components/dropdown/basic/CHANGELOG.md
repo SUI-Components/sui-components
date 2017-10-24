@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.18.0"></a>
+# 1.18.0 (2017-10-23)
+
+
+### Features
+
+* add z-indez var ([e55b5d3](https://github.com/SUI-Components/sui-components/commit/e55b5d3))
+* update component ([fbe7956](https://github.com/SUI-Components/sui-components/commit/fbe7956))
+
+
+
 <a name="1.17.0"></a>
 # 1.17.0 (2017-10-09)
 
@@ -59,16 +70,6 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * adjust link colors ([f73ae60](https://github.com/SUI-Components/sui-components/commit/f73ae60))
-
-
-
-<a name="1.11.0"></a>
-# 1.11.0 (2017-01-26)
-
-
-### Bug Fixes
-
-* adjusting breakpoints ([aaad295](https://github.com/SUI-Components/sui-components/commit/aaad295))
 
 
 

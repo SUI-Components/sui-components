@@ -76,7 +76,7 @@ TitleMultisize.propTypes = {
 TitleMultisize.defaultProps = {
   orientation: 'vertical',
   postTitleSize: 's',
-  preTitleSize: 's',
+  preTitleSize: 'xs',
   titleSize: 'xl'
 }
 

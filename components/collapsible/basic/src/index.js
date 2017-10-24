@@ -16,6 +16,14 @@ class CollapsibleBasic extends Component {
     this.props.handleClick(isCollapsed)
   }
 
+  componentWillReceiveProps (nextProps) {
+    this.setState({isCollapsed: nextProps.collapsed})
+  }
+
+  shouldComponentUpdate (nextProps, nextState) {
+    return this.state.isCollapsed !== nextState.isCollapsed
+  }
+
   render () {
     const stateClassName = cx(
       {'is-collapsed': this.state.isCollapsed},

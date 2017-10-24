@@ -1,0 +1,14 @@
+return (<div>
+            <div style={{float: 'left', marginRight: "14px"}}>
+                <ButtonShare type="email" url="www.google.es" />
+            </div>
+            <div style={{float: 'left', marginRight: "14px"}}>
+                <ButtonShare type="facebook" url="www.google.es" />
+            </div>
+            <div style={{float: 'left', marginRight: "14px"}}>
+                <ButtonShare type="twitter" url="www.google.es" />
+            </div>
+            <div style={{float: 'left', marginRight: "14px"}}>
+                <ButtonShare type="whatsapp" url="www.google.es" />
+            </div>
+        </div>)

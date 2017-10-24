@@ -1,0 +1,16 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$share-types: "whatsapp", "facebook", "twitter", "email";
+$share-colors: $c-whatsapp, $c-facebook, $c-twitter, $c-email;
+.sui-ButtonShare {
+  @include reset-button;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+
+  @for $i from 1 through length($share-types) {
+    &.type-#{nth($share-types, $i)} {
+      background-color: #{nth($share-colors, $i)};
+    }
+  }
+}

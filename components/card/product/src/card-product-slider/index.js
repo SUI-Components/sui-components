@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Swiper from 'swiper'
-import Chevronleft from '@schibstedspain/sui-svgiconset/lib/chevronleft'
-import Chevronright from '@schibstedspain/sui-svgiconset/lib/chevronright'
+import Chevronleft from '@schibstedspain/sui-svgiconset/lib/Chevronleft'
+import Chevronright from '@schibstedspain/sui-svgiconset/lib/Chevronright'
 
 /**
  * Slider of images.

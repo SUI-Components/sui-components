@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@schibstedspain/sui-svgiconset": "1",
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "1",
+    "@s-ui/component-peer-dependencies": "latest"
   }
 }

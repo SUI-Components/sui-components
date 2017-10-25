@@ -168,7 +168,7 @@ DropdownBasic.propTypes = {
       /**
        * Flag to know if uses React Router Link.
        */
-      useReactRouterLink: PropTypes.string
+      useReactRouterLink: PropTypes.bool
     }))
   })).isRequired,
   /**

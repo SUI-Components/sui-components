@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router'
 import cx from 'classnames'
 import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
 
@@ -68,12 +69,17 @@ class DropdownBasic extends Component {
   /**
    * Function rendering a simple list item link.
    */
-  _renderLink = ({ text, url }, index) => {
+  _renderLink = ({ text, url, useReactRouterLink }, index) => {
     const Link = this.props.linkFactory
 
     return (
       <li key={index} className='sui-DropdownBasicMenu-listItem'>
-        <Link href={url} className='sui-DropdownBasicMenu-listLink' title={text}>
+        <Link
+          href={url}
+          className='sui-DropdownBasicMenu-listLink'
+          title={text}
+          useReactRouterLink={useReactRouterLink}
+        >
           {text}
         </Link>
       </li>
@@ -158,7 +164,11 @@ DropdownBasic.propTypes = {
       /**
        * Link url.
        */
-      url: PropTypes.string.isRequired
+      url: PropTypes.string.isRequired,
+      /**
+       * Flag to know if uses React Router Link.
+       */
+      useReactRouterLink: PropTypes.string
     }))
   })).isRequired,
   /**
@@ -173,8 +183,10 @@ DropdownBasic.propTypes = {
 
 DropdownBasic.defaultProps = {
   expandOnMouseOver: false,
-  linkFactory: ({ href, className, children, title }) =>
-    <a href={href} className={className} title={title}>{children}</a>
+  linkFactory: ({ href, children, useReactRouterLink = false, ...attrs }) =>
+    useReactRouterLink
+      ? <a href={href} {...attrs}>{children}</a>
+      : <Link to={href} {...attrs}>{children}</Link>
 }
 
 export default DropdownBasic

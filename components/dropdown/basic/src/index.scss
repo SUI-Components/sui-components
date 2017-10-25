@@ -18,11 +18,11 @@
     @include media-breakpoint-down(s) {
       background-color: $c-white;
       color: $c-text-base;
-      padding: $p-v-large $p-h;
+      padding: $p-xl $p-l;
       width: 100%;
     }
     @include media-breakpoint-up(m) {
-      padding: $p-v $p-h;
+      padding: $p-xl $p-l;
 
       .is-expanded & {
         background-color: $bgc-dropdown-button-hover;
@@ -76,7 +76,7 @@
       }
 
       &:not(:last-child) {
-        margin-right: $m-h-small;
+        margin-right: $m-m;
       }
     }
   }
@@ -138,7 +138,7 @@
 
       &Item {
         @include media-breakpoint-down(s) {
-          margin-bottom: $m-v-large;
+          margin-bottom: $m-l;
           &:not(:last-child) {
             margin-bottom: $m-xl;
           }

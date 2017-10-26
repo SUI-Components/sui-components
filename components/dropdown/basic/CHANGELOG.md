@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.20.0"></a>
+# 1.20.0 (2017-10-26)
+
+
+### Bug Fixes
+
+* fix border bottom on desktop dropdown menu ([047c158](https://github.com/SUI-Components/sui-components/commit/047c158))
+
+
+
 <a name="1.19.0"></a>
 # 1.19.0 (2017-10-26)
 

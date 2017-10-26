@@ -5,8 +5,7 @@ import {Socialtwitter, Socialfacebook, Commentsquare, Envelopeclosed} from '@sch
 const getOnClickHandle = src => () => window.open(src)
 
 const parseHttpSchemeOfUrl = (urlToEval) => {
-  const isUrlValid = urlToEval.match(/http:\/\/|https:\/\//)
-  return !isUrlValid ? `http://${urlToEval}` : urlToEval
+  return (!urlToEval.indexOf('http') || !urlToEval.indexOf('https')) ? urlToEval : `http://${urlToEval}`
 }
 
 const getShareDefinition = (url, shareText, type) => {
@@ -29,6 +28,7 @@ const getShareDefinition = (url, shareText, type) => {
       }
     case 'email':
       return {
+        src: `mailto:?&body=${shareText} - ${parsedShareUrl}`,
         icon: Envelopeclosed
       }
     default:
@@ -67,7 +67,7 @@ ButtonShare.propTypes = {
    */
   onClick: PropTypes.func,
   /**
-   * The text to put as message on the share. Only twitter and whatsapp have this feature.
+   * The text to put as message on the share.
    */
   shareText: PropTypes.string,
   /**

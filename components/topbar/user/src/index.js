@@ -134,6 +134,7 @@ class TopbarUser extends Component {
         button={{ icon, text, arrowButtonIcon }}
         menu={menu}
         expandOnMouseOver={isToggleHidden}
+        linkFactory={this.props.linkFactory}
       />
     )
   }

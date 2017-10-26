@@ -22,7 +22,7 @@
       width: 100%;
     }
     @include media-breakpoint-up(m) {
-      padding: $p-m $p-l;
+      padding: $p-m;
 
       .is-expanded & {
         background-color: $bgc-dropdown-button-hover;

@@ -18,11 +18,11 @@
     @include media-breakpoint-down(s) {
       background-color: $c-white;
       color: $c-text-base;
-      padding: $p-xl $p-l;
+      padding: $p-l;
       width: 100%;
     }
     @include media-breakpoint-up(m) {
-      padding: $p-xl $p-l;
+      padding: $p-m $p-l;
 
       .is-expanded & {
         background-color: $bgc-dropdown-button-hover;
@@ -129,7 +129,7 @@
       color: $c-gray;
       font-weight: $fw-bold;
       margin-bottom: $m-l;
-      padding-bottom: $p-v;
+      padding-bottom: $p-m;
       text-transform: uppercase;
     }
 

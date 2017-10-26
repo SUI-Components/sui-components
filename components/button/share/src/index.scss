@@ -3,7 +3,7 @@
 $button-share-types: "whatsapp", "facebook", "twitter", "email" !default;
 $bgc-button-share-colors: $c-whatsapp, $c-facebook, $c-twitter, $c-email !default;
 $c-button-share-icon: $c-white !default;
-$bdrs-button-share: 50%;
+$bdrs-button-share: 50% !default;
 
 .sui-ButtonShare {
   @include reset-button;

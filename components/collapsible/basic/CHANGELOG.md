@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2017-10-24)
+
+
+### Features
+
+* update this component to use in accordion collapsible component ([a017e59](https://github.com/SUI-Components/sui-components/commit/a017e59))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2017-10-09)
 
@@ -51,16 +61,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * add border variable. ([6168c85](https://github.com/SUI-Components/sui-components/commit/6168c85))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-09-12)
-
-
-### Features
-
-* collapsible/expandible component. ([bcb1277](https://github.com/SUI-Components/sui-components/commit/bcb1277))
 
 
 

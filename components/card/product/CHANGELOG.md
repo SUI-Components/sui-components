@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2017-10-24)
+
+
+### Bug Fixes
+
+* fix build ([7a93c78](https://github.com/SUI-Components/sui-components/commit/7a93c78))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2017-10-09)
 

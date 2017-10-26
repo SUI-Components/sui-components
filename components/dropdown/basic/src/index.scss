@@ -10,17 +10,19 @@
   @include media-breakpoint-up(m) {
     display: inline-block;
   }
-
+  &.is-expanded {
+    border-bottom: 1px solid $c-gray-light;
+  }
   &-button {
     @include reset-button;
     @include media-breakpoint-down(s) {
       background-color: $c-white;
       color: $c-text-base;
-      padding: $p-v-large $p-h;
+      padding: $p-l;
       width: 100%;
     }
     @include media-breakpoint-up(m) {
-      padding: $p-v $p-h;
+      padding: $p-m;
 
       .is-expanded & {
         background-color: $bgc-dropdown-button-hover;
@@ -74,7 +76,7 @@
       }
 
       &:not(:last-child) {
-        margin-right: $m-h-small;
+        margin-right: $m-m;
       }
     }
   }
@@ -99,6 +101,7 @@
       border-top: $bdt-dropdown-menu;
       display: block;
       padding: $gutter;
+      padding-bottom: $gutter-s;
     }
 
     &-item {
@@ -111,22 +114,22 @@
       }
       @include media-breakpoint-down(s) {
         &:not(:last-child) {
-          margin-bottom: $m-v;
+          margin-bottom: $m-xxxl;
         }
       }
     }
 
     &-title {
       @include media-breakpoint-down(s) {
-        margin-top: $m-v-large;
+        margin: $m-m 0;
       }
       @include media-breakpoint-up(m) {
         border-bottom: 1px solid $c-gray-light;
       }
       color: $c-gray;
       font-weight: $fw-bold;
-      margin-bottom: $m-v;
-      padding-bottom: $p-v;
+      margin-bottom: $m-l;
+      padding-bottom: $p-m;
       text-transform: uppercase;
     }
 
@@ -134,18 +137,26 @@
       @include reset-list;
 
       &Item {
-        &:not(:first-child) {
-          margin-top: $m-v;
+        @include media-breakpoint-down(s) {
+          margin-bottom: $m-l;
+          &:not(:last-child) {
+            margin-bottom: $m-xl;
+          }
         }
+        margin-bottom: $m-l;
       }
 
       &Link {
         @include reset-link;
+        @include media-breakpoint-down(s) {
+          font-size: $fz-l;
+          margin-left: $m-l;
+        }
         @include media-breakpoint-up(m) {
           white-space: nowrap;
         }
         display: block;
-
+        padding-right: $p-xl;
         &:hover {
           color: $c-accent;
         }

@@ -12,7 +12,7 @@ function ButtonShare ({type, icon, onClick, shareText, url}) {
 
   const shareDefinitionByType = {
     facebook: {
-      src: `https://www.facebook.com/share.php?u=${parsedShareUrl}?opi=140&tti=1&pagination=1&RowGrid=2`,
+      src: `https://www.facebook.com/share.php?u=${parsedShareUrl}?opi=140&quote=${shareText}&tti=1&pagination=1&RowGrid=2`,
       icon: Socialfacebook
     },
     twitter: {

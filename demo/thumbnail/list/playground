@@ -11,14 +11,14 @@ const fallback = (
 const items = [
   {
     image: {
-      alt: '500x500 image, 5 seconds delay',
+      alt: '500x500 image, 3 seconds delay',
       src: 'https://satyr.io/200?delay=3g'
     },
     href: 'https://item0'
   }, {
     image: {
       alt: 'random 200x200 image',
-      src: 'https://satyr.io/200?delay=5g'
+      src: 'https://satyr.io/200'
     }
   }, {
     image: {

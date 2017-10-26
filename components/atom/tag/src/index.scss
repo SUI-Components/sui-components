@@ -1,17 +1,17 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$c-label-white: #fff;
-$mw-label: 240px;
 $bgc-AtomTag: color-variation($c-gray, 3);
+$c-AtomTagActionable: $c-white;
 $h-AtomTag: $p-xxl;
+$mw-label: 240px;
 
 .sui-AtomTag {
   background-color: $bgc-AtomTag;
-  border-radius: $lh-s + $p-s;
+  border-radius: ceil($h-AtomTag / 2);
   box-sizing: border-box;
   display: inline-block;
   height: $h-AtomTag;
-  line-height: $lh-s;
+  line-height: ceil($h-AtomTag / 2);
   padding: $p-m $p-l;
   white-space: nowrap;
 
@@ -44,6 +44,7 @@ $h-AtomTag: $p-xxl;
   }
 
   &-delete-icon {
+    cursor: pointer;
     margin: 0 (-$m-s) 0 $m-m;
 
     &:hover {
@@ -60,10 +61,12 @@ $h-AtomTag: $p-xxl;
 
   &-actionable {
     background-color: $c-primary;
-    color: $c-label-white;
-    fill: $c-label-white;
+    color: $c-AtomTagActionable;
+    cursor: pointer;
+    fill: $c-AtomTagActionable;
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       background-color: $c-primary-dark;
     }
   }

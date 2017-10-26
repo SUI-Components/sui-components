@@ -5,13 +5,13 @@
 
 .sui-DropdownBasic {
   @include media-breakpoint-down(s) {
+    &.is-expanded {
+      border-bottom: 1px solid $c-gray-light;
+    }
     position: relative;
   }
   @include media-breakpoint-up(m) {
     display: inline-block;
-  }
-  &.is-expanded {
-    border-bottom: 1px solid $c-gray-light;
   }
   &-button {
     @include reset-button;

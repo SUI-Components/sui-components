@@ -1,23 +1,32 @@
-@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/sui-theme/lib/index';
+
+$c-form-textarea-label: $c-gray !default;
+$fz-form-textarea-label: $fz-s !default;
+$fw-form-textarea-label: $fw-regular !default;
+
+$bgc-form-textarea: $c-gray-lightest !default;
+$bdrs-form-textarea: $bdrs-m !default;
+$c-form-textarea-inner-text: $c-gray-dark !default;
+$fz-form-textarea-inner-text: $fz-m !default;
+$fw-form-textarea-inner-text: $fw-regular !default;
 
 .sui-FormTextarea {
   &-label {
-    color: $c-gray;
-    font-size: $fz-s;
-    font-weight: $fw-regular;
+    color: $c-form-textarea-label;
+    font-size: $fz-form-textarea-label;
+    font-weight: $fw-form-textarea-label;
   }
 
   &-element {
     background-color: $bgc-form-textarea;
     border: 0;
-    border-radius: 2px;
+    border-radius: $bdrs-form-textarea;
     color: $c-form-textarea-inner-text;
     font-size: $fz-form-textarea-inner-text;
-    font-weight: $fw-light;
-    margin-top: $m-v-small;
+    font-weight: $fw-form-textarea-inner-text;
+    margin-top: $m-s;
     max-width: 100%;
-    padding: $p-v;
+    padding: $p-m;
     width: 100%;
 
     &:focus {

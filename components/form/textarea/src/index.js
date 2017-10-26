@@ -1,12 +1,13 @@
 import React, {PropTypes} from 'react'
 import cx from 'classnames'
 
-const FormTextarea = ({className, cols, label, onChange, placeholder, rows, spellCheck, value}) => (
+const FormTextarea = ({className, cols, label, name, onChange, placeholder, rows, spellCheck, value}) => (
   <div className={cx('sui-FormTextarea', className)}>
     {label && <label className='sui-FormTextarea-label'>{label}</label>}
     <textarea
       className='sui-FormTextarea-element'
       cols={cols}
+      name={name}
       onChange={onChange}
       placeholder={placeholder}
       rows={rows}
@@ -30,6 +31,10 @@ FormTextarea.propTypes = {
    * Title label to show above the text area element.
    */
   label: PropTypes.string,
+  /**
+   * Specifies the name of the text area element.
+   */
+  name: PropTypes.string.isRequired,
   /**
    * Custom function callback to execute when the value of the text area has changed.
    */

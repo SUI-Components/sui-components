@@ -1,0 +1,23 @@
+return (<div>
+            <div style={{float: 'left', marginRight: "14px"}}>
+                <ButtonShare type="email" url="www.google.es" />
+            </div>
+            <div style={{float: 'left', marginRight: "14px"}}>
+                <ButtonShare type="facebook" url="www.google.es" />
+            </div>
+            <div style={{float: 'left', marginRight: "14px"}}>
+                <ButtonShare type="twitter" url="www.google.es" />
+            </div>
+            <div style={{float: 'left', marginRight: "14px"}}>
+                <ButtonShare type="whatsapp" url="www.google.es" />
+            </div>
+            <div style={{float: 'left', marginRight: "14px"}}>
+                <ButtonShare
+                icon={() => <svg viewBox="0 0 24 24">
+                 <path d="M23.132,12.012c0,6.169-4.997,11.219-11.164,11.219c-6.178,0-11.175-5.05-11.175-11.219  c0-6.178,4.997-11.173,11.175-11.173C18.136,0.839,23.132,5.835,23.132,12.012 M14.756,21.132c3.827-1.368,6.626-4.899,6.626-9.12  c0-5.202-4.22-9.425-9.414-9.425c-5.204,0-9.426,4.223-9.426,9.425c0,4.264,2.844,7.818,6.736,9.12v-1.793  c0-1.072,0.448-1.64,0.896-1.946c-2.427-0.253-5.03-1.128-5.03-5.327c0-1.177,0.416-2.141,1.105-2.885  C6.141,8.897,5.78,7.805,6.359,6.328c0,0,0.908-0.295,2.963,1.105c0.853-0.241,1.783-0.361,2.689-0.361  c0.918,0,1.838,0.119,2.701,0.361c2.056-1.4,2.952-1.105,2.952-1.105c0.59,1.477,0.219,2.569,0.11,2.853  c0.689,0.744,1.105,1.708,1.105,2.885c0,4.199-2.603,5.074-5.03,5.327c0.447,0.306,0.907,0.874,0.907,1.946V21.132z"/>
+                </svg>}
+                type="custom"
+                onClick={() => alert('custom click!!!!!')} />
+            </div>
+
+        </div>)

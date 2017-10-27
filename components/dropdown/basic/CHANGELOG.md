@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.21.0"></a>
+# 1.21.0 (2017-10-27)
+
+
+### Bug Fixes
+
+* fix spacing between links ([fed77a0](https://github.com/SUI-Components/sui-components/commit/fed77a0))
+
+
+### Features
+
+* change grid variables sizes to standard ([11e9788](https://github.com/SUI-Components/sui-components/commit/11e9788))
+
+
+
 <a name="1.20.0"></a>
 # 1.20.0 (2017-10-26)
 

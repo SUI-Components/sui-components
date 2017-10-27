@@ -100,7 +100,7 @@
       background-color: $bgc-dropdown-menu;
       border-top: $bdt-dropdown-menu;
       display: block;
-      padding: $gutter-s;
+      padding: $p-m;
     }
 
     &-item {
@@ -108,8 +108,8 @@
         float: left;
 
         &:not(:last-child) {
-          padding-left: $gutter-s;
-          padding-right: $gutter;
+          padding-left: $p-m;
+          padding-right: $p-l;
         }
       }
     }

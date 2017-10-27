@@ -100,8 +100,7 @@
       background-color: $bgc-dropdown-menu;
       border-top: $bdt-dropdown-menu;
       display: block;
-      padding: $gutter;
-      padding-bottom: $gutter-s;
+      padding: $p-m;
     }
 
     &-item {
@@ -109,19 +108,16 @@
         float: left;
 
         &:not(:last-child) {
-          padding-right: $gutter;
-        }
-      }
-      @include media-breakpoint-down(s) {
-        &:not(:last-child) {
-          margin-bottom: $m-xxxl;
+          padding-left: $p-m;
+          padding-right: $p-l;
         }
       }
     }
 
     &-title {
       @include media-breakpoint-down(s) {
-        margin: $m-m 0;
+        margin-bottom: 0;
+        padding: $p-l 0 0 $p-m;
       }
       @include media-breakpoint-up(m) {
         border-bottom: 1px solid $c-gray-light;
@@ -129,7 +125,7 @@
       color: $c-gray;
       font-weight: $fw-bold;
       margin-bottom: $m-l;
-      padding-bottom: $p-m;
+      padding: $p-m 0 $p-m 0;
       text-transform: uppercase;
     }
 
@@ -138,19 +134,18 @@
 
       &Item {
         @include media-breakpoint-down(s) {
-          margin-bottom: $m-l;
-          &:not(:last-child) {
-            margin-bottom: $m-xl;
+          &:not(:first-child) {
+            margin: $m-m 0 $m-l 0;
           }
         }
-        margin-bottom: $m-l;
+        margin: $m-l 0;
       }
 
       &Link {
         @include reset-link;
         @include media-breakpoint-down(s) {
           font-size: $fz-l;
-          margin-left: $m-l;
+          padding: $p-s $p-l; 
         }
         @include media-breakpoint-up(m) {
           white-space: nowrap;

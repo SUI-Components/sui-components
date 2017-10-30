@@ -110,7 +110,7 @@ class AtomBadge extends Component {
               { icon }
             </span>
         }
-        <span title={label}>
+        <span className='sui-AtomBadge-text' title={label}>
           {label}
         </span>
       </div>

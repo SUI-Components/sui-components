@@ -89,7 +89,7 @@ class CardCollapsible extends Component {
     return (
       <div className={cx('sui-CardCollapsible', className)}>
         {headerInfo && this._renderCardHeader(headerImage, collapsed ? headerInfo.displayWhenCollapsed : headerInfo.displayWhenExpanded)}
-        <CollapsibleBasic label={this._renderActionButton(collapsed ? expandButton : collapseButton)} icon={false}>{children}</CollapsibleBasic>
+        <CollapsibleBasic collapsed={collapsed} label={this._renderActionButton(collapsed ? expandButton : collapseButton)} icon={false}>{children}</CollapsibleBasic>
       </div>
     )
   }

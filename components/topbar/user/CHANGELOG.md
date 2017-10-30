@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.19.0"></a>
+# 1.19.0 (2017-10-26)
+
+
+### Features
+
+* propagate link factory to dropdown basic ([0e38cfd](https://github.com/SUI-Components/sui-components/commit/0e38cfd))
+
+
+
 <a name="1.18.0"></a>
 # 1.18.0 (2017-10-17)
 

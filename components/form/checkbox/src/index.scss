@@ -1,6 +1,13 @@
 // sass-lint:disable no-important
-@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/sui-theme/lib/index';
+
+$c-form-checkbox-icon: $c-primary !default;
+$c-form-checkbox-text-label: $c-gray-dark !default;
+$fz-form-checkbox-text-label: $fz-m !default;
+$fw-form-checkbox-text-label: $fw-regular !default;
+$c-form-checkbox-error-message: $c-error !default;
+$fz-form-checkbox-error-message: $fz-m !default;
+$fw-form-checkbox-error-message: $fw-regular !default;
 
 .sui-FormCheckbox {
   &-input {
@@ -10,7 +17,7 @@
   &-icon {
     @include sui-icon--small;
     cursor: pointer;
-    fill: $c-primary !important;
+    fill: $c-form-checkbox-icon !important;
   }
 
   &-label {
@@ -18,20 +25,20 @@
     cursor: pointer;
     display: inline-flex;
     font-size: $fz-form-checkbox-text-label;
-    font-weight: $fw-regular;
-    padding-left: $p-xxsmall;
+    font-weight: $fw-form-checkbox-text-label;
+    padding-left: $p-s;
     vertical-align: top;
   }
 
   &-errorMessage {
     cursor: default;
-    margin: $m-v-small 0 0 $m-h;
-    padding-left: $p-xxsmall;
+    margin: $m-s 0 0 $m-l;
+    padding-left: $p-s;
 
     &Label {
       color: $c-form-checkbox-error-message;
       font-size: $fz-form-checkbox-error-message;
-      font-weight: $fw-light;
+      font-weight: $fw-form-checkbox-error-message;
     }
   }
 }

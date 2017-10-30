@@ -50,7 +50,7 @@ SectionBasic.propTypes = {
   /**
    * Text to be displayed as title at the top of the Section.
    */
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   /**
    * Text alignment of Section's title.
    */

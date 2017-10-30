@@ -8,10 +8,11 @@ const renderErrorMessage = error => (
   </div>
 )
 
-const FormTextInput = ({className, errorMessage, onChange, placeholder, value}) => (
+const FormTextInput = ({className, errorMessage, name, onChange, placeholder, value}) => (
   <div className={cx('sui-FormTextInput', className)}>
     <input
       className='sui-FormTextInput-value'
+      name={name}
       type='text'
       placeholder={placeholder}
       value={value}
@@ -31,6 +32,10 @@ FormTextInput.propTypes = {
    * Error message text to show below the input.
    */
   errorMessage: PropTypes.string,
+  /**
+   * Specifies the name of the input element.
+   */
+  name: PropTypes.string.isRequired,
   /**
    * Custom callback function to execute when the value of the text input has changed.
    */

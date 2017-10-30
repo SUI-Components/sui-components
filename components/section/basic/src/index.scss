@@ -42,15 +42,12 @@
     margin: 0 0 $m-v-small;
   }
 
-  &-content {
-    &OnlyText,
-    p {
-      color: $c-section-basic-content-text-paragraph;
-      font-size: $fz-section-basic-content-text-paragraph;
-      font-weight: $fw-regular;
-      line-height: $lh-section-basic-paragraph;
-      margin: $m-v-section-basic-content-text-paragraph 0;
-    }
+  &-contentOnlyText {
+    color: $c-section-basic-content-text-paragraph;
+    font-size: $fz-section-basic-content-text-paragraph;
+    font-weight: $fw-regular;
+    line-height: $lh-section-basic-paragraph;
+    margin: $m-v-section-basic-content-text-paragraph 0;
   }
 
   &-lineSeparator {

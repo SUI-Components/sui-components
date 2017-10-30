@@ -1,0 +1,27 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$bdrs-button-share: 50% !default;
+$bgc-button-email: $c-gray-dark !default;
+$bgc-button-share-colors: $c-whatsapp, $c-facebook, $c-twitter, $bgc-button-email, $c-primary !default;
+$button-share-types: 'whatsapp', 'facebook', 'twitter', 'email', 'custom' !default;
+$c-button-share-icon: $c-white !default;
+$h-button-share: 48px;
+$w-button-share: 48px;
+
+.sui-ButtonShare {
+  @include reset-button;
+  border-radius: $bdrs-button-share;
+  height: $w-button-share;
+  width: $h-button-share;
+
+  svg {
+    @include sui-icon--medium;
+    fill: $c-button-share-icon;
+  }
+
+  @for $i from 1 through length($button-share-types) {
+    &--#{nth($button-share-types, $i)} {
+      background-color: #{nth($bgc-button-share-colors, $i)};
+    }
+  }
+}

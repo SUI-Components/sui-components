@@ -43,15 +43,15 @@ $mw-label: 240px;
     margin-right: $p-s;
   }
 
-  &-delete-icon {
+  &-secondary-icon {
     cursor: pointer;
     margin: 0 (-$m-s) 0 $m-m;
+  }
 
-    &:hover {
-      background-color: $c-system;
-      border-radius: 50%;
-      fill: color-variation($c-gray, 3);
-    }
+  &-secondary-closeable:hover {
+    background-color: $c-system;
+    border-radius: 50%;
+    fill: color-variation($c-gray, 3);
   }
 
   & [class$='icon'] {

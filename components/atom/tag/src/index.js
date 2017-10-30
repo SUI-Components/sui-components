@@ -1,25 +1,42 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
+import classnames from 'classnames'
+
+import ActionableTag from './Actionable'
+import StandardTag from './Standard'
 
 class AtomTag extends Component {
   static MAX_LABEL_LENGTH = 100
 
-  /**
-   * @param  {string} options.className custom classname
-   * @param {fn} options.onClick
-   * @param {Object} icon
-   * @param {Object} closeIcon
-   * @return {string} all classnames joined by whitespace
-   */
-  _classNames ({className, onClick, icon, closeIcon}) {
-    return cx(
+  get _classNames () {
+    const {className, Icon} = this.props
+    return classnames(
       'sui-AtomTag',
-      onClick && 'sui-AtomTag-actionable',
       className,
-      icon && 'sui-AtomTag-hasIcon',
-      closeIcon && 'sui-AtomTag-hasClose'
+      Icon && 'sui-AtomTag-hasIcon'
     )
+  }
+
+  get _isActionable () {
+    return this.props.onClick || this.props.href
+  }
+
+  /**
+   * returns key:value in obj except for those keys defined in props
+   * @param {Object} obj
+   * @param {Array.<string>} props
+   * @return {Object}
+   */
+  _filterKeys (obj, props) {
+    return Object.keys(obj)
+    .reduce(
+      (acc, key) => {
+        if (props.indexOf(key) === -1) {
+          acc[key] = obj[key]
+        }
+        return acc
+      }
+    , {})
   }
 
   /**
@@ -34,63 +51,29 @@ class AtomTag extends Component {
   }
 
   /**
-   * @param {Object} event
+   * Removes all actionable tag props from the react props
+   * @return {Object}
    */
-  _stopEvent (event) {
-    event.preventDefault()
-    event.stopPropagation()
+  get _standardProps () {
+    const ACTIONABLE_ONLY_PROPS = [
+      'href', 'iconPlacement', 'target', 'actionable', 'linkFactory'
+    ]
+    return this._filterKeys(this.props, ACTIONABLE_ONLY_PROPS)
   }
 
   /**
-   * @param  {Object} event
+   * Removes all standard tag props from the react props
+   * @return {Object}
    */
-  onClose = (event) => {
-    this._stopEvent()
-    this.props.onClose()
-  }
-
-  /**
-   * @param  {Object} event
-   */
-  onClick = (event) => {
-    const onClick = this.props.onClick
-    if (!onClick) return
-
-    this._stopEvent(event)
-    onClick()
+  get _actionableProps () {
+    const STANDARD_ONLY_PROPS = ['closeIcon', 'onClose']
+    return this._filterKeys(this.props, STANDARD_ONLY_PROPS)
   }
 
   render () {
-    const {
-      icon,
-      onClose,
-      closeIcon,
-      onClick
-    } = this.props
-
-    const label = this._truncate(this.props.label)
-
-    return (
-      <div
-        className={this._classNames(this.props)}
-        onClick={this.onClick}>
-        {
-          icon &&
-            <span className='sui-AtomTag-icon'>
-              { icon }
-            </span>
-        }
-        <span className='sui-AtomTag-label' title={label}>
-          {label}
-        </span>
-        {
-          !onClick && onClose &&
-            <span className='sui-AtomTag-delete-icon'>
-              { closeIcon }
-            </span>
-        }
-      </div>
-    )
+    return this._isActionable
+      ? <ActionableTag {...this._actionableProps} className={this._classNames} />
+      : <StandardTag {...this._standardProps} className={this._classNames} />
   }
 }
 
@@ -102,16 +85,32 @@ AtomTag.propTypes = {
    */
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
-  icon: PropTypes.node,
+  Icon: PropTypes.func,
   onClose: PropTypes.func,
   /**
    * Will only be shown if the onClose fn is defined
    */
-  closeIcon: PropTypes.node,
+  CloseIcon: PropTypes.func,
   /**
    * If defined, onClose will be ignored
    */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  /**
+   * generates type of link
+   */
+  linkFactory: PropTypes.func,
+  /**
+   * Actionable tags can be used as an anchor. Same as <a> href
+   */
+  href: PropTypes.string,
+  /**
+   * To be used if href is defined
+   */
+  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+  /**
+   * Actionable tags can have iconPlacement='right'
+   */
+  iconPlacement: PropTypes.string
 }
 
 export default AtomTag

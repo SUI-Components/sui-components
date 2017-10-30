@@ -65,7 +65,8 @@ export default ListMasonry
 ListMasonry.displayName = 'ListMasonry'
 
 ListMasonry.defaultProps = {
-  onColumnsReady: () => {}
+  onColumnsReady: () => {},
+  onColumnsUpdated: () => {}
 }
 
 ListMasonry.propTypes = {

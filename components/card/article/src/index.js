@@ -50,7 +50,6 @@ export default function CardArticle ({
     'is-featured': featured
   })
   const MediaIcon = media.icon || MediaPlay
-
   return (
     <div className='sui-CardArticle'>
       <Link href={link} className='sui-CardArticle-link' title={title}>
@@ -64,7 +63,7 @@ export default function CardArticle ({
       </Link>
       <div className={cardInfoClassName}>
         <div className='sui-CardArticle-infoInner'>
-          <TagChip label={tag.text} link={tag.url} linkFactory={Link} className={suiTagClassName} />
+          <TagChip rel={tag.rel} label={tag.text} link={tag.url} linkFactory={Link} className={suiTagClassName} />
           {comments && _renderComments(comments, Link)}
         </div>
       </div>
@@ -129,7 +128,11 @@ CardArticle.propTypes = {
     /**
      * Tag type used to style it as desired.
      */
-    type: PropTypes.string
+    type: PropTypes.string,
+     /**
+     * Tag rel used to know if tag must be indexed
+     */
+    rel: PropTypes.string
   }),
   /**
    * Comments object.

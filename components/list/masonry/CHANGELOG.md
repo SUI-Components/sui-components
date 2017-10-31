@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2017-10-30)
+
+
+### Bug Fixes
+
+* add default prop ([92c3091](https://github.com/SUI-Components/sui-components/commit/92c3091))
+
+
+### Features
+
+* add new props oncolumnsready and oncolumnsupdated ([3cdc973](https://github.com/SUI-Components/sui-components/commit/3cdc973))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2017-10-09)
 

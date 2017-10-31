@@ -17,12 +17,13 @@ const preventDefaultHandler = handler => event =>
     handler.apply()
   )
 
-const TagChip = ({onRequestDelete, onClick, label, link: url, linkFactory, className, icon: Icon = CircleX} = {}) =>
+const TagChip = ({onRequestDelete, onClick, label, link: url, linkFactory, className, rel, icon: Icon = CircleX} = {}) =>
   <Tag
     onClick={preventDefaultHandler(onClick)}
     url={url}
     Link={linkFactory}
     className={tagChipClassName({isClickable: url || onClick, className})}
+    rel={rel}
     >
     {label}
     {onRequestDelete &&
@@ -58,12 +59,16 @@ TagChip.propTypes = {
   /**
    * Delete custom icon
    */
-  icon: PropTypes.func
+  icon: PropTypes.func,
+  /**
+   * tag rel
+   */
+  rel: PropTypes.string
 }
 
 TagChip.defaultProps = {
-  linkFactory: ({ href, className, children } = {}) =>
-    <a href={href} className={className}>{children}</a>
+  linkFactory: ({ children, ...rest } = {}) =>
+    <a {...rest}>{children}</a>
 }
 
 export default TagChip

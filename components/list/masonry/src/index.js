@@ -4,12 +4,12 @@ import cx from 'classnames'
 const DEFAULT_COLS = 1
 
 class ListMasonry extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {columns: DEFAULT_COLS}
+  state = {
+    columns: DEFAULT_COLS
   }
+
   componentDidMount () {
-    this._onResize()
+    this._onResize({ firstResize: true })
     window.addEventListener('resize', this._onResize)
   }
 
@@ -23,10 +23,13 @@ class ListMasonry extends React.Component {
     }, this.props.breakPoints.length) + 1
   }
 
-  _onResize = () => {
+  _onResize = ({ firstResize = false }) => {
+    const { onColumnsReady, onColumnsUpdated } = this.props
     const columns = this._getColumns(this.listMasonry.offsetWidth)
     if (columns !== this.state.columns) {
-      this.setState({columns})
+      this.setState({ columns }, () => {
+        if (firstResize) { onColumnsReady() } else { onColumnsUpdated() }
+      })
     }
   }
 
@@ -44,17 +47,14 @@ class ListMasonry extends React.Component {
 
   render () {
     const masonryClassName = cx('sui-ListMasonry', this.props.className)
+
     return (
-      <div className={masonryClassName} ref={node => (this.listMasonry = node)} >
-        {this._mapChildren().map((col, columnIndex) => {
-          return (
-            <div className='sui-ListMasonry-column' key={columnIndex} >
-              {col.map((child, index) => {
-                return <div key={index} >{child}</div>
-              })}
-            </div>
-          )
-        })}
+      <div className={masonryClassName} ref={node => (this.listMasonry = node)}>
+        {this._mapChildren().map((col, columnIndex) => (
+          <div className='sui-ListMasonry-column' key={columnIndex} >
+            {col.map((child, index) => <div key={index}>{child}</div>)}
+          </div>
+        ))}
       </div>
     )
   }
@@ -64,8 +64,15 @@ export default ListMasonry
 
 ListMasonry.displayName = 'ListMasonry'
 
+ListMasonry.defaultProps = {
+  onColumnsReady: () => {},
+  onColumnsUpdated: () => {}
+}
+
 ListMasonry.propTypes = {
   children: PropTypes.node.isRequired,
   breakPoints: PropTypes.array.isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
+  onColumnsReady: PropTypes.func,
+  onColumnsUpdated: PropTypes.func
 }

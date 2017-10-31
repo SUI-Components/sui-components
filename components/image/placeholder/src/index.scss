@@ -15,4 +15,8 @@ $c-image-placeholder-fill: $c-gray;
   svg {
     fill: $c-image-placeholder-fill;
   }
+
+  img {
+    width: 100%;
+  }
 }

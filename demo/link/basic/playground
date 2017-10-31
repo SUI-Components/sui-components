@@ -1,0 +1,120 @@
+const htmlLinks = {
+  bitcoin: { literal: 'Bitcoin', title: 'Link to Bitcoin', target: '_blank', url: 'https://bitcoin.org/es/' },
+  pound: { literal: 'British Pound', title: 'Link to British Pound', target: '_blank', url: 'https://en.wikipedia.org/wiki/Pound_(currency)' },
+  dollar: { literal: 'Dollar', title: 'Link to Dollar', target: '_blank', url: 'https://en.wikipedia.org/wiki/Dollar' },
+  euro: { literal: 'Euro', title: 'Link to Euro', target: '_blank', url: 'http://https://en.wikipedia.org/wiki/Euro' },
+  withClick: { literal: 'Previous click: never', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', handleClick: function (event) { event.target.innerText = `Previous click: ${new Date().toLocaleString()}`; event.preventDefault() } },
+  list: [
+    { literal: 'Alquiler de pisos en Madrid Capital', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+    { literal: 'Comprar pisos', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+    { literal: 'Comprar pisos en Santander', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+    { literal: 'Alquiler de apartamentos en Roquetas de mar', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+    { literal: 'Comprar pisos en Vitoria', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+    { literal: 'Alquiler de pisos en Murcia', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' }
+  ],
+  inlineList: [
+    { literal: 'Alquiler de pisos en Madrid Capital', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+    { literal: 'Comprar pisos', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+    { literal: 'Comprar pisos en Santander', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+    { literal: 'Alquiler de apartamentos en Roquetas de mar', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+    { literal: 'Comprar pisos en Vitoria', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+    { literal: 'Alquiler de pisos en Murcia', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' }
+  ],
+  noFollow: { literal: 'nofollow link', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', rel: 'noreferrer nofollow' }
+}
+
+const reactRouterLinks = {
+  single: { literal: 'Alquiler de pisos en Madrid Capital', title: 'Element title', target: '_parent', url: '/test' },
+  withClick: { literal: 'Previous click: never', title: 'Element title', target: '_parent', url: '/test', handleClick: function (event) { event.target.innerText = `Previous click: ${new Date().toLocaleString()}`; event.preventDefault() } },
+  list: [
+    { literal: 'Alquiler de pisos en Madrid Capital', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Comprar pisos', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Comprar pisos en Santander', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Alquiler de apartamentos en Roquetas de mar', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Comprar pisos en Vitoria', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Alquiler de pisos en Murcia', title: 'Element title', target: '_parent', url: '/test' }
+  ],
+  inlineList: [
+    { literal: 'Alquiler de pisos en Madrid Capital', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Comprar pisos', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Comprar pisos en Santander', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Alquiler de apartamentos en Roquetas de mar', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Comprar pisos en Vitoria', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Alquiler de pisos en Murcia', title: 'Element title', target: '_parent', url: '/test' }
+  ],
+  noFollow: { literal: 'nofollow link', title: 'Element title', target: '_parent', url: '/test', rel: 'nofollow' }
+}
+
+const disabledLinks = {
+  single: { literal: 'Alquiler de pisos en Madrid Capital', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+  withClick: { literal: 'Previous click: never', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', handleClick: function (event) { event.target.innerText = `Previous click: ${new Date().toLocaleString()}`; event.preventDefault() } },
+  list: [
+    { literal: 'Alquiler de pisos en Madrid Capital', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Comprar pisos', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Comprar pisos en Santander', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Alquiler de apartamentos en Roquetas de mar', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Comprar pisos en Vitoria', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Alquiler de pisos en Murcia', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' }
+  ],
+  inlineList: [
+    { literal: 'Alquiler de pisos en Madrid Capital', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Comprar pisos', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Comprar pisos en Santander', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Alquiler de apartamentos en Roquetas de mar', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Comprar pisos en Vitoria', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Alquiler de pisos en Murcia', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' }
+  ]
+}
+
+const Icon = () => (
+  <svg viewBox='0 0 40 40' width='16' height='16'>
+    <g><path d="m28.4 31.6v-3.2h3.2v6.6c0 1.8-1.4 3.4-3.2 3.4h-16.8c-1.8 0-3.2-1.6-3.2-3.4v-6.6h3.2v3.2h36.8z m-11.8-6.3l-2.3 2.4-7.7-7.7 7.7-7.7 2.3 2.4-5.2 5.3z m9.1 2.4l-2.3-2.4 5.2-5.3-5.2-5.3 2.3-2.4 7.7 7.7z m-14.1-19.3v3.2h-3.2v-6.6c0-1.8 1.4-3.4 3.2-3.4l16.8 0.1c1.8 0 3.2 1.5 3.2 3.3v6.6h-3.2v-3.2h-16.8z"/></g>
+  </svg>
+)
+
+return (
+  <div>
+    <LinkBasic {...htmlLinks.bitcoin}
+      icon={<Icon />} />
+    <LinkBasic {...htmlLinks.pound}
+      icon={<Icon />} />
+    <LinkBasic {...htmlLinks.dollar}
+      icon={<Icon />} />
+    <LinkBasic {...htmlLinks.euro}
+      icon={<Icon />} />
+
+    <h4>An html link with click</h4>
+    <LinkBasic {...htmlLinks.withClick} url={'#'} />
+    <LinkBasic {...htmlLinks.single} />
+    <h4>An html link with nofollow</h4>
+    <LinkBasic {...htmlLinks.noFollow} url={'#'} />
+
+    <div className='link-Group'>
+      <h3>React Router Links</h3>
+      <h4>A single react router link</h4>
+      <LinkBasic {...reactRouterLinks.single}
+        url={'/foo'}
+        useReactRouterLinks />
+      <h4>A react router link with click</h4>
+      <LinkBasic {...reactRouterLinks.withClick}
+        useReactRouterLinks
+        url={'#'} />
+      <h4>A single react router link whith nofollow</h4>
+      <LinkBasic {...reactRouterLinks.noFollow}
+        url={'/foo'}
+        useReactRouterLinks />
+    </div>
+
+    <div className='link-Group'>
+      <h3>Disabled Links</h3>
+      <h4>A single disabled link</h4>
+      <LinkBasic {...disabledLinks.single}
+        url={'http://google.com'}
+        disabled />
+      <h4>A disabled link with click</h4>
+      <LinkBasic {...disabledLinks.withClick}
+        disabled
+        url={'#'} />
+    </div>
+  </div>
+)

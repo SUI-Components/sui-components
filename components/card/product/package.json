@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-card-product",
-  "version": "1.3.0",
+  "version": "1.5.0",
   "description": "SUI Card Product",
   "main": "lib/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "dependencies": {
     "@schibstedspain/sui-svgiconset": "1",
     "@schibstedspain/sui-tag-chip": "1",
-    "@schibstedspain/sui-component-dependencies": "latest",
+    "@s-ui/component-dependencies": "1",
     "swiper": "3.4.1"
   }
 }

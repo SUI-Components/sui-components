@@ -1,0 +1,40 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$c-form-text-input-placeholder: $c-gray-light !default;
+$c-form-text-input-inner-text: $c-gray-dark !default;
+$fz-form-text-input-inner-text: $fz-m !default;
+$fw-form-text-input-inner-text: $fw-regular !default;
+$c-form-text-input-error-message: $c-error !default;
+$fz-form-text-input-error-message: $fz-m !default;
+$fw-form-text-input-error-message: $fw-regular !default;
+
+.sui-FormTextInput {
+  &-value {
+    @include input-placeholder {
+      color: $c-form-text-input-placeholder;
+      opacity: 1;
+    }
+    border: 0;
+    border-bottom: 1px solid $c-gray-light;
+    color: $c-form-text-input-inner-text;
+    font-size: $fz-form-text-input-inner-text;
+    font-weight: $fw-form-text-input-inner-text;
+    padding-bottom: $p-s;
+    white-space: nowrap;
+    width: 100%;
+
+    &:focus {
+      outline-width: 0;
+    }
+  }
+
+  &-errorMessage {
+    margin-top: $m-s;
+
+    &Label {
+      color: $c-form-text-input-error-message;
+      font-size: $fz-form-text-input-error-message;
+      font-weight: $fw-form-text-input-error-message;
+    }
+  }
+}

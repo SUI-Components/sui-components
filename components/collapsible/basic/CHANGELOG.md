@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2017-10-24)
+
+
+### Features
+
+* update this component to use in accordion collapsible component ([a017e59](https://github.com/SUI-Components/sui-components/commit/a017e59))
+
+
+
+<a name="1.7.0"></a>
+# 1.7.0 (2017-10-09)
+
+
+### Features
+
+* switch to s-ui/component-dependencies and sui-theme@8 ([e4cb549](https://github.com/SUI-Components/sui-components/commit/e4cb549))
+
+
+
+<a name="1.6.0"></a>
+# 1.6.0 (2017-10-05)
+
+
+### Features
+
+* merge changes to resolve conflict with master. ([102d7e1](https://github.com/SUI-Components/sui-components/commit/102d7e1))
+* remove default paddings. ([dfcaccf](https://github.com/SUI-Components/sui-components/commit/dfcaccf))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2017-10-02)
 
@@ -30,16 +61,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * add border variable. ([6168c85](https://github.com/SUI-Components/sui-components/commit/6168c85))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-09-12)
-
-
-### Features
-
-* collapsible/expandible component. ([bcb1277](https://github.com/SUI-Components/sui-components/commit/bcb1277))
 
 
 

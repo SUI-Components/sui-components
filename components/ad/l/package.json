@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-ad-l",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@schibstedspain/sui-component-dependencies": "latest",
+    "@s-ui/component-dependencies": "1",
     "postscribe": "2.0.8",
     "react-lazy-load": "3.0.10"
   }

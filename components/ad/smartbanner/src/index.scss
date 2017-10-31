@@ -1,5 +1,6 @@
-@import '~@schibstedspain/theme-basic/lib/index';
-
+// scss-lint:disable ImportantRule
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/index';
 .sui-AdSmartbanner {
   background-color: $bgc-ad-smartbanner;
   border-bottom: $bb-ad-smartbanner;
@@ -30,13 +31,13 @@
 
   &-text {
     font-size: $fz-s;
-    margin: 0;
+    margin: $m-ad-smartbanner-text;
   }
 
   &-button {
 
     &Install {
-      @include sui-button('primary')
+      @include sui-button('custom', $background-color: $bgc-ad-smartbanner-button-install)
     }
 
     &Close {
@@ -49,6 +50,15 @@
         width: $w-ad-smartbanner-button-close-icon;
       }
     }
+  }
+
+  &-rating {
+    padding: $p-ad-smartbanner-rating-container;
+
+    &Icon {
+        @include sui-icon--small;
+        fill: $c-ad-smartbanner-rating-icon !important;
+     }
   }
 
   &.is-visible {

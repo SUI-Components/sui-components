@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-title-basic",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@schibstedspain/sui-component-dependencies": "latest"
+    "@s-ui/component-dependencies": "1"
   },
   "keywords": [],
   "author": "",

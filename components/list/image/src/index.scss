@@ -1,4 +1,5 @@
-@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/index';
 @import '~@schibstedspain/sui-image-lazy-load/lib/index';
 
 $m-h-list-image-item-half-gutter: ceil($m-h-list-image-item-full-gutter / 2) !default;

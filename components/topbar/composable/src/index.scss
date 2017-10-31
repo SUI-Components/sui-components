@@ -1,0 +1,15 @@
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/index';
+@import './settings';
+@import './sui-topbar-composable-dropdown/sui-topbar-composable-dropdown';
+@import './sui-topbar-composable-dropdown-item/sui-topbar-composable-dropdown-item';
+
+.sui-Topbarmenu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sui-Topbarmenu-left,
+.sui-Topbarmenu-right {
+  display: flex;
+}

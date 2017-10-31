@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-cover-basic",
-  "version": "1.6.0",
+  "version": "1.8.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -9,8 +9,8 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@schibstedspain/sui-component-dependencies": "latest",
-    "@schibstedspain/sui-button-basic": "1.1"
+    "@s-ui/component-dependencies": "1",
+    "@schibstedspain/sui-button-basic": "1"
   },
   "keywords": [],
   "author": "",

@@ -1,4 +1,6 @@
-@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/sui-image-placeholder/lib/index';
 
 .sui-ThumbnailBasic {
   @include reset-basic;
@@ -8,12 +10,6 @@
   padding: $p-thumbnail-basic;
   position: relative;
   width: 100%;
-
-  &-image {
-    display: block;
-    vertical-align: bottom;
-    width: 100%;
-  }
 
   &-caption {
     @include reset-basic;
@@ -32,7 +28,7 @@
     width: 100%;
     word-wrap: break-word;
 
-    span {
+    &-text {
       display: block;
       padding: $p-thumbnail-basic-caption;
     }

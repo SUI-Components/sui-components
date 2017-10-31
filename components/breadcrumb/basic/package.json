@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-breadcrumb-basic",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "SUI Breadcrumb Basic",
   "main": "lib/index.js",
   "scripts": {
@@ -19,6 +19,6 @@
   "license": "ISC",
   "dependencies": {
     "@schibstedspain/sui-svgiconset": "1",
-    "@schibstedspain/sui-component-dependencies": "latest"
+    "@s-ui/component-dependencies": "1"
   }
 }

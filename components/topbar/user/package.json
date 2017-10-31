@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-topbar-user",
-  "version": "1.16.0",
+  "version": "1.19.0",
   "description": "SUI Topbar User",
   "main": "lib/index.js",
   "scripts": {
@@ -15,6 +15,6 @@
     "@schibstedspain/sui-dropdown-basic": "1",
     "@schibstedspain/sui-dropdown-user": "1",
     "@schibstedspain/sui-svgiconset": "1",
-    "@schibstedspain/sui-component-dependencies": "latest"
+    "@s-ui/component-dependencies": "1"
   }
 }

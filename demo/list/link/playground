@@ -1,0 +1,83 @@
+const htmlLinks = {
+  list: [
+    { literal: 'Alquiler de pisos en Madrid Capital', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+      { literal: 'Comprar pisos', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+        { literal: 'Comprar pisos en Santander', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+          { literal: 'Alquiler de apartamentos en Roquetas de mar', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+            { literal: 'Comprar pisos en Vitoria', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+              { literal: 'Alquiler de pisos en Murcia', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' }
+  ],
+  inlineList: [
+    { literal: 'Alquiler de pisos en Madrid Capital', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+    { literal: 'Comprar pisos', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+    { literal: 'Comprar pisos en Santander', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+    { literal: 'Alquiler de apartamentos en Roquetas de mar', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+    { literal: 'Comprar pisos en Vitoria', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' },
+    { literal: 'Alquiler de pisos en Murcia', title: 'Element title', target: '_parent', url: 'http://fotocasa.es' }
+  ],
+  noFollow: { literal: 'nofollow link', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', rel: 'noreferrer nofollow' }
+}
+
+const reactRouterLinks = {
+  list: [
+    { literal: 'Alquiler de pisos en Madrid Capital', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Comprar pisos', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Comprar pisos en Santander', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Alquiler de apartamentos en Roquetas de mar', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Comprar pisos en Vitoria', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Alquiler de pisos en Murcia', title: 'Element title', target: '_parent', url: '/test' }
+  ],
+  inlineList: [
+    { literal: 'Alquiler de pisos en Madrid Capital', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Comprar pisos', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Comprar pisos en Santander', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Alquiler de apartamentos en Roquetas de mar', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Comprar pisos en Vitoria', title: 'Element title', target: '_parent', url: '/test' },
+    { literal: 'Alquiler de pisos en Murcia', title: 'Element title', target: '_parent', url: '/test' }
+  ],
+  noFollow: { literal: 'nofollow link', title: 'Element title', target: '_parent', url: '/test', rel: 'nofollow' }
+}
+
+const disabledLinks = {
+  list: [
+    { literal: 'Alquiler de pisos en Madrid Capital', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Comprar pisos', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Comprar pisos en Santander', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Alquiler de apartamentos en Roquetas de mar', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Comprar pisos en Vitoria', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Alquiler de pisos en Murcia', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' }
+  ],
+  inlineList: [
+    { literal: 'Alquiler de pisos en Madrid Capital', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Comprar pisos', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Comprar pisos en Santander', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Alquiler de apartamentos en Roquetas de mar', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Comprar pisos en Vitoria', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' },
+    { literal: 'Alquiler de pisos en Murcia', title: 'Element title', target: '_parent', url: 'http://fotocasa.es', disabled: true, customclass: 'sui-Link-disabled' }
+  ]
+}
+
+return (
+  <div>
+    <h3>An html link with click</h3>
+    <h4>A list of html links</h4>
+    <ListLink list={htmlLinks.list} />
+    <h4>An inline list of html links</h4>
+    <ListLink
+      list={htmlLinks.inlineList}
+      displayInline />
+    <p style={{ color: 'red' }}>Keep in mind that React Router Links rendered outside of a router context cannot navigate.</p>
+    <h3>A list of react router links</h3>
+    <ListLink list={reactRouterLinks.list}
+      useReactRouterLinks />
+    <h4>An inline list of react router links</h4>
+    <ListLink list={reactRouterLinks.inlineList}
+      displayInline
+      useReactRouterLinks />
+    <h3>A list of disabled links</h3>
+    <ListLink list={disabledLinks.list} />
+    <h3>An inline list of disabled links</h3>
+    <ListLink list={disabledLinks.inlineList}
+      displayInline />
+  </div>
+)

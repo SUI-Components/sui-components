@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-dropdown-basic",
-  "version": "1.16.0",
+  "version": "1.21.0",
   "description": "SUI Dropdown Basic",
   "main": "lib/index.js",
   "scripts": {
@@ -13,6 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "@schibstedspain/sui-svgiconset": "1",
-    "@schibstedspain/sui-component-dependencies": "latest"
+    "@s-ui/component-dependencies": "1"
   }
 }

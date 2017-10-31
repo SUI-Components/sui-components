@@ -1,0 +1,22 @@
+.sui-DropdownMenuItem {
+  list-style-type: none;
+
+  .sui-Link {
+    display: block;
+    padding: 10px;
+  }
+
+  &--disabled {
+    opacity: .5;
+  }
+
+  &--active,
+  &--active > .sui-Link {
+    background-color: $c-gray;
+    color: $c-gray-light;
+  }
+
+  &:hover > .sui-Link {
+    cursor: pointer;
+  }
+}

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2017-10-31)
+
+
+### Bug Fixes
+
+* avoid to parse document global var by the server ([175b531](https://github.com/SUI-Components/sui-components/commit/175b531))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2017-10-31)
 
@@ -39,6 +49,23 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * support more browsers with expires ([90a3d24](https://github.com/SUI-Components/sui-components/commit/90a3d24))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2017-07-10)
+
+
+### Bug Fixes
+
+* addressing feedback ([45bf619](https://github.com/SUI-Components/sui-components/commit/45bf619))
+
+
+### Features
+
+* add more variables and some refactors ([729fa4d](https://github.com/SUI-Components/sui-components/commit/729fa4d))
+* add new cookie banner component ([9fff85a](https://github.com/SUI-Components/sui-components/commit/9fff85a))
+* use theme-basic variables ([433c14c](https://github.com/SUI-Components/sui-components/commit/433c14c))
 
 
 

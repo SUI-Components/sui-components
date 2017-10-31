@@ -4,7 +4,11 @@ import IconX from '@schibstedspain/sui-svgiconset/lib/X'
 const COOKIE_TTL = 31557600000
 
 class CookieBanner extends Component {
-  state = { hasAcceptedCookies: true, listeningScroll: false }
+  state = {
+    showCookieBanner: false,
+    hasAcceptedCookies: true,
+    listeningScroll: false
+  }
 
   _addScrollListener = () => {
     if (!this.state.hasAcceptedCookies && this.props.dismissOnScroll) {
@@ -67,7 +71,10 @@ class CookieBanner extends Component {
     // when mounting, to avoid showing the banner on the server, get the cookie
     const hasAcceptedCookies = this._getHasAcceptedCookie()
     // we set the state with the value, and add the scroll listener then if user hasn't accepted the cookies
-    this.setState({ hasAcceptedCookies }, this._addScrollListener)
+    this.setState({
+      hasAcceptedCookies,
+      showCookieBanner: true
+    }, this._addScrollListener)
   }
 
   componentWillUnmount () {
@@ -79,8 +86,9 @@ class CookieBanner extends Component {
   }
 
   render () {
+    const { showCookieBanner } = this.state
     const hasAcceptedCookies = this._getHasAcceptedCookie()
-    if (hasAcceptedCookies) {
+    if (hasAcceptedCookies || !showCookieBanner) {
       return null
     }
 

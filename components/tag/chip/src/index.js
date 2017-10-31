@@ -2,9 +2,9 @@ import React, {PropTypes} from 'react'
 import CircleX from '@schibstedspain/sui-svgiconset/lib/Circlex'
 import cx from 'classnames'
 
-const Tag = ({Link, children, url, rel, ...rest} = {}) => {
+const Tag = ({Link, children, url, ...rest} = {}) => {
   return url
-  ? <Link href={url} rel={rel} {...rest}>{children}</Link>
+  ? <Link href={url} {...rest}>{children}</Link>
   : <span {...rest}>{children}</span>
 }
 
@@ -19,13 +19,13 @@ const preventDefaultHandler = handler => event =>
     handler.apply()
   )
 
-const TagChip = ({onRequestDelete, onClick, label, link: url, linkFactory, className, rel, icon: Icon = CircleX} = {}) =>
+const TagChip = ({onRequestDelete, onClick, label, link: url, linkFactory, className, icon: Icon = CircleX, ...rest} = {}) =>
   <Tag
     onClick={preventDefaultHandler(onClick)}
     url={url}
     Link={linkFactory}
     className={tagChipClassName({isClickable: url || onClick, className})}
-    rel={rel}
+    {...rest}
     >
     {label}
     {onRequestDelete &&

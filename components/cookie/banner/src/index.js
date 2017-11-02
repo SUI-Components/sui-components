@@ -87,11 +87,9 @@ class CookieBanner extends Component {
 
   render () {
     const { showCookieBanner } = this.state
-    const hasAcceptedCookies = this._getHasAcceptedCookie()
-    if (hasAcceptedCookies || !showCookieBanner) {
+    if (!showCookieBanner || this._getHasAcceptedCookie()) {
       return null
     }
-
     const { cookiePolicy, iconClose, message } = this.props
 
     return (

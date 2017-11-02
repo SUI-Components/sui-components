@@ -1,23 +1,22 @@
-const placeholder= (
-  <img src="http://media.infojobs.net/appgrade/svgs/image-placeholder.svg" alt=""/>
-)
+const placeholder= {
+  src: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB2aWV3Qm94PSIwIDAgNTAwIDUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSI1MDAiIGZpbGw9IiM3NzciLz4KPC9zdmc+',
+  alt: 'placeholder'
+}
+
+const fallback= {
+  src: 'https://satyr.io/500',
+  alt: 'fallback'
+}
 
 return (
   <div>
-    <h2>SVG Placeholder</h2>
+    <h2>Placeholder</h2>
     <div style={{width: '20%'}}>
       <ImagePlaceholder
         src='https://satyr.io/1000?delay=3g'
         alt='Some alt'
         placeholder={placeholder}
-      />
-    </div>
-    <h2>Image Placeholder</h2>
-    <div style={{width: '20%'}}>
-      <ImagePlaceholder
-        src='https://satyr.io/1000?delay=3g'
-        alt='Some alt'
-        placeholder={<img src='https://satyr.io/100' width='100%'/>}
+        onLoad={() => console.log('custom onLoad')}
       />
     </div>
     <h2>Fallback example</h2>
@@ -25,8 +24,8 @@ return (
       <ImagePlaceholder
         src='http://404'
         alt='Some alt'
-        placeholder={<img src='https://satyr.io/10' />}
-        fallback={<img src='https://satyr.io/500' className='some-important-class' alt='Fallback alt' />}
+        placeholder={placeholder}
+        fallback={fallback}
       />
     </div>
     <h2>Error without Fallback example</h2>
@@ -35,6 +34,7 @@ return (
         src='http://404'
         alt='Some alt'
         placeholder={placeholder}
+        onError={() => console.log('custom onError')}
       />
     </div>
     <h2>Failing Fallback example</h2>
@@ -43,7 +43,10 @@ return (
         src='http://404'
         alt='Some alt'
         placeholder={placeholder}
-        fallback={<img src='https://404' alt='Fallback alt' />}
+        fallback={{
+          src: 'http://404',
+          alt: ''
+        }}
       />
     </div>
   </div>

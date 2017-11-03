@@ -5,7 +5,9 @@ class MapBasic extends Component {
   constructor (props) {
     super(props)
     this.map = this._createMapObject()
-    this._initLibraryInjection(props.libraries, props.appId, props.appCode)
+    this._setCurrentLoadedLibraries()
+    this._setCurrentLoadedStyles()
+    this._initLibraryInjection(props.libraries, props.appId, props.appCode, props.useCIT, props.useHTTPS)
     this._initStylesInjection(props.styles)
   }
 
@@ -19,59 +21,77 @@ class MapBasic extends Component {
     }
   }
 
+  _setCurrentLoadedStyles () {
+    this.currentStylesLoaded = Array.from(document.querySelectorAll('link')).map(style => style.href)
+  }
+
+  _setCurrentLoadedLibraries () {
+    this.currentLibrariesLoaded = Array.from(document.querySelectorAll('script')).map((library) => library.src)
+  }
+
+  _buildMapUIComponents () {
+    this.map.ui = window.H.ui.UI.createDefault(this.map.instance, this.map.defaultLayers)
+  }
+
+  _makeInteractive () {
+    this.map.behavior = new window.H.mapevents.Behavior(new window.H.mapevents.MapEvents(this.map.instance))
+  }
+
   _initStylesInjection (styles) {
-    const currentStylesLoaded = Array.from(document.querySelectorAll('link')).map(style => style.href)
     const stylesLength = styles.length
     const styleUrl = styles.shift()
 
-    if (!currentStylesLoaded.includes(styleUrl) && stylesLength) {
+    if (!this.currentStylesLoaded.includes(styleUrl) && stylesLength) {
       const link = document.createElement('link')
       link.href = styleUrl
       link.rel = 'stylesheet'
       link.type = 'text/css'
       document.body.appendChild(link)
+      this._initStylesInjection(styles)
+    } else if (stylesLength) {
+      this._initStylesInjection(styles)
     }
   }
 
-  _initLibraryInjection (libraries, appId, appCode) {
-    const currentLibrariesLoaded = Array.from(document.querySelectorAll('script')).map((library) => library.src)
+  _initLibraryInjection (libraries, appId, appCode, useCIT, useHTTPS) {
     const libraryLength = libraries.length
     const libraryUrl = libraries.shift()
 
-    if (!currentLibrariesLoaded.includes(libraryUrl) && libraryLength) {
+    if (!this.currentLibrariesLoaded.includes(libraryUrl) && libraryLength) {
       const script = document.createElement('script')
       script.src = libraryUrl
-      script.onload = () => this._initLibraryInjection(libraries, appId, appCode)
+      script.onload = () => this._initLibraryInjection(libraries, appId, appCode, useCIT, useHTTPS)
       document.body.appendChild(script)
     } else if (!libraryLength) {
-      this._initHerePlatform(appId, appCode)
+      this._initHerePlatform(appId, appCode, useCIT, useHTTPS)
     } else {
-      this._initLibraryInjection(libraries, appId, appCode)
+      this._initLibraryInjection(libraries, appId, appCode, useCIT, useHTTPS)
     }
   }
 
-  _initHerePlatform (appId, appCode) {
+  _initHerePlatform (appId, appCode, useCIT, useHTTPS) {
     this.map.platform = new window.H.service.Platform({
+      useCIT,
+      useHTTPS,
       app_id: appId,
       app_code: appCode,
-      useCIT: true,
-      useHTTPS: true
+
     })
     this.map.defaultLayers = this.map.platform.createDefaultLayers()
     this._renderHereMap()
   }
 
   _renderHereMap () {
-    if (this._buildMapInstance()) {
+    const map = this._buildMapInstance()
+    if (map) {
       this.props.isInteractive && this._makeInteractive()
-      this.props.isInteractive && this._createMapUIComponents()
+      this.props.isInteractive && this._buildMapUIComponents()
       this.props.marker && this._buildMarkers()
       this.props.circleShape && this._buildCircleShape()
     }
   }
 
   _buildMarkers () {
-// Create an icon object, an object with geographic coordinates and a marker:
     const generalIcon = new window.H.map.DomIcon(this.props.marker.genericIcon)
     this.props.marker.elements.forEach(element => {
       const icon = element.icon ? new window.H.map.DomIcon(element.icon) : generalIcon
@@ -91,7 +111,6 @@ class MapBasic extends Component {
 
   _buildMapInstance () {
     const DOMElementToBeFilled = document.getElementById('sui-here-map')
-
     if (DOMElementToBeFilled) {
       this.map.instance = new window.H.Map(
         DOMElementToBeFilled,
@@ -101,14 +120,6 @@ class MapBasic extends Component {
     }
 
     return this.map.instance
-  }
-
-  _createMapUIComponents () {
-    this.map.ui = window.H.ui.UI.createDefault(this.map.instance, this.map.defaultLayers)
-  }
-
-  _makeInteractive () {
-    this.map.behavior = new window.H.mapevents.Behavior(new window.H.mapevents.MapEvents(this.map.instance))
   }
 
   componentDidMount () {
@@ -152,6 +163,15 @@ MapBasic.propTypes = {
    * If is a interactable map (drag, zoom)... With this enabled the UI will be automatically loaded
    */
   isInteractive: PropTypes.bool,
+  /**
+   * Use CIT ONLY SHOULD BE ENABLED if we are going to use a customer integration testing app id and app code
+   * More info about CIT here https://developer.here.com/documentation/venue-maps/topics/request-cit-environment.html
+   */
+  useCIT: PropTypes.bool,
+  /**
+   * Enables or disables HTTPS communication with the platform.
+   */
+  useHTTPS: PropTypes.bool,
   /**
    * An object with the definiton of our markers. The icons could be a PLAIN STRING SVG definition or a path to an svg or image.
    * Accepts an array of positions to position multiple markers on the map asswell as a custom icon on each marker position.
@@ -199,7 +219,9 @@ MapBasic.propTypes = {
 
 MapBasic.defaultProps = {
   libraries: ['http://js.api.here.com/v3/3.0/mapsjs-core.js', 'http://js.api.here.com/v3/3.0/mapsjs-service.js', 'https://js.cit.api.here.com/v3/3.0/mapsjs-ui.js', 'https://js.cit.api.here.com/v3/3.0/mapsjs-mapevents.js'],
-  styles: ['https://js.cit.api.here.com/v3/3.0/mapsjs-ui.css']
+  styles: ['https://js.cit.api.here.com/v3/3.0/mapsjs-ui.css'],
+  useCIT: false,
+  useHTTPS: true
 }
 
 export default MapBasic

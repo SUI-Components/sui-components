@@ -4,6 +4,9 @@ return (<div style={{ width: '50%', height: '400px' }}>
     appId={"DemoAppId01082013GAL"}
     options={{ zoom: 17, center: {lat: 41.493826, lng: 2.074766} }}
     appCode={"AJKnXv84fjrb0KIHawS0Tg"}
+    //ONLY FOR TESTING PURPOSES DON'T USE THAT ON ANY VERTICAL!!!
+    useCIT={true}
+    /////////////////////////////////////////////////////////////
     marker= {{
         genericIcon: '<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"> <rect stroke="white" fill="#1b468d" x="1" y="1" width="22" height="22" /> <text x="12" y="18" font-size="12pt" font-family="Arial" font-weight="bold" text-anchor="middle"  fill="white">H</text> </svg>',
         elements: [

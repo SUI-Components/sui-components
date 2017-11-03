@@ -4,7 +4,7 @@ $c-AtomBadge: $c-black !default;
 $c-contrast-AtomBadge: $c-white !default;
 $bdrs-AtomBadge: $bdrs-m !default;
 
-$tags: success $c-success ,error  $c-error, alert $c-alert, info $c-gray;
+$tags: success $c-success, error $c-error, alert $c-alert, info $c-gray;
 
 .sui-AtomBadge {
   border-radius: $bdrs-AtomBadge;
@@ -33,7 +33,7 @@ $tags: success $c-success ,error  $c-error, alert $c-alert, info $c-gray;
   [class$='icon'] {
     @include sui-icon--small;
     display: inline-block;
-    margin-right: $p-s;
+    margin-right: $m-s;
     vertical-align: middle;
   }
 
@@ -42,20 +42,19 @@ $tags: success $c-success ,error  $c-error, alert $c-alert, info $c-gray;
   }
 
   @each $tags-type in $tags {
+    $type: nth($tags-type, 1);
+    $color: nth($tags-type, 2);
 
-    $key: nth($tags-type, 1);
-    $value: nth($tags-type, 2);
-
-    &-#{$key} {
-      background-color: $value;
-      color: $c-contrast-AtomBadge ;
-      fill: $c-contrast-AtomBadge ;
+    &-#{$type} {
+      background-color: $color;
+      color: $c-contrast-AtomBadge;
+      fill: $c-contrast-AtomBadge;
     }
 
-    &-#{$key}--transparent {
+    &-#{$type}--transparent {
       background-color: transparent;
-      color: $value;
-      fill: $value;
+      color: $color;
+      fill: $color;
     }
 
   }

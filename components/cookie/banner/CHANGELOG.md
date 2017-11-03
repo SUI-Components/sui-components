@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2017-10-31)
+
+
+### Bug Fixes
+
+* avoid to parse document global var by the server ([175b531](https://github.com/SUI-Components/sui-components/commit/175b531))
+
+
+
+<a name="1.5.0"></a>
+# 1.5.0 (2017-10-31)
+
+
+### Bug Fixes
+
+* make cookie banner to work only in server side ([8031bf9](https://github.com/SUI-Components/sui-components/commit/8031bf9))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2017-10-09)
 

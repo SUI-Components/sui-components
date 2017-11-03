@@ -1,121 +1,110 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-class AtomBadge extends Component {
-  /**
-   * @type {String}
-   */
-  static TRANSPARENT = 'transparent'
-  /**
-   * @type {Object}
-   */
-  static TYPE = {
-    ALERT: 'alert',
-    ERROR: 'error',
-    INFO: 'info',
-    SUCCESS: 'success',
-    DEFAULT: 'success'
-  }
+const MAX_LABEL_LENGTH = 100
+const TRANSPARENT = 'transparent'
+const TYPE = {
+  ALERT: 'alert',
+  ERROR: 'error',
+  INFO: 'info',
+  SUCCESS: 'success',
+  DEFAULT: 'success'
+}
+const SIZE = {
+  LARGE: 'large',
+  SMALL: 'small',
+  DEFAULT: 'small'
+}
 
-  /**
-   * @type {Object}
-   */
-  static SIZE = {
-    LARGE: 'large',
-    SMALL: 'small',
-    DEFAULT: 'small'
-  }
+/**
+ * Cuts off exceeded char limit
+ * @param  {string} label
+ * @return {string}
+*/
+const truncateText = function (label) {
+  return label.length < MAX_LABEL_LENGTH
+    ? label
+    : label.substr(0, MAX_LABEL_LENGTH)
+}
 
-  /**
-   * Cuts off exceeded char limit
-   * @param  {string} label
-   * @return {string}
-  */
-  _truncate (label) {
-    return label.length < AtomBadge.MAX_LABEL_LENGTH
-      ? label
-      : label.substr(0, AtomBadge.MAX_LABEL_LENGTH)
-  }
+/**
+ * @param  {boolean} options.success
+ * @param  {boolean} options.alert
+ * @param  {boolean} options.error
+ * @param  {boolean} options.info
+ * @return {string}
+ */
+const getType = function ({success, alert, error, info}) {
+  return (error && TYPE.ERROR) ||
+   (alert && TYPE.ALERT) ||
+   (success && TYPE.SUCCESS) ||
+   (info && TYPE.INFO) ||
+   TYPE.DEFAULT
+}
 
-  /**
-   * @param  {boolean} options.success
-   * @param  {boolean} options.alert
-   * @param  {boolean} options.error
-   * @param  {boolean} options.info
-   * @return {string}
-   */
-  _type ({success, alert, error, info}) {
-    return (error && AtomBadge.TYPE.ERROR) ||
-      (alert && AtomBadge.TYPE.ALERT) ||
-      (success && AtomBadge.TYPE.SUCCESS) ||
-      (info && AtomBadge.TYPE.INFO) ||
-      AtomBadge.TYPE.DEFAULT
-  }
+/**
+ * @param  {boolean=} options.small
+ * @param  {boolean=} options.large
+ * @return {string}
+ */
+const getSize = function ({small, large}) {
+  return (small && SIZE.SMALL) ||
+    (large && SIZE.LARGE) ||
+    SIZE.DEFAULT
+}
 
-  /**
-   * @param  {boolean=} options.small
-   * @param  {boolean=} options.large
-   * @return {string}
-   */
-  _size ({small, large}) {
-    return (small && AtomBadge.SIZE.SMALL) ||
-      (large && AtomBadge.SIZE.LARGE) ||
-      AtomBadge.SIZE.DEFAULT
-  }
+/**
+ * @param  {string} options.className
+ * @param  {string} options.size
+ * @param  {boolean} options.transparent
+ * @param  {string} options.type
+ * @return {string}
+ */
+const getClassNames = function ({className, size, transparent, type}) {
+  const transparentClass = (transparent && `--${TRANSPARENT}`) || ''
 
-  /**
-   * @param  {string} options.className
-   * @param  {string} options.size
-   * @param  {boolean} options.transparent
-   * @param  {string} options.type
-   * @return {string}
-   */
-  _classNames ({className, size, transparent, type}) {
-    const transparentClass = (transparent && `--${AtomBadge.TRANSPARENT}`) || ''
+  return cx(
+   'sui-AtomBadge',
+   `sui-AtomBadge-${size}`,
+   `sui-AtomBadge-${type}${transparentClass}`,
+   className
+  )
+}
 
-    return cx(
-      'sui-AtomBadge',
-      `sui-AtomBadge-${size}`,
-      `sui-AtomBadge-${type}${transparentClass}`,
-      className
-    )
-  }
+/**
+ * Small badges with background can't have icon
+ * @param  {Object} options.icon
+ * @param  {string} options.size
+ * @param  {boolean} options.transparent
+ * @return {boolean}
+*/
+const shouldRenderIcon = function ({icon, size, transparent}) {
+  return icon && (size !== SIZE.SMALL || transparent)
+}
 
-  /**
-   * Small badges with background can't have icon
-   * @param  {Object} options.icon
-   * @param  {string} options.size
-   * @param  {boolean} options.transparent
-   * @return {boolean}
-   */
-  _shouldRenderIcon ({icon, size, transparent}) {
-    return icon && (size !== AtomBadge.SIZE.SMALL || transparent)
-  }
+const AtomBadge = function (props) {
+  const label = truncateText(props.label)
+  const size = getSize(props)
+  const classNames = getClassNames({
+    ...props,
+    type: getType(props),
+    size
+  })
 
-  render () {
-    const {icon, label} = this.props
-    const size = this._size(this.props)
-    const classNames = this._classNames({
-      ...this.props,
-      type: this._type(this.props),
-      size
-    })
-
-    return (
-      <div className={classNames}>
-        {
-          this._shouldRenderIcon(this.props) &&
-            <span className='sui-AtomBadge-icon'>
-              { icon }
-            </span>
-        }
-        <span className='sui-AtomBadge-text' title={label}>
-          {label}
-        </span>
-      </div>
-    )
-  }
+  return (
+    <div className={classNames}>
+      {
+        shouldRenderIcon(props) &&
+          <span className='sui-AtomBadge-icon'>
+            { props.icon }
+          </span>
+      }
+      <span className='sui-AtomBadge-text' title={label}>
+        {label}
+      </span>
+    </div>
+  )
 }
 
 AtomBadge.displayName = 'AtomBadge'

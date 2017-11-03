@@ -5,8 +5,7 @@ import ActionableTagContainer from './Container'
 
 const RIGHT_ICON_PLACEMENT = 'right'
 
-const getClassNames = function () {
-  const {className} = this.props
+const getClassNames = function ({className}) {
   return classnames(
     'sui-AtomTag-actionable',
     className
@@ -20,10 +19,11 @@ const ActionableTag = function ({
   label,
   onClick,
   target,
-  linkFactory
+  linkFactory,
+  className
 }) {
   return (
-    <ActionableTagContainer className={getClassNames}
+    <ActionableTagContainer className={getClassNames({className})}
       Link={linkFactory}
       onClick={(ev) => onClick(ev)}
       href={href}

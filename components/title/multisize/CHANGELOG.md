@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2017-11-06)
+
+
+### Features
+
+* Bump version ([6a3a115](https://github.com/SUI-Components/sui-components/commit/6a3a115))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2017-10-23)
 
@@ -18,6 +28,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+* migrate to PropTypes package ([dad35a1](https://github.com/SUI-Components/sui-components/commit/dad35a1))
 * switch to s-ui/component-dependencies and sui-theme@8 ([788c2a5](https://github.com/SUI-Components/sui-components/commit/788c2a5))
 
 
@@ -39,20 +50,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * customise title orientation, add new title sizes. ([7bc1a8f](https://github.com/SUI-Components/sui-components/commit/7bc1a8f))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-08-01)
-
-
-### Features
-
-* add support to different title sizes (not fixed anymore). Adapt scss variable ([3c8295d](https://github.com/SUI-Components/sui-components/commit/3c8295d))
-* define const for title sizes. Minor comment changes. ([7cde229](https://github.com/SUI-Components/sui-components/commit/7cde229))
-* first version of multisize title component which supports up to 3 different t ([3f3f12f](https://github.com/SUI-Components/sui-components/commit/3f3f12f))
-* rename local function. Remove sass variables (moved to theme-basic). ([f6a6876](https://github.com/SUI-Components/sui-components/commit/f6a6876))
-* select HTML tag for size from a TAG_FOR_SIZE object mapper. ([9ed6b5a](https://github.com/SUI-Components/sui-components/commit/9ed6b5a))
 
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-list-tagcloud",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "SUI TagCloud",
   "main": "lib/index.js",
   "scripts": {

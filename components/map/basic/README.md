@@ -16,9 +16,9 @@ $ npm install @schibstedspain/sui-map-basic --save
 Let's suppose that you wan't a map with an interactive behavior, what properties should I need?
 
 ```js
-import ButtonShare from '@schibstedspain/sui-button-share'
+import MapBasic from '@schibstedspain/sui-map-basic'
 
-return (<ButtonShare appId={"<HERE APP_ID>"}
+return (<MapBasic appId={"<HERE APP_ID>"}
                      appCode={"<HERE APP_CODE>"}
                      options={{ zoom: 17, center: {lat: 41.493826, lng: 2.074766} }}
         />)
@@ -29,9 +29,9 @@ return (<ButtonShare appId={"<HERE APP_ID>"}
 And now I want a map interactable you can do that adding the isInteractive flag:
 
 ```js
-import ButtonShare from '@schibstedspain/sui-button-share'
+import MapBasic from '@schibstedspain/sui-map-basic'
 
-return (<ButtonShare appId={"<HERE APP_ID>"}
+return (<MapBasic appId={"<HERE APP_ID>"}
                      appCode={"<HERE APP_CODE>"}
                      isInteractive
                      options={{ zoom: 17, center: {lat: 41.493826, lng: 2.074766} }}
@@ -43,9 +43,9 @@ return (<ButtonShare appId={"<HERE APP_ID>"}
 What about put a marker on our map? This case is a bit special because the svg icon definition should be added as a STRING. Sadly this is a HERE map API behavior
 
 ```js
-import ButtonShare from '@schibstedspain/sui-button-share'
+import MapBasic from '@schibstedspain/sui-map-basic'
 
-return (<ButtonShare appId={"<HERE APP_ID>"}
+return (<MapBasic appId={"<HERE APP_ID>"}
                      appCode={"<HERE APP_CODE>"}
                      options={{ zoom: 17, center: {lat: 41.493826, lng: 2.074766} }}
                      marker={{

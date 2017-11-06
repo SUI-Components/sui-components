@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2017-11-06)
+
+
+### Features
+
+* update callback performance after insert a date ([034c857](https://github.com/SUI-Components/sui-components/commit/034c857))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2017-10-31)
 

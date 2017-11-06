@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2017-11-06)
+
+
+### Features
+
+* bump react-lazy-load@3.0.12 ([f679728](https://github.com/SUI-Components/sui-components/commit/f679728))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2017-11-06)
 
@@ -60,6 +70,18 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * fix copy script & added optional prop type ([190637c](https://github.com/SUI-Components/sui-components/commit/190637c))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2017-03-09)
+
+
+### Features
+
+* add new spinner ([17f1c57](https://github.com/SUI-Components/sui-components/commit/17f1c57))
+* first commit ([2e85878](https://github.com/SUI-Components/sui-components/commit/2e85878))
+* modify spinner dependency ([b6aeb60](https://github.com/SUI-Components/sui-components/commit/b6aeb60))
 
 
 

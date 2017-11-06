@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-tooltip-basic",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "SUI tooltip basic",
   "main": "lib/index.js",
   "scripts": {

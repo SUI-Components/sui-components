@@ -2,12 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.13.0"></a>
+# 1.13.0 (2017-11-06)
+
+
+### Features
+
+* Bump version ([51eb931](https://github.com/SUI-Components/sui-components/commit/51eb931))
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2017-10-09)
 
 
 ### Features
 
+* Migrate to PropTypes package ([a77f390](https://github.com/SUI-Components/sui-components/commit/a77f390))
 * switch to s-ui/component-dependencies and sui-theme@8 ([4424ae0](https://github.com/SUI-Components/sui-components/commit/4424ae0))
 
 
@@ -108,16 +119,6 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * rename classnames ([a17427a](https://github.com/SUI-Components/sui-components/commit/a17427a))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-01-25)
-
-
-### Features
-
-* adding ad component ([2173f12](https://github.com/SUI-Components/sui-components/commit/2173f12))
 
 
 

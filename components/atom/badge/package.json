@@ -9,8 +9,7 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "latest",
-    "@schibstedspain/sui-theme": "8"
+    "@s-ui/component-dependencies": "latest"
   },
   "keywords": [],
   "author": "",

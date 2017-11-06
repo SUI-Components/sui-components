@@ -1,55 +1,15 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import ImagePlaceholder from '@schibstedspain/sui-image-placeholder'
+import Thumbnail from './Thumbnail'
 
-class ThumbnailBasic extends Component {
-  static BASE_CLASS = 'sui-ThumbnailBasic'
-  static IMAGE_CLASS = 'sui-ThumbnailBasic-image'
-  static CAPTION_CLASS = 'sui-ThumbnailBasic-caption'
-  static CAPTION_TEXT_CLASS = 'sui-ThumbnailBasic-caption-text'
-
-  get _imagePlaceholderProps () {
-    const props = Object.assign(
-      {},
-      this.props
-    )
-
-    delete props.captionText
-    delete props.link
-    delete props.target
-    delete props.href
-    return props
-  }
-
-  get _figure () {
-    const {captionText} = this.props
-    return (
-      <figure className={ThumbnailBasic.BASE_CLASS}>
-        <ImagePlaceholder
-          {...this._imagePlaceholderProps}
-        />
-        {
-          captionText &&
-            <figcaption className={ThumbnailBasic.CAPTION_CLASS}>
-              <div className={ThumbnailBasic.CAPTION_TEXT_CLASS}>
-                {captionText}
-              </div>
-            </figcaption>
-        }
-      </figure>
-    )
-  }
-
-  render () {
-    const {href, target} = this.props
-
-    return href ? (
+const ThumbnailBasic = function ({href, target, ...thumbnailProps}) {
+  return href
+    ? (
       <a href={href} target={target}>
-        {this._figure}
+        <Thumbnail {...thumbnailProps} />
       </a>
     )
-    : this._figure
-  }
+    : <Thumbnail {...thumbnailProps} />
 }
 
 ThumbnailBasic.displayName = 'ThumbnailBasic'
@@ -68,19 +28,19 @@ ThumbnailBasic.propTypes = {
    */
   captionText: PropTypes.string,
   /**
-   * Node to be shown until the image loads
+   * Img props to be shown until the image loads
    */
-  placeholder: PropTypes.node,
+  placeholder: PropTypes.object,
   /**
-   * Node to be shown if the image fails loading
+   * Img props to be shown if the image fails loading
    */
-  fallback: PropTypes.node,
+  fallback: PropTypes.object,
   /**
    * Anchor link
    */
   href: PropTypes.string,
   /**
-   * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
+   * https://www.w3.org/wiki/HTML/Elements/a
    */
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
 }

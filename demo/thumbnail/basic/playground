@@ -1,15 +1,14 @@
-const placeholder= (
-  <svg viewBox="0 0 1 1">
-    <rect width="100%" height="100%" />
-  </svg>
-)
+const placeholder= {
+  src: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB2aWV3Qm94PSIwIDAgNTAwIDUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSI1MDAiIGZpbGw9IiM3NzciLz4KPC9zdmc+',
+  alt: 'placeholder'
+}
 
 return (
   <div>
     <h2>Thumbnail basic</h2>
     <div style={{width: '20%'}}>
       <ThumbnailBasic
-        src='https://satyr.io/1000?delay=3g'
+        src=''
         alt='Some alt'
         href='https://someLink'
         target='_blank'
@@ -24,9 +23,10 @@ return (
         alt='Some alt'
         captionText='Show!'
         placeholder={placeholder}
-        fallback={
-          <img src='https://satyr.io/500' alt='Fallback alt' />
-        }
+        fallback={{
+          src: 'https://satyr.io/500',
+          alt: 'Fallback alt'
+        }}
       />
     </div>
   </div>

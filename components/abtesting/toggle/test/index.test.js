@@ -1,7 +1,10 @@
 /* eslint-env jest */
 import React from 'react'
-import { render } from 'enzyme'
+import Enzyme, { render } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 import AbTestToggle from '../src/index'
+
+Enzyme.configure({ adapter: new Adapter() })
 
 describe('<AbTestToggle />', () => {
   const variations = [
@@ -13,16 +16,16 @@ describe('<AbTestToggle />', () => {
 
   it('should render corresponding variation when variation IS defined', () => {
     const component = <AbTestToggle variation='B'>{variations}</AbTestToggle>
-    expect(render(component).html()).toEqual('<button>Blue Button (B)</button>')
+    expect(render(component).html()).toEqual('Blue Button (B)')
   })
 
   it('should render default variation when variation IS NOT defined', () => {
     const component = <AbTestToggle>{variations}</AbTestToggle>
-    expect(render(component).html()).toEqual('<button>Black Button</button>')
+    expect(render(component).html()).toEqual('Black Button')
   })
 
   it('should render nothing when variation IS defined but doesn\'t exist', () => {
     const component = <AbTestToggle variation='D'>{variations}</AbTestToggle>
-    expect(render(component).html()).toEqual('')
+    expect(render(component).html()).toEqual(null)
   })
 })

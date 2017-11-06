@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import Swiper from 'swiper'
 import Chevronleft from '@schibstedspain/sui-svgiconset/lib/Chevronleft'
 import Chevronright from '@schibstedspain/sui-svgiconset/lib/Chevronright'

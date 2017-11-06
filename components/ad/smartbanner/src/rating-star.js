@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import IconStarFullDefault from '@schibstedspain/sui-svgiconset/lib/Star'
 import IconStarHalfDefault from '@schibstedspain/sui-svgiconset/lib/Starhalf'
 import IconStarEmptyDefault from '@schibstedspain/sui-svgiconset/lib/Starempty'

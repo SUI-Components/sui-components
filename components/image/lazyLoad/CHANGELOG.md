@@ -2,12 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2017-11-06)
+
+
+### Features
+
+* Bump version ([ca37ee7](https://github.com/SUI-Components/sui-components/commit/ca37ee7))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2017-10-09)
 
 
 ### Features
 
+* migrate to PropTypes package ([2e90070](https://github.com/SUI-Components/sui-components/commit/2e90070))
 * switch to s-ui/component-dependencies and sui-theme@8 ([a9df35c](https://github.com/SUI-Components/sui-components/commit/a9df35c))
 
 
@@ -39,18 +50,6 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * fix copy script & added optional prop type ([190637c](https://github.com/SUI-Components/sui-components/commit/190637c))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-03-09)
-
-
-### Features
-
-* add new spinner ([17f1c57](https://github.com/SUI-Components/sui-components/commit/17f1c57))
-* first commit ([2e85878](https://github.com/SUI-Components/sui-components/commit/2e85878))
-* modify spinner dependency ([b6aeb60](https://github.com/SUI-Components/sui-components/commit/b6aeb60))
 
 
 

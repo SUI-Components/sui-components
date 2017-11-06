@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2017-11-06)
+
+
+### Features
+
+* Bump version ([2d227bd](https://github.com/SUI-Components/sui-components/commit/2d227bd))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2017-10-26)
 
@@ -19,6 +29,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+* migrate to PropTypes package ([84addce](https://github.com/SUI-Components/sui-components/commit/84addce))
 * switch to s-ui/component-dependencies and sui-theme@8 ([fe6f900](https://github.com/SUI-Components/sui-components/commit/fe6f900))
 
 

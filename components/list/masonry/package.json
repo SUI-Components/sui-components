@@ -1,9 +1,10 @@
 {
   "name": "@schibstedspain/sui-list-masonry",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
+    "babel": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
     "build": "rm -Rf ./lib && mkdir -p ./lib && npm run build:js && npm run build:styles",
     "build:js": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"

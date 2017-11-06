@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
+import {filterObjectKeys} from './libs'
 
 class ImagePlaceholder extends Component {
   static IMAGE_CLASS = 'sui-ImagePlaceholder-image'
@@ -24,25 +25,6 @@ class ImagePlaceholder extends Component {
     this.props.onError && this.props.onError()
   }
 
-  /**
-   * Clones a component updating its props
-   * @param {Object} component
-   * @return {Object}
-   */
-  _clone (component) {
-    const props = Object.assign(
-      {},
-      component.props,
-      {
-        className: `${this._imageClasses} ${component.props.className}`,
-        onLoad: this.onLoad,
-        onError: this.onError
-      }
-    )
-
-    return React.cloneElement(component, props)
-  }
-
   get _classNames () {
     return classnames(
       'sui-ImagePlaceholder',
@@ -50,7 +32,7 @@ class ImagePlaceholder extends Component {
     )
   }
 
-  get _imageClasses () {
+  get _imageClassNames () {
     return classnames(
       ImagePlaceholder.IMAGE_CLASS,
       this.state.imageLoaded || `${ImagePlaceholder.IMAGE_CLASS}--hidden`
@@ -58,31 +40,38 @@ class ImagePlaceholder extends Component {
   }
 
   get _imageProps () {
-    let props = Object.assign(
-      {},
-      this.props
+    const imageProps = Object.keys(htmlImgProps)
+    return filterObjectKeys(this.props, imageProps)
+  }
+
+  _renderPlaceholder () {
+    return (
+      <img {...this.props.placeholder} />
     )
-
-    delete props.fallback
-    delete props.placeholder
-    delete props.className
-
-    return props
   }
 
   /**
-   * In case the src could not be loaded, we need to add the placeholder classes to the
-   * fallback. As those props are readonly, we clone the component setting the before
-   * mentioned classes
+   * onLoad & onError are intercepted as we need the state handling functions
+   * to do our magic
    */
+  _renderFallback () {
+    return (
+      <img className={this._imageClassNames}
+        onLoad={() => this.onLoad()}
+        onError={() => this.onError()}
+        {...this.props.fallback}
+      />
+    )
+  }
+
   render () {
     return (
       <div className={this._classNames}>
         {
           this.state.error
-            ? this.props.fallback && this._clone(this.props.fallback)
+            ? this.props.fallback && this._renderFallback()
             : (
-              <img className={this._imageClasses}
+              <img className={this._imageClassNames}
                 onLoad={() => this.onLoad()}
                 onError={() => this.onError()}
                 {...this._imageProps}
@@ -90,7 +79,7 @@ class ImagePlaceholder extends Component {
             )
         }
         {
-          this.state.imageLoaded || this.props.placeholder
+          this.state.imageLoaded || this._renderPlaceholder()
         }
       </div>
     )
@@ -100,70 +89,44 @@ class ImagePlaceholder extends Component {
 ImagePlaceholder.displayName = 'ImagePlaceholder'
 
 /**
- * Most props are the <img> props, https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
+ * <img> props, https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
  */
+const htmlImgProps = {
+  alt: PropTypes.string.isRequired,
+  crossorigin: PropTypes.string,
+  height: PropTypes.string,
+  ismap: PropTypes.bool,
+  longdesc: PropTypes.string,
+  referrerpolicy: PropTypes.string,
+  sizes: PropTypes.string,
+  src: PropTypes.string.isRequired,
+  srcset: PropTypes.string,
+  usemap: PropTypes.string,
+  width: PropTypes.string
+}
+
 ImagePlaceholder.propTypes = {
   className: PropTypes.string,
   /**
-   * To be shown until 'image' is loaded
+   * To be shown until the src prop is loaded
    */
-  placeholder: PropTypes.node,
+  placeholder: PropTypes.shape(htmlImgProps).isRequired,
   /**
-   * Image to be loaded in case 'image' does not load
+   * Image to be loaded in case the src prop does not load
    */
-  fallback: PropTypes.node,
+  fallback: PropTypes.shape(htmlImgProps),
   /**
-   * <img> property
-   */
-  src: PropTypes.string.isRequired,
-  /**
-   * <img> property
-   */
-  alt: PropTypes.string.isRequired,
-  /**
-   * <img> property
-   */
-  onLoad: PropTypes.func,
-  /**
-   * <img> property
+   * Image property but intercepted by the component in order to do its magic
    */
   onError: PropTypes.func,
   /**
-   * <img> property
+   * Image property but intercepted by the component in order to do its magic
    */
-  crossorigin: PropTypes.string,
+  onLoad: PropTypes.func,
   /**
-   * <img> property
+   * <img> prop
    */
-  height: PropTypes.string,
-  /**
-   * <img> property
-   */
-  ismap: PropTypes.bool,
-  /**
-   * <img> property
-   */
-  longdesc: PropTypes.string,
-  /**
-   * <img> property
-   */
-  referrerpolicy: PropTypes.string,
-  /**
-   * <img> property
-   */
-  sizes: PropTypes.string,
-  /**
-   * <img> property
-   */
-  srcset: PropTypes.string,
-  /**
-   * <img> property
-   */
-  width: PropTypes.string,
-  /**
-   * <img> property
-   */
-  usemap: PropTypes.string
+  ...htmlImgProps
 }
 
 export default ImagePlaceholder

@@ -66,7 +66,7 @@ export default function CardArticle ({
       </Link>
       <div className={cardInfoClassName}>
         <div className='sui-CardArticle-infoInner'>
-          <TagChip label={tag.text} link={tag.url} linkFactory={Link} className={suiTagClassName} />
+          <TagChip rel={tag.rel} label={tag.text} link={tag.url} linkFactory={Link} className={suiTagClassName} />
           {comments && _renderComments(comments, Link)}
         </div>
       </div>
@@ -131,7 +131,11 @@ CardArticle.propTypes = {
     /**
      * Tag type used to style it as desired.
      */
-    type: PropTypes.string
+    type: PropTypes.string,
+    /**
+     * Tag rel used to know if tag must be indexed
+    */
+    rel: PropTypes.string
   }),
   /**
    * Comments object.
@@ -178,8 +182,8 @@ CardArticle.propTypes = {
 CardArticle.defaultProps = {
   tagChip: SuiTagChip,
   featured: false,
-  linkFactory: ({ href, className, children, title }) =>
-    <a href={href} className={className} title={title}>{children}</a>
+  linkFactory: ({ children, ...rest }) =>
+    <a {...rest}>{children}</a>
 }
 
 CardArticle.displayName = 'CardArticle'

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2017-10-31)
+
+
+### Features
+
+* add new prop to tagchip ([24f2e9c](https://github.com/SUI-Components/sui-components/commit/24f2e9c))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2017-10-09)
 

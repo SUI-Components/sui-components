@@ -19,12 +19,14 @@ return (
     src='https://satyr.io/1000'
     alt='1000x1000'
     placeholder={
-      <svg viewBox='0 0 1 1'>
-        <rect width='100%' height='100%' />
-      </svg>
+      src: '...',
+      alt: '...'
+      ...imageTagAttributes
     }
     fallback={
-      <img src='https://satyr.io/500' className='some-important-class' alt='500x500' />
+      src: '...',
+      alt: '...'
+      ...imageTagAttributes
     }
   />
 )

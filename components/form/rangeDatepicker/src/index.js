@@ -22,26 +22,31 @@ class FormRangeDatepicker extends Component {
     this._handleClickButton = this._handleClickButton.bind(this)
   }
 
+  _handleChange = key => date => {
+    if (this.props.handleChange) {
+      this.props.handleChange({
+        ...this.state,
+        [key]: date
+      })
+    }
+  }
+
   _handleChangeStart (date) {
     this.setState({
       startDate: date
     })
+    this._handleChange('startDate')(date)
   }
 
   _handleChangeEnd (date) {
     this.setState({
       endDate: date
     })
+    this._handleChange('endDate')(date)
   }
 
   _handleClickButton () {
     this.props.handleClickButton([this.state.startDate, this.state.endDate])
-  }
-
-  componentWillUpdate (nextProps, nextState) {
-    if (this.props.handleChange) {
-      this.props.handleChange(nextState)
-    }
   }
 
   render () {

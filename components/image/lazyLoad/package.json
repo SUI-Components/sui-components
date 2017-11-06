@@ -14,6 +14,6 @@
   "dependencies": {
     "@schibstedspain/sui-spinner-basic": "1",
     "@s-ui/component-dependencies": "1",
-    "react-lazy-load": "3.0.11"
+    "react-lazy-load": "3.0.12"
   }
 }

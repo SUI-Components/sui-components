@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.2.0"></a>
+# 2.2.0 (2017-11-06)
+
+
+### Bug Fixes
+
+* added forgotten placeholder css class ([0581df8](https://github.com/SUI-Components/sui-components/commit/0581df8))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2017-11-06)
 

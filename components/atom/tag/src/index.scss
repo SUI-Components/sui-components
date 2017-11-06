@@ -54,7 +54,7 @@ $mw-label: 240px;
     fill: color-variation($c-gray, 3);
   }
 
-  & [class$='icon'] {
+  &-icon, &-secondary-icon {
     @include sui-icon--small;
     display: inline-block;
   }

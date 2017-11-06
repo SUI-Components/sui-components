@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import ActionableTagContainer from './Container'
 
 const RIGHT_ICON_PLACEMENT = 'right'
+const LEFT_ICON_PLACEMENT = 'left'
 
 const getClassNames = function ({className}) {
   return classnames(
@@ -30,7 +31,7 @@ const ActionableTag = function ({
       target={target}
     >
       {
-        Icon && iconPlacement !== RIGHT_ICON_PLACEMENT &&
+        Icon && iconPlacement === LEFT_ICON_PLACEMENT &&
           <span className='sui-AtomTag-icon'>
             <Icon />
           </span>

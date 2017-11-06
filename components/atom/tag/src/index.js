@@ -79,6 +79,10 @@ class AtomTag extends Component {
 
 AtomTag.displayName = 'AtomTag'
 
+AtomTag.defaultProps = {
+  iconPlacement: 'left'
+}
+
 AtomTag.propTypes = {
   /**
    * Custom classes
@@ -110,7 +114,7 @@ AtomTag.propTypes = {
   /**
    * Actionable tags can have iconPlacement='right'
    */
-  iconPlacement: PropTypes.string
+  iconPlacement: PropTypes.oneOf(['right', 'left'])
 }
 
 export default AtomTag

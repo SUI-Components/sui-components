@@ -46,7 +46,7 @@ class ImagePlaceholder extends Component {
 
   _renderPlaceholder () {
     return (
-      <img {...this.props.placeholder} />
+      <img {...this.props.placeholder} className={ImagePlaceholder.IMAGE_CLASS} />
     )
   }
 

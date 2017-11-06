@@ -180,8 +180,8 @@ CardArticle.propTypes = {
 CardArticle.defaultProps = {
   tagChip: SuiTagChip,
   featured: false,
-  linkFactory: ({ href, className, children, title }) =>
-    <a href={href} className={className} title={title}>{children}</a>
+  linkFactory: ({ children, ...rest }) =>
+    <a {...rest}>{children}</a>
 }
 
 CardArticle.displayName = 'CardArticle'

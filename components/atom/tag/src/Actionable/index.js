@@ -54,7 +54,7 @@ ActionableTag.propTypes = {
   label: PropTypes.string.isRequired,
   Icon: PropTypes.func,
   href: PropTypes.string,
-  iconPlacement: PropTypes.string,
+  iconPlacement: PropTypes.oneOf([LEFT_ICON_PLACEMENT, RIGHT_ICON_PLACEMENT]),
   onClick: PropTypes.func,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   linkFactory: PropTypes.func

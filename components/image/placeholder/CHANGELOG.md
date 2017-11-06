@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.1.0"></a>
+# 2.1.0 (2017-11-06)
+
+
+### Features
+
+* Bump version ([123ed4d](https://github.com/SUI-Components/sui-components/commit/123ed4d))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2017-11-06)
 

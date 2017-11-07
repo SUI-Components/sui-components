@@ -42,7 +42,7 @@ CollapsibleAccordion.displayName = 'CollapsibleAccordion'
 
 CollapsibleAccordion.propTypes = {
   /**
-   * Event that will send when select a item
+   * Event that will send when select an item
    */
   onItemChange: PropTypes.func,
   /**

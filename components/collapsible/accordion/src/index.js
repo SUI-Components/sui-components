@@ -16,6 +16,9 @@ class CollapsibleAccordion extends Component {
 
   _collapseItems (collapsed, id) {
     this.setState({ openIndex: id === this.state.openIndex ? null : id })
+    if (this.props.onItemChange) {
+      this.props.onItemChange(collapsed, id)
+    }
   }
 
   render () {
@@ -38,6 +41,10 @@ class CollapsibleAccordion extends Component {
 CollapsibleAccordion.displayName = 'CollapsibleAccordion'
 
 CollapsibleAccordion.propTypes = {
+  /**
+   * Event that will send when select a item
+   */
+  onItemChange: PropTypes.func,
   /**
    * Items array
    */

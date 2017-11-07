@@ -31,6 +31,7 @@ $c-button-white: #ffffff !default;
 .sui-AtomButton {
   @include reset-button;
   border-radius: $bdrs-m;
+  white-space: nowrap;
   font: {
     family: $ff-sans-serif;
     size: $fz-m;
@@ -64,6 +65,24 @@ $c-button-white: #ffffff !default;
 
   &--secondary {
     box-shadow: inset 0 0 0 1px;
+  }
+
+  &--negative {
+    &.sui-AtomButton--primary {
+      @include button-foreground-color($c-button);
+      @include button-focused {
+        background-color: $c-button-light-contrast;
+      }
+      background-color: $c-button-white;
+    }
+    
+    &.sui-AtomButton--secondary,
+    &.sui-AtomButton--tertiary {
+      @include button-foreground-color($c-button-white);
+      @include button-focused {
+        background-color: $c-button-dark;
+      }
+    }
   }
 
   &--accent {
@@ -118,27 +137,5 @@ $c-button-white: #ffffff !default;
 
   &RightIcon {
     margin-left: $m-m;
-  }
-}
-
-// Variations in contrast context
-.sui-Global--contrast {
-  .sui-AtomButton {
-    // Types and colors
-    &--primary {
-      @include button-foreground-color($c-button);
-      @include button-focused {
-        background-color: $c-button-light-contrast;
-      }
-      background-color: $c-button-white;
-    }
-
-    &--secondary,
-    &--tertiary {
-      @include button-foreground-color($c-button-white);
-      @include button-focused {
-        background-color: $c-button-dark;
-      }
-    }
   }
 }

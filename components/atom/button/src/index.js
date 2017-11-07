@@ -1,9 +1,10 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 const CLASS = 'sui-AtomButton'
 const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
-const MODIFIERS = ['disabled', 'small', 'large', 'fullWidth', 'focused']
+const MODIFIERS = ['disabled', 'small', 'large', 'fullWidth', 'focused', 'negative']
 const OWN_PROPS = [
   ...TYPES, ...MODIFIERS, 'leftIcon', 'rightIcon', 'className', 'children'
 ]
@@ -60,6 +61,10 @@ AtomButton.propTypes = {
    * Type: link button, no background nor border
    */
   tertiary: PropTypes.bool,
+  /**
+   * Negative: style for dark backgrounds.
+   */
+  negative: PropTypes.bool,
   /**
    * Modifier: state of :hover,:active, :focus
    */

@@ -1,10 +1,7 @@
 /* eslint-env jest */
 import React from 'react'
-import Enzyme, { render, mount } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import { render, mount } from 'enzyme'
 import AbTestOptimizelyXExperiment from '../src/index'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 jest.mock('../src/optimizely-x')
 import {createExperimentUseCase} from '../src/optimizely-x'
@@ -18,7 +15,7 @@ describe('<AbTestOptimizelyXExperiment />', () => {
   </AbTestOptimizelyXExperiment>)
 
   it('should render nothing when OptimizelyX is not available', () => {
-    expect(render(component).html()).toEqual('Original')
+    expect(render(component).text()).toEqual('Original')
   })
 
   describe('When OptimizelyX API is present', () => {

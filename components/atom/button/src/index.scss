@@ -1,6 +1,5 @@
 @import '~@schibstedspain/sui-theme/lib/settings';
 @import '~@schibstedspain/sui-theme/lib/index';
-@import url( 'https://fonts.googleapis.com/css?family=Open+Sans:#{$fw-light},#{$fw-regular},#{$fw-regular}i,#{$fw-semi-bold},#{$fw-bold},#{$fw-bold}i');
 
 $c-button: $c-primary !default;
 $c-button-light: color-variation($c-primary, 4) !default;
@@ -131,8 +130,10 @@ $p-button-large: $p-l !default;
     @include button-foreground-color($c-white);
     @include button-focused {
       background-color: $c-accent-dark;
+      border-color: $c-accent-dark;
     }
     background-color: $c-accent;
+    border-color: $c-accent;
   }
 
   // Modifiers

@@ -1,14 +1,15 @@
 const Button = AtomButton
-const icon = getStarIcon()
+const Icon = getStarIcon()
 const boxStyle = { padding:20, paddingTop: 0, width: 400, textAlign: 'center' }
+
 const ButtonsRow = props => (<tr style={{background: props.negative ? '#2b91c1' : '#fff'}}>
   <td><Title>{Object.keys(props).join(' ')}</Title></td>
   <td><Button {...props}>Button</Button></td>
   <td><Button {...props} focused>Button</Button></td>
   <td><Button {...props} disabled>Button</Button></td>
-  <td><Button {...props} leftIcon={icon}>Button</Button></td>
-  <td><Button {...props} rightIcon={icon}>Button</Button></td>
-  <td><Button {...props} leftIcon={icon}></Button></td>
+  <td><Button {...props} leftIcon={Icon}>Button</Button></td>
+  <td><Button {...props} rightIcon={Icon}>Button</Button></td>
+  <td><Button {...props} leftIcon={Icon}></Button></td>
   <td><Button {...props} >1</Button></td>
 </tr>)
 
@@ -72,9 +73,9 @@ return (<div>
   </div>
   <Title>Icon Buttons</Title>
   <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-evenly'}}>
-    <div><Button small leftIcon={icon}>Icon Button</Button></div>
-    <div><Button leftIcon={icon}>Icon Button</Button></div>
-    <div><Button large leftIcon={icon}>Icon Button</Button></div>
+    <div><Button small leftIcon={Icon}>Icon Button</Button></div>
+    <div><Button leftIcon={Icon}>Icon Button</Button></div>
+    <div><Button large leftIcon={Icon}>Icon Button</Button></div>
   </div>
   <Title>FULL WIDTH (@fullWidth)</Title>
   <div style={boxStyle}>
@@ -89,25 +90,25 @@ return (<div>
   </p>
   <Title>LEFT ICONS (@leftIcon=node)</Title>
   <p>
-    <Button leftIcon={icon} small>Small button</Button>
-    <Button leftIcon={icon}>Medium button</Button>
-    <Button leftIcon={icon} large>Big button</Button>
+    <Button leftIcon={Icon} small>Small button</Button>
+    <Button leftIcon={Icon}>Medium button</Button>
+    <Button leftIcon={Icon} large>Big button</Button>
   </p>
   <p>
-    <Button leftIcon={icon} secondary small>Small button</Button>
-    <Button leftIcon={icon} secondary>Medium button</Button>
-    <Button leftIcon={icon} secondary large>Big button</Button>
+    <Button leftIcon={Icon} secondary small>Small button</Button>
+    <Button leftIcon={Icon} secondary>Medium button</Button>
+    <Button leftIcon={Icon} secondary large>Big button</Button>
   </p>
   <p>
-    <Button accent rightIcon={icon} small>Small button</Button>
-    <Button accent rightIcon={icon}>Medium button</Button>
-    <Button accent rightIcon={icon} large>Big button</Button>
+    <Button accent rightIcon={Icon} small>Small button</Button>
+    <Button accent rightIcon={Icon}>Medium button</Button>
+    <Button accent rightIcon={Icon} large>Big button</Button>
   </p>
   <Title>ICONS FULL WITH (@leftIcon=node @fullWidth)</Title>
   <div style={boxStyle}>
-    <p><Button leftIcon={icon} fullWidth>Button fullWidth</Button></p>
-    <p><Button leftIcon={icon} secondary fullWidth>Secondary fullWidth</Button></p>
-    <p><Button leftIcon={icon} accent fullWidth>Accent fullWidth</Button></p>
+    <p><Button leftIcon={Icon} fullWidth>Button fullWidth</Button></p>
+    <p><Button leftIcon={Icon} secondary fullWidth>Secondary fullWidth</Button></p>
+    <p><Button leftIcon={Icon} accent fullWidth>Accent fullWidth</Button></p>
   </div>
   <Title>INHERITED PROPS</Title>
   <p>All props available from regular buttons an be used</p>
@@ -115,128 +116,6 @@ return (<div>
   <p><Button accent title="Title: Lorem Ipsum">Accent with title</Button></p>
   <p><Button secondary className='customClass'>Secondary with className</Button></p>
 </div>)
-
-
-
-
-const buttons = (<div>
-  <Title>PRIMARY (@primary) (default)</Title>
-  <p><Button>Normal</Button></p>
-  <p><Button focused>Focused</Button></p>
-  <p><Button disabled>Disabled</Button></p>
-  <Title>SECONDARY (@secondary)</Title>
-  <p><Button secondary>Normal</Button></p>
-  <p><Button secondary focused>Focused</Button></p>
-  <p><Button secondary disabled>Disabled</Button></p>
-  <Title>TERTIARY (@tertiary)</Title>
-  <p><Button tertiary>Normal</Button></p>
-  <p><Button tertiary focused>Focused</Button></p>
-  <p><Button tertiary disabled>Disabled</Button></p>
-</div>)
-
-const buttonsTable = (<table width="100%" cellPadding="10" style={{color: 'rgba(0,0,0,.4)'}}>
-  <tr>
-    <td style={{verticalAlign: 'middle'}}>PRIMARY</td>
-    <td><Button>Normal</Button></td>
-    <td><Button focused>Focused</Button></td>
-    <td><Button disabled>Disabled</Button></td>
-    <td><Button leftIcon={icon}>Icon</Button></td>
-  </tr>
-  <tr>
-    <td style={{verticalAlign: 'middle'}}>SECONDARY</td>
-    <td><Button secondary>Normal</Button></td>
-    <td><Button secondary focused>Focused</Button></td>
-    <td><Button secondary disabled>Disabled</Button></td>
-    <td><Button secondary leftIcon={icon}>Icon</Button></td>
-  </tr>
-  <tr>
-    <td style={{verticalAlign: 'middle'}}>TERTIARY</td>
-    <td><Button tertiary>Normal</Button></td>
-    <td><Button tertiary focused>Focused</Button></td>
-    <td><Button tertiary disabled>Disabled</Button></td>
-    <td><Button tertiary leftIcon={icon}>Icon</Button></td>
-  </tr>
-  <tr>
-    <td style={{verticalAlign: 'middle'}}>ACCENT</td>
-    <td><Button accent>Normal</Button></td>
-    <td><Button accent focused>Focused</Button></td>
-    <td><Button accent disabled>Disabled</Button></td>
-    <td><Button accent leftIcon={icon}>Icon</Button></td>
-  </tr>
-</table>)
-
-
-return (<div>
-  <Title>ALL BUTTONS</Title>
-  <div style={Object.assign({}, boxStyle, {background: 'white', width: 600  })}>
-    {buttonsTable}
-  </div>
-  <Title>ALL BUTTONS (contrast)</Title>
-  <div className="sui-Global--contrast" style={Object.assign({}, boxStyle, {background: '#2b91c1', width: 600  })}>
-    {buttonsTable}
-  </div>
-  <Title>BUTTON TYPES</Title>
-  <div style={Object.assign({float: 'left', background: 'white' }, boxStyle)}>
-    {buttons}
-    <Title>ACCENT (@accent)</Title>
-    <p><Button accent>Normal</Button></p>
-    <p><Button accent focused>Focused</Button></p>
-    <p><Button accent disabled>Disabled</Button></p>
-  </div>
-  <div className="sui-Global--contrast" style={Object.assign({}, boxStyle, {float: 'left', background: '#2b91c1' })}>
-    {buttons}
-  </div>
-  <div style={{clear: 'both', padding:20}}>
-    <Title>SIZES (@small, @size-m (default), @large)</Title>
-    <p>
-      <Button small>Small button</Button>
-      <Button>Medium button</Button>
-      <Button large>Big button</Button>
-    </p>
-    <p>
-      <Button accent small>Small button</Button>
-      <Button accent>Medium button</Button>
-      <Button accent large>Big button</Button>
-    </p>
-    <Title>FULL WIDTH (@fullWidth)</Title>
-    <div style={boxStyle}>
-      <p><Button fullWidth>Button fullWidth</Button></p>
-      <p><Button secondary fullWidth>Secondary fullWidth</Button></p>
-      <p><Button accent fullWidth>Accent fullWidth</Button></p>
-    </div>
-  </div>
-  <div style={{clear: 'both', padding:20}}>
-    <Title>LEFT ICONS (@leftIcon=node)</Title>
-    <p>
-      <Button leftIcon={icon} small>Small button</Button>
-      <Button leftIcon={icon}>Medium button</Button>
-      <Button leftIcon={icon} large>Big button</Button>
-    </p>
-    <p>
-      <Button leftIcon={icon} secondary small>Small button</Button>
-      <Button leftIcon={icon} secondary>Medium button</Button>
-      <Button leftIcon={icon} secondary large>Big button</Button>
-    </p>
-    <Title>RIGHT ICONS (@rightIcon=node)</Title>
-    <p>
-      <Button accent rightIcon={icon} small>Small button</Button>
-      <Button accent rightIcon={icon}>Medium button</Button>
-      <Button accent rightIcon={icon} large>Big button</Button>
-    </p>
-    <Title>ICONS FULL WITH (@leftIcon=node @fullWidth)</Title>
-    <div style={boxStyle}>
-      <p><Button leftIcon={icon} fullWidth>Button fullWidth</Button></p>
-      <p><Button leftIcon={icon} secondary fullWidth>Secondary fullWidth</Button></p>
-      <p><Button leftIcon={icon} accent fullWidth>Accent fullWidth</Button></p>
-    </div>
-  </div>
-  <Title>INHERITED PROPS</Title>
-  <p>All props available from regular buttons an be used</p>
-  <p><Button onClick={() => alert('Primary with onClick')}>Primary with onClick</Button></p>
-  <p><Button accent title="Title: Lorem Ipsum">Accent with title</Button></p>
-  <p><Button secondary className='customClass'>Secondary with className</Button></p>
-</div>)
-
 
 function getStarIcon () { return  (<svg viewBox="0 0 24 24">
   <g>
@@ -244,9 +123,11 @@ function getStarIcon () { return  (<svg viewBox="0 0 24 24">
   </g>
 </svg>)
 }
+
 function Title ({children}) {
   return <p style={{color: 'rgba(0,0,0,.6)', fontSize: 12, textTransform: 'uppercase'}}>{children}</p>
 }
+
 function ButtonsTable ({children, style}) { return (<table width="auto" cellPadding="8" cellSpacing="0" style={{background: '#fff', padding: 15}}>
   <tbody>
     <tr>

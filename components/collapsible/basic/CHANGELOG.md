@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2017-11-06)
+
+
+### Features
+
+* Bump version ([ca3c19c](https://github.com/SUI-Components/sui-components/commit/ca3c19c))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2017-10-24)
 
@@ -29,6 +39,7 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * merge changes to resolve conflict with master. ([102d7e1](https://github.com/SUI-Components/sui-components/commit/102d7e1))
+* Migrate to PropTypes package ([1cf04ca](https://github.com/SUI-Components/sui-components/commit/1cf04ca))
 * remove default paddings. ([dfcaccf](https://github.com/SUI-Components/sui-components/commit/dfcaccf))
 
 

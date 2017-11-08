@@ -1,5 +1,7 @@
 /* eslint handle-callback-err: "off" */
-import React, {Component, PropTypes} from 'react'
+import PropTypes from 'prop-types'
+
+import React, { Component } from 'react'
 import AbTestToggle from '@s-ui/abtesting-toggle'
 import {createExperimentUseCase} from './optimizely-x'
 

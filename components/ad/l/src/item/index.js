@@ -1,5 +1,7 @@
 /* eslint no-console: 0, no-undef: 0 */
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+
+import React, { Component } from 'react'
 import LazyLoad from 'react-lazy-load'
 import { loadScript } from '../libs/load-script'
 import { sandBoxDocumentWrite } from '../libs/sandbox-document.write'

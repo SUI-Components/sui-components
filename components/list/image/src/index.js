@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import SuiLazyLoadImage from '@schibstedspain/sui-image-lazy-load'
 import cx from 'classnames'
 

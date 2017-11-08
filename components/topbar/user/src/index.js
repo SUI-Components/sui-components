@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+
+import React, { Component } from 'react'
 import cx from 'classnames'
 import Menu from '@schibstedspain/sui-svgiconset/lib/Menu'
 import DropdownBasic from '@schibstedspain/sui-dropdown-basic'

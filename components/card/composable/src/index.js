@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import cx from 'classnames'
 
 export default function CardComposable ({ className, contentFirst, landscapeLayout, primary, secondary }) {

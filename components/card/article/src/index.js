@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+
+import React from 'react'
 import cx from 'classnames'
 import Commentsquare from '@schibstedspain/sui-svgiconset/lib/Commentsquare'
 import MediaPlay from '@schibstedspain/sui-svgiconset/lib/Mediaplay'
@@ -180,8 +182,8 @@ CardArticle.propTypes = {
 CardArticle.defaultProps = {
   tagChip: SuiTagChip,
   featured: false,
-  linkFactory: ({ href, className, children, title }) =>
-    <a href={href} className={className} title={title}>{children}</a>
+  linkFactory: ({ children, ...rest }) =>
+    <a {...rest}>{children}</a>
 }
 
 CardArticle.displayName = 'CardArticle'

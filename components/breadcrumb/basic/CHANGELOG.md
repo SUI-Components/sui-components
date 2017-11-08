@@ -2,12 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2017-11-06)
+
+
+### Features
+
+* Bump version ([e9dc7c7](https://github.com/SUI-Components/sui-components/commit/e9dc7c7))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2017-10-09)
 
 
 ### Features
 
+* Migrate to PropTypes package ([e6c4958](https://github.com/SUI-Components/sui-components/commit/e6c4958))
 * switch to s-ui/component-dependencies and sui-theme@8 ([0137625](https://github.com/SUI-Components/sui-components/commit/0137625))
 
 
@@ -79,21 +90,6 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * linkfactory to the rescue ([c4bfe0c](https://github.com/SUI-Components/sui-components/commit/c4bfe0c))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-02-02)
-
-
-### Bug Fixes
-
-* incorrect className for icon ([e6acbfc](https://github.com/SUI-Components/sui-components/commit/e6acbfc))
-
-
-### Features
-
-* breadcrumb init ([086a55d](https://github.com/SUI-Components/sui-components/commit/086a55d))
 
 
 

@@ -1,5 +1,6 @@
 
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import AdItem from './item'
 
 const AdL = ({children, url, positionIds: {top, aside1, aside2}}) =>

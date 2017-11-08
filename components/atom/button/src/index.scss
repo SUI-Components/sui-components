@@ -169,5 +169,11 @@ $p-button-large: $p-l !default;
     vertical-align: middle;
   }
 
+  &--empty {
+    .sui-AtomButtonLeftIcon,
+    .sui-AtomButtonRightIcon {
+      margin: 0;
+      transform: translateY(0);
+    }
   }
 }

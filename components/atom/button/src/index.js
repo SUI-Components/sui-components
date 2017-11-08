@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 const CLASS = 'sui-AtomButton'
+const appendClass = (suffix) => `${CLASS}--${suffix}`
+const EMPTY_CLASS = appendClass('empty')
 const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
 const MODIFIERS = ['disabled', 'small', 'large', 'fullWidth', 'focused', 'negative']
 const OWN_PROPS = [
   ...TYPES, ...MODIFIERS, 'leftIcon', 'rightIcon', 'className', 'children'
 ]
 
-const appendClass = (suffix) => `${CLASS}--${suffix}`
 const includes = (array, item) => array.indexOf(item) !== -1
 const cleanProps = (props) => {
   let newProps = {...props}
@@ -33,6 +34,7 @@ const AtomButton = (props) => {
     CLASS,
     getTypes(props).map(appendClass),
     getModifiers(props).map(appendClass),
+    !children && EMPTY_CLASS,
     className
   )
   const newProps = cleanProps(props)

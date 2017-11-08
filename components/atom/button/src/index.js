@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 const CLASS = 'sui-AtomButton'
-const appendClass = (suffix) => `${CLASS}--${suffix}`
-const EMPTY_CLASS = appendClass('empty')
 const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
 const MODIFIERS = ['disabled', 'small', 'large', 'fullWidth', 'focused', 'negative']
 const OWN_PROPS = [
   ...TYPES, ...MODIFIERS, 'leftIcon', 'rightIcon', 'className', 'children'
 ]
+const CLASSES = [...TYPES, ...MODIFIERS, 'empty']
+  .reduce((res, key) => Object.assign(res, {[key]: `${CLASS}--${key}`}), {})
 
 const includes = (array, item) => array.indexOf(item) !== -1
 const cleanProps = (props) => {
@@ -17,7 +17,6 @@ const cleanProps = (props) => {
   OWN_PROPS.forEach(key => delete newProps[key])
   return newProps
 }
-
 const getTypes = (props) => {
   let types = Object.keys(props)
     .filter(name => includes(TYPES, name))
@@ -27,14 +26,15 @@ const getModifiers = (props) => {
   return Object.keys(props)
     .filter(name => includes(MODIFIERS, name))
 }
+const propToClass = key => CLASSES[key]
 
 const AtomButton = (props) => {
   const {disabled, leftIcon, rightIcon, children, className} = props
   const classNames = cx(
     CLASS,
-    getTypes(props).map(appendClass),
-    getModifiers(props).map(appendClass),
-    !children && EMPTY_CLASS,
+    getTypes(props).map(propToClass),
+    getModifiers(props).map(propToClass),
+    !children && CLASSES.empty,
     className
   )
   const newProps = cleanProps(props)
@@ -98,7 +98,7 @@ AtomButton.propTypes = {
   /**
    * Content to be included in the button
    */
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   /**
    * Classes to add to button
    */

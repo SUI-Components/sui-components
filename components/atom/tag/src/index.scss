@@ -1,11 +1,23 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$bgc-AtomTag: color-variation($c-gray, 3);
-$c-AtomTagActionable: $c-white;
-$h-AtomTag: $p-xxl;
-$mw-label: 240px;
-$p-AtomTag-y: 0;
-$p-AtomTag-x: $p-l;
+$bgc-AtomTag: color-variation($c-gray, 3) !default;
+$c-AtomTagActionable: $c-white !default;
+$h-AtomTag: $p-xxl !default;
+$mw-label: 240px !default;
+$p-AtomTag: 0 $p-l !default;
+
+@mixin icon-AtomTag($type) {
+  @include sui-icon--small;
+  display: inline-block;
+  vertical-align: middle;
+
+  @if $type == 'icon' {
+    margin: 0 $m-s 0 (-$m-m);
+
+} @else if $type == 'icon-secondary' {
+    margin: 0 (-$m-m) 0 $m-m;
+  }
+}
 
 .sui-AtomTag {
   background-color: $bgc-AtomTag;
@@ -15,7 +27,7 @@ $p-AtomTag-x: $p-l;
   font-size: $fz-s;
   height: $h-AtomTag;
   line-height: $h-AtomTag;
-  padding: $p-AtomTag-y $p-AtomTag-x;
+  padding: $p-AtomTag;
   white-space: nowrap;
 
   & + & {
@@ -43,25 +55,26 @@ $p-AtomTag-x: $p-l;
     }
   }
 
+  &-secondary-closeable {
+    cursor: pointer;
+
+    &:hover {
+      background-color: $c-system;
+      border-radius: 50%;
+      fill: color-variation($c-gray, 3);
+    }
+  }
+
   &-icon {
-    margin-right: $m-s;
+    @include icon-AtomTag(icon);
   }
 
   &-secondary-icon {
-    cursor: pointer;
-    margin: 0 (-$m-s) 0 $m-m;
+    @include icon-AtomTag(icon-secondary);
   }
 
-  &-secondary-closeable:hover {
-    background-color: $c-system;
-    border-radius: 50%;
-    fill: color-variation($c-gray, 3);
-  }
-
-  &-icon, &-secondary-icon {
-    @include sui-icon--small;
-    display: inline-block;
-    vertical-align: middle;
+  &-icon,
+  &-secondary-icon {
   }
 
   &-actionable {

@@ -9,11 +9,11 @@ class AtomTag extends Component {
   static MAX_LABEL_LENGTH = 100
 
   get _classNames () {
-    const {className, Icon} = this.props
+    const {className, icon} = this.props
     return classnames(
       'sui-AtomTag',
       className,
-      Icon && 'sui-AtomTag-hasIcon'
+      icon && 'sui-AtomTag-hasIcon'
     )
   }
 
@@ -89,12 +89,12 @@ AtomTag.propTypes = {
    */
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
-  Icon: PropTypes.func,
+  icon: PropTypes.node,
   onClose: PropTypes.func,
   /**
    * Will only be shown if the onClose fn is defined
    */
-  CloseIcon: PropTypes.func,
+  closeIcon: PropTypes.node,
   /**
    * If defined, onClose will be ignored
    */

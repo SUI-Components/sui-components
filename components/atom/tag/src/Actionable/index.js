@@ -14,7 +14,7 @@ const getClassNames = function ({className}) {
 }
 
 const ActionableTag = function ({
-  Icon,
+  icon,
   href,
   iconPlacement,
   label,
@@ -31,18 +31,18 @@ const ActionableTag = function ({
       target={target}
     >
       {
-        Icon && iconPlacement === LEFT_ICON_PLACEMENT &&
+        icon && iconPlacement === LEFT_ICON_PLACEMENT &&
           <span className='sui-AtomTag-icon'>
-            <Icon />
+            {icon}
           </span>
       }
       <span className='sui-AtomTag-label' title={label}>
         {label}
       </span>
       {
-        Icon && iconPlacement === RIGHT_ICON_PLACEMENT &&
+        icon && iconPlacement === RIGHT_ICON_PLACEMENT &&
           <span className='sui-AtomTag-secondary-icon'>
-            <Icon />
+            {icon}
           </span>
       }
     </ActionableTagContainer>
@@ -52,7 +52,7 @@ const ActionableTag = function ({
 ActionableTag.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
-  Icon: PropTypes.func,
+  icon: PropTypes.node,
   href: PropTypes.string,
   iconPlacement: PropTypes.oneOf([LEFT_ICON_PLACEMENT, RIGHT_ICON_PLACEMENT]),
   onClick: PropTypes.func,

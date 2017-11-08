@@ -4,17 +4,17 @@ import cx from 'classnames'
 
 class StandardTag extends Component {
   get _classNames () {
-    const {className, CloseIcon} = this.props
+    const {className, closeIcon} = this.props
     return cx(
       className,
-      CloseIcon && 'sui-AtomTag-hasClose'
+      closeIcon && 'sui-AtomTag-hasClose'
     )
   }
 
   render () {
     const {
-      CloseIcon,
-      Icon,
+      closeIcon,
+      icon,
       label,
       onClose
     } = this.props
@@ -22,9 +22,9 @@ class StandardTag extends Component {
     return (
       <span className={this._classNames}>
         {
-          Icon &&
+          icon &&
             <span className='sui-AtomTag-icon'>
-              <Icon />
+              {icon}
             </span>
         }
         <span className='sui-AtomTag-label' title={label}>
@@ -33,7 +33,7 @@ class StandardTag extends Component {
         {
           onClose &&
             <span className='sui-AtomTag-secondary-closeable sui-AtomTag-secondary-icon' onClick={(ev) => onClose(ev)}>
-              <CloseIcon />
+              {closeIcon}
             </span>
         }
       </span>
@@ -43,8 +43,8 @@ class StandardTag extends Component {
 
 StandardTag.propTypes = {
   onClose: PropTypes.func,
-  CloseIcon: PropTypes.func,
-  Icon: PropTypes.func,
+  closeIcon: PropTypes.node,
+  icon: PropTypes.node,
   label: PropTypes.string.isRequired,
   className: PropTypes.string
 }

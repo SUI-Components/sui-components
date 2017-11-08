@@ -2,12 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2017-11-06)
+
+
+### Features
+
+* Bump version ([980c3da](https://github.com/SUI-Components/sui-components/commit/980c3da))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2017-10-09)
 
 
 ### Features
 
+* migrate to PropTypes package ([44791fb](https://github.com/SUI-Components/sui-components/commit/44791fb))
 * switch to s-ui/component-dependencies and sui-theme@8 ([754957c](https://github.com/SUI-Components/sui-components/commit/754957c))
 
 
@@ -49,24 +60,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * move footer border in to footer selector ([eb7e233](https://github.com/SUI-Components/sui-components/commit/eb7e233))
-
-
-
-<a name="1.2.0"></a>
-# 1.2.0 (2017-03-09)
-
-
-### Bug Fixes
-
-* add important to fill icon color ([299f225](https://github.com/SUI-Components/sui-components/commit/299f225))
-* fix babel presets ([cf99c76](https://github.com/SUI-Components/sui-components/commit/cf99c76))
-
-
-### Features
-
-* enhance modal basic ([5d66fa0](https://github.com/SUI-Components/sui-components/commit/5d66fa0))
-* modal basic init ([abf41cb](https://github.com/SUI-Components/sui-components/commit/abf41cb))
-* update package.json ([f7f5eee](https://github.com/SUI-Components/sui-components/commit/f7f5eee))
 
 
 

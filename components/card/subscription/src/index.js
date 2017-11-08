@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import Chevronright from '@schibstedspain/sui-svgiconset/lib/Chevronright'
 import cx from 'classnames'
 

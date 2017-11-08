@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import IconCloseDefault from '@schibstedspain/sui-svgiconset/lib/X'
 import RatingStar from './rating-star'
 import cx from 'classnames'

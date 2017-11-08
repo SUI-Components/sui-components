@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import ButtonBasic from '@schibstedspain/sui-button-basic'
 import CollapsibleBasic from '@schibstedspain/sui-collapsible-basic'
 import cx from 'classnames'

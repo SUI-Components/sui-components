@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2017-11-06)
+
+
+### Features
+
+* Bump version ([f896d7f](https://github.com/SUI-Components/sui-components/commit/f896d7f))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2017-10-31)
 
@@ -28,6 +38,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+* Migrate to PropTypes package ([04c0c10](https://github.com/SUI-Components/sui-components/commit/04c0c10))
 * switch to s-ui/component-dependencies and sui-theme@8 ([0a7f73a](https://github.com/SUI-Components/sui-components/commit/0a7f73a))
 
 
@@ -49,23 +60,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * support more browsers with expires ([90a3d24](https://github.com/SUI-Components/sui-components/commit/90a3d24))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-07-10)
-
-
-### Bug Fixes
-
-* addressing feedback ([45bf619](https://github.com/SUI-Components/sui-components/commit/45bf619))
-
-
-### Features
-
-* add more variables and some refactors ([729fa4d](https://github.com/SUI-Components/sui-components/commit/729fa4d))
-* add new cookie banner component ([9fff85a](https://github.com/SUI-Components/sui-components/commit/9fff85a))
-* use theme-basic variables ([433c14c](https://github.com/SUI-Components/sui-components/commit/433c14c))
 
 
 

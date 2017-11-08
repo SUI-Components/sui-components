@@ -2,27 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2017-11-06)
+
+
+### Features
+
+* Bump version ([ba49a1c](https://github.com/SUI-Components/sui-components/commit/ba49a1c))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2017-10-09)
 
 
 ### Features
 
+* migrate to PropTypes package ([bdc833f](https://github.com/SUI-Components/sui-components/commit/bdc833f))
 * switch to s-ui/component-dependencies and sui-theme@8 ([1ead351](https://github.com/SUI-Components/sui-components/commit/1ead351))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-02-13)
-
-
-### Features
-
-* deletable tag list ([ab18d60](https://github.com/SUI-Components/sui-components/commit/ab18d60))
-* deletableList stateless component ([a567e12](https://github.com/SUI-Components/sui-components/commit/a567e12))
-* fix package name and cleanup ([d3fcbac](https://github.com/SUI-Components/sui-components/commit/d3fcbac))
-* remove unnecesary styles ([b6201d9](https://github.com/SUI-Components/sui-components/commit/b6201d9))
-* stateless component ([1fbb012](https://github.com/SUI-Components/sui-components/commit/1fbb012))
 
 
 

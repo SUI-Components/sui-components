@@ -2,12 +2,43 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2017-11-06)
+
+
+### Features
+
+* bump react-lazy-load@3.0.12 ([f679728](https://github.com/SUI-Components/sui-components/commit/f679728))
+
+
+
+<a name="1.7.0"></a>
+# 1.7.0 (2017-11-06)
+
+
+### Bug Fixes
+
+* fix wrong package script using lib ([96f8f5c](https://github.com/SUI-Components/sui-components/commit/96f8f5c))
+
+
+
+<a name="1.6.0"></a>
+# 1.6.0 (2017-11-06)
+
+
+### Features
+
+* Bump version ([ca37ee7](https://github.com/SUI-Components/sui-components/commit/ca37ee7))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2017-10-09)
 
 
 ### Features
 
+* migrate to PropTypes package ([2e90070](https://github.com/SUI-Components/sui-components/commit/2e90070))
 * switch to s-ui/component-dependencies and sui-theme@8 ([a9df35c](https://github.com/SUI-Components/sui-components/commit/a9df35c))
 
 

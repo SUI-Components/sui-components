@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2017-11-06)
+
+
+### Features
+
+* Bump version ([c834a1e](https://github.com/SUI-Components/sui-components/commit/c834a1e))
+
+
+
+<a name="1.7.0"></a>
+# 1.7.0 (2017-11-06)
+
+
+### Features
+
+* update callback performance after insert a date ([034c857](https://github.com/SUI-Components/sui-components/commit/034c857))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2017-10-31)
 
@@ -18,6 +38,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+* migrate to PropTypes package ([4d48919](https://github.com/SUI-Components/sui-components/commit/4d48919))
 * switch to s-ui/component-dependencies and sui-theme@8 ([43f2bff](https://github.com/SUI-Components/sui-components/commit/43f2bff))
 
 

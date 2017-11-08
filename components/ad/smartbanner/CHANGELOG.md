@@ -2,8 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2017-11-06)
+
+
+### Features
+
+* Bump version ([b1130f3](https://github.com/SUI-Components/sui-components/commit/b1130f3))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2017-10-23)
+
+
+### Features
+
+* Migrate to PropTypes package ([f143d4c](https://github.com/SUI-Components/sui-components/commit/f143d4c))
 
 
 
@@ -38,6 +53,7 @@ All notable changes to this project will be documented in this file.
 * add star rating in smarbanner component ([f73f71b](https://github.com/SUI-Components/sui-components/commit/f73f71b))
 * add star rating in smartbanner component ([6923e00](https://github.com/SUI-Components/sui-components/commit/6923e00))
 * add star rating in smartbanner component (fix linter) ([095336b](https://github.com/SUI-Components/sui-components/commit/095336b))
+* Migrate to PropTypes package ([f398876](https://github.com/SUI-Components/sui-components/commit/f398876))
 
 
 
@@ -49,22 +65,6 @@ All notable changes to this project will be documented in this file.
 
 * adds a prop named static to define in a declarative way the component layout ([44a04ad](https://github.com/SUI-Components/sui-components/commit/44a04ad))
 * adds default prop to staticPosition and minor styling ([58b05a3](https://github.com/SUI-Components/sui-components/commit/58b05a3))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-03-30)
-
-
-### Bug Fixes
-
-* add public access to npm publish ([ae2ce3b](https://github.com/SUI-Components/sui-components/commit/ae2ce3b))
-* fix proptypes and scss ([793b74b](https://github.com/SUI-Components/sui-components/commit/793b74b))
-
-
-### Features
-
-* init smartbanner component ([9edbebd](https://github.com/SUI-Components/sui-components/commit/9edbebd))
 
 
 

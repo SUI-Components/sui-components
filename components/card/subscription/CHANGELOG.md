@@ -2,12 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2017-11-06)
+
+
+### Features
+
+* Bump version ([cf0a944](https://github.com/SUI-Components/sui-components/commit/cf0a944))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2017-10-09)
 
 
 ### Features
 
+* Migrate to PropTypes package ([434518c](https://github.com/SUI-Components/sui-components/commit/434518c))
 * switch to s-ui/component-dependencies and sui-theme@8 ([c3521dd](https://github.com/SUI-Components/sui-components/commit/c3521dd))
 
 
@@ -46,16 +57,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * adjust component to fit new UX flow ([08ee930](https://github.com/SUI-Components/sui-components/commit/08ee930))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-03-20)
-
-
-### Features
-
-* init card subscription ([afaf33b](https://github.com/SUI-Components/sui-components/commit/afaf33b))
 
 
 

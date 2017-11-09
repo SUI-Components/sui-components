@@ -11,28 +11,44 @@ const OWN_PROPS = [
 const CLASSES = [...TYPES, ...MODIFIERS, 'empty']
   .reduce((res, key) => Object.assign(res, {[key]: `${CLASS}--${key}`}), {})
 
+/**
+ * Get props cleaning out AtomButton own props
+ * @param  {Object} props
+ * @return {Object}
+ */
 const cleanProps = (props) => {
   let newProps = {...props}
   OWN_PROPS.forEach(key => delete newProps[key])
   return newProps
 }
+
+/**
+ * Get from props the type of button to display
+ * @param  {Object} props
+ * @return {String} One of TYPES values
+ */
 const getType = (props) => {
   let types = Object.keys(props)
     .filter(name => TYPES.includes(name))
   return types[0] || TYPES[0]
 }
+
+/**
+ * Get modifiers to apply according to props
+ * @param  {Object} props
+ * @return {Array<String>}
+ */
 const getModifiers = (props) => {
   return Object.keys(props)
     .filter(name => MODIFIERS.includes(name))
 }
-const propToClass = key => CLASSES[key]
 
 const AtomButton = (props) => {
   const {disabled, leftIcon, rightIcon, children, className} = props
   const classNames = cx(
     CLASS,
-    propToClass(getType(props)),
-    getModifiers(props).map(propToClass),
+    CLASSES[getType(props)],
+    getModifiers(props).map(key => CLASSES[key]),
     !children && CLASSES.empty,
     className
   )
@@ -51,10 +67,6 @@ AtomButton.propTypes = {
    */
   primary: PropTypes.bool,
   /**
-   * Type: filled with accent color
-   */
-  accent: PropTypes.bool,
-  /**
    * Type: ghost button, no background
    */
   secondary: PropTypes.bool,
@@ -62,6 +74,10 @@ AtomButton.propTypes = {
    * Type: link button, no background nor border
    */
   tertiary: PropTypes.bool,
+  /**
+   * Type: filled with accent color
+   */
+  accent: PropTypes.bool,
   /**
    * Negative: style for dark backgrounds.
    */

@@ -11,14 +11,19 @@ props.onMapClick = () => console.log('onMapClick')
   props.onPoiMouseOver = () => console.log('onPoiMouseOver')
   props.onSatelliteView = () => console.log('onSatelliteView')
 return (<div style={{ height: '50%' }}>
+<div style={{ border: '1px solid black', height: '50%', marginTop: '20px'}}>
 <MapBasic
     {...props}
 />
+</div>
+<div style={{ border: '1px solid black', height: '50%', marginTop: '20px'}}>
 <MapBasic
     {...props}
+    showSatelliteView={true}
     polygons={false}
     zoom={10}
-    divId={"testID"}
+    id={"testID"}
     center={[41.386527, 2.162499]}
 />
+</div>
 </div>)

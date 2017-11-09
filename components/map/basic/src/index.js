@@ -58,12 +58,6 @@ class MapBasic extends Component {
     ]
   }
 
-  componentDidMount () {
-    console.log('ME SUBSCRIBO TETEH')
-    this.subscribeToMapEvents()
-    this.searchMap = new SearchMap(this.getMapConfig())
-  }
-
   getMapConfig () {
     return {
       id: this.props.id,
@@ -76,10 +70,9 @@ class MapBasic extends Component {
       polygons: this.props.polygons,
       showHeatmap: this.props.showHeatmap,
       showSatelliteView: this.props.showSatelliteView,
-      tileLayers: this.props.tileLayers,
       tileLayerTypes: this.props.tileLayerTypes,
       zoomable: this.props.zoomable,
-      zoomLevel: this.props.zoom,
+      zoomLevel: this.props.zoom
     }
   }
 
@@ -89,22 +82,6 @@ class MapBasic extends Component {
 
   unsubscribeFromMapEvents () {
     this.mapEventList.forEach(mapEvent => this.mapDOMInstance.removeEventListener(mapEvent.name, mapEvent.handleFunction))
-  }
-
-  componentWillUnmount () {
-    this.unsubscribeFromMapEvents()
-  }
-
-  shouldComponentUpdate () {
-    //The component itself have no changes. All changes are managed through leaflet maps api.
-    return false
-  }
-
-  componentWillReceiveProps (nextProps) {
-    const {heatMapUrl, pois, showHeatmap, showSatelliteView} = nextProps
-    this.searchMap.displayPois(pois)
-    this.checkIfHeatMapShouldBeDisplayed(showHeatmap, heatMapUrl)
-    this.checkWhichViewShouldBeDisplayed(showSatelliteView)
   }
 
   checkWhichViewShouldBeDisplayed (showSatelliteView) {
@@ -127,14 +104,42 @@ class MapBasic extends Component {
     }
   }
 
+  componentWillUnmount () {
+    this.unsubscribeFromMapEvents()
+  }
+
+  shouldComponentUpdate () {
+    // The component itself have no changes. All changes are managed through leaflet maps api.
+    return false
+  }
+
+  componentWillReceiveProps (nextProps) {
+    const {heatMapUrl, pois, showHeatmap, showSatelliteView} = nextProps
+    this.searchMap.displayPois(pois)
+    this.checkIfHeatMapShouldBeDisplayed(showHeatmap, heatMapUrl)
+    this.checkWhichViewShouldBeDisplayed(showSatelliteView)
+  }
+
+  componentDidMount () {
+    this.subscribeToMapEvents()
+    this.searchMap = new SearchMap(this.getMapConfig())
+    this.props.onMapLoad(this.searchMap.getParamsForRequest())
+  }
+
   render () {
     return (
-      <div className='re-Wrapper' style={{height: '100%'}} ref={(ele) => { this.mapDOMInstance = ele }}  id={this.props.id}/>
+      <div
+        className='re-Wrapper'
+        style={{height: '100%'}}
+        ref={(ele) => { this.mapDOMInstance = ele }}
+        id={this.props.id}
+      />
     )
   }
 }
 
 MapBasic.propTypes = {
+  id: PropTypes.string.isRequired,
   center: PropTypes.array.isRequired,
   heatMapUrl: PropTypes.string,
   literals: PropTypes.object,
@@ -155,7 +160,8 @@ MapBasic.propTypes = {
   showSatelliteView: PropTypes.bool,
   tap: PropTypes.bool,
   zoom: PropTypes.number,
-  zoomable: PropTypes.bool
+  zoomable: PropTypes.bool,
+  tileLayerTypes: PropTypes.array.isRequired
 }
 
 MapBasic.defaultProps = {

@@ -32,17 +32,17 @@ export default class LeafletMap {
   _visibleLegend = false
   _currentLayer = 'normal.day'
 
-  getTileLayerTypes() {
+  getTileLayerTypes () {
     return tileLayerTypes
   }
 
-  setMapTexts({ normalViewText, satelliteViewText, toConsultText }) {
+  setMapTexts ({ normalViewText, satelliteViewText, toConsultText }) {
     this._normalViewText = normalViewText
     this._satelliteViewText = satelliteViewText
     this._toConsultText = toConsultText
   };
 
-  getBaseMap(value) {
+  getBaseMap (value) {
     switch (value) {
       case tileLayerTypes.NORMAL:
         return 'base'
@@ -72,12 +72,12 @@ export default class LeafletMap {
     return tileLayers
   }
 
-  showHeatMap({url, map}) {
+  showHeatMap ({url, map}) {
     this._heatMapLayer = L.tileLayer(url, {pane: 'overlayPane', opacity: 0.7, zIndex: 1})
     this._heatMapLayer.addTo(map)
   }
 
-  removeHeatMap({map}) {
+  removeHeatMap ({map}) {
     map.removeLayer(this._heatMapLayer)
   }
 
@@ -96,13 +96,13 @@ export default class LeafletMap {
     this._map.zoomControl.setPosition(position)
   };
 
-  attachPropsToMapInstance(options) {
+  attachPropsToMapInstance (options) {
     this._map.props = options
   }
 
   setCenter (options) {
     this.setCenter(L.latLng(parseFloat(options.latitude), parseFloat(options.longitude)))
-    zoom && this.setZoom(options.zoom)
+    options.zoom && this.setZoom(options.zoom)
   }
 
   getBounds () {
@@ -125,41 +125,41 @@ export default class LeafletMap {
     }
   }
 
-  getCenterWithZoom() {
+  getCenterWithZoom () {
     let centerWithZoom = this.getCenter()
     centerWithZoom.zoom = this.getZoomLevel()
     return centerWithZoom
   }
 
-  clearLayer(map, layer) {
+  clearLayer (map, layer) {
     layer.clearLayers()
     map.removeLayer(layer)
   }
 
-  getLayers(_layer) {
+  getLayers (_layer) {
     return _layer.getLayers()
   }
 
-  resetMarkerType(markerType) {
+  resetMarkerType (markerType) {
     this._markerType = markerType
   }
 
-  getInitialIcon() {
+  getInitialIcon () {
     return this.markerTypeEquivalences[this._markerType] || this.DEFAULT_MARKER_TYPE
   }
 
-  hasValidPrice(options) {
+  hasValidPrice (options) {
     return options.propertyInfo !== undefined &&
       typeof (options.propertyInfo.price) !== 'undefined' &&
       options.propertyInfo.price !== '' &&
       options.propertyInfo.price !== '0'
   }
 
-  isFavorite(options) {
+  isFavorite (options) {
     return options.propertyInfo !== undefined && options.propertyInfo.IsFavorite !== undefined && options.propertyInfo.IsFavorite
   }
 
-  getPriceText(options) {
+  getPriceText (options) {
     let formattedValue
 
     formattedValue = this.isFavorite(options) ? this.HEART_ICON + ' ' : ''
@@ -168,19 +168,19 @@ export default class LeafletMap {
     return `<span>${formattedValue}</span>`
   }
 
-  isFullAddressVisible(options) {
+  isFullAddressVisible (options) {
     return options.propertyInfo !== undefined && options.propertyInfo.IsFullAddressVisible !== undefined && options.propertyInfo.IsFullAddressVisible
   }
 
-  hasBeenVisited(options) {
+  hasBeenVisited (options) {
     return false
   }
 
-  isPromotion(options) {
+  isPromotion (options) {
     return options.propertyInfo !== undefined && options.propertyInfo.promotionId !== undefined && options.propertyInfo.promotionId > 0
   }
 
-  addClassModifier(iconClassName, options) {
+  addClassModifier (iconClassName, options) {
     const classModifiers = {
       '--fav': this.isFavorite,
       '--visited': this.hasBeenVisited,
@@ -195,7 +195,7 @@ export default class LeafletMap {
     return modifier ? iconClassName + modifier : ''
   }
 
-  getDivIconFor(customClasses, priceText) {
+  getDivIconFor (customClasses, priceText) {
     return new L.DivIcon({
       className: customClasses,
       html: priceText,
@@ -203,7 +203,7 @@ export default class LeafletMap {
     })
   }
 
-  getIconFor({item}) {
+  getIconFor ({item}) {
     let iconClassName = this.getInitialIcon()
     let priceText = ''
     let extendedIconClassName = iconClassName
@@ -222,7 +222,7 @@ export default class LeafletMap {
     return this.getDivIconFor(iconClassName, priceText)
   }
 
-  createMarker({item}) {
+  createMarker ({item}) {
     const {latitude, longitude, isSelected, markerType, propertyInfo} = item
     const marker = L.marker([latitude, longitude], {
       icon: this.getIconFor({item})
@@ -242,15 +242,15 @@ export default class LeafletMap {
     return marker
   }
 
-  getLayerGroup(markers) {
+  getLayerGroup (markers) {
     return L.featureGroup(markers)
   }
 
-  getFullLayerGroup() {
+  getFullLayerGroup () {
     return L.featureGroup()
   }
 
-  addLayer(map, layer) {
+  addLayer (map, layer) {
     map.addLayer(layer)
   }
 

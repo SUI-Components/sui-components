@@ -17,7 +17,7 @@ fs.readFile(originPath, 'utf8', function read (err, data) {
     }
   }
 
-  fs.writeFile(destinationPath, dataByLine.join("\n"), 'utf8', function (err) {
-    if (err) return console.log(err)
+  fs.writeFile(destinationPath, dataByLine.join('\n'), 'utf8', function (err) {
+    if (err) return console.error(err)
   })
 })

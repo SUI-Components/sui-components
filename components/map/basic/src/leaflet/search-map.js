@@ -40,7 +40,7 @@ export default class SearchMap {
     this.mapDOM = document.getElementById(parameters.id)
     this.leafletMap = new LeafletMap(mapOptions)
     this._tileLayerTypes = this.leafletMap.getTileLayerTypes()
-    if(polygons) {
+    if (polygons) {
       this.polygons = new Polygons()
       this.polygons.setPolygonsOnMap({map: this.leafletMap._map, polygons})
     }
@@ -112,7 +112,7 @@ export default class SearchMap {
 
   clearLayerOfMarkers () {
     if (this._layerOfMarkers !== undefined) {
-      this.leafletMap.clearLayer(this._map, this._layerOfMarkers)
+      this.leafletMap.clearLayer(this.leafletMap._map, this._layerOfMarkers)
     }
   }
 
@@ -199,7 +199,7 @@ export default class SearchMap {
     }
     markers.map(marker => { this._layerOfMarkers.addLayer(marker) })
 
-    this.leafletMap.addLayer(this._map, this._layerOfMarkers)
+    this.leafletMap.addLayer(this.leafletMap._map, this._layerOfMarkers)
   }
 
   removeMarkersFromMap (pointsToDelete) {

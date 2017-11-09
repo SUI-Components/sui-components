@@ -1,0 +1,290 @@
+
+$bgc-poi-approx: #2899b6;
+$bgc-poi-fav: #fe4f51;
+$bgc-poi-new: #1d6576;
+$bgc-poi-visited: #999;
+
+$bd-poi-approx: 1px solid $c-white;
+
+$fill-map-area: black;
+$stroke-map-area: #1d1d1d;
+
+$fill-map-area-highlighted: #3997d3;
+$stroke-map-area-highlighted: #3997d3;
+
+$layers-2x-url: "http://www.fotocasa.es/mvc/images/modules/map/layers-2x.png";
+$poi-dotted-normal-url: "https://frtassets.fotocasa.es/img/poi_dotted_normal.png";
+$poi-dotted-fav-url: "https://frtassets.fotocasa.es/img/poi_dotted_fav.png";
+$poi-dotted-new-url: "https://frtassets.fotocasa.es/img/poi_dotted_new.png";
+$poi-dotted-visited-url: "https://frtassets.fotocasa.es/img/poi_dotted_visited.png";
+$poi-dotted-selected-url: "https://frtassets.fotocasa.es/img/poi_dotted_selected.png";
+
+.scm-map__area {
+  fill: $fill-map-area;
+  fill-opacity: .1;
+  stroke: $stroke-map-area;
+  stroke-dasharray: 1;
+  stroke-opacity: .6;
+  stroke-width: 2px;
+
+  &--highlighted {
+    fill: $fill-map-area-highlighted;
+    fill-opacity: 0;
+    stroke: $stroke-map-area-highlighted;
+    stroke-dasharray: 1;
+    stroke-opacity: 1;
+    stroke-width: 2px;
+    z-index: 20;
+  }
+}
+
+.leaflet-container {
+  width: inherit;
+  height: inherit;
+}
+
+.leaflet {
+  &-top,
+  &-bottom {
+    z-index: 999;
+  }
+
+  &-bar {
+    border-radius: 0;
+  }
+
+  &-popup-content-wrapper {
+	  width: 470px !important;
+  }
+
+  &-control {
+    &-zoom {
+      &-in,
+      &-out {
+        color: $c-primary !important;
+        border-color: $c-primary !important;
+        height: 33px !important;
+        line-height: 28px !important;
+        width: 33px !important;
+      }
+
+    }
+
+    &-layers-toggle {
+	    background-image: url($layers-2x-url) !important;
+      background-size: 80% auto;
+    }
+
+    &-container {
+      .leaflet {
+        &-touch,
+        &-bar {
+          border: 1px solid $c-primary;
+
+          a:hover {
+            background-color: lighten($fill-map-area-highlighted, 30%);
+          }
+        }
+      }
+    }
+  }
+}
+
+.minipoi {
+  background-color: $c-primary;
+  border: 1px solid $c-white;
+	border-radius: 50%;
+  cursor: inherit;
+  height: 10px;
+  left: -5px;
+  opacity: 0.5;
+  top: -5px;
+	width: 10px;
+}
+
+.poi {
+  &.poi--approx {
+    background-color: $bgc-poi-approx;
+    border-radius: 50%;
+    border: $bd-poi-approx;
+    height: 16px;
+    left: -8px;
+    top: -8px;
+    width: 16px;
+
+    &.poi--fav {
+      background-color: $bgc-poi-fav;
+    }
+
+    &.poi--new {
+      background-color: $bgc-poi-new;
+    }
+
+    &.poi--visited {
+      background-color: $bgc-poi-visited;
+    }
+
+    &.marker--selected {
+      -moz-box-shadow: 0px 0px 2px 2px rgba(255,255,255,1);
+      -webkit-box-shadow: 0px 0px 2px 2px rgba(255,255,255,1);
+      background-color: #fff;
+      border-radius: 50%;
+      border: 7px solid #a81c4f;
+      box-shadow: 0px 0px 2px 2px rgba(255,255,255,1);
+      box-sizing: initial;
+      height: 6px;
+      left: -10px;
+      top: -10px;
+      width: 6px;
+      z-index: 9999 !important;
+    }
+  }
+
+  &.poi--dotted {
+    background-image: url($poi-dotted-normal-url);
+    background-size:24px;
+    height: 24px;
+    left: -12px;
+    top: -24px;
+    width: 24px;
+
+    &.poi--fav {
+      background-image: url($poi-dotted-fav-url);
+    }
+
+    &.poi--new {
+      background-image: url($poi-dotted-new-url);
+    }
+
+    &.poi--visited {
+      background-image: url($poi-dotted-visited-url);
+    }
+
+    &.marker--selected {
+      background-image: url($poi-dotted-selected-url);
+      background-size: 32px;
+      box-sizing: initial;
+      height: 32px;
+      left: -12px;
+      margin-left: -4px;
+      margin-top: -4px;
+      top: -32px;
+      width: 28px;
+      z-index: 9999 !important;
+    }
+  }
+}
+
+.label {
+	border-radius: 6px;
+  background-color: #2899b6;
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  height: 32px;
+  left: -35px;
+  padding: 4px 8px 0;
+  position: absolute;
+  white-space: nowrap;
+
+  &.label--approx {
+    top: -16px;
+
+    &.label--fav {
+      background-color: #fe4f51;
+    }
+
+    &.label--new {
+      background-color: #1d6576;
+    }
+
+    &.label--visited {
+      background-color: #999;
+    }
+
+    &.marker--selected {
+      background-color: #a81c4f;
+      font-size: 16px;
+      height: 38px;
+      margin-left: -4px;
+      margin-top: -4px;
+      padding-top: 6px;
+      z-index: 9999 !important;
+    }
+  }
+
+  &.label--dotted {
+    top: -42px;
+
+    &:after {
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 12px solid #2899b6;
+      content: " ";
+      height: 0;
+      left: 50%;
+      margin-left: -10px;
+      pointer-events: none;
+      position: absolute;
+      top: 28px;
+      width: 0;
+    }
+    &:before {
+      border-color: rgba(194, 225, 245, 0);
+      border-top-color: #fff;
+      border-width: 10px;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      left: 50%;
+      margin-left: -10px;
+      pointer-events: none;
+      position: absolute;
+      top: 30px;
+      width: 0;
+    }
+
+    &.label--fav {
+      background-color: #fe4f51;
+
+      &:after {
+        border-top-color: #fe4f51;
+      }
+    }
+
+    &.label--new {
+      background-color: #1d6576;
+
+      &:after {
+        border-top-color: #1d6576;
+      }
+    }
+
+    &.label--visited {
+      background-color: #999;
+
+      &:after {
+        border-top-color: #999;
+      }
+    }
+
+    &.marker--selected {
+      background-color: #a81c4f;
+      font-size: 16px;
+      height: 38px;
+      margin-left: -4px;
+      margin-top: -4px;
+      z-index: 9999 !important;
+
+      &:after {
+        border-top-color: #a81c4f;
+        top: 32px;
+      }
+
+      &:before {
+        top: 34px;
+      }
+    }
+  }
+}

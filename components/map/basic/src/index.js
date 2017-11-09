@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import SearchMap from './leaflet/search-map'
+import LeafletMap from './leaflet/leaflet-map'
 import { tileLayerTypes } from './leaflet/constants'
 
 class MapBasic extends Component {
@@ -9,7 +9,7 @@ class MapBasic extends Component {
     this.setMapEventDefinition(props)
   }
 
-  searchMap = undefined
+  mapInstance = undefined
   isHeatmapVisible = false
   isSatelliteView = false
 
@@ -72,7 +72,7 @@ class MapBasic extends Component {
       showSatelliteView: this.props.showSatelliteView,
       tileLayerTypes: this.props.tileLayerTypes,
       zoomable: this.props.zoomable,
-      zoomLevel: this.props.zoom
+      zoom: this.props.zoom
     }
   }
 
@@ -87,20 +87,20 @@ class MapBasic extends Component {
   checkWhichViewShouldBeDisplayed (showSatelliteView) {
     if (showSatelliteView && !this.isSatelliteView) {
       this.isSatelliteView = true
-      this.searchMap.setView(tileLayerTypes.SATELLITE)
+      this.mapInstance.setView(tileLayerTypes.SATELLITE)
     } else if (!showSatelliteView && this.isSatelliteView) {
       this.isSatelliteView = false
-      this.searchMap.setView(tileLayerTypes.NORMAL)
+      this.mapInstance.setView(tileLayerTypes.NORMAL)
     }
   }
 
   checkIfHeatMapShouldBeDisplayed (showHeatmap, url) {
     if (showHeatmap && !this.isHeatmapVisible) {
       this.isHeatmapVisible = true
-      this.searchMap.showHeatMap(url)
+      this.mapInstance.showHeatMap(url)
     } else if (!showHeatmap && this.isHeatmapVisible) {
       this.isHeatmapVisible = false
-      this.searchMap.removeHeatMap()
+      this.mapInstance.removeHeatMap()
     }
   }
 
@@ -115,15 +115,15 @@ class MapBasic extends Component {
 
   componentWillReceiveProps (nextProps) {
     const {heatMapUrl, pois, showHeatmap, showSatelliteView} = nextProps
-    this.searchMap.displayPois(pois)
+    this.mapInstance.displayPois(pois)
     this.checkIfHeatMapShouldBeDisplayed(showHeatmap, heatMapUrl)
     this.checkWhichViewShouldBeDisplayed(showSatelliteView)
   }
 
   componentDidMount () {
     this.subscribeToMapEvents()
-    this.searchMap = new SearchMap(this.getMapConfig())
-    this.props.onMapLoad(this.searchMap.getParamsForRequest())
+    this.mapInstance = new LeafletMap(this.getMapConfig())
+    this.props.onMapLoad(this.mapInstance.getParamsForRequest())
   }
 
   render () {
@@ -166,6 +166,9 @@ MapBasic.propTypes = {
 
 MapBasic.defaultProps = {
   id: 'map-container',
+  center: [40.00237, -3.99902],
+  maxZoom: 20,
+  minZoom: 6,
   tileLayerTypes: [tileLayerTypes.NORMAL],
   zoom: 14,
   zoomable: true

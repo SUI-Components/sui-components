@@ -11,20 +11,19 @@ const OWN_PROPS = [
 const CLASSES = [...TYPES, ...MODIFIERS, 'empty']
   .reduce((res, key) => Object.assign(res, {[key]: `${CLASS}--${key}`}), {})
 
-const includes = (array, item) => array.indexOf(item) !== -1
 const cleanProps = (props) => {
   let newProps = {...props}
   OWN_PROPS.forEach(key => delete newProps[key])
   return newProps
 }
-const getTypes = (props) => {
+const getType = (props) => {
   let types = Object.keys(props)
-    .filter(name => includes(TYPES, name))
-  return types.length ? types : ['primary']
+    .filter(name => TYPES.includes(name))
+  return types[0] || TYPES[0]
 }
 const getModifiers = (props) => {
   return Object.keys(props)
-    .filter(name => includes(MODIFIERS, name))
+    .filter(name => MODIFIERS.includes(name))
 }
 const propToClass = key => CLASSES[key]
 
@@ -32,16 +31,16 @@ const AtomButton = (props) => {
   const {disabled, leftIcon, rightIcon, children, className} = props
   const classNames = cx(
     CLASS,
-    getTypes(props).map(propToClass),
+    propToClass(getType(props)),
     getModifiers(props).map(propToClass),
     !children && CLASSES.empty,
     className
   )
   const newProps = cleanProps(props)
   return (<button {...newProps} className={classNames} disabled={disabled}>
-    {leftIcon && <span className={`${CLASS}LeftIcon`}>{leftIcon}</span>}
+    {leftIcon && <span className={`${CLASS}-leftIcon`}>{leftIcon}</span>}
     {children}
-    {rightIcon && <span className={`${CLASS}RightIcon`}>{rightIcon}</span>}
+    {rightIcon && <span className={`${CLASS}-rightIcon`}>{rightIcon}</span>}
   </button>)
 }
 

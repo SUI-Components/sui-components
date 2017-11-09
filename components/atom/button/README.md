@@ -32,15 +32,15 @@ All props available from regular buttons an be used.
 import Button from '@schibstedspain/sui-atom-button'
 
 return (<div>
-  <AtomButton onClick={() => alert('Primary with onClick')}>
+  <Button onClick={() => alert('Primary with onClick')}>
     Primary with onClick
-  </AtomButton>
-  <AtomButton accent title="Title: Lorem Ipsum">
+  </Button>
+  <Button accent title="Title: Lorem Ipsum">
     Accent with title
-  </AtomButton>
-  <AtomButton secondary className='customClass'>
+  </Button>
+  <Button secondary className='customClass'>
     Secondary with className
-  </AtomButton>
+  </Button>
 </div>)
 
 ```

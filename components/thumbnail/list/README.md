@@ -19,10 +19,12 @@ return (
     items={items}
     captionText='Show!'
     placeholder={
-      <img src='image to be shown until loading thumbnailBasic src' />
+      src: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB2aWV3Qm94PSIwIDAgNTAwIDUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSI1MDAiIGZpbGw9IiM3NzciLz4KPC9zdmc+',
+      alt: 'placeholder'
     }
     fallback={
-      <img src='image to be shown if the thumbnail image fails' />
+      src: 'https://satyr.io/50',
+      alt: '50x50 image'
     }
   />
 )

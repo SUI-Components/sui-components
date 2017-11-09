@@ -1,0 +1,180 @@
+@import '~@schibstedspain/sui-theme/lib/settings';
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$c-button: $c-primary !default;
+$c-button-light: color-variation($c-primary, 4) !default;
+$c-button-dark: color-variation($c-primary, -1) !default;
+$c-button-light-contrast: color-variation($c-primary, 3) !default;
+
+$sz-button-small: $p-base*4 !default;
+$fz-button-small: $fz-s !default;
+$icon-sz-button-small: $sz-icon-s !default;
+$icon-m-button-small: $m-s !default;
+$p-button-small: $p-m !default;
+
+$sz-button: $p-base*5 !default;
+$fz-button: $fz-m !default;
+$icon-sz-button: $sz-icon-s !default;
+$icon-m-button: $m-m !default;
+$p-button: $p-l !default;
+
+$sz-button-large: $p-base*6 !default;
+$fz-button-large: $fz-m !default;
+$icon-sz-button-large: $sz-icon-m !default;
+$icon-m-button-large: $m-m !default;
+$p-button-large: $p-l !default;
+
+// Set all color properties for text and icons
+@mixin button-foreground-color ($color) {
+  color: $color;
+
+
+  & svg path {
+    fill: $color;
+    stroke: $color;
+  }
+}
+// Sets active states when button is not disabled
+@mixin button-focused {
+  &:not(.sui-AtomButton--disabled) {
+    &.sui-AtomButton--focused,
+    &:active,
+    &:focus,
+    &:hover {
+      @content;
+    }
+  }
+}
+@mixin button-icon ($size, $margin) {
+  & .sui-AtomButtonLeftIcon,
+  & .sui-AtomButtonRightIcon {
+    height: $size;
+    width: $size;
+  }
+
+  & .sui-AtomButtonLeftIcon {
+    margin-right: $margin;
+  }
+
+  & .sui-AtomButtonRightIcon {
+    margin-left: $margin;
+  }
+}
+
+.sui-AtomButton {
+  @include reset-button;
+  @include button-icon($icon-sz-button, $icon-m-button);
+  border: 1px solid;
+  border-radius: $bdrs-m;
+  box-sizing: border-box;
+  font: {
+    family: $ff-sans-serif;
+    size: $fz-button;
+    weight: $fw-semi-bold;
+  }
+  height: $sz-button;
+  min-width: $sz-button;
+  outline: 0;
+  padding: 0 $p-button;
+  transition: background-color .3s ease, border-color .3s ease;
+  white-space: nowrap;
+
+  & + & {
+    margin-left: $m-m;
+  }
+
+  // Types and colors
+  &--primary {
+    @include button-foreground-color($c-white);
+    @include button-focused {
+      background-color: $c-button-dark;
+      border-color: $c-button-dark;
+    }
+    background-color: $c-button;
+    border-color: $c-button;
+  }
+
+  &--secondary,
+  &--tertiary {
+    @include button-foreground-color($c-button);
+    @include button-focused {
+      background-color: $c-button-light;
+    }
+  }
+
+  &--tertiary {
+    border-color: transparent;
+  }
+
+  &--negative {
+    &.sui-AtomButton--primary {
+      @include button-foreground-color($c-button);
+      @include button-focused {
+        background-color: $c-button-light-contrast;
+        border-color: $c-button-light-contrast;
+      }
+      background-color: $c-white;
+      border-color: $c-white;
+    }
+
+    &.sui-AtomButton--secondary,
+    &.sui-AtomButton--tertiary {
+      @include button-foreground-color($c-white);
+      @include button-focused {
+        background-color: $c-button-dark;
+      }
+    }
+  }
+
+  &--accent {
+    @include button-foreground-color($c-white);
+    @include button-focused {
+      background-color: $c-accent-dark;
+      border-color: $c-accent-dark;
+    }
+    background-color: $c-accent;
+    border-color: $c-accent;
+  }
+
+  // Modifiers
+  &--disabled {
+    cursor: not-allowed;
+    opacity: .3;
+  }
+
+  &--small {
+    @include button-icon($icon-sz-button-small, $icon-m-button-small);
+    font-size: $fz-button-small;
+    height: $sz-button-small;
+    min-width: $sz-button-small;
+    padding: 0 $p-button-small;
+  }
+
+  &--large {
+    @include button-icon($icon-sz-button-large, $icon-m-button-large);
+    font-size: $fz-button-large;
+    height: $sz-button-large;
+    min-width: $sz-button-large;
+    padding: 0 $p-button-large;
+  }
+
+  &--fullWidth {
+    width: 100%;
+  }
+
+  // Icons
+  &LeftIcon,
+  &RightIcon {
+    display: inline-block;
+    transform: translateY(-2px);
+    vertical-align: middle;
+  }
+
+  &--empty {
+    .sui-AtomButtonLeftIcon,
+    .sui-AtomButtonRightIcon {
+      margin: 0;
+      transform: translateY(0);
+    }
+  }
+}

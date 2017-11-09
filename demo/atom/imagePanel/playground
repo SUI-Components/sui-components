@@ -1,0 +1,5 @@
+return (
+  <AtomImagePanel>
+    <h2>test</h2>
+  </AtomImagePanel>
+)

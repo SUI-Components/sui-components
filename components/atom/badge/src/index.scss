@@ -11,6 +11,7 @@ $tags: success $c-success, error $c-error, alert $c-alert, info $c-gray;
   border-radius: $bdrs-AtomBadge;
   box-sizing: border-box;
   display: inline-block;
+  vertical-align: bottom;
   white-space: nowrap;
 
   & + & {
@@ -31,7 +32,7 @@ $tags: success $c-success, error $c-error, alert $c-alert, info $c-gray;
     padding: 0 $p-m;
   }
 
-  [class$='icon'] {
+  &-icon {
     @include sui-icon--small;
     display: inline-block;
     margin-right: $m-s;

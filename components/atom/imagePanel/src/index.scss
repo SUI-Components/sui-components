@@ -1,5 +1,7 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
+$bgc-image-panel: grey;
+
 .sui-AtomImagePanel {
-  // Do your magic
+  background-color: $bgc-image-panel;
 }

@@ -1,5 +1,6 @@
 return (
-  <AtomImagePanel>
-    <h2>test</h2>
-  </AtomImagePanel>
+  <div>
+    <h1>AtomImagePanel</h1>
+    <AtomImagePanel backgroundImage='https://satyr.io/1000x100/red?delay=3g' hAligment={'left'} />
+  </div>
 )

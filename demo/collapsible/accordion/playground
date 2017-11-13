@@ -1,3 +1,7 @@
+function onItemChange (collapsed, id) {
+  console.log("Item: ", id, " collapsed:", collapsed)
+}
+
 const items = [
   {
     label: <div style={{padding:'8px'}}>Item 1</div>,
@@ -26,4 +30,4 @@ const items = [
   }
 ]
 
-return (<CollapsibleAccordion items={items} />)
+return (<CollapsibleAccordion items={items} onItemChange={onItemChange} />)

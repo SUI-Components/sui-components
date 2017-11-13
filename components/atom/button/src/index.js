@@ -4,11 +4,13 @@ import cx from 'classnames'
 
 const CLASS = 'sui-AtomButton'
 const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
-const MODIFIERS = ['disabled', 'small', 'large', 'fullWidth', 'focused', 'negative']
+const SIZES = ['small', 'large']
+const MODIFIERS = ['disabled', 'fullWidth', 'focused', 'negative']
 const OWN_PROPS = [
-  ...TYPES, ...MODIFIERS, 'leftIcon', 'rightIcon', 'className', 'children'
+  ...TYPES, ...SIZES, ...MODIFIERS,
+  'leftIcon', 'rightIcon', 'className', 'children'
 ]
-const CLASSES = [...TYPES, ...MODIFIERS, 'empty']
+const CLASSES = [...TYPES, ...SIZES, ...MODIFIERS, 'empty']
   .reduce((res, key) => Object.assign(res, {[key]: `${CLASS}--${key}`}), {})
 
 /**
@@ -23,17 +25,6 @@ const cleanProps = (props) => {
 }
 
 /**
- * Get from props the type of button to display
- * @param  {Object} props
- * @return {String} One of TYPES values
- */
-const getType = (props) => {
-  let types = Object.keys(props)
-    .filter(name => TYPES.includes(name))
-  return types[0] || TYPES[0]
-}
-
-/**
  * Get modifiers to apply according to props
  * @param  {Object} props
  * @return {Array<String>}
@@ -44,10 +35,13 @@ const getModifiers = (props) => {
 }
 
 const AtomButton = (props) => {
-  const {disabled, leftIcon, rightIcon, children, className} = props
+  const {disabled, leftIcon, rightIcon, children, className, type, size} = props
+
+  console.log(size, CLASSES[size])
   const classNames = cx(
     CLASS,
-    CLASSES[getType(props)],
+    CLASSES[type],
+    size && CLASSES[size],
     getModifiers(props).map(key => CLASSES[key]),
     !children && CLASSES.empty,
     className
@@ -61,23 +55,16 @@ const AtomButton = (props) => {
 }
 
 AtomButton.displayName = 'AtomButton'
+
 AtomButton.propTypes = {
   /**
-   * Type: filled with primary color (default)
+   * Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary'
    */
-  primary: PropTypes.bool,
+  type: PropTypes.oneOf(TYPES),
   /**
-   * Type: ghost button, no background
+   * Size of button: 'small', 'large'
    */
-  secondary: PropTypes.bool,
-  /**
-   * Type: link button, no background nor border
-   */
-  tertiary: PropTypes.bool,
-  /**
-   * Type: filled with accent color
-   */
-  accent: PropTypes.bool,
+  size: PropTypes.oneOf(SIZES),
   /**
    * Negative: style for dark backgrounds.
    */
@@ -90,14 +77,6 @@ AtomButton.propTypes = {
    * Disable: faded with no interaction.
    */
   disabled: PropTypes.bool,
-  /**
-   * Modifier: smaller size
-   */
-  small: PropTypes.bool,
-  /**
-   * Modifier: large size
-   */
-  large: PropTypes.bool,
   /**
    * Modifier: full width (100%)
    */
@@ -118,6 +97,10 @@ AtomButton.propTypes = {
    * Classes to add to button
    */
   className: PropTypes.any
+}
+
+AtomButton.defaultProps = {
+  type: 'primary'
 }
 
 export default AtomButton

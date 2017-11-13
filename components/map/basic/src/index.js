@@ -1,20 +1,15 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import LeafletMap from './leaflet/leaflet-map'
-import { tileLayerTypes } from './leaflet/constants'
+import { mapViewModes } from './leaflet/constants'
 
 class MapBasic extends Component {
   constructor (props) {
     super(props)
     this.setMapEventDefinition(props)
-  }
-
-  mapInstance = undefined
-  isHeatmapVisible = false
-  isSatelliteView = false
-
-  state = {
-    pois: null
+    this.mapInstance = undefined
+    this.isHeatmapVisible = false
+    this.isSatelliteView = false
   }
 
   setMapEventDefinition () {
@@ -70,9 +65,13 @@ class MapBasic extends Component {
       polygons: this.props.polygons,
       showHeatmap: this.props.showHeatmap,
       showSatelliteView: this.props.showSatelliteView,
-      tileLayerTypes: this.props.tileLayerTypes,
+      mapViewModes: this.props.mapViewModes,
+      defaultMapViewMode: this.props.defaultMapViewMode,
       zoomable: this.props.zoomable,
-      zoom: this.props.zoom
+      zoomControlPosition: this.props.zoomControlPosition,
+      zoom: this.props.zoom,
+      appId: this.props.appId,
+      appCode: this.props.appCode
     }
   }
 
@@ -87,10 +86,10 @@ class MapBasic extends Component {
   checkWhichViewShouldBeDisplayed (showSatelliteView) {
     if (showSatelliteView && !this.isSatelliteView) {
       this.isSatelliteView = true
-      this.mapInstance.setView(tileLayerTypes.SATELLITE)
+      this.mapInstance.setView(mapViewModes.SATELLITE)
     } else if (!showSatelliteView && this.isSatelliteView) {
       this.isSatelliteView = false
-      this.mapInstance.setView(tileLayerTypes.NORMAL)
+      this.mapInstance.setView(mapViewModes.NORMAL)
     }
   }
 
@@ -100,7 +99,7 @@ class MapBasic extends Component {
       this.mapInstance.showHeatMap(url)
     } else if (!showHeatmap && this.isHeatmapVisible) {
       this.isHeatmapVisible = false
-      this.mapInstance.removeHeatMap()
+      this.mapInstance.removeHeatMapLayer()
     }
   }
 
@@ -123,14 +122,13 @@ class MapBasic extends Component {
   componentDidMount () {
     this.subscribeToMapEvents()
     this.mapInstance = new LeafletMap(this.getMapConfig())
-    this.props.onMapLoad(this.mapInstance.getParamsForRequest())
   }
 
   render () {
     return (
       <div
         className='re-Wrapper'
-        style={{height: '100%'}}
+        style={this.props.height && { height: this.props.height }}
         ref={(ele) => { this.mapDOMInstance = ele }}
         id={this.props.id}
       />
@@ -141,6 +139,8 @@ class MapBasic extends Component {
 MapBasic.propTypes = {
   id: PropTypes.string.isRequired,
   center: PropTypes.array.isRequired,
+  appId: PropTypes.string.isRequired,
+  appCode: PropTypes.string.isRequired,
   heatMapUrl: PropTypes.string,
   literals: PropTypes.object,
   maxZoom: PropTypes.number,
@@ -161,7 +161,10 @@ MapBasic.propTypes = {
   tap: PropTypes.bool,
   zoom: PropTypes.number,
   zoomable: PropTypes.bool,
-  tileLayerTypes: PropTypes.array.isRequired
+  zoomControlPosition: PropTypes.string,
+  mapViewModes: PropTypes.array.isRequired,
+  defaultMapViewMode: PropTypes.number,
+  height : PropTypes.string
 }
 
 MapBasic.defaultProps = {
@@ -169,8 +172,10 @@ MapBasic.defaultProps = {
   center: [40.00237, -3.99902],
   maxZoom: 20,
   minZoom: 6,
-  tileLayerTypes: [tileLayerTypes.NORMAL],
+  mapViewModes: [mapViewModes.NORMAL, mapViewModes.SATELLITE],
+  defaultMapViewMode: 0,
   zoom: 14,
+  zoomControlPosition: 'bottomleft',
   zoomable: true
 }
 

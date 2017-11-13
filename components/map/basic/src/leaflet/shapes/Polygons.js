@@ -84,6 +84,7 @@ export default class SearchMapPolygons {
     polygons.map(polygon => {
       this.printPolygonOnMap({ map, polygon })
     })
+
     return true
   }
 }

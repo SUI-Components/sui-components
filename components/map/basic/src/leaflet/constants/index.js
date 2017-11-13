@@ -1,4 +1,4 @@
-export const tileLayerTypes = {
+export const mapViewModes = {
   NORMAL: 'normal.day',
   SATELLITE: 'satellite.day'
 }

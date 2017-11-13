@@ -8,12 +8,13 @@ export default class LeafletMap {
   constructor (properties) {
     this.createMarkerManager(properties.id)
     this.createLayerManager()
-    this.setMapTexts(properties.literals)
     this.buildMap(properties)
     this.setZoomControlPosition(properties.zoomControlPosition)
     this.buildShapes(properties)
     this.setMapDOMInstance(properties.id)
     this.subscribeToLeafletMapEvents()
+    this.layerManager.addChangeViewController(properties, this._map, this._normalViewText, this._satelliteViewText)
+    this.markerManager.addIconMarkersToMap({icons: properties.icons, map: this._map})
     this.dispatchFirstLoad()
   }
 
@@ -22,7 +23,9 @@ export default class LeafletMap {
     const mapOptions = {
       center: [properties.latitude, properties.longitude],
       zoom: properties.zoom,
-      layers: [this.layerManager.layers.map[properties.defaultMapViewMode]]
+      dragging: properties.dragging,
+      zoomControl: properties.zoomControl,
+      layers: [this.layerManager.layers.map[properties.selectedMapViewMode]]
     }
 
     this._map = L.map(properties.id, mapOptions)
@@ -54,22 +57,15 @@ export default class LeafletMap {
     this.layerManager = new LayerManager()
   }
 
-  setMapTexts ({ normalViewText, satelliteViewText, toConsultText }) {
-    this._normalViewText = normalViewText
-    this._satelliteViewText = satelliteViewText
-    this._toConsultText = toConsultText
-  };
-
   showHeatMap (url) {
     this.layerManager.addHeatMapLayer(url, this._map)
   }
-
   removeHeatMapLayer () {
     this._map.removeLayer(this.layerManager.layers.heatMap)
   }
 
   setZoomControlPosition (position) {
-    this._map.zoomControl.setPosition(position)
+    this._map.zoomControl && this._map.zoomControl.setPosition(position)
   };
 
   attachPropsToMapInstance (properties) {

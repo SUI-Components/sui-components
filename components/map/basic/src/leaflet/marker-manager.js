@@ -1,5 +1,4 @@
 import L from 'leaflet'
-
 class MarkerManager {
   constructor (mapId) {
     this.setMapDOMInstance(mapId)
@@ -104,6 +103,19 @@ class MarkerManager {
 
   isPromotion (options) {
     return options.propertyInfo !== undefined && options.propertyInfo.promotionId !== undefined && options.propertyInfo.promotionId > 0
+  }
+
+  addIconMarkersToMap ({ icons, map }) {
+    console.log(icons)
+    icons && icons.forEach((icon) => {
+      const iconInstance = L.icon({
+        iconUrl: icon.iconUrl,
+        iconSize: icon.size,
+        iconAnchor: icon.anchor,
+        shadowUrl: icon.shadowUrl
+      })
+      L.marker([icon.lat, icon.lng], {icon: iconInstance}).addTo(map)
+    })
   }
 
   addClassModifier (iconClassName, options) {

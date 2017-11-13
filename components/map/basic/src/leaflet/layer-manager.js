@@ -1,5 +1,5 @@
 import L from 'leaflet'
-import { mapViewModes } from './constants'
+import { mapViewModes, mapViewNames } from './constants'
 
 export default class LayerManager {
   constructor () {
@@ -29,6 +29,14 @@ export default class LayerManager {
 
   getLayerGroup (layer) {
     return L.featureGroup(layer)
+  }
+
+  addChangeViewController (properties, map) {
+    const controllers = {}
+    this.layers.map.forEach((layer, index) => {
+      controllers[mapViewNames[index]] = layer
+    })
+    properties.enableViewMenu && L.control.layers(controllers).addTo(map)
   }
 
   addLayersToGroup (layers, groupName) {

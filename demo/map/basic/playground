@@ -11,12 +11,22 @@ const props = {
                 "minZoom": 6,
                 "tap": true,
                 "zoom": 6,
-                "zoomable": true
+                "zoomable": true,
+                "isInteractable": false,
+                "appId": 'UtT2lgmGbo0ADCEHlsOo',
+                "appCode": 'NekMBEpoxq_MM3jXUUF6Nw',
+                "height": '100%',
+                "center": [41.568782, 2.026029],
+                "icons": [
+                          {
+                              iconUrl: 'http://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-PNG-Pic.png',
+                              size: [18],
+                              anchor: [0, 27],
+                              lat: 41.568782,
+                              lng: 2.026029
+                          }
+                 ]
               }
-  props.appId = 'UtT2lgmGbo0ADCEHlsOo'
-  props.appCode = 'NekMBEpoxq_MM3jXUUF6Nw'
-  props.height = '100%'
-
 return (<div style={{ height: '50%' }}>
 <div style={{ border: '1px solid black', height: '50%', marginTop: '20px'}}>
 <MapBasic
@@ -24,13 +34,17 @@ return (<div style={{ height: '50%' }}>
 />
 </div>
 <div style={{ border: '1px solid black', height: '50%', marginTop: '20px'}}>
-<MapBasic
-    {...props}
-    showSatelliteView={true}
-    polygons={false}
-    zoom={10}
-    id={"testID"}
-    center={[41.386527, 2.162499]}
-/>
+<MapBasic appId="UtT2lgmGbo0ADCEHlsOo"
+          appCode="NekMBEpoxq_MM3jXUUF6Nw"
+          id="test-map"
+          height="100%"
+          center={[41.493743, 2.075211]}
+          selectedMapViewMode={1}
+          enableViewMenu={true}
+          isInteractable={false}
+          zoomable={true}
+          icons={[{iconUrl: 'http://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-PNG-Pic.png',size: [18],anchor: [0, 27],lat: 41.493743, lng: 2.075211}]}
+          zoom={17}
+        />
 </div>
 </div>)

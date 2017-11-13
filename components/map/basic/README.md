@@ -13,124 +13,93 @@ $ npm install @schibstedspain/sui-map-basic --save
 ## Usage
 
 ### Basic usage
-Let's suppose that you wan't a map with an interactive behavior, what properties should I need?
+Let's suppose that you wan't a map with an interactive behavior, what properties should you need?
 
 ```js
 import MapBasic from '@schibstedspain/sui-map-basic'
 
-return (<MapBasic appId={"<HERE APP_ID>"}
-                     appCode={"<HERE APP_CODE>"}
-                     options={{ zoom: 17, center: {lat: 41.493826, lng: 2.074766} }}
-        />)
+return (<MapBasic
+        appId="<HERE APP_ID>"
+        appCode="<HERE APP_CODE>"
+        id="test-map"
+        height="100%"
+        center={[41.493743, 2.075211]}
+        zoom={17}
+/>)
 ```
 
-### Interactable maps
+### NON interactable maps
 
-And now I want a map interactable you can do that adding the isInteractive flag:
+By default, all the maps have the 'draggable' leaflet flag setted to true. But what about if I want to disable it? Just pass isInteractive={false}
 
 ```js
 import MapBasic from '@schibstedspain/sui-map-basic'
 
-return (<MapBasic appId={"<HERE APP_ID>"}
-                     appCode={"<HERE APP_CODE>"}
-                     isInteractive
-                     options={{ zoom: 17, center: {lat: 41.493826, lng: 2.074766} }}
+return (<MapBasic
+        appId="<HERE APP_ID>"
+        appCode="<HERE APP_CODE>"
+        isInteractive={false
+        center={[41.493743, 2.075211]}
+        zoom={17}
         />)
 ```
 
 ### Add Markers
 
-What about put a marker on our map? This case is a bit special because the svg icon definition should be added as a STRING. Sadly this is a HERE map API behavior
+What about put a marker on our map?
+
+Markers are setted as "icons" prop. Icons is an array composed by:
+    - Path to the image (local or not)
+    - Size(width, height) array.
+    - Anchor. This is the amount of pixels that will be deleted from the top or left of our image [0, 27] means margin-left: 0, margin-top: -27px
+    - lat
+    - long
 
 ```js
 import MapBasic from '@schibstedspain/sui-map-basic'
 
-return (<MapBasic appId={"<HERE APP_ID>"}
-                     appCode={"<HERE APP_CODE>"}
-                     options={{ zoom: 17, center: {lat: 41.493826, lng: 2.074766} }}
-                     marker={{
-                             genericIcon: '<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"> <rect stroke="white" fill="#1b468d" x="1" y="1" width="22" height="22" /> <text x="12" y="18" font-size="12pt" font-family="Arial" font-weight="bold" text-anchor="middle"  fill="white">H</text> </svg>',
-                             elements: [
-                               { lat: 41.493826, lng: 2.074766 },
-                             ]
-                          }}
-        />)
+return (<MapBasic
+        appId={"<HERE APP_ID>"}
+        appCode={"<HERE APP_CODE>"}
+        icons={[
+            {
+                iconUrl: 'http://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-PNG-Pic.png',
+                size: [18],
+                anchor: [0, 27],
+                lat: 41.568782,
+                lng: 2.026029
+             }
+        ]}
+/>)
 ```
 
-If you want two markers you can add more elements to your elements array:
+If you want two markers you can add more elements to your icons array:
 
 ```js
-   marker={{
-             genericIcon: '<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"> <rect stroke="white" fill="#1b468d" x="1" y="1" width="22" height="22" /> <text x="12" y="18" font-size="12pt" font-family="Arial" font-weight="bold" text-anchor="middle"  fill="white">H</text> </svg>',
-             elements: [
-               { lat: 41.493826, lng: 2.074766 },
-               { lat: 41.493826, lng: 2.074766 }
-             ]
-          }}
+   icons={[
+               {
+                   iconUrl: 'http://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-PNG-Pic.png',
+                   size: [18],
+                   anchor: [0, 27],
+                   lat: 41.568782,
+                   lng: 2.026029
+                },
+                {
+                   iconUrl: 'http://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-PNG-Pic.png',
+                   size: [18],
+                   anchor: [0, 27],
+                   lat: 41.568782,
+                   lng: 2.026029
+                }
+   ]}
 ```
 
-Even you can add a custom icon by marker
+### Usage with Points of interest
+
+If you wan't to add 'points of interest' to your map you could pass it as a pois array. This feature is attached to FC and need to be modified to be more generic.
+
 ```js
-   marker={{
-             genericIcon: '<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"> <rect stroke="white" fill="#1b468d" x="1" y="1" width="22" height="22" /> <text x="12" y="18" font-size="12pt" font-family="Arial" font-weight="bold" text-anchor="middle"  fill="white">H</text> </svg>',
-             elements: [
-                { lat: 41.493826, lng: 2.074766 },
-                { lat: 41.493826, lng: 2.074766, icon: '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" style="margin:-112px 0 0 -32px" width="136px" height="150px" viewBox="0 0 136 150"><ellipse fill="#000" cx="32" cy="128" rx="36" ry="4"><animate attributeName="cx" from="32" to="32" begin="0s" dur="1.5s" values="96;32;96" keySplines=".6 .1 .8 .1; .1 .8 .1 1" keyTimes="0;0.4;1" calcMode="spline" repeatCount="indefinite"/><animate attributeName="rx" from="36" to="36" begin="0s" dur="1.5s" values="36;10;36" keySplines=".6 .0 .8 .0; .0 .8 .0 1" keyTimes="0;0.4;1" calcMode="spline" repeatCount="indefinite"/><animate attributeName="opacity" from=".2" to=".2"  begin="0s" dur="1.5s" values=".1;.7;.1" keySplines=" .6.0 .8 .0; .0 .8 .0 1" keyTimes=" 0;0.4;1" calcMode="spline" repeatCount="indefinite"/></ellipse><ellipse fill="#1b468d" cx="26" cy="20" rx="16" ry="12"><animate attributeName="cy" from="20" to="20" begin="0s" dur="1.5s" values="20;112;20" keySplines=".6 .1 .8 .1; .1 .8 .1 1" keyTimes=" 0;0.4;1" calcMode="spline" repeatCount="indefinite"/><animate attributeName="ry" from="16" to="16" begin="0s" dur="1.5s" values="16;12;16" keySplines=".6 .0 .8 .0; .0 .8 .0 1" keyTimes="0;0.4;1" calcMode="spline" repeatCount="indefinite"/></ellipse></svg>' }
-             ]
-          }}
+    pois=[
+    {[{"latitude":"42.67967","longitude":"-2.9674","hasPopup":false,"xitiTag":false,"propertyInfo":{"IsFavorite":false,"IsFullAddressVisible":false,"purchaseTypeId":2,"bti":0,"contact":"","highlighted":"false","on":0,"price":"","promotionId":"0","propertyId":"144830788"},"markerType":0,"isSelected":false,"Id":"144830788"}]}
+    ]
 ```
-
-### Add circle shapes
-
-You can add circle shapes like 'radar' just creating your component with this property:
-```js
-<MapBasic
-    appId={"DemoAppId01082013GAL"}
-    options={{ zoom: 17, center: {lat: 41.493826, lng: 2.074766} }}
-    appCode={"AJKnXv84fjrb0KIHawS0Tg"}
-    circleShape= {{
-            elements: [
-              { lat: 41.493826, lng: 2.074766, radius: 100 },
-              { lat: 41.494360, lng: 2.075936, radius: 100 }
-            ]
-    }}
-/>
-```
-
-If there's not any style definition the here map will throw a radar with a background blue transparent and a border black-blue
-
-You can define your own styles for the whole circles putting the styleGeneric property:`
-
-```js
-<MapBasic
-    appId={"DemoAppId01082013GAL"}
-    options={{ zoom: 17, center: {lat: 41.493826, lng: 2.074766} }}
-    appCode={"AJKnXv84fjrb0KIHawS0Tg"}
-    circleShape= {{
-             styleGeneric: { lineWidth: 10, strokeColor: 'blue' },
-             elements: [
-               { lat: 41.493826, lng: 2.074766, radius: 100 },
-               { lat: 41.494360, lng: 2.075936, radius: 100 }
-             ]
-    }}
-/>
-```
-
-And... what about have custom styling on each circle? You can do that putting the style property on the desired element
-
-```js
-<MapBasic
-    appId={"DemoAppId01082013GAL"}
-    options={{ zoom: 17, center: {lat: 41.493826, lng: 2.074766} }}
-    appCode={"AJKnXv84fjrb0KIHawS0Tg"}
-    circleShape= {{
-             styleGeneric: { lineWidth: 10, strokeColor: 'blue' },
-             elements: [
-               { lat: 41.493826, lng: 2.074766, radius: 100, style: { lineWidth: 30, strokeColor: 'yellow' } },
-               { lat: 41.494360, lng: 2.075936, radius: 100 }
-             ]
-    }}
-/>
-``
-
-> **Find full description and more examples in the [demo page](#).**

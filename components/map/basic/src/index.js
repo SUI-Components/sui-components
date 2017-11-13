@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import LeafletMap from './leaflet/leaflet-map'
-import { mapViewModes } from './leaflet/constants'
+import LeafletMap from './leaflet/map'
+import {mapViewModes} from './leaflet/constants'
 
 class MapBasic extends Component {
   constructor (props) {
@@ -66,9 +66,12 @@ class MapBasic extends Component {
       showHeatmap: this.props.showHeatmap,
       showSatelliteView: this.props.showSatelliteView,
       mapViewModes: this.props.mapViewModes,
-      defaultMapViewMode: this.props.defaultMapViewMode,
-      zoomable: this.props.zoomable,
+      selectedMapViewMode: this.props.selectedMapViewMode,
+      zoomControl: this.props.zoomable,
       zoomControlPosition: this.props.zoomControlPosition,
+      icons: this.props.icons,
+      enableViewMenu: this.props.enableViewMenu,
+      dragging: this.props.isInteractable,
       zoom: this.props.zoom,
       appId: this.props.appId,
       appCode: this.props.appCode
@@ -114,7 +117,7 @@ class MapBasic extends Component {
 
   componentWillReceiveProps (nextProps) {
     const {heatMapUrl, pois, showHeatmap, showSatelliteView} = nextProps
-    this.mapInstance.displayPois(pois)
+    pois.length && this.mapInstance.displayPois(pois)
     this.checkIfHeatMapShouldBeDisplayed(showHeatmap, heatMapUrl)
     this.checkWhichViewShouldBeDisplayed(showSatelliteView)
   }
@@ -122,14 +125,17 @@ class MapBasic extends Component {
   componentDidMount () {
     this.subscribeToMapEvents()
     this.mapInstance = new LeafletMap(this.getMapConfig())
+    this.props.pois && this.mapInstance.displayPois(this.props.pois)
   }
 
   render () {
     return (
       <div
-        className='re-Wrapper'
-        style={this.props.height && { height: this.props.height }}
-        ref={(ele) => { this.mapDOMInstance = ele }}
+        className='re-Wrapper sui-MapBasic'
+        style={this.props.height && {height: this.props.height}}
+        ref={(ele) => {
+          this.mapDOMInstance = ele
+        }}
         id={this.props.id}
       />
     )
@@ -137,13 +143,36 @@ class MapBasic extends Component {
 }
 
 MapBasic.propTypes = {
-  id: PropTypes.string.isRequired,
-  center: PropTypes.array.isRequired,
-  appId: PropTypes.string.isRequired,
   appCode: PropTypes.string.isRequired,
+  appId: PropTypes.string.isRequired,
+  /**
+   * An array composed by lat and lng like: [lat, lng]
+   */
+  center: PropTypes.array.isRequired,
+  /**
+   * Heat map url is the source where we are going to get the heatMap layers
+   */
   heatMapUrl: PropTypes.string,
+  /**
+   * In some cases our styles will be loaded after our map being created. In this cases we must specify our map height by code F.E on sui-studio
+   */
+  height: PropTypes.string,
+  /**
+   * The DOM Id that we would like to have on our map div if none is provided 'map-container' will be its id.
+   */
+  id: PropTypes.string,
   literals: PropTypes.object,
+  /**
+   * Array of map view modes. Those models are defined could be: mapViewModes.NORMAL, mapViewModes.SATELLITE
+   */
+  mapViewModes: PropTypes.array.isRequired,
+  /**
+   * A number used to lock the max zoom that a user can do.
+   */
   maxZoom: PropTypes.number,
+  /**
+   * A number used to lock the min zoom or zoom out that a user can do.
+   */
   minZoom: PropTypes.number,
   onMapClick: PropTypes.func,
   onMapDragEnd: PropTypes.func,
@@ -154,17 +183,51 @@ MapBasic.propTypes = {
   onPoiMouseOut: PropTypes.func,
   onPoiMouseOver: PropTypes.func,
   onSatelliteView: PropTypes.func,
+  /**
+   * An array of points of interest. More info and examples on readme.
+   */
   pois: PropTypes.array,
+  /**
+   * An array of polygons. Where we can build forms on our map.
+   */
   polygons: PropTypes.object,
+  /**
+   * A number to specify which of our map view modes is selected.
+   * For example if our mapViewModes are: [mapViewModes.NORMAL, mapViewModes.SATELLITE] and we set this to 0 our selected map will be NORMAL.
+   */
+  selectedMapViewMode: PropTypes.number,
+  /**
+   * Whether our map should show the heat map. The usage of this prop is attached to our heatMapUrl.
+   */
   showHeatmap: PropTypes.bool,
+  /**
+   * Used to call setView internal function and force to show the Satellite view.
+   */
   showSatelliteView: PropTypes.bool,
-  tap: PropTypes.bool,
+  /**
+   * The init zoom of our map
+   */
   zoom: PropTypes.number,
+  /**
+   * Set to false to disable the zoom
+   */
   zoomable: PropTypes.bool,
+  /**
+   * Where should be displayed our zoomControl if it is enabled.
+   */
   zoomControlPosition: PropTypes.string,
-  mapViewModes: PropTypes.array.isRequired,
-  defaultMapViewMode: PropTypes.number,
-  height : PropTypes.string
+  /**
+   * Show layers menu to let the user select satellite or normal.
+   */
+  enableViewMenu: PropTypes.bool,
+  /**
+   * An array of icons that will be added as markers to our map. Not the same purpose as POI's
+   */
+  icons: PropTypes.array,
+  /**
+   * BY DEFAULT set to true. Set it to false to disable the use to drag and move on the map.
+   */
+  isInteractable: PropTypes.bool
 }
 
 MapBasic.defaultProps = {
@@ -173,10 +236,11 @@ MapBasic.defaultProps = {
   maxZoom: 20,
   minZoom: 6,
   mapViewModes: [mapViewModes.NORMAL, mapViewModes.SATELLITE],
-  defaultMapViewMode: 0,
+  selectedMapViewMode: 0,
   zoom: 14,
   zoomControlPosition: 'bottomleft',
-  zoomable: true
+  zoomable: false,
+  isInteractable: true
 }
 
 MapBasic.displayName = 'MapBasic'

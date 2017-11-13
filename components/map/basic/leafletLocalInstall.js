@@ -19,5 +19,7 @@ fs.readFile(originPath, 'utf8', function read (err, data) {
 
   fs.writeFile(destinationPath, dataByLine.join('\n'), 'utf8', function (err) {
     if (err) return console.error(err)
+
+    console.log('Leaflet modified properly')
   })
 })

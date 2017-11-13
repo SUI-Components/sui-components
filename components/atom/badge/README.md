@@ -13,16 +13,17 @@ npm install @schibstedspain/sui-atom-badge --save
 ## Usage
 
 ```js
-import AtomBadge from '@schibstedspain/sui-atom-badge'
+import Badge, { atomBadgeTypes, atomBadgeSizes } from '@schibstedspain/sui-atom-badge'
 
-(
-  <div>
-    <AtomBadge label='Badge xBasic' large />
-    <AtomBadge label='Badge xIcon' alert icon={icon} large />
-    <AtomBadge label='Error badge' error icon={icon} transparent
+render {
+  return (
+    <Badge
+      size={atomBadgeSizes.SMALL}
+      type={atomBadgeTypes.SUCCESS}
+      label='Hello SUI-Badge!'
     />
-  </div>
-)
+  )
+}
 
 ```
 

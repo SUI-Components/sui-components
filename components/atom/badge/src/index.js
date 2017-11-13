@@ -4,17 +4,16 @@ import cx from 'classnames'
 
 const MAX_LABEL_LENGTH = 100
 const TRANSPARENT = 'transparent'
-const TYPE = {
-  ALERT: 'alert',
+const SIZES = {
+  LARGE: 'large',
+  SMALL: 'small'
+}
+
+const TYPES = {
+  SUCCESS: 'success',
   ERROR: 'error',
   INFO: 'info',
-  SUCCESS: 'success',
-  DEFAULT: 'success'
-}
-const SIZE = {
-  LARGE: 'large',
-  SMALL: 'small',
-  DEFAULT: 'small'
+  ALERT: 'alert'
 }
 
 /**
@@ -26,32 +25,6 @@ const truncateText = function (label) {
   return label.length < MAX_LABEL_LENGTH
     ? label
     : label.substr(0, MAX_LABEL_LENGTH)
-}
-
-/**
- * @param  {boolean} options.success
- * @param  {boolean} options.alert
- * @param  {boolean} options.error
- * @param  {boolean} options.info
- * @return {string}
- */
-const getType = function ({success, alert, error, info}) {
-  return (error && TYPE.ERROR) ||
-   (alert && TYPE.ALERT) ||
-   (success && TYPE.SUCCESS) ||
-   (info && TYPE.INFO) ||
-   TYPE.DEFAULT
-}
-
-/**
- * @param  {boolean=} options.small
- * @param  {boolean=} options.large
- * @return {string}
- */
-const getSize = function ({small, large}) {
-  return (small && SIZE.SMALL) ||
-    (large && SIZE.LARGE) ||
-    SIZE.DEFAULT
 }
 
 /**
@@ -80,17 +53,12 @@ const getClassNames = function ({className, size, transparent, type}) {
  * @return {boolean}
 */
 const shouldRenderIcon = function ({icon, size, transparent}) {
-  return icon && (size !== SIZE.SMALL || transparent)
+  return icon && (size !== SIZES.SMALL || transparent)
 }
 
 const AtomBadge = function (props) {
   const label = truncateText(props.label)
-  const size = getSize(props)
-  const classNames = getClassNames({
-    ...props,
-    type: getType(props),
-    size
-  })
+  const classNames = getClassNames({...props})
 
   return (
     <div className={classNames}>
@@ -126,41 +94,17 @@ AtomBadge.propTypes = {
    * Whether show a background color
    */
   transparent: PropTypes.bool,
-  /**
-   * Type option (error > alert > success > info, default: success)
-   */
-  error: PropTypes.bool,
-  /**
-   * Type option
-   */
-  info: PropTypes.bool,
-  /**
-   * Type option
-   */
-  success: PropTypes.bool,
-  /**
-   * Type option
-   */
-  alert: PropTypes.bool,
-  /**
-   * Size option (small > large, default: small)
-   */
-  large: PropTypes.bool,
-  /**
-   * Size option
-   * Small badges with background can't have icon
-   */
-  small: PropTypes.bool
+  size: PropTypes.oneOf(Object.values(SIZES)),
+  type: PropTypes.oneOf(Object.values(TYPES))
 }
 
 AtomBadge.defaultProps = {
-  error: false,
-  info: false,
-  large: false,
-  small: false,
-  success: false,
-  transparent: false,
-  alert: false
+  size: SIZES.SMALL,
+  type: TYPES.SUCCESS
 }
 
 export default AtomBadge
+export {
+  TYPES as atomBadgeTypes,
+  SIZES as atomBadgeSizes
+}

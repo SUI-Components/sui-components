@@ -93,14 +93,17 @@ class MarkerManager {
     this._markerType = markerType
   }
 
+  // Coupled FC, should be removed in the future
   isFavorite (options) {
     return options.propertyInfo !== undefined && options.propertyInfo.IsFavorite !== undefined && options.propertyInfo.IsFavorite
   }
 
+  // Coupled FC, should be removed in the future
   hasBeenVisited (options) {
     return false
   }
 
+  // Coupled FC, should be removed in the future
   isPromotion (options) {
     return options.propertyInfo !== undefined && options.propertyInfo.promotionId !== undefined && options.propertyInfo.promotionId > 0
   }
@@ -117,6 +120,7 @@ class MarkerManager {
     })
   }
 
+  // Coupled FC, should be removed in the future
   addClassModifier (iconClassName, options) {
     const classModifiers = {
       '--fav': this.isFavorite,
@@ -132,6 +136,7 @@ class MarkerManager {
     return modifier ? iconClassName + modifier : ''
   }
 
+  // Coupled FC, should be removed in the future
   hasValidPrice (options) {
     return options.propertyInfo !== undefined &&
       typeof (options.propertyInfo.price) !== 'undefined' &&
@@ -139,6 +144,7 @@ class MarkerManager {
       options.propertyInfo.price !== '0'
   }
 
+  // This
   getIconFor ({item}) {
     let iconClassName = this.getInitialIcon()
     let priceText = ''

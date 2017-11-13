@@ -1,0 +1,25 @@
+return (<div style={{ width: '50%', height: '400px' }}>
+<MapBasic
+    isInteractive
+    appId={"DemoAppId01082013GAL"}
+    options={{ zoom: 17, center: {lat: 41.493826, lng: 2.074766} }}
+    appCode={"AJKnXv84fjrb0KIHawS0Tg"}
+    //ONLY FOR TESTING PURPOSES DON'T USE THAT ON ANY VERTICAL!!!
+    useCIT={true}
+    /////////////////////////////////////////////////////////////
+    marker= {{
+        genericIcon: '<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"> <rect stroke="white" fill="#1b468d" x="1" y="1" width="22" height="22" /> <text x="12" y="18" font-size="12pt" font-family="Arial" font-weight="bold" text-anchor="middle"  fill="white">H</text> </svg>',
+        elements: [
+          { lat: 41.493826, lng: 2.074766 },
+          { lat: 41.493826, lng: 2.074766, icon: '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" style="margin:-112px 0 0 -32px" width="136px" height="150px" viewBox="0 0 136 150"><ellipse fill="#000" cx="32" cy="128" rx="36" ry="4"><animate attributeName="cx" from="32" to="32" begin="0s" dur="1.5s" values="96;32;96" keySplines=".6 .1 .8 .1; .1 .8 .1 1" keyTimes="0;0.4;1" calcMode="spline" repeatCount="indefinite"/><animate attributeName="rx" from="36" to="36" begin="0s" dur="1.5s" values="36;10;36" keySplines=".6 .0 .8 .0; .0 .8 .0 1" keyTimes="0;0.4;1" calcMode="spline" repeatCount="indefinite"/><animate attributeName="opacity" from=".2" to=".2"  begin="0s" dur="1.5s" values=".1;.7;.1" keySplines=" .6.0 .8 .0; .0 .8 .0 1" keyTimes=" 0;0.4;1" calcMode="spline" repeatCount="indefinite"/></ellipse><ellipse fill="#1b468d" cx="26" cy="20" rx="16" ry="12"><animate attributeName="cy" from="20" to="20" begin="0s" dur="1.5s" values="20;112;20" keySplines=".6 .1 .8 .1; .1 .8 .1 1" keyTimes=" 0;0.4;1" calcMode="spline" repeatCount="indefinite"/><animate attributeName="ry" from="16" to="16" begin="0s" dur="1.5s" values="16;12;16" keySplines=".6 .0 .8 .0; .0 .8 .0 1" keyTimes="0;0.4;1" calcMode="spline" repeatCount="indefinite"/></ellipse></svg>' }
+        ]
+     }}
+     circleShape= {{
+             styleGeneric: { lineWidth: 10, strokeColor: 'blue' },
+             elements: [
+               { lat: 41.493826, lng: 2.074766, radius: 100, style: { lineWidth: 30, strokeColor: 'yellow' } },
+               { lat: 41.494360, lng: 2.075936, radius: 100 }
+             ]
+     }}
+/>
+</div>)

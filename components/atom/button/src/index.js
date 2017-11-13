@@ -36,8 +36,6 @@ const getModifiers = (props) => {
 
 const AtomButton = (props) => {
   const {disabled, leftIcon, rightIcon, children, className, type, size} = props
-
-  console.log(size, CLASSES[size])
   const classNames = cx(
     CLASS,
     CLASSES[type],

@@ -106,7 +106,6 @@ class MarkerManager {
   }
 
   addIconMarkersToMap ({ icons, map }) {
-    console.log(icons)
     icons && icons.forEach((icon) => {
       const iconInstance = L.icon({
         iconUrl: icon.iconUrl,

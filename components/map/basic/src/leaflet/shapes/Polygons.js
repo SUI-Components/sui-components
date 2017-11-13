@@ -65,11 +65,9 @@ export default class SearchMapPolygons {
     if (polygonName === this.SPAIN_POLYGON_NAME) {
       const { latitude, longitude } = this.SPAIN_POLYGON_CENTER
       const centerSpain = new L.LatLng(latitude, longitude)
-      console.log(centerSpain)
       map.panTo(centerSpain)
     } else {
       const bounds = polygonGeoJSon.getBounds()
-      console.log(bounds)
       if (bounds.isValid()) { map.fitBounds(bounds) }
     }
   }

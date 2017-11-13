@@ -2,6 +2,23 @@
 
 $bgc-image-panel: grey;
 
+$horizontal-alignments: ('left', 'center', 'right');
+$vertical-alignments: ('top', 'center', 'bottom');
+
 .sui-AtomImagePanel {
   background-color: $bgc-image-panel;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @each $alignment in $horizontal-alignments {
+    &--h-#{$alignment} {
+      background-position-x: #{$alignment};
+    }
+  }
+
+  @each $alignment in $vertical-alignments {
+    &--v-#{$alignment} {
+      background-position-y: #{$alignment};
+    }
+  }
 }

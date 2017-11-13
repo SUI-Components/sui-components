@@ -1,6 +1,44 @@
+const imageSrcLong = 'http://lorempicsum.com/simpsons/1000/100/1'
+const imageSrcThick = 'http://lorempicsum.com/simpsons/100/200/1'
+
+const content = (
+  <div style={{height: '200px'}} />
+)
+
 return (
   <div>
     <h1>AtomImagePanel</h1>
-    <AtomImagePanel backgroundImage='https://satyr.io/1000x100/red?delay=3g' hAligment={'left'} />
+    <div>
+      <h2>Horizontal alignment</h2>
+      <h2>Original image</h2>
+      <img width='100%' src={imageSrcLong} />
+      <h3>Left</h3>
+      <AtomImagePanel backgroundImage={imageSrcLong} hAlignment={'left'}>
+        {content}
+      </AtomImagePanel>
+      <h3>Center</h3>
+      <AtomImagePanel backgroundImage={imageSrcLong} hAlignment={'center'}>
+        {content}
+      </AtomImagePanel>
+      <h3>Right</h3>
+      <AtomImagePanel backgroundImage={imageSrcLong} hAlignment={'right'}>
+        {content}
+      </AtomImagePanel>
+      <h2>Vertical alignment</h2>
+      <h2>Original image</h2>
+      <img src={imageSrcThick} />
+      <h3>Top</h3>
+      <AtomImagePanel backgroundImage={imageSrcThick} vAlignment={'top'}>
+        {content}
+      </AtomImagePanel>
+      <h3>Center</h3>
+      <AtomImagePanel backgroundImage={imageSrcThick} vAlignment={'center'}>
+        {content}
+      </AtomImagePanel>
+      <h3>Bottom</h3>
+      <AtomImagePanel backgroundImage={imageSrcThick} vAlignment={'bottom'}>
+        {content}
+      </AtomImagePanel>
+    </div>
   </div>
 )

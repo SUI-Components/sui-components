@@ -33,7 +33,6 @@ return (<div style={{ height: '50%' }}>
           id="test-map"
           height="100%"
           center={[41.493743, 2.075211]}
-          selectedMapViewMode={1}
           enableViewMenu={true}
           isInteractable={false}
           zoomable={true}

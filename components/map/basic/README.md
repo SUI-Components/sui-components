@@ -30,7 +30,7 @@ return (<MapBasic
 
 ### NON interactable maps
 
-By default, all the maps have the 'draggable' leaflet flag setted to true. But what about if I want to disable it? Just pass isInteractive={false}
+By default, all the maps have the 'draggable' leaflet flag setted to true. But what about if I want to disable it? Just pass isInteractable={false}
 
 ```js
 import MapBasic from '@schibstedspain/sui-map-basic'
@@ -38,7 +38,7 @@ import MapBasic from '@schibstedspain/sui-map-basic'
 return (<MapBasic
         appId="<HERE APP_ID>"
         appCode="<HERE APP_CODE>"
-        isInteractive={false
+        isInteractable={false
         center={[41.493743, 2.075211]}
         zoom={17}
         />)

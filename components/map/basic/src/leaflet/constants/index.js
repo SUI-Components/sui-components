@@ -7,3 +7,5 @@ export const mapViewNames = [
   'Mapa',
   'Satélite'
 ]
+
+export const NO_OP = () => {}

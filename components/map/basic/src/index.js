@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import LeafletMap from './leaflet/map'
-import {mapViewModes} from './leaflet/constants'
+import { mapViewModes, NO_OP } from './leaflet/constants'
 
 class MapBasic extends Component {
   constructor (props) {
@@ -16,39 +16,39 @@ class MapBasic extends Component {
     this.mapEventList = [
       {
         name: 'leaflet_map_click',
-        handleFunction: (evt) => this.props.onMapClick && this.props.onMapClick(evt.detail)
+        handleFunction: (evt) => this.props.onMapClick(evt.detail)
       },
       {
         name: 'leaflet_map_dragend',
-        handleFunction: (evt) => this.props.onMapDragEnd && this.props.onMapDragEnd(evt.detail)
+        handleFunction: (evt) => this.props.onMapDragEnd(evt.detail)
       },
       {
         name: 'leaflet_map_loaded',
-        handleFunction: (evt) => this.props.onMapLoad && this.props.onMapLoad(evt.detail)
+        handleFunction: (evt) => this.props.onMapLoad(evt.detail)
       },
       {
         name: 'leaflet_map_zoomend',
-        handleFunction: (evt) => this.props.onMapZoomEnd && this.props.onMapZoomEnd(evt.detail)
+        handleFunction: (evt) => this.props.onMapZoomEnd(evt.detail)
       },
       {
         name: 'leaflet_map_layer_normal',
-        handleFunction: (evt) => this.props.onNormalView && this.props.onNormalView(evt.detail)
+        handleFunction: (evt) => this.props.onNormalView(evt.detail)
       },
       {
         name: 'leaflet_map_poiclick',
-        handleFunction: (evt) => this.props.onPoiClick && this.props.onPoiClick(evt.detail)
+        handleFunction: (evt) => this.props.onPoiClick(evt.detail)
       },
       {
         name: 'leaflet_map_poimouseout',
-        handleFunction: () => this.props.onPoiMouseOut && this.props.onPoiMouseOut()
+        handleFunction: () => this.props.onPoiMouseOut()
       },
       {
         name: 'leaflet_map_poimouseover',
-        handleFunction: (evt) => this.props.onPoiMouseOver && this.props.onPoiMouseOver(evt.detail)
+        handleFunction: (evt) => this.props.onPoiMouseOver(evt.detail)
       },
       {
         name: 'leaflet_map_layer_satellite',
-        handleFunction: (evt) => this.props.onSatelliteView && this.props.onSatelliteView(evt.detail)
+        handleFunction: (evt) => this.props.onSatelliteView(evt.detail)
       }
     ]
   }
@@ -240,7 +240,16 @@ MapBasic.defaultProps = {
   zoom: 14,
   zoomControlPosition: 'bottomleft',
   zoomable: false,
-  isInteractable: true
+  isInteractable: true,
+  onMapClick: NO_OP,
+  onMapDragEnd: NO_OP,
+  onMapLoad: NO_OP,
+  onMapZoomEnd: NO_OP,
+  onNormalView: NO_OP,
+  onPoiClick: NO_OP,
+  onPoiMouseOut: NO_OP,
+  onPoiMouseOver: NO_OP,
+  onSatelliteView: NO_OP
 }
 
 MapBasic.displayName = 'MapBasic'

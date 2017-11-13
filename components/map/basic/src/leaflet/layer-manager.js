@@ -53,14 +53,7 @@ export default class LayerManager {
   }
 
   getBaseMapView (value) {
-    switch (value) {
-      case mapViewModes.NORMAL:
-        return 'base'
-      case mapViewModes.SATELLITE:
-        return 'aerial'
-      default:
-        return 'base'
-    }
+    return value === mapViewModes.SATELLITE ? 'aerial' : 'base'
   }
 
   addHeatMapLayer (url, map) {

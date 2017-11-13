@@ -98,9 +98,10 @@ export default class LeafletMap {
   }
 
   getCenterWithZoom () {
-    let centerWithZoom = this.getCenter()
-    centerWithZoom.zoom = this.getZoomLevel()
-    return centerWithZoom
+    return {
+      ...this.getCenter(),
+      zoom: this.getZoomLevel()
+    }
   }
 
   clearLayer (layer) {

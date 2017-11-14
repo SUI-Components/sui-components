@@ -1,5 +1,8 @@
 const imageSrcLong = 'http://lorempicsum.com/simpsons/1000/100/1'
 const imageSrcThick = 'http://lorempicsum.com/simpsons/100/200/1'
+const imageSrcDelayed = 'https://satyr.io/500/black?delay=3g'
+
+const placeholderColor = '#ccc'
 
 const content = (
   <div style={{height: '200px'}} />
@@ -9,34 +12,60 @@ return (
   <div>
     <h1>AtomImagePanel</h1>
     <div>
+      <h2>Placeholder example</h2>
+      <AtomImagePanel src={imageSrcDelayed} horizontalAlign={'left'} placeholderColor={placeholderColor}>
+        {content}
+      </AtomImagePanel>
+      <h2>Overlay example</h2>
+      <AtomImagePanel src={imageSrcLong} overlayAlpha={0.6} overlayColor={'#f00'} placeholderColor={placeholderColor}>
+        {content}
+      </AtomImagePanel>
+      <h2>Background opacity example</h2>
+      <AtomImagePanel src={imageSrcLong} opacity={0.1} placeholderColor={placeholderColor}>
+        {content}
+      </AtomImagePanel>
+      <h2>Container example</h2>
+      <div style={{width: '350px'}}>
+        <AtomImagePanel src={imageSrcLong} horizontalAlign={'left'} overlayColor={'fff'} overlayAlpha={0.9} placeholderColor={placeholderColor}>
+          <div style={{height: '200px', width: '200px', color: '#000', fontSize: '32px', fontWeight: 600, margin: 'auto'}}>
+            <p>Lorem ipsum dolor sit amet</p>
+          </div>
+        </AtomImagePanel>
+      </div>
+      <h2>Resize example</h2>
+      <div style={{width: '350px'}}>
+        <AtomImagePanel src={'http://lorempicsum.com/simpsons/500/200/1'} type='resized' placeholderColor={placeholderColor}>
+          {content}
+        </AtomImagePanel>
+      </div>
       <h2>Horizontal alignment</h2>
       <h2>Original image</h2>
       <img width='100%' src={imageSrcLong} />
       <h3>Left</h3>
-      <AtomImagePanel backgroundImage={imageSrcLong} hAlignment={'left'}>
+      <AtomImagePanel src={imageSrcLong} horizontalAlign={'left'} placeholderColor={placeholderColor}>
         {content}
       </AtomImagePanel>
       <h3>Center</h3>
-      <AtomImagePanel backgroundImage={imageSrcLong} hAlignment={'center'}>
+      <AtomImagePanel src={imageSrcLong} horizontalAlign={'center'} placeholderColor={placeholderColor}>
         {content}
       </AtomImagePanel>
       <h3>Right</h3>
-      <AtomImagePanel backgroundImage={imageSrcLong} hAlignment={'right'}>
+      <AtomImagePanel src={imageSrcLong} horizontalAlign={'right'} placeholderColor={placeholderColor}>
         {content}
       </AtomImagePanel>
       <h2>Vertical alignment</h2>
       <h2>Original image</h2>
       <img src={imageSrcThick} />
       <h3>Top</h3>
-      <AtomImagePanel backgroundImage={imageSrcThick} vAlignment={'top'}>
+      <AtomImagePanel src={imageSrcThick} verticalAlign={'top'} placeholderColor={placeholderColor}>
         {content}
       </AtomImagePanel>
       <h3>Center</h3>
-      <AtomImagePanel backgroundImage={imageSrcThick} vAlignment={'center'}>
+      <AtomImagePanel src={imageSrcThick} verticalAlign={'center'} placeholderColor={placeholderColor}>
         {content}
       </AtomImagePanel>
       <h3>Bottom</h3>
-      <AtomImagePanel backgroundImage={imageSrcThick} vAlignment={'bottom'}>
+      <AtomImagePanel src={imageSrcThick} verticalAlign={'bottom'} placeholderColor={placeholderColor}>
         {content}
       </AtomImagePanel>
     </div>

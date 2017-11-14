@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
+const BASE_16 = 16
 const HORIZONTAL_ALIGNMENTS = {
   LEFT: 'left',
   CENTER: 'center',
@@ -14,24 +15,50 @@ const VERTICAL_ALIGNMENTS = {
   BOTTOM: 'bottom'
 }
 
-const getClassNames = function ({vAlignment, hAlignment, classNames}) {
+const TYPES = {
+  CROPPED: 'cropped',
+  RESIZED: 'resized'
+}
+
+const hexToRgb = function (hex) {
+  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
+  hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b)
+
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+  return result ? {
+    r: parseInt(result[1], BASE_16),
+    g: parseInt(result[2], BASE_16),
+    b: parseInt(result[3], BASE_16)
+  } : {}
+}
+
+const getClassNames = function ({verticalAlign, horizontalAlign, classNames, type}) {
   return classnames(
     'sui-AtomImagePanel',
-    classNames,
-    `sui-AtomImagePanel--v-${vAlignment}`,
-    `sui-AtomImagePanel--h-${hAlignment}`
+    `sui-AtomImagePanel--v-${verticalAlign}`,
+    `sui-AtomImagePanel--h-${horizontalAlign}`,
+    `sui-AtomImagePanel-${type}`,
+    classNames
   )
 }
 
-const getBackgroundImageStyles = function (backgroundImage) {
+const getStyles = function ({placeholderColor, overlayColor, src, overlayAlpha, opacity}) {
+  const url = `url(${src})`
+  if (overlayColor) {
+    const overlayColorRgb = hexToRgb(overlayColor)
+    const rgba = `rgba(${overlayColorRgb.r}, ${overlayColorRgb.g}, ${overlayColorRgb.b}, ${overlayAlpha})`
+    var gradient = `linear-gradient(${rgba}, ${rgba})`
+  }
   return {
-    backgroundImage: `url(${backgroundImage})`
+    backgroundImage: gradient ? `${gradient}, ${url}` : url,
+    backgroundColor: placeholderColor,
+    opacity
   }
 }
 
-const AtomImagePanel = function ({backgroundImage, children, ...props}) {
+const AtomImagePanel = function ({src, children, ...props}) {
   return (
-    <div className={getClassNames(props)} style={getBackgroundImageStyles(backgroundImage)}>
+    <div className={getClassNames(props)} style={getStyles({src, ...props})}>
       {children}
     </div>
   )
@@ -40,26 +67,53 @@ const AtomImagePanel = function ({backgroundImage, children, ...props}) {
 AtomImagePanel.displayName = 'AtomImagePanel'
 
 AtomImagePanel.propTypes = {
-  backgroundImage: PropTypes.string.isRequired,
-  children: PropTypes.node,
   className: PropTypes.string,
+  children: PropTypes.node,
   /**
-   * Horizontal alignment
+   * Background image
    */
-  hAlignment: PropTypes.oneOf(Object.values(HORIZONTAL_ALIGNMENTS)),
+  src: PropTypes.string.isRequired,
   /**
-   * Vertical alignment
+   * Background opacity
+   * @type float between 0 and 1
    */
-  vAlignment: PropTypes.oneOf(Object.values(VERTICAL_ALIGNMENTS))
+  opacity: PropTypes.number,
+  /**
+   * Background color
+   */
+  placeholderColor: PropTypes.string.isRequired,
+  /**
+   * Gradient color
+   */
+  overlayColor: PropTypes.string,
+  /**
+   * Gradient opacity
+   * @type float between 0 and 1
+   */
+  overlayAlpha: PropTypes.number,
+  /**
+   * Background position x
+   */
+  horizontalAlign: PropTypes.oneOf(Object.values(HORIZONTAL_ALIGNMENTS)),
+  /**
+   * Background position y
+   */
+  verticalAlign: PropTypes.oneOf(Object.values(VERTICAL_ALIGNMENTS)),
+  type: PropTypes.oneOf(Object.values(TYPES))
 }
 
 AtomImagePanel.defaultProps = {
-  hAlignment: HORIZONTAL_ALIGNMENTS.CENTER,
-  vAlignment: VERTICAL_ALIGNMENTS.CENTER
+  verticalAlign: HORIZONTAL_ALIGNMENTS.CENTER,
+  horizontalAlign: VERTICAL_ALIGNMENTS.CENTER,
+  overlayColor: '#000',
+  opacity: 1,
+  overlayAlpha: 0,
+  type: TYPES.CROPPED
 }
 
 export default AtomImagePanel
 export {
-  HORIZONTAL_ALIGNMENTS as atomImagePanelAlignH,
-  VERTICAL_ALIGNMENTS as atomImagePanelAlignV
+  HORIZONTAL_ALIGNMENTS as atomImagePanelHorizontalAlign,
+  VERTICAL_ALIGNMENTS as atomImagePanelVerticalAlign,
+  TYPES as atomItemPanelTypes
 }

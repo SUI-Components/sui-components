@@ -1,0 +1,12 @@
+// Settings
+//
+
+// Inherit from original theme
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/fc-theme/lib/index';
+
+// Common css for sui-studio
+@import 'common';
+
+// Load font
+@import url( 'https://fonts.googleapis.com/css?family=Open+Sans:#{$fw-light},#{$fw-regular},#{$fw-regular}i,#{$fw-semi-bold},#{$fw-bold},#{$fw-bold}i');

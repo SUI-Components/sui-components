@@ -112,7 +112,7 @@ class MapBasic extends Component {
   }
 
   shouldComponentUpdate () {
-    // The component itself have no changes. All changes are managed through leaflet maps api.
+    // The component itself has no changes. All changes are managed through leaflet maps api.
     return false
   }
 

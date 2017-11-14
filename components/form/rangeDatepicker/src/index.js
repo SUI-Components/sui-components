@@ -64,7 +64,7 @@ class FormRangeDatepicker extends Component {
             locale={locale}
           />
           <div className='sui-FormRangeDatepicker-box'>
-            <Chevronbottom svgClass='sui-FormRangeDatepicker-icon' />
+            <Chevronbottom svgClass='sui-FormRangeDatepicker-item-icon' />
           </div>
         </div>
         <div className='sui-FormRangeDatepicker-item'>
@@ -79,7 +79,7 @@ class FormRangeDatepicker extends Component {
             locale={locale}
           />
           <div className='sui-FormRangeDatepicker-box'>
-            <Chevronbottom svgClass='sui-FormRangeDatepicker-icon' />
+            <Chevronbottom svgClass='sui-FormRangeDatepicker-item-icon' />
           </div>
         </div>
         {!!this.props.buttonLabel &&

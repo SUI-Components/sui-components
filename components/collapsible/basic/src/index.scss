@@ -2,6 +2,18 @@
 @import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/sui-theme/lib/index';
 
+$p-collapsible-basic-trigger: 0 !default;
+$bd-collapsible-basic-trigger: none !default;
+$bdr-collapsible-basic-trigger: 0 !default;
+$mb-collapsible-basic-trigger: 0 !default;
+$mb-collapsible-basic-content: 0 !default;
+$bgc-collapsible-basic: $c-gray-lightest !default;
+$bgc-collapsible-basic-expanded: $c-gray-lightest !default;
+$lh-collapsible-basic: $lh-base !default;
+$c-collapsible-basic: $c-gray-dark !default;
+$bdc-collapsible-basic: $c-gray-lightest !default;
+$bd-collapsible-basic: 1px solid $bdc-collapsible-basic !default;
+
 .sui-CollapsibleBasic {
   background-color: $bgc-collapsible-basic;
   border: $bd-collapsible-basic;
@@ -9,8 +21,12 @@
 
   &-trigger {
     align-items: center;
+    border: $bd-collapsible-basic-trigger;
+    border-radius: $bdr-collapsible-basic-trigger;
     display: flex;
     line-height: $lh-collapsible-basic;
+    padding: $p-collapsible-basic-trigger;
+    margin-bottom: $mb-collapsible-basic-trigger;
 
     &-icon {
       flex: 1;
@@ -30,6 +46,7 @@
   }
 
   &-collapsibleContent {
+    margin-bottom: $mb-collapsible-basic-content;
     overflow: hidden;
     transition: max-height $trs-base;
   }

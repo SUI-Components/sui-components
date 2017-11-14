@@ -1,14 +1,21 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
-$bgc-image-panel: grey;
+$bgc-image-panel: $c-gray-light;
 
 $horizontal-alignments: ('left', 'center', 'right');
 $vertical-alignments: ('top', 'center', 'bottom');
 
 .sui-AtomImagePanel {
   background-color: $bgc-image-panel;
-  background-size: cover;
   background-repeat: no-repeat;
+
+  &-cropped {
+    background-size: cover;
+  }
+
+  &-resized {
+    background-size: contain;
+  }
 
   @each $alignment in $horizontal-alignments {
     &--h-#{$alignment} {

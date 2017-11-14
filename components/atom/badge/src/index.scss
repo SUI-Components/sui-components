@@ -1,0 +1,64 @@
+@import '~@schibstedspain/sui-theme/lib/settings';
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$c-AtomBadge: $c-black !default;
+$c-contrast-AtomBadge: $c-white !default;
+$bdrs-AtomBadge: $bdrs-m !default;
+
+$tags: success $c-success, error $c-error, alert $c-alert, info $c-gray;
+
+.sui-AtomBadge {
+  border-radius: $bdrs-AtomBadge;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: bottom;
+  white-space: nowrap;
+
+  & + & {
+    margin-left: $m-m;
+  }
+
+  &-small {
+    font-size: $fz-xs;
+    height: $p-l;
+    line-height: $p-l;
+    padding: 0 $p-m;
+  }
+
+  &-large {
+    font-size: $fz-m;
+    height: $p-xl;
+    line-height: $p-xl;
+    padding: 0 $p-m;
+  }
+
+  &-icon {
+    @include sui-icon--small;
+    display: inline-block;
+    margin-right: $m-s;
+    vertical-align: middle;
+  }
+
+  &-text {
+    vertical-align: middle;
+  }
+
+  @each $tags-type in $tags {
+    $type: nth($tags-type, 1);
+    $color: nth($tags-type, 2);
+
+    &-#{$type} {
+      background-color: $color;
+      color: $c-contrast-AtomBadge;
+      fill: $c-contrast-AtomBadge;
+    }
+
+    &-#{$type}--transparent {
+      background-color: transparent;
+      color: $color;
+      fill: $color;
+    }
+
+  }
+
+}

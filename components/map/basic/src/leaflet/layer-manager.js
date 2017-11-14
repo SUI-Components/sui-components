@@ -2,21 +2,21 @@ import L from 'leaflet'
 import { mapViewModes, mapViewNames } from './constants'
 
 export default class LayerManager {
-  constructor () {
+  constructor (id) {
     this._currentLayer = 'normal.day'
     this.layers = {}
   }
 
-  createMapLayers ({mapViewModes, maxZoom, minZoom, appId, appCode}) {
+  createMapLayers ({mapViewModes, maxZoom, minZoom, appId, appCode, id}) {
     let tileLayers = []
     mapViewModes.forEach((value, index) => {
       const baseMapView = this.getBaseMapView(value)
-      const tileLayer = L.tileLayer('https://{s}.{base}.maps.api.here.com/maptile/2.1/maptile/{mapID}/' + value + '/{z}/{x}/{y}/256/png8?app_id={app_id}&app_code={app_code}', {
+      const tileLayer = L.tileLayer('https://{s}.{base}.maps.api.here.com/maptile/2.1/maptile/{mapVersion}/' + value + '/{z}/{x}/{y}/256/png8?app_id={app_id}&app_code={app_code}', {
         app_code: appCode,
         app_id: appId,
         attribution: 'Map &copy; 1987-2017 <a href="http://developer.here.com">HERE</a>',
         base: baseMapView,
-        mapID: 'newest',
+        mapVersion: 'newest',
         maxZoom: maxZoom,
         minZoom: minZoom,
         subdomains: '1234'

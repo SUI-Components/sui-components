@@ -74,7 +74,8 @@ class MapBasic extends Component {
       dragging: this.props.isInteractable,
       zoom: this.props.zoom,
       appId: this.props.appId,
-      appCode: this.props.appCode
+      appCode: this.props.appCode,
+      mapDOMInstance: this.mapDOMInstance
     }
   }
 
@@ -115,9 +116,8 @@ class MapBasic extends Component {
     return false
   }
 
-  componentWillReceiveProps (nextProps) {
-    const {heatMapUrl, pois, showHeatmap, showSatelliteView} = nextProps
-    pois.length && this.mapInstance.displayPois(pois)
+  componentWillReceiveProps ({heatMapUrl, pois, showHeatmap, showSatelliteView}) {
+    this.mapInstance.displayPois(pois)
     this.checkIfHeatMapShouldBeDisplayed(showHeatmap, heatMapUrl)
     this.checkWhichViewShouldBeDisplayed(showSatelliteView)
   }
@@ -125,7 +125,7 @@ class MapBasic extends Component {
   componentDidMount () {
     this.subscribeToMapEvents()
     this.mapInstance = new LeafletMap(this.getMapConfig())
-    this.props.pois && this.mapInstance.displayPois(this.props.pois)
+    this.mapInstance.displayPois(this.props.pois)
   }
 
   render () {

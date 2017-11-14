@@ -6,12 +6,12 @@ import LayerManager from './layer-manager'
 
 export default class LeafletMap {
   constructor (properties) {
-    this.createMarkerManager(properties.id)
-    this.createLayerManager()
+    this.setMapDOMInstance(properties.mapDOMInstance)
+    this.createMarkerManager(properties.mapDOMInstance)
+    this.createLayerManager(properties.id)
     this.buildMap(properties)
     this.setZoomControlPosition(properties.zoomControlPosition)
     this.buildShapes(properties)
-    this.setMapDOMInstance(properties.id)
     this.subscribeToLeafletMapEvents()
     this.layerManager.addChangeViewController(properties, this._map, this._normalViewText, this._satelliteViewText)
     this.markerManager.addIconMarkersToMap({icons: properties.icons, map: this._map})
@@ -40,8 +40,8 @@ export default class LeafletMap {
     properties.polygons && this.buildPolygons(properties.polygons)
   }
 
-  setMapDOMInstance (id) {
-    this.mapDOM = document.getElementById(id)
+  setMapDOMInstance (mapDOMInstance) {
+    this.mapDOM = mapDOMInstance
   }
 
   buildPolygons (polygons) {
@@ -227,7 +227,7 @@ export default class LeafletMap {
 
   // We should check if there's a better solution for cluster poi's like the use of plugins http://leafletjs.com/plugins.html#clusteringdecluttering
   displayPois (pois) {
-    if (!pois.length) {
+    if (!pois || !pois.length) {
       this.clearMarkersLayer()
     } else {
       // Get new Marker Type by checking one new POI.

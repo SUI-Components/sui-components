@@ -1,13 +1,13 @@
 import L from 'leaflet'
 class MarkerManager {
-  constructor (mapId) {
-    this.setMapDOMInstance(mapId)
+  constructor (mapDOMInstance) {
+    this.setMapDOMInstance(mapDOMInstance)
     this.setMarkerDefaults()
     this.HEART_ICON = '&#9829;'
   }
 
-  setMapDOMInstance (id) {
-    this.mapDOM = document.getElementById(id)
+  setMapDOMInstance (mapDOMInstance) {
+    this.mapDOM = mapDOMInstance
   }
 
   dispatchCustomEvent ({ eventName, detail }) {

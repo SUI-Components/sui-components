@@ -2,8 +2,8 @@ const Button = AtomButton
 const Icon = getStarIcon()
 const boxStyle = { padding:20, paddingTop: 0, width: 400, textAlign: 'center' }
 
-const ButtonsRow = props => (<tr style={{background: props.negative ? '#2b91c1' : '#fff'}}>
-  <td><Title>{Object.keys(props).join(' ')}</Title></td>
+const ButtonsRow = props => (<tr style={{background: props.negative ? '#444' : '#fff'}}>
+  <td><Title>{props.type}</Title></td>
   <td><Button {...props}>Button</Button></td>
   <td><Button {...props} focused>Button</Button></td>
   <td><Button {...props} disabled>Button</Button></td>
@@ -14,8 +14,8 @@ const ButtonsRow = props => (<tr style={{background: props.negative ? '#2b91c1' 
 </tr>)
 
 const ButtonsSample = props => (<section style={{textAlign: 'center', width: '40%'}}>
-  <Title>{Object.keys(props).join(' ')}</Title>
-  <div style={{ padding: 10, background: props.negative ? '#2b91c1' : '#fff'}}>
+  <Title>{props.type}</Title>
+  <div style={{ padding: 10, background: props.negative ? '#333' : '#fff'}}>
     <p><Button {...props}>Normal</Button></p>
     <p><Button {...props} focused>Hover</Button></p>
     <p><Button {...props} disabled>Disabled</Button></p>
@@ -125,7 +125,7 @@ function getStarIcon () { return  (<svg viewBox="0 0 24 24">
 }
 
 function Title ({children}) {
-  return <p style={{color: 'rgba(0,0,0,.6)', fontSize: 12, textTransform: 'uppercase'}}>{children}</p>
+  return <p style={{color: '#999', fontSize: 12, textTransform: 'uppercase'}}>{children}</p>
 }
 
 function ButtonsTable ({children, style}) { return (<table width="auto" cellPadding="8" cellSpacing="0" style={{background: '#fff', padding: 15}}>

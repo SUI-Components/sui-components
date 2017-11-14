@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2017-11-13)
+
+
+### Features
+
+* update default styles ([d7d84d4](https://github.com/SUI-Components/sui-components/commit/d7d84d4))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2017-11-06)
 

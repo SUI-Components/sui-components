@@ -1,8 +1,7 @@
 # MapBasic
 
 > Description
-
-<!-- ![](./assets/preview.png) -->
+A map component inspired and rebuilded form Fotocasa map component. Includes, polygons, poi's, markers and different layer views.
 
 ## Installation
 

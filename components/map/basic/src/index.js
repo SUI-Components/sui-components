@@ -6,7 +6,7 @@ import { mapViewModes, NO_OP } from './leaflet/constants'
 class MapBasic extends Component {
   constructor (props) {
     super(props)
-    this.setMapEventDefinition(props)
+    this.setMapEventDefinition()
     this.mapInstance = undefined
     this.isHeatmapVisible = false
     this.isSatelliteView = false

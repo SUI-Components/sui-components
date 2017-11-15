@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-image-lazy-load",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "description": "SUI Image Lazy Load",
   "main": "lib/index.js",
   "scripts": {

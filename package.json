@@ -47,6 +47,7 @@
       "name": "SUIComponents",
       "compliant": [
         "atom/badge",
+        "atom/button",
         "breadcrumb/basic"
       ]
     },

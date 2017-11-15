@@ -35,13 +35,19 @@
     "validate-commit-msg": "2.12.2"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "1",
+    "@schibstedspain/cf-theme": "1",
+    "@schibstedspain/fc-theme": "10",
+    "@schibstedspain/ij-theme": "1",
+    "@schibstedspain/mt-theme": "4"
   },
   "config": {
     "sui-studio": {
       "font": "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i",
       "name": "SUIComponents",
       "compliant": [
+        "atom/badge",
+        "atom/button",
         "atom/tag",
         "breadcrumb/basic"
       ]

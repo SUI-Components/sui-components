@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-form-range-datepicker",
-  "version": "1.8.0",
+  "version": "1.10.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

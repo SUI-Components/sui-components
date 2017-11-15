@@ -3,8 +3,12 @@
 @import '~@schibstedspain/sui-button-basic/lib/index';
 
 $z-range-datepicker-icon: 2 !default;
-$jc-range-datepicker-inputs: space-between !default;
+$c-range-datepicker-icon-fill: $c-text-base !default;
+$c-range-datepicker-icon-fill-hover: $c-primary !default;
+$c-range-datepicker-icon-fill-focus: $c-primary !default;
+$jc-range-datepicker-inputs: normal !default;
 $bgc-range-datepicker-selected: $c-primary !default;
+$w-range-datepicker-input: 130px !default;
 
 /* Overwrite react-datepicker variables */
 $datepicker__selected-color: $bgc-range-datepicker-selected;
@@ -16,27 +20,36 @@ $datepicker__selected-color: $bgc-range-datepicker-selected;
   justify-content: $jc-range-datepicker-inputs;
 
   &-item {
+    align-items: center;
     display: flex;
     padding-right: $p-xsmall;
+    width: $w-range-datepicker-input;
+
+    &-icon {
+      @include sui-icon--small;
+      fill: $c-range-datepicker-icon-fill !important;
+    }
+
+    &:hover &-icon {
+      fill: $c-range-datepicker-icon-fill-hover !important;
+    }
+
+    &:focus &-icon {
+      fill: $c-range-datepicker-icon-fill-focus !important;
+    }
   }
 
   &-box {
-    margin-left: -$m-h-xlarge;
+    margin-left: -$m-h-large;
     padding: $p-base;
     pointer-events: none;
     z-index: $z-range-datepicker-icon;
   }
 
-  &-icon {
-    @include sui-icon--small;
-    fill: $c-text-base !important;
-  }
 
   &-input {
     @include sui-input;
     cursor: pointer;
   }
 }
-
-
 

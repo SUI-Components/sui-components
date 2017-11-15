@@ -1,40 +1,13 @@
-const props = {
-                "heatMapUrl": "https://s.fotocasa.es/heat-maps/fcsell/{z}/{x}/{y}.png",
-                "center": [ 41, 2 ],
-                "pois": [],
-                "showHeatmap": false,
-                "showSatelliteView": false,
-                "literals": {
-                  "toConsultText": "A consultar"
-                },
-                "maxZoom": 20,
-                "minZoom": 6,
-                "tap": true,
-                "zoom": 6,
-                "zoomable": true,
-                "isInteractable": false,
-                "appId": 'UtT2lgmGbo0ADCEHlsOo',
-                "appCode": 'NekMBEpoxq_MM3jXUUF6Nw',
-                "height": '100%',
-                "center": [41.568782, 2.026029],
-                "icons": [
-                          {
-                              iconUrl: 'http://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-PNG-Pic.png',
-                              size: [18],
-                              anchor: [0, 27],
-                              lat: 41.568782,
-                              lng: 2.026029
-                          }
-                 ]
-              }
+  const app_id = 'DemoAppId01082013GAL';
+  const app_code = 'AJKnXv84fjrb0KIHawS0Tg';
+
 return (<div style={{ height: '50%' }}>
-<MapBasic appId="UtT2lgmGbo0ADCEHlsOo"
-          appCode="NekMBEpoxq_MM3jXUUF6Nw"
+<MapBasic appId={app_id}
+          appCode={app_code}
           id="test-map"
           height="100%"
           center={[41.493743, 2.075211]}
-          enableViewMenu={true}
-          isInteractable={false}
+          isInteractable={true}
           zoomable={true}
           icons={[{iconUrl: 'http://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-PNG-Pic.png',size: [18],anchor: [0, 27],lat: 41.493743, lng: 2.075211}]}
           zoom={17}

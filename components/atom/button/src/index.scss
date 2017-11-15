@@ -76,7 +76,6 @@ $p-button-large: $p-l !default;
   min-width: $sz-button;
   outline: 0;
   padding: 0 $p-button;
-  transition: background-color .3s ease, border-color .3s ease;
   white-space: nowrap;
 
   & + & {

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2017-11-15)
+
+
+### Features
+
+* change dep from react-lazy-load to [@schibstedspain](https://github.com/schibstedspain)/react-lazy-load ([a9755c8](https://github.com/SUI-Components/sui-components/commit/a9755c8))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2017-11-06)
 

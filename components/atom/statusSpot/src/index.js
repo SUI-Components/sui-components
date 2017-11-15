@@ -5,7 +5,7 @@ class AtomStatusSpot extends Component {
   render () {
     return (
       <div className='sui-AtomStatusSpot'>
-        <span className={'sui-AtomStatusSpot-status sui-AtomStatusSpot-status-' + this.props.status + ' sui-AtomStatusSpot-size-' + this.props.size} />
+        <span className={`sui-AtomStatusSpot-status sui-AtomStatusSpot-status-${this.props.status} sui-AtomStatusSpot-size-${this.props.size}`} />
       </div>
     )
   }

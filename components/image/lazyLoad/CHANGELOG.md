@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2017-11-15)
+
+
+### Bug Fixes
+
+* update react-lazy-load import in index.js ([c585e01](https://github.com/SUI-Components/sui-components/commit/c585e01))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2017-11-15)
 

@@ -5,14 +5,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-atom-colorPanel --save
+$ npm install @schibstedspain/sui-atom-color-panel --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import AtomColorPanel, { atomColorPanelTypes } from '@schibstedspain/sui-atom-colorPanel'
+import AtomColorPanel, { atomColorPanelTypes } from '@schibstedspain/sui-atom-color-panel'
 
 return (
   <AtomColorPanel type={atomColorPanelTypes.CORPORATE} opacity={0.25}>
@@ -22,4 +22,4 @@ return (
 ```
 
 
-> **Find full description and more examples in the [demo page](#).**
+> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/colorPanel/demo).**

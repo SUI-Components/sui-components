@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2017-11-15)
+
+
+### Bug Fixes
+
+* use only the major version of [@schibstedspain](https://github.com/schibstedspain)/sui-image-lazy-load ([c0d657c](https://github.com/SUI-Components/sui-components/commit/c0d657c))
+
+
+
+<a name="1.10.0"></a>
+# 1.10.0 (2017-11-15)
+
+
+### Bug Fixes
+
+* update react-lazy-load import in index.js ([c585e01](https://github.com/SUI-Components/sui-components/commit/c585e01))
+
+
+
+<a name="1.9.0"></a>
+# 1.9.0 (2017-11-15)
+
+
+### Features
+
+* change dep from react-lazy-load to [@schibstedspain](https://github.com/schibstedspain)/react-lazy-load ([a9755c8](https://github.com/SUI-Components/sui-components/commit/a9755c8))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2017-11-06)
 
@@ -70,18 +100,6 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * fix copy script & added optional prop type ([190637c](https://github.com/SUI-Components/sui-components/commit/190637c))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-03-09)
-
-
-### Features
-
-* add new spinner ([17f1c57](https://github.com/SUI-Components/sui-components/commit/17f1c57))
-* first commit ([2e85878](https://github.com/SUI-Components/sui-components/commit/2e85878))
-* modify spinner dependency ([b6aeb60](https://github.com/SUI-Components/sui-components/commit/b6aeb60))
 
 
 

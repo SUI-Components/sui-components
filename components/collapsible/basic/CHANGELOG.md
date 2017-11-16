@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2017-11-16)
+
+
+### Features
+
+* add icon size ([858caed](https://github.com/SUI-Components/sui-components/commit/858caed))
+
+
+
+<a name="1.10.0"></a>
+# 1.10.0 (2017-11-15)
+
+
+### Features
+
+* add collapsible vars ([b2cb762](https://github.com/SUI-Components/sui-components/commit/b2cb762))
+* insert vars in settings file ([1261c9e](https://github.com/SUI-Components/sui-components/commit/1261c9e))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2017-11-06)
 

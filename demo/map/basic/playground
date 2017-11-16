@@ -1,0 +1,15 @@
+  const app_id = 'DemoAppId01082013GAL';
+  const app_code = 'AJKnXv84fjrb0KIHawS0Tg';
+
+return (<div style={{ height: '50%' }}>
+<MapBasic appId={app_id}
+          appCode={app_code}
+          id="test-map"
+          height="100%"
+          center={[41.493743, 2.075211]}
+          isInteractable={true}
+          zoomable={true}
+          icons={[{iconUrl: 'http://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-PNG-Pic.png',size: [18],anchor: [0, 27],lat: 41.493743, lng: 2.075211}]}
+          zoom={17}
+        />
+</div>)

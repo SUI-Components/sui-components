@@ -1,0 +1,10 @@
+// Show some details about theme
+.sui-StudioPreview:before {
+  background: rgba(#000, .75);
+  bottom: 10px;
+  content: "THEME: #{$ff-sans-serif} @ #{$fz-base}";
+  color: #fff;
+  font-family: "Lucida Console", Monaco, monospace;
+  padding: .25em .5em;
+  position: fixed;
+}

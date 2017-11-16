@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import cx from 'classnames'
-import LazyLoad from 'react-lazy-load'
+import LazyLoad from '@schibstedspain/react-lazy-load'
 import SpinnerBasic from '@schibstedspain/sui-spinner-basic'
 
 /**

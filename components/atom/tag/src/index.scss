@@ -1,0 +1,92 @@
+@import '~@schibstedspain/sui-theme/lib/settings';
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$bgc-AtomTag: color-variation($c-gray, 3) !default;
+$c-AtomTagActionable: $c-white !default;
+$h-AtomTag: $p-xxl !default;
+$mw-label: 240px !default;
+$p-AtomTag: 0 $p-l !default;
+
+@mixin icon-AtomTag($type) {
+  @include sui-icon--small;
+  display: inline-block;
+  vertical-align: middle;
+
+  @if $type == 'icon' {
+    margin: 0 $m-s 0 (-$m-m);
+
+} @else if $type == 'icon-secondary' {
+    margin: 0 (-$m-m) 0 $m-m;
+  }
+}
+
+.sui-AtomTag {
+  background-color: $bgc-AtomTag;
+  border-radius: ceil($h-AtomTag / 2);
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: $fz-s;
+  height: $h-AtomTag;
+  line-height: $h-AtomTag;
+  padding: $p-AtomTag;
+  white-space: nowrap;
+
+  & + & {
+    margin-left: $m-m;
+  }
+
+  &-label {
+    // max width - 2 icon size
+    $w-label-base: $mw-label - ($p-l * 2);
+    display: inline-block;
+    max-width: $w-label-base;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    // if only one icon is set
+    .sui-AtomTag-hasIcon &, .sui-AtomTag-hasClose & {
+      max-width: $w-label-base - ($p-l + $m-s);
+    }
+
+    // if both icons are set
+    .sui-AtomTag-hasIcon.sui-AtomTag-hasClose & {
+      max-width: $w-label-base - ($p-l + $m-s) * 2;
+    }
+  }
+
+  &-secondary-closeable {
+    cursor: pointer;
+
+    &:hover {
+      background-color: $c-system;
+      border-radius: 50%;
+      fill: color-variation($c-gray, 3);
+    }
+  }
+
+  &-icon {
+    @include icon-AtomTag(icon);
+  }
+
+  &-secondary-icon {
+    @include icon-AtomTag(icon-secondary);
+  }
+
+  &-icon,
+  &-secondary-icon {
+  }
+
+  &-actionable {
+    background-color: $c-primary;
+    color: $c-AtomTagActionable;
+    cursor: pointer;
+    fill: $c-AtomTagActionable;
+
+    &:hover,
+    &:active {
+      background-color: $c-primary-dark;
+    }
+  }
+}

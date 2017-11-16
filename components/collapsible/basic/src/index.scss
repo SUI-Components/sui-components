@@ -15,12 +15,14 @@
     border-radius: $bdr-collapsible-basic-trigger;
     display: flex;
     line-height: $lh-collapsible-basic;
-    padding: $p-collapsible-basic-trigger;
     margin-bottom: $mb-collapsible-basic-trigger;
+    padding: $p-collapsible-basic-trigger;
 
     &-icon {
       flex: 1;
+      height: $sz-collapsible-basic-trigger-icon;
       transition: transform $trs-base;
+      width: $sz-collapsible-basic-trigger-icon;
     }
 
     &-label {

@@ -48,6 +48,7 @@
       "compliant": [
         "atom/badge",
         "atom/button",
+        "atom/colorPanel",
         "breadcrumb/basic"
       ]
     },

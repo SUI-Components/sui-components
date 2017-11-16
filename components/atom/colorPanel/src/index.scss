@@ -1,0 +1,25 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+$c-image-panel-canvas: $c-white !default;
+$c-image-panel-default: color-variation($c-gray, 4) !default;
+$c-image-panel-base: color-variation($c-gray, 3) !default;
+$c-image-panel-contrast: $c-black !default;
+$c-image-panel-corporate: $c-primary !default;
+$c-image-panel-highlight: color-variation($c-accent, 4) !default;
+
+$image-panel-types: (
+  'canvas': $c-image-panel-canvas,
+  'default': $c-image-panel-default,
+  'base': $c-image-panel-base,
+  'contrast': $c-image-panel-contrast,
+  'corporate': $c-image-panel-corporate,
+  'highlight': $c-image-panel-highlight
+);
+
+.sui-AtomColorPanel {
+  @each $type, $color in $image-panel-types {
+    &-#{$type} {
+      background-color: $color;
+    }
+  }
+}

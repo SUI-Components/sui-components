@@ -1,0 +1,42 @@
+const imageSrcLong = 'http://lorempicsum.com/simpsons/1000/100/1'
+const imageSrcThick = 'http://lorempicsum.com/simpsons/100/200/1'
+const imageSrcDelayed = 'https://satyr.io/500/black?delay=3g'
+
+const placeholderColor = '#ccc'
+
+const content = (
+  <div style={{height: '200px'}} />
+)
+
+return (
+  <div>
+    <h1>AtomColorPanel</h1>
+    <div>
+      <h2>Background opacity example</h2>
+      <AtomColorPanel type={'corporate'} opacity={0.5}>
+        {content}
+      </AtomColorPanel>
+      <h2>Container example</h2>
+      <div style={{width: '350px'}}>
+        <AtomColorPanel overlayAlpha={0.9} type={'highlight'}>
+          <div style={{height: '200px', width: '200px', color: '#000', fontSize: '32px', fontWeight: 600, margin: 'auto'}}>
+            <p>Lorem ipsum dolor sit amet</p>
+          </div>
+        </AtomColorPanel>
+      </div>
+      <h2>Types</h2>
+      <h3>default</h3>
+      <AtomColorPanel type={'default'}>{content}</AtomColorPanel>
+      <h3>canvas</h3>
+      <AtomColorPanel type={'canvas'}>{content}</AtomColorPanel>
+      <h3>base</h3>
+      <AtomColorPanel type={'base'}>{content}</AtomColorPanel>
+      <h3>contrast</h3>
+      <AtomColorPanel type={'contrast'}>{content}</AtomColorPanel>
+      <h3>corporate</h3>
+      <AtomColorPanel type={'corporate'}>{content}</AtomColorPanel>
+      <h3>highlight</h3>
+      <AtomColorPanel type={'highlight'}>{content}</AtomColorPanel>
+    </div>
+  </div>
+)

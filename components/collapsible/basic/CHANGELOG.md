@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2017-11-16)
+
+
+### Features
+
+* add icon size ([858caed](https://github.com/SUI-Components/sui-components/commit/858caed))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2017-11-15)
 

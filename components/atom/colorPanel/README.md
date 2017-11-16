@@ -1,6 +1,6 @@
 # AtomColorPanel
 
-> An color panel is a container with a color on its background.
+> A color panel is a container with a color on its background.
 
 ## Installation
 

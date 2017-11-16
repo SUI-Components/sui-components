@@ -68,7 +68,7 @@ AtomImagePanel.displayName = 'AtomImagePanel'
 
 AtomImagePanel.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   /**
    * Background image
    */

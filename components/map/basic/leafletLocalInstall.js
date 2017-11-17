@@ -1,7 +1,9 @@
 var fs = require('fs')
+var path = require('path')
 
-var originPath = require.resolve('leaflet/dist/leaflet.css')
-var destinationPath = require.resolve('leaflet/dist/leaflet.scss')
+var leafletPath = require.resolve('leaflet')
+var originPath = path.resolve(leafletPath, '../leaflet.css')
+var destinationPath = path.resolve(leafletPath, '../leaflet.scss')
 
 fs.readFile(originPath, 'utf8', function read (err, data) {
   if (err) {

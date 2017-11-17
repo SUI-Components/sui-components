@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2017-11-17)
+
+
+### Bug Fixes
+
+* update version moment in rangedatepicker ([287e352](https://github.com/SUI-Components/sui-components/commit/287e352))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2017-11-15)
 
@@ -75,21 +85,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * update path external css of the datepicker ([baa123d](https://github.com/SUI-Components/sui-components/commit/baa123d))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-09-13)
-
-
-### Bug Fixes
-
-* update handleChange event and update scss variables ([7020a3a](https://github.com/SUI-Components/sui-components/commit/7020a3a))
-
-
-### Features
-
-* new component Range datepicker ([412d8f2](https://github.com/SUI-Components/sui-components/commit/412d8f2))
 
 
 

@@ -1,8 +1,9 @@
 var fs = require('fs')
 var path = require('path')
 
-var originPath = path.join(__dirname, '/node_modules/leaflet/dist/leaflet.css')
-var destinationPath = path.join(__dirname, '/node_modules/leaflet/dist/leaflet.scss')
+var basePath = __dirname.split('node_modules')[0]
+var originPath = path.join(basePath, '/node_modules/leaflet/dist/leaflet.css')
+var destinationPath = path.join(basePath, '/node_modules/leaflet/dist/leaflet.scss')
 
 fs.readFile(originPath, 'utf8', function read (err, data) {
   if (err) {

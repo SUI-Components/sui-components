@@ -1,9 +1,0 @@
-return (
-  <div>
-    <BadgeNotification size='small' />
-    <br />
-    <BadgeNotification />
-    <br />
-    <BadgeNotification size='large' />
-  </div>
-)

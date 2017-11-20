@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-atom-badge-notification",
+  "name": "@schibstedspain/sui-atom-badge-counter",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

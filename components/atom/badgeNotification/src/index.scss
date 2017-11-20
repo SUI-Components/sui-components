@@ -1,0 +1,56 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+$bd-badge-notification: none !default;
+$bdc-badge-notification: $c-error !default;
+$c-badge-notification: $c-white !default;
+$border-size-badge-notification-large: 6px !default;
+$size-badge-notification-large: 16px !default;
+$border-size-badge-notification-medium: 5px !default;
+$size-badge-notification-medium: 12px !default;
+$border-size-badge-notification-small: 3px !default;
+$size-badge-notification-small: 8px !default;
+
+.sui-BadgeNotification {
+  position: relative;
+
+  &-type {
+    border-color: $bdc-badge-notification;
+    border-style: solid;
+    background: $c-badge-notification;
+    border-radius: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+
+  &-type {
+    &-bullet-small {
+      border-width: $border-size-badge-notification-small;
+    }
+
+    &-bullet-medium {
+      border-width: $border-size-badge-notification-medium;
+    }
+
+    &-bullet-large {
+      border-width: $border-size-badge-notification-large;
+    }
+  }
+
+  &-size {
+    &-small {
+      height: $size-badge-notification-small;
+      width: $size-badge-notification-small;
+    }
+
+    &-medium {
+      height: $size-badge-notification-medium;
+      width: $size-badge-notification-medium;
+    }
+
+    &-large {
+      height: $size-badge-notification-large;
+      width: $size-badge-notification-large;
+    }
+  }
+}

@@ -14,12 +14,22 @@ $image-panel-types: (
   'contrast': $c-image-panel-contrast,
   'corporate': $c-image-panel-corporate,
   'highlight': $c-image-panel-highlight
-);
+) !default;
+
+$image-panels-alphas: (
+  'contrast': 1,
+  'overlay_d4': 0.75,
+  'overlay_d3': 0.5,
+  'overlay_d2': 0.25,
+  'overlay_d1': 0.15
+) !default;
 
 .sui-AtomColorPanel {
   @each $type, $color in $image-panel-types {
-    &-#{$type} {
-      background-color: $color;
+    @each $level, $opacity in $image-panels-alphas {
+      &-#{$type}-#{$level} {
+        background: rgba($color, $opacity);
+      }
     }
   }
 }

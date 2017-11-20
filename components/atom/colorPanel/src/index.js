@@ -11,36 +11,36 @@ const TYPES = {
   HIGHLIGHT: 'highlight'
 }
 
-const getClassNames = ({type}) =>
+const ALPHAS = {
+  CONTRAST: 'contrast',
+  OVERLAY_D4: 'overlay_d4',
+  OVERLAY_D3: 'overlay_d3',
+  OVERLAY_D2: 'overlay_d2',
+  OVERLAY_D1: 'overlay_d1'
+}
+
+const getClassNames = ({type, alpha}) =>
   classnames(
     'sui-AtomColorPanel',
-    `sui-AtomColorPanel-${type}`
+    `sui-AtomColorPanel-${type}-${alpha}`
   )
 
-const getStyle = ({opacity}) => ({
-  opacity
-})
-
-const AtomColorPanel = ({children, ...props}) => (
-  <div className={getClassNames(props)} style={getStyle(props)}>
+const AtomColorPanel = ({children, ...props}) =>
+  <div className={getClassNames(props)}>
     {children}
   </div>
-)
 
 AtomColorPanel.displayName = 'AtomColorPanel'
 
 AtomColorPanel.propTypes = {
   children: PropTypes.node.isRequired,
   type: PropTypes.oneOf(Object.values(TYPES)),
-  /**
-   * @type float between 0 and 1
-   */
-  opacity: PropTypes.number
+  alpha: PropTypes.oneOf(Object.values(ALPHAS))
 }
 
 AtomColorPanel.defaultProps = {
   type: TYPES.DEFAULT,
-  opacity: 1
+  alpha: ALPHAS.CONTRAST
 }
 
 export default AtomColorPanel

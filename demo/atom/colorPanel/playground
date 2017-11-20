@@ -7,12 +7,12 @@ return (
     <h1>AtomColorPanel</h1>
     <div>
       <h2>Background opacity example</h2>
-      <AtomColorPanel type={'corporate'} opacity={0.5}>
+      <AtomColorPanel type={'corporate'} alpha={'overlay_d2'}>
         {content}
       </AtomColorPanel>
       <h2>Container example</h2>
       <div style={{width: '350px'}}>
-        <AtomColorPanel overlayAlpha={0.9} type={'highlight'}>
+        <AtomColorPanel type={'highlight'}>
           <div style={{height: '200px', width: '200px', color: '#000', fontSize: '32px', fontWeight: 600, margin: 'auto'}}>
             <p>Lorem ipsum dolor sit amet</p>
           </div>

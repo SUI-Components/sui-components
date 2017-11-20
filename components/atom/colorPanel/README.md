@@ -15,7 +15,7 @@ $ npm install @schibstedspain/sui-atom-color-panel --save
 import AtomColorPanel, { atomColorPanelTypes } from '@schibstedspain/sui-atom-color-panel'
 
 return (
-  <AtomColorPanel type={atomColorPanelTypes.CORPORATE} opacity={0.25}>
+  <AtomColorPanel type={atomColorPanelTypes.CORPORATE} alpha={atomColorPanelTypes.OVERLAY_D4}>
     {content}
   </AtomColorPanel>
 )

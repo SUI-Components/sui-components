@@ -16,7 +16,6 @@ const VERTICAL_ALIGNMENTS = {
 }
 
 const TYPES = {
-  CROPPED: 'cropped',
   RESIZED: 'resized'
 }
 
@@ -32,17 +31,17 @@ const hexToRgb = function (hex) {
   } : {}
 }
 
-const getClassNames = function ({verticalAlign, horizontalAlign, classNames, type}) {
+const getClassNames = function ({verticalAlign, horizontalAlign, classNames, resized}) {
   return classnames(
     'sui-AtomImagePanel',
     `sui-AtomImagePanel--v-${verticalAlign}`,
     `sui-AtomImagePanel--h-${horizontalAlign}`,
-    `sui-AtomImagePanel-${type}`,
+    resized && `sui-AtomImagePanel-resized`,
     classNames
   )
 }
 
-const getStyles = function ({placeholderColor, overlayColor, src, overlayAlpha, opacity}) {
+const getStyles = function ({placeholderColor, overlayColor, src, overlayAlpha}) {
   const url = `url(${src})`
   if (overlayColor) {
     const overlayColorRgb = hexToRgb(overlayColor)
@@ -51,8 +50,7 @@ const getStyles = function ({placeholderColor, overlayColor, src, overlayAlpha, 
   }
   return {
     backgroundImage: gradient ? `${gradient}, ${url}` : url,
-    backgroundColor: placeholderColor,
-    opacity
+    backgroundColor: placeholderColor
   }
 }
 
@@ -74,11 +72,6 @@ AtomImagePanel.propTypes = {
    */
   src: PropTypes.string.isRequired,
   /**
-   * Background opacity
-   * @type float between 0 and 1
-   */
-  opacity: PropTypes.number,
-  /**
    * Background color
    */
   placeholderColor: PropTypes.string.isRequired,
@@ -99,16 +92,14 @@ AtomImagePanel.propTypes = {
    * Background position y
    */
   verticalAlign: PropTypes.oneOf(Object.values(VERTICAL_ALIGNMENTS)),
-  type: PropTypes.oneOf(Object.values(TYPES))
+  resized: PropTypes.bool
 }
 
 AtomImagePanel.defaultProps = {
   verticalAlign: HORIZONTAL_ALIGNMENTS.CENTER,
   horizontalAlign: VERTICAL_ALIGNMENTS.CENTER,
   overlayColor: '#000',
-  opacity: 1,
-  overlayAlpha: 0,
-  type: TYPES.CROPPED
+  overlayAlpha: 0
 }
 
 export default AtomImagePanel

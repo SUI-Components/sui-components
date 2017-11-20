@@ -1,30 +1,24 @@
-# AtomBadge
+# AtomBadgeNotification
 
-> Atom Element: SUI badge
-
-![](./assets/screenshot.png)
+> Atom Element: SUI badgeNotification
 
 ## Installation
 
 ```sh
-npm install @schibstedspain/sui-atom-badge --save
+npm install @schibstedspain/sui-atom-badge-notification --save
 ```
 
 ## Usage
 
 ```js
-import Badge, { atomBadgeTypes, atomBadgeSizes } from '@schibstedspain/sui-atom-badge'
+import BadgeNotification from '@schibstedspain/sui-atom-badge-notification'
 
 render {
   return (
-    <Badge
-      size={atomBadgeSizes.SMALL}
-      type={atomBadgeTypes.SUCCESS}
-      label='Hello SUI-Badge!'
-    />
+    <BadgeNotification />
   )
 }
 
 ```
 
-**Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/badge).**
+**Find full description and more examples in the [demo page](#).**

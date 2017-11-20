@@ -1,6 +1,8 @@
 // sass-lint:disable class-name-format
 @import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/sui-theme/lib/index';
+@import './settings';
+
 
 .sui-CollapsibleBasic {
   background-color: $bgc-collapsible-basic;
@@ -9,12 +11,18 @@
 
   &-trigger {
     align-items: center;
+    border: $bd-collapsible-basic-trigger;
+    border-radius: $bdr-collapsible-basic-trigger;
     display: flex;
     line-height: $lh-collapsible-basic;
+    margin-bottom: $mb-collapsible-basic-trigger;
+    padding: $p-collapsible-basic-trigger;
 
     &-icon {
       flex: 1;
+      height: $sz-collapsible-basic-trigger-icon;
       transition: transform $trs-base;
+      width: $sz-collapsible-basic-trigger-icon;
     }
 
     &-label {
@@ -30,6 +38,7 @@
   }
 
   &-collapsibleContent {
+    margin-bottom: $mb-collapsible-basic-content;
     overflow: hidden;
     transition: max-height $trs-base;
   }

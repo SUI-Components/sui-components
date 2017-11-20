@@ -35,7 +35,11 @@
     "validate-commit-msg": "2.12.2"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "1",
+    "@schibstedspain/cf-theme": "1",
+    "@schibstedspain/fc-theme": "10",
+    "@schibstedspain/ij-theme": "1",
+    "@schibstedspain/mt-theme": "4"
   },
   "config": {
     "sui-studio": {
@@ -43,7 +47,9 @@
       "name": "SUIComponents",
       "compliant": [
         "atom/badge",
+        "atom/button",
         "atom/imagePanel",
+        "atom/tag",
         "breadcrumb/basic"
       ]
     },

@@ -50,6 +50,7 @@
       }
 
       @include media-breakpoint-up(m) {
+        color: $c-dropdown-user-text-large;
         max-width: $w-dropdown-user-text;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -136,11 +137,13 @@
           fill: $c-accent !important;
         }
       }
+
       &Text {
         flex: 1;
       }
+
       &Notification {
-        @include sui-badge-notification();
+        @include sui-badge-notification;
       }
 
     }

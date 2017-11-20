@@ -1,22 +1,22 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
-$c-image-panel-canvas: $c-white !default;
-$c-image-panel-default: color-variation($c-gray, 4) !default;
-$c-image-panel-base: color-variation($c-gray, 3) !default;
-$c-image-panel-contrast: $c-black !default;
-$c-image-panel-corporate: $c-primary !default;
-$c-image-panel-highlight: color-variation($c-accent, 4) !default;
+$c-color-panel-canvas: $c-white !default;
+$c-color-panel-default: color-variation($c-gray, 4) !default;
+$c-color-panel-base: color-variation($c-gray, 3) !default;
+$c-color-panel-contrast: $c-black !default;
+$c-color-panel-corporate: $c-primary !default;
+$c-color-panel-highlight: color-variation($c-accent, 4) !default;
 
-$image-panel-types: (
-  'canvas': $c-image-panel-canvas,
-  'default': $c-image-panel-default,
-  'base': $c-image-panel-base,
-  'contrast': $c-image-panel-contrast,
-  'corporate': $c-image-panel-corporate,
-  'highlight': $c-image-panel-highlight
+$color-panel-types: (
+  'canvas': $c-color-panel-canvas,
+  'default': $c-color-panel-default,
+  'base': $c-color-panel-base,
+  'contrast': $c-color-panel-contrast,
+  'corporate': $c-color-panel-corporate,
+  'highlight': $c-color-panel-highlight
 ) !default;
 
-$image-panels-alphas: (
+$color-panels-alphas: (
   'contrast': 1,
   'overlay_d4': 0.75,
   'overlay_d3': 0.5,
@@ -25,8 +25,8 @@ $image-panels-alphas: (
 ) !default;
 
 .sui-AtomColorPanel {
-  @each $type, $color in $image-panel-types {
-    @each $level, $opacity in $image-panels-alphas {
+  @each $type, $color in $color-panel-types {
+    @each $level, $opacity in $color-panels-alphas {
       &-#{$type}-#{$level} {
         background: rgba($color, $opacity);
       }

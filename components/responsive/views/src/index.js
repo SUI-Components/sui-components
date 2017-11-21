@@ -52,9 +52,10 @@ class ResponsiveViews extends Component {
 
 ResponsiveViews.displayName = 'ResponsiveViews'
 
-// Remove these comments if you need
-// ResponsiveViews.contextTypes = {i18n: PropTypes.object}
 ResponsiveViews.propTypes = {
+  /**
+   * Elements each view
+   */
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
   /**
    * Min viewport width before activating views split

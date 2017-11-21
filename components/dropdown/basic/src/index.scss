@@ -5,14 +5,16 @@
 
 .sui-DropdownBasic {
   @include media-breakpoint-down(s) {
+    position: relative;
+
     &.is-expanded {
       border-bottom: 1px solid $c-gray-light;
     }
-    position: relative;
   }
   @include media-breakpoint-up(m) {
     display: inline-block;
   }
+
   &-button {
     @include reset-button;
     @include media-breakpoint-down(s) {
@@ -29,6 +31,7 @@
       }
     }
     align-items: center;
+    color: $c-dropdown-button-large;
     cursor: pointer;
     display: flex;
     font-size: $fz-m;
@@ -125,7 +128,7 @@
       color: $c-gray;
       font-weight: $fw-bold;
       margin-bottom: $m-l;
-      padding: $p-m 0 $p-m 0;
+      padding: $p-m 0;
       text-transform: uppercase;
     }
 
@@ -135,7 +138,7 @@
       &Item {
         @include media-breakpoint-down(s) {
           &:not(:first-child) {
-            margin: $m-m 0 $m-l 0;
+            margin: $m-m 0 $m-l;
           }
         }
         margin: $m-l 0;
@@ -145,13 +148,14 @@
         @include reset-link;
         @include media-breakpoint-down(s) {
           font-size: $fz-l;
-          padding: $p-s $p-l; 
+          padding: $p-s $p-l;
         }
         @include media-breakpoint-up(m) {
           white-space: nowrap;
         }
         display: block;
         padding-right: $p-xl;
+
         &:hover {
           color: $c-accent;
         }

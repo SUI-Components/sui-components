@@ -5,7 +5,7 @@ class BadgeCounter extends Component {
   render () {
     return (
       <div className='sui-BadgeCounter'>
-        <span className={`sui-BadgeCounter-type sui-BadgeCounter-type-${this.props.type}-${this.props.size} sui-BadgeCounter-size-${this.props.size}`} />
+        <span className={`sui-BadgeCounter--${this.props.size} sui-BadgeCounter-${this.props.type} sui-BadgeCounter-${this.props.type}--${this.props.thickness}`} />
       </div>
     )
   }
@@ -19,14 +19,19 @@ BadgeCounter.propTypes = {
    */
   size: PropTypes.oneOf(['large', 'medium', 'small']),
   /**
+   * The string content is the bage-counter thickness
+   */
+  thickness: PropTypes.oneOf(['thin', 'medium', 'thick']),
+  /**
    * The string content is the bage-counter type
    */
   type: PropTypes.oneOf(['bullet'])
 }
 
 BadgeCounter.defaultProps = {
-  type: 'bullet',
-  size: 'medium'
+  size: 'medium',
+  thickness: 'medium',
+  type: 'bullet'
 }
 
 export default BadgeCounter

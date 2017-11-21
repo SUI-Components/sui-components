@@ -25,7 +25,8 @@ export default class LeafletMap {
       zoom: properties.zoom,
       dragging: properties.dragging,
       zoomControl: properties.zoomControl,
-      layers: [this.layerManager.layers.map[properties.selectedMapViewMode]]
+      layers: [this.layerManager.layers.map[properties.selectedMapViewMode]],
+      scrollWheelZoom: properties.scrollWheelZoom
     }
 
     this._map = L.map(properties.id, mapOptions)

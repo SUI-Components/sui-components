@@ -13,6 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "react-slidy": "3"
+    "react-slidy": "1.2"
   }
 }

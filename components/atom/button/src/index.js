@@ -31,7 +31,7 @@ const cleanProps = (props) => {
  */
 const getModifiers = (props) => {
   return Object.keys(props)
-    .filter(name => MODIFIERS.includes(name))
+    .filter(name => props[name] && MODIFIERS.includes(name))
 }
 
 const AtomButton = (props) => {

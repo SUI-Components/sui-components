@@ -38,15 +38,15 @@ class ResponsiveToggle extends Component {
 
 ResponsiveToggle.displayName = 'ResponsiveToggle'
 
-// Remove these comments if you need
-// ResponsiveToggle.contextTypes = {i18n: PropTypes.object}
 ResponsiveToggle.propTypes = {
   /**
    * Max viewport width before hiding the element
    */
   breakpoint: PropTypes.number.isRequired,
+  /**
+   * Element to toggle view
+   */
   children: PropTypes.element.isRequired
 }
-// ResponsiveToggle.defaultProps = {}
 
 export default ResponsiveToggle

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.23.0"></a>
+# 1.23.0 (2017-11-21)
+
+
+### Features
+
+* add color variable ([d2f0ad2](https://github.com/SUI-Components/sui-components/commit/d2f0ad2))
+* test ([aaf158c](https://github.com/SUI-Components/sui-components/commit/aaf158c))
+
+
+
 <a name="1.22.0"></a>
 # 1.22.0 (2017-11-06)
 

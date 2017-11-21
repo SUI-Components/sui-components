@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.15.0"></a>
+# 1.15.0 (2017-11-21)
+
+
+### Features
+
+* add color variable ([4a35866](https://github.com/SUI-Components/sui-components/commit/4a35866))
+* update component ([690e820](https://github.com/SUI-Components/sui-components/commit/690e820))
+
+
+
 <a name="1.14.0"></a>
 # 1.14.0 (2017-11-06)
 
@@ -105,6 +116,16 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * adjust link colors ([30545b8](https://github.com/SUI-Components/sui-components/commit/30545b8))
+
+
+
+<a name="1.4.0"></a>
+# 1.4.0 (2017-01-26)
+
+
+### Bug Fixes
+
+* adjusting breakpoints ([954cf97](https://github.com/SUI-Components/sui-components/commit/954cf97))
 
 
 

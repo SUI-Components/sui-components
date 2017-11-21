@@ -8,7 +8,7 @@ const ImageSlider = (props) => {
   return (
     <div onClick={props.handleClick} className='sui-ImageSlider'>
       { hasMoreThanOneImage(props.images)
-        ? (<ReactSlidy>{ slides }</ReactSlidy>)
+        ? (<ReactSlidy {...props.sliderOptions}>{ slides }</ReactSlidy>)
         : slides
       }
     </div>
@@ -50,14 +50,25 @@ ImageSlider.propTypes = {
   /**
    * Callback executed when clicking over the slider.
    */
-  handleClick: PropTypes.func
+  handleClick: PropTypes.func,
+  /**
+   * Custom configuration options to pass to react-slidy component.
+   */
+  sliderOptions: PropTypes.shape({
+    lazyLoadSlider: PropTypes.bool,
+    initialSlide: PropTypes.number
+  })
 }
 
 ImageSlider.defaultProps = {
   /**
    * This function will receive the onClick arguments
    */
-  handleClick: () => {}
+  handleClick: () => {},
+  /**
+   * If not set, react-slidy will be created with its default properties.
+   */
+  sliderOptions: {}
 }
 
 ImageSlider.displayName = 'ImageSlider'

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import ViewportResize from './viewport-resize'
 
-class ResponsiveViews extends Component {
+class LayoutBreakpointSplit extends Component {
   state = {}
 
   constructor (props) {
@@ -37,12 +37,12 @@ class ResponsiveViews extends Component {
     let {children, current} = this.props
     let {isSplitted} = this.state
     children = isSplitted ? [children[current]] : children
-    return (<span className='sui-ResponsiveViews'>
+    return (<span className='sui-LayoutBreakpointSplit'>
       {children.map((child, index) =>
         <child.type {...child.props} key={index}
           className={cx(
             child.props.className,
-            isSplitted && 'sui-ResponsiveViews-currentView'
+            isSplitted && 'sui-LayoutBreakpointSplit-currentView'
           )}
         />
       )}
@@ -50,9 +50,9 @@ class ResponsiveViews extends Component {
   }
 }
 
-ResponsiveViews.displayName = 'ResponsiveViews'
+LayoutBreakpointSplit.displayName = 'LayoutBreakpointSplit'
 
-ResponsiveViews.propTypes = {
+LayoutBreakpointSplit.propTypes = {
   /**
    * Elements each view
    */
@@ -66,8 +66,8 @@ ResponsiveViews.propTypes = {
    */
   current: PropTypes.number
 }
-ResponsiveViews.defaultProps = {
+LayoutBreakpointSplit.defaultProps = {
   current: 0
 }
 
-export default ResponsiveViews
+export default LayoutBreakpointSplit

@@ -1,11 +1,11 @@
 return (<div>
   <button>Normal button</button>
   <br />
-  <ResponsiveToggle breakpoint={780}>
+  <BreakpointToggle breakpoint={780}>
     <button>iPad button</button>
-  </ResponsiveToggle>
+  </BreakpointToggle>
   <br />
-  <ResponsiveToggle breakpoint={575}>
+  <BreakpointToggle breakpoint={575}>
     <button>Mobile button</button>
-  </ResponsiveToggle>
+  </BreakpointToggle>
 </div>)

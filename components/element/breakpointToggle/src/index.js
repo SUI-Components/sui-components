@@ -2,7 +2,7 @@ import {Component} from 'react'
 import PropTypes from 'prop-types'
 import ViewportResize from './viewport-resize'
 
-class ResponsiveToggle extends Component {
+class BreakpointToggle extends Component {
   state = {}
 
   constructor (props) {
@@ -36,9 +36,9 @@ class ResponsiveToggle extends Component {
   }
 }
 
-ResponsiveToggle.displayName = 'ResponsiveToggle'
+BreakpointToggle.displayName = 'BreakpointToggle'
 
-ResponsiveToggle.propTypes = {
+BreakpointToggle.propTypes = {
   /**
    * Max viewport width before hiding the element
    */
@@ -49,4 +49,4 @@ ResponsiveToggle.propTypes = {
   children: PropTypes.element.isRequired
 }
 
-export default ResponsiveToggle
+export default BreakpointToggle

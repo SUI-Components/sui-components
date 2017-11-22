@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-responsive-views",
+  "name": "@schibstedspain/sui-layout-breakpoint-split",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

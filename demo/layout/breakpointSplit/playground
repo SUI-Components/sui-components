@@ -9,7 +9,7 @@ class Layout extends React.Component {
   render () {
     const current = this.state && this.state.current || 0
     return (<div>
-    <ResponsiveViews breakpoint={575} current={current}>
+    <LayoutBreakpointSplit breakpoint={575} current={current}>
       <div style={getStyle({background: '#f44336'})}>
         LEFT VIEW {current == 0 && '(active)'}<br /><br />
         <button disabled>Prev &lt;</button>
@@ -25,7 +25,7 @@ class Layout extends React.Component {
         <button onClick={this.setView.bind(this, 1)}>Prev &lt;</button>
         <button disabled>Next &gt;</button>
       </div>
-    </ResponsiveViews>
+    </LayoutBreakpointSplit>
     </div>)
   }
 }

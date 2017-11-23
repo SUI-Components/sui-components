@@ -100,7 +100,7 @@ TagSelectableList.propTypes = {
     /**
      * tag value
      */
-    value: PropTypes.number.isRequired
+    value: PropTypes.string.isRequired
   })).isRequired,
   /**
     * Initial selected values

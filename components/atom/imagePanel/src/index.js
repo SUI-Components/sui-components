@@ -15,10 +15,6 @@ const VERTICAL_ALIGNMENTS = {
   BOTTOM: 'bottom'
 }
 
-const TYPES = {
-  RESIZED: 'resized'
-}
-
 const hexToRgb = function (hex) {
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
   hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b)
@@ -36,7 +32,7 @@ const getClassNames = function ({verticalAlign, horizontalAlign, classNames, res
     'sui-AtomImagePanel',
     `sui-AtomImagePanel--v-${verticalAlign}`,
     `sui-AtomImagePanel--h-${horizontalAlign}`,
-    resized && `sui-AtomImagePanel-resized`,
+    resized && `sui-AtomImagePanel--resized`,
     classNames
   )
 }
@@ -45,19 +41,21 @@ const getStyles = function ({placeholderColor, overlayColor, src, overlayAlpha})
   const url = `url(${src})`
   if (overlayColor) {
     const overlayColorRgb = hexToRgb(overlayColor)
-    const rgba = `rgba(${overlayColorRgb.r}, ${overlayColorRgb.g}, ${overlayColorRgb.b}, ${overlayAlpha})`
-    var gradient = `linear-gradient(${rgba}, ${rgba})`
+    var rgba = `rgba(${overlayColorRgb.r}, ${overlayColorRgb.g}, ${overlayColorRgb.b}, ${overlayAlpha})`
   }
   return {
-    backgroundImage: gradient ? `${gradient}, ${url}` : url,
-    backgroundColor: placeholderColor
+    backgroundImage: url,
+    backgroundColor: placeholderColor,
+    color: rgba
   }
 }
 
 const AtomImagePanel = function ({src, children, ...props}) {
   return (
     <div className={getClassNames(props)} style={getStyles({src, ...props})}>
-      {children}
+      <div className='sui-AtomImagePanel-content'>
+        {children}
+      </div>
     </div>
   )
 }
@@ -105,6 +103,5 @@ AtomImagePanel.defaultProps = {
 export default AtomImagePanel
 export {
   HORIZONTAL_ALIGNMENTS as atomImagePanelHorizontalAlign,
-  VERTICAL_ALIGNMENTS as atomImagePanelVerticalAlign,
-  TYPES as atomItemPanelTypes
+  VERTICAL_ALIGNMENTS as atomImagePanelVerticalAlign
 }

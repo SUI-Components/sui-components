@@ -69,8 +69,11 @@ $bgc-topbar-user-cta: $c-accent !default;
       @include media-breakpoint-up(m) {
         height: $h-topbar-user-brand-large;
         margin-bottom: $m-m;
-        margin-right: $m-xxl;
+        margin-right: $m-l;
         width: $w-topbar-user-brand-large;
+      }
+      @include media-breakpoint-up(l) {
+        margin-right: $m-xxl;
       }
       background: $bg-topbar-user-brand;
       background-size: $bgsz-topbar-user-brand;

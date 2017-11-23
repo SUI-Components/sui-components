@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.22.0"></a>
+# 1.22.0 (2017-11-23)
+
+
+### Features
+
+* adjust logo margin ([ad5d87f](https://github.com/SUI-Components/sui-components/commit/ad5d87f))
+
+
+
 <a name="1.21.0"></a>
 # 1.21.0 (2017-11-23)
 

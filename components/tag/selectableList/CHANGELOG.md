@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2017-11-23)
+
+
+### Features
+
+* change proptype of selectableList ([c75902a](https://github.com/SUI-Components/sui-components/commit/c75902a))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2017-11-23)
 

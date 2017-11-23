@@ -16,7 +16,7 @@ const EVENT_OPTIONS = {capture: true, passive: true}
  * Callbacks to execute on each resize event.
  * @type {Array<Function>}
  */
-const listeners = []
+let listeners = []
 
 /**
  * Service to get width and height of the viewport
@@ -40,7 +40,7 @@ class ViewportResize {
    * @param {Function} listener
    */
   static removeListener (listener) {
-    listeners.filter(cb => cb !== listener)
+    listeners = listeners.filter(cb => cb !== listener)
 
     if (!listeners.length) {
       window.removeEventListener('resize', this.update, EVENT_OPTIONS)

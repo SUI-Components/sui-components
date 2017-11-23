@@ -1,15 +1,15 @@
 const tags = [
   {
     label: 'accusantium',
-    value: 1
+    value: '1'
   },
   {
     label: 'et quibusdam',
-    value: 2
+    value: '2'
   },
   {
     label: 'dolores vitae',
-    value: 3
+    value: '3'
   }
 ]
 

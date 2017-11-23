@@ -57,7 +57,7 @@
 
     #{$root-parent}-trigger {
       &-icon {
-        transform: rotateZ(180deg);
+        transform: $trf-collapsible-basic-icon;
       }
     }
 

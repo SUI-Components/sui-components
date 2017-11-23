@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.21.0"></a>
+# 1.21.0 (2017-11-23)
+
+
+### Features
+
+* little fix for different sizes ([9b7a55c](https://github.com/SUI-Components/sui-components/commit/9b7a55c))
+* update variables and add new ones for logo in topbar user ([156eb07](https://github.com/SUI-Components/sui-components/commit/156eb07))
+
+
+
 <a name="1.20.0"></a>
 # 1.20.0 (2017-11-06)
 

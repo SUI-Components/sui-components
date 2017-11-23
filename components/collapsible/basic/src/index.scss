@@ -21,7 +21,7 @@
     &-icon {
       flex: 1;
       height: $sz-collapsible-basic-trigger-icon;
-      transition: transform $trs-base;
+      transition: $trs-collapsible-basic-trigger-icon;
       width: $sz-collapsible-basic-trigger-icon;
     }
 
@@ -57,7 +57,7 @@
 
     #{$root-parent}-trigger {
       &-icon {
-        transform: $trf-collapsible-basic-icon;
+        transform: rotateZ(180deg);
       }
     }
 

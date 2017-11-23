@@ -8,7 +8,7 @@ const removeFromArray = (arr, value) => {
 
 export default class TagSelectableList extends Component {
   state = {
-    selectedValues: []
+    selectedValues: this.props.initialValues
   }
 
   toggleValue = (event, value) => {
@@ -101,5 +101,13 @@ TagSelectableList.propTypes = {
      * tag value
      */
     value: PropTypes.number.isRequired
-  })).isRequired
+  })).isRequired,
+  /**
+    * Initial selected values
+    */
+  initialValues: PropTypes.array
+}
+
+TagSelectableList.defaultProps = {
+  initialValues: []
 }

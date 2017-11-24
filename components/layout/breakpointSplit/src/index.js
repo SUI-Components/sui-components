@@ -66,6 +66,7 @@ LayoutBreakpointSplit.propTypes = {
    */
   current: PropTypes.number
 }
+
 LayoutBreakpointSplit.defaultProps = {
   current: 0
 }

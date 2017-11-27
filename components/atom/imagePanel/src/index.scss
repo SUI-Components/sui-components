@@ -1,12 +1,12 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
-$bgc-image-panel: $c-gray-light !default;
-$c-image-panel: $c-black !default;
-$horizontal-alignments: ('left', 'center', 'right') !default;
-$vertical-alignments: ('top', 'center', 'bottom') !default;
+$bgc-atom-image-panel: $c-gray-light !default;
+$c-atom-image-panel: $c-black !default;
+$horizontal-alignments-atom-image-panel: ('left', 'center', 'right') !default;
+$vertical-alignments-atom-image-panel: ('top', 'center', 'bottom') !default;
 
 .sui-AtomImagePanel {
-  background-color: $bgc-image-panel;
+  background-color: $bgc-atom-image-panel;
   background-repeat: no-repeat;
   position: relative;
 
@@ -24,17 +24,17 @@ $vertical-alignments: ('top', 'center', 'bottom') !default;
   }
 
   &-content {
-    color: $c-image-panel;
+    color: $c-atom-image-panel;
     position: relative;
   }
 
-  @each $alignment in $horizontal-alignments {
+  @each $alignment in $horizontal-alignments-atom-image-panel {
     &--h-#{$alignment} {
       background-position-x: #{$alignment};
     }
   }
 
-  @each $alignment in $vertical-alignments {
+  @each $alignment in $vertical-alignments-atom-image-panel {
     &--v-#{$alignment} {
       background-position-y: #{$alignment};
     }

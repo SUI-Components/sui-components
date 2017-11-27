@@ -8,11 +8,8 @@ const NO_OP = () => {}
 const DEFAULT_COUNTER_TEXT_FORMATTER = (current, total) => `${current} / ${total}`
 
 class ModalGallery extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      currentSlide: props.initialSlide
-    }
+  state = {
+    currentSlide: this.props.initialSlide
   }
 
   componentWillReceiveProps ({shouldRenderModal, initialSlide = 0}) {

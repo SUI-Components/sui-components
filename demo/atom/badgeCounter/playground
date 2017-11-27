@@ -1,0 +1,9 @@
+return (
+  <div>
+    <BadgeCounter size='small' thickness='thin' />
+    <br />
+    <BadgeCounter />
+    <br />
+    <BadgeCounter size='large' thickness='thick' />
+  </div>
+)

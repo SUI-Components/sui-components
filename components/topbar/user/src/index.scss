@@ -4,6 +4,20 @@
 @import '~@schibstedspain/sui-dropdown-basic/lib/index';
 @import '~@schibstedspain/sui-dropdown-user/lib/index';
 
+// Topbar user
+$bgc-topbar-user: $c-white !default;
+$bxsh-topbar-user: $bxsh-base !default;
+$bg-topbar-user-brand: null !default;
+$bgsz-topbar-user-brand: 100% !default;
+$h-topbar-user-brand-small: 0 !default;
+$w-topbar-user-brand-small: 0 !default;
+$h-topbar-user-brand-large: 0 !default;
+$w-topbar-user-brand-large: 0 !default;
+$size-topbar-user-toggle-icon: 24px !default;
+$w-topbar-user-nav: 90% !default;
+$maw-topbar-user-nav: 350px !default;
+$bgc-topbar-user-cta: $c-accent !default;
+
 .html-has-scroll-disabled {
   overflow-y: hidden;
   position: fixed;
@@ -52,17 +66,26 @@
     @include reset-link;
     @if $bg-topbar-user-brand != null {
       @include text-hide;
+      @include media-breakpoint-up(m) {
+        height: $h-topbar-user-brand-large;
+        margin-right: $m-l;
+        width: $w-topbar-user-brand-large;
+      }
+      @include media-breakpoint-up(l) {
+        margin-right: $m-xxl;
+      }
       background: $bg-topbar-user-brand;
       background-size: $bgsz-topbar-user-brand;
       box-sizing: content-box;
-      height: $h-topbar-user-brand;
+      height: $h-topbar-user-brand-small;
+      margin-bottom: $m-s;
       padding: $p-v 0;
-      width: $w-topbar-user-brand;
+      width: $w-topbar-user-brand-small;
     }
     align-self: center;
     font-size: $fz-h2;
     font-weight: $fw-bold;
-    margin-right: $m-h;
+    margin-right: $m-l;
   }
 
   &-nav {

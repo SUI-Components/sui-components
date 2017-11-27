@@ -75,7 +75,8 @@ class MapBasic extends Component {
       zoom: this.props.zoom,
       appId: this.props.appId,
       appCode: this.props.appCode,
-      mapDOMInstance: this.mapDOMInstance
+      mapDOMInstance: this.mapDOMInstance,
+      scrollWheelZoom: this.props.scrollWheelZoom
     }
   }
 
@@ -227,7 +228,11 @@ MapBasic.propTypes = {
   /**
    * BY DEFAULT set to true. Set it to false to disable the use to drag and move on the map.
    */
-  isInteractable: PropTypes.bool
+  isInteractable: PropTypes.bool,
+  /**
+   * This property indicates if the map zooms in or out in response to mouse wheel events.
+   */
+  scrollWheelZoom: PropTypes.bool
 }
 
 MapBasic.defaultProps = {
@@ -241,6 +246,7 @@ MapBasic.defaultProps = {
   zoomControlPosition: 'bottomleft',
   zoomable: false,
   isInteractable: true,
+  scrollWheelZoom: true,
   onMapClick: NO_OP,
   onMapDragEnd: NO_OP,
   onMapLoad: NO_OP,

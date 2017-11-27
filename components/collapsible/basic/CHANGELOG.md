@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2017-11-23)
+
+
+### Features
+
+* set icon animation as a variable ([d22b643](https://github.com/SUI-Components/sui-components/commit/d22b643))
+* set transition as variable ([91d95a1](https://github.com/SUI-Components/sui-components/commit/91d95a1))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2017-11-16)
 

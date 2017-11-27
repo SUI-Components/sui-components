@@ -1,0 +1,35 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+$c-color-panel-canvas: $c-white !default;
+$c-color-panel-default: color-variation($c-gray, 4) !default;
+$c-color-panel-base: color-variation($c-gray, 3) !default;
+$c-color-panel-contrast: $c-black !default;
+$c-color-panel-corporate: $c-primary !default;
+$c-color-panel-highlight: color-variation($c-accent, 4) !default;
+
+$color-panel-types: (
+  'canvas': $c-color-panel-canvas,
+  'default': $c-color-panel-default,
+  'base': $c-color-panel-base,
+  'contrast': $c-color-panel-contrast,
+  'corporate': $c-color-panel-corporate,
+  'highlight': $c-color-panel-highlight
+) !default;
+
+$color-panels-alphas: (
+  'contrast': 1,
+  'overlay_d4': 0.75,
+  'overlay_d3': 0.5,
+  'overlay_d2': 0.25,
+  'overlay_d1': 0.15
+) !default;
+
+.sui-AtomColorPanel {
+  @each $type, $color in $color-panel-types {
+    @each $level, $opacity in $color-panels-alphas {
+      &-#{$type}-#{$level} {
+        background: rgba($color, $opacity);
+      }
+    }
+  }
+}

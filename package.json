@@ -49,6 +49,7 @@
       "compliant": [
         "atom/badge",
         "atom/button",
+        "atom/colorPanel",
         "atom/tag",
         "breadcrumb/basic"
       ]

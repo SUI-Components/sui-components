@@ -20,10 +20,18 @@ return (
       <AtomImagePanel src={imageSrcLong} overlayAlpha={0.6} overlayColor={'#f00'} placeholderColor={placeholderColor} resized>
         {content}
       </AtomImagePanel>
-      <h2>Container example</h2>
+      <h2>Container example (Dark text on light background)</h2>
       <div style={{width: '350px'}}>
         <AtomImagePanel src={imageSrcLong} horizontalAlign={'left'} overlayColor={'fff'} overlayAlpha={0.9} placeholderColor={placeholderColor} resized>
           <div style={{height: '200px', width: '200px', color: '#000', fontSize: '32px', fontWeight: 600, margin: 'auto'}}>
+            <p>Lorem ipsum dolor sit amet</p>
+          </div>
+        </AtomImagePanel>
+      </div>
+      <h2>Container example (Light text on dark background)</h2>
+      <div style={{width: '350px'}}>
+        <AtomImagePanel src={imageSrcLong} horizontalAlign={'left'} overlayColor={'000'} overlayAlpha={0.4} placeholderColor={placeholderColor} resized>
+          <div style={{height: '200px', width: '200px', color: '#fff', fontSize: '32px', fontWeight: 600, margin: 'auto'}}>
             <p>Lorem ipsum dolor sit amet</p>
           </div>
         </AtomImagePanel>

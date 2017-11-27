@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 
 const BASE_16 = 16
 const HORIZONTAL_ALIGNMENTS = {
@@ -28,7 +28,7 @@ const hexToRgb = function (hex) {
 }
 
 const getClassNames = function ({verticalAlign, horizontalAlign, classNames, resized}) {
-  return classnames(
+  return cx(
     'sui-AtomImagePanel',
     `sui-AtomImagePanel--v-${verticalAlign}`,
     `sui-AtomImagePanel--h-${horizontalAlign}`,

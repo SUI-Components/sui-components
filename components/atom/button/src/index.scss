@@ -28,7 +28,6 @@ $p-button-large: $p-l !default;
 @mixin button-foreground-color ($color) {
   color: $color;
 
-
   & svg path {
     fill: $color;
     stroke: $color;
@@ -86,7 +85,10 @@ $p-button-large: $p-l !default;
   &-leftIcon,
   &-rightIcon {
     display: inline-block;
-    transform: translateY(-2px);
+    vertical-align: middle;
+  }
+
+  &-text {
     vertical-align: middle;
   }
 
@@ -173,7 +175,6 @@ $p-button-large: $p-l !default;
     .sui-AtomButton-leftIcon,
     .sui-AtomButton-rightIcon {
       margin: 0;
-      transform: translateY(0);
     }
   }
 }

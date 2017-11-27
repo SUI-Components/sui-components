@@ -10,7 +10,7 @@ Moreover, it has a layout property. Right now, it only accepts the 'full' layout
 
 Obviously you can use both type and size in order to get your desired button. For example:
 
-```html
+```javascript
 <ButtonBasic
   size='small'
   type='flat'

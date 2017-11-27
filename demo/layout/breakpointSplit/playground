@@ -1,0 +1,34 @@
+const getStyle = style => Object.assign(style, {width: '33.33%', padding: 20, color: '#fff', float: 'left', minHeight: 400})
+
+class Layout extends React.Component {
+
+  setView(current) {
+    this.setState({current})
+  }
+
+  render () {
+    const current = this.state && this.state.current || 0
+    return (<div>
+    <LayoutBreakpointSplit breakpoint={575} current={current}>
+      <div style={getStyle({background: '#f44336'})}>
+        LEFT VIEW {current == 0 && '(active)'}<br /><br />
+        <button disabled>Prev &lt;</button>
+        <button onClick={this.setView.bind(this, 1)}>Next &gt;</button>
+      </div>
+      <div style={getStyle({background: '#e91e63'})}>
+        MIDDLE VIEW {current == 1 && '(active)'}<br /><br />
+        <button onClick={this.setView.bind(this, 0)}>Prev &lt;</button>
+        <button onClick={this.setView.bind(this, 2)}>Next &gt;</button>
+      </div>
+      <div style={getStyle({background: '#9c2780'})}>
+        RIGHT VIEW {current == 2 && '(active)'}<br /><br />
+        <button onClick={this.setView.bind(this, 1)}>Prev &lt;</button>
+        <button disabled>Next &gt;</button>
+      </div>
+    </LayoutBreakpointSplit>
+    </div>)
+  }
+}
+
+
+return <Layout />

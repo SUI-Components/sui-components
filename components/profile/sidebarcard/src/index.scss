@@ -1,0 +1,80 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-profile-rating/lib/index';
+
+$bd-profile-avatar-halo: 4px solid #009f97 !default;
+$bgc-profile-sidebarcard: #eeeeee !default;
+$c-profile-info: #737980 !default;
+$ff-profile-rating-info-box-name: 'Open Sans', sans-serif !default;
+
+.sui-ProfileSidebarcard {
+  background-color: $bgc-profile-sidebarcard;
+  display: flex;
+  flex-direction: column;
+  height: 172px;
+  width: 280px;
+
+  &-topcontainer {
+    display: flex;
+    flex-grow: .4;
+
+    &Avatar {
+      &Halo {
+        border: $bd-profile-avatar-halo;
+        border-radius: 50%;
+        height: 80px;
+        margin: 12px 8px 12px 12px;
+        width: 80px;
+      }
+
+      &RadiusWrapper {
+        border-radius: 50%;
+        display: block;
+        height: 64px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: $m-v-small;
+        overflow: hidden;
+        width: 64px;
+
+        img {
+          width: 64px;
+        }
+      }
+    }
+
+    &RatingInfoBox {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 2;
+      height: 64px;
+      justify-content: center;
+      margin-top: $m-h-small;
+
+      &Name {
+        color: $c-profile-info;
+        font-family: $ff-profile-rating-info-box-name;
+        font-size: 18px;
+        line-height: 1;
+        text-align: left;
+      }
+    }
+  }
+
+  &-bottomContainer {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+
+    .sui-ProfileSidebarcard-counterBox {
+      color: $c-profile-info;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      text-decoration: none;
+
+      &Number {
+        font-size: 24px;
+      }
+    }
+  }
+}

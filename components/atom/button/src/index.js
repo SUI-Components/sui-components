@@ -47,7 +47,10 @@ const AtomButton = (props) => {
   const newProps = cleanProps(props)
   return (<button {...newProps} className={classNames} disabled={disabled}>
     {leftIcon && <span className={`${CLASS}-leftIcon`}>{leftIcon}</span>}
-    {children}
+    {leftIcon || rightIcon
+      ? <span className={`${CLASS}-text`}>{children}</span>
+      : children
+    }
     {rightIcon && <span className={`${CLASS}-rightIcon`}>{rightIcon}</span>}
   </button>)
 }

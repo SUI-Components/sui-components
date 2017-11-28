@@ -1,0 +1,34 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+$fill-profileRating-filled: #F7AF33 !default;
+$fill-profileRating-empty: #D7DBDF !default;
+
+.sui-ProfileRating {
+    margin-top: 7px;
+    height: 16px;
+
+    &-fillingBar {
+      height: 16px;
+      background-color: #f7af33;
+    }
+
+    &-filled, &-empty {
+      position: absolute;
+      display: flex;
+    }
+
+    &-iconContainer {
+      flex-grow: 1;
+      overflow: hidden;
+    }
+
+    &-empty {
+      fill: $fill-profileRating-empty;
+    }
+
+    &-filled {
+      fill: $fill-profileRating-filled;
+      overflow: hidden;
+      transition: width 1s;
+    }
+}

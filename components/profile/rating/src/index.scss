@@ -1,34 +1,30 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
-$fill-profileRating-filled: #F7AF33 !default;
-$fill-profileRating-empty: #D7DBDF !default;
+$fill-profile-rating-filled: #f7af33 !default;
+$fill-profile-rating-empty: #d7dbdf !default;
 
 .sui-ProfileRating {
-    margin-top: 7px;
-    height: 16px;
+  height: 16px;
+  margin-top: 7px;
 
-    &-fillingBar {
-      height: 16px;
-      background-color: #f7af33;
-    }
+  &-filled,
+  &-empty {
+    display: flex;
+    position: absolute;
+  }
 
-    &-filled, &-empty {
-      position: absolute;
-      display: flex;
-    }
+  &-iconContainer {
+    flex-grow: 1;
+    overflow: hidden;
+  }
 
-    &-iconContainer {
-      flex-grow: 1;
-      overflow: hidden;
-    }
+  &-empty {
+    fill: $fill-profile-rating-empty;
+  }
 
-    &-empty {
-      fill: $fill-profileRating-empty;
-    }
-
-    &-filled {
-      fill: $fill-profileRating-filled;
-      overflow: hidden;
-      transition: width 1s;
-    }
+  &-filled {
+    fill: $fill-profile-rating-filled;
+    overflow: hidden;
+    transition: width 1s;
+  }
 }

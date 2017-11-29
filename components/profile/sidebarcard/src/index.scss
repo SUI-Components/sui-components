@@ -1,17 +1,24 @@
-@import '~@schibstedspain/theme-basic/lib/index';
-@import '~@schibstedspain/sui-profile-rating/lib/index';
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/sui-rating-icons/lib/index';
 
-$bd-profile-avatar-halo: 4px solid #009f97 !default;
-$bgc-profile-sidebarcard: #eeeeee !default;
+$bd-profileSidebarcard-avatar-halo: 4px solid $c-accent !default;
+$bgc-profileSidebarcard: #eeeeee !default;
 $c-profile-info: #737980 !default;
 $ff-profile-rating-info-box-name: 'Open Sans', sans-serif !default;
 
+$h-profileSidebarcard: 280px;
+$w-profileSidebarcard: 172px;
+
+$w-profileSidebarcard-avatar: 64px;
+$h-profileSidebarcard-avatar: 64px;
+$p-profileSidebarcard-avatar: $p-l;
+
 .sui-ProfileSidebarcard {
-  background-color: $bgc-profile-sidebarcard;
+  background-color: $bgc-profileSidebarcard;
   display: flex;
   flex-direction: column;
-  height: 172px;
-  width: 280px;
+  height: $w-profileSidebarcard;
+  width: $h-profileSidebarcard;
 
   &-topcontainer {
     display: flex;
@@ -19,25 +26,25 @@ $ff-profile-rating-info-box-name: 'Open Sans', sans-serif !default;
 
     &Avatar {
       &Halo {
-        border: $bd-profile-avatar-halo;
+        border: $bd-profileSidebarcard-avatar-halo;
         border-radius: 50%;
-        height: 80px;
-        margin: 12px 8px 12px 12px;
-        width: 80px;
+        height: ($h-profileSidebarcard-avatar + $p-profileSidebarcard-avatar);
+        margin: $m-l;
+        width: ($w-profileSidebarcard-avatar + $p-profileSidebarcard-avatar);
       }
 
       &RadiusWrapper {
         border-radius: 50%;
         display: block;
-        height: 64px;
+        height: $w-profileSidebarcard-avatar;
         margin-left: auto;
         margin-right: auto;
-        margin-top: $m-v-small;
+        margin-top: $m-s;
         overflow: hidden;
-        width: 64px;
+        width: $w-profileSidebarcard-avatar;
 
         img {
-          width: 64px;
+          width: $w-profileSidebarcard-avatar;
         }
       }
     }
@@ -46,14 +53,13 @@ $ff-profile-rating-info-box-name: 'Open Sans', sans-serif !default;
       display: flex;
       flex-direction: column;
       flex-grow: 2;
-      height: 64px;
       justify-content: center;
-      margin-top: $m-h-small;
+      margin-top: -$m-l;
 
       &Name {
         color: $c-profile-info;
         font-family: $ff-profile-rating-info-box-name;
-        font-size: 18px;
+        font-size: $fz-l;
         line-height: 1;
         text-align: left;
       }
@@ -73,7 +79,7 @@ $ff-profile-rating-info-box-name: 'Open Sans', sans-serif !default;
       text-decoration: none;
 
       &Number {
-        font-size: 24px;
+        font-size: $fz-xxl;
       }
     }
   }

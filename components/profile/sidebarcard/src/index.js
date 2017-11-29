@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ProfileRating from '@schibstedspain/sui-profile-rating/lib'
+import ProfileRating from '@schibstedspain/sui-rating-icons/lib'
 import PropTypes from 'prop-types'
 import CounterBox from './CounterBox'
 import Avatar from './Avatar'

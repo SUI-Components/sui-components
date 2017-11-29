@@ -1,9 +1,9 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
-$fill-profile-rating-filled: #f7af33 !default;
-$fill-profile-rating-empty: #d7dbdf !default;
+$fill-rating-icons-filled: #f7af33 !default;
+$fill-rating-icons-empty: #d7dbdf !default;
 
-.sui-ProfileRating {
+.sui-RatingIcons {
   height: 16px;
   margin-top: 7px;
 
@@ -19,11 +19,11 @@ $fill-profile-rating-empty: #d7dbdf !default;
   }
 
   &-empty {
-    fill: $fill-profile-rating-empty;
+    fill: $fill-rating-icons-empty;
   }
 
   &-filled {
-    fill: $fill-profile-rating-filled;
+    fill: $fill-rating-icons-filled;
     overflow: hidden;
     transition: width 1s;
   }

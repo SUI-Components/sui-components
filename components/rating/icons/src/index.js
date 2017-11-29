@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-class ProfileRating extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      ratingFilledWidth: 0
-    }
+class RatingIcons extends Component {
+
+  state = {
+    ratingFilledWidth: 0
   }
 
   calculateWidthByRating () {
@@ -16,7 +14,7 @@ class ProfileRating extends Component {
   }
 
   getIcon (Icon, index) {
-    return <div key={index} className='sui-ProfileRating-iconContainer' style={{ minWidth: this.props.iconSize, marginLeft: this.props.spacingBetween }}>
+    return <div key={index} className='sui-RatingIcons-iconContainer' style={{ minWidth: this.props.iconSize, marginLeft: this.props.spacingBetween }}>
       <Icon />
     </div>
   }
@@ -41,21 +39,22 @@ class ProfileRating extends Component {
 
   render () {
     const { maxValue, icon, fillColor, emptyColor } = this.props
+    const ratingIcons = this.buildRating(maxValue, icon)
 
-    return <div className='sui-ProfileRating'>
-      <div className='sui-ProfileRating-empty' style={{ fill: emptyColor }}>
-        {this.buildRating(maxValue, icon)}
+    return <div className='sui-RatingIcons'>
+      <div className='sui-RatingIcons-empty' style={{ fill: emptyColor }}>
+        {ratingIcons}
       </div>
-      <div className='sui-ProfileRating-filled' style={{ width: this.state.ratingFilledWidth, fill: fillColor }} >
-        {this.buildRating(maxValue, icon)}
+      <div className='sui-RatingIcons-filled' style={{ width: this.state.ratingFilledWidth, fill: fillColor }} >
+        {ratingIcons}
       </div>
     </div>
   }
 }
 
-ProfileRating.displayName = 'ProfileRating'
+RatingIcons.displayName = 'RatingIcons'
 
-ProfileRating.propTypes = {
+RatingIcons.propTypes = {
   /**
    * The rating of our user, if our user have 6/10 stars we should pass 6 you can pass it with decimals too. 6.5, 7, 7.5...
    */
@@ -86,7 +85,7 @@ ProfileRating.propTypes = {
   emptyColor: PropTypes.string
 }
 
-ProfileRating.defaultProps = {
+RatingIcons.defaultProps = {
   spacingBetween: 0
 }
-export default ProfileRating
+export default RatingIcons

@@ -2,8 +2,8 @@
 @import '~@schibstedspain/sui-rating-icons/lib/index';
 
 $bd-profile-sidebarcard-avatar-halo: 4px solid $c-accent !default;
-$bgc-profile-sidebarcard: #eeeeee !default;
-$c-profile-info: #737980 !default;
+$bgc-profile-sidebarcard: $c-gray-lightest !default;
+$c-profile-info: $c-gray !default;
 $ff-profile-rating-info-box-name: 'Open Sans', sans-serif !default;
 
 $h-profile-sidebarcard: 280px;

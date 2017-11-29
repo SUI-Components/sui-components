@@ -1,17 +1,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~@schibstedspain/sui-rating-icons/lib/index';
+@import 'settings';
 
-$bd-profile-sidebarcard-avatar-halo: 4px solid $c-accent !default;
-$bgc-profile-sidebarcard: $c-gray-lightest !default;
-$c-profile-info: $c-gray !default;
-$ff-profile-rating-info-box-name: 'Open Sans', sans-serif !default;
-
-$h-profile-sidebarcard: 280px;
-$w-profile-sidebarcard: 172px;
-
-$w-profile-sidebarcard-avatar: 64px;
-$h-profile-sidebarcard-avatar: 64px;
-$p-profile-sidebarcard-avatar: $p-l;
 
 .sui-ProfileSidebarcard {
   background-color: $bgc-profile-sidebarcard;

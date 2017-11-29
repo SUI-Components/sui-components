@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 class RatingIcons extends Component {
-
   state = {
     ratingFilledWidth: 0
   }

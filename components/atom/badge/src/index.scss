@@ -1,14 +1,13 @@
 @import '~@schibstedspain/sui-theme/lib/settings';
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$c-AtomBadge: $c-black !default;
-$c-contrast-AtomBadge: $c-white !default;
-$bdrs-AtomBadge: $bdrs-m !default;
+$c-contrast-atom-badge: $c-white !default;
+$bdrs-atom-badge: $bdrs-m !default;
 
 $tags: success $c-success, error $c-error, alert $c-alert, info $c-gray;
 
 .sui-AtomBadge {
-  border-radius: $bdrs-AtomBadge;
+  border-radius: $bdrs-atom-badge;
   box-sizing: border-box;
   display: inline-block;
   vertical-align: bottom;
@@ -49,8 +48,8 @@ $tags: success $c-success, error $c-error, alert $c-alert, info $c-gray;
 
     &-#{$type} {
       background-color: $color;
-      color: $c-contrast-AtomBadge;
-      fill: $c-contrast-AtomBadge;
+      color: $c-contrast-atom-badge;
+      fill: $c-contrast-atom-badge;
     }
 
     &-#{$type}--transparent {

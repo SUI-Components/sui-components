@@ -1,5 +1,7 @@
 return (<div>
+  <BreakpointToggle breakpoint={780} inverse>
   <button>Normal button</button>
+  </BreakpointToggle>
   <br />
   <BreakpointToggle breakpoint={780}>
     <button>iPad button</button>

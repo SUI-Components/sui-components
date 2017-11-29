@@ -1,11 +1,11 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 
-$fill-rating-icons-filled: #f7af33 !default;
-$fill-rating-icons-empty: #d7dbdf !default;
+$fill-rating-icons-filled: $c-primary !default;
+$fill-rating-icons-empty: $c-primary-light !default;
+$h-rating-icons: $sz-icon-s !default;
 
 .sui-RatingIcons {
-  height: 16px;
-  margin-top: 7px;
+  height: $h-rating-icons;
 
   &-filled,
   &-empty {

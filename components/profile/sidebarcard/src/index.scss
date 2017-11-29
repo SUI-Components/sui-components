@@ -1,24 +1,24 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~@schibstedspain/sui-rating-icons/lib/index';
 
-$bd-profileSidebarcard-avatar-halo: 4px solid $c-accent !default;
-$bgc-profileSidebarcard: #eeeeee !default;
+$bd-profile-sidebarcard-avatar-halo: 4px solid $c-accent !default;
+$bgc-profile-sidebarcard: #eeeeee !default;
 $c-profile-info: #737980 !default;
 $ff-profile-rating-info-box-name: 'Open Sans', sans-serif !default;
 
-$h-profileSidebarcard: 280px;
-$w-profileSidebarcard: 172px;
+$h-profile-sidebarcard: 280px;
+$w-profile-sidebarcard: 172px;
 
-$w-profileSidebarcard-avatar: 64px;
-$h-profileSidebarcard-avatar: 64px;
-$p-profileSidebarcard-avatar: $p-l;
+$w-profile-sidebarcard-avatar: 64px;
+$h-profile-sidebarcard-avatar: 64px;
+$p-profile-sidebarcard-avatar: $p-l;
 
 .sui-ProfileSidebarcard {
-  background-color: $bgc-profileSidebarcard;
+  background-color: $bgc-profile-sidebarcard;
   display: flex;
   flex-direction: column;
-  height: $w-profileSidebarcard;
-  width: $h-profileSidebarcard;
+  height: $w-profile-sidebarcard;
+  width: $h-profile-sidebarcard;
 
   &-topcontainer {
     display: flex;
@@ -26,25 +26,25 @@ $p-profileSidebarcard-avatar: $p-l;
 
     &Avatar {
       &Halo {
-        border: $bd-profileSidebarcard-avatar-halo;
+        border: $bd-profile-sidebarcard-avatar-halo;
         border-radius: 50%;
-        height: ($h-profileSidebarcard-avatar + $p-profileSidebarcard-avatar);
+        height: ($h-profile-sidebarcard-avatar + $p-profile-sidebarcard-avatar);
         margin: $m-l;
-        width: ($w-profileSidebarcard-avatar + $p-profileSidebarcard-avatar);
+        width: ($w-profile-sidebarcard-avatar + $p-profile-sidebarcard-avatar);
       }
 
       &RadiusWrapper {
         border-radius: 50%;
         display: block;
-        height: $w-profileSidebarcard-avatar;
+        height: $w-profile-sidebarcard-avatar;
         margin-left: auto;
         margin-right: auto;
         margin-top: $m-s;
         overflow: hidden;
-        width: $w-profileSidebarcard-avatar;
+        width: $w-profile-sidebarcard-avatar;
 
         img {
-          width: $w-profileSidebarcard-avatar;
+          width: $w-profile-sidebarcard-avatar;
         }
       }
     }

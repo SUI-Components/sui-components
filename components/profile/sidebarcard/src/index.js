@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ProfileRating from '@schibstedspain/sui-rating-icons/lib'
+import RatingIcons from '@schibstedspain/sui-rating-icons'
 import PropTypes from 'prop-types'
 import CounterBox from './CounterBox'
 import Avatar from './Avatar'
@@ -12,7 +12,7 @@ class ProfileSidebarcard extends Component {
           <Avatar profilePic={this.props.userInfo.profilePic} />
           <div className='sui-ProfileSidebarcard-topContainerRatingInfoBox'>
             <span className='sui-ProfileSidebarcard-topContainerRatingInfoBoxName'>{this.props.userInfo.username}</span>
-            <ProfileRating iconSize={this.props.iconSize} rating={this.props.averageScore} maxValue={this.props.maxRatingValue} icon={this.props.icon} />
+            <RatingIcons iconSize={this.props.iconSize} rating={this.props.averageScore} maxValue={this.props.maxRatingValue} icon={this.props.icon} />
           </div>
         </div>
         <div className='sui-ProfileSidebarcard-bottomContainer'>

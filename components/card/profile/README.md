@@ -2,8 +2,7 @@
 
 > Description
 
-ProfileSideBar card serves a card with user information like avatar, name, rating bar and stats information.
-Can be putted everywhere but its main purpose is to be added as a sidebar element.
+CardProfile serves a card with user information like avatar, name, rating bar and stats information.
 
 ## Installation
 
@@ -12,7 +11,7 @@ $ npm install @schibstedspain/sui-card-profile --save
 ```
 
 ## Usage
-The sidebar card need a few properties to be setted up:
+The CardProfile need a few properties to be setted up:
 
 averageScore: Is the number of ratings that you have, if you have 5 of 10 possible ratings the component will paint 5 of 10 icons filled.
 maxRatingValue: Is the number of maxRatings that you can have. The bigger this number is the more number of total icons that you will have on the rating

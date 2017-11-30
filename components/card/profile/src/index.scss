@@ -7,37 +7,37 @@
   background-color: $bgc-card-profile;
   display: flex;
   flex-direction: column;
-  height: $w-card-profile;
-  width: $h-card-profile;
+
+  &-avatar {
+    &Halo {
+      border: $bd-card-profile-avatar-halo;
+      border-radius: 50%;
+      height: ($h-card-profile-avatar + $p-card-profile-avatar);
+      margin: $m-l;
+      width: ($w-card-profile-avatar + $p-card-profile-avatar);
+    }
+
+    &Radius {
+      border-radius: 50%;
+      display: block;
+      height: $w-card-profile-avatar;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: $m-s;
+      overflow: hidden;
+      width: $w-card-profile-avatar;
+
+      .sui-CardProfile-avatarImage {
+        width: $w-card-profile-avatar;
+      }
+    }
+  }
 
   &-topcontainer {
     display: flex;
     flex-grow: .4;
 
-    &Avatar {
-      &Halo {
-        border: $bd-card-profile-avatar-halo;
-        border-radius: 50%;
-        height: ($h-card-profile-avatar + $p-card-profile-avatar);
-        margin: $m-l;
-        width: ($w-card-profile-avatar + $p-card-profile-avatar);
-      }
 
-      &RadiusWrapper {
-        border-radius: 50%;
-        display: block;
-        height: $w-card-profile-avatar;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: $m-s;
-        overflow: hidden;
-        width: $w-card-profile-avatar;
-
-        img {
-          width: $w-card-profile-avatar;
-        }
-      }
-    }
 
     &RatingInfoBox {
       display: flex;
@@ -47,8 +47,7 @@
       margin-top: -$m-l;
 
       &Name {
-        color: $c-profile-info;
-        font-family: $ff-profile-rating-info-box-name;
+        color: $c-card-profile-info;
         font-size: $fz-l;
         line-height: 1;
         text-align: left;
@@ -61,8 +60,8 @@
     flex-grow: 1;
     justify-content: space-around;
 
-    .sui-CardProfile-counterBox {
-      color: $c-profile-info;
+    .sui-CardProfile-counter {
+      color: $c-card-profile-info;
       display: flex;
       flex-direction: column;
       text-align: center;

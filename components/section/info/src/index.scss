@@ -1,0 +1,38 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+@import './settings';
+
+.sui-SectionInfo {
+  @include media-breakpoint-down(m) {
+    flex-direction: column;
+  }
+  
+  border-bottom: 1px solid $c-sui-section-info-border;
+  display: flex;
+  flex-direction: row;
+  max-width: 670px;
+  padding: $p-xxl 0;
+
+  &-title {
+    @include media-breakpoint-down(m) {
+      flex-basis: auto;
+      padding: $p-l 0;
+      text-align: center;
+    }
+    
+    flex-basis: 30%;
+    font-size: $fz-m;
+    margin: 0;
+    padding: $p-l $p-m;
+  }
+
+  &-content {
+    @include media-breakpoint-down(m) {
+      flex-basis: auto;
+    }
+
+    flex-basis: 70%;
+    font-size: $fz-m;
+    margin: 0;
+    padding: 0 $p-xl;
+  }
+}

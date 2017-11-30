@@ -1,4 +1,4 @@
-# ProfileSidebarcard
+# CardProfile
 
 > Description
 
@@ -8,7 +8,7 @@ Can be putted everywhere but its main purpose is to be added as a sidebar elemen
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-profile-sidebarcard --save
+$ npm install @schibstedspain/sui-card-profile --save
 ```
 
 ## Usage
@@ -22,9 +22,9 @@ userInfo: The user information, requires a name and a profile pic.
 stats: The stats array is an array of 'stats' objects. Those objects require a number, a label and a link to be painted. Are dynamic, so, if you want to paint more stats on the menu you can.
 
 ```js
-import ProfileSidebarcard from '@schibstedspain/sui-profile-sidebarcard'
+import CardProfile from '@schibstedspain/sui-card-profile'
 
-return (<ProfileSidebarcard
+return (<CardProfile
                             averageScore={4.5}
                             maxRatingValue={5}
                             icon={() => <svg viewBox="0 0 16 16">

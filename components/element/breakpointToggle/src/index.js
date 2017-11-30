@@ -23,9 +23,10 @@ class BreakpointToggle extends Component {
   }
 
   onViewportResize (width, height) {
-    let {breakpoint} = this.props
+    const {breakpoint, inverse} = this.props
+
     this.setState({
-      isDisplayed: width <= breakpoint
+      isDisplayed: inverse ? width > breakpoint : width <= breakpoint
     })
   }
 
@@ -46,7 +47,15 @@ BreakpointToggle.propTypes = {
   /**
    * Element to toggle view
    */
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
+  /**
+   * Indicates the reverse operation
+   */
+  inverse: PropTypes.bool
+}
+
+BreakpointToggle.defaultProps = {
+  inverse: false
 }
 
 export default BreakpointToggle

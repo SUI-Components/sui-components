@@ -8,7 +8,7 @@ class SectionInfo extends Component {
     const { title, children } = this.props
 
     return (
-      <section className={`${baseClass}`}>
+      <section className={baseClass}>
         <h3 className={`${baseClass}-title`}>{title}</h3>
         <div className={`${baseClass}-content`}>{children}</div>
       </section>
@@ -19,7 +19,6 @@ class SectionInfo extends Component {
 SectionInfo.displayName = 'SectionInfo'
 
 SectionInfo.propTypes = {
-  className: PropTypes.string,
   title: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.string,

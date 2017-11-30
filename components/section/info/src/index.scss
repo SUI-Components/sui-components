@@ -6,10 +6,10 @@
     flex-direction: column;
   }
   
-  border-bottom: 1px solid $c-sui-section-info-border;
+  border-bottom: $bdb-section-info;
   display: flex;
   flex-direction: row;
-  max-width: 670px;
+  max-width: $mw-section-info;
   padding: $p-xxl 0;
 
   &-title {
@@ -19,7 +19,7 @@
       text-align: center;
     }
     
-    flex-basis: 30%;
+    flex-basis: $fb-left-section-content;
     font-size: $fz-m;
     margin: 0;
     padding: $p-l $p-m;
@@ -30,7 +30,7 @@
       flex-basis: auto;
     }
 
-    flex-basis: 70%;
+    flex-basis: $fb-right-section-content;
     font-size: $fz-m;
     margin: 0;
     padding: 0 $p-xl;

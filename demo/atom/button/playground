@@ -115,6 +115,10 @@ return (<div>
   <p><Button onClick={() => alert('Primary with onClick')}>Primary with onClick</Button></p>
   <p><Button type='accent' title="Title: Lorem Ipsum">Accent with title</Button></p>
   <p><Button type='secondary' className='customClass'>Secondary with className</Button></p>
+  <Title>LINK BUTTONS</Title>
+  <p><Button link url='http://www.google.com' type='primary' className='customClass'>Button link primary</Button></p>
+  <p><Button link url='http://www.google.com' type='secondary' className='customClass'>Button link secondary</Button></p>
+  <p><Button link url='http://www.google.com' type='accent' className='customClass'>Button link accent</Button></p>
 </div>)
 
 function getStarIcon () { return  (<svg viewBox="0 0 24 24">

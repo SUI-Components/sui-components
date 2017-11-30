@@ -35,29 +35,58 @@ const getModifiers = (props) => {
 }
 
 const AtomButton = (props) => {
-  const {disabled, leftIcon, rightIcon, children, className, type, size} = props
+  const {
+    disabled,
+    leftIcon,
+    rightIcon,
+    children,
+    className,
+    type,
+    size,
+    link
+  } = props
   const classNames = cx(
     CLASS,
     CLASSES[type],
     size && CLASSES[size],
     getModifiers(props).map(key => CLASSES[key]),
     !children && CLASSES.empty,
+    link && CLASS + '--link',
     className
   )
   const newProps = cleanProps(props)
-  return (<button {...newProps} className={classNames} disabled={disabled}>
-    {leftIcon && <span className={`${CLASS}-leftIcon`}>{leftIcon}</span>}
-    {leftIcon || rightIcon
-      ? <span className={`${CLASS}-text`}>{children}</span>
-      : children
-    }
-    {rightIcon && <span className={`${CLASS}-rightIcon`}>{rightIcon}</span>}
-  </button>)
+
+  const Button = ({ url, title, disabled, ...attrs }) => link
+    ? <a {...attrs} href={url} title={title}>{children}</a>
+    : <button {...attrs} disabled={disabled}>{children}</button>
+
+  return (
+    <Button {...newProps} className={classNames} disabled={disabled}>
+      {leftIcon && <span className={`${CLASS}-leftIcon`}>{leftIcon}</span>}
+      {leftIcon || rightIcon
+        ? <span className={`${CLASS}-text`}>{children}</span>
+        : children
+      }
+      {rightIcon && <span className={`${CLASS}-rightIcon`}>{rightIcon}</span>}
+    </Button>
+  )
 }
 
 AtomButton.displayName = 'AtomButton'
 
 AtomButton.propTypes = {
+  /**
+   * HTML element: if true, print a link. Otherwise print a button.
+   */
+  link: PropTypes.bool,
+  /**
+   * URL: Anchor used in link element
+   */
+  url: PropTypes.string,
+  /**
+   * title: Title used in link element
+   */
+  title: PropTypes.string,
   /**
    * Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary'
    */

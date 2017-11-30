@@ -1,7 +1,5 @@
 # CardProfile
 
-> Description
-
 CardProfile serves a card with user information like avatar, name, rating bar and stats information.
 
 ## Installation

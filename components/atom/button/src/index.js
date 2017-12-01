@@ -77,15 +77,15 @@ AtomButton.displayName = 'AtomButton'
 
 AtomButton.propTypes = {
   /**
-   * HTML element: if true, print a link. Otherwise print a button.
+   * HTML element: if true, render a link. Otherwise render a button.
    */
   link: PropTypes.bool,
   /**
-   * URL: Anchor used in link element
+   * URL used in link element
    */
   url: PropTypes.string,
   /**
-   * title: Title used in link element
+   * Title used in link element
    */
   title: PropTypes.string,
   /**

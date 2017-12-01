@@ -1,4 +1,4 @@
-@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/settings';
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~@schibstedspain/sui-button-basic/lib/index';
 
@@ -22,7 +22,7 @@ $datepicker__selected-color: $bgc-range-datepicker-selected;
   &-item {
     align-items: center;
     display: flex;
-    padding-right: $p-xsmall;
+    padding-right: $p-m;
     width: $w-range-datepicker-input;
 
     &-icon {
@@ -40,8 +40,8 @@ $datepicker__selected-color: $bgc-range-datepicker-selected;
   }
 
   &-box {
-    margin-left: -$m-h-large;
-    padding: $p-base;
+    margin-left: -$m-xxl;
+    padding: $p-m;
     pointer-events: none;
     z-index: $z-range-datepicker-icon;
   }

@@ -116,12 +116,12 @@ return (<div>
   <p><Button type='accent' title='Title: Lorem Ipsum'>Accent with title</Button></p>
   <p><Button type='secondary' className='customClass'>Secondary with className</Button></p>
   <Title>LINK BUTTONS</Title>
-  <p><Button link title='button link' url='http://www.google.com' type='primary' className='customClass'>Button link</Button></p>
-  <p><Button link title='button link' url='http://www.google.com' type='secondary' className='customClass'>Button link</Button></p>
-  <p><Button link title='button link' url='http://www.google.com' type='accent' className='customClass'>Button link</Button></p>
-  <p><Button link title='button link' url='http://www.google.com' type='accent' className='customClass' disabled>Button link disabled</Button></p>
-  <p><Button link size='small' title='button link' url='http://www.google.com' type='primary' className='customClass'>Button link small</Button></p>
-  <p><Button link leftIcon={Icon} size='small' title='button link'>Button link</Button></p>
+  <p><Button title='button link' link='http://www.google.com' type='primary' className='customClass'>Button link</Button></p>
+  <p><Button title='button link' link='http://www.google.com' type='secondary' className='customClass'>Button link</Button></p>
+  <p><Button title='button link' link='http://www.google.com' type='accent' className='customClass'>Button link</Button></p>
+  <p><Button title='button link' link='http://www.google.com' type='accent' className='customClass' disabled>Button link disabled</Button></p>
+  <p><Button size='small' title='button link' link='http://www.google.com' type='primary' className='customClass'>Button link small</Button></p>
+  <p><Button leftIcon={Icon} size='small' title='button link'>Button link</Button></p>
 </div>)
 
 function getStarIcon () { return  (<svg viewBox="0 0 24 24">

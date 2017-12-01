@@ -47,13 +47,13 @@ return (<div>
 ```
 
 ### Rendering a link
-When `link` property is passed, the component will render an html link.
+When a url is added to the `link` property, the component will render an html link.
 
 ```js
 import Button from '@schibstedspain/sui-atom-button'
 
 return (
-  <Button link url='http://www.schibsted.com/'>Link</Button>
+  <Button link='http://www.schibsted.com/'>Link</Button>
 )
 
 ```

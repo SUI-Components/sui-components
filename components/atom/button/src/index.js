@@ -8,7 +8,7 @@ const SIZES = ['small', 'large']
 const MODIFIERS = ['disabled', 'fullWidth', 'focused', 'negative', 'link']
 const OWN_PROPS = [
   ...TYPES, ...SIZES, ...MODIFIERS,
-  'leftIcon', 'rightIcon', 'className', 'children'
+  'leftIcon', 'rightIcon', 'className', 'children', 'linkFactory'
 ]
 const CLASSES = [...TYPES, ...SIZES, ...MODIFIERS, 'empty']
   .reduce((res, key) => Object.assign(res, {[key]: `${CLASS}--${key}`}), {})
@@ -57,8 +57,8 @@ const AtomButton = (props) => {
   )
   const newProps = cleanProps(props)
 
-  const Button = ({ children, url, disabled, ...attrs }) => link
-    ? <Link {...attrs} href={url}>{children}</Link>
+  const Button = ({ children, disabled, ...attrs }) => link
+    ? <Link {...attrs} href={link}>{children}</Link>
     : <button {...attrs} disabled={disabled}>{children}</button>
 
   return (
@@ -77,13 +77,9 @@ AtomButton.displayName = 'AtomButton'
 
 AtomButton.propTypes = {
   /**
-   * HTML element: if true, render a link. Otherwise render a button.
+   * Link: URL in case you want to render a link
    */
-  link: PropTypes.bool,
-  /**
-   * URL used in link element
-   */
-  url: PropTypes.string,
+  link: PropTypes.string,
   /**
    * Title used in link element
    */

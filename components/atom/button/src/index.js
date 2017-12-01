@@ -5,7 +5,7 @@ import cx from 'classnames'
 const CLASS = 'sui-AtomButton'
 const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
 const SIZES = ['small', 'large']
-const MODIFIERS = ['disabled', 'fullWidth', 'focused', 'negative']
+const MODIFIERS = ['disabled', 'fullWidth', 'focused', 'negative', 'link']
 const OWN_PROPS = [
   ...TYPES, ...SIZES, ...MODIFIERS,
   'leftIcon', 'rightIcon', 'className', 'children'
@@ -43,7 +43,9 @@ const AtomButton = (props) => {
     className,
     type,
     size,
-    link
+    link,
+    title,
+    linkFactory: Link
   } = props
   const classNames = cx(
     CLASS,
@@ -51,17 +53,16 @@ const AtomButton = (props) => {
     size && CLASSES[size],
     getModifiers(props).map(key => CLASSES[key]),
     !children && CLASSES.empty,
-    link && CLASS + '--link',
     className
   )
   const newProps = cleanProps(props)
 
-  const Button = ({ url, title, disabled, ...attrs }) => link
-    ? <a {...attrs} href={url} title={title}>{children}</a>
+  const Button = ({ children, url, disabled, ...attrs }) => link
+    ? <Link {...attrs} href={url}>{children}</Link>
     : <button {...attrs} disabled={disabled}>{children}</button>
 
   return (
-    <Button {...newProps} className={classNames} disabled={disabled}>
+    <Button {...newProps} className={classNames} title={title} disabled={disabled}>
       {leftIcon && <span className={`${CLASS}-leftIcon`}>{leftIcon}</span>}
       {leftIcon || rightIcon
         ? <span className={`${CLASS}-text`}>{children}</span>
@@ -126,11 +127,17 @@ AtomButton.propTypes = {
   /**
    * Classes to add to button
    */
-  className: PropTypes.any
+  className: PropTypes.any,
+  /**
+   * Factory used to create navigation links
+   */
+  linkFactory: PropTypes.func
 }
 
 AtomButton.defaultProps = {
-  type: 'primary'
+  type: 'primary',
+  linkFactory: ({ children, ...rest } = {}) =>
+    <a {...rest}>{children}</a>
 }
 
 export default AtomButton

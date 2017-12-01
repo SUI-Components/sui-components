@@ -47,13 +47,13 @@ return (<div>
 ```
 
 ### Rendering a link
-When a url is added to the `link` property, the component will render an html link.
+When `link` property is passed, the component will render an html link.
 
 ```js
 import Button from '@schibstedspain/sui-atom-button'
 
 return (
-  <Button link='http://www.schibsted.com/'>Link</Button>
+  <Button link href='http://www.schibsted.com/' target='_blank'>Link</Button>
 )
 
 ```
@@ -61,9 +61,7 @@ return (
 output:
 
 ```html
-<a class="sui-AtomButton sui-AtomButton--link" href="http://www.schibsted.com/">Link</a>
+<a class="sui-AtomButton sui-AtomButton--link" href="http://www.schibsted.com/" target='_blank'>Link</a>
 ```
-
-Note: Since `disabled` attribute is not valid for a link, this prop will not be assigned to the html tag, but a `sui-AtomButton--disabled` class will be added.
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/button).**

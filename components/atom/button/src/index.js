@@ -57,8 +57,8 @@ const AtomButton = (props) => {
   )
   const newProps = cleanProps(props)
 
-  const Button = ({ children, disabled, ...attrs }) => link
-    ? <Link {...attrs} href={link}>{children}</Link>
+  const Button = ({ children, href, target, disabled, ...attrs }) => link
+    ? <Link {...attrs} href={href} target={target} >{children}</Link>
     : <button {...attrs} disabled={disabled}>{children}</button>
 
   return (
@@ -77,11 +77,19 @@ AtomButton.displayName = 'AtomButton'
 
 AtomButton.propTypes = {
   /**
-   * Link: URL in case you want to render a link
+   * HTML element: if true, render a link. Otherwise render a button
    */
-  link: PropTypes.string,
+  link: PropTypes.bool,
   /**
-   * Title used in link element
+   * URL to be added on the HTML link
+   */
+  href: PropTypes.string,
+  /**
+   * Target to be added on the HTML link
+   */
+  target: PropTypes.string,
+  /**
+   * Title to be added on button or link
    */
   title: PropTypes.string,
   /**

@@ -64,6 +64,6 @@ output:
 <a class="sui-AtomButton sui-AtomButton--link" href="http://www.schibsted.com/">Link</a>
 ```
 
-Note: Since this `disabled` attribute is not valid for a link, this prop will not be assigned to the html tag.
+Note: Since `disabled` attribute is not valid for a link, this prop will not be assigned to the html tag, but a `sui-AtomButton--disabled` class will be added.
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/button).**

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2017-12-04)
+
+
+### Features
+
+* fix icons alignment ([4202759](https://github.com/SUI-Components/sui-components/commit/4202759))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2017-12-04)
 

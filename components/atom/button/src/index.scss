@@ -47,8 +47,11 @@ $p-atom-button-large: $p-l !default;
 @mixin button-icon ($size, $margin) {
   & .sui-AtomButton-leftIcon,
   & .sui-AtomButton-rightIcon {
-    height: $size;
-    width: $size;
+    &,
+    & [class*="Icon"] {
+      height: $size;
+      width: $size;
+    }
   }
 
   & .sui-AtomButton-leftIcon {
@@ -66,13 +69,14 @@ $p-atom-button-large: $p-l !default;
   border: 1px solid;
   border-radius: $bdrs-m;
   box-sizing: border-box;
+  display: inline-block;
   font: {
     family: $ff-sans-serif;
     size: $fz-atom-button;
     weight: $fw-semi-bold;
   }
   height: $sz-atom-button;
-  line-height: $sz-atom-button;
+  line-height: normal;
   min-width: $sz-atom-button;
   outline: 0;
   padding: 0 $p-atom-button;
@@ -82,15 +86,16 @@ $p-atom-button-large: $p-l !default;
     margin-left: $m-m;
   }
 
+  &-inner {
+    align-items: center;
+    display: inline-flex;
+    height: 100%;
+  }
+
   // Icons
   &-leftIcon,
   &-rightIcon {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  &-text {
-    vertical-align: middle;
+    display: inline-flex;
   }
 
   // Types and colors
@@ -156,7 +161,6 @@ $p-atom-button-large: $p-l !default;
     @include button-icon($icon-sz-atom-button-small, $icon-m-atom-button-small);
     font-size: $fz-atom-button-small;
     height: $sz-atom-button-small;
-    line-height: $sz-atom-button-small;
     min-width: $sz-atom-button-small;
     padding: 0 $p-atom-button-small;
   }
@@ -165,12 +169,12 @@ $p-atom-button-large: $p-l !default;
     @include button-icon($icon-sz-atom-button-large, $icon-m-atom-button-large);
     font-size: $fz-atom-button-large;
     height: $sz-atom-button-large;
-    line-height: $sz-atom-button-large;
     min-width: $sz-atom-button-large;
     padding: 0 $p-atom-button-large;
   }
 
   &--fullWidth {
+    justify-content: center;
     width: 100%;
   }
 
@@ -183,7 +187,6 @@ $p-atom-button-large: $p-l !default;
 
   // Modifiers
   &--link {
-    display: inline-block;
     text-decoration: none;
   }
 }

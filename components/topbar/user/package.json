@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@schibstedspain/sui-atom-button": "1",
     "@schibstedspain/sui-dropdown-basic": "1",
     "@schibstedspain/sui-dropdown-user": "1",
     "@schibstedspain/sui-svgiconset": "1",

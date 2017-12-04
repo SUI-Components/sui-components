@@ -1,5 +1,5 @@
-@import '../node_modules/@schibstedspain/sui-theme/lib/index';
-@import '../node_modules/@schibstedspain/sui-rating-icons/lib/index';
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/sui-rating-icons/lib/index';
 @import 'settings';
 
 
@@ -33,7 +33,7 @@
     }
   }
 
-  &-topcontainer {
+  &-topContainer {
     display: flex;
     flex-grow: .4;
 

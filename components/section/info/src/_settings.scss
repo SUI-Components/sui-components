@@ -1,5 +1,20 @@
-$c-sui-section-info-border: $c-gray-light !default;
-$bdb-section-info: 1px solid $c-sui-section-info-border;
 $mw-section-info: 670px !default;
-$fb-left-section-content: 30% !default;
-$fb-right-section-content: 70% !default;
+
+$c-sui-section-info-border: $c-gray-light !default;
+$bdb-section-info: 1px solid $c-sui-section-info-border !default;
+
+// Flex Basic Property
+$fb-section-info-title: 30% !default;
+$fb-section-info-content: 70% !default;
+
+// Title and Container font-sizing
+$fz-section-info-title: $fz-l !default;
+$fz-section-info-content: $fz-m !default;
+
+// Margins
+$m-section-info-title: 0 !default;
+$m-section-info-content: 0 !default;
+
+// Paddings
+$p-section-info-title: $p-l $p-m !default;
+$p-section-info-content: 0 $p-m !default;

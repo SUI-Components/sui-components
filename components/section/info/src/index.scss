@@ -19,10 +19,10 @@
       text-align: center;
     }
     
-    flex-basis: $fb-left-section-content;
-    font-size: $fz-m;
-    margin: 0;
-    padding: $p-l $p-m;
+    flex-basis: $fb-section-info-title;
+    font-size: $fz-section-info-title;
+    margin: $m-section-info-title;
+    padding: $p-section-info-title;
   }
 
   &-content {
@@ -30,9 +30,9 @@
       flex-basis: auto;
     }
 
-    flex-basis: $fb-right-section-content;
-    font-size: $fz-m;
-    margin: 0;
-    padding: 0 $p-xl;
+    flex-basis: $fb-section-info-content;
+    font-size: $fz-section-info-content;
+    margin: $m-section-info-content;
+    padding: $p-section-info-content;
   }
 }

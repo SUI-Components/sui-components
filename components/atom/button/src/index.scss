@@ -72,7 +72,7 @@ $p-atom-button-large: $p-l !default;
     weight: $fw-semi-bold;
   }
   height: $sz-atom-button;
-  line-height: normal;
+  line-height: $sz-atom-button;
   min-width: $sz-atom-button;
   outline: 0;
   padding: 0 $p-atom-button;
@@ -156,6 +156,7 @@ $p-atom-button-large: $p-l !default;
     @include button-icon($icon-sz-atom-button-small, $icon-m-atom-button-small);
     font-size: $fz-atom-button-small;
     height: $sz-atom-button-small;
+    line-height: $sz-atom-button-small;
     min-width: $sz-atom-button-small;
     padding: 0 $p-atom-button-small;
   }
@@ -164,6 +165,7 @@ $p-atom-button-large: $p-l !default;
     @include button-icon($icon-sz-atom-button-large, $icon-m-atom-button-large);
     font-size: $fz-atom-button-large;
     height: $sz-atom-button-large;
+    line-height: $sz-atom-button-large;
     min-width: $sz-atom-button-large;
     padding: 0 $p-atom-button-large;
   }
@@ -177,5 +179,11 @@ $p-atom-button-large: $p-l !default;
     .sui-AtomButton-rightIcon {
       margin: 0;
     }
+  }
+
+  // Modifiers
+  &--link {
+    display: inline-block;
+    text-decoration: none;
   }
 }

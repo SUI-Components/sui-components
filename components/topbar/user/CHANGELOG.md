@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.23.0"></a>
+# 1.23.0 (2017-12-05)
+
+
+### Features
+
+* delete unused var ([ce25071](https://github.com/SUI-Components/sui-components/commit/ce25071))
+* using atom button in topbar ([121cfc5](https://github.com/SUI-Components/sui-components/commit/121cfc5))
+
+
+
 <a name="1.22.0"></a>
 # 1.22.0 (2017-11-23)
 

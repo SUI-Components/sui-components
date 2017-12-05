@@ -30,6 +30,9 @@
       flex: 1 1 100%;
       font-size: $fz-l;
       font-weight: $fw-semi-bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 

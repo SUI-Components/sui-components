@@ -3,6 +3,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~@schibstedspain/sui-dropdown-basic/lib/index';
 @import '~@schibstedspain/sui-dropdown-user/lib/index';
+@import '~@schibstedspain/sui-atom-button/lib/index';
 
 // Topbar user
 $bgc-topbar-user: $c-white !default;
@@ -16,7 +17,6 @@ $w-topbar-user-brand-large: 0 !default;
 $size-topbar-user-toggle-icon: 24px !default;
 $w-topbar-user-nav: 90% !default;
 $maw-topbar-user-nav: 350px !default;
-$bgc-topbar-user-cta: $c-accent !default;
 
 .html-has-scroll-disabled {
   overflow-y: hidden;
@@ -164,27 +164,6 @@ $bgc-topbar-user-cta: $c-accent !default;
   }
 
   &-cta {
-    &Button {
-      padding: $p-v 0;
-
-      &Link {
-        @include reset-link;
-        @include sui-button(
-          'custom',
-          'small',
-          $background-color: $bgc-topbar-user-cta,
-          $icon-fill: $c-white
-        );
-        @include media-breakpoint-up(m) {
-          @include sui-button(
-            'custom',
-            $background-color: $bgc-topbar-user-cta,
-            $icon-fill: $c-white
-          );
-        }
-        position: relative;
-      }
-    }
 
     &Text {
       @include media-breakpoint-up(m) {

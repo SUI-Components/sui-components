@@ -6,6 +6,7 @@ import cx from 'classnames'
 import Menu from '@schibstedspain/sui-svgiconset/lib/Menu'
 import DropdownBasic from '@schibstedspain/sui-dropdown-basic'
 import DropdownUser from '@schibstedspain/sui-dropdown-user'
+import AtomButton from '@schibstedspain/sui-atom-button'
 
 const DEFAULT_NAV_WRAP_STYLE = {
   top: 'inherit',
@@ -216,10 +217,16 @@ class TopbarUser extends Component {
           </div>
         </div>
         <div className='sui-TopbarUser-ctaButton'>
-          <Link href={navCtaUrl} className='sui-TopbarUser-ctaButtonLink' title={navCtaText}>
-            {navCTA.icon && <navCTA.icon svgClass='sui-TopbarUser-ctaButtonIcon' />}
-            <span>{navCtaText}</span>
-          </Link>
+          <AtomButton
+            link
+            href={navCtaUrl}
+            title={navCtaText}
+            leftIcon={<navCTA.icon svgClass='sui-TopbarUser-ctaButtonIcon' />}
+            size='small'
+            type='accent'
+            >
+            {navCtaText}
+          </AtomButton>
         </div>
       </div>
     )

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
-import nativeInputProps from '../commonProps/nativeInput'
+import nativeInputProps from '../common/nativeInputProps'
 
 class DateInput extends Component {
   fieldRefs = []

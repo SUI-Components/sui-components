@@ -1,15 +1,15 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
-import nativeInputProps from './props/nativeInput'
-import MaskedInput from './MaskedInput'
-import DateInput from './DateInput'
+import nativeInputProps from './common/nativeInputProps'
+import {MaskedInput, DateInput} from './inputs'
 
 import { filterObjectKeys } from './libs'
 
 const TYPES = {
   TEXT: 'text',
-  DATE: 'date'
+  DATE: 'date',
+  NUMBER: 'number'
 }
 
 class AtomInput extends Component {
@@ -21,24 +21,35 @@ class AtomInput extends Component {
     return filterObjectKeys(this.props, Object.keys(nativeInputProps))
   }
 
+  renderMaskedInput (mask) {
+    return (
+      <MaskedInput
+        mask={mask}
+        {...this.inputProps}
+      />
+    )
+  }
+
+  renderDateInput () {
+    return (
+      <DateInput {...this.inputProps} />
+    )
+  }
+
+  renderInput (mask, type) {
+    if (mask) return this.renderMaskedInput(mask)
+    if (type === TYPES.DATE) return this.renderDateInput()
+    return (
+      <input type={type} {...this.inputProps} />
+    )
+  }
+
   render () {
     const {label, name, mask, type} = this.props
     return (
       <div>
         <label htmlFor={name}>{label}</label>
-        {
-          mask &&
-            <MaskedInput
-              mask={mask}
-              {...this.inputProps}
-            />
-        }
-        {
-          type === TYPES.DATE &&
-            <DateInput
-              {...this.inputProps}
-            />
-        }
+        {this.renderInput(mask, type)}
       </div>
     )
   }

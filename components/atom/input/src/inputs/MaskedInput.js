@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 import IMask from 'imask'
-import nativeInputProps from '../commonProps/nativeInput'
+import nativeInputProps from '../common/nativeInputProps'
 
 class MaskedInput extends Component {
   componentDidMount () {

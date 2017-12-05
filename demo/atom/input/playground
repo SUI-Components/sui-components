@@ -22,5 +22,12 @@ return (
       placeholder='DD/MM/AAAA'
       delimiter='/'
     />
+
+    <AtomInput
+      type='number'
+      name='postalCode'
+      label='Postal Code'
+      placeholder='00000'
+    />
   </div>
 )

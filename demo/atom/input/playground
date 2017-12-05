@@ -1,1 +1,26 @@
-return (<AtomInput placeholder='Placeholder' label='label' name='input test' />)
+const bankAccountMask = {
+  mask: 'ES00 0000 0000 00 0000000000',
+  placeholder: {
+    lazy: true,
+    char: '_'
+  }
+}
+
+return (
+  <div>
+    <AtomInput
+      label='Bank account'
+      name='bankAccount'
+      mask={bankAccountMask}
+      placeholder='ES00 0000 0000 00 0000000000'
+    />
+
+    <AtomInput
+      label='Date'
+      name='date'
+      type={AtomInputTypes.DATE}
+      placeholder='DD/MM/AAAA'
+      delimiter='/'
+    />
+  </div>
+)

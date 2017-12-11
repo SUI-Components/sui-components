@@ -63,9 +63,5 @@
         transform: rotateZ(180deg);
       }
     }
-
-    #{$root-parent}-collapsibleContent {
-      max-height: 100%;
-    }
   }
 }

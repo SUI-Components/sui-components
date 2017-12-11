@@ -6,28 +6,54 @@ const bankAccountMask = {
   }
 }
 
+const postalCodeMask = {
+  mask: '00000',
+  placeholder: {
+    lazy: true,
+    char: 0
+  }
+}
+
 return (
   <div>
-    <AtomInput
+    <AtomInput.Mask
       label='Bank account'
       name='bankAccount'
       mask={bankAccountMask}
       placeholder='ES00 0000 0000 00 0000000000'
     />
 
-    <AtomInput
-      label='Date'
+    <AtomInput.Date
+      label='DMY date'
       name='date'
-      type={AtomInputTypes.DATE}
       placeholder='DD/MM/AAAA'
       delimiter='/'
     />
 
-    <AtomInput
-      type='number'
+    <AtomInput.Date
+      label='YMD date'
+      name='date'
+      placeholder='YYYY-MM-DD'
+      delimiter='-'
+    />
+
+    <AtomInput.Mask
       name='postalCode'
       label='Postal Code'
+      mask={postalCodeMask}
       placeholder='00000'
+    />
+
+    <AtomInput
+      type='text'
+      label='Simple text input'
+      name='text'
+    />
+
+    <AtomInput
+      type='number'
+      label='Simple number input'
+      name='number'
     />
   </div>
 )

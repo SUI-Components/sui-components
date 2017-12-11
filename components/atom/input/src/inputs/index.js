@@ -1,7 +1,7 @@
 import DateInput from './DateInput'
-import MaskedInput from './MaskedInput'
+import MaskInput from './MaskInput'
 
 export {
   DateInput,
-  MaskedInput
+  MaskInput
 }

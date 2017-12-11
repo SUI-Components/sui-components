@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
-import nativeInputProps from '../common/nativeInputProps'
+import InputWrapper from '../../InputWrapper'
+
+import './index.scss'
 
 class DateInput extends Component {
   fieldRefs = []
@@ -10,18 +12,20 @@ class DateInput extends Component {
     const {placeholder, delimiter} = this.props
     const fieldPlaceholders = placeholder.split(delimiter)
 
-    this.fields = fieldPlaceholders.map(this.inputFactory)
+    this.fields = fieldPlaceholders.map(this.fieldFactory)
   }
 
-  inputFactory = (placeholder, idx) =>
-    <input
-      ref={input => { this.fieldRefs.push(input) }}
-      key={idx}
-      type='text'
-      placeholder={placeholder}
-      maxLength={placeholder.replace(/./g, 9)}
-      onChange={ev => this.onChange(ev, idx, placeholder)}
-    />
+  fieldFactory = (placeholder, idx) => (
+    <div className='sui-AtomInputDate-field' key={idx}>
+      <input
+        className='sui-AtomInputDate-fieldInput'
+        ref={input => { this.fieldRefs.push(input) }}
+        type='text'
+        placeholder={placeholder}
+        onChange={ev => this.onChange(ev, idx, placeholder)}
+      />
+    </div>
+  )
 
   jumpNext (current) {
     if (current + 1 < this.fieldRefs.length) {
@@ -37,10 +41,11 @@ class DateInput extends Component {
   }
 
   render () {
+    const {label, name} = this.props
     return (
-      <div className='sui-AtomInput-date'>
+      <InputWrapper label={label} name={name} className='sui-AtomInputDate'>
         {this.fields}
-      </div>
+      </InputWrapper>
     )
   }
 }
@@ -49,7 +54,9 @@ DateInput.displayName = 'DateInput'
 
 DateInput.propTypes = {
   delimiter: PropTypes.string,
-  ...nativeInputProps
+  placeholder: PropTypes.string,
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired
 }
 
 DateInput.defaultProps = {

@@ -87,7 +87,7 @@ class CardCollapsible extends Component {
     const {collapsed} = this.state
 
     return (
-      <div className={cx('sui-CardCollapsible', className, {'has-shadow': !this.state.collapsed})}>
+      <div className={cx('sui-CardCollapsible', className, {'is-expanded': !this.state.collapsed})}>
         {headerInfo && this._renderCardHeader(headerImage, collapsed ? headerInfo.displayWhenCollapsed : headerInfo.displayWhenExpanded)}
         <CollapsibleBasic
           collapsed={collapsed}

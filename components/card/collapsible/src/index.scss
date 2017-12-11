@@ -7,7 +7,7 @@
 .sui-CardCollapsible {
   background-color: $bgc-card-collapsible;
 
-  &.has-shadow {
+  &.is-expanded {
     box-shadow: $bxsh-card-collapsible;
   }
 

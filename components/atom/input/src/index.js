@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {MaskInput, DateInput} from './inputs'
+import {MaskInput} from './inputs'
 import InputWrapper from './InputWrapper'
 
 const AtomInput = ({label, name, ...props}) =>
@@ -8,7 +8,6 @@ const AtomInput = ({label, name, ...props}) =>
     <input name={name} {...props} />
   </InputWrapper>
 
-AtomInput.Date = DateInput
 AtomInput.Mask = MaskInput
 
 AtomInput.displayName = 'AtomInput'

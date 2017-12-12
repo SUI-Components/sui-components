@@ -23,20 +23,6 @@ return (
       placeholder='ES00 0000 0000 00 0000000000'
     />
 
-    <AtomInput.Date
-      label='DMY date'
-      name='date'
-      placeholder='DD/MM/AAAA'
-      delimiter='/'
-    />
-
-    <AtomInput.Date
-      label='YMD date'
-      name='date'
-      placeholder='YYYY-MM-DD'
-      delimiter='-'
-    />
-
     <AtomInput.Mask
       name='postalCode'
       label='Postal Code'
@@ -54,6 +40,12 @@ return (
       type='number'
       label='Simple number input'
       name='number'
+    />
+
+    <AtomInput
+      type='date'
+      label='Date input'
+      name='date'
     />
   </div>
 )

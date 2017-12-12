@@ -13,6 +13,11 @@ class MaskInput extends Component {
     this.mask.destroy()
   }
 
+  onChange = (ev) => {
+    const {onChange} = this.props
+    onChange && onChange(ev)
+  }
+
   render () {
     const {placeholder, name, label} = this.props
     return (
@@ -22,6 +27,7 @@ class MaskInput extends Component {
           type='text'
           name={name}
           placeholder={placeholder}
+          onChange={this.onChange}
         />
       </InputWrapper>
     )
@@ -34,7 +40,8 @@ MaskInput.propTypes = {
   mask: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
-  label: PropTypes.string
+  label: PropTypes.string,
+  onChange: PropTypes.func
 }
 
 export default MaskInput

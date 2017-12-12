@@ -14,30 +14,17 @@ $ npm install @schibstedspain/sui-atom-input --save
 
 ### Basic usage
 ```js
-import DateInput from '@schibstedspain/sui-atom-input/lib/inputs/DateInput'
-or
-import {DateInput} from '@schibstedspain/sui-atom-input/lib/inputs'
-
-return (
-  <DateInput label='Date input' name='date' />
-)
-```
-Equivalent to
-```js
+import MaskInput from '@schibstedspain/sui-atom-input/lib/inputs/MaskInput'
 import AtomInput from '@schibstedspain/sui-atom-input'
 
+// render the same
 return (
-  <AtomInput.Date label='Date input' name='date' />
+  <MaskInput label='postal code' name='date' mask={postalCodeMask}/>
+  <AtomInput.Mask label='postal code' name='date' mask={postalCodeMask}/>
 )
 ```
 
 ### Available input types
-
-### Date
-
-### Mask
-
-See [imaskjs](https://unmanner.github.io/imaskjs/guide.html#common) masks for more info
 
 ### Native
 ```js
@@ -51,11 +38,42 @@ return (
 )
 ```
 
+### Mask
+See [imaskjs](https://unmanner.github.io/imaskjs/guide.html#common) masks for more info
+
+```js
+import MaskInput from '@schibstedspain/sui-atom-input/lib/inputs/MaskInput'
+
+const postalCodeMask = {
+  mask: '00000',
+  placeholder: {
+    lazy: true,
+    char: 0
+  }
+}
+
+return (
+  <MaskInput label='postal code' name='date' mask={postalCodeMask}/>
+  <AtomInput.Mask label='postal code' name='date' mask={postalCodeMask}/>
+)
+```
+
+
 ## Using them in a form
 In order to save the value of an input, set an onChange listener function. The value will be exposed
 in the event as event.target.value
 
 ```js
+import AtomInput from '@schibstedspain/sui-atom-input'
+
+const postalCodeMask = {
+  mask: '00000',
+  placeholder: {
+    lazy: true,
+    char: 0
+  }
+}
+
 class FormTest extends Component {
   state = {
     value: ''
@@ -73,7 +91,7 @@ class FormTest extends Component {
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
-        <AtomInput.Date name='date' label='name' onChange={this.handleChange} />
+        <AtomInput.Mask name='postalCode' label='Postal code' onChange={this.handleChange} />
         <input type='submit' value='Submit' />
       </form>
     )

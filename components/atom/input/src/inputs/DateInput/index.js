@@ -6,20 +6,19 @@ import InputWrapper from '../../InputWrapper'
 import './index.scss'
 
 class DateInput extends Component {
-  fieldRefs = []
+  _fieldRefs = []
 
   componentWillMount () {
     const {placeholder, delimiter} = this.props
     const fieldPlaceholders = placeholder.split(delimiter)
 
-    this.fields = fieldPlaceholders.map(this.fieldFactory)
+    this._fields = fieldPlaceholders.map(this.fieldFactory)
   }
 
   fieldFactory = (placeholder, idx) => (
-    <div className='sui-AtomInputDate-field' key={idx}>
+    <div key={idx}>
       <input
-        className='sui-AtomInputDate-fieldInput'
-        ref={input => { this.fieldRefs.push(input) }}
+        ref={input => { this._fieldRefs.push(input) }}
         type='text'
         placeholder={placeholder}
         onChange={ev => this.onChange(ev, idx, placeholder)}
@@ -27,24 +26,41 @@ class DateInput extends Component {
     </div>
   )
 
-  jumpNext (current) {
-    if (current + 1 < this.fieldRefs.length) {
-      this.fieldRefs[current + 1].focus()
+  get value () {
+    return this._fieldRefs
+      .map(field => field.value)
+      .join(this.props.delimiter)
+  }
+
+  jumpToNextField (current) {
+    if (current + 1 < this._fieldRefs.length) {
+      this._fieldRefs[current + 1].focus()
     }
   }
 
+  isFieldFilled (value, placeholder) {
+    return value.length === placeholder.length
+  }
+
+  /**
+   * As this component is composed by inputs, we need to intercept
+   * the onChange function in order to bubble up to the parent
+   * component the value obtained by concatenating the value of
+   * each input. In order to do this, the created event gets its
+   * value overwritten
+   */
   onChange = (ev, idx, placeholder) => {
     const value = ev.target.value
-    if (value.length === placeholder.length) {
-      this.jumpNext(idx)
-    }
+    this.isFieldFilled(value, placeholder) && this.jumpToNextField(idx)
+
+    this.props.onChange(Object.assign(ev, {target: { value: this.value }}))
   }
 
   render () {
     const {label, name} = this.props
     return (
       <InputWrapper label={label} name={name} className='sui-AtomInputDate'>
-        {this.fields}
+        {this._fields}
       </InputWrapper>
     )
   }
@@ -56,7 +72,9 @@ DateInput.propTypes = {
   delimiter: PropTypes.string,
   placeholder: PropTypes.string,
   label: PropTypes.string,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  value: PropTypes.string
 }
 
 DateInput.defaultProps = {

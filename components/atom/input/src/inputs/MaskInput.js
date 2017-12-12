@@ -9,6 +9,10 @@ class MaskInput extends Component {
     this.mask = new IMask(this.field, mask)
   }
 
+  componentWillUnmount () {
+    this.mask.destroy()
+  }
+
   render () {
     const {placeholder, name, label} = this.props
     return (

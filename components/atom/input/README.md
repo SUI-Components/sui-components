@@ -59,10 +59,21 @@ return (
 )
 ```
 
+### Tag
+```
+import TagInput from '@schibstedspain/sui-atom-input/lib/inputs/TagInput'
+
+return (
+  <AtomInput.Tag
+    name='Tag'
+    label='Tag input'
+  />
+)
+```
 
 ## Using them in a form
-In order to save the value of an input, set an onChange listener function. The value will be exposed
-in the event as event.target.value
+
+In order to get an input value, set the onChange property on it, the inputs will call this function with {value, target} once its value change
 
 ```js
 import AtomInput from '@schibstedspain/sui-atom-input'
@@ -80,8 +91,8 @@ class FormTest extends Component {
     value: ''
   }
 
-  handleChange = (event) => {
-    this.setState({value: event.target.value})
+  handleChange = ({value, target}) => {
+    this.setState({value})
   }
 
   handleSubmit = (event) => {

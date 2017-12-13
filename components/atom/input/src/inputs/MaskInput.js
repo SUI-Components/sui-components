@@ -15,7 +15,7 @@ class MaskInput extends Component {
 
   onChange = (ev) => {
     const {onChange} = this.props
-    onChange && onChange(ev)
+    onChange && onChange({value: ev.target.value, target: ev.target})
   }
 
   render () {

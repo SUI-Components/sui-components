@@ -17,13 +17,11 @@ class TagInput extends React.Component {
     return this.state.tags.join(SEPARATION_KEY)
   }
 
-  get shouldConvertIntoTag () {
-    const {inputValue} = this.state.inputValue
+  shouldConvertIntoTag (inputValue) {
     return inputValue.length > 1 && inputValue[inputValue.length - 1] === SEPARATION_KEY
   }
 
-  convertIntoTag () {
-    const {inputValue} = this.state
+  convertIntoTag (inputValue) {
     const key = inputValue.replace(/,\s*$/, '')
     this.setState({
       tags: [...this.state.tags, key],

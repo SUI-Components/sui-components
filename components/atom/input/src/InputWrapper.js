@@ -1,11 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import InputLabel from './Label'
 
 const InputWrapper = (props) => {
   const {name, label, children} = props
   return (
     <div className='sui-AtomInput'>
-      <label htmlFor={name}>{label}</label>
+      <InputLabel name={name}>
+        {label}
+      </InputLabel>
       { children }
     </div>
   )

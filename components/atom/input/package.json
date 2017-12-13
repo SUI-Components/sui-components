@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
+    "@schibstedspain/sui-atom-tag": "1.2.0",
     "imask": "2.0.1"
   },
   "keywords": [],

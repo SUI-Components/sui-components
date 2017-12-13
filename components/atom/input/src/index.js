@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {MaskInput} from './inputs'
+import {MaskInput, TagInput} from './inputs'
 import InputWrapper from './InputWrapper'
 
 const AtomInput = ({label, name, ...props}) =>
@@ -9,6 +9,7 @@ const AtomInput = ({label, name, ...props}) =>
   </InputWrapper>
 
 AtomInput.Mask = MaskInput
+AtomInput.Tag = TagInput
 
 AtomInput.displayName = 'AtomInput'
 

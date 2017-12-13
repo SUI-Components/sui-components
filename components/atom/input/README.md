@@ -19,8 +19,10 @@ import AtomInput from '@schibstedspain/sui-atom-input'
 
 // render the same
 return (
-  <MaskInput label='postal code' name='date' mask={postalCodeMask}/>
-  <AtomInput.Mask label='postal code' name='date' mask={postalCodeMask}/>
+  <div>
+    <MaskInput label='postal code' name='date' mask={postalCodeMask}/>
+    <AtomInput.Mask label='postal code' name='date' mask={postalCodeMask}/>
+  </div>
 )
 ```
 
@@ -54,7 +56,6 @@ const postalCodeMask = {
 
 return (
   <MaskInput label='postal code' name='date' mask={postalCodeMask}/>
-  <AtomInput.Mask label='postal code' name='date' mask={postalCodeMask}/>
 )
 ```
 

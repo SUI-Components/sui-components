@@ -47,5 +47,10 @@ return (
       label='Date input'
       name='date'
     />
+
+    <AtomInput.Tag
+      name='Tag'
+      label='Tag input'
+    />
   </div>
 )

@@ -3,14 +3,13 @@ import PropTypes from 'prop-types'
 import {MaskInput, TagInput} from './inputs'
 import InputWrapper from './InputWrapper'
 
-const onChange = (ev) => {
-  const {onChange} = this.props
-  onChange && onChange({value: ev.target.value, target: ev.target})
+const changeHandler = (ev, cb) => {
+  cb && cb({value: ev.target.value, target: ev.target})
 }
 
-const AtomInput = ({label, name, ...props}) =>
+const AtomInput = ({label, name, onChange, ...props}) =>
   <InputWrapper label={label} name={name}>
-    <input name={name} {...props} onChange={onChange} />
+    <input name={name} {...props} onChange={(ev) => changeHandler(ev, onChange)} />
   </InputWrapper>
 
 AtomInput.Mask = MaskInput

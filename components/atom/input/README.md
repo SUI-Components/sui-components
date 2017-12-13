@@ -60,7 +60,7 @@ return (
 ```
 
 ### Tag
-```
+```js
 import TagInput from '@schibstedspain/sui-atom-input/lib/inputs/TagInput'
 
 return (
@@ -103,7 +103,12 @@ class FormTest extends Component {
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
-        <AtomInput.Mask name='postalCode' label='Postal code' onChange={this.handleChange} />
+        <AtomInput.Mask
+          mask={postalCodeMask}
+          name='postalCode'
+          label='Postal code'
+          onChange={this.handleChange}
+        />
         <input type='submit' value='Submit' />
       </form>
     )

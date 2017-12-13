@@ -1,6 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {MaskInput, TagInput} from './inputs'
+import {
+  MaskInput,
+  TagInput,
+  PasswordInput
+} from './inputs'
 import InputWrapper from './InputWrapper'
 
 const changeHandler = (ev, cb) => {
@@ -14,6 +18,7 @@ const AtomInput = ({label, name, onChange, ...props}) =>
 
 AtomInput.Mask = MaskInput
 AtomInput.Tag = TagInput
+AtomInput.Password = PasswordInput
 
 AtomInput.displayName = 'AtomInput'
 

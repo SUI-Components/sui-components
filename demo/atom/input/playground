@@ -30,6 +30,11 @@ return (
       placeholder='00000'
     />
 
+    <AtomInput.Password
+      name='password'
+      label='Password input'
+    />
+
     <AtomInput
       type='text'
       label='Simple text input'

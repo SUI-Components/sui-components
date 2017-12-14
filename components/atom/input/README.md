@@ -15,13 +15,11 @@ $ npm install @schibstedspain/sui-atom-input --save
 ### Basic usage
 ```js
 import MaskInput from '@schibstedspain/sui-atom-input/lib/inputs/MaskInput'
-import AtomInput from '@schibstedspain/sui-atom-input'
 
 // render the same
 return (
   <div>
     <MaskInput label='postal code' name='date' mask={postalCodeMask}/>
-    <AtomInput.Mask label='postal code' name='date' mask={postalCodeMask}/>
   </div>
 )
 ```

@@ -5,7 +5,7 @@ import InputWrapper from '../InputWrapper'
 
 class MaskInput extends Component {
   componentDidMount () {
-    const mask = this.props.mask
+    const {mask} = this.props
     this.mask = new IMask(this.field, mask)
   }
 

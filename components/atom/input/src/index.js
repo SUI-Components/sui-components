@@ -7,6 +7,8 @@ import {
 } from './inputs'
 import InputWrapper from './InputWrapper'
 
+const NATIVE_TYPES = ['text', 'number']
+
 const changeHandler = (ev, cb) => {
   cb && cb({value: ev.target.value, target: ev.target})
 }
@@ -25,7 +27,8 @@ AtomInput.displayName = 'AtomInput'
 AtomInput.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  type: PropTypes.oneOf(NATIVE_TYPES)
 }
 
 export default AtomInput

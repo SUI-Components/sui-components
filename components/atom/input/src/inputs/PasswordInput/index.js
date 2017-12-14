@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import InputWrapper from '../InputWrapper'
+import InputWrapper from '../../InputWrapper'
 import AtomButton from '@schibstedspain/sui-atom-button'
+
+import './style.scss'
 
 const TEXT = 'text'
 const PASSWORD = 'password'

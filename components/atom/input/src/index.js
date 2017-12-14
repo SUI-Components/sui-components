@@ -7,7 +7,7 @@ import {
 } from './inputs'
 import InputWrapper from './InputWrapper'
 
-const NATIVE_TYPES = ['text', 'number']
+const NATIVE_TYPES = ['text', 'number', 'date']
 
 const changeHandler = (ev, cb) => {
   cb && cb({value: ev.target.value, target: ev.target})

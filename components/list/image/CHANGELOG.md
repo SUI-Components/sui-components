@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2017-12-15)
+
+
+### Features
+
+* adapt component to sui-theme@8, move vars to _settings. ([4877010](https://github.com/SUI-Components/sui-components/commit/4877010))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2017-11-06)
 

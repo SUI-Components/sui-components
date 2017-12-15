@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2017-12-15)
+
+
+### Bug Fixes
+
+* use span instead of div ([1d8f085](https://github.com/SUI-Components/sui-components/commit/1d8f085))
+
+
+### Features
+
+* remove babel script ([cffc4dc](https://github.com/SUI-Components/sui-components/commit/cffc4dc))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2017-12-04)
 

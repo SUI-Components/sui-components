@@ -1,10 +1,7 @@
-@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/settings';
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~@schibstedspain/sui-image-lazy-load/lib/index';
-
-$m-h-list-image-item-half-gutter: ceil($m-h-list-image-item-full-gutter / 2) !default;
-$m-v-list-image-item-half-gutter: ceil($m-v-list-image-item-full-gutter / 2) !default;
-$m-h-list-image-item-breakpoint-l-gutter: $m-h-list-image-item-half-gutter !default;
+@import 'settings';
 
 .sui-ListImage {
   @include sui-list('custom');

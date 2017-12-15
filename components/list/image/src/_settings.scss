@@ -1,0 +1,9 @@
+$fxb-list-image-item-desktop: 196px !default;
+$fxb-list-image-item-mobile: 50% !default;
+$m-v-list-image-item-full-gutter: $m-l !default;
+$m-h-list-image-item-full-gutter: $m-l !default;
+$bg-list-image-last-item: $c-gray-dark !default;
+$op-list-image-last-item: .65 !default;
+$m-h-list-image-item-half-gutter: ceil($m-h-list-image-item-full-gutter / 2) !default;
+$m-v-list-image-item-half-gutter: ceil($m-v-list-image-item-full-gutter / 2) !default;
+$m-h-list-image-item-breakpoint-l-gutter: $m-h-list-image-item-half-gutter !default;

@@ -63,14 +63,14 @@ const AtomButton = (props) => {
 
   return (
     <Button {...newProps} className={classNames} title={title} disabled={disabled}>
-      <div className={`${CLASS}-inner`}>
+      <span className={`${CLASS}-inner`}>
         {leftIcon && <span className={`${CLASS}-leftIcon`}>{leftIcon}</span>}
         {leftIcon || rightIcon
           ? <span className={`${CLASS}-text`}>{children}</span>
           : children
         }
         {rightIcon && <span className={`${CLASS}-rightIcon`}>{rightIcon}</span>}
-      </div>
+      </span>
     </Button>
   )
 }

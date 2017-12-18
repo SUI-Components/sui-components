@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import InputWrapper from '../../InputWrapper'
-import AtomButton from '@schibstedspain/sui-atom-button'
 
 import './style.scss'
 
@@ -17,7 +16,11 @@ class PasswordInput extends React.Component {
   }
 
   onChange = (ev) => {
-    this.setState({value: ev.target.value})
+    const value = ev.target.value
+    this.setState({value}, () => {
+      const {onChange} = this.props
+      onChange && onChange({value})
+    })
   }
 
   toggle = () => {
@@ -40,13 +43,13 @@ class PasswordInput extends React.Component {
           value={value}
           onChange={this.onChange}
         />
-        <AtomButton type='tertiary' size='small' onClick={this.toggle}>
+        <span onClick={this.toggle}>
           {
             type === PASSWORD
               ? showText
               : hideText
           }
-        </AtomButton>
+        </span>
       </InputWrapper>
     )
   }
@@ -58,7 +61,8 @@ PasswordInput.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string,
   showText: PropTypes.string,
-  hideText: PropTypes.string
+  hideText: PropTypes.string,
+  onChange: PropTypes.func
 }
 
 PasswordInput.defaultProps = {

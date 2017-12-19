@@ -1,31 +1,48 @@
-@import '~@schibstedspain/theme-basic/lib/index';
+@import '~@schibstedspain/sui-theme/lib/index';
 
-$bgc-atom-image-panel: $c-gray-light !default;
+$bgc-atom-image-panel: color-variation($c-gray, -2) !default;
+$bgc-panels: (canvas $c-white,
+              contrast $c-black,
+              accent $c-accent,
+              corporate $c-primary,
+              base color-variation($c-gray, 3),
+              default $c-gray-lightest,
+              highlight color-variation($c-accent, 4)) !default;
 $c-atom-image-panel: $c-black !default;
 $horizontal-alignments-atom-image-panel: ('left', 'center', 'right') !default;
 $vertical-alignments-atom-image-panel: ('top', 'center', 'bottom') !default;
 
-.sui-AtomImagePanel {
-  background-color: $bgc-atom-image-panel;
-  background-repeat: no-repeat;
-  position: relative;
+.sui-AtomPanel {
 
-  &::before {
-    background-color: currentColor;
-    content: '';
-    display: block;
-    height: 100%;
-    position: absolute;
-    width: 100%;
+  @each $type in $bgc-panels {
+    $key: nth($type, 1);
+    $value: nth($type, 2);
+
+    &--#{$key} {
+      @include bgcolor-opacity($value);
+    }
   }
 
-  &--resized {
-    background-size: cover;
+  @each $type in $bgc-panels {
+    $key: nth($type, 1);
+    $value: nth($type, 2);
+
+    &--#{$key} {
+      @include bgcolor-overlay-opacity($value);
+    }
   }
 
   &-content {
-    color: $c-atom-image-panel;
     position: relative;
+  }
+}
+
+.sui-AtomImagePanel {
+  background-color: $bgc-atom-image-panel;
+  background-repeat: no-repeat;
+
+  &--resized {
+    background-size: cover;
   }
 
   @each $alignment in $horizontal-alignments-atom-image-panel {

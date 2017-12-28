@@ -3,7 +3,6 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import './settings';
 
-
 .sui-CollapsibleBasic {
   background-color: $bgc-collapsible-basic;
   border: $bd-collapsible-basic;
@@ -47,11 +46,8 @@
     transition: max-height $trs-base;
   }
 
-  /* Keep root parent ref to avoid string repetition on nesting */
-  $root-parent: &;
-
   &.is-collapsed {
-    #{$root-parent}-collapsibleContent {
+    .sui-CollapsibleBasic-collapsibleContent {
       max-height: 0;
     }
   }
@@ -59,13 +55,13 @@
   &.is-expanded {
     background-color: $bgc-collapsible-basic-expanded;
 
-    #{$root-parent}-trigger {
+    .sui-CollapsibleBasic-trigger {
       &-icon {
         transform: rotateZ(180deg);
       }
     }
 
-    #{$root-parent}-collapsibleContent {
+    .sui-CollapsibleBasic-collapsibleContent {
       max-height: 100%;
     }
   }

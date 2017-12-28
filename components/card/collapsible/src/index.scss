@@ -14,7 +14,6 @@
   &-header {
     @include sui-list;
     align-items: center;
-    $root-parent: &;
 
     &Image {
       @include sui-list;
@@ -53,7 +52,7 @@
     &.is-expanded {
       flex-direction: row;
 
-      #{$root-parent} {
+      .sui-CardCollapsible-header {
         &Image {
           margin: $m-s 0;
         }

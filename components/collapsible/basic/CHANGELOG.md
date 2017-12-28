@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.15.0"></a>
+# 1.15.0 (2017-12-28)
+
+
+### Features
+
+* remove root-parent selector from collapsible basic. ([c4d93ac](https://github.com/SUI-Components/sui-components/commit/c4d93ac))
+
+
+
 <a name="1.14.0"></a>
 # 1.14.0 (2017-12-18)
 

@@ -21,13 +21,13 @@ export const loadScript = ({url, symbol} = {}) => {
     // Our symbol-checking function
     const lookForSymbol = () => {
       if (window[symbol]) {
-          // There's the symbol, we're done
+        // There's the symbol, we're done
         resolve('success')
       } else if (new Date().getTime() > expire) {
-          // Timed out, tell the callback
+        // Timed out, tell the callback
         reject(new Error('timeout'))
       } else {
-          // Schedule the next check
+        // Schedule the next check
         setTimeout(lookForSymbol, delta)
       }
     }

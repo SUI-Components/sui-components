@@ -117,7 +117,7 @@ DropdownUser.propTypes = {
      * Menu links icon.
      */
     icon: PropTypes.func.isRequired,
-     /**
+    /**
      * Menu links notification.
      */
     notifications: PropTypes.number

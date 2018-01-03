@@ -1,87 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
+import ColorPanel from './ColorPanel'
+import ImagePanel, {HORIZONTAL_ALIGNMENTS, VERTICAL_ALIGNMENTS} from './ImagePanel'
+import {COLORS, ALPHA} from './constants'
 
-const BASE_16 = 16
-const HORIZONTAL_ALIGNMENTS = {
-  LEFT: 'left',
-  CENTER: 'center',
-  RIGHT: 'right'
+const isImagePanel = function ({src}) {
+  return !!src
 }
 
-const VERTICAL_ALIGNMENTS = {
-  TOP: 'top',
-  CENTER: 'center',
-  BOTTOM: 'bottom'
-}
-
-const hexToRgb = function (hex) {
-  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
-  hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b)
-
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
-  return result ? {
-    r: parseInt(result[1], BASE_16),
-    g: parseInt(result[2], BASE_16),
-    b: parseInt(result[3], BASE_16)
-  } : {}
-}
-
-const getClassNames = function ({verticalAlign, horizontalAlign, classNames, resized}) {
-  return cx(
-    'sui-AtomPanel',
-    `sui-AtomPanel--v-${verticalAlign}`,
-    `sui-AtomPanel--h-${horizontalAlign}`,
-    resized && `sui-AtomPanel--resized`,
-    classNames
-  )
-}
-
-const getStyles = function ({placeholderColor, overlayColor, src, overlayAlpha}) {
-  const url = `url(${src})`
-  if (overlayColor) {
-    const overlayColorRgb = hexToRgb(overlayColor)
-    var rgba = `rgba(${overlayColorRgb.r}, ${overlayColorRgb.g}, ${overlayColorRgb.b}, ${overlayAlpha})`
-  }
-  return {
-    backgroundImage: url,
-    backgroundColor: placeholderColor,
-    color: rgba
-  }
-}
-
-const AtomPanel = function ({src, children, ...props}) {
-  return (
-    <div className={getClassNames(props)} style={getStyles({src, ...props})}>
-      <div className='sui-AtomPanel-content'>
-        {children}
-      </div>
-    </div>
-  )
+const AtomPanel = function (props) {
+  return isImagePanel(props)
+    ? <ImagePanel {...props} />
+    : <ColorPanel {...props} />
 }
 
 AtomPanel.displayName = 'AtomPanel'
 
 AtomPanel.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node.isRequired,
   /**
    * Background image
    */
-  src: PropTypes.string.isRequired,
-  /**
-   * Background color
-   */
-  placeholderColor: PropTypes.string.isRequired,
-  /**
-   * Gradient color
-   */
-  overlayColor: PropTypes.string,
-  /**
-   * Gradient opacity
-   * @type float between 0 and 1
-   */
-  overlayAlpha: PropTypes.number,
+  src: PropTypes.string,
   /**
    * Background position x
    */
@@ -90,18 +30,20 @@ AtomPanel.propTypes = {
    * Background position y
    */
   verticalAlign: PropTypes.oneOf(Object.values(VERTICAL_ALIGNMENTS)),
-  resized: PropTypes.bool
+  resized: PropTypes.bool,
+  color: PropTypes.string
 }
 
 AtomPanel.defaultProps = {
   verticalAlign: HORIZONTAL_ALIGNMENTS.CENTER,
   horizontalAlign: VERTICAL_ALIGNMENTS.CENTER,
-  overlayColor: '#000',
-  overlayAlpha: 0
+  backgroundColor: COLORS.DEFAULT
 }
 
 export default AtomPanel
 export {
-  HORIZONTAL_ALIGNMENTS as atomImagePanelHorizontalAlign,
-  VERTICAL_ALIGNMENTS as atomImagePanelVerticalAlign
+  HORIZONTAL_ALIGNMENTS as atomPanelHorizontalAlign,
+  VERTICAL_ALIGNMENTS as atomPanelVerticalAlign,
+  COLORS as atomPanelColors,
+  ALPHA as atomPanelAlpha
 }

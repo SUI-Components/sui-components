@@ -1,25 +1,22 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
 $bgc-atom-panel: color-variation($c-gray, -2) !default;
-$bgc-panels: (canvas $c-white,
+$bgc-panels: (
+  canvas $c-white,
   contrast $c-black,
   accent $c-accent,
   corporate $c-primary,
   base color-variation($c-gray, 3),
   default $c-gray-lightest,
-  highlight color-variation($c-accent, 4)) !default;
+  highlight color-variation($c-accent, 4)
+) !default;
 $c-atom-panel: $c-black !default;
 $horizontal-alignments-atom-panel: ('left', 'center', 'right') !default;
 $vertical-alignments-atom-panel: ('top', 'center', 'bottom') !default;
 
-.sui-AtomPanel {
-  @each $type in $bgc-panels {
-    $key: nth($type, 1);
-    $value: nth($type, 2);
-
-    &--#{$key} {
-      @include bgcolor-opacity($value);
-    }
+.sui-atom-panel {
+  &-content {
+    position: relative;
   }
 
   @each $type in $bgc-panels {
@@ -31,28 +28,35 @@ $vertical-alignments-atom-panel: ('top', 'center', 'bottom') !default;
     }
   }
 
-  &-content {
-    position: relative;
-  }
-}
+  &-color {
+    @each $type in $bgc-panels {
+      $key: nth($type, 1);
+      $value: nth($type, 2);
 
-.sui-AtomImagePanel {
-  background-color: $bgc-atom-panel;
-  background-repeat: no-repeat;
-
-  &--resized {
-    background-size: cover;
-  }
-
-  @each $alignment in $horizontal-alignments-atom-panel {
-    &--h-#{$alignment} {
-      background-position-x: #{$alignment};
+      &--#{$key} {
+        @include bgcolor-opacity($value);
+      }
     }
   }
 
-  @each $alignment in $vertical-alignments-atom-panel {
-    &--v-#{$alignment} {
-      background-position-y: #{$alignment};
+  &-image {
+    background-color: $bgc-atom-panel;
+    background-repeat: no-repeat;
+
+    &--resized {
+      background-size: cover;
+    }
+
+    @each $alignment in $horizontal-alignments-atom-panel {
+      &--horizontal-#{$alignment} {
+        background-position-x: #{$alignment};
+      }
+    }
+
+    @each $alignment in $vertical-alignments-atom-panel {
+      &--vertical-#{$alignment} {
+        background-position-y: #{$alignment};
+      }
     }
   }
 }

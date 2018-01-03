@@ -15,6 +15,7 @@
       height: ($h-card-profile-avatar + $p-card-profile-avatar);
       margin: $m-l;
       width: ($w-card-profile-avatar + $p-card-profile-avatar);
+      box-sizing: border-box;
     }
 
     &Radius {

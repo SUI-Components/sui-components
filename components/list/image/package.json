@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-list-image",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Displays a list of sui-image-lazy-load, with a customisable limit and onClick callbacks.",
   "main": "lib/index.js",
   "scripts": {

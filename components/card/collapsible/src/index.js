@@ -83,13 +83,19 @@ class CardCollapsible extends Component {
   }
 
   render () {
-    const {className, children, headerImage, headerInfo, collapseButton, expandButton} = this.props
+    const {className, children, headerImage, headerInfo, collapseButton, expandButton, onChangeHandler} = this.props
     const {collapsed} = this.state
 
     return (
-      <div className={cx('sui-CardCollapsible', className)}>
+      <div className={cx('sui-CardCollapsible', className, {'is-expanded': !this.state.collapsed})}>
         {headerInfo && this._renderCardHeader(headerImage, collapsed ? headerInfo.displayWhenCollapsed : headerInfo.displayWhenExpanded)}
-        <CollapsibleBasic collapsed={collapsed} label={this._renderActionButton(collapsed ? expandButton : collapseButton)} icon={false}>{children}</CollapsibleBasic>
+        <CollapsibleBasic
+          collapsed={collapsed}
+          label={this._renderActionButton(collapsed ? expandButton : collapseButton)}
+          icon={false}
+          handleClick={onChangeHandler}>
+          {children}
+        </CollapsibleBasic>
       </div>
     )
   }
@@ -149,7 +155,11 @@ CardCollapsible.propTypes = {
    */
   collapseButton: PropTypes.shape({
     label: PropTypes.string.isRequired
-  })
+  }),
+  /**
+   * Function to call when the expanded/collapsed status of collapsible component has changed.
+   */
+  onChangeHandler: PropTypes.func
 }
 
 CardCollapsible.displayName = 'CardCollapsible'

@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2017-12-28)
+
+
+### Features
+
+* remove root-parent selector from collapsible card. ([62c0360](https://github.com/SUI-Components/sui-components/commit/62c0360))
+
+
+
+<a name="1.4.0"></a>
+# 1.4.0 (2017-12-15)
+
+
+### Features
+
+* expose click handler func of collapsible. Move scss vars. ([11a9026](https://github.com/SUI-Components/sui-components/commit/11a9026))
+* reuse is-expanded class instead of has-shadow. ([0c2eadc](https://github.com/SUI-Components/sui-components/commit/0c2eadc))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2017-11-06)
 

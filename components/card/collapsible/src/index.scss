@@ -2,21 +2,18 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~@schibstedspain/sui-button-basic/lib/index';
 @import '~@schibstedspain/sui-collapsible-basic/lib/index';
-
-$bgc-card-collapsible: $c-white !default;
-$h-card-collapsible-header-image: 100px;
-$c-card-collapsible-info-item: $c-gray-dark !default;
-$fz-card-collapsible-info-item-collapsed: $fz-l + 2 !default;
-$fz-card-collapsible-info-item-expanded: $fz-m !default;
-$lh-card-collapsible-info-item: 1.2 !default;
+@import 'settings';
 
 .sui-CardCollapsible {
   background-color: $bgc-card-collapsible;
 
+  &.is-expanded {
+    box-shadow: $bxsh-card-collapsible;
+  }
+
   &-header {
     @include sui-list;
     align-items: center;
-    $root-parent: &;
 
     &Image {
       @include sui-list;
@@ -55,7 +52,7 @@ $lh-card-collapsible-info-item: 1.2 !default;
     &.is-expanded {
       flex-direction: row;
 
-      #{$root-parent} {
+      .sui-CardCollapsible-header {
         &Image {
           margin: $m-s 0;
         }

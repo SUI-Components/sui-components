@@ -64,7 +64,7 @@ export default class TagSelectableList extends Component {
           onClick={this.toggleAll}
           isSelected={isAllSelected}
           label={allLabel}
-          icon={isAllSelected && this.props.checkIcon}
+          icon={isAllSelected ? this.props.checkIcon : null}
         />}
         {this._renderTags()}
       </div>

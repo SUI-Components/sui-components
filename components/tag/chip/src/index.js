@@ -25,7 +25,7 @@ const TagChip = ({onRequestDelete, onClick, label, link: url, linkFactory, class
     Link={linkFactory}
     className={tagChipClassName({isClickable: url || onClick, className})}
     rel={rel}
-    >
+  >
     {label}
     {onRequestDelete &&
       <span onClick={preventDefaultHandler(onRequestDelete)} className='sui-TagChip-delete'>

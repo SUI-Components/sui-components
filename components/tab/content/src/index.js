@@ -25,7 +25,7 @@ class TabContent extends Component {
           <section className={className} key={indexTab}>
             {content}
           </section>
-       ))
+        ))
       }
       return contentToRender
     }, [])

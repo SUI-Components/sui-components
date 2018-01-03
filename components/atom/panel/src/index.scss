@@ -1,19 +1,18 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$bgc-atom-image-panel: color-variation($c-gray, -2) !default;
+$bgc-atom-panel: color-variation($c-gray, -2) !default;
 $bgc-panels: (canvas $c-white,
-              contrast $c-black,
-              accent $c-accent,
-              corporate $c-primary,
-              base color-variation($c-gray, 3),
-              default $c-gray-lightest,
-              highlight color-variation($c-accent, 4)) !default;
-$c-atom-image-panel: $c-black !default;
-$horizontal-alignments-atom-image-panel: ('left', 'center', 'right') !default;
-$vertical-alignments-atom-image-panel: ('top', 'center', 'bottom') !default;
+  contrast $c-black,
+  accent $c-accent,
+  corporate $c-primary,
+  base color-variation($c-gray, 3),
+  default $c-gray-lightest,
+  highlight color-variation($c-accent, 4)) !default;
+$c-atom-panel: $c-black !default;
+$horizontal-alignments-atom-panel: ('left', 'center', 'right') !default;
+$vertical-alignments-atom-panel: ('top', 'center', 'bottom') !default;
 
 .sui-AtomPanel {
-
   @each $type in $bgc-panels {
     $key: nth($type, 1);
     $value: nth($type, 2);
@@ -38,20 +37,20 @@ $vertical-alignments-atom-image-panel: ('top', 'center', 'bottom') !default;
 }
 
 .sui-AtomImagePanel {
-  background-color: $bgc-atom-image-panel;
+  background-color: $bgc-atom-panel;
   background-repeat: no-repeat;
 
   &--resized {
     background-size: cover;
   }
 
-  @each $alignment in $horizontal-alignments-atom-image-panel {
+  @each $alignment in $horizontal-alignments-atom-panel {
     &--h-#{$alignment} {
       background-position-x: #{$alignment};
     }
   }
 
-  @each $alignment in $vertical-alignments-atom-image-panel {
+  @each $alignment in $vertical-alignments-atom-panel {
     &--v-#{$alignment} {
       background-position-y: #{$alignment};
     }

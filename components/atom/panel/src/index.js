@@ -29,10 +29,10 @@ const hexToRgb = function (hex) {
 
 const getClassNames = function ({verticalAlign, horizontalAlign, classNames, resized}) {
   return cx(
-    'sui-AtomImagePanel',
-    `sui-AtomImagePanel--v-${verticalAlign}`,
-    `sui-AtomImagePanel--h-${horizontalAlign}`,
-    resized && `sui-AtomImagePanel--resized`,
+    'sui-AtomPanel',
+    `sui-AtomPanel--v-${verticalAlign}`,
+    `sui-AtomPanel--h-${horizontalAlign}`,
+    resized && `sui-AtomPanel--resized`,
     classNames
   )
 }
@@ -50,19 +50,19 @@ const getStyles = function ({placeholderColor, overlayColor, src, overlayAlpha})
   }
 }
 
-const AtomImagePanel = function ({src, children, ...props}) {
+const AtomPanel = function ({src, children, ...props}) {
   return (
     <div className={getClassNames(props)} style={getStyles({src, ...props})}>
-      <div className='sui-AtomImagePanel-content'>
+      <div className='sui-AtomPanel-content'>
         {children}
       </div>
     </div>
   )
 }
 
-AtomImagePanel.displayName = 'AtomImagePanel'
+AtomPanel.displayName = 'AtomPanel'
 
-AtomImagePanel.propTypes = {
+AtomPanel.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
   /**
@@ -93,14 +93,14 @@ AtomImagePanel.propTypes = {
   resized: PropTypes.bool
 }
 
-AtomImagePanel.defaultProps = {
+AtomPanel.defaultProps = {
   verticalAlign: HORIZONTAL_ALIGNMENTS.CENTER,
   horizontalAlign: VERTICAL_ALIGNMENTS.CENTER,
   overlayColor: '#000',
   overlayAlpha: 0
 }
 
-export default AtomImagePanel
+export default AtomPanel
 export {
   HORIZONTAL_ALIGNMENTS as atomImagePanelHorizontalAlign,
   VERTICAL_ALIGNMENTS as atomImagePanelVerticalAlign

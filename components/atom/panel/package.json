@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-atom-imagePanel",
+  "name": "@schibstedspain/sui-atom-panel",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

@@ -51,7 +51,7 @@
         "atom/badge",
         "atom/button",
         "atom/tag",
-        "atom/imagePanel",
+        "atom/panel",
         "breadcrumb/basic"
       ]
     },

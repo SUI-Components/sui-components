@@ -1,0 +1,77 @@
+const imageSrcLong = 'http://lorempicsum.com/simpsons/1000/100/1'
+const imageSrcThick = 'http://lorempicsum.com/simpsons/100/200/1'
+const imageSrcDelayed = 'https://satyr.io/500/black?delay=3g'
+
+const placeholderColor = '#ccc'
+
+const content = (
+  <div style={{height: '200px'}} />
+)
+
+return (
+  <div>
+    <h1>AtomPanel</h1>
+    <div>
+      <h2>Placeholder example</h2>
+      <AtomPanel src={imageSrcDelayed} horizontalAlign={'left'} placeholderColor={placeholderColor} resized>
+        {content}
+      </AtomPanel>
+      <h2>Overlay example</h2>
+      <AtomPanel src={imageSrcLong} overlayAlpha={0.6} overlayColor={'#f00'} placeholderColor={placeholderColor} resized>
+        {content}
+      </AtomPanel>
+      <h2>Container example (Dark text on light background)</h2>
+      <div style={{width: '350px'}}>
+        <AtomPanel src={imageSrcLong} horizontalAlign={'left'} overlayColor={'fff'} overlayAlpha={0.9} placeholderColor={placeholderColor} resized>
+          <div style={{height: '200px', width: '200px', color: '#000', fontSize: '32px', fontWeight: 600, margin: 'auto'}}>
+            <p>Lorem ipsum dolor sit amet</p>
+          </div>
+        </AtomPanel>
+      </div>
+      <h2>Container example (Light text on dark background)</h2>
+      <div style={{width: '350px'}}>
+        <AtomPanel src={imageSrcLong} horizontalAlign={'left'} overlayColor={'000'} overlayAlpha={0.4} placeholderColor={placeholderColor} resized>
+          <div style={{height: '200px', width: '200px', color: '#fff', fontSize: '32px', fontWeight: 600, margin: 'auto'}}>
+            <p>Lorem ipsum dolor sit amet</p>
+          </div>
+        </AtomPanel>
+      </div>
+      <h2>Resize example</h2>
+      <div style={{width: '350px'}}>
+        <AtomPanel src={'http://lorempicsum.com/simpsons/500/200/1'} resized placeholderColor={placeholderColor}>
+          {content}
+        </AtomPanel>
+      </div>
+      <h2>Horizontal alignment</h2>
+      <h2>Original image</h2>
+      <img width='100%' src={imageSrcLong} />
+      <h3>Left</h3>
+      <AtomPanel src={imageSrcLong} horizontalAlign={'left'} placeholderColor={placeholderColor} resized>
+        {content}
+      </AtomPanel>
+      <h3>Center</h3>
+      <AtomPanel src={imageSrcLong} horizontalAlign={'center'} placeholderColor={placeholderColor} resized>
+        {content}
+      </AtomPanel>
+      <h3>Right</h3>
+      <AtomPanel src={imageSrcLong} horizontalAlign={'right'} placeholderColor={placeholderColor} resized>
+        {content}
+      </AtomPanel>
+      <h2>Vertical alignment</h2>
+      <h2>Original image</h2>
+      <img src={imageSrcThick} />
+      <h3>Top</h3>
+      <AtomPanel src={imageSrcThick} verticalAlign={'top'} placeholderColor={placeholderColor} resized>
+        {content}
+      </AtomPanel>
+      <h3>Center</h3>
+      <AtomPanel src={imageSrcThick} verticalAlign={'center'} placeholderColor={placeholderColor} resized>
+        {content}
+      </AtomPanel>
+      <h3>Bottom</h3>
+      <AtomPanel src={imageSrcThick} verticalAlign={'bottom'} placeholderColor={placeholderColor} resized>
+        {content}
+      </AtomPanel>
+    </div>
+  </div>
+)

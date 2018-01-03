@@ -4,7 +4,7 @@ import { render, mount } from 'enzyme'
 import AbTestOptimizelyXExperiment from '../src/index'
 
 jest.mock('../src/optimizely-x')
-import {createExperimentUseCase} from '../src/optimizely-x'
+import {createExperimentUseCase} from '../src/optimizely-x' // eslint-disable-line import/first
 
 describe('<AbTestOptimizelyXExperiment />', () => {
   const component = (<AbTestOptimizelyXExperiment experimentId={40000}>

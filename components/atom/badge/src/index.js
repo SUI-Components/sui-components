@@ -38,10 +38,10 @@ const getClassNames = function ({className, size, transparent, type}) {
   const transparentClass = (transparent && `--${TRANSPARENT}`) || ''
 
   return cx(
-   'sui-AtomBadge',
-   `sui-AtomBadge-${size}`,
-   `sui-AtomBadge-${type}${transparentClass}`,
-   className
+    'sui-AtomBadge',
+    `sui-AtomBadge-${size}`,
+    `sui-AtomBadge-${type}${transparentClass}`,
+    className
   )
 }
 

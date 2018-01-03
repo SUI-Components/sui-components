@@ -153,8 +153,8 @@ export default class FormAutocompleted extends Component {
           handleSelect={this._handleSelect}
           active={active}
           ref={node => { this.suggestList = node }}
-          />
-        )
+        />
+      )
       : null
   }
   _handleOutsideClick = (event) =>

@@ -21,23 +21,12 @@ AtomPanel.propTypes = {
   /**
    * Background image
    */
-  src: PropTypes.string,
-  /**
-   * Background position x
-   */
-  horizontalAlign: PropTypes.oneOf(Object.values(HORIZONTAL_ALIGNMENTS)),
-  /**
-   * Background position y
-   */
-  verticalAlign: PropTypes.oneOf(Object.values(VERTICAL_ALIGNMENTS)),
-  resized: PropTypes.bool,
-  color: PropTypes.string
+  src: PropTypes.string
 }
 
 AtomPanel.defaultProps = {
   verticalAlign: HORIZONTAL_ALIGNMENTS.CENTER,
-  horizontalAlign: VERTICAL_ALIGNMENTS.CENTER,
-  backgroundColor: COLORS.DEFAULT
+  horizontalAlign: VERTICAL_ALIGNMENTS.CENTER
 }
 
 export default AtomPanel

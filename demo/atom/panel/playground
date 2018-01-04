@@ -57,7 +57,7 @@ return (
               </div>
             </AtomPanel>
           </div>
-          <span>Dark text on light background</span>
+          <span>Light text on dark background</span>
         </div>
         <div style={flexItem}>
           <div style={{width: '200px'}}>
@@ -67,7 +67,7 @@ return (
               </div>
             </AtomPanel>
           </div>
-          <span>Light text on dark background</span>
+          <span>Dark text on light background</span>
         </div>
       </div>
     </div>
@@ -82,7 +82,7 @@ return (
           <span>Original</span>
         </div>
         <div style={Object.assign({}, flexItem, {width: '200px'})}>
-          <AtomPanel src={'https://picsum.photos/250/200'}>
+          <AtomPanel src={'https://picsum.photos/250/200'} resized>
             <div style={{height: '150px'}} />
           </AtomPanel>
           <span>Resized</span>

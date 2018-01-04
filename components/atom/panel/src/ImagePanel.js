@@ -57,7 +57,21 @@ ImagePanel.displayName = 'ImagePanel'
 
 ImagePanel.propTypes = {
   children: PropTypes.node,
-  color: PropTypes.string
+  /**
+   * Background color while loading the image
+   */
+  color: PropTypes.string,
+  resized: PropTypes.bool,
+  /**
+   * Background position x
+   */
+  horizontalAlign: PropTypes.oneOf(Object.values(HORIZONTAL_ALIGNMENTS)),
+  overlayAlpha: PropTypes.string,
+  overlayColor: PropTypes.string,
+  /**
+   * Background position y
+   */
+  verticalAlign: PropTypes.oneOf(Object.values(VERTICAL_ALIGNMENTS))
 }
 
 ImagePanel.defaultProps = {

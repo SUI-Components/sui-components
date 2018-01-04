@@ -24,7 +24,9 @@ const ColorPanel = function ({children, ...props}) {
 ColorPanel.displayName = 'ColorPanel'
 
 ColorPanel.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  color: PropTypes.string,
+  alpha: PropTypes.string
 }
 
 ColorPanel.defaultProps = {

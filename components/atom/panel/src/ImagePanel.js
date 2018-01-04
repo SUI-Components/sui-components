@@ -38,7 +38,7 @@ const getClassNames = function ({
   )
 }
 
-const getStyles = function ({color, src}) {
+const getStyles = function ({src}) {
   const url = `url(${src})`
   return {
     backgroundImage: url

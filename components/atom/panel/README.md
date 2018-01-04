@@ -1,25 +1,42 @@
-# AtomImagePanel
+# AtomPanel
 
-> An image panel is a container with an image on its background.
+> Just a background for your component, can be a color or an image with background/overlay
 
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-atom-image-panel --save
+$ npm install @schibstedspain/sui-atom-panel --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import AtomImagePanel, { atomImagePanelHorizontalAlign } from '@schibstedspain/sui-atom-image-panel'
+import AtomPanel, {
+  atomPanelAlpha,
+  atomPanelColors,
+  atomPanelHorizontalAlign,
+  atomPanelVerticalAlign
+} from '@schibstedspain/sui-atom-panel'
 
 return (
-  <AtomImagePanel src={'some image url'} horizontalAlign={atomImagePanelHorizontalAlign.LEFT} placeholderColor='#ccc'>
-    {content}
-  </AtomImagePanel>
+  <div>
+    <AtomPanel
+      alpha={atomPanelAlpha.OVERLAY_D4}
+      color={atomPanelColors.CONTRAST}
+    >
+      {content}
+    </AtomPanel>
+    <AtomPanel
+      src={'https://picsum.photos/250/200'}
+      horizontalAlign={atomPanelHorizontalAlign.LEFT}
+      verticalAlign={atomPanelVerticalAlign.TOP}
+    >
+      {content}
+    </AtomPanel>
+  </div>
 )
 ```
 
 
-> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/imagePanel/demo).**
+> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/panel/demo).**

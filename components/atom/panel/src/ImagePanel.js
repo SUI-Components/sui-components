@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import {ALPHA} from './constants'
+import {COLORS, ALPHA} from './constants'
 
 const HORIZONTAL_ALIGNMENTS = {
   LEFT: 'left',
@@ -33,7 +33,7 @@ const getClassNames = function ({
     `${IMAGE_PANEL_CLASS}--vertical-${verticalAlign}`,
     `${IMAGE_PANEL_CLASS}--horizontal-${horizontalAlign}`,
     overlayColor && `${BASE_CLASS}--${overlayColor}-overlay-${overlayAlphaValue}`,
-    color && `${BASE_CLASS}-color--${color}`,
+    `${BASE_CLASS}-color--${color}`,
     resized && `${IMAGE_PANEL_CLASS}--resized`
   )
 }
@@ -75,7 +75,8 @@ ImagePanel.propTypes = {
 }
 
 ImagePanel.defaultProps = {
-  overlayAlpha: DEFAULT_ALPHA
+  overlayAlpha: DEFAULT_ALPHA,
+  color: COLORS.DEFAULT
 }
 
 export default ImagePanel

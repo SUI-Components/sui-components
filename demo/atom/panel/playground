@@ -39,7 +39,7 @@ return (
       {
         Object.keys(atomPanelColors).map((color, idx) =>
           <div key={idx} style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}>
-            <AtomPanel key={idx} color={atomPanelColors[color]}>
+            <AtomPanel color={atomPanelColors[color]}>
               <div style={{height: '100px', width: '100px'}} />
             </AtomPanel>
             <span style={{color: 'grey'}}>{atomPanelColors[color]}</span>
@@ -148,6 +148,25 @@ return (
           <span>Bottom</span>
         </div>
       </div>
+    </div>
+    <h3>Overlay</h3>
+    <div>
+      {
+        Object.keys(atomPanelColors).map((color) =>
+          <div style={flexWrapper}>
+          {
+            Object.keys(atomPanelAlpha).map((alpha) =>
+              <div style={Object.assign({}, flexItem, {width: '250px'})}>
+                <AtomPanel src={'https://picsum.photos/250/200'} overlayColor={color} overlayAlpha={alpha}>
+                  <div style={{height: '150px'}} />
+                </AtomPanel>
+                <span>{color} {alpha}</span>
+              </div>
+            )
+        }
+        </div>
+      )
+    }
     </div>
     <h3>Placeholder</h3>
     <div style={{backgroundColor: 'white'}}>

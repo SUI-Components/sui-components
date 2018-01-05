@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types'
-
 import React, { Component } from 'react'
 import cx from 'classnames'
 import CardProductSlider from './card-product-slider'
-import Star from '@schibstedspain/sui-svgiconset/lib/star'
+import Star from '@schibstedspain/sui-svgiconset/lib/Star'
 import TagChip from '@schibstedspain/sui-tag-chip'
 
 /**

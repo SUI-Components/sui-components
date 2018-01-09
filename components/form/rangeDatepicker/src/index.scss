@@ -9,6 +9,8 @@ $c-range-datepicker-icon-fill-focus: $c-primary !default;
 $jc-range-datepicker-inputs: normal !default;
 $bgc-range-datepicker-selected: $c-primary !default;
 $w-range-datepicker-input: 130px !default;
+$fz-range-datepicker-input: $fz-xs !default;
+$p-range-datepicker-input: $p-m $p-l !default;
 
 /* Overwrite react-datepicker variables */
 $datepicker__selected-color: $bgc-range-datepicker-selected;
@@ -50,6 +52,8 @@ $datepicker__selected-color: $bgc-range-datepicker-selected;
   &-input {
     @include sui-input;
     cursor: pointer;
+    font-size: $fz-range-datepicker-input;
+    padding: $p-range-datepicker-input;
   }
 }
 

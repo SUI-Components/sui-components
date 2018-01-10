@@ -50,6 +50,7 @@ class FormRangeDatepicker extends Component {
   }
 
   render () {
+    const InputIcon = this.props.icon
     return (
       <div className='sui-FormRangeDatepicker'>
         <div className='sui-FormRangeDatepicker-item'>
@@ -64,7 +65,7 @@ class FormRangeDatepicker extends Component {
             locale={locale}
           />
           <div className='sui-FormRangeDatepicker-box'>
-            <Chevronbottom svgClass='sui-FormRangeDatepicker-item-icon' />
+            <InputIcon svgClass='sui-FormRangeDatepicker-item-icon' />
           </div>
         </div>
         <div className='sui-FormRangeDatepicker-item'>
@@ -79,7 +80,7 @@ class FormRangeDatepicker extends Component {
             locale={locale}
           />
           <div className='sui-FormRangeDatepicker-box'>
-            <Chevronbottom svgClass='sui-FormRangeDatepicker-item-icon' />
+            <InputIcon svgClass='sui-FormRangeDatepicker-item-icon' />
           </div>
         </div>
         {!!this.props.buttonLabel &&
@@ -122,7 +123,15 @@ FormRangeDatepicker.propTypes = {
   /**
    * Init date of the selected range
    */
-  startDate: PropTypes.instanceOf(Date)
+  startDate: PropTypes.instanceOf(Date),
+  /**
+   * Icon of select inputs
+   */
+  icon: PropTypes.func
+}
+
+FormRangeDatepicker.defaultProps = {
+  icon: Chevronbottom
 }
 
 export default FormRangeDatepicker

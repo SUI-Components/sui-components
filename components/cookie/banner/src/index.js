@@ -23,7 +23,7 @@ class CookieBanner extends Component {
     return decodeURIComponent((
       (`; ${document.cookie}`)
         .split(`; ${this.props.cookieKey}=`)[1] || '')
-        .split(';')[0])
+      .split(';')[0])
   }
 
   _setHasAcceptedCookie () {

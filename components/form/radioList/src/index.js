@@ -57,7 +57,7 @@ FormRadioList.propTypes = {
       ]),
       label: PropTypes.string.isRequired
     }
-  )),
+    )),
   handleChange: PropTypes.func.isRequired,
   selectedValue: PropTypes.oneOfType([
     PropTypes.number.isRequired,

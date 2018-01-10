@@ -60,7 +60,7 @@ export default function CardArticle ({
           {video && <MediaIcon svgClass='sui-CardArticle-mediaIcon' /> }
           {lazyLoad
             ? <ImageLazyLoad {...lazyLoad} {...media} />
-          : <CardArticleMedia {...media} video={video} />
+            : <CardArticleMedia {...media} video={video} />
           }
         </div>
       </Link>

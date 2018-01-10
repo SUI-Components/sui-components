@@ -41,13 +41,13 @@ export default class AdItem extends Component {
       url,
       symbol: AdItem.SYMBOL
     })
-    .then(() => {
-      postscribe(
-        this.adItem,
-        sandBoxDocumentWrite(window[AdItem.SYMBOL], id)
-      )
-    })
-    .catch(console.error.bind(console))
+      .then(() => {
+        postscribe(
+          this.adItem,
+          sandBoxDocumentWrite(window[AdItem.SYMBOL], id)
+        )
+      })
+      .catch(console.error.bind(console))
   }
 
   /**

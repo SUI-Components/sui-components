@@ -17,9 +17,6 @@ TagDeletableList.propTypes = {
    * List of tag objects
    */
   tags: PropTypes.arrayOf(PropTypes.shape({
-    /**
-     * tag text
-     */
     label: PropTypes.string.isRequired
   })).isRequired
 }

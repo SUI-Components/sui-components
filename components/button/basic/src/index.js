@@ -47,8 +47,8 @@ ButtonBasic.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   text: PropTypes.string.isRequired,
   type: PropTypes.oneOf(
-          ['primary', 'secondary', 'accent', 'ghost', 'flat']
-        )
+    ['primary', 'secondary', 'accent', 'ghost', 'flat']
+  )
 }
 
 export default ButtonBasic

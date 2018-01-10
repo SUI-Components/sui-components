@@ -40,8 +40,8 @@ function PaginationBasic (props) {
 
     const min = leftWindow < FIRST_PAGE ? FIRST_PAGE : leftWindow
     const max = rightWindow > props.totalPages
-              ? props.totalPages
-              : rightWindow
+      ? props.totalPages
+      : rightWindow
 
     let paginationItems = []
 

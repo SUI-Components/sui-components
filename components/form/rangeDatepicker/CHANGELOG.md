@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.13.0"></a>
+# 1.13.0 (2018-01-09)
+
+
+### Features
+
+* add new variables for css: font-size and padding ([8414f22](https://github.com/SUI-Components/sui-components/commit/8414f22))
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2017-11-30)
 

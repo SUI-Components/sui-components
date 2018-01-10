@@ -224,7 +224,7 @@ class TopbarUser extends Component {
             leftIcon={<navCTA.icon svgClass='sui-TopbarUser-ctaButtonIcon' />}
             size='small'
             type='accent'
-            >
+          >
             {navCtaText}
           </AtomButton>
         </div>

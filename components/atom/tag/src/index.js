@@ -29,14 +29,14 @@ class AtomTag extends Component {
    */
   _filterKeys (obj, props) {
     return Object.keys(obj)
-    .reduce(
-      (acc, key) => {
-        if (props.indexOf(key) === -1) {
-          acc[key] = obj[key]
+      .reduce(
+        (acc, key) => {
+          if (props.indexOf(key) === -1) {
+            acc[key] = obj[key]
+          }
+          return acc
         }
-        return acc
-      }
-    , {})
+        , {})
   }
 
   /**

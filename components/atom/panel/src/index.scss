@@ -2,13 +2,13 @@
 
 $bgc-atom-panel: color-variation($c-gray, -2) !default;
 $bgc-panels: (
-  canvas $c-white,
-  contrast $c-black,
-  accent $c-accent,
-  corporate $c-primary,
-  base color-variation($c-gray, 3),
-  default $c-gray-lightest,
-  highlight color-variation($c-accent, 4)
+  'canvas': $c-white,
+  'contrast': $c-black,
+  'accent': $c-accent,
+  'corporate': $c-primary,
+  'base': color-variation($c-gray, 3),
+  'default': $c-gray-lightest,
+  'highlight': color-variation($c-accent, 4)
 ) !default;
 $c-atom-panel: $c-black !default;
 $horizontal-alignments-atom-panel: ('left', 'center', 'right') !default;
@@ -19,22 +19,18 @@ $vertical-alignments-atom-panel: ('top', 'center', 'bottom') !default;
     position: relative;
   }
 
-  @each $type in $bgc-panels {
-    $key: nth($type, 1);
-    $value: nth($type, 2);
+  @each $type, $attr in $bgc-panels {
 
-    &--#{$key} {
-      @include bgcolor-overlay-opacity($value);
+    &--#{$type} {
+      @include bgcolor-overlay-opacity($attr);
     }
   }
 
   &-color {
-    @each $type in $bgc-panels {
-      $key: nth($type, 1);
-      $value: nth($type, 2);
+    @each $type, $attr in $bgc-panels {
 
-      &--#{$key} {
-        @include bgcolor-opacity($value);
+      &--#{$type} {
+        @include bgcolor-opacity($attr);
       }
     }
   }

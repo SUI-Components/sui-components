@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.14.0"></a>
+# 1.14.0 (2018-01-11)
+
+
+### Features
+
+* add new prop for customizable icon ([cbfb9f5](https://github.com/SUI-Components/sui-components/commit/cbfb9f5))
+
+
+
 <a name="1.13.0"></a>
 # 1.13.0 (2018-01-09)
 

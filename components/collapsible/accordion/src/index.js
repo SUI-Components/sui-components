@@ -10,6 +10,10 @@ class CollapsibleAccordion extends Component {
     this._collapseItems = this._collapseItems.bind(this)
   }
 
+  componentWillMount () {
+    this._collapseItems(false, this.props.items.findIndex(item => !item.collapsed))
+  }
+
   _handleClick (id) {
     return collapsed => this._collapseItems(collapsed, id)
   }

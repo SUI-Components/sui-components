@@ -5,7 +5,6 @@ class ErrorAppBoundary extends Component {
   AlertBasicComponent = null
   state = { hasError: false }
   componentDidCatch (errorMessage, errorStack) {
-    // for now, just log in the console but in the future, send the error to some service
     this.props.onError({ errorMessage, errorStack })
     // import async the alert basic component
     import(/* webpackChunkName: "AlertBasic" */ '@schibstedspain/sui-alert-basic')

@@ -1,7 +1,10 @@
 /* eslint-env jest */
 import React from 'react'
-import { render, mount } from 'enzyme'
+import Enzyme, { render, mount } from 'enzyme'
 import AbTestOptimizelyXExperiment from '../src/index'
+
+import Adapter from 'enzyme-adapter-react-16'
+Enzyme.configure({ adapter: new Adapter() })
 
 jest.mock('../src/optimizely-x')
 import {createExperimentUseCase} from '../src/optimizely-x' // eslint-disable-line import/first

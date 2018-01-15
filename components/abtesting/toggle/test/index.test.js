@@ -1,7 +1,10 @@
 /* eslint-env jest */
 import React from 'react'
-import { render } from 'enzyme'
+import Enzyme, { render } from 'enzyme'
 import AbTestToggle from '../src/index'
+
+import Adapter from 'enzyme-adapter-react-16'
+Enzyme.configure({ adapter: new Adapter() })
 
 describe('<AbTestToggle />', () => {
   const variations = [

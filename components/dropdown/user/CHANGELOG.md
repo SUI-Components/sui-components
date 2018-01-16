@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.16.0"></a>
+# 1.16.0 (2018-01-16)
+
+
+### Features
+
+* remove useless declaration ([60d69db](https://github.com/SUI-Components/sui-components/commit/60d69db))
+
+
+
 <a name="1.15.0"></a>
 # 1.15.0 (2017-11-21)
 

@@ -1,0 +1,63 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+.sui-ImagePicker {
+
+  &-headImage {
+    background-color: color-variation($c-black, 4);
+    border: solid 1px $c-black;
+    padding-bottom: 100%;
+    position: relative;
+  }
+
+  &-image {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%)
+  }
+
+  &-image--hcenter {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+  }
+
+  &-image--vcenter {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50%;
+  }
+
+  &-actions {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+
+  &-action {
+    background-color: color-variation($c-black, 3);
+    margin: 0 $m-s $m-s 0;
+    padding: $p-s;
+  }
+
+  &-imageList {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding-left: 0;
+  }
+
+  &-thumbItem {
+    margin: 0 $m-s $m-s 0;
+
+    &--selected {
+      border: dotted 1px $c-highlighted;
+    }
+  }
+}

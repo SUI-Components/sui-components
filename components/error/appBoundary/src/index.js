@@ -7,9 +7,13 @@ class ErrorAppBoundary extends Component {
   componentDidCatch (errorMessage, errorStack) {
     this.props.onError({ errorMessage, errorStack })
     // import async the alert basic component
-    import(/* webpackChunkName: "AlertBasic" */ '@schibstedspain/sui-alert-basic')
+    new Promise(resolve => {
+      require.ensure([], (require) => {
+        resolve(require('@schibstedspain/sui-alert-basic').default)
+      }, 'AlertBasic')
+    })
       .then(Component => {
-        this.AlertBasicComponent = Component.default
+        this.AlertBasicComponent = Component
         // Display fallback UI
         this.setState({ hasError: true })
       })

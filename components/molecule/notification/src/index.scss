@@ -1,0 +1,29 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+.sui-MoleculeNotification {
+  width: 100%;
+
+  &--alert {
+
+  }
+
+  &--toast {
+    position: fixed;
+  }
+
+  &--info {
+
+  }
+
+  &--success {
+
+  }
+
+  &--system {
+
+  }
+
+  &--warning {
+
+  }
+}

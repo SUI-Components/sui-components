@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.17.0"></a>
+# 1.17.0 (2018-01-16)
+
+
+### Features
+
+* fix notifications position ([b9bd808](https://github.com/SUI-Components/sui-components/commit/b9bd808))
+
+
+
 <a name="1.16.0"></a>
 # 1.16.0 (2018-01-16)
 

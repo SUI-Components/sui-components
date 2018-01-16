@@ -138,10 +138,6 @@
         }
       }
 
-      &Text {
-        flex: 1;
-      }
-
       &Notification {
         @include sui-badge-notification;
       }

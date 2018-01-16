@@ -112,15 +112,16 @@
           display: flex;
           font-size: $fz-h3;
           font-weight: normal;
-          padding: $p-v-large $p-h;
+          padding: $p-v-large $p-h-large $p-v-large $p-h;
         }
 
         @include media-breakpoint-up(m) {
-          padding: $p-v $p-h;
+          padding: $p-v $p-h-large $p-v $p-h;
         }
 
         align-items: center;
         display: flex;
+        position: relative;
 
         &:hover {
           color: $c-accent;
@@ -140,6 +141,10 @@
 
       &Notification {
         @include sui-badge-notification;
+        margin-top: - $size-badge-notification / 2;
+        position: absolute;
+        right: $p-h-small;
+        top: 50%;
       }
 
     }

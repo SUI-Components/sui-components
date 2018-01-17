@@ -12,6 +12,7 @@ $bdl-alert-basic-info: $bdl-error-app-boundary;
 
 .sui-ErrorAppBoundary-notification {
   bottom: 0;
+  left: 0;
   padding: $p-error-app-boundary;
   position: fixed;
   width: $w-error-app-boundary;

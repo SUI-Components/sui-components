@@ -7,12 +7,12 @@ const images = [
   {
     alt: 'Alternate text for image 2',
     src: 'http://via.placeholder.com/150x350.png/666/094?text=primary+2',
-    thumb: 'http://via.placeholder.com/100.png/666/094'
+    thumb: 'http://via.placeholder.com/50x100.png/666/094'
   },
   {
     alt: 'Alternate text for image 3',
     src: 'http://via.placeholder.com/350x150.png/fe0/045?text=primary+3',
-    thumb: 'http://via.placeholder.com/100.png/fe0/045'
+    thumb: 'http://via.placeholder.com/100x50.png/fe0/045'
   }
 ]
 

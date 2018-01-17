@@ -6,20 +6,17 @@ import ImagePlaceholder from '@schibstedspain/sui-image-placeholder'
 
 class ImagePicker extends Component {
   constructor (props) {
-    super()
+    super(props)
 
     const { images } = props
     let filteredImages = []
     let selected = -1
 
     if (images.length > 0) {
-      filteredImages = images.map(image => {
-        if (typeof image.src !== 'undefined' && typeof image.thumb !== 'undefined') { return image }
-        return false
-      }).filter(image => image !== false)
+      filteredImages = images.filter(image => image.src && image.thumb)
 
       if (filteredImages.length > 0) {
-        selected = filteredImages.findIndex(image => image.selected === true)
+        selected = filteredImages.findIndex(({ selected }) => selected)
         selected = (selected === -1) ? 0 : selected
       }
     }
@@ -59,9 +56,9 @@ class ImagePicker extends Component {
         'sui-ImagePicker-thumbItem--selected': index === selected
       })
       return (
-        <div className={itemClass} key={image.src} onClick={() => this._handleClick(image)}>
+        <li className={itemClass} key={image.src} onClick={() => this._handleClick(image)}>
           <img src={image.thumb} alt={image.alt} title={image.title} />
-        </div>
+        </li>
       )
     })
     return (<ul className='sui-ImagePicker-imageList'>{imageList}</ul>)

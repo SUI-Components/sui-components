@@ -24,7 +24,7 @@ return (
 
     <StickyContent
       sticky
-      scrollableElement={document.body}
+      scrollableElementSelector='body'
       position='top'>
       { StickyNode }
     </StickyContent>

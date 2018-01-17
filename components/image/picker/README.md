@@ -29,8 +29,6 @@ const images = [
   }
 ]
 
-const clickCallback = (image) => alert('clicked on image ' + image.src)
-
 const actions = [
   {
     callback: (image) => alert('Clicked on action 1 with image ' + image.src),
@@ -42,7 +40,14 @@ const actions = [
   }
 ]
 
-const emptyImage = <img src="http://URL-EMPTY-IMAGE" alt="Empty image" />
+const params = {
+  actions,
+  images,
+  defaultAlt: 'No text for image',
+  emptyImage: <img src="http://URL-EMPTY-IMAGE" alt="Empty image" />,
+  onClick: (image) => alert('clicked on image ' + image.src),
+  selected: 1
+}
 
-return (<ImagePicker images={images} onClick={clickCallback} actions={actions} emptyImage={emptyImage} />)
+return (<ImagePicker {...params} />)
 ```

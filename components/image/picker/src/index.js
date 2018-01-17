@@ -8,38 +8,32 @@ class ImagePicker extends Component {
   constructor (props) {
     super(props)
 
-    const { images } = props
-    let filteredImages = []
-    let selected = -1
+    const { defaultAlt, emptyImage, images, selected } = props
 
-    if (images.length > 0) {
-      filteredImages = images.filter(image => image.src && image.thumb)
-
-      if (filteredImages.length > 0) {
-        selected = filteredImages.findIndex(({ selected }) => selected)
-        selected = (selected === -1) ? 0 : selected
-      }
+    let selectedImage = -1
+    if (images.length !== 0) {
+      selectedImage = (images[selected] ? selected : 0)
     }
 
     this.state = {
-      selected,
-      images: filteredImages
+      images,
+      selected: selectedImage
+    }
+
+    this.placeHolder = {
+      alt: defaultAlt,
+      src: emptyImage
     }
   }
 
   _getHeadImage () {
     const { images, selected } = this.state
-    const { emptyImage } = this.props
+    const { defaultAlt, emptyImage } = this.props
 
-    const placeHolder = {
-      alt: 'Placeholder',
-      src: emptyImage
-    }
+    const src = (selected === -1) ? emptyImage : images[selected].src
+    const alt = (selected === -1) ? defaultAlt : images[selected].alt
 
-    const src = (images.length === 0) ? emptyImage : images[selected].src
-    const alt = (images.length === 0) ? 'No text available' : images[selected].alt
-
-    return (<ImagePlaceholder src={src} alt={alt} placeholder={placeHolder} />)
+    return (<ImagePlaceholder src={src} alt={alt} placeholder={this.placeHolder} />)
   }
 
   _getListImages () {
@@ -51,7 +45,7 @@ class ImagePicker extends Component {
       })
       return (
         <li className={itemClass} key={image.src} onClick={() => this._handleClick(image)}>
-          <img src={image.thumb} alt={image.alt} title={image.title} />
+          <img src={image.thumb} alt={image.alt} title={image.alt} />
         </li>
       )
     })
@@ -69,7 +63,7 @@ class ImagePicker extends Component {
 
   _buttonAction = (callback) => {
     const { images, selected } = this.state
-    if (images.length === 0 || selected === -1) { return }
+    if (selected === -1) { return }
     callback(images[selected])
   }
 
@@ -84,18 +78,15 @@ class ImagePicker extends Component {
     const { actions } = this.props
     const { images } = this.state
 
-    const headImage = this._getHeadImage()
-    const listImages = this._getListImages()
-
     return (
       <div className='sui-ImagePicker'>
         <div>
           <div className='sui-ImagePicker-headImage'>
-            {headImage}
+            {this._getHeadImage()}
           </div>
           {actions.length > 0 && this._displayActions(actions)}
         </div>
-        {images.length > 0 && <ul className='sui-ImagePicker-thumbList'>{listImages}</ul>}
+        {images.length > 0 && <ul className='sui-ImagePicker-thumbList'>{this._getListImages()}</ul>}
       </div>
     )
   }
@@ -107,7 +98,21 @@ ImagePicker.propTypes = {
   /**
    * Array with React components (or nodes) with the different actions to be done
    */
-  actions: PropTypes.array,
+  actions: PropTypes.arrayOf(PropTypes.shape({
+    /**
+     * Action callback
+     */
+    callback: PropTypes.func.isRequired,
+    /**
+     * React node to be displayed
+     */
+    node: PropTypes.node.isRequired
+  })),
+
+  /**
+   * String that must be displayed in the ALT when there's no image to display
+   */
+  defaultAlt: PropTypes.string.isRequired,
 
   /**
    * Image that will be displayed when there is no image in the array of images
@@ -117,18 +122,37 @@ ImagePicker.propTypes = {
   /**
    * Array of images to be displayed and picked
    */
-  images: PropTypes.array,
+  images: PropTypes.arrayOf(PropTypes.shape({
+    /**
+     * ALT text
+     */
+    alt: PropTypes.string.isRequired,
+    /**
+     * Url with the image to be displayed. This image must be pre-resized to fit.
+     */
+    src: PropTypes.string.isRequired,
+    /**
+     * Url with the thumbnail
+     */
+    thumb: PropTypes.string.isRequired
+  })),
 
   /**
    * Callback to the parent that will be called every time a thumb is clicked.
    */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+
+  /**
+   * Index of the image that must be display upon the rendering
+   */
+  selected: PropTypes.number
 }
 
 ImagePicker.defaultProps = {
   actions: [],
   images: [],
-  onClick: () => {}
+  onClick: () => {},
+  selected: -1
 }
 
 export default ImagePicker

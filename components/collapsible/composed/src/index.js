@@ -23,7 +23,10 @@ class CollapsibleComposed extends Component {
     const itemClass = cx('sui-CollapsibleComposed-item', { 'sui-CollapsibleComposed-item--inline': inline })
     const togglerClass = cx('sui-CollapsibleComposed-toggler', { 'sui-CollapsibleComposed-item--inline': inline })
 
-    const displayItems = (items || []).concat((!collapsed && hiddenItems) || []).map((item, index) => {
+    const itemsToToggle = (!collapsed && hiddenItems) || []
+    const totalItems = items.concat(itemsToToggle)
+
+    const displayItems = totalItems.map((item, index) => {
       return <div className={itemClass} key={index}>{item}</div>
     })
 

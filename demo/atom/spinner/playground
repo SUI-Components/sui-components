@@ -1,0 +1,18 @@
+const closeFullscreen = function() {
+
+}
+
+return (
+  <div>
+    <AtomSpinner type={AtomSpinnerTypes.SECTION}>
+      <div style={{border: '1px solid'}}>
+        <h1>Soy un componente</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt architecto blanditiis necessitatibus expedita ex repellendus quas atque fuga? Omnis, quae quia maxime minus eligendi consectetur illo quidem ipsum voluptatem suscipit!</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt architecto blanditiis necessitatibus expedita ex repellendus quas atque fuga? Omnis, quae quia maxime minus eligendi consectetur illo quidem ipsum voluptatem suscipit!</p>
+      </div>
+    </AtomSpinner>
+    <button style={{zIndex: 9999999999}}>
+      Close fullscreen spinner
+    </button>
+  </div>
+)

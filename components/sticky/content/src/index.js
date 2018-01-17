@@ -75,16 +75,17 @@ export default class StickyContent extends Component {
   }
 
   _saveDOMRef = ref => {
-    const { top: elementTop } = ref.getBoundingClientRect()
     this._DOMElement = ref
-    this._elementTop = elementTop
   }
 
   componentDidMount () {
     const { sticky, scrollableElementSelector } = this.props
 
     if (sticky) {
+      const { top: elementTop } = this._DOMElement.getBoundingClientRect()
+      this._elementTop = elementTop
       this._scrollableElement = scrollableElementSelector ? document.querySelector(scrollableElementSelector) : document.documentElement
+
       window.addEventListener('scroll', this._handleScroll, {
         capture: true,
         passive: true
@@ -94,7 +95,10 @@ export default class StickyContent extends Component {
 
   componentWillUnmount () {
     if (this.props.sticky) {
-      window.removeEventListener('scroll', this._handleScroll)
+      window.removeEventListener('scroll', this._handleScroll, {
+        capture: true,
+        passive: true
+      })
     }
   }
 

@@ -39,13 +39,7 @@ class ImagePicker extends Component {
     const src = (images.length === 0) ? emptyImage : images[selected].src
     const alt = (images.length === 0) ? 'No text available' : images[selected].alt
 
-    return (
-      <div className='sui-ImagePicker-image--vcenter'>
-        <div className='sui-ImagePicker-image--hcenter'>
-          <ImagePlaceholder src={src} alt={alt} placeholder={placeHolder} />
-        </div>
-      </div>
-    )
+    return (<ImagePlaceholder src={src} alt={alt} placeholder={placeHolder} />)
   }
 
   _getListImages () {
@@ -61,7 +55,7 @@ class ImagePicker extends Component {
         </li>
       )
     })
-    return (<ul className='sui-ImagePicker-imageList'>{imageList}</ul>)
+    return imageList
   }
 
   _handleClick (clickedImage) {
@@ -96,10 +90,12 @@ class ImagePicker extends Component {
     return (
       <div className='sui-ImagePicker'>
         <div>
-          <div className='sui-ImagePicker-headImage'>{headImage}</div>
+          <div className='sui-ImagePicker-headImage'>
+            {headImage}
+          </div>
           {actions.length > 0 && this._displayActions(actions)}
         </div>
-        {images.length > 0 && <div className='sui-ImagePicker-list'>{listImages}</div>}
+        {images.length > 0 && <ul className='sui-ImagePicker-thumbList'>{listImages}</ul>}
       </div>
     )
   }

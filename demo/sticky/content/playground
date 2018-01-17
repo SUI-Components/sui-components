@@ -18,9 +18,6 @@ const emptyLines = (n) => (
   </div>
 )
 
-document.body.style.overflow = 'scroll'
-document.querySelector('section.sui-Studio').style.height = 'auto'
-
 return (
   <div style={{ height: '2000px', width: '100%', backgroundColor: 'white'}}>
     { emptyLines(10) }

@@ -3,7 +3,11 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 class CollapsibleComposed extends Component {
-  state = { collapsed: this.props.collapsed }
+  constructor (props) {
+    super(props)
+
+    this.state = { collapsed: props.collapsed }
+  }
 
   _toggle () {
     const { collapsed } = this.state
@@ -19,8 +23,8 @@ class CollapsibleComposed extends Component {
     const itemClass = cx('sui-CollapsibleComposed-item', { 'sui-CollapsibleComposed-item--inline': inline })
     const togglerClass = cx('sui-CollapsibleComposed-toggler', { 'sui-CollapsibleComposed-item--inline': inline })
 
-    const displayItems = (items || []).concat((!collapsed && hiddenItems) || []).map(item => {
-      return <div className={itemClass}>{item}</div>
+    const displayItems = (items || []).concat((!collapsed && hiddenItems) || []).map((item, index) => {
+      return <div className={itemClass} key={index}>{item}</div>
     })
 
     return (
@@ -38,11 +42,34 @@ class CollapsibleComposed extends Component {
 CollapsibleComposed.displayName = 'CollapsibleComposed'
 
 CollapsibleComposed.propTypes = {
+  /**
+   * Boolean. Determines if (false) the hidden elements will be initially displayed
+   */
   collapsed: PropTypes.bool,
+
+  /**
+   * Items that will appear and desappear when the toggle icon is clicked
+   */
   hiddenItems: PropTypes.array,
+
+  /**
+   * Boolean. Determines if (true) the elements will be displayed inline
+   */
   inline: PropTypes.bool,
+
+  /**
+   * Items that will always be visible
+   */
   items: PropTypes.array,
+
+  /**
+   * Title of the section
+   */
   label: PropTypes.node.isRequired,
+
+  /**
+   * Callback to be called when the toggle icon is clicked.
+   */
   onToggle: PropTypes.func
 }
 

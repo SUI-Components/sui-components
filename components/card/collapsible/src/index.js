@@ -8,7 +8,7 @@ class CardCollapsible extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      collapsed: true
+      collapsed: props.collapsed
     }
     this._toggleCardContent = this._toggleCardContent.bind(this)
   }
@@ -159,7 +159,15 @@ CardCollapsible.propTypes = {
   /**
    * Function to call when the expanded/collapsed status of collapsible component has changed.
    */
-  onChangeHandler: PropTypes.func
+  onChangeHandler: PropTypes.func,
+  /**
+   * Whether display the component collapsed or not on the first render.
+   */
+  collapsed: PropTypes.bool
+}
+
+CardCollapsible.defaultProps = {
+  collapsed: true
 }
 
 CardCollapsible.displayName = 'CardCollapsible'

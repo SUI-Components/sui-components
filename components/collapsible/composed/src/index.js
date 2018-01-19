@@ -3,11 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 class CollapsibleComposed extends Component {
-  constructor (props) {
-    super(props)
-
-    this.state = { collapsed: props.collapsed }
-  }
+  state = { collapsed: this.props.collapsed }
 
   _toggle () {
     const { collapsed } = this.state
@@ -20,8 +16,12 @@ class CollapsibleComposed extends Component {
     const { collapsed } = this.state
     const collapseIcon = collapsed ? '+' : '-'
 
-    const itemClass = cx('sui-CollapsibleComposed-item', { 'sui-CollapsibleComposed-item--inline': inline })
-    const togglerClass = cx('sui-CollapsibleComposed-toggler', { 'sui-CollapsibleComposed-item--inline': inline })
+    const itemClass = cx('sui-CollapsibleComposed-item',
+      { 'sui-CollapsibleComposed-item--inline': inline }
+    )
+    const togglerClass = cx('sui-CollapsibleComposed-toggler',
+      { 'sui-CollapsibleComposed-item--inline': inline }
+    )
 
     const itemsToToggle = (!collapsed && hiddenItems) || []
     const totalItems = items.concat(itemsToToggle)

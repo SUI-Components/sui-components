@@ -5,19 +5,19 @@ class ErrorAppBoundary extends Component {
   AlertBasicComponent = null
   state = { errorCount: 0, hasError: false }
   componentDidCatch (errorMessage, errorStack) {
-    const { numberOfToleratedErrors, onError, redirectUrlOnUntolerated } = this.props
+    const { errorThreshold, onError, redirectUrlOnBreakingThreshold } = this.props
     const { errorCount } = this.state
 
     onError({ errorMessage, errorStack })
     this.setState({ errorCount: errorCount + 1 })
 
-    return errorCount >= numberOfToleratedErrors
-      ? redirectUrlOnUntolerated && (window.location.href = redirectUrlOnUntolerated)
+    return errorCount >= errorThreshold
+      ? redirectUrlOnBreakingThreshold && (window.location.href = redirectUrlOnBreakingThreshold)
       : this._loadNotification()
   }
 
   shouldComponentUpdate (nextProps, nextState) {
-    return nextState.errorCount <= nextProps.numberOfToleratedErrors
+    return nextState.errorCount <= nextProps.errorThreshold
   }
 
   _loadNotification () {
@@ -83,7 +83,7 @@ ErrorAppBoundary.propTypes = {
    * In order to avoid infinite loops for errors on render, do a shortcircuit if the component
    * can't handle all the errors that are coming
    */
-  numberOfToleratedErrors: PropTypes.number,
+  errorThreshold: PropTypes.number,
   /**
    * Execute some code for each error. Useful for sending traces to some service in order to log
    * and track errors in the frontend
@@ -93,13 +93,13 @@ ErrorAppBoundary.propTypes = {
    * If the numberOfToleratedErrores is surpassed, then we could redirect the user to a different
    * URL in order to inform him that the web is definitely broken and unusable
    */
-  redirectUrlOnUntolerated: PropTypes.string
+  redirectUrlOnBreakingThreshold: PropTypes.string
 }
 
 ErrorAppBoundary.defaultProps = {
   buttonLabel: 'OK',
   message: 'Error',
-  numberOfToleratedErrors: 4,
+  errorThreshold: 4,
   onError: ({ errorMessage, errorStack }) => console.error({ errorMessage, errorStack })
 }
 

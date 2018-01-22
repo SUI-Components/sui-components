@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import throttle from 'lodash.throttle'
 import cx from 'classnames'
 
 const STICKY_CONTENT_POSITION_CLASSNAME = {
   top: 'sui-StickyContent--top',
   bottom: 'sui-StickyContent--bottom'
 }
+
+const SCROLL_EVENT_LISTENER_OPTIONS = {
+  capture: true,
+  passive: true
+}
+
+const THROTTLE_TIME = 250
 
 const NO_OP = () => {}
 
@@ -54,6 +62,16 @@ export default class StickyContent extends Component {
   _isFixed = false
   _scrollableElement = null
 
+  constructor (props) {
+    super(props)
+    this._handleScroll = throttle(this._handleScroll, THROTTLE_TIME)
+  }
+
+  _handleScroll = (e) => {
+    e.stopPropagation()
+    this._isFixed !== this._shouldStickContent() && this._toggleFixedStatus()
+  }
+
   _setElementTop = () => {
     const { top: elementTop } = this._DOMElement.getBoundingClientRect()
     this._elementTop = elementTop
@@ -74,15 +92,6 @@ export default class StickyContent extends Component {
     this.props.onDisplayChange({ isFixed: true })
   }
 
-  _handleScroll = (e) => {
-    e.stopPropagation()
-    const shouldStickContent = this._shouldStickContent()
-
-    if ((this._isFixed && !shouldStickContent) || (!this._isFixed && shouldStickContent)) {
-      this._toggleFixedStatus()
-    }
-  }
-
   _saveDOMRef = ref => {
     this._DOMElement = ref
   }
@@ -93,19 +102,13 @@ export default class StickyContent extends Component {
     if (sticky) {
       this._scrollableElement = scrollableElementSelector ? document.querySelector(scrollableElementSelector) : document.documentElement
 
-      window.addEventListener('scroll', this._handleScroll, {
-        capture: true,
-        passive: true
-      })
+      window.addEventListener('scroll', this._handleScroll, SCROLL_EVENT_LISTENER_OPTIONS)
     }
   }
 
   componentWillUnmount () {
     if (this.props.sticky) {
-      window.removeEventListener('scroll', this._handleScroll, {
-        capture: true,
-        passive: true
-      })
+      window.removeEventListener('scroll', this._handleScroll, SCROLL_EVENT_LISTENER_OPTIONS)
     }
   }
 

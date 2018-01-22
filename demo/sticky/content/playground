@@ -20,6 +20,19 @@ const emptyLines = (n) => (
 
 return (
   <div style={{ height: '2000px', width: '100%', backgroundColor: 'white'}}>
+    <div style={{ maxWidth: 600 }}>
+      <strong>Keep in mind that your page container must be scrollable.</strong>
+       <br />
+       <strong>For example, as sui-studio is not
+      (overflow: scroll and fixed height: 100vh is set), you may add the following lines in console in order
+      to make it work:</strong>
+      <br />
+      <br />
+      <code>document.body.style.overflow = 'scroll'</code>
+      <br />
+      <code>document.querySelector('section.sui-Studio').style.height = 'auto'</code>
+      <br />
+    </div>
     { emptyLines(10) }
 
     <StickyContent

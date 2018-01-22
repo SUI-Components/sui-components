@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2018-01-22)
+
+
+### Features
+
+* added behavior when receive new props ([131a011](https://github.com/SUI-Components/sui-components/commit/131a011))
+* create a new fuction: setOpenIndex ([a4d9511](https://github.com/SUI-Components/sui-components/commit/a4d9511))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2018-01-12)
 

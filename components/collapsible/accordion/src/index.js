@@ -14,6 +14,11 @@ class CollapsibleAccordion extends Component {
     this._collapseItems(false, this.props.items.findIndex(item => !item.collapsed))
   }
 
+  componentWillReceiveProps (nextProps) {
+    const id = nextProps.items.findIndex(item => !item.collapsed)
+    this.setState({ openIndex: id === this.state.openIndex ? null : id })
+  }
+
   _handleClick (id) {
     return collapsed => this._collapseItems(collapsed, id)
   }

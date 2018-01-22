@@ -53,7 +53,7 @@ export default class StickyContent extends Component {
   }
 
   static defaultProps = {
-    position: Object.keys(STICKY_CONTENT_POSITION_CLASSNAME)[0],
+    position: 'top',
     onDisplayChange: NO_OP
   }
 
@@ -89,7 +89,7 @@ export default class StickyContent extends Component {
   _toggleFixedStatus = () => {
     this._isFixed = !this._isFixed
     this._DOMElement.classList.toggle('sui-StickyContent-fixed')
-    this.props.onDisplayChange({ isFixed: true })
+    this.props.onDisplayChange({ isFixed: this._isFixed })
   }
 
   _saveDOMRef = ref => {

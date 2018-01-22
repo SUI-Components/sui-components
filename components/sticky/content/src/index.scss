@@ -1,0 +1,24 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+.sui-StickyContent {
+  &-sticky {
+    position: relative;
+  }
+
+  &-fixed {
+    position: fixed;
+  }
+
+  &--top {
+    top: 0;
+  }
+
+  &--bottom {
+    bottom: 0;
+  }
+
+  &--fullWidth {
+    left: 0;
+    width: 100%;
+  }
+}

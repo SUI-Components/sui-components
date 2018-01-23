@@ -1,18 +1,79 @@
-const closeFullscreen = function() {
+const boxStyle = {
+  backgroundColor: '#ffffff',
+  border: '1px dashed lightgrey',
+  borderRadius: '5px',
+  padding: '10px'
+}
 
+const buttonStyle = {
+  backgroundColor: '#ffffff',
+  padding: '10px'
+}
+
+class SpinnerWrapperExample extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {contentLoaded: false}
+  }
+
+  componentDidMount () {
+    setTimeout(() => {
+      this.setState({contentLoaded: true})
+    }, 5000)
+  }
+
+  render () {
+    const {contentLoaded} = this.state
+    return contentLoaded
+      ? <p style={boxStyle}>Content loaded, spinner dissapears</p>
+      : (
+        <AtomSpinner on={!this.state.contentLoaded} delayed>
+          <p style={boxStyle}>
+            Slowly loading content, delayed spinner will be shown
+          </p>
+        </AtomSpinner>
+      )
+  }
+}
+
+class FullScreenSpinnerExample extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {show: false}
+
+    this.onClick = this.onClick.bind(this)
+  }
+
+  onClick (ev) {
+    this.setState({show: true})
+    setTimeout(() => this.setState({show: false}), 5000)
+  }
+
+  render () {
+    return (
+      <React.Fragment>
+        <button style={buttonStyle} onClick={this.onClick}>
+          Click to show fullscreen spinner for 5 seconds
+        </button>
+        <AtomSpinner on={this.state.show} type={AtomSpinnerTypes.FULL } />
+      </React.Fragment>
+    )
+  }
 }
 
 return (
   <div>
-    <AtomSpinner type={AtomSpinnerTypes.SECTION}>
-      <div style={{border: '1px solid'}}>
-        <h1>Soy un componente</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt architecto blanditiis necessitatibus expedita ex repellendus quas atque fuga? Omnis, quae quia maxime minus eligendi consectetur illo quidem ipsum voluptatem suscipit!</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt architecto blanditiis necessitatibus expedita ex repellendus quas atque fuga? Omnis, quae quia maxime minus eligendi consectetur illo quidem ipsum voluptatem suscipit!</p>
-      </div>
+    <AtomSpinner on>
+      <p style={boxStyle}>
+        Infinite spinner
+      </p>
     </AtomSpinner>
-    <button style={{zIndex: 9999999999}}>
-      Close fullscreen spinner
-    </button>
+    <AtomSpinner delayed>
+      <p style={boxStyle}>
+        Delayed spinner
+      </p>
+    </AtomSpinner>
+    <SpinnerWrapperExample />
+    <FullScreenSpinnerExample />
   </div>
 )

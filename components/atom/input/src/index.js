@@ -9,9 +9,8 @@ import InputWrapper from './InputWrapper'
 
 const NATIVE_TYPES = ['text', 'number', 'date']
 
-const changeHandler = (ev, cb) => {
-  // eslint-disable-next-line
-  cb && cb({value: ev.target.value, target: ev.target})
+const changeHandler = (ev, onChange) => {
+  onChange && onChange({value: ev.target.value, target: ev.target})
 }
 
 const AtomInput = ({label, name, onChange, ...props}) =>

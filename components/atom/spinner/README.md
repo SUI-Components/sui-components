@@ -1,6 +1,6 @@
 # AtomSpinner
 
-> Description
+> An animated loop used for giving users feedback while the content of a page or section is being loaded.
 
 <!-- ![](./assets/preview.png) -->
 
@@ -14,10 +14,14 @@ $ npm install @schibstedspain/sui-atom-spinner --save
 
 ### Basic usage
 ```js
-import AtomSpinner from '@schibstedspain/sui-atom-spinner'
+import AtomSpinner, {AtomSpinnerTypes} from '@schibstedspain/sui-atom-spinner'
 
-return (<AtomSpinner />)
+return (
+  <AtomSpinner on type={AtomSpinnerTypes.FULL}>
+    {component}
+  </AtomSpinner>
+)
 ```
 
 
-> **Find full description and more examples in the [demo page](#).**
+> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/spinner/demo).**

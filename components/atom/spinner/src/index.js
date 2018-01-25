@@ -11,14 +11,14 @@ const DELAY = 500 // ms
 
 class AtomSpinner extends Component {
   state = {
-    waiting: this.props.delayed
+    delayed: this.props.delayed
   }
 
   componentDidMount () {
-    if (!this.state.waiting) return
+    if (!this.state.delayed) return
 
     this.timer = setTimeout(() => {
-      this.setState({waiting: false})
+      this.setState({delayed: false})
     }, DELAY)
   }
 

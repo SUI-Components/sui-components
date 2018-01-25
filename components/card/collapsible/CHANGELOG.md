@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2018-01-18)
+
+
+### Features
+
+* add collapsed property in order to decide initial state. ([3305c1f](https://github.com/SUI-Components/sui-components/commit/3305c1f))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2017-12-28)
 
@@ -45,6 +55,17 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * Migrate to PropTypes package ([b8d7dfe](https://github.com/SUI-Components/sui-components/commit/b8d7dfe))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2017-10-23)
+
+
+### Features
+
+* first version of card collapsible component. ([49dbf69](https://github.com/SUI-Components/sui-components/commit/49dbf69))
+* improve docs, rename "Element" variable. ([56162f8](https://github.com/SUI-Components/sui-components/commit/56162f8))
 
 
 

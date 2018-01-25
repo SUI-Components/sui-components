@@ -1,0 +1,35 @@
+const callback = (collapse) => {
+  alert('Is collapsing? ' + collapse)
+}
+
+const items = [
+  'Item visible 1',
+  'Item visible 2'
+]
+
+const hiddenItems = [
+  'Item hidden 1',
+  'Item hidden 2'
+]
+
+return (
+  <div>
+    <h2>Title + 2 visible elements + 2 invisible element</h2>
+    <CollapsibleComposed label='Title' items={items} hiddenItems={hiddenItems} />
+
+    <h2>Title + 2 invisible element</h2>
+    <CollapsibleComposed label='Title' hiddenItems={hiddenItems} />
+
+    <h2>Title + 2 visible elements</h2>
+    <CollapsibleComposed label='Title' items={items} />
+
+    <h2>Uncollapsed content</h2>
+    <CollapsibleComposed label='Title' items={items} hiddenItems={hiddenItems} collapsed={false} />
+
+    <h2>Inline content</h2>
+    <CollapsibleComposed label='Title' items={items} hiddenItems={hiddenItems} inline />
+
+    <h2>With callback</h2>
+    <CollapsibleComposed label='Title' items={items} hiddenItems={hiddenItems} onToggle={callback} />
+  </div>
+)

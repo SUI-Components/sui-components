@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2018-01-22)
+
+
+### Features
+
+* make error appBoundary more resilient and prepared ([97a3b62](https://github.com/SUI-Components/sui-components/commit/97a3b62))
+* use better props naming ([2618e40](https://github.com/SUI-Components/sui-components/commit/2618e40))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-01-16)
 

@@ -1,6 +1,6 @@
 # AtomInput
 
-> Description
+> Form input
 
 <!-- ![](./assets/preview.png) -->
 
@@ -14,13 +14,10 @@ $ npm install @schibstedspain/sui-atom-input --save
 
 ### Basic usage
 ```js
-import MaskInput from '@schibstedspain/sui-atom-input/lib/inputs/MaskInput'
+import {Mask} from '@schibstedspain/sui-atom-input'
 
-// render the same
 return (
-  <div>
-    <MaskInput label='postal code' name='date' mask={postalCodeMask}/>
-  </div>
+  <Mask label='postal code' name='date' mask={postalCodeMask} />
 )
 ```
 
@@ -114,4 +111,4 @@ class FormTest extends Component {
 }
 ```
 
-> **Find full description and more examples in the [demo page](#).**
+> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/input/demo).**

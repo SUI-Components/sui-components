@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import SUILoader from './SUILoader'
 
 const TYPES = {
   FULL: 'full',
@@ -29,11 +30,11 @@ class AtomSpinner extends Component {
   getLayerClassName () {
     const BASE_CLASS = 'sui-atom-spinner-layer'
     const {type, on} = this.props
-    const {waiting} = this.state
+    const {delayed} = this.state
 
     return cx(
       type === TYPES.SECTION ? BASE_CLASS : `${BASE_CLASS}-full`,
-      (!waiting && on) || `${BASE_CLASS}-hide`
+      (!delayed && on) || `${BASE_CLASS}-hide`
     )
   }
 
@@ -43,7 +44,7 @@ class AtomSpinner extends Component {
     return (
       <div className='sui-atom-spinner'>
         <div className={this.getLayerClassName(props)}>
-          <div className='sui-atom-spinner-loader' />
+          <SUILoader />
         </div>
         {children}
       </div>

@@ -63,7 +63,7 @@ class FullScreenSpinnerExample extends React.Component {
 
 return (
   <div>
-    <AtomSpinner on>
+    <AtomSpinner>
       <p style={boxStyle}>
         Infinite spinner
       </p>

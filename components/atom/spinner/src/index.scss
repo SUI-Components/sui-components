@@ -1,35 +1,15 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-@keyframes Spinner {
-  0% {
-    box-shadow: -15px 15px #ff6340, 0 30px #167db7;
-  }
-
-  25% {
-    box-shadow: 0 15px #ff6340, -15px 30px #167db7;
-  }
-
-  50% {
-    box-shadow: 0 30px #ff6340, -15px 15px #167db7;
-  }
-
-  75% {
-    box-shadow: -15px 30px #ff6340, 0 15px #167db7;
-  }
-
-  100% {
-    box-shadow: -15px 15px #ff6340, 0 30px #167db7;
-  }
-
-}
+$bgc-atom-spinner: rgba($c-white, .6);
+$z-atom-spinner: 999;
 
 @mixin spinner-layer {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: $bgc-atom-spinner;
   bottom: 0;
   left: 0;
   right: 0;
   top: 0;
-  z-index: 999999;
+  z-index: $z-atom-spinner;
 }
 
 .sui-atom-spinner {
@@ -47,18 +27,5 @@
 
   &-layer-hide {
     display: none;
-  }
-
-  &-loader {
-    animation: Spinner 1.5s ease-in-out infinite;
-    background-color: transparent;
-    border-radius: 50%;
-    box-shadow: -15px 15px #ff6340, 0 30px #167db7;
-    height: 15px;
-    left: 50%;
-    margin: 0 auto;
-    position: absolute;
-    top: calc(50% - 30px);
-    width: 15px;
   }
 }

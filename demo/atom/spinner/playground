@@ -27,7 +27,7 @@ class SpinnerWrapperExample extends React.Component {
     return contentLoaded
       ? <p style={boxStyle}>Content loaded, spinner dissapears</p>
       : (
-        <AtomSpinner on={!this.state.contentLoaded} delayed>
+        <AtomSpinner delayed>
           <p style={boxStyle}>
             Slowly loading content, delayed spinner will be shown
           </p>

@@ -2,8 +2,8 @@
 
 $c-accent-atom-spinner-loader: color-variation($c-accent, 1) !default;
 $c-primary-atom-spinner-loader: color-variation($c-primary, -1) !default;
-$sz-atom-spinner-oval: $sz-icon-s;
-$sz-atom-spinner: $sz-atom-spinner-oval * 2;
+$sz-atom-spinner-oval: $sz-icon-s !default;
+$sz-atom-spinner: $sz-atom-spinner-oval * 2 !default;
 
 @keyframes sui-atom-spinner {
   0% {

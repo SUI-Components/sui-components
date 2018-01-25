@@ -9,6 +9,7 @@ const TYPES = {
 }
 
 const DELAY = 500 // ms
+const BASE_CLASS = 'sui-atom-spinner-layer'
 
 class AtomSpinner extends Component {
   state = {
@@ -28,7 +29,6 @@ class AtomSpinner extends Component {
   }
 
   getLayerClassName () {
-    const BASE_CLASS = 'sui-atom-spinner-layer'
     const {type, on} = this.props
     const {delayed} = this.state
 
@@ -56,7 +56,12 @@ AtomSpinner.displayName = 'AtomSpinner'
 
 AtomSpinner.propTypes = {
   children: PropTypes.node,
-  type: PropTypes.string,
+  /**
+   * Possible options:
+   * 'FULL': The spinner fits the whole page container
+   * 'SECTION': The spinner fits a specific site component
+   */
+  type: PropTypes.oneOf(Object.values(TYPES)),
   on: PropTypes.bool,
   delayed: PropTypes.bool,
   contentLoaded: PropTypes.bool

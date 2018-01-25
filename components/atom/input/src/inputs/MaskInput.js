@@ -23,6 +23,7 @@ class MaskInput extends Component {
     return (
       <InputWrapper label={label} name={name}>
         <input
+          id={name}
           ref={input => { this.field = input }}
           type='text'
           name={name}

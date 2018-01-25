@@ -61,7 +61,12 @@ class TagInput extends React.Component {
             <AtomTag label={label} key={idx} onClose={() => this.removeTag(idx)} />
           )
         }
-        <input type='text' onChange={this.onChange} value={this.state.inputValue} />
+        <input
+          id={name}
+          type='text'
+          onChange={this.onChange}
+          value={this.state.inputValue}
+        />
       </InputWrapper>
     )
   }

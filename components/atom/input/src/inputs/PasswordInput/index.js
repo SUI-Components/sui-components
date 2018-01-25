@@ -41,6 +41,7 @@ class PasswordInput extends React.Component {
         <input
           type={type}
           value={value}
+          id={name}
           onChange={this.onChange}
         />
         <span onClick={this.toggle}>

@@ -15,7 +15,12 @@ const changeHandler = (ev, onChange) => {
 
 const AtomInput = ({label, name, onChange, ...props}) =>
   <InputWrapper label={label} name={name}>
-    <input name={name} {...props} onChange={(ev) => changeHandler(ev, onChange)} />
+    <input
+      id={name}
+      name={name}
+      {...props}
+      onChange={(ev) => changeHandler(ev, onChange)}
+    />
   </InputWrapper>
 
 AtomInput.Mask = MaskInput

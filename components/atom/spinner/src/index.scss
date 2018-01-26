@@ -4,7 +4,7 @@
 $bgc-atom-spinner: rgba($c-white, .6);
 $z-atom-spinner: 999;
 
-@mixin spinner-layer {
+%spinner-layer {
   background-color: $bgc-atom-spinner;
   bottom: 0;
   left: 0;
@@ -17,12 +17,12 @@ $z-atom-spinner: 999;
   position: relative;
 
   &-layer {
-    @include spinner-layer;
+    @extend %spinner-layer;
     position: absolute;
   }
 
   &-layer-full {
-    @include spinner-layer;
+    @extend %spinner-layer;
     position: fixed;
   }
 

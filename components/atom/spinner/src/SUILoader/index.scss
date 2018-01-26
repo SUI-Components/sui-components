@@ -36,9 +36,10 @@ $anim-atom-spinner: sui-atom-spinner 1.5s ease-in-out infinite;
     border-radius: 50%;
     box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner-oval $c-accent-atom-spinner-loader, 0 $sz-atom-spinner $c-primary-atom-spinner-loader;
     height: $sz-atom-spinner-oval;
-    left: 50%;
+    left: 0;
     margin: 0 auto;
     position: absolute;
+    right: 0;
     top: calc(50% - #{$sz-atom-spinner});
     width: $sz-atom-spinner-oval;
   }

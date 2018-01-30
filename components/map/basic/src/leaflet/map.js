@@ -174,12 +174,12 @@ export default class LeafletMap {
   }
 
   getMapBoundingBox () {
-    const bounds = this.getBounds()
-    return '(' + bounds.northWest.lat + ',' + bounds.northWest.lng + '); ' +
-      '(' + bounds.northWest.lat + ',' + bounds.southEast.lng + '); ' +
-      '(' + bounds.southEast.lat + ',' + bounds.southEast.lng + '); ' +
-      '(' + bounds.southEast.lat + ',' + bounds.northWest.lng + '); ' +
-      '(' + bounds.northWest.lat + ',' + bounds.northWest.lng + ')'
+    const { northWest, southEast } = this.getBounds()
+    return northWest.lat + ',' + northWest.lng + ';' +
+      northWest.lat + ',' + southEast.lng + ';' +
+      southEast.lat + ',' + southEast.lng + ';' +
+      southEast.lat + ',' + northWest.lng + ';' +
+      northWest.lat + ',' + northWest.lng
   }
 
   getParamsForRequest () {

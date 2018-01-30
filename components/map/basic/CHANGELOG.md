@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2018-01-30)
+
+
+### Features
+
+* needed bumped version ([059fb0e](https://github.com/SUI-Components/sui-components/commit/059fb0e))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2017-11-21)
 

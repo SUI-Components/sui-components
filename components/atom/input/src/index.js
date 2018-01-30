@@ -17,7 +17,6 @@ const AtomInput = ({
   label,
   name,
   onChange,
-  type,
   size,
   helpText,
   verificationtext,

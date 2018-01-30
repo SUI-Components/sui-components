@@ -1,167 +1,216 @@
 @import '~@schibstedspain/sui-theme/lib/settings';
 @import '~@schibstedspain/sui-theme/lib/index';
 
+$bdc-sui-molecule-tabs: color-variation($c-gray, 3) !default;
+$bdw-sui-molecule-tabs: $p-s !default;
+
 .sui-MoleculeTabs {
   display: inline-flex;
+
   &-scroller {
     @include reset-list;
+    align-items: flex-start;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    align-items: flex-start;
+
   }
-  &--classic.sui-MoleculeTabs--horizontal, &--classic.sui-MoleculeTabs--fullWidth {
+
+  &--classic.sui-MoleculeTabs--horizontal,
+  &--classic.sui-MoleculeTabs--fullWidth {
+
     .sui-MoleculeTabs-button {
-      border-top: 1px solid transparent;
-      border-left: 1px solid transparent;
-      border-right: 1px solid transparent;
-      border-bottom: 1px solid $c-gray-light;
+      border: 1px solid transparent;
+      border-bottom-color: $bdc-sui-molecule-tabs;
       cursor: pointer;
-      &.is-active {
-        color: $c-primary;
-        border-top-color: $c-gray-light;
-        border-left-color: $c-gray-light;
-        border-right-color: $c-gray-light;
-        border-bottom-color:transparent;
+
+      &.active {
+        color: $c-primary;        
+        border-color: $bdc-sui-molecule-tabs;
+        border-bottom-color: transparent;
+
         svg {
           fill: $c-primary;
         }
+
       }
-      &:hover:not(.is-disabled) {
-        color: $c-primary;   
+
+      &:hover:not(.disabled) {
+        color: $c-primary;
+
         svg {
           fill: $c-primary;
-        }     
+        }
+
       }
     }
   }
+
   &--classic.sui-MoleculeTabs--vertical {
     .sui-MoleculeTabs-button {
-      border-top: 1px solid transparent;
-      border-left: 1px solid transparent;
-      border-right: 1px solid $c-gray-light;
-      border-bottom: 1px solid transparent;
+      border: 1px solid transparent;
+      border-right-color: $bdc-sui-molecule-tabs;
       cursor: pointer;
-      &.is-active {
-        color: $c-primary;
-        border-top-color: $c-gray-light;
-        border-left-color: $c-gray-light;
+
+      &.active {
+        border-color: $bdc-sui-molecule-tabs;
         border-right-color: transparent;
-        border-bottom-color:$c-gray-light;
-        svg {
-          fill: $c-primary;
-        }
-      }
-      &:hover:not(.is-disabled) {
-        color: $c-primary;   
-        svg {
-          fill: $c-primary;
-        }     
-      }
-    }
-  }
-  &--highlighted.sui-MoleculeTabs--horizontal, &--highlighted.sui-MoleculeTabs--fullWidth {
-    border-bottom: 1px solid $c-gray-light;
-    .sui-MoleculeTabs-button {
-      border-top: 0px none transparent;
-      border-left: 0px none transparent;
-      border-right: 0px none transparent;
-      border-bottom: $p-s solid transparent;
-      cursor: pointer;
-      &.is-active {
         color: $c-primary;
-        border-bottom-color:$c-primary;
+
+        svg {
+          fill: $c-primary;
+        }
+
+      }
+
+      &:hover:not(.disabled) {
+        color: $c-primary;
+
+        svg {
+          fill: $c-primary;
+
+        }
+
+      }
+
+    }
+  }
+
+  &--highlighted.sui-MoleculeTabs--horizontal,
+  &--highlighted.sui-MoleculeTabs--fullWidth {
+    border-bottom: 1px solid $bdc-sui-molecule-tabs;
+
+    .sui-MoleculeTabs-button {
+      border: 0 none transparent;
+      border-bottom: $bdw-sui-molecule-tabs solid transparent;
+      cursor: pointer;
+
+      &.active {
+        border-bottom-color: $c-primary;
+        color: $c-primary;
+
         svg {
           fill: $c-primary;
         }
       }
-      &:hover:not(.is-disabled) {
-        color: $c-primary;   
+
+      &:hover:not(.disabled) {
+        color: $c-primary;
+
         svg {
           fill: $c-primary;
-        }     
+        }    
       }
+
     }
   }
+
   &--highlighted.sui-MoleculeTabs--vertical {
-    border-right: 1px solid $c-gray-light;
+    border-right: 1px solid $bdc-sui-molecule-tabs;
+
     .sui-MoleculeTabs-button {
-      border-top: 0px none transparent;
-      border-left: 0px none transparent;
-      border-right: $p-s solid transparent;
-      border-bottom: 0px none transparent;      
+      border: 0 none transparent;
+      border-right: $bdw-sui-molecule-tabs solid transparent;
       cursor: pointer;
-      &.is-active {
+
+      &.active {
+        border-right-color: $c-primary;
         color: $c-primary;
-        border-right-color:$c-primary;
+
         svg {
           fill: $c-primary;
+
         }
       }
-      &:hover:not(.is-disabled) {
-        color: $c-primary;   
+
+      &:hover:not(.disabled) {
+        color: $c-primary;
+
         svg {
           fill: $c-primary;
+
         }     
       }
     }
   }
-  &--horizontal, &--fullWidth {
-    overflow-x: auto;
+
+  &--horizontal,
+  &--fullWidth {
     max-width: 100%;
+    overflow-x: auto;
+
     .sui-MoleculeTabs-scroller {
-      width: fit-content;
       white-space: nowrap;
+      width: fit-content;
+
     }
   }
+
   &--vertical {
+
     .sui-MoleculeTabs-scroller {
       flex-direction: column;
+
     }
+
     .sui-MoleculeTabs-item {
       width: 100%;
+
     }
+
   }
+
   &--fullWidth {
     display: block;
+
     .sui-MoleculeTabs-scroller {
       display: flex;
-      min-width: 100%;      
+      min-width: 100%; 
+
     }
   }
+
   &-icon {
-    // @TODO USE @include sui-icon--large-medium ?
-    height: 32px;
-    width: 32px;
     display: block;
-    margin: 0 auto;
-    margin-bottom: $m-s;
+    height: $sz-icon-l;
+    margin: 0 auto $m-s;
     vertical-align: middle;
+    width: $sz-icon-l;
+
   }
+
   &-item {
     flex: 1 1 auto;
+
   }
+
   &-button {
     @include reset-link;
-    width: 100%;
-    padding: $p-m $p-l;
-    font-size: $fz-m;
-    text-decoration: none;
-    white-space: nowrap;
-    color: $c-gray-light;
     background: transparent;
-    outline: 0px none;    
+    color: $c-gray-light;
+    font-size: $fz-m;    
+    outline: 0 none;      
+    padding: $p-m $p-l;
+    text-decoration: none;
+    white-space: nowrap;    
+    width: 100%;    
+
     svg {
       fill: $c-gray-light;
+
     }
-    &.is-disabled {
-      cursor: default;
+
+    &.disabled {
       color: $c-gray-lightest;
+      cursor: default;
+
       svg {
         fill: $c-gray-lightest;
+
       }
     }
+  
   }
 }
 

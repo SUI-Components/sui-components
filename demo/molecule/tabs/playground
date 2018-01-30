@@ -53,7 +53,7 @@ const itemsNoIcons = [
   },
 ]
 
-function handleClick (index, label) {
+function handleChange (index, label) {
   console.log(index, label)
 }
 
@@ -70,21 +70,21 @@ return (
         <MoleculeTabs
             items={itemsNoIcons}
             activeTab={0}
-            handleClick={handleClick}
+            handleChange={handleChange}
         />
         <br/><br/>
         <h3>Default with icons</h3>
         <MoleculeTabs
             items={items}
             activeTab={0}
-            handleClick={handleClick}
+            handleChange={handleChange}
         />
         <br/><br/>
         <h3>Full Width</h3>
         <MoleculeTabs
             items={items}
             activeTab={0}
-            handleClick={handleClick}
+            handleChange={handleChange}
             type={moleculeTabsTypes.FULLWIDTH}
         />
         <br/><br/>
@@ -93,7 +93,7 @@ return (
         <MoleculeTabs
             items={itemsNoIcons}
             activeTab={0}
-            handleClick={handleClick}
+            handleChange={handleChange}
             variant={moleculeTabsVariants.HIGHLIGHTED}
         />
         <br/><br/>
@@ -101,7 +101,7 @@ return (
         <MoleculeTabs
             items={items}
             activeTab={0}
-            handleClick={handleClick}
+            handleChange={handleChange}
             variant={moleculeTabsVariants.HIGHLIGHTED}
         />
         <br/><br/>
@@ -109,7 +109,7 @@ return (
         <MoleculeTabs
             items={items}
             activeTab={0}
-            handleClick={handleClick}
+            handleChange={handleChange}
             variant={moleculeTabsVariants.HIGHLIGHTED}
             type={moleculeTabsTypes.FULLWIDTH}
         />
@@ -123,7 +123,7 @@ return (
             marginBottom: '20px'
           }}>
           <tr>
-            <td colspan="2">
+            <td colSpan="2">
               <h2>CLASSIC VARIANT</h2>
             </td>
           </tr>
@@ -136,7 +136,7 @@ return (
                 <MoleculeTabs
                   items={itemsNoIcons}
                   activeTab={0}
-                  handleClick={handleClick}
+                  handleChange={handleChange}
                   type={moleculeTabsTypes.VERTICAL}
                 />
             </td>
@@ -148,7 +148,7 @@ return (
               <MoleculeTabs
                   items={items}
                   activeTab={0}
-                  handleClick={handleClick}
+                  handleChange={handleChange}
                   type={moleculeTabsTypes.VERTICAL}
               />
             </td>
@@ -161,7 +161,7 @@ return (
             marginBottom: '20px'
           }}>
           <tr>
-            <td colspan="2">
+            <td colSpan="2">
               <h2>HIGHLIGHTED VARIANT</h2>
             </td>
           </tr>
@@ -174,7 +174,7 @@ return (
                 <MoleculeTabs
                   items={itemsNoIcons}
                   activeTab={0}
-                  handleClick={handleClick}
+                  handleChange={handleChange}
                   type={moleculeTabsTypes.VERTICAL}
                   variant={moleculeTabsVariants.HIGHLIGHTED}
                 />
@@ -187,7 +187,7 @@ return (
               <MoleculeTabs
                   items={items}
                   activeTab={0}
-                  handleClick={handleClick}
+                  handleChange={handleChange}
                   type={moleculeTabsTypes.VERTICAL}
                   variant={moleculeTabsVariants.HIGHLIGHTED}
               />

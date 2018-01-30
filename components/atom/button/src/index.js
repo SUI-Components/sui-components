@@ -8,7 +8,7 @@ const SIZES = ['small', 'large']
 const MODIFIERS = ['disabled', 'fullWidth', 'focused', 'negative', 'link']
 const OWN_PROPS = [
   ...TYPES, ...SIZES, ...MODIFIERS,
-  'leftIcon', 'rightIcon', 'className', 'children', 'linkFactory'
+  'leftIcon', 'rightIcon', 'className', 'children', 'linkFactory', 'type'
 ]
 const CLASSES = [...TYPES, ...SIZES, ...MODIFIERS, 'empty']
   .reduce((res, key) => Object.assign(res, {[key]: `${CLASS}--${key}`}), {})

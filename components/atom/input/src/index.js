@@ -5,7 +5,7 @@ import {
   TagInput,
   PasswordInput
 } from './inputs'
-import InputWrapper from './InputWrapper'
+import InputWrapper, {SIZES, VERIFICATION_TYPES} from './InputWrapper'
 
 const NATIVE_TYPES = ['text', 'number', 'date']
 
@@ -13,14 +13,26 @@ const changeHandler = (ev, onChange) => {
   onChange && onChange({value: ev.target.value, target: ev.target})
 }
 
-const AtomInput = ({label, name, onChange, ...props}) =>
-  <InputWrapper label={label} name={name}>
-    <input
-      id={name}
-      name={name}
-      {...props}
-      onChange={(ev) => changeHandler(ev, onChange)}
-    />
+const AtomInput = ({
+  label,
+  name,
+  onChange,
+  type,
+  size,
+  helpText,
+  verificationtext,
+  verificationtype,
+  ...props
+}) =>
+  <InputWrapper
+    label={label}
+    name={name}
+    size={size}
+    helpText={helpText}
+    verificationtext={verificationtext}
+    verificationtype={verificationtype}
+  >
+    <input name={name} className='sui-AtomInput-input' {...props} onChange={(ev) => changeHandler(ev, onChange)} />
   </InputWrapper>
 
 AtomInput.Mask = MaskInput
@@ -33,7 +45,15 @@ AtomInput.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func,
-  type: PropTypes.oneOf(NATIVE_TYPES)
+  type: PropTypes.oneOf(NATIVE_TYPES),
+  size: PropTypes.string,
+  helpText: PropTypes.string,
+  verificationtext: PropTypes.string,
+  verificationtype: PropTypes.oneOf(Object.values(VERIFICATION_TYPES))
 }
 
 export default AtomInput
+export {
+  SIZES as atomInputSizes,
+  VERIFICATION_TYPES as atomInputVerificationTypes
+}

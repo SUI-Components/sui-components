@@ -1,4 +1,5 @@
 const getStyle = style => Object.assign(style, {width: '33.33%', padding: 20, color: '#fff', float: 'left', minHeight: 400})
+const className = 'sui-LayoutBreakpoint'
 
 class Layout extends React.Component {
 
@@ -9,7 +10,7 @@ class Layout extends React.Component {
   render () {
     const current = this.state && this.state.current || 0
     return (<div>
-    <LayoutBreakpointSplit breakpoint={575} current={current}>
+    <LayoutBreakpointSplit breakpoint={575} current={current} className={className}>
       <div style={getStyle({background: '#f44336'})}>
         LEFT VIEW {current == 0 && '(active)'}<br /><br />
         <button disabled>Prev &lt;</button>

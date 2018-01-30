@@ -4,10 +4,10 @@
 $r-atom-input-password-toggle-button: $gutter;
 $pr-atom-input-password-input: 60px;
 
-.sui-AtomInput {  
+.sui-AtomInput {
   &-password {
     position: relative;
-    
+
     &-input {
       /* add mixin to sui-theme */
       border-color: $c-gray-light;
@@ -18,17 +18,17 @@ $pr-atom-input-password-input: 60px;
       padding-right: $p-l;
       width: 100%;
       /* add mixin to sui-theme */
-      
+
       padding-right: $pr-atom-input-password-input;
     }
-    
+
     &-toggle-button {
       color: $c-primary;
       cursor: pointer;
       position: absolute;
       right: $r-atom-input-password-toggle-button;
       top: 50%;
-      transform: translateY(-50%)
-    }  
+      transform: translateY(-50%);
+    }
   }
 }

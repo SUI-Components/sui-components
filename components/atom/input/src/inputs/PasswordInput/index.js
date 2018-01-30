@@ -6,8 +6,8 @@ import './style.scss'
 
 const TEXT = 'text'
 const PASSWORD = 'password'
-const DEFAULT_HIDE = 'Hide'
-const DEFAULT_SHOW = 'Show'
+const DEFAULT_HIDE = 'hide'
+const DEFAULT_SHOW = 'show'
 
 class PasswordInput extends React.Component {
   state = {

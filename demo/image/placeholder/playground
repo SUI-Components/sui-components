@@ -13,9 +13,12 @@ return (
     <h2>Placeholder</h2>
     <div style={{width: '20%'}}>
       <ImagePlaceholder
-        src='https://satyr.io/1000?delay=3g'
+        src='https://cdn-images-1.medium.com/max/1800/1*sg-uLNm73whmdOgKlrQdZA.jpeg'
         alt='Some alt'
-        placeholder={placeholder}
+        placeholder={{
+          src: 'https://cdn-images-1.medium.com/freeze/max/27/1*sg-uLNm73whmdOgKlrQdZA.jpeg?q=20',
+          alt: 'lala'
+        }}
         onLoad={() => console.log('custom onLoad')}
       />
     </div>

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2018-01-30)
+
+
+### Bug Fixes
+
+* avoid adding type attribute to button tag, since in HTML5, button default behaviou ([4b63062](https://github.com/SUI-Components/sui-components/commit/4b63062))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2017-12-15)
 

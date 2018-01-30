@@ -14,13 +14,22 @@ class CollapsibleAccordion extends Component {
     this._collapseItems(false, this.props.items.findIndex(item => !item.collapsed))
   }
 
+  componentWillReceiveProps (nextProps) {
+    const id = nextProps.items.findIndex(item => !item.collapsed)
+    this._setOpenIndex(id)
+  }
+
   _handleClick (id) {
     return collapsed => this._collapseItems(collapsed, id)
   }
 
   _collapseItems (collapsed, id) {
-    this.setState({ openIndex: id === this.state.openIndex ? null : id })
+    this._setOpenIndex(id)
     this.props.onItemChange(collapsed, id)
+  }
+
+  _setOpenIndex (id) {
+    this.setState({ openIndex: id === this.state.openIndex ? null : id })
   }
 
   render () {
@@ -30,7 +39,7 @@ class CollapsibleAccordion extends Component {
       <div>
         {
           items.map((item, index) => (
-            <CollapsibleBasic key={index} {...item} collapsed={openIndex !== index} handleClick={this._handleClick(index)}>
+            <CollapsibleBasic key={index} {...item} collapsed={openIndex !== index} handleClick={this._handleClick(index)} icon={this.props.icon}>
               {item.content}
             </CollapsibleBasic>
           ))
@@ -47,6 +56,10 @@ CollapsibleAccordion.propTypes = {
    * Event that will send when select an item
    */
   onItemChange: PropTypes.func,
+  /**
+   * icon to be displayed.
+   */
+  icon: PropTypes.func,
   /**
    * Items array
    */

@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2018-01-30)
+
+
+### Bug Fixes
+
+* fix order in mapboundingbox latitude and longitude ([967de67](https://github.com/SUI-Components/sui-components/commit/967de67))
+
+
+
+<a name="1.5.0"></a>
+# 1.5.0 (2018-01-30)
+
+
+### Features
+
+* needed bumped version ([059fb0e](https://github.com/SUI-Components/sui-components/commit/059fb0e))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2017-11-21)
 

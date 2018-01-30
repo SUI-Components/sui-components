@@ -18,11 +18,16 @@
     margin-bottom: $mb-collapsible-basic-trigger;
     padding: $p-collapsible-basic-trigger;
 
-    &-icon {
+    &-iconBox {
       flex: 1;
-      height: $sz-collapsible-basic-trigger-icon;
       transition: $trs-collapsible-basic-trigger-icon;
-      width: $sz-collapsible-basic-trigger-icon;
+
+      &-icon {
+        fill: $c-collapsible-basic-trigger-icon !important;
+        height: $sz-collapsible-basic-trigger-icon;
+        margin: auto $m-h;
+        width: $sz-collapsible-basic-trigger-icon;
+      }
     }
 
     &-label {
@@ -34,10 +39,6 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-  }
-
-  &-defaultIcon {
-    margin: auto $m-h;
   }
 
   &-collapsibleContent {
@@ -56,7 +57,7 @@
     background-color: $bgc-collapsible-basic-expanded;
 
     .sui-CollapsibleBasic-trigger {
-      &-icon {
+      &-iconBox {
         transform: rotateZ(180deg);
       }
     }

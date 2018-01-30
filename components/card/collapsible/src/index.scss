@@ -7,10 +7,6 @@
 .sui-CardCollapsible {
   background-color: $bgc-card-collapsible;
 
-  &.is-expanded {
-    box-shadow: $bxsh-card-collapsible;
-  }
-
   &-header {
     @include sui-list;
     align-items: center;
@@ -19,7 +15,6 @@
       @include sui-list;
       height: $h-card-collapsible-header-image;
       justify-content: center;
-      margin-top: $m-xl;
     }
 
     &Info {
@@ -54,11 +49,7 @@
 
       .sui-CardCollapsible-header {
         &Image {
-          margin: $m-s 0;
-        }
-
-        &Info {
-          margin: $m-xl 0 $m-m;
+          margin-right: $m-s;
         }
 
         &InfoItem {

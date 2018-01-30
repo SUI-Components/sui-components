@@ -31,20 +31,21 @@ $size: medium 40px, small 30px;
   }
 }
 
-.sui-AtomInput {  
-  input {
+.sui-AtomInput {
+  &-input {
     @include input;
   }
 
   &-help-text {
     color: $c-gray-light;
+    display: block;
     font-size: $fz-xs;
     margin: $m-s 0 0;
   }
 
   //sui-AtomInput-medium & sui-AtomInput-small
   @each $type, $attr in $size {
-    &-#{$type} {      
+    &-#{$type} {
       input {
         @include input;
         height: $attr;
@@ -59,12 +60,14 @@ $size: medium 40px, small 30px;
         color: $attr;
       }
 
-      input {
+      input,
+      textarea {
         border-color: $attr;
       }
 
       &-validation-text {
         color: $attr;
+        display: block;
         font-size: $fz-xs;
         margin: $m-s 0 0;
       }

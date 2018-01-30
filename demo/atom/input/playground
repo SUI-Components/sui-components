@@ -35,10 +35,23 @@ return (
       label='Password input'
     />
 
+    <AtomInput.Password
+      name='password'
+      label='Password input'
+      size={atomInputSizes.SMALL}
+    />
+
     <AtomInput
       type='text'
-      label='Simple text input'
+      label='Simple medium text input'
       name='text'
+    />
+
+    <AtomInput
+      type='text'
+      label='Simple small text input'
+      name='text'
+      size={atomInputSizes.SMALL}
     />
 
     <AtomInput
@@ -56,6 +69,29 @@ return (
     <AtomInput.Tag
       name='Tag'
       label='Tag input'
+    />
+
+    <AtomInput
+      type='text'
+      label='Simple text input width help text'
+      name='text'
+      helpText='Lorem ipsum'
+    />
+    <AtomInput
+      type='text'
+      label='Simple text input success'
+      name='text'
+      verificationtype={atomInputVerificationTypes.SUCCESS}
+      verificationtext='Success'
+      placeholder='Input + placeholder + verification'
+    />
+    <AtomInput
+      type='text'
+      label='Simple text input error'
+      name='text'
+      verificationtype={atomInputVerificationTypes.ERROR}
+      verificationtext='Error'
+      helpText='Lorem ipsum'
     />
   </div>
 )

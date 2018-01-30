@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import InputWrapper from '../../InputWrapper'
+import InputWrapper, {SIZES} from '../../InputWrapper'
 
 import './style.scss'
 
@@ -33,23 +33,26 @@ class PasswordInput extends React.Component {
   }
 
   render () {
-    const {name, label, showText, hideText} = this.props
+    const {name, label, showText, hideText, size} = this.props
     const {type, value} = this.state
 
     return (
-      <InputWrapper name={name} label={label} >
-        <input
-          type={type}
-          value={value}
-          onChange={this.onChange}
-        />
-        <span onClick={this.toggle}>
-          {
-            type === PASSWORD
-              ? showText
-              : hideText
-          }
-        </span>
+      <InputWrapper name={name} label={label} size={size}>
+        <div className='sui-AtomInput-password'>
+          <input
+            type={type}
+            value={value}
+            onChange={this.onChange}
+            className='sui-AtomInput-password-input'
+          />
+          <div onClick={this.toggle} className='sui-AtomInput-password-toggle-button'>
+            {
+              type === PASSWORD
+                ? showText
+                : hideText
+            }
+          </div>
+        </div>
       </InputWrapper>
     )
   }
@@ -62,7 +65,8 @@ PasswordInput.propTypes = {
   label: PropTypes.string,
   showText: PropTypes.string,
   hideText: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  size: PropTypes.oneOf(Object.values(SIZES))
 }
 
 PasswordInput.defaultProps = {

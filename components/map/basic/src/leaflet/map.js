@@ -174,11 +174,11 @@ export default class LeafletMap {
 
   getMapBoundingBox () {
     const { northWest, southEast } = this.getBounds()
-    return northWest.lat + ',' + northWest.lng + ';' +
-      northWest.lat + ',' + southEast.lng + ';' +
-      southEast.lat + ',' + southEast.lng + ';' +
-      southEast.lat + ',' + northWest.lng + ';' +
-      northWest.lat + ',' + northWest.lng
+    return northWest.lng + ',' + northWest.lat + ';' +
+      northWest.lng + ',' + southEast.lat + ';' +
+      southEast.lng + ',' + southEast.lat + ';' +
+      southEast.lng + ',' + northWest.lat + ';' +
+      northWest.lng + ',' + northWest.lat
   }
 
   getParamsForRequest () {

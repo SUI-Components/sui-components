@@ -1,0 +1,61 @@
+const bankAccountMask = {
+  mask: 'ES00 0000 0000 00 0000000000',
+  placeholder: {
+    lazy: true,
+    char: '_'
+  }
+}
+
+const postalCodeMask = {
+  mask: '00000',
+  placeholder: {
+    lazy: true,
+    char: 0
+  }
+}
+
+return (
+  <div>
+    <AtomInput.Mask
+      label='Bank account'
+      name='bankAccount'
+      mask={bankAccountMask}
+      placeholder='ES00 0000 0000 00 0000000000'
+    />
+
+    <AtomInput.Mask
+      name='postalCode'
+      label='Postal Code'
+      mask={postalCodeMask}
+      placeholder='00000'
+    />
+
+    <AtomInput.Password
+      name='password'
+      label='Password input'
+    />
+
+    <AtomInput
+      type='text'
+      label='Simple text input'
+      name='text'
+    />
+
+    <AtomInput
+      type='number'
+      label='Simple number input'
+      name='number'
+    />
+
+    <AtomInput
+      type='date'
+      label='Date input'
+      name='date'
+    />
+
+    <AtomInput.Tag
+      name='Tag'
+      label='Tag input'
+    />
+  </div>
+)

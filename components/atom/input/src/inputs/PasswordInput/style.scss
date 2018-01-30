@@ -1,0 +1,16 @@
+@import '~@schibstedspain/sui-theme/lib/settings';
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$t-atom-input-password-toggle: 34px !default;
+
+.sui-AtomInput {  
+  position: relative;
+
+  span { //add class p.e -> .password
+    color: $c-primary;
+    cursor: pointer;
+    position: absolute;
+    right: $gutter;
+    top: $t-atom-input-password-toggle;
+  }
+}

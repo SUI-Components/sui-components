@@ -47,7 +47,12 @@ class LayoutBreakpointSplit extends Component {
         )}
       />
     )))
-    return (<span className='sui-LayoutBreakpointSplit'>{content}</span>)
+
+    const className = cx(
+      'sui-LayoutBreakpointSplit',
+      this.props.className
+    )
+    return (<span className={className}>{content}</span>)
   }
 }
 
@@ -65,7 +70,11 @@ LayoutBreakpointSplit.propTypes = {
   /**
    * View to show in mobile mode
    */
-  current: PropTypes.number
+  current: PropTypes.number,
+  /**
+   * Custom className for container
+   */
+  className: PropTypes.string
 }
 
 LayoutBreakpointSplit.defaultProps = {

@@ -5,9 +5,8 @@ import {ALPHA, COLORS} from './constants'
 
 const getClassNames = function ({color, alpha}) {
   const COLOR_PANEL_CLASS = 'sui-atom-panel-color'
-  const alphaValue = alpha
   return cx(
-    `${COLOR_PANEL_CLASS}--${color}-${alphaValue}`
+    `${COLOR_PANEL_CLASS}--${color}-${alpha}`
   )
 }
 

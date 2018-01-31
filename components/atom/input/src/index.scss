@@ -44,7 +44,9 @@ $size: medium 40px, small 30px;
   //sui-AtomInput-medium & sui-AtomInput-small
   @each $type, $attr in $size {
     &-#{$type} {
-      height: $attr;
+      input {
+        height: $attr;
+      }
     }
   }
 

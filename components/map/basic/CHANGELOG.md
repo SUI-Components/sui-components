@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2018-01-31)
+
+
+### Features
+
+* add a new prop indicates the action to be performed with the polygon. By DEFAULT it ([89ad200](https://github.com/SUI-Components/sui-components/commit/89ad200))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2018-01-30)
 

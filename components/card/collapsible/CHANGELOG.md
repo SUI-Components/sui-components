@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2018-01-31)
+
+
+### Features
+
+* remove some css in order to improve usage flexibility. ([eea35b2](https://github.com/SUI-Components/sui-components/commit/eea35b2))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2018-01-18)
 

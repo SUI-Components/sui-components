@@ -76,7 +76,8 @@ class MapBasic extends Component {
       appId: this.props.appId,
       appCode: this.props.appCode,
       mapDOMInstance: this.mapDOMInstance,
-      scrollWheelZoom: this.props.scrollWheelZoom
+      scrollWheelZoom: this.props.scrollWheelZoom,
+      onPolygonWithBounds: this.props.onPolygonWithBounds
     }
   }
 
@@ -232,7 +233,11 @@ MapBasic.propTypes = {
   /**
    * This property indicates if the map zooms in or out in response to mouse wheel events.
    */
-  scrollWheelZoom: PropTypes.bool
+  scrollWheelZoom: PropTypes.bool,
+  /**
+  * This property indicates the action to be performed with the polygon. By DEFAULT it does a fitBounds.
+  */
+  onPolygonWithBounds: PropTypes.func
 }
 
 MapBasic.defaultProps = {
@@ -247,6 +252,7 @@ MapBasic.defaultProps = {
   zoomable: false,
   isInteractable: true,
   scrollWheelZoom: true,
+  onPolygonWithBounds: ({bounds, map}) => map.fitBounds(bounds),
   onMapClick: NO_OP,
   onMapDragEnd: NO_OP,
   onMapLoad: NO_OP,

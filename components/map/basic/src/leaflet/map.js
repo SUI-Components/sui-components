@@ -37,15 +37,15 @@ export default class LeafletMap {
   }
 
   buildShapes (properties) {
-    properties.polygons && this.buildPolygons(properties.polygons)
+    properties.polygons && this.buildPolygons({...properties})
   }
 
   setMapDOMInstance (mapDOMInstance) {
     this.mapDOM = mapDOMInstance
   }
 
-  buildPolygons (polygons) {
-    this.polygons = new Polygons()
+  buildPolygons ({polygons, onPolygonWithBounds}) {
+    this.polygons = new Polygons({ onPolygonWithBounds })
     this.polygons.setPolygonsOnMap({ map: this._map, polygons })
   }
 

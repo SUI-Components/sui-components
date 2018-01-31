@@ -1,5 +1,5 @@
 const getStyle = style => Object.assign(style, {width: '33.33%', padding: 20, color: '#fff', float: 'left', minHeight: 400})
-const className = 'sui-LayoutBreakpoint'
+const className = 'my-custom-class'
 
 class Layout extends React.Component {
 

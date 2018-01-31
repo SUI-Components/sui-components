@@ -47,7 +47,12 @@ class LayoutBreakpointSplit extends Component {
         )}
       />
     )))
-    return (<span className={cx(this.props.className, 'sui-LayoutBreakpointSplit')}>{content}</span>)
+
+    const className = cx(
+      'sui-LayoutBreakpointSplit',
+      this.props.className
+    )
+    return (<span className={className}>{content}</span>)
   }
 }
 

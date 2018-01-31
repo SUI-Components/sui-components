@@ -4,36 +4,34 @@
 $validation: success $c-success, error $c-error;
 $size: medium 40px, small 30px;
 
-@mixin input {
-  border-color: $c-gray-light;
-  border-style: solid;
-  border-width: 1px;
-  font-size: $fz-base;
-  height: 40px;
-  padding-left: $p-l;
-  padding-right: $p-l;
-  width: 100%;
+@mixin formField($type) {
+  overflow: hidden;
 
-  &[placeholder] {
-    color: $c-gray-dark;
-  }
-
-  &[disabled] {
-    background: $c-gray-lightest;
+  &-#{$type}{
+    border-color: $c-gray-light;
+    border-style: solid;
+    border-width: 1px;
+    font-size: $fz-base;
+    height: 40px;
+    padding-left: $p-l;
+    padding-right: $p-l;
+    width: 100%;
 
     &[placeholder] {
-      color: $c-gray-light;
+      color: $c-gray-dark;
     }
-  }
 
-  &:focus {
-    box-shadow: inset 0 0 3px 0 $c-primary;
-  }
-}
+    &[disabled] {
+      background: $c-gray-lightest;
 
-.sui-AtomInput {
-  &-input {
-    @include input;
+      &[placeholder] {
+        color: $c-gray-light;
+      }
+    }
+
+    &:focus {
+      box-shadow: inset 0 0 3px 0 $c-primary;
+    }
   }
 
   &-help-text {
@@ -46,10 +44,7 @@ $size: medium 40px, small 30px;
   //sui-AtomInput-medium & sui-AtomInput-small
   @each $type, $attr in $size {
     &-#{$type} {
-      input {
-        @include input;
-        height: $attr;
-      }
+      height: $attr;
     }
   }
 
@@ -73,4 +68,8 @@ $size: medium 40px, small 30px;
       }
     }
   }
+}
+
+.sui-AtomInput {
+  @include formField(input);
 }

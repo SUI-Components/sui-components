@@ -42,12 +42,13 @@ const InputWrapper = (props) => {
     label,
     children,
     helpText,
+    size,
     verificationtype,
     verificationtext
   } = props
 
   return (
-    <div className={getClassNames(props)}>
+    <div className={getClassNames({size, verificationtext, verificationtype})}>
       <InputLabel name={name}>
         {label}
       </InputLabel>

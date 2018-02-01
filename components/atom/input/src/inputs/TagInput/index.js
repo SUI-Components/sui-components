@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import AtomTag from '@schibstedspain/sui-atom-tag'
 import InputWrapper from '../../InputWrapper'
 
-import './styles.scss'
-
 const SEPARATION_KEY = ','
 
 class TagInput extends React.Component {

@@ -2,8 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import InputWrapper, {SIZES} from '../../InputWrapper'
 
-import './style.scss'
-
 const TEXT = 'text'
 const PASSWORD = 'password'
 const DEFAULT_HIDE = 'hide'

@@ -75,3 +75,7 @@ $size: medium 40px, small 30px;
 .sui-AtomInput {
   @include formField(input);
 }
+
+@import './inputs/TagInput/index';
+@import './inputs/PasswordInput/index';
+@import './Label/index';

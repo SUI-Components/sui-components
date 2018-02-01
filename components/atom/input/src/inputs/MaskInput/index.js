@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import IMask from 'imask'
-import InputWrapper from '../InputWrapper'
+import InputWrapper from '../../InputWrapper'
 
 class MaskInput extends Component {
   componentDidMount () {

@@ -219,14 +219,14 @@ export default class LeafletMap {
     this.mapDOM.dispatchEvent(event)
   }
 
-  addLayersToMap (layerDataArray, groupName) {
-    let layers = layerDataArray.map(layerData => this.markerManager.createMarker(layerData))
+  addLayersToMap (layerDataArray, groupName, deprecatedLabelNoPrice) {
+    let layers = layerDataArray.map(layerData => this.markerManager.createMarker(layerData, deprecatedLabelNoPrice))
     this.layerManager.addLayersToGroup(layers, groupName)
     this.addLayerGroupToMap(this.layerManager.layers[groupName])
   }
 
   // We should check if there's a better solution for cluster poi's like the use of plugins http://leafletjs.com/plugins.html#clusteringdecluttering
-  displayPois (pois) {
+  displayPois (pois, deprecatedLabelNoPrice) {
     if (!pois || !pois.length) {
       this.clearMarkersLayer()
     } else {
@@ -263,7 +263,7 @@ export default class LeafletMap {
 
       // Remove pointsToDelete, and Add new POI's to map.
       pointsToDelete.length && this.layerManager.removeLayersFromGroup(pointsToDelete, 'markers')
-      pointsToAdd.length && this.addLayersToMap(pointsToAdd, 'markers')
+      pointsToAdd.length && this.addLayersToMap(pointsToAdd, 'markers', deprecatedLabelNoPrice)
     }
   }
 }

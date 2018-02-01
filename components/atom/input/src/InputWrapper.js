@@ -18,7 +18,7 @@ const getClassNames = ({size, verificationtext, verificationtype}) => {
   const sizeClass = size === SIZES.MEDIUM
     ? `${BASE_CLASS}-medium`
     : `${BASE_CLASS}-small`
-  const verificationClass = verificationtext &&
+  const verificationClass = verificationtype &&
     (
       verificationtype === VERIFICATION_TYPES.ERROR
         ? `${BASE_CLASS}-error`
@@ -32,9 +32,8 @@ const getClassNames = ({size, verificationtext, verificationtype}) => {
   )
 }
 
-const getVerificationTextClassName = ({verificationtype}) => {
-  return `sui-AtomInput-${verificationtype}-validation-text`
-}
+const getVerificationTextClassName = ({verificationtype}) =>
+  verificationtype && `sui-AtomInput-${verificationtype}-validation-text`
 
 const InputWrapper = (props) => {
   const {
@@ -54,7 +53,7 @@ const InputWrapper = (props) => {
       </InputLabel>
       { children }
       {
-        verificationtext &&
+        verificationtype &&
           <span className={getVerificationTextClassName({verificationtype})}>
             {verificationtext}
           </span>

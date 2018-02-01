@@ -2,38 +2,26 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import InputLabel from './Label'
+import VerificationText, {getVerificationClass, VERIFICATION_TYPES} from './VerificationText'
+
+const BASE_CLASS = 'sui-AtomInput'
 
 const SIZES = {
   SMALL: 'small',
   MEDIUM: 'medium'
 }
 
-const VERIFICATION_TYPES = {
-  SUCCESS: 'success',
-  ERROR: 'error'
-}
-
-const getClassNames = ({size, verificationtext, verificationtype}) => {
-  const BASE_CLASS = 'sui-AtomInput'
-  const sizeClass = size === SIZES.MEDIUM
+const getSizeClass = ({size}) =>
+  size === SIZES.MEDIUM
     ? `${BASE_CLASS}-medium`
     : `${BASE_CLASS}-small`
-  const verificationClass = verificationtype &&
-    (
-      verificationtype === VERIFICATION_TYPES.ERROR
-        ? `${BASE_CLASS}-error`
-        : `${BASE_CLASS}-success`
-    )
 
-  return cx(
+const getClassNames = ({size, verificationText, verificationType}) =>
+  cx(
     BASE_CLASS,
-    sizeClass,
-    verificationClass
+    getSizeClass({size}),
+    getVerificationClass({sufixClass: BASE_CLASS, verificationText, verificationType})
   )
-}
-
-const getVerificationTextClassName = ({verificationtype}) =>
-  verificationtype && `sui-AtomInput-${verificationtype}-validation-text`
 
 const InputWrapper = (props) => {
   const {
@@ -42,22 +30,17 @@ const InputWrapper = (props) => {
     children,
     helpText,
     size,
-    verificationtype,
-    verificationtext
+    verificationType,
+    verificationText
   } = props
 
   return (
-    <div className={getClassNames({size, verificationtext, verificationtype})}>
+    <div className={getClassNames({size, verificationText, verificationType})}>
       <InputLabel name={name}>
         {label}
       </InputLabel>
       { children }
-      {
-        verificationtype &&
-          <span className={getVerificationTextClassName({verificationtype})}>
-            {verificationtext}
-          </span>
-      }
+      { verificationType && <VerificationText text={verificationText} type={verificationType} /> }
       {
         helpText &&
           <span className='sui-AtomInput-help-text'>{helpText}</span>
@@ -72,8 +55,8 @@ InputWrapper.propTypes = {
   children: PropTypes.node.isRequired,
   size: PropTypes.oneOf(Object.values(SIZES)),
   helpText: PropTypes.string,
-  verificationtext: PropTypes.string,
-  verificationtype: PropTypes.oneOf(Object.values(VERIFICATION_TYPES))
+  verificationText: PropTypes.string,
+  verificationType: PropTypes.oneOf(Object.values(VERIFICATION_TYPES))
 }
 
 InputWrapper.defaultProps = {

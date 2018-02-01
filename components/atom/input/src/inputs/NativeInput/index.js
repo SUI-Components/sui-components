@@ -17,8 +17,8 @@ const NativeInput = ({
   label,
   size,
   helpText,
-  verificationtext,
-  verificationtype,
+  verificationText,
+  verificationType,
   onChange,
   type,
   placeholder
@@ -28,8 +28,8 @@ const NativeInput = ({
     name={name}
     size={size}
     helpText={helpText}
-    verificationtext={verificationtext}
-    verificationtype={verificationtype}
+    verificationText={verificationText}
+    verificationType={verificationType}
   >
     <input
       name={name}
@@ -48,8 +48,8 @@ NativeInput.propTypes = {
   type: PropTypes.oneOf(NATIVE_TYPES),
   size: PropTypes.string,
   helpText: PropTypes.string,
-  verificationtext: PropTypes.string,
-  verificationtype: PropTypes.oneOf(Object.values(VERIFICATION_TYPES))
+  verificationText: PropTypes.string,
+  verificationType: PropTypes.oneOf(Object.values(VERIFICATION_TYPES))
 }
 
 export default NativeInput

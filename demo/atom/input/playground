@@ -81,16 +81,16 @@ return (
       type='text'
       label='Simple text input success'
       name='text'
-      verificationtype={atomInputVerificationTypes.SUCCESS}
-      verificationtext='Success'
+      verificationType={atomInputVerificationTypes.SUCCESS}
+      verificationText='Success'
       placeholder='Input + placeholder + verification'
     />
     <AtomInput
       type='text'
       label='Simple text input error'
       name='text'
-      verificationtype={atomInputVerificationTypes.ERROR}
-      verificationtext='Error'
+      verificationType={atomInputVerificationTypes.ERROR}
+      verificationText='Error'
       helpText='Lorem ipsum'
     />
   </div>

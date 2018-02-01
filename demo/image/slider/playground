@@ -2,7 +2,8 @@ const props = {
   images: [
     {
       src: 'http://lorempixel.com/400/300/food/',
-      alt: 'Some Text'
+      alt: 'Some Text',
+      link: 'http://lorempixel.com/400/300/food/'
     },
     {
       src: 'http://lorempixel.com/400/300/abstract/',
@@ -17,11 +18,15 @@ const props = {
     },
     {
       src: 'http://lorempixel.com/400/300/abstract/',
-      alt: 'Text E'
+      alt: 'Text E',
+      link: 'http://lorempixel.com/400/300/abstract/',
+      key: 'http://lorempixel.com/400/300/abstract/'
     },
     {
       src: 'http://lorempixel.com/400/300/abstract/',
-      alt: 'Text F'
+      alt: 'Text F',
+      link: 'http://lorempixel.com/400/300/abstract/',
+      key: 'http://lorempixel.com/400/300/abstract/'
     },
     {
       src: 'http://lorempixel.com/400/300/abstract/',

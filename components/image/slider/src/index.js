@@ -3,7 +3,7 @@ import React from 'react'
 import ReactSlidy from 'react-slidy'
 
 const ImageSlider = (props) => {
-  const slides = getSlides(props.images)
+  const slides = getSlides(props.images, props.linkFactory)
 
   return (
     <div onClick={props.handleClick} className='sui-ImageSlider'>
@@ -27,11 +27,13 @@ const hasMoreThanOneImage = (images) => (images && images.length > 1)
  * @param {Array} images List given by props.images.
  * @return {Array} List of img elements.
  */
-const getSlides = (images) => {
+const getSlides = (images, linkFactory) => {
   if (images && images.length) {
     return images.map((image, index) => {
-      const key = image.key || index
-      return (<img key={key} src={image.src} alt={image.alt} />)
+      const key = image.key ? image.key + index : index
+      const img = <img className='sui-ImageSlider-image' key={key} src={image.src} alt={image.alt} />
+      const target = image.target ? image.target : '_blank'
+      return image.link ? linkFactory({ href: image.link, target: target, className: '', children: img, key: key }) : img
     })
   } else {
     return []
@@ -52,7 +54,9 @@ ImageSlider.propTypes = {
        * When dynamicContent is set to false, you can ommit this field.
        * @see dynamicContent code comment for more info.
        */
-      key: PropTypes.string
+      key: PropTypes.string,
+      link: PropTypes.string,
+      target: PropTypes.string
     }).isRequired
   ),
   /**
@@ -65,7 +69,8 @@ ImageSlider.propTypes = {
   sliderOptions: PropTypes.shape({
     lazyLoadSlider: PropTypes.bool,
     initialSlide: PropTypes.number
-  })
+  }),
+  linkFactory: PropTypes.func
 }
 
 ImageSlider.defaultProps = {
@@ -83,7 +88,13 @@ ImageSlider.defaultProps = {
    * It means that if the initial images has keys a and b, when you want to update the component with new content,
    * new images should have keys c and d... never a or b. Otherwise, images with the same key will not be updated.
    */
-  dynamicContent: false
+  dynamicContent: false,
+  /**
+   * Link component factory.
+   */
+  linkFactory: ({href, target, className, children, key} = {}) => (
+    <a href={href} target={target} className={className} key={key}>{children}</a>
+  )
 }
 
 ImageSlider.displayName = 'ImageSlider'

@@ -20,7 +20,8 @@ const NativeInput = ({
   verificationtext,
   verificationtype,
   onChange,
-  ...props
+  type,
+  placeholder
 }) =>
   <InputWrapper
     label={label}
@@ -30,13 +31,20 @@ const NativeInput = ({
     verificationtext={verificationtext}
     verificationtype={verificationtype}
   >
-    <input name={name} className='sui-AtomInput-input' {...props} onChange={(ev) => changeHandler(ev, onChange)} />
+    <input
+      name={name}
+      className='sui-AtomInput-input'
+      type={type}
+      placeholder={placeholder}
+      onChange={(ev) => changeHandler(ev, onChange)}
+    />
   </InputWrapper>
 
 NativeInput.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func,
+  placeholder: PropTypes.string,
   type: PropTypes.oneOf(NATIVE_TYPES),
   size: PropTypes.string,
   helpText: PropTypes.string,

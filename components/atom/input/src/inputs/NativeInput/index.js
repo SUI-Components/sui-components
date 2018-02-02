@@ -21,7 +21,9 @@ const NativeInput = ({
   verificationType,
   onChange,
   type,
-  placeholder
+  placeholder,
+  addonRight,
+  addonLeft
 }) =>
   <InputWrapper
     label={label}
@@ -30,6 +32,8 @@ const NativeInput = ({
     helpText={helpText}
     verificationText={verificationText}
     verificationType={verificationType}
+    addonLeft={addonLeft}
+    addonRight={addonRight}
   >
     <input
       name={name}
@@ -49,7 +53,9 @@ NativeInput.propTypes = {
   size: PropTypes.string,
   helpText: PropTypes.string,
   verificationText: PropTypes.string,
-  verificationType: PropTypes.oneOf(Object.values(VERIFICATION_TYPES))
+  verificationType: PropTypes.oneOf(Object.values(VERIFICATION_TYPES)),
+  addonLeft: PropTypes.string,
+  addonRight: PropTypes.string
 }
 
 export default NativeInput

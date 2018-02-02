@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import InputLabel from './Label'
+import Addon, {AddonTypes} from './Addon'
 import VerificationText, {getVerificationClass, VERIFICATION_TYPES} from './VerificationText'
 
 const BASE_CLASS = 'sui-AtomInput'
@@ -31,7 +32,9 @@ const InputWrapper = (props) => {
     helpText,
     size,
     verificationType,
-    verificationText
+    verificationText,
+    addonLeft,
+    addonRight
   } = props
 
   return (
@@ -39,7 +42,11 @@ const InputWrapper = (props) => {
       <InputLabel name={name}>
         {label}
       </InputLabel>
-      { children }
+      <div className='sui-AtomInput-input-wrapper'>
+        { addonLeft && <Addon label={addonLeft} type={AddonTypes.LEFT} /> }
+        { children }
+        { addonRight && <Addon label={addonRight} type={AddonTypes.RIGHT} /> }
+      </div>
       { verificationType && <VerificationText text={verificationText} type={verificationType} /> }
       {
         helpText &&
@@ -56,7 +63,9 @@ InputWrapper.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZES)),
   helpText: PropTypes.string,
   verificationText: PropTypes.string,
-  verificationType: PropTypes.oneOf(Object.values(VERIFICATION_TYPES))
+  verificationType: PropTypes.oneOf(Object.values(VERIFICATION_TYPES)),
+  addonRight: PropTypes.string,
+  addonLeft: PropTypes.string
 }
 
 InputWrapper.defaultProps = {

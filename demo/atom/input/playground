@@ -16,6 +16,20 @@ const postalCodeMask = {
 
 return (
   <div>
+    <AtomInput
+      type='text'
+      name='text'
+      label='Addon right'
+      addonRight='@schibsted.com'
+    />
+
+    <AtomInput
+      type='text'
+      name='text'
+      label='Addon left'
+      addonLeft='https://'
+    />
+
     <AtomInput.Mask
       label='Bank account'
       name='bankAccount'
@@ -93,5 +107,6 @@ return (
       verificationText='Error'
       helpText='Lorem ipsum'
     />
+
   </div>
 )

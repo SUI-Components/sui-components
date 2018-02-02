@@ -2,3 +2,8 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~react-slidy/lib/index';
 
+.sui-ImageSlider {
+  &-image {
+    max-width: 100%;
+  }
+}

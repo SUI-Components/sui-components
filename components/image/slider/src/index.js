@@ -3,12 +3,12 @@ import React from 'react'
 import ReactSlidy from 'react-slidy'
 
 const ImageSlider = (props) => {
-  const slides = getSlides(props.images)
+  const slides = getSlides(props.images, props.linkFactory)
 
   return (
     <div onClick={props.handleClick} className='sui-ImageSlider'>
       { hasMoreThanOneImage(props.images)
-        ? (<ReactSlidy {...props.sliderOptions}>{ slides }</ReactSlidy>)
+        ? (<ReactSlidy {...props.sliderOptions} dynamicContent={props.dynamicContent}>{ slides }</ReactSlidy>)
         : slides
       }
     </div>
@@ -27,10 +27,13 @@ const hasMoreThanOneImage = (images) => (images && images.length > 1)
  * @param {Array} images List given by props.images.
  * @return {Array} List of img elements.
  */
-const getSlides = (images) => {
+const getSlides = (images, linkFactory) => {
   if (images && images.length) {
     return images.map((image, index) => {
-      return (<img key={index} src={image.src} alt={image.alt} />)
+      const key = image.key ? image.key + index : index
+      const img = <img className='sui-ImageSlider-image' key={key} src={image.src} alt={image.alt} />
+      const target = image.target ? image.target : '_blank'
+      return image.link ? linkFactory({ href: image.link, target: target, className: '', children: img, key: key }) : img
     })
   } else {
     return []
@@ -38,13 +41,22 @@ const getSlides = (images) => {
 }
 
 ImageSlider.propTypes = {
+  dynamicContent: PropTypes.bool,
   /**
    * List of objects with src and alt properties.
    */
   images: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.string.isRequired,
-      alt: PropTypes.string
+      alt: PropTypes.string,
+      /**
+       * When dynamicContent is set to true, you need to set this key with a unique value for all the groups of images.
+       * When dynamicContent is set to false, you can ommit this field.
+       * @see dynamicContent code comment for more info.
+       */
+      key: PropTypes.string,
+      link: PropTypes.string,
+      target: PropTypes.string
     }).isRequired
   ),
   /**
@@ -57,7 +69,8 @@ ImageSlider.propTypes = {
   sliderOptions: PropTypes.shape({
     lazyLoadSlider: PropTypes.bool,
     initialSlide: PropTypes.number
-  })
+  }),
+  linkFactory: PropTypes.func
 }
 
 ImageSlider.defaultProps = {
@@ -68,7 +81,20 @@ ImageSlider.defaultProps = {
   /**
    * If not set, react-slidy will be created with its default properties.
    */
-  sliderOptions: {}
+  sliderOptions: {},
+  /**
+   * Whether to enable react-slidy to receive new props and change its content or not.
+   * If you want to set it to true, you also need to set a unique key for every image given over component updates.
+   * It means that if the initial images has keys a and b, when you want to update the component with new content,
+   * new images should have keys c and d... never a or b. Otherwise, images with the same key will not be updated.
+   */
+  dynamicContent: false,
+  /**
+   * Link component factory.
+   */
+  linkFactory: ({href, target, className, children, key} = {}) => (
+    <a href={href} target={target} className={className} key={key}>{children}</a>
+  )
 }
 
 ImageSlider.displayName = 'ImageSlider'

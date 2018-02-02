@@ -39,7 +39,7 @@ class CollapsibleAccordion extends Component {
       <div>
         {
           items.map((item, index) => (
-            <CollapsibleBasic key={index} {...item} collapsed={openIndex !== index} handleClick={this._handleClick(index)}>
+            <CollapsibleBasic key={index} {...item} collapsed={openIndex !== index} handleClick={this._handleClick(index)} icon={this.props.icon}>
               {item.content}
             </CollapsibleBasic>
           ))
@@ -56,6 +56,10 @@ CollapsibleAccordion.propTypes = {
    * Event that will send when select an item
    */
   onItemChange: PropTypes.func,
+  /**
+   * icon to be displayed.
+   */
+  icon: PropTypes.func,
   /**
    * Items array
    */

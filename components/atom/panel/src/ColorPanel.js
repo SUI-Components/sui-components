@@ -3,13 +3,10 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import {ALPHA, COLORS} from './constants'
 
-const DEFAULT_ALPHA = 'CONTRAST'
-
 const getClassNames = function ({color, alpha}) {
   const COLOR_PANEL_CLASS = 'sui-atom-panel-color'
-  const alphaValue = ALPHA[alpha] || DEFAULT_ALPHA
   return cx(
-    `${COLOR_PANEL_CLASS}--${color}-${alphaValue}`
+    `${COLOR_PANEL_CLASS}--${color}-${alpha}`
   )
 }
 
@@ -30,7 +27,7 @@ ColorPanel.propTypes = {
 }
 
 ColorPanel.defaultProps = {
-  alpha: DEFAULT_ALPHA,
+  alpha: ALPHA.CONTRAST,
   color: COLORS.DEFAULT
 }
 

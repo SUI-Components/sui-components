@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import cx from 'classnames'
+import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
 
 class CollapsibleBasic extends Component {
   constructor (props) {
@@ -35,11 +36,15 @@ class CollapsibleBasic extends Component {
       stateClassName
     )
 
+    const ArrowIcon = this.props.icon
+
     return (
       <div className={mainClassNames}>
         <div className='sui-CollapsibleBasic-trigger' onClick={this._handleClick}>
           <div className='sui-CollapsibleBasic-trigger-label'>{this.props.label}</div>
-          <div className='sui-CollapsibleBasic-trigger-icon'>{this.props.icon}</div>
+          <div className='sui-CollapsibleBasic-trigger-iconBox'>
+            <ArrowIcon svgClass='sui-CollapsibleBasic-trigger-iconBox-icon' />
+          </div>
         </div>
         <div className='sui-CollapsibleBasic-collapsibleContent'>{this.props.children}</div>
       </div>
@@ -61,7 +66,7 @@ CollapsibleBasic.propTypes = {
   /**
    * icon to be displayed.
    */
-  icon: PropTypes.node,
+  icon: PropTypes.func,
   /**
    * first state.
    */
@@ -73,7 +78,7 @@ CollapsibleBasic.propTypes = {
 }
 
 CollapsibleBasic.defaultProps = {
-  icon: <svg className='sui-CollapsibleBasic-defaultIcon' xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><path fill='none' fillRule='evenodd' stroke='#2097B6' strokeLinecap='round' strokeLinejoin='round' d='M1.5 6L8 12l6.5-6' /></svg>,
+  icon: Chevronbottom,
   collapsed: true,
   handleClick: () => {}
 }

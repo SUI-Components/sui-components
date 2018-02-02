@@ -11,7 +11,7 @@ before_install:
 install:
   - npm run phoenix
 before_deploy:
-  - npm i -g now@7
+  - npm i -g now@9
   - npm run build
 deploy:
   skip_cleanup: true

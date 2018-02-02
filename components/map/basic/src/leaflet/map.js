@@ -28,7 +28,6 @@ export default class LeafletMap {
       layers: [this.layerManager.layers.map[properties.selectedMapViewMode]],
       scrollWheelZoom: properties.scrollWheelZoom
     }
-
     this._map = L.map(properties.id, mapOptions)
     this.attachPropsToMapInstance(properties)
   }
@@ -38,15 +37,15 @@ export default class LeafletMap {
   }
 
   buildShapes (properties) {
-    properties.polygons && this.buildPolygons(properties.polygons)
+    properties.polygons && this.buildPolygons({...properties})
   }
 
   setMapDOMInstance (mapDOMInstance) {
     this.mapDOM = mapDOMInstance
   }
 
-  buildPolygons (polygons) {
-    this.polygons = new Polygons()
+  buildPolygons ({polygons, onPolygonWithBounds}) {
+    this.polygons = new Polygons({ onPolygonWithBounds })
     this.polygons.setPolygonsOnMap({ map: this._map, polygons })
   }
 
@@ -174,12 +173,12 @@ export default class LeafletMap {
   }
 
   getMapBoundingBox () {
-    const bounds = this.getBounds()
-    return '(' + bounds.northWest.lat + ',' + bounds.northWest.lng + '); ' +
-      '(' + bounds.northWest.lat + ',' + bounds.southEast.lng + '); ' +
-      '(' + bounds.southEast.lat + ',' + bounds.southEast.lng + '); ' +
-      '(' + bounds.southEast.lat + ',' + bounds.northWest.lng + '); ' +
-      '(' + bounds.northWest.lat + ',' + bounds.northWest.lng + ')'
+    const { northWest, southEast } = this.getBounds()
+    return northWest.lng + ',' + northWest.lat + ';' +
+      northWest.lng + ',' + southEast.lat + ';' +
+      southEast.lng + ',' + southEast.lat + ';' +
+      southEast.lng + ',' + northWest.lat + ';' +
+      northWest.lng + ',' + northWest.lat
   }
 
   getParamsForRequest () {

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2018-01-29)
+
+
+### Features
+
+* add custom icon to collapsible accordion. Now, this component use versi ([5caff97](https://github.com/SUI-Components/sui-components/commit/5caff97))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2018-01-22)
 

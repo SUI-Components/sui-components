@@ -1,18 +1,32 @@
 @import '~@schibstedspain/sui-atom-tag/lib/index';
 
 .sui-AtomInput {
-  .sui-AtomTag {
-    float: left;
-    
-    + input {
+  &-wrapper {
+    background: $c-white;
+    border-color: $c-gray-light;
+    border-style: solid;
+    border-width: 1px;
+    font-size: $fz-base;
+    overflow: hidden;
+    padding-left: $p-l;
+    padding-right: $p-l;
+    width: 100%;
+
+    .sui-AtomTag {
       float: left;
-      width: auto;
+      margin-top: $m-s;
+    }
+
+    input {
       border: none;
       background: none;
-      
+      margin-left: $m-s;
+      float: left;
+      width: auto;
+
       &:focus {
         box-shadow: none;
       }
     }
-  }  
+  }
 }

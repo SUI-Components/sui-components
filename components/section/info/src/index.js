@@ -1,14 +1,15 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 const baseClass = 'sui-SectionInfo'
 
 class SectionInfo extends Component {
   render () {
-    const { title, children } = this.props
+    const { title, children, className } = this.props
 
     return (
-      <section className={baseClass}>
+      <section className={cx(baseClass, className)}>
         <h3 className={`${baseClass}-title`}>{title}</h3>
         <div className={`${baseClass}-content`}>{children}</div>
       </section>
@@ -24,7 +25,8 @@ SectionInfo.propTypes = {
     PropTypes.string,
     PropTypes.element,
     PropTypes.object
-  ])
+  ]),
+  className: PropTypes.string
 }
 
 export default SectionInfo

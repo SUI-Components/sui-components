@@ -12,7 +12,7 @@ const TYPES = {
 const getClassName = ({type}) =>
   cx(
     BASE_CLASS,
-    `${BASE_CLASS}-${type}` // maybe not being used
+    `${BASE_CLASS}-${type}`
   )
 
 const Addon = ({type, label}) =>

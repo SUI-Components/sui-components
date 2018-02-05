@@ -74,8 +74,8 @@ $size: medium 40px, small 30px;
   @include formField(input);
 
   &-input-wrapper {
-    align-items: center;
     display: flex;
+    font-size: $fz-base;
     white-space: nowrap;
   }
 }

@@ -19,11 +19,12 @@ class MaskInput extends Component {
   }
 
   render () {
-    const {placeholder, name, label} = this.props
+    const {placeholder, name, label, disabled} = this.props
     return (
       <InputWrapper label={label} name={name}>
         <input
           id={name}
+          disabled={disabled}
           className='sui-AtomInput-input'
           ref={input => { this.field = input }}
           type='text'
@@ -43,7 +44,8 @@ MaskInput.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   label: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  disabled: PropTypes.bool
 }
 
 export default MaskInput

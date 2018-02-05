@@ -31,7 +31,7 @@ class PasswordInput extends React.Component {
   }
 
   render () {
-    const {name, label, showText, hideText, size} = this.props
+    const {name, label, showText, hideText, size, disabled} = this.props
     const {type, value} = this.state
 
     return (
@@ -42,6 +42,7 @@ class PasswordInput extends React.Component {
             value={value}
             onChange={this.onChange}
             className='sui-AtomInput-password-input'
+            disabled={disabled}
           />
           <div onClick={this.toggle} className='sui-AtomInput-password-toggle-button'>
             {
@@ -64,7 +65,8 @@ PasswordInput.propTypes = {
   showText: PropTypes.string,
   hideText: PropTypes.string,
   onChange: PropTypes.func,
-  size: PropTypes.oneOf(Object.values(SIZES))
+  size: PropTypes.oneOf(Object.values(SIZES)),
+  disabled: PropTypes.bool
 }
 
 PasswordInput.defaultProps = {

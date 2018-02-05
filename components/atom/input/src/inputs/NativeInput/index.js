@@ -23,7 +23,8 @@ const NativeInput = ({
   type,
   placeholder,
   addonRight,
-  addonLeft
+  addonLeft,
+  disabled
 }) =>
   <InputWrapper
     label={label}
@@ -41,6 +42,7 @@ const NativeInput = ({
       type={type}
       placeholder={placeholder}
       onChange={(ev) => changeHandler(ev, onChange)}
+      disabled={disabled}
     />
   </InputWrapper>
 
@@ -55,7 +57,8 @@ NativeInput.propTypes = {
   verificationText: PropTypes.string,
   verificationType: PropTypes.oneOf(Object.values(VERIFICATION_TYPES)),
   addonLeft: PropTypes.string,
-  addonRight: PropTypes.string
+  addonRight: PropTypes.string,
+  disabled: PropTypes.bool
 }
 
 export default NativeInput

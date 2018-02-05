@@ -107,6 +107,12 @@ return (
       verificationText='Error'
       helpText='Lorem ipsum'
     />
+    <AtomInput
+      type='text'
+      disabled
+      label='Simple text input disabled'
+      name='text'
+    />
 
   </div>
 )

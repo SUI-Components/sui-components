@@ -51,7 +51,7 @@ class TagInput extends React.Component {
   }
 
   render () {
-    const {name, label} = this.props
+    const {name, label, disabled} = this.props
     return (
       <InputWrapper name={name} label={label} >
         <div className='sui-AtomInput-wrapper'>
@@ -65,6 +65,7 @@ class TagInput extends React.Component {
             type='text'
             onChange={this.onChange}
             value={this.state.inputValue}
+            disabled={disabled}
           />
         </div>
       </InputWrapper>
@@ -75,7 +76,8 @@ class TagInput extends React.Component {
 TagInput.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  disabled: PropTypes.bool
 }
 
 export default TagInput

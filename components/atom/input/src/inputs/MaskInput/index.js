@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import IMask from 'imask'
 import InputWrapper from '../../InputWrapper'
+import Input from '../../Input'
 
 class MaskInput extends Component {
   componentDidMount () {
@@ -19,18 +20,16 @@ class MaskInput extends Component {
   }
 
   render () {
-    const {placeholder, name, label, disabled} = this.props
+    const {name} = this.props
     return (
-      <InputWrapper label={label} name={name}>
-        <input
+      <InputWrapper {...this.props}>
+        <Input
           id={name}
-          disabled={disabled}
           className='sui-AtomInput-input'
-          ref={input => { this.field = input }}
           type='text'
-          name={name}
-          placeholder={placeholder}
+          reference={input => { this.field = input }}
           onChange={this.onChange}
+          {...this.props}
         />
       </InputWrapper>
     )
@@ -40,12 +39,10 @@ class MaskInput extends Component {
 MaskInput.displayName = 'MaskInput'
 
 MaskInput.propTypes = {
-  mask: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
   label: PropTypes.string,
   onChange: PropTypes.func,
-  disabled: PropTypes.bool
+  mask: PropTypes.object
 }
 
 export default MaskInput

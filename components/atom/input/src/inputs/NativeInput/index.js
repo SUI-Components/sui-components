@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import InputWrapper, {VERIFICATION_TYPES} from '../../InputWrapper'
+import InputWrapper from '../../InputWrapper'
+import Input from '../../Input'
 
 const NATIVE_TYPES = ['text', 'number', 'date']
 
@@ -12,53 +13,23 @@ const changeHandler = (ev, onChange) => {
   onChange && onChange({value: ev.target.value, target: ev.target})
 }
 
-const NativeInput = ({
-  name,
-  label,
-  size,
-  helpText,
-  verificationText,
-  verificationType,
-  onChange,
-  type,
-  placeholder,
-  addonRight,
-  addonLeft,
-  disabled
-}) =>
-  <InputWrapper
-    label={label}
-    name={name}
-    size={size}
-    helpText={helpText}
-    verificationText={verificationText}
-    verificationType={verificationType}
-    addonLeft={addonLeft}
-    addonRight={addonRight}
-  >
-    <input
-      name={name}
-      className='sui-AtomInput-input'
-      type={type}
-      placeholder={placeholder}
-      onChange={(ev) => changeHandler(ev, onChange)}
-      disabled={disabled}
-    />
-  </InputWrapper>
+const NativeInput = (props) => {
+  const {onChange, type} = props
+  return (
+    <InputWrapper {...props}>
+      <Input
+        className='sui-AtomInput-input'
+        onChange={(ev) => changeHandler(ev, onChange)}
+        type={type}
+        {...props}
+      />
+    </InputWrapper>
+  )
+}
 
 NativeInput.propTypes = {
-  label: PropTypes.string,
-  name: PropTypes.string,
   onChange: PropTypes.func,
-  placeholder: PropTypes.string,
-  type: PropTypes.oneOf(NATIVE_TYPES),
-  size: PropTypes.string,
-  helpText: PropTypes.string,
-  verificationText: PropTypes.string,
-  verificationType: PropTypes.oneOf(Object.values(VERIFICATION_TYPES)),
-  addonLeft: PropTypes.string,
-  addonRight: PropTypes.string,
-  disabled: PropTypes.bool
+  type: PropTypes.oneOf(NATIVE_TYPES)
 }
 
 export default NativeInput

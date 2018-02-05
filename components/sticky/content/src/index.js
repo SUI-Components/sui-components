@@ -78,11 +78,13 @@ export default class StickyContent extends Component {
   }
 
   _shouldStickContent = () => {
-    const windowTop = this._scrollableElement.scrollTop
+    const windowTop = this._scrollableElement
+      ? this._scrollableElement.scrollTop
+      : window.scrollY || document.documentElement.scrollTop
+
     if (!this._elementTop) {
       this._setElementTop()
     }
-
     return windowTop >= this._elementTop
   }
 
@@ -100,8 +102,7 @@ export default class StickyContent extends Component {
     const { sticky, scrollableElementSelector } = this.props
 
     if (sticky) {
-      this._scrollableElement = scrollableElementSelector ? document.querySelector(scrollableElementSelector) : document.documentElement
-
+      this._scrollableElement = scrollableElementSelector && document.querySelector(scrollableElementSelector)
       window.addEventListener('scroll', this._handleScroll, SCROLL_EVENT_LISTENER_OPTIONS)
     }
   }

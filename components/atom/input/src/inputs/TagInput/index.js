@@ -56,7 +56,7 @@ class TagInput extends React.Component {
     const {name, label} = this.props
     return (
       <InputWrapper name={name} label={label} >
-        <div className="sui-AtomInput-wrapper">
+        <div className='sui-AtomInput-wrapper'>
           {
             this.state.tags.map((label, idx) =>
               <AtomTag label={label} key={idx} onClose={() => this.removeTag(idx)} />

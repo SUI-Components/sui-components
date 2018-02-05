@@ -10,7 +10,7 @@ return (
       {descriptionElement}
     </SectionInfo>
 
-    <SectionInfo title={extras}>
+    <SectionInfo className={'MyCoolClass'} title={extras}>
       {extrasElement}
     </SectionInfo>
   </div>

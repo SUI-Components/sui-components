@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "classnames": "2"
+    "classnames": "2.2.5"
   },
   "keywords": [],
   "author": "",

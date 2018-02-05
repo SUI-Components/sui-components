@@ -17,7 +17,8 @@
     "precommit": "sui-precommit run",
     "release": "sui-studio release",
     "start": "sui-studio start",
-    "test": "jest"
+    "test": "jest",
+    "install:alldeps": "sui-studio run-all npm install"
   },
   "repository": {},
   "keywords": [],

@@ -1,0 +1,20 @@
+.sui-AtomInput {
+  &-addon {
+    background-color: color-variation($c-gray, 4);
+    border-color: $c-gray-light;
+    border-style: solid;
+    color: color-variation($c-gray, 2);
+    height: inherit;
+    line-height: inherit;
+    padding-left: $p-l;
+    padding-right: $p-l;
+
+    &-right {
+      border-width: 1px 1px 1px 0;
+    }
+
+    &-left {
+      border-width: 1px 0 1px 1px;
+    }
+  }
+}

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const BASE_CLASS = 'sui-AtomInput-input-wrapper-addon'
+const BASE_CLASS = 'sui-AtomInput-addon'
 
 const TYPES = {
   LEFT: 'left',

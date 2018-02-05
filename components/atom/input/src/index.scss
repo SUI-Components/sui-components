@@ -7,31 +7,28 @@ $size: medium 40px, small 30px;
 @mixin formField($type) {
   overflow: hidden;
 
-  &-#{$type}{
-    border-color: $c-gray-light;
-    border-style: solid;
-    border-width: 1px;
-    font-size: $fz-base;
-    height: 40px;
-    padding-left: $p-l;
-    padding-right: $p-l;
-    width: 100%;
+  border-color: $c-gray-light;
+  border-style: solid;
+  border-width: 1px;
+  font-size: $fz-base;
+  padding-left: $p-l;
+  padding-right: $p-l;
+  width: 100%;
+
+  &[placeholder] {
+    color: $c-gray-dark;
+  }
+
+  &[disabled] {
+    background: $c-gray-lightest;
 
     &[placeholder] {
-      color: $c-gray-dark;
+      color: $c-gray-light;
     }
+  }
 
-    &[disabled] {
-      background: $c-gray-lightest;
-
-      &[placeholder] {
-        color: $c-gray-light;
-      }
-    }
-
-    &:focus {
-      box-shadow: inset 0 0 3px 0 $c-primary;
-    }
+  &:focus {
+    box-shadow: inset 0 0 3px 0 $c-primary;
   }
 
   &-help-text {
@@ -42,11 +39,10 @@ $size: medium 40px, small 30px;
   }
 
   //sui-AtomInput-medium & sui-AtomInput-small
-  @each $type, $attr in $size {
+  @each $type, $h in $size {
     &-#{$type} {
-      input {
-        height: $attr;
-      }
+      height: $h;
+      line-height: $h;
     }
   }
 
@@ -79,30 +75,10 @@ $size: medium 40px, small 30px;
     align-items: center;
     display: flex;
     white-space: nowrap;
-
-    &-addon {
-      // quitar el 40px que se ha puesto al input?, hay varios tamaños
-      // min-width del input?
-      background-color: color-variation($c-gray, 4);
-      border-color: $c-gray-light;
-      border-style: solid;
-      color: color-variation($c-gray, 2);
-      height: 40px;
-      line-height: 40px;
-      padding-left: $p-l;
-      padding-right: $p-l;
-
-      &-right {
-        border-width: 1px 1px 1px 0;
-      }
-
-      &-left {
-        border-width: 1px 0 1px 1px;
-      }
-    }
   }
 }
 
 @import './inputs/TagInput/index';
 @import './inputs/PasswordInput/index';
 @import './Label/index';
+@import './Addon/index'

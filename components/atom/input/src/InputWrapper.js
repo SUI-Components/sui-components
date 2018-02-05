@@ -20,7 +20,6 @@ const getSizeClass = ({size}) =>
 const getClassNames = ({size, verificationText, verificationType}) =>
   cx(
     BASE_CLASS,
-    getSizeClass({size}),
     getVerificationClass({sufixClass: BASE_CLASS, verificationText, verificationType})
   )
 
@@ -42,7 +41,7 @@ const InputWrapper = (props) => {
       <InputLabel name={name}>
         {label}
       </InputLabel>
-      <div className='sui-AtomInput-input-wrapper'>
+      <div className={getSizeClass({size})}>
         { addonLeft && <Addon label={addonLeft} type={AddonTypes.LEFT} /> }
         { children }
         { addonRight && <Addon label={addonRight} type={AddonTypes.RIGHT} /> }

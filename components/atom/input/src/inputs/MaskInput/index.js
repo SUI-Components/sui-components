@@ -24,6 +24,7 @@ class MaskInput extends Component {
       <InputWrapper label={label} name={name}>
         <input
           id={name}
+          className='sui-AtomInput-input'
           ref={input => { this.field = input }}
           type='text'
           name={name}

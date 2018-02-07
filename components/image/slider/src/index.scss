@@ -29,24 +29,24 @@ $c-image-slider: $c-white !default;
     padding-right: $p-m;
     position: absolute;
 
-    &--bottom-right {
+    &--bottomRight {
       bottom: $m-image-slider-counter;
       right: $m-image-slider-counter;
     }
 
-    &--bottom-left {
+    &--bottomLeft {
       bottom: $m-image-slider-counter;
       left: $m-image-slider-counter;
     }
 
-    &-icon {
+    &Icon {
       fill: $c-image-slider-icon !important;
       height: $sz-image-slider-icon;
-      width: $sz-image-slider-icon;
       margin-right: $m-s;
+      width: $sz-image-slider-icon;
     }
 
-    &-text {
+    &Text {
       min-width: $miw-image-slider-counter-text;
       text-align: right;
     }

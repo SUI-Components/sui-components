@@ -102,6 +102,6 @@ return (
     <ImageSlider { ...props } enableCounter />
     <br />
     <h2>Slider with counter on the left</h2>
-    <ImageSlider { ...props } enableCounter counterPosition='bottom-left' />
+    <ImageSlider { ...props } enableCounter counterPosition='bottomLeft' />
   </div>
 )

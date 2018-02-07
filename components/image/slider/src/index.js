@@ -17,7 +17,7 @@ class ImageSlider extends Component {
     this._sliderOptions = cloneDeep(sliderOptions)
     this._sliderOptions.doAfterSlide = (currentSlide) => {
       this.setState(currentSlide)
-      sliderOptions.doAfterSlide && sliderOptions.doAfterSlide()
+      sliderOptions.doAfterSlide && sliderOptions.doAfterSlide(currentSlide)
     }
   }
 
@@ -42,8 +42,8 @@ class ImageSlider extends Component {
     const classNames = cx('sui-ImageSlider-counter', `sui-ImageSlider-counter--${this.props.counterPosition}`)
     const Icon = this.props.counterIcon
     return <div className={classNames}>
-      <Icon svgClass='sui-ImageSlider-counter-icon' />
-      <span className='sui-ImageSlider-counter-text'>{this.state.currentSlide + 1}/{totalImages}</span>
+      <Icon svgClass='sui-ImageSlider-counterIcon' />
+      <span className='sui-ImageSlider-counterText'>{this.state.currentSlide + 1}/{totalImages}</span>
     </div>
   }
 
@@ -65,8 +65,8 @@ class ImageSlider extends Component {
   }
 }
 
-const COUNTER_POS_BOTTOM_LEFT = 'bottom-left'
-const COUNTER_POS_BOTTOM_RIGHT = 'bottom-right'
+const COUNTER_POS_BOTTOM_LEFT = 'bottomLeft'
+const COUNTER_POS_BOTTOM_RIGHT = 'bottomRight'
 
 ImageSlider.propTypes = {
   dynamicContent: PropTypes.bool,
@@ -115,7 +115,7 @@ ImageSlider.propTypes = {
 
 // TODO: To be replaced by @schibstedspain/sui-svgiconset/lib/Camera.
 const IconCamera = () => {
-  return <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' className='sui-ImageSlider-counter-icon'>
+  return <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' className='sui-ImageSlider-counterIcon'>
     <g fillRule='evenodd'>
       <path d='M1.25 19.5h21.5V7h-6.518l-1.5-2.25H9.268L7.768 7H1.25v12.5zM16.768 6h6.982v14.5H.25V6h6.982l1.5-2.25h6.536l1.5 2.25z' />
       <path d='M12 16.75a4.25 4.25 0 1 1 0-8.5 4.25 4.25 0 0 1 0 8.5zm0-1a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5z' />

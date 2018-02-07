@@ -1,44 +1,72 @@
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import React from 'react'
 import ReactSlidy from 'react-slidy'
+import cloneDeep from 'lodash.clonedeep'
+import cx from 'classnames'
+// TODO: To be used when we can publish packages again to the npm registry.
+// import IconCamera from '@schibstedspain/sui-svgiconset/lib/Camera'
 
-const ImageSlider = (props) => {
-  const slides = getSlides(props.images, props.linkFactory)
+const NO_OP = () => {}
 
-  return (
-    <div onClick={props.handleClick} className='sui-ImageSlider'>
-      { hasMoreThanOneImage(props.images)
-        ? (<ReactSlidy {...props.sliderOptions} dynamicContent={props.dynamicContent}>{ slides }</ReactSlidy>)
-        : slides
-      }
+class ImageSlider extends Component {
+  constructor (props) {
+    super(props)
+    const {sliderOptions} = props
+    // In order to accept a custom doAfterSlide callback, and to avoid altering props.sliderOptions
+    // sliderOptions is deeply cloned.
+    this._sliderOptions = cloneDeep(sliderOptions)
+    this._sliderOptions.doAfterSlide = (currentSlide) => {
+      this.setState(currentSlide)
+      sliderOptions.doAfterSlide && sliderOptions.doAfterSlide()
+    }
+  }
+
+  state = {currentSlide: 0}
+
+  render () {
+    const {images, linkFactory, handleClick, dynamicContent, enableCounter} = this.props
+    const slides = this._getSlides(images, linkFactory)
+    return (
+      (slides.length > 0) &&
+      <div onClick={handleClick} className='sui-ImageSlider'>
+        { (slides.length > 1)
+          ? (<ReactSlidy {...this._sliderOptions} dynamicContent={dynamicContent}>{ slides }</ReactSlidy>)
+          : slides
+        }
+        {enableCounter && this._buildCounter(slides.length)}
+      </div>
+    )
+  }
+
+  _buildCounter (totalImages) {
+    const classNames = cx('sui-ImageSlider-counter', `sui-ImageSlider-counter--${this.props.counterPosition}`)
+    const Icon = this.props.counterIcon
+    return <div className={classNames}>
+      <Icon svgClass='sui-ImageSlider-counter-icon' />
+      <span className='sui-ImageSlider-counter-text'>{this.state.currentSlide + 1}/{totalImages}</span>
     </div>
-  )
-}
+  }
 
-/**
- * Says if there are more than one image in the given list.
- * Implemented for semantic purposes.
- * @param {Array} images List given by props.images.
- * @return {boolean}
- */
-const hasMoreThanOneImage = (images) => (images && images.length > 1)
-
-/**
- * @param {Array} images List given by props.images.
- * @return {Array} List of img elements.
- */
-const getSlides = (images, linkFactory) => {
-  if (images && images.length) {
-    return images.map((image, index) => {
-      const key = image.key ? image.key + index : index
-      const img = <img className='sui-ImageSlider-image' key={key} src={image.src} alt={image.alt} />
-      const target = image.target ? image.target : '_blank'
-      return image.link ? linkFactory({ href: image.link, target: target, className: '', children: img, key: key }) : img
-    })
-  } else {
-    return []
+  /**
+   * @param {Array} images List given by props.images.
+   * @return {Array} List of img elements.
+   */
+  _getSlides (images, linkFactory) {
+    if (images && images.length) {
+      return images.map((image, index) => {
+        const key = image.key ? image.key + index : index
+        const img = <img className='sui-ImageSlider-image' key={key} src={image.src} alt={image.alt} />
+        const target = image.target ? image.target : '_blank'
+        return image.link ? linkFactory({ href: image.link, target: target, className: '', children: img, key: key }) : img
+      })
+    } else {
+      return []
+    }
   }
 }
+
+const COUNTER_POS_BOTTOM_LEFT = 'bottom-left'
+const COUNTER_POS_BOTTOM_RIGHT = 'bottom-right'
 
 ImageSlider.propTypes = {
   dynamicContent: PropTypes.bool,
@@ -70,14 +98,37 @@ ImageSlider.propTypes = {
     lazyLoadSlider: PropTypes.bool,
     initialSlide: PropTypes.number
   }),
-  linkFactory: PropTypes.func
+  linkFactory: PropTypes.func,
+  /**
+   * Wheter or not display image counter.
+   */
+  enableCounter: PropTypes.bool,
+  /**
+   * Counter position.
+   */
+  counterPosition: PropTypes.oneOf([COUNTER_POS_BOTTOM_LEFT, COUNTER_POS_BOTTOM_RIGHT]),
+  /**
+   * Custom icon for counter
+   */
+  counterIcon: PropTypes.func
+}
+
+// TODO: To be replaced by @schibstedspain/sui-svgiconset/lib/Camera.
+const IconCamera = () => {
+  return <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' className='sui-ImageSlider-counter-icon'>
+    <g fillRule='evenodd'>
+      <path d='M1.25 19.5h21.5V7h-6.518l-1.5-2.25H9.268L7.768 7H1.25v12.5zM16.768 6h6.982v14.5H.25V6h6.982l1.5-2.25h6.536l1.5 2.25z' />
+      <path d='M12 16.75a4.25 4.25 0 1 1 0-8.5 4.25 4.25 0 0 1 0 8.5zm0-1a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5z' />
+    </g>
+  </svg>
 }
 
 ImageSlider.defaultProps = {
+  images: [],
   /**
    * This function will receive the onClick arguments
    */
-  handleClick: () => {},
+  handleClick: NO_OP,
   /**
    * If not set, react-slidy will be created with its default properties.
    */
@@ -94,7 +145,10 @@ ImageSlider.defaultProps = {
    */
   linkFactory: ({href, target, className, children, key} = {}) => (
     <a href={href} target={target} className={className} key={key}>{children}</a>
-  )
+  ),
+  enableCounter: false,
+  counterPosition: COUNTER_POS_BOTTOM_RIGHT,
+  counterIcon: IconCamera
 }
 
 ImageSlider.displayName = 'ImageSlider'

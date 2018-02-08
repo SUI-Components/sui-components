@@ -7,6 +7,7 @@ import cx from 'classnames'
 // import IconCamera from '@schibstedspain/sui-svgiconset/lib/Camera'
 
 const NO_OP = () => {}
+const TARGET_BLANK = '_blank'
 
 class ImageSlider extends Component {
   constructor (props) {
@@ -56,8 +57,15 @@ class ImageSlider extends Component {
       return images.map((image, index) => {
         const key = image.key ? image.key + index : index
         const img = <img className='sui-ImageSlider-image' key={key} src={image.src} alt={image.alt} />
-        const target = image.target ? image.target : '_blank'
-        return image.link ? linkFactory({ href: image.link, target: target, className: '', children: img, key: key }) : img
+        const target = image.target ? image.target : TARGET_BLANK
+        return image.link
+          ? linkFactory({
+            href: image.link,
+            target: target,
+            className: '',
+            children: img,
+            key: key})
+          : img
       })
     } else {
       return []

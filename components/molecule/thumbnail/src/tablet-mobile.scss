@@ -1,0 +1,26 @@
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+
+$sizes-mobile-sui-molecule-thumbnail: (
+  large: 96px,
+  medium: 72px,
+  small: 40px,
+  xsmall:  32px
+);
+
+.sui-MoleculeThumbnail {
+  @include media-breakpoint-down(m) {
+    @each $key-size, $size in $sizes-mobile-sui-molecule-thumbnail {
+      &--#{$key-size} {
+        width: $size;
+      }
+  
+      @each $key-ratio, $ratio in $ratios-sui-molecule-thumbnail {
+        &--#{$key-size}.sui-MoleculeThumbnail--#{$key-ratio}-#{$ratio} {
+          .sui-ImagePlaceholder {
+            height: ($size/$key-ratio)*$ratio;
+          }   
+        }
+      }
+    }
+  }
+}

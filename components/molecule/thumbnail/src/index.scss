@@ -1,0 +1,97 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$sizes-sui-molecule-thumbnail: (
+  large: 144px,
+  medium: 72px,
+  small: 48px,
+  xsmall:  40px
+) !default;
+
+$ratios-sui-molecule-thumbnail: (
+  1: 1,
+  4: 3,
+  16: 9
+) !default;
+
+$bd-outer-sui-molecule-thumbnail: 1px solid color-variation($c-gray, 3) !default;
+$bdc-outer-hover-sui-molecule-thumbnail: $c-text-link !default;
+$bd-inner-sui-molecule-thumbnail: 3px solid $c-white !default;
+$bgc-sui-molecule-thumbnail: $c-gray-light !default; 
+$bs-sui-molecule-thumbnail: 0 !default;
+
+a {
+  & > .sui-MoleculeThumbnail {
+    &:hover {
+      border-color: $bdc-outer-hover-sui-molecule-thumbnail;
+    }
+  }
+}
+
+.sui-MoleculeThumbnail {
+  background: $bgc-thumbnail-basic;
+  border: $bd-outer-sui-molecule-thumbnail;
+  box-shadow: $bs-sui-molecule-thumbnail;  
+  display: inline-block;
+  margin: 0;  
+  position: relative;
+  width: 100%;
+
+  img {
+    width: 100%;
+
+  }
+
+  .sui-ImagePlaceholder {
+    background: $bgc-sui-molecule-thumbnail;
+    border: $bd-inner-sui-molecule-thumbnail;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+  }
+
+  &--circled {
+    border-radius: 50%;
+
+    .sui-ImagePlaceholder {
+      border-radius: 50%;
+    }
+
+    .sui-MoleculeThumbnail-caption {
+      display: none;
+    }
+
+  }
+
+  &-caption {
+    background: color-variation($c-gray, 3);
+    border: $bd-outer-sui-molecule-thumbnail;
+    color: $c-text-link;
+    display: block;
+    font-size: $fz-s;    
+    overflow: hidden;
+    padding: $p-m;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+
+  }
+
+  @each $key-size, $size in $sizes-sui-molecule-thumbnail {
+    &--#{$key-size} {
+      width: $size;
+    }
+
+    @each $key-ratio, $ratio in $ratios-sui-molecule-thumbnail {
+      &--#{$key-size}.sui-MoleculeThumbnail--#{$key-ratio}-#{$ratio} {
+        .sui-ImagePlaceholder {
+          height: ($size/$key-ratio)*$ratio;
+        }   
+      }
+    }
+  }
+}
+
+@import 'tablet-mobile';

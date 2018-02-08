@@ -52,7 +52,6 @@
         "atom/button",
         "atom/tag",
         "atom/panel",
-        "breadcrumb/basic"
         "breadcrumb/basic",
         "molecule/tabs",
         "molecule/thumbnail"

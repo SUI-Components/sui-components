@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.2.0"></a>
+# 2.2.0 (2018-02-02)
+
+
+### Bug Fixes
+
+* add max width to make a single image not displayed with react-slidy to be adapted ([b0a0730](https://github.com/SUI-Components/sui-components/commit/b0a0730))
+
+
+### Features
+
+* add link to image ([3beb320](https://github.com/SUI-Components/sui-components/commit/3beb320))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2018-01-29)
 

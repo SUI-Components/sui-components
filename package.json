@@ -52,8 +52,10 @@
         "atom/button",
         "atom/tag",
         "atom/panel",
-        "molecule/thumbnail",
         "breadcrumb/basic"
+        "breadcrumb/basic",
+        "molecule/tabs",
+        "molecule/thumbnail"
       ]
     },
     "sui-mono": {

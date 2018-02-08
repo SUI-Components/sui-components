@@ -29,6 +29,7 @@
     }
     cursor: pointer;
     flex-basis: $fxb-list-image-item-desktop;
+    overflow: hidden;
   }
 
   &-lastItemContainer {

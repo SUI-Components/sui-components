@@ -39,6 +39,12 @@ $c-image-slider: $c-white !default;
       left: $m-image-slider-counter;
     }
 
+    &--bottomCenter {
+      bottom: $m-image-slider-counter;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
     &Icon {
       fill: $c-image-slider-icon !important;
       height: $sz-image-slider-icon;

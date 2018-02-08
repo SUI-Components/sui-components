@@ -44,7 +44,12 @@ class ImageSlider extends Component {
     const Icon = this.props.counterIcon
     return <div className={classNames}>
       <Icon svgClass='sui-ImageSlider-counterIcon' />
-      <span className='sui-ImageSlider-counterText'>{this.state.currentSlide + 1}/{totalImages}</span>
+      <span className='sui-ImageSlider-counterText'>
+        {this.props.counterPatternFactory({
+          current: this.state.currentSlide + 1,
+          total: totalImages
+        })}
+      </span>
     </div>
   }
 
@@ -118,7 +123,11 @@ ImageSlider.propTypes = {
   /**
    * Custom icon for counter
    */
-  counterIcon: PropTypes.func
+  counterIcon: PropTypes.func,
+  /**
+   * Counter text factory that receives an object like {current, total} and returns a string/node.
+   */
+  counterPatternFactory: PropTypes.func
 }
 
 // TODO: To be replaced by @schibstedspain/sui-svgiconset/lib/Camera.
@@ -156,7 +165,8 @@ ImageSlider.defaultProps = {
   ),
   enableCounter: false,
   counterPosition: COUNTER_POS_BOTTOM_RIGHT,
-  counterIcon: IconCamera
+  counterIcon: IconCamera,
+  counterPatternFactory: ({current, total}) => `${current}/${total}`
 }
 
 ImageSlider.displayName = 'ImageSlider'

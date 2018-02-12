@@ -1,0 +1,21 @@
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+
+.sui-MoleculeTabs {
+  &--horizontal,
+  &--vertical,
+  &--fullWidth {
+    .sui-MoleculeTabs-button {
+      @include media-breakpoint-down(s) {
+        max-width: 160px;
+
+        span {
+          display: block;
+          max-width: 100%;          
+          overflow: hidden;                
+          text-overflow: ellipsis;
+                                 
+        }
+      }
+    }
+  }
+}

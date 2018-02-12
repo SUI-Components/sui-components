@@ -47,6 +47,10 @@ class MapBasic extends Component {
         handleFunction: (evt) => this.props.onPoiMouseOver(evt.detail)
       },
       {
+        name: 'leaflet_map_poimousemove',
+        handleFunction: (evt) => this.props.onPoiMouseMove(evt.detail)
+      },
+      {
         name: 'leaflet_map_layer_satellite',
         handleFunction: (evt) => this.props.onSatelliteView(evt.detail)
       }
@@ -77,7 +81,8 @@ class MapBasic extends Component {
       appCode: this.props.appCode,
       mapDOMInstance: this.mapDOMInstance,
       scrollWheelZoom: this.props.scrollWheelZoom,
-      onPolygonWithBounds: this.props.onPolygonWithBounds
+      onPolygonWithBounds: this.props.onPolygonWithBounds,
+      _deprecatedLabelNoPrice: this.props._deprecatedLabelNoPrice
     }
   }
 
@@ -119,7 +124,7 @@ class MapBasic extends Component {
   }
 
   componentWillReceiveProps ({heatMapUrl, pois, showHeatmap, showSatelliteView}) {
-    this.mapInstance.displayPois(pois)
+    this.mapInstance.displayPois(pois, this.props._deprecatedLabelNoPrice)
     this.checkIfHeatMapShouldBeDisplayed(showHeatmap, heatMapUrl)
     this.checkWhichViewShouldBeDisplayed(showSatelliteView)
   }
@@ -127,7 +132,7 @@ class MapBasic extends Component {
   componentDidMount () {
     this.subscribeToMapEvents()
     this.mapInstance = new LeafletMap(this.getMapConfig())
-    this.mapInstance.displayPois(this.props.pois)
+    this.mapInstance.displayPois(this.props.pois, this.props._deprecatedLabelNoPrice)
   }
 
   render () {
@@ -184,6 +189,7 @@ MapBasic.propTypes = {
   onPoiClick: PropTypes.func,
   onPoiMouseOut: PropTypes.func,
   onPoiMouseOver: PropTypes.func,
+  onPoiMouseMove: PropTypes.func,
   onSatelliteView: PropTypes.func,
   /**
    * An array of points of interest. More info and examples on readme.
@@ -237,7 +243,8 @@ MapBasic.propTypes = {
   /**
   * This property indicates the action to be performed with the polygon. By DEFAULT it does a fitBounds.
   */
-  onPolygonWithBounds: PropTypes.func
+  onPolygonWithBounds: PropTypes.func,
+  _deprecatedLabelNoPrice: PropTypes.string
 }
 
 MapBasic.defaultProps = {
@@ -261,7 +268,9 @@ MapBasic.defaultProps = {
   onPoiClick: NO_OP,
   onPoiMouseOut: NO_OP,
   onPoiMouseOver: NO_OP,
-  onSatelliteView: NO_OP
+  onPoiMouseMove: NO_OP,
+  onSatelliteView: NO_OP,
+  _deprecatedLabelNoPrice: ''
 }
 
 MapBasic.displayName = 'MapBasic'

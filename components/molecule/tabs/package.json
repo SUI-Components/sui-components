@@ -1,7 +1,7 @@
 {
-  "name": "@schibstedspain/sui-sticky-content",
-  "version": "1.2.0",
-  "description": "Component wrapper to set position fixed or sticky to children node.",
+  "name": "@schibstedspain/sui-molecule-tabs",
+  "version": "1.1.0",
+  "description": "",
   "main": "lib/index.js",
   "scripts": {
     "build": "rm -Rf ./lib && mkdir -p ./lib && npm run build:js && npm run build:styles",
@@ -9,8 +9,7 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
-    "lodash.throttle": "4.1.1"
+    "@s-ui/component-dependencies": "1"
   },
   "keywords": [],
   "author": "",

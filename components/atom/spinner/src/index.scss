@@ -2,31 +2,34 @@
 @import './SUILoader/index';
 
 $bgc-atom-spinner: rgba($c-white, .6);
-$z-atom-spinner: 999;
 
 %spinner-layer {
   background-color: $bgc-atom-spinner;
   bottom: 0;
+  content: '';
   left: 0;
   right: 0;
   top: 0;
-  z-index: $z-atom-spinner;
 }
 
 .sui-atom-spinner {
   position: relative;
 
-  &-layer {
+  &::before {
     @extend %spinner-layer;
     position: absolute;
   }
 
-  &-layer-full {
-    @extend %spinner-layer;
-    position: fixed;
+  &--full-page {
+
+    &::before {
+      @extend %spinner-layer;
+      position: fixed;
+    }
   }
 
-  &-layer-hide {
-    display: none;
+  #{&}-loader {
+    display: block;
   }
+
 }

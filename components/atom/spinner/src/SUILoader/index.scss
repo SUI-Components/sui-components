@@ -4,6 +4,7 @@ $c-accent-atom-spinner-loader: color-variation($c-accent, 1) !default;
 $c-primary-atom-spinner-loader: color-variation($c-primary, -1) !default;
 $sz-atom-spinner-oval: $sz-icon-s !default;
 $sz-atom-spinner: $sz-atom-spinner-oval * 2 !default;
+$z-atom-spinner-loader: 999;
 
 @keyframes sui-atom-spinner {
   0% {
@@ -35,12 +36,15 @@ $anim-atom-spinner: sui-atom-spinner 1.5s ease-in-out infinite;
     background-color: transparent;
     border-radius: 50%;
     box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner-oval $c-accent-atom-spinner-loader, 0 $sz-atom-spinner $c-primary-atom-spinner-loader;
+    display: none;
     height: $sz-atom-spinner-oval;
     left: 0;
     margin: 0 auto;
     position: absolute;
     right: 0;
+    text-indent: 100%;
     top: calc(50% - #{$sz-atom-spinner});
     width: $sz-atom-spinner-oval;
+    z-index: $z-atom-spinner-loader;
   }
 }

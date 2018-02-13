@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import LeafletMap from './leaflet/map'
 import { mapViewModes, NO_OP } from './leaflet/constants'
 
 class MapBasic extends Component {
@@ -130,6 +129,8 @@ class MapBasic extends Component {
   }
 
   componentDidMount () {
+    const LeafletMap = require('./leaflet/map').default
+
     this.subscribeToMapEvents()
     this.mapInstance = new LeafletMap(this.getMapConfig())
     this.mapInstance.displayPois(this.props.pois, this.props._deprecatedLabelNoPrice)

@@ -17,8 +17,11 @@ class AtomSpinner extends Component {
     delayed: this.props.delayed
   }
 
-  get _parentNode () {
-    return ReactDOM.findDOMNode(this).parentNode
+  get _parentNodeClassList () {
+    if (this._parentNodeClassListCache) return this._parentNodeClassListCache
+
+    this._parentNodeClassListCache = ReactDOM.findDOMNode(this).parentNode.classList
+    return this._parentNodeClassListCache
   }
 
   get _parentClassName () {
@@ -31,34 +34,32 @@ class AtomSpinner extends Component {
 
   componentDidMount () {
     if (!this.state.delayed) {
-      this.props.on && this.addClassToParent()
+      this.props.on && this._addParentClass()
       return
     }
 
     this.timer = setTimeout(() => {
-      this.setState({delayed: false}, this.addClassToParent)
+      this.setState({delayed: false}, this._addParentClass)
     }, DELAY)
   }
 
   componentWillUnmount () {
     clearTimeout(this.timer)
-    this.removeClassToParent()
+    this._removeParentClass()
   }
 
-  removeClassToParent () {
-    this._parentNode.classList.remove(this._parentClassName)
+  _removeParentClass () {
+    this._parentNodeClassList.remove(this._parentClassName)
   }
 
-  addClassToParent () {
-    this._parentNode.classList.add(this._parentClassName)
+  _addParentClass () {
+    this._parentNodeClassList.add(this._parentClassName)
   }
 
   componentWillReceiveProps (nextProps) {
-    if (!this.props.on && this.props.on !== nextProps.on) {
-      this.addClassToParent()
-    } else if (this.props.on && this.props.on !== nextProps.on) {
-      this.removeClassToParent()
-    }
+    if (this.props.on === nextProps.on) return
+    if (!this.props.on) return this._addParentClass()
+    if (this.props.on) return this._removeParentClass()
   }
 
   shouldRenderLoader () {

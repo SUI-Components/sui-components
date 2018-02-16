@@ -26,6 +26,10 @@ $bgc-atom-spinner: rgba($c-white, .6);
       @extend %spinner-layer;
       position: fixed;
     }
+
+    .sui-atom-spinner-loader {
+      display: block;
+    }
   }
 
   #{&}-loader {

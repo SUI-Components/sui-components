@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import SUILoader from './SUILoader'
@@ -9,45 +10,70 @@ const TYPES = {
 }
 
 const DELAY = 500 // ms
-const BASE_CLASS = 'sui-atom-spinner-layer'
+const BASE_CLASS = 'sui-atom-spinner'
 
 class AtomSpinner extends Component {
   state = {
     delayed: this.props.delayed
   }
 
+  get _parentNode () {
+    return ReactDOM.findDOMNode(this).parentNode
+  }
+
+  get _parentClassName () {
+    const {type} = this.props
+
+    return cx(
+      type === TYPES.SECTION ? BASE_CLASS : `${BASE_CLASS}--full-page`
+    )
+  }
+
   componentDidMount () {
-    if (!this.state.delayed) return
+    if (!this.state.delayed) {
+      this.props.on && this.addClassToParent()
+      return
+    }
 
     this.timer = setTimeout(() => {
-      this.setState({delayed: false})
+      this.setState({delayed: false}, this.addClassToParent)
     }, DELAY)
   }
 
   componentWillUnmount () {
     clearTimeout(this.timer)
+    this.removeClassToParent()
   }
 
-  getLayerClassName () {
-    const {type, on} = this.props
+  removeClassToParent () {
+    this._parentNode.classList.remove(this._parentClassName)
+  }
+
+  addClassToParent () {
+    this._parentNode.classList.add(this._parentClassName)
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (!this.props.on && this.props.on !== nextProps.on) {
+      this.addClassToParent()
+    } else if (this.props.on && this.props.on !== nextProps.on) {
+      this.removeClassToParent()
+    }
+  }
+
+  shouldRenderLoader () {
+    const {on} = this.props
     const {delayed} = this.state
 
-    return cx(
-      type === TYPES.SECTION ? BASE_CLASS : `${BASE_CLASS}-full`,
-      (!delayed && on) || `${BASE_CLASS}-hide`
-    )
+    return !delayed && on
   }
 
   render () {
-    const {children, ...props} = this.props
-
+    const {loader} = this.props
     return (
-      <div className='sui-atom-spinner'>
-        <div className={this.getLayerClassName(props)}>
-          <SUILoader />
-        </div>
-        {children}
-      </div>
+      this.shouldRenderLoader()
+        ? loader
+        : <noscript />
     )
   }
 }
@@ -55,7 +81,6 @@ class AtomSpinner extends Component {
 AtomSpinner.displayName = 'AtomSpinner'
 
 AtomSpinner.propTypes = {
-  children: PropTypes.node,
   /**
    * Possible options:
    * 'FULL': The spinner fits the whole page container
@@ -64,13 +89,14 @@ AtomSpinner.propTypes = {
   type: PropTypes.oneOf(Object.values(TYPES)),
   on: PropTypes.bool,
   delayed: PropTypes.bool,
-  contentLoaded: PropTypes.bool
+  loader: PropTypes.object
 }
 
 AtomSpinner.defaultProps = {
   on: true,
   delayed: false,
-  type: TYPES.SECTION
+  type: TYPES.SECTION,
+  loader: <SUILoader text='Loading...' />
 }
 
 export default AtomSpinner

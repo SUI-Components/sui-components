@@ -27,11 +27,10 @@ class SpinnerWrapperExample extends React.Component {
     return contentLoaded
       ? <p style={boxStyle}>Content loaded, spinner dissapears</p>
       : (
-        <AtomSpinner delayed>
-          <p style={boxStyle}>
-            Slowly loading content, delayed spinner will be shown
-          </p>
-        </AtomSpinner>
+        <p style={boxStyle}>
+          Slowly loading content, delayed spinner will be shown
+          <AtomSpinner delayed />
+        </p>
       )
   }
 }
@@ -55,25 +54,23 @@ class FullScreenSpinnerExample extends React.Component {
         <button style={buttonStyle} onClick={this.onClick}>
           Click to show fullscreen spinner for 5 seconds
         </button>
-        <AtomSpinner on={this.state.show} type={AtomSpinnerTypes.FULL } />
+        <AtomSpinner on={this.state.show} type={AtomSpinnerTypes.FULL} />
       </React.Fragment>
     )
   }
 }
 
 return (
-  <div>
-    <AtomSpinner>
-      <p style={boxStyle}>
-        Infinite spinner
-      </p>
-    </AtomSpinner>
-    <AtomSpinner delayed>
-      <p style={boxStyle}>
-        Delayed spinner
-      </p>
-    </AtomSpinner>
+  <React.Fragment>
+    <p style={boxStyle}>
+      Infinite spinner
+      <AtomSpinner />
+    </p>
+    <p style={boxStyle}>
+      Delayed spinner
+      <AtomSpinner delayed />
+    </p>
     <SpinnerWrapperExample />
     <FullScreenSpinnerExample />
-  </div>
+  </React.Fragment>
 )

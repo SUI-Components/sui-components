@@ -23,5 +23,4 @@ import ScriptLoader from '@schibstedspain/sui-script-loader'
 return (<ScriptLoader src={src} verifier={() => true} isAsync={false} render={() => 'Ready to render!'} />)
 ```
 
-
-> **Find full description and more examples in the [demo page](#).**
+**Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/script/loader).**

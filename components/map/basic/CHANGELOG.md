@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2018-02-19)
+
+
+### Bug Fixes
+
+* prevent crash on IE ([b100e12](https://github.com/SUI-Components/sui-components/commit/b100e12))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2018-02-13)
 

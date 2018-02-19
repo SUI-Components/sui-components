@@ -60,7 +60,6 @@ const buildButtons = (props) => {
     return (
       <div className='sui-CoverBasic-button' key={index}>
         <Button
-          className='sui-CoverBasic-buttonItem'
           type='tertiary'
           leftIcon={Icon && <Icon className='sui-CoverBasic-buttonIcon' />}
           onClick={handler}>

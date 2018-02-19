@@ -13,9 +13,6 @@ $op-cover-basic-gradient-after: .35 !default;
 $sz-cover-basic-button-icon: $sz-icon-s !default;
 $c-cover-basic-button-icon: $c-primary !default;
 $bgc-cover-basic-button: rgba(255, 255, 255, .75) !default;
-$h-cover-basic-button: $sz-icon-m * 2 !important !default;
-$c-cover-basic-button-text: $c-gray-dark !important !default;
-$fz-cover-basic-button-text: $fz-l !important !default;
 $bdrs-cover-basic-button: $bdrs-base !default;
 
 .sui-CoverBasic {
@@ -86,12 +83,6 @@ $bdrs-cover-basic-button: $bdrs-base !default;
 
     &:last-child {
       margin-right: 0;
-    }
-
-    &Item {
-      color: $c-cover-basic-button-text;
-      font-size: $fz-cover-basic-button-text;
-      height: $h-cover-basic-button;
     }
 
     &Icon {

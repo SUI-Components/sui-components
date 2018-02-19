@@ -13,3 +13,6 @@ $bd-collapsible-basic: 1px solid $bdc-collapsible-basic !default;
 $bdr-collapsible-basic: 0 !default;
 $trs-collapsible-basic-trigger-icon: transform $trs-base !default;
 $c-collapsible-basic-trigger-icon: $c-primary !default;
+$trs-collapsible-basic-content-normal: max-height .3s ease-in-out !default;
+$trs-collapsible-basic-content-fast: max-height .1s ease-in-out !default;
+$m-h-collapsible-basic-trigger-icon: $m-h !default;

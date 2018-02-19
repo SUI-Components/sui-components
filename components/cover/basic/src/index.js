@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import cx from 'classnames'
-import ButtonBasic from '@schibstedspain/sui-button-basic'
+import Button from '@schibstedspain/sui-atom-button'
 
 const CoverBasic = (props) => {
   const buttons = buildButtons(props)
@@ -51,21 +51,22 @@ const isClickable = (props) => {
 }
 
 const buildButtons = (props) => {
-  return props.buttons.map((item, index) => {
+  return props.buttons.map(({ icon: Icon, label, handleClick }, index) => {
     // Build click handler for each button
     function handler (event) {
       event.stopPropagation()
-      item.handleClick(event)
+      handleClick && handleClick(event)
     }
     return (
-      <ButtonBasic
-        key={index}
-        icon={item.svg}
-        text={item.label}
-        onClick={handler}
-        type='secondary'
-        size='large'
-      />
+      <div className='sui-CoverBasic-button' key={index}>
+        <Button
+          className='sui-CoverBasic-buttonItem'
+          type='tertiary'
+          leftIcon={Icon && <Icon className='sui-CoverBasic-buttonIcon' />}
+          onClick={handler}>
+          { label }
+        </Button>
+      </div>
     )
   })
 }
@@ -114,7 +115,7 @@ CoverBasic.propTypes = {
       /**
        * Icon to display on the left of the text.
        */
-      svg: PropTypes.node
+      icon: PropTypes.func
     })
   )
 }

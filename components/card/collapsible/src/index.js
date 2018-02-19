@@ -94,7 +94,6 @@ class CardCollapsible extends Component {
     return !!label && (
       <Button
         fullWidth
-        className='sui-CardCollapsible-expandButton'
         size='large'
         onClick={this._toggleCardContent}>
         {label}

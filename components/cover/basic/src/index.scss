@@ -1,6 +1,7 @@
-// sass-lint:disable class-name-format
+// sass-lint:disable class-name-format, no-important
+@import '~@schibstedspain/sui-theme/lib/settings';
 @import '~@schibstedspain/sui-theme/lib/index';
-@import '~@schibstedspain/sui-button-basic/lib/index';
+@import '~@schibstedspain/sui-atom-button/lib/index';
 
 $mah-cover-basic: map-get($breakpoints, 's') !default;
 $h-cover-basic-small: 30% !default;
@@ -9,6 +10,10 @@ $ml-cover-basic-buttons: $m-base !default;
 $mt-cover-basic-buttons: $m-base !default;
 $c-cover-basic-children: $c-white !default;
 $op-cover-basic-gradient-after: .35 !default;
+$sz-cover-basic-button-icon: $sz-icon-s !default;
+$c-cover-basic-button-icon: $c-primary !default;
+$bgc-cover-basic-button: rgba(255, 255, 255, .75) !default;
+$bdrs-cover-basic-button: $bdrs-base !default;
 
 .sui-CoverBasic {
   @include media-breakpoint-down(s) {
@@ -69,6 +74,21 @@ $op-cover-basic-gradient-after: .35 !default;
     margin-top: $mt-cover-basic-buttons;
     position: absolute;
     top: 0;
+  }
+
+  &-button {
+    background-color: $bgc-cover-basic-button;
+    border-radius: $bdrs-cover-basic-button;
+    margin-right: $m-m;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &Icon {
+      height: $sz-cover-basic-button-icon;
+      width: $sz-cover-basic-button-icon;
+    }
   }
 
   &-children {

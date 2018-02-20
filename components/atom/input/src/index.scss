@@ -2,7 +2,6 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
 $validation: success $c-success, error $c-error;
-$size: medium 40px, small 30px;
 
 @mixin formField($field) {
   overflow: hidden;
@@ -15,37 +14,21 @@ $size: medium 40px, small 30px;
     padding-left: $p-l;
     padding-right: $p-l;
     width: 100%;
-  }
 
-  &[placeholder] {
-    color: $c-gray-dark;
-  }
-
-  &[disabled] {
-    background: $c-gray-lightest;
-
-    &[placeholder] {
-      color: $c-gray-light;
+    &:not(:disabled)::placeholder {
+      color: $c-gray-dark;
     }
-  }
 
-  &:focus {
-    box-shadow: inset 0 0 3px 0 $c-primary;
-  }
+    &:disabled {
+      background: $c-gray-lightest;
 
-  &-help-text {
-    color: $c-gray-light;
-    display: block;
-    font-size: $fz-xs;
-    margin: $m-s 0 0;
-  }
-
-  //sui-AtomInput-medium & sui-AtomInput-small
-  @each $type, $h in $size {
-    &-#{$type} {
-      #{$field} {
-        height: $h;
+      &::placeholder {
+        color: $c-gray-light;
       }
+    }
+
+    &:focus {
+      box-shadow: inset 0 0 3px 0 $c-primary;
     }
   }
 
@@ -70,13 +53,40 @@ $size: medium 40px, small 30px;
   }
 }
 
+@mixin help-text {
+  color: $c-gray-light;
+  display: block;
+  font-size: $fz-xs;
+  margin: $m-s 0 0;
+}
+
+@mixin field-size($field) {
+  $size: null !default;
+  @if($field == 'input') {
+    $size: medium 40px, small 30px;
+  } @else if($field == 'textarea') {
+    $size: medium 400px, small 200px;
+  }
+
+  @each $type, $h in $size {
+    &-#{$type} {
+      #{$field} {
+        height: $h;
+      }
+    }
+  }
+}
+
 .sui-AtomInput {
   @include formField(input);
+  @include field-size(input);
 
   &-input-wrapper {
     display: flex;
-    font-size: $fz-base;
-    white-space: nowrap;
+  }
+
+  &-help-text {
+    @include help-text;
   }
 }
 

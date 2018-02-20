@@ -106,12 +106,14 @@ return (
       verificationType={atomInputVerificationTypes.ERROR}
       verificationText='Error'
       helpText='Lorem ipsum'
+      placeholder='Lorem ipsum'
     />
     <AtomInput
       type='text'
       disabled
       label='Simple text input disabled'
       name='text'
+      placeholder='Lorem ipsum'
     />
 
   </div>

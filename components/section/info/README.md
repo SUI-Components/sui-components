@@ -11,7 +11,7 @@ $ npm install @schibstedspain/sui-section-info --save
 ```
 
 ## Usage
-Provide an `string` to a `title` prop and wrap a child component as a `content`. If no `title` prop is provided the corresponding DOM element won'7 be rendered. In addition you can provide an empty string if the Title space is needed.
+Provide an `string` to a `title` prop and wrap a child component as a `content`. If no `title` prop is provided the corresponding DOM element won't be rendered. In addition you can provide an empty string if the Title space is needed.
 Check out **Basic Usage** section to get further info.
 
 Set custom values to container sizing and flex properties using the following Sass variables:

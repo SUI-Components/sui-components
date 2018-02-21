@@ -9,7 +9,7 @@ class SectionInfo extends Component {
 
     return (
       <section className={baseClass}>
-        <h3 className={`${baseClass}-title`}>{title}</h3>
+        { title !== undefined && <h3 className={`${baseClass}-title`}>{title}</h3> }
         <div className={`${baseClass}-content`}>{children}</div>
       </section>
     )

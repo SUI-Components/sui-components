@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2018-02-21)
+
+
+### Bug Fixes
+
+* fix typo ([fe16181](https://github.com/SUI-Components/sui-components/commit/fe16181))
+
+
+### Features
+
+* adds a conditional title based on its prop declaration ([bca798a](https://github.com/SUI-Components/sui-components/commit/bca798a))
+* avoid returning empty h3 tag when empty string is provided ([3126636](https://github.com/SUI-Components/sui-components/commit/3126636))
+* improved playground and doc ([7ba871a](https://github.com/SUI-Components/sui-components/commit/7ba871a))
+* simplified truthy eval for title ([6cefba4](https://github.com/SUI-Components/sui-components/commit/6cefba4))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2018-02-21)
 

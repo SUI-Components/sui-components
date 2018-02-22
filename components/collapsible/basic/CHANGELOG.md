@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.2.0"></a>
+# 2.2.0 (2018-02-22)
+
+
+### Features
+
+* do not show content scroll bar in IE/Edge if not needed. ([886aeed](https://github.com/SUI-Components/sui-components/commit/886aeed))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2018-02-19)
 

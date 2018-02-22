@@ -4,6 +4,7 @@
 .sui-SectionInfo {
   @include media-breakpoint-down(m) {
     flex-direction: column;
+    max-width: initial;
   }
   
   border-bottom: $bdb-section-info;

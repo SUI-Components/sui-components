@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2018-02-22)
+
+
+### Features
+
+* reset mobile max-width ([606b869](https://github.com/SUI-Components/sui-components/commit/606b869))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2018-02-21)
 

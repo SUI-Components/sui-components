@@ -2,7 +2,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
 .sui-AtomInput {
-  @include formField(input);
+  @include form-field(input);
   @include field-size(input);
 
   &-input-wrapper {

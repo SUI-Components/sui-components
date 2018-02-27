@@ -2,17 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ThumbnailBasic from '@schibstedspain/sui-thumbnail-basic'
 
-const ThumbnailList = ({items, captionText, placeholder, fallback}) =>
+const ThumbnailList = ({items, captionText, placeholder, fallback, target}) =>
   <ul className='sui-ThumbnailList'>
     {
       items.map((item, index) =>
         <li className='sui-ThumbnailList-item' key={index}>
           <ThumbnailBasic
-            href={item.href}
-            fallback={fallback}
+            alt={item.alt}
             captionText={captionText}
+            fallback={fallback}
+            href={item.href}
             placeholder={placeholder}
-            {...item.image}
+            src={item.src}
+            target={target}
           />
         </li>
       )
@@ -34,11 +36,15 @@ ThumbnailList.propTypes = {
   /**
    * @link https://sui-components.now.sh/workbench/thumbnail/basic/documentation/api
    */
-  placeholder: PropTypes.node.isRequired,
+  placeholder: PropTypes.object.isRequired,
   /**
    * @link https://sui-components.now.sh/workbench/thumbnail/basic/documentation/api
    */
-  fallback: PropTypes.node
+  fallback: PropTypes.object,
+  /**
+   * HTML anchor target
+   */
+  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
 }
 
 ThumbnailList.defaultProps = {

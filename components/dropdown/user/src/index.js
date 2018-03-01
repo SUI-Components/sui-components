@@ -134,7 +134,7 @@ DropdownUser.propTypes = {
   /**
    * Hasnotifications to show a badge notification.
    */
-  hasNotifications: PropTypes.bool,
+  hasNotifications: PropTypes.bool
 }
 
 DropdownUser.defaultProps = {

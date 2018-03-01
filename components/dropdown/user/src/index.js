@@ -36,7 +36,7 @@ class DropdownUser extends Component {
     const Link = this.props.linkFactory
 
     return (
-      <li key={index} className='sui-DropdownUserMenu-listItem'>
+      <li key={`${text}-${index}`} className='sui-DropdownUserMenu-listItem'>
         <Link href={url} className='sui-DropdownUserMenu-listLink' title={text}>
           <Icon svgClass='sui-DropdownUserMenu-listIcon' />
           <span className='sui-DropdownUserMenu-listText'>{text}</span>
@@ -69,7 +69,7 @@ class DropdownUser extends Component {
           }
         >
           <div className='sui-DropdownUser-buttonAvatarWrap'>
-            <img className='sui-DropdownUser-buttonAvatar' src={avatar} />
+            <img className='sui-DropdownUser-buttonAvatar' src={avatar} alt={`${name}-avatar`} />
           </div>
           <span className='sui-DropdownUser-buttonText'>{name}</span>
         </div>
@@ -134,11 +134,10 @@ DropdownUser.propTypes = {
   /**
    * Hasnotifications to show a badge notification.
    */
-  hasNotifications: PropTypes.bool
+  hasNotifications: PropTypes.bool,
 }
 
 DropdownUser.defaultProps = {
-  notifications: 0,
   expandOnMouseOver: false,
   linkFactory: ({ href, className, children, title }) =>
     <a href={href} className={className} title={title}>{children}</a>

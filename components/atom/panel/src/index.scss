@@ -7,12 +7,18 @@ $bgc-panels: (
   'accent': $c-accent,
   'corporate': $c-primary,
   'base': color-variation($c-gray, 3),
+  'dark': color-variation($c-gray, -1),
   'default': $c-gray-lightest,
   'highlight': color-variation($c-accent, 4)
 ) !default;
 $c-atom-panel: $c-black !default;
 $horizontal-alignments-atom-panel: ('left', 'center', 'right') !default;
 $vertical-alignments-atom-panel: ('top', 'center', 'bottom') !default;
+
+%sui-atom-panel-image {
+  background-color: $bgc-atom-panel;//default bg color
+  background-repeat: no-repeat;
+}
 
 .sui-atom-panel {
   &-content {
@@ -36,8 +42,7 @@ $vertical-alignments-atom-panel: ('top', 'center', 'bottom') !default;
   }
 
   &-image {
-    background-color: $bgc-atom-panel;
-    background-repeat: no-repeat;
+    @extend %sui-atom-panel-image;
 
     &--resized {
       background-size: cover;
@@ -45,12 +50,14 @@ $vertical-alignments-atom-panel: ('top', 'center', 'bottom') !default;
 
     @each $alignment in $horizontal-alignments-atom-panel {
       &--horizontal-#{$alignment} {
+        @extend %sui-atom-panel-image;
         background-position-x: #{$alignment};
       }
     }
 
     @each $alignment in $vertical-alignments-atom-panel {
       &--vertical-#{$alignment} {
+        @extend %sui-atom-panel-image;
         background-position-y: #{$alignment};
       }
     }

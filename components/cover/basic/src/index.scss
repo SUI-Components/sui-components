@@ -50,20 +50,11 @@ $bdrs-cover-basic-button: $bdrs-base !default;
     width: 100%;
   }
 
-  &-objectFitFix {
+  &-image {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    img {
-      opacity: 0;
-    }
-  }
-
-  &-image {
-    display: block;
     height: 100%;
-    object-fit: cover;
     width: 100%;
   }
 

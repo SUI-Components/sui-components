@@ -13,19 +13,18 @@ const CoverBasic = (props) => {
     {'is-clickable': isClickable(props)})
 
   const imageContainerClassNames = cx(
-    {'sui-CoverBasic-gradient': props.gradient},
-    {'sui-CoverBasic-objectFitFix': !isObjectFitSupported()})
+    'sui-CoverBasic-image',
+    {'sui-CoverBasic-gradient': props.gradient})
 
-  // Sadly, object-fit compatibility support cannot be done with just adding one class.
-  // The following line is the second part of the solution which is an inline style.
-  const ieObjectFitInlineStyleFix =
-    isObjectFitSupported() ? '' : { style: {backgroundImage: 'url(' + props.src + ')'} }
+  const coverBackgroundImageInlineStyle = {
+    style: {
+      backgroundImage: 'url(' + props.src + ')'
+    }
+  }
 
   return (
     <div className={coverBasicClassNames} onClick={buildClickHandler(props)}>
-      <div className={imageContainerClassNames} {...ieObjectFitInlineStyleFix}>
-        <img className='sui-CoverBasic-image' src={props.src} />
-      </div>
+      <div className={imageContainerClassNames} {...coverBackgroundImageInlineStyle} />
       {props.children &&
         <div className='sui-CoverBasic-children'>
           {props.children}
@@ -68,10 +67,6 @@ const buildButtons = (props) => {
       </div>
     )
   })
-}
-
-const isObjectFitSupported = () => {
-  return !(typeof document.documentElement.style.objectFit === 'undefined')
 }
 
 CoverBasic.displayName = 'CoverBasic'

@@ -32,31 +32,21 @@ $bdrs-cover-basic-button: $bdrs-base !default;
     cursor: pointer;
   }
 
-  &-gradient {
+  &--gradient {
     display: block;
     position: relative;
     width: 100%;
-  }
-
-  &-gradient:after {
-    background: $c-black;
-    content: '';
-    display: inline-block;
-    height: 100%;
-    left: 0;
-    opacity: $op-cover-basic-gradient-after;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-
-  &-objectFitFix {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    img {
-      opacity: 0;
+    
+    &::after {
+      background: $c-black;
+      content: '';
+      display: inline-block;
+      height: 100%;
+      left: 0;
+      opacity: $op-cover-basic-gradient-after;
+      position: absolute;
+      top: 0;
+      width: 100%;
     }
   }
 

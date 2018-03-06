@@ -36,15 +36,21 @@ return (
     <div>#3 Full width - no gradient - no buttons</div>
     <br/>
 
-    <CoverBasic src="http://lorempixel.com/1440/676/nature/" gradient buttons={buttons1} handleClick={handleClick}>
+    <h2>CoverBasic with Background Image</h2>
+
+    <CoverBasic
+      src="http://lorempixel.com/1440/676/nature/"
+      height={400}
+      buttons={buttons1}
+      handleClick={handleClick}>
       <h1>I'm a title h1 passed as children. And I'm centered.</h1>
       <h2>I'm an h2 title</h2>
     </CoverBasic>
     <br/>
     <div style={{width:'60%', margin:'auto'}}>
-      <CoverBasic src="http://lorempixel.com/1440/676/nature/" buttons={buttons2}/>
+      <CoverBasic src="http://lorempixel.com/1440/676/nature/" height={400} buttons={buttons2}/>
     </div>
     <br/>
-    <CoverBasic src="http://lorempixel.com/1440/676/nature/" />
+    <CoverBasic src="http://lorempixel.com/1440/676/nature/" height={400} />
   </div>
 )

@@ -50,7 +50,6 @@
       "compliant": [
         "atom/badge",
         "atom/button",
-        "atom/spinner",
         "atom/tag",
         "atom/panel",
         "breadcrumb/basic",

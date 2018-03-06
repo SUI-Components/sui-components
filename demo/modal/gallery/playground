@@ -53,9 +53,9 @@ class FullscreenModalGallery extends React.Component {
       <div>
         <button onClick={() => this._open()}>Open Modal Gallery!</button>
         <ModalGallery
-          shouldRenderModal={this.state.isOpen}
+          open={this.state.isOpen}
           multimedia={{images}}
-          initialSlide={6}
+          initialSlide={11}
           onClose={() => this._close()}
         />
       </div>

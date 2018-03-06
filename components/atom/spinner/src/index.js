@@ -10,7 +10,7 @@ const TYPES = {
 }
 
 const DELAY = 500 // ms
-const BASE_CLASS = 'sui-atom-spinner'
+const BASE_CLASS = 'sui-AtomSpinner'
 
 class AtomSpinner extends Component {
   state = {
@@ -28,13 +28,13 @@ class AtomSpinner extends Component {
     const {type} = this.props
 
     return cx(
-      type === TYPES.SECTION ? BASE_CLASS : `${BASE_CLASS}--full-page`
+      type === TYPES.SECTION ? BASE_CLASS : `${BASE_CLASS}--fullPage`
     )
   }
 
   componentDidMount () {
     if (!this.state.delayed) {
-      this.props.on && this._addParentClass()
+      this.props.show && this._addParentClass()
       return
     }
 
@@ -57,16 +57,16 @@ class AtomSpinner extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    if (this.props.on === nextProps.on) return
-    if (!this.props.on) return this._addParentClass()
-    if (this.props.on) return this._removeParentClass()
+    if (this.props.show === nextProps.show) return
+    if (!this.props.show) return this._addParentClass()
+    if (this.props.show) return this._removeParentClass()
   }
 
   shouldRenderLoader () {
-    const {on} = this.props
+    const {show} = this.props
     const {delayed} = this.state
 
-    return !delayed && on
+    return !delayed && show
   }
 
   render () {
@@ -88,13 +88,22 @@ AtomSpinner.propTypes = {
    * 'SECTION': The spinner fits a specific site component
    */
   type: PropTypes.oneOf(Object.values(TYPES)),
-  on: PropTypes.bool,
+  /**
+   * If the spinner is shown or not
+   */
+  show: PropTypes.bool,
+  /**
+   * Makes the spinner appear after 500 ms
+   */
   delayed: PropTypes.bool,
+  /**
+   * Loader to be shown in the middle of the container
+   */
   loader: PropTypes.object
 }
 
 AtomSpinner.defaultProps = {
-  on: true,
+  show: true,
   delayed: false,
   type: TYPES.SECTION,
   loader: <SUILoader text='Loading...' />

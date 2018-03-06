@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-atom-spinner --save
+$ npm install @s-ui/react-atom-spinner --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import AtomSpinner, {AtomSpinnerTypes} from '@schibstedspain/sui-atom-spinner'
+import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
 
 return (
   <AtomSpinner on type={AtomSpinnerTypes.FULL}>

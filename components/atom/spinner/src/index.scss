@@ -12,7 +12,7 @@ $bgc-atom-spinner: rgba($c-white, .6);
   top: 0;
 }
 
-.sui-atom-spinner {
+.sui-AtomSpinner {
   position: relative;
 
   &::before {
@@ -20,14 +20,14 @@ $bgc-atom-spinner: rgba($c-white, .6);
     position: absolute;
   }
 
-  &--full-page {
+  &--fullPage {
 
     &::before {
       @extend %spinner-layer;
       position: fixed;
     }
 
-    .sui-atom-spinner-loader {
+    .sui-AtomSpinner-loader {
       display: block;
     }
   }

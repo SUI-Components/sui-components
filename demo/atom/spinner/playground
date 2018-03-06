@@ -54,7 +54,7 @@ class FullScreenSpinnerExample extends React.Component {
         <button style={buttonStyle} onClick={this.onClick}>
           Click to show fullscreen spinner for 5 seconds
         </button>
-        <AtomSpinner on={this.state.show} type={AtomSpinnerTypes.FULL} />
+        <AtomSpinner show={this.state.show} type={AtomSpinnerTypes.FULL} />
       </React.Fragment>
     )
   }

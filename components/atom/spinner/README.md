@@ -17,7 +17,7 @@ $ npm install @s-ui/react-atom-spinner --save
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
 
 return (
-  <AtomSpinner on type={AtomSpinnerTypes.FULL}>
+  <AtomSpinner show type={AtomSpinnerTypes.FULL}>
     {component}
   </AtomSpinner>
 )

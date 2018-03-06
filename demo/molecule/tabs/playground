@@ -132,19 +132,6 @@ return (
                 width: '50%',
                 verticalAlign: 'top'
               }}>
-                <h3>No icons </h3>
-                <MoleculeTabs
-                  items={itemsNoIcons}
-                  activeTab={0}
-                  handleChange={handleChange}
-                  type={moleculeTabsTypes.VERTICAL}
-                />
-            </td>
-            <td style={{
-                width: '50%',
-                verticalAlign: 'top'
-              }}>
-              <h3>With icons </h3>
               <MoleculeTabs
                   items={items}
                   activeTab={0}
@@ -170,20 +157,6 @@ return (
                 width: '50%',
                 verticalAlign: 'top'
               }}>
-                <h3>No icons </h3>
-                <MoleculeTabs
-                  items={itemsNoIcons}
-                  activeTab={0}
-                  handleChange={handleChange}
-                  type={moleculeTabsTypes.VERTICAL}
-                  variant={moleculeTabsVariants.HIGHLIGHTED}
-                />
-            </td>
-            <td style={{
-                width: '50%',
-                verticalAlign: 'top'
-              }}>
-              <h3>With icons </h3>
               <MoleculeTabs
                   items={items}
                   activeTab={0}

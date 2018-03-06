@@ -11,15 +11,19 @@ class CoverBasic extends Component {
     {[`${baseClass}--bgImage`]: this.props.src}
   )
 
-  buildButtons = () => {
-    return this.props.buttons.map(({ icon: Icon, label, handleClick }, index) => {
-      // Build click handler for each button
+  _buildButtons = () => {
+    const { buttons } = this.props
+    const executeCallback = (e, callback) => {
+      e.stopPropagation()
+      callback(e)
+    }
+    return buttons.map(({ icon: Icon, label, handleClick }, index) => {
       return (
         <div className={`${baseClass}-button`} key={index}>
           <Button
             type='tertiary'
             leftIcon={Icon && <Icon className={`${baseClass}-buttonIcon`} />}
-            onClick={this.handler}>
+            onClick={(e) => executeCallback(e, handleClick)}>
             {label}
           </Button>
         </div>
@@ -27,22 +31,22 @@ class CoverBasic extends Component {
     })
   }
 
-  buttons = this.buildButtons(this.props)
+  buttons = this._buildButtons()
 
   componentDidMount () {
     const { src, height } = this.props
     const backgroundImage = `url(${src})`
-    const DOMelement = document.querySelector('.sui-CoverBasic--bgImage')
-    this.setCSSPropertiesToElement({ 'background': backgroundImage, 'height': height }, DOMelement)
+    const domElement = this.refs.coverContainerElement
+    this.setCSSPropertiesToElement({ 'background-image': backgroundImage, 'height': height && height }, domElement)
   }
 
-  setCSSPropertiesToElement = (properties, DOMelement) => {
-    Object.keys(properties).forEach(key => DOMelement.style.setProperty(key, properties[key]))
+  setCSSPropertiesToElement = (properties, domElement) => {
+    Object.keys(properties).forEach(key => domElement.style.setProperty(key, properties[key]))
   }
 
   render () {
     return (
-      <div className={this.coverBasicClassNames} onClick={this.buildClickHandler}>
+      <div className={this.coverBasicClassNames} onClick={this.props.handleClick} ref='coverContainerElement' >
         {this.props.children &&
           <div className={`${baseClass}-children`}>
             {this.props.children}
@@ -72,7 +76,7 @@ CoverBasic.propTypes = {
   /**
    * Header height.
    */
-  height: PropTypes.number.isRequired,
+  height: PropTypes.number,
   /**
    * If true, adds a linear gradient layer over the image.
    */

@@ -12,6 +12,7 @@ $c-cover-basic-children: $c-white !default;
 $op-cover-basic-gradient-after: .35 !default;
 $sz-cover-basic-button-icon: $sz-icon-s !default;
 $c-cover-basic-button-icon: $c-primary !default;
+$c-cover-basic-bgsize: cover !default;
 $bgc-cover-basic-button: rgba(255, 255, 255, .75) !default;
 $bdrs-cover-basic-button: $bdrs-base !default;
 
@@ -50,10 +51,9 @@ $bdrs-cover-basic-button: $bdrs-base !default;
     }
   }
 
-  &-image {
-    display: block;
+  &--bgImage {
+    background-size: $c-cover-basic-bgsize;
     height: 100%;
-    object-fit: cover;
     width: 100%;
   }
 

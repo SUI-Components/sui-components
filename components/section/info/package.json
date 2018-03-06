@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-section-info",
-  "version": "1.3.0",
+  "version": "1.6.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

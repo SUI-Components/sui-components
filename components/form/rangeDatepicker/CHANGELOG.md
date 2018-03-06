@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.15.0"></a>
+# 1.15.0 (2018-03-06)
+
+
+### Features
+
+* update version momentjs ([33634c0](https://github.com/SUI-Components/sui-components/commit/33634c0))
+
+
+
 <a name="1.14.0"></a>
 # 1.14.0 (2018-01-11)
 

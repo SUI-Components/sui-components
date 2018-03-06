@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2018-02-20)
+
+
+### Features
+
+* add X close button on card's header when its expanded. ([fe4403d](https://github.com/SUI-Components/sui-components/commit/fe4403d))
+* remove custom button classname and styles. ([9a873dc](https://github.com/SUI-Components/sui-components/commit/9a873dc))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2018-01-31)
 
@@ -65,17 +76,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * Migrate to PropTypes package ([b8d7dfe](https://github.com/SUI-Components/sui-components/commit/b8d7dfe))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-10-23)
-
-
-### Features
-
-* first version of card collapsible component. ([49dbf69](https://github.com/SUI-Components/sui-components/commit/49dbf69))
-* improve docs, rename "Element" variable. ([56162f8](https://github.com/SUI-Components/sui-components/commit/56162f8))
 
 
 

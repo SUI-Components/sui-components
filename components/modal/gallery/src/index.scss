@@ -56,12 +56,14 @@ $mt-modal-gallery-header-height-mobile: -($h-modal-basic-icon + ($m-l * 2)) !def
         justify-content: center;
       }
 
-      &-header {
-        margin-top: $mt-modal-gallery-header-height-mobile;
-      }
-
       &-content {
         flex-grow: 0;
+      }
+    }
+
+    @include media-breakpoint-down (xs) {
+      &-header {
+        margin-top: $mt-modal-gallery-header-height-mobile;
       }
     }
 

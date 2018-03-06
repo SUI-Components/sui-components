@@ -1,6 +1,7 @@
 const COLORS = {
   ACCENT: 'accent',
   BASE: 'base',
+  DARK: 'dark',
   CONTRAST: 'contrast',
   CORPORATE: 'corporate',
   DEFAULT: 'default',

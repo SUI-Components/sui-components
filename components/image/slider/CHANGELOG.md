@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.3.0"></a>
+# 2.3.0 (2018-02-12)
+
+
+### Features
+
+* add bottomCenter and counterPatternFactory options. ([116b53f](https://github.com/SUI-Components/sui-components/commit/116b53f))
+* add image counter ([bbd209e](https://github.com/SUI-Components/sui-components/commit/bbd209e))
+* load icon as dependency. ([870d5c2](https://github.com/SUI-Components/sui-components/commit/870d5c2))
+
+
+
 <a name="2.2.0"></a>
 # 2.2.0 (2018-02-02)
 

@@ -23,9 +23,9 @@
       transition: $trs-collapsible-basic-trigger-icon;
 
       &-icon {
-        fill: $c-collapsible-basic-trigger-icon !important;
+        fill: $c-collapsible-basic-trigger-icon !important; // sass-lint:disable-line no-important
         height: $sz-collapsible-basic-trigger-icon;
-        margin: auto $m-h;
+        margin: auto $m-h-collapsible-basic-trigger-icon;
         width: $sz-collapsible-basic-trigger-icon;
       }
     }
@@ -44,7 +44,16 @@
   &-collapsibleContent {
     margin-bottom: $mb-collapsible-basic-content;
     overflow: hidden;
-    transition: max-height $trs-base;
+  }
+
+  &-transition {
+    &Normal {
+      transition: $trs-collapsible-basic-content-normal;
+    }
+
+    &Fast {
+      transition: $trs-collapsible-basic-content-fast;
+    }
   }
 
   &.is-collapsed {
@@ -63,7 +72,8 @@
     }
 
     .sui-CollapsibleBasic-collapsibleContent {
-      max-height: 100%;
+      max-height: 100vh;
+      overflow-y: auto;
     }
   }
 }

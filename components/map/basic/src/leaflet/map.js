@@ -33,7 +33,10 @@ export default class LeafletMap {
   }
 
   dispatchFirstLoad () {
-    this.mapDOM.dispatchEvent(new window.CustomEvent('leaflet_map_loaded', { detail: this.getParamsForRequest() }))
+    this.dispatchCustomEvent({
+      eventName: 'leaflet_map_loaded',
+      detail: this.getParamsForRequest()
+    })
   }
 
   buildShapes (properties) {

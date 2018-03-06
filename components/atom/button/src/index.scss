@@ -90,6 +90,7 @@ $p-atom-button-large: $p-l !default;
     align-items: center;
     display: inline-flex;
     height: 100%;
+    pointer-events: none;
   }
 
   // Icons

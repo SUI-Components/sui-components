@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2018-03-07)
+
+
+### Bug Fixes
+
+* prepare component for sui-theme change ([82cd0ab](https://github.com/SUI-Components/sui-components/commit/82cd0ab))
+* removed refs and pass an style object instead ([7fd6f20](https://github.com/SUI-Components/sui-components/commit/7fd6f20))
+
+
+### Features
+
+* adds background image as a backgroundimage property to cover container ([3d74cb2](https://github.com/SUI-Components/sui-components/commit/3d74cb2))
+* adds refactor of event handlers and improved doc ([5f0927d](https://github.com/SUI-Components/sui-components/commit/5f0927d))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2018-02-20)
 

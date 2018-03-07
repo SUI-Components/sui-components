@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2018-03-07)
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2018-03-06)
 
@@ -9,6 +14,7 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * fix resting color and remove example of vertical type without icons ([481494b](https://github.com/SUI-Components/sui-components/commit/481494b))
+* prepare component for sui-theme change ([72925eb](https://github.com/SUI-Components/sui-components/commit/72925eb))
 
 
 

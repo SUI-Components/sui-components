@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2018-03-07)
+
+
+### Bug Fixes
+
+* prepare component for sui-theme change ([99f6afe](https://github.com/SUI-Components/sui-components/commit/99f6afe))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2018-02-20)
 
@@ -76,6 +86,17 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * Migrate to PropTypes package ([b8d7dfe](https://github.com/SUI-Components/sui-components/commit/b8d7dfe))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2017-10-23)
+
+
+### Features
+
+* first version of card collapsible component. ([49dbf69](https://github.com/SUI-Components/sui-components/commit/49dbf69))
+* improve docs, rename "Element" variable. ([56162f8](https://github.com/SUI-Components/sui-components/commit/56162f8))
 
 
 

@@ -2,12 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2018-03-07)
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2018-03-06)
 
 
 ### Bug Fixes
 
+* prepare component for sui-theme change ([8a229d8](https://github.com/SUI-Components/sui-components/commit/8a229d8))
 * use pointer events none for inner span on button ([cf9e422](https://github.com/SUI-Components/sui-components/commit/cf9e422))
 
 

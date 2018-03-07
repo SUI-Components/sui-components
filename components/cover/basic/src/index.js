@@ -17,6 +17,7 @@ class CoverBasic extends Component {
       e.stopPropagation()
       callback(e)
     }
+
     return buttons.map(({ icon: Icon, label, handleClick }, index) => {
       return (
         <div className={`${baseClass}-button`} key={index}>
@@ -33,20 +34,13 @@ class CoverBasic extends Component {
 
   buttons = this._buildButtons()
 
-  componentDidMount () {
+  render () {
     const { src, height } = this.props
     const backgroundImage = `url(${src})`
-    const domElement = this.refs.coverContainerElement
-    this.setCSSPropertiesToElement({ 'background-image': backgroundImage, 'height': height && height }, domElement)
-  }
+    const styles = { backgroundImage, height }
 
-  setCSSPropertiesToElement = (properties, domElement) => {
-    Object.keys(properties).forEach(key => domElement.style.setProperty(key, properties[key]))
-  }
-
-  render () {
     return (
-      <div className={this.coverBasicClassNames} onClick={this.props.handleClick} ref='coverContainerElement' >
+      <div className={this.coverBasicClassNames} onClick={this.props.handleClick} style={styles}>
         {this.props.children &&
           <div className={`${baseClass}-children`}>
             {this.props.children}

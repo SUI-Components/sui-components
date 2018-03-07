@@ -31,9 +31,9 @@ class CardCollapsible extends Component {
    * @param {boolean} itemProps.highlighted Highlight the item (bold style).
    * @return {Element} Item to display on card's header info area.
    */
-  _renderInfoItem ({label, link, highlighted, target = '_blank', iconLeft: IconLeft}, index) {
+  _renderInfoItem ({label, link, highlighted, target = '_blank', iconLeft: IconLeft, onClick}, index) {
     const InfoItemElement = link ? 'a' : 'span'
-    const props = link ? { href: link, target } : {}
+    const props = link ? { href: link, target, onClick } : {}
 
     return (
       <InfoItemElement key={`header-info-item-${index}`}
@@ -179,7 +179,8 @@ CardCollapsible.propTypes = {
         link: PropTypes.string,
         highlighted: PropTypes.bool,
         target: PropTypes.string,
-        iconLeft: PropTypes.func
+        iconLeft: PropTypes.func,
+        onClick: PropTypes.func
       })
     )
   }),

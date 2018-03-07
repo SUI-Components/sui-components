@@ -39,7 +39,8 @@ const config = {
         highlighted: true,
         link: 'tel:932758634',
         target: '_self',
-        iconLeft: IconPhone
+        iconLeft: IconPhone,
+        onClick: () => {console.log('on-click callback')}
       }
     ]
   },

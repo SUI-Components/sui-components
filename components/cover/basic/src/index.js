@@ -8,7 +8,8 @@ class CoverBasic extends Component {
   // Custom css class are attached when component is clickable, has gradiend and background image.
   coverBasicClassNames = cx(baseClass,
     {[`${baseClass}--gradient`]: this.props.gradient},
-    {[`${baseClass}--bgImage`]: this.props.src}
+    {[`${baseClass}--bgImage`]: this.props.src},
+    {'is-clickable': !!this.props.handleClick}
   )
 
   _buildButtons = () => {

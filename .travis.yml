@@ -4,7 +4,7 @@ cache:
   directories:
     - node_modules
 node_js:
-  - '6'
+  - '8'
 before_install:
   - npm i -g npm@^3.0.0
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN

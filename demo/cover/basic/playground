@@ -5,13 +5,13 @@ const IconArrowLeft = () => (
 )
 
 const handleClick = () => {
-  alert('handling click')
+  alert('click header')
 }
 
 const buttons1 = [
   {
     label: 'Go back',
-    handleClick: () => { alert('Going back!'); },
+    handleClick: () => { alert('Going back!') },
     icon: IconArrowLeft
   }
 ]
@@ -19,12 +19,12 @@ const buttons1 = [
 const buttons2 = [
   {
     label: 'To be a button with icon',
-    handleClick: () => {},
+    handleClick: () => { alert('To be a button with icon...') },
     icon: IconArrowLeft
   },
   {
     label: 'Or not to be',
-    handleClick: () => { alert('Or not to be'); }
+    handleClick: () => { alert('Or not to be') }
   }
 ]
 
@@ -34,17 +34,33 @@ return (
     <div>#1 Full width - with gradient - with one button - clickable - with a title as children displayed</div>
     <div>#2 Forced to 60% width by its container - no gradient - with more buttons</div>
     <div>#3 Full width - no gradient - no buttons</div>
-    <br/>
+    <br />
 
-    <CoverBasic src="http://lorempixel.com/1440/676/nature/" gradient buttons={buttons1} handleClick={handleClick}>
+    <h2>CoverBasic with Background Image & click</h2>
+
+    <CoverBasic
+      src="https://cdn.eyeem.com/thumb/15c515b9b1daf71c931edb83948f0835477294a7-1481844466433/2600/2600"
+      height={200}
+      buttons={buttons1}
+      handleClick={handleClick}>
       <h1>I'm a title h1 passed as children. And I'm centered.</h1>
       <h2>I'm an h2 title</h2>
     </CoverBasic>
-    <br/>
-    <div style={{width:'60%', margin:'auto'}}>
-      <CoverBasic src="http://lorempixel.com/1440/676/nature/" buttons={buttons2}/>
+    <br />
+    <br />
+    <h2>CoverBasic 60% width with Background Image & click</h2>
+    <div style={{ width: '60%', margin: 'auto' }}>
+    <CoverBasic
+    src="https://cdn.eyeem.com/thumb/1b54b2616d254e054a07ddffcda9a9e9a373e0b4-1382213729/1280/1280"
+    height={400}
+    buttons={buttons2}
+    handleClick={handleClick}
+    />
     </div>
-    <br/>
-    <CoverBasic src="http://lorempixel.com/1440/676/nature/" />
+    <br />
+    <h2>CoverBasic with Sass var height, Background Image & click</h2>
+    <CoverBasic
+      src="https://cdn.eyeem.com/thumb/0b51a3c8327c0bc87badd4c7c390f9d9c893d538-1355962452/1280/1280"
+      handleClick={() => alert('Foto by the mighty Davecarter 😃')} />
   </div>
 )

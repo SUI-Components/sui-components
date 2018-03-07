@@ -1,77 +1,59 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { Component } from 'react'
 import cx from 'classnames'
 import Button from '@schibstedspain/sui-atom-button'
 
-const CoverBasic = (props) => {
-  const buttons = buildButtons(props)
-
-  // Custom css class is attached when component is clickable.
-  const coverBasicClassNames = cx(
-    'sui-CoverBasic',
-    props.className,
-    {'is-clickable': isClickable(props)})
-
-  const imageContainerClassNames = cx(
-    {'sui-CoverBasic-gradient': props.gradient},
-    {'sui-CoverBasic-objectFitFix': !isObjectFitSupported()})
-
-  // Sadly, object-fit compatibility support cannot be done with just adding one class.
-  // The following line is the second part of the solution which is an inline style.
-  const ieObjectFitInlineStyleFix =
-    isObjectFitSupported() ? '' : { style: {backgroundImage: 'url(' + props.src + ')'} }
-
-  return (
-    <div className={coverBasicClassNames} onClick={buildClickHandler(props)}>
-      <div className={imageContainerClassNames} {...ieObjectFitInlineStyleFix}>
-        <img className='sui-CoverBasic-image' src={props.src} />
-      </div>
-      {props.children &&
-        <div className='sui-CoverBasic-children'>
-          {props.children}
-        </div>
-      }
-      {buttons.length > 0 &&
-        <div className='sui-CoverBasic-buttonList'>
-          {buttons}
-        </div>
-      }
-    </div>
+const baseClass = 'sui-CoverBasic'
+class CoverBasic extends Component {
+  // Custom css class are attached when component is clickable, has gradiend and background image.
+  coverBasicClassNames = cx(baseClass,
+    {[`${baseClass}--gradient`]: this.props.gradient},
+    {[`${baseClass}--bgImage`]: this.props.src}
   )
-}
 
-const buildClickHandler = (props) => {
-  return (event) => {
-    isClickable(props) && props.handleClick(event)
-  }
-}
-
-const isClickable = (props) => {
-  return !!props.handleClick
-}
-
-const buildButtons = (props) => {
-  return props.buttons.map(({ icon: Icon, label, handleClick }, index) => {
-    // Build click handler for each button
-    function handler (event) {
-      event.stopPropagation()
-      handleClick && handleClick(event)
+  _buildButtons = () => {
+    const { buttons } = this.props
+    const executeCallback = (e, callback) => {
+      e.stopPropagation()
+      callback(e)
     }
+
+    return buttons.map(({ icon: Icon, label, handleClick }, index) => {
+      return (
+        <div className={`${baseClass}-button`} key={index}>
+          <Button
+            type='tertiary'
+            leftIcon={Icon && <Icon className={`${baseClass}-buttonIcon`} />}
+            onClick={(e) => executeCallback(e, handleClick)}>
+            {label}
+          </Button>
+        </div>
+      )
+    })
+  }
+
+  buttons = this._buildButtons()
+
+  render () {
+    const { src, height } = this.props
+    const backgroundImage = `url(${src})`
+    const styles = { backgroundImage, height }
+
     return (
-      <div className='sui-CoverBasic-button' key={index}>
-        <Button
-          type='tertiary'
-          leftIcon={Icon && <Icon className='sui-CoverBasic-buttonIcon' />}
-          onClick={handler}>
-          { label }
-        </Button>
+      <div className={this.coverBasicClassNames} onClick={this.props.handleClick} style={styles}>
+        {this.props.children &&
+          <div className={`${baseClass}-children`}>
+            {this.props.children}
+          </div>
+        }
+        {this.buttons.length > 0 &&
+          <div className={`${baseClass}-buttonList`}>
+            {this.buttons}
+          </div>
+        }
       </div>
     )
-  })
-}
-
-const isObjectFitSupported = () => {
-  return !(typeof document.documentElement.style.objectFit === 'undefined')
+  }
 }
 
 CoverBasic.displayName = 'CoverBasic'
@@ -82,13 +64,13 @@ CoverBasic.propTypes = {
    */
   children: PropTypes.node,
   /**
-   * Classname appended to the main container.
-   */
-  className: PropTypes.string,
-  /**
    * Image source.
    */
   src: PropTypes.string.isRequired,
+  /**
+   * Header height.
+   */
+  height: PropTypes.number,
   /**
    * If true, adds a linear gradient layer over the image.
    */

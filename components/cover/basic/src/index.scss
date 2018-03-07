@@ -11,6 +11,7 @@ $c-cover-basic-children: $c-white !default;
 $op-cover-basic-gradient-after: .35 !default;
 $sz-cover-basic-button-icon: $sz-icon-s !default;
 $c-cover-basic-button-icon: $c-primary !default;
+$c-cover-basic-bgsize: cover !default;
 $bgc-cover-basic-button: rgba(255, 255, 255, .75) !default;
 $bdrs-cover-basic-button: $bdrs-base !default;
 
@@ -31,38 +32,27 @@ $bdrs-cover-basic-button: $bdrs-base !default;
     cursor: pointer;
   }
 
-  &-gradient {
+  &--gradient {
     display: block;
     position: relative;
     width: 100%;
-  }
-
-  &-gradient:after {
-    background: $c-black;
-    content: '';
-    display: inline-block;
-    height: 100%;
-    left: 0;
-    opacity: $op-cover-basic-gradient-after;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-
-  &-objectFitFix {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    img {
-      opacity: 0;
+    
+    &::after {
+      background: $c-black;
+      content: '';
+      display: inline-block;
+      height: 100%;
+      left: 0;
+      opacity: $op-cover-basic-gradient-after;
+      position: absolute;
+      top: 0;
+      width: 100%;
     }
   }
 
-  &-image {
-    display: block;
+  &--bgImage {
+    background-size: $c-cover-basic-bgsize;
     height: 100%;
-    object-fit: cover;
     width: 100%;
   }
 

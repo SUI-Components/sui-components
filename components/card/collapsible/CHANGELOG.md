@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2018-03-07)
+
+
+### Features
+
+* add callback parameter on info item ([49198b8](https://github.com/SUI-Components/sui-components/commit/49198b8))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2018-03-07)
 

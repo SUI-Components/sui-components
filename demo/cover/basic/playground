@@ -60,7 +60,11 @@ return (
     <br />
     <h2>CoverBasic with Sass var height, Background Image & click</h2>
     <CoverBasic
+      gradient
       src="https://cdn.eyeem.com/thumb/0b51a3c8327c0bc87badd4c7c390f9d9c893d538-1355962452/1280/1280"
-      handleClick={() => alert('Foto by the mighty Davecarter 😃')} />
+      handleClick={() => alert('Foto by the mighty Davecarter 😃')}>
+      <h1>Cover title</h1>
+      <h2>Cover subtitle</h2>
+    </CoverBasic>
   </div>
 )

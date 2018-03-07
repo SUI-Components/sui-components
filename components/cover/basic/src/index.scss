@@ -12,9 +12,12 @@ $c-cover-basic-children: $c-white !default;
 $op-cover-basic-gradient-after: .35 !default;
 $sz-cover-basic-button-icon: $sz-icon-s !default;
 $c-cover-basic-button-icon: $c-primary !default;
-$c-cover-basic-bgsize: cover !default;
+$bgsz-cover-basic-bgImage: cover !default;
+$bgp-cover-basic-bgImage: center !default;
+$bgr-cover-basic-bgImage: initial !default;
 $bgc-cover-basic-button: rgba(255, 255, 255, .75) !default;
 $bdrs-cover-basic-button: $bdrs-base !default;
+$z-cover-basic-children: 1 !default;
 
 .sui-CoverBasic {
   @include media-breakpoint-down(s) {
@@ -52,8 +55,9 @@ $bdrs-cover-basic-button: $bdrs-base !default;
   }
 
   &--bgImage {
-    background-size: $c-cover-basic-bgsize;
-    height: 100%;
+    background-size: $bgsz-cover-basic-bgImage;
+    background-position: $bgp-cover-basic-bgImage;
+    background-repeat: $bgr-cover-basic-bgImage;
     width: 100%;
   }
 
@@ -91,5 +95,6 @@ $bdrs-cover-basic-button: $bdrs-base !default;
     position: absolute;
     top: 0;
     width: 100%;
+    z-index: $z-cover-basic-children;
   }
 }

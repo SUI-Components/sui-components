@@ -42,6 +42,12 @@ class ModalGallery extends Component {
     )
   }
 
+  _renderEmptyContent () {
+    return (
+      <div className='sui-ModalGallery-emptyContent' />
+    )
+  }
+
   _onSlideChange = (currentSlide) => {
     this.setState(currentSlide)
   }
@@ -60,7 +66,7 @@ class ModalGallery extends Component {
           iconClose={iconClose}
           onClose={onClose}
           header={this._renderHeader({images: {currentSlide: currentSlide + 1, totalSlides: multimedia.images.length}})}
-          content={open && this._renderImageSlider({...multimedia, sliderOptions: {lazyLoadSlider, initialSlide, doAfterSlide: this._onSlideChange}})}
+          content={open ? this._renderImageSlider({...multimedia, sliderOptions: {lazyLoadSlider, initialSlide, doAfterSlide: this._onSlideChange}}) : this._renderEmptyContent()}
         />
       </div>
     )

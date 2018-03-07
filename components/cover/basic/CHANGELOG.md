@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.13.0"></a>
+# 1.13.0 (2018-03-07)
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2018-03-07)
 
@@ -9,6 +14,11 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * imports theme settings compat v7 ([91c067b](https://github.com/SUI-Components/sui-components/commit/91c067b))
+
+
+### Features
+
+* fix bg size to use sass var when no prop is provided. ([72e1c4a](https://github.com/SUI-Components/sui-components/commit/72e1c4a))
 
 
 

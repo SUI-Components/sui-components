@@ -1,4 +1,5 @@
 // sass-lint:disable class-name-format, no-important
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~@schibstedspain/sui-atom-button/lib/index';
 
@@ -36,7 +37,7 @@ $bdrs-cover-basic-button: $bdrs-base !default;
     display: block;
     position: relative;
     width: 100%;
-    
+
     &::after {
       background: $c-black;
       content: '';

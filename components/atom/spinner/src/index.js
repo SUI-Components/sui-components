@@ -34,7 +34,7 @@ class AtomSpinner extends Component {
 
   componentDidMount () {
     if (!this.state.delayed) {
-      this.props.show && this._addParentClass()
+      this._addParentClass()
       return
     }
 
@@ -56,23 +56,11 @@ class AtomSpinner extends Component {
     this._parentNodeClassList.add(this._parentClassName)
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (this.props.show === nextProps.show) return
-    if (!this.props.show) return this._addParentClass()
-    if (this.props.show) return this._removeParentClass()
-  }
-
-  shouldRenderLoader () {
-    const {show} = this.props
-    const {delayed} = this.state
-
-    return !delayed && show
-  }
-
   render () {
     const {loader} = this.props
+    const {delayed} = this.state
     return (
-      this.shouldRenderLoader()
+      !delayed
         ? loader
         : <noscript />
     )
@@ -89,10 +77,6 @@ AtomSpinner.propTypes = {
    */
   type: PropTypes.oneOf(Object.values(TYPES)),
   /**
-   * If the spinner is shown or not
-   */
-  show: PropTypes.bool,
-  /**
    * Makes the spinner appear after 500 ms
    */
   delayed: PropTypes.bool,
@@ -103,7 +87,6 @@ AtomSpinner.propTypes = {
 }
 
 AtomSpinner.defaultProps = {
-  show: true,
   delayed: false,
   type: TYPES.SECTION,
   loader: <SUILoader text='Loading...' />

@@ -2,6 +2,7 @@
 @import './SUILoader/index';
 
 $bgc-atom-spinner: rgba($c-white, .6);
+$z-atom-spinner: 1 !default;
 
 %spinner-layer {
   background-color: $bgc-atom-spinner;
@@ -14,6 +15,7 @@ $bgc-atom-spinner: rgba($c-white, .6);
 
 .sui-AtomSpinner {
   position: relative;
+  z-index: $z-atom-spinner;
 
   &::before {
     @extend %spinner-layer;

@@ -65,12 +65,12 @@ return (
   <React.Fragment>
     <div style={boxStyle}>
       <h1>Infinite spinner</h1>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
       <AtomSpinner />
     </div>
     <div style={boxStyle}>
       <h1>Delayed spinner</h1>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</p>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
       <AtomSpinner delayed />
     </div>
     <SpinnerWrapperExample />

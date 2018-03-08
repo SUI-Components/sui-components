@@ -18,6 +18,7 @@ $bgr-cover-basic-bgImage: initial !default;
 $bgc-cover-basic-button: rgba(255, 255, 255, .75) !default;
 $bdrs-cover-basic-button: $bdrs-base !default;
 $z-cover-basic-children: 1 !default;
+$z-cover-basic-button-list: 1 !default;
 
 .sui-CoverBasic {
   @include media-breakpoint-down(s) {
@@ -68,6 +69,7 @@ $z-cover-basic-children: 1 !default;
     margin-top: $mt-cover-basic-buttons;
     position: absolute;
     top: 0;
+    z-index: $z-cover-basic-button-list;
   }
 
   &-button {

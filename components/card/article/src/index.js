@@ -22,10 +22,12 @@ const _renderComments = ({ icon, url, count }, Link) => {
   const IconComment = icon || Commentsquare
 
   return (
-    <Link href={url} className='sui-CardArticle-comments' title={count}>
-      <IconComment svgClass='sui-CardArticle-commentsIcon' />
-      {count}
-    </Link>
+    <div className='sui-CardArticle-commentsWrap'>
+      <Link href={url} className='sui-CardArticle-comments' title={count}>
+        <IconComment svgClass='sui-CardArticle-commentsIcon' />
+        {count}
+      </Link>
+    </div>
   )
 }
 
@@ -66,7 +68,8 @@ export default function CardArticle ({
       </Link>
       <div className={cardInfoClassName}>
         <div className='sui-CardArticle-infoInner'>
-          <TagChip rel={tag.rel} label={tag.text} link={tag.url} linkFactory={Link} className={suiTagClassName} />
+          {tag && <TagChip rel={tag.rel} label={tag.text} link={tag.url} linkFactory={Link} className={suiTagClassName} />
+          }
           {comments && _renderComments(comments, Link)}
         </div>
       </div>

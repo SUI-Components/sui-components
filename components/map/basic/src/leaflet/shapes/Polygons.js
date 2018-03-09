@@ -9,6 +9,10 @@ export default class SearchMapPolygons {
   }
   SPAIN_POLYGON_NAME = 'geom_724_0_0_0_0_0_0_0_0'
 
+  constructor ({ onPolygonWithBounds }) {
+    this.onPolygonWithBounds = onPolygonWithBounds
+  }
+
   removePolygonsFromMap (map) {
     if (this._polygonList.length > 0) {
       this._polygonList.map(polygon => map.removeLayer(polygon))
@@ -68,7 +72,9 @@ export default class SearchMapPolygons {
       map.panTo(centerSpain)
     } else {
       const bounds = polygonGeoJSon.getBounds()
-      if (bounds.isValid()) { map.fitBounds(bounds) }
+      if (bounds.isValid()) {
+        this.onPolygonWithBounds({ bounds, map })
+      }
     }
   }
 

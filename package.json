@@ -53,7 +53,8 @@
         "atom/input",
         "atom/panel",
         "atom/tag",
-        "breadcrumb/basic"
+        "breadcrumb/basic",
+        "molecule/tabs"
       ]
     },
     "sui-mono": {

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.18.0"></a>
+# 1.18.0 (2018-03-01)
+
+
+### Features
+
+* accesibility improve to img and change key antipattern for child ([0ce1afd](https://github.com/SUI-Components/sui-components/commit/0ce1afd))
+* remove comma ([b48a19a](https://github.com/SUI-Components/sui-components/commit/b48a19a))
+
+
+
 <a name="1.17.0"></a>
 # 1.17.0 (2018-01-16)
 

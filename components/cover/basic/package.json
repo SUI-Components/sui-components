@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-cover-basic",
-  "version": "1.9.0",
+  "version": "1.14.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@schibstedspain/sui-button-basic": "1"
+    "@schibstedspain/sui-atom-button": "1"
   },
   "keywords": [],
   "author": "",

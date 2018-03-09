@@ -20,7 +20,7 @@ return (
       <h3>Structure - Alpha</h3>
       <div style={Object.assign({}, flexWrapper, {background: 'white url(https://picsum.photos/1000/800?blur)'})}>
       {
-        Object.keys(atomPanelAlpha).map((alpha, idx) =>
+        Object.values(atomPanelAlpha).map((alpha, idx) =>
           <div key={idx} style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}>
             <AtomPanel alpha={alpha} color={atomPanelColors.CONTRAST}>
               <div style={{height: '100px', width: '100px', lineHeight: '100px'}}>{alpha}</div>
@@ -51,8 +51,8 @@ return (
       <div style={flexWrapper}>
         <div style={flexItem}>
           <div style={{width: '200px'}}>
-            <AtomPanel color={atomPanelColors.CONTRAST}>
-              <div style={{height: '150px', width: '200px', color: '#fff', fontSize: '24px', fontWeight: 600, margin: 'auto'}}>
+            <AtomPanel color={atomPanelColors.DARK}>
+              <div style={{height: '150px', width: '200px', color: '#fff', fontSize: '24px', fontWeight: 600, margin: 'auto', padding: '16px'}}>
                 <p>Lorem ipsum dolor sit amet</p>
               </div>
             </AtomPanel>
@@ -61,13 +61,23 @@ return (
         </div>
         <div style={flexItem}>
           <div style={{width: '200px'}}>
-            <AtomPanel color={atomPanelColors.BASE}>
-              <div style={{height: '150px', width: '200px', color: '#000', fontSize: '24px', fontWeight: 600, margin: 'auto'}}>
+            <AtomPanel color={atomPanelColors.DEFAULT}>
+              <div style={{height: '150px', width: '200px', color: '#000', fontSize: '24px', fontWeight: 600, margin: 'auto', padding: '16px'}}>
                 <p>Lorem ipsum dolor sit amet</p>
               </div>
             </AtomPanel>
           </div>
           <span>Dark text on light background</span>
+        </div>
+        <div style={flexItem}>
+          <div style={{width: '200px'}}>
+            <AtomPanel src={'https://picsum.photos/g/250/200?image=10'}>
+              <div style={{height: '150px', width: '200px', color: '#fff', fontSize: '24px', fontWeight: 600, margin: 'auto', padding: '16px'}}>
+                <p>Lorem ipsum dolor sit amet</p>
+              </div>
+            </AtomPanel>
+          </div>
+          <span>Light text on Image</span>
         </div>
       </div>
     </div>

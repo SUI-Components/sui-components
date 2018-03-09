@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import LeafletMap from './leaflet/map'
 import { mapViewModes, NO_OP } from './leaflet/constants'
 
 class MapBasic extends Component {
@@ -47,6 +46,10 @@ class MapBasic extends Component {
         handleFunction: (evt) => this.props.onPoiMouseOver(evt.detail)
       },
       {
+        name: 'leaflet_map_poimousemove',
+        handleFunction: (evt) => this.props.onPoiMouseMove(evt.detail)
+      },
+      {
         name: 'leaflet_map_layer_satellite',
         handleFunction: (evt) => this.props.onSatelliteView(evt.detail)
       }
@@ -76,7 +79,9 @@ class MapBasic extends Component {
       appId: this.props.appId,
       appCode: this.props.appCode,
       mapDOMInstance: this.mapDOMInstance,
-      scrollWheelZoom: this.props.scrollWheelZoom
+      scrollWheelZoom: this.props.scrollWheelZoom,
+      onPolygonWithBounds: this.props.onPolygonWithBounds,
+      _deprecatedLabelNoPrice: this.props._deprecatedLabelNoPrice
     }
   }
 
@@ -118,15 +123,17 @@ class MapBasic extends Component {
   }
 
   componentWillReceiveProps ({heatMapUrl, pois, showHeatmap, showSatelliteView}) {
-    this.mapInstance.displayPois(pois)
+    this.mapInstance.displayPois(pois, this.props._deprecatedLabelNoPrice)
     this.checkIfHeatMapShouldBeDisplayed(showHeatmap, heatMapUrl)
     this.checkWhichViewShouldBeDisplayed(showSatelliteView)
   }
 
   componentDidMount () {
+    const LeafletMap = require('./leaflet/map').default
+
     this.subscribeToMapEvents()
     this.mapInstance = new LeafletMap(this.getMapConfig())
-    this.mapInstance.displayPois(this.props.pois)
+    this.mapInstance.displayPois(this.props.pois, this.props._deprecatedLabelNoPrice)
   }
 
   render () {
@@ -183,6 +190,7 @@ MapBasic.propTypes = {
   onPoiClick: PropTypes.func,
   onPoiMouseOut: PropTypes.func,
   onPoiMouseOver: PropTypes.func,
+  onPoiMouseMove: PropTypes.func,
   onSatelliteView: PropTypes.func,
   /**
    * An array of points of interest. More info and examples on readme.
@@ -232,7 +240,12 @@ MapBasic.propTypes = {
   /**
    * This property indicates if the map zooms in or out in response to mouse wheel events.
    */
-  scrollWheelZoom: PropTypes.bool
+  scrollWheelZoom: PropTypes.bool,
+  /**
+  * This property indicates the action to be performed with the polygon. By DEFAULT it does a fitBounds.
+  */
+  onPolygonWithBounds: PropTypes.func,
+  _deprecatedLabelNoPrice: PropTypes.string
 }
 
 MapBasic.defaultProps = {
@@ -247,6 +260,7 @@ MapBasic.defaultProps = {
   zoomable: false,
   isInteractable: true,
   scrollWheelZoom: true,
+  onPolygonWithBounds: ({bounds, map}) => map.fitBounds(bounds),
   onMapClick: NO_OP,
   onMapDragEnd: NO_OP,
   onMapLoad: NO_OP,
@@ -255,7 +269,9 @@ MapBasic.defaultProps = {
   onPoiClick: NO_OP,
   onPoiMouseOut: NO_OP,
   onPoiMouseOver: NO_OP,
-  onSatelliteView: NO_OP
+  onPoiMouseMove: NO_OP,
+  onSatelliteView: NO_OP,
+  _deprecatedLabelNoPrice: ''
 }
 
 MapBasic.displayName = 'MapBasic'

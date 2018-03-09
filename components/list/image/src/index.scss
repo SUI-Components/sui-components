@@ -1,4 +1,3 @@
-@import '~@schibstedspain/sui-theme/lib/settings';
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~@schibstedspain/sui-image-lazy-load/lib/index';
 @import 'settings';
@@ -29,6 +28,7 @@
     }
     cursor: pointer;
     flex-basis: $fxb-list-image-item-desktop;
+    overflow: hidden;
   }
 
   &-lastItemContainer {

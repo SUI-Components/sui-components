@@ -13,13 +13,9 @@ const SIZES = {
 }
 
 const getInputClass = ({size}) => {
-  const sizeClass = SIZES.MEDIUM
-    ? `${BASE_CLASS}-medium`
-    : `${BASE_CLASS}-small`
-
   return cx(
     `${BASE_CLASS}-input-wrapper`,
-    sizeClass
+    `${BASE_CLASS}-${size}`
   )
 }
 

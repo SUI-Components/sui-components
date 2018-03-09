@@ -2,7 +2,8 @@ const boxStyle = {
   backgroundColor: '#ffffff',
   border: '1px dashed lightgrey',
   borderRadius: '5px',
-  padding: '10px'
+  padding: '10px',
+  marginBottom: '16px',
 }
 
 const buttonStyle = {
@@ -62,14 +63,16 @@ class FullScreenSpinnerExample extends React.Component {
 
 return (
   <React.Fragment>
-    <p style={boxStyle}>
-      Infinite spinner
+    <div style={boxStyle}>
+      <h1>Infinite spinner</h1>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
       <AtomSpinner />
-    </p>
-    <p style={boxStyle}>
-      Delayed spinner
+    </div>
+    <div style={boxStyle}>
+      <h1>Delayed spinner</h1>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
       <AtomSpinner delayed />
-    </p>
+    </div>
     <SpinnerWrapperExample />
     <FullScreenSpinnerExample />
   </React.Fragment>

@@ -37,9 +37,16 @@ $c-article-tag-types: () !default;
     @include reset-link;
     $c-comments: $c-gray;
     align-items: center;
+    align-self: flex-end;
     color: $c-comments;
     display: flex;
     font-size: $fz-s;
+
+    &Wrap {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
 
     &Icon {
       $size-icon: 16px;

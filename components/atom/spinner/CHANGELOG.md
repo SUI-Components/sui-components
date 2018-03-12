@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2018-03-12)
+
+
+### Features
+
+* add !default to bg variable ([99cf30d](https://github.com/SUI-Components/sui-components/commit/99cf30d))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2018-03-09)
 

@@ -1,7 +1,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import './SUILoader/index';
 
-$bgc-atom-spinner: rgba($c-white, .6);
+$bgc-atom-spinner: rgba($c-white, .6) !default;
 $z-atom-spinner: 1 !default;
 
 %spinner-layer {

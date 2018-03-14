@@ -1,5 +1,5 @@
 {
-  "name": "@s-ui/react-sui-atom-validationText",
+  "name": "@s-ui/react-atom-validation-text",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

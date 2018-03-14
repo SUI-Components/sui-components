@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-atom-validationText --save
+$ npm install @s-ui/react-sui-atom-validationText --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import AtomValidationText from '@schibstedspain/sui-atom-validationText'
+import AtomValidationText from '@s-ui/react-sui-atom-validationText'
 
 return (<AtomValidationText />)
 ```

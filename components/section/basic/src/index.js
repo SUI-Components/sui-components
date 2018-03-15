@@ -45,15 +45,15 @@ SectionBasic.propTypes = {
    */
   title: PropTypes.string,
   /**
-   * Allows customisation of the bottom margin to add to the section's element.
+   * Allows customisation of the bottom margin to add to the main section HTML element (margin bottom of component).
    */
   sectionBottomSpacing: PropTypes.oneOf(AVAILABLE_SPACINGS),
   /**
-   * Allows customisation of the bottom margin to add to the section's header element.
+   * Allows customisation of the bottom margin to add to the section's header element (space between header and content).
    */
   headerBottomSpacing: PropTypes.oneOf(AVAILABLE_SPACINGS),
   /**
-   * Allows customisation of the bottom margin to add to the section's content element (between content and line separator).
+   * Allows customisation of the bottom margin to add to the section's content element (space between content and separator line).
    */
   contentBottomSpacing: PropTypes.oneOf(AVAILABLE_SPACINGS)
 }

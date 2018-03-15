@@ -1,6 +1,6 @@
 # AtomValidationText
 
-> Description
+> Validation text is used for indicating whether the entered data is correct. It is provided by using the "Help Text" plus one color each.
 
 <!-- ![](./assets/preview.png) -->
 
@@ -20,4 +20,4 @@ return (<AtomValidationText />)
 ```
 
 
-> **Find full description and more examples in the [demo page](#).**
+> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/validationText).**

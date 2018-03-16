@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2018-03-16)
+
+
+### Features
+
+* delete unused code ([16d4252](https://github.com/SUI-Components/sui-components/commit/16d4252))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2018-01-29)
 
@@ -52,18 +62,6 @@ All notable changes to this project will be documented in this file.
 
 * Bump version ([1a3f4d3](https://github.com/SUI-Components/sui-components/commit/1a3f4d3))
 * Migrate to PropTypes package ([f215b17](https://github.com/SUI-Components/sui-components/commit/f215b17))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-10-24)
-
-
-### Features
-
-* improve performance ([3186622](https://github.com/SUI-Components/sui-components/commit/3186622))
-* new accordion collapsible component ([a99928b](https://github.com/SUI-Components/sui-components/commit/a99928b))
-* remove vehicle word and remove innecessary id ([1093415](https://github.com/SUI-Components/sui-components/commit/1093415))
 
 
 

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2018-03-16)
+
+
+### Features
+
+* delete unused property ([30dd0df](https://github.com/SUI-Components/sui-components/commit/30dd0df))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2018-03-12)
 

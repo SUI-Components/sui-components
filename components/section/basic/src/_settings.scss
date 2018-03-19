@@ -1,0 +1,26 @@
+// Title
+$c-section-basic-title: $c-gray-dark !default;
+$fz-section-basic-title: $fz-s !default;
+$fw-section-basic-title: $fw-regular !default;
+$lh-section-basic-title: $lh-s !default;
+$ta-section-basic-title: left !default;
+
+// Text content
+$c-section-basic-text-content: $c-gray-dark !default;
+$fz-section-basic-text-content: $fz-m !default;
+$fw-section-basic-text-content: $fw-regular !default;
+$lh-section-basic-text-content: 1.5 !default;
+$ta-section-basic-text-content: left !default;
+
+// Line separator (hr)
+$bd-section-basic-hr-separator: 1px solid $c-gray-lightest;
+
+// Section/header/content available margin-bottoms
+$bottom-spacings-section-basic: (
+  none: 0,
+  small: $m-m,    //  8px
+  medium: $m-l,   // 16px
+  large: $m-xl,   // 24px
+  xlarge: $m-xxl, // 32px
+  giant: $m-giant // 48px
+) !default;

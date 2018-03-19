@@ -1,58 +1,36 @@
-@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/sui-theme/lib/index';
-
-@mixin section-title-text-alignments {
-  width: 100%;
-
-  &--left {
-    text-align: left;
-  }
-
-  &--center {
-    text-align: center;
-  }
-
-  &--right {
-    text-align: right;
-  }
-}
+@import './settings';
 
 .sui-SectionBasic {
-  margin-bottom: $mb-section-basic;
-
-  &-header {
-    margin-bottom: $mb-section-basic-header;
-  }
-
   &-title {
-    @include section-title-text-alignments;
-
-    color: $c-section-basic-main-title;
+    color: $c-section-basic-title;
     font-size: $fz-section-basic-title;
-    font-weight: $fw-regular;
-    margin: 0 0 $m-v;
+    font-weight: $fw-section-basic-title;
+    line-height: $lh-section-basic-title;
+    margin: 0;
+    text-align: $ta-section-basic-title;
   }
 
-  &-subtitle {
-    @include section-title-text-alignments;
-
-    color: $c-section-basic-subtitle;
-    font-size: $fz-section-basic-subtitle;
-    font-weight: $fw-regular;
-    margin: 0 0 $m-v-small;
+  &-textContent {
+    color: $c-section-basic-text-content;
+    font-size: $fz-section-basic-text-content;
+    font-weight: $fw-section-basic-text-content;
+    line-height: $lh-section-basic-text-content;
+    margin: 0;
+    text-align: $ta-section-basic-text-content;
   }
 
-  &-contentOnlyText {
-    color: $c-section-basic-content-text-paragraph;
-    font-size: $fz-section-basic-content-text-paragraph;
-    font-weight: $fw-regular;
-    line-height: $lh-section-basic-paragraph;
-    margin: $m-v-section-basic-content-text-paragraph 0;
-  }
-
-  &-lineSeparator {
-    border: $bd-section-basic-line-separator;
+  &-separator {
+    border: $bd-section-basic-hr-separator;
     height: 0;
     width: 100%;
+  }
+
+  &-bottomSpacing {
+    @each $name, $value in $bottom-spacings-section-basic {
+      &--#{$name} {
+        margin-bottom: $value;
+      }
+    }
   }
 }

@@ -52,6 +52,7 @@
         "atom/button",
         "atom/tag",
         "atom/panel",
+        "atom/spinner",
         "breadcrumb/basic",
         "molecule/tabs"
       ]

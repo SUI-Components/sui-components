@@ -1,0 +1,53 @@
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/sui-atom-button/lib/index';
+
+$p-user-communications-message: $p-l;
+$p-user-communications-message-sides: 56px;
+
+.sui-MoleculeNotification {
+  color: $c-white;
+  padding: $p-l;
+  position: relative;
+
+  &--info {
+    background-color: $c-primary;
+  }
+
+  &--success {
+    background-color: $c-success;
+  }
+
+  &--warning {
+    background-color: $c-accent;
+  }
+
+  &--system {
+    background-color: $c-black;
+  }
+
+  &-button {
+    &Container {
+      margin-top: $m-m;
+      text-align: right;
+    }
+  }
+
+  &-close {
+    cursor: pointer;
+    position: absolute;
+    right: $p-user-communications-message;
+    top: $p-user-communications-message;
+  }
+
+  &-icon {
+    fill: $c-white !important;
+    height: $h-modal-basic-icon;
+    width: $w-modal-basic-icon;
+
+    &Left {
+      display: inline-block;
+      margin-right: $m-m;
+    }
+  }
+}

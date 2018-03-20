@@ -1,1 +1,41 @@
-return (<MoleculeNotification />)
+const BUTTONS = [
+  {
+    type: 'primary',
+    children: 'Primary',
+    negative: true
+  },
+  {
+    type: 'secondary',
+    children: 'Secondary',
+    negative: true
+  }
+]
+
+return (
+  <div>
+    <p>Info</p>
+    <MoleculeNotification 
+      text='Lorem ipsum'
+    />
+    <br/>
+    <MoleculeNotification 
+      text='Lorem ipsum'
+      buttons={BUTTONS}
+    />
+    <p>Success</p>
+    <MoleculeNotification 
+      text='Lorem ipsum'
+      type='success'
+    />
+    <p>Warning</p>
+    <MoleculeNotification 
+      text='Lorem ipsum'
+      type='warning' 
+    />
+    <p>System</p>
+    <MoleculeNotification 
+      text='Lorem ipsum'
+      type='system' 
+    />
+  </div>
+)

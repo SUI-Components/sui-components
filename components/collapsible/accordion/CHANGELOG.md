@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2018-03-20)
+
+
+### Features
+
+* add action when component receive new properties. Now, accordion will c ([dba5c1b](https://github.com/SUI-Components/sui-components/commit/dba5c1b))
+* add action when component receive new properties. Now, accordion will c ([1ae7136](https://github.com/SUI-Components/sui-components/commit/1ae7136))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2018-03-16)
 

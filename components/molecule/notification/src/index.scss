@@ -19,25 +19,37 @@ $p-user-communications-message-sides: 56px;
   }
 
   &--warning {
-    background-color: $c-accent;
+    background-color: $c-alert;
+  }
+
+  &--error {
+    background-color: $c-error;
   }
 
   &--system {
     background-color: $c-black;
   }
 
+  &-content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-text {
+    flex: 1 1 100%;
+    margin: 0 $m-l 0 $m-m;
+  }
+
   &-button {
     &Container {
-      margin-top: $m-m;
+      margin-top: $m-l;
       text-align: right;
     }
   }
 
   &-close {
     cursor: pointer;
-    position: absolute;
-    right: $p-user-communications-message;
-    top: $p-user-communications-message;
+    justify-self: end;
   }
 
   &-icon {
@@ -46,8 +58,9 @@ $p-user-communications-message-sides: 56px;
     width: $w-modal-basic-icon;
 
     &Left {
-      display: inline-block;
-      margin-right: $m-m;
+      @include media-breakpoint-down(xxs) {
+        display: none;
+      }
     }
   }
 }

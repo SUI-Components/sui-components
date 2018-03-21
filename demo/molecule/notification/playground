@@ -1,40 +1,48 @@
 const BUTTONS = [
   {
-    type: 'primary',
-    children: 'Primary',
+    type: 'secondary',
+    children: 'Secondary',
     negative: true
   },
   {
-    type: 'secondary',
-    children: 'Secondary',
+    type: 'primary',
+    children: 'Primary',
     negative: true
   }
 ]
 
+const TEXT = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae orci consectetur, suscipit ligula vel, malesuada mi. Sed eleifend lacus sapien, ac elementum mi iaculis at.'
+
 return (
   <div>
-    <p>Info</p>
+    <h1>Notification</h1>
+    <h3>Info</h3>
     <MoleculeNotification 
-      text='Lorem ipsum'
+      text={TEXT}
     />
-    <br/>
+    <h3>Info (with buttons)</h3>
     <MoleculeNotification 
-      text='Lorem ipsum'
+      text={TEXT}
       buttons={BUTTONS}
     />
-    <p>Success</p>
+    <h3>Success</h3>
     <MoleculeNotification 
-      text='Lorem ipsum'
+      text={TEXT}
       type='success'
     />
-    <p>Warning</p>
+    <h3>Warning</h3>
     <MoleculeNotification 
-      text='Lorem ipsum'
+      text={TEXT}
       type='warning' 
     />
-    <p>System</p>
+    <h3>Error</h3>
     <MoleculeNotification 
-      text='Lorem ipsum'
+      text={TEXT}
+      type='error' 
+    />
+    <h3>System</h3>
+    <MoleculeNotification 
+      text={TEXT}
       type='system' 
     />
   </div>

@@ -1,6 +1,14 @@
-const PHONE_ICON = <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 21'>
-   <path fill='none' fillRule='evenodd' stroke='#4D4D4D' d='M8.097 5.89c-.153.618-.721.955-1.151 1.32-.424.36-1.07.69-1.227 1.243-.256.898.304 1.84.65 2.377a13.73 13.73 0 0 0 2.956 3.281c.589.474 1.406 1.106 2.225.943 1.223-.243 1.546-1.726 2.878-1.923 1.268-.189 2.126.715 2.842 1.32.69.586 1.802 1.336 1.726 2.34-.044.576-.514.933-.923 1.282-.414.355-.778.754-1.188 1.017-.993.637-2.21.949-3.608.906-1.371-.042-2.463-.5-3.454-1.018-1.937-1.016-3.469-2.445-4.911-4.037-1.419-1.565-2.729-3.418-3.454-5.467-.904-2.559-.426-5.187 1.038-6.827.247-.278.638-.569 1.004-.868.35-.3.68-.663 1-.755C5.822.812 6.569 2.075 7.138 2.947c.553.847 1.234 1.84.96 2.942z'/>
-</svg>
+const IconPhone = () => (
+  <svg xmlns='http://www.w3.org/2000/svg' className='sui-CardCollapsible-infoItemIcon' viewBox='0 0 20 21'>
+     <path fill='none' fillRule='evenodd' stroke='#4D4D4D' d='M8.097 5.89c-.153.618-.721.955-1.151 1.32-.424.36-1.07.69-1.227 1.243-.256.898.304 1.84.65 2.377a13.73 13.73 0 0 0 2.956 3.281c.589.474 1.406 1.106 2.225.943 1.223-.243 1.546-1.726 2.878-1.923 1.268-.189 2.126.715 2.842 1.32.69.586 1.802 1.336 1.726 2.34-.044.576-.514.933-.923 1.282-.414.355-.778.754-1.188 1.017-.993.637-2.21.949-3.608.906-1.371-.042-2.463-.5-3.454-1.018-1.937-1.016-3.469-2.445-4.911-4.037-1.419-1.565-2.729-3.418-3.454-5.467-.904-2.559-.426-5.187 1.038-6.827.247-.278.638-.569 1.004-.868.35-.3.68-.663 1-.755C5.822.812 6.569 2.075 7.138 2.947c.553.847 1.234 1.84.96 2.942z'/>
+  </svg>
+)
+
+const IconClose = () => (
+  <svg viewBox="0 0 64 64" className='sui-CardCollapsible-closeIcon'>
+    <path d="M60,62a2,2,0,0,1-1.41-.59L32,34.83,5.41,61.41a2,2,0,0,1-2.83-2.83L29.17,32,2.59,5.41A2,2,0,0,1,5.41,2.59L32,29.17,58.59,2.59a2,2,0,0,1,2.83,2.83L34.83,32,61.41,58.59A2,2,0,0,1,60,62Z"/>
+  </svg>
+)
 
 const config = {
   headerImage: {
@@ -10,7 +18,8 @@ const config = {
   headerInfo: {
     displayWhenCollapsed: [
       {
-        label: <span>{PHONE_ICON}932 758 634</span>,
+        label: '932 758 634',
+        iconLeft: IconPhone
       }
     ],
     displayWhenExpanded: [
@@ -26,23 +35,25 @@ const config = {
         highlighted: true
       },
       {
-        label: '932 758 634'
+        label: '932 758 634',
+        highlighted: true,
+        link: 'tel:932758634',
+        target: '_self',
+        iconLeft: IconPhone,
+        onClick: () => {console.log('on-click callback')}
       }
     ]
   },
   expandButton: {
     label: 'Contactar'
-  },
-  collapseButton: {
-    label: 'Cerrar'
   }
 }
 
 return (
-  <div style={{display: 'flex', 'justify-content': 'space-evenly'}}>
+  <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
     <div style={{width: 302}}>
       <h3>Sample 1: collapsed as first state</h3>
-      <CardCollapsible headerImage={config.headerImage} headerInfo={config.headerInfo} expandButton={config.expandButton} collapseButton={config.collapseButton}>
+      <CardCollapsible headerImage={config.headerImage} headerInfo={config.headerInfo} expandButton={config.expandButton} iconClose={IconClose} showCloseButton hasBoxShadowWhenExpanded>
         <div style={{backgroundColor: '#ffffff', padding: 16}}>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet maximus lorem, ac aliquam sapien. Pellentesque in suscipit odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel euismod magna. Nulla in cursus orci. Morbi scelerisque sodales scelerisque. Nullam ac erat vitae mauris laoreet viverra. Nullam rutrum felis metus, sed sodales sem molestie id. Curabitur hendrerit, ante sit amet porttitor cursus, dui enim pellentesque nisi, non posuere neque nunc in risus. Sed varius condimentum ipsum sed tincidunt.</p>
           <p>Mauris sit amet tincidunt lacus. Ut sit amet commodo leo. Curabitur fermentum pellentesque mi vitae rhoncus. Cras congue, ex non vestibulum rhoncus, purus ipsum suscipit nisi, sed rhoncus diam nisl et tellus. Duis pellentesque magna sed ligula faucibus, sit amet fermentum libero auctor. Sed mi sem, pulvinar et augue tincidunt, condimentum condimentum sapien. Mauris eu rhoncus est. Fusce et molestie velit. Duis magna sapien, aliquam id libero luctus, volutpat ultrices neque. Proin interdum purus non lectus rhoncus, placerat sodales ex volutpat. Aliquam erat volutpat. Duis arcu diam, facilisis in rutrum pellentesque, aliquet eu mauris. Proin volutpat faucibus elit. Sed vitae aliquet nunc. Nulla blandit et nulla et tincidunt.</p>
@@ -50,7 +61,7 @@ return (
       </CardCollapsible>
       <br />
       <h3>Sample 2: expanded as first state</h3>
-      <CardCollapsible collapsed={false} headerImage={config.headerImage} headerInfo={config.headerInfo} expandButton={config.expandButton} collapseButton={config.collapseButton}>
+      <CardCollapsible collapsed={false} headerImage={config.headerImage} headerInfo={config.headerInfo} expandButton={config.expandButton} showCloseButton>
         <div style={{backgroundColor: '#ffffff', padding: 16}}>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet maximus lorem, ac aliquam sapien. Pellentesque in suscipit odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel euismod magna. Nulla in cursus orci. Morbi scelerisque sodales scelerisque. Nullam ac erat vitae mauris laoreet viverra. Nullam rutrum felis metus, sed sodales sem molestie id. Curabitur hendrerit, ante sit amet porttitor cursus, dui enim pellentesque nisi, non posuere neque nunc in risus. Sed varius condimentum ipsum sed tincidunt.</p>
           <p>Mauris sit amet tincidunt lacus. Ut sit amet commodo leo. Curabitur fermentum pellentesque mi vitae rhoncus. Cras congue, ex non vestibulum rhoncus, purus ipsum suscipit nisi, sed rhoncus diam nisl et tellus. Duis pellentesque magna sed ligula faucibus, sit amet fermentum libero auctor. Sed mi sem, pulvinar et augue tincidunt, condimentum condimentum sapien. Mauris eu rhoncus est. Fusce et molestie velit. Duis magna sapien, aliquam id libero luctus, volutpat ultrices neque. Proin interdum purus non lectus rhoncus, placerat sodales ex volutpat. Aliquam erat volutpat. Duis arcu diam, facilisis in rutrum pellentesque, aliquet eu mauris. Proin volutpat faucibus elit. Sed vitae aliquet nunc. Nulla blandit et nulla et tincidunt.</p>
@@ -60,10 +71,10 @@ return (
 
     <div style={{width: 334}}>
       <h3>Sample 2: Expanded and using a container with paddings</h3>
-      <div style={{'background-color':'white', padding: 16}}>
-        <CardCollapsible collapsed={false} headerImage={config.headerImage} headerInfo={config.headerInfo} expandButton={config.expandButton} collapseButton={config.collapseButton}>
+      <div style={{backgroundColor:'white', padding: 16}}>
+        <CardCollapsible collapsed={false} headerImage={config.headerImage} headerInfo={config.headerInfo} expandButton={config.expandButton}>
           <div style={{backgroundColor: '#ffffff'}}>
-            <p style={{margin: 0, 'padding-top': '16'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet maximus lorem, ac aliquam sapien. Pellentesque in suscipit odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel euismod magna. Nulla in cursus orci. Morbi scelerisque sodales scelerisque. Nullam ac erat vitae mauris laoreet viverra. Nullam rutrum felis metus, sed sodales sem molestie id. Curabitur hendrerit, ante sit amet porttitor cursus, dui enim pellentesque nisi, non posuere neque nunc in risus. Sed varius condimentum ipsum sed tincidunt.</p>
+            <p style={{margin: 0, 'paddingTop': '16'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet maximus lorem, ac aliquam sapien. Pellentesque in suscipit odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel euismod magna. Nulla in cursus orci. Morbi scelerisque sodales scelerisque. Nullam ac erat vitae mauris laoreet viverra. Nullam rutrum felis metus, sed sodales sem molestie id. Curabitur hendrerit, ante sit amet porttitor cursus, dui enim pellentesque nisi, non posuere neque nunc in risus. Sed varius condimentum ipsum sed tincidunt.</p>
             <p>Mauris sit amet tincidunt lacus. Ut sit amet commodo leo. Curabitur fermentum pellentesque mi vitae rhoncus. Cras congue, ex non vestibulum rhoncus, purus ipsum suscipit nisi, sed rhoncus diam nisl et tellus. Duis pellentesque magna sed ligula faucibus, sit amet fermentum libero auctor. Sed mi sem, pulvinar et augue tincidunt, condimentum condimentum sapien. Mauris eu rhoncus est. Fusce et molestie velit. Duis magna sapien, aliquam id libero luctus, volutpat ultrices neque. Proin interdum purus non lectus rhoncus, placerat sodales ex volutpat. Aliquam erat volutpat. Duis arcu diam, facilisis in rutrum pellentesque, aliquet eu mauris. Proin volutpat faucibus elit. Sed vitae aliquet nunc. Nulla blandit et nulla et tincidunt.</p>
           </div>
         </CardCollapsible>

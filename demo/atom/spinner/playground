@@ -1,0 +1,79 @@
+const boxStyle = {
+  backgroundColor: '#ffffff',
+  border: '1px dashed lightgrey',
+  borderRadius: '5px',
+  padding: '10px',
+  marginBottom: '16px',
+}
+
+const buttonStyle = {
+  backgroundColor: '#ffffff',
+  padding: '10px'
+}
+
+class SpinnerWrapperExample extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {contentLoaded: false}
+  }
+
+  componentDidMount () {
+    setTimeout(() => {
+      this.setState({contentLoaded: true})
+    }, 5000)
+  }
+
+  render () {
+    const {contentLoaded} = this.state
+    return contentLoaded
+      ? <p style={boxStyle}>Content loaded, spinner dissapears</p>
+      : (
+        <p style={boxStyle}>
+          Slowly loading content, delayed spinner will be shown
+          <AtomSpinner delayed />
+        </p>
+      )
+  }
+}
+
+class FullScreenSpinnerExample extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {show: false}
+
+    this.onClick = this.onClick.bind(this)
+  }
+
+  onClick (ev) {
+    this.setState({show: true})
+    setTimeout(() => this.setState({show: false}), 5000)
+  }
+
+  render () {
+    return (
+      <React.Fragment>
+        <button style={buttonStyle} onClick={this.onClick}>
+          Click to show fullscreen spinner for 5 seconds
+        </button>
+        { this.state.show && <AtomSpinner type={AtomSpinnerTypes.FULL} /> }
+      </React.Fragment>
+    )
+  }
+}
+
+return (
+  <React.Fragment>
+    <div style={boxStyle}>
+      <h1>Infinite spinner</h1>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+      <AtomSpinner />
+    </div>
+    <div style={boxStyle}>
+      <h1>Delayed spinner</h1>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+      <AtomSpinner delayed />
+    </div>
+    <SpinnerWrapperExample />
+    <FullScreenSpinnerExample />
+  </React.Fragment>
+)

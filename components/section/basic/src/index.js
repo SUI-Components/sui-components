@@ -1,50 +1,43 @@
-import PropTypes from 'prop-types'
 import React from 'react'
+import PropTypes from 'prop-types'
 import cx from 'classnames'
+import { SPACING } from './constants'
 
-const SECTION_TITLE_ALIGNMENTS = ['left', 'center', 'right']
+const CLASS = 'sui-SectionBasic'
+const AVAILABLE_SPACINGS = Object.values(SPACING)
 
-const SectionBasic = ({className, children, textContent, title, titleAlign, subtitle, subtitleAlign, lineSeparator}) => (
-  <section className={cx('sui-SectionBasic', className)}>
-    <div className='sui-SectionBasic-header'>
-      <h3 className={cx('sui-SectionBasic-title', `sui-SectionBasic-title--${titleAlign}`)}>{title}</h3>
-      {subtitle &&
-      <h5 className={cx('sui-SectionBasic-subtitle', `sui-SectionBasic-subtitle--${subtitleAlign}`)}>{subtitle}</h5>}
-    </div>
-    <div className='sui-SectionBasic-content'>
-      {textContent && <p className='sui-SectionBasic-contentOnlyText'>{textContent}</p>}
-      {children}
-    </div>
-    {lineSeparator && <hr className='sui-SectionBasic-lineSeparator' />}
-  </section>
-)
+const getSpacingClassName = modifier => `${CLASS}-bottomSpacing--${modifier}`
+
+const SectionBasic = ({ children, contentBottomSpacing, headerBottomSpacing, sectionBottomSpacing, separator, textContent, title }) => {
+  return (
+    <section className={cx(CLASS, getSpacingClassName(sectionBottomSpacing))}>
+      { title &&
+        <header className={cx(`${CLASS}-header`, getSpacingClassName(headerBottomSpacing))}>
+          <h3 className={`${CLASS}-title`}>{ title }</h3>
+        </header>
+      }
+      <div className={cx(`${CLASS}-content`, { [getSpacingClassName(contentBottomSpacing)]: separator })}>
+        { textContent
+          ? <p className={`${CLASS}-textContent`}>{ textContent }</p>
+          : children }
+      </div>
+      { separator &&
+        <hr className={`${CLASS}-separator`} />
+      }
+    </section>
+  )
+}
 
 SectionBasic.displayName = 'SectionBasic'
 
 SectionBasic.propTypes = {
-  /**
-   * HTML Node to include as component's children. Can be a single HTML element, a plain text, or an array of them.
-   */
   children: PropTypes.node,
   /**
-   * CSS className to apply to Section Basic container.
+   * Flag to include an "hr" line separator element at the bottom of the section (default to false).
    */
-  className: PropTypes.string,
+  separator: PropTypes.bool,
   /**
-   * If true, include an "hr" separator element at the bottom of the section.
-   */
-  lineSeparator: PropTypes.bool,
-  /**
-   * Text to be displayed as subtitle at the top of the Section (below section's main title).
-   */
-  subtitle: PropTypes.string,
-  /**
-   * Text alignment of Section's subtitle.
-   */
-  subtitleAlign: PropTypes.oneOf(SECTION_TITLE_ALIGNMENTS),
-  /**
-   * If the content of the Section will be pure text, it can be specified through this option and will be added directly
-   * in the component wrapped by a HTML paragraph element.
+   * Specifies that content of the section will be only the provided text, ignoring children and wrapping textContent in a paragraph.
    */
   textContent: PropTypes.string,
   /**
@@ -52,15 +45,27 @@ SectionBasic.propTypes = {
    */
   title: PropTypes.string,
   /**
-   * Text alignment of Section's title.
+   * Allows customisation of the bottom margin to add to the main section HTML element (margin bottom of component).
    */
-  titleAlign: PropTypes.oneOf(SECTION_TITLE_ALIGNMENTS)
+  sectionBottomSpacing: PropTypes.oneOf(AVAILABLE_SPACINGS),
+  /**
+   * Allows customisation of the bottom margin to add to the section's header element (space between header and content).
+   */
+  headerBottomSpacing: PropTypes.oneOf(AVAILABLE_SPACINGS),
+  /**
+   * Allows customisation of the bottom margin to add to the section's content element (space between content and separator line).
+   */
+  contentBottomSpacing: PropTypes.oneOf(AVAILABLE_SPACINGS)
 }
 
 SectionBasic.defaultProps = {
-  lineSeparator: true,
-  subtitleAlign: 'right',
-  titleAlign: 'left'
+  contentBottomSpacing: SPACING.LARGE,
+  headerBottomSpacing: SPACING.LARGE,
+  sectionBottomSpacing: SPACING.NONE,
+  separator: false
 }
 
 export default SectionBasic
+export {
+  SPACING as sectionBasicBottomSpacing
+}

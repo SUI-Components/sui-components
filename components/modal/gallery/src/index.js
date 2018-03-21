@@ -12,8 +12,8 @@ class ModalGallery extends Component {
     currentSlide: this.props.initialSlide
   }
 
-  componentWillReceiveProps ({shouldRenderModal, initialSlide = 0}) {
-    if (shouldRenderModal) {
+  componentWillReceiveProps ({open, initialSlide = 0}) {
+    if (open) {
       this.setState({currentSlide: initialSlide})
     }
   }
@@ -42,25 +42,31 @@ class ModalGallery extends Component {
     )
   }
 
+  _renderEmptyContent () {
+    return (
+      <div className='sui-ModalGallery-emptyContent' />
+    )
+  }
+
   _onSlideChange = (currentSlide) => {
     this.setState(currentSlide)
   }
 
   render () {
     const {currentSlide} = this.state
-    const {initialSlide, lazyLoadSlider, multimedia, iconClose, onClose, shouldRenderModal} = this.props
+    const {open, initialSlide, lazyLoadSlider, multimedia, iconClose, onClose} = this.props
 
-    return shouldRenderModal && (
+    return (
       <div className='sui-ModalGallery'>
         <SuiModal
-          open
+          open={open}
           centerVertically
           closeOnOutsideClick
           fitWindow
           iconClose={iconClose}
           onClose={onClose}
           header={this._renderHeader({images: {currentSlide: currentSlide + 1, totalSlides: multimedia.images.length}})}
-          content={this._renderImageSlider({...multimedia, sliderOptions: {lazyLoadSlider, initialSlide, doAfterSlide: this._onSlideChange}})}
+          content={open ? this._renderImageSlider({...multimedia, sliderOptions: {lazyLoadSlider, initialSlide, doAfterSlide: this._onSlideChange}}) : this._renderEmptyContent()}
         />
       </div>
     )
@@ -70,6 +76,10 @@ class ModalGallery extends Component {
 ModalGallery.displayName = 'ModalGallery'
 
 ModalGallery.propTypes = {
+  /**
+   * Flag to show or hide gallery modal.
+   */
+  open: PropTypes.bool,
   /**
    * Initial slide to show when creating the gallery image slider.
    */
@@ -102,19 +112,15 @@ ModalGallery.propTypes = {
   /**
    * Callback to execute when the modal is closed.
    */
-  onClose: PropTypes.func,
-  /**
-   * Flag to avoid rendering modal gallery component (e.g. when it is closed).
-   */
-  shouldRenderModal: PropTypes.bool
+  onClose: PropTypes.func
 }
 
 ModalGallery.defaultProps = {
   multimedia: {
     images: []
   },
-  shouldRenderModal: false,
-  lazyLoadSlider: false,
+  open: false,
+  lazyLoadSlider: true,
   initialSlide: 0,
   onClose: NO_OP,
   counterTextFormatter: DEFAULT_COUNTER_TEXT_FORMATTER

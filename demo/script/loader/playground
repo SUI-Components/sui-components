@@ -1,0 +1,11 @@
+const src = 'https://cdns.gigya.com/JS/gigya.js?apikey=3_mguHvyO40mAI8ozGJLSFiYAMicGHRYkOaz56NX5uvYlRjrI5qHdfBxw25Q-SYYz8' // This API key is a demo key, please don't use it in your site :D
+const verifier = () => window && window.gigya
+const render = () => 'Gigya is loaded! You can now interact with the sdk functions!!'
+
+return (<div>
+  <ScriptLoader src={src} verifier={verifier} isAsync={true} render={render} />
+  <br />
+  <ScriptLoader src={src} verifier={verifier} isAsync={true} render={() => 'Another resource that needs gigya'} />
+  <br />
+  <ScriptLoader src='https://connect.facebook.net/es_ES/sdk.js' verifier={() => window && window.FB} isAsync={false} render={() => 'Facebook SDK loaded!'} />
+</div>)

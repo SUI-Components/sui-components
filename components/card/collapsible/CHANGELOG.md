@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2018-03-07)
+
+
+### Features
+
+* add callback parameter on info item ([49198b8](https://github.com/SUI-Components/sui-components/commit/49198b8))
+
+
+
+<a name="1.9.0"></a>
+# 1.9.0 (2018-03-07)
+
+
+### Bug Fixes
+
+* prepare component for sui-theme change ([99f6afe](https://github.com/SUI-Components/sui-components/commit/99f6afe))
+
+
+
+<a name="1.8.0"></a>
+# 1.8.0 (2018-02-20)
+
+
+### Features
+
+* add X close button on card's header when its expanded. ([fe4403d](https://github.com/SUI-Components/sui-components/commit/fe4403d))
+* remove custom button classname and styles. ([9a873dc](https://github.com/SUI-Components/sui-components/commit/9a873dc))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2018-01-31)
 

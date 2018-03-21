@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.21.0"></a>
+# 1.21.0 (2018-03-12)
+
+
+### Features
+
+* verify tag prop is passed before to print it ([e96ac8e](https://github.com/SUI-Components/sui-components/commit/e96ac8e))
+
+
+
 <a name="1.20.0"></a>
 # 1.20.0 (2017-11-06)
 

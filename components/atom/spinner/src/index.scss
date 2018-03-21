@@ -1,0 +1,41 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import './SUILoader/index';
+
+$bgc-atom-spinner: rgba($c-white, .6) !default;
+$z-atom-spinner: 1 !default;
+
+%spinner-layer {
+  background-color: $bgc-atom-spinner;
+  bottom: 0;
+  content: '';
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.sui-AtomSpinner {
+  position: relative;
+  z-index: $z-atom-spinner;
+
+  &::before {
+    @extend %spinner-layer;
+    position: absolute;
+  }
+
+  &--fullPage {
+
+    &::before {
+      @extend %spinner-layer;
+      position: fixed;
+    }
+
+    .sui-AtomSpinner-loader {
+      display: block;
+    }
+  }
+
+  #{&}-loader {
+    display: block;
+  }
+
+}

@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import ButtonBasic from '@schibstedspain/sui-button-basic'
-import CollapsibleBasic from '@schibstedspain/sui-collapsible-basic'
+import Button from '@schibstedspain/sui-atom-button'
+import Collapsible from '@schibstedspain/sui-collapsible-basic'
+import IconX from '@schibstedspain/sui-svgiconset/lib/X'
 import cx from 'classnames'
 
 class CardCollapsible extends Component {
@@ -30,15 +31,28 @@ class CardCollapsible extends Component {
    * @param {boolean} itemProps.highlighted Highlight the item (bold style).
    * @return {Element} Item to display on card's header info area.
    */
-  _renderInfoItem ({label, link, highlighted}, index) {
+  _renderInfoItem ({label, link, highlighted, target = '_blank', iconLeft: IconLeft, onClick}, index) {
     const InfoItemElement = link ? 'a' : 'span'
-    const props = link ? {href: link, target: '_blank'} : {}
+    const props = link ? { href: link, target, onClick } : {}
 
     return (
       <InfoItemElement key={`header-info-item-${index}`}
         className={cx('sui-CardCollapsible-headerInfoItem', {'sui-CardCollapsible-headerInfoItemLink': !!link, 'is-highlighted': !!highlighted})} {...props}>
-        {label}
+        {IconLeft && <IconLeft svgClass='sui-CardCollapsible-infoItemIcon' className='sui-CardCollapsible-infoItemIcon' />}
+        <span>{label}</span>
       </InfoItemElement>
+    )
+  }
+
+  _renderCardCloseButton () {
+    const { iconClose: Icon = IconX } = this.props
+
+    return (
+      <div className='sui-CardCollapsible-headerClose'>
+        <a className='sui-CardCollapsible-closeButton' onClick={this._toggleCardContent}>
+          <Icon svgClass='sui-CardCollapsible-closeIcon' className='sui-CardCollapsible-closeIcon' />
+        </a>
+      </div>
     )
   }
 
@@ -53,10 +67,11 @@ class CardCollapsible extends Component {
    * @return {Element} Card' header element.
    */
   _renderCardHeader ({alt = 'logo', href, src, target = '_blank'}, info) {
+    const { collapsed } = this.state
     const Image = <img src={src} alt={alt} />
 
     return (
-      <div className={cx('sui-CardCollapsible-header', {'is-expanded': !this.state.collapsed})}>
+      <div className={cx('sui-CardCollapsible-header', {'is-expanded': !collapsed})}>
         <div className='sui-CardCollapsible-headerImage'>
           {href ? <a href={href} target={target}>{Image}</a> : Image}
         </div>
@@ -72,30 +87,52 @@ class CardCollapsible extends Component {
   /**
    * Renders the action button which trigger the expand/collapse action of the card.
    * @param config {object} Button configuration (prop "label" : Text label of expand/collapse action button).
-   * @return {Element} Expand or collapse action button element.
    */
-  _renderActionButton (config) {
-    return (
-      !!config && <div className='sui-CollapsibleBasic-actionButton'>
-        <ButtonBasic layout='full' onClick={this._toggleCardContent} text={config.label} size='large' />
-      </div>
+  _renderExpandButton () {
+    const { expandButton: { label } = {} } = this.props
+
+    return !!label && (
+      <Button
+        fullWidth
+        size='large'
+        onClick={this._toggleCardContent}>
+        {label}
+      </Button>
     )
   }
 
   render () {
-    const {className, children, headerImage, headerInfo, collapseButton, expandButton, onChangeHandler} = this.props
-    const {collapsed} = this.state
+    const { collapsed } = this.state
+    const { className, children, headerImage, headerInfo, onChangeHandler, showCloseButton, hasBoxShadowWhenExpanded } = this.props
+    const headerInfoConfig = collapsed
+      ? headerInfo.displayWhenCollapsed
+      : headerInfo.displayWhenExpanded
+    const cssClassName = cx(
+      'sui-CardCollapsible',
+      className,
+      {
+        'is-expanded': !collapsed,
+        'sui-CardCollapsible--boxShadow': hasBoxShadowWhenExpanded
+      }
+    )
 
     return (
-      <div className={cx('sui-CardCollapsible', className, {'is-expanded': !this.state.collapsed})}>
-        {headerInfo && this._renderCardHeader(headerImage, collapsed ? headerInfo.displayWhenCollapsed : headerInfo.displayWhenExpanded)}
-        <CollapsibleBasic
+      <div className={cssClassName}>
+        { !collapsed && showCloseButton &&
+            this._renderCardCloseButton()
+        }
+        { headerInfo &&
+            this._renderCardHeader(headerImage, headerInfoConfig)
+        }
+        <Collapsible
           collapsed={collapsed}
-          label={this._renderActionButton(collapsed ? expandButton : collapseButton)}
-          icon={false}
+          animationType='opacity'
+          hideTriggerIcon
+          animationSpeed='fast'
+          label={collapsed && this._renderExpandButton()}
           handleClick={onChangeHandler}>
-          {children}
-        </CollapsibleBasic>
+          { children }
+        </Collapsible>
       </div>
     )
   }
@@ -140,7 +177,10 @@ CardCollapsible.propTypes = {
       PropTypes.shape({
         label: PropTypes.node.isRequired,
         link: PropTypes.string,
-        highlighted: PropTypes.bool
+        highlighted: PropTypes.bool,
+        target: PropTypes.string,
+        iconLeft: PropTypes.func,
+        onClick: PropTypes.func
       })
     )
   }),
@@ -151,23 +191,35 @@ CardCollapsible.propTypes = {
     label: PropTypes.string.isRequired
   }),
   /**
-   * Configuration of the "collapsed" button (displayed only when the card is expanded).
-   */
-  collapseButton: PropTypes.shape({
-    label: PropTypes.string.isRequired
-  }),
-  /**
    * Function to call when the expanded/collapsed status of collapsible component has changed.
    */
   onChangeHandler: PropTypes.func,
   /**
    * Whether display the component collapsed or not on the first render.
    */
-  collapsed: PropTypes.bool
+  collapsed: PropTypes.bool,
+  /**
+   * Flag to display a close button on the top-right side of the card.
+   */
+  showCloseButton: PropTypes.bool,
+  /**
+   * Customize icon close.
+   */
+  iconClose: PropTypes.func,
+  /**
+   * Flag to display a box-shadow around the card container when it is expanded.
+   */
+  hasBoxShadowWhenExpanded: PropTypes.bool
 }
 
 CardCollapsible.defaultProps = {
-  collapsed: true
+  collapsed: true,
+  headerInfo: {
+    displayWhenCollapsed: [],
+    displayWhenExpanded: []
+  },
+  showCloseButton: false,
+  hasBoxShadowWhenExpanded: false
 }
 
 CardCollapsible.displayName = 'CardCollapsible'

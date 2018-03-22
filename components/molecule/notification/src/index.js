@@ -6,6 +6,7 @@ import IconSuccess from '@schibstedspain/sui-svgiconset/lib/Circlecheck'
 import IconError from '@schibstedspain/sui-svgiconset/lib/Circlex'
 import IconInfo from '@schibstedspain/sui-svgiconset/lib/Info'
 import IconWarning from '@schibstedspain/sui-svgiconset/lib/Warning'
+import cx from 'classnames'
 
 const baseClass = 'sui-MoleculeNotification'
 const ICONS = {
@@ -23,10 +24,13 @@ class MoleculeNotification extends Component {
   }
 
   render () {
-    const { type, text, buttons, position } = this.props
+    const { type, text, buttons, position, effect = {} } = this.props
+    const wrapperClassName = cx(`${baseClass} ${baseClass}-type--${type} ${baseClass}-position--${position}`, {
+      [`${baseClass}-effect--${effect.type}`]: (effect && effect.type && !effect.show),
+    })
 
     return (
-      <div className={`${baseClass} ${baseClass}-type--${type} ${baseClass}-position--${position}`}>
+      <div className={wrapperClassName}>
         <div className={`${baseClass}-content`}>
           <div className={`${baseClass}-iconLeft`}>
             { ICONS[type] }
@@ -53,6 +57,7 @@ MoleculeNotification.displayName = 'MoleculeNotification'
 
 MoleculeNotification.propTypes = {
   buttons: PropTypes.array,
+  effect: PropTypes.object,
   position: PropTypes.string,
   text: PropTypes.string,
   type: PropTypes.string,

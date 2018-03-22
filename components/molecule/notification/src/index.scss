@@ -49,6 +49,7 @@
   }
 
   // Position
+
   &-position {
     &--relative {
       position: relative;
@@ -58,6 +59,7 @@
       left: 0;
       position: absolute;
       top: 0;
+      transition: all .5s ease;
       width: $w-notification;
       z-index: $z-notification;
     }
@@ -66,8 +68,25 @@
       bottom: 0;
       left: 0;
       position: absolute;
+      transition: all .5s ease;
       width: $w-notification;
       z-index: $z-notification;
+    }
+  }
+
+  // Effect
+
+  &-effect {
+    &--slide {
+      &.sui-MoleculeNotification-position {
+        &--top {
+          top: -50%;
+        }
+
+        &--bottom {
+          bottom: -50%;
+        }
+      }
     }
   }
 }

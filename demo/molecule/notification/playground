@@ -17,9 +17,47 @@ function showAlert () {
 	alert('Close it!')
 }
 
+class TopEffectNotification extends React.Component {
+  state = {
+    show: false
+  }
+
+  toggleShow = () => {
+    const show = !this.state.show
+    this.setState({ show })
+  }
+
+  render () {
+    const { show } = this.state
+    const effect = { type: 'slide', show }
+
+    return(
+      <div>
+        {
+          <MoleculeNotification 
+            text={TEXT}
+            buttons={BUTTONS}
+            onClose={showAlert}
+            position={this.props.position}
+            effect={effect}
+          />
+        }
+        <button onClick={this.toggleShow}>
+          { show ? 'hide' : 'show' }
+        </button>
+      </div>
+    )
+  }
+}
+
 return (
   <div>
     <h1>Notification</h1>
+    <h3>Top + Effect</h3>
+    <TopEffectNotification position='top' />
+    <h3>Bottom + Effect</h3>
+    <TopEffectNotification position='bottom' />
+    <h2>Types</h2>
     <h3>Info</h3>
     <MoleculeNotification 
       text={TEXT}

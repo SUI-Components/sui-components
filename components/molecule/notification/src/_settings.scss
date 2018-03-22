@@ -3,3 +3,13 @@ $t-notification: 0 !default;
 $b-notification: 0 !default;
 $w-notification: 100% !default;
 $z-notification: 10 !default;
+
+// Colors
+
+$notification-type-colors: (
+  info: $c-primary,
+  success: $c-success,
+  warning: $c-alert,
+  error: $c-error,
+  system: $c-black,
+)

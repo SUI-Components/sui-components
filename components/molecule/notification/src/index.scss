@@ -47,24 +47,12 @@ $p-user-communications-message-sides: 56px;
 
   // Type
 
-  &--info {
-    background-color: $c-primary;
-  }
-
-  &--success {
-    background-color: $c-success;
-  }
-
-  &--warning {
-    background-color: $c-alert;
-  }
-
-  &--error {
-    background-color: $c-error;
-  }
-
-  &--system {
-    background-color: $c-black;
+  @each $key, $value in $notification-type-colors {
+    &-type {
+      &--#{$key} {
+        background-color: #{$value};
+      }
+    }
   }
 
   // Position

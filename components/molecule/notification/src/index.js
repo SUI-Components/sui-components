@@ -36,7 +36,7 @@ class MoleculeNotification extends Component {
     if (!show) { return null }
 
     return (
-      <div className={`${baseClass} ${baseClass}--${type} ${baseClass}--${position}`}>
+      <div className={`${baseClass} ${baseClass}-type--${type} ${baseClass}-position--${position}`}>
         <div className={`${baseClass}-content`}>
           <div className={`${baseClass}-iconLeft`}>
             { ICONS[type] }

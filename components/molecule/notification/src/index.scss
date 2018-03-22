@@ -1,6 +1,7 @@
 @import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~@schibstedspain/sui-atom-button/lib/index';
+@import './settings';
 
 $p-user-communications-message: $p-l;
 $p-user-communications-message-sides: 56px;
@@ -9,26 +10,6 @@ $p-user-communications-message-sides: 56px;
   color: $c-white;
   padding: $p-l;
   position: relative;
-
-  &--info {
-    background-color: $c-primary;
-  }
-
-  &--success {
-    background-color: $c-success;
-  }
-
-  &--warning {
-    background-color: $c-alert;
-  }
-
-  &--error {
-    background-color: $c-error;
-  }
-
-  &--system {
-    background-color: $c-black;
-  }
 
   &-content {
     display: flex;
@@ -62,5 +43,45 @@ $p-user-communications-message-sides: 56px;
         display: none;
       }
     }
+  }
+
+  // Type
+
+  &--info {
+    background-color: $c-primary;
+  }
+
+  &--success {
+    background-color: $c-success;
+  }
+
+  &--warning {
+    background-color: $c-alert;
+  }
+
+  &--error {
+    background-color: $c-error;
+  }
+
+  &--system {
+    background-color: $c-black;
+  }
+
+  // Position
+
+  &--top {
+    left: $l-notification;
+    position: absolute;
+    top: $t-notification;
+    width: $w-notification;
+    z-index: $z-notification;
+  }
+
+  &--bottom {
+    bottom: $b-notification;
+    left: $l-notification;
+    position: absolute;
+    width: $w-notification;
+    z-index: $z-notification;
   }
 }

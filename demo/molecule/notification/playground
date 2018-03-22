@@ -13,37 +13,45 @@ const BUTTONS = [
 
 const TEXT = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae orci consectetur, suscipit ligula vel, malesuada mi. Sed eleifend lacus sapien, ac elementum mi iaculis at.'
 
+function showAlert () {
+	alert('Closed!')
+}
+
 return (
   <div>
     <h1>Notification</h1>
     <h3>Info</h3>
     <MoleculeNotification 
       text={TEXT}
-    />
-    <h3>Info (with buttons)</h3>
-    <MoleculeNotification 
-      text={TEXT}
       buttons={BUTTONS}
+      onClose={showAlert}
     />
     <h3>Success</h3>
     <MoleculeNotification 
       text={TEXT}
       type='success'
+      buttons={BUTTONS}
+      onClose={showAlert}
     />
     <h3>Warning</h3>
     <MoleculeNotification 
       text={TEXT}
-      type='warning' 
+      type='warning'
+      buttons={BUTTONS}
+      onClose={showAlert}
     />
     <h3>Error</h3>
     <MoleculeNotification 
       text={TEXT}
-      type='error' 
+      type='error'
+      buttons={BUTTONS}
+      onClose={showAlert}
     />
     <h3>System</h3>
     <MoleculeNotification 
       text={TEXT}
-      type='system' 
+      type='system'
+      buttons={BUTTONS}
     />
   </div>
 )

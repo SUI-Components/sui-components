@@ -14,7 +14,7 @@ const BUTTONS = [
 const TEXT = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae orci consectetur, suscipit ligula vel, malesuada mi. Sed eleifend lacus sapien, ac elementum mi iaculis at.'
 
 function showAlert () {
-	alert('Closed!')
+	alert('Close it!')
 }
 
 return (
@@ -52,6 +52,7 @@ return (
       text={TEXT}
       type='system'
       buttons={BUTTONS}
+      onClose={showAlert}
     />
   </div>
 )

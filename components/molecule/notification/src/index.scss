@@ -3,13 +3,9 @@
 @import '~@schibstedspain/sui-atom-button/lib/index';
 @import './settings';
 
-$p-user-communications-message: $p-l;
-$p-user-communications-message-sides: 56px;
-
 .sui-MoleculeNotification {
   color: $c-white;
   padding: $p-l;
-  position: relative;
 
   &-content {
     display: flex;
@@ -17,20 +13,17 @@ $p-user-communications-message-sides: 56px;
   }
 
   &-text {
-    flex: 1 1 100%;
+    flex: 1 1 auto;
     margin: 0 $m-l 0 $m-m;
   }
 
-  &-button {
-    &Container {
-      margin-top: $m-l;
-      text-align: right;
-    }
+  &-buttonsContainer {
+    margin-top: $m-l;
+    text-align: right;
   }
 
   &-close {
     cursor: pointer;
-    justify-self: end;
   }
 
   &-icon {
@@ -56,20 +49,25 @@ $p-user-communications-message-sides: 56px;
   }
 
   // Position
+  &-position {
+    &--relative {
+      position: relative;
+    }
 
-  &--top {
-    left: $l-notification;
-    position: absolute;
-    top: $t-notification;
-    width: $w-notification;
-    z-index: $z-notification;
-  }
+    &--top {
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: $w-notification;
+      z-index: $z-notification;
+    }
 
-  &--bottom {
-    bottom: $b-notification;
-    left: $l-notification;
-    position: absolute;
-    width: $w-notification;
-    z-index: $z-notification;
+    &--bottom {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      width: $w-notification;
+      z-index: $z-notification;
+    }
   }
 }

@@ -17,23 +17,13 @@ const ICONS = {
 }
 
 class MoleculeNotification extends Component {
-  componentWillMount () {
-    const { show } = this.props
-    this.setState({ show })
-  }
-
   handleClose = () => {
-    const { show } = !this.state
     const { onClose } = this.props
-    this.setState({ show })
     onClose && onClose()
   }
 
   render () {
     const { type, text, buttons, position } = this.props
-    const { show } = this.state
-
-    if (!show) { return null }
 
     return (
       <div className={`${baseClass} ${baseClass}-type--${type} ${baseClass}-position--${position}`}>
@@ -50,7 +40,7 @@ class MoleculeNotification extends Component {
         </div>
         {
           buttons &&
-          <div className={`${baseClass}-buttonContainer`}>
+          <div className={`${baseClass}-buttonsContainer`}>
             {buttons && buttons.map((button, i) => <Button key={i} {...button} />)}
           </div>
         }
@@ -64,14 +54,12 @@ MoleculeNotification.displayName = 'MoleculeNotification'
 MoleculeNotification.propTypes = {
   buttons: PropTypes.array,
   position: PropTypes.string,
-  show: PropTypes.bool,
   text: PropTypes.string,
   type: PropTypes.string,
   onClose: PropTypes.func
 }
 
 MoleculeNotification.defaultProps = {
-  show: true,
   position: 'relative',
   type: 'info'
 }

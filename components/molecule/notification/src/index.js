@@ -26,6 +26,7 @@ class MoleculeNotification extends Component {
   render () {
     const { type, text, buttons, position, effect = {} } = this.props
     const wrapperClassName = cx(`${baseClass} ${baseClass}-type--${type} ${baseClass}-position--${position}`, {
+      [`${baseClass}-effect`]: (effect && effect.type),
       [`${baseClass}-effect--${effect.type}`]: (effect && effect.type && !effect.show),
     })
 

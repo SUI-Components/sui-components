@@ -23,7 +23,7 @@ function Title ({children}) {
 
 class EffectNotification extends React.Component {
   state = {
-    show: this.props.show
+    show: false
   }
 
   toggleShow = () => {
@@ -33,8 +33,7 @@ class EffectNotification extends React.Component {
 
   render () {
     const { show } = this.state
-    const type = this.props.effectType
-    const effect = { type, show }
+    const { effect } = this.props
 
     return(
       <div>
@@ -49,9 +48,9 @@ class EffectNotification extends React.Component {
           <MoleculeNotification 
             text={TEXT}
             buttons={BUTTONS}
-            onClose={this.toggleShow}
             position={this.props.position}
             effect={effect}
+            show={show}
           />
         }
       </div>
@@ -108,18 +107,18 @@ return (
         </tr>
         <tr> 
           <td><Title>Top</Title></td>
-          <td><EffectNotification position='top' effectType='slide' show={false}/></td>
-          <td><EffectNotification position='top' effectType='fade' show={false}/></td>
+          <td><EffectNotification position='top' effect='slide' /></td>
+          <td><EffectNotification position='top' effect='fade' /></td>
         </tr>
         <tr> 
           <td><Title>Bottom</Title></td>
-          <td><EffectNotification position='bottom' effectType='slide' show={false}/></td>
-          <td><EffectNotification position='bottom' effectType='fade' show={false}/></td>
+          <td><EffectNotification position='bottom' effect='slide' /></td>
+          <td><EffectNotification position='bottom' effect='fade' /></td>
         </tr>
         <tr> 
           <td style={{ verticalAlign: 'top', paddingTop: '20px' }}><Title>Relative</Title></td>
           <td></td>
-          <td><EffectNotification position='relative' effectType='fade' show={false}/></td>
+          <td><EffectNotification position='relative' effect='fade' /></td>
         </tr>
       </tbody>
     </table>

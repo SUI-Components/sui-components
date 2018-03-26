@@ -17,18 +17,43 @@ const ICONS = {
   warning: <IconWarning svgClass={`${baseClass}-icon`} />
 }
 
+const DEFAULT_DELAY = 500 // ms
+
 class MoleculeNotification extends Component {
-  handleClose = () => {
-    const { onClose } = this.props
-    onClose && onClose()
+  state = {
+    show: this.props.show,
+    delay: false
+  }
+
+  componentWillReceiveProps (nextProps) {
+    (this.state.show !== nextProps.show) && this.toggleShow()
+  }
+
+  toggleShow = () => {
+    const show = !this.state.show
+    const { onClose, effect } = this.props
+    this.setState({ show })
+    effect && this.setState({ delay: true }, this.removeDelay())
+    !show && onClose && onClose()
+  }
+
+  removeDelay = () => {
+    const { show } = this.state
+    const delay = show ? DEFAULT_DELAY : 1
+    setTimeout(() => {
+      this.setState({ delay: false })
+    }, delay)
   }
 
   render () {
-    const { type, text, buttons, position, effect = {} } = this.props
+    const { show, delay } = this.state
+    const { type, text, buttons, position, effect } = this.props
     const wrapperClassName = cx(`${baseClass} ${baseClass}-type--${type} ${baseClass}-position--${position}`, {
-      [`${baseClass}-effect`]: (effect && effect.type),
-      [`${baseClass}-effect--${effect.type}`]: (effect && effect.type && !effect.show),
+      [`${baseClass}-effect`]: effect,
+      [`${baseClass}-effect--${effect}`]: (effect && delay),
     })
+
+    if (!show && !delay) { return null }
 
     return (
       <div className={wrapperClassName}>
@@ -39,7 +64,7 @@ class MoleculeNotification extends Component {
           <div className={`${baseClass}-text`}>
             <span>{text}</span>
           </div>
-          <div className={`${baseClass}-close`} onClick={this.handleClose}>
+          <div className={`${baseClass}-close`} onClick={this.toggleShow}>
             <IconClose svgClass={`${baseClass}-icon`} />
           </div>
         </div>
@@ -58,8 +83,9 @@ MoleculeNotification.displayName = 'MoleculeNotification'
 
 MoleculeNotification.propTypes = {
   buttons: PropTypes.array,
-  effect: PropTypes.object,
+  effect: PropTypes.string,
   position: PropTypes.string,
+  show: PropTypes.bool,
   text: PropTypes.string,
   type: PropTypes.string,
   onClose: PropTypes.func
@@ -67,6 +93,7 @@ MoleculeNotification.propTypes = {
 
 MoleculeNotification.defaultProps = {
   position: 'relative',
+  show: true,
   type: 'info'
 }
 

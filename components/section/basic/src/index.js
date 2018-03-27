@@ -56,7 +56,7 @@ SectionBasic.propTypes = {
    */
   contentBottomSpacing: PropTypes.oneOf(AVAILABLE_SPACINGS),
   /**
-   * Content to be displayed inside the section when no children or no textContent has benn provided.
+   * Content to be displayed inside the section when no children or no textContent has been provided.
    * If not set, no custom content will be displayed when section is empty.
    */
   customContentWhenEmpty: PropTypes.node

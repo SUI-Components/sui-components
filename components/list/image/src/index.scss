@@ -1,58 +1,62 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~@schibstedspain/sui-image-lazy-load/lib/index';
-@import 'settings';
+@import './settings';
 
 .sui-ListImage {
   @include sui-list('custom');
-  @include media-breakpoint-only(xl) {
-    margin: -($m-v-list-image-item-half-gutter);
+  @include media-breakpoint-up(l) {
+    justify-content: flex-start;
+    margin-left: -($ml-list-image-item-desktop);
   }
-  @include media-breakpoint-only(l) {
-    margin: (-($m-v-list-image-item-half-gutter)) (-($m-h-list-image-item-breakpoint-l-gutter));
-  }
-  @include media-breakpoint-down(m) {
-    justify-content: space-between;
-  }
+
   flex-wrap: wrap;
+  justify-content: space-between;
 
   &-item {
-    @include media-breakpoint-only(xl) {
-      margin: $m-v-list-image-item-half-gutter;
+    @include media-breakpoint-up(l) {
+      flex-basis: $fxb-list-image-item-desktop;
+      margin-bottom: $mb-list-image-item-desktop;
+      margin-left: $ml-list-image-item-desktop;
     }
-    @include media-breakpoint-only(l) {
-      margin: $m-v-list-image-item-half-gutter $m-h-list-image-item-breakpoint-l-gutter;
-    }
-    @include media-breakpoint-down(m) {
-      flex-basis: calc(#{$fxb-list-image-item-mobile} - #{$m-h-list-image-item-half-gutter});
-      margin-bottom: $m-v-list-image-item-full-gutter;
-    }
+
+    background-color: $bgc-list-image-item;
     cursor: pointer;
-    flex-basis: $fxb-list-image-item-desktop;
+    flex-basis: $fxb-list-image-item;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-bottom: $mb-list-image-item;
     overflow: hidden;
   }
 
   &-lastItemContainer {
     position: relative;
+
+    &::after {
+      background-color: $bgc-list-image-more-items-box-gradient;
+      content: '';
+      height: 100%;
+      left: 0;
+      opacity: $op-list-image-more-items-box-gradient;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
   }
 
   &-moreItemsBox {
     align-items: center;
-    background: $bg-list-image-last-item;
-    cursor: pointer;
     display: flex;
     height: 100%;
+    justify-content: center;
     left: 0;
-    margin: 0;
-    opacity: $op-list-image-last-item;
     position: absolute;
     top: 0;
     width: 100%;
+    z-index: 1;
 
     &Label {
-      color: $c-white;
-      padding: 0 $p-h;
+      color: $c-list-image-more-items-box-label;
       text-align: center;
-      width: 100%;
     }
   }
 }

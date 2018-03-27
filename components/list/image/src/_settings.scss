@@ -1,9 +1,20 @@
+
+// List Image item
+$bgc-list-image-item: $c-gray-lightest !default;
+
+// List image item size and gutter for small/medium screens (mobile, tablet)
+$gutter-list-image: $m-l !default;
+$sz-list-image-item: 50% !default;
+$mb-list-image-item: $gutter-list-image !default;
+$fxb-list-image-item: calc(#{$sz-list-image-item} - #{$mb-list-image-item / 2}) !default;
+
+// List image item size and gutter for large screens (desktop)
+$gutter-list-image-desktop: $m-l !default;
+$mb-list-image-item-desktop: $gutter-list-image-desktop !default;
+$ml-list-image-item-desktop: $gutter-list-image-desktop !default;
 $fxb-list-image-item-desktop: 196px !default;
-$fxb-list-image-item-mobile: 50% !default;
-$m-v-list-image-item-full-gutter: $m-l !default;
-$m-h-list-image-item-full-gutter: $m-l !default;
-$bg-list-image-last-item: $c-gray-dark !default;
-$op-list-image-last-item: .65 !default;
-$m-h-list-image-item-half-gutter: ceil($m-h-list-image-item-full-gutter / 2) !default;
-$m-v-list-image-item-half-gutter: ceil($m-v-list-image-item-full-gutter / 2) !default;
-$m-h-list-image-item-breakpoint-l-gutter: $m-h-list-image-item-half-gutter !default;
+
+// More items box gradient and label
+$c-list-image-more-items-box-label: $c-white !default;
+$bgc-list-image-more-items-box-gradient: $c-black !default;
+$op-list-image-more-items-box-gradient: .65 !default;

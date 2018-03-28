@@ -64,13 +64,15 @@ return (
     <h1>Notification</h1>
     <h2>Types</h2>
     <Title>Info</Title>
-    <MoleculeNotification 
+    <MoleculeNotification
+      autoClose='manual' 
       text={TEXT}
       buttons={BUTTONS}
       onClose={showAlert}
     />
     <Title>Success</Title>
-    <MoleculeNotification 
+    <MoleculeNotification
+      autoClose='manual' 
       text={TEXT}
       type='success'
       buttons={BUTTONS}
@@ -78,6 +80,7 @@ return (
     />
     <Title>Warning</Title>
     <MoleculeNotification 
+      autoClose='manual'
       text={TEXT}
       type='warning'
       buttons={BUTTONS}
@@ -85,6 +88,7 @@ return (
     />
     <Title>Error</Title>
     <MoleculeNotification 
+      autoClose='manual'
       text={TEXT}
       type='error'
       buttons={BUTTONS}
@@ -92,6 +96,7 @@ return (
     />
     <Title>System</Title>
     <MoleculeNotification 
+      autoClose='manual'
       text={TEXT}
       type='system'
       buttons={BUTTONS}

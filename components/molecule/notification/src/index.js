@@ -9,6 +9,7 @@ import IconWarning from '@schibstedspain/sui-svgiconset/lib/Warning'
 import cx from 'classnames'
 
 const baseClass = 'sui-MoleculeNotification'
+
 const ICONS = {
   info: <IconInfo svgClass={`${baseClass}-icon`} />,
   error: <IconError svgClass={`${baseClass}-icon`} />,
@@ -17,7 +18,14 @@ const ICONS = {
   warning: <IconWarning svgClass={`${baseClass}-icon`} />
 }
 
-const DEFAULT_DELAY = 1000 // ms
+const AUTO_CLOSE_TIME = {
+  s: 3000,
+  m: 6000,
+  l: 9000,
+  manual: null
+}
+
+const TRANSITION_DELAY = 1000 // ms
 
 class MoleculeNotification extends Component {
   state = {
@@ -29,17 +37,37 @@ class MoleculeNotification extends Component {
     (this.state.show !== nextProps.show) && this.toggleShow()
   }
 
-  toggleShow = () => {
-    const show = !this.state.show
-    const { onClose, effect } = this.props
-    this.setState({ show })
-    effect && this.setState({ delay: true }, this.removeDelay())
-    !show && onClose && onClose()
+  shouldComponentUpdate (nextProps, nextState) {
+    const { show, delay } = this.state
+    return (show !== nextState.show) || (delay !== nextState.delay)
   }
 
-  removeDelay = () => {
-    const { show } = this.state
-    const delay = show ? DEFAULT_DELAY : 1
+  toggleShow = () => {
+    const show = !this.state.show
+    const { onClose, effect, autoClose } = this.props
+
+    effect
+      ? this.setState({ show, delay: true }, this.removeDelay(show))
+      : this.setState({ show })
+
+    if (show) {
+      const autoCloseTime = AUTO_CLOSE_TIME[autoClose]
+      autoCloseTime && this.autoClose(autoCloseTime)
+    } else {
+      clearTimeout(this.autoCloseTimout)
+      onClose && onClose()
+    }
+  }
+
+  autoClose = (time) => {
+    this.autoCloseTimout = setTimeout(() => {
+      const { show } = this.state
+      show && this.toggleShow()
+    }, time)
+  }
+
+  removeDelay = (show) => {
+    const delay = show ? 1 : TRANSITION_DELAY
     setTimeout(() => {
       this.setState({ delay: false })
     }, delay)
@@ -82,19 +110,23 @@ class MoleculeNotification extends Component {
 MoleculeNotification.displayName = 'MoleculeNotification'
 
 MoleculeNotification.propTypes = {
+  autoClose: PropTypes.string,
   buttons: PropTypes.array,
   effect: PropTypes.bool,
   position: PropTypes.string,
   show: PropTypes.bool,
+  showCloseButton: PropTypes.bool,
   text: PropTypes.string,
   type: PropTypes.string,
   onClose: PropTypes.func
 }
 
 MoleculeNotification.defaultProps = {
+  autoClose: 's',
   effect: true,
   position: 'relative',
   show: true,
+  showCloseButton: true,
   type: 'info'
 }
 

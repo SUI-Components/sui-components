@@ -5,11 +5,12 @@
 
 .sui-MoleculeNotification {
   color: $c-white;
-  padding: $p-l;
+  max-height: $mh-notification;
 
   &-content {
     display: flex;
     justify-content: space-between;
+    padding: $p-l;
   }
 
   &-text {
@@ -18,7 +19,8 @@
   }
 
   &-buttonsContainer {
-    margin-top: $m-l;
+    padding: $p-l;
+    padding-top: 0;
     text-align: right;
   }
 
@@ -75,23 +77,32 @@
   // Effect
 
   &-effect {
-    transition: all .5s ease;
-
-    &--slide {
-      &.sui-MoleculeNotification-position {
-        &--top {
-          top: -50%;
-        }
-
-        &--bottom {
-          bottom: -50%;
-        }
-      }
+    &--top {
+      transition: $notification-effect-slide-top-in;
     }
 
-    &--fade {
+    &--top#{&}--hide {
+      top: -50%;
+      transition: $notification-effect-slide-top-out;
+    }
+
+    &--bottom {
+      transition: $notification-effect-slide-bottom-in;
+    }
+
+    &--bottom#{&}--hide {
+      bottom: -50%;
+      transition: $notification-effect-slide-bottom-out;
+    }
+
+    &--relative {
+      transition: $notification-effect-fade-in;
+    }
+
+    &--relative#{&}--hide {
+      max-height: 0;
       opacity: 0;
-      visibility: hidden;
+      transition: $notification-effect-fade-out;
     }
   }
 }

@@ -17,7 +17,7 @@ const ICONS = {
   warning: <IconWarning svgClass={`${baseClass}-icon`} />
 }
 
-const DEFAULT_DELAY = 500 // ms
+const DEFAULT_DELAY = 1000 // ms
 
 class MoleculeNotification extends Component {
   state = {
@@ -49,8 +49,8 @@ class MoleculeNotification extends Component {
     const { show, delay } = this.state
     const { type, text, buttons, position, effect } = this.props
     const wrapperClassName = cx(`${baseClass} ${baseClass}-type--${type} ${baseClass}-position--${position}`, {
-      [`${baseClass}-effect`]: effect,
-      [`${baseClass}-effect--${effect}`]: (effect && delay),
+      [`${baseClass}-effect--${position}`]: effect,
+      [`${baseClass}-effect--hide`]: (effect && delay),
     })
 
     if (!show && !delay) { return null }
@@ -83,7 +83,7 @@ MoleculeNotification.displayName = 'MoleculeNotification'
 
 MoleculeNotification.propTypes = {
   buttons: PropTypes.array,
-  effect: PropTypes.string,
+  effect: PropTypes.bool,
   position: PropTypes.string,
   show: PropTypes.bool,
   text: PropTypes.string,
@@ -92,6 +92,7 @@ MoleculeNotification.propTypes = {
 }
 
 MoleculeNotification.defaultProps = {
+  effect: true,
   position: 'relative',
   show: true,
   type: 'info'

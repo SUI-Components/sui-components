@@ -21,7 +21,7 @@ function Title ({children}) {
   return <p style={{color: '#999', fontSize: 12, textTransform: 'uppercase'}}>{children}</p>
 }
 
-class EffectNotification extends React.Component {
+class PositionNotification extends React.Component {
   state = {
     show: false
   }
@@ -31,9 +31,12 @@ class EffectNotification extends React.Component {
     this.setState({ show })
   }
 
+  handleClose = () => {
+    this.setState({ show: false })
+  }
+
   render () {
     const { show } = this.state
-    const { effect } = this.props
 
     return(
       <div>
@@ -44,15 +47,13 @@ class EffectNotification extends React.Component {
         >
           { show ? 'Hide' : 'Show' }
         </button>
-        {
-          <MoleculeNotification 
-            text={TEXT}
-            buttons={BUTTONS}
-            position={this.props.position}
-            effect={effect}
-            show={show}
-          />
-        }
+        <MoleculeNotification 
+          text={TEXT}
+          buttons={BUTTONS}
+          position={this.props.position}
+          show={show}
+          onClose={this.handleClose}
+        />
       </div>
     )
   }
@@ -97,28 +98,20 @@ return (
       onClose={showAlert}
     />
     <br/>
-    <h2>Effects</h2>
+    <h2>Positions</h2>
     <table width="auto" cellPadding="8" cellSpacing="0" style={{padding: 15}}>
       <tbody>
         <tr> 
-          <td></td>
-          <td><Title>Slide</Title></td>
-          <td><Title>Fade</Title></td>
-        </tr>
-        <tr> 
           <td><Title>Top</Title></td>
-          <td><EffectNotification position='top' effect='slide' /></td>
-          <td><EffectNotification position='top' effect='fade' /></td>
+          <td><PositionNotification position='top' /></td>
         </tr>
         <tr> 
           <td><Title>Bottom</Title></td>
-          <td><EffectNotification position='bottom' effect='slide' /></td>
-          <td><EffectNotification position='bottom' effect='fade' /></td>
+          <td><PositionNotification position='bottom' /></td>
         </tr>
         <tr> 
           <td style={{ verticalAlign: 'top', paddingTop: '20px' }}><Title>Relative</Title></td>
-          <td></td>
-          <td><EffectNotification position='relative' effect='fade' /></td>
+          <td><PositionNotification position='relative' /></td>
         </tr>
       </tbody>
     </table>

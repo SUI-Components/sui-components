@@ -15,6 +15,7 @@
 
   &-text {
     flex: 1 1 auto;
+    font-size: $fz-m;
     margin: 0 $m-l 0 $m-m;
   }
 
@@ -30,8 +31,8 @@
 
   &-icon {
     fill: $c-white !important;
-    height: $h-modal-basic-icon;
-    width: $w-modal-basic-icon;
+    height: $sz-notification-icon;
+    width: $sz-notification-icon;
 
     &Left {
       @include media-breakpoint-down(xxs) {

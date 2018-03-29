@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2018-03-29)
+
+
+### Features
+
+* simplify image gutter customisation, improve gradient over last item. ([3154c7a](https://github.com/SUI-Components/sui-components/commit/3154c7a))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2018-03-07)
 

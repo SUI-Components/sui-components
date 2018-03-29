@@ -16,6 +16,7 @@ $ npm install @schibstedspain/sui-molecule-notification --save
 ```js
 import MoleculeNotification from '@schibstedspain/sui-molecule-notification'
 
+// sui-atom-button
 const BUTTONS = [
   {
     type: 'secondary',
@@ -32,11 +33,11 @@ const BUTTONS = [
 return (
   <MoleculeNotification 
     text='Lorem fistrum'
-    type='success'
+    type='success',
+    autoclose='m'
     buttons={BUTTONS} 
   />
 )
 ```
 
-
-> **Find full description and more examples in the [demo page](#).**
+> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/molecule/notification).**

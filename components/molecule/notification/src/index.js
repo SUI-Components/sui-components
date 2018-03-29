@@ -26,6 +26,8 @@ const AUTO_CLOSE_TIME = {
 }
 
 const TRANSITION_DELAY = 1000 // ms
+const TEXT_MAX_LENGHT = 110 // chars
+const BUTTONS_MAX = 3 // buttons
 
 class MoleculeNotification extends Component {
   state = {
@@ -68,7 +70,7 @@ class MoleculeNotification extends Component {
 
   removeDelay = (show) => {
     const delay = show ? 1 : TRANSITION_DELAY
-    setTimeout(() => {
+    this.transitionTimout = setTimeout(() => {
       this.setState({ delay: false })
     }, delay)
   }
@@ -90,7 +92,7 @@ class MoleculeNotification extends Component {
             { ICONS[type] }
           </div>
           <div className={`${baseClass}-text`}>
-            <span>{text}</span>
+            <span>{text.substring(0, TEXT_MAX_LENGHT)}</span>
           </div>
           <div className={`${baseClass}-close`} onClick={this.toggleShow}>
             <IconClose svgClass={`${baseClass}-icon`} />
@@ -99,7 +101,7 @@ class MoleculeNotification extends Component {
         {
           buttons &&
           <div className={`${baseClass}-buttonsContainer`}>
-            {buttons && buttons.map((button, i) => <Button key={i} {...button} />)}
+            {buttons && buttons.slice(0, BUTTONS_MAX).map((button, i) => <Button key={i} {...button} />)}
           </div>
         }
       </div>
@@ -110,14 +112,41 @@ class MoleculeNotification extends Component {
 MoleculeNotification.displayName = 'MoleculeNotification'
 
 MoleculeNotification.propTypes = {
+  /**
+   * Auto close time: 's' (3s), 'm' (6s), 'l' (9s), 'manual' (disabled)
+   */
   autoClose: PropTypes.string,
+  /**
+   * Array of props to sui-atom-buttons. Max: 3 buttons
+   */
   buttons: PropTypes.array,
+  /**
+   * Transition enabled
+   */
   effect: PropTypes.bool,
+  /**
+   * Positions: 'top', 'bottom', 'relative'
+   */
   position: PropTypes.string,
+  /**
+   * Show / hide notification
+   */
   show: PropTypes.bool,
+  /**
+   * Show / hide close button
+   */
   showCloseButton: PropTypes.bool,
+  /**
+   * Content text. Max: 110 chars
+   */
   text: PropTypes.string,
+  /**
+   * Notification type: 'info', 'success', 'warning', 'error', 'system'.
+   */
   type: PropTypes.string,
+  /**
+   * On close callback
+   */
   onClose: PropTypes.func
 }
 

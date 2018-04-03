@@ -31,14 +31,15 @@
     }
 
     &Left {
-      @include media-breakpoint-down(xs) {
-        display: none;
+      @include media-breakpoint-up(xs) {
+        display: block;
       }
+      display: none;
       margin-right: $m-m;
     }
 
     &Close {
-      @include media-breakpoint-down(xs) {
+      @include media-breakpoint-up(xs) {
         margin-left: $m-m;
       }
       cursor: pointer;

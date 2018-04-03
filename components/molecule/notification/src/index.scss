@@ -44,35 +44,31 @@
   // Type
 
   @each $key, $value in $notification-type-colors {
-    &-type {
-      &--#{$key} {
-        background-color: #{$value};
-      }
+    &--#{$key} {
+      background-color: #{$value};
     }
   }
 
   // Position
 
-  &-position {
-    &--relative {
-      position: relative;
-    }
+  &--relative {
+    position: relative;
+  }
 
-    &--top {
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: $w-notification;
-      z-index: $z-notification;
-    }
+  &--top {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: $w-notification;
+    z-index: $z-notification;
+  }
 
-    &--bottom {
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      width: $w-notification;
-      z-index: $z-notification;
-    }
+  &--bottom {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: $w-notification;
+    z-index: $z-notification;
   }
 
   // Effect

@@ -2,7 +2,7 @@
 
 > Description
 
-<!-- ![](./assets/preview.png) -->
+Notifications offer users information on the system. The content may confirm that an action has been performed correctly, warn the user of an error or simply give information on certain circumstances.
 
 ## Installation
 

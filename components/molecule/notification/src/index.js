@@ -26,7 +26,7 @@ const AUTO_CLOSE_TIME = {
 }
 
 const TRANSITION_DELAY = 1000 // ms
-const TEXT_MAX_LENGHT = 110 // chars
+const TEXT_MAX_LENGTH = 110 // chars
 const BUTTONS_MAX = 3 // buttons
 
 class MoleculeNotification extends Component {
@@ -44,6 +44,11 @@ class MoleculeNotification extends Component {
     return (show !== nextState.show) || (delay !== nextState.delay)
   }
 
+  componentWillUnmount () {
+    clearTimeout(this.autoCloseTimout)
+    clearTimeout(this.transitionTimout)
+  }
+
   toggleShow = () => {
     const show = !this.state.show
     const { onClose, effect, autoClose } = this.props
@@ -57,7 +62,7 @@ class MoleculeNotification extends Component {
       autoCloseTime && this.autoClose(autoCloseTime)
     } else {
       clearTimeout(this.autoCloseTimout)
-      onClose && onClose()
+      onClose()
     }
   }
 
@@ -75,10 +80,20 @@ class MoleculeNotification extends Component {
     }, delay)
   }
 
+  getText = () => {
+    const { text } = this.props
+    return text.substring(0, TEXT_MAX_LENGTH)
+  }
+
+  getButtons = () => {
+    const { buttons } = this.props
+    return buttons.slice(0, BUTTONS_MAX).map((button, i) => <Button key={i} {...button} />)
+  }
+
   render () {
     const { show, delay } = this.state
-    const { type, text, buttons, position, effect } = this.props
-    const wrapperClassName = cx(`${baseClass} ${baseClass}-type--${type} ${baseClass}-position--${position}`, {
+    const { type, buttons, position, effect } = this.props
+    const wrapperClassName = cx(`${baseClass} ${baseClass}--${type} ${baseClass}--${position}`, {
       [`${baseClass}-effect--${position}`]: effect,
       [`${baseClass}-effect--hide`]: (effect && delay),
     })
@@ -92,7 +107,7 @@ class MoleculeNotification extends Component {
             { ICONS[type] }
           </div>
           <div className={`${baseClass}-text`}>
-            <span>{text.substring(0, TEXT_MAX_LENGHT)}</span>
+            <span>{this.getText()}</span>
           </div>
           <div className={`${baseClass}-close`} onClick={this.toggleShow}>
             <IconClose svgClass={`${baseClass}-icon`} />
@@ -101,7 +116,7 @@ class MoleculeNotification extends Component {
         {
           buttons &&
           <div className={`${baseClass}-buttonsContainer`}>
-            {buttons && buttons.slice(0, BUTTONS_MAX).map((button, i) => <Button key={i} {...button} />)}
+            {this.getButtons()}
           </div>
         }
       </div>
@@ -153,6 +168,7 @@ MoleculeNotification.propTypes = {
 MoleculeNotification.defaultProps = {
   autoClose: 's',
   effect: true,
+  onClose: () => {},
   position: 'relative',
   show: true,
   showCloseButton: true,

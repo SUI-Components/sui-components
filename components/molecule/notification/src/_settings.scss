@@ -15,9 +15,9 @@ $notification-type-colors: (
 
 // Effects
 
-$notification-effect-slide-top-in: top .5s ease-out;
-$notification-effect-slide-top-out: top .3s ease-in;
-$notification-effect-slide-bottom-in: bottom .5s ease-out;
-$notification-effect-slide-bottom-out: bottom .3s ease-in;
-$notification-effect-fade-in: opacity .5s ease-out .5s, max-height .5s ease 0s;
-$notification-effect-fade-out: opacity .3s ease-in 0s, max-height .5s ease .3s;
+$notification-effect-slide-top-in: top .5s ease-out !default;
+$notification-effect-slide-top-out: top .3s ease-in !default;
+$notification-effect-slide-bottom-in: bottom .5s ease-out !default;
+$notification-effect-slide-bottom-out: bottom .3s ease-in !default;
+$notification-effect-fade-in: opacity .5s ease-out .5s, max-height .5s ease 0s !default;
+$notification-effect-fade-out: opacity .3s ease-in 0s, max-height .5s ease .3s !default;

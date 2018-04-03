@@ -32,7 +32,7 @@ return (
   <MoleculeNotification 
     text='Lorem fistrum'
     type='success',
-    autoclose='m'
+    autoclose='short'
     buttons={BUTTONS} 
   />
 )

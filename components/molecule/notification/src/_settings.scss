@@ -11,7 +11,7 @@ $notification-type-colors: (
   warning: $c-alert,
   error: $c-error,
   system: $c-system,
-);
+) !default;
 
 // Effects
 

@@ -8,20 +8,20 @@ import IconInfo from '@schibstedspain/sui-svgiconset/lib/Lineinfo'
 import IconWarning from '@schibstedspain/sui-svgiconset/lib/Linewarning'
 import cx from 'classnames'
 
-const baseClass = 'sui-MoleculeNotification'
+const CLASS = 'sui-MoleculeNotification'
 
 const ICONS = {
-  info: <IconInfo svgClass={`${baseClass}-icon`} />,
-  error: <IconError svgClass={`${baseClass}-icon`} />,
-  success: <IconSuccess svgClass={`${baseClass}-icon`} />,
-  system: <IconInfo svgClass={`${baseClass}-icon`} />,
-  warning: <IconWarning svgClass={`${baseClass}-icon`} />
+  info: <IconInfo svgClass={`${CLASS}-icon`} />,
+  error: <IconError svgClass={`${CLASS}-icon`} />,
+  success: <IconSuccess svgClass={`${CLASS}-icon`} />,
+  system: <IconInfo svgClass={`${CLASS}-icon`} />,
+  warning: <IconWarning svgClass={`${CLASS}-icon`} />
 }
 
 const AUTO_CLOSE_TIME = {
-  s: 3000,
-  m: 6000,
-  l: 9000,
+  short: 3000,
+  medium: 6000,
+  long: 9000,
   manual: null
 }
 
@@ -93,29 +93,29 @@ class MoleculeNotification extends Component {
   render () {
     const { show, delay } = this.state
     const { type, buttons, position, effect } = this.props
-    const wrapperClassName = cx(`${baseClass} ${baseClass}--${type} ${baseClass}--${position}`, {
-      [`${baseClass}-effect--${position}`]: effect,
-      [`${baseClass}-effect--hide`]: (effect && delay),
+    const wrapperClassName = cx(`${CLASS} ${CLASS}--${type} ${CLASS}--${position}`, {
+      [`${CLASS}-effect--${position}`]: effect,
+      [`${CLASS}-effect--hide`]: (effect && delay),
     })
 
     if (!show && !delay) { return null }
 
     return (
       <div className={wrapperClassName}>
-        <div className={`${baseClass}-content`}>
-          <div className={`${baseClass}-iconLeft`}>
+        <div className={`${CLASS}-content`}>
+          <div className={`${CLASS}-iconLeft`}>
             { ICONS[type] }
           </div>
-          <div className={`${baseClass}-text`}>
+          <div className={`${CLASS}-text`}>
             <span>{this.getText()}</span>
           </div>
-          <div className={`${baseClass}-close`} onClick={this.toggleShow}>
-            <IconClose svgClass={`${baseClass}-icon`} />
+          <div className={`${CLASS}-close`} onClick={this.toggleShow}>
+            <IconClose svgClass={`${CLASS}-icon`} />
           </div>
         </div>
         {
           buttons &&
-          <div className={`${baseClass}-buttonsContainer`}>
+          <div className={`${CLASS}-buttonsContainer`}>
             {this.getButtons()}
           </div>
         }
@@ -128,7 +128,7 @@ MoleculeNotification.displayName = 'MoleculeNotification'
 
 MoleculeNotification.propTypes = {
   /**
-   * Auto close time: 's' (3s), 'm' (6s), 'l' (9s), 'manual' (disabled)
+   * Auto close time: 'short' (3s), 'medium' (6s), 'long' (9s), 'manual' (disabled)
    */
   autoClose: PropTypes.string,
   /**
@@ -166,7 +166,7 @@ MoleculeNotification.propTypes = {
 }
 
 MoleculeNotification.defaultProps = {
-  autoClose: 's',
+  autoClose: 'short',
   effect: true,
   onClose: () => {},
   position: 'relative',

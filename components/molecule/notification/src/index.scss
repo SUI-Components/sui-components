@@ -1,5 +1,5 @@
-@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/sui-theme/lib/layout/breakpoints';
 @import '~@schibstedspain/sui-atom-button/lib/index';
 @import './settings';
 
@@ -16,7 +16,6 @@
   &-text {
     flex: 1 1 auto;
     font-size: $fz-m;
-    margin: 0 $m-l 0 $m-m;
   }
 
   &-buttonsContainer {
@@ -26,7 +25,11 @@
   }
 
   &-close {
+    @include media-breakpoint-down(xSmall) {
+      margin-left: $m-m;
+    }
     cursor: pointer;
+    margin-left: $m-l;
   }
 
   &-icon {
@@ -35,9 +38,10 @@
     width: $sz-notification-icon;
 
     &Left {
-      @include media-breakpoint-down(xxs) {
+      @include media-breakpoint-down(xSmall) {
         display: none;
       }
+      margin-right: $m-m;
     }
   }
 

@@ -1,5 +1,4 @@
 @import '~@schibstedspain/sui-theme/lib/index';
-@import '~@schibstedspain/sui-theme/lib/layout/breakpoints';
 @import '~@schibstedspain/sui-atom-button/lib/index';
 @import './settings';
 
@@ -32,14 +31,14 @@
     }
 
     &Left {
-      @include media-breakpoint-down(xSmall) {
+      @include media-breakpoint-down(xs) {
         display: none;
       }
       margin-right: $m-m;
     }
 
     &Close {
-      @include media-breakpoint-down(xSmall) {
+      @include media-breakpoint-down(xs) {
         margin-left: $m-m;
       }
       cursor: pointer;

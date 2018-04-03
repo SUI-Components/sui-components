@@ -95,7 +95,7 @@ return (
       onClose={showAlert}
     />
     <Title>System</Title>
-    <MoleculeNotification 
+    <MoleculeNotification
       autoClose='manual'
       text={TEXT}
       type='system'

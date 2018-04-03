@@ -24,24 +24,26 @@
     text-align: right;
   }
 
-  &-close {
-    @include media-breakpoint-down(xSmall) {
-      margin-left: $m-m;
-    }
-    cursor: pointer;
-    margin-left: $m-l;
-  }
-
   &-icon {
-    fill: $c-white !important;
-    height: $sz-notification-icon;
-    width: $sz-notification-icon;
+    svg {
+      fill: $c-white !important;
+      height: $sz-notification-icon;
+      width: $sz-notification-icon;
+    }
 
     &Left {
       @include media-breakpoint-down(xSmall) {
         display: none;
       }
       margin-right: $m-m;
+    }
+
+    &Close {
+      @include media-breakpoint-down(xSmall) {
+        margin-left: $m-m;
+      }
+      cursor: pointer;
+      margin-left: $m-l;
     }
   }
 

@@ -11,11 +11,11 @@ import cx from 'classnames'
 const CLASS = 'sui-MoleculeNotification'
 
 const ICONS = {
-  info: <IconInfo svgClass={`${CLASS}-icon`} />,
-  error: <IconError svgClass={`${CLASS}-icon`} />,
-  success: <IconSuccess svgClass={`${CLASS}-icon`} />,
-  system: <IconInfo svgClass={`${CLASS}-icon`} />,
-  warning: <IconWarning svgClass={`${CLASS}-icon`} />
+  info: <IconInfo />,
+  error: <IconError />,
+  success: <IconSuccess />,
+  system: <IconInfo />,
+  warning: <IconWarning />
 }
 
 const AUTO_CLOSE_TIME = {
@@ -92,7 +92,7 @@ class MoleculeNotification extends Component {
 
   render () {
     const { show, delay } = this.state
-    const { type, buttons, position, effect } = this.props
+    const { type, buttons, leftIcon, position, showCloseButton, effect } = this.props
     const wrapperClassName = cx(`${CLASS} ${CLASS}--${type} ${CLASS}--${position}`, {
       [`${CLASS}-effect--${position}`]: effect,
       [`${CLASS}-effect--hide`]: (effect && delay),
@@ -104,14 +104,21 @@ class MoleculeNotification extends Component {
       <div className={wrapperClassName}>
         <div className={`${CLASS}-content`}>
           <div className={`${CLASS}-iconLeft`}>
-            { ICONS[type] }
+            <span className={`${CLASS}-icon`}>
+              { leftIcon || ICONS[type] }
+            </span>
           </div>
           <div className={`${CLASS}-text`}>
             <span>{this.getText()}</span>
           </div>
-          <div className={`${CLASS}-close`} onClick={this.toggleShow}>
-            <IconClose svgClass={`${CLASS}-icon`} />
-          </div>
+          {
+            showCloseButton &&
+            <div className={`${CLASS}-iconClose`} onClick={this.toggleShow}>
+              <span className={`${CLASS}-icon`}>
+                <IconClose />
+              </span>
+            </div>
+          }
         </div>
         {
           buttons &&
@@ -139,6 +146,10 @@ MoleculeNotification.propTypes = {
    * Transition enabled
    */
   effect: PropTypes.bool,
+  /**
+   * Icon to be added on the left of the content
+   */
+  leftIcon: PropTypes.node,
   /**
    * Positions: 'top', 'bottom', 'relative'
    */

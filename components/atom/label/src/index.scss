@@ -1,0 +1,14 @@
+@import '~@schibstedspain/sui-theme/lib/settings';
+@import '~@schibstedspain/sui-theme/lib/index';
+
+.sui-AtomLabel {
+  display: block;
+  font-size: $fz-base;
+  margin-bottom: $m-s;
+  margin-right: $m-m;
+
+  &-optional {
+    color: $c-gray-light;
+    margin-left: $m-s;
+  }
+}

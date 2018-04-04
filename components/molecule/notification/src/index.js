@@ -92,7 +92,7 @@ class MoleculeNotification extends Component {
 
   render () {
     const { show, delay } = this.state
-    const { type, buttons, leftIcon, position, showCloseButton, effect } = this.props
+    const { type, buttons, icon, position, showCloseButton, effect } = this.props
     const wrapperClassName = cx(`${CLASS} ${CLASS}--${type} ${CLASS}--${position}`, {
       [`${CLASS}-effect--${position}`]: effect,
       [`${CLASS}-effect--hide`]: (effect && delay),
@@ -105,7 +105,7 @@ class MoleculeNotification extends Component {
         <div className={`${CLASS}-content`}>
           <div className={`${CLASS}-iconLeft`}>
             <span className={`${CLASS}-icon`}>
-              { leftIcon || ICONS[type] }
+              { icon || ICONS[type] }
             </span>
           </div>
           <div className={`${CLASS}-text`}>
@@ -149,7 +149,7 @@ MoleculeNotification.propTypes = {
   /**
    * Icon to be added on the left of the content
    */
-  leftIcon: PropTypes.node,
+  icon: PropTypes.node,
   /**
    * Positions: 'top', 'bottom', 'relative'
    */

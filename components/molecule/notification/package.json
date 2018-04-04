@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-molecule-notification",
+  "name": "@s-ui/sui-molecule-notification",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

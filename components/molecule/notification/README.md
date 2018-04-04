@@ -5,14 +5,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-molecule-notification --save
+$ npm install @s-ui/sui-molecule-notification --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import MoleculeNotification from '@schibstedspain/sui-molecule-notification'
+import MoleculeNotification from '@s-ui/sui-molecule-notification'
 
 // sui-atom-button
 const BUTTONS = [

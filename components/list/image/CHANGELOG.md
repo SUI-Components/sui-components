@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2018-04-06)
+
+
+### Features
+
+* allow customising more items box text styles. ([a3c3594](https://github.com/SUI-Components/sui-components/commit/a3c3594))
+* fix wrong name style for font-weight. ([ac10cb8](https://github.com/SUI-Components/sui-components/commit/ac10cb8))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2018-03-29)
 

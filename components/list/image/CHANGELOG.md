@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2018-04-06)
+
+
+### Bug Fixes
+
+* last item image grows out of the page for wrong 100% height style added. ([5a109c1](https://github.com/SUI-Components/sui-components/commit/5a109c1))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2018-04-06)
 

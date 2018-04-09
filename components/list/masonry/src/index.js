@@ -10,7 +10,7 @@ class ListMasonry extends React.Component {
   }
 
   componentDidMount () {
-    this._onResize({ firstResize: true })
+    this._onResize({firstResize: true})
     window.addEventListener('resize', this._onResize)
   }
 
@@ -19,17 +19,23 @@ class ListMasonry extends React.Component {
   }
 
   _getColumns (width) {
-    return this.props.breakPoints.reduceRight((collector, current, index) => {
-      return current < width ? collector : index
-    }, this.props.breakPoints.length) + 1
+    return (
+      this.props.breakPoints.reduceRight((collector, current, index) => {
+        return current < width ? collector : index
+      }, this.props.breakPoints.length) + 1
+    )
   }
 
-  _onResize = ({ firstResize = false }) => {
-    const { onColumnsReady, onColumnsUpdated } = this.props
+  _onResize = ({firstResize = false}) => {
+    const {onColumnsReady, onColumnsUpdated} = this.props
     const columns = this._getColumns(this.listMasonry.offsetWidth)
     if (columns !== this.state.columns) {
-      this.setState({ columns }, () => {
-        if (firstResize) { onColumnsReady() } else { onColumnsUpdated() }
+      this.setState({columns}, () => {
+        if (firstResize) {
+          onColumnsReady()
+        } else {
+          onColumnsUpdated()
+        }
       })
     }
   }
@@ -52,7 +58,7 @@ class ListMasonry extends React.Component {
     return (
       <div className={masonryClassName} ref={node => (this.listMasonry = node)}>
         {this._mapChildren().map((col, columnIndex) => (
-          <div className='sui-ListMasonry-column' key={columnIndex} >
+          <div className='sui-ListMasonry-column' key={columnIndex}>
             {col.map((child, index) => <div key={index}>{child}</div>)}
           </div>
         ))}

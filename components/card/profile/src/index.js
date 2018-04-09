@@ -11,12 +11,26 @@ class CardProfile extends Component {
         <div className='sui-CardProfile-topContainer'>
           <Avatar profilePic={this.props.userInfo.profilePic} />
           <div className='sui-CardProfile-topContainerRatingInfoBox'>
-            <span className='sui-CardProfile-topContainerRatingInfoBoxName'>{this.props.userInfo.username}</span>
-            <RatingIcons iconSize={this.props.iconSize} rating={this.props.averageScore} maxValue={this.props.maxRatingValue} icon={this.props.icon} />
+            <span className='sui-CardProfile-topContainerRatingInfoBoxName'>
+              {this.props.userInfo.username}
+            </span>
+            <RatingIcons
+              iconSize={this.props.iconSize}
+              rating={this.props.averageScore}
+              maxValue={this.props.maxRatingValue}
+              icon={this.props.icon}
+            />
           </div>
         </div>
         <div className='sui-CardProfile-bottomContainer'>
-          {this.props.stats.map(stat => <CounterBox key={stat.label + stat.number} number={stat.number} label={stat.label} link={stat.link} />)}
+          {this.props.stats.map(stat => (
+            <CounterBox
+              key={stat.label + stat.number}
+              number={stat.number}
+              label={stat.label}
+              link={stat.link}
+            />
+          ))}
         </div>
       </div>
     )

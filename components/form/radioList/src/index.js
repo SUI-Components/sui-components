@@ -10,7 +10,7 @@ export default function FormRadioList ({
   selectedValue
 }) {
   function _renderOptions () {
-    return options.map(({ value, label }, index) => {
+    return options.map(({value, label}, index) => {
       const checked = selectedValue === value
       const labelClassName = cx(`sui-FormRadioList-label`, {
         'is-active': checked,
@@ -32,15 +32,8 @@ export default function FormRadioList ({
       )
     })
   }
-  const componentClassName = cx(
-    `sui-FormRadioList`,
-    {[className]: !!className}
-  )
-  return (
-    <div className={componentClassName}>
-      {_renderOptions()}
-    </div>
-  )
+  const componentClassName = cx(`sui-FormRadioList`, {[className]: !!className})
+  return <div className={componentClassName}>{_renderOptions()}</div>
 }
 
 FormRadioList.displayName = 'FormRadioList'
@@ -56,8 +49,8 @@ FormRadioList.propTypes = {
         PropTypes.string.isRequired
       ]),
       label: PropTypes.string.isRequired
-    }
-    )),
+    })
+  ),
   handleChange: PropTypes.func.isRequired,
   selectedValue: PropTypes.oneOfType([
     PropTypes.number.isRequired,

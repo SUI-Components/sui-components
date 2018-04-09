@@ -4,7 +4,7 @@
  */
 export const filterObjectKeys = function (obj, keysToBeFiltered) {
   return Object.keys(obj)
-    .filter((key) => keysToBeFiltered.indexOf(key) !== -1)
+    .filter(key => keysToBeFiltered.indexOf(key) !== -1)
     .reduce((acc, key) => {
       acc[key] = obj[key]
       return acc

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import cx from 'classnames'
 import LazyLoad from '@schibstedspain/react-lazy-load'
 import SpinnerBasic from '@schibstedspain/sui-spinner-basic'
@@ -14,13 +14,13 @@ export default class ImageLazyLoad extends Component {
   }
 
   _hideSpinner = () => {
-    this.setState({ loading: false })
+    this.setState({loading: false})
   }
 
   _doNothing = () => {}
 
   render () {
-    const { loading } = this.state
+    const {loading} = this.state
     const {
       debounce,
       offsetVertical,
@@ -35,11 +35,12 @@ export default class ImageLazyLoad extends Component {
 
     return (
       <div className={lazyLoadWrapClassName}>
-        {(loading && showSpinner) &&
-          <div className='sui-ImageLazyLoad-spinner'>
-            <SpinnerBasic />
-          </div>
-        }
+        {loading &&
+          showSpinner && (
+            <div className='sui-ImageLazyLoad-spinner'>
+              <SpinnerBasic />
+            </div>
+          )}
         <div className='sui-ImageLazyLoad-imageWrap'>
           <LazyLoad
             debounce={debounce}

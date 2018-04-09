@@ -20,16 +20,16 @@ class AtomSpinner extends Component {
   get _parentNodeClassList () {
     if (this._parentNodeClassListCache) return this._parentNodeClassListCache
 
-    this._parentNodeClassListCache = ReactDOM.findDOMNode(this).parentNode.classList
+    this._parentNodeClassListCache = ReactDOM.findDOMNode(
+      this
+    ).parentNode.classList
     return this._parentNodeClassListCache
   }
 
   get _parentClassName () {
     const {type} = this.props
 
-    return cx(
-      type === TYPES.SECTION ? BASE_CLASS : `${BASE_CLASS}--fullPage`
-    )
+    return cx(type === TYPES.SECTION ? BASE_CLASS : `${BASE_CLASS}--fullPage`)
   }
 
   componentDidMount () {
@@ -59,11 +59,7 @@ class AtomSpinner extends Component {
   render () {
     const {loader} = this.props
     const {delayed} = this.state
-    return (
-      !delayed
-        ? loader
-        : <noscript />
-    )
+    return !delayed ? loader : <noscript />
   }
 }
 
@@ -93,6 +89,4 @@ AtomSpinner.defaultProps = {
 }
 
 export default AtomSpinner
-export {
-  TYPES as AtomSpinnerTypes
-}
+export {TYPES as AtomSpinnerTypes}

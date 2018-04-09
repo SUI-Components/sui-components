@@ -3,16 +3,17 @@ import PropTypes from 'prop-types'
 
 class ErrorAppBoundary extends Component {
   AlertBasicComponent = null
-  state = { errorCount: 0, hasError: false }
+  state = {errorCount: 0, hasError: false}
   componentDidCatch (errorMessage, errorStack) {
-    const { errorThreshold, onError, redirectUrlOnBreakingThreshold } = this.props
-    const { errorCount } = this.state
+    const {errorThreshold, onError, redirectUrlOnBreakingThreshold} = this.props
+    const {errorCount} = this.state
 
-    onError({ errorMessage, errorStack })
-    this.setState({ errorCount: errorCount + 1 })
+    onError({errorMessage, errorStack})
+    this.setState({errorCount: errorCount + 1})
 
     return errorCount >= errorThreshold
-      ? redirectUrlOnBreakingThreshold && (window.location.href = redirectUrlOnBreakingThreshold)
+      ? redirectUrlOnBreakingThreshold &&
+          (window.location.href = redirectUrlOnBreakingThreshold)
       : this._loadNotification()
   }
 
@@ -22,37 +23,44 @@ class ErrorAppBoundary extends Component {
 
   _loadNotification () {
     new Promise(resolve => {
-      require.ensure([], (require) => {
-        resolve(require('@schibstedspain/sui-alert-basic').default)
-      }, 'AlertBasic')
+      require.ensure(
+        [],
+        require => {
+          resolve(require('@schibstedspain/sui-alert-basic').default)
+        },
+        'AlertBasic'
+      )
+    }).then(Component => {
+      this.AlertBasicComponent = Component
+      // Display fallback UI
+      this.setState({hasError: true})
     })
-      .then(Component => {
-        this.AlertBasicComponent = Component
-        // Display fallback UI
-        this.setState({ hasError: true })
-      })
   }
 
   render () {
-    const { buttonLabel, children, icon, message } = this.props
+    const {buttonLabel, children, icon, message} = this.props
 
     return (
       <Fragment>
         {children}
-        {this.state.hasError &&
+        {this.state.hasError && (
           <div className='sui-ErrorAppBoundary-notification'>
             <this.AlertBasicComponent
-              actions={[{
-                handle: () => { this.setState({ hasError: false }) },
-                text: buttonLabel
-              }]}
+              actions={[
+                {
+                  handle: () => {
+                    this.setState({hasError: false})
+                  },
+                  text: buttonLabel
+                }
+              ]}
               icon={icon}
               type='info'
             >
               <p>{message}</p>
             </this.AlertBasicComponent>
           </div>
-        }
+        )}
       </Fragment>
     )
   }
@@ -100,7 +108,8 @@ ErrorAppBoundary.defaultProps = {
   buttonLabel: 'OK',
   message: 'Error',
   errorThreshold: 4,
-  onError: ({ errorMessage, errorStack }) => console.error({ errorMessage, errorStack })
+  onError: ({errorMessage, errorStack}) =>
+    console.error({errorMessage, errorStack})
 }
 
 export default ErrorAppBoundary

@@ -1,13 +1,15 @@
 import {Component} from 'react'
 import PropTypes from 'prop-types'
-import { loadScript } from './helper.js'
+import {loadScript} from './helper.js'
 
 class ScriptLoader extends Component {
   state = {readyToRender: false}
 
   componentDidMount () {
-    const { src, verifier, isAsync } = this.props
-    loadScript({ src, verifier, isAsync }).then(() => this.setState({'readyToRender': true}))
+    const {src, verifier, isAsync} = this.props
+    loadScript({src, verifier, isAsync}).then(() =>
+      this.setState({readyToRender: true})
+    )
   }
 
   render () {

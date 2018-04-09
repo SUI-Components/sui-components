@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import { mapViewModes, NO_OP } from './leaflet/constants'
+import {mapViewModes, NO_OP} from './leaflet/constants'
 
 class MapBasic extends Component {
   constructor (props) {
@@ -15,27 +15,27 @@ class MapBasic extends Component {
     this.mapEventList = [
       {
         name: 'leaflet_map_click',
-        handleFunction: (evt) => this.props.onMapClick(evt.detail)
+        handleFunction: evt => this.props.onMapClick(evt.detail)
       },
       {
         name: 'leaflet_map_dragend',
-        handleFunction: (evt) => this.props.onMapDragEnd(evt.detail)
+        handleFunction: evt => this.props.onMapDragEnd(evt.detail)
       },
       {
         name: 'leaflet_map_loaded',
-        handleFunction: (evt) => this.props.onMapLoad(evt.detail)
+        handleFunction: evt => this.props.onMapLoad(evt.detail)
       },
       {
         name: 'leaflet_map_zoomend',
-        handleFunction: (evt) => this.props.onMapZoomEnd(evt.detail)
+        handleFunction: evt => this.props.onMapZoomEnd(evt.detail)
       },
       {
         name: 'leaflet_map_layer_normal',
-        handleFunction: (evt) => this.props.onNormalView(evt.detail)
+        handleFunction: evt => this.props.onNormalView(evt.detail)
       },
       {
         name: 'leaflet_map_poiclick',
-        handleFunction: (evt) => this.props.onPoiClick(evt.detail)
+        handleFunction: evt => this.props.onPoiClick(evt.detail)
       },
       {
         name: 'leaflet_map_poimouseout',
@@ -43,15 +43,15 @@ class MapBasic extends Component {
       },
       {
         name: 'leaflet_map_poimouseover',
-        handleFunction: (evt) => this.props.onPoiMouseOver(evt.detail)
+        handleFunction: evt => this.props.onPoiMouseOver(evt.detail)
       },
       {
         name: 'leaflet_map_poimousemove',
-        handleFunction: (evt) => this.props.onPoiMouseMove(evt.detail)
+        handleFunction: evt => this.props.onPoiMouseMove(evt.detail)
       },
       {
         name: 'leaflet_map_layer_satellite',
-        handleFunction: (evt) => this.props.onSatelliteView(evt.detail)
+        handleFunction: evt => this.props.onSatelliteView(evt.detail)
       }
     ]
   }
@@ -86,11 +86,21 @@ class MapBasic extends Component {
   }
 
   subscribeToMapEvents () {
-    this.mapEventList.forEach(mapEvent => this.mapDOMInstance.addEventListener(mapEvent.name, mapEvent.handleFunction))
+    this.mapEventList.forEach(mapEvent =>
+      this.mapDOMInstance.addEventListener(
+        mapEvent.name,
+        mapEvent.handleFunction
+      )
+    )
   }
 
   unsubscribeFromMapEvents () {
-    this.mapEventList.forEach(mapEvent => this.mapDOMInstance.removeEventListener(mapEvent.name, mapEvent.handleFunction))
+    this.mapEventList.forEach(mapEvent =>
+      this.mapDOMInstance.removeEventListener(
+        mapEvent.name,
+        mapEvent.handleFunction
+      )
+    )
   }
 
   checkWhichViewShouldBeDisplayed (showSatelliteView) {
@@ -122,7 +132,12 @@ class MapBasic extends Component {
     return false
   }
 
-  componentWillReceiveProps ({heatMapUrl, pois, showHeatmap, showSatelliteView}) {
+  componentWillReceiveProps ({
+    heatMapUrl,
+    pois,
+    showHeatmap,
+    showSatelliteView
+  }) {
     this.mapInstance.displayPois(pois, this.props._deprecatedLabelNoPrice)
     this.checkIfHeatMapShouldBeDisplayed(showHeatmap, heatMapUrl)
     this.checkWhichViewShouldBeDisplayed(showSatelliteView)
@@ -133,7 +148,10 @@ class MapBasic extends Component {
 
     this.subscribeToMapEvents()
     this.mapInstance = new LeafletMap(this.getMapConfig())
-    this.mapInstance.displayPois(this.props.pois, this.props._deprecatedLabelNoPrice)
+    this.mapInstance.displayPois(
+      this.props.pois,
+      this.props._deprecatedLabelNoPrice
+    )
   }
 
   render () {
@@ -141,7 +159,7 @@ class MapBasic extends Component {
       <div
         className='re-Wrapper sui-MapBasic'
         style={this.props.height && {height: this.props.height}}
-        ref={(ele) => {
+        ref={ele => {
           this.mapDOMInstance = ele
         }}
         id={this.props.id}
@@ -242,8 +260,8 @@ MapBasic.propTypes = {
    */
   scrollWheelZoom: PropTypes.bool,
   /**
-  * This property indicates the action to be performed with the polygon. By DEFAULT it does a fitBounds.
-  */
+   * This property indicates the action to be performed with the polygon. By DEFAULT it does a fitBounds.
+   */
   onPolygonWithBounds: PropTypes.func,
   _deprecatedLabelNoPrice: PropTypes.string
 }

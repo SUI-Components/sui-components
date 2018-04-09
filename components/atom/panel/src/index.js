@@ -1,7 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ColorPanel from './ColorPanel'
-import ImagePanel, {HORIZONTAL_ALIGNMENTS, VERTICAL_ALIGNMENTS} from './ImagePanel'
+import ImagePanel, {
+  HORIZONTAL_ALIGNMENTS,
+  VERTICAL_ALIGNMENTS
+} from './ImagePanel'
 import {COLORS, ALPHA} from './constants'
 
 const isImagePanel = function ({src}) {
@@ -9,9 +12,11 @@ const isImagePanel = function ({src}) {
 }
 
 const AtomPanel = function (props) {
-  return isImagePanel(props)
-    ? <ImagePanel {...props} />
-    : <ColorPanel {...props} />
+  return isImagePanel(props) ? (
+    <ImagePanel {...props} />
+  ) : (
+    <ColorPanel {...props} />
+  )
 }
 
 AtomPanel.displayName = 'AtomPanel'

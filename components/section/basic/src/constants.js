@@ -7,6 +7,4 @@ const SPACING = {
   GIANT: 'giant'
 }
 
-export {
-  SPACING
-}
+export {SPACING}

@@ -26,10 +26,7 @@ class ImagePlaceholder extends Component {
   }
 
   get _classNames () {
-    return classnames(
-      'sui-ImagePlaceholder',
-      this.props.className
-    )
+    return classnames('sui-ImagePlaceholder', this.props.className)
   }
 
   get _imageClassNames () {
@@ -46,7 +43,10 @@ class ImagePlaceholder extends Component {
 
   _renderPlaceholder () {
     return (
-      <img {...this.props.placeholder} className={ImagePlaceholder.IMAGE_CLASS} />
+      <img
+        {...this.props.placeholder}
+        className={ImagePlaceholder.IMAGE_CLASS}
+      />
     )
   }
 
@@ -56,7 +56,8 @@ class ImagePlaceholder extends Component {
    */
   _renderFallback () {
     return (
-      <img className={this._imageClassNames}
+      <img
+        className={this._imageClassNames}
         onLoad={() => this.onLoad()}
         onError={() => this.onError()}
         {...this.props.fallback}
@@ -67,20 +68,17 @@ class ImagePlaceholder extends Component {
   render () {
     return (
       <div className={this._classNames}>
-        {
-          this.state.error
-            ? this.props.fallback && this._renderFallback()
-            : (
-              <img className={this._imageClassNames}
-                onLoad={() => this.onLoad()}
-                onError={() => this.onError()}
-                {...this._imageProps}
-              />
-            )
-        }
-        {
-          this.state.imageLoaded || this._renderPlaceholder()
-        }
+        {this.state.error ? (
+          this.props.fallback && this._renderFallback()
+        ) : (
+          <img
+            className={this._imageClassNames}
+            onLoad={() => this.onLoad()}
+            onError={() => this.onError()}
+            {...this._imageProps}
+          />
+        )}
+        {this.state.imageLoaded || this._renderPlaceholder()}
       </div>
     )
   }

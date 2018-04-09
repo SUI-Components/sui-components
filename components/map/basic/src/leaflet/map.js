@@ -1,6 +1,6 @@
 import L from 'leaflet'
 import Polygons from './shapes/Polygons'
-import { mapViewModes } from './constants'
+import {mapViewModes} from './constants'
 import MarkerManager from './marker-manager'
 import LayerManager from './layer-manager'
 
@@ -13,8 +13,16 @@ export default class LeafletMap {
     this.setZoomControlPosition(properties.zoomControlPosition)
     this.buildShapes(properties)
     this.subscribeToLeafletMapEvents()
-    this.layerManager.addChangeViewController(properties, this._map, this._normalViewText, this._satelliteViewText)
-    this.markerManager.addIconMarkersToMap({icons: properties.icons, map: this._map})
+    this.layerManager.addChangeViewController(
+      properties,
+      this._map,
+      this._normalViewText,
+      this._satelliteViewText
+    )
+    this.markerManager.addIconMarkersToMap({
+      icons: properties.icons,
+      map: this._map
+    })
     this.dispatchFirstLoad()
   }
 
@@ -48,8 +56,8 @@ export default class LeafletMap {
   }
 
   buildPolygons ({polygons, onPolygonWithBounds}) {
-    this.polygons = new Polygons({ onPolygonWithBounds })
-    this.polygons.setPolygonsOnMap({ map: this._map, polygons })
+    this.polygons = new Polygons({onPolygonWithBounds})
+    this.polygons.setPolygonsOnMap({map: this._map, polygons})
   }
 
   createMarkerManager (mapId) {
@@ -69,14 +77,16 @@ export default class LeafletMap {
 
   setZoomControlPosition (position) {
     this._map.zoomControl && this._map.zoomControl.setPosition(position)
-  };
+  }
 
   attachPropsToMapInstance (properties) {
     this._map.props = properties
   }
 
   setCenter (options) {
-    this.setCenter(L.latLng(parseFloat(options.latitude), parseFloat(options.longitude)))
+    this.setCenter(
+      L.latLng(parseFloat(options.latitude), parseFloat(options.longitude))
+    )
     options.zoom && this.setZoom(options.zoom)
   }
 
@@ -121,11 +131,17 @@ export default class LeafletMap {
   }
 
   setView (viewType) {
-    if (viewType === mapViewModes.NORMAL && this._currentLayer !== mapViewModes.NORMAL) {
+    if (
+      viewType === mapViewModes.NORMAL &&
+      this._currentLayer !== mapViewModes.NORMAL
+    ) {
       this._map.removeLayer(this.layerManager.layers.map[1])
       this._map.addLayer(this.layerManager.layers.map[0])
       this._currentLayer = viewType
-    } else if (viewType === mapViewModes.SATELLITE && this._currentLayer !== mapViewModes.SATELLITE) {
+    } else if (
+      viewType === mapViewModes.SATELLITE &&
+      this._currentLayer !== mapViewModes.SATELLITE
+    ) {
       this._map.removeLayer(this.layerManager.layers.map[0])
       this._map.addLayer(this.layerManager.layers.map[1])
       this._currentLayer = viewType
@@ -176,16 +192,32 @@ export default class LeafletMap {
   }
 
   getMapBoundingBox () {
-    const { northWest, southEast } = this.getBounds()
-    return northWest.lng + ',' + northWest.lat + ';' +
-      northWest.lng + ',' + southEast.lat + ';' +
-      southEast.lng + ',' + southEast.lat + ';' +
-      southEast.lng + ',' + northWest.lat + ';' +
-      northWest.lng + ',' + northWest.lat
+    const {northWest, southEast} = this.getBounds()
+    return (
+      northWest.lng +
+      ',' +
+      northWest.lat +
+      ';' +
+      northWest.lng +
+      ',' +
+      southEast.lat +
+      ';' +
+      southEast.lng +
+      ',' +
+      southEast.lat +
+      ';' +
+      southEast.lng +
+      ',' +
+      northWest.lat +
+      ';' +
+      northWest.lng +
+      ',' +
+      northWest.lat
+    )
   }
 
   getParamsForRequest () {
-    const { zoom, latitude, longitude } = this.getCenterWithZoom(this._map)
+    const {zoom, latitude, longitude} = this.getCenterWithZoom(this._map)
     return {
       latitude,
       longitude,
@@ -195,25 +227,31 @@ export default class LeafletMap {
   }
 
   clearMarkersLayer () {
-    this.layerManager.layers.markers && this.clearLayer(this.layerManager.layers.markers)
+    this.layerManager.layers.markers &&
+      this.clearLayer(this.layerManager.layers.markers)
   }
 
   // Returns the elements in arrayToCompare that are not present in the arrayOrigin
   getPositiveDiffOfArraysOfPoints (arrayOrigin, arrayToCompare) {
     return arrayOrigin.reduce((accumulate, originalArrayPoint) => {
       !arrayToCompare.some(comparedArrayPoint => {
-        return comparedArrayPoint.Id === originalArrayPoint.Id &&
+        return (
+          comparedArrayPoint.Id === originalArrayPoint.Id &&
           comparedArrayPoint.isSelected === originalArrayPoint.isSelected
+        )
       }) && accumulate.push(originalArrayPoint)
       return accumulate
     }, [])
   }
 
-  dispatchCustomEvent ({ eventName, detail }) {
+  dispatchCustomEvent ({eventName, detail}) {
     let event
 
-    if (this.mapDOM.CustomEvent && typeof this.mapDOM.CustomEvent === 'function') {
-      event = new this.mapDOM.CustomEvent(eventName, { detail })
+    if (
+      this.mapDOM.CustomEvent &&
+      typeof this.mapDOM.CustomEvent === 'function'
+    ) {
+      event = new this.mapDOM.CustomEvent(eventName, {detail})
     } else {
       event = document.createEvent('CustomEvent')
       event.initCustomEvent(eventName, true, true, detail)
@@ -223,7 +261,9 @@ export default class LeafletMap {
   }
 
   addLayersToMap (layerDataArray, groupName, deprecatedLabelNoPrice) {
-    let layers = layerDataArray.map(layerData => this.markerManager.createMarker(layerData, deprecatedLabelNoPrice))
+    let layers = layerDataArray.map(layerData =>
+      this.markerManager.createMarker(layerData, deprecatedLabelNoPrice)
+    )
     this.layerManager.addLayersToGroup(layers, groupName)
     this.addLayerGroupToMap(this.layerManager.layers[groupName])
   }
@@ -234,39 +274,54 @@ export default class LeafletMap {
       this.clearMarkersLayer()
     } else {
       // Get new Marker Type by checking one new POI.
-      const { markerType } = pois[0]
-      const shouldClearAllMarkers = markerType !== this.markerManager.currentMarkerType
+      const {markerType} = pois[0]
+      const shouldClearAllMarkers =
+        markerType !== this.markerManager.currentMarkerType
 
       // If we render a new type of Marker, then we need to clear all Markers.
       shouldClearAllMarkers && this.clearMarkersLayer()
 
       // Get current array of map Markers.
-      const currentMarkers = this.layerManager.getLayers(this.layerManager.layers.markers)
+      const currentMarkers = this.layerManager.getLayers(
+        this.layerManager.layers.markers
+      )
 
       // To prevent repaint all POIs that are already visible, get the news to Add and the ones to be Removed.
-      const pointsToAdd = this.getPositiveDiffOfArraysOfPoints(pois, currentMarkers)
-      const pointsToDelete = this.getPositiveDiffOfArraysOfPoints(currentMarkers, pois)
+      const pointsToAdd = this.getPositiveDiffOfArraysOfPoints(
+        pois,
+        currentMarkers
+      )
+      const pointsToDelete = this.getPositiveDiffOfArraysOfPoints(
+        currentMarkers,
+        pois
+      )
       const pointsAreClickable = markerType > 0
 
       // Keep the current lat/lng of a POI that is going to be repaint due to selection with a new random lat/lng.
       // In order to prevent that POIs change its lat/lon for de-clusterized properties.
       // markerType > 0 means that POIs are clickable, so they can be selected, and for instance, repaint.
-      pointsToDelete.length && pointsAreClickable && pointsToAdd.forEach(pointToAdd => {
-        const pointToRefresh = pointsToDelete.find(pointToDelete => pointToDelete.Id === pointToAdd.Id)
+      pointsToDelete.length &&
+        pointsAreClickable &&
+        pointsToAdd.forEach(pointToAdd => {
+          const pointToRefresh = pointsToDelete.find(
+            pointToDelete => pointToDelete.Id === pointToAdd.Id
+          )
 
-        if (pointToRefresh) {
-          pointToAdd.latitude = pointToRefresh._latlng.lat
-          pointToAdd.longitude = pointToRefresh._latlng.lng
-        }
-      })
+          if (pointToRefresh) {
+            pointToAdd.latitude = pointToRefresh._latlng.lat
+            pointToAdd.longitude = pointToRefresh._latlng.lng
+          }
+        })
 
       // Set new markerType (0, 1, 2).
       this.markerManager.resetMarkerType(markerType)
       this.markerManager.currentMarkerType = markerType
 
       // Remove pointsToDelete, and Add new POI's to map.
-      pointsToDelete.length && this.layerManager.removeLayersFromGroup(pointsToDelete, 'markers')
-      pointsToAdd.length && this.addLayersToMap(pointsToAdd, 'markers', deprecatedLabelNoPrice)
+      pointsToDelete.length &&
+        this.layerManager.removeLayersFromGroup(pointsToDelete, 'markers')
+      pointsToAdd.length &&
+        this.addLayersToMap(pointsToAdd, 'markers', deprecatedLabelNoPrice)
     }
   }
 }

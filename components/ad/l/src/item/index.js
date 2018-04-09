@@ -1,10 +1,10 @@
 /* eslint no-console: 0, no-undef: 0 */
 import PropTypes from 'prop-types'
 
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import LazyLoad from 'react-lazy-load'
-import { loadScript } from '../libs/load-script'
-import { sandBoxDocumentWrite } from '../libs/sandbox-document.write'
+import {loadScript} from '../libs/load-script'
+import {sandBoxDocumentWrite} from '../libs/sandbox-document.write'
 
 export default class AdItem extends Component {
   static get SYMBOL () {
@@ -42,10 +42,7 @@ export default class AdItem extends Component {
       symbol: AdItem.SYMBOL
     })
       .then(() => {
-        postscribe(
-          this.adItem,
-          sandBoxDocumentWrite(window[AdItem.SYMBOL], id)
-        )
+        postscribe(this.adItem, sandBoxDocumentWrite(window[AdItem.SYMBOL], id))
       })
       .catch(console.error.bind(console))
   }
@@ -63,19 +60,13 @@ export default class AdItem extends Component {
     if (nextPropsUrl !== stateUrl) {
       window[AdItem.SYMBOL] = null
 
-      this.setState({ nextPropsUrl })
+      this.setState({nextPropsUrl})
       this._loadAd(id, nextPropsUrl)
     }
   }
 
   render () {
-    const {
-      id,
-      url,
-      classNamePrefix,
-      debounce,
-      offsetVertical
-    } = this.props
+    const {id, url, classNamePrefix, debounce, offsetVertical} = this.props
 
     /**
      * This is the magic function
@@ -89,9 +80,8 @@ export default class AdItem extends Component {
      *
      * It will never be called again, it's only called twice on first render
      */
-    const onContentVisible = () => this.adItem
-      ? this._loadAd(id, url)
-      : this.setState({ url })
+    const onContentVisible = () =>
+      this.adItem ? this._loadAd(id, url) : this.setState({url})
 
     return (
       <LazyLoad

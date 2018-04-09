@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import IconX from '@schibstedspain/sui-svgiconset/lib/X'
 
 const COOKIE_TTL = 31557600000
@@ -14,23 +14,26 @@ class CookieBanner extends Component {
   _addScrollListener = () => {
     if (!this.state.hasAcceptedCookies && this.props.dismissOnScroll) {
       window.addEventListener('scroll', this._onScroll, false)
-      this.setState({ listeningScroll: true })
+      this.setState({listeningScroll: true})
     }
   }
 
   _getHasAcceptedCookie () {
     // based on https://github.com/litejs/browser-cookie-lite/blob/master/index.js#L26
-    return decodeURIComponent((
-      (`; ${document.cookie}`)
-        .split(`; ${this.props.cookieKey}=`)[1] || '')
-      .split(';')[0])
+    return decodeURIComponent(
+      (
+        `; ${document.cookie}`.split(`; ${this.props.cookieKey}=`)[1] || ''
+      ).split(';')[0]
+    )
   }
 
   _setHasAcceptedCookie () {
     // save the cookie with a true value
     const value = `${this.props.cookieKey}=true`
     // set the expiration date for a better browser support (IE11 has problems with max-age)
-    const expires = `expires=${new Date(+new Date() + COOKIE_TTL).toUTCString()}`
+    const expires = `expires=${new Date(
+      +new Date() + COOKIE_TTL
+    ).toUTCString()}`
     // Set the cookie with the value and the expiration date
     document.cookie = `${value};${expires}`
   }
@@ -42,7 +45,7 @@ class CookieBanner extends Component {
   _onAcceptCookies () {
     this._setHasAcceptedCookie()
     this._removeScrollListener()
-    this.setState({ hasAcceptedCookies: true })
+    this.setState({hasAcceptedCookies: true})
   }
 
   _onScroll = () => {
@@ -54,11 +57,11 @@ class CookieBanner extends Component {
   _removeScrollListener = () => {
     if (this.state.listeningScroll) {
       window.removeEventListener('scroll', this._onScroll)
-      this.setState({ listeningScroll: false })
+      this.setState({listeningScroll: false})
     }
   }
 
-  _renderCookiePolicy ({ message, link }) {
+  _renderCookiePolicy ({message, link}) {
     if (message && link) {
       return (
         <a className='sui-CookieBanner-link' href={link} target='_blank'>
@@ -72,10 +75,13 @@ class CookieBanner extends Component {
     // when mounting, to avoid showing the banner on the server, get the cookie
     const hasAcceptedCookies = this._getHasAcceptedCookie()
     // we set the state with the value, and add the scroll listener then if user hasn't accepted the cookies
-    this.setState({
-      hasAcceptedCookies,
-      showCookieBanner: true
-    }, this._addScrollListener)
+    this.setState(
+      {
+        hasAcceptedCookies,
+        showCookieBanner: true
+      },
+      this._addScrollListener
+    )
   }
 
   componentWillUnmount () {
@@ -87,11 +93,11 @@ class CookieBanner extends Component {
   }
 
   render () {
-    const { showCookieBanner } = this.state
+    const {showCookieBanner} = this.state
     if (!showCookieBanner || this._getHasAcceptedCookie()) {
       return null
     }
-    const { cookiePolicy, iconClose, message } = this.props
+    const {cookiePolicy, iconClose, message} = this.props
 
     return (
       <div className='sui-CookieBanner'>
@@ -100,7 +106,10 @@ class CookieBanner extends Component {
             {message}
             {this._renderCookiePolicy(cookiePolicy)}
           </span>
-          <button className='sui-CookieBanner-closeButton' onClick={this._handleClick}>
+          <button
+            className='sui-CookieBanner-closeButton'
+            onClick={this._handleClick}
+          >
             {iconClose}
           </button>
         </div>
@@ -115,7 +124,9 @@ CookieBanner.defaultProps = {
   cookieKey: 'user-has-accepted-cookies',
   dismissOnScroll: true,
   dismissOnScrollThreshold: 0,
-  iconClose: <IconX svgClass='sui-CookieBanner-closeIcon' fill='#000' size={16} />
+  iconClose: (
+    <IconX svgClass='sui-CookieBanner-closeIcon' fill='#000' size={16} />
+  )
 }
 
 CookieBanner.propTypes = {

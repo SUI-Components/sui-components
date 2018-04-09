@@ -5,7 +5,8 @@ import ImageSlider from '@schibstedspain/sui-image-slider'
 
 const NO_OP = () => {}
 
-const DEFAULT_COUNTER_TEXT_FORMATTER = (current, total) => `${current} / ${total}`
+const DEFAULT_COUNTER_TEXT_FORMATTER = (current, total) =>
+  `${current} / ${total}`
 
 class ModalGallery extends Component {
   state = {
@@ -26,7 +27,9 @@ class ModalGallery extends Component {
       <div className='sui-ModalGallery-header'>
         <div className='sui-ModalGallery-imageCounter'>
           {IconImages && <IconImages className='sui-ModalGallery-iconImages' />}
-          <span className='sui-ModalGallery-counterText'>{counterTextFormatter(currentSlide, totalSlides)}</span>
+          <span className='sui-ModalGallery-counterText'>
+            {counterTextFormatter(currentSlide, totalSlides)}
+          </span>
         </div>
       </div>
     )
@@ -43,18 +46,23 @@ class ModalGallery extends Component {
   }
 
   _renderEmptyContent () {
-    return (
-      <div className='sui-ModalGallery-emptyContent' />
-    )
+    return <div className='sui-ModalGallery-emptyContent' />
   }
 
-  _onSlideChange = (currentSlide) => {
+  _onSlideChange = currentSlide => {
     this.setState(currentSlide)
   }
 
   render () {
     const {currentSlide} = this.state
-    const {open, initialSlide, lazyLoadSlider, multimedia, iconClose, onClose} = this.props
+    const {
+      open,
+      initialSlide,
+      lazyLoadSlider,
+      multimedia,
+      iconClose,
+      onClose
+    } = this.props
 
     return (
       <div className='sui-ModalGallery'>
@@ -65,8 +73,24 @@ class ModalGallery extends Component {
           fitWindow
           iconClose={iconClose}
           onClose={onClose}
-          header={this._renderHeader({images: {currentSlide: currentSlide + 1, totalSlides: multimedia.images.length}})}
-          content={open ? this._renderImageSlider({...multimedia, sliderOptions: {lazyLoadSlider, initialSlide, doAfterSlide: this._onSlideChange}}) : this._renderEmptyContent()}
+          header={this._renderHeader({
+            images: {
+              currentSlide: currentSlide + 1,
+              totalSlides: multimedia.images.length
+            }
+          })}
+          content={
+            open
+              ? this._renderImageSlider({
+                ...multimedia,
+                sliderOptions: {
+                  lazyLoadSlider,
+                  initialSlide,
+                  doAfterSlide: this._onSlideChange
+                }
+              })
+              : this._renderEmptyContent()
+          }
         />
       </div>
     )
@@ -92,10 +116,12 @@ ModalGallery.propTypes = {
    * Collection of images to show in the slider gallery inside modal.
    */
   multimedia: PropTypes.shape({
-    photos: PropTypes.arrayOf(PropTypes.shape({
-      src: PropTypes.string.isRequired,
-      alt: PropTypes.string
-    }))
+    photos: PropTypes.arrayOf(
+      PropTypes.shape({
+        src: PropTypes.string.isRequired,
+        alt: PropTypes.string
+      })
+    )
   }),
   /**
    * Custom close icon [X] to display in modal's header.

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import cx from 'classnames'
 import CardProductSlider from './card-product-slider'
 import Star from '@schibstedspain/sui-svgiconset/lib/Star'
@@ -70,14 +70,10 @@ class CardProduct extends Component {
       datePosition
     } = this.state
     const cardProductTagsStyle = {
-      top: tagsPosition === 'absolute'
-        ? mediaHeight - tagsHeight
-        : 'inherit'
+      top: tagsPosition === 'absolute' ? mediaHeight - tagsHeight : 'inherit'
     }
     const cardProductDateStyle = {
-      top: datePosition === 'absolute'
-        ? -(dateHeight / 2)
-        : 'inherit'
+      top: datePosition === 'absolute' ? -(dateHeight / 2) : 'inherit'
     }
     const cardProductClassName = cx('sui-CardProduct', {
       'is-highlighted': highlighted
@@ -93,7 +89,9 @@ class CardProduct extends Component {
     return (
       <Link href={url} className={cardProductClassName}>
         <div
-          ref={node => { this._mediaNode = node }}
+          ref={node => {
+            this._mediaNode = node
+          }}
           className='sui-CardProduct-media'
         >
           <CardProductSlider
@@ -107,27 +105,36 @@ class CardProduct extends Component {
             <div className='sui-CardProduct-titleWrap'>
               <div className='sui-CardProduct-title'>{title}</div>
               <div
-                ref={node => { this._tagsNode = node }}
+                ref={node => {
+                  this._tagsNode = node
+                }}
                 style={cardProductTagsStyle}
                 className='sui-CardProduct-tags'
               >
                 {tags.map((tag, index) => <TagChip key={index} label={tag} />)}
               </div>
             </div>
-            <div onClick={_onFavoriteClick} className='sui-CardProduct-favorite'>
+            <div
+              onClick={_onFavoriteClick}
+              className='sui-CardProduct-favorite'
+            >
               <FavoriteIcon svgClass={favoriteIconClassName} />
             </div>
           </div>
           <div className='sui-CardProduct-description'>{description}</div>
-          {attributes &&
+          {attributes && (
             <ul className='sui-CardProduct-attributes'>
-              {attributes.map((attribute, index) =>
-                <li key={index} className='sui-CardProduct-attributesItem'>{attribute}</li>
-              )}
+              {attributes.map((attribute, index) => (
+                <li key={index} className='sui-CardProduct-attributesItem'>
+                  {attribute}
+                </li>
+              ))}
             </ul>
-          }
+          )}
           <div
-            ref={node => { this._dateNode = node }}
+            ref={node => {
+              this._dateNode = node
+            }}
             style={cardProductDateStyle}
             className='sui-CardProduct-date'
           >
@@ -202,8 +209,11 @@ CardProduct.propTypes = {
 
 CardProduct.defaultProps = {
   favoriteIcon: Star,
-  linkFactory: ({ href, className, children }) =>
-    <a href={href} className={className}>{children}</a>
+  linkFactory: ({href, className, children}) => (
+    <a href={href} className={className}>
+      {children}
+    </a>
+  )
 }
 
 export default CardProduct

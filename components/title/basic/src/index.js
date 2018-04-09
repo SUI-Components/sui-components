@@ -3,13 +3,17 @@ import React from 'react'
 import cx from 'classnames'
 
 const TITLE_ALIGN_CLASSNAMES = {
-  'left': 'sui-TitleBasic--alignLeft',
-  'center': 'sui-TitleBasic--alignCenter',
-  'right': 'sui-TitleBasic--alignRight'
+  left: 'sui-TitleBasic--alignLeft',
+  center: 'sui-TitleBasic--alignCenter',
+  right: 'sui-TitleBasic--alignRight'
 }
 
 export default function TitleBasic ({align, className, subtitle, title}) {
-  const titleBasicClassName = cx('sui-TitleBasic', className, TITLE_ALIGN_CLASSNAMES[align])
+  const titleBasicClassName = cx(
+    'sui-TitleBasic',
+    className,
+    TITLE_ALIGN_CLASSNAMES[align]
+  )
 
   return (
     <div className={titleBasicClassName}>

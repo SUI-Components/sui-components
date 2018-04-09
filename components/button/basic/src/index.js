@@ -2,15 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import cx from 'classnames'
 
-function ButtonBasic ({
-  disabled,
-  icon,
-  text,
-  layout,
-  onClick,
-  size,
-  type
-}) {
+function ButtonBasic ({disabled, icon, text, layout, onClick, size, type}) {
   const className = cx(
     'sui-ButtonBasic',
     `sui-ButtonBasic--${size}`,
@@ -21,11 +13,7 @@ function ButtonBasic ({
   )
 
   return (
-    <button
-      className={className}
-      disabled={disabled}
-      onClick={onClick}
-    >
+    <button className={className} disabled={disabled} onClick={onClick}>
       {icon}
       <span>{text}</span>
     </button>
@@ -46,9 +34,7 @@ ButtonBasic.propTypes = {
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   text: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(
-    ['primary', 'secondary', 'accent', 'ghost', 'flat']
-  )
+  type: PropTypes.oneOf(['primary', 'secondary', 'accent', 'ghost', 'flat'])
 }
 
 export default ButtonBasic

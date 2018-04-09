@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import CollapsibleBasic from '@schibstedspain/sui-collapsible-basic'
 
 class CollapsibleAccordion extends Component {
@@ -11,14 +11,17 @@ class CollapsibleAccordion extends Component {
   }
 
   componentWillMount () {
-    this._collapseItems(false, this.props.items.findIndex(item => !item.collapsed))
+    this._collapseItems(
+      false,
+      this.props.items.findIndex(item => !item.collapsed)
+    )
   }
 
   componentWillReceiveProps (nextProps) {
     const nextOpenIndex = nextProps.items.findIndex(function (item) {
       return !item.collapsed
     })
-    this.setState({ openIndex: nextOpenIndex })
+    this.setState({openIndex: nextOpenIndex})
   }
 
   _handleClick (id) {
@@ -31,21 +34,25 @@ class CollapsibleAccordion extends Component {
   }
 
   _setOpenIndex (id) {
-    this.setState({ openIndex: id === this.state.openIndex ? null : id })
+    this.setState({openIndex: id === this.state.openIndex ? null : id})
   }
 
   render () {
-    const { items } = this.props
-    const { openIndex } = this.state
+    const {items} = this.props
+    const {openIndex} = this.state
     return (
       <div>
-        {
-          items.map((item, index) => (
-            <CollapsibleBasic key={index} {...item} collapsed={openIndex !== index} handleClick={this._handleClick(index)} icon={this.props.icon}>
-              {item.content}
-            </CollapsibleBasic>
-          ))
-        }
+        {items.map((item, index) => (
+          <CollapsibleBasic
+            key={index}
+            {...item}
+            collapsed={openIndex !== index}
+            handleClick={this._handleClick(index)}
+            icon={this.props.icon}
+          >
+            {item.content}
+          </CollapsibleBasic>
+        ))}
       </div>
     )
   }
@@ -65,20 +72,22 @@ CollapsibleAccordion.propTypes = {
   /**
    * Items array
    */
-  items: PropTypes.arrayOf(PropTypes.shape({
-    /**
-     * label to be displayed.
-     */
-    label: PropTypes.node.isRequired,
-    /**
-     * children to be displayed when expanding component.
-     */
-    content: PropTypes.node.isRequired,
-    /**
-     * first state.
-     */
-    collapsed: PropTypes.bool
-  })).isRequired
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      /**
+       * label to be displayed.
+       */
+      label: PropTypes.node.isRequired,
+      /**
+       * children to be displayed when expanding component.
+       */
+      content: PropTypes.node.isRequired,
+      /**
+       * first state.
+       */
+      collapsed: PropTypes.bool
+    })
+  ).isRequired
 }
 
 CollapsibleAccordion.defaultProps = {

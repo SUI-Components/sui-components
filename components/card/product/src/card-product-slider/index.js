@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import Swiper from 'swiper'
 import Chevronleft from '@schibstedspain/sui-svgiconset/lib/Chevronleft'
 import Chevronright from '@schibstedspain/sui-svgiconset/lib/Chevronright'
@@ -27,27 +27,34 @@ class CardProductSlider extends Component {
   }
 
   render () {
-    const { images, iconPrev: IconPrev, iconNext: IconNext } = this.props
+    const {images, iconPrev: IconPrev, iconNext: IconNext} = this.props
 
     return (
       <div
-        ref={node => { this._swiperContainer = node }}
-        className='swiper-container sui-CardProductSlider'>
+        ref={node => {
+          this._swiperContainer = node
+        }}
+        className='swiper-container sui-CardProductSlider'
+      >
         <div className='swiper-wrapper'>
-          {images.map((src, index) =>
+          {images.map((src, index) => (
             <div key={index} className='swiper-slide'>
               <img src={src} className='sui-CardProductSlider-image' />
             </div>
-          )}
+          ))}
         </div>
         <div
-          ref={node => { this._swiperButtonPrev = node }}
+          ref={node => {
+            this._swiperButtonPrev = node
+          }}
           className='swiper-button-prev sui-CardProductSlider-nav'
         >
           <IconPrev svgClass='sui-CardProductSlider-navIcon' />
         </div>
         <div
-          ref={node => { this._swiperButtonNext = node }}
+          ref={node => {
+            this._swiperButtonNext = node
+          }}
           className='swiper-button-next sui-CardProductSlider-nav'
         >
           <IconNext svgClass='sui-CardProductSlider-navIcon' />

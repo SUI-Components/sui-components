@@ -11,9 +11,7 @@ export default function ListItem ({handleSelect, isActive, item}) {
   })
 
   return (
-    <li
-      className={classes}
-      onClick={handleSelect.bind(null, item)}>
+    <li className={classes} onClick={handleSelect.bind(null, item)}>
       {item.content}
     </li>
   )

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import TabsBasic from '@schibstedspain/sui-tab-basic'
 import cx from 'classnames'
 
@@ -8,12 +8,12 @@ class TabContent extends Component {
     activeTab: this.props.activeTab
   }
 
-  _handleClick = (activeTab) => {
-    this.setState({ activeTab })
+  _handleClick = activeTab => {
+    this.setState({activeTab})
   }
 
-  _renderContent ({ activeTab, tabsContent }) {
-    const { renderInactiveContent } = this.props
+  _renderContent ({activeTab, tabsContent}) {
+    const {renderInactiveContent} = this.props
     return tabsContent.reduce((contentToRender, content, indexTab) => {
       const isActive = indexTab === activeTab
       if (isActive || renderInactiveContent) {
@@ -21,11 +21,11 @@ class TabContent extends Component {
           'is-active': isActive
         })
 
-        contentToRender.push((
+        contentToRender.push(
           <section className={className} key={indexTab}>
             {content}
           </section>
-        ))
+        )
       }
       return contentToRender
     }, [])
@@ -38,8 +38,8 @@ class TabContent extends Component {
   }
 
   render () {
-    const { panels } = this.props
-    const { activeTab } = this.state
+    const {panels} = this.props
+    const {activeTab} = this.state
 
     const tabsList = panels.map(panel => panel.title)
     const tabsContent = panels.map(panel => panel.content)
@@ -51,7 +51,7 @@ class TabContent extends Component {
           handleClick={this._handleClick}
           tabsList={tabsList}
         />
-        {this._renderContent({ activeTab, tabsContent })}
+        {this._renderContent({activeTab, tabsContent})}
       </div>
     )
   }
@@ -76,16 +76,18 @@ TabContent.propTypes = {
   /**
    * List of panels to be tabbed
    */
-  panels: PropTypes.arrayOf(PropTypes.shape({
-    /**
-     * Title for the panel
-     */
-    title: PropTypes.string.isRequired,
-    /**
-     * Content for the panel
-     */
-    content: PropTypes.element.isRequired
-  }).isRequired).isRequired
+  panels: PropTypes.arrayOf(
+    PropTypes.shape({
+      /**
+       * Title for the panel
+       */
+      title: PropTypes.string.isRequired,
+      /**
+       * Content for the panel
+       */
+      content: PropTypes.element.isRequired
+    }).isRequired
+  ).isRequired
 }
 
 export default TabContent

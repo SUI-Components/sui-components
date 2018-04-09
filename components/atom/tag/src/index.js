@@ -10,11 +10,7 @@ class AtomTag extends Component {
 
   get _classNames () {
     const {className, icon} = this.props
-    return classnames(
-      'sui-AtomTag',
-      className,
-      icon && 'sui-AtomTag-hasIcon'
-    )
+    return classnames('sui-AtomTag', className, icon && 'sui-AtomTag-hasIcon')
   }
 
   get _isActionable () {
@@ -28,15 +24,12 @@ class AtomTag extends Component {
    * @return {Object}
    */
   _filterKeys (obj, props) {
-    return Object.keys(obj)
-      .reduce(
-        (acc, key) => {
-          if (props.indexOf(key) === -1) {
-            acc[key] = obj[key]
-          }
-          return acc
-        }
-        , {})
+    return Object.keys(obj).reduce((acc, key) => {
+      if (props.indexOf(key) === -1) {
+        acc[key] = obj[key]
+      }
+      return acc
+    }, {})
   }
 
   /**
@@ -56,7 +49,11 @@ class AtomTag extends Component {
    */
   get _standardProps () {
     const ACTIONABLE_ONLY_PROPS = [
-      'href', 'iconPlacement', 'target', 'actionable', 'linkFactory'
+      'href',
+      'iconPlacement',
+      'target',
+      'actionable',
+      'linkFactory'
     ]
     return this._filterKeys(this.props, ACTIONABLE_ONLY_PROPS)
   }
@@ -71,9 +68,11 @@ class AtomTag extends Component {
   }
 
   render () {
-    return this._isActionable
-      ? <ActionableTag {...this._actionableProps} className={this._classNames} />
-      : <StandardTag {...this._standardProps} className={this._classNames} />
+    return this._isActionable ? (
+      <ActionableTag {...this._actionableProps} className={this._classNames} />
+    ) : (
+      <StandardTag {...this._standardProps} className={this._classNames} />
+    )
   }
 }
 

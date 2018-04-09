@@ -20,7 +20,7 @@ const TYPES = {
  * Cuts off exceeded char limit
  * @param  {string} label
  * @return {string}
-*/
+ */
 const truncateText = function (label) {
   return label.length < MAX_LABEL_LENGTH
     ? label
@@ -51,7 +51,7 @@ const getClassNames = function ({className, size, transparent, type}) {
  * @param  {string} options.size
  * @param  {boolean} options.transparent
  * @return {boolean}
-*/
+ */
 const shouldRenderIcon = function ({icon, size, transparent}) {
   return icon && (size !== SIZES.SMALL || transparent)
 }
@@ -62,12 +62,9 @@ const AtomBadge = function (props) {
 
   return (
     <div className={classNames}>
-      {
-        shouldRenderIcon(props) &&
-          <span className='sui-AtomBadge-icon'>
-            { props.icon }
-          </span>
-      }
+      {shouldRenderIcon(props) && (
+        <span className='sui-AtomBadge-icon'>{props.icon}</span>
+      )}
       <span className='sui-AtomBadge-text' title={label}>
         {label}
       </span>
@@ -104,7 +101,4 @@ AtomBadge.defaultProps = {
 }
 
 export default AtomBadge
-export {
-  TYPES as atomBadgeTypes,
-  SIZES as atomBadgeSizes
-}
+export {TYPES as atomBadgeTypes, SIZES as atomBadgeSizes}

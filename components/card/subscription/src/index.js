@@ -1,19 +1,19 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import Chevronright from '@schibstedspain/sui-svgiconset/lib/Chevronright'
 import cx from 'classnames'
 
 export default class CardSubscription extends Component {
   input = null
 
-  _handleSubmit = (event) => {
+  _handleSubmit = event => {
     const {onSubmit} = this.props
     event.preventDefault()
     onSubmit(this.input.value)
   }
 
   _printCardContent = () => {
-    const { placeholder, iconButton, responseError } = this.props
+    const {placeholder, iconButton, responseError} = this.props
     const IconAngle = iconButton || Chevronright
     const inputClassName = cx('sui-CardSubscription-input', {
       'has-error': !!responseError
@@ -21,8 +21,11 @@ export default class CardSubscription extends Component {
     return (
       <form onSubmit={this._handleSubmit} className='sui-CardSubscription-form'>
         <input
-          className={inputClassName} placeholder={placeholder}
-          ref={node => { this.input = node }}
+          className={inputClassName}
+          placeholder={placeholder}
+          ref={node => {
+            this.input = node
+          }}
         />
         <button type='submit' className='sui-CardSubscription-button'>
           <IconAngle svgClass='sui-CardSubscription-buttonIcon' />
@@ -32,27 +35,19 @@ export default class CardSubscription extends Component {
   }
 
   render () {
-    const {
-      responseContent: ResponseContent,
-      responseError,
-      title
-    } = this.props
+    const {responseContent: ResponseContent, responseError, title} = this.props
     return (
       <div>
-        {(!ResponseContent || !!responseError) &&
+        {(!ResponseContent || !!responseError) && (
           <div className='sui-CardSubscription'>
             <div className='sui-CardSubscription-content'>
               <p className='sui-CardSubscription-title'>{title}</p>
               {this._printCardContent()}
-              {(ResponseContent && responseError) &&
-                <ResponseContent />
-              }
+              {ResponseContent && responseError && <ResponseContent />}
             </div>
           </div>
-        }
-        {(ResponseContent && !responseError) &&
-          <ResponseContent />
-        }
+        )}
+        {ResponseContent && !responseError && <ResponseContent />}
       </div>
     )
   }

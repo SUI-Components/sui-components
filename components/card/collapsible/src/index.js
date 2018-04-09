@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import Button from '@schibstedspain/sui-atom-button'
 import Collapsible from '@schibstedspain/sui-collapsible-basic'
 import IconX from '@schibstedspain/sui-svgiconset/lib/X'
@@ -31,26 +31,46 @@ class CardCollapsible extends Component {
    * @param {boolean} itemProps.highlighted Highlight the item (bold style).
    * @return {Element} Item to display on card's header info area.
    */
-  _renderInfoItem ({label, link, highlighted, target = '_blank', iconLeft: IconLeft, onClick}, index) {
+  _renderInfoItem (
+    {label, link, highlighted, target = '_blank', iconLeft: IconLeft, onClick},
+    index
+  ) {
     const InfoItemElement = link ? 'a' : 'span'
-    const props = link ? { href: link, target, onClick } : {}
+    const props = link ? {href: link, target, onClick} : {}
 
     return (
-      <InfoItemElement key={`header-info-item-${index}`}
-        className={cx('sui-CardCollapsible-headerInfoItem', {'sui-CardCollapsible-headerInfoItemLink': !!link, 'is-highlighted': !!highlighted})} {...props}>
-        {IconLeft && <IconLeft svgClass='sui-CardCollapsible-infoItemIcon' className='sui-CardCollapsible-infoItemIcon' />}
+      <InfoItemElement
+        key={`header-info-item-${index}`}
+        className={cx('sui-CardCollapsible-headerInfoItem', {
+          'sui-CardCollapsible-headerInfoItemLink': !!link,
+          'is-highlighted': !!highlighted
+        })}
+        {...props}
+      >
+        {IconLeft && (
+          <IconLeft
+            svgClass='sui-CardCollapsible-infoItemIcon'
+            className='sui-CardCollapsible-infoItemIcon'
+          />
+        )}
         <span>{label}</span>
       </InfoItemElement>
     )
   }
 
   _renderCardCloseButton () {
-    const { iconClose: Icon = IconX } = this.props
+    const {iconClose: Icon = IconX} = this.props
 
     return (
       <div className='sui-CardCollapsible-headerClose'>
-        <a className='sui-CardCollapsible-closeButton' onClick={this._toggleCardContent}>
-          <Icon svgClass='sui-CardCollapsible-closeIcon' className='sui-CardCollapsible-closeIcon' />
+        <a
+          className='sui-CardCollapsible-closeButton'
+          onClick={this._toggleCardContent}
+        >
+          <Icon
+            svgClass='sui-CardCollapsible-closeIcon'
+            className='sui-CardCollapsible-closeIcon'
+          />
         </a>
       </div>
     )
@@ -67,19 +87,29 @@ class CardCollapsible extends Component {
    * @return {Element} Card' header element.
    */
   _renderCardHeader ({alt = 'logo', href, src, target = '_blank'}, info) {
-    const { collapsed } = this.state
+    const {collapsed} = this.state
     const Image = <img src={src} alt={alt} />
 
     return (
-      <div className={cx('sui-CardCollapsible-header', {'is-expanded': !collapsed})}>
+      <div
+        className={cx('sui-CardCollapsible-header', {
+          'is-expanded': !collapsed
+        })}
+      >
         <div className='sui-CardCollapsible-headerImage'>
-          {href ? <a href={href} target={target}>{Image}</a> : Image}
+          {href ? (
+            <a href={href} target={target}>
+              {Image}
+            </a>
+          ) : (
+            Image
+          )}
         </div>
-        {info &&
+        {info && (
           <div className='sui-CardCollapsible-headerInfo'>
             {info.map(this._renderInfoItem)}
           </div>
-        }
+        )}
       </div>
     )
   }
@@ -89,49 +119,49 @@ class CardCollapsible extends Component {
    * @param config {object} Button configuration (prop "label" : Text label of expand/collapse action button).
    */
   _renderExpandButton () {
-    const { expandButton: { label } = {} } = this.props
+    const {expandButton: {label} = {}} = this.props
 
-    return !!label && (
-      <Button
-        fullWidth
-        size='large'
-        onClick={this._toggleCardContent}>
-        {label}
-      </Button>
+    return (
+      !!label && (
+        <Button fullWidth size='large' onClick={this._toggleCardContent}>
+          {label}
+        </Button>
+      )
     )
   }
 
   render () {
-    const { collapsed } = this.state
-    const { className, children, headerImage, headerInfo, onChangeHandler, showCloseButton, hasBoxShadowWhenExpanded } = this.props
+    const {collapsed} = this.state
+    const {
+      className,
+      children,
+      headerImage,
+      headerInfo,
+      onChangeHandler,
+      showCloseButton,
+      hasBoxShadowWhenExpanded
+    } = this.props
     const headerInfoConfig = collapsed
       ? headerInfo.displayWhenCollapsed
       : headerInfo.displayWhenExpanded
-    const cssClassName = cx(
-      'sui-CardCollapsible',
-      className,
-      {
-        'is-expanded': !collapsed,
-        'sui-CardCollapsible--boxShadow': hasBoxShadowWhenExpanded
-      }
-    )
+    const cssClassName = cx('sui-CardCollapsible', className, {
+      'is-expanded': !collapsed,
+      'sui-CardCollapsible--boxShadow': hasBoxShadowWhenExpanded
+    })
 
     return (
       <div className={cssClassName}>
-        { !collapsed && showCloseButton &&
-            this._renderCardCloseButton()
-        }
-        { headerInfo &&
-            this._renderCardHeader(headerImage, headerInfoConfig)
-        }
+        {!collapsed && showCloseButton && this._renderCardCloseButton()}
+        {headerInfo && this._renderCardHeader(headerImage, headerInfoConfig)}
         <Collapsible
           collapsed={collapsed}
           animationType='opacity'
           hideTriggerIcon
           animationSpeed='fast'
           label={collapsed && this._renderExpandButton()}
-          handleClick={onChangeHandler}>
-          { children }
+          handleClick={onChangeHandler}
+        >
+          {children}
         </Collapsible>
       </div>
     )
@@ -155,9 +185,7 @@ CardCollapsible.propTypes = {
     alt: PropTypes.string,
     href: PropTypes.string,
     src: PropTypes.string.isRequired,
-    target: PropTypes.oneOf([
-      '_blank', '_parent', '_self', '_top'
-    ])
+    target: PropTypes.oneOf(['_blank', '_parent', '_self', '_top'])
   }).isRequired,
   /**
    * List of text labels which will be displayed in the card's header.

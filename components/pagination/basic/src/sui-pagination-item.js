@@ -7,12 +7,10 @@ const PAGE_NUMBER_HOLDER = '%{pageNumber}'
 
 export default function PaginationItem (props) {
   const getText = () => (
-    <span className={`${baseClass}-text`}>
-      {props.pageText}
-    </span>
+    <span className={`${baseClass}-text`}>{props.pageText}</span>
   )
 
-  const onClick = (e) => props.handlePaginate(props.pageNumber, e)
+  const onClick = e => props.handlePaginate(props.pageNumber, e)
 
   const itemBaseClass = `${baseClass}-item`
   const classNames = cx(itemBaseClass, {
@@ -22,15 +20,14 @@ export default function PaginationItem (props) {
 
   return (
     <li className={classNames}>
-      { props.isCurrent
+      {props.isCurrent
         ? getText()
         : props.factoryLink({
           onClick,
           className: `${baseClass}-link`,
           destinationURL: props.createUrl(props),
           pageText: props.pageText
-        })
-      }
+        })}
     </li>
   )
 }
@@ -51,7 +48,8 @@ PaginationItem.defaultProps = {
     return patternUrl.replace(PAGE_NUMBER_HOLDER, pageNumber)
   },
   isCurrent: false,
-  factoryLink: ({className, destinationURL, onClick, pageText}) => { // eslint-disable-line
+  factoryLink: ({className, destinationURL, onClick, pageText}) => {
+    // eslint-disable-line
     const linkProps = {className, onClick}
     return (
       <a {...linkProps} href={destinationURL}>

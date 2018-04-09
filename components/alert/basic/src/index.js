@@ -8,12 +8,12 @@ import Bell from '@schibstedspain/sui-svgiconset/lib/Bell'
 import Check from '@schibstedspain/sui-svgiconset/lib/Check'
 
 const icons = {
-  'info': Info,
-  'error': Bell,
-  'success': Check
+  info: Info,
+  error: Bell,
+  success: Check
 }
 
-function _renderAction ({ handle, text, className }) {
+function _renderAction ({handle, text, className}) {
   const actionClassName = cx(`sui-AlertBasic-button`, {
     [className]: !!className
   })
@@ -44,11 +44,11 @@ export default function AlertBasic ({
   return (
     <div>
       <div className={`sui-AlertBasic sui-AlertBasic--${type}`}>
-        {IconClose &&
+        {IconClose && (
           <button className='sui-AlertBasic-buttonClose' onClick={handleClose}>
             <IconClose svgClass='sui-AlertBasic-buttonCloseIcon' />
           </button>
-        }
+        )}
         <div className='sui-AlertBasic-message'>
           <div>
             <AlertIcon svgClass='sui-AlertBasic-icon' />

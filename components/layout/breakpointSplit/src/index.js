@@ -39,20 +39,22 @@ class LayoutBreakpointSplit extends Component {
     let {isSplitted} = this.state
     children = isSplitted ? [children[current]] : children
 
-    const content = (React.Children.map(children, ({type: Type, props}, index) => (
-      <Type {...props} key={index}
-        className={cx(
-          props.className,
-          isSplitted && 'sui-LayoutBreakpointSplit-currentView'
-        )}
-      />
-    )))
-
-    const className = cx(
-      'sui-LayoutBreakpointSplit',
-      this.props.className
+    const content = React.Children.map(
+      children,
+      ({type: Type, props}, index) => (
+        <Type
+          {...props}
+          key={index}
+          className={cx(
+            props.className,
+            isSplitted && 'sui-LayoutBreakpointSplit-currentView'
+          )}
+        />
+      )
     )
-    return (<span className={className}>{content}</span>)
+
+    const className = cx('sui-LayoutBreakpointSplit', this.props.className)
+    return <span className={className}>{content}</span>
   }
 }
 

@@ -7,9 +7,7 @@ class GigyaScreenset extends Component {
   }
 
   render () {
-    return (
-      <div id={this.props.screenSetOptions.containerID} />
-    )
+    return <div id={this.props.screenSetOptions.containerID} />
   }
 }
 

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
@@ -83,14 +83,14 @@ class FormRangeDatepicker extends Component {
             <InputIcon svgClass='sui-FormRangeDatepicker-item-icon' />
           </div>
         </div>
-        {!!this.props.buttonLabel &&
+        {!!this.props.buttonLabel && (
           <div className='sui-FormRangeDatepicker-button'>
             <ButtonBasic
               text={this.props.buttonLabel}
               onClick={this._handleClickButton}
             />
           </div>
-        }
+        )}
       </div>
     )
   }

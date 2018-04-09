@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types'
 
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import cx from 'classnames'
 import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
 
@@ -28,9 +28,9 @@ class DropdownBasic extends Component {
    * Toggle menu state: expanded/collapsed.
    */
   _toggleMenu = () => {
-    const { expanded } = this.state
+    const {expanded} = this.state
 
-    this.setState({ expanded: !expanded })
+    this.setState({expanded: !expanded})
   }
 
   /**
@@ -56,11 +56,11 @@ class DropdownBasic extends Component {
   /**
    * Function rendering menu element.
    */
-  _renderMenuItem = ({ title, links }, index) => (
+  _renderMenuItem = ({title, links}, index) => (
     <div key={index} className={'sui-DropdownBasicMenu-item'}>
-      {title &&
+      {title && (
         <header className={'sui-DropdownBasicMenu-title'}>{title}</header>
-      }
+      )}
       <ul className={'sui-DropdownBasicMenu-list'}>
         {links.map(this._renderLink)}
       </ul>
@@ -70,12 +70,16 @@ class DropdownBasic extends Component {
   /**
    * Function rendering a simple list item link.
    */
-  _renderLink = ({ text, url }, index) => {
+  _renderLink = ({text, url}, index) => {
     const Link = this.props.linkFactory
 
     return (
       <li key={index} className='sui-DropdownBasicMenu-listItem'>
-        <Link href={url} className='sui-DropdownBasicMenu-listLink' title={text}>
+        <Link
+          href={url}
+          className='sui-DropdownBasicMenu-listLink'
+          title={text}
+        >
           {text}
         </Link>
       </li>
@@ -83,9 +87,9 @@ class DropdownBasic extends Component {
   }
 
   render () {
-    const { expanded, collapseByTouch } = this.state
-    const { button, menu, expandOnMouseOver } = this.props
-    const { text, icon: Icon } = button
+    const {expanded, collapseByTouch} = this.state
+    const {button, menu, expandOnMouseOver} = this.props
+    const {text, icon: Icon} = button
     const ArrowButtonIcon = button.arrowButtonIcon || Chevronbottom
     const wrapperClassName = cx('sui-DropdownBasic', {
       'is-expanded': expanded
@@ -101,9 +105,10 @@ class DropdownBasic extends Component {
           <button
             className='sui-DropdownBasic-button'
             onClick={expandOnMouseOver ? this._doNothing : this._toggleMenu}
-            onTouchStart={expandOnMouseOver && collapseByTouch
-              ? this._toggleMenu
-              : this._doNothing
+            onTouchStart={
+              expandOnMouseOver && collapseByTouch
+                ? this._toggleMenu
+                : this._doNothing
             }
           >
             <div className='sui-DropdownBasic-buttonContent'>
@@ -144,25 +149,29 @@ DropdownBasic.propTypes = {
   /**
    * Menu array of sections.
    */
-  menu: PropTypes.arrayOf(PropTypes.shape({
-    /**
-     * Menu section title.
-     */
-    title: PropTypes.string,
-    /**
-     * Menu section links.
-     */
-    links: PropTypes.arrayOf(PropTypes.shape({
+  menu: PropTypes.arrayOf(
+    PropTypes.shape({
       /**
-       * Link text.
+       * Menu section title.
        */
-      text: PropTypes.string.isRequired,
+      title: PropTypes.string,
       /**
-       * Link url.
+       * Menu section links.
        */
-      url: PropTypes.string.isRequired
-    }))
-  })).isRequired,
+      links: PropTypes.arrayOf(
+        PropTypes.shape({
+          /**
+           * Link text.
+           */
+          text: PropTypes.string.isRequired,
+          /**
+           * Link url.
+           */
+          url: PropTypes.string.isRequired
+        })
+      )
+    })
+  ).isRequired,
   /**
    * Flag to expand on mouse over event.
    */
@@ -175,8 +184,11 @@ DropdownBasic.propTypes = {
 
 DropdownBasic.defaultProps = {
   expandOnMouseOver: false,
-  linkFactory: ({ href, className, children, title }) =>
-    <a href={href} className={className} title={title}>{children}</a>
+  linkFactory: ({href, className, children, title}) => (
+    <a href={href} className={className} title={title}>
+      {children}
+    </a>
+  )
 }
 
 export default DropdownBasic

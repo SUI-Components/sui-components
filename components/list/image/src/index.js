@@ -3,23 +3,23 @@ import React from 'react'
 import SuiLazyLoadImage from '@schibstedspain/sui-image-lazy-load'
 import cx from 'classnames'
 
-const ensureFunction = (func) => {
-  return func instanceof Function ? func : () => {
-  }
+const ensureFunction = func => {
+  return func instanceof Function ? func : () => {}
 }
 
 /**
  * Render a simple sui-image-lazy-load component.
  * @param image {Object} src, alt and onClick callback configuration of the image to display.
  */
-const renderSuiLazyloadImage = (image) => (
+const renderSuiLazyloadImage = image => (
   <SuiLazyLoadImage
     debounce={false}
     offsetVertical={100}
     src={image.src}
     alt={image.alt}
     showSpinner
-    aspectRatio='1:1' />
+    aspectRatio='1:1'
+  />
 )
 
 /**
@@ -27,11 +27,16 @@ const renderSuiLazyloadImage = (image) => (
  * @param image {Object} src, alt and onClick callback configuration of the image to display.
  * @param index {Number} Order index of the li element to create.
  */
-const renderImageItem = (image, index) => (
-  image && <li className='sui-ListImage-item' key={index} onClick={ensureFunction(image.onClick)}>
-    {renderSuiLazyloadImage(image)}
-  </li>
-)
+const renderImageItem = (image, index) =>
+  image && (
+    <li
+      className='sui-ListImage-item'
+      key={index}
+      onClick={ensureFunction(image.onClick)}
+    >
+      {renderSuiLazyloadImage(image)}
+    </li>
+  )
 
 /**
  * Creates an special list item, which has a regular image and an additional cover box over it with customisable message
@@ -41,21 +46,36 @@ const renderImageItem = (image, index) => (
  * @param index {Number} Order index of the li element to create.
  * @param moreItemsBox {Object} Text and onClick callback configuration for the list-item to be created.
  */
-const renderImageWithMoreItemsBox = (image, index, moreItemsBox) => (
-  image && <li className='sui-ListImage-item' key={index} onClick={ensureFunction(moreItemsBox.onClick)}>
-    <div className='sui-ListImage-lastItemContainer'>
-      {renderSuiLazyloadImage(image)}
-      <div className='sui-ListImage-moreItemsBox'>
-        {moreItemsBox.label && <span className='sui-ListImage-moreItemsBoxLabel'>{moreItemsBox.label}</span>}
+const renderImageWithMoreItemsBox = (image, index, moreItemsBox) =>
+  image && (
+    <li
+      className='sui-ListImage-item'
+      key={index}
+      onClick={ensureFunction(moreItemsBox.onClick)}
+    >
+      <div className='sui-ListImage-lastItemContainer'>
+        {renderSuiLazyloadImage(image)}
+        <div className='sui-ListImage-moreItemsBox'>
+          {moreItemsBox.label && (
+            <span className='sui-ListImage-moreItemsBoxLabel'>
+              {moreItemsBox.label}
+            </span>
+          )}
+        </div>
       </div>
-    </div>
-  </li>
-)
+    </li>
+  )
 
 const ListImage = ({className, images, maxItems, moreItemsBox}) => (
   <ul className={cx('sui-ListImage', className)}>
     {images.slice(0, maxItems - 1).map(renderImageItem)}
-    {images.length > maxItems && !!moreItemsBox ? renderImageWithMoreItemsBox(images[maxItems - 1], maxItems - 1, moreItemsBox) : renderImageItem(images[maxItems - 1], maxItems - 1)}
+    {images.length > maxItems && !!moreItemsBox
+      ? renderImageWithMoreItemsBox(
+        images[maxItems - 1],
+        maxItems - 1,
+        moreItemsBox
+      )
+      : renderImageItem(images[maxItems - 1], maxItems - 1)}
   </ul>
 )
 

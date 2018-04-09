@@ -8,18 +8,20 @@ const scriptPromises = []
  * @param  {bool} isAsync
  * @return {Promise}
  */
-const loadScript = ({ src, verifier, isAsync }) => {
-  scriptPromises[src] = scriptPromises[src] || new Promise((resolve) => {
-    const isLoaded = verifier()
+const loadScript = ({src, verifier, isAsync}) => {
+  scriptPromises[src] =
+    scriptPromises[src] ||
+    new Promise(resolve => {
+      const isLoaded = verifier()
 
-    if (isLoaded) {
-      resolve(isLoaded)
-      return
-    }
+      if (isLoaded) {
+        resolve(isLoaded)
+        return
+      }
 
-    injectScript({src, isAsync})
-    waitUntil(verifier, resolve, DETECTION_DELAY)
-  })
+      injectScript({src, isAsync})
+      waitUntil(verifier, resolve, DETECTION_DELAY)
+    })
 
   return scriptPromises[src]
 }
@@ -30,7 +32,7 @@ const loadScript = ({ src, verifier, isAsync }) => {
  * @param  {bool} isAsync
  * @return {void}
  */
-const injectScript = ({ src, isAsync }) => {
+const injectScript = ({src, isAsync}) => {
   const script = document.createElement('script')
 
   script.src = src
@@ -58,4 +60,4 @@ const waitUntil = (truthyFn, callback, delay = 100, interval = 100) => {
   }, interval)
 }
 
-export { loadScript }
+export {loadScript}

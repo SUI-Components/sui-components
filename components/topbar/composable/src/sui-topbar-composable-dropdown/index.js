@@ -1,33 +1,37 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import cx from 'classnames'
 
 const EVENTS_TO_HANDLE = ['click', 'touchstart']
 
 export default class DropdownMenu extends Component {
-  state = { displayMenu: false }
+  state = {displayMenu: false}
 
   headerDOMEl = null
 
   componentDidMount () {
-    EVENTS_TO_HANDLE.forEach(event => document.body.addEventListener(event, this.closeMenu, false))
+    EVENTS_TO_HANDLE.forEach(event =>
+      document.body.addEventListener(event, this.closeMenu, false)
+    )
   }
 
   componentWillUnmount () {
-    EVENTS_TO_HANDLE.forEach(event => document.body.removeEventListener(event, this.closeMenu, false))
+    EVENTS_TO_HANDLE.forEach(event =>
+      document.body.removeEventListener(event, this.closeMenu, false)
+    )
   }
 
-  closeMenu = (e) => {
+  closeMenu = e => {
     if (e.target === this.headerDOMEl) {
       return
     }
 
     if (this.state.displayMenu === true) {
-      this.setState({ displayMenu: false })
+      this.setState({displayMenu: false})
     }
   }
 
-  toggle = (e) => {
+  toggle = e => {
     e.stopPropagation()
 
     this.setState({
@@ -53,15 +57,20 @@ export default class DropdownMenu extends Component {
         <div className='sui-DropdownMenu'>
           <div
             className='sui-DropdownMenu-header'
-            ref={node => { this.headerDOMEl = node }}
-            onClick={this.toggle}>
+            ref={node => {
+              this.headerDOMEl = node
+            }}
+            onClick={this.toggle}
+          >
             {this.props.icon}
-            {this.props.label && <span className='sui-DropdownMenu-headerMainLabel'>{this.props.label}</span>}
+            {this.props.label && (
+              <span className='sui-DropdownMenu-headerMainLabel'>
+                {this.props.label}
+              </span>
+            )}
             {this.props.caret}
           </div>
-          <ul className={visibleDropdown}>
-            {this.props.entries}
-          </ul>
+          <ul className={visibleDropdown}>{this.props.entries}</ul>
         </div>
       </div>
     )

@@ -1,6 +1,6 @@
 # AtomLabel
 
-> Description
+> The Label is the name of the associated field, that explains what is the about. It should be clear, concise and short.
 
 <!-- ![](./assets/preview.png) -->
 
@@ -20,4 +20,4 @@ return (<AtomLabel />)
 ```
 
 
-> **Find full description and more examples in the [demo page](#).**
+> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/label/demo).**

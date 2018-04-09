@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const AtomLabel = ({name, text, optional}) => (
+const AtomLabel = ({name, text, optionalText}) => (
   <label htmlFor={name} className='sui-AtomLabel'>
     {text}
-    <span className='sui-AtomLabel-optional'>
-      {optional}
+    <span className='sui-AtomLabel-optionalText'>
+      {optionalText}
     </span>
   </label>
 )
@@ -13,14 +13,22 @@ const AtomLabel = ({name, text, optional}) => (
 AtomLabel.displayName = 'AtomLabel'
 
 AtomLabel.defaultProps = {
-  optional: '(optional)'
+  optionalText: '(optional)'
 }
 
 AtomLabel.propTypes = {
+  /**
+   * used as for attribute. Must be the same as the form element id
+   */
   name: PropTypes.string.isRequired,
-  children: PropTypes.node,
+  /**
+   * The label itself
+   */
   text: PropTypes.string.isRequired,
-  optional: PropTypes.string,
+  /**
+   * The optional label text
+   */
+  optionalText: PropTypes.string,
 }
 
 export default AtomLabel

@@ -16,7 +16,14 @@ $ npm install @schibstedspain/sui-atom-helpText --save
 ```js
 import AtomHelpText from '@schibstedspain/sui-atom-helpText'
 
-return (<AtomHelpText />)
+return (
+  <div>
+    <input style={input}
+      type='text'
+    />
+    <AtomHelpText text='hello help text'/>
+  </div>
+)
 ```
 
 

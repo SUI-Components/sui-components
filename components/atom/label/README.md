@@ -16,7 +16,17 @@ $ npm install @s-ui/react-atom-label --save
 ```js
 import AtomLabel from '@s-ui/react-atom-label'
 
-return (<AtomLabel />)
+return (
+  <div>
+    <AtomLabel
+      name='atomLabelName'
+      for='labelName'
+      text='Hello label'
+      optional='(optional text)' />
+
+    <input id='atomLabelName' type='text' />
+  </div>
+)
 ```
 
 

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2018-04-09)
+
+
+### Features
+
+* add onFocus handler. ([488737e](https://github.com/SUI-Components/sui-components/commit/488737e))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2018-03-07)
 

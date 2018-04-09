@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import InputLabel from './Label'
+import AtomLabel from '@s-ui/react-atom-label'
 import Addon, {AddonTypes} from './Addon'
 import VerificationText, {getVerificationClass, VERIFICATION_TYPES} from './VerificationText'
 
@@ -27,22 +27,26 @@ const getClassNames = ({size, verificationText, verificationType}) =>
 
 const InputWrapper = (props) => {
   const {
-    name,
-    label,
+    addonLeft,
+    addonRight,
     children,
     helpText,
+    label,
+    name,
+    optionalText,
     size,
-    verificationType,
     verificationText,
-    addonLeft,
-    addonRight
+    verificationType,
   } = props
 
   return (
     <div className={getClassNames({size, verificationText, verificationType})}>
-      <InputLabel name={name}>
-        {label}
-      </InputLabel>
+      <AtomLabel
+        name={name}
+        for='labelName'
+        text={label}
+        optional={optionalText} />
+
       <div className={getInputClass({size})}>
         { addonLeft && <Addon label={addonLeft} type={AddonTypes.LEFT} /> }
         { children }
@@ -58,15 +62,16 @@ const InputWrapper = (props) => {
 }
 
 InputWrapper.propTypes = {
-  name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  addonLeft: PropTypes.string,
+  addonRight: PropTypes.string,
   children: PropTypes.node.isRequired,
-  size: PropTypes.oneOf(Object.values(SIZES)),
   helpText: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  optionalText: PropTypes.string,
+  size: PropTypes.oneOf(Object.values(SIZES)),
   verificationText: PropTypes.string,
   verificationType: PropTypes.oneOf(Object.values(VERIFICATION_TYPES)),
-  addonRight: PropTypes.string,
-  addonLeft: PropTypes.string
 }
 
 InputWrapper.defaultProps = {

@@ -1,42 +1,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
-
-.sui-MoleculeAutosuggest-List {
-
-  height: 184px;
-  width: 314px;
-  border: solid 1px #bbbbbb;
-  overflow-y: auto;
-
-  &-large {
-    height: 266px;
-  }
-
-  &-hidden {
-    display: none;
-  }
-
-  &-row {
-    height: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 16px;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: left;
-    color: #000000;
-    &-item--highlighted {
-      color: red
-    }
-  }
-
-  &-row.focus {
-    background-color: #c9e3ef;
-  }
-}
-
+@import './list/index';
 
 .sui-MoleculeAutosuggest {
-  // Do your magic
 
   &-input-container {
     border: 1px solid black;

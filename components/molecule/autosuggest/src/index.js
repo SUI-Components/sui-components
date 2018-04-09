@@ -1,23 +1,23 @@
 /*
  TODO
- - comprobar que el foco de la lista va bien
- - se cierra el listado sugerido si se hace click en cualquier sitio de la pagina
- - la lista de sugerencias, si un termino es mas largo de lo que se neceista se truncara
- - sort funciton personalizado
- - listado con sugeridos recientes. Guardados en la sesion, se pueden borrar y limitados a 3
- - listado con terminos personalizados. Se anaden a la lista de sugeridos tambien
- - multiselect con etiquetas
- - que se puedan configurar los iconos
- - cosas del responsive
+ - check focus order
+ - arrows not working properly
+ - suggested list, remove items. default items, check integrity
+ - personal items on the list written by the user
+ - Get New Component for input tags and inlcude it on the solution
+ - Get New Component for label and include on the solution
+ - Custom icons
+ - responsive
  - sass
  - add new model as input
  - cambiar a funciones stateles
+ - ie 11
  */
 
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import OptionShown from './model'
-import MoleculeSelectList from './list'
+import MoleculeSelectList from './list/index'
 
 const BASE_CLASS = 'sui-MoleculeAutosuggest'
 
@@ -43,6 +43,7 @@ class MoleculeAutosuggest extends Component {
   listBehaviour = LIST_BEHAVIOURS.ON_FOCUS
   valueBeforeFocus = null
   labelToOptionPosition = []
+  uniqueId = 'sui-MoleculeAutosuggest'
 
   state = {
     currentInput: '',
@@ -55,31 +56,29 @@ class MoleculeAutosuggest extends Component {
 
   constructor (props) {
     super(props)
-    const {options, listSize, listBehaviour} = props
+    const {options, listSize, listBehaviour, sortFunction} = props
     this.listSize = listSize
     this.listBehaviour = listBehaviour
-    options.sort((a, b) => {
-      const nA = isoString(a.label)
-      const nB = isoString(b.label)
-      if (nA > nB) {
-        return 1
-      }
-      if (nA < nB) {
-        return -1
-      }
-      // a must be equal to b
-      return 0
-    })
+    if (sortFunction) {
+      this._sortFunction = sortFunction
+    }
+
+    let localOptions = options.slice(0)
+
+    localOptions.sort(this._sortFunction)
 
     // guardar en un buffer y asignarlo luego
 
-    for (let i = 0; i < options.length; i++) {
-      const isoLabel = isoString(options[i].label)
-      this.state.options.push(options[i])
+    for (let i = 0; i < localOptions.length; i++) {
+      const isoLabel = isoString(localOptions[i].label)
+      this.state.options.push(localOptions[i])
       this.state.optionsStandard.push(isoLabel)
-      this.state.optionsShown.push(MoleculeAutosuggest.formatOption(options[i].value, options[i].label, i))
+      this.state.optionsShown.push(MoleculeAutosuggest.formatOption(localOptions[i].value, localOptions[i].label, i))
       this.labelToOptionPosition[isoLabel] = i
     }
+
+    this.uniqueId = this.uniqueId + '-' + Math.floor((Math.random() * 1000) + 1)
+    document.body.addEventListener('click', this.handleAnyClick, true)
   }
 
   static formatOption (value, label, position, highStart = 0, highEnd = 0) {
@@ -110,6 +109,19 @@ class MoleculeAutosuggest extends Component {
 
   classForCancelSearch () {
     return (this.state.currentInput.length > 0) ? '' : 'hide'
+  }
+
+  _sortFunction = (a, b) => {
+    const nA = isoString(a.label)
+    const nB = isoString(b.label)
+    if (nA > nB) {
+      return 1
+    }
+    if (nA < nB) {
+      return -1
+    }
+    // a must be equal to b
+    return 0
   }
 
   _handleChange = (event) => {
@@ -164,6 +176,10 @@ class MoleculeAutosuggest extends Component {
   }
 
   onFocusRow = (element) => () => {
+    if (!element) {
+      return
+    }
+
     if (!this.valueBeforeFocus) {
       this.valueBeforeFocus = this.state.currentInput
     }
@@ -177,13 +193,18 @@ class MoleculeAutosuggest extends Component {
     }
   }
 
-  onBlurInput = () => {
-    this.setState({showList: false})
+  handleAnyClick = (ev) => {
+    if (document.querySelector('#' + this.uniqueId + ' > div') && !document.querySelector('#' + this.uniqueId + ' > div').contains(ev.target)) {
+      this.setState({showList: false})
+    }
   }
 
   render () {
     return (
-      <div className='sui-MoleculeAutosuggest'>
+      <div
+        className='sui-MoleculeAutosuggest'
+        id={this.uniqueId}
+      >
         <label>Test</label>
 
         <div className={BASE_CLASS + '-input-container'}>
@@ -234,6 +255,11 @@ MoleculeAutosuggest.propTypes = {
    * '3_keys': 3 Keys
    */
   listBehaviour: PropTypes.oneOf(Object.values(LIST_BEHAVIOURS)),
+  /**
+   * sort function
+   */
+  sortFunction: PropTypes.any,
+
 }
 MoleculeAutosuggest.defaultProps = {
   options: [],

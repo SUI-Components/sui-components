@@ -5,6 +5,11 @@ class OptionShown {
   highlighEnd = 0
   position = 0
   focus = false
+  featured = false
+
+  getId () {
+    return this.getValue() + '' + ((this.featured) ? '_featured_' : '')
+  }
 
   constructor (value, label, position) {
     this.str = label
@@ -12,21 +17,39 @@ class OptionShown {
     this.position = position
   }
 
+  getHighlight () {
+    return [this.highlighStart, this.highlighEnd]
+  }
+
   setHightlihgt (start, end) {
     this.highlighStart = parseInt(start)
     this.highlighEnd = parseInt(end)
+  }
+
+  isHighlited () {
+    return this.highlighStart < this.highlighEnd
   }
 
   getPosition () {
     return this.position
   }
 
+  setPosition (pos) {
+    this.position = pos
+  }
+
   getString () {
     return this.str
   }
 
-  isHighlited () {
-    return this.highlighStart < this.highlighEnd
+  getStringTruncated () {
+    const lenght = 35
+
+    if (this.getString().length <= lenght) {
+      return this.getString()
+    }
+    const trimmed = this.getString().substring(0, Math.min(lenght, this.getString().length))
+    return trimmed + '...'
   }
 
   getFirstPartString () {
@@ -51,6 +74,14 @@ class OptionShown {
 
   resetFocus () {
     this.focus = false
+  }
+
+  featuredRow () {
+    this.featured = true
+  }
+
+  isFeatured () {
+    return this.featured
   }
 
   getValue () {

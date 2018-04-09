@@ -47,7 +47,8 @@ const options = [
     { value: 'ZA', label: 'Zamora' },
     { value: 'Z', label: 'Zaragoza' },
     { value: 'CE', label: 'Ceuta' },
-    { value: 'ML', label: 'Melilla' }
+    { value: 'ML', label: 'Melilla' },
+    { value: 'LARGE', label: 'Super large option. This is a super large option.' },
 ];
 
 return (<MoleculeAutosuggest options={options} placeholder="This is a test" listSize="large" listBehaviour="focus" />)

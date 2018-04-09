@@ -5,12 +5,8 @@
   @include form-field(input);
   @include field-size(input);
 
-  &-input-wrapper {
+  &-inputWrapper {
     display: flex;
-  }
-
-  &-help-text {
-    @include help-text;
   }
 }
 

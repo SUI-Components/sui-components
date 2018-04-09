@@ -14,8 +14,8 @@ const SIZES = {
 
 const getInputClass = ({size}) => {
   return cx(
-    `${BASE_CLASS}-input-wrapper`,
-    `${BASE_CLASS}-${size}`
+    `${BASE_CLASS}-inputWrapper`,
+    `${BASE_CLASS}--${size}`
   )
 }
 

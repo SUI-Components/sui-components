@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-atom-helpText --save
+$ npm install @s-ui/react-atom-help-text --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import AtomHelpText from '@schibstedspain/sui-atom-helpText'
+import AtomHelpText from '@s-ui/react-atom-help-text'
 
 return (
   <div>

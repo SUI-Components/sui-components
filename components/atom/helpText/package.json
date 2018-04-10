@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-atom-helpText",
+  "name": "@s-ui/react-atom-help-text",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

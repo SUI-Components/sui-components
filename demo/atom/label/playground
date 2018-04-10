@@ -1,0 +1,11 @@
+return (
+  <div>
+    <AtomLabel
+      name='atomLabelName'
+      for='labelName'
+      text='Hello label'
+      optional='(optional text)' />
+
+    <input id='atomLabelName' type='text' />
+  </div>
+)

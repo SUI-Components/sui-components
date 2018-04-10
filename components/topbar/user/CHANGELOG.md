@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.24.0"></a>
+# 1.24.0 (2018-04-10)
+
+
+### Features
+
+* getting if user nav should be displayed ([410b061](https://github.com/SUI-Components/sui-components/commit/410b061))
+
+
+
 <a name="1.23.0"></a>
 # 1.23.0 (2017-12-05)
 

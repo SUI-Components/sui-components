@@ -161,7 +161,8 @@ class TopbarUser extends Component {
       navMain,
       navUser,
       navCTA,
-      linkFactory: Link
+      linkFactory: Link,
+      shouldDisplayNavUser
     } = this.props
     const { name: brandName, url: brandUrl } = brand
     const { avatar, name, menu } = navUser
@@ -205,14 +206,14 @@ class TopbarUser extends Component {
                   </Link>
                 </div>
               </div>
-              <div className='sui-TopbarUser-navUser'>
+              { shouldDisplayNavUser && <div className='sui-TopbarUser-navUser'>
                 <DropdownUser
                   user={{ avatar, name }}
                   menu={menu}
                   expandOnMouseOver
                   hasNotifications={hasNotifications && !menuExpanded}
                 />
-              </div>
+              </div> }
             </div>
           </div>
         </div>
@@ -289,6 +290,10 @@ TopbarUser.propTypes = {
     }))
   })),
   /**
+   * Dropdown user visibility
+   */
+  shouldDisplayNavUser: PropTypes.bool,
+  /**
    * Dropdown user object.
    */
   navUser: PropTypes.shape({
@@ -347,6 +352,7 @@ TopbarUser.propTypes = {
 }
 
 TopbarUser.defaultProps = {
+  shouldDisplayNavUser: true,
   toggleIcon: Menu,
   linkFactory: ({ href, className, children, title }) =>
     <a href={href} className={className} title={title}>{children}</a>,

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2018-03-12)
+
+
+### Features
+
+* use separated imports to avoid downloading all icons from package. ([abb49b8](https://github.com/SUI-Components/sui-components/commit/abb49b8))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-03-07)
 

@@ -58,8 +58,11 @@ const AtomButton = (props) => {
   const newProps = cleanProps(props)
 
   const Button = ({ children, href, target, disabled, ...attrs }) => link
-    ? <Link {...attrs} href={href} target={target} >{children}</Link>
-    : <button {...attrs} disabled={disabled}>{children}</button>
+    ? (
+      <Link {...attrs} href={href} target={target} rel={target === '_blank' && 'noopener'}>
+        {children}
+      </Link>
+    ) : <button {...attrs} disabled={disabled}>{children}</button>
 
   return (
     <Button {...newProps} className={classNames} title={title} disabled={disabled}>

@@ -1,0 +1,11 @@
+@import '~@schibstedspain/sui-theme/lib/settings';
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$c-help-text: $c-gray-light !default;
+
+.sui-AtomHelpText {
+  color: $c-help-text;
+  display: block;
+  font-size: $fz-xs;
+  margin: $m-s 0 0;
+}

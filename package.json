@@ -50,9 +50,10 @@
       "compliant": [
         "atom/badge",
         "atom/button",
-        "atom/input",
         "atom/panel",
+        "atom/spinner",
         "atom/tag",
+        "atom/validationText",
         "breadcrumb/basic",
         "molecule/tabs"
       ]

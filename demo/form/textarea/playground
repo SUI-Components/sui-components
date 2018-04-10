@@ -21,6 +21,7 @@ class SampleForm extends React.Component {
         placeholder='This message specifies a short hint that describes the expected value of the text area.'
         rows={6}
         value={this.state.textareaValue}
+        onFocus={() => {console.log('On focus handler!')}}
         onChange={this._handleChange} />
     )
   }

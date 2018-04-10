@@ -63,7 +63,7 @@
 
   &--top {
     left: 0;
-    position: absolute;
+    position: fixed;
     top: 0;
     width: $w-notification;
     z-index: $z-notification;
@@ -72,7 +72,7 @@
   &--bottom {
     bottom: 0;
     left: 0;
-    position: absolute;
+    position: fixed;
     width: $w-notification;
     z-index: $z-notification;
   }

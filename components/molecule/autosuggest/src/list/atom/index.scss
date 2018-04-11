@@ -5,10 +5,10 @@
     cursor: pointer;
     font-size: 16px;
     text-align: left;
-    color: #000000;
+    color: $c-system;
 
     &-item--highlighted {
-      color: red
+      color: $c-error;
     }
   }
 
@@ -24,6 +24,6 @@
   }
 
   &-row-focus {
-    background-color: #c9e3ef;
+    background-color: $c-primary-light;
   }
 }

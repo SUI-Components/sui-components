@@ -1,4 +1,4 @@
-class OptionShown {
+export default class OptionShown {
   value
   str
   highlighStart = 0
@@ -88,5 +88,3 @@ class OptionShown {
     return this.value
   }
 }
-
-export default OptionShown

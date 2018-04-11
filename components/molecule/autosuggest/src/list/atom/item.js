@@ -26,7 +26,7 @@ AtomListItem.displayName = 'AtomListItem'
 
 AtomListItem.propTypes = {
   /**
-   * Options list
+   *  Option to be shown following model OptionShown
    */
   option: PropTypes.any,
   /**

@@ -1,17 +1,11 @@
 /*
  TODO
  - check focus order
- - arrows not working properly
- - suggested list, remove items. default items, check integrity
- - personal items on the list written by the user
  - Get New Component for input tags and inlcude it on the solution
  - Get New Component for label and include on the solution
- - Custom icons
  - responsive
- - sass
- - add new model as input
- - cambiar a funciones stateles
  - ie 11
+ - readme
  */
 
 import React, { Component } from 'react'
@@ -32,6 +26,27 @@ const LIST_BEHAVIOURS = {
   ON_3_KEYS: '3_keys',
 }
 
+// help functions
+function reworkOptionList (input, options, optionsStandard) {
+  const toSearch = isoString(input)
+
+  let buffer = []
+
+  for (let i = 0; i < optionsStandard.length; i++) {
+    const idx = optionsStandard[i].indexOf(toSearch)
+    if (idx > -1) {
+      let option = MoleculeAutosuggest.formatOption(options[i].value, options[i].label, i)
+      option.setHightlihgt(idx, idx + toSearch.length)
+      if (toSearch === optionsStandard[i]) {
+        option.focusRow()
+      }
+      buffer.push(option)
+    }
+  }
+
+  return buffer
+}
+
 // const TYPES_
 
 function isoString (str) {
@@ -45,6 +60,10 @@ class MoleculeAutosuggest extends Component {
   labelToOptionPosition = []
   uniqueId = 'sui-MoleculeAutosuggest'
 
+  iconRemoveItemFeatured
+  iconItemFeatured
+  iconCleanInput
+
   state = {
     currentInput: '',
     optionsShown: [],
@@ -56,7 +75,12 @@ class MoleculeAutosuggest extends Component {
 
   constructor (props) {
     super(props)
-    const {options, listSize, listBehaviour, sortFunction} = props
+    const {options, listSize, listBehaviour, sortFunction, iconRemoveItemFeatured, iconItemFeatured, iconCleanInput} = props
+
+    this.iconRemoveItemFeatured = iconRemoveItemFeatured
+    this.iconItemFeatured = iconItemFeatured
+    this.iconCleanInput = (iconCleanInput) || IconClean
+
     this.listSize = listSize
     this.listBehaviour = listBehaviour
     if (sortFunction) {
@@ -87,26 +111,6 @@ class MoleculeAutosuggest extends Component {
     return opt
   }
 
-  static reworkOptionList (input, options, optionsStandard) {
-    const toSearch = isoString(input)
-
-    let buffer = []
-
-    for (let i = 0; i < optionsStandard.length; i++) {
-      const idx = optionsStandard[i].indexOf(toSearch)
-      if (idx > -1) {
-        let option = MoleculeAutosuggest.formatOption(options[i].value, options[i].label, i)
-        option.setHightlihgt(idx, idx + toSearch.length)
-        if (toSearch === optionsStandard[i]) {
-          option.focusRow()
-        }
-        buffer.push(option)
-      }
-    }
-
-    return buffer
-  }
-
   classForCancelSearch () {
     return (this.state.currentInput.length > 0) ? '' : 'hide'
   }
@@ -124,11 +128,11 @@ class MoleculeAutosuggest extends Component {
     return 0
   }
 
-  _handleChange = (event) => {
+  handleChange = (event) => {
     const value = event.target.value
     let state = {
       currentInput: value,
-      optionsShown: MoleculeAutosuggest.reworkOptionList(value, this.state.options, this.state.optionsStandard)
+      optionsShown: reworkOptionList(value, this.state.options, this.state.optionsStandard)
     }
 
     const length = event.target.value.length
@@ -155,11 +159,11 @@ class MoleculeAutosuggest extends Component {
   cancelSearch = () => {
     this.setState({
       currentInput: '',
-      optionsShown: MoleculeAutosuggest.reworkOptionList('', this.state.options, this.state.optionsStandard)
+      optionsShown: reworkOptionList('', this.state.options, this.state.optionsStandard)
     })
   }
 
-  _onClickRow = (element) => () => {
+  onClickRow = (element) => () => {
     this.valueBeforeFocus = null
     this.setState(
       {
@@ -200,6 +204,58 @@ class MoleculeAutosuggest extends Component {
   }
 
   render () {
+    const moleculeListResolved = function () {
+      if (this.iconRemoveItemFeatured && this.iconItemFeatured) {
+        return (
+          <MoleculeSelectList
+            options={this.state.optionsShown}
+            onClickRow={this.onClickRow}
+            onFocusRow={this.onFocusRow}
+            isCollapsed={!this.state.showList}
+            size={this.listSize}
+            onLeave={this.onLeaveList}
+            iconRemoveItemFeatured={this.iconRemoveItemFeatured}
+            iconItemFeatured={this.iconItemFeatured}
+          />
+        )
+      } else if (this.iconRemoveItemFeatured) {
+        return (
+          <MoleculeSelectList
+            options={this.state.optionsShown}
+            onClickRow={this.onClickRow}
+            onFocusRow={this.onFocusRow}
+            isCollapsed={!this.state.showList}
+            size={this.listSize}
+            onLeave={this.onLeaveList}
+            iconRemoveItemFeatured={this.iconRemoveItemFeatured}
+          />
+        )
+      } else if (this.iconItemFeatured) {
+        return (
+          <MoleculeSelectList
+            options={this.state.optionsShown}
+            onClickRow={this.onClickRow}
+            onFocusRow={this.onFocusRow}
+            isCollapsed={!this.state.showList}
+            size={this.listSize}
+            onLeave={this.onLeaveList}
+            iconItemFeatured={this.iconItemFeatured}
+          />
+        )
+      } else {
+        return (
+          <MoleculeSelectList
+            options={this.state.optionsShown}
+            onClickRow={this.onClickRow}
+            onFocusRow={this.onFocusRow}
+            isCollapsed={!this.state.showList}
+            size={this.listSize}
+            onLeave={this.onLeaveList}
+          />
+        )
+      }
+    }.bind(this)
+
     return (
       <div
         className='sui-MoleculeAutosuggest'
@@ -212,20 +268,13 @@ class MoleculeAutosuggest extends Component {
             type='text'
             value={this.state.currentInput}
             placeholder={this.props.placeholder}
-            onChange={this._handleChange}
+            onChange={this.handleChange}
             onSelect={this.onSelectInput}
           />
-          <span className={this.classForCancelSearch()} onClick={this.cancelSearch}>X</span>
+          <span className={this.classForCancelSearch()} onClick={this.cancelSearch}>{this.iconCleanInput()}</span>
         </div>
 
-        <MoleculeSelectList
-          options={this.state.optionsShown}
-          onClickRow={this._onClickRow}
-          onFocusRow={this.onFocusRow}
-          isCollapsed={!this.state.showList}
-          size={this.listSize}
-          onLeave={this.onLeaveList}
-        />
+        {moleculeListResolved()}
       </div>
     )
   }
@@ -259,6 +308,18 @@ MoleculeAutosuggest.propTypes = {
    * sort function
    */
   sortFunction: PropTypes.any,
+  /**
+   * Icon on a function returning rxjs. Action is to removed featured items from the list
+   */
+  iconRemoveItemFeatured: PropTypes.any,
+  /**
+   * Icon on a function returning rxjs. This icon is to mark a featured item
+   */
+  iconItemFeatured: PropTypes.any,
+  /**
+   * Icon on a function returning rxjs. Action is to clean input data
+   */
+  iconCleanInput: PropTypes.any,
 
 }
 MoleculeAutosuggest.defaultProps = {
@@ -269,3 +330,25 @@ MoleculeAutosuggest.defaultProps = {
 }
 
 export default MoleculeAutosuggest
+
+const IconClean = function () {
+  return (
+    <svg width='14px' height='14px' viewBox='0 0 14 14' version='1.1'>
+      <g id='Page-1' stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
+        <g id='icon-fill-close' transform='translate(-5.000000, -5.000000)'>
+          <g id='Clipped' transform='translate(5.000000, 5.000000)'>
+            <mask id='mask-5' fill='white'>
+              <path d='M8.42,7 L13.21,2.2 C13.5497768,1.80323972 13.5269323,1.21180583 13.1575632,0.842436779 C12.7881942,0.47306773 12.1967603,0.450223204 11.8,0.79 L7,5.58 L2.21,0.79 C1.81323972,0.450223204 1.22180583,0.47306773 0.852436779,0.842436779 C0.48306773,1.21180583 0.460223204,1.80323972 0.8,2.2 L5.59,7 L0.8,11.79 C0.51462384,12.0343899 0.390318056,12.4181184 0.478189865,12.783419 C0.566061674,13.1487195 0.85128045,13.4339383 1.21658103,13.5218101 C1.5818816,13.6096819 1.96561012,13.4853762 2.21,13.2 L7,8.41 L11.8,13.2 C12.1967603,13.5397768 12.7881942,13.5169323 13.1575632,13.1475632 C13.5269323,12.7781942 13.5497768,12.1867603 13.21,11.79 L8.42,7 Z' />
+            </mask>
+            <g id='a' />
+            <g id='Group' mask='url(#mask-5)' fill='#777777' fillRule='nonzero'>
+              <g transform='translate(-5.000000, -5.000000)' id='Shape'>
+                <polygon points='0 0 24 0 24 24 0 24' />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
+  )
+}

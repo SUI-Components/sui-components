@@ -1,12 +1,11 @@
 @import './atom/index';
 
 .sui-MoleculeAutosuggest-List {
-
   height: 184px;
   width: 314px;
   border: solid 1px #bbbbbb;
   overflow-y: auto;
-  background-color: white;
+  background-color: $c-white;
 
   &-large {
     height: 266px;

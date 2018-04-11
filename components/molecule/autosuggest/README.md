@@ -16,7 +16,18 @@ $ npm install @schibstedspain/sui-molecule-autosuggest --save
 ```js
 import MoleculeAutosuggest from '@schibstedspain/sui-molecule-autosuggest'
 
-return (<MoleculeAutosuggest />)
+return (
+    <MoleculeAutosuggest
+          options={[]}
+          placeholder="test"
+          listSize={}
+          listBehaviour={}
+          sortFunction={}
+          iconRemoveItemFeatured={}
+          iconItemFeatured={}
+          iconCleanInput={}
+
+    />)
 ```
 
 

@@ -28,7 +28,7 @@ AtomListItemHighlighted.displayName = 'AtomListItemHighlighted'
 
 AtomListItemHighlighted.propTypes = {
   /**
-   * Options list
+   * Hihglihted option to be shown following model OptionShown
    */
   option: PropTypes.any,
   /**

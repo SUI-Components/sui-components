@@ -11,17 +11,30 @@ const SIZES = {
   LARGE: 'large'
 }
 
+function getCurrentTime () {
+  const date = new Date()
+  return date.getTime()
+}
+
 class MoleculeSelectList extends Component {
   numberOfFeaturedItems = 0
   optionsReference = []
+  lastFocusElementPosition = 0
+  lastTimeArrowIsBinded = 0
+  maxFeaturedItems = 3
+  iconRemoveItemFeatured
+  iconItemFeatured
 
   constructor (props) {
     super(props)
-    const {onClickRow, onFocusRow, onLeave, isCollapsed, options, listSize} = props
+    const {onClickRow, onFocusRow, onLeave, isCollapsed, options, listSize, iconRemoveItemFeatured, iconItemFeatured} = props
     this.callbackOnClickRow = onClickRow
     this.callbackOnLeave = onLeave
     this.callbackOnFocusRow = onFocusRow
+    this.iconRemoveItemFeatured = iconRemoveItemFeatured
+    this.iconItemFeatured = iconItemFeatured
     this.optionsReference = options
+
     this.state = {
       isCollapsed: isCollapsed,
       options: this.reworkOptionsWithFeatured(options)
@@ -57,7 +70,7 @@ class MoleculeSelectList extends Component {
     })
 
     optionsClickedBefore.sort((a, b) => { return a[0] < b[0] })
-    const lastFeatured = (counter > 3) ? 3 : counter
+    const lastFeatured = (counter > this.maxFeaturedItems) ? this.maxFeaturedItems : counter
     let buffer = []
     for (let i = 0; i < lastFeatured; i++) {
       let featured1 = new OptionShown(
@@ -71,7 +84,7 @@ class MoleculeSelectList extends Component {
       buffer.push(featured1)
     }
 
-    this.numberOfFeaturedItems = lastFeatured + 1
+    this.numberOfFeaturedItems = lastFeatured
 
     for (let i = 0; i < options.length; i++) {
       options[i].setPosition(i + this.numberOfFeaturedItems)
@@ -94,9 +107,17 @@ class MoleculeSelectList extends Component {
       window.sessionStorage.setItem(name, 0)
     }
 
-    window.sessionStorage[name] = parseInt(window.sessionStorage['sui-MoleculeAutosuggest-List-selects-counter-' + element.getId()]) + 1
+    window.sessionStorage[name] = parseInt(window.sessionStorage[MoleculeSelectList.nameForSessionStorage(element)]) + 1
 
     this.callbackOnClickRow(element)()
+  }
+
+  _removeFeatureItem = (element) => () => {
+    this.maxFeaturedItems--
+    const nameOnCache = MoleculeSelectList.nameForSessionStorage(element).replace('_featured_', '')
+    window.sessionStorage.removeItem(nameOnCache)
+
+    this.setState({options: this.reworkOptionsWithFeatured(this.optionsReference)})
   }
 
   _onFocusRow = (element) => () => {
@@ -104,17 +125,21 @@ class MoleculeSelectList extends Component {
       return
     }
 
+    if ((getCurrentTime() - this.lastTimeArrowIsBinded) <= 500) {
+      return
+    }
+
     let buffer = this.state.options
     buffer.forEach((el) => {
       if (element.getId() === el.getId()) {
         el.focusRow()
+        this.lastFocusElementPosition = el.getPosition()
       } else {
         el.resetFocus()
       }
     })
 
     this.callbackOnFocusRow(element)()
-
     this.setState({options: buffer})
   }
 
@@ -131,10 +156,12 @@ class MoleculeSelectList extends Component {
       case 'ArrowDown':
         this.focusNextItem()
         event.preventDefault()
+        this.lastTimeArrowIsBinded = getCurrentTime()
         break
       case 'ArrowUp':
         this.focusNextItem(true)
         event.preventDefault()
+        this.lastTimeArrowIsBinded = getCurrentTime()
         break
       case 'Enter':
         for (let i = 0; i < this.state.options.length; i++) {
@@ -151,36 +178,36 @@ class MoleculeSelectList extends Component {
 
   focusNextItem (previous = false) {
     let buffer = this.state.options
-    let lastFocus = -1
 
     for (let i = 0; i < buffer.length; i++) {
       if (buffer[i].isFocus()) {
         buffer[i].resetFocus()
-        console.log('PositionL: ' + buffer[i].getPosition())
-        lastFocus = i
-        break
       }
     }
-
-    console.log(lastFocus)
-    console.log(buffer[lastFocus])
+    let lastFocus = this.lastFocusElementPosition
 
     let nextFocus = (previous) ? lastFocus - 1 : lastFocus + 1
+    let nextScroll = (previous)
+      ? (document.getElementById(BASE_CLASS + '-id').scrollTop - 40)
+      : (document.getElementById(BASE_CLASS + '-id').scrollTop + 40)
 
     if (nextFocus < 0) {
       nextFocus = buffer.length - 1
+      nextScroll = (buffer.length - 1) * 40
     } else if (nextFocus > (buffer.length - 1)) {
       nextFocus = 0
+      nextScroll = 0
     }
-
-    console.log(nextFocus)
-    console.log('New PositionL: ' + buffer[nextFocus].getPosition())
 
     buffer[nextFocus].focusRow()
 
-    this.setState({options: buffer})
+    this.lastTimeArrowIsBinded = 0
+    this.lastFocusElementPosition = nextFocus
+
     this._onFocusRow(buffer[nextFocus])()
-    document.getElementById(BASE_CLASS + '-id').scrollTop = (nextFocus + this.numberOfFeaturedItems) * 40
+    this.setState({options: buffer})
+
+    document.getElementById(BASE_CLASS + '-id').scrollTop = nextScroll
   }
 
   render () {
@@ -188,13 +215,57 @@ class MoleculeSelectList extends Component {
       ? (this.state.isCollapsed) ? cx(BASE_CLASS, BASE_CLASS + '-hidden', BASE_CLASS + '-large') : cx(BASE_CLASS, BASE_CLASS + '-large')
       : (this.state.isCollapsed) ? cx(BASE_CLASS, BASE_CLASS + '-hidden') : cx(BASE_CLASS)
 
+    const atomListWrapper = function () {
+      if (this.iconRemoveItemFeatured && this.iconItemFeatured) {
+        return (
+          <AtomListRows
+            options={this.state.options}
+            onFocusCallback={this._onFocusRow}
+            onClickCallback={this._onClickRow}
+            removeFeatureItem={this._removeFeatureItem}
+            iconRemoveItemFeatured={this.iconRemoveItemFeatured}
+            iconItemFeatured={this.iconItemFeatured}
+          />
+        )
+      } else if (this.iconRemoveItemFeatured) {
+        return (
+          <AtomListRows
+            options={this.state.options}
+            onFocusCallback={this._onFocusRow}
+            onClickCallback={this._onClickRow}
+            removeFeatureItem={this._removeFeatureItem}
+            iconRemoveItemFeatured={this.iconRemoveItemFeatured}
+          />
+        )
+      } else if (this.iconItemFeatured) {
+        return (
+          <AtomListRows
+            options={this.state.options}
+            onFocusCallback={this._onFocusRow}
+            onClickCallback={this._onClickRow}
+            removeFeatureItem={this._removeFeatureItem}
+            iconItemFeatured={this.iconItemFeatured}
+          />
+        )
+      } else {
+        return (
+          <AtomListRows
+            options={this.state.options}
+            onFocusCallback={this._onFocusRow}
+            onClickCallback={this._onClickRow}
+            removeFeatureItem={this._removeFeatureItem}
+          />
+        )
+      }
+    }.bind(this)
+
     return (
       <div
         onMouseLeave={this.callbackOnLeave}
         className={className}
         id={BASE_CLASS + '-id'}
       >
-        <AtomListRows options={this.state.options} onFocusCallback={this._onFocusRow} onClickCallback={this._onClickRow} />
+        {atomListWrapper()}
       </div>
     )
   }
@@ -202,7 +273,7 @@ class MoleculeSelectList extends Component {
 
 MoleculeSelectList.propTypes = {
   /**
-   * Placeholder for string
+   * Options list
    */
   options: PropTypes.array,
   /**
@@ -210,15 +281,15 @@ MoleculeSelectList.propTypes = {
    */
   onClickRow: PropTypes.any,
   /**
-   * Callback when a row is click
+   * Callback when a row is left
    */
   onLeave: PropTypes.any,
   /**
-   * Callback when a row is click
+   * Callback when a row is focus
    */
   onFocusRow: PropTypes.any,
   /**
-   * Whenever is show
+   * Whenever list is shown
    */
   isCollapsed: PropTypes.bool,
   /**
@@ -227,6 +298,14 @@ MoleculeSelectList.propTypes = {
    * 'LARGE': Large
    */
   listSize: PropTypes.oneOf(Object.values(SIZES)),
+  /**
+   * Icon on a function returning rxjs.Action to remove featured item
+   */
+  iconRemoveItemFeatured: PropTypes.any,
+  /**
+   * Icon on a function returning rxjs. This icon is to mark a featured item
+   */
+  iconItemFeatured: PropTypes.any,
 }
 MoleculeSelectList.defaultProps = {
   options: [],

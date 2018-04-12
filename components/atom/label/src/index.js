@@ -1,8 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
-const AtomLabel = ({name, text, optionalText}) => (
-  <label htmlFor={name} className='sui-AtomLabel'>
+const CLASSNAME = 'sui-AtomLabel'
+
+const TYPES = {
+  SUCCESS: 'success',
+  ERROR: 'error'
+}
+
+const getClass = ({type}) =>
+  cx(CLASSNAME, `${CLASSNAME}--${type}`)
+
+const AtomLabel = ({name, text, optionalText, type}) => (
+  <label htmlFor={name} className={getClass({type})}>
     {text}
     <span className='sui-AtomLabel-optionalText'>
       {optionalText}
@@ -29,6 +40,13 @@ AtomLabel.propTypes = {
    * The optional label text
    */
   optionalText: PropTypes.string,
+  /**
+   * Label type: 'success' or 'error', use AtomLabelTypes
+   */
+  type: PropTypes.oneOf(Object.values(TYPES))
 }
 
 export default AtomLabel
+export {
+  TYPES as AtomLabelTypes
+}

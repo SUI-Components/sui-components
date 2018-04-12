@@ -9,16 +9,11 @@ $pr-atom-input-password-input: 60px;
     position: relative;
 
     &-input {
-      /* add mixin to sui-theme */
-      border-color: $c-gray-light;
-      border-style: solid;
-      border-width: 1px;
+      border-color: 1px solid $c-gray-light;
       font-size: $fz-base;
       padding-left: $p-l;
       padding-right: $p-l;
       width: 100%;
-      /* add mixin to sui-theme */
-
       padding-right: $pr-atom-input-password-input;
     }
 

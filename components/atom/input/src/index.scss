@@ -4,12 +4,20 @@
 @import '~@s-ui/react-atom-label/lib/index';
 @import '~@s-ui/react-atom-validation-text/lib/index';
 
+$c-atom-input-type: success $c-success, error $c-error;
+
 .sui-AtomInput {
   @include form-field(input);
   @include field-size(input);
 
   &-inputWrapper {
     display: flex;
+  }
+
+  @each $type, $color in $c-atom-input-type {
+    &--#{$type} input {
+      border-color: $color;
+    }
   }
 }
 

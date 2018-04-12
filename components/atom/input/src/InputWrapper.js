@@ -13,12 +13,12 @@ const SIZES = {
   MEDIUM: 'medium'
 }
 
-const getInputClass = ({size}) => {
-  return cx(
+const getInputClass = ({size, validationType}) =>
+  cx(
     `${BASE_CLASS}-inputWrapper`,
-    `${BASE_CLASS}--${size}`
+    `${BASE_CLASS}--${size}`,
+    `${BASE_CLASS}--${validationType}`
   )
-}
 
 const getClassNames = ({size, validationText, validationType}) =>
   cx(BASE_CLASS)
@@ -43,9 +43,10 @@ const InputWrapper = (props) => {
         name={name}
         for='labelName'
         text={label}
-        optional={optionalText} />
+        optional={optionalText}
+        type={validationType} />
 
-      <div className={getInputClass({size})}>
+      <div className={getInputClass({size, validationType})}>
         { addonLeft && <Addon label={addonLeft} type={AddonTypes.LEFT} /> }
         { children }
         { addonRight && <Addon label={addonRight} type={AddonTypes.RIGHT} /> }

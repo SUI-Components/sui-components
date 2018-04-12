@@ -1,3 +1,5 @@
+const rowStyles = {marginBottom: '16px'}
+
 const bankAccountMask = {
   mask: 'ES00 0000 0000 00 0000000000',
   placeholder: {
@@ -16,107 +18,123 @@ const postalCodeMask = {
 
 return (
   <div>
-    <AtomInput
-      type='text'
-      name='text'
-      label='Addon right'
-      addonRight='@schibsted.com'
-    />
-
-    <AtomInput
-      type='text'
-      name='text'
-      label='Addon left'
-      addonLeft='https://'
-    />
-
-    <AtomInput.Mask
-      label='Bank account'
-      name='bankAccount'
-      mask={bankAccountMask}
-      placeholder='ES00 0000 0000 00 0000000000'
-    />
-
-    <AtomInput.Mask
-      name='postalCode'
-      label='Postal Code'
-      mask={postalCodeMask}
-      placeholder='00000'
-    />
-
-    <AtomInput.Password
-      name='password'
-      label='Password input'
-    />
-
-    <AtomInput.Password
-      name='password'
-      label='Password input'
-      size={atomInputSizes.SMALL}
-    />
-
-    <AtomInput
-      type='text'
-      label='Simple medium text input'
-      name='text'
-    />
-
-    <AtomInput
-      type='text'
-      label='Simple small text input'
-      name='text'
-      size={atomInputSizes.SMALL}
-    />
-
-    <AtomInput
-      type='number'
-      label='Simple number input'
-      name='number'
-    />
-
-    <AtomInput
-      type='date'
-      label='Date input'
-      name='date'
-    />
-
-    <AtomInput.Tag
-      name='Tag'
-      label='Tag input'
-    />
-
-    <AtomInput
-      type='text'
-      label='Simple text input width help text'
-      name='text'
-      helpText='Lorem ipsum'
-    />
-
-    <AtomInput
-      type='text'
-      label='Simple text input success'
-      name='text'
-      validationType={AtomValidationTextTypes.SUCCESS}
-      validationText='Success'
-      placeholder='Input + placeholder + validation'
-    />
-
-    <AtomInput
-      type='text'
-      label='Simple text input error'
-      name='text'
-      validationType={AtomValidationTextTypes.ERROR}
-      validationText='Error'
-      helpText='Lorem ipsum'
-      placeholder='Lorem ipsum'
-    />
-
-    <AtomInput
-      type='text'
-      disabled
-      label='Simple text input disabled'
-      name='text'
-      placeholder='Lorem ipsum'
-    />
+    <div style={rowStyles}>
+      <AtomInput
+        type='text'
+        name='text'
+        label='Addon right'
+        addonRight='@schibsted.com'
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        type='text'
+        name='text'
+        label='Addon left'
+        addonLeft='https://'
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput.Mask
+        label='Bank account'
+        name='bankAccount'
+        mask={bankAccountMask}
+        placeholder='ES00 0000 0000 00 0000000000'
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput.Mask
+        name='postalCode'
+        label='Postal Code'
+        mask={postalCodeMask}
+        placeholder='00000'
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput.Password
+        name='password'
+        label='Password input'
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput.Password
+        name='password'
+        label='Password input'
+        size={atomInputSizes.SMALL}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        type='text'
+        label='Simple medium text input'
+        name='text'
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        type='text'
+        label='Simple small text input'
+        name='text'
+        size={atomInputSizes.SMALL}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        type='number'
+        label='Simple number input'
+        name='number'
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        type='date'
+        label='Date input'
+        name='date'
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput.Tag
+        name='Tag'
+        label='Tag input'
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        type='text'
+        label='Simple text input width help text'
+        name='text'
+        helpText='Lorem ipsum'
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        type='text'
+        label='Simple text input success'
+        name='text'
+        validationType={AtomValidationTextTypes.SUCCESS}
+        validationText='Success'
+        placeholder='Input + placeholder + validation'
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        type='text'
+        label='Simple text input error'
+        name='text'
+        validationType={AtomValidationTextTypes.ERROR}
+        validationText='Error'
+        helpText='Lorem ipsum'
+        placeholder='Lorem ipsum'
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        type='text'
+        disabled
+        label='Simple text input disabled'
+        name='text'
+        placeholder='Lorem ipsum'
+      />
+    </div>
   </div>
 )

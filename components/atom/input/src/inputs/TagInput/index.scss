@@ -18,10 +18,10 @@
     }
 
     input {
-      border: none;
       background: none;
-      margin-left: $m-s;
+      border: 0;
       float: left;
+      margin-left: $m-s;
       width: auto;
 
       &:focus {

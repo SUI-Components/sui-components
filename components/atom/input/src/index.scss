@@ -2,6 +2,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~@s-ui/react-atom-help-text/lib/index';
 @import '~@s-ui/react-atom-label/lib/index';
+@import '~@s-ui/react-atom-validation-text/lib/index';
 
 .sui-AtomInput {
   @include form-field(input);

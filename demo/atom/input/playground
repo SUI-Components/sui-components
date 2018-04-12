@@ -96,17 +96,17 @@ return (
       type='text'
       label='Simple text input success'
       name='text'
-      verificationType={atomInputVerificationTypes.SUCCESS}
-      verificationText='Success'
-      placeholder='Input + placeholder + verification'
+      validationType={AtomValidationTextTypes.SUCCESS}
+      validationText='Success'
+      placeholder='Input + placeholder + validation'
     />
 
     <AtomInput
       type='text'
       label='Simple text input error'
       name='text'
-      verificationType={atomInputVerificationTypes.ERROR}
-      verificationText='Error'
+      validationType={AtomValidationTextTypes.ERROR}
+      validationText='Error'
       helpText='Lorem ipsum'
       placeholder='Lorem ipsum'
     />

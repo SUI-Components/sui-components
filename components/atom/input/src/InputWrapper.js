@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import AtomLabel from '@s-ui/react-atom-label'
 import AtomHelpText from '@s-ui/react-atom-help-text'
+import AtomValidationText, {AtomValidationTextTypes} from '@s-ui/react-atom-validation-text'
 import Addon, {AddonTypes} from './Addon'
-import VerificationText, {getVerificationClass, VERIFICATION_TYPES} from './VerificationText'
 
 const BASE_CLASS = 'sui-AtomInput'
 
@@ -20,11 +20,8 @@ const getInputClass = ({size}) => {
   )
 }
 
-const getClassNames = ({size, verificationText, verificationType}) =>
-  cx(
-    BASE_CLASS,
-    getVerificationClass({sufixClass: BASE_CLASS, verificationText, verificationType})
-  )
+const getClassNames = ({size, validationText, validationType}) =>
+  cx(BASE_CLASS)
 
 const InputWrapper = (props) => {
   const {
@@ -36,12 +33,12 @@ const InputWrapper = (props) => {
     name,
     optionalText,
     size,
-    verificationText,
-    verificationType,
+    validationText,
+    validationType,
   } = props
 
   return (
-    <div className={getClassNames({size, verificationText, verificationType})}>
+    <div className={getClassNames({size, validationText, validationType})}>
       <AtomLabel
         name={name}
         for='labelName'
@@ -53,7 +50,7 @@ const InputWrapper = (props) => {
         { children }
         { addonRight && <Addon label={addonRight} type={AddonTypes.RIGHT} /> }
       </div>
-      { verificationType && <VerificationText text={verificationText} type={verificationType} /> }
+      { validationType && <AtomValidationText text={validationText} type={validationType} /> }
       { helpText && <AtomHelpText text={helpText} /> }
     </div>
   )
@@ -68,8 +65,8 @@ InputWrapper.propTypes = {
   name: PropTypes.string.isRequired,
   optionalText: PropTypes.string,
   size: PropTypes.oneOf(Object.values(SIZES)),
-  verificationText: PropTypes.string,
-  verificationType: PropTypes.oneOf(Object.values(VERIFICATION_TYPES)),
+  validationText: PropTypes.string,
+  validationType: PropTypes.oneOf(Object.values(AtomValidationTextTypes)),
 }
 
 InputWrapper.defaultProps = {
@@ -77,4 +74,4 @@ InputWrapper.defaultProps = {
 }
 
 export default InputWrapper
-export {SIZES, VERIFICATION_TYPES}
+export {SIZES, AtomValidationTextTypes}

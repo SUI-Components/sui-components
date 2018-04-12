@@ -3,7 +3,7 @@ import MaskInput from './inputs/MaskInput'
 import TagInput from './inputs/TagInput'
 import PasswordInput from './inputs/PasswordInput'
 import NativeInput from './inputs/NativeInput'
-import {SIZES, VERIFICATION_TYPES} from './InputWrapper'
+import {SIZES, AtomValidationTextTypes} from './InputWrapper'
 
 const AtomInput = (props) =>
   <NativeInput {...props} />
@@ -17,5 +17,5 @@ AtomInput.displayName = 'AtomInput'
 export default AtomInput
 export {
   SIZES as atomInputSizes,
-  VERIFICATION_TYPES as atomInputVerificationTypes
+  AtomValidationTextTypes
 }

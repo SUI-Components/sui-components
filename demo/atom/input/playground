@@ -91,6 +91,7 @@ return (
       name='text'
       helpText='Lorem ipsum'
     />
+
     <AtomInput
       type='text'
       label='Simple text input success'
@@ -99,6 +100,7 @@ return (
       verificationText='Success'
       placeholder='Input + placeholder + verification'
     />
+
     <AtomInput
       type='text'
       label='Simple text input error'
@@ -108,6 +110,7 @@ return (
       helpText='Lorem ipsum'
       placeholder='Lorem ipsum'
     />
+
     <AtomInput
       type='text'
       disabled
@@ -115,6 +118,5 @@ return (
       name='text'
       placeholder='Lorem ipsum'
     />
-
   </div>
 )

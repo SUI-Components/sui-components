@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import AtomLabel from '@s-ui/react-atom-label'
+import AtomHelpText from '@s-ui/react-atom-help-text'
 import Addon, {AddonTypes} from './Addon'
 import VerificationText, {getVerificationClass, VERIFICATION_TYPES} from './VerificationText'
 
@@ -53,10 +54,7 @@ const InputWrapper = (props) => {
         { addonRight && <Addon label={addonRight} type={AddonTypes.RIGHT} /> }
       </div>
       { verificationType && <VerificationText text={verificationText} type={verificationType} /> }
-      {
-        helpText &&
-          <span className='sui-AtomInput-help-text'>{helpText}</span>
-      }
+      { helpText && <AtomHelpText text={helpText} /> }
     </div>
   )
 }

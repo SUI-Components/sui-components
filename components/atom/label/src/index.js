@@ -15,17 +15,16 @@ const getClass = ({type}) =>
 const AtomLabel = ({name, text, optionalText, type}) => (
   <label htmlFor={name} className={getClass({type})}>
     {text}
-    <span className='sui-AtomLabel-optionalText'>
-      {optionalText}
-    </span>
+    {
+      optionalText &&
+        <span className='sui-AtomLabel-optionalText'>
+          {optionalText}
+        </span>
+    }
   </label>
 )
 
 AtomLabel.displayName = 'AtomLabel'
-
-AtomLabel.defaultProps = {
-  optionalText: '(optional)'
-}
 
 AtomLabel.propTypes = {
   /**

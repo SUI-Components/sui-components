@@ -2,6 +2,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
 $c-atom-label-optional: $c-gray-light !default;
+$c-atom-label-type: success $c-success, error $c-error;
 
 .sui-AtomLabel {
   display: block;
@@ -12,5 +13,11 @@ $c-atom-label-optional: $c-gray-light !default;
   &-optionalText {
     color: $c-atom-label-optional;
     margin-left: $m-s;
+  }
+
+  @each $type, $color in $c-atom-label-type {
+    &--#{$type} {
+      color: $color;
+    }
   }
 }

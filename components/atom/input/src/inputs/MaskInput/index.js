@@ -4,6 +4,11 @@ import IMask from 'imask'
 import InputWrapper from '../../InputWrapper'
 import Input from '../../Input'
 
+const AtomMaskInput = (props) =>
+  <InputWrapper {...props}>
+    <MaskInput {...props} />
+  </InputWrapper>
+
 class MaskInput extends Component {
   componentDidMount () {
     const {mask} = this.props
@@ -22,16 +27,14 @@ class MaskInput extends Component {
   render () {
     const {name} = this.props
     return (
-      <InputWrapper {...this.props}>
-        <Input
-          id={name}
-          className='sui-AtomInput-input'
-          type='text'
-          reference={input => { this.field = input }}
-          onChange={this.onChange}
-          {...this.props}
-        />
-      </InputWrapper>
+      <Input
+        id={name}
+        className='sui-AtomInput-input'
+        type='text'
+        reference={input => { this.field = input }}
+        onChange={this.onChange}
+        {...this.props}
+      />
     )
   }
 }
@@ -45,4 +48,4 @@ MaskInput.propTypes = {
   mask: PropTypes.object
 }
 
-export default MaskInput
+export { MaskInput, AtomMaskInput }

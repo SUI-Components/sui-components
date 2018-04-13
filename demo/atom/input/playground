@@ -35,7 +35,7 @@ return (
       />
     </div>
     <div style={rowStyles}>
-      <AtomInput.Mask
+      <AtomMaskInput
         label='Bank account'
         name='bankAccount'
         mask={bankAccountMask}
@@ -43,7 +43,7 @@ return (
       />
     </div>
     <div style={rowStyles}>
-      <AtomInput.Mask
+      <AtomMaskInput
         name='postalCode'
         label='Postal Code'
         mask={postalCodeMask}

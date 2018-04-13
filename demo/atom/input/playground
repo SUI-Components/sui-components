@@ -111,7 +111,7 @@ return (
         type='text'
         label='Simple text input success'
         name='text'
-        validationType={AtomValidationTextTypes.SUCCESS}
+        validationType={atomInputValidationTypes.SUCCESS}
         validationText='Success'
         placeholder='Input + placeholder + validation'
       />
@@ -121,7 +121,7 @@ return (
         type='text'
         label='Simple text input error'
         name='text'
-        validationType={AtomValidationTextTypes.ERROR}
+        validationType={atomInputValidationTypes.ERROR}
         validationText='Error'
         helpText='Lorem ipsum'
         placeholder='Lorem ipsum'

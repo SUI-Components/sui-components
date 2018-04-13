@@ -75,4 +75,4 @@ InputWrapper.defaultProps = {
 }
 
 export default InputWrapper
-export {SIZES, AtomValidationTextTypes}
+export {SIZES, AtomValidationTextTypes as atomInputValidationTypes}

@@ -3,7 +3,7 @@ import {AtomMaskInput, MaskInput} from './inputs/MaskInput'
 import {AtomTagInput, TagInput} from './inputs/TagInput'
 import {AtomPasswordInput, PasswordInput} from './inputs/PasswordInput'
 import NativeInput from './inputs/NativeInput'
-import {SIZES, AtomValidationTextTypes} from './InputWrapper'
+import {SIZES, atomInputValidationTypes} from './InputWrapper'
 
 const AtomInput = (props) =>
   <NativeInput {...props} />
@@ -20,6 +20,6 @@ export {
   AtomMaskInput,
   AtomPasswordInput,
   AtomTagInput,
-  AtomValidationTextTypes,
+  atomInputValidationTypes,
   SIZES as atomInputSizes,
 }

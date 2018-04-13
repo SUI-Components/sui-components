@@ -5,6 +5,11 @@ import InputWrapper from '../../InputWrapper'
 
 const SEPARATION_KEY = ','
 
+const AtomTagInput = (props) =>
+  <InputWrapper {...props}>
+    <TagInput {...props} />
+  </InputWrapper>
+
 class TagInput extends React.Component {
   state = {
     tags: [],
@@ -76,12 +81,6 @@ TagInput.propTypes = {
   onChange: PropTypes.func
 }
 
-const AtomTagInput = (props) =>
-  <InputWrapper {...props}>
-    <TagInput {...props} />
-  </InputWrapper>
-
-export default TagInput
 export {
-  AtomTagInput
+  TagInput, AtomTagInput
 }

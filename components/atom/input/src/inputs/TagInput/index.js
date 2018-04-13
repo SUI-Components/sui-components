@@ -53,22 +53,20 @@ class TagInput extends React.Component {
   render () {
     const {name} = this.props
     return (
-      <InputWrapper {...this.props}>
-        <div className='sui-AtomInput-wrapper'>
-          {
-            this.state.tags.map((label, idx) =>
-              <AtomTag label={label} key={idx} onClose={() => this.removeTag(idx)} />
-            )
-          }
-          <input
-            id={name}
-            type='text'
-            onChange={this.onChange}
-            value={this.state.inputValue}
-            {...this.props}
-          />
-        </div>
-      </InputWrapper>
+      <div className='sui-AtomInput-wrapper'>
+        {
+          this.state.tags.map((label, idx) =>
+            <AtomTag label={label} key={idx} onClose={() => this.removeTag(idx)} />
+          )
+        }
+        <input
+          id={name}
+          type='text'
+          onChange={this.onChange}
+          value={this.state.inputValue}
+          {...this.props}
+        />
+      </div>
     )
   }
 }
@@ -78,4 +76,12 @@ TagInput.propTypes = {
   onChange: PropTypes.func
 }
 
+const AtomTagInput = (props) =>
+  <InputWrapper {...props}>
+    <TagInput {...props} />
+  </InputWrapper>
+
 export default TagInput
+export {
+  AtomTagInput
+}

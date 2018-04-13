@@ -1,11 +1,31 @@
 return (
   <div>
-    <AtomLabel
-      name='atomLabelName'
-      for='labelName'
-      text='Hello label'
-      optional='(optional text)' />
+    <div style={{marginBottom: '16px'}}>
+      <AtomLabel
+        name='atomLabelName'
+        for='labelName'
+        text='Hello label'
+        optionalText='*' />
 
-    <input id='atomLabelName' type='text' />
+      <input id='atomLabelName' type='text' />
+    </div>
+    <div style={{marginBottom: '16px'}}>
+      <AtomLabel
+        name='atomLabelName'
+        for='labelName'
+        text='Hello label'
+        type={AtomLabelTypes.SUCCESS}/>
+
+      <input id='atomLabelName' type='text' />
+    </div>
+    <div style={{marginBottom: '16px'}}>
+      <AtomLabel
+        name='atomLabelName'
+        for='labelName'
+        text='Hello label'
+        type={AtomLabelTypes.ERROR} />
+
+      <input id='atomLabelName' type='text' />
+    </div>
   </div>
 )

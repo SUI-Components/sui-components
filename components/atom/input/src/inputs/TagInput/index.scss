@@ -1,6 +1,11 @@
 @import '~@schibstedspain/sui-atom-tag/lib/index';
 
 .sui-AtomInput {
+  &-tag {
+    float: left;
+    margin-top: $m-s;
+  }
+
   &-wrapper {
     background: $c-white;
     border-color: $c-gray-light;
@@ -11,11 +16,6 @@
     padding-left: $p-l;
     padding-right: $p-l;
     width: 100%;
-
-    .sui-AtomTag {
-      float: left;
-      margin-top: $m-s;
-    }
 
     input {
       background: none;

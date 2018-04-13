@@ -8,6 +8,11 @@ const PASSWORD = 'password'
 const DEFAULT_HIDE = 'hide'
 const DEFAULT_SHOW = 'show'
 
+const AtomPasswordInput = (props) =>
+  <InputWrapper {...props}>
+    <PasswordInput {...props} />
+  </InputWrapper>
+
 class PasswordInput extends React.Component {
   state = {
     type: PASSWORD,
@@ -36,24 +41,22 @@ class PasswordInput extends React.Component {
     const {type, value} = this.state
 
     return (
-      <InputWrapper {...this.props}>
-        <div className='sui-AtomInput-password'>
-          <Input
-            onChange={this.onChange}
-            className='sui-AtomInput-password-input'
-            {...this.props}
-            type={type}
-            value={value}
-          />
-          <div onClick={this.toggle} className='sui-AtomInput-password-toggle-button'>
-            {
-              type === PASSWORD
-                ? showText
-                : hideText
-            }
-          </div>
+      <div className='sui-AtomInput-password'>
+        <Input
+          onChange={this.onChange}
+          className='sui-AtomInput-password-input'
+          {...this.props}
+          type={type}
+          value={value}
+        />
+        <div onClick={this.toggle} className='sui-AtomInput-password-toggle-button'>
+          {
+            type === PASSWORD
+              ? showText
+              : hideText
+          }
         </div>
-      </InputWrapper>
+      </div>
     )
   }
 }
@@ -72,4 +75,4 @@ PasswordInput.defaultProps = {
   hideText: DEFAULT_HIDE
 }
 
-export default PasswordInput
+export { AtomPasswordInput, PasswordInput }

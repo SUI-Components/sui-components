@@ -1,7 +1,7 @@
 import React from 'react'
 import {AtomMaskInput, MaskInput} from './inputs/MaskInput'
 import {AtomTagInput, TagInput} from './inputs/TagInput'
-import PasswordInput from './inputs/PasswordInput'
+import {AtomPasswordInput, PasswordInput} from './inputs/PasswordInput'
 import NativeInput from './inputs/NativeInput'
 import {SIZES, AtomValidationTextTypes} from './InputWrapper'
 
@@ -17,8 +17,9 @@ AtomInput.displayName = 'AtomInput'
 
 export default AtomInput
 export {
-  SIZES as atomInputSizes,
-  AtomValidationTextTypes,
+  AtomMaskInput,
+  AtomPasswordInput,
   AtomTagInput,
-  AtomMaskInput
+  AtomValidationTextTypes,
+  SIZES as atomInputSizes,
 }

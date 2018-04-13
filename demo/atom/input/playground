@@ -51,13 +51,13 @@ return (
       />
     </div>
     <div style={rowStyles}>
-      <AtomInput.Password
+      <AtomPasswordInput
         name='password'
         label='Password input'
       />
     </div>
     <div style={rowStyles}>
-      <AtomInput.Password
+      <AtomPasswordInput
         name='password'
         label='Password input'
         size={atomInputSizes.SMALL}

@@ -8,7 +8,9 @@ class Input extends React.Component {
       disabled,
       id,
       label,
+      onBlur,
       onChange,
+      onSelect,
       placeholder,
       reference,
       type,
@@ -21,7 +23,9 @@ class Input extends React.Component {
         disabled={disabled}
         id={id}
         label={label}
+        onBlur={onBlur}
         onChange={onChange}
+        onSelect={onSelect}
         placeholder={placeholder}
         ref={reference}
         type={type}
@@ -38,7 +42,9 @@ Input.propTypes = {
   disabled: PropTypes.bool,
   id: PropTypes.string,
   label: PropTypes.string,
+  onBlur: PropTypes.func,
   onChange: PropTypes.func,
+  onSelect: PropTypes.func,
   placeholder: PropTypes.string,
   reference: PropTypes.func,
   type: PropTypes.string,

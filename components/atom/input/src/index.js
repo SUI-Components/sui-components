@@ -15,6 +15,10 @@ AtomInput.Password = PasswordInput
 
 AtomInput.displayName = 'AtomInput'
 
+AtomInput.propTypes = {
+  ...AtomMaskInput.propTypes
+}
+
 export default AtomInput
 export {
   AtomMaskInput,

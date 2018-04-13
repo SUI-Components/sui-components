@@ -51,22 +51,52 @@ const InputWrapper = (props) => {
         { children }
         { addonRight && <Addon label={addonRight} type={AddonTypes.RIGHT} /> }
       </div>
-      { validationType && <AtomValidationText text={validationText} type={validationType} /> }
       { helpText && <AtomHelpText text={helpText} /> }
+      { validationType && <AtomValidationText text={validationText} type={validationType} /> }
     </div>
   )
 }
 
 InputWrapper.propTypes = {
+  /**
+   * Text to be shown left side addon
+   */
   addonLeft: PropTypes.string,
+  /**
+   * Text to be shown right side addon
+   */
   addonRight: PropTypes.string,
+  /**
+   * <input /> to be wrapped
+   */
   children: PropTypes.node.isRequired,
+  /**
+   * Text to be shown as help text
+   */
   helpText: PropTypes.string,
+  /**
+   * Text to be shown as label
+   */
   label: PropTypes.string.isRequired,
+  /**
+   * Name of the control
+   */
   name: PropTypes.string.isRequired,
+  /**
+   * Text to be shown as label optional text
+   */
   optionalText: PropTypes.string,
+  /**
+   * Input size: 'small' or 'medium'
+   */
   size: PropTypes.oneOf(Object.values(SIZES)),
+  /**
+   * Text to be shown as validation text
+   */
   validationText: PropTypes.string,
+  /**
+   * Validation text type: 'success' or 'error'
+   */
   validationType: PropTypes.oneOf(Object.values(AtomValidationTextTypes)),
 }
 

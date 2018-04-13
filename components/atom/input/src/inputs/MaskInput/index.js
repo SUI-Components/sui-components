@@ -42,10 +42,18 @@ class MaskInput extends Component {
 MaskInput.displayName = 'MaskInput'
 
 MaskInput.propTypes = {
-  name: PropTypes.string.isRequired,
-  label: PropTypes.string,
+  /**
+   * mask object, see https://unmanner.github.io/imaskjs/
+   */
+  mask: PropTypes.object,
+  /**
+   * The name of the control
+   */
+  name: PropTypes.string,
+  /**
+   * Event launched on every input change
+   */
   onChange: PropTypes.func,
-  mask: PropTypes.object
 }
 
 export { MaskInput, AtomMaskInput }

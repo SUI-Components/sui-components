@@ -23,8 +23,14 @@ const Addon = ({type, label}) =>
 Addon.displayName = 'Addon'
 
 Addon.propTypes = {
+  /**
+   * Text to be shown within the addon
+   */
+  label: PropTypes.string,
+  /**
+   * 'left' or 'right'
+   */
   type: PropTypes.oneOf(Object.values(TYPES)),
-  label: PropTypes.string
 }
 
 export default Addon

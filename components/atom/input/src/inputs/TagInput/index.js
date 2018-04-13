@@ -77,8 +77,14 @@ class TagInput extends React.Component {
 }
 
 TagInput.propTypes = {
+  /**
+   * The name of the control
+   */
   name: PropTypes.string.isRequired,
-  onChange: PropTypes.func
+  /**
+   * Event launched on every input change
+   */
+  onChange: PropTypes.func,
 }
 
 export {

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import InputWrapper from '../../InputWrapper'
 import Input from '../../Input'
 
-const NATIVE_TYPES = ['text', 'number', 'date']
+const DEFAULT_TYPE = 'text'
+const NATIVE_TYPES = [DEFAULT_TYPE, 'number', 'date']
 
 /**
  * Intercepts native onChange event in order to set the param format
@@ -28,7 +29,17 @@ const NativeInput = (props) => {
 }
 
 NativeInput.propTypes = {
+  type: DEFAULT_TYPE
+}
+
+NativeInput.propTypes = {
+  /**
+   * Event launched on every input change
+   */
   onChange: PropTypes.func,
+  /**
+   * Native input types allowed: 'text', 'number', 'date'
+   */
   type: PropTypes.oneOf(NATIVE_TYPES)
 }
 

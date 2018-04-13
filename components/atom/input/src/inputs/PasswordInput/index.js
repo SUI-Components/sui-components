@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import InputWrapper, {SIZES} from '../../InputWrapper'
+import InputWrapper from '../../InputWrapper'
 import Input from '../../Input'
 
 const TEXT = 'text'
@@ -64,10 +64,18 @@ class PasswordInput extends React.Component {
 PasswordInput.displayName = 'PasswordInput'
 
 PasswordInput.propTypes = {
+  /**
+   * Text to be shown in order to show the password on click
+   */
   showText: PropTypes.string,
+  /**
+   * Text to be shown in order to hide the password on click
+   */
   hideText: PropTypes.string,
+  /**
+   * Event launched on every input change
+   */
   onChange: PropTypes.func,
-  size: PropTypes.oneOf(Object.values(SIZES))
 }
 
 PasswordInput.defaultProps = {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import AtomLabel from '../../label/src/index'
+import AtomLabel from '@s-ui/react-atom-label'
 
 const BASE_CLASS = 'sui-AtomSwitch'
 
@@ -26,20 +26,23 @@ class AtomSwitch extends Component {
     this.type = type
     this.state = {
       toggle: false,
-      disabled: disabled,
       isFocus: false,
-      labelLeft: labelLeft,
-      labelRight: labelRight,
-      name: name,
-      label: label,
-      labelOptionalText: labelOptionalText
+      disabled,
+      labelLeft,
+      labelRight,
+      name,
+      label,
+      labelOptionalText
     }
 
-    window.addEventListener('keydown', this.keyBindings.bind(this), true)
+    if (typeof window !== 'undefined' && window.addEventListener) {
+      window.addEventListener('keydown', this.keyBindings.bind(this), true)
+    }
   }
 
   keyBindings = (event) => {
-    if (!this.state.isFocus) {
+    const {isFocus} = this.state
+    if (!isFocus) {
       return
     }
 
@@ -60,24 +63,25 @@ class AtomSwitch extends Component {
   }
 
   toggleSwitch = function () {
-    if (this.state.disabled) {
+    const {disabled, onToggle, toggle} = this.state
+    if (disabled) {
       return
     }
-    if (this.onToggle) {
-      this.onToggle(!this.state.toggle)
-    }
-    this.setState({toggle: !this.state.toggle})
+    (onToggle) && onToggle(!toggle)
+    this.setState({toggle: !toggle})
   }.bind(this)
 
   activateToggle = function () {
-    if (this.state.disabled) {
+    const {disabled} = this.state
+    if (disabled) {
       return
     }
     this.setState({toggle: true})
   }.bind(this)
 
   deactivateToggle = function () {
-    if (this.state.disabled) {
+    const {disabled} = this.state
+    if (disabled) {
       return
     }
     this.setState({toggle: false})
@@ -92,35 +96,45 @@ class AtomSwitch extends Component {
   }.bind(this)
 
   render () {
-    let divClass = (this.state.toggle || this.type === TYPES.SELECT) ? cx(BASE_CLASS, 'active') : cx(BASE_CLASS)
-    divClass = (this.size === SIZES.LARGE) ? cx(divClass, 'large') : divClass
-    divClass = (this.state.disabled) ? cx(divClass, 'disabled') : divClass
-    divClass = (this.state.isFocus) ? cx(divClass, 'focus') : divClass
-    const circleClass = (this.state.toggle) ? cx('circle', 'toggle') : cx('circle')
-
     return (this.type === TYPES.SINGLE)
-      ? this.singleSwitchTypeRender(divClass, circleClass)
-      : this.toggleSwitchTypeRender(divClass, circleClass)
+      ? this.singleSwitchTypeRender()
+      : this.toggleSwitchTypeRender()
   }
 
-  toggleSwitchTypeRender = (divClass, circleClass) =>
-    <div className={cx(divClass, 'toggle-type')}>
-      <AtomLabel name={this.state.name} text={this.state.label} />
+  toggleSwitchTypeRender = () =>
+    <div className={cx(
+      BASE_CLASS,
+      'toggle-type',
+      {
+        active: (this.state.toggle || this.type === TYPES.SELECT),
+        large: this.size === SIZES.LARGE,
+        focus: this.state.isFocus,
+        disabled: this.state.disabled
+      })}>
+      <AtomLabel name={this.state.name} text={this.state.label} optionalText={this.state.labelOptionalText} />
       <div className='container' tabIndex='0' onFocus={this.focusSwitch} onBlur={this.focusOutSwitch}>
         <span className={cx('text', 'left')} onClick={this.deactivateToggle}>{this.state.labelLeft}</span>
         <div className={'input-container'} onClick={this.toggleSwitch}>
-          <div className={circleClass}></div>
+          <div className={cx('circle', {toggle: this.state.toggle})} />
         </div>
         <span className={cx('text', 'right')} onClick={this.activateToggle}>{this.state.labelRight}</span>
       </div>
     </div>
 
-  singleSwitchTypeRender = (divClass, circleClass) =>
-    <div className={cx(divClass, 'single-type')} onClick={this.toggleSwitch}>
+  singleSwitchTypeRender = () =>
+    <div className={cx(
+      BASE_CLASS,
+      'single-type',
+      {
+        active: (this.state.toggle || this.type === TYPES.SELECT),
+        large: this.size === SIZES.LARGE,
+        focus: this.state.isFocus,
+        disabled: this.state.disabled
+      })} onClick={this.toggleSwitch}>
       <div className='container' tabIndex='0' onFocus={this.focusSwitch} onBlur={this.focusOutSwitch}>
-        <AtomLabel name={this.state.name} text={this.state.label} />
+        <AtomLabel name={this.state.name} text={this.state.label} optionalText={this.state.labelOptionalText} />
         <div className='input-container'>
-          <div className={circleClass}></div>
+          <div className={cx('circle', {toggle: this.state.toggle})} />
         </div>
       </div>
     </div>

@@ -1,39 +1,39 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$sz-atom_switch-input-height: $sz-icon-l !default;
-$sz-atom_switch-width_comp_container: 34px !default;
-$sz-atom_switch-height_comp_container: 22px !default;
+$sz-AtomSwitch-input-height: $sz-icon-l !default;
+$sz-AtomSwitch-width_comp_container: 34px !default;
+$sz-AtomSwitch-height_comp_container: 22px !default;
 
-$sz-atom_switch-input-height--large: $sz-icon-xl !default;
-$sz-atom_switch-width_comp_container--large: 49px !default;
-$sz-atom_switch-height_comp_container--large: 32px !default;
+$sz-AtomSwitch-input-height--large: $sz-icon-xl !default;
+$sz-AtomSwitch-width_comp_container--large: 49px !default;
+$sz-AtomSwitch-height_comp_container--large: 32px !default;
 
-$c-atom-switch-active: #60acd0 !default;
-$c-atom-switch-default: #dcdcdc !default;
+$c-AtomSwitch-active: #60acd0 !default;
+$c-AtomSwitch-default: #dcdcdc !default;
 
 .sui-AtomSwitch {
   display: inline-block;
   cursor: pointer;
 
   &.toggle-type {
-    & > div.container {
+    & .container {
       margin-top: $p-l;
     }
   }
 
   &.single-type {
-    & > div.container > div.input-container {
+    & .container > .input-container {
       margin-left: $m-l;
     }
   }
 
-  & > .container {
+  & .container {
     display: flex;
     justify-content: center;
-    height: $sz-atom_switch-input-height;
-    padding-top: ($sz-atom_switch-input-height - $fz-m) / 4;
+    height: $sz-AtomSwitch-input-height;
+    padding-top: ($sz-AtomSwitch-input-height - $fz-m) / 4;
 
-    & > span.text {
+    & .text {
       font-size: $fz-m;
       line-height: 1.25;
 
@@ -46,19 +46,19 @@ $c-atom-switch-default: #dcdcdc !default;
       }
     }
 
-    & > .input-container {
-      width: $sz-atom_switch-width_comp_container;
-      height: $sz-atom_switch-height_comp_container;
-      border-radius: $sz-atom_switch-width_comp_container / 2;
-      background-color: $c-atom-switch-default;
-      border: solid 1px color-variation($c-atom-switch-default, $c-dark-step);
+    & .input-container {
+      width: $sz-AtomSwitch-width_comp_container;
+      height: $sz-AtomSwitch-height_comp_container;
+      border-radius: $sz-AtomSwitch-width_comp_container / 2;
+      background-color: $c-AtomSwitch-default;
+      border: solid 1px color-variation($c-AtomSwitch-default, $c-dark-step);
       cursor: pointer;
       transition: background-color, border 0.4s ease-in-out;
 
-      & > .circle {
-        width: $sz-atom_switch-height_comp_container - 2;
-        height: $sz-atom_switch-height_comp_container - 2;
-        border-radius: ($sz-atom_switch-height_comp_container - 2) / 2;
+      & .circle {
+        width: $sz-AtomSwitch-height_comp_container - 2;
+        height: $sz-AtomSwitch-height_comp_container - 2;
+        border-radius: ($sz-AtomSwitch-height_comp_container - 2) / 2;
         box-shadow: 2px 0 2px 0 $c-gray-light;
         background-color: $c-white;
         border: solid 1px $c-white;
@@ -77,34 +77,36 @@ $c-atom-switch-default: #dcdcdc !default;
   }
 
   &.active {
-    & > .container > .input-container {
-      width: 34px;
-      height: 22px;
-      border-radius: 11px;
-      background-color: $c-atom-switch-active;
-      border: solid 1px $c-atom-switch-active;
-      cursor: pointer;
+    & .container {
+      .input-container {
+        width: 34px;
+        height: 22px;
+        border-radius: 11px;
+        background-color: $c-AtomSwitch-active;
+        border: solid 1px $c-AtomSwitch-active;
+        cursor: pointer;
+      }
     }
   }
 
   &.large, &.active.large {
-    & > .container {
-      height: $sz-atom_switch-input-height--large;
+    & .container {
+      height: $sz-AtomSwitch-input-height--large;
       padding-top: 5px;
-      & > .text {
+      & .text {
         display: flex;
         flex-direction: column;
         justify-content: center;
       }
 
-      & > .input-container {
-        width: $sz-atom_switch-width_comp_container--large;
-        height: $sz-atom_switch-height_comp_container--large;
-        border-radius: $sz-atom_switch-width_comp_container--large / 2;
-        & > .circle {
-          width: $sz-atom_switch-height_comp_container--large - 2;
-          height: $sz-atom_switch-height_comp_container--large - 2;
-          border-radius: ($sz-atom_switch-height_comp_container--large - 2) / 2;
+      & .input-container {
+        width: $sz-AtomSwitch-width_comp_container--large;
+        height: $sz-AtomSwitch-height_comp_container--large;
+        border-radius: $sz-AtomSwitch-width_comp_container--large / 2;
+        & .circle {
+          width: $sz-AtomSwitch-height_comp_container--large - 2;
+          height: $sz-AtomSwitch-height_comp_container--large - 2;
+          border-radius: ($sz-AtomSwitch-height_comp_container--large - 2) / 2;
           &.toggle {
             margin-left: 18px;
           }

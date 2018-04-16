@@ -8,7 +8,7 @@ const renderErrorMessage = error => (
   </div>
 )
 
-const FormTextInput = ({className, errorMessage, name, onChange, placeholder, value}) => (
+const FormTextInput = ({className, errorMessage, name, onChange, onFocus, onBlur, placeholder, value}) => (
   <div className={cx('sui-FormTextInput', className)}>
     <input
       className='sui-FormTextInput-value'
@@ -16,7 +16,10 @@ const FormTextInput = ({className, errorMessage, name, onChange, placeholder, va
       type='text'
       placeholder={placeholder}
       value={value}
-      onChange={onChange} />
+      onChange={onChange}
+      onFocus={onFocus}
+      onBlur={onBlur}
+    />
     {errorMessage && renderErrorMessage(errorMessage)}
   </div>
 )
@@ -40,6 +43,14 @@ FormTextInput.propTypes = {
    * Custom callback function to execute when the value of the text input has changed.
    */
   onChange: PropTypes.func,
+  /**
+   * Custom function callback to execute when the text input element gets focused.
+   */
+  onFocus: PropTypes.func,
+  /**
+   * Custom function callback to execute when the text input element loses the focus.
+   */
+  onBlur: PropTypes.func,
   /**
    * Specifies a short hint that describes the expected value of the text input (when it is empty).
    */

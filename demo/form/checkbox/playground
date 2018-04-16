@@ -37,6 +37,6 @@ return (
     <br />
     <FormCheckbox name='cb-unchecked' label='This checkbox is unchecked' onChange={doNothing} />
     <br />
-    <FormCheckbox name='cb-error' label='This checkbox display an error message below.' errorMessage='This is an error message.' onChange={doNothing} />
+    <FormCheckbox name='cb-error' label='This checkbox display an error message below. And the content of the text label should be displayed in multiple lines, all of them aligned to the left of the text label box.' errorMessage='This is an error message.' onChange={doNothing} />
   </div>
 )

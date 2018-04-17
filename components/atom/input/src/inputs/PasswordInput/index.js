@@ -37,17 +37,18 @@ class PasswordInput extends React.Component {
   }
 
   render () {
-    const {showText, hideText} = this.props
+    const {showText, hideText, id} = this.props
     const {type, value} = this.state
 
     return (
       <div className='sui-AtomInput-password'>
         <Input
           onChange={this.onChange}
-          className='sui-AtomInput-password-input'
+          className='sui-AtomInput-input sui-AtomInput-password-input'
           {...this.props}
           type={type}
           value={value}
+          id={id}
         />
         <div onClick={this.toggle} className='sui-AtomInput-password-toggle-button'>
           {
@@ -76,11 +77,19 @@ PasswordInput.propTypes = {
    * Event launched on every input change
    */
   onChange: PropTypes.func,
+  /**
+   * The name of the control
+   */
+  name: PropTypes.string,
+  /**
+   * The id of the control
+   */
+  id: PropTypes.string,
 }
 
 PasswordInput.defaultProps = {
   showText: DEFAULT_SHOW,
-  hideText: DEFAULT_HIDE
+  hideText: DEFAULT_HIDE,
 }
 
 export { AtomPasswordInput, PasswordInput }

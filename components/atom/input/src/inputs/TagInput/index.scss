@@ -1,4 +1,5 @@
 @import '~@schibstedspain/sui-atom-tag/lib/index';
+@import '~@schibstedspain/sui-theme/lib/index';
 
 .sui-AtomInput {
   &-tag {
@@ -16,17 +17,27 @@
     padding-left: $p-l;
     padding-right: $p-l;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 
     input {
       background: none;
       border: 0;
       float: left;
       margin-left: $m-s;
-      width: auto;
+      flex-grow: 1;
 
       &:focus {
         box-shadow: none;
+        border: 0;
+        outline: none !important;
       }
+    }
+
+    &.focus {
+      // added to SUI themes. To be change once SUI-theme is merged
+      box-shadow: 0 0 3px 0 #60acd0;
+      border: solid 1px #22749a;
     }
   }
 }

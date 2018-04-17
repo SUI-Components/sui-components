@@ -23,32 +23,41 @@ const getInputClass = ({size, validationType}) =>
 const getClassNames = ({size, validationText, validationType}) =>
   cx(BASE_CLASS)
 
+const renderAndMutateChildren = (props) => {
+  if (!props.id) {
+    return props.children
+  }
+  return React.Children.map(props.children, child => {
+    return React.cloneElement(child, {
+      id: props.id
+    })
+  })
+}
+
 const InputWrapper = (props) => {
   const {
     addonLeft,
     addonRight,
-    children,
     helpText,
     label,
+    id,
     name,
     optionalText,
     size,
     validationText,
     validationType,
   } = props
-
   return (
     <div className={getClassNames({size, validationText, validationType})}>
       <AtomLabel
-        name={name}
-        for='labelName'
+        name={(id) || name}
         text={label}
         optional={optionalText}
         type={validationType} />
 
       <div className={getInputClass({size, validationType})}>
         { addonLeft && <Addon label={addonLeft} type={AddonTypes.LEFT} /> }
-        { children }
+        { renderAndMutateChildren(props) }
         { addonRight && <Addon label={addonRight} type={AddonTypes.RIGHT} /> }
       </div>
       { helpText && <AtomHelpText text={helpText} /> }
@@ -83,6 +92,10 @@ InputWrapper.propTypes = {
    */
   name: PropTypes.string.isRequired,
   /**
+   * Element id
+   */
+  id: PropTypes.string,
+  /**
    * Text to be shown as label optional text
    */
   optionalText: PropTypes.string,
@@ -101,7 +114,7 @@ InputWrapper.propTypes = {
 }
 
 InputWrapper.defaultProps = {
-  size: SIZES.MEDIUM
+  size: SIZES.MEDIUM,
 }
 
 export default InputWrapper

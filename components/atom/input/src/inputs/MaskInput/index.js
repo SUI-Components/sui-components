@@ -25,10 +25,11 @@ class MaskInput extends Component {
   }
 
   render () {
-    const {name} = this.props
+    const {name, id} = this.props
     return (
       <Input
-        id={name}
+        id={id}
+        name={name}
         className='sui-AtomInput-input'
         type='text'
         reference={input => { this.field = input }}
@@ -42,6 +43,10 @@ class MaskInput extends Component {
 MaskInput.displayName = 'MaskInput'
 
 MaskInput.propTypes = {
+  /**
+   * The id of the control
+   */
+  id: PropTypes.string,
   /**
    * mask object, see https://unmanner.github.io/imaskjs/
    */

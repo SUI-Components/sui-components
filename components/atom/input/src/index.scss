@@ -15,7 +15,7 @@ $c-atom-input-type: success $c-success, error $c-error;
   }
 
   @each $type, $color in $c-atom-input-type {
-    &--#{$type} input {
+    &--#{$type} .sui-AtomInput-input {
       border-color: $color;
     }
   }

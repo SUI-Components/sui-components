@@ -8,6 +8,7 @@ const Input = ({
   className,
   disabled,
   id,
+  name,
   onBlur,
   onChange,
   onSelect,
@@ -20,6 +21,7 @@ const Input = ({
     className={className}
     disabled={disabled}
     id={id}
+    name={name}
     onBlur={onBlur}
     onChange={onChange}
     onSelect={onSelect}
@@ -45,6 +47,10 @@ Input.propTypes = {
    * html id
    */
   id: PropTypes.string,
+  /**
+   * html name
+   */
+  name: PropTypes.string,
   /**
    * Event launched when an object loses focus
    */

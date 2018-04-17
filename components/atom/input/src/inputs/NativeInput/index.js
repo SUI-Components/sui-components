@@ -15,13 +15,14 @@ const changeHandler = (ev, onChange) => {
 }
 
 const NativeInput = (props) => {
-  const {onChange, type} = props
+  const {onChange, type, id} = props
   return (
     <InputWrapper {...props}>
       <Input
         className='sui-AtomInput-input'
         onChange={(ev) => changeHandler(ev, onChange)}
         type={type}
+        id={id}
         {...props}
       />
     </InputWrapper>
@@ -29,10 +30,18 @@ const NativeInput = (props) => {
 }
 
 NativeInput.propTypes = {
-  type: DEFAULT_TYPE
+  type: DEFAULT_TYPE,
 }
 
 NativeInput.propTypes = {
+  /**
+   * The name of the control
+   */
+  name: PropTypes.string,
+  /**
+   * The id of the control
+   */
+  id: PropTypes.string,
   /**
    * Event launched on every input change
    */

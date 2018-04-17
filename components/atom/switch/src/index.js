@@ -24,15 +24,15 @@ class AtomSwitch extends Component {
     this.onToggle = onToggle
     this.size = size
     this.type = type
+    this.labelRight = labelRight
+    this.labelLeft = labelLeft
+    this.name = name
+    this.label = label
+    this.labelOptionalText = labelOptionalText
     this.state = {
       toggle: false,
       isFocus: false,
-      disabled,
-      labelLeft,
-      labelRight,
-      name,
-      label,
-      labelOptionalText
+      disabled
     }
 
     if (typeof window !== 'undefined' && window.addEventListener) {
@@ -111,13 +111,13 @@ class AtomSwitch extends Component {
         focus: this.state.isFocus,
         disabled: this.state.disabled
       })}>
-      <AtomLabel name={this.state.name} text={this.state.label} optionalText={this.state.labelOptionalText} />
+      <AtomLabel name={this.name} text={this.label} optionalText={this.labelOptionalText} />
       <div className='container' tabIndex='0' onFocus={this.focusSwitch} onBlur={this.focusOutSwitch}>
-        <span className={cx('text', 'left')} onClick={this.deactivateToggle}>{this.state.labelLeft}</span>
+        <span className={cx('text', 'left')} onClick={this.deactivateToggle}>{this.labelLeft}</span>
         <div className={'input-container'} onClick={this.toggleSwitch}>
           <div className={cx('circle', {toggle: this.state.toggle})} />
         </div>
-        <span className={cx('text', 'right')} onClick={this.activateToggle}>{this.state.labelRight}</span>
+        <span className={cx('text', 'right')} onClick={this.activateToggle}>{this.labelRight}</span>
       </div>
     </div>
 
@@ -132,7 +132,7 @@ class AtomSwitch extends Component {
         disabled: this.state.disabled
       })} onClick={this.toggleSwitch}>
       <div className='container' tabIndex='0' onFocus={this.focusSwitch} onBlur={this.focusOutSwitch}>
-        <AtomLabel name={this.state.name} text={this.state.label} optionalText={this.state.labelOptionalText} />
+        <AtomLabel name={this.name} text={this.label} optionalText={this.labelOptionalText} />
         <div className='input-container'>
           <div className={cx('circle', {toggle: this.state.toggle})} />
         </div>

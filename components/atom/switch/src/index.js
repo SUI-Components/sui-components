@@ -62,38 +62,38 @@ class AtomSwitch extends Component {
     }
   }
 
-  toggleSwitch = function () {
+  toggleSwitch = () => {
     const {disabled, onToggle, toggle} = this.state
     if (disabled) {
       return
     }
     (onToggle) && onToggle(!toggle)
     this.setState({toggle: !toggle})
-  }.bind(this)
+  }
 
-  activateToggle = function () {
+  activateToggle = () => {
     const {disabled} = this.state
     if (disabled) {
       return
     }
     this.setState({toggle: true})
-  }.bind(this)
+  }
 
-  deactivateToggle = function () {
+  deactivateToggle = () => {
     const {disabled} = this.state
     if (disabled) {
       return
     }
     this.setState({toggle: false})
-  }.bind(this)
+  }
 
-  focusSwitch = function () {
+  focusSwitch = () => {
     this.setState({isFocus: true})
-  }.bind(this)
+  }
 
-  focusOutSwitch = function () {
+  focusOutSwitch = () => {
     this.setState({isFocus: false})
-  }.bind(this)
+  }
 
   render () {
     return (this.type === TYPES.SINGLE)

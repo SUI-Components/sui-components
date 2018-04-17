@@ -7,9 +7,10 @@ $pr-atom-input-password-input: 60px;
 .sui-AtomInput {
   &-password {
     position: relative;
+    width: 100%;
 
     &-input {
-      border-color: 1px solid $c-gray-light;
+      border: 1px solid $c-gray-light;
       font-size: $fz-base;
       padding-left: $p-l;
       padding-right: $p-l;

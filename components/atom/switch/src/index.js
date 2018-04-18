@@ -20,15 +20,7 @@ class AtomSwitch extends Component {
   constructor (props) {
     super(props)
 
-    const {size, disabled, labelLeft, labelRight, type, name, label, labelOptionalText, onToggle} = props
-    this.onToggle = onToggle
-    this.size = size
-    this.type = type
-    this.labelRight = labelRight
-    this.labelLeft = labelLeft
-    this.name = name
-    this.label = label
-    this.labelOptionalText = labelOptionalText
+    const {disabled} = props
     this.state = {
       toggle: false,
       isFocus: false,
@@ -50,24 +42,19 @@ class AtomSwitch extends Component {
       return
     }
 
-    switch (event.key) {
-      case 'Enter':
-        this.toggleSwitch()
-        event.preventDefault()
-        break
-      case ' ':
-        this.toggleSwitch()
-        event.preventDefault()
-        break
+    if (event.key === 'Enter' || event.key === ' ') {
+      this.toggleSwitch()
+      event.preventDefault()
     }
   }
 
   toggleSwitch = () => {
-    const {disabled, onToggle, toggle} = this.state
+    const {disabled, toggle} = this.state
+    const {onToggle} = this.props
     if (disabled) {
       return
     }
-    (onToggle) && onToggle(!toggle)
+    onToggle(!toggle)
     this.setState({toggle: !toggle})
   }
 
@@ -96,7 +83,7 @@ class AtomSwitch extends Component {
   }
 
   render () {
-    return (this.type === TYPES.SINGLE)
+    return (this.props.type === TYPES.SINGLE)
       ? this.singleSwitchTypeRender()
       : this.toggleSwitchTypeRender()
   }
@@ -106,18 +93,18 @@ class AtomSwitch extends Component {
       BASE_CLASS,
       'toggle-type',
       {
-        active: (this.state.toggle || this.type === TYPES.SELECT),
-        large: this.size === SIZES.LARGE,
+        active: (this.state.toggle || this.props.type === TYPES.SELECT),
+        large: this.props.size === SIZES.LARGE,
         focus: this.state.isFocus,
         disabled: this.state.disabled
       })}>
-      <AtomLabel name={this.name} text={this.label} optionalText={this.labelOptionalText} />
+      <AtomLabel name={this.props.name} text={this.props.label} optionalText={this.props.labelOptionalText} />
       <div className='container' tabIndex='0' onFocus={this.focusSwitch} onBlur={this.focusOutSwitch}>
-        <span className={cx('text', 'left')} onClick={this.deactivateToggle}>{this.labelLeft}</span>
+        <span className={cx('text', 'left')} onClick={this.deactivateToggle}>{this.props.labelLeft}</span>
         <div className={'input-container'} onClick={this.toggleSwitch}>
           <div className={cx('circle', {toggle: this.state.toggle})} />
         </div>
-        <span className={cx('text', 'right')} onClick={this.activateToggle}>{this.labelRight}</span>
+        <span className={cx('text', 'right')} onClick={this.activateToggle}>{this.props.labelRight}</span>
       </div>
     </div>
 
@@ -126,13 +113,13 @@ class AtomSwitch extends Component {
       BASE_CLASS,
       'single-type',
       {
-        active: (this.state.toggle || this.type === TYPES.SELECT),
-        large: this.size === SIZES.LARGE,
+        active: (this.state.toggle || this.props.type === TYPES.SELECT),
+        large: this.props.size === SIZES.LARGE,
         focus: this.state.isFocus,
         disabled: this.state.disabled
       })} onClick={this.toggleSwitch}>
       <div className='container' tabIndex='0' onFocus={this.focusSwitch} onBlur={this.focusOutSwitch}>
-        <AtomLabel name={this.name} text={this.label} optionalText={this.labelOptionalText} />
+        <AtomLabel name={this.props.name} text={this.props.label} optionalText={this.props.labelOptionalText} />
         <div className='input-container'>
           <div className={cx('circle', {toggle: this.state.toggle})} />
         </div>
@@ -187,7 +174,8 @@ AtomSwitch.defaultProps = {
   disabled: false,
   labelLeft: 'Off',
   labelRight: 'On',
-  type: TYPES.TOGGLE
+  type: TYPES.TOGGLE,
+  onToggle: (toggle) => {}
 }
 
 export default AtomSwitch

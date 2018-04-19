@@ -1,113 +1,116 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$sz-AtomSwitch-input-height: $sz-icon-l !default;
-$sz-AtomSwitch-width_comp_container: 34px !default;
-$sz-AtomSwitch-height_comp_container: 22px !default;
+$h-atom-switch--default: $sz-icon-l !default;
+$w-atom-switch--default: 34px !default;
+$h-atom-switch-container: 22px !default;
 
-$sz-AtomSwitch-input-height--large: $sz-icon-xl !default;
-$sz-AtomSwitch-width_comp_container--large: 49px !default;
-$sz-AtomSwitch-height_comp_container--large: 32px !default;
+$h-atom-switch--large: $sz-icon-xl !default;
+$w-atom-switch--large: 49px !default;
+$h-atom-switch-container---large: 32px !default;
 
-$c-AtomSwitch-active: #60acd0 !default;
-$c-AtomSwitch-default: #dcdcdc !default;
+$c-AtomSwitch-active: color-variation($c-primary, 1) !default;
+$c-AtomSwitch-default: color-variation($c-gray, 3) !default;
 
 .sui-AtomSwitch {
-  display: inline-block;
   cursor: pointer;
+  display: inline-block;
 
-  &.toggle-type {
-    & .container {
+  &-toggleType {
+    .sui-AtomSwitch--container {
       margin-top: $p-l;
     }
   }
 
-  &.single-type {
-    & .container > .input-container {
+  &--singleType {
+    .sui-AtomSwitch--container .sui-AtomSwitch--inputContainer {
       margin-left: $m-l;
     }
   }
 
-  & .container {
+  &--container {
     display: flex;
+    height: $h-atom-switch--default;
     justify-content: center;
-    height: $sz-AtomSwitch-input-height;
-    padding-top: ($sz-AtomSwitch-input-height - $fz-m) / 4;
-
-    & .text {
-      font-size: $fz-m;
-      line-height: 1.25;
-
-      &.right {
-        padding-left: $p-m;
-      }
-
-      &.left {
-        padding-right: $p-m;
-      }
-    }
-
-    & .input-container {
-      width: $sz-AtomSwitch-width_comp_container;
-      height: $sz-AtomSwitch-height_comp_container;
-      border-radius: $sz-AtomSwitch-width_comp_container / 2;
-      background-color: $c-AtomSwitch-default;
-      border: solid 1px color-variation($c-AtomSwitch-default, $c-dark-step);
-      cursor: pointer;
-      transition: background-color, border 0.4s ease-in-out;
-
-      & .circle {
-        width: $sz-AtomSwitch-height_comp_container - 2;
-        height: $sz-AtomSwitch-height_comp_container - 2;
-        border-radius: ($sz-AtomSwitch-height_comp_container - 2) / 2;
-        box-shadow: 2px 0 2px 0 $c-gray-light;
-        background-color: $c-white;
-        border: solid 1px $c-white;
-
-        transition: margin 0.4s ease-in-out;
-
-        &.toggle {
-          margin-left: 12px;
-        }
-      }
-    }
-
+    padding-bottom: $p-s;
+    padding-top: $p-s;
   }
-  &.disabled {
+
+  &--text {
+    display: flex;
+    flex-direction: column;
+    font-size: $fz-m;
+    justify-content: center;
+
+    &.sui-AtomSwitch--right {
+      padding-left: $p-m;
+    }
+
+    &.sui-AtomSwitch--left {
+      padding-right: $p-m;
+    }
+  }
+
+  .sui-AtomSwitch--inputContainer {
+    background-color: $c-AtomSwitch-default;
+    border-radius: $w-atom-switch--default / 2;
+    border: solid 1px color-variation($c-AtomSwitch-default, $c-dark-step);
+    cursor: pointer;
+    height: $h-atom-switch-container;
+    transition: background-color, border 0.4s ease-in-out;
+    width: $w-atom-switch--default;
+
+    .sui-AtomSwitch--circle {
+      background-color: $c-white;
+      border-radius: ($h-atom-switch-container - 2) / 2;
+      border: solid 1px $c-white;
+      box-shadow: 2px 0 2px 0 $c-gray-light;
+      height: $h-atom-switch-container - 2;
+      transition: margin 0.4s ease-in-out;
+      width: $h-atom-switch-container - 2;
+
+      &.sui-AtomSwitch--toggle {
+        margin-left: 12px;
+      }
+    }
+  }
+
+  &.sui-AtomSwitch--disabled {
     color: $c-gray;
   }
 
-  &.active {
-    & .container {
-      .input-container {
-        width: 34px;
-        height: 22px;
-        border-radius: 11px;
+  &.sui-AtomSwitch--active {
+    & .sui-AtomSwitch--container {
+      .sui-AtomSwitch--inputContainer {
         background-color: $c-AtomSwitch-active;
+        border-radius: 11px;
         border: solid 1px $c-AtomSwitch-active;
         cursor: pointer;
+        height: 22px;
+        width: 34px;
       }
     }
   }
 
-  &.large, &.active.large {
-    & .container {
-      height: $sz-AtomSwitch-input-height--large;
-      padding-top: 5px;
-      & .text {
+  &.sui-AtomSwitch--large, &.sui-AtomSwitch--active.sui-AtomSwitch--large {
+    .sui-AtomSwitch--container {
+      height: $h-atom-switch--large;
+      padding-bottom: $p-s;
+      padding-top: $p-s;
+      .sui-AtomSwitch--text {
         display: flex;
         flex-direction: column;
         justify-content: center;
       }
 
-      & .input-container {
-        width: $sz-AtomSwitch-width_comp_container--large;
-        height: $sz-AtomSwitch-height_comp_container--large;
-        border-radius: $sz-AtomSwitch-width_comp_container--large / 2;
-        & .circle {
-          width: $sz-AtomSwitch-height_comp_container--large - 2;
-          height: $sz-AtomSwitch-height_comp_container--large - 2;
-          border-radius: ($sz-AtomSwitch-height_comp_container--large - 2) / 2;
-          &.toggle {
+      .sui-AtomSwitch--inputContainer {
+        border-radius: $w-atom-switch--large / 2;
+        height: $h-atom-switch-container---large;
+        width: $w-atom-switch--large;
+        .sui-AtomSwitch--circle {
+          border-radius: ($h-atom-switch-container---large - 2) / 2;
+          height: $h-atom-switch-container---large - 2;
+          width: $h-atom-switch-container---large - 2;
+          &.sui-AtomSwitch--toggle {
             margin-left: 18px;
           }
         }

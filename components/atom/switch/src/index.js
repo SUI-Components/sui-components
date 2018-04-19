@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import AtomLabel from '@s-ui/react-atom-label'
+import {ToggleSwitchTypeRender} from './SwitchType/toggle'
+import {SingleSwitchTypeRender} from './SwitchType/single'
 
-const BASE_CLASS = 'sui-AtomSwitch'
+export const BASE_CLASS = 'sui-AtomSwitch'
 
-const SIZES = {
-  MEDIUM: 'medium',
+export const SIZES = {
+  DEFAULT: 'default',
   LARGE: 'large'
 }
 
-const TYPES = {
+export const TYPES = {
   TOGGLE: 'toggle',
   SELECT: 'select',
   SINGLE: 'single'
@@ -26,10 +26,10 @@ class AtomSwitch extends Component {
       isFocus: false,
       disabled
     }
+  }
 
-    if (typeof window !== 'undefined' && window.addEventListener) {
-      window.addEventListener('keydown', this.keyBindings.bind(this), true)
-    }
+  componentDidMount () {
+    window.addEventListener('keydown', this.keyBindings.bind(this), true)
   }
 
   keyBindings = (event) => {
@@ -83,59 +83,20 @@ class AtomSwitch extends Component {
   }
 
   render () {
+    const {toggle, isFocus, disabled} = this.state
     return (this.props.type === TYPES.SINGLE)
-      ? this.singleSwitchTypeRender()
-      : this.toggleSwitchTypeRender()
+      ? SingleSwitchTypeRender(this.props, toggle, isFocus, disabled, this.focusSwitch, this.focusOutSwitch, this.toggleSwitch)
+      : ToggleSwitchTypeRender(this.props, toggle, isFocus, disabled, this.focusSwitch, this.focusOutSwitch, this.activateToggle, this.deactivateToggle, this.toggleSwitch)
   }
-
-  toggleSwitchTypeRender = () =>
-    <div className={cx(
-      BASE_CLASS,
-      'toggle-type',
-      {
-        active: (this.state.toggle || this.props.type === TYPES.SELECT),
-        large: this.props.size === SIZES.LARGE,
-        focus: this.state.isFocus,
-        disabled: this.state.disabled
-      })}>
-      <AtomLabel name={this.props.name} text={this.props.label} optionalText={this.props.labelOptionalText} />
-      <div className='container' tabIndex='0' onFocus={this.focusSwitch} onBlur={this.focusOutSwitch}>
-        <span className={cx('text', 'left')} onClick={this.deactivateToggle}>{this.props.labelLeft}</span>
-        <div className={'input-container'} onClick={this.toggleSwitch}>
-          <div className={cx('circle', {toggle: this.state.toggle})} />
-        </div>
-        <span className={cx('text', 'right')} onClick={this.activateToggle}>{this.props.labelRight}</span>
-      </div>
-    </div>
-
-  singleSwitchTypeRender = () =>
-    <div className={cx(
-      BASE_CLASS,
-      'single-type',
-      {
-        active: (this.state.toggle || this.props.type === TYPES.SELECT),
-        large: this.props.size === SIZES.LARGE,
-        focus: this.state.isFocus,
-        disabled: this.state.disabled
-      })} onClick={this.toggleSwitch}>
-      <div className='container' tabIndex='0' onFocus={this.focusSwitch} onBlur={this.focusOutSwitch}>
-        <AtomLabel name={this.props.name} text={this.props.label} optionalText={this.props.labelOptionalText} />
-        <div className='input-container'>
-          <div className={cx('circle', {toggle: this.state.toggle})} />
-        </div>
-      </div>
-    </div>
 }
 
 AtomSwitch.displayName = 'AtomSwitch'
 
-// Remove these comments if you need
-// AtomSwitch.contextTypes = {i18n: PropTypes.object}
 AtomSwitch.propTypes = {
   /**
-   * Size of switch: 'medium' (default), 'large'
+   * Size of switch: 'default', 'large'
    */
-  size: PropTypes.oneOf([SIZES.MEDIUM, SIZES.LARGE]),
+  size: PropTypes.oneOf([SIZES.DEFAULT, SIZES.LARGE]),
   /**
    * Type of switch: 'toggle' (default), 'select', 'single'
    */
@@ -167,10 +128,11 @@ AtomSwitch.propTypes = {
   /**
    * Callback to be called when switch. Flag whenever switch is active or not sent
    */
-  onToggle: PropTypes.func
+  onToggle: PropTypes.func.isRequired
 }
+
 AtomSwitch.defaultProps = {
-  size: SIZES.MEDIUM,
+  size: SIZES.DEFAULT,
   disabled: false,
   labelLeft: 'Off',
   labelRight: 'On',

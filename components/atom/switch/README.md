@@ -11,14 +11,14 @@ There are several types and sizes for this component.
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-atom-switch --save
+$ npm install @s-ui/react-atom-switch --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import AtomSwitch from '@schibstedspain/sui-atom-switch'
+import AtomSwitch from '@s-ui/react-atom-switch'
 
 return (
        <AtomSwitch

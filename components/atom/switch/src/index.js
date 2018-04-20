@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {ToggleSwitchTypeRender} from './SwitchType/toggle'
 import {SingleSwitchTypeRender} from './SwitchType/single'
@@ -17,15 +17,9 @@ export const TYPES = {
 }
 
 class AtomSwitch extends Component {
-  constructor (props) {
-    super(props)
-
-    const {disabled} = props
-    this.state = {
-      toggle: false,
-      isFocus: false,
-      disabled
-    }
+  state = {
+    toggle: false,
+    isFocus: false
   }
 
   componentDidMount () {
@@ -49,29 +43,23 @@ class AtomSwitch extends Component {
   }
 
   toggleSwitch = () => {
-    const {disabled, toggle} = this.state
+    const {toggle} = this.state
     const {onToggle} = this.props
-    if (disabled) {
-      return
-    }
     onToggle(!toggle)
     this.setState({toggle: !toggle})
   }
 
   activateToggle = () => {
-    const {disabled} = this.state
-    if (disabled) {
-      return
-    }
     this.setState({toggle: true})
   }
 
   deactivateToggle = () => {
-    const {disabled} = this.state
-    if (disabled) {
-      return
-    }
     this.setState({toggle: false})
+  }
+
+  executeIfEnabled = (func) => () => {
+    const {disabled} = this.props
+    !disabled && func()
   }
 
   focusSwitch = () => {
@@ -83,10 +71,29 @@ class AtomSwitch extends Component {
   }
 
   render () {
-    const {toggle, isFocus, disabled} = this.state
+    const {toggle, isFocus} = this.state
+
     return (this.props.type === TYPES.SINGLE)
-      ? SingleSwitchTypeRender(this.props, toggle, isFocus, disabled, this.focusSwitch, this.focusOutSwitch, this.toggleSwitch)
-      : ToggleSwitchTypeRender(this.props, toggle, isFocus, disabled, this.focusSwitch, this.focusOutSwitch, this.activateToggle, this.deactivateToggle, this.toggleSwitch)
+      ? (
+        <SingleSwitchTypeRender
+          {...this.props}
+          isToggle={toggle}
+          isFocus={isFocus}
+          focusSwitchCallback={this.executeIfEnabled(this.focusSwitch)}
+          blurSwitchCallback={this.executeIfEnabled(this.focusOutSwitch)}
+          toggleSwitchCallback={this.executeIfEnabled(this.toggleSwitch)}
+        />)
+      : (
+        <ToggleSwitchTypeRender
+          {...this.props}
+          isToggle={toggle}
+          isFocus={isFocus}
+          focusSwitchCallback={this.executeIfEnabled(this.focusSwitch)}
+          blurSwitchCallback={this.executeIfEnabled(this.focusOutSwitch)}
+          toggleSwitchCallback={this.executeIfEnabled(this.toggleSwitch)}
+          activateToggleCallback={this.executeIfEnabled(this.activateToggle)}
+          deactivateToggleCallback={this.executeIfEnabled(this.deactivateToggle)}
+        />)
   }
 }
 
@@ -136,8 +143,7 @@ AtomSwitch.defaultProps = {
   disabled: false,
   labelLeft: 'Off',
   labelRight: 'On',
-  type: TYPES.TOGGLE,
-  onToggle: (toggle) => {}
+  type: TYPES.TOGGLE
 }
 
 export default AtomSwitch

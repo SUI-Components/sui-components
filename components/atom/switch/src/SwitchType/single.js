@@ -1,27 +1,50 @@
 import React from 'react'
 import cx from 'classnames'
-import {BASE_CLASS, TYPES} from '../index'
 import AtomLabel from '@s-ui/react-atom-label'
+import {prefixClass, workClassNames} from './helpers'
+import PropTypes from 'prop-types'
 
-export const SingleSwitchTypeRender = (opts, isToggle, isFocus, isDisabled, focusSwitchCallback, blurSwitchCallback, toggleSwitchCallback) => {
-  const {name, label, labelOptionalText, size, type} = opts
+export const SingleSwitchTypeRender = (opts) => {
+  const {
+    name,
+    label,
+    labelOptionalText,
+    size,
+    type,
+    disabled,
+    isToggle,
+    isFocus,
+    focusSwitchCallback,
+    blurSwitchCallback,
+    toggleSwitchCallback
+  } = opts
 
   return (
-    <div className={cx(
-      BASE_CLASS,
-      `${BASE_CLASS}--singleType`,
-      `${BASE_CLASS}--${size}`,
-      {
-        'sui-AtomSwitch--active': (isToggle || type === TYPES.SELECT),
-        'sui-AtomSwitch--focus': isFocus,
-        'sui-AtomSwitch--disabled': isDisabled
-      })} onClick={toggleSwitchCallback}>
-      <div className={`${BASE_CLASS}--container`} tabIndex='0' onFocus={focusSwitchCallback} onBlur={blurSwitchCallback}>
+    <div
+      className={workClassNames(size, type, 'singleType', isToggle, isFocus, disabled)}
+      onClick={toggleSwitchCallback}>
+      <div className={prefixClass('container')} tabIndex='0' onFocus={focusSwitchCallback} onBlur={blurSwitchCallback}>
         <AtomLabel name={name} text={label} optionalText={labelOptionalText} />
-        <div className={`${BASE_CLASS}--inputContainer`}>
-          <div className={cx(`${BASE_CLASS}--circle`, {'sui-AtomSwitch--toggle': isToggle})} />
+        <div className={prefixClass('inputContainer')}>
+          <div className={cx(prefixClass('circle'), {'sui-AtomSwitch--toggle': isToggle})} />
         </div>
       </div>
     </div>
   )
+}
+
+SingleSwitchTypeRender.displayName = 'SingleSwitchTypeRender'
+
+SingleSwitchTypeRender.propTypes = {
+  name: PropTypes.string,
+  label: PropTypes.string,
+  labelOptionalText: PropTypes.string,
+  size: PropTypes.string,
+  type: PropTypes.string,
+  disabled: PropTypes.bool,
+  isToggle: PropTypes.bool,
+  isFocus: PropTypes.bool,
+  focusSwitchCallback: PropTypes.func,
+  blurSwitchCallback: PropTypes.func,
+  toggleSwitchCallback: PropTypes.func,
 }

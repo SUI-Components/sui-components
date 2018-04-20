@@ -1,29 +1,57 @@
 import React from 'react'
 import cx from 'classnames'
-import {BASE_CLASS, TYPES} from '../index'
 import AtomLabel from '@s-ui/react-atom-label'
+import {prefixClass, workClassNames} from './helpers'
+import PropTypes from 'prop-types'
 
-export const ToggleSwitchTypeRender = (opts, isToggle, isFocus, isDisabled, focusSwitchCallback, blurSwitchCallback, activateToggleCallback, deactivateToggleCallback, toggleSwitchCallback) => {
-  const {name, label, labelOptionalText, labelLeft, labelRight, size, type} = opts
+export const ToggleSwitchTypeRender = (opts) => {
+  const {
+    name,
+    label,
+    labelOptionalText,
+    labelLeft,
+    labelRight,
+    size,
+    type,
+    disabled,
+    isToggle,
+    isFocus,
+    focusSwitchCallback,
+    blurSwitchCallback,
+    toggleSwitchCallback,
+    activateToggleCallback,
+    deactivateToggleCallback
+  } = opts
 
   return (
-    <div className={cx(
-      BASE_CLASS,
-      `${BASE_CLASS}--toggleType`,
-      `${BASE_CLASS}--${size}`,
-      {
-        'sui-AtomSwitch--active': (isToggle || type === TYPES.SELECT),
-        'sui-AtomSwitch--focus': isFocus,
-        'sui-AtomSwitch--disabled': isDisabled
-      })}>
+    <div
+      className={workClassNames(size, type, 'toggleType', isToggle, isFocus, disabled)}>
       <AtomLabel name={name} text={label} optionalText={labelOptionalText} />
-      <div className={cx(`${BASE_CLASS}--container`)} tabIndex='0' onFocus={focusSwitchCallback} onBlur={blurSwitchCallback}>
-        <span className={cx(`${BASE_CLASS}--text`, `${BASE_CLASS}--left`)} onClick={deactivateToggleCallback}>{labelLeft}</span>
-        <div className={cx(`${BASE_CLASS}--inputContainer`)} onClick={toggleSwitchCallback}>
-          <div className={cx(`${BASE_CLASS}--circle`, {'sui-AtomSwitch--toggle': isToggle})} />
+      <div className={cx(prefixClass('container'))} tabIndex='0' onFocus={focusSwitchCallback} onBlur={blurSwitchCallback}>
+        <span className={cx(prefixClass('text'), prefixClass('left'))} onClick={deactivateToggleCallback}>{labelLeft}</span>
+        <div className={cx(prefixClass('inputContainer'))} onClick={toggleSwitchCallback}>
+          <div className={cx(prefixClass('circle'), {'sui-AtomSwitch--toggle': isToggle})} />
         </div>
-        <span className={cx(`${BASE_CLASS}--text`, `${BASE_CLASS}--right`)} onClick={activateToggleCallback}>{labelRight}</span>
+        <span className={cx(prefixClass('text'), prefixClass('right'))} onClick={activateToggleCallback}>{labelRight}</span>
       </div>
     </div>
   )
+}
+
+ToggleSwitchTypeRender.displayName = 'ToggleSwitchTypeRender'
+
+ToggleSwitchTypeRender.propTypes = {
+  name: PropTypes.string,
+  label: PropTypes.string,
+  labelOptionalText: PropTypes.string,
+  size: PropTypes.string,
+  type: PropTypes.string,
+  disabled: PropTypes.bool,
+  isToggle: PropTypes.bool,
+  isFocus: PropTypes.bool,
+  focusSwitchCallback: PropTypes.func,
+  blurSwitchCallback: PropTypes.func,
+  toggleSwitchCallback: PropTypes.func,
+  activateToggleCallback: PropTypes.func,
+  deactivateToggleCallback: PropTypes.func,
 }

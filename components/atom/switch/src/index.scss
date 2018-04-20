@@ -1,15 +1,17 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$h-atom-switch--default: $sz-icon-l !default;
-$w-atom-switch--default: 34px !default;
-$h-atom-switch-container: 22px !default;
+$h-atom-switch--m: $sz-icon-l !default;
+$w-atom-switch--m: 34px !default;
+$m-atom-switch-circle--m: 12px !default;
+$h-atom-switch-container--m: 22px !default;
 
-$h-atom-switch--large: $sz-icon-xl !default;
-$w-atom-switch--large: 49px !default;
-$h-atom-switch-container---large: 32px !default;
+$h-atom-switch--l: $sz-icon-xl !default;
+$w-atom-switch--l: 49px !default;
+$m-atom-switch-circle--l: 18px !default;
+$h-atom-switch-container--l: 32px !default;
 
-$c-AtomSwitch-active: color-variation($c-primary, 1) !default;
-$c-AtomSwitch-default: color-variation($c-gray, 3) !default;
+$c-AtomSwitch--active: color-variation($c-primary, 1) !default;
+$c-AtomSwitch--default: color-variation($c-gray, 3) !default;
 
 .sui-AtomSwitch {
   cursor: pointer;
@@ -29,7 +31,7 @@ $c-AtomSwitch-default: color-variation($c-gray, 3) !default;
 
   &--container {
     display: flex;
-    height: $h-atom-switch--default;
+    height: $h-atom-switch--m;
     justify-content: center;
     padding-bottom: $p-s;
     padding-top: $p-s;
@@ -51,25 +53,25 @@ $c-AtomSwitch-default: color-variation($c-gray, 3) !default;
   }
 
   .sui-AtomSwitch--inputContainer {
-    background-color: $c-AtomSwitch-default;
-    border-radius: $w-atom-switch--default / 2;
-    border: solid 1px color-variation($c-AtomSwitch-default, $c-dark-step);
+    background-color: $c-AtomSwitch--default;
+    border-radius: $w-atom-switch--m / 2;
+    border: solid 1px color-variation($c-AtomSwitch--default, $c-dark-step);
     cursor: pointer;
-    height: $h-atom-switch-container;
+    height: $h-atom-switch-container--m;
     transition: background-color, border 0.4s ease-in-out;
-    width: $w-atom-switch--default;
+    width: $w-atom-switch--m;
 
     .sui-AtomSwitch--circle {
       background-color: $c-white;
-      border-radius: ($h-atom-switch-container - 2) / 2;
+      border-radius: ($h-atom-switch-container--m - 2) / 2;
       border: solid 1px $c-white;
       box-shadow: 2px 0 2px 0 $c-gray-light;
-      height: $h-atom-switch-container - 2;
+      height: $h-atom-switch-container--m - 2;
       transition: margin 0.4s ease-in-out;
-      width: $h-atom-switch-container - 2;
+      width: $h-atom-switch-container--m - 2;
 
       &.sui-AtomSwitch--toggle {
-        margin-left: 12px;
+        margin-left: $m-atom-switch-circle--m;
       }
     }
   }
@@ -81,9 +83,9 @@ $c-AtomSwitch-default: color-variation($c-gray, 3) !default;
   &.sui-AtomSwitch--active {
     & .sui-AtomSwitch--container {
       .sui-AtomSwitch--inputContainer {
-        background-color: $c-AtomSwitch-active;
+        background-color: $c-AtomSwitch--active;
         border-radius: 11px;
-        border: solid 1px $c-AtomSwitch-active;
+        border: solid 1px $c-AtomSwitch--active;
         cursor: pointer;
         height: 22px;
         width: 34px;
@@ -93,7 +95,7 @@ $c-AtomSwitch-default: color-variation($c-gray, 3) !default;
 
   &.sui-AtomSwitch--large, &.sui-AtomSwitch--active.sui-AtomSwitch--large {
     .sui-AtomSwitch--container {
-      height: $h-atom-switch--large;
+      height: $h-atom-switch--l;
       padding-bottom: $p-s;
       padding-top: $p-s;
       .sui-AtomSwitch--text {
@@ -103,15 +105,15 @@ $c-AtomSwitch-default: color-variation($c-gray, 3) !default;
       }
 
       .sui-AtomSwitch--inputContainer {
-        border-radius: $w-atom-switch--large / 2;
-        height: $h-atom-switch-container---large;
-        width: $w-atom-switch--large;
+        border-radius: $w-atom-switch--l / 2;
+        height: $h-atom-switch-container--l;
+        width: $w-atom-switch--l;
         .sui-AtomSwitch--circle {
-          border-radius: ($h-atom-switch-container---large - 2) / 2;
-          height: $h-atom-switch-container---large - 2;
-          width: $h-atom-switch-container---large - 2;
+          border-radius: ($h-atom-switch-container--l - 2) / 2;
+          height: $h-atom-switch-container--l - 2;
+          width: $h-atom-switch-container--l - 2;
           &.sui-AtomSwitch--toggle {
-            margin-left: 18px;
+            margin-left: $m-atom-switch-circle--l;
           }
         }
       }

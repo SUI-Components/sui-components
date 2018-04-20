@@ -1,36 +1,38 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$sizes-sui-molecule-thumbnail: (
+$bgc-molecule-thumbnail-basic: $c-white !default;
+
+$sizes-molecule-thumbnail: (
   large: 144px,
   medium: 72px,
   small: 48px,
   xsmall:  40px
 ) !default;
 
-$ratios-sui-molecule-thumbnail: (
+$ratios-molecule-thumbnail: (
   1: 1,
   4: 3,
   16: 9
 ) !default;
 
-$bd-outer-sui-molecule-thumbnail: 1px solid color-variation($c-gray, 3) !default;
-$bdc-outer-hover-sui-molecule-thumbnail: $c-text-link !default;
-$bd-inner-sui-molecule-thumbnail: 3px solid $c-white !default;
-$bgc-sui-molecule-thumbnail: $c-gray-light !default; 
-$bs-sui-molecule-thumbnail: 0 !default;
+$bd-outer-molecule-thumbnail: 1px solid color-variation($c-gray, 3) !default;
+$bdc-outer-hover-molecule-thumbnail: $c-text-link !default;
+$bd-inner-molecule-thumbnail: 3px solid $c-white !default;
+$bgc-molecule-thumbnail: $c-gray-light !default; 
+$bs-molecule-thumbnail: 0 !default;
 
 a {
   & > .sui-MoleculeThumbnail {
     &:hover {
-      border-color: $bdc-outer-hover-sui-molecule-thumbnail;
+      border-color: $bdc-outer-hover-molecule-thumbnail;
     }
   }
 }
 
 .sui-MoleculeThumbnail {
-  background: $bgc-thumbnail-basic;
-  border: $bd-outer-sui-molecule-thumbnail;
-  box-shadow: $bs-sui-molecule-thumbnail;  
+  background: $bgc-molecule-thumbnail-basic;
+  border: $bd-outer-molecule-thumbnail;
+  box-shadow: $bs-molecule-thumbnail;  
   display: inline-block;
   margin: 0;  
   position: relative;
@@ -42,8 +44,8 @@ a {
   }
 
   .sui-ImagePlaceholder {
-    background: $bgc-sui-molecule-thumbnail;
-    border: $bd-inner-sui-molecule-thumbnail;
+    background: $bgc-molecule-thumbnail;
+    border: $bd-inner-molecule-thumbnail;
     height: 100%;
     overflow: hidden;
     padding: 0;
@@ -66,7 +68,7 @@ a {
 
   &-caption {
     background: color-variation($c-gray, 3);
-    border: $bd-outer-sui-molecule-thumbnail;
+    border: $bd-outer-molecule-thumbnail;
     color: $c-text-link;
     display: block;
     font-size: $fz-s;    
@@ -79,12 +81,12 @@ a {
 
   }
 
-  @each $key-size, $size in $sizes-sui-molecule-thumbnail {
+  @each $key-size, $size in $sizes-molecule-thumbnail {
     &--#{$key-size} {
       width: $size;
     }
 
-    @each $key-ratio, $ratio in $ratios-sui-molecule-thumbnail {
+    @each $key-ratio, $ratio in $ratios-molecule-thumbnail {
       &--#{$key-size}.sui-MoleculeThumbnail--#{$key-ratio}-#{$ratio} {
         .sui-ImagePlaceholder {
           height: ($size/$key-ratio)*$ratio;

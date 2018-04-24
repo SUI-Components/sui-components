@@ -4,8 +4,8 @@ import AtomLabel from '@s-ui/react-atom-label'
 import {prefixClass, workClassNames} from './helpers'
 import PropTypes from 'prop-types'
 
-export const SingleSwitchTypeRender = (opts) => {
-  const {
+export const SingleSwitchTypeRender = (
+  {
     name,
     label,
     labelOptionalText,
@@ -17,8 +17,7 @@ export const SingleSwitchTypeRender = (opts) => {
     focusSwitchCallback,
     blurSwitchCallback,
     toggleSwitchCallback
-  } = opts
-
+  }) => {
   return (
     <div
       className={workClassNames(size, type, 'singleType', isToggle, isFocus, disabled)}

@@ -4,8 +4,8 @@ import AtomLabel from '@s-ui/react-atom-label'
 import {prefixClass, workClassNames} from './helpers'
 import PropTypes from 'prop-types'
 
-export const ToggleSwitchTypeRender = (opts) => {
-  const {
+export const ToggleSwitchTypeRender = (
+  {
     name,
     label,
     labelOptionalText,
@@ -21,8 +21,7 @@ export const ToggleSwitchTypeRender = (opts) => {
     toggleSwitchCallback,
     activateToggleCallback,
     deactivateToggleCallback
-  } = opts
-
+  }) => {
   return (
     <div
       className={workClassNames(size, type, 'toggleType', isToggle, isFocus, disabled)}>
@@ -43,6 +42,8 @@ ToggleSwitchTypeRender.displayName = 'ToggleSwitchTypeRender'
 ToggleSwitchTypeRender.propTypes = {
   name: PropTypes.string,
   label: PropTypes.string,
+  labelRight: PropTypes.string,
+  labelLeft: PropTypes.string,
   labelOptionalText: PropTypes.string,
   size: PropTypes.string,
   type: PropTypes.string,

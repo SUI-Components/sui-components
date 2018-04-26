@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import TabsBasic from '@schibstedspain/sui-tab-basic'
 import cx from 'classnames'
 
+const NO_OP = () => {}
+
 class TabContent extends Component {
   state = {
     activeTab: this.props.activeTab
@@ -10,6 +12,7 @@ class TabContent extends Component {
 
   _handleClick = (activeTab) => {
     this.setState({ activeTab })
+    this.props.onTabChange(activeTab)
   }
 
   _renderContent ({ activeTab, tabsContent }) {
@@ -61,7 +64,8 @@ TabContent.displayName = 'TabContent'
 
 TabContent.defaultProps = {
   activeTab: 0,
-  renderInactiveContent: true
+  renderInactiveContent: true,
+  onTabChange: NO_OP
 }
 
 TabContent.propTypes = {
@@ -85,7 +89,11 @@ TabContent.propTypes = {
      * Content for the panel
      */
     content: PropTypes.element.isRequired
-  }).isRequired).isRequired
+  }).isRequired).isRequired,
+  /**
+   * Callback to execute when tab content has changed.
+   */
+  onTabChange: PropTypes.func
 }
 
 export default TabContent

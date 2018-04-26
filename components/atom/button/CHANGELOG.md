@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2018-04-03)
+
+
+### Features
+
+* add security noopener attribute for target blank ([642c2c5](https://github.com/SUI-Components/sui-components/commit/642c2c5))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2018-03-07)
 

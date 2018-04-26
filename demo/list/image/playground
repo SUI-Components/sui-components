@@ -1,46 +1,29 @@
-const imagesList = [
-     {
-         src: 'https://d.fotocasa.es/promotion/2016/09/16/19245163/1582800.jpg/504x504/a_fill',
-         onClick: () => {alert('Image 1 clicked!')}
-     },
-     {
-         src: 'https://d.fotocasa.es/promotion/2016/09/16/19245163/1582802.jpg/504x504/a_fill',
-         onClick: () => {alert('Image 2 clicked!')}
-     },
-     {
-         src: 'https://d.fotocasa.es/promotion/2016/09/16/19245163/1582806.jpg/504x504/a_fill',
-         onClick: () => {alert('Image 3 clicked!')}
-     },
-     {
-         src: 'https://d.fotocasa.es/promotion/2016/09/16/19245163/1582809.jpg/504x504/a_fill',
-         onClick: () => {alert('Image 4 clicked!')}
-     },
-     {
-         src: 'https://d.fotocasa.es/promotion/2016/09/16/19245163/1582798.jpg/504x504/a_fill',
-         onClick: () => {alert('Image 5 clicked!')}
-     },
-     {
-         src: 'https://d.fotocasa.es/promotion/2016/09/16/19245163/1582803.jpg/504x504/a_fill',
-         onClick: () => {alert('Image 6 clicked!')}
-     },
-     {
-         src: 'https://d.fotocasa.es/promotion/2016/09/16/19245163/1582797.jpg/504x504/a_fill',
-         onClick: () => {alert('Image 7 clicked!')}
-     },
-     {
-         src: 'https://d.fotocasa.es/promotion/2016/09/16/19245163/1582807.jpg/504x504/a_fill',
-         onClick: () => {alert('Image 8 clicked!')}
-     }
- ]
+const imageBaseUrl = 'http://lorempicsum.com/futurama/320/320/'
+const buildClickHandler = index => () => { alert('Image ' + index + ' clicked!!') }
+
+const imagesList = [...Array(10).keys()].map(index => ({
+  src: imageBaseUrl + (index + 1),
+  onClick: buildClickHandler(index + 1)
+}))
+
+const containerStyles = {
+  style: {
+    width: '100%',
+    backgroundColor: 'white'
+  }
+}
 
 return (
-    <div style={{width: '100%', background: '#fff'}}>
-        <ListImage
-            images={ imagesList }
-            moreItemsBox={{
-                label: 'Ver las 35 imagenes en pantalla completa',
-                onClick: () => { alert('Last item clicked!') }
-            }}
-        maxItems={ 6 } />
-    </div>
+  <div {...containerStyles}>
+    <ListImage
+      images={imagesList}
+      moreItemsBox={{
+        label: 'Custom label to notify there are more items...',
+        onClick: () => {
+          alert('Last item clicked!!')
+        }
+      }}
+      maxItems={8}
+    />
+  </div>
 )

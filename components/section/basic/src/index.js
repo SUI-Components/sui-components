@@ -8,25 +8,24 @@ const AVAILABLE_SPACINGS = Object.values(SPACING)
 
 const getSpacingClassName = modifier => `${CLASS}-bottomSpacing--${modifier}`
 
-const SectionBasic = ({ children, contentBottomSpacing, headerBottomSpacing, sectionBottomSpacing, separator, textContent, title }) => {
-  return (
-    <section className={cx(CLASS, getSpacingClassName(sectionBottomSpacing))}>
-      { title &&
-        <header className={cx(`${CLASS}-header`, getSpacingClassName(headerBottomSpacing))}>
-          <h3 className={`${CLASS}-title`}>{ title }</h3>
-        </header>
+const SectionBasic = ({ children, contentBottomSpacing, headerBottomSpacing, sectionBottomSpacing, separator, textContent, title, customContentWhenEmpty }) => (
+  <section className={cx(CLASS, getSpacingClassName(sectionBottomSpacing))}>
+    { title &&
+      <header className={cx(`${CLASS}-header`, getSpacingClassName(headerBottomSpacing))}>
+        <h3 className={`${CLASS}-title`}>{ title }</h3>
+      </header>
+    }
+    <div className={cx(`${CLASS}-content`, { [getSpacingClassName(contentBottomSpacing)]: separator })}>
+      { textContent
+        ? <p className={`${CLASS}-textContent`}>{ textContent }</p>
+        : children || customContentWhenEmpty
       }
-      <div className={cx(`${CLASS}-content`, { [getSpacingClassName(contentBottomSpacing)]: separator })}>
-        { textContent
-          ? <p className={`${CLASS}-textContent`}>{ textContent }</p>
-          : children }
-      </div>
-      { separator &&
-        <hr className={`${CLASS}-separator`} />
-      }
-    </section>
-  )
-}
+    </div>
+    { separator &&
+      <hr className={`${CLASS}-separator`} />
+    }
+  </section>
+)
 
 SectionBasic.displayName = 'SectionBasic'
 
@@ -55,13 +54,19 @@ SectionBasic.propTypes = {
   /**
    * Allows customisation of the bottom margin to add to the section's content element (space between content and separator line).
    */
-  contentBottomSpacing: PropTypes.oneOf(AVAILABLE_SPACINGS)
+  contentBottomSpacing: PropTypes.oneOf(AVAILABLE_SPACINGS),
+  /**
+   * Content to be displayed inside the section when no children or no textContent has been provided.
+   * If not set, no custom content will be displayed when section is empty.
+   */
+  customContentWhenEmpty: PropTypes.node
 }
 
 SectionBasic.defaultProps = {
   contentBottomSpacing: SPACING.LARGE,
   headerBottomSpacing: SPACING.LARGE,
   sectionBottomSpacing: SPACING.NONE,
+  customContentWhenEmpty: null,
   separator: false
 }
 

@@ -1,0 +1,16 @@
+@import '~@schibstedspain/sui-theme/lib/settings';
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$validation: success $c-success, error $c-error;
+
+.sui-AtomValidationText {
+
+  @each $type, $color in $validation {
+    &--#{$type} {
+      color: $color;
+      display: block;
+      font-size: $fz-xs;
+      margin: $m-s 0 0;
+    }
+  }
+}

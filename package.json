@@ -53,6 +53,7 @@
         "atom/panel",
         "atom/spinner",
         "atom/tag",
+        "atom/validationText",
         "breadcrumb/basic",
         "molecule/tabs",
         "molecule/thumbnail"

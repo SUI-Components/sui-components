@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.2.0"></a>
+# 2.2.0 (2018-03-29)
+
+
+### Features
+
+* no margins for "hr" section line separator. ([91e103f](https://github.com/SUI-Components/sui-components/commit/91e103f))
+
+
+
+<a name="2.1.0"></a>
+# 2.1.0 (2018-03-27)
+
+
+### Features
+
+* fix comment typo. ([82a8f43](https://github.com/SUI-Components/sui-components/commit/82a8f43))
+* support custom empty content when no children or textContent is provided. ([50834cb](https://github.com/SUI-Components/sui-components/commit/50834cb))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2018-03-19)
 

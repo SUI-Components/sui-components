@@ -9,6 +9,13 @@ $sizes-molecule-thumbnail: (
   xsmall:  40px
 ) !default;
 
+$sizes-mobile-molecule-thumbnail: (
+  large: 96px,
+  medium: 72px,
+  small: 40px,
+  xsmall:  32px
+) !default;
+
 $ratios-molecule-thumbnail: (
   1: 1,
   4: 3,
@@ -77,7 +84,7 @@ $bs-molecule-thumbnail: none !default;
     width: 100%;
   }
 
-  @each $key-size, $size in $sizes-molecule-thumbnail {
+  @each $key-size, $size in $sizes-mobile-molecule-thumbnail {
     &--#{$key-size} {
       width: $size;
     }
@@ -90,6 +97,20 @@ $bs-molecule-thumbnail: none !default;
       }
     }
   }
-}
 
-@import 'tablet-mobile';
+  @include media-breakpoint-up(m) {
+    @each $key-size, $size in $sizes-molecule-thumbnail {
+      &--#{$key-size} {
+        width: $size;
+      }
+
+      @each $key-ratio, $ratio in $ratios-molecule-thumbnail {
+        &--#{$key-size}.sui-MoleculeThumbnail--#{$key-ratio}-#{$ratio} {
+          .sui-ImagePlaceholder {
+            height: ($size/$key-ratio)*$ratio;
+          }   
+        }
+      }
+    }
+  }
+}

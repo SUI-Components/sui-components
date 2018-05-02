@@ -33,11 +33,13 @@ class AtomSwitch extends Component {
   }
 
   componentDidMount () {
-    window.addEventListener('keydown', this.keyBindings.bind(this), true)
+    this.keyBindingsInstance = this.keyBindings.bind(this)
+    window.addEventListener('keydown', this.keyBindingsInstance, true)
   }
 
   componentWillUnmount () {
-    window.removeEventListener('keydown', this.keyBindings.bind(this), true)
+    window.removeEventListener('keydown', this.keyBindingsInstance, true)
+    this.keyBindingsInstance = null
   }
 
   keyBindings = (event) => {

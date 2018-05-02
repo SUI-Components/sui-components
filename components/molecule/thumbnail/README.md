@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-molecule-thumbnail --save
+$ npm install @s-ui/react-molecule-thumbnail --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import MoleculeThumbnail from '@schibstedspain/sui-molecule-thumbnail'
+import MoleculeThumbnail from '@s-ui/react-molecule-thumbnail'
 
 return (<MoleculeThumbnail
           src='https://someImage'
@@ -31,7 +31,7 @@ It can be 'SQUARED' or 'CIRCLED'. It is recommended to use squared shape for log
   src='https://someImage'
   alt='Some alt'
   placeholder={placeholder}
-  type={moleculeThumbnailShape.CIRCLED}
+  shape={moleculeThumbnailShape.CIRCLED}
 />
 ```
 

@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-molecule-thumbnail",
+  "name": "@s-ui/react-molecule-thumbnail",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

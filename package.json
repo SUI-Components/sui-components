@@ -55,8 +55,7 @@
         "atom/tag",
         "atom/validationText",
         "breadcrumb/basic",
-        "molecule/tabs",
-        "molecule/thumbnail"
+        "molecule/tabs"
       ]
     },
     "sui-mono": {

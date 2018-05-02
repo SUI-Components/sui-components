@@ -5,7 +5,7 @@ $sizes-mobile-molecule-thumbnail: (
   medium: 72px,
   small: 40px,
   xsmall:  32px
-);
+) !default;
 
 .sui-MoleculeThumbnail {
   @include media-breakpoint-down(m) {

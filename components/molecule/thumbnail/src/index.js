@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import ImagePlaceholder from '@schibstedspain/sui-image-placeholder'
 import cx from 'classnames'
 
 const BASE_CLASS = 'sui-MoleculeThumbnail'
 const CAPTION_CLASS = `${BASE_CLASS}-caption`
+const LINK_CLASS = `${BASE_CLASS}-link`
 
 const SIZES = {
   LARGE: 'large',
@@ -24,37 +25,47 @@ const SHAPES = {
   CIRCLED: 'circled'
 }
 
-class MoleculeThumbnail extends Component {
-  _renderFigure () {
-    return (
-      <figure className={
-        cx(
-          `${BASE_CLASS}`,
-          `${BASE_CLASS}--${this.props.size}`,
-          `${BASE_CLASS}--${this.props.ratio}`,
-          `${BASE_CLASS}--${this.props.shape}`
-        )}>
-        <ImagePlaceholder
-          {...this.props}
-        />
-        {
-          this.props.captionText &&
-            <figcaption className={CAPTION_CLASS}>
-              {this.props.captionText}
-            </figcaption>
-        }
-      </figure>
-    )
-  }
-  render () {
-    return this.props.href
+const MoleculeThumbnail = (props) => {
+  const {
+    href,
+    size,
+    ratio,
+    shape,
+    target,
+    captionText,
+    linkFactory: Link,
+    alt,
+    src,
+    placeholder,
+    fallback
+  } = props
+
+  const figure = (
+    <figure className={
+      cx(
+        `${BASE_CLASS}`,
+        `${BASE_CLASS}--${size}`,
+        `${BASE_CLASS}--${ratio}`,
+        `${BASE_CLASS}--${shape}`
+      )} >
+      <ImagePlaceholder src={src} alt={alt} placeholder={placeholder} fallback={fallback} />
+      {
+        captionText &&
+          <figcaption className={CAPTION_CLASS}>
+            {captionText}
+          </figcaption>
+      }
+    </figure>
+  )
+  return (
+    href
       ? (
-        <a href={this.props.href} target={this.props.target}>
-          {this._renderFigure()}
-        </a>
+        <Link className={LINK_CLASS} href={href} target={target} rel={target === '_blank' && 'noopener'}>
+          {figure}
+        </Link>
       )
-      : this._renderFigure()
-  }
+      : figure
+  )
 }
 
 MoleculeThumbnail.displayName = 'MoleculeThumbnail'
@@ -69,7 +80,7 @@ MoleculeThumbnail.propTypes = {
    */
   alt: PropTypes.string.isRequired,
   /**
-   * Text shown at the buttom of the component
+   * Text shown at the bottom of the component
    */
   captionText: PropTypes.string,
   /**
@@ -99,14 +110,20 @@ MoleculeThumbnail.propTypes = {
   /**
    * Define the ratio ('1:1', '4:3', '16:9')
    */
-  ratio: PropTypes.oneOf(Object.values(RATIOS))
+  ratio: PropTypes.oneOf(Object.values(RATIOS)),
+  /**
+   * Factory used to create navigation links
+   */
+  linkFactory: PropTypes.func
 }
 
 MoleculeThumbnail.defaultProps = {
   target: '_blank',
   size: SIZES.MEDIUM,
   shape: SHAPES.SQUARED,
-  ratio: RATIOS['1:1']
+  ratio: RATIOS['1:1'],
+  linkFactory: ({ children, ...rest } = {}) =>
+    <a {...rest}>{children}</a>
 }
 
 export default MoleculeThumbnail

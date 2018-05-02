@@ -19,15 +19,7 @@ $bd-outer-molecule-thumbnail: 1px solid color-variation($c-gray, 3) !default;
 $bdc-outer-hover-molecule-thumbnail: $c-text-link !default;
 $bd-inner-molecule-thumbnail: 3px solid $c-white !default;
 $bgc-molecule-thumbnail: $c-gray-light !default; 
-$bs-molecule-thumbnail: 0 !default;
-
-a {
-  & > .sui-MoleculeThumbnail {
-    &:hover {
-      border-color: $bdc-outer-hover-molecule-thumbnail;
-    }
-  }
-}
+$bs-molecule-thumbnail: none !default;
 
 .sui-MoleculeThumbnail {
   background: $bgc-molecule-thumbnail-basic;
@@ -38,11 +30,17 @@ a {
   position: relative;
   width: 100%;
 
-  img {
-    width: 100%;
+  .sui-MoleculeThumbnail-link & {
+    &:hover {
+      border-color: $bdc-outer-hover-molecule-thumbnail;
+    }
+  }
+
+  .sui-ImagePlaceholder-image {
     height: 100%;
     object-fit: cover;
     overflow: hidden;
+    width: 100%;    
   }
 
   .sui-ImagePlaceholder {
@@ -56,16 +54,13 @@ a {
   }
 
   &--circled {
-    border-radius: 50%;
-
-    .sui-ImagePlaceholder {
+    &, .sui-ImagePlaceholder {
       border-radius: 50%;
     }
 
     .sui-MoleculeThumbnail-caption {
       display: none;
     }
-
   }
 
   &-caption {
@@ -80,7 +75,6 @@ a {
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 100%;
-
   }
 
   @each $key-size, $size in $sizes-molecule-thumbnail {

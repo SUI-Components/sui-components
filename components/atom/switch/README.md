@@ -22,8 +22,8 @@ import AtomSwitch from '@s-ui/react-atom-switch'
 
 return (
        <AtomSwitch
-          size=''
-          type=''
+          size='default'
+          type='toggle'
           disabled={false}
           label='Label'
           labelLeft='Off'

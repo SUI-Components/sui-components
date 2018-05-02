@@ -22,20 +22,29 @@ class AtomSwitch extends Component {
     isFocus: false
   }
 
+  constructor (props) {
+    super(props)
+
+    this.executeIfEnabledFocusSwitch = this.executeIfEnabled(this.focusSwitch)
+    this.executeIfEnabledFocusOutSwitch = this.executeIfEnabled(this.focusOutSwitch)
+    this.executeIfEnabledToggleSwitch = this.executeIfEnabled(this.toggleSwitch)
+    this.executeIfEnabledActivateSwitch = this.executeIfEnabled(this.activateToggle)
+    this.executeIfEnabledDeactivateSwitch = this.executeIfEnabled(this.deactivateToggle)
+  }
+
   componentDidMount () {
     window.addEventListener('keydown', this.keyBindings.bind(this), true)
   }
 
+  componentWillUnmount () {
+    window.removeEventListener('keydown', this.keyBindings.bind(this), true)
+  }
+
   keyBindings = (event) => {
     const {isFocus} = this.state
-    if (!isFocus) {
+    if (!isFocus || event.defaultPrevented) {
       return
     }
-
-    if (event.defaultPrevented) {
-      return
-    }
-
     if (event.key === 'Enter' || event.key === ' ') {
       this.toggleSwitch()
       event.preventDefault()
@@ -79,20 +88,20 @@ class AtomSwitch extends Component {
           {...this.props}
           isToggle={toggle}
           isFocus={isFocus}
-          focusSwitchCallback={this.executeIfEnabled(this.focusSwitch)}
-          blurSwitchCallback={this.executeIfEnabled(this.focusOutSwitch)}
-          toggleSwitchCallback={this.executeIfEnabled(this.toggleSwitch)}
+          focusSwitchCallback={this.executeIfEnabledFocusSwitch}
+          blurSwitchCallback={this.executeIfEnabledFocusOutSwitch}
+          toggleSwitchCallback={this.executeIfEnabledToggleSwitch}
         />)
       : (
         <ToggleSwitchTypeRender
           {...this.props}
           isToggle={toggle}
           isFocus={isFocus}
-          focusSwitchCallback={this.executeIfEnabled(this.focusSwitch)}
-          blurSwitchCallback={this.executeIfEnabled(this.focusOutSwitch)}
-          toggleSwitchCallback={this.executeIfEnabled(this.toggleSwitch)}
-          activateToggleCallback={this.executeIfEnabled(this.activateToggle)}
-          deactivateToggleCallback={this.executeIfEnabled(this.deactivateToggle)}
+          focusSwitchCallback={this.executeIfEnabledFocusSwitch}
+          blurSwitchCallback={this.executeIfEnabledFocusOutSwitch}
+          toggleSwitchCallback={this.executeIfEnabledToggleSwitch}
+          activateToggleCallback={this.executeIfEnabledActivateSwitch}
+          deactivateToggleCallback={this.executeIfEnabledDeactivateSwitch}
         />)
   }
 }

@@ -10,8 +10,8 @@ $w-atom-switch--l: 49px !default;
 $m-atom-switch-circle--l: 18px !default;
 $h-atom-switch-container--l: 32px !default;
 
-$c-AtomSwitch--active: color-variation($c-primary, 1) !default;
-$c-AtomSwitch--default: color-variation($c-gray, 3) !default;
+$c-atom-switch--active: color-variation($c-primary, 1) !default;
+$c-atom-switch--default: color-variation($c-gray, 3) !default;
 
 .sui-AtomSwitch {
   cursor: pointer;
@@ -53,9 +53,9 @@ $c-AtomSwitch--default: color-variation($c-gray, 3) !default;
   }
 
   .sui-AtomSwitch--inputContainer {
-    background-color: $c-AtomSwitch--default;
+    background-color: $c-atom-switch--default;
     border-radius: $w-atom-switch--m / 2;
-    border: solid 1px color-variation($c-AtomSwitch--default, $c-dark-step);
+    border: solid 1px color-variation($c-atom-switch--default, $c-dark-step);
     cursor: pointer;
     height: $h-atom-switch-container--m;
     transition: background-color, border 0.4s ease-in-out;
@@ -83,9 +83,9 @@ $c-AtomSwitch--default: color-variation($c-gray, 3) !default;
   &.sui-AtomSwitch--active {
     & .sui-AtomSwitch--container {
       .sui-AtomSwitch--inputContainer {
-        background-color: $c-AtomSwitch--active;
+        background-color: $c-atom-switch--active;
         border-radius: 11px;
-        border: solid 1px $c-AtomSwitch--active;
+        border: solid 1px $c-atom-switch--active;
         cursor: pointer;
       }
     }

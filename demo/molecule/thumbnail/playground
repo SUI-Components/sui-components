@@ -11,368 +11,378 @@ return (
       <table style={{
             marginBottom: '20px'
           }}>
-        <tr>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Link</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              placeholder={placeholder}
-              size={moleculeThumbnailSize.MEDIUM}
-            />
-          </td>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>No link</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              target='_blank'
-              placeholder={placeholder}
-              size={moleculeThumbnailSize.MEDIUM}
-            />
-          </td>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Caption</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              captionText='Show!'
-              placeholder={placeholder}
-              size={moleculeThumbnailSize.MEDIUM}
-            />
-          </td>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Circled</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              type={moleculeThumbnailShape.CIRCLED}
-              size={moleculeThumbnailSize.MEDIUM}
-            />
-          </td>
-        </tr>
+        <tbody>
+            <tr>
+              <td style={{
+                    width: '25%',
+                    verticalAlign: 'top',
+                    textAlign: 'center'
+                }}>
+                <h3>Link</h3>
+                <MoleculeThumbnail
+                  src={imgSrc}
+                  alt='Some alt'
+                  href='https://someLink'
+                  target='_blank'
+                  placeholder={placeholder}
+                  size={moleculeThumbnailSize.MEDIUM}
+                />
+              </td>
+              <td style={{
+                    width: '25%',
+                    verticalAlign: 'top',
+                    textAlign: 'center'
+                }}>
+                <h3>No link</h3>
+                <MoleculeThumbnail
+                  src={imgSrc}
+                  alt='Some alt'
+                  target='_blank'
+                  placeholder={placeholder}
+                  size={moleculeThumbnailSize.MEDIUM}
+                />
+              </td>
+              <td style={{
+                    width: '25%',
+                    verticalAlign: 'top',
+                    textAlign: 'center'
+                }}>
+                <h3>Caption</h3>
+                <MoleculeThumbnail
+                  src={imgSrc}
+                  alt='Some alt'
+                  captionText='Show!'
+                  placeholder={placeholder}
+                  size={moleculeThumbnailSize.MEDIUM}
+                />
+              </td>
+              <td style={{
+                    width: '25%',
+                    verticalAlign: 'top',
+                    textAlign: 'center'
+                }}>
+                <h3>Circled</h3>
+                <MoleculeThumbnail
+                  src={imgSrc}
+                  alt='Some alt'
+                  href='https://someLink'
+                  target='_blank'
+                  captionText='Show!'
+                  placeholder={placeholder}
+                  shape={moleculeThumbnailShape.CIRCLED}
+                  size={moleculeThumbnailSize.MEDIUM}
+                />
+              </td>
+            </tr>
+          </tbody>
       </table>
 
       <h2>Squared & Ratio 1:1</h2>
       <table style={{
             marginBottom: '20px'
           }}>
-        <tr>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Large</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              size={moleculeThumbnailSize.LARGE}
-            />
-          </td>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Medium</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              size={moleculeThumbnailSize.MEDIUM}
-            />
-          </td>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Small</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              size={moleculeThumbnailSize.SMALL}
-            />
-          </td>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Xsmall</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              size={moleculeThumbnailSize.XSMALL}
-            />
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td style={{
+                  width: '25%',
+                  verticalAlign: 'top',
+                  textAlign: 'center'
+              }}>
+              <h3>Large</h3>
+              <MoleculeThumbnail
+                src={imgSrc}
+                alt='Some alt'
+                href='https://someLink'
+                target='_blank'
+                captionText='Show!'
+                placeholder={placeholder}
+                size={moleculeThumbnailSize.LARGE}
+              />
+            </td>
+            <td style={{
+                  width: '25%',
+                  verticalAlign: 'top',
+                  textAlign: 'center'
+              }}>
+              <h3>Medium</h3>
+              <MoleculeThumbnail
+                src={imgSrc}
+                alt='Some alt'
+                href='https://someLink'
+                target='_blank'
+                captionText='Show!'
+                placeholder={placeholder}
+                size={moleculeThumbnailSize.MEDIUM}
+              />
+            </td>
+            <td style={{
+                  width: '25%',
+                  verticalAlign: 'top',
+                  textAlign: 'center'
+              }}>
+              <h3>Small</h3>
+              <MoleculeThumbnail
+                src={imgSrc}
+                alt='Some alt'
+                href='https://someLink'
+                target='_blank'
+                captionText='Show!'
+                placeholder={placeholder}
+                size={moleculeThumbnailSize.SMALL}
+              />
+            </td>
+            <td style={{
+                  width: '25%',
+                  verticalAlign: 'top',
+                  textAlign: 'center'
+              }}>
+              <h3>Xsmall</h3>
+              <MoleculeThumbnail
+                src={imgSrc}
+                alt='Some alt'
+                href='https://someLink'
+                target='_blank'
+                captionText='Show!'
+                placeholder={placeholder}
+                size={moleculeThumbnailSize.XSMALL}
+              />
+            </td>
+          </tr>
+        </tbody>
       </table>
 
       <h2>Squared & Ratio 4:3</h2>
       <table style={{
             marginBottom: '20px'
           }}>
-        <tr>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Large</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              size={moleculeThumbnailSize.LARGE}
-              ratio={moleculeThumbnailRatio['4:3']}
-            />
-          </td>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Medium</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              size={moleculeThumbnailSize.MEDIUM}
-              ratio={moleculeThumbnailRatio['4:3']}
-            />
-          </td>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Small</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              size={moleculeThumbnailSize.SMALL}
-              ratio={moleculeThumbnailRatio['4:3']}
-            />
-          </td>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Xsmall</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              size={moleculeThumbnailSize.XSMALL}
-              ratio={moleculeThumbnailRatio['4:3']}
-            />
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td style={{
+                  width: '25%',
+                  verticalAlign: 'top',
+                  textAlign: 'center'
+              }}>
+              <h3>Large</h3>
+              <MoleculeThumbnail
+                src={imgSrc}
+                alt='Some alt'
+                href='https://someLink'
+                target='_blank'
+                captionText='Show!'
+                placeholder={placeholder}
+                size={moleculeThumbnailSize.LARGE}
+                ratio={moleculeThumbnailRatio['4:3']}
+              />
+            </td>
+            <td style={{
+                  width: '25%',
+                  verticalAlign: 'top',
+                  textAlign: 'center'
+              }}>
+              <h3>Medium</h3>
+              <MoleculeThumbnail
+                src={imgSrc}
+                alt='Some alt'
+                href='https://someLink'
+                target='_blank'
+                captionText='Show!'
+                placeholder={placeholder}
+                size={moleculeThumbnailSize.MEDIUM}
+                ratio={moleculeThumbnailRatio['4:3']}
+              />
+            </td>
+            <td style={{
+                  width: '25%',
+                  verticalAlign: 'top',
+                  textAlign: 'center'
+              }}>
+              <h3>Small</h3>
+              <MoleculeThumbnail
+                src={imgSrc}
+                alt='Some alt'
+                href='https://someLink'
+                target='_blank'
+                captionText='Show!'
+                placeholder={placeholder}
+                size={moleculeThumbnailSize.SMALL}
+                ratio={moleculeThumbnailRatio['4:3']}
+              />
+            </td>
+            <td style={{
+                  width: '25%',
+                  verticalAlign: 'top',
+                  textAlign: 'center'
+              }}>
+              <h3>Xsmall</h3>
+              <MoleculeThumbnail
+                src={imgSrc}
+                alt='Some alt'
+                href='https://someLink'
+                target='_blank'
+                captionText='Show!'
+                placeholder={placeholder}
+                size={moleculeThumbnailSize.XSMALL}
+                ratio={moleculeThumbnailRatio['4:3']}
+              />
+            </td>
+          </tr>
+        </tbody>
       </table>
 
       <h2>Squared & Ratio 16:9</h2>
       <table style={{
             marginBottom: '20px'
           }}>
-        <tr>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Large</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              size={moleculeThumbnailSize.LARGE}
-              ratio={moleculeThumbnailRatio['16:9']}
-            />
-          </td>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Medium</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              size={moleculeThumbnailSize.MEDIUM}
-              ratio={moleculeThumbnailRatio['16:9']}
-            />
-          </td>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Small</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              size={moleculeThumbnailSize.SMALL}
-              ratio={moleculeThumbnailRatio['16:9']}
-            />
-          </td>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Xsmall</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              size={moleculeThumbnailSize.XSMALL}
-              ratio={moleculeThumbnailRatio['16:9']}
-            />
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td style={{
+                  width: '25%',
+                  verticalAlign: 'top',
+                  textAlign: 'center'
+              }}>
+              <h3>Large</h3>
+              <MoleculeThumbnail
+                src={imgSrc}
+                alt='Some alt'
+                href='https://someLink'
+                target='_blank'
+                captionText='Show!'
+                placeholder={placeholder}
+                size={moleculeThumbnailSize.LARGE}
+                ratio={moleculeThumbnailRatio['16:9']}
+              />
+            </td>
+            <td style={{
+                  width: '25%',
+                  verticalAlign: 'top',
+                  textAlign: 'center'
+              }}>
+              <h3>Medium</h3>
+              <MoleculeThumbnail
+                src={imgSrc}
+                alt='Some alt'
+                href='https://someLink'
+                target='_blank'
+                captionText='Show!'
+                placeholder={placeholder}
+                size={moleculeThumbnailSize.MEDIUM}
+                ratio={moleculeThumbnailRatio['16:9']}
+              />
+            </td>
+            <td style={{
+                  width: '25%',
+                  verticalAlign: 'top',
+                  textAlign: 'center'
+              }}>
+              <h3>Small</h3>
+              <MoleculeThumbnail
+                src={imgSrc}
+                alt='Some alt'
+                href='https://someLink'
+                target='_blank'
+                captionText='Show!'
+                placeholder={placeholder}
+                size={moleculeThumbnailSize.SMALL}
+                ratio={moleculeThumbnailRatio['16:9']}
+              />
+            </td>
+            <td style={{
+                  width: '25%',
+                  verticalAlign: 'top',
+                  textAlign: 'center'
+              }}>
+              <h3>Xsmall</h3>
+              <MoleculeThumbnail
+                src={imgSrc}
+                alt='Some alt'
+                href='https://someLink'
+                target='_blank'
+                captionText='Show!'
+                placeholder={placeholder}
+                size={moleculeThumbnailSize.XSMALL}
+                ratio={moleculeThumbnailRatio['16:9']}
+              />
+            </td>
+          </tr>
+        </tbody>
       </table>
 
       <h2>Circled & ratio 1:1</h2>
       <table style={{
             marginBottom: '20px'
           }}>
-        <tr>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Large</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              type={moleculeThumbnailShape.CIRCLED}
-              size={moleculeThumbnailSize.LARGE}
-            />
-          </td>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Medium</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              type={moleculeThumbnailShape.CIRCLED}
-              size={moleculeThumbnailSize.MEDIUM}
-            />
-          </td>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Small</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              type={moleculeThumbnailShape.CIRCLED}
-              size={moleculeThumbnailSize.SMALL}
-            />
-          </td>
-          <td style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-            }}>
-            <h3>Xsmall</h3>
-            <MoleculeThumbnail
-              src={imgSrc}
-              alt='Some alt'
-              href='https://someLink'
-              target='_blank'
-              captionText='Show!'
-              placeholder={placeholder}
-              type={moleculeThumbnailShape.CIRCLED}
-              size={moleculeThumbnailSize.XSMALL}
-            />
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td style={{
+                  width: '25%',
+                  verticalAlign: 'top',
+                  textAlign: 'center'
+              }}>
+              <h3>Large</h3>
+              <MoleculeThumbnail
+                src={imgSrc}
+                alt='Some alt'
+                href='https://someLink'
+                target='_blank'
+                captionText='Show!'
+                placeholder={placeholder}
+                shape={moleculeThumbnailShape.CIRCLED}
+                size={moleculeThumbnailSize.LARGE}
+              />
+            </td>
+            <td style={{
+                  width: '25%',
+                  verticalAlign: 'top',
+                  textAlign: 'center'
+              }}>
+              <h3>Medium</h3>
+              <MoleculeThumbnail
+                src={imgSrc}
+                alt='Some alt'
+                href='https://someLink'
+                target='_blank'
+                captionText='Show!'
+                placeholder={placeholder}
+                shape={moleculeThumbnailShape.CIRCLED}
+                size={moleculeThumbnailSize.MEDIUM}
+              />
+            </td>
+            <td style={{
+                  width: '25%',
+                  verticalAlign: 'top',
+                  textAlign: 'center'
+              }}>
+              <h3>Small</h3>
+              <MoleculeThumbnail
+                src={imgSrc}
+                alt='Some alt'
+                href='https://someLink'
+                target='_blank'
+                captionText='Show!'
+                placeholder={placeholder}
+                shape={moleculeThumbnailShape.CIRCLED}
+                size={moleculeThumbnailSize.SMALL}
+              />
+            </td>
+            <td style={{
+                  width: '25%',
+                  verticalAlign: 'top',
+                  textAlign: 'center'
+              }}>
+              <h3>Xsmall</h3>
+              <MoleculeThumbnail
+                src={imgSrc}
+                alt='Some alt'
+                href='https://someLink'
+                target='_blank'
+                captionText='Show!'
+                placeholder={placeholder}
+                shape={moleculeThumbnailShape.CIRCLED}
+                size={moleculeThumbnailSize.XSMALL}
+              />
+            </td>
+          </tr>
+        </tbody>
       </table>
 
       <h2>Fallback example</h2>

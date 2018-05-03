@@ -39,16 +39,16 @@
     }
 
     &Text {
-      color: $c-collapsible-read-mode-link;
-      font-size: $fz-collapsible-read-mode-link;
-      font-weight: $fw-collapsible-read-mode-link;
-      line-height: $lh-collapsible-read-mode-link;
+      color: $c-collapsible-read-more-link;
+      font-size: $fz-collapsible-read-more-link;
+      font-weight: $fw-collapsible-read-more-link;
+      line-height: $lh-collapsible-read-more-link;
       margin-right: $m-m;
       text-align: right;
     }
 
     &Icon {
-      fill: $c-primary !important; // sass-lint:disable-line no-important
+      fill: $c-collapsible-read-more-icon !important; // sass-lint:disable-line no-important
       transition: $trs-collapsible-read-more-ellipsis-icon;
     }
   }

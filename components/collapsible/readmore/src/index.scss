@@ -1,0 +1,69 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import './settings';
+
+
+.sui-CollapsibleReadmore {
+  &-contentWrapper {
+    height: auto;
+    margin-bottom: $m-l;
+    overflow: hidden;
+    position: relative;
+    transition: $trs-collapsible-read-more-content-wrapper;
+    width: auto;
+  }
+
+  &-gradient {
+    &:after {
+      background: $bg-collapsible-read-more-gradient;
+      bottom: 0;
+      content: '';
+      height: $h-collapsible-read-more-gradient;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  &-ellipsis {
+    &Link {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    &Wrapper {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    &Text {
+      color: $c-collapsible-read-mode-link;
+      font-size: $fz-collapsible-read-mode-link;
+      font-weight: $fw-collapsible-read-mode-link;
+      line-height: $lh-collapsible-read-mode-link;
+      margin-right: $m-m;
+      text-align: right;
+    }
+
+    &Icon {
+      fill: $c-primary !important; // sass-lint:disable-line no-important
+      transition: $trs-collapsible-read-more-ellipsis-icon;
+    }
+  }
+
+  &.is-expanded { // sass-lint:disable-line class-name-format
+    .sui-CollapsibleReadmore {
+      &-gradient {
+        &:after {
+          display: none;
+        }
+      }
+
+      &-ellipsisIcon {
+        transform: $trf-collapsible-read-more-ellipsis-icon;
+      }
+    }
+  }
+}

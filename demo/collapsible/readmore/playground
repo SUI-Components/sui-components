@@ -1,0 +1,30 @@
+const containerStyles = {
+  style: {
+    backgroundColor: '#ffffff',
+    maxWidth: '620px'
+  }
+}
+
+const paragraphStyles = {
+  style: {
+    color: '#4d4d4d',
+    fontSize: '16px',
+    fontWeight: 400,
+    lineHeight: '1.5',
+    margin: 0
+  }
+}
+
+return (
+  <div {...containerStyles}>
+    <CollapsibleReadmore
+      ellipsisText={{ collapsed: 'leer más', expanded: 'leer menos' }}
+      gradient
+      maxHeight={125}
+      onEllipsisClick={({ collapsed }) => { console.log('Is collapsed', collapsed) }}>
+      <p {...paragraphStyles}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus mollis tincidunt. Nullam pulvinar maximus dui, nec varius est suscipit vel. Donec aliquet gravida nunc quis scelerisque. Morbi eu ligula lacus. Nulla euismod dolor id elit sollicitudin, eu blandit felis ultricies. Vestibulum nec arcu et ipsum interdum dignissim. Nunc non nisl molestie, rhoncus est sagittis, dignissim mi. Integer bibendum felis purus. Vestibulum non metus venenatis tortor commodo suscipit. Fusce laoreet, diam non dignissim elementum, odio ex dapibus purus, vel faucibus
+      </p>
+    </CollapsibleReadmore>
+  </div>
+)

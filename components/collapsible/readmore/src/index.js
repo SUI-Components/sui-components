@@ -5,12 +5,6 @@ import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
 
 const CLASS = 'sui-CollapsibleReadmore'
 
-const DEFAULT_ELLIPSIS_ICON = (
-  <Chevronbottom
-    size={16}
-    svgClass={`${CLASS}-ellipsisIcon`} />
-)
-
 const NO_OP = () => {}
 
 export default class CollapsibleReadmore extends Component {
@@ -22,7 +16,13 @@ export default class CollapsibleReadmore extends Component {
     /**
      * An ellipsis ICON that will be placed next to the ellipsis text.
      */
-    ellipsisIcon: PropTypes.node,
+    ellipsis: PropTypes.shape({
+      icon: PropTypes.func,
+      size: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+      ])
+    }),
     /**
      * An ellipsis TEXT that will be added to the end of the content when it is truncated.
      * You should set one text to show when content is collapsed, and other one to show when is expanded.
@@ -46,7 +46,10 @@ export default class CollapsibleReadmore extends Component {
   }
 
   static defaultProps = {
-    ellipsisIcon: DEFAULT_ELLIPSIS_ICON,
+    ellipsis: {
+      icon: Chevronbottom,
+      size: 16
+    },
     onEllipsisClick: NO_OP
   }
 
@@ -94,7 +97,7 @@ export default class CollapsibleReadmore extends Component {
   }
 
   _renderEllipsis () {
-    const { ellipsisText, ellipsisIcon } = this.props
+    const { ellipsis: { icon: EllipsisIcon, size }, ellipsisText } = this.props
 
     return (
       <a
@@ -108,7 +111,15 @@ export default class CollapsibleReadmore extends Component {
               : ellipsisText.expanded
             }
           </span>
-          { ellipsisIcon }
+          <div className={`${CLASS}-ellipsisIconBox`}>
+            { EllipsisIcon && (
+              <EllipsisIcon
+                className={`${CLASS}-ellipsisIcon`}
+                size={size}
+                svgClass={`${CLASS}-ellipsisIcon`}
+              />
+            )}
+          </div>
         </div>
       </a>
     )

@@ -49,7 +49,12 @@
 
     &Icon {
       fill: $c-collapsible-read-more-icon !important; // sass-lint:disable-line no-important
-      transition: $trs-collapsible-read-more-ellipsis-icon;
+
+      &Box {
+        display: flex;
+        justify-content: center;
+        transition: $trs-collapsible-read-more-ellipsis-icon;
+      }
     }
   }
 
@@ -61,7 +66,7 @@
         }
       }
 
-      &-ellipsisIcon {
+      &-ellipsisIconBox {
         transform: $trf-collapsible-read-more-ellipsis-icon;
       }
     }

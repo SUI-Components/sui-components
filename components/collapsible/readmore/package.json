@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-collapsible-readmore",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Collapsible read more component for truncating long content and adding an ellipsis.",
   "main": "lib/index.js",
   "scripts": {

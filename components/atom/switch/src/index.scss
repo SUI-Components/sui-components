@@ -118,4 +118,10 @@ $c-atom-switch--default: color-variation($c-gray, 3) !default;
     }
   }
 
+
+  &--focus &--container {
+    border: solid 1px color-variation($c-primary, 1);
+    box-shadow: 0 0 4px 0 color-variation($c-primary, 1);
+  }
+
 }

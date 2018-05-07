@@ -47,7 +47,7 @@ class AtomSwitch extends Component {
     if (!isFocus || event.defaultPrevented) {
       return
     }
-    if (event.key === 'Enter' || event.key === ' ') {
+    if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
       this.toggleSwitch()
       event.preventDefault()
     }
@@ -56,8 +56,7 @@ class AtomSwitch extends Component {
   toggleSwitch = () => {
     const {toggle} = this.state
     const {onToggle} = this.props
-    onToggle(!toggle)
-    this.setState({toggle: !toggle})
+    this.setState({toggle: !toggle}, () => onToggle(!toggle))
   }
 
   activateToggle = () => {

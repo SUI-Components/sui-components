@@ -35,15 +35,48 @@ export const SingleSwitchTypeRender = (
 SingleSwitchTypeRender.displayName = 'SingleSwitchTypeRender'
 
 SingleSwitchTypeRender.propTypes = {
+  /**
+   * Form element name
+   */
   name: PropTypes.string,
+  /**
+   * The label itself. Proxy from label
+   */
   label: PropTypes.string,
+  /**
+   * The optional label text. Proxy from label
+   */
   labelOptionalText: PropTypes.string,
+  /**
+   * Size of switch: 'default', 'large'
+   */
   size: PropTypes.oneOf(['default', 'large']),
+  /**
+   * Type of switch: 'toggle' (default), 'select', 'single'
+   */
   type: PropTypes.oneOf(['toggle', 'select', 'single']),
+  /**
+   * Is Input disabled?
+   */
   disabled: PropTypes.bool,
+  /**
+   * Is component toggle
+   */
   isToggle: PropTypes.bool,
+  /**
+   * Is component focus
+   */
   isFocus: PropTypes.bool,
+  /**
+   * Callback on focus element
+   */
   focusSwitchCallback: PropTypes.func,
+  /**
+   * Callback on toggle element
+   */
   blurSwitchCallback: PropTypes.func,
+  /**
+   * Callback on toggle element
+   */
   toggleSwitchCallback: PropTypes.func,
 }

@@ -1,0 +1,23 @@
+// Gradient.
+$h-collapsible-read-more-gradient: 75px !default;
+$c-collapsible-read-more-gradient-initial: rgba(255, 255, 255, 0) !default;
+$c-collapsible-read-more-gradient-final: rgba(255, 255, 255, 1) !default;
+$bg-collapsible-read-more-gradient: linear-gradient(to bottom, $c-collapsible-read-more-gradient-initial, $c-collapsible-read-more-gradient-final);
+
+// Read more link.
+$c-collapsible-read-more-link: $c-primary !default;
+$fz-collapsible-read-more-link: $fz-s !default;
+$fw-collapsible-read-more-link: $fw-regular !default;
+$lh-collapsible-read-more-link: $lh-s !default;
+
+// Read more icon.
+$c-collapsible-read-more-icon: $c-primary !default;
+
+// Transitions settings.
+$trsdu-collapsible-read-more: .3s !default;
+$trstf-collapsible-read-more: ease-in-out !default;
+
+// Animated transitions and transformations.
+$trf-collapsible-read-more-ellipsis-icon: rotateZ(180deg) !default;
+$trs-collapsible-read-more-content-wrapper: max-height $trsdu-collapsible-read-more $trstf-collapsible-read-more;
+$trs-collapsible-read-more-ellipsis-icon: transform $trsdu-collapsible-read-more $trstf-collapsible-read-more;

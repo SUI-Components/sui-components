@@ -1,0 +1,78 @@
+const options = [
+    { value: 'VI', label: 'Álava' },
+    { value: 'AB', label: 'Albacete' },
+    { value: 'A', label: 'Alacant' },
+    { value: 'AL', label: 'Almería' },
+    { value: 'AV', label: 'Ávila' },
+    { value: 'BA', label: 'Badajoz' },
+    { value: 'PM', label: 'Illes ' },
+    { value: 'B', label: 'Barcelona' },
+    { value: 'BU', label: 'Burgos' },
+    { value: 'CC', label: 'Cáceres' },
+    { value: 'CA', label: 'Cádiz' },
+    { value: 'CS', label: 'Castelló' },
+    { value: 'CR', label: 'Ciudad ' },
+    { value: 'CO', label: 'Córdoba' },
+    { value: 'CU', label: 'Cuenca' },
+    { value: 'GI', label: 'Girona' },
+    { value: 'GR', label: 'Granada' },
+    { value: 'GU', label: 'Guadalajara' },
+    { value: 'SS', label: 'Gipuzkoa' },
+    { value: 'H', label: 'Huelva' },
+    { value: 'HU', label: 'Huesca' },
+    { value: 'J', label: 'Jaén' },
+    { value: 'LE', label: 'León' },
+    { value: 'L', label: 'Lleida' },
+    { value: 'LU', label: 'Lugo' },
+    { value: 'M', label: 'Madrid' },
+    { value: 'MA', label: 'Málaga' },
+    { value: 'MU', label: 'Murcia' },
+    { value: 'NA', label: 'Nafarroa' },
+    { value: 'OR', label: 'Ourense' },
+    { value: 'O', label: 'Asturias' },
+    { value: 'P', label: 'Palencia' },
+    { value: 'PO', label: 'Pontevedra' },
+    { value: 'SA', label: 'Salamanca' },
+    { value: 'TF', label: 'Sta' },
+    { value: 'S', label: 'Cantabria' },
+    { value: 'SG', label: 'Segovia' },
+    { value: 'SE', label: 'Sevilla' },
+    { value: 'SO', label: 'Soria' },
+    { value: 'T', label: 'Tarragona' },
+    { value: 'TE', label: 'Teruel' },
+    { value: 'TO', label: 'Toledo' },
+    { value: 'V', label: 'Valéncia' },
+    { value: 'VA', label: 'Valladolid' },
+    { value: 'BI', label: 'Bizkaia' },
+    { value: 'ZA', label: 'Zamora' },
+    { value: 'Z', label: 'Zaragoza' },
+    { value: 'CE', label: 'Ceuta' },
+    { value: 'ML', label: 'Melilla' },
+    { value: 'LARGE', label: 'Super large option. This is a super large option.' },
+];
+
+
+const IconRemove = function () {
+  return (
+    <svg width='14px' height='14px' viewBox='0 0 14 14' version='1.1'>
+        <g id='Page-1' stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
+            <g id='icon-fill-close' transform='translate(-5.000000, -5.000000)'>
+                <g id='Clipped' transform='translate(5.000000, 5.000000)'>
+                    <mask id='mask-5' fill='white'>
+                        <path d='M8.42,7 L13.21,2.2 C13.5497768,1.80323972 13.5269323,1.21180583 13.1575632,0.842436779 C12.7881942,0.47306773 12.1967603,0.450223204 11.8,0.79 L7,5.58 L2.21,0.79 C1.81323972,0.450223204 1.22180583,0.47306773 0.852436779,0.842436779 C0.48306773,1.21180583 0.460223204,1.80323972 0.8,2.2 L5.59,7 L0.8,11.79 C0.51462384,12.0343899 0.390318056,12.4181184 0.478189865,12.783419 C0.566061674,13.1487195 0.85128045,13.4339383 1.21658103,13.5218101 C1.5818816,13.6096819 1.96561012,13.4853762 2.21,13.2 L7,8.41 L11.8,13.2 C12.1967603,13.5397768 12.7881942,13.5169323 13.1575632,13.1475632 C13.5269323,12.7781942 13.5497768,12.1867603 13.21,11.79 L8.42,7 Z' id='path-1'></path>
+                    </mask>
+                    <g id='a'></g>
+                    <g id='Group' mask='url(#mask-5)' fill='red' fillRule='nonzero'>
+                        <g transform='translate(-5.000000, -5.000000)' id='Shape'>
+                            <polygon points='0 0 24 0 24 24 0 24'></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg>
+  )
+}
+
+
+return (<MoleculeAutosuggest options={options} placeholder="This is a test" listSize="large" listBehaviour="focus" />)

@@ -1,0 +1,44 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import './list/index';
+
+
+
+.sui-MoleculeAutosuggest {
+
+  &-input-container {
+    border: 1px solid black;
+
+    background: $c-white;
+    width: 314px;
+    height: 40px;
+    font-size: $fz-base;
+
+    input {
+      // new component
+      border: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 16px;
+    }
+
+    span {
+      //new component
+      height: 24px;
+      width: 24px;
+      margin: auto;
+      cursor: pointer;
+      position:absolute;
+      margin-left: -24px;
+      margin-top: 12px;
+    }
+
+    span.hide {
+      // new component
+      visibility: hidden;
+    }
+
+  }
+}

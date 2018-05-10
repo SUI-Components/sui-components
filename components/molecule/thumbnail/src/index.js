@@ -86,7 +86,7 @@ MoleculeThumbnail.propTypes = {
   /**
    * Img props to be shown until the image loads
    */
-  placeholder: PropTypes.object,
+  placeholder: PropTypes.object.isRequired,
   /**
    * Img props to be shown if the image fails loading
    */
@@ -96,7 +96,7 @@ MoleculeThumbnail.propTypes = {
    */
   href: PropTypes.string,
   /**
-   * https://www.w3.org/wiki/HTML/Elements/a
+   * Define the target attribute('_self', '_blank', '_parent' or '_top')
    */
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   /**

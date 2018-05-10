@@ -23,7 +23,7 @@ $ratios-molecule-thumbnail: (
 ) !default;
 
 $bd-outer-molecule-thumbnail: 1px solid color-variation($c-gray, 3) !default;
-$bdc-outer-hover-molecule-thumbnail: $c-text-link !default;
+$bdc-outer-hover-molecule-thumbnail: $c-accent !default;
 $bd-inner-molecule-thumbnail: 3px solid $c-white !default;
 $bgc-molecule-thumbnail: $c-gray-light !default; 
 $bs-molecule-thumbnail: none !default;
@@ -52,7 +52,7 @@ $bs-molecule-thumbnail: none !default;
 
   .sui-ImagePlaceholder {
     background: $bgc-molecule-thumbnail;
-    border: $bd-inner-molecule-thumbnail;
+    border: 0;
     height: 100%;
     overflow: hidden;
     padding: 0;
@@ -73,7 +73,7 @@ $bs-molecule-thumbnail: none !default;
   &-caption {
     background: color-variation($c-gray, 3);
     border: $bd-outer-molecule-thumbnail;
-    color: $c-text-link;
+    color: $c-primary;
     display: block;
     font-size: $fz-s;    
     overflow: hidden;
@@ -82,6 +82,12 @@ $bs-molecule-thumbnail: none !default;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 100%;
+  }
+
+  &--small, &--xsmall{
+    .sui-MoleculeThumbnail-caption{
+      display: none;
+    }
   }
 
   @each $key-size, $size in $sizes-mobile-molecule-thumbnail {

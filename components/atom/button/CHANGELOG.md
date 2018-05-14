@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2018-05-14)
+
+
+### Bug Fixes
+
+* remove warning and avoid sending a boolean to the attribute ([192fb8f](https://github.com/SUI-Components/sui-components/commit/192fb8f))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2018-04-03)
 

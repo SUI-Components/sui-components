@@ -59,7 +59,7 @@ const AtomButton = (props) => {
 
   const Button = ({ children, href, target, disabled, ...attrs }) => link
     ? (
-      <Link {...attrs} href={href} target={target} rel={target === '_blank' && 'noopener'}>
+      <Link {...attrs} href={href} target={target} rel={target === '_blank' ? 'noopener' : undefined}>
         {children}
       </Link>
     ) : <button {...attrs} disabled={disabled}>{children}</button>

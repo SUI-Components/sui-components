@@ -25,6 +25,7 @@ class AtomSwitch extends Component {
   constructor (props) {
     super(props)
 
+    this.keyBindingsInstance = this.keyBindings.bind(this)
     this.executeIfEnabledFocusSwitch = this.executeIfEnabled(this.focusSwitch)
     this.executeIfEnabledFocusOutSwitch = this.executeIfEnabled(this.focusOutSwitch)
     this.executeIfEnabledToggleSwitch = this.executeIfEnabled(this.toggleSwitch)
@@ -33,7 +34,6 @@ class AtomSwitch extends Component {
   }
 
   componentDidMount () {
-    this.keyBindingsInstance = this.keyBindings.bind(this)
     window.addEventListener('keydown', this.keyBindingsInstance, true)
   }
 

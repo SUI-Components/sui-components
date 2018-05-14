@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2018-05-14)
+
+
+### Features
+
+* onclick prop with clicked item index ([da3b591](https://github.com/SUI-Components/sui-components/commit/da3b591))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-03-07)
 

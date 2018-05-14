@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2018-04-16)
+
+
+### Features
+
+* add onBlur handler for textarea. ([dbef3e4](https://github.com/SUI-Components/sui-components/commit/dbef3e4))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2018-04-09)
 

@@ -1,0 +1,116 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$bgc-molecule-thumbnail-basic: $c-white !default;
+
+$sizes-molecule-thumbnail: (
+  large: 144px,
+  medium: 72px,
+  small: 48px,
+  xsmall:  40px
+) !default;
+
+$sizes-mobile-molecule-thumbnail: (
+  large: 96px,
+  medium: 72px,
+  small: 40px,
+  xsmall:  32px
+) !default;
+
+$ratios-molecule-thumbnail: (
+  1: 1,
+  4: 3,
+  16: 9
+) !default;
+
+$bd-outer-molecule-thumbnail: 1px solid color-variation($c-gray, 3) !default;
+$bdc-outer-hover-molecule-thumbnail: $c-text-link !default;
+$bd-inner-molecule-thumbnail: 3px solid $c-white !default;
+$bgc-molecule-thumbnail: $c-gray-light !default; 
+$bs-molecule-thumbnail: none !default;
+
+.sui-MoleculeThumbnail {
+  background: $bgc-molecule-thumbnail-basic;
+  border: $bd-outer-molecule-thumbnail;
+  box-shadow: $bs-molecule-thumbnail;  
+  display: inline-block;
+  margin: 0;  
+  position: relative;
+  width: 100%;
+
+  .sui-MoleculeThumbnail-link & {
+    &:hover {
+      border-color: $bdc-outer-hover-molecule-thumbnail;
+    }
+  }
+
+  .sui-ImagePlaceholder-image {
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    width: 100%;    
+  }
+
+  .sui-ImagePlaceholder {
+    background: $bgc-molecule-thumbnail;
+    border: $bd-inner-molecule-thumbnail;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+  }
+
+  &--circled {
+    &, .sui-ImagePlaceholder {
+      border-radius: 50%;
+    }
+
+    .sui-MoleculeThumbnail-caption {
+      display: none;
+    }
+  }
+
+  &-caption {
+    background: color-variation($c-gray, 3);
+    border: $bd-outer-molecule-thumbnail;
+    color: $c-text-link;
+    display: block;
+    font-size: $fz-s;    
+    overflow: hidden;
+    padding: $p-m;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  @each $key-size, $size in $sizes-mobile-molecule-thumbnail {
+    &--#{$key-size} {
+      width: $size;
+    }
+
+    @each $key-ratio, $ratio in $ratios-molecule-thumbnail {
+      &--#{$key-size}.sui-MoleculeThumbnail--#{$key-ratio}-#{$ratio} {
+        .sui-ImagePlaceholder {
+          height: ($size/$key-ratio)*$ratio;
+        }   
+      }
+    }
+  }
+
+  @include media-breakpoint-up(m) {
+    @each $key-size, $size in $sizes-molecule-thumbnail {
+      &--#{$key-size} {
+        width: $size;
+      }
+
+      @each $key-ratio, $ratio in $ratios-molecule-thumbnail {
+        &--#{$key-size}.sui-MoleculeThumbnail--#{$key-ratio}-#{$ratio} {
+          .sui-ImagePlaceholder {
+            height: ($size/$key-ratio)*$ratio;
+          }   
+        }
+      }
+    }
+  }
+}

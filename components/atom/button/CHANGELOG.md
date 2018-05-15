@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2018-05-15)
+
+
+### Bug Fixes
+
+* fix fullWidth link type button text is not centered ([d580a32](https://github.com/SUI-Components/sui-components/commit/d580a32))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2018-05-14)
 

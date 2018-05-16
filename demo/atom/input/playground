@@ -20,7 +20,7 @@ return (
   <div>
     <div style={rowStyles}>
       <AtomInput
-        type='text'
+        type={atomInputTypes.text}
         name='text'
         label='Addon right'
         addonRight='@schibsted.com'
@@ -28,14 +28,15 @@ return (
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type='text'
+        type={atomInputTypes.text}
         name='text'
         label='Addon left'
         addonLeft='https://'
       />
     </div>
     <div style={rowStyles}>
-      <AtomMaskInput
+      <AtomInput
+        type={atomInputTypes.mask}
         label='Bank account'
         name='bankAccount'
         mask={bankAccountMask}
@@ -43,7 +44,8 @@ return (
       />
     </div>
     <div style={rowStyles}>
-      <AtomMaskInput
+      <AtomInput
+        type={atomInputTypes.mask}
         id='postalCode-unique'
         name='postalCode'
         label='Postal Code'
@@ -52,13 +54,15 @@ return (
       />
     </div>
     <div style={rowStyles}>
-      <AtomPasswordInput
+      <AtomInput
+        type={atomInputTypes.password}
         name='password'
         label='Password input'
       />
     </div>
     <div style={rowStyles}>
-      <AtomPasswordInput
+      <AtomInput
+        type={atomInputTypes.password}
         name='password'
         label='Password input'
         size={atomInputSizes.SMALL}
@@ -66,14 +70,14 @@ return (
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type='text'
+        type={atomInputTypes.text}
         label='Simple medium text input'
         name='text'
       />
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type='text'
+        type={atomInputTypes.text}
         label='Simple small text input'
         name='text'
         size={atomInputSizes.SMALL}
@@ -81,27 +85,28 @@ return (
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type='number'
+        type={atomInputTypes.number}
         label='Simple number input'
         name='number'
       />
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type='date'
+        type={atomInputTypes.date}
         label='Date input'
         name='date'
       />
     </div>
     <div style={rowStyles}>
-      <AtomTagInput
+      <AtomInput
+        type={atomInputTypes.tag}
         name='Tag'
         label='Tag input'
       />
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type='text'
+        type={atomInputTypes.text}
         label='Simple text input width help text'
         name='text'
         helpText='Lorem ipsum'
@@ -109,7 +114,7 @@ return (
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type='text'
+        type={atomInputTypes.text}
         label='Simple text input success'
         name='text'
         validationType={atomInputValidationTypes.SUCCESS}
@@ -119,7 +124,7 @@ return (
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type='text'
+        type={atomInputTypes.text}
         label='Simple text input error'
         name='text'
         validationType={atomInputValidationTypes.ERROR}
@@ -130,7 +135,7 @@ return (
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type='text'
+        type={atomInputTypes.text}
         disabled
         label='Simple text input disabled'
         name='text'

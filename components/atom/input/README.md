@@ -10,36 +10,50 @@
 $ npm install @s-ui/react-atom-input --save
 ```
 
-## Usage
+## Types
 
-### Basic usage
+### **Text**
 ```js
-import {Mask} from '@s-ui/react-atom-input'
+import AtomInput, {atomInputTypes} from '@s-ui/react-atom-input'
 
 return (
-  <Mask label='postal code' name='date' mask={postalCodeMask} />
+    <AtomInput
+      label='Text input'
+      name='text'
+      type={atomInputTypes.text}
+    />
 )
 ```
 
-### Available input types
-
-### Native
+### **Number**
 ```js
-import AtomInput from '@s-ui/react-atom-input'
+import AtomInput, {atomInputTypes} from '@s-ui/react-atom-input'
 
 return (
-  <div>
-    <AtomInput type='text' label='Text input' name='text' />
-    <AtomInput type='number' label='Number input' name='number' />
-  </div>
+    <AtomInput
+      label='Number input'
+      type={atomInputTypes.number}
+    />
 )
 ```
 
-### Mask
-See [imaskjs](https://unmanner.github.io/imaskjs/guide.html#common) masks for more info
+### **Date**
+```js
+import AtomInput, {atomInputTypes} from '@s-ui/react-atom-input'
+
+return (
+    <AtomInput
+      label='Date input'
+      type={atomInputTypes.date}
+    />
+)
+```
+
+### **Mask**
+Is used in case the input should match a regex, e.g postal code or bank account. See [imaskjs](https://unmanner.github.io/imaskjs/guide.html#common) masks for more info
 
 ```js
-import MaskInput from '@s-ui/react-atom-input/lib/inputs/MaskInput'
+import AtomInput, {atomInputTypes} from '@s-ui/react-atom-input/lib/inputs/MaskInput'
 
 const postalCodeMask = {
   mask: '00000',
@@ -50,59 +64,56 @@ const postalCodeMask = {
 }
 
 return (
-  <MaskInput label='postal code' name='date' mask={postalCodeMask}/>
+  <AtomInput
+    label='postal code'
+    mask={postalCodeMask}
+    name='date'
+    type={atomInputTypes.mask}
+  />
 )
 ```
 
 ### Tag
 ```js
-import TagInput from '@s-ui/react-atom-input/lib/inputs/TagInput'
+import AtomInput, {atomInputTypes} from '@s-ui/react-atom-input'
 
 return (
-  <AtomInput.Tag
-    name='Tag'
+  <AtomTagInput
     label='Tag input'
+    name='Tag'
+    type={atomInputTypes.tag}
   />
 )
 ```
 
-## Using them in a form
+## Usage
 
 In order to get an input value, set the onChange property on it, the inputs will call this function with {value, target} once its value change
 
 ```js
-import AtomInput from '@s-ui/react-atom-input'
-
-const postalCodeMask = {
-  mask: '00000',
-  placeholder: {
-    lazy: true,
-    char: 0
-  }
-}
+import AtomInput, {atomInputTypes} from '@s-ui/react-atom-input'
 
 class FormTest extends Component {
   state = {
-    value: ''
+    username: ''
   }
 
-  handleChange = ({value, target}) => {
-    this.setState({value})
+  handleUsernameChange = ({username, target}) => {
+    this.setState({username})
   }
 
   handleSubmit = (event) => {
-    window.alert(this.state.value)
-    event.preventDefault()
+    window.alert(this.state.username)
   }
 
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
-        <AtomInput.Mask
-          mask={postalCodeMask}
-          name='postalCode'
-          label='Postal code'
-          onChange={this.handleChange}
+        <AtomInput
+          label='username'
+          onChange={this.handleUsernameChange}
+          type={atomInputTypes.mask}
+          type={atomInputTypes.text}
         />
         <input type='submit' value='Submit' />
       </form>

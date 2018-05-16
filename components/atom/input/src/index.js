@@ -7,12 +7,26 @@ import NativeInput from './inputs/NativeInput'
 import {SIZES, atomInputValidationTypes} from './InputWrapper'
 import {AtomValidationTextTypes} from '@s-ui/react-atom-validation-text'
 
-const AtomInput = (props) =>
-  <NativeInput {...props} />
+const NATIVE_TYPES = ['text', 'number', 'date']
+const TYPES = {
+  mask: 'mask',
+  password: 'password',
+  tag: 'tag',
+  text: 'text',
+  number: 'number',
+  date: 'date'
+}
+
+const AtomInput = (props) => {
+  const {type} = props
+  if (NATIVE_TYPES.includes(type)) return <NativeInput {...props} />
+  if (type === TYPES.mask) return <AtomMaskInput {...props} />
+  if (type === TYPES.password) return <AtomPasswordInput {...props} />
+  if (type === TYPES.tag) return <AtomTagInput {...props} />
+}
 
 AtomInput.Mask = MaskInput
 AtomInput.Tag = TagInput
-AtomInput.Mask = MaskInput
 AtomInput.Password = PasswordInput
 
 AtomInput.displayName = 'AtomInput'
@@ -25,7 +39,7 @@ AtomInput.propTypes = {
   /**
    * NativeInput: Native input types allowed: 'text', 'number', 'date'
    */
-  type: PropTypes.oneOf(['text', 'number', 'date']),
+  type: PropTypes.oneOf(Object.values(TYPES)),
   /**
    * AtomPasswordInput: Text to be shown in order to show the password on click
    */
@@ -83,9 +97,7 @@ AtomInput.propTypes = {
 
 export default AtomInput
 export {
-  AtomMaskInput,
-  AtomPasswordInput,
-  AtomTagInput,
-  atomInputValidationTypes,
   SIZES as atomInputSizes,
+  TYPES as atomInputTypes,
+  atomInputValidationTypes,
 }

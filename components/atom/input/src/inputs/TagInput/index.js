@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import AtomTag from '@schibstedspain/sui-atom-tag'
 import InputWrapper from '../../InputWrapper'
+import Input from '../../Input'
 import cx from 'classnames'
 
 const SEPARATION_KEY = ','
@@ -83,7 +84,7 @@ class TagInput extends React.Component {
               onClose={() => this.removeTag(idx)} />
           )
         }
-        <input
+        <Input
           id={id}
           type='text'
           name={name}

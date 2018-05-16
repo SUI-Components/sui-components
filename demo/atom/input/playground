@@ -20,126 +20,140 @@ return (
   <div>
     <div style={rowStyles}>
       <AtomInput
-        type={atomInputTypes.text}
-        name='text'
-        label='Addon right'
         addonRight='@schibsted.com'
-      />
-    </div>
-    <div style={rowStyles}>
-      <AtomInput
-        type={atomInputTypes.text}
+        id='addonRight'
+        label='Addon right'
         name='text'
-        label='Addon left'
+        type={atomInputTypes.text}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
         addonLeft='https://'
+        id='addonLeft'
+        label='Addon left'
+        name='text'
+        type={atomInputTypes.text}
       />
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type={atomInputTypes.mask}
+        id='bankAccount'
         label='Bank account'
-        name='bankAccount'
         mask={bankAccountMask}
+        name='bankAccount'
         placeholder='ES00 0000 0000 00 0000000000'
+        type={atomInputTypes.mask}
       />
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type={atomInputTypes.mask}
-        id='postalCode-unique'
-        name='postalCode'
+        id='postalCode'
         label='Postal Code'
         mask={postalCodeMask}
+        name='postalCode'
         placeholder='00000'
+        type={atomInputTypes.mask}
       />
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type={atomInputTypes.password}
-        name='password'
+        id='defaultPassword'
         label='Password input'
+        name='password'
+        type={atomInputTypes.password}
       />
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type={atomInputTypes.password}
-        name='password'
+        id='smallPassword'
         label='Password input'
+        name='password'
         size={atomInputSizes.SMALL}
+        type={atomInputTypes.password}
       />
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type={atomInputTypes.text}
+        id='mediumText'
         label='Simple medium text input'
         name='text'
+        type={atomInputTypes.text}
       />
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type={atomInputTypes.text}
+        id='smallText'
         label='Simple small text input'
         name='text'
         size={atomInputSizes.SMALL}
+        type={atomInputTypes.text}
       />
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type={atomInputTypes.number}
+        id='numberInput'
         label='Simple number input'
         name='number'
+        type={atomInputTypes.number}
       />
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type={atomInputTypes.date}
+        id='dateInput'
         label='Date input'
         name='date'
+        type={atomInputTypes.date}
       />
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type={atomInputTypes.tag}
-        name='Tag'
+        id='tagInput'
         label='Tag input'
+        name='Tag'
+        type={atomInputTypes.tag}
       />
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type={atomInputTypes.text}
+        helpText='Lorem ipsum'
+        id='textWithHelpText'
         label='Simple text input width help text'
         name='text'
-        helpText='Lorem ipsum'
+        type={atomInputTypes.text}
       />
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type={atomInputTypes.text}
+        id='textWithPlaceholder'
         label='Simple text input success'
         name='text'
-        validationType={atomInputValidationTypes.SUCCESS}
-        validationText='Success'
         placeholder='Input + placeholder + validation'
+        type={atomInputTypes.text}
+        validationText='Success'
+        validationType={atomInputValidationTypes.SUCCESS}
       />
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type={atomInputTypes.text}
+        helpText='Lorem ipsum'
+        id='textWithError'
         label='Simple text input error'
         name='text'
-        validationType={atomInputValidationTypes.ERROR}
-        validationText='Error'
-        helpText='Lorem ipsum'
         placeholder='Lorem ipsum'
+        type={atomInputTypes.text}
+        validationText='Error'
+        validationType={atomInputValidationTypes.ERROR}
       />
     </div>
     <div style={rowStyles}>
       <AtomInput
-        type={atomInputTypes.text}
         disabled
+        id='textDisabled'
         label='Simple text input disabled'
         name='text'
         placeholder='Lorem ipsum'
+        type={atomInputTypes.text}
       />
     </div>
   </div>

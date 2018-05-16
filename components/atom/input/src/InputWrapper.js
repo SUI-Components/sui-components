@@ -23,16 +23,10 @@ const getInputClass = ({size, validationType}) =>
 const getClassNames = ({size, validationText, validationType}) =>
   cx(BASE_CLASS)
 
-const renderAndMutateChildren = (props) => {
-  if (!props.id) {
-    return props.children
-  }
-  return React.Children.map(props.children, child => {
-    return React.cloneElement(child, {
-      id: props.id
-    })
-  })
-}
+const renderAndMutateChildren = ({children, id}) =>
+  id
+    ? React.Children.map(children, child => React.cloneElement(child, {id}))
+    : children
 
 const InputWrapper = (props) => {
   const {
@@ -41,7 +35,6 @@ const InputWrapper = (props) => {
     helpText,
     label,
     id,
-    name,
     optionalText,
     size,
     validationText,
@@ -50,7 +43,7 @@ const InputWrapper = (props) => {
   return (
     <div className={getClassNames({size, validationText, validationType})}>
       <AtomLabel
-        name={(id) || name}
+        name={id}
         text={label}
         optional={optionalText}
         type={validationType} />

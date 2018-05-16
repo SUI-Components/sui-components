@@ -33,31 +33,6 @@ AtomInput.displayName = 'AtomInput'
 
 AtomInput.propTypes = {
   /**
-   * NativeInput, AtomPasswordInput, AtomTagInput, AtomMaskInput: Event launched on every input change
-   */
-  onChange: PropTypes.func,
-  /**
-   * NativeInput: Native input types allowed: 'text', 'number', 'date'
-   */
-  type: PropTypes.oneOf(Object.values(TYPES)),
-  /**
-   * AtomPasswordInput: Text to be shown in order to show the password on click
-   */
-  showText: PropTypes.string,
-  /**
-   * AtomPasswordInput: Text to be shown in order to hide the password on click
-   */
-  hideText: PropTypes.string,
-  /**
-   * AtomTagInput, AtomMaskInput, InputWrapper: : The name of the control
-   */
-  name: PropTypes.string,
-  /**
-   * AtomMaskInput: mask object, see https://unmanner.github.io/imaskjs/
-   */
-  mask: PropTypes.object,
-
-  /**
    * InputWrapper: Text to be shown left side addon
    */
   addonLeft: PropTypes.string,
@@ -74,17 +49,45 @@ AtomInput.propTypes = {
    */
   helpText: PropTypes.string,
   /**
+   * AtomPasswordInput: Text to be shown in order to hide the password on click
+   */
+  hideText: PropTypes.string,
+  /**
+   * Element identifier
+   */
+  id: PropTypes.string.isRequired,
+  /**
    * InputWrapper:  Text to be shown as label
    */
   label: PropTypes.string,
+  /**
+   * AtomMaskInput: mask object, see https://unmanner.github.io/imaskjs/
+   */
+  mask: PropTypes.object,
+  /**
+   * AtomTagInput, AtomMaskInput, InputWrapper: : The name of the control
+   */
+  name: PropTypes.string,
+  /**
+   * NativeInput, AtomPasswordInput, AtomTagInput, AtomMaskInput: Event launched on every input change
+   */
+  onChange: PropTypes.func,
   /**
    * InputWrapper: Text to be shown as label optional text
    */
   optionalText: PropTypes.string,
   /**
+   * AtomPasswordInput: Text to be shown in order to show the password on click
+   */
+  showText: PropTypes.string,
+  /**
    * InputWrapper: Input size: 'small' or 'medium'
    */
   size: PropTypes.oneOf(Object.values(SIZES)),
+  /**
+   * NativeInput: Native input types allowed: 'text', 'number', 'date'
+   */
+  type: PropTypes.oneOf(Object.values(TYPES)),
   /**
    * InputWrapper: Text to be shown as validation text
    */

@@ -11,11 +11,11 @@
     padding-left: $p-l;
     padding-right: $p-l;
 
-    &-right {
+    &--right {
       border-width: 1px 1px 1px 0;
     }
 
-    &-left {
+    &--left {
       border-width: 1px 0 1px 1px;
     }
   }

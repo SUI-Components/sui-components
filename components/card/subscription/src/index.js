@@ -1,32 +1,69 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import Chevronright from '@schibstedspain/sui-svgiconset/lib/Chevronright'
+import FormCheckbox from '@schibstedspain/sui-form-checkbox'
 import cx from 'classnames'
 
 export default class CardSubscription extends Component {
-  input = null
-
-  _handleSubmit = (event) => {
-    const {onSubmit} = this.props
-    event.preventDefault()
-    onSubmit(this.input.value)
+  state = {
+    termsOfUseAccepted: false,
+    showErrorMessage: false
   }
 
-  _printCardContent = () => {
-    const { placeholder, iconButton, responseError } = this.props
+  input = null
+
+  _handleCheckboxChange = () => {
+    const { termsOfUseAccepted } = this.state
+
+    this.setState({
+      termsOfUseAccepted: !termsOfUseAccepted,
+      showErrorMessage: false
+    })
+  }
+
+  _getCheckboxError = () => this.state.showErrorMessage && this.props.checkboxErrorMessage
+    ? this.props.checkboxErrorMessage
+    : null
+
+  _handleSubmit = event => {
+    const { onSubmit } = this.props
+    const { termsOfUseAccepted } = this.state
+
+    event.preventDefault()
+    this.setState({ showErrorMessage: !termsOfUseAccepted })
+    termsOfUseAccepted && onSubmit(this.input.value)
+  }
+
+  _printCardContent = ({ termsOfUseAccepted }) => {
+    const { placeholder, iconButton, responseError, checkboxName, checkboxLabel } = this.props
     const IconAngle = iconButton || Chevronright
     const inputClassName = cx('sui-CardSubscription-input', {
       'has-error': !!responseError
     })
+
     return (
       <form onSubmit={this._handleSubmit} className='sui-CardSubscription-form'>
-        <input
-          className={inputClassName} placeholder={placeholder}
-          ref={node => { this.input = node }}
-        />
-        <button type='submit' className='sui-CardSubscription-button'>
-          <IconAngle svgClass='sui-CardSubscription-buttonIcon' />
-        </button>
+        <div className='sui-CardSubscription-formField'>
+          <input
+            className={inputClassName}
+            placeholder={placeholder}
+            ref={node => { this.input = node }}
+          />
+          <button type='submit' className='sui-CardSubscription-button'>
+            <IconAngle svgClass='sui-CardSubscription-buttonIcon' />
+          </button>
+        </div>
+        {checkboxName &&
+          <div className='sui-CardSubscription-formCheck'>
+            <FormCheckbox
+              name={checkboxName}
+              checked={termsOfUseAccepted}
+              onChange={this._handleCheckboxChange}
+              label={checkboxLabel}
+              errorMessage={this._getCheckboxError()}
+            />
+          </div>
+        }
       </form>
     )
   }
@@ -37,13 +74,15 @@ export default class CardSubscription extends Component {
       responseError,
       title
     } = this.props
+    const { termsOfUseAccepted } = this.state
+
     return (
       <div>
         {(!ResponseContent || !!responseError) &&
           <div className='sui-CardSubscription'>
             <div className='sui-CardSubscription-content'>
               <p className='sui-CardSubscription-title'>{title}</p>
-              {this._printCardContent()}
+              {this._printCardContent({ termsOfUseAccepted })}
               {(ResponseContent && responseError) &&
                 <ResponseContent />
               }
@@ -87,7 +126,22 @@ CardSubscription.propTypes = {
   /**
    * Response error flag
    */
-  responseError: PropTypes.bool
+  responseError: PropTypes.bool,
+
+  /**
+   * Checkbox name
+   */
+  checkboxName: PropTypes.string.isRequired,
+
+  /**
+   * Checkbox label
+   */
+  checkboxLabel: PropTypes.string,
+
+  /**
+   * Checkbox error message
+   */
+  checkboxErrorMessage: PropTypes.string
 }
 
 CardSubscription.displayName = 'CardSubscription'

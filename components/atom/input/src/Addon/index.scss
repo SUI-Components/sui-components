@@ -1,10 +1,13 @@
+$bdw-atom-input-addon-right: 1px 1px 1px 0 !default;
+$bdw-atom-input-addon-left: 1px 0 1px 1px !default;
+
 .sui-AtomInput {
   &-addon {
     align-items: center;
-    background-color: color-variation($c-gray, 4);
+    background-color: $c-gray-lightest;
     border-color: $c-gray-light;
     border-style: solid;
-    color: color-variation($c-gray, 2);
+    color: $c-gray-light;
     display: flex;
     height: inherit;
     line-height: inherit;
@@ -12,11 +15,11 @@
     padding-right: $p-l;
 
     &--right {
-      border-width: 1px 1px 1px 0;
+      border-width: $bdw-atom-input-addon-right;
     }
 
     &--left {
-      border-width: 1px 0 1px 1px;
+      border-width: $bdw-atom-input-addon-left;
     }
   }
 }

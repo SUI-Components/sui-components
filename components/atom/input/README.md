@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-atom-input --save
+$ npm install @s-ui/react-atom-input --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import {Mask} from '@schibstedspain/sui-atom-input'
+import {Mask} from '@s-ui/react-atom-input'
 
 return (
   <Mask label='postal code' name='date' mask={postalCodeMask} />
@@ -25,7 +25,7 @@ return (
 
 ### Native
 ```js
-import AtomInput from '@schibstedspain/sui-atom-input'
+import AtomInput from '@s-ui/react-atom-input'
 
 return (
   <div>
@@ -39,7 +39,7 @@ return (
 See [imaskjs](https://unmanner.github.io/imaskjs/guide.html#common) masks for more info
 
 ```js
-import MaskInput from '@schibstedspain/sui-atom-input/lib/inputs/MaskInput'
+import MaskInput from '@s-ui/react-atom-input/lib/inputs/MaskInput'
 
 const postalCodeMask = {
   mask: '00000',
@@ -56,7 +56,7 @@ return (
 
 ### Tag
 ```js
-import TagInput from '@schibstedspain/sui-atom-input/lib/inputs/TagInput'
+import TagInput from '@s-ui/react-atom-input/lib/inputs/TagInput'
 
 return (
   <AtomInput.Tag
@@ -71,7 +71,7 @@ return (
 In order to get an input value, set the onChange property on it, the inputs will call this function with {value, target} once its value change
 
 ```js
-import AtomInput from '@schibstedspain/sui-atom-input'
+import AtomInput from '@s-ui/react-atom-input'
 
 const postalCodeMask = {
   mask: '00000',

@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-atom-input",
+  "name": "@s-ui/react-atom-input",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

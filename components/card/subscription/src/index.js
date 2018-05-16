@@ -131,7 +131,7 @@ CardSubscription.propTypes = {
   /**
    * Checkbox name
    */
-  checkboxName: PropTypes.string.isRequired,
+  checkboxName: PropTypes.string,
 
   /**
    * Checkbox label

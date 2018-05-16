@@ -9,7 +9,7 @@ $pr-atom-input-password-input: 60px;
     position: relative;
     width: 100%;
 
-    &-input {
+    &--input {
       border: 1px solid $c-gray-light;
       font-size: $fz-base;
       padding-left: $p-l;
@@ -18,7 +18,7 @@ $pr-atom-input-password-input: 60px;
       padding-right: $pr-atom-input-password-input;
     }
 
-    &-toggle-button {
+    &--toggleButton {
       color: $c-primary;
       cursor: pointer;
       position: absolute;

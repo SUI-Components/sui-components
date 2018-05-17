@@ -21,17 +21,18 @@ $ npm install @s-ui/react-atom-switch --save
 import AtomSwitch from '@s-ui/react-atom-switch'
 
 return (
-       <AtomSwitch
-          size='default'
-          type='toggle'
-          disabled={false}
-          label='Label'
-          labelLeft='Off'
-          labelRight='On'
-          labelOptionalText='Optional label'
-          onToggle={customCallback}
-       />)
+  <AtomSwitch
+    size='default'
+    type='toggle'
+    disabled={false}
+    label='Label'
+    labelLeft='Off'
+    labelRight='On'
+    labelOptionalText='Optional label'
+    onToggle={customCallback}
+  />
+)
 ```
 
 
-> **Find full description and more examples in the [demo page](#).**
+> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/switch/demo).**

@@ -7,9 +7,9 @@ export function workClassNames (size, type, classType, isToggle, isFocus, isDisa
     prefixClass(classType),
     prefixClass(size),
     {
-      'sui-AtomSwitch--active': (isToggle || type === TYPES.SELECT),
-      'sui-AtomSwitch--focus': isFocus,
-      'sui-AtomSwitch--disabled': isDisabled
+      [prefixClass('active')]: (isToggle || type === TYPES.SELECT),
+      [prefixClass('focus')]: isFocus,
+      [prefixClass('disabled')]: isDisabled
     })
 }
 

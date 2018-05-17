@@ -1,5 +1,5 @@
 {
-  "name": "@s-ui/sui-molecule-notification",
+  "name": "@s-ui/react-molecule-notification",
   "version": "1.2.0",
   "description": "",
   "main": "lib/index.js",

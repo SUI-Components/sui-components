@@ -5,14 +5,14 @@
 ## Installation
 
 ```sh
-$ npm install @s-ui/sui-molecule-notification --save
+$ npm install @s-ui/react-molecule-notification --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import MoleculeNotification from '@s-ui/sui-molecule-notification'
+import MoleculeNotification from '@s-ui/react-molecule-notification'
 
 // sui-atom-button
 const BUTTONS = [
@@ -29,11 +29,11 @@ const BUTTONS = [
 ]
 
 return (
-  <MoleculeNotification 
+  <MoleculeNotification
     text='Lorem fistrum'
     type='success',
     autoclose='short'
-    buttons={BUTTONS} 
+    buttons={BUTTONS}
   />
 )
 ```

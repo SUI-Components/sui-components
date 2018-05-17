@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2018-05-17)
+
+
+### Features
+
+* pass optional checkbox icons ([ef0457d](https://github.com/SUI-Components/sui-components/commit/ef0457d))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2018-05-16)
 

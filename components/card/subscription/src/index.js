@@ -35,7 +35,14 @@ export default class CardSubscription extends Component {
   }
 
   _printCardContent = ({ termsOfUseAccepted }) => {
-    const { placeholder, iconButton, responseError, checkboxName, checkboxLabel } = this.props
+    const {
+      placeholder,
+      iconButton,
+      responseError,
+      checkboxName,
+      checkboxLabel,
+      checkboxIcons
+    } = this.props
     const IconAngle = iconButton || Chevronright
     const inputClassName = cx('sui-CardSubscription-input', {
       'has-error': !!responseError
@@ -61,6 +68,7 @@ export default class CardSubscription extends Component {
               onChange={this._handleCheckboxChange}
               label={checkboxLabel}
               errorMessage={this._getCheckboxError()}
+              svgIcons={checkboxIcons}
             />
           </div>
         }
@@ -136,12 +144,17 @@ CardSubscription.propTypes = {
   /**
    * Checkbox label
    */
-  checkboxLabel: PropTypes.string,
+  checkboxLabel: PropTypes.node,
 
   /**
    * Checkbox error message
    */
-  checkboxErrorMessage: PropTypes.string
+  checkboxErrorMessage: PropTypes.string,
+
+  /**
+   * Checkbox icons (checked and unchecked)
+   */
+  checkboxIcons: PropTypes.object
 }
 
 CardSubscription.displayName = 'CardSubscription'

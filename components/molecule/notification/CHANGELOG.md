@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2018-05-17)
+
+
+### Bug Fixes
+
+* write correct name for the sui-component ([381871c](https://github.com/SUI-Components/sui-components/commit/381871c))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2018-04-10)
 

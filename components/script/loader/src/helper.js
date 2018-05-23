@@ -1,4 +1,3 @@
-const DETECTION_DELAY = 5000
 const scriptPromises = []
 
 /**
@@ -8,8 +7,8 @@ const scriptPromises = []
  * @param  {bool} isAsync
  * @return {Promise}
  */
-const loadScript = ({ src, verifier, isAsync }) => {
-  scriptPromises[src] = scriptPromises[src] || new Promise((resolve) => {
+const loadScript = ({ src, verifier, isAsync, detectionDelay }) => {
+  scriptPromises[src] = scriptPromises[src] || new Promise((resolve, reject) => {
     const isLoaded = verifier()
 
     if (isLoaded) {
@@ -18,7 +17,7 @@ const loadScript = ({ src, verifier, isAsync }) => {
     }
 
     injectScript({src, isAsync})
-    waitUntil(verifier, resolve, DETECTION_DELAY)
+    waitUntil(verifier, resolve, reject, detectionDelay)
   })
 
   return scriptPromises[src]
@@ -47,13 +46,19 @@ const injectScript = ({ src, isAsync }) => {
  * @param  {integer} interval
  * @return {void}
  */
-const waitUntil = (truthyFn, callback, delay = 100, interval = 100) => {
+const waitUntil = (truthyFn, callback, timeoutCallback, delay, interval = 100) => {
   let intervalId = setInterval(() => {
     let value = truthyFn()
-    if (value || delay <= 0) {
+
+    if (value) {
       clearInterval(intervalId)
       callback(value)
     }
+    if (delay <= 0) {
+      clearInterval(intervalId)
+      timeoutCallback(value)
+    }
+
     delay -= interval
   }, interval)
 }

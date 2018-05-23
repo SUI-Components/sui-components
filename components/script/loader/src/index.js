@@ -3,15 +3,25 @@ import PropTypes from 'prop-types'
 import { loadScript } from './helper.js'
 
 class ScriptLoader extends Component {
-  state = {readyToRender: false}
+  state = {
+    readyToRender: false,
+    timeout: false
+  }
 
   componentDidMount () {
-    const { src, verifier, isAsync } = this.props
-    loadScript({ src, verifier, isAsync }).then(() => this.setState({'readyToRender': true}))
+    const { src, verifier, isAsync, detectionDelay } = this.props
+
+    loadScript({ src, verifier, isAsync, detectionDelay })
+      .then(() => this.setState({ readyToRender: true }))
+      .catch(() => this.setState({ timeout: true }))
   }
 
   render () {
-    return this.state.readyToRender && this.props.render()
+    const { render, onTimeout } = this.props
+    const { readyToRender, timeout } = this.state
+
+    if (readyToRender) return render()
+    if (timeout) return onTimeout()
   }
 }
 
@@ -31,13 +41,24 @@ ScriptLoader.propTypes = {
    */
   render: PropTypes.func.isRequired,
   /**
+   * A function that will return what should be rendered when the script is not
+   * loaded within the expected time.
+   */
+  onTimeout: PropTypes.func,
+  /**
    * If the script should be marked as async or not
    */
-  isAsync: PropTypes.bool
+  isAsync: PropTypes.bool,
+  /**
+   * Detection delay time (in miliseconds)
+   */
+  detectionDelay: PropTypes.number
 }
 
 ScriptLoader.defaultProps = {
-  isAsync: true
+  isAsync: true,
+  onTimeout: () => {},
+  detectionDelay: 5000
 }
 
 export default ScriptLoader

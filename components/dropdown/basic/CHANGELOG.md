@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.24.0"></a>
+# 1.24.0 (2018-05-23)
+
+
+### Bug Fixes
+
+* fix sass variables ([b5d99c8](https://github.com/SUI-Components/sui-components/commit/b5d99c8))
+* removed package-lock.json ([c1ccac6](https://github.com/SUI-Components/sui-components/commit/c1ccac6))
+
+
+
 <a name="1.23.0"></a>
 # 1.23.0 (2017-11-21)
 

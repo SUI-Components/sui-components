@@ -45,6 +45,9 @@ And remember, this option should be the last one you use in terms of buttons.
 
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_5D52398E693A404AE1BAE29B23F4380B46436C5982DB618BD10C9760A2D5FC29_1509957641956_3.1-btn-terciary.png)
 
+## Ghost button
+To be defined.
+
 ## Accent color
 
 In some cases, you will need to use a button with an accent colour that has a specific meaning, for example: purchase button, primary action of the page, etc.

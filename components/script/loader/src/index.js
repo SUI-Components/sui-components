@@ -13,10 +13,7 @@ class ScriptLoader extends Component {
 
     loadScript({ src, verifier, isAsync, detectionDelay })
       .then(() => this.setState({ readyToRender: true }))
-      .catch(() => {
-        this.setState({ timeout: true })
-        onTimeout()
-      })
+      .catch(() => this.setState({ timeout: true }, onTimeout))
   }
 
   render () {

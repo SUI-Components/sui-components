@@ -9,11 +9,11 @@ class ScriptLoader extends Component {
   }
 
   componentDidMount () {
-    const { src, verifier, isAsync, detectionDelay } = this.props
+    const { src, verifier, isAsync, detectionDelay, onTimeout } = this.props
 
     loadScript({ src, verifier, isAsync, detectionDelay })
       .then(() => this.setState({ readyToRender: true }))
-      .catch(() => this.setState({ timeout: true }))
+      .catch(() => this.setState({ timeout: true }, onTimeout))
   }
 
   render () {
@@ -47,6 +47,11 @@ ScriptLoader.propTypes = {
    */
   timeoutRender: PropTypes.func,
   /**
+   * A function that will be executed when the script is not loaded within the
+   * expected time.
+   */
+  onTimeout: PropTypes.func,
+  /**
    * If the script should be marked as async or not
    */
   isAsync: PropTypes.bool,
@@ -59,6 +64,7 @@ ScriptLoader.propTypes = {
 ScriptLoader.defaultProps = {
   isAsync: true,
   timeoutRender: () => {},
+  onTimeout: () => {},
   detectionDelay: 5000
 }
 

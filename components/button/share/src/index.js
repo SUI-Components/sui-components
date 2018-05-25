@@ -8,8 +8,10 @@ import Envelopeclosed from '@schibstedspain/sui-svgiconset/lib/Envelopeclosed'
 
 const getOnClickHandle = src => () => window.open(src)
 
-const parseHttpSchemeOfUrl = (urlToEval) => {
-  return (!urlToEval.indexOf('http') || !urlToEval.indexOf('https')) ? urlToEval : `http://${urlToEval}`
+const parseHttpSchemeOfUrl = urlToEval => {
+  return !urlToEval.indexOf('http') || !urlToEval.indexOf('https')
+    ? urlToEval
+    : `http://${urlToEval}`
 }
 
 const getShareDefinition = (url, shareText, type) => {
@@ -43,15 +45,14 @@ const getShareDefinition = (url, shareText, type) => {
 const ButtonShare = ({type, icon, onClick, shareText, url}) => {
   const shareDefinition = getShareDefinition(url, shareText, type)
   const Icon = icon || shareDefinition.icon
-  return <button
-    className={cx('sui-ButtonShare', `sui-ButtonShare--${type}`)}
-    onClick={!onClick ? getOnClickHandle(shareDefinition.src) : onClick}
-  >
-    <Icon
-      svgClass='sui-ButtonShare-svgIcon'
-      fillColor={false}
-    />
-  </button>
+  return (
+    <button
+      className={cx('sui-ButtonShare', `sui-ButtonShare--${type}`)}
+      onClick={!onClick ? getOnClickHandle(shareDefinition.src) : onClick}
+    >
+      <Icon svgClass="sui-ButtonShare-svgIcon" fillColor={false} />
+    </button>
+  )
 }
 
 ButtonShare.displayName = 'ButtonShare'
@@ -61,7 +62,8 @@ ButtonShare.propTypes = {
    * One of the enum types ['facebook', 'whatsapp', 'twitter', 'email']
    * used to know which social media button is going to be rendered
    */
-  type: PropTypes.oneOf(['facebook', 'whatsapp', 'twitter', 'email', 'custom']).isRequired,
+  type: PropTypes.oneOf(['facebook', 'whatsapp', 'twitter', 'email', 'custom'])
+    .isRequired,
   /**
    * A class definition, not instance, of our react icon component.
    */

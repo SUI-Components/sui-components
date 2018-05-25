@@ -2,14 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Thumbnail from './Thumbnail'
 
-const ThumbnailBasic = function ({href, target, ...thumbnailProps}) {
-  return href
-    ? (
-      <a href={href} target={target}>
-        <Thumbnail {...thumbnailProps} />
-      </a>
-    )
-    : <Thumbnail {...thumbnailProps} />
+const ThumbnailBasic = function({href, target, ...thumbnailProps}) {
+  return href ? (
+    <a href={href} target={target}>
+      <Thumbnail {...thumbnailProps} />
+    </a>
+  ) : (
+    <Thumbnail {...thumbnailProps} />
+  )
 }
 
 ThumbnailBasic.displayName = 'ThumbnailBasic'

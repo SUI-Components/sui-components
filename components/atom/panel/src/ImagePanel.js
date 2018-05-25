@@ -17,7 +17,7 @@ const VERTICAL_ALIGNMENTS = {
 
 const DEFAULT_ALPHA = 'CONTRAST'
 
-const getClassNames = function ({
+const getClassNames = function({
   verticalAlign,
   horizontalAlign,
   resized,
@@ -32,22 +32,23 @@ const getClassNames = function ({
   return cx(
     `${IMAGE_PANEL_CLASS}--vertical-${verticalAlign}`,
     `${IMAGE_PANEL_CLASS}--horizontal-${horizontalAlign}`,
-    overlayColor && `${BASE_CLASS}--${overlayColor}-overlay-${overlayAlphaValue}`,
+    overlayColor &&
+      `${BASE_CLASS}--${overlayColor}-overlay-${overlayAlphaValue}`,
     `${BASE_CLASS}-color--${color}`,
     resized && `${IMAGE_PANEL_CLASS}--resized`
   )
 }
 
-const getStyles = function ({src}) {
+const getStyles = function({src}) {
   const url = `url(${src})`
   return {
     backgroundImage: url
   }
 }
 
-const ImagePanel = function ({children, ...props}) {
+const ImagePanel = function({children, ...props}) {
   return (
-    <div className={getClassNames(props)} style={getStyles(props)} >
+    <div className={getClassNames(props)} style={getStyles(props)}>
       {children}
     </div>
   )
@@ -80,7 +81,4 @@ ImagePanel.defaultProps = {
 }
 
 export default ImagePanel
-export {
-  HORIZONTAL_ALIGNMENTS,
-  VERTICAL_ALIGNMENTS
-}
+export {HORIZONTAL_ALIGNMENTS, VERTICAL_ALIGNMENTS}

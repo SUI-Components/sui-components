@@ -3,22 +3,33 @@ import React from 'react'
 import CircleX from '@schibstedspain/sui-svgiconset/lib/Circlex'
 import cx from 'classnames'
 
-const Tag = ({Link, children, url, ...rest} = {}) => url
-  ? <Link href={url} {...rest}>{children}</Link>
-  : <span {...rest}>{children}</span>
-
-const tagChipClassName = ({isClickable, className = null}) => cx('sui-TagChip', className, {
-  'sui-TagChip-link': isClickable
-})
-
-const preventDefaultHandler = handler => event =>
-  handler && (
-    event.preventDefault(),
-    event.stopPropagation(),
-    handler.apply()
+const Tag = ({Link, children, url, ...rest} = {}) =>
+  url ? (
+    <Link href={url} {...rest}>
+      {children}
+    </Link>
+  ) : (
+    <span {...rest}>{children}</span>
   )
 
-const TagChip = ({onRequestDelete, onClick, label, link: url, linkFactory, className, rel, icon: Icon = CircleX} = {}) =>
+const tagChipClassName = ({isClickable, className = null}) =>
+  cx('sui-TagChip', className, {
+    'sui-TagChip-link': isClickable
+  })
+
+const preventDefaultHandler = handler => event =>
+  handler && (event.preventDefault(), event.stopPropagation(), handler.apply())
+
+const TagChip = ({
+  onRequestDelete,
+  onClick,
+  label,
+  link: url,
+  linkFactory,
+  className,
+  rel,
+  icon: Icon = CircleX
+} = {}) => (
   <Tag
     onClick={preventDefaultHandler(onClick)}
     url={url}
@@ -27,12 +38,16 @@ const TagChip = ({onRequestDelete, onClick, label, link: url, linkFactory, class
     rel={rel}
   >
     {label}
-    {onRequestDelete &&
-      <span onClick={preventDefaultHandler(onRequestDelete)} className='sui-TagChip-delete'>
-        <Icon svgClass='sui-TagChip-deleteIcon' />
+    {onRequestDelete && (
+      <span
+        onClick={preventDefaultHandler(onRequestDelete)}
+        className="sui-TagChip-delete"
+      >
+        <Icon svgClass="sui-TagChip-deleteIcon" />
       </span>
-    }
+    )}
   </Tag>
+)
 
 TagChip.displayName = 'TagChip'
 
@@ -68,8 +83,7 @@ TagChip.propTypes = {
 }
 
 TagChip.defaultProps = {
-  linkFactory: ({ children, ...rest } = {}) =>
-    <a {...rest}>{children}</a>
+  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>
 }
 
 export default TagChip

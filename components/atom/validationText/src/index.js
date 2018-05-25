@@ -8,15 +8,10 @@ const TYPES = {
   ERROR: 'error'
 }
 
-const getClassNames = (type) =>
-  cx(BASE_CLASS, `${BASE_CLASS}--${type}`)
+const getClassNames = type => cx(BASE_CLASS, `${BASE_CLASS}--${type}`)
 
-const AtomValidationText = function ({type, text}) {
-  return (
-    <span className={getClassNames(type)}>
-      {text}
-    </span>
-  )
+const AtomValidationText = function({type, text}) {
+  return <span className={getClassNames(type)}>{text}</span>
 }
 
 AtomValidationText.displayName = 'AtomValidationText'
@@ -27,6 +22,4 @@ AtomValidationText.propTypes = {
 }
 
 export default AtomValidationText
-export {
-  TYPES as AtomValidationTextTypes
-}
+export {TYPES as AtomValidationTextTypes}

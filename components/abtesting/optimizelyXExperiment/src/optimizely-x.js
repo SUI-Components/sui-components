@@ -28,10 +28,12 @@ class OptimizelyXExperimentsService {
    * Get OptimizelyX SDK instance
    * @return Promise<Object>
    */
-  static async getSDK () {
-    optimizelyPromise = optimizelyPromise || new Promise((resolve) => {
-      waitUntil(getOptmizely, resolve, DETECTION_DELAY)
-    })
+  static async getSDK() {
+    optimizelyPromise =
+      optimizelyPromise ||
+      new Promise(resolve => {
+        waitUntil(getOptmizely, resolve, DETECTION_DELAY)
+      })
     return optimizelyPromise
   }
 
@@ -50,10 +52,11 @@ class OptimizelyXExperimentsService {
    *  }
    * }
    */
-  static async getInfo (experimentId) {
+  static async getInfo(experimentId) {
     const sdk = await this.getSDK()
-    return sdk && sdk.get &&
-      sdk.get('state').getExperimentStates()[experimentId]
+    return (
+      sdk && sdk.get && sdk.get('state').getExperimentStates()[experimentId]
+    )
   }
 
   /**
@@ -61,8 +64,8 @@ class OptimizelyXExperimentsService {
    * @param {String} experimentId
    * @return Promise<Boolean>
    */
-  static async isActivated (experimentId) {
-    let info = await this.getInfo(experimentId) || {}
+  static async isActivated(experimentId) {
+    let info = (await this.getInfo(experimentId)) || {}
     return (info.isActive && !info.isInExperimentHoldback) || false
   }
 
@@ -71,8 +74,8 @@ class OptimizelyXExperimentsService {
    * @param {String} experimentId
    * @return Promise<String|Number>
    */
-  static async getVariation (experimentId) {
-    let info = await this.getInfo(experimentId) || {}
+  static async getVariation(experimentId) {
+    let info = (await this.getInfo(experimentId)) || {}
     return info.variation.id || null
   }
 }
@@ -82,7 +85,7 @@ class OptimizelyXExperimentsService {
  * @param {String} experimentId
  * @return {ExperimentUseCase}
  */
-function createExperimentUseCase (experimentId) {
+function createExperimentUseCase(experimentId) {
   return new ExperimentUseCase(OptimizelyXExperimentsService, experimentId)
 }
 

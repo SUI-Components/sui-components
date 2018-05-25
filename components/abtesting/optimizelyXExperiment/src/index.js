@@ -1,21 +1,24 @@
 /* eslint handle-callback-err: "off" */
 import PropTypes from 'prop-types'
 
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import AbTestToggle from '@s-ui/abtesting-toggle'
 import {createExperimentUseCase} from './optimizely-x'
 
 class AbTestOptimizelyXExperiment extends Component {
-  state = { variation: undefined }
+  state = {variation: undefined}
 
-  componentDidMount () {
+  componentDidMount() {
     this._experiment = createExperimentUseCase(this.props.experimentId)
-    this._experiment.execute()
-      .then(variation => this.setState({variation}))
+    this._experiment.execute().then(variation => this.setState({variation}))
   }
 
-  render () {
-    return <AbTestToggle variation={this.state.variation}>{this.props.children}</AbTestToggle>
+  render() {
+    return (
+      <AbTestToggle variation={this.state.variation}>
+        {this.props.children}
+      </AbTestToggle>
+    )
   }
 }
 
@@ -30,7 +33,8 @@ AbTestOptimizelyXExperiment.propTypes = {
   /**
    * Id of the experiment to get variation from.
    */
-  experimentId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+  experimentId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired
 }
 
 export default AbTestOptimizelyXExperiment

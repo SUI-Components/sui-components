@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import TabsBasic from '@schibstedspain/sui-tab-basic'
 import cx from 'classnames'
 
@@ -10,13 +10,13 @@ class TabContent extends Component {
     activeTab: this.props.activeTab
   }
 
-  _handleClick = (activeTab) => {
-    this.setState({ activeTab })
+  _handleClick = activeTab => {
+    this.setState({activeTab})
     this.props.onTabChange(activeTab)
   }
 
-  _renderContent ({ activeTab, tabsContent }) {
-    const { renderInactiveContent } = this.props
+  _renderContent({activeTab, tabsContent}) {
+    const {renderInactiveContent} = this.props
     return tabsContent.reduce((contentToRender, content, indexTab) => {
       const isActive = indexTab === activeTab
       if (isActive || renderInactiveContent) {
@@ -24,37 +24,37 @@ class TabContent extends Component {
           'is-active': isActive
         })
 
-        contentToRender.push((
+        contentToRender.push(
           <section className={className} key={indexTab}>
             {content}
           </section>
-        ))
+        )
       }
       return contentToRender
     }, [])
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
+  shouldComponentUpdate(nextProps, nextState) {
     // re-render the component only if the user is changing the activated tab
     // we might want to make the content of the tabs dynamic as well and we may change this
     return nextState.activeTab !== this.state.activeTab
   }
 
-  render () {
-    const { panels } = this.props
-    const { activeTab } = this.state
+  render() {
+    const {panels} = this.props
+    const {activeTab} = this.state
 
     const tabsList = panels.map(panel => panel.title)
     const tabsContent = panels.map(panel => panel.content)
 
     return (
-      <div className='sui-TabContent'>
+      <div className="sui-TabContent">
         <TabsBasic
           activeTab={activeTab}
           handleClick={this._handleClick}
           tabsList={tabsList}
         />
-        {this._renderContent({ activeTab, tabsContent })}
+        {this._renderContent({activeTab, tabsContent})}
       </div>
     )
   }
@@ -80,16 +80,18 @@ TabContent.propTypes = {
   /**
    * List of panels to be tabbed
    */
-  panels: PropTypes.arrayOf(PropTypes.shape({
-    /**
-     * Title for the panel
-     */
-    title: PropTypes.string.isRequired,
-    /**
-     * Content for the panel
-     */
-    content: PropTypes.element.isRequired
-  }).isRequired).isRequired,
+  panels: PropTypes.arrayOf(
+    PropTypes.shape({
+      /**
+       * Title for the panel
+       */
+      title: PropTypes.string.isRequired,
+      /**
+       * Content for the panel
+       */
+      content: PropTypes.element.isRequired
+    }).isRequired
+  ).isRequired,
   /**
    * Callback to execute when tab content has changed.
    */

@@ -1,31 +1,33 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import cx from 'classnames'
 import Button from '@schibstedspain/sui-atom-button'
 
 const baseClass = 'sui-CoverBasic'
 class CoverBasic extends Component {
   // Custom css class are attached when component is clickable, has gradiend and background image.
-  coverBasicClassNames = cx(baseClass,
+  coverBasicClassNames = cx(
+    baseClass,
     {[`${baseClass}--gradient`]: this.props.gradient},
     {[`${baseClass}--bgImage`]: this.props.src},
     {'is-clickable': !!this.props.handleClick}
   )
 
   _buildButtons = () => {
-    const { buttons } = this.props
+    const {buttons} = this.props
     const executeCallback = (e, callback) => {
       e.stopPropagation()
       callback(e)
     }
 
-    return buttons.map(({ icon: Icon, label, handleClick }, index) => {
+    return buttons.map(({icon: Icon, label, handleClick}, index) => {
       return (
         <div className={`${baseClass}-button`} key={index}>
           <Button
-            type='tertiary'
+            type="tertiary"
             leftIcon={Icon && <Icon className={`${baseClass}-buttonIcon`} />}
-            onClick={(e) => executeCallback(e, handleClick)}>
+            onClick={e => executeCallback(e, handleClick)}
+          >
             {label}
           </Button>
         </div>
@@ -35,23 +37,23 @@ class CoverBasic extends Component {
 
   buttons = this._buildButtons()
 
-  render () {
-    const { src, height } = this.props
+  render() {
+    const {src, height} = this.props
     const backgroundImage = `url(${src})`
-    const styles = { backgroundImage, height }
+    const styles = {backgroundImage, height}
 
     return (
-      <div className={this.coverBasicClassNames} onClick={this.props.handleClick} style={styles}>
-        {this.props.children &&
-          <div className={`${baseClass}-children`}>
-            {this.props.children}
-          </div>
-        }
-        {this.buttons.length > 0 &&
-          <div className={`${baseClass}-buttonList`}>
-            {this.buttons}
-          </div>
-        }
+      <div
+        className={this.coverBasicClassNames}
+        onClick={this.props.handleClick}
+        style={styles}
+      >
+        {this.props.children && (
+          <div className={`${baseClass}-children`}>{this.props.children}</div>
+        )}
+        {this.buttons.length > 0 && (
+          <div className={`${baseClass}-buttonList`}>{this.buttons}</div>
+        )}
       </div>
     )
   }

@@ -9,18 +9,14 @@ const TYPES = {
   ERROR: 'error'
 }
 
-const getClass = ({type}) =>
-  cx(CLASSNAME, `${CLASSNAME}--${type}`)
+const getClass = ({type}) => cx(CLASSNAME, `${CLASSNAME}--${type}`)
 
 const AtomLabel = ({name, text, optionalText, type}) => (
   <label htmlFor={name} className={getClass({type})}>
     {text}
-    {
-      optionalText &&
-        <span className='sui-AtomLabel-optionalText'>
-          {optionalText}
-        </span>
-    }
+    {optionalText && (
+      <span className="sui-AtomLabel-optionalText">{optionalText}</span>
+    )}
   </label>
 )
 
@@ -46,6 +42,4 @@ AtomLabel.propTypes = {
 }
 
 export default AtomLabel
-export {
-  TYPES as AtomLabelTypes
-}
+export {TYPES as AtomLabelTypes}

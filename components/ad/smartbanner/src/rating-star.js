@@ -5,8 +5,8 @@ import IconStarHalfDefault from '@schibstedspain/sui-svgiconset/lib/Starhalf'
 import IconStarEmptyDefault from '@schibstedspain/sui-svgiconset/lib/Starempty'
 
 const baseNumber = 0.5
-const checkRatingValue = ({ ratingValue, ratingMax }) =>
-  (ratingValue % baseNumber === 0) && ratingValue <= ratingMax
+const checkRatingValue = ({ratingValue, ratingMax}) =>
+  ratingValue % baseNumber === 0 && ratingValue <= ratingMax
 
 const RatingStar = ({ratingValue, ratingMax, icons}) => {
   const svgIconsType = {
@@ -16,12 +16,12 @@ const RatingStar = ({ratingValue, ratingMax, icons}) => {
   }
 
   const _renderStar = (_, index) => {
-    if (!checkRatingValue({ ratingValue, ratingMax })) return null
+    if (!checkRatingValue({ratingValue, ratingMax})) return null
     const ratingRound = Math.round(ratingValue)
     const ratingFloor = Math.floor(ratingValue)
     const nextItem = index + 1
-    const full = (nextItem <= ratingRound)
-    const half = (ratingRound === nextItem) && (ratingFloor !== ratingValue)
+    const full = nextItem <= ratingRound
+    const half = ratingRound === nextItem && ratingFloor !== ratingValue
     let typeStar
 
     if (half) {
@@ -32,19 +32,26 @@ const RatingStar = ({ratingValue, ratingMax, icons}) => {
       typeStar = 'empty'
     }
     const SvgIconsCall = svgIconsType[typeStar]
-    return (<SvgIconsCall key={index} svgClass='sui-AdSmartbanner-ratingIcon' />)
+    return <SvgIconsCall key={index} svgClass="sui-AdSmartbanner-ratingIcon" />
   }
 
   return (
-    <span className='sui-AdSmartbanner-rating'>
-      {Array(ratingMax).fill().map(_renderStar)}
+    <span className="sui-AdSmartbanner-rating">
+      {Array(ratingMax)
+        .fill()
+        .map(_renderStar)}
     </span>
   )
 }
 
 RatingStar.propTypes = {
-  ratingValue: function (props, propName, componentName) {
-    if (!checkRatingValue({ ratingValue: props[propName], ratingMax: props.ratingMax })) {
+  ratingValue: function(props, propName, componentName) {
+    if (
+      !checkRatingValue({
+        ratingValue: props[propName],
+        ratingMax: props.ratingMax
+      })
+    ) {
       return new Error(
         `Invalid prop \`${propName}\` supplied to \`${componentName}\`. \`${propName}\` value must be multiple of \`${baseNumber}\` and lower or equal to \`ratingMax\` value.`
       )

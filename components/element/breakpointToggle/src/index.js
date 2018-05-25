@@ -5,24 +5,24 @@ import ViewportResize from './viewport-resize'
 class BreakpointToggle extends Component {
   state = {}
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.onViewportResize = this.onViewportResize.bind(this)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     ViewportResize.addListener(this.onViewportResize)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     ViewportResize.removeListener(this.onViewportResize)
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
+  shouldComponentUpdate(nextProps, nextState) {
     return nextState.isDisplayed !== this.state.isDisplayed
   }
 
-  onViewportResize (width, height) {
+  onViewportResize(width, height) {
     const {breakpoint, inverse} = this.props
 
     this.setState({
@@ -30,7 +30,7 @@ class BreakpointToggle extends Component {
     })
   }
 
-  render () {
+  render() {
     const {children} = this.props
     const {isDisplayed} = this.state
     return isDisplayed ? children : null

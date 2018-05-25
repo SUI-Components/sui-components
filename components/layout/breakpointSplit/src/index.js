@@ -6,20 +6,20 @@ import ViewportResize from './viewport-resize'
 class LayoutBreakpointSplit extends Component {
   state = {}
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.onViewportResize = this.onViewportResize.bind(this)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     ViewportResize.addListener(this.onViewportResize)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     ViewportResize.removeListener(this.onViewportResize)
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
+  shouldComponentUpdate(nextProps, nextState) {
     return (
       nextState.isSplitted !== this.state.isSplitted ||
       nextProps.current !== this.props.current ||
@@ -27,32 +27,34 @@ class LayoutBreakpointSplit extends Component {
     )
   }
 
-  onViewportResize (width, height) {
+  onViewportResize(width, height) {
     let {breakpoint} = this.props
     this.setState({
       isSplitted: width <= breakpoint
     })
   }
 
-  render () {
+  render() {
     let {children, current} = this.props
     let {isSplitted} = this.state
     children = isSplitted ? [children[current]] : children
 
-    const content = (React.Children.map(children, ({type: Type, props}, index) => (
-      <Type {...props} key={index}
-        className={cx(
-          props.className,
-          isSplitted && 'sui-LayoutBreakpointSplit-currentView'
-        )}
-      />
-    )))
-
-    const className = cx(
-      'sui-LayoutBreakpointSplit',
-      this.props.className
+    const content = React.Children.map(
+      children,
+      ({type: Type, props}, index) => (
+        <Type
+          {...props}
+          key={index}
+          className={cx(
+            props.className,
+            isSplitted && 'sui-LayoutBreakpointSplit-currentView'
+          )}
+        />
+      )
     )
-    return (<span className={className}>{content}</span>)
+
+    const className = cx('sui-LayoutBreakpointSplit', this.props.className)
+    return <span className={className}>{content}</span>
   }
 }
 

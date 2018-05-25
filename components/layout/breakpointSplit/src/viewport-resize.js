@@ -26,7 +26,7 @@ class ViewportResize {
    * Register event to update viewport width and height
    * @param {Function} listener
    */
-  static addListener (listener) {
+  static addListener(listener) {
     listeners.push(listener)
     this.update()
 
@@ -39,7 +39,7 @@ class ViewportResize {
    * Unregister event to update viewport width and height
    * @param {Function} listener
    */
-  static removeListener (listener) {
+  static removeListener(listener) {
     listeners = listeners.filter(cb => cb !== listener)
 
     if (!listeners.length) {
@@ -50,7 +50,7 @@ class ViewportResize {
   /**
    * Take viewport limits and update width and height
    */
-  static update () {
+  static update() {
     this.height = document.body.clientHeight
     this.width = document.body.clientWidth
     listeners.forEach(cb => cb(this.width, this.height))

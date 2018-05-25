@@ -1,0 +1,29 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-FormPta {
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 100%;
+  position: relative;
+  width: 100%;
+
+  &-content {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &-topbar {
+    width: 100%;
+  }
+
+  &-pta {
+    color: $c-white;
+    padding: 50px;
+    text-align: center;
+  }
+}
+

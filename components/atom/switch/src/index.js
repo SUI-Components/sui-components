@@ -22,30 +22,40 @@ class AtomSwitch extends Component {
     isFocus: false
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.executeIfEnabledFocusSwitch = this.executeIfEnabled(this.focusSwitch)
-    this.executeIfEnabledFocusOutSwitch = this.executeIfEnabled(this.focusOutSwitch)
+    this.executeIfEnabledFocusOutSwitch = this.executeIfEnabled(
+      this.focusOutSwitch
+    )
     this.executeIfEnabledToggleSwitch = this.executeIfEnabled(this.toggleSwitch)
-    this.executeIfEnabledActivateSwitch = this.executeIfEnabled(this.activateToggle)
-    this.executeIfEnabledDeactivateSwitch = this.executeIfEnabled(this.deactivateToggle)
+    this.executeIfEnabledActivateSwitch = this.executeIfEnabled(
+      this.activateToggle
+    )
+    this.executeIfEnabledDeactivateSwitch = this.executeIfEnabled(
+      this.deactivateToggle
+    )
   }
 
-  componentDidMount () {
+  componentDidMount() {
     window.addEventListener('keydown', this.keyBindings, true)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     window.removeEventListener('keydown', this.keyBindings, true)
   }
 
-  keyBindings = (event) => {
+  keyBindings = event => {
     const {isFocus} = this.state
     if (!isFocus || event.defaultPrevented) {
       return
     }
-    if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
+    if (
+      event.key === 'Enter' ||
+      event.key === ' ' ||
+      event.key === 'Spacebar'
+    ) {
       this.toggleSwitch()
       event.preventDefault()
     }
@@ -65,7 +75,7 @@ class AtomSwitch extends Component {
     this.setState({toggle: false})
   }
 
-  executeIfEnabled = (func) => () => {
+  executeIfEnabled = func => () => {
     const {disabled} = this.props
     !disabled && func()
   }
@@ -78,30 +88,30 @@ class AtomSwitch extends Component {
     this.setState({isFocus: false})
   }
 
-  render () {
+  render() {
     const {toggle, isFocus} = this.state
 
-    return (this.props.type === TYPES.SINGLE)
-      ? (
-        <SingleSwitchTypeRender
-          {...this.props}
-          isToggle={toggle}
-          isFocus={isFocus}
-          focusSwitchCallback={this.executeIfEnabledFocusSwitch}
-          blurSwitchCallback={this.executeIfEnabledFocusOutSwitch}
-          toggleSwitchCallback={this.executeIfEnabledToggleSwitch}
-        />)
-      : (
-        <ToggleSwitchTypeRender
-          {...this.props}
-          isToggle={toggle}
-          isFocus={isFocus}
-          focusSwitchCallback={this.executeIfEnabledFocusSwitch}
-          blurSwitchCallback={this.executeIfEnabledFocusOutSwitch}
-          toggleSwitchCallback={this.executeIfEnabledToggleSwitch}
-          activateToggleCallback={this.executeIfEnabledActivateSwitch}
-          deactivateToggleCallback={this.executeIfEnabledDeactivateSwitch}
-        />)
+    return this.props.type === TYPES.SINGLE ? (
+      <SingleSwitchTypeRender
+        {...this.props}
+        isToggle={toggle}
+        isFocus={isFocus}
+        focusSwitchCallback={this.executeIfEnabledFocusSwitch}
+        blurSwitchCallback={this.executeIfEnabledFocusOutSwitch}
+        toggleSwitchCallback={this.executeIfEnabledToggleSwitch}
+      />
+    ) : (
+      <ToggleSwitchTypeRender
+        {...this.props}
+        isToggle={toggle}
+        isFocus={isFocus}
+        focusSwitchCallback={this.executeIfEnabledFocusSwitch}
+        blurSwitchCallback={this.executeIfEnabledFocusOutSwitch}
+        toggleSwitchCallback={this.executeIfEnabledToggleSwitch}
+        activateToggleCallback={this.executeIfEnabledActivateSwitch}
+        deactivateToggleCallback={this.executeIfEnabledDeactivateSwitch}
+      />
+    )
   }
 }
 

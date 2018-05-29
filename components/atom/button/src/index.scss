@@ -187,6 +187,9 @@ $p-atom-button-large: $p-l !default;
   }
 
   &--link {
-    text-decoration: none;
+    &,
+    &:hover {
+      text-decoration: none;
+    }
   }
 }

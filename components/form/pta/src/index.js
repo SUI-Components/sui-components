@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-export const BASE_CLASS = 'sui-FormPta'
+const BASE_CLASS = 'sui-FormPta'
+const CONTENT_CLASS = `${BASE_CLASS}-content`
 
 class FormPta extends Component {
   /**
@@ -25,22 +26,19 @@ class FormPta extends Component {
       }
     }
 
-    contentWindow.postMessage(formSettings, '*')
+    contentWindow.postMessage(formSettings, formUrl)
   }
 
   render () {
     const { props: { formUrl }, sendSettingsToForm } = this
 
     return (
-      <div>
-        <h1>PTA Form builder</h1>
-        <div className='sui-FormPta'>
-          <iframe
-            className='sui-FormPta-content'
-            src={formUrl}
-            onLoad={sendSettingsToForm}
-          />
-        </div>
+      <div className={BASE_CLASS}>
+        <iframe
+          className={CONTENT_CLASS}
+          src={formUrl}
+          onLoad={sendSettingsToForm}
+        />
       </div>
     )
   }
@@ -64,7 +62,7 @@ FormPta.propTypes = {
   /**
    * Redirection url on success
    */
-  redirectOnSuccessUrl: PropTypes.string.isRequired
+  redirectOnSuccessUrl: PropTypes.string.isRequired,
 }
 
 FormPta.defaultProps = {

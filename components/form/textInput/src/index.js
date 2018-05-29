@@ -13,6 +13,8 @@ const FormTextInput = ({
   errorMessage,
   name,
   onChange,
+  onFocus,
+  onBlur,
   onKeyPress,
   placeholder,
   value
@@ -26,6 +28,8 @@ const FormTextInput = ({
       value={value}
       onChange={onChange}
       onKeyPress={onKeyPress}
+      onFocus={onFocus}
+      onBlur={onBlur}
     />
     {errorMessage && renderErrorMessage(errorMessage)}
   </div>
@@ -54,6 +58,14 @@ FormTextInput.propTypes = {
    * Custom callback function to execute when the user presses a keyboard key.
    */
   onKeyPress: PropTypes.func,
+  /**
+   * Custom function callback to execute when the text input element gets focused.
+   */
+  onFocus: PropTypes.func,
+  /**
+   * Custom function callback to execute when the text input element loses the focus.
+   */
+  onBlur: PropTypes.func,
   /**
    * Specifies a short hint that describes the expected value of the text input (when it is empty).
    */

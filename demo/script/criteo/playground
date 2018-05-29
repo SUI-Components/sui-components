@@ -1,0 +1,9 @@
+return (
+  <ScriptCriteo
+    accountIds={[1234, 456]}
+    customerId="12345678"
+    siteType="m"
+    hashedEmail="b58996c504c5638798eb6b511e6f49af"
+    pageEvent={{ event: 'viewHome' }}
+  />
+)

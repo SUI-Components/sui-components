@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2018-04-16)
+
+
+### Features
+
+* use flexbox style to align checkbox label when text is multiline. ([7883e5c](https://github.com/SUI-Components/sui-components/commit/7883e5c))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2018-03-07)
 

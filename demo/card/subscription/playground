@@ -42,7 +42,7 @@ class MyCardSubscription extends React.Component {
   _handleSubmit (value) {
     this.setState({
       responseContent: value === errorEmail ? responseList.ko : responseList.ok,
-      responseError: value === errorEmail ? true : false
+      responseError: value === errorEmail
     })
   }
 
@@ -56,6 +56,9 @@ class MyCardSubscription extends React.Component {
           responseContent={this.state.responseContent}
           responseError={this.state.responseError}
           title={title}
+          checkboxName='terms-of-use'
+          checkboxLabel='I accept the terms of use.'
+          checkboxErrorMessage='Need to check the terms of use before sending your email.'
         />
         <p style={helpStyles}>Use '{errorEmail}' to show the error message, or  any other email address to submit the form.</p>
       </div>

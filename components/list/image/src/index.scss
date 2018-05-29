@@ -56,6 +56,10 @@
 
     &Label {
       color: $c-list-image-more-items-box-label;
+      font-size: $fz-list-image-more-items-box-label;
+      font-weight: $fw-list-image-more-items-box-label;
+      line-height: $lh-list-image-more-items-box-label;
+      padding: $p-m;
       text-align: center;
     }
   }

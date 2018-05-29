@@ -55,6 +55,7 @@
         "atom/tag",
         "atom/validationText",
         "breadcrumb/basic",
+        "molecule/notification",
         "molecule/tabs"
       ]
     },

@@ -1,0 +1,23 @@
+$w-notification: 100% !default;
+$z-notification: 1000 !default;
+$mh-notification: 500px !default;
+$sz-notification-icon: $sz-icon-m !default;
+
+// Colors
+
+$notification-type-colors: (
+  info: $c-primary,
+  success: $c-success,
+  warning: $c-alert,
+  error: $c-error,
+  system: $c-system,
+) !default;
+
+// Effects
+
+$notification-effect-slide-top-in: top .5s ease-out !default;
+$notification-effect-slide-top-out: top .3s ease-in !default;
+$notification-effect-slide-bottom-in: bottom .5s ease-out !default;
+$notification-effect-slide-bottom-out: bottom .3s ease-in !default;
+$notification-effect-fade-in: opacity .5s ease-out .5s, max-height .5s ease 0s !default;
+$notification-effect-fade-out: opacity .3s ease-in 0s, max-height .5s ease .3s !default;

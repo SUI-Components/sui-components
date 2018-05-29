@@ -1,0 +1,74 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import './settings';
+
+
+.sui-CollapsibleReadmore {
+  &-contentWrapper {
+    height: auto;
+    margin-bottom: $m-l;
+    overflow: hidden;
+    position: relative;
+    transition: $trs-collapsible-read-more-content-wrapper;
+    width: auto;
+  }
+
+  &-gradient {
+    &:after {
+      background: $bg-collapsible-read-more-gradient;
+      bottom: 0;
+      content: '';
+      height: $h-collapsible-read-more-gradient;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  &-ellipsis {
+    &Link {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    &Wrapper {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    &Text {
+      color: $c-collapsible-read-more-link;
+      font-size: $fz-collapsible-read-more-link;
+      font-weight: $fw-collapsible-read-more-link;
+      line-height: $lh-collapsible-read-more-link;
+      margin-right: $m-m;
+      text-align: right;
+    }
+
+    &Icon {
+      fill: $c-collapsible-read-more-icon !important; // sass-lint:disable-line no-important
+
+      &Box {
+        display: flex;
+        justify-content: center;
+        transition: $trs-collapsible-read-more-ellipsis-icon;
+      }
+    }
+  }
+
+  &.is-expanded { // sass-lint:disable-line class-name-format
+    .sui-CollapsibleReadmore {
+      &-gradient {
+        &:after {
+          display: none;
+        }
+      }
+
+      &-ellipsisIconBox {
+        transform: $trf-collapsible-read-more-ellipsis-icon;
+      }
+    }
+  }
+}

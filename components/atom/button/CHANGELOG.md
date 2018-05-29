@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.13.0"></a>
+# 1.13.0 (2018-05-29)
+
+
+### Bug Fixes
+
+* disallow overwrite generic hover effect for button link ([a886af6](https://github.com/SUI-Components/sui-components/commit/a886af6))
+* use only one property but same selector ([63e3445](https://github.com/SUI-Components/sui-components/commit/63e3445))
+
+
+
+<a name="1.12.0"></a>
+# 1.12.0 (2018-05-15)
+
+
+### Bug Fixes
+
+* fix fullWidth link type button text is not centered ([d580a32](https://github.com/SUI-Components/sui-components/commit/d580a32))
+
+
+
+<a name="1.11.0"></a>
+# 1.11.0 (2018-05-14)
+
+
+### Bug Fixes
+
+* remove warning and avoid sending a boolean to the attribute ([192fb8f](https://github.com/SUI-Components/sui-components/commit/192fb8f))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2018-04-03)
 

@@ -1,5 +1,5 @@
 {
-    "name": "sui-form-pta",
+    "name": "@schibstedspain/sui-form-pta",
     "version": "1.0.0",
     "description": "",
     "main": "lib/index.js",

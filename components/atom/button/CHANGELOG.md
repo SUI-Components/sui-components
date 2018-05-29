@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.13.0"></a>
+# 1.13.0 (2018-05-29)
+
+
+### Bug Fixes
+
+* disallow overwrite generic hover effect for button link ([a886af6](https://github.com/SUI-Components/sui-components/commit/a886af6))
+* use only one property but same selector ([63e3445](https://github.com/SUI-Components/sui-components/commit/63e3445))
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2018-05-15)
 

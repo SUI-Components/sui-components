@@ -8,7 +8,17 @@ const renderErrorMessage = error => (
   </div>
 )
 
-const FormTextInput = ({className, errorMessage, name, onChange, onFocus, onBlur, placeholder, value}) => (
+const FormTextInput = ({
+  className,
+  errorMessage,
+  name,
+  onChange,
+  onFocus,
+  onBlur,
+  onKeyPress,
+  placeholder,
+  value
+}) => (
   <div className={cx('sui-FormTextInput', className)}>
     <input
       className='sui-FormTextInput-value'
@@ -17,6 +27,7 @@ const FormTextInput = ({className, errorMessage, name, onChange, onFocus, onBlur
       placeholder={placeholder}
       value={value}
       onChange={onChange}
+      onKeyPress={onKeyPress}
       onFocus={onFocus}
       onBlur={onBlur}
     />
@@ -43,6 +54,10 @@ FormTextInput.propTypes = {
    * Custom callback function to execute when the value of the text input has changed.
    */
   onChange: PropTypes.func,
+  /**
+   * Custom callback function to execute when the user presses a keyboard key.
+   */
+  onKeyPress: PropTypes.func,
   /**
    * Custom function callback to execute when the text input element gets focused.
    */

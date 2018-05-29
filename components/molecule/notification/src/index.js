@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import Button from '@schibstedspain/sui-atom-button'
 import IconClose from '@schibstedspain/sui-svgiconset/lib/Close'
@@ -35,27 +35,27 @@ class MoleculeNotification extends Component {
     delay: false
   }
 
-  componentWillReceiveProps (nextProps) {
-    (this.state.show !== nextProps.show) && this.toggleShow()
+  componentWillReceiveProps(nextProps) {
+    this.state.show !== nextProps.show && this.toggleShow()
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
-    const { show, delay } = this.state
-    return (show !== nextState.show) || (delay !== nextState.delay)
+  shouldComponentUpdate(nextProps, nextState) {
+    const {show, delay} = this.state
+    return show !== nextState.show || delay !== nextState.delay
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     clearTimeout(this.autoCloseTimout)
     clearTimeout(this.transitionTimout)
   }
 
   toggleShow = () => {
     const show = !this.state.show
-    const { onClose, effect, autoClose } = this.props
+    const {onClose, effect, autoClose} = this.props
 
     effect
-      ? this.setState({ show, delay: true }, this.removeDelay(show))
-      : this.setState({ show })
+      ? this.setState({show, delay: true}, this.removeDelay(show))
+      : this.setState({show})
 
     if (show) {
       const autoCloseTime = AUTO_CLOSE_TIME[autoClose]
@@ -66,66 +66,67 @@ class MoleculeNotification extends Component {
     }
   }
 
-  autoClose = (time) => {
+  autoClose = time => {
     this.autoCloseTimout = setTimeout(() => {
-      const { show } = this.state
+      const {show} = this.state
       show && this.toggleShow()
     }, time)
   }
 
-  removeDelay = (show) => {
+  removeDelay = show => {
     const delay = show ? 1 : TRANSITION_DELAY
     this.transitionTimout = setTimeout(() => {
-      this.setState({ delay: false })
+      this.setState({delay: false})
     }, delay)
   }
 
   getText = () => {
-    const { text } = this.props
+    const {text} = this.props
     return text.substring(0, TEXT_MAX_LENGTH)
   }
 
   getButtons = () => {
-    const { buttons } = this.props
-    return buttons.slice(0, BUTTONS_MAX).map((button, i) => <Button key={i} {...button} />)
+    const {buttons} = this.props
+    return buttons
+      .slice(0, BUTTONS_MAX)
+      .map((button, i) => <Button key={i} {...button} />)
   }
 
-  render () {
-    const { show, delay } = this.state
-    const { type, buttons, icon, position, showCloseButton, effect } = this.props
-    const wrapperClassName = cx(`${CLASS} ${CLASS}--${type} ${CLASS}--${position}`, {
-      [`${CLASS}-effect--${position}`]: effect,
-      [`${CLASS}-effect--hide`]: (effect && delay),
-    })
+  render() {
+    const {show, delay} = this.state
+    const {type, buttons, icon, position, showCloseButton, effect} = this.props
+    const wrapperClassName = cx(
+      `${CLASS} ${CLASS}--${type} ${CLASS}--${position}`,
+      {
+        [`${CLASS}-effect--${position}`]: effect,
+        [`${CLASS}-effect--hide`]: effect && delay
+      }
+    )
 
-    if (!show && !delay) { return null }
+    if (!show && !delay) {
+      return null
+    }
 
     return (
       <div className={wrapperClassName}>
         <div className={`${CLASS}-content`}>
           <div className={`${CLASS}-iconLeft`}>
-            <span className={`${CLASS}-icon`}>
-              { icon || ICONS[type] }
-            </span>
+            <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
           </div>
           <div className={`${CLASS}-text`}>
             <span>{this.getText()}</span>
           </div>
-          {
-            showCloseButton &&
+          {showCloseButton && (
             <div className={`${CLASS}-iconClose`} onClick={this.toggleShow}>
               <span className={`${CLASS}-icon`}>
                 <IconClose />
               </span>
             </div>
-          }
+          )}
         </div>
-        {
-          buttons &&
-          <div className={`${CLASS}-buttonsContainer`}>
-            {this.getButtons()}
-          </div>
-        }
+        {buttons && (
+          <div className={`${CLASS}-buttonsContainer`}>{this.getButtons()}</div>
+        )}
       </div>
     )
   }

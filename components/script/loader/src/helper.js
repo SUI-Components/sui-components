@@ -7,18 +7,20 @@ const scriptPromises = []
  * @param  {bool} isAsync
  * @return {Promise}
  */
-const loadScript = ({ src, verifier, isAsync, detectionDelay }) => {
-  scriptPromises[src] = scriptPromises[src] || new Promise((resolve, reject) => {
-    const isLoaded = verifier()
+const loadScript = ({src, verifier, isAsync, detectionDelay}) => {
+  scriptPromises[src] =
+    scriptPromises[src] ||
+    new Promise((resolve, reject) => {
+      const isLoaded = verifier()
 
-    if (isLoaded) {
-      resolve(isLoaded)
-      return
-    }
+      if (isLoaded) {
+        resolve(isLoaded)
+        return
+      }
 
-    injectScript({src, isAsync})
-    waitUntil(verifier, resolve, reject, detectionDelay)
-  })
+      injectScript({src, isAsync})
+      waitUntil(verifier, resolve, reject, detectionDelay)
+    })
 
   return scriptPromises[src]
 }
@@ -29,7 +31,7 @@ const loadScript = ({ src, verifier, isAsync, detectionDelay }) => {
  * @param  {bool} isAsync
  * @return {void}
  */
-const injectScript = ({ src, isAsync }) => {
+const injectScript = ({src, isAsync}) => {
   const script = document.createElement('script')
 
   script.src = src
@@ -46,7 +48,13 @@ const injectScript = ({ src, isAsync }) => {
  * @param  {integer} interval
  * @return {void}
  */
-const waitUntil = (truthyFn, callback, timeoutCallback, delay, interval = 100) => {
+const waitUntil = (
+  truthyFn,
+  callback,
+  timeoutCallback,
+  delay,
+  interval = 100
+) => {
   let intervalId = setInterval(() => {
     let value = truthyFn()
 
@@ -63,4 +71,4 @@ const waitUntil = (truthyFn, callback, timeoutCallback, delay, interval = 100) =
   }, interval)
 }
 
-export { loadScript }
+export {loadScript}

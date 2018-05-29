@@ -5,31 +5,37 @@ import PaginationItem from './sui-pagination-item'
 const FIRST_PAGE = 1
 const PAGINATION_STEP = 1
 
-function PaginationBasic (props) {
-  const renderPaginationItem = (itemProps) => (
+function PaginationBasic(props) {
+  const renderPaginationItem = itemProps => (
     <PaginationItem
       {...itemProps}
       createUrl={props.createUrl}
       factoryLink={props.factoryLink}
       handlePaginate={props.handlePaginate}
       key={itemProps.pageNumber}
-      patternUrl={props.patternUrl} />
+      patternUrl={props.patternUrl}
+    />
   )
 
-  const getPrevButton = () => renderPaginationItem({
-    pageNumber: props.currentPage - PAGINATION_STEP,
-    pageText: props.prevText,
-    isControl: true
-  })
+  const getPrevButton = () =>
+    renderPaginationItem({
+      pageNumber: props.currentPage - PAGINATION_STEP,
+      pageText: props.prevText,
+      isControl: true
+    })
 
-  const getNextButton = () => renderPaginationItem({
-    pageNumber: props.currentPage + PAGINATION_STEP,
-    pageText: props.nextText,
-    isControl: true
-  })
+  const getNextButton = () =>
+    renderPaginationItem({
+      pageNumber: props.currentPage + PAGINATION_STEP,
+      pageText: props.nextText,
+      isControl: true
+    })
 
-  const getFirstLastSeparator = (key) => (
-    <li className='sui-PaginationBasic-item sui-PaginationBasic-item--separator' key={key}>
+  const getFirstLastSeparator = key => (
+    <li
+      className="sui-PaginationBasic-item sui-PaginationBasic-item--separator"
+      key={key}
+    >
       {props.firstLastSeparatorText}
     </li>
   )
@@ -39,17 +45,17 @@ function PaginationBasic (props) {
     const rightWindow = props.currentPage + props.window
 
     const min = leftWindow < FIRST_PAGE ? FIRST_PAGE : leftWindow
-    const max = rightWindow > props.totalPages
-      ? props.totalPages
-      : rightWindow
+    const max = rightWindow > props.totalPages ? props.totalPages : rightWindow
 
     let paginationItems = []
 
     if (props.showFirstLast && min > FIRST_PAGE) {
-      paginationItems.push(renderPaginationItem({
-        pageNumber: FIRST_PAGE,
-        pageText: FIRST_PAGE
-      }))
+      paginationItems.push(
+        renderPaginationItem({
+          pageNumber: FIRST_PAGE,
+          pageText: FIRST_PAGE
+        })
+      )
       paginationItems.push(getFirstLastSeparator('firstSeparator'))
     }
 
@@ -65,10 +71,12 @@ function PaginationBasic (props) {
 
     if (props.showFirstLast && max < props.totalPages) {
       paginationItems.push(getFirstLastSeparator('lastSeparator'))
-      paginationItems.push(renderPaginationItem({
-        pageNumber: props.totalPages,
-        pageText: props.totalPages
-      }))
+      paginationItems.push(
+        renderPaginationItem({
+          pageNumber: props.totalPages,
+          pageText: props.totalPages
+        })
+      )
     }
 
     return paginationItems
@@ -78,8 +86,8 @@ function PaginationBasic (props) {
   const showNextButton = props.currentPage < props.totalPages
 
   return (
-    <div className='sui-PaginationBasic'>
-      <ul className='sui-PaginationBasic-list'>
+    <div className="sui-PaginationBasic">
+      <ul className="sui-PaginationBasic-list">
         {showPrevButton && getPrevButton()}
         {getPaginationItems()}
         {showNextButton && getNextButton()}

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
@@ -18,10 +18,7 @@ export default class CollapsibleReadmore extends Component {
      */
     ellipsis: PropTypes.shape({
       icon: PropTypes.func,
-      size: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number
-      ])
+      size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     }),
     /**
      * An ellipsis TEXT that will be added to the end of the content when it is truncated.
@@ -65,16 +62,13 @@ export default class CollapsibleReadmore extends Component {
 
   _fullContentHeight = null
 
-  _getContentWrapperClassNames () {
-    return cx(
-      `${CLASS}-contentWrapper`,
-      {
-        [`${CLASS}-gradient`]: this.props.gradient
-      }
-    )
+  _getContentWrapperClassNames() {
+    return cx(`${CLASS}-contentWrapper`, {
+      [`${CLASS}-gradient`]: this.props.gradient
+    })
   }
 
-  _getContentWrapperInlineStyles () {
+  _getContentWrapperInlineStyles() {
     return {
       maxHeight: this.state.collapsed
         ? this.props.maxHeight
@@ -82,7 +76,7 @@ export default class CollapsibleReadmore extends Component {
     }
   }
 
-  _toggle () {
+  _toggle() {
     this.setState(prevState => ({
       collapsed: !prevState.collapsed
     }))
@@ -96,23 +90,26 @@ export default class CollapsibleReadmore extends Component {
     this._toggle()
   }
 
-  _renderEllipsis () {
-    const { ellipsis: { icon: EllipsisIcon, size }, ellipsisText } = this.props
+  _renderEllipsis() {
+    const {
+      ellipsis: {icon: EllipsisIcon, size},
+      ellipsisText
+    } = this.props
 
     return (
       <a
         className={`${CLASS}-ellipsisLink`}
         onClick={this._handleEllipsisClick}
-        role='button'>
+        role="button"
+      >
         <div className={`${CLASS}-ellipsisWrapper`}>
           <span className={`${CLASS}-ellipsisText`}>
-            { this.state.collapsed
+            {this.state.collapsed
               ? ellipsisText.collapsed
-              : ellipsisText.expanded
-            }
+              : ellipsisText.expanded}
           </span>
           <div className={`${CLASS}-ellipsisIconBox`}>
-            { EllipsisIcon && (
+            {EllipsisIcon && (
               <EllipsisIcon
                 className={`${CLASS}-ellipsisIcon`}
                 size={size}
@@ -125,7 +122,7 @@ export default class CollapsibleReadmore extends Component {
     )
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const contentWrapperEl = this._readMoreContentRef.current
 
     this._fullContentHeight = contentWrapperEl
@@ -138,18 +135,19 @@ export default class CollapsibleReadmore extends Component {
     }
   }
 
-  render () {
-    const { children } = this.props
+  render() {
+    const {children} = this.props
 
     return (
-      <div className={cx(CLASS, { 'is-expanded': !this.state.collapsed })}>
+      <div className={cx(CLASS, {'is-expanded': !this.state.collapsed})}>
         <div
           className={this._getContentWrapperClassNames()}
           ref={this._readMoreContentRef}
-          style={this._getContentWrapperInlineStyles()}>
-          { children }
+          style={this._getContentWrapperInlineStyles()}
+        >
+          {children}
         </div>
-        { this._readMoreButtonEnabled && this._renderEllipsis() }
+        {this._readMoreButtonEnabled && this._renderEllipsis()}
       </div>
     )
   }

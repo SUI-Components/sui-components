@@ -8,16 +8,12 @@ import StandardTag from './Standard'
 class AtomTag extends Component {
   static MAX_LABEL_LENGTH = 100
 
-  get _classNames () {
+  get _classNames() {
     const {className, icon} = this.props
-    return classnames(
-      'sui-AtomTag',
-      className,
-      icon && 'sui-AtomTag-hasIcon'
-    )
+    return classnames('sui-AtomTag', className, icon && 'sui-AtomTag-hasIcon')
   }
 
-  get _isActionable () {
+  get _isActionable() {
     return this.props.onClick || this.props.href
   }
 
@@ -27,16 +23,13 @@ class AtomTag extends Component {
    * @param {Array.<string>} props
    * @return {Object}
    */
-  _filterKeys (obj, props) {
-    return Object.keys(obj)
-      .reduce(
-        (acc, key) => {
-          if (props.indexOf(key) === -1) {
-            acc[key] = obj[key]
-          }
-          return acc
-        }
-        , {})
+  _filterKeys(obj, props) {
+    return Object.keys(obj).reduce((acc, key) => {
+      if (props.indexOf(key) === -1) {
+        acc[key] = obj[key]
+      }
+      return acc
+    }, {})
   }
 
   /**
@@ -44,7 +37,7 @@ class AtomTag extends Component {
    * @param  {string} label
    * @return {string}
    */
-  _truncate (label) {
+  _truncate(label) {
     return label.length < AtomTag.MAX_LABEL_LENGTH
       ? label
       : label.substr(0, AtomTag.MAX_LABEL_LENGTH)
@@ -54,9 +47,13 @@ class AtomTag extends Component {
    * Removes all actionable tag props from the react props
    * @return {Object}
    */
-  get _standardProps () {
+  get _standardProps() {
     const ACTIONABLE_ONLY_PROPS = [
-      'href', 'iconPlacement', 'target', 'actionable', 'linkFactory'
+      'href',
+      'iconPlacement',
+      'target',
+      'actionable',
+      'linkFactory'
     ]
     return this._filterKeys(this.props, ACTIONABLE_ONLY_PROPS)
   }
@@ -65,15 +62,17 @@ class AtomTag extends Component {
    * Removes all standard tag props from the react props
    * @return {Object}
    */
-  get _actionableProps () {
+  get _actionableProps() {
     const STANDARD_ONLY_PROPS = ['closeIcon', 'onClose']
     return this._filterKeys(this.props, STANDARD_ONLY_PROPS)
   }
 
-  render () {
-    return this._isActionable
-      ? <ActionableTag {...this._actionableProps} className={this._classNames} />
-      : <StandardTag {...this._standardProps} className={this._classNames} />
+  render() {
+    return this._isActionable ? (
+      <ActionableTag {...this._actionableProps} className={this._classNames} />
+    ) : (
+      <StandardTag {...this._standardProps} className={this._classNames} />
+    )
   }
 }
 

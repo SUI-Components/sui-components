@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 class RatingIcons extends Component {
@@ -6,19 +6,28 @@ class RatingIcons extends Component {
     ratingFilledWidth: 0
   }
 
-  calculateWidthByRating () {
-    const { maxValue, iconSize, rating, spacingBetween } = this.props
+  calculateWidthByRating() {
+    const {maxValue, iconSize, rating, spacingBetween} = this.props
 
-    return (maxValue * (iconSize + spacingBetween) / maxValue) * rating
+    return maxValue * (iconSize + spacingBetween) / maxValue * rating
   }
 
-  getIcon (Icon, index) {
-    return <div key={index} className='sui-RatingIcons-iconContainer' style={{ minWidth: this.props.iconSize, marginLeft: this.props.spacingBetween }}>
-      <Icon />
-    </div>
+  getIcon(Icon, index) {
+    return (
+      <div
+        key={index}
+        className="sui-RatingIcons-iconContainer"
+        style={{
+          minWidth: this.props.iconSize,
+          marginLeft: this.props.spacingBetween
+        }}
+      >
+        <Icon />
+      </div>
+    )
   }
 
-  buildRating (maxValue, icon) {
+  buildRating(maxValue, icon) {
     const iconsArray = []
     for (let i = 0; i < maxValue; i++) {
       iconsArray.push(this.getIcon(icon, i))
@@ -27,8 +36,12 @@ class RatingIcons extends Component {
     return iconsArray
   }
 
-  componentDidMount () {
-    const currentRatingFilledWidth = this.calculateWidthByRating(this.props.rating, this.props.maxValue, this.ratingEle)
+  componentDidMount() {
+    const currentRatingFilledWidth = this.calculateWidthByRating(
+      this.props.rating,
+      this.props.maxValue,
+      this.ratingEle
+    )
     if (currentRatingFilledWidth !== this.state.ratingFilledWidth) {
       this.setState({
         ratingFilledWidth: currentRatingFilledWidth
@@ -36,18 +49,23 @@ class RatingIcons extends Component {
     }
   }
 
-  render () {
-    const { maxValue, icon, fillColor, emptyColor } = this.props
+  render() {
+    const {maxValue, icon, fillColor, emptyColor} = this.props
     const ratingIcons = this.buildRating(maxValue, icon)
 
-    return <div className='sui-RatingIcons'>
-      <div className='sui-RatingIcons-empty' style={{ fill: emptyColor }}>
-        {ratingIcons}
+    return (
+      <div className="sui-RatingIcons">
+        <div className="sui-RatingIcons-empty" style={{fill: emptyColor}}>
+          {ratingIcons}
+        </div>
+        <div
+          className="sui-RatingIcons-filled"
+          style={{width: this.state.ratingFilledWidth, fill: fillColor}}
+        >
+          {ratingIcons}
+        </div>
       </div>
-      <div className='sui-RatingIcons-filled' style={{ width: this.state.ratingFilledWidth, fill: fillColor }} >
-        {ratingIcons}
-      </div>
-    </div>
+    )
   }
 }
 

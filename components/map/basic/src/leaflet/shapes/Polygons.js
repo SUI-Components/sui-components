@@ -9,17 +9,17 @@ export default class SearchMapPolygons {
   }
   SPAIN_POLYGON_NAME = 'geom_724_0_0_0_0_0_0_0_0'
 
-  constructor ({ onPolygonWithBounds }) {
+  constructor({onPolygonWithBounds}) {
     this.onPolygonWithBounds = onPolygonWithBounds
   }
 
-  removePolygonsFromMap (map) {
+  removePolygonsFromMap(map) {
     if (this._polygonList.length > 0) {
       this._polygonList.map(polygon => map.removeLayer(polygon))
     }
   }
 
-  highlightFeature (evt) {
+  highlightFeature(evt) {
     const layer = evt.target
 
     layer.setStyle({
@@ -34,18 +34,18 @@ export default class SearchMapPolygons {
     }
   }
 
-  resetHighlight (evt) {
+  resetHighlight(evt) {
     if (this._geojson !== null) {
       this._geojson.resetStyle(evt.target)
     }
   }
 
-  zoomIn (evt) {
+  zoomIn(evt) {
     const map = evt.target._map
-    map.setView(evt.latlng, (map.getZoom() + 2))
+    map.setView(evt.latlng, map.getZoom() + 2)
   }
 
-  onEachFeature (feature, layer) {
+  onEachFeature(feature, layer) {
     layer.on({
       dblclick: SearchMapPolygons.zoomIn,
       mouseout: SearchMapPolygons.resetHighlight,
@@ -53,7 +53,7 @@ export default class SearchMapPolygons {
     })
   }
 
-  printPolygonOnMap ({ map, polygon }) {
+  printPolygonOnMap({map, polygon}) {
     const params = {
       className: 'scm-map__area',
       onEachFeature: SearchMapPolygons.onEachFeature
@@ -67,26 +67,26 @@ export default class SearchMapPolygons {
     const polygonName = polygon.properties.Code
 
     if (polygonName === this.SPAIN_POLYGON_NAME) {
-      const { latitude, longitude } = this.SPAIN_POLYGON_CENTER
+      const {latitude, longitude} = this.SPAIN_POLYGON_CENTER
       const centerSpain = new L.LatLng(latitude, longitude)
       map.panTo(centerSpain)
     } else {
       const bounds = polygonGeoJSon.getBounds()
       if (bounds.isValid()) {
-        this.onPolygonWithBounds({ bounds, map })
+        this.onPolygonWithBounds({bounds, map})
       }
     }
   }
 
-  setPolygonsOnMap ({ map, polygons }) {
+  setPolygonsOnMap({map, polygons}) {
     this.removePolygonsFromMap(map)
 
     if (!(polygons instanceof Array)) {
-      polygons = [ polygons ]
+      polygons = [polygons]
     }
 
     polygons.map(polygon => {
-      this.printPolygonOnMap({ map, polygon })
+      this.printPolygonOnMap({map, polygon})
     })
 
     return true

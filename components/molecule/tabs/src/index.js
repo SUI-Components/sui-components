@@ -18,39 +18,36 @@ class MoleculeTabs extends Component {
     activeTab: this.props.activeTab
   }
 
-  _createHandleChange (index) {
-    return (event) => {
+  _createHandleChange(index) {
+    return event => {
       event.preventDefault()
       if (this.props.items[index].enabled !== false) {
-        this.setState({ activeTab: index })
+        this.setState({activeTab: index})
         this.props.handleChange(index, this.props.items[index])
       }
     }
   }
 
-  _renderTabs () {
-    const { items } = this.props
-    const { activeTab } = this.state
+  _renderTabs() {
+    const {items} = this.props
+    const {activeTab} = this.state
 
     return items.map((item, index) => {
       const tabLinkClassName = cx('sui-MoleculeTabs-button', {
-        'active': activeTab === index,
-        'disabled': item.enabled === false
+        active: activeTab === index,
+        disabled: item.enabled === false
       })
 
       return (
-        <li className='sui-MoleculeTabs-item' key={index}>
+        <li className="sui-MoleculeTabs-item" key={index}>
           <button
             className={tabLinkClassName}
             onClick={this._createHandleChange(index)}
-            role='tab'
+            role="tab"
           >
-            {
-              item.icon &&
-              <span className='sui-MoleculeTabs-icon'>
-                { item.icon }
-              </span>
-            }
+            {item.icon && (
+              <span className="sui-MoleculeTabs-icon">{item.icon}</span>
+            )}
             <span>{item.label}</span>
           </button>
         </li>
@@ -58,17 +55,16 @@ class MoleculeTabs extends Component {
     })
   }
 
-  render () {
+  render() {
     return (
-      <nav className={
-        cx(
+      <nav
+        className={cx(
           'sui-MoleculeTabs',
           `sui-MoleculeTabs--${this.props.variant}`,
           `sui-MoleculeTabs--${this.props.type}`
-        )}>
-        <ul className='sui-MoleculeTabs-scroller'>
-          {this._renderTabs()}
-        </ul>
+        )}
+      >
+        <ul className="sui-MoleculeTabs-scroller">{this._renderTabs()}</ul>
       </nav>
     )
   }
@@ -84,25 +80,26 @@ MoleculeTabs.propTypes = {
   /**
    * List of items for generate tabs
    */
-  items: PropTypes.arrayOf(PropTypes.shape({
-    /**
-     * label to be displayed.
-     */
-    label: PropTypes.node.isRequired,
-    /**
-     * Icon of the tab item
-     */
-    icon: PropTypes.node,
-    /**
-     * first state.
-     */
-    active: PropTypes.bool,
-    /**
-     * Allows to disable a tab by setting this to false
-     */
-    enabled: PropTypes.bool
-
-  })).isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      /**
+       * label to be displayed.
+       */
+      label: PropTypes.node.isRequired,
+      /**
+       * Icon of the tab item
+       */
+      icon: PropTypes.node,
+      /**
+       * first state.
+       */
+      active: PropTypes.bool,
+      /**
+       * Allows to disable a tab by setting this to false
+       */
+      enabled: PropTypes.bool
+    })
+  ).isRequired,
   /**
    * Point at the selected tab
    */
@@ -122,7 +119,4 @@ MoleculeTabs.defaultProps = {
 }
 
 export default MoleculeTabs
-export {
-  TYPES as moleculeTabsTypes,
-  VARIANTS as moleculeTabsVariants
-}
+export {TYPES as moleculeTabsTypes, VARIANTS as moleculeTabsVariants}

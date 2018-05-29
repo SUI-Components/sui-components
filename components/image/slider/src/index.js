@@ -9,13 +9,13 @@ const NO_OP = () => {}
 const TARGET_BLANK = '_blank'
 
 class ImageSlider extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     const {sliderOptions} = props
     // In order to accept a custom doAfterSlide callback, and to avoid altering props.sliderOptions
     // sliderOptions is deeply cloned.
     this._sliderOptions = cloneDeep(sliderOptions)
-    this._sliderOptions.doAfterSlide = (currentSlide) => {
+    this._sliderOptions.doAfterSlide = currentSlide => {
       this.setState(currentSlide)
       sliderOptions.doAfterSlide && sliderOptions.doAfterSlide(currentSlide)
     }
@@ -23,52 +23,78 @@ class ImageSlider extends Component {
 
   state = {currentSlide: 0}
 
-  render () {
-    const {images, linkFactory, handleClick, dynamicContent, enableCounter} = this.props
+  render() {
+    const {
+      images,
+      linkFactory,
+      handleClick,
+      dynamicContent,
+      enableCounter
+    } = this.props
     const slides = this._getSlides(images, linkFactory)
     return (
-      (slides.length > 0) &&
-      <div onClick={handleClick} className='sui-ImageSlider'>
-        { (slides.length > 1)
-          ? (<ReactSlidy {...this._sliderOptions} dynamicContent={dynamicContent}>{ slides }</ReactSlidy>)
-          : slides
-        }
-        {enableCounter && this._buildCounter(slides.length)}
-      </div>
+      slides.length > 0 && (
+        <div onClick={handleClick} className="sui-ImageSlider">
+          {slides.length > 1 ? (
+            <ReactSlidy
+              {...this._sliderOptions}
+              dynamicContent={dynamicContent}
+            >
+              {slides}
+            </ReactSlidy>
+          ) : (
+            slides
+          )}
+          {enableCounter && this._buildCounter(slides.length)}
+        </div>
+      )
     )
   }
 
-  _buildCounter (totalImages) {
-    const classNames = cx('sui-ImageSlider-counter', `sui-ImageSlider-counter--${this.props.counterPosition}`)
+  _buildCounter(totalImages) {
+    const classNames = cx(
+      'sui-ImageSlider-counter',
+      `sui-ImageSlider-counter--${this.props.counterPosition}`
+    )
     const Icon = this.props.counterIcon
-    return <div className={classNames}>
-      <Icon svgClass='sui-ImageSlider-counterIcon' />
-      <span className='sui-ImageSlider-counterText'>
-        {this.props.counterPatternFactory({
-          current: this.state.currentSlide + 1,
-          total: totalImages
-        })}
-      </span>
-    </div>
+    return (
+      <div className={classNames}>
+        <Icon svgClass="sui-ImageSlider-counterIcon" />
+        <span className="sui-ImageSlider-counterText">
+          {this.props.counterPatternFactory({
+            current: this.state.currentSlide + 1,
+            total: totalImages
+          })}
+        </span>
+      </div>
+    )
   }
 
   /**
    * @param {Array} images List given by props.images.
    * @return {Array} List of img elements.
    */
-  _getSlides (images, linkFactory) {
+  _getSlides(images, linkFactory) {
     if (images && images.length) {
       return images.map((image, index) => {
         const key = image.key ? image.key + index : index
-        const img = <img className='sui-ImageSlider-image' key={key} src={image.src} alt={image.alt} />
+        const img = (
+          <img
+            className="sui-ImageSlider-image"
+            key={key}
+            src={image.src}
+            alt={image.alt}
+          />
+        )
         const target = image.target ? image.target : TARGET_BLANK
         return image.link
           ? linkFactory({
-            href: image.link,
-            target: target,
-            className: '',
-            children: img,
-            key: key})
+              href: image.link,
+              target: target,
+              className: '',
+              children: img,
+              key: key
+            })
           : img
       })
     } else {
@@ -118,7 +144,10 @@ ImageSlider.propTypes = {
   /**
    * Counter position.
    */
-  counterPosition: PropTypes.oneOf([COUNTER_POS_BOTTOM_LEFT, COUNTER_POS_BOTTOM_RIGHT]),
+  counterPosition: PropTypes.oneOf([
+    COUNTER_POS_BOTTOM_LEFT,
+    COUNTER_POS_BOTTOM_RIGHT
+  ]),
   /**
    * Custom icon for counter
    */
@@ -150,7 +179,9 @@ ImageSlider.defaultProps = {
    * Link component factory.
    */
   linkFactory: ({href, target, className, children, key} = {}) => (
-    <a href={href} target={target} className={className} key={key}>{children}</a>
+    <a href={href} target={target} className={className} key={key}>
+      {children}
+    </a>
   ),
   enableCounter: false,
   counterPosition: COUNTER_POS_BOTTOM_RIGHT,

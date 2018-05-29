@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import cx from 'classnames'
 import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
 
@@ -9,49 +9,62 @@ const ANIMATION_SPEED_CLASSNAMES = {
 }
 
 class CollapsibleBasic extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {isCollapsed: props.collapsed}
     this._handleClick = this._handleClick.bind(this)
   }
 
-  _handleClick () {
+  _handleClick() {
     // const with new state
     const isCollapsed = !this.state.isCollapsed
     this.setState({isCollapsed: isCollapsed})
     this.props.handleClick(isCollapsed)
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     this.setState({isCollapsed: nextProps.collapsed})
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
+  shouldComponentUpdate(nextProps, nextState) {
     return this.state.isCollapsed !== nextState.isCollapsed
   }
 
-  render () {
-    const { icon: ArrowIcon, label, animationSpeed, hideTriggerIcon, children } = this.props
-    const { isCollapsed } = this.state
-    const cssClassNames = cx(
-      'sui-CollapsibleBasic',
-      {
-        'is-collapsed': isCollapsed,
-        'is-expanded': !isCollapsed
-      }
+  render() {
+    const {
+      icon: ArrowIcon,
+      label,
+      animationSpeed,
+      hideTriggerIcon,
+      children
+    } = this.props
+    const {isCollapsed} = this.state
+    const cssClassNames = cx('sui-CollapsibleBasic', {
+      'is-collapsed': isCollapsed,
+      'is-expanded': !isCollapsed
+    })
+    const contentCssClassNames = cx(
+      'sui-CollapsibleBasic-collapsibleContent',
+      ANIMATION_SPEED_CLASSNAMES[animationSpeed]
     )
-    const contentCssClassNames = cx('sui-CollapsibleBasic-collapsibleContent', ANIMATION_SPEED_CLASSNAMES[animationSpeed])
 
     return (
       <div className={cssClassNames}>
-        <div className='sui-CollapsibleBasic-trigger' onClick={this._handleClick}>
-          <div className='sui-CollapsibleBasic-trigger-label'>{ label }</div>
-          { !hideTriggerIcon &&
-            <div className='sui-CollapsibleBasic-trigger-iconBox'>
-              <ArrowIcon svgClass='sui-CollapsibleBasic-trigger-iconBox-icon' className='sui-CollapsibleBasic-trigger-iconBox-icon' />
-            </div> }
+        <div
+          className="sui-CollapsibleBasic-trigger"
+          onClick={this._handleClick}
+        >
+          <div className="sui-CollapsibleBasic-trigger-label">{label}</div>
+          {!hideTriggerIcon && (
+            <div className="sui-CollapsibleBasic-trigger-iconBox">
+              <ArrowIcon
+                svgClass="sui-CollapsibleBasic-trigger-iconBox-icon"
+                className="sui-CollapsibleBasic-trigger-iconBox-icon"
+              />
+            </div>
+          )}
         </div>
-        <div className={contentCssClassNames}>{ children }</div>
+        <div className={contentCssClassNames}>{children}</div>
       </div>
     )
   }

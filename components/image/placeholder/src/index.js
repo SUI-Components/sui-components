@@ -25,28 +25,28 @@ class ImagePlaceholder extends Component {
     this.props.onError && this.props.onError()
   }
 
-  get _classNames () {
-    return classnames(
-      'sui-ImagePlaceholder',
-      this.props.className
-    )
+  get _classNames() {
+    return classnames('sui-ImagePlaceholder', this.props.className)
   }
 
-  get _imageClassNames () {
+  get _imageClassNames() {
     return classnames(
       ImagePlaceholder.IMAGE_CLASS,
       this.state.imageLoaded || `${ImagePlaceholder.IMAGE_CLASS}--hidden`
     )
   }
 
-  get _imageProps () {
+  get _imageProps() {
     const imageProps = Object.keys(htmlImgProps)
     return filterObjectKeys(this.props, imageProps)
   }
 
-  _renderPlaceholder () {
+  _renderPlaceholder() {
     return (
-      <img {...this.props.placeholder} className={ImagePlaceholder.IMAGE_CLASS} />
+      <img
+        {...this.props.placeholder}
+        className={ImagePlaceholder.IMAGE_CLASS}
+      />
     )
   }
 
@@ -54,9 +54,10 @@ class ImagePlaceholder extends Component {
    * onLoad & onError are intercepted as we need the state handling functions
    * to do our magic
    */
-  _renderFallback () {
+  _renderFallback() {
     return (
-      <img className={this._imageClassNames}
+      <img
+        className={this._imageClassNames}
         onLoad={() => this.onLoad()}
         onError={() => this.onError()}
         {...this.props.fallback}
@@ -64,23 +65,20 @@ class ImagePlaceholder extends Component {
     )
   }
 
-  render () {
+  render() {
     return (
       <div className={this._classNames}>
-        {
-          this.state.error
-            ? this.props.fallback && this._renderFallback()
-            : (
-              <img className={this._imageClassNames}
-                onLoad={() => this.onLoad()}
-                onError={() => this.onError()}
-                {...this._imageProps}
-              />
-            )
-        }
-        {
-          this.state.imageLoaded || this._renderPlaceholder()
-        }
+        {this.state.error ? (
+          this.props.fallback && this._renderFallback()
+        ) : (
+          <img
+            className={this._imageClassNames}
+            onLoad={() => this.onLoad()}
+            onError={() => this.onError()}
+            {...this._imageProps}
+          />
+        )}
+        {this.state.imageLoaded || this._renderPlaceholder()}
       </div>
     )
   }

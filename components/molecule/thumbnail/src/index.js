@@ -25,7 +25,7 @@ const SHAPES = {
   CIRCLED: 'circled'
 }
 
-const MoleculeThumbnail = (props) => {
+const MoleculeThumbnail = props => {
   const {
     href,
     size,
@@ -41,30 +41,36 @@ const MoleculeThumbnail = (props) => {
   } = props
 
   const figure = (
-    <figure className={
-      cx(
+    <figure
+      className={cx(
         `${BASE_CLASS}`,
         `${BASE_CLASS}--${size}`,
         `${BASE_CLASS}--${ratio}`,
         `${BASE_CLASS}--${shape}`
-      )} >
-      <ImagePlaceholder src={src} alt={alt} placeholder={placeholder} fallback={fallback} />
-      {
-        captionText &&
-          <figcaption className={CAPTION_CLASS}>
-            {captionText}
-          </figcaption>
-      }
+      )}
+    >
+      <ImagePlaceholder
+        src={src}
+        alt={alt}
+        placeholder={placeholder}
+        fallback={fallback}
+      />
+      {captionText && (
+        <figcaption className={CAPTION_CLASS}>{captionText}</figcaption>
+      )}
     </figure>
   )
-  return (
-    href
-      ? (
-        <Link className={LINK_CLASS} href={href} target={target} rel={target === '_blank' && 'noopener'}>
-          {figure}
-        </Link>
-      )
-      : figure
+  return href ? (
+    <Link
+      className={LINK_CLASS}
+      href={href}
+      target={target}
+      rel={target === '_blank' && 'noopener'}
+    >
+      {figure}
+    </Link>
+  ) : (
+    figure
   )
 }
 
@@ -122,8 +128,7 @@ MoleculeThumbnail.defaultProps = {
   size: SIZES.MEDIUM,
   shape: SHAPES.SQUARED,
   ratio: RATIOS['1:1'],
-  linkFactory: ({ children, ...rest } = {}) =>
-    <a {...rest}>{children}</a>
+  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>
 }
 
 export default MoleculeThumbnail

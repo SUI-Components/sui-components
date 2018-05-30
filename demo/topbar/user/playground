@@ -48,6 +48,7 @@ const navMain = [
         title: 'Section 3',
         links: [
           {
+            target: '_blank',
             text: 'Link 5',
             url: '#link-5'
           },

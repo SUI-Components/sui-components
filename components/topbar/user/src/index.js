@@ -285,7 +285,11 @@ TopbarUser.propTypes = {
         /**
          * Menu link url.
          */
-        url: PropTypes.string.isRequired
+        url: PropTypes.string.isRequired,
+        /**
+         * Menu link target.
+         */
+        target: PropTypes.string
       }))
     }))
   })),
@@ -354,8 +358,8 @@ TopbarUser.propTypes = {
 TopbarUser.defaultProps = {
   shouldDisplayNavUser: true,
   toggleIcon: Menu,
-  linkFactory: ({ href, className, children, title }) =>
-    <a href={href} className={className} title={title}>{children}</a>,
+  linkFactory: ({ href, className, children, target, title }) =>
+    <a href={href} className={className} target={target} title={title}>{children}</a>,
   elementsToKeepScrollOnToggleMenu: []
 }
 

@@ -70,12 +70,12 @@ class DropdownBasic extends Component {
   /**
    * Function rendering a simple list item link.
    */
-  _renderLink = ({ text, url }, index) => {
+  _renderLink = ({ text, url, target }, index) => {
     const Link = this.props.linkFactory
 
     return (
       <li key={index} className='sui-DropdownBasicMenu-listItem'>
-        <Link href={url} className='sui-DropdownBasicMenu-listLink' title={text}>
+        <Link href={url} className='sui-DropdownBasicMenu-listLink' target={target} title={text}>
           {text}
         </Link>
       </li>
@@ -90,7 +90,6 @@ class DropdownBasic extends Component {
     const wrapperClassName = cx('sui-DropdownBasic', {
       'is-expanded': expanded
     })
-
     return (
       <div
         className={wrapperClassName}
@@ -160,7 +159,11 @@ DropdownBasic.propTypes = {
       /**
        * Link url.
        */
-      url: PropTypes.string.isRequired
+      url: PropTypes.string.isRequired,
+      /**
+       * Link target.
+       */
+      target: PropTypes.string
     }))
   })).isRequired,
   /**
@@ -175,8 +178,8 @@ DropdownBasic.propTypes = {
 
 DropdownBasic.defaultProps = {
   expandOnMouseOver: false,
-  linkFactory: ({ href, className, children, title }) =>
-    <a href={href} className={className} title={title}>{children}</a>
+  linkFactory: ({ href, className, children, title, target }) =>
+    <a href={href} className={className} target={target} title={title}>{children}</a>
 }
 
 export default DropdownBasic

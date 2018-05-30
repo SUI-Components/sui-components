@@ -8,6 +8,7 @@ const menu = [
         url: '#link-1'
       },
       {
+        target: '_blank',
         text: 'Link 2',
         url: '#link-2'
       }

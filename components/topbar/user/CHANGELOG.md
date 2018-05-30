@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.25.0"></a>
+# 1.25.0 (2018-05-30)
+
+
+### Features
+
+* add default target prop linkfactory ([21b2a70](https://github.com/SUI-Components/sui-components/commit/21b2a70))
+
+
+
 <a name="1.24.0"></a>
 # 1.24.0 (2018-04-10)
 

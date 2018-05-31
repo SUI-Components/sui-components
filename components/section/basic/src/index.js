@@ -1,29 +1,46 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { SPACING } from './constants'
+import {SPACING} from './constants'
 
 const CLASS = 'sui-SectionBasic'
 const AVAILABLE_SPACINGS = Object.values(SPACING)
 
 const getSpacingClassName = modifier => `${CLASS}-bottomSpacing--${modifier}`
 
-const SectionBasic = ({ children, contentBottomSpacing, headerBottomSpacing, sectionBottomSpacing, separator, textContent, title, customContentWhenEmpty }) => (
+const SectionBasic = ({
+  children,
+  contentBottomSpacing,
+  headerBottomSpacing,
+  sectionBottomSpacing,
+  separator,
+  textContent,
+  title,
+  customContentWhenEmpty
+}) => (
   <section className={cx(CLASS, getSpacingClassName(sectionBottomSpacing))}>
-    { title &&
-      <header className={cx(`${CLASS}-header`, getSpacingClassName(headerBottomSpacing))}>
-        <h3 className={`${CLASS}-title`}>{ title }</h3>
+    {title && (
+      <header
+        className={cx(
+          `${CLASS}-header`,
+          getSpacingClassName(headerBottomSpacing)
+        )}
+      >
+        <h3 className={`${CLASS}-title`}>{title}</h3>
       </header>
-    }
-    <div className={cx(`${CLASS}-content`, { [getSpacingClassName(contentBottomSpacing)]: separator })}>
-      { textContent
-        ? <p className={`${CLASS}-textContent`}>{ textContent }</p>
-        : children || customContentWhenEmpty
-      }
+    )}
+    <div
+      className={cx(`${CLASS}-content`, {
+        [getSpacingClassName(contentBottomSpacing)]: separator
+      })}
+    >
+      {textContent ? (
+        <p className={`${CLASS}-textContent`}>{textContent}</p>
+      ) : (
+        children || customContentWhenEmpty
+      )}
     </div>
-    { separator &&
-      <hr className={`${CLASS}-separator`} />
-    }
+    {separator && <hr className={`${CLASS}-separator`} />}
   </section>
 )
 
@@ -71,6 +88,4 @@ SectionBasic.defaultProps = {
 }
 
 export default SectionBasic
-export {
-  SPACING as sectionBasicBottomSpacing
-}
+export {SPACING as sectionBasicBottomSpacing}

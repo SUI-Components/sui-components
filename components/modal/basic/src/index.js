@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import IconX from '@schibstedspain/sui-svgiconset/lib/X'
 import cx from 'classnames'
 
 class ModalBasic extends Component {
-  constructor (...args) {
+  constructor(...args) {
     super(...args)
 
     this.contentDOMEl = null
@@ -14,12 +14,17 @@ class ModalBasic extends Component {
     }
   }
 
-  _preventScrollIfNeeded = (e) => {
+  _preventScrollIfNeeded = e => {
     if (this.noScroll) e.preventDefault()
   }
 
   _avoidOverscroll = () => {
-    const {clientHeight, offsetHeight, scrollTop, scrollHeight} = this.contentDOMEl
+    const {
+      clientHeight,
+      offsetHeight,
+      scrollTop,
+      scrollHeight
+    } = this.contentDOMEl
     const currentScroll = scrollTop + offsetHeight
     // check if the content has to scroll in order to prevent the default
     // behaviour of the touchmove in case we don't need the scroll
@@ -35,11 +40,11 @@ class ModalBasic extends Component {
 
   _closeModal = () => {
     this._toggleWindowScroll(false)
-    this.setState({ open: false })
+    this.setState({open: false})
     this.props.onClose()
   }
 
-  _toggleWindowScroll (disableScroll) {
+  _toggleWindowScroll(disableScroll) {
     window.document.body.classList.toggle('is-modal-open', disableScroll)
   }
 
@@ -47,46 +52,53 @@ class ModalBasic extends Component {
     this._closeModal()
   }
 
-  _handleOutsideClick = (event) => {
+  _handleOutsideClick = event => {
     if (this.props.closeOnOutsideClick && event.target === this.wrapperDOMEl) {
       this._closeModal()
     }
   }
 
   _renderHeader = () => {
-    const { header, iconClose: IconClose, textClose, textCloseHidden } = this.props
+    const {
+      header,
+      iconClose: IconClose,
+      textClose,
+      textCloseHidden
+    } = this.props
     return (
       <div
-        className='sui-ModalBasic-header'
-        onTouchMove={(e) => e.preventDefault()}>
+        className="sui-ModalBasic-header"
+        onTouchMove={e => e.preventDefault()}
+      >
         {header}
         <button
-          type='button'
-          className='sui-ModalBasic-close'
+          type="button"
+          className="sui-ModalBasic-close"
           onClick={this._handleCloseClick}
         >
-          <IconClose svgClass='sui-ModalBasic-closeIcon' />
-          {textCloseHidden
-            ? <span className='sui-ModalBasic-closeTextHidden'>{textClose}</span>
-            : textClose
-          }
+          <IconClose svgClass="sui-ModalBasic-closeIcon" />
+          {textCloseHidden ? (
+            <span className="sui-ModalBasic-closeTextHidden">{textClose}</span>
+          ) : (
+            textClose
+          )}
         </button>
       </div>
     )
   }
 
-  componentWillReceiveProps ({open, disableWindowScroll}) {
+  componentWillReceiveProps({open, disableWindowScroll}) {
     if (open && disableWindowScroll) {
       this._toggleWindowScroll(true)
     }
 
     if (open !== this.state.open) {
-      this.setState({ open })
+      this.setState({open})
     }
   }
 
-  render () {
-    const { header, content, footer } = this.props
+  render() {
+    const {header, content, footer} = this.props
 
     const wrapperClassName = cx('sui-ModalBasic', {
       'is-open': this.state.open,
@@ -100,23 +112,24 @@ class ModalBasic extends Component {
     return (
       <div
         className={wrapperClassName}
-        ref={node => { this.wrapperDOMEl = node }}
+        ref={node => {
+          this.wrapperDOMEl = node
+        }}
         onClick={this._handleOutsideClick}
       >
         <div className={dialogClassName}>
-          {header && this._renderHeader() }
+          {header && this._renderHeader()}
           <div
-            className='sui-ModalBasic-content'
+            className="sui-ModalBasic-content"
             onTouchStart={this._avoidOverscroll}
             onTouchMove={this._preventScrollIfNeeded}
-            ref={node => { this.contentDOMEl = node }}>
+            ref={node => {
+              this.contentDOMEl = node
+            }}
+          >
             {content}
           </div>
-          {footer &&
-            <div className='sui-ModalBasic-footer'>
-              {footer}
-            </div>
-          }
+          {footer && <div className="sui-ModalBasic-footer">{footer}</div>}
         </div>
       </div>
     )

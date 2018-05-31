@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
 class BadgeCounter extends Component {
-  render () {
+  render() {
     return (
-      <div className='sui-BadgeCounter'>
-        <span className={`sui-BadgeCounter--${this.props.size} sui-BadgeCounter-${this.props.type} sui-BadgeCounter-${this.props.type}--${this.props.thickness}`} />
+      <div className="sui-BadgeCounter">
+        <span
+          className={`sui-BadgeCounter--${this.props.size} sui-BadgeCounter-${
+            this.props.type
+          } sui-BadgeCounter-${this.props.type}--${this.props.thickness}`}
+        />
       </div>
     )
   }

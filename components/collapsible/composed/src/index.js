@@ -3,39 +3,47 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 class CollapsibleComposed extends Component {
-  state = { collapsed: this.props.collapsed }
+  state = {collapsed: this.props.collapsed}
 
-  _toggle () {
-    const { collapsed } = this.state
-    this.setState({ collapsed: !collapsed })
+  _toggle() {
+    const {collapsed} = this.state
+    this.setState({collapsed: !collapsed})
     this.props.onToggle(!collapsed)
   }
 
-  render () {
-    const { hiddenItems, inline, items, label } = this.props
-    const { collapsed } = this.state
+  render() {
+    const {hiddenItems, inline, items, label} = this.props
+    const {collapsed} = this.state
     const collapseIcon = collapsed ? '+' : '-'
 
-    const itemClass = cx('sui-CollapsibleComposed-item',
-      { 'sui-CollapsibleComposed-item--inline': inline }
-    )
-    const togglerClass = cx('sui-CollapsibleComposed-toggler',
-      { 'sui-CollapsibleComposed-item--inline': inline }
-    )
+    const itemClass = cx('sui-CollapsibleComposed-item', {
+      'sui-CollapsibleComposed-item--inline': inline
+    })
+    const togglerClass = cx('sui-CollapsibleComposed-toggler', {
+      'sui-CollapsibleComposed-item--inline': inline
+    })
 
     const itemsToToggle = (!collapsed && hiddenItems) || []
     const totalItems = items.concat(itemsToToggle)
 
     const displayItems = totalItems.map((item, index) => {
-      return <div className={itemClass} key={index}>{item}</div>
+      return (
+        <div className={itemClass} key={index}>
+          {item}
+        </div>
+      )
     })
 
     return (
-      <div className='sui-CollapsibleComposed'>
-        <div className='sui-CollapsibleComposed-label'>{label}</div>
-        <div className='sui-CollapsibleComposed-content'>
+      <div className="sui-CollapsibleComposed">
+        <div className="sui-CollapsibleComposed-label">{label}</div>
+        <div className="sui-CollapsibleComposed-content">
           {displayItems}
-          {hiddenItems.length > 0 && <div className={togglerClass} onClick={() => this._toggle()}>{collapseIcon}</div>}
+          {hiddenItems.length > 0 && (
+            <div className={togglerClass} onClick={() => this._toggle()}>
+              {collapseIcon}
+            </div>
+          )}
         </div>
       </div>
     )

@@ -1,5 +1,5 @@
 export default class ExperimentUseCase {
-  constructor (service, experimentId) {
+  constructor(service, experimentId) {
     this.experimentId = experimentId
     this.service = service
   }
@@ -8,7 +8,7 @@ export default class ExperimentUseCase {
    * Get variation for current experiment and current user
    * @return Promise<String|Number>
    */
-  async execute () {
+  async execute() {
     try {
       if (await this.service.isActivated(this.experimentId)) {
         return await this.service.getVariation(this.experimentId)

@@ -13,7 +13,7 @@
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
-    "phoenix": "rm -Rf node_modules && npm i && sui-studio clean-modules && sui-studio run-parallel npm i",
+    "phoenix": "npx @s-ui/mono phoenix",
     "precommit": "sui-precommit run",
     "release": "sui-studio release",
     "start": "sui-studio start",

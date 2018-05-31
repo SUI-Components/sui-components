@@ -5,8 +5,8 @@ import React from 'react'
 import cx from 'classnames'
 import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
 
-const CardBasicMedia = ({ src, alt = '' }) => (
-  <div className='sui-CardBasic-media'>
+const CardBasicMedia = ({src, alt = ''}) => (
+  <div className="sui-CardBasic-media">
     <img src={src} alt={alt} />
   </div>
 )
@@ -15,7 +15,7 @@ const CardBasicMedia = ({ src, alt = '' }) => (
  * Basic card containing a media object, an optional title and a description
  * text.
  */
-export default function CardBasic ({
+export default function CardBasic({
   link,
   linkFactory: Link,
   media,
@@ -24,23 +24,21 @@ export default function CardBasic ({
   size,
   lazyLoad
 }) {
-  const cardBasicClassName = cx(
-    'sui-CardBasic',
-    { [`sui-CardBasic--${size}`]: typeof size !== 'undefined' }
-  )
+  const cardBasicClassName = cx('sui-CardBasic', {
+    [`sui-CardBasic--${size}`]: typeof size !== 'undefined'
+  })
 
   return (
     <div className={cardBasicClassName}>
-      <Link href={link} className='sui-CardBasic-link'>
-        {lazyLoad
-          ? <ImageLazyLoad {...lazyLoad} {...media} />
-          : <CardBasicMedia {...media} />
-        }
-        <div className='sui-CardBasic-content'>
-          {title &&
-            <header className='sui-CardBasic-title'>{title}</header>
-          }
-          <div className='sui-CardBasic-description'>{description}</div>
+      <Link href={link} className="sui-CardBasic-link">
+        {lazyLoad ? (
+          <ImageLazyLoad {...lazyLoad} {...media} />
+        ) : (
+          <CardBasicMedia {...media} />
+        )}
+        <div className="sui-CardBasic-content">
+          {title && <header className="sui-CardBasic-title">{title}</header>}
+          <div className="sui-CardBasic-description">{description}</div>
         </div>
       </Link>
     </div>
@@ -84,15 +82,15 @@ CardBasic.propTypes = {
   /**
    * Lazy load flag / config.
    */
-  lazyLoad: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.object
-  ])
+  lazyLoad: PropTypes.oneOfType([PropTypes.bool, PropTypes.object])
 }
 
 CardBasic.defaultProps = {
-  linkFactory: ({ href, className, children }) =>
-    <a href={href} className={className}>{children}</a>,
+  linkFactory: ({href, className, children}) => (
+    <a href={href} className={className}>
+      {children}
+    </a>
+  ),
   lazyLoad: false
 }
 

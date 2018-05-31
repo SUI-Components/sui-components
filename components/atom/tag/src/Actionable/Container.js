@@ -5,9 +5,13 @@ import PropTypes from 'prop-types'
  * Component treated as an anchor when href is defined
  */
 const ActionableTagContainer = ({Link, href, target, children, ...props}) => {
-  return href
-    ? <Link href={href} target={target} {...props}>{children}</Link>
-    : <span {...props}>{children}</span>
+  return href ? (
+    <Link href={href} target={target} {...props}>
+      {children}
+    </Link>
+  ) : (
+    <span {...props}>{children}</span>
+  )
 }
 
 ActionableTagContainer.propTypes = {

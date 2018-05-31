@@ -2,14 +2,12 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 class GigyaScreenset extends Component {
-  componentDidMount () {
+  componentDidMount() {
     window.gigya.accounts.showScreenSet(this.props.screenSetOptions)
   }
 
-  render () {
-    return (
-      <div id={this.props.screenSetOptions.containerID} />
-    )
+  render() {
+    return <div id={this.props.screenSetOptions.containerID} />
   }
 }
 

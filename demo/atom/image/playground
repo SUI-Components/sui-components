@@ -1,0 +1,57 @@
+/* eslint-disable react/react-in-jsx-scope, react/jsx-no-undef */
+
+const IMAGES = {
+  FINAL: 'https://picsum.photos/4000?image=980',
+  PLACEHOLDER: 'https://picsum.photos/50?image=980',
+  BAD: 'https://pic__sum.pho__tos/50?image=980'
+}
+
+const containerImageStyles = {
+  border: '2px solid blue',
+  width: '400px',
+  height: '200px',
+  marginBottom: '10px'
+}
+
+const Spinner = (
+  <img src='https://zippy.gfycat.com/SkinnySeveralAsianlion.gif' alt='' />
+)
+
+return (
+  <div>
+    <div style={containerImageStyles}>
+      <AtomImage
+        src={IMAGES.BAD}
+        spinner={Spinner}
+        placeholder={IMAGES.PLACEHOLDER}
+        fallbackText='💀 Image cannot be loaded'
+        alt='Nice View'
+      />
+    </div>
+
+    <div style={containerImageStyles}>
+      <AtomImage
+        src={IMAGES.FINAL}
+        spinner={Spinner}
+        placeholder={IMAGES.PLACEHOLDER}
+        alt='Nice View'
+      />
+    </div>
+
+    <div style={containerImageStyles}>
+      <AtomImage src={IMAGES.FINAL} alt='Nice View' spinner={Spinner} />
+    </div>
+
+    <div style={containerImageStyles}>
+      <AtomImage
+        src={IMAGES.FINAL}
+        placeholder={IMAGES.PLACEHOLDER}
+        alt='Nice View'
+      />
+    </div>
+
+    <div style={containerImageStyles}>
+      <AtomImage src={IMAGES.FINAL} alt='Nice View' />
+    </div>
+  </div>
+)

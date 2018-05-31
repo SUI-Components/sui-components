@@ -1,0 +1,71 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$bgc-atom-image: $c-gray-light !default;
+
+.sui-AtomImage {
+  background-color: $bgc-atom-image;
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+
+  &.is-loading &-image {
+    opacity: 0;
+  }
+
+  &.is-loaded &-image {
+    opacity: 1;
+  }
+
+  &.is-error &-image {
+    display: none;
+  }
+
+  &--placeholder {
+    &.is-loading &-image {
+      filter: blur(5px);
+    }
+
+    &.is-loaded &-image {
+      filter: blur(0px);
+      transition: .5s filter linear;
+    }
+  }
+
+  &--spinner {
+    &.is-loaded .sui-AtomSpinner {
+      display: none;
+    }
+
+    .sui-AtomSpinner {
+      align-items: center;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 10;
+    }
+  }
+
+  &-error {
+    align-items: center;
+    border: 2px solid red;
+    color: red;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+  }
+
+  &-image {
+    backface-visibility: hidden;
+    height: 100%;
+    object-fit: cover;
+    transform: translateZ(0);
+    width: 100%;
+  }
+}

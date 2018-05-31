@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import TagSelectable from '@schibstedspain/sui-tag-selectable'
 
 const removeFromArray = (arr, value) => {
@@ -22,19 +22,18 @@ export default class TagSelectableList extends Component {
   }
 
   toggleAll = () => {
-    this.setSelectedValues(this.isAllSelected()
-      ? []
-      : this.props.tagsList.map(item => item.value)
+    this.setSelectedValues(
+      this.isAllSelected() ? [] : this.props.tagsList.map(item => item.value)
     )
   }
 
-  setSelectedValues (selectedValues) {
+  setSelectedValues(selectedValues) {
     this.setState({selectedValues})
     this.props.onChange(selectedValues)
   }
 
-  _renderTags () {
-    const { tagsList } = this.props
+  _renderTags() {
+    const {tagsList} = this.props
     return tagsList.map((tag, index) => {
       const isSelected = this.state.selectedValues.includes(tag.value)
       return (
@@ -50,22 +49,24 @@ export default class TagSelectableList extends Component {
     })
   }
 
-  isAllSelected () {
+  isAllSelected() {
     return this.props.tagsList.length === this.state.selectedValues.length
   }
 
-  render () {
+  render() {
     const isAllSelected = this.isAllSelected()
     const {allLabel} = this.props
     return (
-      <div className='sui-TagSelectableList'>
-        {allLabel && <TagSelectable
-          value={allLabel}
-          onClick={this.toggleAll}
-          isSelected={isAllSelected}
-          label={allLabel}
-          icon={isAllSelected ? this.props.checkIcon : null}
-        />}
+      <div className="sui-TagSelectableList">
+        {allLabel && (
+          <TagSelectable
+            value={allLabel}
+            onClick={this.toggleAll}
+            isSelected={isAllSelected}
+            label={allLabel}
+            icon={isAllSelected ? this.props.checkIcon : null}
+          />
+        )}
         {this._renderTags()}
       </div>
     )
@@ -92,19 +93,21 @@ TagSelectableList.propTypes = {
   /**
    * List of tag objects
    */
-  tagsList: PropTypes.arrayOf(PropTypes.shape({
-    /**
-     * tag text
-     */
-    label: PropTypes.string.isRequired,
-    /**
-     * tag value
-     */
-    value: PropTypes.string.isRequired
-  })).isRequired,
+  tagsList: PropTypes.arrayOf(
+    PropTypes.shape({
+      /**
+       * tag text
+       */
+      label: PropTypes.string.isRequired,
+      /**
+       * tag value
+       */
+      value: PropTypes.string.isRequired
+    })
+  ).isRequired,
   /**
-    * Initial selected values
-    */
+   * Initial selected values
+   */
   initialSelectedValues: PropTypes.array
 }
 

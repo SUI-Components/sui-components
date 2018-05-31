@@ -1,17 +1,17 @@
 /* eslint no-console: 0, no-undef: 0 */
 import PropTypes from 'prop-types'
 
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import LazyLoad from 'react-lazy-load'
-import { loadScript } from '../libs/load-script'
-import { sandBoxDocumentWrite } from '../libs/sandbox-document.write'
+import {loadScript} from '../libs/load-script'
+import {sandBoxDocumentWrite} from '../libs/sandbox-document.write'
 
 export default class AdItem extends Component {
-  static get SYMBOL () {
+  static get SYMBOL() {
     return 'OAS_RICH'
   }
 
-  constructor () {
+  constructor() {
     super()
     this.adItem = null
     this.adsLoaded = []
@@ -35,17 +35,14 @@ export default class AdItem extends Component {
    * @param {String} The PAO url of the ad script
    *
    */
-  _loadAd (id, url) {
+  _loadAd(id, url) {
     const postscribe = require('postscribe')
     loadScript({
       url,
       symbol: AdItem.SYMBOL
     })
       .then(() => {
-        postscribe(
-          this.adItem,
-          sandBoxDocumentWrite(window[AdItem.SYMBOL], id)
-        )
+        postscribe(this.adItem, sandBoxDocumentWrite(window[AdItem.SYMBOL], id))
       })
       .catch(console.error.bind(console))
   }
@@ -57,25 +54,19 @@ export default class AdItem extends Component {
    *
    * @params {Object} nextProps
    */
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     const {id, url: nextPropsUrl} = nextProps
     const {url: stateUrl} = this.state
     if (nextPropsUrl !== stateUrl) {
       window[AdItem.SYMBOL] = null
 
-      this.setState({ nextPropsUrl })
+      this.setState({nextPropsUrl})
       this._loadAd(id, nextPropsUrl)
     }
   }
 
-  render () {
-    const {
-      id,
-      url,
-      classNamePrefix,
-      debounce,
-      offsetVertical
-    } = this.props
+  render() {
+    const {id, url, classNamePrefix, debounce, offsetVertical} = this.props
 
     /**
      * This is the magic function
@@ -89,9 +80,8 @@ export default class AdItem extends Component {
      *
      * It will never be called again, it's only called twice on first render
      */
-    const onContentVisible = () => this.adItem
-      ? this._loadAd(id, url)
-      : this.setState({ url })
+    const onContentVisible = () =>
+      this.adItem ? this._loadAd(id, url) : this.setState({url})
 
     return (
       <LazyLoad

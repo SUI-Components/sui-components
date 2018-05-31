@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 const BASE_CLASS = 'sui-FormPta'
@@ -8,15 +8,20 @@ class FormPta extends Component {
   /**
    * Avoid iframe re-rendering
    */
-  shouldComponentUpdate () {
+  shouldComponentUpdate() {
     return false
   }
 
   /**
    * Send settings to iframe content form
    */
-  sendSettingsToForm = ({ target: { contentWindow } }) => {
-    const { redirectOnErrorUrl, formUrl, enableDraft, redirectOnSuccessUrl } = this.props
+  sendSettingsToForm = ({target: {contentWindow}}) => {
+    const {
+      redirectOnErrorUrl,
+      formUrl,
+      enableDraft,
+      redirectOnSuccessUrl
+    } = this.props
     const formSettings = {
       enableDraft,
       formUrl,
@@ -29,8 +34,11 @@ class FormPta extends Component {
     contentWindow.postMessage(formSettings, formUrl)
   }
 
-  render () {
-    const { props: { formUrl }, sendSettingsToForm } = this
+  render() {
+    const {
+      props: {formUrl},
+      sendSettingsToForm
+    } = this
 
     return (
       <div className={BASE_CLASS}>
@@ -62,7 +70,7 @@ FormPta.propTypes = {
   /**
    * Redirection url on success
    */
-  redirectOnSuccessUrl: PropTypes.string.isRequired,
+  redirectOnSuccessUrl: PropTypes.string.isRequired
 }
 
 FormPta.defaultProps = {

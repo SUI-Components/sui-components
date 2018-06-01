@@ -15,21 +15,16 @@ class AtomImage extends Component {
     }
   }
 
-  get _classNames () {
+  get classNames () {
     const { loading, error } = this.state
-    const { placeholder, skeleton } = this.props
+    const { className, placeholder } = this.props
     return cx(
       BASE_CLASS,
-      this.props.className,
+      className,
       placeholder && `${BASE_CLASS}--placeholder`,
-      skeleton &&
-        `${BASE_CLASS}--skeleton``is-${loading ? 'loading' : 'loaded'}`,
+      `is-${loading ? 'loading' : 'loaded'}`,
       error && `is-error`
     )
-  }
-
-  get _imageClassNames () {
-    return cx()
   }
 
   handleLoad = () => {
@@ -50,37 +45,45 @@ class AtomImage extends Component {
   render () {
     const {
       placeholder,
+      skeleton,
+      bgStyles,
       spinner: Spinner,
-      fallbackIcon,
-      fallbackText,
+      errorIcon,
+      errorText,
       src
     } = this.props
-    const { error } = this.state
-    const placeholderStyles = {
-      backgroundImage: `url(${placeholder})`
+    const { loading, error } = this.state
+
+    const figureStyles = {
+      backgroundImage: `url(${placeholder || skeleton})`,
+      ...bgStyles
     }
 
     return (
-      <figure
-        className={this._classNames}
-        style={!error && placeholder ? placeholderStyles : {}}
-      >
-        <img
-          src={src}
-          className={`${BASE_CLASS}-image`}
-          onLoad={this.handleLoad}
-          onError={this.handleError}
-          {...this._imageProps}
-        />
-        {!error && <Spinner />}
+      <div className={this.classNames}>
+        <figure
+          className={`${BASE_CLASS}-figure`}
+          style={!error && (placeholder || skeleton) ? figureStyles : {}}
+        >
+          <img
+            src={src}
+            className={`${BASE_CLASS}-image`}
+            onLoad={this.handleLoad}
+            onError={this.handleError}
+            {...this._imageProps}
+          />
+        </figure>
+        {!error &&
+          loading &&
+          Spinner && <Spinner className={`${BASE_CLASS}-spinner`} />}
         {error && (
           <Error
             className={`${BASE_CLASS}-error`}
-            icon={fallbackIcon}
-            text={fallbackText}
+            icon={errorIcon}
+            text={errorText}
           />
         )}
-      </figure>
+      </div>
     )
   }
 }

@@ -18,7 +18,6 @@ const htmlImgProps = {
 }
 
 const types = {
-  className: PropTypes.string,
 
   /** To be shown until the src prop is loaded */
   placeholder: PropTypes.string,
@@ -27,13 +26,13 @@ const types = {
   skeleton: PropTypes.string,
 
   /** Icon to be shown in case the src prop does not load */
-  fallbackIcon: PropTypes.string,
+  errorIcon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 
   /** Text to be shown in case the src prop does not load */
-  fallbackText: PropTypes.string,
+  errorText: PropTypes.string,
 
   /** XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
-  spinner: PropTypes.bool,
+  spinner: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 
   /** Image property but intercepted by the component in order to do its magic */
   onError: PropTypes.func,

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import cx from 'classnames'
 
 export default class TabBasic extends Component {
@@ -7,17 +7,17 @@ export default class TabBasic extends Component {
     activeTab: this.props.activeTab
   }
 
-  _createHandleClick (index) {
-    return (event) => {
+  _createHandleClick(index) {
+    return event => {
       event.preventDefault()
-      this.setState({ activeTab: index })
+      this.setState({activeTab: index})
       this.props.handleClick(index, this.props.tabsList[index])
     }
   }
 
-  _renderTabs () {
-    const { tabsList } = this.props
-    const { activeTab } = this.state
+  _renderTabs() {
+    const {tabsList} = this.props
+    const {activeTab} = this.state
 
     return tabsList.map((tabLabel, index) => {
       const tabLinkClassName = cx('sui-TabBasic-link', {
@@ -25,11 +25,11 @@ export default class TabBasic extends Component {
       })
 
       return (
-        <li className='sui-TabBasic-item' key={index}>
+        <li className="sui-TabBasic-item" key={index}>
           <button
             className={tabLinkClassName}
             onClick={this._createHandleClick(index)}
-            role='tab'
+            role="tab"
           >
             {tabLabel}
           </button>
@@ -38,12 +38,8 @@ export default class TabBasic extends Component {
     })
   }
 
-  render () {
-    return (
-      <ul className='sui-TabBasic'>
-        {this._renderTabs()}
-      </ul>
-    )
+  render() {
+    return <ul className="sui-TabBasic">{this._renderTabs()}</ul>
   }
 }
 

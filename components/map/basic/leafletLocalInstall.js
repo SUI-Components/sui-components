@@ -5,7 +5,7 @@ var leafletPath = require.resolve('leaflet')
 var originPath = path.resolve(leafletPath, '../leaflet.css')
 var destinationPath = path.resolve(leafletPath, '../leaflet.scss')
 
-fs.readFile(originPath, 'utf8', function read (err, data) {
+fs.readFile(originPath, 'utf8', function read(err, data) {
   if (err) {
     throw err
   }
@@ -18,7 +18,7 @@ fs.readFile(originPath, 'utf8', function read (err, data) {
     }
   }
 
-  fs.writeFile(destinationPath, dataByLine.join('\n'), 'utf8', function (err) {
+  fs.writeFile(destinationPath, dataByLine.join('\n'), 'utf8', function(err) {
     if (err) return console.error(err)
 
     console.log('Leaflet modified properly')

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import Chevronright from '@schibstedspain/sui-svgiconset/lib/Chevronright'
 import FormCheckbox from '@schibstedspain/sui-form-checkbox'
 import cx from 'classnames'
@@ -13,7 +13,7 @@ export default class CardSubscription extends Component {
   input = null
 
   _handleCheckboxChange = () => {
-    const { termsOfUseAccepted } = this.state
+    const {termsOfUseAccepted} = this.state
 
     this.setState({
       termsOfUseAccepted: !termsOfUseAccepted,
@@ -21,20 +21,21 @@ export default class CardSubscription extends Component {
     })
   }
 
-  _getCheckboxError = () => this.state.showErrorMessage && this.props.checkboxErrorMessage
-    ? this.props.checkboxErrorMessage
-    : null
+  _getCheckboxError = () =>
+    this.state.showErrorMessage && this.props.checkboxErrorMessage
+      ? this.props.checkboxErrorMessage
+      : null
 
   _handleSubmit = event => {
-    const { onSubmit } = this.props
-    const { termsOfUseAccepted } = this.state
+    const {onSubmit} = this.props
+    const {termsOfUseAccepted} = this.state
 
     event.preventDefault()
-    this.setState({ showErrorMessage: !termsOfUseAccepted })
+    this.setState({showErrorMessage: !termsOfUseAccepted})
     termsOfUseAccepted && onSubmit(this.input.value)
   }
 
-  _printCardContent = ({ termsOfUseAccepted }) => {
+  _printCardContent = ({termsOfUseAccepted}) => {
     const {
       placeholder,
       iconButton,
@@ -49,19 +50,21 @@ export default class CardSubscription extends Component {
     })
 
     return (
-      <form onSubmit={this._handleSubmit} className='sui-CardSubscription-form'>
-        <div className='sui-CardSubscription-formField'>
+      <form onSubmit={this._handleSubmit} className="sui-CardSubscription-form">
+        <div className="sui-CardSubscription-formField">
           <input
             className={inputClassName}
             placeholder={placeholder}
-            ref={node => { this.input = node }}
+            ref={node => {
+              this.input = node
+            }}
           />
-          <button type='submit' className='sui-CardSubscription-button'>
-            <IconAngle svgClass='sui-CardSubscription-buttonIcon' />
+          <button type="submit" className="sui-CardSubscription-button">
+            <IconAngle svgClass="sui-CardSubscription-buttonIcon" />
           </button>
         </div>
-        {checkboxName &&
-          <div className='sui-CardSubscription-formCheck'>
+        {checkboxName && (
+          <div className="sui-CardSubscription-formCheck">
             <FormCheckbox
               name={checkboxName}
               checked={termsOfUseAccepted}
@@ -71,35 +74,27 @@ export default class CardSubscription extends Component {
               svgIcons={checkboxIcons}
             />
           </div>
-        }
+        )}
       </form>
     )
   }
 
-  render () {
-    const {
-      responseContent: ResponseContent,
-      responseError,
-      title
-    } = this.props
-    const { termsOfUseAccepted } = this.state
+  render() {
+    const {responseContent: ResponseContent, responseError, title} = this.props
+    const {termsOfUseAccepted} = this.state
 
     return (
       <div>
-        {(!ResponseContent || !!responseError) &&
-          <div className='sui-CardSubscription'>
-            <div className='sui-CardSubscription-content'>
-              <p className='sui-CardSubscription-title'>{title}</p>
-              {this._printCardContent({ termsOfUseAccepted })}
-              {(ResponseContent && responseError) &&
-                <ResponseContent />
-              }
+        {(!ResponseContent || !!responseError) && (
+          <div className="sui-CardSubscription">
+            <div className="sui-CardSubscription-content">
+              <p className="sui-CardSubscription-title">{title}</p>
+              {this._printCardContent({termsOfUseAccepted})}
+              {ResponseContent && responseError && <ResponseContent />}
             </div>
           </div>
-        }
-        {(ResponseContent && !responseError) &&
-          <ResponseContent />
-        }
+        )}
+        {ResponseContent && !responseError && <ResponseContent />}
       </div>
     )
   }

@@ -1,15 +1,22 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router'
+import {Link} from 'react-router'
 import cx from 'classnames'
 
 class LinkBasic extends Component {
-  _renderContent () {
-    const { icon, literal } = this.props
-    return icon && literal ? <span>{icon}{literal}</span> : literal || icon
+  _renderContent() {
+    const {icon, literal} = this.props
+    return icon && literal ? (
+      <span>
+        {icon}
+        {literal}
+      </span>
+    ) : (
+      literal || icon
+    )
   }
 
-  render () {
+  render() {
     const className = cx('sui-LinkBasic', this.props.className)
 
     const {
@@ -24,11 +31,7 @@ class LinkBasic extends Component {
 
     if (disabled) {
       return (
-        <span
-          className={className}
-          onClick={handleClick}
-          title={title}
-        >
+        <span className={className} onClick={handleClick} title={title}>
           {this._renderContent()}
         </span>
       )

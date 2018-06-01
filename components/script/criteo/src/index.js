@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import ScriptLoader from '@schibstedspain/sui-script-loader'
 
 const CRITEO_SCRIPT_URL = '//static.criteo.net/js/ld/ld.js'
 
 class ScriptCriteo extends Component {
-  initCriteo () {
+  initCriteo() {
     const {
       accountIds,
       customerId,
@@ -16,11 +16,11 @@ class ScriptCriteo extends Component {
     } = this.props
 
     const criteoData = [
-      { event: 'setAccount', account: accountIds },
-      { event: 'setSiteType', type: siteType },
-      customerId && { event: 'setCustomerId', id: customerId },
-      !hashedEmail && { event: 'setEmail', email },
-      hashedEmail && { event: 'setHashedEmail', email: hashedEmail },
+      {event: 'setAccount', account: accountIds},
+      {event: 'setSiteType', type: siteType},
+      customerId && {event: 'setCustomerId', id: customerId},
+      !hashedEmail && {event: 'setEmail', email},
+      hashedEmail && {event: 'setHashedEmail', email: hashedEmail},
       pageEvent
     ].filter(Boolean)
 
@@ -29,11 +29,11 @@ class ScriptCriteo extends Component {
     window.criteo_q.push(...criteoData)
   }
 
-  shouldComponentUpdate () {
+  shouldComponentUpdate() {
     return false
   }
 
-  render () {
+  render() {
     return (
       <ScriptLoader
         src={CRITEO_SCRIPT_URL}

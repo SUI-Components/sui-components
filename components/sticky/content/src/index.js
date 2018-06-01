@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import throttle from 'lodash.throttle'
 import cx from 'classnames'
@@ -62,22 +62,22 @@ export default class StickyContent extends Component {
   _isFixed = false
   _scrollableElement = null
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     this._handleScroll = throttle(this._handleScroll, THROTTLE_TIME)
   }
 
-  _handleScroll = (e) => {
+  _handleScroll = e => {
     e.stopPropagation()
     this._isFixed !== this._shouldStickContent() && this._toggleFixedStatus()
   }
 
   _setElementTop = () => {
-    const { top: elementTop } = this._DOMElement.getBoundingClientRect()
+    const {top: elementTop} = this._DOMElement.getBoundingClientRect()
     this._elementTop = elementTop + this._getCurrentWindowScrollTop()
   }
 
-  _getCurrentWindowScrollTop () {
+  _getCurrentWindowScrollTop() {
     return window.scrollY || document.documentElement.scrollTop
   }
 
@@ -95,40 +95,53 @@ export default class StickyContent extends Component {
   _toggleFixedStatus = () => {
     this._isFixed = !this._isFixed
     this._DOMElement.classList.toggle('sui-StickyContent-fixed')
-    this.props.onDisplayChange({ isFixed: this._isFixed })
+    this.props.onDisplayChange({isFixed: this._isFixed})
   }
 
   _saveDOMRef = ref => {
     this._DOMElement = ref
   }
 
-  componentDidMount () {
-    const { sticky, scrollableElementSelector } = this.props
+  componentDidMount() {
+    const {sticky, scrollableElementSelector} = this.props
 
     if (sticky) {
-      this._scrollableElement = scrollableElementSelector && document.querySelector(scrollableElementSelector)
-      window.addEventListener('scroll', this._handleScroll, SCROLL_EVENT_LISTENER_OPTIONS)
+      this._scrollableElement =
+        scrollableElementSelector &&
+        document.querySelector(scrollableElementSelector)
+      window.addEventListener(
+        'scroll',
+        this._handleScroll,
+        SCROLL_EVENT_LISTENER_OPTIONS
+      )
     }
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     if (this.props.sticky) {
-      window.removeEventListener('scroll', this._handleScroll, SCROLL_EVENT_LISTENER_OPTIONS)
+      window.removeEventListener(
+        'scroll',
+        this._handleScroll,
+        SCROLL_EVENT_LISTENER_OPTIONS
+      )
     }
   }
 
-  render () {
-    const { children, position, sticky, fixed, fullWidth } = this.props
+  render() {
+    const {children, position, sticky, fixed, fullWidth} = this.props
 
     return (
-      <div ref={this._saveDOMRef} className={cx(
-        'sui-StickyContent',
-        STICKY_CONTENT_POSITION_CLASSNAME[position],
-        { 'sui-StickyContent-sticky': sticky },
-        { 'sui-StickyContent-fixed': fixed },
-        { 'sui-StickyContent--fullWidth': fullWidth }
-      )}>
-        { children }
+      <div
+        ref={this._saveDOMRef}
+        className={cx(
+          'sui-StickyContent',
+          STICKY_CONTENT_POSITION_CLASSNAME[position],
+          {'sui-StickyContent-sticky': sticky},
+          {'sui-StickyContent-fixed': fixed},
+          {'sui-StickyContent--fullWidth': fullWidth}
+        )}
+      >
+        {children}
       </div>
     )
   }

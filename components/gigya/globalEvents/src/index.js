@@ -1,33 +1,39 @@
 import {Component} from 'react'
 import PropTypes from 'prop-types'
-import { initListener, addOnLoginSubscriber, removeOnLoginSubscriber, addOnLogoutSubscriber, removeOnLogoutSubscriber } from './helper'
+import {
+  initListener,
+  addOnLoginSubscriber,
+  removeOnLoginSubscriber,
+  addOnLogoutSubscriber,
+  removeOnLogoutSubscriber
+} from './helper'
 
 class GigyaGlobalEvents extends Component {
-  _registerEvents = ({ onLogin, onLogout }) => {
+  _registerEvents = ({onLogin, onLogout}) => {
     onLogin && addOnLoginSubscriber(onLogin)
     onLogout && addOnLogoutSubscriber(onLogout)
   }
 
-  _unregisterEvents = ({ onLogin, onLogout }) => {
+  _unregisterEvents = ({onLogin, onLogout}) => {
     onLogin && removeOnLoginSubscriber(onLogin)
     onLogout && removeOnLogoutSubscriber(onLogout)
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     this._unregisterEvents(this.props)
     this._registerEvents(nextProps)
   }
 
-  componentWillMount () {
+  componentWillMount() {
     initListener()
     this._registerEvents(this.props)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this._unregisterEvents(this.props)
   }
 
-  render () {
+  render() {
     return null
   }
 }

@@ -7,18 +7,27 @@ const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
 const SIZES = ['small', 'large']
 const MODIFIERS = ['disabled', 'fullWidth', 'focused', 'negative', 'link']
 const OWN_PROPS = [
-  ...TYPES, ...SIZES, ...MODIFIERS,
-  'leftIcon', 'rightIcon', 'className', 'children', 'linkFactory', 'type'
+  ...TYPES,
+  ...SIZES,
+  ...MODIFIERS,
+  'leftIcon',
+  'rightIcon',
+  'className',
+  'children',
+  'linkFactory',
+  'type'
 ]
-const CLASSES = [...TYPES, ...SIZES, ...MODIFIERS, 'empty']
-  .reduce((res, key) => Object.assign(res, {[key]: `${CLASS}--${key}`}), {})
+const CLASSES = [...TYPES, ...SIZES, ...MODIFIERS, 'empty'].reduce(
+  (res, key) => Object.assign(res, {[key]: `${CLASS}--${key}`}),
+  {}
+)
 
 /**
  * Get props cleaning out AtomButton own props
  * @param  {Object} props
  * @return {Object}
  */
-const cleanProps = (props) => {
+const cleanProps = props => {
   let newProps = {...props}
   OWN_PROPS.forEach(key => delete newProps[key])
   return newProps
@@ -29,12 +38,13 @@ const cleanProps = (props) => {
  * @param  {Object} props
  * @return {Array<String>}
  */
-const getModifiers = (props) => {
-  return Object.keys(props)
-    .filter(name => props[name] && MODIFIERS.includes(name))
+const getModifiers = props => {
+  return Object.keys(props).filter(
+    name => props[name] && MODIFIERS.includes(name)
+  )
 }
 
-const AtomButton = (props) => {
+const AtomButton = props => {
   const {
     disabled,
     leftIcon,
@@ -57,21 +67,36 @@ const AtomButton = (props) => {
   )
   const newProps = cleanProps(props)
 
-  const Button = ({ children, href, target, disabled, ...attrs }) => link
-    ? (
-      <Link {...attrs} href={href} target={target} rel={target === '_blank' ? 'noopener' : undefined}>
+  const Button = ({children, href, target, disabled, ...attrs}) =>
+    link ? (
+      <Link
+        {...attrs}
+        href={href}
+        target={target}
+        rel={target === '_blank' ? 'noopener' : undefined}
+      >
         {children}
       </Link>
-    ) : <button {...attrs} disabled={disabled}>{children}</button>
+    ) : (
+      <button {...attrs} disabled={disabled}>
+        {children}
+      </button>
+    )
 
   return (
-    <Button {...newProps} className={classNames} title={title} disabled={disabled}>
+    <Button
+      {...newProps}
+      className={classNames}
+      title={title}
+      disabled={disabled}
+    >
       <span className={`${CLASS}-inner`}>
         {leftIcon && <span className={`${CLASS}-leftIcon`}>{leftIcon}</span>}
-        {leftIcon || rightIcon
-          ? <span className={`${CLASS}-text`}>{children}</span>
-          : children
-        }
+        {leftIcon || rightIcon ? (
+          <span className={`${CLASS}-text`}>{children}</span>
+        ) : (
+          children
+        )}
         {rightIcon && <span className={`${CLASS}-rightIcon`}>{rightIcon}</span>}
       </span>
     </Button>
@@ -145,8 +170,7 @@ AtomButton.propTypes = {
 
 AtomButton.defaultProps = {
   type: 'primary',
-  linkFactory: ({ children, ...rest } = {}) =>
-    <a {...rest}>{children}</a>
+  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>
 }
 
 export default AtomButton

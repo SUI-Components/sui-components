@@ -16,7 +16,4 @@ const ALPHA = {
   OVERLAY_D1: '15'
 }
 
-export {
-  COLORS,
-  ALPHA
-}
+export {COLORS, ALPHA}

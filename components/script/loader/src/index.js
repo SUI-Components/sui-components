@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import PropTypes from 'prop-types'
-import { loadScript } from './helper.js'
+import {loadScript} from './helper.js'
 
 class ScriptLoader extends Component {
   state = {
@@ -8,17 +8,17 @@ class ScriptLoader extends Component {
     timeout: false
   }
 
-  componentDidMount () {
-    const { src, verifier, isAsync, detectionDelay, onTimeout } = this.props
+  componentDidMount() {
+    const {src, verifier, isAsync, detectionDelay, onTimeout} = this.props
 
-    loadScript({ src, verifier, isAsync, detectionDelay })
-      .then(() => this.setState({ readyToRender: true }))
-      .catch(() => this.setState({ timeout: true }, onTimeout))
+    loadScript({src, verifier, isAsync, detectionDelay})
+      .then(() => this.setState({readyToRender: true}))
+      .catch(() => this.setState({timeout: true}, onTimeout))
   }
 
-  render () {
-    const { render, timeoutRender } = this.props
-    const { readyToRender, timeout } = this.state
+  render() {
+    const {render, timeoutRender} = this.props
+    const {readyToRender, timeout} = this.state
 
     if (readyToRender) return render()
     if (timeout) return timeoutRender()

@@ -2,7 +2,8 @@
 
 > Description
 
-<!-- ![](./assets/preview.png) -->
+AtomImage is a component that loads an image inside, maintaining all the accesibility attributes. This component can be set to show a placeholder image, a skeleton and/or a spinner while the final image is being loaded. This component will also show an Error Box if the image could't be loaded
+
 
 ## Installation
 
@@ -20,4 +21,4 @@ return (<AtomImage />)
 ```
 
 
-> **Find full description and more examples in the [demo page](#).**
+> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/image/demo).**

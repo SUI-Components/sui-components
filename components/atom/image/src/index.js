@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import cx from 'classnames'
 
 import { types } from './types'
-import { Error } from './components'
+import { Error, ImageNotFoundIcon } from './components'
 
+const defaultErrorText = 'Image not found'
 const BASE_CLASS = 'sui-AtomImage'
 
 class AtomImage extends Component {
@@ -50,8 +51,11 @@ class AtomImage extends Component {
       spinner: Spinner,
       errorIcon,
       errorText,
-      src
+      onError,
+      onLoad,
+      ...imgProps
     } = this.props
+
     const { loading, error } = this.state
 
     const figureStyles = {
@@ -66,11 +70,10 @@ class AtomImage extends Component {
           style={!error && (placeholder || skeleton) ? figureStyles : {}}
         >
           <img
-            src={src}
             className={`${BASE_CLASS}-image`}
             onLoad={this.handleLoad}
             onError={this.handleError}
-            {...this._imageProps}
+            {...imgProps}
           />
         </figure>
         {!error &&
@@ -90,5 +93,10 @@ class AtomImage extends Component {
 
 AtomImage.displayName = 'AtomImage'
 AtomImage.propTypes = types
+
+AtomImage.defaultProps = {
+  errorIcon: ImageNotFoundIcon,
+  errorText: defaultErrorText
+}
 
 export default AtomImage

@@ -19,28 +19,31 @@ const htmlImgProps = {
 
 const types = {
 
-  /** To be shown until the src prop is loaded */
+  /** Image displayed (blurred) while the final image is being loaded */
   placeholder: PropTypes.string,
 
-  /** To be shown until the src prop is loaded */
+  /** Image (wireframe, skeleton) displayed (not blurred) while the final image is being loaded */
   skeleton: PropTypes.string,
 
-  /** Icon to be shown in case the src prop does not load */
-  errorIcon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+  /** Styles passed to the element that displays the skeleton as background */
+  bgStyles: PropTypes.object,
 
-  /** Text to be shown in case the src prop does not load */
-  errorText: PropTypes.string,
-
-  /** XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
+  /** Spinner (component) displayed while the final image is being loaded */
   spinner: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 
-  /** Image property but intercepted by the component in order to do its magic */
+  /** Icon (component) to be displayed in an Error Box when the image cannot be loaded */
+  errorIcon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+
+  /** Text to be displayed in an Error Box when the image cannot be loaded */
+  errorText: PropTypes.string,
+
+  /** Function to be called when the image cannot be loaded  */
   onError: PropTypes.func,
 
-  /** Image property but intercepted by the component in order to do its magic */
+  /** Function to be called when the image completed its loading  */
   onLoad: PropTypes.func,
 
-  /** <img> prop */
+  /** <img> props */
   ...htmlImgProps
 }
 

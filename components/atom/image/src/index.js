@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import { htmlImgProps } from './types'
-import { ImageNotFoundIcon } from './components'
+import { ImageNotFoundIcon } from './defaults'
 
 const defaultErrorText = 'Image not found'
 const BASE_CLASS = 'sui-AtomImage'

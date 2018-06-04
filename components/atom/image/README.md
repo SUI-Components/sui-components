@@ -33,7 +33,6 @@ import AtomImage from '@s-ui/react-atom-image'
   src={ urlImage } 
   alt="Nice Picture" 
   skeleton={ urlImageSkeleton } 
-  bgStyles={{ backgroundSize: '30%' }} 
 />
 ```
 

@@ -1,0 +1,21 @@
+var firstRender = true
+
+class ComponentWithException extends React.Component {
+  render () {
+    if (firstRender) {
+      firstRender = false
+      throw Error('Nasty error')
+    }
+    return (
+      <p>Error uncontrolled loaded!</p>
+    )
+  }
+}
+
+return (
+  <ErrorAppBoundary
+    buttonLabel='Thanks for letting me know!'
+    message='This is a message warning the user about the error with kind words!'>
+    <ComponentWithException />
+  </ErrorAppBoundary>
+)

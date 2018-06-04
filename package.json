@@ -13,7 +13,7 @@
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
-    "phoenix": "rm -Rf node_modules && npm i && sui-studio clean-modules && sui-studio run-parallel npm i",
+    "phoenix": "npx @s-ui/mono phoenix",
     "precommit": "sui-precommit run",
     "release": "sui-studio release",
     "start": "sui-studio start",
@@ -28,10 +28,10 @@
     "@s-ui/precommit": "2",
     "@s-ui/studio": "4",
     "babel-jest": "20.0.3",
-    "enzyme": "2.9.1",
+    "enzyme": "3.3.0",
     "husky": "0.13.4",
     "jest": "20.0.4",
-    "react-addons-test-utils": "15.6.0",
+    "enzyme-adapter-react-16": "1.1.1",
     "validate-commit-msg": "2.12.2"
   },
   "dependencies": {
@@ -39,7 +39,9 @@
     "@schibstedspain/cf-theme": "1",
     "@schibstedspain/fc-theme": "10",
     "@schibstedspain/ij-theme": "1",
-    "@schibstedspain/mt-theme": "4"
+    "@schibstedspain/mt-theme": "4",
+    "@schibstedspain/vb-theme": "1",
+    "@schibstedspain/nc-theme": "1"
   },
   "config": {
     "sui-studio": {
@@ -48,7 +50,13 @@
       "compliant": [
         "atom/badge",
         "atom/button",
-        "breadcrumb/basic"
+        "atom/panel",
+        "atom/spinner",
+        "atom/tag",
+        "atom/validationText",
+        "breadcrumb/basic",
+        "molecule/notification",
+        "molecule/tabs"
       ]
     },
     "sui-mono": {

@@ -1,0 +1,28 @@
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/index';
+@import 'settings';
+
+.sui-RatingIcons {
+  height: $h-rating-icons;
+
+  &-filled,
+  &-empty {
+    display: flex;
+    position: absolute;
+  }
+
+  &-iconContainer {
+    flex-grow: 1;
+    overflow: hidden;
+  }
+
+  &-empty {
+    fill: $fill-rating-icons-empty;
+  }
+
+  &-filled {
+    fill: $fill-rating-icons-filled;
+    overflow: hidden;
+    transition: width 1s;
+  }
+}

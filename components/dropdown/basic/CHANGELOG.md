@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.25.0"></a>
+# 1.25.0 (2018-05-30)
+
+
+### Features
+
+* enable default target prop, add to Link render ([79f99ee](https://github.com/SUI-Components/sui-components/commit/79f99ee))
+
+
+
+<a name="1.24.0"></a>
+# 1.24.0 (2018-05-23)
+
+
+### Bug Fixes
+
+* fix sass variables ([b5d99c8](https://github.com/SUI-Components/sui-components/commit/b5d99c8))
+* removed package-lock.json ([c1ccac6](https://github.com/SUI-Components/sui-components/commit/c1ccac6))
+
+
+
+<a name="1.23.0"></a>
+# 1.23.0 (2017-11-21)
+
+
+### Features
+
+* add color variable ([d2f0ad2](https://github.com/SUI-Components/sui-components/commit/d2f0ad2))
+* test ([aaf158c](https://github.com/SUI-Components/sui-components/commit/aaf158c))
+
+
+
 <a name="1.22.0"></a>
 # 1.22.0 (2017-11-06)
 

@@ -1,0 +1,27 @@
+const descriptionElement = <p>Spicy jalapeno bacon ipsum dolor amet pig short ribs pork chop, pork belly sausage rump meatball brisket shoulder. Drumstick jowl filet mignon, turducken rump cupim pork loin frankfurter tri-tip meatball porchetta cow kevin. Leberkas drumstick jowl ground round short ribs pork. Meatloaf shank meatball pork belly, corned beef frankfurter spare ribs tenderloin flank short ribs porchetta pork chop ground round burgdoggen. Tri-tip salami meatloaf, beef ribs buffalo cupim sirloin chicken tenderloin doner andouille picanha bresaola ham. Strip steak bresaola pork chop, short loin shank shankle ham hock ribeye turducken spare ribs chicken bacon landjaeger.</p>
+const description = 'Description'
+
+const extras = 'Extras'
+const extrasElement = <ul><li>air conditioning</li><li>lifter</li><li>terace</li><li>pool</li><li>parking</li><li>solar powered</li><li>kitchen</li><li>toilett</li><li>garden</li><li>appliances</li></ul>
+const extrasElementNoTitle = <p><strong>No title at all</strong> - Spicy jalapeno bacon ipsum dolor amet pig short ribs pork chop, pork belly sausage rump meatball brisket shoulder. Drumstick jowl filet mignon, turducken rump cupim pork loin frankfurter tri-tip meatball porchetta cow kevin. Leberkas drumstick jowl ground round short ribs pork. Meatloaf shank meatball pork belly, corned beef frankfurter spare ribs tenderloin flank short ribs porchetta pork chop ground round burgdoggen. Tri-tip salami meatloaf, beef ribs buffalo cupim sirloin chicken tenderloin doner andouille picanha bresaola ham. Strip steak bresaola pork chop, short loin shank shankle ham hock ribeye turducken spare ribs chicken bacon landjaeger.</p>
+const extrasElementEmptyTitle = <p><strong>A container with empty Title Value</strong> - Spicy jalapeno bacon ipsum dolor amet pig short ribs pork chop, pork belly sausage rump meatball brisket shoulder. Drumstick jowl filet mignon, turducken rump cupim pork loin frankfurter tri-tip meatball porchetta cow kevin. Leberkas drumstick jowl ground round short ribs pork. Meatloaf shank meatball pork belly, corned beef frankfurter spare ribs tenderloin flank short ribs porchetta pork chop ground round burgdoggen. Tri-tip salami meatloaf, beef ribs buffalo cupim sirloin chicken tenderloin doner andouille picanha bresaola ham. Strip steak bresaola pork chop, short loin shank shankle ham hock ribeye turducken spare ribs chicken bacon landjaeger.</p>
+
+return (
+  <div>
+    <SectionInfo title={description}>
+      {descriptionElement}
+    </SectionInfo>
+
+    <SectionInfo title={extras}>
+      {extrasElement}
+    </SectionInfo>
+
+    <SectionInfo title=''>
+      {extrasElementEmptyTitle}
+    </SectionInfo>
+
+    <SectionInfo>
+      {extrasElementNoTitle}
+    </SectionInfo>
+  </div>
+)

@@ -20,8 +20,8 @@ const TYPES = {
  * Cuts off exceeded char limit
  * @param  {string} label
  * @return {string}
-*/
-const truncateText = function (label) {
+ */
+const truncateText = function(label) {
   return label.length < MAX_LABEL_LENGTH
     ? label
     : label.substr(0, MAX_LABEL_LENGTH)
@@ -34,14 +34,14 @@ const truncateText = function (label) {
  * @param  {string} options.type
  * @return {string}
  */
-const getClassNames = function ({className, size, transparent, type}) {
+const getClassNames = function({className, size, transparent, type}) {
   const transparentClass = (transparent && `--${TRANSPARENT}`) || ''
 
   return cx(
-   'sui-AtomBadge',
-   `sui-AtomBadge-${size}`,
-   `sui-AtomBadge-${type}${transparentClass}`,
-   className
+    'sui-AtomBadge',
+    `sui-AtomBadge-${size}`,
+    `sui-AtomBadge-${type}${transparentClass}`,
+    className
   )
 }
 
@@ -51,24 +51,21 @@ const getClassNames = function ({className, size, transparent, type}) {
  * @param  {string} options.size
  * @param  {boolean} options.transparent
  * @return {boolean}
-*/
-const shouldRenderIcon = function ({icon, size, transparent}) {
+ */
+const shouldRenderIcon = function({icon, size, transparent}) {
   return icon && (size !== SIZES.SMALL || transparent)
 }
 
-const AtomBadge = function (props) {
+const AtomBadge = function(props) {
   const label = truncateText(props.label)
   const classNames = getClassNames({...props})
 
   return (
     <div className={classNames}>
-      {
-        shouldRenderIcon(props) &&
-          <span className='sui-AtomBadge-icon'>
-            { props.icon }
-          </span>
-      }
-      <span className='sui-AtomBadge-text' title={label}>
+      {shouldRenderIcon(props) && (
+        <span className="sui-AtomBadge-icon">{props.icon}</span>
+      )}
+      <span className="sui-AtomBadge-text" title={label}>
         {label}
       </span>
     </div>
@@ -104,7 +101,4 @@ AtomBadge.defaultProps = {
 }
 
 export default AtomBadge
-export {
-  TYPES as atomBadgeTypes,
-  SIZES as atomBadgeSizes
-}
+export {TYPES as atomBadgeTypes, SIZES as atomBadgeSizes}

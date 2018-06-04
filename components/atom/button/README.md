@@ -27,7 +27,7 @@ return (<div>
 
 ### Flexible props
 
-All props available from regular buttons an be used.
+All props available from regular buttons can be used.
 
 ```js
 import Button from '@schibstedspain/sui-atom-button'
@@ -46,5 +46,22 @@ return (<div>
 
 ```
 
+### Rendering a link
+When `link` property is passed, the component will render an html link.
+
+```js
+import Button from '@schibstedspain/sui-atom-button'
+
+return (
+  <Button link href='http://www.schibsted.com/' target='_blank'>Link</Button>
+)
+
+```
+
+output:
+
+```html
+<a class="sui-AtomButton sui-AtomButton--link" href="http://www.schibsted.com/" target='_blank'>Link</a>
+```
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/button).**

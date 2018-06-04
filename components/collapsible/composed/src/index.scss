@@ -1,0 +1,39 @@
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/index';
+
+.sui-CollapsibleComposed {
+  background-color: $c-white;
+
+  &-label {
+    border-bottom: dotted 1px $c-black;
+    font-size: $fz-l;
+    font-weight: $fw-bold;
+    width: 100%;
+  }
+
+  &-content {
+    padding-left: $p-m;
+  }
+
+  &-item {
+    display: block;
+    font-size: $fz-s;
+
+    &--inline {
+      display: inline;
+      margin-right: $m-s;
+    }
+  }
+
+  &-toggler {
+    background: $c-primary-light;
+    border-radius: $bdrs-m * 2;
+    border: solid 1px $c-primary;
+    box-shadow: inset 0 1px 0 $c-white, 0 1px 1px $c-black;
+    color: $c-white;
+    padding: 0 $p-s;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 $c-black;
+    width: 19px;
+  }
+}

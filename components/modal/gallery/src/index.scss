@@ -1,0 +1,73 @@
+// sass-lint:disable no-important
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/sui-modal-basic/lib/index';
+@import '~@schibstedspain/sui-image-slider/lib/index';
+
+$c-modal-gallery-photos-icon: $c-gray-dark !default;
+$c-modal-gallery-photos-counter-text: $c-gray-dark !default;
+$fz-modal-gallery-photos-counter-text: $fz-m !default;
+$lh-modal-gallery-photos-counter-text: $lh-l !default;
+$pt-modal-gallery-keep-aspect-ratio-16-9: (9 / 16) * 100% !default;
+$pr-modal-gallery-header: $p-m * 1.5 !default;
+$mt-modal-gallery-header-height-mobile: -($h-modal-basic-icon + ($m-l * 2)) !default;
+
+.sui-ModalGallery {
+  &-header {
+    padding: $p-l $pr-modal-gallery-header $p-l $p-m;
+  }
+
+  &-imageCounter {
+    display: flex;
+  }
+
+  &-iconImages {
+    @include sui-icon--large;
+    fill: $c-modal-gallery-photos-icon !important;
+    margin-right: $m-m;
+  }
+
+  &-counterText {
+    align-self: center;
+    color: $c-modal-gallery-photos-counter-text;
+    font-size: $fz-modal-gallery-photos-counter-text;
+    font-weight: $fw-regular;
+    line-height: $lh-modal-gallery-photos-counter-text;
+  }
+
+  &-content {
+    padding-top: $pt-modal-gallery-keep-aspect-ratio-16-9;
+    position: relative;
+    width: 100%;
+  }
+
+  &-slider {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .sui-ModalBasic {
+    @include media-breakpoint-down (s) {
+      &-dialog--full {
+        display: flex;
+        justify-content: center;
+      }
+
+      &-content {
+        flex-grow: 0;
+      }
+    }
+
+    @include media-breakpoint-down (xs) {
+      &-header {
+        margin-top: $mt-modal-gallery-header-height-mobile;
+      }
+    }
+
+    &-close {
+      padding-right: $p-l;
+    }
+  }
+}

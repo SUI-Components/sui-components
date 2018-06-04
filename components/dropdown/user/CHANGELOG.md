@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.18.0"></a>
+# 1.18.0 (2018-03-01)
+
+
+### Features
+
+* accesibility improve to img and change key antipattern for child ([0ce1afd](https://github.com/SUI-Components/sui-components/commit/0ce1afd))
+* remove comma ([b48a19a](https://github.com/SUI-Components/sui-components/commit/b48a19a))
+
+
+
+<a name="1.17.0"></a>
+# 1.17.0 (2018-01-16)
+
+
+### Features
+
+* fix notifications position ([b9bd808](https://github.com/SUI-Components/sui-components/commit/b9bd808))
+
+
+
+<a name="1.16.0"></a>
+# 1.16.0 (2018-01-16)
+
+
+### Features
+
+* remove useless declaration ([60d69db](https://github.com/SUI-Components/sui-components/commit/60d69db))
+
+
+
+<a name="1.15.0"></a>
+# 1.15.0 (2017-11-21)
+
+
+### Features
+
+* add color variable ([4a35866](https://github.com/SUI-Components/sui-components/commit/4a35866))
+* update component ([690e820](https://github.com/SUI-Components/sui-components/commit/690e820))
+
+
+
 <a name="1.14.0"></a>
 # 1.14.0 (2017-11-06)
 
@@ -105,6 +147,16 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * adjust link colors ([30545b8](https://github.com/SUI-Components/sui-components/commit/30545b8))
+
+
+
+<a name="1.4.0"></a>
+# 1.4.0 (2017-01-26)
+
+
+### Bug Fixes
+
+* adjusting breakpoints ([954cf97](https://github.com/SUI-Components/sui-components/commit/954cf97))
 
 
 

@@ -1,0 +1,77 @@
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/sui-rating-icons/lib/index';
+@import 'settings';
+
+
+.sui-CardProfile {
+  background-color: $bgc-card-profile;
+  display: flex;
+  flex-direction: column;
+
+  &-avatar {
+    &Halo {
+      border: $bd-card-profile-avatar-halo;
+      border-radius: 50%;
+      height: ($h-card-profile-avatar + $p-card-profile-avatar);
+      margin: $m-l;
+      width: ($w-card-profile-avatar + $p-card-profile-avatar);
+      box-sizing: border-box;
+    }
+
+    &Radius {
+      border-radius: 50%;
+      display: block;
+      height: $w-card-profile-avatar;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: $m-s;
+      overflow: hidden;
+      width: $w-card-profile-avatar;
+
+      .sui-CardProfile-avatarImage {
+        width: $w-card-profile-avatar;
+      }
+    }
+  }
+
+  &-topContainer {
+    display: flex;
+    flex-grow: .4;
+
+
+
+    &RatingInfoBox {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 2;
+      justify-content: center;
+      margin-top: -$m-l;
+
+      &Name {
+        color: $c-card-profile-info;
+        font-size: $fz-l;
+        line-height: 1;
+        text-align: left;
+      }
+    }
+  }
+
+  &-bottomContainer {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+
+    .sui-CardProfile-counter {
+      color: $c-card-profile-info;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      text-decoration: none;
+
+      &Number {
+        font-size: $fz-xxl;
+      }
+    }
+  }
+}

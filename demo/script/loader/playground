@@ -1,0 +1,43 @@
+/* eslint-disable react/jsx-no-undef, react/react-in-jsx-scope */
+const src = 'https://cdns.gigya.com/JS/gigya.js?apikey=3_mguHvyO40mAI8ozGJLSFiYAMicGHRYkOaz56NX5uvYlRjrI5qHdfBxw25Q-SYYz8' // This API key is a demo key, please don't use it in your site :D
+const verifier = () => window && window.gigya
+const render = () => 'Gigya is loaded! You can now interact with the sdk functions!!'
+
+return (
+  <div>
+    <p>
+      <ScriptLoader
+        src={src}
+        verifier={verifier}
+        isAsync
+        render={render}
+      />
+    </p>
+    <p>
+      <ScriptLoader
+        src={src}
+        verifier={verifier}
+        isAsync
+        render={() => 'Another resource that needs gigya'}
+      />
+    </p>
+    <p>
+      <ScriptLoader
+        src='https://code.jquery.com/jquery-3.3.1.js'
+        verifier={() => window && window.jQuery}
+        isAsync
+        render={() => 'jQuery (sadly) loaded!'}
+        detectionDelay={0}
+        timeoutRender={() => 'I\'d rather prefer to not to load jQuery :P'}
+      />
+    </p>
+    <p>
+      <ScriptLoader
+        src='https://connect.facebook.net/es_ES/sdk.js'
+        verifier={() => window && window.FB}
+        isAsync={false}
+        render={() => 'Facebook SDK loaded!'}
+      />
+    </p>
+  </div>
+)

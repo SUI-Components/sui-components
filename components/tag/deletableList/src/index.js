@@ -2,12 +2,13 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import TagChip from '@schibstedspain/sui-tag-chip'
 
-const TagDeletableList = ({tags, onDelete} = {}) =>
-  <div className='sui-TagDeletableList'>
-    {tags.map(({...props}, index) =>
+const TagDeletableList = ({tags, onDelete} = {}) => (
+  <div className="sui-TagDeletableList">
+    {tags.map(({...props}, index) => (
       <TagChip key={index} onRequestDelete={onDelete(index)} {...props} />
-    )}
+    ))}
   </div>
+)
 
 TagDeletableList.displayName = 'TagDeletableList'
 
@@ -16,12 +17,11 @@ TagDeletableList.propTypes = {
   /**
    * List of tag objects
    */
-  tags: PropTypes.arrayOf(PropTypes.shape({
-    /**
-     * tag text
-     */
-    label: PropTypes.string.isRequired
-  })).isRequired
+  tags: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired
+    })
+  ).isRequired
 }
 
 TagDeletableList.displayName = 'TagDeletableList'

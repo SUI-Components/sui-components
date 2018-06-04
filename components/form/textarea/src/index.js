@@ -2,18 +2,33 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import cx from 'classnames'
 
-const FormTextarea = ({className, cols, label, name, onChange, placeholder, rows, spellCheck, value}) => (
+const FormTextarea = ({
+  className,
+  cols,
+  label,
+  name,
+  onChange,
+  onFocus,
+  onBlur,
+  placeholder,
+  rows,
+  spellCheck,
+  value
+}) => (
   <div className={cx('sui-FormTextarea', className)}>
-    {label && <label className='sui-FormTextarea-label'>{label}</label>}
+    {label && <label className="sui-FormTextarea-label">{label}</label>}
     <textarea
-      className='sui-FormTextarea-element'
+      className="sui-FormTextarea-element"
       cols={cols}
       name={name}
       onChange={onChange}
+      onFocus={onFocus}
+      onBlur={onBlur}
       placeholder={placeholder}
       rows={rows}
       spellCheck={spellCheck}
-      value={value} />
+      value={value}
+    />
   </div>
 )
 
@@ -40,6 +55,14 @@ FormTextarea.propTypes = {
    * Custom function callback to execute when the value of the text area has changed.
    */
   onChange: PropTypes.func,
+  /**
+   * Custom function callback to execute when cursor is focused on the field.
+   */
+  onFocus: PropTypes.func,
+  /**
+   * Custom function callback to execute when the textarea element loses the focus.
+   */
+  onBlur: PropTypes.func,
   /**
    * Specifies a shot hint that describes the expected value of the text area when it is empty.
    */

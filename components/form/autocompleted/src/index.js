@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import SuggestsList from './suggests-list'
 import cx from 'classnames'
 
@@ -10,10 +10,10 @@ const ENTER = 'Enter'
 const ESCAPE = 'Escape'
 
 export default class FormAutocompleted extends Component {
-  constructor (...args) {
+  constructor(...args) {
     super(...args)
 
-    const { selectFirstByDefault, initialValue, focus } = this.props
+    const {selectFirstByDefault, initialValue, focus} = this.props
 
     this.input = null
     this.submit = null
@@ -30,26 +30,20 @@ export default class FormAutocompleted extends Component {
   }
 
   _moveDown = () => {
-    const { active } = this.state
+    const {active} = this.state
     const lastPosition = this.props.suggests.length - 1
-    return active === lastPosition
-      ? active
-      : active + DELTA_MOVE
+    return active === lastPosition ? active : active + DELTA_MOVE
   }
 
   _moveUp = () => {
-    const { active } = this.state
-    return active === this.defaultPosition
-      ? active
-      : active - DELTA_MOVE
+    const {active} = this.state
+    return active === this.defaultPosition ? active : active - DELTA_MOVE
   }
 
-  _upDownHandler = (event) => {
+  _upDownHandler = event => {
     // Never go to negative values or value higher than the list length
-    const active = event.key === DOWN
-      ? this._moveDown()
-      : this._moveUp()
-    this.setState({ active })
+    const active = event.key === DOWN ? this._moveDown() : this._moveUp()
+    this.setState({active})
     event.stopPropagation()
     event.preventDefault()
   }
@@ -59,7 +53,7 @@ export default class FormAutocompleted extends Component {
 
     if (suggest) {
       const value = suggest.literal || suggest.content
-      this.setState({ value })
+      this.setState({value})
       this._handleSelect(suggest)
     } else {
       this._handleSubmit()
@@ -83,7 +77,7 @@ export default class FormAutocompleted extends Component {
     })
   }
 
-  _handleChange = (event) => {
+  _handleChange = event => {
     const value = event.target.value
     this.setState({
       value,
@@ -105,14 +99,14 @@ export default class FormAutocompleted extends Component {
     this.focusInput()
   }
 
-  _handleSelect = (suggest) => {
+  _handleSelect = suggest => {
     this.setState({
       value: suggest.literal || suggest.content
     })
     this.props.handleSelect(suggest)
   }
 
-  _handleKeyDown = (event) => {
+  _handleKeyDown = event => {
     this.setState({
       showSuggestsList: true
     })
@@ -131,94 +125,94 @@ export default class FormAutocompleted extends Component {
     }
   }
 
-  _renderSubmitButton = ({ text, icon: Icon }) => (
+  _renderSubmitButton = ({text, icon: Icon}) => (
     <button
-      className='sui-FormAutocompleted-submit'
+      className="sui-FormAutocompleted-submit"
       onClick={this._handleSubmit}
-      ref={node => { this.submit = node }}
+      ref={node => {
+        this.submit = node
+      }}
     >
-      {Icon && <Icon svgClass='sui-FormAutocompleted-submitIcon' />}
+      {Icon && <Icon svgClass="sui-FormAutocompleted-submitIcon" />}
       {text}
     </button>
   )
 
-  _renderSuggestsList () {
-    const { suggests } = this.props
-    const { active } = this.state
+  _renderSuggestsList() {
+    const {suggests} = this.props
+    const {active} = this.state
 
-    return suggests && suggests.length > 0
-      ? (
-        <SuggestsList
-          {...this.props}
-          handleSelect={this._handleSelect}
-          active={active}
-          ref={node => { this.suggestList = node }}
-          />
-        )
-      : null
+    return suggests && suggests.length > 0 ? (
+      <SuggestsList
+        {...this.props}
+        handleSelect={this._handleSelect}
+        active={active}
+        ref={node => {
+          this.suggestList = node
+        }}
+      />
+    ) : null
   }
-  _handleOutsideClick = (event) =>
+  _handleOutsideClick = event =>
     !this.excludeFromOutsideClick.includes(event.target) &&
     this.setState({
       showSuggestsList: false
     })
 
-  componentDidMount () {
+  componentDidMount() {
     if (this.state.focus) {
       this.focusInput()
     }
-    this.excludeFromOutsideClick = [
-      this.input,
-      this.submit,
-      this.suggestList
-    ]
+    this.excludeFromOutsideClick = [this.input, this.submit, this.suggestList]
     this.props.closeOnOutsideClick === true &&
-    window.addEventListener('click', this._handleOutsideClick, false)
+      window.addEventListener('click', this._handleOutsideClick, false)
   }
 
-  componentWillReceiveProps ({ focus }) {
+  componentWillReceiveProps({focus}) {
     if (this.state.focus !== focus) {
-      this.setState({ focus })
+      this.setState({focus})
     }
   }
 
-  componentWillUpdate (nextProps, { focus }) {
+  componentWillUpdate(nextProps, {focus}) {
     if (focus) {
       this.focusInput()
     }
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     window.removeEventListener('click', this._handleOutsideClick, false)
   }
 
-  render () {
-    const { placeholder, handleFocus, handleBlur, submit, collapsed } = this.props
-    const { value, showSuggestsList } = this.state
+  render() {
+    const {placeholder, handleFocus, handleBlur, submit, collapsed} = this.props
+    const {value, showSuggestsList} = this.state
     const formAutocompletedClassName = cx('sui-FormAutocompleted', {
       'is-collapsed': submit && collapsed
     })
     return (
-      <div className='sui-FormAutocompleted-wrap'>
+      <div className="sui-FormAutocompleted-wrap">
         <div className={formAutocompletedClassName}>
-          <div className='sui-FormAutocompleted-inputWrap'>
+          <div className="sui-FormAutocompleted-inputWrap">
             <input
-              ref={node => { this.input = node }}
+              ref={node => {
+                this.input = node
+              }}
               value={value}
               placeholder={placeholder}
-              className='sui-FormAutocompleted-input'
-              type='text'
+              className="sui-FormAutocompleted-input"
+              type="text"
               onChange={this._handleChange}
               onKeyDown={this._handleKeyDown}
               onFocus={handleFocus}
               onBlur={handleBlur}
             />
-            {value &&
+            {value && (
               <span
-                className='sui-FormAutocompleted-clear'
+                className="sui-FormAutocompleted-clear"
                 onClick={this._handleClear}
               />
-            }
+            )}
           </div>
           {submit && this._renderSubmitButton(submit)}
         </div>
@@ -229,7 +223,6 @@ export default class FormAutocompleted extends Component {
 }
 
 FormAutocompleted.propTypes = {
-
   /**
    * This function is called everytime user exits the input
    */

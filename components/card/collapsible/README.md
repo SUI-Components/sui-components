@@ -2,7 +2,7 @@
 
 > Description
 
-<!-- ![](./assets/preview.png) -->
+![](./assets/screenshot.png)
 
 Displays an expandable/collapsible card, hiding it's content that must be passed to the card's component as its children node until the "expand" action is triggered clicking the corresponding button.
 

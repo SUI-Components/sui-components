@@ -1,0 +1,56 @@
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/index';
+
+.sui-ImagePicker {
+
+  &-headImage {
+    align-items: center;
+    background-color: $c-gray-light;
+    border: solid 1px $c-black;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    width: 100%;
+
+    &:after {
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &-actions {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+
+  &-action {
+    background-color: $c-gray;
+    margin: 0 $m-s $m-s 0;
+    padding: $p-s;
+  }
+
+  &-thumbList {
+    align-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding-left: 0;
+  }
+
+  &-thumbItem {
+    display: inline;
+    list-style: none;
+    margin: 0 4px 4px 0;
+
+    &--selected {
+      border: dotted 1px $c-highlighted;
+    }
+  }
+}

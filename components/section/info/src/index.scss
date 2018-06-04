@@ -1,0 +1,44 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+@import './settings';
+
+.sui-SectionInfo {
+  @include media-breakpoint-down(m) {
+    flex-direction: column;
+    max-width: initial;
+  }
+  
+  border-bottom: $bdb-section-info;
+  display: flex;
+  flex-basis: $fb-section-info;
+  flex-direction: row;
+  max-width: $mw-section-info;
+  padding: $p-xxl 0;
+
+  &-title {
+    @include media-breakpoint-down(m) {
+      flex-basis: auto;
+      padding: $p-l 0;
+      text-align: center;
+    }
+    
+    flex-basis: $fb-section-info-title;
+    flex-grow: $fg-section-info-title;
+    flex-shrink: $fs-section-info-title;
+    font-size: $fz-section-info-title;
+    margin: $m-section-info-title;
+    padding: $p-section-info-title;
+  }
+
+  &-content {
+    @include media-breakpoint-down(m) {
+      flex-basis: auto;
+    }
+
+    flex-basis: $fb-section-info-content;
+    flex-grow: $fg-section-info-content;
+    flex-shrink: $fs-section-info-content;
+    font-size: $fz-section-info-content;
+    margin: $m-section-info-content;
+    padding: $p-section-info-content;
+  }
+}

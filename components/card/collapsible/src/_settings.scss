@@ -1,0 +1,18 @@
+// sass-lint:disable no-important
+$bgc-card-collapsible: $c-white !default;
+$bxsh-card-collapsible-expanded: 0 7px 22px 0 rgba(0, 0, 0, .3) !default;
+$h-card-collapsible-header-image: 100px;
+
+$c-card-collapsible-info-item: $c-gray-dark !default;
+
+$fz-card-collapsible-info-item-collapsed: $fz-xl !default;
+$lh-card-collapsible-info-item-collapsed: $lh-xl !default;
+
+$fz-card-collapsible-info-item-expanded: $fz-s !default;
+$lh-card-collapsible-info-item-expanded: $lh-s !default;
+
+$c-card-collapsible-close-icon: $c-gray-dark !default;
+$sz-card-collapsible-close-icon: $sz-icon-s !important !default;
+
+$sz-card-collapsible-info-item-icon-expanded: $sz-icon-s * .75 !default;
+$sz-card-collapsible-info-item-icon-collapsed: $sz-icon-m !default;

@@ -1,7 +1,7 @@
 
 ### CardSubscription
 
-SUI `CArdSubscription` component is a card with a title, an image, an input and a button.
+SUI `CardSubscription` component is a card with a title, an image, an input and a button.
 
 By submitting the form, a handler is triggered via prop and receives the input value.
 In case of `responseError`, the component will render the `responseContent` next to the form and will flag the input with class `has-error`. Otherwise `responseContent` will replace the component.

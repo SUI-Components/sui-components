@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types'
 
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import cx from 'classnames'
 
 class DropdownUser extends Component {
@@ -13,9 +13,9 @@ class DropdownUser extends Component {
   _doNothing = () => {}
 
   _toggleMenu = () => {
-    const { expanded } = this.state
+    const {expanded} = this.state
 
-    this.setState({ expanded: !expanded })
+    this.setState({expanded: !expanded})
   }
 
   _onMouseOver = () => {
@@ -32,24 +32,35 @@ class DropdownUser extends Component {
     })
   }
 
-  _renderLink = ({ text, url, icon: Icon, notifications }, index) => {
+  _renderLink = ({text, url, icon: Icon, notifications}, index) => {
     const Link = this.props.linkFactory
 
     return (
-      <li key={index} className='sui-DropdownUserMenu-listItem'>
-        <Link href={url} className='sui-DropdownUserMenu-listLink' title={text}>
-          <Icon svgClass='sui-DropdownUserMenu-listIcon' />
-          <span className='sui-DropdownUserMenu-listText'>{text}</span>
-          {!!notifications && <span className='sui-DropdownUserMenu-listNotification'>{notifications}</span>}
+      <li key={`${text}-${index}`} className="sui-DropdownUserMenu-listItem">
+        <Link href={url} className="sui-DropdownUserMenu-listLink" title={text}>
+          <Icon svgClass="sui-DropdownUserMenu-listIcon" />
+          <span className="sui-DropdownUserMenu-listText">{text}</span>
+          {!!notifications && (
+            <span className="sui-DropdownUserMenu-listNotification">
+              {notifications}
+            </span>
+          )}
         </Link>
       </li>
     )
   }
 
-  render () {
-    const { expanded, collapseByTouch } = this.state
-    const { user, menu, expandOnMouseOver, hasNotifications = this.props.menu.some(({ notifications }) => Boolean(notifications)) } = this.props
-    const { name, avatar } = user
+  render() {
+    const {expanded, collapseByTouch} = this.state
+    const {
+      user,
+      menu,
+      expandOnMouseOver,
+      hasNotifications = this.props.menu.some(({notifications}) =>
+        Boolean(notifications)
+      )
+    } = this.props
+    const {name, avatar} = user
     const wrapperClassName = cx('sui-DropdownUser', {
       'is-expanded': expanded,
       'has-notifications': hasNotifications
@@ -61,20 +72,25 @@ class DropdownUser extends Component {
         onMouseOut={expandOnMouseOver ? this._onMouseOut : this._doNothing}
       >
         <div
-          className='sui-DropdownUser-button'
+          className="sui-DropdownUser-button"
           onClick={expandOnMouseOver ? this._doNothing : this._toggleMenu}
-          onTouchStart={expandOnMouseOver && collapseByTouch
-            ? this._toggleMenu
-            : this._doNothing
+          onTouchStart={
+            expandOnMouseOver && collapseByTouch
+              ? this._toggleMenu
+              : this._doNothing
           }
         >
-          <div className='sui-DropdownUser-buttonAvatarWrap'>
-            <img className='sui-DropdownUser-buttonAvatar' src={avatar} />
+          <div className="sui-DropdownUser-buttonAvatarWrap">
+            <img
+              className="sui-DropdownUser-buttonAvatar"
+              src={avatar}
+              alt={`${name}-avatar`}
+            />
           </div>
-          <span className='sui-DropdownUser-buttonText'>{name}</span>
+          <span className="sui-DropdownUser-buttonText">{name}</span>
         </div>
-        <div className='sui-DropdownUserMenu-wrap'>
-          <div className='sui-DropdownUserMenu'>
+        <div className="sui-DropdownUserMenu-wrap">
+          <div className="sui-DropdownUserMenu">
             <ul className={'sui-DropdownUserMenu-list'}>
               {menu.map(this._renderLink)}
             </ul>
@@ -104,25 +120,26 @@ DropdownUser.propTypes = {
   /**
    * Dropdown user menu.
    */
-  menu: PropTypes.arrayOf(PropTypes.shape({
-    /**
-     * Menu links text.
-     */
-    text: PropTypes.string.isRequired,
-    /**
-     * Menu links url.
-     */
-    url: PropTypes.string.isRequired,
-    /**
-     * Menu links icon.
-     */
-    icon: PropTypes.func.isRequired,
-     /**
-     * Menu links notification.
-     */
-    notifications: PropTypes.number
-
-  })).isRequired,
+  menu: PropTypes.arrayOf(
+    PropTypes.shape({
+      /**
+       * Menu links text.
+       */
+      text: PropTypes.string.isRequired,
+      /**
+       * Menu links url.
+       */
+      url: PropTypes.string.isRequired,
+      /**
+       * Menu links icon.
+       */
+      icon: PropTypes.func.isRequired,
+      /**
+       * Menu links notification.
+       */
+      notifications: PropTypes.number
+    })
+  ).isRequired,
   /**
    * Flag to expand on mouse over event.
    */
@@ -138,10 +155,12 @@ DropdownUser.propTypes = {
 }
 
 DropdownUser.defaultProps = {
-  notifications: 0,
   expandOnMouseOver: false,
-  linkFactory: ({ href, className, children, title }) =>
-    <a href={href} className={className} title={title}>{children}</a>
+  linkFactory: ({href, className, children, title}) => (
+    <a href={href} className={className} title={title}>
+      {children}
+    </a>
+  )
 }
 
 export default DropdownUser

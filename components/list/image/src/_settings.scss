@@ -1,0 +1,23 @@
+
+// List Image item
+$bgc-list-image-item: $c-gray-lightest !default;
+
+// List image item size and gutter for small/medium screens (mobile, tablet)
+$gutter-list-image: $m-l !default;
+$sz-list-image-item: 50% !default;
+$mb-list-image-item: $gutter-list-image !default;
+$fxb-list-image-item: calc(#{$sz-list-image-item} - #{$mb-list-image-item / 2}) !default;
+
+// List image item size and gutter for large screens (desktop)
+$gutter-list-image-desktop: $m-l !default;
+$mb-list-image-item-desktop: $gutter-list-image-desktop !default;
+$ml-list-image-item-desktop: $gutter-list-image-desktop !default;
+$fxb-list-image-item-desktop: 196px !default;
+
+// More items box gradient and label
+$c-list-image-more-items-box-label: $c-white !default;
+$fz-list-image-more-items-box-label: $fz-s !default;
+$fw-list-image-more-items-box-label: $fw-regular !default;
+$lh-list-image-more-items-box-label: $lh-s !default;
+$bgc-list-image-more-items-box-gradient: $c-black !default;
+$op-list-image-more-items-box-gradient: .65 !default;

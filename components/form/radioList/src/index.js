@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import cx from 'classnames'
-export default function FormRadioList ({
+export default function FormRadioList({
   name,
   className,
   classNameItem,
@@ -9,8 +9,8 @@ export default function FormRadioList ({
   handleChange,
   selectedValue
 }) {
-  function _renderOptions () {
-    return options.map(({ value, label }, index) => {
+  function _renderOptions() {
+    return options.map(({value, label}, index) => {
       const checked = selectedValue === value
       const labelClassName = cx(`sui-FormRadioList-label`, {
         'is-active': checked,
@@ -20,27 +20,20 @@ export default function FormRadioList ({
       return (
         <label key={index} className={labelClassName}>
           <input
-            type='radio'
+            type="radio"
             value={value}
             checked={checked}
             name={name}
             onChange={handleChange}
-            className='sui-FormRadioList-input'
+            className="sui-FormRadioList-input"
           />
           {label}
         </label>
       )
     })
   }
-  const componentClassName = cx(
-    `sui-FormRadioList`,
-    {[className]: !!className}
-  )
-  return (
-    <div className={componentClassName}>
-      {_renderOptions()}
-    </div>
-  )
+  const componentClassName = cx(`sui-FormRadioList`, {[className]: !!className})
+  return <div className={componentClassName}>{_renderOptions()}</div>
 }
 
 FormRadioList.displayName = 'FormRadioList'
@@ -56,8 +49,8 @@ FormRadioList.propTypes = {
         PropTypes.string.isRequired
       ]),
       label: PropTypes.string.isRequired
-    }
-  )),
+    })
+  ),
   handleChange: PropTypes.func.isRequired,
   selectedValue: PropTypes.oneOfType([
     PropTypes.number.isRequired,

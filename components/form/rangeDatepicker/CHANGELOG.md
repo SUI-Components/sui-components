@@ -2,6 +2,66 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.16.0"></a>
+# 1.16.0 (2018-03-07)
+
+
+
+<a name="1.15.0"></a>
+# 1.15.0 (2018-03-06)
+
+
+### Bug Fixes
+
+* prepare component for sui-theme change ([dde04ce](https://github.com/SUI-Components/sui-components/commit/dde04ce))
+
+
+### Features
+
+* update version momentjs ([33634c0](https://github.com/SUI-Components/sui-components/commit/33634c0))
+
+
+
+<a name="1.14.0"></a>
+# 1.14.0 (2018-01-11)
+
+
+### Features
+
+* add new prop for customizable icon ([cbfb9f5](https://github.com/SUI-Components/sui-components/commit/cbfb9f5))
+
+
+
+<a name="1.13.0"></a>
+# 1.13.0 (2018-01-09)
+
+
+### Features
+
+* add new variables for css: font-size and padding ([8414f22](https://github.com/SUI-Components/sui-components/commit/8414f22))
+
+
+
+<a name="1.12.0"></a>
+# 1.12.0 (2017-11-30)
+
+
+### Features
+
+* replace old variables ([dbb291f](https://github.com/SUI-Components/sui-components/commit/dbb291f))
+
+
+
+<a name="1.11.0"></a>
+# 1.11.0 (2017-11-17)
+
+
+### Bug Fixes
+
+* update version moment in rangedatepicker ([287e352](https://github.com/SUI-Components/sui-components/commit/287e352))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2017-11-15)
 
@@ -75,21 +135,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * update path external css of the datepicker ([baa123d](https://github.com/SUI-Components/sui-components/commit/baa123d))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-09-13)
-
-
-### Bug Fixes
-
-* update handleChange event and update scss variables ([7020a3a](https://github.com/SUI-Components/sui-components/commit/7020a3a))
-
-
-### Features
-
-* new component Range datepicker ([412d8f2](https://github.com/SUI-Components/sui-components/commit/412d8f2))
 
 
 

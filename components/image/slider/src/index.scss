@@ -2,3 +2,60 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~react-slidy/lib/index';
 
+$m-image-slider-counter: $m-m !default;
+$c-image-slider-icon: $c-white !default;
+$sz-image-slider-icon: $sz-icon-s !default;
+$miw-image-slider-counter-text: 34px !default;
+$h-image-slider: 24px !default;
+$fz-image-slider: 12px !default;
+$bgc-image-slider: rgba($c-black, .75) !default;
+$c-image-slider: $c-white !default;
+
+.sui-ImageSlider {
+  position: relative;
+
+  &-image {
+    max-width: 100%;
+  }
+
+  &-counter {
+    align-items: center;
+    background-color: $bgc-image-slider;
+    border-radius: $bdrs-m;
+    color: $c-image-slider;
+    display: flex;
+    font-size: $fz-image-slider;
+    height: $h-image-slider;
+    padding-left: $p-m;
+    padding-right: $p-m;
+    position: absolute;
+
+    &--bottomRight {
+      bottom: $m-image-slider-counter;
+      right: $m-image-slider-counter;
+    }
+
+    &--bottomLeft {
+      bottom: $m-image-slider-counter;
+      left: $m-image-slider-counter;
+    }
+
+    &--bottomCenter {
+      bottom: $m-image-slider-counter;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    &Icon {
+      fill: $c-image-slider-icon !important;
+      height: $sz-image-slider-icon;
+      margin-right: $m-s;
+      width: $sz-image-slider-icon;
+    }
+
+    &Text {
+      min-width: $miw-image-slider-counter-text;
+      text-align: right;
+    }
+  }
+}

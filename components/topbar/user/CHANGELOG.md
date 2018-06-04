@@ -2,6 +2,58 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.25.0"></a>
+# 1.25.0 (2018-05-30)
+
+
+### Features
+
+* add default target prop linkfactory ([21b2a70](https://github.com/SUI-Components/sui-components/commit/21b2a70))
+
+
+
+<a name="1.24.0"></a>
+# 1.24.0 (2018-04-10)
+
+
+### Features
+
+* getting if user nav should be displayed ([410b061](https://github.com/SUI-Components/sui-components/commit/410b061))
+
+
+
+<a name="1.23.0"></a>
+# 1.23.0 (2017-12-05)
+
+
+### Features
+
+* delete unused var ([ce25071](https://github.com/SUI-Components/sui-components/commit/ce25071))
+* using atom button in topbar ([121cfc5](https://github.com/SUI-Components/sui-components/commit/121cfc5))
+
+
+
+<a name="1.22.0"></a>
+# 1.22.0 (2017-11-23)
+
+
+### Features
+
+* adjust logo margin ([ad5d87f](https://github.com/SUI-Components/sui-components/commit/ad5d87f))
+
+
+
+<a name="1.21.0"></a>
+# 1.21.0 (2017-11-23)
+
+
+### Features
+
+* little fix for different sizes ([9b7a55c](https://github.com/SUI-Components/sui-components/commit/9b7a55c))
+* update variables and add new ones for logo in topbar user ([156eb07](https://github.com/SUI-Components/sui-components/commit/156eb07))
+
+
+
 <a name="1.20.0"></a>
 # 1.20.0 (2017-11-06)
 

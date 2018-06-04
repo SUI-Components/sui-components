@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
@@ -9,7 +9,7 @@ import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
 const locale = 'es-es'
 
 class FormRangeDatepicker extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -31,28 +31,29 @@ class FormRangeDatepicker extends Component {
     }
   }
 
-  _handleChangeStart (date) {
+  _handleChangeStart(date) {
     this.setState({
       startDate: date
     })
     this._handleChange('startDate')(date)
   }
 
-  _handleChangeEnd (date) {
+  _handleChangeEnd(date) {
     this.setState({
       endDate: date
     })
     this._handleChange('endDate')(date)
   }
 
-  _handleClickButton () {
+  _handleClickButton() {
     this.props.handleClickButton([this.state.startDate, this.state.endDate])
   }
 
-  render () {
+  render() {
+    const InputIcon = this.props.icon
     return (
-      <div className='sui-FormRangeDatepicker'>
-        <div className='sui-FormRangeDatepicker-item'>
+      <div className="sui-FormRangeDatepicker">
+        <div className="sui-FormRangeDatepicker-item">
           <DatePicker
             selected={this.state.startDate}
             selectsStart
@@ -60,14 +61,14 @@ class FormRangeDatepicker extends Component {
             endDate={this.state.endDate}
             maxDate={moment(this.props.maxDate)}
             onChange={this._handleChangeStart}
-            className='sui-FormRangeDatepicker-input'
+            className="sui-FormRangeDatepicker-input"
             locale={locale}
           />
-          <div className='sui-FormRangeDatepicker-box'>
-            <Chevronbottom svgClass='sui-FormRangeDatepicker-item-icon' />
+          <div className="sui-FormRangeDatepicker-box">
+            <InputIcon svgClass="sui-FormRangeDatepicker-item-icon" />
           </div>
         </div>
-        <div className='sui-FormRangeDatepicker-item'>
+        <div className="sui-FormRangeDatepicker-item">
           <DatePicker
             selected={this.state.endDate}
             selectsEnd
@@ -75,21 +76,21 @@ class FormRangeDatepicker extends Component {
             endDate={this.state.endDate}
             maxDate={moment(this.props.maxDate)}
             onChange={this._handleChangeEnd}
-            className='sui-FormRangeDatepicker-input'
+            className="sui-FormRangeDatepicker-input"
             locale={locale}
           />
-          <div className='sui-FormRangeDatepicker-box'>
-            <Chevronbottom svgClass='sui-FormRangeDatepicker-item-icon' />
+          <div className="sui-FormRangeDatepicker-box">
+            <InputIcon svgClass="sui-FormRangeDatepicker-item-icon" />
           </div>
         </div>
-        {!!this.props.buttonLabel &&
-          <div className='sui-FormRangeDatepicker-button'>
+        {!!this.props.buttonLabel && (
+          <div className="sui-FormRangeDatepicker-button">
             <ButtonBasic
               text={this.props.buttonLabel}
               onClick={this._handleClickButton}
             />
           </div>
-        }
+        )}
       </div>
     )
   }
@@ -122,7 +123,15 @@ FormRangeDatepicker.propTypes = {
   /**
    * Init date of the selected range
    */
-  startDate: PropTypes.instanceOf(Date)
+  startDate: PropTypes.instanceOf(Date),
+  /**
+   * Icon of select inputs
+   */
+  icon: PropTypes.func
+}
+
+FormRangeDatepicker.defaultProps = {
+  icon: Chevronbottom
 }
 
 export default FormRangeDatepicker

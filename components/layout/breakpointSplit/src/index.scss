@@ -1,0 +1,7 @@
+@import '~@schibstedspain/theme-basic/lib/index';
+
+.sui-LayoutBreakpointSplit {
+  &-currentView {
+    width: 100% !important;
+  }
+}

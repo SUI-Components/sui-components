@@ -1,0 +1,18 @@
+const input = {
+  borderColor: '#bbbbbb',
+  borderStyle: 'solid',
+  borderWidth: '1px',
+  fontSize: '16px',
+  height: '40px',
+  paddingLeft: '16px',
+  paddingRight: '16px',
+  width: '100%',
+}
+return (
+  <div>
+    <input style={input}
+      type='text'
+    />
+    <AtomHelpText text='hello help text'/>
+  </div>
+)

@@ -8,24 +8,25 @@ import MediaPlay from '@schibstedspain/sui-svgiconset/lib/Mediaplay'
 import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
 import SuiTagChip from '@schibstedspain/sui-tag-chip'
 
-const cardArticleMediaClassName = (video) => cx('sui-CardArticle-media', {
-  'sui-CardArticle-media--video': video
-})
+const cardArticleMediaClassName = video =>
+  cx('sui-CardArticle-media', {
+    'sui-CardArticle-media--video': video
+  })
 
-const CardArticleMedia = ({ src, alt = '' }) => {
-  return (
-    <img src={src} alt={alt} />
-  )
+const CardArticleMedia = ({src, alt = ''}) => {
+  return <img src={src} alt={alt} />
 }
 
-const _renderComments = ({ icon, url, count }, Link) => {
+const _renderComments = ({icon, url, count}, Link) => {
   const IconComment = icon || Commentsquare
 
   return (
-    <Link href={url} className='sui-CardArticle-comments' title={count}>
-      <IconComment svgClass='sui-CardArticle-commentsIcon' />
-      {count}
-    </Link>
+    <div className="sui-CardArticle-commentsWrap">
+      <Link href={url} className="sui-CardArticle-comments" title={count}>
+        <IconComment svgClass="sui-CardArticle-commentsIcon" />
+        {count}
+      </Link>
+    </div>
   )
 }
 
@@ -33,7 +34,7 @@ const _renderComments = ({ icon, url, count }, Link) => {
  * Article card containing a media object, title, description and some editorial
  * information (tag and comments).
  */
-export default function CardArticle ({
+export default function CardArticle({
   linkFactory: Link,
   link,
   media,
@@ -54,28 +55,35 @@ export default function CardArticle ({
   const MediaIcon = media.icon || MediaPlay
 
   return (
-    <div className='sui-CardArticle'>
-      <Link href={link} className='sui-CardArticle-link' title={title}>
+    <div className="sui-CardArticle">
+      <Link href={link} className="sui-CardArticle-link" title={title}>
         <div className={cardArticleMediaClassName(video)}>
-          {video && <MediaIcon svgClass='sui-CardArticle-mediaIcon' /> }
-          {lazyLoad
-            ? <ImageLazyLoad {...lazyLoad} {...media} />
-          : <CardArticleMedia {...media} video={video} />
-          }
+          {video && <MediaIcon svgClass="sui-CardArticle-mediaIcon" />}
+          {lazyLoad ? (
+            <ImageLazyLoad {...lazyLoad} {...media} />
+          ) : (
+            <CardArticleMedia {...media} video={video} />
+          )}
         </div>
       </Link>
       <div className={cardInfoClassName}>
-        <div className='sui-CardArticle-infoInner'>
-          <TagChip rel={tag.rel} label={tag.text} link={tag.url} linkFactory={Link} className={suiTagClassName} />
+        <div className="sui-CardArticle-infoInner">
+          {tag && (
+            <TagChip
+              rel={tag.rel}
+              label={tag.text}
+              link={tag.url}
+              linkFactory={Link}
+              className={suiTagClassName}
+            />
+          )}
           {comments && _renderComments(comments, Link)}
         </div>
       </div>
-      <Link href={link} className='sui-CardArticle-link' title={title}>
-        <div className='sui-CardArticle-content'>
-          {title &&
-            <header className='sui-CardArticle-title'>{title}</header>
-          }
-          <div className='sui-CardArticle-description'>{description}</div>
+      <Link href={link} className="sui-CardArticle-link" title={title}>
+        <div className="sui-CardArticle-content">
+          {title && <header className="sui-CardArticle-title">{title}</header>}
+          <div className="sui-CardArticle-description">{description}</div>
         </div>
       </Link>
     </div>
@@ -134,7 +142,7 @@ CardArticle.propTypes = {
     type: PropTypes.string,
     /**
      * Tag rel used to know if tag must be indexed
-    */
+     */
     rel: PropTypes.string
   }),
   /**
@@ -165,10 +173,7 @@ CardArticle.propTypes = {
   /**
    * Lazy load flag / config.
    */
-  lazyLoad: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.object
-  ]),
+  lazyLoad: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   /**
    * Tag chip component
    */
@@ -182,8 +187,7 @@ CardArticle.propTypes = {
 CardArticle.defaultProps = {
   tagChip: SuiTagChip,
   featured: false,
-  linkFactory: ({ children, ...rest }) =>
-    <a {...rest}>{children}</a>
+  linkFactory: ({children, ...rest}) => <a {...rest}>{children}</a>
 }
 
 CardArticle.displayName = 'CardArticle'

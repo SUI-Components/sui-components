@@ -1,10 +1,9 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import LeafletMap from './leaflet/map'
-import { mapViewModes, NO_OP } from './leaflet/constants'
+import {mapViewModes, NO_OP} from './leaflet/constants'
 
 class MapBasic extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.setMapEventDefinition()
     this.mapInstance = undefined
@@ -12,31 +11,31 @@ class MapBasic extends Component {
     this.isSatelliteView = false
   }
 
-  setMapEventDefinition () {
+  setMapEventDefinition() {
     this.mapEventList = [
       {
         name: 'leaflet_map_click',
-        handleFunction: (evt) => this.props.onMapClick(evt.detail)
+        handleFunction: evt => this.props.onMapClick(evt.detail)
       },
       {
         name: 'leaflet_map_dragend',
-        handleFunction: (evt) => this.props.onMapDragEnd(evt.detail)
+        handleFunction: evt => this.props.onMapDragEnd(evt.detail)
       },
       {
         name: 'leaflet_map_loaded',
-        handleFunction: (evt) => this.props.onMapLoad(evt.detail)
+        handleFunction: evt => this.props.onMapLoad(evt.detail)
       },
       {
         name: 'leaflet_map_zoomend',
-        handleFunction: (evt) => this.props.onMapZoomEnd(evt.detail)
+        handleFunction: evt => this.props.onMapZoomEnd(evt.detail)
       },
       {
         name: 'leaflet_map_layer_normal',
-        handleFunction: (evt) => this.props.onNormalView(evt.detail)
+        handleFunction: evt => this.props.onNormalView(evt.detail)
       },
       {
         name: 'leaflet_map_poiclick',
-        handleFunction: (evt) => this.props.onPoiClick(evt.detail)
+        handleFunction: evt => this.props.onPoiClick(evt.detail)
       },
       {
         name: 'leaflet_map_poimouseout',
@@ -44,16 +43,20 @@ class MapBasic extends Component {
       },
       {
         name: 'leaflet_map_poimouseover',
-        handleFunction: (evt) => this.props.onPoiMouseOver(evt.detail)
+        handleFunction: evt => this.props.onPoiMouseOver(evt.detail)
+      },
+      {
+        name: 'leaflet_map_poimousemove',
+        handleFunction: evt => this.props.onPoiMouseMove(evt.detail)
       },
       {
         name: 'leaflet_map_layer_satellite',
-        handleFunction: (evt) => this.props.onSatelliteView(evt.detail)
+        handleFunction: evt => this.props.onSatelliteView(evt.detail)
       }
     ]
   }
 
-  getMapConfig () {
+  getMapConfig() {
     return {
       id: this.props.id,
       heatMapUrl: this.props.heatMapUrl,
@@ -75,19 +78,32 @@ class MapBasic extends Component {
       zoom: this.props.zoom,
       appId: this.props.appId,
       appCode: this.props.appCode,
-      mapDOMInstance: this.mapDOMInstance
+      mapDOMInstance: this.mapDOMInstance,
+      scrollWheelZoom: this.props.scrollWheelZoom,
+      onPolygonWithBounds: this.props.onPolygonWithBounds,
+      _deprecatedLabelNoPrice: this.props._deprecatedLabelNoPrice
     }
   }
 
-  subscribeToMapEvents () {
-    this.mapEventList.forEach(mapEvent => this.mapDOMInstance.addEventListener(mapEvent.name, mapEvent.handleFunction))
+  subscribeToMapEvents() {
+    this.mapEventList.forEach(mapEvent =>
+      this.mapDOMInstance.addEventListener(
+        mapEvent.name,
+        mapEvent.handleFunction
+      )
+    )
   }
 
-  unsubscribeFromMapEvents () {
-    this.mapEventList.forEach(mapEvent => this.mapDOMInstance.removeEventListener(mapEvent.name, mapEvent.handleFunction))
+  unsubscribeFromMapEvents() {
+    this.mapEventList.forEach(mapEvent =>
+      this.mapDOMInstance.removeEventListener(
+        mapEvent.name,
+        mapEvent.handleFunction
+      )
+    )
   }
 
-  checkWhichViewShouldBeDisplayed (showSatelliteView) {
+  checkWhichViewShouldBeDisplayed(showSatelliteView) {
     if (showSatelliteView && !this.isSatelliteView) {
       this.isSatelliteView = true
       this.mapInstance.setView(mapViewModes.SATELLITE)
@@ -97,7 +113,7 @@ class MapBasic extends Component {
     }
   }
 
-  checkIfHeatMapShouldBeDisplayed (showHeatmap, url) {
+  checkIfHeatMapShouldBeDisplayed(showHeatmap, url) {
     if (showHeatmap && !this.isHeatmapVisible) {
       this.isHeatmapVisible = true
       this.mapInstance.showHeatMap(url)
@@ -107,33 +123,43 @@ class MapBasic extends Component {
     }
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.unsubscribeFromMapEvents()
   }
 
-  shouldComponentUpdate () {
+  shouldComponentUpdate() {
     // The component itself has no changes. All changes are managed through leaflet maps api.
     return false
   }
 
-  componentWillReceiveProps ({heatMapUrl, pois, showHeatmap, showSatelliteView}) {
-    this.mapInstance.displayPois(pois)
+  componentWillReceiveProps({
+    heatMapUrl,
+    pois,
+    showHeatmap,
+    showSatelliteView
+  }) {
+    this.mapInstance.displayPois(pois, this.props._deprecatedLabelNoPrice)
     this.checkIfHeatMapShouldBeDisplayed(showHeatmap, heatMapUrl)
     this.checkWhichViewShouldBeDisplayed(showSatelliteView)
   }
 
-  componentDidMount () {
+  componentDidMount() {
+    const LeafletMap = require('./leaflet/map').default
+
     this.subscribeToMapEvents()
     this.mapInstance = new LeafletMap(this.getMapConfig())
-    this.mapInstance.displayPois(this.props.pois)
+    this.mapInstance.displayPois(
+      this.props.pois,
+      this.props._deprecatedLabelNoPrice
+    )
   }
 
-  render () {
+  render() {
     return (
       <div
-        className='re-Wrapper sui-MapBasic'
+        className="re-Wrapper sui-MapBasic"
         style={this.props.height && {height: this.props.height}}
-        ref={(ele) => {
+        ref={ele => {
           this.mapDOMInstance = ele
         }}
         id={this.props.id}
@@ -182,6 +208,7 @@ MapBasic.propTypes = {
   onPoiClick: PropTypes.func,
   onPoiMouseOut: PropTypes.func,
   onPoiMouseOver: PropTypes.func,
+  onPoiMouseMove: PropTypes.func,
   onSatelliteView: PropTypes.func,
   /**
    * An array of points of interest. More info and examples on readme.
@@ -227,7 +254,16 @@ MapBasic.propTypes = {
   /**
    * BY DEFAULT set to true. Set it to false to disable the use to drag and move on the map.
    */
-  isInteractable: PropTypes.bool
+  isInteractable: PropTypes.bool,
+  /**
+   * This property indicates if the map zooms in or out in response to mouse wheel events.
+   */
+  scrollWheelZoom: PropTypes.bool,
+  /**
+   * This property indicates the action to be performed with the polygon. By DEFAULT it does a fitBounds.
+   */
+  onPolygonWithBounds: PropTypes.func,
+  _deprecatedLabelNoPrice: PropTypes.string
 }
 
 MapBasic.defaultProps = {
@@ -241,6 +277,8 @@ MapBasic.defaultProps = {
   zoomControlPosition: 'bottomleft',
   zoomable: false,
   isInteractable: true,
+  scrollWheelZoom: true,
+  onPolygonWithBounds: ({bounds, map}) => map.fitBounds(bounds),
   onMapClick: NO_OP,
   onMapDragEnd: NO_OP,
   onMapLoad: NO_OP,
@@ -249,7 +287,9 @@ MapBasic.defaultProps = {
   onPoiClick: NO_OP,
   onPoiMouseOut: NO_OP,
   onPoiMouseOver: NO_OP,
-  onSatelliteView: NO_OP
+  onPoiMouseMove: NO_OP,
+  onSatelliteView: NO_OP,
+  _deprecatedLabelNoPrice: ''
 }
 
 MapBasic.displayName = 'MapBasic'

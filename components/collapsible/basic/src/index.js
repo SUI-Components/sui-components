@@ -1,47 +1,70 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import cx from 'classnames'
+import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
+
+const ANIMATION_SPEED_CLASSNAMES = {
+  normal: 'sui-CollapsibleBasic-transitionNormal',
+  fast: 'sui-CollapsibleBasic-transitionFast'
+}
 
 class CollapsibleBasic extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {isCollapsed: props.collapsed}
     this._handleClick = this._handleClick.bind(this)
   }
 
-  _handleClick () {
+  _handleClick() {
     // const with new state
     const isCollapsed = !this.state.isCollapsed
     this.setState({isCollapsed: isCollapsed})
     this.props.handleClick(isCollapsed)
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     this.setState({isCollapsed: nextProps.collapsed})
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
+  shouldComponentUpdate(nextProps, nextState) {
     return this.state.isCollapsed !== nextState.isCollapsed
   }
 
-  render () {
-    const stateClassName = cx(
-      {'is-collapsed': this.state.isCollapsed},
-      {'is-expanded': !this.state.isCollapsed}
-    )
-
-    const mainClassNames = cx(
-      'sui-CollapsibleBasic',
-      stateClassName
+  render() {
+    const {
+      icon: ArrowIcon,
+      label,
+      animationSpeed,
+      hideTriggerIcon,
+      children
+    } = this.props
+    const {isCollapsed} = this.state
+    const cssClassNames = cx('sui-CollapsibleBasic', {
+      'is-collapsed': isCollapsed,
+      'is-expanded': !isCollapsed
+    })
+    const contentCssClassNames = cx(
+      'sui-CollapsibleBasic-collapsibleContent',
+      ANIMATION_SPEED_CLASSNAMES[animationSpeed]
     )
 
     return (
-      <div className={mainClassNames}>
-        <div className='sui-CollapsibleBasic-trigger' onClick={this._handleClick}>
-          <div className='sui-CollapsibleBasic-trigger-label'>{this.props.label}</div>
-          <div className='sui-CollapsibleBasic-trigger-icon'>{this.props.icon}</div>
+      <div className={cssClassNames}>
+        <div
+          className="sui-CollapsibleBasic-trigger"
+          onClick={this._handleClick}
+        >
+          <div className="sui-CollapsibleBasic-trigger-label">{label}</div>
+          {!hideTriggerIcon && (
+            <div className="sui-CollapsibleBasic-trigger-iconBox">
+              <ArrowIcon
+                svgClass="sui-CollapsibleBasic-trigger-iconBox-icon"
+                className="sui-CollapsibleBasic-trigger-iconBox-icon"
+              />
+            </div>
+          )}
         </div>
-        <div className='sui-CollapsibleBasic-collapsibleContent'>{this.props.children}</div>
+        <div className={contentCssClassNames}>{children}</div>
       </div>
     )
   }
@@ -61,7 +84,7 @@ CollapsibleBasic.propTypes = {
   /**
    * icon to be displayed.
    */
-  icon: PropTypes.node,
+  icon: PropTypes.func,
   /**
    * first state.
    */
@@ -69,12 +92,22 @@ CollapsibleBasic.propTypes = {
   /**
    * Click handler. Receives a boolean telling if the component is (or is being) collapsed.
    */
-  handleClick: PropTypes.func
+  handleClick: PropTypes.func,
+  /**
+   * Flag to hide the icon that triggers expand/collapse event.
+   */
+  hideTriggerIcon: PropTypes.bool,
+  /**
+   * Customise the speed of the transition animation: normal 0.3s, fast: 0.15s
+   */
+  animationSpeed: PropTypes.oneOf(Object.keys(ANIMATION_SPEED_CLASSNAMES))
 }
 
 CollapsibleBasic.defaultProps = {
-  icon: <svg className='sui-CollapsibleBasic-defaultIcon' xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><path fill='none' fillRule='evenodd' stroke='#2097B6' strokeLinecap='round' strokeLinejoin='round' d='M1.5 6L8 12l6.5-6' /></svg>,
+  icon: Chevronbottom,
   collapsed: true,
+  hideTriggerIcon: false,
+  animationSpeed: 'normal',
   handleClick: () => {}
 }
 

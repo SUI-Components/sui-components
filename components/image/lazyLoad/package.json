@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-image-lazy-load",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "description": "SUI Image Lazy Load",
   "main": "lib/index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@schibstedspain/react-lazy-load": "3.0.12",
+    "@schibstedspain/react-lazy-load": "3",
     "@schibstedspain/sui-spinner-basic": "1"
   }
 }

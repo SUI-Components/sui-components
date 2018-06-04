@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2018-05-17)
+
+
+### Features
+
+* pass optional checkbox icons ([ef0457d](https://github.com/SUI-Components/sui-components/commit/ef0457d))
+
+
+
+<a name="1.7.0"></a>
+# 1.7.0 (2018-05-16)
+
+
+### Bug Fixes
+
+* remove required flag for checkbox name ([64e16d0](https://github.com/SUI-Components/sui-components/commit/64e16d0))
+
+
+### Features
+
+* add optional checkbox ([9c175f5](https://github.com/SUI-Components/sui-components/commit/9c175f5))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2017-11-06)
 

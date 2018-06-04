@@ -10,9 +10,11 @@ Moreover, it has a layout property. Right now, it only accepts the 'full' layout
 
 Obviously you can use both type and size in order to get your desired button. For example:
 
+```javascript
 <ButtonBasic
   size='small'
   type='flat'
 />
+```
 
 Check the playground and the available propTypes of the component in order to get a complete view of the possibilities of the component.

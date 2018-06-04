@@ -1,33 +1,31 @@
-@import '~@schibstedspain/sui-theme/lib/settings';
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$bgc-button: $c-primary !default;
-$bgc-button-light: color-variation($bgc-button, 4) !default;
-$bgc-button-dark: color-variation($bgc-button, -1) !default;
-$bgc-button-light-contrast: color-variation($bgc-button, 3) !default;
+$bgc-atom-button: $c-primary !default;
+$bgc-atom-button-light: color-variation($bgc-atom-button, 4) !default;
+$bgc-atom-button-dark: color-variation($bgc-atom-button, -1) !default;
+$bgc-atom-button-light-contrast: color-variation($bgc-atom-button, 3) !default;
 
-$sz-button-small: $p-base*4 !default;
-$fz-button-small: $fz-s !default;
-$icon-sz-button-small: $sz-icon-s !default;
-$icon-m-button-small: $m-s !default;
-$p-button-small: $p-m !default;
+$sz-atom-button-small: $p-base*4 !default;
+$fz-atom-button-small: $fz-s !default;
+$icon-sz-atom-button-small: $sz-icon-s !default;
+$icon-m-atom-button-small: $m-s !default;
+$p-atom-button-small: $p-m !default;
 
-$sz-button: $p-base*5 !default;
-$fz-button: $fz-m !default;
-$icon-sz-button: $sz-icon-s !default;
-$icon-m-button: $m-m !default;
-$p-button: $p-l !default;
+$sz-atom-button: $p-base*5 !default;
+$fz-atom-button: $fz-m !default;
+$icon-sz-atom-button: $sz-icon-s !default;
+$icon-m-atom-button: $m-m !default;
+$p-atom-button: $p-l !default;
 
-$sz-button-large: $p-base*6 !default;
-$fz-button-large: $fz-m !default;
-$icon-sz-button-large: $sz-icon-m !default;
-$icon-m-button-large: $m-m !default;
-$p-button-large: $p-l !default;
+$sz-atom-button-large: $p-base*6 !default;
+$fz-atom-button-large: $fz-m !default;
+$icon-sz-atom-button-large: $sz-icon-m !default;
+$icon-m-atom-button-large: $m-m !default;
+$p-atom-button-large: $p-l !default;
 
 // Set all color properties for text and icons
 @mixin button-foreground-color ($color) {
   color: $color;
-
 
   & svg path {
     fill: $color;
@@ -48,8 +46,11 @@ $p-button-large: $p-l !default;
 @mixin button-icon ($size, $margin) {
   & .sui-AtomButton-leftIcon,
   & .sui-AtomButton-rightIcon {
-    height: $size;
-    width: $size;
+    &,
+    & [class*="Icon"] {
+      height: $size;
+      width: $size;
+    }
   }
 
   & .sui-AtomButton-leftIcon {
@@ -63,49 +64,56 @@ $p-button-large: $p-l !default;
 
 .sui-AtomButton {
   @include reset-button;
-  @include button-icon($icon-sz-button, $icon-m-button);
+  @include button-icon($icon-sz-atom-button, $icon-m-atom-button);
   border: 1px solid;
   border-radius: $bdrs-m;
   box-sizing: border-box;
+  display: inline-block;
   font: {
     family: $ff-sans-serif;
-    size: $fz-button;
+    size: $fz-atom-button;
     weight: $fw-semi-bold;
   }
-  height: $sz-button;
-  min-width: $sz-button;
+  height: $sz-atom-button;
+  line-height: normal;
+  min-width: $sz-atom-button;
   outline: 0;
-  padding: 0 $p-button;
+  padding: 0 $p-atom-button;
   white-space: nowrap;
 
   & + & {
     margin-left: $m-m;
   }
 
+  &-inner {
+    align-items: center;
+    display: inline-flex;
+    height: 100%;
+    pointer-events: none;
+  }
+
   // Icons
   &-leftIcon,
   &-rightIcon {
-    display: inline-block;
-    transform: translateY(-2px);
-    vertical-align: middle;
+    display: inline-flex;
   }
 
   // Types and colors
   &--primary {
     @include button-foreground-color($c-white);
     @include button-focused {
-      background-color: $bgc-button-dark;
-      border-color: $bgc-button-dark;
+      background-color: $bgc-atom-button-dark;
+      border-color: $bgc-atom-button-dark;
     }
-    background-color: $bgc-button;
-    border-color: $bgc-button;
+    background-color: $bgc-atom-button;
+    border-color: $bgc-atom-button;
   }
 
   &--secondary,
   &--tertiary {
-    @include button-foreground-color($bgc-button);
+    @include button-foreground-color($bgc-atom-button);
     @include button-focused {
-      background-color: $bgc-button-light;
+      background-color: $bgc-atom-button-light;
     }
   }
 
@@ -115,10 +123,10 @@ $p-button-large: $p-l !default;
 
   &--negative {
     &.sui-AtomButton--primary {
-      @include button-foreground-color($bgc-button);
+      @include button-foreground-color($bgc-atom-button);
       @include button-focused {
-        background-color: $bgc-button-light-contrast;
-        border-color: $bgc-button-light-contrast;
+        background-color: $bgc-atom-button-light-contrast;
+        border-color: $bgc-atom-button-light-contrast;
       }
       background-color: $c-white;
       border-color: $c-white;
@@ -128,7 +136,7 @@ $p-button-large: $p-l !default;
     &.sui-AtomButton--tertiary {
       @include button-foreground-color($c-white);
       @include button-focused {
-        background-color: $bgc-button-dark;
+        background-color: $bgc-atom-button-dark;
       }
     }
   }
@@ -150,22 +158,24 @@ $p-button-large: $p-l !default;
   }
 
   &--small {
-    @include button-icon($icon-sz-button-small, $icon-m-button-small);
-    font-size: $fz-button-small;
-    height: $sz-button-small;
-    min-width: $sz-button-small;
-    padding: 0 $p-button-small;
+    @include button-icon($icon-sz-atom-button-small, $icon-m-atom-button-small);
+    font-size: $fz-atom-button-small;
+    height: $sz-atom-button-small;
+    min-width: $sz-atom-button-small;
+    padding: 0 $p-atom-button-small;
   }
 
   &--large {
-    @include button-icon($icon-sz-button-large, $icon-m-button-large);
-    font-size: $fz-button-large;
-    height: $sz-button-large;
-    min-width: $sz-button-large;
-    padding: 0 $p-button-large;
+    @include button-icon($icon-sz-atom-button-large, $icon-m-atom-button-large);
+    font-size: $fz-atom-button-large;
+    height: $sz-atom-button-large;
+    min-width: $sz-atom-button-large;
+    padding: 0 $p-atom-button-large;
   }
 
   &--fullWidth {
+    justify-content: center;
+    text-align: center;
     width: 100%;
   }
 
@@ -173,7 +183,13 @@ $p-button-large: $p-l !default;
     .sui-AtomButton-leftIcon,
     .sui-AtomButton-rightIcon {
       margin: 0;
-      transform: translateY(0);
+    }
+  }
+
+  &--link {
+    &,
+    &:hover {
+      text-decoration: none;
     }
   }
 }

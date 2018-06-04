@@ -1,0 +1,190 @@
+const flexWrapper = {
+  background: 'white',
+  color: 'grey',
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center'
+}
+
+const flexItem = {
+  flex: '0 0 auto',
+  margin: '15px',
+  textAlign: 'center'
+}
+
+return (
+  <div>
+    <h1>AtomPanel</h1>
+    <h2>As Color Panel</h2>
+    <div>
+      <h3>Structure - Alpha</h3>
+      <div style={Object.assign({}, flexWrapper, {background: 'white url(https://picsum.photos/1000/800?blur)'})}>
+      {
+        Object.values(atomPanelAlpha).map((alpha, idx) =>
+          <div key={idx} style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}>
+            <AtomPanel alpha={alpha} color={atomPanelColors.CONTRAST}>
+              <div style={{height: '100px', width: '100px', lineHeight: '100px'}}>{alpha}</div>
+            </AtomPanel>
+          </div>
+        )
+      }
+      </div>
+      <h3>Structure - Color</h3>
+      <div style={{
+        backgroundColor: 'white',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center'
+      }}>
+      {
+        Object.keys(atomPanelColors).map((color, idx) =>
+          <div key={idx} style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}>
+            <AtomPanel color={atomPanelColors[color]}>
+              <div style={{height: '100px', width: '100px'}} />
+            </AtomPanel>
+            <span style={{color: 'grey'}}>{atomPanelColors[color]}</span>
+          </div>
+        )
+      }
+      </div>
+      <h3>Container example</h3>
+      <div style={flexWrapper}>
+        <div style={flexItem}>
+          <div style={{width: '200px'}}>
+            <AtomPanel color={atomPanelColors.DARK}>
+              <div style={{height: '150px', width: '200px', color: '#fff', fontSize: '24px', fontWeight: 600, margin: 'auto', padding: '16px'}}>
+                <p>Lorem ipsum dolor sit amet</p>
+              </div>
+            </AtomPanel>
+          </div>
+          <span>Light text on dark background</span>
+        </div>
+        <div style={flexItem}>
+          <div style={{width: '200px'}}>
+            <AtomPanel color={atomPanelColors.DEFAULT}>
+              <div style={{height: '150px', width: '200px', color: '#000', fontSize: '24px', fontWeight: 600, margin: 'auto', padding: '16px'}}>
+                <p>Lorem ipsum dolor sit amet</p>
+              </div>
+            </AtomPanel>
+          </div>
+          <span>Dark text on light background</span>
+        </div>
+        <div style={flexItem}>
+          <div style={{width: '200px'}}>
+            <AtomPanel src={'https://picsum.photos/g/250/200?image=10'}>
+              <div style={{height: '150px', width: '200px', color: '#fff', fontSize: '24px', fontWeight: 600, margin: 'auto', padding: '16px'}}>
+                <p>Lorem ipsum dolor sit amet</p>
+              </div>
+            </AtomPanel>
+          </div>
+          <span>Light text on Image</span>
+        </div>
+      </div>
+    </div>
+    <h2>As Image Panel</h2>
+    <div>
+      <h3>Resized</h3>
+      <div style={flexWrapper}>
+        <div style={flexItem}>
+          <div>
+            <img src='https://picsum.photos/250/200' />
+          </div>
+          <span>Original</span>
+        </div>
+        <div style={Object.assign({}, flexItem, {width: '200px'})}>
+          <AtomPanel src={'https://picsum.photos/250/200'} resized>
+            <div style={{height: '150px'}} />
+          </AtomPanel>
+          <span>Resized</span>
+        </div>
+      </div>
+      <h3>Horizontally cropped</h3>
+      <div style={flexWrapper} >
+        <div style={flexItem}>
+          <div>
+            <img src='https://picsum.photos/250/200' />
+          </div>
+          <span>Original</span>
+        </div>
+        <div style={Object.assign({}, flexItem, {width: '180px'})}>
+          <AtomPanel src={'https://picsum.photos/250/200'} horizontalAlign={atomPanelHorizontalAlign.LEFT}>
+            <div style={{height: '200px'}} />
+          </AtomPanel>
+          <span>Align to the left</span>
+        </div>
+        <div style={Object.assign({}, flexItem, {width: '180px'})}>
+          <AtomPanel src={'https://picsum.photos/250/200'} horizontalAlign={atomPanelHorizontalAlign.CENTER}>
+            <div style={{height: '200px'}} />
+          </AtomPanel>
+          <span>Centered</span>
+        </div>
+        <div style={Object.assign({}, flexItem, {width: '180px'})}>
+          <AtomPanel src={'https://picsum.photos/250/200'} horizontalAlign={atomPanelHorizontalAlign.RIGHT}>
+            <div style={{height: '200px'}} />
+          </AtomPanel>
+          <span>Align to the right</span>
+        </div>
+      </div>
+      <h3>Vertically cropped</h3>
+      <div style={{
+        background: 'white',
+        color: 'grey',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center'
+      }} >
+        <div style={flexItem}>
+          <div>
+            <img src='https://picsum.photos/250/200' />
+          </div>
+          <span>Original</span>
+        </div>
+        <div style={Object.assign({}, flexItem, {width: '250px'})}>
+          <AtomPanel src={'https://picsum.photos/250/200'} verticalAlign={atomPanelVerticalAlign.TOP}>
+            <div style={{height: '150px'}} />
+          </AtomPanel>
+          <span>Top</span>
+        </div>
+        <div style={Object.assign({}, flexItem, {width: '250px'})}>
+          <AtomPanel src={'https://picsum.photos/250/200'} verticalAlign={atomPanelVerticalAlign.CENTER}>
+            <div style={{height: '150px'}} />
+          </AtomPanel>
+          <span>Center</span>
+        </div>
+        <div style={Object.assign({}, flexItem, {width: '250px'})}>
+          <AtomPanel src={'https://picsum.photos/250/200'} verticalAlign={atomPanelVerticalAlign.BOTTOM}>
+            <div style={{height: '150px'}} />
+          </AtomPanel>
+          <span>Bottom</span>
+        </div>
+      </div>
+    </div>
+    <h3>Overlay</h3>
+    <div>
+      {
+        Object.keys(atomPanelColors).map((color) =>
+          <div style={flexWrapper}>
+          {
+            Object.keys(atomPanelAlpha).map((alpha) =>
+              <div style={Object.assign({}, flexItem, {width: '250px'})}>
+                <AtomPanel src={'https://picsum.photos/250/200'} overlayColor={color} overlayAlpha={alpha}>
+                  <div style={{height: '150px'}} />
+                </AtomPanel>
+                <span>{color} {alpha}</span>
+              </div>
+            )
+        }
+        </div>
+      )
+    }
+    </div>
+    <h3>Placeholder</h3>
+    <div style={{backgroundColor: 'white'}}>
+      <div style={{width: '200px', margin: 'auto'}}>
+        <AtomPanel src={'https://satyr.io/200/a3a3a3?delay=3g'} color={atomPanelColors.BASE}>
+          <div style={{height: '210px'}} />
+        </AtomPanel>
+      </div>
+    </div>
+  </div>
+)

@@ -65,7 +65,6 @@ return (
             style={{ border: '1px solid' }}
             src={IMAGES.FINAL}
             skeleton={IMAGES.SKELETON}
-            bgStyles={{ backgroundSize: '30%' }}
             alt="Nice View"
           />
         </div>

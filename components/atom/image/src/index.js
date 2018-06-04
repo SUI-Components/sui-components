@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import { types } from './types'
+import { htmlImgProps } from './types'
 import { ImageNotFoundIcon } from './components'
 
 const defaultErrorText = 'Image not found'
 const BASE_CLASS = 'sui-AtomImage'
 
-const Error = ({ className, icon: Icon, text }) => ( // eslint-disable-line react/prop-types
+const Error = (
+  { className, icon: Icon, text } // eslint-disable-line react/prop-types
+) => (
   <div className={className}>
-    { Icon && <Icon />}
+    {Icon && <Icon />}
     <p>{text}</p>
   </div>
 )
@@ -99,7 +102,40 @@ class AtomImage extends Component {
 }
 
 AtomImage.displayName = 'AtomImage'
-AtomImage.propTypes = types
+AtomImage.propTypes = {
+  /** Image url or base64 */
+  src: PropTypes.string.isRequired,
+
+  /** Description of the image */
+  alt: PropTypes.string.isRequired,
+
+  /** Image displayed (blurred) while the final image is being loaded */
+  placeholder: PropTypes.string,
+
+  /** Image (wireframe, skeleton) displayed (not blurred) while the final image is being loaded */
+  skeleton: PropTypes.string,
+
+  /** Styles passed to the element that displays the skeleton as background */
+  bgStyles: PropTypes.object,
+
+  /** Spinner (component) displayed while the final image is being loaded */
+  spinner: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+
+  /** Icon (component) to be displayed in an Error Box when the image cannot be loaded */
+  errorIcon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+
+  /** Text to be displayed in an Error Box when the image cannot be loaded */
+  errorText: PropTypes.string,
+
+  /** Function to be called when the image cannot be loaded  */
+  onError: PropTypes.func,
+
+  /** Function to be called when the image completed its loading  */
+  onLoad: PropTypes.func,
+
+  /** <img> props */
+  ...htmlImgProps
+}
 
 AtomImage.defaultProps = {
   errorIcon: ImageNotFoundIcon,

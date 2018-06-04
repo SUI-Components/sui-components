@@ -28,13 +28,22 @@ class AtomImage extends Component {
 
   get classNames () {
     const { loading, error } = this.state
-    const { className, placeholder } = this.props
+    const { className } = this.props
     return cx(
       BASE_CLASS,
       className,
-      placeholder && `${BASE_CLASS}--placeholder`,
       `is-${loading ? 'loading' : 'loaded'}`,
       error && `is-error`
+    )
+  }
+
+  get classNamesFigure () {
+    const { placeholder, skeleton } = this.props
+    const BASE_CLASS_FIGURE = `${BASE_CLASS}-figure`
+    return cx(
+      `${BASE_CLASS_FIGURE}`,
+      placeholder && `${BASE_CLASS_FIGURE}--placeholder`,
+      skeleton && `${BASE_CLASS_FIGURE}--skeleton`
     )
   }
 
@@ -69,14 +78,13 @@ class AtomImage extends Component {
     const { loading, error } = this.state
 
     const figureStyles = {
-      backgroundImage: `url(${placeholder || skeleton})`,
-      ...bgStyles
+      backgroundImage: `url(${placeholder || skeleton})`
     }
 
     return (
       <div className={this.classNames}>
         <figure
-          className={`${BASE_CLASS}-figure`}
+          className={this.classNamesFigure}
           style={!error && (placeholder || skeleton) ? figureStyles : {}}
         >
           <img
@@ -114,9 +122,6 @@ AtomImage.propTypes = {
 
   /** Image (wireframe, skeleton) displayed (not blurred) while the final image is being loaded */
   skeleton: PropTypes.string,
-
-  /** Styles passed to the element that displays the skeleton as background */
-  bgStyles: PropTypes.object,
 
   /** Spinner (component) displayed while the final image is being loaded */
   spinner: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),

@@ -13,11 +13,61 @@ $ npm install @s-ui/react-atom-image --save
 
 ## Usage
 
-### Basic usage
-```js
-import AtomImage from '@s-ui/react-atom-image'
+After importing the component `AtomImage` like this
 
-return (<AtomImage />)
+```javascript
+import AtomImage from '@s-ui/react-atom-image'
+```
+
+### Basic usage
+
+```javascript
+<AtomImage 
+  src={ urlImage } 
+  alt="Nice Picture" 
+/>
+```
+
+### With skeleton while loading
+
+```javascript
+<AtomImage 
+  src={ urlImage } 
+  alt="Nice Picture" 
+  skeleton={ urlImageSkeleton } 
+  bgStyles={{ backgroundSize: '30%' }} 
+/>
+```
+
+### With placeholder while loading
+
+```javascript
+<AtomImage 
+  src={ urlImage } 
+  alt="Nice Picture" 
+  placeholder={ urlImagePlaceholder }
+/>
+```
+
+### With spinner while loading
+
+```javascript
+<AtomImage 
+  src={ urlImage } 
+  alt="Nice Picture" 
+  spinner={ Spinner }
+/>
+```
+
+### With custom Error if error loading
+
+```javascript
+<AtomImage 
+  src={ urlImage } 
+  alt="Nice Picture" 
+  errorText="Oh no!! This image couldn't be loaded"
+  errorIcon={ MyIconErrorLoading }
+/>
 ```
 
 

@@ -2,10 +2,17 @@ import React, { Component } from 'react'
 import cx from 'classnames'
 
 import { types } from './types'
-import { Error, ImageNotFoundIcon } from './components'
+import { ImageNotFoundIcon } from './components'
 
 const defaultErrorText = 'Image not found'
 const BASE_CLASS = 'sui-AtomImage'
+
+const Error = ({ className, icon: Icon, text }) => ( // eslint-disable-line react/prop-types
+  <div className={className}>
+    { Icon && <Icon />}
+    <p>{text}</p>
+  </div>
+)
 
 class AtomImage extends Component {
   constructor (props) {

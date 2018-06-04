@@ -7,8 +7,11 @@ const listImageStyles = {
 
 const containerImageStyles = {
   border: '2px solid #ccc',
+  height: '200px'
+}
+
+const listItem = {
   width: '300px',
-  height: '200px',
   margin: '10px',
   display: 'flex',
   flexDirection: 'column'
@@ -41,73 +44,99 @@ const IMAGES = {
 
 return (
   <div>
-    <p>For best appreciation of different behaviours that can be set while images are loading, i recommend you to simulate in your browser low-bandwidth conditions.</p>
-    <p><a href="https://ma.ttias.be/simulate-low-bandwidth-conditions-with-chromes-network-throttling/" target="_blank">Here</a> you have an explanation of how to do this in Chrome.</p>
     <ul style={listImageStyles}>
-      <li style={containerImageStyles}>
-        <AtomImage
-          style={{ border: '1px solid' }}
-          src={IMAGES.FINAL}
-          skeleton={IMAGES.SKELETON}
-          bgStyles={{ backgroundSize: '30%' }}
-          alt="Nice View"
-        />
-        <small style={{ padding: '10px' }}>
+
+      <li style={listItem}>
+        <div style={containerImageStyles}>
+          <AtomImage
+            style={{ border: '1px solid' }}
+            src={IMAGES.FINAL}
+            alt="Nice View"
+          />
+        </div>
+        <small style={{ margin: '10px' }}>
+          Most simple Image with only required props
+        </small>
+      </li>
+
+      <li style={listItem}>
+        <div style={containerImageStyles}>
+          <AtomImage
+            style={{ border: '1px solid' }}
+            src={IMAGES.FINAL}
+            skeleton={IMAGES.SKELETON}
+            bgStyles={{ backgroundSize: '30%' }}
+            alt="Nice View"
+          />
+        </div>
+        <small style={{ margin: '10px' }}>
           Image with Skeleton while loading final image
         </small>
       </li>
 
-      <li style={containerImageStyles}>
-        <AtomImage
-          style={{ border: '1px solid' }}
-          src={IMAGES.BAD}
-          spinner={Spinner}
-          placeholder={IMAGES.PLACEHOLDER}
-          errorText="Oh no!! This image couldn't be loaded"
-          alt="Nice View"
-        />
-        <small style={{ padding: '10px' }}>
+      <li style={listItem}>
+        <div style={containerImageStyles}>
+          <AtomImage
+            style={{ border: '1px solid' }}
+            src={IMAGES.BAD}
+            spinner={Spinner}
+            placeholder={IMAGES.PLACEHOLDER}
+            errorText="Oh no!! This image couldn't be loaded"
+            alt="Nice View"
+          />
+        </div>
+        <small style={{ margin: '10px' }}>
           Image with bad Image src and Error Box
         </small>
       </li>
 
-      <li style={containerImageStyles}>
-        <AtomImage
-          style={{ border: '1px solid' }}
-          src={IMAGES.FINAL}
-          spinner={Spinner}
-          placeholder={IMAGES.PLACEHOLDER}
-          alt="Nice View"
-        />
-        <small style={{ padding: '10px' }}>
+      <li style={listItem}>
+        <div style={containerImageStyles}>
+          <AtomImage
+            style={{ border: '1px solid' }}
+            src={IMAGES.FINAL}
+            spinner={Spinner}
+            placeholder={IMAGES.PLACEHOLDER}
+            alt="Nice View"
+          />
+        </div>
+        <small style={{ margin: '10px' }}>
           Image with placeholder and spinner while loading final image
         </small>
       </li>
 
-      <li style={containerImageStyles}>
-        <AtomImage
-          style={{ border: '1px solid' }}
-          src={IMAGES.FINAL}
-          alt="Nice View"
-          spinner={Spinner}
-        />
-        <small style={{ padding: '10px' }}>
-          Image with placeholder and spinner while loading final image
+      <li style={listItem}>
+        <div style={containerImageStyles}>
+          <AtomImage
+            style={{ border: '1px solid' }}
+            src={IMAGES.FINAL}
+            alt="Nice View"
+            spinner={Spinner}
+          />
+        </div>
+        <small style={{ margin: '10px' }}>
+          Image with spinner (only) while loading final image
         </small>
       </li>
 
-      <li style={containerImageStyles}>
-        <AtomImage
-          style={{ border: '1px solid' }}
-          src={IMAGES.FINAL}
-          placeholder={IMAGES.PLACEHOLDER}
-          alt="Nice View"
-        />
-        <small style={{ padding: '10px' }}>
-          Image with placeholder while loading final image
+      <li style={listItem}>
+        <div style={containerImageStyles}>
+          <AtomImage
+            style={{ border: '1px solid' }}
+            src={IMAGES.FINAL}
+            placeholder={IMAGES.PLACEHOLDER}
+            alt="Nice View"
+          />
+        </div>
+        <small style={{ margin: '10px' }}>
+          Image with placeholder (only) while loading final image
         </small>
       </li>
 
     </ul>
+    <blockquote>
+    <p>Note: If images load too fast and you cannot appreciate the different behaviours that can be set while images are loading, i recommend you to simulate in your browser low-bandwidth conditions.</p>
+    <p><a href="https://ma.ttias.be/simulate-low-bandwidth-conditions-with-chromes-network-throttling/" target="_blank">Here</a> you have an explanation of how to do this in Chrome.</p>
+    </blockquote>
   </div>
 )

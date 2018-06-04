@@ -2,11 +2,23 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import cx from 'classnames'
 
-const FormTextarea = ({className, cols, label, name, onChange, onFocus, onBlur, placeholder, rows, spellCheck, value}) => (
+const FormTextarea = ({
+  className,
+  cols,
+  label,
+  name,
+  onChange,
+  onFocus,
+  onBlur,
+  placeholder,
+  rows,
+  spellCheck,
+  value
+}) => (
   <div className={cx('sui-FormTextarea', className)}>
-    {label && <label className='sui-FormTextarea-label'>{label}</label>}
+    {label && <label className="sui-FormTextarea-label">{label}</label>}
     <textarea
-      className='sui-FormTextarea-element'
+      className="sui-FormTextarea-element"
       cols={cols}
       name={name}
       onChange={onChange}
@@ -15,7 +27,8 @@ const FormTextarea = ({className, cols, label, name, onChange, onFocus, onBlur, 
       placeholder={placeholder}
       rows={rows}
       spellCheck={spellCheck}
-      value={value} />
+      value={value}
+    />
   </div>
 )
 

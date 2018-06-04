@@ -2,10 +2,10 @@
 
 import PropTypes from 'prop-types'
 
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
 class AbTestToggle extends Component {
-  render () {
+  render() {
     let {variation, children} = this.props
     const filterFunc = variation
       ? child => child.props.variationId == variation

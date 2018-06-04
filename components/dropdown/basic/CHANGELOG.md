@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.25.0"></a>
+# 1.25.0 (2018-05-30)
+
+
+### Features
+
+* enable default target prop, add to Link render ([79f99ee](https://github.com/SUI-Components/sui-components/commit/79f99ee))
+
+
+
 <a name="1.24.0"></a>
 # 1.24.0 (2018-05-23)
 

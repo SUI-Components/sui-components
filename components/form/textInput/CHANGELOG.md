@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2018-05-29)
+
+
+### Bug Fixes
+
+* force version with compiled files ([e2d2019](https://github.com/SUI-Components/sui-components/commit/e2d2019))
+
+
+
+<a name="1.7.0"></a>
+# 1.7.0 (2018-05-29)
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2018-04-16)
 
@@ -9,6 +24,7 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * add onFocus and onBlur handlers for text input. ([28369ea](https://github.com/SUI-Components/sui-components/commit/28369ea))
+* add onKeyPress keyboard event ([6cd7bf8](https://github.com/SUI-Components/sui-components/commit/6cd7bf8)), closes [#359](https://github.com/SUI-Components/sui-components/issues/359)
 
 
 

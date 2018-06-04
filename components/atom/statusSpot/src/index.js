@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
 class AtomStatusSpot extends Component {
-  render () {
+  render() {
     return (
-      <div className='sui-AtomStatusSpot'>
-        <span className={`sui-AtomStatusSpot-status sui-AtomStatusSpot-status-${this.props.status} sui-AtomStatusSpot-size-${this.props.size}`} />
+      <div className="sui-AtomStatusSpot">
+        <span
+          className={`sui-AtomStatusSpot-status sui-AtomStatusSpot-status-${
+            this.props.status
+          } sui-AtomStatusSpot-size-${this.props.size}`}
+        />
       </div>
     )
   }

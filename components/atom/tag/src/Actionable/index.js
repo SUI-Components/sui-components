@@ -6,14 +6,11 @@ import ActionableTagContainer from './Container'
 const RIGHT_ICON_PLACEMENT = 'right'
 const LEFT_ICON_PLACEMENT = 'left'
 
-const getClassNames = function ({className}) {
-  return classnames(
-    'sui-AtomTag-actionable',
-    className
-  )
+const getClassNames = function({className}) {
+  return classnames('sui-AtomTag-actionable', className)
 }
 
-const ActionableTag = function ({
+const ActionableTag = function({
   icon,
   href,
   iconPlacement,
@@ -24,27 +21,24 @@ const ActionableTag = function ({
   className
 }) {
   return (
-    <ActionableTagContainer className={getClassNames({className})}
+    <ActionableTagContainer
+      className={getClassNames({className})}
       Link={linkFactory}
-      onClick={(ev) => onClick(ev)}
+      onClick={ev => onClick(ev)}
       href={href}
       target={target}
     >
-      {
-        icon && iconPlacement === LEFT_ICON_PLACEMENT &&
-          <span className='sui-AtomTag-icon'>
-            {icon}
-          </span>
-      }
-      <span className='sui-AtomTag-label' title={label}>
+      {icon &&
+        iconPlacement === LEFT_ICON_PLACEMENT && (
+          <span className="sui-AtomTag-icon">{icon}</span>
+        )}
+      <span className="sui-AtomTag-label" title={label}>
         {label}
       </span>
-      {
-        icon && iconPlacement === RIGHT_ICON_PLACEMENT &&
-          <span className='sui-AtomTag-secondary-icon'>
-            {icon}
-          </span>
-      }
+      {icon &&
+        iconPlacement === RIGHT_ICON_PLACEMENT && (
+          <span className="sui-AtomTag-secondary-icon">{icon}</span>
+        )}
     </ActionableTagContainer>
   )
 }
@@ -61,8 +55,11 @@ ActionableTag.propTypes = {
 }
 
 ActionableTag.defaultProps = {
-  linkFactory: ({href, target, className, children} = {}) =>
-    <a href={href} target={target} className={className}>{children}</a>
+  linkFactory: ({href, target, className, children} = {}) => (
+    <a href={href} target={target} className={className}>
+      {children}
+    </a>
+  )
 }
 
 export default ActionableTag

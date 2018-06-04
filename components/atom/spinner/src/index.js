@@ -17,22 +17,22 @@ class AtomSpinner extends Component {
     delayed: this.props.delayed
   }
 
-  get _parentNodeClassList () {
+  get _parentNodeClassList() {
     if (this._parentNodeClassListCache) return this._parentNodeClassListCache
 
-    this._parentNodeClassListCache = ReactDOM.findDOMNode(this).parentNode.classList
+    this._parentNodeClassListCache = ReactDOM.findDOMNode(
+      this
+    ).parentNode.classList
     return this._parentNodeClassListCache
   }
 
-  get _parentClassName () {
+  get _parentClassName() {
     const {type} = this.props
 
-    return cx(
-      type === TYPES.SECTION ? BASE_CLASS : `${BASE_CLASS}--fullPage`
-    )
+    return cx(type === TYPES.SECTION ? BASE_CLASS : `${BASE_CLASS}--fullPage`)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     if (!this.state.delayed) {
       this._addParentClass()
       return
@@ -43,27 +43,23 @@ class AtomSpinner extends Component {
     }, DELAY)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     clearTimeout(this.timer)
     this._removeParentClass()
   }
 
-  _removeParentClass () {
+  _removeParentClass() {
     this._parentNodeClassList.remove(this._parentClassName)
   }
 
-  _addParentClass () {
+  _addParentClass() {
     this._parentNodeClassList.add(this._parentClassName)
   }
 
-  render () {
+  render() {
     const {loader} = this.props
     const {delayed} = this.state
-    return (
-      !delayed
-        ? loader
-        : <noscript />
-    )
+    return !delayed ? loader : <noscript />
   }
 }
 
@@ -89,10 +85,8 @@ AtomSpinner.propTypes = {
 AtomSpinner.defaultProps = {
   delayed: false,
   type: TYPES.SECTION,
-  loader: <SUILoader text='Loading...' />
+  loader: <SUILoader text="Loading..." />
 }
 
 export default AtomSpinner
-export {
-  TYPES as AtomSpinnerTypes
-}
+export {TYPES as AtomSpinnerTypes}

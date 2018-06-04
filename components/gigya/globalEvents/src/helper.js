@@ -9,18 +9,21 @@ const listeners = {
 
 // Checks if global handlers had been register already, if not, registers them
 const initListener = () => {
-  alreadyRegistered || window.gigya.accounts.addEventHandlers({
-    onLogin: executeOnLogin,
-    onLogout: executeOnLogout
-  })
+  alreadyRegistered ||
+    window.gigya.accounts.addEventHandlers({
+      onLogin: executeOnLogin,
+      onLogout: executeOnLogout
+    })
   alreadyRegistered = true
 }
 
 // Will execute all the configured listeners for the OnLogin event
-const executeOnLogin = event => listeners.onLogin.forEach(listener => listener(event))
+const executeOnLogin = event =>
+  listeners.onLogin.forEach(listener => listener(event))
 
 // Will execute all the configured listeners for the OnLogout evnet
-const executeOnLogout = event => listeners.onLogout.forEach(listener => listener(event))
+const executeOnLogout = event =>
+  listeners.onLogout.forEach(listener => listener(event))
 
 // Subscribes a listener to a specific event
 const addSubscriber = event => listener => {
@@ -38,4 +41,10 @@ const addOnLogoutSubscriber = addSubscriber(ONLOGIN_EVENT)
 const removeOnLoginSubscriber = removeSubscriber(ONLOGIN_EVENT)
 const removeOnLogoutSubscriber = removeSubscriber(ONLOGOUT_EVENT)
 
-export { initListener, addOnLoginSubscriber, removeOnLoginSubscriber, addOnLogoutSubscriber, removeOnLogoutSubscriber }
+export {
+  initListener,
+  addOnLoginSubscriber,
+  removeOnLoginSubscriber,
+  addOnLogoutSubscriber,
+  removeOnLogoutSubscriber
+}

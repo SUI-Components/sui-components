@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const AtomHelpText = ({text}) =>
-  <span className='sui-AtomHelpText'>
-    {text}
-  </span>
+const AtomHelpText = ({text}) => (
+  <span className="sui-AtomHelpText">{text}</span>
+)
 
 AtomHelpText.displayName = 'AtomHelpText'
 

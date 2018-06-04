@@ -3,9 +3,6 @@ export const mapViewModes = {
   SATELLITE: 'satellite.day'
 }
 
-export const mapViewNames = [
-  'Mapa',
-  'Satélite'
-]
+export const mapViewNames = ['Mapa', 'Satélite']
 
 export const NO_OP = () => {}

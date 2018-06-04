@@ -4,11 +4,11 @@ import cx from 'classnames'
 
 // Map object for title sizes and HTML Tags.
 const TAG_FOR_SIZE = {
-  'xl': 'h1',
-  'l': 'h2',
-  'm': 'h3',
-  's': 'h4',
-  'xs': 'h5'
+  xl: 'h1',
+  l: 'h2',
+  m: 'h3',
+  s: 'h4',
+  xs: 'h5'
 }
 
 const TITLE_SIZES = Object.keys(TAG_FOR_SIZE)
@@ -25,11 +25,44 @@ const buildTitleElement = (size, className, content) => {
   return content && <Tag className={className}>{content}</Tag>
 }
 
-const TitleMultisize = ({className, orientation, postTitle, postTitleSize, preTitle, preTitleSize, title, titleSize}) => (
-  <div className={cx('sui-TitleMultisize', `sui-TitleMultisize--${orientation}`, className)}>
-    {buildTitleElement(preTitleSize, cx('sui-TitleMultisize-preTitle', `sui-TitleMultisize-preTitle--${preTitleSize}`), preTitle)}
-    {buildTitleElement(titleSize, cx('sui-TitleMultisize-title', `sui-TitleMultisize-title--${titleSize}`), title)}
-    {buildTitleElement(postTitleSize, cx('sui-TitleMultisize-postTitle', `sui-TitleMultisize-postTitle--${postTitleSize}`), postTitle)}
+const TitleMultisize = ({
+  className,
+  orientation,
+  postTitle,
+  postTitleSize,
+  preTitle,
+  preTitleSize,
+  title,
+  titleSize
+}) => (
+  <div
+    className={cx(
+      'sui-TitleMultisize',
+      `sui-TitleMultisize--${orientation}`,
+      className
+    )}
+  >
+    {buildTitleElement(
+      preTitleSize,
+      cx(
+        'sui-TitleMultisize-preTitle',
+        `sui-TitleMultisize-preTitle--${preTitleSize}`
+      ),
+      preTitle
+    )}
+    {buildTitleElement(
+      titleSize,
+      cx('sui-TitleMultisize-title', `sui-TitleMultisize-title--${titleSize}`),
+      title
+    )}
+    {buildTitleElement(
+      postTitleSize,
+      cx(
+        'sui-TitleMultisize-postTitle',
+        `sui-TitleMultisize-postTitle--${postTitleSize}`
+      ),
+      postTitle
+    )}
   </div>
 )
 
@@ -43,10 +76,7 @@ TitleMultisize.propTypes = {
   /**
    * Orientation of the title segments (vertical | horizontal).
    */
-  orientation: PropTypes.oneOf([
-    'horizontal',
-    'vertical'
-  ]),
+  orientation: PropTypes.oneOf(['horizontal', 'vertical']),
   /**
    * Text to display after main title (h3).
    */

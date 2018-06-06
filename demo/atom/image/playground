@@ -1,0 +1,135 @@
+/* eslint-disable react/react-in-jsx-scope, react/jsx-no-undef */
+
+const listImageStyles = {
+  display: 'flex',
+  flexWrap: 'wrap'
+}
+
+const containerImageStyles = {
+  border: '2px solid #ccc',
+  height: '200px'
+}
+
+const listItem = {
+  width: '300px',
+  margin: '10px',
+  display: 'flex',
+  flexDirection: 'column'
+}
+
+const Spinner = ({ className }) => {
+  const spinnerStyles = {
+    width: '100px',
+    zIndex: 99
+  }
+
+  return (
+    <div className={className}>
+      <img
+        style={spinnerStyles}
+        src="https://zippy.gfycat.com/SkinnySeveralAsianlion.gif"
+        alt=""
+      />
+    </div>
+  )
+}
+
+const IMAGES = {
+  FINAL: 'https://picsum.photos/4000?image=980',
+  PLACEHOLDER: 'https://picsum.photos/50?image=980',
+  SKELETON:
+    'https://cdn1.iconfinder.com/data/icons/online-wireframes/32/Wireframe_Photo_Album_Picture-256.png',
+  BAD: 'https://pic__sum.pho__tos/50?image=980'
+}
+
+return (
+  <div>
+    <h1>AtomImage</h1>
+    <ul style={listImageStyles}>
+      <li style={listItem}>
+        <div style={containerImageStyles}>
+          <AtomImage
+            src={IMAGES.FINAL}
+            alt="Nice View"
+          />
+        </div>
+        <small style={{ margin: '10px' }}>
+          Most simple Image with only required props
+        </small>
+      </li>
+
+      <li style={listItem}>
+        <div style={containerImageStyles}>
+          <AtomImage
+            src={IMAGES.FINAL}
+            skeleton={IMAGES.SKELETON}
+            alt="Nice View"
+          />
+        </div>
+        <small style={{ margin: '10px' }}>
+          Image with Skeleton while loading final image
+        </small>
+      </li>
+
+      <li style={listItem}>
+        <div style={containerImageStyles}>
+          <AtomImage
+            src={IMAGES.BAD}
+            spinner={Spinner}
+            placeholder={IMAGES.PLACEHOLDER}
+            errorText="Oh no!! This image couldn't be loaded"
+            alt="Nice View"
+          />
+        </div>
+        <small style={{ margin: '10px' }}>
+          Image with bad Image src and Error Box
+        </small>
+      </li>
+
+      <li style={listItem}>
+        <div style={containerImageStyles}>
+          <AtomImage
+            src={IMAGES.FINAL}
+            spinner={Spinner}
+            placeholder={IMAGES.PLACEHOLDER}
+            alt="Nice View"
+          />
+        </div>
+        <small style={{ margin: '10px' }}>
+          Image with placeholder and spinner while loading final image
+        </small>
+      </li>
+
+      <li style={listItem}>
+        <div style={containerImageStyles}>
+          <AtomImage
+            src={IMAGES.FINAL}
+            alt="Nice View"
+            spinner={Spinner}
+          />
+        </div>
+        <small style={{ margin: '10px' }}>
+          Image with spinner (only) while loading final image
+        </small>
+      </li>
+
+      <li style={listItem}>
+        <div style={containerImageStyles}>
+          <AtomImage
+            src={IMAGES.FINAL}
+            placeholder={IMAGES.PLACEHOLDER}
+            alt="Nice View"
+          />
+        </div>
+        <small style={{ margin: '10px' }}>
+          Image with placeholder (only) while loading final image
+        </small>
+      </li>
+
+    </ul>
+    <blockquote>
+    <p>Note: If images load too fast and you cannot appreciate the different behaviours that can be set while images are loading, i recommend you to simulate in your browser low-bandwidth conditions.</p>
+    <p><a href="https://ma.ttias.be/simulate-low-bandwidth-conditions-with-chromes-network-throttling/" target="_blank">Here</a> you have an explanation of how to do this in Chrome.</p>
+    </blockquote>
+  </div>
+)

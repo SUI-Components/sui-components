@@ -49,7 +49,7 @@ ScriptCriteo.displayName = 'ScriptCriteo'
 ScriptCriteo.propTypes = {
   accountIds: PropTypes.array.isRequired,
   siteType: PropTypes.oneOf(['d', 'm', 't']).isRequired,
-  customerId: PropTypes.string,
+  customerId: PropTypes.number,
   email: PropTypes.string,
   hashedEmail: PropTypes.string,
   pageEvent: PropTypes.object

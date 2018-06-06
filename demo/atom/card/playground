@@ -1,0 +1,12 @@
+return (
+  <AtomCard 
+      media = { CarImage }
+      content = { CarInfo }
+      href = { urlTarget }
+      onClick = { () => console.log('clicked')}
+      onResize = { handleResize }
+      tabindex = { index }
+      highlight
+      vertical
+  />
+)

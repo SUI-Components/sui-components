@@ -18,12 +18,9 @@ const Error = (
 )
 
 class AtomImage extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      loading: true,
-      error: false
-    }
+  state = {
+    loading: true,
+    error: false
   }
 
   get classNames () {

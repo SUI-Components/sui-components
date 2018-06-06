@@ -49,7 +49,6 @@ return (
       <li style={listItem}>
         <div style={containerImageStyles}>
           <AtomImage
-            style={{ border: '1px solid' }}
             src={IMAGES.FINAL}
             alt="Nice View"
           />
@@ -62,7 +61,6 @@ return (
       <li style={listItem}>
         <div style={containerImageStyles}>
           <AtomImage
-            style={{ border: '1px solid' }}
             src={IMAGES.FINAL}
             skeleton={IMAGES.SKELETON}
             alt="Nice View"
@@ -76,7 +74,6 @@ return (
       <li style={listItem}>
         <div style={containerImageStyles}>
           <AtomImage
-            style={{ border: '1px solid' }}
             src={IMAGES.BAD}
             spinner={Spinner}
             placeholder={IMAGES.PLACEHOLDER}
@@ -92,7 +89,6 @@ return (
       <li style={listItem}>
         <div style={containerImageStyles}>
           <AtomImage
-            style={{ border: '1px solid' }}
             src={IMAGES.FINAL}
             spinner={Spinner}
             placeholder={IMAGES.PLACEHOLDER}
@@ -107,7 +103,6 @@ return (
       <li style={listItem}>
         <div style={containerImageStyles}>
           <AtomImage
-            style={{ border: '1px solid' }}
             src={IMAGES.FINAL}
             alt="Nice View"
             spinner={Spinner}
@@ -121,7 +116,6 @@ return (
       <li style={listItem}>
         <div style={containerImageStyles}>
           <AtomImage
-            style={{ border: '1px solid' }}
             src={IMAGES.FINAL}
             placeholder={IMAGES.PLACEHOLDER}
             alt="Nice View"

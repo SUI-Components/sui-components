@@ -1,1 +1,9 @@
-return (<AtomTooltip />)
+/* eslint-disable react/react-in-jsx-scope, react/jsx-no-undef */
+
+return (
+  <div>
+    <h1>AtomTooltip</h1>
+    <p>Lorem Ipsum <strong id='astros'>astros</strong></p>
+    <AtomTooltip placement='right' target='astros' >Hello <strong>world</strong>!</AtomTooltip>
+  </div>
+)

@@ -1,5 +1,137 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
+// Tooltips
+
+$fsz-atom-tooltip: $fz-m !default;
+$mxw-atom-tooltip: 200px !default;
+$c-atom-tooltip: $c-white !default;
+$bgc-atom-tooltip: $c-black !default;
+$bdrs-atom-tooltip: $bdrs-m !default;
+$op-atom-tooltip: 0.9 !default;
+$pt-atom-tooltip: $p-s !default;
+$pb-atom-tooltip: $p-s !default;
+$pl-atom-tooltip: $p-m !default;
+$pr-atom-tooltip: $p-m !default;
+$m-atom-tooltip: 0 !default;
+$z-atom-tooltip: 1070 !default;
+
+$w-atom-tooltip-arrow: 0.8rem !default;
+$h-atom-tooltip-arrow: 0.4rem !default;
+$c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
+
+// Base class
 .sui-AtomTooltip {
-  // Do your magic
+  display: block;
+  font-size: $fsz-atom-tooltip;
+  margin: $m-atom-tooltip;
+  opacity: 0;
+  position: absolute;
+  // Allow breaking very long words so they don't overflow the tooltip's bounds
+  word-wrap: break-word;
+  z-index: $z-atom-tooltip;
+
+  &.show {
+    opacity: $op-atom-tooltip;
+  }
+
+  .arrow {
+    display: block;
+    height: $h-atom-tooltip-arrow;
+    position: absolute;
+    width: $w-atom-tooltip-arrow;
+
+    &::before {
+      border-color: transparent;
+      border-style: solid;
+      content: "";
+      position: absolute;
+    }
+  }
+}
+
+.sui-AtomTooltip--top {
+  padding: $h-atom-tooltip-arrow 0;
+
+  .arrow {
+    bottom: 0;
+
+    &::before {
+      border-top-color: $c-atom-tooltip-arrow;
+      border-width: $h-atom-tooltip-arrow ($w-atom-tooltip-arrow / 2) 0;
+      top: 0;
+    }
+  }
+}
+
+.sui-AtomTooltip--right {
+  padding: 0 $h-atom-tooltip-arrow;
+
+  .arrow {
+    height: $w-atom-tooltip-arrow;
+    left: 0;
+    width: $h-atom-tooltip-arrow;
+
+    &::before {
+      border-right-color: $c-atom-tooltip-arrow;
+      border-width: ($w-atom-tooltip-arrow / 2) $h-atom-tooltip-arrow
+        ($w-atom-tooltip-arrow / 2) 0;
+      right: 0;
+    }
+  }
+}
+
+.sui-AtomTooltip--bottom {
+  padding: $h-atom-tooltip-arrow 0;
+
+  .arrow {
+    top: 0;
+
+    &::before {
+      border-bottom-color: $c-atom-tooltip-arrow;
+      border-width: 0 ($w-atom-tooltip-arrow / 2) $h-atom-tooltip-arrow;
+      bottom: 0;
+    }
+  }
+}
+
+.sui-AtomTooltip--left {
+  padding: 0 $h-atom-tooltip-arrow;
+
+  .arrow {
+    height: $w-atom-tooltip-arrow;
+    right: 0;
+    width: $h-atom-tooltip-arrow;
+
+    &::before {
+      border-left-color: $c-atom-tooltip-arrow;
+      border-width: ($w-atom-tooltip-arrow / 2) 0 ($w-atom-tooltip-arrow / 2)
+        $h-atom-tooltip-arrow;
+      left: 0;
+    }
+  }
+}
+
+.sui-AtomTooltip--auto {
+  &[x-placement^='top'] {
+    @extend .sui-AtomTooltip--top;
+  }
+  &[x-placement^='right'] {
+    @extend .sui-AtomTooltip--right;
+  }
+  &[x-placement^='bottom'] {
+    @extend .sui-AtomTooltip--bottom;
+  }
+  &[x-placement^='left'] {
+    @extend .sui-AtomTooltip--left;
+  }
+}
+
+// Wrapper for the tooltip content
+.sui-AtomTooltip-inner {
+  background-color: $bgc-atom-tooltip;
+  border-radius: $bdrs-atom-tooltip;
+  color: $c-atom-tooltip;
+  max-width: $mxw-atom-tooltip;
+  padding: $pt-atom-tooltip $pr-atom-tooltip;
+  text-align: center;
 }

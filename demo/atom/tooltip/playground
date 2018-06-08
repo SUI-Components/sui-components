@@ -27,18 +27,23 @@ class StrongWithTooltip extends React.Component {
   }
 }
 
-const StrongWithText = ({ text }) => (
-  <strong>{ text }</strong>
-)
+const stylesList = { 
+  display: 'flex', 
+  listStyle: 'none', 
+  width: '300px',
+  padding: '10px',
+  border: '1px solid #ccc',
+  justifyContent: 'space-around'
+}
 
 return (
   <div>
     <h1>AtomTooltip</h1>
     <div>
       <p>
-        Lorem Ipsum <strong id='astros'>astros</strong>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna <strong id='astros'>astros</strong>
       </p>
-      <AtomTooltip placement='top' target='astros'>
+      <AtomTooltip placement='left' target='astros'>
         Hello <strong>world</strong>!
       </AtomTooltip>
     </div>
@@ -48,10 +53,10 @@ return (
       </p>
     </div>
     <div>
-      <ul id='list'>
-        <li><a href='http://google.com'>Google</a></li>
-        <li style={ { display: 'inline-block' } }><a href='https://twitter.com'>Twitter</a></li>
-        <li><a href='http://facebook.com'>Facebook</a></li>
+      <ul id='list' style={ stylesList }>
+        <li ><a href='http://google.com'>Google</a></li>
+        <li ><a href='https://twitter.com'>Twitter</a></li>
+        <li ><a href='http://facebook.com'>Facebook</a></li>
       </ul>
       <AtomTooltip placement='bottom' target={() => document.querySelector('#list a[href^="https"]')}>
         First Secure Link

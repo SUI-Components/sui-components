@@ -1,9 +1,61 @@
 /* eslint-disable react/react-in-jsx-scope, react/jsx-no-undef */
 
+class StrongWithTooltip extends React.Component {
+
+  state = {
+    target: null
+  }
+
+  handleRef = target => {
+    if (!this.state.target) this.setState({ target })
+  }
+
+  render () {
+    const { text } = this.props
+    const { target } = this.state
+    return (
+      <span>
+        <strong ref={ this.handleRef }>{text}</strong>
+        {
+          target &&
+          <AtomTooltip placement='right' target={target}>
+            Hello <strong>world</strong>!
+          </AtomTooltip>
+        }
+      </span>
+    )
+  }
+}
+
+const StrongWithText = ({ text }) => (
+  <strong>{ text }</strong>
+)
+
 return (
   <div>
     <h1>AtomTooltip</h1>
-    <p>Lorem Ipsum <strong id='astros'>astros</strong></p>
-    <AtomTooltip placement='right' target='astros' >Hello <strong>world</strong>!</AtomTooltip>
+    <div>
+      <p>
+        Lorem Ipsum <strong id='astros'>astros</strong>
+      </p>
+      <AtomTooltip placement='top' target='astros'>
+        Hello <strong>world</strong>!
+      </AtomTooltip>
+    </div>
+    <div>
+      <p>
+        Lorem Ipsum <StrongWithTooltip text='astros' />
+      </p>
+    </div>
+    <div>
+      <ul id='list'>
+        <li><a href='http://google.com'>Google</a></li>
+        <li style={ { display: 'inline-block' } }><a href='https://twitter.com'>Twitter</a></li>
+        <li><a href='http://facebook.com'>Facebook</a></li>
+      </ul>
+      <AtomTooltip placement='bottom' target={() => document.querySelector('#list a[href^="https"]')}>
+        First Secure Link
+      </AtomTooltip>
+    </div>
   </div>
 )

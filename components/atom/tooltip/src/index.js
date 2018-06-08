@@ -10,13 +10,17 @@ class AtomTooltip extends Component {
   }
 
   componentDidMount () {
-    document.addEventListener('click', () => {
-      const { isOpen } = this.state
-      if (isOpen) this.toggle()
-    })
+    document.addEventListener('click', this.hideTooltip)
   }
 
-  // TO-DO: removeListener on unmount
+  componentWillUnmount () {
+    document.removeEventListener('click', this.hideTooltip)
+  }
+
+  hideTooltip = () => {
+    const { isOpen } = this.state
+    if (isOpen) this.toggle()
+  }
 
   toggle = () => {
     this.setState({

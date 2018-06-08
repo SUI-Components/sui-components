@@ -42,7 +42,7 @@
     "@schibstedspain/mt-theme": "4",
     "@schibstedspain/nc-theme": "1",
     "@schibstedspain/vb-theme": "1",
-    "reactstrap": "^6.1.0"
+    "reactstrap": "6.1.0"
   },
   "config": {
     "sui-studio": {

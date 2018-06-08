@@ -1,13 +1,11 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-// Tooltips
-
 $fsz-atom-tooltip: $fz-m !default;
 $mxw-atom-tooltip: 200px !default;
 $c-atom-tooltip: $c-white !default;
 $bgc-atom-tooltip: $c-black !default;
 $bdrs-atom-tooltip: $bdrs-m !default;
-$op-atom-tooltip: 0.9 !default;
+$op-atom-tooltip: .9 !default;
 $pt-atom-tooltip: $p-s !default;
 $pb-atom-tooltip: $p-s !default;
 $pl-atom-tooltip: $p-m !default;
@@ -15,8 +13,8 @@ $pr-atom-tooltip: $p-m !default;
 $m-atom-tooltip: 0 !default;
 $z-atom-tooltip: 1070 !default;
 
-$w-atom-tooltip-arrow: 0.8rem !default;
-$h-atom-tooltip-arrow: 0.4rem !default;
+$w-atom-tooltip-arrow: .8rem !default;
+$h-atom-tooltip-arrow: .4rem !default;
 $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
 
 // Base class

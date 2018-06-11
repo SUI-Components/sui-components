@@ -1,7 +1,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$fsz-atom-tooltip: $fz-m !default;
-$mxw-atom-tooltip: 200px !default;
+$fz-atom-tooltip: $fz-m !default;
+$maw-atom-tooltip: 200px !default;
 $c-atom-tooltip: $c-white !default;
 $bgc-atom-tooltip: $c-black !default;
 $bdrs-atom-tooltip: $bdrs-m !default;
@@ -20,7 +20,7 @@ $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
 // Base class
 .sui-AtomTooltip {
   display: block;
-  font-size: $fsz-atom-tooltip;
+  font-size: $fz-atom-tooltip;
   margin: $m-atom-tooltip;
   opacity: 0;
   position: absolute;
@@ -129,7 +129,7 @@ $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
   background-color: $bgc-atom-tooltip;
   border-radius: $bdrs-atom-tooltip;
   color: $c-atom-tooltip;
-  max-width: $mxw-atom-tooltip;
+  max-width: $maw-atom-tooltip;
   padding: $pt-atom-tooltip $pr-atom-tooltip;
   text-align: center;
 }

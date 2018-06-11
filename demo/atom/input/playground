@@ -1,0 +1,160 @@
+const rowStyles = {marginBottom: '16px'}
+
+const bankAccountMask = {
+  mask: 'ES00 0000 0000 00 0000000000',
+  placeholder: {
+    lazy: true,
+    char: '_'
+  }
+}
+
+const postalCodeMask = {
+  mask: '00000',
+  placeholder: {
+    lazy: true,
+    char: 0
+  }
+}
+
+return (
+  <div>
+    <div style={rowStyles}>
+      <AtomInput
+        addonRight='@schibsted.com'
+        id='addonRight'
+        label='Addon right'
+        name='text'
+        type={atomInputTypes.text}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        addonLeft='https://'
+        id='addonLeft'
+        label='Addon left'
+        name='text'
+        type={atomInputTypes.text}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        id='bankAccount'
+        label='Bank account'
+        mask={bankAccountMask}
+        name='bankAccount'
+        placeholder='ES00 0000 0000 00 0000000000'
+        type={atomInputTypes.mask}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        id='postalCode'
+        label='Postal Code'
+        mask={postalCodeMask}
+        name='postalCode'
+        placeholder='00000'
+        type={atomInputTypes.mask}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        id='defaultPassword'
+        label='Password input'
+        name='password'
+        type={atomInputTypes.password}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        id='smallPassword'
+        label='Password input'
+        name='password'
+        size={atomInputSizes.SMALL}
+        type={atomInputTypes.password}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        id='mediumText'
+        label='Simple medium text input'
+        name='text'
+        type={atomInputTypes.text}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        id='smallText'
+        label='Simple small text input'
+        name='text'
+        size={atomInputSizes.SMALL}
+        type={atomInputTypes.text}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        id='numberInput'
+        label='Simple number input'
+        name='number'
+        type={atomInputTypes.number}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        id='dateInput'
+        label='Date input'
+        name='date'
+        type={atomInputTypes.date}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        id='tagInput'
+        label='Tag input'
+        name='Tag'
+        type={atomInputTypes.tag}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        helpText='Lorem ipsum'
+        id='textWithHelpText'
+        label='Simple text input width help text'
+        name='text'
+        type={atomInputTypes.text}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        id='textWithPlaceholder'
+        label='Simple text input success'
+        name='text'
+        placeholder='Input + placeholder + validation'
+        type={atomInputTypes.text}
+        validationText='Success'
+        validationType={atomInputValidationTypes.SUCCESS}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        helpText='Lorem ipsum'
+        id='textWithError'
+        label='Simple text input error'
+        name='text'
+        placeholder='Lorem ipsum'
+        type={atomInputTypes.text}
+        validationText='Error'
+        validationType={atomInputValidationTypes.ERROR}
+      />
+    </div>
+    <div style={rowStyles}>
+      <AtomInput
+        disabled
+        id='textDisabled'
+        label='Simple text input disabled'
+        name='text'
+        placeholder='Lorem ipsum'
+        type={atomInputTypes.text}
+      />
+    </div>
+  </div>
+)

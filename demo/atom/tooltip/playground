@@ -77,11 +77,30 @@ const listItemLeft = Object.assign(
   { left: '0', alignSelf: 'center' }
 )
 
+const paragraphEllipsis = {
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  display: '-webkit-box',
+  '-webkit-line-clamp': 2, /* number of lines to show */
+  '-webkit-box-orient': 'vertical',
+  lineHeight: '16px',
+  maxHeight: '64px',
+  margin: 0,
+  padding: 0
+}
+
 return (
   <div>
     <h1>AtomTooltip</h1>
-    <h2>Tooltip without arrow</h2>
-    <div>
+    <h2><code>max-width: 256px</code> & <code>max-height: 88px</code></h2>
+    <div style={ { border: '1px solid #CCC', background: '#fff', marginTop: '10px', padding: '10px' }}>
+      <p>Lorem ipsum dolor sit amet <strong id='avenue'>astros</strong></p>
+      <AtomTooltip placement="right" target='avenue'>
+        <p style={ paragraphEllipsis }>Lorem fistrum ese que llega pecador torpedo apetecan no puedor te voy a borrar el cerito torpedo a gramenawer ese que llega. A peich sexuarl a peich amatomaa a wan. Condemor ese pedazo de llevame al sircoo jarl benemeritaar condemor. Ahorarr amatomaa tiene musho peligro hasta luego Lucas amatomaa. Va usté muy cargadoo diodenoo la caidita a wan al ataquerl diodenoo llevame al sircoo va usté muy cargadoo por la gloria de mi madre sexuarl quietooor. A peich apetecan sexuarl quietooor caballo blanco caballo negroorl amatomaa benemeritaar. A gramenawer a peich por la gloria de mi madre está la cosa muy malar benemeritaar pecador por la gloria de mi madre tiene musho peligro papaar papaar.</p>
+      </AtomTooltip>
+    </div>
+    <h2>Tooltip without arrow using <code>noarrow</code></h2>
+    <div style={ { border: '1px solid #CCC', background: '#fff', marginTop: '10px', padding: '10px' }}>
       <p>Lorem ipsum dolor sit amet <strong id='indeed'>astros</strong></p>
       <AtomTooltip placement="right" target='indeed' noarrow>
         Hello <strong>world</strong>!
@@ -109,6 +128,7 @@ return (
       'left-end',
       </code>
       </p>
+      <div style={ { border: '1px solid #CCC', background: '#fff', marginTop: '10px', padding: '10px' } }>
       <ul style={ listContainerStyles }>
         {/* --- top --- */}
         <li style={ listItemTop }>
@@ -216,23 +236,24 @@ return (
           </AtomTooltip>
         </li>
       </ul>
+      </div>
     </div>
     <h2>Selecting element over which apply the tooltip w/ <code>target</code></h2>
     <h3>Using an ID</h3>
-    <div>
+    <div style={ { border: '1px solid #CCC', background: '#fff', marginTop: '10px', padding: '10px' } }>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna <strong id='astros'>astros</strong></p>
       <AtomTooltip placement='left' target='astros'>
         Hello <strong>world</strong>!
       </AtomTooltip>
     </div>
     <h3>Using an DOM Selection</h3>
-    <div>
+    <div style={ { border: '1px solid #CCC', background: '#fff', marginTop: '10px', padding: '10px' } }>
       <p>
         Lorem Ipsum <StrongWithTooltip text='astros' />
       </p>
     </div>
     <h3>Using a function that returns a DOM Selection</h3>
-    <div>
+    <div style={ { border: '1px solid #CCC', background: '#fff', marginTop: '10px', padding: '10px' } }>
       <ul id='list' style={ stylesList }>
         <li ><a href='http://google.com'>Google</a></li>
         <li ><a href='https://twitter.com'>Twitter</a></li>

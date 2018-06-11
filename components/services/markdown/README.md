@@ -16,7 +16,7 @@ $ npm install @schibstedspain/sui-services-markdown --save
 ```js
 import ServiceMarkdown from '@schibstedspain/sui-services-markdown'
 
-return (<ServiceMarkdown />)
+return (<ServiceMarkdown src="https://mycdn.com/myfile.md"/>)
 ```
 
 

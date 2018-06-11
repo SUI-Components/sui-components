@@ -1,0 +1,11 @@
+const TITLE = 'Tu privacidad es importante para nosotros'
+const BODY = 'Puedes dar tu consentimiento de manera individual a cada partner. Ver la lista de todos los propósitos para los cuales utilizan tus datos para tener más información. En algunos casos, las empresas pueden revelar que usan tus datos sin pedir tu consentimiento, en función de intereses legítimos. Puedes hacer click en su política de privacidad para obtener más información al respecto o para rechazarlo.'
+
+const items = [
+
+]
+
+const acceptAllLabel = 'Aceptar todo'
+const denyAllLabel = 'Rechazar todo'
+
+return (<ModalCmp title={TITLE} body={BODY} acceptAllLabel={acceptAllLabel} denyAllLabel={denyAllLabel} />)

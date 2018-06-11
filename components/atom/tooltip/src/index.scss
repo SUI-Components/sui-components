@@ -4,7 +4,7 @@ $fz-atom-tooltip: $fz-m !default;
 $maw-atom-tooltip: 200px !default;
 $c-atom-tooltip: $c-white !default;
 $bgc-atom-tooltip: $c-black !default;
-$bdrs-atom-tooltip: $bdrs-m !default;
+$bdrs-atom-tooltip: 4px !default;
 $op-atom-tooltip: .9 !default;
 $pt-atom-tooltip: $p-s !default;
 $pb-atom-tooltip: $p-s !default;
@@ -30,6 +30,10 @@ $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
 
   &.show {
     opacity: $op-atom-tooltip;
+  }
+
+  &.no-arrow .arrow {
+    display: none;
   }
 
   .arrow {

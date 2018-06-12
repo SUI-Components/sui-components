@@ -26,7 +26,6 @@ const AUTO_CLOSE_TIME = {
 }
 
 const TRANSITION_DELAY = 1000 // ms
-const TEXT_MAX_LENGTH = 110 // chars
 const BUTTONS_MAX = 3 // buttons
 
 class MoleculeNotification extends Component {
@@ -80,11 +79,6 @@ class MoleculeNotification extends Component {
     }, delay)
   }
 
-  getText = () => {
-    const {text} = this.props
-    return text.substring(0, TEXT_MAX_LENGTH)
-  }
-
   getButtons = () => {
     const {buttons} = this.props
     return buttons
@@ -94,7 +88,15 @@ class MoleculeNotification extends Component {
 
   render() {
     const {show, delay} = this.state
-    const {type, buttons, icon, position, showCloseButton, effect} = this.props
+    const {
+      type,
+      buttons,
+      icon,
+      position,
+      showCloseButton,
+      effect,
+      text
+    } = this.props
     const wrapperClassName = cx(
       `${CLASS} ${CLASS}--${type} ${CLASS}--${position}`,
       {
@@ -114,7 +116,7 @@ class MoleculeNotification extends Component {
             <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
           </div>
           <div className={`${CLASS}-text`}>
-            <span>{this.getText()}</span>
+            <span>{text}</span>
           </div>
           {showCloseButton && (
             <div className={`${CLASS}-iconClose`} onClick={this.toggleShow}>

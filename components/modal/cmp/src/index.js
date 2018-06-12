@@ -4,9 +4,9 @@ import Button from '@schibstedspain/sui-atom-button'
 import {VendorRow} from './VendorRow'
 import {VendorsTable} from './VendorsTable'
 
-import mockedVendorsJSON from './mockedVendors.json'
+import {CLASS} from './settings'
 
-const CLASS = 'sui-ModalCmp'
+import mockedVendorsJSON from './mockedVendors.json'
 
 class ModalCmp extends Component {
   state = {
@@ -14,6 +14,7 @@ class ModalCmp extends Component {
   }
 
   componentDidMount() {
+    console.log(mockedVendorsJSON)
     // get the vendors list from window.__cmp
     this.setState({
       vendors: mockedVendorsJSON

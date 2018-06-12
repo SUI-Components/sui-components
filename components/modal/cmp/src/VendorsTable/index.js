@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import {CLASS} from '../settings'
+
 export const VendorsTable = ({children}) => (
-  <div className="sui-ModalCmp-vendorsTable">
-    <table className="sui-ModalCmp-vendorsTableInner">
+  <div className={`${CLASS}-vendorsTable`}>
+    <table className={`${CLASS}-vendorsTableInner`}>
       <thead>
-        <tr className="sui-ModalCmp-vendorsTableHead">
+        <tr className={`${CLASS}-vendorsTableHead`}>
           <th>Company</th>
           <th>Off/On</th>
         </tr>

@@ -3,10 +3,12 @@ import PropTypes from 'prop-types'
 
 import AtomSwitch from '@s-ui/react-atom-switch'
 
+import {CLASS} from '../settings'
+
 export const VendorRow = ({enabled, id, handleToggleVendorStatus, title}) => (
-  <tr className="sui-ModalCmp-vendorsRow">
-    <td className="sui-ModalCmp-vendorsRow-title">{title}</td>
-    <td className="sui-ModalCmp-vendorsRow-actions">
+  <tr className={`${CLASS}-vendorsRow`}>
+    <td className={`${CLASS}-vendorsRow-title`}>{title}</td>
+    <td className={`${CLASS}-vendorsRow-actions`}>
       <AtomSwitch
         disabled={!enabled}
         labelLeft=""

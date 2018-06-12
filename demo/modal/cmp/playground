@@ -4,14 +4,9 @@ const BODY =
 
 const items = []
 
-const acceptAllLabel = 'Aceptar todo'
-const denyAllLabel = 'Rechazar todo'
-
 return (
   <ModalCmp
-    acceptAllLabel={acceptAllLabel}
     body={BODY}
-    denyAllLabel={denyAllLabel}
     logo="http://www.schibsted.com/Global/LogoTypes/SMG_Logo_Small_RGB.png"
     title={TITLE}
   />

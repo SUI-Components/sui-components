@@ -36,9 +36,10 @@
 
   &-footer {
     align-items: center;
-    align-self: flex-end;
+    justify-content: flex-end;
     display: flex;
-    padding: 0 $p-m;
+    padding: 0 $p-l $p-l;
+    width: 100%;
   }
 
   &-logo {
@@ -92,5 +93,9 @@
     justify-content: space-between;
     padding: $p-s $p-m;
     text-transform: uppercase;
+  }
+
+  &Inner {
+    width: 100%;
   }
 }

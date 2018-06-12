@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.19.0"></a>
+# 1.19.0 (2018-06-12)
+
+
+### Features
+
+* replace needLogin by requiresAuth ([ccbb4f4](https://github.com/SUI-Components/sui-components/commit/ccbb4f4))
+* sending needlogin to the link factory ([f3b272e](https://github.com/SUI-Components/sui-components/commit/f3b272e))
+
+
+
 <a name="1.18.0"></a>
 # 1.18.0 (2018-03-01)
 

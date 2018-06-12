@@ -1,27 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const VendorsTable = ({ children }) => (
-  <table className='sui-ModalCmp-vendorsTable'>
-    <thead>
-      <tr>
-        <th>
-          <h5>Company</h5>
-        </th>
-        <th>
-          <h5>Off/On</h5>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      {children}
-    </tbody>
-  </table>
+export const VendorsTable = ({children}) => (
+  <div className="sui-ModalCmp-vendorsTable">
+    <table className="sui-ModalCmp-vendorsTableInner">
+      <thead>
+        <tr className="sui-ModalCmp-vendorsTableHead">
+          <th>Company</th>
+          <th>Off/On</th>
+        </tr>
+      </thead>
+      <tbody>{children}</tbody>
+    </table>
+  </div>
 )
 
 VendorsTable.propTypes = {
-  enabled: PropTypes.bool,
-  handleToggleVendorStatus: PropTypes.func,
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  children: PropTypes.element.isRequired
 }

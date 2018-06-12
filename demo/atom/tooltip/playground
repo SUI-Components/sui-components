@@ -1,7 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope, react/jsx-no-undef */
 
 class StrongWithTooltip extends React.Component {
-
   state = {
     target: null
   }
@@ -10,26 +9,25 @@ class StrongWithTooltip extends React.Component {
     if (!this.state.target) this.setState({ target })
   }
 
-  render () {
+  render() {
     const { text } = this.props
     const { target } = this.state
     return (
       <span>
-        <strong ref={ this.handleRef }>{text}</strong>
-        {
-          target &&
-          <AtomTooltip placement='right' target={target}>
+        <strong ref={this.handleRef}>{text}</strong>
+        {target && (
+          <AtomTooltip placement="right" target={target}>
             Hello <strong>world</strong>!
           </AtomTooltip>
-        }
+        )}
       </span>
     )
   }
 }
 
-const stylesList = { 
-  display: 'flex', 
-  listStyle: 'none', 
+const stylesList = {
+  display: 'flex',
+  listStyle: 'none',
   width: '300px',
   padding: '10px',
   border: '1px solid #ccc',
@@ -37,7 +35,7 @@ const stylesList = {
 }
 
 const listContainerStyles = {
-  listStyle: 'none', 
+  listStyle: 'none',
   padding: '10px',
   border: '1px solid #ccc',
   maxWidth: '400px',
@@ -54,212 +52,272 @@ const listItemStyles = {
   position: 'absolute'
 }
 
-const listItemTop = Object.assign( 
-  { ...listItemStyles }, 
+const listItemTop = Object.assign(
+  { ...listItemStyles },
   { width: '100%', display: 'flex', justifyContent: 'space-around' },
   { top: '0', zIndex: '10' }
 )
-const listItemRight = Object.assign( 
-  { ...listItemStyles }, 
-  { height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around' },
+const listItemRight = Object.assign(
+  { ...listItemStyles },
+  {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  },
   { right: '0', alignSelf: 'center' }
 )
 
-const listItemBottom = Object.assign( 
-  { ...listItemStyles }, 
+const listItemBottom = Object.assign(
+  { ...listItemStyles },
   { width: '100%', display: 'flex', justifyContent: 'space-around' },
   { bottom: '0' }
 )
 
-const listItemLeft = Object.assign( 
-  { ...listItemStyles }, 
-  { height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around' },
+const listItemLeft = Object.assign(
+  { ...listItemStyles },
+  {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  },
   { left: '0', alignSelf: 'center' }
 )
 
-const paragraphEllipsis = {
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-  display: '-webkit-box',
-  '-webkit-line-clamp': 2, /* number of lines to show */
-  '-webkit-box-orient': 'vertical',
-  lineHeight: '16px',
-  maxHeight: '64px',
-  margin: 0,
-  padding: 0
+/*
+$font-size: 26px;
+$line-height: 1.4;
+$lines-to-show: 3;
+
+h2 {
+  display: block; 
+  display: -webkit-box;
+  max-width: 400px;
+  height: $font-size*$line-height*$lines-to-show; 
+  margin: 0 auto;
+  font-size: $font-size;
+  line-height: $line-height;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+*/
+
+// const paragraphEllipsis = {
+//   overflow: 'hidden',
+//   textOverflow: 'ellipsis',
+//   display: '-webkit-box',
+//   '-webkit-line-clamp': '4',
+//   '-webkit-box-orient': 'vertical',
+//   lineHeight: '16px',
+//   height: '64px',
+//   margin: 0,
+//   padding: 0
+// }
 
 return (
   <div>
     <h1>AtomTooltip</h1>
-    <h2><code>max-width: 256px</code> & <code>max-height: 88px</code></h2>
-    <div style={ { border: '1px solid #CCC', background: '#fff', marginTop: '10px', padding: '10px' }}>
-      <p>Lorem ipsum dolor sit amet <strong id='avenue'>astros</strong></p>
-      <AtomTooltip placement="right" target='avenue'>
-        <p style={ paragraphEllipsis }>Lorem fistrum ese que llega pecador torpedo apetecan no puedor te voy a borrar el cerito torpedo a gramenawer ese que llega. A peich sexuarl a peich amatomaa a wan. Condemor ese pedazo de llevame al sircoo jarl benemeritaar condemor. Ahorarr amatomaa tiene musho peligro hasta luego Lucas amatomaa. Va usté muy cargadoo diodenoo la caidita a wan al ataquerl diodenoo llevame al sircoo va usté muy cargadoo por la gloria de mi madre sexuarl quietooor. A peich apetecan sexuarl quietooor caballo blanco caballo negroorl amatomaa benemeritaar. A gramenawer a peich por la gloria de mi madre está la cosa muy malar benemeritaar pecador por la gloria de mi madre tiene musho peligro papaar papaar.</p>
+    <h2>
+      Maximum of 4 lines with <em>ellipsis</em> (<code>max-width: 256px</code> & <code>max-height: 88px</code>)
+    </h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet <strong id="avenue">astros</strong>
+      </p>
+      <AtomTooltip placement="right" target="avenue">
+          Lorem fistrum ese que llega pecador torpedo apetecan no puedor te voy
+          a borrar el cerito torpedo a gramenawer ese que llega. A peich sexuarl
+          a peich amatomaa a wan. Condemor ese pedazo de llevame al sircoo jarl
+          benemeritaar condemor. Ahorarr amatomaa tiene musho peligro hasta
+          luego Lucas amatomaa. Va usté muy cargadoo diodenoo la caidita a wan
+          al ataquerl diodenoo llevame al sircoo va usté muy cargadoo por la
+          gloria de mi madre sexuarl quietooor. A peich apetecan sexuarl
+          quietooor caballo blanco caballo negroorl amatomaa benemeritaar. A
+          gramenawer a peich por la gloria de mi madre está la cosa muy malar
+          benemeritaar pecador por la gloria de mi madre tiene musho peligro
+          papaar papaar.
       </AtomTooltip>
     </div>
-    <h2>Tooltip without arrow using <code>noarrow</code></h2>
-    <div style={ { border: '1px solid #CCC', background: '#fff', marginTop: '10px', padding: '10px' }}>
-      <p>Lorem ipsum dolor sit amet <strong id='indeed'>astros</strong></p>
-      <AtomTooltip placement="right" target='indeed' noarrow>
+    <h2>
+      Tooltip without arrow using <code>noarrow</code>
+    </h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet <strong id="indeed">astros</strong>
+      </p>
+      <AtomTooltip placement="right" target="indeed" noarrow>
         Hello <strong>world</strong>!
       </AtomTooltip>
     </div>
-    <h2>Positioning tooltip with <code>placement</code></h2>
+    <h2>
+      Positioning tooltip with <code>placement</code>
+    </h2>
     <div>
       <p>
-      Possible values: 
-      <code>
-      'auto',
-      'auto-start',
-      'auto-end',
-      'top',
-      'top-start',
-      'top-end',
-      'right',
-      'right-start',
-      'right-end',
-      'bottom',
-      'bottom-start',
-      'bottom-end',
-      'left',
-      'left-start',
-      'left-end',
-      </code>
+        Possible values:
+        <code>
+          'auto', 'auto-start', 'auto-end', 'top', 'top-start', 'top-end',
+          'right', 'right-start', 'right-end', 'bottom', 'bottom-start',
+          'bottom-end', 'left', 'left-start', 'left-end',
+        </code>
       </p>
-      <div style={ { border: '1px solid #CCC', background: '#fff', marginTop: '10px', padding: '10px' } }>
-      <ul style={ listContainerStyles }>
-        {/* --- top --- */}
-        <li style={ listItemTop }>
-          <strong id='top-start' >top-start</strong>
-          <strong id='top' >top</strong>
-          <strong id='top-end'>top-end</strong>
-          <AtomTooltip 
-            target='top-start'
-            placement='top-start'
-          >
-            <code>placement='top-start'</code>
-          </AtomTooltip>
-          <AtomTooltip 
-            target='top'
-            placement='top'
-          >
-            <code>placement='top'</code>
-          </AtomTooltip>
-          <AtomTooltip 
-            target='top-end'
-            placement='top-end'
-          >
-            <code>placement='top-end'</code>
-          </AtomTooltip>
-        </li>
+      <div
+        style={{
+          border: '1px solid #CCC',
+          background: '#fff',
+          marginTop: '10px',
+          padding: '10px'
+        }}
+      >
+        <ul style={listContainerStyles}>
+          {/* --- top --- */}
+          <li style={listItemTop}>
+            <strong id="top-start">top-start</strong>
+            <strong id="top">top</strong>
+            <strong id="top-end">top-end</strong>
+            <AtomTooltip target="top-start" placement="top-start">
+              <code>placement='top-start'</code>
+            </AtomTooltip>
+            <AtomTooltip target="top" placement="top">
+              <code>placement='top'</code>
+            </AtomTooltip>
+            <AtomTooltip target="top-end" placement="top-end">
+              <code>placement='top-end'</code>
+            </AtomTooltip>
+          </li>
 
-        {/* --- right --- */}
-        <li style={ listItemRight }>
-          <strong id='right-start' >right-start</strong>
-          <strong id='right' >right</strong>
-          <strong id='right-end'>right-end</strong>
-          <AtomTooltip 
-            target='right-start'
-            placement='right-start'
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit<br/>
-            <code>placement='right-start'</code>
-          </AtomTooltip>
-          <AtomTooltip 
-            target='right'
-            placement='right'
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit<br/>
-            <code>placement='right'</code>
-          </AtomTooltip>
-          <AtomTooltip 
-            target='right-end'
-            placement='right-end'
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit<br/>
-            <code>placement='right-end'</code>
-          </AtomTooltip>
-        </li>
+          {/* --- right --- */}
+          <li style={listItemRight}>
+            <strong id="right-start">right-start</strong>
+            <strong id="right">right</strong>
+            <strong id="right-end">right-end</strong>
+            <AtomTooltip target="right-start" placement="right-start">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
+              <code>placement='right-start'</code>
+            </AtomTooltip>
+            <AtomTooltip target="right" placement="right">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
+              <code>placement='right'</code>
+            </AtomTooltip>
+            <AtomTooltip target="right-end" placement="right-end">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
+              <code>placement='right-end'</code>
+            </AtomTooltip>
+          </li>
 
-        {/* --- bottom --- */}
-        <li style={ listItemBottom }>
-          <strong id='bottom-start' >bottom-start</strong>
-          <strong id='bottom' >bottom</strong>
-          <strong id='bottom-end'>bottom-end</strong>
-          <AtomTooltip 
-            target='bottom-start'
-            placement='bottom-start'
-          >
-            <code>placement='bottom-start'</code>
-          </AtomTooltip>
-          <AtomTooltip 
-            target='bottom'
-            placement='bottom'
-          >
-            <code>placement='bottom'</code>
-          </AtomTooltip>
-          <AtomTooltip 
-            target='bottom-end'
-            placement='bottom-end'
-          >
-            <code>placement='bottom-end'</code>
-          </AtomTooltip>
-        </li>
+          {/* --- bottom --- */}
+          <li style={listItemBottom}>
+            <strong id="bottom-start">bottom-start</strong>
+            <strong id="bottom">bottom</strong>
+            <strong id="bottom-end">bottom-end</strong>
+            <AtomTooltip target="bottom-start" placement="bottom-start">
+              <code>placement='bottom-start'</code>
+            </AtomTooltip>
+            <AtomTooltip target="bottom" placement="bottom">
+              <code>placement='bottom'</code>
+            </AtomTooltip>
+            <AtomTooltip target="bottom-end" placement="bottom-end">
+              <code>placement='bottom-end'</code>
+            </AtomTooltip>
+          </li>
 
-        {/* --- left --- */}
-        <li style={ listItemLeft }>
-          <strong id='left-start' >left-start</strong>
-          <strong id='left' >left</strong>
-          <strong id='left-end'>left-end</strong>
-          <AtomTooltip 
-            target='left-start'
-            placement='left-start'
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit<br/>
-            <code>placement='left-start'</code>
-          </AtomTooltip>
-          <AtomTooltip 
-            target='left'
-            placement='left'
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit<br/>
-            <code>placement='left'</code>
-          </AtomTooltip>
-          <AtomTooltip 
-            target='left-end'
-            placement='left-end'
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit<br/>
-            <code>placement='left-end'</code>
-          </AtomTooltip>
-        </li>
-      </ul>
+          {/* --- left --- */}
+          <li style={listItemLeft}>
+            <strong id="left-start">left-start</strong>
+            <strong id="left">left</strong>
+            <strong id="left-end">left-end</strong>
+            <AtomTooltip target="left-start" placement="left-start">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
+              <code>placement='left-start'</code>
+            </AtomTooltip>
+            <AtomTooltip target="left" placement="left">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
+              <code>placement='left'</code>
+            </AtomTooltip>
+            <AtomTooltip target="left-end" placement="left-end">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
+              <code>placement='left-end'</code>
+            </AtomTooltip>
+          </li>
+        </ul>
       </div>
     </div>
-    <h2>Selecting element over which apply the tooltip w/ <code>target</code></h2>
+    <h2>
+      Selecting element over which apply the tooltip w/ <code>target</code>
+    </h2>
     <h3>Using an ID</h3>
-    <div style={ { border: '1px solid #CCC', background: '#fff', marginTop: '10px', padding: '10px' } }>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna <strong id='astros'>astros</strong></p>
-      <AtomTooltip placement='left' target='astros'>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna{' '}
+        <strong id="astros">astros</strong>
+      </p>
+      <AtomTooltip placement="left" target="astros">
         Hello <strong>world</strong>!
       </AtomTooltip>
     </div>
     <h3>Using an DOM Selection</h3>
-    <div style={ { border: '1px solid #CCC', background: '#fff', marginTop: '10px', padding: '10px' } }>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
       <p>
-        Lorem Ipsum <StrongWithTooltip text='astros' />
+        Lorem Ipsum <StrongWithTooltip text="astros" />
       </p>
     </div>
     <h3>Using a function that returns a DOM Selection</h3>
-    <div style={ { border: '1px solid #CCC', background: '#fff', marginTop: '10px', padding: '10px' } }>
-      <ul id='list' style={ stylesList }>
-        <li ><a href='http://google.com'>Google</a></li>
-        <li ><a href='https://twitter.com'>Twitter</a></li>
-        <li ><a href='http://facebook.com'>Facebook</a></li>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <ul id="list" style={stylesList}>
+        <li>
+          <a href="http://google.com">Google</a>
+        </li>
+        <li>
+          <a href="https://twitter.com">Twitter</a>
+        </li>
+        <li>
+          <a href="http://facebook.com">Facebook</a>
+        </li>
       </ul>
-      <AtomTooltip placement='bottom' target={() => document.querySelector('#list a[href^="https"]')}>
+      <AtomTooltip
+        placement="bottom"
+        target={() => document.querySelector('#list a[href^="https"]')}
+      >
         First Secure Link
       </AtomTooltip>
     </div>

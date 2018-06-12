@@ -1,6 +1,9 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
 $fz-atom-tooltip: $fz-m !default;
+$lh-atom-tooltip: $lh-m !default;
+$wlc-atom-tooltip: 4 !default; // -webkit-line-clamp → lines to show
+
 $maw-atom-tooltip: 256px !default;
 $mah-atom-tooltip: 88px !default;
 $c-atom-tooltip: $c-white !default;
@@ -137,6 +140,12 @@ $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
   max-width: $maw-atom-tooltip;
   max-height: $mah-atom-tooltip;
   padding: $pt-atom-tooltip $pr-atom-tooltip;
-  text-align: center;
+  text-align: left;
   overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $wlc-atom-tooltip;
+  -webkit-box-orient: vertical;
+  line-height: $lh-atom-tooltip;
 }
+

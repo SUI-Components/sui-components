@@ -41,8 +41,7 @@
     "@schibstedspain/ij-theme": "1",
     "@schibstedspain/mt-theme": "4",
     "@schibstedspain/nc-theme": "1",
-    "@schibstedspain/vb-theme": "1",
-    "reactstrap": "6.1.0"
+    "@schibstedspain/vb-theme": "1"
   },
   "config": {
     "sui-studio": {

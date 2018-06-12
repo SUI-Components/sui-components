@@ -32,7 +32,10 @@ class DropdownUser extends Component {
     })
   }
 
-  _renderLink = ({text, url, icon: Icon, notifications, needLogin}, index) => {
+  _renderLink = (
+    {text, url, icon: Icon, notifications, requiresAuth},
+    index
+  ) => {
     const Link = this.props.linkFactory
     return (
       <li key={`${text}-${index}`} className="sui-DropdownUserMenu-listItem">
@@ -40,7 +43,7 @@ class DropdownUser extends Component {
           href={url}
           className="sui-DropdownUserMenu-listLink"
           title={text}
-          needLogin={needLogin}
+          requiresAuth={requiresAuth}
         >
           <Icon svgClass="sui-DropdownUserMenu-listIcon" />
           <span className="sui-DropdownUserMenu-listText">{text}</span>

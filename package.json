@@ -40,8 +40,8 @@
     "@schibstedspain/fc-theme": "10",
     "@schibstedspain/ij-theme": "1",
     "@schibstedspain/mt-theme": "4",
-    "@schibstedspain/vb-theme": "1",
-    "@schibstedspain/nc-theme": "1"
+    "@schibstedspain/nc-theme": "1",
+    "@schibstedspain/vb-theme": "1"
   },
   "config": {
     "sui-studio": {

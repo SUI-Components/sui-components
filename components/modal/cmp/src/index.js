@@ -4,75 +4,100 @@ import Button from '@schibstedspain/sui-atom-button'
 import {VendorRow} from './VendorRow'
 import {VendorsTable} from './VendorsTable'
 
-// to remove
 import mockedVendorsJSON from './mockedVendors.json'
+
+const CLASS = 'sui-ModalCmp'
 
 class ModalCmp extends Component {
   state = {
     vendors: []
   }
 
-  componentDidMount () {
+  componentDidMount() {
     // get the vendors list from window.__cmp
     this.setState({
       vendors: mockedVendorsJSON
     })
   }
 
-  _handleToggleVendorStatus = ({ enabled, id }) => {
-    console.log({ enabled, id })
+  _handleToggleVendorStatus = ({enabled, id}) => {
+    console.log({enabled, id})
   }
 
-  render () {
-    const {title, body, acceptAllLabel, denyAllLabel} = this.props
+  render() {
+    const {title, body} = this.props
     return (
-      <div className='sui-ModalCmp'>
-        <div className='sui-ModalCmp-ui-container sui-ModalCmp-showing'>
-          <div className='sui-ModalCmp-ui sui-ModalCmp-showing'>
-            <div className='sui-ModalCmp-nav-bar sui-ModalCmp-top'>
-              <div className='sui-ModalCmp-nav-bar-publisher-logo-container'>
-                <img className='sui-ModalCmp-nav-bar-publisher-logo' src='http://www.schibsted.com/Global/LogoTypes/SMG_Logo_Small_RGB.png' alt='Schibsted Spain logo' />
-              </div>
-              <Button onClick={() => {}} type='secondary'>{denyAllLabel}</Button>
-              <Button onClick={() => {}}>{acceptAllLabel}</Button>
-            </div>
-            <div className='sui-ModalCmp-partner-info'>
-              <div className='sui-ModalCmp-sub-title-container'>
-                <h1 className='sui-ModalCmp-sub-title'>{title}</h1>
-              </div>
-              <p className='sui-ModalCmp-messaging'>{body}</p>
-              <VendorsTable>
-                <VendorRow
-                  enabled
-                  handleToggleVendorStatus={this._handleToggleVendorStatus}
-                  id={2}
-                  title='El gato volador'
-                />
-                <VendorRow
-                  enabled
-                  handleToggleVendorStatus={this._handleToggleVendorStatus}
-                  id={2}
-                  title='El gato volador'
-                />
-                <VendorRow
-                  enabled
-                  handleToggleVendorStatus={this._handleToggleVendorStatus}
-                  id={3}
-                  title='Beerlin'
-                />
-                <VendorRow
-                  enabled
-                  handleToggleVendorStatus={this._handleToggleVendorStatus}
-                  id={4}
-                  title='1000 saca cuartos'
-                />
-              </VendorsTable>
-            </div>
-            <div className='sui-ModalCmp-nav-bar sui-ModalCmp-bottom'>
-              <Button type='tertiary' onClick={() => {}}>Cancelar</Button>
-              <Button onClick={() => {}}>Guardar y salir</Button>
-            </div>
-          </div>
+      <div className={CLASS}>
+        <div className={`${CLASS}-content`}>
+          <header className={`${CLASS}-header`}>
+            <img
+              className={`${CLASS}-logo`}
+              src={this.props.logo}
+              alt="Schibsted Spain logo"
+            />
+
+            <Button onClick={() => {}} type="secondary">
+              Habilitar todo
+            </Button>
+          </header>
+
+          <section className={`${CLASS}-body`}>
+            <h3 className={`${CLASS}-title`}>{title}</h3>
+            <p className={`${CLASS}-message`}>{body}</p>
+            <VendorsTable>
+              <VendorRow
+                enabled
+                handleToggleVendorStatus={this._handleToggleVendorStatus}
+                id={2}
+                title="El gato volador"
+              />
+              <VendorRow
+                enabled
+                handleToggleVendorStatus={this._handleToggleVendorStatus}
+                id={2}
+                title="El gato volador"
+              />
+              <VendorRow
+                enabled
+                handleToggleVendorStatus={this._handleToggleVendorStatus}
+                id={3}
+                title="Beerlin"
+              />
+              <VendorRow
+                enabled
+                handleToggleVendorStatus={this._handleToggleVendorStatus}
+                id={4}
+                title="1000 saca cuartos"
+              />
+              <VendorRow
+                enabled
+                handleToggleVendorStatus={this._handleToggleVendorStatus}
+                id={2}
+                title="El gato volador"
+              />
+              <VendorRow
+                enabled
+                handleToggleVendorStatus={this._handleToggleVendorStatus}
+                id={3}
+                title="Beerlin"
+              />
+              <VendorRow
+                enabled
+                handleToggleVendorStatus={this._handleToggleVendorStatus}
+                id={4}
+                title="1000 saca cuartos"
+              />
+            </VendorsTable>
+          </section>
+
+          <footer className={`${CLASS}-footer`}>
+            <Button type="tertiary" onClick={() => {}} size="small">
+              Cancelar
+            </Button>
+            <Button onClick={() => {}} size="large">
+              Guardar y salir
+            </Button>
+          </footer>
         </div>
       </div>
     )
@@ -82,10 +107,9 @@ class ModalCmp extends Component {
 ModalCmp.displayName = 'ModalCmp'
 
 ModalCmp.propTypes = {
-  acceptAllLabel: PropTypes.string.isRequired,
-  denyAllLabel: PropTypes.string.isRequired,
+  logo: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired
 }
 
 export default ModalCmp

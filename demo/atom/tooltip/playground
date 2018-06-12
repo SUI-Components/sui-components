@@ -6,12 +6,12 @@ class StrongWithTooltip extends React.Component {
   }
 
   handleRef = target => {
-    if (!this.state.target) this.setState({ target })
+    if (!this.state.target) this.setState({target})
   }
 
   render() {
-    const { text } = this.props
-    const { target } = this.state
+    const {text} = this.props
+    const {target} = this.state
     return (
       <span>
         <strong ref={this.handleRef}>{text}</strong>
@@ -53,76 +53,81 @@ const listItemStyles = {
 }
 
 const listItemTop = Object.assign(
-  { ...listItemStyles },
-  { width: '100%', display: 'flex', justifyContent: 'space-around' },
-  { top: '0', zIndex: '10' }
+  {...listItemStyles},
+  {width: '100%', display: 'flex', justifyContent: 'space-around'},
+  {top: '0', zIndex: '10'}
 )
 const listItemRight = Object.assign(
-  { ...listItemStyles },
+  {...listItemStyles},
   {
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around'
   },
-  { right: '0', alignSelf: 'center' }
+  {right: '0', alignSelf: 'center'}
 )
 
 const listItemBottom = Object.assign(
-  { ...listItemStyles },
-  { width: '100%', display: 'flex', justifyContent: 'space-around' },
-  { bottom: '0' }
+  {...listItemStyles},
+  {width: '100%', display: 'flex', justifyContent: 'space-around'},
+  {bottom: '0'}
 )
 
 const listItemLeft = Object.assign(
-  { ...listItemStyles },
+  {...listItemStyles},
   {
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around'
   },
-  { left: '0', alignSelf: 'center' }
+  {left: '0', alignSelf: 'center'}
 )
-
-/*
-$font-size: 26px;
-$line-height: 1.4;
-$lines-to-show: 3;
-
-h2 {
-  display: block; 
-  display: -webkit-box;
-  max-width: 400px;
-  height: $font-size*$line-height*$lines-to-show; 
-  margin: 0 auto;
-  font-size: $font-size;
-  line-height: $line-height;
-  -webkit-line-clamp: $lines-to-show;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-*/
-
-// const paragraphEllipsis = {
-//   overflow: 'hidden',
-//   textOverflow: 'ellipsis',
-//   display: '-webkit-box',
-//   '-webkit-line-clamp': '4',
-//   '-webkit-box-orient': 'vertical',
-//   lineHeight: '16px',
-//   height: '64px',
-//   margin: 0,
-//   padding: 0
-// }
 
 return (
   <div>
     <h1>AtomTooltip</h1>
+    <h2>Maintain tooltip on hover over tooltp with <code>autohide=false</code> (so users can select text in tooltip)</h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet <strong id="december">december</strong>
+      </p>
+      <AtomTooltip autohide={false} target="december">
+        Ahorarr amatomaa tiene musho peligro hasta luego
+        Lucas amatomaa. Va usté muy cargadoo diodenoo la caidita a wan al
+        ataquerl diodenoo llevame al sircoo va usté muy cargadoo por la gloria
+        de mi madre sexuarl quietooor.
+      </AtomTooltip>
+    </div>
+    <h2>Delay on show/hide and click outside to hide</h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet <strong id="november">november</strong>
+      </p>
+      <AtomTooltip delay={{show: 300, hide: 1500}} target="november">
+        A peich apetecan sexuarl quietooor caballo blanco caballo negroorl
+        amatomaa benemeritaar. A gramenawer a peich por la gloria de mi madre
+        está la cosa muy malar benemeritaar pecador por la gloria de mi madre
+        tiene musho peligro papaar papaar.
+      </AtomTooltip>
+    </div>
     <h2>
-      Maximum of 4 lines with <em>ellipsis</em> (<code>max-width: 256px</code> & <code>max-height: 88px</code>)
+      Maximum of 4 lines with <em>ellipsis</em>
     </h2>
     <div
       style={{
@@ -136,21 +141,20 @@ return (
         Lorem ipsum dolor sit amet <strong id="avenue">astros</strong>
       </p>
       <AtomTooltip placement="right" target="avenue">
-          Lorem fistrum ese que llega pecador torpedo apetecan no puedor te voy
-          a borrar el cerito torpedo a gramenawer ese que llega. A peich sexuarl
-          a peich amatomaa a wan. Condemor ese pedazo de llevame al sircoo jarl
-          benemeritaar condemor. Ahorarr amatomaa tiene musho peligro hasta
-          luego Lucas amatomaa. Va usté muy cargadoo diodenoo la caidita a wan
-          al ataquerl diodenoo llevame al sircoo va usté muy cargadoo por la
-          gloria de mi madre sexuarl quietooor. A peich apetecan sexuarl
-          quietooor caballo blanco caballo negroorl amatomaa benemeritaar. A
-          gramenawer a peich por la gloria de mi madre está la cosa muy malar
-          benemeritaar pecador por la gloria de mi madre tiene musho peligro
-          papaar papaar.
+        Lorem fistrum ese que llega pecador torpedo apetecan no puedor te voy a
+        borrar el cerito torpedo a gramenawer ese que llega. A peich sexuarl a
+        peich amatomaa a wan. Condemor ese pedazo de llevame al sircoo jarl
+        benemeritaar condemor. Ahorarr amatomaa tiene musho peligro hasta luego
+        Lucas amatomaa. Va usté muy cargadoo diodenoo la caidita a wan al
+        ataquerl diodenoo llevame al sircoo va usté muy cargadoo por la gloria
+        de mi madre sexuarl quietooor. A peich apetecan sexuarl quietooor
+        caballo blanco caballo negroorl amatomaa benemeritaar. A gramenawer a
+        peich por la gloria de mi madre está la cosa muy malar benemeritaar
+        pecador por la gloria de mi madre tiene musho peligro papaar papaar.
       </AtomTooltip>
     </div>
     <h2>
-      Tooltip without arrow using <code>noarrow</code>
+      Tooltip without arrow using <code>hideArrow</code>
     </h2>
     <div
       style={{
@@ -171,14 +175,6 @@ return (
       Positioning tooltip with <code>placement</code>
     </h2>
     <div>
-      <p>
-        Possible values:
-        <code>
-          'auto', 'auto-start', 'auto-end', 'top', 'top-start', 'top-end',
-          'right', 'right-start', 'right-end', 'bottom', 'bottom-start',
-          'bottom-end', 'left', 'left-start', 'left-end',
-        </code>
-      </p>
       <div
         style={{
           border: '1px solid #CCC',

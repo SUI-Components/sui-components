@@ -36,10 +36,6 @@ $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
     opacity: $op-atom-tooltip;
   }
 
-  &.no-arrow .arrow {
-    display: none;
-  }
-
   .arrow {
     display: block;
     height: $h-atom-tooltip-arrow;

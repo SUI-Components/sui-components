@@ -1,1 +1,1 @@
-return (<ServiceMarkdown src="https://static-texts-scm.surge.sh/fotocasa/es/legalNoticeData.md"/>)
+return (<ServiceMarkdown src="https://raw.githubusercontent.com/SUI-Components/sui-components/master/demo/services/markdown/example.md"/>)

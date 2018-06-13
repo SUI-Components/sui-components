@@ -7,7 +7,8 @@ class ServiceMarkdown extends Component {
   state = {html: ''}
 
   async componentDidMount() {
-    const marked = await import('marked')
+    const markedLibrary = await import('marked')
+    const marked = markedLibrary.default || markedLibrary
     const req = new window.XMLHttpRequest()
     req.open('GET', this.props.src, false)
     req.send(null)

@@ -1,1 +1,1 @@
-export const CLASS = 'sui-ModalCmp'
+export const CLASS = 'sui-UserCmp'

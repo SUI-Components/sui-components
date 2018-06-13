@@ -10,26 +10,18 @@ const fallback = {
 
 const items = [
   {
-    image: {
-      alt: '500x500 image, 3 seconds delay',
-      src: 'https://satyr.io/200?delay=3g'
-    },
+    alt: '500x500 image, 3 seconds delay',
+    src: 'https://satyr.io/200?delay=3g',
     href: 'https://item0'
   }, {
-    image: {
-      alt: 'random 200x200 image',
-      src: 'https://satyr.io/200'
-    }
+    alt: 'random 200x200 image',
+    src: 'https://satyr.io/200'
   }, {
-    image: {
-      alt: 'Will not load',
-      src: 'https://'
-    }
+    alt: 'Will not load',
+    src: 'https://'
   }, {
-    image: {
-      alt: 'Will not load',
-      src: 'http://'
-    },
+    alt: 'Will not load',
+    src: 'http://',
     href: 'https://item3'
   }
 ]

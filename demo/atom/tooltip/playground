@@ -92,6 +92,46 @@ const listItemLeft = Object.assign(
 return (
   <div>
     <h1>AtomTooltip</h1>
+    <h2>Tooltip centered by default (but can be aligned to left or right)</h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet <strong id="amatomaa">Va usté muy cargadoo diodenoo la caidita a wan al
+        ataquerl diodenoo llevame al sircoo</strong>
+      </p>
+      <AtomTooltip target="amatomaa">
+        Ahorarr amatomaa tiene musho peligro hasta luego
+        Lucas amatomaa. Va usté muy cargadoo diodenoo la caidita a wan al
+        ataquerl diodenoo llevame al sircoo va usté muy cargadoo por la gloria
+        de mi madre sexuarl quietooor.
+      </AtomTooltip>
+      <p>
+        Lorem ipsum dolor sit amet ipsum dolor sit <strong id="diodenoo">Va usté muy cargadoo diodenoo la caidita a wan al
+        ataquerl diodenoo llevame al sircoo</strong>
+      </p>
+      <AtomTooltip placement="top" offset="-100%" target="diodenoo">
+        Ahorarr amatomaa tiene musho peligro hasta luego
+        Lucas amatomaa. Va usté muy cargadoo diodenoo la caidita a wan al
+        ataquerl diodenoo llevame al sircoo va usté muy cargadoo por la gloria
+        de mi madre sexuarl quietooor.
+      </AtomTooltip>
+      <p>
+        Lorem ipsum dolor sit amet ipsum dolor sit <strong id="cargadoo">Va usté muy cargadoo diodenoo la caidita a wan al
+        ataquerl diodenoo llevame al sircoo</strong>
+      </p>
+      <AtomTooltip placement="top" offset="100%" target="cargadoo">
+        Ahorarr amatomaa tiene musho peligro hasta luego
+        Lucas amatomaa. Va usté muy cargadoo diodenoo la caidita a wan al
+        ataquerl diodenoo llevame al sircoo va usté muy cargadoo por la gloria
+        de mi madre sexuarl quietooor.
+      </AtomTooltip>
+    </div>
     <h2>Maintain tooltip on hover over tooltp with <code>autohide=false</code> (so users can select text in tooltip)</h2>
     <div
       style={{

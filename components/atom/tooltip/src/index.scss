@@ -4,14 +4,14 @@ $fz-atom-tooltip: $fz-m !default;
 $lh-atom-tooltip: $lh-m !default;
 $wlc-atom-tooltip: 4 !default; // -webkit-line-clamp → lines to show
 
-$maw-atom-tooltip: 256px !default;
-$mah-atom-tooltip: 88px !default;
+$maw-atom-tooltip: 250px !default;
+$mah-atom-tooltip: 100px !default;
 $c-atom-tooltip: $c-white !default;
 $bgc-atom-tooltip: $c-black !default;
 $bdrs-atom-tooltip: 4px !default;
 $op-atom-tooltip: 1 !default;
-$pt-atom-tooltip: $p-s !default;
-$pb-atom-tooltip: $p-s !default;
+$pt-atom-tooltip: $p-m !default;
+$pb-atom-tooltip: $p-m !default;
 $pl-atom-tooltip: $p-m !default;
 $pr-atom-tooltip: $p-m !default;
 $m-atom-tooltip: 0 !default;
@@ -133,14 +133,16 @@ $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $wlc-atom-tooltip;
   background-color: $bgc-atom-tooltip;
+  border-color: $bgc-atom-tooltip;
   border-radius: $bdrs-atom-tooltip;
+  border-style: solid;
+  border-width: $pt-atom-tooltip $pr-atom-tooltip;
   color: $c-atom-tooltip;
   display: -webkit-box;
   line-height: $lh-atom-tooltip;
   max-height: $mah-atom-tooltip;
   max-width: $maw-atom-tooltip;
   overflow: hidden;
-  padding: $pt-atom-tooltip $pr-atom-tooltip;
   text-align: left;
   text-overflow: ellipsis;
 }

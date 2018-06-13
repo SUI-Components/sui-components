@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import cx from 'classnames'
-import {Tooltip} from 'reactstrap'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
+import memoize from 'memoize-one'
+import {Tooltip} from 'reactstrap'
 import {DOMElement} from './utils'
 
 const BASE_CLASS = 'sui-AtomTooltip'
@@ -11,10 +12,8 @@ class AtomTooltip extends Component {
     isOpen: false
   }
 
-  get classNames() {
-    const {className} = this.props
-    return cx(BASE_CLASS, className)
-  }
+  // Memoization solution as suggested at: https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization
+  getClassNames = memoize(className => cx(BASE_CLASS, className))
 
   componentDidMount() {
     document.addEventListener('click', this.handleClickOutsideElement)
@@ -38,12 +37,13 @@ class AtomTooltip extends Component {
   }
 
   render() {
+    const classNames = this.getClassNames(this.props.className)
     return (
       <Tooltip
         {...this.props}
         isOpen={this.state.isOpen}
         toggle={this.toggle}
-        className={this.classNames}
+        className={classNames}
         innerClassName={`${BASE_CLASS}-inner`}
         placementPrefix={`${BASE_CLASS}-`}
       />

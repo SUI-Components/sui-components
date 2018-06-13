@@ -15,4 +15,4 @@ const htmlImgProps = {
   width: PropTypes.string
 }
 
-export { htmlImgProps }
+export {htmlImgProps}

@@ -1,25 +1,29 @@
+/* global withTooltip */
 /* eslint-disable react/react-in-jsx-scope, react/jsx-no-undef */
 
+
 class StrongWithTooltip extends React.Component {
+
   state = {
     target: null
   }
 
   handleRef = target => {
-    if (!this.state.target) this.setState({target})
+    if (!this.state.target) this.setState({ target })
   }
 
-  render() {
-    const {text} = this.props
-    const {target} = this.state
+  render () {
+    const { text } = this.props
+    const { target } = this.state
     return (
       <span>
-        <strong ref={this.handleRef}>{text}</strong>
-        {target && (
-          <AtomTooltip placement="right" target={target}>
+        <strong ref={ this.handleRef }>{text}</strong>
+        {
+          target &&
+          <AtomTooltip placement='right' target={target}>
             Hello <strong>world</strong>!
           </AtomTooltip>
-        )}
+        }
       </span>
     )
   }
@@ -167,7 +171,7 @@ return (
       <p>
         Lorem ipsum dolor sit amet <strong id="indeed">astros</strong>
       </p>
-      <AtomTooltip placement="right" target="indeed" noarrow>
+      <AtomTooltip placement="right" target="indeed" hideArrow>
         Hello <strong>world</strong>!
       </AtomTooltip>
     </div>
@@ -287,7 +291,7 @@ return (
       }}
     >
       <p>
-        Lorem Ipsum <StrongWithTooltip text="astros" />
+        Lorem Ipsum <StrongWithTooltip text='astros' />
       </p>
     </div>
     <h3>Using a function that returns a DOM Selection</h3>

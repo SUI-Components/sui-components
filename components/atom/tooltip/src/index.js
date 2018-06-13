@@ -54,6 +54,8 @@ class AtomTooltip extends Component {
 AtomTooltip.displayName = 'AtomTooltip'
 
 AtomTooltip.propTypes = {
+  className: PropTypes.string,
+
   /** Wether to show arrow or not. */
   hideArrow: PropTypes.bool,
 

@@ -1,105 +1,63 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import Button from '@schibstedspain/sui-atom-button'
-import {VendorRow} from './VendorRow'
-import {VendorsTable} from './VendorsTable'
 
-import {CLASS} from './settings'
-
-import mockedVendorsJSON from './mockedVendors.json'
+import {getUserAcceptedCookiesUseCase} from './useCases'
 
 class ModalCmp extends Component {
   state = {
-    vendors: []
+    showModal: false,
+    showNotification: false
   }
 
-  componentDidMount() {
-    console.log(mockedVendorsJSON)
-    // get the vendors list from window.__cmp
-    this.setState({
-      vendors: mockedVendorsJSON
-    })
+  _cmpModalComponent = null
+  _cookiesNotificationComponent = null
+
+  async componentDidMount() {
+    const {userAcceptedCookies} = await getUserAcceptedCookiesUseCase.execute()
+    if (userAcceptedCookies === false) {
+      const {CookiesNotification} = await import('./CookiesNotification')
+      this._cookiesNotificationComponent = CookiesNotification
+      this.setState({showNotification: true})
+    }
   }
 
-  _handleToggleVendorStatus = ({enabled, id}) => {
-    console.log({enabled, id})
+  _handleAccept = () => {
+    this.setState({showModal: false, showNotification: false})
+  }
+
+  _handleReadMore = async () => {
+    const {CmpModal} = await import('./CmpModal')
+    this._cmpModalComponent = CmpModal
+    this.setState({showModal: true, showNotification: false})
+  }
+
+  _generateButtons() {
+    return [
+      {
+        children: 'Leer más',
+        negative: true,
+        onClick: this._handleReadMore,
+        type: 'tertiary'
+      },
+      {
+        children: 'Seguir navegando',
+        negative: true,
+        onClick: this._handleAccept,
+        type: 'primary'
+      }
+    ]
   }
 
   render() {
-    const {title, body} = this.props
+    const {showModal, showNotification} = this.state
+
     return (
-      <div className={CLASS}>
-        <div className={`${CLASS}-content`}>
-          <header className={`${CLASS}-header`}>
-            <img
-              className={`${CLASS}-logo`}
-              src={this.props.logo}
-              alt="Schibsted Spain logo"
-            />
-
-            <Button onClick={() => {}} type="secondary">
-              Habilitar todo
-            </Button>
-          </header>
-
-          <section className={`${CLASS}-body`}>
-            <h3 className={`${CLASS}-title`}>{title}</h3>
-            <p className={`${CLASS}-message`}>{body}</p>
-            <VendorsTable>
-              <VendorRow
-                enabled
-                handleToggleVendorStatus={this._handleToggleVendorStatus}
-                id={2}
-                title="El gato volador"
-              />
-              <VendorRow
-                enabled
-                handleToggleVendorStatus={this._handleToggleVendorStatus}
-                id={2}
-                title="El gato volador"
-              />
-              <VendorRow
-                enabled
-                handleToggleVendorStatus={this._handleToggleVendorStatus}
-                id={3}
-                title="Beerlin"
-              />
-              <VendorRow
-                enabled
-                handleToggleVendorStatus={this._handleToggleVendorStatus}
-                id={4}
-                title="1000 saca cuartos"
-              />
-              <VendorRow
-                enabled
-                handleToggleVendorStatus={this._handleToggleVendorStatus}
-                id={2}
-                title="El gato volador"
-              />
-              <VendorRow
-                enabled
-                handleToggleVendorStatus={this._handleToggleVendorStatus}
-                id={3}
-                title="Beerlin"
-              />
-              <VendorRow
-                enabled
-                handleToggleVendorStatus={this._handleToggleVendorStatus}
-                id={4}
-                title="1000 saca cuartos"
-              />
-            </VendorsTable>
-          </section>
-
-          <footer className={`${CLASS}-footer`}>
-            <Button type="tertiary" onClick={() => {}} size="small">
-              Cancelar
-            </Button>
-            <Button onClick={() => {}} size="large">
-              Guardar y salir
-            </Button>
-          </footer>
-        </div>
+      <div className="sui-UserCmp">
+        {showModal && <this._cmpModalComponent />}
+        {showNotification && (
+          <this._cookiesNotificationComponent
+            buttons={this._generateButtons()}
+          />
+        )}
       </div>
     )
   }
@@ -107,10 +65,6 @@ class ModalCmp extends Component {
 
 ModalCmp.displayName = 'ModalCmp'
 
-ModalCmp.propTypes = {
-  logo: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired
-}
+ModalCmp.propTypes = {}
 
 export default ModalCmp

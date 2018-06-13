@@ -25,6 +25,10 @@ class ServiceMarkdown extends Component {
 ServiceMarkdown.displayName = 'ServiceMarkdown'
 
 ServiceMarkdown.propTypes = {
+  /**
+   * The web address of the markdwon file to fetch and parse
+   * For example "https://mycdn.com/myfile.md"
+   */
   src: PropTypes.string.isRequired
 }
 

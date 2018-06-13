@@ -5,6 +5,7 @@ const STATUS_OK = 200
 
 class ServiceMarkdown extends Component {
   state = {html: ''}
+
   async componentDidMount() {
     const marked = await import('marked')
     const req = new window.XMLHttpRequest()
@@ -14,26 +15,17 @@ class ServiceMarkdown extends Component {
       this.setState({html: marked(req.responseText)})
     }
   }
+
   render() {
     const {html} = this.state
-    return (
-      <div className="sui-ServiceMarkdown">
-        <div
-          className="sui-ServiceMarkdown-body"
-          dangerouslySetInnerHTML={{__html: html}}
-        />
-      </div>
-    )
+    return <div dangerouslySetInnerHTML={{__html: html}} />
   }
 }
 
 ServiceMarkdown.displayName = 'ServiceMarkdown'
 
-// Remove these comments if you need
-// ServiceMarkdown.contextTypes = {i18n: PropTypes.object}
 ServiceMarkdown.propTypes = {
-  src: PropTypes.string
+  src: PropTypes.string.isRequired
 }
-// ServiceMarkdown.defaultProps = {}
 
 export default ServiceMarkdown

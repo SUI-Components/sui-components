@@ -166,7 +166,7 @@ MoleculeNotification.propTypes = {
    */
   showCloseButton: PropTypes.bool,
   /**
-   * Content text. Max: 110 chars
+   * Content text.
    */
   text: PropTypes.string,
   /**

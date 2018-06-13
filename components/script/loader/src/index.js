@@ -20,8 +20,8 @@ class ScriptLoader extends Component {
     const {render, timeoutRender} = this.props
     const {readyToRender, timeout} = this.state
 
-    if (readyToRender) return render()
-    if (timeout) return timeoutRender()
+    if (readyToRender && render) return render()
+    if (timeout && timeoutRender) return timeoutRender()
     return null
   }
 }
@@ -63,7 +63,6 @@ ScriptLoader.propTypes = {
 
 ScriptLoader.defaultProps = {
   isAsync: true,
-  timeoutRender: () => {},
   onTimeout: () => {},
   detectionDelay: 5000
 }

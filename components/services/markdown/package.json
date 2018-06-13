@@ -1,5 +1,5 @@
 {
-  "name": "@s-ui/react-atom-image",
+  "name": "@s-ui/react-services-markdown",
   "version": "1.1.0",
   "description": "",
   "main": "lib/index.js",
@@ -9,7 +9,8 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "1",
+    "marked": "0.4.0"
   },
   "keywords": [],
   "author": "",

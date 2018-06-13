@@ -239,6 +239,7 @@ class TopbarUser extends Component {
                     menu={menu}
                     expandOnMouseOver
                     hasNotifications={hasNotifications && !menuExpanded}
+                    linkFactory={this.props.linkFactory}
                   />
                 </div>
               )}

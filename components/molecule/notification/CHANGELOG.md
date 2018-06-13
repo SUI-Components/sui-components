@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2018-06-13)
+
+
+### Bug Fixes
+
+* delete max length ([24216ec](https://github.com/SUI-Components/sui-components/commit/24216ec))
+* fix context ([dc8da7e](https://github.com/SUI-Components/sui-components/commit/dc8da7e))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-05-17)
 

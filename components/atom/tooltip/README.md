@@ -64,5 +64,14 @@ import AtomTooltip from '@s-ui/react-atom-tooltip'
 </AtomTooltip>
 ```
 
+### Tooltip aligned to the left of targeted element
+
+```javascript
+<p id="astros">Typical message</p>
+<AtomTooltip target="astros" offset="-100%, 4px">
+  Hello <strong>world</strong>!
+</AtomTooltip>
+```
+
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/tooltip/demo).**

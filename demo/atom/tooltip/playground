@@ -1,6 +1,4 @@
-/* global withTooltip */
 /* eslint-disable react/react-in-jsx-scope, react/jsx-no-undef */
-
 
 class StrongWithTooltip extends React.Component {
 
@@ -20,7 +18,7 @@ class StrongWithTooltip extends React.Component {
         <strong ref={ this.handleRef }>{text}</strong>
         {
           target &&
-          <AtomTooltip placement='right' target={target}>
+          <AtomTooltip placement={atomTooltipPlacements.RIGHT} target={target}>
             Hello <strong>world</strong>!
           </AtomTooltip>
         }
@@ -102,34 +100,22 @@ return (
       }}
     >
       <p>
-        Lorem ipsum dolor sit amet <strong id="amatomaa">Va usté muy cargadoo diodenoo la caidita a wan al
-        ataquerl diodenoo llevame al sircoo</strong>
+        Lorem ipsum dolor sit amet <strong id="perspiciatis">Sed ut perspiciatis unde omnis  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo </strong>
       </p>
-      <AtomTooltip target="amatomaa">
-        Ahorarr amatomaa tiene musho peligro hasta luego
-        Lucas amatomaa. Va usté muy cargadoo diodenoo la caidita a wan al
-        ataquerl diodenoo llevame al sircoo va usté muy cargadoo por la gloria
-        de mi madre sexuarl quietooor.
+      <AtomTooltip target="perspiciatis">
+        Lacinia cursus elementum massa platea nullam interdum, rutrum rhoncus sodales habitant semper hendrerit aptent, eu sollicitudin fringilla malesuada convallis. 
       </AtomTooltip>
       <p>
-        Lorem ipsum dolor sit amet ipsum dolor sit <strong id="diodenoo">Va usté muy cargadoo diodenoo la caidita a wan al
-        ataquerl diodenoo llevame al sircoo</strong>
+        Lorem ipsum dolor sit amet ipsum dolor sit <strong id="omnis">Sed ut perspiciatis unde omnis  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo </strong>
       </p>
-      <AtomTooltip placement="top" offset="-100%" target="diodenoo">
-        Ahorarr amatomaa tiene musho peligro hasta luego
-        Lucas amatomaa. Va usté muy cargadoo diodenoo la caidita a wan al
-        ataquerl diodenoo llevame al sircoo va usté muy cargadoo por la gloria
-        de mi madre sexuarl quietooor.
+      <AtomTooltip placement={atomTooltipPlacements.TOP} offset="-100%, 4px" target="omnis">
+        Donec semper neque placerat consequat ultrices porttitor fames nec nullam nascetur, proin duis sodales nam purus natoque urna inceptos pharetra, 
       </AtomTooltip>
       <p>
-        Lorem ipsum dolor sit amet ipsum dolor sit <strong id="cargadoo">Va usté muy cargadoo diodenoo la caidita a wan al
-        ataquerl diodenoo llevame al sircoo</strong>
+        Lorem ipsum dolor sit amet ipsum dolor sit <strong id="laudantium">Sed ut perspiciatis unde omnis  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo </strong>
       </p>
-      <AtomTooltip placement="top" offset="100%" target="cargadoo">
-        Ahorarr amatomaa tiene musho peligro hasta luego
-        Lucas amatomaa. Va usté muy cargadoo diodenoo la caidita a wan al
-        ataquerl diodenoo llevame al sircoo va usté muy cargadoo por la gloria
-        de mi madre sexuarl quietooor.
+      <AtomTooltip placement={atomTooltipPlacements.TOP} offset="100%, 4px" target="laudantium">
+        Venenatis nibh cum aliquam rutrum placerat nam hac natoque magna interdum erat felis, vulputate porttitor nec posuere pretium volutpat nisl aenean tristique vestibulum ultrices. Natoque ante quisque torquent in lacus pharetra, conubia mauris suscipit porta id inceptos
       </AtomTooltip>
     </div>
     <h2>Maintain tooltip on hover over tooltp with <code>autohide=false</code> (so users can select text in tooltip)</h2>
@@ -145,10 +131,7 @@ return (
         Lorem ipsum dolor sit amet <strong id="december">december</strong>
       </p>
       <AtomTooltip autohide={false} target="december">
-        Ahorarr amatomaa tiene musho peligro hasta luego
-        Lucas amatomaa. Va usté muy cargadoo diodenoo la caidita a wan al
-        ataquerl diodenoo llevame al sircoo va usté muy cargadoo por la gloria
-        de mi madre sexuarl quietooor.
+        Leo sagittis dignissim ornare egestas primis parturient ante diam fusce, sollicitudin viverra felis inceptos turpis pretium enim praesent, molestie ullamcorper est arcu cursus lacus vitae eget. Volutpat interdum senectus eros ultrices aptent eu, mattis est inceptos montes quam, lobortis auctor rutrum cubilia libero. Quisque commodo nisi curae tincidunt vehicula sodales litora, vivamus 
       </AtomTooltip>
     </div>
     <h2>Delay on show/hide and click outside to hide</h2>
@@ -164,10 +147,7 @@ return (
         Lorem ipsum dolor sit amet <strong id="november">november</strong>
       </p>
       <AtomTooltip delay={{show: 300, hide: 1500}} target="november">
-        A peich apetecan sexuarl quietooor caballo blanco caballo negroorl
-        amatomaa benemeritaar. A gramenawer a peich por la gloria de mi madre
-        está la cosa muy malar benemeritaar pecador por la gloria de mi madre
-        tiene musho peligro papaar papaar.
+        Vehicula neque sociis leo odio nostra fames ridiculus cubilia nunc, ultricies tortor egestas vitae sed maecenas himenaeos blandit mus, donec viverra duis habitasse facilisi varius dui massa.
       </AtomTooltip>
     </div>
     <h2>
@@ -184,17 +164,8 @@ return (
       <p>
         Lorem ipsum dolor sit amet <strong id="avenue">astros</strong>
       </p>
-      <AtomTooltip placement="right" target="avenue">
-        Lorem fistrum ese que llega pecador torpedo apetecan no puedor te voy a
-        borrar el cerito torpedo a gramenawer ese que llega. A peich sexuarl a
-        peich amatomaa a wan. Condemor ese pedazo de llevame al sircoo jarl
-        benemeritaar condemor. Ahorarr amatomaa tiene musho peligro hasta luego
-        Lucas amatomaa. Va usté muy cargadoo diodenoo la caidita a wan al
-        ataquerl diodenoo llevame al sircoo va usté muy cargadoo por la gloria
-        de mi madre sexuarl quietooor. A peich apetecan sexuarl quietooor
-        caballo blanco caballo negroorl amatomaa benemeritaar. A gramenawer a
-        peich por la gloria de mi madre está la cosa muy malar benemeritaar
-        pecador por la gloria de mi madre tiene musho peligro papaar papaar.
+      <AtomTooltip placement={atomTooltipPlacements.RIGHT} target="avenue">
+        Hendrerit varius luctus scelerisque habitant ridiculus, vulputate mollis platea nunc sociosqu magna, suscipit montes ullamcorper vivamus. Montes aenean nostra magna inceptos himenaeos enim lacinia ornare libero, quisque sed duis placerat hac arcu porttitor lobortis rutrum,
       </AtomTooltip>
     </div>
     <h2>
@@ -211,7 +182,7 @@ return (
       <p>
         Lorem ipsum dolor sit amet <strong id="indeed">astros</strong>
       </p>
-      <AtomTooltip placement="right" target="indeed" hideArrow>
+      <AtomTooltip placement={atomTooltipPlacements.RIGHT} target="indeed" hideArrow>
         Hello <strong>world</strong>!
       </AtomTooltip>
     </div>
@@ -233,13 +204,13 @@ return (
             <strong id="top-start">top-start</strong>
             <strong id="top">top</strong>
             <strong id="top-end">top-end</strong>
-            <AtomTooltip target="top-start" placement="top-start">
+            <AtomTooltip target="top-start" placement={atomTooltipPlacements.TOP_START}>
               <code>placement='top-start'</code>
             </AtomTooltip>
-            <AtomTooltip target="top" placement="top">
+            <AtomTooltip target="top" placement={atomTooltipPlacements.TOP}>
               <code>placement='top'</code>
             </AtomTooltip>
-            <AtomTooltip target="top-end" placement="top-end">
+            <AtomTooltip target="top-end" placement={atomTooltipPlacements.TOP_END}>
               <code>placement='top-end'</code>
             </AtomTooltip>
           </li>
@@ -249,15 +220,15 @@ return (
             <strong id="right-start">right-start</strong>
             <strong id="right">right</strong>
             <strong id="right-end">right-end</strong>
-            <AtomTooltip target="right-start" placement="right-start">
+            <AtomTooltip target="right-start" placement={atomTooltipPlacements.RIGHT_START}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
               <code>placement='right-start'</code>
             </AtomTooltip>
-            <AtomTooltip target="right" placement="right">
+            <AtomTooltip target="right" placement={atomTooltipPlacements.RIGHT}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
               <code>placement='right'</code>
             </AtomTooltip>
-            <AtomTooltip target="right-end" placement="right-end">
+            <AtomTooltip target="right-end" placement={atomTooltipPlacements.RIGHT_END}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
               <code>placement='right-end'</code>
             </AtomTooltip>
@@ -268,13 +239,13 @@ return (
             <strong id="bottom-start">bottom-start</strong>
             <strong id="bottom">bottom</strong>
             <strong id="bottom-end">bottom-end</strong>
-            <AtomTooltip target="bottom-start" placement="bottom-start">
+            <AtomTooltip target="bottom-start" placement={atomTooltipPlacements.BOTTOM_START}>
               <code>placement='bottom-start'</code>
             </AtomTooltip>
-            <AtomTooltip target="bottom" placement="bottom">
+            <AtomTooltip target="bottom" placement={atomTooltipPlacements.BOTTOM}>
               <code>placement='bottom'</code>
             </AtomTooltip>
-            <AtomTooltip target="bottom-end" placement="bottom-end">
+            <AtomTooltip target="bottom-end" placement={atomTooltipPlacements.BOTTOM_END}>
               <code>placement='bottom-end'</code>
             </AtomTooltip>
           </li>
@@ -284,15 +255,15 @@ return (
             <strong id="left-start">left-start</strong>
             <strong id="left">left</strong>
             <strong id="left-end">left-end</strong>
-            <AtomTooltip target="left-start" placement="left-start">
+            <AtomTooltip target="left-start" placement={atomTooltipPlacements.LEFT_START}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
               <code>placement='left-start'</code>
             </AtomTooltip>
-            <AtomTooltip target="left" placement="left">
+            <AtomTooltip target="left" placement={atomTooltipPlacements.LEFT}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
               <code>placement='left'</code>
             </AtomTooltip>
-            <AtomTooltip target="left-end" placement="left-end">
+            <AtomTooltip target="left-end" placement={atomTooltipPlacements.LEFT_END}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
               <code>placement='left-end'</code>
             </AtomTooltip>
@@ -317,7 +288,7 @@ return (
         tempor incididunt ut labore et dolore magna{' '}
         <strong id="astros">astros</strong>
       </p>
-      <AtomTooltip placement="left" target="astros">
+      <AtomTooltip placement={atomTooltipPlacements.LEFT} target="astros">
         Hello <strong>world</strong>!
       </AtomTooltip>
     </div>
@@ -355,7 +326,7 @@ return (
         </li>
       </ul>
       <AtomTooltip
-        placement="bottom"
+        placement={atomTooltipPlacements.BOTTOM}
         target={() => document.querySelector('#list a[href^="https"]')}
       >
         First Secure Link

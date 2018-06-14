@@ -1,33 +1,45 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import memoize from 'memoize-one'
 import {Tooltip} from 'reactstrap'
-import {DOMElement} from './utils'
+import DOMElement from './customPropTypes/DOMElement'
 
 const BASE_CLASS = 'sui-AtomTooltip'
+
+const PLACEMENTS = {
+  TOP: 'top',
+  TOP_START: 'top-start',
+  TOP_END: 'top-end',
+  TOP_RIGHT: 'right',
+  RIGHT_START: 'right-start',
+  RIGHT_END: 'right-end',
+  BOTTOM: 'bottom',
+  BOTTOM_START: 'bottom-start',
+  BOTTOM_END: 'bottom-end',
+  LEFT: 'left',
+  LEFT_START: 'left-start',
+  LEFT_END: 'left-end'
+}
 
 class AtomTooltip extends Component {
   state = {
     isOpen: false
   }
 
-  // Memoization solution as suggested at: https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization
-  getClassNames = memoize(className => cx(BASE_CLASS, className))
-
   componentDidMount() {
     document.addEventListener('click', this.handleClickOutsideElement)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount() {x
     document.removeEventListener('click', this.handleClickOutsideElement)
   }
 
   handleClickOutsideElement = event => {
     const {isOpen} = this.state
-    const tooltipDom = document.querySelector(`.${BASE_CLASS}`)
-    const isOutside = tooltipDom && !tooltipDom.contains(event.target)
-    if (isOpen && isOutside) this.toggle()
+    if (isOpen) {
+      const tooltipDom = document.querySelector(`.${BASE_CLASS}`)
+      const isOutside = tooltipDom && !tooltipDom.contains(event.target)
+      if (isOutside) this.toggle()
+    }
   }
 
   toggle = () => {
@@ -37,13 +49,12 @@ class AtomTooltip extends Component {
   }
 
   render() {
-    const classNames = this.getClassNames(this.props.className)
     return (
       <Tooltip
         {...this.props}
         isOpen={this.state.isOpen}
         toggle={this.toggle}
-        className={classNames}
+        className={BASE_CLASS}
         innerClassName={`${BASE_CLASS}-inner`}
         placementPrefix={`${BASE_CLASS}-`}
       />
@@ -54,7 +65,6 @@ class AtomTooltip extends Component {
 AtomTooltip.displayName = 'AtomTooltip'
 
 AtomTooltip.propTypes = {
-  className: PropTypes.string,
 
   /** Wether to show arrow or not. */
   hideArrow: PropTypes.bool,
@@ -79,28 +89,15 @@ AtomTooltip.propTypes = {
   autohide: PropTypes.bool,
 
   /** Tooltip and arrow position */
-  placement: PropTypes.oneOf([
-    'auto',
-    'auto-start',
-    'auto-end',
-    'top',
-    'top-start',
-    'top-end',
-    'right',
-    'right-start',
-    'right-end',
-    'bottom',
-    'bottom-start',
-    'bottom-end',
-    'left',
-    'left-start',
-    'left-end'
-  ]),
+  placement: PropTypes.oneOf(Object.values(PLACEMENTS)),
 
   /** Custom modifiers that are passed to Popper.js, see https://popper.js.org/popper-documentation.html#modifiers. Ex → { offset: { offset: 'auto 4px', enabled: true } } */
   modifiers: PropTypes.object,
 
-  /** Custom offset that is passed to Popper.js, see https://popper.js.org/popper-documentation.html#modifiers..offset. Default → auto,4px */
+  /**
+   * Custom offset that is passed to Popper.js, see https://popper.js.org/popper-documentation.html#modifiers..offset.
+   * Examples: Default → auto,4px  | Aligned to left → -100%,4px | Aligned to right → 100%,4px
+   * */
   offset: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
@@ -109,3 +106,4 @@ AtomTooltip.defaultProps = {
 }
 
 export default AtomTooltip
+export {PLACEMENTS as atomTooltipPlacements}

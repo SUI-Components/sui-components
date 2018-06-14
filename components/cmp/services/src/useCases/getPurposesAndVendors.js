@@ -2,8 +2,8 @@ import mock from './mock.json'
 
 export class GetPurposesAndVendors {
   _generateConsent({list}) {
-    return Object.keys(list).reduce((acc, {id}) => {
-      acc[id] = true
+    return list.reduce((acc, {id}) => {
+      acc[id.toString()] = true
       return acc
     }, {})
   }

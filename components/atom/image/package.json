@@ -9,8 +9,7 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
-    "memoize-one": "3.1.1"
+    "@s-ui/component-dependencies": "1"
   },
   "keywords": [],
   "author": "",

@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import memoize from 'memoize-one'
 
 import {htmlImgProps} from './types'
 import {ImageNotFoundIcon} from './defaults'
@@ -24,23 +23,24 @@ class AtomImage extends Component {
     error: false
   }
 
-  getClassNames = memoize((loading, error, className) => {
-    return cx(
-      BASE_CLASS,
-      className,
-      `is-${loading ? 'loading' : 'loaded'}`,
-      error && `is-error`
-    )
-  })
-
-  getClassNamesFigure = memoize((placeholder, skeleton) => {
+  classNamesFigure = (() => {
+    const {placeholder, skeleton} = this.props
     const BASE_CLASS_FIGURE = `${BASE_CLASS}-figure`
     return cx(
       `${BASE_CLASS_FIGURE}`,
       placeholder && `${BASE_CLASS_FIGURE}--placeholder`,
       skeleton && `${BASE_CLASS_FIGURE}--skeleton`
     )
-  })
+  })()
+
+  get classNames() {
+    const {loading, error} = this.state
+    return cx(
+      BASE_CLASS,
+      `is-${loading ? 'loading' : 'loaded'}`,
+      error && `is-error`
+    )
+  }
 
   handleLoad = () => {
     const {onLoad} = this.props
@@ -59,7 +59,6 @@ class AtomImage extends Component {
 
   render() {
     const {
-      className,
       placeholder,
       skeleton,
       bgStyles,
@@ -73,17 +72,14 @@ class AtomImage extends Component {
 
     const {loading, error} = this.state
 
-    const classNames = this.getClassNames(loading, error, className)
-    const classNamesFigure = this.getClassNamesFigure(placeholder, skeleton)
-
     const figureStyles = {
       backgroundImage: `url(${placeholder || skeleton})`
     }
 
     return (
-      <div className={classNames}>
+      <div className={this.classNames}>
         <figure
-          className={classNamesFigure}
+          className={this.classNamesFigure}
           style={!error && (placeholder || skeleton) ? figureStyles : {}}
         >
           <img

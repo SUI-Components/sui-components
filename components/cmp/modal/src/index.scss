@@ -1,0 +1,101 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/sui-atom-button/lib/index';
+@import '~@s-ui/react-atom-switch/lib/index';
+
+.sui-CmpModal {
+  align-items: center;
+  background: rgba(33,41,52,.85);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  overflow-y: scroll;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: opacity .15s ease;
+  z-index: 2147483647;
+
+  &-body {
+    padding: $p-l;
+  }
+
+  &-content {
+    background: $c-white;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px $c-gray-dark;
+    color: $c-gray-dark;
+    display: flex;
+    flex-direction: column;
+    max-width: 770px;
+    min-width: 320px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    will-change: visibility, opacity;
+  }
+
+  &-footer {
+    align-items: center;
+    justify-content: flex-end;
+    display: flex;
+    padding: 0 $p-l $p-l;
+    width: 100%;
+  }
+
+  &-logo {
+    max-height: 40px;
+  }
+
+  &-header {
+    border-bottom: 1px solid $c-gray-lightest;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: $p-l;
+  }
+
+  &-title {
+    color: $c-gray-dark;
+    font-size: $fz-l;
+    margin: 0;
+    text-align: left;
+  }
+}
+
+.sui-ModalCmp-vendorsRow {
+  align-items: center;
+  border-bottom: 1px solid $c-gray-lightest;
+  display: flex;
+  justify-content: space-between;
+
+  &-title {
+    padding-left: $p-m;
+  }
+
+  &-actions {
+    padding-right: $p-m;
+  }
+}
+
+.sui-ModalCmp-vendorsTable {
+  border: 1px solid $c-gray-lightest;
+  height: 240px;
+  overflow-y: scroll;
+  text-align: left;
+  width: 100%;
+
+  &Head {
+    border-bottom: 1px solid $c-gray-lightest;
+    color: $c-gray;
+    display: flex;
+    font-size: $fz-s;
+    justify-content: space-between;
+    padding: $p-s $p-m;
+    text-transform: uppercase;
+  }
+
+  &Inner {
+    width: 100%;
+  }
+}

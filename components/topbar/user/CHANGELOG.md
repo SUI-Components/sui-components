@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.26.0"></a>
+# 1.26.0 (2018-06-12)
+
+
+### Features
+
+* sending needlogin to the dropdown user ([263c111](https://github.com/SUI-Components/sui-components/commit/263c111))
+
+
+
 <a name="1.25.0"></a>
 # 1.25.0 (2018-05-30)
 
@@ -216,16 +226,6 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * set a max width ([abde18e](https://github.com/SUI-Components/sui-components/commit/abde18e))
-
-
-
-<a name="1.4.0"></a>
-# 1.4.0 (2017-01-26)
-
-
-### Bug Fixes
-
-* adjusting colors and breakpoints ([eab1ff9](https://github.com/SUI-Components/sui-components/commit/eab1ff9))
 
 
 

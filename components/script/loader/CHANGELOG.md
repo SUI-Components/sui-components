@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2018-06-13)
+
+
+### Features
+
+* check render and timeoutRender before return action in scriptLoader ([763ec51](https://github.com/SUI-Components/sui-components/commit/763ec51))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-05-24)
 

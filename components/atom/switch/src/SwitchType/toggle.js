@@ -112,21 +112,17 @@ ToggleSwitchTypeRender.propTypes = {
   /**
    * Callback on focus element
    */
-  focusSwitchCallback: PropTypes.func,
+  onFocus: PropTypes.func,
   /**
    * Callback on blur element
    */
-  blurSwitchCallback: PropTypes.func,
+  onBlur: PropTypes.func,
   /**
    * Callback on toggle element
    */
-  toggleSwitchCallback: PropTypes.func,
+  onToggle: PropTypes.func,
   /**
-   * Calback on activate toggle
+   * Callback on keydown on the switch
    */
-  activateToggleCallback: PropTypes.func,
-  /**
-   * Callback on deacrtivate toggle
-   */
-  deactivateToggleCallback: PropTypes.func
+  onKeyDown: PropTypes.func
 }

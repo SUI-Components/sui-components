@@ -96,5 +96,9 @@ SingleSwitchTypeRender.propTypes = {
   /**
    * Callback on toggle element
    */
-  onToggle: PropTypes.func
+  onToggle: PropTypes.func,
+  /**
+   * Callback on keydown on the switch
+   */
+  onKeyDown: PropTypes.func
 }

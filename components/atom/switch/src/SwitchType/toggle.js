@@ -5,21 +5,20 @@ import {prefixClass, workClassNames} from './helpers'
 import PropTypes from 'prop-types'
 
 export const ToggleSwitchTypeRender = ({
-  name,
-  label,
-  labelOptionalText,
-  labelLeft,
-  labelRight,
-  size,
-  type,
   disabled,
-  isToggle,
   isFocus,
-  focusSwitchCallback,
-  blurSwitchCallback,
-  toggleSwitchCallback,
-  activateToggleCallback,
-  deactivateToggleCallback
+  isToggle,
+  label,
+  labelLeft,
+  labelOptionalText,
+  labelRight,
+  name,
+  onBlur,
+  onFocus,
+  onKeyDown,
+  onToggle,
+  size,
+  type
 }) => {
   return (
     <div
@@ -36,18 +35,19 @@ export const ToggleSwitchTypeRender = ({
       <div
         className={cx(prefixClass('container'))}
         tabIndex="0"
-        onFocus={focusSwitchCallback}
-        onBlur={blurSwitchCallback}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        onKeyDown={onKeyDown}
       >
         <span
           className={cx(prefixClass('text'), prefixClass('left'))}
-          onClick={deactivateToggleCallback}
+          onClick={() => onToggle(false)}
         >
           {labelLeft}
         </span>
         <div
           className={cx(prefixClass('inputContainer'))}
-          onClick={toggleSwitchCallback}
+          onClick={() => onToggle()}
         >
           <div
             className={cx(prefixClass('circle'), {
@@ -57,7 +57,7 @@ export const ToggleSwitchTypeRender = ({
         </div>
         <span
           className={cx(prefixClass('text'), prefixClass('right'))}
-          onClick={activateToggleCallback}
+          onClick={() => onToggle(true)}
         >
           {labelRight}
         </span>

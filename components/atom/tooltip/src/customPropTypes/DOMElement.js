@@ -1,6 +1,6 @@
 /* global Element */
 
-export function DOMElement(props, propName, componentName) {
+function DOMElement(props, propName, componentName) {
   if (!(props[propName] instanceof Element)) {
     return new Error(
       'Invalid prop `' +
@@ -12,3 +12,5 @@ export function DOMElement(props, propName, componentName) {
   }
   return null
 }
+
+export default DOMElement

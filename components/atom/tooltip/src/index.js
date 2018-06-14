@@ -29,7 +29,7 @@ class AtomTooltip extends Component {
     document.addEventListener('click', this.handleClickOutsideElement)
   }
 
-  componentWillUnmount() {x
+  componentWillUnmount() {
     document.removeEventListener('click', this.handleClickOutsideElement)
   }
 
@@ -65,7 +65,6 @@ class AtomTooltip extends Component {
 AtomTooltip.displayName = 'AtomTooltip'
 
 AtomTooltip.propTypes = {
-
   /** Wether to show arrow or not. */
   hideArrow: PropTypes.bool,
 

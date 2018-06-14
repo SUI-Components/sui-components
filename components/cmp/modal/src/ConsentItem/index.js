@@ -10,15 +10,18 @@ export const ConsentItem = ({
   id,
   handleToggleConsent,
   title,
-  isVendor
+  isVendor,
+  url
 }) => (
   <div className={`${CLASS}-consent`}>
     <div className={`${CLASS}-consentTitle`}>{title}</div>
     <div className={`${CLASS}-consentActions`}>
       <AtomSwitch
         disabled={!enabled}
+        label=""
         labelLeft=""
         labelRight=""
+        name={`${title}-switch`}
         onToggle={_ => handleToggleConsent({enabled: !enabled, id, isVendor})}
         type="toggle"
       />
@@ -29,7 +32,8 @@ export const ConsentItem = ({
 ConsentItem.propTypes = {
   enabled: PropTypes.bool,
   handleToggleConsent: PropTypes.func,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   isVendor: PropTypes.bool,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string
 }

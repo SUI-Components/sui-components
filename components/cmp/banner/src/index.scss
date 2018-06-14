@@ -1,0 +1,9 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+.sui-CmpBanner {
+  /*
+    needed as we can't let users close the notification without accepting it.
+    We might want to check with UX if we could let developers to hide the close icon instead hacking
+  */
+  .sui-MoleculeNotification-iconClose { display: none !important; }
+}

@@ -14,8 +14,8 @@ export const SingleSwitchTypeRender = ({
   onBlur,
   onFocus,
   onKeyDown,
-  size,
   onToggle,
+  size,
   type
 }) => {
   return (

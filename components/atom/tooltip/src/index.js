@@ -25,6 +25,9 @@ class AtomTooltip extends Component {
     isOpen: false
   }
 
+  innerClassName = `${BASE_CLASS}-inner`
+  placementPrefix = `${BASE_CLASS}-`
+
   componentDidMount() {
     document.addEventListener('click', this.handleClickOutsideElement)
   }
@@ -55,8 +58,8 @@ class AtomTooltip extends Component {
         isOpen={this.state.isOpen}
         toggle={this.toggle}
         className={BASE_CLASS}
-        innerClassName={`${BASE_CLASS}-inner`}
-        placementPrefix={`${BASE_CLASS}-`}
+        innerClassName={this.innerClassName}
+        placementPrefix={this.placementPrefix}
       />
     )
   }

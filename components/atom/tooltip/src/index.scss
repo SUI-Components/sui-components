@@ -8,7 +8,7 @@ $maw-atom-tooltip: 250px !default;
 $mah-atom-tooltip: 100px !default;
 $c-atom-tooltip: $c-white !default;
 $bgc-atom-tooltip: $c-black !default;
-$bdrs-atom-tooltip: 4px !default;
+$bdrs-atom-tooltip: $bdrs-l !default;
 $op-atom-tooltip: 1 !default;
 $pt-atom-tooltip: $p-m !default;
 $pb-atom-tooltip: $p-m !default;
@@ -26,15 +26,10 @@ $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
   display: block;
   font-size: $fz-atom-tooltip;
   margin: $m-atom-tooltip;
-  opacity: 0;
   position: absolute;
   // Allow breaking very long words so they don't overflow the tooltip's bounds
   word-wrap: break-word;
   z-index: $z-atom-tooltip;
-
-  &.show {
-    opacity: $op-atom-tooltip;
-  }
 
   .arrow {
     display: block;

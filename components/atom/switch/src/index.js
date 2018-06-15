@@ -114,11 +114,11 @@ AtomSwitch.propTypes = {
 }
 
 AtomSwitch.defaultProps = {
-  initialValue: false,
-  size: SIZES.DEFAULT,
   disabled: false,
+  initialValue: false,
   labelLeft: 'Off',
   labelRight: 'On',
+  size: SIZES.DEFAULT,
   type: TYPES.TOGGLE
 }
 

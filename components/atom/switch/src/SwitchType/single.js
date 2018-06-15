@@ -5,17 +5,18 @@ import {prefixClass, workClassNames} from './helpers'
 import PropTypes from 'prop-types'
 
 export const SingleSwitchTypeRender = ({
-  name,
+  disabled,
+  isFocus,
+  isToggle,
   label,
   labelOptionalText,
+  name,
+  onBlur,
+  onFocus,
+  onKeyDown,
+  onToggle,
   size,
-  type,
-  disabled,
-  isToggle,
-  isFocus,
-  focusSwitchCallback,
-  blurSwitchCallback,
-  toggleSwitchCallback
+  type
 }) => {
   return (
     <div
@@ -27,13 +28,14 @@ export const SingleSwitchTypeRender = ({
         isFocus,
         disabled
       )}
-      onClick={toggleSwitchCallback}
+      onClick={() => onToggle()}
     >
       <div
         className={prefixClass('container')}
         tabIndex="0"
-        onFocus={focusSwitchCallback}
-        onBlur={blurSwitchCallback}
+        onKeyDown={onKeyDown}
+        onFocus={onFocus}
+        onBlur={onBlur}
       >
         <AtomLabel name={name} text={label} optionalText={labelOptionalText} />
         <div className={prefixClass('inputContainer')}>
@@ -86,13 +88,17 @@ SingleSwitchTypeRender.propTypes = {
   /**
    * Callback on focus element
    */
-  focusSwitchCallback: PropTypes.func,
+  onFocus: PropTypes.func,
   /**
    * Callback on toggle element
    */
-  blurSwitchCallback: PropTypes.func,
+  onBlur: PropTypes.func,
   /**
    * Callback on toggle element
    */
-  toggleSwitchCallback: PropTypes.func
+  onToggle: PropTypes.func,
+  /**
+   * Callback on keydown on the switch
+   */
+  onKeyDown: PropTypes.func
 }

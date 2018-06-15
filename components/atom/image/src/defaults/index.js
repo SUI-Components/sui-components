@@ -1,1 +1,1 @@
-export { default as ImageNotFoundIcon } from './ImageNotFoundIcon'
+export {default as ImageNotFoundIcon} from './ImageNotFoundIcon'

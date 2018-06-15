@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import { htmlImgProps } from './types'
-import { ImageNotFoundIcon } from './defaults'
+import {htmlImgProps} from './types'
+import {ImageNotFoundIcon} from './defaults'
 
 const defaultErrorText = 'Image not found'
 const BASE_CLASS = 'sui-AtomImage'
 
 const Error = (
-  { className, icon: Icon, text } // eslint-disable-line react/prop-types
+  {className, icon: Icon, text} // eslint-disable-line react/prop-types
 ) => (
   <div className={className}>
     {Icon && <Icon />}
@@ -23,35 +23,33 @@ class AtomImage extends Component {
     error: false
   }
 
-  get classNames () {
-    const { loading, error } = this.state
-    const { className } = this.props
-    return cx(
-      BASE_CLASS,
-      className,
-      `is-${loading ? 'loading' : 'loaded'}`,
-      error && `is-error`
-    )
-  }
-
-  get classNamesFigure () {
-    const { placeholder, skeleton } = this.props
+  classNamesFigure = (() => {
+    const {placeholder, skeleton} = this.props
     const BASE_CLASS_FIGURE = `${BASE_CLASS}-figure`
     return cx(
       `${BASE_CLASS_FIGURE}`,
       placeholder && `${BASE_CLASS_FIGURE}--placeholder`,
       skeleton && `${BASE_CLASS_FIGURE}--skeleton`
     )
+  })()
+
+  get classNames() {
+    const {loading, error} = this.state
+    return cx(
+      BASE_CLASS,
+      `is-${loading ? 'loading' : 'loaded'}`,
+      error && `is-error`
+    )
   }
 
   handleLoad = () => {
-    const { onLoad } = this.props
-    this.setState({ loading: false })
+    const {onLoad} = this.props
+    this.setState({loading: false})
     onLoad && onLoad()
   }
 
   handleError = () => {
-    const { onError } = this.props
+    const {onError} = this.props
     this.setState({
       error: true,
       loading: false
@@ -59,7 +57,7 @@ class AtomImage extends Component {
     onError && onError()
   }
 
-  render () {
+  render() {
     const {
       placeholder,
       skeleton,
@@ -72,7 +70,7 @@ class AtomImage extends Component {
       ...imgProps
     } = this.props
 
-    const { loading, error } = this.state
+    const {loading, error} = this.state
 
     const figureStyles = {
       backgroundImage: `url(${placeholder || skeleton})`

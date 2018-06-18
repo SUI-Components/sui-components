@@ -2,13 +2,17 @@
 @import '~@schibstedspain/sui-atom-button/lib/index';
 @import '~@s-ui/react-atom-switch/lib/index';
 
+$bgc-sui-cmp-modal: rgba(33, 41, 52,.85) !default;
+
 .sui-CmpModal {
   align-items: center;
-  background: rgba(33,41,52,.85);
+  background: $bgc-sui-cmp-modal;
   bottom: 0;
+  color: $c-gray-dark;
   display: flex;
   justify-content: center;
   left: 0;
+  line-height: 150%;
   overflow-y: scroll;
   position: fixed;
   right: 0;
@@ -106,6 +110,7 @@
   &-title {
     color: $c-gray-dark;
     font-size: $fz-l;
+    font-weight: $fw-semi-bold;
     margin: 0;
     text-align: left;
   }

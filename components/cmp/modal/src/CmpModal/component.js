@@ -8,8 +8,10 @@ import {Consents} from '../Consents'
 import {CLASS} from '../settings'
 
 export const CmpModal = ({
+  consentKey,
   logo,
   onAccept,
+  onCancel,
   onToggleAll,
   onToggleConsent,
   purposes,
@@ -46,14 +48,27 @@ export const CmpModal = ({
             rechazarlo.
           </p>
           <Consents
-            isVendor
+            consents={purposeConsents}
+            key={`purposes-${consentKey}`}
+            list={purposes}
             onToggleAll={onToggleAll}
             onToggleConsent={onToggleConsent}
-            list={vendors}
+            title="Autorizo:"
+          />
+          <Consents
             consents={vendorConsents}
+            isVendor
+            key={`vendors-${consentKey}`}
+            list={vendors}
+            onToggleAll={onToggleAll}
+            onToggleConsent={onToggleConsent}
+            title="Para los siguientes anunciantes y partners:"
           />
         </section>
         <footer className={`${CLASS}-footer`}>
+          <Button onClick={onCancel} type="tertiary" size="small">
+            Cancelar
+          </Button>
           <Button onClick={onAccept} type="primary" size="large">
             Guardar y salir
           </Button>
@@ -64,9 +79,11 @@ export const CmpModal = ({
 }
 
 CmpModal.propTypes = {
+  consentKey: PropTypes.string,
   lang: PropTypes.string,
   logo: PropTypes.string,
   onAccept: PropTypes.func,
+  onCancel: PropTypes.func,
   onToggleAll: PropTypes.func,
   onToggleConsent: PropTypes.func,
   purposes: PropTypes.array,

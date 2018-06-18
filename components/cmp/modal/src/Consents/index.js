@@ -6,19 +6,34 @@ import {ConsentItem} from '../ConsentItem'
 
 import {CLASS} from '../settings'
 
-export const Consents = ({consents, isVendor, list}) => (
+export const Consents = ({
+  consents,
+  isVendor,
+  list,
+  onToggleAll,
+  onToggleConsent
+}) => (
   <section className={`${CLASS}-consents`}>
-    <Button onClick={() => {}} type="secondary" size="small">
-      Deshabilitar todo
-    </Button>
-    <Button onClick={() => {}} type="secondary">
-      Habilitar todo
-    </Button>
-    <div>
+    <div className={`${CLASS}-consentsActions`}>
+      <Button
+        onClick={() => onToggleAll({enabled: false, isVendor})}
+        type="secondary"
+        size="small"
+      >
+        Deshabilitar todo
+      </Button>
+      <Button
+        onClick={() => onToggleAll({enabled: true, isVendor})}
+        type="primary"
+      >
+        Habilitar todo
+      </Button>
+    </div>
+    <div className={`${CLASS}-consentsScroll`}>
       {list.map(({id, name, policyUrl}) => (
         <ConsentItem
           enabled={consents[id]}
-          handleToggleConsent={() => {}}
+          onToggleConsent={onToggleConsent}
           id={id}
           isVendor={isVendor}
           key={`${id}-${isVendor ? 'vendor' : 'purpose'}`}
@@ -33,5 +48,7 @@ export const Consents = ({consents, isVendor, list}) => (
 Consents.propTypes = {
   consents: PropTypes.object.isRequired,
   isVendor: PropTypes.bool,
-  list: PropTypes.array.isRequired
+  list: PropTypes.array.isRequired,
+  onToggleAll: PropTypes.func,
+  onToggleConsent: PropTypes.func
 }

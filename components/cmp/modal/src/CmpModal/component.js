@@ -37,15 +37,20 @@ export const CmpModal = ({
           />
         </header>
         <section className={`${CLASS}-inner`}>
-          <h2>Tu privacidad es importante para nosotros</h2>
+          <h2 className={`${CLASS}-title`}>
+            Cookies propios o de terceros para publicidad segmentada
+          </h2>
           <p>
-            Puedes dar tu consentimiento de manera individual a cada partner.
-            Ver la lista de todos los propósitos para los cuales utilizan tus
-            datos para tener más información. En algunos casos, las empresas
-            pueden revelar que usan tus datos sin pedir tu consentimiento, en
-            función de intereses legítimos. Puedes hacer click en su política de
-            privacidad para obtener más información al respecto o para
-            rechazarlo.
+            Nos importa mucho tu privacidad por esta razón te queremos dar a
+            conocer las finalidades perseguidas por las cookies de publicidad
+            personalizada además de con quién estamos compartiendo tus datos.
+            Asimismo podrás definir las finalidades y los terceros con los que
+            aceptas o no compartir tus datos de navegación, tus datos de
+            localización y tus datos de carácter personal.<br />
+            <br />Ten en cuenta que estas cookies van ligadas a tu sesión en el
+            navegador por lo que si refrescas tus cookies, cambias de
+            dispositivos o te conectas desde otro navegador, tendrás que volver
+            a configurar tus preferencias.
           </p>
           <Consents
             consents={purposeConsents}
@@ -79,7 +84,7 @@ export const CmpModal = ({
 }
 
 CmpModal.propTypes = {
-  consentKey: PropTypes.string,
+  consentKey: PropTypes.number,
   lang: PropTypes.string,
   logo: PropTypes.string,
   onAccept: PropTypes.func,

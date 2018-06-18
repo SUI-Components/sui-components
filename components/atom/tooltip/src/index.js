@@ -52,14 +52,17 @@ class AtomTooltip extends Component {
   }
 
   render() {
+    const { hideArrow, target, delay, autohide, placement, children } = this.props
+    const restrictedProps = { hideArrow, target, delay, autohide, placement, children }
     return (
       <Tooltip
-        {...this.props}
+        {...restrictedProps}
         isOpen={this.state.isOpen}
         toggle={this.toggle}
         className={BASE_CLASS}
         innerClassName={this.innerClassName}
         placementPrefix={this.placementPrefix}
+        offset="auto,4px"
       />
     )
   }
@@ -91,20 +94,7 @@ AtomTooltip.propTypes = {
   autohide: PropTypes.bool,
 
   /** Tooltip and arrow position */
-  placement: PropTypes.oneOf(Object.values(PLACEMENTS)),
-
-  /** Custom modifiers that are passed to Popper.js, see https://popper.js.org/popper-documentation.html#modifiers. Ex → { offset: { offset: 'auto 4px', enabled: true } } */
-  modifiers: PropTypes.object,
-
-  /**
-   * Custom offset that is passed to Popper.js, see https://popper.js.org/popper-documentation.html#modifiers..offset.
-   * Examples: Default → auto,4px  | Aligned to left → -100%,4px | Aligned to right → 100%,4px
-   * */
-  offset: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-}
-
-AtomTooltip.defaultProps = {
-  offset: 'auto,4px'
+  placement: PropTypes.oneOf(Object.values(PLACEMENTS))
 }
 
 export default AtomTooltip

@@ -89,61 +89,6 @@ const listItemLeft = Object.assign(
 return (
   <div>
     <h1>AtomTooltip</h1>
-    <h2>Tooltip centered by default (but can be aligned to left or right)</h2>
-    <div
-      style={{
-        border: '1px solid #CCC',
-        background: '#fff',
-        marginTop: '10px',
-        padding: '10px'
-      }}
-    >
-      <p>
-        Lorem ipsum dolor sit amet{' '}
-        <strong id="perspiciatis">
-          Sed ut perspiciatis unde omnis doloremque laudantium, totam rem
-          aperiam, eaque ipsa quae ab illo{' '}
-        </strong>
-      </p>
-      <AtomTooltip target="perspiciatis">
-        Lacinia cursus elementum massa platea nullam interdum, rutrum rhoncus
-        sodales habitant semper hendrerit aptent, eu sollicitudin fringilla
-        malesuada convallis.
-      </AtomTooltip>
-      <p>
-        Lorem ipsum dolor sit amet ipsum dolor sit{' '}
-        <strong id="omnis">
-          Sed ut perspiciatis unde omnis doloremque laudantium, totam rem
-          aperiam, eaque ipsa quae ab illo{' '}
-        </strong>
-      </p>
-      <AtomTooltip
-        placement={atomTooltipPlacements.TOP}
-        offset="-100%, 4px"
-        target="omnis"
-      >
-        Donec semper neque placerat consequat ultrices porttitor fames nec
-        nullam nascetur, proin duis sodales nam purus natoque urna inceptos
-        pharetra,
-      </AtomTooltip>
-      <p>
-        Lorem ipsum dolor sit amet ipsum dolor sit{' '}
-        <strong id="laudantium">
-          Sed ut perspiciatis unde omnis doloremque laudantium, totam rem
-          aperiam, eaque ipsa quae ab illo{' '}
-        </strong>
-      </p>
-      <AtomTooltip
-        placement={atomTooltipPlacements.TOP}
-        offset="100%, 4px"
-        target="laudantium"
-      >
-        Venenatis nibh cum aliquam rutrum placerat nam hac natoque magna
-        interdum erat felis, vulputate porttitor nec posuere pretium volutpat
-        nisl aenean tristique vestibulum ultrices. Natoque ante quisque torquent
-        in lacus pharetra, conubia mauris suscipit porta id inceptos
-      </AtomTooltip>
-    </div>
     <h2>
       Maintain tooltip on hover over tooltp with <code>autohide=false</code> (so
       users can select text in tooltip)

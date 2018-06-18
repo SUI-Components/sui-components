@@ -35,6 +35,43 @@
     will-change: visibility, opacity;
   }
 
+  &-consents {
+    &Actions {
+      align-items: center;
+      display: flex;
+      justify-content: flex-end;
+      padding-bottom: $p-m;
+    }
+
+    &Scroll {
+      border: 1px solid $c-gray-lightest;
+      height: 240px;
+      overflow-y: scroll;
+    }
+  }
+
+  &-consent {
+    align-items: center;
+    border-bottom: 1px solid $c-gray-lightest;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 $p-m;
+
+    &Link {
+      border-bottom: 1px dashed $c-primary-light;
+      color: $c-primary;
+      text-decoration: none;
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
+
+  &-inner {
+    padding: $p-l;
+  }
+
   &-footer {
     align-items: center;
     justify-content: flex-end;

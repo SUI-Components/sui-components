@@ -1,4 +1,4 @@
-/* global atomTooltipPlacements */
+/* global atomTooltipPlacements, React */
 /* eslint-disable react/react-in-jsx-scope, react/jsx-no-undef */
 
 class StrongWithTooltip extends React.Component {
@@ -11,7 +11,7 @@ class StrongWithTooltip extends React.Component {
   }
 
   render() {
-    const {text} = this.props
+    const {text} = this.props // eslint-disable-line react/prop-types
     const {target} = this.state
     return (
       <span>
@@ -44,8 +44,7 @@ const listContainerStyles = {
   position: 'relative',
   display: 'flex',
   justifyContent: 'center',
-  margin: '20px auto',
-  padding: '0'
+  margin: '20px auto'
 }
 
 const listItemStyles = {
@@ -102,7 +101,10 @@ return (
       }}
     >
       <p>
-        Lorem ipsum dolor sit amet <strong id="december">december</strong>
+        Lorem ipsum dolor sit amet{' '}
+        <strong tabIndex="1" id="december">
+          december
+        </strong>
       </p>
       <AtomTooltip autohide={false} target="december">
         Leo sagittis dignissim ornare egestas primis parturient ante diam fusce,
@@ -123,7 +125,10 @@ return (
       }}
     >
       <p>
-        Lorem ipsum dolor sit amet <strong id="november">november</strong>
+        Lorem ipsum dolor sit amet{' '}
+        <strong tabIndex="2" id="november">
+          november
+        </strong>
       </p>
       <AtomTooltip delay={{show: 300, hide: 1500}} target="november">
         Vehicula neque sociis leo odio nostra fames ridiculus cubilia nunc,
@@ -143,7 +148,10 @@ return (
       }}
     >
       <p>
-        Lorem ipsum dolor sit amet <strong id="avenue">astros</strong>
+        Lorem ipsum dolor sit amet{' '}
+        <strong tabIndex="3" id="avenue">
+          astros
+        </strong>
       </p>
       <AtomTooltip placement={atomTooltipPlacements.RIGHT} target="avenue">
         Hendrerit varius luctus scelerisque habitant ridiculus, vulputate mollis
@@ -164,7 +172,10 @@ return (
       }}
     >
       <p>
-        Lorem ipsum dolor sit amet <strong id="indeed">astros</strong>
+        Lorem ipsum dolor sit amet{' '}
+        <strong tabIndex="4" id="indeed">
+          astros
+        </strong>
       </p>
       <AtomTooltip
         placement={atomTooltipPlacements.RIGHT}
@@ -189,9 +200,15 @@ return (
         <ul style={listContainerStyles}>
           {/* --- top --- */}
           <li style={listItemTop}>
-            <strong id="top-start">top-start</strong>
-            <strong id="top">top</strong>
-            <strong id="top-end">top-end</strong>
+            <strong tabIndex="5" id="top-start">
+              top-start
+            </strong>
+            <strong tabIndex="6" id="top">
+              top
+            </strong>
+            <strong tabIndex="7" id="top-end">
+              top-end
+            </strong>
             <AtomTooltip
               target="top-start"
               placement={atomTooltipPlacements.TOP_START}
@@ -211,9 +228,15 @@ return (
 
           {/* --- right --- */}
           <li style={listItemRight}>
-            <strong id="right-start">right-start</strong>
-            <strong id="right">right</strong>
-            <strong id="right-end">right-end</strong>
+            <strong tabIndex="8" id="right-start">
+              right-start
+            </strong>
+            <strong tabIndex="9" id="right">
+              right
+            </strong>
+            <strong tabIndex="10" id="right-end">
+              right-end
+            </strong>
             <AtomTooltip
               target="right-start"
               placement={atomTooltipPlacements.RIGHT_START}
@@ -236,9 +259,15 @@ return (
 
           {/* --- bottom --- */}
           <li style={listItemBottom}>
-            <strong id="bottom-start">bottom-start</strong>
-            <strong id="bottom">bottom</strong>
-            <strong id="bottom-end">bottom-end</strong>
+            <strong tabIndex="11" id="bottom-start">
+              bottom-start
+            </strong>
+            <strong tabIndex="12" id="bottom">
+              bottom
+            </strong>
+            <strong tabIndex="13" id="bottom-end">
+              bottom-end
+            </strong>
             <AtomTooltip
               target="bottom-start"
               placement={atomTooltipPlacements.BOTTOM_START}
@@ -261,9 +290,15 @@ return (
 
           {/* --- left --- */}
           <li style={listItemLeft}>
-            <strong id="left-start">left-start</strong>
-            <strong id="left">left</strong>
-            <strong id="left-end">left-end</strong>
+            <strong tabIndex="14" id="left-start">
+              left-start
+            </strong>
+            <strong tabIndex="15" id="left">
+              left
+            </strong>
+            <strong tabIndex="16" id="left-end">
+              left-end
+            </strong>
             <AtomTooltip
               target="left-start"
               placement={atomTooltipPlacements.LEFT_START}
@@ -301,7 +336,9 @@ return (
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna{' '}
-        <strong id="astros">astros</strong>
+        <strong tabIndex="17" id="astros">
+          astros
+        </strong>
       </p>
       <AtomTooltip placement={atomTooltipPlacements.LEFT} target="astros">
         Hello <strong>world</strong>!
@@ -317,7 +354,7 @@ return (
       }}
     >
       <p>
-        Lorem Ipsum <StrongWithTooltip text="astros" />
+        Lorem Ipsum <StrongWithTooltip tabIndex="18" text="astros" />
       </p>
     </div>
     <h3>Using a function that returns a DOM Selection</h3>

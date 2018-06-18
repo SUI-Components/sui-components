@@ -11,9 +11,11 @@ export const Consents = ({
   isVendor,
   list,
   onToggleAll,
-  onToggleConsent
+  onToggleConsent,
+  title
 }) => (
   <section className={`${CLASS}-consents`}>
+    <h2 className={`${CLASS}-consentsTitle`}>{title}</h2>
     <div className={`${CLASS}-consentsActions`}>
       <Button
         onClick={() => onToggleAll({enabled: false, isVendor})}
@@ -25,18 +27,19 @@ export const Consents = ({
       <Button
         onClick={() => onToggleAll({enabled: true, isVendor})}
         type="primary"
+        size="small"
       >
         Habilitar todo
       </Button>
     </div>
-    <div className={`${CLASS}-consentsScroll`}>
+    <div className={`${CLASS}-consentsTable`}>
       {list.map(({id, name, policyUrl}) => (
         <ConsentItem
           enabled={consents[id]}
           onToggleConsent={onToggleConsent}
           id={id}
           isVendor={isVendor}
-          key={`${id}-${isVendor ? 'vendor' : 'purpose'}`}
+          key={id}
           title={name}
           url={policyUrl}
         />
@@ -50,5 +53,6 @@ Consents.propTypes = {
   isVendor: PropTypes.bool,
   list: PropTypes.array.isRequired,
   onToggleAll: PropTypes.func,
-  onToggleConsent: PropTypes.func
+  onToggleConsent: PropTypes.func,
+  title: PropTypes.string
 }

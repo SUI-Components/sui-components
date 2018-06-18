@@ -3,18 +3,20 @@ import PropTypes from 'prop-types'
 
 import Button from '@schibstedspain/sui-atom-button'
 
-import {Consents} from '../ConsentList'
+import {Consents} from '../Consents'
 
 import {CLASS} from '../settings'
 
-export const CmpModal = ({logo, purposesAndVendors}) => {
-  const {
-    purposes,
-    vendors,
-    purposeConsents,
-    vendorConsents
-  } = purposesAndVendors
-
+export const CmpModal = ({
+  logo,
+  onAccept,
+  onToggleAll,
+  onToggleConsent,
+  purposes,
+  vendors,
+  purposeConsents,
+  vendorConsents
+}) => {
   console.log({
     purposes,
     vendors,
@@ -32,11 +34,30 @@ export const CmpModal = ({logo, purposesAndVendors}) => {
             src={logo}
           />
         </header>
-        <Consents list={purposes} consents={purposeConsents} />
-        <Consents isVendor list={vendors} consents={vendorConsents} />
-        <Button onClick={() => {}} type="secondary">
-          Guardar y salir
-        </Button>
+        <section className={`${CLASS}-inner`}>
+          <h2>Tu privacidad es importante para nosotros</h2>
+          <p>
+            Puedes dar tu consentimiento de manera individual a cada partner.
+            Ver la lista de todos los propósitos para los cuales utilizan tus
+            datos para tener más información. En algunos casos, las empresas
+            pueden revelar que usan tus datos sin pedir tu consentimiento, en
+            función de intereses legítimos. Puedes hacer click en su política de
+            privacidad para obtener más información al respecto o para
+            rechazarlo.
+          </p>
+          <Consents
+            isVendor
+            onToggleAll={onToggleAll}
+            onToggleConsent={onToggleConsent}
+            list={vendors}
+            consents={vendorConsents}
+          />
+        </section>
+        <footer className={`${CLASS}-footer`}>
+          <Button onClick={onAccept} type="primary" size="large">
+            Guardar y salir
+          </Button>
+        </footer>
       </div>
     </div>
   )
@@ -46,5 +67,10 @@ CmpModal.propTypes = {
   lang: PropTypes.string,
   logo: PropTypes.string,
   onAccept: PropTypes.func,
-  purposesAndVendors: PropTypes.object
+  onToggleAll: PropTypes.func,
+  onToggleConsent: PropTypes.func,
+  purposes: PropTypes.array,
+  vendors: PropTypes.array,
+  purposeConsents: PropTypes.object,
+  vendorConsents: PropTypes.object
 }

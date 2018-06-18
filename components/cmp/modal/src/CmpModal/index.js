@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import {CmpModal} from './component'
 export class CmpModalContainer extends Component {
   state = {
+    consentKey: 0,
     fetchingData: true,
     purposeConsents: {},
     purposes: [],
@@ -44,7 +45,7 @@ export class CmpModalContainer extends Component {
         acc[consentId] = enabled
         return acc
       }, {})
-      return {[key]: consents}
+      return {[key]: consents, consentKey: state.consentKey + 1}
     })
   }
 
@@ -57,6 +58,7 @@ export class CmpModalContainer extends Component {
   render() {
     const {lang, logo} = this.props
     const {
+      consentKey,
       fetchingData,
       purposes,
       purposeConsents,
@@ -68,6 +70,7 @@ export class CmpModalContainer extends Component {
 
     return (
       <CmpModal
+        consentKey={consentKey}
         lang={lang}
         logo={logo}
         onAccept={this._handleAccept}

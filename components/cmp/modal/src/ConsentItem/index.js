@@ -2,26 +2,27 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import AtomSwitch from '@s-ui/react-atom-switch'
 
-import {ConsentTitle} from '../ConsentTitle'
+import {ConsentName} from '../ConsentName'
 import {CLASS} from '../settings'
 
 export const ConsentItem = ({
+  description,
   enabled,
   id,
   onToggleConsent,
-  title,
+  name,
   isVendor,
   url
 }) => (
   <div className={`${CLASS}-consent`}>
-    <ConsentTitle title={title} url={url} />
+    <ConsentName name={name} url={url} />
     <div className={`${CLASS}-consentActions`}>
       <AtomSwitch
         initialValue={enabled}
         label=""
         labelLeft=""
         labelRight=""
-        name={`${title}-switch`}
+        name={`${id}-switch`}
         onToggle={() => onToggleConsent({enabled: !enabled, id, isVendor})}
         type="toggle"
       />
@@ -30,10 +31,11 @@ export const ConsentItem = ({
 )
 
 ConsentItem.propTypes = {
+  description: PropTypes.string,
   enabled: PropTypes.bool,
   onToggleConsent: PropTypes.func,
   id: PropTypes.number.isRequired,
   isVendor: PropTypes.bool,
-  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   url: PropTypes.string
 }

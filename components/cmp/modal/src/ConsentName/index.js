@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 import {CLASS} from '../settings'
 
-export const ConsentTitle = ({title, url}) => (
-  <div className={`${CLASS}-consentTitle`}>
+export const ConsentName = ({name, url}) => (
+  <div className={`${CLASS}-consentName`}>
     {url ? (
       <a
         className={`${CLASS}-consentLink`}
@@ -13,15 +13,15 @@ export const ConsentTitle = ({title, url}) => (
         title="Leer condiciones de privacidad"
         rel="noopener"
       >
-        {title}
+        {name}
       </a>
     ) : (
-      title
+      name
     )}
   </div>
 )
 
-ConsentTitle.propTypes = {
-  title: PropTypes.string,
-  url: PropTypes.url
+ConsentName.propTypes = {
+  name: PropTypes.string,
+  url: PropTypes.string
 }

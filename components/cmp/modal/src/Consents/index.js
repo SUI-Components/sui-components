@@ -15,7 +15,7 @@ export const Consents = ({
   title
 }) => (
   <section className={`${CLASS}-consents`}>
-    <h2 className={`${CLASS}-consentsTitle`}>{title}</h2>
+    <h2 className={`${CLASS}-title ${CLASS}-consentsTitle`}>{title}</h2>
     <div className={`${CLASS}-consentsActions`}>
       <Button
         onClick={() => onToggleAll({enabled: false, isVendor})}
@@ -36,11 +36,11 @@ export const Consents = ({
       {list.map(({id, name, policyUrl}) => (
         <ConsentItem
           enabled={consents[id]}
-          onToggleConsent={onToggleConsent}
           id={id}
           isVendor={isVendor}
           key={id}
-          title={name}
+          name={name}
+          onToggleConsent={onToggleConsent}
           url={policyUrl}
         />
       ))}

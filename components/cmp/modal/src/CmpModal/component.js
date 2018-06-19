@@ -15,10 +15,10 @@ export const CmpModal = ({
   onCancel,
   onToggleAll,
   onToggleConsent,
-  purposes,
-  vendors,
   purposeConsents,
-  vendorConsents
+  purposes,
+  vendorConsents,
+  vendors
 }) => {
   const i18n = I18N[lang]
   console.log({
@@ -87,8 +87,8 @@ CmpModal.propTypes = {
   onCancel: PropTypes.func,
   onToggleAll: PropTypes.func,
   onToggleConsent: PropTypes.func,
-  purposes: PropTypes.array,
-  vendors: PropTypes.array,
   purposeConsents: PropTypes.object,
-  vendorConsents: PropTypes.object
+  purposes: PropTypes.array,
+  vendorConsents: PropTypes.object,
+  vendors: PropTypes.array
 }

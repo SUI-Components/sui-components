@@ -12,7 +12,6 @@ export class CmpBannerContainer extends Component {
   }
 
   _handleAccept = async () => {
-    console.log('accept')
     const {getPurposesAndVendors} = this.props
     const {
       purposeConsents,

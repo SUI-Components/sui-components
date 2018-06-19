@@ -1,5 +1,9 @@
 export class SendConsents {
-  execute(sendConsentsParams) {
-    return Promise.resolve()
+  constructor({repository}) {
+    this._repository = repository
+  }
+
+  execute({purposeConsents, vendorConsents}) {
+    return this._repository.sendConsents({purposeConsents, vendorConsents})
   }
 }

@@ -1,7 +1,14 @@
+// REMEMBER TO REMOVE THE NEXT LINE
+import '../cmpMock'
+
 import {GetConsentStatus} from './getConsentStatus'
 import {GetPurposesAndVendors} from './getPurposesAndVendors'
 import {SendConsents} from './sendConsents'
 
-export const getConsentStatus = new GetConsentStatus()
-export const getPurposesAndVendors = new GetPurposesAndVendors()
-export const sendConsents = new SendConsents()
+import {CmpRepository} from '../repository/cmpRepository'
+
+const repository = new CmpRepository()
+
+export const getConsentStatus = new GetConsentStatus({repository})
+export const getPurposesAndVendors = new GetPurposesAndVendors({repository})
+export const sendConsents = new SendConsents({repository})

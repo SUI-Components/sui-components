@@ -1,6 +1,8 @@
-import mock from './mock.json'
-
 export class GetPurposesAndVendors {
+  constructor({repository}) {
+    this._repository = repository
+  }
+
   _generateConsent({list}) {
     return list.reduce((acc, {id}) => {
       acc[id.toString()] = true
@@ -15,12 +17,17 @@ export class GetPurposesAndVendors {
     }
   }
 
-  async execute() {
+  async execute({retrieveConsentsFromCmp} = {}) {
+    const purposesAndVendors = await this._repository.getPurposesAndVendors()
     // we should retrieve from cmp instead
-    const purposesAndVendors = mock
+    const consents =
+      retrieveConsentsFromCmp === true
+        ? await this._repository.getVendorConsents()
+        : this._generateDefaultConsentsObject(purposesAndVendors)
+
     return {
       ...purposesAndVendors,
-      ...this._generateDefaultConsentsObject(purposesAndVendors)
+      ...consents
     }
   }
 }

@@ -7,6 +7,14 @@ export class CmpRepository {
     })
   }
 
+  getVendorConsents() {
+    return new Promise(resolve => {
+      window.__cmp('getVendorConsents', null, function(consents) {
+        resolve(consents)
+      })
+    })
+  }
+
   getPurposesAndVendors() {
     return new Promise(resolve => {
       window.__cmp('getVendorList', null, function(purposeAndVendors) {

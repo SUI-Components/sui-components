@@ -4,6 +4,6 @@ export class GetConsentStatus {
   }
 
   async execute() {
-    return this._repository.getConsent
+    return this._repository.getConsentStatus()
   }
 }

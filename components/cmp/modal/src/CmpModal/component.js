@@ -5,10 +5,11 @@ import Button from '@schibstedspain/sui-atom-button'
 
 import {Consents} from '../Consents'
 
-import {CLASS} from '../settings'
+import {CLASS, I18N} from '../settings'
 
 export const CmpModal = ({
   consentKey,
+  lang,
   logo,
   onAccept,
   onCancel,
@@ -19,12 +20,16 @@ export const CmpModal = ({
   purposeConsents,
   vendorConsents
 }) => {
+  const i18n = I18N[lang]
   console.log({
     purposes,
     vendors,
     purposeConsents,
     vendorConsents
   })
+
+  const enableAllLiteral = i18n['ENABLE_ALL']
+  const disableAllLiteral = i18n['DISABLE_ALL']
 
   return (
     <div className={CLASS}>
@@ -37,45 +42,36 @@ export const CmpModal = ({
           />
         </header>
         <section className={`${CLASS}-inner`}>
-          <h2 className={`${CLASS}-title`}>
-            Cookies propios o de terceros para publicidad segmentada
-          </h2>
-          <p>
-            Nos importa mucho tu privacidad por esta razón te queremos dar a
-            conocer las finalidades perseguidas por las cookies de publicidad
-            personalizada además de con quién estamos compartiendo tus datos.
-            Asimismo podrás definir las finalidades y los terceros con los que
-            aceptas o no compartir tus datos de navegación, tus datos de
-            localización y tus datos de carácter personal.<br />
-            <br />Ten en cuenta que estas cookies van ligadas a tu sesión en el
-            navegador por lo que si refrescas tus cookies, cambias de
-            dispositivos o te conectas desde otro navegador, tendrás que volver
-            a configurar tus preferencias.
-          </p>
+          <h2 className={`${CLASS}-title`}>{i18n['ADVERTISEMENT_TITLE']}</h2>
+          <p>{i18n['ADVERTISEMENT_BODY']}</p>
           <Consents
             consents={purposeConsents}
+            disableAllLiteral={disableAllLiteral}
+            enableAllLiteral={enableAllLiteral}
             key={`purposes-${consentKey}`}
             list={purposes}
             onToggleAll={onToggleAll}
             onToggleConsent={onToggleConsent}
-            title="Autorizo:"
+            title={i18n['AUTHORIZE']}
           />
           <Consents
             consents={vendorConsents}
+            disableAllLiteral={disableAllLiteral}
+            enableAllLiteral={enableAllLiteral}
             isVendor
             key={`vendors-${consentKey}`}
             list={vendors}
             onToggleAll={onToggleAll}
             onToggleConsent={onToggleConsent}
-            title="Para los siguientes anunciantes y partners:"
+            title={i18n['FOR_THE_NEXT_PARTNERS']}
           />
         </section>
         <footer className={`${CLASS}-footer`}>
           <Button onClick={onCancel} type="tertiary" size="small">
-            Cancelar
+            {i18n['CANCEL']}
           </Button>
           <Button onClick={onAccept} type="primary" size="large">
-            Guardar y salir
+            {i18n['SAVE_AND_EXIT']}
           </Button>
         </footer>
       </div>

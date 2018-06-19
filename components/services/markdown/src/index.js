@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 const STATUS_OK = 200
+const COMPLETED = 4
 
 class ServiceMarkdown extends Component {
   state = {html: ''}
@@ -13,11 +14,15 @@ class ServiceMarkdown extends Component {
         const markedLibrary = require('marked')
         const marked = markedLibrary.default || markedLibrary
         const req = new window.XMLHttpRequest()
-        req.open('GET', this.props.src, false)
-        req.send(null)
-        if (req.status === STATUS_OK) {
-          this.setState({html: marked(req.responseText)})
+        req.open('GET', this.props.src, true)
+        req.onload = () => {
+          if (req.readyState === COMPLETED) {
+            if (req.status === STATUS_OK) {
+              this.setState({html: marked(req.responseText)})
+            }
+          }
         }
+        req.send(null)
       },
       'marked'
     )

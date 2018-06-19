@@ -185,7 +185,7 @@ class TopbarUser extends Component {
     const toggleMenuClassName = cx('sui-TopbarUser-toggle', {
       'has-notifications': hasNotifications
     })
-    const { icon: NavCtaIcon, url: navCtaUrl, text: navCtaText, onClick: navCtaOnClick = () => ({}) } = navCTA
+    const { icon: NavCtaIcon, url: navCtaUrl, text: navCtaText, onClick: onCTAClick = () => {} } = navCTA
 
     return (
       <div
@@ -254,7 +254,7 @@ class TopbarUser extends Component {
             leftIcon={<navCTA.icon svgClass='sui-TopbarUser-ctaButtonIcon' />}
             size='small'
             type='accent'
-            onClick={navCtaOnClick}
+            onClick={onCTAClick}
           >
             {navCtaText}
           </AtomButton>

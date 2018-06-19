@@ -8,9 +8,10 @@ class CmpBanner extends Component {
   render() {
     return (
       <CmpServices>
-        {({getConsentStatus, sendConsents}) => (
+        {({getConsentStatus, getPurposesAndVendors, sendConsents}) => (
           <CmpBannerContainer
             {...this.props}
+            getPurposesAndVendors={getPurposesAndVendors}
             getConsentStatus={getConsentStatus}
             sendConsents={sendConsents}
           />

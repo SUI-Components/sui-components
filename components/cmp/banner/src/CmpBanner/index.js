@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
 import {CmpBanner} from './component'
 import CmpModal from '../../../modal/src/index'
+import {sendConsents} from '../../../services/src/useCases'
 
 export class CmpBannerContainer extends Component {
   state = {
@@ -9,7 +11,14 @@ export class CmpBannerContainer extends Component {
     showNotification: false
   }
 
-  _handleAccept = () => {
+  _handleAccept = async () => {
+    console.log('accept')
+    const {getPurposesAndVendors} = this.props
+    const {
+      purposeConsents,
+      vendorConsents
+    } = await getPurposesAndVendors.execute()
+    await sendConsents.execute({purposeConsents, vendorConsents})
     // todo, we have to call cmp and tell him user accepted everything
     this.setState({showModal: false, showNotification: false})
   }
@@ -58,4 +67,8 @@ export class CmpBannerContainer extends Component {
       </React.Fragment>
     )
   }
+}
+
+CmpBannerContainer.propTypes = {
+  getPurposesAndVendors: PropTypes.object.isRequired
 }

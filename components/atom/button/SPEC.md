@@ -1,3 +1,4 @@
+
 # SUI - Buttons
 
 _The buttons act as a guide for the user, focusing their attention to show them what they need to do at each moment. They contain information on what will happen when the user presses them. There is a button for each context. Here we explain how to use them correctly._
@@ -6,10 +7,10 @@ _The buttons act as a guide for the user, focusing their attention to show them 
 
 | Status of definition      | Complete                                          |
 | ------------------------- | ------------------------------------------------- |
-| Definition version number | 1.2                                               |
+| Definition version number | 2.0                                               |
 | Category                  | Atom                                              |
-| Changelog last update     | 07/10/2017 (see details at the Changelog section) |
-| Owners                    | UX @Julia C , UI @Chris J , FE @David A           |
+| Changelog last update     | 19/10/2018 (see details at the Changelog section) |
+| Owners                    | UX @Nilo M , UI @Nilo M , FE @David A           |
 
 # Structure
 
@@ -21,68 +22,108 @@ They may have:
 
 # Types
 
-The buttons have been built based on 3 styles. Through them, you can build more casuistic as the "accent button" in this guide we represent it as a primary button, or through the secondary button that can be built with fill background or ghost (transparent bg).
+The button types are defined in a hierarchy of groups represented in the order below:
+ATOM > BUTTONS > **SIZE > STYLE > COLOR > VARIATIONS > STATES**
+ (ex.: Atoms / Buttons / **M / Solid / Primary / Icon_Right**
 
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_5D52398E693A404AE1BAE29B23F4380B46436C5982DB618BD10C9760A2D5FC29_1509957597560_0.1-all-buttons-medium.png)
+We can see the main collection of variations on the next image:
 
-## Primary
 
-This marks the main, most relevant action to perform on each page. There is only one per page, unless you repeat a primary action on this page. You cannot use two primary actions on the same level; you have to prioritise.
-If the action is for this purpose, you can choose a style different to the Primary if it is an action that requires an Accent colour.
 
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_5D52398E693A404AE1BAE29B23F4380B46436C5982DB618BD10C9760A2D5FC29_1509957621490_1-btn-primary.png)
 
-## Secondary
+## Size
+
+We can choose between large, medium and small.
+
+ 
+
+| SIZES | USES  |
+|--|--|
+|  **Large** (Height= 48px) | The use of a larger button may be considered on landing pages where there are capture and marketing objectives. |
+| **Medium** (Height= 40px) | This is the size that is used by default for all the actions, whether primary, secondary or tertiary. Its type will be decided based on the importance or hierarchy of the action (primary, secondary, etc.). |
+| **Small** (Height= 32px) | This button should be used less often, as the default button size you should use is Regular. This button size does not comply with the accessibility recommendation, and it is therefore only used in exceptional situations in which a regular button size would have a negative impact on the user experience. |
+
+
+ 
+ 
+## Style
+Style button define a certain properties of the button based on 4 visual statements:
+
+ - **Solid**, the background is 100% solid color (except white color)  
+ - **Outline**, the main property is the combination of white background with a colored outline.
+ - **Text**, same space as the rest of buttons, but no background nor outline visible.
+ - **Ghost**, as its name suggests, it has outline but without background color.
+
+
+
+ ### Solid
+This marks the main, most relevant action to perform on each page, mostly because of its significant visual weight.
+
+
+
+### Outline
 
 This is an additional option to the primary action, or an optional exit for the user. You can use it by itself or with a primary or tertiary action. You can use it with other secondary options.
 
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_5D52398E693A404AE1BAE29B23F4380B46436C5982DB618BD10C9760A2D5FC29_1509957631336_2-btn-secondary.png)
 
-## Tertiary
+
+### Text
 
 This option is similar to a link, but it behaves like a button. It is hierarchically superior to a link, and is differentiated from these by having capital letters. You should always use it with a primary or secondary action.
 And remember, this option should be the last one you use in terms of buttons.
 
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_5D52398E693A404AE1BAE29B23F4380B46436C5982DB618BD10C9760A2D5FC29_1509957641956_3.1-btn-terciary.png)
+### Ghost
+The ghost buttons is usually used above solid or gradient colors, or even images just to see the effect of transparency, is visually more attractive than other common buttons for that reason is recommended for landings, marketing layouts, stylish elements or to highlight specific features, elements or actions  
 
-## Accent color
+
+
+ ## Color
+Not every style (Solid, Outline, Text, Ghost) have all the color applications, this simplify the correct used when we have to differentiate levels of importance between buttons, for example, we don't define an *outlined accent button* because we do already have a most significant one like a *solid primary button*.
+
+
+ - **Primary** (mandatory). The main color in the brand manual.
+ - **Secondary** (optional). The second color in the brand manual (if defined).
+ - **Accent** (recommended). The accent color in the brand manual (if defined).
+ - **Neutral** (recommended). Is based on the gray scale color definition
+ - **Success, Warning, Error** (Optional) For a very specific use cases, ex: Delete account, etc. 
+
+
+ #### Primary color
+This marks the main, most relevant action to perform on each page. There is only one per page, unless you repeat a primary action on this page. You cannot use two primary actions on the same level; you have to prioritize.
+If the action is for this purpose, you can choose a style different to the Primary if it is an action that requires an Accent color.
+
+ #### Secondary color
+If your Brand manual has secondary color you can use similar to the Primary color but bear in mind that this color is less important, use it in certain occasions just to complement maybe an excess of Primary color.
+
+#### Accent color
 
 In some cases, you will need to use a button with an accent colour that has a specific meaning, for example: purchase button, primary action of the page, etc.
 
 The colour of this button will be defined in each brand’s Style Guide. You must never use more than 1 accent colour at the same time.
 
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_5D52398E693A404AE1BAE29B23F4380B46436C5982DB618BD10C9760A2D5FC29_1509957651867_4.1-btn-accent.png)
+#### Neutral color
+This gray buttons could be used in any vertical with no brand definition or for system messages like cookies, server messages, etc, in addition it could be use in your site with no problem if you want to make your design more neutral, less colorful, simpler and more minimalist.
 
-# Sizes
+#### Success, warning, error color
+Sometimes we need to be more obvious or aggressive in ours messages/actions in that cases standard buttons could be not enough, with this color variations we can create the typical *Delete account* button in red or any other exceptional use case scenario. 
 
-On InfoJobs we have three sizes of button to show the hierarchy of each action. Although the size is not important, you do have to know how to use the buttons correctly.
-
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_5D52398E693A404AE1BAE29B23F4380B46436C5982DB618BD10C9760A2D5FC29_1509957693879_5.1-btn-sizes.png)
-
-## Small
-
-This button should be used less often, as the default button size you should use is Regular.
-This button size does not comply with the accessibility recommendation, and it is therefore only used in exceptional situations in which a regular button size would have a negative impact on the user experience.
-
-## Medium (default)
-
-This is the size that is used by default for all the actions, whether primary, secondary or tertiary. Its type will be decided based on the importance or hierarchy of the action (primary, secondary, etc.).
-
-## Large
-
-The use of a larger button may be considered on landing pages where there are capture and marketing objectives.
+#### Negative color
+In the case that we need to use certain types of buttons above a solid color most of the standard buttons won't be properly readable, in this case we can build the same button type but in a negative color to give contrast, most of the buttons has no sense making the negative version, try to use another defined button.
 
 # Behaviour
 
 The width of the button is normally dependent on the text it contains as well as the defined interior margins.
 
-There are three statuses for the buttons: resting, hover/active and deactivated.
+There are three statuses for the buttons: resting, hover/pressed and disabled.
 
 Occasionally, you may use a full-width button whose width will be 100% of the container in which it is placed. For example, 3 of the 12 columns of our grid.
 
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_5D52398E693A404AE1BAE29B23F4380B46436C5982DB618BD10C9760A2D5FC29_1507017551547_5.3-btn-behavior.png)
 
 # Content
+
+## Container
+Container could be customized with rounded border from 0 to 100%, by default it will be 2px rounded.
 
 ## Icons
 
@@ -91,6 +132,10 @@ Icons on buttons highlight the meaning of the action and speed up recognition. Y
 The icons may be placed to the left or to the right of the copy, depending on each case.
 
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_5D52398E693A404AE1BAE29B23F4380B46436C5982DB618BD10C9760A2D5FC29_1509957704205_5.2-btn-sizes-icon.png)
+
+## Text
+Text style definition must be taken on each vertical from parent CSS font definition, except for the text size witch it will be overridden with 16px (medium/large sizes) and 14px (Small).
+
 
 ## Copy
 
@@ -184,3 +229,12 @@ Here we will detail the changes, improvements or additions that we include in th
 * Types: Added button icon right, button only with icon, button only with one letter.
 * Visual: Small Button change horizontal paddings to 8px.
 * Visual: Added visual of the disabled buttons state.
+
+## Version 2.0
+
+* Redefinition of the documentation based on applications problems and misunderstanding on some buttons.
+* Implementation and differentiation between *Ghost* and *Secondary* button (now Outline).
+* Better structure definition with hierarchy of groups (SIZE > STYLE > COLOR > VARIATIONS > STATES) and *Negative* variations defined in a better way.
+* Visual:  Implementation of scalable sketch symbol full width button, with icon left and right and centered and text length customization.
+* Visual: Added visual images of the new structure. 
+* Some minor definitions addition.

@@ -10,7 +10,6 @@ export const ConsentName = ({name, url}) => (
         className={`${CLASS}-consentLink`}
         href={url}
         target="_blank"
-        title="Leer condiciones de privacidad"
         rel="noopener"
       >
         {name}

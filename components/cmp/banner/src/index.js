@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
 import CmpServices from '../../services/src/index'
 
@@ -11,8 +12,8 @@ class CmpBanner extends Component {
         {({getConsentStatus, getPurposesAndVendors, sendConsents}) => (
           <CmpBannerContainer
             {...this.props}
-            getPurposesAndVendors={getPurposesAndVendors}
             getConsentStatus={getConsentStatus}
+            getPurposesAndVendors={getPurposesAndVendors}
             sendConsents={sendConsents}
           />
         )}
@@ -23,6 +24,8 @@ class CmpBanner extends Component {
 
 CmpBanner.displayName = 'CmpBanner'
 
-CmpBanner.propTypes = {}
+CmpBanner.propTypes = {
+  logo: PropTypes.string
+}
 
 export default CmpBanner

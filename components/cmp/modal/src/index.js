@@ -21,6 +21,7 @@ class CmpModal extends Component {
 }
 
 CmpModal.defaultProps = {
+  onExit: () => {},
   retrieveConsentsFromCmp: false,
   lang: 'es'
 }
@@ -28,6 +29,7 @@ CmpModal.defaultProps = {
 CmpModal.propTypes = {
   lang: PropTypes.string,
   logo: PropTypes.string.isRequired,
+  onExit: PropTypes.func,
   retrieveConsentsFromCmp: PropTypes.bool
 }
 

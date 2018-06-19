@@ -5,7 +5,6 @@ import {CmpModal} from './component'
 export class CmpModalContainer extends Component {
   state = {
     consentKey: 0,
-    fetchingData: true,
     purposeConsents: {},
     purposes: [],
     vendorConsents: {},
@@ -17,8 +16,7 @@ export class CmpModalContainer extends Component {
     const purposesAndVendors = await getPurposesAndVendors.execute({
       retrieveConsentsFromCmp
     })
-    console.log(purposesAndVendors)
-    this.setState({...purposesAndVendors, fetchingData: false})
+    this.setState({...purposesAndVendors})
   }
 
   _getKeyOfConsentToUpdate({isVendor}) {
@@ -50,23 +48,21 @@ export class CmpModalContainer extends Component {
   }
 
   _handleAccept = async () => {
-    const {sendConsents} = this.props
-    const {featuresConsents, vendorsConsents} = this.state
-    sendConsents.execute({featuresConsents, vendorsConsents})
+    const {sendConsents, onExit} = this.props
+    const {purposeConsents, vendorConsents} = this.state
+    await sendConsents.execute({purposeConsents, vendorConsents})
+    onExit()
   }
 
   render() {
     const {lang, logo} = this.props
     const {
       consentKey,
-      fetchingData,
       purposes,
       purposeConsents,
       vendors,
       vendorConsents
     } = this.state
-
-    if (fetchingData) return null
 
     return (
       <CmpModal
@@ -86,6 +82,9 @@ export class CmpModalContainer extends Component {
 }
 
 CmpModalContainer.propTypes = {
-  lang: PropTypes.string,
-  logo: PropTypes.string
+  getPurposesAndVendors: PropTypes.object,
+  lang: PropTypes.string.isRequired,
+  logo: PropTypes.string,
+  onExit: PropTypes.func.isRequired,
+  retrieveConsentsFromCmp: PropTypes.bool
 }

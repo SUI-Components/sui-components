@@ -4,7 +4,7 @@ const DEFAULT_I18N = {
   ADVERTISEMENT_TITLE:
     'Cookies propios o de terceros para publicidad segmentada',
   ADVERTISEMENT_BODY:
-    'Nos importa mucho tu privacidad por esta razón te queremos dar a conocer las finalidades perseguidas por las cookies de publicidad personalizada además de con quién estamos compartiendo tus datos. Asimismo podrás definir las finalidades y los terceros con los que aceptas o no compartir tus datos de navegación, tus datos de localización y tus datos de carácter personal. Ten en cuenta que estas cookies van ligadas a tu sesión en el navegador por lo que si refrescas tus cookies, cambias de dispositivos o te conectas desde otro navegador, tendrás que volver a configurar tus preferencias.',
+    'Nos importa mucho tu privacidad, por esta razón te queremos dar a conocer las finalidades perseguidas por las cookies de publicidad personalizada además de con quién estamos compartiendo tus datos. Asimismo podrás definir las finalidades y los terceros con los que aceptas o no compartir tus datos de navegación, tus datos de localización y tus datos de carácter personal. Ten en cuenta que estas cookies van ligadas a tu sesión en el navegador por lo que si refrescas tus cookies, cambias de dispositivos o te conectas desde otro navegador, tendrás que volver a configurar tus preferencias.',
   AUTHORIZE: 'Autorizo',
   FOR_THE_NEXT_PARTNERS: 'Para los siguientes anunciantes y partners',
   CANCEL: 'Cancelar',

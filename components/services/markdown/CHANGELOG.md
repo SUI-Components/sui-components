@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2018-06-19)
+
+
+### Features
+
+* use async ajax request ([658d19c](https://github.com/SUI-Components/sui-components/commit/658d19c))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-06-14)
 

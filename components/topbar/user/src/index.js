@@ -21,7 +21,7 @@ const BODY_HAS_SCROLL_DISABLED = 'body-has-scroll-disabled'
  * Topbar containing a dropdown with user data (login, logout, secured links...).
  */
 class TopbarUser extends Component {
-  constructor(...args) {
+  constructor (...args) {
     super(...args)
 
     this._topbarUserNode = null
@@ -35,16 +35,16 @@ class TopbarUser extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this._setToggleDisplayState()
     window.addEventListener('resize', this._setToggleDisplayState)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     window.removeEventListener('resize', this._setToggleDisplayState)
   }
 
-  componentWillUpdate(nextProps, {menuExpanded, isToggleHidden}) {
+  componentWillUpdate (nextProps, {menuExpanded, isToggleHidden}) {
     if (menuExpanded && !isToggleHidden) {
       this._lockBodyScroll()
     } else {
@@ -163,7 +163,7 @@ class TopbarUser extends Component {
     }
   }
 
-  render() {
+  render () {
     const {menuExpanded, isToggleHidden, navWrapStyle} = this.state
     const {
       toggleIcon: ToggleIcon,
@@ -185,16 +185,16 @@ class TopbarUser extends Component {
     const toggleMenuClassName = cx('sui-TopbarUser-toggle', {
       'has-notifications': hasNotifications
     })
-    const {icon: NavCtaIcon, url: navCtaUrl, text: navCtaText} = navCTA
+    const { icon: NavCtaIcon, url: navCtaUrl, text: navCtaText, onClick: onCTAClick = () => {} } = navCTA
 
     return (
       <div
         ref={node => {
           this._topbarUserNode = node
         }}
-        className="sui-TopbarUser"
+        className='sui-TopbarUser'
       >
-        <div className="sui-TopbarUser-wrap">
+        <div className='sui-TopbarUser-wrap'>
           <button
             ref={node => {
               this._topbarUserToggleNode = node
@@ -202,11 +202,11 @@ class TopbarUser extends Component {
             className={toggleMenuClassName}
             onClick={this._toggleMenu}
           >
-            <ToggleIcon svgClass="sui-TopbarUser-toggleIcon" />
+            <ToggleIcon svgClass='sui-TopbarUser-toggleIcon' />
           </button>
           <Link
             href={brandUrl}
-            className="sui-TopbarUser-brand"
+            className='sui-TopbarUser-brand'
             title={brandName}
           >
             {brandName}
@@ -216,24 +216,24 @@ class TopbarUser extends Component {
             style={isToggleHidden ? DEFAULT_NAV_WRAP_STYLE : navWrapStyle}
             onClick={this._handleNavWrapClick}
           >
-            <div className="sui-TopbarUser-nav">
-              <div className="sui-TopbarUser-navMain">
+            <div className='sui-TopbarUser-nav'>
+              <div className='sui-TopbarUser-navMain'>
                 {navMain.map(this._renderNavMain(isToggleHidden))}
-                <div className="sui-TopbarUser-ctaText">
+                <div className='sui-TopbarUser-ctaText'>
                   <Link
                     href={navCtaUrl}
-                    className="sui-TopbarUser-ctaTextLink"
+                    className='sui-TopbarUser-ctaTextLink'
                     title={navCtaText}
                   >
                     {NavCtaIcon && (
-                      <NavCtaIcon svgClass="sui-TopbarUser-ctaTextIcon" />
+                      <NavCtaIcon svgClass='sui-TopbarUser-ctaTextIcon' />
                     )}
                     <span>{navCtaText}</span>
                   </Link>
                 </div>
               </div>
               {shouldDisplayNavUser && (
-                <div className="sui-TopbarUser-navUser">
+                <div className='sui-TopbarUser-navUser'>
                   <DropdownUser
                     user={{avatar, name}}
                     menu={menu}
@@ -246,14 +246,15 @@ class TopbarUser extends Component {
             </div>
           </div>
         </div>
-        <div className="sui-TopbarUser-ctaButton">
+        <div className='sui-TopbarUser-ctaButton'>
           <AtomButton
             link
             href={navCtaUrl}
             title={navCtaText}
-            leftIcon={<navCTA.icon svgClass="sui-TopbarUser-ctaButtonIcon" />}
-            size="small"
-            type="accent"
+            leftIcon={<navCTA.icon svgClass='sui-TopbarUser-ctaButtonIcon' />}
+            size='small'
+            type='accent'
+            onClick={onCTAClick}
           >
             {navCtaText}
           </AtomButton>
@@ -379,7 +380,11 @@ TopbarUser.propTypes = {
     /**
      * Call to action text.
      */
-    text: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired,
+    /**
+     * Call to action click handler.
+     */
+    onClick: PropTypes.func
   }),
   /**
    * Factory for the component that will hold any link.

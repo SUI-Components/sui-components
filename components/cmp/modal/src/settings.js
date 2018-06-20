@@ -1,5 +1,10 @@
 export const CLASS = 'sui-CmpModal'
 
+export const STEPS = {
+  GENERAL: 0,
+  ADVERTISEMENT: 1
+}
+
 const DEFAULT_I18N = {
   ADVERTISEMENT_TITLE:
     'Cookies propios o de terceros para publicidad segmentada',
@@ -7,8 +12,8 @@ const DEFAULT_I18N = {
     'Nos importa mucho tu privacidad, por esta razón te queremos dar a conocer las finalidades perseguidas por las cookies de publicidad personalizada además de con quién estamos compartiendo tus datos. Asimismo podrás definir las finalidades y los terceros con los que aceptas o no compartir tus datos de navegación, tus datos de localización y tus datos de carácter personal. Ten en cuenta que estas cookies van ligadas a tu sesión en el navegador por lo que si refrescas tus cookies, cambias de dispositivos o te conectas desde otro navegador, tendrás que volver a configurar tus preferencias.',
   AUTHORIZE: 'Autorizo',
   FOR_THE_NEXT_PARTNERS: 'Para los siguientes anunciantes y partners',
-  CANCEL: 'Cancelar',
-  SAVE_AND_EXIT: 'Guardar y salir',
+  BACK: 'Volver atrás',
+  ACCEPT: 'Aceptar',
   ENABLE_ALL: 'Habilitar todo',
   DISABLE_ALL: 'Deshabilitar todo',
   TITLE: 'Tu privacidad es importante para nosotros',

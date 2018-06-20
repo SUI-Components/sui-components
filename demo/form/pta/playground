@@ -18,12 +18,13 @@ class MyFormPta extends React.Component {
   }
 
   render () {
+    const { handleRemoveDraft, setPtaRef } = this
     return (
       <div>
-        <button onClick={this.handleRemoveDraft.bind(this)}>Remove draft</button>
+        <button onClick={handleRemoveDraft}>Remove draft</button>
 
         <FormPta
-          ref={this.setPtaRef}
+          ref={setPtaRef}
           formUrl={formUrl}
           enableDraft
           draftId="suicomponentsTestDraftId"

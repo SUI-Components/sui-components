@@ -89,9 +89,10 @@ $bgc-sui-cmp-modal: rgba(33, 41, 52,.85) !default;
   &-footer {
     align-items: center;
     border-top: 1px solid $c-gray-lightest;
+    box-shadow: 0 0 4px 1px $c-gray-lightest;
     display: flex;
-    justify-content: space-between;
-    padding: $p-m $p-l $p-l $p-l;
+    justify-content: flex-end;
+    padding: $p-xl $p-l;
     width: 100%;
   }
 

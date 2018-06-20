@@ -2,21 +2,27 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 import {CmpModal} from './component'
+
+import {STEPS} from '../settings'
+
 export class CmpModalContainer extends Component {
   state = {
     consentKey: 0,
+    fetchingPurposes: false,
     purposeConsents: {},
     purposes: [],
+    step: STEPS.GENERAL,
     vendorConsents: {},
     vendors: []
   }
 
   async componentDidMount() {
+    this.setState({fetchingPurposes: true})
     const {getPurposesAndVendors, retrieveConsentsFromCmp} = this.props
     const purposesAndVendors = await getPurposesAndVendors.execute({
       retrieveConsentsFromCmp
     })
-    this.setState({...purposesAndVendors})
+    this.setState({...purposesAndVendors, fetchingPurposes: false})
   }
 
   _getKeyOfConsentToUpdate({isVendor}) {
@@ -54,12 +60,23 @@ export class CmpModalContainer extends Component {
     onExit()
   }
 
+  _handleBack = () => {
+    this.setState({step: STEPS.GENERAL})
+  }
+
+  _handleOpenAdsStep = e => {
+    e.preventDefault()
+    this.setState({step: STEPS.ADVERTISEMENT})
+  }
+
   render() {
-    const {lang, logo} = this.props
+    const {lang, logo, privacyUrl} = this.props
     const {
       consentKey,
+      fetchingPurposes,
       purposes,
       purposeConsents,
+      step,
       vendors,
       vendorConsents
     } = this.state
@@ -67,13 +84,18 @@ export class CmpModalContainer extends Component {
     return (
       <CmpModal
         consentKey={consentKey}
+        fetchingPurposes={fetchingPurposes}
         lang={lang}
         logo={logo}
         onAccept={this._handleAccept}
+        onBack={this._handleBack}
+        onOpenAdsStep={this._handleOpenAdsStep}
         onToggleAll={this._handleToggleAll}
         onToggleConsent={this._handleToggleConsent}
         purposeConsents={purposeConsents}
         purposes={purposes}
+        privacyUrl={privacyUrl}
+        step={step}
         vendorConsents={vendorConsents}
         vendors={vendors}
       />
@@ -83,8 +105,10 @@ export class CmpModalContainer extends Component {
 
 CmpModalContainer.propTypes = {
   getPurposesAndVendors: PropTypes.object,
-  lang: PropTypes.string.isRequired,
+  lang: PropTypes.string,
   logo: PropTypes.string,
-  onExit: PropTypes.func.isRequired,
-  retrieveConsentsFromCmp: PropTypes.bool
+  onExit: PropTypes.func,
+  privacyUrl: PropTypes.string,
+  retrieveConsentsFromCmp: PropTypes.bool,
+  sendConsents: PropTypes.object
 }

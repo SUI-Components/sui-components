@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.27.0"></a>
+# 1.27.0 (2018-06-19)
+
+
+### Features
+
+* add onclick feature in atom button ([c6c0228](https://github.com/SUI-Components/sui-components/commit/c6c0228))
+* change prop name and resume default value in atom button ([89f4dec](https://github.com/SUI-Components/sui-components/commit/89f4dec))
+
+
+
 <a name="1.26.0"></a>
 # 1.26.0 (2018-06-12)
 
@@ -226,6 +237,16 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * set a max width ([abde18e](https://github.com/SUI-Components/sui-components/commit/abde18e))
+
+
+
+<a name="1.4.0"></a>
+# 1.4.0 (2017-01-26)
+
+
+### Bug Fixes
+
+* adjusting colors and breakpoints ([eab1ff9](https://github.com/SUI-Components/sui-components/commit/eab1ff9))
 
 
 

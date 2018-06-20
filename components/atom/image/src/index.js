@@ -1,15 +1,19 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import { htmlImgProps } from './types'
-import { ImageNotFoundIcon } from './defaults'
+import {htmlImgProps} from './types'
 
-const defaultErrorText = 'Image not found'
 const BASE_CLASS = 'sui-AtomImage'
+const BASE_CLASS_FIGURE = `${BASE_CLASS}-figure`
+const CLASS_PLACEHOLDER = `${BASE_CLASS_FIGURE}--placeholder`
+const CLASS_SKELETON = `${BASE_CLASS_FIGURE}--skeleton`
+const CLASS_IMAGE = `${BASE_CLASS}-image`
+const CLASS_SPINNER = `${BASE_CLASS}-spinner`
+const CLASS_ERROR = `${BASE_CLASS}-error`
 
 const Error = (
-  { className, icon: Icon, text } // eslint-disable-line react/prop-types
+  {className, icon: Icon, text} // eslint-disable-line react/prop-types
 ) => (
   <div className={className}>
     {Icon && <Icon />}
@@ -23,35 +27,32 @@ class AtomImage extends Component {
     error: false
   }
 
-  get classNames () {
-    const { loading, error } = this.state
-    const { className } = this.props
+  get classNames() {
+    const {loading, error} = this.state
     return cx(
       BASE_CLASS,
-      className,
       `is-${loading ? 'loading' : 'loaded'}`,
       error && `is-error`
     )
   }
 
-  get classNamesFigure () {
-    const { placeholder, skeleton } = this.props
-    const BASE_CLASS_FIGURE = `${BASE_CLASS}-figure`
+  get classNamesFigure() {
+    const {placeholder, skeleton} = this.props
     return cx(
-      `${BASE_CLASS_FIGURE}`,
-      placeholder && `${BASE_CLASS_FIGURE}--placeholder`,
-      skeleton && `${BASE_CLASS_FIGURE}--skeleton`
+      BASE_CLASS_FIGURE,
+      placeholder && CLASS_PLACEHOLDER,
+      skeleton && CLASS_SKELETON
     )
   }
 
   handleLoad = () => {
-    const { onLoad } = this.props
-    this.setState({ loading: false })
+    const {onLoad} = this.props
+    this.setState({loading: false})
     onLoad && onLoad()
   }
 
   handleError = () => {
-    const { onError } = this.props
+    const {onError} = this.props
     this.setState({
       error: true,
       loading: false
@@ -59,7 +60,7 @@ class AtomImage extends Component {
     onError && onError()
   }
 
-  render () {
+  render() {
     const {
       placeholder,
       skeleton,
@@ -72,7 +73,7 @@ class AtomImage extends Component {
       ...imgProps
     } = this.props
 
-    const { loading, error } = this.state
+    const {loading, error} = this.state
 
     const figureStyles = {
       backgroundImage: `url(${placeholder || skeleton})`
@@ -85,21 +86,15 @@ class AtomImage extends Component {
           style={!error && (placeholder || skeleton) ? figureStyles : {}}
         >
           <img
-            className={`${BASE_CLASS}-image`}
+            className={CLASS_IMAGE}
             onLoad={this.handleLoad}
             onError={this.handleError}
             {...imgProps}
           />
         </figure>
-        {!error &&
-          loading &&
-          Spinner && <Spinner className={`${BASE_CLASS}-spinner`} />}
+        {!error && loading && Spinner && <Spinner className={CLASS_SPINNER} />}
         {error && (
-          <Error
-            className={`${BASE_CLASS}-error`}
-            icon={errorIcon}
-            text={errorText}
-          />
+          <Error className={CLASS_ERROR} icon={errorIcon} text={errorText} />
         )}
       </div>
     )
@@ -137,11 +132,6 @@ AtomImage.propTypes = {
 
   /** <img> props */
   ...htmlImgProps
-}
-
-AtomImage.defaultProps = {
-  errorIcon: ImageNotFoundIcon,
-  errorText: defaultErrorText
 }
 
 export default AtomImage

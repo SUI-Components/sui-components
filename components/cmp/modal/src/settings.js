@@ -14,11 +14,13 @@ const DEFAULT_I18N = {
   FOR_THE_NEXT_PARTNERS: 'Para los siguientes anunciantes y partners',
   BACK: 'Volver atrás',
   ACCEPT: 'Aceptar',
+  READ_MORE: 'Leer más',
   ENABLE_ALL: 'Habilitar todo',
   DISABLE_ALL: 'Deshabilitar todo',
-  TITLE: 'Tu privacidad es importante para nosotros',
   BODY:
-    'Puedes dar tu consentimiento de manera individual a cada partner. Ver la lista de todos los propósitos para los cuales utilizan tus datos para tener más información. En algunos casos, las empresas pueden revelar que usan tus datos sin pedir tu consentimiento, en función de intereses legítimos. Puedes hacer click en su política de privacidad para obtener más información al respecto o para rechazarlo.'
+    'Tanto nuestros partners como nosotros utilizamos cookies en nuestro sitio web para personalizar contenido y publicidad, proporcionar funcionalidades a las redes sociales o analizar nuestro tráfico. Haciendo click consientes el uso de esta tecnología en nuestra web. Puedes cambiar de opinión y personalizar tu consentimiento siempre que quieras volviendo a esta web.',
+  TITLE: 'Tu privacidad es importante para nosotros',
+  PERSONALIZE: 'Personalizar'
 }
 
 export const I18N = {

@@ -2,8 +2,37 @@ const formUrl = 'https://webformbuilderpre.scmspain.com/cochesnet.html'
 const redirectOnErrorUrl = 'http://pre.coches.net'
 const redirectOnSuccessUrl = 'http://pre.coches.net'
 
-return (<FormPta
-  formUrl={formUrl}
-  redirectOnErrorUrl={redirectOnErrorUrl}
-  redirectOnSuccessUrl={redirectOnSuccessUrl}
-/>)
+
+class MyFormPta extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.ptaRef = null
+    this.setPtaRef = element => this.ptaRef = element
+    this.handleRemoveDraft = this.handleRemoveDraft.bind(this)
+  }
+
+  handleRemoveDraft (event) {
+    event.preventDefault()
+    this.ptaRef.removeDraft()
+  }
+
+  render () {
+    return (
+      <div>
+        <button onClick={this.handleRemoveDraft.bind(this)}>Remove draft</button>
+
+        <FormPta
+          ref={this.setPtaRef}
+          formUrl={formUrl}
+          enableDraft
+          draftId="suicomponentsTestDraftId"
+          redirectOnErrorUrl={redirectOnErrorUrl}
+          redirectOnSuccessUrl={redirectOnSuccessUrl}
+        />
+      </div>
+    )
+  }
+}
+
+return (<MyFormPta />)

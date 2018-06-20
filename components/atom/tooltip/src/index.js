@@ -39,7 +39,7 @@ class AtomTooltip extends Component {
   handleClickOutsideElement = event => {
     const {isOpen} = this.state
     if (isOpen) {
-      const tooltipDom = document.querySelector(`.${BASE_CLASS}`)
+      const tooltipDom = document.getElementsByClassName(BASE_CLASS)[0]
       const isOutside = tooltipDom && !tooltipDom.contains(event.target)
       if (isOutside) this.toggle()
     }
@@ -52,8 +52,15 @@ class AtomTooltip extends Component {
   }
 
   render() {
-    const { hideArrow, target, delay, autohide, placement, children } = this.props
-    const restrictedProps = { hideArrow, target, delay, autohide, placement, children }
+    const {hideArrow, target, delay, autohide, placement, children} = this.props // eslint-disable-line react/prop-types
+    const restrictedProps = {
+      hideArrow,
+      target,
+      delay,
+      autohide,
+      placement,
+      children
+    }
     return (
       <Tooltip
         {...restrictedProps}

@@ -5,6 +5,12 @@ import cx from 'classnames'
 import {htmlImgProps} from './types'
 
 const BASE_CLASS = 'sui-AtomImage'
+const BASE_CLASS_FIGURE = `${BASE_CLASS}-figure`
+const CLASS_PLACEHOLDER = `${BASE_CLASS_FIGURE}--placeholder`
+const CLASS_SKELETON = `${BASE_CLASS_FIGURE}--skeleton`
+const CLASS_IMAGE = `${BASE_CLASS}-image`
+const CLASS_SPINNER = `${BASE_CLASS}-spinner`
+const CLASS_ERROR = `${BASE_CLASS}-error`
 
 const Error = (
   {className, icon: Icon, text} // eslint-disable-line react/prop-types
@@ -23,10 +29,8 @@ class AtomImage extends Component {
 
   get classNames() {
     const {loading, error} = this.state
-    const {className} = this.props
     return cx(
       BASE_CLASS,
-      className,
       `is-${loading ? 'loading' : 'loaded'}`,
       error && `is-error`
     )
@@ -34,11 +38,10 @@ class AtomImage extends Component {
 
   get classNamesFigure() {
     const {placeholder, skeleton} = this.props
-    const BASE_CLASS_FIGURE = `${BASE_CLASS}-figure`
     return cx(
-      `${BASE_CLASS_FIGURE}`,
-      placeholder && `${BASE_CLASS_FIGURE}--placeholder`,
-      skeleton && `${BASE_CLASS_FIGURE}--skeleton`
+      BASE_CLASS_FIGURE,
+      placeholder && CLASS_PLACEHOLDER,
+      skeleton && CLASS_SKELETON
     )
   }
 
@@ -83,21 +86,15 @@ class AtomImage extends Component {
           style={!error && (placeholder || skeleton) ? figureStyles : {}}
         >
           <img
-            className={`${BASE_CLASS}-image`}
+            className={CLASS_IMAGE}
             onLoad={this.handleLoad}
             onError={this.handleError}
             {...imgProps}
           />
         </figure>
-        {!error &&
-          loading &&
-          Spinner && <Spinner className={`${BASE_CLASS}-spinner`} />}
+        {!error && loading && Spinner && <Spinner className={CLASS_SPINNER} />}
         {error && (
-          <Error
-            className={`${BASE_CLASS}-error`}
-            icon={errorIcon}
-            text={errorText}
-          />
+          <Error className={CLASS_ERROR} icon={errorIcon} text={errorText} />
         )}
       </div>
     )

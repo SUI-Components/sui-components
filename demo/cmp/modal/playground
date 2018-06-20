@@ -49,6 +49,7 @@ class ModalPlayground extends React.Component {
             onExit={() => {this.setState({ showModal: false })}}
             retrieveConsentsFromCmp={retrieveConsentsFromCmp}
             logo="https://www.schibsted.es/wp-content/themes/Schibsted-spn/img/logo.png"
+            privacyUrl='#privacy-url-to-configure'
           />
         )}
       </React.Fragment>

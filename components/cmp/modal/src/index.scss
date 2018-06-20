@@ -24,6 +24,31 @@ $bgc-sui-cmp-modal: rgba(33, 41, 52,.85) !default;
     padding: $p-l;
   }
 
+  &-box {
+    border: 1px solid $c-gray-lightest;
+    font-weight: $fw-regular;
+    margin-bottom: $m-m;
+    padding: $p-l;
+
+    &Description {
+      color: $c-gray;
+      margin: $m-s 0;
+    }
+
+    &Link {
+      color: $c-primary;
+      font-size: $fz-m;
+      text-decoration: none;
+    }
+
+    &Title {
+      color: $c-black;
+      font-weight: $fw-regular;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
   &-content {
     background: $c-white;
     border-radius: 2px;
@@ -109,8 +134,8 @@ $bgc-sui-cmp-modal: rgba(33, 41, 52,.85) !default;
   }
 
   &-title {
-    color: $c-gray-dark;
-    font-size: $fz-l;
+    color: $c-black;
+    font-size: $fz-xxl;
     font-weight: $fw-semi-bold;
     margin: 0;
     text-align: left;

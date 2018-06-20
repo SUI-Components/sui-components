@@ -23,12 +23,12 @@ They may have:
 # Types
 
 The button types are defined in a hierarchy of groups represented in the order below:
-ATOM > BUTTONS > **SIZE > STYLE > COLOR > VARIATIONS > STATES**
- (ex.: Atoms / Buttons / **M / Solid / Primary / Icon_Right**
 
-We can see the main collection of variations on the next image:
+ATOM > BUTTONS > **SIZE > STYLE > COLOR > VARIATIONS > STATES*</br>
+(ex.: Atoms / Buttons / **M / Solid / Primary / Icon_Right**
 
-
+We can see the structure and some examaples in medium size below:
+![](https://cdn.zeplin.io/57c02a80c1caf50b0d2e851e/screens/B73A39FE-EAC6-4F74-BF00-356868E3A28F.png)
 
 
 ## Size
@@ -206,11 +206,11 @@ Following this recommendation will allow visually impaired users to consume the 
 
 ## SUI
 
-https://zpl.io/bee5AYb
+https://zpl.io/bAqEPrn (version 2.0)
 
 ## InfoJobs
 
-https://zpl.io/bJO5e0x
+https://zpl.io/bJO5e0x (version 1.2)
 
 ## Fotocasa:
 

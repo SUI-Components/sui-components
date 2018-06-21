@@ -28,6 +28,12 @@ class ServiceMarkdown extends Component {
     )
   }
 
+  componentDidUpdate() {
+    const id = document.location.hash.substring(1)
+    const element = document.getElementById(id)
+    element && element.scrollIntoView({block: 'start', behavior: 'smooth'})
+  }
+
   render() {
     const {html} = this.state
     return <div dangerouslySetInnerHTML={{__html: html}} />

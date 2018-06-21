@@ -36,6 +36,10 @@ class ServiceMarkdown extends Component {
     }
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextState.html !== this.state.html
+  }
+
   render() {
     const {html} = this.state
     return <div dangerouslySetInnerHTML={{__html: html}} />

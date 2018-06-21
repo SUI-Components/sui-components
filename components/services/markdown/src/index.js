@@ -5,7 +5,7 @@ const STATUS_OK = 200
 const COMPLETED = 4
 
 class ServiceMarkdown extends Component {
-  state = {html: ''}
+  state = {html: '', loaded: false}
 
   async componentDidMount() {
     require.ensure(
@@ -18,7 +18,7 @@ class ServiceMarkdown extends Component {
         req.onload = () => {
           if (req.readyState === COMPLETED) {
             if (req.status === STATUS_OK) {
-              this.setState({html: marked(req.responseText)})
+              this.setState({html: marked(req.responseText), loaded: true})
             }
           }
         }
@@ -37,7 +37,7 @@ class ServiceMarkdown extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return nextState.html !== this.state.html
+    return nextState.loaded !== this.state.loaded
   }
 
   render() {

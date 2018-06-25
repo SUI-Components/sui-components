@@ -27,12 +27,9 @@ $p-atom-tag: 0 $p-l !default;
   font-size: $fz-s;
   height: $h-atom-tag;
   line-height: $h-atom-tag;
+  margin: 0 $m-m $m-m 0;
   padding: $p-atom-tag;
   white-space: nowrap;
-
-  & + & {
-    margin-left: $m-m;
-  }
 
   &-label {
     // max width - 2 icon size

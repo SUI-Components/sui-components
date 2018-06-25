@@ -5,6 +5,14 @@ import {CmpModalContainer} from './CmpModal'
 import CmpServices from '../../services/src/index'
 
 class CmpModal extends Component {
+  state = {cmpReady: this.props.cmpReady}
+
+  componentDidMount() {
+    document.addEventListener('cmpReady', function() {
+      this.setState({cmpReady: true})
+    })
+  }
+
   render() {
     return (
       <CmpServices>
@@ -21,12 +29,14 @@ class CmpModal extends Component {
 }
 
 CmpModal.defaultProps = {
+  cmpReady: false,
   lang: 'es',
   onExit: () => {},
   retrieveConsentsFromCmp: false
 }
 
 CmpModal.propTypes = {
+  cmpReady: PropTypes.bool,
   lang: PropTypes.string,
   logo: PropTypes.string.isRequired,
   onExit: PropTypes.func,

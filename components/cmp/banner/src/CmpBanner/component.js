@@ -13,7 +13,7 @@ export class CmpBanner extends Component {
         <Notification
           buttons={buttons}
           position="bottom"
-          text={<p className={`${CLASS}-text`}>{I18N[lang]}</p>}
+          text={<p className={`${CLASS}-text`}>{I18N[lang].BANNER_BODY}</p>}
           show
         />
       </div>

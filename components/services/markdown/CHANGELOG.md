@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2018-06-21)
+
+
+### Features
+
+* add if ([b6938e5](https://github.com/SUI-Components/sui-components/commit/b6938e5))
+* add scroll to element ([6d432a7](https://github.com/SUI-Components/sui-components/commit/6d432a7))
+* add shouldcomponentupdate ([21974ca](https://github.com/SUI-Components/sui-components/commit/21974ca))
+* use loaded state ([8b37363](https://github.com/SUI-Components/sui-components/commit/8b37363))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2018-06-19)
 

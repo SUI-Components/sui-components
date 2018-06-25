@@ -2,33 +2,30 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 import {CmpModalContainer} from './CmpModal'
-import CmpServices from '../../services/src/index'
+import CmpServices, {CmpWaitForLibrary} from '../../services/src/index'
 
 class CmpModal extends Component {
-  state = {cmpReady: this.props.cmpReady}
-
-  componentDidMount() {
-    document.addEventListener('cmpReady', function() {
-      this.setState({cmpReady: true})
-    })
-  }
-
   render() {
+    const {checkCmpLibraryIsLoaded} = this.props
+
     return (
-      <CmpServices>
-        {({getPurposesAndVendors, sendConsents}) => (
-          <CmpModalContainer
-            {...this.props}
-            getPurposesAndVendors={getPurposesAndVendors}
-            sendConsents={sendConsents}
-          />
-        )}
-      </CmpServices>
+      <CmpWaitForLibrary cmpReady={!checkCmpLibraryIsLoaded}>
+        <CmpServices>
+          {({getPurposesAndVendors, sendConsents}) => (
+            <CmpModalContainer
+              {...this.props}
+              getPurposesAndVendors={getPurposesAndVendors}
+              sendConsents={sendConsents}
+            />
+          )}
+        </CmpServices>
+      </CmpWaitForLibrary>
     )
   }
 }
 
 CmpModal.defaultProps = {
+  checkCmpLibraryIsLoaded: true,
   cmpReady: false,
   lang: 'es',
   onExit: () => {},
@@ -36,6 +33,7 @@ CmpModal.defaultProps = {
 }
 
 CmpModal.propTypes = {
+  checkCmpLibraryIsLoaded: PropTypes.bool,
   cmpReady: PropTypes.bool,
   lang: PropTypes.string,
   logo: PropTypes.string.isRequired,

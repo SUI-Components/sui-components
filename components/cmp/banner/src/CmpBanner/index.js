@@ -58,7 +58,7 @@ export class CmpBannerContainer extends Component {
   }
 
   render() {
-    const {lang, logo} = this.props
+    const {lang, logo, privacyUrl} = this.props
     return (
       <React.Fragment>
         {this.state.showNotification && (
@@ -70,6 +70,7 @@ export class CmpBannerContainer extends Component {
             lang={lang}
             logo={logo}
             onExit={this._handleExitModal}
+            privacyUrl={privacyUrl}
           />
         )}
       </React.Fragment>
@@ -81,5 +82,6 @@ CmpBannerContainer.propTypes = {
   getConsentStatus: PropTypes.object.isRequired,
   getPurposesAndVendors: PropTypes.object.isRequired,
   lang: PropTypes.string,
-  logo: PropTypes.string
+  logo: PropTypes.string,
+  privacyUrl: PropTypes.string
 }

@@ -92,9 +92,9 @@ export class CmpModalContainer extends Component {
         onOpenAdsStep={this._handleOpenAdsStep}
         onToggleAll={this._handleToggleAll}
         onToggleConsent={this._handleToggleConsent}
+        privacyUrl={privacyUrl}
         purposeConsents={purposeConsents}
         purposes={purposes}
-        privacyUrl={privacyUrl}
         step={step}
         vendorConsents={vendorConsents}
         vendors={vendors}

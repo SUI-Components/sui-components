@@ -8,6 +8,8 @@ import {CLASS} from '../settings'
 
 export const Consents = ({
   consents,
+  disableAllLiteral,
+  enableAllLiteral,
   isVendor,
   list,
   onToggleAll,
@@ -22,14 +24,14 @@ export const Consents = ({
         type="secondary"
         size="small"
       >
-        Deshabilitar todo
+        {disableAllLiteral}
       </Button>
       <Button
         onClick={() => onToggleAll({enabled: true, isVendor})}
         type="primary"
         size="small"
       >
-        Habilitar todo
+        {enableAllLiteral}
       </Button>
     </div>
     <div className={`${CLASS}-consentsTable`}>
@@ -50,6 +52,8 @@ export const Consents = ({
 
 Consents.propTypes = {
   consents: PropTypes.object.isRequired,
+  disableAllLiteral: PropTypes.string,
+  enableAllLiteral: PropTypes.string,
   isVendor: PropTypes.bool,
   list: PropTypes.array.isRequired,
   onToggleAll: PropTypes.func,

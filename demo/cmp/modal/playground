@@ -28,7 +28,7 @@ class ModalPlayground extends React.Component {
           mostraremos todo activado.
         </p>
         <p>
-          <button onClick={this._showModal(false)}>
+          <button id='open-e2e' onClick={this._showModal(false)}>
             Abrir Modal con consents por defecto
           </button>
         </p>

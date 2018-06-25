@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2018-06-25)
+
+
+### Bug Fixes
+
+* bump version ([c830f19](https://github.com/SUI-Components/sui-components/commit/c830f19))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2018-06-21)
 

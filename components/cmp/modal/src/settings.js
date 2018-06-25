@@ -24,7 +24,7 @@ const DEFAULT_I18N = {
   COOKIES_MARKETING: 'Cookies de márketing propio',
   COOKIES_MARKETING_DESC:
     'Cookies propias o de terceros para realizar la medición de la actividad en el sitio para conocer el uso que hacen los usuarios de nuestros servicios y mejorarlos. Almacenan información de navegación dentro de nuestro sitio como información de origen del tráfico.',
-  COOKIES_ADS: 'Cookies de pulbicidad segmenetada',
+  COOKIES_ADS: 'Cookies de pulbicidad segmentada',
   COOKIES_ADS_DESC:
     'Cookies propias o de terceros para ofrecer a nuestros partners de publicidad perfiles de audiencia segmentada. Almacenan información de navegación dentro o fuera de nuestro sitio, así como datos de localización o datos a carácter personales.',
   DISABLE_ALL: 'Deshabilitar todo',

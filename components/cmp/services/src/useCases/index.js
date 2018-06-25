@@ -1,6 +1,3 @@
-// REMEMBER TO REMOVE THE NEXT LINE
-import '../cmpMock'
-
 import {GetConsentStatus} from './getConsentStatus'
 import {GetPurposesAndVendors} from './getPurposesAndVendors'
 import {SendConsents} from './sendConsents'

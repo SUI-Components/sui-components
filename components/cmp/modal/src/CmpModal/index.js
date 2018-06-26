@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import {CmpModal} from './component'
 
-import {STEPS} from '../settings'
+import {SCROLLABLE_ELEMENT, STEPS} from '../settings'
 
 export class CmpModalContainer extends Component {
   state = {
@@ -61,12 +61,17 @@ export class CmpModalContainer extends Component {
   }
 
   _handleBack = () => {
-    this.setState({step: STEPS.GENERAL})
+    this.setState({step: STEPS.GENERAL}, this._scrollTopContent)
   }
 
   _handleOpenAdsStep = e => {
     e.preventDefault()
-    this.setState({step: STEPS.ADVERTISEMENT})
+    this.setState({step: STEPS.ADVERTISEMENT}, this._scrollTopContent)
+  }
+
+  _scrollTopContent() {
+    const el = document.querySelector(SCROLLABLE_ELEMENT)
+    el && (el.scrollTop = 0)
   }
 
   render() {

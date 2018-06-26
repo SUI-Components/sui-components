@@ -12,7 +12,7 @@ $bgc-sui-cmp-modal: rgba(33, 41, 52, .85) !default;
   display: flex;
   justify-content: center;
   left: 0;
-  line-height: 150%;
+  line-height: $lh-m;
   overflow-y: scroll;
   position: fixed;
   right: 0;
@@ -137,7 +137,7 @@ $bgc-sui-cmp-modal: rgba(33, 41, 52, .85) !default;
     color: $c-black;
     font-size: $fz-xxl;
     font-weight: $fw-semi-bold;
-    line-height: $lh-l;
+    line-height: $lh-xxl;
     margin: 0;
     text-align: left;
   }

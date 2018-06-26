@@ -2,7 +2,9 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 import {CmpBanner} from './component'
-import CmpModal from '../../../modal/src/index'
+import CmpModal from '@s-ui/react-cmp-modal'
+
+import {I18N} from '../settings'
 
 export class CmpBannerContainer extends Component {
   state = {
@@ -29,16 +31,17 @@ export class CmpBannerContainer extends Component {
   }
 
   _generateButtons() {
+    const i18n = I18N[this.props.lang]
     return [
       {
-        children: 'Cambiar configuración',
+        children: i18n.READ_MORE_BUTTON,
         negative: true,
         onClick: this._handleReadMore,
         size: 'small',
         type: 'tertiary'
       },
       {
-        children: 'Seguir navegando',
+        children: i18n.ACCEPT_BUTTON,
         negative: true,
         onClick: this._handleAccept,
         size: 'large',

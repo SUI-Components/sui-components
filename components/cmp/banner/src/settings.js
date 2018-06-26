@@ -1,6 +1,8 @@
 export const CLASS = 'sui-cmpBanner'
 
 const DEFAULT_I18N = {
+  ACCEPT_BUTTON: 'Seguir navegando',
+  READ_MORE_BUTTON: 'Cambiar configuración',
   BANNER_BODY:
     'En Schibsted Classified Media Spain, S.L.U utilizamos cookies propias y de terceros para prestar el servicio solicitado, elaborar estadísticas, fomentar el tráfico en la web y mostrarte publicidad personalizada en base a tus datos de navegación o elaborando perfiles publicitarios en función de los datos que recojamos sobre ti, los cuales podemos compartir con terceros. Al clicar en “Aceptar”, aceptas su uso. Puedes configurar o rechazar las cookies clicando en cambiar configuración.'
 }

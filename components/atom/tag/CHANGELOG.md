@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2018-06-26)
+
+
+### Bug Fixes
+
+* added right and bottom margin, removed left margin ([d7f3035](https://github.com/SUI-Components/sui-components/commit/d7f3035))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-03-07)
 

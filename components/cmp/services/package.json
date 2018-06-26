@@ -13,5 +13,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@s-ui/test": "1"
+  }
 }

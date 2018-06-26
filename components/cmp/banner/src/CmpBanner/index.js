@@ -17,7 +17,6 @@ export class CmpBannerContainer extends Component {
       vendorConsents
     } = await getPurposesAndVendors.execute()
     await sendConsents.execute({purposeConsents, vendorConsents})
-    // todo, we have to call cmp and tell him user accepted everything
     this.setState({showModal: false, showNotification: false})
   }
 

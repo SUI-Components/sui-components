@@ -35,8 +35,17 @@ CmpBanner.defaultProps = {
 }
 
 CmpBanner.propTypes = {
+  /**
+   * ISO 639-1 code language in order to get the text translated to it
+   */
   lang: PropTypes.string,
+  /**
+   * URL of the static image that will be the logo for the Modal
+   */
   logo: PropTypes.string,
+  /**
+   * URL where the user will go in order to know more about the privacy conditions of the website
+   */
   privacyUrl: PropTypes.string.isRequired
 }
 

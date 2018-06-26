@@ -19,17 +19,14 @@ describe('Cmp Banner', function() {
 
   it('open the modal if user wants to know more', function() {
     cy.get('.sui-MoleculeNotification-buttonsContainer button:first').click()
+
+    cy.get('.sui-CmpModal').should('exist')
   })
 
   it('close the notification if user accept', function() {
     freshStart()
     cy.get('.sui-MoleculeNotification-buttonsContainer button:last').click()
 
-    cy.get('.sui-cmpBanner').should('not.exist')
-
-    cy.get('.sui-CmpModal-consentsActions')
-      .first()
-      .find('.sui-AtomButton--secondary')
-      .click()
+    cy.get('.sui-MoleculeNotification').should.not('exist')
   })
 })

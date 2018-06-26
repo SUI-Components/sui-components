@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 import {CmpModalContainer} from './CmpModal'
-import CmpServices, {CmpWaitForLibrary} from '../../services/src/index'
+import CmpServices, {CmpWaitForLibrary} from '@s-ui/react-cmp-services'
 
 class CmpModal extends Component {
   render() {

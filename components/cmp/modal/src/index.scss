@@ -106,7 +106,7 @@ $bgc-sui-cmp-modal: rgba(33, 41, 52, .85) !default;
 
   &-inner {
     height: 700px;
-    max-height: calc(100vh - 180px);
+    max-height: calc(100vh - 122px);
     overflow-y: scroll;
     padding: $p-l;
   }
@@ -117,7 +117,7 @@ $bgc-sui-cmp-modal: rgba(33, 41, 52, .85) !default;
     box-shadow: 0 0 4px 1px $c-gray-lightest;
     display: flex;
     justify-content: flex-end;
-    padding: $p-xl $p-l;
+    padding: $p-m $p-l;
     width: 100%;
   }
 
@@ -130,14 +130,29 @@ $bgc-sui-cmp-modal: rgba(33, 41, 52, .85) !default;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: $p-l;
+    padding: $p-m $p-l;
   }
 
   &-title {
     color: $c-black;
     font-size: $fz-xxl;
     font-weight: $fw-semi-bold;
+    line-height: $lh-l;
     margin: 0;
     text-align: left;
+  }
+
+  @media (min-width: 769px) {
+    &-header {
+      padding: $p-l;
+    }
+
+    &-inner {
+      max-height: calc(100vh - 180px);
+    }
+
+    &-footer {
+      padding: $p-xl $p-l;
+    }
   }
 }

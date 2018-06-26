@@ -1,23 +1,30 @@
 # CmpBanner
 
-> Description
+This component show a Banner to inform the user that the website use cookies with different purposes. From here, it could justa accept it and keep using the website or open the <CmpModal> in order to know more about this and even customize the consents.
 
-<!-- ![](./assets/preview.png) -->
+The banner will be shown only if the user hasn't accepted yet the consents.
+
+*Required* You need to have loaded the `cmp` compliant library in order to be able to use this component. Otherwise it won't be shown.
 
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-cmp-banner --save
+$ npm install @s-ui/react-cmp-banner --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import CmpBanner from '@schibstedspain/sui-cmp-banner'
+import CmpBanner from '@s-ui/react-cmp-banner'
 
-return (<CmpBanner />)
+return (
+    <CmpBanner
+    logo="https://www.schibsted.es/wp-content/themes/Schibsted-spn/img/logo.png"
+    privacyUrl="#privacy-url-to-configure"
+  />
+)
 ```
 
 
-> **Find full description and more examples in the [demo page](#).**
+> **Find full description and more examples in the [demo page](http://sui-components.now.sh/workbench/cmp/banner/demo).**

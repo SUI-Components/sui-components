@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-cmp-banner",
+  "name": "@s-ui/react-cmp-banner",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

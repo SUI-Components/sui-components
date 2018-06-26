@@ -21,6 +21,9 @@ class CmpServices extends Component {
 
 CmpServices.displayName = 'CmpServices'
 CmpServices.propTypes = {
+  /**
+   * Render prop. It will receive as parameter an object with all the services you can use. The function has to return the element you want to render
+   */
   children: PropTypes.func.isRequired
 }
 

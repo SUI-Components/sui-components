@@ -20,29 +20,25 @@ describe('getPurposesAndVendors', () => {
 
         done()
       })
-      .catch(err => console.error(err))
   })
 
   it('Should return you a list of purposes and vendors by default with true value', done => {
-    getPurposesAndVendors
-      .execute()
-      .then(response => {
-        const {purposeConsents, vendorConsents} = response
+    getPurposesAndVendors.execute().then(response => {
+      const {purposeConsents, vendorConsents} = response
 
-        expect(purposeConsents).to.be.a('object')
-        expect(Object.keys(purposeConsents).length).to.equal(5)
-        Object.values(purposeConsents).every(purposeValue =>
-          expect(purposeValue).to.equal(true)
-        )
+      expect(purposeConsents).to.be.a('object')
+      expect(Object.keys(purposeConsents).length).to.equal(5)
+      Object.values(purposeConsents).every(purposeValue =>
+        expect(purposeValue).to.equal(true)
+      )
 
-        expect(vendorConsents).to.be.a('object')
-        expect(Object.keys(vendorConsents).length).to.equal(68)
-        Object.values(vendorConsents).every(vendorValue =>
-          expect(vendorValue).to.equal(true)
-        )
+      expect(vendorConsents).to.be.a('object')
+      expect(Object.keys(vendorConsents).length).to.equal(68)
+      Object.values(vendorConsents).every(vendorValue =>
+        expect(vendorValue).to.equal(true)
+      )
 
-        done()
-      })
-      .catch(err => console.error(err))
+      done()
+    })
   })
 })

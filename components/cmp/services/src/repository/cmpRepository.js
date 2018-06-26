@@ -27,8 +27,6 @@ export class CmpRepository {
     const consents = {purposeConsents, vendorConsents}
     return new Promise(resolve => {
       window.__cmp('setVendorConsents', consents, function(result) {
-        // TODO: Remove next line
-        console.log('sent consents', consents)
         resolve(result)
       })
     })

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import {CmpBanner} from './component'
 import CmpModal from '../../../modal/src/index'
-import {sendConsents} from '../../../services/src/useCases'
 
 export class CmpBannerContainer extends Component {
   state = {
@@ -12,7 +11,7 @@ export class CmpBannerContainer extends Component {
   }
 
   _handleAccept = async () => {
-    const {getPurposesAndVendors} = this.props
+    const {getPurposesAndVendors, sendConsents} = this.props
     const {
       purposeConsents,
       vendorConsents
@@ -83,5 +82,6 @@ CmpBannerContainer.propTypes = {
   getPurposesAndVendors: PropTypes.object.isRequired,
   lang: PropTypes.string,
   logo: PropTypes.string,
-  privacyUrl: PropTypes.string
+  privacyUrl: PropTypes.string,
+  sendConsents: PropTypes.object.isRequired
 }

@@ -1,4 +1,4 @@
-export const CLASS = 'sui-cmpBanner'
+export const CLASS = 'sui-CmpBanner'
 
 const DEFAULT_I18N = {
   ACCEPT_BUTTON: 'Seguir navegando',

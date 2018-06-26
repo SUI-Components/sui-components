@@ -1,16 +1,17 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~@s-ui/react-molecule-notification/lib/index';
-@import '../../modal/src/index';
+@import '~@s-ui/react-cmp-modal/lib/index';
 
-.sui-cmpBanner {
+.sui-CmpBanner {
   &-text {
     line-height: $lh-xl;
     margin: 0;
     padding: 0;
   }
+
   /*
     needed as we can't let users close the notification without accepting it.
-    We might want to check with UX if we could let developers to hide the close icon instead hacking
+    We will check with UX if we could let developers to hide the close icon using a prop instead this hack
   */
-  .sui-MoleculeNotification-iconClose { display: none !important; }
+  .sui-MoleculeNotification-iconClose { display: none; }
 }

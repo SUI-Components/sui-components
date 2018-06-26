@@ -6,6 +6,10 @@ import CmpServices, {CmpWaitForLibrary} from '@s-ui/react-cmp-services'
 import {CmpBannerContainer} from './CmpBanner/index'
 
 class CmpBanner extends Component {
+  shouldComponentUpdate() {
+    return false
+  }
+
   render() {
     return (
       <CmpWaitForLibrary>

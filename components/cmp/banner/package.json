@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-molecule-notification": "1"
+    "@s-ui/react-molecule-notification": "1",
+    "@s-ui/react-cmp-services": "1",
+    "@s-ui/react-cmp-modal": "1"
   },
   "keywords": [],
   "author": "",

@@ -56,7 +56,7 @@ Consents.propTypes = {
   enableAllLiteral: PropTypes.string,
   isVendor: PropTypes.bool,
   list: PropTypes.array.isRequired,
-  onToggleAll: PropTypes.func,
-  onToggleConsent: PropTypes.func,
+  onToggleAll: PropTypes.func.isRequired,
+  onToggleConsent: PropTypes.func.isRequired,
   title: PropTypes.string
 }

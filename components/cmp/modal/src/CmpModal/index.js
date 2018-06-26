@@ -109,11 +109,11 @@ export class CmpModalContainer extends Component {
 }
 
 CmpModalContainer.propTypes = {
-  getPurposesAndVendors: PropTypes.object,
-  lang: PropTypes.string,
+  getPurposesAndVendors: PropTypes.object.isRequired,
+  lang: PropTypes.string.isRequired,
   logo: PropTypes.string,
-  onExit: PropTypes.func,
+  onExit: PropTypes.func.isRequired,
   privacyUrl: PropTypes.string,
   retrieveConsentsFromCmp: PropTypes.bool,
-  sendConsents: PropTypes.object
+  sendConsents: PropTypes.object.isRequired
 }

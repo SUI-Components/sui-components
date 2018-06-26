@@ -1,6 +1,6 @@
 # CmpModal
 
-This component show a Modal to let the user know about the consents, purposes and vendors that will use cookies in the platform to give different services. The modal connects with a `cmp` library in order to show all the data and let the user customize it, when possible.
+This component shows a Modal to let the user know about the consents, purposes and vendors that will use cookies in the platform to give different services. The modal connects with a `cmp` library in order to show all the data and let the user customize it, when possible.
 
 *Required* You need to have loaded the `cmp` compliant library in order to be able to use this component. Otherwise it won't be shown.
 

@@ -2,9 +2,9 @@
 @import '~@s-ui/react-molecule-notification/lib/index';
 @import '../../modal/src/index';
 
-.sui-CmpBanner {
+.sui-cmpBanner {
   &-text {
-    line-height: 150%;
+    line-height: $lh-xl;
     margin: 0;
     padding: 0;
   }

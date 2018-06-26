@@ -9,6 +9,10 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib",
     "test:e2e:dev": "sui-test e2e --baseUrl=http://localhost:3001 --gui"
   },
+  "devDependencies": {
+    "cypress": "2.1.0",
+    "@s-ui/test": "1"
+  },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
     "@s-ui/react-molecule-notification": "1",

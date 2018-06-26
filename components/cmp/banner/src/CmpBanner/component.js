@@ -6,6 +6,9 @@ import Notification from '@s-ui/react-molecule-notification'
 import {CLASS, I18N} from '../settings'
 
 export class CmpBanner extends Component {
+  shouldComponentUpdate() {
+    return false
+  }
   render() {
     const {buttons, lang} = this.props
     return (

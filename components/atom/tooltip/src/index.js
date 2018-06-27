@@ -2,8 +2,11 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {Tooltip} from 'reactstrap'
 import DOMElement from './customPropTypes/DOMElement'
+import withIntersectionObserver from './hoc/withIntersectionObserver'
 
 const BASE_CLASS = 'sui-AtomTooltip'
+const CLASS_INNER = `${BASE_CLASS}-inner`
+const PREFIX_PLACEMENT = `${BASE_CLASS}-`
 
 const PLACEMENTS = {
   TOP: 'top',
@@ -21,12 +24,14 @@ const PLACEMENTS = {
 }
 
 class AtomTooltip extends Component {
-  state = {
-    isOpen: false
-  }
+  state = {isOpen: false}
 
-  innerClassName = `${BASE_CLASS}-inner`
-  placementPrefix = `${BASE_CLASS}-`
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (!nextProps.isVisible && prevState.isOpen) {
+      return {isOpen: false}
+    }
+    return null
+  }
 
   componentDidMount() {
     document.addEventListener('click', this.handleClickOutsideElement)
@@ -67,8 +72,8 @@ class AtomTooltip extends Component {
         isOpen={this.state.isOpen}
         toggle={this.toggle}
         className={BASE_CLASS}
-        innerClassName={this.innerClassName}
-        placementPrefix={this.placementPrefix}
+        innerClassName={CLASS_INNER}
+        placementPrefix={PREFIX_PLACEMENT}
         offset="auto,4px"
       />
     )
@@ -101,8 +106,11 @@ AtomTooltip.propTypes = {
   autohide: PropTypes.bool,
 
   /** Tooltip and arrow position */
-  placement: PropTypes.oneOf(Object.values(PLACEMENTS))
+  placement: PropTypes.oneOf(Object.values(PLACEMENTS)),
+
+  /** True if the component is inside the viewport */
+  isVisible: PropTypes.bool
 }
 
-export default AtomTooltip
+export default withIntersectionObserver(AtomTooltip)
 export {PLACEMENTS as atomTooltipPlacements}

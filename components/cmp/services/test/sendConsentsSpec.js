@@ -4,7 +4,7 @@ import {expect} from 'chai'
 
 import '../../../../demo/__cmpMock'
 
-describe.only('sendConsents', () => {
+describe('sendConsents', () => {
   beforeEach(() => {
     sinon.spy(window, '__cmp')
   })

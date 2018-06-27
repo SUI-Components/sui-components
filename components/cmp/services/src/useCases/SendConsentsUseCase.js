@@ -1,4 +1,4 @@
-export class SendConsents {
+export class SendConsentsUseCase {
   constructor({repository}) {
     this._repository = repository
   }

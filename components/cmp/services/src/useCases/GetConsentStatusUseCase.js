@@ -1,4 +1,4 @@
-export class GetConsentStatus {
+export class GetConsentStatusUseCase {
   constructor({repository}) {
     this._repository = repository
   }

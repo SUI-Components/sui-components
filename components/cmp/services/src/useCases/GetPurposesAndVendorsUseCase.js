@@ -1,4 +1,4 @@
-export class GetPurposesAndVendors {
+export class GetPurposesAndVendorsUseCase {
   constructor({repository}) {
     this._repository = repository
   }

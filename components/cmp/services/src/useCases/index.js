@@ -1,11 +1,13 @@
-import {GetConsentStatus} from './getConsentStatus'
-import {GetPurposesAndVendors} from './getPurposesAndVendors'
-import {SendConsents} from './sendConsents'
+import {GetConsentStatusUseCase} from './GetConsentStatusUseCase'
+import {GetPurposesAndVendorsUseCase} from './GetPurposesAndVendorsUseCase'
+import {SendConsentsUseCase} from './SendConsentsUseCase'
 
 import {CmpRepository} from '../repository/cmpRepository'
 
 const repository = new CmpRepository()
 
-export const getConsentStatus = new GetConsentStatus({repository})
-export const getPurposesAndVendors = new GetPurposesAndVendors({repository})
-export const sendConsents = new SendConsents({repository})
+export const getConsentStatus = new GetConsentStatusUseCase({repository})
+export const getPurposesAndVendors = new GetPurposesAndVendorsUseCase({
+  repository
+})
+export const sendConsents = new SendConsentsUseCase({repository})

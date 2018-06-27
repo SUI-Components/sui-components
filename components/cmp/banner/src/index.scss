@@ -8,10 +8,4 @@
     margin: 0;
     padding: 0;
   }
-
-  /*
-    needed as we can't let users close the notification without accepting it.
-    We will check with UX if we could let developers to hide the close icon using a prop instead this hack
-  */
-  .sui-MoleculeNotification-iconClose { display: none; }
 }

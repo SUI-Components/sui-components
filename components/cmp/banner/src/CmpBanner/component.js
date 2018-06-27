@@ -18,6 +18,7 @@ export class CmpBanner extends Component {
           position="bottom"
           text={<p className={`${CLASS}-text`}>{I18N[lang].BANNER_BODY}</p>}
           show
+          showCloseButton={false}
         />
       </div>
     )

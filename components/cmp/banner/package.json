@@ -6,12 +6,7 @@
   "scripts": {
     "build": "rm -Rf ./lib && mkdir -p ./lib && npm run build:js && npm run build:styles",
     "build:js": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
-    "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib",
-    "test:e2e:dev": "sui-test e2e --baseUrl=http://localhost:3001 --gui"
-  },
-  "devDependencies": {
-    "cypress": "2.1.0",
-    "@s-ui/test": "1"
+    "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",

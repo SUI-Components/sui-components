@@ -21,7 +21,6 @@ class AtomTag extends Component {
     return classnames(
       'sui-AtomTag',
       `sui-AtomTag-${size}`,
-      className,
       icon && 'sui-AtomTag-hasIcon'
     )
   }

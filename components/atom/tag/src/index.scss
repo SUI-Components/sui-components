@@ -6,11 +6,11 @@ $h-atom-tag: $p-xxl !default;
 $mw-label: 240px !default;
 $p-atom-tag: 0 $p-l !default;
 
-@mixin icon-AtomTag($type) {
+@mixin icon-atom-tag($type) {
   @include sui-icon--small;
   display: inline-block;
-  vertical-align: middle;
   line-height: initial;
+  vertical-align: middle;
 
   @if $type == 'icon' {
     margin: 0 $m-s 0 (-$m-m);
@@ -43,7 +43,8 @@ $p-atom-tag: 0 $p-l !default;
     white-space: nowrap;
 
     // if only one icon is set
-    .sui-AtomTag-hasIcon &, .sui-AtomTag-hasClose & {
+    .sui-AtomTag-hasIcon &, 
+    .sui-AtomTag-hasClose & {
       max-width: $w-label-base - ($p-l + $m-s);
     }
 
@@ -65,11 +66,11 @@ $p-atom-tag: 0 $p-l !default;
   }
 
   &-icon {
-    @include icon-AtomTag(icon);
+    @include icon-atom-tag(icon);
   }
 
   &-secondary-icon {
-    @include icon-AtomTag(icon-secondary);
+    @include icon-atom-tag(icon-secondary);
   }
 
   &-actionable {
@@ -81,6 +82,20 @@ $p-atom-tag: 0 $p-l !default;
     &:hover,
     &:active {
       background-color: $c-primary-dark;
+    }
+  }
+
+  &-small {
+    height: $p-xl;
+    line-height: $p-xl;
+    padding: 0 $p-m;
+
+    .sui-AtomTag-icon {
+      margin-left: 0;
+    }
+
+    .sui-AtomTag-secondary-icon {
+      margin-right: 0;
     }
   }
 }

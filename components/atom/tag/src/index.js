@@ -5,12 +5,25 @@ import classnames from 'classnames'
 import ActionableTag from './Actionable'
 import StandardTag from './Standard'
 
+const SIZES = {
+  MEDIUM: 'medium',
+  SMALL: 'small'
+}
+
 class AtomTag extends Component {
   static MAX_LABEL_LENGTH = 100
 
+  /**
+   * @return {string}
+   */
   get _classNames() {
-    const {className, icon} = this.props
-    return classnames('sui-AtomTag', className, icon && 'sui-AtomTag-hasIcon')
+    const {className, icon, size} = this.props
+    return classnames(
+      'sui-AtomTag',
+      `sui-AtomTag-${size}`,
+      className,
+      icon && 'sui-AtomTag-hasIcon'
+    )
   }
 
   get _isActionable() {
@@ -113,7 +126,16 @@ AtomTag.propTypes = {
   /**
    * Actionable tags can have iconPlacement='right'
    */
-  iconPlacement: PropTypes.oneOf(['right', 'left'])
+  iconPlacement: PropTypes.oneOf(['right', 'left']),
+  /**
+   * Tag size
+   */
+  size: PropTypes.oneOf(Object.values(SIZES))
+}
+
+AtomTag.defaultProps = {
+  size: SIZES.MEDIUM
 }
 
 export default AtomTag
+export {SIZES as atomTagSizes}

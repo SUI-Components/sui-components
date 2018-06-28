@@ -1,6 +1,6 @@
 # CmpBanner
 
-This component shows a Banner to inform the user that the website use cookies with different purposes. From here, it could justa accept it and keep using the website or open the <CmpModal> in order to know more about this and even customize the consents.
+This component shows a Banner to inform the user that the website use cookies with different purposes. From here, it could just accept it and keep using the website or open the <CmpModal> in order to know more about this and even customize the consents.
 
 The banner will be shown only if the user hasn't accepted yet the consents.
 

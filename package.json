@@ -29,9 +29,9 @@
     "@s-ui/studio": "5",
     "babel-jest": "20.0.3",
     "enzyme": "3.3.0",
+    "enzyme-adapter-react-16": "1.1.1",
     "husky": "0.13.4",
     "jest": "20.0.4",
-    "enzyme-adapter-react-16": "1.1.1",
     "validate-commit-msg": "2.12.2"
   },
   "dependencies": {
@@ -40,8 +40,8 @@
     "@schibstedspain/fc-theme": "10",
     "@schibstedspain/ij-theme": "1",
     "@schibstedspain/mt-theme": "4",
-    "@schibstedspain/vb-theme": "1",
-    "@schibstedspain/nc-theme": "1"
+    "@schibstedspain/nc-theme": "1",
+    "@schibstedspain/vb-theme": "1"
   },
   "config": {
     "sui-studio": {

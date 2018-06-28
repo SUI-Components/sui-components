@@ -1,0 +1,11 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-molecule-notification/lib/index';
+@import '~@s-ui/react-cmp-modal/lib/index';
+
+.sui-CmpBanner {
+  &-text {
+    line-height: $lh-xl;
+    margin: 0;
+    padding: 0;
+  }
+}

@@ -89,6 +89,36 @@ return (
   <div>
     <h1>AtomTooltip</h1>
     <h2>
+      Buttons can also have a tooltip
+    </h2>
+    <ul>
+      <li>Desktop →  <code>click</code>: button action | <code>hover</code>: tooltip</li>
+      <li>Mobile →  <code>click</code>: button action | <code>long press</code>: tooltip</li>
+    </ul>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Click to show message{' '}
+        <button className="noTouchContextualMenu" style={{ border:'1px solid #ccc', background: 'black', color: 'white' }} tabIndex="1" id="display_message" onClick={ () => alert("🎩 button clicked")}>
+          Show Message [?]
+        </button>
+      </p>
+      <AtomTooltip target="display_message">
+        Leo sagittis dignissim ornare egestas primis parturient ante diam fusce,
+        sollicitudin viverra felis inceptos turpis pretium enim praesent,
+        molestie ullamcorper est arcu cursus lacus vitae eget. Volutpat interdum
+        senectus eros ultrices aptent eu, mattis est inceptos montes quam,
+        lobortis auctor rutrum cubilia libero. Quisque commodo nisi curae
+        tincidunt vehicula sodales litora, vivamus
+      </AtomTooltip>
+    </div>
+    <h2>
       Maintain tooltip on hover over tooltp with <code>autohide=false</code> (so
       users can select text in tooltip)
     </h2>
@@ -102,7 +132,7 @@ return (
     >
       <p>
         Lorem ipsum dolor sit amet{' '}
-        <strong tabIndex="1" id="december">
+        <strong className="noTouchContextualMenu" tabIndex="1" id="december">
           december
         </strong>
       </p>
@@ -126,7 +156,11 @@ return (
     >
       <p>
         Lorem ipsum dolor sit amet{' '}
-        <strong tabIndex="2" id="november">
+        <strong 
+          className="noTouchContextualMenu"
+          tabIndex="2" 
+          id="november"
+        >
           november
         </strong>
       </p>
@@ -149,7 +183,7 @@ return (
     >
       <p>
         Lorem ipsum dolor sit amet{' '}
-        <strong tabIndex="3" id="avenue">
+        <strong className="noTouchContextualMenu" tabIndex="3" id="avenue">
           astros
         </strong>
       </p>

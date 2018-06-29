@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import 'intersection-observer' // polyfill
 import {getTarget} from 'reactstrap/lib//utils'
 
-export default BaseComponent => {
+export default threshold => BaseComponent => {
   const displayName = BaseComponent.displayName
 
   return class WithIntersectionObserver extends Component {

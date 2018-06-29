@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {Tooltip} from 'reactstrap'
+import {getTarget} from 'reactstrap/lib/utils'
 import DOMElement from './customPropTypes/DOMElement'
 import withIntersectionObserver from './hoc/withIntersectionObserver'
 
@@ -25,6 +26,14 @@ const PLACEMENTS = {
 
 class AtomTooltip extends Component {
   state = {isOpen: false}
+  preventNonTouchEvents = false
+  touchTimer = null
+  hasTouchEnd = false
+  refTooltip = React.createRef()
+
+  static defaultProps = {
+    isVisible: true
+  }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (!nextProps.isVisible && prevState.isOpen) {
@@ -34,26 +43,55 @@ class AtomTooltip extends Component {
   }
 
   componentDidMount() {
+    this._target = getTarget(this.props.target)
     document.addEventListener('click', this.handleClickOutsideElement)
+
+    this._target.oncontextmenu = function(event) {
+      event.preventDefault()
+      event.stopPropagation()
+      return false
+    }
   }
 
   componentWillUnmount() {
     document.removeEventListener('click', this.handleClickOutsideElement)
   }
 
-  handleClickOutsideElement = event => {
+  handleClickOutsideElement = e => {
     const {isOpen} = this.state
     if (isOpen) {
-      const tooltipDom = document.getElementsByClassName(BASE_CLASS)[0]
-      const isOutside = tooltipDom && !tooltipDom.contains(event.target)
-      if (isOutside) this.toggle()
+      const tooltipDom = this.refTooltip.current
+      const isOutside = tooltipDom && !tooltipDom.contains(e.target)
+      if (isOutside) this.toggle(e)
     }
   }
 
-  toggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    })
+  toggle = e => {
+    if (e.type === 'touchstart') {
+      this.preventNonTouchEvents = true
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+      this.touchTimer = setTimeout(() => {
+        if (!this.hasTouchEnd) {
+          this.setState({
+            isOpen: !this.state.isOpen
+          })
+        }
+        this.preventNonTouchEvents = false
+        this.hasTouchEnd = false
+      }, 1000)
+      return false
+    }
+
+    if (e.type === 'touchend') {
+      this.hasTouchEnd = true
+    }
+
+    if (!this.preventNonTouchEvents) {
+      this.setState({
+        isOpen: !this.state.isOpen
+      })
+    }
   }
 
   render() {
@@ -74,6 +112,7 @@ class AtomTooltip extends Component {
         className={BASE_CLASS}
         innerClassName={CLASS_INNER}
         placementPrefix={PREFIX_PLACEMENT}
+        innerRef={this.refTooltip}
         offset="auto,4px"
       />
     )
@@ -112,5 +151,5 @@ AtomTooltip.propTypes = {
   isVisible: PropTypes.bool
 }
 
-export default withIntersectionObserver(AtomTooltip)
+export default withIntersectionObserver(0.5)(AtomTooltip)
 export {PLACEMENTS as atomTooltipPlacements}

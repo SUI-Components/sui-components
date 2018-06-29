@@ -21,11 +21,6 @@ $w-atom-tooltip-arrow: .8rem !default;
 $h-atom-tooltip-arrow: .4rem !default;
 $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
 
-.noTouchContextualMenu {
-  -webkit-touch-callout: none !important;
-  -webkit-user-select: none !important;
-}
-
 // Base class
 .sui-AtomTooltip {
   display: block;
@@ -48,6 +43,11 @@ $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
       content: "";
       position: absolute;
     }
+  }
+
+  &-target {
+    touch-callout: none !important;
+    user-select: none !important;
   }
 }
 

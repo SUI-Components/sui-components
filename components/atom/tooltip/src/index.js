@@ -8,6 +8,7 @@ import withIntersectionObserver from './hoc/withIntersectionObserver'
 const BASE_CLASS = 'sui-AtomTooltip'
 const CLASS_INNER = `${BASE_CLASS}-inner`
 const PREFIX_PLACEMENT = `${BASE_CLASS}-`
+const CLASS_TARGET = `${BASE_CLASS}-target`
 
 const PLACEMENTS = {
   TOP: 'top',
@@ -27,8 +28,7 @@ const PLACEMENTS = {
 class AtomTooltip extends Component {
   state = {isOpen: false}
   preventNonTouchEvents = false
-  touchTimer = null
-  hasTouchEnd = false
+  hasTouchEnded = false
   refTooltip = React.createRef()
 
   static defaultProps = {
@@ -45,7 +45,8 @@ class AtomTooltip extends Component {
   componentDidMount() {
     this._target = getTarget(this.props.target)
     document.addEventListener('click', this.handleClickOutsideElement)
-
+    this._target.classList.add(CLASS_TARGET)
+    this._target.addEventListener('touchend', this.toggle)
     this._target.oncontextmenu = function(event) {
       event.preventDefault()
       event.stopPropagation()
@@ -55,6 +56,7 @@ class AtomTooltip extends Component {
 
   componentWillUnmount() {
     document.removeEventListener('click', this.handleClickOutsideElement)
+    this._target.removeEventListener('touchend', this.toggle)
   }
 
   handleClickOutsideElement = e => {
@@ -69,22 +71,23 @@ class AtomTooltip extends Component {
   toggle = e => {
     if (e.type === 'touchstart') {
       this.preventNonTouchEvents = true
+      this.hasTouchEnded = false
       e.stopPropagation()
       e.stopImmediatePropagation()
       this.touchTimer = setTimeout(() => {
-        if (!this.hasTouchEnd) {
+        if (!this.hasTouchEnded) {
           this.setState({
             isOpen: !this.state.isOpen
           })
         }
         this.preventNonTouchEvents = false
-        this.hasTouchEnd = false
+        this.hasTouchEnded = false
       }, 1000)
       return false
     }
 
     if (e.type === 'touchend') {
-      this.hasTouchEnd = true
+      this.hasTouchEnded = true
     }
 
     if (!this.preventNonTouchEvents) {

@@ -1,0 +1,10 @@
+const icon = getIcon()
+const showText = 'Show'
+const hideText = 'Hide'
+
+function getIcon () { return  (<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 32 32">
+    <path d="M30,9l1,1c1,1,1,2,0,2L17,25c-1,1-2,1-2,0 L2,12c-1-1-1-2,0-2l1-1c1-1,2-1,2,0L16,20L28,9 C28,8,29,8,30,9z"></path>
+</svg>)
+}
+
+return (<MoleculeCollapsible icon={icon} showText={showText} hideText={hideText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae orci consectetur, suscipit ligula vel.</MoleculeCollapsible>)

@@ -17,7 +17,7 @@ class AtomTag extends Component {
    * @return {string}
    */
   get _classNames() {
-    const {className, icon, size} = this.props
+    const {icon, size} = this.props
     return classnames(
       'sui-AtomTag',
       `sui-AtomTag-${size}`,

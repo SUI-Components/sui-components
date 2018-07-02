@@ -2,9 +2,11 @@
 
 $bgc-atom-tag: color-variation($c-gray, 3) !default;
 $c-atom-tag-actionable: $c-white !default;
-$h-atom-tag: $p-xxl !default;
+$h-atom-tag-medium: 32px !default;
+$h-atom-tag-small: 24px !default;
 $mw-label: 240px !default;
-$p-atom-tag: 0 $p-l !default;
+$p-atom-tag-medium: 0 $p-l !default;
+$p-atom-tag-small: 0 $p-m !default;
 
 @mixin icon-atom-tag($type) {
   @include sui-icon--small;
@@ -22,14 +24,14 @@ $p-atom-tag: 0 $p-l !default;
 
 .sui-AtomTag {
   background-color: $bgc-atom-tag;
-  border-radius: ceil($h-atom-tag / 2);
+  border-radius: ceil($h-atom-tag-medium / 2);
   box-sizing: border-box;
   display: inline-block;
   font-size: $fz-s;
-  height: $h-atom-tag;
-  line-height: $h-atom-tag;
+  height: $h-atom-tag-medium;
+  line-height: $h-atom-tag-medium;
   margin: 0 $m-m $m-m 0;
-  padding: $p-atom-tag;
+  padding: $p-atom-tag-medium;
   white-space: nowrap;
 
   &-label {
@@ -86,9 +88,9 @@ $p-atom-tag: 0 $p-l !default;
   }
 
   &-small {
-    height: $p-xl;
-    line-height: $p-xl;
-    padding: 0 $p-m;
+    height: $h-atom-tag-small;
+    line-height: $h-atom-tag-small;
+    padding: $p-atom-tag-small;
 
     .sui-AtomTag-icon {
       margin-left: 0;

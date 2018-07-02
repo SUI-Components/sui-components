@@ -46,8 +46,8 @@ $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
   }
 
   &-target {  
-    -ms-user-select: none; /* Internet Explorer/Edge */
     -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
     user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */

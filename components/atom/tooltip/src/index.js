@@ -82,7 +82,7 @@ class AtomTooltip extends Component {
         }
         this.preventNonTouchEvents = false
         this.hasTouchEnded = false
-      }, 1000)
+      }, 2500)
       return false
     }
 

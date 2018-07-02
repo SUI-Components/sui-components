@@ -6,7 +6,7 @@ import cx from 'classnames'
 import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
 
 const CardBasicMedia = ({src, alt = ''}) => (
-  <div className='sui-CardBasic-media'>
+  <div className="sui-CardBasic-media">
     <img src={src} alt={alt} />
   </div>
 )
@@ -15,7 +15,7 @@ const CardBasicMedia = ({src, alt = ''}) => (
  * Basic card containing a media object, an optional title and a description
  * text.
  */
-export default function CardBasic ({
+export default function CardBasic({
   link,
   linkFactory: Link,
   media,
@@ -29,16 +29,18 @@ export default function CardBasic ({
   })
 
   return (
-    <div className='sui-CardBasic'>
-      <Link href={link} className='sui-CardBasic-link'>
+    <div className="sui-CardBasic">
+      <Link href={link} className="sui-CardBasic-link">
         {lazyLoad ? (
           <ImageLazyLoad {...lazyLoad} {...media} />
         ) : (
           <CardBasicMedia {...media} />
         )}
-        <div className='sui-CardBasic-content'>
-          {title && <header className={cardBasicTitleClassName}>{title}</header>}
-          <div className='sui-CardBasic-description'>{description}</div>
+        <div className="sui-CardBasic-content">
+          {title && (
+            <header className={cardBasicTitleClassName}>{title}</header>
+          )}
+          <div className="sui-CardBasic-description">{description}</div>
         </div>
       </Link>
     </div>

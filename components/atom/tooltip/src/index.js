@@ -46,6 +46,14 @@ class AtomTooltip extends Component {
     this._target = getTarget(this.props.target)
     document.addEventListener('click', this.handleClickOutsideElement)
     this._target.classList.add(CLASS_TARGET)
+    this._target.addEventListener(
+      'click',
+      e => {
+        e.stopPropagation()
+        console.log('click stopped from tooltip... ')
+      },
+      true
+    )
     this._target.addEventListener('touchend', this.toggle)
     this._target.oncontextmenu = function(event) {
       event.preventDefault()
@@ -62,38 +70,58 @@ class AtomTooltip extends Component {
   handleClickOutsideElement = e => {
     const {isOpen} = this.state
     if (isOpen) {
+      const {type} = e
+      console.log('closing from handleClickOutsideElement → ', {type})
       const tooltipDom = this.refTooltip.current
       const isOutside = tooltipDom && !tooltipDom.contains(e.target)
       if (isOutside) this.toggle(e)
     }
   }
 
-  toggle = e => {
-    if (e.type === 'touchstart') {
-      this.preventNonTouchEvents = true
+  handleTouchStart = e => {
+    this.preventNonTouchEvents = true
+    this.hasTouchEnded = false
+    e.preventDefault()
+    e.stopPropagation()
+    e.stopImmediatePropagation()
+    clearInterval(this.touchTimer)
+    this.touchTimer = setTimeout(() => {
+      if (!this.hasTouchEnded) {
+        this.setState({
+          isOpen: !this.state.isOpen
+        })
+      }
+      this.preventNonTouchEvents = false
       this.hasTouchEnded = false
-      e.stopPropagation()
-      e.stopImmediatePropagation()
-      this.touchTimer = setTimeout(() => {
-        if (!this.hasTouchEnded) {
-          this.setState({
-            isOpen: !this.state.isOpen
-          })
-        }
-        this.preventNonTouchEvents = false
-        this.hasTouchEnded = false
-      }, 2500)
-      return false
-    }
+    }, 2500)
+    return false
+  }
 
-    if (e.type === 'touchend') {
+  handleTouchEnd = () => {
+    setTimeout(() => {
       this.hasTouchEnded = true
+    }, 1000)
+    clearInterval(this.touchTimer)
+  }
+
+  toggle = e => {
+    const {type} = e
+    const {preventNonTouchEvents, hasTouchEnded} = this
+    console.log({type, preventNonTouchEvents, hasTouchEnded})
+
+    if (e.type === 'touchstart') {
+      this.handleTouchStart(e)
+    }
+    if (e.type === 'touchend') {
+      this.handleTouchEnd()
     }
 
     if (!this.preventNonTouchEvents) {
       this.setState({
         isOpen: !this.state.isOpen
       })
+    } else {
+      return false
     }
   }
 

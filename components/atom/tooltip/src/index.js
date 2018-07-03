@@ -69,6 +69,7 @@ class AtomTooltip extends Component {
   }
 
   componentWillUnmount() {
+    clearTimeout(this.touchTimer)
     document.removeEventListener('click', this.handleClickOutsideElement)
     this.refTarget.removeEventListener('touchend', this.toggle)
   }
@@ -82,7 +83,6 @@ class AtomTooltip extends Component {
   handleClickOutsideElement = e => {
     const {isOpen} = this.state
     if (isOpen) {
-      // // console.log('closing from handleClickOutsideElement → ', {type})
       const tooltipDom = this.refTooltip.current
       const isOutside = tooltipDom && !tooltipDom.contains(e.target)
       if (isOutside) this.toggle(e)
@@ -92,7 +92,7 @@ class AtomTooltip extends Component {
   handleTouchStart = e => {
     this.preventNonTouchEvents = true
     this.hasTouchEnded = false
-    clearInterval(this.touchTimer)
+    clearTimeout(this.touchTimer)
     this.touchTimer = setTimeout(() => {
       if (!this.hasTouchEnded) {
         this.setState({
@@ -101,40 +101,47 @@ class AtomTooltip extends Component {
       }
       this.preventNonTouchEvents = false
       this.hasTouchEnded = false
-    }, 2500)
+    }, 1000)
     return false
   }
 
   handleTouchEnd = e => {
-    if (!this.preventNonTouchEvents) {
-      e.preventDefault()
-      e.stopPropagation()
-    }
+    if (!this.preventNonTouchEvents) this.handleStopPropagation(e)
     this.hasTouchEnded = true
-    clearInterval(this.touchTimer)
+    clearTimeout(this.touchTimer)
+  }
+
+  handleStopPropagation = e => {
+    e.preventDefault()
+    e.stopPropagation()
+    return false
   }
 
   toggle = e => {
-    // const {type} = e
-    // const {preventNonTouchEvents, hasTouchEnded, disableClick} = this
-    // console.log({type, preventNonTouchEvents, hasTouchEnded, disableClick})
-
-    if (e.type === 'touchstart') {
-      this.handleTouchStart(e)
-    }
-    if (e.type === 'touchend') {
-      this.handleTouchEnd(e)
-    }
-    if (e.type === 'click') {
-      this.onClickTarget && this.onClickTarget(e)
-    }
-
-    if (!this.preventNonTouchEvents) {
-      this.setState({
-        isOpen: !this.state.isOpen
-      })
+    const {type} = e
+    if (this.onClickTarget) {
+      if (type === 'touchstart') this.handleTouchStart(e)
+      if (type === 'touchend') this.handleTouchEnd(e)
+      if (type === 'click') this.onClickTarget(e)
+      if (!this.preventNonTouchEvents) {
+        this.setState({
+          isOpen: !this.state.isOpen
+        })
+      }
     } else {
-      return false
+      if (type === 'touchstart') this.hasTouchEnded = false
+      if (type === 'touchend') this.hasTouchEnded = true
+      if (
+        (this.hasTouchEnded && ['focusin', 'mouseover'].includes(type)) ||
+        ['touchstart', 'touchend'].includes(type)
+      ) {
+        this.handleStopPropagation(e)
+      } else {
+        if (type === 'click') this.handleStopPropagation(e)
+        this.setState({
+          isOpen: !this.state.isOpen
+        })
+      }
     }
   }
 

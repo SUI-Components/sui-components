@@ -29,7 +29,6 @@ $p-atom-tag-s: 0 $p-m !default;
   display: inline-block;
   font-size: $fz-s;
   height: $h-atom-tag-m;
-  line-height: $h-atom-tag-m;
   margin: 0 $m-m $m-m 0;
   padding: $p-atom-tag-m;
   white-space: nowrap;
@@ -38,6 +37,7 @@ $p-atom-tag-s: 0 $p-m !default;
     // max width - 2 icon size
     $w-label-base: $mw-label - ($p-l * 2);
     display: inline-block;
+    line-height: $h-atom-tag-m;
     max-width: $w-label-base;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -89,8 +89,11 @@ $p-atom-tag-s: 0 $p-m !default;
 
   &-small {
     height: $h-atom-tag-s;
-    line-height: $h-atom-tag-s;
     padding: $p-atom-tag-s;
+
+    & .sui-AtomTag-label {
+      line-height: $h-atom-tag-s;
+    }
 
     .sui-AtomTag-icon {
       margin-left: 0;

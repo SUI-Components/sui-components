@@ -36,13 +36,7 @@ class Password extends React.Component {
 
     return (
       <div className="sui-FormInput-password">
-        <Input
-          className="sui-FormInput-password--input"
-          {...props}
-          onChange={this.onChange}
-          value={value}
-          type={type}
-        />
+        <Input {...props} onChange={this.onChange} value={value} type={type} />
         <div
           onClick={this.toggle}
           className="sui-FormInput-password--toggleButton"

@@ -7,15 +7,6 @@ $pr-atom-input-password-input: 60px;
   position: relative;
   width: 100%;
 
-  &--input {
-    border: 1px solid $c-gray-light;
-    font-size: $fz-base;
-    padding-left: $p-l;
-    padding-right: $p-l;
-    width: 100%;
-    padding-right: $pr-atom-input-password-input;
-  }
-
   &--toggleButton {
     color: $c-primary;
     cursor: pointer;

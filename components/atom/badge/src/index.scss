@@ -2,6 +2,13 @@
 
 $c-contrast-atom-badge: $c-white !default;
 $bdrs-atom-badge: $bdrs-m !default;
+$fz-atom-badge-l: $fz-m;
+$fz-atom-badge-s: $fz-xs;
+$h-atom-badge-l: 24px !default;
+$h-atom-badge-s: 16px !default;
+$m-atom-badge-l: $m-m;
+$m-atom-badge-s: $m-s;
+$p-atom-badge: 0 $p-m !default;
 
 $tags: success $c-success, error $c-error, alert $c-alert, info $c-gray;
 
@@ -9,35 +16,37 @@ $tags: success $c-success, error $c-error, alert $c-alert, info $c-gray;
   border-radius: $bdrs-atom-badge;
   box-sizing: border-box;
   display: inline-block;
-  vertical-align: bottom;
   white-space: nowrap;
 
   & + & {
-    margin-left: $m-m;
+    margin-left: $m-atom-badge-l;
   }
 
   &-small {
-    font-size: $fz-xs;
-    height: $p-l;
-    line-height: $p-l;
-    padding: 0 $p-m;
+    font-size: $fz-atom-badge-s;
+    height: $h-atom-badge-s;
+    padding: $p-atom-badge;
+
+    .sui-AtomBadge-text {
+      line-height: $h-atom-badge-s;
+    }
   }
 
   &-large {
-    font-size: $fz-m;
-    height: $p-xl;
-    line-height: $p-xl;
-    padding: 0 $p-m;
+    font-size: $fz-atom-badge-l;
+    height: $h-atom-badge-l;
+    padding: $p-atom-badge;
+    
+    .sui-AtomBadge-text {
+      line-height: $h-atom-badge-l;
+    }
   }
 
   &-icon {
     @include sui-icon--small;
     display: inline-block;
-    margin-right: $m-s;
-    vertical-align: middle;
-  }
-
-  &-text {
+    height: auto;
+    margin-right: $m-atom-badge-s;
     vertical-align: middle;
   }
 

@@ -1,0 +1,29 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$bdw-atom-input-addon-right: 1px 1px 1px 0 !default;
+$bdw-atom-input-addon-left: 1px 0 1px 1px !default;
+
+.sui-FormInput-addon {
+  &Wrapper {
+    display: flex;
+  }
+
+  align-items: center;
+  background-color: $c-gray-lightest;
+  border-color: $c-gray-light;
+  border-style: solid;
+  color: $c-gray-light;
+  display: flex;
+  height: inherit;
+  line-height: inherit;
+  padding-left: $p-l;
+  padding-right: $p-l;
+
+  &--right {
+    border-width: $bdw-atom-input-addon-right;
+  }
+
+  &--left {
+    border-width: $bdw-atom-input-addon-left;
+  }
+}

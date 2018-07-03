@@ -1,0 +1,29 @@
+const field = {
+  marginBottom: '16px'
+}
+
+return (
+  <React.Fragment>
+    <div style={field}>
+      <FormInput size='small' name='first' placeholder='Small input' />
+    </div>
+    <div style={field}>
+      <FormInput name='second' placeholder='Medium Input' />
+    </div>
+    <div style={field}>
+      <FormInput name='disabled' placeholder='Medium Disabled Input' disabled />
+    </div>
+    <div style={field}>
+      <FormInput type='number' name='number' placeholder='Number only input' />
+    </div>
+    <div style={field}>
+      <FormInput type='date' name='date' />
+    </div>
+    <div style={field}>
+      <FormInput name='second' placeholder='Medium Input' leftAddon='http://' rightAddon='@schibsted.com' />
+    </div>
+    <div style={field}>
+      <FormInput type='sui-password' name='password' placeholder='Password Input' />
+    </div>
+  </React.Fragment>
+)

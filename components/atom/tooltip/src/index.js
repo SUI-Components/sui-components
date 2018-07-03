@@ -131,13 +131,11 @@ class AtomTooltip extends Component {
     } else {
       if (type === 'touchstart') this.hasTouchEnded = false
       if (type === 'touchend') this.hasTouchEnded = true
-      if (
-        (this.hasTouchEnded && ['focusin', 'mouseover'].includes(type)) ||
-        ['touchstart', 'touchend'].includes(type)
-      ) {
+      if (this.hasTouchEnded && ['focusin', 'mouseover'].includes(type)) {
         this.handleStopPropagation(e)
       } else {
-        if (type === 'click') this.handleStopPropagation(e)
+        if (['touchstart', 'touchend'].includes(type)) return
+        if (['click', 'focusin'].includes(type)) this.handleStopPropagation(e)
         this.setState({
           isOpen: !this.state.isOpen
         })
@@ -171,7 +169,11 @@ class AtomTooltip extends Component {
             innerRef={this.refTooltip}
             offset="auto,4px"
           >
-            {this.props.title}
+            {this.props.html ? (
+              <span dangerouslySetInnerHTML={{__html: this.props.html}} />
+            ) : (
+              this.props.text
+            )}
           </Tooltip>
         )}
       </Fragment>
@@ -213,7 +215,10 @@ AtomTooltip.propTypes = {
   isVisible: PropTypes.bool,
 
   /** Text to be displayed on the Tooltip */
-  title: PropTypes.string,
+  text: PropTypes.string,
+
+  /** HTML to be displayed on the Tooltip */
+  html: PropTypes.string,
 
   /** Custom ref handler that will be assigned to the "target" element */
   innerRef: PropTypes.oneOfType([

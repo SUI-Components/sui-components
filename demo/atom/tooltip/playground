@@ -103,320 +103,125 @@ return (
         padding: '10px'
       }}
     >
-      <p>
-        Click to show message{' '}
-        <button className="noTouchContextualMenu" style={{ border:'1px solid #ccc', background: 'black', color: 'white' }} tabIndex="1" id="display_message" onClick={ () => alert("🎩 button clicked")}>
-          Show Message [?]
-        </button>
-      </p>
-      <AtomTooltip target="display_message">
-        Leo sagittis dignissim ornare egestas primis parturient ante diam fusce,
-        sollicitudin viverra felis inceptos turpis pretium enim praesent,
-        molestie ullamcorper est arcu cursus lacus vitae eget. Volutpat interdum
-        senectus eros ultrices aptent eu, mattis est inceptos montes quam,
-        lobortis auctor rutrum cubilia libero. Quisque commodo nisi curae
-        tincidunt vehicula sodales litora, vivamus
-      </AtomTooltip>
-    </div>
-    <h2>
-      Maintain tooltip on hover over tooltp with <code>autohide=false</code> (so
-      users can select text in tooltip)
-    </h2>
-    <div
-      style={{
-        border: '1px solid #CCC',
-        background: '#fff',
-        marginTop: '10px',
-        padding: '10px'
-      }}
-    >
-      <p>
-        Lorem ipsum dolor sit amet{' '}
-        <strong className="noTouchContextualMenu" tabIndex="1" id="december">
-          december
-        </strong>
-      </p>
-      <AtomTooltip autohide={false} target="december">
-        Leo sagittis dignissim ornare egestas primis parturient ante diam fusce,
-        sollicitudin viverra felis inceptos turpis pretium enim praesent,
-        molestie ullamcorper est arcu cursus lacus vitae eget. Volutpat interdum
-        senectus eros ultrices aptent eu, mattis est inceptos montes quam,
-        lobortis auctor rutrum cubilia libero. Quisque commodo nisi curae
-        tincidunt vehicula sodales litora, vivamus
-      </AtomTooltip>
-    </div>
-    <h2>Delay on show/hide and click outside to hide</h2>
-    <div
-      style={{
-        border: '1px solid #CCC',
-        background: '#fff',
-        marginTop: '10px',
-        padding: '10px'
-      }}
-    >
-      <p>
-        Lorem ipsum dolor sit amet{' '}
-        <strong 
-          className="noTouchContextualMenu"
-          tabIndex="2" 
-          id="november"
+      <p>Click to show message{' '}</p>
+      <AtomTooltip title="Leo sagittis dignissim ornare egestas primis parturient ante diam fusce,
+      sollicitudin viverra felis inceptos turpis pretium enim praesent,
+      molestie ullamcorper est arcu cursus lacus vitae eget. Volutpat interdum
+      senectus eros ultrices aptent eu, mattis est inceptos montes quam,
+      lobortis auctor rutrum cubilia libero. Quisque commodo nisi curae
+      tincidunt vehicula sodales litora, vivamus">
+        <button 
+          style={{ border:'1px solid #ccc', fontSize: '30px', background: 'black', color: 'white' }} 
+          tabIndex="1" id="display_message" 
+          onClick={ () => alert("🎩 button clicked")}
         >
-          november
-        </strong>
-      </p>
-      <AtomTooltip delay={{show: 300, hide: 1500}} target="november">
-        Vehicula neque sociis leo odio nostra fames ridiculus cubilia nunc,
-        ultricies tortor egestas vitae sed maecenas himenaeos blandit mus, donec
-        viverra duis habitasse facilisi varius dui massa.
+          🍔
+        </button>
       </AtomTooltip>
     </div>
-    <h2>
-      Maximum of 4 lines with <em>ellipsis</em>
-    </h2>
-    <div
-      style={{
-        border: '1px solid #CCC',
-        background: '#fff',
-        marginTop: '10px',
-        padding: '10px'
-      }}
-    >
-      <p>
-        Lorem ipsum dolor sit amet{' '}
-        <strong className="noTouchContextualMenu" tabIndex="3" id="avenue">
-          astros
-        </strong>
-      </p>
-      <AtomTooltip placement={atomTooltipPlacements.RIGHT} target="avenue">
-        Hendrerit varius luctus scelerisque habitant ridiculus, vulputate mollis
-        platea nunc sociosqu magna, suscipit montes ullamcorper vivamus. Montes
-        aenean nostra magna inceptos himenaeos enim lacinia ornare libero,
-        quisque sed duis placerat hac arcu porttitor lobortis rutrum,
-      </AtomTooltip>
-    </div>
-    <h2>
-      Tooltip without arrow using <code>hideArrow</code>
-    </h2>
-    <div
-      style={{
-        border: '1px solid #CCC',
-        background: '#fff',
-        marginTop: '10px',
-        padding: '10px'
-      }}
-    >
-      <p>
-        Lorem ipsum dolor sit amet{' '}
-        <strong tabIndex="4" id="indeed">
-          astros
-        </strong>
-      </p>
-      <AtomTooltip
-        placement={atomTooltipPlacements.RIGHT}
-        target="indeed"
-        hideArrow
-      >
-        Hello <strong>world</strong>!
-      </AtomTooltip>
-    </div>
-    <h2>
-      Positioning tooltip with <code>placement</code>
-    </h2>
-    <div>
-      <div
-        style={{
-          border: '1px solid #CCC',
-          background: '#fff',
-          marginTop: '10px',
-          padding: '10px'
-        }}
-      >
-        <ul style={listContainerStyles}>
-          {/* --- top --- */}
-          <li style={listItemTop}>
-            <strong tabIndex="5" id="top-start">
-              top-start
-            </strong>
-            <strong tabIndex="6" id="top">
-              top
-            </strong>
-            <strong tabIndex="7" id="top-end">
-              top-end
-            </strong>
-            <AtomTooltip
-              target="top-start"
-              placement={atomTooltipPlacements.TOP_START}
-            >
-              <code>placement='top-start'</code>
-            </AtomTooltip>
-            <AtomTooltip target="top" placement={atomTooltipPlacements.TOP}>
-              <code>placement='top'</code>
-            </AtomTooltip>
-            <AtomTooltip
-              target="top-end"
-              placement={atomTooltipPlacements.TOP_END}
-            >
-              <code>placement='top-end'</code>
-            </AtomTooltip>
-          </li>
 
-          {/* --- right --- */}
-          <li style={listItemRight}>
-            <strong tabIndex="8" id="right-start">
-              right-start
-            </strong>
-            <strong tabIndex="9" id="right">
-              right
-            </strong>
-            <strong tabIndex="10" id="right-end">
-              right-end
-            </strong>
-            <AtomTooltip
-              target="right-start"
-              placement={atomTooltipPlacements.RIGHT_START}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
-              <code>placement='right-start'</code>
-            </AtomTooltip>
-            <AtomTooltip target="right" placement={atomTooltipPlacements.RIGHT}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
-              <code>placement='right'</code>
-            </AtomTooltip>
-            <AtomTooltip
-              target="right-end"
-              placement={atomTooltipPlacements.RIGHT_END}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
-              <code>placement='right-end'</code>
-            </AtomTooltip>
-          </li>
 
-          {/* --- bottom --- */}
-          <li style={listItemBottom}>
-            <strong tabIndex="11" id="bottom-start">
-              bottom-start
-            </strong>
-            <strong tabIndex="12" id="bottom">
-              bottom
-            </strong>
-            <strong tabIndex="13" id="bottom-end">
-              bottom-end
-            </strong>
-            <AtomTooltip
-              target="bottom-start"
-              placement={atomTooltipPlacements.BOTTOM_START}
-            >
-              <code>placement='bottom-start'</code>
-            </AtomTooltip>
-            <AtomTooltip
-              target="bottom"
-              placement={atomTooltipPlacements.BOTTOM}
-            >
-              <code>placement='bottom'</code>
-            </AtomTooltip>
-            <AtomTooltip
-              target="bottom-end"
-              placement={atomTooltipPlacements.BOTTOM_END}
-            >
-              <code>placement='bottom-end'</code>
-            </AtomTooltip>
-          </li>
-
-          {/* --- left --- */}
-          <li style={listItemLeft}>
-            <strong tabIndex="14" id="left-start">
-              left-start
-            </strong>
-            <strong tabIndex="15" id="left">
-              left
-            </strong>
-            <strong tabIndex="16" id="left-end">
-              left-end
-            </strong>
-            <AtomTooltip
-              target="left-start"
-              placement={atomTooltipPlacements.LEFT_START}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
-              <code>placement='left-start'</code>
-            </AtomTooltip>
-            <AtomTooltip target="left" placement={atomTooltipPlacements.LEFT}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
-              <code>placement='left'</code>
-            </AtomTooltip>
-            <AtomTooltip
-              target="left-end"
-              placement={atomTooltipPlacements.LEFT_END}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
-              <code>placement='left-end'</code>
-            </AtomTooltip>
-          </li>
-        </ul>
-      </div>
-    </div>
     <h2>
-      Selecting element over which apply the tooltip w/ <code>target</code>
-    </h2>
-    <h3>Using an ID</h3>
-    <div
-      style={{
-        border: '1px solid #CCC',
-        background: '#fff',
-        marginTop: '10px',
-        padding: '10px'
-      }}
-    >
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna{' '}
-        <strong tabIndex="17" id="astros">
-          astros
-        </strong>
-      </p>
-      <AtomTooltip placement={atomTooltipPlacements.LEFT} target="astros">
-        Hello <strong>world</strong>!
-      </AtomTooltip>
-    </div>
-    <h3>Using a DOM Selection</h3>
-    <div
-      style={{
-        border: '1px solid #CCC',
-        background: '#fff',
-        marginTop: '10px',
-        padding: '10px'
-      }}
-    >
-      <p>
-        Lorem Ipsum <StrongWithTooltip tabIndex="18" text="astros" />
-      </p>
-    </div>
-    <h3>Using a function that returns a DOM Selection</h3>
-    <div
-      style={{
-        border: '1px solid #CCC',
-        background: '#fff',
-        marginTop: '10px',
-        padding: '10px'
-      }}
-    >
-      <ul id="list" style={stylesList}>
-        <li>
-          <a href="http://google.com">Google</a>
-        </li>
-        <li>
-          <a href="https://twitter.com">Twitter</a>
-        </li>
-        <li>
-          <a href="http://facebook.com">Facebook</a>
-        </li>
-      </ul>
-      <AtomTooltip
-        placement={atomTooltipPlacements.BOTTOM}
-        target={() => document.querySelector('#list a[href^="https"]')}
+    Maintain tooltip on hover over tooltp with <code>autohide=false</code> (so
+    users can select text in tooltip)
+  </h2>
+  <div
+    style={{
+      border: '1px solid #CCC',
+      background: '#fff',
+      marginTop: '10px',
+      padding: '10px'
+    }}
+  >
+    <p>
+      Lorem ipsum dolor sit amet{' '}
+      <AtomTooltip autohide={false} title="Leo sagittis dignissim ornare egestas primis parturient ante diam fusce,
+    sollicitudin viverra felis inceptos turpis pretium enim praesent,
+    molestie ullamcorper est arcu cursus lacus vitae eget. Volutpat interdum
+    senectus eros ultrices aptent eu, mattis est inceptos montes quam,
+    lobortis auctor rutrum cubilia libero. Quisque commodo nisi curae
+    tincidunt vehicula sodales litora, vivamus">
+      <strong tabIndex="1">
+        december
+      </strong>
+    </AtomTooltip>
+      
+    </p>
+    
+  </div>
+  <h2>Delay on show/hide and click outside to hide</h2>
+  <div
+    style={{
+      border: '1px solid #CCC',
+      background: '#fff',
+      marginTop: '10px',
+      padding: '10px'
+    }}
+  >
+    <p>
+      Lorem ipsum dolor sit amet{' '}
+      <AtomTooltip delay={{show: 300, hide: 1500}} title="Vehicula neque sociis leo odio nostra fames ridiculus cubilia nunc,
+    ultricies tortor egestas vitae sed maecenas himenaeos blandit mus, donec
+    viverra duis habitasse facilisi varius dui massa.">
+      <strong 
+        tabIndex="2"
       >
-        First Secure Link
+        november
+      </strong>
+    </AtomTooltip>
+      
+    </p>
+    
+  </div>
+  <h2>
+    Maximum of 4 lines with <em>ellipsis</em>
+  </h2>
+  <div
+    style={{
+      border: '1px solid #CCC',
+      background: '#fff',
+      marginTop: '10px',
+      padding: '10px'
+    }}
+  >
+    <p>
+      Lorem ipsum dolor sit amet{' '}
+      <AtomTooltip placement={atomTooltipPlacements.RIGHT} title="Hendrerit varius luctus scelerisque habitant ridiculus, vulputate mollis
+      platea nunc sociosqu magna, suscipit montes ullamcorper vivamus. Montes
+      aenean nostra magna inceptos himenaeos enim lacinia ornare libero,
+      quisque sed duis placerat hac arcu porttitor lobortis rutrum,">
+        <strong tabIndex="3">
+          astros
+        </strong>  
       </AtomTooltip>
-    </div>
+      
+    </p>
+  </div>
+  <h2>
+  Tooltip without arrow using <code>hideArrow</code>
+</h2>
+<div
+  style={{
+    border: '1px solid #CCC',
+    background: '#fff',
+    marginTop: '10px',
+    padding: '10px'
+  }}
+>
+  <p>
+    Lorem ipsum dolor sit amet{' '}
+    <AtomTooltip
+      placement={atomTooltipPlacements.RIGHT}
+      title="Hello <strong>world</strong>!"
+      hideArrow
+    >
+      <strong tabIndex="4">
+        astros
+      </strong>
+    </AtomTooltip>
+    
+  </p>
+</div>
+
   </div>
 )

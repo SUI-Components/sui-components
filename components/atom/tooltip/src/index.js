@@ -1,8 +1,6 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import PropTypes from 'prop-types'
 import {Tooltip} from 'reactstrap'
-import {getTarget} from 'reactstrap/lib/utils'
-import DOMElement from './customPropTypes/DOMElement'
 import withIntersectionObserver from './hoc/withIntersectionObserver'
 
 const BASE_CLASS = 'sui-AtomTooltip'
@@ -30,6 +28,7 @@ class AtomTooltip extends Component {
   preventNonTouchEvents = false
   hasTouchEnded = false
   refTooltip = React.createRef()
+  refTarget = React.createRef()
 
   static defaultProps = {
     isVisible: true
@@ -42,36 +41,48 @@ class AtomTooltip extends Component {
     return null
   }
 
+  extendChildren() {
+    const {children} = this.props // eslint-disable-line react/prop-types
+
+    const ref = this.refTarget
+    const className = CLASS_TARGET
+    const onTouchEnd = this.toggle
+
+    const childrenOnly = React.Children.only(children)
+
+    return React.Children.map(childrenOnly, child => {
+      this.onClickTarget = child.props.onClick
+      return React.cloneElement(child, {
+        ref,
+        onClick: null,
+        className,
+        onTouchEnd
+      })
+    })
+  }
+
   componentDidMount() {
-    this._target = getTarget(this.props.target)
+    const target = this.refTarget.current
+    this.props.innerRef(target)
     document.addEventListener('click', this.handleClickOutsideElement)
-    this._target.classList.add(CLASS_TARGET)
-    this._target.addEventListener(
-      'click',
-      e => {
-        e.stopPropagation()
-        console.log('click stopped from tooltip... ')
-      },
-      true
-    )
-    this._target.addEventListener('touchend', this.toggle)
-    this._target.oncontextmenu = function(event) {
-      event.preventDefault()
-      event.stopPropagation()
-      return false
-    }
+    target.oncontextmenu = this.handleContextMenu
   }
 
   componentWillUnmount() {
     document.removeEventListener('click', this.handleClickOutsideElement)
-    this._target.removeEventListener('touchend', this.toggle)
+    this.refTarget.removeEventListener('touchend', this.toggle)
+  }
+
+  handleContextMenu = e => {
+    e.preventDefault()
+    e.stopPropagation()
+    return false
   }
 
   handleClickOutsideElement = e => {
     const {isOpen} = this.state
     if (isOpen) {
-      const {type} = e
-      console.log('closing from handleClickOutsideElement → ', {type})
+      // // console.log('closing from handleClickOutsideElement → ', {type})
       const tooltipDom = this.refTooltip.current
       const isOutside = tooltipDom && !tooltipDom.contains(e.target)
       if (isOutside) this.toggle(e)
@@ -81,9 +92,6 @@ class AtomTooltip extends Component {
   handleTouchStart = e => {
     this.preventNonTouchEvents = true
     this.hasTouchEnded = false
-    e.preventDefault()
-    e.stopPropagation()
-    e.stopImmediatePropagation()
     clearInterval(this.touchTimer)
     this.touchTimer = setTimeout(() => {
       if (!this.hasTouchEnded) {
@@ -97,23 +105,28 @@ class AtomTooltip extends Component {
     return false
   }
 
-  handleTouchEnd = () => {
-    setTimeout(() => {
-      this.hasTouchEnded = true
-    }, 1000)
+  handleTouchEnd = e => {
+    if (!this.preventNonTouchEvents) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
+    this.hasTouchEnded = true
     clearInterval(this.touchTimer)
   }
 
   toggle = e => {
-    const {type} = e
-    const {preventNonTouchEvents, hasTouchEnded} = this
-    console.log({type, preventNonTouchEvents, hasTouchEnded})
+    // const {type} = e
+    // const {preventNonTouchEvents, hasTouchEnded, disableClick} = this
+    // console.log({type, preventNonTouchEvents, hasTouchEnded, disableClick})
 
     if (e.type === 'touchstart') {
       this.handleTouchStart(e)
     }
     if (e.type === 'touchend') {
-      this.handleTouchEnd()
+      this.handleTouchEnd(e)
+    }
+    if (e.type === 'click') {
+      this.onClickTarget && this.onClickTarget(e)
     }
 
     if (!this.preventNonTouchEvents) {
@@ -126,26 +139,35 @@ class AtomTooltip extends Component {
   }
 
   render() {
-    const {hideArrow, target, delay, autohide, placement, children} = this.props // eslint-disable-line react/prop-types
+    const {hideArrow, delay, autohide, placement} = this.props // eslint-disable-line react/prop-types
+    const target = this.refTarget.current
     const restrictedProps = {
       hideArrow,
       target,
       delay,
       autohide,
-      placement,
-      children
+      placement
     }
+    // console.log(restrictedProps)
+    // console.log(this.tooltipContent)
     return (
-      <Tooltip
-        {...restrictedProps}
-        isOpen={this.state.isOpen}
-        toggle={this.toggle}
-        className={BASE_CLASS}
-        innerClassName={CLASS_INNER}
-        placementPrefix={PREFIX_PLACEMENT}
-        innerRef={this.refTooltip}
-        offset="auto,4px"
-      />
+      <Fragment>
+        {this.extendChildren()}
+        {target && (
+          <Tooltip
+            {...restrictedProps}
+            isOpen={this.state.isOpen}
+            toggle={this.toggle}
+            className={BASE_CLASS}
+            innerClassName={CLASS_INNER}
+            placementPrefix={PREFIX_PLACEMENT}
+            innerRef={this.refTooltip}
+            offset="auto,4px"
+          >
+            {this.props.title}
+          </Tooltip>
+        )}
+      </Fragment>
     )
   }
 }
@@ -157,11 +179,13 @@ AtomTooltip.propTypes = {
   hideArrow: PropTypes.bool,
 
   /** target element or element ID, popover is attached to this element */
+  /*
   target: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func,
     DOMElement // instanceof Element (https://developer.mozilla.org/en-US/docs/Web/API/Element)
   ]).isRequired,
+  */
 
   /** Optionally override show/hide delays. Default  → { show: 0, hide: 250 } */
   delay: PropTypes.oneOfType([
@@ -179,7 +203,17 @@ AtomTooltip.propTypes = {
   placement: PropTypes.oneOf(Object.values(PLACEMENTS)),
 
   /** True if the component is inside the viewport */
-  isVisible: PropTypes.bool
+  isVisible: PropTypes.bool,
+
+  /** Text to be displayed on the Tooltip */
+  title: PropTypes.string,
+
+  /** Custom ref handler that will be assigned to the "target" element */
+  innerRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.string,
+    PropTypes.object
+  ])
 }
 
 export default withIntersectionObserver(0.5)(AtomTooltip)

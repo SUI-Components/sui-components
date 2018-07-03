@@ -18,7 +18,7 @@ import FormInput from '@s-ui/react-form-input'
 return <FormInput type='number' /> // possible type options: text, number, date and password
 ```
 
-### Not native Inputs
+### Non native Inputs
 
 #### SUI-Password
 
@@ -42,4 +42,61 @@ Addons are passed as prop, use **leftAddon** or **rightAddon** in order to set t
 import FormInput from '@s-ui/react-form-input'
 
 return <FormInput leftAddon='http://' rightAddon='@schibsted.com' />
+```
+
+## Form Usage
+
+Each field returns its value on every onChange event so you can save it inside your form state.
+
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Input from '@s-ui/react-form-input'
+import Button from '@schibstedspain/sui-atom-button'
+
+class SimpleLoginForm extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      login: '',
+      password: ''
+    }
+
+    this.onChange = this.onChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
+  }
+
+  onChange({value, field}) {
+    this.setState({
+      [field]: value
+    })
+  }
+
+  onSubmit(ev) {
+    ev.preventDefault()
+    ev.stopPropagation()
+
+    window.alert(JSON.stringify(this.state))
+  }
+
+  render() {
+    const {login, password} = this.state
+    return (
+      <form>
+        <Input
+          type="text"
+          value={login}
+          onChange={({value}) => this.onChange({value, field: 'login'})}
+        />
+        <Input
+          type="sui-password"
+          value={password}
+          onChange={({value}) => this.onChange({value, field: 'password'})}
+        />
+        <Button onClick={this.onSubmit}>Login</Button>
+      </form>
+    )
+  }
+}
+
 ```

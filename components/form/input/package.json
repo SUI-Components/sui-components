@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-form-input",
+  "name": "@s-ui/react-form-input",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

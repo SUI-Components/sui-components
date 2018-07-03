@@ -14,9 +14,9 @@ const TYPES = {
 const AddonHoC = WrappedInput =>
   class Addon extends React.Component {
     static propTypes = {
-      /* Text to be shown within the addon */
+      /* Left addon component, text,... */
       leftAddon: PropTypes.any,
-      /* 'left' or 'right' */
+      /* Right addon component, text,... */
       rightAddon: PropTypes.any
     }
 

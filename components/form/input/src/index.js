@@ -22,7 +22,22 @@ const FormInput = ({type, ...props}) => {
 }
 
 FormInput.propTypes = {
-  type: PropTypes.oneOf(Object.values(TYPES))
+  /* native types (text, date, ...), 'sui-password' */
+  type: PropTypes.oneOf(Object.values(TYPES)),
+  /* Left addon component, text,... */
+  leftAddon: PropTypes.any,
+  /* Right addon component, text,... */
+  rightAddon: PropTypes.any,
+  /* Text to be shown in order to show the password on click */
+  pwShowLabel: PropTypes.string,
+  /* Text to be shown in order to hide the password on click */
+  pwHideLabel: PropTypes.string,
+  /* onChange callback */
+  onChange: PropTypes.func,
+  /* sets the name property of an element in the DOM */
+  name: PropTypes.string,
+  /* The DOM id global attribute. */
+  id: PropTypes.string
 }
 
 FormInput.displayName = 'FormInput'

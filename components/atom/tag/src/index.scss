@@ -10,6 +10,7 @@ $p-atom-tag: 0 $p-l !default;
   @include sui-icon--small;
   display: inline-block;
   vertical-align: middle;
+  line-height: initial;
 
   @if $type == 'icon' {
     margin: 0 $m-s 0 (-$m-m);
@@ -27,12 +28,9 @@ $p-atom-tag: 0 $p-l !default;
   font-size: $fz-s;
   height: $h-atom-tag;
   line-height: $h-atom-tag;
+  margin: 0 $m-m $m-m 0;
   padding: $p-atom-tag;
   white-space: nowrap;
-
-  & + & {
-    margin-left: $m-m;
-  }
 
   &-label {
     // max width - 2 icon size
@@ -57,6 +55,7 @@ $p-atom-tag: 0 $p-l !default;
 
   &-secondary-closeable {
     cursor: pointer;
+    line-height: initial;
 
     &:hover {
       background-color: $c-system;

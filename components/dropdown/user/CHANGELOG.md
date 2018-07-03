@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.20.0"></a>
+# 1.20.0 (2018-06-21)
+
+
+### Features
+
+* delete requiresAuth as is no longer used ([872f419](https://github.com/SUI-Components/sui-components/commit/872f419))
+
+
+
 <a name="1.19.0"></a>
 # 1.19.0 (2018-06-12)
 

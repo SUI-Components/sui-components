@@ -9,9 +9,3 @@
     @include reset-link;
   }
 }
-
-.sui-CardBasic--small {
-  & .sui-CardBasic {
-    @include sui-card--small;
-  }
-}

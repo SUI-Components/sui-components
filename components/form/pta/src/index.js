@@ -1,10 +1,14 @@
-import React, {Component} from 'react'
+import React, {Component, createRef} from 'react'
 import PropTypes from 'prop-types'
 
 const BASE_CLASS = 'sui-FormPta'
 const CONTENT_CLASS = `${BASE_CLASS}-content`
+const SEND_SETTINGS_TO_PTA = 'SEND_SETTINGS_TO_PTA'
+const REMOVE_DRAFT = 'REMOVE_DRAFT'
 
 class FormPta extends Component {
+  _iframeRef = createRef()
+
   /**
    * Avoid iframe re-rendering
    */
@@ -20,29 +24,53 @@ class FormPta extends Component {
       redirectOnErrorUrl,
       formUrl,
       enableDraft,
+      draftId,
       redirectOnSuccessUrl
     } = this.props
     const formSettings = {
       enableDraft,
+      draftId,
       formUrl,
       exitURLs: {
         success: redirectOnSuccessUrl,
         error: redirectOnErrorUrl
       }
     }
+    contentWindow.postMessage(
+      {
+        payload: formSettings,
+        type: SEND_SETTINGS_TO_PTA
+      },
+      formUrl
+    )
+  }
 
-    contentWindow.postMessage(formSettings, formUrl)
+  removeDraft(draftId) {
+    const {formUrl} = this.props
+    const {contentWindow} = this._iframeRef.current
+
+    contentWindow.postMessage(
+      {
+        type: REMOVE_DRAFT,
+        payload: {
+          draftId
+        }
+      },
+      formUrl
+    )
   }
 
   render() {
     const {
       props: {formUrl},
-      sendSettingsToForm
+      sendSettingsToForm,
+      _iframeRef
     } = this
 
     return (
       <div className={BASE_CLASS}>
         <iframe
+          ref={_iframeRef}
           className={CONTENT_CLASS}
           src={formUrl}
           onLoad={sendSettingsToForm}
@@ -59,6 +87,10 @@ FormPta.propTypes = {
    * Save current form state in local storage
    */
   enableDraft: PropTypes.bool,
+  /**
+   * Draft id
+   */
+  draftId: PropTypes.string,
   /**
    * Form url
    */

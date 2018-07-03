@@ -1,0 +1,59 @@
+class ModalPlayground extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showModal: false,
+      retrieveConsentsFromCmp: false
+    }
+  }
+
+  _showModal(retrieveConsentsFromCmp) {
+    return e => {
+      this.setState({
+        retrieveConsentsFromCmp,
+        showModal: true
+      })
+    }
+  }
+
+  render() {
+    const {retrieveConsentsFromCmp, showModal} = this.state
+    return (
+      <React.Fragment>
+        <p>
+          La modal del CMP puede ser mostrada en dos lugares. Uno es nada más
+          entrar el usuario a nuestra aplicación. Por lo tanto, el usuario no
+          tiene una configuración establecida y debemos indicar que no queremos
+          recuperar la configuración inicial del CMP, y que por defecto le
+          mostraremos todo activado.
+        </p>
+        <p>
+          <button id='open-e2e' onClick={this._showModal(false)}>
+            Abrir Modal con consents por defecto
+          </button>
+        </p>
+        <p>
+          La otra, puede ser en nuestra página de privacidad. En ese caso, el
+          usuario va a querer cambiar su configuración, por lo tanto, lo que
+          debemos hacer, es abrir la misma modal pero recuperando la
+          configuración de su CMP para que pueda modificar su última
+          configuración.
+        </p>
+        <p>
+          <button onClick={this._showModal(true)}>
+            Abrir Modal con consents guardados
+          </button>
+        </p>
+        {showModal && (
+          <CmpModal
+            onExit={() => {this.setState({ showModal: false })}}
+            retrieveConsentsFromCmp={retrieveConsentsFromCmp}
+            logo="https://www.schibsted.es/wp-content/themes/Schibsted-spn/img/logo.png"
+            privacyUrl='#privacy-url-to-configure'
+          />
+        )}
+      </React.Fragment>
+    )
+  }
+}
+return <ModalPlayground />

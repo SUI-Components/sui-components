@@ -6,8 +6,8 @@ import './index.scss'
 
 const TEXT = 'text'
 const PASSWORD = 'password'
-const DEFAULT_HIDE = 'hide'
-const DEFAULT_SHOW = 'show'
+const HIDE_LABEL = 'hide'
+const SHOW_LABEL = 'show'
 
 class Password extends React.Component {
   state = {
@@ -62,8 +62,8 @@ Password.propTypes = {
 }
 
 Password.defaultProps = {
-  pwShowLabel: DEFAULT_SHOW,
-  pwHideLabel: DEFAULT_HIDE
+  pwShowLabel: SHOW_LABEL,
+  pwHideLabel: HIDE_LABEL
 }
 
 export default Password

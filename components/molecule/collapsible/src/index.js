@@ -9,49 +9,59 @@ const BUTTON_CLASS = `${BASE_CLASS}-btn`
 const MIN_HEIGHT = 100 // px
 
 class MoleculeCollapsible extends Component {
-  state = {
-    show: false
+  constructor(props) {
+    super(props);
+    this.childrenContainer = React.createRef();
+    this.state = { collapsed: true,  showButton: true}
+    this.contentStyles = {
+      height: `${MIN_HEIGHT}`
+    }
+  }
+
+  toggleCollapse = () => {
+    const {collapsed, showButton} = this.state
+    const {onClose, onOpen} = this.props
+    if(showButton) {
+      if (collapsed) {
+        this.setState({collapsed: false})
+        onOpen()
+      } else {
+        this.setState({collapsed: true})
+        onClose()
+      }
+    }
+  }
+
+  componentDidMount() {
+    const offsetHeight = this.childrenContainer.current.offsetHeight
+    this.setState({showButton: offsetHeight >= MIN_HEIGHT })
   }
 
   render() {
-    const {show} = this.state
-    const {
-      children,
-      height,
-      icon,
-      showText,
-      hideText,
-      hasGradient,
-      onOpen,
-      onClose
-    } = this.props
+    const {collapsed, showButton} = this.state
+    const {children, height, icon, showText, hideText, hasGradient} = this.props
     const wrapperClassName = cx(`${BASE_CLASS}`, {
       [`${BASE_CLASS}-gradient`]: hasGradient
     })
 
-    toggleCollapse = () => {
-      if (show) {
-        onClose()
-      } else {
-        onOpen()
-      }
-    }
+    const containerHeight = showButton && collapsed ? height : 'auto'
 
     return (
       <div className={wrapperClassName}>
-        <div className={CONTENT_CLASS} height={height}>
+        <div className={CONTENT_CLASS} style={{height: `${containerHeight}`}} ref={this.childrenContainer}>
           {children}
-          <div className={CONTAINER_BUTTON_CLASS}>
-            <button
-              type="button"
-              className={BUTTON_CLASS}
-              onClick={this.toggleCollapse}
-            >
-              {show ? hideText : showText}
-              <span>{icon}</span>
-            </button>
-          </div>
         </div>
+        {showButton && (
+        <div className={CONTAINER_BUTTON_CLASS}>
+          <button
+            type="button"
+            className={BUTTON_CLASS}
+            onClick={this.toggleCollapse}
+          >
+            {collapsed ? showText : hideText}
+            <span>{icon}</span>
+          </button>
+        </div>)}
       </div>
     )
   }
@@ -81,7 +91,7 @@ MoleculeCollapsible.propTypes = {
    */
   hideText: PropTypes.string.isRequired,
   /**
-   * Activate/deactivate gradient 
+   * Activate/deactivate gradient
    */
   hasGradient: PropTypes.bool,
   /**
@@ -96,7 +106,9 @@ MoleculeCollapsible.propTypes = {
 
 MoleculeCollapsible.defaultProps = {
   height: MIN_HEIGHT,
-  hasGradient: true
+  hasGradient: true,
+  onOpen: () => {},
+  onClose: () => {}
 }
 
 export default MoleculeCollapsible

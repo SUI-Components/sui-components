@@ -1,5 +1,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-.react-MoleculeCollapsible {
-  // Do your magic
+.sui-MoleculeCollapsible {
+  display: inline-block;
+  overflow: hidden;
+  width: 100%;
 }

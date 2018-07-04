@@ -5,7 +5,7 @@ const field = {
 return (
   <React.Fragment>
     <div style={field}>
-      <FormInput size='small' name='first' placeholder='Small input' />
+      <FormInput size={InputSizes.SMALL} name='first' placeholder='Small input' />
     </div>
     <div style={field}>
       <FormInput name='second' placeholder='Medium Input' />

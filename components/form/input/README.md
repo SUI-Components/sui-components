@@ -86,12 +86,12 @@ class SimpleLoginForm extends React.Component {
         <Input
           type="text"
           value={login}
-          onChange={({value}) => this.onChange({value, field: 'login'})}
+          onChange={({ev, value}) => this.onChange({value, field: 'login', ev})}
         />
         <Input
           type="sui-password"
           value={password}
-          onChange={({value}) => this.onChange({value, field: 'password'})}
+          onChange={({ev, value}) => this.onChange({value, field: 'password', ev})}
         />
         <Button onClick={this.onSubmit}>Login</Button>
       </form>

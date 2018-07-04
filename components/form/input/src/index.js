@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Input from './Input'
+import Input, {InputSizes} from './Input'
 import Password from './Password'
 
 const TYPES = {
@@ -43,7 +43,7 @@ FormInput.propTypes = {
   /* This Boolean attribute prevents the user from interacting with the input */
   disabled: PropTypes.bool,
   /* 's' or 'm', default: 'm' */
-  size: PropTypes.string,
+  size: PropTypes.oneOf(Object.values(InputSizes)),
   /* value of the control */
   value: PropTypes.string
 }
@@ -51,3 +51,4 @@ FormInput.propTypes = {
 FormInput.displayName = 'FormInput'
 
 export default FormInput
+export {InputSizes}

@@ -2,8 +2,6 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import './index.scss'
-
 const CLASS = 'sui-FormInput-input'
 const SIZES = {
   MEDIUM: 'm',
@@ -12,7 +10,7 @@ const SIZES = {
 
 class Input extends Component {
   changeHandler(ev, onChange) {
-    onChange && onChange({value: ev.target.value, target: ev.target})
+    onChange && onChange({value: ev.target.value, ev})
   }
 
   getClassNames({size}) {
@@ -58,7 +56,7 @@ Input.propTypes = {
   /* A hint to the user of what can be entered in the control. The placeholder text must not contain carriage returns or line-feeds. */
   placeholder: PropTypes.string,
   /* 's' or 'm', default: 'm' */
-  size: PropTypes.string,
+  size: PropTypes.oneOf(Object.values(SIZES)),
   /* text, password, date or number */
   type: PropTypes.string,
   /* value of the control */
@@ -70,3 +68,4 @@ Input.defaultProps = {
 }
 
 export default Input
+export {SIZES as InputSizes}

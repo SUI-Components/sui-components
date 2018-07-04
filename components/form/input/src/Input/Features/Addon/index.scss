@@ -2,9 +2,9 @@
 
 $bdw-form-input-addon-right: 1px 1px 1px 0 !default;
 $bdw-form-input-addon-left: 1px 0 1px 1px !default;
-$bgc-form-input-addon: $c-gray-lightest;
-$bdc-form-input-addon: $c-gray-light;
-$c-form-input-addon: $c-gray-light;
+$bgc-form-input-addon: $c-gray-lightest !default;
+$bdc-form-input-addon: $c-gray-light !default;
+$c-form-input-addon: $c-gray-light !default;
 
 .sui-FormInput-addon {
   &Wrapper {

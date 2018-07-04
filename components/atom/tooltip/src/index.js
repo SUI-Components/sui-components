@@ -12,7 +12,7 @@ const PLACEMENTS = {
   TOP: 'top',
   TOP_START: 'top-start',
   TOP_END: 'top-end',
-  TOP_RIGHT: 'right',
+  RIGHT: 'right',
   RIGHT_START: 'right-start',
   RIGHT_END: 'right-end',
   BOTTOM: 'bottom',
@@ -153,8 +153,6 @@ class AtomTooltip extends Component {
       autohide,
       placement
     }
-    // console.log(restrictedProps)
-    // console.log(this.tooltipContent)
     return (
       <Fragment>
         {this.extendChildren()}
@@ -186,15 +184,6 @@ AtomTooltip.displayName = 'AtomTooltip'
 AtomTooltip.propTypes = {
   /** Wether to show arrow or not. */
   hideArrow: PropTypes.bool,
-
-  /** target element or element ID, popover is attached to this element */
-  /*
-  target: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-    DOMElement // instanceof Element (https://developer.mozilla.org/en-US/docs/Web/API/Element)
-  ]).isRequired,
-  */
 
   /** Optionally override show/hide delays. Default  → { show: 0, hide: 250 } */
   delay: PropTypes.oneOfType([

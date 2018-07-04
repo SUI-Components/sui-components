@@ -116,6 +116,18 @@ $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
   }
 }
 
+.arrow {
+  [x-placement='right-start'] &, 
+  [x-placement='left-start'] & {
+    transform: translateY(8px);
+  }
+
+  [x-placement='right-end'] &,
+  [x-placement='left-end'] & {
+    transform: translateY(-8px);
+  }
+}
+
 .sui-AtomTooltip--auto {
   &[x-placement^='top'] {
     @extend .sui-AtomTooltip--top;

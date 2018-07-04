@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2018-07-04)
+
+
+### Bug Fixes
+
+* add !default in variables ([22e357a](https://github.com/SUI-Components/sui-components/commit/22e357a))
+* add icon height, refactor variables ([18ac517](https://github.com/SUI-Components/sui-components/commit/18ac517))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-03-07)
 

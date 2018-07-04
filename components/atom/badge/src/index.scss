@@ -2,12 +2,12 @@
 
 $c-contrast-atom-badge: $c-white !default;
 $bdrs-atom-badge: $bdrs-m !default;
-$fz-atom-badge-l: $fz-m;
-$fz-atom-badge-s: $fz-xs;
+$fz-atom-badge-l: $fz-m !default;
+$fz-atom-badge-s: $fz-xs !default;
 $h-atom-badge-l: 24px !default;
 $h-atom-badge-s: 16px !default;
-$m-atom-badge-l: $m-m;
-$m-atom-badge-s: $m-s;
+$m-atom-badge-l: $m-m !default;
+$m-atom-badge-s: $m-s !default;
 $p-atom-badge: 0 $p-m !default;
 
 $tags: success $c-success, error $c-error, alert $c-alert, info $c-gray;

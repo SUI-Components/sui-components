@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2018-07-04)
+
+
+### Bug Fixes
+
+* added new height variables and removed classname ([4ca639b](https://github.com/SUI-Components/sui-components/commit/4ca639b))
+* changed naming variables ([8aeefa0](https://github.com/SUI-Components/sui-components/commit/8aeefa0))
+* resolved line-height bug in Firefox ([998901b](https://github.com/SUI-Components/sui-components/commit/998901b))
+
+
+### Features
+
+* added new small tag size ([c120cb6](https://github.com/SUI-Components/sui-components/commit/c120cb6))
+* removed classname to do the component not "styleable" from outside ([8b44b27](https://github.com/SUI-Components/sui-components/commit/8b44b27))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2018-06-26)
 

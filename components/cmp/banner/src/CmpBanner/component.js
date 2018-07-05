@@ -10,13 +10,17 @@ export class CmpBanner extends Component {
     return false
   }
   render() {
-    const {buttons, lang} = this.props
+    const {buttons, companyName, lang} = this.props
     return (
       <div className={CLASS}>
         <Notification
           buttons={buttons}
           position="bottom"
-          text={<p className={`${CLASS}-text`}>{I18N[lang].BANNER_BODY}</p>}
+          text={
+            <p className={`${CLASS}-text`}>
+              {I18N[lang].BANNER_BODY.replace('%{companyName}', companyName)}
+            </p>
+          }
           show
           showCloseButton={false}
         />
@@ -26,6 +30,10 @@ export class CmpBanner extends Component {
 }
 
 CmpBanner.propTypes = {
+  /**
+   * Name of the company which the consents are for
+   */
+  companyName: PropTypes.string.isRequired,
   /**
    * Props for the buttons to be created
    */

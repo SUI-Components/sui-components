@@ -63,12 +63,15 @@ export class CmpBannerContainer extends Component {
     return (
       <React.Fragment>
         {this.state.showNotification && (
-          <CmpBanner buttons={this._generateButtons()} lang={lang} />
+          <CmpBanner
+            buttons={this._generateButtons()}
+            companyName={companyName}
+            lang={lang}
+          />
         )}
         {this.state.showModal && (
           <CmpModal
             cmpReady
-            companyName={companyName}
             lang={lang}
             logo={logo}
             onExit={this._handleExitModal}

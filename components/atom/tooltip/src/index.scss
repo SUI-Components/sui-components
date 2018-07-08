@@ -116,15 +116,17 @@ $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
   }
 }
 
-.arrow {
-  [x-placement='right-start'] &, 
-  [x-placement='left-start'] & {
-    transform: translateY(8px);
-  }
-
-  [x-placement='right-end'] &,
-  [x-placement='left-end'] & {
+[data-placement='left-start'],
+[data-placement='right-start'] {
+  .sui-AtomTooltip-inner {
     transform: translateY(-8px);
+  }
+}
+
+[data-placement='left-end'],
+[data-placement='right-end'] {
+  .sui-AtomTooltip-inner {
+    transform: translateY(8px);
   }
 }
 

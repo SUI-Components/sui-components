@@ -52,6 +52,7 @@ class AtomTooltip extends Component {
 
     return React.Children.map(childrenOnly, child => {
       this.onClickTarget = child.props.onClick
+      this.title = child.props.title
       return React.cloneElement(child, {
         ref,
         onClick: null,
@@ -66,12 +67,26 @@ class AtomTooltip extends Component {
     this.props.innerRef(target)
     document.addEventListener('click', this.handleClickOutsideElement)
     target.oncontextmenu = this.handleContextMenu
+    target.addEventListener('mouseover', this.disableTitle)
+    target.addEventListener('mouseout', this.restoreTitle)
   }
 
   componentWillUnmount() {
+    const target = this.refTarget.current
     clearTimeout(this.touchTimer)
     document.removeEventListener('click', this.handleClickOutsideElement)
     this.refTarget.removeEventListener('touchend', this.toggle)
+    target.removeEventListener('mouseover', this.disableTitle)
+    target.removeEventListener('mouseout', this.restoreTitle)
+  }
+
+  disableTitle(e) {
+    this.dataset.title = this.title
+    this.title = ''
+  }
+
+  restoreTitle(e) {
+    this.title = this.dataset.title
   }
 
   handleContextMenu = e => {
@@ -170,7 +185,7 @@ class AtomTooltip extends Component {
             {this.props.html ? (
               <span dangerouslySetInnerHTML={{__html: this.props.html}} />
             ) : (
-              this.props.text
+              this.title
             )}
           </Tooltip>
         )}
@@ -200,11 +215,8 @@ AtomTooltip.propTypes = {
   /** Tooltip and arrow position */
   placement: PropTypes.oneOf(Object.values(PLACEMENTS)),
 
-  /** True if the component is inside the viewport */
+  /** True if the target is inside the viewport */
   isVisible: PropTypes.bool,
-
-  /** Text to be displayed on the Tooltip */
-  text: PropTypes.string,
 
   /** HTML to be displayed on the Tooltip */
   html: PropTypes.string,

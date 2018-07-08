@@ -91,7 +91,45 @@ const iconMenuHamburguer =
 return (
   <div>
     <h1>AtomTooltip</h1>
-
+    <h2>Basic Usage</h2>
+    <p><code>AtomTooltip</code> will use the <code>title</code> (plain text) of the wrapped element as content for the tooltip</p>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip>
+          <u title="Last month of this year 2018" tabIndex="1">
+            december
+          </u>
+        </AtomTooltip>
+      </p>
+    </div>
+    <h2>HTML for content of the tooltip </h2>
+    <p>We can also set HTML as content of the Tooltip be setting the props <code>html</code> of <code>AtomTooltip</code>.</p>
+    <small>By default it will use the <code>title</code> of the wrapped element as content of the tooltip</small>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip html="Last <em>month</em> of the <strong>year</strong>">
+          <strong tabIndex="1">
+            december
+          </strong>
+        </AtomTooltip>
+      </p>
+    </div>
     <h2>
       Positioning tooltip with <code>placement</code>
     </h2>
@@ -210,12 +248,9 @@ return (
     >
       <p>
         Lorem ipsum dolor sit amet{' '}
-        <AtomTooltip
-          autohide={false}
-          text="Leo sagittis dignissim ornare egestas primis parturient ante diam fusce,
-    sollicitudin viverra felis inceptos turpis."
-        >
-          <strong tabIndex="1">december</strong>
+        <AtomTooltip autohide={false}>
+          <strong title="Leo sagittis dignissim ornare egestas primis parturient ante diam fusce,
+          sollicitudin viverra felis inceptos turpis." tabIndex="1">december</strong>
         </AtomTooltip>
       </p>
     </div>
@@ -230,12 +265,9 @@ return (
     >
       <p>
         Lorem ipsum dolor sit amet{' '}
-        <AtomTooltip
-          delay={{show: 300, hide: 1500}}
-          text="Vehicula neque sociis leo odio nostra fames ridiculus cubilia nunc,
-    ultricies tortor egestas vitae sed maecenas "
-        >
-          <strong tabIndex="2">november</strong>
+        <AtomTooltip delay={{show: 300, hide: 1500}}>
+          <strong title="Vehicula neque sociis leo odio nostra fames ridiculus cubilia nunc,
+          ultricies tortor egestas vitae sed maecenas " tabIndex="2">november</strong>
         </AtomTooltip>
       </p>
     </div>
@@ -252,14 +284,11 @@ return (
     >
       <p>
         Lorem ipsum dolor sit amet{' '}
-        <AtomTooltip
-          placement={atomTooltipPlacements.RIGHT}
-          text="Hendrerit varius luctus scelerisque habitant ridiculus, vulputate mollis
-      platea nunc sociosqu magna, suscipit montes ullamcorper vivamus. Montes
-      aenean nostra magna inceptos himenaeos enim lacinia ornare libero,
-      quisque sed duis placerat hac arcu porttitor lobortis rutrum,"
-        >
-          <strong tabIndex="3">astros</strong>
+        <AtomTooltip placement={atomTooltipPlacements.RIGHT}>
+          <strong title="Hendrerit varius luctus scelerisque habitant ridiculus, vulputate mollis
+          platea nunc sociosqu magna, suscipit montes ullamcorper vivamus. Montes
+          aenean nostra magna inceptos himenaeos enim lacinia ornare libero,
+          quisque sed duis placerat hac arcu porttitor lobortis rutrum," tabIndex="3">astros</strong>
         </AtomTooltip>
       </p>
     </div>
@@ -305,13 +334,14 @@ return (
         padding: '10px'
       }}
     >
-      <AtomTooltip text="This menu display some cool options">
+      <AtomTooltip>
         <button
           style={{
             border: '1px solid #ccc',
             fontSize: '30px'
           }}
           tabIndex="1"
+          title="This menu display some cool options"
           onClick={() => alert('👍  action triggered')}
         >
           <img

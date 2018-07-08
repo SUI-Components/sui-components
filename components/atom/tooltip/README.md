@@ -1,9 +1,23 @@
 # AtomTooltip
 
-AtomTooltip is a component that attaches a tooltip over a targeted element. It has some properties like being shown always on the screen changing sides if necessary, delays can be set, options to select text on tooltip and more. This component is based on the [Tooltip component](https://reactstrap.github.io/components/tooltips/) of [reactstrap](https://reactstrap.github.io/) which is built using [popper.js](https://popper.js.org/), so:
-- all the props that are accepted by reacstraps's [`Tooltip`]([Tooltip component](https://reactstrap.github.io/components/tooltips/)) will also be accepted by `AtomTooltip`
-- all the [modifiers](https://popper.js.org/popper-documentation.html#modifiers) that are accepted by [popper.js](https://popper.js.org/) will also be accepted by `AtomTooltip` through the `modifiers` prop
+AtomTooltip is a component that wraps an element and shows a tooltip over it. It has some properties like:
+- it will show the `title` attribute of the wrapped element by default
+- can also display html as content of the tooltip
+- being displayed on the screen changing sides if necessary
+- being displayed on target focus (through keyboard)
+- delays can be set
+- the arrow position can be set
+- options to select text on tooltip
+- tooltip will be hidden if targeted element is not in the viewport
+- tooltip can be applied over buttons (or any element w/ `onClick`)
 
+General behaviour will be:
+- **Desktop** → tooltip will be displayed only on `mouseover`
+- **Mobile** → tooltip will be displayed on `click` (and hidden w/ another `click`) over target element
+
+For wrapped elements w/ `onClick` action defined:
+- **Desktop** → tooltip will be displayed only on `mouseover`
+- **Mobile** → tooltip will be displayed on `longpress` (having the element pressed more than 1s). The `click` will trigger the defined action for the element
 
 ## Installation
 
@@ -22,54 +36,61 @@ import AtomTooltip from '@s-ui/react-atom-tooltip'
 ### Basic usage
 
 ```javascript
-<p id="astros">Typical message</p>
-<AtomTooltip target="astros">
-  Hello <strong>world</strong>!
+<AtomTooltip>
+  <strong title="Last month of the year">december</strong>
 </AtomTooltip>
 ```
 
-### Selecting desired position of the tooltip
+### HTML in the Tooltip
 
 ```javascript
-<p id="astros">Typical message</p>
-<AtomTooltip target="astros" placement="right">
-  Hello <strong>world</strong>!
+<AtomTooltip html="Last <em>month</em> of the <strong>year</strong>">
+  <strong>december</strong>
 </AtomTooltip>
 ```
 
 ### Without arrow
 
 ```javascript
-<p id="astros">Typical message</p>
-<AtomTooltip target="astros" hideArrow>
-  Hello <strong>world</strong>!
+<AtomTooltip hideArrow>
+  <strong title="Last month of the year">december</strong>
 </AtomTooltip>
 ```
 
 ### With delay on show and/or hide
 
 ```javascript
-<p id="astros">Typical message</p>
-<AtomTooltip target="astros" delay={{show: 300, hide: 1500}}>
-  Hello <strong>world</strong>!
+<AtomTooltip delay={{show: 300, hide: 1500}}>
+  <strong title="Last month of the year">december</strong>
 </AtomTooltip>
 ```
 
-### Letting the user selecting text in tooltip
+### Letting the user select text in tooltip
 
 ```javascript
-<p id="astros">Typical message</p>
-<AtomTooltip target="astros" autohide={false}>
-  Hello <strong>world</strong>!
+<AtomTooltip autohide={false}>
+  <strong title="Last month of the year">december</strong>
 </AtomTooltip>
 ```
 
-### Tooltip aligned to the left of targeted element
+### Selecting arrow position
 
 ```javascript
-<p id="astros">Typical message</p>
-<AtomTooltip target="astros" offset="-100%, 4px">
-  Hello <strong>world</strong>!
+<AtomTooltip placement={atomTooltipPlacements.TOP_START}>
+  <strong title="Last month of the year">december</strong>
+</AtomTooltip>
+```
+
+### Tooltip on a "call to action" element
+
+```javascript
+<AtomTooltip>
+  <button
+    title="This menu display some cool options"
+    onClick={() => alert('👍  displaying menú')}
+  >
+    Menú options
+  </button>
 </AtomTooltip>
 ```
 

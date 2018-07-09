@@ -93,6 +93,44 @@ $bgc-sui-cmp-modal: rgba(33, 41, 52, .85) !default;
     justify-content: space-between;
     padding: 0 $p-m;
 
+    &Name {
+      cursor: pointer;
+      display: block;
+      padding: $p-s 0;
+      user-select: none;
+
+      &::after {
+        color: $c-gray;
+        content: '∨';
+        cursor: pointer;
+        display: inline-block;
+        font-size: $fz-xl;
+        margin-left: $m-m;
+      }
+
+      &--expanded {
+        &::after {
+          content: '∧';
+        }
+      }
+
+      &:hover,
+      &:hover::after {
+        color: $c-gray-light;
+      }
+    }
+
+    &Description {
+      border-top: 1px dashed $c-gray-lightest;
+      display: none;
+      margin-top: $p-s;
+      padding: $p-l 0;
+
+      &--expanded {
+        display: block;
+      }
+    }
+
     &Link {
       border-bottom: 1px dashed $c-primary-light;
       color: $c-primary;

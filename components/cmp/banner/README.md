@@ -20,9 +20,10 @@ import CmpBanner from '@s-ui/react-cmp-banner'
 
 return (
     <CmpBanner
-    logo="https://www.schibsted.es/wp-content/themes/Schibsted-spn/img/logo.png"
-    privacyUrl="#privacy-url-to-configure"
-  />
+      companyName="Your Company Name LTD"
+      logo="https://www.schibsted.es/wp-content/themes/Schibsted-spn/img/logo.png"
+      privacyUrl="#privacy-url-to-configure"
+    />
 )
 ```
 

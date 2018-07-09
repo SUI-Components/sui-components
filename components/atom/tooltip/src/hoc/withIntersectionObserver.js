@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import 'intersection-observer' // polyfill
 
-export default threshold => BaseComponent => {
+export default BaseComponent => {
   const displayName = BaseComponent.displayName
 
   return class WithIntersectionObserver extends Component {

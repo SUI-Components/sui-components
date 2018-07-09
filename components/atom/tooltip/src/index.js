@@ -27,6 +27,7 @@ class AtomTooltip extends Component {
   state = {isOpen: false}
   preventNonTouchEvents = false
   hasTouchEnded = false
+  touchTimer = null
   refTooltip = React.createRef()
   refTarget = React.createRef()
 
@@ -229,5 +230,5 @@ AtomTooltip.propTypes = {
   ])
 }
 
-export default withIntersectionObserver(0.5)(AtomTooltip)
+export default withIntersectionObserver(AtomTooltip)
 export {PLACEMENTS as atomTooltipPlacements}

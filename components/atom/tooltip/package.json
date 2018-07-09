@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@researchgate/react-intersection-observer": "0.6.1",
     "reactstrap": "6.2.0",
     "intersection-observer": "0.5.0"
   },

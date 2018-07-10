@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types' // eslint-disable-line no-unused-vars
 
 const BASE_CLASS = 'sui-AtomTextarea'
 
 class AtomTextarea extends Component {
   render() {
-    return <textarea className={BASE_CLASS}>{this.props.children}</textarea>
+    return <textarea className={BASE_CLASS}>{this.props.children}</textarea> // eslint-disable-line react/prop-types
   }
 }
 

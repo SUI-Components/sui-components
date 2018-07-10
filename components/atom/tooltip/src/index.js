@@ -31,10 +31,6 @@ class AtomTooltip extends Component {
   refTooltip = React.createRef()
   refTarget = React.createRef()
 
-  static defaultProps = {
-    isVisible: true
-  }
-
   static getDerivedStateFromProps(nextProps, prevState) {
     if (!nextProps.isVisible && prevState.isOpen) {
       return {isOpen: false}
@@ -133,30 +129,44 @@ class AtomTooltip extends Component {
     return false
   }
 
-  toggle = e => {
+  /**
+   * This function is executed when target doesn't have an `onClick` prop (normal targets)
+   * this logic assures that only the proper events triggers the tooltip
+   */
+  toggleOnNormalTarget = e => {
     const {type} = e
-    if (this.onClickTarget) {
-      if (type === 'touchstart') this.handleTouchStart(e)
-      if (type === 'touchend') this.handleTouchEnd(e)
-      if (type === 'click') this.onClickTarget(e)
-      if (!this.preventNonTouchEvents) {
-        this.setState({
-          isOpen: !this.state.isOpen
-        })
-      }
+    if (type === 'touchstart') this.hasTouchEnded = false
+    if (type === 'touchend') this.hasTouchEnded = true
+    if (this.hasTouchEnded && ['focusin', 'mouseover'].includes(type)) {
+      this.handleStopPropagation(e)
     } else {
-      if (type === 'touchstart') this.hasTouchEnded = false
-      if (type === 'touchend') this.hasTouchEnded = true
-      if (this.hasTouchEnded && ['focusin', 'mouseover'].includes(type)) {
-        this.handleStopPropagation(e)
-      } else {
-        if (['touchstart', 'touchend'].includes(type)) return
-        if (['click', 'focusin'].includes(type)) this.handleStopPropagation(e)
-        this.setState({
-          isOpen: !this.state.isOpen
-        })
-      }
+      if (['touchstart', 'touchend'].includes(type)) return
+      if (['click', 'focusin'].includes(type)) this.handleStopPropagation(e)
+      this.setState({
+        isOpen: !this.state.isOpen
+      })
     }
+  }
+
+  /**
+   * This function is executed when target DOES have an `onClick` prop ('call-to-action' targets)
+   * this logic assures that only the proper events triggers the tooltip
+   */
+  toggleOnCallToActionTarget = e => {
+    const {type} = e
+    if (type === 'touchstart') this.handleTouchStart(e)
+    if (type === 'touchend') this.handleTouchEnd(e)
+    if (type === 'click') this.onClickTarget(e)
+    if (!this.preventNonTouchEvents) {
+      this.setState({
+        isOpen: !this.state.isOpen
+      })
+    }
+  }
+
+  toggle = e => {
+    if (this.onClickTarget) this.toggleOnCallToActionTarget(e)
+    else this.toggleOnNormalTarget(e)
   }
 
   render() {
@@ -196,6 +206,10 @@ class AtomTooltip extends Component {
 }
 
 AtomTooltip.displayName = 'AtomTooltip'
+
+AtomTooltip.defaultProps = {
+  isVisible: true
+}
 
 AtomTooltip.propTypes = {
   /** Wether to show arrow or not. */

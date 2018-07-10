@@ -36,6 +36,10 @@ CmpBanner.defaultProps = {
 
 CmpBanner.propTypes = {
   /**
+   * Name of the company which the consents are for
+   */
+  companyName: PropTypes.string.isRequired,
+  /**
    * ISO 639-1 code language in order to get the text translated to it
    */
   lang: PropTypes.string,

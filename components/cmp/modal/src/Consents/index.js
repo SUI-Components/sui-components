@@ -35,8 +35,9 @@ export const Consents = ({
       </Button>
     </div>
     <div className={`${CLASS}-consentsTable`}>
-      {list.map(({id, name, policyUrl}) => (
+      {list.map(({id, name, description, policyUrl}) => (
         <ConsentItem
+          description={description}
           enabled={consents[id]}
           id={id}
           isVendor={isVendor}

@@ -15,7 +15,11 @@ export const ConsentItem = ({
   url
 }) => (
   <div className={`${CLASS}-consent`}>
-    <ConsentName name={name} url={url} />
+    <ConsentName
+      name={name}
+      description={isVendor ? '' : description}
+      url={url}
+    />
     <div className={`${CLASS}-consentActions`}>
       <AtomSwitch
         initialValue={enabled}

@@ -24,6 +24,7 @@ class Input extends Component {
       name,
       onChange,
       placeholder,
+      reference,
       size,
       type,
       value
@@ -37,6 +38,7 @@ class Input extends Component {
         name={name}
         onChange={ev => this.changeHandler(ev, onChange)}
         placeholder={placeholder}
+        ref={reference}
         type={type}
         value={value}
       />
@@ -60,7 +62,9 @@ Input.propTypes = {
   /* text, password, date or number */
   type: PropTypes.string,
   /* value of the control */
-  value: PropTypes.string
+  value: PropTypes.string,
+  /* react ref to access DOM node */
+  reference: PropTypes.func
 }
 
 Input.defaultProps = {

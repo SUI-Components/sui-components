@@ -22,8 +22,7 @@ class Password extends React.Component {
     this.setState({type: inputType})
   }
 
-  onChange = ev => {
-    const value = ev.target.value
+  onChange = ({ev, value}) => {
     this.setState({value}, () => {
       const {onChange} = this.props
       onChange && onChange({value, ev})

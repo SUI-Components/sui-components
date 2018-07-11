@@ -44,7 +44,7 @@ class AtomTooltip extends Component {
 
     const ref = this.refTarget
     const className = CLASS_TARGET
-    const onTouchEnd = this.toggle
+    const onTouchEnd = this.handleToggle
 
     const childrenOnly = React.Children.only(children)
 
@@ -63,7 +63,9 @@ class AtomTooltip extends Component {
   componentDidMount() {
     const target = this.refTarget.current
     this.props.innerRef(target)
-    document.addEventListener('click', this.handleClickOutsideElement)
+    ;['click', 'touchend'].forEach(event =>
+      window.addEventListener(event, this.handleClickOutsideElement)
+    )
     target.oncontextmenu = this.handleContextMenu
     target.addEventListener('mouseover', this.disableTitle)
     target.addEventListener('mouseout', this.restoreTitle)
@@ -72,8 +74,10 @@ class AtomTooltip extends Component {
   componentWillUnmount() {
     const target = this.refTarget.current
     clearTimeout(this.touchTimer)
-    document.removeEventListener('click', this.handleClickOutsideElement)
-    this.refTarget.removeEventListener('touchend', this.toggle)
+    ;['click', 'touchend'].forEach(event =>
+      window.removeEventListener(event, this.handleClickOutsideElement)
+    )
+    this.refTarget.removeEventListener('touchend', this.handleToggle)
     target.removeEventListener('mouseover', this.disableTitle)
     target.removeEventListener('mouseout', this.restoreTitle)
   }
@@ -95,10 +99,12 @@ class AtomTooltip extends Component {
 
   handleClickOutsideElement = e => {
     const {isOpen} = this.state
+    const target = this.refTarget.current
     if (isOpen) {
       const tooltipDom = this.refTooltip.current
       const isOutside = tooltipDom && !tooltipDom.contains(e.target)
-      if (isOutside) this.toggle(e)
+      const isNotTarget = target && !target.contains(e.target)
+      if (isOutside && isNotTarget) this.toggle(false)
     }
   }
 
@@ -135,40 +141,44 @@ class AtomTooltip extends Component {
    * This function is executed when target doesn't have an `onClick` prop (normal targets)
    * this logic assures that only the proper events triggers the tooltip
    */
-  toggleOnNormalTarget = e => {
+  handleToggleOnNormalTarget = e => {
     const {type} = e
+    const isValidTrigger = [
+      'click',
+      'focusin',
+      'mouseover',
+      'mouseout'
+    ].includes(type)
     if (type === 'touchstart') this.hasTouchEnded = false
     if (type === 'touchend') this.hasTouchEnded = true
     if (this.hasTouchEnded && ['focusin', 'mouseover'].includes(type)) {
       this.handleStopPropagation(e)
-    } else {
-      if (['touchstart', 'touchend'].includes(type)) return
-      if (['click', 'focusin'].includes(type)) this.handleStopPropagation(e)
-      this.setState({
-        isOpen: !this.state.isOpen
-      })
     }
+    if (isValidTrigger) {
+      this.toggle()
+      return
   }
 
   /**
    * This function is executed when target DOES have an `onClick` prop ('call-to-action' targets)
    * this logic assures that only the proper events triggers the tooltip
    */
-  toggleOnCallToActionTarget = e => {
+  handleToggleOnCallToActionTarget = e => {
     const {type} = e
     if (type === 'touchstart') this.handleTouchStart(e)
     if (type === 'touchend') this.handleTouchEnd(e)
     if (type === 'click') this.onClickTarget(e)
-    if (!this.preventNonTouchEvents) {
-      this.setState({
-        isOpen: !this.state.isOpen
-      })
-    }
+    if (!this.preventNonTouchEvents) this.toggle()
   }
 
-  toggle = e => {
-    if (this.onClickTarget) this.toggleOnCallToActionTarget(e)
-    else this.toggleOnNormalTarget(e)
+  toggle = value => {
+    const isOpen = value || !this.state.isOpen
+    this.setState({isOpen})
+  }
+
+  handleToggle = e => {
+    if (this.onClickTarget) this.handleToggleOnCallToActionTarget(e)
+    else this.handleToggleOnNormalTarget(e)
   }
 
   render() {
@@ -188,7 +198,7 @@ class AtomTooltip extends Component {
           <Tooltip
             {...restrictedProps}
             isOpen={this.state.isOpen}
-            toggle={this.toggle}
+            toggle={this.handleToggle}
             className={BASE_CLASS}
             innerClassName={CLASS_INNER}
             arrowClassName={CLASS_ARROW}

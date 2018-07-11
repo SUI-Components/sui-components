@@ -10,8 +10,9 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
+    "intersection-observer": "0.5.0",
     "reactstrap": "6.3.0",
-    "intersection-observer": "0.5.0"
+    "uuid": "^3.3.2"
   },
   "keywords": [],
   "author": "",

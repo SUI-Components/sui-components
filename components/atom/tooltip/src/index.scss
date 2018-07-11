@@ -26,6 +26,14 @@ $class-inner: '#{$base-class}-inner';
 $class-arrow: '#{$base-class}-arrow';
 $class-target: '#{$base-class}-target';
 
+#{$class-target} {  
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
 #{$base-class} {
   display: block;
   font-size: $fz-atom-tooltip;
@@ -66,14 +74,6 @@ $class-target: '#{$base-class}-target';
       content: "";
       position: absolute;
     }
-  }
-
-  #{$class-target} {  
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
   }
 
   &#{$base-class}--top {

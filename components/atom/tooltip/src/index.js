@@ -103,6 +103,7 @@ class AtomTooltip extends Component {
   }
 
   handleTouchStart = e => {
+    const {longPressTime} = this.props
     this.preventNonTouchEvents = true
     this.hasTouchEnded = false
     clearTimeout(this.touchTimer)
@@ -114,7 +115,7 @@ class AtomTooltip extends Component {
       }
       this.preventNonTouchEvents = false
       this.hasTouchEnded = false
-    }, 1000)
+    }, longPressTime)
     return false
   }
 
@@ -210,7 +211,8 @@ class AtomTooltip extends Component {
 AtomTooltip.displayName = 'AtomTooltip'
 
 AtomTooltip.defaultProps = {
-  isVisible: true
+  isVisible: true,
+  longPressTime: 1000
 }
 
 AtomTooltip.propTypes = {
@@ -243,7 +245,10 @@ AtomTooltip.propTypes = {
     PropTypes.func,
     PropTypes.string,
     PropTypes.object
-  ])
+  ]),
+
+  /** Time in miliseconds for longpress duration */
+  longPressTime: PropTypes.number
 }
 
 export default withIntersectionObserver(AtomTooltip)

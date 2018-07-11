@@ -3,19 +3,23 @@ import PropTypes from 'prop-types'
 
 import Input, {InputSizes} from './Input'
 import Password from './Password'
+import Mask from './Mask'
 
 const TYPES = {
   DATE: 'date',
+  MASK: 'mask',
   NUMBER: 'number',
-  TEXT: 'text',
   PASSWORD: 'password',
-  SUI_PASSWORD: 'sui-password'
+  SUI_PASSWORD: 'sui-password',
+  TEXT: 'text'
 }
 
 const FormInput = ({type, ...props}) => {
   switch (type) {
     case 'sui-password':
       return <Password {...props} />
+    case 'mask':
+      return <Mask {...props} />
     default:
       return <Input {...props} type={type} />
   }

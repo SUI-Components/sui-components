@@ -5,6 +5,7 @@ import withIntersectionObserver from './hoc/withIntersectionObserver'
 
 const BASE_CLASS = 'sui-AtomTooltip'
 const CLASS_INNER = `${BASE_CLASS}-inner`
+const CLASS_ARROW = `${BASE_CLASS}-arrow`
 const PREFIX_PLACEMENT = `${BASE_CLASS}-`
 const CLASS_TARGET = `${BASE_CLASS}-target`
 
@@ -189,6 +190,7 @@ class AtomTooltip extends Component {
             toggle={this.toggle}
             className={BASE_CLASS}
             innerClassName={CLASS_INNER}
+            arrowClassName={CLASS_ARROW}
             placementPrefix={PREFIX_PLACEMENT}
             innerRef={this.refTooltip}
             offset="auto,4px"

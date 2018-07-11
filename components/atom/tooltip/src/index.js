@@ -154,9 +154,7 @@ class AtomTooltip extends Component {
     if (this.hasTouchEnded && ['focusin', 'mouseover'].includes(type)) {
       this.handleStopPropagation(e)
     }
-    if (isValidTrigger) {
-      this.toggle()
-      return
+    if (isValidTrigger) this.toggle()
   }
 
   /**

@@ -3,11 +3,7 @@ const field = {
 }
 
 const bankAccountMask = {
-  mask: 'ES00 0000 0000 00 0000000000',
-  placeholder: {
-    lazy: true,
-    char: '_'
-  }
+  mask: 'ES00 0000 0000 00 0000000000'
 }
 
 return (

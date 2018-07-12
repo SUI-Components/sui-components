@@ -87,8 +87,7 @@ return (
     </div>
     <h2>HTML for content of the tooltip </h2>
     <p>
-      We can also set HTML as content of the Tooltip be setting the props{' '}
-      <code>html</code> of <code>AtomTooltip</code>.
+      We can also set HTML as content of the Tooltip by passing a React component to the prop <code>content</code> of <code>AtomTooltip</code>.
     </p>
     <small>
       By default it will use the <code>title</code> of the wrapped element as
@@ -324,11 +323,11 @@ return (
     </h2>
     <ul>
       <li>
-        Desktop → <code>click</code>: button action | <code>hover</code>:
+        Desktop (Non-touch devices)→ <code>click</code>: button action | <code>hover</code>:
         tooltip
       </li>
       <li>
-        Mobile → <code>click</code>: button action | <code>long press</code>:
+        Mobile (Touch devices)→ <code>click</code>: button action | <code>long press</code>:
         tooltip
       </li>
     </ul>

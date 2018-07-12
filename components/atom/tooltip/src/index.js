@@ -29,6 +29,8 @@ class AtomTooltip extends Component {
   preventNonTouchEvents = false
   hasTouchEnded = false
   touchTimer = null
+  onClickTarget = null
+  title = null
   refTooltip = React.createRef()
   refTarget = React.createRef()
 
@@ -178,7 +180,13 @@ class AtomTooltip extends Component {
   }
 
   render() {
-    const {hideArrow, delay, autohide, placement} = this.props // eslint-disable-line react/prop-types
+    const {
+      hideArrow,
+      content: HtmlContent,
+      delay,
+      autohide,
+      placement
+    } = this.props // eslint-disable-line react/prop-types
     const target = this.refTarget.current
     const restrictedProps = {
       hideArrow,
@@ -202,11 +210,7 @@ class AtomTooltip extends Component {
             innerRef={this.refTooltip}
             offset="auto,4px"
           >
-            {this.props.html ? (
-              <span dangerouslySetInnerHTML={{__html: this.props.html}} />
-            ) : (
-              this.title
-            )}
+            {HtmlContent ? <HtmlContent /> : this.title}
           </Tooltip>
         )}
       </Fragment>
@@ -243,8 +247,8 @@ AtomTooltip.propTypes = {
   /** True if the target is inside the viewport */
   isVisible: PropTypes.bool,
 
-  /** HTML to be displayed on the Tooltip */
-  html: PropTypes.string,
+  /** HTML (component) to be displayed on the Tooltip */
+  content: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 
   /** Custom ref handler that will be assigned to the "target" element */
   innerRef: PropTypes.oneOfType([

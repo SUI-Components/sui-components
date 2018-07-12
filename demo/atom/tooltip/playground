@@ -54,6 +54,12 @@ const listItemLeft = Object.assign(
 const iconMenuHamburguer =
   'https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png'
 
+const HtmlTooltipDecember = () => (
+  <React.Fragment>
+    Last <em>month</em> of the <strong>year</strong>
+  </React.Fragment>
+)
+
 return (
   <div>
     <h1>AtomTooltip</h1>
@@ -98,7 +104,7 @@ return (
     >
       <p>
         Lorem ipsum dolor sit amet{' '}
-        <AtomTooltip html="Last <em>month</em> of the <strong>year</strong>">
+        <AtomTooltip content={ HtmlTooltipDecember }>
           <strong tabIndex="1">december</strong>
         </AtomTooltip>
       </p>
@@ -301,7 +307,11 @@ return (
         Lorem ipsum dolor sit amet{' '}
         <AtomTooltip
           placement={atomTooltipPlacements.RIGHT}
-          html="Hello <strong>world</strong>!"
+          content={ () => (
+            <React.Fragment>
+              Hello <strong>world</strong>!
+            </React.Fragment>
+          )}
           hideArrow
         >
           <strong tabIndex="4">astros</strong>

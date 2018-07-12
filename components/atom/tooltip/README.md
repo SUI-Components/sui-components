@@ -12,12 +12,12 @@ AtomTooltip is a component that wraps an element and shows a tooltip over it. It
 - tooltip can be applied over buttons (or any element w/ `onClick`)
 
 General behaviour will be:
-- **Desktop** → tooltip will be displayed only on `mouseover`
-- **Mobile** → tooltip will be displayed on `click` (and hidden w/ another `click`) over target element
+- **Desktop (Non-touch devices)** → tooltip will be displayed only on `mouseover`
+- **Mobile (Touch devices)** → tooltip will be displayed on `click` over target element and hidden w/ another `click` outside of it
 
 For wrapped elements w/ `onClick` action defined:
-- **Desktop** → tooltip will be displayed only on `mouseover`
-- **Mobile** → tooltip will be displayed on `longpress` (having the element pressed more than 1s). The `click` will trigger the defined action for the element
+- **Desktop (Non-touch devices)** → tooltip will be displayed only on `mouseover`
+- **Mobile (Touch devices)** → tooltip will be displayed on `longpress` (having the element pressed more than 1s). The `click` will trigger the defined action for the element
 
 ## Installation
 
@@ -44,7 +44,11 @@ import AtomTooltip from '@s-ui/react-atom-tooltip'
 ### HTML in the Tooltip
 
 ```javascript
-<AtomTooltip html="Last <em>month</em> of the <strong>year</strong>">
+<AtomTooltip content={ () => (
+  <React.Fragment>
+    Hello <strong>world</strong>!
+  </React.Fragment>
+)}>
   <strong>december</strong>
 </AtomTooltip>
 ```

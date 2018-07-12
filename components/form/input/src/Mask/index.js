@@ -37,7 +37,7 @@ MaskInput.displayName = 'MaskInput'
 
 MaskInput.propTypes = {
   /* mask object, see https://unmanner.github.io/imaskjs/ */
-  mask: PropTypes.object,
+  mask: PropTypes.object.isRequired,
   /* The name of the control */
   name: PropTypes.string,
   /* Event launched on every input change */

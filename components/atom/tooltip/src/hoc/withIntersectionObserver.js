@@ -1,6 +1,9 @@
 /* global IntersectionObserver */
 import React, {Component} from 'react'
-import 'intersection-observer' // polyfill
+
+if (typeof window !== 'undefined' && window.document) {
+  require('intersection-observer')
+}
 
 export default BaseComponent => {
   const displayName = BaseComponent.displayName
@@ -10,7 +13,7 @@ export default BaseComponent => {
     static contextTypes = BaseComponent.contextTypes
 
     state = {
-      isIntersecting: false
+      isIntersecting: true
     }
 
     handleChange = ([{isIntersecting}]) => {
@@ -23,6 +26,10 @@ export default BaseComponent => {
 
     componentDidMount() {
       const target = this.refTarget
+      if (!('IntersectionObserver' in window)) { // check we support IntersectionObserver
+        this.setState({isIntersecting: true})
+        return
+      }
       new IntersectionObserver(this.handleChange).observe(target)
     }
 

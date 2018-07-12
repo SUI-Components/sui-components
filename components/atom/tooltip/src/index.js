@@ -53,7 +53,6 @@ class AtomTooltip extends Component {
       this.title = child.props.title
       return React.cloneElement(child, {
         ref,
-        onClick: null,
         className,
         onTouchEnd
       })
@@ -165,7 +164,6 @@ class AtomTooltip extends Component {
     const {type} = e
     if (type === 'touchstart') this.handleTouchStart(e)
     if (type === 'touchend') this.handleTouchEnd(e)
-    if (type === 'click') this.onClickTarget(e)
     if (!this.preventNonTouchEvents) this.toggle()
   }
 

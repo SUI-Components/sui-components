@@ -126,20 +126,20 @@ return (
           <li style={listItemTop}>
             <AtomTooltip
               placement={atomTooltipPlacements.TOP_START}
-              html="<code>placement='top-start'</code>"
+              content={() => <code>placement='top-start'</code>}
             >
               <strong tabIndex="5">top-start</strong>
             </AtomTooltip>
 
             <AtomTooltip
               placement={atomTooltipPlacements.TOP}
-              html="<code>placement='top'</code>"
+              content={() => <code>placement='top'</code>}
             >
               <strong tabIndex="6">top</strong>
             </AtomTooltip>
             <AtomTooltip
               placement={atomTooltipPlacements.TOP_END}
-              html="<code>placement='top-end'</code>"
+              content={() => <code>placement='top-end'</code>}
             >
               <strong tabIndex="7">top-end</strong>
             </AtomTooltip>
@@ -149,7 +149,7 @@ return (
           <li style={listItemRight}>
             <AtomTooltip
               placement={atomTooltipPlacements.RIGHT_START}
-              html="Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='right-start'</code>"
+              content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='right-start'</code></span>}
             >
               <strong tabIndex="8" style={{textAlign: 'right'}}>
                 right-start
@@ -157,7 +157,7 @@ return (
             </AtomTooltip>
             <AtomTooltip
               placement={atomTooltipPlacements.RIGHT}
-              html="Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='right'</code>"
+              content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='right'</code></span>}
             >
               <strong tabIndex="9" style={{textAlign: 'right'}}>
                 right
@@ -165,7 +165,7 @@ return (
             </AtomTooltip>
             <AtomTooltip
               placement={atomTooltipPlacements.RIGHT_END}
-              html="Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='right-end'</code>"
+              content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='right-end'</code></span>}
             >
               <strong tabIndex="10" style={{textAlign: 'right'}}>
                 right-end
@@ -177,19 +177,19 @@ return (
           <li style={listItemBottom}>
             <AtomTooltip
               placement={atomTooltipPlacements.BOTTOM_START}
-              html="<code>placement='bottom-start'</code>"
+              content={() => <code>placement='bottom-start'</code>}
             >
               <strong tabIndex="11">bottom-start</strong>
             </AtomTooltip>
             <AtomTooltip
               placement={atomTooltipPlacements.BOTTOM}
-              html="<code>placement='bottom'</code>"
+              content={() => <code>placement='bottom'</code>}
             >
               <strong tabIndex="12">bottom</strong>
             </AtomTooltip>
             <AtomTooltip
               placement={atomTooltipPlacements.BOTTOM_END}
-              html="<code>placement='bottom-end'</code>"
+              content={() => <code>placement='bottom-end'</code>}
             >
               <strong tabIndex="13">bottom-end</strong>
             </AtomTooltip>
@@ -199,19 +199,19 @@ return (
           <li style={listItemLeft}>
             <AtomTooltip
               placement={atomTooltipPlacements.LEFT_START}
-              html="Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='left-start'</code>"
+              content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='left-start'</code></span>}
             >
               <strong tabIndex="14">left-start</strong>
             </AtomTooltip>
             <AtomTooltip
               placement={atomTooltipPlacements.LEFT}
-              html="Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='left'</code>"
+              content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='left'</code></span>}
             >
               <strong tabIndex="15">left</strong>
             </AtomTooltip>
             <AtomTooltip
               placement={atomTooltipPlacements.LEFT_END}
-              html="Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='left-end'</code>"
+              content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='left-end'</code></span>}
             >
               <strong tabIndex="16">left-end</strong>
             </AtomTooltip>
@@ -307,7 +307,7 @@ return (
         Lorem ipsum dolor sit amet{' '}
         <AtomTooltip
           placement={atomTooltipPlacements.RIGHT}
-          content={ () => (
+          content={() => (
             <React.Fragment>
               Hello <strong>world</strong>!
             </React.Fragment>

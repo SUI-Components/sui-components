@@ -78,7 +78,6 @@ class AtomTooltip extends Component {
     ;['click', 'touchend'].forEach(event =>
       window.removeEventListener(event, this.handleClickOutsideElement)
     )
-    this.refTarget.removeEventListener('touchend', this.handleToggle)
     target.removeEventListener('mouseover', this.disableTitle)
     target.removeEventListener('mouseout', this.restoreTitle)
   }

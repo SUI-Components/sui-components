@@ -22,12 +22,24 @@ return <FormInput type='number' /> // possible type options: text, number, date 
 
 #### SUI-Password
 
-In order to use SUI defined Password Input
+In order to use SUI defined Password Input pass the prop `type='sui-password'` to the Input component.
 
 ```js
 import FormInput from '@s-ui/react-form-input'
 
 return <FormInput type='sui-password' />
+```
+
+### Mask
+
+Wraps the https://unmanner.github.io/imaskjs/ lib, used if the input must follow a regex or a specific format/pattern . Using `type='mask'` activates this input, which will be expecting the `mask` prop type to be passed by.
+
+```js
+const bankAccountMask = { // checkout all options here https://unmanner.github.io/imaskjs/guide.html
+  mask: 'ES00 0000 0000 00 0000000000'
+}
+
+ return <FormInput type='mask' mask={bankAccountMask} placeholder='ES00 0000 0000 00 0000000000' />
 ```
 
 ## Addons

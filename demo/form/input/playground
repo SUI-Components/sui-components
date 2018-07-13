@@ -2,6 +2,10 @@ const field = {
   marginBottom: '16px'
 }
 
+const bankAccountMask = {
+  mask: 'ES00 0000 0000 00 0000000000'
+}
+
 return (
   <React.Fragment>
     <div style={field}>
@@ -24,6 +28,9 @@ return (
     </div>
     <div style={field}>
       <FormInput type='sui-password' name='password' placeholder='Password Input' />
+    </div>
+    <div style={field}>
+      <FormInput type='mask' mask={bankAccountMask} placeholder='ES00 0000 0000 00 0000000000' />
     </div>
   </React.Fragment>
 )

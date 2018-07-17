@@ -1,39 +1,18 @@
-const formUrl = 'https://webformbuilderpre.scmspain.com/cochesnet.html'
-const redirectOnErrorUrl = 'http://pre.coches.net'
-const redirectOnSuccessUrl = 'http://pre.coches.net'
-
-
-class MyFormPta extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.ptaRef = null
-    this.setPtaRef = element => this.ptaRef = element
-    this.handleRemoveDraft = this.handleRemoveDraft.bind(this)
-  }
-
-  handleRemoveDraft (event) {
-    event.preventDefault()
-    this.ptaRef.removeDraft()
-  }
-
-  render () {
-    const { handleRemoveDraft, setPtaRef } = this
-    return (
-      <div>
-        <button onClick={handleRemoveDraft}>Remove draft</button>
-
-        <FormPta
-          ref={setPtaRef}
-          formUrl={formUrl}
-          enableDraft
-          draftId="suicomponentsTestDraftId"
-          redirectOnErrorUrl={redirectOnErrorUrl}
-          redirectOnSuccessUrl={redirectOnSuccessUrl}
-        />
-      </div>
-    )
-  }
+const settings = {
+  enableDraft: true,
+  draftId: 'CochesnetInsert-draft',
+  authToken: 'dXNlcl9pZD0xNzAwMDU0JmF1dGhlbnRpY2F0aW9uX3Rva2VuPWZhMmE5ZTg1LTY3ZTYtNDU0NC1hNTNmLWQ1NjIwZTMyYjZmNyZzZXNzaW9uX2lkPTM1cmNlNG5pZ2VsaHRyM2FseW54YmllMg==',
+  appTheme: 'coches',
+  language: 'es',
+  formUrl: 'http://localhost:8080/formbuilder.html',
+  redirectOnSuccessUrl: 'http://pre.cochesnet.es',
+  redirectOnErrorUrl: 'http://pre.cochesnet.es/mvc/property/NextStep?ai=${id}&mode=1&ot=4',
+  adsUrl: 'https://ptaadinsertion-classifiedads.global-pre.spain.schibsted.io/cochesnet/ads',
+  imagesUrl: 'https://ptaphotouploader-classifiedads.global-pre.spain.schibsted.io/cochesnet/photos',
+  appID: 'cochesnet-insert-car'
 }
 
-return (<MyFormPta />)
+return (<FormPta {...settings}/>)
+
+
+

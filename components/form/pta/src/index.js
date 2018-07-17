@@ -1,12 +1,23 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import querystring from 'querystring'
 
 const BASE_CLASS = 'sui-FormPta'
 const CONTENT_CLASS = `${BASE_CLASS}-content`
-const SEND_SETTINGS_TO_PTA = 'SEND_SETTINGS_TO_PTA'
 const REMOVE_DRAFT = 'REMOVE_DRAFT'
 
 class FormPta extends Component {
+  constructor(props) {
+    super(props)
+
+    const {formUrl: BASE_URL, ...settings} = this.props
+    const QUERY = querystring.stringify(settings)
+    const formUrl = `${BASE_URL}?${QUERY}`
+
+    this.state = {
+      formUrl
+    }
+  }
   /**
    * Avoid iframe re-rendering
    */
@@ -14,38 +25,9 @@ class FormPta extends Component {
     return false
   }
 
-  /**
-   * Send settings to iframe content form
-   */
-  sendSettingsToForm = ({target: {contentWindow}}) => {
-    const {
-      redirectOnErrorUrl,
-      formUrl,
-      enableDraft,
-      draftId,
-      redirectOnSuccessUrl
-    } = this.props
-    const formSettings = {
-      enableDraft,
-      draftId,
-      formUrl,
-      exitURLs: {
-        success: redirectOnSuccessUrl,
-        error: redirectOnErrorUrl
-      }
-    }
-    contentWindow.postMessage(
-      {
-        payload: formSettings,
-        type: SEND_SETTINGS_TO_PTA
-      },
-      formUrl
-    )
-  }
-
   removeDraft(draftId) {
-    const {formUrl} = this.props
-    const {contentWindow} = this.iframeRef
+    const {formUrl} = this.state
+    const {contentWindow} = this._iframeRef
 
     contentWindow.postMessage(
       {
@@ -60,17 +42,15 @@ class FormPta extends Component {
 
   render() {
     const {
-      props: {formUrl},
-      sendSettingsToForm
+      state: {formUrl}
     } = this
 
     return (
       <div className={BASE_CLASS}>
         <iframe
-          ref={ref => (this.iframeRef = ref)}
+          ref={ref => (this._iframeRef = ref)}
           className={CONTENT_CLASS}
           src={formUrl}
-          onLoad={sendSettingsToForm}
         />
       </div>
     )

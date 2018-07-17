@@ -1,9 +1,12 @@
 import L from 'leaflet'
+
 class MarkerManager {
   constructor(mapDOMInstance) {
     this.setMapDOMInstance(mapDOMInstance)
     this.setMarkerDefaults()
+
     this.HEART_ICON = '&#9829;'
+    this.POPUP_WAIT_TIME = 1000
   }
 
   setMapDOMInstance(mapDOMInstance) {
@@ -34,7 +37,14 @@ class MarkerManager {
       {eventName: 'mousemove', eventHandler: e => this.onMouseMove(e)}
     ]
 
-    const {latitude, longitude, isSelected, markerType, propertyInfo} = item
+    const {
+      latitude,
+      longitude,
+      isSelected,
+      markerType,
+      propertyInfo = {}
+    } = item
+
     const marker = L.marker([latitude, longitude], {
       icon: this.getIconFor({item}, deprecatedLabelNoPrice)
     })
@@ -136,7 +146,7 @@ class MarkerManager {
   }
 
   // Coupled FC, should be removed in the future
-  hasBeenVisited(options) {
+  hasBeenVisited() {
     return false
   }
 
@@ -149,17 +159,26 @@ class MarkerManager {
     )
   }
 
-  addIconMarkersToMap({icons, map}) {
-    icons &&
-      icons.forEach(icon => {
-        const iconInstance = L.icon({
-          iconUrl: icon.iconUrl,
-          iconSize: icon.size,
-          iconAnchor: icon.anchor,
-          shadowUrl: icon.shadowUrl
-        })
-        L.marker([icon.lat, icon.lng], {icon: iconInstance}).addTo(map)
+  addIconMarkersToMap({icons = [], map}) {
+    icons.forEach(icon => {
+      const iconInstance = L.icon({
+        iconUrl: icon.iconUrl,
+        iconSize: icon.size,
+        iconAnchor: icon.anchor,
+        shadowUrl: icon.shadowUrl
       })
+      const marker = L.marker([icon.lat, icon.lng], {
+        icon: iconInstance
+      }).addTo(map)
+
+      if (icon.popup) {
+        const {content} = icon.popup
+        // wait some time in order to get the correct position for the popup
+        setTimeout(function() {
+          marker.bindPopup(content).openPopup()
+        }, this.POPUP_WAIT_TIME)
+      }
+    })
   }
 
   // Coupled FC, should be removed in the future

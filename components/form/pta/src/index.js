@@ -1,4 +1,4 @@
-import React, {Component, createRef} from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 const BASE_CLASS = 'sui-FormPta'
@@ -7,8 +7,6 @@ const SEND_SETTINGS_TO_PTA = 'SEND_SETTINGS_TO_PTA'
 const REMOVE_DRAFT = 'REMOVE_DRAFT'
 
 class FormPta extends Component {
-  _iframeRef = createRef()
-
   /**
    * Avoid iframe re-rendering
    */
@@ -47,7 +45,7 @@ class FormPta extends Component {
 
   removeDraft(draftId) {
     const {formUrl} = this.props
-    const {contentWindow} = this._iframeRef.current
+    const {contentWindow} = this.iframeRef
 
     contentWindow.postMessage(
       {
@@ -63,14 +61,13 @@ class FormPta extends Component {
   render() {
     const {
       props: {formUrl},
-      sendSettingsToForm,
-      _iframeRef
+      sendSettingsToForm
     } = this
 
     return (
       <div className={BASE_CLASS}>
         <iframe
-          ref={_iframeRef}
+          ref={ref => (this.iframeRef = ref)}
           className={CONTENT_CLASS}
           src={formUrl}
           onLoad={sendSettingsToForm}

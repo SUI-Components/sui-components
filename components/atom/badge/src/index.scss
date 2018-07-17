@@ -10,7 +10,24 @@ $m-atom-badge-l: $m-m !default;
 $m-atom-badge-s: $m-s !default;
 $p-atom-badge: 0 $p-m !default;
 
-$tags: success $c-success, error $c-error, alert $c-alert, info $c-gray;
+$badges: (
+  success: (
+    background: $c-success,
+    font: $c-white
+    ),
+  error: (
+    background: $c-error,
+    font: $c-white
+    ),
+  alert: (
+    background: $c-alert,
+    font: $c-white
+    ),
+  info: (
+    background: $c-gray,
+    font: $c-white
+    )
+  ) !default;
 
 .sui-AtomBadge {
   border-radius: $bdrs-atom-badge;
@@ -36,7 +53,7 @@ $tags: success $c-success, error $c-error, alert $c-alert, info $c-gray;
     font-size: $fz-atom-badge-l;
     height: $h-atom-badge-l;
     padding: $p-atom-badge;
-    
+
     .sui-AtomBadge-text {
       line-height: $h-atom-badge-l;
     }
@@ -50,22 +67,21 @@ $tags: success $c-success, error $c-error, alert $c-alert, info $c-gray;
     vertical-align: middle;
   }
 
-  @each $tags-type in $tags {
-    $type: nth($tags-type, 1);
-    $color: nth($tags-type, 2);
+  @each $type, $element in $badges {
+    $background: map-get($element, background);
+    $color: map-get($element, font);
 
     &-#{$type} {
-      background-color: $color;
-      color: $c-contrast-atom-badge;
-      fill: $c-contrast-atom-badge;
-    }
-
-    &-#{$type}--transparent {
-      background-color: transparent;
+      background-color: $background;
       color: $color;
       fill: $color;
     }
 
+    &-#{$type}--transparent {
+      background-color: transparent;
+      color: $background;
+      fill: $background;
+      padding: 0;
+    }
   }
-
 }

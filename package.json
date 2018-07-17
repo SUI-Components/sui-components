@@ -55,6 +55,7 @@
         "atom/panel",
         "atom/spinner",
         "atom/tag",
+        "atom/tooltip",
         "atom/validationText",
         "breadcrumb/basic",
         "molecule/notification",

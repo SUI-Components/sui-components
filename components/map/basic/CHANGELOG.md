@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2018-07-17)
+
+
+### Features
+
+* force release ([aaef50f](https://github.com/SUI-Components/sui-components/commit/aaef50f))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2018-07-17)
 

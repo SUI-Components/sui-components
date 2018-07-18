@@ -5,8 +5,7 @@ return (
       <CardBasic
         link='https://github.com/SUI-Components/sui-components'
         media={{ src: 'http://lorempicsum.com/simpsons/300/200/1' }}
-        size='small'
-        title='Small basic card'
+        title='Basic card'
         description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore voluptatum minus nihil, eum perspiciatis?'
       />
     </div>
@@ -14,7 +13,8 @@ return (
       <CardBasic
         link='https://github.com/SUI-Components/sui-components'
         media={{ src: 'http://lorempicsum.com/simpsons/300/200/2' }}
-        title='Basic card'
+        title='Basic card with primary title'
+        titleStyle='primary'
         description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore voluptatum minus nihil, eum perspiciatis?'
         lazyLoad={{ debounce: true, offsetVertical: 300, aspectRatio: '3:2' }}
       />

@@ -1,0 +1,7 @@
+return (
+  <CmpBanner
+    companyName="Your Company Name LTD"
+    logo="https://www.schibsted.es/wp-content/themes/Schibsted-spn/img/logo.png"
+    privacyUrl="#privacy-url-to-configure"
+  />
+)

@@ -7,12 +7,16 @@ const icon = (
 return (
   <div>
     <h2>With background</h2>
-    <p><AtomBadge label='9.5 / 10'/></p>
-    <p><AtomBadge label='5.5 / 10' type={atomBadgeTypes.ALERT} /></p>
-    <p><AtomBadge label='2.5 / 10' type={atomBadgeTypes.ERROR} /></p>
-    <p><AtomBadge label='Executive' type={atomBadgeTypes.INFO} /></p>
-    <p><AtomBadge label='Badge xBasic' size={atomBadgeSizes.LARGE} /></p>
-    <p><AtomBadge label='Badge xIcon' type={atomBadgeTypes.ALERT} icon={icon} size={atomBadgeSizes.LARGE} /></p>
+    <p>
+      <AtomBadge label='9.5 / 10'/>
+      <AtomBadge label='5.5 / 10' type={atomBadgeTypes.ALERT} />
+      <AtomBadge label='2.5 / 10' type={atomBadgeTypes.ERROR} />
+      <AtomBadge label='Executive' type={atomBadgeTypes.INFO} />
+    </p>
+    <p>
+      <AtomBadge label='Badge xBasic' size={atomBadgeSizes.LARGE} />
+      <AtomBadge label='Badge xIcon' type={atomBadgeTypes.ALERT} icon={icon} size={atomBadgeSizes.LARGE} />
+    </p>
     <h2>Without background</h2>
     <p><AtomBadge label='Basic badge' type={atomBadgeTypes.INFO} icon={icon} transparent /></p>
     <p><AtomBadge label='Success badge' icon={icon} transparent /></p>

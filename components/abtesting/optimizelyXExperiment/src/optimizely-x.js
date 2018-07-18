@@ -19,7 +19,8 @@ const waitUntil = (truthyFn, callback, delay = 100, interval = 100) => {
   }, interval)
 }
 
-const getOptmizely = () => window && window.optimizely
+const getOptmizely = () =>
+  window && window.optimizely && window.optimizely.get && window.optimizely
 
 let optimizelyPromise
 

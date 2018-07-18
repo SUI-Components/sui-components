@@ -1,8 +1,8 @@
 @import '~@schibstedspain/theme-basic/lib/index';
 @import '~leaflet/dist/leaflet';
 
-$bgc-minipoi: #2899b6;
-$bd-minipoi-white: 1px solid #ffffff;
+$bgc-minipoi: #2899b6 !default;
+$bdc-minipoi: 1px solid $c-white !default;
 $bdrs-minipoi-half: 50%;
 
 .sui-MapBasic {
@@ -13,7 +13,7 @@ $bdrs-minipoi-half: 50%;
 
   .minipoi {
     background-color: $bgc-minipoi;
-    border: $bd-minipoi-white;
+    border: $bdc-minipoi;
     border-radius: $bdrs-minipoi-half;
     cursor: inherit;
     height: 10px;

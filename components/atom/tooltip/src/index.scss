@@ -1,0 +1,173 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$fz-atom-tooltip: $fz-m !default;
+$lh-atom-tooltip: $lh-m !default;
+$wlc-atom-tooltip: 4 !default; // -webkit-line-clamp → lines to show
+
+$maw-atom-tooltip: 250px !default;
+$mah-atom-tooltip: 100px !default;
+$c-atom-tooltip: $c-white !default;
+$bgc-atom-tooltip: $c-black !default;
+$bdrs-atom-tooltip: $bdrs-l !default;
+$op-atom-tooltip: 1 !default;
+$pt-atom-tooltip: $p-m !default;
+$pb-atom-tooltip: $p-m !default;
+$pl-atom-tooltip: $p-m !default;
+$pr-atom-tooltip: $p-m !default;
+$m-atom-tooltip: 0 !default;
+$z-atom-tooltip: 1070 !default;
+
+$w-atom-tooltip-arrow: .8rem !default;
+$h-atom-tooltip-arrow: .4rem !default;
+$c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
+
+$base-class: '.sui-AtomTooltip';
+$class-inner: '#{$base-class}-inner';
+$class-arrow: '#{$base-class}-arrow';
+$class-target: '#{$base-class}-target';
+
+#{$class-target} {  
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+#{$base-class} {
+  display: block;
+  font-size: $fz-atom-tooltip;
+  margin: $m-atom-tooltip;
+  position: absolute;
+  // Allow breaking very long words so they don't overflow the tooltip's bounds
+  word-wrap: break-word;
+  z-index: $z-atom-tooltip;
+
+  // Wrapper for the tooltip content
+  #{$class-inner} {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $wlc-atom-tooltip;
+    background-color: $bgc-atom-tooltip;
+    border-color: $bgc-atom-tooltip;
+    border-radius: $bdrs-atom-tooltip;
+    border-style: solid;
+    border-width: $pt-atom-tooltip $pr-atom-tooltip;
+    color: $c-atom-tooltip;
+    display: -webkit-box;
+    line-height: $lh-atom-tooltip;
+    max-height: $mah-atom-tooltip;
+    max-width: $maw-atom-tooltip;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+  }
+
+  #{$class-arrow} {
+    display: block;
+    height: $h-atom-tooltip-arrow;
+    position: absolute;
+    width: $w-atom-tooltip-arrow;
+
+    &::before {
+      border-color: transparent;
+      border-style: solid;
+      content: "";
+      position: absolute;
+    }
+  }
+
+  &#{$base-class}--top {
+    padding: $h-atom-tooltip-arrow 0;
+
+    #{$class-arrow} {
+      bottom: 0;
+
+      &::before {
+        border-top-color: $c-atom-tooltip-arrow;
+        border-width: $h-atom-tooltip-arrow ($w-atom-tooltip-arrow / 2) 0;
+        top: 0;
+      }
+    }
+  }
+
+  &#{$base-class}--right {
+    padding: 0 $h-atom-tooltip-arrow;
+
+    #{$class-arrow} {
+      height: $w-atom-tooltip-arrow;
+      left: 0;
+      width: $h-atom-tooltip-arrow;
+
+      &::before {
+        border-right-color: $c-atom-tooltip-arrow;
+        border-width: ($w-atom-tooltip-arrow / 2) $h-atom-tooltip-arrow
+          ($w-atom-tooltip-arrow / 2) 0;
+        right: 0;
+      }
+    }
+  }
+
+  &#{$base-class}--bottom {
+    padding: $h-atom-tooltip-arrow 0;
+
+    #{$class-arrow} {
+      top: 0;
+
+      &::before {
+        border-bottom-color: $c-atom-tooltip-arrow;
+        border-width: 0 ($w-atom-tooltip-arrow / 2) $h-atom-tooltip-arrow;
+        bottom: 0;
+      }
+    }
+  }
+
+  &#{$base-class}--left {
+    padding: 0 $h-atom-tooltip-arrow;
+
+    #{$class-arrow} {
+      height: $w-atom-tooltip-arrow;
+      right: 0;
+      width: $h-atom-tooltip-arrow;
+
+      &::before {
+        border-left-color: $c-atom-tooltip-arrow;
+        border-width: ($w-atom-tooltip-arrow / 2) 0 ($w-atom-tooltip-arrow / 2)
+          $h-atom-tooltip-arrow;
+        left: 0;
+      }
+    }
+  }
+
+  &[data-placement='left-start'],
+  &[data-placement='right-start'] {
+    #{$class-inner} {
+      transform: translateY(-8px);
+    }
+  }
+
+  &[data-placement='left-end'],
+  &[data-placement='right-end'] {
+    #{$class-inner} {
+      transform: translateY(8px);
+    }
+  }
+
+  &#{$base-class}--auto {
+    &[x-placement^='top'] {
+      @extend #{$base-class}--top;
+    }
+
+    &[x-placement^='right'] {
+      @extend #{$base-class}--right;
+    }
+
+    &[x-placement^='bottom'] {
+      @extend #{$base-class}--bottom;
+    }
+
+    &[x-placement^='left'] {
+      @extend #{$base-class}--left;
+    }
+  }
+
+}

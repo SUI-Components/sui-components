@@ -20,16 +20,16 @@ export default function CardBasic({
   linkFactory: Link,
   media,
   title,
+  titleStyle,
   description,
-  size,
   lazyLoad
 }) {
-  const cardBasicClassName = cx('sui-CardBasic', {
-    [`sui-CardBasic--${size}`]: typeof size !== 'undefined'
+  const cardBasicTitleClassName = cx('sui-CardBasic-title', {
+    [`sui-CardBasic-title--${titleStyle}`]: titleStyle
   })
 
   return (
-    <div className={cardBasicClassName}>
+    <div className="sui-CardBasic">
       <Link href={link} className="sui-CardBasic-link">
         {lazyLoad ? (
           <ImageLazyLoad {...lazyLoad} {...media} />
@@ -37,7 +37,9 @@ export default function CardBasic({
           <CardBasicMedia {...media} />
         )}
         <div className="sui-CardBasic-content">
-          {title && <header className="sui-CardBasic-title">{title}</header>}
+          {title && (
+            <header className={cardBasicTitleClassName}>{title}</header>
+          )}
           <div className="sui-CardBasic-description">{description}</div>
         </div>
       </Link>
@@ -72,13 +74,13 @@ CardBasic.propTypes = {
    */
   title: PropTypes.string,
   /**
+   * Optional card title style.
+   */
+  titleStyle: PropTypes.oneOf(['primary']),
+  /**
    * Text description.
    */
   description: PropTypes.string.isRequired,
-  /**
-   * Card size.
-   */
-  size: PropTypes.oneOf(['small']),
   /**
    * Lazy load flag / config.
    */

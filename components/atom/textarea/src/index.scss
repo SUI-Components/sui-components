@@ -1,5 +1,16 @@
 @import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-atom-help-text/lib/index';
+@import '~@s-ui/react-atom-label/lib/index';
+@import '~@s-ui/react-atom-validation-text/lib/index';
 
 .sui-AtomTextarea {
-  // Do your magic
+  font-size: $fz-base;
+  padding-left: $p-l;
+  padding-top: $p-m;
+
+  &[disabled] {
+    background: $c-gray-lightest;
+    color: $c-gray-light;
+  }
 }
+

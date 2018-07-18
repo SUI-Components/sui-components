@@ -1,1 +1,14 @@
-return <AtomTextarea>Hola amigos!!</AtomTextarea>
+return (
+  <React.Fragment>
+    <AtomTextarea>Hola amigos!!</AtomTextarea>
+    <br/>
+    <AtomTextarea disabled>Hola amigos!!</AtomTextarea>
+    <br/>
+    <AtomTextarea id="hola-amigos">Hola amigos!!</AtomTextarea>
+    <br/>
+    <AtomTextarea success successtext="Perfect!">Hola amigos!!</AtomTextarea>
+    <br/>
+    <AtomTextarea error errortext="Something went wrong!">Hola amigos!!</AtomTextarea>
+    <br/>
+  </React.Fragment>
+)

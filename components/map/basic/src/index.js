@@ -58,30 +58,30 @@ class MapBasic extends Component {
 
   getMapConfig() {
     return {
-      id: this.props.id,
+      _deprecatedLabelNoPrice: this.props._deprecatedLabelNoPrice,
+      appCode: this.props.appCode,
+      appId: this.props.appId,
+      dragging: this.props.isInteractable,
+      enableViewMenu: this.props.enableViewMenu,
       heatMapUrl: this.props.heatMapUrl,
+      icons: this.props.icons,
+      id: this.props.id,
       latitude: this.props.center[0],
-      longitude: this.props.center[1],
       literals: this.props.literals,
+      longitude: this.props.center[1],
+      mapDOMInstance: this.mapDOMInstance,
+      mapViewModes: this.props.mapViewModes,
       maxZoom: this.props.maxZoom,
       minZoom: this.props.minZoom,
+      onPolygonWithBounds: this.props.onPolygonWithBounds,
       polygons: this.props.polygons,
+      scrollWheelZoom: this.props.scrollWheelZoom,
+      selectedMapViewMode: this.props.selectedMapViewMode,
       showHeatmap: this.props.showHeatmap,
       showSatelliteView: this.props.showSatelliteView,
-      mapViewModes: this.props.mapViewModes,
-      selectedMapViewMode: this.props.selectedMapViewMode,
-      zoomControl: this.props.zoomable,
-      zoomControlPosition: this.props.zoomControlPosition,
-      icons: this.props.icons,
-      enableViewMenu: this.props.enableViewMenu,
-      dragging: this.props.isInteractable,
       zoom: this.props.zoom,
-      appId: this.props.appId,
-      appCode: this.props.appCode,
-      mapDOMInstance: this.mapDOMInstance,
-      scrollWheelZoom: this.props.scrollWheelZoom,
-      onPolygonWithBounds: this.props.onPolygonWithBounds,
-      _deprecatedLabelNoPrice: this.props._deprecatedLabelNoPrice
+      zoomControl: this.props.zoomable,
+      zoomControlPosition: this.props.zoomControlPosition
     }
   }
 
@@ -174,7 +174,7 @@ MapBasic.propTypes = {
   /**
    * An array composed by lat and lng like: [lat, lng]
    */
-  center: PropTypes.array.isRequired,
+  center: PropTypes.array,
   /**
    * Heat map url is the source where we are going to get the heatMap layers
    */
@@ -191,7 +191,7 @@ MapBasic.propTypes = {
   /**
    * Array of map view modes. Those models are defined could be: mapViewModes.NORMAL, mapViewModes.SATELLITE
    */
-  mapViewModes: PropTypes.array.isRequired,
+  mapViewModes: PropTypes.array,
   /**
    * A number used to lock the max zoom that a user can do.
    */
@@ -250,7 +250,18 @@ MapBasic.propTypes = {
   /**
    * An array of icons that will be added as markers to our map. Not the same purpose as POI's
    */
-  icons: PropTypes.array,
+  icons: PropTypes.arrayOf(
+    PropTypes.shape({
+      popup: PropTypes.shape({
+        content: PropTypes.string.isRequired
+      }),
+      iconUrl: PropTypes.string.isRequired,
+      size: PropTypes.array,
+      anchor: PropTypes.array,
+      lat: PropTypes.number,
+      lng: PropTypes.number
+    })
+  ),
   /**
    * BY DEFAULT set to true. Set it to false to disable the use to drag and move on the map.
    */
@@ -263,33 +274,36 @@ MapBasic.propTypes = {
    * This property indicates the action to be performed with the polygon. By DEFAULT it does a fitBounds.
    */
   onPolygonWithBounds: PropTypes.func,
+  /**
+   * TODO: Remove this deprecated prop attached to Fotocasa logic
+   */
   _deprecatedLabelNoPrice: PropTypes.string
 }
 
 MapBasic.defaultProps = {
-  id: 'map-container',
+  _deprecatedLabelNoPrice: '',
   center: [40.00237, -3.99902],
+  id: 'map-container',
+  isInteractable: true,
+  mapViewModes: [mapViewModes.NORMAL, mapViewModes.SATELLITE],
   maxZoom: 20,
   minZoom: 6,
-  mapViewModes: [mapViewModes.NORMAL, mapViewModes.SATELLITE],
-  selectedMapViewMode: 0,
-  zoom: 14,
-  zoomControlPosition: 'bottomleft',
-  zoomable: false,
-  isInteractable: true,
-  scrollWheelZoom: true,
-  onPolygonWithBounds: ({bounds, map}) => map.fitBounds(bounds),
   onMapClick: NO_OP,
   onMapDragEnd: NO_OP,
   onMapLoad: NO_OP,
   onMapZoomEnd: NO_OP,
   onNormalView: NO_OP,
   onPoiClick: NO_OP,
+  onPoiMouseMove: NO_OP,
   onPoiMouseOut: NO_OP,
   onPoiMouseOver: NO_OP,
-  onPoiMouseMove: NO_OP,
+  onPolygonWithBounds: ({bounds, map}) => map.fitBounds(bounds),
   onSatelliteView: NO_OP,
-  _deprecatedLabelNoPrice: ''
+  scrollWheelZoom: true,
+  selectedMapViewMode: 0,
+  zoom: 14,
+  zoomable: false,
+  zoomControlPosition: 'bottomleft'
 }
 
 MapBasic.displayName = 'MapBasic'

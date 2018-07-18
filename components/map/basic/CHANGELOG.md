@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2018-07-17)
+
+
+### Features
+
+* force release ([aaef50f](https://github.com/SUI-Components/sui-components/commit/aaef50f))
+
+
+
+<a name="1.11.0"></a>
+# 1.11.0 (2018-07-17)
+
+
+### Features
+
+* add feature to add a popup to a icon marker ([6ef0998](https://github.com/SUI-Components/sui-components/commit/6ef0998))
+* allow custom colors ([b76a07e](https://github.com/SUI-Components/sui-components/commit/b76a07e))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2018-02-19)
 

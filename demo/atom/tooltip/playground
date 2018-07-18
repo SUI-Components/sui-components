@@ -1,0 +1,357 @@
+/* global atomTooltipPlacements, React */
+/* eslint-disable react/react-in-jsx-scope, react/jsx-no-undef */
+
+const listContainerStyles = {
+  listStyle: 'none',
+  padding: '10px',
+  border: '1px solid #ccc',
+  maxWidth: '400px',
+  minHeight: '400px',
+  position: 'relative',
+  display: 'flex',
+  justifyContent: 'center',
+  margin: '20px auto'
+}
+
+const listItemStyles = {
+  padding: '10px',
+  position: 'absolute'
+}
+
+const listItemTop = Object.assign(
+  {...listItemStyles},
+  {width: '100%', display: 'flex', justifyContent: 'space-around'},
+  {top: '0', zIndex: '10'}
+)
+const listItemRight = Object.assign(
+  {...listItemStyles},
+  {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  },
+  {right: '0', alignSelf: 'center'}
+)
+
+const listItemBottom = Object.assign(
+  {...listItemStyles},
+  {width: '100%', display: 'flex', justifyContent: 'space-around'},
+  {bottom: '0'}
+)
+
+const listItemLeft = Object.assign(
+  {...listItemStyles},
+  {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  },
+  {left: '0', alignSelf: 'center'}
+)
+
+const iconMenuHamburguer =
+  'https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png'
+
+const HtmlTooltipDecember = () => (
+  <React.Fragment>
+    Last <em>month</em> of the <strong>year</strong>
+  </React.Fragment>
+)
+
+return (
+  <div>
+    <h1>AtomTooltip</h1>
+    <h2>Basic Usage</h2>
+    <p>
+      <code>AtomTooltip</code> will use the <code>title</code> (plain text) of
+      the wrapped element as content for the tooltip
+    </p>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip>
+          <u title="Last month of this year 2018" tabIndex="1">
+            december
+          </u>
+        </AtomTooltip>
+      </p>
+    </div>
+    <h2>HTML for content of the tooltip </h2>
+    <p>
+      We can also set HTML as content of the Tooltip by passing a React component to the prop <code>content</code> of <code>AtomTooltip</code>.
+    </p>
+    <small>
+      By default it will use the <code>title</code> of the wrapped element as
+      content of the tooltip
+    </small>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip content={ HtmlTooltipDecember }>
+          <strong tabIndex="1">december</strong>
+        </AtomTooltip>
+      </p>
+    </div>
+    <h2>
+      Positioning tooltip with <code>placement</code>
+    </h2>
+    <div>
+      <div
+        style={{
+          border: '1px solid #CCC',
+          background: '#fff',
+          marginTop: '10px',
+          padding: '10px'
+        }}
+      >
+        <ul style={listContainerStyles}>
+          {/* --- top --- */}
+          <li style={listItemTop}>
+            <AtomTooltip
+              placement={atomTooltipPlacements.TOP_START}
+              content={() => <code>placement='top-start'</code>}
+            >
+              <strong tabIndex="5">top-start</strong>
+            </AtomTooltip>
+
+            <AtomTooltip
+              placement={atomTooltipPlacements.TOP}
+              content={() => <code>placement='top'</code>}
+            >
+              <strong tabIndex="6">top</strong>
+            </AtomTooltip>
+            <AtomTooltip
+              placement={atomTooltipPlacements.TOP_END}
+              content={() => <code>placement='top-end'</code>}
+            >
+              <strong tabIndex="7">top-end</strong>
+            </AtomTooltip>
+          </li>
+
+          {/* --- right --- */}
+          <li style={listItemRight}>
+            <AtomTooltip
+              placement={atomTooltipPlacements.RIGHT_START}
+              content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='right-start'</code></span>}
+            >
+              <strong tabIndex="8" style={{textAlign: 'right'}}>
+                right-start
+              </strong>
+            </AtomTooltip>
+            <AtomTooltip
+              placement={atomTooltipPlacements.RIGHT}
+              content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='right'</code></span>}
+            >
+              <strong tabIndex="9" style={{textAlign: 'right'}}>
+                right
+              </strong>
+            </AtomTooltip>
+            <AtomTooltip
+              placement={atomTooltipPlacements.RIGHT_END}
+              content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='right-end'</code></span>}
+            >
+              <strong tabIndex="10" style={{textAlign: 'right'}}>
+                right-end
+              </strong>
+            </AtomTooltip>
+          </li>
+
+          {/* --- bottom --- */}
+          <li style={listItemBottom}>
+            <AtomTooltip
+              placement={atomTooltipPlacements.BOTTOM_START}
+              content={() => <code>placement='bottom-start'</code>}
+            >
+              <strong tabIndex="11">bottom-start</strong>
+            </AtomTooltip>
+            <AtomTooltip
+              placement={atomTooltipPlacements.BOTTOM}
+              content={() => <code>placement='bottom'</code>}
+            >
+              <strong tabIndex="12">bottom</strong>
+            </AtomTooltip>
+            <AtomTooltip
+              placement={atomTooltipPlacements.BOTTOM_END}
+              content={() => <code>placement='bottom-end'</code>}
+            >
+              <strong tabIndex="13">bottom-end</strong>
+            </AtomTooltip>
+          </li>
+
+          {/* --- left --- */}
+          <li style={listItemLeft}>
+            <AtomTooltip
+              placement={atomTooltipPlacements.LEFT_START}
+              content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='left-start'</code></span>}
+            >
+              <strong tabIndex="14">left-start</strong>
+            </AtomTooltip>
+            <AtomTooltip
+              placement={atomTooltipPlacements.LEFT}
+              content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='left'</code></span>}
+            >
+              <strong tabIndex="15">left</strong>
+            </AtomTooltip>
+            <AtomTooltip
+              placement={atomTooltipPlacements.LEFT_END}
+              content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='left-end'</code></span>}
+            >
+              <strong tabIndex="16">left-end</strong>
+            </AtomTooltip>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <h2>
+      Maintain tooltip on hover over tooltp with <code>autohide=false</code> (so
+      users can select text in tooltip)
+    </h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip autohide={false}>
+          <strong
+            title="Leo sagittis dignissim ornare egestas primis parturient ante diam fusce,
+          sollicitudin viverra felis inceptos turpis."
+            tabIndex="1"
+          >
+            december
+          </strong>
+        </AtomTooltip>
+      </p>
+    </div>
+    <h2>Delay on show/hide and click outside to hide</h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip delay={{show: 300, hide: 1500}}>
+          <strong
+            title="Vehicula neque sociis leo odio nostra fames ridiculus cubilia nunc,
+          ultricies tortor egestas vitae sed maecenas "
+            tabIndex="2"
+          >
+            november
+          </strong>
+        </AtomTooltip>
+      </p>
+    </div>
+    <h2>
+      Maximum of 4 lines with <em>ellipsis</em>
+    </h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip placement={atomTooltipPlacements.BOTTOM_END}>
+          <strong
+            title="Hendrerit varius luctus scelerisque habitant ridiculus, vulputate mollis
+          platea nunc sociosqu magna, suscipit montes ullamcorper vivamus. Montes
+          aenean nostra magna inceptos himenaeos enim lacinia ornare libero,
+          quisque sed duis placerat hac arcu porttitor lobortis rutrum,"
+            tabIndex="3"
+          >
+            astros
+          </strong>
+        </AtomTooltip>
+      </p>
+    </div>
+    <h2>
+      Tooltip without arrow using <code>hideArrow</code>
+    </h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip
+          placement={atomTooltipPlacements.RIGHT}
+          content={() => (
+            <React.Fragment>
+              Hello <strong>world</strong>!
+            </React.Fragment>
+          )}
+          hideArrow
+        >
+          <strong tabIndex="4">astros</strong>
+        </AtomTooltip>
+      </p>
+    </div>
+
+    <h2>
+      Buttons with <code>onClick</code> can also have a tooltip
+    </h2>
+    <ul>
+      <li>
+        Desktop (Non-touch devices)→ <code>click</code>: button action | <code>hover</code>:
+        tooltip
+      </li>
+      <li>
+        Mobile (Touch devices)→ <code>click</code>: button action | <code>long press</code>:
+        tooltip
+      </li>
+    </ul>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <AtomTooltip>
+        <button
+          style={{
+            border: '1px solid #ccc',
+            fontSize: '30px'
+          }}
+          tabIndex="1"
+          title="This menu display some cool options"
+          onClick={() => alert('👍  action triggered')}
+        >
+          <img height="30" src={iconMenuHamburguer} alt="" />
+        </button>
+      </AtomTooltip>
+    </div>
+  </div>
+)

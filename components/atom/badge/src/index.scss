@@ -11,20 +11,20 @@ $p-atom-badge: 0 $p-m !default;
 
 $badges: (
   success: (
-    background: $c-success,
-    font: $c-white
+    bgc: $c-success,
+    c: $c-white
     ),
   error: (
-    background: $c-error,
-    font: $c-white
+    bgc: $c-error,
+    c: $c-white
     ),
   alert: (
-    background: $c-alert,
-    font: $c-white
+    bgc: $c-alert,
+    c: $c-white
     ),
   info: (
-    background: $c-gray,
-    font: $c-white
+    bgc: $c-gray,
+    c: $c-white
     )
   ) !default;
 
@@ -67,19 +67,19 @@ $badges: (
   }
 
   @each $type, $element in $badges {
-    $background: map-get($element, background);
-    $color: map-get($element, font);
+    $bgc: map-get($element, bgc);
+    $c: map-get($element, c);
 
     &-#{$type} {
-      background-color: $background;
-      color: $color;
-      fill: $color;
+      background-color: $bgc;
+      color: $c;
+      fill: $c;
     }
 
     &-#{$type}--transparent {
       background-color: transparent;
-      color: $background;
-      fill: $background;
+      color: $bgc;
+      fill: $bgc;
       padding: 0;
     }
   }

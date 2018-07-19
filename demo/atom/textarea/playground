@@ -1,14 +1,83 @@
 return (
-  <React.Fragment>
-    <AtomTextarea>Hola amigos!!</AtomTextarea>
-    <br/>
-    <AtomTextarea disabled>Hola amigos!!</AtomTextarea>
-    <br/>
+  <div>
+    <h1>AtomTextarea</h1>
+    <h2>Basic Usage</h2>
+    <p><code>short</code> <em>size</em> by default</p>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <AtomTextarea>Hola amigos!!</AtomTextarea>
+    </div>
+    <h2>Long size</h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <AtomTextarea size="long">Hola amigos!!</AtomTextarea>
+    </div>
+    <h2>Basic Usage w/ ID</h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
     <AtomTextarea id="hola-amigos">Hola amigos!!</AtomTextarea>
-    <br/>
+    </div>
+    <h2>Disabled</h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+    <AtomTextarea disabled>Hola amigos!!</AtomTextarea>
+    </div>
+    <h2>Success</h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
     <AtomTextarea success successtext="Perfect!">Hola amigos!!</AtomTextarea>
-    <br/>
+    </div>
+    <h2>Error</h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
     <AtomTextarea error errortext="Something went wrong!">Hola amigos!!</AtomTextarea>
-    <br/>
-  </React.Fragment>
+    </div>
+    <h2> Placeholder</h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+    <AtomTextarea placeholder="Write something cool here..." />
+    </div>
+  </div>
 )

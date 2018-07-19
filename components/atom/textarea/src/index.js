@@ -1,5 +1,7 @@
 import React, {Fragment, Component} from 'react'
 import PropTypes from 'prop-types' // eslint-disable-line no-unused-vars
+import cx from 'classnames'
+
 import AtomHelpText from '@s-ui/react-atom-help-text'
 import AtomValidationText, {
   AtomValidationTextTypes
@@ -15,6 +17,11 @@ class AtomTextarea extends Component {
   refTextarea = React.createRef()
   id = this.props.id || `sui-AtomTextarea-${+new Date()}`
 
+  get classNames() {
+    const {size} = this.props
+    return cx(BASE_CLASS, `${BASE_CLASS}--${size}`)
+  }
+
   handleChange = e => {
     const value = e.target.value
     if (value.length > this.props.maxcharacters) return
@@ -22,7 +29,8 @@ class AtomTextarea extends Component {
   }
 
   get helpTextContent() {
-    return `${this.state.value.length}/${this.props.maxcharacters} characters`
+    const numCharacters = this.state.value ? this.state.value.length : 0
+    return `${numCharacters}/${this.props.maxcharacters} characters`
   }
 
   getTypeValidation(element) {
@@ -42,7 +50,7 @@ class AtomTextarea extends Component {
   }
 
   render() {
-    const {disabled, success, error, ...props} = this.props
+    const {disabled, size, success, error, ...props} = this.props
     return (
       <Fragment>
         <AtomLabel
@@ -57,7 +65,7 @@ class AtomTextarea extends Component {
           onChange={this.handleChange}
           disabled={disabled}
           id={this.id}
-          className={BASE_CLASS}
+          className={this.classNames}
           value={this.state.value}
         />
         {(success || error) && (
@@ -82,6 +90,7 @@ AtomTextarea.displayName = 'AtomTextarea'
 AtomTextarea.propTypes = {
   disabled: PropTypes.bool,
   id: PropTypes.string,
+  size: PropTypes.string,
   success: PropTypes.bool,
   error: PropTypes.bool,
   maxcharacters: PropTypes.number,
@@ -90,6 +99,7 @@ AtomTextarea.propTypes = {
 }
 
 AtomTextarea.defaultProps = {
+  size: 'short',
   maxcharacters: 100,
   successtext: 'Success validation text',
   errortext: 'Error validation text'

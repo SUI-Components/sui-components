@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import querystring from 'querystring'
+import {paramsToQueryString} from './querystring'
 
 const BASE_CLASS = 'sui-FormPta'
 const CONTENT_CLASS = `${BASE_CLASS}-content`
@@ -11,7 +11,7 @@ class FormPta extends Component {
     super(props)
 
     const {formUrl: BASE_URL, ...settings} = this.props
-    const QUERY = querystring.stringify(settings)
+    const QUERY = paramsToQueryString(settings)
     const formUrl = `${BASE_URL}?${QUERY}`
 
     this.state = {

@@ -4,7 +4,7 @@ const settings = {
   authToken: 'dXNlcl9pZD0xNzAwMDU0JmF1dGhlbnRpY2F0aW9uX3Rva2VuPWZhMmE5ZTg1LTY3ZTYtNDU0NC1hNTNmLWQ1NjIwZTMyYjZmNyZzZXNzaW9uX2lkPTM1cmNlNG5pZ2VsaHRyM2FseW54YmllMg==',
   appTheme: 'coches',
   language: 'es',
-  formUrl: 'http://localhost:8080/formbuilder.html',
+  formUrl: 'https://webformbuilderpre.scmspain.com/index.html',
   redirectOnSuccessUrl: 'http://pre.cochesnet.es',
   redirectOnErrorUrl: 'http://pre.cochesnet.es/mvc/property/NextStep?ai=${id}&mode=1&ot=4',
   adsUrl: 'https://ptaadinsertion-classifiedads.global-pre.spain.schibsted.io/cochesnet/ads',

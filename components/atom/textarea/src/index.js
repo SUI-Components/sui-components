@@ -9,13 +9,17 @@ import AtomValidationText, {
 import AtomLabel, {AtomLabelTypes} from '@s-ui/react-atom-label'
 
 const BASE_CLASS = 'sui-AtomTextarea'
+const SIZES = {
+  SHORT: 'short',
+  LONG: 'long'
+}
 
 class AtomTextarea extends Component {
   state = {
     value: this.props.children // eslint-disable-line react/prop-types
   }
   refTextarea = React.createRef()
-  id = this.props.id || `sui-AtomTextarea-${+new Date()}`
+  id = this.props.id || `sui-AtomTextarea-${+new Date()}` // eslint-disable-line react/prop-types
 
   get classNames() {
     const {size} = this.props
@@ -50,14 +54,23 @@ class AtomTextarea extends Component {
   }
 
   render() {
-    const {size, success, error, ...props} = this.props
+    const {
+      size,
+      label,
+      maxCharacters,
+      successText,
+      errorText,
+      success,
+      error,
+      ...props
+    } = this.props
     return (
       <Fragment>
         <AtomLabel
           type={this.getTypeValidation('label')}
           name={this.id}
           for={this.id}
-          text="Hello label"
+          text={label}
         />
         <textarea
           {...props}
@@ -81,27 +94,33 @@ class AtomTextarea extends Component {
 
 AtomTextarea.displayName = 'AtomTextarea'
 
-// Remove these comments if you need
-// AtomTextarea.contextTypes = {i18n: PropTypes.object}
-// AtomTextarea.propTypes = {}
-// AtomTextarea.defaultProps = {}
-
 AtomTextarea.propTypes = {
-  disabled: PropTypes.bool,
-  id: PropTypes.string,
-  size: PropTypes.string,
+  /** Text to be displayed as label of the textarea */
+  label: PropTypes.string.isRequired,
+
+  /** Size of button: 'short', 'long' */
+  size: PropTypes.oneOf(Object.values(SIZES)),
+
+  /** Sucess state of the component */
   success: PropTypes.bool,
+
+  /** Error state of the component */
   error: PropTypes.bool,
-  maxCharacters: PropTypes.number,
+
+  /** Sucess message to display when sucess state  */
   successText: PropTypes.string,
-  errorText: PropTypes.string
+
+  /** Error message to display when error state  */
+  errorText: PropTypes.string,
+
+  /** Maximum nomber of characters allowed  */
+  maxCharacters: PropTypes.number
 }
 
 AtomTextarea.defaultProps = {
-  size: 'short',
-  maxCharacters: 4000,
-  successText: 'Success',
-  errorText: 'Error'
+  size: SIZES.SHORT,
+  maxCharacters: 4000
 }
 
 export default AtomTextarea
+export {SIZES as AtomTextareaSizes}

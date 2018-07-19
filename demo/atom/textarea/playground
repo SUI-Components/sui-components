@@ -13,7 +13,7 @@ return (
         padding: '10px'
       }}
     >
-      <AtomTextarea>Hola amigos!!</AtomTextarea>
+      <AtomTextarea label="Description" />
     </div>
     <h2>Long size</h2>
     <div
@@ -24,7 +24,7 @@ return (
         padding: '10px'
       }}
     >
-      <AtomTextarea size="long">Hola amigos!!</AtomTextarea>
+      <AtomTextarea label="Description" size="long">Saul Bass on failure: Failure is built into creativity</AtomTextarea>
     </div>
     <h2>Basic Usage w/ ID</h2>
     <div
@@ -35,9 +35,9 @@ return (
         padding: '10px'
       }}
     >
-      <AtomTextarea id="hola-amigos">Hola amigos!!</AtomTextarea>
+      <AtomTextarea  label="Description" id="hola-amigos">Saul Bass on failure: Failure is built into creativity</AtomTextarea>
     </div>
-    <h2>Setting Max Charactes size</h2>
+    <h2>Setting Max Characters size</h2>
     <div
       style={{
         border: '1px solid #CCC',
@@ -46,7 +46,7 @@ return (
         padding: '10px'
       }}
     >
-      <AtomTextarea maxcharactes={100}>Hola amigos!!</AtomTextarea>
+      <AtomTextarea label="Description"  maxCharacters={100}>Saul Bass on failure: Failure is built into creativity</AtomTextarea>
     </div>
     <h2>Disabled</h2>
     <div
@@ -57,7 +57,7 @@ return (
         padding: '10px'
       }}
     >
-      <AtomTextarea disabled>Hola amigos!!</AtomTextarea>
+      <AtomTextarea  label="Description" disabled>Saul Bass on failure: Failure is built into creativity</AtomTextarea>
     </div>
     <h2>Success</h2>
     <div
@@ -68,8 +68,8 @@ return (
         padding: '10px'
       }}
     >
-      <AtomTextarea success successText="Perfect!">
-        Hola amigos!!
+      <AtomTextarea  label="Description" success successText="Perfect!">
+        Saul Bass on failure: Failure is built into creativity
       </AtomTextarea>
     </div>
     <h2>Error</h2>
@@ -81,8 +81,8 @@ return (
         padding: '10px'
       }}
     >
-      <AtomTextarea error errorText="Something went wrong!">
-        Hola amigos!!
+      <AtomTextarea  label="Description" error>
+        Saul Bass on failure: Failure is built into creativity
       </AtomTextarea>
     </div>
     <h2> Placeholder</h2>
@@ -94,7 +94,7 @@ return (
         padding: '10px'
       }}
     >
-      <AtomTextarea placeholder="Write something cool here..." />
+      <AtomTextarea  label="Description" placeholder="Write something cool here..." />
     </div>
   </div>
 )

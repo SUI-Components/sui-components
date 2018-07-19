@@ -27,12 +27,14 @@ class Input extends Component {
       reference,
       size,
       type,
-      value
+      value,
+      checked
     } = this.props
 
     return (
       <input
         className={this.getClassNames({size})}
+        checked={checked}
         disabled={disabled}
         id={id}
         name={name}
@@ -49,6 +51,8 @@ class Input extends Component {
 Input.propTypes = {
   /* This Boolean attribute prevents the user from interacting with the input */
   disabled: PropTypes.bool,
+  /* Mark the input as selected */
+  checked: PropTypes.bool,
   /* The DOM id global attribute. */
   id: PropTypes.string,
   /* sets the name property of an element in the DOM */

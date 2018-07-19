@@ -11,7 +11,9 @@ const TYPES = {
   NUMBER: 'number',
   PASSWORD: 'password',
   SUI_PASSWORD: 'sui-password',
-  TEXT: 'text'
+  TEXT: 'text',
+  RADIO: 'radio',
+  CHECKBOX: 'checkbox'
 }
 
 const FormInput = ({type, ...props}) => {

@@ -32,5 +32,31 @@ return (
     <div style={field}>
       <FormInput type='mask' mask={bankAccountMask} placeholder='ES00 0000 0000 00 0000000000' />
     </div>
+    <h2>Radio button</h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <FormInput type='radio' name="setting1"/>
+      <FormInput type='radio' name="setting1" disabled/>
+      <FormInput type='radio' name="setting1" checked/>
+    </div>
+    <h2>Checkbox</h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <FormInput type='checkbox' name="setting2" />
+      <FormInput type='checkbox' name="setting2" disabled/>
+      <FormInput type='checkbox' name="setting2" checked/>
+    </div>
   </React.Fragment>
 )

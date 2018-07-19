@@ -9,10 +9,16 @@ $sizes-form-input: medium $h-form-input--m, small $h-form-input--s !default;
   border-width: 1px;
   font-size: $fz-base;
   height: $h-form-input--m;
+  width: 100%;
   padding-left: $p-l;
   padding-right: $p-l;
-  width: 100%;
 
+  &[type="radio"], &[type="checkbox"] {
+    height: inherit;
+    width: inherit;
+    margin-left: $m-m;
+    margin-right: $m-m;
+  }
   &[placeholder] {
     color: $c-gray-dark;
   }

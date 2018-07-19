@@ -41,9 +41,12 @@ return (
         padding: '10px'
       }}
     >
-      <FormInput type='radio' name="setting1"/>
-      <FormInput type='radio' name="setting1" disabled/>
-      <FormInput type='radio' name="setting1" checked/>
+      <label htmlFor="radio-option-A">A</label>
+      <FormInput id="radio-option-A" type='radio' name="setting1"/>
+      <label htmlFor="radio-option-B">B</label>
+      <FormInput id="radio-option-B" type='radio' name="setting1" disabled/>
+      <label htmlFor="radio-option-C">C</label>
+      <FormInput id="radio-option-C" type='radio' name="setting1" checked/>
     </div>
     <h2>Checkbox</h2>
     <div
@@ -54,9 +57,12 @@ return (
         padding: '10px'
       }}
     >
-      <FormInput type='checkbox' name="setting2" />
-      <FormInput type='checkbox' name="setting2" disabled/>
-      <FormInput type='checkbox' name="setting2" checked/>
+      <label htmlFor="checkbox-option-A">A</label>
+      <FormInput id="checkbox-option-A"type='checkbox' name="setting2" />
+      <label htmlFor="checkbox-option-B">B</label>
+      <FormInput id="checkbox-option-B" type='checkbox' name="setting2" disabled/>
+      <label htmlFor="checkbox-option-C">C</label>
+      <FormInput id="checkbox-option-C" type='checkbox' name="setting2" checked/>
     </div>
   </React.Fragment>
 )

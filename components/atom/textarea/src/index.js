@@ -24,13 +24,13 @@ class AtomTextarea extends Component {
 
   handleChange = e => {
     const value = e.target.value
-    if (value.length > this.props.maxcharacters) return
+    if (value.length > this.props.maxCharacters) return
     this.setState({value})
   }
 
   get helpTextContent() {
     const numCharacters = this.state.value ? this.state.value.length : 0
-    return `${numCharacters}/${this.props.maxcharacters} characters`
+    return `${numCharacters}/${this.props.maxCharacters} characters`
   }
 
   getTypeValidation(element) {
@@ -45,12 +45,12 @@ class AtomTextarea extends Component {
   }
 
   get statusValidationText() {
-    if (this.props.success) return this.props.successtext
-    if (this.props.error) return this.props.errortext
+    if (this.props.success) return this.props.successText
+    if (this.props.error) return this.props.errorText
   }
 
   render() {
-    const {disabled, size, success, error, ...props} = this.props
+    const {size, success, error, ...props} = this.props
     return (
       <Fragment>
         <AtomLabel
@@ -63,7 +63,6 @@ class AtomTextarea extends Component {
           {...props}
           ref={this.refTextarea}
           onChange={this.handleChange}
-          disabled={disabled}
           id={this.id}
           className={this.classNames}
           value={this.state.value}
@@ -93,16 +92,16 @@ AtomTextarea.propTypes = {
   size: PropTypes.string,
   success: PropTypes.bool,
   error: PropTypes.bool,
-  maxcharacters: PropTypes.number,
-  successtext: PropTypes.string,
-  errortext: PropTypes.string
+  maxCharacters: PropTypes.number,
+  successText: PropTypes.string,
+  errorText: PropTypes.string
 }
 
 AtomTextarea.defaultProps = {
   size: 'short',
-  maxcharacters: 100,
-  successtext: 'Success validation text',
-  errortext: 'Error validation text'
+  maxCharacters: 4000,
+  successText: 'Success',
+  errorText: 'Error'
 }
 
 export default AtomTextarea

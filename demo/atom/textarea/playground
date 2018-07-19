@@ -2,7 +2,9 @@ return (
   <div>
     <h1>AtomTextarea</h1>
     <h2>Basic Usage</h2>
-    <p><code>short</code> <em>size</em> by default</p>
+    <p>
+      <code>short</code> <em>size</em> by default
+    </p>
     <div
       style={{
         border: '1px solid #CCC',
@@ -33,7 +35,18 @@ return (
         padding: '10px'
       }}
     >
-    <AtomTextarea id="hola-amigos">Hola amigos!!</AtomTextarea>
+      <AtomTextarea id="hola-amigos">Hola amigos!!</AtomTextarea>
+    </div>
+    <h2>Setting Max Charactes size</h2>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <AtomTextarea maxcharactes={100}>Hola amigos!!</AtomTextarea>
     </div>
     <h2>Disabled</h2>
     <div
@@ -44,7 +57,7 @@ return (
         padding: '10px'
       }}
     >
-    <AtomTextarea disabled>Hola amigos!!</AtomTextarea>
+      <AtomTextarea disabled>Hola amigos!!</AtomTextarea>
     </div>
     <h2>Success</h2>
     <div
@@ -55,7 +68,9 @@ return (
         padding: '10px'
       }}
     >
-    <AtomTextarea success successtext="Perfect!">Hola amigos!!</AtomTextarea>
+      <AtomTextarea success successText="Perfect!">
+        Hola amigos!!
+      </AtomTextarea>
     </div>
     <h2>Error</h2>
     <div
@@ -66,7 +81,9 @@ return (
         padding: '10px'
       }}
     >
-    <AtomTextarea error errortext="Something went wrong!">Hola amigos!!</AtomTextarea>
+      <AtomTextarea error errorText="Something went wrong!">
+        Hola amigos!!
+      </AtomTextarea>
     </div>
     <h2> Placeholder</h2>
     <div
@@ -77,7 +94,7 @@ return (
         padding: '10px'
       }}
     >
-    <AtomTextarea placeholder="Write something cool here..." />
+      <AtomTextarea placeholder="Write something cool here..." />
     </div>
   </div>
 )

@@ -13,8 +13,8 @@ class Input extends Component {
     onChange && onChange({value: ev.target.value, ev})
   }
 
-  getClassNames({size}) {
-    return cx(CLASS, `${CLASS}-${size}`)
+  getClassNames({size, hideInput}) {
+    return cx(CLASS, `${CLASS}-${size}`, hideInput && `${CLASS}--hidden`)
   }
 
   render() {
@@ -28,12 +28,13 @@ class Input extends Component {
       size,
       type,
       value,
-      checked
+      checked,
+      hideInput
     } = this.props
 
     return (
       <input
-        className={this.getClassNames({size})}
+        className={this.getClassNames({size, hideInput})}
         checked={checked}
         disabled={disabled}
         id={id}
@@ -66,9 +67,11 @@ Input.propTypes = {
   /* text, password, date or number */
   type: PropTypes.string,
   /* value of the control */
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /* react ref to access DOM node */
-  reference: PropTypes.func
+  reference: PropTypes.func,
+  /** Wether to show the input or not */
+  hideInput: PropTypes.bool
 }
 
 Input.defaultProps = {

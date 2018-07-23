@@ -7,11 +7,16 @@ $sizes-form-input: medium $h-form-input--m, small $h-form-input--s !default;
   border-color: $c-gray-light;
   border-style: solid;
   border-width: 1px;
+  box-sizing: border-box;
   font-size: $fz-base;
   height: $h-form-input--m;
   width: 100%;
   padding-left: $p-l;
   padding-right: $p-l;
+
+  &--hidden {
+    display:none;
+  }
 
   &[type="radio"], &[type="checkbox"] {
     height: inherit;

@@ -1,1 +1,5 @@
-return (<TrackingView />)
+return (<TrackingView
+        src="https://tags.tiqcdn.com/utag/schibsted/milanuncios/prod/utag.js"
+        track={() => console.log('track')}
+        verifier='utag'
+        />)

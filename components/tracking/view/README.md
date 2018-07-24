@@ -13,6 +13,18 @@ You must, in order to load the library. What we recomend to do is to wrap this c
 
 ```javascript
 <TealiumTrackingView>
+
+// The render of the tealium tracking view will be the one to hold the src and maybe also the useCase (is up to you)
+render(){
+ return <TrackingView
+        src='url'
+        track={useCase()}
+        isAsync={false}
+        verifier='utag'
+        />
+}
+
+// So you can use TealiumTrackingView abstracted from URL, verifier and even usecase
 ```
 
 ## Installation

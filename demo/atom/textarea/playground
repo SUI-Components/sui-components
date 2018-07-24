@@ -1,3 +1,13 @@
+const SuccessComponent = () => <span style={{ color: 'green' }}></span>
+const ErrorComponent = () => <span style={{ color: 'red' }}></span>
+
+const stylesSection = {
+  border: '1px solid #CCC',
+  background: '#fff',
+  marginTop: '10px',
+  padding: '10px'
+}
+
 return (
   <div>
     <h1>AtomTextarea</h1>
@@ -5,96 +15,25 @@ return (
     <p>
       <code>short</code> <em>size</em> by default
     </p>
-    <div
-      style={{
-        border: '1px solid #CCC',
-        background: '#fff',
-        marginTop: '10px',
-        padding: '10px'
-      }}
-    >
-      <AtomTextarea label="Description" />
+    <div style={ stylesSection }>
+      <AtomTextarea />
     </div>
     <h2>Long size</h2>
-    <div
-      style={{
-        border: '1px solid #CCC',
-        background: '#fff',
-        marginTop: '10px',
-        padding: '10px'
-      }}
-    >
-      <AtomTextarea label="Description" size="long">Saul Bass on failure: Failure is built into creativity</AtomTextarea>
+    <div style={ stylesSection }>
+      <AtomTextarea size="long">Saul Bass on failure: Failure is built into creativity</AtomTextarea>
     </div>
-    <h2>Basic Usage w/ ID</h2>
-    <div
-      style={{
-        border: '1px solid #CCC',
-        background: '#fff',
-        marginTop: '10px',
-        padding: '10px'
-      }}
-    >
-      <AtomTextarea  label="Description" id="hola-amigos">Saul Bass on failure: Failure is built into creativity</AtomTextarea>
-    </div>
+    
     <h2>Setting Max Characters size</h2>
-    <div
-      style={{
-        border: '1px solid #CCC',
-        background: '#fff',
-        marginTop: '10px',
-        padding: '10px'
-      }}
-    >
-      <AtomTextarea label="Description"  maxCharacters={100}>Saul Bass on failure: Failure is built into creativity</AtomTextarea>
+    <div style={ stylesSection }>
+      <AtomTextarea maxCharacters={100}>Saul Bass on failure: Failure is built into creativity</AtomTextarea>
     </div>
     <h2>Disabled</h2>
-    <div
-      style={{
-        border: '1px solid #CCC',
-        background: '#fff',
-        marginTop: '10px',
-        padding: '10px'
-      }}
-    >
-      <AtomTextarea  label="Description" disabled>Saul Bass on failure: Failure is built into creativity</AtomTextarea>
-    </div>
-    <h2>Success</h2>
-    <div
-      style={{
-        border: '1px solid #CCC',
-        background: '#fff',
-        marginTop: '10px',
-        padding: '10px'
-      }}
-    >
-      <AtomTextarea  label="Description" success successText="Perfect!">
-        Saul Bass on failure: Failure is built into creativity
-      </AtomTextarea>
-    </div>
-    <h2>Error</h2>
-    <div
-      style={{
-        border: '1px solid #CCC',
-        background: '#fff',
-        marginTop: '10px',
-        padding: '10px'
-      }}
-    >
-      <AtomTextarea  label="Description" error>
-        Saul Bass on failure: Failure is built into creativity
-      </AtomTextarea>
+    <div style={ stylesSection }>
+      <AtomTextarea disabled>Saul Bass on failure: Failure is built into creativity</AtomTextarea>
     </div>
     <h2> Placeholder</h2>
-    <div
-      style={{
-        border: '1px solid #CCC',
-        background: '#fff',
-        marginTop: '10px',
-        padding: '10px'
-      }}
-    >
-      <AtomTextarea  label="Description" placeholder="Write something cool here..." />
+    <div style={ stylesSection }>
+      <AtomTextarea  placeholder="Write something cool here..." />
     </div>
   </div>
 )

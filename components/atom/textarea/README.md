@@ -1,10 +1,8 @@
 # AtomTextarea
 
-AtomTextarea a component that wraps a composition of Label + textarea + Help & Validation Messages. It has some properties like:
+AtomTextarea a component that wraps a composition of textarea + Help  Messages. It has some properties like:
 - it displays the number of characters
 - it doesn't allow more characters than the `maxCharacters` (`4000` by default)
-- it handles two states: `success` and `error` (displays proper colors and messages in each case)
-
 
 ## Installation
 
@@ -23,52 +21,27 @@ import AtomTextarea from '@s-ui/react-atom-textarea'
 ### Basic usage
 
 ```javascript
-<AtomTextarea label="Description" />
+<AtomTextarea />
 ```
 
 ### Long size
 
 ```javascript
-<AtomTextarea label="Description" size="long" />
+<AtomTextarea size="long">
+  Saul Bass on failure: Failure is built into creativity
+</AtomTextarea>
 ```
 
 ### With placeholder
 
 ```javascript
-<AtomTextarea label="Description" placeholder="Write something cool here..." />
-```
-
-### Error
-
-```javascript
-<AtomTextarea  
-  label="Description" 
-  error 
-  errorText="Something went wrong!"
->
-  Saul Bass on failure: Failure is built into creativity
-</AtomTextarea>
-```
-
-### Success
-
-```javascript
-<AtomTextarea 
-  label="Description"
-  success
-  successText="Perfect!"
->
-  Saul Bass on failure: Failure is built into creativity
-</AtomTextarea>
+<AtomTextarea placeholder="Write something cool here..." />
 ```
 
 ### Setting max characters
 
 ```javascript
-<AtomTextarea 
-  label="Description" 
-  maxCharacters={100}
->
+<AtomTextarea maxCharacters={100}>
   Saul Bass on failure: Failure is built into creativity
 </AtomTextarea>
 ```

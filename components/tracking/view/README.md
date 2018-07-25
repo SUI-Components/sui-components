@@ -18,9 +18,9 @@ You must, in order to load the library. What we recomend to do is to wrap this c
 render(){
  return <TrackingView
         src='url'
-        track={useCase()}
+        track={() =>domain.get('usecase').execute(trackingDataObject)}
         isAsync={false}
-        verifier='utag'
+        verifier={() => window && window.utag}
         />
 }
 
@@ -44,7 +44,7 @@ return (
   <TrackingView
     src="http://tags.tiqcdn.com/utag/tealium/main/prod/utag.js"
     isAsync={false}
-    verifier="utag"
+    verifier={() => window && window.utag}
     track={() =>
       domain.get("my_tracking_usecase").execute({
         data_blabla: "test"

@@ -6,16 +6,12 @@ class TrackingView extends Component {
     return false
   }
 
-  proofOfLife(verifier) {
-    return window && window[verifier]
-  }
-
   render() {
     return (
       <ScriptLoader
         src={this.props.src}
         isAsync={false}
-        verifier={() => this.proofOfLife(this.props.verifier)}
+        verifier={this.props.verifier}
         render={() => !this.props.track() && null}
       />
     )
@@ -30,9 +26,9 @@ TrackingView.propTypes = {
    */
   src: PropTypes.string.isRequired,
   /**
-   * It must be a string with the object or even the function that our tracker is going to use. Used in order to ensure that our tracking API exist.
+   * It must be a function with the operation to validate that our library has being loaded.. Used in order to ensure that our tracking API exist.
    */
-  verifier: PropTypes.string.isRequired,
+  verifier: PropTypes.func.isRequired,
   /**
    * A function that will be called once a time our trackingView will be rendered for the first time.
    * It will be executed just one time.

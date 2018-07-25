@@ -16,7 +16,9 @@ return (
       <code>short</code> <em>size</em> by default
     </p>
     <div style={stylesSection}>
-      <AtomTextarea />
+      <AtomTextarea>
+        Saul Bass on failure: Failure is built into creativity
+      </AtomTextarea>
     </div>
     <h2>Long size</h2>
     <div style={stylesSection}>
@@ -44,13 +46,13 @@ return (
     <h2> With success message</h2>
     <div style={stylesSection}>
       <AtomTextarea validationMessage={SuccessComponent}>
-        Saul Bass on failure: Failure is...
+        Saul Bass on failure: Failure is built into creativity
       </AtomTextarea>
     </div>
     <h2> With error message</h2>
     <div style={stylesSection}>
       <AtomTextarea validationMessage={ErrorComponent}>
-        Saul Bass on failure: Failure is...
+        Saul Bass on failure: Failure is built into creativity
       </AtomTextarea>
     </div>
   </div>

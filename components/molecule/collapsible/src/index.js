@@ -5,6 +5,7 @@ import cx from 'classnames'
 const BASE_CLASS = 'sui-MoleculeCollapsible'
 const CONTENT_CLASS = `${BASE_CLASS}-content`
 const CONTAINER_BUTTON_CLASS = `${BASE_CLASS}-container`
+const COLLAPSED_CLASS = 'is-collapsed'
 const BUTTON_CLASS = `${BASE_CLASS}-btn`
 const ICON_CLASS = `${BASE_CLASS}-icon`
 const MIN_HEIGHT = 100 // px
@@ -34,15 +35,15 @@ class MoleculeCollapsible extends Component {
     const {collapsed, showButton} = this.state
     const {children, height, icon, showText, hideText, hasGradient} = this.props
     const wrapperClassName = cx(`${BASE_CLASS}`, {
-      [`${BASE_CLASS}--gradient`]: hasGradient,
-      [`${BASE_CLASS}--collapsed`]: collapsed
+      [`${BASE_CLASS}--withGradient`]: hasGradient,
+      [COLLAPSED_CLASS]: collapsed
     })
     const iconClassName = cx(`${ICON_CLASS}`, {
-      [`${ICON_CLASS}--collapsed`]: collapsed
+      [COLLAPSED_CLASS]: collapsed
     })
     const containerClassName = cx(`${CONTAINER_BUTTON_CLASS}`, {
-      [`${CONTAINER_BUTTON_CLASS}--gradient`]: hasGradient,
-      [`${CONTAINER_BUTTON_CLASS}--collapsed`]: collapsed
+      [`${CONTAINER_BUTTON_CLASS}--withGradient`]: hasGradient,
+      [COLLAPSED_CLASS]: collapsed
     })
     const containerHeight = showButton && collapsed ? height : 'none'
 

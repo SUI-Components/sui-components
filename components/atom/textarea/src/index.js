@@ -15,14 +15,13 @@ class AtomTextarea extends Component {
     value: this.props.children // eslint-disable-line react/prop-types
   }
 
-  get classNames() {
-    const {size} = this.props
+  getClassNames(size) {
     return cx(BASE_CLASS, `${BASE_CLASS}--${size}`)
   }
 
-  get helpTextContent() {
+  getHelpTextContent(maxCharacters, maxCharactersText) {
     const numCharacters = this.state.value ? this.state.value.length : 0
-    return `${numCharacters}/${this.props.maxCharacters} characters`
+    return `${numCharacters}/${maxCharacters} ${maxCharactersText}`
   }
 
   handleChange = ev => {
@@ -33,16 +32,24 @@ class AtomTextarea extends Component {
   }
 
   render() {
-    const {onChange, ...props} = this.props
+    const {
+      onChange,
+      maxCharacters,
+      maxCharactersText,
+      size,
+      ...props
+    } = this.props
     return (
       <Fragment>
         <textarea
           {...props}
           onChange={this.handleChange}
-          className={this.classNames}
+          className={this.getClassNames(size)}
           value={this.state.value}
         />
-        <AtomHelpText text={this.helpTextContent} />
+        <AtomHelpText
+          text={this.getHelpTextContent(maxCharacters, maxCharactersText)}
+        />
       </Fragment>
     )
   }
@@ -55,12 +62,16 @@ AtomTextarea.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZES)),
 
   /** Maximum number of characters allowed  */
-  maxCharacters: PropTypes.number
+  maxCharacters: PropTypes.number,
+
+  /* Text to be shown in max characters Help text */
+  maxCharactersText: PropTypes.string
 }
 
 AtomTextarea.defaultProps = {
   size: SIZES.SHORT,
-  maxCharacters: 4000
+  maxCharacters: 4000,
+  maxCharactersText: 'characters'
 }
 
 export default AtomTextarea

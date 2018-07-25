@@ -1,6 +1,7 @@
 const icon = GetIcon()
 const showText = 'Show'
 const hideText = 'Hide'
+const height = 70
 
 function Text() {
      return(
@@ -29,7 +30,7 @@ return (
         <h1>Collapsible</h1>
         <DemoWrapper >
             <Demo>
-                <h2>Basic Collapsible Left</h2>
+                <h2>Collapsible Left</h2>
                 <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16, textAlign: 'left'}}>
                     <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText}>
                         <Text/>
@@ -37,7 +38,7 @@ return (
                 </div>
             </Demo>
             <Demo>
-                <h2>Basic Collapsible Center</h2>
+                <h2>Collapsible Center</h2>
                 <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16, textAlign: 'center'}}>
                     <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText}>
                         <Text/>
@@ -45,17 +46,25 @@ return (
                 </div>
             </Demo>
             <Demo>
-                <h2>Basic Collapsible Right</h2>
+                <h2>Collapsible Right</h2>
                 <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16, textAlign: 'right'}}>
-                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText}>
+                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} >
                         <Text/>
                     </MoleculeCollapsible>
                 </div>
             </Demo>
             <Demo>
-                <h2>Basic Collapsible Without Gradient</h2>
+                <h2>Collapsible Without Gradient</h2>
                 <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16, textAlign: 'left'}}>
                     <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} hasGradient={false}>
+                        <Text/>
+                    </MoleculeCollapsible>
+                </div>
+            </Demo>
+            <Demo>
+                <h2>Collapsible setting custom height </h2>
+                <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16, textAlign: 'left'}}>
+                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} height={height}>
                         <Text/>
                     </MoleculeCollapsible>
                 </div>

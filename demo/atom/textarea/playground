@@ -1,5 +1,5 @@
-const SuccessComponent = () => <span style={{ color: 'green' }}></span>
-const ErrorComponent = () => <span style={{ color: 'red' }}></span>
+const SuccessComponent = () => <span style={{display:'block', color: 'green'}}>Success!!</span>
+const ErrorComponent = () => <span style={{display:'block', color: 'red'}}>Error!!</span>
 
 const stylesSection = {
   border: '1px solid #CCC',
@@ -15,25 +15,43 @@ return (
     <p>
       <code>short</code> <em>size</em> by default
     </p>
-    <div style={ stylesSection }>
+    <div style={stylesSection}>
       <AtomTextarea />
     </div>
     <h2>Long size</h2>
-    <div style={ stylesSection }>
-      <AtomTextarea size="long">Saul Bass on failure: Failure is built into creativity</AtomTextarea>
+    <div style={stylesSection}>
+      <AtomTextarea size="long">
+        Saul Bass on failure: Failure is built into creativity
+      </AtomTextarea>
     </div>
-    
+
     <h2>Setting Max Characters size</h2>
-    <div style={ stylesSection }>
-      <AtomTextarea maxCharacters={100}>Saul Bass on failure: Failure is built into creativity</AtomTextarea>
+    <div style={stylesSection}>
+      <AtomTextarea maxCharacters={100}>
+        Saul Bass on failure: Failure is built into creativity
+      </AtomTextarea>
     </div>
     <h2>Disabled</h2>
-    <div style={ stylesSection }>
-      <AtomTextarea disabled>Saul Bass on failure: Failure is built into creativity</AtomTextarea>
+    <div style={stylesSection}>
+      <AtomTextarea disabled>
+        Saul Bass on failure: Failure is built into creativity
+      </AtomTextarea>
     </div>
     <h2> Placeholder</h2>
-    <div style={ stylesSection }>
-      <AtomTextarea  placeholder="Write something cool here..." />
+    <div style={stylesSection}>
+      <AtomTextarea placeholder="Write something cool here..." />
+    </div>
+    <h2> With success message</h2>
+    <div style={stylesSection}>
+      <AtomTextarea validationMessage={SuccessComponent}>
+        Saul Bass on failure: Failure is...
+      </AtomTextarea>
+    </div>
+    <h2> With error message</h2>
+    <div style={stylesSection}>
+      <AtomTextarea validationMessage={ErrorComponent}>
+        Saul Bass on failure: Failure is...
+      </AtomTextarea>
     </div>
   </div>
 )

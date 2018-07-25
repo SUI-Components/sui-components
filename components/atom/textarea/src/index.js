@@ -36,6 +36,7 @@ class AtomTextarea extends Component {
       onChange,
       maxCharacters,
       maxCharactersText,
+      validationMessage: ValidationMessage,
       size,
       ...props
     } = this.props
@@ -47,6 +48,7 @@ class AtomTextarea extends Component {
           className={this.getClassNames(size)}
           value={this.state.value}
         />
+        {ValidationMessage && <ValidationMessage />}
         <AtomHelpText
           text={this.getHelpTextContent(maxCharacters, maxCharactersText)}
         />
@@ -65,7 +67,10 @@ AtomTextarea.propTypes = {
   maxCharacters: PropTypes.number,
 
   /* Text to be shown in max characters Help text */
-  maxCharactersText: PropTypes.string
+  maxCharactersText: PropTypes.string,
+
+  /** HTML (component, AtomValicationText) to be displayed if success or error */
+  validationMessage: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
 }
 
 AtomTextarea.defaultProps = {

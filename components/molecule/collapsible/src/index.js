@@ -14,28 +14,20 @@ class MoleculeCollapsible extends Component {
     super(props)
     this.childrenContainer = React.createRef()
     this.state = {collapsed: true, showButton: true}
-    this.contentStyles = {
-      height: `${MIN_HEIGHT}`
-    }
   }
 
   toggleCollapse = () => {
     const {collapsed, showButton} = this.state
     const {onClose, onOpen} = this.props
     if (showButton) {
-      if (collapsed) {
-        this.setState({collapsed: false})
-        onOpen()
-      } else {
-        this.setState({collapsed: true})
-        onClose()
-      }
+      this.setState({collapsed: !collapsed})
+      ;(collapsed && onOpen()) || onClose()
     }
   }
 
   componentDidMount() {
     const offsetHeight = this.childrenContainer.current.offsetHeight
-    this.setState({showButton: offsetHeight >= MIN_HEIGHT})
+    this.setState({showButton: offsetHeight >= this.props.height})
   }
 
   render() {

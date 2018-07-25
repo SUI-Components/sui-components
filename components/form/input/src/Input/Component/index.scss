@@ -10,20 +10,21 @@ $sizes-form-input: medium $h-form-input--m, small $h-form-input--s !default;
   box-sizing: border-box;
   font-size: $fz-base;
   height: $h-form-input--m;
-  width: 100%;
   padding-left: $p-l;
   padding-right: $p-l;
+  width: 100%;
 
   &--hidden {
-    display:none;
+    display: none;
   }
 
-  &[type="radio"], &[type="checkbox"] {
+  &[type='radio'], &[type='checkbox'] {
     height: inherit;
-    width: inherit;
     margin-left: $m-m;
     margin-right: $m-m;
+    width: inherit;
   }
+  
   &[placeholder] {
     color: $c-gray-dark;
   }

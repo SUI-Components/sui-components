@@ -17,13 +17,19 @@ return (
     <h2>With Error Message</h2>
     <div style={stylesSection}>
       <MoleculeFieldset label="name" errorText="Error!">
-        <input type="text" value="Guernsey"/>
+        <input type="text"/>
       </MoleculeFieldset>
     </div>
     <h2>With Success Message</h2>
     <div style={stylesSection}>
       <MoleculeFieldset label="name" successText="Success!">
-        <input type="text" value="Rwanda"/>
+        <input type="text"/>
+      </MoleculeFieldset>
+    </div>
+    <h2>Inline</h2>
+    <div style={stylesSection}>
+      <MoleculeFieldset inline label="name" successText="Success!">
+        <input type="text"/>
       </MoleculeFieldset>
     </div>
   </div>

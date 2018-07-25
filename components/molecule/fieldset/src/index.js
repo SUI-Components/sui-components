@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types' // eslint-disable-line no-unused-vars
+import cx from 'classnames'
 
 import AtomValidationText, {
   AtomValidationTextTypes
@@ -18,6 +19,10 @@ class MoleculeFieldset extends Component {
   }
 
   idLabelFor = `sui-MoleculeFieldset-${+new Date()}`
+
+  getClassNames(inline) {
+    return cx(BASE_CLASS, inline && `${BASE_CLASS}--inline`)
+  }
 
   extendChildren(children) {
     const childrenOnly = React.Children.only(children)
@@ -50,22 +55,24 @@ class MoleculeFieldset extends Component {
   }
 
   render() {
-    const {label, successText, errorText, children} = this.props
+    const {label, inline, successText, errorText, children} = this.props
     return (
-      <div className={BASE_CLASS}>
+      <div className={this.getClassNames(inline)}>
         <AtomLabel
           type={this.getTypeValidation('label')}
           name={this.idLabelFor}
           for={this.idLabelFor}
           text={label}
         />
-        {this.extendChildren(children)}
-        {(successText || errorText) && (
-          <AtomValidationText
-            type={this.getTypeValidation('validationText')}
-            text={this.statusValidationText}
-          />
-        )}
+        <div>
+          {this.extendChildren(children)}
+          {(successText || errorText) && (
+            <AtomValidationText
+              type={this.getTypeValidation('validationText')}
+              text={this.statusValidationText}
+            />
+          )}
+        </div>
       </div>
     )
   }
@@ -81,7 +88,10 @@ MoleculeFieldset.propTypes = {
   successText: PropTypes.string,
 
   /** Error message to display when error state  */
-  errorText: PropTypes.string
+  errorText: PropTypes.string,
+
+  /** Boolean to decide if elements should be set inline */
+  inline: PropTypes.bool
 }
 
 export default MoleculeFieldset

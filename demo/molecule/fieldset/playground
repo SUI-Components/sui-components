@@ -1,1 +1,30 @@
-return (<MoleculeFieldset />)
+const stylesSection = {
+  border: '1px solid #CCC',
+  background: '#fff',
+  marginTop: '10px',
+  padding: '10px'
+}
+
+return (
+  <div>
+    <h1>MoleculeFieldset</h1>
+    <h2>Basic Usage</h2>
+    <div style={stylesSection}>
+      <MoleculeFieldset label="name">
+        <input type="text"/>
+      </MoleculeFieldset>
+    </div>
+    <h2>With Error Message</h2>
+    <div style={stylesSection}>
+      <MoleculeFieldset label="name" errorText="Error!">
+        <input type="text" value="Guernsey"/>
+      </MoleculeFieldset>
+    </div>
+    <h2>With Success Message</h2>
+    <div style={stylesSection}>
+      <MoleculeFieldset label="name" successText="Success!">
+        <input type="text" value="Rwanda"/>
+      </MoleculeFieldset>
+    </div>
+  </div>
+)

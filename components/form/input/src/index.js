@@ -51,7 +51,7 @@ FormInput.propTypes = {
   /* value of the control */
   value: PropTypes.string,
   /* mask object, see https://unmanner.github.io/imaskjs/ */
-  mask: PropTypes.object.isRequired
+  mask: PropTypes.object
 }
 
 FormInput.displayName = 'FormInput'

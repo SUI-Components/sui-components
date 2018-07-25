@@ -1,4 +1,4 @@
-class SimpleLoginForm extends React.Component {
+class SimpleCheckboxRadioForm extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -39,7 +39,7 @@ class SimpleLoginForm extends React.Component {
   }
 
   render() {
-    const {login, termsService} = this.state
+    const {termsService} = this.state
     return (
       <form
         className="Form"
@@ -49,6 +49,7 @@ class SimpleLoginForm extends React.Component {
           marginTop: '10px',
           padding: '10px'
         }}
+        onSubmit={this.onSubmit}
       >
         <div style={{marginTop: '10px'}}>
           <label htmlFor="terms_service">Accept Terms Service</label>
@@ -158,6 +159,7 @@ class SimpleLoginForm extends React.Component {
         <pre>
             { JSON.stringify(this.state, null, 2) }
         </pre>
+        <button>Send!</button>
       </form>
     )
   }
@@ -230,6 +232,6 @@ return (
 
     <h2>Checkbox & Radio</h2>
 
-    <SimpleLoginForm />
+    <SimpleCheckboxRadioForm />
   </React.Fragment>
 )

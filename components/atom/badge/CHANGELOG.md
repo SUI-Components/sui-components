@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2018-07-20)
+
+
+### Features
+
+* change variable name ([ae59914](https://github.com/SUI-Components/sui-components/commit/ae59914))
+* new variable that allows you to combine different backgrounds and color font ([3a12be1](https://github.com/SUI-Components/sui-components/commit/3a12be1))
+* revove unused variable ([10fd8e3](https://github.com/SUI-Components/sui-components/commit/10fd8e3))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2018-07-04)
 

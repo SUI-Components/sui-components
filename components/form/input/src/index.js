@@ -51,7 +51,9 @@ FormInput.propTypes = {
   /* 's' or 'm', default: 'm' */
   size: PropTypes.oneOf(Object.values(InputSizes)),
   /* value of the control */
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  /* mask object, see https://unmanner.github.io/imaskjs/ */
+  mask: PropTypes.object
 }
 
 FormInput.displayName = 'FormInput'

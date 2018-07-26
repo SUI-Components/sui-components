@@ -26,6 +26,14 @@ import MoleculeFieldset from '@s-ui/react-molecule-fieldset'
 </MoleculeFieldset>
 ```
 
+### Inline
+
+```
+<MoleculeFieldset inline label="name">
+  <input type="text"/>
+</MoleculeFieldset>
+```
+
 ### With Error Message 
 
 ```

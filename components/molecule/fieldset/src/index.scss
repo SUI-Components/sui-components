@@ -1,9 +1,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
 .sui-MoleculeFieldset {
-  &---inline {
-    .sui-AtomLabel {
-      display: inline-block;
-    }   
+  &--inline {
+    display: flex;
   }
 }

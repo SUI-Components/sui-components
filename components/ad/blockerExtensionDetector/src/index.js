@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
-class AdExtensionAdBlockDetector extends Component {
+class AdBlockerExtensionDetector extends Component {
   constructor(props) {
     super(props)
     this.blockDetector = React.createRef()
@@ -39,10 +39,10 @@ class AdExtensionAdBlockDetector extends Component {
   }
 }
 
-AdExtensionAdBlockDetector.displayName = 'AdExtensionAdBlockDetector'
+AdBlockerExtensionDetector.displayName = 'AdBlockerExtensionDetector'
 
-AdExtensionAdBlockDetector.propTypes = {
+AdBlockerExtensionDetector.propTypes = {
   children: PropTypes.node
 }
 
-export default AdExtensionAdBlockDetector
+export default AdBlockerExtensionDetector

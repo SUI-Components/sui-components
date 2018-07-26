@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2018-07-26)
+
+
+### Bug Fixes
+
+* fix pta component styles ([c41edd7](https://github.com/SUI-Components/sui-components/commit/c41edd7))
+* fix pta component visibility in firefox ([53d060d](https://github.com/SUI-Components/sui-components/commit/53d060d))
+* replace position fixed with absolute ([714e905](https://github.com/SUI-Components/sui-components/commit/714e905))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-07-20)
 

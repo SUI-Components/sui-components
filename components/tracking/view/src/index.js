@@ -11,10 +11,10 @@ class TrackingView extends Component {
     return false
   }
 
-  overrideTrackingBaseCfg({overRidePropName, configOverridesObject = {}}) {
+  overrideTrackingBaseCfg({overridePropName, configOverridesObject = {}}) {
     if (window) {
-      window[overRidePropName] = {
-        ...window[overRidePropName],
+      window[overridePropName] = {
+        ...window[overridePropName],
         ...configOverridesObject
       }
     }
@@ -55,11 +55,11 @@ TrackingView.propTypes = {
   /**
    * Is the name of the property that does the config tracking overrides
    */
-  overRidePropName: PropTypes.string
+  overridePropName: PropTypes.string
 }
 
 TrackingView.defaultProps = {
-  overRidePropName: 'utag_cfg_ovrd',
+  overridePropName: 'utag_cfg_ovrd',
   configOverridesObject: {noview: true}
 }
 

@@ -11,7 +11,7 @@ $ npm install @schibstedspain/sui-ad-blocker-extension-detector --save
 ```
 
 ## Usage
-This component will recive by children the content that have to show when adblock extension is enabled in browser. For example could be a banner message. But at the same time maybe bussines dept could be interested in show a diferent page when adblock is enabled instead a banner.
+This component will receive by children the content that have to show when adblock extension is enabled in browser. For example could be a banner message. But at the same time maybe business dept could be interested in show a diferent page when adblock is enabled instead a banner.
 
 ## How it works technically?
 This component render twice. The first time is for get the offsetHeight of div with class adsbox.

@@ -3,7 +3,7 @@ export class GetConsentStatusUseCase {
     this._repository = repository
   }
 
-  async execute() {
+  execute() {
     return this._repository.getConsentStatus()
   }
 }

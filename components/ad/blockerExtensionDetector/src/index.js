@@ -30,7 +30,7 @@ class AdBlockerExtensionDetector extends Component {
     const {children} = this.props
     return (
       <React.Fragment>
-        {this.state.displayBanner && <div>{children}</div>}
+        {this.state.displayBanner && children}
         <div ref={this.blockDetector} className="adsbox">
           &nbsp;
         </div>

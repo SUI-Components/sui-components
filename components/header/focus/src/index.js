@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 
 class HeaderFocus extends Component {
   render() {
+    const {href, logo} = this.props
     return (
       <header className="sui-HeaderFocus">
-        <a className="sui-HeaderFocus-logo" href="/">
-          {this.props.logo}
+        <a className="sui-HeaderFocus-logo" href={href}>
+          {logo}
         </a>
       </header>
     )
@@ -16,7 +17,12 @@ class HeaderFocus extends Component {
 HeaderFocus.displayName = 'HeaderFocus'
 
 HeaderFocus.propTypes = {
-  logo: PropTypes.node
+  logo: PropTypes.node.isRequired,
+  href: PropTypes.string
+}
+
+HeaderFocus.defaultProps = {
+  href: '/'
 }
 
 export default HeaderFocus

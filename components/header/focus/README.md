@@ -1,8 +1,6 @@
 # HeaderFocus
 
-> Description
-
-<!-- ![](./assets/preview.png) -->
+> Simple header with nothing else than a centered logo
 
 ## Installation
 
@@ -15,9 +13,6 @@ $ npm install @schibstedspain/sui-header-focus --save
 ### Basic usage
 ```js
 import HeaderFocus from '@schibstedspain/sui-header-focus'
-
-return (<HeaderFocus />)
+const SVGElement = <svg ... />
+return (<HeaderFocus logo={SVGElement} />)
 ```
-
-
-> **Find full description and more examples in the [demo page](#).**

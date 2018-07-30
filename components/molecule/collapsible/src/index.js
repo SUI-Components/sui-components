@@ -28,6 +28,8 @@ class MoleculeCollapsible extends Component {
 
   componentDidMount() {
     const offsetHeight = this.childrenContainer.current.offsetHeight
+    console.log(offsetHeight)
+    console.log(this.props.height)
     this.setState({showButton: offsetHeight >= this.props.height})
   }
 
@@ -45,13 +47,13 @@ class MoleculeCollapsible extends Component {
       [`${CONTAINER_BUTTON_CLASS}--withGradient`]: hasGradient,
       [COLLAPSED_CLASS]: collapsed
     })
-    const containerHeight = showButton && collapsed ? height : 'auto'
+    const containerHeight = showButton && collapsed ? `${height}px` : 'none'
 
     return (
       <div className={wrapperClassName}>
         <div
           className={CONTENT_CLASS}
-          style={{height: `${containerHeight}`}}
+          style={{maxHeight: `${containerHeight}`}}
           ref={this.childrenContainer}
         >
           {children}

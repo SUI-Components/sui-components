@@ -1,24 +1,22 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
-const TYPES = {
-  SIMPLE: 'simple',
-  MOBILE: 'mobile'
-}
-
 class HeaderFocus extends Component {
   render() {
-    return <header className="sui-HeaderFocus">HeaderFocus</header>
+    return (
+      <header className="sui-HeaderFocus">
+        <a className="sui-HeaderFocus-logo" href="/">
+          {this.props.logo}
+        </a>
+      </header>
+    )
   }
 }
 
 HeaderFocus.displayName = 'HeaderFocus'
 
 HeaderFocus.propTypes = {
-  type: PropTypes.string
-}
-HeaderFocus.defaultProps = {
-  type: TYPES.SIMPLE
+  logo: PropTypes.node
 }
 
 export default HeaderFocus

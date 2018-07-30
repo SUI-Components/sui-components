@@ -25,7 +25,8 @@ class CollapsibleAccordion extends Component {
   }
 
   _handleClick(id) {
-    return collapsed => this._collapseItems(collapsed, id)
+    const {preserveState} = this.props
+    return collapsed => !preserveState && this._collapseItems(collapsed, id)
   }
 
   _collapseItems(collapsed, id) {
@@ -62,6 +63,11 @@ CollapsibleAccordion.displayName = 'CollapsibleAccordion'
 
 CollapsibleAccordion.propTypes = {
   /**
+   * Close the prev row open if other row has been opened (false)
+   * Keep the prev row open if other row has been opened (true)
+   */
+  preserveState: PropTypes.bool,
+  /**
    * Event that will send when select an item
    */
   onItemChange: PropTypes.func,
@@ -91,6 +97,7 @@ CollapsibleAccordion.propTypes = {
 }
 
 CollapsibleAccordion.defaultProps = {
+  preserveState: false,
   onItemChange: () => {}
 }
 

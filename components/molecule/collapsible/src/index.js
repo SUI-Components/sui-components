@@ -28,8 +28,6 @@ class MoleculeCollapsible extends Component {
 
   componentDidMount() {
     const offsetHeight = this.childrenContainer.current.offsetHeight
-    console.log(offsetHeight)
-    console.log(this.props.height)
     this.setState({showButton: offsetHeight >= this.props.height})
   }
 

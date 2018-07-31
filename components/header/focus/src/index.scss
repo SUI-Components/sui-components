@@ -25,7 +25,7 @@ $w-header-focus-logo: 50px !default;
 
 @media print {
   .sui-HeaderFocus {
-    background-color: $c-white;
+    background-color: transparent;
     justify-content: left;
 
     & svg path {

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2018-07-31)
+
+
+### Features
+
+* added preserveState prop ([9c9008c](https://github.com/SUI-Components/sui-components/commit/9c9008c))
+* added prop in docs ([0a2278c](https://github.com/SUI-Components/sui-components/commit/0a2278c))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2018-03-20)
 

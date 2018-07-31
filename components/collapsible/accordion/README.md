@@ -36,7 +36,7 @@ const items = [
   }
 ]
 
-return (<CollapsibleAccordion items={items} />)
+return (<CollapsibleAccordion items={items} preserveState={true} />)
 ```
 
 

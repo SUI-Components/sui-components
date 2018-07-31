@@ -12,7 +12,7 @@ class TrackingView extends Component {
   }
 
   overrideTrackingBaseCfg({overridePropName, configOverridesObject = {}}) {
-    if (window) {
+    if (typeof window !== 'undefined') {
       window[overridePropName] = {
         ...window[overridePropName],
         ...configOverridesObject

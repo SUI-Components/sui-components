@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2018-07-31)
+
+
+### Bug Fixes
+
+* window check done with typeof ([342c33a](https://github.com/SUI-Components/sui-components/commit/342c33a))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2018-07-28)
 

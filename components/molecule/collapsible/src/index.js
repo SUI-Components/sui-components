@@ -45,7 +45,7 @@ class MoleculeCollapsible extends Component {
       [`${CONTAINER_BUTTON_CLASS}--withGradient`]: hasGradient,
       [COLLAPSED_CLASS]: collapsed
     })
-    const containerHeight = showButton && collapsed ? height : 'none'
+    const containerHeight = showButton && collapsed ? `${height}px` : 'none'
 
     return (
       <div className={wrapperClassName}>

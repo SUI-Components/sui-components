@@ -2,21 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {ToggleSwitchTypeRender} from './SwitchType/toggle'
 import {SingleSwitchTypeRender} from './SwitchType/single'
-
-export const BASE_CLASS = 'sui-AtomSwitch'
-
-export const SIZES = {
-  DEFAULT: 'default',
-  LARGE: 'large'
-}
-
-export const TYPES = {
-  TOGGLE: 'toggle',
-  SELECT: 'select',
-  SINGLE: 'single'
-}
-
-const SUPPORTED_KEYS = [' ', 'Enter', 'Spacebar']
+import {SIZES, TYPES, SUPPORTED_KEYS} from './config'
 
 class AtomSwitch extends Component {
   state = {

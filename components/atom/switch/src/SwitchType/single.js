@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import AtomLabel from '@s-ui/react-atom-label'
-import {prefixClass, workClassNames} from './helpers'
+import {suitClass, switchClassNames} from './helpers'
 import PropTypes from 'prop-types'
 
 export const SingleSwitchTypeRender = ({
@@ -20,7 +20,7 @@ export const SingleSwitchTypeRender = ({
 }) => {
   return (
     <div
-      className={workClassNames(
+      className={switchClassNames(
         size,
         type,
         'singleType',
@@ -31,17 +31,17 @@ export const SingleSwitchTypeRender = ({
       onClick={() => onToggle()}
     >
       <div
-        className={prefixClass('container')}
+        className={suitClass({element: 'container'})}
         tabIndex="0"
         onKeyDown={onKeyDown}
         onFocus={onFocus}
         onBlur={onBlur}
       >
         <AtomLabel name={name} text={label} optionalText={labelOptionalText} />
-        <div className={prefixClass('inputContainer')}>
+        <div className={suitClass({element: 'inputContainer'})}>
           <div
-            className={cx(prefixClass('circle'), {
-              'sui-AtomSwitch--toggle': isToggle
+            className={cx(suitClass({element: 'circle'}), {
+              [suitClass({modifier: 'toggle'})]: isToggle
             })}
           />
         </div>

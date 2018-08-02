@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "react-container-query": "0.11.0"
+    "resize-observer-polyfill": "1.5.0",
+    "shallowequal": "1.1.0"
   },
   "keywords": [],
   "author": "",

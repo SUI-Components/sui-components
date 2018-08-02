@@ -64,7 +64,7 @@ $c-atom-switch--default: color-variation($c-gray, 3) !default;
     border: solid 1px color-variation($c-atom-switch--default, $c-dark-step);
     cursor: pointer;
     height: $h-atom-switch-container-default;
-    transition: background-color, border 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
     width: $w-atom-switch-container-default;
 
     .sui-AtomSwitch-circle {
@@ -86,6 +86,14 @@ $c-atom-switch--default: color-variation($c-gray, 3) !default;
   &.sui-AtomSwitch--disabled {
     color: $c-gray;
     pointer-events: none;
+    .sui-AtomSwitch-inputContainer {
+      border: solid 1px #f1f1f1;
+      background-color: #f1f1f1;
+    }
+    .sui-AtomSwitch-circle {
+      background-color: #f1f1f1;
+      background-color: #f1f1f1;
+    }
   }
 
   &.sui-AtomSwitch--active {

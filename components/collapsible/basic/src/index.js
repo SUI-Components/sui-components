@@ -36,7 +36,8 @@ class CollapsibleBasic extends Component {
       label,
       animationSpeed,
       hideTriggerIcon,
-      children
+      children,
+      isClickable
     } = this.props
     const {isCollapsed} = this.state
     const cssClassNames = cx('sui-CollapsibleBasic', {
@@ -52,7 +53,7 @@ class CollapsibleBasic extends Component {
       <div className={cssClassNames}>
         <div
           className="sui-CollapsibleBasic-trigger"
-          onClick={this._handleClick}
+          onClick={isClickable && this._handleClick}
         >
           <div className="sui-CollapsibleBasic-trigger-label">{label}</div>
           {!hideTriggerIcon && (
@@ -100,6 +101,10 @@ CollapsibleBasic.propTypes = {
   /**
    * Customise the speed of the transition animation: normal 0.3s, fast: 0.15s
    */
+  isClickable: PropTypes.bool,
+  /**
+   * Allow click in the label to open or close it
+   */
   animationSpeed: PropTypes.oneOf(Object.keys(ANIMATION_SPEED_CLASSNAMES))
 }
 
@@ -108,6 +113,7 @@ CollapsibleBasic.defaultProps = {
   collapsed: true,
   hideTriggerIcon: false,
   animationSpeed: 'normal',
+  isClickable: true,
   handleClick: () => {}
 }
 

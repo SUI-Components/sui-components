@@ -38,6 +38,21 @@ This default component will use default breakpoints agreed for schibsted project
 }
 ```
 
+### Listening to the viewport resize
+
+```javascript
+import LayoutMediaQuery from '@s-ui/react-layout-media-query'
+
+<LayoutMediaQuery viewport>
+  {({M, L, XL}) => {
+    if (XL) return <p>LargeDesktop</p>
+    if (L) return <p>Desktop</p>
+    if (M) return <p>Tablet</p>
+    return <p>Mobile</p>
+  }}
+</LayoutMediaQuery>
+```
+
 ### Custom Breakpoints
 
 We have also available a factory function that we can use to create a `LayoutMediaQuery` with custom breakpoints

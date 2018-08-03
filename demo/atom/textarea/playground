@@ -13,7 +13,7 @@ return (
     <h1>AtomTextarea</h1>
     <h2>Basic Usage</h2>
     <p>
-      <code>short</code> <em>size</em> by default
+      <code>short</code> <em>size</em> and <code>4000</code> <em>maxCharacters</em> by default
     </p>
     <div style={stylesSection}>
       <AtomTextarea>
@@ -29,7 +29,7 @@ return (
 
     <h2>Setting Max Characters size</h2>
     <div style={stylesSection}>
-      <AtomTextarea maxCharacters={100}>
+      <AtomTextarea maxCharacters={70}>
         Saul Bass on failure: Failure is built into creativity
       </AtomTextarea>
     </div>
@@ -42,18 +42,6 @@ return (
     <h2> Placeholder</h2>
     <div style={stylesSection}>
       <AtomTextarea placeholder="Write something cool here..." />
-    </div>
-    <h2> With success message</h2>
-    <div style={stylesSection}>
-      <AtomTextarea validationMessage={SuccessComponent}>
-        Saul Bass on failure: Failure is built into creativity
-      </AtomTextarea>
-    </div>
-    <h2> With error message</h2>
-    <div style={stylesSection}>
-      <AtomTextarea validationMessage={ErrorComponent}>
-        Saul Bass on failure: Failure is built into creativity
-      </AtomTextarea>
     </div>
   </div>
 )

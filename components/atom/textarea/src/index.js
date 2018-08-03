@@ -2,8 +2,6 @@ import React, {Fragment, Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import AtomHelpText from '@s-ui/react-atom-help-text'
-
 const BASE_CLASS = 'sui-AtomTextarea'
 const SIZES = {
   SHORT: 'short',
@@ -19,27 +17,15 @@ class AtomTextarea extends Component {
     return cx(BASE_CLASS, `${BASE_CLASS}--${size}`)
   }
 
-  getHelpTextContent(maxCharacters, maxCharactersText) {
-    const numCharacters = this.state.value ? this.state.value.length : 0
-    return `${numCharacters}/${maxCharacters} ${maxCharactersText}`
-  }
-
   handleChange = ev => {
     const value = ev.target.value
-    const {onChange} = this.props // eslint-disable-line react/prop-types
-    if (value.length > this.props.maxCharacters) return
+    const {onChange, maxCharacters} = this.props // eslint-disable-line react/prop-types
+    if (value.length > maxCharacters) return
     this.setState({value}, () => onChange && onChange({value, ev}))
   }
 
   render() {
-    const {
-      onChange,
-      maxCharacters,
-      maxCharactersText,
-      validationMessage: ValidationMessage,
-      size,
-      ...props
-    } = this.props
+    const {onChange, maxCharacters, size, ...props} = this.props
     return (
       <Fragment>
         <textarea
@@ -47,10 +33,6 @@ class AtomTextarea extends Component {
           onChange={this.handleChange}
           className={this.getClassNames(size)}
           value={this.state.value}
-        />
-        {ValidationMessage && <ValidationMessage />}
-        <AtomHelpText
-          text={this.getHelpTextContent(maxCharacters, maxCharactersText)}
         />
       </Fragment>
     )
@@ -64,19 +46,12 @@ AtomTextarea.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZES)),
 
   /** Maximum number of characters allowed  */
-  maxCharacters: PropTypes.number,
-
-  /* Text to be shown in max characters Help text */
-  maxCharactersText: PropTypes.string,
-
-  /** HTML (component, AtomValicationText) to be displayed if success or error */
-  validationMessage: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+  maxCharacters: PropTypes.number.required
 }
 
 AtomTextarea.defaultProps = {
   size: SIZES.SHORT,
-  maxCharacters: 4000,
-  maxCharactersText: 'characters'
+  maxCharacters: 4000
 }
 
 export default AtomTextarea

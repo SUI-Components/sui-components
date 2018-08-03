@@ -7,6 +7,7 @@ const CONTENT_CLASS = `${BASE_CLASS}-content`
 const CONTAINER_BUTTON_CLASS = `${BASE_CLASS}-container`
 const COLLAPSED_CLASS = 'is-collapsed'
 const BUTTON_CLASS = `${BASE_CLASS}-btn`
+const BUTTON_CONTENT_CLASS = `${BUTTON_CLASS}-content`
 const ICON_CLASS = `${BASE_CLASS}-icon`
 const MIN_HEIGHT = 100 // px
 
@@ -63,8 +64,10 @@ class MoleculeCollapsible extends Component {
               className={BUTTON_CLASS}
               onClick={this.toggleCollapse}
             >
-              {collapsed ? showText : hideText}
-              <span className={iconClassName}>{icon}</span>
+              <span className={BUTTON_CONTENT_CLASS} tabIndex="-1">
+                {collapsed ? showText : hideText}
+                <span className={iconClassName}>{icon}</span>
+              </span>
             </button>
           </div>
         )}

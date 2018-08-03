@@ -15,6 +15,12 @@
     margin-top: $mt-collapsible-btn;
     padding: $p-collapsible-btn 0;
     cursor: pointer;
+    &:focus, &-content:focus{
+      outline: none;
+    }
+    &:focus &-content{
+      box-shadow: 0 0 6px 3px color-variation($c-primary, 1);
+    }
   }
 
   &-content {

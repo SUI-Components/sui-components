@@ -1,8 +1,6 @@
 # AtomTextarea
 
-AtomTextarea a component that wraps a composition of textarea + Help  Messages. It has some properties like:
-- it displays the number of characters
-- it doesn't allow more characters than the `maxCharacters` (`4000` by default)
+AtomTextarea a component that wraps a textarea with the behaviout of doesn't allowinf more characters than the `maxCharacters` (`4000` by default)
 
 ## Installation
 

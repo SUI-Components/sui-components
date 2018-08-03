@@ -99,11 +99,11 @@ CollapsibleBasic.propTypes = {
    */
   hideTriggerIcon: PropTypes.bool,
   /**
-   * Customise the speed of the transition animation: normal 0.3s, fast: 0.15s
+   * Allow click in the label to open or close it
    */
   isClickable: PropTypes.bool,
   /**
-   * Allow click in the label to open or close it
+   * Customise the speed of the transition animation: normal 0.3s, fast: 0.15s
    */
   animationSpeed: PropTypes.oneOf(Object.keys(ANIMATION_SPEED_CLASSNAMES))
 }

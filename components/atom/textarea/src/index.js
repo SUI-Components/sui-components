@@ -1,4 +1,4 @@
-import React, {Fragment, Component} from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -27,14 +27,12 @@ class AtomTextarea extends Component {
   render() {
     const {onChange, maxCharacters, size, ...props} = this.props
     return (
-      <Fragment>
-        <textarea
-          {...props}
-          onChange={this.handleChange}
-          className={this.getClassNames(size)}
-          value={this.state.value}
-        />
-      </Fragment>
+      <textarea
+        {...props}
+        onChange={this.handleChange}
+        className={this.getClassNames(size)}
+        value={this.state.value}
+      />
     )
   }
 }
@@ -46,7 +44,7 @@ AtomTextarea.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZES)),
 
   /** Maximum number of characters allowed  */
-  maxCharacters: PropTypes.number.required
+  maxCharacters: PropTypes.number
 }
 
 AtomTextarea.defaultProps = {

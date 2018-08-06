@@ -11,7 +11,9 @@ const TYPES = {
   NUMBER: 'number',
   PASSWORD: 'password',
   SUI_PASSWORD: 'sui-password',
-  TEXT: 'text'
+  TEXT: 'text',
+  RADIO: 'radio',
+  CHECKBOX: 'checkbox'
 }
 
 const FormInput = ({type, ...props}) => {
@@ -49,9 +51,9 @@ FormInput.propTypes = {
   /* 's' or 'm', default: 'm' */
   size: PropTypes.oneOf(Object.values(InputSizes)),
   /* value of the control */
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /* mask object, see https://unmanner.github.io/imaskjs/ */
-  mask: PropTypes.object.isRequired
+  mask: PropTypes.object
 }
 
 FormInput.displayName = 'FormInput'

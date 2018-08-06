@@ -1,14 +1,12 @@
 @import '~@schibstedspain/theme-basic/lib/index';
+
 .sui-FormPta {
-  height: 100%;
-  position: relative;
   width: 100%;
+
   &-content {
     border: 0;
     height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
+    min-height: 600px;
     width: 100%;
   }
 }

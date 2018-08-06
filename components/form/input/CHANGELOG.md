@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2018-07-25)
+
+
+### Bug Fixes
+
+* remove required from main props ([6ae1a12](https://github.com/SUI-Components/sui-components/commit/6ae1a12))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2018-07-13)
 

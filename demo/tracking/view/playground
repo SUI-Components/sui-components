@@ -1,0 +1,5 @@
+return (<TrackingView
+        src="https://tags.tiqcdn.com/utag/tealiumlabs/commerce/prod/utag.js"
+        track={() => console.log('track')}
+        verifier={() => window && window.utag}
+        />)

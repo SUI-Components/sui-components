@@ -1,0 +1,35 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$c-header-focus-logo: $c-white !default;
+$c-header-focus-logo-print: $c-primary !default;
+$bgc-header-focus: $c-primary !default;
+$h-header-focus: 50px !default;
+$w-header-focus-logo: 50px !default;
+
+.sui-HeaderFocus {
+  align-items: center;
+  background-color: $bgc-header-focus;
+  display: flex;
+  height: $h-header-focus;
+  justify-content: center;
+
+  &-logo {
+    cursor: pointer;
+    width: $w-header-focus-logo;
+  }
+
+  & svg path {
+    fill: $c-header-focus-logo;
+  }
+}
+
+@media print {
+  .sui-HeaderFocus {
+    background-color: transparent;
+    justify-content: left;
+
+    & svg path {
+      fill: $c-header-focus-logo-print;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+const SuccessComponent = () => <span style={{display:'block', color: 'green'}}>Success!!</span>
+const ErrorComponent = () => <span style={{display:'block', color: 'red'}}>Error!!</span>
+
+const stylesSection = {
+  border: '1px solid #CCC',
+  background: '#fff',
+  marginTop: '10px',
+  padding: '10px'
+}
+
+return (
+  <div>
+    <h1>AtomTextarea</h1>
+    <h2>Basic Usage</h2>
+    <p>
+      <code>short</code> <em>size</em> and <code>4000</code> <em>maxCharacters</em> by default
+    </p>
+    <div style={stylesSection}>
+      <AtomTextarea>
+        Saul Bass on failure: Failure is built into creativity
+      </AtomTextarea>
+    </div>
+    <h2>Long size</h2>
+    <div style={stylesSection}>
+      <AtomTextarea size="long">
+        Saul Bass on failure: Failure is built into creativity
+      </AtomTextarea>
+    </div>
+
+    <h2>Setting Max Characters size</h2>
+    <div style={stylesSection}>
+      <AtomTextarea maxCharacters={70}>
+        Saul Bass on failure: Failure is built into creativity
+      </AtomTextarea>
+    </div>
+    <h2>Disabled</h2>
+    <div style={stylesSection}>
+      <AtomTextarea disabled>
+        Saul Bass on failure: Failure is built into creativity
+      </AtomTextarea>
+    </div>
+    <h2> Placeholder</h2>
+    <div style={stylesSection}>
+      <AtomTextarea placeholder="Write something cool here..." />
+    </div>
+  </div>
+)

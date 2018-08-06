@@ -19,7 +19,6 @@ import ErrorAppBoundary from '@schibstedspain/sui-error-appBoundary'
 return (
   <ErrorAppBoundary
     buttonLabel='OK!'
-    icon={<SvgErrorIcon />}
     message='Oops! An error has occurred! Nasty plasty! Sorry!'
     onError={({ errorMessage, errorStack }) => console.error({ errorMessage, errorStack })}
   >

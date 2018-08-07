@@ -7,9 +7,6 @@ import AtomValidationText, {
 } from '@s-ui/react-atom-validation-text'
 import AtomLabel, {AtomLabelTypes} from '@s-ui/react-atom-label'
 
-import '@s-ui/react-atom-validation-text/lib/index.scss'
-import '@s-ui/react-atom-label/lib/index.scss'
-
 const BASE_CLASS = 'sui-MoleculeFieldset'
 const CLASS_INPUT = `${BASE_CLASS}-input`
 

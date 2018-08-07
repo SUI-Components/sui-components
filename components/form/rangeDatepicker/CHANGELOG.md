@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.17.0"></a>
+# 1.17.0 (2018-08-07)
+
+
+### Features
+
+* add comment of the new prop ([a21d574](https://github.com/SUI-Components/sui-components/commit/a21d574))
+* add new prop to show datepicker in the new modal ([e645d1b](https://github.com/SUI-Components/sui-components/commit/e645d1b))
+
+
+
 <a name="1.16.0"></a>
 # 1.16.0 (2018-03-07)
 

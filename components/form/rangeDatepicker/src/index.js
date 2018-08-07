@@ -130,6 +130,9 @@ FormRangeDatepicker.propTypes = {
    * Icon of select inputs
    */
   icon: PropTypes.func,
+  /**
+   * Show the datepicker in a new modal
+   */
   showModal: PropTypes.bool
 }
 

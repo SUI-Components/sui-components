@@ -1,38 +1,18 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types' // eslint-disable-line no-unused-vars
+import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import AtomValidationText, {
   AtomValidationTextTypes
 } from '@s-ui/react-atom-validation-text'
 import AtomLabel, {AtomLabelTypes} from '@s-ui/react-atom-label'
+import AtomHelpText from '@s-ui/react-atom-help-text'
 
 const BASE_CLASS = 'sui-MoleculeFieldset'
-const CLASS_INPUT = `${BASE_CLASS}-input`
 
 class MoleculeFieldset extends Component {
-  state = {
-    value: this.props.children // eslint-disable-line react/prop-types
-  }
-
-  idLabelFor = `sui-MoleculeFieldset-${+new Date()}`
-
   getClassNames(inline) {
     return cx(BASE_CLASS, inline && `${BASE_CLASS}--inline`)
-  }
-
-  extendChildren(children) {
-    const childrenOnly = React.Children.only(children)
-
-    return React.Children.map(childrenOnly, child => {
-      this.title = child.props.title
-      const className = CLASS_INPUT
-      const {idLabelFor: id} = this
-      return React.cloneElement(child, {
-        id,
-        className
-      })
-    })
   }
 
   getTypeValidation(element) {
@@ -52,23 +32,31 @@ class MoleculeFieldset extends Component {
   }
 
   render() {
-    const {label, inline, successText, errorText, children} = this.props
+    const {
+      label,
+      helpText,
+      name,
+      inline,
+      successText,
+      errorText,
+      children // eslint-disable-line react/prop-types
+    } = this.props
     return (
       <div className={this.getClassNames(inline)}>
         <AtomLabel
           type={this.getTypeValidation('label')}
-          name={this.idLabelFor}
-          for={this.idLabelFor}
+          name={name}
           text={label}
         />
         <div>
-          {this.extendChildren(children)}
+          {children}
           {(successText || errorText) && (
             <AtomValidationText
               type={this.getTypeValidation('validationText')}
               text={this.statusValidationText}
             />
           )}
+          <AtomHelpText text={helpText} />
         </div>
       </div>
     )
@@ -81,11 +69,17 @@ MoleculeFieldset.propTypes = {
   /** Text to be displayed as label of the textarea */
   label: PropTypes.string.isRequired,
 
+  /** used as for attribute. Must be the same as the input element id */
+  name: PropTypes.string.isRequired,
+
   /** Sucess message to display when sucess state  */
   successText: PropTypes.string,
 
   /** Error message to display when error state  */
   errorText: PropTypes.string,
+
+  /** Help Text to display */
+  helpText: PropTypes.string,
 
   /** Boolean to decide if elements should be set inline */
   inline: PropTypes.bool

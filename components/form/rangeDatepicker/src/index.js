@@ -63,6 +63,7 @@ class FormRangeDatepicker extends Component {
             onChange={this._handleChangeStart}
             className="sui-FormRangeDatepicker-input"
             locale={locale}
+            withPortal={this.props.showModal}
           />
           <div className="sui-FormRangeDatepicker-box">
             <InputIcon svgClass="sui-FormRangeDatepicker-item-icon" />
@@ -78,6 +79,7 @@ class FormRangeDatepicker extends Component {
             onChange={this._handleChangeEnd}
             className="sui-FormRangeDatepicker-input"
             locale={locale}
+            withPortal={this.props.showModal}
           />
           <div className="sui-FormRangeDatepicker-box">
             <InputIcon svgClass="sui-FormRangeDatepicker-item-icon" />
@@ -127,11 +129,13 @@ FormRangeDatepicker.propTypes = {
   /**
    * Icon of select inputs
    */
-  icon: PropTypes.func
+  icon: PropTypes.func,
+  showModal: PropTypes.bool
 }
 
 FormRangeDatepicker.defaultProps = {
-  icon: Chevronbottom
+  icon: Chevronbottom,
+  showModal: false
 }
 
 export default FormRangeDatepicker

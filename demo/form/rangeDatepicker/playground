@@ -10,4 +10,4 @@ function handleChange (range) {
   console.log('handleChange', range)
 }
 
-return (<FormRangeDatepicker buttonLabel='Test' handleClickButton={handleClick} handleChange={handleChange} icon={getArrowIcon} />)
+return (<FormRangeDatepicker buttonLabel='Test' handleClickButton={handleClick} handleChange={handleChange} icon={getArrowIcon} showModal />)

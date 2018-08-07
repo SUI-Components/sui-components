@@ -5,6 +5,11 @@ import cloneDeep from 'lodash.clonedeep'
 import cx from 'classnames'
 import IconCamera from '@schibstedspain/sui-svgiconset/lib/Camera'
 
+export const IMAGE_SLIDER_COUNTER_POSITIONS = {
+  BOTTOM_CENTER: 'bottomCenter',
+  BOTTOM_LEFT: 'bottomLeft',
+  BOTTOM_RIGHT: 'bottomRight'
+}
 const NO_OP = () => {}
 const TARGET_BLANK = '_blank'
 
@@ -25,13 +30,15 @@ class ImageSlider extends Component {
 
   render() {
     const {
-      images,
-      linkFactory,
-      handleClick,
       dynamicContent,
-      enableCounter
+      enableCounter,
+      handleClick,
+      images,
+      linkFactory
     } = this.props
+
     const slides = this._getSlides(images, linkFactory)
+
     return (
       slides.length > 0 && (
         <div onClick={handleClick} className="sui-ImageSlider">
@@ -77,23 +84,32 @@ class ImageSlider extends Component {
   _getSlides(images, linkFactory) {
     if (images && images.length) {
       return images.map((image, index) => {
-        const key = image.key ? image.key + index : index
+        const {
+          key: imageKey,
+          alt,
+          link,
+          src,
+          target = TARGET_BLANK,
+          title
+        } = image
+
+        const key = imageKey ? imageKey + index : index
         const img = (
           <img
+            alt={alt}
             className="sui-ImageSlider-image"
             key={key}
-            src={image.src}
-            alt={image.alt}
+            src={src}
+            title={title}
           />
         )
-        const target = image.target ? image.target : TARGET_BLANK
-        return image.link
+        return link
           ? linkFactory({
-              href: image.link,
-              target: target,
+              key,
+              target,
               className: '',
               children: img,
-              key: key
+              href: link
             })
           : img
       })
@@ -102,9 +118,6 @@ class ImageSlider extends Component {
     }
   }
 }
-
-const COUNTER_POS_BOTTOM_LEFT = 'bottomLeft'
-const COUNTER_POS_BOTTOM_RIGHT = 'bottomRight'
 
 ImageSlider.propTypes = {
   dynamicContent: PropTypes.bool,
@@ -144,10 +157,9 @@ ImageSlider.propTypes = {
   /**
    * Counter position.
    */
-  counterPosition: PropTypes.oneOf([
-    COUNTER_POS_BOTTOM_LEFT,
-    COUNTER_POS_BOTTOM_RIGHT
-  ]),
+  counterPosition: PropTypes.oneOf(
+    Object.values(IMAGE_SLIDER_COUNTER_POSITIONS)
+  ),
   /**
    * Custom icon for counter
    */
@@ -184,7 +196,7 @@ ImageSlider.defaultProps = {
     </a>
   ),
   enableCounter: false,
-  counterPosition: COUNTER_POS_BOTTOM_RIGHT,
+  counterPosition: IMAGE_SLIDER_COUNTER_POSITIONS.BOTTOM_LEFT,
   counterIcon: IconCamera,
   counterPatternFactory: ({current, total}) => `${current}/${total}`
 }

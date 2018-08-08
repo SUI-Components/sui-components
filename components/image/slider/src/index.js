@@ -196,7 +196,7 @@ ImageSlider.defaultProps = {
     </a>
   ),
   enableCounter: false,
-  counterPosition: IMAGE_SLIDER_COUNTER_POSITIONS.BOTTOM_LEFT,
+  counterPosition: IMAGE_SLIDER_COUNTER_POSITIONS.BOTTOM_RIGHT,
   counterIcon: IconCamera,
   counterPatternFactory: ({current, total}) => `${current}/${total}`
 }

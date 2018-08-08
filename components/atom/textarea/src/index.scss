@@ -13,6 +13,7 @@ $lh-atom-textarea: $lh-l !default;
   padding-left: $p-l;
   padding-top: $pm-atom-textarea;
   line-height: $lh-atom-textarea;
+  border: 1px solid $c-gray-light;
 
   &[disabled] {
     background: $c-gray-lightest;

@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 export const ToggleSwitchTypeRender = ({
   disabled,
   isFocus,
+  isClick,
   isToggle,
   label,
   labelLeft,
@@ -15,6 +16,7 @@ export const ToggleSwitchTypeRender = ({
   name,
   onBlur,
   onFocus,
+  onClick,
   onKeyDown,
   onToggle,
   size,
@@ -28,6 +30,7 @@ export const ToggleSwitchTypeRender = ({
         'toggleType',
         isToggle,
         isFocus,
+        isClick,
         disabled
       )}
     >
@@ -36,6 +39,7 @@ export const ToggleSwitchTypeRender = ({
         className={cx(suitClass({element: 'container'}))}
         tabIndex="0"
         onFocus={onFocus}
+        onClick={onClick}
         onBlur={onBlur}
         onKeyDown={onKeyDown}
       >
@@ -116,9 +120,17 @@ ToggleSwitchTypeRender.propTypes = {
    */
   isFocus: PropTypes.bool,
   /**
+   * Is component click
+   */
+  isClick: PropTypes.bool,
+  /**
    * Callback on focus element
    */
   onFocus: PropTypes.func,
+  /**
+   * Callback on click element
+   */
+  onClick: PropTypes.func,
   /**
    * Callback on blur element
    */

@@ -135,10 +135,20 @@ $c-atom-switch--default: color-variation($c-gray, 3) !default;
     }
   }
 
+  .sui-AtomSwitch.sui-AtomSwitch--focus {
+    .sui-AtomSwitch-container {
+      border: solid 1px color-variation($c-primary, 1);
+      box-shadow: 0 0 4px 0 color-variation($c-primary, 1);
+    }
+  }
 
-  &--focus &-container {
-    border: solid 1px color-variation($c-primary, 1);
-    box-shadow: 0 0 4px 0 color-variation($c-primary, 1);
+  .sui-AtomSwitch.sui-AtomSwitch--click {
+    .sui-AtomSwitch-container {
+      outline: none;
+      .sui-AtomSwitch-inputContainer {
+        border-color: transparent;
+      }
+    }
   }
 
 }

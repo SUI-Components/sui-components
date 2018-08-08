@@ -7,12 +7,14 @@ import PropTypes from 'prop-types'
 export const SingleSwitchTypeRender = ({
   disabled,
   isFocus,
+  isClick,
   isToggle,
   label,
   labelOptionalText,
   name,
   onBlur,
   onFocus,
+  onClick,
   onKeyDown,
   onToggle,
   size,
@@ -26,6 +28,7 @@ export const SingleSwitchTypeRender = ({
         'singleType',
         isToggle,
         isFocus,
+        isClick,
         disabled
       )}
       onClick={() => onToggle()}
@@ -35,6 +38,7 @@ export const SingleSwitchTypeRender = ({
         tabIndex="0"
         onKeyDown={onKeyDown}
         onFocus={onFocus}
+        onClick={onClick}
         onBlur={onBlur}
       >
         <AtomLabel name={name} text={label} optionalText={labelOptionalText} />
@@ -86,9 +90,17 @@ SingleSwitchTypeRender.propTypes = {
    */
   isFocus: PropTypes.bool,
   /**
+   * Is component click
+   */
+  isClick: PropTypes.bool,
+  /**
    * Callback on focus element
    */
   onFocus: PropTypes.func,
+  /**
+   * Callback on click element
+   */
+  onClick: PropTypes.func,
   /**
    * Callback on toggle element
    */

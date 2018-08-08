@@ -3,6 +3,7 @@ import {BASE_CLASS, TYPES} from '../config'
 
 const CLASS_ACTIVE = `${BASE_CLASS}--active`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
+const CLASS_CLICK = `${BASE_CLASS}--click`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 
 export function switchClassNames(
@@ -11,6 +12,7 @@ export function switchClassNames(
   classType,
   isToggle,
   isFocus,
+  isClick,
   isDisabled
 ) {
   const CLASS_TYPE = `${BASE_CLASS}-${classType}`
@@ -19,9 +21,11 @@ export function switchClassNames(
   const className = cx(BASE_CLASS, CLASS_TYPE, CLASS_SIZE, {
     [CLASS_ACTIVE]: isToggle || type === TYPES.SELECT,
     [CLASS_FOCUS]: isFocus,
+    [CLASS_CLICK]: isClick,
     [CLASS_DISABLED]: isDisabled
   })
-
+  console.log(isClick)
+  console.log(className)
   return className
 }
 

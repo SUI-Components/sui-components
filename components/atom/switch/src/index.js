@@ -7,7 +7,8 @@ import {SIZES, TYPES, SUPPORTED_KEYS} from './config'
 class AtomSwitch extends Component {
   state = {
     isToggle: this.props.initialValue,
-    isFocus: false
+    isFocus: false,
+    isClick: false
   }
 
   _onKeyDown = event => {
@@ -27,21 +28,27 @@ class AtomSwitch extends Component {
   }
 
   _onBlur = () => {
-    this.setState({isFocus: false})
+    this.setState({isFocus: false, isClick: false})
   }
   _onFocus = () => {
     this.setState({isFocus: true})
   }
 
+  _onClick = e => {
+    this.setState({isClick: true})
+  }
+
   render() {
-    const {isToggle, isFocus} = this.state
+    const {isToggle, isFocus, isClick} = this.state
 
     const commonProps = {
       ...this.props,
       isFocus,
+      isClick,
       isToggle,
       onBlur: this._onBlur,
       onFocus: this._onFocus,
+      onClick: this._onClick,
       onKeyDown: this._onKeyDown,
       onToggle: this._onToggle
     }

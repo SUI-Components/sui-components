@@ -5,43 +5,47 @@ const stylesSection = {
   padding: '10px'
 }
 
+const stylesInput = {
+  border: '1px solid #CCC'
+}
+
 return (
   <div>
     <h1>MoleculeFieldset</h1>
     <h2>Basic Usage</h2>
     <div style={stylesSection}>
       <MoleculeFieldset label="name" name="name">
-        <input id="name" type="text"/>
+        <input style={stylesInput} id="name" type="text"/>
       </MoleculeFieldset>
     </div>
     <h2>With Error Message</h2>
     <div style={stylesSection}>
       <MoleculeFieldset label="surname" name="surname" errorText="Error!">
-        <input id="surname" type="text"/>
+        <input style={stylesInput} id="surname" type="text"/>
       </MoleculeFieldset>
     </div>
     <h2>With Success Message</h2>
     <div style={stylesSection}>
       <MoleculeFieldset label="address" name="address" successText="Success!">
-        <input id="address" type="text"/>
+        <input style={stylesInput} id="address" type="text"/>
       </MoleculeFieldset>
     </div>
     <h2>With Help Text</h2>
     <div style={stylesSection}>
       <MoleculeFieldset label="country" name="country" helpText="Read the instructions to write proper format">
-        <input id="country" type="text"/>
+        <input style={stylesInput} id="country" type="text"/>
       </MoleculeFieldset>
     </div>
     <h2>With Help Text and Error Message</h2>
     <div style={stylesSection}>
       <MoleculeFieldset label="town" name="town" errorText="Error!" helpText="Read the instructions to write proper format">
-        <input id="town" type="text"/>
+        <input style={stylesInput} id="town" type="text"/>
       </MoleculeFieldset>
     </div>
     <h2>Inline With Validation Message</h2>
     <div style={stylesSection}>
       <MoleculeFieldset inline label="city" name="city" successText="Success!">
-        <input id="city" type="text"/>
+        <input style={stylesInput} id="city" type="text"/>
       </MoleculeFieldset>
     </div>
   </div>

@@ -53,7 +53,7 @@ class CollapsibleBasic extends Component {
       <div className={cssClassNames}>
         <div
           className="sui-CollapsibleBasic-trigger"
-          onClick={isClickable && this._handleClick}
+          onClick={isClickable ? this._handleClick : undefined}
         >
           <div className="sui-CollapsibleBasic-trigger-label">{label}</div>
           {!hideTriggerIcon && (

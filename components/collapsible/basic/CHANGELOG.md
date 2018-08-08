@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.4.0"></a>
+# 2.4.0 (2018-08-06)
+
+
+### Features
+
+* added ternary instead a conditionall ([f907982](https://github.com/SUI-Components/sui-components/commit/f907982))
+
+
+
 <a name="2.3.0"></a>
 # 2.3.0 (2018-08-03)
 

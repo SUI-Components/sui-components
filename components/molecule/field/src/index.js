@@ -16,19 +16,19 @@ class MoleculeField extends Component {
   }
 
   getTypeValidation(element) {
-    if (this.props.successText) {
-      if (element === 'label') return AtomLabelTypes.SUCCESS
-      if (element === 'validationText') return AtomValidationTextTypes.SUCCESS
-    }
     if (this.props.errorText) {
       if (element === 'label') return AtomLabelTypes.ERROR
       if (element === 'validationText') return AtomValidationTextTypes.ERROR
     }
+    if (this.props.successText) {
+      if (element === 'label') return AtomLabelTypes.SUCCESS
+      if (element === 'validationText') return AtomValidationTextTypes.SUCCESS
+    }
   }
 
   get statusValidationText() {
-    if (this.props.successText) return this.props.successText
     if (this.props.errorText) return this.props.errorText
+    if (this.props.successText) return this.props.successText
   }
 
   render() {

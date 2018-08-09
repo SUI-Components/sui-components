@@ -48,5 +48,11 @@ return (
         <input style={stylesInput} id="city" type="text"/>
       </MoleculeField>
     </div>
+    <h2>Error Message has priority</h2>
+    <div style={stylesSection}>
+      <MoleculeField inline label="brand" name="brand" successText="Success!" errorText="Error!" helpText="Bla, bla, bla...">
+        <input style={stylesInput} id="brand" type="text"/>
+      </MoleculeField>
+    </div>
   </div>
 )

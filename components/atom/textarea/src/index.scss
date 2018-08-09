@@ -9,19 +9,22 @@ $fz-atom-textarea: $fz-base !default;
 $lh-atom-textarea: $lh-l !default;
 
 .sui-AtomTextarea {
+  border: 1px solid $c-gray-light;
   font-size: $fz-atom-textarea;
+  line-height: $lh-atom-textarea;
   padding-left: $p-l;
   padding-top: $pm-atom-textarea;
-  line-height: $lh-atom-textarea;
 
   &[disabled] {
     background: $c-gray-lightest;
     color: $c-gray-light;
   }
+
   &--short {
-    height: calc( (#{$lh-atom-textarea} * #{$short-num-lines}) + #{$pm-atom-textarea}); 
+    height: calc((#{$lh-atom-textarea} * #{$short-num-lines}) + #{$pm-atom-textarea}); 
   }
+
   &--long {
-    height: calc( (#{$lh-atom-textarea} * #{$long-num-lines}) + #{$pm-atom-textarea}); 
+    height: calc((#{$lh-atom-textarea} * #{$long-num-lines}) + #{$pm-atom-textarea}); 
   }
 }

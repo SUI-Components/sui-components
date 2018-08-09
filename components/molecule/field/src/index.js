@@ -8,9 +8,9 @@ import AtomValidationText, {
 import AtomLabel, {AtomLabelTypes} from '@s-ui/react-atom-label'
 import AtomHelpText from '@s-ui/react-atom-help-text'
 
-const BASE_CLASS = 'sui-MoleculeFieldset'
+const BASE_CLASS = 'sui-MoleculeField'
 
-class MoleculeFieldset extends Component {
+class MoleculeField extends Component {
   getClassNames(inline) {
     return cx(BASE_CLASS, inline && `${BASE_CLASS}--inline`)
   }
@@ -63,16 +63,16 @@ class MoleculeFieldset extends Component {
   }
 }
 
-MoleculeFieldset.displayName = 'MoleculeFieldset'
+MoleculeField.displayName = 'MoleculeField'
 
-MoleculeFieldset.propTypes = {
+MoleculeField.propTypes = {
   /** Text to be displayed as label of the textarea */
   label: PropTypes.string.isRequired,
 
   /** used as for attribute. Must be the same as the input element id */
   name: PropTypes.string.isRequired,
 
-  /** Sucess message to display when sucess state  */
+  /** Success message to display when success state  */
   successText: PropTypes.string,
 
   /** Error message to display when error state  */
@@ -85,4 +85,4 @@ MoleculeFieldset.propTypes = {
   inline: PropTypes.bool
 }
 
-export default MoleculeFieldset
+export default MoleculeField

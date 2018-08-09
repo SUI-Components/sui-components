@@ -11,42 +11,42 @@ const stylesInput = {
 
 return (
   <div>
-    <h1>MoleculeFieldset</h1>
+    <h1>MoleculeField</h1>
     <h2>Basic Usage</h2>
     <div style={stylesSection}>
-      <MoleculeFieldset label="name" name="name">
+      <MoleculeField label="name" name="name">
         <input style={stylesInput} id="name" type="text"/>
-      </MoleculeFieldset>
+      </MoleculeField>
     </div>
     <h2>With Error Message</h2>
     <div style={stylesSection}>
-      <MoleculeFieldset label="surname" name="surname" errorText="Error!">
+      <MoleculeField label="surname" name="surname" errorText="Error!">
         <input style={stylesInput} id="surname" type="text"/>
-      </MoleculeFieldset>
+      </MoleculeField>
     </div>
     <h2>With Success Message</h2>
     <div style={stylesSection}>
-      <MoleculeFieldset label="address" name="address" successText="Success!">
+      <MoleculeField label="address" name="address" successText="Success!">
         <input style={stylesInput} id="address" type="text"/>
-      </MoleculeFieldset>
+      </MoleculeField>
     </div>
     <h2>With Help Text</h2>
     <div style={stylesSection}>
-      <MoleculeFieldset label="country" name="country" helpText="Read the instructions to write proper format">
+      <MoleculeField label="country" name="country" helpText="Read the instructions to write proper format">
         <input style={stylesInput} id="country" type="text"/>
-      </MoleculeFieldset>
+      </MoleculeField>
     </div>
     <h2>With Help Text and Error Message</h2>
     <div style={stylesSection}>
-      <MoleculeFieldset label="town" name="town" errorText="Error!" helpText="Read the instructions to write proper format">
+      <MoleculeField label="town" name="town" errorText="Error!" helpText="Read the instructions to write proper format">
         <input style={stylesInput} id="town" type="text"/>
-      </MoleculeFieldset>
+      </MoleculeField>
     </div>
     <h2>Inline With Validation Message</h2>
     <div style={stylesSection}>
-      <MoleculeFieldset inline label="city" name="city" successText="Success!">
+      <MoleculeField inline label="city" name="city" successText="Success!">
         <input style={stylesInput} id="city" type="text"/>
-      </MoleculeFieldset>
+      </MoleculeField>
     </div>
   </div>
 )

@@ -18,6 +18,8 @@ $c-atom-switch--active: color-variation($c-primary, 1) !default;
 $c-atom-switch--active-shadow: rgba(0, 0, 0, .2);
 $c-atom-switch--default: color-variation($c-gray, 3) !default;
 
+$atom-switch-transition-time: .3s !default;
+
 .sui-AtomSwitch {
   cursor: pointer;
   display: inline-block;
@@ -64,7 +66,7 @@ $c-atom-switch--default: color-variation($c-gray, 3) !default;
     border: solid 1px color-variation($c-atom-switch--default, $c-dark-step);
     cursor: pointer;
     height: $h-atom-switch-container-default;
-    transition: all 0.4s ease-in-out;
+    transition: all $atom-switch-transition-time ease-in-out;
     width: $w-atom-switch-container-default;
 
     .sui-AtomSwitch-circle {
@@ -73,7 +75,7 @@ $c-atom-switch--default: color-variation($c-gray, 3) !default;
       border: solid 1px $c-white;
       box-shadow: 2px 0 2px 0 $c-gray-light;
       height: $h-atom-switch-container-default - 2;
-      transition: margin 0.4s ease-in-out;
+      transition: margin $atom-switch-transition-time ease-in-out;
       width: $h-atom-switch-container-default - 2;
 
       &.sui-AtomSwitch--toggle {
@@ -135,20 +137,18 @@ $c-atom-switch--default: color-variation($c-gray, 3) !default;
     }
   }
 
+  
   .sui-AtomSwitch.sui-AtomSwitch--focus {
     .sui-AtomSwitch-container {
       border: solid 1px color-variation($c-primary, 1);
       box-shadow: 0 0 4px 0 color-variation($c-primary, 1);
     }
   }
-
-  .sui-AtomSwitch.sui-AtomSwitch--click {
-    .sui-AtomSwitch-container {
+  
+  &.sui-AtomSwitch--click {
+    & .sui-AtomSwitch-container {
+      border: solid 1px transparent;
       outline: none;
-      .sui-AtomSwitch-inputContainer {
-        border-color: transparent;
-      }
     }
   }
-
 }

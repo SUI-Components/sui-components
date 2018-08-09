@@ -1,5 +1,5 @@
 
-const flexInlineContainer = {display: 'flex', justifyContent: 'space-between', padding: '2vh 2vw'}
+const flexInlineContainer = {display: 'flex',  flexWrap: 'wrap', justifyContent: 'space-between', padding: '2vh 2vw'}
 const stylesSection = {
   border: '1px solid #CCC',
   background: '#fff',

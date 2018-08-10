@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2018-08-10)
+
+
+### Bug Fixes
+
+* add default timeout render to return null ([cad297d](https://github.com/SUI-Components/sui-components/commit/cad297d))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2018-06-13)
 
@@ -39,6 +49,16 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * add timeout callback and custom detection delay ([3406957](https://github.com/SUI-Components/sui-components/commit/3406957))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2018-02-16)
+
+
+### Features
+
+* introduce script loader component ([927e965](https://github.com/SUI-Components/sui-components/commit/927e965))
 
 
 

@@ -11,6 +11,22 @@ import AtomHelpText from '@s-ui/react-atom-help-text'
 const BASE_CLASS = 'sui-MoleculeField'
 
 class MoleculeField extends Component {
+  extendChildren() {
+    const {onChange, maxCharacters, children} = this.props // eslint-disable-line react/prop-types
+    const childrenOnly = React.Children.only(children)
+
+    return React.Children.map(childrenOnly, child => {
+      const {
+        onChange: onChangeChild,
+        maxCharacters: maxCharactersChild
+      } = child.props
+      return React.cloneElement(child, {
+        onChange: onChange || onChangeChild,
+        maxCharacters: maxCharacters || maxCharactersChild
+      })
+    })
+  }
+
   getClassNames(inline) {
     return cx(BASE_CLASS, inline && `${BASE_CLASS}--inline`)
   }
@@ -32,15 +48,7 @@ class MoleculeField extends Component {
   }
 
   render() {
-    const {
-      label,
-      helpText,
-      name,
-      inline,
-      successText,
-      errorText,
-      children // eslint-disable-line react/prop-types
-    } = this.props
+    const {label, helpText, name, inline, successText, errorText} = this.props
     return (
       <div className={this.getClassNames(inline)}>
         <AtomLabel
@@ -49,14 +57,14 @@ class MoleculeField extends Component {
           text={label}
         />
         <div>
-          {children}
+          {this.extendChildren()}
           {(successText || errorText) && (
             <AtomValidationText
               type={this.getTypeValidation('validationText')}
               text={this.statusValidationText}
             />
           )}
-          <AtomHelpText text={helpText} />
+          {helpText && <AtomHelpText text={helpText} />}
         </div>
       </div>
     )

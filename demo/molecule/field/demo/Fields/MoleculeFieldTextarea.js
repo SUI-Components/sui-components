@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/prop-types, no-unused-vars */
 
 import React from 'react'
 
@@ -10,13 +10,20 @@ import WithCharacterCount from '../hoc/WithCharacterCount'
 const MoleculeFieldTextarea = ({
   id,
   placeholder,
+  onChange,
+  maxCharacters,
   label,
   children,
   ...props
 }) => {
   return (
     <MoleculeField {...props} label={label} name={id}>
-      <AtomTextarea id={id} placeholder={placeholder}>
+      <AtomTextarea
+        id={id}
+        onChange={onChange}
+        maxCharacters={maxCharacters}
+        placeholder={placeholder}
+      >
         {children}
       </AtomTextarea>
     </MoleculeField>

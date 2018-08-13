@@ -1,5 +1,9 @@
 @import '~@s-ui/react-atom-textarea/lib/index';
 
+.FormDemoMoleculeField-title {
+  margin-left: 10px;
+}
+
 .FormDemoMoleculeField-list {
   list-style: none;
   display: flex;

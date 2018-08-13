@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 
 import MoleculeField from '../../../../../components/molecule/field/src'
+// import MoleculeFieldTextArea from '../MoleculeFieldTextarea'
 import FormInput from '@s-ui/react-form-input'
 
 class FormWithState extends Component {
@@ -27,6 +28,7 @@ class FormWithState extends Component {
         >
           <FormInput id="evaluation" type="text" />
         </MoleculeField>
+        <button>Send Data</button>
       </form>
     )
   }

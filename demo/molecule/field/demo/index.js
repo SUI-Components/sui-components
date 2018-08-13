@@ -2,15 +2,18 @@ import React from 'react'
 
 import MoleculeField from '../../../../components/molecule/field/src'
 
-import MoleculeFieldTextarea from './Fields/MoleculeFieldTextarea'
+import MoleculeFieldTextarea from './MoleculeFieldTextarea'
 import FormInput from '@s-ui/react-form-input'
+import FormWithState from './FormWithState'
 
 import './index.scss'
 
 const Form = () => {
   return (
-    <form className="FormDemoMoleculeField">
-      <h2>
+    <div className="FormDemoMoleculeField">
+      <h2 className="FormDemoMoleculeField-title">div With State</h2>
+      <FormWithState />
+      <h2 className="FormDemoMoleculeField-title">
         With <code>AtomTextarea</code>
       </h2>
       <ul className="FormDemoMoleculeField-list">
@@ -58,7 +61,7 @@ const Form = () => {
           </MoleculeFieldTextarea>
         </li>
       </ul>
-      <h2>
+      <h2 className="FormDemoMoleculeField-title">
         With <code>FormInput</code>
       </h2>
       <ul className="FormDemoMoleculeField-list">
@@ -121,7 +124,7 @@ const Form = () => {
           </MoleculeField>
         </li>
       </ul>
-    </form>
+    </div>
   )
 }
 

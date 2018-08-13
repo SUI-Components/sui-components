@@ -5,7 +5,7 @@ import React from 'react'
 import MoleculeField from '../../../../../components/molecule/field/src'
 import AtomTextarea from '@s-ui/react-atom-textarea'
 
-import WithCharacterCount from '../hoc/WithCharacterCount'
+import WithCharacterCount from './hoc/WithCharacterCount'
 
 const MoleculeFieldTextarea = ({
   id,

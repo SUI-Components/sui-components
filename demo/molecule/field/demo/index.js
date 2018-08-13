@@ -11,8 +11,10 @@ import './index.scss'
 const Form = () => {
   return (
     <div className="FormDemoMoleculeField">
-      <h2 className="FormDemoMoleculeField-title">div With State</h2>
-      <FormWithState />
+      <h2 className="FormDemoMoleculeField-title">Form With State</h2>
+      <div className="FormDemoMoleculeField-FormWithState">
+        <FormWithState />
+      </div>
       <h2 className="FormDemoMoleculeField-title">
         With <code>AtomTextarea</code>
       </h2>

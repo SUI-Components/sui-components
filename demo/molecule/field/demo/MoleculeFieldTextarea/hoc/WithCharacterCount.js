@@ -27,7 +27,7 @@ const WithCharacterCount = BaseComponent => {
       this.setState({messageAtomTextarea})
     }
 
-    onAtomTextAreaChange = ({value}) => {
+    onAtomTextAreaChange = ({value, ev}) => {
       const messageAtomTextarea = getHelpTextArea(
         value.length,
         this.maxCharacters
@@ -35,13 +35,26 @@ const WithCharacterCount = BaseComponent => {
       this.setState({messageAtomTextarea})
     }
 
+    handleChange = ({value, ev}) => {
+      const {onChange} = this.props
+
+      const messageAtomTextarea = getHelpTextArea(
+        value.length,
+        this.maxCharacters
+      )
+      this.setState(
+        {messageAtomTextarea},
+        () => onChange && onChange({value, ev})
+      )
+    }
+
     render() {
       const {messageAtomTextarea} = this.state
-      const {onAtomTextAreaChange} = this
+      const {handleChange} = this
       return (
         <BaseComponent
           {...this.props}
-          onChange={onAtomTextAreaChange}
+          onChange={handleChange}
           helpText={messageAtomTextarea}
         />
       )

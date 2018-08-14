@@ -24,9 +24,9 @@ class ImageSlider extends Component {
       this.setState(currentSlide)
       sliderOptions.doAfterSlide && sliderOptions.doAfterSlide(currentSlide)
     }
-  }
 
-  state = {currentSlide: 0}
+    this.state = {currentSlide: this._sliderOptions.initialSlide || 0}
+  }
 
   render() {
     const {

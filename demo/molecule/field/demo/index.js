@@ -5,12 +5,17 @@ import MoleculeField from '../../../../components/molecule/field/src'
 import MoleculeFieldTextarea from './MoleculeFieldTextarea'
 import FormInput from '@s-ui/react-form-input'
 import FormWithState from './FormWithState'
+import FormWithFormik from './FormWithFormik'
 
 import './index.scss'
 
 const Form = () => {
   return (
     <div className="FormDemoMoleculeField">
+      <h2 className="FormDemoMoleculeField-title">Form With Formik & Yup</h2>
+      <div className="FormDemoMoleculeField-FormWithState">
+        <FormWithFormik />
+      </div>
       <h2 className="FormDemoMoleculeField-title">Form With State</h2>
       <div className="FormDemoMoleculeField-FormWithState">
         <FormWithState />
@@ -38,7 +43,7 @@ const Form = () => {
             id="notes"
             label="Notes"
             errorText="All wrong!"
-            maxCharacters="75"
+            maxCharacters={75}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit
           </MoleculeFieldTextarea>
@@ -48,7 +53,7 @@ const Form = () => {
           <MoleculeFieldTextarea
             id="commentd"
             label="Comments"
-            maxCharacters="100"
+            maxCharacters={100}
             placeholder="Please, write something cool..."
           />
         </li>

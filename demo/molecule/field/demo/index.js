@@ -49,6 +49,7 @@ const Form = () => {
             id="commentd"
             label="Comments"
             maxCharacters="100"
+            placeholder="Please, write something cool..."
           />
         </li>
         <li className="FormDemoMoleculeField-listItem">

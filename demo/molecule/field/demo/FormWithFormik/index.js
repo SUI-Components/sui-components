@@ -6,6 +6,8 @@ import * as Yup from 'yup'
 import MoleculeField from '../../../../../components/molecule/field/src'
 import FormInput from '@s-ui/react-form-input'
 
+import './index.scss'
+
 const Form = ({
   values,
   errors,
@@ -14,14 +16,17 @@ const Form = ({
   handleSubmit,
   isSubmitting
 }) => (
-  <form onSubmit={handleSubmit}>
-    <div style={{display: 'flex', marginBottom: '10px'}}>
-      <div>
+  <form className="FormWithFormik" onSubmit={handleSubmit}>
+    <div className="FormWithFormik-fieldset">
+      <div className="FormWithFormik-field">
         <MoleculeField
           label="Email"
           name="email"
           helpText="Write your email"
           errorText={touched.email && errors.email}
+          successText={
+            touched.email && !errors.email && 'Everything OK with this email'
+          }
         >
           <FormInput
             name="email"
@@ -31,12 +36,17 @@ const Form = ({
           />
         </MoleculeField>
       </div>
-      <div>
+      <div className="FormWithFormik-field">
         <MoleculeField
           label="Password"
           name="password"
           helpText="Write your password"
           errorText={touched.password && errors.password}
+          successText={
+            touched.password &&
+            !errors.password &&
+            'Everything OK with this password'
+          }
         >
           <FormInput
             type="password"

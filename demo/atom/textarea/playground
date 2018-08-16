@@ -1,5 +1,23 @@
-const SuccessComponent = () => <span style={{display:'block', color: 'green'}}>Success!!</span>
-const ErrorComponent = () => <span style={{display:'block', color: 'red'}}>Error!!</span>
+const withState = BaseComponent => {
+  return class BaseComponentWithState extends React.Component {
+    state = {value: this.props.value || ''}
+
+    onChange = e => {
+      const value = e.target.value
+      this.setState({value})
+    }
+
+    render() {
+      const {value} = this.state
+      const {onChange, props} = this
+      return (
+        <div>
+          <BaseComponent {...props} value={value} onChange={onChange} />
+        </div>
+      )
+    }
+  }
+}
 
 const stylesSection = {
   border: '1px solid #CCC',
@@ -8,40 +26,38 @@ const stylesSection = {
   padding: '10px'
 }
 
+const AtomTextareaWithState = withState(AtomTextarea)
+
 return (
   <div>
     <h1>AtomTextarea</h1>
     <h2>Basic Usage</h2>
     <p>
-      <code>short</code> <em>size</em> and <code>4000</code> <em>maxCharacters</em> by default
+      <code>short</code> <em>size</em> by default
     </p>
     <div style={stylesSection}>
-      <AtomTextarea>
-        Saul Bass on failure: Failure is built into creativity
-      </AtomTextarea>
+      <AtomTextareaWithState value="Saul Bass on failure: Failure is built into creativity"/>
     </div>
+    
     <h2>Long size</h2>
     <div style={stylesSection}>
-      <AtomTextarea size="long">
-        Saul Bass on failure: Failure is built into creativity
-      </AtomTextarea>
-    </div>
-
-    <h2>Setting Max Characters size</h2>
-    <div style={stylesSection}>
-      <AtomTextarea maxCharacters={70}>
-        Saul Bass on failure: Failure is built into creativity
-      </AtomTextarea>
+      <AtomTextareaWithState
+        value="Saul Bass on failure: Failure is built into creativity"
+        size="long"
+      />
     </div>
     <h2>Disabled</h2>
     <div style={stylesSection}>
-      <AtomTextarea disabled>
-        Saul Bass on failure: Failure is built into creativity
-      </AtomTextarea>
+      <AtomTextareaWithState
+        value="Saul Bass on failure: Failure is built into creativity"
+        disabled
+      />
     </div>
     <h2> Placeholder</h2>
     <div style={stylesSection}>
-      <AtomTextarea placeholder="Write something cool here..." />
-    </div>
+      <AtomTextareaWithState placeholder="Write something cool here..." />
+    </div>  
+      
+    
   </div>
 )

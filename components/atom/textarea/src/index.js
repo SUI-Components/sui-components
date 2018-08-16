@@ -15,20 +15,12 @@ class AtomTextarea extends Component {
     return cx(BASE_CLASS, `${BASE_CLASS}--${size}`)
   }
 
-  handleChange = ev => {
-    ev.persist()
-    const value = ev.target.value
-    const {onChange, maxCharacters} = this.props // eslint-disable-line react/prop-types
-    if (value.length > maxCharacters) return
-    onChange && onChange({value, ev})
-  }
-
   render() {
-    const {onChange, maxCharacters, size, value, ...props} = this.props
+    const {onChange, size, value, ...props} = this.props
     return (
       <textarea
         {...props}
-        onChange={this.handleChange}
+        onChange={onChange}
         className={this.getClassNames(size)}
         value={value}
       />
@@ -40,15 +32,11 @@ AtomTextarea.displayName = 'AtomTextarea'
 
 AtomTextarea.propTypes = {
   /** Size of button: 'short', 'long' */
-  size: PropTypes.oneOf(Object.values(SIZES)),
-
-  /** Maximum number of characters allowed  */
-  maxCharacters: PropTypes.number
+  size: PropTypes.oneOf(Object.values(SIZES))
 }
 
 AtomTextarea.defaultProps = {
-  size: SIZES.SHORT,
-  maxCharacters: 4000
+  size: SIZES.SHORT
 }
 
 export default AtomTextarea

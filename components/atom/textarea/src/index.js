@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types, no-unused-vars, no-console */
+
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
@@ -9,29 +11,26 @@ const SIZES = {
 }
 
 class AtomTextarea extends Component {
-  state = {
-    value: this.props.children // eslint-disable-line react/prop-types
-  }
-
   getClassNames(size) {
     return cx(BASE_CLASS, `${BASE_CLASS}--${size}`)
   }
 
   handleChange = ev => {
+    ev.persist()
     const value = ev.target.value
     const {onChange, maxCharacters} = this.props // eslint-disable-line react/prop-types
     if (value.length > maxCharacters) return
-    this.setState({value}, () => onChange && onChange({value, ev}))
+    onChange && onChange({value, ev})
   }
 
   render() {
-    const {onChange, maxCharacters, size, ...props} = this.props
+    const {onChange, maxCharacters, size, value, ...props} = this.props
     return (
       <textarea
         {...props}
         onChange={this.handleChange}
         className={this.getClassNames(size)}
-        value={this.state.value}
+        value={value}
       />
     )
   }

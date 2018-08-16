@@ -7,8 +7,6 @@ import AtomTextarea from '@s-ui/react-atom-textarea/src/index'
 
 import WithCharacterCount from './hoc/WithCharacterCount'
 
-console.log(AtomTextarea)
-
 const MoleculeFieldTextarea = ({
   id,
   placeholder,
@@ -19,16 +17,6 @@ const MoleculeFieldTextarea = ({
   name,
   ...props
 }) => {
-  // console.log('MoleculeFieldTextarea')
-  // console.log({
-  //   id,
-  //   placeholder,
-  //   onChange,
-  //   maxCharacters,
-  //   label,
-  //   value,
-  //   ...props
-  // })
   return (
     <MoleculeField {...props} label={label} name={id}>
       <AtomTextarea

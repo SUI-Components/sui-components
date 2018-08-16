@@ -10,9 +10,6 @@ import FormWithFormik from './FormWithFormik'
 
 import './index.scss'
 
-console.log('aaa')
-console.log(MoleculeFieldTextarea)
-
 const Form = () => {
   return (
     <div className="FormDemoMoleculeField">
@@ -23,56 +20,51 @@ const Form = () => {
         </p>
         <FormWithFormik />
       </div>
-      {/*
-        <h2 className="FormDemoMoleculeField-title">
-          With <code>AtomTextarea</code>
-        </h2>
-        <ul className="FormDemoMoleculeField-list">
-          <li className="FormDemoMoleculeField-listItem">
-            <h3>With Success Message and HelpText</h3>
-            <MoleculeFieldTextarea
-              id="description"
-              label="Description"
-              successText="Everything ok!"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </MoleculeFieldTextarea>
-          </li>
-          <li className="FormDemoMoleculeField-listItem">
-            <h3>
-              With Error Message and HelpText<br />and custom maxCharacters
-            </h3>
-            <MoleculeFieldTextarea
-              id="notes"
-              label="Notes"
-              errorText="All wrong!"
-              maxCharacters={75}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
-            </MoleculeFieldTextarea>
-          </li>
-          <li className="FormDemoMoleculeField-listItem">
-            <h3>With HelpText and placeholder</h3>
-            <MoleculeFieldTextarea
-              id="commentd"
-              label="Comments"
-              maxCharacters={100}
-              placeholder="Please, write something cool..."
-            />
-          </li>
-          <li className="FormDemoMoleculeField-listItem">
-            <h3>Inline</h3>
-            <MoleculeFieldTextarea
-              id="description-inline"
-              label="Description"
-              successText="Everything ok!"
-              inline
-              value="Lorem ipsum dolor sit amet"
-            />
-          </li>
-        </ul>
-        */}
+
+      <h2 className="FormDemoMoleculeField-title">
+        With <code>AtomTextarea</code>
+      </h2>
+      <ul className="FormDemoMoleculeField-list">
+        <li className="FormDemoMoleculeField-listItem">
+          <h3>With Success Message and HelpText</h3>
+          <MoleculeFieldTextarea
+            id="description"
+            label="Description"
+            successText="Everything ok!"
+          />
+        </li>
+        <li className="FormDemoMoleculeField-listItem">
+          <h3>
+            With Error Message and HelpText<br />and custom maxCharacters
+          </h3>
+          <MoleculeFieldTextarea
+            id="notes"
+            label="Notes"
+            errorText="All wrong!"
+            maxCharacters={75}
+          />
+        </li>
+        <li className="FormDemoMoleculeField-listItem">
+          <h3>With HelpText and placeholder</h3>
+          <MoleculeFieldTextarea
+            id="commentd"
+            label="Comments"
+            maxCharacters={100}
+            placeholder="Please, write something cool..."
+          />
+        </li>
+        <li className="FormDemoMoleculeField-listItem">
+          <h3>Inline</h3>
+          <MoleculeFieldTextarea
+            id="description-inline"
+            label="Description"
+            successText="Everything ok!"
+            inline
+            value="Lorem ipsum dolor sit amet"
+          />
+        </li>
+      </ul>
+
       <h2 className="FormDemoMoleculeField-title">
         With <code>FormInput</code>
       </h2>

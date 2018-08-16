@@ -1,11 +1,13 @@
-/* eslint-disable react/prop-types, no-unused-vars */
+/* eslint-disable react/prop-types, no-unused-vars, no-console */
 
 import React from 'react'
 
 import MoleculeField from '../../../../../components/molecule/field/src'
-import AtomTextarea from '@s-ui/react-atom-textarea'
+import AtomTextarea from '@s-ui/react-atom-textarea/src/index'
 
 import WithCharacterCount from './hoc/WithCharacterCount'
+
+console.log(AtomTextarea)
 
 const MoleculeFieldTextarea = ({
   id,
@@ -13,9 +15,20 @@ const MoleculeFieldTextarea = ({
   onChange,
   maxCharacters,
   label,
-  children,
+  value,
+  name,
   ...props
 }) => {
+  // console.log('MoleculeFieldTextarea')
+  // console.log({
+  //   id,
+  //   placeholder,
+  //   onChange,
+  //   maxCharacters,
+  //   label,
+  //   value,
+  //   ...props
+  // })
   return (
     <MoleculeField {...props} label={label} name={id}>
       <AtomTextarea
@@ -23,9 +36,9 @@ const MoleculeFieldTextarea = ({
         onChange={onChange}
         maxCharacters={maxCharacters}
         placeholder={placeholder}
-      >
-        {children}
-      </AtomTextarea>
+        name={name}
+        value={value}
+      />
     </MoleculeField>
   )
 }

@@ -1,3 +1,5 @@
+@import '~@s-ui/react-atom-spinner/lib/index';
+
 .FormWithFormik {
   &-fieldset {
     display: flex;
@@ -5,7 +7,7 @@
   }
 
   &-field {
-    width: 200px;
+    width: 250px;
   }
 
 }

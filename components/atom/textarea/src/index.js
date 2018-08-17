@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types, no-unused-vars, no-console */
-
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
@@ -32,7 +30,13 @@ AtomTextarea.displayName = 'AtomTextarea'
 
 AtomTextarea.propTypes = {
   /** Size of button: 'short', 'long' */
-  size: PropTypes.oneOf(Object.values(SIZES))
+  size: PropTypes.oneOf(Object.values(SIZES)),
+
+  /** Handler triggered on change */
+  onChange: PropTypes.func,
+
+  /** Value (content) of the textarea */
+  value: PropTypes.string
 }
 
 AtomTextarea.defaultProps = {

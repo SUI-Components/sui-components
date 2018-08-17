@@ -11,7 +11,7 @@ const HeaderActions = ({
   onIconClick,
   title
 }) => (
-  <div className={getClass()}>
+  <header className={getClass()}>
     <span className={getClass('icon')} onClick={onIconClick}>
       {icon}
     </span>
@@ -21,7 +21,7 @@ const HeaderActions = ({
         {buttonLabel}
       </Button>
     </span>
-  </div>
+  </header>
 )
 
 HeaderActions.displayName = 'HeaderActions'

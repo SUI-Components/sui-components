@@ -1,6 +1,6 @@
 # AtomTextarea
 
-AtomTextarea a component that wraps a textarea with the behaviout of doesn't allowinf more characters than the `maxCharacters` (`4000` by default)
+AtomTextarea a component that wraps a textarea displaying the text passed in the `value` prop
 
 ## Installation
 
@@ -19,29 +19,19 @@ import AtomTextarea from '@s-ui/react-atom-textarea'
 ### Basic usage
 
 ```javascript
-<AtomTextarea />
+<AtomTextarea value="Saul Bass on failure" />
 ```
 
 ### Long size
 
 ```javascript
-<AtomTextarea size="long">
-  Saul Bass on failure: Failure is built into creativity
-</AtomTextarea>
+<AtomTextarea size="long" value="Saul Bass on failure: Failure is built into creativity" />
 ```
 
 ### With placeholder
 
 ```javascript
 <AtomTextarea placeholder="Write something cool here..." />
-```
-
-### Setting max characters
-
-```javascript
-<AtomTextarea maxCharacters={100}>
-  Saul Bass on failure: Failure is built into creativity
-</AtomTextarea>
 ```
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/textarea/demo).**

@@ -4,7 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '../../../../../components/molecule/field/src'
-import AtomTextarea from '@s-ui/react-atom-textarea/src/index'
+import AtomTextarea from '@s-ui/react-atom-textarea'
 
 import WithCharacterCount from './hoc/WithCharacterCount'
 

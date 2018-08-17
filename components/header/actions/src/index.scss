@@ -2,10 +2,8 @@
 @import '~@schibstedspain/sui-atom-button/lib/index';
 
 $bgc-header-actions: $c-primary !default;
-$h-header-actions: 40px !default;
 $c-header-actions: $c-white !default;
-$h-header-actions-icon: 36px !default;
-$w-header-actions-icon: 36px !default;
+$w-header-actions-icon: 42px !default;
 
 .sui-HeaderActions {
   align-items: center;
@@ -13,19 +11,19 @@ $w-header-actions-icon: 36px !default;
   color: $c-header-actions;
   display: flex;
   justify-content: space-between;
+  padding: 8px;
 
   &-title {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     width: 100%;
   }
 
   &-icon {
     fill: $c-header-actions;
-    height: $h-header-actions-icon;
     width: $w-header-actions-icon;
-  }
-
-  &-button {
-    margin-right: 8px;
   }
 }
 

@@ -4,12 +4,20 @@ import Button from '@schibstedspain/sui-atom-button'
 
 const getClass = type => `sui-HeaderActions${type ? `-${type}` : ''}`
 
-const HeaderActions = ({title, icon, buttonLabel}) => (
+const HeaderActions = ({
+  buttonLabel,
+  icon,
+  onButtonClick,
+  onIconClick,
+  title
+}) => (
   <div className={getClass()}>
-    <span className={getClass('icon')}>{icon}</span>
+    <span className={getClass('icon')} onClick={onIconClick}>
+      {icon}
+    </span>
     <h1 className={getClass('title')}>{title}</h1>
     <span className={getClass('button')}>
-      <Button type="primary" negative>
+      <Button type="primary" negative onClick={onButtonClick}>
         {buttonLabel}
       </Button>
     </span>
@@ -23,6 +31,10 @@ HeaderActions.propTypes = {
   buttonLabel: PropTypes.string.isRequired,
   /** Icon to be shown */
   icon: PropTypes.node,
+  /** Callback on button click */
+  onButtonClick: PropTypes.func.isRequired,
+  /** Callback on icon click */
+  onIconClick: PropTypes.func.isRequired,
   /** Header title */
   title: PropTypes.string.isRequired
 }

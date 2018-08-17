@@ -29,7 +29,7 @@ class AtomTextarea extends Component {
 AtomTextarea.displayName = 'AtomTextarea'
 
 AtomTextarea.propTypes = {
-  /** Size of button: 'short', 'long' */
+  /** Size of textarea: 'short', 'long' */
   size: PropTypes.oneOf(Object.values(SIZES)),
 
   /** Handler triggered on change */

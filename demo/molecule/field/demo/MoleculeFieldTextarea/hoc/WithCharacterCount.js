@@ -2,32 +2,31 @@
 
 import React, {Component} from 'react'
 
-import AtomTextarea from '@s-ui/react-atom-textarea/src/index'
-
 const WithCharacterCount = BaseComponent => {
-  const displayName = BaseComponent.displayName
   return class extends Component {
-    static displayName = `WithCharacterCount(${displayName})`
-
     state = {
+      value: this.props.value,
       messageAtomTextarea: ''
     }
-    maxCharacters =
-      this.props.maxCharacters || AtomTextarea.defaultProps.maxCharacters
+
+    static getDerivedStateFromProps(nextProps) {
+      if (nextProps.value === '') return {value: ''}
+      return null
+    }
 
     componentDidMount() {
-      const {value: initialText} = this.props
-      const lengthInitialText = initialText ? initialText.length : 0
+      const {value, maxCharacters} = this.props
+      const lengthInitialText = value ? value.length : 0
       const messageAtomTextarea = this.getHelpTextArea(
         lengthInitialText,
-        this.maxCharacters
+        maxCharacters
       )
       this.setState({messageAtomTextarea})
     }
 
     getHelpTextArea = (numCharacters, maxCharacters) => {
-      const {helpText: staticText} = this.props
-      const dynamicText = `${numCharacters}/${maxCharacters} characters`
+      const {helpText: staticText, textCharacters = 'characters'} = this.props
+      const dynamicText = `${numCharacters}/${maxCharacters} ${textCharacters}`
       return staticText ? staticText + ' - ' + dynamicText : dynamicText
     }
 
@@ -39,29 +38,29 @@ const WithCharacterCount = BaseComponent => {
       this.setState({messageAtomTextarea})
     }
 
-    handleChange = ({value, ev}) => {
-      const {onChange} = this.props
+    handleChange = ev => {
+      const value = ev.target.value
+      const {onChange, maxCharacters} = this.props
+      if (value.length > maxCharacters) return
 
       let messageAtomTextarea = this.getHelpTextArea(
         value.length,
-        this.maxCharacters
+        maxCharacters
       )
 
       this.setState(
-        {messageAtomTextarea},
-        () =>
-          onChange &&
-          this.maxCharacters <= value.length &&
-          onChange({value, ev})
+        {value, messageAtomTextarea},
+        () => onChange && onChange({value, ev})
       )
     }
 
     render() {
-      const {messageAtomTextarea} = this.state
+      const {value, messageAtomTextarea} = this.state
       const {handleChange} = this
       return (
         <BaseComponent
           {...this.props}
+          value={value}
           onChange={handleChange}
           helpText={messageAtomTextarea}
         />

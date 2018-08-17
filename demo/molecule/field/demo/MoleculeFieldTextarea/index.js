@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import MoleculeField from '../../../../../components/molecule/field/src'
 import AtomTextarea from '@s-ui/react-atom-textarea/src/index'
@@ -22,7 +23,6 @@ const MoleculeFieldTextarea = ({
       <AtomTextarea
         id={id}
         onChange={onChange}
-        maxCharacters={maxCharacters}
         placeholder={placeholder}
         name={name}
         value={value}
@@ -34,6 +34,19 @@ const MoleculeFieldTextarea = ({
 const FieldTextareaWithCharacterCount = WithCharacterCount(
   MoleculeFieldTextarea
 )
+
 FieldTextareaWithCharacterCount.displayName = 'MoleculeFieldTextarea'
+
+FieldTextareaWithCharacterCount.defaultProps = {
+  maxCharacters: 4000
+}
+
+FieldTextareaWithCharacterCount.propTypes = {
+  /** Maximum number of characters allowed  */
+  maxCharacters: PropTypes.number,
+
+  /** Text `characters`  */
+  textCharacters: PropTypes.string
+}
 
 export default FieldTextareaWithCharacterCount

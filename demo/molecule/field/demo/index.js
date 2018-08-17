@@ -16,7 +16,8 @@ const Form = () => {
       <h2 className="FormDemoMoleculeField-title">Form With Formik & Yup</h2>
       <div className="FormDemoMoleculeField-FormWithState">
         <p>
-          Try <code>andrew@test.io</code> to test ajax validation like
+          Try <code>andrew@test.io</code> and send the form to test ajax
+          validation like
         </p>
         <FormWithFormik />
       </div>

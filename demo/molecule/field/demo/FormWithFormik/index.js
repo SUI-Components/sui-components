@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
 import React from 'react'
-import {withFormik, Field} from 'formik'
+import {withFormik} from 'formik'
 import * as Yup from 'yup'
 import MoleculeField from '../../../../../components/molecule/field/src'
 import MoleculeFieldTextarea from '../MoleculeFieldTextarea'
@@ -76,6 +76,7 @@ const Form = ({
             onChange={({value}) => setFieldValue('description', value)}
             value={values.description}
             name="description"
+            maxCharacters={30}
           />
         </div>
       </div>

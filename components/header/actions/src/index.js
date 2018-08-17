@@ -9,7 +9,7 @@ const HeaderActions = ({title, icon, buttonLabel}) => (
     <span className={getClass('icon')}>{icon}</span>
     <h1 className={getClass('title')}>{title}</h1>
     <span className={getClass('button')}>
-      <Button type="secondary" negative>
+      <Button type="primary" negative>
         {buttonLabel}
       </Button>
     </span>

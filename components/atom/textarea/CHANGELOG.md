@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2018-08-17)
+
+
+### Features
+
+* fixed typo ([5313ae5](https://github.com/SUI-Components/sui-components/commit/5313ae5))
+* props ([b308e0c](https://github.com/SUI-Components/sui-components/commit/b308e0c))
+* rEADME ([79a76e5](https://github.com/SUI-Components/sui-components/commit/79a76e5))
+* stateless textarea ([f4d1da4](https://github.com/SUI-Components/sui-components/commit/f4d1da4))
+* textearea via prop ([2eac431](https://github.com/SUI-Components/sui-components/commit/2eac431))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2018-08-09)
 

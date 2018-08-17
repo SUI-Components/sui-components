@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.6.0"></a>
+# 2.6.0 (2018-08-14)
+
+
+### Bug Fixes
+
+* fix initial slide counter ([2001658](https://github.com/SUI-Components/sui-components/commit/2001658))
+
+
+
 <a name="2.5.0"></a>
 # 2.5.0 (2018-08-08)
 

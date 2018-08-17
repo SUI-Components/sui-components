@@ -19,9 +19,12 @@ const HeaderActions = ({title, icon, buttonLabel}) => (
 HeaderActions.displayName = 'HeaderActions'
 
 HeaderActions.propTypes = {
-  title: PropTypes.string.isRequired,
+  /** Label used by the button */
   buttonLabel: PropTypes.string.isRequired,
-  icon: PropTypes.node
+  /** Icon to be shown */
+  icon: PropTypes.node,
+  /** Header title */
+  title: PropTypes.string.isRequired
 }
 
 export default HeaderActions

@@ -1,23 +1,17 @@
 # HeaderActions
 
-> Description
-
-<!-- ![](./assets/preview.png) -->
-
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-header-actions --save
+> npm install @schibstedspain/sui-header-actions --save
 ```
 
 ## Usage
 
 ### Basic usage
+
 ```js
 import HeaderActions from '@schibstedspain/sui-header-actions'
 
-return (<HeaderActions />)
+return (<HeaderActions buttonLabel='Accept' title='Actions header' icon={icon} />)
 ```
-
-
-> **Find full description and more examples in the [demo page](#).**

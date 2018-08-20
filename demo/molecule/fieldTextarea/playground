@@ -19,13 +19,13 @@ return (
       </li>
       <li>
         <h2>
-          With <code>errorText</code> and custom <code>maxCharacters</code>
+          With <code>errorText</code> and custom <code>maxChars</code>
         </h2>
         <MoleculeFieldTextarea
           id="notes"
           label="Notes"
           errorText="All wrong!"
-          maxCharacters={30}
+          maxChars={30}
         />
       </li>
       <li>
@@ -33,7 +33,7 @@ return (
         <MoleculeFieldTextarea
           id="commentd"
           label="Comments"
-          maxCharacters={100}
+          maxChars={100}
           placeholder="Please, write something cool..."
         />
       </li>

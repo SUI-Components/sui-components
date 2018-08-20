@@ -1,22 +1,2 @@
 @import '~@schibstedspain/theme-basic/lib/index';
-
-$p-error-app-boundary: 0 !default;
-$w-error-app-boundary: 100% !default;
-$z-error-app-boundary: 1 !default;
-
-$bdl-error-app-boundary: 4px solid $c-gray-dark !default;
-$bgc-error-app-boundary: $c-gray-lightest !default;
-
-$bgc-alert-basic-info: $bgc-error-app-boundary;
-$bdl-alert-basic-info: $bdl-error-app-boundary;
-
-.sui-ErrorAppBoundary-notification {
-  bottom: 0;
-  left: 0;
-  padding: $p-error-app-boundary;
-  position: fixed;
-  width: $w-error-app-boundary;
-  z-index: $z-error-app-boundary;
-}
-
-@import '~@schibstedspain/sui-alert-basic/lib/index';
+@import '~@s-ui/react-molecule-notification/lib/index';

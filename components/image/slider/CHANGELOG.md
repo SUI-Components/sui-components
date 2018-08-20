@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.6.0"></a>
+# 2.6.0 (2018-08-14)
+
+
+### Bug Fixes
+
+* fix initial slide counter ([2001658](https://github.com/SUI-Components/sui-components/commit/2001658))
+
+
+
+<a name="2.5.0"></a>
+# 2.5.0 (2018-08-08)
+
+
+### Bug Fixes
+
+* fix default prop to be backwards compatible ([1894abd](https://github.com/SUI-Components/sui-components/commit/1894abd))
+
+
+### Features
+
+* suppor title attribute and some refactor ([b89bd74](https://github.com/SUI-Components/sui-components/commit/b89bd74))
+
+
+
 <a name="2.4.0"></a>
 # 2.4.0 (2018-03-07)
 

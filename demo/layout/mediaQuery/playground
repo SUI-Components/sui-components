@@ -1,0 +1,132 @@
+/* global LayoutMediaQueryFactory, React */
+/* eslint-disable react/react-in-jsx-scope, react/jsx-no-undef */
+
+const BREAKPOINTS = {
+  sm: '576',
+  md: '768',
+  lg: '992',
+  xl: '1200'
+}
+
+const LayoutMediaQueryBootstrap = LayoutMediaQueryFactory(BREAKPOINTS)
+
+const stylesContainerLight = {
+  fontSize: '2em',
+  color: 'white',
+  padding: '10px',
+  background: 'black'
+}
+
+const stylesContainerDark = {
+  fontSize: '2em',
+  padding: '10px',
+  border: '2px solid black'
+}
+
+const getParagStylesDark = background => {
+  return {
+    ...stylesContainerDark,
+    background
+  }
+}
+
+const getParagStylesLight = background => {
+  return {
+    ...stylesContainerLight,
+    background
+  }
+}
+
+const stylesSection = {
+  border: '1px solid #CCC',
+  background: '#fff',
+  marginTop: '10px',
+  padding: '10px',
+  overflow: 'hidden',
+  resize: 'horizontal',
+  border: '2px dashed blue'
+}
+
+return (
+  <div>
+    <h1>LayoutMediaQuery</h1>
+    <p>Resize the width of the viewport or the container with dashed blue border to see the behavior</p>
+    <h2>Basic Usage (default values)</h2>
+    <div style={stylesSection}>
+      <LayoutMediaQuery>
+        {({M, L, XL}) => {
+          if (XL) return <p>LargeDesktop</p>
+          if (L) return <p>Desktop</p>
+          if (M) return <p>Tablet</p>
+          return <p>Mobile</p>
+        }}
+      </LayoutMediaQuery>
+      <div>
+        <LayoutMediaQuery>
+          {({XS, S, M, L, XL, XXL}) => {
+            let responsiveRender = <p style={ getParagStylesLight('black') }>default</p>
+            if (XS) responsiveRender = <p style={ getParagStylesLight('red') }>XS</p>
+            if (S) responsiveRender = <p style={ getParagStylesLight('blue') }>S</p>
+            if (M) responsiveRender = <p style={ getParagStylesLight('orange') }>M</p>
+            if (L) responsiveRender = <p style={ getParagStylesLight('CadetBlue') }>L</p>
+            if (XL) responsiveRender = <p style={ getParagStylesLight('brown') }>XL</p>
+            if (XXL) responsiveRender = <p style={ getParagStylesLight('green') }>XXL</p>
+            return <div className="responsiveContainer">{responsiveRender}</div>
+          }}
+        </LayoutMediaQuery>
+      </div>
+    </div>
+    <h2>With <code>viewport</code> prop</h2>
+    <div style={ {...stylesSection, width: '400px'} }>
+      <LayoutMediaQuery viewport>
+        {({M, L, XL}) => {
+          if (XL) return <p>LargeDesktop</p>
+          if (L) return <p>Desktop</p>
+          if (M) return <p>Tablet</p>
+          return <p>Mobile</p>
+        }}
+      </LayoutMediaQuery>
+      <div>
+        <LayoutMediaQuery viewport>
+          {({XS, S, M, L, XL, XXL}) => {
+            let responsiveRender = <p style={ getParagStylesLight('black') }>default</p>
+            if (XS) responsiveRender = <p style={ getParagStylesLight('red') }>XS</p>
+            if (S) responsiveRender = <p style={ getParagStylesLight('blue') }>S</p>
+            if (M) responsiveRender = <p style={ getParagStylesLight('orange') }>M</p>
+            if (L) responsiveRender = <p style={ getParagStylesLight('CadetBlue') }>L</p>
+            if (XL) responsiveRender = <p style={ getParagStylesLight('brown') }>XL</p>
+            if (XXL) responsiveRender = <p style={ getParagStylesLight('green') }>XXL</p>
+            return <div className="responsiveContainer">{responsiveRender}</div>
+          }}
+        </LayoutMediaQuery>
+      </div>
+    </div>
+    <h2>Custom breakpoints</h2>
+    <div style={stylesSection}>
+      <LayoutMediaQueryBootstrap>
+        {({MD, LG, XL}) => {
+          if (XL) return <p>LargeDesktop</p>
+          if (LG) return <p>Desktop</p>
+          if (MD) return <p>Tablet</p>
+          return <p>Mobile</p>
+        }}
+      </LayoutMediaQueryBootstrap>
+      <div>
+        <LayoutMediaQueryBootstrap>
+          {({SM, MD, LG, XL}) => {
+            let responsiveRender = <p style={ getParagStylesDark('white') }>default</p>
+            if (SM) responsiveRender = <p style={ getParagStylesDark('yellow') }>SM</p>
+            if (MD) responsiveRender = <p style={ getParagStylesDark('GreenYellow') }>MD</p>
+            if (LG)
+              responsiveRender = <p style={ getParagStylesDark('AliceBlue') }>LG</p>
+            if (XL)
+              responsiveRender = (
+                <p style={ getParagStylesDark('BlanchedAlmond') }>XL</p>
+              )
+            return <div className="responsiveBootstrap">{responsiveRender}</div>
+          }}
+        </LayoutMediaQueryBootstrap>
+      </div>
+    </div>
+  </div>
+)

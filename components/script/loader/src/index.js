@@ -64,6 +64,7 @@ ScriptLoader.propTypes = {
 ScriptLoader.defaultProps = {
   isAsync: true,
   onTimeout: () => {},
+  timeoutRender: () => null,
   detectionDelay: 5000
 }
 

@@ -37,14 +37,14 @@ import MoleculeFieldTextarea from '@s-ui/react-molecule-field-textarea'
   />
 ```
 
-### With maxCharacters
+### With maxChars
     
 ```
   <MoleculeFieldTextarea
     id="description"
     label="Description"
     value="In some place of La Mancha which name..."
-    maxCharacters={75}
+    maxChars={75}
   />
 ```
 

@@ -25,7 +25,7 @@ return (
           id="notes"
           label="Notes"
           errorText="All wrong!"
-          maxCharacters={75}
+          maxCharacters={30}
         />
       </li>
       <li>

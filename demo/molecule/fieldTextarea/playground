@@ -9,7 +9,7 @@ return (
     </h1>
     <ul style={styleList}>
       <li>
-        <h2>With Success Message and HelpText</h2>
+        <h2>With <code>successText</code></h2>
         <MoleculeFieldTextarea
           id="description"
           label="Description"
@@ -19,7 +19,7 @@ return (
       </li>
       <li>
         <h2>
-          With Error Message and HelpText<br />and custom maxCharacters
+          With <code>errorText</code> and custom <code>maxCharacters</code>
         </h2>
         <MoleculeFieldTextarea
           id="notes"
@@ -29,7 +29,7 @@ return (
         />
       </li>
       <li>
-        <h2>With HelpText and placeholder</h2>
+        <h2>With <code>placeholder</code></h2>
         <MoleculeFieldTextarea
           id="commentd"
           label="Comments"
@@ -38,12 +38,22 @@ return (
         />
       </li>
       <li>
-        <h2>Inline</h2>
+        <h2><code>inline</code></h2>
         <MoleculeFieldTextarea
           id="description-inline"
           label="Description"
           successText="Everything ok!"
           inline
+          value="Lorem ipsum dolor sit amet"
+        />
+      </li>
+      <li>
+        <h2>With <code>helpText</code> and custom <code>textCharacters</code></h2>
+        <MoleculeFieldTextarea
+          id="description-inline"
+          label="Description"
+          helpText="Tu descripción en Latin"
+          textCharacters="caracteres"
           value="Lorem ipsum dolor sit amet"
         />
       </li>

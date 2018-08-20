@@ -9,16 +9,7 @@ import AtomTextarea, {
 import WithCharacterCount from './hoc/WithCharacterCount'
 
 const MoleculeFieldTextarea = WithCharacterCount(
-  ({
-    id,
-    placeholder,
-    onChange,
-    maxCharacters,
-    label,
-    value,
-    size,
-    ...props
-  }) => {
+  ({id, placeholder, onChange, maxChars, label, value, size, ...props}) => {
     return (
       <MoleculeField {...props} label={label} name={id}>
         <AtomTextarea
@@ -36,12 +27,12 @@ const MoleculeFieldTextarea = WithCharacterCount(
 MoleculeFieldTextarea.displayName = 'MoleculeFieldTextarea'
 
 MoleculeFieldTextarea.defaultProps = {
-  maxCharacters: 4000
+  maxChars: 4000
 }
 
 MoleculeFieldTextarea.propTypes = {
   /** Maximum number of characters allowed  */
-  maxCharacters: PropTypes.number,
+  maxChars: PropTypes.number,
 
   /** Text `characters` to be used in the character count HelpText */
   textCharacters: PropTypes.string,

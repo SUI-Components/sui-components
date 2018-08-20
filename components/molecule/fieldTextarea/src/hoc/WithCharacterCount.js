@@ -15,38 +15,35 @@ const WithCharacterCount = BaseComponent => {
     }
 
     componentDidMount() {
-      const {value, maxCharacters} = this.props
+      const {value, maxChars} = this.props
       const lengthInitialText = value ? value.length : 0
       const messageAtomTextarea = this.getHelpTextArea(
         lengthInitialText,
-        maxCharacters
+        maxChars
       )
       this.setState({messageAtomTextarea})
     }
 
-    getHelpTextArea = (numCharacters, maxCharacters) => {
+    getHelpTextArea = (numCharacters, maxChars) => {
       const {helpText: staticText, textCharacters = 'characters'} = this.props
-      const dynamicText = `${numCharacters}/${maxCharacters} ${textCharacters}`
+      const dynamicText = `${numCharacters}/${maxChars} ${textCharacters}`
       return staticText ? staticText + ' - ' + dynamicText : dynamicText
     }
 
-    onAtomTextAreaChange = ({value, ev}) => {
+    onAtomTextAreaChange = ({value}) => {
       const messageAtomTextarea = this.getHelpTextArea(
         value.length,
-        this.maxCharacters
+        this.maxChars
       )
       this.setState({messageAtomTextarea})
     }
 
     handleChange = ev => {
       const value = ev.target.value
-      const {onChange, maxCharacters} = this.props
-      if (value.length > maxCharacters) return
+      const {onChange, maxChars} = this.props
+      if (value.length > maxChars) return
 
-      let messageAtomTextarea = this.getHelpTextArea(
-        value.length,
-        maxCharacters
-      )
+      let messageAtomTextarea = this.getHelpTextArea(value.length, maxChars)
 
       this.setState(
         {value, messageAtomTextarea},

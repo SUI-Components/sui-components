@@ -24,8 +24,6 @@ export function switchClassNames(
     [CLASS_CLICK]: isClick,
     [CLASS_DISABLED]: isDisabled
   })
-  console.log(isClick)
-  console.log(className)
   return className
 }
 

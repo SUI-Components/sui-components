@@ -4,7 +4,7 @@ import React from 'react'
 import {withFormik} from 'formik'
 import * as Yup from 'yup'
 import MoleculeField from '../../../../../components/molecule/field/src'
-import MoleculeFieldTextarea from '../MoleculeFieldTextarea'
+import MoleculeFieldTextarea from '@s-ui/react-molecule-field-textarea'
 import FormInput from '@s-ui/react-form-input'
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
 

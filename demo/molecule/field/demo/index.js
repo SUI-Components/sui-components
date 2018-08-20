@@ -4,7 +4,7 @@ import React from 'react'
 
 import MoleculeField from '../../../../components/molecule/field/src'
 
-import MoleculeFieldTextarea from './MoleculeFieldTextarea'
+import MoleculeFieldTextarea from '@s-ui/react-molecule-field-textarea'
 import FormInput from '@s-ui/react-form-input'
 import FormWithFormik from './FormWithFormik'
 
@@ -21,51 +21,6 @@ const Form = () => {
         </p>
         <FormWithFormik />
       </div>
-
-      <h2 className="FormDemoMoleculeField-title">
-        With <code>AtomTextarea</code>
-      </h2>
-      <ul className="FormDemoMoleculeField-list">
-        <li className="FormDemoMoleculeField-listItem">
-          <h3>With Success Message and HelpText</h3>
-          <MoleculeFieldTextarea
-            id="description"
-            label="Description"
-            successText="Everything ok!"
-          />
-        </li>
-        <li className="FormDemoMoleculeField-listItem">
-          <h3>
-            With Error Message and HelpText<br />and custom maxCharacters
-          </h3>
-          <MoleculeFieldTextarea
-            id="notes"
-            label="Notes"
-            errorText="All wrong!"
-            maxCharacters={75}
-          />
-        </li>
-        <li className="FormDemoMoleculeField-listItem">
-          <h3>With HelpText and placeholder</h3>
-          <MoleculeFieldTextarea
-            id="commentd"
-            label="Comments"
-            maxCharacters={100}
-            placeholder="Please, write something cool..."
-          />
-        </li>
-        <li className="FormDemoMoleculeField-listItem">
-          <h3>Inline</h3>
-          <MoleculeFieldTextarea
-            id="description-inline"
-            label="Description"
-            successText="Everything ok!"
-            inline
-            value="Lorem ipsum dolor sit amet"
-          />
-        </li>
-      </ul>
-
       <h2 className="FormDemoMoleculeField-title">
         With <code>FormInput</code>
       </h2>
@@ -129,6 +84,15 @@ const Form = () => {
           </MoleculeField>
         </li>
       </ul>
+      <h2 className="FormDemoMoleculeField-title">
+        With <code>AtomTextarea</code>
+      </h2>
+      <p>
+        Check the <code>MoleculeFieldTextarea</code>{' '}
+        <a href="https://sui-components.now.sh/workbench/molecule/fieldTextarea/demo">
+          demo
+        </a>
+      </p>
     </div>
   )
 }

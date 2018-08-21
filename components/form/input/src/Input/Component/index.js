@@ -8,7 +8,7 @@ const SIZES = {
   SMALL: 's'
 }
 
-const STATES = {
+const ERROR_STATES = {
   ERROR: 'error',
   SUCCESS: 'success'
 }
@@ -18,12 +18,18 @@ class Input extends Component {
     onChange && onChange({value: ev.target.value, ev})
   }
 
-  getClassNames({size, hideInput, state}) {
+  getErrorStateClass(errorState) {
+    if (errorState) return `${CLASS}--${ERROR_STATES.ERROR}`
+    if (errorState === false) return `${CLASS}--${ERROR_STATES.SUCCESS}`
+    return ''
+  }
+
+  getClassNames({size, hideInput, errorState}) {
     return cx(
       CLASS,
       `${CLASS}-${size}`,
       hideInput && `${CLASS}--hidden`,
-      state && `${CLASS}--${state}`
+      this.getErrorStateClass(errorState)
     )
   }
 
@@ -38,14 +44,14 @@ class Input extends Component {
       placeholder,
       reference,
       size,
-      state,
+      errorState,
       type,
       value
     } = this.props
 
     return (
       <input
-        className={this.getClassNames({size, hideInput, state})}
+        className={this.getClassNames({size, hideInput, errorState})}
         checked={checked}
         disabled={disabled}
         id={id}
@@ -83,8 +89,8 @@ Input.propTypes = {
   reference: PropTypes.func,
   /** Wether to show the input or not */
   hideInput: PropTypes.bool,
-  /* optional: 'success' or 'error' */
-  state: PropTypes.oneOf(Object.values(STATES))
+  /* Will set a red/green border if set to true/false */
+  errorState: PropTypes.bool
 }
 
 Input.defaultProps = {
@@ -92,4 +98,4 @@ Input.defaultProps = {
 }
 
 export default Input
-export {SIZES as inputSizes, STATES as inputStates}
+export {SIZES as inputSizes}

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Input, {inputSizes, inputStates} from './Input'
+import Input, {inputSizes} from './Input'
 import Password from './Password'
 import Mask from './Mask'
 
@@ -51,7 +51,7 @@ FormInput.propTypes = {
   /* 's' or 'm', default: 'm' */
   size: PropTypes.oneOf(Object.values(inputSizes)),
   /* optional: 'success' or 'error' */
-  state: PropTypes.oneOf(Object.values(inputStates)),
+  errorState: PropTypes.bool,
   /* value of the control */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /* mask object, see https://unmanner.github.io/imaskjs/ */
@@ -61,4 +61,4 @@ FormInput.propTypes = {
 FormInput.displayName = 'FormInput'
 
 export default FormInput
-export {inputSizes, inputStates}
+export {inputSizes}

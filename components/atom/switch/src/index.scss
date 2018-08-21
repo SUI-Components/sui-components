@@ -27,6 +27,10 @@ $atom-switch-transition-time: .3s !default;
   display: inline-block;
   outline: none;
 
+  .sui-AtomLabel {
+    margin-bottom: 0;
+  }
+
   &-toggleType {
     .sui-AtomSwitch-container {
       margin-top: $p-l;
@@ -106,10 +110,11 @@ $atom-switch-transition-time: .3s !default;
 
   &.sui-AtomSwitch--disabled {
     color: $c-gray;
-    pointer-events: none;
+    cursor: not-allowed;
     .sui-AtomSwitch-inputContainer {
       border: solid 1px $c-gray-lightest;
       background-color: $c-gray-lightest;
+      cursor: not-allowed;
     }
     .sui-AtomSwitch-circle {
       background-color: $c-gray-lightest;

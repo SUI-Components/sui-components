@@ -21,6 +21,7 @@ class AtomSwitch extends Component {
   }
 
   _onToggle = forceValue => {
+    if (this.props.disabled === true) return
     const {isToggle: stateToggle} = this.state
     const {onToggle} = this.props
     const isToggle = forceValue !== undefined ? forceValue : !stateToggle

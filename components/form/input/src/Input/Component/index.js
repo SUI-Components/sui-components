@@ -22,6 +22,7 @@ class Input extends Component {
       disabled,
       id,
       name,
+      onBlur,
       onChange,
       placeholder,
       reference,
@@ -40,6 +41,7 @@ class Input extends Component {
         id={id}
         name={name}
         onChange={ev => this.changeHandler(ev, onChange)}
+        onBlur={onBlur}
         placeholder={placeholder}
         ref={reference}
         type={type}
@@ -58,6 +60,8 @@ Input.propTypes = {
   id: PropTypes.string,
   /* sets the name property of an element in the DOM */
   name: PropTypes.string,
+  /* onBlur callback */
+  onBlur: PropTypes.func,
   /* onChange callback */
   onChange: PropTypes.func,
   /* A hint to the user of what can be entered in the control. The placeholder text must not contain carriage returns or line-feeds. */
@@ -75,7 +79,8 @@ Input.propTypes = {
 }
 
 Input.defaultProps = {
-  size: SIZES.MEDIUM
+  size: SIZES.MEDIUM,
+  onBlur: () => {}
 }
 
 export default Input

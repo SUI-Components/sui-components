@@ -25,6 +25,7 @@ $atom-switch-transition-time: .3s !default;
 .sui-AtomSwitch {
   cursor: pointer;
   display: inline-block;
+  outline: none;
 
   &-toggleType {
     .sui-AtomSwitch-container {
@@ -35,6 +36,21 @@ $atom-switch-transition-time: .3s !default;
   &-singleType {
     .sui-AtomSwitch-container .sui-AtomSwitch-inputContainer {
       margin-left: $m-l;
+    }
+  }
+
+  &.sui-AtomSwitch--focus {
+    .sui-AtomSwitch-container {
+      border: solid 1px color-variation($c-primary, 1);
+      box-shadow: 0 0 4px 0 color-variation($c-primary, 1);
+    }
+  }
+  
+  &.sui-AtomSwitch--click {
+    & .sui-AtomSwitch-container {
+      border: solid 1px transparent;
+      box-shadow: none;
+      outline: none;
     }
   }
 
@@ -139,18 +155,4 @@ $atom-switch-transition-time: .3s !default;
     }
   }
 
-  
-  .sui-AtomSwitch.sui-AtomSwitch--focus {
-    .sui-AtomSwitch-container {
-      border: solid 1px color-variation($c-primary, 1);
-      box-shadow: 0 0 4px 0 color-variation($c-primary, 1);
-    }
-  }
-  
-  &.sui-AtomSwitch--click {
-    & .sui-AtomSwitch-container {
-      border: solid 1px transparent;
-      outline: none;
-    }
-  }
 }

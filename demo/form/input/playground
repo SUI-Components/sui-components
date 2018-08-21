@@ -190,7 +190,7 @@ return (
   <React.Fragment>
     <div style={field}>
       <FormInput
-        size={InputSizes.SMALL}
+        size={inputSizes.SMALL}
         name="first"
         placeholder="Small input"
       />
@@ -216,10 +216,10 @@ return (
       />
     </div>
     <div style={field}>
-      <FormInput name="second" placeholder="Success input" state={InputStates.SUCCESS} />
+      <FormInput name="second" placeholder="Success input" state={inputStates.SUCCESS} />
     </div>
     <div style={field}>
-      <FormInput name="second" placeholder="Error input" state={InputStates.ERROR} />
+      <FormInput name="second" placeholder="Error input" state={inputStates.ERROR} />
     </div>
     <div style={field}>
       <FormInput

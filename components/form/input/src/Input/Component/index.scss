@@ -22,7 +22,8 @@ $states-form-input: success $c-form-input--success, error $c-form-input--error !
     display: none;
   }
 
-  &[type='radio'], &[type='checkbox'] {
+  &[type='radio'],
+  &[type='checkbox'] {
     height: inherit;
     margin-left: $m-m;
     margin-right: $m-m;

@@ -92,4 +92,4 @@ Input.defaultProps = {
 }
 
 export default Input
-export {SIZES as InputSizes, STATES as InputStates}
+export {SIZES as inputSizes, STATES as inputStates}

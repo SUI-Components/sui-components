@@ -3,7 +3,6 @@ import {GetPurposesAndVendorsUseCase} from './GetPurposesAndVendorsUseCase'
 import {SendConsentsUseCase} from './SendConsentsUseCase'
 
 import {CmpRepository} from '../repository/cmpRepository'
-
 const repository = new CmpRepository()
 
 export const getConsentStatus = new GetConsentStatusUseCase({repository})

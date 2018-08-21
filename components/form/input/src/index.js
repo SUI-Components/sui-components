@@ -50,7 +50,7 @@ FormInput.propTypes = {
   disabled: PropTypes.bool,
   /* 's' or 'm', default: 'm' */
   size: PropTypes.oneOf(Object.values(inputSizes)),
-  /* optional: 'success' or 'error' */
+  /* true = error, false = success, null = neutral */
   errorState: PropTypes.bool,
   /* value of the control */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),

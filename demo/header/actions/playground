@@ -1,0 +1,9 @@
+const icon = <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 110 110" ><polygon points="40,67.9 42.1,70 55,57.1 67.9,70 70,67.9 57.1,55 70,42.1 67.9,40 55,52.9 42.1,40 40,42.1 52.9,55 "/></svg>
+
+return <HeaderActions
+  buttonLabel='Accept'
+  title='Actions header'
+  icon={icon}
+  onIconClick={() => alert('icon clicked')}
+  onButtonClick={() => alert('button clicked')}
+/>

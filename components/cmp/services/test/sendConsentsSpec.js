@@ -17,25 +17,34 @@ describe('sendConsents', () => {
     const purposeConsents = {1: true, 2: false, 3: true}
     const vendorConsents = {1: true, 2: false, 3: true}
 
-    sendConsents.execute({purposeConsents, vendorConsents}).then(_ => {
-      expect(window.__cmp.calledOnce).to.equal(true)
-      const [command, params] = window.__cmp.getCall(0).args
-      expect(command).to.equal('setVendorConsents')
-      expect(params).to.deep.equal({vendorConsents, purposeConsents})
-      done()
-    })
+    sendConsents
+      .execute({purposeConsents, vendorConsents})
+      .then(completed => {
+        expect(completed).to.be.true
+        expect(window.__cmp.calledOnce).to.be.true
+        const [command, params] = window.__cmp.getCall(0).args
+        expect(command).to.equal('setVendorConsents')
+        expect(params).to.deep.equal({vendorConsents, purposeConsents})
+        done()
+      })
+      .catch(error => done(new Error(error)))
   })
 
   it('should send purposes and vendors from getPurposesAndVendors default output', done => {
-    getPurposesAndVendors.execute().then(response => {
-      const {purposeConsents, vendorConsents} = response
-      sendConsents.execute({purposeConsents, vendorConsents}).then(_ => {
-        expect(window.__cmp.callCount).to.equal(2)
+    getPurposesAndVendors
+      .execute()
+      .then(({purposeConsents, vendorConsents}) =>
+        sendConsents
+          .execute({purposeConsents, vendorConsents})
+          .then(() => ({purposeConsents, vendorConsents}))
+      )
+      .then(consents => {
+        expect(window.__cmp.calledTwice).to.be.true
         const [command, params] = window.__cmp.getCall(1).args
         expect(command).to.equal('setVendorConsents')
-        expect(params).to.deep.equal({purposeConsents, vendorConsents})
+        expect(params).to.deep.equal({...consents})
         done()
       })
-    })
+      .catch(error => done(new Error(error)))
   })
 })

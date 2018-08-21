@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Input, {InputSizes} from './Input'
+import Input, {InputSizes, InputStates} from './Input'
 import Password from './Password'
 import Mask from './Mask'
 
@@ -59,4 +59,4 @@ FormInput.propTypes = {
 FormInput.displayName = 'FormInput'
 
 export default FormInput
-export {InputSizes}
+export {InputSizes, InputStates}

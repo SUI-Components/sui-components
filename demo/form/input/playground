@@ -216,6 +216,12 @@ return (
       />
     </div>
     <div style={field}>
+      <FormInput name="second" placeholder="Success input" state={InputStates.SUCCESS} />
+    </div>
+    <div style={field}>
+      <FormInput name="second" placeholder="Error input" state={InputStates.ERROR} />
+    </div>
+    <div style={field}>
       <FormInput
         type="sui-password"
         name="password"

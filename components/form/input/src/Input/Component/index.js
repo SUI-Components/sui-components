@@ -8,33 +8,44 @@ const SIZES = {
   SMALL: 's'
 }
 
+const STATES = {
+  ERROR: 'error',
+  SUCCESS: 'success'
+}
+
 class Input extends Component {
   changeHandler(ev, onChange) {
     onChange && onChange({value: ev.target.value, ev})
   }
 
-  getClassNames({size, hideInput}) {
-    return cx(CLASS, `${CLASS}-${size}`, hideInput && `${CLASS}--hidden`)
+  getClassNames({size, hideInput, state}) {
+    return cx(
+      CLASS,
+      `${CLASS}-${size}`,
+      hideInput && `${CLASS}--hidden`,
+      state && `${CLASS}--${state}`
+    )
   }
 
   render() {
     const {
+      checked,
       disabled,
+      hideInput,
       id,
       name,
       onChange,
       placeholder,
       reference,
       size,
+      state,
       type,
-      value,
-      checked,
-      hideInput
+      value
     } = this.props
 
     return (
       <input
-        className={this.getClassNames({size, hideInput})}
+        className={this.getClassNames({size, hideInput, state})}
         checked={checked}
         disabled={disabled}
         id={id}
@@ -71,7 +82,9 @@ Input.propTypes = {
   /* react ref to access DOM node */
   reference: PropTypes.func,
   /** Wether to show the input or not */
-  hideInput: PropTypes.bool
+  hideInput: PropTypes.bool,
+  /* optional: 'success' or 'error' */
+  state: PropTypes.oneOf(Object.values(STATES))
 }
 
 Input.defaultProps = {
@@ -79,4 +92,4 @@ Input.defaultProps = {
 }
 
 export default Input
-export {SIZES as InputSizes}
+export {SIZES as InputSizes, STATES as InputStates}

@@ -216,10 +216,10 @@ return (
       />
     </div>
     <div style={field}>
-      <FormInput name="second" placeholder="Success input" state={inputStates.SUCCESS} />
+      <FormInput name="second" placeholder="Success input" errorState={false} />
     </div>
     <div style={field}>
-      <FormInput name="second" placeholder="Error input" state={inputStates.ERROR} />
+      <FormInput name="second" placeholder="Error input" errorState={true} />
     </div>
     <div style={field}>
       <FormInput

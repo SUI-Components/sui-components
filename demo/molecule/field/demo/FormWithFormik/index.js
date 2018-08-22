@@ -6,6 +6,7 @@ import * as Yup from 'yup'
 import MoleculeField from '../../../../../components/molecule/field/src'
 import MoleculeFieldTextarea from '@s-ui/react-molecule-field-textarea'
 import FormInput from '@s-ui/react-form-input'
+import Button from '@schibstedspain/sui-atom-button'
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
 
 import './index.scss'
@@ -80,9 +81,9 @@ const Form = ({
           />
         </div>
       </div>
-      <button disabled={isSubmitting} type="submit">
+      <Button type="primary" disabled={isSubmitting}>
         Register
-      </button>
+      </Button>
       {isSubmitting && <AtomSpinner type={AtomSpinnerTypes.FULL} />}
     </form>
   )

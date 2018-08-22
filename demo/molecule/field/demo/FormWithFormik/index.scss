@@ -1,4 +1,5 @@
 @import '~@s-ui/react-atom-spinner/lib/index';
+@import '~@schibstedspain/sui-atom-button/lib/index';
 
 .FormWithFormik {
   &-fieldset {
@@ -8,6 +9,7 @@
 
   &-field {
     width: 250px;
+    padding: 10px;
   }
 
 }

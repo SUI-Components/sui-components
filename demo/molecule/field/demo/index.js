@@ -3,8 +3,6 @@
 import React from 'react'
 
 import MoleculeField from '../../../../components/molecule/field/src'
-
-import MoleculeFieldTextarea from '@s-ui/react-molecule-field-textarea'
 import FormInput from '@s-ui/react-form-input'
 import FormWithFormik from './FormWithFormik'
 

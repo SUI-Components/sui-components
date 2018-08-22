@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.20.0"></a>
+# 1.20.0 (2018-08-22)
+
+
+### Features
+
+* update moment version to resolve security vulnerabilities ([3212274](https://github.com/SUI-Components/sui-components/commit/3212274))
+
+
+
 <a name="1.19.0"></a>
 # 1.19.0 (2018-08-22)
 

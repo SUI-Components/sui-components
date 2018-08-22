@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.19.0"></a>
+# 1.19.0 (2018-08-22)
+
+
+### Features
+
+* update moment version in rangedatepicker ([cd0f384](https://github.com/SUI-Components/sui-components/commit/cd0f384))
+
+
+
 <a name="1.18.0"></a>
 # 1.18.0 (2018-08-22)
 

@@ -27,10 +27,16 @@ $atom-switch-transition-time: .3s !default;
   display: inline-block;
   outline: none;
 
+  &:focus &-container {
+    border: 2px solid transparent;
+    box-shadow: none;  
+    outline: none;
+  }
+  
   &-container {
     align-items: center;
     border: 2px solid transparent;
-    box-shadow: 0;  
+    box-shadow: none;  
     display: flex;
     height: $h-atom-switch-container-default;
     justify-content: center;
@@ -38,7 +44,14 @@ $atom-switch-transition-time: .3s !default;
     padding: $p-s;
   }
 
-  &.sui-AtomSwitch--focus:not(.sui-AtomSwitch--click) {
+  &.sui-AtomSwitch--click {
+    .sui-AtomSwitch-container {
+      border: 2px solid transparent;
+      box-shadow: none; 
+    }
+  }
+
+  &.sui-AtomSwitch--focus {
     .sui-AtomSwitch-container {
       border: solid 2px color-variation($c-primary, 1);
       box-shadow: 0 0 4px 0 color-variation($c-primary, 1);

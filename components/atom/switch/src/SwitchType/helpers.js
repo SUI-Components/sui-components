@@ -20,8 +20,8 @@ export function switchClassNames(
 
   const className = cx(BASE_CLASS, CLASS_TYPE, CLASS_SIZE, {
     [CLASS_ACTIVE]: isToggle || type === TYPES.SELECT,
-    [CLASS_FOCUS]: isFocus,
     [CLASS_CLICK]: isClick,
+    [CLASS_FOCUS]: isFocus && !isClick,
     [CLASS_DISABLED]: isDisabled
   })
   return className

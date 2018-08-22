@@ -79,8 +79,7 @@ Input.propTypes = {
 }
 
 Input.defaultProps = {
-  size: SIZES.MEDIUM,
-  onBlur: () => {}
+  size: SIZES.MEDIUM
 }
 
 export default Input

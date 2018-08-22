@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2018-08-22)
+
+
+### Features
+
+* remove not needed default onBlur ([847f9a6](https://github.com/SUI-Components/sui-components/commit/847f9a6))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2018-08-22)
 
@@ -13,6 +23,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+* add onBlur prop ([87a1a74](https://github.com/SUI-Components/sui-components/commit/87a1a74))
 * add success/error classes ([8594710](https://github.com/SUI-Components/sui-components/commit/8594710))
 * reordered css properties ([eca2419](https://github.com/SUI-Components/sui-components/commit/eca2419))
 * update state name + errorState API ([ff8dbd0](https://github.com/SUI-Components/sui-components/commit/ff8dbd0))

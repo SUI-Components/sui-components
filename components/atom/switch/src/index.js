@@ -31,8 +31,11 @@ class AtomSwitch extends Component {
   _onBlur = () => {
     this.setState({isFocus: false, isClick: false})
   }
-  _onFocus = () => {
-    this.setState({isFocus: true})
+
+  _onFocus = e => {
+    setTimeout(() => {
+      this.setState({isFocus: true})
+    }, 150)
   }
 
   _onClick = e => {
@@ -48,8 +51,8 @@ class AtomSwitch extends Component {
       isClick,
       isToggle,
       onBlur: this._onBlur,
-      onFocus: this._onFocus,
       onClick: this._onClick,
+      onFocus: this._onFocus,
       onKeyDown: this._onKeyDown,
       onToggle: this._onToggle
     }

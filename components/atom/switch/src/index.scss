@@ -106,7 +106,7 @@ $atom-switch-transition-time: .3s !default;
       border: solid 1px $c-white;
       box-shadow: 2px 0 2px 0 $c-gray-light;
       height: $h-atom-switch-default - 2;
-      transition: margin $atom-switch-transition-time ease-in-out;
+      transition: all $atom-switch-transition-time ease-in-out;
       width: $h-atom-switch-default - 2;
 
       &.sui-AtomSwitch--toggle {

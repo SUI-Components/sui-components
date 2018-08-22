@@ -38,6 +38,8 @@ FormInput.propTypes = {
   pwShowLabel: PropTypes.string,
   /* Text to be shown in order to hide the password on click */
   pwHideLabel: PropTypes.string,
+  /* onBlur callback */
+  onBlur: PropTypes.func,
   /* onChange callback */
   onChange: PropTypes.func,
   /* sets the name property of an element in the DOM */

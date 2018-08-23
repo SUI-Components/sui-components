@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.21.0"></a>
+# 1.21.0 (2018-08-23)
+
+
+### Features
+
+* update version moment for rangedatepicker ([144f5c2](https://github.com/SUI-Components/sui-components/commit/144f5c2))
+
+
+
 <a name="1.20.0"></a>
 # 1.20.0 (2018-08-22)
 

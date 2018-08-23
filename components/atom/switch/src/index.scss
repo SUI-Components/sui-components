@@ -1,129 +1,179 @@
 @import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-atom-label/lib/index';
 
-$h-atom-switch--m: $sz-icon-l !default;
-$w-atom-switch--m: 35px !default;
-$m-atom-switch-circle--m: 12px !default;
-$h-atom-switch-container--m: 22px !default;
+/* DEFAULT SIZE */
+$h-atom-switch-container-default: 34px !default;
+$h-atom-switch-default: 24px !default;
+$w-atom-switch-default: 40px !default;
+$w-atom-switch-circle-default: 22px !default;
+$m-atom-switch-circle-default--active: $m-l !default;
 
-$h-atom-switch--l: $sz-icon-xl !default;
-$w-atom-switch--l: 51px !default;
-$m-atom-switch-circle--l: 18px !default;
-$h-atom-switch-container--l: 32px !default;
+/* LARGE SIZE */
+$h-atom-switch-container-large: 42px !default;
+$h-atom-switch-large: 32px !default;
+$w-atom-switch-large: 56px !default;
+$w-atom-switch-circle-large: 32px !default;
+$m-atom-switch-circle-large--active: $m-xl !default;
+$h-atom-switch-inputContainer-large: 32px !default;
 
 $c-atom-switch--active: color-variation($c-primary, 1) !default;
+$c-atom-switch--active-shadow: rgba($c-black, .2);
 $c-atom-switch--default: color-variation($c-gray, 3) !default;
+
+$atom-switch-transition-time: .3s !default;
 
 .sui-AtomSwitch {
   cursor: pointer;
   display: inline-block;
+  outline: none;
+
+  user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus &-container {
+    border: 2px solid transparent;
+    box-shadow: none;  
+    outline: none;
+  }
+  
+  &-container {
+    align-items: center;
+    border: 2px solid transparent;
+    box-shadow: none;  
+    display: flex;
+    height: $h-atom-switch-container-default;
+    justify-content: center;
+    outline: none;
+    padding: $p-s;
+  }
+
+  &.sui-AtomSwitch--click {
+    .sui-AtomSwitch-container {
+      border: 2px solid transparent;
+      box-shadow: none; 
+    }
+  }
+
+  &.sui-AtomSwitch--focus {
+    .sui-AtomSwitch-container {
+      border: solid 2px color-variation($c-primary, 1);
+      box-shadow: 0 0 4px 0 color-variation($c-primary, 1);
+    }
+  }
+  
+  .sui-AtomLabel {
+    margin-bottom: 0;
+  }
 
   &-toggleType {
-    .sui-AtomSwitch--container {
+    .sui-AtomSwitch-container {
       margin-top: $p-l;
     }
   }
 
-  &--singleType {
-    .sui-AtomSwitch--container .sui-AtomSwitch--inputContainer {
+  &-singleType {
+    .sui-AtomSwitch-container .sui-AtomSwitch-inputContainer {
       margin-left: $m-l;
     }
   }
 
-  &--container {
-    border: 1px solid transparent;
-    display: flex;
-    height: $h-atom-switch--m;
-    justify-content: center;
-    padding-bottom: $p-s;
-    padding-top: $p-s;
-  }
 
-  &--text {
+
+  &-text {
     display: flex;
     flex-direction: column;
     font-size: $fz-m;
     justify-content: center;
 
-    &.sui-AtomSwitch--right {
+    &.sui-AtomSwitch-right {
       padding-left: $p-m;
     }
 
-    &.sui-AtomSwitch--left {
+    &.sui-AtomSwitch-left {
       padding-right: $p-m;
     }
   }
 
-  .sui-AtomSwitch--inputContainer {
+  .sui-AtomSwitch-inputContainer {
     background-color: $c-atom-switch--default;
-    border-radius: $w-atom-switch--m / 2;
+    border-radius: $w-atom-switch-default / 2;
     border: solid 1px color-variation($c-atom-switch--default, $c-dark-step);
     cursor: pointer;
-    height: $h-atom-switch-container--m;
-    transition: background-color, border 0.4s ease-in-out;
-    width: $w-atom-switch--m;
+    height: $h-atom-switch-default;
+    transition: all $atom-switch-transition-time ease-in-out;
+    width: $w-atom-switch-default;
 
-    .sui-AtomSwitch--circle {
+    .sui-AtomSwitch-circle {
       background-color: $c-white;
-      border-radius: ($h-atom-switch-container--m - 2) / 2;
+      border-radius: ($h-atom-switch-default - 2) / 2;
       border: solid 1px $c-white;
       box-shadow: 2px 0 2px 0 $c-gray-light;
-      height: $h-atom-switch-container--m - 2;
-      transition: margin 0.4s ease-in-out;
-      width: $h-atom-switch-container--m - 2;
+      height: $h-atom-switch-default - 2;
+      transition: all $atom-switch-transition-time ease-in-out;
+      width: $h-atom-switch-default - 2;
 
       &.sui-AtomSwitch--toggle {
-        margin-left: $m-atom-switch-circle--m;
+        box-shadow: -2px 0 2px 0 $c-atom-switch--active-shadow;
+        margin-left: $m-atom-switch-circle-default--active;
       }
     }
   }
 
   &.sui-AtomSwitch--disabled {
     color: $c-gray;
-    pointer-events: none;
+    cursor: not-allowed;
+    .sui-AtomSwitch-inputContainer {
+      border: solid 1px $c-gray-lightest;
+      background-color: $c-gray-lightest;
+      cursor: not-allowed;
+    }
+    .sui-AtomSwitch-circle {
+      background-color: $c-gray-lightest;
+    }
   }
 
   &.sui-AtomSwitch--active {
-    & .sui-AtomSwitch--container {
-      .sui-AtomSwitch--inputContainer {
+    & .sui-AtomSwitch-container {
+      .sui-AtomSwitch-inputContainer {
         background-color: $c-atom-switch--active;
-        border-radius: 11px;
         border: solid 1px $c-atom-switch--active;
         cursor: pointer;
       }
     }
+    & .sui-AtomSwitch-circle {
+      box-shadow: 2px 0 2px 0 $c-atom-switch--active-shadow;
+    }
   }
 
-  &.sui-AtomSwitch--large, &.sui-AtomSwitch--active.sui-AtomSwitch--large {
-    .sui-AtomSwitch--container {
-      height: $h-atom-switch--l;
+  &.sui-AtomSwitch-large, &.sui-AtomSwitch--active.sui-AtomSwitch-large {
+    .sui-AtomSwitch-container {
+      height: $h-atom-switch-container-large;
       padding-bottom: $p-s;
       padding-top: $p-s;
-      .sui-AtomSwitch--text {
+      .sui-AtomSwitch-text {
         display: flex;
         flex-direction: column;
         justify-content: center;
       }
 
-      .sui-AtomSwitch--inputContainer {
-        border-radius: $w-atom-switch--l / 2;
-        height: $h-atom-switch-container--l;
-        width: $w-atom-switch--l;
-        .sui-AtomSwitch--circle {
-          border-radius: ($h-atom-switch-container--l - 2) / 2;
-          height: $h-atom-switch-container--l - 2;
-          width: $h-atom-switch-container--l - 2;
+      .sui-AtomSwitch-inputContainer {
+        height: $h-atom-switch-inputContainer-large;
+        width: $w-atom-switch-large;
+        .sui-AtomSwitch-circle {
+          border-radius: $w-atom-switch-large / 2;
+          height: $h-atom-switch-inputContainer-large - 2;
+          width: $h-atom-switch-inputContainer-large - 2;
           &.sui-AtomSwitch--toggle {
-            margin-left: $m-atom-switch-circle--l;
+            margin-left: $m-atom-switch-circle-large--active;
           }
         }
       }
     }
-  }
-
-
-  &--focus &--container {
-    border: solid 1px color-variation($c-primary, 1);
-    box-shadow: 0 0 4px 0 color-variation($c-primary, 1);
   }
 
 }

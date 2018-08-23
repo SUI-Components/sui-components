@@ -2,26 +2,13 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {ToggleSwitchTypeRender} from './SwitchType/toggle'
 import {SingleSwitchTypeRender} from './SwitchType/single'
-
-export const BASE_CLASS = 'sui-AtomSwitch'
-
-export const SIZES = {
-  DEFAULT: 'default',
-  LARGE: 'large'
-}
-
-export const TYPES = {
-  TOGGLE: 'toggle',
-  SELECT: 'select',
-  SINGLE: 'single'
-}
-
-const SUPPORTED_KEYS = [' ', 'Enter', 'Spacebar']
+import {SIZES, TYPES, SUPPORTED_KEYS} from './config'
 
 class AtomSwitch extends Component {
   state = {
     isToggle: this.props.initialValue,
-    isFocus: false
+    isFocus: false,
+    isClick: false
   }
 
   _onKeyDown = event => {
@@ -34,6 +21,7 @@ class AtomSwitch extends Component {
   }
 
   _onToggle = forceValue => {
+    if (this.props.disabled === true) return
     const {isToggle: stateToggle} = this.state
     const {onToggle} = this.props
     const isToggle = forceValue !== undefined ? forceValue : !stateToggle
@@ -41,20 +29,29 @@ class AtomSwitch extends Component {
   }
 
   _onBlur = () => {
-    this.setState({isFocus: false})
+    this.setState({isFocus: false, isClick: false})
   }
-  _onFocus = () => {
-    this.setState({isFocus: true})
+
+  _onFocus = e => {
+    setTimeout(() => {
+      this.setState({isFocus: true})
+    }, 150)
+  }
+
+  _onClick = e => {
+    this.setState({isClick: true})
   }
 
   render() {
-    const {isToggle, isFocus} = this.state
+    const {isToggle, isFocus, isClick} = this.state
 
     const commonProps = {
       ...this.props,
       isFocus,
+      isClick,
       isToggle,
       onBlur: this._onBlur,
+      onClick: this._onClick,
       onFocus: this._onFocus,
       onKeyDown: this._onKeyDown,
       onToggle: this._onToggle

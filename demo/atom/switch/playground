@@ -1,5 +1,10 @@
 
-const flexInlineContainer = {display: 'flex', justifyContent: 'space-between', padding: '2vh 2vw'}
+const flexInlineContainer = {display: 'flex',  flexWrap: 'wrap', justifyContent: 'space-between', padding: '2vh 2vw'}
+const stylesSection = {
+  border: '1px solid #CCC',
+  background: '#fff',
+  marginTop: '10px'
+}
 const itemInlineFlex = {padding: '10px'}
 const log = flag => console.log(flag)
 
@@ -7,7 +12,7 @@ return (
 <div>
   <h2>Atom Switch</h2>
   <h3>Styles</h3>
-  <div style={flexInlineContainer}>
+  <div style={ {...flexInlineContainer, ...stylesSection} } >
     <div style={itemInlineFlex}>
       <h4>Medium</h4>
       <AtomSwitch  name='inputSwitchTest' label='Label title' onToggle={log}/>
@@ -23,7 +28,7 @@ return (
   </div>
 
   <h3>Types</h3>
-  <div style={flexInlineContainer}>
+  <div style={ {...flexInlineContainer, ...stylesSection} } >
     <div style={itemInlineFlex}>
       <h4>Toggle</h4>
       <AtomSwitch  name='inputSwitchTest' label='Label title' onToggle={log}/>

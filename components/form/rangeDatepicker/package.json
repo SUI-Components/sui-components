@@ -13,7 +13,7 @@
     "@schibstedspain/sui-svgiconset": "1",
     "@schibstedspain/sui-button-basic": "1",
     "react-datepicker": "1",
-    "moment": "2.19.3"
+    "moment": "2.20.0"
   },
   "keywords": [],
   "author": "",

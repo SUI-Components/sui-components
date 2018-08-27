@@ -5,12 +5,12 @@ import cx from 'classnames'
 const baseClass = 'sui-PaginationBasic'
 const PAGE_NUMBER_HOLDER = '%{pageNumber}'
 
-export default function PaginationItem(props) {
+export default function PaginationItem({pageNumber, patternUrl, ...props}) {
   const getText = () => (
     <span className={`${baseClass}-text`}>{props.pageText}</span>
   )
 
-  const onClick = e => props.handlePaginate(props.pageNumber, e)
+  const onClick = e => props.handlePaginate(pageNumber, e)
 
   const itemBaseClass = `${baseClass}-item`
   const classNames = cx(itemBaseClass, {
@@ -25,7 +25,7 @@ export default function PaginationItem(props) {
         : props.factoryLink({
             onClick,
             className: `${baseClass}-link`,
-            destinationURL: props.createUrl(props),
+            destinationURL: props.createUrl({pageNumber, patternUrl}),
             pageText: props.pageText
           })}
     </li>

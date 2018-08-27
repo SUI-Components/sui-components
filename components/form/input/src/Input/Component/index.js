@@ -8,38 +8,57 @@ const SIZES = {
   SMALL: 's'
 }
 
+const ERROR_STATES = {
+  ERROR: 'error',
+  SUCCESS: 'success'
+}
+
 class Input extends Component {
   changeHandler(ev, onChange) {
     onChange && onChange({value: ev.target.value, ev})
   }
 
-  getClassNames({size, hideInput}) {
-    return cx(CLASS, `${CLASS}-${size}`, hideInput && `${CLASS}--hidden`)
+  getErrorStateClass(errorState) {
+    if (errorState) return `${CLASS}--${ERROR_STATES.ERROR}`
+    if (errorState === false) return `${CLASS}--${ERROR_STATES.SUCCESS}`
+    return ''
+  }
+
+  getClassNames({size, hideInput, errorState}) {
+    return cx(
+      CLASS,
+      `${CLASS}-${size}`,
+      hideInput && `${CLASS}--hidden`,
+      this.getErrorStateClass(errorState)
+    )
   }
 
   render() {
     const {
+      checked,
       disabled,
+      hideInput,
       id,
       name,
+      onBlur,
       onChange,
       placeholder,
       reference,
       size,
+      errorState,
       type,
-      value,
-      checked,
-      hideInput
+      value
     } = this.props
 
     return (
       <input
-        className={this.getClassNames({size, hideInput})}
+        className={this.getClassNames({size, hideInput, errorState})}
         checked={checked}
         disabled={disabled}
         id={id}
         name={name}
         onChange={ev => this.changeHandler(ev, onChange)}
+        onBlur={onBlur}
         placeholder={placeholder}
         ref={reference}
         type={type}
@@ -58,6 +77,8 @@ Input.propTypes = {
   id: PropTypes.string,
   /* sets the name property of an element in the DOM */
   name: PropTypes.string,
+  /* onBlur callback */
+  onBlur: PropTypes.func,
   /* onChange callback */
   onChange: PropTypes.func,
   /* A hint to the user of what can be entered in the control. The placeholder text must not contain carriage returns or line-feeds. */
@@ -71,7 +92,9 @@ Input.propTypes = {
   /* react ref to access DOM node */
   reference: PropTypes.func,
   /** Wether to show the input or not */
-  hideInput: PropTypes.bool
+  hideInput: PropTypes.bool,
+  /* Will set a red/green border if set to true/false */
+  errorState: PropTypes.bool
 }
 
 Input.defaultProps = {
@@ -79,4 +102,4 @@ Input.defaultProps = {
 }
 
 export default Input
-export {SIZES as InputSizes}
+export {SIZES as inputSizes}

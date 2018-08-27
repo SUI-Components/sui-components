@@ -56,11 +56,20 @@ import FormInput from '@s-ui/react-form-input'
 return <FormInput leftAddon='http://' rightAddon='@schibsted.com' />
 ```
 
+## Error states
+
+There are 3 error states:
+
+* error state = **true**, will show a **red** border around the input field
+* error state = **false**, will show a **green** border around the input field
+* error state = **null**, will show the by **default** border around the input field
+
+
 ## Form Usage
 
 Each field returns its value on every onChange event so you can save it inside your form state.
 
-```js
+```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Input from '@s-ui/react-form-input'
@@ -70,17 +79,40 @@ class SimpleLoginForm extends React.Component {
   constructor() {
     super()
     this.state = {
-      login: '',
-      password: ''
+      email: {
+        value: '',
+        errorState: null
+      },
+      password: {
+        value: '',
+        errorState: null
+      }
     }
 
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    this.onBlur = this.onBlur.bind(this)
+  }
+
+  isEmail(value) {
+    return /(.+)@(.+){2,}\.(.+){2,}/.test(value)
   }
 
   onChange({value, field}) {
+    this.setState(
+      Object.assign({}, this.state, {
+        [field]: {
+          value,
+          errorState: null
+        }
+      })
+    )
+  }
+
+  onBlur({value, field}) {
+    let errorState = !this.isEmail(value)
     this.setState({
-      [field]: value
+      [field]: {errorState, value}
     })
   }
 
@@ -92,20 +124,26 @@ class SimpleLoginForm extends React.Component {
   }
 
   render() {
-    const {login, password} = this.state
+    const {email, password} = this.state
     return (
       <form>
         <Input
           type="text"
-          value={login}
-          onChange={({ev, value}) => this.onChange({value, field: 'login', ev})}
+          value={email.value}
+          onChange={({ev, value}) => this.onChange({value, field: 'email', ev})}
+          onBlur={ev =>
+            this.onBlur({value: ev.target.value, field: 'email'})
+          }
+          errorState={this.state.email.errorState}
         />
         <Input
           type="sui-password"
-          value={password}
-          onChange={({ev, value}) => this.onChange({value, field: 'password', ev})}
+          value={password.value}
+          onChange={({ev, value}) =>
+            this.onChange({value, field: 'password', ev})
+          }
         />
-        <Button onClick={this.onSubmit}>Login</Button>
+        <button onClick={this.onSubmit}>Login</button>
       </form>
     )
   }

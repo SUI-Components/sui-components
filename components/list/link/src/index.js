@@ -31,7 +31,7 @@ ListLink.defaultProps = {
 }
 ListLink.propTypes = {
   displayInline: PropTypes.bool,
-  list: PropTypes.array.isRequired,
+  list: PropTypes.array,
   useReactRouterLinks: PropTypes.bool
 }
 

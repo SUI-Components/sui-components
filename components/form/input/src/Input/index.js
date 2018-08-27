@@ -1,6 +1,6 @@
 import React from 'react'
 import AddonHoc from './Features/Addon'
-import Component, {InputSizes} from './Component'
+import Component, {inputSizes} from './Component'
 
 export default props => {
   const {leftAddon, rightAddon} = props // eslint-disable-line react/prop-types
@@ -12,4 +12,4 @@ export default props => {
   )
 }
 
-export {InputSizes}
+export {inputSizes}

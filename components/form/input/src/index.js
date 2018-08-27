@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Input, {InputSizes} from './Input'
+import Input, {inputSizes} from './Input'
 import Password from './Password'
 import Mask from './Mask'
 
@@ -38,6 +38,8 @@ FormInput.propTypes = {
   pwShowLabel: PropTypes.string,
   /* Text to be shown in order to hide the password on click */
   pwHideLabel: PropTypes.string,
+  /* onBlur callback */
+  onBlur: PropTypes.func,
   /* onChange callback */
   onChange: PropTypes.func,
   /* sets the name property of an element in the DOM */
@@ -49,7 +51,9 @@ FormInput.propTypes = {
   /* This Boolean attribute prevents the user from interacting with the input */
   disabled: PropTypes.bool,
   /* 's' or 'm', default: 'm' */
-  size: PropTypes.oneOf(Object.values(InputSizes)),
+  size: PropTypes.oneOf(Object.values(inputSizes)),
+  /* true = error, false = success, null = neutral */
+  errorState: PropTypes.bool,
   /* value of the control */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /* mask object, see https://unmanner.github.io/imaskjs/ */
@@ -59,4 +63,4 @@ FormInput.propTypes = {
 FormInput.displayName = 'FormInput'
 
 export default FormInput
-export {InputSizes}
+export {inputSizes}

@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2018-08-22)
+
+
+### Features
+
+* remove not needed default onBlur ([847f9a6](https://github.com/SUI-Components/sui-components/commit/847f9a6))
+
+
+
+<a name="1.4.0"></a>
+# 1.4.0 (2018-08-22)
+
+
+### Bug Fixes
+
+* add input exports inputStates, const var fix ([8c5219c](https://github.com/SUI-Components/sui-components/commit/8c5219c))
+
+
+### Features
+
+* add onBlur prop ([87a1a74](https://github.com/SUI-Components/sui-components/commit/87a1a74))
+* add success/error classes ([8594710](https://github.com/SUI-Components/sui-components/commit/8594710))
+* reordered css properties ([eca2419](https://github.com/SUI-Components/sui-components/commit/eca2419))
+* update state name + errorState API ([ff8dbd0](https://github.com/SUI-Components/sui-components/commit/ff8dbd0))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-07-25)
 
@@ -9,6 +37,13 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * remove required from main props ([6ae1a12](https://github.com/SUI-Components/sui-components/commit/6ae1a12))
+
+
+### Features
+
+* applying HOC only when needed ([cce0d29](https://github.com/SUI-Components/sui-components/commit/cce0d29))
+* checkbox & radio ([674a327](https://github.com/SUI-Components/sui-components/commit/674a327))
+* radio button ([b68b380](https://github.com/SUI-Components/sui-components/commit/b68b380))
 
 
 

@@ -54,6 +54,7 @@
         "atom/image",
         "atom/panel",
         "atom/spinner",
+        "atom/switch",
         "atom/tag",
         "atom/tooltip",
         "atom/validationText",

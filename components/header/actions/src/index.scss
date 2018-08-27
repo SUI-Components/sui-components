@@ -1,0 +1,28 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/sui-atom-button/lib/index';
+
+$bgc-header-actions: $c-primary !default;
+$c-header-actions: $c-white !default;
+$w-header-actions-icon: $sz-icon-xl !default;
+
+.sui-HeaderActions {
+  align-items: center;
+  background-color: $bgc-header-actions;
+  color: $c-header-actions;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+
+  &-title {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  &-icon {
+    fill: $c-header-actions;
+    width: $w-header-actions-icon;
+  }
+}

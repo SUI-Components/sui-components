@@ -1,7 +1,11 @@
 $h-form-input--m: 40px !default;
 $h-form-input--s: 32px !default;
 
+$c-form-input--success: $c-success !default;
+$c-form-input--error: $c-error !default;
+
 $sizes-form-input: medium $h-form-input--m, small $h-form-input--s !default;
+$states-form-input: success $c-form-input--success, error $c-form-input--error !default;
 
 .sui-FormInput-input {
   border-color: $c-gray-light;
@@ -18,13 +22,14 @@ $sizes-form-input: medium $h-form-input--m, small $h-form-input--s !default;
     display: none;
   }
 
-  &[type='radio'], &[type='checkbox'] {
+  &[type='radio'],
+  &[type='checkbox'] {
     height: inherit;
     margin-left: $m-m;
     margin-right: $m-m;
     width: inherit;
   }
-  
+
   &[placeholder] {
     color: $c-gray-dark;
   }
@@ -44,6 +49,12 @@ $sizes-form-input: medium $h-form-input--m, small $h-form-input--s !default;
   @each $type, $attr in $sizes-form-input {
     &-#{$type} {
       height: $attr;
+    }
+  }
+
+  @each $state, $color in $states-form-input {
+    &--#{$state} {
+      border-color: $color;
     }
   }
 }

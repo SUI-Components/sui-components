@@ -4,7 +4,6 @@ import React from 'react'
 
 import MoleculeField from '../../../../components/molecule/field/src'
 import FormInput from '@s-ui/react-form-input'
-import FormWithFormik from './FormWithFormik'
 
 import './index.scss'
 
@@ -14,14 +13,6 @@ const Form = () => {
       <h1 className="FormDemoMoleculeField-title">
         <code>MoleculeField</code>
       </h1>
-      <h2 className="FormDemoMoleculeField-title">Form With Formik & Yup</h2>
-      <div className="FormDemoMoleculeField-FormWithState">
-        <p>
-          Try <code>andrew@test.io</code> and send the form to test ajax
-          validation like
-        </p>
-        <FormWithFormik />
-      </div>
       <h2 className="FormDemoMoleculeField-title">
         With <code>FormInput</code>
       </h2>

@@ -14,8 +14,6 @@
     "@s-ui/react-atom-textarea": "1",
     "@s-ui/react-form-input": "1",
     "@s-ui/react-molecule-field-textarea": "1",
-    "@schibstedspain/sui-atom-button": "1",
-    "formik": "1.0.2",
-    "yup": "0.26.2"
+    "@schibstedspain/sui-atom-button": "1"
   }
 }

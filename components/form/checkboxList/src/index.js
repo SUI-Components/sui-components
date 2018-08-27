@@ -5,6 +5,7 @@ import cx from 'classnames'
 const isChecked = ({selectedValues = [], value} = {}) => {
   return selectedValues.indexOf(value) !== -1
 }
+
 const labelClassName = ({classNameItem, checked, value}) =>
   cx('sui-FormCheckboxList-label', {
     'is-active': checked,
@@ -12,31 +13,30 @@ const labelClassName = ({classNameItem, checked, value}) =>
   })
 
 const FormCheckboxList = ({
-  name,
-  className,
   classNameItem,
-  options,
   handleChange,
+  name,
+  options,
   selectedValues
-} = {}) => (
+}) => (
   <div className="sui-FormCheckboxList">
     {options.map(
       ({value, label, checked = isChecked({selectedValues, value})}, index) => (
         <label
           key={index}
           className={labelClassName({
+            checked,
             classNameItem,
-            value,
-            checked
+            value
           })}
         >
           <input
-            type="checkbox"
-            value={value}
             checked={checked}
+            className="sui-FormCheckboxList-input"
             name={name}
             onChange={handleChange}
-            className="sui-FormCheckboxList-input"
+            type="checkbox"
+            value={value}
           />
           {label}
         </label>
@@ -48,9 +48,9 @@ const FormCheckboxList = ({
 FormCheckboxList.displayName = 'FormCheckboxList'
 
 FormCheckboxList.propTypes = {
-  name: PropTypes.string.isRequired,
-  className: PropTypes.string,
   classNameItem: PropTypes.string,
+  handleChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.oneOfType([
@@ -60,7 +60,6 @@ FormCheckboxList.propTypes = {
       label: PropTypes.string.isRequired
     })
   ),
-  handleChange: PropTypes.func.isRequired,
   selectedValues: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.number.isRequired,

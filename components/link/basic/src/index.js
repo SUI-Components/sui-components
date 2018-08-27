@@ -82,7 +82,7 @@ LinkBasic.propTypes = {
   rel: PropTypes.string,
   target: PropTypes.string,
   title: PropTypes.string,
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
   useReactRouterLinks: PropTypes.bool
 }
 

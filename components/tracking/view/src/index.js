@@ -4,14 +4,15 @@ import ScriptLoader from '@schibstedspain/sui-script-loader'
 class TrackingView extends Component {
   constructor(props) {
     super(props)
-    this.overrideTrackingBaseCfg(props)
+    this.overrideTrackingBaseCfg()
   }
 
   shouldComponentUpdate() {
     return false
   }
 
-  overrideTrackingBaseCfg({overridePropName, configOverridesObject = {}}) {
+  overrideTrackingBaseCfg() {
+    const {overridePropName, configOverridesObject} = this.props
     if (typeof window !== 'undefined') {
       window[overridePropName] = {
         ...window[overridePropName],
@@ -23,10 +24,10 @@ class TrackingView extends Component {
   render() {
     return (
       <ScriptLoader
-        src={this.props.src}
         isAsync={false}
-        verifier={this.props.verifier}
         render={() => !this.props.track() && null}
+        src={this.props.src}
+        verifier={this.props.verifier}
       />
     )
   }

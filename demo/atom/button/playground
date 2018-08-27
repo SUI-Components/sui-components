@@ -123,6 +123,7 @@ return (<div>
   <p><Button link size='small' title='button link' href='http://www.google.com' type='primary' className='customClass'>Button link small</Button></p>
   <p><Button link leftIcon={Icon} size='small' title='button link'>Button link</Button></p>
   <p><Button link fullWidth leftIcon={Icon} size='small' title='button link'>Button link fullWidth</Button></p>
+  <p><Button isSubmit leftIcon={Icon} title='submit butotn'>Submit button</Button></p>
 </div>)
 
 function getStarIcon () { return  (<svg className='sui-Icon' viewBox="0 0 24 24">

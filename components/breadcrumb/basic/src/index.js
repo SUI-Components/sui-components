@@ -73,7 +73,11 @@ BreadcrumbBasic.propTypes = {
   /**
    * Comments custom icon (React component).
    */
-  icon: PropTypes.func
+  icon: PropTypes.func,
+  /**
+   * Function for creating links so it allow to customize it
+   */
+  linkFactory: PropTypes.func
 }
 
 BreadcrumbBasic.defaultProps = {

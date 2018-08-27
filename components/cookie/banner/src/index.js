@@ -94,9 +94,16 @@ class CookieBanner extends Component {
 
   render() {
     const {showCookieBanner} = this.state
+    const {onChangeCookieBanner} = this.props
+
     if (!showCookieBanner || this._getHasAcceptedCookie()) {
+      // CookieBanner is not displayed
+      onChangeCookieBanner && onChangeCookieBanner(false)
       return null
     }
+    // CookieBanner is displayed
+    onChangeCookieBanner && onChangeCookieBanner(true)
+
     const {cookiePolicy, iconClose, message} = this.props
 
     return (
@@ -130,6 +137,10 @@ CookieBanner.defaultProps = {
 }
 
 CookieBanner.propTypes = {
+  /**
+   * onChangeCookieBanner
+   */
+  onChangeCookieBanner: PropTypes.func,
   /**
    * Cookie-key used to save user's decision about you cookie-policy
    */

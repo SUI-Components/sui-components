@@ -13,13 +13,7 @@ const BASE_CLASS = 'sui-MoleculeButtonGroup'
 // }
 
 const MoleculeButtonGroup = props => {
-  const {size} = props
-
-  return (
-    <div className={cx(`${BASE_CLASS}`, `${BASE_CLASS}--${size}`)}>
-      {this.props.children}
-    </div>
-  )
+  return <div className={BASE_CLASS}>{props.children}</div>
 }
 
 MoleculeButtonGroup.displayName = 'MoleculeButtonGroup'

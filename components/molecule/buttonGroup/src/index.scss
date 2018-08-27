@@ -1,0 +1,21 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/sui-atom-button/lib/index';
+
+.sui-MoleculeButtonGroup {
+
+  .sui-AtomButton + .sui-AtomButton {
+    margin-left: -1px;
+  }
+  
+  .sui-AtomButton {
+    border-radius: 0;
+  }
+
+  .sui-AtomButton:first-child {
+    border-radius:2px 0 0 2px;
+  }
+
+  .sui-AtomButton:last-child {
+    border-radius:0 2px 2px 0;
+  }
+}

@@ -58,7 +58,7 @@ const shouldRenderIcon = function({icon, size, transparent}) {
 
 const AtomBadge = function(props) {
   const label = truncateText(props.label)
-  const classNames = getClassNames({...props})
+  const classNames = getClassNames(props)
 
   return (
     <div className={classNames}>
@@ -78,7 +78,7 @@ AtomBadge.propTypes = {
   /**
    * CSS Classes to be added to the component
    */
-  className: PropTypes.string,
+  className: PropTypes.string, // eslint-disable-line
   /**
    * Badge text to be shown
    */
@@ -90,9 +90,15 @@ AtomBadge.propTypes = {
   /**
    * Whether show a background color
    */
-  transparent: PropTypes.bool,
-  size: PropTypes.oneOf(Object.values(SIZES)),
-  type: PropTypes.oneOf(Object.values(TYPES))
+  transparent: PropTypes.bool, // eslint-disable-line
+  /**
+   * Determine the size of the badge
+   */
+  size: PropTypes.oneOf(Object.values(SIZES)), // eslint-disable-line
+  /**
+   * Determine the type of the badge
+   */
+  type: PropTypes.oneOf(Object.values(TYPES)) // eslint-disable-line
 }
 
 AtomBadge.defaultProps = {

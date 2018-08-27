@@ -98,11 +98,11 @@ class CookieBanner extends Component {
 
     if (!showCookieBanner || this._getHasAcceptedCookie()) {
       // CookieBanner is not displayed
-      onChangeCookieBanner && onChangeCookieBanner(false)
+      onChangeCookieBanner(false)
       return null
     }
     // CookieBanner is displayed
-    onChangeCookieBanner && onChangeCookieBanner(true)
+    onChangeCookieBanner(true)
 
     const {cookiePolicy, iconClose, message} = this.props
 
@@ -131,6 +131,7 @@ CookieBanner.defaultProps = {
   cookieKey: 'user-has-accepted-cookies',
   dismissOnScroll: true,
   dismissOnScrollThreshold: 0,
+  onChangeCookieBanner: isDisplayed => isDisplayed,
   iconClose: (
     <IconX svgClass="sui-CookieBanner-closeIcon" fill="#000" size={16} />
   )
@@ -138,7 +139,7 @@ CookieBanner.defaultProps = {
 
 CookieBanner.propTypes = {
   /**
-   * onChangeCookieBanner
+   * onChangeCookieBanner is a function that return a boolean that means if cookieBanner is or isn't displayed.
    */
   onChangeCookieBanner: PropTypes.func,
   /**

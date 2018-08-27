@@ -2,10 +2,10 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import TagChip from '@schibstedspain/sui-tag-chip'
 
-const ListTagcloud = ({tags, linkFactory} = {}) => (
+const ListTagcloud = ({tags, linkFactory}) => (
   <div className="sui-ListTagcloud">
-    {tags.map(({...props}, index) => (
-      <TagChip key={index} linkFactory={linkFactory} {...props} />
+    {tags.map((tagProps, index) => (
+      <TagChip key={index} linkFactory={linkFactory} {...tagProps} />
     ))}
   </div>
 )

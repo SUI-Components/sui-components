@@ -29,13 +29,13 @@ const TagChip = ({
   className,
   rel,
   icon: Icon = CircleX
-} = {}) => (
+}) => (
   <Tag
-    onClick={preventDefaultHandler(onClick)}
-    url={url}
-    Link={linkFactory}
     className={tagChipClassName({isClickable: url || onClick, className})}
+    Link={linkFactory}
+    onClick={preventDefaultHandler(onClick)}
     rel={rel}
+    url={url}
   >
     {label}
     {onRequestDelete && (
@@ -52,6 +52,10 @@ const TagChip = ({
 TagChip.displayName = 'TagChip'
 
 TagChip.propTypes = {
+  /**
+   * ClassName to be attached to the component element
+   */
+  className: PropTypes.string,
   /**
    * onRequestDelete event handler
    */

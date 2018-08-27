@@ -67,7 +67,7 @@ const AtomButton = props => {
   )
   const newProps = cleanProps(props)
 
-  const Button = ({children, href, target, disabled, ...attrs}) =>
+  const Button = ({children, href, target, disabled, isSubmit, ...attrs}) =>
     link ? (
       <Link
         {...attrs}
@@ -78,7 +78,11 @@ const AtomButton = props => {
         {children}
       </Link>
     ) : (
-      <button {...attrs} disabled={disabled}>
+      <button
+        {...attrs}
+        type={isSubmit ? 'submit' : 'button'}
+        disabled={disabled}
+      >
         {children}
       </button>
     )
@@ -165,7 +169,11 @@ AtomButton.propTypes = {
   /**
    * Factory used to create navigation links
    */
-  linkFactory: PropTypes.func
+  linkFactory: PropTypes.func,
+  /**
+   * adds type="submit" to the button element
+   */
+  isSubmit: PropTypes.bool
 }
 
 AtomButton.defaultProps = {

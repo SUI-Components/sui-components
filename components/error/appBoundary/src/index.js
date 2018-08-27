@@ -106,7 +106,7 @@ ErrorAppBoundary.defaultProps = {
   message: 'Error',
   errorThreshold: 4,
   onError: ({errorMessage, errorStack}) =>
-    console.error({errorMessage, errorStack})
+    console.error({errorMessage, errorStack}) // eslint-disable-line
 }
 
 export default ErrorAppBoundary

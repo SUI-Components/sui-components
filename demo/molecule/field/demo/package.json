@@ -10,10 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@s-ui/react-atom-spinner": "1",
-    "@s-ui/react-atom-textarea": "1",
-    "@s-ui/react-form-input": "1",
-    "@s-ui/react-molecule-field-textarea": "1",
-    "@schibstedspain/sui-atom-button": "1"
+    "@s-ui/react-form-input": "1"
   }
 }

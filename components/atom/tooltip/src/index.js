@@ -61,9 +61,11 @@ class AtomTooltip extends Component {
   }
 
   componentDidMount() {
-    import('reactstrap').then(({Tooltip}) => {
-      this.setState({Tooltip: Tooltip})
-    })
+    import(/* webpackChunkName: "reactstrap" */ 'reactstrap').then(
+      ({Tooltip}) => {
+        this.setState({Tooltip: Tooltip})
+      }
+    )
     const target = this.refTarget.current
     this.props.innerRef(target)
     ;['click', 'touchend'].forEach(event =>

@@ -40,6 +40,15 @@ class AtomTooltip extends Component {
     return null
   }
 
+  loadAsyncReacstrap(e) {
+    import(/* webpackChunkName: "reactstrap" */ 'reactstrap').then(
+      ({Tooltip}) => {
+        this.setState({Tooltip: Tooltip})
+        this.handleToggle(e)
+      }
+    )
+  }
+
   extendChildren() {
     const {children} = this.props // eslint-disable-line react/prop-types
 
@@ -61,13 +70,13 @@ class AtomTooltip extends Component {
   }
 
   componentDidMount() {
-    import(/* webpackChunkName: "reactstrap" */ 'reactstrap').then(
-      ({Tooltip}) => {
-        this.setState({Tooltip: Tooltip})
-      }
-    )
     const target = this.refTarget.current
     this.props.innerRef(target)
+    ;['touchstart', 'mouseover'].forEach(event =>
+      target.addEventListener(event, e => {
+        if (!this.state.Tooltip) this.loadAsyncReacstrap(e)
+      })
+    )
     ;['click', 'touchend'].forEach(event =>
       window.addEventListener(event, this.handleClickOutsideElement)
     )

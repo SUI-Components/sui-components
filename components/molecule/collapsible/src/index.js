@@ -15,7 +15,7 @@ class MoleculeCollapsible extends Component {
   constructor(props) {
     super(props)
     this.childrenContainer = React.createRef()
-    this.state = {collapsed: true, showButton: true}
+    this.state = {collapsed: true, showButton: true, maxHeight: MIN_HEIGHT}
   }
 
   toggleCollapse = () => {
@@ -29,33 +29,37 @@ class MoleculeCollapsible extends Component {
 
   componentDidMount() {
     const offsetHeight = this.childrenContainer.current.offsetHeight
-    this.setState({showButton: offsetHeight >= this.props.height})
+    this.setState({showButton: offsetHeight >= this.props.height, maxHeight: offsetHeight})
   }
 
   render() {
-    const {collapsed, showButton} = this.state
-    const {children, height, icon, showText, hideText, hasGradient} = this.props
+    const {collapsed, showButton, maxHeight} = this.state
+    const {children, height, icon, showText, hideText, withGradient, withTransition} = this.props
     const wrapperClassName = cx(`${BASE_CLASS}`, {
-      [`${BASE_CLASS}--withGradient`]: hasGradient,
+      [`${BASE_CLASS}--withGradient`]: withGradient,
       [COLLAPSED_CLASS]: collapsed
     })
     const iconClassName = cx(`${ICON_CLASS}`, {
       [COLLAPSED_CLASS]: collapsed
     })
     const containerClassName = cx(`${CONTAINER_BUTTON_CLASS}`, {
-      [`${CONTAINER_BUTTON_CLASS}--withGradient`]: hasGradient,
+      [`${CONTAINER_BUTTON_CLASS}--withGradient`]: withGradient,
       [COLLAPSED_CLASS]: collapsed
     })
-    const containerHeight = showButton && collapsed ? `${height}px` : 'none'
+    const contentClassName = cx(`${CONTENT_CLASS}`,{
+      [`${CONTENT_CLASS}--withTransition`]: withTransition
+    })
+    const containerHeight = showButton && collapsed ? `${height}px` : `${maxHeight}px`
 
     return (
       <div className={wrapperClassName}>
         <div
-          className={CONTENT_CLASS}
+          className={contentClassName}
           style={{maxHeight: `${containerHeight}`}}
-          ref={this.childrenContainer}
         >
-          {children}
+          <div ref={this.childrenContainer}>
+            {children}
+          </div>
         </div>
         {showButton && (
           <div className={containerClassName}>
@@ -102,7 +106,11 @@ MoleculeCollapsible.propTypes = {
   /**
    * Activate/deactivate gradient
    */
-  hasGradient: PropTypes.bool,
+  withGradient: PropTypes.bool,
+  /**
+   * Activate/deactivate transition
+   */
+  withTransition: PropTypes.bool,
   /**
    * On open callback
    */
@@ -115,7 +123,8 @@ MoleculeCollapsible.propTypes = {
 
 MoleculeCollapsible.defaultProps = {
   height: MIN_HEIGHT,
-  hasGradient: true,
+  withGradient: true,
+  withTransition: true,
   onOpen: () => {},
   onClose: () => {}
 }

@@ -25,6 +25,9 @@
 
   &-content {
     overflow: hidden;
+    &--withTransition{
+      transition: $trs-collapsible-content;
+    }
   }
 
   &-container {

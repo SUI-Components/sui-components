@@ -36,7 +36,20 @@ It can be set True or False. It will show a gradient over the content when set t
     icon={svgIcon} 
     showText='Show' 
     hideText='Hide'
-    hasGradient={true}
+    withGradient={true}
+>
+    <p>Text or content to collapse</p>
+</MoleculeThumbnail>
+```
+
+#### Transition
+It can be set True or False. It will activate or deactivate transition effect when toggle. By default it is True.
+```js
+<MoleculeThumbnail 
+    icon={svgIcon} 
+    showText='Show' 
+    hideText='Hide'
+    withTransition={true}
 >
     <p>Text or content to collapse</p>
 </MoleculeThumbnail>

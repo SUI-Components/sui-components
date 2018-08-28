@@ -29,12 +29,23 @@ class MoleculeCollapsible extends Component {
 
   componentDidMount() {
     const offsetHeight = this.childrenContainer.current.offsetHeight
-    this.setState({showButton: offsetHeight >= this.props.height, maxHeight: offsetHeight})
+    this.setState({
+      showButton: offsetHeight >= this.props.height,
+      maxHeight: offsetHeight
+    })
   }
 
   render() {
     const {collapsed, showButton, maxHeight} = this.state
-    const {children, height, icon, showText, hideText, withGradient, withTransition} = this.props
+    const {
+      children,
+      height,
+      icon,
+      showText,
+      hideText,
+      withGradient,
+      withTransition
+    } = this.props
     const wrapperClassName = cx(`${BASE_CLASS}`, {
       [`${BASE_CLASS}--withGradient`]: withGradient,
       [COLLAPSED_CLASS]: collapsed
@@ -46,10 +57,11 @@ class MoleculeCollapsible extends Component {
       [`${CONTAINER_BUTTON_CLASS}--withGradient`]: withGradient,
       [COLLAPSED_CLASS]: collapsed
     })
-    const contentClassName = cx(`${CONTENT_CLASS}`,{
+    const contentClassName = cx(`${CONTENT_CLASS}`, {
       [`${CONTENT_CLASS}--withTransition`]: withTransition
     })
-    const containerHeight = showButton && collapsed ? `${height}px` : `${maxHeight}px`
+    const containerHeight =
+      showButton && collapsed ? `${height}px` : `${maxHeight}px`
 
     return (
       <div className={wrapperClassName}>
@@ -57,9 +69,7 @@ class MoleculeCollapsible extends Component {
           className={contentClassName}
           style={{maxHeight: `${containerHeight}`}}
         >
-          <div ref={this.childrenContainer}>
-            {children}
-          </div>
+          <div ref={this.childrenContainer}>{children}</div>
         </div>
         {showButton && (
           <div className={containerClassName}>

@@ -4,7 +4,7 @@ $h-form-input--s: 32px !default;
 $c-form-input--success: $c-success !default;
 $c-form-input--error: $c-error !default;
 
-$sizes-form-input: medium $h-form-input--m, small $h-form-input--s !default;
+$sizes-form-input: m $h-form-input--m, s $h-form-input--s !default;
 $states-form-input: success $c-form-input--success, error $c-form-input--error !default;
 
 .sui-FormInput-input {

@@ -4,12 +4,14 @@ import cx from 'classnames'
 
 const CLASS = 'sui-AtomButton'
 const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
+const GROUP_POSITION = ['first', 'middle', 'last']
 const SIZES = ['small', 'large']
 const MODIFIERS = ['disabled', 'fullWidth', 'focused', 'negative', 'link']
 const OWN_PROPS = [
   ...TYPES,
   ...SIZES,
   ...MODIFIERS,
+  'groupPosition',
   'leftIcon',
   'rightIcon',
   'className',
@@ -52,6 +54,7 @@ const AtomButton = props => {
     children,
     className,
     type,
+    groupPosition,
     size,
     link,
     title,
@@ -60,6 +63,7 @@ const AtomButton = props => {
   const classNames = cx(
     CLASS,
     CLASSES[type],
+    groupPosition && `${CLASS}-group ${CLASS}-group--${groupPosition}`,
     size && CLASSES[size],
     getModifiers(props).map(key => CLASSES[key]),
     !children && CLASSES.empty,
@@ -126,6 +130,10 @@ AtomButton.propTypes = {
    * Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary'
    */
   type: PropTypes.oneOf(TYPES),
+  /**
+   * Group position: 'first', 'middle' (default), 'last'
+   */
+  groupPosition: PropTypes.oneOf(GROUP_POSITION),
   /**
    * Size of button: 'small', 'large'
    */

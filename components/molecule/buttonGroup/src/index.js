@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types, no-console */
 
 import React from 'react'
+import cx from 'classnames'
 
 const BASE_CLASS = 'sui-MoleculeButtonGroup'
 
-const MoleculeButtonGroup = ({children, ...props}) => {
+const MoleculeButtonGroup = ({children, fullWidth, ...props}) => {
   const numChildren = children.length
   const extendedChildren = React.Children.map(children, (child, index) => {
     const groupPosition = (() => {
@@ -12,9 +13,13 @@ const MoleculeButtonGroup = ({children, ...props}) => {
       if (index === numChildren - 1) return 'last'
       return 'middle'
     })()
-    return React.cloneElement(child, {groupPosition, ...props})
+    return React.cloneElement(child, {groupPosition, fullWidth, ...props})
   })
-  return <div className={BASE_CLASS}>{extendedChildren}</div>
+  return (
+    <div className={cx(BASE_CLASS, fullWidth && `${BASE_CLASS}--fullWidth`)}>
+      {extendedChildren}
+    </div>
+  )
 }
 
 MoleculeButtonGroup.displayName = 'MoleculeButtonGroup'

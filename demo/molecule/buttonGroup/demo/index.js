@@ -19,6 +19,14 @@ const Demo = () => {
           <AtomButtom>C</AtomButtom>
         </MoleculeButtonGroup>
       </div>
+      <div style={{width: '500px'}} className="DemoMoleculeButtonGroup-section">
+        <h2>Secondary (Full Width)</h2>
+        <MoleculeButtonGroup type="secondary" fullWidth>
+          <AtomButtom>A</AtomButtom>
+          <AtomButtom>B</AtomButtom>
+          <AtomButtom>C</AtomButtom>
+        </MoleculeButtonGroup>
+      </div>
       <div className="DemoMoleculeButtonGroup-section">
         <h2>Tertiary</h2>
         <MoleculeButtonGroup type="tertiary">

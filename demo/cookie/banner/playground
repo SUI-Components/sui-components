@@ -3,7 +3,7 @@ const cookiePolicy = {
   link: '#'
 }
 
-const onChangeCookieBanner = (isDisplayed) => console.log('is displayed', isDisplayed)
+const onChange = (isDisplayed) => console.log('is displayed', isDisplayed)
 
 const styling = "{ overflow: scroll !important, height: 101vh }"
 
@@ -19,7 +19,7 @@ return (
     <pre><code>{styling}</code></pre>
     <p>After that, you would like to remove the cookie in order to see again the banner</p>
     <CookieBanner
-      onChangeCookieBanner={onChangeCookieBanner}
+      onChange={onChange}
       message='xxx.es utiliza cookies propias y de terceros para mejorar nuestros servicios y mostrarte publicidad. Al continuar navegando aceptas su uso. Puedes obtener más información aquí:'
       cookiePolicy={cookiePolicy}
     />

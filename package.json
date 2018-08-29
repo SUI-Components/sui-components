@@ -61,7 +61,8 @@
         "breadcrumb/basic",
         "molecule/notification",
         "molecule/tabs",
-        "molecule/thumbnail"
+        "molecule/thumbnail",
+        "molecule/collapsible"
       ]
     },
     "sui-mono": {

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2018-08-29)
+
+
+### Features
+
+* added onChangeCookieBanner prop allow tu us know if cookieBanner is displayed ([f24df4f](https://github.com/SUI-Components/sui-components/commit/f24df4f))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2017-11-06)
 

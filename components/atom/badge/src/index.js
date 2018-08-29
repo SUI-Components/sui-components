@@ -56,16 +56,16 @@ const shouldRenderIcon = function({icon, size, transparent}) {
   return icon && (size !== SIZES.SMALL || transparent)
 }
 
-const AtomBadge = function(props) {
-  const label = truncateText(props.label)
-  const classNames = getClassNames({...props})
+const AtomBadge = function({icon, label, ...props}) {
+  const truncatedLabel = truncateText(label)
+  const classNames = getClassNames(props)
 
   return (
     <div className={classNames}>
-      {shouldRenderIcon(props) && (
-        <span className="sui-AtomBadge-icon">{props.icon}</span>
+      {shouldRenderIcon({icon, ...props}) && (
+        <span className="sui-AtomBadge-icon">{icon}</span>
       )}
-      <span className="sui-AtomBadge-text" title={label}>
+      <span className="sui-AtomBadge-text" title={truncatedLabel}>
         {label}
       </span>
     </div>
@@ -91,7 +91,13 @@ AtomBadge.propTypes = {
    * Whether show a background color
    */
   transparent: PropTypes.bool,
+  /**
+   * Determine the size of the badge
+   */
   size: PropTypes.oneOf(Object.values(SIZES)),
+  /**
+   * Determine the type of the badge
+   */
   type: PropTypes.oneOf(Object.values(TYPES))
 }
 

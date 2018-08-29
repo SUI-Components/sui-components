@@ -38,7 +38,7 @@ ThumbnailList.propTypes = {
    * array of thumbnail/basic props
    * https://sui-components.now.sh/workbench/thumbnail/basic/documentation/api
    */
-  items: PropTypes.array.isRequired,
+  items: PropTypes.array,
   /**
    * https://sui-components.now.sh/workbench/thumbnail/basic/documentation/api
    */

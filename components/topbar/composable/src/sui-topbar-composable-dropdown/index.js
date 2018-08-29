@@ -83,6 +83,5 @@ DropdownMenu.propTypes = {
   displayMenu: PropTypes.bool,
   entries: PropTypes.array,
   icon: PropTypes.element,
-  label: PropTypes.string,
-  toggle: PropTypes.func
+  label: PropTypes.string
 }

@@ -14,7 +14,7 @@ const TagSelectable = ({
   value,
   label,
   icon: Icon = Check
-} = {}) => (
+}) => (
   <button
     onClick={event => onClick(event, value)}
     className={tagSelectableClassName({isSelected})}

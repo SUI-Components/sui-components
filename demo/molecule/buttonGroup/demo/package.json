@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@schibstedspain/sui-atom-button": "1.13.0"
+    "@schibstedspain/sui-atom-button": "1"
   }
 }

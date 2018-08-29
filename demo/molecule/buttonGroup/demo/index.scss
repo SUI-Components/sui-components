@@ -1,5 +1,12 @@
 .DemoMoleculeButtonGroup {
+
   &-section {
     margin: 10px;
+
+    &--negative {
+      background: rgb(68, 68, 68);
+      display: inline-block;
+      padding: 10px;
+    }
   }
 }

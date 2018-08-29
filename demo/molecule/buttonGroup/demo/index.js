@@ -11,28 +11,41 @@ const Demo = () => {
   return (
     <div className="DemoMoleculeButtonGroup">
       <h1>MoleculeButtonGroup</h1>
-      <h2>Basic (Medium)</h2>
       <div className="DemoMoleculeButtonGroup-section">
+        <h2>Secondary</h2>
         <MoleculeButtonGroup type="secondary">
           <AtomButtom>A</AtomButtom>
           <AtomButtom>B</AtomButtom>
           <AtomButtom>C</AtomButtom>
         </MoleculeButtonGroup>
+      </div>
+      <div className="DemoMoleculeButtonGroup-section">
+        <h2>Tertiary</h2>
         <MoleculeButtonGroup type="tertiary">
           <AtomButtom>A</AtomButtom>
           <AtomButtom>B</AtomButtom>
           <AtomButtom>C</AtomButtom>
         </MoleculeButtonGroup>
-        <MoleculeButtonGroup type="secondary" negative>
-          <AtomButtom>A</AtomButtom>
-          <AtomButtom>B</AtomButtom>
-          <AtomButtom>C</AtomButtom>
-        </MoleculeButtonGroup>
-        <MoleculeButtonGroup type="tertiary" negative>
-          <AtomButtom>A</AtomButtom>
-          <AtomButtom>B</AtomButtom>
-          <AtomButtom>C</AtomButtom>
-        </MoleculeButtonGroup>
+      </div>
+      <div className="DemoMoleculeButtonGroup-section">
+        <h2>Secondary (Negative)</h2>
+        <div className="DemoMoleculeButtonGroup-section--negative">
+          <MoleculeButtonGroup type="secondary" negative>
+            <AtomButtom>A</AtomButtom>
+            <AtomButtom>B</AtomButtom>
+            <AtomButtom>C</AtomButtom>
+          </MoleculeButtonGroup>
+        </div>
+      </div>
+      <div className="DemoMoleculeButtonGroup-section">
+        <h2>Tertiary (Negative)</h2>
+        <div className="DemoMoleculeButtonGroup-section--negative">
+          <MoleculeButtonGroup type="tertiary" negative>
+            <AtomButtom>A</AtomButtom>
+            <AtomButtom>B</AtomButtom>
+            <AtomButtom>C</AtomButtom>
+          </MoleculeButtonGroup>
+        </div>
       </div>
     </div>
   )

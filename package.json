@@ -16,7 +16,7 @@
     "phoenix": "npx @s-ui/mono phoenix",
     "precommit": "sui-precommit run",
     "release": "sui-studio release",
-    "start": "sui-studio start",
+    "start": "sui-studio dev",
     "test": "jest"
   },
   "repository": {},

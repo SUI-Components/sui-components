@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 import {CmpBanner} from './component'
 import CmpModal from '@s-ui/react-cmp-modal'
 
-import {I18N} from '../settings'
+import {CLASS, I18N} from '../settings'
+const CLASS_CONTAINER = `${CLASS}-container`
 
 export class CmpBannerContainer extends Component {
   state = {
@@ -51,6 +52,20 @@ export class CmpBannerContainer extends Component {
   }
 
   async componentDidMount() {
+    document.addEventListener('click', ({target}) => {
+      let isClickOnCmp = false
+      while (target) {
+        isClickOnCmp =
+          ` ${target.className} `.indexOf(` ${CLASS_CONTAINER} `) > -1
+        console.log(isClickOnCmp)
+        if (isClickOnCmp) break
+        console.log(target)
+        target = target.parentNode
+      }
+      console.log(isClickOnCmp)
+      if (isClickOnCmp === false) this._handleAccept()
+    })
+
     const {getConsentStatus} = this.props
     const consentStatus = await getConsentStatus.execute()
     const {userAcceptedCookies} = consentStatus
@@ -61,7 +76,7 @@ export class CmpBannerContainer extends Component {
   render() {
     const {companyName, lang, logo, privacyUrl} = this.props
     return (
-      <React.Fragment>
+      <div className={CLASS_CONTAINER}>
         {this.state.showNotification && (
           <CmpBanner
             buttons={this._generateButtons()}
@@ -78,7 +93,7 @@ export class CmpBannerContainer extends Component {
             privacyUrl={privacyUrl}
           />
         )}
-      </React.Fragment>
+      </div>
     )
   }
 }

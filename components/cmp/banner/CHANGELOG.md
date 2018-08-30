@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2018-08-30)
+
+
+### Bug Fixes
+
+* fix consent status value ([59ec097](https://github.com/SUI-Components/sui-components/commit/59ec097))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2018-07-09)
 

@@ -7,6 +7,8 @@ import CmpModal from '@s-ui/react-cmp-modal'
 import {CLASS, I18N} from '../settings'
 const CLASS_CONTAINER = `${CLASS}-container`
 
+const CONSENT_STATUS_NOT_ACCEPTED = 'NOT_ACCEPTED'
+
 export class CmpBannerContainer extends Component {
   state = {
     showModal: false,
@@ -68,9 +70,9 @@ export class CmpBannerContainer extends Component {
 
     const {getConsentStatus} = this.props
     const consentStatus = await getConsentStatus.execute()
-    const {userAcceptedCookies} = consentStatus
-    // todo, we still has to know which is the correct key to check
-    this.setState({showNotification: !userAcceptedCookies})
+    this.setState({
+      showNotification: consentStatus === CONSENT_STATUS_NOT_ACCEPTED
+    })
   }
 
   render() {

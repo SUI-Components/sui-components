@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2018-08-30)
+
+
+### Features
+
+* accept user consents when navigating on web ([f84f198](https://github.com/SUI-Components/sui-components/commit/f84f198))
+* remove event when not needed and add some comments ([0f146ee](https://github.com/SUI-Components/sui-components/commit/0f146ee))
+
+
+### Performance Improvements
+
+* use post 1990 near edge technology to fix this ([53231bc](https://github.com/SUI-Components/sui-components/commit/53231bc))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-08-30)
 

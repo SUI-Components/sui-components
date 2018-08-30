@@ -4,7 +4,11 @@ import cx from 'classnames'
 
 const CLASS = 'sui-AtomButton'
 const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
-const GROUP_POSITION = ['first', 'middle', 'last']
+const GROUP_POSITIONS = {
+  FIRST: 'first',
+  MIDDLE: 'middle',
+  LAST: 'last'
+}
 const SIZES = ['small', 'large']
 const MODIFIERS = ['disabled', 'fullWidth', 'focused', 'negative', 'link']
 const OWN_PROPS = [
@@ -133,9 +137,12 @@ AtomButton.propTypes = {
   /**
    * Group position: 'first', 'middle' (default), 'last'
    */
-  groupPosition: PropTypes.oneOf(GROUP_POSITION),
+  groupPosition: PropTypes.oneOf(Object.values(GROUP_POSITIONS)),
   /**
-   * Size of button: 'small', 'large'
+   * Size of button{
+   * FIRST: 'first',
+   * MIDDLE: 'middle',
+   * LAST: 'last'}: 'small',
    */
   size: PropTypes.oneOf(SIZES),
   /**
@@ -182,3 +189,4 @@ AtomButton.defaultProps = {
 }
 
 export default AtomButton
+export {GROUP_POSITIONS as atomButtonGroupPositions}

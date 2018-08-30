@@ -6,14 +6,16 @@ import {atomButtonGroupPositions} from '@schibstedspain/sui-atom-button'
 
 const BASE_CLASS = 'sui-MoleculeButtonGroup'
 
+const getGroupPosition = (index, numChildren) => {
+  if (index === 0) return atomButtonGroupPositions.FIRST
+  if (index === numChildren - 1) return atomButtonGroupPositions.LAST
+  return atomButtonGroupPositions.MIDDLE
+}
+
 const MoleculeButtonGroup = ({children, fullWidth, ...props}) => {
   const numChildren = children.length
   const extendedChildren = React.Children.map(children, (child, index) => {
-    const groupPosition = (() => {
-      if (index === 0) return atomButtonGroupPositions.FIRST
-      if (index === numChildren - 1) return atomButtonGroupPositions.LAST
-      return atomButtonGroupPositions.MIDDLE
-    })()
+    const groupPosition = getGroupPosition(index, numChildren)
     return React.cloneElement(child, {...props, groupPosition, fullWidth})
   })
   return (

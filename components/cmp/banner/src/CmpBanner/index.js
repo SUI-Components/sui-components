@@ -4,8 +4,7 @@ import PropTypes from 'prop-types'
 import {CmpBanner} from './component'
 import CmpModal from '@s-ui/react-cmp-modal'
 
-import {CLASS, I18N} from '../settings'
-const CLASS_CONTAINER = `${CLASS}-container`
+import {I18N} from '../settings'
 
 const CONSENT_STATUS_NOT_ACCEPTED = 'NOT_ACCEPTED'
 
@@ -14,6 +13,8 @@ export class CmpBannerContainer extends Component {
     showModal: false,
     showNotification: false
   }
+
+  containerDOMEl = React.createRef()
 
   _handleAccept = async () => {
     const {getPurposesAndVendors, sendConsents} = this.props
@@ -35,16 +36,8 @@ export class CmpBannerContainer extends Component {
    * he's just navigating the website
    */
   _handleClickOnDocument = ({target}) => {
-    let isUserClickingOnCmp = false
-    while (target) {
-      isUserClickingOnCmp =
-        ` ${target.className} `.indexOf(` ${CLASS_CONTAINER} `) > -1
-
-      if (isUserClickingOnCmp) break
-      target = target.parentElement
-    }
-    // if it's not a click on the cmp, then we assume user is accepting our cmp
-    if (isUserClickingOnCmp === false) this._handleAccept()
+    this.containerDOMEl.current.contains(target) === false &&
+      this._handleAccept()
   }
 
   _handleExitModal = () => {
@@ -89,7 +82,7 @@ export class CmpBannerContainer extends Component {
   render() {
     const {companyName, lang, logo, privacyUrl} = this.props
     return (
-      <div className={CLASS_CONTAINER}>
+      <div ref={this.containerDOMEl}>
         {this.state.showNotification && (
           <CmpBanner
             buttons={this._generateButtons()}

@@ -1,6 +1,6 @@
 # MoleculeButtonGroup
 
-`MoleculeButtonGroup` is a component that wraps a group of clickable options, related in content.
+`MoleculeButtonGroup` is a component that wraps a group of buttons, related in content.
 
 ## Installation
 
@@ -10,17 +10,17 @@ $ npm install @s-ui/react-molecule-button-group --save
 
 ## Usage
 
-Having the proper components imported 
+Having the proper elements imported 
 
 ```js
 import MoleculeButtonGroup from '@s-ui/react-molecule-button-group'
-import AtomButtom from '@schibstedspain/sui-atom-button'
+import AtomButtom, { atomButtonGroupPositions } from '@schibstedspain/sui-atom-button'
 ```
 
 ### Basic usage
 
 ```js
-<MoleculeButtonGroup type="secondary">
+<MoleculeButtonGroup groupPositions={atomButtonGroupPositions} type="secondary">
   <AtomButtom>A</AtomButtom>
   <AtomButtom>B</AtomButtom>
   <AtomButtom>C</AtomButtom>
@@ -28,7 +28,7 @@ import AtomButtom from '@schibstedspain/sui-atom-button'
 ```
 
 ```js
-<MoleculeButtonGroup type="tertiary" negative>
+<MoleculeButtonGroup groupPositions={atomButtonGroupPositions} type="tertiary" negative>
   <AtomButtom>A</AtomButtom>
   <AtomButtom>B</AtomButtom>
   <AtomButtom>C</AtomButtom>
@@ -38,7 +38,7 @@ import AtomButtom from '@schibstedspain/sui-atom-button'
 ### Full Width
 
 ```js
-<MoleculeButtonGroup type="secondary" fullWidth>
+<MoleculeButtonGroup groupPositions={atomButtonGroupPositions} type="secondary" fullWidth>
   <AtomButtom>A</AtomButtom>
   <AtomButtom>B</AtomButtom>
   <AtomButtom>C</AtomButtom>

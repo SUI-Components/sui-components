@@ -3,8 +3,9 @@
 import React from 'react'
 
 import MoleculeButtonGroup from '../../../../components/molecule/buttonGroup/src'
-import AtomButtom from '@schibstedspain/sui-atom-button'
-
+import AtomButtom, {
+  atomButtonGroupPositions
+} from '@schibstedspain/sui-atom-button'
 import './index.scss'
 
 const Demo = () => {
@@ -13,7 +14,10 @@ const Demo = () => {
       <h1>MoleculeButtonGroup</h1>
       <div className="DemoMoleculeButtonGroup-section">
         <h2>Secondary</h2>
-        <MoleculeButtonGroup type="secondary">
+        <MoleculeButtonGroup
+          groupPositions={atomButtonGroupPositions}
+          type="secondary"
+        >
           <AtomButtom>A</AtomButtom>
           <AtomButtom>B</AtomButtom>
           <AtomButtom>C</AtomButtom>
@@ -21,7 +25,11 @@ const Demo = () => {
       </div>
       <div style={{width: '500px'}} className="DemoMoleculeButtonGroup-section">
         <h2>Secondary (Full Width)</h2>
-        <MoleculeButtonGroup type="secondary" fullWidth>
+        <MoleculeButtonGroup
+          groupPositions={atomButtonGroupPositions}
+          type="secondary"
+          fullWidth
+        >
           <AtomButtom>A</AtomButtom>
           <AtomButtom>B</AtomButtom>
           <AtomButtom>C</AtomButtom>
@@ -29,7 +37,10 @@ const Demo = () => {
       </div>
       <div className="DemoMoleculeButtonGroup-section">
         <h2>Tertiary</h2>
-        <MoleculeButtonGroup type="tertiary">
+        <MoleculeButtonGroup
+          groupPositions={atomButtonGroupPositions}
+          type="tertiary"
+        >
           <AtomButtom>A</AtomButtom>
           <AtomButtom>B</AtomButtom>
           <AtomButtom>C</AtomButtom>
@@ -38,7 +49,11 @@ const Demo = () => {
       <div className="DemoMoleculeButtonGroup-section">
         <h2>Secondary (Negative)</h2>
         <div className="DemoMoleculeButtonGroup-section--negative">
-          <MoleculeButtonGroup type="secondary" negative>
+          <MoleculeButtonGroup
+            groupPositions={atomButtonGroupPositions}
+            type="secondary"
+            negative
+          >
             <AtomButtom>A</AtomButtom>
             <AtomButtom>B</AtomButtom>
             <AtomButtom>C</AtomButtom>
@@ -48,7 +63,11 @@ const Demo = () => {
       <div className="DemoMoleculeButtonGroup-section">
         <h2>Tertiary (Negative)</h2>
         <div className="DemoMoleculeButtonGroup-section--negative">
-          <MoleculeButtonGroup type="tertiary" negative>
+          <MoleculeButtonGroup
+            groupPositions={atomButtonGroupPositions}
+            type="tertiary"
+            negative
+          >
             <AtomButtom>A</AtomButtom>
             <AtomButtom>B</AtomButtom>
             <AtomButtom>C</AtomButtom>

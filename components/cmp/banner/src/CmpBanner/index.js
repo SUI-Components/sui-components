@@ -29,6 +29,24 @@ export class CmpBannerContainer extends Component {
     this.setState({showModal: true, showNotification: false})
   }
 
+  /**
+   * This handler is used everytime the user clicks on something in the web
+   * in order to assume he's accepting our CMP if he's not trying to configure it and
+   * he's just navigating the website
+   */
+  _handleClickOnDocument = ({target}) => {
+    let isUserClickingOnCmp = false
+    while (target) {
+      isUserClickingOnCmp =
+        ` ${target.className} `.indexOf(` ${CLASS_CONTAINER} `) > -1
+
+      if (isUserClickingOnCmp) break
+      target = target.parentElement
+    }
+    // if it's not a click on the cmp, then we assume user is accepting our cmp
+    if (isUserClickingOnCmp === false) this._handleAccept()
+  }
+
   _handleExitModal = () => {
     this.setState({showModal: false})
   }
@@ -54,25 +72,18 @@ export class CmpBannerContainer extends Component {
   }
 
   async componentDidMount() {
-    document.addEventListener('click', ({target}) => {
-      let isClickOnCmp = false
-      while (target) {
-        isClickOnCmp =
-          ` ${target.className} `.indexOf(` ${CLASS_CONTAINER} `) > -1
-        console.log(isClickOnCmp)
-        if (isClickOnCmp) break
-        console.log(target)
-        target = target.parentNode
-      }
-      console.log(isClickOnCmp)
-      if (isClickOnCmp === false) this._handleAccept()
-    })
+    // We're assuming, the user accepts our CMP if he keep navigating in our page
+    document.addEventListener('click', this._handleClickOnDocument, true)
 
     const {getConsentStatus} = this.props
     const consentStatus = await getConsentStatus.execute()
     this.setState({
       showNotification: consentStatus === CONSENT_STATUS_NOT_ACCEPTED
     })
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this._handleClickOnDocument, true)
   }
 
   render() {

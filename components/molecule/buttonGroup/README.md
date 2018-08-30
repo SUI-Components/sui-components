@@ -20,7 +20,7 @@ import AtomButtom, { atomButtonGroupPositions } from '@schibstedspain/sui-atom-b
 ### Basic usage
 
 ```js
-<MoleculeButtonGroup groupPositions={atomButtonGroupPositions} type="secondary">
+<MoleculeButtonGroup type="secondary">
   <AtomButtom>A</AtomButtom>
   <AtomButtom>B</AtomButtom>
   <AtomButtom>C</AtomButtom>
@@ -28,7 +28,7 @@ import AtomButtom, { atomButtonGroupPositions } from '@schibstedspain/sui-atom-b
 ```
 
 ```js
-<MoleculeButtonGroup groupPositions={atomButtonGroupPositions} type="tertiary" negative>
+<MoleculeButtonGroup type="tertiary" negative>
   <AtomButtom>A</AtomButtom>
   <AtomButtom>B</AtomButtom>
   <AtomButtom>C</AtomButtom>
@@ -38,7 +38,17 @@ import AtomButtom, { atomButtonGroupPositions } from '@schibstedspain/sui-atom-b
 ### Full Width
 
 ```js
-<MoleculeButtonGroup groupPositions={atomButtonGroupPositions} type="secondary" fullWidth>
+<MoleculeButtonGroup type="secondary" fullWidth>
+  <AtomButtom>A</AtomButtom>
+  <AtomButtom>B</AtomButtom>
+  <AtomButtom>C</AtomButtom>
+</MoleculeButtonGroup>
+```
+
+### Specifying Group Positions Values
+
+```js
+<MoleculeButtonGroup type="secondary" groupPositions={atomButtonGroupPositions} >
   <AtomButtom>A</AtomButtom>
   <AtomButtom>B</AtomButtom>
   <AtomButtom>C</AtomButtom>

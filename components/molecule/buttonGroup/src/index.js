@@ -40,7 +40,15 @@ MoleculeButtonGroup.propTypes = {
   fullWidth: PropTypes.bool,
 
   /** groupPositions constants (FIRST, MIDDLE, LAST) */
-  groupPositions: PropTypes.object.isRequired
+  groupPositions: PropTypes.object
+}
+
+MoleculeButtonGroup.defaultProps = {
+  groupPositions: {
+    FIRST: 'first',
+    MIDDLE: 'middle',
+    LAST: 'last'
+  }
 }
 
 export default MoleculeButtonGroup

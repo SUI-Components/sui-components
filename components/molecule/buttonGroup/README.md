@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-$ npm install @s-ui/react-molecule-buttonGroup --save
+$ npm install @s-ui/react-molecule-button-group --save
 ```
 
 ## Usage

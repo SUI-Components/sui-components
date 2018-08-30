@@ -14,6 +14,8 @@ export class CmpBannerContainer extends Component {
     showNotification: false
   }
 
+  containerDOMEl = React.createRef()
+
   _handleAccept = async () => {
     const {getPurposesAndVendors, sendConsents} = this.props
     const {
@@ -26,6 +28,16 @@ export class CmpBannerContainer extends Component {
 
   _handleReadMore = async () => {
     this.setState({showModal: true, showNotification: false})
+  }
+
+  /**
+   * This handler is used everytime the user clicks on something in the web
+   * in order to assume he's accepting our CMP if he's not trying to configure it and
+   * he's just navigating the website
+   */
+  _handleClickOnDocument = ({target}) => {
+    this.containerDOMEl.current.contains(target) === false &&
+      this._handleAccept()
   }
 
   _handleExitModal = () => {
@@ -53,6 +65,9 @@ export class CmpBannerContainer extends Component {
   }
 
   async componentDidMount() {
+    // We're assuming, the user accepts our CMP if he keep navigating in our page
+    document.addEventListener('click', this._handleClickOnDocument, true)
+
     const {getConsentStatus} = this.props
     const consentStatus = await getConsentStatus.execute()
     this.setState({
@@ -60,10 +75,14 @@ export class CmpBannerContainer extends Component {
     })
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('click', this._handleClickOnDocument, true)
+  }
+
   render() {
     const {companyName, lang, logo, privacyUrl} = this.props
     return (
-      <React.Fragment>
+      <div ref={this.containerDOMEl}>
         {this.state.showNotification && (
           <CmpBanner
             buttons={this._generateButtons()}
@@ -80,7 +99,7 @@ export class CmpBannerContainer extends Component {
             privacyUrl={privacyUrl}
           />
         )}
-      </React.Fragment>
+      </div>
     )
   }
 }

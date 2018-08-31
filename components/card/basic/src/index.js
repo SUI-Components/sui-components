@@ -91,7 +91,7 @@ CardBasic.propTypes = {
   /**
    * Button for actions
    */
-  button: PropTypes.object
+  button: PropTypes.node
 }
 
 CardBasic.defaultProps = {

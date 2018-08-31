@@ -123,6 +123,10 @@ return (<div>
   <p><Button link size='small' title='button link' href='http://www.google.com' type='primary' className='customClass'>Button link small</Button></p>
   <p><Button link leftIcon={Icon} size='small' title='button link'>Button link</Button></p>
   <p><Button link fullWidth leftIcon={Icon} size='small' title='button link'>Button link fullWidth</Button></p>
+  <Title>BUTTONS GROUP</Title>
+  <Button style={{ marginLeft: '10px' }} groupPosition='first'>FIRST</Button>
+  <Button style={{ marginLeft: '10px' }} groupPosition='middle'>MIDDLE</Button>
+  <Button style={{ marginLeft: '10px' }} groupPosition='last'>LAST</Button>
 </div>)
 
 function getStarIcon () { return  (<svg className='sui-Icon' viewBox="0 0 24 24">

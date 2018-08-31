@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2018-08-31)
+
+
+### Features
+
+* transpile dynamic import with new babel-preset-sui ([9982d81](https://github.com/SUI-Components/sui-components/commit/9982d81))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2018-08-29)
 

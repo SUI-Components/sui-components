@@ -166,7 +166,7 @@ MoleculeNotification.propTypes = {
    */
   showCloseButton: PropTypes.bool,
   /**
-   * Content text.
+   * Content text
    */
   text: PropTypes.string,
   /**

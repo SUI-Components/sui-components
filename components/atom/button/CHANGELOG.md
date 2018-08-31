@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.14.0"></a>
+# 1.14.0 (2018-08-31)
+
+
+### Features
+
+* add prop to manage group position ([fdcbac5](https://github.com/SUI-Components/sui-components/commit/fdcbac5))
+* shared constants group positions and sui-theme variables ([652041f](https://github.com/SUI-Components/sui-components/commit/652041f))
+
+
+
 <a name="1.13.0"></a>
 # 1.13.0 (2018-05-29)
 

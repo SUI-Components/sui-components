@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2018-08-31)
+
+
+### Features
+
+* updated the styles to locate the icon according to the definition of UX ([f3c337d](https://github.com/SUI-Components/sui-components/commit/f3c337d))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2018-06-13)
 

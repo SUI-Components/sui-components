@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Button from './Button'
 import cx from 'classnames'
 
 const CLASS = 'sui-AtomButton'
@@ -53,9 +54,7 @@ const AtomButton = props => {
     className,
     type,
     size,
-    link,
-    title,
-    linkFactory: Link
+    title
   } = props
   const classNames = cx(
     CLASS,
@@ -66,22 +65,6 @@ const AtomButton = props => {
     className
   )
   const newProps = cleanProps(props)
-
-  const Button = ({children, href, target, disabled, ...attrs}) =>
-    link ? (
-      <Link
-        {...attrs}
-        href={href}
-        target={target}
-        rel={target === '_blank' ? 'noopener' : undefined}
-      >
-        {children}
-      </Link>
-    ) : (
-      <button {...attrs} disabled={disabled}>
-        {children}
-      </button>
-    )
 
   return (
     <Button
@@ -169,8 +152,7 @@ AtomButton.propTypes = {
 }
 
 AtomButton.defaultProps = {
-  type: 'primary',
-  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>
+  type: 'primary'
 }
 
 export default AtomButton

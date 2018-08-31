@@ -22,6 +22,7 @@ export default function CardBasic({
   title,
   titleStyle,
   description,
+  button,
   lazyLoad
 }) {
   const cardBasicTitleClassName = cx('sui-CardBasic-title', {
@@ -41,6 +42,8 @@ export default function CardBasic({
             <header className={cardBasicTitleClassName}>{title}</header>
           )}
           <div className="sui-CardBasic-description">{description}</div>
+
+          {button && <div className="sui-CardBasic-action">{button}</div>}
         </div>
       </Link>
     </div>
@@ -84,7 +87,11 @@ CardBasic.propTypes = {
   /**
    * Lazy load flag / config.
    */
-  lazyLoad: PropTypes.oneOfType([PropTypes.bool, PropTypes.object])
+  lazyLoad: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+  /**
+   * Button for actions
+   */
+  button: PropTypes.object
 }
 
 CardBasic.defaultProps = {

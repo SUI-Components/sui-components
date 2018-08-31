@@ -2,8 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.15.0"></a>
+# 1.15.0 (2018-08-31)
+
+
+
 <a name="1.14.0"></a>
 # 1.14.0 (2018-08-31)
+
+
+### Bug Fixes
+
+* core button component not created new for every render now ([9ef2312](https://github.com/SUI-Components/sui-components/commit/9ef2312))
 
 
 ### Features

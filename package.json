@@ -14,6 +14,7 @@
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
     "phoenix": "npx @s-ui/mono phoenix && (cd demo && npx @s-ui/mono phoenix)",
+    "phoenix:ci": "npx @s-ui/mono phoenix --no-progress && (cd demo && npx @s-ui/mono phoenix --no-progress)",
     "precommit": "sui-precommit run",
     "release": "sui-studio release",
     "start": "sui-studio start",

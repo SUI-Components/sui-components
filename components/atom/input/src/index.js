@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types, no-unused-vars, no-console */
-
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
 import FormInput from '@s-ui/react-form-input'
@@ -33,5 +32,25 @@ const AtomInput = ({
 }
 
 AtomInput.displayName = 'AtomInput'
+
+AtomInput.propTypes = {
+  /** Text to be displayed as label */
+  label: PropTypes.string.isRequired,
+
+  /** used as label for attribute and input element id */
+  id: PropTypes.string.isRequired,
+
+  /** Success message to display when success state  */
+  successText: PropTypes.string,
+
+  /** Error message to display when error state  */
+  errorText: PropTypes.string,
+
+  /** Help Text to display */
+  helpText: PropTypes.string,
+
+  /** Boolean to decide if elements should be set inline */
+  inline: PropTypes.bool
+}
 
 export default AtomInput

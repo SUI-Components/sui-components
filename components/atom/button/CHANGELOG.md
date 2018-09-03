@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.16.0"></a>
+# 1.16.0 (2018-09-03)
+
+
+### Features
+
+* add isSubmit feature ([dba85f2](https://github.com/SUI-Components/sui-components/commit/dba85f2))
+
+
+
 <a name="1.15.0"></a>
 # 1.15.0 (2018-08-31)
 

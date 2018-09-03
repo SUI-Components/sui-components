@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2018-08-31)
+
+
+### Features
+
+* minor change to do release ([db3e66f](https://github.com/SUI-Components/sui-components/commit/db3e66f))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2018-08-31)
 

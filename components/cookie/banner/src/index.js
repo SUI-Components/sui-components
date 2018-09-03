@@ -45,7 +45,7 @@ class CookieBanner extends Component {
   _onAcceptCookies() {
     this._setHasAcceptedCookie()
     this._removeScrollListener()
-    this.setState({hasAcceptedCookies: true})
+    this.setState({hasAcceptedCookies: true}, () => this.props.onChange(false))
   }
 
   _onScroll = () => {
@@ -94,15 +94,11 @@ class CookieBanner extends Component {
 
   render() {
     const {showCookieBanner} = this.state
-    const {onChange} = this.props
 
     if (!showCookieBanner || this._getHasAcceptedCookie()) {
       // CookieBanner is not displayed
-      onChange(false)
       return null
     }
-    // CookieBanner is displayed
-    onChange(true)
 
     const {cookiePolicy, iconClose, message} = this.props
 

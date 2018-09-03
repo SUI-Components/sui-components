@@ -115,7 +115,9 @@ class MoleculeNotification extends Component {
           <div className={`${CLASS}-iconLeft`}>
             <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
           </div>
-          <p className={`${CLASS}-text`}>{text}</p>
+          <div className={`${CLASS}-text`}>
+            <span>{text}</span>
+          </div>
           {showCloseButton && (
             <div className={`${CLASS}-iconClose`} onClick={this.toggleShow}>
               <span className={`${CLASS}-icon`}>
@@ -164,7 +166,7 @@ MoleculeNotification.propTypes = {
    */
   showCloseButton: PropTypes.bool,
   /**
-   * Content text.
+   * Content text
    */
   text: PropTypes.string,
   /**

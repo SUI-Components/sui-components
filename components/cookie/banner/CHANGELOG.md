@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2018-09-03)
+
+
+### Bug Fixes
+
+* set onchange prop after setState instead in render method ([a23d50d](https://github.com/SUI-Components/sui-components/commit/a23d50d))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2018-08-29)
 

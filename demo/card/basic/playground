@@ -7,6 +7,7 @@ return (
         media={{ src: 'http://lorempicsum.com/simpsons/300/200/1' }}
         title='Basic card'
         description='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore voluptatum minus nihil, eum perspiciatis?'
+        button={<button onClick={() => alert('you clicked me!')}>click me</button>}
       />
     </div>
     <div style={{ width: 300 }}>

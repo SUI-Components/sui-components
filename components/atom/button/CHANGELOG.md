@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.17.0"></a>
+# 1.17.0 (2018-09-03)
+
+
+### Bug Fixes
+
+* force new release ([0146050](https://github.com/SUI-Components/sui-components/commit/0146050))
+
+
+
+<a name="1.16.0"></a>
+# 1.16.0 (2018-09-03)
+
+
+### Bug Fixes
+
+* remove isSubmit for now ([be8e644](https://github.com/SUI-Components/sui-components/commit/be8e644))
+
+
+### Features
+
+* add isSubmit feature ([dba85f2](https://github.com/SUI-Components/sui-components/commit/dba85f2))
+
+
+
+<a name="1.15.0"></a>
+# 1.15.0 (2018-08-31)
+
+
+
+<a name="1.14.0"></a>
+# 1.14.0 (2018-08-31)
+
+
+### Bug Fixes
+
+* core button component not created new for every render now ([9ef2312](https://github.com/SUI-Components/sui-components/commit/9ef2312))
+
+
+### Features
+
+* add prop to manage group position ([fdcbac5](https://github.com/SUI-Components/sui-components/commit/fdcbac5))
+* shared constants group positions and sui-theme variables ([652041f](https://github.com/SUI-Components/sui-components/commit/652041f))
+
+
+
 <a name="1.13.0"></a>
 # 1.13.0 (2018-05-29)
 

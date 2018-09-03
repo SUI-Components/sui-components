@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-atom-button",
-  "version": "1.17.0",
+  "version": "1.18.0",
   "description": "Atom Element: SUI button",
   "main": "lib/index.js",
   "scripts": {

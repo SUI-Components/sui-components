@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Button from './Button'
 import cx from 'classnames'
 
 const CLASS = 'sui-AtomButton'
@@ -61,7 +60,9 @@ const AtomButton = props => {
     type,
     groupPosition,
     size,
-    title
+    link,
+    title,
+    linkFactory: Link
   } = props
   const classNames = cx(
     CLASS,
@@ -73,6 +74,26 @@ const AtomButton = props => {
     className
   )
   const newProps = cleanProps(props)
+
+  const Button = ({children, href, isSubmit, target, disabled, ...attrs}) =>
+    link ? (
+      <Link
+        {...attrs}
+        href={href}
+        target={target}
+        rel={target === '_blank' ? 'noopener' : undefined}
+      >
+        {children}
+      </Link>
+    ) : (
+      <button
+        {...attrs}
+        disabled={disabled}
+        type={isSubmit ? 'submit' : 'button'}
+      >
+        {children}
+      </button>
+    )
 
   return (
     <Button
@@ -163,11 +184,16 @@ AtomButton.propTypes = {
   /**
    * Factory used to create navigation links
    */
-  linkFactory: PropTypes.func
+  linkFactory: PropTypes.func,
+  /**
+   * adds type="submit" to the button element
+   */
+  isSubmit: PropTypes.bool
 }
 
 AtomButton.defaultProps = {
-  type: 'primary'
+  type: 'primary',
+  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>
 }
 
 export default AtomButton

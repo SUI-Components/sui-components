@@ -6,7 +6,6 @@ const COOKIE_TTL = 31557600000
 
 class CookieBanner extends Component {
   state = {
-    showCookieBanner: false,
     hasAcceptedCookies: true,
     listeningScroll: false
   }
@@ -45,7 +44,9 @@ class CookieBanner extends Component {
   _onAcceptCookies() {
     this._setHasAcceptedCookie()
     this._removeScrollListener()
-    this.setState({hasAcceptedCookies: true}, () => this.props.onChange(false))
+    this.setState({hasAcceptedCookies: true}, () =>
+      this.props.onChange(!this.state.hasAcceptedCookies)
+    )
   }
 
   _onScroll = () => {
@@ -77,15 +78,13 @@ class CookieBanner extends Component {
     // we set the state with the value, and add the scroll listener then if user hasn't accepted the cookies
     this.setState(
       {
-        hasAcceptedCookies,
-        showCookieBanner: true
+        hasAcceptedCookies
       },
-      this._addScrollListener
+      () => {
+        this._addScrollListener(this.state)
+        this.props.onChange(!this.state.hasAcceptedCookies)
+      }
     )
-
-    if (this.state.showCookieBanner || this._getHasAcceptedCookie()) {
-      this.props.onChange(false)
-    }
   }
 
   componentWillUnmount() {
@@ -97,10 +96,8 @@ class CookieBanner extends Component {
   }
 
   render() {
-    const {showCookieBanner} = this.state
-
-    if (!showCookieBanner || this._getHasAcceptedCookie()) {
-      // CookieBanner is not displayed
+    const {hasAcceptedCookies} = this.state
+    if (hasAcceptedCookies) {
       return null
     }
 

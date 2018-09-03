@@ -83,8 +83,9 @@ class CookieBanner extends Component {
       this._addScrollListener
     )
 
-    if (this.state.showCookieBanner || this._getHasAcceptedCookie())
+    if (this.state.showCookieBanner || this._getHasAcceptedCookie()) {
       this.props.onChange(false)
+    }
   }
 
   componentWillUnmount() {

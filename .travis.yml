@@ -10,9 +10,9 @@ before_install:
   - npm i -g npx
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 install:
-  - npm run phoenix -- --no-progress
+  - npm run phoenix
   - cd demo
-  - npx @s-ui/mono phoenix -- --no-progress
+  - npx @s-ui/mono phoenix
   - cd ..
 before_deploy:
   - npm i -g now@9

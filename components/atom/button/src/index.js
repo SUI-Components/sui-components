@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
+import Button from './Button'
+
 const CLASS = 'sui-AtomButton'
 const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
 const GROUP_POSITIONS = {
@@ -14,13 +16,11 @@ const MODIFIERS = ['disabled', 'fullWidth', 'focused', 'negative', 'link']
 const OWN_PROPS = [
   ...TYPES,
   ...SIZES,
-  ...MODIFIERS,
   'groupPosition',
   'leftIcon',
   'rightIcon',
   'className',
   'children',
-  'linkFactory',
   'type'
 ]
 const CLASSES = [...TYPES, ...SIZES, ...MODIFIERS, 'empty'].reduce(
@@ -52,18 +52,16 @@ const getModifiers = props => {
 
 const AtomButton = props => {
   const {
-    disabled,
-    leftIcon,
-    rightIcon,
     children,
     className,
-    type,
     groupPosition,
+    leftIcon,
+    rightIcon,
     size,
-    link,
     title,
-    linkFactory: Link
+    type
   } = props
+
   const classNames = cx(
     CLASS,
     CLASSES[type],
@@ -74,30 +72,10 @@ const AtomButton = props => {
     className
   )
   const newProps = cleanProps(props)
-
-  const Button = ({children, href, target, disabled, ...attrs}) =>
-    link ? (
-      <Link
-        {...attrs}
-        href={href}
-        target={target}
-        rel={target === '_blank' ? 'noopener' : undefined}
-      >
-        {children}
-      </Link>
-    ) : (
-      <button {...attrs} disabled={disabled}>
-        {children}
-      </button>
-    )
+  console.log(newProps)
 
   return (
-    <Button
-      {...newProps}
-      className={classNames}
-      title={title}
-      disabled={disabled}
-    >
+    <Button {...newProps} className={classNames} title={title}>
       <span className={`${CLASS}-inner`}>
         {leftIcon && <span className={`${CLASS}-leftIcon`}>{leftIcon}</span>}
         {leftIcon || rightIcon ? (
@@ -184,8 +162,7 @@ AtomButton.propTypes = {
 }
 
 AtomButton.defaultProps = {
-  type: 'primary',
-  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>
+  type: 'primary'
 }
 
 export default AtomButton

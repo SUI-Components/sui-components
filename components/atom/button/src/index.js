@@ -72,7 +72,6 @@ const AtomButton = props => {
     className
   )
   const newProps = cleanProps(props)
-  console.log(newProps)
 
   return (
     <Button {...newProps} className={classNames} title={title}>

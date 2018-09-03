@@ -9,7 +9,9 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "1",
+    "@s-ui/react-form-input": "1.6.0",
+    "@s-ui/react-molecule-field": "1.1.0"
   },
   "keywords": [],
   "author": "",

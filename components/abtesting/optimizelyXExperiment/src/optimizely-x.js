@@ -1,5 +1,10 @@
-import ExperimentUseCase from './use-case'
 const DETECTION_DELAY = 5000
+
+const activationHandlers = {}
+
+let optimizelyPromise
+
+let wasExprimentsListenerAdded = false
 
 /**
  * Waits until func returns a value and calls callback with it
@@ -19,12 +24,48 @@ const waitUntil = (truthyFn, callback, delay = 100, interval = 100) => {
   }, interval)
 }
 
-const getOptmizely = () =>
+const getOptimizely = () =>
   window && window.optimizely && window.optimizely.get && window.optimizely
 
-let optimizelyPromise
+/**
+ * Register handler to optimizely ONCE
+ * @param {Object} sdk OptimizelySdk
+ */
+const registerExprimentsEvents = sdk => {
+  if (!wasExprimentsListenerAdded) {
+    sdk.push({
+      type: 'addListener',
+      filter: {type: 'lifecycle', name: 'campaignDecided'},
+      handler: exprimentsActivationHandler
+    })
+    wasExprimentsListenerAdded = true
+  }
+}
 
-class OptimizelyXExperimentsService {
+/**
+ * Handler for Optimizely events
+ * @param {Object} event
+ */
+const exprimentsActivationHandler = event => {
+  const {
+    data: {
+      decision: {experimentId, variationId}
+    }
+  } = event
+  dispatchActivated(experimentId, variationId)
+}
+
+/**
+ * Executed all handlers added to an experiment with variationId as param
+ * @param {String} experimentId
+ * @param {String} variationId
+ */
+const dispatchActivated = (experimentId, variationId) => {
+  const handlers = activationHandlers[experimentId] || []
+  handlers.forEach(handler => handler(variationId))
+}
+
+class OptimizelyXExperiments {
   /**
    * Get OptimizelyX SDK instance
    * @return Promise<Object>
@@ -33,7 +74,14 @@ class OptimizelyXExperimentsService {
     optimizelyPromise =
       optimizelyPromise ||
       new Promise(resolve => {
-        waitUntil(getOptmizely, resolve, DETECTION_DELAY)
+        waitUntil(
+          getOptimizely,
+          sdk => {
+            registerExprimentsEvents(sdk)
+            resolve(sdk)
+          },
+          DETECTION_DELAY
+        )
       })
     return optimizelyPromise
   }
@@ -71,6 +119,33 @@ class OptimizelyXExperimentsService {
   }
 
   /**
+   * Add function to call when experiment gets activated.
+   * If experiment is already activated, the handler is called right away.
+   * @param {String} experimentId
+   * @param {Function} handler
+   */
+  static async addActivationListener(experimentId, handler) {
+    activationHandlers[experimentId] = activationHandlers[experimentId] || []
+    activationHandlers[experimentId].push(handler)
+    if (await this.isActivated(experimentId)) {
+      handler(await this.getVariation(experimentId))
+    }
+  }
+
+  /**
+   * Remove function to call when experiment gets activated.
+   * @param {String} experimentId
+   * @param {Function} removedHandler
+   */
+  static async removeActivationListener(experimentId, removedHandler) {
+    const handlers = activationHandlers[experimentId]
+    if (!handlers) return
+    activationHandlers[experimentId] = handlers.filter(
+      handler => handler !== removedHandler
+    )
+  }
+
+  /**
    * Get variation to display for current user
    * @param {String} experimentId
    * @return Promise<String|Number>
@@ -81,15 +156,4 @@ class OptimizelyXExperimentsService {
   }
 }
 
-/**
- * Get instance of use case
- * @param {String} experimentId
- * @return {ExperimentUseCase}
- */
-function createExperimentUseCase(experimentId) {
-  return new ExperimentUseCase(OptimizelyXExperimentsService, experimentId)
-}
-
-export default OptimizelyXExperimentsService
-
-export {createExperimentUseCase}
+export default OptimizelyXExperiments

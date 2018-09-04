@@ -20,7 +20,7 @@ const Demo = () => {
           <AtomButtom>C</AtomButtom>
         </MoleculeButtonGroup>
       </div>
-      <div style={{width: '500px'}} className="DemoMoleculeButtonGroup-section">
+      <div className="DemoMoleculeButtonGroup-section--fullWidth">
         <h2>Secondary (Full Width)</h2>
         <MoleculeButtonGroup type="secondary" fullWidth>
           <AtomButtom>A</AtomButtom>

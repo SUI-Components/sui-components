@@ -95,15 +95,21 @@ $p-atom-button-large: $p-l !default;
     }
 
     &--middle {
-      border-radius: 0;
+      &.sui-AtomButton--secondary {
+        border-radius: 0;
+      }
     }
 
     &--first {
-      border-radius: $bdrs-m 0 0 $bdrs-m;
+      &.sui-AtomButton--secondary {
+        border-radius: $bdrs-m 0 0 $bdrs-m;
+      }
     }
 
     &--last {
-      border-radius: 0 $bdrs-m $bdrs-m 0;
+      &.sui-AtomButton--secondary {
+        border-radius: 0 $bdrs-m $bdrs-m 0;
+      }
     }
   }
 

@@ -1,0 +1,12 @@
+{
+  "name": "@schibstedspain/sui-components-demos",
+  "version": "0.0.0",
+  "description": "This file serves sui-mono purposes only. It's used in order to remove/install the dependencies of our demos.",
+  "license": "MIT",
+  "config": {
+    "sui-mono": {
+      "packagesFolder": ".",
+      "deepLevel": 3
+    }
+  }
+}

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2018-09-03)
+
+
+### Bug Fixes
+
+* use require.ensure for avoiding problems with transpiled code ([b8e5183](https://github.com/SUI-Components/sui-components/commit/b8e5183))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-08-31)
 

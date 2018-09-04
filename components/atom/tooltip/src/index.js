@@ -41,11 +41,14 @@ class AtomTooltip extends Component {
   }
 
   loadAsyncReacstrap(e) {
-    import(/* webpackChunkName: "reactstrap" */ 'reactstrap').then(
-      ({Tooltip}) => {
-        this.setState({Tooltip: Tooltip})
+    require.ensure(
+      [],
+      require => {
+        const Tooltip = require('reactstrap/lib/Tooltip').default
+        this.setState({Tooltip})
         this.handleToggle(e)
-      }
+      },
+      'reactstrap-Tooltip'
     )
   }
 

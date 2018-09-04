@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.18.0"></a>
+# 1.18.0 (2018-09-03)
+
+
+### Features
+
+* avoid re-render of button and ensure all needed props are passed ([462b697](https://github.com/SUI-Components/sui-components/commit/462b697))
+
+
+
 <a name="1.17.0"></a>
 # 1.17.0 (2018-09-03)
 

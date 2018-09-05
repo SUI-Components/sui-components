@@ -9,43 +9,46 @@ import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
 const locale = 'es-es'
 
 class FormRangeDatepicker extends Component {
-  constructor(props) {
-    super(props)
+  state = {
+    startDate: this.props.startDate ? moment(this.props.startDate) : null,
+    endDate: this.props.endDate ? moment(this.props.endDate) : null
+  }
 
-    this.state = {
-      startDate: !this.props.startDate ? null : moment(this.props.startDate),
-      endDate: !this.props.endDate ? null : moment(this.props.endDate)
+  _handleChange = ({
+    startDate = this.state.startDate,
+    endDate = this.state.endDate
+  }) => {
+    if (startDate && startDate.isAfter(endDate)) {
+      endDate = startDate
     }
 
-    this._handleChangeStart = this._handleChangeStart.bind(this)
-    this._handleChangeEnd = this._handleChangeEnd.bind(this)
-    this._handleClickButton = this._handleClickButton.bind(this)
-  }
-
-  _handleChange = key => date => {
-    if (this.props.handleChange) {
-      this.props.handleChange({
-        ...this.state,
-        [key]: date
-      })
-    }
-  }
-
-  _handleChangeStart(date) {
-    this.setState({
-      startDate: date
+    this._updateDateStateValues({startDate, endDate}, () => {
+      this.props.handleChange &&
+        this.props.handleChange({
+          ...this.state
+        })
     })
-    this._handleChange('startDate')(date)
   }
 
-  _handleChangeEnd(date) {
-    this.setState({
-      endDate: date
-    })
-    this._handleChange('endDate')(date)
+  _updateDateStateValues({startDate, endDate}, callBack) {
+    this.setState(
+      {
+        ...(startDate && {startDate}),
+        ...(endDate && {endDate})
+      },
+      callBack
+    )
   }
 
-  _handleClickButton() {
+  _handleChangeStart = startDate => {
+    this._handleChange({startDate})
+  }
+
+  _handleChangeEnd = endDate => {
+    this._handleChange({endDate})
+  }
+
+  _handleClickButton = () => {
     this.props.handleClickButton([this.state.startDate, this.state.endDate])
   }
 

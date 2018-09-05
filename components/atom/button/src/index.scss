@@ -91,7 +91,7 @@ $p-atom-button-large: $p-l !default;
     
     & + & {
       margin-left: -1px;
-      margin-right: 0px;
+      margin-right: 0;
     }
 
     &--middle {

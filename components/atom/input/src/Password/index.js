@@ -34,11 +34,11 @@ class Password extends React.Component {
     const {type, value} = this.state
 
     return (
-      <div className="sui-FormInput-password">
+      <div className="sui-AtomInput-password">
         <Input {...props} onChange={this.onChange} value={value} type={type} />
         <div
           onClick={this.toggle}
-          className="sui-FormInput-password--toggleButton"
+          className="sui-AtomInput-password--toggleButton"
         >
           {type === PASSWORD ? pwShowLabel : pwHideLabel}
         </div>

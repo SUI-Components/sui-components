@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const BASE_CLASS = 'sui-FormInput-addon'
+const BASE_CLASS = 'sui-AtomInput-addon'
 
 const TYPES = {
   LEFT: 'left',
@@ -25,7 +25,7 @@ const AddonHoC = WrappedInput =>
     render() {
       const {leftAddon, rightAddon, ...props} = this.props
       return (
-        <div className={'sui-FormInput-addonWrapper'}>
+        <div className={'sui-AtomInput-addonWrapper'}>
           {leftAddon && (
             <span className={this.getClassName({type: TYPES.LEFT})}>
               {leftAddon}

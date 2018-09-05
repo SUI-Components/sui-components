@@ -7,7 +7,7 @@
 ## Installation
 
 ```sh
-$ npm install @s-ui/@s-ui/react-atom-input --save
+$ npm install @s-ui/react-atom-input --save
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ $ npm install @s-ui/@s-ui/react-atom-input --save
 After importing the component `AtomInput` like this
 
 ```javascript
-import AtomInput from '@s-ui/@s-ui/react-atom-input'
+import AtomInput from '@s-ui/react-atom-input'
 ```
 
 ### Basic usage

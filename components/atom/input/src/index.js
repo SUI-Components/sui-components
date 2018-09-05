@@ -4,6 +4,11 @@ import PropTypes from 'prop-types'
 import MoleculeField from '@s-ui/react-molecule-field'
 import FormInput from '@s-ui/react-form-input'
 
+const getErrorState = (success, error) => {
+  if (success) return false
+  if (error) return true
+}
+
 const AtomInput = ({
   id,
   label,
@@ -13,9 +18,7 @@ const AtomInput = ({
   inline,
   ...props
 }) => {
-  const newProps = {...props}
-  if (successText) newProps.errorState = false
-  if (errorText) newProps.errorState = true
+  const errorState = getErrorState(successText, errorText)
 
   return (
     <MoleculeField
@@ -26,7 +29,7 @@ const AtomInput = ({
       helpText={helpText}
       inline={inline}
     >
-      <FormInput id={id} {...newProps} />
+      <FormInput id={id} errorState={errorState} {...props} />
     </MoleculeField>
   )
 }

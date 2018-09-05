@@ -1,0 +1,30 @@
+$bdw-atom-input-addon-right: 1px 1px 1px 0 !default;
+$bdw-atom-input-addon-left: 1px 0 1px 1px !default;
+$bgc-atom-input-addon: $c-gray-lightest !default;
+$bdc-atom-input-addon: $c-gray-light !default;
+$c-atom-input-addon: $c-gray-light !default;
+
+.sui-AtomInput-addon {
+  &Wrapper {
+    display: flex;
+  }
+
+  align-items: center;
+  background-color: $bgc-atom-input-addon;
+  border-color: $bdc-atom-input-addon;
+  border-style: solid;
+  color: $c-atom-input-addon;
+  display: flex;
+  height: inherit;
+  line-height: inherit;
+  padding-left: $p-l;
+  padding-right: $p-l;
+
+  &--right {
+    border-width: $bdw-atom-input-addon-right;
+  }
+
+  &--left {
+    border-width: $bdw-atom-input-addon-left;
+  }
+}

@@ -53,7 +53,7 @@ class SimpleCheckboxRadioForm extends React.Component {
       >
         <div style={{marginTop: '10px'}}>
           <label htmlFor="terms_service">Accept Terms Service</label>
-          <FormInput
+          <AtomInput
             id="terms_service"
             type="checkbox"
             checked={termsService}
@@ -65,7 +65,7 @@ class SimpleCheckboxRadioForm extends React.Component {
         </div>
         <div style={{marginTop: '10px'}}>
           <label htmlFor="ES">Spain</label>
-          <FormInput
+          <AtomInput
             id="ES"
             type="radio"
             value="ES"
@@ -77,7 +77,7 @@ class SimpleCheckboxRadioForm extends React.Component {
           <label style={{marginLeft: '20px'}} htmlFor="IT">
             Italy
           </label>
-          <FormInput
+          <AtomInput
             id="IT"
             type="radio"
             value="IT"
@@ -89,7 +89,7 @@ class SimpleCheckboxRadioForm extends React.Component {
           <label style={{marginLeft: '20px'}} htmlFor="FR">
             France
           </label>
-          <FormInput
+          <AtomInput
             id="FR"
             type="radio"
             value="FR"
@@ -111,7 +111,7 @@ class SimpleCheckboxRadioForm extends React.Component {
           >
             <img style={imageCheckboxStyle} src={logoHouse} alt="" />
           </label>
-          <FormInput
+          <AtomInput
             hideInput
             id="categoryHouse"
             type="radio"
@@ -128,7 +128,7 @@ class SimpleCheckboxRadioForm extends React.Component {
           >
             <img style={imageCheckboxStyle} src={logoRocket} alt="" />
           </label>
-          <FormInput
+          <AtomInput
             hideInput
             id="categoryRocket"
             type="radio"
@@ -145,7 +145,7 @@ class SimpleCheckboxRadioForm extends React.Component {
           >
             <img style={imageCheckboxStyle} src={logoGlobe} alt="" />
           </label>
-          <FormInput
+          <AtomInput
             hideInput
             id="categoryGlobe"
             value="globe"
@@ -189,26 +189,26 @@ const imageCheckboxStyle = {
 return (
   <React.Fragment>
     <div style={field}>
-      <FormInput
+      <AtomInput
         size={inputSizes.SMALL}
         name="first"
         placeholder="Small input"
       />
     </div>
     <div style={field}>
-      <FormInput name="second" placeholder="Medium Input" />
+      <AtomInput name="second" placeholder="Medium Input" />
     </div>
     <div style={field}>
-      <FormInput name="disabled" placeholder="Medium Disabled Input" disabled />
+      <AtomInput name="disabled" placeholder="Medium Disabled Input" disabled />
     </div>
     <div style={field}>
-      <FormInput type="number" name="number" placeholder="Number only input" />
+      <AtomInput type="number" name="number" placeholder="Number only input" />
     </div>
     <div style={field}>
-      <FormInput type="date" name="date" />
+      <AtomInput type="date" name="date" />
     </div>
     <div style={field}>
-      <FormInput
+      <AtomInput
         name="second"
         placeholder="Medium Input"
         leftAddon="http://"
@@ -216,20 +216,20 @@ return (
       />
     </div>
     <div style={field}>
-      <FormInput name="second" placeholder="Success input" errorState={false} />
+      <AtomInput name="second" placeholder="Success input" errorState={false} />
     </div>
     <div style={field}>
-      <FormInput name="second" placeholder="Error input" errorState={true} />
+      <AtomInput name="second" placeholder="Error input" errorState={true} />
     </div>
     <div style={field}>
-      <FormInput
+      <AtomInput
         type="sui-password"
         name="password"
         placeholder="Password Input"
       />
     </div>
     <div style={field}>
-      <FormInput
+      <AtomInput
         type="mask"
         mask={bankAccountMask}
         placeholder="ES00 0000 0000 00 0000000000"

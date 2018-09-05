@@ -1,5 +1,5 @@
 {
-  "name": "@s-ui/react-form-input",
+  "name": "@s-ui/react-atom-input",
   "version": "1.6.0",
   "description": "",
   "main": "lib/index.js",

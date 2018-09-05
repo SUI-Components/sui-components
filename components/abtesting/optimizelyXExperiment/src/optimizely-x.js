@@ -4,7 +4,7 @@ const activationHandlers = {}
 
 let optimizelyPromise
 
-let wasExprimentsListenerAdded = false
+let wasExperimentsListenerAdded = false
 
 /**
  * Waits until func returns a value and calls callback with it
@@ -32,13 +32,13 @@ const getOptimizely = () =>
  * @param {Object} sdk OptimizelySdk
  */
 const registerExprimentsEvents = sdk => {
-  if (!wasExprimentsListenerAdded) {
+  if (!wasExperimentsListenerAdded) {
     sdk.push({
       type: 'addListener',
       filter: {type: 'lifecycle', name: 'campaignDecided'},
-      handler: exprimentsActivationHandler
+      handler: experimentsActivationHandler
     })
-    wasExprimentsListenerAdded = true
+    wasExperimentsListenerAdded = true
   }
 }
 
@@ -46,7 +46,7 @@ const registerExprimentsEvents = sdk => {
  * Handler for Optimizely events
  * @param {Object} event
  */
-const exprimentsActivationHandler = event => {
+const experimentsActivationHandler = event => {
   const {
     data: {
       decision: {experimentId, variationId}

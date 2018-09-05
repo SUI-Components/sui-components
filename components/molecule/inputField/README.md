@@ -1,27 +1,27 @@
-# AtomInput
+# MoleculeInputField
 
 
-`AtomInput` is a component that wraps a composition of Label + Textarea + Validations  Messages. 
+`MoleculeInputField` is a component that wraps a composition of Label + Textarea + Validations  Messages. 
 
 
 ## Installation
 
 ```sh
-$ npm install @s-ui/react-atom-input --save
+$ npm install @s-ui/react-molecule-input-field --save
 ```
 
 ## Usage
 
-After importing the component `AtomInput` like this
+After importing the component `MoleculeInputField` like this
 
 ```javascript
-import AtomInput from '@s-ui/react-atom-input'
+import MoleculeInputField from '@s-ui/react-molecule-input-field'
 ```
 
 ### Basic usage
     
 ```
-  <AtomInput
+  <MoleculeInputField
     id="second"
     placeholder="Medium Input"
     leftAddon="http://"
@@ -34,7 +34,7 @@ import AtomInput from '@s-ui/react-atom-input'
 ### With `successText`
     
 ```
-  <AtomInput
+  <MoleculeInputField
     id="description2"
     label="Description"
     value="In some place of La Mancha which name..."
@@ -45,7 +45,7 @@ import AtomInput from '@s-ui/react-atom-input'
 ### With `errorText`
     
 ```
-  <AtomInput
+  <MoleculeInputField
     id="notes"
     label="Notes"
     errorText="All wrong!"
@@ -54,7 +54,7 @@ import AtomInput from '@s-ui/react-atom-input'
 
 ### With `helpText`
 ```
-  <AtomInput
+  <MoleculeInputField
     id="description-inline2"
     label="Description"
     helpText="Tu descripción en Latin"
@@ -64,7 +64,7 @@ import AtomInput from '@s-ui/react-atom-input'
 
 ### Inline
 ```
-  <AtomInput
+  <MoleculeInputField
     id="description"
     label="Description"
     value="In some place of La Mancha which name..."
@@ -73,4 +73,4 @@ import AtomInput from '@s-ui/react-atom-input'
 ```
 
 
-> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/input/demo).**
+> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/molecule/inputField/demo).**

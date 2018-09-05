@@ -9,7 +9,7 @@ const getErrorState = (success, error) => {
   if (error) return true
 }
 
-const AtomInput = ({
+const MoleculeInputField = ({
   id,
   label,
   successText,
@@ -34,9 +34,9 @@ const AtomInput = ({
   )
 }
 
-AtomInput.displayName = 'AtomInput'
+MoleculeInputField.displayName = 'MoleculeInputField'
 
-AtomInput.propTypes = {
+MoleculeInputField.propTypes = {
   /** Text to be displayed as label */
   label: PropTypes.string.isRequired,
 
@@ -56,4 +56,4 @@ AtomInput.propTypes = {
   inline: PropTypes.bool
 }
 
-export default AtomInput
+export default MoleculeInputField

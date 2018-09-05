@@ -26,7 +26,7 @@ const styleListItem = {
   marginTop: '50px'
 }
 
-const AtomInputWithState = withState(AtomInput)
+const MoleculeInputFieldWithState = withState(MoleculeInputField)
 
 return (
   <div>
@@ -36,7 +36,7 @@ return (
     <ul style={styleList}>
       <li style={styleListItem}>
         <h2>With Addons</h2>
-        <AtomInputWithState
+        <MoleculeInputFieldWithState
           id="second"
           leftAddon="http://"
           rightAddon="@schibsted.com"
@@ -48,7 +48,7 @@ return (
         <h2>
           With <code>successText</code>
         </h2>
-        <AtomInputWithState
+        <MoleculeInputFieldWithState
           id="description2"
           label="Description"
           value="In some place of La Mancha which name..."
@@ -59,13 +59,13 @@ return (
         <h2>
           With <code>errorText</code>
         </h2>
-        <AtomInputWithState id="notes" label="Notes" errorText="All wrong!" />
+        <MoleculeInputFieldWithState id="notes" label="Notes" errorText="All wrong!" />
       </li>
       <li style={styleListItem}>
         <h2>
           With <code>placeholder</code>
         </h2>
-        <AtomInputWithState
+        <MoleculeInputFieldWithState
           id="comments"
           label="Comments"
           placeholder="Please, write something cool..."
@@ -75,7 +75,7 @@ return (
         <h2>
           <code>inline</code>
         </h2>
-        <AtomInputWithState
+        <MoleculeInputFieldWithState
           id="description-inline"
           label="Description"
           successText="Everything ok!"
@@ -87,7 +87,7 @@ return (
         <h2>
           With <code>helpText</code>
         </h2>
-        <AtomInputWithState
+        <MoleculeInputFieldWithState
           id="description-inline2"
           label="Description"
           helpText="Tu descripción en Latin"

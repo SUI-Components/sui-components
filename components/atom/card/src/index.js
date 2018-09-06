@@ -1,12 +1,15 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
 const BASE_CLASS = 'sui-AtomCard'
+const CLASS_MEDIA = `${BASE_CLASS}-media`
+const CLASS_INFO = `${BASE_CLASS}-info`
 
 class AtomCard extends Component {
-  render () {
+  render() {
     return (
       <div className={BASE_CLASS}>
-        <h1>AtomCard</h1>
+        <div className={CLASS_MEDIA} />
+        <div className={CLASS_INFO} />
       </div>
     )
   }

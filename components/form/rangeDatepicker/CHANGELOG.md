@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.22.0"></a>
+# 1.22.0 (2018-09-05)
+
+
+### Features
+
+* add control to check date entries on change ([4f847ee](https://github.com/SUI-Components/sui-components/commit/4f847ee))
+
+
+
 <a name="1.21.0"></a>
 # 1.21.0 (2018-08-23)
 

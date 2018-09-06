@@ -1,19 +1,19 @@
-$h-form-input--m: 40px !default;
-$h-form-input--s: 32px !default;
+$h-atom-input--m: 40px !default;
+$h-atom-input--s: 32px !default;
 
-$c-form-input--success: $c-success !default;
-$c-form-input--error: $c-error !default;
+$c-atom-input--success: $c-success !default;
+$c-atom-input--error: $c-error !default;
 
-$sizes-form-input: m $h-form-input--m, s $h-form-input--s !default;
-$states-form-input: success $c-form-input--success, error $c-form-input--error !default;
+$sizes-atom-input: m $h-atom-input--m, s $h-atom-input--s !default;
+$states-atom-input: success $c-atom-input--success, error $c-atom-input--error !default;
 
-.sui-FormInput-input {
+.sui-AtomInput-input {
   border-color: $c-gray-light;
   border-style: solid;
   border-width: 1px;
   box-sizing: border-box;
   font-size: $fz-base;
-  height: $h-form-input--m;
+  height: $h-atom-input--m;
   padding-left: $p-l;
   padding-right: $p-l;
   width: 100%;
@@ -46,13 +46,13 @@ $states-form-input: success $c-form-input--success, error $c-form-input--error !
     box-shadow: inset 0 0 3px 0 $c-primary;
   }
 
-  @each $type, $attr in $sizes-form-input {
+  @each $type, $attr in $sizes-atom-input {
     &-#{$type} {
       height: $attr;
     }
   }
 
-  @each $state, $color in $states-form-input {
+  @each $state, $color in $states-atom-input {
     &--#{$state} {
       border-color: $color;
     }

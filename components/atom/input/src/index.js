@@ -16,7 +16,7 @@ const TYPES = {
   CHECKBOX: 'checkbox'
 }
 
-const FormInput = ({type, ...props}) => {
+const AtomInput = ({type, ...props}) => {
   switch (type) {
     case 'sui-password':
       return <Password {...props} />
@@ -27,7 +27,7 @@ const FormInput = ({type, ...props}) => {
   }
 }
 
-FormInput.propTypes = {
+AtomInput.propTypes = {
   /* native types (text, date, ...), 'sui-password' */
   type: PropTypes.oneOf(Object.values(TYPES)),
   /* Left addon component, text,... */
@@ -60,7 +60,7 @@ FormInput.propTypes = {
   mask: PropTypes.object
 }
 
-FormInput.displayName = 'FormInput'
+AtomInput.displayName = 'AtomInput'
 
-export default FormInput
+export default AtomInput
 export {inputSizes}

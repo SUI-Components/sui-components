@@ -1,11 +1,11 @@
-# FormInput
+# AtomInput
 
 > Inputs are the text fields that users fill in with different types of information. These include dates, passwords or even short answers. It’s a field where users can write alphanumeric texts.
 
 ## Installation
 
 ```sh
-ƛ npm install @s-ui/react-form-input --save
+ƛ npm install @s-ui/react-atom-input --save
 ```
 
 ## Usage
@@ -13,9 +13,9 @@
 ### You can use native types like this
 
 ```js
-import FormInput from '@s-ui/react-form-input'
+import AtomInput from '@s-ui/react-atom-input'
 
-return <FormInput type='number' /> // possible type options: text, number, date and password
+return <AtomInput type='number' /> // possible type options: text, number, date and password
 ```
 
 ### Non native Inputs
@@ -25,9 +25,9 @@ return <FormInput type='number' /> // possible type options: text, number, date 
 In order to use SUI defined Password Input pass the prop `type='sui-password'` to the Input component.
 
 ```js
-import FormInput from '@s-ui/react-form-input'
+import AtomInput from '@s-ui/react-atom-input'
 
-return <FormInput type='sui-password' />
+return <AtomInput type='sui-password' />
 ```
 
 ### Mask
@@ -39,7 +39,7 @@ const bankAccountMask = { // checkout all options here https://unmanner.github.i
   mask: 'ES00 0000 0000 00 0000000000'
 }
 
- return <FormInput type='mask' mask={bankAccountMask} placeholder='ES00 0000 0000 00 0000000000' />
+ return <AtomInput type='mask' mask={bankAccountMask} placeholder='ES00 0000 0000 00 0000000000' />
 ```
 
 ## Addons
@@ -51,9 +51,9 @@ Addons are passed as prop, use **leftAddon** or **rightAddon** in order to set t
 ### Addon usage
 
 ```js
-import FormInput from '@s-ui/react-form-input'
+import AtomInput from '@s-ui/react-atom-input'
 
-return <FormInput leftAddon='http://' rightAddon='@schibsted.com' />
+return <AtomInput leftAddon='http://' rightAddon='@schibsted.com' />
 ```
 
 ## Error states
@@ -72,7 +72,7 @@ Each field returns its value on every onChange event so you can save it inside y
 ```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Input from '@s-ui/react-form-input'
+import Input from '@s-ui/react-atom-input'
 import Button from '@schibstedspain/sui-atom-button'
 
 class SimpleLoginForm extends React.Component {

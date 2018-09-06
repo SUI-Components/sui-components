@@ -1,8 +1,8 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$r-form-input-password-toggle-button: $gutter !default;
+$r-atom-input-password-toggle-button: $gutter !default;
 
-.sui-FormInput-password {
+.sui-AtomInput-password {
   position: relative;
   width: 100%;
 
@@ -10,7 +10,7 @@ $r-form-input-password-toggle-button: $gutter !default;
     color: $c-primary;
     cursor: pointer;
     position: absolute;
-    right: $r-form-input-password-toggle-button;
+    right: $r-atom-input-password-toggle-button;
     top: 50%;
     transform: translateY(-50%);
   }

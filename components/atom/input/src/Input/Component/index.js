@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const CLASS = 'sui-FormInput-input'
+const CLASS = 'sui-AtomInput-input'
 const SIZES = {
   MEDIUM: 'm',
   SMALL: 's'

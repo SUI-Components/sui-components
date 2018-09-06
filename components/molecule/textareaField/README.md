@@ -1,27 +1,27 @@
-# MoleculeFieldTextarea
+# MoleculeTextareaField
 
 
-`MoleculeFieldTextarea` is a component that wraps a composition of Label + Textarea + Validations  Messages. 
+`MoleculeTextareaField` is a component that wraps a composition of Label + Textarea + Validations  Messages. 
 
 
 ## Installation
 
 ```sh
-$ npm install @s-ui/react-molecule-field-textarea --save
+$ npm install @s-ui/react-molecule-textarea-field --save
 ```
 
 ## Usage
 
-After importing the component `MoleculeFieldTextarea` like this
+After importing the component `MoleculeTextareaField` like this
 
 ```javascript
-import MoleculeFieldTextarea from '@s-ui/react-molecule-field-textarea'
+import MoleculeTextareaField from '@s-ui/react-molecule-textarea-field'
 ```
 
 ### Basic usage
     
 ```
-  <MoleculeFieldTextarea
+  <MoleculeTextareaField
     id="description"
     label="Description"
   />
@@ -30,7 +30,7 @@ import MoleculeFieldTextarea from '@s-ui/react-molecule-field-textarea'
 ### With initial value
     
 ```
-  <MoleculeFieldTextarea
+  <MoleculeTextareaField
     id="description"
     label="Description"
     value="In some place of La Mancha which name..."
@@ -40,7 +40,7 @@ import MoleculeFieldTextarea from '@s-ui/react-molecule-field-textarea'
 ### With maxChars
     
 ```
-  <MoleculeFieldTextarea
+  <MoleculeTextareaField
     id="description"
     label="Description"
     value="In some place of La Mancha which name..."
@@ -50,7 +50,7 @@ import MoleculeFieldTextarea from '@s-ui/react-molecule-field-textarea'
 
 ### With Error Message 
 ```
-  <MoleculeFieldTextarea
+  <MoleculeTextareaField
     id="description"
     label="Description"
     value="In some place of La Mancha which name..."
@@ -60,7 +60,7 @@ import MoleculeFieldTextarea from '@s-ui/react-molecule-field-textarea'
 
 ### With Success Message 
 ```
-  <MoleculeFieldTextarea
+  <MoleculeTextareaField
     id="description"
     label="Description"
     value="In some place of La Mancha which name..."
@@ -71,7 +71,7 @@ import MoleculeFieldTextarea from '@s-ui/react-molecule-field-textarea'
 ### With Help Text
 
 ```
-  <MoleculeFieldTextarea
+  <MoleculeTextareaField
     id="description"
     label="Description"
     value="In some place of La Mancha which name..."
@@ -81,7 +81,7 @@ import MoleculeFieldTextarea from '@s-ui/react-molecule-field-textarea'
 
 ### Inline
 ```
-  <MoleculeFieldTextarea
+  <MoleculeTextareaField
     id="description"
     label="Description"
     value="In some place of La Mancha which name..."
@@ -90,4 +90,4 @@ import MoleculeFieldTextarea from '@s-ui/react-molecule-field-textarea'
 ```
 
 
-> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/molecule/fieldTextarea/demo).**
+> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/molecule/textareaField/demo).**

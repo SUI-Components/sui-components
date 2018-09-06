@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.19.0"></a>
+# 1.19.0 (2018-09-06)
+
+
+### Bug Fixes
+
+* fix Issue [#511](https://github.com/SUI-Components/sui-components/issues/511) ([b5eff60](https://github.com/SUI-Components/sui-components/commit/b5eff60))
+
+
+### Features
+
+* changes after code review feedback ([6f20f57](https://github.com/SUI-Components/sui-components/commit/6f20f57))
+* fix group buttons ([56ef96f](https://github.com/SUI-Components/sui-components/commit/56ef96f))
+* removed unit for 0 margin ([af59032](https://github.com/SUI-Components/sui-components/commit/af59032))
+* tertiary button group ([c6e4be8](https://github.com/SUI-Components/sui-components/commit/c6e4be8))
+
+
+
 <a name="1.18.0"></a>
 # 1.18.0 (2018-09-03)
 

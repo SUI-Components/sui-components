@@ -21,6 +21,9 @@ const OWN_PROPS = [
   'rightIcon',
   'className',
   'children',
+  'fullWidth',
+  'focused',
+  'negative',
   'type'
 ]
 const CLASSES = [...TYPES, ...SIZES, ...MODIFIERS, 'empty'].reduce(

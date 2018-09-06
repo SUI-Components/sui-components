@@ -302,13 +302,13 @@ return (
       </Button>
     </p>
     <Title>BUTTONS GROUP</Title>
-    <Button style={{marginLeft: '10px'}} groupPosition="first">
+    <Button style={{marginLeft: '10px'}} type="secondary" groupPosition="first">
       FIRST
     </Button>
-    <Button style={{marginLeft: '10px'}} groupPosition="middle">
+    <Button style={{marginLeft: '10px'}} type="secondary" groupPosition="middle">
       MIDDLE
     </Button>
-    <Button style={{marginLeft: '10px'}} groupPosition="last">
+    <Button style={{marginLeft: '10px'}} type="secondary" groupPosition="last">
       LAST
     </Button>
     <Title>Form</Title>

@@ -5,12 +5,12 @@ const styleList = {
 return (
   <div>
     <h1>
-      <code>MoleculeFieldTextarea</code>
+      <code>MoleculeTextareaField</code>
     </h1>
     <ul style={styleList}>
       <li>
         <h2>With <code>successText</code></h2>
-        <MoleculeFieldTextarea
+        <MoleculeTextareaField
           id="description"
           label="Description"
           value="In some place of La Mancha which name..."
@@ -21,7 +21,7 @@ return (
         <h2>
           With <code>errorText</code> and custom <code>maxChars</code>
         </h2>
-        <MoleculeFieldTextarea
+        <MoleculeTextareaField
           id="notes"
           label="Notes"
           errorText="All wrong!"
@@ -30,7 +30,7 @@ return (
       </li>
       <li>
         <h2>With <code>placeholder</code></h2>
-        <MoleculeFieldTextarea
+        <MoleculeTextareaField
           id="commentd"
           label="Comments"
           maxChars={100}
@@ -39,7 +39,7 @@ return (
       </li>
       <li>
         <h2><code>inline</code></h2>
-        <MoleculeFieldTextarea
+        <MoleculeTextareaField
           id="description-inline"
           label="Description"
           successText="Everything ok!"
@@ -49,7 +49,7 @@ return (
       </li>
       <li>
         <h2>With <code>helpText</code> and custom <code>textCharacters</code></h2>
-        <MoleculeFieldTextarea
+        <MoleculeTextareaField
           id="description-inline"
           label="Description"
           helpText="Tu descripción en Latin"

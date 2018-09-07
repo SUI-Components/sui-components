@@ -14,6 +14,7 @@ const MoleculeButtonGroup = ({
   children, // eslint-disable-line react/prop-types
   fullWidth,
   groupPositions,
+  type = 'secondary',
   ...props
 }) => {
   const numChildren = children.length
@@ -24,7 +25,7 @@ const MoleculeButtonGroup = ({
   )
   const extendedChildren = React.Children.map(children, (child, index) => {
     const groupPosition = getGroupPositionByIndex(index)
-    return React.cloneElement(child, {...props, groupPosition, fullWidth})
+    return React.cloneElement(child, {...props, type, groupPosition, fullWidth})
   })
   return (
     <div className={cx(BASE_CLASS, fullWidth && `${BASE_CLASS}--fullWidth`)}>
@@ -36,6 +37,9 @@ const MoleculeButtonGroup = ({
 MoleculeButtonGroup.displayName = 'MoleculeButtonGroup'
 
 MoleculeButtonGroup.propTypes = {
+  /** Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary' */
+  type: PropTypes.bool,
+
   /** If buttons should stretch to fit the width of container */
   fullWidth: PropTypes.bool,
 

@@ -6,6 +6,8 @@ import MoleculeButtonGroup from '../../../../components/molecule/buttonGroup/src
 import AtomButtom, {
   atomButtonGroupPositions
 } from '@schibstedspain/sui-atom-button'
+
+import SimpleCheckboxRadioForm from './inputRadio'
 import './index.scss'
 
 const Demo = () => {
@@ -13,12 +15,16 @@ const Demo = () => {
     <div className="DemoMoleculeButtonGroup">
       <h1>MoleculeButtonGroup</h1>
       <div className="DemoMoleculeButtonGroup-section">
-        <h2>Secondary</h2>
+        <h2>As a group of buttons that trigger some action</h2>
         <MoleculeButtonGroup type="secondary">
           <AtomButtom>A</AtomButtom>
           <AtomButtom>B</AtomButtom>
           <AtomButtom>C</AtomButtom>
         </MoleculeButtonGroup>
+      </div>
+      <div className="DemoMoleculeButtonGroup-section">
+        <h2>As a group of choices (only one can be selected) → input radio</h2>
+        <SimpleCheckboxRadioForm />
       </div>
       <div className="DemoMoleculeButtonGroup-section--fullWidth">
         <h2>Secondary (Full Width)</h2>

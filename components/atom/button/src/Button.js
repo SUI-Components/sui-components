@@ -6,11 +6,15 @@ const Button = ({
   href,
   target,
   disabled,
+  isSubmit, // eslint-disable-line react/prop-types
+  isButton, // eslint-disable-line react/prop-types
   link,
   linkFactory: Link,
   ...attrs
-}) =>
-  link ? (
+}) => {
+  if (isSubmit) attrs.type = 'submit'
+  if (isButton) attrs.type = 'button'
+  return link ? (
     <Link
       {...attrs}
       href={href}
@@ -24,6 +28,7 @@ const Button = ({
       {children}
     </button>
   )
+}
 
 Button.propTypes = {
   /**

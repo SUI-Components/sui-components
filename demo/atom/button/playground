@@ -311,8 +311,10 @@ return (
     <Button style={{marginLeft: '10px'}} type="secondary" groupPosition="last">
       LAST
     </Button>
-    <Title>Form</Title>
+    <Title>Form w/ Button</Title>
     <FormWithSubmitButton />
+    <Title>Form w/ several Buttons</Title>
+    <FormWithSeveralButtons />
   </div>
 )
 
@@ -384,6 +386,23 @@ function FormWithSubmitButton() {
       </div>
       <div>
         <Button>Submit</Button>
+      </div>
+    </form>
+  )
+}
+
+function FormWithSeveralButtons() {
+  return (
+    <form onSubmit={() => window.alert('Submit!')}>
+      <div>
+        <input type="text" placeholder="Put your name" />
+      </div>
+      <div>
+        <Button isButton onClick={() => window.alert('Click!')}>Click Me!</Button>
+        <Button isButton onClick={() => window.alert('Click!')}>Click Me!</Button>
+      </div>
+      <div>
+        <Button isSubmit>Submit</Button>
       </div>
     </form>
   )

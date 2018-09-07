@@ -3,14 +3,24 @@ import PropTypes from 'prop-types'
 
 import React, {Component} from 'react'
 import AbTestToggle from '@s-ui/abtesting-toggle'
-import {createExperimentUseCase} from './optimizely-x'
+import OptimizelyX from './optimizely-x'
 
 class AbTestOptimizelyXExperiment extends Component {
-  state = {variation: undefined}
+  state = {variation: null}
 
   componentDidMount() {
-    this._experiment = createExperimentUseCase(this.props.experimentId)
-    this._experiment.execute().then(variation => this.setState({variation}))
+    this._activationHandler = variation => this.setState({variation})
+    OptimizelyX.addActivationListener(
+      this.props.experimentId,
+      this._activationHandler
+    )
+  }
+
+  componentWillUnmount() {
+    OptimizelyX.removeActivationListener(
+      this.props.experimentId,
+      this._activationHandler
+    )
   }
 
   render() {

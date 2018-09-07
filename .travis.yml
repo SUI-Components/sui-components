@@ -11,8 +11,6 @@ before_install:
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 install:
   - npm run phoenix:ci
-script:
-  - npm run test
 before_deploy:
   - npm i -g now@9
   - npm run build

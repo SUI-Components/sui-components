@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.20.0"></a>
+# 1.20.0 (2018-09-10)
+
+
+### Features
+
+* added isSubmit and isButton props ([896b3e8](https://github.com/SUI-Components/sui-components/commit/896b3e8))
+
+
+
 <a name="1.19.0"></a>
 # 1.19.0 (2018-09-06)
 

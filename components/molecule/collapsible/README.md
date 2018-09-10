@@ -55,14 +55,27 @@ It can be set True or False. It will activate or deactivate transition effect wh
 </MoleculeThumbnail>
 ```
 
-#### Height
-It sets the maximum height in pixels when the component is collapsed. By default it is set to 100px.
+#### minHeight
+It sets the minimum height in pixels when the component is collapsed. By default it is set to 100px.
 ```js
 <MoleculeThumbnail 
     icon={svgIcon} 
     showText='Show' 
     hideText='Hide'
-    height={10}
+    minHeight={10}
+>
+    <p>Text or content to collapse</p>
+</MoleculeThumbnail>
+```
+
+#### maxHeight
+It sets the maximum height in pixels when the component is not collapsed. By default it is set to null.
+```js
+<MoleculeThumbnail 
+    icon={svgIcon} 
+    showText='Show' 
+    hideText='Hide'
+    maxHeight={200}
 >
     <p>Text or content to collapse</p>
 </MoleculeThumbnail>

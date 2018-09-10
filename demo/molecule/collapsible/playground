@@ -2,6 +2,7 @@ const icon = GetIcon()
 const showText = 'Show'
 const hideText = 'Hide'
 const height = 70
+const maxHeight = 200
 
 function Text() {
      return(
@@ -70,9 +71,17 @@ return (
                 </div>
             </Demo>
             <Demo>
-                <h2>Collapsible setting custom height </h2>
+                <h2>Collapsible setting custom min height </h2>
                 <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16, textAlign: 'left'}}>
-                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} height={height}>
+                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} minHeight={height}>
+                        <Text/>
+                    </MoleculeCollapsible>
+                </div>
+            </Demo>
+            <Demo>
+                <h2>Collapsible setting custom max height </h2>
+                <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16, textAlign: 'left'}}>
+                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} maxHeight={maxHeight}>
                         <Text/>
                     </MoleculeCollapsible>
                 </div>

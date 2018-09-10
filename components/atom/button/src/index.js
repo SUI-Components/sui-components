@@ -160,7 +160,15 @@ AtomButton.propTypes = {
   /**
    * Factory used to create navigation links
    */
-  linkFactory: PropTypes.func
+  linkFactory: PropTypes.func,
+  /**
+   * if true, type="submit" (needed when several buttons coexist under the same form)
+   */
+  isSubmit: PropTypes.bool,
+  /**
+   * if true, type="button" (needed when several buttons coexist under the same form)
+   */
+  isButton: PropTypes.bool
 }
 
 AtomButton.defaultProps = {

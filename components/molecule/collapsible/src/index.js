@@ -10,6 +10,7 @@ const BUTTON_CLASS = `${BASE_CLASS}-btn`
 const BUTTON_CONTENT_CLASS = `${BUTTON_CLASS}-content`
 const ICON_CLASS = `${BASE_CLASS}-icon`
 const MIN_HEIGHT = 100 // px
+const MAX_HEIGHT = null
 
 class MoleculeCollapsible extends Component {
   constructor(props) {
@@ -28,9 +29,11 @@ class MoleculeCollapsible extends Component {
   }
 
   componentDidMount() {
-    const offsetHeight = this.childrenContainer.current.offsetHeight
+    const offsetHeight = this.props.maxHeight
+      ? this.props.maxHeight
+      : this.childrenContainer.current.offsetHeight
     this.setState({
-      showButton: offsetHeight >= this.props.height,
+      showButton: offsetHeight >= this.props.minHeight,
       maxHeight: offsetHeight
     })
   }
@@ -39,7 +42,7 @@ class MoleculeCollapsible extends Component {
     const {collapsed, showButton, maxHeight} = this.state
     const {
       children,
-      height,
+      minHeight,
       icon,
       showText,
       hideText,
@@ -61,7 +64,7 @@ class MoleculeCollapsible extends Component {
       [`${CONTENT_CLASS}--withTransition`]: withTransition
     })
     const containerHeight =
-      showButton && collapsed ? `${height}px` : `${maxHeight}px`
+      showButton && collapsed ? `${minHeight}px` : `${maxHeight}px`
 
     return (
       <div className={wrapperClassName}>
@@ -100,7 +103,11 @@ MoleculeCollapsible.propTypes = {
   /**
    * Define the min height visible
    */
-  height: PropTypes.number,
+  minHeight: PropTypes.number,
+  /**
+   * Define the max height visible
+   */
+  maxHeight: PropTypes.number,
   /**
    * Icon to be added on the right of the content
    */
@@ -132,7 +139,8 @@ MoleculeCollapsible.propTypes = {
 }
 
 MoleculeCollapsible.defaultProps = {
-  height: MIN_HEIGHT,
+  minHeight: MIN_HEIGHT,
+  maxHeight: MAX_HEIGHT,
   withGradient: true,
   withTransition: true,
   onOpen: () => {},

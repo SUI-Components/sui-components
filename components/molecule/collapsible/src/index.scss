@@ -11,23 +11,31 @@
     background: none;
     border: 0;
     color: $c-collapsible-btn;
+    cursor: pointer;
     height: $mh-collapsible-btn;
     margin-top: $mt-collapsible-btn;
     padding: $p-collapsible-btn 0;
-    cursor: pointer;
-    &:focus, &-content:focus{
+
+    &:focus, 
+    &-content:focus {
       outline: none;
     }
-    &:focus &-content{
+
+    &:focus &-content {
       box-shadow: 0 0 6px 3px color-variation($c-primary, 1);
     }
   }
 
   &-content {
-    overflow: hidden;
-    &--withTransition{
+    overflow: auto;
+
+    &--withTransition {
       transition: $trs-collapsible-content;
     }
+
+    .is-collapsed & {
+      overflow: hidden;
+    } 
   }
 
   &-container {

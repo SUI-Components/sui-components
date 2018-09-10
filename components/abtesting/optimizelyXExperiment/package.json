@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/abtesting-optimizely-x",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "<AbTestOptimizelyXExperiment experimentId />",
   "main": "lib/index.js",
   "scripts": {

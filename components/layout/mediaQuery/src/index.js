@@ -10,9 +10,19 @@ import {BREAKPOINTS} from './breakpoints'
 
 const LayoutMediaQueryFactory = BREAKPOINTS =>
   class extends Component {
-    state = {
-      params: {}
+    static defaultProps = {
+      initialMediaQueries: {}
     }
+
+    static propTypes = {
+      /** MediaQueries to be used in the first render. Until of be called componentDidMount and setup the proper MQ´s Usefull for SSR */
+      initialMediaQueries: PropTypes.object
+    }
+
+    state = {
+      params: this.props.initialMediaQueries
+    }
+
     containerResizeObserver = null
     matchQueries = matchQueries(BREAKPOINTS)
 

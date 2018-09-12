@@ -1,4 +1,4 @@
-import React, {Component, createRef} from 'react'
+import React, {PureComponent, createRef} from 'react'
 import PropTypes from 'prop-types'
 import ResizeObserver from 'resize-observer-polyfill'
 import shallowEqual from 'shallowequal'
@@ -8,7 +8,7 @@ import {getWidth, matchQueries} from './helpers'
 import {BREAKPOINTS} from './breakpoints'
 
 const LayoutMediaQueryFactory = function(BREAKPOINTS) {
-  return class extends Component {
+  return class extends PureComponent {
     static defaultProps = {
       initialMediaQueries: {}
     }
@@ -26,6 +26,7 @@ const LayoutMediaQueryFactory = function(BREAKPOINTS) {
 
     containerResizeObserver = null
     matchQueries = matchQueries(BREAKPOINTS)
+
     componentDidMount() {
       const {viewport} = this.props // eslint-disable-line react/prop-types
       const container = this.containerRef.current
@@ -65,6 +66,10 @@ const LayoutMediaQueryFactory = function(BREAKPOINTS) {
       const {params} = this.state
       const result = this.matchQueries(width)
       if (!shallowEqual(result, params)) this.setState({params: result})
+    }
+
+    shouldComponentUpdate(_, nextState) {
+      return !shallowEqual(this.state.params, nextState.params)
     }
 
     render() {

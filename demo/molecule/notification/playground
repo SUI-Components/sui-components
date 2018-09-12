@@ -65,7 +65,7 @@ return (
     <h2>Types</h2>
     <Title>Info</Title>
     <MoleculeNotification
-      autoClose='manual' 
+      autoClose={'manual'}
       text={TEXT}
       buttons={BUTTONS}
       onClose={showAlert}
@@ -99,6 +99,28 @@ return (
       autoClose='manual'
       text={TEXT}
       type='system'
+      buttons={BUTTONS}
+      onClose={showAlert}
+    />
+    <br/>
+    <h2>AutoClose</h2>
+    <Title>Short</Title>
+    <MoleculeNotification
+      text={TEXT}
+      buttons={BUTTONS}
+      onClose={showAlert}
+    />
+    <Title>Medium</Title>
+    <MoleculeNotification
+      autoClose='medium'
+      text={TEXT}
+      buttons={BUTTONS}
+      onClose={showAlert}
+    />
+    <Title>Long</Title>
+    <MoleculeNotification
+      autoClose='long'
+      text={TEXT}
       buttons={BUTTONS}
       onClose={showAlert}
     />

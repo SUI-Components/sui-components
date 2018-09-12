@@ -1,5 +1,4 @@
-import {Component} from 'react'
-import ReactDOM from 'react-dom'
+import React, {Component, createRef} from 'react'
 import PropTypes from 'prop-types'
 import ResizeObserver from 'resize-observer-polyfill'
 import shallowEqual from 'shallowequal'
@@ -8,27 +7,28 @@ import {getWidth, matchQueries} from './helpers'
 
 import {BREAKPOINTS} from './breakpoints'
 
-const LayoutMediaQueryFactory = BREAKPOINTS =>
-  class extends Component {
+const LayoutMediaQueryFactory = function(BREAKPOINTS) {
+  return class extends Component {
     static defaultProps = {
       initialMediaQueries: {}
     }
 
     static propTypes = {
       /** MediaQueries to be used in the first render. Until of be called componentDidMount and setup the proper MQ´s Usefull for SSR */
-      initialMediaQueries: PropTypes.object
+      initialMediaQueries: PropTypes.object,
+      children: PropTypes.func
     }
 
+    containerRef = createRef()
     state = {
       params: this.props.initialMediaQueries
     }
 
     containerResizeObserver = null
     matchQueries = matchQueries(BREAKPOINTS)
-
     componentDidMount() {
       const {viewport} = this.props // eslint-disable-line react/prop-types
-      const container = ReactDOM.findDOMNode(this)
+      const container = this.containerRef.current
       let initialWidth = 0
 
       if (viewport) {
@@ -68,9 +68,14 @@ const LayoutMediaQueryFactory = BREAKPOINTS =>
     }
 
     render() {
-      return this.props.children(this.state.params) // eslint-disable-line react/prop-types
+      return (
+        <div className="sui-Layout-MediaQuery" ref={this.containerRef}>
+          {this.props.children(this.state.params)}
+        </div>
+      ) // eslint-disable-line react/prop-types
     }
   }
+}
 
 const LayoutMediaQuery = LayoutMediaQueryFactory(BREAKPOINTS)
 LayoutMediaQuery.displayName = 'LayoutMediaQuery'

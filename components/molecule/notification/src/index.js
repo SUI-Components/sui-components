@@ -39,15 +39,7 @@ class MoleculeNotification extends Component {
   }
 
   componentDidMount() {
-    const {show, autoClose: autoCloseTiming} = this.props
-
-    if (
-      show &&
-      AUTO_CLOSE_TIME[autoCloseTiming] &&
-      autoCloseTiming !== AUTO_CLOSE_TIME[autoCloseTiming]
-    ) {
-      this.autoClose(AUTO_CLOSE_TIME[autoCloseTiming])
-    }
+    this.autoCloseIfRequired()
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -62,18 +54,28 @@ class MoleculeNotification extends Component {
 
   toggleShow = () => {
     const show = !this.state.show
-    const {onClose, effect, autoClose} = this.props
+    const {onClose, effect} = this.props
 
     effect
       ? this.setState({show, delay: true}, this.removeDelay(show))
       : this.setState({show})
 
     if (show) {
-      const autoCloseTime = AUTO_CLOSE_TIME[autoClose]
-      autoCloseTime && this.autoClose(autoCloseTime)
+      this.autoCloseIfRequired()
     } else {
       clearTimeout(this.autoCloseTimout)
       onClose()
+    }
+  }
+
+  autoCloseIfRequired() {
+    const {autoClose: autoCloseTiming} = this.props
+
+    if (
+      AUTO_CLOSE_TIME[autoCloseTiming] &&
+      autoCloseTiming !== AUTO_CLOSE_TIME[autoCloseTiming]
+    ) {
+      this.autoClose(AUTO_CLOSE_TIME[autoCloseTiming])
     }
   }
 

@@ -1,4 +1,4 @@
-import React, {PureComponent, createRef} from 'react'
+import React, {Component, createRef} from 'react'
 import PropTypes from 'prop-types'
 import ResizeObserver from 'resize-observer-polyfill'
 import shallowEqual from 'shallowequal'
@@ -8,7 +8,7 @@ import {getWidth, matchQueries} from './helpers'
 import {BREAKPOINTS} from './breakpoints'
 
 const LayoutMediaQueryFactory = function(BREAKPOINTS) {
-  return class extends PureComponent {
+  return class extends Component {
     static defaultProps = {
       initialMediaQueries: {}
     }
@@ -77,7 +77,7 @@ const LayoutMediaQueryFactory = function(BREAKPOINTS) {
         <div className="sui-Layout-MediaQuery" ref={this.containerRef}>
           {this.props.children(this.state.params)}
         </div>
-      ) // eslint-disable-line react/prop-types
+      )
     }
   }
 }

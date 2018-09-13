@@ -1,7 +1,7 @@
 {
-  "name": "@schibstedspain/sui-components",
+  "name": "@schibstedspain/react-components",
   "version": "1.2.0",
-  "description": "Mono repo containing all SUI components. Multi package for every SUI component.",
+  "description": "Mono repo containing all Open Sourced Schibsted Spain React components.",
   "private": true,
   "scripts": {
     "build": "sui-studio build",
@@ -46,25 +46,9 @@
   },
   "config": {
     "sui-studio": {
+      "logo": "<img width='50' src='https://pbs.twimg.com/profile_images/575607908940931073/gGXmL_b3.jpeg' />",
       "font": "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i",
-      "name": "SUIComponents",
-      "compliant": [
-        "atom/badge",
-        "atom/button",
-        "atom/helpText",
-        "atom/image",
-        "atom/panel",
-        "atom/spinner",
-        "atom/switch",
-        "atom/tag",
-        "atom/tooltip",
-        "atom/validationText",
-        "breadcrumb/basic",
-        "molecule/notification",
-        "molecule/tabs",
-        "molecule/thumbnail",
-        "molecule/collapsible"
-      ]
+      "name": "Schibsted Spain Components"
     },
     "sui-mono": {
       "access": "public",
@@ -83,5 +67,10 @@
       "./node_modules/@s-ui/lint/eslintrc.js"
     ]
   },
-  "sasslintConfig": "./node_modules/@s-ui/lint/sass-lint.yml"
+  "sasslintConfig": "./node_modules/@s-ui/lint/sass-lint.yml",
+  "babel": {
+    "presets": [
+      "sui"
+    ]
+  }
 }

@@ -53,7 +53,7 @@ return (
     <p>Resize the width of the viewport or the container with dashed blue border to see the behavior</p>
     <h2>Basic Usage (default values)</h2>
     <div style={stylesSection}>
-      <LayoutMediaQuery>
+      <LayoutMediaQuery initialMediaQueries={{XS: true, S: true}}>
         {({M, L, XL}) => {
           if (XL) return <p>LargeDesktop</p>
           if (L) return <p>Desktop</p>

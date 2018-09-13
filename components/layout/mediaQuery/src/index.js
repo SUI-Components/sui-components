@@ -14,7 +14,9 @@ const LayoutMediaQueryFactory = function(BREAKPOINTS) {
     }
 
     static propTypes = {
-      /** MediaQueries to be used in the first render. Until of be called componentDidMount and setup the proper MQ´s Usefull for SSR */
+      /**
+       * MediaQueries to be used in the first render until componentDidMount is called and it setups the proper media query. Useful for SSR for avoiding re-renders.
+       */
       initialMediaQueries: PropTypes.object,
       children: PropTypes.func
     }

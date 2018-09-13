@@ -9,6 +9,7 @@
     "co": "sui-studio commit",
     "commitmsg": "validate-commit-msg",
     "deploy": "sui-deploy spa sui-components --now -p",
+    "dev": "sui-studio dev",
     "generate": "sui-studio generate -S schibstedspain",
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",

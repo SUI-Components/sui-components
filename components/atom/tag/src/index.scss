@@ -1,0 +1,106 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$bgc-atom-tag: color-variation($c-gray, 3) !default;
+$c-atom-tag-actionable: $c-white !default;
+$h-atom-tag-m: 32px !default;
+$h-atom-tag-s: 24px !default;
+$mw-label: 240px !default;
+$p-atom-tag-m: 0 $p-l !default;
+$p-atom-tag-s: 0 $p-m !default;
+
+@mixin icon-atom-tag($type) {
+  @include sui-icon--small;
+  display: inline-block;
+  line-height: initial;
+  vertical-align: middle;
+
+  @if $type == 'icon' {
+    margin: 0 $m-s 0 (-$m-m);
+
+} @else if $type == 'icon-secondary' {
+    margin: 0 (-$m-m) 0 $m-m;
+  }
+}
+
+.sui-AtomTag {
+  background-color: $bgc-atom-tag;
+  border-radius: ceil($h-atom-tag-m / 2);
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: $fz-s;
+  height: $h-atom-tag-m;
+  margin: 0 $m-m $m-m 0;
+  padding: $p-atom-tag-m;
+  white-space: nowrap;
+
+  &-label {
+    // max width - 2 icon size
+    $w-label-base: $mw-label - ($p-l * 2);
+    display: inline-block;
+    line-height: $h-atom-tag-m;
+    max-width: $w-label-base;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    // if only one icon is set
+    .sui-AtomTag-hasIcon &, 
+    .sui-AtomTag-hasClose & {
+      max-width: $w-label-base - ($p-l + $m-s);
+    }
+
+    // if both icons are set
+    .sui-AtomTag-hasIcon.sui-AtomTag-hasClose & {
+      max-width: $w-label-base - ($p-l + $m-s) * 2;
+    }
+  }
+
+  &-secondary-closeable {
+    cursor: pointer;
+    line-height: initial;
+
+    &:hover {
+      background-color: $c-system;
+      border-radius: 50%;
+      fill: color-variation($c-gray, 3);
+    }
+  }
+
+  &-icon {
+    @include icon-atom-tag(icon);
+  }
+
+  &-secondary-icon {
+    @include icon-atom-tag(icon-secondary);
+  }
+
+  &-actionable {
+    background-color: $c-primary;
+    color: $c-atom-tag-actionable;
+    cursor: pointer;
+    fill: $c-atom-tag-actionable;
+
+    &:hover,
+    &:active {
+      background-color: $c-primary-dark;
+    }
+  }
+
+  &-small {
+    height: $h-atom-tag-s;
+    padding: $p-atom-tag-s;
+
+    & .sui-AtomTag-label {
+      line-height: $h-atom-tag-s;
+    }
+
+    .sui-AtomTag-icon {
+      margin-left: 0;
+    }
+
+    .sui-AtomTag-secondary-icon {
+      margin-right: 0;
+    }
+  }
+}

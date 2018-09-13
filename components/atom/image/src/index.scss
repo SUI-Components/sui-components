@@ -1,0 +1,76 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$bgc-atom-image: $c-gray-light !default;
+$trsdu-atom-image: 1s !default;
+
+$bgs-atom-image-placeholder: cover !default;
+$bgs-atom-image-skeleton: 30% !default;
+
+.sui-AtomImage {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &-figure {
+    background-color: $bgc-atom-image;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100%;
+
+    &--placeholder {
+      background-size: $bgs-atom-image-placeholder;
+    }
+
+    &--skeleton {
+      background-size: $bgs-atom-image-skeleton;
+    }
+
+    .is-loading &--placeholder {
+      filter: blur(5px);
+    }
+
+    .is-loaded &--placeholder {
+      filter: blur(0);
+      transition: $trsdu-atom-image filter linear;
+    }
+  }
+
+  &.is-loaded &-spinner { 
+    display: none;
+  }
+
+  &-image {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &.is-loading &-image {
+    opacity: 0;
+  }
+
+  &.is-loaded &-image {
+    opacity: 1;
+  }
+
+  &.is-error &-image {
+    display: none;
+  }
+
+  &-error, 
+  &-spinner {
+    align-items: center; 
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+}

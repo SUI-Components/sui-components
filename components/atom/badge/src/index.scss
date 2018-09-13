@@ -1,0 +1,86 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$bdrs-atom-badge: $bdrs-m !default;
+$fz-atom-badge-l: $fz-m !default;
+$fz-atom-badge-s: $fz-xs !default;
+$h-atom-badge-l: 24px !default;
+$h-atom-badge-s: 16px !default;
+$m-atom-badge-l: $m-m !default;
+$m-atom-badge-s: $m-s !default;
+$p-atom-badge: 0 $p-m !default;
+
+$badges: (
+  success: (
+    bgc: $c-success,
+    c: $c-white
+    ),
+  error: (
+    bgc: $c-error,
+    c: $c-white
+    ),
+  alert: (
+    bgc: $c-alert,
+    c: $c-white
+    ),
+  info: (
+    bgc: $c-gray,
+    c: $c-white
+    )
+  ) !default;
+
+.sui-AtomBadge {
+  border-radius: $bdrs-atom-badge;
+  box-sizing: border-box;
+  display: inline-block;
+  white-space: nowrap;
+
+  & + & {
+    margin-left: $m-atom-badge-l;
+  }
+
+  &-small {
+    font-size: $fz-atom-badge-s;
+    height: $h-atom-badge-s;
+    padding: $p-atom-badge;
+
+    .sui-AtomBadge-text {
+      line-height: $h-atom-badge-s;
+    }
+  }
+
+  &-large {
+    font-size: $fz-atom-badge-l;
+    height: $h-atom-badge-l;
+    padding: $p-atom-badge;
+
+    .sui-AtomBadge-text {
+      line-height: $h-atom-badge-l;
+    }
+  }
+
+  &-icon {
+    @include sui-icon--small;
+    display: inline-block;
+    height: auto;
+    margin-right: $m-atom-badge-s;
+    vertical-align: middle;
+  }
+
+  @each $type, $element in $badges {
+    $bgc: map-get($element, bgc);
+    $c: map-get($element, c);
+
+    &-#{$type} {
+      background-color: $bgc;
+      color: $c;
+      fill: $c;
+    }
+
+    &-#{$type}--transparent {
+      background-color: transparent;
+      color: $bgc;
+      fill: $bgc;
+      padding: 0;
+    }
+  }
+}

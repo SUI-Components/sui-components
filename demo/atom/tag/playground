@@ -1,0 +1,48 @@
+const icon = (
+  <svg viewBox='0 0 24 24'>
+    <path d='M17.25 2.83V2.5a.75.75 0 1 0-1.5 0v.25h-7.5V2.5a.75.75 0 0 0-1.5 0v.33a4.73 4.73 0 0 0-4 4.67v9a4.76 4.76 0 0 0 4.75 4.75h9a4.76 4.76 0 0 0 4.75-4.75v-9a4.73 4.73 0 0 0-4-4.67zm2.5 6.42v7.25a3.25 3.25 0 0 1-3.25 3.25h-9a3.25 3.25 0 0 1-3.25-3.25V9.25h15.5zm0-1.75v.25H4.25V7.5A3.25 3.25 0 0 1 7.5 4.25h9a3.25 3.25 0 0 1 3.25 3.25zM14.5 18.25a2.75 2.75 0 0 1-2.75-2.75v-1a2.75 2.75 0 0 1 2.75-2.75h1a2.75 2.75 0 0 1 2.75 2.75v1a2.75 2.75 0 0 1-2.75 2.75h-1zm-1.25-3.75v1a1.25 1.25 0 0 0 1.25 1.25h1c.69 0 1.25-.56 1.25-1.25v-1c0-.69-.56-1.25-1.25-1.25h-1c-.69 0-1.25.56-1.25 1.25z' />
+  </svg>
+)
+
+const closeIcon = (
+  <svg viewBox='0 0 24 24'>
+    <path id='a' d='M13.42 12l4.79-4.8a1 1 0 0 0-1.41-1.41L12 10.58 7.21 5.79A1 1 0 0 0 5.8 7.2l4.79 4.8-4.79 4.79a1 1 0 1 0 1.41 1.41L12 13.41l4.8 4.79a1 1 0 0 0 1.41-1.41L13.42 12z'/>
+  </svg>
+)
+
+return (
+  <div style={{float: 'left'}}>
+    <h2>Standard Tags</h2>
+    <p>
+      <AtomTag label='Tag Structure' /> <AtomTag label='Close Tag' onClose={() => alert('close!')} closeIcon={closeIcon} />
+      <AtomTag label='Icon Tag' icon={icon} />
+      <AtomTag label='Icon & Close Tag' icon={icon} onClose={() => alert('close!')} closeIcon={closeIcon} />
+      <AtomTag label='Maximum Tag Width. Truncated text, without close nor icon' />
+      <AtomTag label='Maximum Tag Width. Truncated text, no icon, close' onClose={() => alert('close!')} closeIcon={closeIcon} />
+      <AtomTag label='Maximum Tag Width. Truncated text, icon, no close' icon={icon} />
+      <AtomTag label='Maximum Tag Width. Truncated text, with icon and close' icon={icon} onClose={() => alert('close!')} closeIcon={closeIcon} />
+      <AtomTag label='101 char length, truncated to 100 char890123456789012345678901234567890123456789012345678901234567890' />
+    </p>
+
+    <h2>Small Tags</h2>
+    <p>
+      <AtomTag label='Tag Structure' size={atomTagSizes.SMALL} /> 
+      <AtomTag label='Close Tag' onClose={() => alert('close!')} closeIcon={closeIcon} size={atomTagSizes.SMALL} />
+      <AtomTag label='Icon Tag' icon={icon} size={atomTagSizes.SMALL}/>
+      <AtomTag label='Icon & Close Tag' icon={icon} onClose={() => alert('close!')} closeIcon={closeIcon} size={atomTagSizes.SMALL} />
+      <AtomTag label='Maximum Tag Width. Truncated text, without close nor icon' size={atomTagSizes.SMALL} />
+      <AtomTag label='Maximum Tag Width. Truncated text, no icon, close' onClose={() => alert('close!')} closeIcon={closeIcon} size={atomTagSizes.SMALL} />
+      <AtomTag label='Maximum Tag Width. Truncated text, icon, no close' icon={icon} size={atomTagSizes.SMALL} />
+      <AtomTag label='Maximum Tag Width. Truncated text, with icon and close' icon={icon} onClose={() => alert('close!')} closeIcon={closeIcon} size={atomTagSizes.SMALL} />
+      <AtomTag label='101 char length, truncated to 100 char890123456789012345678901234567890123456789012345678901234567890' size={atomTagSizes.SMALL} />
+    </p>
+
+    <h2>Actionable Tag</h2>
+    <p>
+      <AtomTag label='Navigation Tag' onClick={() => alert('click!')} />
+      <AtomTag label='Anchor Tag' href='https://www.google.com' target='_blank' />
+      <AtomTag iconPlacement='right' icon={icon} label='Icon placement right' href='https://www.google.com' target='_blank' />
+      <AtomTag icon={icon} label='Icon placement left' href='https://www.google.com' target='_blank' />
+    </p>
+  </div>
+)

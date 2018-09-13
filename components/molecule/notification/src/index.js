@@ -39,7 +39,10 @@ class MoleculeNotification extends Component {
   }
 
   componentDidMount() {
-    this.autoCloseIfRequired()
+    const {show} = this.state
+    if (show) {
+      this.autoCloseIfRequired()
+    }
   }
 
   shouldComponentUpdate(nextProps, nextState) {

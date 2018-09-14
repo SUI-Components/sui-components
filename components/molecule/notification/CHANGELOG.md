@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.0.0"></a>
+# 2.0.0 (2018-09-14)
+
+
+### Bug Fixes
+
+* fix autoClose behaviour ([dbd42c9](https://github.com/SUI-Components/sui-components/commit/dbd42c9)), closes [#519](https://github.com/SUI-Components/sui-components/issues/519)
+
+
+### Features
+
+* check if show=true in component did update ([e470167](https://github.com/SUI-Components/sui-components/commit/e470167))
+* encapsulate check if can autoClose ([d5f920e](https://github.com/SUI-Components/sui-components/commit/d5f920e))
+* remove unnecessary check condition ([71c046b](https://github.com/SUI-Components/sui-components/commit/71c046b))
+
+
+### BREAKING CHANGES
+
+* autoClose prop
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2018-08-31)
 

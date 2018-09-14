@@ -74,10 +74,7 @@ class MoleculeNotification extends Component {
   autoCloseIfRequired() {
     const {autoClose: autoCloseTiming} = this.props
 
-    if (
-      AUTO_CLOSE_TIME[autoCloseTiming] &&
-      autoCloseTiming !== AUTO_CLOSE_TIME[autoCloseTiming]
-    ) {
+    if (AUTO_CLOSE_TIME[autoCloseTiming]) {
       this.autoClose(AUTO_CLOSE_TIME[autoCloseTiming])
     }
   }

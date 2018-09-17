@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@s-ui/react-atom-input": "1",
     "@schibstedspain/sui-atom-button": "1"
   }
 }

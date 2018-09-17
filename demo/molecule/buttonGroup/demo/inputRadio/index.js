@@ -3,11 +3,7 @@
 import React from 'react'
 
 import MoleculeButtonGroup from '../../../../../components/molecule/buttonGroup/src'
-import AtomButtom, {
-  atomButtonGroupPositions
-} from '@schibstedspain/sui-atom-button'
-
-import AtomInput from '@s-ui/react-atom-input'
+import AtomButtom from '@schibstedspain/sui-atom-button'
 
 const logoHouse =
   'https://cdn4.iconfinder.com/data/icons/icon-flat-icon-set/50/home-512.png'
@@ -17,8 +13,9 @@ const logoGlobe =
   'https://cdn4.iconfinder.com/data/icons/icon-flat-icon-set/50/globe-2-128.png'
 
 const imageCheckboxStyle = {
-  height: '50px',
-  width: '50px',
+  height: '30px',
+  width: '30px',
+  padding: '3px',
   cursor: 'pointer'
 }
 
@@ -58,50 +55,32 @@ class SimpleCheckboxRadioForm extends React.Component {
     const {termsService} = this.state
     return (
       <form onSubmit={this.onSubmit}>
-        <AtomInput
-          hideInput
-          id="categoryHouse"
-          type="radio"
-          value="house"
-          checked={this.isCategorySelected('house')}
-          onChange={({ev, value}) => {
-            this.onChange({value, field: 'category', ev})
-          }}
-        />
-        <AtomInput
-          hideInput
-          id="categoryRocket"
-          type="radio"
-          value="rocket"
-          checked={this.isCategorySelected('rocket')}
-          onChange={({ev, value}) => {
-            this.onChange({value, field: 'category', ev})
-          }}
-        />
-        <AtomInput
-          hideInput
-          id="categoryGlobe"
-          value="globe"
-          type="radio"
-          checked={this.isCategorySelected('globe')}
-          onChange={({ev, value}) => {
-            this.onChange({value, field: 'category', ev})
-          }}
-        />
         <MoleculeButtonGroup>
-          <AtomButtom>
-            <label htmlFor="categoryHouse">A</label>
+          <AtomButtom
+            isButton
+            focused={this.isCategorySelected('house')}
+            onClick={() => this.onChange({value: 'house', field: 'category'})}
+          >
+            <img style={imageCheckboxStyle} src={logoHouse} alt="" />
           </AtomButtom>
-          <AtomButtom>
-            <label htmlFor="categoryRocket">B</label>
+          <AtomButtom
+            isButton
+            focused={this.isCategorySelected('rocket')}
+            onClick={() => this.onChange({value: 'rocket', field: 'category'})}
+          >
+            <img style={imageCheckboxStyle} src={logoRocket} alt="" />
           </AtomButtom>
-          <AtomButtom>
-            <label htmlFor="categoryGlobe">C</label>
+          <AtomButtom
+            isButton
+            focused={this.isCategorySelected('globe')}
+            onClick={() => this.onChange({value: 'globe', field: 'category'})}
+          >
+            <img style={imageCheckboxStyle} src={logoGlobe} alt="" />
           </AtomButtom>
         </MoleculeButtonGroup>
 
         <pre>{JSON.stringify(this.state, null, 2)}</pre>
-        <AtomButtom type="submit">Send</AtomButtom>
+        <AtomButtom isSubmit>Send</AtomButtom>
       </form>
     )
   }

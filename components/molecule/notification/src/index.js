@@ -38,6 +38,13 @@ class MoleculeNotification extends Component {
     this.state.show !== nextProps.show && this.toggleShow()
   }
 
+  componentDidMount() {
+    const {show} = this.state
+    if (show) {
+      this.autoCloseIfRequired()
+    }
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
     const {show, delay} = this.state
     return show !== nextState.show || delay !== nextState.delay
@@ -50,18 +57,25 @@ class MoleculeNotification extends Component {
 
   toggleShow = () => {
     const show = !this.state.show
-    const {onClose, effect, autoClose} = this.props
+    const {onClose, effect} = this.props
 
     effect
       ? this.setState({show, delay: true}, this.removeDelay(show))
       : this.setState({show})
 
     if (show) {
-      const autoCloseTime = AUTO_CLOSE_TIME[autoClose]
-      autoCloseTime && this.autoClose(autoCloseTime)
+      this.autoCloseIfRequired()
     } else {
       clearTimeout(this.autoCloseTimout)
       onClose()
+    }
+  }
+
+  autoCloseIfRequired() {
+    const {autoClose: autoCloseTiming} = this.props
+
+    if (AUTO_CLOSE_TIME[autoCloseTiming]) {
+      this.autoClose(AUTO_CLOSE_TIME[autoCloseTiming])
     }
   }
 
@@ -138,7 +152,7 @@ MoleculeNotification.displayName = 'MoleculeNotification'
 
 MoleculeNotification.propTypes = {
   /**
-   * Auto close time: 'short' (3s), 'medium' (6s), 'long' (9s), 'manual' (disabled)
+   * Auto close time: 'short' (3s), 'medium' (6s), 'long' (9s), 'manual' or null (disabled)
    */
   autoClose: PropTypes.string,
   /**
@@ -166,7 +180,7 @@ MoleculeNotification.propTypes = {
    */
   showCloseButton: PropTypes.bool,
   /**
-   * Content text.
+   * Content text
    */
   text: PropTypes.string,
   /**

@@ -2,19 +2,28 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
+import Button from './Button'
+
 const CLASS = 'sui-AtomButton'
 const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
+const GROUP_POSITIONS = {
+  FIRST: 'first',
+  MIDDLE: 'middle',
+  LAST: 'last'
+}
 const SIZES = ['small', 'large']
 const MODIFIERS = ['disabled', 'fullWidth', 'focused', 'negative', 'link']
 const OWN_PROPS = [
   ...TYPES,
   ...SIZES,
-  ...MODIFIERS,
+  'groupPosition',
   'leftIcon',
   'rightIcon',
   'className',
   'children',
-  'linkFactory',
+  'fullWidth',
+  'focused',
+  'negative',
   'type'
 ]
 const CLASSES = [...TYPES, ...SIZES, ...MODIFIERS, 'empty'].reduce(
@@ -46,20 +55,20 @@ const getModifiers = props => {
 
 const AtomButton = props => {
   const {
-    disabled,
-    leftIcon,
-    rightIcon,
     children,
     className,
-    type,
+    groupPosition,
+    leftIcon,
+    rightIcon,
     size,
-    link,
     title,
-    linkFactory: Link
+    type
   } = props
+
   const classNames = cx(
     CLASS,
     CLASSES[type],
+    groupPosition && `${CLASS}-group ${CLASS}-group--${groupPosition}`,
     size && CLASSES[size],
     getModifiers(props).map(key => CLASSES[key]),
     !children && CLASSES.empty,
@@ -67,29 +76,8 @@ const AtomButton = props => {
   )
   const newProps = cleanProps(props)
 
-  const Button = ({children, href, target, disabled, ...attrs}) =>
-    link ? (
-      <Link
-        {...attrs}
-        href={href}
-        target={target}
-        rel={target === '_blank' ? 'noopener' : undefined}
-      >
-        {children}
-      </Link>
-    ) : (
-      <button {...attrs} disabled={disabled}>
-        {children}
-      </button>
-    )
-
   return (
-    <Button
-      {...newProps}
-      className={classNames}
-      title={title}
-      disabled={disabled}
-    >
+    <Button {...newProps} className={classNames} title={title}>
       <span className={`${CLASS}-inner`}>
         {leftIcon && <span className={`${CLASS}-leftIcon`}>{leftIcon}</span>}
         {leftIcon || rightIcon ? (
@@ -127,7 +115,14 @@ AtomButton.propTypes = {
    */
   type: PropTypes.oneOf(TYPES),
   /**
-   * Size of button: 'small', 'large'
+   * Group position: 'first', 'middle' (default), 'last'
+   */
+  groupPosition: PropTypes.oneOf(Object.values(GROUP_POSITIONS)),
+  /**
+   * Size of button{
+   * FIRST: 'first',
+   * MIDDLE: 'middle',
+   * LAST: 'last'}: 'small',
    */
   size: PropTypes.oneOf(SIZES),
   /**
@@ -165,12 +160,20 @@ AtomButton.propTypes = {
   /**
    * Factory used to create navigation links
    */
-  linkFactory: PropTypes.func
+  linkFactory: PropTypes.func,
+  /**
+   * if true, type="submit" (needed when several buttons coexist under the same form)
+   */
+  isSubmit: PropTypes.bool,
+  /**
+   * if true, type="button" (needed when several buttons coexist under the same form)
+   */
+  isButton: PropTypes.bool
 }
 
 AtomButton.defaultProps = {
-  type: 'primary',
-  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>
+  type: 'primary'
 }
 
 export default AtomButton
+export {GROUP_POSITIONS as atomButtonGroupPositions}

@@ -1,0 +1,243 @@
+class SimpleCheckboxRadioForm extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      country: '',
+      category: '',
+      termsService: false
+    }
+
+    this.onChange = this.onChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
+  }
+
+  onChange({value, field}) {
+    this.setState({
+      [field]: value
+    })
+  }
+
+  onSubmit(ev) {
+    ev.preventDefault()
+    ev.stopPropagation()
+
+    window.alert(JSON.stringify(this.state))
+  }
+
+  isCountrySelected(country) {
+    return this.state.country === country
+  }
+
+  isCategorySelected(category) {
+    return this.state.category === category
+  }
+
+  styleIsCategorySelected(category) {
+    return this.isCategorySelected(category)
+      ? {display: 'inline-block', border: '1px solid black'}
+      : {display: 'inline-block', border: '1px solid white'}
+  }
+
+  render() {
+    const {termsService} = this.state
+    return (
+      <form
+        className="Form"
+        style={{
+          border: '1px solid #CCC',
+          background: '#fff',
+          marginTop: '10px',
+          padding: '10px'
+        }}
+        onSubmit={this.onSubmit}
+      >
+        <div style={{marginTop: '10px'}}>
+          <label htmlFor="terms_service">Accept Terms Service</label>
+          <AtomInput
+            id="terms_service"
+            type="checkbox"
+            checked={termsService}
+            onChange={({ev}) => {
+              const value = !termsService
+              this.onChange({value, field: 'termsService', ev})
+            }}
+          />
+        </div>
+        <div style={{marginTop: '10px'}}>
+          <label htmlFor="ES">Spain</label>
+          <AtomInput
+            id="ES"
+            type="radio"
+            value="ES"
+            checked={this.isCountrySelected('ES')}
+            onChange={({ev, value}) => {
+              this.onChange({value, field: 'country', ev})
+            }}
+          />
+          <label style={{marginLeft: '20px'}} htmlFor="IT">
+            Italy
+          </label>
+          <AtomInput
+            id="IT"
+            type="radio"
+            value="IT"
+            checked={this.isCountrySelected('IT')}
+            onChange={({ev, value}) => {
+              this.onChange({value, field: 'country', ev})
+            }}
+          />
+          <label style={{marginLeft: '20px'}} htmlFor="FR">
+            France
+          </label>
+          <AtomInput
+            id="FR"
+            type="radio"
+            value="FR"
+            checked={this.isCountrySelected('FR')}
+            onChange={({ev, value}) => {
+              this.onChange({value, field: 'country', ev})
+            }}
+          />
+        </div>
+        <div
+          style={{
+            marginTop: '10px',
+            padding: '10px'
+          }}
+        >
+          <label
+            htmlFor="categoryHouse"
+            style={this.styleIsCategorySelected('house')}
+          >
+            <img style={imageCheckboxStyle} src={logoHouse} alt="" />
+          </label>
+          <AtomInput
+            hideInput
+            id="categoryHouse"
+            type="radio"
+            value="house"
+            checked={this.isCategorySelected('house')}
+            onChange={({ev, value}) => {
+              this.onChange({value, field: 'category', ev})
+            }}
+          />
+
+          <label
+            htmlFor="categoryRocket"
+            style={this.styleIsCategorySelected('rocket')}
+          >
+            <img style={imageCheckboxStyle} src={logoRocket} alt="" />
+          </label>
+          <AtomInput
+            hideInput
+            id="categoryRocket"
+            type="radio"
+            value="rocket"
+            checked={this.isCategorySelected('rocket')}
+            onChange={({ev, value}) => {
+              this.onChange({value, field: 'category', ev})
+            }}
+          />
+
+          <label
+            htmlFor="categoryGlobe"
+            style={this.styleIsCategorySelected('globe')}
+          >
+            <img style={imageCheckboxStyle} src={logoGlobe} alt="" />
+          </label>
+          <AtomInput
+            hideInput
+            id="categoryGlobe"
+            value="globe"
+            type="radio"
+            checked={this.isCategorySelected('globe')}
+            onChange={({ev, value}) => {
+              this.onChange({value, field: 'category', ev})
+            }}
+          />
+        </div>
+        <pre>
+            { JSON.stringify(this.state, null, 2) }
+        </pre>
+        <button>Send!</button>
+      </form>
+    )
+  }
+}
+
+const field = {
+  marginBottom: '16px'
+}
+
+const bankAccountMask = {
+  mask: 'ES00 0000 0000 00 0000000000'
+}
+
+const logoHouse =
+  'https://cdn4.iconfinder.com/data/icons/icon-flat-icon-set/50/home-512.png'
+const logoRocket =
+  'https://cdn4.iconfinder.com/data/icons/icon-flat-icon-set/50/rocket-128.png'
+const logoGlobe =
+  'https://cdn4.iconfinder.com/data/icons/icon-flat-icon-set/50/globe-2-128.png'
+
+const imageCheckboxStyle = {
+  height: '50px',
+  width: '50px',
+  cursor: 'pointer'
+}
+
+return (
+  <React.Fragment>
+    <div style={field}>
+      <AtomInput
+        size={inputSizes.SMALL}
+        name="first"
+        placeholder="Small input"
+      />
+    </div>
+    <div style={field}>
+      <AtomInput name="second" placeholder="Medium Input" />
+    </div>
+    <div style={field}>
+      <AtomInput name="disabled" placeholder="Medium Disabled Input" disabled />
+    </div>
+    <div style={field}>
+      <AtomInput type="number" name="number" placeholder="Number only input" />
+    </div>
+    <div style={field}>
+      <AtomInput type="date" name="date" />
+    </div>
+    <div style={field}>
+      <AtomInput
+        name="second"
+        placeholder="Medium Input"
+        leftAddon="http://"
+        rightAddon="@schibsted.com"
+      />
+    </div>
+    <div style={field}>
+      <AtomInput name="second" placeholder="Success input" errorState={false} />
+    </div>
+    <div style={field}>
+      <AtomInput name="second" placeholder="Error input" errorState={true} />
+    </div>
+    <div style={field}>
+      <AtomInput
+        type="sui-password"
+        name="password"
+        placeholder="Password Input"
+      />
+    </div>
+    <div style={field}>
+      <AtomInput
+        type="mask"
+        mask={bankAccountMask}
+        placeholder="ES00 0000 0000 00 0000000000"
+      />
+    </div>
+
+    <h2>Checkbox & Radio</h2>
+
+    <SimpleCheckboxRadioForm />
+  </React.Fragment>
+)

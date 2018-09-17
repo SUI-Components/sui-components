@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react'
 import PropTypes from 'prop-types'
-import {Tooltip} from 'reactstrap'
 import withIntersectionObserver from './hoc/withIntersectionObserver'
 
 const BASE_CLASS = 'sui-AtomTooltip'
@@ -25,7 +24,7 @@ const PLACEMENTS = {
 }
 
 class AtomTooltip extends Component {
-  state = {isOpen: false}
+  state = {Tooltip: null, isOpen: false}
   preventNonTouchEvents = false
   hasTouchEnded = false
   touchTimer = null
@@ -39,6 +38,18 @@ class AtomTooltip extends Component {
       return {isOpen: false}
     }
     return null
+  }
+
+  loadAsyncReacstrap(e) {
+    require.ensure(
+      [],
+      require => {
+        const Tooltip = require('reactstrap/lib/Tooltip').default
+        this.setState({Tooltip})
+        this.handleToggle(e)
+      },
+      'reactstrap-Tooltip'
+    )
   }
 
   extendChildren() {
@@ -64,6 +75,11 @@ class AtomTooltip extends Component {
   componentDidMount() {
     const target = this.refTarget.current
     this.props.innerRef(target)
+    ;['touchstart', 'mouseover'].forEach(event =>
+      target.addEventListener(event, e => {
+        if (!this.state.Tooltip) this.loadAsyncReacstrap(e)
+      })
+    )
     ;['click', 'touchend'].forEach(event =>
       window.addEventListener(event, this.handleClickOutsideElement)
     )
@@ -186,6 +202,7 @@ class AtomTooltip extends Component {
       autohide,
       placement
     } = this.props // eslint-disable-line react/prop-types
+    const {Tooltip} = this.state
     const target = this.refTarget.current
     const restrictedProps = {
       hideArrow,
@@ -197,21 +214,22 @@ class AtomTooltip extends Component {
     return (
       <Fragment>
         {this.extendChildren()}
-        {target && (
-          <Tooltip
-            {...restrictedProps}
-            isOpen={this.state.isOpen}
-            toggle={this.handleToggle}
-            className={BASE_CLASS}
-            innerClassName={CLASS_INNER}
-            arrowClassName={CLASS_ARROW}
-            placementPrefix={PREFIX_PLACEMENT}
-            innerRef={this.refTooltip}
-            offset="auto,4px"
-          >
-            {HtmlContent ? <HtmlContent /> : this.title}
-          </Tooltip>
-        )}
+        {target &&
+          Tooltip && (
+            <Tooltip
+              {...restrictedProps}
+              isOpen={this.state.isOpen}
+              toggle={this.handleToggle}
+              className={BASE_CLASS}
+              innerClassName={CLASS_INNER}
+              arrowClassName={CLASS_ARROW}
+              placementPrefix={PREFIX_PLACEMENT}
+              innerRef={this.refTooltip}
+              offset="auto,4px"
+            >
+              {HtmlContent ? <HtmlContent /> : this.title}
+            </Tooltip>
+          )}
       </Fragment>
     )
   }

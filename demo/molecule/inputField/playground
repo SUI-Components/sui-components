@@ -1,0 +1,99 @@
+const withState = BaseComponent => {
+  return class BaseComponentWithState extends React.Component {
+    state = {value: this.props.value || ''}
+
+    onChange = ({value}) => {
+      this.setState({value})
+    }
+
+    render() {
+      const {value} = this.state
+      const {onChange, props} = this
+      return (
+        <div>
+          <BaseComponent {...props} value={value} onChange={onChange} />
+        </div>
+      )
+    }
+  }
+}
+
+const styleList = {
+  listStyle: 'none'
+}
+
+const styleListItem = {
+  marginTop: '50px'
+}
+
+const MoleculeInputFieldWithState = withState(MoleculeInputField)
+
+return (
+  <div>
+    <h1>
+      <code>MoleculeInputField</code>
+    </h1>
+    <ul style={styleList}>
+      <li style={styleListItem}>
+        <h2>With Addons</h2>
+        <MoleculeInputFieldWithState
+          id="second"
+          leftAddon="http://"
+          rightAddon="@schibsted.com"
+          label="Description"
+          value="In some place of La Mancha which name..."
+        />
+      </li>
+      <li style={styleListItem}>
+        <h2>
+          With <code>successText</code>
+        </h2>
+        <MoleculeInputFieldWithState
+          id="description2"
+          label="Description"
+          value="In some place of La Mancha which name..."
+          successText="Everything ok!"
+        />
+      </li>
+      <li style={styleListItem}>
+        <h2>
+          With <code>errorText</code>
+        </h2>
+        <MoleculeInputFieldWithState id="notes" label="Notes" errorText="All wrong!" />
+      </li>
+      <li style={styleListItem}>
+        <h2>
+          With <code>placeholder</code>
+        </h2>
+        <MoleculeInputFieldWithState
+          id="comments"
+          label="Comments"
+          placeholder="Please, write something cool..."
+        />
+      </li>
+      <li style={styleListItem}>
+        <h2>
+          <code>inline</code>
+        </h2>
+        <MoleculeInputFieldWithState
+          id="description-inline"
+          label="Description"
+          successText="Everything ok!"
+          inline
+          value="Lorem ipsum dolor sit amet"
+        />
+      </li>
+      <li style={styleListItem}>
+        <h2>
+          With <code>helpText</code>
+        </h2>
+        <MoleculeInputFieldWithState
+          id="description-inline2"
+          label="Description"
+          helpText="Tu descripción en Latin"
+          value="Lorem ipsum dolor sit amet"
+        />
+      </li>
+    </ul>
+  </div>
+)

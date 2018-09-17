@@ -1,7 +1,7 @@
 {
-  "name": "@schibstedspain/sui-components",
+  "name": "@s-ui/react-components",
   "version": "1.2.0",
-  "description": "Mono repo containing all SUI components. Multi package for every SUI component.",
+  "description": "Mono repo, multi package containing all SUI components.",
   "private": true,
   "scripts": {
     "build": "sui-studio build",
@@ -9,6 +9,7 @@
     "co": "sui-studio commit",
     "commitmsg": "validate-commit-msg",
     "deploy": "sui-deploy spa sui-components --now -p",
+    "dev": "sui-studio dev",
     "generate": "sui-studio generate -S schibstedspain",
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",
@@ -18,7 +19,7 @@
     "precommit": "sui-precommit run",
     "release": "sui-studio release",
     "start": "sui-studio start",
-    "test": "jest"
+    "test": "echo"
   },
   "repository": {},
   "keywords": [],
@@ -28,11 +29,7 @@
     "@s-ui/deploy": "2",
     "@s-ui/precommit": "2",
     "@s-ui/studio": "5",
-    "babel-jest": "20.0.3",
-    "enzyme": "3.3.0",
-    "enzyme-adapter-react-16": "1.1.1",
     "husky": "0.13.4",
-    "jest": "20.0.4",
     "validate-commit-msg": "2.12.2"
   },
   "dependencies": {
@@ -59,7 +56,7 @@
         "atom/tag",
         "atom/tooltip",
         "atom/validationText",
-        "breadcrumb/basic",
+        "molecule/breadcrumb",
         "molecule/notification",
         "molecule/tabs",
         "molecule/thumbnail",

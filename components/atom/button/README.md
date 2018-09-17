@@ -46,6 +46,46 @@ return (<div>
 
 ```
 
+### Button inside Form
+
+By default `AtomButton` inside a `form` will submit the form
+
+```js
+import Button from '@schibstedspain/sui-atom-button'
+
+return (
+  <form onSubmit={() => window.alert('Submit!')}>
+    <div>
+      <input type="text" placeholder="Put your name" />
+    </div>
+    <div>
+      <Button>Submit</Button>
+    </div>
+  </form>
+)
+```
+
+If we need several `AtomButton` inside a form we can specify which one we want to submit the form w/ props `isButton` and `isSubmit`
+
+```js
+import Button from '@schibstedspain/sui-atom-button'
+
+return (
+  <form onSubmit={() => window.alert('Submit!')}>
+    <div>
+      <input type="text" placeholder="Put your name" />
+    </div>
+    <div>
+      <Button isButton onClick={() => window.alert('Click!')}>Click Me!</Button>
+      <Button isButton onClick={() => window.alert('Click!')}>Click Me!</Button>
+    </div>
+    <div>
+      <Button isSubmit>Submit</Button>
+    </div>
+  </form>
+)
+```
+
 ### Rendering a link
 When `link` property is passed, the component will render an html link.
 

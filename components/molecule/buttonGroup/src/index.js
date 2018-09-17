@@ -14,7 +14,7 @@ const MoleculeButtonGroup = ({
   children, // eslint-disable-line react/prop-types
   fullWidth,
   groupPositions,
-  type = 'secondary',
+  type,
   ...props
 }) => {
   const numChildren = children.length
@@ -52,7 +52,8 @@ MoleculeButtonGroup.defaultProps = {
     FIRST: 'first',
     MIDDLE: 'middle',
     LAST: 'last'
-  }
+  },
+  type: 'secondary'
 }
 
 export default MoleculeButtonGroup

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-form-input": "1",
+    "@s-ui/react-atom-input": "1",
     "@s-ui/react-molecule-field": "1"
   },
   "keywords": [],

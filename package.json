@@ -57,6 +57,7 @@
         "atom/tooltip",
         "atom/validationText",
         "molecule/breadcrumb",
+        "molecule/buttonGroup",
         "molecule/notification",
         "molecule/tabs",
         "molecule/thumbnail",

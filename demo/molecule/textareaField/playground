@@ -48,6 +48,7 @@ return (
           id="notes"
           label="Notes"
           errorText="All wrong!"
+          value="In some place of La Mancha which name..."
           maxChars={30}
         />
       </li>

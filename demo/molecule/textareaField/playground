@@ -48,7 +48,7 @@ return (
           label="Notes"
           errorText="All wrong!"
           value="In some place of La Mancha which name..."
-          maxChars={30}
+          maxChars={60}
         />
       </li>
     </ul>

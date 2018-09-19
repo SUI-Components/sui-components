@@ -26,7 +26,6 @@ const AUTO_CLOSE_TIME = {
 }
 
 const TRANSITION_DELAY = 1000 // ms
-const TEXT_MAX_LENGTH = 110 // chars
 const BUTTONS_MAX = 3 // buttons
 
 class MoleculeNotification extends Component {
@@ -37,6 +36,13 @@ class MoleculeNotification extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.state.show !== nextProps.show && this.toggleShow()
+  }
+
+  componentDidMount() {
+    const {show} = this.state
+    if (show) {
+      this.autoCloseIfRequired()
+    }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -51,18 +57,25 @@ class MoleculeNotification extends Component {
 
   toggleShow = () => {
     const show = !this.state.show
-    const {onClose, effect, autoClose} = this.props
+    const {onClose, effect} = this.props
 
     effect
       ? this.setState({show, delay: true}, this.removeDelay(show))
       : this.setState({show})
 
     if (show) {
-      const autoCloseTime = AUTO_CLOSE_TIME[autoClose]
-      autoCloseTime && this.autoClose(autoCloseTime)
+      this.autoCloseIfRequired()
     } else {
       clearTimeout(this.autoCloseTimout)
       onClose()
+    }
+  }
+
+  autoCloseIfRequired() {
+    const {autoClose: autoCloseTiming} = this.props
+
+    if (AUTO_CLOSE_TIME[autoCloseTiming]) {
+      this.autoClose(AUTO_CLOSE_TIME[autoCloseTiming])
     }
   }
 
@@ -80,11 +93,6 @@ class MoleculeNotification extends Component {
     }, delay)
   }
 
-  getText = () => {
-    const {text} = this.props
-    return text.substring(0, TEXT_MAX_LENGTH)
-  }
-
   getButtons = () => {
     const {buttons} = this.props
     return buttons
@@ -94,7 +102,15 @@ class MoleculeNotification extends Component {
 
   render() {
     const {show, delay} = this.state
-    const {type, buttons, icon, position, showCloseButton, effect} = this.props
+    const {
+      type,
+      buttons,
+      icon,
+      position,
+      showCloseButton,
+      effect,
+      text
+    } = this.props
     const wrapperClassName = cx(
       `${CLASS} ${CLASS}--${type} ${CLASS}--${position}`,
       {
@@ -114,7 +130,7 @@ class MoleculeNotification extends Component {
             <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
           </div>
           <div className={`${CLASS}-text`}>
-            <span>{this.getText()}</span>
+            <span>{text}</span>
           </div>
           {showCloseButton && (
             <div className={`${CLASS}-iconClose`} onClick={this.toggleShow}>
@@ -136,7 +152,7 @@ MoleculeNotification.displayName = 'MoleculeNotification'
 
 MoleculeNotification.propTypes = {
   /**
-   * Auto close time: 'short' (3s), 'medium' (6s), 'long' (9s), 'manual' (disabled)
+   * Auto close time: 'short' (3s), 'medium' (6s), 'long' (9s), 'manual' or null (disabled)
    */
   autoClose: PropTypes.string,
   /**
@@ -164,7 +180,7 @@ MoleculeNotification.propTypes = {
    */
   showCloseButton: PropTypes.bool,
   /**
-   * Content text. Max: 110 chars
+   * Content text
    */
   text: PropTypes.string,
   /**

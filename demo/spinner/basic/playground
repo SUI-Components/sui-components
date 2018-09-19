@@ -1,8 +1,0 @@
-/* eslint-disable react/react-in-jsx-scope, react/jsx-no-undef */
-return (
-  <div>
-    <SpinnerBasic size='small' />
-    <SpinnerBasic />
-    <SpinnerBasic size='large' />
-  </div>
-)

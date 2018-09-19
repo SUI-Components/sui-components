@@ -2,115 +2,65 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {ToggleSwitchTypeRender} from './SwitchType/toggle'
 import {SingleSwitchTypeRender} from './SwitchType/single'
-
-export const BASE_CLASS = 'sui-AtomSwitch'
-
-export const SIZES = {
-  DEFAULT: 'default',
-  LARGE: 'large'
-}
-
-export const TYPES = {
-  TOGGLE: 'toggle',
-  SELECT: 'select',
-  SINGLE: 'single'
-}
+import {SIZES, TYPES, SUPPORTED_KEYS} from './config'
 
 class AtomSwitch extends Component {
   state = {
-    toggle: false,
-    isFocus: false
+    isToggle: this.props.initialValue,
+    isFocus: false,
+    isClick: false
   }
 
-  constructor(props) {
-    super(props)
+  _onKeyDown = event => {
+    if (this.props.disabled === true) return
 
-    this.executeIfEnabledFocusSwitch = this.executeIfEnabled(this.focusSwitch)
-    this.executeIfEnabledFocusOutSwitch = this.executeIfEnabled(
-      this.focusOutSwitch
-    )
-    this.executeIfEnabledToggleSwitch = this.executeIfEnabled(this.toggleSwitch)
-    this.executeIfEnabledActivateSwitch = this.executeIfEnabled(
-      this.activateToggle
-    )
-    this.executeIfEnabledDeactivateSwitch = this.executeIfEnabled(
-      this.deactivateToggle
-    )
-  }
-
-  componentDidMount() {
-    window.addEventListener('keydown', this.keyBindings, true)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.keyBindings, true)
-  }
-
-  keyBindings = event => {
-    const {isFocus} = this.state
-    if (!isFocus || event.defaultPrevented) {
-      return
-    }
-    if (
-      event.key === 'Enter' ||
-      event.key === ' ' ||
-      event.key === 'Spacebar'
-    ) {
-      this.toggleSwitch()
+    if (SUPPORTED_KEYS.includes(event.key)) {
+      this._onToggle()
       event.preventDefault()
     }
   }
 
-  toggleSwitch = () => {
-    const {toggle} = this.state
+  _onToggle = forceValue => {
+    if (this.props.disabled === true) return
+    const {isToggle: stateToggle} = this.state
     const {onToggle} = this.props
-    this.setState({toggle: !toggle}, () => onToggle(!toggle))
+    const isToggle = forceValue !== undefined ? forceValue : !stateToggle
+    this.setState({isToggle}, () => onToggle(isToggle))
   }
 
-  activateToggle = () => {
-    this.setState({toggle: true})
+  _onBlur = () => {
+    this.setState({isFocus: false, isClick: false})
   }
 
-  deactivateToggle = () => {
-    this.setState({toggle: false})
+  _onFocus = e => {
+    setTimeout(() => {
+      this.setState({isFocus: true})
+    }, 150)
   }
 
-  executeIfEnabled = func => () => {
-    const {disabled} = this.props
-    !disabled && func()
-  }
-
-  focusSwitch = () => {
-    this.setState({isFocus: true})
-  }
-
-  focusOutSwitch = () => {
-    this.setState({isFocus: false})
+  _onClick = e => {
+    this.setState({isClick: true})
   }
 
   render() {
-    const {toggle, isFocus} = this.state
+    const {isToggle, isFocus, isClick} = this.state
+
+    const commonProps = {
+      ...this.props,
+      isFocus,
+      isClick,
+      isToggle,
+      onBlur: this._onBlur,
+      onClick: this._onClick,
+      onFocus: this._onFocus,
+      onKeyDown: this._onKeyDown,
+      onToggle: this._onToggle
+    }
 
     return this.props.type === TYPES.SINGLE ? (
-      <SingleSwitchTypeRender
-        {...this.props}
-        isToggle={toggle}
-        isFocus={isFocus}
-        focusSwitchCallback={this.executeIfEnabledFocusSwitch}
-        blurSwitchCallback={this.executeIfEnabledFocusOutSwitch}
-        toggleSwitchCallback={this.executeIfEnabledToggleSwitch}
-      />
+      <SingleSwitchTypeRender {...commonProps} />
     ) : (
-      <ToggleSwitchTypeRender
-        {...this.props}
-        isToggle={toggle}
-        isFocus={isFocus}
-        focusSwitchCallback={this.executeIfEnabledFocusSwitch}
-        blurSwitchCallback={this.executeIfEnabledFocusOutSwitch}
-        toggleSwitchCallback={this.executeIfEnabledToggleSwitch}
-        activateToggleCallback={this.executeIfEnabledActivateSwitch}
-        deactivateToggleCallback={this.executeIfEnabledDeactivateSwitch}
-      />
+      <ToggleSwitchTypeRender {...commonProps} />
     )
   }
 }
@@ -118,6 +68,10 @@ class AtomSwitch extends Component {
 AtomSwitch.displayName = 'AtomSwitch'
 
 AtomSwitch.propTypes = {
+  /**
+   * Wheter switch is checked on init
+   */
+  initialValue: PropTypes.bool,
   /**
    * Size of switch: 'default', 'large'
    */
@@ -157,10 +111,11 @@ AtomSwitch.propTypes = {
 }
 
 AtomSwitch.defaultProps = {
-  size: SIZES.DEFAULT,
   disabled: false,
+  initialValue: false,
   labelLeft: 'Off',
   labelRight: 'On',
+  size: SIZES.DEFAULT,
   type: TYPES.TOGGLE
 }
 

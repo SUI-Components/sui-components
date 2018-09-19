@@ -1,0 +1,22 @@
+@import '~@schibstedspain/sui-atom-button/lib/index';
+
+.DemoMoleculeButtonGroup {
+
+  &-section {
+    margin: 10px;
+    
+    &--fullWidth {
+      border: 2px dashed blue;
+      overflow: hidden;
+      padding: 10px;
+      resize: horizontal;
+      margin-right: 20px;
+    }
+
+    &--negative {
+      background: rgb(68, 68, 68);
+      display: inline-block;
+      padding: 10px;
+    }
+  }
+}

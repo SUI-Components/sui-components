@@ -2,6 +2,69 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2018-09-14)
+
+
+### Features
+
+* bump to v1.7.0 ([355d0be](https://github.com/SUI-Components/sui-components/commit/355d0be))
+
+
+
+<a name="2.0.0"></a>
+# 2.0.0 (2018-09-14)
+
+
+### Bug Fixes
+
+* fix autoClose behaviour ([dbd42c9](https://github.com/SUI-Components/sui-components/commit/dbd42c9)), closes [#519](https://github.com/SUI-Components/sui-components/issues/519)
+
+
+### Features
+
+* check if show=true in component did update ([e470167](https://github.com/SUI-Components/sui-components/commit/e470167))
+* encapsulate check if can autoClose ([d5f920e](https://github.com/SUI-Components/sui-components/commit/d5f920e))
+* remove unnecessary check condition ([71c046b](https://github.com/SUI-Components/sui-components/commit/71c046b))
+
+
+### BREAKING CHANGES
+
+* autoClose prop
+
+
+
+<a name="1.6.0"></a>
+# 1.6.0 (2018-08-31)
+
+
+### Features
+
+* minor change to do release ([db3e66f](https://github.com/SUI-Components/sui-components/commit/db3e66f))
+
+
+
+<a name="1.5.0"></a>
+# 1.5.0 (2018-08-31)
+
+
+### Features
+
+* updated the styles to locate the icon according to the definition of UX ([f3c337d](https://github.com/SUI-Components/sui-components/commit/f3c337d))
+
+
+
+<a name="1.4.0"></a>
+# 1.4.0 (2018-06-13)
+
+
+### Bug Fixes
+
+* delete max length ([24216ec](https://github.com/SUI-Components/sui-components/commit/24216ec))
+* fix context ([dc8da7e](https://github.com/SUI-Components/sui-components/commit/dc8da7e))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-05-17)
 

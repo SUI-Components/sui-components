@@ -1,0 +1,15 @@
+$bgc-collapsible-container: $c-white !default;
+$bgc-collapsible-container-transparent: rgba($bgc-collapsible-container, 0);
+$bg-collapsible-container-gradient: linear-gradient(
+  to top,
+  $bgc-collapsible-container 20%,
+  $bgc-collapsible-container-transparent 80%
+);
+$c-collapsible-btn: $c-primary !default;
+$c-collapsible-icon: $c-collapsible-btn !default;
+$h-collapsible-container-gradient: 48px !default;
+$mh-collapsible-btn: 24px !default;
+$mt-collapsible-btn: $m-l !default;
+$p-collapsible-btn: $p-s !default;
+$bd-collapsible-btn-focus: 0 0 0 1px  $c-gray inset !default;
+$trs-collapsible-content: all 0.25s ease-in-out !default;

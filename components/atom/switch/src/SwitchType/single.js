@@ -1,45 +1,51 @@
 import React from 'react'
 import cx from 'classnames'
 import AtomLabel from '@s-ui/react-atom-label'
-import {prefixClass, workClassNames} from './helpers'
+import {suitClass, switchClassNames} from './helpers'
 import PropTypes from 'prop-types'
 
 export const SingleSwitchTypeRender = ({
-  name,
+  disabled,
+  isFocus,
+  isClick,
+  isToggle,
   label,
   labelOptionalText,
+  name,
+  onBlur,
+  onFocus,
+  onClick,
+  onKeyDown,
+  onToggle,
   size,
-  type,
-  disabled,
-  isToggle,
-  isFocus,
-  focusSwitchCallback,
-  blurSwitchCallback,
-  toggleSwitchCallback
+  type
 }) => {
   return (
     <div
-      className={workClassNames(
+      className={switchClassNames(
         size,
         type,
         'singleType',
         isToggle,
         isFocus,
+        isClick,
         disabled
       )}
-      onClick={toggleSwitchCallback}
+      onClick={() => onToggle()}
     >
       <div
-        className={prefixClass('container')}
+        className={suitClass({element: 'container'})}
         tabIndex="0"
-        onFocus={focusSwitchCallback}
-        onBlur={blurSwitchCallback}
+        onKeyDown={onKeyDown}
+        onFocus={onFocus}
+        onClick={onClick}
+        onBlur={onBlur}
       >
         <AtomLabel name={name} text={label} optionalText={labelOptionalText} />
-        <div className={prefixClass('inputContainer')}>
+        <div className={suitClass({element: 'inputContainer'})}>
           <div
-            className={cx(prefixClass('circle'), {
-              'sui-AtomSwitch--toggle': isToggle
+            className={cx(suitClass({element: 'circle'}), {
+              [suitClass({modifier: 'toggle'})]: isToggle
             })}
           />
         </div>
@@ -84,15 +90,27 @@ SingleSwitchTypeRender.propTypes = {
    */
   isFocus: PropTypes.bool,
   /**
+   * Is component click
+   */
+  isClick: PropTypes.bool,
+  /**
    * Callback on focus element
    */
-  focusSwitchCallback: PropTypes.func,
+  onFocus: PropTypes.func,
+  /**
+   * Callback on click element
+   */
+  onClick: PropTypes.func,
   /**
    * Callback on toggle element
    */
-  blurSwitchCallback: PropTypes.func,
+  onBlur: PropTypes.func,
   /**
    * Callback on toggle element
    */
-  toggleSwitchCallback: PropTypes.func
+  onToggle: PropTypes.func,
+  /**
+   * Callback on keydown on the switch
+   */
+  onKeyDown: PropTypes.func
 }

@@ -1,7 +1,0 @@
-@import '~@schibstedspain/sui-thumbnail-basic/lib/index';
-@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
-@import '~@schibstedspain/sui-theme/lib/index';
-
-.sui-ThumbnailList {
-  @include sui-list('grow');
-}

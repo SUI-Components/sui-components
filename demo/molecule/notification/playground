@@ -13,8 +13,8 @@ const BUTTONS = [
 
 const TEXT = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae orci consectetur, suscipit ligula vel.'
 
-function showAlert () {
-	alert('Close it!')
+function logClose () {
+	console.log('Closed!')
 }
 
 function Title ({children}) {
@@ -65,10 +65,10 @@ return (
     <h2>Types</h2>
     <Title>Info</Title>
     <MoleculeNotification
-      autoClose='manual' 
+      autoClose={'manual'}
       text={TEXT}
       buttons={BUTTONS}
-      onClose={showAlert}
+      onClose={logClose}
     />
     <Title>Success</Title>
     <MoleculeNotification
@@ -76,7 +76,7 @@ return (
       text={TEXT}
       type='success'
       buttons={BUTTONS}
-      onClose={showAlert}
+      onClose={logClose}
     />
     <Title>Warning</Title>
     <MoleculeNotification 
@@ -84,7 +84,7 @@ return (
       text={TEXT}
       type='warning'
       buttons={BUTTONS}
-      onClose={showAlert}
+      onClose={logClose}
     />
     <Title>Error</Title>
     <MoleculeNotification 
@@ -92,7 +92,7 @@ return (
       text={TEXT}
       type='error'
       buttons={BUTTONS}
-      onClose={showAlert}
+      onClose={logClose}
     />
     <Title>System</Title>
     <MoleculeNotification
@@ -100,7 +100,29 @@ return (
       text={TEXT}
       type='system'
       buttons={BUTTONS}
-      onClose={showAlert}
+      onClose={logClose}
+    />
+    <br/>
+    <h2>AutoClose</h2>
+    <Title>Short</Title>
+    <MoleculeNotification
+      text={TEXT}
+      buttons={BUTTONS}
+      onClose={logClose}
+    />
+    <Title>Medium</Title>
+    <MoleculeNotification
+      autoClose='medium'
+      text={TEXT}
+      buttons={BUTTONS}
+      onClose={logClose}
+    />
+    <Title>Long</Title>
+    <MoleculeNotification
+      autoClose='long'
+      text={TEXT}
+      buttons={BUTTONS}
+      onClose={logClose}
     />
     <br/>
     <h2>Positions</h2>

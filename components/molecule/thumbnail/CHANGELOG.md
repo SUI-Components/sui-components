@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2018-06-07)
+
+
+### Bug Fixes
+
+* change background color caption container ([47f4770](https://github.com/SUI-Components/sui-components/commit/47f4770))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2018-05-15)
 

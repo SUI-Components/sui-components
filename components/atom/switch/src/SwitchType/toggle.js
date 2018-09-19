@@ -1,63 +1,73 @@
 import React from 'react'
 import cx from 'classnames'
 import AtomLabel from '@s-ui/react-atom-label'
-import {prefixClass, workClassNames} from './helpers'
+import {suitClass, switchClassNames} from './helpers'
 import PropTypes from 'prop-types'
 
 export const ToggleSwitchTypeRender = ({
-  name,
-  label,
-  labelOptionalText,
-  labelLeft,
-  labelRight,
-  size,
-  type,
   disabled,
-  isToggle,
   isFocus,
-  focusSwitchCallback,
-  blurSwitchCallback,
-  toggleSwitchCallback,
-  activateToggleCallback,
-  deactivateToggleCallback
+  isClick,
+  isToggle,
+  label,
+  labelLeft,
+  labelOptionalText,
+  labelRight,
+  name,
+  onBlur,
+  onFocus,
+  onClick,
+  onKeyDown,
+  onToggle,
+  size,
+  type
 }) => {
   return (
     <div
-      className={workClassNames(
+      className={switchClassNames(
         size,
         type,
         'toggleType',
         isToggle,
         isFocus,
+        isClick,
         disabled
       )}
     >
       <AtomLabel name={name} text={label} optionalText={labelOptionalText} />
       <div
-        className={cx(prefixClass('container'))}
+        className={cx(suitClass({element: 'container'}))}
         tabIndex="0"
-        onFocus={focusSwitchCallback}
-        onBlur={blurSwitchCallback}
+        onFocus={onFocus}
+        onClick={onClick}
+        onBlur={onBlur}
+        onKeyDown={onKeyDown}
       >
         <span
-          className={cx(prefixClass('text'), prefixClass('left'))}
-          onClick={deactivateToggleCallback}
+          className={cx(
+            suitClass({element: 'text'}),
+            suitClass({element: 'left'})
+          )}
+          onClick={() => onToggle(false)}
         >
           {labelLeft}
         </span>
         <div
-          className={cx(prefixClass('inputContainer'))}
-          onClick={toggleSwitchCallback}
+          className={cx(suitClass({element: 'inputContainer'}))}
+          onClick={() => onToggle()}
         >
           <div
-            className={cx(prefixClass('circle'), {
-              'sui-AtomSwitch--toggle': isToggle
+            className={cx(suitClass({element: 'circle'}), {
+              [suitClass({modifier: 'toggle'})]: isToggle
             })}
           />
         </div>
         <span
-          className={cx(prefixClass('text'), prefixClass('right'))}
-          onClick={activateToggleCallback}
+          className={cx(
+            suitClass({element: 'text'}),
+            suitClass({element: 'right'})
+          )}
+          onClick={() => onToggle(true)}
         >
           {labelRight}
         </span>
@@ -110,23 +120,27 @@ ToggleSwitchTypeRender.propTypes = {
    */
   isFocus: PropTypes.bool,
   /**
+   * Is component click
+   */
+  isClick: PropTypes.bool,
+  /**
    * Callback on focus element
    */
-  focusSwitchCallback: PropTypes.func,
+  onFocus: PropTypes.func,
+  /**
+   * Callback on click element
+   */
+  onClick: PropTypes.func,
   /**
    * Callback on blur element
    */
-  blurSwitchCallback: PropTypes.func,
+  onBlur: PropTypes.func,
   /**
    * Callback on toggle element
    */
-  toggleSwitchCallback: PropTypes.func,
+  onToggle: PropTypes.func,
   /**
-   * Calback on activate toggle
+   * Callback on keydown on the switch
    */
-  activateToggleCallback: PropTypes.func,
-  /**
-   * Callback on deacrtivate toggle
-   */
-  deactivateToggleCallback: PropTypes.func
+  onKeyDown: PropTypes.func
 }

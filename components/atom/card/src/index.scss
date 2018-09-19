@@ -1,6 +1,30 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
+$c-highlight: #fffed4;
+
 .sui-AtomCard {
+  display: flex;
+  border: 1px solid red;
+  
+  &-href {
+    cursor: pointer;
+  }
+
+  &-highlight {
+    background: $c-highlight;
+  }
+
+  &-vertical {
+    flex-direction: column;
+    .sui-AtomCard-media {
+      width: 100%;
+    }
+  }
+
+  &-media {
+    width: 33%;
+  }
+
   &-info {
     padding: 16px;
   }

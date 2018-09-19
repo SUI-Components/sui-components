@@ -28,7 +28,6 @@ return (
           label="Description"
           helpText="Tu descripción en Latin"
           textCharacters="caracteres"
-          value="Lorem ipsum dolor sit amet"
         />
       </li>
       <li>

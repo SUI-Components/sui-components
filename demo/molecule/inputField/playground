@@ -51,7 +51,6 @@ return (
           leftAddon="http://"
           rightAddon="@schibsted.com"
           label="Description"
-          value="In some place of La Mancha which name..."
         />
       </li>
       <li style={styleListItem}>
@@ -62,7 +61,6 @@ return (
           id="description-inline2"
           label="Description"
           helpText="Tu descripción en Latin"
-          value="Lorem ipsum dolor sit amet"
         />
       </li>
       <li style={styleListItem}>

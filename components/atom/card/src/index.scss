@@ -1,6 +1,6 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$c-highlight: #fffed4;
+$c-highlight: #fffed4 default;
 
 .sui-AtomCard {
   display: flex;
@@ -15,9 +15,11 @@ $c-highlight: #fffed4;
 
   &-vertical {
     flex-direction: column;
+
     .sui-AtomCard-media {
       width: 100%;
     }
+
   }
 
   &-media {

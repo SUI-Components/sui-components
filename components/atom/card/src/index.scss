@@ -4,9 +4,18 @@ $c-highlight: #fffed4 default;
 
 .sui-AtomCard {
   display: flex;
-  
-  &-href {
-    cursor: pointer;
+
+  &-media {
+    width: 33%;
+  }
+
+  &-info {
+    padding: 16px;
+  }
+
+  &-link {
+    color: inherit;
+    text-decoration: none;
   }
 
   &-highlight {
@@ -22,11 +31,4 @@ $c-highlight: #fffed4 default;
 
   }
 
-  &-media {
-    width: 33%;
-  }
-
-  &-info {
-    padding: 16px;
-  }
 }

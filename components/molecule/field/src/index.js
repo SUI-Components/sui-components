@@ -56,7 +56,7 @@ class MoleculeField extends Component {
               text={this.statusValidationText}
             />
           )}
-          <AtomHelpText text={helpText} />
+          {helpText && <AtomHelpText text={helpText} />}
         </div>
       </div>
     )

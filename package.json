@@ -54,6 +54,7 @@
         "atom/spinner",
         "atom/switch",
         "atom/tag",
+        "atom/textarea",
         "atom/tooltip",
         "atom/validationText",
         "molecule/breadcrumb",

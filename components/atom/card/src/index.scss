@@ -1,6 +1,6 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$c-highlight: #fffed4 !default;
+$c-atom-card-highlight: #fffed4 !default;
 
 .sui-AtomCard {
   display: flex;
@@ -19,7 +19,7 @@ $c-highlight: #fffed4 !default;
   }
 
   &-highlight {
-    background: $c-highlight;
+    background: $c-atom-card-highlight;
   }
 
   &-vertical {

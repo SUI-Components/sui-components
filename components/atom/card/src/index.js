@@ -6,6 +6,10 @@ const BASE_CLASS = 'sui-AtomCard'
 const CLASS_MEDIA = `${BASE_CLASS}-media`
 const CLASS_INFO = `${BASE_CLASS}-info`
 
+const CLASS_VERTICAL = `${BASE_CLASS}-vertical`
+const CLASS_HIGHLIGHT = `${BASE_CLASS}-highlight`
+const CLASS_LINK = `${BASE_CLASS}-link`
+
 class AtomCard extends Component {
   redirectToHref = () => {
     const {href} = this.props
@@ -30,9 +34,9 @@ class AtomCard extends Component {
       <div
         className={cx(
           BASE_CLASS,
-          vertical && `${BASE_CLASS}-vertical`,
-          highlight && `${BASE_CLASS}-highlight`,
-          href && `${BASE_CLASS}-href`
+          vertical && CLASS_VERTICAL,
+          highlight && CLASS_HIGHLIGHT,
+          href && CLASS_LINK
         )}
         tabIndex={tabIndex}
         onClick={this.redirectToHref}

@@ -23,6 +23,14 @@
       resize: horizontal;
     }
 
+    &--responsive-vertical {
+      max-width: 1000px;
+      border: 2px dashed blue;
+      overflow: hidden;
+      resize: horizontal;
+      width: 200px;
+    }
+
   }
 
 }

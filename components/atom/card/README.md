@@ -1,6 +1,6 @@
 # AtomCard
 
-AtomCard is component that structures two main containers (media & info for example), with the purpose of giving  information about a product/client/article and linking to more detailed information about it.
+AtomCard is a component that structures two main containers (media & info for example), with the purpose of giving  information about a product/client/article and linking to more detailed information about it.
 
 ## Installation
 

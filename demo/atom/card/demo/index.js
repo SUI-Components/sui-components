@@ -10,8 +10,8 @@ import './index.scss'
 
 const srcImageCar =
   'http://media.astropublications.com.my/media/cars/assets/news/2016/10/week%204/mercedes-benz%20suv/mercedes-benz-glc-coupe-1.jpg'
-const urlTarget = 'https://www.coches.net/'
-const urlTarget2 = 'https://www.infojobs.net/'
+const urlTarget = 'https://www.google.com/'
+const urlTarget2 = 'https://www.twitter.com/'
 
 const CarImage = () => <AtomImage src={srcImageCar} alt="" />
 const CarInfo = () => (
@@ -39,7 +39,7 @@ const Demo = () => {
           Basic with <code>href</code>
         </h2>
         <AtomCard
-          tabindex="1"
+          tabIndex="1"
           media={CarImage}
           content={CarInfo}
           href={urlTarget}
@@ -49,14 +49,14 @@ const Demo = () => {
         <h2>
           Basic without <code>href</code>
         </h2>
-        <AtomCard tabindex="2" media={CarImage} content={CarInfoLinks} />
+        <AtomCard tabIndex="2" media={CarImage} content={CarInfoLinks} />
       </div>
       <div className="DemoAtomCard-section">
         <h2>
           Basic with <code>href</code> and secondary actions
         </h2>
         <AtomCard
-          tabindex="2"
+          tabIndex="2"
           media={CarImage}
           href={urlTarget}
           content={CarInfoLinks}
@@ -67,7 +67,7 @@ const Demo = () => {
           Basic with <code>highlight</code>
         </h2>
         <AtomCard
-          tabindex="3"
+          tabIndex="3"
           media={CarImage}
           content={CarInfo}
           href={urlTarget}
@@ -77,7 +77,7 @@ const Demo = () => {
       <div className="DemoAtomCard-section DemoAtomCard-section--vertical">
         <h2>Vertical</h2>
         <AtomCard
-          tabindex="4"
+          tabIndex="4"
           media={CarImage}
           content={CarInfo}
           href={urlTarget}
@@ -85,13 +85,13 @@ const Demo = () => {
         />
       </div>
       <div className="DemoAtomCard-section DemoAtomCard-section--responsive">
-        <h2>Horizontal/Vertical Responsive</h2>
+        <h2>From Horizontal to Vertical Responsive</h2>
         <LayoutMediaQuery>
           {({S}) => {
             if (S)
               return (
                 <AtomCard
-                  tabindex="5"
+                  tabIndex="5"
                   media={CarImage}
                   content={CarInfo}
                   href={urlTarget}
@@ -99,7 +99,32 @@ const Demo = () => {
               )
             return (
               <AtomCard
-                tabindex="5"
+                tabIndex="5"
+                media={CarImage}
+                content={CarInfo}
+                href={urlTarget}
+                vertical
+              />
+            )
+          }}
+        </LayoutMediaQuery>
+      </div>
+      <div className="DemoAtomCard-section DemoAtomCard-section--responsive-vertical">
+        <h2>From Vertical to Horizontal Responsive</h2>
+        <LayoutMediaQuery>
+          {({S}) => {
+            if (S)
+              return (
+                <AtomCard
+                  tabIndex="5"
+                  media={CarImage}
+                  content={CarInfo}
+                  href={urlTarget}
+                />
+              )
+            return (
+              <AtomCard
+                tabIndex="5"
                 media={CarImage}
                 content={CarInfo}
                 href={urlTarget}

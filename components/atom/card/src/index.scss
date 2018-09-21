@@ -1,16 +1,17 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
 $c-atom-card-highlight: #fffed4 !default;
+$w-atom-card-media: 33% !default;
 
 .sui-AtomCard {
   display: flex;
 
   &-media {
-    width: 33%;
+    width: $w-atom-card-media;
   }
 
   &-info {
-    padding: 16px;
+    padding: $p-l;
   }
 
   &-link {

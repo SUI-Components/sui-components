@@ -54,12 +54,16 @@
         "atom/spinner",
         "atom/switch",
         "atom/tag",
+        "atom/textarea",
         "atom/tooltip",
         "atom/validationText",
         "molecule/breadcrumb",
         "molecule/buttonGroup",
+        "molecule/field",
+        "molecule/inputField",
         "molecule/notification",
         "molecule/tabs",
+        "molecule/textareaField",
         "molecule/thumbnail",
         "molecule/collapsible"
       ]

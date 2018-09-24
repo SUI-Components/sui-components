@@ -156,9 +156,7 @@ class SimpleCheckboxRadioForm extends React.Component {
             }}
           />
         </div>
-        <pre>
-            { JSON.stringify(this.state, null, 2) }
-        </pre>
+        <pre>{JSON.stringify(this.state, null, 2)}</pre>
         <button>Send!</button>
       </form>
     )
@@ -185,6 +183,9 @@ const imageCheckboxStyle = {
   width: '50px',
   cursor: 'pointer'
 }
+
+const logoLocation = 'https://image.flaticon.com/icons/svg/67/67347.svg'
+const LeftAddonComponent = () => <img src={logoLocation} />
 
 return (
   <React.Fragment>
@@ -213,6 +214,13 @@ return (
         placeholder="Medium Input"
         leftAddon="http://"
         rightAddon="@schibsted.com"
+      />
+    </div>
+    <div style={field}>
+      <AtomInput
+        name="second"
+        placeholder="Medium Input"
+        leftIcon={LeftAddonComponent}
       />
     </div>
     <div style={field}>

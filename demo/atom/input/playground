@@ -224,6 +224,15 @@ return (
       />
     </div>
     <div style={field}>
+      <AtomInput
+        name="second"
+        placeholder="Medium Input"
+        leftIcon={LeftAddonComponent}
+        leftAddon="http://"
+        rightAddon="@schibsted.com"
+      />
+    </div>
+    <div style={field}>
       <AtomInput name="second" placeholder="Success input" errorState={false} />
     </div>
     <div style={field}>

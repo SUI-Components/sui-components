@@ -4,6 +4,13 @@ $bgc-atom-input-addon: $c-gray-lightest !default;
 $bdc-atom-input-addon: $c-gray-light !default;
 $c-atom-input-addon: $c-gray-light !default;
 
+$l-atom-input-icon: $gutter !default;
+$w-atom-input-icon: $sz-icon-m !default;
+$h-atom-input-icon: $sz-icon-m !default;
+$t-atom-input-icon: 50% !default;
+$trf-ty-atom-input-icon: -50% !default;
+$pl-atom-input-icon: 50px !default;
+
 .sui-AtomInput-addon {
   &Wrapper {
     display: flex;
@@ -27,4 +34,33 @@ $c-atom-input-addon: $c-gray-light !default;
   &--left {
     border-width: $bdw-atom-input-addon-left;
   }
+
+  &--withIcon {
+    position: relative;
+    width: 100%;
+  
+    .sui-AtomInput-input {
+      padding-left: $pl-atom-input-icon;
+    }
+  
+    &-icon {
+      align-items: center;
+      color: $c-primary;
+      cursor: pointer;
+      display: flex;
+      height: $w-atom-input-icon;
+      justify-content: center;
+      left: $l-atom-input-icon;
+      position: absolute;
+      top: $t-atom-input-icon;
+      transform: translateY($trf-ty-atom-input-icon);
+      width: $w-atom-input-icon;
+  
+      & > * {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  
 }

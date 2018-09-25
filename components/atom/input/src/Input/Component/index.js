@@ -24,11 +24,11 @@ class Input extends Component {
     return ''
   }
 
-  getClassNames({size, sizeChars, hideInput, errorState}) {
+  getClassNames({size, charsSize, hideInput, errorState}) {
     return cx(
       CLASS,
       `${CLASS}-${size}`,
-      sizeChars && `${CLASS}--size`,
+      charsSize && `${CLASS}--size`,
       hideInput && `${CLASS}--hidden`,
       this.getErrorStateClass(errorState)
     )
@@ -49,12 +49,12 @@ class Input extends Component {
       errorState,
       type,
       value,
-      sizeChars
+      charsSize
     } = this.props
 
     return (
       <input
-        className={this.getClassNames({size, sizeChars, hideInput, errorState})}
+        className={this.getClassNames({size, charsSize, hideInput, errorState})}
         checked={checked}
         disabled={disabled}
         id={id}
@@ -65,7 +65,7 @@ class Input extends Component {
         ref={reference}
         type={type}
         value={value}
-        size={sizeChars}
+        size={charsSize}
       />
     )
   }
@@ -89,7 +89,7 @@ Input.propTypes = {
   /* 's' or 'm', default: 'm' */
   size: PropTypes.oneOf(Object.values(SIZES)),
   /* width of input based in number of characters (native "size" attribute) */
-  sizeChars: PropTypes.number,
+  charsSize: PropTypes.number,
   /* text, password, date or number */
   type: PropTypes.string,
   /* value of the control */

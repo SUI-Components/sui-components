@@ -65,7 +65,7 @@ AtomInput.propTypes = {
   size: PropTypes.oneOf(Object.values(inputSizes)),
 
   /* width of input based in number of characters (native "size" attribute) */
-  sizeChars: PropTypes.number,
+  charsSize: PropTypes.number,
 
   /* true = error, false = success, null = neutral */
   errorState: PropTypes.bool,

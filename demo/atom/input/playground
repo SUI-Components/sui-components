@@ -228,8 +228,7 @@ return (
         name="second"
         placeholder="Medium Input"
         leftIcon={LeftAddonComponent}
-        leftAddon="http://"
-        rightAddon="@schibsted.com"
+        leftAddon="Location"
       />
     </div>
     <div style={field}>

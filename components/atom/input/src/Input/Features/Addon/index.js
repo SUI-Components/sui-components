@@ -40,10 +40,10 @@ const AddonHoC = WrappedInput =>
               {leftAddon}
             </span>
           )}
-          <div className={cx(LeftIcon && CLASS_ICON)}>
+          <span className={cx(LeftIcon && CLASS_ICON)}>
             {LeftIcon && <LeftIconBlock />}
             <WrappedInput {...props} />
-          </div>
+          </span>
           {rightAddon && (
             <span className={this.getClassName({type: TYPES.RIGHT})}>
               {rightAddon}

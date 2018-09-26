@@ -18,6 +18,10 @@ $states-atom-input: success $c-atom-input--success, error $c-atom-input--error !
   padding-right: $p-l;
   width: 100%;
 
+  &--size {
+    width: inherit;
+  }
+
   &--hidden {
     display: none;
   }

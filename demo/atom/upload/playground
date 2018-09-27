@@ -1,0 +1,9 @@
+const uploadIcon = 'https://cdn0.iconfinder.com/data/icons/pixon-1/24/arrow_up_upload-512.png'
+const icon = () => <img src={uploadIcon} alt=""/>
+
+return (
+  <div>
+    <h1>sadasd</h1>
+    <AtomUpload icon={icon}/>
+  </div>
+)

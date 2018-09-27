@@ -2,13 +2,16 @@
 import React from 'react'
 
 import AtomUpload from '../../../../components/atom/upload/src'
-import IconUpload from './iconUpload.js'
 import LayoutMediaQuery from '@s-ui/react-layout-media-query'
+
+import IconUpload from './iconUpload.js'
+import IconSuccess from './iconSuccess.js'
 
 import './index.scss'
 
-const textPrimary = 'Click or drag file to this area to upload'
-const textSecondary =
+const textActive = 'Click or drag file to this area to upload'
+const textSuccess = 'Your file has been uploaded'
+const textExplanation =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 
 const Demo = () => {
@@ -23,16 +26,33 @@ const Demo = () => {
               return (
                 <AtomUpload
                   iconUpload={IconUpload}
-                  iconSuccess={IconUpload}
-                  textPrimary={textPrimary}
-                  textSecondary={textSecondary}
+                  textActive={textActive}
+                  textExplanation={textExplanation}
+                />
+              )
+            return (
+              <AtomUpload iconUpload={IconUpload} textActive={textActive} />
+            )
+          }}
+        </LayoutMediaQuery>
+      </div>
+      <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
+        <h2>Success</h2>
+        <LayoutMediaQuery>
+          {({XS}) => {
+            if (XS)
+              return (
+                <AtomUpload
+                  iconSuccess={IconSuccess}
+                  textSuccess={textSuccess}
+                  status="success"
                 />
               )
             return (
               <AtomUpload
-                iconUpload={IconUpload}
-                iconSuccess={IconUpload}
-                textPrimary={textPrimary}
+                status="success"
+                iconSuccess={IconSuccess}
+                textSuccess={textSuccess}
               />
             )
           }}

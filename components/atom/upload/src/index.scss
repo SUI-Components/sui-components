@@ -49,5 +49,17 @@ $c-atom-upload: #848584 !default;
     .sui-AtomUpload-iconSuccess {
       display: none;
     }
+    .sui-AtomUpload-iconUpload {
+      display: flex;
+    }
+  }
+
+  &--success {
+    .sui-AtomUpload-iconSuccess {
+      display: flex;
+    }
+    .sui-AtomUpload-iconUpload {
+      display: none;
+    }
   }
 }

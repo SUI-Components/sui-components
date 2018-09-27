@@ -12,10 +12,17 @@ class AtomUpload extends Component {
     const {
       iconUpload: IconUpload,
       iconSuccess: IconSuccess,
-      textPrimary,
-      textSecondary,
+      textActive,
+      textUpload,
+      textSuccess,
+      textExplanation,
       status
     } = this.props
+    console.log({
+      textActive,
+      textUpload,
+      textSuccess
+    })
     return (
       <div className={cx(BASE_CLASS, `${BASE_CLASS}--${status}`)}>
         {IconUpload && (
@@ -29,8 +36,8 @@ class AtomUpload extends Component {
           </span>
         )}
         <div className={CLASS_BLOCK_TEXT}>
-          <h4>{textPrimary}</h4>
-          <p>{textSecondary}</p>
+          <h4>{textActive || textUpload || textSuccess}</h4>
+          <p>{textExplanation}</p>
         </div>
       </div>
     )
@@ -42,8 +49,10 @@ AtomUpload.displayName = 'AtomUpload'
 AtomUpload.propTypes = {
   iconUpload: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
   iconSuccess: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-  textPrimary: PropTypes.string,
-  textSecondary: PropTypes.string,
+  textActive: PropTypes.string,
+  textUpload: PropTypes.string,
+  textSuccess: PropTypes.string,
+  textExplanation: PropTypes.string,
   status: PropTypes.string
 }
 

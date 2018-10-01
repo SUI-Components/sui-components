@@ -1,12 +1,12 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
 $bg-atom-upload: #f5f5f5 !default;
-$c-atom-upload: #848584 !default;
+$c-atom-upload: #979797 !default;
 
 .sui-AtomUpload {
   align-items: center;
   background-color: $bg-atom-upload;
-  border: 1px dashed $c-atom-upload;
+  border: 2px dashed $c-atom-upload;
   color: $c-atom-upload;
   display: flex;
   flex-direction: column;
@@ -14,6 +14,14 @@ $c-atom-upload: #848584 !default;
   justify-content: center;
   padding: $p-l * 3 $p-l * 2 $p-l;
   text-align: center;
+
+  &-dropzone {
+    border-color: red;
+  }
+
+  &--active {
+    cursor: pointer;
+  }
 
   &-blockText {
     align-items: center;
@@ -45,6 +53,7 @@ $c-atom-upload: #848584 !default;
   &-iconError {
     align-items: center;
     display: flex;
+    height: $sz-icon-xl * 2;
     justify-content: center;
     width: $sz-icon-xl * 2;
 

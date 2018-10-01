@@ -1,45 +1,43 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const BASE_CLASS = 'sui-AtomUpload'
-const CLASS_ICON_UPLOAD = 'sui-AtomUpload-iconUpload'
-const CLASS_ICON_SUCCESS = 'sui-AtomUpload-iconSuccess'
-const CLASS_BLOCK_TEXT = 'sui-AtomUpload-blockText'
+const STATUSES = {
+  ACTIVE: 'active',
+  UPLOAD: 'upload',
+  SUCCESS: 'success',
+  ERROR: 'error'
+}
 
-class AtomUpload extends Component {
-  render() {
-    const {
-      iconUpload: IconUpload,
-      iconSuccess: IconSuccess,
-      textActive,
-      textUpload,
-      textSuccess,
-      textExplanation,
-      status
-    } = this.props
-    console.log({
-      textActive,
-      textUpload,
-      textSuccess
-    })
+const BASE_CLASS = 'sui-AtomUpload'
+const CLASS_BLOCK_TEXT = `${BASE_CLASS}-blockText`
+
+const capitalize = text => text[0].toUpperCase() + text.substr(1)
+
+class AtomUpload extends PureComponent {
+  renderStatusBlock(status) {
+    const classNameIcon = `${BASE_CLASS}-icon${capitalize(status)}`
+    const IconStatus = this.props[`icon${capitalize(status)}`]
+    const textStatus = this.props[`text${capitalize(status)}`]
+    const {textExplanation} = this.props
     return (
       <div className={cx(BASE_CLASS, `${BASE_CLASS}--${status}`)}>
-        {IconUpload && (
-          <span className={CLASS_ICON_UPLOAD}>
-            <IconUpload />
-          </span>
-        )}
-        {IconSuccess && (
-          <span className={CLASS_ICON_SUCCESS}>
-            <IconSuccess />
-          </span>
-        )}
+        <span className={classNameIcon}>
+          <IconStatus />
+        </span>
         <div className={CLASS_BLOCK_TEXT}>
-          <h4>{textActive || textUpload || textSuccess}</h4>
-          <p>{textExplanation}</p>
+          <h4>{textStatus}</h4>
+          {status === STATUSES.ACTIVE &&
+            textExplanation && <p>{textExplanation}</p>}
         </div>
       </div>
+    )
+  }
+
+  render() {
+    const {status} = this.props
+    return (
+      Object.values(STATUSES).includes(status) && this.renderStatusBlock(status)
     )
   }
 }
@@ -47,17 +45,16 @@ class AtomUpload extends Component {
 AtomUpload.displayName = 'AtomUpload'
 
 AtomUpload.propTypes = {
-  iconUpload: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-  iconSuccess: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-  textActive: PropTypes.string,
-  textUpload: PropTypes.string,
-  textSuccess: PropTypes.string,
+  iconActive: PropTypes.oneOfType([PropTypes.element, PropTypes.func]), // eslint-disable-line react/no-unused-prop-types
+  iconUpload: PropTypes.oneOfType([PropTypes.element, PropTypes.func]), // eslint-disable-line react/no-unused-prop-types
+  iconSuccess: PropTypes.oneOfType([PropTypes.element, PropTypes.func]), // eslint-disable-line react/no-unused-prop-types
+  iconError: PropTypes.oneOfType([PropTypes.element, PropTypes.func]), // eslint-disable-line react/no-unused-prop-types
+  textActive: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+  textUpload: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+  textSuccess: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+  textError: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
   textExplanation: PropTypes.string,
-  status: PropTypes.string
-}
-
-AtomUpload.defaultProps = {
-  status: 'pending'
+  status: PropTypes.string.isRequired
 }
 
 export default AtomUpload

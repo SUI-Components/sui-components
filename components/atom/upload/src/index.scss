@@ -6,14 +6,13 @@ $c-atom-upload: #848584 !default;
 .sui-AtomUpload {
   align-items: center;
   background-color: $bg-atom-upload;
-  border: 1px dashed $c-atom-upload; 
+  border: 1px dashed $c-atom-upload;
   color: $c-atom-upload;
   display: flex;
   flex-direction: column;
   font-family: $ff-sans-serif;
-  font-size: $fz-xl;
   justify-content: center;
-  padding: $p-l;
+  padding: $p-l * 3 $p-l * 2 $p-l;
   text-align: center;
 
   &-blockText {
@@ -22,23 +21,32 @@ $c-atom-upload: #848584 !default;
     flex-direction: column;
     justify-content: center;
 
-    h4, 
+    h4,
     p {
       margin: 0;
     }
 
     h4 {
-      font-weight: $fw-bold;
+      font-size: $fz-xl;
+      font-weight: $fw-semi-bold;
       margin: $m-l 0;
+    }
+
+    p {
+      font-size: $fz-l;
+      font-weight: $fw-light;
+      margin-bottom: $m-l;
     }
   }
 
-  &-iconUpload, 
-  &-iconSuccess {
+  &-iconActive,
+  &-iconUpload,
+  &-iconSuccess,
+  &-iconError {
     align-items: center;
     display: flex;
     justify-content: center;
-    width: 100px;
+    width: $sz-icon-xl * 2;
 
     & > * {
       width: 100%;
@@ -49,6 +57,7 @@ $c-atom-upload: #848584 !default;
     .sui-AtomUpload-iconSuccess {
       display: none;
     }
+
     .sui-AtomUpload-iconUpload {
       display: flex;
     }
@@ -58,6 +67,7 @@ $c-atom-upload: #848584 !default;
     .sui-AtomUpload-iconSuccess {
       display: flex;
     }
+
     .sui-AtomUpload-iconUpload {
       display: none;
     }

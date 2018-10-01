@@ -4,13 +4,15 @@ import React from 'react'
 import AtomUpload from '../../../../components/atom/upload/src'
 import LayoutMediaQuery from '@s-ui/react-layout-media-query'
 
-import IconUpload from './iconUpload.js'
+import IconActive from './iconActive.js'
 import IconSuccess from './iconSuccess.js'
+import IconError from './iconError.js'
 
 import './index.scss'
 
 const textActive = 'Click or drag file to this area to upload'
 const textSuccess = 'Your file has been uploaded'
+const textError = 'Something went wrong!'
 const textExplanation =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 
@@ -19,44 +21,44 @@ const Demo = () => {
     <div>
       <h1>AtomCard</h1>
       <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
-        <h2>Responsive</h2>
+        <h2>Active</h2>
         <LayoutMediaQuery>
           {({XS}) => {
-            if (XS)
+            if (XS) {
               return (
                 <AtomUpload
-                  iconUpload={IconUpload}
+                  status="active"
+                  iconActive={IconActive}
                   textActive={textActive}
                   textExplanation={textExplanation}
                 />
               )
+            }
             return (
-              <AtomUpload iconUpload={IconUpload} textActive={textActive} />
+              <AtomUpload
+                status="active"
+                iconActive={IconActive}
+                textActive={textActive}
+              />
             )
           }}
         </LayoutMediaQuery>
       </div>
       <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
         <h2>Success</h2>
-        <LayoutMediaQuery>
-          {({XS}) => {
-            if (XS)
-              return (
-                <AtomUpload
-                  iconSuccess={IconSuccess}
-                  textSuccess={textSuccess}
-                  status="success"
-                />
-              )
-            return (
-              <AtomUpload
-                status="success"
-                iconSuccess={IconSuccess}
-                textSuccess={textSuccess}
-              />
-            )
-          }}
-        </LayoutMediaQuery>
+        <AtomUpload
+          status="success"
+          iconSuccess={IconSuccess}
+          textSuccess={textSuccess}
+        />
+      </div>
+      <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
+        <h2>Error</h2>
+        <AtomUpload
+          iconError={IconError}
+          textError={textError}
+          status="error"
+        />
       </div>
     </div>
   )

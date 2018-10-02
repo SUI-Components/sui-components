@@ -2,7 +2,10 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const CLASS = 'sui-AtomInput-input'
+const BASE_CLASS = 'sui-AtomInput-input'
+const CLASS_ICON = `${BASE_CLASS}--withIcon`
+const CLASS_ICON_COMPONENT = `${CLASS_ICON}-icon`
+
 const SIZES = {
   MEDIUM: 'm',
   SMALL: 's'
@@ -19,16 +22,16 @@ class Input extends Component {
   }
 
   getErrorStateClass(errorState) {
-    if (errorState) return `${CLASS}--${ERROR_STATES.ERROR}`
-    if (errorState === false) return `${CLASS}--${ERROR_STATES.SUCCESS}`
+    if (errorState) return `${BASE_CLASS}--${ERROR_STATES.ERROR}`
+    if (errorState === false) return `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
     return ''
   }
 
   getClassNames({size, hideInput, errorState}) {
     return cx(
-      CLASS,
-      `${CLASS}-${size}`,
-      hideInput && `${CLASS}--hidden`,
+      BASE_CLASS,
+      `${BASE_CLASS}-${size}`,
+      hideInput && `${BASE_CLASS}--hidden`,
       this.getErrorStateClass(errorState)
     )
   }
@@ -47,23 +50,32 @@ class Input extends Component {
       size,
       errorState,
       type,
+      leftIcon: LeftIcon,
       value
     } = this.props
 
+    const LeftIconBlock = () => (
+      <span className={CLASS_ICON_COMPONENT}>
+        <LeftIcon />
+      </span>
+    )
     return (
-      <input
-        className={this.getClassNames({size, hideInput, errorState})}
-        checked={checked}
-        disabled={disabled}
-        id={id}
-        name={name}
-        onChange={ev => this.changeHandler(ev, onChange)}
-        onBlur={onBlur}
-        placeholder={placeholder}
-        ref={reference}
-        type={type}
-        value={value}
-      />
+      <span className={cx(LeftIcon && CLASS_ICON)}>
+        {LeftIcon && <LeftIconBlock />}
+        <input
+          className={this.getClassNames({size, hideInput, errorState})}
+          checked={checked}
+          disabled={disabled}
+          id={id}
+          name={name}
+          onChange={ev => this.changeHandler(ev, onChange)}
+          onBlur={onBlur}
+          placeholder={placeholder}
+          ref={reference}
+          type={type}
+          value={value}
+        />
+      </span>
     )
   }
 }
@@ -94,7 +106,9 @@ Input.propTypes = {
   /** Wether to show the input or not */
   hideInput: PropTypes.bool,
   /* Will set a red/green border if set to true/false */
-  errorState: PropTypes.bool
+  errorState: PropTypes.bool,
+  /* Left Icon */
+  leftIcon: PropTypes.any
 }
 
 Input.defaultProps = {

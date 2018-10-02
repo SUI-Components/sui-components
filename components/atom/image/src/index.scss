@@ -6,7 +6,9 @@ $trsdu-atom-image: 1s !default;
 $bgs-atom-image-placeholder: cover !default;
 $bgs-atom-image-skeleton: 30% !default;
 
-.sui-AtomImage {
+$base-class: '.sui-AtomImage';
+
+#{$base-class} {
   height: 100%;
   margin: 0;
   overflow: hidden;
@@ -28,11 +30,11 @@ $bgs-atom-image-skeleton: 30% !default;
       background-size: $bgs-atom-image-skeleton;
     }
 
-    .is-loading &--placeholder {
+    #{$base-class}.is-loading &--placeholder {
       filter: blur(5px);
     }
 
-    .is-loaded &--placeholder {
+    #{$base-class}.is-loaded &--placeholder {
       filter: blur(0);
       transition: $trsdu-atom-image filter linear;
     }

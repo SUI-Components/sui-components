@@ -13,29 +13,30 @@ import IconError from './icons/iconError.js'
 
 import './index.scss'
 
-const textActive = 'Click or drag file to this area to upload'
-const textSuccess = 'Your file has been uploaded'
+const textActive = 'Click or drag file(s) to this area to upload'
+const textSuccess = 'Your file(s) have been uploaded'
 const textError = 'Something went wrong!'
-const textUpload = 'The file is being uploaded...'
+const textUpload = 'The file(s) are being uploaded...'
 const textExplanation =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 
-console.log(uploadStatuses)
-
-class StatusContainer extends Component {
+class DynamicStatusContainer extends Component {
   constructor() {
     super()
-    this.state = {status: uploadStatuses.ACTIVE}
+    this.state = {
+      status: uploadStatuses.ACTIVE,
+      files: []
+    }
 
     this.onFilesSelection = this.onFilesSelection.bind(this)
   }
 
   onFilesSelection(files) {
-    console.log('StatusContainer → onFilesSelection')
-    console.log(files)
+    const fileNames = files.map(({name}) => name)
     this.setState(
       {
-        status: uploadStatuses.UPLOAD
+        status: uploadStatuses.UPLOAD,
+        files: fileNames
       },
       () => {
         setTimeout(() => {
@@ -51,7 +52,7 @@ class StatusContainer extends Component {
 
   render() {
     const {textExplanation, ...props} = this.props
-    const {status} = this.state
+    const {status, files} = this.state
     const {onFilesSelection} = this
     return (
       <div>
@@ -60,6 +61,9 @@ class StatusContainer extends Component {
           onFilesSelection={onFilesSelection}
           status={status}
         />
+        {!!files.length && (
+          <p>Selected file(s) to upload: {files.join(', ')}</p>
+        )}
       </div>
     )
   }
@@ -71,7 +75,7 @@ const Demo = () => {
       <h1>AtomUpload</h1>
       <h2>Dynamic Behaviour</h2>
       <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
-        <StatusContainer
+        <DynamicStatusContainer
           iconActive={IconActive}
           textActive={textActive}
           textExplanation={textExplanation}
@@ -91,18 +95,16 @@ const Demo = () => {
             if (XS) {
               return (
                 <AtomUpload
-                  status="active"
+                  status={uploadStatuses.ACTIVE}
                   iconActive={IconActive}
                   textActive={textActive}
-                  onFilesSelection={console.log}
                   textExplanation={textExplanation}
                 />
               )
             }
             return (
               <AtomUpload
-                status="active"
-                onFilesSelection={console.log}
+                status={uploadStatuses.ACTIVE}
                 iconActive={IconActive}
                 textActive={textActive}
               />
@@ -117,18 +119,16 @@ const Demo = () => {
             if (XS) {
               return (
                 <AtomUpload
-                  status="active"
+                  status={uploadStatuses.ACTIVE}
                   iconActive={IconActive}
                   textActive={textActive}
-                  onFilesSelection={console.log}
                   textExplanation={textExplanation}
                 />
               )
             }
             return (
               <AtomUpload
-                status="active"
-                onFilesSelection={console.log}
+                status={uploadStatuses.ACTIVE}
                 iconActive={IconActive}
                 textActive={textActive}
               />
@@ -139,7 +139,7 @@ const Demo = () => {
       <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
         <h3>Upload</h3>
         <AtomUpload
-          status="upload"
+          status={uploadStatuses.UPLOAD}
           iconUpload={AtomSpinner}
           textUpload={textUpload}
         />
@@ -147,7 +147,7 @@ const Demo = () => {
       <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
         <h3>Success</h3>
         <AtomUpload
-          status="success"
+          status={uploadStatuses.SUCCESS}
           iconSuccess={IconSuccess}
           textSuccess={textSuccess}
         />
@@ -157,7 +157,7 @@ const Demo = () => {
         <AtomUpload
           iconError={IconError}
           textError={textError}
-          status="error"
+          status={uploadStatuses.ERROR}
         />
       </div>
     </div>

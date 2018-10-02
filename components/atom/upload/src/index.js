@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types, no-unused-vars, no-console */
-
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
@@ -69,16 +67,17 @@ class AtomUpload extends PureComponent {
     const {onDrop} = this
 
     if (Object.values(STATUSES).includes(status)) {
-      if (status === STATUSES.ACTIVE) {
-        return (
-          Dropzone && (
-            <Dropzone className={`${BASE_CLASS}-dropzone`} onDrop={onDrop}>
-              {this.renderStatusBlock(status)}
-            </Dropzone>
-          )
+      return (
+        Dropzone && (
+          <Dropzone
+            className={`${BASE_CLASS}-dropzone`}
+            disabled={status !== STATUSES.ACTIVE}
+            onDrop={onDrop}
+          >
+            {this.renderStatusBlock(status)}
+          </Dropzone>
         )
-      }
-      return this.renderStatusBlock(status)
+      )
     }
   }
 }
@@ -86,16 +85,44 @@ class AtomUpload extends PureComponent {
 AtomUpload.displayName = 'AtomUpload'
 
 AtomUpload.propTypes = {
+  /** Icon (component) to be displayed on active status */
   iconActive: PropTypes.oneOfType([PropTypes.element, PropTypes.func]), // eslint-disable-line react/no-unused-prop-types
+
+  /** Icon (component) to be displayed on upload status */
   iconUpload: PropTypes.oneOfType([PropTypes.element, PropTypes.func]), // eslint-disable-line react/no-unused-prop-types
+
+  /** Icon (component) to be displayed on success status */
   iconSuccess: PropTypes.oneOfType([PropTypes.element, PropTypes.func]), // eslint-disable-line react/no-unused-prop-types
+
+  /** Icon (component) to be displayed on error status */
   iconError: PropTypes.oneOfType([PropTypes.element, PropTypes.func]), // eslint-disable-line react/no-unused-prop-types
+
+  /** Text to be displayed on error status */
   textActive: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+
+  /** Text to be displayed on upload status */
   textUpload: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+
+  /** Text to be displayed on success status */
   textSuccess: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+
+  /** Text to be displayed on error status */
   textError: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+
+  /** Text to be displayed as explanation on active status */
   textExplanation: PropTypes.string,
-  status: PropTypes.string.isRequired
+
+  /**
+   * Status of the upload
+   *  ACTIVE → 'active'
+   *  UPLOAD →'upload'
+   *  SUCCESS → 'success'
+   *  ERROR → 'error'
+   */
+  status: PropTypes.oneOf(Object.values(STATUSES)).isRequired,
+
+  /** Callback to be called (with files selected) when there`s a file selection (via click or drag & drop) */
+  onFilesSelection: PropTypes.func
 }
 
 export {STATUSES as uploadStatuses}

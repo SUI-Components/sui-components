@@ -1,8 +1,6 @@
 # AtomUpload
 
-> Description
-
-<!-- ![](./assets/preview.png) -->
+AtomUpload is a component that handles the file selection (via click or drag & drop) and displays the different statuses of the uploading process
 
 ## Installation
 
@@ -12,12 +10,20 @@ $ npm install @s-ui/react-atom-upload --save
 
 ## Usage
 
-### Basic usage
-```js
-import AtomUpload from '@s-ui/react-atom-upload'
+After importing the component `AtomTooltip` like this
 
-return (<AtomUpload />)
+```javascript
+import AtomUpload, {uploadStatuses} from '@s-ui/react-atom-upload'
 ```
 
+### Basic usage
 
-> **Find full description and more examples in the [demo page](#).**
+```javascript
+<AtomUpload
+  status={uploadStatuses.ACTIVE}
+  iconActive={IconActive}
+  textActive={textActive}
+/>
+
+
+> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/upload/demo).**

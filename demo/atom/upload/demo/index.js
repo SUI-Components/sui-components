@@ -75,6 +75,10 @@ const Demo = () => {
       <h1>AtomUpload</h1>
       <h2>Dynamic Behaviour</h2>
       <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
+        <p>
+          Click on the component or drag&drop some files to start upload
+          simulation
+        </p>
         <DynamicStatusContainer
           iconActive={IconActive}
           textActive={textActive}

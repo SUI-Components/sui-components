@@ -25,6 +25,10 @@ $pl-atom-input-icon: 50px !default;
   padding-right: $p-l;
   width: 100%;
 
+  &--size {
+    width: inherit;
+  }
+
   &--hidden {
     display: none;
   }

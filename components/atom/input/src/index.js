@@ -30,34 +30,52 @@ const AtomInput = ({type, ...props}) => {
 AtomInput.propTypes = {
   /* native types (text, date, ...), 'sui-password' */
   type: PropTypes.oneOf(Object.values(TYPES)),
+
   /* Left addon component, text,... */
   leftAddon: PropTypes.any,
+
   /* Right addon component, text,... */
   rightAddon: PropTypes.any,
+
   /* Left Icon */
   leftIcon: PropTypes.any,
+
   /* Text to be shown in order to show the password on click */
   pwShowLabel: PropTypes.string,
+
   /* Text to be shown in order to hide the password on click */
   pwHideLabel: PropTypes.string,
+
   /* onBlur callback */
   onBlur: PropTypes.func,
+
   /* onChange callback */
   onChange: PropTypes.func,
+
   /* sets the name property of an element in the DOM */
   name: PropTypes.string,
+
   /* The DOM id global attribute. */
   id: PropTypes.string,
+
   /* A hint to the user of what can be entered in the control. The placeholder text must not contain carriage returns or line-feeds. */
   placeholder: PropTypes.string,
+
   /* This Boolean attribute prevents the user from interacting with the input */
   disabled: PropTypes.bool,
+
   /* 's' or 'm', default: 'm' */
   size: PropTypes.oneOf(Object.values(inputSizes)),
+
+  /* width of input based in number of characters (native "size" attribute) */
+  charsSize: PropTypes.number,
+
   /* true = error, false = success, null = neutral */
   errorState: PropTypes.bool,
+
   /* value of the control */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+
   /* mask object, see https://unmanner.github.io/imaskjs/ */
   mask: PropTypes.object
 }

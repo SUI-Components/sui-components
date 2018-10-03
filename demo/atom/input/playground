@@ -200,13 +200,16 @@ return (
       <AtomInput name="second" placeholder="Medium Input" />
     </div>
     <div style={field}>
+      <AtomInput name="second" placeholder="Medium Input" value="Somewhere over the..."/>
+    </div>
+    <div style={field}>
       <AtomInput name="disabled" placeholder="Medium Disabled Input" disabled />
     </div>
     <div style={field}>
       <AtomInput type="number" name="number" placeholder="Number only input" />
     </div>
     <div style={field}>
-      <AtomInput type="date" name="date" />
+      <AtomInput type="date" name="date" charsSize={10} />
     </div>
     <div style={field}>
       <AtomInput
@@ -249,6 +252,7 @@ return (
         type="mask"
         mask={bankAccountMask}
         placeholder="ES00 0000 0000 00 0000000000"
+        charsSize={31}
       />
     </div>
 

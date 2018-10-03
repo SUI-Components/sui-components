@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2018-10-03)
+
+
+### Features
+
+* charsSize ([8ea729c](https://github.com/SUI-Components/sui-components/commit/8ea729c))
+* sizeChars ([4144365](https://github.com/SUI-Components/sui-components/commit/4144365))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2018-09-18)
 

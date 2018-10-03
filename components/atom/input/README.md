@@ -60,9 +60,9 @@ return <AtomInput leftAddon='http://' rightAddon='@schibsted.com' />
 import AtomInput from '@s-ui/react-atom-input'
 
 const logo = 'my_logo.svg'
-const LeftAddonComponent = () => <img src={logo} />
+const leftIcon = () => <img src={logo} />
 
-<AtomInput leftIcon={LeftAddonComponent} />
+<AtomInput leftIcon={leftIcon} />
 ```
 
 ## Error states

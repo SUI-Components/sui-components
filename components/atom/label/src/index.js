@@ -9,7 +9,7 @@ const TYPES = {
   ERROR: 'error'
 }
 
-const getClass = ({type}) => cx(CLASSNAME, `${CLASSNAME}--${type}`)
+const getClass = ({type}) => cx(CLASSNAME, type && `${CLASSNAME}--${type}`)
 
 const AtomLabel = ({name, text, optionalText, type}) => (
   <label htmlFor={name} className={getClass({type})}>

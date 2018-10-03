@@ -1,6 +1,6 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$c-atom-card-highlight: #fffed4 !default;
+$c-atom-card-highlight: $c-highlight !default;
 $w-atom-card-media: 33% !default;
 
 .sui-AtomCard {

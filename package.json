@@ -44,29 +44,7 @@
   "config": {
     "sui-studio": {
       "font": "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i",
-      "name": "SUIComponents",
-      "compliant": [
-        "atom/badge",
-        "atom/button",
-        "atom/helpText",
-        "atom/image",
-        "atom/panel",
-        "atom/spinner",
-        "atom/switch",
-        "atom/tag",
-        "atom/textarea",
-        "atom/tooltip",
-        "atom/validationText",
-        "molecule/breadcrumb",
-        "molecule/buttonGroup",
-        "molecule/field",
-        "molecule/inputField",
-        "molecule/notification",
-        "molecule/tabs",
-        "molecule/textareaField",
-        "molecule/thumbnail",
-        "molecule/collapsible"
-      ]
+      "name": "SUIComponents"
     },
     "sui-mono": {
       "access": "public",

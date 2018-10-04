@@ -17,8 +17,7 @@ class AtomCard extends Component {
   }
 
   redirectOnEnter = e => {
-    const {keyCode} = e
-    if (keyCode === 13) this.redirectToHref()
+    if (e.key === 'Enter') this.redirectToHref()
   }
 
   render() {
@@ -56,7 +55,7 @@ class AtomCard extends Component {
 AtomCard.displayName = 'AtomCard'
 
 AtomCard.propTypes = {
-  /** HTML (component) to be displayed on one side */
+  /** HTML (component) to be displayed on the left/right side */
   media: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 
   /** HTML (component) to be displayed on the other side */

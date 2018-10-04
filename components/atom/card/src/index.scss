@@ -20,11 +20,11 @@ $w-atom-card-media: 33% !default;
     text-decoration: none;
   }
 
-  &-highlight {
+  &--highlight {
     background: $c-atom-card-highlight;
   }
 
-  &-vertical {
+  &--vertical {
     flex-direction: column;
 
     .sui-AtomCard-media {

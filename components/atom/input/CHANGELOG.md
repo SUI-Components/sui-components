@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2018-10-04)
+
+
+### Bug Fixes
+
+* fixed issue on adddon on IE11 ([d65d26c](https://github.com/SUI-Components/sui-components/commit/d65d26c))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2018-10-03)
 

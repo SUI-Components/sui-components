@@ -1,0 +1,62 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$bg-atom-upload: $c-gray-lightest !default;
+$c-atom-upload: $c-gray !default;
+$ff-atom-upload: $ff-sans-serif !default;
+
+.sui-AtomUpload {
+  align-items: center;
+  background-color: $bg-atom-upload;
+  border: 2px dashed $c-atom-upload;
+  color: $c-atom-upload;
+  display: flex;
+  flex-direction: column;
+  font-family: $ff-atom-upload;
+  justify-content: center;
+  padding: $p-l * 3 $p-l * 2 $p-l;
+  text-align: center;
+
+  &-blockText {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &-main,
+    &-secondary {
+      margin: 0;
+    }
+
+    &-main {
+      font-size: $fz-xl;
+      font-weight: $fw-semi-bold;
+      margin: $m-l 0;
+    }
+
+    &-secondary {
+      font-size: $fz-l;
+      font-weight: $fw-light;
+      margin-bottom: $m-l;
+    }
+  }
+
+  &-iconActive,
+  &-iconUpload,
+  &-iconSuccess,
+  &-iconError {
+    align-items: center;
+    display: flex;
+    height: $sz-icon-xl * 2;
+    justify-content: center;
+    width: $sz-icon-xl * 2;
+
+    & > * {
+      width: 100%;
+    }
+  }
+
+  &--active {
+    cursor: pointer;
+  }
+
+}

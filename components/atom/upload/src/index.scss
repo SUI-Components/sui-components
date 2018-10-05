@@ -2,6 +2,7 @@
 
 $bg-atom-upload: #f5f5f5 !default;
 $c-atom-upload: #979797 !default;
+$ff-atom-upload: $ff-sans-serif !default;
 
 .sui-AtomUpload {
   align-items: center;
@@ -10,7 +11,7 @@ $c-atom-upload: #979797 !default;
   color: $c-atom-upload;
   display: flex;
   flex-direction: column;
-  font-family: $ff-sans-serif;
+  font-family: $ff-atom-upload;
   justify-content: center;
   padding: $p-l * 3 $p-l * 2 $p-l;
   text-align: center;
@@ -21,18 +22,18 @@ $c-atom-upload: #979797 !default;
     flex-direction: column;
     justify-content: center;
 
-    h4,
-    p {
+    &-main,
+    &-secondary {
       margin: 0;
     }
 
-    h4 {
+    &-main {
       font-size: $fz-xl;
       font-weight: $fw-semi-bold;
       margin: $m-l 0;
     }
 
-    p {
+    &-secondary {
       font-size: $fz-l;
       font-weight: $fw-light;
       margin-bottom: $m-l;

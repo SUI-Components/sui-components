@@ -11,6 +11,8 @@ const STATUSES = {
 
 const BASE_CLASS = 'sui-AtomUpload'
 const CLASS_BLOCK_TEXT = `${BASE_CLASS}-blockText`
+const CLASS_BLOCK_TEXT_MAIN = `${CLASS_BLOCK_TEXT}-main`
+const CLASS_BLOCK_TEXT_SECONDARY = `${CLASS_BLOCK_TEXT}-secondary`
 
 const capitalize = text => text[0].toUpperCase() + text.substr(1)
 
@@ -53,9 +55,11 @@ class AtomUpload extends PureComponent {
           <IconStatus />
         </span>
         <div className={CLASS_BLOCK_TEXT}>
-          <h4>{textStatus}</h4>
+          <h4 className={CLASS_BLOCK_TEXT_MAIN}>{textStatus}</h4>
           {status === STATUSES.ACTIVE &&
-            textExplanation && <p>{textExplanation}</p>}
+            textExplanation && (
+              <p className={CLASS_BLOCK_TEXT_SECONDARY}>{textExplanation}</p>
+            )}
         </div>
       </div>
     )

@@ -37,6 +37,9 @@ AtomInput.propTypes = {
   /* Right addon component, text,... */
   rightAddon: PropTypes.any,
 
+  /* Left Icon */
+  leftIcon: PropTypes.any,
+
   /* Text to be shown in order to show the password on click */
   pwShowLabel: PropTypes.string,
 

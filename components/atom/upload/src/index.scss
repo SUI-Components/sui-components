@@ -1,7 +1,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$bg-atom-upload: #f5f5f5 !default;
-$c-atom-upload: #979797 !default;
+$bg-atom-upload: $c-gray-lightest !default;
+$c-atom-upload: $c-gray !default;
 $ff-atom-upload: $ff-sans-serif !default;
 
 .sui-AtomUpload {

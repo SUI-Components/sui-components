@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2018-10-05)
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2018-10-04)
 
@@ -16,9 +21,22 @@ All notable changes to this project will be documented in this file.
 # 1.9.0 (2018-10-03)
 
 
+### Bug Fixes
+
+* leftInput not as Addon ([880140c](https://github.com/SUI-Components/sui-components/commit/880140c))
+* small sass redefinition ([f1192ef](https://github.com/SUI-Components/sui-components/commit/f1192ef))
+
+
 ### Features
 
+* added brief explanation to README ([ab568d5](https://github.com/SUI-Components/sui-components/commit/ab568d5))
+* better examples ([a9d0844](https://github.com/SUI-Components/sui-components/commit/a9d0844))
 * charsSize ([8ea729c](https://github.com/SUI-Components/sui-components/commit/8ea729c))
+* demo fix ([33496e6](https://github.com/SUI-Components/sui-components/commit/33496e6))
+* icon Left ([df6bedc](https://github.com/SUI-Components/sui-components/commit/df6bedc))
+* merged latest changes ([a2f4b7d](https://github.com/SUI-Components/sui-components/commit/a2f4b7d))
+* modifications after code review comments ([fff3cb0](https://github.com/SUI-Components/sui-components/commit/fff3cb0))
+* removed unnecesary dependency ([2f68b77](https://github.com/SUI-Components/sui-components/commit/2f68b77))
 * sizeChars ([4144365](https://github.com/SUI-Components/sui-components/commit/4144365))
 
 

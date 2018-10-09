@@ -1,34 +1,92 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
+import {getTarget} from './utils'
 
 const BASE_CLASS = 'sui-AtomBackToTop'
+const CLASS_ICON = 'sui-AtomBackToTop-icon'
+const CLASS_TEXT = 'sui-AtomBackToTop-text'
+const CLASS_SHOW = 'sui-AtomBackToTop--show'
+const CLASS_HIDE = 'sui-AtomBackToTop--hide'
 
-class AtomBackToTop extends Component {
+const STYLES = {
+  DARK: 'dark',
+  LIGHT: 'light'
+}
+
+class AtomBackToTop extends PureComponent {
   state = {
-    intervalId: 0
+    show: false
   }
 
-  scrollStep = () => {
-    const {pageYOffset, scroll} = window
-    const {scrollStep} = this.props
-    const {intervalId} = this.state
+  intervalId = 0
+  container = null
 
-    if (pageYOffset === 0) clearInterval(intervalId)
-    scroll(0, pageYOffset - scrollStep)
+  scrollStep = () => {
+    const {scrollTop} = this.container
+    const {scrollSteps} = this.props
+    const {intervalId} = this
+
+    if (scrollTop === 0) clearInterval(intervalId)
+    this.container.scrollTop = scrollTop - scrollSteps
   }
 
   scrollToTop = () => {
     const {scrollStep} = this
-    const {delayHide} = this.props
-    let intervalId = setInterval(scrollStep, delayHide)
-    this.setState({intervalId})
+    const {scrollIntervalTime} = this.props
+    this.intervalId = setInterval(scrollStep, scrollIntervalTime)
+  }
+
+  handleScroll = halfHeight => {
+    const {scrollTop} = this.container
+    const {show} = this.state
+
+    if (scrollTop > halfHeight) {
+      if (!show) this.setState({show: true})
+    } else {
+      if (show) this.setState({show: false})
+    }
+  }
+
+  componentDidMount() {
+    this.container = getTarget(this.props.refContainer)
+
+    const {handleScroll} = this
+    const {scrollHeight, clientHeight} = this.container
+    const halfHeight = Math.floor((scrollHeight - clientHeight) / 2)
+
+    this.container.addEventListener(
+      'scroll',
+      handleScroll.bind(this, halfHeight)
+    )
+  }
+
+  componentWillUnmount() {
+    const {handleScroll, intervalId} = this
+    clearInterval(intervalId)
+    this.container.removeEventListener('scroll', handleScroll)
   }
 
   render() {
     const {scrollToTop} = this
+    const {iconTop: IconTop, textTop, style} = this.props
+    const {show} = this.state
     return (
-      <button title="Back to top" className={BASE_CLASS} onClick={scrollToTop}>
-        <span className="arrow-up glyphicon glyphicon-chevron-up" />
+      <button
+        title="Back to top"
+        className={cx(
+          BASE_CLASS,
+          `${BASE_CLASS}--${style}`,
+          show ? CLASS_SHOW : CLASS_HIDE
+        )}
+        onClick={scrollToTop}
+      >
+        {IconTop && (
+          <span className={CLASS_ICON}>
+            <IconTop />
+          </span>
+        )}
+        {textTop && <span className={CLASS_TEXT}>{textTop}</span>}
       </button>
     )
   }
@@ -37,16 +95,34 @@ class AtomBackToTop extends Component {
 AtomBackToTop.displayName = 'AtomBackToTop'
 
 AtomBackToTop.propTypes = {
-  scrollStep: PropTypes.number,
-  delayHide: PropTypes.number
-  // delayShow: PropTypes.number,
-  // fadeIn: PropTypes.number,
-  // fadeOut: PropTypes.number
+  /** Icon (component) to be displayed */
+  iconTop: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+
+  /** Text to be displayed */
+  textTop: PropTypes.string,
+
+  /** Number of pixels which will be scrolled on every step */
+  scrollSteps: PropTypes.number,
+
+  /** Time in ms which will be scrolled a step */
+  scrollIntervalTime: PropTypes.number,
+
+  /** Container to be scrolled. Can be a selector, or a React ref object */
+  refContainer: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+
+  /**
+   * Styles
+   *  DARK → 'dark'
+   *  LIGHT →'light'
+   */
+  style: PropTypes.oneOf(Object.values(STYLES))
 }
 
-// Remove these comments if you need
-// AtomBackToTop.contextTypes = {i18n: PropTypes.object}
-// AtomBackToTop.propTypes = {}
-// AtomBackToTop.defaultProps = {}
+AtomBackToTop.defaultProps = {
+  style: STYLES.DARK,
+  scrollIntervalTime: 50,
+  scrollSteps: 100
+}
 
+export {STYLES as backToTopStyles}
 export default AtomBackToTop

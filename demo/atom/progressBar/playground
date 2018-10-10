@@ -55,10 +55,10 @@ return (
 
     <div style={styleSection}>
       <h2>Dynamic</h2>
-      <h4>steps: 10</h4>
-      <DynamicProgressBar intervalTime={200} step={10} />
       <h4>steps: 25</h4>
-      <DynamicProgressBar intervalTime={500} step={25} indicatorTotal />
+      <DynamicProgressBar intervalTime={500} step={25} indicatorTotal/>
+      <h4>steps: 1</h4>
+      <DynamicProgressBar intervalTime={100} step={1} />
     </div>
 
     <div style={styleSection}>

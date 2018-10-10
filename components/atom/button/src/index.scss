@@ -7,18 +7,21 @@ $bgc-atom-button-light-contrast: color-variation($bgc-atom-button, 3) !default;
 
 $sz-atom-button-small: $p-base * 4 !default;
 $fz-atom-button-small: $fz-s !default;
+$fw-atom-button-small: $fw-semi-bold !default;
 $icon-sz-atom-button-small: $sz-icon-s !default;
 $icon-m-atom-button-small: $m-s !default;
 $p-atom-button-small: $p-m !default;
 
 $sz-atom-button: $p-base * 5 !default;
 $fz-atom-button: $fz-m !default;
+$fw-atom-button: $fw-semi-bold !default;
 $icon-sz-atom-button: $sz-icon-s !default;
 $icon-m-atom-button: $m-m !default;
 $p-atom-button: $p-l !default;
 
 $sz-atom-button-large: $p-base * 6 !default;
 $fz-atom-button-large: $fz-m !default;
+$fw-atom-button-large: $fw-semi-bold !default;
 $icon-sz-atom-button-large: $sz-icon-m !default;
 $icon-m-atom-button-large: $m-m !default;
 $p-atom-button-large: $p-l !default;
@@ -72,7 +75,7 @@ $p-atom-button-large: $p-l !default;
   font: {
     family: $ff-sans-serif;
     size: $fz-atom-button;
-    weight: $fw-semi-bold;
+    weight: $fw-atom-button;
   }
   height: $sz-atom-button;
   line-height: normal;
@@ -88,7 +91,7 @@ $p-atom-button-large: $p-l !default;
   &-group {
     margin-left: -1px;
     margin-right: 0;
-    
+
     & + & {
       margin-left: -1px;
       margin-right: 0;
@@ -188,6 +191,7 @@ $p-atom-button-large: $p-l !default;
   &--small {
     @include button-icon($icon-sz-atom-button-small, $icon-m-atom-button-small);
     font-size: $fz-atom-button-small;
+    font-weight: $fw-atom-button-small;
     height: $sz-atom-button-small;
     min-width: $sz-atom-button-small;
     padding: 0 $p-atom-button-small;
@@ -196,6 +200,7 @@ $p-atom-button-large: $p-l !default;
   &--large {
     @include button-icon($icon-sz-atom-button-large, $icon-m-atom-button-large);
     font-size: $fz-atom-button-large;
+    font-weight: $fw-atom-button-large;
     height: $sz-atom-button-large;
     min-width: $sz-atom-button-large;
     padding: 0 $p-atom-button-large;

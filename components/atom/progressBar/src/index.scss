@@ -10,12 +10,15 @@ $h-progress-bar: $m-base;
   &-indicator {
     font-size: $fz-s;
     line-height: $lh-s;
+
     &--top {
       margin-bottom: $m-base;
     }
+
     &--bottom {
       margin-top: $m-base;
     }
+    
   }
 
   &-container {
@@ -27,12 +30,12 @@ $h-progress-bar: $m-base;
   }
 
   &-bar {
+    background-color: $c-progress-bar-fill;
+    border-radius: 25px;
     display: block;
     height: 100%;
-    border-radius: 25px;
-    background-color: $c-progress-bar-fill;
-    position: relative;
     overflow: hidden;
+    position: relative;
   }
 
 }

@@ -1,1 +1,79 @@
-return (<AtomProgressBar />)
+/* eslint-disable react/prop-types, no-unused-vars, no-console */
+
+class DynamicProgressBar extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      percentage: 0
+    }
+    this.intervalId = null
+  }
+
+  handleClick = () => {
+    const {intervalTime} = this.props
+    const {setProgress} = this
+    this.intervalId = setInterval(setProgress, intervalTime)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalId)
+  }
+
+  setProgress = () => {
+    const {percentage} = this.state
+    const {step} = this.props
+    if (percentage < 100) {
+      this.setState({
+        percentage: percentage + step
+      })
+    } else {
+      clearInterval(this.intervalId)
+    }
+  }
+
+  render() {
+    const {percentage} = this.state
+    const {intervalTime, step, ...props} = this.props
+    return (
+      <div>
+        <button style={{marginBottom: '10px'}} onClick={this.handleClick}>
+          Start Progress
+        </button>
+        <AtomProgressBar percentage={percentage} {...props} />
+      </div>
+    )
+  }
+}
+
+const styleSection = {
+  width: '500px'
+}
+
+return (
+  <div>
+    <h1>AtomProgressBar</h1>
+
+    <div style={styleSection}>
+      <h2>Dynamic</h2>
+      <h4>steps: 10</h4>
+      <DynamicProgressBar intervalTime={200} step={10} />
+      <h4>steps: 25</h4>
+      <DynamicProgressBar intervalTime={500} step={25} indicatorTotal />
+    </div>
+
+    <div style={styleSection}>
+      <h2>Basic</h2>
+      <AtomProgressBar percentage={25} />
+    </div>
+
+    <div style={styleSection}>
+      <h2>Indicator Bottom</h2>
+      <AtomProgressBar percentage={25} indicatorBottom />
+    </div>
+
+    <div style={styleSection}>
+      <h2>Indicator Total</h2>
+      <AtomProgressBar percentage={25} indicatorTotal />
+    </div>
+  </div>
+)

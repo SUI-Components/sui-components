@@ -1,23 +1,38 @@
 # AtomProgressBar
 
-> Description
-
-<!-- ![](./assets/preview.png) -->
+AtomProgressBar is a component that displays a progress bar
 
 ## Installation
 
 ```sh
-$ npm install @s-ui/react-atom-progressBar --save
+$ npm install @s-ui/react-atom-progress-bar --save
 ```
 
 ## Usage
 
-### Basic usage
-```js
-import AtomProgressBar from '@s-ui/react-atom-progressBar'
+After importing the component `AtomProgressBar` like this
 
-return (<AtomProgressBar />)
+```javascript
+import AtomProgressBar from '@s-ui/react-atom-progress-bar'
+```
+
+### Basic usage
+
+```javascript
+<AtomProgressBar percentage={25} />
+```
+
+### Indicator text at Bottom
+
+```javascript
+<AtomProgressBar percentage={25} indicatorBottom />
+```
+
+### Indicator style (75/100)
+
+```javascript
+<AtomProgressBar percentage={25} indicatorTotal />
 ```
 
 
-> **Find full description and more examples in the [demo page](#).**
+> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/progressBar/demo).**

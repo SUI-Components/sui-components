@@ -119,6 +119,7 @@ AtomBackToTop.propTypes = {
 }
 
 AtomBackToTop.defaultProps = {
+  refContainer: document.body,
   style: STYLES.DARK,
   scrollIntervalTime: 50,
   scrollSteps: 100

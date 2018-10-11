@@ -46,7 +46,7 @@ class DynamicProgressBar extends React.Component {
 }
 
 const styleSection = {
-  width: '500px'
+  maxWidth: '500px'
 }
 
 return (

@@ -8,6 +8,7 @@ $h-progress-bar: $m-base;
 
 .sui-AtomProgressBar {
   &-indicator {
+    display: inline-block;
     font-size: $fz-s;
     line-height: $lh-s;
 

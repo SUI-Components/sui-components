@@ -7,21 +7,22 @@ const CLASS_INDICATOR = 'sui-AtomProgressBar-indicator'
 const CLASS_CONTAINER_BAR = 'sui-AtomProgressBar-container'
 const CLASS_BAR = 'sui-AtomProgressBar-bar'
 
+const Indicator = props => {
+  const {indicatorBottom, percentage, indicatorTotal} = props // eslint-disable-line react/prop-types
+  return (
+    <span
+      className={cx(
+        CLASS_INDICATOR,
+        `${CLASS_INDICATOR}--${indicatorBottom ? 'bottom' : 'top'}`
+      )}
+    >
+      <strong>{percentage}</strong>
+      {indicatorTotal ? `/100` : `%`}
+    </span>
+  )
+}
+
 class AtomProgressBar extends PureComponent {
-  renderIndicator(indicatorBottom) {
-    const {percentage, indicatorTotal} = this.props
-    return (
-      <span
-        className={cx(
-          CLASS_INDICATOR,
-          `${CLASS_INDICATOR}--${indicatorBottom ? 'bottom' : 'top'}`
-        )}
-      >
-        <strong>{percentage}</strong>
-        {indicatorTotal ? `/100` : `%`}
-      </span>
-    )
-  }
   render() {
     const {percentage, indicatorBottom} = this.props
     const styleBar = {
@@ -29,11 +30,11 @@ class AtomProgressBar extends PureComponent {
     }
     return (
       <div className={BASE_CLASS}>
-        {!indicatorBottom && this.renderIndicator(indicatorBottom)}
+        {!indicatorBottom && <Indicator {...this.props} />}
         <div className={CLASS_CONTAINER_BAR}>
           <span className={CLASS_BAR} style={styleBar} />
         </div>
-        {indicatorBottom && this.renderIndicator(indicatorBottom)}
+        {indicatorBottom && <Indicator {...this.props} />}
       </div>
     )
   }
@@ -41,13 +42,15 @@ class AtomProgressBar extends PureComponent {
 
 AtomProgressBar.displayName = 'AtomProgressBar'
 
-// Remove these comments if you need
-// AtomProgressBar.contextTypes = {i18n: PropTypes.object}
 AtomProgressBar.propTypes = {
+  /** Percentage value to be displayed as number and as bar width  */
   percentage: PropTypes.number,
+
+  /** If the indicator should be displayed with the pattern → {percentage}/100 ({percentage}% as default) */
   indicatorTotal: PropTypes.bool,
+
+  /** If the indicator should be placed below the bar */
   indicatorBottom: PropTypes.bool
 }
-// AtomProgressBar.defaultProps = {}
 
 export default AtomProgressBar

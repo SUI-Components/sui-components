@@ -4,6 +4,7 @@ $bg-progress-bar: $c-gray-lightest;
 $bc-progress-bar: $c-gray-light;
 $c-progress-bar-fill: $c-primary;
 
+$br-progress-bar: 25px;
 $h-progress-bar: $m-base;
 
 .sui-AtomProgressBar {
@@ -25,14 +26,14 @@ $h-progress-bar: $m-base;
   &-container {
     background: $bg-progress-bar;
     border: 1px solid $bc-progress-bar;
-    border-radius: 25px;
+    border-radius: $br-progress-bar;
     height: $h-progress-bar;  /* Can be anything */
     position: relative;
   }
 
   &-bar {
     background-color: $c-progress-bar-fill;
-    border-radius: 25px;
+    border-radius: $br-progress-bar;
     display: block;
     height: 100%;
     overflow: hidden;

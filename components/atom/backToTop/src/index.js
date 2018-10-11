@@ -8,6 +8,8 @@ const CLASS_ICON = 'sui-AtomBackToTop-icon'
 const CLASS_TEXT = 'sui-AtomBackToTop-text'
 const CLASS_SHOW = 'sui-AtomBackToTop--show'
 const CLASS_HIDE = 'sui-AtomBackToTop--hide'
+const CLASS_HOVER = 'sui-AtomBackToTop--hover'
+const CLASS_READY = 'sui-AtomBackToTop--ready'
 
 const STYLES = {
   DARK: 'dark',
@@ -16,7 +18,8 @@ const STYLES = {
 
 class AtomBackToTop extends PureComponent {
   state = {
-    show: false
+    show: null,
+    hover: false
   }
 
   intervalId = 0
@@ -48,6 +51,14 @@ class AtomBackToTop extends PureComponent {
     }
   }
 
+  hoverButton = e => {
+    this.setState({hover: true})
+  }
+
+  unhoverButton = e => {
+    this.setState({hover: false})
+  }
+
   componentDidMount() {
     this.container = getTarget(this.props.refContainer)
 
@@ -68,17 +79,21 @@ class AtomBackToTop extends PureComponent {
   }
 
   render() {
-    const {scrollToTop} = this
+    const {scrollToTop, hoverButton, unhoverButton} = this
     const {iconTop: IconTop, textTop, style} = this.props
-    const {show} = this.state
+    const {show, hover} = this.state
     return (
       <button
         title="Back to top"
         className={cx(
           BASE_CLASS,
           `${BASE_CLASS}--${style}`,
-          show ? CLASS_SHOW : CLASS_HIDE
+          show !== null && CLASS_READY,
+          show ? CLASS_SHOW : CLASS_HIDE,
+          hover && CLASS_HOVER
         )}
+        onMouseOver={hoverButton}
+        onMouseOut={unhoverButton}
         onClick={scrollToTop}
       >
         {IconTop && (

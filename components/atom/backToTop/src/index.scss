@@ -23,10 +23,14 @@ $c-back-to-top--light: $c-primary;
   padding: $p-m;
   position: fixed;
   right: $p-xl;
+  visibility: hidden;
   z-index: $z-back-to-top;
 
-  &:hover, 
-  &:active {
+  &--ready {
+    visibility: visible;
+  }
+
+  &--hover {
     opacity: 1;
   }
 

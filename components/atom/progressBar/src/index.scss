@@ -4,8 +4,8 @@ $bg-progress-bar: $c-gray-lightest !default;
 $bc-progress-bar: $c-gray-light !default;
 $c-progress-bar-fill: $c-primary !default;
 
-$br-progress-bar: 25px !default;
-$h-progress-bar: $m-base !default;
+$br-progress-bar: 25px;
+$h-progress-bar: $m-base;
 
 .sui-AtomProgressBar {
   &-indicator {

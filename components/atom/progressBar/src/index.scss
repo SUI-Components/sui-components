@@ -1,11 +1,11 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$bg-progress-bar: $c-gray-lightest;
-$bc-progress-bar: $c-gray-light;
-$c-progress-bar-fill: $c-primary;
+$bg-progress-bar: $c-gray-lightest !default;
+$bc-progress-bar: $c-gray-light !default;
+$c-progress-bar-fill: $c-primary !default;
 
-$br-progress-bar: 25px;
-$h-progress-bar: $m-base;
+$br-progress-bar: 25px !default;
+$h-progress-bar: $m-base !default;
 
 .sui-AtomProgressBar {
   &-indicator {

@@ -4,6 +4,9 @@ $bg-progress-bar: $c-gray-lightest !default;
 $bc-progress-bar: $c-gray-light !default;
 $c-progress-bar-fill: $c-primary !default;
 
+$trsdu-progress-bar: 500ms !default;
+$trstf-progress-bar: linear !default;
+
 $br-progress-bar: 25px;
 $h-progress-bar: $m-base;
 
@@ -38,6 +41,9 @@ $h-progress-bar: $m-base;
     height: 100%;
     overflow: hidden;
     position: relative;
+    &--animated {
+      transition: width $trsdu-progress-bar $trstf-progress-bar;
+    }
   }
 
 }

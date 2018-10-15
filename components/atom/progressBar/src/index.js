@@ -6,6 +6,7 @@ const BASE_CLASS = 'sui-AtomProgressBar'
 const CLASS_INDICATOR = 'sui-AtomProgressBar-indicator'
 const CLASS_CONTAINER_BAR = 'sui-AtomProgressBar-container'
 const CLASS_BAR = 'sui-AtomProgressBar-bar'
+const CLASS_BAR_ANIMATED = 'sui-AtomProgressBar-bar--animated'
 
 const Indicator = props => {
   const {indicatorBottom, percentage, indicatorTotal} = props // eslint-disable-line react/prop-types
@@ -24,15 +25,17 @@ const Indicator = props => {
 
 class AtomProgressBar extends PureComponent {
   render() {
-    const {percentage, indicatorBottom} = this.props
-    const styleBar = {
-      width: `${percentage}%`
-    }
+    const {percentage, indicatorBottom, isAnimatedOnChange} = this.props
+    const width = `${percentage}%`
+    const styleBar = {width}
     return (
       <div className={BASE_CLASS}>
         {!indicatorBottom && <Indicator {...this.props} />}
         <div className={CLASS_CONTAINER_BAR}>
-          <span className={CLASS_BAR} style={styleBar} />
+          <span
+            className={cx(CLASS_BAR, isAnimatedOnChange && CLASS_BAR_ANIMATED)}
+            style={styleBar}
+          />
         </div>
         {indicatorBottom && <Indicator {...this.props} />}
       </div>
@@ -48,6 +51,9 @@ AtomProgressBar.propTypes = {
 
   /** If the indicator should be displayed with the pattern → {percentage}/100 ({percentage}% as default) */
   indicatorTotal: PropTypes.bool,
+
+  /** If the bar "value" (width) should be displayed wuth animation */
+  isAnimatedOnChange: PropTypes.bool,
 
   /** If the indicator should be placed below the bar */
   indicatorBottom: PropTypes.bool

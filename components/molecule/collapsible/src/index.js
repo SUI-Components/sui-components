@@ -43,6 +43,22 @@ class MoleculeCollapsible extends Component {
     })
   }
 
+  componentWillReceiveProps() {
+    let offsetHeight
+    if (this.props.maxHeight) {
+      offsetHeight = this.props.maxHeight
+    } else {
+      offsetHeight =
+        this.state.maxHeight === this.childrenContainer.current.offsetHeight
+          ? this.state.maxHeight
+          : this.childrenContainer.current.offsetHeight
+    }
+    this.setState({
+      showButton: offsetHeight >= this.props.minHeight,
+      maxHeight: offsetHeight
+    })
+  }
+
   render() {
     const {collapsed, showButton, maxHeight} = this.state
     const {

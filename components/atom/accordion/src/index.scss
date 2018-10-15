@@ -1,2 +1,41 @@
 @import '~@schibstedspain/sui-theme/lib/index';
+@import '../../../molecule/collapsible/src/index';
 @import './settings';
+.sui-AtomAccordion {
+  .sui-MoleculeCollapsible {
+    border: $bd-accordion-container;
+    border-bottom: $bd-accordion-container-none;
+    display: flex;
+    flex-direction: column-reverse;
+    &:last-child {
+      border-bottom: $bd-accordion-container;
+    }
+    &-content {
+      border-top: $bd-accordion-container;
+      & > div {
+        padding: $p-accordion-content;
+      }
+    }
+    &-btn {
+      color: $c-accordion-text;
+      height: 40px;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      &-content {
+        display: block;
+        padding: $p-accordion-btn;
+        text-align: left;
+        width: 100%;
+      }
+    }
+    &-icon {
+      float: right;
+    }
+  }
+  .is-collapsed {
+    .sui-MoleculeCollapsible-content {
+      border: $bd-accordion-container-none;
+    }
+  }
+}

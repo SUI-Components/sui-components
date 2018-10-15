@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2018-10-15)
+
+
+### Bug Fixes
+
+* remove scss import from js file ([254d79d](https://github.com/SUI-Components/sui-components/commit/254d79d))
+* remove scss import indeed ([36c4ecb](https://github.com/SUI-Components/sui-components/commit/36c4ecb))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2018-10-05)
 

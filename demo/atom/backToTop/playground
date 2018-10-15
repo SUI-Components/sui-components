@@ -101,7 +101,7 @@ class ContainerDemo extends React.Component {
 return (
   <div>
     <div id="container">
-      <h1>Lorem Ipsum</h1>
+      <h1>Back To Top</h1>
       <ContainerDemo />
     </div>
   </div>

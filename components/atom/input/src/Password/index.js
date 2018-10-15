@@ -2,8 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Input from '../Input'
 
-// import './index.scss'
-
 const TEXT = 'text'
 const PASSWORD = 'password'
 const HIDE_LABEL = 'hide'

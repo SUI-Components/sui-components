@@ -26,6 +26,10 @@ $c-back-to-top--light: $c-primary;
   visibility: hidden;
   z-index: $z-back-to-top;
 
+  &:focus {
+    outline: 0;
+  }
+
   &--ready {
     visibility: visible;
   }

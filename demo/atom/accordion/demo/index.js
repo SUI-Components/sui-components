@@ -7,8 +7,8 @@ import MoleculeCollapsible from '../../../../components/molecule/collapsible/src
 import './index.scss'
 
 const icon = GetIcon()
-const showText = 'Show'
-const hideText = 'Hide'
+const showText = 'Placeholder text'
+const hideText = 'Placeholder text'
 const height = 70
 
 function Text() {
@@ -16,7 +16,20 @@ function Text() {
     <p style={{margin: 0}}>
       Lorem ipsum dolor sit ametnibus lobort elit condimentum eget pulvinar eu
       lacinia vitae ligula. Sed sit amet eros auctor ipsum tincidunt hendrerit
-      ac mollis justo. Ut ac sagittis ipsum.
+      ac mollis justo. Ut ac sagittis ipsum. Lorem ipsum dolor sit ametnibus
+      lobort elit condimentum eget pulvinar eu lacinia vitae ligula. Sed sit
+      amet eros auctor ipsum tincidunt hendrerit ac mollis justo. Ut ac sagittis
+      ipsum. Lorem ipsum dolor sit ametnibus lobort elit condimentum eget
+      pulvinar eu lacinia vitae ligula. Sed sit amet eros auctor ipsum tincidunt
+      hendrerit ac mollis justo. Ut ac sagittis ipsum. Lorem ipsum dolor sit
+      ametnibus lobort elit condimentum eget pulvinar eu lacinia vitae ligula.
+      Sed sit amet eros auctor ipsum tincidunt hendrerit ac mollis justo. Ut ac
+      sagittis ipsum. Lorem ipsum dolor sit ametnibus lobort elit condimentum
+      eget pulvinar eu lacinia vitae ligula. Sed sit amet eros auctor ipsum
+      tincidunt hendrerit ac mollis justo. Ut ac sagittis ipsum. Lorem ipsum
+      dolor sit ametnibus lobort elit condimentum eget pulvinar eu lacinia vitae
+      ligula. Sed sit amet eros auctor ipsum tincidunt hendrerit ac mollis
+      justo. Ut ac sagittis ipsum.
     </p>
   )
 }
@@ -36,34 +49,80 @@ function GetIcon() {
   )
 }
 
+function DemoBox({children}) {
+  return (
+    <div style={{flexBasis: 400, flexGrow: 0, flexShrink: 0, padding: 20}}>
+      {children}
+    </div>
+  )
+}
+
+function DemoWrapper({children}) {
+  return <div style={{display: 'flex', flexWrap: 'wrap'}}>{children}</div>
+}
+
 const Demo = () => {
   return (
     <div>
       <h1>Accordion</h1>
-      <AtomAccordion>
-        <MoleculeCollapsible
-          icon={icon}
-          showText={showText}
-          hideText={hideText}
-        >
-          <Text />
-        </MoleculeCollapsible>
-        <MoleculeCollapsible
-          icon={icon}
-          showText={showText}
-          hideText={hideText}
-          isCollapsed={false}
-        >
-          <Text />
-        </MoleculeCollapsible>
-        <MoleculeCollapsible
-          icon={icon}
-          showText={showText}
-          hideText={hideText}
-        >
-          <Text />
-        </MoleculeCollapsible>
-      </AtomAccordion>
+      <DemoBox>
+        <h2>Accordion without height limit and transition</h2>
+        <DemoWrapper>
+          <AtomAccordion maxHeight={null} withTransition={false}>
+            <MoleculeCollapsible
+              icon={icon}
+              showText={showText}
+              hideText={hideText}
+            >
+              <Text />
+            </MoleculeCollapsible>
+            <MoleculeCollapsible
+              icon={icon}
+              showText={showText}
+              hideText={hideText}
+              isCollapsed={false}
+            >
+              <Text />
+            </MoleculeCollapsible>
+            <MoleculeCollapsible
+              icon={icon}
+              showText={showText}
+              hideText={hideText}
+            >
+              <Text />
+            </MoleculeCollapsible>
+          </AtomAccordion>
+        </DemoWrapper>
+      </DemoBox>
+      <DemoBox>
+        <h2>Accordion with default height and transition</h2>
+        <DemoWrapper>
+          <AtomAccordion>
+            <MoleculeCollapsible
+              icon={icon}
+              showText={showText}
+              hideText={hideText}
+            >
+              <Text />
+            </MoleculeCollapsible>
+            <MoleculeCollapsible
+              icon={icon}
+              showText={showText}
+              hideText={hideText}
+              isCollapsed={false}
+            >
+              <Text />
+            </MoleculeCollapsible>
+            <MoleculeCollapsible
+              icon={icon}
+              showText={showText}
+              hideText={hideText}
+            >
+              <Text />
+            </MoleculeCollapsible>
+          </AtomAccordion>
+        </DemoWrapper>
+      </DemoBox>
     </div>
   )
 }

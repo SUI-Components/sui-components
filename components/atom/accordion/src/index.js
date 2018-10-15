@@ -1,22 +1,34 @@
 import React, {Component} from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import MoleculeCollapsible from '../../../molecule/collapsible/src'
 
 const BASE_CLASS = 'sui-AtomAccordion'
 
 class AtomAccordion extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      collapsed: true
+    }
+  }
+
   onOpen = () => {
-    window.alert('open!')
+    this.setState({collapsed: false})
   }
 
   render() {
+    const {collapsed} = this.state
+    const {withTransition, maxHeight} = this.props
     const children = React.Children.map(
       this.props.children,
-      child => {
+      (child, index) => {
         return React.cloneElement(child, {
+          ref: `child${index}`,
           minHeight: 0,
+          maxHeight: maxHeight,
           withGradient: false,
-          withTransition: false,
+          withTransition: withTransition,
+          isCollapsed: collapsed,
           onOpen: () => {
             this.onOpen()
           }
@@ -43,8 +55,24 @@ AtomAccordion.propTypes = {
       }
     })
     return error
-  }
+  },
+  /**
+   * Define the max height visible
+   */
+  maxHeight: PropTypes.number,
+  /**
+   * Activate/deactivate autoclose
+   */
+  withAutoClose: PropTypes.bool,
+  /**
+   * Activate/deactivate transition
+   */
+  withTransition: PropTypes.bool
 }
-// AtomAccordion.defaultProps = {}
+AtomAccordion.defaultProps = {
+  maxHeight: 100,
+  withAutoClose: true,
+  withTransition: true
+}
 
 export default AtomAccordion

@@ -1,29 +1,35 @@
 sudo: false
 language: node_js
-cache:
-  directories:
-    - node_modules
+
 node_js:
   - '8'
+
 before_install:
-  - npm i -g npm@^3.0.0
-  - npm i -g npx
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+
 install:
   - npm run phoenix:ci
+  - rm -Rf ./demo/**/**/themes
+  - ./scripts/build-themes.js
+
 script:
-  - npm run test
-before_deploy:
-  - npm i -g now@9
   - npm run build
-deploy:
-  skip_cleanup: true
-  provider: script
-  script:
-    - rm -Rf ./demo/**/**/themes
-    - ./scripts/build-themes.js
-    - npm run deploy
+
+jobs:
+  include:
+    - stage: Deploy PR
+      if: type = pull_request
+      script:
+        - npm install --only=dev --force-online
+        - npm run deploy:pr
+
+    - stage: deploy pro
+      if: branch = master AND NOT type = pull_request
+      script:
+        - npm install --only=dev --force-online
+        - npm run deploy
 env:
   global:
+    - NODE_ENV=production
     - secure: >-
         LjGXe1DETl1mF8P4UD8X1gw6IFrDCKYq/AVP2Rbx8o9OvZ2k7r3+MpRKh6rbMgG/50pfb7MsJXs1Z/Cfgox4+2st6mYKpVcbRaJ7As7DV5ERtrMqM1wIIQObXx+416/cgzp/ESdYQ3ZV5y5xnEe/6IvIXIIjP7Is4pGtTtVllucuf71y85+Cupv2rvauxkdGOd72G8GUpg0L7vDwD3+LqCONdGLmZEUGgrf5KVNXTfvmgLY8coHSZYUDtbmedxMjwEF+j9GkcotlZeX9bDsHgNz/cq8Qs6g4KyeknQKoTfzN39dxcS8r1RA1k0ZXWpuFND9ruJCYcmkhNDiaFqyOKQ5Two298AhUbTZgftsTNFFaM1FkXm+Z+FexJa7Q76bHUrRcKKFJeNZHdbuJD/m9cwYQyOIpKGczOCpJJQu++eeQO+VMLYHxAVlzGZ6ThlRSGHaP1nB9v2A76NPJp9yemyiBCmQ/VYrloXiO9IMV/qqHU2ripx59w6RtAKN/6qqptrpkFgb4COdqSHUEjTwdWIAbDpgs98D1gW0RPoTPMhs+Uq33EM3ar0lZW9A+YkFJBjxysSRe1J7/f+Do5zxMVxIDdKL4CTzp+URG4njKZ/ye3uAl0qU1xXQg+h3K9Wt1hi9ogHJizAPE4J8T89BzwvGNdNSpcnOQ1yWx/R3C+Ec=

@@ -46,7 +46,7 @@ const bankAccountMask = { // checkout all options here https://unmanner.github.i
 
 >[What are addons?](https://paper.dropbox.com/doc/SUI-Input-03mHJFkOCjviSZevsaTwm#:uid=125362683844628624581838&h2=Icons-and-addons-inside-the-in)
 
-Addons are passed as prop, use **leftAddon** or **rightAddon** in order to set the position inside the Input
+Addons are passed as prop, use **leftAddon** or **rightAddon** in order to set the position inside the Input, or **leftIcon** to use an icon inside the input 
 
 ### Addon usage
 
@@ -54,6 +54,15 @@ Addons are passed as prop, use **leftAddon** or **rightAddon** in order to set t
 import AtomInput from '@s-ui/react-atom-input'
 
 return <AtomInput leftAddon='http://' rightAddon='@schibsted.com' />
+```
+
+```js
+import AtomInput from '@s-ui/react-atom-input'
+
+const logo = 'my_logo.svg'
+const leftIcon = () => <img src={logo} />
+
+<AtomInput leftIcon={leftIcon} />
 ```
 
 ## Error states

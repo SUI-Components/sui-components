@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2018-10-03)
+
+
+### Bug Fixes
+
+* suit compliant ([82aba20](https://github.com/SUI-Components/sui-components/commit/82aba20))
+
+
+### Features
+
+* first commit with only Schibsted Spain Components ([c0814de](https://github.com/SUI-Components/sui-components/commit/c0814de))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2018-07-20)
 
@@ -18,7 +33,7 @@ All notable changes to this project will be documented in this file.
 
 
 <a name="1.4.0"></a>
-# 1.4.0 (2018-06-20)
+# [1.4.0](https://github.com/SUI-Components/sui-components/compare/v1.1.0...v1.4.0) (2018-06-20)
 
 
 

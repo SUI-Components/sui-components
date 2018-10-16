@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2018-10-03)
+
+
+### Features
+
+* first commit with only Schibsted Spain Components ([c0814de](https://github.com/SUI-Components/sui-components/commit/c0814de))
+* fixed bug ([f09cc8e](https://github.com/SUI-Components/sui-components/commit/f09cc8e))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2018-04-13)
 

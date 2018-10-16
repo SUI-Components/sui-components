@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-input-field",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-form-input": "1",
+    "@s-ui/react-atom-input": "1",
     "@s-ui/react-molecule-field": "1"
   },
   "keywords": [],

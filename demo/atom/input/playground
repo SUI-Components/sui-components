@@ -156,9 +156,7 @@ class SimpleCheckboxRadioForm extends React.Component {
             }}
           />
         </div>
-        <pre>
-            { JSON.stringify(this.state, null, 2) }
-        </pre>
+        <pre>{JSON.stringify(this.state, null, 2)}</pre>
         <button>Send!</button>
       </form>
     )
@@ -186,6 +184,9 @@ const imageCheckboxStyle = {
   cursor: 'pointer'
 }
 
+const logoLocation = 'https://image.flaticon.com/icons/svg/67/67347.svg'
+const LeftIcon = () => <img src={logoLocation} />
+
 return (
   <React.Fragment>
     <div style={field}>
@@ -199,13 +200,16 @@ return (
       <AtomInput name="second" placeholder="Medium Input" />
     </div>
     <div style={field}>
+      <AtomInput name="second" placeholder="Medium Input" value="Somewhere over the..."/>
+    </div>
+    <div style={field}>
       <AtomInput name="disabled" placeholder="Medium Disabled Input" disabled />
     </div>
     <div style={field}>
       <AtomInput type="number" name="number" placeholder="Number only input" />
     </div>
     <div style={field}>
-      <AtomInput type="date" name="date" />
+      <AtomInput type="date" name="date" charsSize={10} />
     </div>
     <div style={field}>
       <AtomInput
@@ -213,6 +217,21 @@ return (
         placeholder="Medium Input"
         leftAddon="http://"
         rightAddon="@schibsted.com"
+      />
+    </div>
+    <div style={field}>
+      <AtomInput
+        name="second"
+        placeholder="Medium Input"
+        leftIcon={LeftIcon}
+      />
+    </div>
+    <div style={field}>
+      <AtomInput
+        name="second"
+        placeholder="Medium Input"
+        leftIcon={LeftIcon}
+        rightAddon="Location"
       />
     </div>
     <div style={field}>
@@ -233,6 +252,7 @@ return (
         type="mask"
         mask={bankAccountMask}
         placeholder="ES00 0000 0000 00 0000000000"
+        charsSize={31}
       />
     </div>
 

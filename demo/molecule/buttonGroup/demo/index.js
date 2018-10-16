@@ -6,6 +6,9 @@ import MoleculeButtonGroup from '../../../../components/molecule/buttonGroup/src
 import AtomButtom, {
   atomButtonGroupPositions
 } from '@schibstedspain/sui-atom-button'
+
+import SimpleOptionsRadioForm from './inputRadio'
+import SimpleOptionsCheckboxForm from './inputCheckbox'
 import './index.scss'
 
 const Demo = () => {
@@ -13,12 +16,24 @@ const Demo = () => {
     <div className="DemoMoleculeButtonGroup">
       <h1>MoleculeButtonGroup</h1>
       <div className="DemoMoleculeButtonGroup-section">
-        <h2>Secondary</h2>
+        <h2>As a group of buttons that trigger some action (or link)</h2>
         <MoleculeButtonGroup type="secondary">
-          <AtomButtom>A</AtomButtom>
-          <AtomButtom>B</AtomButtom>
-          <AtomButtom>C</AtomButtom>
+          <AtomButtom onClick={e => window.alert('clicked A')}>A</AtomButtom>
+          <AtomButtom onClick={e => window.alert('clicked B')}>B</AtomButtom>
+          <AtomButtom onClick={e => window.alert('clicked C')}>C</AtomButtom>
         </MoleculeButtonGroup>
+      </div>
+      <div className="DemoMoleculeButtonGroup-section">
+        <h2>
+          As a group of choices (only one can be selected) → 'input radio' like
+        </h2>
+        <SimpleOptionsRadioForm />
+      </div>
+      <div className="DemoMoleculeButtonGroup-section">
+        <h2>
+          As a group of choices (several can be selected) → 'checkbox' like
+        </h2>
+        <SimpleOptionsCheckboxForm />
       </div>
       <div className="DemoMoleculeButtonGroup-section--fullWidth">
         <h2>Secondary (Full Width)</h2>

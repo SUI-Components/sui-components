@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
-import FormInput from '@s-ui/react-form-input'
+import AtomInput from '@s-ui/react-atom-input'
 
 const getErrorState = (success, error) => {
   if (success) return false
@@ -19,7 +19,6 @@ const MoleculeInputField = ({
   ...props
 }) => {
   const errorState = getErrorState(successText, errorText)
-
   return (
     <MoleculeField
       name={id}
@@ -29,7 +28,7 @@ const MoleculeInputField = ({
       helpText={helpText}
       inline={inline}
     >
-      <FormInput id={id} errorState={errorState} {...props} />
+      <AtomInput id={id} errorState={errorState} {...props} />
     </MoleculeField>
   )
 }

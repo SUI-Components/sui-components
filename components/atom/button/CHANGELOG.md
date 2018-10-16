@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.21.0"></a>
+# 1.21.0 (2018-10-10)
+
+
+### Features
+
+* add possibility of changing the font-weight of the atom button ([398734b](https://github.com/SUI-Components/sui-components/commit/398734b))
+* customizable small and large as well ([a5dc694](https://github.com/SUI-Components/sui-components/commit/a5dc694))
+* first commit with only Schibsted Spain Components ([c0814de](https://github.com/SUI-Components/sui-components/commit/c0814de))
+
+
+
+<a name="1.20.0"></a>
+# 1.20.0 (2018-09-10)
+
+
+### Features
+
+* added isSubmit and isButton props ([896b3e8](https://github.com/SUI-Components/sui-components/commit/896b3e8))
+
+
+
 <a name="1.19.0"></a>
 # 1.19.0 (2018-09-06)
 

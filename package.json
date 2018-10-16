@@ -34,12 +34,6 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@schibstedspain/cf-theme": "^1.18.0",
-    "@schibstedspain/fc-theme": "^10.0.16",
-    "@schibstedspain/ij-theme": "^1.1.0",
-    "@schibstedspain/mt-theme": "^4.39.0",
-    "@schibstedspain/nc-theme": "^1.16.0",
-    "@schibstedspain/vb-theme": "^1.5.0",
     "walker": "1.0.7"
   },
   "config": {

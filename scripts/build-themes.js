@@ -62,7 +62,10 @@ const getThemesList = () => {
 const installThemesPkgs = () =>
   getSpawnPromise(
     'npm',
-    Object.keys(themesPkgs).reduce((acc, pkg) => [...acc, pkg], ['i']),
+    Object.keys(themesPkgs).reduce((acc, pkg) => [...acc, pkg], [
+      'i',
+      '--no-save'
+    ]),
     {cwd: process.cwd()}
   )
 

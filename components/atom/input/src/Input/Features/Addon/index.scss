@@ -15,7 +15,9 @@ $c-atom-input-addon: $c-gray-light !default;
   border-style: solid;
   color: $c-atom-input-addon;
   display: flex;
+  flex-direction: column;
   height: inherit;
+  justify-content: center;
   line-height: inherit;
   padding-left: $p-l;
   padding-right: $p-l;
@@ -27,4 +29,5 @@ $c-atom-input-addon: $c-gray-light !default;
   &--left {
     border-width: $bdw-atom-input-addon-left;
   }
+  
 }

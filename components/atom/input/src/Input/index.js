@@ -6,11 +6,8 @@ const WithAddonComponent = AddonHoc(Component)
 
 export default props => {
   const {leftAddon, rightAddon} = props // eslint-disable-line react/prop-types
-  return leftAddon || rightAddon ? (
-    <WithAddonComponent {...props} />
-  ) : (
-    <Component {...props} />
-  )
+  if (leftAddon || rightAddon) return <WithAddonComponent {...props} />
+  return <Component {...props} />
 }
 
 export {inputSizes}

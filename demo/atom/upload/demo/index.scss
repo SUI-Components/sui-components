@@ -1,0 +1,38 @@
+@import '~@s-ui/react-atom-spinner/lib/index';
+
+.DemoAtomUpload {
+
+  
+  &-section {
+    border: 1px solid blue;
+    margin: 20px 20px 20px 0;
+    max-width: 800px;
+    min-width: 300px;
+    padding: 10px;
+
+    .sui-AtomUpload {
+      min-height: 220px;
+    }
+
+    .sui-AtomUpload-iconUpload {
+      width: 16px;
+
+      span {
+        text-indent: -1000px;
+      }
+    }
+    
+
+    &--responsive {
+      border: 2px dotted blue;
+      max-width: 1000px;
+      overflow: hidden;
+      resize: horizontal;
+      width: 300px;
+
+      &-large {
+        width: 600px;
+      }
+    }
+  }
+}

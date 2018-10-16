@@ -4,4 +4,6 @@ lib/
 npm-debug.log
 lib
 package-lock.json
-.envdemo/**/**/themes
+.env
+demo/**/**/themes
+.tern-port

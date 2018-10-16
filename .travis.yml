@@ -20,6 +20,7 @@ deploy:
   skip_cleanup: true
   provider: script
   script:
+    - rm -Rf ./demo/**/**/themes
     - ./scripts/build-themes.js
     - npm run deploy
 env:

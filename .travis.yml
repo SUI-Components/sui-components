@@ -19,7 +19,9 @@ before_deploy:
 deploy:
   skip_cleanup: true
   provider: script
-  script: npm run deploy
+  script:
+    - ./scripts/build-themes.js
+    - npm run deploy
 env:
   global:
     - secure: >-

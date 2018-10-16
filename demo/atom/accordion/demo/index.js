@@ -123,6 +123,35 @@ const Demo = () => {
           </AtomAccordion>
         </DemoWrapper>
       </DemoBox>
+      <DemoBox>
+        <h2>Accordion with default height and transition and no autoclose</h2>
+        <DemoWrapper>
+          <AtomAccordion withAutoClose={false}>
+            <MoleculeCollapsible
+              icon={icon}
+              showText={showText}
+              hideText={hideText}
+            >
+              <Text />
+            </MoleculeCollapsible>
+            <MoleculeCollapsible
+              icon={icon}
+              showText={showText}
+              hideText={hideText}
+              isCollapsed={false}
+            >
+              <Text />
+            </MoleculeCollapsible>
+            <MoleculeCollapsible
+              icon={icon}
+              showText={showText}
+              hideText={hideText}
+            >
+              <Text />
+            </MoleculeCollapsible>
+          </AtomAccordion>
+        </DemoWrapper>
+      </DemoBox>
     </div>
   )
 }

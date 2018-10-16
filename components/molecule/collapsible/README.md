@@ -18,13 +18,13 @@ import MoleculeCollapsible from '@s-ui/react-molecule-collapsible'
 
 ### Basic usage
 ```js
-<MoleculeThumbnail 
+<MoleculeCollapsible 
     icon={svgIcon} 
     showText='Show' 
     hideText='Hide'
 >
     <p>Text or content to collapse</p>
-</MoleculeThumbnail>
+</MoleculeCollapsible>
 
 ```
 
@@ -32,40 +32,40 @@ import MoleculeCollapsible from '@s-ui/react-molecule-collapsible'
 #### Gradient
 It can be set True or False. It will show a gradient over the content when set to True. By default it is True.
 ```js
-<MoleculeThumbnail 
+<MoleculeCollapsible 
     icon={svgIcon} 
     showText='Show' 
     hideText='Hide'
     withGradient={true}
 >
     <p>Text or content to collapse</p>
-</MoleculeThumbnail>
+</MoleculeCollapsible>
 ```
 
 #### Transition
 It can be set True or False. It will activate or deactivate transition effect when toggle. By default it is True.
 ```js
-<MoleculeThumbnail 
+<MoleculeCollapsible 
     icon={svgIcon} 
     showText='Show' 
     hideText='Hide'
     withTransition={true}
 >
     <p>Text or content to collapse</p>
-</MoleculeThumbnail>
+</MoleculeCollapsible>
 ```
 
 #### minHeight
 It sets the minimum height in pixels when the component is collapsed. By default it is set to 100px.
 ```js
-<MoleculeThumbnail 
+<MoleculeCollapsible 
     icon={svgIcon} 
     showText='Show' 
     hideText='Hide'
     minHeight={10}
 >
     <p>Text or content to collapse</p>
-</MoleculeThumbnail>
+</MoleculeCollapsible>
 ```
 
 #### maxHeight

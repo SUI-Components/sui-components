@@ -63,7 +63,7 @@ function DemoWrapper({children}) {
 
 const Demo = () => {
   return (
-    <div>
+    <div className="sui-StudioPreview">
       <h1>Accordion</h1>
       <DemoBox>
         <h2>Accordion without height limit and transition</h2>

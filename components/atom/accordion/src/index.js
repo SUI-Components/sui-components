@@ -8,17 +8,33 @@ class AtomAccordion extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      collapsed: true
+      childrenStateList: this.getChildrenInitialStateList()
     }
   }
 
-  onOpen = () => {
-    this.setState({collapsed: false})
+  getChildrenInitialStateList = () => {
+    return this.props.children.map(() => true)
+  }
+
+  onOpen = id => {
+    const childrenNewStatePromise = new Promise(resolve => {
+      resolve(
+        this.state.childrenStateList.map((child, index) => {
+          return index !== id
+        })
+      )
+    })
+    childrenNewStatePromise.then(childrenNewStateList => {
+      this.setState({
+        childrenStateList: [...childrenNewStateList]
+      })
+      this.forceUpdate()
+    })
   }
 
   render() {
-    const {collapsed} = this.state
-    const {withTransition, maxHeight} = this.props
+    const {childrenStateList} = this.state
+    const {withTransition, maxHeight, withAutoClose} = this.props
     const children = React.Children.map(
       this.props.children,
       (child, index) => {
@@ -28,9 +44,9 @@ class AtomAccordion extends Component {
           maxHeight: maxHeight,
           withGradient: false,
           withTransition: withTransition,
-          isCollapsed: collapsed,
+          isCollapsed: childrenStateList[index],
           onOpen: () => {
-            this.onOpen()
+            withAutoClose && this.onOpen(index)
           }
         })
       },

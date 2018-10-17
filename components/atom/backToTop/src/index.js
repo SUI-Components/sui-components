@@ -4,12 +4,12 @@ import cx from 'classnames'
 import {getTarget} from './utils'
 
 const BASE_CLASS = 'sui-AtomBackToTop'
-const CLASS_ICON = 'sui-AtomBackToTop-icon'
-const CLASS_TEXT = 'sui-AtomBackToTop-text'
-const CLASS_SHOW = 'sui-AtomBackToTop--show'
-const CLASS_HIDE = 'sui-AtomBackToTop--hide'
-const CLASS_HOVER = 'sui-AtomBackToTop--hover'
-const CLASS_READY = 'sui-AtomBackToTop--ready'
+const CLASS_ICON = `${BASE_CLASS}-icon`
+const CLASS_TEXT = `${BASE_CLASS}-text`
+const CLASS_SHOW = `${BASE_CLASS}--show`
+const CLASS_HIDE = `${BASE_CLASS}--hide`
+const CLASS_HOVER = `${CLASS_SHOW}--hover`
+const CLASS_READY = `${BASE_CLASS}--ready`
 
 const STYLES = {
   DARK: 'dark',

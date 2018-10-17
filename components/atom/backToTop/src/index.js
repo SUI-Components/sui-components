@@ -47,7 +47,7 @@ class AtomBackToTop extends PureComponent {
     if (scrollTop > halfHeight) {
       if (!show) this.setState({show: true})
     } else {
-      if (show) this.setState({show: false})
+      if (show) this.setState({show: false, hover: false})
     }
   }
 

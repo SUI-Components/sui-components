@@ -73,7 +73,6 @@ const writeThemesInDemoFolders = async themes => {
   const paths = await glob(path.join(process.cwd(), 'demo', '**', '**'))
   paths.filter(p => p.match(/\/demo\/\w+\/\w+$/)).forEach(async demo => {
     try {
-      debugger // eslint-disable-line
       const [, component] = demo.split('/demo/')
       await createDir(`${demo}/themes`)
       await Promise.all(

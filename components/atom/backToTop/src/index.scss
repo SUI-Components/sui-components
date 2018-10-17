@@ -68,6 +68,7 @@ $c-back-to-top--light: $c-primary;
   &--show {
     opacity: $op-back-to-top;
     transition: opacity $trsdu-back-to-top--show ease-in;
+
     &--hover {
       opacity: 1;
     }

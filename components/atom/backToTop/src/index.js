@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import {getTarget} from './utils'
+import {getTarget} from '@s-ui/js/lib/react'
 
 const BASE_CLASS = 'sui-AtomBackToTop'
 const CLASS_ICON = `${BASE_CLASS}-icon`

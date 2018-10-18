@@ -44,6 +44,12 @@ $c-back-to-top--light: $c-primary;
     }
   }
 
+  &-text {
+    align-items: center;
+    display: flex;
+    height: $sz-back-to-top-icon;
+  }
+
   &-icon + &-text {
     margin-left: $m-s;
   }

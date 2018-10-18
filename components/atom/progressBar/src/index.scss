@@ -41,6 +41,7 @@ $h-progress-bar: $m-base;
     height: 100%;
     overflow: hidden;
     position: relative;
+
     &--animated {
       transition: width $trsdu-progress-bar $trstf-progress-bar;
     }

@@ -9,6 +9,7 @@
     "co": "sui-studio commit",
     "commitmsg": "validate-commit-msg",
     "deploy": "sui-deploy spa sui-components --now -p",
+    "deploy:pr": "sui-deploy spa sui-components-PR-$TRAVIS_PULL_REQUEST --now -p",
     "dev": "sui-studio dev",
     "generate": "sui-studio generate -S s-ui -P react",
     "lint": "npm run lint:js && npm run lint:sass",
@@ -19,7 +20,7 @@
     "precommit": "sui-precommit run",
     "release": "sui-studio release",
     "start": "sui-studio start",
-    "test": "echo"
+    "test": "true"
   },
   "repository": {},
   "keywords": [],
@@ -34,12 +35,8 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@schibstedspain/cf-theme": "1",
-    "@schibstedspain/fc-theme": "10",
-    "@schibstedspain/ij-theme": "1",
-    "@schibstedspain/mt-theme": "4",
-    "@schibstedspain/nc-theme": "1",
-    "@schibstedspain/vb-theme": "1"
+    "globby": "8.0.1",
+    "walker": "1.0.7"
   },
   "config": {
     "sui-studio": {

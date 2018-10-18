@@ -23,24 +23,39 @@ const Paragraph = () => (
   </p>
 )
 
+const containerPlaygroundOld = document.querySelector('.sui-Studio-main')
+const containerPlaygroundNew = document.querySelector('.Root')
+
 class ContainerDemo extends React.Component {
   constructor() {
     super()
     this.state = {
+      text:false,
+      icon: true,
       paragraphs: 20,
       dark: false
     }
   }
   render() {
-    const {dark, text, paragraphs} = this.state
+    const {dark, text, icon, paragraphs} = this.state
     const customProps = {}
     customProps.style = dark ? backToTopStyles.LIGHT : backToTopStyles.DARK
     if (text) {
       customProps.textTop = 'TOP'
     }
+    if (icon) {
+      customProps.iconTop = iconTop
+    }
+    
     return (
       <div>
-        <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '10px'}}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            padding: '10px'
+          }}
+        >
           <button
             onClick={() => {
               this.setState({paragraphs: this.state.paragraphs + 20})
@@ -49,48 +64,70 @@ class ContainerDemo extends React.Component {
             Add 20 paragraphs
           </button>
         </div>
-        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-          <button
-            onClick={() => {
-              this.setState({dark: false})
-            }}
-            style={ !dark ? { background: '#4d4d4d', color: 'white' } : {}}
-          >
-            BackToTop Dark Mode
-          </button>
-          <button
-            onClick={() => {
-              this.setState({dark: true})
-            }}
-            style={ dark ? { background: '#4d4d4d', color: 'white' } : {}}
-          >
-            BackToTop Light Mode
-          </button>
-          <button
-            onClick={() => {
-              this.setState({text: false})
-            }}
-            style={ !text ? { background: '#4d4d4d', color: 'white' } : {}}
-          >
-            BackToTop Without Text
-          </button>
-          <button
-            onClick={() => {
-              this.setState({text: true})
-            }}
-            style={ text ? { background: '#4d4d4d', color: 'white' } : {}}
-          >
-            BackToTop With Text
-          </button>
+        <div style={{display: 'flex', justifyContent: 'space-between', padding: '10px'}}>
+          <div>
+            <button
+              onClick={() => {
+                this.setState({dark: false})
+              }}
+              style={!dark ? {background: '#4d4d4d', color: 'white'} : {}}
+            >
+              Dark Mode
+            </button>
+            <button
+              onClick={() => {
+                this.setState({dark: true})
+              }}
+              style={dark ? {background: '#4d4d4d', color: 'white'} : {}}
+            >
+              Light Mode
+            </button>
+          </div>
+          <div>
+            <button
+              onClick={() => {
+                this.setState({text: false, icon: true})
+              }}
+              style={!text && icon ? {background: '#4d4d4d', color: 'white'} : {}}
+            >
+              Only Icon
+            </button>
+            <button
+              onClick={() => {
+                this.setState({text: true, icon: true})
+              }}
+              style={text && icon ? {background: '#4d4d4d', color: 'white'} : {}}
+            >
+              Icon + Text
+            </button>
+            <button
+              onClick={() => {
+                this.setState({text: true, icon: false})
+              }}
+              style={text && !icon ? {background: '#4d4d4d', color: 'white'} : {}}
+            >
+              Only Text
+            </button>
+          </div>
         </div>
-        <div style={ dark ? { marginTop: '10px', padding: '10px', background: '#4d4d4d', color: 'white'} : {padding: '10px'}}>
+        <div
+          style={
+            dark
+              ? {
+                  marginTop: '10px',
+                  padding: '10px',
+                  background: '#4d4d4d',
+                  color: 'white'
+                }
+              : {padding: '10px'}
+          }
+        >
           {new Array(paragraphs)
             .fill(0)
             .map((elem, index) => <Paragraph key={index} />)}
         </div>
         <AtomBackToTop
-          iconTop={iconTop}
-          refContainer=".sui-Studio-main"
+          refContainer={containerPlaygroundOld || containerPlaygroundNew}
           {...customProps}
         />
       </div>

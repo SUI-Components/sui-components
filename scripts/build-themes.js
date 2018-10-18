@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
-const util = require('util')
 const path = require('path')
 const fse = require('fs-extra')
 const walker = require('walker')
-const glob = util.promisify(require('glob'))
+const globby = require('globby')
 const {getSpawnPromise} = require('@s-ui/helpers/cli')
 
 const themesPkgs = {
@@ -13,7 +12,8 @@ const themesPkgs = {
   '@schibstedspain/ij-theme': '1',
   '@schibstedspain/mt-theme': '4',
   '@schibstedspain/nc-theme': '1',
-  '@schibstedspain/vb-theme': '1'
+  '@schibstedspain/vb-theme': '1',
+  '@schibstedspain/ma-theme': '1'
 }
 
 const writeFile = (path, body) => {
@@ -70,7 +70,13 @@ const installThemesPkgs = () =>
   )
 
 const writeThemesInDemoFolders = async themes => {
-  const paths = await glob(path.join(process.cwd(), 'demo', '**', '**'))
+  await getSpawnPromise('rm', ['-Rf', './demo/**/**/themes'], {
+    cwd: process.cwd()
+  })
+  const paths = await globby(
+    [path.join(process.cwd(), 'demo', '**', '**'), '!**/node_modules/**'],
+    {onlyDirectories: true}
+  )
   paths.filter(p => p.match(/\/demo\/\w+\/\w+$/)).forEach(async demo => {
     try {
       const [, component] = demo.split('/demo/')
@@ -87,7 +93,7 @@ const writeThemesInDemoFolders = async themes => {
         )
       )
     } catch (e) {
-      console.log('Err:', err) // eslint-disable-line
+      console.log('Err:', e) // eslint-disable-line
     }
   })
 }

@@ -4,7 +4,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const BASE_CLASS = 'sui-AtomInput-addon'
+const BASE_CLASS = 'sui-AtomInput'
+const CLASS_ICON = `${BASE_CLASS}--withIcon`
+const CLASS_ICON_COMPONENT = `${CLASS_ICON}-icon`
 
 const TYPES = {
   LEFT: 'left',
@@ -14,30 +16,31 @@ const TYPES = {
 const AddonHoC = WrappedInput =>
   class Addon extends React.Component {
     static propTypes = {
-      /* Left addon component, text,... */
-      leftAddon: PropTypes.any,
-      /* Right addon component, text,... */
-      rightAddon: PropTypes.any
+      /* Left icon component */
+      leftIcon: PropTypes.any,
+
+      /* Left icon component */
+      rightIcon: PropTypes.any
     }
 
     getClassName({type}) {
-      return cx(BASE_CLASS, `${BASE_CLASS}--${type}`)
+      return cx(CLASS_ICON_COMPONENT, `${CLASS_ICON_COMPONENT}--${type}`)
     }
 
     render() {
-      const {leftAddon, rightAddon, ...props} = this.props
+      const {leftIcon: LeftIcon, rightIcon: RightIcon, ...props} = this.props
 
       return (
-        <div className={'sui-AtomInput-addonWrapper'}>
-          {leftAddon && (
+        <div className={cx(LeftIcon && CLASS_ICON)}>
+          {LeftIcon && (
             <span className={this.getClassName({type: TYPES.LEFT})}>
-              {leftAddon}
+              <LeftIcon />
             </span>
           )}
           <WrappedInput {...props} />
-          {rightAddon && (
+          {RightIcon && (
             <span className={this.getClassName({type: TYPES.RIGHT})}>
-              {rightAddon}
+              <LeftIcon />
             </span>
           )}
         </div>

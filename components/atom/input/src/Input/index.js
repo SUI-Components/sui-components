@@ -1,13 +1,25 @@
+/* eslint-disable react/prop-types, no-unused-vars, no-console */
+
 import React from 'react'
 import AddonHoc from './Features/Addon'
+import IconHoc from './Features/Icon'
 import Component, {inputSizes} from './Component'
 
-const WithAddonComponent = AddonHoc(Component)
+const WithFeatureComponent = props => {
+  let FeaturedComponent = Component
+  const {leftAddon, rightAddon, leftIcon, rightIcon} = props
+
+  if (leftAddon || rightAddon) FeaturedComponent = AddonHoc(FeaturedComponent)
+  if (leftIcon || rightIcon) FeaturedComponent = IconHoc(FeaturedComponent)
+  // if (tags) FeaturedComponent = TagsHoc(FeaturedComponent)
+  return <FeaturedComponent {...props} />
+}
+
+let FeaturedComponent = null
 
 export default props => {
-  const {leftAddon, rightAddon} = props // eslint-disable-line react/prop-types
-  if (leftAddon || rightAddon) return <WithAddonComponent {...props} />
-  return <Component {...props} />
+  FeaturedComponent = FeaturedComponent || WithFeatureComponent(props)
+  return <WithFeatureComponent {...props} />
 }
 
 export {inputSizes}

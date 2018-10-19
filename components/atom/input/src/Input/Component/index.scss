@@ -7,13 +7,6 @@ $c-atom-input--error: $c-error !default;
 $sizes-atom-input: m $h-atom-input--m, s $h-atom-input--s !default;
 $states-atom-input: success $c-atom-input--success, error $c-atom-input--error !default;
 
-$l-atom-input-icon: $gutter !default;
-$w-atom-input-icon: $sz-icon-m !default;
-$h-atom-input-icon: $sz-icon-m !default;
-$t-atom-input-icon: 50% !default;
-$trf-ty-atom-input-icon: -50% !default;
-$pl-atom-input-icon: 50px !default;
-
 .sui-AtomInput-input {
   border-color: $c-gray-light;
   border-style: solid;
@@ -69,31 +62,4 @@ $pl-atom-input-icon: 50px !default;
     }
   }
 
-  &--withIcon {
-    position: relative;
-    width: 100%;
-
-    input {
-      padding-left: $pl-atom-input-icon;
-    }
-
-    &-icon {
-      align-items: center;
-      color: $c-primary;
-      cursor: pointer;
-      display: flex;
-      height: $w-atom-input-icon;
-      justify-content: center;
-      left: $l-atom-input-icon;
-      position: absolute;
-      top: $t-atom-input-icon;
-      transform: translateY($trf-ty-atom-input-icon);
-      width: $w-atom-input-icon;
-
-      & > * {
-        height: 100%;
-        width: 100%;
-      }
-    }
-  }
 }

@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types, no-unused-vars, no-console */
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
@@ -27,7 +25,7 @@ const AddonHoC = WrappedInput =>
     render() {
       const {leftAddon, rightAddon, ...props} = this.props
 
-      return (
+      return leftAddon || rightAddon ? (
         <div className={'sui-AtomInput-addonWrapper'}>
           {leftAddon && (
             <span className={this.getClassName({type: TYPES.LEFT})}>
@@ -41,6 +39,8 @@ const AddonHoC = WrappedInput =>
             </span>
           )}
         </div>
+      ) : (
+        <WrappedInput {...props} />
       )
     }
   }

@@ -185,7 +185,7 @@ const imageCheckboxStyle = {
 }
 
 const logoLocation = 'https://image.flaticon.com/icons/svg/67/67347.svg'
-const LeftIcon = () => <img src={logoLocation} />
+const IconLocation = () => <img src={logoLocation} />
 
 return (
   <React.Fragment>
@@ -223,14 +223,22 @@ return (
       <AtomInput
         name="second"
         placeholder="Medium Input"
-        leftIcon={LeftIcon}
+        leftIcon={IconLocation}
       />
     </div>
     <div style={field}>
       <AtomInput
         name="second"
         placeholder="Medium Input"
-        leftIcon={LeftIcon}
+        rightIcon={IconLocation}
+        onClickRightIcon={ e => alert("clicked right icon")}
+      />
+    </div>
+    <div style={field}>
+      <AtomInput
+        name="second"
+        placeholder="Medium Input"
+        leftIcon={IconLocation}
         rightAddon="Location"
       />
     </div>

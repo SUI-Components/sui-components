@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 const BASE_CLASS = 'sui-AtomInput-input'
-const CLASS_ICON = `${BASE_CLASS}--withIcon`
-const CLASS_ICON_COMPONENT = `${CLASS_ICON}-icon`
 
 const SIZES = {
   MEDIUM: 'm',
@@ -51,39 +49,30 @@ class Input extends Component {
       size,
       errorState,
       type,
-      leftIcon: LeftIcon,
       value,
       charsSize
     } = this.props
 
-    const LeftIconBlock = () => (
-      <span className={CLASS_ICON_COMPONENT}>
-        <LeftIcon />
-      </span>
-    )
     return (
-      <span className={cx(LeftIcon && CLASS_ICON)}>
-        {LeftIcon && <LeftIconBlock />}
-        <input
-          className={this.getClassNames({
-            size,
-            charsSize,
-            hideInput,
-            errorState
-          })}
-          checked={checked}
-          disabled={disabled}
-          id={id}
-          name={name}
-          onChange={ev => this.changeHandler(ev, onChange)}
-          onBlur={onBlur}
-          placeholder={placeholder}
-          ref={reference}
-          type={type}
-          value={value}
-          size={charsSize}
-        />
-      </span>
+      <input
+        className={this.getClassNames({
+          size,
+          charsSize,
+          hideInput,
+          errorState
+        })}
+        checked={checked}
+        disabled={disabled}
+        id={id}
+        name={name}
+        onChange={ev => this.changeHandler(ev, onChange)}
+        onBlur={onBlur}
+        placeholder={placeholder}
+        ref={reference}
+        type={type}
+        value={value}
+        size={charsSize}
+      />
     )
   }
 }
@@ -116,9 +105,7 @@ Input.propTypes = {
   /** Wether to show the input or not */
   hideInput: PropTypes.bool,
   /* Will set a red/green border if set to true/false */
-  errorState: PropTypes.bool,
-  /* Left Icon */
-  leftIcon: PropTypes.any
+  errorState: PropTypes.bool
 }
 
 Input.defaultProps = {

@@ -230,21 +230,6 @@ return (
       <AtomInput
         name="second"
         placeholder="Medium Input"
-        rightIcon={IconLocation}
-      />
-    </div>
-    <div style={field}>
-      <AtomInput
-        name="second"
-        placeholder="Medium Input"
-        rightIcon={IconLocation}
-        onClickRightIcon={ e => alert("clicked right icon")}
-      />
-    </div>
-    <div style={field}>
-      <AtomInput
-        name="second"
-        placeholder="Medium Input"
         leftIcon={IconLocation}
         rightAddon="Location"
       />
@@ -268,6 +253,32 @@ return (
         mask={bankAccountMask}
         placeholder="ES00 0000 0000 00 0000000000"
         charsSize={31}
+      />
+    </div>
+    <div style={field}>
+      <h4>With rightIcon</h4>
+      <AtomInput
+        name="second"
+        placeholder="Medium Input"
+        rightIcon={IconLocation}
+      />
+    </div>
+    <div style={field}>
+      <h4>With rightIcon and leftAddon</h4>
+      <AtomInput
+        name="second"
+        placeholder="Medium Input"
+        leftAddon="City"
+        rightIcon={IconLocation}
+      />
+    </div>
+    <div style={field}>
+      <h4>With rightIcon & handler on it</h4>
+      <AtomInput
+        name="second"
+        placeholder="Medium Input"
+        rightIcon={IconLocation}
+        onClickRightIcon={ e => alert("clicked right icon")}
       />
     </div>
 

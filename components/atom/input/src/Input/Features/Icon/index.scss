@@ -27,7 +27,6 @@ $class-input: '#{$base-class}-input';
     &-icon {
       align-items: center;
       color: $c-primary;
-      cursor: pointer;
       display: flex;
       height: $w-atom-input-icon;
       justify-content: center;
@@ -35,6 +34,10 @@ $class-input: '#{$base-class}-input';
       top: $t-atom-input-icon;
       transform: translateY($trf-ty-atom-input-icon);
       width: $w-atom-input-icon;
+
+      &--withHandler {
+        cursor: pointer;
+      }
 
       &--left {
         left: $l-atom-input-icon;

@@ -231,6 +231,13 @@ return (
         name="second"
         placeholder="Medium Input"
         rightIcon={IconLocation}
+      />
+    </div>
+    <div style={field}>
+      <AtomInput
+        name="second"
+        placeholder="Medium Input"
+        rightIcon={IconLocation}
         onClickRightIcon={ e => alert("clicked right icon")}
       />
     </div>

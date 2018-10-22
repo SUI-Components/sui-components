@@ -12,6 +12,7 @@ const CLASS_ICON = `${BASE_CLASS}--withIcon`
 const CLASS_ICON_LEFT = `${CLASS_ICON}--${TYPES.LEFT}`
 const CLASS_ICON_RIGHT = `${CLASS_ICON}--${TYPES.RIGHT}`
 const CLASS_ICON_COMPONENT = `${CLASS_ICON}-icon`
+const CLASS_ICON_COMPONENT_HANDLER = `${CLASS_ICON_COMPONENT}--withHandler`
 const CLASS_ICON_COMPONENT_LEFT = `${CLASS_ICON_COMPONENT}--${TYPES.LEFT}`
 const CLASS_ICON_COMPONENT_RIGHT = `${CLASS_ICON_COMPONENT}--${TYPES.RIGHT}`
 
@@ -42,7 +43,13 @@ const IconHoC = WrappedInput =>
     }
 
     render() {
-      const {leftIcon: LeftIcon, rightIcon: RightIcon, ...props} = this.props
+      const {
+        leftIcon: LeftIcon,
+        rightIcon: RightIcon,
+        onClickLeftIcon,
+        onClickRightIcon,
+        ...props
+      } = this.props
       return LeftIcon || RightIcon ? (
         <div
           className={cx(
@@ -53,7 +60,11 @@ const IconHoC = WrappedInput =>
         >
           {LeftIcon && (
             <span
-              className={cx(CLASS_ICON_COMPONENT, CLASS_ICON_COMPONENT_LEFT)}
+              className={cx(
+                CLASS_ICON_COMPONENT,
+                CLASS_ICON_COMPONENT_LEFT,
+                onClickLeftIcon && CLASS_ICON_COMPONENT_HANDLER
+              )}
               onClick={this.handleLeftClick}
             >
               <LeftIcon />
@@ -62,7 +73,11 @@ const IconHoC = WrappedInput =>
           <WrappedInput {...props} />
           {RightIcon && (
             <span
-              className={cx(CLASS_ICON_COMPONENT, CLASS_ICON_COMPONENT_RIGHT)}
+              className={cx(
+                CLASS_ICON_COMPONENT,
+                CLASS_ICON_COMPONENT_RIGHT,
+                onClickRightIcon && CLASS_ICON_COMPONENT_HANDLER
+              )}
               onClick={this.handleRightClick}
             >
               <RightIcon />

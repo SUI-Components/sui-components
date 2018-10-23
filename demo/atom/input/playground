@@ -187,8 +187,26 @@ const imageCheckboxStyle = {
 const logoLocation = 'https://image.flaticon.com/icons/svg/67/67347.svg'
 const IconLocation = () => <img src={logoLocation} />
 
+const closeIcon = (
+  <svg viewBox="0 0 24 24">
+    <path
+      id="a"
+      d="M13.42 12l4.79-4.8a1 1 0 0 0-1.41-1.41L12 10.58 7.21 5.79A1 1 0 0 0 5.8 7.2l4.79 4.8-4.79 4.79a1 1 0 1 0 1.41 1.41L12 13.41l4.8 4.79a1 1 0 0 0 1.41-1.41L13.42 12z"
+    />
+  </svg>
+)
+
 return (
   <React.Fragment>
+    <div style={field}>
+      <h4>With tags</h4>
+      <AtomInput
+        value="Somewhere over the..."
+        onRemoveTag={index => alert('removing tag: ' + index)}
+        tagsCloseIcon={closeIcon}
+        tags={['john', 'paul', 'george', 'ringo']}
+      />
+    </div>
     <div style={field}>
       <h4>Size SMALL</h4>
       <AtomInput
@@ -203,7 +221,11 @@ return (
     </div>
     <div style={field}>
       <h4>With placeholder and value</h4>
-      <AtomInput name="second" placeholder="Medium Input" value="Somewhere over the..."/>
+      <AtomInput
+        name="second"
+        placeholder="Medium Input"
+        value="Somewhere over the..."
+      />
     </div>
     <div style={field}>
       <h4>Disabled</h4>
@@ -211,7 +233,12 @@ return (
     </div>
     <div style={field}>
       <h4>Type: number</h4>
-      <AtomInput type="number" name="number" placeholder="Number only input" charsSize={10}/>
+      <AtomInput
+        type="number"
+        name="number"
+        placeholder="Number only input"
+        charsSize={10}
+      />
     </div>
     <div style={field}>
       <h4>Type: date</h4>
@@ -291,7 +318,7 @@ return (
         name="second"
         placeholder="Medium Input"
         rightIcon={IconLocation}
-        onClickRightIcon={ e => alert("clicked right icon")}
+        onClickRightIcon={e => alert('clicked right icon')}
       />
     </div>
 

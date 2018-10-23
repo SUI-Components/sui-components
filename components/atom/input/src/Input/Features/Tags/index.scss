@@ -1,0 +1,12 @@
+$base-class: '.sui-AtomInput';
+
+#{$base-class} {
+  &--withTags {
+    position: relative;
+    width: 100%;
+    &-container {
+      position: absolute;
+      padding: $p-m;
+    }
+  }
+}

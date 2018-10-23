@@ -190,6 +190,7 @@ const IconLocation = () => <img src={logoLocation} />
 return (
   <React.Fragment>
     <div style={field}>
+      <h4>Size SMALL</h4>
       <AtomInput
         size={inputSizes.SMALL}
         name="first"
@@ -197,21 +198,27 @@ return (
       />
     </div>
     <div style={field}>
+      <h4>With placeholder</h4>
       <AtomInput name="second" placeholder="Medium Input" />
     </div>
     <div style={field}>
+      <h4>With placeholder and value</h4>
       <AtomInput name="second" placeholder="Medium Input" value="Somewhere over the..."/>
     </div>
     <div style={field}>
+      <h4>Disabled</h4>
       <AtomInput name="disabled" placeholder="Medium Disabled Input" disabled />
     </div>
     <div style={field}>
-      <AtomInput type="number" name="number" placeholder="Number only input" />
+      <h4>Type: number</h4>
+      <AtomInput type="number" name="number" placeholder="Number only input" charsSize={10}/>
     </div>
     <div style={field}>
+      <h4>Type: date</h4>
       <AtomInput type="date" name="date" charsSize={10} />
     </div>
     <div style={field}>
+      <h4>With leftAddon and rightAddon</h4>
       <AtomInput
         name="second"
         placeholder="Medium Input"
@@ -220,6 +227,7 @@ return (
       />
     </div>
     <div style={field}>
+      <h4>With leftIcon</h4>
       <AtomInput
         name="second"
         placeholder="Medium Input"
@@ -227,6 +235,7 @@ return (
       />
     </div>
     <div style={field}>
+      <h4>With leftIcon and rightAddon</h4>
       <AtomInput
         name="second"
         placeholder="Medium Input"
@@ -235,12 +244,15 @@ return (
       />
     </div>
     <div style={field}>
+      <h4>With errorState=false</h4>
       <AtomInput name="second" placeholder="Success input" errorState={false} />
     </div>
     <div style={field}>
+      <h4>With errorState=true</h4>
       <AtomInput name="second" placeholder="Error input" errorState={true} />
     </div>
     <div style={field}>
+      <h4>Type: sui-password</h4>
       <AtomInput
         type="sui-password"
         name="password"
@@ -248,6 +260,7 @@ return (
       />
     </div>
     <div style={field}>
+      <h4>Type: mask</h4>
       <AtomInput
         type="mask"
         mask={bankAccountMask}

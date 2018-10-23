@@ -28,64 +28,64 @@ const AtomInput = ({type, ...props}) => {
 }
 
 AtomInput.propTypes = {
-  /* native types (text, date, ...), 'sui-password' */
+  /** native types (text, date, ...), 'sui-password' */
   type: PropTypes.oneOf(Object.values(TYPES)),
 
-  /* Left addon component, text,... */
+  /** Left addon component, text,... */
   leftAddon: PropTypes.any,
 
-  /* Right addon component, text,... */
+  /** Right addon component, text,... */
   rightAddon: PropTypes.any,
 
-  /* Left Icon */
+  /** Left Icon */
   leftIcon: PropTypes.any,
 
-  /* Left Icon */
+  /** Left Icon */
   rightIcon: PropTypes.any,
 
-  /* Left icon click callback */
+  /** Left icon click callback */
   onClickLeftIcon: PropTypes.func,
 
-  /* Right icon click callback */
+  /** Right icon click callback */
   onClickRightIcon: PropTypes.func,
 
-  /* Text to be shown in order to show the password on click */
+  /** Text to be shown in order to show the password on click */
   pwShowLabel: PropTypes.string,
 
-  /* Text to be shown in order to hide the password on click */
+  /** Text to be shown in order to hide the password on click */
   pwHideLabel: PropTypes.string,
 
-  /* onBlur callback */
+  /** onBlur callback */
   onBlur: PropTypes.func,
 
-  /* onChange callback */
+  /** onChange callback */
   onChange: PropTypes.func,
 
-  /* sets the name property of an element in the DOM */
+  /** sets the name property of an element in the DOM */
   name: PropTypes.string,
 
-  /* The DOM id global attribute. */
+  /** The DOM id global attribute. */
   id: PropTypes.string,
 
-  /* A hint to the user of what can be entered in the control. The placeholder text must not contain carriage returns or line-feeds. */
+  /** A hint to the user of what can be entered in the control. The placeholder text must not contain carriage returns or line-feeds. */
   placeholder: PropTypes.string,
 
-  /* This Boolean attribute prevents the user from interacting with the input */
+  /** This Boolean attribute prevents the user from interacting with the input */
   disabled: PropTypes.bool,
 
-  /* 's' or 'm', default: 'm' */
+  /** 's' or 'm', default: 'm' */
   size: PropTypes.oneOf(Object.values(inputSizes)),
 
-  /* width of input based in number of characters (native "size" attribute) */
+  /** width of input based in number of characters (native "size" attribute) */
   charsSize: PropTypes.number,
 
-  /* true = error, false = success, null = neutral */
+  /** true = error, false = success, null = neutral */
   errorState: PropTypes.bool,
 
-  /* value of the control */
+  /** value of the control */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
-  /* mask object, see https://unmanner.github.io/imaskjs/ */
+  /** mask object, see https://unmanner.github.io/imaskjs/ */
   mask: PropTypes.object
 }
 

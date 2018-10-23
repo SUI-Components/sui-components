@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.13.0"></a>
+# 1.13.0 (2018-10-23)
+
+
+### Features
+
+* cursor pointer only when hanlder ([2700c5d](https://github.com/SUI-Components/sui-components/commit/2700c5d))
+* iconRight & clickHander & hoc features reorganization ([5c89813](https://github.com/SUI-Components/sui-components/commit/5c89813))
+* left & right icon managed by HOC ([45dac5d](https://github.com/SUI-Components/sui-components/commit/45dac5d))
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2018-10-15)
 

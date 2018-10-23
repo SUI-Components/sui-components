@@ -57,7 +57,7 @@ There are defined 2 sizes (`MEDIUM` and `SMALL`) available at the exported objec
 
 ### Addons
 
->[What are addons?](https://paper.dropbox.com/doc/SUI-Input-03mHJFkOCjviSZevsaTwm#:uid=125362683844628624581838&h2=Icons-and-addons-inside-the-in)
+> [What are addons?](https://paper.dropbox.com/doc/SUI-Input-03mHJFkOCjviSZevsaTwm#:uid=125362683844628624581838&h2=Icons-and-addons-inside-the-in)
 
 Addons are passed as prop, use **leftAddon** or **rightAddon** in order to set the position inside the Input
 

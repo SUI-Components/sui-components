@@ -1,6 +1,6 @@
 # AtomProgressBar
 
-AtomProgressBar is a component that displays a progress bar
+A Progress bar is a visual representation of a specified wait time or the current status of a process.
 
 ## Installation
 

@@ -1,12 +1,32 @@
 $base-class: '.sui-AtomInput';
 
+$h-atom-input--m: 40px !default;
+$h-atom-input--s: 32px !default;
+
 #{$base-class} {
   &--withTags {
-    position: relative;
+    display: flex;
+
+    background: white;
+    border-color: $c-gray-light;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    font-size: $fz-base;
+    height: $h-atom-input--m;
+    padding-left: $p-s;
+    padding-right: $p-l;
     width: 100%;
-    &-container {
-      position: absolute;
-      padding: $p-m;
+
+    & > input {
+      flex: 1;
+      border: 0;
+      height: 100%;
+      padding-left: $p-m;
     }
+    &-container {
+      padding: $p-m 0 $p-m $p-m;
+    }
+    
   }
 }

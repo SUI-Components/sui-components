@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types, no-unused-vars, no-console, no-debugger */
 import React from 'react'
 import PropTypes from 'prop-types'
 import AtomTag, {atomTagSizes} from '@schibstedspain/sui-atom-tag'
+import cx from 'classnames'
 
 const BASE_CLASS = 'sui-AtomInput'
 const CLASS_TAGS = `${BASE_CLASS}--withTags`
@@ -8,10 +10,6 @@ const CLASS_TAGS_CONTAINER = `${CLASS_TAGS}-container`
 
 const TagsHoC = WrappedInput =>
   class Tags extends React.Component {
-    refTagsContainer = React.createRef()
-    state = {
-      widthContainerTags: 0
-    }
     static propTypes = {
       /* tags */
       tags: PropTypes.any,
@@ -23,19 +21,10 @@ const TagsHoC = WrappedInput =>
       onRemoveTag: PropTypes.func
     }
 
-    componentDidMount() {
-      const {tags} = this.props
-      if (tags) {
-        const widthContainerTags = this.refTagsContainer.current.clientWidth
-        this.setState({widthContainerTags})
-      }
-    }
-
     render() {
       const {tags, tagsCloseIcon, onRemoveTag, ...props} = this.props
-
       return tags && tags.length ? (
-        <div className={CLASS_TAGS}>
+        <div className={cx(CLASS_TAGS)}>
           <div className={CLASS_TAGS_CONTAINER} ref={this.refTagsContainer}>
             {tags.map((label, index) => (
               <AtomTag

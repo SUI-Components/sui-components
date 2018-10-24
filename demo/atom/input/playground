@@ -207,6 +207,29 @@ return (
         tags={['john', 'paul', 'george', 'ringo']}
       />
     </div>
+
+    <div style={field}>
+      <h4>With tags & size</h4>
+      <AtomInput
+        value="Somewhere over the..."
+        onRemoveTag={index => alert('removing tag: ' + index)}
+        tagsCloseIcon={closeIcon}
+        tags={['john', 'paul', 'george', 'ringo']}
+        size={inputSizes.SMALL}
+      />
+    </div>
+
+    <div style={field}>
+      <h4>With tags & error</h4>
+      <AtomInput
+        value="Somewhere over the..."
+        onRemoveTag={index => alert('removing tag: ' + index)}
+        tagsCloseIcon={closeIcon}
+        tags={['john', 'paul', 'george', 'ringo']}
+        errorState={true}
+      />
+    </div>
+
     <div style={field}>
       <h4>Size SMALL</h4>
       <AtomInput

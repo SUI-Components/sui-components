@@ -1,51 +1,51 @@
+@import '../../Component/settings';
+@import '../../Component/mixins';
+
 $base-class: '.sui-AtomInput';
+$class-tags: '#{$base-class}--withTags';
+$class-input: '#{$base-class}-input';
 
-$h-atom-input--m: 40px !default;
-$h-atom-input--s: 32px !default;
+$sizes-atom-input-paddings: m $p-m, s $p-s !default;
 
-$c-atom-input--success: $c-success !default;
-$c-atom-input--error: $c-error !default;
+#{$class-tags} {
+  @include sui-atom-input-input;
+  display: flex;
+  padding-left: $p-s;
 
-$sizes-atom-input: m $h-atom-input--m, s $h-atom-input--s !default;
-$states-atom-input: success $c-atom-input--success, error $c-atom-input--error !default;
-
-
-
-#{$base-class} {
-  &--withTags {
-    display: flex;
-
-    background: white;
-    border-color: $c-gray-light;
-    border-style: solid;
-    border-width: 1px;
-    box-sizing: border-box;
-    font-size: $fz-base;
-    height: $h-atom-input--m;
-    padding-left: $p-s;
-    padding-right: $p-l;
-    width: 100%;
-
-    & > input {
-      flex: 1;
-      border: 0;
-      padding-left: $p-m;
-    }
-    &-container {
-      padding: $p-m 0 $p-m $p-m;
-    }
-    
-    @each $type, $attr in $sizes-atom-input {
-      &-#{$type} {
-        height: $attr;
-      }
-    }
-  
-    @each $state, $color in $states-atom-input {
-      &--#{$state} {
-        border-color: $color;
-      }
-    }
-    
+  &-container {
+    padding: $p-m 0 $p-m $p-m;
   }
+
+  & #{$class-input} {
+    border: 0;
+    flex: 1;
+    height: calc(#{$h-atom-input--m} - 2px);
+    padding-left: $p-m;
+  }
+  
+  @each $type, $attr in $sizes-atom-input {
+    &-#{$type} {
+      height: $attr;
+
+      #{$class-input} {
+        height: calc(#{$attr} - 2px);
+      }
+    }
+  }
+
+  @each $type, $attr in $sizes-atom-input-paddings {
+    &-#{$type} {
+      #{$class-tags}-container {
+        padding: $attr 0 $attr $attr;
+      }
+    }
+  }
+
+  @each $state, $color in $states-atom-input {
+    &--#{$state} {
+      border-color: $color;
+    }
+  }
+  
 }
+

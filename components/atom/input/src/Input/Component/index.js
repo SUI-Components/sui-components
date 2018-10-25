@@ -19,6 +19,12 @@ class Input extends Component {
     onChange && onChange({value: ev.target.value, ev})
   }
 
+  onEnterHandler = ev => {
+    const {onEnter} = this.props
+    const {key} = ev
+    if (key === 'Enter') onEnter && onEnter(ev)
+  }
+
   getErrorStateClass(errorState) {
     if (errorState) return `${BASE_CLASS}--${ERROR_STATES.ERROR}`
     if (errorState === false) return `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
@@ -69,6 +75,7 @@ class Input extends Component {
         name={name}
         onChange={ev => this.changeHandler(ev, onChange)}
         onBlur={onBlur}
+        onKeyDown={this.onEnterHandler}
         placeholder={placeholder}
         ref={reference}
         type={type}
@@ -92,6 +99,8 @@ Input.propTypes = {
   onBlur: PropTypes.func,
   /* onChange callback */
   onChange: PropTypes.func,
+  /* onEnter callback */
+  onEnter: PropTypes.func,
   /* A hint to the user of what can be entered in the control. The placeholder text must not contain carriage returns or line-feeds. */
   placeholder: PropTypes.string,
   /* 's' or 'm', default: 'm' */

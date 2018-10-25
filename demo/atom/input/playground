@@ -163,6 +163,51 @@ class SimpleCheckboxRadioForm extends React.Component {
   }
 }
 
+class DynamicTagsInput extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: props.value || '',
+      tags: []
+    }
+
+    this._onChange = this._onChange.bind(this)
+    this._onAddTag = this._onAddTag.bind(this)
+    this._onRemoveTag = this._onRemoveTag.bind(this)
+  }
+
+  _onChange({value}) {
+    console.log(value)
+    this.setState({value})
+  }
+
+  _onAddTag(tag) {
+    this.setState({
+      tags: [...this.state.tags, tag],
+      value: ''
+    })
+  }
+
+  _onRemoveTag(indexTag) {
+    this.setState({
+      tags: this.state.tags.filter( (_, i) => i !== indexTag)
+    })
+  }
+
+  render() {
+    return (
+      <AtomInput
+          value={this.state.value}
+          onChange={this._onChange}
+          onRemoveTag={this._onRemoveTag}
+          onAddTag={this._onAddTag}
+          tagsCloseIcon={closeIcon}
+          tags={this.state.tags}
+        />
+    )
+  }
+}
+
 const field = {
   marginBottom: '16px'
 }
@@ -198,38 +243,6 @@ const closeIcon = (
 
 return (
   <React.Fragment>
-    <div style={field}>
-      <h4>With tags</h4>
-      <AtomInput
-        value="Somewhere over the..."
-        onRemoveTag={index => alert('removing tag: ' + index)}
-        tagsCloseIcon={closeIcon}
-        tags={['john', 'paul', 'george', 'ringo']}
-      />
-    </div>
-
-    <div style={field}>
-      <h4>With tags & size</h4>
-      <AtomInput
-        value="Somewhere over the..."
-        onRemoveTag={index => alert('removing tag: ' + index)}
-        tagsCloseIcon={closeIcon}
-        tags={['john', 'paul', 'george', 'ringo']}
-        size={inputSizes.SMALL}
-      />
-    </div>
-
-    <div style={field}>
-      <h4>With tags & error</h4>
-      <AtomInput
-        value="Somewhere over the..."
-        onRemoveTag={index => alert('removing tag: ' + index)}
-        tagsCloseIcon={closeIcon}
-        tags={['john', 'paul', 'george', 'ringo']}
-        errorState={true}
-      />
-    </div>
-
     <div style={field}>
       <h4>Size SMALL</h4>
       <AtomInput
@@ -342,6 +355,44 @@ return (
         placeholder="Medium Input"
         rightIcon={IconLocation}
         onClickRightIcon={e => alert('clicked right icon')}
+      />
+    </div>
+
+    <h2>With Tags</h2>
+    <h3>Dynamic</h3>
+    <div style={field}>
+      <DynamicTagsInput />
+    </div>
+
+    <h3>Static</h3>
+    <div style={field}>
+      <h4>With tags</h4>
+      <AtomInput
+        value="Somewhere over the..."
+        onRemoveTag={index => alert('removing tag: ' + index)}
+        tagsCloseIcon={closeIcon}
+        tags={['john', 'paul', 'george', 'ringo']}
+      />
+    </div>
+
+    <div style={field}>
+      <h4>With tags & size=SMALL</h4>
+      <AtomInput
+        onRemoveTag={index => alert('removing tag: ' + index)}
+        onAddTag={value => console.log(value)}
+        tagsCloseIcon={closeIcon}
+        tags={['john', 'paul', 'george', 'ringo']}
+        size={inputSizes.SMALL}
+      />
+    </div>
+
+    <div style={field}>
+      <h4>With tags & error</h4>
+      <AtomInput
+        onRemoveTag={index => alert('removing tag: ' + index)}
+        tagsCloseIcon={closeIcon}
+        tags={['john', 'paul', 'george', 'ringo']}
+        errorState={true}
       />
     </div>
 

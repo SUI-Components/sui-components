@@ -208,8 +208,12 @@ class DynamicTagsInput extends React.Component {
   }
 }
 
-const field = {
+const fieldStyles = {
   marginBottom: '16px'
+}
+
+const sectionStyles = {
+  marginTop: '70px'
 }
 
 const bankAccountMask = {
@@ -243,7 +247,7 @@ const closeIcon = (
 
 return (
   <React.Fragment>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>Size SMALL</h4>
       <AtomInput
         size={inputSizes.SMALL}
@@ -251,11 +255,11 @@ return (
         placeholder="Small input"
       />
     </div>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>With placeholder</h4>
       <AtomInput name="second" placeholder="Medium Input" />
     </div>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>With placeholder and value</h4>
       <AtomInput
         name="second"
@@ -263,11 +267,11 @@ return (
         value="Somewhere over the..."
       />
     </div>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>Disabled</h4>
       <AtomInput name="disabled" placeholder="Medium Disabled Input" disabled />
     </div>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>Type: number</h4>
       <AtomInput
         type="number"
@@ -276,11 +280,11 @@ return (
         charsSize={10}
       />
     </div>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>Type: date</h4>
       <AtomInput type="date" name="date" charsSize={10} />
     </div>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>With leftAddon and rightAddon</h4>
       <AtomInput
         name="second"
@@ -289,7 +293,7 @@ return (
         rightAddon="@schibsted.com"
       />
     </div>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>With leftIcon</h4>
       <AtomInput
         name="second"
@@ -297,7 +301,7 @@ return (
         leftIcon={IconLocation}
       />
     </div>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>With leftIcon and rightAddon</h4>
       <AtomInput
         name="second"
@@ -306,15 +310,15 @@ return (
         rightAddon="Location"
       />
     </div>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>With errorState=false</h4>
       <AtomInput name="second" placeholder="Success input" errorState={false} />
     </div>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>With errorState=true</h4>
       <AtomInput name="second" placeholder="Error input" errorState={true} />
     </div>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>Type: sui-password</h4>
       <AtomInput
         type="sui-password"
@@ -322,7 +326,7 @@ return (
         placeholder="Password Input"
       />
     </div>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>Type: mask</h4>
       <AtomInput
         type="mask"
@@ -331,7 +335,7 @@ return (
         charsSize={31}
       />
     </div>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>With rightIcon</h4>
       <AtomInput
         name="second"
@@ -339,7 +343,7 @@ return (
         rightIcon={IconLocation}
       />
     </div>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>With rightIcon and leftAddon</h4>
       <AtomInput
         name="second"
@@ -348,7 +352,7 @@ return (
         rightIcon={IconLocation}
       />
     </div>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>With rightIcon & handler on it</h4>
       <AtomInput
         name="second"
@@ -358,14 +362,14 @@ return (
       />
     </div>
 
-    <h2>With Tags</h2>
+    <h2 style={sectionStyles}>With Tags</h2>
     <h3>Dynamic</h3>
-    <div style={field}>
+    <div style={fieldStyles}>
       <DynamicTagsInput />
     </div>
 
     <h3>Static</h3>
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>With tags</h4>
       <AtomInput
         value="Somewhere over the..."
@@ -375,7 +379,7 @@ return (
       />
     </div>
 
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>With tags & size=SMALL</h4>
       <AtomInput
         onRemoveTag={index => alert('removing tag: ' + index)}
@@ -386,7 +390,7 @@ return (
       />
     </div>
 
-    <div style={field}>
+    <div style={fieldStyles}>
       <h4>With tags & error</h4>
       <AtomInput
         onRemoveTag={index => alert('removing tag: ' + index)}
@@ -396,7 +400,7 @@ return (
       />
     </div>
 
-    <h2>Checkbox & Radio</h2>
+    <h2 style={sectionStyles}>Checkbox & Radio</h2>
 
     <SimpleCheckboxRadioForm />
   </React.Fragment>

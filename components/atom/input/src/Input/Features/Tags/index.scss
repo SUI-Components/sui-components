@@ -17,13 +17,13 @@ $sizes-atom-input-paddings: m $p-m, s $p-s !default;
   }
 
   &--focus {
-    outline-width: 2px;
-    outline-style: solid;
     outline-color: Highlight;
+    outline-style: solid;
+    outline-width: 2px;
 
     #{$class-input} {
-      outline: 0;
       box-shadow: none;
+      outline: 0;
     }
   }
 

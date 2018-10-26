@@ -177,7 +177,6 @@ class DynamicTagsInput extends React.Component {
   }
 
   _onChange({value}) {
-    console.log(value)
     this.setState({value})
   }
 

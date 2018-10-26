@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types, no-unused-vars, no-console, no-debugger */
 import React from 'react'
 import PropTypes from 'prop-types'
 import AtomTag, {atomTagSizes} from '@schibstedspain/sui-atom-tag'
@@ -9,6 +8,7 @@ const CLASS_TAGS = `${BASE_CLASS}--withTags`
 const CLASS_TAGS_CONTAINER = `${CLASS_TAGS}-container`
 const CLASS_TAGS_FOCUS = `${CLASS_TAGS}--focus`
 
+// eslint-disable-next-line react/prop-types
 const AtomTagItem = ({onClose, id, ...props}) => {
   const _onClose = e => {
     onClose && onClose(id)
@@ -46,7 +46,7 @@ const TagsHoC = WrappedInput =>
       const {
         target: {value}
       } = ev
-      onAddTag && onAddTag(value)
+      if (value) onAddTag && onAddTag(value)
     }
 
     handleFocusIn = () => {

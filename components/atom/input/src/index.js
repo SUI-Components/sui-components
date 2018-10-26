@@ -58,6 +58,9 @@ AtomInput.propTypes = {
   /** onBlur callback */
   onBlur: PropTypes.func,
 
+  /** onFocus callback */
+  onFocus: PropTypes.func,
+
   /** onChange callback */
   onChange: PropTypes.func,
 
@@ -86,7 +89,19 @@ AtomInput.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
   /** mask object, see https://unmanner.github.io/imaskjs/ */
-  mask: PropTypes.object
+  mask: PropTypes.object,
+
+  /* tags */
+  tags: PropTypes.any,
+
+  /* tagsCloseIcon */
+  tagsCloseIcon: PropTypes.node,
+
+  /* onRemoveTag */
+  onRemoveTag: PropTypes.func,
+
+  /* onAddTag */
+  onAddTag: PropTypes.func
 }
 
 AtomInput.displayName = 'AtomInput'

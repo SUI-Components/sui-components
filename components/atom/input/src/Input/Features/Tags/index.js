@@ -7,8 +7,8 @@ import cx from 'classnames'
 const BASE_CLASS = 'sui-AtomInput'
 const CLASS_TAGS = `${BASE_CLASS}--withTags`
 const CLASS_TAGS_CONTAINER = `${CLASS_TAGS}-container`
+const CLASS_TAGS_FOCUS = `${CLASS_TAGS}--focus`
 
-// As suggested here: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md#lists-of-items
 const AtomTagItem = ({onClose, id, ...props}) => {
   const _onClose = e => {
     onClose && onClose(id)
@@ -26,7 +26,14 @@ const TagsHoC = WrappedInput =>
       tagsCloseIcon: PropTypes.node,
 
       /* onRemoveTag */
-      onRemoveTag: PropTypes.func
+      onRemoveTag: PropTypes.func,
+
+      /* onAddTag */
+      onAddTag: PropTypes.func
+    }
+
+    state = {
+      focus: false
     }
 
     handleRemoveTag = index => {
@@ -42,13 +49,22 @@ const TagsHoC = WrappedInput =>
       onAddTag && onAddTag(value)
     }
 
+    handleFocusIn = () => {
+      this.setState({focus: true})
+    }
+
+    handleFocusOut = () => {
+      this.setState({focus: false})
+    }
+
     render() {
       const {tags, tagsCloseIcon, onRemoveTag, onAddTag, ...props} = this.props
-
+      const {focus} = this.state
       return (tags && tags.length) || onAddTag ? (
         <div
           className={cx(
             CLASS_TAGS,
+            focus && CLASS_TAGS_FOCUS,
             props.size && `${CLASS_TAGS}-${props.size}`,
             props.errorState &&
               `${CLASS_TAGS}--${props.errorState ? 'error' : 'success'}`
@@ -66,7 +82,12 @@ const TagsHoC = WrappedInput =>
               />
             ))}
           </div>
-          <WrappedInput {...props} onEnter={this.handleAddTag} />
+          <WrappedInput
+            {...props}
+            onEnter={this.handleAddTag}
+            onFocus={this.handleFocusIn}
+            onBlur={this.handleFocusOut}
+          />
         </div>
       ) : (
         <WrappedInput {...props} />

@@ -50,6 +50,7 @@ class Input extends Component {
       name,
       onBlur,
       onChange,
+      onFocus,
       placeholder,
       reference,
       size,
@@ -74,6 +75,7 @@ class Input extends Component {
         id={id}
         name={name}
         onChange={ev => this.changeHandler(ev, onChange)}
+        onFocus={onFocus}
         onBlur={onBlur}
         onKeyDown={this.onEnterHandler}
         placeholder={placeholder}
@@ -97,6 +99,8 @@ Input.propTypes = {
   name: PropTypes.string,
   /* onBlur callback */
   onBlur: PropTypes.func,
+  /* onFocus callback */
+  onFocus: PropTypes.func,
   /* onChange callback */
   onChange: PropTypes.func,
   /* onEnter callback */

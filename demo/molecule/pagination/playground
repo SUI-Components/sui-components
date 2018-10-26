@@ -1,0 +1,13 @@
+return (
+  <div>
+    <div>
+      <MoleculePagination totalPages={25} currentPage={7}/>
+    </div>
+    <div>
+      <MoleculePagination totalPages={25} currentPage={17}/>
+    </div>
+    <div>
+      <MoleculePagination totalPages={25} currentPage={27}/>
+    </div>
+  </div>
+)

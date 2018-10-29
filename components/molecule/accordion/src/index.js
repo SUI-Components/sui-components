@@ -58,9 +58,8 @@ MoleculeAccordion.propTypes = {
   children: (props, propName, componentName) => {
     let childrenList = props[propName]
     let error = null
-    let beFalse = false
     React.Children.forEach(childrenList, child => {
-      if (beFalse && child.type.prototype instanceof MoleculeCollapsible) {
+      if (!(child.type.prototype instanceof MoleculeCollapsible)) {
         error = new Error(`
           ${componentName} children should be of type MoleculeCollapsible.
         `)

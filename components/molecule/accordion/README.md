@@ -1,24 +1,22 @@
-# AtomAccordion
+# MoleculeAccordion
 
-> Description
-
-<!-- ![](./assets/preview.png) -->
+> The accordion is the component that contains collapsible components that allows the user to expand or collapse the content. We use this component to reduce the content of a page or section.
 
 ## Installation
 
 ```sh
-$ npm install @s-ui/react-atom-accordion --save
+$ npm install @s-ui/react-molecule-accordion --save
 ```
 
 ## Usage
 
 ```js
-import AtomAccordion from '@s-ui/react-atom-accordion'
+import MoleculeAccordion from '@s-ui/react-molecule-accordion'
 ```
 
 ### Basic usage
 ```js
-<AtomAccordion 
+<MoleculeAccordion 
     icon={svgIcon} 
     showText='Show' 
     hideText='Hide'
@@ -37,38 +35,38 @@ import AtomAccordion from '@s-ui/react-atom-accordion'
     >
         <p>Text or content to collapse</p>
     </MoleculeCollapsible>
-</AtomAccordion>
+</MoleculeAccordion>
 ```
 
 ### Properties
 #### maxHeight
 It sets the maximum height in pixels for the uncollapsed children. By default it is set to 100px.
 ```js
-<AtomAccordion 
+<MoleculeAccordion 
     maxHeight={100}
 >
     ...
-</AtomAccordion>
+</MoleculeAccordion>
 ```
 
 #### withTransition
 It can be set True or False. It will activate or deactivate transition effect when toggle. By default it is True.
 ```js
-<AtomAccordion 
+<MoleculeAccordion 
     withTransition={true}
 >
     ...
-</AtomAccordion>
+</MoleculeAccordion>
 ```
 
 #### withAutoClose
 It can be set True or False. It will activate or deactivate autoclose of siblings when toggle.
 ```js
-<AtomAccordion 
+<MoleculeAccordion 
     withAutoClose={true}
 >
     ...
-</AtomAccordion>
+</MoleculeAccordion>
 ```
 
 > **Find full description and more examples in the [demo page](#).**

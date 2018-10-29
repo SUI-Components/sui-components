@@ -177,3 +177,4 @@ AtomButton.defaultProps = {
 
 export default AtomButton
 export {GROUP_POSITIONS as atomButtonGroupPositions}
+export {TYPES as atomButtonTypes}

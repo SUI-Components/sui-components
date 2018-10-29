@@ -46,7 +46,7 @@ const TagsHoC = WrappedInput =>
       const {
         target: {value}
       } = ev
-      if (value) onAddTag && onAddTag(value)
+      if (value && onAddTag) onAddTag(value)
     }
 
     handleFocusIn = () => {

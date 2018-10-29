@@ -27,10 +27,10 @@ class MoleculeCollapsible extends Component {
 
   toggleCollapse = () => {
     const {collapsed, showButton} = this.state
-    const {onOpen} = this.props
+    const {onToggle} = this.props
     if (showButton) {
       this.setState({collapsed: !collapsed})
-      onOpen()
+      onToggle()
     }
   }
 
@@ -144,9 +144,9 @@ MoleculeCollapsible.propTypes = {
    */
   withTransition: PropTypes.bool,
   /**
-   * On open callback
+   * On toggle callback
    */
-  onOpen: PropTypes.func,
+  onToggle: PropTypes.func,
   /**
    * Initial collapsed state
    */
@@ -162,7 +162,7 @@ MoleculeCollapsible.defaultProps = {
   maxHeight: MAX_HEIGHT,
   withGradient: true,
   withTransition: true,
-  onOpen: () => {},
+  onToggle: () => {},
   isCollapsed: true,
   withAutoClose: false
 }

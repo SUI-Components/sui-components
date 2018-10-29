@@ -16,7 +16,7 @@ class MoleculeAccordion extends Component {
     return this.props.children.map(() => true)
   }
 
-  onOpen = id => {
+  onToggle = id => {
     const childrenNewStateList = this.state.childrenStateList.map(
       (child, index) => {
         return index !== id ? true : !child
@@ -41,8 +41,8 @@ class MoleculeAccordion extends Component {
           withTransition: withTransition,
           isCollapsed: childrenStateList[index],
           withAutoClose: withAutoClose,
-          onOpen: () => {
-            withAutoClose && this.onOpen(index)
+          onToggle: () => {
+            withAutoClose && this.onToggle(index)
           }
         })
       },

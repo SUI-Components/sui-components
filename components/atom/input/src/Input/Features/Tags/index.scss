@@ -17,9 +17,7 @@ $sizes-atom-input-paddings: m $p-m, s $p-s !default;
   }
 
   &--focus {
-    outline-color: Highlight;
-    outline-style: solid;
-    outline-width: 2px;
+    @include sui-atom-input-input-focus;
 
     #{$class-input} {
       box-shadow: none;

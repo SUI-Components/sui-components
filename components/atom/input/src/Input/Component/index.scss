@@ -42,7 +42,7 @@ $states-atom-input: success $c-atom-input--success, error $c-atom-input--error !
   }
 
   &:focus {
-    box-shadow: inset 0 0 3px 0 $c-primary;
+    @include sui-atom-input-input-focus;
   }
 
   @each $type, $attr in $sizes-atom-input {

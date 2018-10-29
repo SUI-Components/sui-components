@@ -57,8 +57,7 @@ class Input extends Component {
       errorState,
       type,
       value,
-      charsSize,
-      paddingLeft
+      charsSize
     } = this.props
 
     return (
@@ -69,7 +68,6 @@ class Input extends Component {
           hideInput,
           errorState
         })}
-        style={{paddingLeft: `${paddingLeft}px`}}
         checked={checked}
         disabled={disabled}
         id={id}
@@ -111,8 +109,6 @@ Input.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZES)),
   /* width of input based in number of characters (native "size" attribute) */
   charsSize: PropTypes.number,
-  /* paddingLeft the input */
-  paddingLeft: PropTypes.number,
   /* text, password, date or number */
   type: PropTypes.string,
   /* value of the control */

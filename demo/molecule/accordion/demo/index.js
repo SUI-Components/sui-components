@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import AtomAccordion from '../../../../components/atom/accordion/src'
+import MoleculeAccordion from '../../../../components/molecule/accordion/src'
 import MoleculeCollapsible from '../../../../components/molecule/collapsible/src'
 import './index.scss'
 
@@ -68,7 +68,7 @@ const Demo = () => {
       <DemoBox>
         <h2>Accordion without height limit and transition</h2>
         <DemoWrapper>
-          <AtomAccordion maxHeight={null} withTransition={false}>
+          <MoleculeAccordion maxHeight={null} withTransition={false}>
             <MoleculeCollapsible
               icon={icon}
               showText={showText}
@@ -91,13 +91,13 @@ const Demo = () => {
             >
               <Text />
             </MoleculeCollapsible>
-          </AtomAccordion>
+          </MoleculeAccordion>
         </DemoWrapper>
       </DemoBox>
       <DemoBox>
         <h2>Accordion with default height and transition</h2>
         <DemoWrapper>
-          <AtomAccordion>
+          <MoleculeAccordion>
             <MoleculeCollapsible
               icon={icon}
               showText={showText}
@@ -120,13 +120,13 @@ const Demo = () => {
             >
               <Text />
             </MoleculeCollapsible>
-          </AtomAccordion>
+          </MoleculeAccordion>
         </DemoWrapper>
       </DemoBox>
       <DemoBox>
         <h2>Accordion with default height and transition and no autoclose</h2>
         <DemoWrapper>
-          <AtomAccordion withAutoClose={false}>
+          <MoleculeAccordion withAutoClose={false}>
             <MoleculeCollapsible
               icon={icon}
               showText={showText}
@@ -149,7 +149,7 @@ const Demo = () => {
             >
               <Text />
             </MoleculeCollapsible>
-          </AtomAccordion>
+          </MoleculeAccordion>
         </DemoWrapper>
       </DemoBox>
     </div>

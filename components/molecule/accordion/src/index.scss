@@ -1,7 +1,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
-@import '../../../molecule/collapsible/src/index';
+@import '../../collapsible/src/index';
 @import './settings';
-.sui-AtomAccordion {
+.sui-MoleculeAccordion {
   .sui-MoleculeCollapsible {
     border: $bd-accordion-container;
     border-bottom: $bd-accordion-container-none;

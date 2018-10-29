@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import MoleculeCollapsible from '../../../molecule/collapsible/src'
+import MoleculeCollapsible from '../../collapsible/src'
 
-const BASE_CLASS = 'sui-AtomAccordion'
+const BASE_CLASS = 'sui-MoleculeAccordion'
 
-class AtomAccordion extends Component {
+class MoleculeAccordion extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -52,9 +52,9 @@ class AtomAccordion extends Component {
   }
 }
 
-AtomAccordion.displayName = 'AtomAccordion'
+MoleculeAccordion.displayName = 'MoleculeAccordion'
 
-AtomAccordion.propTypes = {
+MoleculeAccordion.propTypes = {
   children: (props, propName, componentName) => {
     let childrenList = props[propName]
     let error = null
@@ -81,10 +81,10 @@ AtomAccordion.propTypes = {
    */
   withTransition: PropTypes.bool
 }
-AtomAccordion.defaultProps = {
+MoleculeAccordion.defaultProps = {
   maxHeight: 100,
   withAutoClose: true,
   withTransition: true
 }
 
-export default AtomAccordion
+export default MoleculeAccordion

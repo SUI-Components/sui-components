@@ -1,5 +1,5 @@
 {
-  "name": "@s-ui/react-atom-accordion",
+  "name": "@s-ui/react-molecule-accordion",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

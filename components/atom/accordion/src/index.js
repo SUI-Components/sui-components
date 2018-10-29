@@ -17,18 +17,13 @@ class AtomAccordion extends Component {
   }
 
   onOpen = id => {
-    const childrenNewStatePromise = new Promise(resolve => {
-      resolve(
-        this.state.childrenStateList.map((child, index) => {
-          return index !== id
-        })
-      )
-    })
-    childrenNewStatePromise.then(childrenNewStateList => {
-      this.setState({
-        childrenStateList: [...childrenNewStateList]
-      })
-      this.forceUpdate()
+    const childrenNewStateList = this.state.childrenStateList.map(
+      (child, index) => {
+        return index !== id ? true : !child
+      }
+    )
+    this.setState({
+      childrenStateList: [...childrenNewStateList]
     })
   }
 
@@ -45,6 +40,7 @@ class AtomAccordion extends Component {
           withGradient: false,
           withTransition: withTransition,
           isCollapsed: childrenStateList[index],
+          withAutoClose: withAutoClose,
           onOpen: () => {
             withAutoClose && this.onOpen(index)
           }

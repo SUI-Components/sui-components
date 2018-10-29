@@ -15,9 +15,10 @@ const MAX_HEIGHT = null
 class MoleculeCollapsible extends Component {
   constructor(props) {
     super(props)
-    const {isCollapsed} = this.props
+    const {isCollapsed, withAutoClose} = this.props
     this.childrenContainer = React.createRef()
     this.state = {
+      withAutoClose: withAutoClose,
       collapsed: isCollapsed,
       showButton: true,
       maxHeight: MIN_HEIGHT
@@ -29,7 +30,7 @@ class MoleculeCollapsible extends Component {
     const {onOpen} = this.props
     if (showButton) {
       this.setState({collapsed: !collapsed})
-      collapsed && onOpen()
+      onOpen()
     }
   }
 
@@ -43,22 +44,13 @@ class MoleculeCollapsible extends Component {
     })
   }
 
-  componentWillReceiveProps() {
-    const {isCollapsed, maxHeight, minHeight} = this.props
-    let offsetHeight
-    if (maxHeight) {
-      offsetHeight = maxHeight
-    } else {
-      offsetHeight =
-        this.state.maxHeight === this.childrenContainer.current.offsetHeight
-          ? this.state.maxHeight
-          : this.childrenContainer.current.offsetHeight
+  static getDerivedStateFromProps(nextProps) {
+    if (nextProps.withAutoClose) {
+      return {
+        collapsed: nextProps.isCollapsed
+      }
     }
-    this.setState({
-      showButton: offsetHeight >= minHeight,
-      maxHeight: offsetHeight,
-      collapsed: isCollapsed
-    })
+    return null
   }
 
   render() {
@@ -156,9 +148,13 @@ MoleculeCollapsible.propTypes = {
    */
   onOpen: PropTypes.func,
   /**
-   * On close callback
+   * Initial collapsed state
    */
-  isCollapsed: PropTypes.bool
+  isCollapsed: PropTypes.bool,
+  /**
+   * Activate/deactivate closing from props
+   */
+  withAutoClose: PropTypes.bool
 }
 
 MoleculeCollapsible.defaultProps = {
@@ -167,7 +163,8 @@ MoleculeCollapsible.defaultProps = {
   withGradient: true,
   withTransition: true,
   onOpen: () => {},
-  isCollapsed: true
+  isCollapsed: true,
+  withAutoClose: false
 }
 
 export default MoleculeCollapsible

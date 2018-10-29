@@ -43,15 +43,27 @@ class MoleculePagination extends Component {
     const {totalPages, currentPage, showPages, compressed} = this.props
     // console.log({totalPages, currentPage, showPages, compressed})
     const range = this.range(currentPage, showPages, totalPages)
-    // console.log(range)
+    const isTherePrev = this.isTherePrev(currentPage, showPages)
+    const isThereNext = this.isTherePrev(currentPage, showPages, totalPages)
+    console.log({isTherePrev, isThereNext})
     return (
       <div className={BASE_CLASS}>
-        <MoleculeButtonGroup>
+        <MoleculeButtonGroup type="secondary">
+          {isTherePrev && (
+            <AtomButtom onClick={e => window.alert('clicked Prev')}>
+              ← Prev
+            </AtomButtom>
+          )}
           {range.map((page, index) => (
             <AtomButtom key={index} onClick={e => window.alert('clicked A')}>
               {page}
             </AtomButtom>
           ))}
+          {isThereNext && (
+            <AtomButtom onClick={e => window.alert('clicked Next')}>
+              Next →
+            </AtomButtom>
+          )}
         </MoleculeButtonGroup>
       </div>
     )

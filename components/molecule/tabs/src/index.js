@@ -21,7 +21,9 @@ class MoleculeTabs extends Component {
   _createHandleChange(index) {
     return event => {
       event.preventDefault()
-      if (this.props.items[index].enabled !== false) {
+      const {items, allowHandleDisabledTabClick} = this.props
+      const {enabled} = items[index]
+      if (enabled !== false || allowHandleDisabledTabClick) {
         this.setState({activeTab: index})
         this.props.handleChange(index, this.props.items[index])
       }
@@ -73,7 +75,8 @@ class MoleculeTabs extends Component {
 MoleculeTabs.displayName = 'MoleculeTabs'
 
 MoleculeTabs.defaultProps = {
-  activeTab: 0
+  activeTab: 0,
+  allowHandleDisabledTabClick: false
 }
 
 MoleculeTabs.propTypes = {
@@ -110,7 +113,11 @@ MoleculeTabs.propTypes = {
    */
   handleChange: PropTypes.func.isRequired,
   variant: PropTypes.oneOf(Object.values(VARIANTS)),
-  type: PropTypes.oneOf(Object.values(TYPES))
+  type: PropTypes.oneOf(Object.values(TYPES)),
+  /**
+   * Allows the handle click in disabled tabs
+   */
+  allowHandleDisabledTabClick: PropTypes.bool
 }
 
 MoleculeTabs.defaultProps = {

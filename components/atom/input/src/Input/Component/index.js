@@ -15,8 +15,12 @@ const ERROR_STATES = {
 }
 
 class Input extends Component {
-  changeHandler(ev, onChange) {
-    onChange && onChange({value: ev.target.value, ev})
+  changeHandler = ev => {
+    const {onChange} = this.props
+    const {
+      target: {value}
+    } = ev
+    onChange && onChange({value, ev})
   }
 
   onEnterHandler = ev => {
@@ -49,7 +53,6 @@ class Input extends Component {
       id,
       name,
       onBlur,
-      onChange,
       onFocus,
       placeholder,
       reference,
@@ -72,7 +75,7 @@ class Input extends Component {
         disabled={disabled}
         id={id}
         name={name}
-        onChange={ev => this.changeHandler(ev, onChange)}
+        onChange={this.changeHandler}
         onFocus={onFocus}
         onBlur={onBlur}
         onKeyDown={this.onEnterHandler}

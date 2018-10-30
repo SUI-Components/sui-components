@@ -5,8 +5,9 @@ import cx from 'classnames'
 
 const BASE_CLASS = 'sui-AtomInput'
 const CLASS_TAGS = `${BASE_CLASS}--withTags`
-const CLASS_TAGS_CONTAINER = `${CLASS_TAGS}-container`
 const CLASS_TAGS_FOCUS = `${CLASS_TAGS}--focus`
+const CLASS_TAGS_ERROR = `${CLASS_TAGS}--error`
+const CLASS_TAGS_SUCCESS = `${CLASS_TAGS}--success`
 
 // eslint-disable-next-line react/prop-types
 const AtomTagItem = ({onClose, id, ...props}) => {
@@ -36,6 +37,15 @@ const TagsHoC = WrappedInput =>
       focus: false
     }
 
+    getClassNames = (focus, size, errorState) => {
+      return cx(CLASS_TAGS, {
+        [CLASS_TAGS_FOCUS]: focus === true,
+        [CLASS_TAGS_ERROR]: errorState === true,
+        [CLASS_TAGS_SUCCESS]: errorState === false,
+        [`${CLASS_TAGS}-${size}`]: size
+      })
+    }
+
     handleRemoveTag = index => {
       const {onRemoveTag} = this.props
       onRemoveTag && onRemoveTag(index)
@@ -62,26 +72,18 @@ const TagsHoC = WrappedInput =>
       const {focus} = this.state
       return (tags && tags.length) || onAddTag ? (
         <div
-          className={cx(
-            CLASS_TAGS,
-            focus && CLASS_TAGS_FOCUS,
-            props.size && `${CLASS_TAGS}-${props.size}`,
-            props.errorState &&
-              `${CLASS_TAGS}--${props.errorState ? 'error' : 'success'}`
-          )}
+          className={this.getClassNames(focus, props.size, props.errorState)}
         >
-          <div className={CLASS_TAGS_CONTAINER} ref={this.refTagsContainer}>
-            {tags.map((label, index) => (
-              <AtomTagItem
-                key={index}
-                id={index}
-                closeIcon={tagsCloseIcon}
-                onClose={this.handleRemoveTag}
-                label={label}
-                size={atomTagSizes.SMALL}
-              />
-            ))}
-          </div>
+          {tags.map((label, index) => (
+            <AtomTagItem
+              key={index}
+              id={index}
+              closeIcon={tagsCloseIcon}
+              onClose={this.handleRemoveTag}
+              label={label}
+              size={atomTagSizes.SMALL}
+            />
+          ))}
           <WrappedInput
             {...props}
             onEnter={this.handleAddTag}

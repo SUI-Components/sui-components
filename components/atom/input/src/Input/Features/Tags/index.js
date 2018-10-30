@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import AtomTag, {atomTagSizes} from '@schibstedspain/sui-atom-tag'
+import {inputSizes} from '../../Component'
 import cx from 'classnames'
 
 const BASE_CLASS = 'sui-AtomInput'
@@ -31,6 +32,10 @@ const TagsHoC = WrappedInput =>
 
       /* onAddTag */
       onAddTag: PropTypes.func
+    }
+
+    static defaultProps = {
+      size: inputSizes.MEDIUM
     }
 
     state = {

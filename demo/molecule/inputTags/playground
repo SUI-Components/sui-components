@@ -1,0 +1,50 @@
+const beatles = ['john', 'paul', 'george', 'ringo']
+
+const closeIcon = (
+  <svg viewBox="0 0 24 24">
+    <path
+      id="a"
+      d="M13.42 12l4.79-4.8a1 1 0 0 0-1.41-1.41L12 10.58 7.21 5.79A1 1 0 0 0 5.8 7.2l4.79 4.8-4.79 4.79a1 1 0 1 0 1.41 1.41L12 13.41l4.8 4.79a1 1 0 0 0 1.41-1.41L13.42 12z"
+    />
+  </svg>
+)
+
+const fieldStyles = {
+  marginBottom: '16px'
+}
+
+const containerStyles = {
+  padding: '20px'
+}
+
+return (
+  <div style={containerStyles}>
+    <div style={fieldStyles}>
+      <h4>Basic</h4>
+      <MoleculeInputTags
+        value="George Martin"
+        tagsCloseIcon={closeIcon}
+        tags={['John Lennon', 'Paul McCartney', 'George Harrison', 'Ringo Starr']}
+        onChangeTags={console.log}
+      />
+    </div>
+    <div style={fieldStyles}>
+      <h4>With size=SMALL</h4>
+      <MoleculeInputTags
+        tagsCloseIcon={closeIcon}
+        tags={['Robert Plant', 'Jimmy Page', 'John Paul Jones', 'John Bonham']}
+        size={inputSizes.SMALL}
+        onChangeTags={console.log}
+      />
+    </div>
+    <div style={fieldStyles}>
+      <h4>With error</h4>
+      <MoleculeInputTags
+        tagsCloseIcon={closeIcon}
+        tags={['Brian May', 'Freddie Mercury', 'John Deacon', 'Roger Taylor']}
+        errorState={true}
+        onChangeTags={console.log}
+      />
+    </div>
+  </div>
+)

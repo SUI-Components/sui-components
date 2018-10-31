@@ -23,8 +23,10 @@ class MoleculeTabs extends Component {
       event.preventDefault()
       const {items, allowHandleDisabledTabClick} = this.props
       const {enabled} = items[index]
-      if (enabled !== false || allowHandleDisabledTabClick) {
+      if (enabled !== false) {
         this.setState({activeTab: index})
+      }
+      if (allowHandleDisabledTabClick || enabled !== false) {
         this.props.handleChange(index, this.props.items[index])
       }
     }
@@ -122,7 +124,8 @@ MoleculeTabs.propTypes = {
 
 MoleculeTabs.defaultProps = {
   variant: VARIANTS.CLASSIC,
-  type: TYPES.HORIZONTAL
+  type: TYPES.HORIZONTAL,
+  allowHandleDisabledTabClick: false
 }
 
 export default MoleculeTabs

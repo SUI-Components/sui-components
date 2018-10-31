@@ -1,6 +1,8 @@
-@mixin sui-atom-input-input {
+@import 'settings';
+
+%sui-atom-input-input {
   background: $c-white;
-  border: 1px solid $c-gray-light;
+  border: $bdw-atom-input solid $c-gray-light;
   box-sizing: border-box;
   font-size: $fz-base;
   height: $h-atom-input--m;
@@ -9,7 +11,7 @@
   width: 100%;
 }
 
-@mixin sui-atom-input-input-focus {
+%sui-atom-input-input-focus {
   border: solid 1px $c-primary;
   box-shadow: 0 0 3px 0 $c-primary;
   outline: 0 none;

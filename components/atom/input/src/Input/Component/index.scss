@@ -1,8 +1,8 @@
+@import 'placeholders';
 @import 'settings';
-@import 'mixins';
 
 .sui-AtomInput-input {
-  @include sui-atom-input-input;
+  @extend %sui-atom-input-input;
 
   &--size {
     width: inherit;
@@ -33,7 +33,7 @@
   }
 
   &:focus {
-    @include sui-atom-input-input-focus;
+    @extend %sui-atom-input-input-focus;
   }
 
   @each $type, $attr in $sizes-atom-input {

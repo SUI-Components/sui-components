@@ -23,10 +23,10 @@ class Input extends Component {
     onChange && onChange({value, ev})
   }
 
-  onEnterHandler = ev => {
-    const {onEnter} = this.props
+  hendleKeyDown = ev => {
+    const {onEnter, onEnterKey} = this.props
     const {key} = ev
-    if (key === 'Enter') onEnter && onEnter(ev)
+    if (key === onEnterKey && onEnter) onEnter(ev)
   }
 
   getErrorStateClass(errorState) {
@@ -78,7 +78,7 @@ class Input extends Component {
         onChange={this.changeHandler}
         onFocus={onFocus}
         onBlur={onBlur}
-        onKeyDown={this.onEnterHandler}
+        onKeyDown={this.hendleKeyDown}
         placeholder={placeholder}
         ref={reference}
         type={type}
@@ -106,6 +106,8 @@ Input.propTypes = {
   onFocus: PropTypes.func,
   /* onEnter callback */
   onEnter: PropTypes.func,
+  /* key to provoke the onEnter callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values */
+  onEnterKey: PropTypes.string,
   /* A hint to the user of what can be entered in the control. The placeholder text must not contain carriage returns or line-feeds. */
   placeholder: PropTypes.string,
   /* 's' or 'm', default: 'm' */
@@ -125,7 +127,8 @@ Input.propTypes = {
 }
 
 Input.defaultProps = {
-  size: SIZES.MEDIUM
+  size: SIZES.MEDIUM,
+  onEnterKey: 'Enter'
 }
 
 export default Input

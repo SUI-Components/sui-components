@@ -13,6 +13,6 @@
 
 %sui-atom-input-input-focus {
   border: solid 1px $c-primary;
-  box-shadow: 0 0 3px 0 $c-primary;
+  box-shadow: $bxsh-focus;
   outline: 0 none;
 }

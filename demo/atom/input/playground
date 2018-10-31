@@ -295,6 +295,24 @@ return (
       />
     </div>
 
+    <div style={field}>
+      <h4>onEnter</h4>
+      <AtomInput
+        name="second"
+        onEnter={ ({target: {value}}) => alert(value)}
+      />
+    </div>
+
+    <div style={field}>
+      <h4>onEnter on Tab</h4>
+      <AtomInput
+        name="second"
+        onEnter={ ({target: {value}}) => alert(value)}
+        onEnterKey="Tab"
+      />
+    </div>
+
+
     <h2>Checkbox & Radio</h2>
 
     <SimpleCheckboxRadioForm />

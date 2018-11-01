@@ -25,10 +25,17 @@ const MoleculeButtonGroup = ({
     groupPositions,
     numChildren
   )
-  const extendedChildren = React.Children.map(children, (child, index) => {
-    const groupPosition = getGroupPositionByIndex(index)
-    return React.cloneElement(child, {...props, type, groupPosition, fullWidth})
-  })
+  const extendedChildren = React.Children.toArray(children)
+    .filter(child => !!child)
+    .map((child, index) => {
+      const groupPosition = getGroupPositionByIndex(index)
+      return React.cloneElement(child, {
+        ...props,
+        type,
+        groupPosition,
+        fullWidth
+      })
+    })
   return (
     <div className={cx(BASE_CLASS, fullWidth && `${BASE_CLASS}--fullWidth`)}>
       {extendedChildren}

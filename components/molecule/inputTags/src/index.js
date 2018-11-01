@@ -108,14 +108,14 @@ class MoleculeInputTags extends Component {
 MoleculeInputTags.displayName = 'MoleculeInputTags'
 
 MoleculeInputTags.propTypes = {
+  /* close icon to be displayed on tags */
+  tagsCloseIcon: PropTypes.node.isRequired,
+
   /* list of values displayed as tags */
   tags: PropTypes.array,
 
   /* value of the input */
   value: PropTypes.string,
-
-  /* close icon to be displayed on tags */
-  tagsCloseIcon: PropTypes.node,
 
   /* callback to be called with every update of the list of tags */
   onChangeTags: PropTypes.func

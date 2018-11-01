@@ -299,7 +299,11 @@ return (
       <h4>onEnter</h4>
       <AtomInput
         name="second"
-        onEnter={ ({target: {value}}) => alert(value)}
+        onEnter={ ev => {
+          const {target: {value}} = ev
+          ev.preventDefault()
+          alert(value)
+        }}
       />
     </div>
 
@@ -307,7 +311,11 @@ return (
       <h4>onEnter on Tab</h4>
       <AtomInput
         name="second"
-        onEnter={ ({target: {value}}) => alert(value)}
+        onEnter={ ev => {
+          const {target: {value}} = ev
+          ev.preventDefault()
+          alert(value)
+        }}
         onEnterKey="Tab"
       />
     </div>

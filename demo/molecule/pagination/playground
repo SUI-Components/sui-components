@@ -1,12 +1,26 @@
+const fieldStyles = {
+  marginBottom: '16px'
+}
+ const containerStyles = {
+  padding: '20px'
+}
+
+
 return (
-  <div>
-    <div>
+  <div style={containerStyles}>
+    <div style={fieldStyles}>
+      <h4>w/ Next</h4>
+      <p><code>totalPages=25 currentPage=7</code></p>
       <MoleculePagination totalPages={25} currentPage={7}/>
     </div>
-    <div>
+    <div style={fieldStyles}>
+      <h4>w/ Prev & Next</h4>
+      <p><code>totalPages=25 currentPage=17</code></p>
       <MoleculePagination totalPages={25} currentPage={17}/>
     </div>
-    <div>
+    <div style={fieldStyles}>
+      <h4>w/ Prev</h4>
+      <p><code>totalPages=25 currentPage=27</code></p>
       <MoleculePagination totalPages={25} currentPage={27}/>
     </div>
   </div>

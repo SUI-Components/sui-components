@@ -26,6 +26,12 @@ class MoleculePagination extends Component {
   }
 
   isThereNext(current, totalPages, pageBreak = 10) {
+    console.log(
+      `highRange → ${this.highRange(
+        current,
+        pageBreak
+      )} vs totalPages → ${totalPages}`
+    )
     return this.highRange(current, pageBreak) < totalPages
   }
 
@@ -44,26 +50,26 @@ class MoleculePagination extends Component {
     // console.log({totalPages, currentPage, showPages, compressed})
     const range = this.range(currentPage, showPages, totalPages)
     const isTherePrev = this.isTherePrev(currentPage, showPages)
-    const isThereNext = this.isThereNext(currentPage, showPages, totalPages)
+    const isThereNext = this.isThereNext(currentPage, totalPages, showPages)
     console.log({totalPages, currentPage, showPages, isTherePrev, isThereNext})
     return (
       <div className={BASE_CLASS}>
         <MoleculeButtonGroup>
-          {/* isTherePrev && (
+          {isTherePrev && (
             <AtomButtom onClick={e => window.alert('clicked Prev')}>
               ← Prev
             </AtomButtom>
-          ) */}
+          )}
           {range.map((page, index) => (
             <AtomButtom key={index} onClick={e => window.alert('clicked A')}>
               {page}
             </AtomButtom>
           ))}
-          {/* isThereNext && (
+          {isThereNext && (
             <AtomButtom onClick={e => window.alert('clicked Next')}>
               Next →
             </AtomButtom>
-          ) */}
+          )}
         </MoleculeButtonGroup>
       </div>
     )

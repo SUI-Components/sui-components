@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
+import {atomButtonTypes} from '@schibstedspain/sui-atom-button'
+
 const BASE_CLASS = 'sui-MoleculeButtonGroup'
 
 const getGroupPosition = (groupPositions, numChildren, index) => {
@@ -38,7 +40,7 @@ MoleculeButtonGroup.displayName = 'MoleculeButtonGroup'
 
 MoleculeButtonGroup.propTypes = {
   /** Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary' */
-  type: PropTypes.bool,
+  type: PropTypes.oneOf(atomButtonTypes),
 
   /** If buttons should stretch to fit the width of container */
   fullWidth: PropTypes.bool,

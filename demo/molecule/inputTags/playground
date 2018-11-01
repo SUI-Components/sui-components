@@ -19,12 +19,33 @@ const containerStyles = {
 
 return (
   <div style={containerStyles}>
+    <p>Check the console to verify the <code>onChangeTags</code> on adding/removing tabs</p>
     <div style={fieldStyles}>
       <h4>Basic</h4>
       <MoleculeInputTags
         value="George Martin"
         tagsCloseIcon={closeIcon}
         tags={['John Lennon', 'Paul McCartney', 'George Harrison', 'Ringo Starr']}
+        onChangeTags={console.log}
+      />
+    </div>
+    <div style={fieldStyles}>
+      <h4>Entering tags on "Tab" press</h4>
+      <MoleculeInputTags
+        value="George Martin"
+        tagsCloseIcon={closeIcon}
+        tags={['John Lennon', 'Paul McCartney', 'George Harrison', 'Ringo Starr']}
+        onEnterKey="Tab"
+        onChangeTags={console.log}
+      />
+    </div>
+    <div style={fieldStyles}>
+      <h4>Entering tags on "comma" press</h4>
+      <MoleculeInputTags
+        value="George Martin"
+        tagsCloseIcon={closeIcon}
+        tags={['John Lennon', 'Paul McCartney', 'George Harrison', 'Ringo Starr']}
+        onEnterKey=","
         onChangeTags={console.log}
       />
     </div>

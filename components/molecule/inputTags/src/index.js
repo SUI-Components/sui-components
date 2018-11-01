@@ -51,6 +51,7 @@ class MoleculeInputTags extends Component {
     const {
       target: {value}
     } = ev
+    ev.preventDefault()
     if (value) {
       this.setState(
         {

@@ -10,14 +10,14 @@ $class-input: '#{$base-class}-input';
 $sizes-atom-input-paddings: m $p-m, s $p-s !default;
 
 #{$class-tags} {
-  @include sui-atom-input-input;
+  @extend %sui-atom-input-input;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   padding: 0 0 0 $p-m;
 
   &--focus {
-    @include sui-atom-input-input-focus;
+    @extend %sui-atom-input-input-focus;
 
     #{$class-input} {
       box-shadow: none;

@@ -19,6 +19,9 @@ const containerStyles = {
 
 return (
   <div style={containerStyles}>
+    <h1>
+      <code>MoleculeInputTags</code>
+    </h1>
     <p>Check the console to verify the <code>onChangeTags</code> on adding/removing tabs</p>
     <div style={fieldStyles}>
       <h4>Basic</h4>

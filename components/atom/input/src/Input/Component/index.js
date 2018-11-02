@@ -23,7 +23,7 @@ class Input extends Component {
     onChange && onChange({value, ev})
   }
 
-  hendleKeyDown = ev => {
+  handleKeyDown = ev => {
     const {onEnter, onEnterKey} = this.props
     const {key} = ev
     if (key === onEnterKey && onEnter) onEnter(ev)
@@ -78,7 +78,7 @@ class Input extends Component {
         onChange={this.changeHandler}
         onFocus={onFocus}
         onBlur={onBlur}
-        onKeyDown={this.hendleKeyDown}
+        onKeyDown={this.handleKeyDown}
         placeholder={placeholder}
         ref={reference}
         type={type}

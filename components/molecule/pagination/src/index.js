@@ -12,8 +12,6 @@ class MoleculePagination extends Component {
   highRange(current, totalPages, pageBreak = 10) {
     if (current > totalPages) return totalPages
     const high = current + (pageBreak - (current % pageBreak))
-    // console.log(`high → ${high}`)
-    // console.log(`totalPages → ${totalPages}`)
     return high < totalPages ? high : totalPages
   }
 
@@ -26,13 +24,8 @@ class MoleculePagination extends Component {
   }
 
   isThereNext(current, totalPages, pageBreak = 10) {
-    console.log(
-      `highRange → ${this.highRange(
-        current,
-        pageBreak
-      )} vs totalPages → ${totalPages}`
-    )
-    return this.highRange(current, pageBreak) < totalPages
+    const highRange = this.highRange(current, totalPages, pageBreak)
+    return highRange < totalPages
   }
 
   range(currentPage, showPages, totalPages) {
@@ -40,8 +33,6 @@ class MoleculePagination extends Component {
     const highRange = this.highRange(currentPage, totalPages, showPages)
     const rangeNumItems =
       highRange === totalPages ? totalPages - lowRange : showPages
-    // console.log({currentPage, showPages, totalPages})
-    // console.log({lowRange, highRange, rangeNumItems})
     return [...Array.from(new Array(rangeNumItems), (_, i) => lowRange + i + 1)]
   }
 
@@ -51,7 +42,7 @@ class MoleculePagination extends Component {
     const range = this.range(currentPage, showPages, totalPages)
     const isTherePrev = this.isTherePrev(currentPage, showPages)
     const isThereNext = this.isThereNext(currentPage, totalPages, showPages)
-    console.log({totalPages, currentPage, showPages, isTherePrev, isThereNext})
+    // console.log({totalPages, currentPage, showPages, isTherePrev, isThereNext})
     return (
       <div className={BASE_CLASS}>
         <MoleculeButtonGroup>

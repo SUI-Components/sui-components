@@ -15,8 +15,18 @@ const ERROR_STATES = {
 }
 
 class Input extends Component {
-  changeHandler(ev, onChange) {
-    onChange && onChange({value: ev.target.value, ev})
+  changeHandler = ev => {
+    const {onChange} = this.props
+    const {
+      target: {value}
+    } = ev
+    onChange && onChange({value, ev})
+  }
+
+  handleKeyDown = ev => {
+    const {onEnter, onEnterKey} = this.props
+    const {key} = ev
+    if (key === onEnterKey && onEnter) onEnter(ev)
   }
 
   getErrorStateClass(errorState) {
@@ -43,7 +53,7 @@ class Input extends Component {
       id,
       name,
       onBlur,
-      onChange,
+      onFocus,
       placeholder,
       reference,
       size,
@@ -65,8 +75,10 @@ class Input extends Component {
         disabled={disabled}
         id={id}
         name={name}
-        onChange={ev => this.changeHandler(ev, onChange)}
+        onChange={this.changeHandler}
+        onFocus={onFocus}
         onBlur={onBlur}
+        onKeyDown={this.handleKeyDown}
         placeholder={placeholder}
         ref={reference}
         type={type}
@@ -90,6 +102,12 @@ Input.propTypes = {
   onBlur: PropTypes.func,
   /* onChange callback */
   onChange: PropTypes.func,
+  /* onFocus callback */
+  onFocus: PropTypes.func,
+  /* onEnter callback */
+  onEnter: PropTypes.func,
+  /* key to provoke the onEnter callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values */
+  onEnterKey: PropTypes.string,
   /* A hint to the user of what can be entered in the control. The placeholder text must not contain carriage returns or line-feeds. */
   placeholder: PropTypes.string,
   /* 's' or 'm', default: 'm' */
@@ -109,7 +127,8 @@ Input.propTypes = {
 }
 
 Input.defaultProps = {
-  size: SIZES.MEDIUM
+  size: SIZES.MEDIUM,
+  onEnterKey: 'Enter'
 }
 
 export default Input

@@ -1,22 +1,8 @@
-$h-atom-input--m: 40px !default;
-$h-atom-input--s: 32px !default;
-
-$c-atom-input--success: $c-success !default;
-$c-atom-input--error: $c-error !default;
-
-$sizes-atom-input: m $h-atom-input--m, s $h-atom-input--s !default;
-$states-atom-input: success $c-atom-input--success, error $c-atom-input--error !default;
+@import 'placeholders';
+@import 'settings';
 
 .sui-AtomInput-input {
-  border-color: $c-gray-light;
-  border-style: solid;
-  border-width: 1px;
-  box-sizing: border-box;
-  font-size: $fz-base;
-  height: $h-atom-input--m;
-  padding-left: $p-l;
-  padding-right: $p-l;
-  width: 100%;
+  @extend %sui-atom-input-input;
 
   &--size {
     width: inherit;
@@ -47,7 +33,7 @@ $states-atom-input: success $c-atom-input--success, error $c-atom-input--error !
   }
 
   &:focus {
-    box-shadow: inset 0 0 3px 0 $c-primary;
+    @extend %sui-atom-input-input-focus;
   }
 
   @each $type, $attr in $sizes-atom-input {

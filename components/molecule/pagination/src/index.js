@@ -61,7 +61,11 @@ class MoleculePagination extends Component {
             </AtomButtom>
           )}
           {range.map((page, index) => (
-            <AtomButtom key={index} onClick={e => window.alert('clicked A')}>
+            <AtomButtom
+              key={index}
+              focused={page === currentPage}
+              onClick={e => window.alert('clicked A')}
+            >
               {page}
             </AtomButtom>
           ))}

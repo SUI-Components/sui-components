@@ -26,7 +26,7 @@ const MoleculeButtonGroup = ({
     numChildren
   )
   const extendedChildren = React.Children.toArray(children)
-    .filter(child => !!child)
+    .filter(Boolean)
     .map((child, index) => {
       const groupPosition = getGroupPositionByIndex(index)
       return React.cloneElement(child, {

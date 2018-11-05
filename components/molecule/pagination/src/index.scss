@@ -4,5 +4,12 @@
 @import '~@schibstedspain/sui-atom-button/lib/index';
 
 .sui-MoleculePagination {
-  color: red;
+  
+  &-prevButtonIcon { 
+    margin-right: $m-m;
+  }
+
+  &-nextButtonIcon { 
+    margin-left: $m-m;
+  }
 }

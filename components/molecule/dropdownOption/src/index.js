@@ -1,33 +1,32 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 import AtomInput from '@s-ui/react-atom-input'
+
+const CLASS = 'sui-MoleculeDropdownOption'
 
 class MoleculeDropdownOption extends Component {
   state = {
-    checked: this.props.checkboxChecked
+    selected: this.props.selected
   }
 
-  handleCheckboxOnChange = checked => {
-    this.setState({checked})
-    this.props.checkboxOnChange()
+  handleSelect = () => {
+    const {selected} = this.state
+    this.setState({selected: !selected})
+    this.props.onChange()
   }
 
   render() {
-    const {checked} = this.state
-    const {text, checkbox, checkboxId} = this.props
+    const {selected} = this.state
+    const {text, checkbox} = this.props
+    const wrapperClassName = cx(CLASS, {
+      [`${CLASS}-checkbox`]: checkbox,
+      [`${CLASS}--selected`]: selected
+    })
     return (
-      <div className="sui-MoleculeDropdownOption">
-        {checkbox && (
-          <AtomInput
-            id={checkboxId}
-            type="checkbox"
-            checked={checked}
-            onChange={() => {
-              this.handleCheckboxOnChange(!checked)
-            }}
-          />
-        )}
-        <label htmlFor={checkboxId}>{text}</label>
+      <div className={wrapperClassName} onClick={e => this.handleSelect(e)}>
+        {checkbox && <AtomInput type="checkbox" checked={selected} />}
+        <label className={`${CLASS}-label`}>{text}</label>
       </div>
     )
   }
@@ -37,17 +36,15 @@ MoleculeDropdownOption.displayName = 'MoleculeDropdownOption'
 
 MoleculeDropdownOption.propTypes = {
   checkbox: PropTypes.bool,
-  checkboxChecked: PropTypes.bool,
-  checkboxId: PropTypes.string,
-  checkboxOnChange: PropTypes.func,
+  onChange: PropTypes.func,
+  selected: PropTypes.bool,
   text: PropTypes.string.isRequired
 }
 
 MoleculeDropdownOption.defaultProps = {
   checkbox: false,
-  checkboxChecked: false,
-  checkboxId: 'dropdown_option_checkbox',
-  checkboxOnChange: () => {}
+  onChange: () => {},
+  selected: false
 }
 
 export default MoleculeDropdownOption

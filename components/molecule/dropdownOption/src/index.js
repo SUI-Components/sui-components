@@ -43,10 +43,19 @@ class MoleculeDropdownOption extends Component {
 MoleculeDropdownOption.displayName = 'MoleculeDropdownOption'
 
 MoleculeDropdownOption.propTypes = {
+  /** Contains checkbox */
   checkbox: PropTypes.bool,
+
+  /** Is disabled */
   disabled: PropTypes.bool,
+
+  /** onChange callback */
   onChange: PropTypes.func,
+
+  /** Is selected */
   selected: PropTypes.bool,
+
+  /** Text */
   text: PropTypes.string.isRequired
 }
 

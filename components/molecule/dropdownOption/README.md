@@ -1,8 +1,6 @@
 # MoleculeDropdownOption
 
-> Description
-
-<!-- ![](./assets/preview.png) -->
+`MoleculeDropdownOption` is a component that wraps a composition of Checkbox + Text. 
 
 ## Installation
 
@@ -16,8 +14,21 @@ $ npm install @s-ui/react-molecule-dropdown-option --save
 ```js
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
-return (<MoleculeDropdownOption />)
+return (<MoleculeDropdownOption text="Option 1"/>)
 ```
 
+### With `checkbox`
+```js
+import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
+
+return (<MoleculeDropdownOption text="Option 1" checkbox/>)
+```
+
+### With `checkbox` disabled
+```js
+import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
+
+return (<MoleculeDropdownOption text="Option 1" checkbox disabled/>)
+```
 
 > **Find full description and more examples in the [demo page](#).**

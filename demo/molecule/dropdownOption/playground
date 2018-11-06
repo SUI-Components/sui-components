@@ -1,1 +1,19 @@
-return (<MoleculeDropdownOption />)
+function checkboxOnChange () {
+  alert('Changed!')
+}
+
+return (
+  <div>
+    <h4>Without checkbox</h4>
+    <MoleculeDropdownOption 
+      text='Lorem fistrum' 
+    />
+    <br/>
+    <h4>With checkbox</h4>
+    <MoleculeDropdownOption 
+      text='Lorem fistrum' 
+      checkboxOnChange={checkboxOnChange} 
+      checkbox 
+    />
+  </div>
+)

@@ -11,6 +11,12 @@
     padding-left: $p-s;
   }
 
+  &-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   &--selected:not(&-checkbox) &-label {
     font-weight: $fw-bold;
   }

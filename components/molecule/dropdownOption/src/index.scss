@@ -1,5 +1,21 @@
 @import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-atom-input/lib/index';
 
 .sui-MoleculeDropdownOption {
-  display: block;
+  align-items: center;
+  display: flex;
+  height: 40px;
+  padding: 0 $p-l;
+
+  &-checkbox {
+    padding-left: $p-s;
+  }
+
+  &--selected:not(&-checkbox) &-label {
+    font-weight: $fw-bold;
+  }
+
+  &:hover {
+    background-color: $c-gray-lightest;
+  }
 }

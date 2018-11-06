@@ -1,19 +1,29 @@
-function checkboxOnChange () {
-  alert('Changed!')
+function handleOnChange() {
+  console.log('changed!')
+}
+
+const boxStyle = {
+  border: '1px dashed lightgrey',
+  width: '300px'
 }
 
 return (
   <div>
     <h4>Without checkbox</h4>
-    <MoleculeDropdownOption 
-      text='Lorem fistrum' 
-    />
-    <br/>
+    <div style={boxStyle}>
+      <MoleculeDropdownOption 
+        text="Lorem fistrum" 
+        onChange={handleOnChange}
+      />
+    </div>
+    <br />
     <h4>With checkbox</h4>
-    <MoleculeDropdownOption 
-      text='Lorem fistrum' 
-      checkboxOnChange={checkboxOnChange} 
-      checkbox 
-    />
+    <div style={boxStyle}>
+      <MoleculeDropdownOption
+        text="Lorem fistrum"
+        onChange={handleOnChange}
+        checkbox
+      />
+    </div>
   </div>
 )

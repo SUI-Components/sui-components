@@ -12,6 +12,16 @@
     display: none;
   }
 
+  &--noBorder {
+    border: 0;
+
+    &:focus {
+      border: 0;
+      box-shadow: none;
+      outline: 0;
+    }
+  }
+
   &[type='radio'],
   &[type='checkbox'] {
     height: inherit;

@@ -35,12 +35,13 @@ class Input extends Component {
     return ''
   }
 
-  getClassNames({size, charsSize, hideInput, errorState}) {
+  getClassNames({size, charsSize, hideInput, noBorder, errorState}) {
     return cx(
       BASE_CLASS,
       `${BASE_CLASS}-${size}`,
       charsSize && `${BASE_CLASS}--size`,
       hideInput && `${BASE_CLASS}--hidden`,
+      noBorder && `${BASE_CLASS}--noBorder`,
       this.getErrorStateClass(errorState)
     )
   }
@@ -50,6 +51,7 @@ class Input extends Component {
       checked,
       disabled,
       hideInput,
+      noBorder,
       id,
       name,
       onBlur,
@@ -69,6 +71,7 @@ class Input extends Component {
           size,
           charsSize,
           hideInput,
+          noBorder,
           errorState
         })}
         checked={checked}
@@ -123,7 +126,9 @@ Input.propTypes = {
   /** Wether to show the input or not */
   hideInput: PropTypes.bool,
   /* Will set a red/green border if set to true/false */
-  errorState: PropTypes.bool
+  errorState: PropTypes.bool,
+  /** Wether to hide the input border or not */
+  noBorder: PropTypes.bool
 }
 
 Input.defaultProps = {

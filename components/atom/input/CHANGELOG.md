@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.16.0"></a>
+# 1.16.0 (2018-11-06)
+
+
+### Features
+
+* linter sass ([3b5c5f1](https://github.com/SUI-Components/sui-components/commit/3b5c5f1))
+* noBorder through prop ([58fa24f](https://github.com/SUI-Components/sui-components/commit/58fa24f))
+
+
+
 <a name="1.15.0"></a>
 # 1.15.0 (2018-11-02)
 

@@ -18,15 +18,9 @@ $sizes-atom-input-paddings: m $p-m, s $p-s !default;
 
   &--focus {
     @extend %sui-atom-input-input-focus;
-
-    #{$class-input} {
-      box-shadow: none;
-      outline: 0;
-    }
   }
 
   & #{$class-input} {
-    border: 0;
     flex: 1;
     height: 100%;
     padding-left: $p-m;
@@ -38,7 +32,7 @@ $sizes-atom-input-paddings: m $p-m, s $p-s !default;
       min-height: $attr;
 
       #{$class-input} {
-        min-height: calc(#{$attr} - #{$p-m}*2 - 2px);
+        min-height: calc(#{$attr} - #{$p-m} * 2 - 2px);
       }
 
     }

@@ -99,6 +99,7 @@ class MoleculeInputTags extends Component {
           onEnter={this.addTag}
           onFocus={this.handleFocusIn}
           onBlur={this.handleFocusOut}
+          noBorder
         />
       </div>
     )

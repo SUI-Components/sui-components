@@ -11,21 +11,29 @@ class MoleculeDropdownOption extends Component {
   }
 
   handleSelect = () => {
-    const {selected} = this.state
-    this.setState({selected: !selected})
-    this.props.onChange()
+    if (!this.props.disabled) {
+      this.setState(
+        prevState => ({
+          selected: !prevState.selected
+        }),
+        this.props.onChange()
+      )
+    }
   }
 
   render() {
     const {selected} = this.state
-    const {text, checkbox} = this.props
+    const {text, checkbox, disabled} = this.props
     const wrapperClassName = cx(CLASS, {
       [`${CLASS}-checkbox`]: checkbox,
+      [`${CLASS}--disabled`]: disabled,
       [`${CLASS}--selected`]: selected
     })
     return (
-      <div className={wrapperClassName} onClick={e => this.handleSelect(e)}>
-        {checkbox && <AtomInput type="checkbox" checked={selected} />}
+      <div className={wrapperClassName} onClick={this.handleSelect}>
+        {checkbox && (
+          <AtomInput type="checkbox" checked={selected} disabled={disabled} />
+        )}
         <label className={`${CLASS}-label`}>{text}</label>
       </div>
     )
@@ -36,6 +44,7 @@ MoleculeDropdownOption.displayName = 'MoleculeDropdownOption'
 
 MoleculeDropdownOption.propTypes = {
   checkbox: PropTypes.bool,
+  disabled: PropTypes.bool,
   onChange: PropTypes.func,
   selected: PropTypes.bool,
   text: PropTypes.string.isRequired
@@ -43,6 +52,7 @@ MoleculeDropdownOption.propTypes = {
 
 MoleculeDropdownOption.defaultProps = {
   checkbox: false,
+  disabled: false,
   onChange: () => {},
   selected: false
 }

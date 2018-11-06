@@ -1,5 +1,6 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~@s-ui/react-atom-input/lib/index';
+@import './settings';
 
 .sui-MoleculeDropdownOption {
   align-items: center;
@@ -19,6 +20,10 @@
 
   &--selected:not(&-checkbox) &-label {
     font-weight: $fw-bold;
+  }
+
+  &--disabled {
+    color: $c-dropdown-option-disabled;
   }
 
   &:hover {

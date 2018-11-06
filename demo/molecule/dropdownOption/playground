@@ -7,23 +7,88 @@ const boxStyle = {
   width: '300px'
 }
 
+const titleStyle = {
+  color: 'gray',
+  fontSize: '12px',
+  padding: '16px',
+  textAlign: 'center',
+  textTransform: 'uppercase'
+}
+
 return (
   <div>
-    <h4>Without checkbox</h4>
-    <div style={boxStyle}>
-      <MoleculeDropdownOption 
-        text="Lorem fistrum" 
-        onChange={handleOnChange}
-      />
-    </div>
-    <br />
-    <h4>With checkbox</h4>
-    <div style={boxStyle}>
-      <MoleculeDropdownOption
-        text="Lorem fistrum"
-        onChange={handleOnChange}
-        checkbox
-      />
-    </div>
+    <table>
+      <tbody>
+        <tr>
+          <td />
+          <td style={titleStyle}>Default</td>
+          <td style={titleStyle}>Checkbox</td>
+        </tr>
+        <tr>
+          <td style={titleStyle}>Enabled</td>
+          <td>
+            <div style={boxStyle}>
+              <MoleculeDropdownOption
+                text="Option 1"
+                onChange={handleOnChange}
+              />
+            </div>
+          </td>
+          <td>
+            <div style={boxStyle}>
+              <MoleculeDropdownOption
+                text="Option 1"
+                onChange={handleOnChange}
+                checkbox
+              />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style={titleStyle}>Selected</td>
+          <td>
+            <div style={boxStyle}>
+              <MoleculeDropdownOption
+                text="Option 2"
+                onChange={handleOnChange}
+                selected
+              />
+            </div>
+          </td>
+          <td>
+            <div style={boxStyle}>
+              <MoleculeDropdownOption
+                text="Option 2"
+                onChange={handleOnChange}
+                checkbox
+                selected
+              />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style={titleStyle}>Disabled</td>
+          <td>
+            <div style={boxStyle}>
+              <MoleculeDropdownOption
+                text="Option 3"
+                onChange={handleOnChange}
+                disabled
+              />
+            </div>
+          </td>
+          <td>
+            <div style={boxStyle}>
+              <MoleculeDropdownOption
+                text="Option 3"
+                onChange={handleOnChange}
+                checkbox
+                disabled
+              />
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 )

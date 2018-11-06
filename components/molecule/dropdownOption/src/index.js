@@ -34,7 +34,7 @@ class MoleculeDropdownOption extends Component {
         {checkbox && (
           <AtomInput type="checkbox" checked={selected} disabled={disabled} />
         )}
-        <label className={`${CLASS}-label`}>{text}</label>
+        <span className={`${CLASS}-text`}>{text}</span>
       </div>
     )
   }

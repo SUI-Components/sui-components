@@ -5,20 +5,20 @@
 .sui-MoleculeDropdownOption {
   align-items: center;
   display: flex;
-  height: 40px;
+  height: $h-dropdown-option;
   padding: 0 $p-l;
 
   &-checkbox {
     padding-left: $p-s;
   }
 
-  &-label {
+  &-text {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
-  &--selected:not(&-checkbox) &-label {
+  &--selected:not(&-checkbox) &-text {
     font-weight: $fw-bold;
   }
 

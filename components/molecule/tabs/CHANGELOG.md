@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2018-10-31)
+
+
+### Features
+
+* add new demo and example in readme ([cfd90e8](https://github.com/SUI-Components/sui-components/commit/cfd90e8))
+* add new prop: allowHandleDisabledTabClick ([f184df5](https://github.com/SUI-Components/sui-components/commit/f184df5))
+* first commit with only Schibsted Spain Components ([c0814de](https://github.com/SUI-Components/sui-components/commit/c0814de))
+* update conditional ([25e82c1](https://github.com/SUI-Components/sui-components/commit/25e82c1))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-03-07)
 

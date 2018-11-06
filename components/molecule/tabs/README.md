@@ -66,4 +66,17 @@ return (
 )
 ```
 
+### Basic usage with Handle click in disabled tabs
+```js
+import MoleculeTabs from '@schibstedspain/sui-molecule-tabs'
+
+return (
+    <MoleculeTabs
+        items={items}
+        handleChange={handleChange}
+        handleClickInDisabledTabs
+    />
+)
+```
+
 > **Find full description and more examples in the [demo page](#).**

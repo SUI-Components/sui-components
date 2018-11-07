@@ -10,14 +10,14 @@ class MoleculeDropdownOption extends Component {
     selected: this.props.selected
   }
 
-  handleSelect = () => {
+  handleClick = () => {
     if (!this.props.disabled) {
       this.setState(
         prevState => ({
           selected: !prevState.selected
         }),
         () => {
-          this.props.onChange(this.state.selected)
+          this.props.onClick(this.state.selected)
         }
       )
     }
@@ -32,7 +32,7 @@ class MoleculeDropdownOption extends Component {
       [`${CLASS}--selected`]: selected
     })
     return (
-      <div className={wrapperClassName} onClick={this.handleSelect}>
+      <div className={wrapperClassName} onClick={this.handleClick}>
         {checkbox && (
           <AtomInput type="checkbox" checked={selected} disabled={disabled} />
         )}
@@ -51,8 +51,8 @@ MoleculeDropdownOption.propTypes = {
   /** Is disabled */
   disabled: PropTypes.bool,
 
-  /** onChange callback */
-  onChange: PropTypes.func,
+  /** onClick callback */
+  onClick: PropTypes.func,
 
   /** Is selected */
   selected: PropTypes.bool,
@@ -64,7 +64,7 @@ MoleculeDropdownOption.propTypes = {
 MoleculeDropdownOption.defaultProps = {
   checkbox: false,
   disabled: false,
-  onChange: () => {},
+  onClick: () => {},
   selected: false
 }
 

@@ -13,7 +13,7 @@ class Demo extends Component {
     }
   }
 
-  handleOnChange = (type, option) => optionSelected => {
+  handleOnClick = (type, option) => optionSelected => {
     let selected = this.state.selected[type]
 
     optionSelected
@@ -37,15 +37,15 @@ class Demo extends Component {
           <div className="DemoMoleculeDropdownOption-list">
             <MoleculeDropdownOption
               text="Option 1"
-              onChange={this.handleOnChange('default', 'option1')}
+              onClick={this.handleOnClick('default', 'option1')}
             />
             <MoleculeDropdownOption
               text="Option 2"
-              onChange={this.handleOnChange('default', 'option2')}
+              onClick={this.handleOnClick('default', 'option2')}
             />
             <MoleculeDropdownOption
               text="Option 3"
-              onChange={this.handleOnChange('default', 'option3')}
+              onClick={this.handleOnClick('default', 'option3')}
             />
           </div>
           <pre>{JSON.stringify(this.state.selected.default, null, 2)}</pre>
@@ -55,16 +55,16 @@ class Demo extends Component {
           <div className="DemoMoleculeDropdownOption-list">
             <MoleculeDropdownOption
               text="Option 1"
-              onChange={this.handleOnChange('disabled', 'option1')}
+              onClick={this.handleOnClick('disabled', 'option1')}
             />
             <MoleculeDropdownOption
               text="Option 2"
-              onChange={this.handleOnChange('disabled', 'option2')}
+              onClick={this.handleOnClick('disabled', 'option2')}
               disabled
             />
             <MoleculeDropdownOption
               text="Option 3"
-              onChange={this.handleOnChange('disabled', 'option3')}
+              onClick={this.handleOnClick('disabled', 'option3')}
             />
           </div>
           <pre>{JSON.stringify(this.state.selected.disabled, null, 2)}</pre>
@@ -74,17 +74,17 @@ class Demo extends Component {
           <div className="DemoMoleculeDropdownOption-list">
             <MoleculeDropdownOption
               text="Option 1"
-              onChange={this.handleOnChange('checkbox', 'option1')}
+              onClick={this.handleOnClick('checkbox', 'option1')}
               checkbox
             />
             <MoleculeDropdownOption
               text="Option 2"
-              onChange={this.handleOnChange('checkbox', 'option2')}
+              onClick={this.handleOnClick('checkbox', 'option2')}
               checkbox
             />
             <MoleculeDropdownOption
               text="Option 3"
-              onChange={this.handleOnChange('checkbox', 'option3')}
+              onClick={this.handleOnClick('checkbox', 'option3')}
               checkbox
             />
           </div>

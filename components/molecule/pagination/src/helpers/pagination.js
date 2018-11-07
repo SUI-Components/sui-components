@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types, no-unused-vars, no-console */
-
 export const processPage = ({page, totalPages}) => {
   if (page < 1) return 1
   if (page > totalPages) return totalPages

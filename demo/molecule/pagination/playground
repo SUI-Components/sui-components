@@ -34,7 +34,6 @@ class DynamicMoleculePagination extends React.Component {
   }
 
   updatePage = page => {
-    console.log(page)
     this.setState({page}, () => {
       console.log(this.state)
     })

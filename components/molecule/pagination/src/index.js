@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types, no-unused-vars, no-console */
-
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
@@ -57,7 +55,6 @@ class MoleculePagination extends Component {
     const nextPage = pagination.nextPage(paramsPagination)
     const prevPage = pagination.prevPage(paramsPagination)
 
-    console.log(range, nextPage, prevPage)
     return (
       <div className={BASE_CLASS}>
         <MoleculeButtonGroup>

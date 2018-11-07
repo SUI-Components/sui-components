@@ -1,5 +1,5 @@
-function handleOnChange() {
-  console.log('changed!')
+function handleOnChange(selected) {
+  console.log('selected: ', selected)
 }
 
 const boxStyle = {

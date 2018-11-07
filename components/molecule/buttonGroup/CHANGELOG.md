@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2018-11-07)
+
+
+### Bug Fixes
+
+* fix misalignments ([b4951e7](https://github.com/SUI-Components/sui-components/commit/b4951e7))
+* fix some misalignments ([07a0f5d](https://github.com/SUI-Components/sui-components/commit/07a0f5d))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2018-11-02)
 

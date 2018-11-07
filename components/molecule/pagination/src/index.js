@@ -6,6 +6,8 @@ import PropTypes from 'prop-types'
 import MoleculeButtonGroup from '@s-ui/react-molecule-button-group'
 import AtomButtom from '@schibstedspain/sui-atom-button'
 
+import * as pagination from './helpers/pagination'
+
 const BASE_CLASS = 'sui-MoleculePagination'
 const CLASS_PREV_BUTTON_ICON = 'sui-MoleculePagination-prevButtonIcon'
 const CLASS_NEXT_BUTTON_ICON = 'sui-MoleculePagination-nextButtonIcon'
@@ -17,92 +19,22 @@ const PageButton = ({onClickPage, page, ...props}) => {
 }
 
 class MoleculePagination extends Component {
-  highRange(current, totalPages, pageBreak = 10) {
-    const high = current + (pageBreak - (current % pageBreak))
-    if (current % pageBreak) return high < totalPages ? high : totalPages
-    return current
-  }
-
-  lowRange(current, pageBreak = 10) {
-    if (current % pageBreak)
-      return current + (pageBreak - (current % pageBreak)) - pageBreak
-    return current - pageBreak
-  }
-
-  isTherePrev(current, pageBreak = 10) {
-    const {compressed} = this.props
-    if (compressed) return current > 1
-    return current - pageBreak > 0
-  }
-
-  isThereNext(current, totalPages, pageBreak = 10) {
-    const {compressed} = this.props
-    if (compressed) return current < totalPages
-    const highRange = this.highRange(current, totalPages, pageBreak)
-    return highRange < totalPages
-  }
-
-  range(currentPage, showPages, totalPages) {
-    const lowRange = this.lowRange(currentPage, showPages)
-    const highRange = this.highRange(currentPage, totalPages, showPages)
-    const rangeNumItems =
-      highRange === totalPages ? totalPages - lowRange : showPages
-    console.log({lowRange, highRange, rangeNumItems})
-    return [...Array.from(new Array(rangeNumItems), (_, i) => lowRange + i + 1)]
-  }
-
   handleClickNext = () => {
-    const {
-      onClickNext,
-      currentPage,
-      showPages,
-      totalPages,
-      compressed
-    } = this.props
-    const processedCurrentPage = this.processPage(currentPage)
-    if (compressed) {
-      const nextPage =
-        processedCurrentPage !== totalPages
-          ? processedCurrentPage + 1
-          : totalPages
-      onClickNext && onClickNext(nextPage)
-    } else {
-      const nextPage =
-        [...this.range(processedCurrentPage, showPages, totalPages)].pop() + 1
-      onClickNext && onClickNext(nextPage)
-    }
+    const {onClickNext, ...props} = this.props
+    const nextPage = pagination.nextPage(props)
+    onClickNext(nextPage)
   }
 
   handleClickPrev = () => {
-    const {
-      onClickPrev,
-      currentPage,
-      showPages,
-      totalPages,
-      compressed
-    } = this.props
-    const processedCurrentPage = this.processPage(currentPage)
-    if (compressed) {
-      const prevPage = processedCurrentPage !== 1 ? processedCurrentPage - 1 : 1
-      onClickPrev && onClickPrev(prevPage)
-    } else {
-      const prevPage =
-        [...this.range(processedCurrentPage, showPages, totalPages)].shift() - 1
-      onClickPrev && onClickPrev(prevPage)
-    }
-  }
-
-  processPage = page => {
-    const {totalPages} = this.props
-    if (page < 1) return 1
-    if (page > totalPages) return totalPages
-    return page
+    const {onClickPrev, ...props} = this.props
+    const prevPage = pagination.prevPage(props)
+    onClickPrev(prevPage)
   }
 
   render() {
     const {
+      page,
       totalPages,
-      currentPage,
       showPages,
       prevButtonText,
       prevButtonIcon: PrevButtonIcon,
@@ -111,19 +43,25 @@ class MoleculePagination extends Component {
       onClickPage,
       compressed
     } = this.props
-    const processedCurrentPage = this.processPage(currentPage)
-    const range = this.range(processedCurrentPage, showPages, totalPages)
-    const isTherePrev = this.isTherePrev(processedCurrentPage, showPages)
-    const isThereNext = this.isThereNext(
-      processedCurrentPage,
+
+    const processedPage = pagination.processPage({page, totalPages})
+    const paramsPagination = {
+      page,
+      processedPage,
       totalPages,
-      showPages
-    )
-    console.log({processedCurrentPage, showPages, totalPages, range})
+      showPages,
+      compressed
+    }
+
+    const range = pagination.range(paramsPagination)
+    const nextPage = pagination.nextPage(paramsPagination)
+    const prevPage = pagination.prevPage(paramsPagination)
+
+    console.log(range, nextPage, prevPage)
     return (
       <div className={BASE_CLASS}>
         <MoleculeButtonGroup>
-          {isTherePrev && (
+          {prevPage && (
             <AtomButtom onClick={this.handleClickPrev}>
               {PrevButtonIcon && (
                 <span className={CLASS_PREV_BUTTON_ICON}>
@@ -134,26 +72,22 @@ class MoleculePagination extends Component {
             </AtomButtom>
           )}
           {compressed ? (
-            <PageButton
-              page={processedCurrentPage}
-              focused
-              onClickPage={onClickPage}
-            >
-              {processedCurrentPage}
+            <PageButton page={page} focused onClickPage={onClickPage}>
+              {page}
             </PageButton>
           ) : (
-            range.map(page => (
+            range.map(pageRange => (
               <PageButton
-                key={page}
-                page={page}
-                focused={page === processedCurrentPage}
+                key={pageRange}
+                page={pageRange}
+                focused={pageRange === page}
                 onClickPage={onClickPage}
               >
-                {page}
+                {pageRange}
               </PageButton>
             ))
           )}
-          {isThereNext && (
+          {nextPage && (
             <AtomButtom onClick={this.handleClickNext}>
               {nextButtonText}{' '}
               {NextButtonIcon && (
@@ -171,11 +105,9 @@ class MoleculePagination extends Component {
 
 MoleculePagination.displayName = 'MoleculePagination'
 
-// Remove these comments if you need
-// MoleculePagination.contextTypes = {i18n: PropTypes.object}
 MoleculePagination.propTypes = {
   totalPages: PropTypes.number.isRequired,
-  currentPage: PropTypes.number.isRequired,
+  page: PropTypes.number.isRequired,
   showPages: PropTypes.number,
   compressed: PropTypes.bool,
   prevButtonText: PropTypes.string,

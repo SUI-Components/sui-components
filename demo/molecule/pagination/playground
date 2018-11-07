@@ -30,24 +30,24 @@ const OnClicks = {onClickNext, onClickPrev, onClickPage}
 
 class DynamicMoleculePagination extends React.Component {
   state = {
-    currentPage: this.props.currentPage
+    page: this.props.page
   }
 
-  updatePage = currentPage => {
-    console.log(currentPage)
-    this.setState({currentPage}, () => {
+  updatePage = page => {
+    console.log(page)
+    this.setState({page}, () => {
       console.log(this.state)
     })
   }
 
   render() {
-    const {currentPage} = this.state
+    const {page} = this.state
     return (
       <div>
         <MoleculePagination
           {...Icons}
           {...this.props}
-          currentPage={currentPage}
+          page={page}
           onClickNext={this.updatePage}
           onClickPrev={this.updatePage}
           onClickPage={this.updatePage}
@@ -66,65 +66,50 @@ return (
     <h2>Dynamic</h2>
     <div style={fieldStyles}>
       <h4>Extended Version</h4>
-      <DynamicMoleculePagination totalPages={25} currentPage={17} />
+      <DynamicMoleculePagination totalPages={25} page={17} />
     </div>
     <div style={fieldStyles}>
       <h4>Compressed Version</h4>
-      <DynamicMoleculePagination totalPages={25} currentPage={17} compressed />
+      <DynamicMoleculePagination totalPages={25} page={17} compressed />
     </div>
     {/* ------------------------------------------------------------------------------------------------------------- */}
     <h2>Extended Version</h2>
     <div style={fieldStyles}>
       <h4>w/ Next</h4>
       <p>
-        <code>totalPages=25 currentPage=7</code>
+        <code>totalPages=25 page=7</code>
       </p>
-      <MoleculePagination
-        totalPages={25}
-        currentPage={7}
-        {...Icons}
-        {...OnClicks}
-      />
+      <MoleculePagination totalPages={25} page={7} {...Icons} {...OnClicks} />
     </div>
     <div style={fieldStyles}>
       <h4>w/ Prev & Next</h4>
       <p>
-        <code>totalPages=25 currentPage=17</code>
+        <code>totalPages=25 page=17</code>
       </p>
-      <MoleculePagination
-        totalPages={25}
-        currentPage={17}
-        {...Icons}
-        {...OnClicks}
-      />
+      <MoleculePagination totalPages={25} page={17} {...Icons} {...OnClicks} />
     </div>
     <div style={fieldStyles}>
       <h4>w/ Prev</h4>
       <p>
-        <code>totalPages=25 currentPage=27</code>
+        <code>totalPages=25 page=27</code>
       </p>
-      <MoleculePagination
-        totalPages={25}
-        currentPage={27}
-        {...Icons}
-        {...OnClicks}
-      />
+      <MoleculePagination totalPages={25} page={27} {...Icons} {...OnClicks} />
     </div>
     <div style={fieldStyles}>
       <h4>No Arrows</h4>
       <p>
-        <code>totalPages=25 currentPage=7</code>
+        <code>totalPages=25 page=7</code>
       </p>
-      <MoleculePagination totalPages={25} currentPage={17} {...OnClicks} />
+      <MoleculePagination totalPages={25} page={17} {...OnClicks} />
     </div>
     <div style={fieldStyles}>
       <h4>Different Texts</h4>
       <p>
-        <code>totalPages=25 currentPage=7</code>
+        <code>totalPages=25 page=7</code>
       </p>
       <MoleculePagination
         totalPages={25}
-        currentPage={17}
+        page={17}
         {...Icons}
         {...Texts}
         {...OnClicks}
@@ -133,11 +118,11 @@ return (
     <div style={fieldStyles}>
       <h4>Out of range current page</h4>
       <p>
-        <code>totalPages=25 currentPage=-2</code>
+        <code>totalPages=25 page=-2</code>
       </p>
       <MoleculePagination
         totalPages={25}
-        currentPage={-2}
+        page={-2}
         {...Icons}
         {...Texts}
         {...OnClicks}
@@ -148,11 +133,11 @@ return (
     <div style={fieldStyles}>
       <h4>First Page (only next)</h4>
       <p>
-        <code>totalPages=25 currentPage=1</code>
+        <code>totalPages=25 page=1</code>
       </p>
       <MoleculePagination
         totalPages={25}
-        currentPage={1}
+        page={1}
         {...Icons}
         {...OnClicks}
         compressed
@@ -161,11 +146,11 @@ return (
     <div style={fieldStyles}>
       <h4>w/ Prev & Next</h4>
       <p>
-        <code>totalPages=25 currentPage=17</code>
+        <code>totalPages=25 page=17</code>
       </p>
       <MoleculePagination
         totalPages={25}
-        currentPage={17}
+        page={17}
         {...Icons}
         {...OnClicks}
         compressed
@@ -174,11 +159,11 @@ return (
     <div style={fieldStyles}>
       <h4>Out of range current page</h4>
       <p>
-        <code>totalPages=25 currentPage=27</code>
+        <code>totalPages=25 page=27</code>
       </p>
       <MoleculePagination
         totalPages={25}
-        currentPage={27}
+        page={27}
         {...Icons}
         {...OnClicks}
         compressed
@@ -187,23 +172,18 @@ return (
     <div style={fieldStyles}>
       <h4>No Arrows</h4>
       <p>
-        <code>totalPages=25 currentPage=17</code>
+        <code>totalPages=25 page=17</code>
       </p>
-      <MoleculePagination
-        totalPages={25}
-        currentPage={17}
-        {...OnClicks}
-        compressed
-      />
+      <MoleculePagination totalPages={25} page={17} {...OnClicks} compressed />
     </div>
     <div style={fieldStyles}>
       <h4>Different Texts</h4>
       <p>
-        <code>totalPages=25 currentPage=17</code>
+        <code>totalPages=25 page=17</code>
       </p>
       <MoleculePagination
         totalPages={25}
-        currentPage={17}
+        page={17}
         {...Icons}
         {...Texts}
         {...OnClicks}

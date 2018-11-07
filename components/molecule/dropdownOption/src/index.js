@@ -16,7 +16,9 @@ class MoleculeDropdownOption extends Component {
         prevState => ({
           selected: !prevState.selected
         }),
-        this.props.onChange(this.state.selected)
+        () => {
+          this.props.onChange(this.state.selected)
+        }
       )
     }
   }

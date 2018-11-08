@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.16.0"></a>
+# 1.16.0 (2018-11-06)
+
+
+### Features
+
+* linter sass ([3b5c5f1](https://github.com/SUI-Components/sui-components/commit/3b5c5f1))
+* noBorder through prop ([58fa24f](https://github.com/SUI-Components/sui-components/commit/58fa24f))
+
+
+
+<a name="1.15.0"></a>
+# 1.15.0 (2018-11-02)
+
+
+### Bug Fixes
+
+* fix typo ([f0eaec9](https://github.com/SUI-Components/sui-components/commit/f0eaec9))
+
+
+### Features
+
+* component prepared for MoleculeInputTags ([2719b1a](https://github.com/SUI-Components/sui-components/commit/2719b1a))
+* custom key onEnter ([ef57dc5](https://github.com/SUI-Components/sui-components/commit/ef57dc5))
+* placeholders instead of mixins ([95300ca](https://github.com/SUI-Components/sui-components/commit/95300ca))
+* use of sui-theme variables ([45a7628](https://github.com/SUI-Components/sui-components/commit/45a7628))
+
+
+
 <a name="1.14.0"></a>
 # 1.14.0 (2018-10-23)
 

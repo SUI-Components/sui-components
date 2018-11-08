@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import MoleculeButtonGroup from '@s-ui/react-molecule-button-group'
 import AtomButtom from '@schibstedspain/sui-atom-button'
 
-import {default as pagination} from './helpers/pagination'
+import * as pagination from './helpers/pagination'
 
 const BASE_CLASS = 'sui-MoleculePagination'
 const CLASS_PREV_BUTTON_ICON = 'sui-MoleculePagination-prevButtonIcon'

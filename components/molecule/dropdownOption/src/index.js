@@ -25,7 +25,7 @@ class MoleculeDropdownOption extends Component {
 
   render() {
     const {selected} = this.state
-    const {text, checkbox, disabled} = this.props
+    const {children, checkbox, disabled} = this.props
     const wrapperClassName = cx(CLASS, {
       [`${CLASS}-checkbox`]: checkbox,
       [`${CLASS}--disabled`]: disabled,
@@ -36,7 +36,7 @@ class MoleculeDropdownOption extends Component {
         {checkbox && (
           <AtomInput type="checkbox" checked={selected} disabled={disabled} />
         )}
-        <span className={`${CLASS}-text`}>{text}</span>
+        <span className={`${CLASS}-text`}>{children}</span>
       </div>
     )
   }
@@ -45,6 +45,9 @@ class MoleculeDropdownOption extends Component {
 MoleculeDropdownOption.displayName = 'MoleculeDropdownOption'
 
 MoleculeDropdownOption.propTypes = {
+  /** Content to be included in the option */
+  children: PropTypes.node,
+
   /** Contains checkbox */
   checkbox: PropTypes.bool,
 
@@ -55,10 +58,7 @@ MoleculeDropdownOption.propTypes = {
   onClick: PropTypes.func,
 
   /** Is selected */
-  selected: PropTypes.bool,
-
-  /** Text */
-  text: PropTypes.string.isRequired
+  selected: PropTypes.bool
 }
 
 MoleculeDropdownOption.defaultProps = {

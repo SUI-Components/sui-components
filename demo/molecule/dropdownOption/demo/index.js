@@ -48,7 +48,7 @@ class Demo extends Component {
               Option 2
             </MoleculeDropdownOption>
           </div>
-          <h2>As a option with checkbox</h2>
+          <h2>As an option with checkbox</h2>
           <div className="DemoMoleculeDropdownOption-option">
             <MoleculeDropdownOption
               text="Option 1"

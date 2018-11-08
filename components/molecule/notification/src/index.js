@@ -99,6 +99,17 @@ class MoleculeNotification extends Component {
       .slice(0, BUTTONS_MAX)
       .map((button, i) => <Button key={i} {...button} />)
   }
+  printContent = () => {
+    const {text, children} = this.props
+    if (children) {
+      return children
+    }
+    return `<span>${text}</span>`
+  }
+
+  createMarkup(markup) {
+    return {__html: markup}
+  }
 
   render() {
     const {show, delay} = this.state
@@ -109,7 +120,8 @@ class MoleculeNotification extends Component {
       position,
       showCloseButton,
       effect,
-      text
+      text,
+      children
     } = this.props
     const wrapperClassName = cx(
       `${CLASS} ${CLASS}--${type} ${CLASS}--${position}`,
@@ -129,9 +141,7 @@ class MoleculeNotification extends Component {
           <div className={`${CLASS}-iconLeft`}>
             <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
           </div>
-          <div className={`${CLASS}-text`}>
-            <span>{text}</span>
-          </div>
+          <div className={`${CLASS}-text`}>{text || children}</div>
           {showCloseButton && (
             <div className={`${CLASS}-iconClose`} onClick={this.toggleShow}>
               <span className={`${CLASS}-icon`}>
@@ -160,6 +170,10 @@ MoleculeNotification.propTypes = {
    */
   buttons: PropTypes.array,
   /**
+   * Content to be printed. Alternatively you can use "text" prop
+   */
+  children: PropTypes.node,
+  /**
    * Transition enabled
    */
   effect: PropTypes.bool,
@@ -180,7 +194,7 @@ MoleculeNotification.propTypes = {
    */
   showCloseButton: PropTypes.bool,
   /**
-   * Content text
+   * Content text. Alternatively you can use "children" prop
    */
   text: PropTypes.string,
   /**

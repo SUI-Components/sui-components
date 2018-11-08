@@ -64,15 +64,16 @@ return (
     </h1>
     <h2>Dynamic</h2>
     <div style={fieldStyles}>
-      <h4>Extended Version</h4>
+      <h3>Extended Version</h3>
       <DynamicMoleculePagination totalPages={25} page={17} />
     </div>
     <div style={fieldStyles}>
-      <h4>Compressed Version</h4>
+      <h3>Compressed Version</h3>
       <DynamicMoleculePagination totalPages={25} page={17} compressed />
     </div>
     {/* ------------------------------------------------------------------------------------------------------------- */}
-    <h2>Extended Version</h2>
+    <h2>Static</h2>
+    <h3>Extended Version</h3>
     <div style={fieldStyles}>
       <h4>w/ Next</h4>
       <p>
@@ -128,7 +129,7 @@ return (
       />
     </div>
     {/* ------------------------------------------------------------------------------------------------------------- */}
-    <h2>Compresed Version</h2>
+    <h3>Compresed Version</h3>
     <div style={fieldStyles}>
       <h4>First Page (only next)</h4>
       <p>

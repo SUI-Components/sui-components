@@ -4,7 +4,9 @@ import PropTypes from 'prop-types'
 import MoleculeButtonGroup from '@s-ui/react-molecule-button-group'
 import AtomButtom from '@schibstedspain/sui-atom-button'
 
-import * as pagination from './helpers/pagination'
+import {default as pagination} from './helpers/pagination'
+
+console.log(pagination) // eslint-disable-line
 
 const BASE_CLASS = 'sui-MoleculePagination'
 const CLASS_PREV_BUTTON_ICON = 'sui-MoleculePagination-prevButtonIcon'
@@ -103,16 +105,37 @@ class MoleculePagination extends Component {
 MoleculePagination.displayName = 'MoleculePagination'
 
 MoleculePagination.propTypes = {
+  /* Total pages */
   totalPages: PropTypes.number.isRequired,
+
+  /* Current page selected */
   page: PropTypes.number.isRequired,
+
+  /* Number of pages to be displayed in the range (10 by default) */
   showPages: PropTypes.number,
+
+  /* If the pagination should be displayed in compressed mode or not */
   compressed: PropTypes.bool,
+
+  /* Text to be displayed on the previous button */
   prevButtonText: PropTypes.string,
+
+  /* Icon to be displayed on the previous button */
   prevButtonIcon: PropTypes.any,
+
+  /* Text to be displayed on the next button */
   nextButtonText: PropTypes.string,
+
+  /* Icon to be displayed on the next button */
   nextButtonIcon: PropTypes.any,
+
+  /* Callback to be executed on previous button click (it will receive the proper page number) */
   onClickPrev: PropTypes.func,
+
+  /* Callback to be executed on next button click (it will receive the proper page number) */
   onClickNext: PropTypes.func,
+
+  /* Callback to be executed on each pagebutton click (it will receive the proper page number) */
   onClickPage: PropTypes.func
 }
 

@@ -6,8 +6,6 @@ import AtomButtom from '@schibstedspain/sui-atom-button'
 
 import {default as pagination} from './helpers/pagination'
 
-console.log(pagination) // eslint-disable-line
-
 const BASE_CLASS = 'sui-MoleculePagination'
 const CLASS_PREV_BUTTON_ICON = 'sui-MoleculePagination-prevButtonIcon'
 const CLASS_NEXT_BUTTON_ICON = 'sui-MoleculePagination-nextButtonIcon'

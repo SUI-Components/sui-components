@@ -17,9 +17,9 @@ const prevButtonIcon = () => <span>&lt;</span>
 const nextButtonIcon = () => <span>&gt;</span>
 const prevButtonText = 'Anterior'
 const nextButtonText = 'Siguiente'
-const onClickNext = page => { console.log(page) }
-const onClickPrev = page => { console.log(page) }
-const onClickPage = page => { console.log(page) }
+const onClickNext = (e, page) => { console.log({e, page}) }
+const onClickPrev = (e, page) => { console.log({e, page}) }
+const onClickPage = (e, page) => { console.log({e, page}) }
 ```
 
 ### Basic usage

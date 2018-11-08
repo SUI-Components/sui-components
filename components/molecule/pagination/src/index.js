@@ -12,21 +12,23 @@ const CLASS_NEXT_BUTTON_ICON = 'sui-MoleculePagination-nextButtonIcon'
 
 // eslint-disable-next-line react/prop-types
 const PageButton = ({onClickPage, page, ...props}) => {
-  const _onClickPage = e => onClickPage && onClickPage(page)
+  const _onClickPage = e => {
+    onClickPage(e, page)
+  }
   return <AtomButtom onClick={_onClickPage} {...props} />
 }
 
 class MoleculePagination extends Component {
-  handleClickNext = () => {
+  handleClickNext = e => {
     const {onClickNext, ...props} = this.props
     const nextPage = pagination.nextPage(props)
-    onClickNext(nextPage)
+    onClickNext(e, nextPage)
   }
 
-  handleClickPrev = () => {
+  handleClickPrev = e => {
     const {onClickPrev, ...props} = this.props
     const prevPage = pagination.prevPage(props)
-    onClickPrev(prevPage)
+    onClickPrev(e, prevPage)
   }
 
   render() {
@@ -127,13 +129,13 @@ MoleculePagination.propTypes = {
   /* Icon to be displayed on the next button */
   nextButtonIcon: PropTypes.any,
 
-  /* Callback to be executed on previous button click (it will receive the proper page number) */
+  /* Callback that will be called with (event, page) on prev button click */
   onClickPrev: PropTypes.func,
 
-  /* Callback to be executed on next button click (it will receive the proper page number) */
+  /* Callback that will be called with (event, page) on next button click */
   onClickNext: PropTypes.func,
 
-  /* Callback to be executed on each pagebutton click (it will receive the proper page number) */
+  /* Callback that will be called with (event, page) on each page button click */
   onClickPage: PropTypes.func
 }
 

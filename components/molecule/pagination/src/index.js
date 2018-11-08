@@ -69,15 +69,15 @@ class MoleculePagination extends Component {
             </AtomButtom>
           )}
           {compressed ? (
-            <PageButton page={page} focused onClickPage={onClickPage}>
-              {page}
+            <PageButton page={processedPage} focused onClickPage={onClickPage}>
+              {processedPage}
             </PageButton>
           ) : (
             range.map(pageRange => (
               <PageButton
                 key={pageRange}
                 page={pageRange}
-                focused={pageRange === page}
+                focused={pageRange === processedPage}
                 onClickPage={onClickPage}
               >
                 {pageRange}

@@ -7,7 +7,7 @@ const CLASS = 'sui-MoleculeDropdownOption'
 
 class MoleculeDropdownOption extends Component {
   state = {
-    selected: this.props.selected
+    selected: this.props.initialSelected
   }
 
   handleClick = ev => {
@@ -57,15 +57,15 @@ MoleculeDropdownOption.propTypes = {
   /** onClick callback (ev, {selected}) */
   onClick: PropTypes.func,
 
-  /** Is selected */
-  selected: PropTypes.bool
+  /** Is initial selected */
+  initialSelected: PropTypes.bool
 }
 
 MoleculeDropdownOption.defaultProps = {
   checkbox: false,
   disabled: false,
   onClick: () => {},
-  selected: false
+  initialSelected: false
 }
 
 export default MoleculeDropdownOption

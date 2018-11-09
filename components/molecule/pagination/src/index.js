@@ -18,7 +18,7 @@ const CLASS_NEXT_BUTTON_ICON = 'sui-MoleculePagination-nextButtonIcon'
 // eslint-disable-next-line react/prop-types
 const PageButton = ({onSelectPage, page, ...props}) => {
   const _onSelectPage = e => {
-    onSelectPage(e, page)
+    onSelectPage(e, {page})
   }
   return <AtomButtom onClick={_onSelectPage} {...props} />
 }
@@ -26,14 +26,14 @@ const PageButton = ({onSelectPage, page, ...props}) => {
 class MoleculePagination extends Component {
   handleClickNext = e => {
     const {onSelectNext, ...props} = this.props
-    const nextPage = pagination.nextPage(props)
-    onSelectNext(e, nextPage)
+    const page = pagination.nextPage(props)
+    onSelectNext(e, {page})
   }
 
   handleClickPrev = e => {
     const {onSelectPrev, ...props} = this.props
-    const prevPage = pagination.prevPage(props)
-    onSelectPrev(e, prevPage)
+    const page = pagination.prevPage(props)
+    onSelectPrev(e, {page})
   }
 
   render() {

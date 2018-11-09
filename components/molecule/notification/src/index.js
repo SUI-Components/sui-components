@@ -107,10 +107,6 @@ class MoleculeNotification extends Component {
     return `<span>${text}</span>`
   }
 
-  createMarkup(markup) {
-    return {__html: markup}
-  }
-
   render() {
     const {show, delay} = this.state
     const {

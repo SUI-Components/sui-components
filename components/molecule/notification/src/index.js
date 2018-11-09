@@ -99,13 +99,6 @@ class MoleculeNotification extends Component {
       .slice(0, BUTTONS_MAX)
       .map((button, i) => <Button key={i} {...button} />)
   }
-  printContent = () => {
-    const {text, children} = this.props
-    if (children) {
-      return children
-    }
-    return `<span>${text}</span>`
-  }
 
   render() {
     const {show, delay} = this.state

@@ -14,19 +14,19 @@ const nextButtonIcon = () => <span>&gt;</span>
 const prevButtonText = 'Anterior'
 const nextButtonText = 'Siguiente'
 
-const onClickNext = (_, page) => {
+const onSelectNext = (_, page) => {
   console.log(page)
 }
-const onClickPrev = (_, page) => {
+const onSelectPrev = (_, page) => {
   console.log(page)
 }
-const onClickPage = (_, page) => {
+const onSelectPage = (_, page) => {
   console.log(page)
 }
 
 const Icons = {prevButtonIcon, nextButtonIcon}
 const Texts = {prevButtonText, nextButtonText}
-const OnClicks = {onClickNext, onClickPrev, onClickPage}
+const OnClicks = {onSelectNext, onSelectPrev, onSelectPage}
 
 class DynamicMoleculePagination extends React.Component {
   state = {
@@ -48,9 +48,9 @@ class DynamicMoleculePagination extends React.Component {
           {...Icons}
           {...this.props}
           page={page}
-          onClickNext={this.updatePage}
-          onClickPrev={this.updatePage}
-          onClickPage={this.updatePage}
+          onSelectNext={this.updatePage}
+          onSelectPrev={this.updatePage}
+          onSelectPage={this.updatePage}
         />
         <pre>{JSON.stringify({...this.props, ...this.state}, null, 2)}</pre>
       </div>

@@ -1,4 +1,3 @@
-import processPage from './processPage'
 import range from './range'
 
 /**
@@ -11,17 +10,10 @@ import range from './range'
  * @param {number} params.showPages - Number of pages to display in the range of pages displayed
  * @return {number} previous page number
  */
-const prevPage = ({
-  page: _page,
-  processedPage,
-  compressed,
-  totalPages,
-  showPages
-}) => {
-  const page = processedPage || processPage({page: _page, totalPages})
+const prevPage = ({page, compressed, totalPages, showPages}) => {
   const _range = range({page, showPages, totalPages})
   if (compressed) return page !== 1 ? page - 1 : null
-  else return page - showPages > 0 ? [..._range].shift() - 1 : null
+  return page - showPages > 0 ? [..._range].shift() - 1 : null
 }
 
 export default prevPage

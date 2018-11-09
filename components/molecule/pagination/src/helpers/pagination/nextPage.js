@@ -1,4 +1,3 @@
-import processPage from './processPage'
 import range from './range'
 import highRange from './highRange'
 
@@ -12,14 +11,7 @@ import highRange from './highRange'
  * @param {number} params.showPages - Number of pages to display in the range of pages displayed
  * @return {number} next page number
  */
-const nextPage = ({
-  page: _page,
-  processedPage,
-  compressed,
-  totalPages,
-  showPages
-}) => {
-  const page = processedPage || processPage({page: _page, totalPages})
+const nextPage = ({page, compressed, totalPages, showPages}) => {
   const _range = range({page, showPages, totalPages})
   const _highRange = highRange({page, showPages, totalPages})
   if (compressed) return page !== totalPages ? page + 1 : null

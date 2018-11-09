@@ -5,30 +5,35 @@ import MoleculeButtonGroup from '@s-ui/react-molecule-button-group'
 import AtomButtom from '@schibstedspain/sui-atom-button'
 
 import * as pagination from './helpers/pagination'
+import {
+  isValidPage,
+  isValidTotalPages,
+  isValidShowPages
+} from './customPropTypes'
 
 const BASE_CLASS = 'sui-MoleculePagination'
 const CLASS_PREV_BUTTON_ICON = 'sui-MoleculePagination-prevButtonIcon'
 const CLASS_NEXT_BUTTON_ICON = 'sui-MoleculePagination-nextButtonIcon'
 
 // eslint-disable-next-line react/prop-types
-const PageButton = ({onClickPage, page, ...props}) => {
-  const _onClickPage = e => {
-    onClickPage(e, page)
+const PageButton = ({onSelectPage, page, ...props}) => {
+  const _onSelectPage = e => {
+    onSelectPage(e, page)
   }
-  return <AtomButtom onClick={_onClickPage} {...props} />
+  return <AtomButtom onClick={_onSelectPage} {...props} />
 }
 
 class MoleculePagination extends Component {
   handleClickNext = e => {
-    const {onClickNext, ...props} = this.props
+    const {onSelectNext, ...props} = this.props
     const nextPage = pagination.nextPage(props)
-    onClickNext(e, nextPage)
+    onSelectNext(e, nextPage)
   }
 
   handleClickPrev = e => {
-    const {onClickPrev, ...props} = this.props
+    const {onSelectPrev, ...props} = this.props
     const prevPage = pagination.prevPage(props)
-    onClickPrev(e, prevPage)
+    onSelectPrev(e, prevPage)
   }
 
   render() {
@@ -40,14 +45,12 @@ class MoleculePagination extends Component {
       prevButtonIcon: PrevButtonIcon,
       nextButtonText,
       nextButtonIcon: NextButtonIcon,
-      onClickPage,
+      onSelectPage,
       compressed
     } = this.props
 
-    const processedPage = pagination.processPage({page, totalPages})
     const paramsPagination = {
       page,
-      processedPage,
       totalPages,
       showPages,
       compressed
@@ -60,42 +63,42 @@ class MoleculePagination extends Component {
     return (
       <div className={BASE_CLASS}>
         <MoleculeButtonGroup>
-          {prevPage && (
-            <AtomButtom onClick={this.handleClickPrev}>
+          {
+            <AtomButtom onClick={this.handleClickPrev} disabled={!prevPage}>
               {PrevButtonIcon && (
                 <span className={CLASS_PREV_BUTTON_ICON}>
                   <PrevButtonIcon />
                 </span>
-              )}{' '}
+              )}
               {prevButtonText}
             </AtomButtom>
-          )}
+          }
           {compressed ? (
-            <PageButton page={processedPage} focused onClickPage={onClickPage}>
-              {processedPage}
+            <PageButton page={page} focused onSelectPage={onSelectPage}>
+              {page}
             </PageButton>
           ) : (
             range.map(pageRange => (
               <PageButton
                 key={pageRange}
                 page={pageRange}
-                focused={pageRange === processedPage}
-                onClickPage={onClickPage}
+                focused={pageRange === page}
+                onSelectPage={onSelectPage}
               >
                 {pageRange}
               </PageButton>
             ))
           )}
-          {nextPage && (
-            <AtomButtom onClick={this.handleClickNext}>
-              {nextButtonText}{' '}
+          {
+            <AtomButtom onClick={this.handleClickNext} disabled={!nextPage}>
+              {nextButtonText}
               {NextButtonIcon && (
                 <span className={CLASS_NEXT_BUTTON_ICON}>
                   <NextButtonIcon />
                 </span>
               )}
             </AtomButtom>
-          )}
+          }
         </MoleculeButtonGroup>
       </div>
     )
@@ -106,13 +109,13 @@ MoleculePagination.displayName = 'MoleculePagination'
 
 MoleculePagination.propTypes = {
   /* Total pages */
-  totalPages: PropTypes.number.isRequired,
+  totalPages: isValidTotalPages,
 
   /* Current page selected */
-  page: PropTypes.number.isRequired,
+  page: isValidPage,
 
   /* Number of pages to be displayed in the range (10 by default) */
-  showPages: PropTypes.number,
+  showPages: isValidShowPages,
 
   /* If the pagination should be displayed in compressed mode or not */
   compressed: PropTypes.bool,
@@ -130,13 +133,13 @@ MoleculePagination.propTypes = {
   nextButtonIcon: PropTypes.any,
 
   /* Callback that will be called with (event, page) on prev button click */
-  onClickPrev: PropTypes.func,
+  onSelectPrev: PropTypes.func,
 
   /* Callback that will be called with (event, page) on next button click */
-  onClickNext: PropTypes.func,
+  onSelectNext: PropTypes.func,
 
   /* Callback that will be called with (event, page) on each page button click */
-  onClickPage: PropTypes.func
+  onSelectPage: PropTypes.func
 }
 
 MoleculePagination.defaultProps = {
@@ -144,9 +147,9 @@ MoleculePagination.defaultProps = {
   compressed: false,
   prevButtonText: 'Previous',
   nextButtonText: 'Next',
-  onClickPrev: () => {},
-  onClickNext: () => {},
-  onClickPage: () => {}
+  onSelectPrev: () => {},
+  onSelectNext: () => {},
+  onSelectPage: () => {}
 }
 
 export default MoleculePagination

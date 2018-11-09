@@ -10,14 +10,14 @@ class MoleculeDropdownOption extends Component {
     selected: this.props.selected
   }
 
-  handleClick = () => {
+  handleClick = ev => {
     if (!this.props.disabled) {
       this.setState(
         prevState => ({
           selected: !prevState.selected
         }),
         () => {
-          this.props.onClick(this.state.selected)
+          this.props.onClick(ev, {selected: this.state.selected})
         }
       )
     }
@@ -29,7 +29,7 @@ class MoleculeDropdownOption extends Component {
     const wrapperClassName = cx(CLASS, {
       [`${CLASS}-checkbox`]: checkbox,
       [`${CLASS}--disabled`]: disabled,
-      [`${CLASS}--selected`]: selected
+      [`is-selected`]: selected
     })
     return (
       <div className={wrapperClassName} onClick={this.handleClick}>
@@ -54,7 +54,7 @@ MoleculeDropdownOption.propTypes = {
   /** Is disabled */
   disabled: PropTypes.bool,
 
-  /** onClick callback */
+  /** onClick callback (ev, {selected}) */
   onClick: PropTypes.func,
 
   /** Is selected */

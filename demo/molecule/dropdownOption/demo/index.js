@@ -13,13 +13,11 @@ class Demo extends Component {
     }
   }
 
-  handleOnClick = type => optionSelected => {
-    let selected = this.state.selected[type]
-
+  handleOnClick = type => (ev, {selected}) => {
     this.setState(prevState => ({
       selected: {
         ...prevState.selected,
-        [type]: optionSelected
+        [type]: selected
       }
     }))
   }

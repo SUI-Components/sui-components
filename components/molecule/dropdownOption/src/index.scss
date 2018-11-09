@@ -18,7 +18,7 @@
     white-space: nowrap;
   }
 
-  &--selected:not(&-checkbox) &-text {
+  &.is-selected:not(&-checkbox) &-text {
     font-weight: $fw-bold;
   }
 

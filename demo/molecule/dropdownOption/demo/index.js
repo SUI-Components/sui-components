@@ -29,17 +29,13 @@ class Demo extends Component {
         <div className="DemoMoleculeDropdownOption-section">
           <h2>As a default option</h2>
           <div className="DemoMoleculeDropdownOption-option">
-            <MoleculeDropdownOption
-              text="Option 1"
-              onClick={this.handleOnClick('default')}
-            >
+            <MoleculeDropdownOption onClick={this.handleOnClick('default')}>
               Option 1
             </MoleculeDropdownOption>
           </div>
           <h2>As a disabled option</h2>
           <div className="DemoMoleculeDropdownOption-option">
             <MoleculeDropdownOption
-              text="Option 1"
               onClick={this.handleOnClick('disabled')}
               disabled
             >
@@ -49,7 +45,6 @@ class Demo extends Component {
           <h2>As an option with checkbox</h2>
           <div className="DemoMoleculeDropdownOption-option">
             <MoleculeDropdownOption
-              text="Option 1"
               onClick={this.handleOnClick('checkbox')}
               checkbox
             >

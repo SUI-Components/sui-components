@@ -6,8 +6,8 @@
 .sui-MoleculePagination {
   
   &-prevButtonIcon { 
-    margin-right: $m-m;
     display: flex;
+    margin-right: $m-m;
 
     svg path {
       fill: inherit;
@@ -15,8 +15,8 @@
   }
 
   &-nextButtonIcon { 
-    margin-left: $m-m;
     display: flex;
+    margin-left: $m-m;
 
     svg path {
       fill: inherit;

@@ -29,7 +29,7 @@ class MoleculeDropdownOption extends Component {
     const wrapperClassName = cx(CLASS, {
       [`${CLASS}-checkbox`]: checkbox,
       [`${CLASS}--disabled`]: disabled,
-      [`is-selected`]: selected
+      'is-selected': selected
     })
     return (
       <div className={wrapperClassName} onClick={this.handleClick}>

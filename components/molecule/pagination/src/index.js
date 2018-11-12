@@ -53,8 +53,7 @@ class MoleculePagination extends Component {
     const paramsPagination = {
       page,
       totalPages,
-      showPages,
-      compressed
+      showPages
     }
 
     const range = pagination.range(paramsPagination)

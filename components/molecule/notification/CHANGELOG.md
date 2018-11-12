@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2018-11-12)
+
+
+### Features
+
+* add children prop, so we can print HTML tags ([00dfb29](https://github.com/SUI-Components/sui-components/commit/00dfb29))
+* delete unused func ([431ae6e](https://github.com/SUI-Components/sui-components/commit/431ae6e))
+* delete unused func ([f1333c8](https://github.com/SUI-Components/sui-components/commit/f1333c8))
+* deprecate text prop, prioritize children ([daafcb5](https://github.com/SUI-Components/sui-components/commit/daafcb5))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2018-09-14)
 

@@ -65,7 +65,7 @@ class MoleculePagination extends Component {
 
     return (
       <div className={BASE_CLASS}>
-        <MoleculeButtonGroup>
+        <MoleculeButtonGroup type="tertiary">
           {!isHidePrev && (
             <AtomButtom onClick={this.handleClickPrev} disabled={!prevPage}>
               {PrevButtonIcon && (

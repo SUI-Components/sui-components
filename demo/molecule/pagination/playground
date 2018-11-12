@@ -14,13 +14,13 @@ const nextButtonIcon = () => <span>&gt;</span>
 const prevButtonText = 'Anterior'
 const nextButtonText = 'Siguiente'
 
-const onSelectNext = (_, page) => {
+const onSelectNext = (_, {page}) => {
   console.log(page)
 }
-const onSelectPrev = (_, page) => {
+const onSelectPrev = (_, {page}) => {
   console.log(page)
 }
-const onSelectPage = (_, page) => {
+const onSelectPage = (_, {page}) => {
   console.log(page)
 }
 

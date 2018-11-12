@@ -5,7 +5,6 @@ import highRange from './highRange'
  * Gets the proper range for the page number according to the number of pages to display
  * @param {object} params - parameters pagination
  * @param {number} params.page - Original page number
- * @param {number} params.processedPage - Processed page number (inside the range)
  * @param {number} params.totalPages - Total number of pages
  * @param {number} params.showPages - Number of pages to display in the range of pages displayed
  * @return {number[]} range of page numbers

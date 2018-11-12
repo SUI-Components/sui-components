@@ -8,8 +8,30 @@ const containerStyles = {
   padding: '20px'
 }
 
-const prevButtonIcon = () => <span>&lt;</span>
-const nextButtonIcon = () => <span>&gt;</span>
+const prevButtonIcon = () => (
+  <svg width={16} height={16} style={{background: 'transparent'}}>
+    <g fill="none" fillRule="evenodd">
+      <path
+        stroke="#4D4D4D"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M10.889 13.5L4.356 8l6.533-5.5"
+      />
+    </g>
+  </svg>
+)
+const nextButtonIcon = () => (
+  <svg width={16} height={16}>
+    <g fill="none" fillRule="evenodd">
+      <path
+        stroke="#4D4D4D"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 2.5L12 8l-6 5.5h0"
+      />
+    </g>
+  </svg>
+)
 
 const prevButtonText = 'Anterior'
 const nextButtonText = 'Siguiente'
@@ -68,7 +90,7 @@ return (
       <h3>Extended Version</h3>
       <DynamicMoleculePagination totalPages={25} page={17} />
       <h3>Extended Version (hide Disabled)</h3>
-      <DynamicMoleculePagination totalPages={25} page={17} hideDisabled/>
+      <DynamicMoleculePagination totalPages={25} page={17} hideDisabled />
       <h3>
         Extended Version <code>showPages=7</code>
       </h3>
@@ -76,7 +98,7 @@ return (
     </div>
     <div style={fieldStyles}>
       <h3>Compressed Version</h3>
-      <DynamicMoleculePagination totalPages={25} page={17} compressed/>
+      <DynamicMoleculePagination totalPages={25} page={17} compressed />
     </div>
     {/* ------------------------------------------------------------------------------------------------------------- */}
     <h2>Static</h2>

@@ -7,9 +7,19 @@
   
   &-prevButtonIcon { 
     margin-right: $m-m;
+    display: flex;
+
+    svg path {
+      fill: inherit;
+    }
   }
 
   &-nextButtonIcon { 
     margin-left: $m-m;
+    display: flex;
+
+    svg path {
+      fill: inherit;
+    }
   }
 }

@@ -119,6 +119,10 @@ class MoleculeNotification extends Component {
         [`${CLASS}-effect--hide`]: effect && delay
       }
     )
+    const innerWrapperClassName = cx({
+      [`${CLASS}-children`]: children,
+      [`${CLASS}-text`]: text
+    })
 
     if (!show && !delay) {
       return null
@@ -130,7 +134,7 @@ class MoleculeNotification extends Component {
           <div className={`${CLASS}-iconLeft`}>
             <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
           </div>
-          <div className={`${CLASS}-text`}>{text || children}</div>
+          <div className={innerWrapperClassName}>{children || text}</div>
           {showCloseButton && (
             <div className={`${CLASS}-iconClose`} onClick={this.toggleShow}>
               <span className={`${CLASS}-icon`}>
@@ -159,9 +163,9 @@ MoleculeNotification.propTypes = {
    */
   buttons: PropTypes.array,
   /**
-   * Content to be printed. Alternatively you can use "text" prop
+   * Notification content
    */
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   /**
    * Transition enabled
    */
@@ -183,7 +187,7 @@ MoleculeNotification.propTypes = {
    */
   showCloseButton: PropTypes.bool,
   /**
-   * Content text. Alternatively you can use "children" prop
+   * Content text. Deprecated, use children instead.
    */
   text: PropTypes.string,
   /**

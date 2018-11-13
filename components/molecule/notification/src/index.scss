@@ -26,7 +26,6 @@
 
   &-icon {
     svg {
-      fill: $c-white !important;
       height: $sz-notification-icon;
       width: $sz-notification-icon;
     }
@@ -49,10 +48,17 @@
   }
 
   // Type
-
   @each $key, $value in $notification-type-colors {
+    $bgc: map-get($value, bgc);
+    $c: map-get($value, c);
+
     &--#{$key} {
-      background-color: #{$value};
+      background-color: $bgc;
+      color: $c;
+
+      svg {
+        fill: $c !important;
+      }
     }
   }
 

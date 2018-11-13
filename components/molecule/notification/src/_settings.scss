@@ -6,11 +6,26 @@ $sz-notification-icon: $sz-icon-m !default;
 // Colors
 
 $notification-type-colors: (
-  info: $c-primary,
-  success: $c-success,
-  warning: $c-alert,
-  error: $c-error,
-  system: $c-system,
+  info: (
+    bgc: $c-primary,
+    c: $c-white
+  ),
+  success: (
+    bgc: $c-success,
+    c: $c-white
+  ),
+  warning: (
+    bgc: $c-alert,
+    c: $c-white
+  ),
+  error: (
+    bgc: $c-error,
+    c: $c-white
+  ),
+  system: (
+    bgc: $c-system,
+    c: $c-white
+    )
 ) !default;
 
 // Effects

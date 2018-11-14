@@ -3,7 +3,6 @@
 @import './settings';
 
 .sui-MoleculeNotification {
-  color: $c-white;
   max-height: $mh-notification;
 
   &-content {
@@ -26,7 +25,6 @@
 
   &-icon {
     svg {
-      fill: $c-white !important;
       height: $sz-notification-icon;
       width: $sz-notification-icon;
     }
@@ -51,8 +49,15 @@
   // Type
 
   @each $key, $value in $notification-type-colors {
+    $cf: map-get($notification-type-color-font, $key);
+
     &--#{$key} {
       background-color: #{$value};
+      color: $cf;
+
+      svg {
+        fill: $cf !important;
+      }
     }
   }
 

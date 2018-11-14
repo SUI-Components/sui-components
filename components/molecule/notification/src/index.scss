@@ -49,14 +49,14 @@
   // Type
 
   @each $key, $value in $notification-type-colors {
-    $cf: map-get($notification-type-color-font, $key);
+    $color: map-get($notification-type-color-font, $key);
 
     &--#{$key} {
       background-color: #{$value};
-      color: $cf;
+      color: $color;
 
       svg {
-        fill: $cf !important;
+        fill: $color !important;
       }
     }
   }

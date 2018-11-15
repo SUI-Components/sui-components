@@ -28,6 +28,11 @@ const AUTO_CLOSE_TIME = {
 const TRANSITION_DELAY = 1000 // ms
 const BUTTONS_MAX = 3 // buttons
 
+const VARIATIONS = {
+  negative: 'negative',
+  positive: 'positive'
+}
+
 class MoleculeNotification extends Component {
   state = {
     show: this.props.show,
@@ -103,18 +108,20 @@ class MoleculeNotification extends Component {
   render() {
     const {show, delay} = this.state
     const {
-      type,
       buttons,
+      children,
+      effect,
       icon,
       position,
       showCloseButton,
-      effect,
       text,
-      children
+      type,
+      variation
     } = this.props
     const wrapperClassName = cx(
       `${CLASS} ${CLASS}--${type} ${CLASS}--${position}`,
       {
+        [`${CLASS}--${variation}`]: variation === VARIATIONS.positive,
         [`${CLASS}-effect--${position}`]: effect,
         [`${CLASS}-effect--hide`]: effect && delay
       }
@@ -175,6 +182,10 @@ MoleculeNotification.propTypes = {
    */
   icon: PropTypes.node,
   /**
+   * On close callback
+   */
+  onClose: PropTypes.func,
+  /**
    * Positions: 'top', 'bottom', 'relative'
    */
   position: PropTypes.string,
@@ -195,9 +206,9 @@ MoleculeNotification.propTypes = {
    */
   type: PropTypes.string,
   /**
-   * On close callback
+   * Color variation of the notification: 'positive' with washed out colors, 'negative' with bold colors
    */
-  onClose: PropTypes.func
+  variation: PropTypes.oneOf(Object.keys(VARIATIONS))
 }
 
 MoleculeNotification.defaultProps = {
@@ -207,7 +218,8 @@ MoleculeNotification.defaultProps = {
   position: 'relative',
   show: true,
   showCloseButton: true,
-  type: 'info'
+  type: 'info',
+  variation: VARIATIONS.negative
 }
 
 export default MoleculeNotification

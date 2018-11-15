@@ -1,24 +1,31 @@
-const BUTTONS = [
-  {
-    type: 'secondary',
-    children: 'Secondary',
-    negative: true
-  },
-  {
-    type: 'primary',
-    children: 'Primary',
-    negative: true
-  }
-]
-
-const TEXT = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae orci consectetur ligula vel.'
-
-function logClose () {
-	console.log('Closed!')
+function getButtons(variation = 'negative') {
+  return [
+    {
+      type: variation === 'positive' ? 'primary' : 'secondary',
+      children: 'Secondary',
+      negative: true
+    },
+    {
+      type: variation === 'positive' ? 'primary' : 'secondary',
+      children: 'Primary',
+      negative: true
+    }
+  ]
 }
 
-function Title ({children}) {
-  return <p style={{color: '#999', fontSize: 12, textTransform: 'uppercase'}}>{children}</p>
+const TEXT =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae orci consectetur ligula vel.'
+
+function logClose() {
+  console.log('Closed!')
+}
+
+function Title({children}) {
+  return (
+    <p style={{color: '#999', fontSize: 12, textTransform: 'uppercase'}}>
+      {children}
+    </p>
+  )
 }
 
 class PositionNotification extends React.Component {
@@ -28,126 +35,120 @@ class PositionNotification extends React.Component {
 
   toggleShow = () => {
     const show = !this.state.show
-    this.setState({ show })
+    this.setState({show})
   }
 
   handleClose = () => {
-    this.setState({ show: false })
+    this.setState({show: false})
   }
 
-  render () {
-    const { show } = this.state
+  render() {
+    const {show} = this.state
 
-    return(
+    return (
       <div>
         <button
-          className={'sui-AtomButton sui-AtomButton--secondary'}
+          className="sui-AtomButton sui-AtomButton--secondary"
           onClick={this.toggleShow}
-          style={{ width: '100px' }}
+          style={{width: '100px'}}
         >
-          { show ? 'Hide' : 'Show' }
+          {show ? 'Hide' : 'Show'}
         </button>
         <MoleculeNotification
-          text={TEXT}
-          buttons={BUTTONS}
+          buttons={getButtons()}
           position={this.props.position}
           show={show}
           onClose={this.handleClose}
-        />
+        >
+          {TEXT}
+        </MoleculeNotification>
       </div>
     )
   }
 }
 
+const TYPES = ['info', 'success', 'warning', 'error', 'system']
+const VARIATIONS = ['positive', 'negative']
+
 return (
   <div>
     <h1>Notification</h1>
-    <h2>Types</h2>
-    <Title>Info</Title>
-    <MoleculeNotification
-      autoClose={'manual'}
-      text={TEXT}
-      buttons={BUTTONS}
-      onClose={logClose}
-    />
-    <Title>Success</Title>
-    <MoleculeNotification
-      autoClose='manual'
-      text={TEXT}
-      type='success'
-      buttons={BUTTONS}
-      onClose={logClose}
-    />
-    <Title>Warning</Title>
-    <MoleculeNotification
-      autoClose='manual'
-      text={TEXT}
-      type='warning'
-      buttons={BUTTONS}
-      onClose={logClose}
-    />
-    <Title>Error</Title>
-    <MoleculeNotification
-      autoClose='manual'
-      text={TEXT}
-      type='error'
-      buttons={BUTTONS}
-      onClose={logClose}
-    />
-    <Title>System</Title>
-    <MoleculeNotification
-      autoClose='manual'
-      text={TEXT}
-      type='system'
-      buttons={BUTTONS}
-      onClose={logClose}
-    />
-    <br/>
+    <h2>Types and variations</h2>
+    {TYPES.map(type =>
+      VARIATIONS.map(variation => (
+        <React.Fragment key={type + variation}>
+          <Title>
+            Type: {type} - Variation: {variation}
+          </Title>
+          <MoleculeNotification
+            autoClose="manual"
+            buttons={getButtons(variation)}
+            onClose={logClose}
+            type={type}
+            variation={variation}
+          >
+            {TEXT}
+          </MoleculeNotification>
+        </React.Fragment>
+      ))
+    )}
+    <br />
     <h2>With children content</h2>
-    <MoleculeNotification
-      autoClose='manual'
-      type='info'
-      onClose={logClose}
-    >
-      <span>Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing</a> elit. Duis vitae orci consectetur ligula vel.</span>
+    <MoleculeNotification autoClose="manual" type="info" onClose={logClose}>
+      <span>
+        Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing</a> elit.
+        Duis vitae orci consectetur ligula vel.
+      </span>
     </MoleculeNotification>
-    <br/>
+    <br />
     <h2>AutoClose</h2>
     <Title>Short</Title>
-    <MoleculeNotification
-      text={TEXT}
-      buttons={BUTTONS}
-      onClose={logClose}
-    />
+    <MoleculeNotification buttons={getButtons()} onClose={logClose}>
+      {TEXT}
+    </MoleculeNotification>
     <Title>Medium</Title>
     <MoleculeNotification
-      autoClose='medium'
-      text={TEXT}
-      buttons={BUTTONS}
+      autoClose="medium"
+      buttons={getButtons()}
       onClose={logClose}
-    />
+    >
+      {TEXT}
+    </MoleculeNotification>
     <Title>Long</Title>
     <MoleculeNotification
-      autoClose='long'
-      text={TEXT}
-      buttons={BUTTONS}
+      autoClose="long"
+      buttons={getButtons()}
       onClose={logClose}
-    />
-    <br/>
+    >
+      {TEXT}
+    </MoleculeNotification>
+    <br />
     <h2>Positions</h2>
     <table width="auto" cellPadding="8" cellSpacing="0" style={{padding: 15}}>
       <tbody>
         <tr>
-          <td><Title>Top</Title></td>
-          <td><PositionNotification position='top' /></td>
+          <td>
+            <Title>Top</Title>
+          </td>
+          <td>
+            <PositionNotification position="top" />
+          </td>
         </tr>
         <tr>
-          <td><Title>Bottom</Title></td>
-          <td><PositionNotification position='bottom' /></td>
+          <td>
+            <Title>Bottom</Title>
+          </td>
+          <td>
+            <PositionNotification position="bottom" />
+          </td>
         </tr>
         <tr>
-          <td style={{ verticalAlign: 'top', paddingTop: '20px' }}><Title>Relative</Title></td>
-          <td><PositionNotification position='relative' /></td>
+          <td style={{verticalAlign: 'top', paddingTop: '20px'}}>
+            <Title>Relative</Title>
+          </td>
+          <td>
+            <PositionNotification position="relative" />
+          </td>
         </tr>
       </tbody>
     </table>

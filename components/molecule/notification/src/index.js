@@ -29,7 +29,7 @@ const TRANSITION_DELAY = 1000 // ms
 const BUTTONS_MAX = 3 // buttons
 
 const VARIATIONS = {
-  negative: 'negatvie',
+  negative: 'negative',
   positive: 'positive'
 }
 
@@ -219,7 +219,7 @@ MoleculeNotification.defaultProps = {
   show: true,
   showCloseButton: true,
   type: 'info',
-  variation: 'negative'
+  variation: VARIATIONS.negative
 }
 
 export default MoleculeNotification

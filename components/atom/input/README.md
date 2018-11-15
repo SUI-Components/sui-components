@@ -30,7 +30,7 @@ import AtomInput from '@s-ui/react-atom-input'
 return <AtomInput type='sui-password' />
 ```
 
-### Mask
+#### Mask
 
 Wraps the https://unmanner.github.io/imaskjs/ lib, used if the input must follow a regex or a specific format/pattern . Using `type='mask'` activates this input, which will be expecting the `mask` prop type to be passed by.
 
@@ -42,19 +42,37 @@ const bankAccountMask = { // checkout all options here https://unmanner.github.i
  return <AtomInput type='mask' mask={bankAccountMask} placeholder='ES00 0000 0000 00 0000000000' />
 ```
 
-## Addons
+### Sizes
 
->[What are addons?](https://paper.dropbox.com/doc/SUI-Input-03mHJFkOCjviSZevsaTwm#:uid=125362683844628624581838&h2=Icons-and-addons-inside-the-in)
+There are defined 2 sizes (`MEDIUM` and `SMALL`) available at the exported object `inputSizes` and that can be set through the prop `size`
 
-Addons are passed as prop, use **leftAddon** or **rightAddon** in order to set the position inside the Input, or **leftIcon** to use an icon inside the input 
+```js
+<AtomInput
+  size={inputSizes.SMALL}
+  name="first"
+  placeholder="Small input"
+/>
+```
 
-### Addon usage
+
+### Addons
+
+> [What are addons?](https://paper.dropbox.com/doc/SUI-Input-03mHJFkOCjviSZevsaTwm#:uid=125362683844628624581838&h2=Icons-and-addons-inside-the-in)
+
+Addons are passed as prop, use **leftAddon** or **rightAddon** in order to set the position inside the Input
+
+#### Addon usage
 
 ```js
 import AtomInput from '@s-ui/react-atom-input'
 
 return <AtomInput leftAddon='http://' rightAddon='@schibsted.com' />
 ```
+
+### Icons
+
+Icons are passed as prop, use **leftIcon** or **rightIcon** in order to set the position inside the Input
+
 
 ```js
 import AtomInput from '@s-ui/react-atom-input'
@@ -65,7 +83,20 @@ const leftIcon = () => <img src={logo} />
 <AtomInput leftIcon={leftIcon} />
 ```
 
-## Error states
+You can also pass a handler for each Icon using the props **onClickLeftIcon** or **onClickRightIcon**
+
+```js
+<AtomInput
+  name="second"
+  placeholder="Medium Input"
+  leftIcon={LeftIcon}
+  rightIcon={IconLocation}
+  onClickRightIcon={ e => alert("clicked right icon")}
+/>
+```
+
+
+### Error states
 
 There are 3 error states:
 
@@ -73,8 +104,15 @@ There are 3 error states:
 * error state = **false**, will show a **green** border around the input field
 * error state = **null**, will show the by **default** border around the input field
 
+```js
+<AtomInput 
+  name="second" 
+  placeholder="Success input" 
+  errorState={false} 
+/>
+```
 
-## Form Usage
+### Form Usage
 
 Each field returns its value on every onChange event so you can save it inside your form state.
 

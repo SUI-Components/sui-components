@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.22.0"></a>
+# 1.22.0 (2018-10-29)
+
+
+### Features
+
+* export types ([7a97a51](https://github.com/SUI-Components/sui-components/commit/7a97a51))
+
+
+
 <a name="1.21.0"></a>
 # 1.21.0 (2018-10-10)
 

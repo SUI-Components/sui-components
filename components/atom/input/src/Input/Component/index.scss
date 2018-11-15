@@ -1,29 +1,8 @@
-$h-atom-input--m: 40px !default;
-$h-atom-input--s: 32px !default;
-
-$c-atom-input--success: $c-success !default;
-$c-atom-input--error: $c-error !default;
-
-$sizes-atom-input: m $h-atom-input--m, s $h-atom-input--s !default;
-$states-atom-input: success $c-atom-input--success, error $c-atom-input--error !default;
-
-$l-atom-input-icon: $gutter !default;
-$w-atom-input-icon: $sz-icon-m !default;
-$h-atom-input-icon: $sz-icon-m !default;
-$t-atom-input-icon: 50% !default;
-$trf-ty-atom-input-icon: -50% !default;
-$pl-atom-input-icon: 50px !default;
+@import 'placeholders';
+@import 'settings';
 
 .sui-AtomInput-input {
-  border-color: $c-gray-light;
-  border-style: solid;
-  border-width: 1px;
-  box-sizing: border-box;
-  font-size: $fz-base;
-  height: $h-atom-input--m;
-  padding-left: $p-l;
-  padding-right: $p-l;
-  width: 100%;
+  @extend %sui-atom-input-input;
 
   &--size {
     width: inherit;
@@ -31,6 +10,16 @@ $pl-atom-input-icon: 50px !default;
 
   &--hidden {
     display: none;
+  }
+
+  &--noBorder {
+    border: 0;
+
+    &:focus {
+      border: 0;
+      box-shadow: none;
+      outline: 0;
+    }
   }
 
   &[type='radio'],
@@ -54,7 +43,7 @@ $pl-atom-input-icon: 50px !default;
   }
 
   &:focus {
-    box-shadow: inset 0 0 3px 0 $c-primary;
+    @extend %sui-atom-input-input-focus;
   }
 
   @each $type, $attr in $sizes-atom-input {
@@ -69,31 +58,4 @@ $pl-atom-input-icon: 50px !default;
     }
   }
 
-  &--withIcon {
-    position: relative;
-    width: 100%;
-
-    input {
-      padding-left: $pl-atom-input-icon;
-    }
-
-    &-icon {
-      align-items: center;
-      color: $c-primary;
-      cursor: pointer;
-      display: flex;
-      height: $w-atom-input-icon;
-      justify-content: center;
-      left: $l-atom-input-icon;
-      position: absolute;
-      top: $t-atom-input-icon;
-      transform: translateY($trf-ty-atom-input-icon);
-      width: $w-atom-input-icon;
-
-      & > * {
-        height: 100%;
-        width: 100%;
-      }
-    }
-  }
 }

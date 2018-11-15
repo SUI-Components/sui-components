@@ -50,7 +50,7 @@ const itemsNoIcons = [
   {
     label: 'Disabled',
     enabled: false
-  },
+  }
 ]
 
 function handleChange (index, label) {
@@ -115,57 +115,75 @@ return (
         />
         <br/><br/><br/><br />
         <h1>Vertical Type</h1>
-        
-        <table style={{
-            minWidth: '300px',
-            maxWidth: '50%',
-            float: 'left',
-            marginBottom: '20px'
-          }}>
-          <tr>
-            <td colSpan="2">
-              <h2>CLASSIC VARIANT</h2>
-            </td>
-          </tr>
-          <tr>
-            <td style={{
-                width: '50%',
-                verticalAlign: 'top'
-              }}>
-              <MoleculeTabs
-                  items={items}
-                  activeTab={0}
-                  handleChange={handleChange}
-                  type={moleculeTabsTypes.VERTICAL}
-              />
-            </td>
-          </tr>
-        </table>
-        <table style={{
-            minWidth: '300px',
-            maxWidth: '50%',
-            float: 'left',
-            marginBottom: '20px'
-          }}>
-          <tr>
-            <td colSpan="2">
-              <h2>HIGHLIGHTED VARIANT</h2>
-            </td>
-          </tr>
-          <tr>
-            <td style={{
-                width: '50%',
-                verticalAlign: 'top'
-              }}>
-              <MoleculeTabs
-                  items={items}
-                  activeTab={0}
-                  handleChange={handleChange}
-                  type={moleculeTabsTypes.VERTICAL}
-                  variant={moleculeTabsVariants.HIGHLIGHTED}
-              />
-            </td>
-          </tr>
-        </table>
+        <div style={{
+          width: '100%',
+          float: 'left'
+        }}>
+          <table style={{
+              minWidth: '300px',
+              maxWidth: '50%',
+              float: 'left',
+              marginBottom: '20px'
+            }}>
+            <tr>
+              <td colSpan="2">
+                <h2>CLASSIC VARIANT</h2>
+              </td>
+            </tr>
+            <tr>
+              <td style={{
+                  width: '50%',
+                  verticalAlign: 'top'
+                }}>
+                <MoleculeTabs
+                    items={items}
+                    activeTab={0}
+                    handleChange={handleChange}
+                    type={moleculeTabsTypes.VERTICAL}
+                />
+              </td>
+            </tr>
+          </table>
+          <table style={{
+              minWidth: '300px',
+              maxWidth: '50%',
+              float: 'left',
+              marginBottom: '20px'
+            }}>
+            <tr>
+              <td colSpan="2">
+                <h2>HIGHLIGHTED VARIANT</h2>
+              </td>
+            </tr>
+            <tr>
+              <td style={{
+                  width: '50%',
+                  verticalAlign: 'top'
+                }}>
+                <MoleculeTabs
+                    items={items}
+                    activeTab={0}
+                    handleChange={handleChange}
+                    type={moleculeTabsTypes.VERTICAL}
+                    variant={moleculeTabsVariants.HIGHLIGHTED}
+                />
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div style={{
+          width: '100%',
+          float: 'left'
+        }}>
+          <h1>Other features</h1>
+          <h3>Handle click in disabled tabs</h3>
+          <MoleculeTabs
+              items={itemsNoIcons}
+              activeTab={0}
+              handleChange={handleChange}
+              handleClickInDisabledTabs
+          />
+          <br/><br/>
+        </div>
     </div>
 )

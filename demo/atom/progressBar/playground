@@ -1,0 +1,127 @@
+/* eslint-disable react/prop-types, no-unused-vars, no-console */
+
+class StaticWithAnimation extends React.Component {
+
+  constructor() {
+    super()
+    this.state = {
+      percentage: 0
+    }
+    this.timeoutId = null
+  }
+
+  componentDidMount() {
+    const {percentage} = this.props
+    this.timeoutId = setTimeout(() => {
+      this.setState({percentage})
+    }, 1000)
+  }
+
+  componentWillUnount() {
+    clearTimeout(this.timeoutId)
+  }
+
+  render() {
+    const {percentage} = this.state
+    return (
+      <div style={{background: 'white', padding: '10px'}} >
+        <AtomProgressBar {...this.props} percentage={percentage} />
+      </div>
+    )
+  }
+}
+
+class DynamicProgressBar extends React.Component {
+  static defaultProps = {
+    topPercentage: 100
+  }
+
+  constructor() {
+    super()
+    this.state = {
+      percentage: 0
+    }
+    this.intervalId = null
+  }
+
+  handleClick = () => {
+    const {intervalTime} = this.props
+    const {setProgress} = this
+    this.setState(
+      {
+        percentage: 0
+      },
+      () => {
+        this.intervalId = setInterval(setProgress, intervalTime)
+      }
+    )
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalId)
+  }
+
+  setProgress = () => {
+    const {percentage} = this.state
+    let {step, topPercentage} = this.props
+    if (!step) step = Math.ceil(Math.random() * (topPercentage - percentage))
+    if (percentage < topPercentage) {
+      this.setState({
+        percentage: percentage + step
+      })
+    } else {
+      clearInterval(this.intervalId)
+    }
+  }
+
+  render() {
+    const {percentage} = this.state
+    const {intervalTime, step, ...props} = this.props
+    return (
+      <div style={{background: 'white', padding: '10px'}} >
+        <button style={{marginBottom: '10px'}} onClick={this.handleClick}>
+          Start Progress
+        </button>
+        <AtomProgressBar percentage={percentage} {...props} />
+      </div>
+    )
+  }
+}
+
+const styleSection = {
+  maxWidth: '500px'
+}
+
+return (
+  <div>
+    <h1>AtomProgressBar</h1>
+
+    <div style={styleSection}>
+      <h2>Dynamic</h2>
+      <h4 style={{marginBottom: '2px'}} >Unique value with animation</h4>
+      {/* <DynamicProgressBar topPercentage={65} step={65}  isAnimatedOnChange /> */}
+      <StaticWithAnimation percentage={25} isAnimatedOnChange/>
+      <h4 style={{marginBottom: '2px'}} >steps: random</h4>
+      <DynamicProgressBar intervalTime={1000} indicatorTotal isAnimatedOnChange />
+      <h4 style={{marginBottom: '2px'}} >steps: 25</h4>
+      <DynamicProgressBar intervalTime={1000} step={25} isAnimatedOnChange />
+      <h4 style={{marginBottom: '2px'}} >steps: 1 (smooth)</h4>
+      <DynamicProgressBar intervalTime={1000 / 60} step={1} />
+    </div>
+
+    <div style={styleSection}>
+      <h2>Basic</h2>
+      <AtomProgressBar percentage={25} />
+    </div>
+
+    <div style={styleSection}>
+      <h2>Indicator Bottom</h2>
+      <AtomProgressBar percentage={25} indicatorBottom />
+    </div>
+
+    <div style={styleSection}>
+      <h2>Indicator Total</h2>
+      <AtomProgressBar percentage={25} indicatorTotal />
+    </div>
+  </div>
+)

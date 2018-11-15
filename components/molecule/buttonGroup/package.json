@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-button-group",
-  "version": "1.2.0",
+  "version": "1.5.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "1",
+    "@schibstedspain/sui-atom-button": "1"
   },
   "keywords": [],
   "author": "",

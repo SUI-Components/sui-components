@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 const BASE_CLASS = 'sui-AtomInput-input'
-const CLASS_ICON = `${BASE_CLASS}--withIcon`
-const CLASS_ICON_COMPONENT = `${CLASS_ICON}-icon`
 
 const SIZES = {
   MEDIUM: 'm',
@@ -17,8 +15,18 @@ const ERROR_STATES = {
 }
 
 class Input extends Component {
-  changeHandler(ev, onChange) {
-    onChange && onChange({value: ev.target.value, ev})
+  changeHandler = ev => {
+    const {onChange} = this.props
+    const {
+      target: {value}
+    } = ev
+    onChange && onChange({value, ev})
+  }
+
+  handleKeyDown = ev => {
+    const {onEnter, onEnterKey} = this.props
+    const {key} = ev
+    if (key === onEnterKey && onEnter) onEnter(ev)
   }
 
   getErrorStateClass(errorState) {
@@ -27,12 +35,13 @@ class Input extends Component {
     return ''
   }
 
-  getClassNames({size, charsSize, hideInput, errorState}) {
+  getClassNames({size, charsSize, hideInput, noBorder, errorState}) {
     return cx(
       BASE_CLASS,
       `${BASE_CLASS}-${size}`,
       charsSize && `${BASE_CLASS}--size`,
       hideInput && `${BASE_CLASS}--hidden`,
+      noBorder && `${BASE_CLASS}--noBorder`,
       this.getErrorStateClass(errorState)
     )
   }
@@ -42,48 +51,43 @@ class Input extends Component {
       checked,
       disabled,
       hideInput,
+      noBorder,
       id,
       name,
       onBlur,
-      onChange,
+      onFocus,
       placeholder,
       reference,
       size,
       errorState,
       type,
-      leftIcon: LeftIcon,
       value,
       charsSize
     } = this.props
 
-    const LeftIconBlock = () => (
-      <span className={CLASS_ICON_COMPONENT}>
-        <LeftIcon />
-      </span>
-    )
     return (
-      <span className={cx(LeftIcon && CLASS_ICON)}>
-        {LeftIcon && <LeftIconBlock />}
-        <input
-          className={this.getClassNames({
-            size,
-            charsSize,
-            hideInput,
-            errorState
-          })}
-          checked={checked}
-          disabled={disabled}
-          id={id}
-          name={name}
-          onChange={ev => this.changeHandler(ev, onChange)}
-          onBlur={onBlur}
-          placeholder={placeholder}
-          ref={reference}
-          type={type}
-          value={value}
-          size={charsSize}
-        />
-      </span>
+      <input
+        className={this.getClassNames({
+          size,
+          charsSize,
+          hideInput,
+          noBorder,
+          errorState
+        })}
+        checked={checked}
+        disabled={disabled}
+        id={id}
+        name={name}
+        onChange={this.changeHandler}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        onKeyDown={this.handleKeyDown}
+        placeholder={placeholder}
+        ref={reference}
+        type={type}
+        value={value}
+        size={charsSize}
+      />
     )
   }
 }
@@ -101,6 +105,12 @@ Input.propTypes = {
   onBlur: PropTypes.func,
   /* onChange callback */
   onChange: PropTypes.func,
+  /* onFocus callback */
+  onFocus: PropTypes.func,
+  /* onEnter callback */
+  onEnter: PropTypes.func,
+  /* key to provoke the onEnter callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values */
+  onEnterKey: PropTypes.string,
   /* A hint to the user of what can be entered in the control. The placeholder text must not contain carriage returns or line-feeds. */
   placeholder: PropTypes.string,
   /* 's' or 'm', default: 'm' */
@@ -117,12 +127,13 @@ Input.propTypes = {
   hideInput: PropTypes.bool,
   /* Will set a red/green border if set to true/false */
   errorState: PropTypes.bool,
-  /* Left Icon */
-  leftIcon: PropTypes.any
+  /** Wether to hide the input border or not */
+  noBorder: PropTypes.bool
 }
 
 Input.defaultProps = {
-  size: SIZES.MEDIUM
+  size: SIZES.MEDIUM,
+  onEnterKey: 'Enter'
 }
 
 export default Input

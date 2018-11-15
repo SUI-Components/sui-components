@@ -1,0 +1,25 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+@import '~@s-ui/react-molecule-button-group/lib/index';
+@import '~@schibstedspain/sui-atom-button/lib/index';
+
+.sui-MoleculePagination {
+  
+  &-prevButtonIcon { 
+    display: flex;
+    margin-right: $m-m;
+
+    svg path {
+      fill: inherit;
+    }
+  }
+
+  &-nextButtonIcon { 
+    display: flex;
+    margin-left: $m-m;
+
+    svg path {
+      fill: inherit;
+    }
+  }
+}

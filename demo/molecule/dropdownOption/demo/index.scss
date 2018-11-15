@@ -1,6 +1,9 @@
 .DemoMoleculeDropdownOption {
+  padding: 20px;
+
   &-option {
-    border: 1px dashed gray;
+    border: 1px dotted gray;
+    background: white;
     width: 300px;
   }
 
@@ -9,7 +12,6 @@
   }
 
   pre {
-    border: 1px dashed gray;
     padding: 16px;
     width: 300px;
   }

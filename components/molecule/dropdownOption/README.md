@@ -15,7 +15,7 @@ $ npm install @s-ui/react-molecule-dropdown-option --save
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
 return (
-  <MoleculeDropdownOption>
+  <MoleculeDropdownOption value="option1">
     Option 1
   </MoleculeDropdownOption>
 )
@@ -26,7 +26,7 @@ return (
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
 return (
-  <MoleculeDropdownOption checkbox>
+  <MoleculeDropdownOption value="option1" checkbox>
     Option 1
   </MoleculeDropdownOption>
 )
@@ -37,7 +37,7 @@ return (
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
 return (
-  <MoleculeDropdownOption checkbox disabled>
+  <MoleculeDropdownOption value="option1" checkbox disabled>
     Option 1
   </MoleculeDropdownOption>
 )

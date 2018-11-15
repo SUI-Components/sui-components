@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2018-11-15)
+
+
+### Bug Fixes
+
+* fix typo ([c60abd3](https://github.com/SUI-Components/sui-components/commit/c60abd3))
+
+
+### Features
+
+* add enum for molecule notification ([f68fc43](https://github.com/SUI-Components/sui-components/commit/f68fc43))
+* add new variation property for positive colors ([704295c](https://github.com/SUI-Components/sui-components/commit/704295c))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2018-11-12)
 

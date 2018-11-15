@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2018-11-15)
+
+
+### Bug Fixes
+
+* flatten Css produced by using correctly SUIT ([e3e514f](https://github.com/SUI-Components/sui-components/commit/e3e514f))
+
+
+### Features
+
+* first commit with only Schibsted Spain Components ([c0814de](https://github.com/SUI-Components/sui-components/commit/c0814de))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-08-23)
 

@@ -1,15 +1,17 @@
-const BUTTONS = [
-  {
-    type: 'secondary',
-    children: 'Secondary',
-    negative: true
-  },
-  {
-    type: 'primary',
-    children: 'Primary',
-    negative: true
-  }
-]
+function getButtons(variation = 'negative') {
+  return [
+    {
+      type: variation === 'positive' ? 'primary' : 'secondary',
+      children: 'Secondary',
+      negative: true
+    },
+    {
+      type: variation === 'positive' ? 'primary' : 'secondary',
+      children: 'Primary',
+      negative: true
+    }
+  ]
+}
 
 const TEXT =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae orci consectetur ligula vel.'
@@ -53,12 +55,13 @@ class PositionNotification extends React.Component {
           {show ? 'Hide' : 'Show'}
         </button>
         <MoleculeNotification
-          text={TEXT}
-          buttons={BUTTONS}
+          buttons={getButtons()}
           position={this.props.position}
           show={show}
           onClose={this.handleClose}
-        />
+        >
+          {TEXT}
+        </MoleculeNotification>
       </div>
     )
   }
@@ -73,13 +76,13 @@ return (
     <h2>Types and variations</h2>
     {TYPES.map(type =>
       VARIATIONS.map(variation => (
-        <React.Fragment>
+        <React.Fragment key={type + variation}>
           <Title>
             Type: {type} - Variation: {variation}
           </Title>
           <MoleculeNotification
             autoClose="manual"
-            buttons={BUTTONS}
+            buttons={getButtons(variation)}
             onClose={logClose}
             type={type}
             variation={variation}
@@ -100,21 +103,25 @@ return (
     <br />
     <h2>AutoClose</h2>
     <Title>Short</Title>
-    <MoleculeNotification text={TEXT} buttons={BUTTONS} onClose={logClose} />
+    <MoleculeNotification buttons={getButtons()} onClose={logClose}>
+      {TEXT}
+    </MoleculeNotification>
     <Title>Medium</Title>
     <MoleculeNotification
       autoClose="medium"
-      text={TEXT}
-      buttons={BUTTONS}
+      buttons={getButtons()}
       onClose={logClose}
-    />
+    >
+      {TEXT}
+    </MoleculeNotification>
     <Title>Long</Title>
     <MoleculeNotification
       autoClose="long"
-      text={TEXT}
-      buttons={BUTTONS}
+      buttons={getButtons()}
       onClose={logClose}
-    />
+    >
+      {TEXT}
+    </MoleculeNotification>
     <br />
     <h2>Positions</h2>
     <table width="auto" cellPadding="8" cellSpacing="0" style={{padding: 15}}>

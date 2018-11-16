@@ -51,7 +51,7 @@ MoleculeDropdownOption.propTypes = {
   /** Is disabled */
   disabled: PropTypes.bool,
 
-  /** onClick callback (ev, {selected}) */
+  /** onClick callback (ev, {value}) */
   onClick: PropTypes.func,
 
   /** Is initial selected */

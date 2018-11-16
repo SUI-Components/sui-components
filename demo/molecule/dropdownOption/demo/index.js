@@ -1,62 +1,70 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
-import React, {Component} from 'react'
+import React from 'react'
 import MoleculeDropdownOption from '../../../../components/molecule/dropdownOption/src'
 import './index.scss'
 
-class Demo extends Component {
-  state = {
-    selected: {
-      default: false,
-      disabled: false,
-      checkbox: false
-    }
-  }
+import BasicDropdownOptions from './BasicDropdownOptions'
+import CheckboxDropdownOptions from './CheckboxDropdownOptions'
 
-  handleOnClick = type => (ev, {selected}) => {
-    this.setState(prevState => ({
-      selected: {
-        ...prevState.selected,
-        [type]: selected
-      }
-    }))
-  }
+const BASE_CLASS_DEMO = 'DemoMoleculeDropdownOption'
+const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
+const CLASS_DEMO_OPTION = `${BASE_CLASS_DEMO}-option`
 
-  render() {
-    return (
-      <div className="DemoMoleculeDropdownOption">
-        <h1>MoleculeDropdownOption</h1>
-        <div className="DemoMoleculeDropdownOption-section">
-          <h2>As a default option</h2>
-          <div className="DemoMoleculeDropdownOption-option">
-            <MoleculeDropdownOption onClick={this.handleOnClick('default')}>
-              Option 1
-            </MoleculeDropdownOption>
-          </div>
-          <h2>As a disabled option</h2>
-          <div className="DemoMoleculeDropdownOption-option">
-            <MoleculeDropdownOption
-              onClick={this.handleOnClick('disabled')}
-              disabled
-            >
-              Option 2
-            </MoleculeDropdownOption>
-          </div>
-          <h2>As an option with checkbox</h2>
-          <div className="DemoMoleculeDropdownOption-option">
-            <MoleculeDropdownOption
-              onClick={this.handleOnClick('checkbox')}
-              checkbox
-            >
-              Option 3
-            </MoleculeDropdownOption>
-          </div>
-          <h2>Global state</h2>
-          <pre>{JSON.stringify(this.state, null, 2)}</pre>
-        </div>
+const Demo = () => (
+  <div className={BASE_CLASS_DEMO}>
+    <h1>
+      <code>MoleculeDropdownOption</code>
+    </h1>
+    <h2>Dynamic</h2>
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>Basic Options & unique selection</h3>
+      <BasicDropdownOptions options={['john', 'paul', 'george', 'ringo']} />
+      <h3>Checkbox Options & multiple selection</h3>
+      <CheckboxDropdownOptions options={['john', 'paul', 'george', 'ringo']} />
+    </div>
+    <h2>Static</h2>
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>Basic</h3>
+      <div className={CLASS_DEMO_OPTION}>
+        <MoleculeDropdownOption value="option-basic">
+          basic
+        </MoleculeDropdownOption>
       </div>
-    )
-  }
-}
+      <h3>Basic selected </h3>
+      <div className={CLASS_DEMO_OPTION}>
+        <MoleculeDropdownOption value="option-selected" selected>
+          selected
+        </MoleculeDropdownOption>
+      </div>
+      <h3>Disabled</h3>
+      <div className={CLASS_DEMO_OPTION}>
+        <MoleculeDropdownOption value="option-disabled" disabled>
+          disabled
+        </MoleculeDropdownOption>
+      </div>
+      <h3>With checkbox</h3>
+      <div className={CLASS_DEMO_OPTION}>
+        <MoleculeDropdownOption value="option-checkbox" checkbox>
+          checkbox
+        </MoleculeDropdownOption>
+      </div>
+      <h3>With checkbox selected</h3>
+      <div className={CLASS_DEMO_OPTION}>
+        <MoleculeDropdownOption value="option-selected" checkbox selected>
+          selected
+        </MoleculeDropdownOption>
+      </div>
+      <h3>With some HTML as children</h3>
+      <div className={CLASS_DEMO_OPTION}>
+        <MoleculeDropdownOption value="sparta" checkbox selected>
+          <span>
+            this is <em>sparta</em> 😎
+          </span>
+        </MoleculeDropdownOption>
+      </div>
+    </div>
+  </div>
+)
 
 export default Demo

@@ -13,9 +13,9 @@ class MaskInput extends Component {
     this.mask.destroy()
   }
 
-  onChange = ({ev, value}) => {
+  onChange = (ev, {value}) => {
     const {onChange} = this.props
-    onChange && onChange({value: ev.target.value, target: ev.target})
+    onChange && onChange(ev, {value})
   }
 
   render() {

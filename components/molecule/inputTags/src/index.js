@@ -13,14 +13,13 @@ const CLASS_TAGS_SUCCESS = `${CLASS_TAGS}--success`
 // eslint-disable-next-line react/prop-types
 const AtomTagItem = ({onClose, id, ...props}) => {
   const _onClose = e => {
-    onClose && onClose(id)
+    onClose && onClose(e, {id})
   }
   return <AtomTag onClose={_onClose} {...props} />
 }
 
 class MoleculeInputTags extends Component {
   state = {
-    tags: this.props.tags,
     value: this.props.value,
     focus: false
   }
@@ -34,39 +33,36 @@ class MoleculeInputTags extends Component {
     })
   }
 
-  removeTag = indexTag => {
+  removeTag = (e, {id: indexTag}) => {
     const {onChangeTags} = this.props
-    this.setState(
-      {
-        tags: this.state.tags.filter((_, i) => i !== indexTag)
-      },
-      () => {
-        onChangeTags && onChangeTags(this.state.tags)
-      }
-    )
+    const tags = this.props.tags.filter((_, i) => i !== indexTag)
+    onChangeTags && onChangeTags(e, {tags})
   }
 
   addTag = ev => {
+    ev.preventDefault()
     const {onChangeTags} = this.props
     const {
       target: {value}
     } = ev
-    ev.preventDefault()
     if (value) {
       this.setState(
         {
-          tags: [...this.state.tags, value],
           value: ''
         },
         () => {
-          onChangeTags && onChangeTags(this.state.tags)
+          const tags = [...this.props.tags, value]
+          onChangeTags && onChangeTags(ev, {tags})
         }
       )
     }
   }
 
-  onChange = ({value}) => {
-    this.setState({value})
+  onChange = (ev, {value}) => {
+    const {onChange} = this.props
+    this.setState({value}, () => {
+      onChange && onChange(ev, {value})
+    })
   }
 
   handleFocusIn = () => {
@@ -78,8 +74,9 @@ class MoleculeInputTags extends Component {
   }
 
   render() {
-    const {tagsCloseIcon, ...props} = this.props
-    const {focus, value, tags} = this.state
+    const {tagsCloseIcon, tags, ...props} = this.props
+    const {focus, value} = this.state
+    console.log(tags)
     return (
       <div className={this.getClassNames(focus, props.size, props.errorState)}>
         {tags.map((label, index) => (
@@ -119,7 +116,10 @@ MoleculeInputTags.propTypes = {
   value: PropTypes.string,
 
   /* callback to be called with every update of the list of tags */
-  onChangeTags: PropTypes.func
+  onChangeTags: PropTypes.func,
+
+  /* callback to be called with every update of the input value */
+  onChange: PropTypes.func
 }
 
 MoleculeInputTags.defaultProps = {

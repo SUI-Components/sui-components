@@ -67,7 +67,7 @@ MoleculeDropdownOption.propTypes = {
   /** Is initial selected */
   selected: PropTypes.bool,
 
-  /** Is initial selected */
+  /** Text to be highlighted in the option text if found */
   highlight: PropTypes.string
 }
 

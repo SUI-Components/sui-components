@@ -13,6 +13,7 @@ const MoleculeDropdownOption = ({
   selected,
   checkbox,
   disabled,
+  highlight,
   onClick,
   value
 }) => {
@@ -26,12 +27,21 @@ const MoleculeDropdownOption = ({
     if (!disabled) onClick(ev, {value})
   }
 
+  const highlightOption = option => {
+    if (typeof option !== 'string') return option
+    const regExpHighlight = new RegExp(highlight, 'gi')
+    const highlightedOption = option.replace(regExpHighlight, `<mark>$&</mark>`)
+    return <span dangerouslySetInnerHTML={{__html: highlightedOption}} />
+  }
+
   return (
     <div className={className} onClick={handleClick}>
       {checkbox && (
         <AtomInput type="checkbox" checked={selected} disabled={disabled} />
       )}
-      <span className={CLASS_TEXT}>{children}</span>
+      <span className={CLASS_TEXT}>
+        {highlight ? highlightOption(children) : children}
+      </span>
     </div>
   )
 }
@@ -55,7 +65,10 @@ MoleculeDropdownOption.propTypes = {
   onClick: PropTypes.func,
 
   /** Is initial selected */
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
+
+  /** Is initial selected */
+  highlight: PropTypes.string
 }
 
 MoleculeDropdownOption.defaultProps = {

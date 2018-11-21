@@ -6,6 +6,7 @@ import './index.scss'
 
 import BasicDropdownOptions from './BasicDropdownOptions'
 import CheckboxDropdownOptions from './CheckboxDropdownOptions'
+import HighlightDropdownOptions from './HighlightDropdownOptions'
 
 const BASE_CLASS_DEMO = 'DemoMoleculeDropdownOption'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
@@ -22,6 +23,8 @@ const Demo = () => (
       <BasicDropdownOptions options={['john', 'paul', 'george', 'ringo']} />
       <h3>Checkbox Options & multiple selection</h3>
       <CheckboxDropdownOptions options={['john', 'paul', 'george', 'ringo']} />
+      <h3>Highlight options</h3>
+      <HighlightDropdownOptions options={['john', 'paul', 'george', 'ringo']} />
     </div>
     <h2>Static</h2>
     <div className={CLASS_DEMO_SECTION}>
@@ -53,6 +56,12 @@ const Demo = () => (
       <div className={CLASS_DEMO_OPTION}>
         <MoleculeDropdownOption value="option-selected" checkbox selected>
           selected
+        </MoleculeDropdownOption>
+      </div>
+      <h3>With text highlighted</h3>
+      <div className={CLASS_DEMO_OPTION}>
+        <MoleculeDropdownOption value="indiana jones" highlight="indi">
+          Indiana Jones
         </MoleculeDropdownOption>
       </div>
       <h3>With some HTML as children</h3>

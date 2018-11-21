@@ -210,6 +210,10 @@ return (
       <AtomInput name="disabled" placeholder="Medium Disabled Input" disabled />
     </div>
     <div style={field}>
+      <h4>Read Only</h4>
+      <AtomInput name="disabled" value="Medium Read Only Input" readOnly />
+    </div>
+    <div style={field}>
       <h4>Type: number</h4>
       <AtomInput type="number" name="number" placeholder="Number only input" charsSize={10}/>
     </div>

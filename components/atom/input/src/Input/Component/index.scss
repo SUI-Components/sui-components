@@ -1,7 +1,10 @@
 @import 'placeholders';
 @import 'settings';
 
-.sui-AtomInput-input {
+$base-class: '.sui-AtomInput-input';
+$class-read-only: '#{$base-class}--readOnly';
+
+#{$base-class} {
   @extend %sui-atom-input-input;
 
   &--size {
@@ -35,7 +38,9 @@
   }
 
   &[disabled] {
-    background: $c-gray-lightest;
+    &:not(#{$class-read-only}) {
+      background: $c-gray-lightest;
+    }
 
     &[placeholder] {
       color: $c-gray-light;

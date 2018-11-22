@@ -2,11 +2,19 @@
 @import '~@s-ui/react-atom-input/lib/index';
 @import './settings';
 
+$bg-molecule-dropdown-option--highlight-mark: $c-highlight !default;
+
 .sui-MoleculeDropdownOption {
   align-items: center;
   display: flex;
   height: $h-dropdown-option;
   padding: 0 $p-l;
+
+  &--highlighted {
+    &-mark {
+      background-color: $bg-molecule-dropdown-option--highlight-mark;
+    }
+  }
 
   &-checkbox {
     padding-left: $p-s;

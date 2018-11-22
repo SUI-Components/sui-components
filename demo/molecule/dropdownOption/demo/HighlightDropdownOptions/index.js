@@ -38,7 +38,7 @@ class HighlightDropdownOptions extends Component {
               value={option}
               onClick={this.handleSelection}
               selected={selected === option}
-              highlight={query}
+              highlightQuery={query}
             >
               {option}
             </MoleculeDropdownOption>

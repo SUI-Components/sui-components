@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.0.0"></a>
+# 2.0.0 (2018-11-22)
+
+
+### Features
+
+* change of parameters distribution in event handlers ([622e36d](https://github.com/SUI-Components/sui-components/commit/622e36d))
+* read only prop ([ec6cfdd](https://github.com/SUI-Components/sui-components/commit/ec6cfdd))
+
+
+### BREAKING CHANGES
+
+* change of parameters distribution in event handlers (onChange and so)
+
+
+
 <a name="1.16.0"></a>
 # 1.16.0 (2018-11-06)
 

@@ -33,11 +33,10 @@ const MoleculeDropdownOption = ({
   const highlightOption = option => {
     if (typeof option !== 'string') return option
     const regExpHighlight = new RegExp(highlightQuery, 'gi')
-    const highlightedOption = option.replace(
+    return option.replace(
       regExpHighlight,
       `<mark class="${CLASS_HIGHLIGHTED_MARK}">$&</mark>`
     )
-    return <span dangerouslySetInnerHTML={{__html: highlightedOption}} />
   }
 
   return (
@@ -45,9 +44,14 @@ const MoleculeDropdownOption = ({
       {checkbox && (
         <AtomInput type="checkbox" checked={selected} disabled={disabled} />
       )}
-      <span className={CLASS_TEXT}>
-        {highlightQuery ? highlightOption(children) : children}
-      </span>
+      {highlightQuery ? (
+        <span
+          dangerouslySetInnerHTML={{__html: highlightOption(children)}}
+          className={CLASS_TEXT}
+        />
+      ) : (
+        <span className={CLASS_TEXT}>{children}</span>
+      )}
     </div>
   )
 }

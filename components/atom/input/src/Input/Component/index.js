@@ -20,13 +20,16 @@ class Input extends Component {
     const {
       target: {value}
     } = ev
-    onChange && onChange({value, ev})
+    onChange && onChange(ev, {value})
   }
 
   handleKeyDown = ev => {
     const {onEnter, onEnterKey} = this.props
+    const {
+      target: {value}
+    } = ev
     const {key} = ev
-    if (key === onEnterKey && onEnter) onEnter(ev)
+    if (key === onEnterKey && onEnter) onEnter(ev, {value})
   }
 
   getErrorStateClass(errorState) {

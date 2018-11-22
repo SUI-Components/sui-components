@@ -35,13 +35,14 @@ class Input extends Component {
     return ''
   }
 
-  getClassNames({size, charsSize, hideInput, noBorder, errorState}) {
+  getClassNames({size, charsSize, hideInput, noBorder, readOnly, errorState}) {
     return cx(
       BASE_CLASS,
       `${BASE_CLASS}-${size}`,
       charsSize && `${BASE_CLASS}--size`,
       hideInput && `${BASE_CLASS}--hidden`,
       noBorder && `${BASE_CLASS}--noBorder`,
+      readOnly && `${BASE_CLASS}--readOnly`,
       this.getErrorStateClass(errorState)
     )
   }
@@ -50,6 +51,7 @@ class Input extends Component {
     const {
       checked,
       disabled,
+      readOnly,
       hideInput,
       noBorder,
       id,
@@ -72,10 +74,11 @@ class Input extends Component {
           charsSize,
           hideInput,
           noBorder,
+          readOnly,
           errorState
         })}
         checked={checked}
-        disabled={disabled}
+        disabled={disabled || readOnly}
         id={id}
         name={name}
         onChange={this.changeHandler}
@@ -95,6 +98,8 @@ class Input extends Component {
 Input.propTypes = {
   /* This Boolean attribute prevents the user from interacting with the input */
   disabled: PropTypes.bool,
+  /* This Boolean attribute prevents the user from interacting with the input but without disabled styles */
+  readOnly: PropTypes.bool,
   /* Mark the input as selected */
   checked: PropTypes.bool,
   /* The DOM id global attribute. */

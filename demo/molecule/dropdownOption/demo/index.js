@@ -60,7 +60,7 @@ const Demo = () => (
       </div>
       <h3>With text highlighted</h3>
       <div className={CLASS_DEMO_OPTION}>
-        <MoleculeDropdownOption value="indiana jones" highlight="indi">
+        <MoleculeDropdownOption value="indiana jones" highlightQuery="indi">
           Indiana Jones
         </MoleculeDropdownOption>
       </div>

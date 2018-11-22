@@ -41,8 +41,10 @@ class MoleculeInputTags extends Component {
   addTag = ev => {
     ev.preventDefault()
     const {onChangeTags, value} = this.props
-    const tags = [...this.props.tags, value]
-    onChangeTags(ev, {tags, value: ''})
+    if (value) {
+      const tags = [...this.props.tags, value]
+      onChangeTags(ev, {tags, value: ''})
+    }
   }
 
   onChange = (ev, {value}) => {

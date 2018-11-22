@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-atom-input": "1",
+    "@s-ui/react-atom-input": "2",
     "@schibstedspain/sui-atom-tag": "1"
   },
   "keywords": [],

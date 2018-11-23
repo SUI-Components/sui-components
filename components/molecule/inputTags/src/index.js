@@ -13,15 +13,13 @@ const CLASS_TAGS_SUCCESS = `${CLASS_TAGS}--success`
 // eslint-disable-next-line react/prop-types
 const AtomTagItem = ({onClose, id, ...props}) => {
   const _onClose = e => {
-    onClose && onClose(id)
+    onClose && onClose(e, {id})
   }
   return <AtomTag onClose={_onClose} {...props} />
 }
 
 class MoleculeInputTags extends Component {
   state = {
-    tags: this.props.tags,
-    value: this.props.value,
     focus: false
   }
 
@@ -34,39 +32,24 @@ class MoleculeInputTags extends Component {
     })
   }
 
-  removeTag = indexTag => {
-    const {onChangeTags} = this.props
-    this.setState(
-      {
-        tags: this.state.tags.filter((_, i) => i !== indexTag)
-      },
-      () => {
-        onChangeTags && onChangeTags(this.state.tags)
-      }
-    )
+  removeTag = (e, {id: indexTag}) => {
+    const {onChangeTags, value} = this.props
+    const tags = this.props.tags.filter((_, i) => i !== indexTag)
+    onChangeTags(e, {tags, value})
   }
 
   addTag = ev => {
-    const {onChangeTags} = this.props
-    const {
-      target: {value}
-    } = ev
     ev.preventDefault()
+    const {onChangeTags, value} = this.props
     if (value) {
-      this.setState(
-        {
-          tags: [...this.state.tags, value],
-          value: ''
-        },
-        () => {
-          onChangeTags && onChangeTags(this.state.tags)
-        }
-      )
+      const tags = [...this.props.tags, value]
+      onChangeTags(ev, {tags, value: ''})
     }
   }
 
-  onChange = ({value}) => {
-    this.setState({value})
+  onChange = (ev, {value}) => {
+    const {onChange} = this.props
+    onChange(ev, {value})
   }
 
   handleFocusIn = () => {
@@ -78,8 +61,9 @@ class MoleculeInputTags extends Component {
   }
 
   render() {
-    const {tagsCloseIcon, ...props} = this.props
-    const {focus, value, tags} = this.state
+    const {onChange, addTag, removeTag, handleFocusIn, handleFocusOut} = this
+    const {tagsCloseIcon, tags, value, ...props} = this.props
+    const {focus} = this.state
     return (
       <div className={this.getClassNames(focus, props.size, props.errorState)}>
         {tags.map((label, index) => (
@@ -87,7 +71,7 @@ class MoleculeInputTags extends Component {
             key={index}
             id={index}
             closeIcon={tagsCloseIcon}
-            onClose={this.removeTag}
+            onClose={removeTag}
             label={label}
             size={atomTagSizes.SMALL}
           />
@@ -95,10 +79,10 @@ class MoleculeInputTags extends Component {
         <AtomInput
           {...props}
           value={value}
-          onChange={this.onChange}
-          onEnter={this.addTag}
-          onFocus={this.handleFocusIn}
-          onBlur={this.handleFocusOut}
+          onChange={onChange}
+          onEnter={addTag}
+          onFocus={handleFocusIn}
+          onBlur={handleFocusOut}
           noBorder
         />
       </div>
@@ -119,13 +103,18 @@ MoleculeInputTags.propTypes = {
   value: PropTypes.string,
 
   /* callback to be called with every update of the list of tags */
-  onChangeTags: PropTypes.func
+  onChangeTags: PropTypes.func,
+
+  /* callback to be called with every update of the input value */
+  onChange: PropTypes.func
 }
 
 MoleculeInputTags.defaultProps = {
   size: inputSizes.MEDIUM,
   value: '',
-  tags: []
+  tags: [],
+  onChangeTags: () => {},
+  onChange: () => {}
 }
 
 export default MoleculeInputTags

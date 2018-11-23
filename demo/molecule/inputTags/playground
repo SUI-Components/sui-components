@@ -17,57 +17,139 @@ const containerStyles = {
   padding: '20px'
 }
 
+const withStateTags = BaseComponent => {
+  return class BaseComponentWithState extends React.Component {
+    state = {
+      tags: this.props.tags || [],
+      value: this.props.value || ''
+    }
+
+    onChangeTags = (e, {tags, value}) => {
+      const {onChangeTags} = this.props
+      this.setState({tags, value}, () => {
+        onChangeTags && onChangeTags(e, {tags, value})
+      })
+    }
+
+    onChange = (e, {value}) => {
+      const {onChange} = this.props
+      this.setState({value}, () => {
+        onChange && onChange(e, {value})
+      })
+    }
+
+    render() {
+      const {tags, value} = this.state
+      const {onChangeTags, onChange, props} = this
+      return (
+        <div>
+          <BaseComponent
+            {...props}
+            tags={tags}
+            value={value}
+            onChangeTags={onChangeTags}
+            onChange={onChange}
+          />
+        </div>
+      )
+    }
+  }
+}
+
+const MoleculeInputTagsWithState = withStateTags(MoleculeInputTags)
+
 return (
   <div style={containerStyles}>
     <h1>
       <code>MoleculeInputTags</code>
     </h1>
-    <p>Check the console to verify the <code>onChangeTags</code> on adding/removing tabs</p>
+    <p>
+      Check the console to verify the <code>onChangeTags</code> on
+      adding/removing tabs
+    </p>
     <div style={fieldStyles}>
       <h4>Basic</h4>
-      <MoleculeInputTags
+      <MoleculeInputTagsWithState
         value="George Martin"
         tagsCloseIcon={closeIcon}
-        tags={['John Lennon', 'Paul McCartney', 'George Harrison', 'Ringo Starr']}
-        onChangeTags={console.log}
+        tags={[
+          'John Lennon',
+          'Paul McCartney',
+          'George Harrison',
+          'Ringo Starr'
+        ]}
+        onChangeTags={(_, {tags}) => {
+          console.log(tags)
+        }}
       />
     </div>
     <div style={fieldStyles}>
       <h4>Entering tags on "Tab" press</h4>
-      <MoleculeInputTags
+      <MoleculeInputTagsWithState
         value="George Martin"
         tagsCloseIcon={closeIcon}
-        tags={['John Lennon', 'Paul McCartney', 'George Harrison', 'Ringo Starr']}
+        tags={[
+          'John Lennon',
+          'Paul McCartney',
+          'George Harrison',
+          'Ringo Starr'
+        ]}
         onEnterKey="Tab"
-        onChangeTags={console.log}
+        onChangeTags={(_, {tags}) => {
+          console.log(tags)
+        }}
       />
     </div>
     <div style={fieldStyles}>
       <h4>Entering tags on "comma" press</h4>
-      <MoleculeInputTags
+      <MoleculeInputTagsWithState
         value="George Martin"
         tagsCloseIcon={closeIcon}
-        tags={['John Lennon', 'Paul McCartney', 'George Harrison', 'Ringo Starr']}
+        tags={[
+          'John Lennon',
+          'Paul McCartney',
+          'George Harrison',
+          'Ringo Starr'
+        ]}
         onEnterKey=","
-        onChangeTags={console.log}
+        onChangeTags={(_, {tags}) => {
+          console.log(tags)
+        }}
       />
     </div>
     <div style={fieldStyles}>
       <h4>With size=SMALL</h4>
-      <MoleculeInputTags
+      <MoleculeInputTagsWithState
         tagsCloseIcon={closeIcon}
         tags={['Robert Plant', 'Jimmy Page', 'John Paul Jones', 'John Bonham']}
         size={inputSizes.SMALL}
-        onChangeTags={console.log}
+        onChangeTags={(_, {tags}) => {
+          console.log(tags)
+        }}
       />
     </div>
     <div style={fieldStyles}>
       <h4>With error</h4>
-      <MoleculeInputTags
+      <MoleculeInputTagsWithState
         tagsCloseIcon={closeIcon}
         tags={['Brian May', 'Freddie Mercury', 'John Deacon', 'Roger Taylor']}
         errorState={true}
-        onChangeTags={console.log}
+        onChangeTags={(_, {tags}) => {
+          console.log(tags)
+        }}
+      />
+    </div>
+    <div style={fieldStyles}>
+      <h4>With onChange handler</h4>
+      <MoleculeInputTagsWithState
+        tagsCloseIcon={closeIcon}
+        tags={['Brian May', 'Freddie Mercury', 'John Deacon', 'Roger Taylor']}
+        onChangeTags={(_, {tags}) => {
+          console.log(tags)
+        }}
+        onChange={(_, {value}) => {
+          console.log(value)
+        }}
       />
     </div>
   </div>

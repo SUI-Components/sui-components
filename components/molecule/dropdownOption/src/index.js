@@ -8,7 +8,7 @@ const CLASS_CHECKBOX = `${BASE_CLASS}-checkbox`
 const CLASS_TEXT = `${BASE_CLASS}-text`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 const CLASS_HIGHLIGHTED = `is-highlighted`
-const CLASS_HIGHLIGHTED_MARK = `${BASE_CLASS}--mark`
+const CLASS_HIGHLIGHTED_MARK = `${BASE_CLASS}-mark`
 
 const MoleculeDropdownOption = ({
   children,

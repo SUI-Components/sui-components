@@ -7,12 +7,15 @@ const BASE_CLASS = 'sui-MoleculeDropdownOption'
 const CLASS_CHECKBOX = `${BASE_CLASS}-checkbox`
 const CLASS_TEXT = `${BASE_CLASS}-text`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
+const CLASS_HIGHLIGHTED = `is-highlighted`
+const CLASS_HIGHLIGHTED_MARK = `${BASE_CLASS}-mark`
 
 const MoleculeDropdownOption = ({
   children,
   selected,
   checkbox,
   disabled,
+  highlightQuery,
   onClick,
   value
 }) => {
@@ -26,12 +29,28 @@ const MoleculeDropdownOption = ({
     if (!disabled) onClick(ev, {value})
   }
 
+  const highlightOption = option => {
+    if (typeof option !== 'string') return option
+    const regExpHighlight = new RegExp(highlightQuery, 'gi')
+    return option.replace(
+      regExpHighlight,
+      `<mark class="${cx(CLASS_HIGHLIGHTED_MARK, CLASS_HIGHLIGHTED)}">$&</mark>`
+    )
+  }
+
   return (
     <div className={className} onClick={handleClick}>
       {checkbox && (
         <AtomInput type="checkbox" checked={selected} disabled={disabled} />
       )}
-      <span className={CLASS_TEXT}>{children}</span>
+      {highlightQuery ? (
+        <span
+          dangerouslySetInnerHTML={{__html: highlightOption(children)}}
+          className={CLASS_TEXT}
+        />
+      ) : (
+        <span className={CLASS_TEXT}>{children}</span>
+      )}
     </div>
   )
 }
@@ -55,7 +74,10 @@ MoleculeDropdownOption.propTypes = {
   onClick: PropTypes.func,
 
   /** Is initial selected */
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
+
+  /** Text to be highlighted in the option text if found */
+  highlightQuery: PropTypes.string
 }
 
 MoleculeDropdownOption.defaultProps = {

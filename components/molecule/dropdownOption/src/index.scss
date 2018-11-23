@@ -10,10 +10,8 @@ $bg-molecule-dropdown-option--highlight-mark: $c-highlight !default;
   height: $h-dropdown-option;
   padding: 0 $p-l;
 
-  &.is-highlighted {
-    &-mark.is-highlighted {
-      background-color: $bg-molecule-dropdown-option--highlight-mark;
-    }
+  &-mark.is-highlighted {
+    background-color: $bg-molecule-dropdown-option--highlight-mark;
   }
 
   &-checkbox {

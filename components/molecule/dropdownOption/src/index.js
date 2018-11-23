@@ -7,8 +7,8 @@ const BASE_CLASS = 'sui-MoleculeDropdownOption'
 const CLASS_CHECKBOX = `${BASE_CLASS}-checkbox`
 const CLASS_TEXT = `${BASE_CLASS}-text`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
-const CLASS_HIGHLIGHTED = `${BASE_CLASS}--highlighted`
-const CLASS_HIGHLIGHTED_MARK = `${BASE_CLASS}--highlighted-mark`
+const CLASS_HIGHLIGHTED = `is-highlighted`
+const CLASS_HIGHLIGHTED_MARK = `${BASE_CLASS}--mark`
 
 const MoleculeDropdownOption = ({
   children,
@@ -35,7 +35,7 @@ const MoleculeDropdownOption = ({
     const regExpHighlight = new RegExp(highlightQuery, 'gi')
     return option.replace(
       regExpHighlight,
-      `<mark class="${CLASS_HIGHLIGHTED_MARK}">$&</mark>`
+      `<mark class="${cx(CLASS_HIGHLIGHTED_MARK, CLASS_HIGHLIGHTED)}">$&</mark>`
     )
   }
 

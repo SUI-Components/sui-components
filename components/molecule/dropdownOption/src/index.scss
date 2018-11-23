@@ -4,14 +4,17 @@
 
 $bg-molecule-dropdown-option--highlight-mark: $c-highlight !default;
 
-.sui-MoleculeDropdownOption {
+$base-class: 'sui-MoleculeDropdownOption';
+$class-is-highlighted: 'is-highlighted';
+
+.#{$base-class} {
   align-items: center;
   display: flex;
   height: $h-dropdown-option;
   padding: 0 $p-l;
 
-  &--highlighted {
-    &-mark {
+  &.#{$class-is-highlighted} {
+    .#{$base-class}-mark.#{$class-is-highlighted} {
       background-color: $bg-molecule-dropdown-option--highlight-mark;
     }
   }

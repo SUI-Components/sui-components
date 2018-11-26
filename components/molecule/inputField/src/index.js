@@ -45,6 +45,9 @@ MoleculeInputField.propTypes = {
   /** Success message to display when success state  */
   successText: PropTypes.string,
 
+  /* onChange callback */
+  onChange: PropTypes.func,
+
   /** Error message to display when error state  */
   errorText: PropTypes.string,
 

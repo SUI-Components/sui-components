@@ -2,7 +2,7 @@ const withState = BaseComponent => {
   return class BaseComponentWithState extends React.Component {
     state = {value: this.props.value || ''}
 
-    onChange = ({value}) => {
+    onChange = (e, {value}) => {
       this.setState({value})
     }
 

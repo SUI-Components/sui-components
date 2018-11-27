@@ -17,7 +17,7 @@ const prevButtonIcon = () => <span>&lt;</span>
 const nextButtonIcon = () => <span>&gt;</span>
 const prevButtonText = 'Anterior'
 const nextButtonText = 'Siguiente'
-const onSelectkNext = (e, {page}) => { console.log({e, page}) }
+const onSelectNext = (e, {page}) => { console.log({e, page}) }
 const onSelectPrev = (e, {page}) => { console.log({e, page}) }
 const onSelectPage = (e, {page}) => { console.log({e, page}) }
 ```

@@ -56,9 +56,9 @@ const onSelectPage = (e, {page}) => { console.log({e, page}) }
   nextButtonIcon={nextButtonIcon}
   prevButtonText={prevButtonText} 
   nextButtonText={nextButtonText}
-  onSelectNext={onClickNext} 
-  onSelectPrev={onClickPrev} 
-  onSelectPage={onClickPage}
+  onSelectNext={onSelectNext} 
+  onSelectPrev={onSelectPrev} 
+  onSelectPage={onSelectPage}
 />
 ```
 

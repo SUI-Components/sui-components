@@ -81,6 +81,19 @@ It sets the maximum height in pixels when the component is not collapsed. By def
 </MoleculeThumbnail>
 ```
 
+#### withContentHidden
+It sets the maximum height in pixels when the component is not collapsed. By default it is set to null.
+```js
+<MoleculeThumbnail 
+    icon={svgIcon} 
+    showText='Show' 
+    hideText='Hide'
+    withContentHidden={true}
+>
+    <p>Text or content to collapse</p>
+</MoleculeThumbnail>
+```
+
 #### Icon
 The icon in svg to show next to the text to collapse or expand. It will toggle between the original position and a rotation of 180 degrees when text is collapsed and expanded.
 

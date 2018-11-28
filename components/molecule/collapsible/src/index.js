@@ -6,6 +6,7 @@ const BASE_CLASS = 'sui-MoleculeCollapsible'
 const CONTENT_CLASS = `${BASE_CLASS}-content`
 const CONTAINER_BUTTON_CLASS = `${BASE_CLASS}-container`
 const COLLAPSED_CLASS = 'is-collapsed'
+const WITH_CONTENT_HIDDEN_CLASS = 'with-contentHidden'
 const BUTTON_CLASS = `${BASE_CLASS}-btn`
 const BUTTON_CONTENT_CLASS = `${BUTTON_CLASS}-content`
 const ICON_CLASS = `${BASE_CLASS}-icon`
@@ -15,13 +16,14 @@ const MAX_HEIGHT = null
 class MoleculeCollapsible extends Component {
   constructor(props) {
     super(props)
-    const {isCollapsed, withAutoClose} = this.props
+    const {isCollapsed, withAutoClose, withContentHidden} = this.props
     this.childrenContainer = React.createRef()
     this.state = {
       withAutoClose: withAutoClose,
       collapsed: isCollapsed,
       showButton: true,
-      maxHeight: MIN_HEIGHT
+      maxHeight: withContentHidden ? 0 : MIN_HEIGHT,
+      minHeight: withContentHidden ? 0 : MIN_HEIGHT
     }
   }
 
@@ -35,11 +37,12 @@ class MoleculeCollapsible extends Component {
   }
 
   componentDidMount() {
-    const {maxHeight, minHeight} = this.props
+    const {maxHeight, minHeight, withContentHidden} = this.props
     const offsetHeight =
       maxHeight || this.childrenContainer.current.offsetHeight
+    const height = withContentHidden ? 0 : minHeight
     this.setState({
-      showButton: offsetHeight >= minHeight,
+      showButton: offsetHeight >= height,
       maxHeight: offsetHeight
     })
   }
@@ -54,18 +57,19 @@ class MoleculeCollapsible extends Component {
   }
 
   render() {
-    const {collapsed, showButton, maxHeight} = this.state
+    const {collapsed, showButton, minHeight, maxHeight} = this.state
     const {
       children,
-      minHeight,
       icon,
       showText,
       hideText,
+      withContentHidden,
       withGradient,
       withTransition
     } = this.props
     const wrapperClassName = cx(`${BASE_CLASS}`, {
       [`${BASE_CLASS}--withGradient`]: withGradient,
+      [WITH_CONTENT_HIDDEN_CLASS]: withContentHidden,
       [COLLAPSED_CLASS]: collapsed
     })
     const iconClassName = cx(`${ICON_CLASS}`, {
@@ -136,10 +140,6 @@ MoleculeCollapsible.propTypes = {
    */
   hideText: PropTypes.string.isRequired,
   /**
-   * Activate/deactivate gradient
-   */
-  withGradient: PropTypes.bool,
-  /**
    * Activate/deactivate transition
    */
   withTransition: PropTypes.bool,
@@ -152,9 +152,17 @@ MoleculeCollapsible.propTypes = {
    */
   isCollapsed: PropTypes.bool,
   /**
+   * Initial collapsed state
+   */
+  withContentHidden: PropTypes.bool,
+  /**
    * Activate/deactivate closing from props
    */
-  withAutoClose: PropTypes.bool
+  withAutoClose: PropTypes.bool,
+  /**
+   * Activate/deactivate gradient
+   */
+  withGradient: PropTypes.bool
 }
 
 MoleculeCollapsible.defaultProps = {
@@ -164,6 +172,7 @@ MoleculeCollapsible.defaultProps = {
   withTransition: true,
   onToggle: () => {},
   isCollapsed: true,
+  withContentHidden: false,
   withAutoClose: false
 }
 

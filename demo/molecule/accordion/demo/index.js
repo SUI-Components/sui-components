@@ -66,9 +66,9 @@ const Demo = () => {
     <div className="sui-StudioPreview">
       <h1>Accordion</h1>
       <DemoBox>
-        <h2>Accordion without height limit and transition</h2>
+        <h2>Accordion with max height limit and without transition</h2>
         <DemoWrapper>
-          <MoleculeAccordion maxHeight={null} withTransition={false}>
+          <MoleculeAccordion maxHeight={2000} withTransition={false}>
             <MoleculeCollapsible
               icon={icon}
               showText={showText}
@@ -80,7 +80,6 @@ const Demo = () => {
               icon={icon}
               showText={showText}
               hideText={hideText}
-              isCollapsed={false}
             >
               <Text />
             </MoleculeCollapsible>
@@ -109,7 +108,6 @@ const Demo = () => {
               icon={icon}
               showText={showText}
               hideText={hideText}
-              isCollapsed={false}
             >
               <Text />
             </MoleculeCollapsible>
@@ -138,7 +136,6 @@ const Demo = () => {
               icon={icon}
               showText={showText}
               hideText={hideText}
-              isCollapsed={false}
             >
               <Text />
             </MoleculeCollapsible>

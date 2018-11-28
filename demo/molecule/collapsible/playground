@@ -94,6 +94,14 @@ return (
                     </MoleculeCollapsible>
                 </div>
             </Demo>
+            <Demo>
+                <h2>Collapsible setting custom max height </h2>
+                <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16, textAlign: 'left'}}>
+                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} withContentHidden={true}>
+                        <Text/>
+                    </MoleculeCollapsible>
+                </div>
+            </Demo>
         </DemoWrapper>
     </div>
 )

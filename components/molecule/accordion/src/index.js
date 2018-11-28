@@ -40,6 +40,7 @@ class MoleculeAccordion extends Component {
           withGradient: false,
           withTransition: withTransition,
           isCollapsed: childrenStateList[index],
+          withContentHidden: true,
           withAutoClose: withAutoClose,
           onToggle: () => {
             withAutoClose && this.onToggle(index)

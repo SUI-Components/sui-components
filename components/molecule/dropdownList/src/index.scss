@@ -1,0 +1,22 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$h-dropdown-list--small: 145px !default;
+$h-dropdown-list--medium: 220px !default;
+$h-dropdown-list--large: 300px !default;
+
+
+.sui-MoleculeDropdownList {
+  overflow-y: scroll;
+
+  &--small {
+    max-height: $h-dropdown-list--small;
+  }
+
+  &--medium {
+    max-height: $h-dropdown-list--medium;
+  }
+
+  &--large {
+    max-height: $h-dropdown-list--large;
+  }
+}

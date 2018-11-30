@@ -1,0 +1,109 @@
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/index';
+
+body.is-modal-open {
+  overflow-y: hidden;
+}
+
+.sui-MoleculeModal  {
+  background-color: $bg-modal-basic;
+  bottom: 0;
+  display: none;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  white-space: nowrap;
+  z-index: $z-modal-basic;
+
+  &.is-open {
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  &--verticallyCentered {
+    align-items: center;
+  }
+
+  &-dialog {
+    background-color: $bg-modal-basic-dialog;
+    border: $bd-modal-basic;
+    box-shadow: $bxsh-modal-basic;
+    display: flex;
+    flex-direction: column;
+    margin: $m-modal-basic;
+    max-height: 100%;
+    text-align: left;
+    vertical-align: middle;
+    white-space: normal;
+
+    @include media-breakpoint-down(s) {
+      &--full {
+        height: 100%;
+        margin: 0;
+        width: 100%;
+      }
+    }
+    @include media-breakpoint-up(m) {
+      max-width: $maw-modal-basic;
+      width: $w-modal-basic;
+    }
+  }
+
+  &-header {
+    align-items: center;
+    background-color: $bg-modal-basic-header;
+    color: $c-modal-basic-header;
+    border-bottom: $bd-modal-basic-content;
+    display: flex;
+    flex: 0 0 auto;
+    font-weight: $fw-regular;
+    font-size: $fz-xl;
+    justify-content: space-between;
+    padding: 0 ($p-modal-basic-header / 2) 0 $p-modal-basic-header;
+    position: relative;
+  }
+
+  &-no--header {
+    align-items: center;
+    display: flex;
+    padding: 0 ($p-modal-basic-header / 2) 0 $p-modal-basic-header;
+    position: relative;
+  }
+
+  &-close {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    padding: $p-modal-basic ($p-modal-basic / 2) $p-modal-basic $p-modal-basic;
+
+    &Icon {
+      fill: $c-modal-basic-icon !important;
+      height: $h-modal-basic-icon;
+      width: $w-modal-basic-icon;
+    }
+
+    &TextHidden {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+  }
+
+  &-content {
+    -webkit-overflow-scrolling: touch;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: $p-modal-basic-content $p-modal-basic;
+    position: relative;
+  }
+}

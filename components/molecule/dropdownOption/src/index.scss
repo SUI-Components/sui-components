@@ -38,7 +38,7 @@ $bg-molecule-dropdown-option--highlight-mark: $c-highlight !default;
   }
 
   &:focus {
-    border: 1px dotted grey;
+    border: 1px dotted $c-gray;
     outline: none;
   }
 }

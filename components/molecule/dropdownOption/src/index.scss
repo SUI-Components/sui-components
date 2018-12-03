@@ -36,4 +36,9 @@ $bg-molecule-dropdown-option--highlight-mark: $c-highlight !default;
     background-color: $bgc-dropdown-option-hover;
     cursor: pointer;
   }
+
+  &:focus {
+    border: 1px dotted grey;
+    outline: none;
+  }
 }

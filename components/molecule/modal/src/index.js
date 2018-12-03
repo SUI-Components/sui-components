@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import React, {Component} from 'react'
 import cx from 'classnames'
+import {SUPPORTED_KEYS} from './config'
+import {suitClass} from './helpers'
 
 class MoleculeModal extends Component {
   constructor(...args) {
@@ -10,6 +12,23 @@ class MoleculeModal extends Component {
     this.wrapperDOMEl = null
     this.state = {
       open: this.props.open
+    }
+  }
+
+  componentWillMount() {
+    document.addEventListener('keydown', this._onKeyDown)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this._onKeyDown)
+  }
+
+  _onKeyDown = event => {
+    if (this.state.open === false || this.props.closeOnEscKeyDown === false)
+      return
+    if (SUPPORTED_KEYS.includes(event.key)) {
+      this._closeModal()
+      event.preventDefault()
     }
   }
 
@@ -58,28 +77,23 @@ class MoleculeModal extends Component {
   }
 
   _renderCloseIcon = () => {
-    const {iconClose, textClose, textCloseHidden} = this.props
+    const {iconClose} = this.props
     return (
       <button
         type="button"
-        className="sui-MoleculeModal-close"
+        className={suitClass({element: 'close'})}
         onClick={this._handleCloseClick}
       >
         {iconClose}
-        {textCloseHidden ? (
-          <span className="sui-MoleculeModal-closeTextHidden">{textClose}</span>
-        ) : (
-          textClose
-        )}
       </button>
     )
   }
 
   _renderHeader = () => {
-    const {header, iconClose, textClose, textCloseHidden} = this.props
+    const {header} = this.props
     return (
       <div
-        className="sui-MoleculeModal-header"
+        className={suitClass({element: 'header'})}
         onTouchMove={e => e.preventDefault()}
       >
         {header}
@@ -90,7 +104,7 @@ class MoleculeModal extends Component {
 
   _renderNoHeader = () => {
     return (
-      <div className="sui-MoleculeModal-no-header">
+      <div className={suitClass({element: 'no-header'})}>
         {this._renderCloseIcon()}
       </div>
     )
@@ -107,15 +121,15 @@ class MoleculeModal extends Component {
   }
 
   render() {
-    const {header, content} = this.props
+    const {header, children} = this.props
 
-    const wrapperClassName = cx('sui-MoleculeModal', {
+    const wrapperClassName = cx(suitClass({}), {
       'is-open': this.state.open,
-      'sui-MoleculeModal--verticallyCentered': this.props.centerVertically
+      [suitClass({modifier: 'verticallyCentered'})]: this.props.centerVertically
     })
 
-    const dialogClassName = cx('sui-MoleculeModal-dialog', {
-      'sui-MoleculeModal-dialog--full': this.props.fitWindow
+    const dialogClassName = cx(suitClass({element: 'dialog'}), {
+      [suitClass({element: 'dialog--full'})]: this.props.fitWindow
     })
 
     return (
@@ -129,14 +143,14 @@ class MoleculeModal extends Component {
         <div className={dialogClassName}>
           {(header && this._renderHeader()) || this._renderNoHeader()}
           <div
-            className="sui-MoleculeModal-content"
+            className={suitClass({element: 'content'})}
             onTouchStart={this._avoidOverscroll}
             onTouchMove={this._preventScrollIfNeeded}
             ref={node => {
               this.contentDOMEl = node
             }}
           >
-            {content}
+            {children}
           </div>
         </div>
       </div>
@@ -145,27 +159,55 @@ class MoleculeModal extends Component {
 }
 
 MoleculeModal.propTypes = {
+  /**
+   * true if you want to fit the content vertically, otherwise, false
+   */
   centerVertically: PropTypes.bool,
+  /**
+   * true if you want close the modal by clicking outside the modal itself, otherwise, false
+   */
   closeOnOutsideClick: PropTypes.bool,
-  content: PropTypes.element.isRequired,
+  /**
+   * true if you want to let the ESC key to close the modal, otherwise, false
+   */
+  closeOnEscKeyDown: PropTypes.bool,
+  /**
+   * The content of the modal itself
+   */
+  children: PropTypes.node,
+  /**
+   * true if you want to disable the scroll on current window, otherwise, false
+   */
   disableWindowScroll: PropTypes.bool,
+  /**
+   * true if you want a fullscreen modal, otherwise, false
+   */
   fitWindow: PropTypes.bool,
+  /**
+   * content of the modal's header
+   */
   header: PropTypes.element,
+  /**
+   * customitzable close icon
+   */
   iconClose: PropTypes.element.isRequired,
+  /**
+   * prop to mark if the modal is currently open or not
+   */
   open: PropTypes.bool,
-  textClose: PropTypes.string,
-  textCloseHidden: PropTypes.bool,
+  /**
+   * OnClose function handler
+   */
   onClose: PropTypes.func
 }
 
 MoleculeModal.defaultProps = {
   centerVertically: false,
   closeOnOutsideClick: false,
+  closeOnEscKeyDown: false,
   disableWindowScroll: true,
   fitWindow: false,
   open: false,
-  textClose: 'Close',
-  textCloseHidden: true,
   onClose: () => {}
 }
 

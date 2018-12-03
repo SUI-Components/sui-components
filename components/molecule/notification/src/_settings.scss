@@ -13,6 +13,14 @@ $notification-type-colors: (
   system: $c-system,
 ) !default;
 
+$notification-type-color-font: (
+  info: $c-white,
+  success: $c-white,
+  warning: $c-white,
+  error: $c-white,
+  system: $c-white,
+) !default;
+
 // Effects
 
 $notification-effect-slide-top-in: top .5s ease-out !default;

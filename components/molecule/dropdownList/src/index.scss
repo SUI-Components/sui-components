@@ -8,6 +8,10 @@ $h-dropdown-list--large: 300px !default;
 .sui-MoleculeDropdownList {
   overflow-y: scroll;
 
+  &--focus {
+    @extend %sui-atom-input-input-focus;
+  }
+
   &--small {
     max-height: $h-dropdown-list--small;
   }

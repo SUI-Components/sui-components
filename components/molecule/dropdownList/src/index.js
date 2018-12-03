@@ -49,16 +49,16 @@ class MoleculeDropdownList extends Component {
   handleKeyDown = e => {
     const items = this.refDropdownList.current.children
     const {key} = e
-    if (key !== 'Enter') {
-      if (key !== 'ArrowDown' || key !== 'ArrowUp') {
-        const currentElementFocused = document.activeElement
-        const index = Array.from(items).reduce((acc, option, index) => {
-          if (option === currentElementFocused) acc = index
-          return acc
-        }, 0)
-
-        if (key === 'ArrowDown') items[index + 1].focus()
-        if (key === 'ArrowUp') items[index - 1].focus()
+    if (key === 'ArrowDown' || key === 'ArrowUp') {
+      const currentElementFocused = document.activeElement
+      const index = Array.from(items).reduce((acc, option, index) => {
+        if (option === currentElementFocused) acc = index
+        return acc
+      }, 0)
+      if (index >= 0 || index <= items.length) {
+        if (key === 'ArrowDown' && index < items.length)
+          items[index + 1].focus()
+        if (key === 'ArrowUp' && index > 0) items[index - 1].focus()
       }
     }
   }

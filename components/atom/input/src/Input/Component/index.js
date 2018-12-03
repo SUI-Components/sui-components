@@ -67,7 +67,8 @@ class Input extends Component {
       errorState,
       type,
       value,
-      charsSize
+      charsSize,
+      tabIndex
     } = this.props
 
     return (
@@ -80,6 +81,7 @@ class Input extends Component {
           readOnly,
           errorState
         })}
+        tabIndex={tabIndex}
         checked={checked}
         disabled={disabled || readOnly}
         id={id}
@@ -136,12 +138,15 @@ Input.propTypes = {
   /* Will set a red/green border if set to true/false */
   errorState: PropTypes.bool,
   /** Wether to hide the input border or not */
-  noBorder: PropTypes.bool
+  noBorder: PropTypes.bool,
+  /** tabindex value */
+  tabIndex: PropTypes.number
 }
 
 Input.defaultProps = {
   size: SIZES.MEDIUM,
-  onEnterKey: 'Enter'
+  onEnterKey: 'Enter',
+  tabIndex: -1
 }
 
 export default Input

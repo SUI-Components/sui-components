@@ -38,8 +38,17 @@ const MoleculeDropdownOption = ({
     )
   }
 
+  const handleKeyDown = e => {
+    if (e.key === 'Enter' && !disabled) onClick(e, {value})
+  }
+
   return (
-    <div className={className} onClick={handleClick}>
+    <div
+      tabIndex="0"
+      className={className}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+    >
       {checkbox && (
         <AtomInput type="checkbox" checked={selected} disabled={disabled} />
       )}

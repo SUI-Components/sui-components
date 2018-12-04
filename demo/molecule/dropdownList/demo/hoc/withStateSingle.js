@@ -28,7 +28,7 @@ const withStateSingle = BaseComponent => {
         <div>
           <pre>{JSON.stringify(this.state)}</pre>
           <div className={CLASS_DEMO_LIST}>
-            <BaseComponent {...props} value={value} onSelect={onChange} />
+            <BaseComponent {...props} value={value} onChange={onChange} />
           </div>
         </div>
       )

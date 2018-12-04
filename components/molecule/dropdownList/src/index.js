@@ -4,7 +4,6 @@ import cx from 'classnames'
 
 const BASE_CLASS = `sui-MoleculeDropdownList`
 const CLASS_HIDDEN = `${BASE_CLASS}--hidden`
-const CLASS_FOCUS = `${BASE_CLASS}--focus`
 
 const SIZES = {
   SMALL: 'small',
@@ -13,10 +12,6 @@ const SIZES = {
 }
 
 class MoleculeDropdownList extends Component {
-  state = {
-    focus: false
-  }
-
   refDropdownList = React.createRef()
 
   get extendedChildren() {
@@ -39,10 +34,8 @@ class MoleculeDropdownList extends Component {
 
   get classNames() {
     const {size, visible} = this.props
-    const {focus} = this.state
     return cx(BASE_CLASS, `${BASE_CLASS}--${size}`, {
-      [CLASS_HIDDEN]: !visible,
-      [CLASS_FOCUS]: focus === true
+      [CLASS_HIDDEN]: !visible
     })
   }
 
@@ -63,31 +56,14 @@ class MoleculeDropdownList extends Component {
     }
   }
 
-  handleFocusIn = e => {
-    this.setState({focus: true})
-  }
-
-  handleFocusOut = e => {
-    this.setState({focus: false})
-  }
-
   render() {
-    const {
-      refDropdownList,
-      handleFocusIn,
-      handleFocusOut,
-      handleKeyDown,
-      classNames,
-      extendedChildren
-    } = this
+    const {refDropdownList, handleKeyDown, classNames, extendedChildren} = this
 
     return (
       <div
         ref={refDropdownList}
         tabIndex="0"
         onKeyDown={handleKeyDown}
-        onFocus={handleFocusIn}
-        onBlur={handleFocusOut}
         className={classNames}
       >
         {extendedChildren}

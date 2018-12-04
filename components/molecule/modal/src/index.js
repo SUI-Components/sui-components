@@ -4,18 +4,15 @@ import cx from 'classnames'
 import {SUPPORTED_KEYS} from './config'
 import {suitClass} from './helpers'
 
+const toggleWindowScroll = disableScroll => {
+  window.document.body.classList.toggle('is-modal-open', disableScroll)
+}
+
 class MoleculeModal extends Component {
-  constructor(...args) {
-    super(...args)
+  _contentRef = React.createRef()
+  _wrapperRef = React.createRef()
 
-    this.contentDOMEl = null
-    this.wrapperDOMEl = null
-    this.state = {
-      open: this.props.open
-    }
-  }
-
-  componentWillMount() {
+  componentDidMount() {
     document.addEventListener('keydown', this._onKeyDown)
   }
 
@@ -24,7 +21,7 @@ class MoleculeModal extends Component {
   }
 
   _onKeyDown = event => {
-    if (this.state.open === false || this.props.closeOnEscKeyDown === false)
+    if (this.props.open === false || this.props.closeOnEscKeyDown === false)
       return
     if (SUPPORTED_KEYS.includes(event.key)) {
       this._closeModal()
@@ -42,7 +39,7 @@ class MoleculeModal extends Component {
       offsetHeight,
       scrollTop,
       scrollHeight
-    } = this.contentDOMEl
+    } = this._contentRef.current
     const currentScroll = scrollTop + offsetHeight
     // check if the content has to scroll in order to prevent the default
     // behaviour of the touchmove in case we don't need the scroll
@@ -50,20 +47,15 @@ class MoleculeModal extends Component {
     this.noScroll = scrollHeight <= clientHeight
 
     if (scrollTop === 0) {
-      this.contentDOMEl.scrollTop = 1
+      this._contentRef.current.scrollTop = 1
     } else if (currentScroll >= scrollHeight) {
-      this.contentDOMEl.scrollTop = scrollTop - 1
+      this._contentRef.current.scrollTop = scrollTop - 1
     }
   }
 
   _closeModal = () => {
-    this._toggleWindowScroll(false)
-    this.setState({open: false})
+    toggleWindowScroll(false)
     this.props.onClose()
-  }
-
-  _toggleWindowScroll(disableScroll) {
-    window.document.body.classList.toggle('is-modal-open', disableScroll)
   }
 
   _handleCloseClick = () => {
@@ -71,7 +63,10 @@ class MoleculeModal extends Component {
   }
 
   _handleOutsideClick = event => {
-    if (this.props.closeOnOutsideClick && event.target === this.wrapperDOMEl) {
+    if (
+      this.props.closeOnOutsideClick &&
+      event.target === this._wrapperRef.current
+    ) {
       this._closeModal()
     }
   }
@@ -110,21 +105,11 @@ class MoleculeModal extends Component {
     )
   }
 
-  componentWillReceiveProps({open, disableWindowScroll}) {
-    if (open && disableWindowScroll) {
-      this._toggleWindowScroll(true)
-    }
-
-    if (open !== this.state.open) {
-      this.setState({open})
-    }
-  }
-
   render() {
     const {header, children} = this.props
 
     const wrapperClassName = cx(suitClass({}), {
-      'is-open': this.state.open,
+      'is-open': this.props.open,
       [suitClass({modifier: 'verticallyCentered'})]: this.props.centerVertically
     })
 
@@ -135,9 +120,7 @@ class MoleculeModal extends Component {
     return (
       <div
         className={wrapperClassName}
-        ref={node => {
-          this.wrapperDOMEl = node
-        }}
+        ref={this._wrapperRef}
         onClick={this._handleOutsideClick}
       >
         <div className={dialogClassName}>
@@ -146,9 +129,7 @@ class MoleculeModal extends Component {
             className={suitClass({element: 'content'})}
             onTouchStart={this._avoidOverscroll}
             onTouchMove={this._preventScrollIfNeeded}
-            ref={node => {
-              this.contentDOMEl = node
-            }}
+            ref={this._contentRef}
           >
             {children}
           </div>
@@ -176,10 +157,6 @@ MoleculeModal.propTypes = {
    */
   children: PropTypes.node,
   /**
-   * true if you want to disable the scroll on current window, otherwise, false
-   */
-  disableWindowScroll: PropTypes.bool,
-  /**
    * true if you want a fullscreen modal, otherwise, false
    */
   fitWindow: PropTypes.bool,
@@ -205,7 +182,6 @@ MoleculeModal.defaultProps = {
   centerVertically: false,
   closeOnOutsideClick: false,
   closeOnEscKeyDown: false,
-  disableWindowScroll: true,
   fitWindow: false,
   open: false,
   onClose: () => {}

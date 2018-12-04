@@ -2,7 +2,8 @@
 
 > Description
 
-<!-- ![](./assets/preview.png) -->
+Modal windows focus users' attention to inform them about a specific interaction. They may require users to make a decision or warn them when an error may have very significant consequences.
+
 
 ## Installation
 

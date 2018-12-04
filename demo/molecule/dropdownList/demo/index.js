@@ -45,7 +45,11 @@ const Demo = () => (
 
       <h3>Multi selection</h3>
 
-      <MoleculeDropdownOptionListWithStateMulti visible={isOpen} checkbox>
+      <MoleculeDropdownOptionListWithStateMulti
+        visible={isOpen}
+        checkbox
+        onEnterKey=" "
+      >
         {countries.map((option, index) => (
           <MoleculeDropdownOption value={option} key={index}>
             {option}

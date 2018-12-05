@@ -14,10 +14,6 @@ $h-dropdown-list--large: 300px !default;
     display: none;
   }
 
-  &--focus {
-    @extend %sui-atom-input-input-focus;
-  }
-
   &--small {
     max-height: $h-dropdown-list--small;
   }
@@ -28,5 +24,9 @@ $h-dropdown-list--large: 300px !default;
 
   &--large {
     max-height: $h-dropdown-list--large;
+  }
+
+  &:focus {
+    outline: none;
   }
 }

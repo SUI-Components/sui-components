@@ -21,7 +21,7 @@ class MoleculeModal extends Component {
   }
 
   _onKeyDown = event => {
-    if (this.props.open === false || this.props.closeOnEscKeyDown === false)
+    if (this.props.isOpen === false || this.props.closeOnEscKeyDown === false)
       return
     if (SUPPORTED_KEYS.includes(event.key)) {
       this._closeModal()
@@ -109,8 +109,7 @@ class MoleculeModal extends Component {
     const {header, children} = this.props
 
     const wrapperClassName = cx(suitClass({}), {
-      'is-open': this.props.open,
-      [suitClass({modifier: 'verticallyCentered'})]: this.props.centerVertically
+      'is-open': this.props.isOpen
     })
 
     const dialogClassName = cx(suitClass({element: 'dialog'}), {
@@ -141,10 +140,6 @@ class MoleculeModal extends Component {
 
 MoleculeModal.propTypes = {
   /**
-   * true if you want to fit the content vertically, otherwise, false
-   */
-  centerVertically: PropTypes.bool,
-  /**
    * true if you want close the modal by clicking outside the modal itself, otherwise, false
    */
   closeOnOutsideClick: PropTypes.bool,
@@ -171,7 +166,7 @@ MoleculeModal.propTypes = {
   /**
    * prop to mark if the modal is currently open or not
    */
-  open: PropTypes.bool,
+  isOpen: PropTypes.bool,
   /**
    * OnClose function handler
    */
@@ -179,11 +174,10 @@ MoleculeModal.propTypes = {
 }
 
 MoleculeModal.defaultProps = {
-  centerVertically: false,
   closeOnOutsideClick: false,
   closeOnEscKeyDown: false,
   fitWindow: false,
-  open: false,
+  isOpen: false,
   onClose: () => {}
 }
 

@@ -7,6 +7,7 @@ body.is-modal-open {
 
 .sui-MoleculeModal  {
   background-color: $bg-modal-basic;
+  align-items: center;
   bottom: 0;
   display: none;
   left: 0;
@@ -22,10 +23,6 @@ body.is-modal-open {
     justify-content: center;
     overflow-x: hidden;
     overflow-y: auto;
-  }
-
-  &--verticallyCentered {
-    align-items: center;
   }
 
   &-dialog {

@@ -6,8 +6,13 @@ $h-dropdown-list--large: 300px !default;
 
 
 .sui-MoleculeDropdownList {
-  border: $bdw-s dotted $c-gray;
+  border: $bdw-s solid color-variation($c-gray, 2);
+  box-shadow: $bxsh-l;
   overflow-y: scroll;
+
+  &.is-hidden {
+    display: none;
+  }
 
   &--focus {
     @extend %sui-atom-input-input-focus;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 const BASE_CLASS = `sui-MoleculeDropdownList`
-const CLASS_HIDDEN = `${BASE_CLASS}--hidden`
+const CLASS_HIDDEN = `is-hidden`
 
 const SIZES = {
   SMALL: 'small',
@@ -39,19 +39,24 @@ class MoleculeDropdownList extends Component {
     })
   }
 
-  handleKeyDown = e => {
-    const items = this.refDropdownList.current.children
-    const {key} = e
+  getFocusedOptionIndex = options => {
+    const currentElementFocused = document.activeElement
+    return Array.from(options).reduce((focusedOptionIndex, option, index) => {
+      if (option === currentElementFocused) focusedOptionIndex = index
+      return focusedOptionIndex
+    }, 0)
+  }
+
+  handleKeyDown = ({key}) => {
+    const {getFocusedOptionIndex, refDropdownList} = this
+    const options = refDropdownList.current.children
+    const numOptions = options.length
     if (key === 'ArrowDown' || key === 'ArrowUp') {
-      const currentElementFocused = document.activeElement
-      const index = Array.from(items).reduce((acc, option, index) => {
-        if (option === currentElementFocused) acc = index
-        return acc
-      }, 0)
-      if (index >= 0 || index <= items.length) {
-        if (key === 'ArrowDown' && index < items.length)
-          items[index + 1].focus()
-        if (key === 'ArrowUp' && index > 0) items[index - 1].focus()
+      const index = getFocusedOptionIndex(options)
+      if (index >= 0 || index <= numOptions) {
+        if (key === 'ArrowDown' && index < numOptions)
+          options[index + 1].focus()
+        if (key === 'ArrowUp' && index > 0) options[index - 1].focus()
       }
     }
   }

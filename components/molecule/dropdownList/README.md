@@ -1,6 +1,6 @@
 # MoleculeDropdownList
 
-`MoleculeDropdownList` is a component that wraps a composition of Checkbox + Text. 
+`MoleculeDropdownList` is a a composition of DropdownOptions
 
 ## Installation
 

@@ -17,7 +17,7 @@ class HighlightDropdownOptions extends Component {
     this.setState({selected})
   }
 
-  onChange = ({value: query}) => {
+  onChange = (ev, {value: query}) => {
     this.setState({query})
   }
 
@@ -36,7 +36,7 @@ class HighlightDropdownOptions extends Component {
             <MoleculeDropdownOption
               key={index}
               value={option}
-              onClick={this.handleSelection}
+              onSelect={this.handleSelection}
               selected={selected === option}
               highlightQuery={query}
             >

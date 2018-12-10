@@ -39,10 +39,10 @@ const MoleculeDropdownOption = ({
     )
   }
 
-  const handleKeyDown = e => {
-    if (e.key === onEnterKey && !disabled) {
-      e.preventDefault()
-      onSelect(e, {value})
+  const handleKeyDown = ev => {
+    if (ev.key === onEnterKey && !disabled) {
+      ev.preventDefault()
+      onSelect(ev, {value})
     }
   }
 

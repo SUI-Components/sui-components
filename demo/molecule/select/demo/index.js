@@ -12,8 +12,6 @@ import MoleculeSelect, {
 import {withStateValue} from '@s-ui/hoc'
 import './index.scss'
 
-console.log(withStateValue)
-
 const MoleculeSelectWithState = withStateValue(MoleculeSelect)
 
 const BASE_CLASS_DEMO = 'DemoMoleculeSelect'
@@ -30,8 +28,8 @@ const Demo = () => (
       <h3>Single selection</h3>
       <MoleculeSelectWithState
         options={countries}
-        onChange={console.log}
-        onSelect={console.log}
+        onChange={(_, {value}) => console.log(value)}
+        closeOnSelect
       />
     </div>
 

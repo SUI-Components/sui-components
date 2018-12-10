@@ -69,8 +69,6 @@ const MoleculeSelectFieldMultiSelection = props => {
 
 MoleculeSelectFieldMultiSelection.defaultProps = {
   value: [],
-  onChange: () => {},
-  onToggle: () => {},
   closeTagIcon: closeTagIcon
 }
 

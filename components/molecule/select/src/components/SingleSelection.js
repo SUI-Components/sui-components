@@ -14,7 +14,6 @@ const MoleculeSelectSingleSelection = props => {
   const {value, options, isOpen, onToggle, onChange, closeOnSelect} = props // eslint-disable-line react/prop-types
 
   const handleSelection = (ev, {value}) => {
-    console.log(ev, {value}) // eslint-disable-line
     onChange(ev, {value})
     closeOnSelect && onToggle(ev, {open: false})
   }
@@ -22,12 +21,11 @@ const MoleculeSelectSingleSelection = props => {
   return (
     <div className={BASE_CLASS}>
       <MoleculeInputSelect value={value} onClick={onToggle} />
-      <MoleculeDropdownList visible={isOpen}>
+      <MoleculeDropdownList visible={isOpen} onSelect={handleSelection}>
         {options.map((option, index) => (
           <MoleculeDropdownListOption
             value={option}
             key={index}
-            onClick={handleSelection}
             selected={value === option}
           >
             {option}
@@ -39,9 +37,7 @@ const MoleculeSelectSingleSelection = props => {
 }
 
 MoleculeSelectSingleSelection.defaultProps = {
-  value: '',
-  onChange: () => {},
-  onToggle: () => {}
+  value: ''
 }
 
 export default WithOpenToggle(MoleculeSelectSingleSelection)

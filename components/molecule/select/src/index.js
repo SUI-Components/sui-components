@@ -38,5 +38,10 @@ MoleculeSelect.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZES))
 }
 
+MoleculeSelectSingleSelection.defaultProps = {
+  onChange: () => {},
+  onToggle: () => {}
+}
+
 export default MoleculeSelect
 export {SIZES as moleculeSelectDropdownListSizes}

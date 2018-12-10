@@ -1,7 +1,20 @@
-@import '~@schibstedspain/sui-theme/lib/index';
-@import '~@s-ui/react-atom-input/lib/index';
-@import '~@s-ui/react-molecule-input-tags/lib/index';
-@import '~@s-ui/react-molecule-dropdown-option/lib/index';
-@import '~@s-ui/react-molecule-dropdown-list/lib/index';
+@import "~@schibstedspain/sui-theme/lib/index";
+@import "~@s-ui/react-atom-input/lib/index";
+@import "~@s-ui/react-molecule-input-tags/lib/index";
+@import "~@s-ui/react-molecule-dropdown-option/lib/index";
+@import "~@s-ui/react-molecule-dropdown-list/lib/index";
 
-/* .sui-MoleculeSelect { // Do your magic } */
+$z-select-list: $z-navigation !default;
+
+.sui-MoleculeSelect {
+  position: relative;
+
+  .sui-MoleculeDropdownList {
+    position: absolute;
+    z-index: $z-select-list;
+  }
+}
+
+// .sui-AtomInput-input--readOnly[disabled] {
+//   background: #fff;
+// }

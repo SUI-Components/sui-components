@@ -10,12 +10,13 @@ export default BaseComponent => {
       const {onClick, ...props} = this.props // eslint-disable-line
 
       return (
-        <div style={{position: 'relative'}}>
-          <BaseComponent {...props} />
+        <div
+          style={{position: 'relative', cursor: 'pointer'}}
+          onClick={onClick}
+        >
+          <BaseComponent {...props} readOnly />
           <span
-            onClick={onClick}
             style={{
-              cursor: 'pointer',
               position: 'absolute',
               top: '10px',
               right: '10px'

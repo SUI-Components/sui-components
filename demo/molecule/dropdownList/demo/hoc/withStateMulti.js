@@ -12,27 +12,27 @@ const withStateSingle = BaseComponent => {
     }
 
     static defaultProps = {
-      onChange: () => {},
+      onSelect: () => {},
       value: []
     }
 
-    onChange = (e, {value}) => {
-      const {onChange} = this.props
+    handleSelect = (e, {value}) => {
+      const {onSelect} = this.props
       const newValues = this.state.value.includes(value)
         ? this.state.value.filter(v => v !== value)
         : [...this.state.value, value]
 
-      this.setState({value: newValues}, () => onChange(e, {value}))
+      this.setState({value: newValues}, () => onSelect(e, {value}))
     }
 
     render() {
       const {value} = this.state
-      const {onChange, props} = this
+      const {handleSelect, props} = this
       return (
         <div>
           <pre>{JSON.stringify(this.state)}</pre>
           <div className={CLASS_DEMO_LIST}>
-            <BaseComponent {...props} value={value} onChange={onChange} />
+            <BaseComponent {...props} value={value} onSelect={handleSelect} />
           </div>
         </div>
       )

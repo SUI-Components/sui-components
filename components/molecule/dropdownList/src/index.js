@@ -15,7 +15,7 @@ class MoleculeDropdownList extends Component {
   refDropdownList = React.createRef()
 
   get extendedChildren() {
-    const {children, value, size, visible, onChange, ...props} = this.props
+    const {children, value, size, visible, onSelect, ...props} = this.props
     return React.Children.toArray(children)
       .filter(Boolean)
       .map((child, index) => {
@@ -26,7 +26,7 @@ class MoleculeDropdownList extends Component {
         return React.cloneElement(child, {
           ...props,
           index,
-          onClick: onChange,
+          onSelect,
           selected
         })
       })
@@ -93,12 +93,12 @@ MoleculeDropdownList.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZES)),
 
   /** callback on select option */
-  onChange: PropTypes.func
+  onSelect: PropTypes.func
 }
 
 MoleculeDropdownList.defaultProps = {
   size: SIZES.SMALL,
-  onChange: () => {}
+  onSelect: () => {}
 }
 
 export default MoleculeDropdownList

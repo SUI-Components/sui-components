@@ -1,0 +1,30 @@
+$bg-molecule-modal: $c-black !default;
+$op-molecule-modal: 0.6 !default;
+$z-molecule-modal: $z-modal !default;
+
+$bg-moleule-modal-dialog: $c-white !default;
+$bd-moleule-modal-dialog: 0 !default;
+$bxsh-molecule-modal-dialog: $bxsh-m !default;
+$m-molecule-modal-dialog: $m-xl !default;
+$maw-molecule-modal-dialog: 600px !default;
+$maw-molecule-modal-dialog--full: 1200px !default;
+$miw-molecule-modal-dialog: 288px !default;
+
+$bg-molecule-modal-header: transparent !default;
+$bd-molecule-modal-header: 1px solid $c-gray-light !default;
+$c-molecule-modal-header: inherit !default;
+$pt-molecule-modal-header: $p-l !default;
+$pb-molecule-modal-header: $pt-molecule-modal-header !default;
+$pr-molecule-modal-header: $p-xl !default;
+$pl-molecule-modal-header: $pr-molecule-modal-header !default;
+
+
+$c-molecule-modal-icon: $c-black !default;
+$h-molecule-modal-icon: 16px !default;
+$w-molecule-modal-icon: $h-molecule-modal-icon !default;
+
+$pt-molecule-modal-content: $p-l !default;
+$pb-molecule-modal-content: $pt-molecule-modal-content !default;
+$pr-molecule-modal-content: $p-xl !default;
+$pl-molecule-modal-content: $pr-molecule-modal-content !default;
+

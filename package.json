@@ -27,9 +27,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@s-ui/deploy": "2",
+    "@s-ui/deploy": "^2.9.0",
     "@s-ui/precommit": "2",
-    "@s-ui/studio": "5",
+    "@s-ui/studio": "^5.18.0",
     "husky": "0.13.4",
     "validate-commit-msg": "2.12.2"
   },

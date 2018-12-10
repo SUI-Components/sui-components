@@ -5,7 +5,7 @@ import {SUPPORTED_KEYS} from './config'
 import {suitClass} from './helpers'
 
 const toggleWindowScroll = disableScroll => {
-  window.document.body.classList.toggle('is-modal-open', disableScroll)
+  window.document.body.classList.toggle('is-MoleculeModal-open', disableScroll)
 }
 
 class MoleculeModal extends Component {
@@ -109,7 +109,7 @@ class MoleculeModal extends Component {
     const {header, children} = this.props
 
     const wrapperClassName = cx(suitClass({}), {
-      'is-open': this.props.isOpen
+      'is-MoleculeModal-open': this.props.isOpen
     })
 
     const dialogClassName = cx(suitClass({element: 'dialog'}), {

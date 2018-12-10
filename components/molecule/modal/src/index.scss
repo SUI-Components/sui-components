@@ -1,13 +1,13 @@
-@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/sui-theme/lib/index';
+@import './settings';
 
-body.is-modal-open {
+body.is-MoleculeModal-open {
   overflow-y: hidden;
 }
 
 .sui-MoleculeModal  {
-  background-color: $bg-modal-basic;
   align-items: center;
+  background-color: rgba($bg-molecule-modal, $op-molecule-modal);
   bottom: 0;
   display: none;
   left: 0;
@@ -16,9 +16,9 @@ body.is-modal-open {
   text-align: center;
   top: 0;
   white-space: nowrap;
-  z-index: $z-modal-basic;
+  z-index: $z-molecule-modal;
 
-  &.is-open {
+  &.is-MoleculeModal-open {
     display: flex;
     justify-content: center;
     overflow-x: hidden;
@@ -26,48 +26,50 @@ body.is-modal-open {
   }
 
   &-dialog {
-    background-color: $bg-modal-basic-dialog;
-    border: $bd-modal-basic;
-    box-shadow: $bxsh-modal-basic;
+    background-color: $bg-moleule-modal-dialog;
+    border: $bd-moleule-modal-dialog;
+    box-shadow: $bxsh-molecule-modal-dialog;
     display: flex;
     flex-direction: column;
-    margin: $m-modal-basic;
-    max-height: 100%;
+    height: 100%;
+    margin: 0;
+    min-width: $miw-molecule-modal-dialog;
     text-align: left;
     vertical-align: middle;
     white-space: normal;
 
-    @include media-breakpoint-down(s) {
-      &--full {
-        height: 100%;
-        margin: 0;
-        width: 100%;
-      }
+    @include media-breakpoint-up(xs) {
+      height: auto;
+      margin: $m-molecule-modal-dialog;
+      max-height: calc(100% - #{$m-molecule-modal-dialog}*2);
+      max-width: $maw-molecule-modal-dialog;
     }
-    @include media-breakpoint-up(m) {
-      max-width: $maw-modal-basic;
-      width: $w-modal-basic;
+
+    &--full {      
+      @include media-breakpoint-up(xs) {
+        max-width: $maw-molecule-modal-dialog--full;
+      }
     }
   }
 
   &-header {
     align-items: center;
-    background-color: $bg-modal-basic-header;
-    color: $c-modal-basic-header;
-    border-bottom: $bd-modal-basic-content;
+    background-color: $bg-molecule-modal-header;
+    border-bottom: $bd-molecule-modal-header;
+    color: $c-molecule-modal-header;
     display: flex;
     flex: 0 0 auto;
-    font-weight: $fw-regular;
     font-size: $fz-xl;
+    font-weight: $fw-regular;
     justify-content: space-between;
-    padding: 0 ($p-modal-basic-header / 2) 0 $p-modal-basic-header;
+    padding: $pt-molecule-modal-header $pr-molecule-modal-header $pb-molecule-modal-header $pl-molecule-modal-header;
     position: relative;
   }
 
-  &-no--header {
+  &-no-header {
     align-items: center;
     display: flex;
-    padding: 0 ($p-modal-basic-header / 2) 0 $p-modal-basic-header;
+    padding: 0;
     position: relative;
   }
 
@@ -76,12 +78,12 @@ body.is-modal-open {
     border: 0;
     cursor: pointer;
     display: flex;
-    padding: $p-modal-basic ($p-modal-basic / 2) $p-modal-basic $p-modal-basic;
+    padding: $pt-molecule-modal-header $pr-molecule-modal-header $pb-molecule-modal-header $pl-molecule-modal-header;
 
     &Icon {
-      fill: $c-modal-basic-icon !important;
-      height: $h-modal-basic-icon;
-      width: $w-modal-basic-icon;
+      fill: $c-molecule-modal-icon;
+      height: $h-molecule-modal-icon;
+      width: $w-molecule-modal-icon;
     }
 
     &TextHidden {
@@ -100,7 +102,7 @@ body.is-modal-open {
     -webkit-overflow-scrolling: touch;
     flex: 1 1 auto;
     overflow-y: auto;
-    padding: $p-modal-basic-content $p-modal-basic;
+    padding: $pt-molecule-modal-content $pr-molecule-modal-content $pb-molecule-modal-content $pl-molecule-modal-content;
     position: relative;
   }
 }

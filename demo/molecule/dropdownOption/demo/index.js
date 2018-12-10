@@ -64,6 +64,32 @@ const Demo = () => (
           Indiana Jones
         </MoleculeDropdownOption>
       </div>
+
+      <h3>With callback (click & enter)</h3>
+      <div className={CLASS_DEMO_OPTION}>
+        <MoleculeDropdownOption
+          value="Indiana Jones"
+          checkbox
+          onClick={(e, {value}) => {
+            window.alert(value)
+          }}
+        >
+          Indiana Jones
+        </MoleculeDropdownOption>
+      </div>
+      <h3>With callback (click & space)</h3>
+      <div className={CLASS_DEMO_OPTION}>
+        <MoleculeDropdownOption
+          value="Indiana Jones"
+          checkbox
+          onEnterKey=" "
+          onClick={(e, {value}) => {
+            window.alert(value)
+          }}
+        >
+          Indiana Jones
+        </MoleculeDropdownOption>
+      </div>
       <h3>With some HTML as children</h3>
       <div className={CLASS_DEMO_OPTION}>
         <MoleculeDropdownOption value="sparta" checkbox selected>

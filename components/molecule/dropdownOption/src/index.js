@@ -16,6 +16,7 @@ const MoleculeDropdownOption = ({
   checkbox,
   disabled,
   highlightQuery,
+  onEnterKey,
   onSelect,
   value
 }) => {
@@ -38,8 +39,11 @@ const MoleculeDropdownOption = ({
     )
   }
 
-  const handleKeyDown = e => {
-    if (e.key === 'Enter' && !disabled) onSelect(e, {value})
+  const handleKeyDown = ev => {
+    if (ev.key === onEnterKey && !disabled) {
+      ev.preventDefault()
+      onSelect(ev, {value})
+    }
   }
 
   return (
@@ -86,14 +90,18 @@ MoleculeDropdownOption.propTypes = {
   selected: PropTypes.bool,
 
   /** Text to be highlighted in the option text if found */
-  highlightQuery: PropTypes.string
+  highlightQuery: PropTypes.string,
+
+  /* key to provoke the onClick callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values */
+  onEnterKey: PropTypes.string
 }
 
 MoleculeDropdownOption.defaultProps = {
   checkbox: false,
   disabled: false,
   onSelect: () => {},
-  selected: false
+  selected: false,
+  onEnterKey: 'Enter'
 }
 
 export default MoleculeDropdownOption

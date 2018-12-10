@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2018-12-10)
+
+
+### Features
+
+* onSelect ([64b61bf](https://github.com/SUI-Components/sui-components/commit/64b61bf))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2018-12-05)
 

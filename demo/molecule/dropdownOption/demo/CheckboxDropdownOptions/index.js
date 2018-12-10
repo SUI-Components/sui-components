@@ -34,7 +34,7 @@ class CheckboxDropdownOptions extends Component {
             <MoleculeDropdownOption
               key={index}
               value={option}
-              onClick={this.handleSelection}
+              onSelect={this.handleSelection}
               selected={selected.includes(option)}
               checkbox
             >

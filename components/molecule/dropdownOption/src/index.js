@@ -16,7 +16,7 @@ const MoleculeDropdownOption = ({
   checkbox,
   disabled,
   highlightQuery,
-  onClick,
+  onSelect,
   value
 }) => {
   const className = cx(BASE_CLASS, {
@@ -26,7 +26,7 @@ const MoleculeDropdownOption = ({
   })
 
   const handleClick = ev => {
-    if (!disabled) onClick(ev, {value})
+    if (!disabled) onSelect(ev, {value})
   }
 
   const highlightOption = option => {
@@ -39,7 +39,7 @@ const MoleculeDropdownOption = ({
   }
 
   const handleKeyDown = e => {
-    if (e.key === 'Enter' && !disabled) onClick(e, {value})
+    if (e.key === 'Enter' && !disabled) onSelect(e, {value})
   }
 
   return (
@@ -79,8 +79,8 @@ MoleculeDropdownOption.propTypes = {
   /** Is disabled */
   disabled: PropTypes.bool,
 
-  /** onClick callback (ev, {value}) */
-  onClick: PropTypes.func,
+  /** onSelect callback (ev, {value}) */
+  onSelect: PropTypes.func,
 
   /** Is initial selected */
   selected: PropTypes.bool,
@@ -92,7 +92,7 @@ MoleculeDropdownOption.propTypes = {
 MoleculeDropdownOption.defaultProps = {
   checkbox: false,
   disabled: false,
-  onClick: () => {},
+  onSelect: () => {},
   selected: false
 }
 

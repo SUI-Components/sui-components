@@ -50,7 +50,7 @@ $base-class: '.sui-MoleculeNotification';
 
   // Type
   @each $key, $value in $notification-type-colors {
-    $color: map-get($notification-type-color-font, $key);
+    $color: map-get($notification-type-font-colors, $key);
 
     &--#{$key} {
       background-color: #{$value};

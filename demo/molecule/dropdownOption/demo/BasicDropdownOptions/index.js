@@ -25,7 +25,7 @@ class BasicDropdownOptions extends Component {
             <MoleculeDropdownOption
               key={index}
               value={option}
-              onClick={this.handleSelection}
+              onSelect={this.handleSelection}
               selected={selected === option}
             >
               {option}

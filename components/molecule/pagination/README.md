@@ -17,9 +17,9 @@ const prevButtonIcon = () => <span>&lt;</span>
 const nextButtonIcon = () => <span>&gt;</span>
 const prevButtonText = 'Anterior'
 const nextButtonText = 'Siguiente'
-const onClickNext = (e, {page}) => { console.log({e, page}) }
-const onClickPrev = (e, {page}) => { console.log({e, page}) }
-const onClickPage = (e, {page}) => { console.log({e, page}) }
+const onSelectNext = (e, {page}) => { console.log({e, page}) }
+const onSelectPrev = (e, {page}) => { console.log({e, page}) }
+const onSelectPage = (e, {page}) => { console.log({e, page}) }
 ```
 
 ### Basic usage
@@ -56,9 +56,9 @@ const onClickPage = (e, {page}) => { console.log({e, page}) }
   nextButtonIcon={nextButtonIcon}
   prevButtonText={prevButtonText} 
   nextButtonText={nextButtonText}
-  onClickNext={onClickNext} 
-  onClickPrev={onClickPrev} 
-  onClickPage={onClickPage}
+  onSelectNext={onSelectNext} 
+  onSelectPrev={onSelectPrev} 
+  onSelectPage={onSelectPage}
 />
 ```
 

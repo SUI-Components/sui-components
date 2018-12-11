@@ -5,7 +5,6 @@
 $base-class: '.sui-MoleculeNotification';
 
 #{$base-class} {
-  color: $c-white;
   max-height: $mh-notification;
 
   &-content {
@@ -28,7 +27,6 @@ $base-class: '.sui-MoleculeNotification';
 
   &-icon {
     svg {
-      fill: $c-white !important;
       height: $sz-notification-icon;
       width: $sz-notification-icon;
     }
@@ -52,8 +50,15 @@ $base-class: '.sui-MoleculeNotification';
 
   // Type
   @each $key, $value in $notification-type-colors {
+    $color: map-get($notification-type-font-colors, $key);
+
     &--#{$key} {
       background-color: #{$value};
+      color: $color;
+
+      svg {
+        fill: $color !important;
+      }
     }
   }
 

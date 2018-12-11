@@ -92,14 +92,16 @@ class MoleculeModal extends Component {
         onClick={this._handleOutsideClick}
       >
         <div className={dialogClassName}>
-          <HeaderRender
-            close={
-              iconClose && (
-                <Close icon={iconClose} onClick={this._handleCloseClick} />
-              )
-            }
-            header={header}
-          />
+          {(iconClose || header) && (
+            <HeaderRender
+              close={
+                iconClose && (
+                  <Close icon={iconClose} onClick={this._handleCloseClick} />
+                )
+              }
+              header={header}
+            />
+          )}
           <div
             className={suitClass({element: 'content'})}
             onTouchStart={this._avoidOverscroll}

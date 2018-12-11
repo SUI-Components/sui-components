@@ -26,8 +26,8 @@ body.is-MoleculeModal-open {
   }
 
   &-dialog {
-    background-color: $bg-moleule-modal-dialog;
-    border: $bd-moleule-modal-dialog;
+    background-color: $bg-molecule-modal-dialog;
+    border: $bd-molecule-modal-dialog;
     box-shadow: $bxsh-molecule-modal-dialog;
     display: flex;
     flex-direction: column;
@@ -39,6 +39,7 @@ body.is-MoleculeModal-open {
     white-space: normal;
 
     @include media-breakpoint-up(xs) {
+      border-radius: $bdrs-molecule-modal-dialog;
       height: auto;
       margin: $m-molecule-modal-dialog;
       max-height: calc(100% - #{$m-molecule-modal-dialog}*2);
@@ -69,7 +70,8 @@ body.is-MoleculeModal-open {
   &-no-header {
     align-items: center;
     display: flex;
-    padding: 0;
+    justify-content: end;
+    padding: $pt-molecule-modal-no-header $pr-molecule-modal-no-header $pb-molecule-modal-no-header $pl-molecule-modal-no-header;
     position: relative;
   }
 
@@ -78,7 +80,7 @@ body.is-MoleculeModal-open {
     border: 0;
     cursor: pointer;
     display: flex;
-    padding: $pt-molecule-modal-header $pr-molecule-modal-header $pb-molecule-modal-header $pl-molecule-modal-header;
+    padding: $pt-molecule-modal-icon $pl-molecule-modal-icon $pb-molecule-modal-icon $pr-molecule-modal-icon;
 
     &Icon {
       fill: $c-molecule-modal-icon;

@@ -1,4 +1,36 @@
-const IconClose = () => <span>X</span>
+const IconClose = () => (<svg xmlnsXlink="http://www.w3.org/1999/xlink" width={24} height={24}>
+    <defs>
+      <path
+        id="a"
+        d="M13.42 12l4.79-4.8a1 1 0 0 0-1.41-1.41L12 10.58 7.21 5.79A1 1 0 0 0 5.8 7.2l4.79 4.8-4.79 4.79a1 1 0 1 0 1.41 1.41L12 13.41l4.8 4.79a1 1 0 0 0 1.41-1.41L13.42 12z"
+      />
+    </defs>
+    <g fill="none" fillRule="evenodd">
+      <path d="M0 0h24v24H0z" />
+      <mask id="b" fill="#fff">
+        <use xlinkHref="#a" />
+      </mask>
+      <use fill="#666" fillRule="nonzero" xlinkHref="#a" />
+      <g fill="#777" mask="url(#b)">
+        <path d="M0 0h24v24H0z" />
+      </g>
+    </g>
+  </svg>)
+const LoremIpsumParagraph = () => <p>
+                Cras vitae consectetur dui. Nullam quis arcu id ligula rhoncus
+                faucibus et eget odio. Etiam vulputate fringilla nibh sed
+                sodales. Phasellus facilisis dignissim aliquet. Vestibulum ante
+                ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                Curae; Quisque feugiat vehicula odio at venenatis. Integer
+                rhoncus tortor sed auctor laoreet. Aliquam ac vulputate urna.
+                Suspendisse felis eros, maximus eget urna vitae, pellentesque
+                pretium odio. Duis mi arcu, laoreet sit amet pulvinar ac, congue
+                quis turpis. Cras rutrum leo ac massa malesuada, quis vestibulum
+                lorem convallis. Fusce eget tellus euismod, fringilla nulla
+                ornare, blandit purus. Nam orci lacus, faucibus at nisi id,
+                auctor molestie nunc. Nulla a porta quam. Donec vel iaculis
+                nibh.
+              </p>
 class ScrollModal extends React.Component {
   constructor(props) {
     super(props)
@@ -35,99 +67,8 @@ class ScrollModal extends React.Component {
           onClose={this.closeModal}
         >
           <div>
-              <p>
-                Cras vitae consectetur dui. Nullam quis arcu id ligula rhoncus
-                faucibus et eget odio. Etiam vulputate fringilla nibh sed
-                sodales. Phasellus facilisis dignissim aliquet. Vestibulum ante
-                ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                Curae; Quisque feugiat vehicula odio at venenatis. Integer
-                rhoncus tortor sed auctor laoreet. Aliquam ac vulputate urna.
-                Suspendisse felis eros, maximus eget urna vitae, pellentesque
-                pretium odio. Duis mi arcu, laoreet sit amet pulvinar ac, congue
-                quis turpis. Cras rutrum leo ac massa malesuada, quis vestibulum
-                lorem convallis. Fusce eget tellus euismod, fringilla nulla
-                ornare, blandit purus. Nam orci lacus, faucibus at nisi id,
-                auctor molestie nunc. Nulla a porta quam. Donec vel iaculis
-                nibh.
-              </p>
-              <p>
-                Ut maximus fermentum mollis. Phasellus tincidunt nunc sem, eu
-                efficitur nunc porta ut. Suspendisse aliquam odio ex, in
-                facilisis turpis dictum quis. Morbi a venenatis ante, at
-                imperdiet neque. Nullam eu risus dignissim, semper nunc in,
-                sodales nibh. Sed tempus sapien id libero vulputate, at
-                vestibulum tellus tempor. Aenean ornare massa et semper porta.
-              </p>
-              <p>
-                Cras vitae consectetur dui. Nullam quis arcu id ligula rhoncus
-                faucibus et eget odio. Etiam vulputate fringilla nibh sed
-                sodales. Phasellus facilisis dignissim aliquet. Vestibulum ante
-                ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                Curae; Quisque feugiat vehicula odio at venenatis. Integer
-                rhoncus tortor sed auctor laoreet. Aliquam ac vulputate urna.
-                Suspendisse felis eros, maximus eget urna vitae, pellentesque
-                pretium odio. Duis mi arcu, laoreet sit amet pulvinar ac, congue
-                quis turpis. Cras rutrum leo ac massa malesuada, quis vestibulum
-                lorem convallis. Fusce eget tellus euismod, fringilla nulla
-                ornare, blandit purus. Nam orci lacus, faucibus at nisi id,
-                auctor molestie nunc. Nulla a porta quam. Donec vel iaculis
-                nibh.
-              </p>
-              <p>
-                Ut maximus fermentum mollis. Phasellus tincidunt nunc sem, eu
-                efficitur nunc porta ut. Suspendisse aliquam odio ex, in
-                facilisis turpis dictum quis. Morbi a venenatis ante, at
-                imperdiet neque. Nullam eu risus dignissim, semper nunc in,
-                sodales nibh. Sed tempus sapien id libero vulputate, at
-                vestibulum tellus tempor. Aenean ornare massa et semper porta.
-              </p>
-              <p>
-                Cras vitae consectetur dui. Nullam quis arcu id ligula rhoncus
-                faucibus et eget odio. Etiam vulputate fringilla nibh sed
-                sodales. Phasellus facilisis dignissim aliquet. Vestibulum ante
-                ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                Curae; Quisque feugiat vehicula odio at venenatis. Integer
-                rhoncus tortor sed auctor laoreet. Aliquam ac vulputate urna.
-                Suspendisse felis eros, maximus eget urna vitae, pellentesque
-                pretium odio. Duis mi arcu, laoreet sit amet pulvinar ac, congue
-                quis turpis. Cras rutrum leo ac massa malesuada, quis vestibulum
-                lorem convallis. Fusce eget tellus euismod, fringilla nulla
-                ornare, blandit purus. Nam orci lacus, faucibus at nisi id,
-                auctor molestie nunc. Nulla a porta quam. Donec vel iaculis
-                nibh.
-              </p>
-              <p>
-                Ut maximus fermentum mollis. Phasellus tincidunt nunc sem, eu
-                efficitur nunc porta ut. Suspendisse aliquam odio ex, in
-                facilisis turpis dictum quis. Morbi a venenatis ante, at
-                imperdiet neque. Nullam eu risus dignissim, semper nunc in,
-                sodales nibh. Sed tempus sapien id libero vulputate, at
-                vestibulum tellus tempor. Aenean ornare massa et semper porta.
-              </p>
-              <p>
-                Cras vitae consectetur dui. Nullam quis arcu id ligula rhoncus
-                faucibus et eget odio. Etiam vulputate fringilla nibh sed
-                sodales. Phasellus facilisis dignissim aliquet. Vestibulum ante
-                ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                Curae; Quisque feugiat vehicula odio at venenatis. Integer
-                rhoncus tortor sed auctor laoreet. Aliquam ac vulputate urna.
-                Suspendisse felis eros, maximus eget urna vitae, pellentesque
-                pretium odio. Duis mi arcu, laoreet sit amet pulvinar ac, congue
-                quis turpis. Cras rutrum leo ac massa malesuada, quis vestibulum
-                lorem convallis. Fusce eget tellus euismod, fringilla nulla
-                ornare, blandit purus. Nam orci lacus, faucibus at nisi id,
-                auctor molestie nunc. Nulla a porta quam. Donec vel iaculis
-                nibh.
-              </p>
-              <p>
-                Ut maximus fermentum mollis. Phasellus tincidunt nunc sem, eu
-                efficitur nunc porta ut. Suspendisse aliquam odio ex, in
-                facilisis turpis dictum quis. Morbi a venenatis ante, at
-                imperdiet neque. Nullam eu risus dignissim, semper nunc in,
-                sodales nibh. Sed tempus sapien id libero vulputate, at
-                vestibulum tellus tempor. Aenean ornare massa et semper porta.
-              </p>
-            </div>
+            {[...Array(24).keys()].map((index) => (<LoremIpsumParagraph key={index}/>))}
+          </div>
         </MoleculeModal>
       </div>
     )
@@ -170,22 +111,8 @@ class NoScrollModal extends React.Component {
           onClose={this.closeModal}
         >
           <div>
-              <p>
-                Cras vitae consectetur dui. Nullam quis arcu id ligula rhoncus
-                faucibus et eget odio. Etiam vulputate fringilla nibh sed
-                sodales. Phasellus facilisis dignissim aliquet. Vestibulum ante
-                ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                Curae; Quisque feugiat vehicula odio at venenatis. Integer
-                rhoncus tortor sed auctor laoreet. Aliquam ac vulputate urna.
-                Suspendisse felis eros, maximus eget urna vitae, pellentesque
-                pretium odio. Duis mi arcu, laoreet sit amet pulvinar ac, congue
-                quis turpis. Cras rutrum leo ac massa malesuada, quis vestibulum
-                lorem convallis. Fusce eget tellus euismod, fringilla nulla
-                ornare, blandit purus. Nam orci lacus, faucibus at nisi id,
-                auctor molestie nunc. Nulla a porta quam. Donec vel iaculis
-                nibh.
-              </p>
-            </div>
+            <LoremIpsumParagraph/>
+          </div>
         </MoleculeModal>
       </div>
     )
@@ -227,22 +154,8 @@ class NoHeaderModal extends React.Component {
           onClose={this.closeModal}
         >
           <div>
-              <p>
-                Cras vitae consectetur dui. Nullam quis arcu id ligula rhoncus
-                faucibus et eget odio. Etiam vulputate fringilla nibh sed
-                sodales. Phasellus facilisis dignissim aliquet. Vestibulum ante
-                ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                Curae; Quisque feugiat vehicula odio at venenatis. Integer
-                rhoncus tortor sed auctor laoreet. Aliquam ac vulputate urna.
-                Suspendisse felis eros, maximus eget urna vitae, pellentesque
-                pretium odio. Duis mi arcu, laoreet sit amet pulvinar ac, congue
-                quis turpis. Cras rutrum leo ac massa malesuada, quis vestibulum
-                lorem convallis. Fusce eget tellus euismod, fringilla nulla
-                ornare, blandit purus. Nam orci lacus, faucibus at nisi id,
-                auctor molestie nunc. Nulla a porta quam. Donec vel iaculis
-                nibh.
-              </p>
-            </div>
+            <LoremIpsumParagraph/>
+          </div>
         </MoleculeModal>
       </div>
     )
@@ -284,22 +197,8 @@ class NoFullScreenModal extends React.Component {
           onClose={this.closeModal}
         >
           <div>
-              <p>
-                Cras vitae consectetur dui. Nullam quis arcu id ligula rhoncus
-                faucibus et eget odio. Etiam vulputate fringilla nibh sed
-                sodales. Phasellus facilisis dignissim aliquet. Vestibulum ante
-                ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                Curae; Quisque feugiat vehicula odio at venenatis. Integer
-                rhoncus tortor sed auctor laoreet. Aliquam ac vulputate urna.
-                Suspendisse felis eros, maximus eget urna vitae, pellentesque
-                pretium odio. Duis mi arcu, laoreet sit amet pulvinar ac, congue
-                quis turpis. Cras rutrum leo ac massa malesuada, quis vestibulum
-                lorem convallis. Fusce eget tellus euismod, fringilla nulla
-                ornare, blandit purus. Nam orci lacus, faucibus at nisi id,
-                auctor molestie nunc. Nulla a porta quam. Donec vel iaculis
-                nibh.
-              </p>
-            </div>
+            <LoremIpsumParagraph/>
+          </div>
         </MoleculeModal>
       </div>
     )

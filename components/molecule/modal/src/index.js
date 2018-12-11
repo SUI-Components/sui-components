@@ -3,6 +3,8 @@ import React, {Component} from 'react'
 import cx from 'classnames'
 import {SUPPORTED_KEYS} from './config'
 import {suitClass} from './helpers'
+import {Close} from './Close'
+import {HeaderRender} from './HeaderRender'
 
 const toggleWindowScroll = disableScroll => {
   window.document.body.classList.toggle('is-MoleculeModal-open', disableScroll)
@@ -17,6 +19,7 @@ class MoleculeModal extends Component {
   }
 
   componentWillUnmount() {
+    toggleWindowScroll(false)
     document.removeEventListener('keydown', this._onKeyDown)
   }
 
@@ -71,45 +74,11 @@ class MoleculeModal extends Component {
     }
   }
 
-  _renderCloseIcon = () => {
-    const {iconClose} = this.props
-    return (
-      <button
-        type="button"
-        className={suitClass({element: 'close'})}
-        onClick={this._handleCloseClick}
-      >
-        {iconClose}
-      </button>
-    )
-  }
-
-  _renderHeader = () => {
-    const {header} = this.props
-    return (
-      <div
-        className={suitClass({element: 'header'})}
-        onTouchMove={e => e.preventDefault()}
-      >
-        {header}
-        {this._renderCloseIcon()}
-      </div>
-    )
-  }
-
-  _renderNoHeader = () => {
-    return (
-      <div className={suitClass({element: 'no-header'})}>
-        {this._renderCloseIcon()}
-      </div>
-    )
-  }
-
   render() {
-    const {header, children} = this.props
-
+    const {header, children, iconClose, isOpen} = this.props
+    toggleWindowScroll(isOpen)
     const wrapperClassName = cx(suitClass({}), {
-      'is-MoleculeModal-open': this.props.isOpen
+      'is-MoleculeModal-open': isOpen
     })
 
     const dialogClassName = cx(suitClass({element: 'dialog'}), {
@@ -123,7 +92,10 @@ class MoleculeModal extends Component {
         onClick={this._handleOutsideClick}
       >
         <div className={dialogClassName}>
-          {(header && this._renderHeader()) || this._renderNoHeader()}
+          <HeaderRender
+            close={<Close icon={iconClose} onClick={this._handleCloseClick} />}
+            header={header}
+          />
           <div
             className={suitClass({element: 'content'})}
             onTouchStart={this._avoidOverscroll}

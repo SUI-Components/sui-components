@@ -9,6 +9,8 @@ import MoleculeSelect, {
   moleculeSelectDropdownListSizes
 } from '../../../../components/molecule/select/src'
 
+import {iconCloseTag, iconArrowDown, iconArrowUp} from './Icons'
+
 import {withStateValue} from '@s-ui/hoc'
 import './index.scss'
 
@@ -29,6 +31,9 @@ const Demo = () => (
       <MoleculeSelectWithState
         options={countries}
         onChange={(_, {value}) => console.log(value)}
+        closeTagIcon={iconCloseTag}
+        iconArrowDown={iconArrowDown}
+        iconArrowUp={iconArrowUp}
         closeOnSelect
       />
     </div>

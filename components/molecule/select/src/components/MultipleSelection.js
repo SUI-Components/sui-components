@@ -1,23 +1,12 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeDropdownListOption from '@s-ui/react-molecule-dropdown-option'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
 
-import WithOpenToggle from '../hoc/withOpenToggle'
 import WithSelectUi from '../hoc/withSelectUi'
 
-const BASE_CLASS = `MoleculeSelectField`
 const MoleculeInputSelect = WithSelectUi(MoleculeInputTags)
-
-const closeTagIcon = (
-  <svg viewBox="0 0 24 24">
-    <path
-      id="a"
-      d="M13.42 12l4.79-4.8a1 1 0 0 0-1.41-1.41L12 10.58 7.21 5.79A1 1 0 0 0 5.8 7.2l4.79 4.8-4.79 4.79a1 1 0 1 0 1.41 1.41L12 13.41l4.8 4.79a1 1 0 0 0 1.41-1.41L13.42 12z"
-    />
-  </svg>
-)
 
 const MoleculeSelectFieldMultiSelection = props => {
   /* eslint-disable react/prop-types */
@@ -27,8 +16,9 @@ const MoleculeSelectFieldMultiSelection = props => {
     onToggle,
     onChange,
     closeOnSelect,
-    closeTagIcon,
-    value: values
+    iconCloseTag,
+    value: values,
+    innerRef
   } = props
 
   const handleMultiSelection = (ev, {value: valueOptionSelected}) => {
@@ -46,14 +36,14 @@ const MoleculeSelectFieldMultiSelection = props => {
   }
 
   return (
-    <div className={BASE_CLASS}>
+    <Fragment>
       <MoleculeInputSelect
         tags={values}
         onClick={onToggle}
-        tagsCloseIcon={closeTagIcon}
+        tagsCloseIcon={iconCloseTag}
         onChangeTags={handleChangeTags}
       />
-      <MoleculeDropdownList checkbox visible={isOpen}>
+      <MoleculeDropdownList ref={innerRef} checkbox visible={isOpen}>
         {options.map((option, index) => (
           <MoleculeDropdownListOption
             value={option}
@@ -63,13 +53,16 @@ const MoleculeSelectFieldMultiSelection = props => {
           />
         ))}
       </MoleculeDropdownList>
-    </div>
+    </Fragment>
   )
 }
 
+MoleculeSelectFieldMultiSelection.displayName =
+  'MoleculeSelectFieldMultiSelection'
+
 MoleculeSelectFieldMultiSelection.defaultProps = {
   value: [],
-  closeTagIcon: closeTagIcon
+  iconCloseTag: () => <span>X</span>
 }
 
-export default WithOpenToggle(MoleculeSelectFieldMultiSelection)
+export default MoleculeSelectFieldMultiSelection

@@ -13,8 +13,21 @@ $z-select-list: $z-navigation !default;
     position: absolute;
     z-index: $z-select-list;
   }
-}
 
-// .sui-AtomInput-input--readOnly[disabled] {
-//   background: #fff;
-// }
+  &-inputSelect {
+    &-container {
+      cursor: pointer;
+      position: relative;
+    }
+
+    &-arrow {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+  }
+
+  &--focus {
+    @extend %sui-atom-input-input-focus;
+  }
+}

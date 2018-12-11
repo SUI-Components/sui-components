@@ -5,12 +5,47 @@ import {moleculeDropdownListSizes as SIZES} from '../../dropdownList/src'
 import MoleculeSelectSingleSelection from './components/SingleSelection'
 import MoleculeSelectMultipleSelection from './components/MultipleSelection'
 
-const MoleculeSelect = ({multiselection, ...props}) =>
-  multiselection ? (
-    <MoleculeSelectMultipleSelection {...props} />
-  ) : (
-    <MoleculeSelectSingleSelection {...props} />
+import withOpenToggle from './hoc/withOpenToggle'
+
+const BASE_CLASS = `sui-MoleculeSelect`
+
+const refDropdownList = React.createRef()
+
+const MoleculeSelect = props => {
+  const {multiselection, ..._props} = props
+
+  const getFocusedOptionIndex = options => {
+    const currentElementFocused = document.activeElement
+    return Array.from(options).reduce((focusedOptionIndex, option, index) => {
+      if (option === currentElementFocused) focusedOptionIndex = index
+      return focusedOptionIndex
+    }, 0)
+  }
+
+  const handleKeyDown = ev => {
+    const {onToggle, isOpen} = props
+    const options = refDropdownList.current.children
+    if (ev.key === 'Enter') {
+      onToggle(ev, {})
+    }
+    if (ev.key === 'ArrowDown' && isOpen && !getFocusedOptionIndex(options)) {
+      options[0].focus()
+    }
+  }
+
+  return (
+    <div tabIndex="0" className={BASE_CLASS} onKeyDown={handleKeyDown}>
+      {multiselection ? (
+        <MoleculeSelectMultipleSelection
+          innerRef={refDropdownList}
+          {..._props}
+        />
+      ) : (
+        <MoleculeSelectSingleSelection innerRef={refDropdownList} {..._props} />
+      )}
+    </div>
   )
+}
 
 MoleculeSelect.propTypes = {
   /** if select accept single value or multiple values */
@@ -34,6 +69,15 @@ MoleculeSelect.propTypes = {
   /** if list should be hidden when any value is selected */
   closeOnSelect: PropTypes.bool,
 
+  /** Icon for closing (removing) tags */
+  iconCloseTag: PropTypes.any,
+
+  /** Icon for arrow in select (down direction when closed) */
+  iconArrowDown: PropTypes.any,
+
+  /** Icon for arrow in select (up direction when opened) */
+  iconArrowUp: PropTypes.any,
+
   /** size (height) of the list */
   size: PropTypes.oneOf(Object.values(SIZES))
 }
@@ -43,5 +87,5 @@ MoleculeSelectSingleSelection.defaultProps = {
   onToggle: () => {}
 }
 
-export default MoleculeSelect
+export default withOpenToggle(MoleculeSelect)
 export {SIZES as moleculeSelectDropdownListSizes}

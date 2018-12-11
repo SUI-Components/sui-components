@@ -1,17 +1,26 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeDropdownListOption from '@s-ui/react-molecule-dropdown-option'
 import AtomInput from '@s-ui/react-atom-input'
 
-import WithOpenToggle from '../hoc/withOpenToggle'
 import WithSelectUi from '../hoc/withSelectUi'
 
-const BASE_CLASS = `sui-MoleculeSelect`
 const MoleculeInputSelect = WithSelectUi(AtomInput)
 
 const MoleculeSelectSingleSelection = props => {
-  const {value, options, isOpen, onToggle, onChange, closeOnSelect} = props // eslint-disable-line react/prop-types
+  /* eslint-disable react/prop-types */
+  const {
+    value,
+    options,
+    isOpen,
+    onToggle,
+    onChange,
+    iconArrowDown,
+    iconArrowUp,
+    closeOnSelect,
+    innerRef
+  } = props
 
   const handleSelection = (ev, {value}) => {
     onChange(ev, {value})
@@ -19,9 +28,19 @@ const MoleculeSelectSingleSelection = props => {
   }
 
   return (
-    <div className={BASE_CLASS}>
-      <MoleculeInputSelect value={value} onClick={onToggle} />
-      <MoleculeDropdownList visible={isOpen} onSelect={handleSelection}>
+    <Fragment>
+      <MoleculeInputSelect
+        isOpen={isOpen}
+        value={value}
+        onClick={onToggle}
+        iconArrowDown={iconArrowDown}
+        iconArrowUp={iconArrowUp}
+      />
+      <MoleculeDropdownList
+        ref={innerRef}
+        visible={isOpen}
+        onSelect={handleSelection}
+      >
         {options.map((option, index) => (
           <MoleculeDropdownListOption
             value={option}
@@ -32,12 +51,14 @@ const MoleculeSelectSingleSelection = props => {
           </MoleculeDropdownListOption>
         ))}
       </MoleculeDropdownList>
-    </div>
+    </Fragment>
   )
 }
+
+MoleculeSelectSingleSelection.displayName = 'MoleculeSelectSingleSelection'
 
 MoleculeSelectSingleSelection.defaultProps = {
   value: ''
 }
 
-export default WithOpenToggle(MoleculeSelectSingleSelection)
+export default MoleculeSelectSingleSelection

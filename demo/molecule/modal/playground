@@ -1,20 +1,5 @@
-const IconClose = () => (<svg xmlnsXlink="http://www.w3.org/1999/xlink" width={24} height={24}>
-    <defs>
-      <path
-        id="a"
-        d="M13.42 12l4.79-4.8a1 1 0 0 0-1.41-1.41L12 10.58 7.21 5.79A1 1 0 0 0 5.8 7.2l4.79 4.8-4.79 4.79a1 1 0 1 0 1.41 1.41L12 13.41l4.8 4.79a1 1 0 0 0 1.41-1.41L13.42 12z"
-      />
-    </defs>
-    <g fill="none" fillRule="evenodd">
-      <path d="M0 0h24v24H0z" />
-      <mask id="b" fill="#fff">
-        <use xlinkHref="#a" />
-      </mask>
-      <use fill="#666" fillRule="nonzero" xlinkHref="#a" />
-      <g fill="#777" mask="url(#b)">
-        <path d="M0 0h24v24H0z" />
-      </g>
-    </g>
+const IconClose = () => (<svg viewBox='0 0 24 24'>
+    <path id='a' d='M13.42 12l4.79-4.8a1 1 0 0 0-1.41-1.41L12 10.58 7.21 5.79A1 1 0 0 0 5.8 7.2l4.79 4.8-4.79 4.79a1 1 0 1 0 1.41 1.41L12 13.41l4.8 4.79a1 1 0 0 0 1.41-1.41L13.42 12z'/>
   </svg>)
 const LoremIpsumParagraph = () => <p>
                 Cras vitae consectetur dui. Nullam quis arcu id ligula rhoncus

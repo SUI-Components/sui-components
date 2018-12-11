@@ -81,8 +81,8 @@ body.is-MoleculeModal-open {
     cursor: pointer;
     display: flex;
     padding: $pt-molecule-modal-icon $pl-molecule-modal-icon $pb-molecule-modal-icon $pr-molecule-modal-icon;
-
-    &Icon {
+    
+    svg {
       fill: $c-molecule-modal-icon;
       height: $h-molecule-modal-icon;
       width: $w-molecule-modal-icon;

@@ -134,7 +134,7 @@ MoleculeModal.propTypes = {
   /**
    * customitzable close icon
    */
-  iconClose: PropTypes.element.isRequired,
+  iconClose: PropTypes.element,
   /**
    * prop to mark if the modal is currently open or not
    */

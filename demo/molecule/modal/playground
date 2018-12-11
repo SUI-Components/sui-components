@@ -147,6 +147,48 @@ class NoHeaderModal extends React.Component {
   }
 }
 
+class NoHeaderNoCloseButtonModal extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      open: false
+    }
+  }
+
+  openModal = () =>  {
+    this.setState({
+      open: true
+    })
+  }
+
+  closeModal = () => {
+    this.setState({
+      open: false
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <button type="button" onClick={this.openModal}>
+          Open modal
+        </button>
+        <MoleculeModal
+          isOpen={this.state.open}
+          closeOnOutsideClick
+          closeOnEscKeyDown
+          fitWindow
+          onClose={this.closeModal}
+        >
+          <div>
+            <LoremIpsumParagraph/>
+          </div>
+        </MoleculeModal>
+      </div>
+    )
+  }
+}
+
 class NoFullScreenModal extends React.Component {
   constructor(props) {
     super(props)
@@ -200,5 +242,7 @@ return (
     <NoHeaderModal />
     <h1>No full screen on mobile</h1>
     <NoFullScreenModal />
+    <h1>No header and no close</h1>
+    <NoHeaderNoCloseButtonModal/>
   </React.Fragment>
 )

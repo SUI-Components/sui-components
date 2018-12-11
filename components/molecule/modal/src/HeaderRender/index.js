@@ -16,6 +16,6 @@ export const HeaderRender = ({header, close}) => (
 )
 
 HeaderRender.propTypes = {
-  close: PropTypes.node.isRequired,
+  close: PropTypes.node,
   header: PropTypes.node
 }

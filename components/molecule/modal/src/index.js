@@ -93,7 +93,11 @@ class MoleculeModal extends Component {
       >
         <div className={dialogClassName}>
           <HeaderRender
-            close={<Close icon={iconClose} onClick={this._handleCloseClick} />}
+            close={
+              iconClose && (
+                <Close icon={iconClose} onClick={this._handleCloseClick} />
+              )
+            }
             header={header}
           />
           <div

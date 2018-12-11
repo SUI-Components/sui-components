@@ -27,6 +27,8 @@ class AtomImage extends Component {
     error: false
   }
 
+  imageRef = React.createRef()
+
   get classNames() {
     const {loading, error} = this.state
     return cx(
@@ -60,6 +62,13 @@ class AtomImage extends Component {
     onError && onError()
   }
 
+  componentDidMount() {
+    const img = this.imageRef.current
+    if (img && img.complete && this.state.loading) {
+      this.handleLoad()
+    }
+  }
+
   render() {
     const {
       placeholder,
@@ -89,6 +98,7 @@ class AtomImage extends Component {
             className={CLASS_IMAGE}
             onLoad={this.handleLoad}
             onError={this.handleError}
+            ref={this.imageRef}
             {...imgProps}
           />
         </figure>

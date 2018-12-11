@@ -70,7 +70,7 @@ body.is-MoleculeModal-open {
   &-no-header {
     align-items: center;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     padding: $pt-molecule-modal-no-header $pr-molecule-modal-no-header $pb-molecule-modal-no-header $pl-molecule-modal-no-header;
     position: relative;
   }

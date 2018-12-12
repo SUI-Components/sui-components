@@ -13,12 +13,19 @@ class AtomTextarea extends Component {
     return cx(BASE_CLASS, `${BASE_CLASS}--${size}`)
   }
 
+  handleChange = ev => {
+    const {value} = ev.target
+    const {onChange} = this.props
+    onChange(ev, {value})
+  }
+
   render() {
     const {onChange, size, value, ...props} = this.props
+    const {handleChange} = this
     return (
       <textarea
         {...props}
-        onChange={onChange}
+        onChange={handleChange}
         className={this.getClassNames(size)}
         value={value}
       />
@@ -40,7 +47,8 @@ AtomTextarea.propTypes = {
 }
 
 AtomTextarea.defaultProps = {
-  size: SIZES.SHORT
+  size: SIZES.SHORT,
+  onChange: () => {}
 }
 
 export default AtomTextarea

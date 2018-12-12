@@ -1,23 +1,16 @@
-const withState = BaseComponent => {
-  return class BaseComponentWithState extends React.Component {
+const withState = BaseComponent =>
+  class BaseComponentWithState extends React.Component {
     state = {value: this.props.value || ''}
 
-    onChange = e => {
-      const value = e.target.value
+    handleChange = (e, {value}) => {
       this.setState({value})
     }
-
     render() {
       const {value} = this.state
-      const {onChange, props} = this
-      return (
-        <div>
-          <BaseComponent {...props} value={value} onChange={onChange} />
-        </div>
-      )
+      const {handleChange, props} = this
+      return <BaseComponent {...props} value={value} onChange={handleChange} />
     }
   }
-}
 
 const stylesSection = {
   border: '1px solid #CCC',
@@ -36,9 +29,9 @@ return (
       <code>short</code> <em>size</em> by default
     </p>
     <div style={stylesSection}>
-      <AtomTextareaWithState value="Saul Bass on failure: Failure is built into creativity"/>
+      <AtomTextareaWithState value="Saul Bass on failure: Failure is built into creativity" />
     </div>
-    
+
     <h2>Long size</h2>
     <div style={stylesSection}>
       <AtomTextareaWithState
@@ -56,8 +49,6 @@ return (
     <h2> Placeholder</h2>
     <div style={stylesSection}>
       <AtomTextareaWithState placeholder="Write something cool here..." />
-    </div>  
-      
-    
+    </div>
   </div>
 )

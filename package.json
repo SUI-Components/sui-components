@@ -29,7 +29,7 @@
   "devDependencies": {
     "@s-ui/deploy": "2",
     "@s-ui/precommit": "2",
-    "@s-ui/studio": "^5.18.0",
+    "@s-ui/studio": "5",
     "husky": "0.13.4",
     "validate-commit-msg": "2.12.2"
   },

@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, forwardRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -12,7 +12,7 @@ const SIZES = {
 }
 
 class MoleculeDropdownList extends Component {
-  refDropdownList = React.createRef()
+  refDropdownList = this.props.innerRef
 
   get extendedChildren() {
     const {children, value, size, visible, onSelect, ...props} = this.props
@@ -93,13 +93,18 @@ MoleculeDropdownList.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZES)),
 
   /** callback on select option */
-  onSelect: PropTypes.func
+  onSelect: PropTypes.func,
+
+  innerRef: PropTypes.any
 }
 
 MoleculeDropdownList.defaultProps = {
   size: SIZES.SMALL,
-  onSelect: () => {}
+  onSelect: () => {},
+  innerRef: React.createRef()
 }
 
-export default MoleculeDropdownList
+export default forwardRef((props, ref) => (
+  <MoleculeDropdownList innerRef={ref} {...props} />
+))
 export {SIZES as moleculeDropdownListSizes}

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.2.0"></a>
+# 2.2.0 (2018-12-12)
+
+
+### Features
+
+* add tel and email input types ([a117695](https://github.com/SUI-Components/sui-components/commit/a117695))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2018-12-04)
 

@@ -5,8 +5,11 @@ import React, {Component} from 'react'
 const BASE_CLASS_DEMO = 'DemoMoleculeDropdownList'
 const CLASS_DEMO_LIST = `${BASE_CLASS_DEMO}-list`
 
-const withStateSingle = BaseComponent => {
+const withStateMulti = BaseComponent => {
+  const displayName = BaseComponent.displayName
   return class BaseComponentWithState extends Component {
+    static displayName = `withStateMulti(${displayName})`
+
     state = {
       value: this.props.value
     }
@@ -40,4 +43,4 @@ const withStateSingle = BaseComponent => {
   }
 }
 
-export default withStateSingle
+export default withStateMulti

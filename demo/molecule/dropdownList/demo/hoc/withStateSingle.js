@@ -6,7 +6,9 @@ const BASE_CLASS_DEMO = 'DemoMoleculeDropdownList'
 const CLASS_DEMO_LIST = `${BASE_CLASS_DEMO}-list`
 
 const withStateSingle = BaseComponent => {
+  const displayName = BaseComponent.displayName
   return class BaseComponentWithState extends Component {
+    static displayName = `withStateSingle(${displayName})`
     state = {
       value: this.props.value
     }

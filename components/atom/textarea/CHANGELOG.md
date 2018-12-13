@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.0.0"></a>
+# 2.0.0 (2018-12-13)
+
+
+### Features
+
+* event handler parameters normalize ([da86146](https://github.com/SUI-Components/sui-components/commit/da86146))
+
+
+### BREAKING CHANGES
+
+* change of parameters order in event handler
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2018-09-20)
 

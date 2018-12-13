@@ -47,7 +47,7 @@ const WithCharacterCount = BaseComponent => {
 
       this.setState(
         {value, messageAtomTextarea},
-        () => onChange && onChange({value, ev})
+        () => onChange && onChange(ev, {value})
       )
     }
 

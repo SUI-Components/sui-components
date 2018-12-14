@@ -9,6 +9,7 @@ const withStateSingle = BaseComponent => {
   const displayName = BaseComponent.displayName
   return class BaseComponentWithState extends Component {
     static displayName = `withStateSingle(${displayName})`
+    innerRef = React.createRef()
     state = {
       value: this.props.value
     }
@@ -25,12 +26,17 @@ const withStateSingle = BaseComponent => {
 
     render() {
       const {value} = this.state
-      const {handleSelect, props} = this
+      const {handleSelect, innerRef, props} = this
       return (
         <div>
           <pre>{JSON.stringify(this.state)}</pre>
           <div className={CLASS_DEMO_LIST}>
-            <BaseComponent {...props} value={value} onSelect={handleSelect} />
+            <BaseComponent
+              {...props}
+              innerRef={innerRef}
+              value={value}
+              onSelect={handleSelect}
+            />
           </div>
         </div>
       )

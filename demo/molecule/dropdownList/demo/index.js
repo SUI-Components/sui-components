@@ -34,7 +34,9 @@ const Demo = () => (
     <h2>Dynamic</h2>
     <div className={CLASS_DEMO_SECTION}>
       <h3>Single selection</h3>
-
+      <p>
+        keyboard selection with <code>ENTER</code> (default)
+      </p>
       <MoleculeDropdownOptionListWithStateSingle visible={isOpen}>
         {countries.map((option, index) => (
           <MoleculeDropdownOption value={option} key={index}>
@@ -44,7 +46,9 @@ const Demo = () => (
       </MoleculeDropdownOptionListWithStateSingle>
 
       <h3>Multi selection</h3>
-
+      <p>
+        keyboard selection with <code>SPACE</code>
+      </p>
       <MoleculeDropdownOptionListWithStateMulti
         visible={isOpen}
         checkbox

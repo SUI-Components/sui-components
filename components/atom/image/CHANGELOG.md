@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2018-12-12)
+
+
+### Features
+
+* add ref to img to ensure image complete loaded in SSR ([76702a8](https://github.com/SUI-Components/sui-components/commit/76702a8))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2018-10-03)
 

@@ -19,7 +19,6 @@ export default BaseComponent => {
         isOpen,
         ...props
       } = this.props
-
       return (
         <div className={CLASS_CONTAINER} onClick={onClick}>
           <BaseComponent {...props} readOnly />

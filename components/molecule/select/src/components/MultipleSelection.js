@@ -43,7 +43,7 @@ const MoleculeSelectFieldMultiSelection = props => {
         tagsCloseIcon={iconCloseTag}
         onChangeTags={handleChangeTags}
       />
-      <MoleculeDropdownList ref={innerRef} checkbox visible={isOpen}>
+      <MoleculeDropdownList innerRef={innerRef} checkbox visible={isOpen}>
         {options.map((option, index) => (
           <MoleculeDropdownListOption
             value={option}

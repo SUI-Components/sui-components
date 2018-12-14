@@ -37,7 +37,7 @@ const MoleculeSelectSingleSelection = props => {
         iconArrowUp={iconArrowUp}
       />
       <MoleculeDropdownList
-        ref={innerRef}
+        innerRef={innerRef}
         visible={isOpen}
         onSelect={handleSelection}
       >
@@ -58,7 +58,8 @@ const MoleculeSelectSingleSelection = props => {
 MoleculeSelectSingleSelection.displayName = 'MoleculeSelectSingleSelection'
 
 MoleculeSelectSingleSelection.defaultProps = {
-  value: ''
+  value: '',
+  closeOnSelect: true
 }
 
 export default MoleculeSelectSingleSelection

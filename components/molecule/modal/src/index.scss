@@ -1,31 +1,80 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import './settings';
 
+@mixin modal-position {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
 body.is-MoleculeModal-open {
   overflow-y: hidden;
 }
 
+@keyframes modal-overlay {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes modal-overlay-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes modal-content-in {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modal-content-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+}
+
 .sui-MoleculeModal  {
+  @include modal-position;
   align-items: center;
-  background-color: rgba($bg-molecule-modal, $op-molecule-modal);
-  bottom: 0;
   display: none;
-  left: 0;
-  position: fixed;
-  right: 0;
+  justify-content: center;
   text-align: center;
-  top: 0;
   white-space: nowrap;
-  z-index: $z-molecule-modal;
+
+  &::before {
+    @include modal-position;
+    animation: modal-overlay-in .25s both;
+    background-color: rgba($bg-molecule-modal, $op-molecule-modal);
+    content: "";
+  }
+
+  &-out::before {
+    animation: modal-overlay-out .25s both;
+  }
 
   &.is-MoleculeModal-open {
     display: flex;
     justify-content: center;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: auto; 
   }
 
   &-dialog {
+    animation: modal-content-in .25s ease-in;
     background-color: $bg-molecule-modal-dialog;
     border: $bd-molecule-modal-dialog;
     box-shadow: $bxsh-molecule-modal-dialog;
@@ -37,6 +86,7 @@ body.is-MoleculeModal-open {
     text-align: left;
     vertical-align: middle;
     white-space: normal;
+    z-index: $z-molecule-modal;
 
     @include media-breakpoint-up(xs) {
       border-radius: $bdrs-molecule-modal-dialog;
@@ -50,6 +100,10 @@ body.is-MoleculeModal-open {
       @include media-breakpoint-up(xs) {
         max-width: $maw-molecule-modal-dialog--full;
       }
+    }
+
+    &-out {
+      animation: modal-content-out .25s ease-in;
     }
   }
 

@@ -103,9 +103,5 @@ MoleculeDropdownList.defaultProps = {
   onSelect: () => {}
 }
 
-// export default forwardRef((props, ref) => (
-//   <MoleculeDropdownList innerRef={ref} {...props} />
-// ))
-
 export default MoleculeDropdownList
 export {SIZES as moleculeDropdownListSizes}

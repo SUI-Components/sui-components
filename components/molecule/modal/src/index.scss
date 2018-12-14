@@ -9,18 +9,24 @@
   top: 0;
 }
 
-body.is-MoleculeModal-open {
-  overflow-y: hidden;
-}
-
 @keyframes modal-overlay {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% { 
+    opacity: 0; 
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes modal-overlay-out {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+  0% { 
+    opacity: 1; 
+  }
+
+  100% { 
+    opacity: 0; 
+  }
 }
 
 @keyframes modal-content-in {
@@ -47,6 +53,10 @@ body.is-MoleculeModal-open {
   }
 }
 
+body.is-MoleculeModal-open {
+  overflow-y: hidden;
+}
+
 .sui-MoleculeModal  {
   @include modal-position;
   align-items: center;
@@ -59,7 +69,7 @@ body.is-MoleculeModal-open {
     @include modal-position;
     animation: modal-overlay-in .25s both;
     background-color: rgba($bg-molecule-modal, $op-molecule-modal);
-    content: "";
+    content: '';
   }
 
   &-out::before {
@@ -74,6 +84,14 @@ body.is-MoleculeModal-open {
   }
 
   &-dialog {
+    @include media-breakpoint-up(xs) {
+      border-radius: $bdrs-molecule-modal-dialog;
+      height: auto;
+      margin: $m-molecule-modal-dialog;
+      max-height: calc(100% - #{$m-molecule-modal-dialog}*2);
+      max-width: $maw-molecule-modal-dialog;
+    }
+
     animation: modal-content-in .25s ease-in;
     background-color: $bg-molecule-modal-dialog;
     border: $bd-molecule-modal-dialog;
@@ -88,21 +106,13 @@ body.is-MoleculeModal-open {
     white-space: normal;
     z-index: $z-molecule-modal;
 
-    @include media-breakpoint-up(xs) {
-      border-radius: $bdrs-molecule-modal-dialog;
-      height: auto;
-      margin: $m-molecule-modal-dialog;
-      max-height: calc(100% - #{$m-molecule-modal-dialog}*2);
-      max-width: $maw-molecule-modal-dialog;
-    }
-
     &--full {      
       @include media-breakpoint-up(xs) {
         max-width: $maw-molecule-modal-dialog--full;
       }
     }
 
-    &-out {
+    &--out {
       animation: modal-content-out .25s ease-in;
     }
   }
@@ -135,7 +145,7 @@ body.is-MoleculeModal-open {
     cursor: pointer;
     display: flex;
     padding: $pt-molecule-modal-icon $pl-molecule-modal-icon $pb-molecule-modal-icon $pr-molecule-modal-icon;
-    
+
     svg {
       fill: $c-molecule-modal-icon;
       height: $h-molecule-modal-icon;

@@ -15,8 +15,6 @@ export default BaseComponent => {
       onClose: () => {}
     }
 
-    _ref = React.createRef()
-
     state = {
       closing: false
     }

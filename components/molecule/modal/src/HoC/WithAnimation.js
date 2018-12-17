@@ -21,8 +21,7 @@ export default BaseComponent => {
 
     _onAnimationEnd = ev => {
       if (!this.state.closing) return
-      this.setState({closing: false})
-      this.props.onClose()
+      this.setState({closing: false}, () => this.props.onClose())
     }
 
     _onClose = () => {

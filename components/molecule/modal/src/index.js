@@ -5,6 +5,7 @@ import {SUPPORTED_KEYS} from './config'
 import {suitClass} from './helpers'
 import {Close} from './Close'
 import {HeaderRender} from './HeaderRender'
+import WithAnimation from './HoC/WithAnimation'
 
 const toggleWindowScroll = disableScroll => {
   window.document.body.classList.toggle('is-MoleculeModal-open', disableScroll)
@@ -16,11 +17,18 @@ class MoleculeModal extends Component {
 
   componentDidMount() {
     document.addEventListener('keydown', this._onKeyDown)
+    this._wrapperRef.current.addEventListener(
+      'webkitAnimationEnd',
+      this.props.onAnimationEnd
+    )
   }
-
   componentWillUnmount() {
     toggleWindowScroll(false)
     document.removeEventListener('keydown', this._onKeyDown)
+    this._wrapperRef.current.addEventListener(
+      'webkitAnimationEnd',
+      this.props.onAnimationEnd
+    )
   }
 
   _onKeyDown = event => {
@@ -75,14 +83,23 @@ class MoleculeModal extends Component {
   }
 
   render() {
-    const {header, children, iconClose, isOpen} = this.props
+    const {
+      header,
+      children,
+      iconClose,
+      isOpen,
+      fitWindow,
+      isClosing
+    } = this.props
     toggleWindowScroll(isOpen)
     const wrapperClassName = cx(suitClass({}), {
-      'is-MoleculeModal-open': isOpen
+      'is-MoleculeModal-open': isOpen,
+      [suitClass({element: 'out'})]: isClosing
     })
 
     const dialogClassName = cx(suitClass({element: 'dialog'}), {
-      [suitClass({element: 'dialog--full'})]: this.props.fitWindow
+      [suitClass({element: 'dialog--full'})]: fitWindow,
+      [suitClass({element: 'dialog--out'})]: isClosing
     })
 
     return (
@@ -148,7 +165,9 @@ MoleculeModal.propTypes = {
   /**
    * OnClose function handler
    */
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
+  isClosing: PropTypes.bool,
+  onAnimationEnd: PropTypes.func
 }
 
 MoleculeModal.defaultProps = {
@@ -161,4 +180,4 @@ MoleculeModal.defaultProps = {
 
 MoleculeModal.displayName = 'MoleculeModal'
 
-export default MoleculeModal
+export default WithAnimation(MoleculeModal)

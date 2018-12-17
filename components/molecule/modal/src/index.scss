@@ -10,8 +10,8 @@
 }
 
 @keyframes modal-overlay {
-  0% { 
-    opacity: 0; 
+  0% {
+    opacity: 0;
   }
 
   100% {
@@ -20,12 +20,12 @@
 }
 
 @keyframes modal-overlay-out {
-  0% { 
-    opacity: 1; 
+  0% {
+    opacity: 1;
   }
 
-  100% { 
-    opacity: 0; 
+  100% {
+    opacity: 0;
   }
 }
 
@@ -72,15 +72,17 @@ body.is-MoleculeModal-open {
     content: '';
   }
 
-  &-out::before {
-    animation: modal-overlay-out .25s both;
+  &-out {
+    &::before {
+      animation: modal-overlay-out .25s both;
+    }
   }
 
   &.is-MoleculeModal-open {
     display: flex;
     justify-content: center;
     overflow-x: hidden;
-    overflow-y: auto; 
+    overflow-y: auto;
   }
 
   &-dialog {
@@ -88,7 +90,7 @@ body.is-MoleculeModal-open {
       border-radius: $bdrs-molecule-modal-dialog;
       height: auto;
       margin: $m-molecule-modal-dialog;
-      max-height: calc(100% - #{$m-molecule-modal-dialog}*2);
+      max-height: calc(100% - #{$m-molecule-modal-dialog} * 2);
       max-width: $maw-molecule-modal-dialog;
     }
 
@@ -106,7 +108,7 @@ body.is-MoleculeModal-open {
     white-space: normal;
     z-index: $z-molecule-modal;
 
-    &--full {      
+    &--full {
       @include media-breakpoint-up(xs) {
         max-width: $maw-molecule-modal-dialog--full;
       }

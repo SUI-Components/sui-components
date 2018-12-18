@@ -1,7 +1,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import './settings';
 
-@mixin modal-position {
+%modal-position {
   bottom: 0;
   left: 0;
   position: fixed;
@@ -10,8 +10,8 @@
 }
 
 @keyframes modal-overlay {
-  0% {
-    opacity: 0;
+  0% { 
+    opacity: 0; 
   }
 
   100% {
@@ -20,12 +20,12 @@
 }
 
 @keyframes modal-overlay-out {
-  0% {
-    opacity: 1;
+  0% { 
+    opacity: 1; 
   }
 
-  100% {
-    opacity: 0;
+  100% { 
+    opacity: 0; 
   }
 }
 
@@ -58,7 +58,7 @@ body.is-MoleculeModal-open {
 }
 
 .sui-MoleculeModal  {
-  @include modal-position;
+  @extend %modal-position;
   align-items: center;
   display: none;
   justify-content: center;
@@ -66,16 +66,14 @@ body.is-MoleculeModal-open {
   white-space: nowrap;
 
   &::before {
-    @include modal-position;
-    animation: modal-overlay-in .25s both;
+    @extend %modal-position;
+    animation: modal-overlay-in 5s both;
     background-color: rgba($bg-molecule-modal, $op-molecule-modal);
     content: '';
   }
 
-  &-out {
-    &::before {
-      animation: modal-overlay-out .25s both;
-    }
+  &-out::before {
+    animation: modal-overlay-out .25s both;
   }
 
   &.is-MoleculeModal-open {
@@ -90,7 +88,7 @@ body.is-MoleculeModal-open {
       border-radius: $bdrs-molecule-modal-dialog;
       height: auto;
       margin: $m-molecule-modal-dialog;
-      max-height: calc(100% - #{$m-molecule-modal-dialog} * 2);
+      max-height: calc(100% - #{$m-molecule-modal-dialog}*2);
       max-width: $maw-molecule-modal-dialog;
     }
 
@@ -108,7 +106,7 @@ body.is-MoleculeModal-open {
     white-space: normal;
     z-index: $z-molecule-modal;
 
-    &--full {
+    &--full {      
       @include media-breakpoint-up(xs) {
         max-width: $maw-molecule-modal-dialog--full;
       }

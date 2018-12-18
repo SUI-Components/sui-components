@@ -16,6 +16,8 @@ const MoleculeSelectFieldMultiSelection = props => {
     onToggle,
     onChange,
     closeOnSelect,
+    iconArrowDown,
+    iconArrowUp,
     iconCloseTag,
     value: values,
     innerRef
@@ -41,16 +43,25 @@ const MoleculeSelectFieldMultiSelection = props => {
         tags={values}
         onClick={onToggle}
         tagsCloseIcon={iconCloseTag}
+        iconArrowDown={iconArrowDown}
+        iconArrowUp={iconArrowUp}
         onChangeTags={handleChangeTags}
+        noBorder
       />
-      <MoleculeDropdownList innerRef={innerRef} checkbox visible={isOpen}>
+      <MoleculeDropdownList
+        innerRef={innerRef}
+        checkbox
+        visible={isOpen}
+        onSelect={handleMultiSelection}
+      >
         {options.map((option, index) => (
           <MoleculeDropdownListOption
             value={option}
             key={index}
-            onSelect={handleMultiSelection}
             selected={values && values.includes(option)}
-          />
+          >
+            {option}
+          </MoleculeDropdownListOption>
         ))}
       </MoleculeDropdownList>
     </Fragment>

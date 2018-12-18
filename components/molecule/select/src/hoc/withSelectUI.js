@@ -6,7 +6,6 @@ const CLASS_ARROW = `${BASE_CLASS}-arrow`
 
 export default BaseComponent => {
   const displayName = BaseComponent.displayName
-
   return class WithSelectUi extends Component {
     static displayName = `WithSelectUi(${displayName})`
 
@@ -19,6 +18,7 @@ export default BaseComponent => {
         isOpen,
         ...props
       } = this.props
+
       return (
         <div className={CLASS_CONTAINER} onClick={onClick}>
           <BaseComponent {...props} readOnly />

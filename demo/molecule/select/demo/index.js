@@ -11,7 +11,8 @@ import MoleculeSelect, {
 
 import {iconCloseTag, iconArrowDown, iconArrowUp} from './Icons'
 
-import {withStateValue} from '@s-ui/hoc'
+// import {withStateValue} from '@s-ui/hoc'
+import withStateValue from './hoc/withStateValue'
 import './index.scss'
 
 const MoleculeSelectWithState = withStateValue(MoleculeSelect)
@@ -31,10 +32,23 @@ const Demo = () => (
       <MoleculeSelectWithState
         options={countries}
         onChange={(_, {value}) => console.log(value)}
-        closeTagIcon={iconCloseTag}
+        iconCloseTag={iconCloseTag}
         iconArrowDown={iconArrowDown}
         iconArrowUp={iconArrowUp}
         closeOnSelect
+      />
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>Single selection</h3>
+      <MoleculeSelectWithState
+        options={countries}
+        onChange={(_, {value}) => console.log(value)}
+        closeTagIcon={iconCloseTag}
+        iconArrowDown={iconArrowDown}
+        iconArrowUp={iconArrowUp}
+        value={[]}
+        multiselection
       />
     </div>
 

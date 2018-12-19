@@ -11,7 +11,7 @@ const getClassNames = function({className}) {
 }
 
 const ActionableTag = function({
-  icon: Icon,
+  icon,
   href,
   iconPlacement,
   label,
@@ -28,20 +28,16 @@ const ActionableTag = function({
       href={href}
       target={target}
     >
-      {Icon &&
+      {icon &&
         iconPlacement === LEFT_ICON_PLACEMENT && (
-          <span className="sui-AtomTag-icon">
-            <Icon />
-          </span>
+          <span className="sui-AtomTag-icon">{icon}</span>
         )}
       <span className="sui-AtomTag-label" title={label}>
         {label}
       </span>
-      {Icon &&
+      {icon &&
         iconPlacement === RIGHT_ICON_PLACEMENT && (
-          <span className="sui-AtomTag-secondary-icon">
-            <Icon />
-          </span>
+          <span className="sui-AtomTag-secondary-icon">{icon}</span>
         )}
     </ActionableTagContainer>
   )

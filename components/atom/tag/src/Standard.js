@@ -15,24 +15,20 @@ class StandardTag extends Component {
   }
 
   render() {
-    const {closeIcon: CloseIcon, icon: Icon, label} = this.props
+    const {closeIcon, icon, label} = this.props
     const {handleClick} = this
     return (
       <span className={this._classNames}>
-        {Icon && (
-          <span className="sui-AtomTag-icon">
-            <Icon />
-          </span>
-        )}
+        {icon && <span className="sui-AtomTag-icon">{icon}</span>}
         <span className="sui-AtomTag-label" title={label}>
           {label}
         </span>
-        {CloseIcon && (
+        {closeIcon && (
           <span
             className="sui-AtomTag-secondary-closeable sui-AtomTag-secondary-icon"
             onClick={handleClick}
           >
-            <CloseIcon />
+            {closeIcon}
           </span>
         )}
       </span>

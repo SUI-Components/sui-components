@@ -100,12 +100,12 @@ AtomTag.propTypes = {
    */
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
-  icon: PropTypes.node,
+  icon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   onClose: PropTypes.func,
   /**
    * Will only be shown if the onClose fn is defined
    */
-  closeIcon: PropTypes.node,
+  closeIcon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   /**
    * If defined, onClose will be ignored
    */

@@ -9,11 +9,15 @@ class StandardTag extends Component {
   }
 
   render() {
-    const {closeIcon, icon, label, onClose} = this.props
+    const {closeIcon: CloseIcon, icon: Icon, label, onClose} = this.props
 
     return (
       <span className={this._classNames}>
-        {icon && <span className="sui-AtomTag-icon">{icon}</span>}
+        {Icon && (
+          <span className="sui-AtomTag-icon">
+            <Icon />
+          </span>
+        )}
         <span className="sui-AtomTag-label" title={label}>
           {label}
         </span>
@@ -22,7 +26,7 @@ class StandardTag extends Component {
             className="sui-AtomTag-secondary-closeable sui-AtomTag-secondary-icon"
             onClick={ev => onClose(ev)}
           >
-            {closeIcon}
+            <CloseIcon />
           </span>
         )}
       </span>
@@ -32,8 +36,8 @@ class StandardTag extends Component {
 
 StandardTag.propTypes = {
   onClose: PropTypes.func,
-  closeIcon: PropTypes.node,
-  icon: PropTypes.node,
+  closeIcon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  icon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   label: PropTypes.string.isRequired,
   className: PropTypes.string
 }

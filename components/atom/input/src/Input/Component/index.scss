@@ -16,6 +16,7 @@ $class-read-only: '#{$base-class}--readOnly';
     border: 0;
 
     &:focus {
+      border: 0;
       box-shadow: none;
       outline: 0;
     }

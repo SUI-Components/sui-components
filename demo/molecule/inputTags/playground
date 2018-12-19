@@ -1,6 +1,6 @@
 const beatles = ['john', 'paul', 'george', 'ringo']
 
-const closeIcon = (
+const closeIcon = () => (
   <svg viewBox="0 0 24 24">
     <path
       id="a"

@@ -94,7 +94,8 @@ MoleculeInputTags.displayName = 'MoleculeInputTags'
 
 MoleculeInputTags.propTypes = {
   /* close icon to be displayed on tags */
-  tagsCloseIcon: PropTypes.node.isRequired,
+  tagsCloseIcon: PropTypes.oneOfType([PropTypes.node, PropTypes.func])
+    .isRequired,
 
   /* list of values displayed as tags */
   tags: PropTypes.array,

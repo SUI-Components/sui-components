@@ -1,6 +1,6 @@
 import React from 'react'
 
-const iconCloseTag = (
+const iconCloseTag = () => (
   <svg viewBox="0 0 24 24">
     <path
       id="a"

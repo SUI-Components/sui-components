@@ -53,13 +53,10 @@ const MoleculeSelectFieldMultiSelection = props => {
         checkbox
         visible={isOpen}
         onSelect={handleMultiSelection}
+        value={values}
       >
         {options.map((option, index) => (
-          <MoleculeDropdownListOption
-            value={option}
-            key={index}
-            selected={values && values.includes(option)}
-          >
+          <MoleculeDropdownListOption value={option} key={index}>
             {option}
           </MoleculeDropdownListOption>
         ))}
@@ -72,8 +69,7 @@ MoleculeSelectFieldMultiSelection.displayName =
   'MoleculeSelectFieldMultiSelection'
 
 MoleculeSelectFieldMultiSelection.defaultProps = {
-  value: [],
-  iconCloseTag: () => <span>X</span>
+  value: []
 }
 
 export default MoleculeSelectFieldMultiSelection

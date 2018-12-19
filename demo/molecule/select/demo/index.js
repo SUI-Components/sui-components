@@ -27,6 +27,7 @@ const Demo = () => (
       <code>MoleculeSelect</code>
     </h1>
     <h2>Dynamic</h2>
+
     <div className={CLASS_DEMO_SECTION}>
       <h3>Single selection</h3>
       <MoleculeSelectWithState
@@ -40,11 +41,11 @@ const Demo = () => (
     </div>
 
     <div className={CLASS_DEMO_SECTION}>
-      <h3>Single selection</h3>
+      <h3>Multiple selection</h3>
       <MoleculeSelectWithState
         options={countries}
         onChange={(_, {value}) => console.log(value)}
-        closeTagIcon={iconCloseTag}
+        iconCloseTag={iconCloseTag}
         iconArrowDown={iconArrowDown}
         iconArrowUp={iconArrowUp}
         value={[]}

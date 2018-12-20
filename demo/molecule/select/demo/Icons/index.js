@@ -1,6 +1,6 @@
 import React from 'react'
 
-const iconCloseTag = () => (
+const IconCloseTag = () => (
   <svg viewBox="0 0 24 24">
     <path
       id="a"
@@ -9,7 +9,7 @@ const iconCloseTag = () => (
   </svg>
 )
 
-const iconArrowDown = () => (
+const IconArrowDown = () => (
   <svg width="24" height="24" viewBox="0 0 24 24">
     <defs>
       <path
@@ -29,7 +29,7 @@ const iconArrowDown = () => (
   </svg>
 )
 
-const iconArrowUp = () => (
+const IconArrowUp = () => (
   <svg width="24" height="24" viewBox="0 0 24 24">
     <defs>
       <path
@@ -44,4 +44,4 @@ const iconArrowUp = () => (
   </svg>
 )
 
-export {iconCloseTag, iconArrowDown, iconArrowUp}
+export {IconCloseTag, IconArrowDown, IconArrowUp}

@@ -90,15 +90,13 @@ MoleculeSelect.propTypes = {
   closeOnSelect: PropTypes.bool,
 
   /** Icon for closing (removing) tags */
-  iconCloseTag: PropTypes.oneOfType([PropTypes.node, PropTypes.func])
-    .isRequired,
+  iconCloseTag: PropTypes.node.isRequired,
 
   /** Icon for arrow in select (down direction when closed) */
-  iconArrowDown: PropTypes.oneOfType([PropTypes.node, PropTypes.func])
-    .isRequired,
+  iconArrowDown: PropTypes.node.isRequired,
 
   /** Icon for arrow in select (up direction when opened) */
-  iconArrowUp: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
+  iconArrowUp: PropTypes.node.isRequired,
 
   /** size (height) of the list */
   size: PropTypes.oneOf(Object.values(SIZES))

@@ -11,21 +11,13 @@ export default BaseComponent => {
 
     render() {
       /* eslint-disable react/prop-types */
-      const {
-        onClick,
-        iconArrowDown: IconArrowDown,
-        iconArrowUp: IconArrowUp,
-        isOpen,
-        ...props
-      } = this.props
+      const {onClick, iconArrowDown, iconArrowUp, isOpen, ...props} = this.props
 
       return (
         <div className={CLASS_CONTAINER} onClick={onClick}>
           <BaseComponent {...props} readOnly />
           <span className={CLASS_ARROW}>
-            {isOpen
-              ? IconArrowUp && <IconArrowUp />
-              : IconArrowDown && <IconArrowDown />}
+            {isOpen ? iconArrowUp : iconArrowDown}
           </span>
         </div>
       )

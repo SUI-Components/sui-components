@@ -38,8 +38,8 @@ class StandardTag extends Component {
 
 StandardTag.propTypes = {
   onClose: PropTypes.func,
-  closeIcon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-  icon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  closeIcon: PropTypes.node,
+  icon: PropTypes.node,
   label: PropTypes.string.isRequired,
   className: PropTypes.string
 }

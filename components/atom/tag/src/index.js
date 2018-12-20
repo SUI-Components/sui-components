@@ -14,7 +14,7 @@ class AtomTag extends Component {
   static MAX_LABEL_LENGTH = 100
 
   /**
-   * @return {string}
+   * @return {string}w
    */
   get _classNames() {
     const {icon, size} = this.props
@@ -100,12 +100,12 @@ AtomTag.propTypes = {
    */
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
-  icon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  icon: PropTypes.node,
   onClose: PropTypes.func,
   /**
    * Will only be shown if the onClose fn is defined
    */
-  closeIcon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  closeIcon: PropTypes.node,
   /**
    * If defined, onClose will be ignored
    */

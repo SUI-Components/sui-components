@@ -1,6 +1,6 @@
 const beatles = ['john', 'paul', 'george', 'ringo']
 
-const closeIcon = () => (
+const CloseIcon = () => (
   <svg viewBox="0 0 24 24">
     <path
       id="a"
@@ -71,7 +71,7 @@ return (
       <h4>Basic</h4>
       <MoleculeInputTagsWithState
         value="George Martin"
-        tagsCloseIcon={closeIcon}
+        tagsCloseIcon={ <CloseIcon /> }
         tags={[
           'John Lennon',
           'Paul McCartney',
@@ -87,7 +87,7 @@ return (
       <h4>Entering tags on "Tab" press</h4>
       <MoleculeInputTagsWithState
         value="George Martin"
-        tagsCloseIcon={closeIcon}
+        tagsCloseIcon={ <CloseIcon /> }
         tags={[
           'John Lennon',
           'Paul McCartney',
@@ -104,7 +104,7 @@ return (
       <h4>Entering tags on "comma" press</h4>
       <MoleculeInputTagsWithState
         value="George Martin"
-        tagsCloseIcon={closeIcon}
+        tagsCloseIcon={ <CloseIcon /> }
         tags={[
           'John Lennon',
           'Paul McCartney',
@@ -120,7 +120,7 @@ return (
     <div style={fieldStyles}>
       <h4>With size=SMALL</h4>
       <MoleculeInputTagsWithState
-        tagsCloseIcon={closeIcon}
+        tagsCloseIcon={ <CloseIcon /> }
         tags={['Robert Plant', 'Jimmy Page', 'John Paul Jones', 'John Bonham']}
         size={inputSizes.SMALL}
         onChangeTags={(_, {tags}) => {
@@ -131,7 +131,7 @@ return (
     <div style={fieldStyles}>
       <h4>With error</h4>
       <MoleculeInputTagsWithState
-        tagsCloseIcon={closeIcon}
+        tagsCloseIcon={ <CloseIcon /> }
         tags={['Brian May', 'Freddie Mercury', 'John Deacon', 'Roger Taylor']}
         errorState={true}
         onChangeTags={(_, {tags}) => {
@@ -142,7 +142,7 @@ return (
     <div style={fieldStyles}>
       <h4>With onChange handler</h4>
       <MoleculeInputTagsWithState
-        tagsCloseIcon={closeIcon}
+        tagsCloseIcon={ <CloseIcon /> }
         tags={['Brian May', 'Freddie Mercury', 'John Deacon', 'Roger Taylor']}
         onChangeTags={(_, {tags}) => {
           console.log(tags)

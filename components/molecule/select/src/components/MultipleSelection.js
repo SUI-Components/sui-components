@@ -46,6 +46,7 @@ const MoleculeSelectFieldMultiSelection = props => {
         iconArrowDown={iconArrowDown}
         iconArrowUp={iconArrowUp}
         onChangeTags={handleChangeTags}
+        isOpen={isOpen}
         noBorder
       />
       <MoleculeDropdownList

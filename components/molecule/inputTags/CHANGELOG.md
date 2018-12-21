@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.0.0"></a>
+# 2.0.0 (2018-12-21)
+
+
+### Features
+
+* icons passed as components ([8a3c59b](https://github.com/SUI-Components/sui-components/commit/8a3c59b))
+* updated AtomTag version ([bcaedee](https://github.com/SUI-Components/sui-components/commit/bcaedee))
+* updated way of passing icons to the component ([55b608a](https://github.com/SUI-Components/sui-components/commit/55b608a))
+
+
+### BREAKING CHANGES
+
+* icons passed as components
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2018-11-23)
 

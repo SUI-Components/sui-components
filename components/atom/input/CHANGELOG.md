@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.3.0"></a>
+# 2.3.0 (2018-12-21)
+
+
+### Bug Fixes
+
+* fixed noBorder on focus ([9c67211](https://github.com/SUI-Components/sui-components/commit/9c67211))
+
+
+### Features
+
+* fixed noBorder css applied always ([1ee2fa9](https://github.com/SUI-Components/sui-components/commit/1ee2fa9))
+
+
+
 <a name="2.2.0"></a>
 # 2.2.0 (2018-12-12)
 

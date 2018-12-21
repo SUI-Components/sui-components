@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2018-12-11)
+
+
+### Bug Fixes
+
+* change variable name ([f579e16](https://github.com/SUI-Components/sui-components/commit/f579e16))
+
+
+### Features
+
+* add color variables for fonts in negative cases ([0b4cec2](https://github.com/SUI-Components/sui-components/commit/0b4cec2))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2018-11-15)
 

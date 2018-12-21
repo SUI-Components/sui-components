@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2018-12-13)
+
+
+### Bug Fixes
+
+* merge & fixed issues ([c7b915a](https://github.com/SUI-Components/sui-components/commit/c7b915a))
+
+
+### Features
+
+* force release of dropdownOption ([6479cd7](https://github.com/SUI-Components/sui-components/commit/6479cd7))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2018-12-10)
 
@@ -19,6 +34,7 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * focus styles like hover ([6a5a538](https://github.com/SUI-Components/sui-components/commit/6a5a538))
+* key on enter via prop ([9648bd7](https://github.com/SUI-Components/sui-components/commit/9648bd7))
 
 
 

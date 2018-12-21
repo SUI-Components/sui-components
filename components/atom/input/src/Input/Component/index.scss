@@ -12,7 +12,7 @@ $class-read-only: '#{$base-class}--readOnly';
     display: none;
   }
 
-  &--noBorder {
+  &--noBorder#{$base-class}--noBorder {
     border: 0;
 
     &:focus {
@@ -59,5 +59,4 @@ $class-read-only: '#{$base-class}--readOnly';
       border-color: $color;
     }
   }
-
 }

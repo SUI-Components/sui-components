@@ -13,7 +13,9 @@ const TYPES = {
   SUI_PASSWORD: 'sui-password',
   TEXT: 'text',
   RADIO: 'radio',
-  CHECKBOX: 'checkbox'
+  CHECKBOX: 'checkbox',
+  TEL: 'tel',
+  EMAIL: 'email'
 }
 
 const AtomInput = ({type, ...props}) => {

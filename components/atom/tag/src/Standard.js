@@ -8,19 +8,25 @@ class StandardTag extends Component {
     return cx(className, closeIcon && 'sui-AtomTag-hasClose')
   }
 
-  render() {
-    const {closeIcon, icon, label, onClose} = this.props
+  handleClick = ev => {
+    const {onClose} = this.props
+    onClose(ev)
+    ev.stopPropagation()
+  }
 
+  render() {
+    const {closeIcon, icon, label} = this.props
+    const {handleClick} = this
     return (
       <span className={this._classNames}>
         {icon && <span className="sui-AtomTag-icon">{icon}</span>}
         <span className="sui-AtomTag-label" title={label}>
           {label}
         </span>
-        {onClose && (
+        {closeIcon && (
           <span
             className="sui-AtomTag-secondary-closeable sui-AtomTag-secondary-icon"
-            onClick={ev => onClose(ev)}
+            onClick={handleClick}
           >
             {closeIcon}
           </span>
@@ -36,6 +42,10 @@ StandardTag.propTypes = {
   icon: PropTypes.node,
   label: PropTypes.string.isRequired,
   className: PropTypes.string
+}
+
+StandardTag.propTypes = {
+  onClose: () => {}
 }
 
 export default StandardTag

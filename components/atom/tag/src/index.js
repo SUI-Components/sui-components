@@ -14,7 +14,7 @@ class AtomTag extends Component {
   static MAX_LABEL_LENGTH = 100
 
   /**
-   * @return {string}
+   * @return {string}w
    */
   get _classNames() {
     const {icon, size} = this.props

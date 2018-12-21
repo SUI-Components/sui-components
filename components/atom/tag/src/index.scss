@@ -84,6 +84,9 @@ $p-atom-tag-s: 0 $p-m !default;
     &:hover,
     &:active {
       background-color: $c-primary-dark;
+      color: $c-atom-tag-actionable;
+      cursor: pointer;
+      fill: $c-atom-tag-actionable;
     }
   }
 

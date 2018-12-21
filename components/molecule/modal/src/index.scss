@@ -81,10 +81,11 @@ body.is-MoleculeModal-open {
     justify-content: center;
     overflow-x: hidden;
     overflow-y: auto;
+    z-index: $z-molecule-modal;
   }
 
   &-dialog {
-    @include media-breakpoint-up(xs) {
+      @include media-breakpoint-up(xs) {
       border-radius: $bdrs-molecule-modal-dialog;
       height: auto;
       margin: $m-molecule-modal-dialog;
@@ -107,7 +108,7 @@ body.is-MoleculeModal-open {
     z-index: $z-molecule-modal;
 
     &--full {      
-      @include media-breakpoint-up(xs) {
+        @include media-breakpoint-up(xs) {
         max-width: $maw-molecule-modal-dialog--full;
       }
     }

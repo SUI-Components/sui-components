@@ -11,7 +11,7 @@
   "dependencies": {
     "@s-ui/component-dependencies": "1",
     "@s-ui/react-atom-input": "2",
-    "@s-ui/react-molecule-input-tags": "1",
+    "@s-ui/react-molecule-input-tags": "2",
     "@s-ui/react-molecule-dropdown-option": "1",
     "@s-ui/react-molecule-dropdown-list": "1"
   },

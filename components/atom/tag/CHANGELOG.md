@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.0.0"></a>
+# 2.0.0 (2018-12-21)
+
+
+### Bug Fixes
+
+* icons as imported sui-svg components ([92aec8b](https://github.com/SUI-Components/sui-components/commit/92aec8b))
+
+
+### Features
+
+* added stop propagation onClose ([c4ec6a6](https://github.com/SUI-Components/sui-components/commit/c4ec6a6))
+* first commit with only Schibsted Spain Components ([c0814de](https://github.com/SUI-Components/sui-components/commit/c0814de))
+* node react types ([44c20f2](https://github.com/SUI-Components/sui-components/commit/44c20f2))
+* normalize form of icons passed via props accorfind to agreement ([3174f24](https://github.com/SUI-Components/sui-components/commit/3174f24))
+
+
+### BREAKING CHANGES
+
+* icons passed as components
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2018-07-04)
 

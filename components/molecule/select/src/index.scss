@@ -24,6 +24,7 @@ $mr-select-list-arrow: -34px !default;
 
     &-arrow {
       margin-left: $mr-select-list-arrow;
+
       &--up {
         transform: rotate(180deg);
       }

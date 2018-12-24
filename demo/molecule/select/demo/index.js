@@ -36,7 +36,6 @@ const Demo = () => (
         onChange={(_, {value}) => console.log(value)}
         iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
-        iconArrowUp={<IconArrowUp />}
         closeOnSelect
       >
         {countries.map((country, i) => (
@@ -54,7 +53,6 @@ const Demo = () => (
         onChange={(_, {value}) => console.log(value)}
         iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
-        iconArrowUp={<IconArrowUp />}
         value={[]}
         multiselection
       >

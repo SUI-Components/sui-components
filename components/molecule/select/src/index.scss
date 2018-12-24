@@ -5,6 +5,7 @@
 @import '~@s-ui/react-molecule-dropdown-list/lib/index';
 
 $z-select-list: $z-navigation !default;
+$mr-select-list-arrow: -34px !default;
 
 .sui-MoleculeSelect {
   position: relative;
@@ -16,14 +17,16 @@ $z-select-list: $z-navigation !default;
 
   &-inputSelect {
     &-container {
+      align-items: center;
       cursor: pointer;
-      position: relative;
+      display: flex;
     }
 
     &-arrow {
-      position: absolute;
-      right: 10px;
-      top: 10px;
+      margin-left: $mr-select-list-arrow;
+      &--up {
+        transform: rotate(180deg);
+      }
     }
   }
 

@@ -14,12 +14,13 @@ class MoleculeSelect extends Component {
   refMoleculeSelect = React.createRef()
 
   get extendedChildren() {
-    const {children} = this.props // eslint-disable-line react/prop-types
+    const {children, onEnterKey} = this.props // eslint-disable-line react/prop-types
     return React.Children.toArray(children)
       .filter(Boolean)
       .map((child, index) => {
         return React.cloneElement(child, {
-          ref: index
+          ref: index,
+          onEnterKey: onEnterKey || ' '
         })
       })
   }
@@ -105,9 +106,6 @@ MoleculeSelect.propTypes = {
 
   /** Icon for arrow in select (down direction when closed) */
   iconArrowDown: PropTypes.node.isRequired,
-
-  /** Icon for arrow in select (up direction when opened) */
-  iconArrowUp: PropTypes.node.isRequired,
 
   /** size (height) of the list */
   size: PropTypes.oneOf(Object.values(SIZES))

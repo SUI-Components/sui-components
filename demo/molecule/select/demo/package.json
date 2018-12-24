@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@s-ui/hoc": "1",
-    "@s-ui/react-molecule-dropdown-option": "1.8.0"
+    "@s-ui/hoc": "1"
   }
 }

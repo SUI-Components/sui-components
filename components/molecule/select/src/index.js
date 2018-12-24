@@ -2,7 +2,9 @@ import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-import {moleculeDropdownListSizes as SIZES} from '../../dropdownList/src'
+import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
+import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
+
 import MoleculeSelectSingleSelection from './components/SingleSelection'
 import MoleculeSelectMultipleSelection from './components/MultipleSelection'
 
@@ -14,13 +16,16 @@ class MoleculeSelect extends Component {
   refMoleculeSelect = React.createRef()
 
   get extendedChildren() {
-    const {children, onEnterKey} = this.props // eslint-disable-line react/prop-types
+    const {children, multiselection, onEnterKey} = this.props // eslint-disable-line react/prop-types
     return React.Children.toArray(children)
       .filter(Boolean)
       .map((child, index) => {
+        const _onEnterKey = multiselection
+          ? onEnterKey || ' '
+          : onEnterKey || 'Enter'
         return React.cloneElement(child, {
           ref: index,
-          onEnterKey: onEnterKey || ' '
+          onEnterKey: _onEnterKey
         })
       })
   }
@@ -117,4 +122,7 @@ MoleculeSelectSingleSelection.defaultProps = {
 }
 
 export default withOpenToggle(MoleculeSelect)
-export {SIZES as moleculeSelectDropdownListSizes}
+export {
+  SIZES as moleculeSelectDropdownListSizes,
+  MoleculeDropdownOption as MoleculeSelectOption
+}

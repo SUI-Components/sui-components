@@ -6,7 +6,8 @@ import React from 'react'
 import {countries} from './data'
 
 import MoleculeSelect, {
-  moleculeSelectDropdownListSizes
+  moleculeSelectDropdownListSizes,
+  MoleculeSelectOption
 } from '../../../../components/molecule/select/src'
 
 import MoleculeDropdownListOption from '@s-ui/react-molecule-dropdown-option'
@@ -39,9 +40,9 @@ const Demo = () => (
         closeOnSelect
       >
         {countries.map((country, i) => (
-          <MoleculeDropdownListOption key={i} value={country}>
+          <MoleculeSelectOption key={i} value={country}>
             {country}
-          </MoleculeDropdownListOption>
+          </MoleculeSelectOption>
         ))}
       </MoleculeSelectWithState>
     </div>
@@ -57,9 +58,9 @@ const Demo = () => (
         multiselection
       >
         {countries.map((country, i) => (
-          <MoleculeDropdownListOption key={i} value={country}>
+          <MoleculeSelectOption key={i} value={country}>
             {country}
-          </MoleculeDropdownListOption>
+          </MoleculeSelectOption>
         ))}
       </MoleculeSelectWithState>
     </div>

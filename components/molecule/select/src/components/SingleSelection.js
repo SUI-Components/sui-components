@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react'
 
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
-import MoleculeDropdownListOption from '@s-ui/react-molecule-dropdown-option'
 import AtomInput from '@s-ui/react-atom-input'
 
 import WithSelectUi from '../hoc/withSelectUi'
@@ -12,7 +11,7 @@ const MoleculeSelectSingleSelection = props => {
   /* eslint-disable react/prop-types */
   const {
     value,
-    options,
+    children,
     isOpen,
     onToggle,
     onChange,
@@ -40,16 +39,9 @@ const MoleculeSelectSingleSelection = props => {
         innerRef={innerRef}
         visible={isOpen}
         onSelect={handleSelection}
+        value={value}
       >
-        {options.map((option, index) => (
-          <MoleculeDropdownListOption
-            value={option}
-            key={index}
-            selected={value === option}
-          >
-            {option}
-          </MoleculeDropdownListOption>
-        ))}
+        {children}
       </MoleculeDropdownList>
     </Fragment>
   )

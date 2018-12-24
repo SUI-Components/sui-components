@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react'
 
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
-import MoleculeDropdownListOption from '@s-ui/react-molecule-dropdown-option'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
 
 import WithSelectUi from '../hoc/withSelectUi'
@@ -11,7 +10,7 @@ const MoleculeInputSelect = WithSelectUi(MoleculeInputTags)
 const MoleculeSelectFieldMultiSelection = props => {
   /* eslint-disable react/prop-types */
   const {
-    options,
+    children,
     isOpen,
     onToggle,
     onChange,
@@ -56,11 +55,7 @@ const MoleculeSelectFieldMultiSelection = props => {
         onSelect={handleMultiSelection}
         value={values}
       >
-        {options.map((option, index) => (
-          <MoleculeDropdownListOption value={option} key={index}>
-            {option}
-          </MoleculeDropdownListOption>
-        ))}
+        {children}
       </MoleculeDropdownList>
     </Fragment>
   )

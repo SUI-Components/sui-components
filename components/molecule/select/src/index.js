@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
 import {moleculeDropdownListSizes as SIZES} from '../../dropdownList/src'
@@ -10,8 +11,18 @@ import withOpenToggle from './hoc/withOpenToggle'
 const BASE_CLASS = `sui-MoleculeSelect`
 
 class MoleculeSelect extends Component {
-  refDropdownList = React.createRef()
   refMoleculeSelect = React.createRef()
+
+  get extendedChildren() {
+    const {children} = this.props // eslint-disable-line react/prop-types
+    return React.Children.toArray(children)
+      .filter(Boolean)
+      .map((child, index) => {
+        return React.cloneElement(child, {
+          ref: index
+        })
+      })
+  }
 
   getFocusedOptionIndex = options => {
     const currentElementFocused = document.activeElement
@@ -23,8 +34,10 @@ class MoleculeSelect extends Component {
 
   handleKeyDown = ev => {
     const {onToggle, closeOnSelect, isOpen} = this.props
-    const {getFocusedOptionIndex, refDropdownList, refMoleculeSelect} = this
-    const options = refDropdownList.current.children
+    const {getFocusedOptionIndex, refMoleculeSelect} = this
+    const options = Object.values(this.refs).map(ref =>
+      ReactDOM.findDOMNode(ref)
+    )
     const domSourceEvent = ev.target
     const domMoleculeSelect = refMoleculeSelect.current
     if (ev.key === 'Enter') {
@@ -43,7 +56,7 @@ class MoleculeSelect extends Component {
 
   render() {
     const {multiselection, ..._props} = this.props
-    const {handleKeyDown, refDropdownList, refMoleculeSelect} = this
+    const {handleKeyDown, extendedChildren, refMoleculeSelect} = this
     return (
       <div
         ref={refMoleculeSelect}
@@ -52,15 +65,13 @@ class MoleculeSelect extends Component {
         onKeyDown={handleKeyDown}
       >
         {multiselection ? (
-          <MoleculeSelectMultipleSelection
-            innerRef={refDropdownList}
-            {..._props}
-          />
+          <MoleculeSelectMultipleSelection {..._props}>
+            {extendedChildren}
+          </MoleculeSelectMultipleSelection>
         ) : (
-          <MoleculeSelectSingleSelection
-            innerRef={refDropdownList}
-            {..._props}
-          />
+          <MoleculeSelectSingleSelection {..._props}>
+            {extendedChildren}
+          </MoleculeSelectSingleSelection>
         )}
       </div>
     )

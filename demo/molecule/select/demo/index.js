@@ -9,6 +9,8 @@ import MoleculeSelect, {
   moleculeSelectDropdownListSizes
 } from '../../../../components/molecule/select/src'
 
+import MoleculeDropdownListOption from '@s-ui/react-molecule-dropdown-option'
+
 import {IconCloseTag, IconArrowDown, IconArrowUp} from './Icons'
 
 // import {withStateValue} from '@s-ui/hoc'
@@ -31,13 +33,18 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <h3>Single selection</h3>
       <MoleculeSelectWithState
-        options={countries}
         onChange={(_, {value}) => console.log(value)}
         iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
         iconArrowUp={<IconArrowUp />}
         closeOnSelect
-      />
+      >
+        {countries.map((country, i) => (
+          <MoleculeDropdownListOption key={i} value={country}>
+            {country}
+          </MoleculeDropdownListOption>
+        ))}
+      </MoleculeSelectWithState>
     </div>
 
     <div className={CLASS_DEMO_SECTION}>
@@ -50,7 +57,13 @@ const Demo = () => (
         iconArrowUp={<IconArrowUp />}
         value={[]}
         multiselection
-      />
+      >
+        {countries.map((country, i) => (
+          <MoleculeDropdownListOption key={i} value={country}>
+            {country}
+          </MoleculeDropdownListOption>
+        ))}
+      </MoleculeSelectWithState>
     </div>
 
     <h2>Static</h2>

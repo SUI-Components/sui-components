@@ -10,7 +10,7 @@ const MoleculeInputSelect = WithSelectUi(AtomInput)
 const MoleculeSelectSingleSelection = props => {
   /* eslint-disable react/prop-types */
   const {
-    value,
+    value = '',
     children,
     isOpen,
     onToggle,
@@ -18,7 +18,8 @@ const MoleculeSelectSingleSelection = props => {
     iconArrowDown,
     iconArrowUp,
     closeOnSelect,
-    innerRef
+    innerRef,
+    size
   } = props
 
   const handleSelection = (ev, {value}) => {
@@ -36,6 +37,7 @@ const MoleculeSelectSingleSelection = props => {
         iconArrowUp={iconArrowUp}
       />
       <MoleculeDropdownList
+        size={size}
         innerRef={innerRef}
         visible={isOpen}
         onSelect={handleSelection}

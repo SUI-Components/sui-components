@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
@@ -11,9 +12,13 @@ import MoleculeSelectMultipleSelection from './components/MultipleSelection'
 import withOpenToggle from './hoc/withOpenToggle'
 
 const BASE_CLASS = `sui-MoleculeSelect`
+const CLASS_FOCUS = `${BASE_CLASS}--focus`
 
 class MoleculeSelect extends Component {
   refMoleculeSelect = React.createRef()
+  state = {
+    focus: false
+  }
 
   get extendedChildren() {
     const {children, multiselection, onEnterKey} = this.props // eslint-disable-line react/prop-types
@@ -28,6 +33,11 @@ class MoleculeSelect extends Component {
           onEnterKey: _onEnterKey
         })
       })
+  }
+
+  get className() {
+    const {focus} = this.state
+    return cx(BASE_CLASS, {[CLASS_FOCUS]: focus})
   }
 
   getFocusedOptionIndex = options => {
@@ -60,15 +70,33 @@ class MoleculeSelect extends Component {
     }
   }
 
+  handleFocusIn = () => {
+    this.setState({focus: true})
+  }
+
+  handleFocusOut = () => {
+    this.setState({focus: false})
+  }
+
   render() {
     const {multiselection, ..._props} = this.props
-    const {handleKeyDown, extendedChildren, refMoleculeSelect} = this
+    const {
+      className,
+      handleKeyDown,
+      extendedChildren,
+      refMoleculeSelect,
+      handleFocusIn,
+      handleFocusOut
+    } = this
+
     return (
       <div
         ref={refMoleculeSelect}
         tabIndex="0"
-        className={BASE_CLASS}
+        className={className}
         onKeyDown={handleKeyDown}
+        onFocus={handleFocusIn}
+        onBlur={handleFocusOut}
       >
         {multiselection ? (
           <MoleculeSelectMultipleSelection {..._props}>

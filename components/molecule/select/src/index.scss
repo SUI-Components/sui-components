@@ -4,10 +4,13 @@
 @import '~@s-ui/react-molecule-dropdown-option/lib/index';
 @import '~@s-ui/react-molecule-dropdown-list/lib/index';
 
+$base-class: '.sui-MoleculeSelect';
+$class-input: '#{$base-class}-inputSelect';
+
 $z-select-list: $z-navigation !default;
 $mr-select-list-arrow: -34px !default;
 
-.sui-MoleculeSelect {
+#{$base-class} {
   position: relative;
 
   .sui-MoleculeDropdownList {
@@ -15,7 +18,7 @@ $mr-select-list-arrow: -34px !default;
     z-index: $z-select-list;
   }
 
-  &-inputSelect {
+  #{$class-input} {
     &-container {
       align-items: center;
       cursor: pointer;
@@ -29,9 +32,16 @@ $mr-select-list-arrow: -34px !default;
         transform: rotate(180deg);
       }
     }
+
   }
 
   &--focus {
-    @extend %sui-atom-input-input-focus;
+    outline: none;
+
+    #{$class-input} {
+      &-container {
+        @extend %sui-atom-input-input-focus;
+      }
+    }
   }
 }

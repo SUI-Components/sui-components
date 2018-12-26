@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
 import React from 'react'
-// moleculeSelectListSizes
 
-import {countries} from './data'
+import {withStateValue} from '@s-ui/hoc'
 
 import MoleculeSelect, {
   moleculeSelectDropdownListSizes,
@@ -11,8 +10,8 @@ import MoleculeSelect, {
 } from '../../../../components/molecule/select/src'
 
 import {IconCloseTag, IconArrowDown} from './Icons'
-import {withStateValue} from '@s-ui/hoc'
 
+import {countries} from './data'
 import './index.scss'
 
 const MoleculeSelectWithState = withStateValue(MoleculeSelect)
@@ -20,8 +19,6 @@ const MoleculeSelectWithState = withStateValue(MoleculeSelect)
 const BASE_CLASS_DEMO = 'DemoMoleculeSelect'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
 const CLASS_DEMO_LIST = `${BASE_CLASS_DEMO}-list`
-
-console.log(moleculeSelectDropdownListSizes) // eslint-disable-line
 
 const Demo = () => (
   <div className={BASE_CLASS_DEMO}>

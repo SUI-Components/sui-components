@@ -8,8 +8,9 @@ const MoleculeAutosuggestSingleSelection = props => {
   const {
     value = '',
     children,
-    isOpen,
+    isOpen = true,
     onToggle,
+    onChangeSelection,
     onChange,
     closeOnSelect,
     onClickClearIcon,
@@ -17,7 +18,7 @@ const MoleculeAutosuggestSingleSelection = props => {
   } = props
 
   const handleSelection = (ev, {value}) => {
-    onChange(ev, {value})
+    onChangeSelection(ev, {value})
     closeOnSelect && onToggle(ev, {open: false})
   }
 
@@ -27,6 +28,7 @@ const MoleculeAutosuggestSingleSelection = props => {
         value={value}
         onClick={onToggle}
         onClickRightIcon={onClickClearIcon}
+        onChange={onChange}
       />
       <MoleculeDropdownList
         isOpen={isOpen}

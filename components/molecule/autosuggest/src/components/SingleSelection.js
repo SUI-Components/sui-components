@@ -3,11 +3,7 @@ import React, {Fragment} from 'react'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import AtomInput from '@s-ui/react-atom-input'
 
-import WithSelectUi from '../hoc/withSelectUi'
-
-const MoleculeInputSelect = WithSelectUi(AtomInput)
-
-const MoleculeSelectSingleSelection = props => {
+const MoleculeAutosuggestSingleSelection = props => {
   /* eslint-disable react/prop-types */
   const {
     value = '',
@@ -15,10 +11,8 @@ const MoleculeSelectSingleSelection = props => {
     isOpen,
     onToggle,
     onChange,
-    iconArrowDown,
-    iconArrowUp,
     closeOnSelect,
-    innerRef,
+    onClickClearIcon,
     size
   } = props
 
@@ -29,16 +23,14 @@ const MoleculeSelectSingleSelection = props => {
 
   return (
     <Fragment>
-      <MoleculeInputSelect
-        isOpen={isOpen}
+      <AtomInput
         value={value}
         onClick={onToggle}
-        iconArrowDown={iconArrowDown}
-        iconArrowUp={iconArrowUp}
+        onClickRightIcon={onClickClearIcon}
       />
       <MoleculeDropdownList
+        isOpen={isOpen}
         size={size}
-        innerRef={innerRef}
         visible={isOpen}
         onSelect={handleSelection}
         value={value}
@@ -49,11 +41,12 @@ const MoleculeSelectSingleSelection = props => {
   )
 }
 
-MoleculeSelectSingleSelection.displayName = 'MoleculeSelectSingleSelection'
+MoleculeAutosuggestSingleSelection.displayName =
+  'MoleculeAutosuggestSingleSelection'
 
-MoleculeSelectSingleSelection.defaultProps = {
+MoleculeAutosuggestSingleSelection.defaultProps = {
   value: '',
   closeOnSelect: true
 }
 
-export default MoleculeSelectSingleSelection
+export default MoleculeAutosuggestSingleSelection

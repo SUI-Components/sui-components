@@ -38,7 +38,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <h3>Basic Single selection</h3>
       <MoleculeAutosuggestWithState
-        onChangeSelection={(_, {value}) => console.log(value)}
+        onSelect={(_, {value}) => console.log(value)}
         iconCloseTag={<IconClose />}
         closeOnSelect
       />

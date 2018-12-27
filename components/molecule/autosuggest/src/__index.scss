@@ -1,0 +1,47 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-atom-input/lib/index';
+@import '~@s-ui/react-molecule-input-tags/lib/index';
+@import '~@s-ui/react-molecule-dropdown-option/lib/index';
+@import '~@s-ui/react-molecule-dropdown-list/lib/index';
+
+$base-class: '.sui-MoleculeAutosuggest';
+$class-input: '#{$base-class}-inputSelect';
+
+$z-select-list: $z-navigation !default;
+$mr-select-list-arrow: -34px !default;
+
+#{$base-class} {
+  position: relative;
+
+  .sui-MoleculeDropdownList {
+    position: absolute;
+    z-index: $z-select-list;
+  }
+
+  #{$class-input} {
+    &-container {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+    }
+
+    &-arrow {
+      margin-left: $mr-select-list-arrow;
+
+      &--up {
+        transform: rotate(180deg);
+      }
+    }
+
+  }
+
+  &--focus {
+    outline: none;
+
+    #{$class-input} {
+      &-container {
+        @extend %sui-atom-input-input-focus;
+      }
+    }
+  }
+}

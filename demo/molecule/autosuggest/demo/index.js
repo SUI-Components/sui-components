@@ -3,10 +3,11 @@
 import React from 'react'
 
 import withStateValue from './hoc/withStateValue'
+import withStateTags from './hoc/withStateTags'
 import withDynamicOptions from './hoc/withDynamicOptions'
 
 import MoleculeAutosuggest, {
-  moleculeAutosuggestDropdownListSizes,
+  MoleculeAutosuggestDropdownListSizes,
   MoleculeAutosuggestOption
 } from '../../../../components/molecule/autosuggest/src'
 
@@ -21,6 +22,10 @@ const MoleculeAutosuggestWithDynamicOptions = withDynamicOptions(
 )(countries)
 
 const MoleculeAutosuggestWithState = withStateValue(
+  MoleculeAutosuggestWithDynamicOptions
+)
+
+const MoleculeAutosuggestWithStateTags = withStateTags(
   MoleculeAutosuggestWithDynamicOptions
 )
 
@@ -43,72 +48,46 @@ const Demo = () => (
         closeOnSelect
       />
     </div>
-    {/*
-  
-  <div className={CLASS_DEMO_SECTION}>
-    <h3>Single selection w/ default Value</h3>
-    <MoleculeAutosuggestWithState
-      value="Luxembourg"
-      onChange={(_, {value}) => console.log(value)}
-      iconCloseTag={<IconClose />}
-      closeOnSelect
-    >
-      {countries.map((country, i) => (
-        <MoleculeAutosuggestOption key={i} value={country}>
-          {country}
-        </MoleculeAutosuggestOption>
-      ))}
-    </MoleculeAutosuggestWithState>
-  </div>
- 
-  <div className={CLASS_DEMO_SECTION}>
-    <h3>Single selection (list size=LARGE)</h3>
-    <MoleculeAutosuggestWithState
-      onChange={(_, {value}) => console.log(value)}
-      iconCloseTag={<IconClose />}
-      closeOnSelect
-      size={moleculeAutosuggestDropdownListSizes.LARGE}
-    >
-      {countries.map((country, i) => (
-        <MoleculeAutosuggestOption key={i} value={country}>
-          {country}
-        </MoleculeAutosuggestOption>
-      ))}
-    </MoleculeAutosuggestWithState>
-  </div>
- 
-  <h2>Dynamic Multiple Selection</h2>
-  <div className={CLASS_DEMO_SECTION}>
-    <h3>Basic Multiple selection</h3>
-    <MoleculeAutosuggestWithState
-      onChange={(_, {value}) => console.log(value)}
-      iconCloseTag={<IconClose />}
-      multiselection
-    >
-      {countries.map((country, i) => (
-        <MoleculeAutosuggestOption key={i} value={country}>
-          {country}
-        </MoleculeAutosuggestOption>
-      ))}
-    </MoleculeAutosuggestWithState>
-  </div>
- 
-  <div className={CLASS_DEMO_SECTION}>
-    <h3>Multiple selection w/ Default Value</h3>
-    <MoleculeAutosuggestWithState
-      value={['India', 'Luxembourg']}
-      onChange={(_, {value}) => console.log(value)}
-      iconCloseTag={<IconClose />}
-      multiselection
-    >
-      {countries.map((country, i) => (
-        <MoleculeAutosuggestOption key={i} value={country}>
-          {country}
-        </MoleculeAutosuggestOption>
-      ))}
-    </MoleculeAutosuggestWithState>
-  </div>
-  */}
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>Single selection w/ default Value</h3>
+      <MoleculeAutosuggestWithState
+        value="Luxembourg"
+        onSelect={(_, {value}) => console.log(value)}
+        iconCloseTag={<IconClose />}
+        closeOnSelect
+      />
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>Single selection (list size=LARGE)</h3>
+      <MoleculeAutosuggestWithState
+        onSelect={(_, {value}) => console.log(value)}
+        iconCloseTag={<IconClose />}
+        closeOnSelect
+        size={MoleculeAutosuggestDropdownListSizes.LARGE}
+      />
+    </div>
+
+    <h2>Dynamic Multiple Selection</h2>
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>Basic Multiple selection</h3>
+      <MoleculeAutosuggestWithStateTags
+        onSelect={(_, {value}) => console.log(value)}
+        iconCloseTag={<IconClose />}
+        multiselection
+      />
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>Multiple selection w/ Default Value</h3>
+      <MoleculeAutosuggestWithStateTags
+        value={['India', 'Luxembourg']}
+        onSelect={(_, {value}) => console.log(value)}
+        iconCloseTag={<IconClose />}
+        multiselection
+      />
+    </div>
   </div>
 )
 

@@ -5,7 +5,7 @@
 @import '~@s-ui/react-molecule-dropdown-list/lib/index';
 
 $base-class: '.sui-MoleculeAutosuggest';
-$class-input: '#{$base-class}-input';
+$class-input: '#{$base-class}-inputSelect';
 
 $z-select-list: $z-navigation !default;
 $mr-select-list-arrow: -34px !default;
@@ -16,6 +16,23 @@ $mr-select-list-arrow: -34px !default;
   .sui-MoleculeDropdownList {
     position: absolute;
     z-index: $z-select-list;
+  }
+
+  #{$class-input} {
+    &-container {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+    }
+
+    &-arrow {
+      margin-left: $mr-select-list-arrow;
+
+      &--up {
+        transform: rotate(180deg);
+      }
+    }
+
   }
 
   &--focus {

@@ -10,7 +10,6 @@ const MoleculeAutosuggestSingleSelection = props => {
     children,
     isOpen,
     onToggle,
-    onSelect,
     onChange,
     closeOnSelect,
     onClickClearIcon,
@@ -18,7 +17,7 @@ const MoleculeAutosuggestSingleSelection = props => {
   } = props
 
   const handleSelection = (ev, {value}) => {
-    onSelect(ev, {value})
+    onChange(ev, {value})
     closeOnSelect && onToggle(ev, {open: false})
   }
 

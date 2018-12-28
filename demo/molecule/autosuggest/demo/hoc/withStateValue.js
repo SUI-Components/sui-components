@@ -12,10 +12,7 @@ const withStateValue = BaseComponent => {
       value: PropTypes.any,
 
       /** onChange callback  */
-      onChange: PropTypes.func,
-
-      /** onSelect callback  */
-      onSelect: PropTypes.func
+      onChange: PropTypes.func
     }
 
     static defaultProps = {
@@ -31,22 +28,11 @@ const withStateValue = BaseComponent => {
       this.setState({value}, () => onChange(e, {value}))
     }
 
-    onSelect = (e, {value}) => {
-      const {onSelect} = this.props
-      this.setState({value}, () => onSelect(e, {value}))
-    }
-
     render() {
       const {value} = this.state
-      const {onChange, onSelect, props} = this
-      return (
-        <BaseComponent
-          {...props}
-          value={value}
-          onChange={onChange}
-          onSelect={onSelect}
-        />
-      )
+      const {onChange, props} = this
+      console.log(`withStateValue:value → ${value}`)
+      return <BaseComponent {...props} value={value} onChange={onChange} />
     }
   }
 }

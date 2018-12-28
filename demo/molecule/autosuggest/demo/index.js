@@ -25,8 +25,8 @@ const MoleculeAutosuggestWithState = withStateValue(
   MoleculeAutosuggestWithDynamicOptions
 )
 
-const MoleculeAutosuggestWithStateTags = withStateTags(
-  MoleculeAutosuggestWithDynamicOptions
+const MoleculeAutosuggestWithStateTags = withStateValue(
+  withStateTags(MoleculeAutosuggestWithDynamicOptions)
 )
 
 const BASE_CLASS_DEMO = 'DemoMoleculeAutosuggest'
@@ -39,41 +39,45 @@ const Demo = () => (
       <code>MoleculeAutosuggest</code>
     </h1>
     <h2>Dynamic Single Selection</h2>
-
-    <div className={CLASS_DEMO_SECTION}>
-      <h3>Basic Single selection</h3>
-      <MoleculeAutosuggestWithState
-        onSelect={(_, {value}) => console.log(value)}
-        iconCloseTag={<IconClose />}
-        closeOnSelect
-      />
-    </div>
-
-    <div className={CLASS_DEMO_SECTION}>
-      <h3>Single selection w/ default Value</h3>
-      <MoleculeAutosuggestWithState
-        value="Luxembourg"
-        onSelect={(_, {value}) => console.log(value)}
-        iconCloseTag={<IconClose />}
-        closeOnSelect
-      />
-    </div>
-
-    <div className={CLASS_DEMO_SECTION}>
-      <h3>Single selection (list size=LARGE)</h3>
-      <MoleculeAutosuggestWithState
-        onSelect={(_, {value}) => console.log(value)}
-        iconCloseTag={<IconClose />}
-        closeOnSelect
-        size={MoleculeAutosuggestDropdownListSizes.LARGE}
-      />
-    </div>
+    {/*
+  
+  <div className={CLASS_DEMO_SECTION}>
+    <h3>Basic Single selection</h3>
+    <MoleculeAutosuggestWithState
+      onChange={(_, {value}) => console.log(value)}
+      iconCloseTag={<IconClose />}
+      closeOnSelect
+    />
+  </div>
+ 
+  <div className={CLASS_DEMO_SECTION}>
+    <h3>Single selection w/ default Value</h3>
+    <MoleculeAutosuggestWithState
+      value="Luxembourg"
+      onChange={(_, {value}) => console.log(value)}
+      iconCloseTag={<IconClose />}
+      closeOnSelect
+    />
+  </div>
+ 
+  <div className={CLASS_DEMO_SECTION}>
+    <h3>Single selection (list size=LARGE)</h3>
+    <MoleculeAutosuggestWithState
+      onChange={(_, {value}) => console.log(value)}
+      iconCloseTag={<IconClose />}
+      closeOnSelect
+      size={MoleculeAutosuggestDropdownListSizes.LARGE}
+    />
+  </div>
+  
+  */}
 
     <h2>Dynamic Multiple Selection</h2>
     <div className={CLASS_DEMO_SECTION}>
       <h3>Basic Multiple selection</h3>
       <MoleculeAutosuggestWithStateTags
-        onSelect={(_, {value}) => console.log(value)}
+        onChange={(_, {value}) => console.log(value)}
+        value={[]}
         iconCloseTag={<IconClose />}
         multiselection
       />
@@ -83,7 +87,7 @@ const Demo = () => (
       <h3>Multiple selection w/ Default Value</h3>
       <MoleculeAutosuggestWithStateTags
         value={['India', 'Luxembourg']}
-        onSelect={(_, {value}) => console.log(value)}
+        onChange={(_, {value}) => console.log(value)}
         iconCloseTag={<IconClose />}
         multiselection
       />

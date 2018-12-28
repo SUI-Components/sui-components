@@ -4,33 +4,43 @@ import React, {Fragment} from 'react'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
 
-const MoleculeSelectFieldMultiSelection = props => {
+const MoleculeAutosuggestFieldMultiSelection = props => {
   /* eslint-disable react/prop-types */
   const {
     children,
     isOpen,
     onToggle,
     onChange,
-    onSelect,
     onChangeTags,
-    onChange,
     closeOnSelect,
     iconCloseTag,
     tags, 
     value
   } = props
 
-  const handleMultiSelection = (ev, {value: valueOptionSelected}) => {
-    const newValues = values.includes(valueOptionSelected)
-      ? values.filter(value => value !== valueOptionSelected)
-      : [...values, valueOptionSelected]
+  // console.log({
+  //   children,
+  //   isOpen,
+  //   onToggle,
+  //   onChange,
+  //   onChangeTags,
+  //   closeOnSelect,
+  //   iconCloseTag,
+  //   tags, 
+  //   value
+  // })
 
-    onChange(ev, {value: newValues})
+  const handleMultiSelection = (ev, {value: valueOptionSelected}) => {
+    const newValues = tags.includes(valueOptionSelected)
+      ? tags.filter(value => value !== valueOptionSelected)
+      : [...tags, valueOptionSelected]
+
+    onChangeTags(ev, {value: newValues})
     closeOnSelect && onToggle(ev, {open: false})
   }
 
   const handleChangeTags = (ev, {tags: value}) => {
-    onSelect(ev, {value})
+    onChangeTags(ev, {value})
     closeOnSelect && onToggle(ev, {open: false})
   }
 
@@ -56,8 +66,8 @@ const MoleculeSelectFieldMultiSelection = props => {
         checkbox
         visible={isOpen}
         onSelect={handleMultiSelection}
-        value={values}
-        highlightQuery={valueInput}
+        value={tags}
+        highlightQuery={value}
       >
         {children}
       </MoleculeDropdownList>
@@ -65,11 +75,11 @@ const MoleculeSelectFieldMultiSelection = props => {
   )
 }
 
-MoleculeSelectFieldMultiSelection.displayName =
-  'MoleculeSelectFieldMultiSelection'
+MoleculeAutosuggestFieldMultiSelection.displayName =
+  'MoleculeAutosuggestFieldMultiSelection'
 
-MoleculeSelectFieldMultiSelection.defaultProps = {
+MoleculeAutosuggestFieldMultiSelection.defaultProps = {
   value: []
 }
 
-export default MoleculeSelectFieldMultiSelection
+export default MoleculeAutosuggestFieldMultiSelection

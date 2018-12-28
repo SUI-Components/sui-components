@@ -4,19 +4,18 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 const withStateTags = BaseComponent => {
+  const displayName = BaseComponent.displayName
+
   return class BaseComponentWithState extends Component {
+
+    static displayName = `withStateTags(${displayName})`
+
     static propTypes = {
       /** value */
-      value: PropTypes.any,
-
-      /** tags */
-      tags: PropTypes.any,
+      value: PropTypes.any,  // valueTags
 
       /** onChange callback  */
-      onChange: PropTypes.func,
-
-      /** onSelect callback  */
-      onSelect: PropTypes.func
+      onChange: PropTypes.func // onChangeTags
     }
 
     static defaultProps = {
@@ -25,27 +24,32 @@ const withStateTags = BaseComponent => {
     }
 
     state = {
-      tags: this.props.tags || [],
-      value: this.props.value || ''
+      value: '' // valueInput
     }
 
     onChangeTags = (e, {tags, value}) => {
-      const {onSelect} = this.props // eslint-disable-line react/prop-types
-      this.setState({tags, value}, () => {
-        onSelect(e, {tags, value})
-      })
+      const {onChange} = this.props // eslint-disable-line react/prop-types
+      console.log(`withStateTags:onChangeTags:tags → ${tags}`)
+      onChange(e, {value: tags})
     }
 
     onChange = (e, {value}) => {
-      const {onChange} = this.props // eslint-disable-line react/prop-types
-      this.setState({value}, () => {
-        onChange(e, {value})
-      })
+      console.log({value})
+      this.setState({value})
     }
 
+  
+    // onChange: PropTypes.func,
+    // onChangeTags: PropTypes.func,
+    // onSelect: PropTypes.func,
+
+
     render() {
-      const {tags, value} = this.state
-      const {onChangeTags, onChange, props} = this
+      const {value} = this.state
+      const {value:tags, onChange: onChangeTags} = this.props
+      const {onChange, props} = this
+      console.log({value, tags})
+      console.log(`withStateTags:render`)
       return (
         <div>
           <BaseComponent

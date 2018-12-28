@@ -119,6 +119,9 @@ MoleculeAutosuggest.propTypes = {
   /** value selected */
   value: PropTypes.any,
 
+  /* list of values displayed as tags */
+  tags: PropTypes.array,
+
   /** list of values to be displayed on the select */
   options: PropTypes.array,
 
@@ -128,7 +131,10 @@ MoleculeAutosuggest.propTypes = {
   /** callback when arrow up/down is clicked → to show/hide list of options */
   onToggle: PropTypes.func,
 
-  /** callback to be triggered when value selected changes */
+  /* callback to be called with every update of the list of tags */
+  onChangeTags: PropTypes.func,
+
+  /* callback to be called with every update of the input value */
   onChange: PropTypes.func,
 
   /** if list should be hidden when any value is selected */

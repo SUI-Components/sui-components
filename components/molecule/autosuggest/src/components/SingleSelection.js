@@ -12,7 +12,8 @@ const MoleculeAutosuggestSingleSelection = props => {
     onToggle,
     onChange,
     closeOnSelect,
-    onClickClearIcon,
+    iconClear,
+    onClickIconClear,
     size
   } = props
 
@@ -31,7 +32,8 @@ const MoleculeAutosuggestSingleSelection = props => {
       <AtomInput
         value={value}
         onClick={onToggle}
-        onClickRightIcon={onClickClearIcon}
+        rightIcon={iconClear}
+        onClickRightIcon={onClickIconClear}
         onChange={handleChange}
       />
       <MoleculeDropdownList

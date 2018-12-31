@@ -31,7 +31,6 @@ const withStateValue = BaseComponent => {
     render() {
       const {value} = this.state
       const {onChange, props} = this
-      console.log(`withStateValue:value → ${value}`)
       return <BaseComponent {...props} value={value} onChange={onChange} />
     }
   }

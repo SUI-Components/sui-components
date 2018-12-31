@@ -29,27 +29,18 @@ const withStateTags = BaseComponent => {
 
     onChangeTags = (e, {tags, value}) => {
       const {onChange} = this.props // eslint-disable-line react/prop-types
-      console.log(`withStateTags:onChangeTags:tags → ${tags}`)
       onChange(e, {value: tags})
+      this.onChangeValue(e, {value:''})
     }
 
-    onChange = (e, {value}) => {
-      console.log({value})
+    onChangeValue = (e, {value}) => {
       this.setState({value})
     }
 
-  
-    // onChange: PropTypes.func,
-    // onChangeTags: PropTypes.func,
-    // onSelect: PropTypes.func,
-
-
     render() {
       const {value} = this.state
-      const {value:tags, onChange: onChangeTags} = this.props
-      const {onChange, props} = this
-      console.log({value, tags})
-      console.log(`withStateTags:render`)
+      const {value:tags} = this.props
+      const {onChangeTags, onChangeValue, props} = this
       return (
         <div>
           <BaseComponent
@@ -57,7 +48,7 @@ const withStateTags = BaseComponent => {
             tags={tags}
             value={value}
             onChangeTags={onChangeTags}
-            onChange={onChange}
+            onChange={onChangeValue}
           />
         </div>
       )

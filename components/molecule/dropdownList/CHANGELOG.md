@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2018-12-31)
+
+
+### Features
+
+* added control of child elements that can be focused via keyboard ([9853248](https://github.com/SUI-Components/sui-components/commit/9853248))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2018-12-10)
 

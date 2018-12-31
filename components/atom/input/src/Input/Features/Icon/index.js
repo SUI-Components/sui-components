@@ -20,10 +20,10 @@ const IconHoC = WrappedInput =>
   class Icon extends React.Component {
     static propTypes = {
       /* Left icon component */
-      leftIcon: PropTypes.any,
+      leftIcon: PropTypes.node,
 
       /* Left icon component */
-      rightIcon: PropTypes.any,
+      rightIcon: PropTypes.node,
 
       /* Left icon click callback */
       onClickLeftIcon: PropTypes.func,
@@ -44,43 +44,38 @@ const IconHoC = WrappedInput =>
 
     render() {
       const {
-        leftIcon: LeftIcon,
-        rightIcon: RightIcon,
+        leftIcon,
+        rightIcon,
         onClickLeftIcon,
         onClickRightIcon,
         ...props
       } = this.props
-      return LeftIcon || RightIcon ? (
+      return leftIcon || rightIcon ? (
         <div
-          className={cx(
-            CLASS_ICON,
-            LeftIcon && CLASS_ICON_LEFT,
-            RightIcon && CLASS_ICON_RIGHT
-          )}
+          className={cx(CLASS_ICON, {
+            [CLASS_ICON_LEFT]: leftIcon,
+            [CLASS_ICON_RIGHT]: rightIcon
+          })}
         >
-          {LeftIcon && (
+          {leftIcon && (
             <span
-              className={cx(
-                CLASS_ICON_COMPONENT,
-                CLASS_ICON_COMPONENT_LEFT,
-                onClickLeftIcon && CLASS_ICON_COMPONENT_HANDLER
-              )}
+              className={cx(CLASS_ICON_COMPONENT, CLASS_ICON_COMPONENT_LEFT, {
+                [CLASS_ICON_COMPONENT_HANDLER]: onClickLeftIcon
+              })}
               onClick={this.handleLeftClick}
             >
-              <LeftIcon />
+              {leftIcon}
             </span>
           )}
           <WrappedInput {...props} />
-          {RightIcon && (
+          {rightIcon && (
             <span
-              className={cx(
-                CLASS_ICON_COMPONENT,
-                CLASS_ICON_COMPONENT_RIGHT,
-                onClickRightIcon && CLASS_ICON_COMPONENT_HANDLER
-              )}
+              className={cx(CLASS_ICON_COMPONENT, CLASS_ICON_COMPONENT_RIGHT, {
+                [CLASS_ICON_COMPONENT_HANDLER]: onClickRightIcon
+              })}
               onClick={this.handleRightClick}
             >
-              <RightIcon />
+              {rightIcon}
             </span>
           )}
         </div>

@@ -7,15 +7,16 @@
 $base-class: '.sui-MoleculeAutosuggest';
 $class-input: '#{$base-class}-input';
 
-$z-select-list: $z-navigation !default;
-$mr-select-list-arrow: -34px !default;
+$z-autosuggest-list: $z-navigation !default;
+$mr-autosuggest-icon-clear: -34px !default;
+$w-autosuggest-icon-clear: 20px !default;
 
 #{$base-class} {
   position: relative;
 
   .sui-MoleculeDropdownList {
     position: absolute;
-    z-index: $z-select-list;
+    z-index: $z-autosuggest-list;
   }
 
   &--focus {
@@ -25,6 +26,21 @@ $mr-select-list-arrow: -34px !default;
       &-container {
         @extend %sui-atom-input-input-focus;
       }
+
     }
   }
+
+  #{$class-input} {
+    &-container {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+    }
+
+    &-icon {
+      margin-left: $mr-autosuggest-icon-clear;
+      width: $w-autosuggest-icon-clear;
+    }  
+  }
+
 }

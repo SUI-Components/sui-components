@@ -3,6 +3,10 @@ import React, {Fragment} from 'react'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import AtomInput from '@s-ui/react-atom-input'
 
+import withClearUI from '../hoc/withClearUI'
+
+const AtomInputWithClearUI = withClearUI(AtomInput)
+
 const MoleculeAutosuggestSingleSelection = props => {
   /* eslint-disable react/prop-types */
   const {
@@ -12,9 +16,8 @@ const MoleculeAutosuggestSingleSelection = props => {
     onToggle,
     onChange,
     closeOnSelect,
-    iconClear,
-    onClickIconClear,
-    size
+    size,
+    iconClear
   } = props
 
   const handleSelection = (ev, {value}) => {
@@ -27,14 +30,17 @@ const MoleculeAutosuggestSingleSelection = props => {
     onToggle(ev, {open: true})
   }
 
+  const handleClear = () => {
+    onChange(null, {value: ''})
+  }
+
   return (
     <Fragment>
-      <AtomInput
+      <AtomInputWithClearUI
         value={value}
-        onClick={onToggle}
-        rightIcon={iconClear}
-        onClickRightIcon={onClickIconClear}
+        onClickClear={handleClear}
         onChange={handleChange}
+        iconClear={iconClear}
       />
       <MoleculeDropdownList
         isOpen={isOpen}

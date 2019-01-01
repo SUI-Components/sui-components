@@ -4,6 +4,10 @@ import ReactDOM from 'react-dom'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
 
+import withClearUI from '../hoc/withClearUI'
+
+const MoleculeInputTagsWithClearUI = withClearUI(MoleculeInputTags)
+
 class MoleculeAutosuggestFieldMultiSelection extends Component {
 
   MoleculeInputTagsRef = React.createRef()
@@ -35,12 +39,18 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
     onToggle(ev, {open: true})
   }
 
+  handleClear = () => {
+    const { onChange, onChangeTags } = this.props
+    onChange(null, {value:''})
+    onChangeTags(null, {value:[]})
+  }
+
   render() {
-    const {handleMultiSelection, handleChangeTags, handleChange, MoleculeInputTagsRef} = this
-    const { tags, value, onToggle, iconCloseTag, isOpen, children } = this.props
+    const {handleMultiSelection, handleChangeTags, handleChange, handleClear, MoleculeInputTagsRef} = this
+    const { tags, value, onToggle, iconCloseTag, isOpen, iconClear, children } = this.props
     return (
       <Fragment>
-        <MoleculeInputTags
+        <MoleculeInputTagsWithClearUI
           ref={MoleculeInputTagsRef}
           tags={tags}
           value={value}
@@ -49,6 +59,8 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
           onChangeTags={handleChangeTags}
           onChange={handleChange}
           isOpen={isOpen}
+          iconClear={iconClear}
+          onClickClear={handleClear}
           noBorder
         />
         <MoleculeDropdownList

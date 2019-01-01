@@ -143,6 +143,9 @@ MoleculeAutosuggest.propTypes = {
   /** Icon for closing (removing) tags */
   iconCloseTag: PropTypes.node.isRequired,
 
+  /** Icon for closing (removing) tags */
+  iconClear: PropTypes.node,
+
   /** size (height) of the list */
   size: PropTypes.oneOf(Object.values(SIZES))
 }

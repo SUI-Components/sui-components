@@ -2,6 +2,8 @@ import React, {Component, Fragment} from 'react'
 import PropTypes from 'prop-types'
 import withIntersectionObserver from './hoc/withIntersectionObserver'
 
+import {withOpenToggle} from '@s-ui/hoc'
+
 const BASE_CLASS = 'sui-AtomTooltip'
 const CLASS_INNER = `${BASE_CLASS}-inner`
 const CLASS_ARROW = `${BASE_CLASS}-arrow`
@@ -24,7 +26,7 @@ const PLACEMENTS = {
 }
 
 class AtomTooltip extends Component {
-  state = {Tooltip: null, isOpen: false}
+  state = {Tooltip: null}
   preventNonTouchEvents = false
   hasTouchEnded = false
   touchTimer = null
@@ -32,13 +34,6 @@ class AtomTooltip extends Component {
   title = null
   refTooltip = React.createRef()
   refTarget = React.createRef()
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (!nextProps.isVisible && prevState.isOpen) {
-      return {isOpen: false}
-    }
-    return null
-  }
 
   loadAsyncReacstrap(e) {
     require.ensure(
@@ -114,27 +109,23 @@ class AtomTooltip extends Component {
   }
 
   handleClickOutsideElement = e => {
-    const {isOpen} = this.state
+    const {isOpen, onToggle} = this.props
     const target = this.refTarget.current
     if (isOpen) {
       const tooltipDom = this.refTooltip.current
       const isOutside = tooltipDom && !tooltipDom.contains(e.target)
       const isNotTarget = target && !target.contains(e.target)
-      if (isOutside && isNotTarget) this.toggle(false)
+      if (isOutside && isNotTarget) onToggle(e, {isOpen: false})
     }
   }
 
   handleTouchStart = e => {
-    const {longPressTime} = this.props
+    const {longPressTime, onToggle} = this.props
     this.preventNonTouchEvents = true
     this.hasTouchEnded = false
     clearTimeout(this.touchTimer)
     this.touchTimer = setTimeout(() => {
-      if (!this.hasTouchEnded) {
-        this.setState({
-          isOpen: !this.state.isOpen
-        })
-      }
+      if (!this.hasTouchEnded) onToggle(e)
       this.preventNonTouchEvents = false
       this.hasTouchEnded = false
     }, longPressTime)
@@ -159,6 +150,7 @@ class AtomTooltip extends Component {
    */
   handleToggleOnNormalTarget = e => {
     const {type} = e
+    const {onToggle} = this.props
     const isValidTrigger = [
       'click',
       'focusin',
@@ -170,7 +162,7 @@ class AtomTooltip extends Component {
     if (this.hasTouchEnded && ['focusin', 'mouseover'].includes(type)) {
       this.handleStopPropagation(e)
     }
-    if (isValidTrigger) this.toggle()
+    if (isValidTrigger) onToggle(e)
   }
 
   /**
@@ -179,14 +171,10 @@ class AtomTooltip extends Component {
    */
   handleToggleOnCallToActionTarget = e => {
     const {type} = e
+    const {onToggle} = this.props
     if (type === 'touchstart') this.handleTouchStart(e)
     if (type === 'touchend') this.handleTouchEnd(e)
-    if (!this.preventNonTouchEvents) this.toggle()
-  }
-
-  toggle = value => {
-    const isOpen = value || !this.state.isOpen
-    this.setState({isOpen})
+    if (!this.preventNonTouchEvents) onToggle(e)
   }
 
   handleToggle = e => {
@@ -200,7 +188,8 @@ class AtomTooltip extends Component {
       content: HtmlContent,
       delay,
       autohide,
-      placement
+      placement,
+      isOpen
     } = this.props // eslint-disable-line react/prop-types
     const {Tooltip} = this.state
     const target = this.refTarget.current
@@ -211,6 +200,7 @@ class AtomTooltip extends Component {
       autohide,
       placement
     }
+    console.log({isOpen})
     return (
       <Fragment>
         {this.extendChildren()}
@@ -218,7 +208,7 @@ class AtomTooltip extends Component {
           Tooltip && (
             <Tooltip
               {...restrictedProps}
-              isOpen={this.state.isOpen}
+              isOpen={isOpen}
               toggle={this.handleToggle}
               className={BASE_CLASS}
               innerClassName={CLASS_INNER}
@@ -264,6 +254,12 @@ AtomTooltip.propTypes = {
   /** True if the target is inside the viewport */
   isVisible: PropTypes.bool,
 
+  /** True if the tooltip is displayed or not */
+  isOpen: PropTypes.bool,
+
+  /** Handler to set the value of isOpen  */
+  onToggle: PropTypes.func,
+
   /** HTML (component) to be displayed on the Tooltip */
   content: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 
@@ -278,5 +274,5 @@ AtomTooltip.propTypes = {
   longPressTime: PropTypes.number
 }
 
-export default withIntersectionObserver(AtomTooltip)
+export default withOpenToggle(withIntersectionObserver(AtomTooltip))
 export {PLACEMENTS as atomTooltipPlacements}

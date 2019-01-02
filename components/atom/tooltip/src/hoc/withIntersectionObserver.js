@@ -35,10 +35,17 @@ export default BaseComponent => {
     }
 
     render() {
+      let {isOpen} = this.props // eslint-disable-line
+      const {isVisible} = this.state.isIntersecting
+      if (!isVisible && isOpen) {
+        isOpen = false
+      }
+      console.log({isVisible})
       return (
         <BaseComponent
           {...this.props}
-          isVisible={this.state.isIntersecting}
+          isVisible={isVisible}
+          isOpen={isOpen}
           innerRef={this.innerRef}
         />
       )

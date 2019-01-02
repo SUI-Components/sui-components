@@ -54,7 +54,7 @@ class MoleculeDropdownList extends Component {
     if (key === 'ArrowDown' || key === 'ArrowUp') {
       const index = getFocusedOptionIndex(options)
       if (index >= 0 || index <= numOptions) {
-        if (key === 'ArrowDown' && index < numOptions)
+        if (key === 'ArrowDown' && index < numOptions - 1)
           options[index + 1].focus()
         if (key === 'ArrowUp' && index > 0) options[index - 1].focus()
       }

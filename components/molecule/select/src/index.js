@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
@@ -15,6 +16,7 @@ const BASE_CLASS = `sui-MoleculeSelect`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
 
 class MoleculeSelect extends Component {
+
   refMoleculeSelect = React.createRef()
   state = {
     focus: false
@@ -25,12 +27,9 @@ class MoleculeSelect extends Component {
     return React.Children.toArray(children)
       .filter(Boolean)
       .map((child, index) => {
-        const _onEnterKey = multiselection
-          ? onEnterKey || ' '
-          : onEnterKey || 'Enter'
         return React.cloneElement(child, {
           ref: index,
-          onEnterKey: _onEnterKey
+          onEnterKey: onEnterKey || (multiselection ? ' ' : 'Enter')
         })
       })
   }
@@ -50,10 +49,15 @@ class MoleculeSelect extends Component {
 
   handleKeyDown = ev => {
     const {onToggle, closeOnSelect, isOpen} = this.props
-    const {getFocusedOptionIndex, refMoleculeSelect} = this
+    const {
+      getFocusedOptionIndex,
+      refMoleculeSelect
+    } = this
+    
     const options = Object.values(this.refs).map(ref =>
       ReactDOM.findDOMNode(ref)
     )
+
     const domSourceEvent = ev.target
     const domMoleculeSelect = refMoleculeSelect.current
     if (ev.key === 'Enter') {

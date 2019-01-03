@@ -188,9 +188,9 @@ class AtomTooltip extends Component {
       content: HtmlContent,
       delay,
       autohide,
-      placement,
-      isOpen
+      placement
     } = this.props // eslint-disable-line react/prop-types
+
     const {Tooltip} = this.state
     const target = this.refTarget.current
     const restrictedProps = {
@@ -200,7 +200,9 @@ class AtomTooltip extends Component {
       autohide,
       placement
     }
-    console.log({isOpen})
+    let {isVisible, isOpen} = this.props // eslint-disable-line react/prop-types
+    if (!isVisible && isOpen) isOpen = false
+
     return (
       <Fragment>
         {this.extendChildren()}
@@ -274,5 +276,5 @@ AtomTooltip.propTypes = {
   longPressTime: PropTypes.number
 }
 
-export default withOpenToggle(withIntersectionObserver(AtomTooltip))
+export default withIntersectionObserver(withOpenToggle(AtomTooltip))
 export {PLACEMENTS as atomTooltipPlacements}

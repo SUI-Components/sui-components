@@ -2,14 +2,13 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-// import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
-import MoleculeDropdownOption from '../../dropdownOption/src'
+import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
 
 import MoleculeSelectSingleSelection from './components/SingleSelection'
 import MoleculeSelectMultipleSelection from './components/MultipleSelection'
 
-import withOpenToggle from './hoc/withOpenToggle'
+import {withOpenToggle} from '@s-ui/hoc'
 
 const BASE_CLASS = `sui-MoleculeSelect`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`

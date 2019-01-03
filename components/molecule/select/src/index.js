@@ -92,8 +92,6 @@ class MoleculeSelect extends Component {
       handleFocusOut
     } = this
 
-    console.log(extendedChildren)
-
     return (
       <div
         ref={refMoleculeSelect}

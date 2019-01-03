@@ -9,7 +9,7 @@ import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-
 import MoleculeAutosuggestSingleSelection from './components/SingleSelection'
 import MoleculeAutosuggestMultipleSelection from './components/MultipleSelection'
 
-import withOpenToggle from './hoc/withOpenToggle'
+import {withOpenToggle} from '@s-ui/hoc'
 
 const BASE_CLASS = `sui-MoleculeAutosuggest`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`

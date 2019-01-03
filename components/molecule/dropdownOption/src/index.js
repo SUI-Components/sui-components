@@ -46,8 +46,7 @@ const MoleculeDropdownOption = ({
       onSelect(ev, {value})
     }
   }
-  console.log('MoleculeDropdownOption...')
-  console.log(innerRef)
+
   return (
     <div
       ref={innerRef}

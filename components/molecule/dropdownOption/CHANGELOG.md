@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2019-01-03)
+
+
+### Features
+
+* added innerRef to DropdownOption ([c3c9e3f](https://github.com/SUI-Components/sui-components/commit/c3c9e3f))
+* better propType for innerRef ([986559c](https://github.com/SUI-Components/sui-components/commit/986559c))
+* remove console logs ([354d867](https://github.com/SUI-Components/sui-components/commit/354d867))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2018-12-13)
 

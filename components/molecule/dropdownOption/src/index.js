@@ -18,6 +18,7 @@ const MoleculeDropdownOption = ({
   highlightQuery,
   onEnterKey,
   onSelect,
+  innerRef,
   value
 }) => {
   const className = cx(BASE_CLASS, {
@@ -45,9 +46,11 @@ const MoleculeDropdownOption = ({
       onSelect(ev, {value})
     }
   }
-
+  console.log('MoleculeDropdownOption...')
+  console.log(innerRef)
   return (
     <div
+      ref={innerRef}
       tabIndex="0"
       className={className}
       onClick={handleClick}
@@ -93,7 +96,14 @@ MoleculeDropdownOption.propTypes = {
   highlightQuery: PropTypes.string,
 
   /* key to provoke the onClick callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values */
-  onEnterKey: PropTypes.string
+  onEnterKey: PropTypes.string,
+
+  /** Custom ref handler that will be assigned to the "target" element */
+  innerRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.string,
+    PropTypes.object
+  ])
 }
 
 MoleculeDropdownOption.defaultProps = {

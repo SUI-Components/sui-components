@@ -1,10 +1,9 @@
-/* eslint-disable */
 import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
+// import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
+import MoleculeDropdownOption from '../../dropdownOption/src'
 import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
 
 import MoleculeSelectSingleSelection from './components/SingleSelection'
@@ -16,19 +15,21 @@ const BASE_CLASS = `sui-MoleculeSelect`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
 
 class MoleculeSelect extends Component {
-
   refMoleculeSelect = React.createRef()
+  refsMoleculeSelectOptions = []
   state = {
     focus: false
   }
 
   get extendedChildren() {
     const {children, multiselection, onEnterKey} = this.props // eslint-disable-line react/prop-types
+    const {refsMoleculeSelectOptions} = this
     return React.Children.toArray(children)
       .filter(Boolean)
       .map((child, index) => {
+        refsMoleculeSelectOptions[index] = React.createRef()
         return React.cloneElement(child, {
-          ref: index,
+          innerRef: refsMoleculeSelectOptions[index],
           onEnterKey: onEnterKey || (multiselection ? ' ' : 'Enter')
         })
       })
@@ -51,13 +52,11 @@ class MoleculeSelect extends Component {
     const {onToggle, closeOnSelect, isOpen} = this.props
     const {
       getFocusedOptionIndex,
-      refMoleculeSelect
+      refMoleculeSelect,
+      refsMoleculeSelectOptions
     } = this
-    
-    const options = Object.values(this.refs).map(ref =>
-      ReactDOM.findDOMNode(ref)
-    )
 
+    const options = refsMoleculeSelectOptions.map(({current}) => current)
     const domSourceEvent = ev.target
     const domMoleculeSelect = refMoleculeSelect.current
     if (ev.key === 'Enter') {
@@ -92,6 +91,8 @@ class MoleculeSelect extends Component {
       handleFocusIn,
       handleFocusOut
     } = this
+
+    console.log(extendedChildren)
 
     return (
       <div

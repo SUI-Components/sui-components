@@ -98,11 +98,7 @@ MoleculeDropdownOption.propTypes = {
   onEnterKey: PropTypes.string,
 
   /** Custom ref handler that will be assigned to the "target" element */
-  innerRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.string,
-    PropTypes.object
-  ])
+  innerRef: PropTypes.object
 }
 
 MoleculeDropdownOption.defaultProps = {

@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types, no-unused-vars, no-console */
+/* eslint-disable no-console */
 
 import React from 'react'
 import './index.scss'
@@ -10,9 +10,6 @@ import MoleculeInputTags, {
 import {withStateValueTags} from '@s-ui/hoc'
 import {CloseIcon} from './icons'
 import {beatles, ledZeppelin, queen} from './data'
-
-console.log(withStateValueTags)
-console.log({beatles, ledZeppelin, queen})
 
 const BASE_CLASS_DEMO = 'DemoMoleculeInputTags'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`

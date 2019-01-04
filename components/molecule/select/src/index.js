@@ -62,7 +62,7 @@ class MoleculeSelect extends Component {
       if (domSourceEvent === domMoleculeSelect) {
         onToggle(ev, {})
       } else if (closeOnSelect) {
-        onToggle(ev, {open: false})
+        onToggle(ev, {isOpen: false})
         domMoleculeSelect.focus()
       }
     }

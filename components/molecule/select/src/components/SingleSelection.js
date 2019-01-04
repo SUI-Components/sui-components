@@ -22,7 +22,7 @@ const MoleculeSelectSingleSelection = props => {
 
   const handleSelection = (ev, {value}) => {
     onChange(ev, {value})
-    closeOnSelect && onToggle(ev, {open: false})
+    closeOnSelect && onToggle(ev, {isOpen: false})
   }
 
   return (

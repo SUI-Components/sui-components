@@ -26,12 +26,12 @@ const MoleculeSelectFieldMultiSelection = props => {
       : [...values, valueOptionSelected]
 
     onChange(ev, {value: newValues})
-    closeOnSelect && onToggle(ev, {open: false})
+    closeOnSelect && onToggle(ev, {isOpen: false})
   }
 
   const handleChangeTags = (ev, {tags: value}) => {
     onChange(ev, {value})
-    closeOnSelect && onToggle(ev, {open: false})
+    closeOnSelect && onToggle(ev, {isOpen: false})
   }
 
   return (

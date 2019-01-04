@@ -64,6 +64,7 @@ class MoleculeInputTags extends Component {
     const {onChange, addTag, removeTag, handleFocusIn, handleFocusOut} = this
     const {tagsCloseIcon, tags, value, ...props} = this.props
     const {focus} = this.state
+
     return (
       <div className={this.getClassNames(focus, props.size, props.errorState)}>
         {tags.map((label, index) => (

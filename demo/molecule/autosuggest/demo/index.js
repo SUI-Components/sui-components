@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import withStateValue from './hoc/withStateValue'
+import {withStateValue} from '@s-ui/hoc'
 import withStateTags from './hoc/withStateTags'
 import withDynamicOptions from './hoc/withDynamicOptions'
 

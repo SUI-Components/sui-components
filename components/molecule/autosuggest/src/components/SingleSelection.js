@@ -22,12 +22,12 @@ const MoleculeAutosuggestSingleSelection = props => {
 
   const handleSelection = (ev, {value}) => {
     onChange(ev, {value})
-    closeOnSelect && onToggle(ev, {open: false})
+    closeOnSelect && onToggle(ev, {isOpen: false})
   }
 
   const handleChange = (ev, {value}) => {
     onChange(ev, {value})
-    onToggle(ev, {open: true})
+    onToggle(ev, {isOpen: true})
   }
 
   const handleClear = () => {

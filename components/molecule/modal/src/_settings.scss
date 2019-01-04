@@ -2,6 +2,8 @@ $bg-molecule-modal: $c-black !default;
 $op-molecule-modal: .6 !default;
 $z-molecule-modal: $z-modal !default;
 
+$bg-molecule-modal-overlay: rgba($bg-molecule-modal, $op-molecule-modal);
+
 $bg-molecule-modal-dialog: $c-white !default;
 $bd-molecule-modal-dialog: 0 !default;
 $bdrs-molecule-modal-dialog: $bdrs-l !default;
@@ -26,7 +28,7 @@ $pl-molecule-modal-no-header: $pr-molecule-modal-no-header !default;
 
 
 $c-molecule-modal-icon: $c-primary !default;
-$h-molecule-modal-icon: 16px !default;
+$h-molecule-modal-icon: 24px !default;
 $w-molecule-modal-icon: $h-molecule-modal-icon !default;
 
 $pt-molecule-modal-icon: 0 !default;
@@ -34,7 +36,7 @@ $pr-molecule-modal-icon: $p-l !default;
 $pb-molecule-modal-icon: 0 !default;
 $pl-molecule-modal-icon: $p-l !default;
 
-$pt-molecule-modal-content: 0 !default;
+$pt-molecule-modal-content: $p-l !default;
 $pb-molecule-modal-content: $pt-molecule-modal-content !default;
 $pr-molecule-modal-content: $p-xl !default;
 $pl-molecule-modal-content: $pr-molecule-modal-content !default;

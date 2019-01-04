@@ -68,7 +68,7 @@ body.is-MoleculeModal-open {
   &::before {
     @extend %modal-position;
     animation: modal-overlay-in 5s both;
-    background-color: rgba($bg-molecule-modal, $op-molecule-modal);
+    background-color: $bg-molecule-modal-overlay;
     content: '';
   }
 
@@ -85,7 +85,7 @@ body.is-MoleculeModal-open {
   }
 
   &-dialog {
-      @include media-breakpoint-up(xs) {
+    @include media-breakpoint-up(xs) {
       border-radius: $bdrs-molecule-modal-dialog;
       height: auto;
       margin: $m-molecule-modal-dialog;
@@ -108,7 +108,7 @@ body.is-MoleculeModal-open {
     z-index: $z-molecule-modal;
 
     &--full {      
-        @include media-breakpoint-up(xs) {
+      @include media-breakpoint-up(xs) {
         max-width: $maw-molecule-modal-dialog--full;
       }
     }
@@ -147,6 +147,10 @@ body.is-MoleculeModal-open {
     display: flex;
     padding: $pt-molecule-modal-icon $pl-molecule-modal-icon $pb-molecule-modal-icon $pr-molecule-modal-icon;
 
+    &:focus {
+      outline: none;
+    }
+
     svg {
       fill: $c-molecule-modal-icon;
       height: $h-molecule-modal-icon;
@@ -160,5 +164,13 @@ body.is-MoleculeModal-open {
     overflow-y: auto;
     padding: $pt-molecule-modal-content $pr-molecule-modal-content $pb-molecule-modal-content $pl-molecule-modal-content;
     position: relative;
+
+    :first-child {
+      margin-top: 0;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
   }
 }

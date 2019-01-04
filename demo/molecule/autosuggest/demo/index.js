@@ -2,8 +2,7 @@
 
 import React from 'react'
 
-import {withStateValue} from '@s-ui/hoc'
-import withStateTags from './hoc/withStateTags'
+import {withStateValue, withStateValueTags} from '@s-ui/hoc'
 import withDynamicOptions from './hoc/withDynamicOptions'
 
 import MoleculeAutosuggest, {
@@ -25,8 +24,8 @@ const MoleculeAutosuggestWithState = withStateValue(
   MoleculeAutosuggestWithDynamicOptions
 )
 
-const MoleculeAutosuggestWithStateTags = withStateValue(
-  withStateTags(MoleculeAutosuggestWithDynamicOptions)
+const MoleculeAutosuggestWithStateTags = withStateValueTags(
+  MoleculeAutosuggestWithDynamicOptions
 )
 
 const BASE_CLASS_DEMO = 'DemoMoleculeAutosuggest'
@@ -77,7 +76,6 @@ const Demo = () => (
       <h3>Basic Multiple selection</h3>
       <MoleculeAutosuggestWithStateTags
         onChange={(_, {value}) => console.log(value)}
-        value={[]}
         iconCloseTag={<IconClose />}
         iconClear={<IconClose />}
         multiselection
@@ -87,7 +85,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <h3>Multiple selection w/ Default Value</h3>
       <MoleculeAutosuggestWithStateTags
-        value={['India', 'Luxembourg']}
+        tags={['India', 'Luxembourg']}
         onChange={(_, {value}) => console.log(value)}
         iconCloseTag={<IconClose />}
         iconClear={<IconClose />}

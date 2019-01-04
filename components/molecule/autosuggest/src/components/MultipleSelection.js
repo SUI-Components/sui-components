@@ -29,7 +29,7 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
 
   handleChangeTags = (ev, {tags}) => {
     const { closeOnSelect, onChangeTags, onToggle } = this.props
-    onChangeTags(ev, {tags})
+    onChangeTags(ev, {tags, value:''})
     closeOnSelect && onToggle(ev, {open: false})
   }
 

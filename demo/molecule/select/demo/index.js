@@ -26,7 +26,9 @@ const Demo = () => (
       <code>MoleculeSelect</code>
     </h1>
     <h2>Dynamic Single Selection</h2>
-
+    <p>
+      Single Selection via keyboard on <code>Enter</code> (by default)
+    </p>
     <div className={CLASS_DEMO_SECTION}>
       <h3>Basic Single selection</h3>
       <MoleculeSelectWithState
@@ -78,6 +80,9 @@ const Demo = () => (
     </div>
 
     <h2>Dynamic Multiple Selection</h2>
+    <p>
+      Multiple Selection via keyboard on <code>Space</code> (by default)
+    </p>
     <div className={CLASS_DEMO_SECTION}>
       <h3>Basic Multiple selection</h3>
       <MoleculeSelectWithState

@@ -9,55 +9,63 @@ import withClearUI from '../hoc/withClearUI'
 const MoleculeInputTagsWithClearUI = withClearUI(MoleculeInputTags)
 
 class MoleculeAutosuggestFieldMultiSelection extends Component {
-
   MoleculeInputTagsRef = React.createRef()
 
   handleMultiSelection = (ev, {value}) => {
-    const { MoleculeInputTagsRef } = this
-    const { tags, onChangeTags, onToggle } = this.props
-    console.log({value, tags})
-    if (tags.includes(value)) {
-      console.log('removing tag...')
-      onChangeTags(ev, {
-        value,
-        tags: tags.filter(tag => tag !== value)
-      })
-    } else {
-      console.log('adding tag...')
-      onChangeTags(ev, {
-        value: '',
-        tags: [...tags, value]
-      })
-    }
-    
-    const MoleculeInputTagsRefDOMNode = ReactDOM.findDOMNode(MoleculeInputTagsRef.current)
+    const {MoleculeInputTagsRef} = this
+    const {tags, onChangeTags, onToggle} = this.props
+    const newTags = tags.includes(value)
+      ? tags.filter(tag => tag !== value)
+      : [...tags, value]
+
+    onChangeTags(ev, {
+      value: '',
+      tags: newTags
+    })
+
+    const MoleculeInputTagsRefDOMNode = ReactDOM.findDOMNode(
+      MoleculeInputTagsRef.current
+    )
     MoleculeInputTagsRefDOMNode.querySelector('input').focus()
 
     onToggle(ev, {isOpen: false})
-    
   }
 
   handleChangeTags = (ev, {tags}) => {
-    const { closeOnSelect, onChangeTags, onToggle } = this.props
+    const {closeOnSelect, onChangeTags, onToggle} = this.props
     onChangeTags(ev, {tags})
     closeOnSelect && onToggle(ev, {isOpen: false})
   }
 
   handleChange = (ev, {value}) => {
-    const { onChange, onToggle } = this.props
+    const {onChange, onToggle} = this.props
     onChange(ev, {value})
     onToggle(ev, {isOpen: true})
   }
 
   handleClear = () => {
-    const { onChange, onChangeTags } = this.props
-    onChange(null, {value:''})
-    onChangeTags(null, {tags:[]})
+    const {onChange, onChangeTags} = this.props
+    onChange(null, {value: ''})
+    onChangeTags(null, {tags: []})
   }
 
   render() {
-    const {handleMultiSelection, handleChangeTags, handleChange, handleClear, MoleculeInputTagsRef} = this
-    const { tags, value, onToggle, iconCloseTag, isOpen, iconClear, children } = this.props
+    const {
+      handleMultiSelection,
+      handleChangeTags,
+      handleChange,
+      handleClear,
+      MoleculeInputTagsRef
+    } = this
+    const {
+      tags,
+      value,
+      onToggle,
+      iconCloseTag,
+      isOpen,
+      iconClear,
+      children
+    } = this.props
     return (
       <Fragment>
         <MoleculeInputTagsWithClearUI
@@ -85,7 +93,6 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
       </Fragment>
     )
   }
-
 }
 
 MoleculeAutosuggestFieldMultiSelection.displayName =

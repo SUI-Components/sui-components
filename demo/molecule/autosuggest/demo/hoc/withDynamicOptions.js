@@ -26,14 +26,11 @@ export default (BaseComponent, BaseChildComponent) => options => {
           return lowerCaseValues.includes(toLowerCaseOption)
         })
       }
-      console.log({value, options})
       return options
     }
 
     render() {
       const {options, props} = this
-      const {value} = props
-      console.log({value, options})
       return (
         <BaseComponent {...props}>
           {options.map((option, i) => (

@@ -42,7 +42,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <h3>Basic Single selection</h3>
       <MoleculeAutosuggestWithState
-        onChange={(_, {value}) => console.log(value)}
+        onChangeTags={(_, {tags}) => console.log(tags)}
         iconCloseTag={<IconClose />}
         iconClear={<IconClose />}
         closeOnSelect
@@ -53,7 +53,7 @@ const Demo = () => (
       <h3>Single selection w/ default Value</h3>
       <MoleculeAutosuggestWithState
         value="Luxembourg"
-        onChange={(_, {value}) => console.log(value)}
+        onChangeTags={(_, {tags}) => console.log(tags)}
         iconCloseTag={<IconClose />}
         iconClear={<IconClose />}
         closeOnSelect
@@ -63,7 +63,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <h3>Single selection (list size=LARGE)</h3>
       <MoleculeAutosuggestWithState
-        onChange={(_, {value}) => console.log(value)}
+        onChangeTags={(_, {tags}) => console.log(tags)}
         iconCloseTag={<IconClose />}
         iconClear={<IconClose />}
         closeOnSelect
@@ -75,7 +75,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <h3>Basic Multiple selection</h3>
       <MoleculeAutosuggestWithStateTags
-        onChange={(_, {value}) => console.log(value)}
+        onChangeTags={(_, {tags}) => console.log(tags)}
         iconCloseTag={<IconClose />}
         iconClear={<IconClose />}
         multiselection
@@ -86,6 +86,20 @@ const Demo = () => (
       <h3>Multiple selection w/ Default Value</h3>
       <MoleculeAutosuggestWithStateTags
         tags={['India', 'Luxembourg']}
+        onChangeTags={(_, {tags}) => console.log(tags)}
+        iconCloseTag={<IconClose />}
+        iconClear={<IconClose />}
+        multiselection
+      />
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>
+        Multiple selection w/ both <code>onChange</code> and{' '}
+        <code>onChangeTags</code> handlers
+      </h3>
+      <MoleculeAutosuggestWithStateTags
+        onChangeTags={(_, {tags}) => console.log(tags)}
         onChange={(_, {value}) => console.log(value)}
         iconCloseTag={<IconClose />}
         iconClear={<IconClose />}

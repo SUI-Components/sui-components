@@ -60,7 +60,7 @@ class MoleculeAutosuggest extends Component {
       if (domSourceEvent === domMoleculeAutosuggest) {
         onToggle(ev, {})
       } else if (closeOnSelect) {
-        onToggle(ev, {open: false})
+        onToggle(ev, {isOpen: false})
         domMoleculeAutosuggest.focus()
       }
     }

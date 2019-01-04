@@ -15,34 +15,44 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
   handleMultiSelection = (ev, {value}) => {
     const { MoleculeInputTagsRef } = this
     const { tags, onChangeTags, onToggle } = this.props
-    const newTags = tags.includes(value)
-      ? tags.filter(tag => tag !== value)
-      : [...tags, value]
-    onChangeTags(ev, {value, tags: newTags})
+    console.log({value, tags})
+    if (tags.includes(value)) {
+      console.log('removing tag...')
+      onChangeTags(ev, {
+        value,
+        tags: tags.filter(tag => tag !== value)
+      })
+    } else {
+      console.log('adding tag...')
+      onChangeTags(ev, {
+        value: '',
+        tags: [...tags, value]
+      })
+    }
     
     const MoleculeInputTagsRefDOMNode = ReactDOM.findDOMNode(MoleculeInputTagsRef.current)
     MoleculeInputTagsRefDOMNode.querySelector('input').focus()
 
-    onToggle(ev, {open: false})
+    onToggle(ev, {isOpen: false})
     
   }
 
   handleChangeTags = (ev, {tags}) => {
     const { closeOnSelect, onChangeTags, onToggle } = this.props
-    onChangeTags(ev, {tags, value:''})
-    closeOnSelect && onToggle(ev, {open: false})
+    onChangeTags(ev, {tags})
+    closeOnSelect && onToggle(ev, {isOpen: false})
   }
 
   handleChange = (ev, {value}) => {
     const { onChange, onToggle } = this.props
     onChange(ev, {value})
-    onToggle(ev, {open: true})
+    onToggle(ev, {isOpen: true})
   }
 
   handleClear = () => {
     const { onChange, onChangeTags } = this.props
     onChange(null, {value:''})
-    onChangeTags(null, {value:[]})
+    onChangeTags(null, {tags:[]})
   }
 
   render() {

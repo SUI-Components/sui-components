@@ -195,7 +195,7 @@ const logoLocation = 'https://image.flaticon.com/icons/svg/67/67347.svg'
 const IconLocation = () => <img src={logoLocation} />
 
 return (
-  <div style={{ padding: '20px'}}>
+  <div style={{padding: '20px'}}>
     <div style={field}>
       <h4>Size SMALL</h4>
       <AtomInput
@@ -251,7 +251,7 @@ return (
       <AtomInput
         name="second"
         placeholder="Medium Input"
-        leftIcon={IconLocation}
+        leftIcon={<IconLocation />}
       />
     </div>
     <div style={field}>
@@ -259,7 +259,7 @@ return (
       <AtomInput
         name="second"
         placeholder="Medium Input"
-        leftIcon={IconLocation}
+        leftIcon={<IconLocation />}
         rightAddon="Location"
       />
     </div>
@@ -293,7 +293,7 @@ return (
       <AtomInput
         name="second"
         placeholder="Medium Input"
-        rightIcon={IconLocation}
+        rightIcon={<IconLocation />}
       />
     </div>
     <div style={field}>
@@ -302,7 +302,7 @@ return (
         name="second"
         placeholder="Medium Input"
         leftAddon="City"
-        rightIcon={IconLocation}
+        rightIcon={<IconLocation />}
       />
     </div>
     <div style={field}>
@@ -310,7 +310,7 @@ return (
       <AtomInput
         name="second"
         placeholder="Medium Input"
-        rightIcon={IconLocation}
+        rightIcon={<IconLocation />}
         onClickRightIcon={e => alert('clicked right icon')}
       />
     </div>

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, {Component, Fragment} from 'react'
-import ReactDOM from 'react-dom'
+import {findDOMNode} from 'react-dom'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
 
@@ -23,7 +23,7 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
       tags: newTags
     })
 
-    const MoleculeInputTagsRefDOMNode = ReactDOM.findDOMNode(
+    const MoleculeInputTagsRefDOMNode = findDOMNode(
       MoleculeInputTagsRef.current
     )
     MoleculeInputTagsRefDOMNode.querySelector('input').focus()

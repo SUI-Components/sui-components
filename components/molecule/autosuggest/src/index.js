@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
+import {findDOMNode} from 'react-dom'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -51,11 +51,10 @@ class MoleculeAutosuggest extends Component {
   handleKeyDown = ev => {
     const {onToggle, closeOnSelect, isOpen} = this.props
     const {getFocusedOptionIndex, refMoleculeAutosuggest} = this
-    const options = Object.values(this.refs).map(ref =>
-      ReactDOM.findDOMNode(ref)
-    )
+    const options = Object.values(this.refs).map(findDOMNode)
     const domSourceEvent = ev.target
     const domMoleculeAutosuggest = refMoleculeAutosuggest.current
+
     if (ev.key === 'Enter') {
       if (domSourceEvent === domMoleculeAutosuggest) {
         onToggle(ev, {})

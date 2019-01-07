@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {findDOMNode} from 'react-dom'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -16,21 +15,21 @@ const CLASS_FOCUS = `${BASE_CLASS}--focus`
 
 class MoleculeAutosuggest extends Component {
   refMoleculeAutosuggest = React.createRef()
+  refsMoleculeAutosuggestOptions = []
   state = {
     focus: false
   }
 
   get extendedChildren() {
     const {children, multiselection, onEnterKey} = this.props // eslint-disable-line react/prop-types
+    const {refsMoleculeAutosuggestOptions} = this
     return React.Children.toArray(children)
       .filter(Boolean)
       .map((child, index) => {
-        const _onEnterKey = multiselection
-          ? onEnterKey || ' '
-          : onEnterKey || 'Enter'
+        refsMoleculeAutosuggestOptions[index] = React.createRef()
         return React.cloneElement(child, {
-          ref: index,
-          onEnterKey: _onEnterKey
+          innerRef: refsMoleculeAutosuggestOptions[index],
+          onEnterKey: onEnterKey || (multiselection ? ' ' : 'Enter')
         })
       })
   }
@@ -50,8 +49,12 @@ class MoleculeAutosuggest extends Component {
 
   handleKeyDown = ev => {
     const {onToggle, closeOnSelect, isOpen} = this.props
-    const {getFocusedOptionIndex, refMoleculeAutosuggest} = this
-    const options = Object.values(this.refs).map(findDOMNode)
+    const {
+      getFocusedOptionIndex,
+      refMoleculeAutosuggest,
+      refsMoleculeAutosuggestOptions
+    } = this
+    const options = refsMoleculeAutosuggestOptions.map(({current}) => current)
     const domSourceEvent = ev.target
     const domMoleculeAutosuggest = refMoleculeAutosuggest.current
 

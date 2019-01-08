@@ -64,6 +64,7 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
       iconCloseTag,
       isOpen,
       iconClear,
+      innerRefInput,
       children
     } = this.props
     return (
@@ -79,6 +80,7 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
           isOpen={isOpen}
           iconClear={iconClear}
           onClickClear={handleClear}
+          innerRefInput={innerRefInput}
           noBorder
         />
         <MoleculeDropdownList

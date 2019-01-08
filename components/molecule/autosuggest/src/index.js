@@ -16,6 +16,7 @@ const CLASS_FOCUS = `${BASE_CLASS}--focus`
 class MoleculeAutosuggest extends Component {
   refMoleculeAutosuggest = React.createRef()
   refsMoleculeAutosuggestOptions = []
+  refMoleculeAutosuggestInput = React.createRef()
   state = {
     focus: false
   }
@@ -69,11 +70,17 @@ class MoleculeAutosuggest extends Component {
     if (ev.key === 'ArrowDown' && isOpen && !getFocusedOptionIndex(options)) {
       options[0].focus()
       ev.preventDefault()
+      ev.stopPropagation()
     }
   }
 
   handleFocusIn = () => {
-    this.setState({focus: true})
+    const {
+      refMoleculeAutosuggestInput: {current: innerInput}
+    } = this
+    this.setState({focus: true}, () => {
+      innerInput.focus()
+    })
   }
 
   handleFocusOut = () => {
@@ -87,6 +94,7 @@ class MoleculeAutosuggest extends Component {
       handleKeyDown,
       extendedChildren,
       refMoleculeAutosuggest,
+      refMoleculeAutosuggestInput,
       handleFocusIn,
       handleFocusOut
     } = this
@@ -101,11 +109,17 @@ class MoleculeAutosuggest extends Component {
         onBlur={handleFocusOut}
       >
         {multiselection ? (
-          <MoleculeAutosuggestMultipleSelection {..._props}>
+          <MoleculeAutosuggestMultipleSelection
+            {..._props}
+            innerRefInput={refMoleculeAutosuggestInput}
+          >
             {extendedChildren}
           </MoleculeAutosuggestMultipleSelection>
         ) : (
-          <MoleculeAutosuggestSingleSelection {..._props}>
+          <MoleculeAutosuggestSingleSelection
+            {..._props}
+            innerRefInput={refMoleculeAutosuggestInput}
+          >
             {extendedChildren}
           </MoleculeAutosuggestSingleSelection>
         )}

@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="3.1.0"></a>
+# 3.1.0 (2019-01-09)
+
+
+### Features
+
+* add propType object to reference ([243f2b0](https://github.com/SUI-Components/sui-components/commit/243f2b0))
+
+
+
+<a name="3.0.0"></a>
+# 3.0.0 (2019-01-03)
+
+
+### Features
+
+* normalize way fo passing icons to components according to WIKI agreement ([e4f7ea3](https://github.com/SUI-Components/sui-components/commit/e4f7ea3))
+
+
+### BREAKING CHANGES
+
+* change of format for icons passed to the component
+
+
+
 <a name="2.3.0"></a>
 # 2.3.0 (2018-12-21)
 

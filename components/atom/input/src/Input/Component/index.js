@@ -132,7 +132,7 @@ Input.propTypes = {
   /* value of the control */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /* react ref to access DOM node */
-  reference: PropTypes.func,
+  reference: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   /** Wether to show the input or not */
   hideInput: PropTypes.bool,
   /* Will set a red/green border if set to true/false */

@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.2.0"></a>
+# 2.2.0 (2019-01-09)
+
+
+### Features
+
+* update AtomInput major version ([7dfabb9](https://github.com/SUI-Components/sui-components/commit/7dfabb9))
+
+
+
+<a name="2.1.0"></a>
+# 2.1.0 (2019-01-09)
+
+
+### Features
+
+* added innerRefInput prop to get access of inner input ([9d83aee](https://github.com/SUI-Components/sui-components/commit/9d83aee))
+* cleaner demo w/ withStateValueTags ([6710e63](https://github.com/SUI-Components/sui-components/commit/6710e63))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2018-12-21)
 

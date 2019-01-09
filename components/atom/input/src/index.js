@@ -40,10 +40,10 @@ AtomInput.propTypes = {
   rightAddon: PropTypes.any,
 
   /** Left Icon */
-  leftIcon: PropTypes.any,
+  leftIcon: PropTypes.node,
 
   /** Left Icon */
-  rightIcon: PropTypes.any,
+  rightIcon: PropTypes.node,
 
   /** Left icon click callback */
   onClickLeftIcon: PropTypes.func,

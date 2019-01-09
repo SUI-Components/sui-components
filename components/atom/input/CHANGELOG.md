@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="3.1.0"></a>
+# 3.1.0 (2019-01-09)
+
+
+### Features
+
+* add propType object to reference ([243f2b0](https://github.com/SUI-Components/sui-components/commit/243f2b0))
+
+
+
 <a name="3.0.0"></a>
 # 3.0.0 (2019-01-03)
 

@@ -21,7 +21,7 @@ class MoleculeSelect extends Component {
   }
 
   get extendedChildren() {
-    const {children, multiselection, onEnterKey} = this.props // eslint-disable-line react/prop-types
+    const {children, multiselection, onSelectKey} = this.props // eslint-disable-line react/prop-types
     const {refsMoleculeSelectOptions} = this
     return React.Children.toArray(children)
       .filter(Boolean)
@@ -29,7 +29,7 @@ class MoleculeSelect extends Component {
         refsMoleculeSelectOptions[index] = React.createRef()
         return React.cloneElement(child, {
           innerRef: refsMoleculeSelectOptions[index],
-          onEnterKey: onEnterKey || (multiselection ? ' ' : 'Enter')
+          onSelectKey: onSelectKey || (multiselection ? ' ' : ['Enter', ' '])
         })
       })
   }
@@ -47,29 +47,51 @@ class MoleculeSelect extends Component {
     }, 0)
   }
 
+  closeList = ev => {
+    const {onToggle} = this.props
+    const {
+      refMoleculeSelect: {current: domMoleculeSelect}
+    } = this
+    onToggle(ev, {isOpen: false})
+    domMoleculeSelect.focus()
+  }
+
   handleKeyDown = ev => {
-    const {onToggle, closeOnSelect, isOpen} = this.props
+    const {onToggle, closeOnSelect, isOpen, multiselection} = this.props
     const {
       getFocusedOptionIndex,
       refMoleculeSelect,
-      refsMoleculeSelectOptions
+      refsMoleculeSelectOptions,
+      closeList
     } = this
 
     const options = refsMoleculeSelectOptions.map(({current}) => current)
     const domSourceEvent = ev.target
     const domMoleculeSelect = refMoleculeSelect.current
-    if (ev.key === 'Enter') {
-      if (domSourceEvent === domMoleculeSelect) {
-        onToggle(ev, {})
-      } else if (closeOnSelect) {
-        onToggle(ev, {isOpen: false})
-        domMoleculeSelect.focus()
+    if (!isOpen) {
+      if (['Enter', 'ArrowDown', 'ArrowUp'].includes(ev.key)) {
+        if (domSourceEvent === domMoleculeSelect) {
+          onToggle(ev, {})
+        } else if (closeOnSelect) {
+          closeList(ev)
+        }
+        ev.preventDefault()
+        ev.stopPropagation()
+      }
+    } else {
+      if (ev.key === 'Enter' && multiselection) {
+        closeList(ev)
+      }
+      if (ev.key === 'ArrowDown' && !getFocusedOptionIndex(options)) {
+        options[0].focus()
+        ev.preventDefault()
+        ev.stopPropagation()
       }
     }
-    if (ev.key === 'ArrowDown' && isOpen && !getFocusedOptionIndex(options)) {
-      options[0].focus()
-      ev.preventDefault()
-    }
+  }
+
+  handleSelect = () => {
+    this.setState({focus: true})
   }
 
   handleFocusIn = () => {
@@ -101,11 +123,17 @@ class MoleculeSelect extends Component {
         onBlur={handleFocusOut}
       >
         {multiselection ? (
-          <MoleculeSelectMultipleSelection {..._props}>
+          <MoleculeSelectMultipleSelection
+            refMoleculeSelect={refMoleculeSelect}
+            {..._props}
+          >
             {extendedChildren}
           </MoleculeSelectMultipleSelection>
         ) : (
-          <MoleculeSelectSingleSelection {..._props}>
+          <MoleculeSelectSingleSelection
+            refMoleculeSelect={refMoleculeSelect}
+            {..._props}
+          >
             {extendedChildren}
           </MoleculeSelectSingleSelection>
         )}

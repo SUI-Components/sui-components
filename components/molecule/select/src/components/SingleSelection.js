@@ -17,12 +17,16 @@ const MoleculeSelectSingleSelection = props => {
     onChange,
     iconArrowDown,
     closeOnSelect,
+    refMoleculeSelect,
     size
   } = props
 
   const handleSelection = (ev, {value}) => {
     onChange(ev, {value})
-    closeOnSelect && onToggle(ev, {isOpen: false})
+    if (closeOnSelect) {
+      onToggle(ev, {isOpen: false})
+      refMoleculeSelect.current.focus()
+    }
   }
 
   return (

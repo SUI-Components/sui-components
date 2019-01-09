@@ -17,6 +17,7 @@ const MoleculeSelectFieldMultiSelection = props => {
     closeOnSelect,
     iconArrowDown,
     iconCloseTag,
+    refMoleculeSelect,
     value: values
   } = props
 
@@ -31,7 +32,10 @@ const MoleculeSelectFieldMultiSelection = props => {
 
   const handleChangeTags = (ev, {tags: value}) => {
     onChange(ev, {value})
-    closeOnSelect && onToggle(ev, {isOpen: false})
+    if (closeOnSelect) {
+      onToggle(ev, {isOpen: false})
+      refMoleculeSelect.current.focus()
+    }
   }
 
   return (

@@ -47,6 +47,11 @@ const MoleculeDropdownOption = ({
     }
   }
 
+  const handleFocus = ev => {
+    ev.preventDefault()
+    ev.stopPropagation()
+  }
+
   return (
     <div
       ref={innerRef}
@@ -54,6 +59,7 @@ const MoleculeDropdownOption = ({
       className={className}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
+      onFocus={handleFocus}
     >
       {checkbox && (
         <AtomInput type="checkbox" checked={selected} disabled={disabled} />

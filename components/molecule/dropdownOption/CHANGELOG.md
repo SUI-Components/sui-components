@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-01-09)
+
+
+### Features
+
+* stop event propagation so we get the desired UX ([238337e](https://github.com/SUI-Components/sui-components/commit/238337e))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2019-01-03)
 

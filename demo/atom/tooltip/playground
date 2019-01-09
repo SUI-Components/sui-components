@@ -61,7 +61,7 @@ const HtmlTooltipDecember = () => (
 )
 
 return (
-  <div>
+  <div style={{ padding: '20px' }}>
     <h1>AtomTooltip</h1>
     <h2>Basic Usage</h2>
     <p>

@@ -62,7 +62,7 @@ class MoleculeInputTags extends Component {
 
   render() {
     const {onChange, addTag, removeTag, handleFocusIn, handleFocusOut} = this
-    const {tagsCloseIcon, tags, value, ...props} = this.props
+    const {tagsCloseIcon, tags, value, innerRefInput, ...props} = this.props
     const {focus} = this.state
 
     return (
@@ -84,6 +84,7 @@ class MoleculeInputTags extends Component {
           onEnter={addTag}
           onFocus={handleFocusIn}
           onBlur={handleFocusOut}
+          reference={innerRefInput}
           noBorder
         />
       </div>
@@ -107,7 +108,10 @@ MoleculeInputTags.propTypes = {
   onChangeTags: PropTypes.func,
 
   /* callback to be called with every update of the input value */
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+
+  /* object generated w/ Reacte.createRef method to get a DOM reference of internal input */
+  innerRefInput: PropTypes.object
 }
 
 MoleculeInputTags.defaultProps = {

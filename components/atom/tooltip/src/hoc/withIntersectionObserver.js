@@ -35,10 +35,11 @@ export default BaseComponent => {
     }
 
     render() {
+      const {isIntersecting: isVisible} = this.state
       return (
         <BaseComponent
           {...this.props}
-          isVisible={this.state.isIntersecting}
+          isVisible={isVisible}
           innerRef={this.innerRef}
         />
       )

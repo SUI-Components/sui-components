@@ -39,13 +39,15 @@ class MoleculeSelect extends Component {
     return cx(BASE_CLASS, {[CLASS_FOCUS]: focus})
   }
 
-  getFocusedOptionIndex = options => {
-    const currentElementFocused = document.activeElement
-    return Array.from(options).reduce((focusedOptionIndex, option, index) => {
-      if (option === currentElementFocused) focusedOptionIndex = index
+  get currentSelection() {
+    return document.activeElement
+  }
+
+  getFocusedOptionIndex = options =>
+    Array.from(options).reduce((focusedOptionIndex, option, index) => {
+      if (option === this.currentSelection) focusedOptionIndex = index
       return focusedOptionIndex
     }, null)
-  }
 
   closeList = ev => {
     const {onToggle} = this.props
@@ -104,10 +106,13 @@ class MoleculeSelect extends Component {
     const {refsMoleculeSelectOptions, getFocusedOptionIndex, closeList} = this
     const {isOpen} = this.props
     const options = refsMoleculeSelectOptions.map(({current}) => current)
-    setTimeout(
-      () => getFocusedOptionIndex(options) === null && isOpen && closeList(ev),
-      1
-    )
+    setTimeout(() => {
+      const anyOptionSelected = getFocusedOptionIndex(options) !== null
+      const anyChecboxSelected = this.currentSelection.type === 'checkbox'
+      if (!anyOptionSelected && !anyChecboxSelected && isOpen) {
+        closeList(ev)
+      }
+    }, 1)
     this.setState({focus: false})
   }
 

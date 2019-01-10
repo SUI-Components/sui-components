@@ -17,7 +17,6 @@ export const countries = [
   'Congo - Kinshasa',
   'Palau',
   'Afghanistan',
-  'India',
   'Sri Lanka',
   'Germany',
   'Denmark',

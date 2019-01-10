@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2019-01-10)
+
+
+### Features
+
+* onSelectKey and strings-arrays ([70b5f4d](https://github.com/SUI-Components/sui-components/commit/70b5f4d))
+* update major version atomInput ([6c271b1](https://github.com/SUI-Components/sui-components/commit/6c271b1))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2019-01-09)
 

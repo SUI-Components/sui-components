@@ -18,7 +18,8 @@ const MoleculeSelectFieldMultiSelection = props => {
     iconArrowDown,
     iconCloseTag,
     refMoleculeSelect,
-    value: values
+    value: values,
+    placeholder
   } = props
 
   const handleMultiSelection = (ev, {value: valueOptionSelected}) => {
@@ -47,6 +48,7 @@ const MoleculeSelectFieldMultiSelection = props => {
         iconArrowDown={iconArrowDown}
         onChangeTags={handleChangeTags}
         isOpen={isOpen}
+        placeholder={!values.length ? placeholder : ''}
         noBorder
       />
       <MoleculeDropdownList

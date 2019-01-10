@@ -18,7 +18,8 @@ const MoleculeSelectSingleSelection = props => {
     iconArrowDown,
     closeOnSelect,
     refMoleculeSelect,
-    size
+    size,
+    placeholder
   } = props
 
   const handleSelection = (ev, {value}) => {
@@ -36,6 +37,7 @@ const MoleculeSelectSingleSelection = props => {
         value={value}
         onClick={onToggle}
         iconArrowDown={iconArrowDown}
+        placeholder={placeholder}
       />
       <MoleculeDropdownList
         size={size}

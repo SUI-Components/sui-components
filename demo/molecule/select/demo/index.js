@@ -25,13 +25,11 @@ const Demo = () => (
     <h1>
       <code>MoleculeSelect</code>
     </h1>
-    <h2>Dynamic Single Selection</h2>
-    <p>
-      Single Selection via keyboard on <code>Enter</code> (by default)
-    </p>
+    <h2>Single Selection</h2>
     <div className={CLASS_DEMO_SECTION}>
       <h3>Basic Single selection</h3>
       <MoleculeSelectWithState
+        placeholder="Select a Country..."
         onChange={(_, {value}) => console.log(value)}
         iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
@@ -65,6 +63,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <h3>Single selection (list size=LARGE)</h3>
       <MoleculeSelectWithState
+        placeholder="Select a Country..."
         onChange={(_, {value}) => console.log(value)}
         iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
@@ -79,13 +78,11 @@ const Demo = () => (
       </MoleculeSelectWithState>
     </div>
 
-    <h2>Dynamic Multiple Selection</h2>
-    <p>
-      Multiple Selection via keyboard on <code>Space</code> (by default)
-    </p>
+    <h2>Multiple Selection</h2>
     <div className={CLASS_DEMO_SECTION}>
       <h3>Basic Multiple selection</h3>
       <MoleculeSelectWithState
+        placeholder="Select some countries..."
         onChange={(_, {value}) => console.log(value)}
         iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
@@ -102,6 +99,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <h3>Multiple selection w/ Default Value</h3>
       <MoleculeSelectWithState
+        placeholder="Select some countries..."
         value={['India', 'Luxembourg']}
         onChange={(_, {value}) => console.log(value)}
         iconCloseTag={<IconCloseTag />}

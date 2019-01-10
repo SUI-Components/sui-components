@@ -82,7 +82,7 @@ const Demo = () => (
         <MoleculeDropdownOption
           value="Indiana Jones"
           checkbox
-          onEnterKey=" "
+          onSelectKey=" "
           onClick={(e, {value}) => {
             window.alert(value)
           }}

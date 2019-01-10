@@ -44,7 +44,7 @@ class MoleculeSelect extends Component {
     return Array.from(options).reduce((focusedOptionIndex, option, index) => {
       if (option === currentElementFocused) focusedOptionIndex = index
       return focusedOptionIndex
-    }, 0)
+    }, null)
   }
 
   closeList = ev => {
@@ -54,15 +54,25 @@ class MoleculeSelect extends Component {
     } = this
     onToggle(ev, {isOpen: false})
     domMoleculeSelect.focus()
+    ev.preventDefault()
+    ev.stopPropagation()
+  }
+
+  focusFirstOption = (ev, {options}) => {
+    options[0].focus()
+    ev.preventDefault()
+    ev.stopPropagation()
   }
 
   handleKeyDown = ev => {
+    ev.persist()
     const {onToggle, closeOnSelect, isOpen, multiselection} = this.props
     const {
       getFocusedOptionIndex,
       refMoleculeSelect,
       refsMoleculeSelectOptions,
-      closeList
+      closeList,
+      focusFirstOption
     } = this
 
     const options = refsMoleculeSelectOptions.map(({current}) => current)
@@ -70,23 +80,14 @@ class MoleculeSelect extends Component {
     const domMoleculeSelect = refMoleculeSelect.current
     if (!isOpen) {
       if (['Enter', 'ArrowDown', 'ArrowUp'].includes(ev.key)) {
-        if (domSourceEvent === domMoleculeSelect) {
-          onToggle(ev, {})
-        } else if (closeOnSelect) {
-          closeList(ev)
-        }
-        ev.preventDefault()
-        ev.stopPropagation()
+        if (domSourceEvent === domMoleculeSelect) onToggle(ev, {})
+        else if (closeOnSelect) closeList(ev)
       }
     } else {
-      if (ev.key === 'Enter' && multiselection) {
-        closeList(ev)
-      }
-      if (ev.key === 'ArrowDown' && !getFocusedOptionIndex(options)) {
-        options[0].focus()
-        ev.preventDefault()
-        ev.stopPropagation()
-      }
+      if (ev.key === 'Escape') closeList(ev)
+      if (ev.key === 'Enter' && multiselection) closeList(ev)
+      if (ev.key === 'ArrowDown' && !getFocusedOptionIndex(options))
+        focusFirstOption(ev, {options})
     }
   }
 
@@ -98,7 +99,15 @@ class MoleculeSelect extends Component {
     this.setState({focus: true})
   }
 
-  handleFocusOut = () => {
+  handleFocusOut = ev => {
+    ev.persist()
+    const {refsMoleculeSelectOptions, getFocusedOptionIndex, closeList} = this
+    const {isOpen} = this.props
+    const options = refsMoleculeSelectOptions.map(({current}) => current)
+    setTimeout(
+      () => getFocusedOptionIndex(options) === null && isOpen && closeList(ev),
+      1
+    )
     this.setState({focus: false})
   }
 

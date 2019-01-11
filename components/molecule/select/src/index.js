@@ -107,9 +107,8 @@ class MoleculeSelect extends Component {
     const {isOpen} = this.props
     const options = refsMoleculeSelectOptions.map(({current}) => current)
     setTimeout(() => {
-      const anyOptionSelected = getFocusedOptionIndex(options) !== null
-      const anyChecboxSelected = this.currentSelection.type === 'checkbox'
-      if (!anyOptionSelected && !anyChecboxSelected && isOpen) {
+      const focusOutFromOptionSelected = getFocusedOptionIndex(options) !== null
+      if (!focusOutFromOptionSelected && isOpen) {
         closeList(ev)
       }
     }, 1)

@@ -58,6 +58,11 @@ const MoleculeDropdownOption = ({
     ev.stopPropagation()
   }
 
+  const handleInnerCheckboxFocus = ev => {
+    ev.preventDefault()
+    innerRef.current.focus()
+  }
+
   return (
     <div
       ref={innerRef}
@@ -68,7 +73,12 @@ const MoleculeDropdownOption = ({
       onFocus={handleFocus}
     >
       {checkbox && (
-        <AtomInput type="checkbox" checked={selected} disabled={disabled} />
+        <AtomInput
+          type="checkbox"
+          checked={selected}
+          disabled={disabled}
+          onFocus={handleInnerCheckboxFocus}
+        />
       )}
       {highlightQuery ? (
         <span
@@ -118,7 +128,8 @@ MoleculeDropdownOption.defaultProps = {
   disabled: false,
   onSelect: () => {},
   selected: false,
-  onSelectKey: 'Enter'
+  onSelectKey: 'Enter',
+  innerRef: React.createRef()
 }
 
 export default MoleculeDropdownOption

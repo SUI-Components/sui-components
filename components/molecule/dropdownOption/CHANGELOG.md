@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2019-01-11)
+
+
+### Features
+
+* better handling for checkbox focus inside option ([f5152c7](https://github.com/SUI-Components/sui-components/commit/f5152c7))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2019-01-10)
 

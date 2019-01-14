@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-input-tags",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-atom-input": "2",
+    "@s-ui/react-atom-input": "3",
     "@schibstedspain/sui-atom-tag": "2"
   },
   "keywords": [],

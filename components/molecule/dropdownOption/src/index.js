@@ -16,7 +16,7 @@ const MoleculeDropdownOption = ({
   checkbox,
   disabled,
   highlightQuery,
-  onEnterKey,
+  onSelectKey,
   onSelect,
   innerRef,
   value
@@ -41,7 +41,13 @@ const MoleculeDropdownOption = ({
   }
 
   const handleKeyDown = ev => {
-    if (ev.key === onEnterKey && !disabled) {
+    const {key} = ev
+    const isStringOnSelectKey = typeof onSelectKey === 'string'
+    const isPressedOnSelectKey = isStringOnSelectKey
+      ? key === onSelectKey
+      : onSelectKey.includes(key)
+
+    if (isPressedOnSelectKey && !disabled) {
       ev.preventDefault()
       onSelect(ev, {value})
     }
@@ -50,6 +56,11 @@ const MoleculeDropdownOption = ({
   const handleFocus = ev => {
     ev.preventDefault()
     ev.stopPropagation()
+  }
+
+  const handleInnerCheckboxFocus = ev => {
+    ev.preventDefault()
+    innerRef.current.focus()
   }
 
   return (
@@ -62,7 +73,12 @@ const MoleculeDropdownOption = ({
       onFocus={handleFocus}
     >
       {checkbox && (
-        <AtomInput type="checkbox" checked={selected} disabled={disabled} />
+        <AtomInput
+          type="checkbox"
+          checked={selected}
+          disabled={disabled}
+          onFocus={handleInnerCheckboxFocus}
+        />
       )}
       {highlightQuery ? (
         <span
@@ -101,7 +117,7 @@ MoleculeDropdownOption.propTypes = {
   highlightQuery: PropTypes.string,
 
   /* key to provoke the onClick callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values */
-  onEnterKey: PropTypes.string,
+  onSelectKey: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 
   /** Custom ref handler that will be assigned to the "target" element */
   innerRef: PropTypes.object
@@ -112,7 +128,8 @@ MoleculeDropdownOption.defaultProps = {
   disabled: false,
   onSelect: () => {},
   selected: false,
-  onEnterKey: 'Enter'
+  onSelectKey: 'Enter',
+  innerRef: React.createRef()
 }
 
 export default MoleculeDropdownOption

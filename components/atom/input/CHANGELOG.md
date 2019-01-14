@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="3.2.0"></a>
+# 3.2.0 (2019-01-11)
+
+
+### Features
+
+* issues focus on checkbox ([55e042b](https://github.com/SUI-Components/sui-components/commit/55e042b))
+
+
+
 <a name="3.1.0"></a>
 # 3.1.0 (2019-01-09)
 

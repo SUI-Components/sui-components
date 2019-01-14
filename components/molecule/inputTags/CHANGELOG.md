@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.2.0"></a>
+# 2.2.0 (2019-01-09)
+
+
+### Features
+
+* update AtomInput major version ([7dfabb9](https://github.com/SUI-Components/sui-components/commit/7dfabb9))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2019-01-09)
 

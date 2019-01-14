@@ -18,12 +18,14 @@ const MoleculeAutosuggestSingleSelection = props => {
     closeOnSelect,
     size,
     innerRefInput,
+    refMoleculeAutosuggest,
     iconClear
   } = props
 
   const handleSelection = (ev, {value}) => {
     onChange(ev, {value})
     closeOnSelect && onToggle(ev, {isOpen: false})
+    refMoleculeAutosuggest.current.focus()
   }
 
   const handleChange = (ev, {value}) => {

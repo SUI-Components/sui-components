@@ -45,7 +45,6 @@ const Demo = () => (
         onChangeTags={(_, {tags}) => console.log(tags)}
         iconCloseTag={<IconClose />}
         iconClear={<IconClose />}
-        closeOnSelect
       />
     </div>
 
@@ -56,7 +55,6 @@ const Demo = () => (
         onChangeTags={(_, {tags}) => console.log(tags)}
         iconCloseTag={<IconClose />}
         iconClear={<IconClose />}
-        closeOnSelect
       />
     </div>
 
@@ -66,7 +64,6 @@ const Demo = () => (
         onChangeTags={(_, {tags}) => console.log(tags)}
         iconCloseTag={<IconClose />}
         iconClear={<IconClose />}
-        closeOnSelect
         size={MoleculeAutosuggestDropdownListSizes.LARGE}
       />
     </div>

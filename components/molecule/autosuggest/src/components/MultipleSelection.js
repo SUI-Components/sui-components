@@ -12,8 +12,9 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
   MoleculeInputTagsRef = React.createRef()
 
   handleMultiSelection = (ev, {value}) => {
+    console.log('handleMultiSelection...')
     const {MoleculeInputTagsRef} = this
-    const {tags, onChangeTags, onToggle} = this.props
+    const {closeOnSelect, tags, onChangeTags, onToggle} = this.props
     const newTags = tags.includes(value)
       ? tags.filter(tag => tag !== value)
       : [...tags, value]
@@ -22,19 +23,31 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
       value: '',
       tags: newTags
     })
-
+    console.log({closeOnSelect, key: ev.key})
+    if (closeOnSelect) {
+      console.log('closeOnSelect')
+      onToggle(ev, {isOpen: false})
+    }
     const MoleculeInputTagsRefDOMNode = findDOMNode(
       MoleculeInputTagsRef.current
     )
     MoleculeInputTagsRefDOMNode.querySelector('input').focus()
-
-    onToggle(ev, {isOpen: false})
   }
 
   handleChangeTags = (ev, {tags}) => {
-    const {closeOnSelect, onChangeTags, onToggle} = this.props
+    console.log('handleChangeTags...')
+    const {
+      closeOnSelect,
+      refMoleculeAutosuggest,
+      onChangeTags,
+      onToggle
+    } = this.props
     onChangeTags(ev, {tags})
-    closeOnSelect && onToggle(ev, {isOpen: false})
+    if (closeOnSelect) {
+      console.log('handleChangeTags')
+      onToggle(ev, {isOpen: false})
+    }
+    refMoleculeAutosuggest.current.focus()
   }
 
   handleChange = (ev, {value}) => {

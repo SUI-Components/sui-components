@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2019-01-15)
+
+
+### Features
+
+* stop propagation on key down ([d2608a9](https://github.com/SUI-Components/sui-components/commit/d2608a9))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2019-01-10)
 

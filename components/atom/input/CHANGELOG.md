@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="3.3.0"></a>
+# 3.3.0 (2019-01-14)
+
+
+### Bug Fixes
+
+* fixed specificity error in dev mode ([2cdfbe2](https://github.com/SUI-Components/sui-components/commit/2cdfbe2))
+
+
+
 <a name="3.2.0"></a>
 # 3.2.0 (2019-01-11)
 

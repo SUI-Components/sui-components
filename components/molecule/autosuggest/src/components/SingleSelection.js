@@ -15,7 +15,6 @@ const MoleculeAutosuggestSingleSelection = props => {
     isOpen,
     onToggle,
     onChange,
-    closeOnSelect,
     size,
     innerRefInput,
     refMoleculeAutosuggest,
@@ -24,7 +23,7 @@ const MoleculeAutosuggestSingleSelection = props => {
 
   const handleSelection = (ev, {value}) => {
     onChange(ev, {value})
-    closeOnSelect && onToggle(ev, {isOpen: false})
+    onToggle(ev, {isOpen: false})
     refMoleculeAutosuggest.current.focus()
   }
 
@@ -64,8 +63,7 @@ MoleculeAutosuggestSingleSelection.displayName =
   'MoleculeAutosuggestSingleSelection'
 
 MoleculeAutosuggestSingleSelection.defaultProps = {
-  value: '',
-  closeOnSelect: true
+  value: ''
 }
 
 export default MoleculeAutosuggestSingleSelection

@@ -164,9 +164,6 @@ MoleculeAutosuggest.propTypes = {
   /* callback to be called with every update of the input value */
   onChange: PropTypes.func,
 
-  /** if list should be hidden when any value is selected */
-  closeOnSelect: PropTypes.bool,
-
   /** Icon for closing (removing) tags */
   iconCloseTag: PropTypes.node.isRequired,
 

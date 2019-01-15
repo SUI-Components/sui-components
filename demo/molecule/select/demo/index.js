@@ -33,7 +33,6 @@ const Demo = () => (
         onChange={(_, {value}) => console.log(value)}
         iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
-        closeOnSelect
       >
         {countries.map((country, i) => (
           <MoleculeSelectOption key={i} value={country}>
@@ -50,7 +49,6 @@ const Demo = () => (
         onChange={(_, {value}) => console.log(value)}
         iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
-        closeOnSelect
       >
         {countries.map((country, i) => (
           <MoleculeSelectOption key={i} value={country}>
@@ -67,7 +65,6 @@ const Demo = () => (
         onChange={(_, {value}) => console.log(value)}
         iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
-        closeOnSelect
         size={moleculeSelectDropdownListSizes.LARGE}
       >
         {countries.map((country, i) => (

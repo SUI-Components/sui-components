@@ -16,7 +16,6 @@ const MoleculeSelectSingleSelection = props => {
     onToggle,
     onChange,
     iconArrowDown,
-    closeOnSelect,
     refMoleculeSelect,
     size,
     placeholder
@@ -24,10 +23,8 @@ const MoleculeSelectSingleSelection = props => {
 
   const handleSelection = (ev, {value}) => {
     onChange(ev, {value})
-    if (closeOnSelect) {
-      onToggle(ev, {isOpen: false})
-      refMoleculeSelect.current.focus()
-    }
+    onToggle(ev, {isOpen: false})
+    refMoleculeSelect.current.focus()
   }
 
   return (
@@ -54,8 +51,7 @@ const MoleculeSelectSingleSelection = props => {
 MoleculeSelectSingleSelection.displayName = 'MoleculeSelectSingleSelection'
 
 MoleculeSelectSingleSelection.defaultProps = {
-  value: '',
-  closeOnSelect: true
+  value: ''
 }
 
 export default MoleculeSelectSingleSelection

@@ -14,7 +14,6 @@ const MoleculeSelectFieldMultiSelection = props => {
     isOpen,
     onToggle,
     onChange,
-    closeOnSelect,
     iconArrowDown,
     iconCloseTag,
     refMoleculeSelect,
@@ -26,17 +25,13 @@ const MoleculeSelectFieldMultiSelection = props => {
     const newValues = values.includes(valueOptionSelected)
       ? values.filter(value => value !== valueOptionSelected)
       : [...values, valueOptionSelected]
-
     onChange(ev, {value: newValues})
-    closeOnSelect && onToggle(ev, {isOpen: false})
+    if (ev.key !== undefined && ev.key !== ' ') onToggle(ev, {isOpen: false})
   }
 
   const handleChangeTags = (ev, {tags: value}) => {
     onChange(ev, {value})
-    if (closeOnSelect) {
-      onToggle(ev, {isOpen: false})
-      refMoleculeSelect.current.focus()
-    }
+    refMoleculeSelect.current.focus()
   }
 
   return (

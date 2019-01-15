@@ -9,6 +9,7 @@ import MoleculeSelectSingleSelection from './components/SingleSelection'
 import MoleculeSelectMultipleSelection from './components/MultipleSelection'
 
 import {withOpenToggle} from '@s-ui/hoc'
+import {getFocusedItemIndex} from '@s-ui/js/lib/dom'
 
 const BASE_CLASS = `sui-MoleculeSelect`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
@@ -21,7 +22,7 @@ class MoleculeSelect extends Component {
   }
 
   get extendedChildren() {
-    const {children, multiselection, onSelectKey} = this.props // eslint-disable-line react/prop-types
+    const {children, multiselection} = this.props // eslint-disable-line react/prop-types
     const {refsMoleculeSelectOptions} = this
     return React.Children.toArray(children)
       .filter(Boolean)
@@ -29,7 +30,7 @@ class MoleculeSelect extends Component {
         refsMoleculeSelectOptions[index] = React.createRef()
         return React.cloneElement(child, {
           innerRef: refsMoleculeSelectOptions[index],
-          onSelectKey: onSelectKey || (multiselection ? ' ' : ['Enter', ' '])
+          onSelectKey: multiselection ? ' ' : ['Enter', ' ']
         })
       })
   }
@@ -38,16 +39,6 @@ class MoleculeSelect extends Component {
     const {focus} = this.state
     return cx(BASE_CLASS, {[CLASS_FOCUS]: focus})
   }
-
-  get currentSelection() {
-    return document.activeElement
-  }
-
-  getFocusedOptionIndex = options =>
-    Array.from(options).reduce((focusedOptionIndex, option, index) => {
-      if (option === this.currentSelection) focusedOptionIndex = index
-      return focusedOptionIndex
-    }, null)
 
   closeList = ev => {
     const {onToggle} = this.props
@@ -68,9 +59,8 @@ class MoleculeSelect extends Component {
 
   handleKeyDown = ev => {
     ev.persist()
-    const {onToggle, closeOnSelect, isOpen, multiselection} = this.props
+    const {onToggle, isOpen, multiselection} = this.props
     const {
-      getFocusedOptionIndex,
       refMoleculeSelect,
       refsMoleculeSelectOptions,
       closeList,
@@ -83,12 +73,12 @@ class MoleculeSelect extends Component {
     if (!isOpen) {
       if (['Enter', 'ArrowDown', 'ArrowUp'].includes(ev.key)) {
         if (domSourceEvent === domMoleculeSelect) onToggle(ev, {})
-        else if (closeOnSelect) closeList(ev)
+        else closeList(ev)
       }
     } else {
       if (ev.key === 'Escape') closeList(ev)
       if (ev.key === 'Enter' && multiselection) closeList(ev)
-      if (ev.key === 'ArrowDown' && !getFocusedOptionIndex(options))
+      if (ev.key === 'ArrowDown' && !getFocusedItemIndex(options))
         focusFirstOption(ev, {options})
     }
   }
@@ -103,11 +93,11 @@ class MoleculeSelect extends Component {
 
   handleFocusOut = ev => {
     ev.persist()
-    const {refsMoleculeSelectOptions, getFocusedOptionIndex, closeList} = this
+    const {refsMoleculeSelectOptions, closeList} = this
     const {isOpen} = this.props
     const options = refsMoleculeSelectOptions.map(({current}) => current)
     setTimeout(() => {
-      const focusOutFromOptionSelected = getFocusedOptionIndex(options) !== null
+      const focusOutFromOptionSelected = getFocusedItemIndex(options) !== null
       if (!focusOutFromOptionSelected && isOpen) {
         closeList(ev)
       }
@@ -173,9 +163,6 @@ MoleculeSelect.propTypes = {
 
   /** callback to be triggered when value selected changes */
   onChange: PropTypes.func,
-
-  /** if list should be hidden when any value is selected */
-  closeOnSelect: PropTypes.bool,
 
   /** Icon for closing (removing) tags */
   iconCloseTag: PropTypes.node.isRequired,

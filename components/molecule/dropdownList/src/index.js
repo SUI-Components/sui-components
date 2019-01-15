@@ -47,7 +47,8 @@ class MoleculeDropdownList extends Component {
     }, 0)
   }
 
-  handleKeyDown = ({key}) => {
+  handleKeyDown = ev => {
+    const {key} = ev
     const {getFocusedOptionIndex, refDropdownList} = this
     const options = refDropdownList.current.children
     const numOptions = options.length
@@ -58,6 +59,8 @@ class MoleculeDropdownList extends Component {
           options[index + 1].focus()
         if (key === 'ArrowUp' && index > 0) options[index - 1].focus()
       }
+      ev.preventDefault()
+      ev.stopPropagation()
     }
   }
 

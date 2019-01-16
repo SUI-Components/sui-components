@@ -37,7 +37,7 @@ const Demo = () => (
     <h1>
       <code>MoleculeAutosuggest</code>
     </h1>
-    <h2>Dynamic Single Selection</h2>
+    <h2>Single Selection</h2>
 
     <div className={CLASS_DEMO_SECTION}>
       <h3>Basic Single selection</h3>
@@ -68,7 +68,7 @@ const Demo = () => (
       />
     </div>
 
-    <h2>Dynamic Multiple Selection</h2>
+    <h2>Multiple Selection</h2>
     <div className={CLASS_DEMO_SECTION}>
       <h3>Basic Multiple selection</h3>
       <MoleculeAutosuggestWithStateTags

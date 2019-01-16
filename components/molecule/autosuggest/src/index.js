@@ -9,8 +9,8 @@ import MoleculeAutosuggestSingleSelection from './components/SingleSelection'
 import MoleculeAutosuggestMultipleSelection from './components/MultipleSelection'
 
 import {withOpenToggle} from '@s-ui/hoc'
-import {getTarget} from '@s-ui/js/react'
-import {getFocusedItemIndex} from '@s-ui/js/dom'
+import {getTarget} from '@s-ui/js/lib/react'
+import {getFocusedItemIndex} from '@s-ui/js/lib/dom'
 
 const BASE_CLASS = `sui-MoleculeAutosuggest`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`

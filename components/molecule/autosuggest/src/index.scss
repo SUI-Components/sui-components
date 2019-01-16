@@ -33,6 +33,7 @@ $w-autosuggest-icon-clear: 20px !default;
   #{$class-input} {
     &-container {
       align-items: center;
+      border: 1px solid transparent;
       cursor: pointer;
       display: flex;
     }

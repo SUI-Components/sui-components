@@ -1,0 +1,10 @@
+.DemoAlternativeOption {
+  padding: 10px;
+  &:focus {
+    background: #eee;
+    outline: 0;
+    &::before {
+      content: '👉 ';
+    }
+  }
+}

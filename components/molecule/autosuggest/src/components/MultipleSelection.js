@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, {Component, Fragment} from 'react'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
@@ -8,31 +7,26 @@ import withClearUI from '../hoc/withClearUI'
 const MoleculeInputTagsWithClearUI = withClearUI(MoleculeInputTags)
 
 class MoleculeAutosuggestFieldMultiSelection extends Component {
+  /* eslint-disable react/prop-types */
   MoleculeInputTagsRef = React.createRef()
 
   handleMultiSelection = (ev, {value}) => {
     const {refMoleculeAutosuggest, tags, onChangeTags, onToggle} = this.props
     const newTags = tags.includes(value)
-    ? tags.filter(tag => tag !== value)
-    : [...tags, value]
-    
+      ? tags.filter(tag => tag !== value)
+      : [...tags, value]
+
     onChangeTags(ev, {
-      value:'',
+      value: '',
       tags: newTags
     })
-    
-    
+
     onToggle(ev, {isOpen: false})
     refMoleculeAutosuggest.current.focus()
-    
   }
 
   handleChangeTags = (ev, {tags}) => {
-    const {
-      refMoleculeAutosuggest,
-      onChangeTags,
-      onToggle
-    } = this.props
+    const {refMoleculeAutosuggest, onChangeTags, onToggle} = this.props
     onChangeTags(ev, {tags})
     onToggle(ev, {isOpen: false})
     refMoleculeAutosuggest.current.focus()

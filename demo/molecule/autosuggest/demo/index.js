@@ -1,23 +1,27 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
-
 import React from 'react'
 
 import {withStateValue, withStateValueTags} from '@s-ui/hoc'
-import withDynamicOptions from './hoc/withDynamicOptions'
 
 import MoleculeAutosuggest, {
-  MoleculeAutosuggestDropdownListSizes,
-  MoleculeAutosuggestOption
+  MoleculeAutosuggestDropdownListSizes
 } from '../../../../components/molecule/autosuggest/src'
+import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
+import AlternativeOption from './components/AlternativeOption/'
+import withDynamicOptions from './hoc/withDynamicOptions'
 import {IconClose} from './Icons'
-
 import {countries} from './data'
 import './index.scss'
 
 const MoleculeAutosuggestWithDynamicOptions = withDynamicOptions(
   MoleculeAutosuggest,
-  MoleculeAutosuggestOption
+  MoleculeDropdownOption
+)(countries)
+
+const MoleculeAutosuggestWithDynamicAlternativeOptions = withDynamicOptions(
+  MoleculeAutosuggest,
+  AlternativeOption
 )(countries)
 
 const MoleculeAutosuggestWithState = withStateValue(
@@ -28,9 +32,12 @@ const MoleculeAutosuggestWithStateTags = withStateValueTags(
   MoleculeAutosuggestWithDynamicOptions
 )
 
+const MoleculeAutosuggestAlternativeWithState = withStateValue(
+  MoleculeAutosuggestWithDynamicAlternativeOptions
+)
+
 const BASE_CLASS_DEMO = 'DemoMoleculeAutosuggest'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
-const CLASS_DEMO_LIST = `${BASE_CLASS_DEMO}-list`
 
 const Demo = () => (
   <div className={BASE_CLASS_DEMO}>
@@ -42,8 +49,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <h3>Basic Single selection</h3>
       <MoleculeAutosuggestWithState
-        onChangeTags={(_, {tags}) => console.log(tags)}
-        iconCloseTag={<IconClose />}
+        onChange={(_, {value}) => console.log(value)}
         iconClear={<IconClose />}
       />
     </div>
@@ -52,8 +58,7 @@ const Demo = () => (
       <h3>Single selection w/ default Value</h3>
       <MoleculeAutosuggestWithState
         value="Luxembourg"
-        onChangeTags={(_, {tags}) => console.log(tags)}
-        iconCloseTag={<IconClose />}
+        onChange={(_, {value}) => console.log(value)}
         iconClear={<IconClose />}
       />
     </div>
@@ -61,8 +66,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <h3>Single selection (list size=LARGE)</h3>
       <MoleculeAutosuggestWithState
-        onChangeTags={(_, {tags}) => console.log(tags)}
-        iconCloseTag={<IconClose />}
+        onChange={(_, {value}) => console.log(value)}
         iconClear={<IconClose />}
         size={MoleculeAutosuggestDropdownListSizes.LARGE}
       />
@@ -101,6 +105,15 @@ const Demo = () => (
         iconCloseTag={<IconClose />}
         iconClear={<IconClose />}
         multiselection
+      />
+    </div>
+
+    <h2>w/ alternative Option component</h2>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <MoleculeAutosuggestAlternativeWithState
+        onChange={(_, {value}) => console.log(value)}
+        iconClear={<IconClose />}
       />
     </div>
   </div>

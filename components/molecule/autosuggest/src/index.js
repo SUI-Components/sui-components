@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
 
 import MoleculeAutosuggestSingleSelection from './components/SingleSelection'
@@ -64,7 +63,7 @@ class MoleculeAutosuggest extends Component {
     const {isOpen, multiselection} = this.props
     const {refsMoleculeAutosuggestOptions, closeList, focusFirstOption} = this
 
-    const options = refsMoleculeAutosuggestOptions.map(({current}) => current)
+    const options = refsMoleculeAutosuggestOptions.map(getTarget)
     if (isOpen) {
       if (ev.key === 'Escape') closeList(ev)
       if (ev.key === 'Enter' && multiselection) closeList(ev)
@@ -180,7 +179,4 @@ MoleculeAutosuggestSingleSelection.defaultProps = {
 }
 
 export default withOpenToggle(MoleculeAutosuggest)
-export {
-  SIZES as MoleculeAutosuggestDropdownListSizes,
-  MoleculeDropdownOption as MoleculeAutosuggestOption
-}
+export {SIZES as MoleculeAutosuggestDropdownListSizes}

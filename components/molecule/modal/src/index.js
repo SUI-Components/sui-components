@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, {Component} from 'react'
+import {createPortal} from 'react-dom'
 import cx from 'classnames'
 import {SUPPORTED_KEYS} from './config'
 import {suitClass} from './helpers'
@@ -15,20 +16,31 @@ class MoleculeModal extends Component {
   _contentRef = React.createRef()
   _wrapperRef = React.createRef()
 
+  state = {
+    isClientReady: false
+  }
+
+  _getContainer() {
+    const {portalContainerId} = this.props
+    let containerDOMEl = document.getElementById(portalContainerId)
+    if (!containerDOMEl) {
+      containerDOMEl = document.createElement('div')
+      containerDOMEl.id = portalContainerId
+      document.body.appendChild(containerDOMEl)
+    }
+    return containerDOMEl
+  }
+
   componentDidMount() {
+    const {usePortal} = this.props
+    if (usePortal) {
+      this.setState({isClientReady: true})
+    }
     document.addEventListener('keydown', this._onKeyDown)
-    this._wrapperRef.current.addEventListener(
-      'webkitAnimationEnd',
-      this.props.onAnimationEnd
-    )
   }
   componentWillUnmount() {
     toggleWindowScroll(false)
     document.removeEventListener('keydown', this._onKeyDown)
-    this._wrapperRef.current.addEventListener(
-      'webkitAnimationEnd',
-      this.props.onAnimationEnd
-    )
   }
 
   _onKeyDown = event => {
@@ -82,17 +94,26 @@ class MoleculeModal extends Component {
     }
   }
 
-  render() {
+  get extendedChildren() {
+    const {children} = this.props
+    return React.Children.toArray(children).map((child, index) => {
+      return React.cloneElement(child, {
+        onClose: this._closeModal
+      })
+    })
+  }
+
+  _renderModal() {
     const {
       header,
-      children,
       iconClose,
       isOpen,
       fitWindow,
-      isClosing
+      isClosing,
+      onAnimationEnd
     } = this.props
     toggleWindowScroll(isOpen)
-    const wrapperClassName = cx(suitClass({}), {
+    const wrapperClassName = cx(suitClass(), {
       'is-MoleculeModal-open': isOpen,
       [suitClass({element: 'out'})]: isClosing
     })
@@ -106,6 +127,7 @@ class MoleculeModal extends Component {
       <div
         className={wrapperClassName}
         ref={this._wrapperRef}
+        onAnimationEnd={onAnimationEnd}
         onClick={this._handleOutsideClick}
       >
         <div className={dialogClassName}>
@@ -125,11 +147,26 @@ class MoleculeModal extends Component {
             onTouchMove={this._preventScrollIfNeeded}
             ref={this._contentRef}
           >
-            {children}
+            {this.extendedChildren}
           </div>
         </div>
       </div>
     )
+  }
+
+  render() {
+    const {usePortal} = this.props
+    const {isClientReady} = this.state
+
+    const modalElement = this._renderModal()
+
+    if (usePortal) {
+      return isClientReady
+        ? createPortal(modalElement, this._getContainer())
+        : null
+    }
+
+    return modalElement
   }
 }
 
@@ -163,11 +200,25 @@ MoleculeModal.propTypes = {
    */
   isOpen: PropTypes.bool,
   /**
-   * OnClose function handler
+   * onClose function handler
    */
   onClose: PropTypes.func,
+  /**
+   * A boolean to identify if the modal is being closed or not used by the HoC WithAnimation
+   */
   isClosing: PropTypes.bool,
-  onAnimationEnd: PropTypes.func
+  /**
+   * The callback function to be called when the animation ends, defined by the HoC WithAnimation
+   */
+  onAnimationEnd: PropTypes.func,
+  /**
+   * Container id element to be used to render the portal. If not available, it will be created for you.
+   */
+  portalContainerId: PropTypes.string,
+  /**
+   * Determines if modal will be rendered using a React Portal.
+   */
+  usePortal: PropTypes.bool
 }
 
 MoleculeModal.defaultProps = {
@@ -175,6 +226,8 @@ MoleculeModal.defaultProps = {
   closeOnEscKeyDown: false,
   fitWindow: false,
   isOpen: false,
+  portalContainerId: 'modal-react-portal',
+  usePortal: true,
   onClose: () => {}
 }
 

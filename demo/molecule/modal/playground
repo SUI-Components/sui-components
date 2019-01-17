@@ -1,24 +1,54 @@
-const IconClose = () => (<svg viewBox='0 0 24 24'>
-    <path id='a' d='M13.42 12l4.79-4.8a1 1 0 0 0-1.41-1.41L12 10.58 7.21 5.79A1 1 0 0 0 5.8 7.2l4.79 4.8-4.79 4.79a1 1 0 1 0 1.41 1.41L12 13.41l4.8 4.79a1 1 0 0 0 1.41-1.41L13.42 12z'/>
-  </svg>)
+const IconClose = () => (
+  <svg viewBox="0 0 24 24">
+    <path
+      id="a"
+      d="M13.42 12l4.79-4.8a1 1 0 0 0-1.41-1.41L12 10.58 7.21 5.79A1 1 0 0 0 5.8 7.2l4.79 4.8-4.79 4.79a1 1 0 1 0 1.41 1.41L12 13.41l4.8 4.79a1 1 0 0 0 1.41-1.41L13.42 12z"
+    />
+  </svg>
+)
 
-const pLoremStyle = {'max-width': '600px'}
+const fieldStyle = {
+  border: '1px solid rgb(204, 204, 204)',
+  background: 'rgb(255, 255, 255)',
+  marginTop: '10px',
+  padding: '10px',
+  maxWidth: '600px'
+}
+const containerStyle = {
+  padding: '20px'
+}
 
-const LoremIpsumParagraph = () => <p style={pLoremStyle}>
-                Cras vitae consectetur dui. Nullam quis arcu id ligula rhoncus
-                faucibus et eget odio. Etiam vulputate fringilla nibh sed
-                sodales. Phasellus facilisis dignissim aliquet. Vestibulum ante
-                ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                Curae; Quisque feugiat vehicula odio at venenatis. Integer
-                rhoncus tortor sed auctor laoreet. Aliquam ac vulputate urna.
-                Suspendisse felis eros, maximus eget urna vitae, pellentesque
-                pretium odio. Duis mi arcu, laoreet sit amet pulvinar ac, congue
-                quis turpis. Cras rutrum leo ac massa malesuada, quis vestibulum
-                lorem convallis. Fusce eget tellus euismod, fringilla nulla
-                ornare, blandit purus. Nam orci lacus, faucibus at nisi id,
-                auctor molestie nunc. Nulla a porta quam. Donec vel iaculis
-                nibh.
-              </p>
+const ContentWithCloseButton = ({children, onClose}) => (
+  <div>
+    {children}
+    <button type="button" onClick={onClose}>
+      close modal
+    </button>
+  </div>
+)
+
+const Content = ({children}) => (
+  <div>
+    {children}
+  </div>
+)
+
+const pLoremStyle = {maxWidth: '600px'}
+
+const LoremIpsumParagraph = () => (
+  <p style={pLoremStyle}>
+    Cras vitae consectetur dui. Nullam quis arcu id ligula rhoncus faucibus et
+    eget odio. Etiam vulputate fringilla nibh sed sodales. Phasellus facilisis
+    dignissim aliquet. Vestibulum ante ipsum primis in faucibus orci luctus et
+    ultrices posuere cubilia Curae; Quisque feugiat vehicula odio at venenatis.
+    Integer rhoncus tortor sed auctor laoreet. Aliquam ac vulputate urna.
+    Suspendisse felis eros, maximus eget urna vitae, pellentesque pretium odio.
+    Duis mi arcu, laoreet sit amet pulvinar ac, congue quis turpis. Cras rutrum
+    leo ac massa malesuada, quis vestibulum lorem convallis. Fusce eget tellus
+    euismod, fringilla nulla ornare, blandit purus. Nam orci lacus, faucibus at
+    nisi id, auctor molestie nunc. Nulla a porta quam. Donec vel iaculis nibh.
+  </p>
+)
 class ScrollModal extends React.Component {
   constructor(props) {
     super(props)
@@ -27,7 +57,7 @@ class ScrollModal extends React.Component {
     }
   }
 
-  openModal = () =>  {
+  openModal = () => {
     this.setState({
       open: true
     })
@@ -54,9 +84,11 @@ class ScrollModal extends React.Component {
           header={<strong>My new brand modal</strong>}
           onClose={this.closeModal}
         >
-          <div>
-            {[...Array(24).keys()].map((index) => (<LoremIpsumParagraph key={index}/>))}
-          </div>
+          <Content>
+            {[...Array(24).keys()].map(index => (
+              <LoremIpsumParagraph key={index} />
+            ))}
+          </Content>
         </MoleculeModal>
       </div>
     )
@@ -71,7 +103,7 @@ class NoScrollModal extends React.Component {
     }
   }
 
-  openModal = () =>  {
+  openModal = () => {
     this.setState({
       open: true
     })
@@ -98,9 +130,9 @@ class NoScrollModal extends React.Component {
           header={<strong>My new brand modal</strong>}
           onClose={this.closeModal}
         >
-          <div>
-            <LoremIpsumParagraph/>
-          </div>
+          <Content>
+            <LoremIpsumParagraph />
+          </Content>
         </MoleculeModal>
       </div>
     )
@@ -115,7 +147,7 @@ class NoHeaderModal extends React.Component {
     }
   }
 
-  openModal = () =>  {
+  openModal = () => {
     this.setState({
       open: true
     })
@@ -141,9 +173,9 @@ class NoHeaderModal extends React.Component {
           fitWindow
           onClose={this.closeModal}
         >
-          <div>
-            <LoremIpsumParagraph/>
-          </div>
+          <Content>
+            <LoremIpsumParagraph />
+          </Content>
         </MoleculeModal>
       </div>
     )
@@ -158,7 +190,7 @@ class NoHeaderNoCloseButtonModal extends React.Component {
     }
   }
 
-  openModal = () =>  {
+  openModal = () => {
     this.setState({
       open: true
     })
@@ -183,12 +215,9 @@ class NoHeaderNoCloseButtonModal extends React.Component {
           fitWindow
           onClose={this.closeModal}
         >
-          <div>
-            <LoremIpsumParagraph/>
-            <button type="button" onClick={this.closeModal}>
-              close modal
-            </button>
-          </div>
+          <ContentWithCloseButton>
+            <LoremIpsumParagraph />
+          </ContentWithCloseButton>
         </MoleculeModal>
       </div>
     )
@@ -203,7 +232,7 @@ class NoFullScreenModal extends React.Component {
     }
   }
 
-  openModal = () =>  {
+  openModal = () => {
     this.setState({
       open: true
     })
@@ -229,9 +258,9 @@ class NoFullScreenModal extends React.Component {
           iconClose={<IconClose />}
           onClose={this.closeModal}
         >
-          <div>
-            <LoremIpsumParagraph/>
-          </div>
+          <Content>
+            <LoremIpsumParagraph />
+          </Content>
         </MoleculeModal>
       </div>
     )
@@ -240,15 +269,32 @@ class NoFullScreenModal extends React.Component {
 
 return (
   <React.Fragment>
-    <h1>Scroll Modal</h1>
-    <ScrollModal />
-    <h1>No Scroll Modal</h1>
-    <NoScrollModal />
-    <h1>No header Modal</h1>
-    <NoHeaderModal />
-    <h1>Modal with max-width</h1>
-    <NoFullScreenModal />
-    <h1>No header and no close</h1>
-    <NoHeaderNoCloseButtonModal/>
+    <div style={containerStyle}>
+    <h1>
+      <code>MoleculeModal</code>
+    </h1>
+    <h2>Scroll Modal</h2>
+    <div style={fieldStyle}>
+      <ScrollModal />
+    </div>
+    <h2>No Scroll Modal</h2>
+    <div style={fieldStyle}>
+      <NoScrollModal />
+    </div>
+    <h2>No header Modal</h2>
+    <div style={fieldStyle}>
+      <NoHeaderModal />
+    </div>
+    <h2>Modal with max-width</h2>
+    <div style={fieldStyle}>
+      <NoFullScreenModal />
+    </div>
+    <h2>No header and no close</h2>
+    <div style={fieldStyle}>
+      <p>In order to add a button in the content to close the modal you need to provide a React component with a property named <code>'onClose'</code></p>
+      <NoHeaderNoCloseButtonModal />
+    </div>
+    </div>
+
   </React.Fragment>
 )

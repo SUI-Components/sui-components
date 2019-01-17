@@ -18,7 +18,7 @@ $mr-select-list-arrow: -34px !default;
     z-index: $z-select-list;
   }
 
-  #{$class-input} {
+  &-inputSelect {
     &-container {
       align-items: center;
       border: 1px solid transparent;
@@ -41,8 +41,8 @@ $mr-select-list-arrow: -34px !default;
 
     #{$class-input} {
       &-container {
-        border: 1px solid $c-primary;
         @extend %sui-atom-input-input-focus;
+        border: 1px solid $c-primary;
       }
     }
     

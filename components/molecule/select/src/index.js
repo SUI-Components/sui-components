@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
 
 import MoleculeSelectSingleSelection from './components/SingleSelection'
@@ -181,7 +180,4 @@ MoleculeSelectSingleSelection.defaultProps = {
 }
 
 export default withOpenToggle(MoleculeSelect)
-export {
-  SIZES as moleculeSelectDropdownListSizes,
-  MoleculeDropdownOption as MoleculeSelectOption
-}
+export {SIZES as moleculeSelectDropdownListSizes}

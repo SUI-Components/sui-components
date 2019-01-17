@@ -1,0 +1,13 @@
+.DemoAlternativeOption {
+  padding: 20px;
+  &:hover,
+  &:focus {
+    padding: 15px;
+    cursor: pointer;
+    background: #eee;
+    outline: 0;
+    &::before {
+      content: '👉 ';
+    }
+  }
+}

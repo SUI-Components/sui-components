@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import AtomInput from '@s-ui/react-atom-input'
 
+import handlersFactory from './handlersFactory'
+
 const BASE_CLASS = 'sui-MoleculeDropdownOption'
 const CLASS_CHECKBOX = `${BASE_CLASS}-checkbox`
 const CLASS_TEXT = `${BASE_CLASS}-text`
@@ -27,9 +29,12 @@ const MoleculeDropdownOption = ({
     'is-selected': selected
   })
 
-  const handleClick = ev => {
-    if (!disabled) onSelect(ev, {value})
-  }
+  const {handleClick, handleKeyDown, handleFocus} = handlersFactory({
+    disabled,
+    value,
+    onSelectKey,
+    onSelect
+  })
 
   const highlightOption = option => {
     if (typeof option !== 'string') return option
@@ -38,24 +43,6 @@ const MoleculeDropdownOption = ({
       regExpHighlight,
       `<mark class="${cx(CLASS_HIGHLIGHTED_MARK, CLASS_HIGHLIGHTED)}">$&</mark>`
     )
-  }
-
-  const handleKeyDown = ev => {
-    const {key} = ev
-    const isStringOnSelectKey = typeof onSelectKey === 'string'
-    const isPressedOnSelectKey = isStringOnSelectKey
-      ? key === onSelectKey
-      : onSelectKey.includes(key)
-
-    if (isPressedOnSelectKey && !disabled) {
-      ev.preventDefault()
-      onSelect(ev, {value})
-    }
-  }
-
-  const handleFocus = ev => {
-    ev.preventDefault()
-    ev.stopPropagation()
   }
 
   const handleInnerCheckboxFocus = ev => {
@@ -133,3 +120,4 @@ MoleculeDropdownOption.defaultProps = {
 }
 
 export default MoleculeDropdownOption
+export {handlersFactory}

@@ -59,7 +59,7 @@ class MoleculeSelect extends Component {
 
   handleKeyDown = ev => {
     ev.persist()
-    const {onToggle, isOpen, multiselection} = this.props
+    const {onToggle, isOpen} = this.props
     const {
       refMoleculeSelect,
       refsMoleculeSelectOptions,
@@ -77,7 +77,7 @@ class MoleculeSelect extends Component {
       }
     } else {
       if (ev.key === 'Escape') closeList(ev)
-      if (ev.key === 'Enter' && multiselection) closeList(ev)
+      if (ev.key === 'Enter') closeList(ev)
       if (ev.key === 'ArrowDown' && !getFocusedItemIndex(options))
         focusFirstOption(ev, {options})
     }

@@ -9,6 +9,7 @@ import MoleculeSelectSingleSelection from './components/SingleSelection'
 import MoleculeSelectMultipleSelection from './components/MultipleSelection'
 
 import {withOpenToggle} from '@s-ui/hoc'
+import {getTarget} from '@s-ui/js/lib/react'
 import {getFocusedItemIndex} from '@s-ui/js/lib/dom'
 
 const BASE_CLASS = `sui-MoleculeSelect`
@@ -67,7 +68,7 @@ class MoleculeSelect extends Component {
       focusFirstOption
     } = this
 
-    const options = refsMoleculeSelectOptions.map(({current}) => current)
+    const options = refsMoleculeSelectOptions.map(getTarget)
     const domSourceEvent = ev.target
     const domMoleculeSelect = refMoleculeSelect.current
     if (!isOpen) {
@@ -95,7 +96,7 @@ class MoleculeSelect extends Component {
     ev.persist()
     const {refsMoleculeSelectOptions, closeList} = this
     const {isOpen} = this.props
-    const options = refsMoleculeSelectOptions.map(({current}) => current)
+    const options = refsMoleculeSelectOptions.map(getTarget)
     setTimeout(() => {
       const focusOutFromOptionSelected = getFocusedItemIndex(options) !== null
       if (!focusOutFromOptionSelected && isOpen) {

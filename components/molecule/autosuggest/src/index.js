@@ -9,7 +9,7 @@ import MoleculeAutosuggestMultipleSelection from './components/MultipleSelection
 
 import {withOpenToggle} from '@s-ui/hoc'
 import {getTarget} from '@s-ui/js/lib/react'
-import {getFocusedItemIndex} from '@s-ui/js/lib/dom'
+import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 
 const BASE_CLASS = `sui-MoleculeAutosuggest`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
@@ -18,6 +18,7 @@ class MoleculeAutosuggest extends Component {
   refMoleculeAutosuggest = React.createRef()
   refsMoleculeAutosuggestOptions = []
   refMoleculeAutosuggestInput = React.createRef()
+  internalFocusOut = false
   state = {
     focus: false
   }
@@ -60,19 +61,24 @@ class MoleculeAutosuggest extends Component {
 
   handleKeyDown = ev => {
     ev.persist()
-    const {isOpen, multiselection} = this.props
+    const {isOpen} = this.props
     const {refsMoleculeAutosuggestOptions, closeList, focusFirstOption} = this
-
+    const {key} = ev
     const options = refsMoleculeAutosuggestOptions.map(getTarget)
     if (isOpen) {
-      if (ev.key === 'Escape') closeList(ev)
-      if (ev.key === 'Enter' && multiselection) closeList(ev)
-      if (ev.key === 'ArrowDown' && !getFocusedItemIndex(options))
+      const currentElementFocused = getCurrentElementFocused()
+      const isSomeOptionFocused = [...options].includes(currentElementFocused)
+      if (['Enter', 'Escape'].includes(key)) closeList(ev)
+      else if (key === 'ArrowDown' && !isSomeOptionFocused)
         focusFirstOption(ev, {options})
+      else if (isSomeOptionFocused) {
+        this.handleFocusIn(ev)
+      }
     }
   }
 
-  handleFocusIn = () => {
+  handleFocusIn = ev => {
+    this.internalFocus = true
     const {
       refMoleculeAutosuggestInput: {current: domInnerInput}
     } = this
@@ -83,14 +89,19 @@ class MoleculeAutosuggest extends Component {
 
   handleFocusOut = ev => {
     ev.persist()
-    const {refsMoleculeAutosuggestOptions, closeList} = this
-    const {isOpen} = this.props
+    const {
+      refsMoleculeAutosuggestOptions,
+      refMoleculeAutosuggestInput: {current: domInnerInput},
+      closeList
+    } = this
     const options = refsMoleculeAutosuggestOptions.map(getTarget)
+    const {isOpen} = this.props
     setTimeout(() => {
-      const focusOutFromOptionSelected = getFocusedItemIndex(options) !== null
-      if (!focusOutFromOptionSelected && isOpen) {
-        closeList(ev)
-      }
+      const currentElementFocused = getCurrentElementFocused()
+      const focusOutFromOutside = ![domInnerInput, ...options].includes(
+        currentElementFocused
+      )
+      if (focusOutFromOutside && isOpen) closeList(ev)
     }, 1)
     this.setState({focus: false})
   }
@@ -164,7 +175,7 @@ MoleculeAutosuggest.propTypes = {
   onChange: PropTypes.func,
 
   /** Icon for closing (removing) tags */
-  iconCloseTag: PropTypes.node.isRequired,
+  iconCloseTag: PropTypes.node,
 
   /** Icon for closing (removing) tags */
   iconClear: PropTypes.node,

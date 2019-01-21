@@ -18,7 +18,8 @@ const MoleculeAutosuggestSingleSelection = props => {
     size,
     innerRefInput,
     refMoleculeAutosuggest,
-    iconClear
+    iconClear,
+    placeholder
   } = props
 
   const handleSelection = (ev, {value}) => {
@@ -44,6 +45,7 @@ const MoleculeAutosuggestSingleSelection = props => {
         onChange={handleChange}
         iconClear={iconClear}
         reference={innerRefInput}
+        placeholder={placeholder}
       />
       <MoleculeDropdownList
         isOpen={isOpen}

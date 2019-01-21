@@ -60,6 +60,7 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
       isOpen,
       iconClear,
       innerRefInput,
+      placeholder,
       children
     } = this.props
     return (
@@ -76,6 +77,7 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
           iconClear={iconClear}
           onClickClear={handleClear}
           innerRefInput={innerRefInput}
+          placeholder={!tags.length ? placeholder : ''}
           noBorder
         />
         <MoleculeDropdownList
@@ -97,7 +99,8 @@ MoleculeAutosuggestFieldMultiSelection.displayName =
 
 MoleculeAutosuggestFieldMultiSelection.defaultProps = {
   value: '',
-  tags: []
+  tags: [],
+  iconCloseTag: <span />
 }
 
 export default MoleculeAutosuggestFieldMultiSelection

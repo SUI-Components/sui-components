@@ -8,7 +8,6 @@ import MoleculeAutosuggest, {
 } from '../../../../components/molecule/autosuggest/src'
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
-import AlternativeOption from './components/AlternativeOption/'
 import withDynamicOptions from './hoc/withDynamicOptions'
 import {IconClose} from './Icons'
 import {countries} from './data'
@@ -19,21 +18,12 @@ const MoleculeAutosuggestWithDynamicOptions = withDynamicOptions(
   MoleculeDropdownOption
 )(countries)
 
-const MoleculeAutosuggestWithDynamicAlternativeOptions = withDynamicOptions(
-  MoleculeAutosuggest,
-  AlternativeOption
-)(countries)
-
 const MoleculeAutosuggestWithState = withStateValue(
   MoleculeAutosuggestWithDynamicOptions
 )
 
 const MoleculeAutosuggestWithStateTags = withStateValueTags(
   MoleculeAutosuggestWithDynamicOptions
-)
-
-const MoleculeAutosuggestAlternativeWithState = withStateValue(
-  MoleculeAutosuggestWithDynamicAlternativeOptions
 )
 
 const BASE_CLASS_DEMO = 'DemoMoleculeAutosuggest'
@@ -44,18 +34,29 @@ const Demo = () => (
     <h1>
       <code>MoleculeAutosuggest</code>
     </h1>
+    <p>
+      El componente <code>Autosuggest</code> solo se usará cuando se pueda
+      escribir en el <code>input</code> (lo que generará una búsqueda en las
+      opciones del <code>DropdownList</code>)
+    </p>
+    <p>
+      En esta demo sólo se utiliza el tamaño por defecto del{' '}
+      <code>DropdownList</code> y las opciones básicas del{' '}
+      <code>DropdownOption</code>. Recuerda que en dichos componentes existen
+      más posibilidades si son necesarias
+    </p>
     <h2>Single Selection</h2>
-
     <div className={CLASS_DEMO_SECTION}>
-      <h3>Basic Single selection</h3>
+      <h3>with Placeholder</h3>
       <MoleculeAutosuggestWithState
+        placeholder="Type a Country name..."
         onChange={(_, {value}) => console.log(value)}
         iconClear={<IconClose />}
       />
     </div>
 
     <div className={CLASS_DEMO_SECTION}>
-      <h3>Single selection w/ default Value</h3>
+      <h3>with preselected Value</h3>
       <MoleculeAutosuggestWithState
         value="Luxembourg"
         onChange={(_, {value}) => console.log(value)}
@@ -63,19 +64,15 @@ const Demo = () => (
       />
     </div>
 
-    <div className={CLASS_DEMO_SECTION}>
-      <h3>Single selection (list size=LARGE)</h3>
-      <MoleculeAutosuggestWithState
-        onChange={(_, {value}) => console.log(value)}
-        iconClear={<IconClose />}
-        size={MoleculeAutosuggestDropdownListSizes.LARGE}
-      />
-    </div>
-
     <h2>Multiple Selection</h2>
+    <p>
+      Este componente permite añadir nuevas opciones (como tags) aunque no esten
+      disponibles entre las opciones disponibles del <code>DropdownList</code>
+    </p>
     <div className={CLASS_DEMO_SECTION}>
-      <h3>Basic Multiple selection</h3>
+      <h3>with Placeholder</h3>
       <MoleculeAutosuggestWithStateTags
+        placeholder="Type a Country name..."
         onChangeTags={(_, {tags}) => console.log(tags)}
         iconCloseTag={<IconClose />}
         iconClear={<IconClose />}
@@ -84,36 +81,13 @@ const Demo = () => (
     </div>
 
     <div className={CLASS_DEMO_SECTION}>
-      <h3>Multiple selection w/ Default Value</h3>
+      <h3>With preselected Value</h3>
       <MoleculeAutosuggestWithStateTags
         tags={['India', 'Luxembourg']}
         onChangeTags={(_, {tags}) => console.log(tags)}
         iconCloseTag={<IconClose />}
         iconClear={<IconClose />}
         multiselection
-      />
-    </div>
-
-    <div className={CLASS_DEMO_SECTION}>
-      <h3>
-        Multiple selection w/ both <code>onChange</code> and{' '}
-        <code>onChangeTags</code> handlers
-      </h3>
-      <MoleculeAutosuggestWithStateTags
-        onChangeTags={(_, {tags}) => console.log(tags)}
-        onChange={(_, {value}) => console.log(value)}
-        iconCloseTag={<IconClose />}
-        iconClear={<IconClose />}
-        multiselection
-      />
-    </div>
-
-    <h2>w/ alternative Option component</h2>
-
-    <div className={CLASS_DEMO_SECTION}>
-      <MoleculeAutosuggestAlternativeWithState
-        onChange={(_, {value}) => console.log(value)}
-        iconClear={<IconClose />}
       />
     </div>
   </div>

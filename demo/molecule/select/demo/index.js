@@ -25,9 +25,20 @@ const Demo = () => (
     <h1>
       <code>MoleculeSelect</code>
     </h1>
+    <p>
+      El componente <code>select</code> sólo se usará para seleccionar opciones
+      de un listado cerrado. Utiliza <code>Autosuggest</code> si necesitas
+      añadir opciones fuera del listado cerrado
+    </p>
+    <p>
+      En esta demo sólo se utiliza el tamaño por defecto del{' '}
+      <code>DropdownList</code> y las opciones básicas de{' '}
+      <code>DropdownOption</code>. Recuerda que en dichos componentes existen
+      más posibilidades si son necesarias
+    </p>
     <h2>Single Selection</h2>
     <div className={CLASS_DEMO_SECTION}>
-      <h3>Basic Single selection</h3>
+      <h3>With Placeholder</h3>
       <MoleculeSelectWithState
         placeholder="Select a Country..."
         onChange={(_, {value}) => console.log(value)}
@@ -43,7 +54,7 @@ const Demo = () => (
     </div>
 
     <div className={CLASS_DEMO_SECTION}>
-      <h3>Single selection w/ default Value</h3>
+      <h3>With preselected Value</h3>
       <MoleculeSelectWithState
         value="Luxembourg"
         onChange={(_, {value}) => console.log(value)}
@@ -58,26 +69,9 @@ const Demo = () => (
       </MoleculeSelectWithState>
     </div>
 
-    <div className={CLASS_DEMO_SECTION}>
-      <h3>Single selection (list size=LARGE)</h3>
-      <MoleculeSelectWithState
-        placeholder="Select a Country..."
-        onChange={(_, {value}) => console.log(value)}
-        iconCloseTag={<IconCloseTag />}
-        iconArrowDown={<IconArrowDown />}
-        size={moleculeSelectDropdownListSizes.LARGE}
-      >
-        {countries.map((country, i) => (
-          <MoleculeSelectOption key={i} value={country}>
-            {country}
-          </MoleculeSelectOption>
-        ))}
-      </MoleculeSelectWithState>
-    </div>
-
     <h2>Multiple Selection</h2>
     <div className={CLASS_DEMO_SECTION}>
-      <h3>Basic Multiple selection</h3>
+      <h3>With Placeholder</h3>
       <MoleculeSelectWithState
         placeholder="Select some countries..."
         onChange={(_, {value}) => console.log(value)}
@@ -94,7 +88,7 @@ const Demo = () => (
     </div>
 
     <div className={CLASS_DEMO_SECTION}>
-      <h3>Multiple selection w/ Default Value</h3>
+      <h3>With preselected Value</h3>
       <MoleculeSelectWithState
         placeholder="Select some countries..."
         value={['India', 'Luxembourg']}

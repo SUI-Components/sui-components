@@ -1,12 +1,9 @@
-/* eslint-disable react/prop-types, no-unused-vars, no-console */
-
+/* eslint-disable no-console */
 import React from 'react'
 
 import {withStateValue} from '@s-ui/hoc'
 
-import MoleculeSelect, {
-  moleculeSelectDropdownListSizes
-} from '../../../../components/molecule/select/src'
+import MoleculeSelect from '../../../../components/molecule/select/src'
 
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 

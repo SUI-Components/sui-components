@@ -22,7 +22,7 @@ class MoleculeSelect extends Component {
   }
 
   get extendedChildren() {
-    const {children, multiselection} = this.props // eslint-disable-line react/prop-types
+    const {children, keysSelection} = this.props // eslint-disable-line react/prop-types
     const {refsMoleculeSelectOptions} = this
     return React.Children.toArray(children)
       .filter(Boolean)
@@ -30,7 +30,7 @@ class MoleculeSelect extends Component {
         refsMoleculeSelectOptions[index] = React.createRef()
         return React.cloneElement(child, {
           innerRef: refsMoleculeSelectOptions[index],
-          onSelectKey: multiselection ? ' ' : ['Enter', ' ']
+          onSelectKey: keysSelection
         })
       })
   }
@@ -77,7 +77,6 @@ class MoleculeSelect extends Component {
       }
     } else {
       if (ev.key === 'Escape') closeList(ev)
-      if (ev.key === 'Enter') closeList(ev)
       if (ev.key === 'ArrowDown' && !getFocusedItemIndex(options))
         focusFirstOption(ev, {options})
     }
@@ -171,12 +170,16 @@ MoleculeSelect.propTypes = {
   iconArrowDown: PropTypes.node.isRequired,
 
   /** size (height) of the list */
-  size: PropTypes.oneOf(Object.values(SIZES))
+  size: PropTypes.oneOf(Object.values(SIZES)),
+
+  /** list of key identifiers that will trigger a selection */
+  keysSelection: PropTypes.array
 }
 
-MoleculeSelectSingleSelection.defaultProps = {
+MoleculeSelect.defaultProps = {
   onChange: () => {},
-  onToggle: () => {}
+  onToggle: () => {},
+  keysSelection: [' ', 'Enter']
 }
 
 export default withOpenToggle(MoleculeSelect)

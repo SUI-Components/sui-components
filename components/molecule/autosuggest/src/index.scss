@@ -20,7 +20,6 @@ $w-autosuggest-icon-clear: 20px !default;
   }
 
   &--focus {
-    outline: none;
 
     #{$class-input} {
       &-container {

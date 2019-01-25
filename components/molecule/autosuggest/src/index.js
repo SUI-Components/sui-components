@@ -14,6 +14,12 @@ import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 const BASE_CLASS = `sui-MoleculeAutosuggest`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
 
+const isTypeableKey = key => {
+  console.log({key})
+  const keysEdit = ['Backspace', 'Meta', 'Shift', 'ArrowLeft', 'ArrowRight']
+  return key.length === 1 || keysEdit.includes(key)
+}
+
 class MoleculeAutosuggest extends Component {
   refMoleculeAutosuggest = React.createRef()
   refsMoleculeAutosuggestOptions = []
@@ -62,9 +68,19 @@ class MoleculeAutosuggest extends Component {
   handleKeyDown = ev => {
     ev.persist()
     const {isOpen, keysCloseList} = this.props
-    const {refsMoleculeAutosuggestOptions, closeList, focusFirstOption} = this
+    const {
+      refsMoleculeAutosuggestOptions,
+      refMoleculeAutosuggestInput: {current: domInnerInput},
+      refMoleculeAutosuggest: {current: domMoleculeAutosuggest},
+      closeList,
+      focusFirstOption
+    } = this
     const {key} = ev
     const options = refsMoleculeAutosuggestOptions.map(getTarget)
+
+    if (isTypeableKey(key)) domInnerInput.focus()
+    else domMoleculeAutosuggest.focus()
+
     if (isOpen) {
       const currentElementFocused = getCurrentElementFocused()
       const isSomeOptionFocused = [...options].includes(currentElementFocused)
@@ -79,12 +95,12 @@ class MoleculeAutosuggest extends Component {
 
   handleFocusIn = ev => {
     this.internalFocus = true
-    const {
-      refMoleculeAutosuggestInput: {current: domInnerInput}
-    } = this
-    this.setState({focus: true}, () => {
+    // const {
+    //   refMoleculeAutosuggestInput: {current: domInnerInput}
+    // } = this
+    this.setState({focus: true} /*, () => {
       domInnerInput.focus()
-    })
+    } */)
   }
 
   handleFocusOut = ev => {

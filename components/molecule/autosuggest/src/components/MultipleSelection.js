@@ -10,32 +10,42 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
   /* eslint-disable react/prop-types */
   MoleculeInputTagsRef = React.createRef()
 
-  handleMultiSelection = (ev, {value}) => {
-    const {refMoleculeAutosuggest, tags, onChangeTags, onToggle} = this.props
-    const newTags = tags.includes(value)
-      ? tags.filter(tag => tag !== value)
-      : [...tags, value]
+  handleMultiSelection = (ev, {value: valueSelected}) => {
+    const {
+      refMoleculeAutosuggest,
+      tags,
+      keysSelection,
+      onChangeTags,
+      onToggle,
+      value
+    } = this.props
+    const newTags = tags.includes(valueSelected)
+      ? tags.filter(tag => tag !== valueSelected)
+      : [...tags, valueSelected]
 
     onChangeTags(ev, {
-      value: '',
+      value,
       tags: newTags
     })
+    const {key} = ev
+    const isKeySelection = keysSelection.includes(key)
 
-    onToggle(ev, {isOpen: false})
+    if (key !== undefined && !isKeySelection) onToggle(ev, {isOpen: false})
+
     refMoleculeAutosuggest.current.focus()
   }
 
   handleChangeTags = (ev, {tags}) => {
-    const {refMoleculeAutosuggest, onChangeTags, onToggle} = this.props
+    const {refMoleculeAutosuggest, onChangeTags} = this.props
     onChangeTags(ev, {tags})
-    onToggle(ev, {isOpen: false})
     refMoleculeAutosuggest.current.focus()
   }
 
   handleChange = (ev, {value}) => {
     const {onChange, onToggle} = this.props
     onChange(ev, {value})
-    onToggle(ev, {isOpen: true})
+    if (value) onToggle(ev, {isOpen: true})
+    else onToggle(ev, {isOpen: false})
   }
 
   handleClear = () => {
@@ -74,6 +84,7 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
           onChangeTags={handleChangeTags}
           onChange={handleChange}
           isOpen={isOpen}
+          isVisibleClear={tags.length}
           iconClear={iconClear}
           onClickClear={handleClear}
           innerRefInput={innerRefInput}

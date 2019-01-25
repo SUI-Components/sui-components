@@ -24,7 +24,7 @@ class MoleculeAutosuggest extends Component {
   }
 
   get extendedChildren() {
-    const {children, multiselection} = this.props // eslint-disable-line react/prop-types
+    const {children, keysSelection} = this.props // eslint-disable-line react/prop-types
     const {refsMoleculeAutosuggestOptions} = this
     return React.Children.toArray(children)
       .filter(Boolean)
@@ -32,7 +32,7 @@ class MoleculeAutosuggest extends Component {
         refsMoleculeAutosuggestOptions[index] = React.createRef()
         return React.cloneElement(child, {
           innerRef: refsMoleculeAutosuggestOptions[index],
-          onSelectKey: multiselection ? ' ' : ['Enter', ' ']
+          onSelectKey: keysSelection
         })
       })
   }
@@ -61,14 +61,14 @@ class MoleculeAutosuggest extends Component {
 
   handleKeyDown = ev => {
     ev.persist()
-    const {isOpen} = this.props
+    const {isOpen, keysCloseList} = this.props
     const {refsMoleculeAutosuggestOptions, closeList, focusFirstOption} = this
     const {key} = ev
     const options = refsMoleculeAutosuggestOptions.map(getTarget)
     if (isOpen) {
       const currentElementFocused = getCurrentElementFocused()
       const isSomeOptionFocused = [...options].includes(currentElementFocused)
-      if (['Enter', 'Escape'].includes(key)) closeList(ev)
+      if (keysCloseList.includes(key)) closeList(ev)
       else if (key === 'ArrowDown' && !isSomeOptionFocused)
         focusFirstOption(ev, {options})
       else if (isSomeOptionFocused) {
@@ -107,7 +107,7 @@ class MoleculeAutosuggest extends Component {
   }
 
   render() {
-    const {multiselection, ..._props} = this.props
+    const {multiselection, ...props} = this.props
     const {
       className,
       handleKeyDown,
@@ -129,7 +129,7 @@ class MoleculeAutosuggest extends Component {
       >
         {multiselection ? (
           <MoleculeAutosuggestMultipleSelection
-            {..._props}
+            {...props}
             refMoleculeAutosuggest={refMoleculeAutosuggest}
             innerRefInput={refMoleculeAutosuggestInput}
           >
@@ -137,7 +137,7 @@ class MoleculeAutosuggest extends Component {
           </MoleculeAutosuggestMultipleSelection>
         ) : (
           <MoleculeAutosuggestSingleSelection
-            {..._props}
+            {...props}
             refMoleculeAutosuggest={refMoleculeAutosuggest}
             innerRefInput={refMoleculeAutosuggestInput}
           >
@@ -181,12 +181,20 @@ MoleculeAutosuggest.propTypes = {
   iconClear: PropTypes.node,
 
   /** size (height) of the list */
-  size: PropTypes.oneOf(Object.values(SIZES))
+  size: PropTypes.oneOf(Object.values(SIZES)),
+
+  /** list of key identifiers that will trigger a selection */
+  keysSelection: PropTypes.array,
+
+  /** list of key identifiers that will close the list */
+  keysCloseList: PropTypes.array
 }
 
-MoleculeAutosuggestSingleSelection.defaultProps = {
+MoleculeAutosuggest.defaultProps = {
   onChange: () => {},
-  onToggle: () => {}
+  onToggle: () => {},
+  keysSelection: [' ', 'Enter'],
+  keysCloseList: ['Escape']
 }
 
 export default withOpenToggle(MoleculeAutosuggest)

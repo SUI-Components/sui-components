@@ -41,22 +41,25 @@ const MoleculeAutosuggestSingleSelection = props => {
     <Fragment>
       <AtomInputWithClearUI
         value={value}
+        isVisibleClear={value}
         onClickClear={handleClear}
         onChange={handleChange}
         iconClear={iconClear}
         reference={innerRefInput}
         placeholder={placeholder}
       />
-      <MoleculeDropdownList
-        isOpen={isOpen}
-        size={size}
-        visible={isOpen}
-        onSelect={handleSelection}
-        value={value}
-        highlightQuery={value}
-      >
-        {children}
-      </MoleculeDropdownList>
+      {value && (
+        <MoleculeDropdownList
+          isOpen={isOpen}
+          size={size}
+          visible={isOpen}
+          onSelect={handleSelection}
+          value={value}
+          highlightQuery={value}
+        >
+          {children}
+        </MoleculeDropdownList>
+      )}
     </Fragment>
   )
 }

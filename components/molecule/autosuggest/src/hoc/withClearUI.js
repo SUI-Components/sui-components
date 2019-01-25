@@ -11,13 +11,15 @@ export default BaseComponent => {
 
     render() {
       /* eslint-disable react/prop-types */
-      const {onClickClear, iconClear, ...props} = this.props
+      const {onClickClear, isVisibleClear, iconClear, ...props} = this.props
       return (
         <div className={CLASS_CONTAINER}>
           <BaseComponent {...props} />
-          <span className={CLASS_ICON_CLEAR} onClick={onClickClear}>
-            {iconClear}
-          </span>
+          {!!isVisibleClear && (
+            <span className={CLASS_ICON_CLEAR} onClick={onClickClear}>
+              {iconClear}
+            </span>
+          )}
         </div>
       )
     }

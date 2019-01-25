@@ -9,7 +9,7 @@ import MoleculeSelectMultipleSelection from './components/MultipleSelection'
 
 import {withOpenToggle} from '@s-ui/hoc'
 import {getTarget} from '@s-ui/js/lib/react'
-import {getFocusedItemIndex} from '@s-ui/js/lib/dom'
+import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 
 const BASE_CLASS = `sui-MoleculeSelect`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
@@ -57,14 +57,22 @@ class MoleculeSelect extends Component {
     ev.stopPropagation()
   }
 
+  handleToggle = ev => {
+    const {onToggle} = this.props
+    onToggle(ev, {})
+    ev.preventDefault()
+    ev.stopPropagation()
+  }
+
   handleKeyDown = ev => {
     ev.persist()
-    const {onToggle, isOpen} = this.props
+    const {isOpen} = this.props
     const {
       refMoleculeSelect,
       refsMoleculeSelectOptions,
       closeList,
-      focusFirstOption
+      focusFirstOption,
+      handleToggle
     } = this
 
     const options = refsMoleculeSelectOptions.map(getTarget)
@@ -72,12 +80,14 @@ class MoleculeSelect extends Component {
     const domMoleculeSelect = refMoleculeSelect.current
     if (!isOpen) {
       if (['Enter', 'ArrowDown', 'ArrowUp'].includes(ev.key)) {
-        if (domSourceEvent === domMoleculeSelect) onToggle(ev, {})
+        if (domSourceEvent === domMoleculeSelect) handleToggle(ev)
         else closeList(ev)
       }
     } else {
+      const currentElementFocused = getCurrentElementFocused()
+      const isSomeOptionFocused = [...options].includes(currentElementFocused)
       if (ev.key === 'Escape') closeList(ev)
-      if (ev.key === 'ArrowDown' && !getFocusedItemIndex(options))
+      if (ev.key === 'ArrowDown' && !isSomeOptionFocused)
         focusFirstOption(ev, {options})
     }
   }
@@ -96,8 +106,9 @@ class MoleculeSelect extends Component {
     const {isOpen} = this.props
     const options = refsMoleculeSelectOptions.map(getTarget)
     setTimeout(() => {
-      const focusOutFromOptionSelected = getFocusedItemIndex(options) !== null
-      if (!focusOutFromOptionSelected && isOpen) {
+      const currentElementFocused = getCurrentElementFocused()
+      const isSomeOptionFocused = [...options].includes(currentElementFocused)
+      if (!isSomeOptionFocused && isOpen) {
         closeList(ev)
       }
     }, 1)

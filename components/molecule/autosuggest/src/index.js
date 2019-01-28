@@ -15,8 +15,14 @@ const BASE_CLASS = `sui-MoleculeAutosuggest`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
 
 const isTypeableKey = key => {
-  console.log({key})
-  const keysEdit = ['Backspace', 'Meta', 'Shift', 'ArrowLeft', 'ArrowRight']
+  const keysEdit = [
+    'Backspace',
+    'Enter',
+    'Meta',
+    'Shift',
+    'ArrowLeft',
+    'ArrowRight'
+  ]
   return key.length === 1 || keysEdit.includes(key)
 }
 
@@ -87,20 +93,13 @@ class MoleculeAutosuggest extends Component {
       if (keysCloseList.includes(key)) closeList(ev)
       else if (key === 'ArrowDown' && !isSomeOptionFocused)
         focusFirstOption(ev, {options})
-      else if (isSomeOptionFocused) {
-        this.handleFocusIn(ev)
-      }
+      else if (isSomeOptionFocused) this.handleFocusIn(ev)
     }
   }
 
   handleFocusIn = ev => {
     this.internalFocus = true
-    // const {
-    //   refMoleculeAutosuggestInput: {current: domInnerInput}
-    // } = this
-    this.setState({focus: true} /*, () => {
-      domInnerInput.focus()
-    } */)
+    this.setState({focus: true})
   }
 
   handleFocusOut = ev => {

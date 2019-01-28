@@ -29,15 +29,14 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
     })
     const {key} = ev
     const isKeySelection = keysSelection.includes(key)
-
     if (key !== undefined && !isKeySelection) onToggle(ev, {isOpen: false})
-
     refMoleculeAutosuggest.current.focus()
   }
 
-  handleChangeTags = (ev, {tags}) => {
-    const {refMoleculeAutosuggest, onChangeTags} = this.props
+  handleChangeTags = (ev, {tags, value}) => {
+    const {refMoleculeAutosuggest, onChangeTags, onToggle} = this.props
     onChangeTags(ev, {tags})
+    if (!value) onToggle(ev, {isOpen: false})
     refMoleculeAutosuggest.current.focus()
   }
 

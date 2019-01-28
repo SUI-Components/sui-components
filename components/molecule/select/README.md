@@ -14,9 +14,9 @@ $ npm install @s-ui/react-molecule-select --save
 
 ```js
 import MoleculeSelect, {
-  moleculeSelectDropdownListSizes,
-  MoleculeSelectOption
+  moleculeSelectDropdownListSizes
 } from '@s-ui/react-molecule-select'
+import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 
 const IconCloseTag = () => <span>x</span>  
 const IconArrowDown = () => <span>▼</span>  

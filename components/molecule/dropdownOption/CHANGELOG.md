@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.13.0"></a>
+# 1.13.0 (2019-01-17)
+
+
+### Features
+
+* handlersFactory to ease the creation of custom dropddownOptions ([46739fb](https://github.com/SUI-Components/sui-components/commit/46739fb))
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2019-01-11)
 

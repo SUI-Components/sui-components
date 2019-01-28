@@ -1,6 +1,6 @@
 {
-  "name": "@s-ui/react-molecule-dropdown-option",
-  "version": "1.13.0",
+  "name": "@s-ui/react-molecule-select",
+  "version": "1.1.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,11 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-atom-input": "3"
+    "@s-ui/js": "1",
+    "@s-ui/hoc": "1",
+    "@s-ui/react-atom-input": "3",
+    "@s-ui/react-molecule-input-tags": "2",
+    "@s-ui/react-molecule-dropdown-list": "1"
   },
   "keywords": [],
   "author": "",

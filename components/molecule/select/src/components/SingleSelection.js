@@ -3,9 +3,9 @@ import React, {Fragment} from 'react'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import AtomInput from '@s-ui/react-atom-input'
 
-import WithSelectUI from '../hoc/WithSelectUI'
+import withSelectUI from '../hoc/withSelectUI'
 
-const MoleculeInputSelect = WithSelectUI(AtomInput)
+const MoleculeInputSelect = withSelectUI(AtomInput)
 
 const MoleculeSelectSingleSelection = props => {
   /* eslint-disable react/prop-types */

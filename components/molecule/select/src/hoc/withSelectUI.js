@@ -9,8 +9,8 @@ const CLASS_ARROW_UP = `${CLASS_ARROW}--up`
 
 export default BaseComponent => {
   const displayName = BaseComponent.displayName
-  return class WithSelectUi extends Component {
-    static displayName = `WithSelectUi(${displayName})`
+  return class WithSelectUI extends Component {
+    static displayName = `WithSelectUI(${displayName})`
 
     get classNames() {
       const {isOpen} = this.props // eslint-disable-line react/prop-types

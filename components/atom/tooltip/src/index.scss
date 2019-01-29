@@ -38,6 +38,9 @@ $class-target: '#{$base-class}-target';
   display: block;
   font-size: $fz-atom-tooltip;
   margin: $m-atom-tooltip;
+  // Avoid flick on hover
+  pointer-events: none;
+
   position: absolute;
   // Allow breaking very long words so they don't overflow the tooltip's bounds
   word-wrap: break-word;
@@ -71,7 +74,7 @@ $class-target: '#{$base-class}-target';
     &::before {
       border-color: transparent;
       border-style: solid;
-      content: "";
+      content: '';
       position: absolute;
     }
   }
@@ -132,7 +135,7 @@ $class-target: '#{$base-class}-target';
       &::before {
         border-left-color: $c-atom-tooltip-arrow;
         border-width: ($w-atom-tooltip-arrow / 2) 0 ($w-atom-tooltip-arrow / 2)
-          $h-atom-tooltip-arrow;
+            $h-atom-tooltip-arrow;
         left: 0;
       }
     }

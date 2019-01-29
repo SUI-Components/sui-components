@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2019-01-29)
+
+
+### Bug Fixes
+
+* avoid flick on hover ([9225fa5](https://github.com/SUI-Components/sui-components/commit/9225fa5))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2019-01-09)
 

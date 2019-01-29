@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-atom-input",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "imask": "3.3.0"
+    "imask": "3.4.0"
   },
   "keywords": [],
   "author": "",

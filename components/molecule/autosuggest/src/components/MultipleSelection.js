@@ -35,8 +35,9 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
 
   handleChangeTags = (ev, {tags, value}) => {
     const {refMoleculeAutosuggest, onChangeTags, onToggle} = this.props
+    const isOpen = Boolean(value)
     onChangeTags(ev, {tags})
-    if (!value) onToggle(ev, {isOpen: false})
+    onToggle(ev, {isOpen})
     refMoleculeAutosuggest.current.focus()
   }
 

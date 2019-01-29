@@ -3,9 +3,9 @@ import React, {Fragment} from 'react'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
 
-import WithSelectUI from '../hoc/WithSelectUI'
+import withSelectUI from '../hoc/withSelectUI'
 
-const MoleculeInputSelect = WithSelectUI(MoleculeInputTags)
+const MoleculeInputSelect = withSelectUI(MoleculeInputTags)
 
 const MoleculeSelectFieldMultiSelection = props => {
   /* eslint-disable react/prop-types */

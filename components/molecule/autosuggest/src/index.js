@@ -14,7 +14,7 @@ import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 const BASE_CLASS = `sui-MoleculeAutosuggest`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
 
-const isTypeableKey = key => {
+const getIsTypeableKey = key => {
   const keysEdit = [
     'Backspace',
     'Enter',
@@ -30,7 +30,6 @@ class MoleculeAutosuggest extends Component {
   refMoleculeAutosuggest = React.createRef()
   refsMoleculeAutosuggestOptions = []
   refMoleculeAutosuggestInput = React.createRef()
-  internalFocusOut = false
   state = {
     focus: false
   }
@@ -55,11 +54,12 @@ class MoleculeAutosuggest extends Component {
   }
 
   closeList = ev => {
-    const {onToggle} = this.props
+    const {onToggle, onChange, multiselection} = this.props
     const {
       refMoleculeAutosuggest: {current: domMoleculeAutosuggest}
     } = this
     onToggle(ev, {isOpen: false})
+    if (multiselection) onChange(ev, {value: ''})
     domMoleculeAutosuggest.focus()
     ev.preventDefault()
     ev.stopPropagation()
@@ -73,7 +73,7 @@ class MoleculeAutosuggest extends Component {
 
   handleKeyDown = ev => {
     ev.persist()
-    const {isOpen, keysCloseList} = this.props
+    const {isOpen, keysCloseList, keysSelection} = this.props
     const {
       refsMoleculeAutosuggestOptions,
       refMoleculeAutosuggestInput: {current: domInnerInput},
@@ -84,8 +84,12 @@ class MoleculeAutosuggest extends Component {
     const {key} = ev
     const options = refsMoleculeAutosuggestOptions.map(getTarget)
 
-    if (isTypeableKey(key)) domInnerInput.focus()
-    else domMoleculeAutosuggest.focus()
+    const isTypeableKey = getIsTypeableKey(key)
+    const isSelectionKey = keysSelection.includes(key)
+
+    if (isTypeableKey) {
+      if (!isSelectionKey) domInnerInput.focus()
+    } else domMoleculeAutosuggest.focus()
 
     if (isOpen) {
       const currentElementFocused = getCurrentElementFocused()
@@ -98,7 +102,6 @@ class MoleculeAutosuggest extends Component {
   }
 
   handleFocusIn = ev => {
-    this.internalFocus = true
     this.setState({focus: true})
   }
 

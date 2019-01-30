@@ -10,26 +10,17 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
   /* eslint-disable react/prop-types */
   MoleculeInputTagsRef = React.createRef()
 
-  handleMultiSelection = (ev, {value: valueSelected}) => {
-    const {
-      refMoleculeAutosuggest,
-      tags,
-      keysSelection,
-      onChangeTags,
-      onToggle,
-      value
-    } = this.props
-    const newTags = tags.includes(valueSelected)
-      ? tags.filter(tag => tag !== valueSelected)
-      : [...tags, valueSelected]
+  handleMultiSelection = (ev, {value}) => {
+    const {refMoleculeAutosuggest, tags, onChangeTags, onToggle} = this.props
+    const newTags = tags.includes(value)
+      ? tags.filter(tag => tag !== value)
+      : [...tags, value]
 
     onChangeTags(ev, {
-      value,
+      value: '',
       tags: newTags
     })
-    const {key} = ev
-    const isKeySelection = keysSelection.includes(key)
-    if (key !== undefined && !isKeySelection) onToggle(ev, {isOpen: false})
+    onToggle(ev, {isOpen: false})
     refMoleculeAutosuggest.current.focus()
   }
 
@@ -43,9 +34,9 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
 
   handleChange = (ev, {value}) => {
     const {onChange, onToggle} = this.props
+    const isOpen = Boolean(value)
     onChange(ev, {value})
-    if (value) onToggle(ev, {isOpen: true})
-    else onToggle(ev, {isOpen: false})
+    onToggle(ev, {isOpen})
   }
 
   handleClear = () => {

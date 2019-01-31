@@ -16,7 +16,15 @@ $ npm install @s-ui/react-molecule-modal --save
 ### Basic usage
 ```js
 import MoleculeModal from '@s-ui/react-molecule-modal'
-const IconClose = () => <span>X</span>
+
+const ContentWithCloseButton = ({children, onClose}) => (
+  <div>
+    {children}
+    <button type="button" onClick={onClose}>
+      close modal
+    </button>
+  </div>
+)
 
 class ModalWrapper extends React.Component {
   constructor(props) {
@@ -26,7 +34,7 @@ class ModalWrapper extends React.Component {
     }
   }
 
-  openModal = () =>  {
+  openModal = () => {
     this.setState({
       open: true
     })
@@ -45,21 +53,22 @@ class ModalWrapper extends React.Component {
           Open modal
         </button>
         <MoleculeModal
-          open={this.state.open}
-          centerVertically
+          isOpen={this.state.open}
           closeOnOutsideClick
           closeOnEscKeyDown
-          iconClose={<IconClose />}
-          fitWindow
           header={<strong>My new brand modal</strong>}
+          iconClose={<IconClose />}
           onClose={this.closeModal}
         >
-          <div>I'm a content</div>
+          <ContentWithCloseButton>
+            <LoremIpsumParagraph />
+          </ContentWithCloseButton>
         </MoleculeModal>
       </div>
     )
   }
 }
+
 return (<ModalWrapper />)
 ```
 

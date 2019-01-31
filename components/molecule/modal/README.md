@@ -61,7 +61,7 @@ class ModalWrapper extends React.Component {
           onClose={this.closeModal}
         >
           <ContentWithCloseButton>
-            <LoremIpsumParagraph />
+            <p>This is my modal content</p>
           </ContentWithCloseButton>
         </MoleculeModal>
       </div>

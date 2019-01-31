@@ -1,4 +1,4 @@
-# MoleculeSelect
+# MoleculeAutosuggest
 
 `MoleculeAutosuggest` is an input that will display a list of suggestions while values are entered
 It allows Single and Multiple Selection

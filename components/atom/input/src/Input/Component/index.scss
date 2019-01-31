@@ -1,3 +1,8 @@
+$bgc-atom-input-disabled: $c-gray-lightest !default;
+$c-atom-input-placeholder: $c-gray-dark !default;
+$m-atom-input-type-left: $m-m !default;
+$m-atom-input-type-right: $m-m !default;
+
 $base-class: '.sui-AtomInput-input';
 $class-read-only: '#{$base-class}--readOnly';
 
@@ -12,7 +17,7 @@ $class-read-only: '#{$base-class}--readOnly';
     display: none;
   }
 
-  &--noBorder#{$base-class}--noBorder {
+  &#{$base-class}--noBorder {
     border: 0;
 
     &:focus {
@@ -22,21 +27,13 @@ $class-read-only: '#{$base-class}--readOnly';
     }
   }
 
-  &[type='radio'],
-  &[type='checkbox'] {
-    height: inherit;
-    margin-left: $m-m;
-    margin-right: $m-m;
-    width: inherit;
+  &::placeholder {
+    color: $c-atom-input-placeholder;
   }
 
-  &[placeholder] {
-    color: $c-gray-dark;
-  }
-
-  &[disabled] {
+  &:disabled {
     &:not(#{$class-read-only}) {
-      background: $c-gray-lightest;
+      background: $bgc-atom-input-disabled;
     }
   }
 
@@ -44,11 +41,18 @@ $class-read-only: '#{$base-class}--readOnly';
     @extend %sui-atom-input-input-focus;
   }
 
-  &[type='radio']:focus,
-  &[type='checkbox']:focus {
-    border: 0;
-    box-shadow: none;
-    outline: 0 none;
+  &[type='radio'],
+  &[type='checkbox'] {
+    height: inherit;
+    margin-left: $m-atom-input-type-left;
+    margin-right: $m-atom-input-type-right;
+    width: inherit;
+
+    &:focus {
+      border: 0;
+      box-shadow: none;
+      outline: 0 none;
+    }
   }
 
   @each $type, $attr in $sizes-atom-input {

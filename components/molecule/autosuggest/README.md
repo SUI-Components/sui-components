@@ -12,10 +12,8 @@ $ npm install @s-ui/react-molecule-autosuggest --save
 ## Usage
 
 ```js
-import MoleculeAutosuggest, {
-  MoleculeAutosuggestDropdownListSizes,
-  MoleculeAutosuggestOption
-} from '@s-ui/react-molecule-autosuggest'
+import MoleculeAutosuggest, { MoleculeAutosuggestDropdownListSizes } from '@s-ui/react-molecule-autosuggest'
+import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
 
 const IconCloseTag = () => <span>x</span>  
 

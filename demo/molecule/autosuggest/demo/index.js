@@ -6,7 +6,7 @@ import {withStateValue, withStateValueTags} from '@s-ui/hoc'
 import MoleculeAutosuggest, {
   MoleculeAutosuggestDropdownListSizes
 } from '../../../../components/molecule/autosuggest/src'
-import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
+import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
 
 import withDynamicOptions from './hoc/withDynamicOptions'
 import {IconClose} from './Icons'
@@ -15,7 +15,7 @@ import './index.scss'
 
 const MoleculeAutosuggestWithDynamicOptions = withDynamicOptions(
   MoleculeAutosuggest,
-  MoleculeDropdownOption
+  MoleculeAutosuggestOption
 )(countries)
 
 const MoleculeAutosuggestWithState = withStateValue(

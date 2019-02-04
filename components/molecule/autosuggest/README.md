@@ -75,42 +75,6 @@ const suggestions = ['John','Johnny']
 
 ### Managing State
 
-#### Using the hoc `withDynamicOptions`
-
-`MoleculeAutosuggest` offers a hoc that combined with other hoc from `@s-ui/hoc` can be used to simplify the use of this component with dinamyc suggestions based on the `value`
-
-```js
-
-import MoleculeAutosuggest, {withDynamicOptions} from '@s-ui/react-molecule-autosuggest'
-import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
-
-import {withStateValue, withStateValueTags} from '@s-ui/hoc'
-
-// some function that gets a `{query}` and returns asynchronoudly a list of values
-import {getAsyncCountriesFromQuery} from './services'
-
-const MoleculeAutosuggestWithDynamicOptions = withDynamicOptions(
-  MoleculeAutosuggest,
-  MoleculeAutosuggestOption
-)(getAsyncCountriesFromQuery)
-
-
-const MoleculeAutosuggestWithState = withStateValue(
-  MoleculeAutosuggestWithDynamicOptions
-)
-```
-
-so then, this can used like...
-
-```js
-<MoleculeAutosuggestWithState
-  placeholder="Type a Country name..."
-  onChange={(_, {value}) => console.log(value)}
-  iconClear={<IconClear />}
-/>
-```
-
-
 #### Custom component from `MoleculeAutosuggest` that handle State
 
 `MoleculeAutosuggest` is a stateless component so to manage dynamic options we need to create a wrapper component that manages this and pass proper `props` and proper children (`MoleculeAutosuggestOption`) to `MoleculeAutosuggest`
@@ -151,11 +115,48 @@ export default class AutosuggestSingleWithAsyncOptions extends Component {
 
 ```
 
-so then, this can used like...
+so then, the `AutosuggestSingleWithAsyncOptions` can used in this way...
 
 ```js
   <AutosuggestSingleWithAsyncOptions iconClear={<IconClear />} />
 ```
+
+#### Using the hoc `withDynamicOptions`
+
+`MoleculeAutosuggest` offers a hoc that combined with other hoc from `@s-ui/hoc` can be used to simplify the use of this component with dinamyc suggestions based on the `value`
+
+```js
+
+import MoleculeAutosuggest, {withDynamicOptions} from '@s-ui/react-molecule-autosuggest'
+import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
+
+import {withStateValue} from '@s-ui/hoc'
+
+// some function that gets a `{query}` and returns asynchronoudly a list of values
+import {getAsyncCountriesFromQuery} from './services'
+
+const MoleculeAutosuggestWithDynamicOptions = withDynamicOptions(
+  MoleculeAutosuggest,
+  MoleculeAutosuggestOption
+)(getAsyncCountriesFromQuery)
+
+
+const MoleculeAutosuggestWithState = withStateValue(
+  MoleculeAutosuggestWithDynamicOptions
+)
+```
+
+so then, the `MoleculeAutosuggestWithState` can used in this way...
+
+```js
+<MoleculeAutosuggestWithState
+  placeholder="Type a Country name..."
+  onChange={(_, {value}) => console.log(value)}
+  iconClear={<IconClear />}
+/>
+```
+
+
 
 
 

@@ -16,6 +16,7 @@ import MoleculeAutosuggest, { MoleculeAutosuggestDropdownListSizes } from '@s-ui
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
 
 const IconCloseTag = () => <span>x</span>  
+const IconClear = () => <span>x</span>  
 
 const suggestions = ['John','Johnny']
 ```
@@ -26,20 +27,8 @@ const suggestions = ['John','Johnny']
 ```js
  <MoleculeAutosuggest
   value={'Jo'}
->
-  {suggestions.map((suggestion, i) => (
-    <MoleculeAutosuggestOption key={i} value={suggestion}>
-      {option}
-    </MoleculeAutosuggestOption>
-  ))}
-</MoleculeAutosuggest>
-```
-
-#### Close List on Selection
-```js
-<MoleculeAutosuggest
-  value={'Jo'}
-  closeOnSelect
+  placeholder="Select an option..."
+  iconClear={<IconClose />}
 >
   {suggestions.map((suggestion, i) => (
     <MoleculeAutosuggestOption key={i} value={suggestion}>
@@ -53,7 +42,8 @@ const suggestions = ['John','Johnny']
 ```js
 <MoleculeAutosuggest
   value={'Jo'}
-  closeOnSelect
+  placeholder="Select an option..."
+  iconClear={<IconClose />}
   size={MoleculeAutosuggestDropdownListSizes.LARGE}
 >
   {suggestions.map((suggestion, i) => (
@@ -70,10 +60,10 @@ const suggestions = ['John','Johnny']
 ```js
 <MoleculeAutosuggest
   value={'Jo'}
+  placeholder="Select some options..."
   iconCloseTag={<IconCloseTag />}
-  closeOnSelect
+  iconClear={<IconClear />}
   multiselection
-  size={MoleculeAutosuggestDropdownListSizes.LARGE}
 >
   {suggestions.map((suggestion, i) => (
     <MoleculeAutosuggestOption key={i} value={suggestion}>
@@ -116,7 +106,7 @@ so then, this can used like...
 <MoleculeAutosuggestWithState
   placeholder="Type a Country name..."
   onChange={(_, {value}) => console.log(value)}
-  iconClear={<IconClose />}
+  iconClear={<IconClear />}
 />
 ```
 
@@ -164,8 +154,7 @@ export default class AutosuggestSingleWithAsyncOptions extends Component {
 so then, this can used like...
 
 ```js
-  const IconCloseTag = () => <span>x</span>  
-  <AutosuggestSingleWithAsyncOptions iconClear={<IconClose />} />
+  <AutosuggestSingleWithAsyncOptions iconClear={<IconClear />} />
 ```
 
 

@@ -66,7 +66,7 @@ class MoleculeAutosuggest extends Component {
   }
 
   focusFirstOption = (ev, {options}) => {
-    options[0].focus()
+    if (options[0]) options[0].focus()
     ev.preventDefault()
     ev.stopPropagation()
   }

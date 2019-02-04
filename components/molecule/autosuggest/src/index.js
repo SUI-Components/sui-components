@@ -217,3 +217,4 @@ MoleculeAutosuggest.defaultProps = {
 
 export default withOpenToggle(MoleculeAutosuggest)
 export {SIZES as MoleculeAutosuggestDropdownListSizes}
+export withDynamicOptions from './hoc/withDynamicOptions'

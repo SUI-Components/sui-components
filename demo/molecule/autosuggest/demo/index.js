@@ -4,19 +4,21 @@ import React from 'react'
 import {withStateValue, withStateValueTags} from '@s-ui/hoc'
 
 import MoleculeAutosuggest, {
-  MoleculeAutosuggestDropdownListSizes
+  MoleculeAutosuggestDropdownListSizes,
+  withDynamicOptions
 } from '../../../../components/molecule/autosuggest/src'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
 
-import withDynamicOptions from './hoc/withDynamicOptions'
+import AutosuggestSingleWithAsyncOptions from './components/AutosuggestSingleFromAjax'
+
 import {IconClose} from './Icons'
-import {countries} from './data'
+import {getAsyncCountriesFromQuery} from './services'
 import './index.scss'
 
 const MoleculeAutosuggestWithDynamicOptions = withDynamicOptions(
   MoleculeAutosuggest,
   MoleculeAutosuggestOption
-)(countries)
+)(getAsyncCountriesFromQuery)
 
 const MoleculeAutosuggestWithState = withStateValue(
   MoleculeAutosuggestWithDynamicOptions
@@ -31,6 +33,9 @@ const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
 
 const Demo = () => (
   <div className={BASE_CLASS_DEMO}>
+    {/*
+      <AutosuggestSingleWithAsyncOptions iconClear={<IconClose />} />
+    */}
     <h1>
       <code>MoleculeAutosuggest</code>
     </h1>

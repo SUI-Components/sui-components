@@ -4,10 +4,11 @@ import React from 'react'
 import {withStateValue, withStateValueTags} from '@s-ui/hoc'
 
 import MoleculeAutosuggest, {
-  MoleculeAutosuggestDropdownListSizes,
-  withDynamicOptions
+  MoleculeAutosuggestDropdownListSizes
 } from '../../../../components/molecule/autosuggest/src'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
+
+import withDynamicOptions from './hoc/withDynamicOptions'
 
 import AutosuggestSingleWithAsyncOptions from './components/AutosuggestSingleFromAjax'
 

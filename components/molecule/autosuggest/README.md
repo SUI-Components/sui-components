@@ -121,15 +121,55 @@ so then, the `AutosuggestSingleWithAsyncOptions` can used in this way...
   <AutosuggestSingleWithAsyncOptions iconClear={<IconClear />} />
 ```
 
-#### Using the hoc `withDynamicOptions`
+#### Using an hoc like `withDynamicOptions`
 
-`MoleculeAutosuggest` offers a hoc that combined with other hoc from `@s-ui/hoc` can be used to simplify the use of this component with dinamyc suggestions based on the `value`
+It can be useful creating a hoc (like the one `withDynamicOptions` available in the demo) that combined with other hoc from `@s-ui/hoc` can be used to simplify the use of this component with dinamyc suggestions based on the `value`
 
+**`withDynamicOptions`**
+```js
+import React, {Component} from 'react'
+
+export default (BaseComponent, BaseChildComponent) => getDynamicOptions => {
+  const displayName = BaseComponent.displayName
+
+  return class withDynamicOptions extends Component {
+    static displayName = `withDynamicOptions(${displayName})`
+
+    state = { options: []}
+
+    async componentDidUpdate({value: prevQuery}) {
+      const {value: query} = this.props
+      if (query !== prevQuery) {
+        const options = await getDynamicOptions({query})
+        this.setState({options}) // eslint-disable-line
+      }
+    }
+
+    render() {
+      const {props} = this
+      const {options} = this.state
+      return (
+        <BaseComponent {...props}>
+          {options.map((option, i) => (
+            <BaseChildComponent key={i} value={option}>
+              {option}
+            </BaseChildComponent>
+          ))}
+        </BaseComponent>
+      )
+    }
+  }
+}
+
+```
+
+use of `withDynamicOptions` for creating a stateful version of `MoleculeAutosuggest`
 ```js
 
-import MoleculeAutosuggest, {withDynamicOptions} from '@s-ui/react-molecule-autosuggest'
+import MoleculeAutosuggest from '@s-ui/react-molecule-autosuggest'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
 
+import withDynamicOptions from './hoc/withDynamicOptions'
 import {withStateValue} from '@s-ui/hoc'
 
 // some function that gets a `{query}` and returns asynchronoudly a list of values

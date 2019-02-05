@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React, {Component} from 'react'
 
 export default (BaseComponent, BaseChildComponent) => getDynamicOptions => {
@@ -8,13 +6,13 @@ export default (BaseComponent, BaseChildComponent) => getDynamicOptions => {
   return class withDynamicOptions extends Component {
     static displayName = `withDynamicOptions(${displayName})`
 
-    state = { options: []}
+    state = {options: []}
 
     async componentDidUpdate({value: prevQuery}) {
       const {value: query} = this.props
       if (query !== prevQuery) {
         const options = await getDynamicOptions({query})
-        this.setState({options})
+        this.setState({options}) // eslint-disable-line
       }
     }
 

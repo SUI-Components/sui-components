@@ -9,8 +9,9 @@ export default class AutosuggestSingleWithAsyncOptions extends Component {
   state = {value: '', options: []}
 
   onChange = async (e, {value}) => {
+    this.setState({value})
     const options = await getAsyncCountriesFromQuery({query: value})
-    this.setState({value, options})
+    this.setState({options})
   }
 
   render() {

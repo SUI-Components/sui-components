@@ -3,8 +3,7 @@ import React from 'react'
 
 import {withStateValue} from '@s-ui/hoc'
 
-import MoleculeField from '@s-ui/react-molecule-field'
-import MoleculeSelect from '@s-ui/react-molecule-select'
+import MoleculeSelectField from '../../../../components/molecule/selectField/src'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 
 import {IconCloseTag, IconArrowDown} from './Icons'
@@ -12,7 +11,7 @@ import {IconCloseTag, IconArrowDown} from './Icons'
 import {countries} from './data'
 import './index.scss'
 
-const MoleculeSelectWithState = withStateValue(MoleculeSelect)
+const MoleculeSelectFieldWithState = withStateValue(MoleculeSelectField)
 
 const BASE_CLASS_DEMO = 'DemoMoleculeSelect'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
@@ -20,49 +19,14 @@ const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
 const Demo = () => (
   <div className={BASE_CLASS_DEMO}>
     <h1>
-      <code>MoleculeSelect</code>
+      <code>MoleculeSelectField</code>
     </h1>
-    <p>
-      El componente <code>select</code> sólo se usará para seleccionar opciones
-      de un listado cerrado. Utiliza <code>Autosuggest</code> si necesitas
-      añadir opciones fuera del listado cerrado
-    </p>
-    <p>
-      En esta demo sólo se utiliza el tamaño por defecto del{' '}
-      <code>DropdownList</code> y las opciones básicas de{' '}
-      <code>DropdownOption</code>. Recuerda que en dichos componentes existen
-      más posibilidades si son necesarias
-    </p>
     <h2>Single Selection</h2>
     <div className={CLASS_DEMO_SECTION}>
       <h3>With Placeholder</h3>
-      <MoleculeField
-        name={'sss'}
-        label={'sss'}
-        successText={'sss'}
-        errorText={'sss'}
-        helpText={'sss'}
-      >
-        <MoleculeSelectWithState
-          id={'sss'}
-          placeholder="Select a Country..."
-          onChange={(_, {value}) => console.log(value)}
-          iconCloseTag={<IconCloseTag />}
-          iconArrowDown={<IconArrowDown />}
-        >
-          {countries.map((country, i) => (
-            <MoleculeSelectOption key={i} value={country}>
-              {country}
-            </MoleculeSelectOption>
-          ))}
-        </MoleculeSelectWithState>
-      </MoleculeField>
-    </div>
-
-    <div className={CLASS_DEMO_SECTION}>
-      <h3>With preselected Value</h3>
-      <MoleculeSelectWithState
-        value="Luxembourg"
+      <MoleculeSelectFieldWithState
+        label="Country"
+        placeholder="Select a Country..."
         onChange={(_, {value}) => console.log(value)}
         iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
@@ -72,43 +36,83 @@ const Demo = () => (
             {country}
           </MoleculeSelectOption>
         ))}
-      </MoleculeSelectWithState>
+      </MoleculeSelectFieldWithState>
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With Information HelpText</h3>
+      <MoleculeSelectFieldWithState
+        label="Country"
+        placeholder="Select a Country..."
+        helpText="The country selected will be added to your profile"
+        onChange={(_, {value}) => console.log(value)}
+        iconCloseTag={<IconCloseTag />}
+        iconArrowDown={<IconArrowDown />}
+      >
+        {countries.map((country, i) => (
+          <MoleculeSelectOption key={i} value={country}>
+            {country}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelectFieldWithState>
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With Success Validation HelpText</h3>
+      <MoleculeSelectFieldWithState
+        label="Country"
+        placeholder="Select a Country..."
+        successText="Everything ok!"
+        onChange={(_, {value}) => console.log(value)}
+        iconCloseTag={<IconCloseTag />}
+        iconArrowDown={<IconArrowDown />}
+      >
+        {countries.map((country, i) => (
+          <MoleculeSelectOption key={i} value={country}>
+            {country}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelectFieldWithState>
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With Error validation HelpText</h3>
+      <MoleculeSelectFieldWithState
+        label="Country"
+        placeholder="Select a Country..."
+        errorText="All wrong!"
+        onChange={(_, {value}) => console.log(value)}
+        iconCloseTag={<IconCloseTag />}
+        iconArrowDown={<IconArrowDown />}
+      >
+        {countries.map((country, i) => (
+          <MoleculeSelectOption key={i} value={country}>
+            {country}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelectFieldWithState>
     </div>
 
     <h2>Multiple Selection</h2>
-    <div className={CLASS_DEMO_SECTION}>
-      <h3>With Placeholder</h3>
-      <MoleculeSelectWithState
-        placeholder="Select some countries..."
-        onChange={(_, {value}) => console.log(value)}
-        iconCloseTag={<IconCloseTag />}
-        iconArrowDown={<IconArrowDown />}
-        multiselection
-      >
-        {countries.map((country, i) => (
-          <MoleculeSelectOption key={i} value={country}>
-            {country}
-          </MoleculeSelectOption>
-        ))}
-      </MoleculeSelectWithState>
-    </div>
 
     <div className={CLASS_DEMO_SECTION}>
-      <h3>With preselected Value</h3>
-      <MoleculeSelectWithState
+      <h3>With Error validation HelpText</h3>
+      <MoleculeSelectFieldWithState
+        label="Country"
         placeholder="Select some countries..."
         value={['India', 'Luxembourg']}
         onChange={(_, {value}) => console.log(value)}
         iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
         multiselection
+        errorText="All wrong!"
       >
         {countries.map((country, i) => (
           <MoleculeSelectOption key={i} value={country}>
             {country}
           </MoleculeSelectOption>
         ))}
-      </MoleculeSelectWithState>
+      </MoleculeSelectFieldWithState>
     </div>
   </div>
 )

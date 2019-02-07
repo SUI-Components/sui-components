@@ -1,36 +1,55 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 
 const getErrorState = (success, error) => {
-  if (success) return false
   if (error) return true
+  if (success) return false
 }
 
-const MoleculeSelectField = ({
-  id,
-  label,
-  successText,
-  errorText,
-  helpText,
-  inline,
-  ...props
-}) => {
-  const errorState = getErrorState(successText, errorText)
-  return (
-    <MoleculeField
-      name={id}
-      label={label}
-      successText={successText}
-      errorText={errorText}
-      helpText={helpText}
-      inline={inline}
-    >
-      <MoleculeSelect id={id} errorState={errorState} {...props} />
-    </MoleculeField>
-  )
+class MoleculeSelectField extends Component {
+  refSelect = React.createRef()
+  id = this.props.id || `MoleculeSelect-${+new Date()}`
+
+  handleClick = () => {
+    const {current: domSelect} = this.refSelect
+    if (domSelect) domSelect.focus()
+  }
+
+  render() {
+    const {id, refSelect, handleClick} = this
+    const {
+      label,
+      successText,
+      errorText,
+      helpText,
+      inline,
+      children, // eslint-disable-line
+      ...props
+    } = this.props
+    const errorState = getErrorState(successText, errorText)
+    return (
+      <MoleculeField
+        name={id}
+        label={label}
+        successText={successText}
+        errorText={errorText}
+        helpText={helpText}
+        inline={inline}
+        onClickLabel={handleClick}
+      >
+        <MoleculeSelect
+          refMoleculeSelect={refSelect}
+          errorState={errorState}
+          {...props}
+        >
+          {children}
+        </MoleculeSelect>
+      </MoleculeField>
+    )
+  }
 }
 
 MoleculeSelectField.displayName = 'MoleculeSelectField'
@@ -40,7 +59,7 @@ MoleculeSelectField.propTypes = {
   label: PropTypes.string.isRequired,
 
   /** used as label for attribute and Select element id */
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   /** Success message to display when success state  */
   successText: PropTypes.string,

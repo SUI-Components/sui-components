@@ -14,8 +14,13 @@ import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 const BASE_CLASS = `sui-MoleculeSelect`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
 
+const ERROR_STATES = {
+  ERROR: 'error',
+  SUCCESS: 'success'
+}
+
 class MoleculeSelect extends Component {
-  refMoleculeSelect = React.createRef()
+  refMoleculeSelect = this.props.refMoleculeSelect || React.createRef()
   refsMoleculeSelectOptions = []
   state = {
     focus: false
@@ -37,7 +42,15 @@ class MoleculeSelect extends Component {
 
   get className() {
     const {focus} = this.state
-    return cx(BASE_CLASS, {[CLASS_FOCUS]: focus})
+    const {errorStateClass} = this
+    return cx(BASE_CLASS, {[CLASS_FOCUS]: focus}, errorStateClass)
+  }
+
+  get errorStateClass() {
+    const {errorState} = this.props
+    if (errorState) return `${BASE_CLASS}--${ERROR_STATES.ERROR}`
+    if (errorState === false) return `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
+    return ''
   }
 
   closeList = ev => {
@@ -187,7 +200,13 @@ MoleculeSelect.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZES)),
 
   /** list of key identifiers that will trigger a selection */
-  keysSelection: PropTypes.array
+  keysSelection: PropTypes.array,
+
+  /* object generated w/ Reacte.createRef method to get a DOM reference of internal input */
+  refMoleculeSelect: PropTypes.object,
+
+  /** true = error, false = success, null = neutral */
+  errorState: PropTypes.bool
 }
 
 MoleculeSelect.defaultProps = {

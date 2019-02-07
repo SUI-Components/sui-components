@@ -39,6 +39,7 @@ class MoleculeField extends Component {
       inline,
       successText,
       errorText,
+      onClickLabel,
       children // eslint-disable-line react/prop-types
     } = this.props
     return (
@@ -47,6 +48,7 @@ class MoleculeField extends Component {
           type={this.getTypeValidation('label')}
           name={name}
           text={label}
+          onClick={onClickLabel}
         />
         <div>
           {children}
@@ -82,7 +84,10 @@ MoleculeField.propTypes = {
   helpText: PropTypes.string,
 
   /** Boolean to decide if elements should be set inline */
-  inline: PropTypes.bool
+  inline: PropTypes.bool,
+
+  /** Boolean to decide if elements should be set inline */
+  onClickLabel: PropTypes.func
 }
 
 export default MoleculeField

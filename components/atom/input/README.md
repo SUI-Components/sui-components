@@ -10,6 +10,22 @@
 
 ## Usage
 
+### Add styles
+
+To use the component's own styles, create a .scss file and import them inside.
+
+```scss
+@import '~@s-ui/react-atom-input/lib/index';
+```
+
+If you want to customize your components, create your own theme and add it to your component just **before**.
+
+```scss
+@import 'custom-settings';
+@import '~@s-ui/react-atom-input/lib/index';
+```
+
+    
 ### You can use native types like this
 
 ```js
@@ -190,7 +206,7 @@ class SimpleLoginForm extends React.Component {
             this.onChange({value, field: 'password', ev})
           }
         />
-        <button onClick={this.onSubmit}>Login</button>
+        <Button onClick={this.onSubmit}>Login</Button>
       </form>
     )
   }

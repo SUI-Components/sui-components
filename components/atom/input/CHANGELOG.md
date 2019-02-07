@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="3.4.0"></a>
+# 3.4.0 (2019-01-31)
+
+
+### Bug Fixes
+
+* change version package.json ([671dcca](https://github.com/SUI-Components/sui-components/commit/671dcca))
+
+
+### Features
+
+* changes in the Readme and changes scss ([0154c33](https://github.com/SUI-Components/sui-components/commit/0154c33))
+* leave the package.json as it was ([bdfd95c](https://github.com/SUI-Components/sui-components/commit/bdfd95c))
+
+
+
 <a name="3.3.0"></a>
 # 3.3.0 (2019-01-14)
 

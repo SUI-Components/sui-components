@@ -156,6 +156,9 @@ class MoleculeSelect extends Component {
 }
 
 MoleculeSelect.propTypes = {
+  /** The DOM id global attribute. */
+  id: PropTypes.string,
+
   /** if select accept single value or multiple values */
   multiselection: PropTypes.bool,
 

@@ -39,7 +39,6 @@ const Demo = () => (
       <MoleculeSelectWithState
         placeholder="Select a Country..."
         onChange={(_, {value}) => console.log(value)}
-        iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
       >
         {countries.map((country, i) => (
@@ -55,7 +54,6 @@ const Demo = () => (
       <MoleculeSelectWithState
         value="Luxembourg"
         onChange={(_, {value}) => console.log(value)}
-        iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
       >
         {countries.map((country, i) => (

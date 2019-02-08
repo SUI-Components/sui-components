@@ -28,11 +28,11 @@ const options = ['John','Paul','George','Ringo']
 
 #### Basic usage
 ```js
- <MoleculeSelect
-  iconCloseTag={<IconCloseTag />}
-  iconArrowDown={<IconArrowDown />}
-  value={'Paul'}
->
+<MoleculeSelect
+      placeholder="Select a Country..."
+      onChange={(_, {value}) => console.log(value)}
+      iconArrowDown={<IconArrowDown />}
+    >
   {options.map((option, i) => (
     <MoleculeSelectOption key={i} value={option}>
       {option}
@@ -41,14 +41,14 @@ const options = ['John','Paul','George','Ringo']
 </MoleculeSelect>
 ```
 
-#### Close List on Selection
+#### With default value
 ```js
- <MoleculeSelect
-  iconCloseTag={<IconCloseTag />}
-  iconArrowDown={<IconArrowDown />}
-  value={'Paul'}
-  closeOnSelect
->
+<MoleculeSelect
+      placeholder="Select a Country..."
+      onChange={(_, {value}) => console.log(value)}
+      iconArrowDown={<IconArrowDown />}
+      value='John'
+    >
   {options.map((option, i) => (
     <MoleculeSelectOption key={i} value={option}>
       {option}
@@ -59,13 +59,12 @@ const options = ['John','Paul','George','Ringo']
 
 #### Large List
 ```js
- <MoleculeSelect
-  iconCloseTag={<IconCloseTag />}
-  iconArrowDown={<IconArrowDown />}
-  value={'Paul'}
-  closeOnSelect
-  size={moleculeSelectDropdownListSizes.LARGE}
->
+<MoleculeSelect
+      placeholder="Select a Country..."
+      onChange={(_, {value}) => console.log(value)}
+      iconArrowDown={<IconArrowDown />}
+      size={moleculeSelectDropdownListSizes.LARGE}
+    >
   {options.map((option, i) => (
     <MoleculeSelectOption key={i} value={option}>
       {option}
@@ -92,9 +91,86 @@ const options = ['John','Paul','George','Ringo']
 </MoleculeSelect>
 ```
 
+## Managing State
+
+### Custom component from `MoleculeSelect` that handle State
+
+`MoleculeSelect` is a stateless component, so to manage dynamic options we need to create a wrapper component that manages this and pass proper `props` and proper children (`MoleculeSelectOption`) to `MoleculeSelect`
+
+Example:
+
+```js
+import React, {Component} from 'react'
+
+import MoleculeSelect from '@s-ui/react-molecule-select'
+import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
+
+import {getAsyncCountriesFromQuery} from '../services'
+
+export default class SelectSingleWithAsyncOptions extends Component {
+  state = {value: ''}
+
+  onChange = async (e, {value}) => {
+    this.setState({value})
+  }
+
+  render() {
+    const {value} = this.state
+    const {onChange, props} = this
+
+    return (
+      <MoleculeSelect {...props} value={value} onChange={onChange}>
+        {options.map((option, i) => (
+          <MoleculeSelectOption key={i} value={option}>
+            {option}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelect>
+    )
+  }
+}
+
+```
+
+so then, the `SelectSingleWithAsyncOptions` can used in this way...
+
+```js
+  <SelectSingleWithAsyncOptions iconClear={<IconClear />} />
+```
+
+### Using the hoc `withStateValue`
+
+There's a hoc called `withStateValue` available at `@s-ui/hoc` 
+that can be used to simplify the use of this component with internal state 
+
+```js
+
+import MoleculeSelect from '@s-ui/react-molecule-select'
+import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
+
+import withDynamicOptions from './hoc/withDynamicOptions'
+import {withStateValue} from '@s-ui/hoc'
+
+// some function that gets a `{query}` and returns asynchronoudly a list of values
+import {getAsyncCountriesFromQuery} from './services'
+
+const MoleculeSelectWithState = withStateValue(MoleculeSelect)
+
+```
+
+so then, the `MoleculeSelectWithState` can be used in this way...
+
+```js
+<MoleculeSelectWithState
+  placeholder="Type a Country name..."
+  onChange={(_, {value}) => console.log(value)}
+  iconClear={<IconClear />}
+/>
+```
+
 ## Create custom option compatible w/ `MoleculeSelect`
 
-If you need an option that cannot be customized from `MoleculeDropdownOption` you can create your own option compatible w/ `MoleculeSelect` y `MoleculeAutosuggest` by using the `handlersFactory` method available in `MoleculeDropdownOption` that you can use to create proper handlers needed to work properly along w/ `MoleculeSelect` y `MoleculeAutosuggest`
+If you need an option that cannot be customized from `MoleculeDropdownOption` you can create your own option compatible w/ `MoleculeSelect` y `MoleculeSelect` by using the `handlersFactory` method available in `MoleculeDropdownOption` that you can use to create proper handlers needed to work properly along w/ `MoleculeSelect` y `MoleculeSelect`
 
 ```js
 import React from 'react'
@@ -147,6 +223,7 @@ so then you can do something like...
   ))}
 </MoleculeSelect>
 ```
+
 
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/molecule/select/demo).**

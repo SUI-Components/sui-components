@@ -46,4 +46,10 @@ $mr-select-list-arrow: -34px !default;
     }
     
   }
+
+  @each $state, $color in $states-atom-input {
+    &#{$base-class}--#{$state} #{$base-class}-inputSelect-container {
+      border-color: $color;
+    }
+  }
 }

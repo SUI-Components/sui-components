@@ -11,8 +11,8 @@ const TYPES = {
 
 const getClass = ({type}) => cx(CLASSNAME, type && `${CLASSNAME}--${type}`)
 
-const AtomLabel = ({name, text, optionalText, type}) => (
-  <label htmlFor={name} className={getClass({type})}>
+const AtomLabel = ({name, text, optionalText, type, onClick}) => (
+  <label htmlFor={name} className={getClass({type})} onClick={onClick}>
     {text}
     {optionalText && (
       <span className="sui-AtomLabel-optionalText">{optionalText}</span>
@@ -38,7 +38,10 @@ AtomLabel.propTypes = {
   /**
    * Label type: 'success' or 'error', use AtomLabelTypes
    */
-  type: PropTypes.oneOf(Object.values(TYPES))
+  type: PropTypes.oneOf(Object.values(TYPES)),
+
+  /** onClick event handler */
+  onClick: PropTypes.func
 }
 
 export default AtomLabel

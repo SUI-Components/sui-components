@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2019-02-08)
+
+
+### Features
+
+* prepare component to admit pass onClick handler ([d397953](https://github.com/SUI-Components/sui-components/commit/d397953))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-10-03)
 
@@ -25,19 +35,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * added label types ([a0cc479](https://github.com/SUI-Components/sui-components/commit/a0cc479))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2018-04-10)
-
-
-### Features
-
-* add use example on readme ([4a5fc99](https://github.com/SUI-Components/sui-components/commit/4a5fc99))
-* add var component ([0628253](https://github.com/SUI-Components/sui-components/commit/0628253))
-* changes from PR comments ([cb6fc6b](https://github.com/SUI-Components/sui-components/commit/cb6fc6b))
-* new label component ([685abae](https://github.com/SUI-Components/sui-components/commit/685abae))
 
 
 

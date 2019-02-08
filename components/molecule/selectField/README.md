@@ -97,4 +97,18 @@ const options = ['John','Paul','George','Ringo']
 ```
 
 
+## State Management for this componente
+
+Like `MoleculeSelect`, `MoleculeSelectField` can also use the `withStateValue` hoc to create a stateful version of this component 
+
+```js
+import {withStateValue} from '@s-ui/hoc'
+import MoleculeSelectField from '@s-ui/react-molecule-select-field'
+
+...
+
+const MoleculeSelectFieldWithState = withStateValue(MoleculeSelectField)
+```
+
+
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/molecule/selectField/demo).**

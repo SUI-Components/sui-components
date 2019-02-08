@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2019-02-08)
+
+
+### Features
+
+* add classes for error success state ([048906b](https://github.com/SUI-Components/sui-components/commit/048906b))
+* added id prop so it can be combined w/ field ([8920085](https://github.com/SUI-Components/sui-components/commit/8920085))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2019-01-31)
 

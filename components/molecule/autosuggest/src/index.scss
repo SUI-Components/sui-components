@@ -18,13 +18,15 @@ $w-autosuggest-icon-clear: 20px !default;
     z-index: $z-autosuggest-list;
   }
 
-  &--focus {
+  input::-ms-clear {
+    display: none;
+  }
 
+  &--focus {
     #{$class-input} {
       &-container {
         @extend %sui-atom-input-input-focus;
       }
-
     }
   }
 
@@ -34,12 +36,16 @@ $w-autosuggest-icon-clear: 20px !default;
       border: 1px solid transparent;
       cursor: pointer;
       display: flex;
+      min-height: $h-atom-input--m;
     }
 
     &-icon {
+      display: flex;
+      flex-direction: column;
+      height: $h-atom-input--m;
+      justify-content: center;
       margin-left: $mr-autosuggest-icon-clear;
       width: $w-autosuggest-icon-clear;
-    }  
+    }
   }
-
 }

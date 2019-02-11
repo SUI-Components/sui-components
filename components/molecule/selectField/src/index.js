@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import MoleculeField from '@s-ui/react-molecule-field'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 
-const getErrorState = (success, error) => {
+const hasErrors = (success, error) => {
   if (error) return true
   if (success) return false
 }
@@ -29,7 +29,7 @@ class MoleculeSelectField extends Component {
       children, // eslint-disable-line
       ...props
     } = this.props
-    const errorState = getErrorState(successText, errorText)
+    const errorState = hasErrors(successText, errorText)
     return (
       <MoleculeField
         name={id}

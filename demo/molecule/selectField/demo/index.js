@@ -93,6 +93,25 @@ const Demo = () => (
       </MoleculeSelectFieldWithState>
     </div>
 
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>Inline</h3>
+      <MoleculeSelectFieldWithState
+        label="Country"
+        placeholder="Select a Country..."
+        helpText="The country selected will be added to your profile"
+        onChange={(_, {value}) => console.log(value)}
+        iconCloseTag={<IconCloseTag />}
+        iconArrowDown={<IconArrowDown />}
+        inline
+      >
+        {countries.map((country, i) => (
+          <MoleculeSelectOption key={i} value={country}>
+            {country}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelectFieldWithState>
+    </div>
+
     <h2>Multiple Selection</h2>
 
     <div className={CLASS_DEMO_SECTION}>

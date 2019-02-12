@@ -9,9 +9,11 @@ import AtomLabel, {AtomLabelTypes} from '@s-ui/react-atom-label'
 import AtomHelpText from '@s-ui/react-atom-help-text'
 
 const BASE_CLASS = 'sui-MoleculeField'
+const CLASS_CONTAINER = `${BASE_CLASS}-inputContainer`
 
 class MoleculeField extends Component {
-  getClassNames(inline) {
+  get className() {
+    const {inline} = this.props
     return cx(BASE_CLASS, inline && `${BASE_CLASS}--inline`)
   }
 
@@ -36,21 +38,21 @@ class MoleculeField extends Component {
       label,
       helpText,
       name,
-      inline,
       successText,
       errorText,
       onClickLabel,
       children // eslint-disable-line react/prop-types
     } = this.props
+
     return (
-      <div className={this.getClassNames(inline)}>
+      <div className={this.className}>
         <AtomLabel
           type={this.getTypeValidation('label')}
           name={name}
           text={label}
           onClick={onClickLabel}
         />
-        <div>
+        <div className={CLASS_CONTAINER}>
           {children}
           {(successText || errorText) && (
             <AtomValidationText

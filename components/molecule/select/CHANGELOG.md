@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2019-02-12)
+
+
+### Features
+
+* readme review ([eb21f49](https://github.com/SUI-Components/sui-components/commit/eb21f49))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2019-02-08)
 

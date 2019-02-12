@@ -105,7 +105,7 @@ import React, {Component} from 'react'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 
-import {getAsyncCountriesFromQuery} from '../services'
+const options = ['John','Paul','George','Ringo']
 
 export default class SelectSingleWithAsyncOptions extends Component {
   state = {value: ''}
@@ -151,10 +151,8 @@ import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 import withDynamicOptions from './hoc/withDynamicOptions'
 import {withStateValue} from '@s-ui/hoc'
 
-// some function that gets a `{query}` and returns asynchronoudly a list of values
-import {getAsyncCountriesFromQuery} from './services'
-
 const MoleculeSelectWithState = withStateValue(MoleculeSelect)
+const options = ['John','Paul','George','Ringo']
 
 ```
 
@@ -165,7 +163,13 @@ so then, the `MoleculeSelectWithState` can be used in this way...
   placeholder="Type a Country name..."
   onChange={(_, {value}) => console.log(value)}
   iconClear={<IconClear />}
-/>
+>
+  {options.map((option, i) => (
+    <MoleculeSelectOption key={i} value={option}>
+      {option}
+    </MoleculeSelectOption>
+  ))}
+</MoleculeSelectWithState>
 ```
 
 ## Create custom option compatible w/ `MoleculeSelect`

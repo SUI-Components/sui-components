@@ -13,7 +13,8 @@ const themesPkgs = {
   '@schibstedspain/mt-theme': '4',
   '@schibstedspain/nc-theme': '1',
   '@schibstedspain/vb-theme': '1',
-  '@schibstedspain/ma-theme': '1'
+  '@schibstedspain/ma-theme': '1',
+  '@schibstedspain/ep-theme': '1'
 }
 
 const writeFile = (path, body) => {

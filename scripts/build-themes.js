@@ -75,7 +75,7 @@ const writeThemesInDemoFolders = async themes => {
   })
   const paths = await globby(
     [path.join(process.cwd(), 'demo', '**', '**'), '!**/node_modules/**'],
-    {onlyDirectories: true}
+    {onlyDirectories: true, cwd: process.cwd()}
   )
   paths.filter(p => p.match(/\/demo\/\w+\/\w+$/)).forEach(async demo => {
     try {

@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@s-ui/hoc": "1",
-    "@schibstedspain/sui-atom-button": "^1.22.0"
+    "@s-ui/hoc": "1"
   }
 }

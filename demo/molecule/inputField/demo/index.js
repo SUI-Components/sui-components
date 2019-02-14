@@ -4,7 +4,6 @@ import React from 'react'
 import {withStateValue} from '@s-ui/hoc'
 
 import MoleculeInputField from '../../../../components/molecule/inputField/src'
-import Button from '@schibstedspain/sui-atom-button'
 
 import './index.scss'
 
@@ -73,19 +72,6 @@ const Demo = () => (
           value="In some place of La Mancha which name..."
           inline
         />
-      </li>
-      <li className={CLASS_DEMO_SECTION}>
-        <h2>Inline w/ Button</h2>
-        <form action="" style={{display: 'flex'}}>
-          <MoleculeInputFieldWithState
-            id="notes"
-            label="Notes"
-            helpText="Tu descripción en Latin"
-            value="In some place of La Mancha which name..."
-            inline
-          />
-          <Button>Send!</Button>
-        </form>
       </li>
     </ul>
   </div>

@@ -11,7 +11,6 @@ const hasErrors = (success, error) => {
 
 class MoleculeSelectField extends Component {
   refSelect = React.createRef()
-  id = this.props.id || `MoleculeSelect-${+new Date()}`
 
   handleClick = () => {
     const {current: domSelect} = this.refSelect
@@ -19,9 +18,10 @@ class MoleculeSelectField extends Component {
   }
 
   render() {
-    const {id, refSelect, handleClick} = this
+    const {refSelect, handleClick} = this
     const {
       label,
+      id,
       successText,
       errorText,
       helpText,
@@ -59,7 +59,7 @@ MoleculeSelectField.propTypes = {
   label: PropTypes.string.isRequired,
 
   /** used as label for attribute and Select element id */
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
 
   /** Success message to display when success state  */
   successText: PropTypes.string,

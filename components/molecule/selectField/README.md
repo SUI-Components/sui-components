@@ -15,7 +15,7 @@ $ npm install @s-ui/react-molecule-select-field --save
 After importing the component `MoleculeSelectField` like this
 
 ```javascript
-import MoleculeSelecyField from '@s-ui/react-molecule-select-field'
+import MoleculeSelectField from '@s-ui/react-molecule-select-field'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 
 const IconCloseTag = () => <span>x</span>  
@@ -33,6 +33,25 @@ const options = ['John','Paul','George','Ringo']
   placeholder="Select a Country..."
   onChange={(_, {value}) => console.log(value)}
   iconArrowDown={<IconArrowDown />}
+>
+  {options.map((option, i) => (
+    <MoleculeSelectOption key={i} value={option}>
+      {option}
+    </MoleculeSelectOption>
+  ))}
+</MoleculeSelectField>
+```
+
+### Basic usage with multiselection
+    
+```js
+<MoleculeSelectField
+  label="Country"
+  placeholder="Select a Country..."
+  onChange={(_, {value}) => console.log(value)}
+  iconArrowDown={<IconArrowDown />}
+  iconCloseTag={<IconCloseTag />}
+  multiselection
 >
   {options.map((option, i) => (
     <MoleculeSelectOption key={i} value={option}>

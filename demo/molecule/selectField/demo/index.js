@@ -25,6 +25,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <h3>With Placeholder</h3>
       <MoleculeSelectFieldWithState
+        id="with-placeholder"
         label="Country"
         placeholder="Select a Country..."
         onChange={(_, {value}) => console.log(value)}
@@ -42,6 +43,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <h3>With Information HelpText</h3>
       <MoleculeSelectFieldWithState
+        id="with-information-help-text"
         label="Country"
         placeholder="Select a Country..."
         helpText="The country selected will be added to your profile"
@@ -60,6 +62,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <h3>With Success Validation HelpText</h3>
       <MoleculeSelectFieldWithState
+        id="with-success-validation-help-text"
         label="Country"
         placeholder="Select a Country..."
         successText="Everything ok!"
@@ -78,6 +81,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <h3>With Error validation HelpText</h3>
       <MoleculeSelectFieldWithState
+        id="with-error-validation-help-text"
         label="Country"
         placeholder="Select a Country..."
         errorText="All wrong!"
@@ -93,30 +97,12 @@ const Demo = () => (
       </MoleculeSelectFieldWithState>
     </div>
 
-    <div className={CLASS_DEMO_SECTION}>
-      <h3>Inline</h3>
-      <MoleculeSelectFieldWithState
-        label="Country"
-        placeholder="Select a Country..."
-        helpText="The country selected will be added to your profile"
-        onChange={(_, {value}) => console.log(value)}
-        iconCloseTag={<IconCloseTag />}
-        iconArrowDown={<IconArrowDown />}
-        inline
-      >
-        {countries.map((country, i) => (
-          <MoleculeSelectOption key={i} value={country}>
-            {country}
-          </MoleculeSelectOption>
-        ))}
-      </MoleculeSelectFieldWithState>
-    </div>
-
     <h2>Multiple Selection</h2>
 
     <div className={CLASS_DEMO_SECTION}>
       <h3>With Error validation HelpText</h3>
       <MoleculeSelectFieldWithState
+        id="multiple-selection-with-error-validation-help-text"
         label="Country"
         placeholder="Select some countries..."
         value={['India', 'Luxembourg']}

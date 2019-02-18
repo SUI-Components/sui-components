@@ -164,7 +164,7 @@ body.is-MoleculeModal-open {
     position: relative;
 
     &:after {
-      content: "";
+      content: '';
       display: block;
       height: $pb-molecule-modal-content;
     }

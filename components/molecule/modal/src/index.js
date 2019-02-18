@@ -109,6 +109,7 @@ class MoleculeModal extends Component {
       iconClose,
       isOpen,
       fitWindow,
+      fitContent,
       isClosing,
       onAnimationEnd
     } = this.props
@@ -120,7 +121,8 @@ class MoleculeModal extends Component {
 
     const dialogClassName = cx(suitClass({element: 'dialog'}), {
       [suitClass({element: 'dialog--full'})]: fitWindow,
-      [suitClass({element: 'dialog--out'})]: isClosing
+      [suitClass({element: 'dialog--out'})]: isClosing,
+      [suitClass({element: 'dialog--fit'})]: fitContent
     })
 
     return (
@@ -188,6 +190,10 @@ MoleculeModal.propTypes = {
    */
   fitWindow: PropTypes.bool,
   /**
+   * true if you want a modal that fit contents in mobile devices, otherwise, false
+   */
+  fitContent: PropTypes.bool,
+  /**
    * content of the modal's header
    */
   header: PropTypes.element,
@@ -225,6 +231,7 @@ MoleculeModal.defaultProps = {
   closeOnOutsideClick: false,
   closeOnEscKeyDown: false,
   fitWindow: false,
+  fitContent: false,
   isOpen: false,
   portalContainerId: 'modal-react-portal',
   usePortal: true,

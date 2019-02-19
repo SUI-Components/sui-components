@@ -20,16 +20,17 @@ class Input extends Component {
     const {
       target: {value}
     } = ev
-    onChange && onChange(ev, {value})
+    onChange(ev, {value})
   }
 
   handleKeyDown = ev => {
-    const {onEnter, onEnterKey} = this.props
+    const {onEnter, onEnterKey, onKeyDown} = this.props
     const {
       target: {value}
     } = ev
     const {key} = ev
-    if (key === onEnterKey && onEnter) onEnter(ev, {value})
+    onKeyDown(ev, {value})
+    if (key === onEnterKey) onEnter(ev, {value})
   }
 
   getErrorStateClass(errorState) {
@@ -113,6 +114,8 @@ Input.propTypes = {
   name: PropTypes.string,
   /* onBlur callback */
   onBlur: PropTypes.func,
+  /* onKeyDown callback */
+  onKeyDown: PropTypes.func,
   /* onChange callback */
   onChange: PropTypes.func,
   /* onFocus callback */
@@ -146,7 +149,10 @@ Input.propTypes = {
 Input.defaultProps = {
   size: SIZES.MEDIUM,
   onEnterKey: 'Enter',
-  tabIndex: -1
+  tabIndex: -1,
+  onKeyDown: () => {},
+  onEnter: () => {},
+  onChange: () => {}
 }
 
 export default Input

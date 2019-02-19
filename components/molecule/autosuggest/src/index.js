@@ -10,7 +10,6 @@ import MoleculeAutosuggestMultipleSelection from './components/MultipleSelection
 import {withOpenToggle} from '@s-ui/hoc'
 import {getTarget} from '@s-ui/js/lib/react'
 import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
-import {stats} from '@s-ui/js/lib/ua-parser'
 
 const BASE_CLASS = `sui-MoleculeAutosuggest`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
@@ -31,8 +30,6 @@ class MoleculeAutosuggest extends Component {
   refMoleculeAutosuggest = React.createRef()
   refsMoleculeAutosuggestOptions = []
   refMoleculeAutosuggestInput = React.createRef()
-  isClient = typeof window !== 'undefined' && window.document
-  isMobile = this.isClient && stats(window.navigator.userAgent).isMobile
   state = {
     focus: false
   }
@@ -82,8 +79,7 @@ class MoleculeAutosuggest extends Component {
       refMoleculeAutosuggestInput: {current: domInnerInput},
       refMoleculeAutosuggest: {current: domMoleculeAutosuggest},
       closeList,
-      focusFirstOption,
-      isMobile
+      focusFirstOption
     } = this
     const {key} = ev
     const options = refsMoleculeAutosuggestOptions.map(getTarget)
@@ -91,11 +87,9 @@ class MoleculeAutosuggest extends Component {
     const isTypeableKey = getIsTypeableKey(key)
     const isSelectionKey = keysSelection.includes(key)
 
-    if (!isMobile) {
-      if (isTypeableKey) {
-        if (!isSelectionKey) domInnerInput.focus()
-      } else domMoleculeAutosuggest.focus()
-    }
+    if (isTypeableKey) {
+      if (!isSelectionKey) domInnerInput.focus()
+    } else domMoleculeAutosuggest.focus()
 
     if (isOpen) {
       const currentElementFocused = getCurrentElementFocused()
@@ -130,6 +124,11 @@ class MoleculeAutosuggest extends Component {
     this.setState({focus: false})
   }
 
+  handleInputKeyDown = ev => {
+    const {key} = ev
+    if (key !== 'ArrowDown') ev.stopPropagation()
+  }
+
   render() {
     const {multiselection, ...props} = this.props
     const {
@@ -139,7 +138,8 @@ class MoleculeAutosuggest extends Component {
       refMoleculeAutosuggest,
       refMoleculeAutosuggestInput,
       handleFocusIn,
-      handleFocusOut
+      handleFocusOut,
+      handleInputKeyDown
     } = this
 
     return (
@@ -154,6 +154,7 @@ class MoleculeAutosuggest extends Component {
         {multiselection ? (
           <MoleculeAutosuggestMultipleSelection
             {...props}
+            onInputKeyDown={handleInputKeyDown}
             refMoleculeAutosuggest={refMoleculeAutosuggest}
             innerRefInput={refMoleculeAutosuggestInput}
           >
@@ -162,6 +163,7 @@ class MoleculeAutosuggest extends Component {
         ) : (
           <MoleculeAutosuggestSingleSelection
             {...props}
+            onInputKeyDown={handleInputKeyDown}
             refMoleculeAutosuggest={refMoleculeAutosuggest}
             innerRefInput={refMoleculeAutosuggestInput}
           >

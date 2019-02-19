@@ -1,5 +1,6 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
+$bdrs-atom-button: $bdrs-m !default;
 $bgc-atom-button: $c-primary !default;
 $bgc-atom-button-light: color-variation($bgc-atom-button, 4) !default;
 $bgc-atom-button-dark: color-variation($bgc-atom-button, -1) !default;
@@ -69,7 +70,7 @@ $p-atom-button-large: $p-l !default;
   @include reset-button;
   @include button-icon($icon-sz-atom-button, $icon-m-atom-button);
   border: 1px solid;
-  border-radius: $bdrs-m;
+  border-radius: $bdrs-atom-button;
   box-sizing: border-box;
   display: inline-block;
   font: {

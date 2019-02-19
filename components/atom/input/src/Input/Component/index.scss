@@ -9,6 +9,7 @@ $class-read-only: '#{$base-class}--readOnly';
 
 #{$base-class} {
   @extend %sui-atom-input-input;
+  min-height: auto;
   border-radius: $bdrs-atom-input;
   
   &--size {
@@ -60,6 +61,7 @@ $class-read-only: '#{$base-class}--readOnly';
   @each $type, $attr in $sizes-atom-input {
     &-#{$type} {
       height: $attr;
+      min-height: $attr;
     }
   }
 

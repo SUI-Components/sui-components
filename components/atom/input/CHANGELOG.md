@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="3.5.0"></a>
+# 3.5.0 (2019-02-19)
+
+
+### Features
+
+* add border radius to input ([f1623a0](https://github.com/SUI-Components/sui-components/commit/f1623a0))
+* onKeyDown handler as prop ([14ed0ff](https://github.com/SUI-Components/sui-components/commit/14ed0ff))
+* use $bdrs-none sui-theme var instead of 0 ([8f00a87](https://github.com/SUI-Components/sui-components/commit/8f00a87))
+
+
+
 <a name="3.4.0"></a>
 # 3.4.0 (2019-01-31)
 
@@ -220,22 +232,6 @@ All notable changes to this project will be documented in this file.
 
 * first commit with only Schibsted Spain Components ([c0814de](https://github.com/SUI-Components/sui-components/commit/c0814de))
 * fixed FormInput loose focus onChange ([3624cd9](https://github.com/SUI-Components/sui-components/commit/3624cd9))
-
-
-
-<a name="1.7.0"></a>
-# 1.7.0 (2018-09-05)
-
-
-### Features
-
-* atomInput implementation ([ab16328](https://github.com/SUI-Components/sui-components/commit/ab16328))
-* changes after code review feedback ([e307b6a](https://github.com/SUI-Components/sui-components/commit/e307b6a))
-* major versions of dependencies ([9d91177](https://github.com/SUI-Components/sui-components/commit/9d91177))
-* new component ([c6086f5](https://github.com/SUI-Components/sui-components/commit/c6086f5))
-* propTypes ([32f7203](https://github.com/SUI-Components/sui-components/commit/32f7203))
-* rename from FormInput to AtomInput ([6d1efec](https://github.com/SUI-Components/sui-components/commit/6d1efec))
-* renaming from AtomInput to MoleculeInputField ([60d43aa](https://github.com/SUI-Components/sui-components/commit/60d43aa))
 
 
 

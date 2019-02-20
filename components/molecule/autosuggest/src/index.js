@@ -124,6 +124,11 @@ class MoleculeAutosuggest extends Component {
     this.setState({focus: false})
   }
 
+  handleInputKeyDown = ev => {
+    const {key} = ev
+    if (key !== 'ArrowDown') ev.stopPropagation()
+  }
+
   render() {
     const {multiselection, ...props} = this.props
     const {
@@ -133,7 +138,8 @@ class MoleculeAutosuggest extends Component {
       refMoleculeAutosuggest,
       refMoleculeAutosuggestInput,
       handleFocusIn,
-      handleFocusOut
+      handleFocusOut,
+      handleInputKeyDown
     } = this
 
     return (
@@ -148,6 +154,7 @@ class MoleculeAutosuggest extends Component {
         {multiselection ? (
           <MoleculeAutosuggestMultipleSelection
             {...props}
+            onInputKeyDown={handleInputKeyDown}
             refMoleculeAutosuggest={refMoleculeAutosuggest}
             innerRefInput={refMoleculeAutosuggestInput}
           >
@@ -156,6 +163,7 @@ class MoleculeAutosuggest extends Component {
         ) : (
           <MoleculeAutosuggestSingleSelection
             {...props}
+            onInputKeyDown={handleInputKeyDown}
             refMoleculeAutosuggest={refMoleculeAutosuggest}
             innerRefInput={refMoleculeAutosuggestInput}
           >

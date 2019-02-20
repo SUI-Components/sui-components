@@ -62,11 +62,13 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
       iconClear,
       innerRefInput,
       placeholder,
-      children
+      children,
+      onInputKeyDown
     } = this.props
     return (
       <Fragment>
         <MoleculeInputTagsWithClearUI
+          onKeyDown={onInputKeyDown}
           ref={MoleculeInputTagsRef}
           tags={tags}
           value={value}

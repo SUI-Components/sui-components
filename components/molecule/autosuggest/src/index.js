@@ -27,7 +27,8 @@ const getIsTypeableKey = key => {
 }
 
 class MoleculeAutosuggest extends Component {
-  refMoleculeAutosuggest = React.createRef()
+  refMoleculeAutosuggest =
+    this.props.refMoleculeAutosuggest || React.createRef()
   refsMoleculeAutosuggestOptions = []
   refMoleculeAutosuggestInput = React.createRef()
   state = {
@@ -213,7 +214,10 @@ MoleculeAutosuggest.propTypes = {
   keysSelection: PropTypes.array,
 
   /** list of key identifiers that will close the list */
-  keysCloseList: PropTypes.array
+  keysCloseList: PropTypes.array,
+
+  /* object generated w/ Reacte.createRef method to get a DOM reference of internal input */
+  refMoleculeAutosuggest: PropTypes.object
 }
 
 MoleculeAutosuggest.defaultProps = {

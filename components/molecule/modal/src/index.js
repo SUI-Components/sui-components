@@ -190,7 +190,7 @@ MoleculeModal.propTypes = {
    */
   fitWindow: PropTypes.bool,
   /**
-   * true if you want a modal that fit contents in mobile devices, otherwise, false.
+   * true if you want a modal that fit contents in mobile devices, otherwise, false
    */
   fitContent: PropTypes.bool,
   /**

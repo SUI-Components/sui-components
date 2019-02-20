@@ -10,15 +10,15 @@ const hasErrors = (success, error) => {
 }
 
 class MoleculeAutosuggestField extends Component {
-  refSelect = React.createRef()
+  refAutosuggest = React.createRef()
 
   handleClick = () => {
-    const {current: domSelect} = this.refSelect
-    if (domSelect) domSelect.focus()
+    const {current: domAutosuggest} = this.refAutosuggest
+    if (domAutosuggest) domAutosuggest.focus()
   }
 
   render() {
-    const {refSelect, handleClick} = this
+    const {refAutosuggest, handleClick} = this
     const {
       label,
       id,
@@ -41,7 +41,7 @@ class MoleculeAutosuggestField extends Component {
         onClickLabel={handleClick}
       >
         <MoleculeAutosuggest
-          refMoleculeAutosuggest={refSelect}
+          refMoleculeAutosuggest={refAutosuggest}
           errorState={errorState}
           {...props}
         >
@@ -58,7 +58,7 @@ MoleculeAutosuggestField.propTypes = {
   /** Text to be displayed as label */
   label: PropTypes.string.isRequired,
 
-  /** used as label for attribute and Select element id */
+  /** used as label for attribute and Autosuggest element id */
   id: PropTypes.string.isRequired,
 
   /** Success message to display when success state  */

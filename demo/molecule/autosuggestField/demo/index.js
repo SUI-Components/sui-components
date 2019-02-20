@@ -1,18 +1,28 @@
 /* eslint-disable no-console */
 import React from 'react'
 
-import {withStateValue} from '@s-ui/hoc'
+import {withStateValue, withStateValueTags} from '@s-ui/hoc'
 
 import MoleculeAutosuggestField from '../../../../components/molecule/autosuggestField/src'
-import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
+import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
+
+import withDynamicOptions from './hoc/withDynamicOptions'
 
 import {IconCloseTag, IconArrowDown} from './Icons'
-
-import {countries} from './data'
+import {getAsyncCountriesFromQuery} from './services'
 import './index.scss'
 
+const MoleculeAutosuggestFieldWithDynamicOptions = withDynamicOptions(
+  MoleculeAutosuggestField,
+  MoleculeAutosuggestOption
+)(getAsyncCountriesFromQuery)
+
 const MoleculeAutosuggestFieldWithState = withStateValue(
-  MoleculeAutosuggestField
+  MoleculeAutosuggestFieldWithDynamicOptions
+)
+
+const MoleculeAutosuggestFieldWithStateTags = withStateValueTags(
+  MoleculeAutosuggestFieldWithDynamicOptions
 )
 
 const BASE_CLASS_DEMO = 'DemoMoleculeAutosuggestField'
@@ -33,32 +43,20 @@ const Demo = () => (
         onChange={(_, {value}) => console.log(value)}
         iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
-      >
-        {countries.map((country, i) => (
-          <MoleculeSelectOption key={i} value={country}>
-            {country}
-          </MoleculeSelectOption>
-        ))}
-      </MoleculeAutosuggestFieldWithState>
+      />
     </div>
 
     <div className={CLASS_DEMO_SECTION}>
       <h3>With Information HelpText</h3>
       <MoleculeAutosuggestFieldWithState
-        id="with-information-help-text"
+        id="with-info-help-text"
         label="Country"
         placeholder="Select a Country..."
-        helpText="The country selected will be added to your profile"
         onChange={(_, {value}) => console.log(value)}
+        helpText="The country selected will be added to your profile"
         iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
-      >
-        {countries.map((country, i) => (
-          <MoleculeSelectOption key={i} value={country}>
-            {country}
-          </MoleculeSelectOption>
-        ))}
-      </MoleculeAutosuggestFieldWithState>
+      />
     </div>
 
     <div className={CLASS_DEMO_SECTION}>
@@ -67,59 +65,43 @@ const Demo = () => (
         id="with-success-validation-help-text"
         label="Country"
         placeholder="Select a Country..."
-        successText="Everything ok!"
         onChange={(_, {value}) => console.log(value)}
+        successText="Everything ok!"
         iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
-      >
-        {countries.map((country, i) => (
-          <MoleculeSelectOption key={i} value={country}>
-            {country}
-          </MoleculeSelectOption>
-        ))}
-      </MoleculeAutosuggestFieldWithState>
+      />
     </div>
 
     <div className={CLASS_DEMO_SECTION}>
       <h3>With Error validation HelpText</h3>
+
       <MoleculeAutosuggestFieldWithState
         id="with-error-validation-help-text"
         label="Country"
         placeholder="Select a Country..."
-        errorText="All wrong!"
         onChange={(_, {value}) => console.log(value)}
+        errorText="All wrong!"
         iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
-      >
-        {countries.map((country, i) => (
-          <MoleculeSelectOption key={i} value={country}>
-            {country}
-          </MoleculeSelectOption>
-        ))}
-      </MoleculeAutosuggestFieldWithState>
+      />
     </div>
 
     <h2>Multiple Selection</h2>
 
     <div className={CLASS_DEMO_SECTION}>
       <h3>With Error validation HelpText</h3>
-      <MoleculeAutosuggestFieldWithState
+
+      <MoleculeAutosuggestFieldWithStateTags
         id="multiple-selection-with-error-validation-help-text"
         label="Country"
-        placeholder="Select some countries..."
-        value={['India', 'Luxembourg']}
-        onChange={(_, {value}) => console.log(value)}
+        placeholder="Select a Country..."
+        errorText="All wrong!"
         iconCloseTag={<IconCloseTag />}
         iconArrowDown={<IconArrowDown />}
         multiselection
-        errorText="All wrong!"
-      >
-        {countries.map((country, i) => (
-          <MoleculeSelectOption key={i} value={country}>
-            {country}
-          </MoleculeSelectOption>
-        ))}
-      </MoleculeAutosuggestFieldWithState>
+        tags={['India', 'Luxembourg']}
+        onChangeTags={(_, {tags}) => console.log(tags)}
+      />
     </div>
   </div>
 )

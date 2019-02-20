@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="3.8.0"></a>
+# 3.8.0 (2019-02-20)
+
+
+### Bug Fixes
+
+* fix min-height setting in atom input ([5ad2e11](https://github.com/SUI-Components/sui-components/commit/5ad2e11))
+* linting fixes ([8c78094](https://github.com/SUI-Components/sui-components/commit/8c78094))
+
+
+
 <a name="3.5.0"></a>
 # 3.5.0 (2019-02-19)
 
@@ -232,6 +243,22 @@ All notable changes to this project will be documented in this file.
 
 * first commit with only Schibsted Spain Components ([c0814de](https://github.com/SUI-Components/sui-components/commit/c0814de))
 * fixed FormInput loose focus onChange ([3624cd9](https://github.com/SUI-Components/sui-components/commit/3624cd9))
+
+
+
+<a name="1.7.0"></a>
+# 1.7.0 (2018-09-05)
+
+
+### Features
+
+* atomInput implementation ([ab16328](https://github.com/SUI-Components/sui-components/commit/ab16328))
+* changes after code review feedback ([e307b6a](https://github.com/SUI-Components/sui-components/commit/e307b6a))
+* major versions of dependencies ([9d91177](https://github.com/SUI-Components/sui-components/commit/9d91177))
+* new component ([c6086f5](https://github.com/SUI-Components/sui-components/commit/c6086f5))
+* propTypes ([32f7203](https://github.com/SUI-Components/sui-components/commit/32f7203))
+* rename from FormInput to AtomInput ([6d1efec](https://github.com/SUI-Components/sui-components/commit/6d1efec))
+* renaming from AtomInput to MoleculeInputField ([60d43aa](https://github.com/SUI-Components/sui-components/commit/60d43aa))
 
 
 

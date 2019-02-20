@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2019-02-20)
+
+
+### Bug Fixes
+
+* update modal version small relevant fix ([eb48d2a](https://github.com/SUI-Components/sui-components/commit/eb48d2a))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2019-02-19)
 

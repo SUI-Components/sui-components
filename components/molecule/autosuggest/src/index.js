@@ -27,7 +27,8 @@ const getIsTypeableKey = key => {
 }
 
 class MoleculeAutosuggest extends Component {
-  refMoleculeAutosuggest = this.props.refMoleculeAutosuggest || React.createRef()
+  refMoleculeAutosuggest =
+    this.props.refMoleculeAutosuggest || React.createRef()
   refsMoleculeAutosuggestOptions = []
   refMoleculeAutosuggestInput = React.createRef()
   state = {

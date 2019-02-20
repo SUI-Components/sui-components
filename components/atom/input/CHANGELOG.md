@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="3.8.0"></a>
+# 3.8.0 (2019-02-20)
+
+
+### Bug Fixes
+
+* fix min-height setting in atom input ([5ad2e11](https://github.com/SUI-Components/sui-components/commit/5ad2e11))
+* linting fixes ([8c78094](https://github.com/SUI-Components/sui-components/commit/8c78094))
+
+
+
+<a name="3.5.0"></a>
+# 3.5.0 (2019-02-19)
+
+
+### Features
+
+* add border radius to input ([f1623a0](https://github.com/SUI-Components/sui-components/commit/f1623a0))
+* onKeyDown handler as prop ([14ed0ff](https://github.com/SUI-Components/sui-components/commit/14ed0ff))
+* use $bdrs-none sui-theme var instead of 0 ([8f00a87](https://github.com/SUI-Components/sui-components/commit/8f00a87))
+
+
+
 <a name="3.4.0"></a>
 # 3.4.0 (2019-01-31)
 

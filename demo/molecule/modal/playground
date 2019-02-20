@@ -267,6 +267,50 @@ class NoFullScreenModal extends React.Component {
   }
 }
 
+class MobileFitContentModal extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      open: false
+    }
+  }
+
+  openModal = () => {
+    this.setState({
+      open: true
+    })
+  }
+
+  closeModal = () => {
+    this.setState({
+      open: false
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <button type="button" onClick={this.openModal}>
+          Open modal
+        </button>
+        <MoleculeModal
+          isOpen={this.state.open}
+          closeOnOutsideClick
+          closeOnEscKeyDown
+          fitContent={true}
+          iconClose={<IconClose />}
+          header={<strong>My new brand modal</strong>}
+          onClose={this.closeModal}
+        >
+          <ContentWithCloseButton>
+            <LoremIpsumParagraph />
+          </ContentWithCloseButton>
+        </MoleculeModal>
+      </div>
+    )
+  }
+}
+
 return (
   <React.Fragment>
     <div style={containerStyle}>
@@ -293,6 +337,10 @@ return (
     <div style={fieldStyle}>
       <p>In order to add a button in the content to close the modal you need to provide a React component with a property named <code>'onClose'</code></p>
       <NoHeaderNoCloseButtonModal />
+    </div>
+    <h2>Mobile fit content Modal</h2>
+    <div style={fieldStyle}>
+      <MobileFitContentModal />
     </div>
     </div>
 

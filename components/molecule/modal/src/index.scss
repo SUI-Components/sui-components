@@ -116,6 +116,13 @@ body.is-MoleculeModal-open {
     &--out {
       animation: modal-content-out .25s ease-in;
     }
+
+    &--fit {
+      border-radius: $bdrs-molecule-modal-dialog;
+      height: auto;
+      margin: $m-molecule-modal-dialog-mobile;
+      max-height: calc(100% - #{$m-molecule-modal-dialog}*2);
+    }
   }
 
   &-header {
@@ -164,7 +171,7 @@ body.is-MoleculeModal-open {
     position: relative;
 
     &:after {
-      content: "";
+      content: '';
       display: block;
       height: $pb-molecule-modal-content;
     }

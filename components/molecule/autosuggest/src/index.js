@@ -27,7 +27,8 @@ const getIsTypeableKey = key => {
 }
 
 class MoleculeAutosuggest extends Component {
-  refMoleculeAutosuggest = React.createRef()
+  refMoleculeAutosuggest =
+    this.props.refMoleculeAutosuggest || React.createRef()
   refsMoleculeAutosuggestOptions = []
   refMoleculeAutosuggestInput = React.createRef()
   state = {
@@ -124,6 +125,11 @@ class MoleculeAutosuggest extends Component {
     this.setState({focus: false})
   }
 
+  handleInputKeyDown = ev => {
+    const {key} = ev
+    if (key !== 'ArrowDown') ev.stopPropagation()
+  }
+
   render() {
     const {multiselection, ...props} = this.props
     const {
@@ -133,7 +139,8 @@ class MoleculeAutosuggest extends Component {
       refMoleculeAutosuggest,
       refMoleculeAutosuggestInput,
       handleFocusIn,
-      handleFocusOut
+      handleFocusOut,
+      handleInputKeyDown
     } = this
 
     return (
@@ -148,6 +155,7 @@ class MoleculeAutosuggest extends Component {
         {multiselection ? (
           <MoleculeAutosuggestMultipleSelection
             {...props}
+            onInputKeyDown={handleInputKeyDown}
             refMoleculeAutosuggest={refMoleculeAutosuggest}
             innerRefInput={refMoleculeAutosuggestInput}
           >
@@ -156,6 +164,7 @@ class MoleculeAutosuggest extends Component {
         ) : (
           <MoleculeAutosuggestSingleSelection
             {...props}
+            onInputKeyDown={handleInputKeyDown}
             refMoleculeAutosuggest={refMoleculeAutosuggest}
             innerRefInput={refMoleculeAutosuggestInput}
           >
@@ -205,7 +214,10 @@ MoleculeAutosuggest.propTypes = {
   keysSelection: PropTypes.array,
 
   /** list of key identifiers that will close the list */
-  keysCloseList: PropTypes.array
+  keysCloseList: PropTypes.array,
+
+  /* object generated w/ Reacte.createRef method to get a DOM reference of internal input */
+  refMoleculeAutosuggest: PropTypes.object
 }
 
 MoleculeAutosuggest.defaultProps = {

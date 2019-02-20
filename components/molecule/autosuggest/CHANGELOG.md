@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2019-02-20)
+
+
+### Features
+
+* linter fixing ([7c36d58](https://github.com/SUI-Components/sui-components/commit/7c36d58))
+* pass ref as prop ([7fe76a5](https://github.com/SUI-Components/sui-components/commit/7fe76a5))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2019-02-20)
 

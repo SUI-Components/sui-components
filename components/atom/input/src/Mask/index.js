@@ -1,16 +1,18 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import IMask from 'imask'
 import Input from '../Input'
 
 class MaskInput extends Component {
   componentDidMount() {
     const {mask} = this.props
-    this.mask = new IMask(this.field, mask)
+    import('imask').then(imaskPackage => {
+      const IMask = imaskPackage.default
+      this.mask = new IMask(this.field, mask)
+    })
   }
 
   componentWillUnmount() {
-    this.mask.destroy()
+    this.mask && this.mask.destroy()
   }
 
   onChange = (ev, {value}) => {

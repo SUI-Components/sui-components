@@ -18,8 +18,7 @@ After importing the component `MoleculeAutosuggestField` like this
 import MoleculeAutosuggestField from '@s-ui/react-molecule-autosuggest-field'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
 
-const IconCloseTag = () => <span>x</span>  
-const IconArrowDown = () => <span>▼</span>  
+const IconClose = () => <span>x</span>  
 
 const options = ['John','Paul','George','Ringo']
 
@@ -32,7 +31,7 @@ const options = ['John','Paul','George','Ringo']
   label="Country"
   placeholder="Select a Country..."
   onChange={(_, {value}) => console.log(value)}
-  iconArrowDown={<IconArrowDown />}
+  iconClear={<IconClose />}
 >
   {options.map((option, i) => (
     <MoleculeAutosuggestOption key={i} value={option}>
@@ -49,8 +48,7 @@ const options = ['John','Paul','George','Ringo']
   label="Country"
   placeholder="Select a Country..."
   onChange={(_, {value}) => console.log(value)}
-  iconArrowDown={<IconArrowDown />}
-  iconCloseTag={<IconCloseTag />}
+  iconClear={<IconClose />}
   multiselection
 >
   {options.map((option, i) => (
@@ -68,7 +66,7 @@ const options = ['John','Paul','George','Ringo']
     label="Country"
     placeholder="Select a Country..."
     onChange={(_, {value}) => console.log(value)}
-    iconArrowDown={<IconArrowDown />}
+    iconClear={<IconClose />}
     errorText="Error!"
   >
     {options.map((option, i) => (
@@ -86,7 +84,7 @@ const options = ['John','Paul','George','Ringo']
     label="Country"
     placeholder="Select a Country..."
     onChange={(_, {value}) => console.log(value)}
-    iconArrowDown={<IconArrowDown />}
+    iconClear={<IconClose />}
     successText="Success!"
   >
     {options.map((option, i) => (
@@ -104,7 +102,7 @@ const options = ['John','Paul','George','Ringo']
     label="Country"
     placeholder="Select a Country..."
     onChange={(_, {value}) => console.log(value)}
-    iconArrowDown={<IconArrowDown />}
+    iconClear={<IconClose />}
     helpText="Read the instructions to write proper format"
   >
     {options.map((option, i) => (

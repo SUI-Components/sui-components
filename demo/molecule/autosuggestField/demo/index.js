@@ -8,7 +8,7 @@ import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
 
 import withDynamicOptions from './hoc/withDynamicOptions'
 
-import {IconCloseTag, IconArrowDown} from './Icons'
+import {IconClose} from './Icons'
 import {getAsyncCountriesFromQuery} from './services'
 import './index.scss'
 
@@ -41,8 +41,7 @@ const Demo = () => (
         label="Country"
         placeholder="Select a Country..."
         onChange={(_, {value}) => console.log(value)}
-        iconCloseTag={<IconCloseTag />}
-        iconArrowDown={<IconArrowDown />}
+        iconClear={<IconClose />}
       />
     </div>
 
@@ -54,8 +53,7 @@ const Demo = () => (
         placeholder="Select a Country..."
         onChange={(_, {value}) => console.log(value)}
         helpText="The country selected will be added to your profile"
-        iconCloseTag={<IconCloseTag />}
-        iconArrowDown={<IconArrowDown />}
+        iconClear={<IconClose />}
       />
     </div>
 
@@ -67,8 +65,7 @@ const Demo = () => (
         placeholder="Select a Country..."
         onChange={(_, {value}) => console.log(value)}
         successText="Everything ok!"
-        iconCloseTag={<IconCloseTag />}
-        iconArrowDown={<IconArrowDown />}
+        iconClear={<IconClose />}
       />
     </div>
 
@@ -81,8 +78,7 @@ const Demo = () => (
         placeholder="Select a Country..."
         onChange={(_, {value}) => console.log(value)}
         errorText="All wrong!"
-        iconCloseTag={<IconCloseTag />}
-        iconArrowDown={<IconArrowDown />}
+        iconClear={<IconClose />}
       />
     </div>
 
@@ -96,8 +92,8 @@ const Demo = () => (
         label="Country"
         placeholder="Select a Country..."
         errorText="All wrong!"
-        iconCloseTag={<IconCloseTag />}
-        iconArrowDown={<IconArrowDown />}
+        iconClear={<IconClose />}
+        iconCloseTag={<IconClose />}
         multiselection
         tags={['India', 'Luxembourg']}
         onChangeTags={(_, {tags}) => console.log(tags)}

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2019-02-21)
+
+
+### Performance Improvements
+
+* use same version across hocs and projects ([ba78566](https://github.com/SUI-Components/sui-components/commit/ba78566))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2019-01-29)
 

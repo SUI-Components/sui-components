@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="3.9.0"></a>
+# 3.9.0 (2019-02-21)
+
+
+### Bug Fixes
+
+* only download on focus ([578e99b](https://github.com/SUI-Components/sui-components/commit/578e99b))
+
+
+### Performance Improvements
+
+* download imask only if component is used ([a3b51ba](https://github.com/SUI-Components/sui-components/commit/a3b51ba))
+
+
+
 <a name="3.8.0"></a>
 # 3.8.0 (2019-02-20)
 

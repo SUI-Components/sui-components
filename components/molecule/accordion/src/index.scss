@@ -28,12 +28,12 @@
     padding: 0;
     width: 100%;
 
-    &-content{
+    &-content {
       align-items: center;
       display: flex;
     }
 
-    &-title{
+    &-title {
       flex: 1 0 0;
       overflow: hidden;
       padding: $p-accordion-tab-content;

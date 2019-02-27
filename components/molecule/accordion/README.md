@@ -18,23 +18,18 @@ import MoleculeAccordion from '@s-ui/react-molecule-accordion'
 ```js
 <MoleculeAccordion 
     icon={svgIcon} 
-    showText='Show' 
-    hideText='Hide'
+    maxHeight={300}
+    withAutoClose={false}
+    withTransition={false}
 >
-    <MoleculeCollapsible 
-        icon={svgIcon} 
-        showText='Placeholder text' 
-        hideText='Placeholder text'
-    >
-        <p>Text or content to collapse</p>
-    </MoleculeCollapsible>
-    <MoleculeCollapsible 
-        icon={svgIcon} 
-        showText='Placeholder text' 
-        hideText='Placeholder text'
-    >
-        <p>Text or content to collapse</p>
-    </MoleculeCollapsible>
+    <div label='Place holder 1'>
+        <p>Text...</p>
+        <p>Text...</p>
+    </div>
+    <div label='Place holder 2'>
+        <p>Text...</p>
+        <p>Text...</p>
+    </div>
 </MoleculeAccordion>
 ```
 

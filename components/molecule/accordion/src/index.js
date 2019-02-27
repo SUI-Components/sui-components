@@ -1,73 +1,63 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import MoleculeCollapsible from '../../collapsible/src'
+import Tab from './Tab'
 
 const BASE_CLASS = 'sui-MoleculeAccordion'
 
 class MoleculeAccordion extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      childrenStateList: this.getChildrenInitialStateList()
-    }
-  }
-
-  getChildrenInitialStateList = () => {
-    return this.props.children.map(() => true)
+  state = {
+    openTabs: []
   }
 
   onToggle = id => {
-    const childrenNewStateList = this.state.childrenStateList.map(
-      (child, index) => {
-        return index !== id ? true : !child
-      }
-    )
+    const {openTabs} = this.state
+    const {withAutoClose} = this.props
+    let newOpenTabs = []
+    if (withAutoClose) {
+      newOpenTabs[id] = openTabs[id] ? undefined : true
+    } else {
+      newOpenTabs = [...openTabs]
+      newOpenTabs[id] = newOpenTabs[id] ? undefined : true
+    }
     this.setState({
-      childrenStateList: [...childrenNewStateList]
+      openTabs: [...newOpenTabs]
     })
   }
 
   render() {
-    const {childrenStateList} = this.state
-    const {withTransition, maxHeight, withAutoClose} = this.props
-    const children = React.Children.map(
-      this.props.children,
-      (child, index) => {
-        return React.cloneElement(child, {
-          ref: `child${index}`,
-          minHeight: 0,
-          maxHeight: maxHeight,
-          withGradient: false,
-          withTransition: withTransition,
-          isCollapsed: childrenStateList[index],
-          withContentHidden: true,
-          withAutoClose: withAutoClose,
-          onToggle: () => {
-            withAutoClose && this.onToggle(index)
-          }
-        })
-      },
-      this
+    const {openTabs} = this.state
+    const {children, icon, maxHeight, withTransition} = this.props
+    return (
+      <div className={BASE_CLASS}>
+        {children.map((child, index) => (
+          <Tab
+            key={index}
+            isOpen={!!openTabs[index]}
+            title={child.props.label}
+            onToggle={() => this.onToggle(index)}
+            icon={icon}
+            maxHeight={maxHeight}
+            withTransition={withTransition}
+          >
+            {child.props.children}
+          </Tab>
+        ))}
+      </div>
     )
-    return <div className={BASE_CLASS}>{children}</div>
   }
 }
 
 MoleculeAccordion.displayName = 'MoleculeAccordion'
 
 MoleculeAccordion.propTypes = {
-  children: (props, propName, componentName) => {
-    let childrenList = props[propName]
-    let error = null
-    React.Children.forEach(childrenList, child => {
-      if (!(child.type.prototype instanceof MoleculeCollapsible)) {
-        error = new Error(`
-          ${componentName} children should be of type MoleculeCollapsible.
-        `)
-      }
-    })
-    return error
-  },
+  /**
+   * Children to put into Accordion Tabs
+   */
+  children: PropTypes.instanceOf(Object).isRequired,
+  /**
+   * Icon for the button
+   */
+  icon: PropTypes.node.isRequired,
   /**
    * Define the max height visible
    */

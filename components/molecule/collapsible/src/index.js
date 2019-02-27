@@ -6,70 +6,48 @@ const BASE_CLASS = 'sui-MoleculeCollapsible'
 const CONTENT_CLASS = `${BASE_CLASS}-content`
 const CONTAINER_BUTTON_CLASS = `${BASE_CLASS}-container`
 const COLLAPSED_CLASS = 'is-collapsed'
-const WITH_CONTENT_HIDDEN_CLASS = 'with-contentHidden'
 const BUTTON_CLASS = `${BASE_CLASS}-btn`
 const BUTTON_CONTENT_CLASS = `${BUTTON_CLASS}-content`
 const ICON_CLASS = `${BASE_CLASS}-icon`
 const MIN_HEIGHT = 100 // px
-const MAX_HEIGHT = null
 
 class MoleculeCollapsible extends Component {
   constructor(props) {
     super(props)
-    const {isCollapsed, withAutoClose, withContentHidden} = this.props
     this.childrenContainer = React.createRef()
-    this.state = {
-      withAutoClose: withAutoClose,
-      collapsed: isCollapsed,
-      showButton: true,
-      maxHeight: withContentHidden ? 0 : MIN_HEIGHT,
-      minHeight: withContentHidden ? 0 : MIN_HEIGHT
-    }
+    this.state = {collapsed: true, showButton: true, maxHeight: MIN_HEIGHT}
   }
 
   toggleCollapse = () => {
     const {collapsed, showButton} = this.state
-    const {onToggle} = this.props
+    const {onClose, onOpen} = this.props
     if (showButton) {
       this.setState({collapsed: !collapsed})
-      onToggle()
+      ;(collapsed && onOpen()) || onClose()
     }
   }
 
   componentDidMount() {
-    const {maxHeight, minHeight, withContentHidden} = this.props
-    const offsetHeight =
-      maxHeight || this.childrenContainer.current.offsetHeight
-    const height = withContentHidden ? 0 : minHeight
+    const offsetHeight = this.childrenContainer.current.offsetHeight
     this.setState({
-      showButton: offsetHeight >= height,
+      showButton: offsetHeight >= this.props.height,
       maxHeight: offsetHeight
     })
   }
 
-  static getDerivedStateFromProps(nextProps) {
-    if (nextProps.withAutoClose) {
-      return {
-        collapsed: nextProps.isCollapsed
-      }
-    }
-    return null
-  }
-
   render() {
-    const {collapsed, showButton, minHeight, maxHeight} = this.state
+    const {collapsed, showButton, maxHeight} = this.state
     const {
       children,
+      height,
       icon,
       showText,
       hideText,
-      withContentHidden,
       withGradient,
       withTransition
     } = this.props
     const wrapperClassName = cx(`${BASE_CLASS}`, {
       [`${BASE_CLASS}--withGradient`]: withGradient,
-      [WITH_CONTENT_HIDDEN_CLASS]: withContentHidden,
       [COLLAPSED_CLASS]: collapsed
     })
     const iconClassName = cx(`${ICON_CLASS}`, {
@@ -83,7 +61,7 @@ class MoleculeCollapsible extends Component {
       [`${CONTENT_CLASS}--withTransition`]: withTransition
     })
     const containerHeight =
-      showButton && collapsed ? `${minHeight}px` : `${maxHeight}px`
+      showButton && collapsed ? `${height}px` : `${maxHeight}px`
 
     return (
       <div className={wrapperClassName}>
@@ -122,11 +100,7 @@ MoleculeCollapsible.propTypes = {
   /**
    * Define the min height visible
    */
-  minHeight: PropTypes.number,
-  /**
-   * Define the max height visible
-   */
-  maxHeight: PropTypes.number,
+  height: PropTypes.number,
   /**
    * Icon to be added on the right of the content
    */
@@ -140,40 +114,29 @@ MoleculeCollapsible.propTypes = {
    */
   hideText: PropTypes.string.isRequired,
   /**
+   * Activate/deactivate gradient
+   */
+  withGradient: PropTypes.bool,
+  /**
    * Activate/deactivate transition
    */
   withTransition: PropTypes.bool,
   /**
-   * On toggle callback
+   * On open callback
    */
-  onToggle: PropTypes.func,
+  onOpen: PropTypes.func,
   /**
-   * Initial collapsed state
+   * On close callback
    */
-  isCollapsed: PropTypes.bool,
-  /**
-   * Initial collapsed state
-   */
-  withContentHidden: PropTypes.bool,
-  /**
-   * Activate/deactivate closing from props
-   */
-  withAutoClose: PropTypes.bool,
-  /**
-   * Activate/deactivate gradient
-   */
-  withGradient: PropTypes.bool
+  onClose: PropTypes.func
 }
 
 MoleculeCollapsible.defaultProps = {
-  minHeight: MIN_HEIGHT,
-  maxHeight: MAX_HEIGHT,
+  height: MIN_HEIGHT,
   withGradient: true,
   withTransition: true,
-  onToggle: () => {},
-  isCollapsed: true,
-  withContentHidden: false,
-  withAutoClose: false
+  onOpen: () => {},
+  onClose: () => {}
 }
 
 export default MoleculeCollapsible

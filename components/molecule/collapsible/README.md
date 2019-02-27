@@ -18,13 +18,13 @@ import MoleculeCollapsible from '@s-ui/react-molecule-collapsible'
 
 ### Basic usage
 ```js
-<MoleculeCollapsible 
+<MoleculeThumbnail 
     icon={svgIcon} 
     showText='Show' 
     hideText='Hide'
 >
     <p>Text or content to collapse</p>
-</MoleculeCollapsible>
+</MoleculeThumbnail>
 
 ```
 
@@ -32,63 +32,37 @@ import MoleculeCollapsible from '@s-ui/react-molecule-collapsible'
 #### Gradient
 It can be set True or False. It will show a gradient over the content when set to True. By default it is True.
 ```js
-<MoleculeCollapsible 
+<MoleculeThumbnail 
     icon={svgIcon} 
     showText='Show' 
     hideText='Hide'
     withGradient={true}
 >
     <p>Text or content to collapse</p>
-</MoleculeCollapsible>
+</MoleculeThumbnail>
 ```
 
 #### Transition
 It can be set True or False. It will activate or deactivate transition effect when toggle. By default it is True.
 ```js
-<MoleculeCollapsible 
+<MoleculeThumbnail 
     icon={svgIcon} 
     showText='Show' 
     hideText='Hide'
     withTransition={true}
 >
     <p>Text or content to collapse</p>
-</MoleculeCollapsible>
-```
-
-#### minHeight
-It sets the minimum height in pixels when the component is collapsed. By default it is set to 100px.
-```js
-<MoleculeCollapsible 
-    icon={svgIcon} 
-    showText='Show' 
-    hideText='Hide'
-    minHeight={10}
->
-    <p>Text or content to collapse</p>
-</MoleculeCollapsible>
-```
-
-#### maxHeight
-It sets the maximum height in pixels when the component is not collapsed. By default it is set to null.
-```js
-<MoleculeThumbnail 
-    icon={svgIcon} 
-    showText='Show' 
-    hideText='Hide'
-    maxHeight={200}
->
-    <p>Text or content to collapse</p>
 </MoleculeThumbnail>
 ```
 
-#### withContentHidden
-It sets the maximum height in pixels when the component is not collapsed. By default it is set to null.
+#### Height
+It sets the maximum height in pixels when the component is collapsed. By default it is set to 100px.
 ```js
 <MoleculeThumbnail 
     icon={svgIcon} 
     showText='Show' 
     hideText='Hide'
-    withContentHidden={true}
+    height={10}
 >
     <p>Text or content to collapse</p>
 </MoleculeThumbnail>

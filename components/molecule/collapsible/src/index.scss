@@ -11,12 +11,12 @@
     background: none;
     border: 0;
     color: $c-collapsible-btn;
-    cursor: pointer;
     height: $mh-collapsible-btn;
     margin-top: $mt-collapsible-btn;
     padding: $p-collapsible-btn 0;
+    cursor: pointer;
 
-    &:focus, 
+    &:focus,
     &-content:focus {
       outline: none;
     }
@@ -24,49 +24,14 @@
     &:focus &-content {
       box-shadow: 0 0 6px 3px color-variation($c-primary, 1);
     }
-
-    .with-contentHidden & {
-      color: $c-collapsible-text;
-      height: $h-collapsible-btn;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-
-      &-content {
-        display: block;
-        padding: $p-collapsible-content;
-        text-align: left;
-        width: 100%;
-      }
-
-    }
-
   }
 
   &-content {
-    overflow: auto;
+    overflow: hidden;
 
     &--withTransition {
       transition: $trs-collapsible-content;
     }
-
-    .is-collapsed & {
-      overflow: hidden;
-    }
-
-    .with-contentHidden & {
-      border-top: $bd-collapsible-container;
-
-      & > div {
-        padding: $p-collapsible-content;
-      }
-
-    }
-
-    .is-collapsed.with-contentHidden & {
-      border: $bd-collapsible-container-none;
-    }
-
   }
 
   &-container {
@@ -103,23 +68,5 @@
         transform: scale(1);
       }
     }
-
-    .with-contentHidden & {
-      float: right;
-    }
-
   }
-
-  &.with-contentHidden {
-    border: $bd-collapsible-container;
-    border-bottom: $bd-collapsible-container-none;
-    display: flex;
-    flex-direction: column-reverse;
-
-    &:last-child {
-      border-bottom: $bd-collapsible-container;
-    }
-
-  }
-
 }

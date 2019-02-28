@@ -31,14 +31,14 @@ class MoleculeProgressSteps extends Component {
             const totalSteps = stepsConfigs.length
             const numStep = indexStep + 1
             const lastStep = indexStep >= totalSteps - 1
+            console.log(config)
             return (
               <Fragment key={indexStep}>
                 <div
                   className={cx(CLASS_STEP, [`CLASS_STEP_${config.status}`])}
                 >
-                  {config.icon || (
-                    <span className={CLASS_STEP_NUMBER}>{numStep}</span>
-                  )}
+                  {config.icon}
+                  {config.icon.type.displayName}
                   <span className={CLASS_STEP_DESCRIPTION}>
                     {config.description}
                   </span>

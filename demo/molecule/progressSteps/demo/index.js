@@ -62,10 +62,32 @@ const Demo = () => {
         <code>MoleculeProgressSteps</code>
       </h1>
       <h2>Basic</h2>
-      <div className={CLASS_DEMO_SECTION_RESPONSIVE}>
+
+      <div className={CLASS_DEMO_SECTION}>
         <MoleculeProgressSteps
           iconStepDone={<FillCheckIcon />}
-          configSteps={configSteps}
+          configSteps={{
+            1: {
+              description: 'Step 1',
+              icon: <FillEditPaper />,
+              status: statuses.VISITED
+            },
+            2: {
+              description: 'Step 2',
+              icon: <LineUserIcon />,
+              status: statuses.ACTIVE
+            },
+            3: {
+              description: 'Step 3',
+              icon: <FillEditPaper />,
+              status: statuses.NORMAL
+            },
+            4: {
+              description: 'Step 4',
+              icon: <LineUserIcon />,
+              status: statuses.NORMAL
+            }
+          }}
         />
       </div>
     </div>

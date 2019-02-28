@@ -19,63 +19,47 @@ export const statuses = {
   NORMAL: 'NORMAL',
   ACTIVE: 'ACTIVE'
 }
+export const MoleculeProgressStep = ({
+  status,
+  icon,
+  label,
+  numStep,
+  lastStep
+}) => (
+  <Fragment>
+    <div className={cx(CLASS_STEP, [`CLASS_STEP_${status}`])}>
+      {icon || <span className={CLASS_STEP_NUMBER}>{numStep}</span>}
+      <span className={CLASS_STEP_DESCRIPTION}>{label}</span>
+    </div>
+    {!lastStep && <hr className={cx(CLASS_BAR, [`CLASS_STEP_${status}`])} />}
+  </Fragment>
+)
 
 class MoleculeProgressSteps extends Component {
+  get extendedChildren() {
+    const {children, iconStepDone} = this.props
+    return React.Children.toArray(children)
+      .filter(Boolean)
+      .map((child, index, children) => {
+        const {icon: iconChild, status} = child.props
+        const totalChildren = children.length
+        const numStep = index + 1
+        const lastStep = index >= totalChildren - 1
+        console.log(status === statuses.VISITED)
+        const icon = status === statuses.VISITED ? iconStepDone : iconChild
+        return React.cloneElement(child, {
+          numStep,
+          lastStep,
+          icon
+        })
+      })
+  }
+
   render() {
-    const {iconStepDone, configSteps} = this.props
-    console.log({iconStepDone, configSteps})
-    return (
-      configSteps && (
-        <div className={BASE_CLASS}>
-          {Object.values(configSteps).map((config, indexStep, stepsConfigs) => {
-            const totalSteps = stepsConfigs.length
-            const numStep = indexStep + 1
-            const lastStep = indexStep >= totalSteps - 1
-            console.log(config)
-            return (
-              <Fragment key={indexStep}>
-                <div
-                  className={cx(CLASS_STEP, [`CLASS_STEP_${config.status}`])}
-                >
-                  {config.icon}
-                  {config.icon.type.displayName}
-                  <span className={CLASS_STEP_DESCRIPTION}>
-                    {config.description}
-                  </span>
-                </div>
-                {!lastStep && (
-                  <hr
-                    className={cx(CLASS_BAR, [`CLASS_STEP_${config.status}`])}
-                  />
-                )}
-              </Fragment>
-            )
-          })}
-        </div>
-      )
-    )
+    const {extendedChildren} = this
+    return <div className={BASE_CLASS}>{extendedChildren}</div>
   }
 }
-
-/*
-
-  <div className={cx(CLASS_STEP, CLASS_STEP_ACTIVE)}>
-    <span className={CLASS_STEP_NUMBER}>2</span>
-    <span className={CLASS_STEP_DESCRIPTION}>Step 2</span>
-  </div>
-  <hr className={CLASS_BAR} />
- 
-  <div className={CLASS_STEP}>
-    <span className={CLASS_STEP_NUMBER}>3</span>
-    <span className={CLASS_STEP_DESCRIPTION}>Step 3</span>
-  </div>
-  <hr className={CLASS_BAR} />
- 
-  <div className={CLASS_STEP}>
-    <span className={CLASS_STEP_NUMBER}>4</span>
-    <span className={CLASS_STEP_DESCRIPTION}>Step 4</span>
-  </div>
-  */
 
 MoleculeProgressSteps.displayName = 'MoleculeProgressSteps'
 

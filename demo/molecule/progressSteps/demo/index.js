@@ -26,10 +26,18 @@ const Demo = () => {
 
       <div className={CLASS_DEMO_SECTION}>
         <MoleculeProgressSteps iconStepDone={<FillCheckIcon />}>
-          <MoleculeProgressStep label="Step 1" status={statuses.VISITED} />
-          <MoleculeProgressStep label="Step 2" status={statuses.ACTIVE} />
-          <MoleculeProgressStep label="Step 3" status={statuses.NORMAL} />
-          <MoleculeProgressStep label="Step 4" status={statuses.NORMAL} />
+          <MoleculeProgressStep label="Step 1" status={statuses.VISITED}>
+            <p>Content Step 1</p>
+          </MoleculeProgressStep>
+          <MoleculeProgressStep label="Step 2" status={statuses.ACTIVE}>
+            <p>Content Step 2</p>
+          </MoleculeProgressStep>
+          <MoleculeProgressStep label="Step 3" status={statuses.NORMAL}>
+            <p>Content Step 3</p>
+          </MoleculeProgressStep>
+          <MoleculeProgressStep label="Step 4" status={statuses.NORMAL}>
+            <p>Content Step 4</p>
+          </MoleculeProgressStep>
         </MoleculeProgressSteps>
       </div>
 

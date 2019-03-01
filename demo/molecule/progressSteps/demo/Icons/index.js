@@ -21,8 +21,6 @@ const FillCheckIcon = () => (
   </svg>
 )
 
-FillCheckIcon.displayName = 'FillCheckIcon'
-
 const FillEditPaper = () => (
   <svg width="24" height="24" viewBox="0 0 24 24">
     <defs>
@@ -44,8 +42,6 @@ const FillEditPaper = () => (
   </svg>
 )
 
-FillEditPaper.displayName = 'FillEditPaper'
-
 const LineUserIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24">
     <defs>
@@ -66,6 +62,5 @@ const LineUserIcon = () => (
     </g>
   </svg>
 )
-
 
 export {FillCheckIcon, FillEditPaper, LineUserIcon}

@@ -7,43 +7,45 @@ $bdw-progress-steps-bar: 2px !default;
 $h-progress-steps-bar: $bdw-progress-steps-bar*2 !default;
 
 .sui-MoleculeProgressSteps {
-  align-items: center;
-  display: flex;
-  /* justify-content: baseline; */
-
-  &-bar {
-    border-color: $c-progress-steps-bar-normal;
-    border-radius: 10px;
-    border-style: solid;
-    border-width: $bdw-progress-steps-bar;
-    height: $h-progress-steps-bar;
-    transform: translateY(-10px);
-    width: 100%;
-
-    &--visited {
-      border-color: $c-primary;
-    }
-  }
-
-  
-  &-step {
+  &-path {
     align-items: center;
-    color: $c-progress-steps-bar-normal;
     display: flex;
-    flex-direction: column;
-
-    &--active, &--visited {
-      color: $c-primary;
+    /* justify-content: baseline; */
+  
+    &-bar {
+      border-color: $c-progress-steps-bar-normal;
+      border-radius: 10px;
+      border-style: solid;
+      border-width: $bdw-progress-steps-bar;
+      height: $h-progress-steps-bar;
+      transform: translateY(-10px);
+      width: 100%;
+  
+      &--visited {
+        border-color: $c-primary;
+      }
     }
-
-    &-number {
-      font-size: $fz-xxl;
-    }
-
-    &-description {
-      color: $c-progress-steps-bar-text;
-      margin-top:10px;
-      white-space: nowrap;
+  
+    
+    &-step {
+      align-items: center;
+      color: $c-progress-steps-bar-normal;
+      display: flex;
+      flex-direction: column;
+  
+      &--active, &--visited {
+        color: $c-primary;
+      }
+  
+      &-number {
+        font-size: $fz-xxl;
+      }
+  
+      &-description {
+        color: $c-progress-steps-bar-text;
+        margin-top:10px;
+        white-space: nowrap;
+      }
     }
   }
 }

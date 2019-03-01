@@ -9,7 +9,7 @@ import MoleculeProgressSteps, {
   statuses
 } from '../../../../components/molecule/progressSteps/src'
 
-import {FillCheckIcon, FillEditPaper, LineUserIcon} from './Icons'
+import {CleanIcon, FillCheckIcon, FillEditPaper, LineUserIcon} from './Icons'
 import './index.scss'
 
 const BASE_CLASS_DEMO = 'DemoMoleculeProgressSteps'
@@ -25,7 +25,7 @@ const Demo = () => {
       <h2>Basic</h2>
 
       <div className={CLASS_DEMO_SECTION}>
-        <MoleculeProgressSteps iconStepDone={<FillCheckIcon />}>
+        <MoleculeProgressSteps iconStepDone={<CleanIcon />}>
           <MoleculeProgressStep label="Step 1" status={statuses.VISITED}>
             <p>Content Step 1</p>
           </MoleculeProgressStep>

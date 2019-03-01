@@ -10,7 +10,6 @@ $h-progress-steps-bar: $bdw-progress-steps-bar*2 !default;
   &-path {
     align-items: center;
     display: flex;
-    /* justify-content: baseline; */
   
     &-bar {
       border-color: $c-progress-steps-bar-normal;
@@ -32,9 +31,11 @@ $h-progress-steps-bar: $bdw-progress-steps-bar*2 !default;
       color: $c-progress-steps-bar-normal;
       display: flex;
       flex-direction: column;
+      fill: #999;
   
       &--active, &--visited {
         color: $c-primary;
+        fill: $c-primary;
       }
   
       &-number {

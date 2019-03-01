@@ -9,14 +9,16 @@ const CLASS_STEPS = `${BASE_CLASS}-path`
 const CLASS_CONTENT = `${BASE_CLASS}-content`
 
 const CLASS_BAR = `${CLASS_STEPS}-bar`
-const CLASS_BAR_VISITED = `${CLASS_BAR}--visited`
 const CLASS_STEP = `${CLASS_STEPS}-step`
-
-const CLASS_STEP_ACTIVE = `${CLASS_STEPS}--active`
-const CLASS_STEP_VISITED = `${CLASS_STEPS}--visited`
 
 const CLASS_STEP_NUMBER = `${CLASS_STEP}-number`
 const CLASS_STEP_DESCRIPTION = `${CLASS_STEP}-description`
+
+/* status */
+const CLASS_BAR_VISITED = `${CLASS_BAR}--visited`
+const CLASS_STEP_ACTIVE = `${CLASS_STEP}--active`
+const CLASS_STEP_VISITED = `${CLASS_STEP}--visited`
+
 
 export const statuses = {
   VISITED: 'VISITED',
@@ -28,9 +30,9 @@ const isVisited = status => status === statuses.VISITED
 const isActive = status => status === statuses.ACTIVE
 
 const getStatusClass = status => {
-  if (isVisited(status)) return CLASS_STEP_VISITED
-  if (isActive(status)) return CLASS_STEP_ACTIVE
-  return ''
+  if (isVisited(status)) return [CLASS_STEP_VISITED, CLASS_BAR_VISITED]
+  if (isActive(status)) return [CLASS_STEP_ACTIVE, '']
+  return ['','']
 }
 
 export const MoleculeProgressStep = ({
@@ -41,14 +43,14 @@ export const MoleculeProgressStep = ({
   lastStep,
   children
 }) => {
-  const CLASS_STATUS = getStatusClass(status)
+  const [CLASS_STEP_STATUS, CLASS_BAR_STATUS] = getStatusClass(status)
   return (
     <Fragment>
-      <div className={CLASS_STEP}>
+      <div className={cx(CLASS_STEP, CLASS_STEP_STATUS)}>
         {icon || <span className={CLASS_STEP_NUMBER}>{numStep}</span>}
         <span className={CLASS_STEP_DESCRIPTION}>{label}</span>
       </div>
-      {!lastStep && <hr className={CLASS_BAR} />}
+      {!lastStep && <hr className={cx(CLASS_BAR, CLASS_BAR_STATUS)} />}
     </Fragment>
   )
 }

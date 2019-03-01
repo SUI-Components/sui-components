@@ -10,7 +10,7 @@ const FillCheckIcon = () => (
     </defs>
     <g fill="none" fillRule="evenodd">
       <path d="M0 0h24v24H0z" />
-      <mask id="FillCheckIconMask" >
+      <mask id="FillCheckIconMask">
         <use xlinkHref="#FillCheckIconPath" />
       </mask>
       <use xlinkHref="#FillCheckIconPath" />

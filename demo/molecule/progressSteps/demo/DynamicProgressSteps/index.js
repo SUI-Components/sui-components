@@ -12,6 +12,7 @@ class DynamicMoleculeProgressSteps extends Component {
   }
 
   setStep = e => {
+    e.preventDefault()
     const {
       dataset: {step: selectedStep}
     } = e.target
@@ -41,21 +42,46 @@ class DynamicMoleculeProgressSteps extends Component {
       <Fragment>
         <div style={{padding: '10px', margin: '10px'}}>
           Set{' '}
-          <button onClick={setStep} data-step="1">
+          <a
+            href="#"
+            onClick={setStep}
+            data-step="1"
+            style={{padding: '0 5px'}}
+          >
             Step1
-          </button>
-          <button onClick={setStep} data-step="2">
+          </a>
+          <a
+            href="#"
+            onClick={setStep}
+            data-step="2"
+            style={{padding: '0 5px'}}
+          >
             Step2
-          </button>
-          <button onClick={setStep} data-step="3">
+          </a>
+          <a
+            href="#"
+            onClick={setStep}
+            data-step="3"
+            style={{padding: '0 5px'}}
+          >
             Step3
-          </button>
-          <button onClick={setStep} data-step="4">
+          </a>
+          <a
+            href="#"
+            onClick={setStep}
+            data-step="4"
+            style={{padding: '0 5px'}}
+          >
             Step4
-          </button>
-          <button onClick={setStep} data-step="5">
+          </a>
+          <a
+            href="#"
+            onClick={setStep}
+            data-step="5"
+            style={{padding: '0 5px'}}
+          >
             All Done
-          </button>
+          </a>
         </div>
 
         <MoleculeProgressSteps iconStepDone={<FillCheckIcon />}>

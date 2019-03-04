@@ -80,7 +80,6 @@ const Demo = () => {
           )}
         </MoleculeProgressSteps>
       </div>
-
     </div>
   )
 }

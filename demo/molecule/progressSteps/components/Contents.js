@@ -66,8 +66,8 @@ export const Content3 = () => (
 export const Content4 = () => (
   <div className={CLASS_DEMO_CONTENT_STEP}>
     <h4>
-      Step 4 → Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in
-      45 BC
+      Step 4 → Section 1.10.33 of "de Finibus Bonorum et Malorum", written by
+      Cicero in 45 BC
     </h4>
     <p>
       At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis

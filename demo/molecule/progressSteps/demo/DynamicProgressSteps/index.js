@@ -53,7 +53,6 @@ class DynamicMoleculeProgressSteps extends Component {
           <button onClick={setStep} data-step="4">
             Step4
           </button>
-
           <button onClick={setStep} data-step="5">
             All Done
           </button>

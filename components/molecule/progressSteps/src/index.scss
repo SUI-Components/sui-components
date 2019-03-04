@@ -6,6 +6,8 @@ $c-progress-steps-bar-text: #353535 !default;
 $bdw-progress-steps-bar: 2px !default;
 $h-progress-steps-bar: $bdw-progress-steps-bar*2 !default;
 
+$base_class: '.sui-MoleculeProgressSteps';
+
 .sui-MoleculeProgressSteps {
   &-path {
     align-items: center;
@@ -22,6 +24,7 @@ $h-progress-steps-bar: $bdw-progress-steps-bar*2 !default;
   
       &--visited {
         border-color: $c-primary;
+        background: $c-primary;
       }
     }
   
@@ -37,7 +40,12 @@ $h-progress-steps-bar: $bdw-progress-steps-bar*2 !default;
         color: $c-primary;
         fill: $c-primary;
       }
-  
+      &-icon {
+        width: 40px;
+        svg {
+          width: 100%;
+        }
+      }
       &-number {
         font-size: $fz-xxl;
       }
@@ -46,6 +54,35 @@ $h-progress-steps-bar: $bdw-progress-steps-bar*2 !default;
         color: $c-progress-steps-bar-text;
         margin-top:10px;
         white-space: nowrap;
+      }
+    }
+  }
+
+  &--vertical {
+    display: flex;
+    height: 100%;
+
+    #{$base-class}-path {
+      flex-direction: column;
+      justify-content: space-between; 
+      margin-right: 80px;
+
+      &-step {
+        flex-direction: row;
+        position: relative;
+
+        &-description {
+          left: 25px;
+          position: absolute;
+          top: -15px;
+        }
+      }
+
+      &-bar {
+        height: 100%;
+        margin: 20px 0;
+        transform: translateY(0px);
+        width: 1px;
       }
     }
   }

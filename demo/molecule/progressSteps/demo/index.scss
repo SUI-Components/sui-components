@@ -12,7 +12,9 @@
   
   &-section {
     margin-bottom: 16px;
-
+    &--vertical {
+      height: 500px;
+    }
     &-responsive {
       background: white;
       border: 2px dashed blue;

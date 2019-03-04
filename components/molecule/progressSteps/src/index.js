@@ -12,7 +12,11 @@ const CLASS_BAR = `${CLASS_STEPS}-bar`
 const CLASS_STEP = `${CLASS_STEPS}-step`
 
 const CLASS_STEP_NUMBER = `${CLASS_STEP}-number`
+const CLASS_STEP_ICON = `${CLASS_STEP}-icon`
+
 const CLASS_STEP_DESCRIPTION = `${CLASS_STEP}-description`
+
+const CLASS_VERTICAL = `${BASE_CLASS}--vertical`
 
 /* status */
 const CLASS_BAR_VISITED = `${CLASS_BAR}--visited`
@@ -47,7 +51,11 @@ export const MoleculeProgressStep = ({
   return (
     <Fragment>
       <div className={cx(CLASS_STEP, CLASS_STEP_STATUS)}>
-        {icon || <span className={CLASS_STEP_NUMBER}>{numStep}</span>}
+        {
+          icon 
+          ? <span className={CLASS_STEP_ICON}>{icon}</span>
+          : <span className={CLASS_STEP_NUMBER}>{numStep}</span>
+        }
         <span className={CLASS_STEP_DESCRIPTION}>{label}</span>
       </div>
       {!lastStep && <hr className={cx(CLASS_BAR, CLASS_BAR_STATUS)} />}
@@ -82,8 +90,9 @@ class MoleculeProgressSteps extends Component {
 
   render() {
     const {extendedChildren, activeStepContent} = this
+    const {vertical} = this.props
     return (
-      <div className={BASE_CLASS}>
+      <div className={cx(BASE_CLASS, {[CLASS_VERTICAL]: vertical})}>
         <div className={CLASS_STEPS}>{extendedChildren}</div>
         <div className={CLASS_CONTENT}>{activeStepContent}</div>
       </div>

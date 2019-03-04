@@ -4,6 +4,12 @@
 .DemoMoleculeProgressSteps {
   padding: 20px;
 
+  &-contentStep {
+    background: #ddd;
+    padding: 10px;
+    margin: 20px 0;
+  }
+  
   &-section {
     margin-bottom: 16px;
 

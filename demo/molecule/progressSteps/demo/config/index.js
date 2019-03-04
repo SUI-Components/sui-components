@@ -1,0 +1,54 @@
+import React from 'react'
+import {Content1, Content2, Content3, Content4} from '../../components/Contents'
+import {PointerMapIcon, PaperPlaneIcon, ChatIcon, StarIcon} from '../Icons'
+import {statuses} from '../../../../../components/molecule/progressSteps/src'
+
+export const configBasic = {
+  1: {
+    label: 'Step 1',
+    content: <Content1 />,
+    status: statuses.VISITED
+  },
+  2: {
+    label: 'Step 2',
+    content: <Content2 />,
+    status: statuses.ACTIVE
+  },
+  3: {
+    label: 'Step 3',
+    content: <Content3 />,
+    status: statuses.NORMAL
+  },
+  4: {
+    label: 'Step 4',
+    content: <Content4 />,
+    status: statuses.NORMAL
+  }
+}
+
+export const configWithIcons = {
+  1: {
+    label: 'Step 1',
+    content: <Content1 />,
+    icon: <PointerMapIcon />,
+    status: statuses.ACTIVE
+  },
+  2: {
+    label: 'Step 2',
+    content: <Content2 />,
+    icon: <PaperPlaneIcon />,
+    status: statuses.NORMAL
+  },
+  3: {
+    label: 'Step 3',
+    content: <Content3 />,
+    icon: <ChatIcon />,
+    status: statuses.NORMAL
+  },
+  4: {
+    label: 'Step 4',
+    content: <Content4 />,
+    icon: <StarIcon />,
+    status: statuses.NORMAL
+  }
+}

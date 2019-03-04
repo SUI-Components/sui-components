@@ -82,7 +82,6 @@ class MoleculeProgressSteps extends Component {
 
   render() {
     const {extendedChildren, activeStepContent} = this
-    console.log(activeStepContent)
     return (
       <div className={BASE_CLASS}>
         <div className={CLASS_STEPS}>{extendedChildren}</div>

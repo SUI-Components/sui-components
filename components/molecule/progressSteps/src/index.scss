@@ -67,6 +67,25 @@ $base_class: '.sui-MoleculeProgressSteps';
       }
     }
   }
+  &--compressed {
+    
+    #{$base-class}-compressedInfo {
+      margin: 0;
+    }
+    #{$base-class}-path {
+      &-bar {
+        margin-right: 10px;
+      }
+      &-step {
+        
+        &-description {
+          margin: 0;
+          left:0;
+          text-align: left;
+        }
+      }
+    }
+  }
 
   &--vertical {
     display: flex;

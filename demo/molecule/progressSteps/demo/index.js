@@ -5,8 +5,7 @@ import cx from 'classnames'
 
 import LayoutMediaQuery from '@s-ui/react-layout-media-query'
 import MoleculeProgressSteps, {
-  MoleculeProgressStep,
-  statuses
+  MoleculeProgressStep
 } from '../../../../components/molecule/progressSteps/src'
 
 import './index.scss'
@@ -21,7 +20,6 @@ const CLASS_DEMO_SECTION_VERTICAL = `${CLASS_DEMO_SECTION}--vertical`
 const CLASS_DEMO_SECTION_RESPONSIVE = `${CLASS_DEMO_SECTION}-responsive`
 const CLASS_DEMO_CONTENT_STEP = `${BASE_CLASS_DEMO}-contentStep`
 
-console.log(configBasic)
 const Demo = () => {
   return (
     <div className={BASE_CLASS_DEMO}>
@@ -29,14 +27,13 @@ const Demo = () => {
         <code>MoleculeProgressSteps</code>
       </h1>
       <h2>Dynamic</h2>
-      <h3>Basic</h3>
 
+      <h3>Basic</h3>
       <div className={CLASS_DEMO_SECTION}>
         <DynamicProgressSteps config={configBasic6Steps} />
       </div>
 
       <h3>w/ Icons</h3>
-
       <div className={CLASS_DEMO_SECTION}>
         <DynamicProgressSteps config={configWithIcons} />
       </div>
@@ -44,7 +41,6 @@ const Demo = () => {
       <h2>Static</h2>
 
       <h3>Basic</h3>
-
       <div className={CLASS_DEMO_SECTION}>
         <MoleculeProgressSteps iconStepDone={<FillCheckIcon />}>
           {Object.values(configBasic).map(
@@ -61,6 +57,25 @@ const Demo = () => {
           )}
         </MoleculeProgressSteps>
       </div>
+
+      <h3>Compressed</h3>
+      <div className={CLASS_DEMO_SECTION}>
+        <MoleculeProgressSteps iconStepDone={<FillCheckIcon />} compressed>
+          {Object.values(configBasic).map(
+            ({status, label, content, icon}, index) => (
+              <MoleculeProgressStep
+                key={index}
+                label={label}
+                status={status}
+                icon={icon}
+              >
+                {content}
+              </MoleculeProgressStep>
+            )
+          )}
+        </MoleculeProgressSteps>
+      </div>
+
 
       <h3>Vertical</h3>
 

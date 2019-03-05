@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react'
 
 import MoleculeProgressSteps, {
   MoleculeProgressStep,
-  statuses
+  STATUSES
 } from '../../../../../components/molecule/progressSteps/src'
 import {FillCheckIcon} from '../Icons'
 
@@ -18,9 +18,9 @@ class DynamicMoleculeProgressSteps extends Component {
     } = e.target
     const newStatuses = this.state.statuses.map((status, index) => {
       const step = index + 1
-      if (+selectedStep > step) return statuses.VISITED
-      if (+selectedStep === step) return statuses.ACTIVE
-      return statuses.NORMAL
+      if (+selectedStep > step) return STATUSES.VISITED
+      if (+selectedStep === step) return STATUSES.ACTIVE
+      return STATUSES.NORMAL
     })
     this.setState({
       statuses: newStatuses

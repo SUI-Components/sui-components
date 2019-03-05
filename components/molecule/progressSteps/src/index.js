@@ -1,73 +1,45 @@
-/* eslint-disable */
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import cx from 'classnames'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
+
+import MoleculeProgressStep, {STATUSES} from './components/MoleculeProgressStep'
 
 const BASE_CLASS = `sui-MoleculeProgressSteps`
 
 const CLASS_STEPS = `${BASE_CLASS}-path`
 const CLASS_CONTENT = `${BASE_CLASS}-content`
-
-const CLASS_BAR = `${CLASS_STEPS}-bar`
-const CLASS_STEP = `${CLASS_STEPS}-step`
-
-const CLASS_STEP_NUMBER = `${CLASS_STEP}-number`
-const CLASS_STEP_ICON = `${CLASS_STEP}-icon`
-
-const CLASS_STEP_DESCRIPTION = `${CLASS_STEP}-description`
+const CLASS_COMPRESSED_INFO = `${BASE_CLASS}-compressedInfo`
 
 const CLASS_VERTICAL = `${BASE_CLASS}--vertical`
-
-/* status */
-const CLASS_BAR_VISITED = `${CLASS_BAR}--visited`
-const CLASS_STEP_ACTIVE = `${CLASS_STEP}--active`
-const CLASS_STEP_VISITED = `${CLASS_STEP}--visited`
-
-
-export const statuses = {
-  VISITED: 'VISITED',
-  NORMAL: 'NORMAL',
-  ACTIVE: 'ACTIVE'
-}
-
-const isVisited = status => status === statuses.VISITED
-const isActive = status => status === statuses.ACTIVE
-
-const getStatusClass = status => {
-  if (isVisited(status)) return [CLASS_STEP_VISITED, CLASS_BAR_VISITED]
-  if (isActive(status)) return [CLASS_STEP_ACTIVE, '']
-  return ['','']
-}
-
-export const MoleculeProgressStep = ({
-  status,
-  icon,
-  label,
-  numStep,
-  lastStep,
-  children
-}) => {
-  const [CLASS_STEP_STATUS, CLASS_BAR_STATUS] = getStatusClass(status)
-  return (
-    <Fragment>
-      <div className={cx(CLASS_STEP, CLASS_STEP_STATUS)}>
-        {
-          icon 
-          ? <span className={CLASS_STEP_ICON}>{icon}</span>
-          : <span className={CLASS_STEP_NUMBER}>{numStep}</span>
-        }
-        <span className={CLASS_STEP_DESCRIPTION}>{label}</span>
-      </div>
-      {!lastStep && <hr className={cx(CLASS_BAR, CLASS_BAR_STATUS)} />}
-    </Fragment>
-  )
-}
-
-/*  className={cx(CLASS_STEP, CLASS_STATUS)} */
+const CLASS_COMPRESSED = `${BASE_CLASS}--compressed`
 
 class MoleculeProgressSteps extends Component {
+  get className() {
+    const {vertical, compressed} = this.props
+    return cx(BASE_CLASS, {
+      [CLASS_VERTICAL]: vertical,
+      [CLASS_COMPRESSED]: compressed
+    })
+  }
+
+  get compressedInfoSteps() {
+    const {children} = this.props
+    const childrenNodes = React.Children.toArray(children)
+    const totalSteps = childrenNodes.length
+    const [activeLabel, numActiveStep] = childrenNodes.reduce(
+      (acc, child, index) => {
+        const {status} = child.props
+        if (status === STATUSES.ACTIVE) acc = [child.props.label, index + 1]
+        return acc
+      },
+      []
+    )
+    const stepPositionInfo = `${numActiveStep}/${totalSteps}`
+    return `${stepPositionInfo}: ${activeLabel}`
+  }
+
   get extendedChildren() {
-    const {children, iconStepDone} = this.props
+    const {children, iconStepDone, compressed} = this.props
     return React.Children.toArray(children)
       .filter(Boolean)
       .map((child, index, children) => {
@@ -75,24 +47,33 @@ class MoleculeProgressSteps extends Component {
         const totalChildren = children.length
         const numStep = index + 1
         const lastStep = index >= totalChildren - 1
-        const isVisited = status === statuses.VISITED
-        const isActive = status === statuses.ACTIVE
+        const isVisited = status === STATUSES.VISITED
+        const isActive = status === STATUSES.ACTIVE
         const icon = isVisited ? iconStepDone : iconChild
         if (isActive) this.activeStepContent = childrenChild
 
         return React.cloneElement(child, {
           numStep,
           lastStep,
-          icon
+          icon,
+          compressed
         })
       })
   }
 
   render() {
-    const {extendedChildren, activeStepContent} = this
-    const {vertical} = this.props
+    const {
+      extendedChildren,
+      compressedInfoSteps,
+      activeStepContent,
+      className
+    } = this
+    const {compressed} = this.props
     return (
-      <div className={cx(BASE_CLASS, {[CLASS_VERTICAL]: vertical})}>
+      <div className={className}>
+        {compressed && (
+          <p className={CLASS_COMPRESSED_INFO}>{compressedInfoSteps}</p>
+        )}
         <div className={CLASS_STEPS}>{extendedChildren}</div>
         <div className={CLASS_CONTENT}>{activeStepContent}</div>
       </div>
@@ -102,9 +83,21 @@ class MoleculeProgressSteps extends Component {
 
 MoleculeProgressSteps.displayName = 'MoleculeProgressSteps'
 
-// Remove these comments if you need
-// MoleculeProgressSteps.contextTypes = {i18n: PropTypes.object}
-// MoleculeProgressSteps.propTypes = {}
+MoleculeProgressSteps.propTypes = {
+  /** children */
+  children: PropTypes.any,
+
+  /** Icon to display when status VISITED */
+  iconStepDone: PropTypes.node.isRequired,
+
+  /** Compressed mode (mobile) */
+  compressed: PropTypes.bool,
+
+  /** Vertical mode */
+  vertical: PropTypes.bool
+}
+
 // MoleculeProgressSteps.defaultProps = {}
 
 export default MoleculeProgressSteps
+export {MoleculeProgressStep, STATUSES}

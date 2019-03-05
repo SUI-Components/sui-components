@@ -68,25 +68,25 @@ export const configBasic6Steps = {
 
 export const configWithIcons = {
   1: {
-    label: 'Step 1',
+    label: 'Selección de Productos',
     content: <Content1 />,
     icon: <PointerMapIcon />,
     status: statuses.VISITED
   },
   2: {
-    label: 'Step 2',
+    label: 'Tu pago seguro',
     content: <Content2 />,
     icon: <PaperPlaneIcon />,
     status: statuses.VISITED
   },
   3: {
-    label: 'Step 3',
+    label: 'Resumen de tu compra',
     content: <Content3 />,
     icon: <ChatIcon />,
     status: statuses.ACTIVE
   },
   4: {
-    label: 'Step 4',
+    label: 'Valoración del proceso',
     content: <Content4 />,
     icon: <StarIcon />,
     status: statuses.NORMAL

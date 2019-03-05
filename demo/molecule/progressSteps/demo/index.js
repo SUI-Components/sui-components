@@ -62,25 +62,6 @@ const Demo = () => {
         </MoleculeProgressSteps>
       </div>
 
-      <h3>Basic 6 steps</h3>
-
-      <div className={CLASS_DEMO_SECTION}>
-        <MoleculeProgressSteps iconStepDone={<FillCheckIcon />}>
-          {Object.values(configBasic).map(
-            ({status, label, content, icon}, index) => (
-              <MoleculeProgressStep
-                key={index}
-                label={label}
-                status={status}
-                icon={icon}
-              >
-                {content}
-              </MoleculeProgressStep>
-            )
-          )}
-        </MoleculeProgressSteps>
-      </div>
-
       <h3>Vertical</h3>
 
       <div className={cx(CLASS_DEMO_SECTION, CLASS_DEMO_SECTION_VERTICAL)}>

@@ -4,16 +4,27 @@
 .DemoMoleculeProgressSteps {
   padding: 20px;
 
+  h3 {
+    margin-top: 40px;
+  }
+
+  &-section--vertical &-contentStep {
+    margin: 0;
+  }
+
   &-contentStep {
     background: #ddd;
-    padding: 10px;
     margin: 20px 0;
+    padding: 10px;
   }
   
   &-section {
+    border: 1px solid #ccc;
     margin-bottom: 16px;
+    padding: 40px;
+
     &--vertical {
-      height: 500px;
+      height: 700px;
     }
     &-responsive {
       background: white;

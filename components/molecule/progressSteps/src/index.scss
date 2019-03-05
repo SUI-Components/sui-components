@@ -70,9 +70,18 @@ $base_class: '.sui-MoleculeProgressSteps';
       &-step {
         flex-direction: row;
         position: relative;
-
+        &-number {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        &-number, &-icon {
+          width: 40px;
+          height: 40px;
+        }
+        
         &-description {
-          left: 25px;
+          left: 45px;
           position: absolute;
           top: -15px;
         }

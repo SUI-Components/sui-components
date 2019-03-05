@@ -85,3 +85,36 @@ export const Content4 = () => (
     </p>
   </div>
 )
+
+export const Content5 = () => (
+  <div className={CLASS_DEMO_CONTENT_STEP}>
+    <h4>Step 5</h4>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipiscing elit laoreet nullam
+      nulla commodo, eget interdum suscipit aliquam molestie sem dictumst nisi
+      aliquet. Lectus bibendum augue pulvinar nulla sodales nisl dis tristique,
+      sagittis lobortis nullam felis blandit massa cum ultricies vulputate, eu
+      potenti lacinia accumsan varius quis quisque. Ac varius posuere elementum
+      ridiculus praesent interdum, platea nec enim arcu cubilia ante imperdiet,
+      donec tortor sapien turpis luctus.
+    </p>
+  </div>
+)
+
+export const Content6 = () => (
+  <div className={CLASS_DEMO_CONTENT_STEP}>
+    <h4>Step 6</h4>
+    <p>
+      Fringilla libero hendrerit quam congue id mus lobortis semper, nec
+      volutpat dapibus platea feugiat aenean tempus pellentesque, habitasse
+      interdum fames hac tempor ac lacinia. Potenti consequat urna justo nulla
+      quis porttitor netus sociis rutrum elementum, orci eros ultrices odio
+      malesuada dictum proin eu mus, montes at tempus augue rhoncus a risus
+      aliquet dapibus. Magnis nulla habitasse arcu convallis feugiat, justo
+      risus enim semper vel ultrices, cubilia quisque morbi ante. Parturient
+      libero urna quis orci hac pretium vel mus quam arcu, tellus feugiat est
+      rutrum hendrerit nullam penatibus leo placerat, eu mattis tempor metus
+      conubia ante natoque morbi tortor.
+    </p>
+  </div>
+)

@@ -41,47 +41,17 @@ class DynamicMoleculeProgressSteps extends Component {
     return (
       <Fragment>
         <div style={{padding: '10px', margin: '10px'}}>
-          Set{' '}
-          <a
-            href="#"
-            onClick={setStep}
-            data-step="1"
-            style={{padding: '0 5px'}}
-          >
-            Step1
-          </a>
-          <a
-            href="#"
-            onClick={setStep}
-            data-step="2"
-            style={{padding: '0 5px'}}
-          >
-            Step2
-          </a>
-          <a
-            href="#"
-            onClick={setStep}
-            data-step="3"
-            style={{padding: '0 5px'}}
-          >
-            Step3
-          </a>
-          <a
-            href="#"
-            onClick={setStep}
-            data-step="4"
-            style={{padding: '0 5px'}}
-          >
-            Step4
-          </a>
-          <a
-            href="#"
-            onClick={setStep}
-            data-step="5"
-            style={{padding: '0 5px'}}
-          >
-            All Done
-          </a>
+          {Object.keys(config).map((stepNumber, index) => (
+            <a
+              key={index}
+              href="#"
+              onClick={setStep}
+              data-step={stepNumber}
+              style={{padding: '0 5px'}}
+            >
+              Step {stepNumber}
+            </a>
+          ))}
         </div>
 
         <MoleculeProgressSteps iconStepDone={<FillCheckIcon />}>

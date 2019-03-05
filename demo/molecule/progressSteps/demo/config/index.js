@@ -12,22 +12,22 @@ import {statuses} from '../../../../../components/molecule/progressSteps/src'
 
 export const configBasic = {
   1: {
-    label: 'Step 1',
+    label: 'Selección de Productos',
     content: <Content1 />,
     status: statuses.VISITED
   },
   2: {
-    label: 'Step 2',
+    label: 'Tu pago seguro',
     content: <Content2 />,
     status: statuses.ACTIVE
   },
   3: {
-    label: 'Step 3',
+    label: 'Resumen de tu compra',
     content: <Content3 />,
     status: statuses.NORMAL
   },
   4: {
-    label: 'Step 4',
+    label: 'Valoración del proceso',
     content: <Content4 />,
     status: statuses.NORMAL
   }

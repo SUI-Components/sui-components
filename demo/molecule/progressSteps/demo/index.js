@@ -76,7 +76,6 @@ const Demo = () => {
         </MoleculeProgressSteps>
       </div>
 
-
       <h3>Vertical</h3>
 
       <div className={cx(CLASS_DEMO_SECTION, CLASS_DEMO_SECTION_VERTICAL)}>

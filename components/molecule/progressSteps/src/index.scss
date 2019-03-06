@@ -1,4 +1,4 @@
-@import "~@schibstedspain/sui-theme/lib/index";
+@import '~@schibstedspain/sui-theme/lib/index';
 
 $c-progress-steps-bar: #bbb !default;
 $c-progress-steps-label: #353535 !default;
@@ -9,7 +9,7 @@ $c-progress-steps-active: $c-primary !default;
 $bdw-progress-steps-bar: 2px !default;
 $h-progress-steps-bar: $bdw-progress-steps-bar * 2 !default;
 
-$base_class: ".sui-MoleculeProgressSteps";
+$base-class: '.sui-MoleculeProgressSteps';
 
 .sui-MoleculeProgressSteps {
   &-path {
@@ -120,7 +120,7 @@ $base_class: ".sui-MoleculeProgressSteps";
 
         &-description {
           left: 45px;
-          margin-top: 0px;
+          margin-top: 0;
           position: absolute;
           text-align: left;
         }
@@ -129,7 +129,7 @@ $base_class: ".sui-MoleculeProgressSteps";
       &-bar {
         height: 100%;
         margin: 20px 0;
-        transform: translateY(0px);
+        transform: translateY(0);
         width: 1px;
       }
     }

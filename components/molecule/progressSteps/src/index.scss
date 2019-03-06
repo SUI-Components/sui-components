@@ -1,8 +1,8 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$c-progress-steps-bar: #bbb !default;
+$c-progress-steps-bar: #BBBBBB !default;
 $c-progress-steps-label: #353535 !default;
-$c-progress-steps-icon: #999 !default;
+$c-progress-steps-icon: #999999 !default;
 
 $c-progress-steps-active: $c-primary !default;
 
@@ -44,10 +44,12 @@ $base-class: '.sui-MoleculeProgressSteps';
         color: $c-progress-steps-active;
         fill: $c-progress-steps-active;
       }
+
       &-number,
       &-icon {
         height: 40px;
         width: 40px;
+
         svg {
           width: 100%;
         }

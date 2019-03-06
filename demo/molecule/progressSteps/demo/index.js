@@ -28,14 +28,31 @@ const Demo = () => {
       </h1>
       <h2>Dynamic</h2>
 
-      <h3>Basic</h3>
-      <div className={CLASS_DEMO_SECTION}>
-        <DynamicProgressSteps config={configBasic6Steps} />
+      <h3>Basic (Responsive)</h3>
+      <div className={CLASS_DEMO_SECTION_RESPONSIVE}>
+        <LayoutMediaQuery>
+          {({S}) => {
+            console.log(S)
+            return (
+              <DynamicProgressSteps
+                config={configBasic6Steps}
+                compressed={!S}
+              />
+            )
+          }}
+        </LayoutMediaQuery>
       </div>
 
-      <h3>w/ Icons</h3>
-      <div className={CLASS_DEMO_SECTION}>
-        <DynamicProgressSteps config={configWithIcons} />
+      <h3>w/ Icons (Responsive)</h3>
+      <div className={CLASS_DEMO_SECTION_RESPONSIVE}>
+        <LayoutMediaQuery>
+          {({S}) => {
+            console.log(S)
+            return (
+              <DynamicProgressSteps config={configWithIcons} compressed={!S} />
+            )
+          }}
+        </LayoutMediaQuery>
       </div>
 
       <h2>Static</h2>

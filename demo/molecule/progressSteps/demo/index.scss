@@ -26,12 +26,13 @@
     &--vertical {
       height: 700px;
     }
+    
     &-responsive {
       background: white;
       border: 2px dashed blue;
       margin-top: 10px;
       overflow: hidden;
-      padding: 10px;
+      padding: 30px;
       resize: horizontal;
     }
   }

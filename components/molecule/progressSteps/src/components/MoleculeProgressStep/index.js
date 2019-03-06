@@ -44,6 +44,7 @@ const MoleculeProgressStep = ({
   children
 }) => {
   const [CLASS_STEP_STATUS, CLASS_BAR_STATUS] = getStatusClass(status)
+  const bar = <hr className={cx(CLASS_BAR, CLASS_BAR_STATUS)} />
   return (
     <Fragment>
       {!compressed && (
@@ -56,7 +57,7 @@ const MoleculeProgressStep = ({
           <span className={CLASS_STEP_DESCRIPTION}>{label}</span>
         </div>
       )}
-      {!lastStep && <hr className={cx(CLASS_BAR, CLASS_BAR_STATUS)} />}
+      {!lastStep ? bar : compressed && bar}
     </Fragment>
   )
 }

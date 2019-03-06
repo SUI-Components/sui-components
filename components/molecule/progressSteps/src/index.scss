@@ -1,51 +1,57 @@
-@import '~@schibstedspain/sui-theme/lib/index';
+@import "~@schibstedspain/sui-theme/lib/index";
 
-$c-progress-steps-bar-normal: #bbb !default;
-$c-progress-steps-bar-text: #353535 !default;
+$c-progress-steps-bar: #bbb !default;
+$c-progress-steps-label: #353535 !default;
 
 $bdw-progress-steps-bar: 2px !default;
-$h-progress-steps-bar: $bdw-progress-steps-bar*2 !default;
+$h-progress-steps-bar: $bdw-progress-steps-bar * 2 !default;
 
-$base_class: '.sui-MoleculeProgressSteps';
+$base_class: ".sui-MoleculeProgressSteps";
 
 .sui-MoleculeProgressSteps {
   &-path {
     align-items: center;
     display: flex;
-  
+
     &-bar {
-      border-color: $c-progress-steps-bar-normal;
+      border-color: $c-progress-steps-bar;
+      background: $c-progress-steps-bar;
       border-radius: 10px;
       border-style: solid;
       border-width: $bdw-progress-steps-bar;
       height: $h-progress-steps-bar;
       width: 100%;
-  
+
       &--visited {
         border-color: $c-primary;
         background: $c-primary;
       }
     }
-  
-    
+
     &-step {
       align-items: center;
-      color: $c-progress-steps-bar-normal;
+      color: $c-progress-steps-label;
       display: flex;
       fill: #999;
       flex-direction: column;
       position: relative;
 
-      &--active, &--visited {
+      &--active,
+      &--visited {
         color: $c-primary;
         fill: $c-primary;
       }
-      &-number, &-icon {
+      &-number,
+      &-icon {
         height: 40px;
         width: 40px;
         svg {
           width: 100%;
         }
+      }
+
+      &-icon {
+        margin: 10px;
       }
 
       &-number {
@@ -54,9 +60,9 @@ $base_class: '.sui-MoleculeProgressSteps';
         font-size: $fz-xxl;
         justify-content: center;
       }
-  
+
       &-description {
-        color: $c-progress-steps-bar-text;
+        color: $c-progress-steps-label;
         hyphens: auto;
         margin-top: 45px;
         overflow-wrap: break-word;
@@ -65,22 +71,26 @@ $base_class: '.sui-MoleculeProgressSteps';
         width: 100px;
         word-wrap: break-word;
       }
+      &-icon + &-description {
+        margin-top: 55px;
+      }
     }
   }
   &--compressed {
-    
     #{$base-class}-compressedInfo {
       margin: 0;
     }
     #{$base-class}-path {
       &-bar {
         margin-right: 10px;
+        &:last-child {
+          margin-right: 0;
+        }
       }
       &-step {
-        
         &-description {
           margin: 0;
-          left:0;
+          left: 0;
           text-align: left;
         }
       }
@@ -93,13 +103,13 @@ $base_class: '.sui-MoleculeProgressSteps';
 
     #{$base-class}-path {
       flex-direction: column;
-      justify-content: space-between; 
+      justify-content: space-between;
       margin-right: 100px;
 
       &-step {
         flex-direction: row;
         position: relative;
-        
+
         &-description {
           left: 45px;
           margin-top: 0px;
@@ -114,6 +124,10 @@ $base_class: '.sui-MoleculeProgressSteps';
         transform: translateY(0px);
         width: 1px;
       }
+    }
+
+    #{$base-class}-path-step-icon + #{$base-class}-path-step-description {
+      left: 55px;
     }
   }
 }

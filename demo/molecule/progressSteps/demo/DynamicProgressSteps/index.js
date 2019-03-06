@@ -36,11 +36,11 @@ class DynamicMoleculeProgressSteps extends Component {
 
   render() {
     const {setStep} = this
-    const {config} = this.props // eslint-disable-line
+    const {config, ...props} = this.props // eslint-disable-line
     const {statuses} = this.state // eslint-disable-line
     return (
       <Fragment>
-        <div style={{padding: '10px', margin: '10px'}}>
+        <div style={{paddingRight: '10px', margin: '10px 0 30px'}}>
           {Object.keys(config).map((stepNumber, index) => (
             <a
               key={index}
@@ -54,7 +54,7 @@ class DynamicMoleculeProgressSteps extends Component {
           ))}
         </div>
 
-        <MoleculeProgressSteps iconStepDone={<FillCheckIcon />}>
+        <MoleculeProgressSteps {...props} iconStepDone={<FillCheckIcon />}>
           {Object.values(config).map(
             ({status, label, content, icon}, index) => (
               <MoleculeProgressStep

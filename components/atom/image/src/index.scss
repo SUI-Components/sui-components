@@ -45,6 +45,7 @@ $base-class: '.sui-AtomImage';
   }
 
   &-image {
+    display: block;
     height: 100%;
     object-fit: cover;
     width: 100%;

@@ -50,11 +50,11 @@ const MoleculeProgressStep = ({
       {!compressed && (
         <div className={cx(CLASS_STEP, CLASS_STEP_STATUS)}>
           {icon ? (
-            <span className={CLASS_STEP_ICON}>{icon}</span>
+            <div className={CLASS_STEP_ICON}>{icon}</div>
           ) : (
-            <span className={CLASS_STEP_NUMBER}>{numStep}</span>
+            <p className={CLASS_STEP_NUMBER}>{numStep}</p>
           )}
-          <span className={CLASS_STEP_DESCRIPTION}>{label}</span>
+          <p className={CLASS_STEP_DESCRIPTION}>{label}</p>
         </div>
       )}
       {!lastStep ? bar : compressed && bar}

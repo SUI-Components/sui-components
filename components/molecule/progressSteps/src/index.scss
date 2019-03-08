@@ -48,9 +48,10 @@ $base-class: '.sui-MoleculeProgressSteps';
       &-number,
       &-icon {
         height: 40px;
-        padding: 0;
         margin: 5px;
+        padding: 0;
         width: 40px;
+
         svg {
           width: 100%;
         }

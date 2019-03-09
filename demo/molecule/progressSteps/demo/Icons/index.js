@@ -18,7 +18,6 @@ const FillCheckIcon = () => (
   </svg>
 )
 
-
 export {
   FillCheckIcon,
   IconLineFactory,

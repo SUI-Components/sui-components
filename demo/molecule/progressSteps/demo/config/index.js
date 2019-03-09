@@ -7,7 +7,16 @@ import {
   Content5,
   Content6
 } from '../components/Contents'
-import {PointerMapIcon, PaperPlaneIcon, ChatIcon, StarIcon} from '../Icons'
+import {
+  IconLineFactory,
+  IconFillFactory,
+  IconLineClock,
+  IconFillClock,
+  IconLineLocation,
+  IconFillLocation,
+  IconLineSuitcase,
+  IconFillSuitcase
+} from '../Icons'
 import {STATUSES} from '../../../../../components/molecule/progressSteps/src'
 
 export const configBasic = {
@@ -70,25 +79,29 @@ export const configWithIcons = {
   1: {
     label: 'Selección de Productos',
     content: <Content1 />,
-    icon: <PointerMapIcon />,
+    icon: <IconLineClock />,
+    iconActive: <IconFillClock />,
     status: STATUSES.VISITED
   },
   2: {
     label: 'Tu pago seguro',
     content: <Content2 />,
-    icon: <PaperPlaneIcon />,
+    icon: <IconLineFactory />,
+    iconActive: <IconFillFactory />,
     status: STATUSES.VISITED
   },
   3: {
     label: 'Resumen de tu compra',
     content: <Content3 />,
-    icon: <ChatIcon />,
+    icon: <IconLineSuitcase />,
+    iconActive: <IconFillSuitcase />,
     status: STATUSES.ACTIVE
   },
   4: {
     label: 'Valoración del proceso',
     content: <Content4 />,
-    icon: <StarIcon />,
+    icon: <IconLineLocation />,
+    iconActive: <IconFillLocation />,
     status: STATUSES.NORMAL
   }
 }

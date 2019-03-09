@@ -117,12 +117,13 @@ const Demo = () => {
       <div className={cx(CLASS_DEMO_SECTION, CLASS_DEMO_SECTION_VERTICAL)}>
         <MoleculeProgressSteps iconStepDone={<FillCheckIcon />} vertical>
           {Object.values(configWithIcons).map(
-            ({status, label, content, icon}, index) => (
+            ({status, label, content, icon, iconActive}, index) => (
               <MoleculeProgressStep
                 key={index}
                 label={label}
                 status={status}
                 icon={icon}
+                iconActive={iconActive}
               >
                 {content}
               </MoleculeProgressStep>

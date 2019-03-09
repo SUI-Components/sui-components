@@ -56,12 +56,13 @@ class DynamicMoleculeProgressSteps extends Component {
 
         <MoleculeProgressSteps {...props} iconStepDone={<FillCheckIcon />}>
           {Object.values(config).map(
-            ({status, label, content, icon}, index) => (
+            ({status, label, content, icon, iconActive}, index) => (
               <MoleculeProgressStep
                 key={index}
                 label={label}
                 status={statuses[index]}
                 icon={icon}
+                iconActive={iconActive}
               >
                 {content}
               </MoleculeProgressStep>

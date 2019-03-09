@@ -35,14 +35,22 @@ $base-class: '.sui-MoleculeProgressSteps';
       align-items: center;
       color: $c-progress-steps-label;
       display: flex;
-      fill: $c-progress-steps-icon;
       flex-direction: column;
       position: relative;
+
+      svg, 
+      use {
+        fill: $c-progress-steps-icon;
+      }
 
       &--active,
       &--visited {
         color: $c-progress-steps-active;
-        fill: $c-progress-steps-active;
+
+        svg, 
+        use {
+          fill: $c-progress-steps-active;
+        }
       }
 
       &-number,

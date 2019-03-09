@@ -43,14 +43,25 @@ class MoleculeProgressSteps extends Component {
     return React.Children.toArray(children)
       .filter(Boolean)
       .map((child, index, children) => {
-        const {icon: iconChild, status, children: childrenChild} = child.props
+        const {
+          icon: iconChild,
+          iconActive,
+          status,
+          children: childrenChild
+        } = child.props
+
         const totalChildren = children.length
         const numStep = index + 1
         const lastStep = index >= totalChildren - 1
+
         const isVisited = status === STATUSES.VISITED
         const isActive = status === STATUSES.ACTIVE
-        const icon = isVisited ? iconStepDone : iconChild
-        if (isActive) this.activeStepContent = childrenChild
+        let icon = iconChild
+        if (isVisited) icon = iconStepDone
+        if (isActive) {
+          icon = iconActive || iconChild
+          this.activeStepContent = childrenChild
+        }
 
         return React.cloneElement(child, {
           numStep,

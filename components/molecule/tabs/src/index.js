@@ -18,46 +18,43 @@ class MoleculeTabs extends Component {
     activeTab: this.props.activeTab
   }
 
-  _createHandleChange(index) {
-    return event => {
-      event.preventDefault()
-      const {items, handleClickInDisabledTabs} = this.props
-      const {enabled} = items[index]
-      if (enabled !== false) {
-        this.setState({activeTab: index})
-      }
-      if (handleClickInDisabledTabs || enabled !== false) {
-        this.props.handleChange(index, this.props.items[index])
-      }
-    }
-  }
-
-  _renderTabs() {
-    const {items} = this.props
+  get extendedChildren() {
+    const {children} = this.props // eslint-disable-line
     const {activeTab} = this.state
+    return React.Children.toArray(children)
+      .filter(Boolean)
+      .map((child, index, children) => {
+        const {children: childrenChild} = child.props
 
-    return items.map((item, index) => {
-      const tabLinkClassName = cx('sui-MoleculeTabs-button', {
-        active: activeTab === index,
-        disabled: item.enabled === false
+        const numTab = index + 1
+        const isActive = activeTab === numTab
+        if (isActive) this.activeStepContent = childrenChild
+
+        return React.cloneElement(child, {
+          numTab,
+          isActive
+        })
       })
-
-      return (
-        <li className="sui-MoleculeTabs-item" key={index}>
-          <button
-            className={tabLinkClassName}
-            onClick={this._createHandleChange(index)}
-            role="tab"
-          >
-            {item.icon && (
-              <span className="sui-MoleculeTabs-icon">{item.icon}</span>
-            )}
-            <span>{item.label}</span>
-          </button>
-        </li>
-      )
-    })
   }
+
+  handleChange = (ev, {numTab}) => {
+    ev.preventDefault()
+    this.setState({activeTab: numTab})
+  }
+  
+  // _createHandleChange(index) {
+  //   return event => {
+  //     event.preventDefault()
+  //     const {items, handleClickInDisabledTabs} = this.props
+  //     const {enabled} = items[index]
+  //     if (enabled !== false) {
+  //       this.setState({activeTab: index})
+  //     }
+  //     if (handleClickInDisabledTabs || enabled !== false) {
+  //       this.props.handleChange(index, this.props.items[index])
+  //     }
+  //   }
+  // }
 
   render() {
     return (

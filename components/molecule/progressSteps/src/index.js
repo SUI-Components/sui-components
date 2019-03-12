@@ -108,7 +108,5 @@ MoleculeProgressSteps.propTypes = {
   vertical: PropTypes.bool
 }
 
-// MoleculeProgressSteps.defaultProps = {}
-
 export default MoleculeProgressSteps
 export {MoleculeProgressStep, STATUSES}

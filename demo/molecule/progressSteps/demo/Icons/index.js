@@ -1,5 +1,3 @@
-import React from 'react'
-
 import IconLineFactory from './icon-line-factory'
 import IconFillFactory from './icon-fill-factory'
 

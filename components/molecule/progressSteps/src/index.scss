@@ -55,6 +55,8 @@ $base-class: '.sui-MoleculeProgressSteps';
 
       &-number,
       &-icon {
+        align-items: center;
+        display: flex;
         height: 40px;
         margin: 5px;
         padding: 0;

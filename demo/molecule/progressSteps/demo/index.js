@@ -10,7 +10,7 @@ import MoleculeProgressSteps, {
 
 import './index.scss'
 
-import {FillCheckIcon} from './Icons'
+import {IconFillCheck} from './Icons'
 import {configBasic, configBasic6Steps, configWithIcons} from './config'
 import DynamicProgressSteps from './DynamicProgressSteps'
 
@@ -32,7 +32,6 @@ const Demo = () => {
       <div className={CLASS_DEMO_SECTION_RESPONSIVE}>
         <LayoutMediaQuery>
           {({S}) => {
-            console.log(S)
             return (
               <DynamicProgressSteps
                 config={configBasic6Steps}
@@ -47,7 +46,6 @@ const Demo = () => {
       <div className={CLASS_DEMO_SECTION_RESPONSIVE}>
         <LayoutMediaQuery>
           {({S}) => {
-            console.log(S)
             return (
               <DynamicProgressSteps config={configWithIcons} compressed={!S} />
             )
@@ -59,7 +57,7 @@ const Demo = () => {
 
       <h3>Basic</h3>
       <div className={CLASS_DEMO_SECTION}>
-        <MoleculeProgressSteps iconStepDone={<FillCheckIcon />}>
+        <MoleculeProgressSteps iconStepDone={<IconFillCheck />}>
           {Object.values(configBasic).map(
             ({status, label, content, icon}, index) => (
               <MoleculeProgressStep
@@ -77,7 +75,7 @@ const Demo = () => {
 
       <h3>Compressed</h3>
       <div className={CLASS_DEMO_SECTION}>
-        <MoleculeProgressSteps iconStepDone={<FillCheckIcon />} compressed>
+        <MoleculeProgressSteps iconStepDone={<IconFillCheck />} compressed>
           {Object.values(configBasic).map(
             ({status, label, content, icon}, index) => (
               <MoleculeProgressStep
@@ -96,7 +94,7 @@ const Demo = () => {
       <h3>Vertical</h3>
 
       <div className={cx(CLASS_DEMO_SECTION, CLASS_DEMO_SECTION_VERTICAL)}>
-        <MoleculeProgressSteps iconStepDone={<FillCheckIcon />} vertical>
+        <MoleculeProgressSteps iconStepDone={<IconFillCheck />} vertical>
           {Object.values(configBasic6Steps).map(
             ({status, label, content, icon}, index) => (
               <MoleculeProgressStep
@@ -115,7 +113,7 @@ const Demo = () => {
       <h3>Vertical w/ Icons</h3>
 
       <div className={cx(CLASS_DEMO_SECTION, CLASS_DEMO_SECTION_VERTICAL)}>
-        <MoleculeProgressSteps iconStepDone={<FillCheckIcon />} vertical>
+        <MoleculeProgressSteps iconStepDone={<IconFillCheck />} vertical>
           {Object.values(configWithIcons).map(
             ({status, label, content, icon, iconActive}, index) => (
               <MoleculeProgressStep

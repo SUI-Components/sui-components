@@ -4,7 +4,7 @@ import MoleculeProgressSteps, {
   MoleculeProgressStep,
   STATUSES
 } from '../../../../../components/molecule/progressSteps/src'
-import {FillCheckIcon} from '../Icons'
+import {IconFillCheck} from '../Icons'
 
 class DynamicMoleculeProgressSteps extends Component {
   state = {
@@ -27,17 +27,11 @@ class DynamicMoleculeProgressSteps extends Component {
     })
   }
 
-  // updatePage = (e, {page}) => {
-  //   console.log({e, page}) // eslint-disable-line
-  //   this.setState({page}, () => {
-  //     console.log(this.state) // eslint-disable-line
-  //   })
-  // }
-
   render() {
     const {setStep} = this
     const {config, ...props} = this.props // eslint-disable-line
     const {statuses} = this.state // eslint-disable-line
+
     return (
       <Fragment>
         <div style={{paddingRight: '10px', margin: '10px 0 30px'}}>
@@ -54,7 +48,7 @@ class DynamicMoleculeProgressSteps extends Component {
           ))}
         </div>
 
-        <MoleculeProgressSteps {...props} iconStepDone={<FillCheckIcon />}>
+        <MoleculeProgressSteps {...props} iconStepDone={<IconFillCheck />}>
           {Object.values(config).map(
             ({status, label, content, icon, iconActive}, index) => (
               <MoleculeProgressStep

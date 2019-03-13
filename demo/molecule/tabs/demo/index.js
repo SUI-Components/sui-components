@@ -3,7 +3,7 @@
 import React from 'react'
 import cx from 'classnames'
 
-import LayoutMediaQuery from '@s-ui/react-layout-media-query'
+// import LayoutMediaQuery from '@s-ui/react-layout-media-query'
 import MoleculeTabs, {
   MoleculeTab
 } from '../../../../components/molecule/tabs/src'
@@ -33,7 +33,7 @@ const Demo = () => {
             ({active, label, content, icon}, index) => (
               <MoleculeTab
                 key={index}
-                numTab={index+1}
+                numTab={index + 1}
                 label={label}
                 active={active}
                 icon={icon}

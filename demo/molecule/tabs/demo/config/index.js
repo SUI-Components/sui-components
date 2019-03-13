@@ -22,7 +22,8 @@ export const configBasic = {
   },
   2: {
     label: 'Tu pago seguro',
-    content: <Content2 />
+    content: <Content2 />,
+    active: true
   },
   3: {
     label: 'Resumen de tu compra',

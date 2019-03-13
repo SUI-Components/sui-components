@@ -8,8 +8,8 @@ const CLASS_TAB = `${BASE_CLASS}-item`
 const CLASS_TAB_ICON = `${CLASS_TAB}-icon`
 
 /* status */
-const CLASS_TAB_ACTIVE = `${CLASS_TAB}--active`
-const CLASS_TAB_DISABLED = `${CLASS_TAB}--disabled`
+const CLASS_TAB_ACTIVE = `is-active`
+const CLASS_TAB_DISABLED = `is-disabled`
 
 const MoleculeTab = ({active, handleChange, disabled, icon, label, numTab}) => {
   const _handleChange = ev => {

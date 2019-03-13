@@ -21,10 +21,6 @@ const VARIANTS = {
 }
 
 class MoleculeTabs extends Component {
-  state = {
-    activeTab: this.props.activeTab
-  }
-
   get className() {
     const {variant, type} = this.props
     const CLASS_VARIANT = `${BASE_CLASS}--${variant}`
@@ -34,15 +30,12 @@ class MoleculeTabs extends Component {
 
   get extendedChildren() {
     const {children} = this.props // eslint-disable-line
-    const {activeTab} = this.state
     const {handleChange} = this
     return React.Children.toArray(children)
       .filter(Boolean)
       .map((child, index, children) => {
-        const {children: childrenChild} = child.props
-
+        const {children: childrenChild, active} = child.props
         const numTab = index + 1
-        const active = activeTab === numTab
         if (active) this.activeStepContent = childrenChild
 
         return React.cloneElement(child, {
@@ -55,22 +48,11 @@ class MoleculeTabs extends Component {
 
   handleChange = (ev, {numTab}) => {
     ev.preventDefault()
-    this.setState({activeTab: numTab})
+    const {onChange} = this.props
+    this.setState({activeTab: numTab}, () => {
+      onChange(ev, {numTab})
+    })
   }
-
-  // _createHandleChange(index) {
-  //   return event => {
-  //     event.preventDefault()
-  //     const {items, handleClickInDisabledTabs} = this.props
-  //     const {enabled} = items[index]
-  //     if (enabled !== false) {
-  //       this.setState({activeTab: index})
-  //     }
-  //     if (handleClickInDisabledTabs || enabled !== false) {
-  //       this.props.handleChange(index, this.props.items[index])
-  //     }
-  //   }
-  // }
 
   render() {
     const {extendedChildren, activeStepContent, className} = this
@@ -85,56 +67,21 @@ class MoleculeTabs extends Component {
 
 MoleculeTabs.displayName = 'MoleculeTabs'
 
-MoleculeTabs.defaultProps = {
-  activeTab: 0,
-  handleClickInDisabledTabs: false
-}
-
 MoleculeTabs.propTypes = {
-  /**
-   * List of items for generate tabs
-   */
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      /**
-       * label to be displayed.
-       */
-      label: PropTypes.node.isRequired,
-      /**
-       * Icon of the tab item
-       */
-      icon: PropTypes.node,
-      /**
-       * first state.
-       */
-      active: PropTypes.bool,
-      /**
-       * Allows to disable a tab by setting this to false
-       */
-      enabled: PropTypes.bool
-    })
-  ).isRequired,
-  /**
-   * Point at the selected tab
-   */
-  activeTab: PropTypes.number,
-  /**
-   * By clicking on every single tab, `handleChange` is triggered and sends an
-   * object with the item information and position in the array.
-   */
-  handleChange: PropTypes.func.isRequired,
+  /** onChange */
+  onChange: PropTypes.func,
+
+  /** variant */
   variant: PropTypes.oneOf(Object.values(VARIANTS)),
-  type: PropTypes.oneOf(Object.values(TYPES)),
-  /**
-   * Allows the handle click in disabled tabs
-   */
-  handleClickInDisabledTabs: PropTypes.bool
+
+  /** type */
+  type: PropTypes.oneOf(Object.values(TYPES))
 }
 
 MoleculeTabs.defaultProps = {
   variant: VARIANTS.CLASSIC,
   type: TYPES.HORIZONTAL,
-  handleClickInDisabledTabs: false
+  onChange: () => {}
 }
 
 export default MoleculeTabs

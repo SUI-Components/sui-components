@@ -2,6 +2,11 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
+const BASE_CLASS = `sui-MoleculeTabs`
+
+const CLASS_SCROLLER = `${BASE_CLASS}-scroller`
+const CLASS_CONTENT = `${BASE_CLASS}-content`
+
 const TYPES = {
   HORIZONTAL: 'horizontal',
   VERTICAL: 'vertical',
@@ -18,9 +23,17 @@ class MoleculeTabs extends Component {
     activeTab: this.props.activeTab
   }
 
+  get className() {
+    const {variant, type} = this.props
+    const CLASS_VARIANT = `${BASE_CLASS}--${variant}`
+    const CLASS_TYPE = `${BASE_CLASS}--${type}`
+    return cx(BASE_CLASS, CLASS_VARIANT, CLASS_TYPE)
+  }
+
   get extendedChildren() {
     const {children} = this.props // eslint-disable-line
     const {activeTab} = this.state
+    const {handleChange} = this
     return React.Children.toArray(children)
       .filter(Boolean)
       .map((child, index, children) => {
@@ -32,6 +45,7 @@ class MoleculeTabs extends Component {
 
         return React.cloneElement(child, {
           numTab,
+          handleChange,
           isActive
         })
       })
@@ -41,7 +55,7 @@ class MoleculeTabs extends Component {
     ev.preventDefault()
     this.setState({activeTab: numTab})
   }
-  
+
   // _createHandleChange(index) {
   //   return event => {
   //     event.preventDefault()
@@ -57,16 +71,12 @@ class MoleculeTabs extends Component {
   // }
 
   render() {
+    const {extendedChildren, activeStepContent, className} = this
     return (
-      <nav
-        className={cx(
-          'sui-MoleculeTabs',
-          `sui-MoleculeTabs--${this.props.variant}`,
-          `sui-MoleculeTabs--${this.props.type}`
-        )}
-      >
-        <ul className="sui-MoleculeTabs-scroller">{this._renderTabs()}</ul>
-      </nav>
+      <div className={className}>
+        <ul className={CLASS_SCROLLER}>{extendedChildren}</ul>
+        <div className={CLASS_CONTENT}>{activeStepContent}</div>
+      </div>
     )
   }
 }

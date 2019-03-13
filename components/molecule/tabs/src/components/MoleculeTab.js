@@ -11,20 +11,13 @@ const CLASS_TAB_ICON = `${CLASS_TAB}-icon`
 const CLASS_TAB_ACTIVE = `${CLASS_TAB}--active`
 const CLASS_TAB_DISABLED = `${CLASS_TAB}--disabled`
 
-const MoleculeTab = ({
-  isActive,
-  handleChange,
-  disabled,
-  icon,
-  label,
-  numTab
-}) => {
+const MoleculeTab = ({active, handleChange, disabled, icon, label, numTab}) => {
   const _handleChange = ev => {
     !disabled && handleChange(ev, {numTab})
   }
 
   const className = cx(CLASS_TAB, {
-    [CLASS_TAB_ACTIVE]: isActive,
+    [CLASS_TAB_ACTIVE]: active,
     [CLASS_TAB_DISABLED]: disabled
   })
 
@@ -52,10 +45,10 @@ MoleculeTab.propTypes = {
   /** Tab number */
   numTab: PropTypes.number,
 
-  /** isActive */
-  isActive: PropTypes.bool,
+  /** is active */
+  active: PropTypes.bool,
 
-  /** isActive */
+  /** is disabled */
   disabled: PropTypes.bool
 }
 

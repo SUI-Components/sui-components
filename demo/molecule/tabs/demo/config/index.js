@@ -1,0 +1,85 @@
+import React from 'react'
+import {
+  Content1,
+  Content2,
+  Content3,
+  Content4,
+  Content5,
+  Content6
+} from '../components/Contents'
+
+import {
+  IconLineFactory,
+  IconLineClock,
+  IconLineLocation,
+  IconLineSuitcase
+} from '../Icons'
+
+export const configBasic = {
+  1: {
+    label: 'Selección de Productos',
+    content: <Content1 />
+  },
+  2: {
+    label: 'Tu pago seguro',
+    content: <Content2 />
+  },
+  3: {
+    label: 'Resumen de tu compra',
+    content: <Content3 />
+  },
+  4: {
+    label: 'Valoración del proceso',
+    content: <Content4 />
+  }
+}
+
+export const configBasic6Tabs = {
+  1: {
+    label: 'Tab 1',
+    content: <Content1 />
+  },
+  2: {
+    label: 'Tab 2',
+    content: <Content2 />
+  },
+  3: {
+    label: 'Tab 3',
+    content: <Content3 />
+  },
+  4: {
+    label: 'Tab 4',
+    content: <Content4 />
+  },
+  5: {
+    label: 'Tab 5',
+    content: <Content5 />
+  },
+  6: {
+    label: 'Tab 6',
+    content: <Content6 />
+  }
+}
+
+export const configWithIcons = {
+  1: {
+    label: 'Selección de Productos',
+    content: <Content1 />,
+    icon: <IconLineClock />
+  },
+  2: {
+    label: 'Tu pago seguro',
+    content: <Content2 />,
+    icon: <IconLineFactory />
+  },
+  3: {
+    label: 'Resumen de tu compra',
+    content: <Content3 />,
+    icon: <IconLineSuitcase />
+  },
+  4: {
+    label: 'Valoración del proceso',
+    content: <Content4 />,
+    icon: <IconLineLocation />
+  }
+}

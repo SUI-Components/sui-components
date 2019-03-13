@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
+import MoleculeTab from './components/MoleculeTab'
+
 const BASE_CLASS = `sui-MoleculeTabs`
 
 const CLASS_SCROLLER = `${BASE_CLASS}-scroller`
@@ -40,13 +42,13 @@ class MoleculeTabs extends Component {
         const {children: childrenChild} = child.props
 
         const numTab = index + 1
-        const isActive = activeTab === numTab
-        if (isActive) this.activeStepContent = childrenChild
+        const active = activeTab === numTab
+        if (active) this.activeStepContent = childrenChild
 
         return React.cloneElement(child, {
           numTab,
           handleChange,
-          isActive
+          active
         })
       })
   }
@@ -136,4 +138,8 @@ MoleculeTabs.defaultProps = {
 }
 
 export default MoleculeTabs
-export {TYPES as moleculeTabsTypes, VARIANTS as moleculeTabsVariants}
+export {
+  MoleculeTab,
+  TYPES as moleculeTabsTypes,
+  VARIANTS as moleculeTabsVariants
+}

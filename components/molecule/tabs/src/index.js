@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import MoleculeTab from './components/MoleculeTab'
+import withStateActiveTab from './hoc/withStateActiveTab'
 
 const BASE_CLASS = `sui-MoleculeTabs`
 
@@ -29,8 +30,7 @@ class MoleculeTabs extends Component {
   }
 
   get extendedChildren() {
-    const {children} = this.props // eslint-disable-line
-    const {handleChange} = this
+    const {children, onChange} = this.props // eslint-disable-line
     return React.Children.toArray(children)
       .filter(Boolean)
       .map((child, index, children) => {
@@ -40,18 +40,10 @@ class MoleculeTabs extends Component {
 
         return React.cloneElement(child, {
           numTab,
-          handleChange,
+          onChange,
           active
         })
       })
-  }
-
-  handleChange = (ev, {numTab}) => {
-    ev.preventDefault()
-    const {onChange} = this.props
-    this.setState({activeTab: numTab}, () => {
-      onChange(ev, {numTab})
-    })
   }
 
   render() {
@@ -84,8 +76,9 @@ MoleculeTabs.defaultProps = {
   onChange: () => {}
 }
 
-export default MoleculeTabs
+export default withStateActiveTab(MoleculeTabs)
 export {
+  MoleculeTabs,
   MoleculeTab,
   TYPES as moleculeTabsTypes,
   VARIANTS as moleculeTabsVariants

@@ -11,9 +11,9 @@ const CLASS_TAB_ICON = `${CLASS_TAB}-icon`
 const CLASS_TAB_ACTIVE = `is-active`
 const CLASS_TAB_DISABLED = `is-disabled`
 
-const MoleculeTab = ({active, handleChange, disabled, icon, label, numTab}) => {
-  const _handleChange = ev => {
-    !disabled && handleChange(ev, {numTab})
+const MoleculeTab = ({active, onChange, disabled, icon, label, numTab}) => {
+  const handleChange = ev => {
+    !disabled && onChange(ev, {numTab})
   }
 
   const className = cx(CLASS_TAB, {
@@ -22,7 +22,7 @@ const MoleculeTab = ({active, handleChange, disabled, icon, label, numTab}) => {
   })
 
   return (
-    <li className={className} onClick={_handleChange}>
+    <li className={className} onClick={handleChange}>
       {icon && <span className={CLASS_TAB_ICON}>{icon}</span>}
       <span>{label}</span>
     </li>
@@ -31,7 +31,7 @@ const MoleculeTab = ({active, handleChange, disabled, icon, label, numTab}) => {
 
 MoleculeTab.propTypes = {
   /** Handler on Change Tabs */
-  handleChange: PropTypes.func,
+  onChange: PropTypes.func,
 
   /** icon (React component) */
   icon: PropTypes.node,

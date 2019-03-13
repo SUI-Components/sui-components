@@ -30,9 +30,6 @@ const MoleculeTab = ({active, handleChange, disabled, icon, label, numTab}) => {
 }
 
 MoleculeTab.propTypes = {
-  /** children */
-  children: PropTypes.any,
-
   /** Handler on Change Tabs */
   handleChange: PropTypes.func,
 

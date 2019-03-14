@@ -22,7 +22,6 @@ const VARIANTS = {
 }
 
 const MoleculeTabs = ({variant, type, children, onChange}) => {
-
   const CLASS_VARIANT = `${BASE_CLASS}--${variant}`
   const CLASS_TYPE = `${BASE_CLASS}--${type}`
 

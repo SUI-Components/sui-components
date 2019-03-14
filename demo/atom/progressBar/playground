@@ -2,6 +2,10 @@
 
 class StaticWithAnimation extends React.Component {
 
+  static defaultProps = {
+    type: "line"
+  }
+
   constructor() {
     super()
     this.state = {
@@ -23,9 +27,10 @@ class StaticWithAnimation extends React.Component {
 
   render() {
     const {percentage} = this.state
+    const {type} = this.props
     return (
       <div style={{background: 'white', padding: '10px'}} >
-        <AtomProgressBar {...this.props} percentage={percentage} />
+        <AtomProgressBar {...this.props} type={type} percentage={percentage} />
       </div>
     )
   }
@@ -33,7 +38,8 @@ class StaticWithAnimation extends React.Component {
 
 class DynamicProgressBar extends React.Component {
   static defaultProps = {
-    topPercentage: 100
+    topPercentage: 100,
+    type: "line"
   }
 
   constructor() {
@@ -76,13 +82,58 @@ class DynamicProgressBar extends React.Component {
 
   render() {
     const {percentage} = this.state
-    const {intervalTime, step, ...props} = this.props
+    const {intervalTime, step, type, ...props} = this.props
     return (
       <div style={{background: 'white', padding: '10px'}} >
         <button style={{marginBottom: '10px'}} onClick={this.handleClick}>
           Start Progress
         </button>
-        <AtomProgressBar percentage={percentage} {...props} />
+        <AtomProgressBar percentage={percentage} type={type} {...props} />
+      </div>
+    )
+  }
+}
+
+class InputRangeProgressBar extends React.Component {
+  static defaultProps = {
+    topPercentage: 100,
+    type: "line"
+  }
+
+  constructor() {
+    super()
+    this.inputRangeRef = React.createRef()
+    this.state = {
+      percentage: 0
+    }
+  }
+
+  handleInputRange = (e) => {
+    const val = this.inputRangeRef.current.value
+    this.setState({percentage: parseInt(val)})
+
+  }
+
+  setProgress = () => {
+    const {percentage} = this.state
+    let {step, topPercentage} = this.props
+    if (!step) step = Math.ceil(Math.random() * (topPercentage - percentage))
+    if (percentage < topPercentage) {
+      this.setState({
+        percentage: percentage + step
+      })
+    } else {
+      clearInterval(this.intervalId)
+    }
+  }
+
+  render() {
+    const {percentage} = this.state
+    const {step, type} = this.props
+    return (
+      <div style={{background: 'white', padding: '10px'}} >
+        <input ref={this.inputRangeRef} style={{marginBottom: '10px'}} onChange={this.handleInputRange} type="range" min="0" max="100" value={this.state.percentage} step={step}/>
+        <AtomProgressBar percentage={percentage} type={type} />
       </div>
     )
   }
@@ -94,7 +145,7 @@ const styleSection = {
 
 return (
   <div>
-    <h1>AtomProgressBar</h1>
+    <h1>AtomLineProgressBar</h1>
 
     <div style={styleSection}>
       <h2>Dynamic</h2>
@@ -112,6 +163,8 @@ return (
     <div style={styleSection}>
       <h2>Basic</h2>
       <AtomProgressBar percentage={25} />
+      <h2>Manual</h2>
+      <InputRangeProgressBar step={1} />
     </div>
 
     <div style={styleSection}>
@@ -122,6 +175,28 @@ return (
     <div style={styleSection}>
       <h2>Indicator Total</h2>
       <AtomProgressBar percentage={25} indicatorTotal />
+    </div>
+
+    <h1>AtomCircleProgressBar</h1>
+
+    <div style={styleSection}>
+      <h2>Dynamic</h2>
+      <h4 style={{marginBottom: '2px'}} >Unique value with animation</h4>
+      {/* <DynamicProgressBar topPercentage={65} step={65}  type="circle" isAnimatedOnChange /> */}
+      <StaticWithAnimation percentage={25} type="circle" isAnimatedOnChange/>
+      <h4 style={{marginBottom: '2px'}} >steps: random</h4>
+      <DynamicProgressBar intervalTime={1000} type="circle" indicatorTotal isAnimatedOnChange />
+      <h4 style={{marginBottom: '2px'}} >steps: 25</h4>
+      <DynamicProgressBar intervalTime={1000} type="circle" step={25} isAnimatedOnChange />
+      <h4 style={{marginBottom: '2px'}} >steps: 1 (smooth)</h4>
+      <DynamicProgressBar intervalTime={1000/60} type="circle" step={1} />
+    </div>
+
+    <div style={styleSection}>
+      <h2>Basic</h2>
+      <AtomProgressBar percentage={25} type="circle" />
+      <h2>Manual</h2>
+      <InputRangeProgressBar type="circle" step={1} />
     </div>
   </div>
 )

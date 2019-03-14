@@ -56,7 +56,7 @@ class Circle extends Component {
     const {pathString, pathStyle} = this.getPathStyles(percentage, strokeWidth)
     return (
       <path
-        className={getClassName(`${prefixCls}-circle-path`, modifier)}
+        className={getClassName(`${prefixCls}-path`, modifier)}
         d={pathString}
         strokeLinecap="square"
         strokeWidth={strokeWidth}
@@ -74,13 +74,13 @@ class Circle extends Component {
         viewBox="0 0 100 100"
       >
         <path
-          className={getClassName(`${prefixCls}-circle-trail`, modifier)}
+          className={getClassName(`${prefixCls}-trail`, modifier)}
           {...this.getPathStyles(100, strokeWidth)}
           strokeWidth={strokeWidth}
           fillOpacity="0"
         />
         <path
-          className={getClassName(`${prefixCls}-circle-path`, modifier)}
+          className={getClassName(`${prefixCls}-path`, modifier)}
           {...this.getPathStyles(percentage, strokeWidth)}
           strokeLinecap="square"
           strokeWidth={strokeWidth}

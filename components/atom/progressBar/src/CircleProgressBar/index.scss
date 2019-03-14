@@ -26,6 +26,12 @@
 
   &-circle-trail {
     stroke: #bbbbbb;
+    &--error {
+      stroke: #ff0000;
+    }
+    &--loading {
+      stroke: #bbbbbb;
+    }
   }
 
   &-circle-path {

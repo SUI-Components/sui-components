@@ -1,6 +1,12 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
+function getClassName(baseClassName, modifier) {
+  return modifier
+    ? `${baseClassName} ${baseClassName}--${modifier}`
+    : `${baseClassName}`
+}
+
 class Circle extends Component {
   static MAX_TRANSITION_TIME_IN_MS = 1250
 
@@ -45,12 +51,12 @@ class Circle extends Component {
   }
 
   getStokeList() {
-    const {prefixCls, percentage, strokeWidth} = this.props
+    const {prefixCls, modifier, percentage, strokeWidth} = this.props
 
     const {pathString, pathStyle} = this.getPathStyles(percentage, strokeWidth)
     return (
       <path
-        className={`${prefixCls}-circle-path`}
+        className={getClassName(`${prefixCls}-circle-path`, modifier)}
         d={pathString}
         strokeLinecap="square"
         strokeWidth={strokeWidth}
@@ -61,17 +67,20 @@ class Circle extends Component {
   }
 
   render() {
-    const {prefixCls, percentage, strokeWidth} = this.props
+    const {prefixCls, modifier, percentage, strokeWidth} = this.props
     return (
-      <svg className={`${prefixCls}-circle`} viewBox="0 0 100 100">
+      <svg
+        className={getClassName(`${prefixCls}-circle`, modifier)}
+        viewBox="0 0 100 100"
+      >
         <path
-          className={`${prefixCls}-circle-trail`}
+          className={getClassName(`${prefixCls}-circle-trail`, modifier)}
           {...this.getPathStyles(100, strokeWidth)}
           strokeWidth={strokeWidth}
           fillOpacity="0"
         />
         <path
-          className={`${prefixCls}-circle-path`}
+          className={getClassName(`${prefixCls}-circle-path`, modifier)}
           {...this.getPathStyles(percentage, strokeWidth)}
           strokeLinecap="square"
           strokeWidth={strokeWidth}
@@ -84,6 +93,7 @@ class Circle extends Component {
 
 Circle.propTypes = {
   prefixCls: PropTypes.string.isRequired,
+  modifier: PropTypes.string,
   percentage: PropTypes.number.isRequired,
   strokeWidth: PropTypes.node.isRequired,
   withAnimation: PropTypes.bool

@@ -8,6 +8,12 @@ const SIZES = {
   SMALL: 'small'
 }
 
+const STATUS = {
+  LOADING: 'loading',
+  PROGRESS: 'progress',
+  ERROR: 'error'
+}
+
 const SIZE_TO_WIDTH_CIRCLE_MAP = {
   [SIZES.LARGE]: 48,
   [SIZES.SMALL]: 16
@@ -19,20 +25,35 @@ const SIZE_TO_WIDTH_LINE_MAP = {
 }
 
 const Indicator = props => {
-  const {percentage, size} = props // eslint-disable-line react/prop-types
+  const {percentage, status, errorIcon, size} = props // eslint-disable-line react/prop-types
+  if (status === STATUS.LOADING) return null
   return (
     <span
       className={cx('sui-AtomCircleProgressBar-text', {
-        'sui-AtomCircleProgressBar-text--inner': size === SIZES.LARGE,
-        'sui-AtomCircleProgressBar-text--outer': size === SIZES.SMALL
+        'sui-AtomCircleProgressBar-text--inner':
+          size === SIZES.LARGE || status === STATUS.ERROR,
+        'sui-AtomCircleProgressBar-text--outer':
+          size === SIZES.SMALL && status !== STATUS.ERROR,
+        'sui-AtomCircleProgressBar-text--error': status === STATUS.ERROR
       })}
     >
-      <strong>{percentage}</strong>%
+      {status === STATUS.PROGRESS && (
+        <span>
+          <strong>{percentage}</strong>%
+        </span>
+      )}
+      {status === STATUS.ERROR && errorIcon}
     </span>
   )
 }
 
-const CircleProgressBar = ({percentage, size, isAnimatedOnChange}) => {
+const CircleProgressBar = ({
+  percentage,
+  status,
+  errorIcon,
+  size,
+  isAnimatedOnChange
+}) => {
   const circleSize = SIZE_TO_WIDTH_CIRCLE_MAP[size]
   const circleStyle = {
     width: circleSize,
@@ -46,16 +67,27 @@ const CircleProgressBar = ({percentage, size, isAnimatedOnChange}) => {
       <div className="sui-AtomCircleProgressBar-inner" style={circleStyle}>
         <Circle
           prefixCls="sui-AtomCircleProgressBar"
-          percentage={percentage}
+          modifier={status}
+          percentage={status === STATUS.PROGRESS ? percentage : 0}
           withAnimation={isAnimatedOnChange}
           strokeWidth={circleWidth}
         />
         {size === SIZES.LARGE && (
-          <Indicator percentage={percentage} size={size} />
+          <Indicator
+            percentage={percentage}
+            size={size}
+            status={status}
+            errorIcon={errorIcon}
+          />
         )}
       </div>
       {size === SIZES.SMALL && (
-        <Indicator percentage={percentage} size={size} />
+        <Indicator
+          percentage={percentage}
+          size={size}
+          status={status}
+          errorIcon={errorIcon}
+        />
       )}
     </div>
   )
@@ -67,6 +99,12 @@ CircleProgressBar.propTypes = {
   /** Percentage value to be displayed as number and as bar width  */
   percentage: PropTypes.number.isRequired,
 
+  /** Current status of the progress [progress, loading, error]  */
+  status: PropTypes.oneOf(Object.values(STATUS)),
+
+  /** Icon to be displayed if error  */
+  errorIcon: PropTypes.node,
+
   /** The size of the circle, it can be "small" or "large"  */
   size: PropTypes.oneOf(Object.values(SIZES)),
 
@@ -75,7 +113,8 @@ CircleProgressBar.propTypes = {
 }
 
 CircleProgressBar.defaultProps = {
-  isAnimatedOnChange: false
+  isAnimatedOnChange: false,
+  status: STATUS.PROGRESS
 }
 
 export default CircleProgressBar

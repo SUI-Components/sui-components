@@ -195,6 +195,10 @@ return (
     <div style={styleSection}>
       <h2>Basic</h2>
       <AtomProgressBar percentage={25} type="circle" />
+      <h2>With Error</h2>
+      <AtomProgressBar percentage={0} type="circle" status="error" errorIcon={<span>X</span>}/>
+      <h2>Loading</h2>
+      <AtomProgressBar percentage={0} type="circle" status="loading"/>
       <h2>Manual</h2>
       <InputRangeProgressBar type="circle" step={1} />
     </div>

@@ -72,23 +72,13 @@ const CircleProgressBar = ({
           withAnimation={isAnimatedOnChange}
           strokeWidth={circleWidth}
         />
-        {size === SIZES.LARGE && (
-          <Indicator
-            percentage={percentage}
-            size={size}
-            status={status}
-            errorIcon={errorIcon}
-          />
-        )}
-      </div>
-      {size === SIZES.SMALL && (
         <Indicator
           percentage={percentage}
           size={size}
           status={status}
           errorIcon={errorIcon}
         />
-      )}
+      </div>
     </div>
   )
 }

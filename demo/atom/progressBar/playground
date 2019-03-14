@@ -129,11 +129,11 @@ class InputRangeProgressBar extends React.Component {
 
   render() {
     const {percentage} = this.state
-    const {step, type} = this.props
+    const {step, type, ...props} = this.props
     return (
       <div style={{background: 'white', padding: '10px'}} >
         <input ref={this.inputRangeRef} style={{marginBottom: '10px'}} onChange={this.handleInputRange} type="range" min="0" max="100" value={this.state.percentage} step={step}/>
-        <AtomProgressBar percentage={percentage} type={type} size="small"/>
+        <AtomProgressBar percentage={percentage} type={type} {...props}/>
       </div>
     )
   }
@@ -196,11 +196,20 @@ return (
       <h2>Basic</h2>
       <AtomProgressBar percentage={25} type="circle" />
       <h2>With Error</h2>
+      <h3>Large</h3>
       <AtomProgressBar percentage={0} type="circle" status="error" errorIcon={<span>X</span>}/>
+      <h3>Small</h3>
+      <AtomProgressBar percentage={0} type="circle" status="error" size="small" errorIcon={<span>X</span>}/>
       <h2>Loading</h2>
+      <h3>Large</h3>
       <AtomProgressBar percentage={0} type="circle" status="loading"/>
+      <h3>Small</h3>
+      <AtomProgressBar percentage={0} type="circle" size="small" status="loading"/>
       <h2>Manual</h2>
+      <h3>Large</h3>
       <InputRangeProgressBar type="circle" step={1} />
+      <h3>Small</h3>
+      <InputRangeProgressBar type="circle" size="small" step={1} />
     </div>
   </div>
 )

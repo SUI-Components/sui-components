@@ -27,7 +27,8 @@ export const configBasic = {
   },
   3: {
     label: 'Resumen de tu compra',
-    content: <Content3 />
+    content: <Content3 />,
+    disabled: true
   },
   4: {
     label: 'Valoración del proceso',
@@ -71,7 +72,8 @@ export const configWithIcons = {
   2: {
     label: 'Tu pago seguro',
     content: <Content2 />,
-    icon: <IconLineFactory />
+    icon: <IconLineFactory />,
+    active: true
   },
   3: {
     label: 'Resumen de tu compra',
@@ -81,6 +83,7 @@ export const configWithIcons = {
   4: {
     label: 'Valoración del proceso',
     content: <Content4 />,
-    icon: <IconLineLocation />
+    icon: <IconLineLocation />,
+    disabled: true
   }
 }

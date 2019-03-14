@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default () => (
-  <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+  <svg width="100%" viewBox="0 0 24 24" version="1.1">
     <title>Atoms / Icons / Line /icon-line-location</title>
     <desc>Created with Sketch.</desc>
     <defs>
@@ -22,7 +22,7 @@ export default () => (
         <use xlinkHref="#path-1-Atoms-/-Icons-/-Line-/icon-line-location" />
       </mask>
       <use
-        id="Combined-Shape"
+        id="Combined-Shape-Atoms-/-Icons-/-Line-/icon-line-location"
         fill="#666666"
         fillRule="nonzero"
         xlinkHref="#path-1-Atoms-/-Icons-/-Line-/icon-line-location"

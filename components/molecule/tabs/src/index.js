@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -21,45 +21,43 @@ const VARIANTS = {
   CLASSIC: 'classic'
 }
 
-class MoleculeTabs extends Component {
-  get className() {
-    const {variant, type} = this.props
-    const CLASS_VARIANT = `${BASE_CLASS}--${variant}`
-    const CLASS_TYPE = `${BASE_CLASS}--${type}`
-    return cx(BASE_CLASS, CLASS_VARIANT, CLASS_TYPE)
-  }
+const MoleculeTabs = ({variant, type, children, onChange}) => {
 
-  get extendedChildren() {
-    const {children, onChange} = this.props // eslint-disable-line
-    return React.Children.toArray(children)
-      .filter(Boolean)
-      .map((child, index, children) => {
-        const {children: childrenChild, active} = child.props
-        const numTab = index + 1
-        if (active) this.activeStepContent = childrenChild
+  const CLASS_VARIANT = `${BASE_CLASS}--${variant}`
+  const CLASS_TYPE = `${BASE_CLASS}--${type}`
 
-        return React.cloneElement(child, {
-          numTab,
-          onChange,
-          active
-        })
-      })
-  }
+  const className = cx(BASE_CLASS, CLASS_VARIANT, CLASS_TYPE)
 
-  render() {
-    const {extendedChildren, activeStepContent, className} = this
-    return (
-      <div className={className}>
-        <ul className={CLASS_SCROLLER}>{extendedChildren}</ul>
-        <div className={CLASS_CONTENT}>{activeStepContent}</div>
-      </div>
-    )
-  }
+  const extendedChildren = React.Children.map(children, (child, index) => {
+    const numTab = index + 1
+    return React.cloneElement(child, {
+      onChange,
+      numTab
+    })
+  })
+
+  const activeTabContent = React.Children.toArray(children).reduce(
+    (activeContent, child) => {
+      const {children: childrenChild, active} = child.props
+      return active ? childrenChild : activeContent
+    },
+    null
+  )
+
+  return (
+    <div className={className}>
+      <ul className={CLASS_SCROLLER}>{extendedChildren}</ul>
+      <div className={CLASS_CONTENT}>{activeTabContent}</div>
+    </div>
+  )
 }
 
 MoleculeTabs.displayName = 'MoleculeTabs'
 
 MoleculeTabs.propTypes = {
+  /** children */
+  children: PropTypes.any,
+
   /** onChange */
   onChange: PropTypes.func,
 

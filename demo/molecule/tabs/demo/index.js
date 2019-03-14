@@ -5,7 +5,9 @@ import cx from 'classnames'
 
 // import LayoutMediaQuery from '@s-ui/react-layout-media-query'
 import MoleculeTabs, {
-  MoleculeTab
+  MoleculeTab,
+  moleculeTabsTypes,
+  moleculeTabsVariants
 } from '../../../../components/molecule/tabs/src'
 
 import {configBasic, configBasic6Steps, configWithIcons} from './config'
@@ -24,24 +26,49 @@ const Demo = () => {
       <h1>
         <code>MoleculeTabs</code>
       </h1>
-      <h2>Static</h2>
+      <h2>Dynamic</h2>
 
       <h3>Basic</h3>
       <div className={CLASS_DEMO_SECTION}>
         <MoleculeTabs>
-          {Object.values(configBasic).map(
-            ({active, label, content, icon}, index) => (
-              <MoleculeTab
-                key={index}
-                numTab={index + 1}
-                label={label}
-                active={active}
-                icon={icon}
-              >
-                {content}
-              </MoleculeTab>
-            )
-          )}
+          {Object.values(configBasic).map(({content, ...props}, index) => (
+            <MoleculeTab key={index} numTab={index + 1} {...props}>
+              {content}
+            </MoleculeTab>
+          ))}
+        </MoleculeTabs>
+      </div>
+
+      <h3>Basic (Variant → HIGHLIGHTED)</h3>
+      <div className={CLASS_DEMO_SECTION}>
+        <MoleculeTabs variant={moleculeTabsVariants.HIGHLIGHTED}>
+          {Object.values(configBasic).map(({content, ...props}, index) => (
+            <MoleculeTab key={index} numTab={index + 1} {...props}>
+              {content}
+            </MoleculeTab>
+          ))}
+        </MoleculeTabs>
+      </div>
+
+      <h3>Basic w/ Icons</h3>
+      <div className={CLASS_DEMO_SECTION}>
+        <MoleculeTabs>
+          {Object.values(configWithIcons).map(({content, ...props}, index) => (
+            <MoleculeTab key={index} numTab={index + 1} {...props}>
+              {content}
+            </MoleculeTab>
+          ))}
+        </MoleculeTabs>
+      </div>
+
+      <h3>Basic w/ Icons (Type → FULLWIDTH)</h3>
+      <div className={CLASS_DEMO_SECTION}>
+        <MoleculeTabs type={moleculeTabsTypes.FULLWIDTH}>
+          {Object.values(configWithIcons).map(({content, ...props}, index) => (
+            <MoleculeTab key={index} numTab={index + 1} {...props}>
+              {content}
+            </MoleculeTab>
+          ))}
         </MoleculeTabs>
       </div>
     </div>

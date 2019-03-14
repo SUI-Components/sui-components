@@ -20,13 +20,16 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
       border: 1px solid transparent;
       border-bottom-color: $bdc-sui-molecule-tabs;
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
 
       &.is-active {
-        color: $c-primary;
+        border-bottom: 0;
         border-color: $bdc-sui-molecule-tabs;
-        border-bottom-color: transparent;
+        color: $c-primary;
 
-        svg {
+        svg,
+        path {
           fill: $c-primary;
         }
       }
@@ -34,7 +37,8 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
       &:hover:not(.is-disabled) {
         color: $c-primary;
 
-        svg {
+        svg,
+        path {
           fill: $c-primary;
         }
       }
@@ -52,7 +56,8 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
         border-right-color: transparent;
         color: $c-primary;
 
-        svg {
+        svg,
+        path {
           fill: $c-primary;
         }
       }
@@ -60,7 +65,8 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
       &:hover:not(.is-disabled) {
         color: $c-primary;
 
-        svg {
+        svg,
+        path {
           fill: $c-primary;
         }
       }
@@ -80,7 +86,8 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
         border-bottom-color: $c-primary;
         color: $c-primary;
 
-        svg {
+        svg,
+        path {
           fill: $c-primary;
         }
       }
@@ -88,7 +95,8 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
       &:hover:not(.is-disabled) {
         color: $c-primary;
 
-        svg {
+        svg,
+        path {
           fill: $c-primary;
         }
       }
@@ -107,7 +115,8 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
         border-right-color: $c-primary;
         color: $c-primary;
 
-        svg {
+        svg,
+        path {
           fill: $c-primary;
         }
       }
@@ -115,7 +124,8 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
       &:hover:not(.is-disabled) {
         color: $c-primary;
 
-        svg {
+        svg,
+        path {
           fill: $c-primary;
         }
       }
@@ -133,7 +143,6 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
       &::-webkit-scrollbar {
         -webkit-appearance: none;
       }
-
     }
   }
 
@@ -156,16 +165,18 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
     }
   }
 
-  &-icon {
-    display: block;
-    height: $sz-icon-l;
-    margin: 0 auto $m-s;
-    vertical-align: middle;
-    width: $sz-icon-l;
-  }
-
   &-item {
+    align-items: center;
     flex: 1 1 auto;
+
+    &-icon {
+      display: flex;
+      height: $sz-icon-l;
+      justify-content: center;
+      margin: 0 auto $m-s;
+      vertical-align: middle;
+      width: $sz-icon-l;
+    }
   }
 
   &-item {
@@ -179,7 +190,8 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
     white-space: nowrap;
     width: 100%;
 
-    svg {
+    svg,
+    path {
       fill: $c-sui-molecule-tabs;
     }
 
@@ -187,7 +199,8 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
       color: $c-gray-lightest;
       cursor: default;
 
-      svg {
+      svg,
+      path {
         fill: $c-gray-lightest;
       }
     }

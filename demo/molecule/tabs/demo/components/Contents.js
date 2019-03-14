@@ -5,7 +5,7 @@ const CLASS_DEMO_CONTENT_TAB = `${BASE_CLASS_DEMO}-contentTab`
 
 export const Content1 = () => (
   <div className={CLASS_DEMO_CONTENT_TAB}>
-    <h4>Step 1 → The standard Lorem Ipsum passage, used since the 1500s</h4>
+    <h4>Content1 → The standard Lorem Ipsum passage, used since the 1500s</h4>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -21,7 +21,7 @@ export const Content1 = () => (
 export const Content2 = () => (
   <div className={CLASS_DEMO_CONTENT_TAB}>
     <h4>
-      Step 2 → Section 1.10.32 of "de Finibus Bonorum et Malorum", written by
+      Content2 → Section 1.10.32 of "de Finibus Bonorum et Malorum", written by
       Cicero in 45 BC
     </h4>
     <p>
@@ -43,7 +43,7 @@ export const Content2 = () => (
 
 export const Content3 = () => (
   <div className={CLASS_DEMO_CONTENT_TAB}>
-    <h4>Step 3 → 1914 translation by H. Rackham</h4>
+    <h4>Content3 → 1914 translation by H. Rackham</h4>
     <p>
       But I must explain to you how all this mistaken idea of denouncing
       pleasure and praising pain was born and I will give you a complete account
@@ -66,7 +66,7 @@ export const Content3 = () => (
 export const Content4 = () => (
   <div className={CLASS_DEMO_CONTENT_TAB}>
     <h4>
-      Step 4 → Section 1.10.33 of "de Finibus Bonorum et Malorum", written by
+      Content4 → Section 1.10.33 of "de Finibus Bonorum et Malorum", written by
       Cicero in 45 BC
     </h4>
     <p>

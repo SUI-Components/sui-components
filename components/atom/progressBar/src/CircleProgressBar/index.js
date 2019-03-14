@@ -21,10 +21,12 @@ const SIZE_TO_WIDTH_LINE_MAP = {
 const Indicator = props => {
   const {percentage, size} = props // eslint-disable-line react/prop-types
   return (
-    <span className={cx("sui-AtomCircleProgressBar-text", {
-      "sui-AtomCircleProgressBar-text--inner": size === SIZES.LARGE,
-      "sui-AtomCircleProgressBar-text--outer": size === SIZES.SMALL
-    })}>
+    <span
+      className={cx('sui-AtomCircleProgressBar-text', {
+        'sui-AtomCircleProgressBar-text--inner': size === SIZES.LARGE,
+        'sui-AtomCircleProgressBar-text--outer': size === SIZES.SMALL
+      })}
+    >
       <strong>{percentage}</strong>%
     </span>
   )
@@ -48,9 +50,13 @@ const CircleProgressBar = ({percentage, size, isAnimatedOnChange}) => {
           withAnimation={isAnimatedOnChange}
           strokeWidth={circleWidth}
         />
-        {size === SIZES.LARGE && <Indicator percentage={percentage} size={size}/>}
+        {size === SIZES.LARGE && (
+          <Indicator percentage={percentage} size={size} />
+        )}
       </div>
-      {size === SIZES.SMALL && <Indicator percentage={percentage} size={size}/>}
+      {size === SIZES.SMALL && (
+        <Indicator percentage={percentage} size={size} />
+      )}
     </div>
   )
 }

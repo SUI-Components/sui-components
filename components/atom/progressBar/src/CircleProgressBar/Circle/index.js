@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 class Circle extends Component {
-
   static MAX_TRANSITION_TIME_IN_MS = 1250
 
   state = {
@@ -18,9 +17,10 @@ class Circle extends Component {
       }
     }
     return {
-        currentPercentage: props.percentage,
-        transitionTime: (Circle.MAX_TRANSITION_TIME_IN_MS * props.percentage/100) / 1000
-      }
+      currentPercentage: props.percentage,
+      transitionTime:
+        (Circle.MAX_TRANSITION_TIME_IN_MS * props.percentage) / 100 / 1000
+    }
   }
 
   getPathStyles(percentage, strokeWidth) {
@@ -34,7 +34,9 @@ class Circle extends Component {
     const style = {
       strokeDasharray: `${len}px ${len}px`,
       strokeDashoffset: `${((100 - percentage) / 100) * len}px`,
-      transition: withAnimation ? `stroke-dashoffset ${transitionTime}s ease 0s, stroke ${transitionTime}s ease` : ''
+      transition: withAnimation
+        ? `stroke-dashoffset ${transitionTime}s ease 0s, stroke ${transitionTime}s ease`
+        : ''
     }
     return {
       d,
@@ -82,7 +84,7 @@ class Circle extends Component {
 
 Circle.propTypes = {
   prefixCls: PropTypes.string.isRequired,
-  percent: PropTypes.number.isRequired,
+  percentage: PropTypes.number.isRequired,
   strokeWidth: PropTypes.node.isRequired,
   withAnimation: PropTypes.bool
 }

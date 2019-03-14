@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 import Circle from './Circle'
 
 const SIZES = {
@@ -18,15 +19,18 @@ const SIZE_TO_WIDTH_LINE_MAP = {
 }
 
 const Indicator = props => {
-  const {percentage} = props // eslint-disable-line react/prop-types
+  const {percentage, size} = props // eslint-disable-line react/prop-types
   return (
-    <span className="sui-AtomCircleProgressBar-text">
+    <span className={cx("sui-AtomCircleProgressBar-text", {
+      "sui-AtomCircleProgressBar-text--inner": size === SIZES.LARGE,
+      "sui-AtomCircleProgressBar-text--outer": size === SIZES.SMALL
+    })}>
       <strong>{percentage}</strong>%
     </span>
   )
 }
 
-const CircleProgressBar = ({percentage, size}) => {
+const CircleProgressBar = ({percentage, size, isAnimatedOnChange}) => {
   const circleSize = SIZE_TO_WIDTH_CIRCLE_MAP[size]
   const circleStyle = {
     width: circleSize,
@@ -40,13 +44,32 @@ const CircleProgressBar = ({percentage, size}) => {
       <div className="sui-AtomCircleProgressBar-inner" style={circleStyle}>
         <Circle
           prefixCls="sui-AtomCircleProgressBar"
-          percent={percentage}
+          percentage={percentage}
+          withAnimation={isAnimatedOnChange}
           strokeWidth={circleWidth}
         />
-        <Indicator percentage={percentage} indicatorTotal={false} />
+        {size === SIZES.LARGE && <Indicator percentage={percentage} size={size}/>}
       </div>
+      {size === SIZES.SMALL && <Indicator percentage={percentage} size={size}/>}
     </div>
   )
+}
+
+CircleProgressBar.displayName = 'LineProgressBar'
+
+CircleProgressBar.propTypes = {
+  /** Percentage value to be displayed as number and as bar width  */
+  percentage: PropTypes.number.isRequired,
+
+  /** The size of the circle, it can be "small" or "large"  */
+  size: PropTypes.oneOf(Object.values(SIZES)),
+
+  /** If the bar "value" (width) should be displayed with animation */
+  isAnimatedOnChange: PropTypes.bool
+}
+
+CircleProgressBar.defaultProps = {
+  isAnimatedOnChange: false
 }
 
 export default CircleProgressBar

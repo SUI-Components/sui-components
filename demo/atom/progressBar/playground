@@ -133,7 +133,7 @@ class InputRangeProgressBar extends React.Component {
     return (
       <div style={{background: 'white', padding: '10px'}} >
         <input ref={this.inputRangeRef} style={{marginBottom: '10px'}} onChange={this.handleInputRange} type="range" min="0" max="100" value={this.state.percentage} step={step}/>
-        <AtomProgressBar percentage={percentage} type={type} />
+        <AtomProgressBar percentage={percentage} type={type} size="small"/>
       </div>
     )
   }

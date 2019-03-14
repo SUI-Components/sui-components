@@ -9,14 +9,19 @@
   }
 
   &-text {
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    transform: translate(-50%, -50%);
+    &--inner {
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      transform: translate(-50%, -50%);
+    }
+    &--outer {
+      margin-left: 5px;
+    }
   }
 
   &-circle-trail {

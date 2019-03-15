@@ -9,10 +9,10 @@ import {
 } from '../components/Contents'
 
 import {
-  IconLineFactory,
-  IconLineClock,
-  IconLineLocation,
-  IconLineSuitcase
+  IconLineBackup,
+  IconLineDashboard,
+  IconLineExtension,
+  IconLineHttps
 } from '../Icons'
 
 export const configBasic = {
@@ -67,23 +67,23 @@ export const configWithIcons = {
   1: {
     label: 'Selección de Productos',
     content: <Content1 />,
-    icon: <IconLineClock />
+    icon: <IconLineBackup />
   },
   2: {
     label: 'Tu pago seguro',
     content: <Content2 />,
-    icon: <IconLineFactory />,
+    icon: <IconLineDashboard />,
     active: true
   },
   3: {
     label: 'Resumen de tu compra',
     content: <Content3 />,
-    icon: <IconLineSuitcase />
+    icon: <IconLineExtension />
   },
   4: {
     label: 'Valoración del proceso',
     content: <Content4 />,
-    icon: <IconLineLocation />,
+    icon: <IconLineHttps />,
     disabled: true
   }
 }

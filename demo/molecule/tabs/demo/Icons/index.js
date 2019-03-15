@@ -1,13 +1,13 @@
-import IconLineFactory from './icon-line-factory'
-import IconLineClock from './icon-line-clock'
-import IconLineLocation from './icon-line-location'
-import IconLineSuitcase from './icon-line-suitcase'
-import IconLineCheck from './icon-line-check'
+import IconLineBackup from './baseline-backup-24px'
+import IconLineCheck from './baseline-check_circle-24px'
+import IconLineDashboard from './baseline-dashboard-24px'
+import IconLineExtension from './baseline-extension-24px.js'
+import IconLineHttps from './baseline-https-24px'
 
 export {
+  IconLineBackup,
   IconLineCheck,
-  IconLineFactory,
-  IconLineClock,
-  IconLineLocation,
-  IconLineSuitcase
+  IconLineDashboard,
+  IconLineExtension,
+  IconLineHttps
 }

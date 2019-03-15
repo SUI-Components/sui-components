@@ -5,12 +5,14 @@ import cx from 'classnames'
 
 // import LayoutMediaQuery from '@s-ui/react-layout-media-query'
 import MoleculeTabs, {
+  MoleculeTabs as StaticMoleculeTabs,
   MoleculeTab,
   moleculeTabsTypes,
   moleculeTabsVariants
 } from '../../../../components/molecule/tabs/src'
 
 import {configBasic, configBasic6Steps, configWithIcons} from './config'
+import {IconLineBackup, IconLineDashboard, IconLineExtension} from './Icons'
 
 import './index.scss'
 
@@ -81,6 +83,80 @@ const Demo = () => {
             </MoleculeTab>
           ))}
         </MoleculeTabs>
+      </div>
+
+      <h2>Static</h2>
+
+      <h3>Basic</h3>
+      <div className={CLASS_DEMO_SECTION}>
+        <StaticMoleculeTabs>
+          <MoleculeTab numTab="1" label="Tab 1">
+            <div>
+              <h1>Content Tab 1</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </MoleculeTab>
+          <MoleculeTab numTab="2" label="Tab 2" active>
+            <div>
+              <h1>Content Tab 2</h1>
+              <p>
+                Cumque ad corrupti id neque aperiam deleniti voluptate iusto
+                excepturi rem officia qui nihil natus, quos doloribus numquam
+                laboriosam veritatis?
+              </p>
+            </div>
+          </MoleculeTab>
+          <MoleculeTab numTab="3" label="Tab 3">
+            <div>
+              <h1>Content Tab 3</h1>
+              <p>
+                Deleniti voluptate iusto excepturi rem officia qui nihil natus,
+                quos doloribus numquam
+              </p>
+            </div>
+          </MoleculeTab>
+        </StaticMoleculeTabs>
+      </div>
+
+      <h3>w/ Icons</h3>
+      <div className={CLASS_DEMO_SECTION}>
+        <StaticMoleculeTabs>
+          <MoleculeTab
+            numTab="1"
+            label="Tab 1"
+            icon={<IconLineBackup />}
+            active
+          >
+            <div>
+              <h1>Content Tab 1</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </MoleculeTab>
+          <MoleculeTab numTab="2" label="Tab 2" icon={<IconLineDashboard />}>
+            <div>
+              <h1>Content Tab 2</h1>
+              <p>
+                Cumque ad corrupti id neque aperiam deleniti voluptate iusto
+                excepturi rem officia qui nihil natus, quos doloribus numquam
+                laboriosam veritatis?
+              </p>
+            </div>
+          </MoleculeTab>
+          <MoleculeTab
+            numTab="3"
+            label="Tab 3"
+            icon={<IconLineExtension />}
+            disabled
+          >
+            <div>
+              <h1>Content Tab 3</h1>
+              <p>
+                Deleniti voluptate iusto excepturi rem officia qui nihil natus,
+                quos doloribus numquam
+              </p>
+            </div>
+          </MoleculeTab>
+        </StaticMoleculeTabs>
       </div>
     </div>
   )

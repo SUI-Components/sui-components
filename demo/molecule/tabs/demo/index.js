@@ -85,6 +85,20 @@ const Demo = () => {
         </MoleculeTabs>
       </div>
 
+      <h3>w/ Icons (Type → VERTICAL & Variant → HIGHLIGHTED)</h3>
+      <div className={CLASS_DEMO_SECTION}>
+        <MoleculeTabs
+          type={moleculeTabsTypes.VERTICAL}
+          variant={moleculeTabsVariants.HIGHLIGHTED}
+        >
+          {Object.values(configWithIcons).map(({content, ...props}, index) => (
+            <MoleculeTab key={index} numTab={index + 1} {...props}>
+              {content}
+            </MoleculeTab>
+          ))}
+        </MoleculeTabs>
+      </div>
+
       <h2>Static</h2>
 
       <h3>Basic</h3>

@@ -17,21 +17,21 @@ import {
 
 export const configBasic = {
   1: {
-    label: 'Selección de Productos',
+    label: 'Productos',
     content: <Content1 />
   },
   2: {
-    label: 'Tu pago seguro',
+    label: 'Pago',
     content: <Content2 />,
     active: true
   },
   3: {
-    label: 'Resumen de tu compra',
+    label: 'Tu compra',
     content: <Content3 />,
     disabled: true
   },
   4: {
-    label: 'Valoración del proceso',
+    label: 'Valoración',
     content: <Content4 />
   }
 }
@@ -65,23 +65,23 @@ export const configBasic6Tabs = {
 
 export const configWithIcons = {
   1: {
-    label: 'Selección de Productos',
+    label: 'Productos',
     content: <Content1 />,
     icon: <IconLineBackup />
   },
   2: {
-    label: 'Tu pago seguro',
+    label: 'Pago',
     content: <Content2 />,
     icon: <IconLineDashboard />,
     active: true
   },
   3: {
-    label: 'Resumen de tu compra',
+    label: 'Tu compra',
     content: <Content3 />,
     icon: <IconLineExtension />
   },
   4: {
-    label: 'Valoración del proceso',
+    label: 'Valoración',
     content: <Content4 />,
     icon: <IconLineHttps />,
     disabled: true

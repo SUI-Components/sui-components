@@ -39,7 +39,7 @@ const Demo = () => {
         </MoleculeTabs>
       </div>
 
-      <h3>Basic (Variant → HIGHLIGHTED)</h3>
+      <h3>Variant → HIGHLIGHTED</h3>
       <div className={CLASS_DEMO_SECTION}>
         <MoleculeTabs variant={moleculeTabsVariants.HIGHLIGHTED}>
           {Object.values(configBasic).map(({content, ...props}, index) => (
@@ -50,7 +50,7 @@ const Demo = () => {
         </MoleculeTabs>
       </div>
 
-      <h3>Basic w/ Icons</h3>
+      <h3>w/ Icons</h3>
       <div className={CLASS_DEMO_SECTION}>
         <MoleculeTabs>
           {Object.values(configWithIcons).map(({content, ...props}, index) => (
@@ -61,9 +61,20 @@ const Demo = () => {
         </MoleculeTabs>
       </div>
 
-      <h3>Basic w/ Icons (Type → FULLWIDTH)</h3>
+      <h3>w/ Icons (Type → FULLWIDTH)</h3>
       <div className={CLASS_DEMO_SECTION}>
         <MoleculeTabs type={moleculeTabsTypes.FULLWIDTH}>
+          {Object.values(configWithIcons).map(({content, ...props}, index) => (
+            <MoleculeTab key={index} numTab={index + 1} {...props}>
+              {content}
+            </MoleculeTab>
+          ))}
+        </MoleculeTabs>
+      </div>
+
+      <h3>w/ Icons (Type → VERTICAL)</h3>
+      <div className={CLASS_DEMO_SECTION}>
+        <MoleculeTabs type={moleculeTabsTypes.VERTICAL}>
           {Object.values(configWithIcons).map(({content, ...props}, index) => (
             <MoleculeTab key={index} numTab={index + 1} {...props}>
               {content}

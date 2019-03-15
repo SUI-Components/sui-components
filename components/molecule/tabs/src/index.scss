@@ -147,13 +147,21 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
   }
 
   &--vertical {
+    display: flex; 
+
     .sui-MoleculeTabs-scroller {
       flex-direction: column;
     }
 
+    .sui-MoleculeTabs-content {
+      margin-left: 20px;
+    }
+
     .sui-MoleculeTabs-item {
+      text-align: center;
       width: 100%;
     }
+
   }
 
   &--fullWidth {

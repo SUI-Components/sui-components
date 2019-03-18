@@ -1,1 +1,5 @@
-return (<BehaviorSticky />)
+return (
+  <BehaviorSticky>
+    <h1>Sticky</h1>
+  </BehaviorSticky>
+)

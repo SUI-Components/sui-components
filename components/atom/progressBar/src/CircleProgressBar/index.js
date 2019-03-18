@@ -34,14 +34,11 @@ const Indicator = props => {
           size === SIZES.LARGE || status === STATUS.ERROR,
         'sui-AtomCircleProgressBar-text--outer':
           size === SIZES.SMALL && status !== STATUS.ERROR,
-        'sui-AtomCircleProgressBar-text--error': status === STATUS.ERROR
+        'sui-AtomCircleProgressBar-text--error sui-AtomCircleProgressBar-text--small':
+          status === STATUS.ERROR
       })}
     >
-      {status === STATUS.PROGRESS && (
-        <span>
-          <strong>{percentage}</strong>%
-        </span>
-      )}
+      {status === STATUS.PROGRESS && <span>{percentage}%</span>}
       {status === STATUS.ERROR && errorIcon}
     </span>
   )
@@ -57,20 +54,20 @@ const CircleProgressBar = ({
   const circleSize = SIZE_TO_WIDTH_CIRCLE_MAP[size]
   const circleStyle = {
     width: circleSize,
-    height: circleSize,
-    fontSize: circleSize * 0.15 + 6
+    height: circleSize
   }
   const circleWidth = SIZE_TO_WIDTH_LINE_MAP[size]
 
   return (
     <div className="sui-AtomCircleProgressBar">
-      <div className="sui-AtomCircleProgressBar-inner" style={circleStyle}>
+      <div className="sui-AtomCircleProgressBar-inner">
         <Circle
           prefixCls="sui-AtomCircleProgressBar"
           modifier={status}
           percentage={status === STATUS.PROGRESS ? percentage : 0}
           withAnimation={isAnimatedOnChange}
           strokeWidth={circleWidth}
+          style={circleStyle}
         />
         <Indicator
           percentage={percentage}

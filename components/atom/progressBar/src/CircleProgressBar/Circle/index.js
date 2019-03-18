@@ -67,11 +67,12 @@ class Circle extends Component {
   }
 
   render() {
-    const {prefixCls, modifier, percentage, strokeWidth} = this.props
+    const {prefixCls, modifier, percentage, strokeWidth, style} = this.props
     return (
       <svg
         className={getClassName(`${prefixCls}-circle`, modifier)}
         viewBox="0 0 100 100"
+        style={style}
       >
         <path
           className={getClassName(`${prefixCls}-trail`, modifier)}
@@ -96,7 +97,8 @@ Circle.propTypes = {
   modifier: PropTypes.string,
   percentage: PropTypes.number.isRequired,
   strokeWidth: PropTypes.node.isRequired,
-  withAnimation: PropTypes.bool
+  withAnimation: PropTypes.bool,
+  style: PropTypes.object
 }
 
 Circle.defaultProps = {

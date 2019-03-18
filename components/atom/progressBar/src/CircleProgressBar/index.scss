@@ -6,12 +6,11 @@
     background-color: transparent;
     display: inline-block;
     position: relative;
-    vertical-align: middle;
-    width: 100%;    
   }
 
   &-text {
     &--inner {
+      font-size: $fz-atom-circle-progress-bar-text--inner;
       left: 50%;
       margin: 0;
       padding: 0;
@@ -19,11 +18,16 @@
       text-align: center;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 100%;
     }
 
     &--outer {
+      font-size: $fz-atom-circle-progress-bar-text--outer;
       margin-left: 5px;
+      vertical-align: top;
+    }
+
+    &--small {
+      font-size: $fz-atom-circle-progress-bar-text--outer;
     }
   }
 

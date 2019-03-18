@@ -1,27 +1,27 @@
-import IconLineFactory from './icon-line-factory'
-import IconFillFactory from './icon-fill-factory'
+import IconLineBackup from './outline-backup-24px'
+import IconFillBackup from './baseline-backup-24px'
 
-import IconLineClock from './icon-line-clock'
-import IconFillClock from './icon-fill-clock'
+import IconLineCheck from './outline-check_circle-24px'
+import IconFillCheck from './baseline-check_circle-24px'
 
-import IconLineLocation from './icon-line-location'
-import IconFillLocation from './icon-fill-location'
+import IconLineDashboard from './outline-dashboard-24px'
+import IconFillDashboard from './baseline-dashboard-24px'
 
-import IconLineSuitcase from './icon-line-suitcase'
-import IconFillSuitcase from './icon-fill-suitcase'
+import IconLineExtension from './outline-extension-24px.js'
+import IconFillExtension from './baseline-extension-24px.js'
 
-import IconLineCheck from './icon-line-check'
-import IconFillCheck from './icon-fill-check'
+import IconLineHttps from './outline-https-24px'
+import IconFillHttps from './baseline-https-24px'
 
 export {
+  IconLineBackup,
+  IconFillBackup,
   IconLineCheck,
   IconFillCheck,
-  IconLineFactory,
-  IconFillFactory,
-  IconLineClock,
-  IconFillClock,
-  IconLineLocation,
-  IconFillLocation,
-  IconLineSuitcase,
-  IconFillSuitcase
+  IconLineDashboard,
+  IconFillDashboard,
+  IconLineExtension,
+  IconFillExtension,
+  IconLineHttps,
+  IconFillHttps
 }

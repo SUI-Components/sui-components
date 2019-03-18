@@ -8,14 +8,14 @@ import {
   Content6
 } from '../components/Contents'
 import {
-  IconLineFactory,
-  IconFillFactory,
-  IconLineClock,
-  IconFillClock,
-  IconLineLocation,
-  IconFillLocation,
-  IconLineSuitcase,
-  IconFillSuitcase
+  IconLineBackup,
+  IconFillBackup,
+  IconLineDashboard,
+  IconFillDashboard,
+  IconLineExtension,
+  IconFillExtension,
+  IconLineHttps,
+  IconFillHttps
 } from '../Icons'
 import {STATUSES} from '../../../../../components/molecule/progressSteps/src'
 
@@ -79,29 +79,29 @@ export const configWithIcons = {
   1: {
     label: 'Selección de Productos',
     content: <Content1 />,
-    icon: <IconLineClock />,
-    iconActive: <IconFillClock />,
+    icon: <IconLineBackup />,
+    iconActive: <IconFillBackup />,
     status: STATUSES.VISITED
   },
   2: {
     label: 'Tu pago seguro',
     content: <Content2 />,
-    icon: <IconLineFactory />,
-    iconActive: <IconFillFactory />,
+    icon: <IconLineDashboard />,
+    iconActive: <IconFillDashboard />,
     status: STATUSES.VISITED
   },
   3: {
     label: 'Resumen de tu compra',
     content: <Content3 />,
-    icon: <IconLineSuitcase />,
-    iconActive: <IconFillSuitcase />,
+    icon: <IconLineExtension />,
+    iconActive: <IconFillExtension />,
     status: STATUSES.ACTIVE
   },
   4: {
     label: 'Valoración del proceso',
     content: <Content4 />,
-    icon: <IconLineLocation />,
-    iconActive: <IconFillLocation />,
+    icon: <IconLineHttps />,
+    iconActive: <IconFillHttps />,
     status: STATUSES.NORMAL
   }
 }

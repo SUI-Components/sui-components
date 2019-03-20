@@ -33,6 +33,11 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
         border-bottom: 0;
         border-color: $bdc-sui-molecule-tabs;
         color: $c-primary;
+        margin-top: 1px;
+
+        span {
+          transform: translateY(-1px);
+        }
 
         svg,
         path {
@@ -42,6 +47,7 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
 
       &:hover:not(.is-disabled) {
         color: $c-primary;
+        cursor: no-drop;
 
         svg,
         path {
@@ -70,6 +76,7 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
 
       &:hover:not(.is-disabled) {
         color: $c-primary;
+        cursor: no-drop;
 
         svg,
         path {
@@ -100,6 +107,7 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
 
       &:hover:not(.is-disabled) {
         color: $c-primary;
+        cursor: no-drop;
 
         svg,
         path {
@@ -129,6 +137,7 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
 
       &:hover:not(.is-disabled) {
         color: $c-primary;
+        cursor: no-drop;
 
         svg,
         path {
@@ -212,7 +221,7 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
 
     &.is-disabled {
       color: $c-gray-lightest;
-      cursor: default;
+      cursor: no-drop;
 
       svg,
       path {

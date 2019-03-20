@@ -5,15 +5,16 @@ const BASE_CLASS = 'sui-BehaviorSticky'
 
 const BehaviorStickyProvider = ReactSticky.StickyProvider
 
-const BehaviorSticky = props => {
-  // eslint-disable-line react/prop-types
+// eslint-disable-next-line react/prop-types
+const BehaviorSticky = ({children, ...props}) => {
   return (
     <ReactSticky.Sticky className={BASE_CLASS} {...props}>
-      {props.children}
+      {children}
     </ReactSticky.Sticky>
   )
 }
 
 BehaviorSticky.displayName = 'BehaviorSticky'
 
-export {BehaviorStickyProvider, BehaviorSticky}
+export default BehaviorSticky
+export {BehaviorStickyProvider}

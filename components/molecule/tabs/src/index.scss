@@ -25,7 +25,6 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
     .sui-MoleculeTabs-item {
       border: 1px solid transparent;
       border-bottom-color: $bdc-sui-molecule-tabs;
-      cursor: pointer;
       display: flex;
       flex-direction: column;
 
@@ -47,7 +46,7 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
 
       &:hover:not(.is-disabled) {
         color: $c-primary;
-        cursor: no-drop;
+        cursor: pointer;
 
         svg,
         path {
@@ -61,7 +60,6 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
     .sui-MoleculeTabs-item {
       border: 1px solid transparent;
       border-right-color: $bdc-sui-molecule-tabs;
-      cursor: pointer;
 
       &.is-active {
         border-color: $bdc-sui-molecule-tabs;
@@ -76,7 +74,7 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
 
       &:hover:not(.is-disabled) {
         color: $c-primary;
-        cursor: no-drop;
+        cursor: pointer;
 
         svg,
         path {
@@ -93,7 +91,6 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
     .sui-MoleculeTabs-item {
       border: 0 none transparent;
       border-bottom: $bdw-sui-molecule-tabs solid transparent;
-      cursor: pointer;
 
       &.is-active {
         border-bottom-color: $c-primary;
@@ -107,7 +104,7 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
 
       &:hover:not(.is-disabled) {
         color: $c-primary;
-        cursor: no-drop;
+        cursor: pointer;
 
         svg,
         path {
@@ -137,7 +134,7 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
 
       &:hover:not(.is-disabled) {
         color: $c-primary;
-        cursor: no-drop;
+        cursor: pointer;
 
         svg,
         path {
@@ -176,6 +173,10 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
     .sui-MoleculeTabs-item {
       text-align: center;
       width: 100%;
+
+      &.is-disabled {
+        cursor: no-drop;
+      }
     }
 
   }

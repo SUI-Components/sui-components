@@ -1,0 +1,88 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$z-back-to-top: $z-navigation;
+$op-back-to-top: .8;
+$bdrs-back-to-top: $bdrs-m;
+$sz-back-to-top-icon: $sz-icon-s;
+$trsdu-back-to-top--show: .25s;
+$trsdu-back-to-top--hide: .25s;
+
+$bg-back-to-top--dark: $c-gray-dark;
+$c-back-to-top--dark: $c-white;
+$bg-back-to-top--light: $c-white;
+$c-back-to-top--light: $c-primary;
+
+.sui-AtomBackToTop {
+  align-items: center;
+  border: 0;
+  border-radius: $bdrs-back-to-top;
+  bottom: $p-xl;
+  cursor: pointer;
+  display: flex;
+  font-size: $fz-m;
+  justify-content: center;
+  padding: $p-m;
+  position: fixed;
+  right: $p-xl;
+  visibility: hidden;
+  z-index: $z-back-to-top;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &--ready {
+    visibility: visible;
+  }
+
+  &-icon {
+    height: $sz-back-to-top-icon;
+    width: $sz-back-to-top-icon;
+
+    & > * {
+      width: 100%;
+    }
+  }
+
+  &-text {
+    align-items: center;
+    display: flex;
+    height: $sz-back-to-top-icon;
+  }
+
+  &-icon + &-text {
+    margin-left: $m-s;
+  }
+
+  &--dark {
+    background: $bg-back-to-top--dark;
+    color: $c-back-to-top--dark;
+
+    path {
+      fill: $c-back-to-top--dark;
+    }
+  }
+
+  &--light {
+    background: $bg-back-to-top--light;
+    color: $c-back-to-top--light;
+
+    path {
+      fill: $c-back-to-top--light;
+    }
+  }
+
+  &--show {
+    opacity: $op-back-to-top;
+    transition: opacity $trsdu-back-to-top--show ease-in;
+
+    &--hover {
+      opacity: 1;
+    }
+  }
+
+  &--hide {
+    opacity: 0;
+    transition: opacity $trsdu-back-to-top--hide ease-out;
+  }
+}

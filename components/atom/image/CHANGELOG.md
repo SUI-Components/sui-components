@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2019-03-06)
+
+
+### Features
+
+* prevent image padding ([ba81575](https://github.com/SUI-Components/sui-components/commit/ba81575))
+
+
+
+<a name="1.8.0"></a>
+# 1.8.0 (2018-12-12)
+
+
+### Features
+
+* add ref to img to ensure image complete loaded in SSR ([76702a8](https://github.com/SUI-Components/sui-components/commit/76702a8))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2018-10-03)
 
@@ -54,24 +74,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * added transition time SASS variable ([8c7400c](https://github.com/SUI-Components/sui-components/commit/8c7400c))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2018-06-07)
-
-
-### Features
-
-* default values error loading ([cc00b4d](https://github.com/SUI-Components/sui-components/commit/cc00b4d))
-* documentation README and simplified structure ([9999320](https://github.com/SUI-Components/sui-components/commit/9999320))
-* fixed path ([8c3b740](https://github.com/SUI-Components/sui-components/commit/8c3b740))
-* little changes from feedback PR ([dfa70da](https://github.com/SUI-Components/sui-components/commit/dfa70da))
-* migration from former imagePlaceholder ([62f108b](https://github.com/SUI-Components/sui-components/commit/62f108b))
-* optimized svg ([e88df8c](https://github.com/SUI-Components/sui-components/commit/e88df8c))
-* propTypes inside file because of playground ([4a106b8](https://github.com/SUI-Components/sui-components/commit/4a106b8))
-* removed component prop (added SASS variable) and removed unnecesary css props ([546f9f1](https://github.com/SUI-Components/sui-components/commit/546f9f1))
-* type checking, skeleton and refactor ([87d4dc3](https://github.com/SUI-Components/sui-components/commit/87d4dc3))
 
 
 

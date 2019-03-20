@@ -1,6 +1,8 @@
 /* sass-lint:disable no-important, class-name-format*/
 @import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/sui-theme/lib/index';
+@import './settings';
+
 
 .sui-BreadcrumbBasic {
   @include media-breakpoint-up(l) {
@@ -60,6 +62,7 @@
 
     &:hover {
       color: $c-breadcrumb-link-hover;
+      text-decoration: $td-breadcrumb-link-hover;
     }
   }
 }

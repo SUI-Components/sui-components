@@ -14,7 +14,7 @@ $h-atom-switch-large: 32px !default;
 $w-atom-switch-large: 56px !default;
 $w-atom-switch-circle-large: 32px !default;
 $m-atom-switch-circle-large--active: $m-xl !default;
-$h-atom-switch-inputContainer-large: 32px !default;
+$h-atom-switch-input-container-large: 32px !default;
 
 $c-atom-switch--active: color-variation($c-primary, 1) !default;
 $c-atom-switch--active-shadow: rgba($c-black, .2);
@@ -23,28 +23,24 @@ $c-atom-switch--default: color-variation($c-gray, 3) !default;
 $atom-switch-transition-time: .3s !default;
 
 .sui-AtomSwitch {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+
   cursor: pointer;
   display: inline-block;
   outline: none;
-
   user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -webkit-tap-highlight-color: transparent;
 
   &:focus &-container {
     border: 2px solid transparent;
-    box-shadow: none;  
+    box-shadow: none;
     outline: none;
   }
-  
+
   &-container {
     align-items: center;
     border: 2px solid transparent;
-    box-shadow: none;  
+    box-shadow: none;
     display: flex;
     height: $h-atom-switch-container-default;
     justify-content: center;
@@ -52,20 +48,20 @@ $atom-switch-transition-time: .3s !default;
     padding: $p-s;
   }
 
-  &.sui-AtomSwitch--click {
+  &--click {
     .sui-AtomSwitch-container {
       border: 2px solid transparent;
-      box-shadow: none; 
+      box-shadow: none;
     }
   }
 
-  &.sui-AtomSwitch--focus {
+  &--focus {
     .sui-AtomSwitch-container {
       border: solid 2px color-variation($c-primary, 1);
       box-shadow: 0 0 4px 0 color-variation($c-primary, 1);
     }
   }
-  
+
   .sui-AtomLabel {
     margin-bottom: 0;
   }
@@ -77,12 +73,10 @@ $atom-switch-transition-time: .3s !default;
   }
 
   &-singleType {
-    .sui-AtomSwitch-container .sui-AtomSwitch-inputContainer {
+    .sui-AtomSwitch-inputContainer {
       margin-left: $m-l;
     }
   }
-
-
 
   &-text {
     display: flex;
@@ -99,45 +93,47 @@ $atom-switch-transition-time: .3s !default;
     }
   }
 
-  .sui-AtomSwitch-inputContainer {
+  &-inputContainer {
     background-color: $c-atom-switch--default;
-    border-radius: $w-atom-switch-default / 2;
     border: solid 1px color-variation($c-atom-switch--default, $c-dark-step);
+    border-radius: $w-atom-switch-default / 2;
     cursor: pointer;
     height: $h-atom-switch-default;
     transition: all $atom-switch-transition-time ease-in-out;
     width: $w-atom-switch-default;
+  }
 
-    .sui-AtomSwitch-circle {
-      background-color: $c-white;
-      border-radius: ($h-atom-switch-default - 2) / 2;
-      border: solid 1px $c-white;
-      box-shadow: 2px 0 2px 0 $c-gray-light;
-      height: $h-atom-switch-default - 2;
-      transition: all $atom-switch-transition-time ease-in-out;
-      width: $h-atom-switch-default - 2;
+  &-circle {
+    background-color: $c-white;
+    border: solid 1px $c-white;
+    border-radius: ($h-atom-switch-default - 2) / 2;
+    box-shadow: 2px 0 2px 0 $c-gray-light;
+    height: $h-atom-switch-default - 2;
+    transition: all $atom-switch-transition-time ease-in-out;
+    width: $h-atom-switch-default - 2;
 
-      &.sui-AtomSwitch--toggle {
-        box-shadow: -2px 0 2px 0 $c-atom-switch--active-shadow;
-        margin-left: $m-atom-switch-circle-default--active;
-      }
+    &.sui-AtomSwitch--toggle {
+      box-shadow: -2px 0 2px 0 $c-atom-switch--active-shadow;
+      margin-left: $m-atom-switch-circle-default--active;
     }
   }
 
-  &.sui-AtomSwitch--disabled {
+  &--disabled {
     color: $c-gray;
     cursor: not-allowed;
+
     .sui-AtomSwitch-inputContainer {
-      border: solid 1px $c-gray-lightest;
       background-color: $c-gray-lightest;
+      border: solid 1px $c-gray-lightest;
       cursor: not-allowed;
     }
+
     .sui-AtomSwitch-circle {
       background-color: $c-gray-lightest;
     }
   }
 
-  &.sui-AtomSwitch--active {
+  &--active {
     & .sui-AtomSwitch-container {
       .sui-AtomSwitch-inputContainer {
         background-color: $c-atom-switch--active;
@@ -145,16 +141,18 @@ $atom-switch-transition-time: .3s !default;
         cursor: pointer;
       }
     }
+
     & .sui-AtomSwitch-circle {
       box-shadow: 2px 0 2px 0 $c-atom-switch--active-shadow;
     }
   }
 
-  &.sui-AtomSwitch-large, &.sui-AtomSwitch--active.sui-AtomSwitch-large {
+  &--large {
     .sui-AtomSwitch-container {
       height: $h-atom-switch-container-large;
       padding-bottom: $p-s;
       padding-top: $p-s;
+
       .sui-AtomSwitch-text {
         display: flex;
         flex-direction: column;
@@ -162,12 +160,14 @@ $atom-switch-transition-time: .3s !default;
       }
 
       .sui-AtomSwitch-inputContainer {
-        height: $h-atom-switch-inputContainer-large;
+        height: $h-atom-switch-input-container-large;
         width: $w-atom-switch-large;
+
         .sui-AtomSwitch-circle {
           border-radius: $w-atom-switch-large / 2;
-          height: $h-atom-switch-inputContainer-large - 2;
-          width: $h-atom-switch-inputContainer-large - 2;
+          height: $h-atom-switch-input-container-large - 2;
+          width: $h-atom-switch-input-container-large - 2;
+
           &.sui-AtomSwitch--toggle {
             margin-left: $m-atom-switch-circle-large--active;
           }
@@ -175,5 +175,4 @@ $atom-switch-transition-time: .3s !default;
       }
     }
   }
-
 }

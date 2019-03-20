@@ -2,8 +2,9 @@
 @import '~@schibstedspain/sui-atom-button/lib/index';
 @import './settings';
 
-.sui-MoleculeNotification {
-  color: $c-white;
+$base-class: '.sui-MoleculeNotification';
+
+#{$base-class} {
   max-height: $mh-notification;
 
   &-content {
@@ -12,6 +13,7 @@
     padding: $p-l;
   }
 
+  &-children,
   &-text {
     flex: 1 1 auto;
     font-size: $fz-m;
@@ -25,7 +27,6 @@
 
   &-icon {
     svg {
-      fill: $c-white !important;
       height: $sz-notification-icon;
       width: $sz-notification-icon;
     }
@@ -48,15 +49,36 @@
   }
 
   // Type
-
   @each $key, $value in $notification-type-colors {
+    $color: map-get($notification-type-font-colors, $key);
+
     &--#{$key} {
       background-color: #{$value};
+      color: $color;
+
+      svg {
+        fill: $color !important;
+      }
+    }
+  }
+
+  // Variation
+  &--positive {
+    color: $c-black;
+
+    #{$base-class}-icon svg {
+      fill: $c-gray !important;
+    }
+
+    // Type variations
+    @each $key, $value in $notification-type-colors {
+      &#{$base-class}--#{$key} {
+        background-color: color-variation($value, $c-light-step * 2);
+      }
     }
   }
 
   // Position
-
   &--relative {
     position: relative;
   }

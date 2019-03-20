@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2018-11-07)
+
+
+### Bug Fixes
+
+* fix misalignments ([b4951e7](https://github.com/SUI-Components/sui-components/commit/b4951e7))
+* fix some misalignments ([07a0f5d](https://github.com/SUI-Components/sui-components/commit/07a0f5d))
+
+
+
+<a name="1.4.0"></a>
+# 1.4.0 (2018-11-02)
+
+
+### Features
+
+* boolean to filter ([3342925](https://github.com/SUI-Components/sui-components/commit/3342925))
+* fix use case when false values are passed as childs ([5dc364e](https://github.com/SUI-Components/sui-components/commit/5dc364e))
+
+
+
+<a name="1.3.0"></a>
+# 1.3.0 (2018-10-29)
+
+
+### Bug Fixes
+
+* proper propType definition for type ([d704039](https://github.com/SUI-Components/sui-components/commit/d704039))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2018-09-17)
 

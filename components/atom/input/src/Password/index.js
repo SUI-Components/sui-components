@@ -2,8 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Input from '../Input'
 
-import './index.scss'
-
 const TEXT = 'text'
 const PASSWORD = 'password'
 const HIDE_LABEL = 'hide'
@@ -22,10 +20,10 @@ class Password extends React.Component {
     this.setState({type: inputType})
   }
 
-  onChange = ({ev, value}) => {
+  onChange = (ev, {value}) => {
     this.setState({value}, () => {
       const {onChange} = this.props
-      onChange && onChange({value, ev})
+      onChange && onChange(ev, {value})
     })
   }
 

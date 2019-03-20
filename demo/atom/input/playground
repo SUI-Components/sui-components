@@ -11,7 +11,7 @@ class SimpleCheckboxRadioForm extends React.Component {
     this.onSubmit = this.onSubmit.bind(this)
   }
 
-  onChange({value, field}) {
+  onChange(ev, {value, field}) {
     this.setState({
       [field]: value
     })
@@ -57,9 +57,10 @@ class SimpleCheckboxRadioForm extends React.Component {
             id="terms_service"
             type="checkbox"
             checked={termsService}
-            onChange={({ev}) => {
+            onChange={ev => {
               const value = !termsService
-              this.onChange({value, field: 'termsService', ev})
+              const field = 'termsService'
+              this.onChange(ev, {value, field})
             }}
           />
         </div>
@@ -70,8 +71,9 @@ class SimpleCheckboxRadioForm extends React.Component {
             type="radio"
             value="ES"
             checked={this.isCountrySelected('ES')}
-            onChange={({ev, value}) => {
-              this.onChange({value, field: 'country', ev})
+            onChange={(ev, {value}) => {
+              const field = 'country'
+              this.onChange(ev, {value, field})
             }}
           />
           <label style={{marginLeft: '20px'}} htmlFor="IT">
@@ -82,8 +84,9 @@ class SimpleCheckboxRadioForm extends React.Component {
             type="radio"
             value="IT"
             checked={this.isCountrySelected('IT')}
-            onChange={({ev, value}) => {
-              this.onChange({value, field: 'country', ev})
+            onChange={(ev, {value}) => {
+              const field = 'country'
+              this.onChange(ev, {value, field})
             }}
           />
           <label style={{marginLeft: '20px'}} htmlFor="FR">
@@ -94,8 +97,9 @@ class SimpleCheckboxRadioForm extends React.Component {
             type="radio"
             value="FR"
             checked={this.isCountrySelected('FR')}
-            onChange={({ev, value}) => {
-              this.onChange({value, field: 'country', ev})
+            onChange={(ev, {value}) => {
+              const field = 'country'
+              this.onChange(ev, {value, field})
             }}
           />
         </div>
@@ -117,8 +121,9 @@ class SimpleCheckboxRadioForm extends React.Component {
             type="radio"
             value="house"
             checked={this.isCategorySelected('house')}
-            onChange={({ev, value}) => {
-              this.onChange({value, field: 'category', ev})
+            onChange={(ev, {value}) => {
+              const field = 'category'
+              this.onChange(ev, {value, field})
             }}
           />
 
@@ -134,8 +139,9 @@ class SimpleCheckboxRadioForm extends React.Component {
             type="radio"
             value="rocket"
             checked={this.isCategorySelected('rocket')}
-            onChange={({ev, value}) => {
-              this.onChange({value, field: 'category', ev})
+            onChange={(ev, {value}) => {
+              const field = 'category'
+              this.onChange(ev, {value, field})
             }}
           />
 
@@ -151,8 +157,9 @@ class SimpleCheckboxRadioForm extends React.Component {
             value="globe"
             type="radio"
             checked={this.isCategorySelected('globe')}
-            onChange={({ev, value}) => {
-              this.onChange({value, field: 'category', ev})
+            onChange={(ev, {value}) => {
+              const field = 'category'
+              this.onChange(ev, {value, field})
             }}
           />
         </div>
@@ -185,11 +192,12 @@ const imageCheckboxStyle = {
 }
 
 const logoLocation = 'https://image.flaticon.com/icons/svg/67/67347.svg'
-const LeftIcon = () => <img src={logoLocation} />
+const IconLocation = () => <img src={logoLocation} />
 
 return (
-  <React.Fragment>
+  <div style={{padding: '20px'}}>
     <div style={field}>
+      <h4>Size SMALL</h4>
       <AtomInput
         size={inputSizes.SMALL}
         name="first"
@@ -197,21 +205,40 @@ return (
       />
     </div>
     <div style={field}>
+      <h4>With placeholder</h4>
       <AtomInput name="second" placeholder="Medium Input" />
     </div>
     <div style={field}>
-      <AtomInput name="second" placeholder="Medium Input" value="Somewhere over the..."/>
+      <h4>With placeholder and value</h4>
+      <AtomInput
+        name="second"
+        placeholder="Medium Input"
+        value="Somewhere over the..."
+      />
     </div>
     <div style={field}>
+      <h4>Disabled</h4>
       <AtomInput name="disabled" placeholder="Medium Disabled Input" disabled />
     </div>
     <div style={field}>
-      <AtomInput type="number" name="number" placeholder="Number only input" />
+      <h4>Read Only</h4>
+      <AtomInput name="disabled" value="Medium Read Only Input" readOnly />
     </div>
     <div style={field}>
+      <h4>Type: number</h4>
+      <AtomInput
+        type="number"
+        name="number"
+        placeholder="Number only input"
+        charsSize={10}
+      />
+    </div>
+    <div style={field}>
+      <h4>Type: date</h4>
       <AtomInput type="date" name="date" charsSize={10} />
     </div>
     <div style={field}>
+      <h4>With leftAddon and rightAddon</h4>
       <AtomInput
         name="second"
         placeholder="Medium Input"
@@ -220,27 +247,32 @@ return (
       />
     </div>
     <div style={field}>
+      <h4>With leftIcon</h4>
       <AtomInput
         name="second"
         placeholder="Medium Input"
-        leftIcon={LeftIcon}
+        leftIcon={<IconLocation />}
       />
     </div>
     <div style={field}>
+      <h4>With leftIcon and rightAddon</h4>
       <AtomInput
         name="second"
         placeholder="Medium Input"
-        leftIcon={LeftIcon}
+        leftIcon={<IconLocation />}
         rightAddon="Location"
       />
     </div>
     <div style={field}>
+      <h4>With errorState=false</h4>
       <AtomInput name="second" placeholder="Success input" errorState={false} />
     </div>
     <div style={field}>
+      <h4>With errorState=true</h4>
       <AtomInput name="second" placeholder="Error input" errorState={true} />
     </div>
     <div style={field}>
+      <h4>Type: sui-password</h4>
       <AtomInput
         type="sui-password"
         name="password"
@@ -248,6 +280,7 @@ return (
       />
     </div>
     <div style={field}>
+      <h4>Type: mask</h4>
       <AtomInput
         type="mask"
         mask={bankAccountMask}
@@ -255,9 +288,69 @@ return (
         charsSize={31}
       />
     </div>
+    <div style={field}>
+      <h4>With rightIcon</h4>
+      <AtomInput
+        name="second"
+        placeholder="Medium Input"
+        rightIcon={<IconLocation />}
+      />
+    </div>
+    <div style={field}>
+      <h4>With rightIcon and leftAddon</h4>
+      <AtomInput
+        name="second"
+        placeholder="Medium Input"
+        leftAddon="City"
+        rightIcon={<IconLocation />}
+      />
+    </div>
+    <div style={field}>
+      <h4>With rightIcon & handler on it</h4>
+      <AtomInput
+        name="second"
+        placeholder="Medium Input"
+        rightIcon={<IconLocation />}
+        onClickRightIcon={e => alert('clicked right icon')}
+      />
+    </div>
+
+    <div style={field}>
+      <h4>No border</h4>
+      <AtomInput name="second" placeholder="Type something..." noBorder />
+    </div>
+
+    <div style={field}>
+      <h4>onEnter</h4>
+      <AtomInput
+        name="second"
+        onEnter={ev => {
+          const {
+            target: {value}
+          } = ev
+          ev.preventDefault()
+          alert(value)
+        }}
+      />
+    </div>
+
+    <div style={field}>
+      <h4>onEnter on Tab</h4>
+      <AtomInput
+        name="second"
+        onEnter={ev => {
+          const {
+            target: {value}
+          } = ev
+          ev.preventDefault()
+          alert(value)
+        }}
+        onEnterKey="Tab"
+      />
+    </div>
 
     <h2>Checkbox & Radio</h2>
 
     <SimpleCheckboxRadioForm />
-  </React.Fragment>
+  </div>
 )

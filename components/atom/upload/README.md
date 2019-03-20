@@ -24,6 +24,6 @@ import AtomUpload, {uploadStatuses} from '@s-ui/react-atom-upload'
   iconActive={IconActive}
   textActive={textActive}
 />
-
+```
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/upload/demo).**

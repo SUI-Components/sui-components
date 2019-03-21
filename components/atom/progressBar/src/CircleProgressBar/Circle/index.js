@@ -1,10 +1,16 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
-function getClassName(baseClassName, modifier) {
-  return modifier
-    ? `${baseClassName} ${baseClassName}--${modifier}`
-    : `${baseClassName}`
+const SIZES = {
+  LARGE: 'large',
+  SMALL: 'small'
+}
+
+const MODIFIERS = {
+  LOADING: 'loading',
+  PROGRESS: 'progress',
+  ERROR: 'error'
 }
 
 class Circle extends Component {
@@ -51,12 +57,14 @@ class Circle extends Component {
   }
 
   getStokeList() {
-    const {prefixCls, modifier, percentage, strokeWidth} = this.props
+    const {baseClassName, modifier, percentage, strokeWidth} = this.props
 
     const {pathString, pathStyle} = this.getPathStyles(percentage, strokeWidth)
     return (
       <path
-        className={getClassName(`${prefixCls}-path`, modifier)}
+        className={cx(`${baseClassName}-path`, {
+          [`${baseClassName}-path--${modifier}`]: !!modifier
+        })}
         d={pathString}
         strokeLinecap="square"
         strokeWidth={strokeWidth}
@@ -67,21 +75,27 @@ class Circle extends Component {
   }
 
   render() {
-    const {prefixCls, modifier, percentage, strokeWidth, style} = this.props
+    const {baseClassName, modifier, percentage, strokeWidth, size} = this.props
     return (
       <svg
-        className={getClassName(`${prefixCls}-circle`, modifier)}
+        className={cx(`${baseClassName}-circle`, {
+          [`${baseClassName}-circle--${modifier}`]: !!modifier,
+          [`${baseClassName}-circle--${size}`]: !!size
+        })}
         viewBox="0 0 100 100"
-        style={style}
       >
         <path
-          className={getClassName(`${prefixCls}-trail`, modifier)}
+          className={cx(`${baseClassName}-trail`, {
+            [`${baseClassName}-trail--${modifier}`]: !!modifier
+          })}
           {...this.getPathStyles(100, strokeWidth)}
           strokeWidth={strokeWidth}
           fillOpacity="0"
         />
         <path
-          className={getClassName(`${prefixCls}-path`, modifier)}
+          className={cx(`${baseClassName}-path`, {
+            [`${baseClassName}-path--${modifier}`]: !!modifier
+          })}
           {...this.getPathStyles(percentage, strokeWidth)}
           strokeLinecap="square"
           strokeWidth={strokeWidth}
@@ -93,12 +107,18 @@ class Circle extends Component {
 }
 
 Circle.propTypes = {
-  prefixCls: PropTypes.string.isRequired,
-  modifier: PropTypes.string,
+  /** Base className to be used in this component  */
+  baseClassName: PropTypes.string.isRequired,
+  /** CSS modifier for ERROR, LOADING variants  */
+  modifier: PropTypes.oneOf(Object.values(MODIFIERS)),
+  /** The percentage of the current progress */
   percentage: PropTypes.number.isRequired,
+  /** width of the stroke  */
   strokeWidth: PropTypes.node.isRequired,
+  /** boolean to activate/desactivate animations */
   withAnimation: PropTypes.bool,
-  style: PropTypes.object
+  /** size of the circle [small, large]  */
+  size: PropTypes.oneOf(Object.values(SIZES)).isRequired
 }
 
 Circle.defaultProps = {

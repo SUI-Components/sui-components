@@ -1,6 +1,11 @@
+$w-atom-circle-progress-bar-circle-large: 48px !default;
+$h-atom-circle-progress-bar-circle-large: $w-atom-circle-progress-bar-circle-large !default;
+$w-atom-circle-progress-bar-circle-small: 16px !default;
+$h-atom-circle-progress-bar-circle-small: $w-atom-circle-progress-bar-circle-small !default;
 $c-atom-circle-progress-bar-trail: $c-gray-lightest !default;
 $c-atom-circle-progress-bar-trail--error: $c-alert !default;
 $c-atom-circle-progress-bar-trail--loading: $c-gray-lightest !default;
 $c-atom-circle-progress-bar-path: $c-primary !default;
 $fz-atom-circle-progress-bar-text--inner: $fz-s !default;
 $fz-atom-circle-progress-bar-text--outer: $fz-xs !default;
+$ml-atom-circle-progress-bar-text--outer: $m-s !default;

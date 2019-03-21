@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
+const ErrorIconLarge = () => (<svg className="sui-SVGicon" height={32} viewBox="0 -1 24 24" width={32} xmlns="http://www.w3.org/2000/svg" style={{fill: 'rgb(255, 99, 53)', stroke: 'blue', strokeWidth: 0}}><g fillRule="evenodd"><path d="M13.42 12l4.79-4.8a1 1 0 0 0-1.41-1.41L12 10.58 7.21 5.79A1 1 0 0 0 5.8 7.2l4.79 4.8-4.79 4.79a1 1 0 1 0 1.41 1.41L12 13.41l4.8 4.79a1 1 0 0 0 1.41-1.41L13.42 12z" /></g></svg>)
+const ErrorIconSmall = () => (<svg className="sui-SVGicon" height={12} viewBox="0 -3 24 24" width={12} xmlns="http://www.w3.org/2000/svg" style={{fill: 'rgb(255, 99, 53)', stroke: 'blue', strokeWidth: 0}}><g fillRule="evenodd"><path d="M13.42 12l4.79-4.8a1 1 0 0 0-1.41-1.41L12 10.58 7.21 5.79A1 1 0 0 0 5.8 7.2l4.79 4.8-4.79 4.79a1 1 0 1 0 1.41 1.41L12 13.41l4.8 4.79a1 1 0 0 0 1.41-1.41L13.42 12z" /></g></svg>)
+
 class StaticWithAnimation extends React.Component {
 
   static defaultProps = {
@@ -85,7 +88,7 @@ class DynamicProgressBar extends React.Component {
     const {intervalTime, step, type, ...props} = this.props
     return (
       <div style={{background: 'white', padding: '10px'}} >
-        <button style={{marginBottom: '10px'}} onClick={this.handleClick}>
+        <button style={{marginBottom: '10px', display:'block'}} onClick={this.handleClick}>
           Start Progress
         </button>
         <AtomProgressBar percentage={percentage} type={type} {...props} />
@@ -132,7 +135,7 @@ class InputRangeProgressBar extends React.Component {
     const {step, type, ...props} = this.props
     return (
       <div style={{background: 'white', padding: '10px'}} >
-        <input ref={this.inputRangeRef} style={{marginBottom: '10px'}} onChange={this.handleInputRange} type="range" min="0" max="100" value={this.state.percentage} step={step}/>
+        <input ref={this.inputRangeRef} style={{marginBottom: '10px', display:'block'}} onChange={this.handleInputRange} type="range" min="0" max="100" value={this.state.percentage} step={step}/>
         <AtomProgressBar percentage={percentage} type={type} {...props}/>
       </div>
     )
@@ -194,17 +197,27 @@ return (
 
     <div style={styleSection}>
       <h2>Basic</h2>
-      <AtomProgressBar percentage={25} type="circle" />
+      <div style={{background: 'white', padding: '10px'}} >
+        <AtomProgressBar percentage={25} type="circle" />
+      </div>
       <h2>With Error</h2>
       <h3>Large</h3>
-      <AtomProgressBar percentage={0} type="circle" status="error" errorIcon={<span>X</span>}/>
+      <div style={{background: 'white', padding: '10px'}} >
+        <AtomProgressBar percentage={0} type="circle" status="error" errorIcon={<ErrorIconLarge/>}/>
+      </div>
       <h3>Small</h3>
-      <AtomProgressBar percentage={0} type="circle" status="error" size="small" errorIcon={<span>X</span>}/>
+      <div style={{background: 'white', padding: '10px'}} >
+        <AtomProgressBar percentage={0} type="circle" status="error" size="small" errorIcon={<ErrorIconSmall/>}/>
+      </div>
       <h2>Loading</h2>
       <h3>Large</h3>
-      <AtomProgressBar percentage={0} type="circle" status="loading"/>
+      <div style={{background: 'white', padding: '10px'}} >
+        <AtomProgressBar percentage={0} type="circle" status="loading"/>
+      </div>
       <h3>Small</h3>
-      <AtomProgressBar percentage={0} type="circle" size="small" status="loading"/>
+      <div style={{background: 'white', padding: '10px'}} >
+        <AtomProgressBar percentage={0} type="circle" size="small" status="loading"/>
+      </div>
       <h2>Manual</h2>
       <h3>Large</h3>
       <InputRangeProgressBar type="circle" step={1} />

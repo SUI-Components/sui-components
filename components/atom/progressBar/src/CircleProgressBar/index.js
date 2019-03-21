@@ -15,8 +15,8 @@ const STATUS = {
 }
 
 const SIZE_TO_WIDTH_LINE_MAP = {
-  [SIZES.LARGE]: 6,
-  [SIZES.SMALL]: 4
+  [SIZES.LARGE]: 4,
+  [SIZES.SMALL]: 8
 }
 
 const BASE_CLASS_NAME = 'sui-AtomCircleProgressBar'

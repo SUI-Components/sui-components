@@ -24,10 +24,9 @@ const withStateActiveTab = BaseComponent => {
     }
 
     componentDidMount() {
-      const {children} = this.props // eslint-disable-line
+      const {children} = this.prop
       React.Children.forEach(children, (child, index) => {
-        // eslint-disable-line
-        const {active} = child.props // eslint-disable-line
+        const {active} = child.props
         if (active) this.setState({activeTab: index + 1})
       })
     }

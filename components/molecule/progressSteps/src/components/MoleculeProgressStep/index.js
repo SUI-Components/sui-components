@@ -40,8 +40,7 @@ const MoleculeProgressStep = ({
   label,
   numStep,
   lastStep,
-  compressed,
-  children
+  compressed
 }) => {
   const [CLASS_STEP_STATUS, CLASS_BAR_STATUS] = getStatusClass(status)
   const bar = <hr className={cx(CLASS_BAR, CLASS_BAR_STATUS)} />
@@ -63,9 +62,6 @@ const MoleculeProgressStep = ({
 }
 
 MoleculeProgressStep.propTypes = {
-  /** children */
-  children: PropTypes.any,
-
   /** status of the step */
   status: PropTypes.oneOf(Object.values(STATUSES)),
 

@@ -1,62 +1,40 @@
-import React, {PureComponent} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
+import LineProgressBar from './LineProgressBar'
+import CircleProgressBar from './CircleProgressBar'
 
-const BASE_CLASS = 'sui-AtomProgressBar'
-const CLASS_INDICATOR = 'sui-AtomProgressBar-indicator'
-const CLASS_CONTAINER_BAR = 'sui-AtomProgressBar-container'
-const CLASS_BAR = 'sui-AtomProgressBar-bar'
-const CLASS_BAR_ANIMATED = 'sui-AtomProgressBar-bar--animated'
-
-const Indicator = props => {
-  const {indicatorBottom, percentage, indicatorTotal} = props // eslint-disable-line react/prop-types
-  return (
-    <span
-      className={cx(
-        CLASS_INDICATOR,
-        `${CLASS_INDICATOR}--${indicatorBottom ? 'bottom' : 'top'}`
-      )}
-    >
-      <strong>{percentage}</strong>
-      {indicatorTotal ? `/100` : `%`}
-    </span>
-  )
+const TYPES = {
+  CIRCLE: 'circle',
+  LINE: 'line'
 }
 
-class AtomProgressBar extends PureComponent {
-  render() {
-    const {percentage, indicatorBottom, isAnimatedOnChange} = this.props
-    const width = `${percentage}%`
-    const styleBar = {width}
-    return (
-      <div className={BASE_CLASS}>
-        {!indicatorBottom && <Indicator {...this.props} />}
-        <div className={CLASS_CONTAINER_BAR}>
-          <span
-            className={cx(CLASS_BAR, isAnimatedOnChange && CLASS_BAR_ANIMATED)}
-            style={styleBar}
-          />
-        </div>
-        {indicatorBottom && <Indicator {...this.props} />}
-      </div>
-    )
+const SIZES = {
+  LARGE: 'large',
+  SMALL: 'small'
+}
+
+const AtomProgressBar = ({type, size, ...props}) => {
+  switch (type) {
+    case TYPES.LINE:
+      return <LineProgressBar {...props} />
+    case TYPES.CIRCLE:
+      return <CircleProgressBar size={size} {...props} />
+    default:
+      return <LineProgressBar {...props} />
   }
 }
 
 AtomProgressBar.displayName = 'AtomProgressBar'
 
 AtomProgressBar.propTypes = {
-  /** Percentage value to be displayed as number and as bar width  */
-  percentage: PropTypes.number,
+  type: PropTypes.oneOf(Object.values(TYPES)),
+  size: PropTypes.oneOf(Object.values(SIZES))
+}
 
-  /** If the indicator should be displayed with the pattern → {percentage}/100 ({percentage}% as default) */
-  indicatorTotal: PropTypes.bool,
-
-  /** If the bar "value" (width) should be displayed wuth animation */
-  isAnimatedOnChange: PropTypes.bool,
-
-  /** If the indicator should be placed below the bar */
-  indicatorBottom: PropTypes.bool
+AtomProgressBar.defaultProps = {
+  size: SIZES.LARGE,
+  type: TYPES.LINE
 }
 
 export default AtomProgressBar
+export {TYPES as atomProgressBarTypes, SIZES as atomProgressBarSizes}

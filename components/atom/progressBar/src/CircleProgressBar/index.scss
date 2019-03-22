@@ -1,0 +1,63 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import './settings';
+
+.sui-AtomCircleProgressBar {
+  background-color: transparent;
+  display: inline-block;
+  position: relative;
+
+  &--small {
+    display: flex;
+  }
+  
+  &-indicator {
+    &--inner {
+      font-size: $fz-atom-circle-progress-bar-text--inner;
+      left: 50%;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      text-align: center;
+      top: calc(#{$h-atom-circle-progress-bar-circle-large} / 2);
+      transform: translate(-50%, -50%); 
+    }
+
+    &--small {
+      font-size: $fz-atom-circle-progress-bar-text--outer;
+      top: calc(#{$h-atom-circle-progress-bar-circle-small} / 2);
+    }
+
+    &--outer {
+      font-size: $fz-atom-circle-progress-bar-text--outer;
+      margin-left: $ml-atom-circle-progress-bar-text--outer;
+    }
+  }
+
+  &-circle {
+    &--small {
+      width: $w-atom-circle-progress-bar-circle-small;
+      height: $h-atom-circle-progress-bar-circle-small;
+    }
+
+    &--large {
+      width: $w-atom-circle-progress-bar-circle-large;
+      height: $h-atom-circle-progress-bar-circle-large;
+    }
+  }
+
+  &-trail {
+    stroke: $c-atom-circle-progress-bar-trail;
+
+    &--error {
+      stroke: $c-atom-circle-progress-bar-trail--error;
+    }
+
+    &--loading {
+      stroke: $c-atom-circle-progress-bar-trail--loading;
+    }
+  }
+
+  &-path {
+    stroke: $c-atom-circle-progress-bar-path;
+  }
+}

@@ -1,18 +1,30 @@
-@import "~@schibstedspain/sui-theme/lib/index";
+@import '~@schibstedspain/sui-theme/lib/index';
 
 @keyframes slide-down {
   0% {
     transform: translateY(-100%);
+    opacity: 0;
+    z-index: -10000;
   }
+
   100% {
     transform: translateY(0);
+    opacity: 1;
+    z-index: 10000;
   }
-}
-
-.isSticky {
-  animation: slide-down .7s;
 }
 
 .sui-BehaviorSticky {
   position: fixed;
+  transform-style: flat;
+  z-index: 1000;
+  overflow: hidden;
+
+  &--animate {
+    animation: slide-down .7s;
+
+    * {
+      z-index: -1000;
+    }
+  }
 }

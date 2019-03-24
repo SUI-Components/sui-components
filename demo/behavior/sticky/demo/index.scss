@@ -1,9 +1,48 @@
+@import '~@schibstedspain/sui-atom-button/lib/index';
+
 .DemoBehaviorSticky {
   padding: 20px;
-
+  background: #f1f1f1;
+  
   &-section {
-    margin: 10px;
     border: 1px solid blue;
+    margin: 10px;
+  }
+
+  &-content {
+    background: #f1f1f1;
+  }
+
+  &-fixed-header {
+    background: #0091c4;
+    color: white;
+    margin: 0;
+    padding: 10px;
+
+    &-buttons {
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      background: white;
+      * {
+        z-index: 1;
+      }
+    }
+
+    h1 {
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      font-weight: normal;
+      margin: 0;
+      padding: 0;
+      path {
+        fill: white;
+      }
+      span {
+        margin-left: 10px;
+      }
+    }
   }
 
   pre {

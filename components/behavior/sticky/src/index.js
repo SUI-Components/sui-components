@@ -1,15 +1,21 @@
 import React from 'react'
+import cx from 'classnames'
 import * as ReactSticky from 'react-stickup'
 
 const BASE_CLASS = 'sui-BehaviorSticky'
+const CLASS_ANIMATE = `${BASE_CLASS}--animate`
 
 const BehaviorStickyProvider = ReactSticky.StickyProvider
 
 // eslint-disable-next-line react/prop-types
-const BehaviorSticky = ({children, ...props}) => {
+const BehaviorSticky = ({children, animate, ...props}) => {
   return (
     <ReactSticky.Sticky className={BASE_CLASS} {...props}>
-      {children}
+      {({isSticky}) => (
+        <div className={cx({[CLASS_ANIMATE]: isSticky && animate})}>
+          {children}
+        </div>
+      )}
     </ReactSticky.Sticky>
   )
 }

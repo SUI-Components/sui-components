@@ -3,7 +3,7 @@
 .DemoBehaviorSticky {
   padding: 20px;
   background: #f1f1f1;
-  
+
   &-section {
     border: 1px solid blue;
     margin: 10px;
@@ -11,6 +11,25 @@
 
   &-content {
     background: #f1f1f1;
+    padding: 20px 0;
+  }
+
+  &-fixed-footer {
+    bottom: 10px;
+    position: fixed;
+    width: 100%;
+    z-index: 2000;
+    & > * {
+      border-radius: 100%;
+      background: white;
+      display: flex;
+      height: 50px;
+      margin: auto;
+      width: 50px;
+      path {
+        fill: #0091c4;
+      }
+    }
   }
 
   &-fixed-header {

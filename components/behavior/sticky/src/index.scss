@@ -15,10 +15,10 @@
 }
 
 .sui-BehaviorSticky {
+  overflow: hidden;
   position: fixed;
   transform-style: flat;
   z-index: 1000;
-  overflow: hidden;
 
   &--animate {
     animation: slide-down .7s;

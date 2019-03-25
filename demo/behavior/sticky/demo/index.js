@@ -8,16 +8,22 @@ import BehaviorSticky, {
   BehaviorStickyProvider
 } from '../../../../components/behavior/sticky/src'
 
-import {Content, HeaderFixed, HeaderWithButtons} from './components'
+import {
+  Content,
+  HeaderFixed,
+  FooterFixed,
+  HeaderWithButtons
+} from './components'
 
 const BASE_CLASS_DEMO = 'DemoBehaviorSticky'
 const CLASS_DEMO_FIXED_HEADER = `${BASE_CLASS_DEMO}-fixed-header`
+const CLASS_DEMO_FIXED_FOOTER = `${BASE_CLASS_DEMO}-fixed-footer`
 const CLASS_DEMO_FIXED_BUTTONS = `${BASE_CLASS_DEMO}-fixed-header-buttons`
 const CLASS_DEMO_CONTENT = `${BASE_CLASS_DEMO}-content`
 // const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
 
-const containerRed = React.createRef()
-// const containerBrown = React.createRef()
+const container1 = React.createRef()
+const container2 = React.createRef()
 
 const Demo = () => (
   <BehaviorStickyProvider>
@@ -30,22 +36,24 @@ const Demo = () => (
     <Content className={CLASS_DEMO_CONTENT} />
 
     {/* @begin STICKY IN CONTAINER */}
-    <div ref={containerRed} style={{height: '500px'}}>
-      <BehaviorSticky container={containerRed} defaultOffsetTop={45} animate>
+    <div ref={container1}>
+      <BehaviorSticky container={container1} defaultOffsetTop={45} animate>
         <HeaderWithButtons className={CLASS_DEMO_FIXED_BUTTONS} />
       </BehaviorSticky>
-      <div style={{padding: '10px', height: '1000px', background: 'green'}}>
-        Lorem ipsum dolor sit amet consectetur adipiscing elit porttitor, per
-        diam cras cum convallis massa nostra, condimentum pretium congue mi dis
-        non erat. Euismod dui hendrerit enim nostra eros nibh vulputate, vitae
-        gravida sem pretium sociosqu luctus eget placerat, justo porta senectus
-        mauris ante porttitor. Vitae tempus sem felis enim natoque purus nam at
-        augue nascetur, urna semper dictum egestas leo habitasse aliquet
-        consequat dis fermentum, ornare feugiat pretium nisi venenatis hac cras
-        interdum nostra.
-      </div>
+      <Content className={CLASS_DEMO_CONTENT} />
     </div>
     {/* @end STICKY IN CONTAINER  */}
+
+    {/* @begin STICKY IN CONTAINER */}
+    <div ref={container2}>
+      <BehaviorSticky container={container2} defaultOffsetTop={45} animate>
+        <HeaderWithButtons className={CLASS_DEMO_FIXED_BUTTONS} />
+      </BehaviorSticky>
+      <Content className={CLASS_DEMO_CONTENT} />
+    </div>
+    {/* @end STICKY IN CONTAINER  */}
+
+    <FooterFixed className={CLASS_DEMO_FIXED_FOOTER} />
   </BehaviorStickyProvider>
 )
 

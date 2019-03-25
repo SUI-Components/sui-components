@@ -1,6 +1,14 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+
+import MoleculeTab from './components/MoleculeTab'
+import withStateActiveTab from './hoc/withStateActiveTab'
+
+const BASE_CLASS = `sui-MoleculeTabs`
+
+const CLASS_SCROLLER = `${BASE_CLASS}-scroller`
+const CLASS_CONTENT = `${BASE_CLASS}-content`
 
 const TYPES = {
   HORIZONTAL: 'horizontal',
@@ -13,120 +21,62 @@ const VARIANTS = {
   CLASSIC: 'classic'
 }
 
-class MoleculeTabs extends Component {
-  state = {
-    activeTab: this.props.activeTab
-  }
+const MoleculeTabs = ({variant, type, children, onChange}) => {
+  const CLASS_VARIANT = `${BASE_CLASS}--${variant}`
+  const CLASS_TYPE = `${BASE_CLASS}--${type}`
 
-  _createHandleChange(index) {
-    return event => {
-      event.preventDefault()
-      const {items, handleClickInDisabledTabs} = this.props
-      const {enabled} = items[index]
-      if (enabled !== false) {
-        this.setState({activeTab: index})
-      }
-      if (handleClickInDisabledTabs || enabled !== false) {
-        this.props.handleChange(index, this.props.items[index])
-      }
-    }
-  }
+  const className = cx(BASE_CLASS, CLASS_VARIANT, CLASS_TYPE)
 
-  _renderTabs() {
-    const {items} = this.props
-    const {activeTab} = this.state
-
-    return items.map((item, index) => {
-      const tabLinkClassName = cx('sui-MoleculeTabs-button', {
-        active: activeTab === index,
-        disabled: item.enabled === false
-      })
-
-      return (
-        <li className="sui-MoleculeTabs-item" key={index}>
-          <button
-            className={tabLinkClassName}
-            onClick={this._createHandleChange(index)}
-            role="tab"
-          >
-            {item.icon && (
-              <span className="sui-MoleculeTabs-icon">{item.icon}</span>
-            )}
-            <span>{item.label}</span>
-          </button>
-        </li>
-      )
+  const extendedChildren = React.Children.map(children, (child, index) => {
+    const numTab = index + 1
+    return React.cloneElement(child, {
+      onChange,
+      numTab
     })
-  }
+  })
 
-  render() {
-    return (
-      <nav
-        className={cx(
-          'sui-MoleculeTabs',
-          `sui-MoleculeTabs--${this.props.variant}`,
-          `sui-MoleculeTabs--${this.props.type}`
-        )}
-      >
-        <ul className="sui-MoleculeTabs-scroller">{this._renderTabs()}</ul>
-      </nav>
-    )
-  }
+  const activeTabContent = React.Children.toArray(children).reduce(
+    (activeContent, child) => {
+      const {children: childrenChild, active} = child.props
+      return active ? childrenChild : activeContent
+    },
+    null
+  )
+
+  return (
+    <div className={className}>
+      <ul className={CLASS_SCROLLER}>{extendedChildren}</ul>
+      <div className={CLASS_CONTENT}>{activeTabContent}</div>
+    </div>
+  )
 }
 
 MoleculeTabs.displayName = 'MoleculeTabs'
 
-MoleculeTabs.defaultProps = {
-  activeTab: 0,
-  handleClickInDisabledTabs: false
-}
-
 MoleculeTabs.propTypes = {
-  /**
-   * List of items for generate tabs
-   */
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      /**
-       * label to be displayed.
-       */
-      label: PropTypes.node.isRequired,
-      /**
-       * Icon of the tab item
-       */
-      icon: PropTypes.node,
-      /**
-       * first state.
-       */
-      active: PropTypes.bool,
-      /**
-       * Allows to disable a tab by setting this to false
-       */
-      enabled: PropTypes.bool
-    })
-  ).isRequired,
-  /**
-   * Point at the selected tab
-   */
-  activeTab: PropTypes.number,
-  /**
-   * By clicking on every single tab, `handleChange` is triggered and sends an
-   * object with the item information and position in the array.
-   */
-  handleChange: PropTypes.func.isRequired,
+  /** children */
+  children: PropTypes.any,
+
+  /** onChange */
+  onChange: PropTypes.func,
+
+  /** variant */
   variant: PropTypes.oneOf(Object.values(VARIANTS)),
-  type: PropTypes.oneOf(Object.values(TYPES)),
-  /**
-   * Allows the handle click in disabled tabs
-   */
-  handleClickInDisabledTabs: PropTypes.bool
+
+  /** type */
+  type: PropTypes.oneOf(Object.values(TYPES))
 }
 
 MoleculeTabs.defaultProps = {
   variant: VARIANTS.CLASSIC,
   type: TYPES.HORIZONTAL,
-  handleClickInDisabledTabs: false
+  onChange: () => {}
 }
 
-export default MoleculeTabs
-export {TYPES as moleculeTabsTypes, VARIANTS as moleculeTabsVariants}
+export default withStateActiveTab(MoleculeTabs)
+export {
+  MoleculeTabs,
+  MoleculeTab,
+  TYPES as moleculeTabsTypes,
+  VARIANTS as moleculeTabsVariants
+}

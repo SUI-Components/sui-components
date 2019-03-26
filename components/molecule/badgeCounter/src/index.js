@@ -4,9 +4,19 @@ import PropTypes from 'prop-types'
 
 const BASE_CLASS = `sui-MoleculeBadgeCounter`
 const CLASS_WITH_CHILDREN = `${BASE_CLASS}-with-children`
+const CLASS_SMALL = `${BASE_CLASS}-small`
+const CLASS_MEDIUM = `${BASE_CLASS}-medium`
 
-const MoleculeBadgeCounter = ({children, label}) => {
-  const className = cx(BASE_CLASS, {[CLASS_WITH_CHILDREN]: Boolean(children)})
+const SIZES = {
+  SMALL: 'small',
+  MEDIUM: 'medium'
+}
+const MoleculeBadgeCounter = ({children, label, size}) => {
+  const CLASS_SIZE =
+    size === SIZES.MEDIUM || Boolean(label) ? CLASS_MEDIUM : CLASS_SMALL
+  const className = cx(BASE_CLASS, CLASS_SIZE, {
+    [CLASS_WITH_CHILDREN]: Boolean(children)
+  })
   return <div className={className}>{label}</div>
 }
 
@@ -19,8 +29,10 @@ MoleculeBadgeCounter.propTypes = {
   children: PropTypes.any,
 
   /** label */
-  label: PropTypes.any
+  label: PropTypes.any,
+
+  /** size */
+  size: PropTypes.any
 }
-// MoleculeBadgeCounter.defaultProps = {}
 
 export default MoleculeBadgeCounter

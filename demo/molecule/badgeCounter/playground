@@ -3,11 +3,11 @@ return (
     <h1>MoleculeBadgeCounter</h1>
     <h2>Basic</h2>
     <p>
-      <MoleculeBadgeCounter/>
+      <MoleculeBadgeCounter />
     </p>
     <h2>With Content</h2>
     <p>
-      <MoleculeBadgeCounter>4</MoleculeBadgeCounter>
+      <MoleculeBadgeCounter label="4" />
     </p>
   </div>
 )

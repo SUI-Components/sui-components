@@ -1,0 +1,18 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$bg-molecule-badge-counter: #ff0057 !default;
+
+.sui-MoleculeBadgeCounter {
+  background-color: $bg-molecule-badge-counter;
+  border-radius: 100%;
+
+  &-small {
+    height: 6px;
+    width: 6px;
+  }
+
+  &-medium {
+    height: 8px;
+    width: 8px;
+  }
+}

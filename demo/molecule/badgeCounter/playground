@@ -1,0 +1,13 @@
+return (
+  <div>
+    <h1>MoleculeBadgeCounter</h1>
+    <h2>Basic</h2>
+    <p>
+      <MoleculeBadgeCounter/>
+    </p>
+    <h2>With Content</h2>
+    <p>
+      <MoleculeBadgeCounter>4</MoleculeBadgeCounter>
+    </p>
+  </div>
+)

@@ -1,0 +1,49 @@
+.DemoMoleculeProgressSteps {
+  padding: 20px;
+
+  h3 {
+    margin-top: 40px;
+  }
+
+  &-section--vertical &-contentStep {
+    margin: 0;
+  }
+
+  &-contentStep {
+    background: #ddd;
+    margin: 60px 0 0;
+    padding: 10px;
+  }
+
+  &-section {
+    border: 1px solid #ccc;
+    margin-bottom: 16px;
+    padding: 40px;
+
+    &--vertical {
+      height: 700px;
+    }
+
+    &-responsive {
+      background: white;
+      border: 2px dashed blue;
+      margin-top: 10px;
+      overflow: hidden;
+      padding: 30px;
+      resize: horizontal;
+    }
+  }
+
+  .sui-MoleculePagination {
+    background: white;
+    padding: 10px;
+  }
+
+  &--fullWidth {
+    border: 2px dashed blue;
+    margin-right: 20px;
+    overflow: hidden;
+    padding: 10px;
+    resize: horizontal;
+  }
+}

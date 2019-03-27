@@ -18,6 +18,7 @@ const MoleculeSelectFieldMultiSelection = props => {
     iconCloseTag,
     refMoleculeSelect,
     value: values,
+    size,
     placeholder,
     keysSelection,
     id
@@ -53,6 +54,7 @@ const MoleculeSelectFieldMultiSelection = props => {
       />
       <MoleculeDropdownList
         checkbox
+        size={size}
         visible={isOpen}
         onSelect={handleMultiSelection}
         value={values}

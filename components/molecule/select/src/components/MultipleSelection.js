@@ -18,10 +18,10 @@ const MoleculeSelectFieldMultiSelection = props => {
     iconCloseTag,
     refMoleculeSelect,
     value: values,
-    size,
     placeholder,
     keysSelection,
-    id
+    id,
+    size
   } = props
 
   const handleMultiSelection = (ev, {value: valueOptionSelected}) => {

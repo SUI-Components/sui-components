@@ -129,6 +129,8 @@ body.is-MoleculeModal-open {
     align-items: center;
     background-color: $bg-molecule-modal-header;
     border-bottom: $bd-molecule-modal-header;
+    border-top-left-radius: $bdrs-molecule-modal-dialog;
+    border-top-right-radius: $bdrs-molecule-modal-dialog;
     color: $c-molecule-modal-header;
     display: flex;
     flex: 0 0 auto;

@@ -6,7 +6,6 @@ $c-molecule-badge-counter: $c-white !default;
 .sui-MoleculeBadgeCounter {
   background-color: $bg-molecule-badge-counter;
   color: $c-molecule-badge-counter;
-  border-radius: 100%;
   font-size: $fz-xxs;
 
   &-small {
@@ -15,7 +14,21 @@ $c-molecule-badge-counter: $c-white !default;
   }
 
   &-medium {
-    height: 8px;
-    width: 8px;
+    align-items: center; 
+    display: inline-flex;
+    height: 12px;
+    justify-content: center;
+    min-width: 12px;
+    border-radius: 100%;
+  
+    &-two-characters {
+      padding: 0 1px;
+    }
+  
+    &-three-characters {
+      border-radius: 40%;
+      padding: 0 1px;
+    }
   }
+
 }

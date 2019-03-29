@@ -7,7 +7,19 @@ return (
     </p>
     <h2>With Content</h2>
     <p>
+      <MoleculeBadgeCounter label="." />
+    </p>
+    <p>
+      <MoleculeBadgeCounter label="!" />
+    </p>
+    <p>
       <MoleculeBadgeCounter label="4" />
+    </p>
+    <p>
+      <MoleculeBadgeCounter label="42" />
+    </p>
+    <p>
+      <MoleculeBadgeCounter label="+42" />
     </p>
   </div>
 )

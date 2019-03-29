@@ -6,18 +6,36 @@ const BASE_CLASS = `sui-MoleculeBadgeCounter`
 const CLASS_WITH_CHILDREN = `${BASE_CLASS}-with-children`
 const CLASS_SMALL = `${BASE_CLASS}-small`
 const CLASS_MEDIUM = `${BASE_CLASS}-medium`
+const CLASS_MEDIUM_ONE_CHAR = `${CLASS_MEDIUM}-one-character`
+const CLASS_MEDIUM_TWO_CHARS = `${CLASS_MEDIUM}-two-characters`
+const CLASS_MEDIUM_THREE_CHARS = `${CLASS_MEDIUM}-three-characters`
 
 const SIZES = {
   SMALL: 'small',
   MEDIUM: 'medium'
 }
+
+const getClassLengthLabel = label => {
+  const lengthLabel = label.length
+
+  switch (lengthLabel) {
+    case 1:
+      return CLASS_MEDIUM_ONE_CHAR
+    case 2:
+      return CLASS_MEDIUM_TWO_CHARS
+    default:
+      return CLASS_MEDIUM_THREE_CHARS
+  }
+}
 const MoleculeBadgeCounter = ({children, label, size}) => {
+  const hasLabel = Boolean(label)
   const CLASS_SIZE =
-    size === SIZES.MEDIUM || Boolean(label) ? CLASS_MEDIUM : CLASS_SMALL
-  const className = cx(BASE_CLASS, CLASS_SIZE, {
+    size === SIZES.MEDIUM || hasLabel ? CLASS_MEDIUM : CLASS_SMALL
+  const CLASS_LENGTH_LABEL = hasLabel ? getClassLengthLabel(label) : ''
+  const className = cx(BASE_CLASS, CLASS_SIZE, CLASS_LENGTH_LABEL, {
     [CLASS_WITH_CHILDREN]: Boolean(children)
   })
-  return <div className={className}>{label}</div>
+  return <span className={className}>{label}</span>
 }
 
 MoleculeBadgeCounter.displayName = 'MoleculeBadgeCounter'

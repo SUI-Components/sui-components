@@ -15,16 +15,21 @@ const ActionableTag = function({
   href,
   iconPlacement,
   label,
+  disabled,
   onClick,
   target,
   linkFactory,
   className
 }) {
+  const _onClickHandler = ev => {
+    if (!disabled) onClick(ev)
+  }
+
   return (
     <ActionableTagContainer
       className={getClassNames({className})}
       Link={linkFactory}
-      onClick={ev => onClick(ev)}
+      onClick={ev => _onClickHandler(ev)}
       href={href}
       target={target}
     >
@@ -47,6 +52,7 @@ ActionableTag.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
   icon: PropTypes.node,
+  disabled: PropTypes.bool,
   href: PropTypes.string,
   iconPlacement: PropTypes.oneOf([LEFT_ICON_PLACEMENT, RIGHT_ICON_PLACEMENT]),
   onClick: PropTypes.func,
@@ -59,7 +65,8 @@ ActionableTag.defaultProps = {
     <a href={href} target={target} className={className}>
       {children}
     </a>
-  )
+  ),
+  disabled: false
 }
 
 export default ActionableTag

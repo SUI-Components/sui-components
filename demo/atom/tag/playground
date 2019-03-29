@@ -17,7 +17,8 @@ return (
   <div style={{float: 'left'}}>
     <h2>Standard Tags</h2>
     <p>
-      <AtomTag label="Tag Structure" />{' '}
+      <AtomTag label="Tag Structure" />
+      <AtomTag disabled label="Tag disabled"/>
       <AtomTag
         label="Close Tag"
         onClose={() => alert('close!')}
@@ -52,6 +53,7 @@ return (
     <h2>Small Tags</h2>
     <p>
       <AtomTag label="Tag Structure" size={atomTagSizes.SMALL} />
+      <AtomTag disabled label="Tag disabled" size={atomTagSizes.SMALL} />
       <AtomTag
         label="Close Tag"
         onClose={() => alert('close!')}
@@ -97,6 +99,7 @@ return (
     <h2>Actionable Tag</h2>
     <p>
       <AtomTag label="Navigation Tag" onClick={() => alert('click!')} />
+      <AtomTag disabled label="Tag disabled" onClick={() => alert('click!')} />
       <AtomTag
         label="Anchor Tag"
         href="https://www.google.com"
@@ -111,6 +114,7 @@ return (
       />
       <AtomTag
         icon={<Icon />}
+        iconPlacement="left"
         label="Icon placement left"
         href="https://www.google.com"
         target="_blank"

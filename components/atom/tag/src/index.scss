@@ -1,6 +1,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
 $bgc-atom-tag: color-variation($c-gray, 3) !default;
+$bgc-atom-tag--disabled: color-variation($c-gray, 4) !default;
 $c-atom-tag-actionable: $c-white !default;
 $h-atom-tag-m: 32px !default;
 $h-atom-tag-s: 24px !default;
@@ -33,6 +34,10 @@ $p-atom-tag-s: 0 $p-m !default;
   padding: $p-atom-tag-m;
   white-space: nowrap;
 
+  &--disabled {
+    background-color: $bgc-atom-tag--disabled;
+  }
+
   &-label {
     // max width - 2 icon size
     $w-label-base: $mw-label - ($p-l * 2);
@@ -45,7 +50,7 @@ $p-atom-tag-s: 0 $p-m !default;
     white-space: nowrap;
 
     // if only one icon is set
-    .sui-AtomTag-hasIcon &, 
+    .sui-AtomTag-hasIcon &,
     .sui-AtomTag-hasClose & {
       max-width: $w-label-base - ($p-l + $m-s);
     }

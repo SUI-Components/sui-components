@@ -17,11 +17,12 @@ class AtomTag extends Component {
    * @return {string}w
    */
   get _classNames() {
-    const {icon, size} = this.props
+    const {icon, size, disabled} = this.props
     return classnames(
       'sui-AtomTag',
       `sui-AtomTag-${size}`,
-      icon && 'sui-AtomTag-hasIcon'
+      icon && 'sui-AtomTag-hasIcon',
+      disabled && 'sui-AtomTag--disabled'
     )
   }
 
@@ -101,6 +102,10 @@ AtomTag.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
   icon: PropTypes.node,
+  /**
+   * Set if tag is disabled or enabled, by default is false
+   */
+  disabled: PropTypes.bool,
   onClose: PropTypes.func,
   /**
    * Will only be shown if the onClose fn is defined
@@ -133,7 +138,8 @@ AtomTag.propTypes = {
 }
 
 AtomTag.defaultProps = {
-  size: SIZES.MEDIUM
+  size: SIZES.MEDIUM,
+  disabled: false
 }
 
 export default AtomTag

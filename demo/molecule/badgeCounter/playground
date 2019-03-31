@@ -1,16 +1,26 @@
 return (
   <div>
     <h1>MoleculeBadgeCounter</h1>
-    <h2>Basic</h2>
+    <h2>Small</h2>
     <p>
-      <MoleculeBadgeCounter />
+      <MoleculeBadgeCounter size="small" />
+    </p>
+    <p>
+      <MoleculeBadgeCounter size="small" variant="dot" />
+    </p>
+    <p>
+      <MoleculeBadgeCounter size="small">Text</MoleculeBadgeCounter>
+    </p>
+    <h2>Medium</h2>
+    <p>
+      <MoleculeBadgeCounter size="medium" />
     </p>
     <h2>With Content</h2>
     <p>
-      <MoleculeBadgeCounter label="." />
+      <MoleculeBadgeCounter variant="dot" />
     </p>
     <p>
-      <MoleculeBadgeCounter label="!" />
+      <MoleculeBadgeCounter variant="exclamation" />
     </p>
     <p>
       <MoleculeBadgeCounter label="4" />

@@ -15,6 +15,11 @@ const SIZES = {
   MEDIUM: 'medium'
 }
 
+const VARIANTS = {
+  DOT: 'dot',
+  EXCLAMATION: 'exclamation'
+}
+
 const getClassLengthLabel = label => {
   const lengthLabel = label.length
 
@@ -27,14 +32,21 @@ const getClassLengthLabel = label => {
       return CLASS_MEDIUM_THREE_CHARS
   }
 }
-const MoleculeBadgeCounter = ({children, label, size}) => {
+const MoleculeBadgeCounter = ({children, label, size, variant}) => {
   const hasLabel = Boolean(label)
   const CLASS_SIZE =
     size === SIZES.MEDIUM || hasLabel ? CLASS_MEDIUM : CLASS_SMALL
   const CLASS_LENGTH_LABEL = hasLabel ? getClassLengthLabel(label) : ''
-  const className = cx(BASE_CLASS, CLASS_SIZE, CLASS_LENGTH_LABEL, {
-    [CLASS_WITH_CHILDREN]: Boolean(children)
-  })
+  const CLASS_VARIANT = variant ? `${CLASS_SIZE}-${variant}` : ''
+  const className = cx(
+    BASE_CLASS,
+    CLASS_SIZE,
+    CLASS_VARIANT,
+    CLASS_LENGTH_LABEL,
+    {
+      [CLASS_WITH_CHILDREN]: Boolean(children)
+    }
+  )
   return <span className={className}>{label}</span>
 }
 
@@ -50,7 +62,14 @@ MoleculeBadgeCounter.propTypes = {
   label: PropTypes.any,
 
   /** size */
-  size: PropTypes.any
+  size: PropTypes.any,
+
+  /** variant */
+  variant: PropTypes.any
 }
 
 export default MoleculeBadgeCounter
+export {
+  SIZES as MoleculeBadgeCounterSizes,
+  VARIANTS as MoleculeBadgeCounterVariants
+}

@@ -4,31 +4,32 @@ $bg-molecule-badge-counter: #ff0057 !default;
 $c-molecule-badge-counter: $c-white !default;
 
 .sui-MoleculeBadgeCounter {
+  align-items: center;
   background-color: $bg-molecule-badge-counter;
+  border-radius: 100%;
   color: $c-molecule-badge-counter;
+  display: inline-flex;
   font-size: $fz-xxs;
+  justify-content: center;
 
   &-small {
     height: 6px;
     width: 6px;
+
+    &-dot {
+      background-color: $c-white;
+      border: 2px solid red;
+    }
   }
 
   &-medium {
-    align-items: center; 
-    display: inline-flex;
     height: 12px;
-    justify-content: center;
     min-width: 12px;
-    border-radius: 100%;
-  
-    &-two-characters {
-      padding: 0 1px;
-    }
-  
+
+    &-two-characters,
     &-three-characters {
+      padding: 0 2px;
       border-radius: 15px;
-      padding: 0 1px;
     }
   }
-
 }

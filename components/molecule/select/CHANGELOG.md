@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2019-03-27)
+
+
+### Bug Fixes
+
+* fix size prop in molecule select multiselection ([9973add](https://github.com/SUI-Components/sui-components/commit/9973add))
+* fix sizes prop ([c24e061](https://github.com/SUI-Components/sui-components/commit/c24e061)), closes [#658](https://github.com/SUI-Components/sui-components/issues/658)
+
+
+### Features
+
+* readme reviewed ([44f7eeb](https://github.com/SUI-Components/sui-components/commit/44f7eeb))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2019-02-12)
 

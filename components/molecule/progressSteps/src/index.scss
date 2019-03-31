@@ -1,0 +1,148 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$c-progress-steps-bar: $c-gray-light !default;
+$c-progress-steps-label: $c-gray-dark-2 !default;
+$c-progress-steps-icon: $c-gray-light !default;
+
+$c-progress-steps-active: $c-primary !default;
+
+$bdw-progress-steps-bar: 2px !default;
+$h-progress-steps-bar: $bdw-progress-steps-bar * 2 !default;
+
+$base-class: '.sui-MoleculeProgressSteps';
+
+.sui-MoleculeProgressSteps {
+  &-path {
+    align-items: center;
+    display: flex;
+
+    &-bar {
+      background: $c-progress-steps-bar;
+      border-color: $c-progress-steps-bar;
+      border-radius: 10px;
+      border-style: solid;
+      border-width: $bdw-progress-steps-bar;
+      height: $h-progress-steps-bar;
+      width: 100%;
+
+      &--visited {
+        background: $c-progress-steps-active;
+        border-color: $c-progress-steps-active;
+      }
+    }
+
+    &-step {
+      align-items: center;
+      color: $c-progress-steps-label;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      svg, 
+      use {
+        fill: $c-progress-steps-icon;
+      }
+
+      &--active,
+      &--visited {
+        color: $c-progress-steps-active;
+
+        svg, 
+        use {
+          fill: $c-progress-steps-active;
+        }
+      }
+
+      &-number,
+      &-icon {
+        align-items: center;
+        display: flex;
+        height: 40px;
+        margin: 5px;
+        padding: 0;
+        width: 40px;
+
+        svg {
+          width: 100%;
+        }
+      }
+
+      &-number {
+        align-items: center;
+        display: flex;
+        font-size: $fz-xxl;
+        justify-content: center;
+      }
+
+      &-description {
+        color: $c-progress-steps-label;
+        hyphens: auto;
+        margin-top: 55px;
+        overflow-wrap: break-word;
+        position: absolute;
+        text-align: center;
+        width: 100px;
+        word-wrap: break-word;
+      }
+
+    }
+  }
+
+  &--compressed {
+    #{$base-class}-compressedInfo {
+      margin: 0;
+    }
+
+    #{$base-class}-path {
+      &-bar {
+        margin-right: 10px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      &-step {
+        &-description {
+          left: 0;
+          margin: 0;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  &--vertical {
+    display: flex;
+    height: 100%;
+
+    #{$base-class}-path {
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: 100px;
+
+      &-step {
+        flex-direction: row;
+        position: relative;
+
+        &-description {
+          left: 45px;
+          margin-top: 0;
+          position: absolute;
+          text-align: left;
+        }
+      }
+
+      &-bar {
+        height: 100%;
+        margin: 20px 0;
+        transform: translateY(0);
+        width: 1px;
+      }
+    }
+
+    #{$base-class}-path-step-icon + #{$base-class}-path-step-description {
+      left: 55px;
+    }
+  }
+}

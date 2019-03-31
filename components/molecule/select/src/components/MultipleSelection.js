@@ -20,7 +20,8 @@ const MoleculeSelectFieldMultiSelection = props => {
     value: values,
     placeholder,
     keysSelection,
-    id
+    id,
+    size
   } = props
 
   const handleMultiSelection = (ev, {value: valueOptionSelected}) => {
@@ -53,6 +54,7 @@ const MoleculeSelectFieldMultiSelection = props => {
       />
       <MoleculeDropdownList
         checkbox
+        size={size}
         visible={isOpen}
         onSelect={handleMultiSelection}
         value={values}

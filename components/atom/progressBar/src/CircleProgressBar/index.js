@@ -22,7 +22,6 @@ const SIZE_TO_WIDTH_LINE_MAP = {
 const BASE_CLASS_NAME = 'sui-AtomCircleProgressBar'
 const INDICATOR_CLASS_NAME = `${BASE_CLASS_NAME}-indicator`
 
-
 const Indicator = props => {
   const {percentage, status, errorIcon, size} = props // eslint-disable-line react/prop-types
   if (status === STATUS.LOADING) return null
@@ -53,10 +52,11 @@ const CircleProgressBar = ({
   const circleWidth = SIZE_TO_WIDTH_LINE_MAP[size]
 
   return (
-    <div className={cx(BASE_CLASS_NAME, {
-          [`${BASE_CLASS_NAME}--${size}`]:
-            !!size && status !== STATUS.ERROR
-        })}>
+    <div
+      className={cx(BASE_CLASS_NAME, {
+        [`${BASE_CLASS_NAME}--${size}`]: !!size && status !== STATUS.ERROR
+      })}
+    >
       <Circle
         baseClassName={BASE_CLASS_NAME}
         modifier={status}

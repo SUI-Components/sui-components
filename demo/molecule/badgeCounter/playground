@@ -6,7 +6,7 @@ return (
       <MoleculeBadgeCounter size="small" />
     </p>
     <p>
-      <MoleculeBadgeCounter size="small" variant="dot" />
+      <MoleculeBadgeCounter size="small" variant={moleculeBadgeCounterVariants.DOT} />
     </p>
     <p>
       <MoleculeBadgeCounter size="small">Text</MoleculeBadgeCounter>
@@ -17,10 +17,10 @@ return (
     </p>
     <h2>With Content</h2>
     <p>
-      <MoleculeBadgeCounter variant="dot" />
+      <MoleculeBadgeCounter variant={moleculeBadgeCounterVariants.DOT} size={moleculeBadgeCounterSizes.MEDIUM}/>
     </p>
     <p>
-      <MoleculeBadgeCounter variant="exclamation" />
+      <MoleculeBadgeCounter variant={moleculeBadgeCounterVariants.EXCLAMATION} size={moleculeBadgeCounterSizes.MEDIUM}/>
     </p>
     <p>
       <MoleculeBadgeCounter label="4" />

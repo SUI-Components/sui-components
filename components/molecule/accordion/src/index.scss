@@ -54,6 +54,10 @@
   }
 
   &Content {
+    padding: $p-accordion-tab-content;
+  }
+
+  &ContentContainer {
     border: $bd-accordion-tab-container-none;
     display: block;
     overflow: hidden;
@@ -64,10 +68,6 @@
       transition: $trs-accordion-tab-content;
     }
 
-    & > div {
-      padding: $p-accordion-tab-content;
-    }
-
     .is-open & {
       border-top: $bd-accordion-tab-container;
       overflow: auto;
@@ -75,7 +75,7 @@
 
   }
 
-  &Container {
+  &TitleContainer {
     background-color: $bgc-accordion-tab-container;
     position: relative;
     width: 100%;

@@ -4,7 +4,8 @@ import cx from 'classnames'
 
 const BASE_CLASS = 'sui-MoleculeAccordion-tab'
 const CONTENT_CLASS = `${BASE_CLASS}Content`
-const CONTAINER_BUTTON_CLASS = `${BASE_CLASS}Container`
+const CONTENT_CONTAINER_CLASS = `${CONTENT_CLASS}Container`
+const CONTAINER_BUTTON_CLASS = `${BASE_CLASS}TitleContainer`
 const OPEN_CLASS = 'is-open'
 const BUTTON_CLASS = `${BASE_CLASS}Btn`
 const BUTTON_CONTENT_CLASS = `${BUTTON_CLASS}Content`
@@ -36,8 +37,8 @@ class Tab extends Component {
     const containerClassName = cx(`${CONTAINER_BUTTON_CLASS}`, {
       [OPEN_CLASS]: isOpen
     })
-    const contentClassName = cx(`${CONTENT_CLASS}`, {
-      [`${CONTENT_CLASS}--withTransition`]: withTransition
+    const contentClassName = cx(`${CONTENT_CONTAINER_CLASS}`, {
+      [`${CONTENT_CONTAINER_CLASS}--withTransition`]: withTransition
     })
     const containerHeight = isOpen ? `${maxHeight}px` : `0px`
 
@@ -59,7 +60,9 @@ class Tab extends Component {
           className={contentClassName}
           style={{maxHeight: `${containerHeight}`}}
         >
-          <div ref={this.childrenContainer}>{children}</div>
+          <div className={CONTENT_CLASS} ref={this.childrenContainer}>
+            {children}
+          </div>
         </div>
       </div>
     )

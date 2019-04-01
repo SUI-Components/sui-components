@@ -50,7 +50,7 @@ return (
       <MoleculeBadgeCounter label="42" />
     </p>
     <p>
-      <MoleculeBadgeCounter label="+42" />
+      <MoleculeBadgeCounter label="142" />
     </p>
     <p>
       <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.MEDIUM}>

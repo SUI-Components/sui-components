@@ -34,7 +34,7 @@ const getClassLengthLabel = label => {
       return CLASS_MEDIUM_THREE_CHARS
   }
 }
-const MoleculeBadgeCounter = ({children, label, size, variant}) => {
+const MoleculeBadgeCounter = ({children, label = '', size, variant}) => {
   const hasLabel = Boolean(label)
   const hasChildren = Boolean(children)
 
@@ -47,6 +47,8 @@ const MoleculeBadgeCounter = ({children, label, size, variant}) => {
     [CLASS_WITH_CHILDREN]: hasChildren
   })
 
+  const processedLabel = label.length >= 3 ? '+99' : label
+
   const classNameBullet = cx(
     CLASS_BULLET,
     CLASS_SIZE,
@@ -58,7 +60,7 @@ const MoleculeBadgeCounter = ({children, label, size, variant}) => {
   )
   return (
     <span className={className}>
-      <span className={classNameBullet}>{label}</span>
+      <span className={classNameBullet}>{processedLabel}</span>
       <span>{children}</span>
     </span>
   )

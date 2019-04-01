@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 const BASE_CLASS = 'sui-MoleculeAccordion-tab'
-const CONTENT_CLASS = `${BASE_CLASS}-content`
-const CONTAINER_BUTTON_CLASS = `${BASE_CLASS}-container`
+const CONTENT_CLASS = `${BASE_CLASS}Content`
+const CONTAINER_BUTTON_CLASS = `${BASE_CLASS}Container`
 const OPEN_CLASS = 'is-open'
-const BUTTON_CLASS = `${BASE_CLASS}-btn`
-const BUTTON_CONTENT_CLASS = `${BUTTON_CLASS}-content`
-const BUTTON_TITLE_CLASS = `${BUTTON_CLASS}-title`
-const ICON_CLASS = `${BASE_CLASS}-icon`
+const BUTTON_CLASS = `${BASE_CLASS}Btn`
+const BUTTON_CONTENT_CLASS = `${BUTTON_CLASS}Content`
+const BUTTON_TITLE_CLASS = `${BUTTON_CLASS}Title`
+const ICON_CLASS = `${BASE_CLASS}Icon`
 const MAX_HEIGHT = 100
 
 class Tab extends Component {

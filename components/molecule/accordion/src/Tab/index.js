@@ -28,16 +28,16 @@ class Tab extends Component {
       isOpen,
       maxHeight
     } = this.props
-    const wrapperClassName = cx(`${BASE_CLASS}`, {
+    const wrapperClassName = cx(BASE_CLASS, {
       [OPEN_CLASS]: isOpen
     })
-    const iconClassName = cx(`${ICON_CLASS}`, {
+    const iconClassName = cx(ICON_CLASS, {
       [OPEN_CLASS]: isOpen
     })
-    const containerClassName = cx(`${CONTAINER_BUTTON_CLASS}`, {
+    const containerClassName = cx(CONTAINER_BUTTON_CLASS, {
       [OPEN_CLASS]: isOpen
     })
-    const contentClassName = cx(`${CONTENT_CONTAINER_CLASS}`, {
+    const contentClassName = cx(CONTENT_CONTAINER_CLASS, {
       [`${CONTENT_CONTAINER_CLASS}--withTransition`]: withTransition
     })
     const containerHeight = isOpen ? `${maxHeight}px` : `0px`

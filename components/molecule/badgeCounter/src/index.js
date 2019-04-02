@@ -3,14 +3,13 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 const BASE_CLASS = `sui-MoleculeBadgeCounter`
-const CLASS_WITH_CHILDREN = `${BASE_CLASS}--with-children`
+const CLASS_WITH_CHILDREN = `${BASE_CLASS}--withChildren`
 
 const CLASS_BULLET = `${BASE_CLASS}-bullet`
 const CLASS_SMALL = `${CLASS_BULLET}-small`
 const CLASS_MEDIUM = `${CLASS_BULLET}-medium`
-const CLASS_MEDIUM_ONE_CHAR = `${CLASS_MEDIUM}-one-character`
-const CLASS_MEDIUM_TWO_CHARS = `${CLASS_MEDIUM}-two-characters`
-const CLASS_MEDIUM_THREE_CHARS = `${CLASS_MEDIUM}-three-characters`
+
+const CLASS_MEDIUM_THREE_CHARS = `${CLASS_MEDIUM}--threeCharacters`
 
 const SIZES = {
   SMALL: 'small',
@@ -22,25 +21,14 @@ const VARIANTS = {
   EXCLAMATION: 'exclamation'
 }
 
-const getClassLengthLabel = label => {
-  const lengthLabel = label.length
-
-  switch (lengthLabel) {
-    case 1:
-      return CLASS_MEDIUM_ONE_CHAR
-    case 2:
-      return CLASS_MEDIUM_TWO_CHARS
-    default:
-      return CLASS_MEDIUM_THREE_CHARS
-  }
-}
 const MoleculeBadgeCounter = ({children, label = '', size, variant}) => {
   const hasLabel = Boolean(label)
   const hasChildren = Boolean(children)
 
   const CLASS_SIZE =
     size === SIZES.MEDIUM || hasLabel ? CLASS_MEDIUM : CLASS_SMALL
-  const CLASS_LENGTH_LABEL = hasLabel ? getClassLengthLabel(label) : ''
+  const CLASS_LENGTH_LABEL =
+    hasLabel && (label + '').length >= 3 ? CLASS_MEDIUM_THREE_CHARS : ''
   const CLASS_VARIANT = variant ? `${CLASS_SIZE}-${variant}` : ''
 
   const className = cx(BASE_CLASS, {
@@ -68,20 +56,18 @@ const MoleculeBadgeCounter = ({children, label = '', size, variant}) => {
 
 MoleculeBadgeCounter.displayName = 'MoleculeBadgeCounter'
 
-// Remove these comments if you need
-// MoleculeBadgeCounter.contextTypes = {i18n: PropTypes.object}
 MoleculeBadgeCounter.propTypes = {
   /** children */
-  children: PropTypes.any,
+  children: PropTypes.node,
 
-  /** label */
-  label: PropTypes.any,
+  /** Number to be displayed inside the bullet */
+  label: PropTypes.number,
 
-  /** size */
-  size: PropTypes.any,
+  /** Size (small or medium) */
+  size: PropTypes.oneOf(Object.values(SIZES)),
 
-  /** variant */
-  variant: PropTypes.any
+  /** Variant (dot or exclamation) */
+  variant: PropTypes.oneOf(Object.values(VARIANTS))
 }
 
 export default MoleculeBadgeCounter

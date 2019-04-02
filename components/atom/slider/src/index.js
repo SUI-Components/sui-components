@@ -1,76 +1,103 @@
-import React, {useState, useEffect} from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 const BASE_CLASS = `sui-AtomSlider`
 
-const AtomSlider = ({min, max, step}) => {
-  // const numTicks = Math.round((max - min) / step) + 1
-  // const steps = Array.from(Array(numTicks), (x, index) => index * step)
+class AtomSlider extends Component {
+  state = {
+    Slider: null
+  }
 
-  const [Slider, setSlider] = useState(null)
-
-  // const createSliderWithTooltip = Slider && Slider.createSliderWithTooltip
-  // const Range =
-  //   Slider && createSliderWithTooltip && createSliderWithTooltip(Slider.Range)
-  // const Handle = Slider && Slider.Handle
-
-  // const handle = props => {
-  //   const {value, dragging, index, ...restProps} = props
-  //   return (
-  //     Handle && (
-  //       <div
-  //         prefixCls="rc-slider-tooltip"
-  //         overlay={value}
-  //         visible={dragging}
-  //         placement="top"
-  //         key={index}
-  //       >
-  //         <Handle value={value} {...restProps} />
-  //       </div>
-  //     )
-  //   )
-  // }
-
-  useEffect(() => {
+  componentDidMount() {
     require.ensure(
       [],
       require => {
-        const _Slider = require('rc-slider').default
-        setSlider(_Slider)
-        console.log(_Slider)
+        const Slider = require('rc-slider').default
+        this.setState({Slider})
       },
       'rc-slider'
     )
-  })
+  }
 
-  // const onChangeRange = e => {
-  //   const {value} = e.target
-  //   console.log(value)
-  // }
-
-  console.log('----')
-  console.log(Slider)
-
-  // onforminput="value = foo.valueAsNumber;"
-  return (
-    <div className={BASE_CLASS}>
-      {Slider && <Slider min={min} max={max} step={step} />}
-      {/*
-        <input
-          type="range"
-          min={min}
-          max={max}
-          step={step}
-          name="foo"
-          onChange={onChangeRange}
-        />
-        <output htmlFor="foo" value={30} />
-        <ul>{steps.map((step, index) => <li key={index}>{step}</li>)}</ul>
-        
-        */}
-    </div>
-  )
+  render() {
+    const {Slider} = this.state
+    const {min, max, step} = this.props
+    return (
+      <div className={BASE_CLASS}>
+        {Slider && <Slider min={min} max={max} step={step} />}
+      </div>
+    )
+  }
 }
+
+// = ({min, max, step}) => {
+//   // const numTicks = Math.round((max - min) / step) + 1
+//   // const steps = Array.from(Array(numTicks), (x, index) => index * step)
+
+//   const [Slider, setSlider] = useState(null)
+
+//   // const createSliderWithTooltip = Slider && Slider.createSliderWithTooltip
+//   // const Range =
+//   //   Slider && createSliderWithTooltip && createSliderWithTooltip(Slider.Range)
+//   // const Handle = Slider && Slider.Handle
+
+//   // const handle = props => {
+//   //   const {value, dragging, index, ...restProps} = props
+//   //   return (
+//   //     Handle && (
+//   //       <div
+//   //         prefixCls="rc-slider-tooltip"
+//   //         overlay={value}
+//   //         visible={dragging}
+//   //         placement="top"
+//   //         key={index}
+//   //       >
+//   //         <Handle value={value} {...restProps} />
+//   //       </div>
+//   //     )
+//   //   )
+//   // }
+
+//   useEffect(() => {
+//     require.ensure(
+//       [],
+//       require => {
+//         const _Slider = require('rc-slider').default
+//         setSlider(_Slider)
+//         console.log(_Slider)
+//       },
+//       'rc-slider'
+//     )
+//   })
+
+//   // const onChangeRange = e => {
+//   //   const {value} = e.target
+//   //   console.log(value)
+//   // }
+
+//   console.log('----')
+//   console.log(Slider)
+
+//   // onforminput="value = foo.valueAsNumber;"
+//   return (
+//     <div className={BASE_CLASS}>
+//       {Slider && <Slider min={min} max={max} step={step} />}
+//       {/*
+//         <input
+//           type="range"
+//           min={min}
+//           max={max}
+//           step={step}
+//           name="foo"
+//           onChange={onChangeRange}
+//         />
+//         <output htmlFor="foo" value={30} />
+//         <ul>{steps.map((step, index) => <li key={index}>{step}</li>)}</ul>
+
+//         */}
+//     </div>
+//   )
+// }
 
 AtomSlider.displayName = 'AtomSlider'
 

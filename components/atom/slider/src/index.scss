@@ -1,6 +1,11 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~rc-slider/dist/rc-slider';
 
+$base-class-rc-slider: '.rc-slider';
+$class-handle: '#{$base-class-rc-slider}-handle';
+$class-rail: '#{$base-class-rc-slider}-rail';
+$class-track: '#{$base-class-rc-slider}-track';
+
 .sui-AtomSlider {
   padding: 20px;
   position: relative;
@@ -44,7 +49,8 @@
     display: flex;
     justify-content: space-between;
     padding: 0;
-    width: 100%;
+    width: 104%;
+    margin-left: -2px;
   }
 
   li {
@@ -56,5 +62,25 @@
     width: 2ex;
     z-index: -1;
   }
+
+  #{$class-handle} {
+    background-color: $c-white;
+    border: solid 1px $c-primary;
+    height: 24px;
+    margin-top: -8px;
+    width: 24px;
+  }
+
+  #{$class-rail} {
+    height: 8px;
+  }
+
+  #{$class-track} {
+    height: 8px;
+    background: $c-primary;
+  }
+
+
+
 }
 

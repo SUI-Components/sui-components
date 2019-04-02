@@ -22,9 +22,13 @@ class AtomSlider extends Component {
   render() {
     const {Slider} = this.state
     const {min, max, step} = this.props
+    const numTicks = Math.round((max - min) / step) + 1
+    const steps = Array.from(Array(numTicks), (x, index) => index * step)
     return (
       <div className={BASE_CLASS}>
         {Slider && <Slider min={min} max={max} step={step} />}
+        <output htmlFor="foo" value={30} />
+        <ul>{steps.map((step, index) => <li key={index}>{step}</li>)}</ul>
       </div>
     )
   }

@@ -46,7 +46,7 @@ return (
         </div>
       </Demo>
       <Demo>
-        <h2>Accordion without transition and autoclose and max height 300px</h2>
+        <h2>Accordion without transition and no autoclose and max height 300px</h2>
         <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16, textAlign: 'left'}}>
           <MoleculeAccordion maxHeight={300} withAutoClose={false} withTransition={false} icon={GetIcon()}>
             <div label='Title'>

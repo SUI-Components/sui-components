@@ -13,7 +13,8 @@ class AtomSlider extends Component {
       [],
       require => {
         const Slider = require('rc-slider').default
-        this.setState({Slider})
+        const {createSliderWithTooltip} = Slider
+        this.setState({Slider: createSliderWithTooltip(Slider)})
       },
       'rc-slider'
     )
@@ -24,11 +25,21 @@ class AtomSlider extends Component {
     const {min, max, step} = this.props
     const numTicks = Math.round((max - min) / step) + 1
     const steps = Array.from(Array(numTicks), (x, index) => index * step)
+
+    const marks =
+      step === 1
+        ? {[min]: min, [max]: max}
+        : steps.reduce((marksConfig, step) => {
+            marksConfig[step] = step
+            return marksConfig
+          }, {})
     return (
       <div className={BASE_CLASS}>
-        {Slider && <Slider min={min} max={max} step={step} />}
-        <output htmlFor="foo" value={30} />
-        <ul>{steps.map((step, index) => <li key={index}>{step}</li>)}</ul>
+        {Slider && <Slider min={min} max={max} step={step} marks={marks} />}
+        {/*
+          <output htmlFor="foo" value={30}>20</output>
+          <ul>{steps.map((step, index) => <li key={index}>{step}</li>)}</ul>
+          */}
       </div>
     )
   }
@@ -51,7 +62,7 @@ AtomSlider.propTypes = {
 AtomSlider.defaultProps = {
   min: 0,
   max: 100,
-  step: 25
+  step: 1
 }
 
 export default AtomSlider

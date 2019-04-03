@@ -5,10 +5,16 @@ $base-class-rc-slider: '.rc-slider';
 $class-handle: '#{$base-class-rc-slider}-handle';
 $class-rail: '#{$base-class-rc-slider}-rail';
 $class-track: '#{$base-class-rc-slider}-track';
+$class-dot: '#{$base-class-rc-slider}-dot';
+$class-mark: '#{$base-class-rc-slider}-mark';
+$class-tooltip: '#{$base-class-rc-slider}-tooltip';
+$class-tooltip-content: '#{$class-tooltip}-content';
+$class-tooltip-inner: '#{$class-tooltip}-inner';
+$class-tooltip-arrow: '#{$class-tooltip}-arrow';
 
 .sui-AtomSlider {
-  padding: 20px;
   position: relative;
+  padding: 20px;
 
   input[type='range'] {
     box-sizing: border-box;
@@ -17,32 +23,9 @@ $class-track: '#{$base-class-rc-slider}-track';
   }
 
   output {
-    position: absolute;
-    background-image: linear-gradient(top, #444444, #999999);
-    width: 40px;
-    height: 30px;
-    text-align: center;
-    color: white;
-    border-radius: 10px;
-    display: inline-block;
-    font: bold 15px/30px Georgia;
-    bottom: 175%;
     left: 0;
-    margin-left: -1%;
-  }
-
-  output:after {
-    content: '';
     position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 10px solid #999999;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    margin-top: -1px;
+    top: 0;
   }
 
   ul {
@@ -68,6 +51,7 @@ $class-track: '#{$base-class-rc-slider}-track';
     border: solid 1px $c-primary;
     height: 24px;
     margin-top: -8px;
+    margin-left: -11px;
     width: 24px;
   }
 
@@ -80,7 +64,35 @@ $class-track: '#{$base-class-rc-slider}-track';
     background: $c-primary;
   }
 
+  #{$class-dot} {
+    display: none;
+  }
 
-
+  #{$class-mark} {
+    margin-top: 10px;
+    font-family: OpenSans;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.29;
+    letter-spacing: normal;
+    text-align: right;
+  }
 }
 
+#{$class-tooltip} {
+  #{$class-tooltip-inner} {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    color: black;
+    font-size: 14px;
+  }
+
+  #{$class-tooltip-arrow} {
+    background: transparent;
+    color: transparent;
+    border-color: transparent;
+  }
+}

@@ -63,7 +63,7 @@ import MoleculeBadgeCounter, {
 ```js
 <MoleculeBadgeCounter label="4" />
 <MoleculeBadgeCounter label="42" />
-<MoleculeBadgeCounter label="+42" />
+<MoleculeBadgeCounter label="142" />
 ```
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/molecule/badgeCounter).**

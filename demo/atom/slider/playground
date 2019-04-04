@@ -2,11 +2,26 @@ return (
   <div>
     <h1>AtomSlider</h1>
     <h2>Segmented</h2>
-    <div style={{ margin: '40px 0'}}>
+    <div style={{margin: '40px 0'}}>
+      <h3>Basic</h3>
       <AtomSlider />
     </div>
-    <div style={{ margin: '40px 0'}}>
-      <AtomSlider step={25}/>
+    <div style={{margin: '40px 0'}}>
+      <h3>Step 25</h3>
+      <AtomSlider step={25} value={50} />
+    </div>
+    <div style={{margin: '40px 0'}}>
+      <h3>Disabled</h3>
+      <AtomSlider step={25} value={25} disabled />
+    </div>
+    <h2>Range</h2>
+    <div style={{margin: '40px 0'}}>
+      <h3>Basic</h3>
+      <AtomSlider range />
+    </div>
+    <div style={{margin: '40px 0'}}>
+      <h3>Step 10</h3>
+      <AtomSlider range step={10} />
     </div>
   </div>
 )

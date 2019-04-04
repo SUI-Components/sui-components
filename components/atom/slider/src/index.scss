@@ -3,6 +3,7 @@
 
 $base-class-rc-slider: '.rc-slider';
 $class-handle: '#{$base-class-rc-slider}-handle';
+$class-disabled: '#{$base-class-rc-slider}-disabled';
 $class-rail: '#{$base-class-rc-slider}-rail';
 $class-track: '#{$base-class-rc-slider}-track';
 $class-dot: '#{$base-class-rc-slider}-dot';
@@ -11,6 +12,8 @@ $class-tooltip: '#{$base-class-rc-slider}-tooltip';
 $class-tooltip-content: '#{$class-tooltip}-content';
 $class-tooltip-inner: '#{$class-tooltip}-inner';
 $class-tooltip-arrow: '#{$class-tooltip}-arrow';
+$class-tooltip-hidden: '#{$class-tooltip}-hidden';
+
 
 .sui-AtomSlider {
   position: relative;
@@ -79,6 +82,30 @@ $class-tooltip-arrow: '#{$class-tooltip}-arrow';
     letter-spacing: normal;
     text-align: right;
   }
+
+  &--disabled {
+    
+    #{$class-disabled} {
+      background-color: transparent; 
+    }
+
+    #{$class-handle} {
+      border: solid 1px #CCC;
+    }
+
+    #{$class-rail} {
+      height: 8px;
+    }
+
+    #{$class-track} {
+      height: 8px;
+      background: #ccc;
+    }
+  }
+}
+
+#{$class-tooltip-hidden} {
+  display: block; 
 }
 
 #{$class-tooltip} {
@@ -95,4 +122,5 @@ $class-tooltip-arrow: '#{$class-tooltip}-arrow';
     color: transparent;
     border-color: transparent;
   }
+
 }

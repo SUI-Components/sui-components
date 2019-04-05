@@ -21,7 +21,7 @@ class AtomSlider extends Component {
         const Tooltip = require('rc-tooltip').default
         const {Range, Handle} = Slider
         const {refAtomSlider} = this
-        console.log(refAtomSlider.current)
+
         this.handle = props => {
           const {value, index, ...restProps} = props // eslint-disable-line
           return (
@@ -47,10 +47,16 @@ class AtomSlider extends Component {
     )
   }
 
+  handleChange = value => {
+    const {onChange} = this.props
+    const e = {}
+    onChange(e, {value})
+  }
+
   render() {
     const {Slider, Range} = this.state
     const {value, min, max, step, range, disabled} = this.props
-    const {handle, refAtomSlider} = this
+    const {handle, refAtomSlider, handleChange} = this
     const numTicks = Math.round((max - min) / step) + 1
     const steps = Array.from(Array(numTicks), (x, index) => index * step)
 
@@ -79,6 +85,7 @@ class AtomSlider extends Component {
               max={max}
               step={step}
               marks={marks}
+              onChange={handleChange}
               {...customProps}
             />
           )}
@@ -88,14 +95,12 @@ class AtomSlider extends Component {
               min={min}
               max={max}
               step={step}
-              defaultValue={[min, max]}
               marks={marks}
+              onChange={handleChange}
+              {...customProps}
+              defaultValue={[min, max]}
             />
           )}
-        {/*
-          <output htmlFor="foo" value={30}>20</output>
-          <ul>{steps.map((step, index) => <li key={index}>{step}</li>)}</ul>
-          */}
       </div>
     )
   }
@@ -103,8 +108,6 @@ class AtomSlider extends Component {
 
 AtomSlider.displayName = 'AtomSlider'
 
-// Remove these comments if you need
-// AtomSlider.contextTypes = {i18n: PropTypes.object}
 AtomSlider.propTypes = {
   /** minimal value in range */
   min: PropTypes.number,
@@ -122,13 +125,17 @@ AtomSlider.propTypes = {
   disabled: PropTypes.bool,
 
   /** value  */
-  value: PropTypes.number
+  value: PropTypes.number,
+
+  /* callback to be called with every update of the input value */
+  onChange: PropTypes.func
 }
+
 AtomSlider.defaultProps = {
   min: 0,
   max: 100,
   step: 1,
-  disabled: false
+  onChange: () => {}
 }
 
 export default AtomSlider

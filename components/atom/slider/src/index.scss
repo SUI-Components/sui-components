@@ -1,6 +1,11 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~rc-slider/dist/rc-slider';
 
+$c-atom-slider-tooltip: $c-gray-dark !default;
+$c-atom-slider-markers: $c-gray !default;
+$ff-atom-slider: $ff-sans-serif !default;
+$fz-atom-slider: $fz-m !default;
+
 $base-class-rc-slider: '.rc-slider';
 $class-handle: '#{$base-class-rc-slider}-handle';
 $class-disabled: '#{$base-class-rc-slider}-disabled';
@@ -16,6 +21,8 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
 
 
 .sui-AtomSlider {
+  font-family: $ff-atom-slider;
+  font-size: $fz-atom-slider;
   position: relative;
   padding: 20px;
 
@@ -72,15 +79,10 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
   }
 
   #{$class-mark} {
+    color: $c-atom-slider-markers;
+    font-family: $ff-atom-slider;
+    font-size: $fz-atom-slider;
     margin-top: 10px;
-    font-family: OpenSans;
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.29;
-    letter-spacing: normal;
-    text-align: right;
   }
 
   &--disabled {
@@ -109,12 +111,14 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
 }
 
 #{$class-tooltip} {
+  
   #{$class-tooltip-inner} {
     background: transparent;
     border-color: transparent;
     box-shadow: none;
-    color: black;
-    font-size: 14px;
+    color: $c-atom-slider-tooltip;
+    font-family: $ff-atom-slider;
+    font-size: $fz-atom-slider;
   }
 
   #{$class-tooltip-arrow} {

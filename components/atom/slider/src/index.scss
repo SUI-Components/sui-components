@@ -1,8 +1,8 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~rc-slider/dist/rc-slider';
 
+$c-atom-slider: $c-gray !default;
 $c-atom-slider-tooltip: $c-gray-dark !default;
-$c-atom-slider-markers: $c-gray !default;
 $ff-atom-slider: $ff-sans-serif !default;
 $fz-atom-slider: $fz-m !default;
 
@@ -23,8 +23,8 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
 .sui-AtomSlider {
   font-family: $ff-atom-slider;
   font-size: $fz-atom-slider;
-  position: relative;
   padding: 20px;
+  position: relative;
 
   input[type='range'] {
     box-sizing: border-box;
@@ -41,9 +41,9 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
   ul {
     display: flex;
     justify-content: space-between;
+    margin-left: -2px;
     padding: 0;
     width: 104%;
-    margin-left: -2px;
   }
 
   li {
@@ -60,8 +60,8 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
     background-color: $c-white;
     border: solid 1px $c-primary;
     height: 24px;
-    margin-top: -8px;
     margin-left: -11px;
+    margin-top: -8px;
     width: 24px;
   }
 
@@ -70,8 +70,8 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
   }
 
   #{$class-track} {
-    height: 8px;
     background: $c-primary;
+    height: 8px;
   }
 
   #{$class-dot} {
@@ -79,7 +79,7 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
   }
 
   #{$class-mark} {
-    color: $c-atom-slider-markers;
+    color: $c-atom-slider;
     font-family: $ff-atom-slider;
     font-size: $fz-atom-slider;
     margin-top: 10px;
@@ -92,7 +92,7 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
     }
 
     #{$class-handle} {
-      border: solid 1px #CCC;
+      border: solid 1px $c-atom-slider;
     }
 
     #{$class-rail} {
@@ -100,8 +100,8 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
     }
 
     #{$class-track} {
+      background: $c-atom-slider;
       height: 8px;
-      background: #ccc;
     }
   }
 }

@@ -71,8 +71,8 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
   }
 
   #{$class-rail} {
-    height: 8px;
     background: $c-atom-slider-rail;
+    height: 8px;
   }
 
   #{$class-track} {

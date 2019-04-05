@@ -3,6 +3,11 @@
 
 $c-atom-slider: $c-gray !default;
 $c-atom-slider-tooltip: $c-gray-dark !default;
+
+$c-atom-slider-rail: $c-gray-light-4 !default;
+$c-atom-slider-track: $c-gray-light !default;
+
+
 $ff-atom-slider: $ff-sans-serif !default;
 $fz-atom-slider: $fz-m !default;
 
@@ -67,6 +72,7 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
 
   #{$class-rail} {
     height: 8px;
+    background: $c-atom-slider-rail;
   }
 
   #{$class-track} {
@@ -100,7 +106,7 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
     }
 
     #{$class-track} {
-      background: $c-atom-slider;
+      background: $c-atom-slider-track;
       height: 8px;
     }
   }

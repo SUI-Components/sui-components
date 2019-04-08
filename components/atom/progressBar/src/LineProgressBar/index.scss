@@ -1,0 +1,50 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$bg-progress-bar: $c-gray-lightest !default;
+$bc-progress-bar: $c-gray-light !default;
+$c-progress-bar-fill: $c-primary !default;
+
+$trsdu-progress-bar: 500ms !default;
+$trstf-progress-bar: linear !default;
+
+$br-progress-bar: $bdrs-l;
+$h-progress-bar: $m-base;
+
+.sui-AtomLineProgressBar {
+  &-indicator {
+    display: inline-block;
+    font-size: $fz-s;
+    line-height: $lh-s;
+
+    &--top {
+      margin-bottom: $m-base;
+    }
+
+    &--bottom {
+      margin-top: $m-base;
+    }
+
+  }
+
+  &-container {
+    background: $bg-progress-bar;
+    border: 1px solid $bc-progress-bar;
+    border-radius: $br-progress-bar;
+    height: $h-progress-bar;  /* Can be anything */
+    position: relative;
+  }
+
+  &-bar {
+    background-color: $c-progress-bar-fill;
+    border-radius: $br-progress-bar;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+    &--animated {
+      transition: width $trsdu-progress-bar $trstf-progress-bar;
+    }
+  }
+
+}

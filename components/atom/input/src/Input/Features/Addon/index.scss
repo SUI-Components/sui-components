@@ -3,6 +3,8 @@ $bdw-atom-input-addon-left: 1px 0 1px 1px !default;
 $bgc-atom-input-addon: $c-gray-lightest !default;
 $bdc-atom-input-addon: $c-gray-light !default;
 $c-atom-input-addon: $c-gray-light !default;
+$p-atom-input-addon-left: $p-l !default;
+$p-atom-input-addon-right: $p-l !default;
 
 .sui-AtomInput-addon {
   &Wrapper {
@@ -19,8 +21,8 @@ $c-atom-input-addon: $c-gray-light !default;
   height: inherit;
   justify-content: center;
   line-height: inherit;
-  padding-left: $p-l;
-  padding-right: $p-l;
+  padding-left: $p-atom-input-addon-left;
+  padding-right: $p-atom-input-addon-right;
 
   &--right {
     border-width: $bdw-atom-input-addon-right;
@@ -29,5 +31,5 @@ $c-atom-input-addon: $c-gray-light !default;
   &--left {
     border-width: $bdw-atom-input-addon-left;
   }
-  
+
 }

@@ -1,0 +1,41 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-atom-input/lib/index';
+@import './settings';
+
+$bg-molecule-dropdown-option--highlight-mark: $c-highlight !default;
+
+.sui-MoleculeDropdownOption {
+  align-items: center;
+  display: flex;
+  height: $h-dropdown-option;
+  padding: 0 $p-l;
+
+  &-mark.is-highlighted {
+    background-color: $bg-molecule-dropdown-option--highlight-mark;
+  }
+
+  &-checkbox {
+    padding-left: $p-s;
+  }
+
+  &-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &.is-selected:not(&-checkbox) &-text {
+    font-weight: $fw-bold;
+  }
+
+  &--disabled {
+    color: $c-dropdown-option-disabled;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $bgc-dropdown-option-hover;
+    cursor: pointer;
+    outline: none;
+  }
+}

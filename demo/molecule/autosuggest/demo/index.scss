@@ -1,0 +1,22 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-molecule-dropdown-option/lib/index';
+
+
+.DemoMoleculeAutosuggest {
+  margin-bottom: 500px;
+  padding: 20px;
+
+  &-list {
+    background: white;
+    width: 300px;
+  }
+
+  &-section {
+    margin: 10px;
+  }
+
+  pre {
+    padding: 16px;
+    width: 300px;
+  }
+}

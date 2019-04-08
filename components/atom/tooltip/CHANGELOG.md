@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2019-02-21)
+
+
+### Performance Improvements
+
+* use same version across hocs and projects ([ba78566](https://github.com/SUI-Components/sui-components/commit/ba78566))
+
+
+
+<a name="1.6.0"></a>
+# 1.6.0 (2019-01-29)
+
+
+### Bug Fixes
+
+* avoid flick on hover ([9225fa5](https://github.com/SUI-Components/sui-components/commit/9225fa5))
+
+
+
+<a name="1.5.0"></a>
+# 1.5.0 (2019-01-09)
+
+
+### Features
+
+* first commit with only Schibsted Spain Components ([c0814de](https://github.com/SUI-Components/sui-components/commit/c0814de))
+* tooltip using withOpenToggle hoc ([f29aeab](https://github.com/SUI-Components/sui-components/commit/f29aeab))
+* tooltip using withOpenToogle hoc ([731df66](https://github.com/SUI-Components/sui-components/commit/731df66))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2018-09-03)
 

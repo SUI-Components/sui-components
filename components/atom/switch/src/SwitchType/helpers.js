@@ -16,7 +16,7 @@ export function switchClassNames(
   isDisabled
 ) {
   const CLASS_TYPE = `${BASE_CLASS}-${classType}`
-  const CLASS_SIZE = `${BASE_CLASS}-${size}`
+  const CLASS_SIZE = `${BASE_CLASS}--${size}`
 
   const className = cx(BASE_CLASS, CLASS_TYPE, CLASS_SIZE, {
     [CLASS_ACTIVE]: isToggle || type === TYPES.SELECT,

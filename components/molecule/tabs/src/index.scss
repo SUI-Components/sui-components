@@ -1,11 +1,15 @@
-@import '~@schibstedspain/sui-theme/lib/index';
+@import "~@schibstedspain/sui-theme/lib/index";
 
 $bdc-sui-molecule-tabs: color-variation($c-gray, 3) !default;
 $bdw-sui-molecule-tabs: $p-s !default;
 $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
 
 .sui-MoleculeTabs {
-  display: inline-flex;
+
+  svg {
+    width: 100%; 
+    height: 100%; 
+  }
 
   &-scroller {
     @include reset-list;
@@ -14,66 +18,69 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
-
   }
 
   &--classic.sui-MoleculeTabs--horizontal,
   &--classic.sui-MoleculeTabs--fullWidth {
-
-    .sui-MoleculeTabs-button {
+    .sui-MoleculeTabs-item {
       border: 1px solid transparent;
       border-bottom-color: $bdc-sui-molecule-tabs;
-      cursor: pointer;
+      display: flex;
+      flex-direction: column;
 
-      &.active {
-        color: $c-primary;
+      &.is-active {
+        border-bottom: 0;
         border-color: $bdc-sui-molecule-tabs;
-        border-bottom-color: transparent;
+        color: $c-primary;
+        margin-top: 1px;
 
-        svg {
-          fill: $c-primary;
+        span {
+          transform: translateY(-1px);
         }
 
+        svg,
+        path {
+          fill: $c-primary;
+        }
       }
 
-      &:hover:not(.disabled) {
+      &:hover:not(.is-disabled) {
         color: $c-primary;
+        cursor: pointer;
 
-        svg {
+        svg,
+        path {
           fill: $c-primary;
         }
-
       }
     }
   }
 
   &--classic.sui-MoleculeTabs--vertical {
-    .sui-MoleculeTabs-button {
+    .sui-MoleculeTabs-item {
       border: 1px solid transparent;
       border-right-color: $bdc-sui-molecule-tabs;
-      cursor: pointer;
 
-      &.active {
+      &.is-active {
         border-color: $bdc-sui-molecule-tabs;
         border-right-color: transparent;
         color: $c-primary;
 
-        svg {
+        svg,
+        path {
           fill: $c-primary;
         }
-
       }
 
-      &:hover:not(.disabled) {
+      &:hover:not(.is-disabled) {
         color: $c-primary;
+        cursor: pointer;
 
-        svg {
+        svg,
+        path {
           fill: $c-primary;
-
         }
-
       }
-
     }
   }
 
@@ -81,55 +88,57 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
   &--highlighted.sui-MoleculeTabs--fullWidth {
     border-bottom: 1px solid $bdc-sui-molecule-tabs;
 
-    .sui-MoleculeTabs-button {
+    .sui-MoleculeTabs-item {
       border: 0 none transparent;
       border-bottom: $bdw-sui-molecule-tabs solid transparent;
-      cursor: pointer;
 
-      &.active {
+      &.is-active {
         border-bottom-color: $c-primary;
         color: $c-primary;
 
-        svg {
+        svg,
+        path {
           fill: $c-primary;
         }
       }
 
-      &:hover:not(.disabled) {
+      &:hover:not(.is-disabled) {
         color: $c-primary;
+        cursor: pointer;
 
-        svg {
+        svg,
+        path {
           fill: $c-primary;
         }
       }
-
     }
   }
 
   &--highlighted.sui-MoleculeTabs--vertical {
     border-right: 1px solid $bdc-sui-molecule-tabs;
 
-    .sui-MoleculeTabs-button {
+    .sui-MoleculeTabs-item {
       border: 0 none transparent;
       border-right: $bdw-sui-molecule-tabs solid transparent;
       cursor: pointer;
 
-      &.active {
+      &.is-active {
         border-right-color: $c-primary;
         color: $c-primary;
 
-        svg {
+        svg,
+        path {
           fill: $c-primary;
-
         }
       }
 
-      &:hover:not(.disabled) {
+      &:hover:not(.is-disabled) {
         color: $c-primary;
+        cursor: pointer;
 
-        svg {
+        svg,
+        path {
           fill: $c-primary;
-
         }
       }
     }
@@ -137,26 +146,37 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
 
   &--horizontal,
   &--fullWidth {
-    max-width: 100%;
-    overflow-x: auto;
-
     .sui-MoleculeTabs-scroller {
+      max-width: 100%;
+      overflow-x: auto;
       white-space: nowrap;
       width: fit-content;
 
+      &::-webkit-scrollbar {
+        -webkit-appearance: none;
+      }
     }
   }
 
   &--vertical {
+    display: flex; 
+    align-items: flex-start;
 
     .sui-MoleculeTabs-scroller {
       flex-direction: column;
+    }
 
+    .sui-MoleculeTabs-content {
+      margin-left: 20px;
     }
 
     .sui-MoleculeTabs-item {
+      text-align: center;
       width: 100%;
 
+      &.is-disabled {
+        cursor: no-drop;
+      }
     }
 
   }
@@ -167,25 +187,24 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
     .sui-MoleculeTabs-scroller {
       display: flex;
       min-width: 100%;
-
     }
   }
 
-  &-icon {
-    display: block;
-    height: $sz-icon-l;
-    margin: 0 auto $m-s;
-    vertical-align: middle;
-    width: $sz-icon-l;
+  &-item {
+    align-items: center;
+    flex: 1 1 auto;
 
+    &-icon {
+      display: flex;
+      height: $sz-icon-l;
+      justify-content: center;
+      margin: 0 auto $m-s;
+      vertical-align: middle;
+      width: $sz-icon-l;
+    }
   }
 
   &-item {
-    flex: 1 1 auto;
-
-  }
-
-  &-button {
     @include reset-link;
     background: transparent;
     color: $c-sui-molecule-tabs;
@@ -196,22 +215,21 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
     white-space: nowrap;
     width: 100%;
 
-    svg {
+    svg,
+    path {
       fill: $c-sui-molecule-tabs;
-
     }
 
-    &.disabled {
+    &.is-disabled {
       color: $c-gray-lightest;
-      cursor: default;
+      cursor: no-drop;
 
-      svg {
+      svg,
+      path {
         fill: $c-gray-lightest;
-
       }
     }
-
   }
 }
 
-@import 'mobile';
+@import "mobile";

@@ -1,21 +1,25 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import IMask from 'imask'
 import Input from '../Input'
 
 class MaskInput extends Component {
-  componentDidMount() {
-    const {mask} = this.props
-    this.mask = new IMask(this.field, mask)
-  }
-
   componentWillUnmount() {
-    this.mask.destroy()
+    this.mask && this.mask.destroy()
   }
 
-  onChange = ({ev, value}) => {
+  onChange = (ev, {value}) => {
     const {onChange} = this.props
-    onChange && onChange({value: ev.target.value, target: ev.target})
+    onChange && onChange(ev, {value})
+  }
+
+  onFocus = () => {
+    const {mask} = this.props
+    if (!this.mask) {
+      import('imask').then(imaskPackage => {
+        const IMask = imaskPackage.default
+        this.mask = new IMask(this.field, mask)
+      })
+    }
   }
 
   render() {
@@ -27,6 +31,7 @@ class MaskInput extends Component {
           this.field = input
         }}
         onChange={this.onChange}
+        onFocus={this.onFocus}
         {...this.props}
       />
     )

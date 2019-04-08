@@ -1,0 +1,190 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import './settings';
+
+%modal-position {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+@keyframes modal-overlay {
+  0% { 
+    opacity: 0; 
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-overlay-out {
+  0% { 
+    opacity: 1; 
+  }
+
+  100% { 
+    opacity: 0; 
+  }
+}
+
+@keyframes modal-content-in {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modal-content-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+}
+
+body.is-MoleculeModal-open {
+  overflow-y: hidden;
+}
+
+.sui-MoleculeModal  {
+  @extend %modal-position;
+  align-items: center;
+  display: none;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+
+  &::before {
+    @extend %modal-position;
+    animation: modal-overlay-in 5s both;
+    background-color: $bg-molecule-modal-overlay;
+    content: '';
+  }
+
+  &-out::before {
+    animation: modal-overlay-out .25s both;
+  }
+
+  &.is-MoleculeModal-open {
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: $z-molecule-modal;
+  }
+
+  &-dialog {
+    @include media-breakpoint-up(xs) {
+      border-radius: $bdrs-molecule-modal-dialog;
+      height: auto;
+      margin: $m-molecule-modal-dialog;
+      max-height: calc(100% - #{$m-molecule-modal-dialog}*2);
+      max-width: $maw-molecule-modal-dialog;
+    }
+
+    animation: modal-content-in .25s ease-in;
+    background-color: $bg-molecule-modal-dialog;
+    border: $bd-molecule-modal-dialog;
+    box-shadow: $bxsh-molecule-modal-dialog;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    min-width: $miw-molecule-modal-dialog;
+    text-align: left;
+    vertical-align: middle;
+    white-space: normal;
+    z-index: $z-molecule-modal;
+
+    &--full {      
+      @include media-breakpoint-up(xs) {
+        max-width: $maw-molecule-modal-dialog--full;
+      }
+    }
+
+    &--out {
+      animation: modal-content-out .25s ease-in;
+    }
+
+    &--fit {
+      border-radius: $bdrs-molecule-modal-dialog;
+      height: auto;
+      margin: $m-molecule-modal-dialog-mobile;
+      max-height: calc(100% - #{$m-molecule-modal-dialog}*2);
+    }
+  }
+
+  &-header {
+    align-items: center;
+    background-color: $bg-molecule-modal-header;
+    border-bottom: $bd-molecule-modal-header;
+    border-top-left-radius: $bdrs-molecule-modal-dialog;
+    border-top-right-radius: $bdrs-molecule-modal-dialog;
+    color: $c-molecule-modal-header;
+    display: flex;
+    flex: 0 0 auto;
+    font-size: $fz-xl;
+    font-weight: $fw-regular;
+    justify-content: space-between;
+    padding: $pt-molecule-modal-header $pr-molecule-modal-header $pb-molecule-modal-header $pl-molecule-modal-header;
+    position: relative;
+  }
+
+  &-no-header {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    padding: $pt-molecule-modal-no-header $pr-molecule-modal-no-header $pb-molecule-modal-no-header $pl-molecule-modal-no-header;
+    position: relative;
+  }
+
+  &-close {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    outline: 0 none;
+    padding: $pt-molecule-modal-icon $pl-molecule-modal-icon $pb-molecule-modal-icon $pr-molecule-modal-icon;
+    -webkit-tap-highlight-color: transparent;
+
+    svg {
+      fill: $c-molecule-modal-icon;
+      height: $h-molecule-modal-icon;
+      width: $w-molecule-modal-icon;
+    }
+  }
+
+  &-content {
+    -webkit-overflow-scrolling: touch;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: $pt-molecule-modal-content $pr-molecule-modal-content 0 $pl-molecule-modal-content;
+    position: relative;
+
+    &:after {
+      content: '';
+      display: block;
+      height: $pb-molecule-modal-content;
+    }
+
+
+    :first-child {
+      margin-top: 0;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+}

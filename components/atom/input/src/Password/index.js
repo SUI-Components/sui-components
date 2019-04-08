@@ -20,10 +20,10 @@ class Password extends React.Component {
     this.setState({type: inputType})
   }
 
-  onChange = ({ev, value}) => {
+  onChange = (ev, {value}) => {
     this.setState({value}, () => {
       const {onChange} = this.props
-      onChange && onChange({value, ev})
+      onChange && onChange(ev, {value})
     })
   }
 

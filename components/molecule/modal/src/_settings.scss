@@ -1,0 +1,44 @@
+$bg-molecule-modal: $c-black !default;
+$op-molecule-modal: .6 !default;
+$z-molecule-modal: $z-modal !default;
+
+$bg-molecule-modal-overlay: rgba($bg-molecule-modal, $op-molecule-modal);
+
+$bg-molecule-modal-dialog: $c-white !default;
+$bd-molecule-modal-dialog: 0 !default;
+$bdrs-molecule-modal-dialog: $bdrs-l !default;
+$bxsh-molecule-modal-dialog: $bxsh-m !default;
+$m-molecule-modal-dialog: $m-xl !default;
+$m-molecule-modal-dialog-mobile: $m-l !default;
+$maw-molecule-modal-dialog: 600px !default;
+$maw-molecule-modal-dialog--full: 1200px !default;
+$miw-molecule-modal-dialog: 288px !default;
+
+$bg-molecule-modal-header: transparent !default;
+$bd-molecule-modal-header: 1px solid $c-gray-light !default;
+$c-molecule-modal-header: inherit !default;
+$pt-molecule-modal-header: $p-l !default;
+$pb-molecule-modal-header: $pt-molecule-modal-header !default;
+$pr-molecule-modal-header: 0 !default;
+$pl-molecule-modal-header: $p-xl !default;
+
+$pt-molecule-modal-no-header: $p-l !default;
+$pr-molecule-modal-no-header: 0 !default;
+$pb-molecule-modal-no-header: 0 !default;
+$pl-molecule-modal-no-header: $pr-molecule-modal-no-header !default;
+
+
+$c-molecule-modal-icon: $c-primary !default;
+$h-molecule-modal-icon: 24px !default;
+$w-molecule-modal-icon: $h-molecule-modal-icon !default;
+
+$pt-molecule-modal-icon: 0 !default;
+$pr-molecule-modal-icon: $p-l !default;
+$pb-molecule-modal-icon: 0 !default;
+$pl-molecule-modal-icon: $p-l !default;
+
+$pt-molecule-modal-content: $p-l !default;
+$pb-molecule-modal-content: $pt-molecule-modal-content !default;
+$pr-molecule-modal-content: $p-xl !default;
+$pl-molecule-modal-content: $pr-molecule-modal-content !default;
+

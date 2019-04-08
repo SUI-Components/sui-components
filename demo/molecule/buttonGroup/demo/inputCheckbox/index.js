@@ -46,7 +46,6 @@ class SimpleCheckboxRadioForm extends React.Component {
   }
 
   isCategorySelected(value) {
-    console.log(this.state.category.includes(value))
     return this.state.category.includes(value)
   }
 
@@ -57,7 +56,6 @@ class SimpleCheckboxRadioForm extends React.Component {
   }
 
   render() {
-    console.log('-'.repeat(20))
     return (
       <form onSubmit={this.onSubmit}>
         <MoleculeButtonGroup>

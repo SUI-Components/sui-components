@@ -1,0 +1,35 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$h-dropdown-list--small: 145px !default;
+$h-dropdown-list--medium: 220px !default;
+$h-dropdown-list--large: 300px !default;
+
+$bc-dropdown-list: $c-white !default;
+
+.sui-MoleculeDropdownList {
+  background: $bc-dropdown-list;
+  border: $bdw-s solid color-variation($c-gray, 2);
+  box-shadow: $bxsh-l;
+  overflow-y: scroll;
+  width: 100%;
+
+  &.is-hidden {
+    display: none;
+  }
+
+  &--small {
+    max-height: $h-dropdown-list--small;
+  }
+
+  &--medium {
+    max-height: $h-dropdown-list--medium;
+  }
+
+  &--large {
+    max-height: $h-dropdown-list--large;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

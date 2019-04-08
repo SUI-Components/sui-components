@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.23.0"></a>
+# 1.23.0 (2019-02-19)
+
+
+### Features
+
+* add intermediate component vars to atom/button ([ed101eb](https://github.com/SUI-Components/sui-components/commit/ed101eb))
+* move border-radius to a component variable insted of using sui-theme var directly ([7a59f73](https://github.com/SUI-Components/sui-components/commit/7a59f73))
+
+
+
+<a name="1.22.0"></a>
+# 1.22.0 (2018-10-29)
+
+
+### Features
+
+* export types ([7a97a51](https://github.com/SUI-Components/sui-components/commit/7a97a51))
+
+
+
 <a name="1.21.0"></a>
 # 1.21.0 (2018-10-10)
 
@@ -223,32 +244,6 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * fix false props ([bc6f15c](https://github.com/SUI-Components/sui-components/commit/bc6f15c))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-11-15)
-
-
-### Bug Fixes
-
-* change way to clean props ([90aa171](https://github.com/SUI-Components/sui-components/commit/90aa171))
-* fix border in accent buttons ([a98f017](https://github.com/SUI-Components/sui-components/commit/a98f017))
-
-
-### Features
-
-* add empty style ([e08954a](https://github.com/SUI-Components/sui-components/commit/e08954a))
-* add flexible props inheritance ([68b9103](https://github.com/SUI-Components/sui-components/commit/68b9103))
-* add size modifications from design ([f2c3d7e](https://github.com/SUI-Components/sui-components/commit/f2c3d7e))
-* atomButton ([cc0d643](https://github.com/SUI-Components/sui-components/commit/cc0d643))
-* change contrast class to negative prop ([8390bd7](https://github.com/SUI-Components/sui-components/commit/8390bd7))
-* remove transitions as animations are not defined by design ([75311fa](https://github.com/SUI-Components/sui-components/commit/75311fa))
-
-
-### Performance Improvements
-
-* mAke classes to be constructed once ([628e6a7](https://github.com/SUI-Components/sui-components/commit/628e6a7))
 
 
 

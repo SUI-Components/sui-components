@@ -1,0 +1,32 @@
+@import '~@schibstedspain/sui-atom-button/lib/index';
+@import '~@s-ui/react-molecule-button-group/lib/index';
+
+.DemoMoleculePagination {
+  padding: 20px;
+
+  &-section {
+    margin-bottom: 16px;
+
+    &-responsive {
+      background: white;
+      border: 2px dashed blue;
+      margin-top: 10px;
+      overflow: hidden;
+      padding: 10px;
+      resize: horizontal;
+    }
+  }
+
+  .sui-MoleculePagination {
+    background: white;
+    padding: 10px;
+  }
+
+  &--fullWidth {
+    border: 2px dashed blue;
+    margin-right: 20px;
+    overflow: hidden;
+    padding: 10px;
+    resize: horizontal;
+  }
+}

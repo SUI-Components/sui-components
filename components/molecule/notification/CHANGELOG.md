@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2018-12-11)
+
+
+### Bug Fixes
+
+* change variable name ([f579e16](https://github.com/SUI-Components/sui-components/commit/f579e16))
+
+
+### Features
+
+* add color variables for fonts in negative cases ([0b4cec2](https://github.com/SUI-Components/sui-components/commit/0b4cec2))
+
+
+
+<a name="1.10.0"></a>
+# 1.10.0 (2018-11-15)
+
+
+### Bug Fixes
+
+* fix typo ([c60abd3](https://github.com/SUI-Components/sui-components/commit/c60abd3))
+
+
+### Features
+
+* add enum for molecule notification ([f68fc43](https://github.com/SUI-Components/sui-components/commit/f68fc43))
+* add new variation property for positive colors ([704295c](https://github.com/SUI-Components/sui-components/commit/704295c))
+
+
+
+<a name="1.9.0"></a>
+# 1.9.0 (2018-11-12)
+
+
+### Features
+
+* add children prop, so we can print HTML tags ([00dfb29](https://github.com/SUI-Components/sui-components/commit/00dfb29))
+* delete unused func ([431ae6e](https://github.com/SUI-Components/sui-components/commit/431ae6e))
+* delete unused func ([f1333c8](https://github.com/SUI-Components/sui-components/commit/f1333c8))
+* deprecate text prop, prioritize children ([daafcb5](https://github.com/SUI-Components/sui-components/commit/daafcb5))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2018-09-14)
 

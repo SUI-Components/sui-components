@@ -1,30 +1,17 @@
-$h-atom-input--m: 40px !default;
-$h-atom-input--s: 32px !default;
+$bgc-atom-input-disabled: $c-gray-lightest !default;
+$c-atom-input-placeholder: $c-gray-dark !default;
+$m-atom-input-type-left: $m-m !default;
+$m-atom-input-type-right: $m-m !default;
+$bdrs-atom-input: $bdrs-none !default;
 
-$c-atom-input--success: $c-success !default;
-$c-atom-input--error: $c-error !default;
+$base-class: '.sui-AtomInput-input';
+$class-read-only: '#{$base-class}--readOnly';
 
-$sizes-atom-input: m $h-atom-input--m, s $h-atom-input--s !default;
-$states-atom-input: success $c-atom-input--success, error $c-atom-input--error !default;
-
-$l-atom-input-icon: $gutter !default;
-$w-atom-input-icon: $sz-icon-m !default;
-$h-atom-input-icon: $sz-icon-m !default;
-$t-atom-input-icon: 50% !default;
-$trf-ty-atom-input-icon: -50% !default;
-$pl-atom-input-icon: 50px !default;
-
-.sui-AtomInput-input {
-  border-color: $c-gray-light;
-  border-style: solid;
-  border-width: 1px;
-  box-sizing: border-box;
-  font-size: $fz-base;
-  height: $h-atom-input--m;
-  padding-left: $p-l;
-  padding-right: $p-l;
-  width: 100%;
-
+#{$base-class} {
+  @extend %sui-atom-input-input;
+  border-radius: $bdrs-atom-input;
+  min-height: auto;
+  
   &--size {
     width: inherit;
   }
@@ -33,67 +20,54 @@ $pl-atom-input-icon: 50px !default;
     display: none;
   }
 
-  &[type='radio'],
-  &[type='checkbox'] {
-    height: inherit;
-    margin-left: $m-m;
-    margin-right: $m-m;
-    width: inherit;
+  &#{$base-class}--noBorder {
+    border: 0;
+
+    &:focus {
+      border: 0;
+      box-shadow: none;
+      outline: 0;
+    }
   }
 
-  &[placeholder] {
-    color: $c-gray-dark;
+  &::placeholder {
+    color: $c-atom-input-placeholder;
   }
 
-  &[disabled] {
-    background: $c-gray-lightest;
-
-    &[placeholder] {
-      color: $c-gray-light;
+  &:disabled {
+    &:not(#{$class-read-only}) {
+      background: $bgc-atom-input-disabled;
     }
   }
 
   &:focus {
-    box-shadow: inset 0 0 3px 0 $c-primary;
+    @extend %sui-atom-input-input-focus;
+  }
+
+  &[type='radio'],
+  &[type='checkbox'] {
+    height: inherit;
+    margin-left: $m-atom-input-type-left;
+    margin-right: $m-atom-input-type-right;
+    width: inherit;
+
+    &:focus {
+      border: 0;
+      box-shadow: none;
+      outline: 0 none;
+    }
   }
 
   @each $type, $attr in $sizes-atom-input {
     &-#{$type} {
       height: $attr;
+      min-height: $attr;
     }
   }
 
   @each $state, $color in $states-atom-input {
-    &--#{$state} {
+    &.sui-AtomInput-input--#{$state} {
       border-color: $color;
-    }
-  }
-
-  &--withIcon {
-    position: relative;
-    width: 100%;
-
-    input {
-      padding-left: $pl-atom-input-icon;
-    }
-
-    &-icon {
-      align-items: center;
-      color: $c-primary;
-      cursor: pointer;
-      display: flex;
-      height: $w-atom-input-icon;
-      justify-content: center;
-      left: $l-atom-input-icon;
-      position: absolute;
-      top: $t-atom-input-icon;
-      transform: translateY($trf-ty-atom-input-icon);
-      width: $w-atom-input-icon;
-
-      & > * {
-        height: 100%;
-        width: 100%;
-      }
     }
   }
 }

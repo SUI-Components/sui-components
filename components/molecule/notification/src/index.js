@@ -28,6 +28,11 @@ const AUTO_CLOSE_TIME = {
 const TRANSITION_DELAY = 1000 // ms
 const BUTTONS_MAX = 3 // buttons
 
+const VARIATIONS = {
+  negative: 'negative',
+  positive: 'positive'
+}
+
 class MoleculeNotification extends Component {
   state = {
     show: this.props.show,
@@ -103,21 +108,28 @@ class MoleculeNotification extends Component {
   render() {
     const {show, delay} = this.state
     const {
-      type,
       buttons,
+      children,
+      effect,
       icon,
       position,
       showCloseButton,
-      effect,
-      text
+      text,
+      type,
+      variation
     } = this.props
     const wrapperClassName = cx(
       `${CLASS} ${CLASS}--${type} ${CLASS}--${position}`,
       {
+        [`${CLASS}--${variation}`]: variation === VARIATIONS.positive,
         [`${CLASS}-effect--${position}`]: effect,
         [`${CLASS}-effect--hide`]: effect && delay
       }
     )
+    const innerWrapperClassName = cx({
+      [`${CLASS}-children`]: children,
+      [`${CLASS}-text`]: text
+    })
 
     if (!show && !delay) {
       return null
@@ -129,9 +141,7 @@ class MoleculeNotification extends Component {
           <div className={`${CLASS}-iconLeft`}>
             <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
           </div>
-          <div className={`${CLASS}-text`}>
-            <span>{text}</span>
-          </div>
+          <div className={innerWrapperClassName}>{children || text}</div>
           {showCloseButton && (
             <div className={`${CLASS}-iconClose`} onClick={this.toggleShow}>
               <span className={`${CLASS}-icon`}>
@@ -160,6 +170,10 @@ MoleculeNotification.propTypes = {
    */
   buttons: PropTypes.array,
   /**
+   * Notification content
+   */
+  children: PropTypes.node.isRequired,
+  /**
    * Transition enabled
    */
   effect: PropTypes.bool,
@@ -167,6 +181,10 @@ MoleculeNotification.propTypes = {
    * Icon to be added on the left of the content
    */
   icon: PropTypes.node,
+  /**
+   * On close callback
+   */
+  onClose: PropTypes.func,
   /**
    * Positions: 'top', 'bottom', 'relative'
    */
@@ -180,7 +198,7 @@ MoleculeNotification.propTypes = {
    */
   showCloseButton: PropTypes.bool,
   /**
-   * Content text
+   * Content text. Deprecated, use children instead.
    */
   text: PropTypes.string,
   /**
@@ -188,9 +206,9 @@ MoleculeNotification.propTypes = {
    */
   type: PropTypes.string,
   /**
-   * On close callback
+   * Color variation of the notification: 'positive' with washed out colors, 'negative' with bold colors
    */
-  onClose: PropTypes.func
+  variation: PropTypes.oneOf(Object.keys(VARIATIONS))
 }
 
 MoleculeNotification.defaultProps = {
@@ -200,7 +218,8 @@ MoleculeNotification.defaultProps = {
   position: 'relative',
   show: true,
   showCloseButton: true,
-  type: 'info'
+  type: 'info',
+  variation: VARIATIONS.negative
 }
 
 export default MoleculeNotification

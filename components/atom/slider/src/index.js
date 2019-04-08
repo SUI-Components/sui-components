@@ -1,109 +1,113 @@
-import React, {Component} from 'react'
+import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 const BASE_CLASS = `sui-AtomSlider`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 
-class AtomSlider extends Component {
-  state = {
-    Slider: null,
-    Range: null
-  }
+const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
+  const [Slider, setSlider] = useState(null)
+  const [Range, setRange] = useState(null)
+  const [Handle, setHandle] = useState(null)
+  const [Tooltip, setTooltip] = useState(null)
 
-  refAtomSlider = React.createRef()
+  const refAtomSlider = React.createRef()
 
-  componentDidMount() {
-    require.ensure(
-      [],
-      require => {
-        const Slider = require('rc-slider').default
-        const Tooltip = require('rc-tooltip').default
-        const {Range, Handle} = Slider
-        const {refAtomSlider} = this
+  let handle
 
-        this.handle = props => {
-          const {value, index, ...restProps} = props // eslint-disable-line
-          return (
-            <Tooltip
-              prefixCls="rc-slider-tooltip"
-              overlay={value}
-              placement="top"
-              key={index}
-              getTooltipContainer={() => refAtomSlider.current}
-              visible
-            >
-              <Handle value={value} {...restProps} />
-            </Tooltip>
-          )
-        }
+  useEffect(() => {
+    fetchRcComponents()
 
-        this.setState({
-          Slider: Slider,
-          Range: Range
-        })
-      },
-      'rc-slider'
-    )
-  }
+    async function fetchRcComponents() {
+      const [
+        {default: Slider},
+        {default: Range},
+        {default: Handle},
+        {default: Tooltip}
+      ] = await Promise.all([
+        import('rc-slider/lib/Slider'),
+        import('rc-slider/lib/Range'),
+        import('rc-slider/lib/Handle'),
+        require('rc-tooltip')
+      ])
 
-  handleChange = value => {
-    const {onChange} = this.props
+      console.log([Slider, Range, Handle, Tooltip])
+      setSlider(Slider)
+      setRange(Range)
+      setHandle(Handle)
+      setTooltip(Tooltip)
+    }
+  }, [])
+
+  const handleChange = value => {
     const e = {}
     onChange(e, {value})
   }
 
-  render() {
-    const {Slider, Range} = this.state
-    const {value, min, max, step, range, disabled} = this.props
-    const {handle, refAtomSlider, handleChange} = this
-    const numTicks = Math.round((max - min) / step) + 1
-    const steps = Array.from(Array(numTicks), (x, index) => index * step)
+  const numTicks = Math.round((max - min) / step) + 1
+  const steps = Array.from(Array(numTicks), (x, index) => index * step)
 
-    const customProps = {}
-    if (value) customProps.defaultValue = value
-    if (disabled) customProps.disabled = true
-    if (handle) customProps.handle = handle
-
-    const marks =
-      step === 1
-        ? {[min]: min, [max]: max}
-        : steps.reduce((marksConfig, step) => {
-            marksConfig[step] = step
-            return marksConfig
-          }, {})
-
-    return (
-      <div
-        ref={refAtomSlider}
-        className={cx(BASE_CLASS, {[CLASS_DISABLED]: disabled})}
-      >
-        {!range &&
-          Slider && (
-            <Slider
-              min={min}
-              max={max}
-              step={step}
-              marks={marks}
-              onChange={handleChange}
-              {...customProps}
-            />
-          )}
-        {range &&
-          Range && (
-            <Range
-              min={min}
-              max={max}
-              step={step}
-              marks={marks}
-              onChange={handleChange}
-              {...customProps}
-              defaultValue={[min, max]}
-            />
-          )}
-      </div>
-    )
+  if (Slider) {
+    handle = props => {
+      const {value, index, ...restProps} = props // eslint-disable-line
+      return (
+        <Tooltip
+          prefixCls="rc-slider-tooltip"
+          overlay={value}
+          placement="top"
+          key={index}
+          getTooltipContainer={() => refAtomSlider.current}
+          visible
+        >
+          <Handle value={value} {...restProps} />
+        </Tooltip>
+      )
+    }
   }
+
+  const customProps = {}
+  if (value) customProps.defaultValue = value
+  if (disabled) customProps.disabled = true
+  if (handle) customProps.handle = handle
+
+  const marks =
+    step === 1
+      ? {[min]: min, [max]: max}
+      : steps.reduce((marksConfig, step) => {
+          marksConfig[step] = step
+          return marksConfig
+        }, {})
+
+  return (
+    <div
+      ref={refAtomSlider}
+      className={cx(BASE_CLASS, {[CLASS_DISABLED]: disabled})}
+    >
+      {!range &&
+        Slider && (
+          <Slider
+            min={min}
+            max={max}
+            step={step}
+            marks={marks}
+            onChange={handleChange}
+            {...customProps}
+          />
+        )}
+      {range &&
+        Range && (
+          <Range
+            min={min}
+            max={max}
+            step={step}
+            marks={marks}
+            onChange={handleChange}
+            {...customProps}
+            defaultValue={[min, max]}
+          />
+        )}
+    </div>
+  )
 }
 
 AtomSlider.displayName = 'AtomSlider'

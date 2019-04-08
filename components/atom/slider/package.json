@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "rc-slider": "^8.6.7"
+    "rc-slider": "8"
   },
   "keywords": [],
   "author": "",

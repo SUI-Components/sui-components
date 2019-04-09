@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -7,49 +7,53 @@ const CLASS_MEDIA = `${BASE_CLASS}-media`
 const CLASS_INFO = `${BASE_CLASS}-info`
 
 const CLASS_VERTICAL = `${BASE_CLASS}--vertical`
+const CLASS_RESPONSIVE = `${BASE_CLASS}--responsive`
 const CLASS_HIGHLIGHT = `${BASE_CLASS}--highlight`
 const CLASS_LINK = `${BASE_CLASS}-link`
 
-class AtomCard extends Component {
-  redirectToHref = () => {
+const AtomCard = ({
+  media: Media,
+  content: Content,
+  vertical,
+  responsive,
+  highlight,
+  href,
+  tabIndex
+}) => {
+  const redirectToHref = () => {
     const {href} = this.props
     if (href) window.location.href = href
   }
 
-  redirectOnEnter = e => {
-    if (e.key === 'Enter') this.redirectToHref()
+  const redirectOnEnter = e => {
+    if (e.key === 'Enter') redirectToHref()
   }
 
-  render() {
-    const {
-      media: Media,
-      content: Content,
-      vertical,
-      highlight,
-      href,
-      tabIndex
-    } = this.props
-    return (
-      <div
-        className={cx(
-          BASE_CLASS,
-          vertical && CLASS_VERTICAL,
-          highlight && CLASS_HIGHLIGHT,
-          href && CLASS_LINK
-        )}
-        tabIndex={tabIndex}
-        onClick={this.redirectToHref}
-        onKeyDown={this.redirectOnEnter}
-      >
-        <div className={CLASS_MEDIA}>
-          <Media />
-        </div>
-        <div className={CLASS_INFO}>
-          <Content />
-        </div>
+  const isVertical = vertical && !responsive
+
+  const classNames = cx(
+    BASE_CLASS,
+    isVertical && CLASS_VERTICAL,
+    responsive && CLASS_RESPONSIVE,
+    highlight && CLASS_HIGHLIGHT,
+    href && CLASS_LINK
+  )
+
+  return (
+    <div
+      className={classNames}
+      tabIndex={tabIndex}
+      onClick={redirectToHref}
+      onKeyDown={redirectOnEnter}
+    >
+      <div className={CLASS_MEDIA}>
+        <Media />
       </div>
-    )
-  }
+      <div className={CLASS_INFO}>
+        <Content />
+      </div>
+    </div>
+  )
 }
 
 AtomCard.displayName = 'AtomCard'
@@ -63,6 +67,9 @@ AtomCard.propTypes = {
 
   /** true for vertical layout */
   vertical: PropTypes.bool,
+
+  /** true for make responsive layout */
+  responsive: PropTypes.bool,
 
   /** true for highlight mode */
   highlight: PropTypes.bool,

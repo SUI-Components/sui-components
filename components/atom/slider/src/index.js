@@ -1,42 +1,37 @@
-import React, {useState, useEffect} from 'react'
+import React, {lazy, useState, useEffect, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 const BASE_CLASS = `sui-AtomSlider`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 
-const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
-  const [Slider, setSlider] = useState(null)
-  const [Range, setRange] = useState(null)
-  const [Handle, setHandle] = useState(null)
-  const [Tooltip, setTooltip] = useState(null)
+const Handle = lazy(() => import('rc-slider/lib/Handle'))
+const Range = lazy(() => import('rc-slider/lib/Range'))
+const Slider = lazy(() => import('rc-slider/lib/Slider'))
+const Tooltip = lazy(() => import('rc-tooltip'))
 
+const createHandler = refAtomSlider => props => {
+  const {value, index, ...restProps} = props // eslint-disable-line
+  return (
+    <Tooltip
+      getTooltipContainer={() => refAtomSlider.current}
+      key={index}
+      overlay={value}
+      placement="top"
+      prefixCls="rc-slider-tooltip"
+      visible
+    >
+      <Handle value={value} {...restProps} />
+    </Tooltip>
+  )
+}
+
+const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
+  const [ready, setReady] = useState(false)
   const refAtomSlider = React.createRef()
 
-  let handle
-
   useEffect(() => {
-    fetchRcComponents()
-
-    async function fetchRcComponents() {
-      const [
-        {default: Slider},
-        {default: Range},
-        {default: Handle},
-        {default: Tooltip}
-      ] = await Promise.all([
-        import('rc-slider/lib/Slider'),
-        import('rc-slider/lib/Range'),
-        import('rc-slider/lib/Handle'),
-        require('rc-tooltip')
-      ])
-
-      console.log([Slider, Range, Handle, Tooltip])
-      setSlider(Slider)
-      setRange(Range)
-      setHandle(Handle)
-      setTooltip(Tooltip)
-    }
+    setReady(true)
   }, [])
 
   const handleChange = value => {
@@ -47,29 +42,6 @@ const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
   const numTicks = Math.round((max - min) / step) + 1
   const steps = Array.from(Array(numTicks), (x, index) => index * step)
 
-  if (Slider) {
-    handle = props => {
-      const {value, index, ...restProps} = props // eslint-disable-line
-      return (
-        <Tooltip
-          prefixCls="rc-slider-tooltip"
-          overlay={value}
-          placement="top"
-          key={index}
-          getTooltipContainer={() => refAtomSlider.current}
-          visible
-        >
-          <Handle value={value} {...restProps} />
-        </Tooltip>
-      )
-    }
-  }
-
-  const customProps = {}
-  if (value) customProps.defaultValue = value
-  if (disabled) customProps.disabled = true
-  if (handle) customProps.handle = handle
-
   const marks =
     step === 1
       ? {[min]: min, [max]: max}
@@ -78,34 +50,29 @@ const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
           return marksConfig
         }, {})
 
+  const customProps = {
+    defaultValue: value,
+    handle: !range ? createHandler(refAtomSlider) : undefined,
+    onChange: handleChange,
+    disabled,
+    min,
+    max,
+    step,
+    marks
+  }
+
   return (
     <div
       ref={refAtomSlider}
       className={cx(BASE_CLASS, {[CLASS_DISABLED]: disabled})}
     >
-      {!range &&
-        Slider && (
-          <Slider
-            min={min}
-            max={max}
-            step={step}
-            marks={marks}
-            onChange={handleChange}
-            {...customProps}
-          />
-        )}
-      {range &&
-        Range && (
-          <Range
-            min={min}
-            max={max}
-            step={step}
-            marks={marks}
-            onChange={handleChange}
-            {...customProps}
-            defaultValue={[min, max]}
-          />
-        )}
+      {ready && (
+        <Suspense fallback={null}>
+          {!range && Slider && <Slider {...customProps} />}
+          {range &&
+            Range && <Range {...customProps} defaultValue={[min, max]} />}
+        </Suspense>
+      )}
     </div>
   )
 }

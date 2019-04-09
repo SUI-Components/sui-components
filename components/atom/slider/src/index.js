@@ -51,8 +51,8 @@ const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
         }, {})
 
   const customProps = {
-    defaultValue: value,
-    handle: !range ? createHandler(refAtomSlider) : undefined,
+    defaultValue: range ? [min, max] : value,
+    handle: createHandler(refAtomSlider),
     onChange: handleChange,
     disabled,
     min,
@@ -69,8 +69,7 @@ const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
       {ready && (
         <Suspense fallback={null}>
           {!range && Slider && <Slider {...customProps} />}
-          {range &&
-            Range && <Range {...customProps} defaultValue={[min, max]} />}
+          {range && Range && <Range {...customProps} />}
         </Suspense>
       )}
     </div>

@@ -28,7 +28,7 @@ const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
         import('rc-slider/lib/Slider'),
         import('rc-slider/lib/Range'),
         import('rc-slider/lib/Handle'),
-        require('rc-tooltip')
+        import('rc-tooltip')
       ])
 
       console.log([Slider, Range, Handle, Tooltip])

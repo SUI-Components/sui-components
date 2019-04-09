@@ -2,8 +2,12 @@
 
 $c-atom-card-highlight: $c-highlight !default;
 $w-atom-card-media: 33% !default;
+$mq-responsive-breakpoint-name: 'm' !default;
 
-.sui-AtomCard {
+$base-class: '.sui-AtomCard';
+$class-media: '#{$base-class}-media';
+
+#{$base-class} {
   display: flex;
 
   &-media {
@@ -27,10 +31,25 @@ $w-atom-card-media: 33% !default;
   &--vertical {
     flex-direction: column;
 
-    .sui-AtomCard-media {
+    #{$class-media} {
+      width: 100%;
+    }
+  }
+
+  &--responsive {
+    flex-direction: column;
+
+    #{$class-media} {
       width: 100%;
     }
 
+    @include media-breakpoint-up($mq-responsive-breakpoint-name) {
+      flex-direction: row;
+
+      #{$class-media} {
+        width: $w-atom-card-media;
+      }
+    }
   }
 
 }

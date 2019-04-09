@@ -84,6 +84,9 @@ const Demo = () => {
           vertical
         />
       </div>
+      <h2>
+        Responsive using <code>@s-ui/react-layout-media-query</code>
+      </h2>
       <div className="DemoAtomCard-section DemoAtomCard-section--responsive">
         <h2>From Horizontal to Vertical Responsive</h2>
         <LayoutMediaQuery>
@@ -133,6 +136,17 @@ const Demo = () => {
             )
           }}
         </LayoutMediaQuery>
+      </div>
+      <h2>Responsive using MediaQueries</h2>
+      <div className="DemoAtomCard-section DemoAtomCard-section--big">
+        <h2>From Vertical (mobile) to Horizontal (desktop)</h2>
+        <AtomCard
+          tabIndex="6"
+          media={CarImage}
+          content={CarInfo}
+          href={urlTarget}
+          responsive
+        />
       </div>
     </div>
   )

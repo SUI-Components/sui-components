@@ -1,0 +1,66 @@
+const Icon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+  >
+    <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" />
+  </svg>
+)
+
+return (
+  <div>
+    <h1>MoleculeBadgeCounter</h1>
+    <h2>Small</h2>
+    <p>
+      <MoleculeBadgeCounter />
+    </p>
+    <p>
+      <MoleculeBadgeCounter variant={moleculeBadgeCounterVariants.DOT} />
+    </p>
+    <p>
+      <MoleculeBadgeCounter>Text</MoleculeBadgeCounter>
+    </p>
+    <p>
+      <MoleculeBadgeCounter>
+        <Icon />
+      </MoleculeBadgeCounter>
+    </p>
+    <h2>Medium</h2>
+    <p>
+      <MoleculeBadgeCounter size="medium" />
+    </p>
+    <p>
+      <MoleculeBadgeCounter
+        variant={moleculeBadgeCounterVariants.DOT}
+        size={moleculeBadgeCounterSizes.MEDIUM}
+      />
+    </p>
+    <p>
+      <MoleculeBadgeCounter
+        variant={moleculeBadgeCounterVariants.EXCLAMATION}
+        size={moleculeBadgeCounterSizes.MEDIUM}
+      />
+    </p>
+    <p>
+      <MoleculeBadgeCounter label="4" />
+    </p>
+    <p>
+      <MoleculeBadgeCounter label="42" />
+    </p>
+    <p>
+      <MoleculeBadgeCounter label="142" />
+    </p>
+    <p>
+      <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.MEDIUM}>
+        Text
+      </MoleculeBadgeCounter>
+    </p>
+    <p>
+      <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.MEDIUM}>
+        <Icon />
+      </MoleculeBadgeCounter>
+    </p>
+  </div>
+)

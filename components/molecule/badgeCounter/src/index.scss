@@ -1,0 +1,76 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$bg-molecule-badge-counter: #ff0057 !default;
+$c-molecule-badge-counter: $c-white !default;
+$br-molecule-badge-counter: $bdw-xl !default;
+
+/* small */
+$molecule-badge-counter-small-diameter: 12px !default;
+$molecule-badge-counter-small-diameter-dot: 4px !default;
+$molecule-badge-counter-small-offset-top: -4px !default;
+$molecule-badge-counter-small-offset-right: -7px !default;
+
+/* medium */
+$molecule-badge-counter-medium-diameter: 16px !default;
+$molecule-badge-counter-medium-diameter-dot: 5px !default;
+$molecule-badge-counter-medium-offset-top: -6px !default;
+$molecule-badge-counter-medium-offset-right: -12px !default;
+
+.sui-MoleculeBadgeCounter {
+  display: inline-block;
+  position: relative;
+
+  &-bullet {
+    align-items: center;
+    background-color: $bg-molecule-badge-counter;
+    border-radius: 100%;
+    color: $c-molecule-badge-counter;
+    display: inline-flex;
+    font-size: $fz-xxs;
+    justify-content: center;
+
+    
+    &-small {
+      height: $molecule-badge-counter-small-diameter;
+      width: $molecule-badge-counter-small-diameter;
+
+      .sui-MoleculeBadgeCounter--withChildren & {
+        position: absolute;
+        right: $molecule-badge-counter-small-offset-right;
+        top: $molecule-badge-counter-small-offset-top;
+      }
+
+      &-dot {
+        background-color: $c-white;
+        border: $molecule-badge-counter-small-diameter-dot solid $bg-molecule-badge-counter;
+      }
+    }
+
+    &-medium {
+      height: $molecule-badge-counter-medium-diameter;
+      min-width: $molecule-badge-counter-medium-diameter;
+
+      .sui-MoleculeBadgeCounter--withChildren & {
+        position: absolute;
+        right: $molecule-badge-counter-medium-offset-right;
+        top: $molecule-badge-counter-medium-offset-top;
+      }
+
+      &-dot {
+        background-color: $c-white;
+        border: $molecule-badge-counter-medium-diameter-dot solid $bg-molecule-badge-counter;
+      }
+
+      &-exclamation {
+        &::after {
+          content: '!';
+        }
+      }
+
+      &--threeCharacters {
+        border-radius: $br-molecule-badge-counter;
+        padding: 0 $p-s;
+      }
+    }
+  }
+}

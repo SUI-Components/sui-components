@@ -5,13 +5,14 @@ import cx from 'classnames'
 const BASE_CLASS = `sui-AtomSlider`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 
-const Handle = lazy(() => import('rc-slider/lib/Handle'))
 const Range = lazy(() => import('rc-slider/lib/Range'))
 const Slider = lazy(() => import('rc-slider/lib/Slider'))
 const Tooltip = lazy(() => import('rc-tooltip'))
 
-const createHandler = refAtomSlider => props => {
+const createHandler = (refAtomSlider, handleComponent) => props => {
   const {value, index, ...restProps} = props // eslint-disable-line
+  const {component: Handle} = handleComponent
+
   return (
     <Tooltip
       getTooltipContainer={() => refAtomSlider.current}
@@ -28,10 +29,17 @@ const createHandler = refAtomSlider => props => {
 
 const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
   const [ready, setReady] = useState(false)
+  const [handleComponent, setHandle] = useState({component: null})
   const refAtomSlider = React.createRef()
 
   useEffect(() => {
-    setReady(true)
+    // import Handle here and set it in the state as tooltip need this to be loaded
+    // before trying to be shown, otherwise, the reference is wrong
+    // and the tooltip is not positioned correctly
+    import('rc-slider/lib/Handle').then(({default: Handle}) => {
+      setHandle({component: Handle})
+      setReady(true)
+    })
   }, [])
 
   const handleChange = value => {
@@ -52,14 +60,17 @@ const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
 
   const customProps = {
     defaultValue: range ? [min, max] : value,
-    handle: createHandler(refAtomSlider),
+    handle: createHandler(refAtomSlider, handleComponent),
     onChange: handleChange,
     disabled,
-    min,
+    marks,
     max,
-    step,
-    marks
+    min,
+    step
   }
+
+  // Determine the type of the slider according to the range prop
+  const Type = range ? Range : Slider
 
   return (
     <div
@@ -68,8 +79,7 @@ const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
     >
       {ready && (
         <Suspense fallback={null}>
-          {!range && Slider && <Slider {...customProps} />}
-          {range && Range && <Range {...customProps} />}
+          <Type {...customProps} />
         </Suspense>
       )}
     </div>

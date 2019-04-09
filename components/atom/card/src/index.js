@@ -21,7 +21,6 @@ const AtomCard = ({
   tabIndex
 }) => {
   const redirectToHref = () => {
-    const {href} = this.props
     if (href) window.location.href = href
   }
 

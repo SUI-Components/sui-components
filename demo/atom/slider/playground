@@ -15,20 +15,20 @@ return (
     </div>
     <h3>Step 25</h3>
     <div style={stylesSection}>
-      <AtomSlider step={25} value={50} />
+      <AtomSlider step={25} value={50} onChange={console.log}/>
     </div>
     <h3>Disabled</h3>
     <div style={stylesSection}>
-      <AtomSlider step={25} value={25} disabled />
+      <AtomSlider step={25} value={25} disabled onChange={console.log}/>
     </div>
     <h2>Range</h2>
     <h3>Basic</h3>
     <div style={stylesSection}>
-      <AtomSlider range />
+      <AtomSlider range onChange={console.log}/>
     </div>
     <h3>Step 10</h3>
     <div style={stylesSection}>
-      <AtomSlider range step={10} />
+      <AtomSlider range step={10} onChange={console.log}/>
     </div>
   </div>
 )

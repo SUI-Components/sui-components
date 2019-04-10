@@ -10,7 +10,7 @@ const Slider = lazy(() => import('rc-slider/lib/Slider'))
 const Tooltip = lazy(() => import('rc-tooltip'))
 
 const createHandler = (refAtomSlider, handleComponent) => props => {
-  const {value, index, ...restProps} = props // eslint-disable-line
+  const {value, index, dragging, ...restProps} = props // eslint-disable-line
   const {component: Handle} = handleComponent
 
   return (
@@ -22,7 +22,7 @@ const createHandler = (refAtomSlider, handleComponent) => props => {
       prefixCls="rc-slider-tooltip"
       visible
     >
-      <Handle value={value} {...restProps} />
+      <Handle value={value} {...restProps} dragging={dragging.toString()} />
     </Tooltip>
   )
 }

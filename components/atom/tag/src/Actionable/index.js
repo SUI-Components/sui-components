@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import ActionableTagContainer from './Container'
 
 const RIGHT_ICON_PLACEMENT = 'right'
 const LEFT_ICON_PLACEMENT = 'left'
 
 const getClassNames = function({className}) {
-  return classnames('sui-AtomTag-actionable', className)
+  return cx('sui-AtomTag-actionable', className)
 }
 
 const ActionableTag = function({

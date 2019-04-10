@@ -9,8 +9,9 @@
   &--small {
     display: flex;
   }
-  
+
   &-indicator {
+    
     &--inner {
       font-size: $fz-atom-circle-progress-bar-text--inner;
       left: 50%;
@@ -25,23 +26,40 @@
     &--small {
       font-size: $fz-atom-circle-progress-bar-text--outer;
       top: calc(#{$h-atom-circle-progress-bar-circle-small} / 2);
+
+      &.sui-AtomCircleProgressBar-indicator--error {
+        svg {
+          height: $h-atom-circle-progress-bar-circle-small--error;
+          width: $w-atom-circle-progress-bar-circle-small--error;
+        }
+      }
     }
 
     &--outer {
       font-size: $fz-atom-circle-progress-bar-text--outer;
       margin-left: $ml-atom-circle-progress-bar-text--outer;
     }
+
+    &--error {
+      top: 50%;
+
+      svg {
+        fill: $c-atom-circle-progress-bar-trail--error;
+        height: $h-atom-circle-progress-bar-circle-large--error;
+        width: $w-atom-circle-progress-bar-circle-large--error;
+      }
+    }
   }
 
   &-circle {
     &--small {
-      width: $w-atom-circle-progress-bar-circle-small;
       height: $h-atom-circle-progress-bar-circle-small;
+      width: $w-atom-circle-progress-bar-circle-small;
     }
 
     &--large {
-      width: $w-atom-circle-progress-bar-circle-large;
       height: $h-atom-circle-progress-bar-circle-large;
+      width: $w-atom-circle-progress-bar-circle-large;
     }
   }
 

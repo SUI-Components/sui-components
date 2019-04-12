@@ -1,17 +1,15 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import Tab from './Tab'
 
 const BASE_CLASS = 'sui-MoleculeAccordion'
 
-class MoleculeAccordion extends Component {
-  state = {
-    openTabs: []
-  }
+function MoleculeAccordion(props) {
+  const [openTabs, setOpenTabs] = useState([])
+  const {children, ...tabProps} = props
 
-  onToggle = id => {
-    const {openTabs} = this.state
-    const {withAutoClose} = this.props
+  function onToggle(id) {
+    const {withAutoClose} = props
     let newOpenTabs = []
     if (withAutoClose) {
       newOpenTabs[id] = openTabs[id] ? undefined : true
@@ -19,30 +17,24 @@ class MoleculeAccordion extends Component {
       newOpenTabs = [...openTabs]
       newOpenTabs[id] = newOpenTabs[id] ? undefined : true
     }
-    this.setState({
-      openTabs: [...newOpenTabs]
-    })
+    setOpenTabs([...newOpenTabs])
   }
 
-  render() {
-    const {openTabs} = this.state
-    const {children, ...tabProps} = this.props
-    return (
-      <div className={BASE_CLASS}>
-        {children.map((child, index) => (
-          <Tab
-            key={index}
-            isOpen={!!openTabs[index]}
-            title={child.props.label}
-            onToggle={() => this.onToggle(index)}
-            {...tabProps}
-          >
-            {child.props.children}
-          </Tab>
-        ))}
-      </div>
-    )
-  }
+  return (
+    <div className={BASE_CLASS}>
+      {children.map((child, index) => (
+        <Tab
+          key={index}
+          isOpen={!!openTabs[index]}
+          title={child.props.label}
+          onToggle={() => onToggle(index)}
+          {...tabProps}
+        >
+          {child.props.children}
+        </Tab>
+      ))}
+    </div>
+  )
 }
 
 MoleculeAccordion.displayName = 'MoleculeAccordion'

@@ -73,6 +73,22 @@
       overflow: auto;
     }
 
+    &--withScrollVisible {
+      .is-open & {
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+          -webkit-appearance: none;
+          width: $bdw-accordion-tab-scrollbar;
+        }
+        &::-webkit-scrollbar-thumb {
+          width: 1px;
+          border-radius: $bdrs-accordion-tab-scrollbar-thumb;
+          background-color: $c-accordion-tab-scrollbar-thumb;
+          -webkit-box-shadow: $bxsh-accordion-tab-scrollbar-thumb;
+        }
+      }
+    }
+
   }
 
   &TitleContainer {

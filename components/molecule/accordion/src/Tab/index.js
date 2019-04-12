@@ -18,6 +18,7 @@ const Tab = ({
   children,
   icon,
   title,
+  withScrollVisible,
   withTransition,
   isOpen,
   maxHeight
@@ -32,7 +33,8 @@ const Tab = ({
     [OPEN_CLASS]: isOpen
   })
   const contentClassName = cx(CONTENT_CONTAINER_CLASS, {
-    [`${CONTENT_CONTAINER_CLASS}--withTransition`]: withTransition
+    [`${CONTENT_CONTAINER_CLASS}--withTransition`]: withTransition,
+    [`${CONTENT_CONTAINER_CLASS}--withScrollVisible`]: withScrollVisible
   })
   const containerHeight = isOpen ? `${maxHeight}px` : `0px`
 
@@ -75,6 +77,10 @@ Tab.propTypes = {
    * Title tab
    */
   title: PropTypes.string.isRequired,
+  /**
+   * Force scroll visible
+   */
+  withScrollVisible: PropTypes.bool,
   /**
    * Activate/deactivate transition
    */

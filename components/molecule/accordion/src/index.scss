@@ -81,7 +81,6 @@
           width: $bdw-accordion-tab-scrollbar;
         }
         &::-webkit-scrollbar-thumb {
-          width: 1px;
           border-radius: $bdrs-accordion-tab-scrollbar-thumb;
           background-color: $c-accordion-tab-scrollbar-thumb;
           -webkit-box-shadow: $bxsh-accordion-tab-scrollbar-thumb;

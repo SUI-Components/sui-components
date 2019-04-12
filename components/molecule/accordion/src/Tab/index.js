@@ -96,10 +96,11 @@ Tab.propTypes = {
 }
 
 Tab.defaultProps = {
+  isOpen: false,
   maxHeight: MAX_HEIGHT,
-  withTransition: true,
   onToggle: () => {},
-  isOpen: false
+  withScrollVisible: false,
+  withTransition: true
 }
 
 export default Tab

@@ -26,13 +26,7 @@ class MoleculeAccordion extends Component {
 
   render() {
     const {openTabs} = this.state
-    const {
-      children,
-      icon,
-      maxHeight,
-      withScrollVisible,
-      withTransition
-    } = this.props
+    const {children, ...tabProps} = this.props
     return (
       <div className={BASE_CLASS}>
         {children.map((child, index) => (
@@ -41,10 +35,7 @@ class MoleculeAccordion extends Component {
             isOpen={!!openTabs[index]}
             title={child.props.label}
             onToggle={() => this.onToggle(index)}
-            icon={icon}
-            maxHeight={maxHeight}
-            withScrollVisible={withScrollVisible}
-            withTransition={withTransition}
+            {...tabProps}
           >
             {child.props.children}
           </Tab>
@@ -83,10 +74,7 @@ MoleculeAccordion.propTypes = {
   withTransition: PropTypes.bool
 }
 MoleculeAccordion.defaultProps = {
-  maxHeight: 100,
-  withAutoClose: true,
-  withScrollVisible: false,
-  withTransition: true
+  withAutoClose: true
 }
 
 export default MoleculeAccordion

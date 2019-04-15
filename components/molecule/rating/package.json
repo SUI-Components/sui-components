@@ -9,7 +9,9 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "1",
+    "react-addons-shallow-compare": "^15.6.2",
+    "react-rating-svg": "0.0.1"
   },
   "keywords": [],
   "author": "",

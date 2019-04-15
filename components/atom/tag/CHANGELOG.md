@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.1.0"></a>
+# 2.1.0 (2019-04-15)
+
+
+### Features
+
+* Move atom/tag to React hooks ([88d5eb1](https://github.com/SUI-Components/sui-components/commit/88d5eb1))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2018-12-21)
 

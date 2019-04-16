@@ -191,7 +191,7 @@ MoleculeSelect.propTypes = {
   onChange: PropTypes.func,
 
   /** Icon for closing (removing) tags */
-  iconCloseTag: PropTypes.node.isRequired,
+  iconCloseTag: PropTypes.node,
 
   /** Icon for arrow in select (down direction when closed) */
   iconArrowDown: PropTypes.node.isRequired,

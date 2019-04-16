@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-// import PropTypes from 'prop-types'
-import RatingSVG from 'react-rating-svg'
+import PropTypes from 'prop-types'
+
+import Star from './components/Star'
 
 const BASE_CLASS = `sui-MoleculeRating`
 class MoleculeRating extends Component {
@@ -8,22 +9,33 @@ class MoleculeRating extends Component {
     value: 0
   }
 
-  handleChange(value, name) {
-    console.log(name, value)
-    this.setState({value: value})
+  handleMouseMoveStar = (e, {index, value: valueStar}) => {
+    const value = index + valueStar
+    this.setState({value})
+  }
+
+  handleMouseLeaveStar = (e, {index, value: valueStar}) => {
+    const value = index + valueStar
+    this.setState({value})
   }
 
   render() {
+    const {numStars} = this.props
+    const {handleMouseMoveStar, handleMouseLeaveStar} = this
     const {value} = this.state
-    const {handleChange} = this
-
     return (
       <div className={BASE_CLASS}>
-        <RatingSVG
-          name="my-controlled-rating"
-          value={value}
-          onChange={handleChange}
-        />
+        {new Array(numStars)
+          .fill(0)
+          .map((_, index) => (
+            <Star
+              key={index}
+              index={index}
+              value={value}
+              onMouseMove={handleMouseMoveStar}
+              onMouseLeave={handleMouseLeaveStar}
+            />
+          ))}
       </div>
     )
   }
@@ -33,7 +45,14 @@ MoleculeRating.displayName = 'MoleculeRating'
 
 // Remove these comments if you need
 // MoleculeRating.contextTypes = {i18n: PropTypes.object}
-// MoleculeRating.propTypes = {}
-// MoleculeRating.defaultProps = {}
+
+MoleculeRating.propTypes = {
+  /** Number of Stars */
+  numStars: PropTypes.number
+}
+
+MoleculeRating.defaultProps = {
+  numStars: 5
+}
 
 export default MoleculeRating

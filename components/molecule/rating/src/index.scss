@@ -63,14 +63,14 @@ $class-label: '#{$base-class}-label';
         text-decoration: none;
         color: $c-molecule-rating;
       }
-      
-      *:hover {
-        color: $c-molecule-rating-label-hover;
-      }
 
       &:hover {
+        color: $c-molecule-rating-label-hover;
         background: $bg-molecule-rating-hover;
         cursor: pointer;
+        * {
+          color: $c-molecule-rating-label-hover;
+        }
       }
 
     }

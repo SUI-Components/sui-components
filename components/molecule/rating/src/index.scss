@@ -1,12 +1,78 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~react-rating-svg/lib/scss/react-rating-svg';
 
-.sui-MoleculeRating {
+$fz-molecule-rating-small: $fz-s !default;
+$fz-molecule-rating-medium: $fz-m !default;
+$fz-molecule-rating-large: $fz-l !default;
 
+$c-molecule-rating: #5f5f5f !default;
+$c-molecule-rating-label-hover: #5398c1 !default;
+$bg-molecule-rating-hover: #ecf4f8 !default;
+
+$base-class: '.sui-MoleculeRating';
+$class-star: '#{$base-class}-Star';
+$class-label: '#{$base-class}-label';
+
+#{$base-class} {
+  color: $c-molecule-rating;
   display: flex;
+  align-items: center;
 
-  &-Star {
-    height: 200px;
-    width: 200px;
+  &-containerStars {
+    display: flex;
   }
+
+  #{$class-label} {
+    display: flex;
+    padding: $p-m;
+    margin-left: $m-m;
+    &:hover {
+      color: $c-molecule-rating-label-hover;
+      background: $bg-molecule-rating-hover;
+      cursor: default;
+    }
+  }
+
+  &--small {
+    font-size: $fz-molecule-rating-small;
+    #{$class-star} {
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  &--medium {
+    font-size: $fz-molecule-rating-medium;
+    #{$class-star} {
+      height: 32px;
+      width: 32px;
+    }
+  }
+
+  &--large {
+    font-size: $fz-molecule-rating-large;
+    #{$class-star} {
+      height: 40px;
+      width: 40px;
+    }
+  }
+  
+  &--withLink {
+    #{$class-label} {
+      * {
+        text-decoration: none;
+        color: $c-molecule-rating;
+      }
+      
+      *:hover {
+        color: $c-molecule-rating-label-hover;
+      }
+
+      &:hover {
+        background: $bg-molecule-rating-hover;
+        cursor: pointer;
+      }
+
+    }
+  }  
 }

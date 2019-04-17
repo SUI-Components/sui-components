@@ -1,58 +1,93 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 import Star from './components/Star'
 
+const SIZES = {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large'
+}
+
 const BASE_CLASS = `sui-MoleculeRating`
-class MoleculeRating extends Component {
-  state = {
-    value: 0
-  }
+const CLASS_CONTAINER_STARS = `${BASE_CLASS}-containerStars`
+const CLASS_LABEL = `${BASE_CLASS}-label`
+const CLASS_LINK = `${BASE_CLASS}--withLink`
 
-  handleMouseMoveStar = (e, {index, value: valueStar}) => {
-    const value = index + valueStar
-    this.setState({value})
-  }
+const MoleculeRating = ({
+  numStars,
+  value,
+  size,
+  label,
+  href,
+  target,
+  link,
+  linkFactory: Link
+}) => {
+  const className = cx(BASE_CLASS, `${BASE_CLASS}--${size}`, {
+    [CLASS_LINK]: link
+  })
 
-  handleMouseLeaveStar = (e, {index, value: valueStar}) => {
-    const value = index + valueStar
-    this.setState({value})
-  }
+  const labelLink = link ? (
+    <Link
+      href={href}
+      target={target}
+      rel={target === '_blank' ? 'noopener' : undefined}
+    >
+      {label}
+    </Link>
+  ) : (
+    label
+  )
 
-  render() {
-    const {numStars} = this.props
-    const {handleMouseMoveStar, handleMouseLeaveStar} = this
-    const {value} = this.state
-    return (
-      <div className={BASE_CLASS}>
+  return (
+    <div className={className}>
+      <div className={CLASS_CONTAINER_STARS}>
         {new Array(numStars)
           .fill(0)
           .map((_, index) => (
-            <Star
-              key={index}
-              index={index}
-              value={value}
-              onMouseMove={handleMouseMoveStar}
-              onMouseLeave={handleMouseLeaveStar}
-            />
+            <Star size={size} key={index} index={index} value={value} />
           ))}
       </div>
-    )
-  }
+      <p className={CLASS_LABEL}>{labelLink}</p>
+    </div>
+  )
 }
 
 MoleculeRating.displayName = 'MoleculeRating'
 
-// Remove these comments if you need
-// MoleculeRating.contextTypes = {i18n: PropTypes.object}
-
 MoleculeRating.propTypes = {
   /** Number of Stars */
-  numStars: PropTypes.number
+  numStars: PropTypes.number,
+
+  /** Value of Raitng */
+  value: PropTypes.number,
+
+  /** Label of Raitng */
+  label: PropTypes.string,
+
+  /** size */
+  size: PropTypes.oneOf(Object.values(SIZES)),
+
+  /** HTML element: if true, render a link. Otherwise render a button */
+  link: PropTypes.bool,
+
+  /** Target to be added on the HTML link */
+  target: PropTypes.string,
+
+  /** URL to be added on the HTML link */
+  href: PropTypes.string,
+
+  /** Factory used to create navigation links */
+  linkFactory: PropTypes.func
 }
 
 MoleculeRating.defaultProps = {
-  numStars: 5
+  numStars: 5,
+  size: SIZES.SMALL,
+  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>
 }
 
 export default MoleculeRating
+export {SIZES as MoleculeRatingSizes}

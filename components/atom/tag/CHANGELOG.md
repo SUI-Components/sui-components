@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.2.0"></a>
+# 2.2.0 (2019-04-18)
+
+
+### Features
+
+* fix class naming to follow convention ([0745534](https://github.com/SUI-Components/sui-components/commit/0745534))
+* large size added ([0592394](https://github.com/SUI-Components/sui-components/commit/0592394))
+* make clickable area bigger ([fd8fd95](https://github.com/SUI-Components/sui-components/commit/fd8fd95))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2019-04-15)
 

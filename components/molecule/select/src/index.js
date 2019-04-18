@@ -118,10 +118,15 @@ class MoleculeSelect extends Component {
     const {refsMoleculeSelectOptions, closeList} = this
     const {isOpen} = this.props
     const options = refsMoleculeSelectOptions.map(getTarget)
+    const firstOption = options[0]
     setTimeout(() => {
       const currentElementFocused = getCurrentElementFocused()
       const isSomeOptionFocused = [...options].includes(currentElementFocused)
-      if (!isSomeOptionFocused && isOpen) {
+      const isOptionListFocused = firstOption
+        ? currentElementFocused.isSameNode(firstOption.parentNode)
+        : false
+
+      if (!isSomeOptionFocused && !isOptionListFocused && isOpen) {
         closeList(ev)
       }
     }, 1)

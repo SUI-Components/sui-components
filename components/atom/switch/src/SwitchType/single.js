@@ -18,15 +18,18 @@ export const SingleSwitchTypeRender = ({
   onKeyDown,
   onToggle,
   size,
-  type
+  type,
+  value
 }) => {
+  const isActive = value !== undefined ? value : isToggle
+
   return (
     <div
       className={switchClassNames(
         size,
         type,
         'singleType',
-        isToggle,
+        isActive,
         isFocus,
         isClick,
         disabled
@@ -45,7 +48,7 @@ export const SingleSwitchTypeRender = ({
         <div className={suitClass({element: 'inputContainer'})}>
           <div
             className={cx(suitClass({element: 'circle'}), {
-              [suitClass({modifier: 'toggle'})]: isToggle
+              [suitClass({modifier: 'toggle'})]: isActive
             })}
           />
         </div>
@@ -112,5 +115,9 @@ SingleSwitchTypeRender.propTypes = {
   /**
    * Callback on keydown on the switch
    */
-  onKeyDown: PropTypes.func
+  onKeyDown: PropTypes.func,
+  /**
+   * Component value
+   */
+  value: PropTypes.bool
 }

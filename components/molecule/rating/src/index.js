@@ -46,9 +46,7 @@ const MoleculeRating = ({
       <div className={CLASS_CONTAINER_STARS}>
         {new Array(numStars)
           .fill(0)
-          .map((_, index) => (
-            <Star size={size} key={index} index={index} value={value} />
-          ))}
+          .map((_, index) => <Star key={index} index={index} value={value} />)}
       </div>
       <p className={CLASS_LABEL}>{labelLink}</p>
     </div>

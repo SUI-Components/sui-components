@@ -5,14 +5,23 @@ import {IconStarFilled, IconStarHalfFilled, IconStarOutline} from '../Icons'
 
 const BASE_CLASS = `sui-MoleculeRating-Star`
 
+const DEFAULTS = {
+  value: 0,
+  fullValue: 1,
+  halfValue: 0.5,
+  IconStarFilled: IconStarFilled,
+  IconStarHalfFilled: IconStarHalfFilled,
+  IconStarEmpty: IconStarOutline
+}
+
 const MoleculeRatingStar = ({
-  value,
-  fullValue,
-  halfValue,
+  value = DEFAULTS.value,
+  fullValue = DEFAULTS.fullValue,
+  halfValue = DEFAULTS.halfValue,
   index,
-  IconStarEmpty,
-  IconStarFilled,
-  IconStarHalfFilled
+  IconStarEmpty = DEFAULTS.IconStarEmpty,
+  IconStarFilled = DEFAULTS.IconStarFilled,
+  IconStarHalfFilled = DEFAULTS.IconStarHalfFilled
 }) => {
   let StarMode = IconStarEmpty
   if (value >= index + fullValue) StarMode = IconStarFilled
@@ -48,15 +57,6 @@ MoleculeRatingStar.propTypes = {
 
   /** Icon for star empty */
   IconStarEmpty: PropTypes.node
-}
-
-MoleculeRatingStar.defaultProps = {
-  value: 0,
-  fullValue: 1,
-  halfValue: 0.5,
-  IconStarFilled: IconStarFilled,
-  IconStarHalfFilled: IconStarHalfFilled,
-  IconStarEmpty: IconStarOutline
 }
 
 export default MoleculeRatingStar

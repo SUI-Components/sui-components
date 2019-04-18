@@ -9,6 +9,7 @@ $mw-label: 240px !default;
 $p-atom-tag-l: 0 $p-l !default;
 $p-atom-tag-m: 0 $p-l !default;
 $p-atom-tag-s: 0 $p-m !default;
+$w-atom-tag-clickable: 32px !default;
 
 @mixin icon-atom-tag($type) {
   @include sui-icon--small;
@@ -18,9 +19,19 @@ $p-atom-tag-s: 0 $p-m !default;
 
   @if $type == 'icon' {
     margin: 0 $m-s 0 (-$m-m);
-
-} @else if $type == 'icon-secondary' {
+  } @else if $type == 'icon-secondary' {
     margin: 0 (-$m-m) 0 $m-m;
+  }
+}
+
+@mixin icon-secondary-clickable-area($size) {
+  &::before {
+    content: '';
+    height: $size;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $w-atom-tag-clickable;
   }
 }
 
@@ -33,6 +44,7 @@ $p-atom-tag-s: 0 $p-m !default;
   height: $h-atom-tag-m;
   margin: 0 $m-m $m-m 0;
   padding: $p-atom-tag-m;
+  position: relative;
   white-space: nowrap;
 
   &-label {
@@ -58,23 +70,30 @@ $p-atom-tag-s: 0 $p-m !default;
     }
   }
 
-  &-secondary-closeable {
-    cursor: pointer;
-    line-height: initial;
+  &-secondary {
+    &-closeable {
+      @include icon-secondary-clickable-area($h-atom-tag-m);
 
-    &:hover {
-      background-color: $c-system;
-      border-radius: 50%;
-      fill: color-variation($c-gray, 3);
+      &Icon {
+        cursor: pointer;
+        line-height: initial;
+        position: relative;
+
+        &:hover {
+          background-color: $c-system;
+          border-radius: 50%;
+          fill: color-variation($c-gray, 3);
+        }
+      }
+    }
+
+    &-icon {
+      @include icon-atom-tag(icon-secondary);
     }
   }
 
   &-icon {
     @include icon-atom-tag(icon);
-  }
-
-  &-secondary-icon {
-    @include icon-atom-tag(icon-secondary);
   }
 
   &-actionable {
@@ -104,8 +123,14 @@ $p-atom-tag-s: 0 $p-m !default;
       margin-left: 0;
     }
 
-    .sui-AtomTag-secondary-icon {
-      margin-right: 0;
+    .sui-AtomTag-secondary {
+      &-closeable {
+        @include icon-secondary-clickable-area($h-atom-tag-s);
+      }
+
+      &-icon {
+        margin-right: 0;
+      }
     }
   }
 
@@ -116,6 +141,12 @@ $p-atom-tag-s: 0 $p-m !default;
 
     & .sui-AtomTag-label {
       line-height: $h-atom-tag-l;
+    }
+
+    .sui-AtomTag-secondary {
+      &-closeable {
+        @include icon-secondary-clickable-area($h-atom-tag-l);
+      }
     }
   }
 }

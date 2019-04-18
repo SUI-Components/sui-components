@@ -17,8 +17,8 @@ const StandardTag = ({className, closeIcon, icon, label, onClose}) => {
         {label}
       </span>
       {closeIcon && (
-        <span className="sui-AtomTag-secondary-closeable" onClick={handleClick}>
-          <span className="sui-AtomTag-secondary-closeableIcon sui-AtomTag-secondary-icon">
+        <span className="sui-AtomTag-closeable" onClick={handleClick}>
+          <span className="sui-AtomTag-closeableIcon sui-AtomTag-secondary-icon">
             {closeIcon}
           </span>
         </span>

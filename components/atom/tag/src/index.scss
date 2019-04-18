@@ -70,30 +70,28 @@ $w-atom-tag-clickable: 32px !default;
     }
   }
 
-  &-secondary {
-    &-closeable {
-      @include icon-secondary-clickable-area($h-atom-tag-m);
+  &-closeable {
+    @include icon-secondary-clickable-area($h-atom-tag-m);
 
-      &Icon {
-        cursor: pointer;
-        line-height: initial;
-        position: relative;
+    &Icon {
+      cursor: pointer;
+      line-height: initial;
+      position: relative;
 
-        &:hover {
-          background-color: $c-system;
-          border-radius: 50%;
-          fill: color-variation($c-gray, 3);
-        }
+      &:hover {
+        background-color: $c-system;
+        border-radius: 50%;
+        fill: color-variation($c-gray, 3);
       }
-    }
-
-    &-icon {
-      @include icon-atom-tag(icon-secondary);
     }
   }
 
   &-icon {
     @include icon-atom-tag(icon);
+  }
+
+  &-secondary-icon {
+    @include icon-atom-tag(icon-secondary);
   }
 
   &-actionable {
@@ -119,18 +117,16 @@ $w-atom-tag-clickable: 32px !default;
       line-height: $h-atom-tag-s;
     }
 
+    .sui-AtomTag-closeable {
+      @include icon-secondary-clickable-area($h-atom-tag-s);
+    }
+
     .sui-AtomTag-icon {
       margin-left: 0;
     }
 
-    .sui-AtomTag-secondary {
-      &-closeable {
-        @include icon-secondary-clickable-area($h-atom-tag-s);
-      }
-
-      &-icon {
-        margin-right: 0;
-      }
+    .sui-AtomTag-secondary-icon {
+      margin-right: 0;
     }
   }
 
@@ -143,10 +139,8 @@ $w-atom-tag-clickable: 32px !default;
       line-height: $h-atom-tag-l;
     }
 
-    .sui-AtomTag-secondary {
-      &-closeable {
-        @include icon-secondary-clickable-area($h-atom-tag-l);
-      }
+    .sui-AtomTag-closeable {
+      @include icon-secondary-clickable-area($h-atom-tag-l);
     }
   }
 }

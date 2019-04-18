@@ -94,6 +94,51 @@ return (
       />
     </p>
 
+    <h2>Large Tags</h2>
+    <p>
+      <AtomTag label="Tag Structure" size={atomTagSizes.LARGE} />
+      <AtomTag
+        label="Close Tag"
+        onClose={() => alert('close!')}
+        closeIcon={<CloseIcon />}
+        size={atomTagSizes.LARGE}
+      />
+      <AtomTag label="Icon Tag" icon={<Icon />} size={atomTagSizes.LARGE} />
+      <AtomTag
+        label="Icon & Close Tag"
+        icon={<Icon />}
+        onClose={() => alert('close!')}
+        closeIcon={<CloseIcon />}
+        size={atomTagSizes.LARGE}
+      />
+      <AtomTag
+        label="Maximum Tag Width. Truncated text, without close nor icon"
+        size={atomTagSizes.LARGE}
+      />
+      <AtomTag
+        label="Maximum Tag Width. Truncated text, no icon, close"
+        onClose={() => alert('close!')}
+        closeIcon={<CloseIcon />}
+        size={atomTagSizes.LARGE}
+      />
+      <AtomTag
+        label="Maximum Tag Width. Truncated text, icon, no close"
+        icon={<Icon />}
+        size={atomTagSizes.LARGE}
+      />
+      <AtomTag
+        label="Maximum Tag Width. Truncated text, with icon and close"
+        icon={<Icon />}
+        onClose={() => alert('close!')}
+        closeIcon={<CloseIcon />}
+        size={atomTagSizes.LARGE}
+      />
+      <AtomTag
+        label="101 char length, truncated to 100 char890123456789012345678901234567890123456789012345678901234567890"
+        size={atomTagSizes.LARGE}
+      />
+    </p>
+
     <h2>Actionable Tag</h2>
     <p>
       <AtomTag label="Navigation Tag" onClick={() => alert('click!')} />

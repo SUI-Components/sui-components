@@ -22,15 +22,16 @@ import AtomSwitch from '@s-ui/react-atom-switch'
 
 return (
   <AtomSwitch
-    initialValue={false}
-    size='default'
-    type='toggle'
     disabled={false}
+    initialValue={false}
     label='Label'
     labelLeft='Off'
-    labelRight='On'
     labelOptionalText='Optional label'
+    labelRight='On'
     onToggle={flag => console.log(`Switch value is ${flag}`)}
+    size='default'
+    type='toggle'
+    value={true}
   />
 )
 ```

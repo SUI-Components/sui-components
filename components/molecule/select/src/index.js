@@ -58,8 +58,6 @@ class MoleculeSelect extends Component {
     const {
       refMoleculeSelect: {current: domMoleculeSelect}
     } = this
-
-    console.log('closeList')
     onToggle(ev, {isOpen: false})
     domMoleculeSelect.focus()
     ev.preventDefault()

@@ -1,1 +1,1 @@
-return (<MoleculeDataCounter />)
+return (<MoleculeDataCounter label="Label" id="demo1"/>)

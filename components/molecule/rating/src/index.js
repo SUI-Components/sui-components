@@ -16,14 +16,14 @@ const CLASS_LABEL = `${BASE_CLASS}-label`
 const CLASS_LINK = `${BASE_CLASS}--withLink`
 
 const MoleculeRating = ({
-  numStars,
+  numStars = 5,
   value,
-  size,
+  size = SIZES.SMALL,
   label,
   href,
   target,
   link,
-  linkFactory: Link
+  linkFactory: Link = ({children, ...rest} = {}) => <a {...rest}>{children}</a>
 }) => {
   const className = cx(BASE_CLASS, `${BASE_CLASS}--${size}`, {
     [CLASS_LINK]: link
@@ -79,12 +79,6 @@ MoleculeRating.propTypes = {
 
   /** Factory used to create navigation links */
   linkFactory: PropTypes.func
-}
-
-MoleculeRating.defaultProps = {
-  numStars: 5,
-  size: SIZES.SMALL,
-  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>
 }
 
 export default MoleculeRating

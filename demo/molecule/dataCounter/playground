@@ -10,7 +10,7 @@ return (
         <MoleculeDataCounter min={2} max={7} label="Label" id="demo3"/>
 
         <h2>Size=SMALL</h2>  
-        <MoleculeDataCounter label="Label" id="demo4" size={dataCounterSizes.SMALL}/>
+        <MoleculeDataCounter label="Label" id="demo4" size={moleculeDataCounterSizes.SMALL}/>
 
         
     </div>

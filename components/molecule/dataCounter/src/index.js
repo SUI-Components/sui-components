@@ -131,4 +131,4 @@ MoleculeDataCounter.propTypes = {
 }
 
 export default withStateValue(MoleculeDataCounter)
-export {inputSizes as dataCounterSizes}
+export {inputSizes as moleculeDataCounterSizes}

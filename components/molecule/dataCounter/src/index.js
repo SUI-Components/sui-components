@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 import AtomButton from '@schibstedspain/sui-atom-button'
 import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
@@ -14,6 +15,7 @@ const MoleculeDataCounter = ({
   id,
   label,
   value,
+  size = inputSizes.MEDIUM,
   charsSize = 2,
   placeholder = '1',
   max = 99,
@@ -45,13 +47,20 @@ const MoleculeDataCounter = ({
   }
 
   let helpText
-  if (isMaxValue && maxValueHelpText) helpText = !disabled && maxValueHelpText
-  if (isMinValue && minValueHelpText) helpText = !disabled && minValueHelpText
+  if (!disabled) {
+    if (isMaxValue && maxValueHelpText) helpText = maxValueHelpText
+    if (isMinValue && minValueHelpText) helpText = minValueHelpText
+  }
 
   return (
     <div className={BASE_CLASS}>
-      <MoleculeField name={id} text={label} helpText={helpText}>
-        <div className={CLASS_INPUT_CONTAINER}>
+      <MoleculeField name={id} label={label} helpText={helpText}>
+        <div
+          className={cx(
+            CLASS_INPUT_CONTAINER,
+            `${CLASS_INPUT_CONTAINER}--${size}`
+          )}
+        >
           <AtomButton
             disabled={disabled || value === min}
             onClick={decrementValue}
@@ -62,7 +71,7 @@ const MoleculeDataCounter = ({
           <AtomInput
             id={id}
             disabled={disabled}
-            size={inputSizes.SMALL}
+            size={size}
             charsSize={charsSize}
             placeholder={placeholder}
             value={value}
@@ -115,7 +124,11 @@ MoleculeDataCounter.propTypes = {
   maxValueHelpText: PropTypes.string,
 
   /* component disabled or not */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+
+  /** 's' or 'm', default: 'm' */
+  size: PropTypes.oneOf(Object.values(inputSizes))
 }
 
 export default withStateValue(MoleculeDataCounter)
+export {inputSizes as dataCounterSizes}

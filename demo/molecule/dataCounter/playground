@@ -1,16 +1,31 @@
+const stylesSection = {
+  border: '1px solid #CCC',
+  background: '#fff',
+  margin: '40px 0',
+  padding: '30px 10px'
+}
+
 return (
     <div>
-        <h2>Basic</h2>  
-        <MoleculeDataCounter label="Label" id="demo1"/>
+        <h2>Basic</h2>
+        <div style={stylesSection}>
+            <MoleculeDataCounter label="Label" id="demo1"/>
+        </div>
 
         <h2>Disabled</h2>  
-        <MoleculeDataCounter label="Label" id="demo2" disabled/>
+        <div style={stylesSection}>
+            <MoleculeDataCounter label="Label" id="demo2" disabled/>
+        </div>
 
         <h2>Min=2 & Max=7</h2>  
-        <MoleculeDataCounter min={2} max={7} label="Label" id="demo3"/>
+        <div style={stylesSection}>
+            <MoleculeDataCounter min={2} max={7} label="Label" id="demo3"/>
+        </div>
 
         <h2>Size=SMALL</h2>  
-        <MoleculeDataCounter label="Label" id="demo4" size={moleculeDataCounterSizes.SMALL}/>
+        <div style={stylesSection}>
+            <MoleculeDataCounter label="Label" id="demo4" size={moleculeDataCounterSizes.SMALL}/>
+        </div>
 
         
     </div>

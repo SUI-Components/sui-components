@@ -14,6 +14,7 @@ const ACTIONABLE_ONLY_PROPS = [
 ]
 const STANDARD_ONLY_PROPS = ['closeIcon', 'onClose']
 const SIZES = {
+  LARGE: 'large',
   MEDIUM: 'medium',
   SMALL: 'small'
 }

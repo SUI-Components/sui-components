@@ -1,1 +1,14 @@
-return (<MoleculeDataCounter label="Label" id="demo1"/>)
+return (
+    <div>
+        <h2>Basic</h2>  
+        <MoleculeDataCounter label="Label" id="demo1"/>
+
+        <h2>Disabled</h2>  
+        <MoleculeDataCounter label="Label" id="demo2" disabled/>
+
+        <h2>Min=2 & Max=7</h2>  
+        <MoleculeDataCounter min={2} max={7} label="Label" id="demo3"/>
+
+        
+    </div>
+) 

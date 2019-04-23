@@ -147,7 +147,7 @@ ToggleSwitchTypeRender.propTypes = {
    */
   onKeyDown: PropTypes.func,
   /**
-   * Component value
+   * Value for controlled component
    */
   value: PropTypes.bool
 }

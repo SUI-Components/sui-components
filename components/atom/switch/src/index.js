@@ -75,7 +75,7 @@ AtomSwitch.displayName = 'AtomSwitch'
 
 AtomSwitch.propTypes = {
   /**
-   * Wheter switch is checked on init
+   * Whether switch is checked on init. Uncontrolled state component
    */
   initialValue: PropTypes.bool,
   /**
@@ -115,7 +115,7 @@ AtomSwitch.propTypes = {
    */
   onToggle: PropTypes.func.isRequired,
   /**
-   * Wheter switch is checked
+   * Whether switch is checked. Controlled state component. Don't combine with initialValue prop!
    */
   value: PropTypes.bool
 }

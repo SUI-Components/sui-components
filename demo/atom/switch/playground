@@ -16,7 +16,7 @@ const ValueParameter = () => {
   return (
     <div style={ {...flexInlineContainer, ...stylesSection} } >
       <div style={itemInlineFlex}>
-        <h4>Value</h4>
+        <h4>Value - Controlled component | Don't combine with <code>initialValue</code> prop! </h4>
         <AtomSwitch name='inputSwitchTest' label='Label title' value={myValue} />
         <button onClick={changeValue}>Change value</button>
       </div>

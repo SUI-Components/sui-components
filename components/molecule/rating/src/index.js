@@ -59,10 +59,10 @@ MoleculeRating.propTypes = {
   /** Number of Stars */
   numStars: PropTypes.number,
 
-  /** Value of Raitng */
+  /** Value of Rating */
   value: PropTypes.number,
 
-  /** Label of Raitng */
+  /** Label of Rating */
   label: PropTypes.string,
 
   /** size */

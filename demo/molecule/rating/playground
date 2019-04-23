@@ -10,12 +10,12 @@ return (
         <MoleculeRating value={0} size={MoleculeRatingSizes.MEDIUM} label="25 opiniones"/>
         <MoleculeRating value={2.5} size={MoleculeRatingSizes.MEDIUM} label="25 opiniones"/>
         <h3>With Link</h3>  
-        <MoleculeRating value={4} size={MoleculeRatingSizes.MEDIUM} label="25 opiniones" link href="https://www.adevinta.com/"/>
+        <MoleculeRating value={4} size={MoleculeRatingSizes.MEDIUM} label="25 opiniones" href="https://www.adevinta.com/"/>
 
         <h2>Size LARGE</h2>  
         <MoleculeRating value={0} size={MoleculeRatingSizes.LARGE} label="25 opiniones"/>
         <MoleculeRating value={2.5} size={MoleculeRatingSizes.LARGE} label="25 opiniones"/>
         <h3>With Link</h3>  
-        <MoleculeRating value={4} size={MoleculeRatingSizes.LARGE} label="25 opiniones" link href="https://www.adevinta.com/"/>
+        <MoleculeRating value={4} size={MoleculeRatingSizes.LARGE} label="25 opiniones" href="https://www.adevinta.com/"/>
     </div>
 )

@@ -22,14 +22,13 @@ const MoleculeRating = ({
   label,
   href,
   target,
-  link,
   linkFactory: Link = ({children, ...rest} = {}) => <a {...rest}>{children}</a>
 }) => {
   const className = cx(BASE_CLASS, `${BASE_CLASS}--${size}`, {
-    [CLASS_LINK]: link
+    [CLASS_LINK]: href
   })
 
-  const labelLink = link ? (
+  const labelLink = href ? (
     <Link
       href={href}
       target={target}
@@ -67,9 +66,6 @@ MoleculeRating.propTypes = {
 
   /** size */
   size: PropTypes.oneOf(Object.values(SIZES)),
-
-  /** HTML element: if true, render a link. Otherwise render a button */
-  link: PropTypes.bool,
 
   /** Target to be added on the HTML link */
   target: PropTypes.string,

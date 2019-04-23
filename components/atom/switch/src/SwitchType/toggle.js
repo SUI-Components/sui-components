@@ -20,15 +20,18 @@ export const ToggleSwitchTypeRender = ({
   onKeyDown,
   onToggle,
   size,
-  type
+  type,
+  value
 }) => {
+  const isActive = value !== undefined ? value : isToggle
+
   return (
     <div
       className={switchClassNames(
         size,
         type,
         'toggleType',
-        isToggle,
+        isActive,
         isFocus,
         isClick,
         disabled
@@ -58,7 +61,7 @@ export const ToggleSwitchTypeRender = ({
         >
           <div
             className={cx(suitClass({element: 'circle'}), {
-              [suitClass({modifier: 'toggle'})]: isToggle
+              [suitClass({modifier: 'toggle'})]: isActive
             })}
           />
         </div>
@@ -142,5 +145,9 @@ ToggleSwitchTypeRender.propTypes = {
   /**
    * Callback on keydown on the switch
    */
-  onKeyDown: PropTypes.func
+  onKeyDown: PropTypes.func,
+  /**
+   * Value for controlled component
+   */
+  value: PropTypes.bool
 }

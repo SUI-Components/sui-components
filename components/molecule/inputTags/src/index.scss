@@ -23,7 +23,7 @@ $sizes-atom-input-paddings: m $p-m, s $p-s !default;
   & #{$class-input} {
     flex: 1;
     height: 100%;
-    padding-left: $p-m;
+    padding-left: 0;
   }
   
   @each $type, $attr in $sizes-atom-input {

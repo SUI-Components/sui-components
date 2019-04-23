@@ -8,6 +8,22 @@ const stylesSection = {
 const itemInlineFlex = {padding: '10px'}
 const log = flag => console.log(flag)
 
+const ValueParameter = () => {
+  const [myValue, setMyValue] = React.useState(false)
+  
+  const changeValue = () => setMyValue(!myValue)
+
+  return (
+    <div style={ {...flexInlineContainer, ...stylesSection} } >
+      <div style={itemInlineFlex}>
+        <h4>Value</h4>
+        <AtomSwitch name='inputSwitchTest' label='Label title' value={myValue} />
+        <button onClick={changeValue}>Change value</button>
+      </div>
+    </div>
+  )
+}
+
 return (
 <div>
   <h2>Atom Switch</h2>
@@ -39,7 +55,10 @@ return (
     </div>
     <div style={itemInlineFlex}>
       <h4>Single</h4>
-      <AtomSwitch type='single' labelLeft='Lorem ipsum option'  name='inputSwitchTest' label='Label title' onToggle={log}/>
+      <AtomSwitch type='single' labelLeft='Lorem ipsum option' name='inputSwitchTest' label='Label title' onToggle={log}/>
     </div>
   </div>
+
+  <h3>Parameters</h3>
+  <ValueParameter />
 </div>)

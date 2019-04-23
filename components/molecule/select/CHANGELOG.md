@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2019-04-18)
+
+
+### Bug Fixes
+
+* fix molecule select scroll bar click ([49d4da8](https://github.com/SUI-Components/sui-components/commit/49d4da8)), closes [#672](https://github.com/SUI-Components/sui-components/issues/672)
+* remove console log ([9272999](https://github.com/SUI-Components/sui-components/commit/9272999))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2019-03-27)
 

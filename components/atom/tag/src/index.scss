@@ -2,11 +2,14 @@
 
 $bgc-atom-tag: color-variation($c-gray, 3) !default;
 $c-atom-tag-actionable: $c-white !default;
+$h-atom-tag-l: 40px !default;
 $h-atom-tag-m: 32px !default;
 $h-atom-tag-s: 24px !default;
 $mw-label: 240px !default;
+$p-atom-tag-l: 0 $p-l !default;
 $p-atom-tag-m: 0 $p-l !default;
 $p-atom-tag-s: 0 $p-m !default;
+$w-atom-tag-clickable: 32px !default;
 
 @mixin icon-atom-tag($type) {
   @include sui-icon--small;
@@ -16,9 +19,19 @@ $p-atom-tag-s: 0 $p-m !default;
 
   @if $type == 'icon' {
     margin: 0 $m-s 0 (-$m-m);
-
-} @else if $type == 'icon-secondary' {
+  } @else if $type == 'icon-secondary' {
     margin: 0 (-$m-m) 0 $m-m;
+  }
+}
+
+@mixin icon-secondary-clickable-area($size) {
+  &::before {
+    content: '';
+    height: $size;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $w-atom-tag-clickable;
   }
 }
 
@@ -31,6 +44,7 @@ $p-atom-tag-s: 0 $p-m !default;
   height: $h-atom-tag-m;
   margin: 0 $m-m $m-m 0;
   padding: $p-atom-tag-m;
+  position: relative;
   white-space: nowrap;
 
   &-label {
@@ -56,14 +70,19 @@ $p-atom-tag-s: 0 $p-m !default;
     }
   }
 
-  &-secondary-closeable {
-    cursor: pointer;
-    line-height: initial;
+  &-closeable {
+    @include icon-secondary-clickable-area($h-atom-tag-m);
 
-    &:hover {
-      background-color: $c-system;
-      border-radius: 50%;
-      fill: color-variation($c-gray, 3);
+    &Icon {
+      cursor: pointer;
+      line-height: initial;
+      position: relative;
+
+      &:hover {
+        background-color: $c-system;
+        border-radius: 50%;
+        fill: color-variation($c-gray, 3);
+      }
     }
   }
 
@@ -98,12 +117,30 @@ $p-atom-tag-s: 0 $p-m !default;
       line-height: $h-atom-tag-s;
     }
 
+    .sui-AtomTag-closeable {
+      @include icon-secondary-clickable-area($h-atom-tag-s);
+    }
+
     .sui-AtomTag-icon {
       margin-left: 0;
     }
 
     .sui-AtomTag-secondary-icon {
       margin-right: 0;
+    }
+  }
+
+  &-large {
+    border-radius: ceil($h-atom-tag-l / 2);
+    height: $h-atom-tag-l;
+    padding: $p-atom-tag-l;
+
+    & .sui-AtomTag-label {
+      line-height: $h-atom-tag-l;
+    }
+
+    .sui-AtomTag-closeable {
+      @include icon-secondary-clickable-area($h-atom-tag-l);
     }
   }
 }

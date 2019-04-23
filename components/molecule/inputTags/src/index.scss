@@ -34,7 +34,6 @@ $sizes-atom-input-paddings: m $p-m, s $p-s !default;
       #{$class-input} {
         min-height: calc(#{$attr} - #{$p-m} * 2 - 2px);
       }
-
     }
   }
 

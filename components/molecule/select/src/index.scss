@@ -10,6 +10,7 @@ $z-select-list: $z-navigation !default;
 $mr-select-list-arrow: -34px !default;
 
 #{$base-class} {
+  outline: none;
   position: relative;
 
   .sui-MoleculeDropdownList {
@@ -23,6 +24,10 @@ $mr-select-list-arrow: -34px !default;
       border: 1px solid transparent;
       cursor: pointer;
       display: flex;
+
+      #{$base-class}--disabled & {
+        cursor: default;
+      }
     }
 
     &-arrow {
@@ -36,15 +41,12 @@ $mr-select-list-arrow: -34px !default;
   }
 
   &--focus {
-    outline: none;
-
     #{$class-input} {
       &-container {
         @extend %sui-atom-input-input-focus;
         border: 1px solid $c-primary;
       }
     }
-    
   }
 
   @each $state, $color in $states-atom-input {

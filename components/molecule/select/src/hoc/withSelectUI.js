@@ -27,12 +27,13 @@ export default BaseComponent => {
         iconArrowDown: iconArrow,
         iconArrowUp,
         isOpen,
+        disabled,
         ...props
       } = this.props
       const {classNames} = this
       return (
-        <div className={CLASS_CONTAINER} onClick={onClick}>
-          <BaseComponent {...props} readOnly />
+        <div className={CLASS_CONTAINER} onClick={!disabled && onClick}>
+          <BaseComponent {...props} disabled readOnly={!disabled} />
           <span className={classNames}>{iconArrow}</span>
         </div>
       )

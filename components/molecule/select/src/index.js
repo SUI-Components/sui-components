@@ -13,7 +13,7 @@ import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 
 const BASE_CLASS = `sui-MoleculeSelect`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
-const CLASS_DISABLED = `${BASE_CLASS}--disabled`
+const CLASS_DISABLED = `is-disabled`
 
 const ERROR_STATES = {
   ERROR: 'error',

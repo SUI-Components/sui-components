@@ -25,7 +25,7 @@ $mr-select-list-arrow: -34px !default;
       cursor: pointer;
       display: flex;
 
-      #{$base-class}--disabled & {
+      .is-disabled & {
         cursor: default;
       }
     }

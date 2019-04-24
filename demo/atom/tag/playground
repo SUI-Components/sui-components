@@ -15,6 +15,34 @@ const CloseIcon = () => (
 
 return (
   <div style={{float: 'left'}}>
+    <h2>Responsive Tags</h2>
+    <p>
+      <AtomTag
+        label="Icon & Close Tag"
+        icon={<Icon />}
+        onClose={() => alert('close!')}
+        closeIcon={<CloseIcon />}
+        size={atomTagSizes.SMALL}
+        responsive
+      />
+      <AtomTag
+        label="Icon & Close Tag"
+        icon={<Icon />}
+        onClose={() => alert('close!')}
+        closeIcon={<CloseIcon />}
+        responsive
+      />
+      <AtomTag
+        label="Icon & Close Tag"
+        icon={<Icon />}
+        onClose={() => alert('close!')}
+        closeIcon={<CloseIcon />}
+        size={atomTagSizes.LARGE}
+        responsive
+      />
+    </p>
+
+
     <h2>Standard Tags</h2>
     <p>
       <AtomTag label="Tag Structure" />{' '}

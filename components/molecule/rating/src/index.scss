@@ -1,13 +1,22 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~react-rating-svg/lib/scss/react-rating-svg';
 
+$h-molecule-rating-small: $sz-icon-m !default;
+$w-molecule-rating-small: $sz-icon-m !default;
+
+$h-molecule-rating-medium: $sz-icon-l !default;
+$w-molecule-rating-medium: $sz-icon-l !default;
+
+$h-molecule-rating-large: $sz-icon-xl !default;
+$w-molecule-rating-large: $sz-icon-xl !default;
+
 $fz-molecule-rating-small: $fz-s !default;
 $fz-molecule-rating-medium: $fz-m !default;
 $fz-molecule-rating-large: $fz-l !default;
 
-$c-molecule-rating: #5f5f5f !default;
-$c-molecule-rating-label-hover: #5398c1 !default;
-$bg-molecule-rating-hover: #ecf4f8 !default;
+$c-molecule-rating: $c-gray-dark !default;
+$c-molecule-rating-label-hover: $c-primary !default;
+$bg-molecule-rating-hover: $c-primary-light-5 !default;
 
 $m-molecule-rating-label: 0 0 0 $m-m !default;
 
@@ -40,8 +49,8 @@ $class-label: '#{$base-class}-label';
     font-size: $fz-molecule-rating-small;
 
     #{$class-star} {
-      height: 24px;
-      width: 24px;
+      height: $h-molecule-rating-small;
+      width: $w-molecule-rating-small;
     }
   }
 
@@ -49,8 +58,8 @@ $class-label: '#{$base-class}-label';
     font-size: $fz-molecule-rating-medium;
 
     #{$class-star} {
-      height: 32px;
-      width: 32px;
+      height: $h-molecule-rating-medium;
+      width: $w-molecule-rating-medium;
     }
   }
 
@@ -58,8 +67,8 @@ $class-label: '#{$base-class}-label';
     font-size: $fz-molecule-rating-large;
 
     #{$class-star} {
-      height: 40px;
-      width: 40px;
+      height: $h-molecule-rating-large;
+      width: $w-molecule-rating-large;
     }
   }
 

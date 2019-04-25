@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.4.0"></a>
+# 2.4.0 (2019-04-25)
+
+
+### Features
+
+* add responsive atom tags ([96b42e3](https://github.com/SUI-Components/sui-components/commit/96b42e3))
+
+
+
 <a name="2.3.0"></a>
 # 2.3.0 (2019-04-23)
 

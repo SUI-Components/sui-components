@@ -11,7 +11,6 @@ $p-atom-tag-l: 0 $p-l !default;
 $p-atom-tag-m: 0 $p-l !default;
 $p-atom-tag-s: 0 $p-m !default;
 $w-atom-tag-clickable: 32px !default;
-$mq-atom-tag-responsive-breakpoint: 's' !default;
 
 @mixin icon-atom-tag($type) {
   @include sui-icon--small;
@@ -147,7 +146,7 @@ $mq-atom-tag-responsive-breakpoint: 's' !default;
   }
 
   &--responsive {
-    @include media-breakpoint-down($mq-atom-tag-responsive-breakpoint) {
+    @include media-breakpoint-down(s) {
       border-radius: ceil($h-atom-tag-l / 2);
       height: $h-atom-tag-l;
       padding: $p-atom-tag-l;

@@ -1,5 +1,27 @@
 @import '~@schibstedspain/sui-theme/lib/index';
+@import '~antd/lib/table/style/index';
+
+$c-table-title: $c-black !default;
+$c-table-td: $c-black !default;
+$c-table-th: $c-gray-dark-1 !default;
 
 .sui-MoleculeTable {
-  display: block; 
+  display: block;
+
+  .ant-table-title {
+    font-size: 20px;
+    color: $c-table-title;
+  }
+
+  thead tr th {
+    font-weight: normal;
+    font-size: 14px;
+    color: $c-table-th;
+  }
+
+  thead tr td {
+    font-weight: normal;
+    font-size: 16px;
+    color: $c-table-td;
+  }
 }

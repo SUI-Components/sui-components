@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2019-04-25)
+
+
+### Bug Fixes
+
+* fix onClick propTypes warning ([4523600](https://github.com/SUI-Components/sui-components/commit/4523600))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2019-04-24)
 

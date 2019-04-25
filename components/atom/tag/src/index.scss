@@ -1,3 +1,4 @@
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/sui-theme/lib/index';
 
 $bgc-atom-tag: color-variation($c-gray, 3) !default;
@@ -141,6 +142,22 @@ $w-atom-tag-clickable: 32px !default;
 
     .sui-AtomTag-closeable {
       @include icon-secondary-clickable-area($h-atom-tag-l);
+    }
+  }
+
+  &--responsive {
+    @include media-breakpoint-down(s) {
+      border-radius: ceil($h-atom-tag-l / 2);
+      height: $h-atom-tag-l;
+      padding: $p-atom-tag-l;
+
+      & .sui-AtomTag-label {
+        line-height: $h-atom-tag-l;
+      }
+
+      .sui-AtomTag-closeable {
+        @include icon-secondary-clickable-area($h-atom-tag-l);
+      }
     }
   }
 }

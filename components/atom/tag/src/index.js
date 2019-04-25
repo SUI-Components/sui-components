@@ -34,12 +34,13 @@ const filterKeys = (obj, listOfProps) =>
   }, {})
 
 const AtomTag = props => {
-  const {href, icon, onClick, size} = props
+  const {href, icon, onClick, size, responsive} = props
 
   const isActionable = onClick || href
   const classNames = cx(
     'sui-AtomTag',
     `sui-AtomTag-${size}`,
+    responsive && 'sui-AtomTag--responsive',
     icon && 'sui-AtomTag-hasIcon'
   )
 
@@ -103,7 +104,11 @@ AtomTag.propTypes = {
   /**
    * Tag size
    */
-  size: PropTypes.oneOf(Object.values(SIZES))
+  size: PropTypes.oneOf(Object.values(SIZES)),
+  /**
+   * true for make responsive layout. keep large size in mobile
+   */
+  responsive: PropTypes.bool
 }
 
 AtomTag.defaultProps = {

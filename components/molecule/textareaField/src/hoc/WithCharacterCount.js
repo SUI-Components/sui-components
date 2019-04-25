@@ -9,11 +9,6 @@ const WithCharacterCount = BaseComponent => {
       messageAtomTextarea: ''
     }
 
-    static getDerivedStateFromProps(nextProps) {
-      if (nextProps.value === '') return {value: ''}
-      return null
-    }
-
     componentDidMount() {
       const {value, maxChars} = this.props
       const lengthInitialText = value ? value.length : 0

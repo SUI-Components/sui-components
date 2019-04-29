@@ -11,10 +11,10 @@
     background: none;
     border: 0;
     color: $c-collapsible-btn;
+    cursor: pointer;
     height: $mh-collapsible-btn;
     margin-top: $mt-collapsible-btn;
     padding: $p-collapsible-btn 0;
-    cursor: pointer;
 
     &:focus,
     &-content:focus {
@@ -28,6 +28,7 @@
 
   &-content {
     overflow: hidden;
+    text-align: $ta-collapsible-content;
 
     &--withTransition {
       transition: $trs-collapsible-content;
@@ -37,6 +38,7 @@
   &-container {
     background-color: $bgc-collapsible-container;
     position: relative;
+    text-align: $ta-collapsible-container;
     width: 100%;
 
     &#{&}--withGradient.is-collapsed {

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2019-04-30)
+
+
+### Bug Fixes
+
+* fix issue w/ prop-types messages props ([7db02ac](https://github.com/SUI-Components/sui-components/commit/7db02ac))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2019-02-19)
 
@@ -40,6 +50,17 @@ All notable changes to this project will be documented in this file.
 
 * moleculeFieldTextarea & WithCharacterCount ([264533a](https://github.com/SUI-Components/sui-components/commit/264533a))
 * moleculeFieldTextarea more encapsulated ([7cf6418](https://github.com/SUI-Components/sui-components/commit/7cf6418))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2018-08-09)
+
+
+### Features
+
+* change name to field ([15a88f4](https://github.com/SUI-Components/sui-components/commit/15a88f4))
+* error first ([ddec546](https://github.com/SUI-Components/sui-components/commit/ddec546))
 
 
 

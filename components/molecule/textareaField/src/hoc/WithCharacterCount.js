@@ -6,22 +6,28 @@ const WithCharacterCount = BaseComponent => {
   return class extends Component {
     state = {
       value: this.props.value,
-      messageAtomTextarea: ''
+      messageAtomTextarea: '',
+      initialMessageAtomTextarea: ''
     }
 
-    static getDerivedStateFromProps(nextProps) {
-      if (nextProps.value === '') return {value: ''}
+    get initialMessageAtomTextarea() {
+      const {value, maxChars} = this.props
+      const lengthInitialText = value ? value.length : 0
+      return this.getHelpTextArea(lengthInitialText, maxChars)
+    }
+
+    static getDerivedStateFromProps(nextProps, nextState) {
+      if (nextProps.value === '' && nextState.value.length > 1) {
+        const {initialMessageAtomTextarea} = nextState
+        return {value: '', messageAtomTextarea: initialMessageAtomTextarea}
+      }
       return null
     }
 
     componentDidMount() {
-      const {value, maxChars} = this.props
-      const lengthInitialText = value ? value.length : 0
-      const messageAtomTextarea = this.getHelpTextArea(
-        lengthInitialText,
-        maxChars
-      )
-      this.setState({messageAtomTextarea})
+      const {initialMessageAtomTextarea} = this
+      const messageAtomTextarea = initialMessageAtomTextarea
+      this.setState({messageAtomTextarea, initialMessageAtomTextarea})
     }
 
     getHelpTextArea = (numCharacters, maxChars) => {
@@ -39,6 +45,7 @@ const WithCharacterCount = BaseComponent => {
     }
 
     handleChange = ev => {
+      ev.persist()
       const value = ev.target.value
       const {onChange, maxChars} = this.props
       if (value.length > maxChars) return

@@ -5,7 +5,7 @@ const Table = lazy(() => import('antd/lib/table'))
 
 const BASE_CLASS = `sui-MoleculeTable`
 
-const MoleculeTable = ({dataSource, columns}) => {
+const MoleculeTable = ({dataSource, columns, ...props}) => {
   return (
     <div className={BASE_CLASS}>
       <Suspense fallback={null}>
@@ -14,6 +14,7 @@ const MoleculeTable = ({dataSource, columns}) => {
           dataSource={dataSource}
           columns={columns}
           pagination={false}
+          {...props}
         />
       </Suspense>
     </div>

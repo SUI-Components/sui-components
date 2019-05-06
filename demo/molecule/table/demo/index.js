@@ -35,6 +35,18 @@ const Demo = () => (
         columns={columnsNoSorter}
       />
     </div>
+
+    <h2>Row Selection</h2>
+    <div className={CLASS_DEMO_SECTION}>
+      <MoleculeTable
+        rowSelection={{
+          onChange: console.log
+        }}
+        scroll={{y: 240}}
+        dataSource={dataSource}
+        columns={columnsSorter}
+      />
+    </div>
   </div>
 )
 

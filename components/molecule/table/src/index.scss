@@ -5,8 +5,15 @@ $c-table-title: $c-black !default;
 $c-table-td: $c-black !default;
 $c-table-th: $c-gray-dark-1 !default;
 
+$c-table-row-hover: $c-primary-light-5 !default;
+
 .sui-MoleculeTable {
   display: block;
+
+  .ant-table-tbody > tr:hover > td,
+  .ant-table-tbody > tr.ant-table-row-selected > td {
+    background: $c-table-row-hover;
+  }
 
   .ant-table-title {
     color: $c-table-title;

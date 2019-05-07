@@ -53,7 +53,7 @@ class MoleculeModal extends Component {
   }
 
   _preventScrollIfNeeded = e => {
-    if (this.props.disableScroll && this.noScroll) e.preventDefault()
+    if (!this.props.enableContentScroll && this.noScroll) e.preventDefault()
   }
 
   _avoidOverscroll = () => {
@@ -188,7 +188,7 @@ MoleculeModal.propTypes = {
   /**
    * true to prevent scroll
    */
-  disableScroll: PropTypes.bool,
+  enableContentScroll: PropTypes.bool,
   /**
    * true if you want a fullscreen modal, otherwise, false
    */
@@ -234,7 +234,7 @@ MoleculeModal.propTypes = {
 MoleculeModal.defaultProps = {
   closeOnOutsideClick: false,
   closeOnEscKeyDown: false,
-  disableScroll: true,
+  enableContentScroll: false,
   fitWindow: false,
   fitContent: false,
   isOpen: false,

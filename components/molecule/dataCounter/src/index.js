@@ -15,6 +15,7 @@ const MoleculeDataCounter = ({
   id,
   label,
   value,
+  errorText,
   size = inputSizes.MEDIUM,
   charsSize = 2,
   placeholder = '1',
@@ -54,7 +55,12 @@ const MoleculeDataCounter = ({
 
   return (
     <div className={BASE_CLASS}>
-      <MoleculeField name={id} label={label} helpText={helpText}>
+      <MoleculeField
+        name={id}
+        label={label}
+        helpText={helpText}
+        errorText={errorText}
+      >
         <div
           className={cx(
             CLASS_INPUT_CONTAINER,
@@ -74,7 +80,7 @@ const MoleculeDataCounter = ({
             size={size}
             charsSize={charsSize}
             placeholder={placeholder}
-            value={value}
+            value={String(value)}
             onKeyDown={handleKeyDown}
           />
           <AtomButton
@@ -104,6 +110,9 @@ MoleculeDataCounter.propTypes = {
 
   /** width of input based in number of characters (native "size" attribute) */
   charsSize: PropTypes.number,
+
+  /** text to display in case of error */
+  errorText: PropTypes.string,
 
   /** value of the control */
   value: PropTypes.number,

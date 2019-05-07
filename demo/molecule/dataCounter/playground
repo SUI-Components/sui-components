@@ -5,28 +5,56 @@ const stylesSection = {
   padding: '30px 10px'
 }
 
+const consoleValue = (e, {value}) => {
+  console.log({value})
+}
+
 return (
-    <div>
-        <h2>Basic</h2>
-        <div style={stylesSection}>
-            <MoleculeDataCounter label="Label" id="demo1"/>
-        </div>
-
-        <h2>Disabled</h2>  
-        <div style={stylesSection}>
-            <MoleculeDataCounter label="Label" id="demo2" disabled/>
-        </div>
-
-        <h2>Min=2 & Max=7</h2>  
-        <div style={stylesSection}>
-            <MoleculeDataCounter min={2} max={7} label="Label" id="demo3"/>
-        </div>
-
-        <h2>Size=SMALL</h2>  
-        <div style={stylesSection}>
-            <MoleculeDataCounter label="Label" id="demo4" size={moleculeDataCounterSizes.SMALL}/>
-        </div>
-
-        
+  <div>
+    <h2>Basic</h2>
+    <div style={stylesSection}>
+      <MoleculeDataCounter onChange={consoleValue} label="Label" id="demo1" />
     </div>
+
+    <h2>Disabled</h2>
+    <div style={stylesSection}>
+      <MoleculeDataCounter
+        onChange={consoleValue}
+        label="Label"
+        id="demo2"
+        disabled
+      />
+    </div>
+
+    <h2>Min=2 & Max=7</h2>
+    <div style={stylesSection}>
+      <MoleculeDataCounter
+        onChange={consoleValue}
+        min={2}
+        max={7}
+        label="Label"
+        id="demo3"
+      />
+    </div>
+
+    <h2>Size=SMALL</h2>
+    <div style={stylesSection}>
+      <MoleculeDataCounter
+        onChange={consoleValue}
+        label="Label"
+        id="demo4"
+        size={moleculeDataCounterSizes.SMALL}
+      />
+    </div>
+
+    <h2>Error</h2>
+    <div style={stylesSection}>
+      <MoleculeDataCounter
+        onChange={consoleValue}
+        label="Label"
+        id="demo4"
+        errorText="Something is wrong here"
+      />
+    </div>
+  </div>
 )

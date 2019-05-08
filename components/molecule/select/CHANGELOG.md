@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2019-04-25)
+
+
+### Bug Fixes
+
+* fix onClick propTypes warning ([4523600](https://github.com/SUI-Components/sui-components/commit/4523600))
+
+
+
+<a name="1.7.0"></a>
+# 1.7.0 (2019-04-24)
+
+
+### Features
+
+* added disabled property ([388a908](https://github.com/SUI-Components/sui-components/commit/388a908))
+* set is-disabled as state ([4c46996](https://github.com/SUI-Components/sui-components/commit/4c46996))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2019-04-18)
 

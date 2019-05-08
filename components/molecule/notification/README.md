@@ -30,11 +30,12 @@ const BUTTONS = [
 
 return (
   <MoleculeNotification
-    text='Lorem fistrum'
-    type='success',
+    type='success'
     autoclose='short'
     buttons={BUTTONS}
-  />
+  >
+    <p>Lorem fistrum</p>
+  </MoleculeNotification>
 )
 ```
 

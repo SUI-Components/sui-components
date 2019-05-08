@@ -75,6 +75,7 @@ class MoleculeInputTags extends Component {
             onClose={removeTag}
             label={label}
             size={atomTagSizes.SMALL}
+            responsive
           />
         ))}
         <AtomInput

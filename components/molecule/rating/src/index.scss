@@ -1,0 +1,92 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$h-molecule-rating-small: $sz-icon-m !default;
+$w-molecule-rating-small: $sz-icon-m !default;
+
+$h-molecule-rating-medium: $sz-icon-l !default;
+$w-molecule-rating-medium: $sz-icon-l !default;
+
+$h-molecule-rating-large: $sz-icon-xl !default;
+$w-molecule-rating-large: $sz-icon-xl !default;
+
+$fz-molecule-rating-small: $fz-s !default;
+$fz-molecule-rating-medium: $fz-m !default;
+$fz-molecule-rating-large: $fz-l !default;
+
+$c-molecule-rating: $c-gray-dark !default;
+$c-molecule-rating-label-hover: $c-primary !default;
+$bg-molecule-rating-hover: $c-primary-light-5 !default;
+
+$m-molecule-rating-label: 0 0 0 $m-m !default;
+
+$base-class: '.sui-MoleculeRating';
+$class-star: '#{$base-class}-Star';
+$class-label: '#{$base-class}-label';
+
+#{$base-class} {
+  align-items: center;
+  color: $c-molecule-rating;
+  display: flex;
+  
+  &-containerStars {
+    display: flex;
+  }
+
+  #{$class-label} {
+    display: flex;
+    margin: $m-molecule-rating-label;
+    padding: $p-m;
+
+    &:hover {
+      background: $bg-molecule-rating-hover;
+      color: $c-molecule-rating-label-hover;
+      cursor: default;
+    }
+  }
+
+  &--small {
+    font-size: $fz-molecule-rating-small;
+
+    #{$class-star} {
+      height: $h-molecule-rating-small;
+      width: $w-molecule-rating-small;
+    }
+  }
+
+  &--medium {
+    font-size: $fz-molecule-rating-medium;
+
+    #{$class-star} {
+      height: $h-molecule-rating-medium;
+      width: $w-molecule-rating-medium;
+    }
+  }
+
+  &--large {
+    font-size: $fz-molecule-rating-large;
+
+    #{$class-star} {
+      height: $h-molecule-rating-large;
+      width: $w-molecule-rating-large;
+    }
+  }
+
+  &--withLink {
+    #{$class-label} {
+      * {
+        color: $c-molecule-rating;
+        text-decoration: none;
+      }
+
+      &:hover {
+        background: $bg-molecule-rating-hover;
+        color: $c-molecule-rating-label-hover;
+        cursor: pointer;
+
+        * {
+          color: $c-molecule-rating-label-hover;
+        }
+      }
+    }
+  }
+}

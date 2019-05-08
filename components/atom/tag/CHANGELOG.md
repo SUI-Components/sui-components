@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.3.0"></a>
+# 2.3.0 (2019-04-25)
+
+
+### Bug Fixes
+
+* add breakpoint name directly in media ([0a98ade](https://github.com/SUI-Components/sui-components/commit/0a98ade))
+
+
+### Features
+
+* add input tag responsive modifier not aplicable by default ([d2d0fb5](https://github.com/SUI-Components/sui-components/commit/d2d0fb5))
+
+
+
 <a name="2.2.0"></a>
 # 2.2.0 (2019-04-18)
 

@@ -19,7 +19,8 @@ const MoleculeSelectSingleSelection = props => {
     refMoleculeSelect,
     size,
     placeholder,
-    id
+    id,
+    disabled
   } = props
 
   const handleSelection = (ev, {value}) => {
@@ -31,6 +32,7 @@ const MoleculeSelectSingleSelection = props => {
   return (
     <Fragment>
       <MoleculeInputSelect
+        disabled={disabled}
         id={id}
         isOpen={isOpen}
         value={value}

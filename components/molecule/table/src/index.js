@@ -4,8 +4,27 @@ import PropTypes from 'prop-types'
 const Table = lazy(() => import('antd/lib/table'))
 
 const BASE_CLASS = `sui-MoleculeTable`
+const CLASS_ACTIONS = `${BASE_CLASS}-actions`
 
-const MoleculeTable = ({dataSource, columns, ...props}) => {
+const MoleculeTable = ({
+  dataSource,
+  actions,
+  columns: originalColumns,
+  ...props
+}) => {
+  const columns = actions
+    ? [
+        ...originalColumns,
+        {
+          title: 'Action',
+          key: 'action',
+          render: (text, record) => (
+            <span className={CLASS_ACTIONS}>{actions}</span>
+          )
+        }
+      ]
+    : originalColumns
+
   return (
     <div className={BASE_CLASS}>
       <Suspense fallback={null}>
@@ -28,7 +47,10 @@ MoleculeTable.propTypes = {
   dataSource: PropTypes.object,
 
   /** minimal value in range */
-  columns: PropTypes.object
+  columns: PropTypes.object,
+
+  /** component including actions over rows */
+  actions: PropTypes.node
 }
 
 // Remove these comments if you need

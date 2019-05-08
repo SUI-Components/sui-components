@@ -2,6 +2,12 @@
 import React from 'react'
 
 import MoleculeTable from '../../../../components/molecule/table/src'
+import {
+  IconFillBackup,
+  IconFillDashboard,
+  IconFillExtension,
+  IconFillHttps
+} from './Icons'
 
 import {dataSource, columnsSorter, columnsNoSorter} from './data/simple'
 import {getClientsFromServer} from './services'
@@ -12,6 +18,23 @@ const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
 
 const MoleculeTableWithDataFromServer = withDataFromServer(MoleculeTable)(
   getClientsFromServer
+)
+
+const Actions = ({record, index}) => ( // eslint-disable-line
+  <span style={{display: 'flex'}}>
+    <span style={{cursor: 'pointer'}}>
+      <IconFillBackup />
+    </span>
+    <span style={{cursor: 'pointer'}}>
+      <IconFillDashboard />
+    </span>
+    <span style={{cursor: 'pointer'}}>
+      <IconFillExtension />
+    </span>
+    <span style={{cursor: 'pointer'}}>
+      <IconFillHttps />
+    </span>
+  </span>
 )
 
 const Demo = () => (
@@ -40,8 +63,18 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTable
         rowSelection={{
-          onChange: console.log
+          onChange: console.log // eslint-disable-line
         }}
+        scroll={{y: 240}}
+        dataSource={dataSource}
+        columns={columnsSorter}
+      />
+    </div>
+
+    <h2>With Actions</h2>
+    <div className={CLASS_DEMO_SECTION}>
+      <MoleculeTable
+        actions={<Actions />}
         scroll={{y: 240}}
         dataSource={dataSource}
         columns={columnsSorter}

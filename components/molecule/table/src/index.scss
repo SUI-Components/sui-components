@@ -14,6 +14,10 @@ $c-table-row-hover: $c-primary-light-5 !default;
   .ant-table-tbody > tr.ant-table-row-selected > td {
     background: $c-table-row-hover;
   }
+  .ant-table-tbody > tr:hover > td &-actions {
+    visibility: visible;
+  }
+  
 
   .ant-table-title {
     color: $c-table-title;
@@ -30,5 +34,9 @@ $c-table-row-hover: $c-primary-light-5 !default;
     color: $c-table-td;
     font-size: 16px;
     font-weight: normal;
+  }
+
+  &-actions {
+    visibility: hidden;
   }
 }

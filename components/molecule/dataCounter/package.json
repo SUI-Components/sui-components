@@ -10,12 +10,10 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/hoc": "^1.18.0",
-    "@s-ui/react-atom-input": "^3.9.0",
-    "@s-ui/react-atom-label": "^1.4.0",
-    "@s-ui/react-molecule-field": "^1.5.0",
-    "@s-ui/react-molecule-input-field": "^2.1.0",
-    "@schibstedspain/sui-atom-button": "^1.23.0"
+    "@s-ui/hoc": "1",
+    "@s-ui/react-atom-input": "3",
+    "@s-ui/react-molecule-field": "1",
+    "@schibstedspain/sui-atom-button": "1"
   },
   "keywords": [],
   "author": "",

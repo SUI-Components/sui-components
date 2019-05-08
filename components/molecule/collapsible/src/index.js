@@ -71,20 +71,21 @@ class MoleculeCollapsible extends Component {
         >
           <div ref={this.childrenContainer}>{children}</div>
         </div>
-        {showButton && (
-          <div className={containerClassName}>
-            <button
-              type="button"
-              className={BUTTON_CLASS}
-              onClick={this.toggleCollapse}
-            >
-              <span className={BUTTON_CONTENT_CLASS} tabIndex="-1">
-                {collapsed ? showText : hideText}
-                <span className={iconClassName}>{icon}</span>
-              </span>
-            </button>
-          </div>
-        )}
+        {showButton &&
+          (collapsed ? showText : hideText) && (
+            <div className={containerClassName}>
+              <button
+                type="button"
+                className={BUTTON_CLASS}
+                onClick={this.toggleCollapse}
+              >
+                <span className={BUTTON_CONTENT_CLASS} tabIndex="-1">
+                  {collapsed ? showText : hideText}
+                  <span className={iconClassName}>{icon}</span>
+                </span>
+              </button>
+            </div>
+          )}
       </div>
     )
   }
@@ -112,7 +113,7 @@ MoleculeCollapsible.propTypes = {
   /**
    * Text to show when content is not collapsed
    */
-  hideText: PropTypes.string.isRequired,
+  hideText: PropTypes.string,
   /**
    * Activate/deactivate gradient
    */

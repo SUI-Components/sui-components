@@ -33,22 +33,21 @@ const Content = ({children}) => (
   </div>
 )
 
+const pText = 'Cras vitae consectetur dui. Nullam quis arcu id ligula rhoncus faucibus et eget odio. Etiam vulputate fringilla nibh sed sodales. Phasellus facilisis dignissim aliquet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque feugiat vehicula odio at venenatis. Integer rhoncus tortor sed auctor laoreet. Aliquam ac vulputate urna. Suspendisse felis eros, maximus eget urna vitae, pellentesque pretium odio. Duis mi arcu, laoreet sit amet pulvinar ac, congue quis turpis. Cras rutrum leo ac massa malesuada, quis vestibulum lorem convallis. Fusce eget tellus euismod, fringilla nulla ornare, blandit purus. Nam orci lacus, faucibus at nisi id, auctor molestie nunc. Nulla a porta quam. Donec vel iaculis nibh.'
 const pLoremStyle = {maxWidth: '600px'}
+const pScrollableLoremStyle = {maxWidth: '600px', maxHeight: '70px', border: '1px solid grey', overflow:'auto'}
 
 const LoremIpsumParagraph = () => (
   <p style={pLoremStyle}>
-    Cras vitae consectetur dui. Nullam quis arcu id ligula rhoncus faucibus et
-    eget odio. Etiam vulputate fringilla nibh sed sodales. Phasellus facilisis
-    dignissim aliquet. Vestibulum ante ipsum primis in faucibus orci luctus et
-    ultrices posuere cubilia Curae; Quisque feugiat vehicula odio at venenatis.
-    Integer rhoncus tortor sed auctor laoreet. Aliquam ac vulputate urna.
-    Suspendisse felis eros, maximus eget urna vitae, pellentesque pretium odio.
-    Duis mi arcu, laoreet sit amet pulvinar ac, congue quis turpis. Cras rutrum
-    leo ac massa malesuada, quis vestibulum lorem convallis. Fusce eget tellus
-    euismod, fringilla nulla ornare, blandit purus. Nam orci lacus, faucibus at
-    nisi id, auctor molestie nunc. Nulla a porta quam. Donec vel iaculis nibh.
+    {pText}
   </p>
 )
+const ScrollableLoremIpsumParagraph = () => (
+  <p style={pScrollableLoremStyle}>
+    {pText}
+  </p>
+)
+
 class ScrollModal extends React.Component {
   constructor(props) {
     super(props)
@@ -95,6 +94,52 @@ class ScrollModal extends React.Component {
   }
 }
 
+class ScrollableChildrenModal extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      open: false
+    }
+  }
+
+  openModal = () => {
+    this.setState({
+      open: true
+    })
+  }
+
+  closeModal = () => {
+    this.setState({
+      open: false
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <button type="button" onClick={this.openModal}>
+          Open modal
+        </button>
+        <MoleculeModal
+          isOpen={this.state.open}
+          closeOnOutsideClick
+          closeOnEscKeyDown
+          enableContentScroll={true}
+          iconClose={<IconClose />}
+          fitWindow
+          header={<strong>My new brand modal</strong>}
+          onClose={this.closeModal}
+        >
+          <Content>
+            <ScrollableLoremIpsumParagraph />
+            <LoremIpsumParagraph />
+          </Content>
+        </MoleculeModal>
+      </div>
+    )
+  }
+}
+
 class NoScrollModal extends React.Component {
   constructor(props) {
     super(props)
@@ -125,6 +170,7 @@ class NoScrollModal extends React.Component {
           isOpen={this.state.open}
           closeOnOutsideClick
           closeOnEscKeyDown
+          disableScroll={false}
           iconClose={<IconClose />}
           fitWindow
           header={<strong>My new brand modal</strong>}
@@ -341,6 +387,10 @@ return (
     <h2>Mobile fit content Modal</h2>
     <div style={fieldStyle}>
       <MobileFitContentModal />
+    </div>
+    <h2>Modal with scrollable children</h2>
+    <div style={fieldStyle}>
+      <ScrollableChildrenModal />
     </div>
     </div>
 

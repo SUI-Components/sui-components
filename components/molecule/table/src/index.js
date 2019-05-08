@@ -16,11 +16,18 @@ const MoleculeTable = ({
     ? [
         ...originalColumns,
         {
-          title: 'Action',
-          key: 'action',
-          render: (text, record) => (
-            <span className={CLASS_ACTIONS}>{actions}</span>
-          )
+          title: 'Actions',
+          key: 'actions',
+          align: 'left',
+          width: 150,
+          render: (text, record) => {
+            const extendedActions = React.cloneElement(actions, {
+              text,
+              record
+            })
+
+            return <span className={CLASS_ACTIONS}>{extendedActions}</span>
+          }
         }
       ]
     : originalColumns

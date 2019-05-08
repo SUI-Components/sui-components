@@ -5,27 +5,28 @@ const columnsSorter = [
   {
     title: 'Id',
     dataIndex: 'id',
-    key: 'id',
-    width: 350
+    key: 'id'
   },
   {
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
     sorter: (a, b) => a.name.length - b.name.length,
-    width: 150
+    width: 300
   },
   {
     title: 'Age',
     dataIndex: 'age',
+    align: 'right',
     key: 'age',
+    width: 100,
     sorter: (a, b) => a.age - b.age
   },
   {
     title: 'Address',
     dataIndex: 'address',
     key: 'address',
-    width: 300
+    width: 400
   }
 ]
 
@@ -33,27 +34,29 @@ const columnsNoSorter = [
   {
     title: 'Id',
     dataIndex: 'id',
-    key: 'id',
-    width: 350
+    width: '35%',
+    key: 'id'
   },
   {
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    width: 150,
+    width: '25%',
     sorter: true
   },
   {
     title: 'Age',
     dataIndex: 'age',
+    align: 'right',
     key: 'age',
+    width: '15%',
     sorter: true
   },
   {
     title: 'Address',
     dataIndex: 'address',
     key: 'address',
-    width: 300
+    width: '35%'
   }
 ]
 
@@ -75,7 +78,9 @@ const columnsWithActions = [
     title: 'Age',
     dataIndex: 'age',
     key: 'age',
-    sorter: true
+    sorter: true,
+    width: 60,
+    align: 'right'
   },
   {
     title: 'Address',

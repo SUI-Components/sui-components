@@ -7,6 +7,10 @@ $c-table-th: $c-gray-dark-1 !default;
 
 $c-table-row-hover: $c-primary-light-5 !default;
 
+$c-table-actions-icons: $c-primary !default;
+$w-table-action-icon: 16px !default;
+$h-table-action-icon: 16px !default;
+
 .sui-MoleculeTable {
   display: block;
 
@@ -17,7 +21,6 @@ $c-table-row-hover: $c-primary-light-5 !default;
   .ant-table-tbody > tr:hover > td &-actions {
     visibility: visible;
   }
-  
 
   .ant-table-title {
     color: $c-table-title;
@@ -38,5 +41,16 @@ $c-table-row-hover: $c-primary-light-5 !default;
 
   &-actions {
     visibility: hidden;
+
+    svg {
+      height: $h-table-action-icon;
+      margin: 0 4px;
+      width: $w-table-action-icon;
+    }
+
+    svg,
+    use {
+      fill: $c-table-actions-icons;
+    }
   }
 }

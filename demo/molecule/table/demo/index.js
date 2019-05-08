@@ -20,18 +20,32 @@ const MoleculeTableWithDataFromServer = withDataFromServer(MoleculeTable)(
   getClientsFromServer
 )
 
-const Actions = ({record, index}) => ( // eslint-disable-line
+const Actions = (
+  {record, index} // eslint-disable-line
+) => (
   <span style={{display: 'flex'}}>
-    <span style={{cursor: 'pointer'}}>
+    <span
+      style={{cursor: 'pointer'}}
+      onClick={() => console.log({record, index})}
+    >
       <IconFillBackup />
     </span>
-    <span style={{cursor: 'pointer'}}>
+    <span
+      style={{cursor: 'pointer'}}
+      onClick={() => console.log({record, index})}
+    >
       <IconFillDashboard />
     </span>
-    <span style={{cursor: 'pointer'}}>
+    <span
+      style={{cursor: 'pointer'}}
+      onClick={() => console.log({record, index})}
+    >
       <IconFillExtension />
     </span>
-    <span style={{cursor: 'pointer'}}>
+    <span
+      style={{cursor: 'pointer'}}
+      onClick={() => console.log({record, index})}
+    >
       <IconFillHttps />
     </span>
   </span>
@@ -45,6 +59,7 @@ const Demo = () => (
     <h2>Sort (Client)</h2>
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTable
+        bordered
         scroll={{y: 240}}
         dataSource={dataSource}
         columns={columnsSorter}
@@ -54,6 +69,7 @@ const Demo = () => (
     <h2>Sort (Server)</h2>
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTableWithDataFromServer
+        bordered
         scroll={{y: 240}}
         columns={columnsNoSorter}
       />
@@ -65,6 +81,7 @@ const Demo = () => (
         rowSelection={{
           onChange: console.log // eslint-disable-line
         }}
+        bordered
         scroll={{y: 240}}
         dataSource={dataSource}
         columns={columnsSorter}
@@ -74,6 +91,7 @@ const Demo = () => (
     <h2>With Actions</h2>
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTable
+        bordered
         actions={<Actions />}
         scroll={{y: 240}}
         dataSource={dataSource}

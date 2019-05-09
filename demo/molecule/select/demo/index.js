@@ -64,6 +64,22 @@ const Demo = () => (
       </MoleculeSelectWithState>
     </div>
 
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With disabled state</h3>
+      <MoleculeSelectWithState
+        disabled
+        placeholder="Select a Country..."
+        onChange={(_, {value}) => console.log(value)}
+        iconArrowDown={<IconArrowDown />}
+      >
+        {countries.map((country, i) => (
+          <MoleculeSelectOption key={i} value={country}>
+            {country}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelectWithState>
+    </div>
+
     <h2>Multiple Selection</h2>
     <div className={CLASS_DEMO_SECTION}>
       <h3>With Placeholder</h3>

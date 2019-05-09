@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2019-04-23)
+
+
+### Features
+
+* allow value prop ([6cc81fa](https://github.com/SUI-Components/sui-components/commit/6cc81fa))
+* improve documentation ([7913c95](https://github.com/SUI-Components/sui-components/commit/7913c95))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2018-11-15)
 

@@ -21,9 +21,15 @@ class AtomSwitch extends Component {
   }
 
   _onToggle = forceValue => {
-    if (this.props.disabled === true) return
+    const {disabled, onToggle, value} = this.props
+
+    if (disabled === true) return
+
+    if (value !== undefined) {
+      return onToggle(!value)
+    }
+
     const {isToggle: stateToggle} = this.state
-    const {onToggle} = this.props
     const isToggle = forceValue !== undefined ? forceValue : !stateToggle
     this.setState({isToggle}, () => onToggle(isToggle))
   }
@@ -69,7 +75,7 @@ AtomSwitch.displayName = 'AtomSwitch'
 
 AtomSwitch.propTypes = {
   /**
-   * Wheter switch is checked on init
+   * Whether switch is checked on init. Uncontrolled state component
    */
   initialValue: PropTypes.bool,
   /**
@@ -107,7 +113,11 @@ AtomSwitch.propTypes = {
   /**
    * Callback to be called when switch. Flag whenever switch is active or not sent
    */
-  onToggle: PropTypes.func.isRequired
+  onToggle: PropTypes.func.isRequired,
+  /**
+   * Whether switch is checked. Controlled state component. Don't combine with initialValue prop!
+   */
+  value: PropTypes.bool
 }
 
 AtomSwitch.defaultProps = {

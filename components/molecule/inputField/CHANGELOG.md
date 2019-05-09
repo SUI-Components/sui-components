@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.2.0"></a>
+# 2.2.0 (2019-04-30)
+
+
+### Bug Fixes
+
+* fix issue propTypes messages ([e10d394](https://github.com/SUI-Components/sui-components/commit/e10d394))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2019-01-10)
 
@@ -40,16 +50,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * first commit with only Schibsted Spain Components ([c0814de](https://github.com/SUI-Components/sui-components/commit/c0814de))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2018-09-05)
-
-
-### Features
-
-* renaming from AtomInput to MoleculeInputField ([60d43aa](https://github.com/SUI-Components/sui-components/commit/60d43aa))
 
 
 

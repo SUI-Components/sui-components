@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.1.0"></a>
+# 2.1.0 (2019-05-01)
+
+
+### Bug Fixes
+
+* fix issue first character & prop-types texts ([b0ac8df](https://github.com/SUI-Components/sui-components/commit/b0ac8df))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2018-12-13)
 

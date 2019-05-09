@@ -9,16 +9,27 @@ import AtomTextarea, {
 import WithCharacterCount from './hoc/WithCharacterCount'
 
 const MoleculeTextareaField = WithCharacterCount(
-  ({id, placeholder, onChange, maxChars, label, value, size, ...props}) => {
+  ({
+    id,
+    label,
+    maxChars,
+    textCharacters,
+    successText,
+    errorText,
+    helpText,
+    ...props
+  }) => {
     return (
-      <MoleculeField {...props} label={label} name={id}>
-        <AtomTextarea
-          id={id}
-          onChange={onChange}
-          placeholder={placeholder}
-          value={value}
-          size={size}
-        />
+      <MoleculeField
+        name={id}
+        label={label}
+        textCharacters={textCharacters}
+        successText={successText}
+        errorText={errorText}
+        helpText={helpText}
+        maxChars={maxChars}
+      >
+        <AtomTextarea id={id} {...props} />
       </MoleculeField>
     )
   }
@@ -55,14 +66,14 @@ MoleculeTextareaField.propTypes = {
   /** used as for attribute and textarea id */
   id: PropTypes.string,
 
-  /** Success message to be displayed */
-  successText: PropTypes.string,
+  /** Success message to display when success state  */
+  successText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
-  /** Error message to be displayed */
-  errorText: PropTypes.string,
+  /** Error message to display when error state  */
+  errorText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
-  /** Help Text to be displayed */
-  helpText: PropTypes.string,
+  /** Help Text to display */
+  helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
   /** Boolean to decide if field elements should be set inline */
   inline: PropTypes.bool

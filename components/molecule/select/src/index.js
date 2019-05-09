@@ -13,6 +13,7 @@ import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 
 const BASE_CLASS = `sui-MoleculeSelect`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
+const CLASS_DISABLED = `is-disabled`
 
 const ERROR_STATES = {
   ERROR: 'error',
@@ -42,8 +43,16 @@ class MoleculeSelect extends Component {
 
   get className() {
     const {focus} = this.state
+    const {disabled} = this.props
     const {errorStateClass} = this
-    return cx(BASE_CLASS, {[CLASS_FOCUS]: focus}, errorStateClass)
+    return cx(
+      BASE_CLASS,
+      {
+        [CLASS_FOCUS]: focus,
+        [CLASS_DISABLED]: disabled
+      },
+      errorStateClass
+    )
   }
 
   get errorStateClass() {
@@ -110,7 +119,8 @@ class MoleculeSelect extends Component {
   }
 
   handleFocusIn = () => {
-    this.setState({focus: true})
+    const {disabled} = this.props
+    !disabled && this.setState({focus: true})
   }
 
   handleFocusOut = ev => {
@@ -211,13 +221,17 @@ MoleculeSelect.propTypes = {
   refMoleculeSelect: PropTypes.object,
 
   /** true = error, false = success, null = neutral */
-  errorState: PropTypes.bool
+  errorState: PropTypes.bool,
+
+  /** This Boolean attribute prevents the user from interacting with the select */
+  disabled: PropTypes.bool
 }
 
 MoleculeSelect.defaultProps = {
   onChange: () => {},
   onToggle: () => {},
-  keysSelection: [' ', 'Enter']
+  keysSelection: [' ', 'Enter'],
+  disabled: false
 }
 
 export default withOpenToggle(MoleculeSelect)

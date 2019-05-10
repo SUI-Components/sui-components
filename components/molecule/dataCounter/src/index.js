@@ -77,8 +77,10 @@ const MoleculeDataCounter = ({
 
   const addDigit = (e, {key: digit}) => {
     const newValue = internalValue + digit
-    setInternalValue(newValue)
-    onChange(e, {value: newValue})
+    if (newValue.length <= 2) {
+      setInternalValue(newValue)
+      onChange(e, {value: newValue})
+    }
   }
 
   const handleKeyDown = e => {

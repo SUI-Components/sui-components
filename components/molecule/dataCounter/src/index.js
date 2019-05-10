@@ -6,7 +6,6 @@ import AtomButton from '@schibstedspain/sui-atom-button'
 import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
 import MoleculeField from '@s-ui/react-molecule-field'
 
-// import {isRequiredMessage} from './customPropTypes'
 const BUTTON_TYPE = 'secondary'
 
 const BASE_CLASS = `sui-MoleculeDataCounter`
@@ -18,7 +17,7 @@ const MoleculeDataCounter = ({
   id,
   label,
   value,
-  errorText,
+  errorText: errorTextProps,
   size = inputSizes.MEDIUM,
   charsSize = 2,
   max = 99,
@@ -30,17 +29,25 @@ const MoleculeDataCounter = ({
   onChange,
   disabled
 }) => {
-  value = value ? String(value) : String(min)
+  if (value) value = String(value)
+  else if (min) value = String(min)
+  else value = '0'
 
   const [internalValue, setInternalValue] = useState(value)
 
-  const isBelowMaxValue = internalValue < max
-  const isOverMinValue = internalValue > min
-  const isMaxValue = internalValue === max
-  const isMinValue = internalValue === min
+  const numInternalValue = Number(internalValue)
+  const numMax = Number(max)
+  const numMin = Number(min)
 
-  const decrementDisabled = disabled || internalValue <= min
-  const incrementDisabled = disabled || internalValue >= max
+  const isBelowMaxValue = numInternalValue < numMax
+  const isOverMinValue = numInternalValue > numMin
+  const isMaxValue = numInternalValue === numMax
+  const isMinValue = numInternalValue === numMin
+  const isLowerThanMinValue = numInternalValue < numMin
+  const isHigherThanMaxValue = numInternalValue > numMax
+
+  const decrementDisabled = disabled || numInternalValue <= numMin
+  const incrementDisabled = disabled || numInternalValue >= numMax
 
   const incrementValue = e => {
     if (isBelowMaxValue) {
@@ -82,10 +89,16 @@ const MoleculeDataCounter = ({
     if (isCharDigit(key)) addDigit(e, {key})
   }
 
-  let helpText
+  let helpText, errorText
   if (!disabled) {
-    if (isMaxValue && maxValueHelpText) helpText = maxValueHelpText
-    if (isMinValue && minValueHelpText) helpText = minValueHelpText
+    if (isMaxValue) helpText = maxValueHelpText
+    else if (isMinValue) helpText = minValueHelpText
+    else helpText = null
+
+    if (isLowerThanMinValue) errorText = minValueErrorText
+    else if (isHigherThanMaxValue) errorText = maxValueErrorText
+    else if (errorTextProps) errorText = errorTextProps
+    else errorText = null
   }
 
   return (
@@ -141,41 +154,34 @@ MoleculeDataCounter.propTypes = {
   id: PropTypes.string.isRequired,
 
   /** width of input based in number of characters (native "size" attribute) */
-  charsSize: PropTypes.number,
+  charsSize: PropTypes.number.isRequired,
 
   /** text to display in case of error */
   errorText: PropTypes.string,
 
   /** value of the control */
-  value: PropTypes.number,
+  value: PropTypes.number.isRequired,
 
   /** max value allowed */
-  max: PropTypes.number,
+  max: PropTypes.number.isRequired,
 
   /** min value allowed */
-  min: PropTypes.number,
+  min: PropTypes.number.isRequired,
 
   /* callback to be called with every update of the input value */
   onChange: PropTypes.func,
 
-  // minValueHelpText: PropTypes.string.isRequired,
-  minValueErrorText: PropTypes.string.isRequired,
-  maxValueHelpText: PropTypes.string.isRequired,
-  maxValueErrorText: PropTypes.string.isRequired,
-
   /* HelpText to be displayed when value reaches minimun value */
-  minValueHelpText: function(props, propName, componentName) {
-    console.log({props, propName, componentName})
-  },
+  minValueHelpText: PropTypes.string.isRequired,
 
   // /* ErrorText to be displayed when value is lower than minimun value */
-  // minValueErrorText: isRequiredMessage('min'),
+  minValueErrorText: PropTypes.string.isRequired,
 
   // /* HelpText to be displayed when value reaches maximum value */
-  // maxValueHelpText: isRequiredMessage('max'),
+  maxValueHelpText: PropTypes.string.isRequired,
 
   // /* ErrorText to be displayed when value is lower than maximun value */
-  // maxValueErrorText: isRequiredMessage('max'),
+  maxValueErrorText: PropTypes.string.isRequired,
 
   /* component disabled or not */
   disabled: PropTypes.bool,

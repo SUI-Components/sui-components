@@ -9,11 +9,23 @@ const consoleValue = (e, {value}) => {
   console.log({value})
 }
 
+const minValueHelpText = 'Minimum Value'
+const minValueErrorText = 'The value cannot be lower than the Minimum Value'
+const maxValueHelpText = 'Maximum Value'
+const maxValueErrorText = 'The value cannot be higher than the Maximum Value'
+
+const propsMessages = {
+  minValueHelpText,
+  minValueErrorText,
+  maxValueHelpText,
+  maxValueErrorText
+}
+
 return (
   <div>
     <h2>Basic</h2>
     <div style={stylesSection}>
-      <MoleculeDataCounter onChange={consoleValue} label="Label" id="demo1" />
+      <MoleculeDataCounter onChange={consoleValue} label="Label" id="demo1"  {...propsMessages} />
     </div>
 
     <h2>Disabled</h2>
@@ -23,18 +35,20 @@ return (
         label="Label"
         id="demo2"
         disabled
+        {...propsMessages} 
       />
     </div>
 
-    <h2>Min=2 & Max=7</h2>
+    <h2>Min=2 & Max=7 w/ error</h2>
     <div style={stylesSection}>
       <MoleculeDataCounter
         onChange={consoleValue}
         min={2}
-        max={27}
+        max={7}
         label="Label"
         value={13}
         id="demo3"
+        {...propsMessages} 
       />
     </div>
 
@@ -44,18 +58,11 @@ return (
         onChange={consoleValue}
         label="Label"
         id="demo4"
+        min={3}
         size={moleculeDataCounterSizes.SMALL}
+        {...propsMessages} 
       />
     </div>
 
-    <h2>Error</h2>
-    <div style={stylesSection}>
-      <MoleculeDataCounter
-        onChange={consoleValue}
-        label="Label"
-        id="demo4"
-        errorText="Something is wrong here"
-      />
-    </div>
   </div>
 )

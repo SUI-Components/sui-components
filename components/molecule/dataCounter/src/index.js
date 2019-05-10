@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -6,10 +6,13 @@ import AtomButton from '@schibstedspain/sui-atom-button'
 import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
 import MoleculeField from '@s-ui/react-molecule-field'
 
-import {withStateValue} from '@s-ui/hoc'
+// import {isRequiredMessage} from './customPropTypes'
+const BUTTON_TYPE = 'secondary'
 
 const BASE_CLASS = `sui-MoleculeDataCounter`
 const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-container`
+
+const isCharDigit = char => /[0-9]/.test(char)
 
 const MoleculeDataCounter = ({
   id,
@@ -18,33 +21,65 @@ const MoleculeDataCounter = ({
   errorText,
   size = inputSizes.MEDIUM,
   charsSize = 2,
-  placeholder = '1',
   max = 99,
   min = 1,
-  minValueHelpText = 'Minimum Value',
-  maxValueHelpText = 'Maximum Value',
+  minValueHelpText,
+  minValueErrorText,
+  maxValueHelpText,
+  maxValueErrorText,
   onChange,
   disabled
 }) => {
-  value = value || min
+  value = value ? String(value) : String(min)
 
-  const isBelowMaxValue = value < max
-  const isOverMinValue = value > min
-  const isMaxValue = value === max
-  const isMinValue = value === min
+  const [internalValue, setInternalValue] = useState(value)
+
+  const isBelowMaxValue = internalValue < max
+  const isOverMinValue = internalValue > min
+  const isMaxValue = internalValue === max
+  const isMinValue = internalValue === min
+
+  const decrementDisabled = disabled || internalValue <= min
+  const incrementDisabled = disabled || internalValue >= max
 
   const incrementValue = e => {
-    if (isBelowMaxValue) onChange(e, {value: value + 1})
+    if (isBelowMaxValue) {
+      const newValue = internalValue === '' ? min : parseInt(internalValue) + 1
+      const strNewValue = String(newValue)
+      setInternalValue(strNewValue)
+      onChange(e, {value: strNewValue})
+    }
   }
 
   const decrementValue = e => {
-    if (isOverMinValue) onChange(e, {value: value - 1})
+    if (isOverMinValue) {
+      const newValue = internalValue === '' ? min : parseInt(internalValue) - 1
+      const strNewValue = String(newValue)
+      setInternalValue(strNewValue)
+      onChange(e, {value: strNewValue})
+    }
+  }
+
+  const removeDigit = e => {
+    if (internalValue.length) {
+      const newValue = internalValue.slice(0, -1)
+      setInternalValue(newValue)
+      onChange(e, {value: newValue})
+    }
+  }
+
+  const addDigit = (e, {key: digit}) => {
+    const newValue = internalValue + digit
+    setInternalValue(newValue)
+    onChange(e, {value: newValue})
   }
 
   const handleKeyDown = e => {
     const {key} = e
     if (key === 'ArrowUp') incrementValue(e)
     if (key === 'ArrowDown') decrementValue(e)
+    if (key === 'Backspace') removeDigit(e)
+    if (isCharDigit(key)) addDigit(e, {key})
   }
 
   let helpText
@@ -68,9 +103,9 @@ const MoleculeDataCounter = ({
           )}
         >
           <AtomButton
-            disabled={disabled || value === min}
+            disabled={decrementDisabled}
             onClick={decrementValue}
-            type="secondary"
+            type={BUTTON_TYPE}
           >
             -
           </AtomButton>
@@ -79,12 +114,12 @@ const MoleculeDataCounter = ({
             disabled={disabled}
             size={size}
             charsSize={charsSize}
-            placeholder={placeholder}
-            value={String(value)}
+            value={internalValue}
             onKeyDown={handleKeyDown}
+            onChange={handleKeyDown}
           />
           <AtomButton
-            disabled={disabled || value === max}
+            disabled={incrementDisabled}
             onClick={incrementValue}
             type="secondary"
           >
@@ -105,9 +140,6 @@ MoleculeDataCounter.propTypes = {
   /** used as label for attribute and input element id */
   id: PropTypes.string.isRequired,
 
-  /** A hint to the user of what can be entered in the control. The placeholder text must not contain carriage returns or line-feeds. */
-  placeholder: PropTypes.string,
-
   /** width of input based in number of characters (native "size" attribute) */
   charsSize: PropTypes.number,
 
@@ -126,11 +158,24 @@ MoleculeDataCounter.propTypes = {
   /* callback to be called with every update of the input value */
   onChange: PropTypes.func,
 
-  /* HelpText to be displayed when value reaches minimun value */
-  minValueHelpText: PropTypes.string,
+  // minValueHelpText: PropTypes.string.isRequired,
+  minValueErrorText: PropTypes.string.isRequired,
+  maxValueHelpText: PropTypes.string.isRequired,
+  maxValueErrorText: PropTypes.string.isRequired,
 
-  /* HelpText to be displayed when value reaches maximum value */
-  maxValueHelpText: PropTypes.string,
+  /* HelpText to be displayed when value reaches minimun value */
+  minValueHelpText: function(props, propName, componentName) {
+    console.log({props, propName, componentName})
+  },
+
+  // /* ErrorText to be displayed when value is lower than minimun value */
+  // minValueErrorText: isRequiredMessage('min'),
+
+  // /* HelpText to be displayed when value reaches maximum value */
+  // maxValueHelpText: isRequiredMessage('max'),
+
+  // /* ErrorText to be displayed when value is lower than maximun value */
+  // maxValueErrorText: isRequiredMessage('max'),
 
   /* component disabled or not */
   disabled: PropTypes.bool,
@@ -139,5 +184,5 @@ MoleculeDataCounter.propTypes = {
   size: PropTypes.oneOf(Object.values(inputSizes))
 }
 
-export default withStateValue(MoleculeDataCounter)
+export default MoleculeDataCounter
 export {inputSizes as moleculeDataCounterSizes}

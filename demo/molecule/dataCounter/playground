@@ -31,8 +31,9 @@ return (
       <MoleculeDataCounter
         onChange={consoleValue}
         min={2}
-        max={7}
+        max={27}
         label="Label"
+        value={13}
         id="demo3"
       />
     </div>

@@ -33,6 +33,24 @@ import MoleculeRating, {MoleculeRatingSizes} from '@s-ui/react-molecule-rating'
 <MoleculeRating value={4} label="25 opiniones" size={MoleculeRatingSizes.MEDIUM} link href="https://www.adevinta.com/"/>        
 ```
 
+### With CUSTOM icons
+
+```js
+import {IconStarFilled, IconStarHalfFilled, IconStarOutline} from './Icons'
+
+const customPropsStar = {
+  IconStarFilled,
+  IconStarHalfFilled,
+  IconStarOutline
+}
+
+<MoleculeRating
+    value={3.5}
+    size={MoleculeRatingSizes.LARGE}
+    label="25 opiniones"
+    {...customPropsStar}
+/>
+```
 
 
 

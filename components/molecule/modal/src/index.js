@@ -111,7 +111,8 @@ class MoleculeModal extends Component {
       fitWindow,
       fitContent,
       isClosing,
-      onAnimationEnd
+      onAnimationEnd,
+      dialogSibling
     } = this.props
     toggleWindowScroll(isOpen)
     const wrapperClassName = cx(suitClass(), {
@@ -152,6 +153,7 @@ class MoleculeModal extends Component {
             {this.extendedChildren}
           </div>
         </div>
+        {dialogSibling}
       </div>
     )
   }
@@ -224,7 +226,11 @@ MoleculeModal.propTypes = {
   /**
    * Determines if modal will be rendered using a React Portal.
    */
-  usePortal: PropTypes.bool
+  usePortal: PropTypes.bool,
+  /**
+   * Sibling of dialog
+   */
+  dialogSibling: PropTypes.node
 }
 
 MoleculeModal.defaultProps = {

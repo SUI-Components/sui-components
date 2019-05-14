@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2019-05-14)
+
+
+### Bug Fixes
+
+* add space between arrow and tags ([fffee2e](https://github.com/SUI-Components/sui-components/commit/fffee2e)), closes [#698](https://github.com/SUI-Components/sui-components/issues/698)
+* use theme variables ([71227eb](https://github.com/SUI-Components/sui-components/commit/71227eb))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2019-04-25)
 

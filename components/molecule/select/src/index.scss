@@ -10,8 +10,8 @@ $class-select-atom-input-input: '#{$class-select-atom-input}-input';
 $class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
 
 $z-select-list: $z-navigation !default;
-$mr-select-list-arrow: -32px !default;
-$pr-select-atom-input-tags: 32px !default;
+$mr-select-list-arrow: -$p-xxl !default;
+$pr-select-atom-input-tags: $p-xxl !default;
 
 #{$base-class} {
   outline: none;

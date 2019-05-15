@@ -9,7 +9,14 @@ import {
   IconFillHttps
 } from './Icons'
 
-import {dataSource, columnsSorter, columnsNoSorter} from './data/simple'
+import {
+  dataSource,
+  columnsSorter,
+  columnsNoSorter,
+  columnsComplexCell,
+  dataSourceComplexCell
+} from './data/'
+
 import {getClientsFromServer} from './services'
 import withDataFromServer from './hoc/withDataFromServer'
 
@@ -63,6 +70,7 @@ const Demo = () => (
         scroll={{y: 240}}
         dataSource={dataSource}
         columns={columnsSorter}
+        title="Table Example Sort (Client)"
       />
     </div>
 
@@ -72,6 +80,7 @@ const Demo = () => (
         bordered
         scroll={{y: 240}}
         columns={columnsNoSorter}
+        title="Table Example Sort (Server)"
       />
     </div>
 
@@ -85,6 +94,7 @@ const Demo = () => (
         scroll={{y: 240}}
         dataSource={dataSource}
         columns={columnsSorter}
+        title="Table Example Row Selection"
       />
     </div>
 
@@ -96,6 +106,30 @@ const Demo = () => (
         scroll={{y: 240}}
         dataSource={dataSource}
         columns={columnsSorter}
+        title="Table Example With Actions"
+      />
+    </div>
+
+    <h2>With Complex Cell</h2>
+    <div className={CLASS_DEMO_SECTION}>
+      <MoleculeTable
+        bordered
+        scroll={{y: 240}}
+        dataSource={dataSourceComplexCell}
+        columns={columnsComplexCell}
+        title="Table Example With Complex Cell"
+      />
+    </div>
+
+    <h2>Mobile Mode</h2>
+    <div className={CLASS_DEMO_SECTION}>
+      <MoleculeTable
+        bordered
+        scroll={{y: 240}}
+        dataSource={dataSourceComplexCell}
+        columns={columnsComplexCell}
+        title="Table Example With Complex Cell"
+        mobile
       />
     </div>
   </div>

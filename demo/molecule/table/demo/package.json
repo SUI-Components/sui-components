@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@schibstedspain/sui-atom-tag": "^2.3.0",
     "axios": "^0.18.0",
     "faker": "^4.1.0"
   }

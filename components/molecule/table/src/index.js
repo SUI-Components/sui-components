@@ -9,6 +9,8 @@ const CLASS_ACTIONS = `${BASE_CLASS}-actions`
 const MoleculeTable = ({
   dataSource,
   actions,
+  title,
+  mobile,
   columns: originalColumns,
   ...props
 }) => {
@@ -32,17 +34,56 @@ const MoleculeTable = ({
       ]
     : originalColumns
 
+  const renderMobileMode = () => {
+    return (
+      <div className="ant-table-title">
+        <h2>{title}</h2>
+        {dataSource.map((row, indexRow) => {
+          return (
+            <div key={indexRow}>
+              {Object.keys(row).map((keyTitle, index) => {
+                const column = columns.filter(
+                  column => column.key === keyTitle
+                )[0]
+
+                let dataCell = ''
+                if (typeof row[keyTitle] === 'string') dataCell = row[keyTitle]
+                if (typeof row[keyTitle] === 'object' && column.render) {
+                  dataCell = column.render(row[keyTitle])
+                }
+
+                return (
+                  <div key={index}>
+                    {column.title} : {dataCell}
+                  </div>
+                )
+              })}
+              {/* row.map((cell, indexCell) => <p key={indexCell}>cell</p>) */}
+            </div>
+          )
+        })}
+        <pre>{JSON.stringify(columns)}</pre>
+        <pre>{JSON.stringify(dataSource)}</pre>
+      </div>
+    )
+  }
+
   return (
     <div className={BASE_CLASS}>
-      <Suspense fallback={null}>
-        <Table
-          title={() => 'Header'}
-          dataSource={dataSource}
-          columns={columns}
-          pagination={false}
-          {...props}
-        />
-      </Suspense>
+      {mobile ? (
+        renderMobileMode()
+      ) : (
+        <Suspense fallback={null}>
+          <Table
+            title={() => <h3 style={{margin: 0}}>{title}</h3>}
+            dataSource={dataSource}
+            columns={columns}
+            pagination={false}
+            rowKey={record => record.id}
+            {...props}
+          />
+        </Suspense>
+      )}
     </div>
   )
 }
@@ -50,6 +91,9 @@ const MoleculeTable = ({
 MoleculeTable.displayName = 'MoleculeTable'
 
 MoleculeTable.propTypes = {
+  /** table title */
+  title: PropTypes.string,
+
   /** minimal value in range */
   dataSource: PropTypes.object,
 
@@ -57,7 +101,10 @@ MoleculeTable.propTypes = {
   columns: PropTypes.object,
 
   /** component including actions over rows */
-  actions: PropTypes.node
+  actions: PropTypes.node,
+
+  /** component including actions over rows */
+  mobile: PropTypes.bool
 }
 
 // Remove these comments if you need

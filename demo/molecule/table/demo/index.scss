@@ -1,3 +1,5 @@
+@import '~@schibstedspain/sui-atom-tag/lib/index';
+
 .DemoMoleculeTable {
   margin-bottom: 500px;
   padding: 60px;
@@ -8,11 +10,24 @@
   }
 
   &-section {
-    margin: 10px;
+    margin: 10px 10px 100px;
   }
 
   pre {
     padding: 16px;
     width: 300px;
+  }
+
+  &-complexCell {
+    display: flex;
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 100%; 
+      margin-right: 20px;
+    }
+    p {
+      margin: 0;
+    }
   }
 }

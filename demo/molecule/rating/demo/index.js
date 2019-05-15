@@ -17,7 +17,7 @@ const CLASS_DEMO_SECTION_ICONS = `${CLASS_DEMO_SECTION}-icons`
 const customPropsStar = {
   IconStarFilled,
   IconStarHalfFilled,
-  IconStarOutline
+  IconStarEmpty: IconStarOutline
 }
 
 const Demo = () => (

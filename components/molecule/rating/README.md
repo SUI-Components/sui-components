@@ -36,12 +36,12 @@ import MoleculeRating, {MoleculeRatingSizes} from '@s-ui/react-molecule-rating'
 ### With CUSTOM icons
 
 ```js
-import {IconStarFilled, IconStarHalfFilled, IconStarOutline} from './Icons'
+import {IconStarFilled, IconStarHalfFilled, IconStarEmpty} from './Icons'
 
 const customPropsStar = {
   IconStarFilled,
   IconStarHalfFilled,
-  IconStarOutline
+  IconStarEmpty
 }
 
 <MoleculeRating

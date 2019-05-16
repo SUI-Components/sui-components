@@ -22,6 +22,8 @@ import {
 import {getClientsFromServer} from './services'
 import withDataFromServer from './hoc/withDataFromServer'
 
+import './index.scss'
+
 const BASE_CLASS_DEMO = 'DemoMoleculeTable'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
 const CLASS_DEMO_SECTION_RESPONSIVE = `${CLASS_DEMO_SECTION}-responsive`

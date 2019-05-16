@@ -14,6 +14,10 @@ $h-table-action-icon: 16px !default;
 .sui-MoleculeTable {
   display: block;
 
+  .ant-table-column-title {
+    text-transform: uppercase;
+  }
+
   .ant-table-tbody > tr:hover > td,
   .ant-table-tbody > tr.ant-table-row-selected > td {
     background: $c-table-row-hover;
@@ -51,6 +55,28 @@ $h-table-action-icon: 16px !default;
     svg,
     use {
       fill: $c-table-actions-icons;
+    }
+  }
+
+  &-mobile {
+    background: $c-gray-lightest;
+    border: 1px solid $c-gray-light;
+    padding: 20px;
+
+    &-row {
+      background: $c-white;
+      border: 1px solid $c-gray-light;
+      margin: 10px 0;
+
+      &-cell {
+        padding: 10px;
+
+        &-title {
+          color: $c-gray-dark;
+          margin-bottom: 10px;
+          text-transform: uppercase;
+        }
+      }
     }
   }
 }

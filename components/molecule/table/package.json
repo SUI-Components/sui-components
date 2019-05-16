@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "antd": "^3.16.5"
+    "antd": "3.16.5"
   },
   "keywords": [],
   "author": "",

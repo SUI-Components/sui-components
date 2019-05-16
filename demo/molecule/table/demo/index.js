@@ -2,6 +2,8 @@
 import React from 'react'
 
 import MoleculeTable from '../../../../components/molecule/table/src'
+import LayoutMediaQuery from '@s-ui/react-layout-media-query'
+
 import {
   IconFillBackup,
   IconFillDashboard,
@@ -22,6 +24,7 @@ import withDataFromServer from './hoc/withDataFromServer'
 
 const BASE_CLASS_DEMO = 'DemoMoleculeTable'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
+const CLASS_DEMO_SECTION_RESPONSIVE = `${CLASS_DEMO_SECTION}-responsive`
 
 const MoleculeTableWithDataFromServer = withDataFromServer(MoleculeTable)(
   getClientsFromServer
@@ -63,6 +66,7 @@ const Demo = () => (
     <h1>
       <code>MoleculeTable</code>
     </h1>
+
     <h2>Sort (Client)</h2>
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTable
@@ -121,16 +125,44 @@ const Demo = () => (
       />
     </div>
 
-    <h2>Mobile Mode</h2>
-    <div className={CLASS_DEMO_SECTION}>
-      <MoleculeTable
-        bordered
-        scroll={{y: 240}}
-        dataSource={dataSourceComplexCell}
-        columns={columnsComplexCell}
-        title="Table Example With Complex Cell"
-        mobile
-      />
+    <h2>Mobile Mode Use Case 1</h2>
+    <div className={CLASS_DEMO_SECTION_RESPONSIVE}>
+      <LayoutMediaQuery>
+        {({S, M}) => {
+          let mobileMode = false
+          if (M !== 'undefined' && M === false) mobileMode = true
+          return (
+            <MoleculeTable
+              bordered
+              scroll={{y: 240}}
+              dataSource={dataSource}
+              columns={columnsSorter}
+              title="Table Example Responsive Mode 1 (Simple Data)"
+              mobile={mobileMode}
+            />
+          )
+        }}
+      </LayoutMediaQuery>
+    </div>
+
+    <h2>Mobile Mode Use Case 2</h2>
+    <div className={CLASS_DEMO_SECTION_RESPONSIVE}>
+      <LayoutMediaQuery>
+        {({S, M}) => {
+          let mobileMode = false
+          if (M !== 'undefined' && M === false) mobileMode = true
+          return (
+            <MoleculeTable
+              bordered
+              scroll={{y: 240}}
+              dataSource={dataSourceComplexCell}
+              columns={columnsComplexCell}
+              title="Table Example Responsive Mode 1 (Complex Cell)"
+              mobile={mobileMode}
+            />
+          )
+        }}
+      </LayoutMediaQuery>
     </div>
   </div>
 )

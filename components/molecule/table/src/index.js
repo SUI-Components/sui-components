@@ -52,9 +52,10 @@ const MoleculeTable = ({
                 )[0]
 
                 let dataCell = ''
-                if (typeof row[keyTitle] === 'string') dataCell = row[keyTitle]
                 if (typeof row[keyTitle] === 'object' && column.render) {
                   dataCell = column.render(row[keyTitle])
+                } else {
+                  dataCell = row[keyTitle]
                 }
 
                 return (

@@ -65,15 +65,15 @@ $h-table-action-icon: 16px !default;
 
     &-row {
       background: $c-white;
-      border: 1px solid $c-gray-light;
-      margin: 10px 0;
+      border: $bdw-s solid $c-gray-light;
+      margin: $m-m 0;
 
       &-cell {
-        padding: 10px;
+        padding: $p-m;
 
         &-title {
           color: $c-gray-dark;
-          margin-bottom: 10px;
+          margin-bottom: $m-m;
           text-transform: uppercase;
         }
       }

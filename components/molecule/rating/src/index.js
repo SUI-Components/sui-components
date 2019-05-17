@@ -22,7 +22,8 @@ const MoleculeRating = ({
   label,
   href,
   target,
-  linkFactory: Link = ({children, ...rest} = {}) => <a {...rest}>{children}</a>
+  linkFactory: Link = ({children, ...rest} = {}) => <a {...rest}>{children}</a>,
+  ...props
 }) => {
   const className = cx(BASE_CLASS, `${BASE_CLASS}--${size}`, {
     [CLASS_LINK]: href
@@ -45,7 +46,9 @@ const MoleculeRating = ({
       <div className={CLASS_CONTAINER_STARS}>
         {new Array(numStars)
           .fill(0)
-          .map((_, index) => <Star key={index} index={index} value={value} />)}
+          .map((_, index) => (
+            <Star key={index} index={index} value={value} {...props} />
+          ))}
       </div>
       <p className={CLASS_LABEL}>{labelLink}</p>
     </div>

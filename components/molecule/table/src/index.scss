@@ -6,12 +6,15 @@ $class-ant-table-thead: '.ant-table-thead';
 $class-ant-table-tbody: '.ant-table-tbody';
 $class-ant-table-title: '.ant-table-title';
 $class-ant-table-row-selected: '.ant-table-row-selected';
+$class-ant-table-column-has-actions: '.ant-table-column-has-actions';
+$class-ant-table-column-has-sorters: '.ant-table-column-has-sorters';
 
 $c-table-title: $c-black !default;
 $c-table-td: $c-black !default;
 $c-table-th: $c-gray-dark-1 !default;
 
-$c-table-row-hover: $c-primary-light-5 !default;
+$bg-table-body-row-hover: $c-primary-light-5 !default;
+$bg-table-th: $c-gray-light-4 !default;
 
 $c-table-actions-icons: $c-primary !default;
 $w-table-action-icon: 16px !default;
@@ -26,7 +29,13 @@ $h-table-action-icon: 16px !default;
 
   #{$class-ant-table-tbody} > tr:hover > td,
   #{$class-ant-table-tbody} > tr#{$class-ant-table-row-selected} > td {
-    background: $c-table-row-hover;
+    background: $bg-table-body-row-hover;
+  }
+
+  #{$class-ant-table-thead} > tr > th,
+  #{$class-ant-table-thead} > tr > th#{$class-ant-table-column-has-actions}#{$class-ant-table-column-has-sorters}:hover {
+    background: $bg-table-th;
+    cursor: pointer;
   }
 
   #{$class-ant-table-tbody} > tr:hover > td &-actions {

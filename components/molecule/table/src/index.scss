@@ -1,6 +1,12 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~antd/lib/table/style/index';
 
+$class-ant-table-column-title: '.ant-table-column-title';
+$class-ant-table-thead: '.ant-table-thead';
+$class-ant-table-tbody: '.ant-table-tbody';
+$class-ant-table-title: '.ant-table-title';
+$class-ant-table-row-selected: '.ant-table-row-selected';
+
 $c-table-title: $c-black !default;
 $c-table-td: $c-black !default;
 $c-table-th: $c-gray-dark-1 !default;
@@ -14,19 +20,25 @@ $h-table-action-icon: 16px !default;
 .sui-MoleculeTable {
   display: block;
 
-  .ant-table-column-title {
+  #{$class-ant-table-column-title} {
     text-transform: uppercase;
   }
 
-  .ant-table-tbody > tr:hover > td,
-  .ant-table-tbody > tr.ant-table-row-selected > td {
+  #{$class-ant-table-tbody} > tr:hover > td,
+  #{$class-ant-table-tbody} > tr#{$class-ant-table-row-selected} > td {
     background: $c-table-row-hover;
   }
-  .ant-table-tbody > tr:hover > td &-actions {
+
+  #{$class-ant-table-tbody} > tr:hover > td &-actions {
     visibility: visible;
   }
 
-  .ant-table-title {
+  #{$class-ant-table-tbody} > tr > td {
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+
+  #{$class-ant-table-title} {
     color: $c-table-title;
     font-size: 20px;
   }

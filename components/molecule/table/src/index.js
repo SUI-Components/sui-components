@@ -69,17 +69,13 @@ const MoleculeTable = ({
                   </div>
                 )
               })}
-              {/* row.map((cell, indexCell) => <p key={indexCell}>cell</p>) */}
             </div>
           )
         })}
-        <pre>{JSON.stringify(columns)}</pre>
-        <pre>{JSON.stringify(dataSource)}</pre>
       </div>
     )
   }
 
-  console.log({mobile})
   return (
     <div className={BASE_CLASS}>
       {mobile ? (
@@ -118,10 +114,5 @@ MoleculeTable.propTypes = {
   /** component including actions over rows */
   mobile: PropTypes.bool
 }
-
-// Remove these comments if you need
-// MoleculeTable.contextTypes = {i18n: PropTypes.object}
-// MoleculeTable.propTypes = {}
-// MoleculeTable.defaultProps = {}
 
 export default MoleculeTable

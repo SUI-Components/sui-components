@@ -20,14 +20,15 @@ const columnsSorter = [
   {
     title: 'Id',
     dataIndex: 'id',
-    key: 'id'
+    key: 'id',
+    width: 200
   },
   {
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
     sorter: (a, b) => a.name.length - b.name.length,
-    width: 300
+    width: 200
   },
   {
     title: 'Age',
@@ -124,13 +125,13 @@ const columnsComplexCell = [
     title: 'Id',
     dataIndex: 'id',
     key: 'id',
-    width: '15%'
+    width: '25%'
   },
   {
     title: 'User',
     dataIndex: 'user',
     key: 'user',
-    width: '35%',
+    width: '40%',
     render: (
       {name, image, company, age, address, tags} // eslint-disable-line
     ) => (
@@ -168,7 +169,7 @@ const columnsComplexCell = [
     title: 'Comments',
     dataIndex: 'comments',
     key: 'comments',
-    width: '25%'
+    width: '35%'
   }
 ]
 

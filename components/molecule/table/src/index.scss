@@ -23,6 +23,11 @@ $h-table-action-icon: 16px !default;
 .sui-MoleculeTable {
   display: block;
 
+  table {
+    table-layout: fixed;
+    width: 1000px;
+  }
+
   #{$class-ant-table-column-title} {
     text-transform: uppercase;
   }
@@ -32,8 +37,14 @@ $h-table-action-icon: 16px !default;
     background: $bg-table-body-row-hover;
   }
 
+  .ant-table-thead > tr > th .ant-table-header-column .ant-table-column-sorters:hover::before {
+    background: $bg-table-th;
+  }
+
   #{$class-ant-table-thead} > tr > th,
-  #{$class-ant-table-thead} > tr > th#{$class-ant-table-column-has-actions}#{$class-ant-table-column-has-sorters}:hover {
+  #{$class-ant-table-thead}:hover > tr > th,
+  #{$class-ant-table-thead} > tr:hover > th,
+  #{$class-ant-table-thead} > tr > th:hover {
     background: $bg-table-th;
     cursor: pointer;
   }
@@ -42,10 +53,13 @@ $h-table-action-icon: 16px !default;
     visibility: visible;
   }
 
-  #{$class-ant-table-tbody} > tr > td {
-    word-break: break-all;
+  /*
+  
+  #{$class-ant-table-tbody} > tr > td,
+  #{$class-ant-table-thead} > tr > th {
     word-wrap: break-word;
   }
+  */
 
   #{$class-ant-table-title} {
     color: $c-table-title;

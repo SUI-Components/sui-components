@@ -73,7 +73,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTable
         bordered
-        scroll={{y: 240}}
+        fixedHeader
         dataSource={dataSource}
         columns={columnsSorter}
         title="Table Example Sort (Client)"
@@ -84,7 +84,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTableWithDataFromServer
         bordered
-        scroll={{y: 240}}
+        fixedHeader
         columns={columnsNoSorter}
         title="Table Example Sort (Server)"
       />
@@ -97,7 +97,7 @@ const Demo = () => (
           onChange: console.log // eslint-disable-line
         }}
         bordered
-        scroll={{y: 240}}
+        fixedHeader
         dataSource={dataSource}
         columns={columnsSorter}
         title="Table Example Row Selection"
@@ -108,8 +108,8 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTable
         bordered
+        fixedHeader
         actions={<Actions />}
-        scroll={{y: 240}}
         dataSource={dataSource}
         columns={columnsSorter}
         title="Table Example With Actions"
@@ -120,7 +120,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTable
         bordered
-        scroll={{y: 240}}
+        fixedHeader
         dataSource={dataSourceComplexCell}
         columns={columnsComplexCell}
         title="Table Example With Complex Cell"
@@ -136,7 +136,7 @@ const Demo = () => (
           return (
             <MoleculeTable
               bordered
-              scroll={{y: 240}}
+              fixedHeader
               dataSource={dataSource}
               columns={columnsSorter}
               title="Table Example Responsive Mode 1 (Simple Data)"
@@ -156,7 +156,7 @@ const Demo = () => (
           return (
             <MoleculeTable
               bordered
-              scroll={{y: 240}}
+              fixedHeader
               dataSource={dataSourceComplexCell}
               columns={columnsComplexCell}
               title="Table Example Responsive Mode 1 (Complex Cell)"

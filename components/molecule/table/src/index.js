@@ -16,6 +16,7 @@ const MoleculeTable = ({
   actions,
   title,
   mobile,
+  fixedHeader,
   columns: originalColumns,
   ...props
 }) => {
@@ -76,6 +77,8 @@ const MoleculeTable = ({
     )
   }
 
+  console.log({fixedHeader})
+
   return (
     <div className={BASE_CLASS}>
       {mobile ? (
@@ -88,6 +91,7 @@ const MoleculeTable = ({
             columns={columns}
             pagination={false}
             rowKey={record => record.id}
+            scroll={fixedHeader ? {y: 240, x: 1000} : {}}
             {...props}
           />
         </Suspense>
@@ -112,7 +116,10 @@ MoleculeTable.propTypes = {
   actions: PropTypes.node,
 
   /** component including actions over rows */
-  mobile: PropTypes.bool
+  mobile: PropTypes.bool,
+
+  /** is header fixed? */
+  fixedHeader: PropTypes.bool
 }
 
 export default MoleculeTable

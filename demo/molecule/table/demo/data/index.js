@@ -20,15 +20,13 @@ const columnsSorter = [
   {
     title: 'Id',
     dataIndex: 'id',
-    key: 'id',
-    width: 200
+    key: 'id'
   },
   {
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    sorter: (a, b) => a.name.length - b.name.length,
-    width: 200
+    sorter: (a, b) => a.name.length - b.name.length
   },
   {
     title: 'Age',
@@ -41,8 +39,7 @@ const columnsSorter = [
   {
     title: 'Address',
     dataIndex: 'address',
-    key: 'address',
-    width: 400
+    key: 'address'
   }
 ]
 
@@ -50,8 +47,8 @@ const columnsNoSorter = [
   {
     title: 'Id',
     dataIndex: 'id',
-    width: '35%',
-    key: 'id'
+    key: 'id',
+    width: '25%'
   },
   {
     title: 'Name',

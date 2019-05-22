@@ -72,7 +72,6 @@ const Demo = () => (
     <h2>Sort (Client)</h2>
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTable
-        bordered
         fixedHeader
         dataSource={dataSource}
         columns={columnsSorter}
@@ -83,7 +82,6 @@ const Demo = () => (
     <h2>Sort (Server)</h2>
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTableWithDataFromServer
-        bordered
         fixedHeader
         columns={columnsNoSorter}
         title="Table Example Sort (Server)"
@@ -96,7 +94,6 @@ const Demo = () => (
         rowSelection={{
           onChange: console.log // eslint-disable-line
         }}
-        bordered
         fixedHeader
         dataSource={dataSource}
         columns={columnsSorter}
@@ -107,7 +104,6 @@ const Demo = () => (
     <h2>With Actions</h2>
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTable
-        bordered
         fixedHeader
         actions={<Actions />}
         dataSource={dataSource}
@@ -119,7 +115,6 @@ const Demo = () => (
     <h2>With Complex Cell</h2>
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTable
-        bordered
         fixedHeader
         dataSource={dataSourceComplexCell}
         columns={columnsComplexCell}
@@ -135,7 +130,6 @@ const Demo = () => (
           if (M !== 'undefined' && M === false) mobileMode = true
           return (
             <MoleculeTable
-              bordered
               fixedHeader
               dataSource={dataSource}
               columns={columnsSorter}
@@ -155,7 +149,6 @@ const Demo = () => (
           if (M !== 'undefined' && M === false) mobileMode = true
           return (
             <MoleculeTable
-              bordered
               fixedHeader
               dataSource={dataSourceComplexCell}
               columns={columnsComplexCell}

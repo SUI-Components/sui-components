@@ -11,6 +11,58 @@ const CLASS_MOBILE_MODE_CELL = `${CLASS_MOBILE_MODE_ROW}-cell`
 const CLASS_MOBILE_MODE_CELL_TITLE = `${CLASS_MOBILE_MODE_CELL}-title`
 const CLASS_MOBILE_MODE_CELL_CONTENT = `${CLASS_MOBILE_MODE_CELL}-content`
 
+const getActionsHeaderConfig = actions => ({
+  title: 'Actions',
+  key: 'actions',
+  align: 'left',
+  width: 150,
+  render: (text, record) => {
+    const extendedActions = React.cloneElement(actions, {
+      text,
+      record
+    })
+
+    return <span className={CLASS_ACTIONS}>{extendedActions}</span>
+  }
+})
+
+const renderMobileMode = ({title, dataSource, columns}) => { // eslint-disable-line
+  return (
+    <div className={CLASS_MOBILE_MODE}>
+      <h2>{title}</h2>
+      {dataSource.map((row, indexRow) => {
+        return (
+          <div key={indexRow} className={CLASS_MOBILE_MODE_ROW}>
+            {Object.keys(row).map((keyTitle, index) => {
+              const column = columns.filter(
+                column => column.key === keyTitle
+              )[0]
+
+              let dataCell = ''
+              if (typeof row[keyTitle] === 'object' && column.render) {
+                dataCell = column.render(row[keyTitle])
+              } else {
+                dataCell = row[keyTitle]
+              }
+
+              return (
+                <div key={index} className={CLASS_MOBILE_MODE_CELL}>
+                  <div className={CLASS_MOBILE_MODE_CELL_TITLE}>
+                    {column.title}
+                  </div>
+                  <div className={CLASS_MOBILE_MODE_CELL_CONTENT}>
+                    {dataCell}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 const MoleculeTable = ({
   dataSource,
   actions,
@@ -21,68 +73,13 @@ const MoleculeTable = ({
   ...props
 }) => {
   const columns = actions
-    ? [
-        ...originalColumns,
-        {
-          title: 'Actions',
-          key: 'actions',
-          align: 'left',
-          width: 150,
-          render: (text, record) => {
-            const extendedActions = React.cloneElement(actions, {
-              text,
-              record
-            })
-
-            return <span className={CLASS_ACTIONS}>{extendedActions}</span>
-          }
-        }
-      ]
+    ? [...originalColumns, getActionsHeaderConfig(actions)]
     : originalColumns
-
-  const renderMobileMode = () => {
-    return (
-      <div className={CLASS_MOBILE_MODE}>
-        <h2>{title}</h2>
-        {dataSource.map((row, indexRow) => {
-          return (
-            <div key={indexRow} className={CLASS_MOBILE_MODE_ROW}>
-              {Object.keys(row).map((keyTitle, index) => {
-                const column = columns.filter(
-                  column => column.key === keyTitle
-                )[0]
-
-                let dataCell = ''
-                if (typeof row[keyTitle] === 'object' && column.render) {
-                  dataCell = column.render(row[keyTitle])
-                } else {
-                  dataCell = row[keyTitle]
-                }
-
-                return (
-                  <div key={index} className={CLASS_MOBILE_MODE_CELL}>
-                    <div className={CLASS_MOBILE_MODE_CELL_TITLE}>
-                      {column.title}
-                    </div>
-                    <div className={CLASS_MOBILE_MODE_CELL_CONTENT}>
-                      {dataCell}
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          )
-        })}
-      </div>
-    )
-  }
-
-  console.log({fixedHeader})
 
   return (
     <div className={BASE_CLASS}>
       {mobile ? (
-        renderMobileMode()
+        renderMobileMode({title, dataSource, columns})
       ) : (
         <Suspense fallback={null}>
           <Table

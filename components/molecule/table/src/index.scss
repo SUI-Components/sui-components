@@ -8,6 +8,8 @@ $class-ant-table-title: '.ant-table-title';
 $class-ant-table-row-selected: '.ant-table-row-selected';
 $class-ant-table-column-has-actions: '.ant-table-column-has-actions';
 $class-ant-table-column-has-sorters: '.ant-table-column-has-sorters';
+$class-ant-table-header-column: '.ant-table-header-column';
+$class-ant-table-column-sorters: '.ant-table-column-sorters';
 
 $c-table-title: $c-black !default;
 $c-table-td: $c-black !default;
@@ -20,12 +22,18 @@ $c-table-actions-icons: $c-primary !default;
 $w-table-action-icon: 16px !default;
 $h-table-action-icon: 16px !default;
 
+$fz-table-title: $fz-xl !default;
+$fz-table-thead-cell: $fz-s !default;
+$fz-table-tbody-cell: $fz-m !default;
+
+
+
 .sui-MoleculeTable {
   display: block;
 
   table {
     table-layout: fixed;
-    width: 1000px;
+    width: 100%;
   }
 
   #{$class-ant-table-column-title} {
@@ -37,7 +45,7 @@ $h-table-action-icon: 16px !default;
     background: $bg-table-body-row-hover;
   }
 
-  .ant-table-thead > tr > th .ant-table-header-column .ant-table-column-sorters:hover::before {
+  #{$class-ant-table-thead} > tr > th #{$class-ant-table-header-column} #{$class-ant-table-column-sorters}:hover::before {
     background: $bg-table-th;
   }
 
@@ -46,35 +54,26 @@ $h-table-action-icon: 16px !default;
   #{$class-ant-table-thead} > tr:hover > th,
   #{$class-ant-table-thead} > tr > th:hover {
     background: $bg-table-th;
-    cursor: pointer;
   }
 
   #{$class-ant-table-tbody} > tr:hover > td &-actions {
     visibility: visible;
   }
 
-  /*
-  
-  #{$class-ant-table-tbody} > tr > td,
-  #{$class-ant-table-thead} > tr > th {
-    word-wrap: break-word;
-  }
-  */
-
   #{$class-ant-table-title} {
     color: $c-table-title;
-    font-size: 20px;
+    font-size: $fz-table-title;
   }
 
   thead tr th {
     color: $c-table-th;
-    font-size: 14px;
+    font-size: $fz-table-thead-cell;
     font-weight: normal;
   }
 
   thead tr td {
     color: $c-table-td;
-    font-size: 16px;
+    font-size: $fz-table-tbody-cell;
     font-weight: normal;
   }
 
@@ -83,7 +82,7 @@ $h-table-action-icon: 16px !default;
 
     svg {
       height: $h-table-action-icon;
-      margin: 0 4px;
+      margin: 0 $m-s;
       width: $w-table-action-icon;
     }
 
@@ -95,8 +94,8 @@ $h-table-action-icon: 16px !default;
 
   &-mobile {
     background: $c-gray-lightest;
-    border: 1px solid $c-gray-light;
-    padding: 20px;
+    border: $bdw-s solid $c-gray-light;
+    padding: $p-l;
 
     &-row {
       background: $c-white;

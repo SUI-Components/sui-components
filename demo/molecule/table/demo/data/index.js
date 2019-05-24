@@ -16,7 +16,32 @@ const Icon = () => (
 const BASE_CLASS_DEMO = 'DemoMoleculeTable'
 const CLASS_COMPLEX_CELL = `${BASE_CLASS_DEMO}-complexCell`
 
-const columnsSorter = [
+const columnsNoSorter = [
+  {
+    title: 'Id',
+    dataIndex: 'id',
+    key: 'id'
+  },
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name'
+  },
+  {
+    title: 'Age',
+    dataIndex: 'age',
+    align: 'right',
+    key: 'age',
+    width: 100
+  },
+  {
+    title: 'Address',
+    dataIndex: 'address',
+    key: 'address'
+  }
+]
+
+const columnsSorterClient = [
   {
     title: 'Id',
     dataIndex: 'id',
@@ -43,7 +68,7 @@ const columnsSorter = [
   }
 ]
 
-const columnsNoSorter = [
+const columnsSorterBackend = [
   {
     title: 'Id',
     dataIndex: 'id',
@@ -175,8 +200,9 @@ const dataSourceComplexCell = generateDataTableComplexCell(100)
 
 export {
   dataSource,
-  columnsSorter,
   columnsNoSorter,
+  columnsSorterClient,
+  columnsSorterBackend,
   columnsWithActions,
   columnsComplexCell,
   dataSourceComplexCell

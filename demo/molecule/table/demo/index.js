@@ -13,8 +13,9 @@ import {
 
 import {
   dataSource,
-  columnsSorter,
   columnsNoSorter,
+  columnsSorterClient,
+  columnsSorterBackend,
   columnsComplexCell,
   dataSourceComplexCell
 } from './data/'
@@ -69,12 +70,20 @@ const Demo = () => (
       <code>MoleculeTable</code>
     </h1>
 
+    <h2>Basic</h2>
+    <div className={CLASS_DEMO_SECTION}>
+      <MoleculeTable
+        dataSource={dataSource}
+        columns={columnsNoSorter}
+        title="Table Example Basic"
+      />
+    </div>
+
     <h2>Sort (Client)</h2>
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTable
-        fixedHeader
         dataSource={dataSource}
-        columns={columnsSorter}
+        columns={columnsSorterClient}
         title="Table Example Sort (Client)"
       />
     </div>
@@ -82,8 +91,7 @@ const Demo = () => (
     <h2>Sort (Server)</h2>
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTableWithDataFromServer
-        fixedHeader
-        columns={columnsNoSorter}
+        columns={columnsSorterBackend}
         title="Table Example Sort (Server)"
       />
     </div>
@@ -94,9 +102,8 @@ const Demo = () => (
         rowSelection={{
           onChange: console.log // eslint-disable-line
         }}
-        fixedHeader
         dataSource={dataSource}
-        columns={columnsSorter}
+        columns={columnsSorterClient}
         title="Table Example Row Selection"
       />
     </div>
@@ -104,10 +111,9 @@ const Demo = () => (
     <h2>With Actions</h2>
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTable
-        fixedHeader
         actions={<Actions />}
         dataSource={dataSource}
-        columns={columnsSorter}
+        columns={columnsSorterClient}
         title="Table Example With Actions"
       />
     </div>
@@ -115,7 +121,6 @@ const Demo = () => (
     <h2>With Complex Cell</h2>
     <div className={CLASS_DEMO_SECTION}>
       <MoleculeTable
-        fixedHeader
         dataSource={dataSourceComplexCell}
         columns={columnsComplexCell}
         title="Table Example With Complex Cell"
@@ -130,9 +135,8 @@ const Demo = () => (
           if (M !== 'undefined' && M === false) mobileMode = true
           return (
             <MoleculeTable
-              fixedHeader
               dataSource={dataSource}
-              columns={columnsSorter}
+              columns={columnsSorterClient}
               title="Table Example Responsive Mode 1 (Simple Data)"
               mobile={mobileMode}
             />
@@ -149,7 +153,6 @@ const Demo = () => (
           if (M !== 'undefined' && M === false) mobileMode = true
           return (
             <MoleculeTable
-              fixedHeader
               dataSource={dataSourceComplexCell}
               columns={columnsComplexCell}
               title="Table Example Responsive Mode 1 (Complex Cell)"

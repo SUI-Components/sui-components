@@ -47,30 +47,30 @@ const MoleculeDataCounter = ({
   const decrementDisabled = disabled || numInternalValue <= numMin
   const incrementDisabled = disabled || numInternalValue >= numMax
 
+  const assignValue = (e, {nValue}) => {
+    const value = String(nValue)
+    setInternalValue(value)
+    onChange(e, {value})
+  }
+
   const incrementValue = e => {
     if (isBelowMaxValue) {
-      const newValue = internalValue === '' ? min : parseInt(internalValue) + 1
-      const strNewValue = String(newValue)
-      setInternalValue(strNewValue)
-      onChange(e, {value: strNewValue})
+      const nValue = internalValue === '' ? min : parseInt(internalValue) + 1
+      assignValue(e, {nValue})
     }
   }
 
   const decrementValue = e => {
     if (isOverMinValue) {
-      const newValue = internalValue === '' ? min : parseInt(internalValue) - 1
-      const strNewValue = String(newValue)
-      setInternalValue(strNewValue)
-      onChange(e, {value: strNewValue})
+      const nValue = internalValue === '' ? min : parseInt(internalValue) - 1
+      assignValue(e, {nValue})
     }
   }
 
   const handleChange = (e, {value}) => {
-    const numericValue = parseInt(value, 10)
-    if (value.length <= 2 && !isNaN(numericValue)) {
-      const strNewValue = String(numericValue)
-      setInternalValue(strNewValue)
-      onChange(e, {value: strNewValue})
+    const nValue = parseInt(value, 10)
+    if (value.length <= 2 && !isNaN(nValue)) {
+      assignValue(e, {nValue})
     }
   }
 

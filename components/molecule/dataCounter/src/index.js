@@ -11,8 +11,6 @@ const BUTTON_TYPE = 'secondary'
 const BASE_CLASS = `sui-MoleculeDataCounter`
 const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-container`
 
-const isCharDigit = char => /[0-9]/.test(char)
-
 const MoleculeDataCounter = ({
   id,
   label,
@@ -67,28 +65,19 @@ const MoleculeDataCounter = ({
     }
   }
 
-  const removeDigit = e => {
-    if (internalValue.length) {
-      const newValue = internalValue.slice(0, -1)
-      setInternalValue(newValue)
-      onChange(e, {value: newValue})
+  const handleChange = (e, {value}) => {
+    const numericValue = parseInt(value, 10)
+    if (value.length <= 2 && !isNaN(numericValue)) {
+      const strNewValue = String(numericValue)
+      setInternalValue(strNewValue)
+      onChange(e, {value: strNewValue})
     }
   }
 
-  const addDigit = (e, {key: digit}) => {
-    const newValue = internalValue + digit
-    if (newValue.length <= 2) {
-      setInternalValue(newValue)
-      onChange(e, {value: newValue})
-    }
-  }
-
-  const handleKeyDown = e => {
+  const handleKeyDown = (e, {value}) => {
     const {key} = e
     if (key === 'ArrowUp') incrementValue(e)
     if (key === 'ArrowDown') decrementValue(e)
-    if (key === 'Backspace') removeDigit(e)
-    if (isCharDigit(key)) addDigit(e, {key})
   }
 
   let helpText, errorText
@@ -131,7 +120,7 @@ const MoleculeDataCounter = ({
             charsSize={charsSize}
             value={internalValue}
             onKeyDown={handleKeyDown}
-            onChange={handleKeyDown}
+            onChange={handleChange}
           />
           <AtomButton
             disabled={incrementDisabled}

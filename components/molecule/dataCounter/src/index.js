@@ -125,7 +125,7 @@ const MoleculeDataCounter = ({
           <AtomButton
             disabled={incrementDisabled}
             onClick={incrementValue}
-            type="secondary"
+            type={BUTTON_TYPE}
           >
             +
           </AtomButton>

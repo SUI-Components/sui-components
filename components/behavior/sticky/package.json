@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "react-stickup": "^1.7.2"
+    "react-stickup": "1.7.2"
   },
   "keywords": [],
   "author": "",

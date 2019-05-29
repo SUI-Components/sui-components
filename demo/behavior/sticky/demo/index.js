@@ -1,7 +1,4 @@
-/* eslint-disable no-console */
-
 import React from 'react'
-// import cx from 'classnames'
 import './index.scss'
 
 import BehaviorSticky, {
@@ -20,7 +17,6 @@ const CLASS_DEMO_FIXED_HEADER = `${BASE_CLASS_DEMO}-fixed-header`
 const CLASS_DEMO_FIXED_FOOTER = `${BASE_CLASS_DEMO}-fixed-footer`
 const CLASS_DEMO_FIXED_BUTTONS = `${BASE_CLASS_DEMO}-fixed-header-buttons`
 const CLASS_DEMO_CONTENT = `${BASE_CLASS_DEMO}-content`
-// const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
 
 const container1 = React.createRef()
 const container2 = React.createRef()

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.14.0"></a>
+# 1.14.0 (2019-05-29)
+
+
+### Features
+
+* fix issue w/ moleculeAutosuggest ([3255108](https://github.com/SUI-Components/sui-components/commit/3255108))
+
+
+
 <a name="1.13.0"></a>
 # 1.13.0 (2019-01-17)
 

@@ -45,7 +45,7 @@ const MoleculeDropdownOption = ({
     )
   }
 
-  const handleInnerCheckboxFocus = ev => {
+  const handleInnerFocus = ev => {
     ev.preventDefault()
     innerRef.current.focus()
   }
@@ -64,16 +64,19 @@ const MoleculeDropdownOption = ({
           type="checkbox"
           checked={selected}
           disabled={disabled}
-          onFocus={handleInnerCheckboxFocus}
+          onFocus={handleInnerFocus}
         />
       )}
       {highlightQuery ? (
         <span
+          onFocus={handleInnerFocus}
           dangerouslySetInnerHTML={{__html: highlightOption(children)}}
           className={CLASS_TEXT}
         />
       ) : (
-        <span className={CLASS_TEXT}>{children}</span>
+        <span onFocus={handleInnerFocus} className={CLASS_TEXT}>
+          {children}
+        </span>
       )}
     </div>
   )

@@ -76,7 +76,6 @@ $bdc-atom-button-accent: $c-accent !default;
   &:not(.sui-AtomButton--disabled) {
     &.sui-AtomButton--focused,
     &:active,
-    &:focus,
     &:hover {
       @content;
     }

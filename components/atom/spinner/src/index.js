@@ -85,7 +85,7 @@ AtomSpinner.propTypes = {
 AtomSpinner.defaultProps = {
   delayed: false,
   type: TYPES.SECTION,
-  loader: <SUILoader text="Loading..." />
+  loader: <SUILoader />
 }
 
 export default AtomSpinner

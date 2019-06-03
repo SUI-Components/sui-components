@@ -26,6 +26,12 @@ const getActionsHeaderConfig = actions => ({
   }
 })
 
+const getDataCell = ({column, rowContent}) => {
+  return typeof rowContent === 'object' && column.render
+    ? column.render(rowContent)
+    : rowContent
+}
+
 const renderMobileMode = ({title, dataSource, columns}) => { // eslint-disable-line
   return (
     <div className={CLASS_MOBILE_MODE}>
@@ -34,16 +40,9 @@ const renderMobileMode = ({title, dataSource, columns}) => { // eslint-disable-l
         return (
           <div key={indexRow} className={CLASS_MOBILE_MODE_ROW}>
             {Object.keys(row).map((keyTitle, index) => {
-              const column = columns.filter(
-                column => column.key === keyTitle
-              )[0]
+              const column = columns.find(column => column.key === keyTitle)
 
-              let dataCell = ''
-              if (typeof row[keyTitle] === 'object' && column.render) {
-                dataCell = column.render(row[keyTitle])
-              } else {
-                dataCell = row[keyTitle]
-              }
+              const dataCell = getDataCell({column, rowContent: row[keyTitle]})
 
               return (
                 <div key={index} className={CLASS_MOBILE_MODE_CELL}>

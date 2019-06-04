@@ -113,7 +113,7 @@ class MoleculeModal extends Component {
       isClosing,
       onAnimationEnd
     } = this.props
-    toggleWindowScroll(isOpen)
+
     const wrapperClassName = cx(suitClass(), {
       'is-MoleculeModal-open': isOpen,
       [suitClass({element: 'out'})]: isClosing
@@ -157,7 +157,7 @@ class MoleculeModal extends Component {
   }
 
   render() {
-    const {usePortal} = this.props
+    const {isOpen, usePortal} = this.props
     const {isClientReady} = this.state
 
     const modalElement = this._renderModal()
@@ -166,6 +166,12 @@ class MoleculeModal extends Component {
       return isClientReady
         ? createPortal(modalElement, this._getContainer())
         : null
+    }
+
+    // temporary fix to avoid executing this on SSR
+    // we should move to functions this and create as a function
+    if (isClientReady) {
+      toggleWindowScroll(isOpen)
     }
 
     return modalElement

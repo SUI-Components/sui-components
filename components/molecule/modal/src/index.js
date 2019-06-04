@@ -32,12 +32,15 @@ class MoleculeModal extends Component {
   }
 
   componentDidMount() {
-    const {usePortal} = this.props
+    const {isOpen, usePortal} = this.props
+
+    toggleWindowScroll(isOpen)
     if (usePortal) {
       this.setState({isClientReady: true})
     }
     document.addEventListener('keydown', this._onKeyDown)
   }
+
   componentWillUnmount() {
     toggleWindowScroll(false)
     document.removeEventListener('keydown', this._onKeyDown)
@@ -113,7 +116,7 @@ class MoleculeModal extends Component {
       isClosing,
       onAnimationEnd
     } = this.props
-    toggleWindowScroll(isOpen)
+
     const wrapperClassName = cx(suitClass(), {
       'is-MoleculeModal-open': isOpen,
       [suitClass({element: 'out'})]: isClosing

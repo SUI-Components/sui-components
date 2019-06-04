@@ -32,15 +32,12 @@ class MoleculeModal extends Component {
   }
 
   componentDidMount() {
-    const {isOpen, usePortal} = this.props
-
-    toggleWindowScroll(isOpen)
+    const {usePortal} = this.props
     if (usePortal) {
       this.setState({isClientReady: true})
     }
     document.addEventListener('keydown', this._onKeyDown)
   }
-
   componentWillUnmount() {
     toggleWindowScroll(false)
     document.removeEventListener('keydown', this._onKeyDown)
@@ -160,7 +157,7 @@ class MoleculeModal extends Component {
   }
 
   render() {
-    const {usePortal} = this.props
+    const {isOpen, usePortal} = this.props
     const {isClientReady} = this.state
 
     const modalElement = this._renderModal()
@@ -169,6 +166,12 @@ class MoleculeModal extends Component {
       return isClientReady
         ? createPortal(modalElement, this._getContainer())
         : null
+    }
+
+    // temporary fix to avoid executing this on SSR
+    // we should move to functions this and create as a function
+    if (isClientReady) {
+      toggleWindowScroll(isOpen)
     }
 
     return modalElement

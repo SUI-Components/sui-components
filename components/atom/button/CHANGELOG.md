@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.24.0"></a>
+# 1.24.0 (2019-06-04)
+
+
+### Features
+
+* fixed bug selection focus ([742e861](https://github.com/SUI-Components/sui-components/commit/742e861))
+
+
+
 <a name="1.23.0"></a>
 # 1.23.0 (2019-02-19)
 

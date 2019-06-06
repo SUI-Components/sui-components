@@ -25,7 +25,7 @@ const PLACEMENTS = {
   LEFT_END: 'left-end'
 }
 
-class AtomTooltip extends Component {
+export class AtomTooltip extends Component {
   state = {Tooltip: null}
   preventNonTouchEvents = false
   hasTouchEnded = false

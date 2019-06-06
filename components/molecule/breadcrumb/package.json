@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-breadcrumb-basic",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "description": "SUI Breadcrumb Basic",
   "main": "lib/index.js",
   "scripts": {

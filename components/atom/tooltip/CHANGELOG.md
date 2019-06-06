@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2019-06-06)
+
+
+### Features
+
+* named export barebone component AtomTooltipo without HoC ([22ca4ab](https://github.com/SUI-Components/sui-components/commit/22ca4ab))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2019-02-21)
 

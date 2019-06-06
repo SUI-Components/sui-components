@@ -1,0 +1,14 @@
+.sui-MoleculeTableField {
+  &-blockRowSelection {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 16px;
+    &-preSelect {
+      margin-right: 10px;
+    }
+    &-afterSelect {
+      margin-left: 10px;
+    }
+  }
+}

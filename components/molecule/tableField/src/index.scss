@@ -1,0 +1,15 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-molecule-dropdown-option/lib/index';
+@import '~@s-ui/react-molecule-select/lib/index';
+@import '~@s-ui/react-molecule-pagination/lib/index';
+
+@import '../../table/src/index';
+@import './components/BlockRowSelection/index';
+
+.sui-MoleculeTableField {
+  display: block;
+
+  &-pagination {
+    margin-top: 20px;
+  }
+}

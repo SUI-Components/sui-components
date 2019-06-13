@@ -6,25 +6,55 @@ import MoleculePagination from '@s-ui/react-molecule-pagination'
 import MoleculeTable from '../../table/src'
 import BlockRowSelection from './components/BlockRowSelection/'
 
+import WithStateTableField from './hoc/WithStateTableField'
+
 const BASE_CLASS = `sui-MoleculeTableField`
 const CLASS_PAGINATION = `${BASE_CLASS}-pagination`
 
 class MoleculeTableField extends Component {
-  /* eslint-disable react/prop-types */
+  handleChangeSizePage = (_, {value}) => {
+    const {onChangePageSize} = this.props
+    onChangePageSize({pageSize: value})
+  }
+
+  onSelectNext = (_, {page}) => {
+    const {onChangePage} = this.props
+    onChangePage({page})
+  }
+
+  onSelectPrev = (_, {page}) => {
+    const {onChangePage} = this.props
+    onChangePage({page})
+  }
+
+  onSelectPage = (_, {page}) => {
+    const {onChangePage} = this.props
+    onChangePage({page})
+  }
+
+  onChange = (pagination, filters, {columnKey: sortBy, order} = {}) => {
+    const {onChangeOrder} = this.props
+    onChangeOrder({sortBy, order})
+  }
+
   get extendedBlockRowSelection() {
+    /* eslint-disable react/prop-types */
     const {
       blockRowSelection,
       textPreSelect,
       textAfterSelect,
       optionsNumRows,
-      onChangeDisplayNumRows
+      pageSize
     } = this.props
 
+    const {handleChangeSizePage} = this
+
     return React.cloneElement(blockRowSelection, {
+      pageSize,
       textPreSelect,
       textAfterSelect,
       optionsNumRows,
-      onChangeDisplayNumRows
+      onChangeDisplayNumRows: handleChangeSizePage
     })
   }
 
@@ -34,16 +64,33 @@ class MoleculeTableField extends Component {
       optionsNumRows,
       onChangeDisplayNumRows,
       dataSource,
+      totalPages,
+      sortBy,
+      order,
+      page,
+      pageSize,
       ...props
     } = this.props
+
+    const {onSelectPage, onSelectPrev, onSelectNext, onChange} = this
+
     const {extendedBlockRowSelection} = this
+    const eventsPagination = {
+      onSelectNext,
+      onSelectPage,
+      onSelectPrev
+    }
 
     return (
       <div className={BASE_CLASS}>
         {extendedBlockRowSelection}
-        <MoleculeTable dataSource={dataSource} {...props} />
+        <MoleculeTable {...props} dataSource={dataSource} onChange={onChange} />
         <div className={CLASS_PAGINATION}>
-          <MoleculePagination totalPages={25} page={7} />
+          <MoleculePagination
+            totalPages={totalPages}
+            page={page}
+            {...eventsPagination}
+          />
         </div>
       </div>
     )
@@ -52,13 +99,13 @@ class MoleculeTableField extends Component {
 
 MoleculeTableField.displayName = 'MoleculeTableField'
 
-// Remove these comments if you need
-// MoleculeTableField.contextTypes = {i18n: PropTypes.object}
 MoleculeTableField.propTypes = {
   blockRowSelection: PropTypes.node,
   textPreSelect: PropTypes.string,
   textAfterSelect: PropTypes.string,
-  onChangeDisplayNumRows: PropTypes.func,
+  onChangeOrder: PropTypes.func,
+  onChangePage: PropTypes.func,
+  onChangePageSize: PropTypes.func,
   optionsNumRows: PropTypes.array
 }
 
@@ -66,8 +113,11 @@ MoleculeTableField.defaultProps = {
   blockRowSelection: <BlockRowSelection />,
   textPreSelect: 'Show',
   textAfterSelect: 'entries',
-  onChangeDisplayNumRows: () => {},
+  onChangePageSize: () => {},
+  onChangePage: () => {},
+  onChangeOrder: () => {},
   optionsNumRows: [10, 25, 50]
 }
 
+export {WithStateTableField}
 export default MoleculeTableField

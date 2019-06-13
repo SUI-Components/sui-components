@@ -6,9 +6,10 @@ const ORDERS = {
   descend: 'desc'
 }
 
-export const getClientsFromServer = async ({sortBy, order}) => {
+export const getClientsFromServer = async ({sortBy, order, page, pageSize}) => {
   const {data} = await axios.get(urlClients, {
-    params: {sortBy, order: ORDERS[order]}
+    params: {sortBy, order: ORDERS[order], page, limit: pageSize}
   })
-  return data
+  // const totalPages = Math.round(data.length / pageSize)
+  return {data, pagination: {page, pageSize, totalPages: 10}}
 }

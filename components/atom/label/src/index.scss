@@ -8,11 +8,20 @@ $c-atom-label-type: success $c-success, error $c-error;
   display: block;
   font-size: $fz-base;
   margin-bottom: $m-s;
-  margin-right: $m-m;
 
   &-optionalText {
     color: $c-atom-label-optional;
     margin-left: $m-s;
+  }
+
+  &--inlineLeft {
+    display: inline;
+    margin-right: $m-m;
+  }
+
+  &--inlineRight {
+    display: inline;
+    margin-left: $m-m;
   }
 
   @each $type, $color in $c-atom-label-type {

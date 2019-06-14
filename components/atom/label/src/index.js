@@ -9,10 +9,15 @@ const TYPES = {
   ERROR: 'error'
 }
 
-const getClass = ({type}) => cx(CLASSNAME, type && `${CLASSNAME}--${type}`)
+const getClass = ({type, inline}) =>
+  cx(CLASSNAME, {
+    [`${CLASSNAME}--${type}`]: type,
+    [`${CLASSNAME}--inlineLeft`]: inline === 'left',
+    [`${CLASSNAME}--inlineRight`]: inline === 'right'
+  })
 
-const AtomLabel = ({name, text, optionalText, type, onClick}) => (
-  <label htmlFor={name} className={getClass({type})} onClick={onClick}>
+const AtomLabel = ({name, inline, text, optionalText, type, onClick}) => (
+  <label htmlFor={name} className={getClass({type, inline})} onClick={onClick}>
     {text}
     {optionalText && (
       <span className="sui-AtomLabel-optionalText">{optionalText}</span>
@@ -31,6 +36,10 @@ AtomLabel.propTypes = {
    * The label itself
    */
   text: PropTypes.string.isRequired,
+  /**
+   * Allows label to be displayed inline to de left
+   */
+  inline: PropTypes.string,
   /**
    * The optional label text
    */

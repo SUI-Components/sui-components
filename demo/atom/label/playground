@@ -1,31 +1,58 @@
 return (
   <div>
+    <br />
+    <br />
     <div style={{marginBottom: '16px'}}>
       <AtomLabel
-        name='atomLabelName'
-        for='labelName'
-        text='Hello label'
-        optionalText='*' />
+        name="atomLabelName1"
+        for="labelName1"
+        text="Hello label"
+        optionalText="*"
+      />
 
-      <input id='atomLabelName' type='text' />
+      <input id="atomLabelName1" type="text" />
     </div>
     <div style={{marginBottom: '16px'}}>
       <AtomLabel
-        name='atomLabelName'
-        for='labelName'
-        text='Hello label'
-        type={AtomLabelTypes.SUCCESS}/>
+        name="atomLabelName2"
+        for="labelName2"
+        text="Hello label"
+        type={AtomLabelTypes.SUCCESS}
+      />
 
-      <input id='atomLabelName' type='text' />
+      <input id="atomLabelName2" type="text" />
     </div>
+
     <div style={{marginBottom: '16px'}}>
       <AtomLabel
-        name='atomLabelName'
-        for='labelName'
-        text='Hello label'
-        type={AtomLabelTypes.ERROR} />
+        name="atomLabelName"
+        for="labelName"
+        text="Hello label"
+        type={AtomLabelTypes.ERROR}
+      />
 
-      <input id='atomLabelName' type='text' />
+      <input id="atomLabelName" type="text" />
+    </div>
+
+    <div style={{marginBottom: '16px'}}>
+      <AtomLabel
+        name="atomLabelLeft"
+        for="atomLabelLeft"
+        text="Hello inline left label"
+        inline="left"
+      />
+
+      <input id="atomLabelLeft" type="text" />
+    </div>
+
+    <div style={{marginBottom: '16px'}}>
+      <input id="atomLabelRight" type="checkbox" />
+      <AtomLabel
+        name="atomLabelRight"
+        for="atomLabelRight"
+        text="Hello inline right label"
+        inline="right"
+      />
     </div>
   </div>
 )

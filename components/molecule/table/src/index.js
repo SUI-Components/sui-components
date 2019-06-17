@@ -98,11 +98,6 @@ const MoleculeTable = ({
 
 MoleculeTable.displayName = 'MoleculeTable'
 
-MoleculeTable.defaultProps = {
-  fixedHeader: true,
-  mobile: false
-}
-
 MoleculeTable.propTypes = {
   /** table title */
   title: PropTypes.string,

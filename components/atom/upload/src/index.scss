@@ -1,5 +1,6 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
+$bw-atom-upload: $bdw-m !default;
 $bg-atom-upload: $c-gray-lightest !default;
 $c-atom-upload: $c-gray !default;
 $ff-atom-upload: $ff-sans-serif !default;
@@ -7,7 +8,7 @@ $ff-atom-upload: $ff-sans-serif !default;
 .sui-AtomUpload {
   align-items: center;
   background-color: $bg-atom-upload;
-  border: 2px dashed $c-atom-upload;
+  border: $bw-atom-upload dashed $c-atom-upload;
   color: $c-atom-upload;
   display: flex;
   flex-direction: column;

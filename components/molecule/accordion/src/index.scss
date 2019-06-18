@@ -42,7 +42,7 @@
       white-space: nowrap;
     }
 
-    &:focus, 
+    &:focus,
     &Content:focus {
       outline: none;
     }
@@ -97,6 +97,7 @@
   }
 
   &Icon {
+    color: $c-accordion-tab-icon;
     padding-left: $p-accordion-tab-btn;
     padding-right: $p-accordion-tab-btn;
     vertical-align: middle;

@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2019-06-19)
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2019-06-19)
 
@@ -9,6 +14,9 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * fix icon color ([21add87](https://github.com/SUI-Components/sui-components/commit/21add87))
+* new accordion variation: add spacing between tabs ([2ec5dc5](https://github.com/SUI-Components/sui-components/commit/2ec5dc5))
+* update prop name ([d081513](https://github.com/SUI-Components/sui-components/commit/d081513))
+* update prop name ([364a9df](https://github.com/SUI-Components/sui-components/commit/364a9df))
 
 
 

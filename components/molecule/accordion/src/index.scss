@@ -18,6 +18,11 @@
     border-bottom: $bd-accordion-tab-container;
   }
 
+  &--gap {
+    border-bottom: $bd-accordion-tab-container;
+    margin-bottom: $m-accordion-tab-btn;
+  }
+
   &Btn {
     background: none;
     border: 0;
@@ -42,7 +47,7 @@
       white-space: nowrap;
     }
 
-    &:focus, 
+    &:focus,
     &Content:focus {
       outline: none;
     }

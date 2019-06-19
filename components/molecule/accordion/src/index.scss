@@ -18,6 +18,11 @@
     border-bottom: $bd-accordion-tab-container;
   }
 
+  &--withGap {
+    border-bottom: $bd-accordion-tab-container;
+    margin-bottom: $m-accordion-tab-btn;
+  }
+
   &Btn {
     background: none;
     border: 0;

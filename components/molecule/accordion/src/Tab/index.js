@@ -21,10 +21,12 @@ const Tab = ({
   withScrollVisible,
   withTransition,
   isOpen,
-  maxHeight
+  maxHeight,
+  withGap
 }) => {
   const wrapperClassName = cx(BASE_CLASS, {
-    [OPEN_CLASS]: isOpen
+    [OPEN_CLASS]: isOpen,
+    [`${BASE_CLASS}--withGap`]: withGap
   })
   const iconClassName = cx(ICON_CLASS, {
     [OPEN_CLASS]: isOpen
@@ -92,7 +94,11 @@ Tab.propTypes = {
   /**
    * Initial collapsed state
    */
-  isOpen: PropTypes.bool
+  isOpen: PropTypes.bool,
+  /**
+   * Add gap between tabs
+   */
+  withGap: PropTypes.bool
 }
 
 Tab.defaultProps = {
@@ -100,7 +106,8 @@ Tab.defaultProps = {
   maxHeight: MAX_HEIGHT,
   onToggle: () => {},
   withScrollVisible: false,
-  withTransition: true
+  withTransition: true,
+  withGap: false
 }
 
 export default Tab

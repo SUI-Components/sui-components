@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="3.10.0"></a>
+# 3.10.0 (2019-06-19)
+
+
+### Features
+
+* add new native props ([7b08766](https://github.com/SUI-Components/sui-components/commit/7b08766))
+* update new props: add camelCase ([1e1ab4b](https://github.com/SUI-Components/sui-components/commit/1e1ab4b))
+
+
+
 <a name="3.9.0"></a>
 # 3.9.0 (2019-02-21)
 

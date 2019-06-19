@@ -70,8 +70,8 @@ class Input extends Component {
       value,
       charsSize,
       tabIndex,
-      maxlength,
-      autocomplete
+      maxLength,
+      autoComplete
     } = this.props
 
     return (
@@ -98,8 +98,8 @@ class Input extends Component {
         type={type}
         value={value}
         size={charsSize}
-        maxLength={maxlength}
-        autoComplete={autocomplete}
+        maxLength={maxLength}
+        autoComplete={autoComplete}
       />
     )
   }
@@ -135,9 +135,9 @@ Input.propTypes = {
   /* width of input based in number of characters (native "size" attribute) */
   charsSize: PropTypes.number,
   /* specifies the maximum number of characters (native "maxlength" attribute) */
-  maxlength: PropTypes.number,
+  maxLength: PropTypes.number,
   /** specifies whether or not an input field should have autocomplete enabled (on|off) */
-  autocomplete: PropTypes.string,
+  autoComplete: PropTypes.string,
   /* text, password, date or number */
   type: PropTypes.string,
   /* value of the control */

@@ -11,6 +11,8 @@ const TYPES = {
 
 const DELAY = 500 // ms
 const BASE_CLASS = 'sui-AtomSpinner'
+const CLASS_FULL = `${BASE_CLASS}--fullPage`
+const CLASS_NO_BACKGROUND = `${BASE_CLASS}-noBackground`
 
 class AtomSpinner extends Component {
   state = {
@@ -27,9 +29,12 @@ class AtomSpinner extends Component {
   }
 
   get _parentClassName() {
-    const {type} = this.props
-
-    return cx(type === TYPES.SECTION ? BASE_CLASS : `${BASE_CLASS}--fullPage`)
+    const {type, noBackground} = this.props
+    return cx({
+      [BASE_CLASS]: type === TYPES.SECTION,
+      [CLASS_FULL]: type === TYPES.FULL,
+      [CLASS_NO_BACKGROUND]: noBackground
+    })
   }
 
   componentDidMount() {
@@ -49,11 +54,11 @@ class AtomSpinner extends Component {
   }
 
   _removeParentClass() {
-    this._parentNodeClassList.remove(this._parentClassName)
+    this._parentNodeClassList.remove(...this._parentClassName.split(' '))
   }
 
   _addParentClass() {
-    this._parentNodeClassList.add(this._parentClassName)
+    this._parentNodeClassList.add(...this._parentClassName.split(' '))
   }
 
   render() {
@@ -72,20 +77,21 @@ AtomSpinner.propTypes = {
    * 'SECTION': The spinner fits a specific site component
    */
   type: PropTypes.oneOf(Object.values(TYPES)),
-  /**
-   * Makes the spinner appear after 500 ms
-   */
+
+  /** Makes the spinner appear after 500 ms */
   delayed: PropTypes.bool,
-  /**
-   * Loader to be shown in the middle of the container
-   */
+
+  /** No background */
+  noBackground: PropTypes.bool,
+
+  /** Loader to be shown in the middle of the container */
   loader: PropTypes.object
 }
 
 AtomSpinner.defaultProps = {
   delayed: false,
   type: TYPES.SECTION,
-  loader: <SUILoader text="Loading..." />
+  loader: <SUILoader />
 }
 
 export default AtomSpinner

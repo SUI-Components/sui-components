@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2019-06-20)
+
+
+### Features
+
+* add variable icon size ([f4c8de3](https://github.com/SUI-Components/sui-components/commit/f4c8de3))
+* new variation: auto height ([d9c7ae9](https://github.com/SUI-Components/sui-components/commit/d9c7ae9))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2019-06-19)
 

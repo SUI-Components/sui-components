@@ -110,7 +110,7 @@
     svg {
       fill: currentColor;
       transform: scale(1);
-      width: 10px;
+      width: $sz-accordion-tab-icon;
     }
 
     &.is-open {

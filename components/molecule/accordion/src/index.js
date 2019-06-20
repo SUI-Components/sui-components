@@ -53,6 +53,10 @@ MoleculeAccordion.propTypes = {
    */
   maxHeight: PropTypes.number,
   /**
+   * Define the auto height
+   */
+  autoHeight: PropTypes.bool,
+  /**
    * Activate/deactivate autoclose
    */
   withAutoClose: PropTypes.bool,

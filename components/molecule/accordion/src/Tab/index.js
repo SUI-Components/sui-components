@@ -22,6 +22,7 @@ const Tab = ({
   withTransition,
   isOpen,
   maxHeight,
+  autoHeight,
   withGap
 }) => {
   const wrapperClassName = cx(BASE_CLASS, {
@@ -38,7 +39,9 @@ const Tab = ({
     [`${CONTENT_CONTAINER_CLASS}--withTransition`]: withTransition,
     [`${CONTENT_CONTAINER_CLASS}--withScrollVisible`]: withScrollVisible
   })
-  const containerHeight = isOpen ? `${maxHeight}px` : `0px`
+
+  const maxHeightType = autoHeight ? '' : `${maxHeight}px`
+  const containerHeight = isOpen ? maxHeightType : `0px`
 
   return (
     <div className={wrapperClassName}>
@@ -72,6 +75,10 @@ Tab.propTypes = {
    */
   maxHeight: PropTypes.number,
   /**
+   * Define the content auto height
+   */
+  autoHeight: PropTypes.bool,
+  /**
    * Icon to be added on the right of the content
    */
   icon: PropTypes.node.isRequired,
@@ -104,6 +111,7 @@ Tab.propTypes = {
 Tab.defaultProps = {
   isOpen: false,
   maxHeight: MAX_HEIGHT,
+  autoHeight: false,
   onToggle: () => {},
   withScrollVisible: false,
   withTransition: true,

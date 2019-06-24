@@ -22,7 +22,7 @@ $z-atom-spinner: 1 !default;
     position: absolute;
   }
 
-  &-noBackground::before {
+  &--noBackground::before {
     background-color: transparent;
   }
 

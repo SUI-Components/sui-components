@@ -12,7 +12,7 @@ const TYPES = {
 const DELAY = 500 // ms
 const BASE_CLASS = 'sui-AtomSpinner'
 const CLASS_FULL = `${BASE_CLASS}--fullPage`
-const CLASS_NO_BACKGROUND = `${BASE_CLASS}-noBackground`
+const CLASS_NO_BACKGROUND = `${BASE_CLASS}--noBackground`
 
 class AtomSpinner extends Component {
   state = {

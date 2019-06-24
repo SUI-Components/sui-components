@@ -1,4 +1,4 @@
-@import "~@schibstedspain/sui-theme/lib/index";
+@import '~@schibstedspain/sui-theme/lib/index';
 
 $bdc-sui-molecule-tabs: color-variation($c-gray, 3) !default;
 $bdw-sui-molecule-tabs: $p-s !default;
@@ -191,8 +191,17 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
   }
 
   &-item {
+    @include reset-link;
     align-items: center;
+    background: transparent;
+    color: $c-sui-molecule-tabs;
     flex: 1 1 auto;
+    font-size: $fz-m;
+    outline: 0 none;
+    padding: $p-m $p-l;
+    text-decoration: none;
+    white-space: nowrap;
+    width: 100%;
 
     &-icon {
       display: flex;
@@ -202,18 +211,6 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
       vertical-align: middle;
       width: $sz-icon-l;
     }
-  }
-
-  &-item {
-    @include reset-link;
-    background: transparent;
-    color: $c-sui-molecule-tabs;
-    font-size: $fz-m;
-    outline: 0 none;
-    padding: $p-m $p-l;
-    text-decoration: none;
-    white-space: nowrap;
-    width: 100%;
 
     svg,
     path {
@@ -231,5 +228,3 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
     }
   }
 }
-
-@import "mobile";

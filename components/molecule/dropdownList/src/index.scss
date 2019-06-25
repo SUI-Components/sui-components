@@ -10,7 +10,9 @@ $bc-dropdown-list: $c-white !default;
   background: $bc-dropdown-list;
   border: $bdw-s solid color-variation($c-gray, 2);
   box-shadow: $bxsh-l;
+  margin: 0;
   overflow-y: scroll;
+  padding: $p-s;
   width: 100%;
 
   &.is-hidden {

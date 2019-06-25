@@ -51,7 +51,7 @@ const MoleculeDropdownOption = ({
   }
 
   return (
-    <div
+    <li
       ref={innerRef}
       tabIndex="0"
       className={className}
@@ -78,7 +78,7 @@ const MoleculeDropdownOption = ({
           {children}
         </span>
       )}
-    </div>
+    </li>
   )
 }
 

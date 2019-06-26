@@ -35,6 +35,7 @@ $bgc-atom-button-primary-focus: $bgc-atom-button-dark !default;
 $bdc-atom-button-primary-focus: $bgc-atom-button-dark !default;
 $bgc-atom-button-primary: $bgc-atom-button !default;
 $bdc-atom-button-primary: $bgc-atom-button !default;
+$bxsh-atom-button-primary: none !default;
 
 // Secondary
 $bgc-atom-button-secondary: $bgc-atom-button !default;
@@ -54,6 +55,7 @@ $bgc-atom-button-negative-primary: $c-white !default;
 $bdc-atom-button-negative-primary: $c-white !default;
 $c-atom-button-negative-secondary: $c-white !default;
 $bgc-atom-button-negative-secondary-focus: $bgc-atom-button-dark !default;
+$bxsh-atom-button-negative-primary: none !default;
 
 // Accent
 $c-atom-button-accent: $c-white !default;
@@ -173,6 +175,7 @@ $bdc-atom-button-accent: $c-accent !default;
     }
     background-color: $bgc-atom-button-primary;
     border-color: $bdc-atom-button-primary;
+    box-shadow: $bxsh-atom-button-primary;
   }
 
   &--secondary,
@@ -196,6 +199,7 @@ $bdc-atom-button-accent: $c-accent !default;
       }
       background-color: $bgc-atom-button-negative-primary;
       border-color: $bdc-atom-button-negative-primary;
+      box-shadow: $bxsh-atom-button-negative-primary;
     }
 
     &.sui-AtomButton--secondary,

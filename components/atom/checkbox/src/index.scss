@@ -12,9 +12,10 @@ $maw-atom-checkbox: 32px !default;
     padding: 0;
     vertical-align: top;
     width: auto;
+
     &:disabled {
       +label {
-        color: #999;
+        color: $c-gray-light-1;
       }
     }
   }

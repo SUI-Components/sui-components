@@ -1,0 +1,20 @@
+return (<div>
+  <div>
+    <AtomCheckbox id="checkbox1" value="Disable unchecked" disabled />
+  </div>
+  <div>
+    <AtomCheckbox id="checkbox2" value="Disable checked" disabled checked/>
+  </div>
+  <div>
+    <AtomCheckbox id="checkbox3" value="Interactive uncheked"
+    onChange={(ev, {value}) => {
+      console.log(value)
+    }} />
+  </div>
+  <div>
+    <AtomCheckbox id="checkbox4" value="Checked" checked
+    onChange={(ev, {value}) => {
+      console.log(value)
+    }}/>
+  </div>
+</div>)

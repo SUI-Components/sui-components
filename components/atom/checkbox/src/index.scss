@@ -1,0 +1,32 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$maw-atom-checkbox: 32px !default;
+
+.react-AtomCheckbox {
+  &-input {
+    border: 0 none;
+    cursor: pointer;
+    display: inline-block;
+    height: auto;
+    margin: $m-s $m-s 0 0;
+    padding: 0;
+    vertical-align: top;
+    width: auto;
+    &:disabled {
+      +label {
+        color: #999;
+      }
+    }
+  }
+
+  &-label {
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    max-width: calc(100% - #{$maw-atom-checkbox});
+    padding: 0;
+    vertical-align: top;
+    width: auto;
+  }
+}

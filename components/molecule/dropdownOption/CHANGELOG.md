@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.15.0"></a>
+# 1.15.0 (2019-06-26)
+
+
+### Features
+
+* make \`MoleculeDropdownList\` more semantic → SUIC-93 ([289ce24](https://github.com/SUI-Components/sui-components/commit/289ce24))
+
+
+
 <a name="1.14.0"></a>
 # 1.14.0 (2019-05-29)
 

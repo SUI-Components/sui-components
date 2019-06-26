@@ -4,7 +4,7 @@ $maw-atom-checkbox: 32px !default;
 
 .react-AtomCheckbox {
   &-input {
-    border: 0 none;
+    border: $bdrs-none;
     cursor: pointer;
     display: inline-block;
     height: auto;
@@ -21,7 +21,7 @@ $maw-atom-checkbox: 32px !default;
   }
 
   &-label {
-    border: 0;
+    border: $bdrs-none;
     cursor: pointer;
     display: inline-block;
     margin: 0;

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.2.0"></a>
+# 2.2.0 (2019-06-26)
+
+
+### Features
+
+* removed import ([edc3076](https://github.com/SUI-Components/sui-components/commit/edc3076))
+* removed mobile.scss no longer needed ([b4050d3](https://github.com/SUI-Components/sui-components/commit/b4050d3))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2019-04-09)
 

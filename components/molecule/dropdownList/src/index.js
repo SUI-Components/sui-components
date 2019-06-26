@@ -68,14 +68,14 @@ class MoleculeDropdownList extends Component {
     const {refDropdownList, handleKeyDown, classNames, extendedChildren} = this
 
     return (
-      <div
+      <ul
         ref={refDropdownList}
         tabIndex="0"
         onKeyDown={handleKeyDown}
         className={classNames}
       >
         {extendedChildren}
-      </div>
+      </ul>
     )
   }
 }

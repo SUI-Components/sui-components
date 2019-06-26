@@ -1,0 +1,14 @@
+return (<div>
+  <div>
+    <AtomRadiobutton id="radio1" value="Disable unselected" disabled />
+  </div>
+  <div>
+    <AtomRadiobutton id="radio2" value="Disable selected" disabled checked/>
+  </div>
+  <div>
+    <AtomRadiobutton id="radio3" value="Interactive unselected"
+    onChange={(ev, {value}) => {
+      console.log(value)
+    }} />
+  </div>
+</div>)

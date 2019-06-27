@@ -83,7 +83,7 @@ const Demo = () => {
           iconActive={<IconActive />}
           textActive={textActive}
           textExplanation={textExplanation}
-          iconUpload={<AtomSpinner noBackground/>}
+          iconUpload={<AtomSpinner noBackground />}
           textUpload={textUpload}
           iconSuccess={<IconSuccess />}
           textSuccess={textSuccess}
@@ -144,7 +144,7 @@ const Demo = () => {
         <h3>Upload</h3>
         <AtomUpload
           status={uploadStatuses.UPLOAD}
-          iconUpload={<AtomSpinner noBackground/>}
+          iconUpload={<AtomSpinner noBackground />}
           textUpload={textUpload}
         />
       </div>

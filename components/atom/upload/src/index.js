@@ -51,9 +51,7 @@ class AtomUpload extends PureComponent {
         className={cx(BASE_CLASS, `${BASE_CLASS}--${status}`)}
         onClick={this.handleClick}
       >
-        <span className={classNameIcon}>
-          <IconStatus />
-        </span>
+        <span className={classNameIcon}>{IconStatus}</span>
         <div className={CLASS_BLOCK_TEXT}>
           <h4 className={CLASS_BLOCK_TEXT_MAIN}>{textStatus}</h4>
           {status === STATUSES.ACTIVE &&

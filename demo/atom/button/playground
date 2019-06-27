@@ -60,50 +60,93 @@ const ButtonsSample = props => (
   </section>
 )
 
+const ButtonsColorsRow = props => (
+  <tr style={{background: props.negative ? '#444' : '#fff'}}>
+    <td>
+      <Title>{props.type}</Title>
+    </td>
+    <td>
+      <Button {...props}>Button</Button>
+    </td>
+    <td>
+      <Button {...props} color="accent">
+        Button
+      </Button>
+    </td>
+    <td>
+      <Button {...props} color="neutral">
+        Button
+      </Button>
+    </td>
+    <td>
+      <Button {...props} color="success">
+        Button
+      </Button>
+    </td>
+    <td>
+      <Button {...props} color="alert">
+        Button
+      </Button>
+    </td>
+    <td>
+      <Button {...props} color="error">
+        Button
+      </Button>
+    </td>
+  </tr>
+)
+
 return (
   <div>
-    <Title>BUTTONS MEDIUM</Title>
+    <Title>Colors</Title>
+    <ButtonsColorsTable>
+      <ButtonsColorsRow type="solid" />
+      <ButtonsColorsRow type="outline" />
+      <ButtonsColorsRow type="flat" />
+      <ButtonsColorsRow type="solid" negative />
+      <ButtonsColorsRow type="outline" negative />
+      <ButtonsColorsRow type="flat" negative />
+    </ButtonsColorsTable>
+
+    <Title>SIZE MEDIUM</Title>
     <ButtonsTable>
-      <ButtonsRow type="primary" />
-      <ButtonsRow type="secondary" />
-      <ButtonsRow type="tertiary" />
-      <ButtonsRow type="accent" />
-      <ButtonsRow type="primary" negative />
-      <ButtonsRow type="secondary" negative />
-      <ButtonsRow type="tertiary" negative />
+      <ButtonsRow type="solid" />
+      <ButtonsRow type="outline" />
+      <ButtonsRow type="flat" />
+      <ButtonsRow type="solid" negative />
+      <ButtonsRow type="outline" negative />
+      <ButtonsRow type="flat" negative />
     </ButtonsTable>
 
-    <Title>BUTTONS SMALL</Title>
+    <Title>SIZE SMALL</Title>
     <ButtonsTable>
-      <ButtonsRow type="primary" size="small" />
-      <ButtonsRow type="secondary" size="small" />
-      <ButtonsRow type="tertiary" size="small" />
-      <ButtonsRow type="accent" size="small" />
-      <ButtonsRow type="primary" negative size="small" />
-      <ButtonsRow type="secondary" negative size="small" />
-      <ButtonsRow type="tertiary" negative size="small" />
+      <ButtonsRow type="solid" size="small" />
+      <ButtonsRow type="outline" size="small" />
+      <ButtonsRow type="flat" size="small" />
+      <ButtonsRow type="solid" negative size="small" />
+      <ButtonsRow type="outline" negative size="small" />
+      <ButtonsRow type="solid" negative size="small" />
     </ButtonsTable>
 
-    <Title>BUTTONS LARGE</Title>
+    <Title>SIZE LARGE</Title>
     <ButtonsTable>
-      <ButtonsRow type="primary" size="large" />
-      <ButtonsRow type="secondary" size="large" />
-      <ButtonsRow type="tertiary" size="large" />
-      <ButtonsRow type="accent" size="large" />
-      <ButtonsRow type="primary" negative size="large" />
-      <ButtonsRow type="secondary" negative size="large" />
-      <ButtonsRow type="tertiary" negative size="large" />
+      <ButtonsRow type="solid" size="large" />
+      <ButtonsRow type="outline" size="large" />
+      <ButtonsRow type="flat" size="large" />
+      <ButtonsRow type="solid" negative size="large" />
+      <ButtonsRow type="outline" negative size="large" />
+      <ButtonsRow type="solid" negative size="large" />
     </ButtonsTable>
 
     <div style={{display: 'flex', flexWrap: 'wrap'}}>
-      <ButtonsSample type="primary" />
-      <ButtonsSample type="primary" negative />
-      <ButtonsSample type="secondary" />
-      <ButtonsSample type="secondary" negative />
-      <ButtonsSample type="tertiary" />
-      <ButtonsSample type="tertiary" negative />
-      <ButtonsSample type="accent" />
+      <ButtonsSample type="solid" />
+      <ButtonsSample type="solid" negative />
+      <ButtonsSample type="outline" />
+      <ButtonsSample type="outline" negative />
+      <ButtonsSample type="flat" />
+      <ButtonsSample type="flat" negative />
     </div>
+
     <Title>Button Sizes</Title>
     <div
       style={{
@@ -150,20 +193,20 @@ return (
         <Button fullWidth>Button fullWidth</Button>
       </p>
       <p>
-        <Button type="secondary" fullWidth>
-          Secondary fullWidth
+        <Button type="outline" fullWidth>
+          Outline fullWidth
         </Button>
       </p>
       <p>
-        <Button type="accent" fullWidth>
-          Accent fullWidth
+        <Button type="flat" fullWidth>
+          Flat fullWidth
         </Button>
       </p>
     </div>
     <Title>Buttons visual - margins</Title>
     <p>
-      <Button>Primary action</Button>
-      <Button type="secondary">Secondary action</Button>
+      <Button>Solid action</Button>
+      <Button type="outline">Outline action</Button>
     </p>
     <Title>LEFT ICONS (@leftIcon=node)</Title>
     <p>
@@ -176,24 +219,24 @@ return (
       </Button>
     </p>
     <p>
-      <Button leftIcon={Icon} type="secondary" size="small">
+      <Button leftIcon={Icon} type="outline" size="small">
         Small button
       </Button>
-      <Button leftIcon={Icon} type="secondary">
+      <Button leftIcon={Icon} type="outline">
         Medium button
       </Button>
-      <Button leftIcon={Icon} type="secondary" size="large">
+      <Button leftIcon={Icon} type="outline" size="large">
         Big button
       </Button>
     </p>
     <p>
-      <Button type="accent" rightIcon={Icon} size="small">
+      <Button type="flat" leftIcon={Icon} size="small">
         Small button
       </Button>
-      <Button type="accent" rightIcon={Icon}>
+      <Button type="flat" leftIcon={Icon}>
         Medium button
       </Button>
-      <Button type="accent" rightIcon={Icon} size="large">
+      <Button type="flat" leftIcon={Icon} size="large">
         Big button
       </Button>
     </p>
@@ -205,31 +248,31 @@ return (
         </Button>
       </p>
       <p>
-        <Button leftIcon={Icon} type="secondary" fullWidth>
-          Secondary fullWidth
+        <Button leftIcon={Icon} type="outline" fullWidth>
+          Outline fullWidth
         </Button>
       </p>
       <p>
-        <Button leftIcon={Icon} type="accent" fullWidth>
-          Accent fullWidth
+        <Button leftIcon={Icon} type="flat" fullWidth>
+          Flat fullWidth
         </Button>
       </p>
     </div>
     <Title>INHERITED PROPS</Title>
     <p>All props available from regular buttons an be used</p>
     <p>
-      <Button onClick={() => alert('Primary with onClick')}>
-        Primary with onClick
+      <Button onClick={() => alert('Solid with onClick')}>
+        Solid with onClick
       </Button>
     </p>
     <p>
-      <Button type="accent" title="Title: Lorem Ipsum">
-        Accent with title
+      <Button type="outline" title="Title: Lorem Ipsum">
+        Outline with title
       </Button>
     </p>
     <p>
-      <Button type="secondary" className="customClass">
-        Secondary with className
+      <Button type="flat" className="customClass">
+        Flat with className
       </Button>
     </p>
     <Title>LINK BUTTONS</Title>
@@ -239,7 +282,6 @@ return (
         title="button link"
         target="_blank"
         href="http://www.google.com"
-        type="primary"
         className="customClass"
       >
         Button link
@@ -250,7 +292,7 @@ return (
         link
         title="button link"
         href="http://www.google.com"
-        type="secondary"
+        type="outline"
         className="customClass"
       >
         Button link
@@ -261,7 +303,7 @@ return (
         link
         title="button link"
         href="http://www.google.com"
-        type="accent"
+        type="flat"
         className="customClass"
       >
         Button link
@@ -272,7 +314,7 @@ return (
         link
         title="button link"
         href="http://www.google.com"
-        type="accent"
+        type="flat"
         className="customClass"
         disabled
       >
@@ -285,7 +327,6 @@ return (
         size="small"
         title="button link"
         href="http://www.google.com"
-        type="primary"
         className="customClass"
       >
         Button link small
@@ -302,13 +343,17 @@ return (
       </Button>
     </p>
     <Title>BUTTONS GROUP</Title>
-    <Button style={{marginLeft: '10px'}} type="secondary" groupPosition="first">
+    <Button style={{marginLeft: '10px'}} type="outline" groupPosition="first">
       FIRST
     </Button>
-    <Button style={{marginLeft: '10px'}} type="secondary" groupPosition="middle">
+    <Button
+      style={{marginLeft: '10px'}}
+      type="outline"
+      groupPosition="middle"
+    >
       MIDDLE
     </Button>
-    <Button style={{marginLeft: '10px'}} type="secondary" groupPosition="last">
+    <Button style={{marginLeft: '10px'}} type="outline" groupPosition="last">
       LAST
     </Button>
     <Title>Form w/ Button</Title>
@@ -378,6 +423,43 @@ function ButtonsTable({children, style}) {
   )
 }
 
+function ButtonsColorsTable({children, style}) {
+  return (
+    <table
+      width="auto"
+      cellPadding="8"
+      cellSpacing="0"
+      style={{background: '#fff', padding: 15}}
+    >
+      <tbody>
+        <tr>
+          <td />
+          <td>
+            <Title>Primary</Title>
+          </td>
+          <td>
+            <Title>Accent</Title>
+          </td>
+          <td>
+            <Title>Neutral</Title>
+          </td>
+          <td>
+            <Title>Success</Title>
+          </td>
+          <td>
+            <Title>Alert</Title>
+          </td>
+          <td>
+            <Title>Error</Title>
+          </td>
+        </tr>
+        {children}
+      </tbody>
+    </table>
+  )
+}
+
+
 function FormWithSubmitButton() {
   return (
     <form onSubmit={() => window.alert('Submit!')}>
@@ -398,8 +480,12 @@ function FormWithSeveralButtons() {
         <input type="text" placeholder="Put your name" />
       </div>
       <div>
-        <Button isButton onClick={() => window.alert('Click!')}>Click Me!</Button>
-        <Button isButton onClick={() => window.alert('Click!')}>Click Me!</Button>
+        <Button isButton onClick={() => window.alert('Click!')}>
+          Click Me!
+        </Button>
+        <Button isButton onClick={() => window.alert('Click!')}>
+          Click Me!
+        </Button>
       </div>
       <div>
         <Button isSubmit>Submit</Button>

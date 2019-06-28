@@ -41,8 +41,8 @@ $icon-sz-atom-button-large: $sz-icon-m !default;
 $icon-m-atom-button-large: $m-m !default;
 $p-atom-button-large: $p-l !default;
 
-$bdrs-atom-buton-first-outline: $bdrs-m 0 0 $bdrs-m !default;
-$bdrs-atom-buton-last-outline: 0 $bdrs-m $bdrs-m 0 !default;
+$bdrs-atom-button-first-outline: $bdrs-m 0 0 $bdrs-m !default;
+$bdrs-atom-button-last-outline: 0 $bdrs-m $bdrs-m 0 !default;
 
 $bxsh-atom-button-solid: none !default;
 $bxsh-atom-button-negative-solid: none !default;
@@ -125,13 +125,13 @@ $bxsh-atom-button-negative-solid: none !default;
 
     &--first {
       &#{$base-class}--outline {
-        border-radius: $bdrs-atom-buton-first-outline;
+        border-radius: $bdrs-atom-button-first-outline;
       }
     }
 
     &--last {
       &#{$base-class}--outline {
-        border-radius: $bdrs-atom-buton-last-outline;
+        border-radius: $bdrs-atom-button-last-outline;
       }
     }
   }

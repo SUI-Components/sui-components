@@ -112,7 +112,19 @@ AtomButton.displayName = 'AtomButton'
 
 AtomButton.propTypes = {
   /**
-   * Color of button: 'primary' (default), 'accent', 'neutral', 'success', 'alert', 'error'
+   * Color of button:
+   * 'primary' (default),
+   * 'accent',
+   * 'neutral',
+   * 'success',
+   * 'alert',
+   * 'error',
+   * 'social-facebook',
+   * 'social-twitter',
+   * 'social-google',
+   * 'social-youtube',
+   * 'social-whatsapp',
+   * 'social-instagram'
    */
   color: PropTypes.oneOf(COLORS),
   /**

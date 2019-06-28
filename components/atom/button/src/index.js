@@ -13,7 +13,12 @@ const COLORS = [
   'success',
   'alert',
   'error',
-  'social-whatsapp'
+  'social-facebook',
+  'social-twitter',
+  'social-google',
+  'social-youtube',
+  'social-whatsapp',
+  'social-instagram'
 ]
 
 const GROUP_POSITIONS = {

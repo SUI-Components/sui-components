@@ -9,7 +9,12 @@ $c-atom-button-types: (
   'success': ($c-success, $c-white),
   'alert': ($c-alert, $c-white),
   'error': ($c-error, $c-white),
-  'social-whatsapp': ($c-whatsapp, $c-white)
+  'social-facebook': ($c-facebook, $c-white),
+  'social-twitter': ($c-twitter, $c-white),
+  'social-google': ($c-google, $c-white),
+  'social-youtube': ($c-youtube, $c-white),
+  'social-whatsapp': ($c-whatsapp, $c-white),
+  'social-instagram': ($c-instagram, $c-white),
 ) !default;
 
 $ff-atom-button: $ff-sans-serif !default;

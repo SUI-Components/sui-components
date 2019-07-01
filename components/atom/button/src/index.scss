@@ -49,8 +49,8 @@ $p-atom-button-large: $p-l !default;
 $bdrs-atom-button-first-outline: $bdrs-m 0 0 $bdrs-m !default;
 $bdrs-atom-button-last-outline: 0 $bdrs-m $bdrs-m 0 !default;
 
-$bxsh-atom-button-solid: none !default;
-$bxsh-atom-button-negative-solid: none !default;
+$bxsh-atom-button-solid-primary: none !default;
+$bxsh-atom-button-solid-primary-negative: none !default;
 
 // Set all color properties for text and icons
 @mixin button-foreground-color($color) {
@@ -169,7 +169,6 @@ $bxsh-atom-button-negative-solid: none !default;
         }
         background-color: $color;
         border-color: $color;
-        box-shadow: $bxsh-atom-button-negative-solid;
 
         &#{$base-class}--negative {
           @include button-foreground-color($color);
@@ -179,7 +178,6 @@ $bxsh-atom-button-negative-solid: none !default;
           }
           background-color: $color-invert;
           border-color: $color-invert;
-          box-shadow: $bxsh-atom-button-negative-solid;
         }
       }
 
@@ -204,6 +202,16 @@ $bxsh-atom-button-negative-solid: none !default;
 
       &#{$base-class}--flat {
         border: 0;
+      }
+    }
+  }
+
+  &--solid {
+    &#{$base-class}--primary {
+      box-shadow: $bxsh-atom-button-solid-primary;
+
+      &#{$base-class}--negative {
+        box-shadow: $bxsh-atom-button-solid-primary-negative;
       }
     }
   }

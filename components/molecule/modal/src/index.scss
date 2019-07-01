@@ -91,6 +91,7 @@ body.is-MoleculeModal-open {
       margin: $m-molecule-modal-dialog;
       max-height: calc(100% - #{$m-molecule-modal-dialog}*2);
       max-width: $maw-molecule-modal-dialog;
+      width: initial;
     }
 
     animation: modal-content-in .25s ease-in;
@@ -105,6 +106,7 @@ body.is-MoleculeModal-open {
     text-align: left;
     vertical-align: middle;
     white-space: normal;
+    width: 100%;
     z-index: $z-molecule-modal;
 
     &--full {      
@@ -122,6 +124,7 @@ body.is-MoleculeModal-open {
       height: auto;
       margin: $m-molecule-modal-dialog-mobile;
       max-height: calc(100% - #{$m-molecule-modal-dialog}*2);
+      width: initial;
     }
   }
 

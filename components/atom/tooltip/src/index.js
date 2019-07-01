@@ -25,7 +25,7 @@ const PLACEMENTS = {
   LEFT_END: 'left-end'
 }
 
-export class AtomTooltip extends Component {
+class AtomTooltip extends Component {
   state = {Tooltip: null}
   preventNonTouchEvents = false
   hasTouchEnded = false
@@ -277,4 +277,4 @@ AtomTooltip.propTypes = {
 }
 
 export default withIntersectionObserver(withOpenToggle(AtomTooltip))
-export {PLACEMENTS as atomTooltipPlacements}
+export {AtomTooltip as AtomTooltipBase, PLACEMENTS as atomTooltipPlacements}

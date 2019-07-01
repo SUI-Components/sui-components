@@ -1,5 +1,22 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
+$base-class: '.sui-AtomButton';
+
+$c-atom-button-types: (
+  'primary': ($c-primary, $c-white),
+  'accent': ($c-accent, $c-white),
+  'neutral': ($c-gray, $c-white),
+  'success': ($c-success, $c-white),
+  'alert': ($c-alert, $c-white),
+  'error': ($c-error, $c-white),
+  'social-facebook': ($c-facebook, $c-white),
+  'social-twitter': ($c-twitter, $c-white),
+  'social-google': ($c-google, $c-white),
+  'social-youtube': ($c-youtube, $c-white),
+  'social-whatsapp': ($c-whatsapp, $c-white),
+  'social-instagram': ($c-instagram, $c-white),
+) !default;
+
 $ff-atom-button: $ff-sans-serif !default;
 
 $bdrs-atom-button: $bdrs-m !default;
@@ -29,40 +46,11 @@ $icon-sz-atom-button-large: $sz-icon-m !default;
 $icon-m-atom-button-large: $m-m !default;
 $p-atom-button-large: $p-l !default;
 
-// Primary
-$c-atom-button-primary: $c-white !default;
-$bgc-atom-button-primary-focus: $bgc-atom-button-dark !default;
-$bdc-atom-button-primary-focus: $bgc-atom-button-dark !default;
-$bgc-atom-button-primary: $bgc-atom-button !default;
-$bdc-atom-button-primary: $bgc-atom-button !default;
-$bxsh-atom-button-primary: none !default;
+$bdrs-atom-button-first-outline: $bdrs-m 0 0 $bdrs-m !default;
+$bdrs-atom-button-last-outline: 0 $bdrs-m $bdrs-m 0 !default;
 
-// Secondary
-$bgc-atom-button-secondary: $bgc-atom-button !default;
-$bgc-atom-button-secondary-focus: $bgc-atom-button-light !default;
-
-$bdrs-atom-buton-first-secondary: $bdrs-m 0 0 $bdrs-m !default;
-$bdrs-atom-buton-last-secondary: 0 $bdrs-m $bdrs-m 0 !default;
-
-// Tertiary
-$bdc-atom-button-tertiary: transparent !default;
-
-// Negative
-$c-atom-button-negative-primary: $bgc-atom-button !default;
-$bgc-atom-button-negative-primary-focus: $bgc-atom-button-light-contrast !default;
-$bdc-atom-button-negative-primary-focus: $bgc-atom-button-light-contrast !default;
-$bgc-atom-button-negative-primary: $c-white !default;
-$bdc-atom-button-negative-primary: $c-white !default;
-$c-atom-button-negative-secondary: $c-white !default;
-$bgc-atom-button-negative-secondary-focus: $bgc-atom-button-dark !default;
-$bxsh-atom-button-negative-primary: none !default;
-
-// Accent
-$c-atom-button-accent: $c-white !default;
-$bgc-atom-button-accent-focus: $c-accent-dark !default;
-$bdc-atom-button-accent-focus: $c-accent-dark !default;
-$bgc-atom-button-accent: $c-accent !default;
-$bdc-atom-button-accent: $c-accent !default;
+$bxsh-atom-button-solid-primary: none !default;
+$bxsh-atom-button-solid-primary-negative: none !default;
 
 // Set all color properties for text and icons
 @mixin button-foreground-color($color) {
@@ -75,8 +63,8 @@ $bdc-atom-button-accent: $c-accent !default;
 }
 // Sets active states when button is not disabled
 @mixin button-focused {
-  &:not(.sui-AtomButton--disabled) {
-    &.sui-AtomButton--focused,
+  &:not(#{$base-class}--disabled) {
+    &#{$base-class}--focused,
     &:active,
     &:hover {
       @content;
@@ -84,8 +72,8 @@ $bdc-atom-button-accent: $c-accent !default;
   }
 }
 @mixin button-icon($size, $margin) {
-  & .sui-AtomButton-leftIcon,
-  & .sui-AtomButton-rightIcon {
+  & #{$base-class}-leftIcon,
+  & #{$base-class}-rightIcon {
     &,
     & [class*='Icon'] {
       height: $size;
@@ -93,16 +81,16 @@ $bdc-atom-button-accent: $c-accent !default;
     }
   }
 
-  & .sui-AtomButton-leftIcon {
+  & #{$base-class}-leftIcon {
     margin-right: $margin;
   }
 
-  & .sui-AtomButton-rightIcon {
+  & #{$base-class}-rightIcon {
     margin-left: $margin;
   }
 }
 
-.sui-AtomButton {
+#{$base-class}  {
   @include reset-button;
   @include button-icon($icon-sz-atom-button, $icon-m-atom-button);
   border: 1px solid;
@@ -135,20 +123,20 @@ $bdc-atom-button-accent: $c-accent !default;
     }
 
     &--middle {
-      &.sui-AtomButton--secondary {
+      &#{$base-class}--outline {
         border-radius: 0;
       }
     }
 
     &--first {
-      &.sui-AtomButton--secondary {
-        border-radius: $bdrs-atom-buton-first-secondary;
+      &#{$base-class}--outline {
+        border-radius: $bdrs-atom-button-first-outline;
       }
     }
 
     &--last {
-      &.sui-AtomButton--secondary {
-        border-radius: $bdrs-atom-buton-last-secondary;
+      &#{$base-class}--outline {
+        border-radius: $bdrs-atom-button-last-outline;
       }
     }
   }
@@ -167,58 +155,65 @@ $bdc-atom-button-accent: $c-accent !default;
   }
 
   // Types and colors
-  &--primary {
-    @include button-foreground-color($c-atom-button-primary);
-    @include button-focused {
-      background-color: $bgc-atom-button-primary-focus;
-      border-color: $bdc-atom-button-primary-focus;
-    }
-    background-color: $bgc-atom-button-primary;
-    border-color: $bdc-atom-button-primary;
-    box-shadow: $bxsh-atom-button-primary;
-  }
 
-  &--secondary,
-  &--tertiary {
-    @include button-foreground-color($bgc-atom-button-secondary);
-    @include button-focused {
-      background-color: $bgc-atom-button-secondary-focus;
-    }
-  }
+  @each $name, $pair in $c-atom-button-types {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
 
-  &--tertiary {
-    border-color: $bdc-atom-button-tertiary;
-  }
+    &--#{$name} {
+      &#{$base-class}--solid {
+        @include button-foreground-color($color-invert);
+        @include button-focused {
+          background-color: color-variation($color, -1);
+          border-color: color-variation($color, -1);
+        }
+        background-color: $color;
+        border-color: $color;
 
-  &--negative {
-    &.sui-AtomButton--primary {
-      @include button-foreground-color($c-atom-button-negative-primary);
-      @include button-focused {
-        background-color: $bgc-atom-button-negative-primary-focus;
-        border-color: $bdc-atom-button-negative-primary-focus;
+        &#{$base-class}--negative {
+          @include button-foreground-color($color);
+          @include button-focused {
+            background-color: color-variation($color, 4);
+            border-color: color-variation($color, 4);
+          }
+          background-color: $color-invert;
+          border-color: $color-invert;
+        }
       }
-      background-color: $bgc-atom-button-negative-primary;
-      border-color: $bdc-atom-button-negative-primary;
-      box-shadow: $bxsh-atom-button-negative-primary;
-    }
 
-    &.sui-AtomButton--secondary,
-    &.sui-AtomButton--tertiary {
-      @include button-foreground-color($c-atom-button-negative-secondary);
-      @include button-focused {
-        background-color: $bgc-atom-button-negative-secondary-focus;
+      &#{$base-class}--outline, 
+      &#{$base-class}--flat {
+        @include button-foreground-color($color);
+        @include button-focused {
+          background-color: color-variation($color, 4);
+        }
+        background: none;
+        border-color: $color;
+
+        &#{$base-class}--negative {
+          @include button-foreground-color($color-invert);
+          @include button-focused {
+            background-color: color-variation($color, -1);
+          }
+          background-color: none;
+          border-color: $color-invert;
+        }
+      }
+
+      &#{$base-class}--flat {
+        border: 0;
       }
     }
   }
 
-  &--accent {
-    @include button-foreground-color($c-atom-button-accent);
-    @include button-focused {
-      background-color: $bgc-atom-button-accent-focus;
-      border-color: $bdc-atom-button-accent-focus;
+  &--solid {
+    &#{$base-class}--primary {
+      box-shadow: $bxsh-atom-button-solid-primary;
+
+      &#{$base-class}--negative {
+        box-shadow: $bxsh-atom-button-solid-primary-negative;
+      }
     }
-    background-color: $bgc-atom-button-accent;
-    border-color: $bdc-atom-button-accent;
   }
 
   // Modifiers
@@ -252,8 +247,8 @@ $bdc-atom-button-accent: $c-accent !default;
   }
 
   &--empty {
-    .sui-AtomButton-leftIcon,
-    .sui-AtomButton-rightIcon {
+    #{$base-class}-leftIcon,
+    #{$base-class}-rightIcon {
       margin: 0;
     }
   }

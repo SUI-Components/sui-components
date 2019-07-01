@@ -5,7 +5,22 @@ import cx from 'classnames'
 import Button from './Button'
 
 const CLASS = 'sui-AtomButton'
-const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
+const TYPES = ['solid', 'outline', 'flat']
+const COLORS = [
+  'primary',
+  'accent',
+  'neutral',
+  'success',
+  'alert',
+  'error',
+  'social-facebook',
+  'social-twitter',
+  'social-google',
+  'social-youtube',
+  'social-whatsapp',
+  'social-instagram'
+]
+
 const GROUP_POSITIONS = {
   FIRST: 'first',
   MIDDLE: 'middle',
@@ -26,7 +41,7 @@ const OWN_PROPS = [
   'negative',
   'type'
 ]
-const CLASSES = [...TYPES, ...SIZES, ...MODIFIERS, 'empty'].reduce(
+const CLASSES = [...TYPES, ...COLORS, ...SIZES, ...MODIFIERS, 'empty'].reduce(
   (res, key) => Object.assign(res, {[key]: `${CLASS}--${key}`}),
   {}
 )
@@ -55,6 +70,7 @@ const getModifiers = props => {
 
 const AtomButton = props => {
   const {
+    color,
     children,
     className,
     groupPosition,
@@ -68,6 +84,7 @@ const AtomButton = props => {
   const classNames = cx(
     CLASS,
     CLASSES[type],
+    CLASSES[color],
     groupPosition && `${CLASS}-group ${CLASS}-group--${groupPosition}`,
     size && CLASSES[size],
     getModifiers(props).map(key => CLASSES[key]),
@@ -95,6 +112,22 @@ AtomButton.displayName = 'AtomButton'
 
 AtomButton.propTypes = {
   /**
+   * Color of button:
+   * 'primary' (default),
+   * 'accent',
+   * 'neutral',
+   * 'success',
+   * 'alert',
+   * 'error',
+   * 'social-facebook',
+   * 'social-twitter',
+   * 'social-google',
+   * 'social-youtube',
+   * 'social-whatsapp',
+   * 'social-instagram'
+   */
+  color: PropTypes.oneOf(COLORS),
+  /**
    * HTML element: if true, render a link. Otherwise render a button
    */
   link: PropTypes.bool,
@@ -111,7 +144,7 @@ AtomButton.propTypes = {
    */
   title: PropTypes.string,
   /**
-   * Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary'
+   * Type of button: 'solid' (default), 'outline', 'flat'
    */
   type: PropTypes.oneOf(TYPES),
   /**
@@ -172,9 +205,11 @@ AtomButton.propTypes = {
 }
 
 AtomButton.defaultProps = {
-  type: 'primary'
+  color: 'primary',
+  type: 'solid'
 }
 
 export default AtomButton
 export {GROUP_POSITIONS as atomButtonGroupPositions}
 export {TYPES as atomButtonTypes}
+export {COLORS as atomButtonColors}

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2019-07-01)
+
+
+### Bug Fixes
+
+* fix full screen on mobile with small content ([814a844](https://github.com/SUI-Components/sui-components/commit/814a844)), closes [#728](https://github.com/SUI-Components/sui-components/issues/728)
+* fix scss warnings ([e6fd0dc](https://github.com/SUI-Components/sui-components/commit/e6fd0dc))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2019-06-04)
 
@@ -74,8 +85,8 @@ All notable changes to this project will be documented in this file.
 * added changes from QA comments ([5adc72b](https://github.com/SUI-Components/sui-components/commit/5adc72b))
 * added demo cases ([6d4a049](https://github.com/SUI-Components/sui-components/commit/6d4a049))
 * added ESC handler and some refactor ([b5478ab](https://github.com/SUI-Components/sui-components/commit/b5478ab))
-* added modal effects ([47cc159](https://github.com/SUI-Components/sui-components/commit/47cc159))
 * added modal effects ([3044c4d](https://github.com/SUI-Components/sui-components/commit/3044c4d))
+* added modal effects ([47cc159](https://github.com/SUI-Components/sui-components/commit/47cc159))
 * added molecule modal ([d0f712b](https://github.com/SUI-Components/sui-components/commit/d0f712b))
 * added portal and allow actions from inside the content to close the modal ([92ad74e](https://github.com/SUI-Components/sui-components/commit/92ad74e))
 * changed mixin for placeholder ([bb8d4f5](https://github.com/SUI-Components/sui-components/commit/bb8d4f5))

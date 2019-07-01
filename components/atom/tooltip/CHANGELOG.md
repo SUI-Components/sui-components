@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2019-07-01)
+
+
+### Features
+
+* fixed issue w/ export ([503ec61](https://github.com/SUI-Components/sui-components/commit/503ec61))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2019-06-06)
 

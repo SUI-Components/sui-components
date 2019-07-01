@@ -5,7 +5,7 @@ const boxStyle = {padding: 20, paddingTop: 0, width: 400, textAlign: 'center'}
 const ButtonsRow = props => (
   <tr style={{background: props.negative ? '#444' : '#fff'}}>
     <td>
-      <Title>{props.type}</Title>
+      <Title>{props.design}</Title>
     </td>
     <td>
       <Button {...props}>Button</Button>
@@ -41,7 +41,7 @@ const ButtonsRow = props => (
 
 const ButtonsSample = props => (
   <section style={{textAlign: 'center', width: '40%'}}>
-    <Title>{props.type}</Title>
+    <Title>{props.design}</Title>
     <div style={{padding: 10, background: props.negative ? '#333' : '#fff'}}>
       <p>
         <Button {...props}>Normal</Button>
@@ -63,7 +63,7 @@ const ButtonsSample = props => (
 const ButtonsColorsRow = props => (
   <tr style={{background: props.negative ? '#444' : '#fff'}}>
     <td>
-      <Title>{props.type}</Title>
+      <Title>{props.design}</Title>
     </td>
     <td>
       <Button {...props}>Button</Button>
@@ -99,7 +99,7 @@ const ButtonsColorsRow = props => (
 const ButtonsSocialRow = props => (
   <tr style={{background: props.negative ? '#444' : '#fff'}}>
     <td>
-      <Title>{props.type}</Title>
+      <Title>{props.design}</Title>
     </td>
     <td>
       <Button {...props} color="social-facebook" leftIcon={getFacebookIcon()}>
@@ -136,62 +136,75 @@ const ButtonsSocialRow = props => (
 
 return (
   <div>
+
     <Title>Colors</Title>
     <ButtonsColorsTable>
-      <ButtonsColorsRow type="solid" />
-      <ButtonsColorsRow type="outline" />
-      <ButtonsColorsRow type="flat" />
-      <ButtonsColorsRow type="solid" negative />
-      <ButtonsColorsRow type="outline" negative />
-      <ButtonsColorsRow type="flat" negative />
+      <ButtonsColorsRow design="solid" />
+      <ButtonsColorsRow design="outline" />
+      <ButtonsColorsRow design="flat" />
+      <ButtonsColorsRow design="solid" negative />
+      <ButtonsColorsRow design="outline" negative />
+      <ButtonsColorsRow design="flat" negative />
     </ButtonsColorsTable>
 
     <ButtonsSocialTable>
-      <ButtonsSocialRow type="solid" />
-      <ButtonsSocialRow type="outline" />
-      <ButtonsSocialRow type="flat" />
-      <ButtonsSocialRow type="solid" negative />
-      <ButtonsSocialRow type="outline" negative />
-      <ButtonsSocialRow type="flat" negative />
+      <ButtonsSocialRow design="solid" />
+      <ButtonsSocialRow design="outline" />
+      <ButtonsSocialRow design="flat" />
+      <ButtonsSocialRow design="solid" negative />
+      <ButtonsSocialRow design="outline" negative />
+      <ButtonsSocialRow design="flat" negative />
     </ButtonsSocialTable>
+    
+    <Title>DEPRECATED types</Title>
+    <ButtonsTable>
+      <ButtonsRow type="primary" />
+      <ButtonsRow type="accent" />
+      <ButtonsRow type="secondary" />
+      <ButtonsRow type="tertiary"/>
+      <ButtonsRow type="primary" negative />
+      <ButtonsRow type="accent" negative />
+      <ButtonsRow type="secondary" negative />
+      <ButtonsRow type="tertiary" negative />
+    </ButtonsTable>
 
     <Title>SIZE MEDIUM</Title>
     <ButtonsTable>
-      <ButtonsRow type="solid" />
-      <ButtonsRow type="outline" />
-      <ButtonsRow type="flat" />
-      <ButtonsRow type="solid" negative />
-      <ButtonsRow type="outline" negative />
-      <ButtonsRow type="flat" negative />
+      <ButtonsRow design="solid" />
+      <ButtonsRow design="outline" />
+      <ButtonsRow design="flat" />
+      <ButtonsRow design="solid" negative />
+      <ButtonsRow design="outline" negative />
+      <ButtonsRow design="flat" negative />
     </ButtonsTable>
 
     <Title>SIZE SMALL</Title>
     <ButtonsTable>
-      <ButtonsRow type="solid" size="small" />
-      <ButtonsRow type="outline" size="small" />
-      <ButtonsRow type="flat" size="small" />
-      <ButtonsRow type="solid" negative size="small" />
-      <ButtonsRow type="outline" negative size="small" />
-      <ButtonsRow type="solid" negative size="small" />
+      <ButtonsRow design="solid" size="small" />
+      <ButtonsRow design="outline" size="small" />
+      <ButtonsRow design="flat" size="small" />
+      <ButtonsRow design="solid" negative size="small" />
+      <ButtonsRow design="outline" negative size="small" />
+      <ButtonsRow design="solid" negative size="small" />
     </ButtonsTable>
 
     <Title>SIZE LARGE</Title>
     <ButtonsTable>
-      <ButtonsRow type="solid" size="large" />
-      <ButtonsRow type="outline" size="large" />
-      <ButtonsRow type="flat" size="large" />
-      <ButtonsRow type="solid" negative size="large" />
-      <ButtonsRow type="outline" negative size="large" />
-      <ButtonsRow type="solid" negative size="large" />
+      <ButtonsRow design="solid" size="large" />
+      <ButtonsRow design="outline" size="large" />
+      <ButtonsRow design="flat" size="large" />
+      <ButtonsRow design="solid" negative size="large" />
+      <ButtonsRow design="outline" negative size="large" />
+      <ButtonsRow design="solid" negative size="large" />
     </ButtonsTable>
 
     <div style={{display: 'flex', flexWrap: 'wrap'}}>
-      <ButtonsSample type="solid" />
-      <ButtonsSample type="solid" negative />
-      <ButtonsSample type="outline" />
-      <ButtonsSample type="outline" negative />
-      <ButtonsSample type="flat" />
-      <ButtonsSample type="flat" negative />
+      <ButtonsSample design="solid" />
+      <ButtonsSample design="solid" negative />
+      <ButtonsSample design="outline" />
+      <ButtonsSample design="outline" negative />
+      <ButtonsSample design="flat" />
+      <ButtonsSample design="flat" negative />
     </div>
 
     <Title>Button Sizes</Title>
@@ -240,12 +253,12 @@ return (
         <Button fullWidth>Button fullWidth</Button>
       </p>
       <p>
-        <Button type="outline" fullWidth>
+        <Button design="outline" fullWidth>
           Outline fullWidth
         </Button>
       </p>
       <p>
-        <Button type="flat" fullWidth>
+        <Button design="flat" fullWidth>
           Flat fullWidth
         </Button>
       </p>
@@ -253,7 +266,7 @@ return (
     <Title>Buttons visual - margins</Title>
     <p>
       <Button>Solid action</Button>
-      <Button type="outline">Outline action</Button>
+      <Button design="outline">Outline action</Button>
     </p>
     <Title>LEFT ICONS (@leftIcon=node)</Title>
     <p>
@@ -266,24 +279,24 @@ return (
       </Button>
     </p>
     <p>
-      <Button leftIcon={Icon} type="outline" size="small">
+      <Button leftIcon={Icon} design="outline" size="small">
         Small button
       </Button>
-      <Button leftIcon={Icon} type="outline">
+      <Button leftIcon={Icon} design="outline">
         Medium button
       </Button>
-      <Button leftIcon={Icon} type="outline" size="large">
+      <Button leftIcon={Icon} design="outline" size="large">
         Big button
       </Button>
     </p>
     <p>
-      <Button type="flat" leftIcon={Icon} size="small">
+      <Button design="flat" leftIcon={Icon} size="small">
         Small button
       </Button>
-      <Button type="flat" leftIcon={Icon}>
+      <Button design="flat" leftIcon={Icon}>
         Medium button
       </Button>
-      <Button type="flat" leftIcon={Icon} size="large">
+      <Button design="flat" leftIcon={Icon} size="large">
         Big button
       </Button>
     </p>
@@ -295,12 +308,12 @@ return (
         </Button>
       </p>
       <p>
-        <Button leftIcon={Icon} type="outline" fullWidth>
+        <Button leftIcon={Icon} design="outline" fullWidth>
           Outline fullWidth
         </Button>
       </p>
       <p>
-        <Button leftIcon={Icon} type="flat" fullWidth>
+        <Button leftIcon={Icon} design="flat" fullWidth>
           Flat fullWidth
         </Button>
       </p>
@@ -313,12 +326,12 @@ return (
       </Button>
     </p>
     <p>
-      <Button type="outline" title="Title: Lorem Ipsum">
+      <Button design="outline" title="Title: Lorem Ipsum">
         Outline with title
       </Button>
     </p>
     <p>
-      <Button type="flat" className="customClass">
+      <Button design="flat" className="customClass">
         Flat with className
       </Button>
     </p>
@@ -339,7 +352,7 @@ return (
         link
         title="button link"
         href="http://www.google.com"
-        type="outline"
+        design="outline"
         className="customClass"
       >
         Button link
@@ -350,7 +363,7 @@ return (
         link
         title="button link"
         href="http://www.google.com"
-        type="flat"
+        design="flat"
         className="customClass"
       >
         Button link
@@ -361,7 +374,7 @@ return (
         link
         title="button link"
         href="http://www.google.com"
-        type="flat"
+        design="flat"
         className="customClass"
         disabled
       >
@@ -390,17 +403,17 @@ return (
       </Button>
     </p>
     <Title>BUTTONS GROUP</Title>
-    <Button style={{marginLeft: '10px'}} type="outline" groupPosition="first">
+    <Button style={{marginLeft: '10px'}} design="outline" groupPosition="first">
       FIRST
     </Button>
     <Button
       style={{marginLeft: '10px'}}
-      type="outline"
+      design="outline"
       groupPosition="middle"
     >
       MIDDLE
     </Button>
-    <Button style={{marginLeft: '10px'}} type="outline" groupPosition="last">
+    <Button style={{marginLeft: '10px'}} design="outline" groupPosition="last">
       LAST
     </Button>
     <Title>Form w/ Button</Title>
@@ -594,7 +607,7 @@ function FormWithSubmitButton() {
   return (
     <form onSubmit={() => window.alert('Submit!')}>
       <div>
-        <input type="text" placeholder="Put your name" />
+        <input design="text" placeholder="Put your name" />
       </div>
       <div>
         <Button>Submit</Button>
@@ -607,7 +620,7 @@ function FormWithSeveralButtons() {
   return (
     <form onSubmit={() => window.alert('Submit!')}>
       <div>
-        <input type="text" placeholder="Put your name" />
+        <input design="text" placeholder="Put your name" />
       </div>
       <div>
         <Button isButton onClick={() => window.alert('Click!')}>

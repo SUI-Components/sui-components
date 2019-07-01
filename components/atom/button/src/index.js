@@ -5,7 +5,9 @@ import cx from 'classnames'
 import Button from './Button'
 
 const CLASS = 'sui-AtomButton'
-const TYPES = ['solid', 'outline', 'flat']
+
+const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
+const DESIGNS = ['solid', 'outline', 'flat']
 const COLORS = [
   'primary',
   'accent',
@@ -20,7 +22,6 @@ const COLORS = [
   'social-whatsapp',
   'social-instagram'
 ]
-
 const GROUP_POSITIONS = {
   FIRST: 'first',
   MIDDLE: 'middle',
@@ -31,20 +32,34 @@ const MODIFIERS = ['disabled', 'fullWidth', 'focused', 'negative', 'link']
 const OWN_PROPS = [
   ...TYPES,
   ...SIZES,
+  'children',
+  'className',
+  'color',
+  'design',
+  'focused',
+  'fullWidth',
   'groupPosition',
   'leftIcon',
-  'rightIcon',
-  'className',
-  'children',
-  'fullWidth',
-  'focused',
   'negative',
+  'rightIcon',
   'type'
 ]
-const CLASSES = [...TYPES, ...COLORS, ...SIZES, ...MODIFIERS, 'empty'].reduce(
-  (res, key) => Object.assign(res, {[key]: `${CLASS}--${key}`}),
-  {}
-)
+
+const createClasses = (array, sufix = '') => {
+  return array.reduce(
+    (res, key) => ({...res, [key]: `${CLASS}--${key}${sufix}`}),
+    {}
+  )
+}
+
+const CLASSES = createClasses([
+  ...TYPES,
+  ...DESIGNS,
+  ...SIZES,
+  ...MODIFIERS,
+  'empty'
+])
+const COLOR_CLASSES = createClasses(COLORS, 'Color')
 
 /**
  * Get props cleaning out AtomButton own props
@@ -68,6 +83,24 @@ const getModifiers = props => {
   )
 }
 
+const getPropsWithDefaultValues = props => {
+  let {color, design, type} = props
+  // if color or design are defined, use them with the passed or default value
+  if (color || design) {
+    color = color || 'primary'
+    design = design || 'solid'
+  } else {
+    type = type || 'primary'
+  }
+
+  return {
+    color,
+    design,
+    type,
+    ...props
+  }
+}
+
 const AtomButton = props => {
   const {
     color,
@@ -77,20 +110,24 @@ const AtomButton = props => {
     leftIcon,
     rightIcon,
     size,
+    design,
     title,
     type
-  } = props
+  } = getPropsWithDefaultValues(props)
 
   const classNames = cx(
     CLASS,
-    CLASSES[type],
-    CLASSES[color],
+    !type && COLOR_CLASSES[color],
+    !type && CLASSES[design],
+    type && CLASSES[type],
     groupPosition && `${CLASS}-group ${CLASS}-group--${groupPosition}`,
     size && CLASSES[size],
     getModifiers(props).map(key => CLASSES[key]),
     !children && CLASSES.empty,
     className
   )
+  console.log(classNames)
+
   const newProps = cleanProps(props)
 
   return (
@@ -144,9 +181,19 @@ AtomButton.propTypes = {
    */
   title: PropTypes.string,
   /**
-   * Type of button: 'solid' (default), 'outline', 'flat'
+   * DEPRECATED. Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary'
    */
-  type: PropTypes.oneOf(TYPES),
+  type: function(props, propName, componentName) {
+    if (props[propName] !== undefined) {
+      console.warn(
+        `The prop ${propName} is DEPRECATED on ${componentName}. You should use now "design" and "color" props.`
+      )
+    }
+  },
+  /**
+   * Design style of button: 'solid' (default), 'outline', 'flat'
+   */
+  design: PropTypes.oneOf(DESIGNS),
   /**
    * Group position: 'first', 'middle' (default), 'last'
    */
@@ -202,11 +249,6 @@ AtomButton.propTypes = {
    * if true, type="button" (needed when several buttons coexist under the same form)
    */
   isButton: PropTypes.bool
-}
-
-AtomButton.defaultProps = {
-  color: 'primary',
-  type: 'solid'
 }
 
 export default AtomButton

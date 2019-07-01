@@ -2,7 +2,7 @@
 
 $base-class: '.sui-AtomButton';
 
-$c-atom-button-types: (
+$c-atom-button-colors: (
   'primary': ($c-primary, $c-white),
   'accent': ($c-accent, $c-white),
   'neutral': ($c-gray, $c-white),
@@ -155,12 +155,11 @@ $bxsh-atom-button-solid-primary-negative: none !default;
   }
 
   // Types and colors
-
-  @each $name, $pair in $c-atom-button-types {
+  @each $name, $pair in $c-atom-button-colors {
     $color: nth($pair, 1);
     $color-invert: nth($pair, 2);
 
-    &--#{$name} {
+    &--#{$name}Color {
       &#{$base-class}--solid {
         @include button-foreground-color($color-invert);
         @include button-focused {
@@ -199,11 +198,11 @@ $bxsh-atom-button-solid-primary-negative: none !default;
           border-color: $color-invert;
         }
       }
-
-      &#{$base-class}--flat {
-        border: 0;
-      }
     }
+  }
+
+  &--flat {
+    border: 0;
   }
 
   &--solid {
@@ -260,3 +259,5 @@ $bxsh-atom-button-solid-primary-negative: none !default;
     }
   }
 }
+
+@import './deprecated';

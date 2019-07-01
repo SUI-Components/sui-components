@@ -80,14 +80,14 @@ const Demo = () => {
           simulation
         </p>
         <DynamicStatusContainer
-          iconActive={IconActive}
+          iconActive={<IconActive />}
           textActive={textActive}
           textExplanation={textExplanation}
-          iconUpload={AtomSpinner}
+          iconUpload={<AtomSpinner noBackground />}
           textUpload={textUpload}
-          iconSuccess={IconSuccess}
+          iconSuccess={<IconSuccess />}
           textSuccess={textSuccess}
-          iconError={IconError}
+          iconError={<IconError />}
           textError={textError}
         />
       </div>
@@ -100,7 +100,7 @@ const Demo = () => {
               return (
                 <AtomUpload
                   status={uploadStatuses.ACTIVE}
-                  iconActive={IconActive}
+                  iconActive={<IconActive />}
                   textActive={textActive}
                   textExplanation={textExplanation}
                 />
@@ -109,7 +109,7 @@ const Demo = () => {
             return (
               <AtomUpload
                 status={uploadStatuses.ACTIVE}
-                iconActive={IconActive}
+                iconActive={<IconActive />}
                 textActive={textActive}
               />
             )
@@ -124,7 +124,7 @@ const Demo = () => {
               return (
                 <AtomUpload
                   status={uploadStatuses.ACTIVE}
-                  iconActive={IconActive}
+                  iconActive={<IconActive />}
                   textActive={textActive}
                   textExplanation={textExplanation}
                 />
@@ -133,7 +133,7 @@ const Demo = () => {
             return (
               <AtomUpload
                 status={uploadStatuses.ACTIVE}
-                iconActive={IconActive}
+                iconActive={<IconActive />}
                 textActive={textActive}
               />
             )
@@ -144,7 +144,7 @@ const Demo = () => {
         <h3>Upload</h3>
         <AtomUpload
           status={uploadStatuses.UPLOAD}
-          iconUpload={AtomSpinner}
+          iconUpload={<AtomSpinner noBackground />}
           textUpload={textUpload}
         />
       </div>
@@ -152,14 +152,14 @@ const Demo = () => {
         <h3>Success</h3>
         <AtomUpload
           status={uploadStatuses.SUCCESS}
-          iconSuccess={IconSuccess}
+          iconSuccess={<IconSuccess />}
           textSuccess={textSuccess}
         />
       </div>
       <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
         <h3>Error</h3>
         <AtomUpload
-          iconError={IconError}
+          iconError={<IconError />}
           textError={textError}
           status={uploadStatuses.ERROR}
         />

@@ -153,13 +153,13 @@ body.is-MoleculeModal-open {
   }
 
   &-close {
+    -webkit-tap-highlight-color: transparent;
     background-color: transparent;
     border: 0;
     cursor: pointer;
     display: flex;
     outline: 0 none;
     padding: $pt-molecule-modal-icon $pl-molecule-modal-icon $pb-molecule-modal-icon $pr-molecule-modal-icon;
-    -webkit-tap-highlight-color: transparent;
 
     svg {
       fill: $c-molecule-modal-icon;

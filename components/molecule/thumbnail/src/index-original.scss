@@ -1,6 +1,4 @@
 @import '~@schibstedspain/sui-theme/lib/index';
-@import '~@s-ui/react-atom-image/lib/index';
-
 
 $bgc-molecule-thumbnail: color-variation($c-gray-light, 3) !default;
 $bgc-molecule-thumbnail-hover: color-variation($c-primary, 4) !default;
@@ -46,29 +44,25 @@ $ratios-molecule-thumbnail: (
     }
   }
 
-  .sui-AtomImage {
+  .sui-ImagePlaceholder-image {
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    width: 100%;    
+  }
+
+  .sui-ImagePlaceholder {
     border: 0;
     height: 100%;
     overflow: hidden;
     padding: $p-molecule-thumbnail-image;
     position: relative;
     width: 100%;
-
-    &-figure {
-      margin: 0;
-    }
-
-    &-image {
-      height: 100%;
-      object-fit: cover;
-      overflow: hidden;
-      width: 100%;    
-    }
   }
 
   &--circled {
     &,
-    .sui-AtomImage {
+    .sui-ImagePlaceholder {
       border-radius: 50%;
     }
 
@@ -104,7 +98,7 @@ $ratios-molecule-thumbnail: (
 
     @each $key-ratio, $ratio in $ratios-molecule-thumbnail {
       &--#{$key-size}.sui-MoleculeThumbnail--#{$key-ratio}-#{$ratio} {
-        .sui-AtomImage {
+        .sui-ImagePlaceholder {
           height: ($size / $key-ratio) * $ratio;
         }   
       }
@@ -119,7 +113,7 @@ $ratios-molecule-thumbnail: (
 
       @each $key-ratio, $ratio in $ratios-molecule-thumbnail {
         &--#{$key-size}.sui-MoleculeThumbnail--#{$key-ratio}-#{$ratio} {
-          .sui-AtomImage {
+          .sui-ImagePlaceholder {
             height: ($size / $key-ratio) * $ratio;
           }   
         }

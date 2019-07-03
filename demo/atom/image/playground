@@ -82,9 +82,9 @@ return (
         <div style={containerImageStyles}>
           <AtomImage
             src={IMAGES.BAD}
-            spinner={Spinner}
+            spinner={ <Spinner /> }
             placeholder={IMAGES.PLACEHOLDER}
-            errorIcon={ImageNotFoundIcon}
+            errorIcon={ <ImageNotFoundIcon /> }
             errorText={defaultErrorText}
             alt="Nice View"
           />
@@ -98,7 +98,7 @@ return (
         <div style={containerImageStyles}>
           <AtomImage
             src={IMAGES.FINAL}
-            spinner={Spinner}
+            spinner={ <Spinner /> }
             placeholder={IMAGES.PLACEHOLDER}
             alt="Nice View"
           />
@@ -110,7 +110,7 @@ return (
 
       <li style={listItem}>
         <div style={containerImageStyles}>
-          <AtomImage src={IMAGES.FINAL} alt="Nice View" spinner={Spinner} />
+          <AtomImage src={IMAGES.FINAL} alt="Nice View" spinner={ <Spinner /> } />
         </div>
         <small style={{margin: '10px'}}>
           Image with spinner (only) while loading final image

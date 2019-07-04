@@ -25,7 +25,6 @@ export default BaseComponent => {
       const {onAnimationEnd, onClose} = this.props
 
       onAnimationEnd()
-
       if (!this.state.closing) return
       this.setState({closing: false}, () => onClose())
     }

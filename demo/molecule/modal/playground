@@ -80,6 +80,7 @@ class ScrollModal extends React.Component {
           closeOnEscKeyDown
           iconClose={<IconClose />}
           fitWindow
+          onAnimationEnd={() => console.log('demo animation end', this.state.open)}
           header={<strong>My new brand modal</strong>}
           onClose={this.closeModal}
         >

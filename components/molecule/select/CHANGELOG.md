@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-07-04)
+
+
+### Bug Fixes
+
+* fix input disabled ([571ee31](https://github.com/SUI-Components/sui-components/commit/571ee31))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2019-05-14)
 

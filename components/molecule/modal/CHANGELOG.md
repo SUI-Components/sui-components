@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2019-07-04)
+
+
+### Bug Fixes
+
+* fix onAnimationEnd ([2afa04e](https://github.com/SUI-Components/sui-components/commit/2afa04e)), closes [#733](https://github.com/SUI-Components/sui-components/issues/733)
+* fix onAnimationEnd execution ([4a5c09d](https://github.com/SUI-Components/sui-components/commit/4a5c09d))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2019-07-01)
 

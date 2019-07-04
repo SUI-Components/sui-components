@@ -224,14 +224,18 @@ MoleculeSelect.propTypes = {
   errorState: PropTypes.bool,
 
   /** This Boolean attribute prevents the user from interacting with the select */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+
+  /** This Boolean attribute prevents the user from interacting with the input but without disabled styles  */
+  readOnly: PropTypes.bool
 }
 
 MoleculeSelect.defaultProps = {
+  disabled: false,
+  keysSelection: [' ', 'Enter'],
   onChange: () => {},
   onToggle: () => {},
-  keysSelection: [' ', 'Enter'],
-  disabled: false
+  readOnly: false
 }
 
 export default withOpenToggle(MoleculeSelect)

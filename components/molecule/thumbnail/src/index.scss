@@ -1,7 +1,6 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~@s-ui/react-atom-image/lib/index';
 
-
 $bgc-molecule-thumbnail: color-variation($c-gray-light, 3) !default;
 $bgc-molecule-thumbnail-hover: color-variation($c-primary, 4) !default;
 $bd-molecule-thumbnail: 1px solid transparent !default;

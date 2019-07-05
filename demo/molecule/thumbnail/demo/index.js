@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
 import React from 'react'
-import cx from 'classnames'
 
 import MoleculeThumbnail, {
   moleculeThumbnailSize,
@@ -31,30 +30,21 @@ const IMAGES = {
 
 const defaultErrorText = 'Image not found'
 
-// const BASE_CLASS_DEMO = 'DemoMoleculeThumbnail'
-// const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
+const BASE_CLASS_DEMO = 'DemoMoleculeThumbnail'
+const CLASS_DEMO_TABLE = `${BASE_CLASS_DEMO}-table`
+const CLASS_DEMO_CELL = `${BASE_CLASS_DEMO}-cell`
 // const CLASS_DEMO_SECTION_VERTICAL = `${CLASS_DEMO_SECTION}--vertical`
 // const CLASS_DEMO_SECTION_RESPONSIVE = `${CLASS_DEMO_SECTION}-responsive`
 // const CLASS_DEMO_CONTENT_STEP = `${BASE_CLASS_DEMO}-contentStep`
 
 const Demo = () => {
   return (
-    <div>
+    <div className={BASE_CLASS_DEMO}>
       <h2>Basic examples</h2>
-      <table
-        style={{
-          marginBottom: '20px'
-        }}
-      >
+      <table className={CLASS_DEMO_TABLE}>
         <tbody>
           <tr>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Link</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -66,13 +56,7 @@ const Demo = () => {
                 size={moleculeThumbnailSize.MEDIUM}
               />
             </td>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>No link</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -83,13 +67,7 @@ const Demo = () => {
                 size={moleculeThumbnailSize.MEDIUM}
               />
             </td>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Caption</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -100,13 +78,7 @@ const Demo = () => {
                 size={moleculeThumbnailSize.MEDIUM}
               />
             </td>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Circled</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -125,20 +97,10 @@ const Demo = () => {
       </table>
 
       <h2>Squared & Ratio 1:1</h2>
-      <table
-        style={{
-          marginBottom: '20px'
-        }}
-      >
+      <table className={CLASS_DEMO_TABLE}>
         <tbody>
           <tr>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Large</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -151,13 +113,7 @@ const Demo = () => {
                 size={moleculeThumbnailSize.LARGE}
               />
             </td>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Medium</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -170,13 +126,7 @@ const Demo = () => {
                 size={moleculeThumbnailSize.MEDIUM}
               />
             </td>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Small</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -189,13 +139,7 @@ const Demo = () => {
                 size={moleculeThumbnailSize.SMALL}
               />
             </td>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Xsmall</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -213,20 +157,10 @@ const Demo = () => {
       </table>
 
       <h2>Squared & Ratio 4:3</h2>
-      <table
-        style={{
-          marginBottom: '20px'
-        }}
-      >
+      <table className={CLASS_DEMO_TABLE}>
         <tbody>
           <tr>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Large</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -240,13 +174,7 @@ const Demo = () => {
                 ratio={moleculeThumbnailRatio['4:3']}
               />
             </td>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Medium</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -260,13 +188,7 @@ const Demo = () => {
                 ratio={moleculeThumbnailRatio['4:3']}
               />
             </td>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Small</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -280,13 +202,7 @@ const Demo = () => {
                 ratio={moleculeThumbnailRatio['4:3']}
               />
             </td>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Xsmall</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -305,20 +221,10 @@ const Demo = () => {
       </table>
 
       <h2>Squared & Ratio 16:9</h2>
-      <table
-        style={{
-          marginBottom: '20px'
-        }}
-      >
+      <table className={CLASS_DEMO_TABLE}>
         <tbody>
           <tr>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Large</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -332,13 +238,7 @@ const Demo = () => {
                 ratio={moleculeThumbnailRatio['16:9']}
               />
             </td>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Medium</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -352,13 +252,7 @@ const Demo = () => {
                 ratio={moleculeThumbnailRatio['16:9']}
               />
             </td>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Small</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -372,13 +266,7 @@ const Demo = () => {
                 ratio={moleculeThumbnailRatio['16:9']}
               />
             </td>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Xsmall</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -397,20 +285,10 @@ const Demo = () => {
       </table>
 
       <h2>Circled & ratio 1:1</h2>
-      <table
-        style={{
-          marginBottom: '20px'
-        }}
-      >
+      <table className={CLASS_DEMO_TABLE}>
         <tbody>
           <tr>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Large</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -424,13 +302,7 @@ const Demo = () => {
                 size={moleculeThumbnailSize.LARGE}
               />
             </td>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Medium</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -444,13 +316,7 @@ const Demo = () => {
                 size={moleculeThumbnailSize.MEDIUM}
               />
             </td>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Small</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}
@@ -464,13 +330,7 @@ const Demo = () => {
                 size={moleculeThumbnailSize.SMALL}
               />
             </td>
-            <td
-              style={{
-                width: '25%',
-                verticalAlign: 'top',
-                textAlign: 'center'
-              }}
-            >
+            <td className={CLASS_DEMO_CELL}>
               <h3>Xsmall</h3>
               <MoleculeThumbnail
                 src={IMAGES.FINAL}

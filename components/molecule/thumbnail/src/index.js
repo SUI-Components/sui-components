@@ -34,10 +34,7 @@ const MoleculeThumbnail = props => {
     target,
     captionText,
     linkFactory: Link,
-    alt,
-    src,
-    placeholder,
-    skeleton
+    ...propsImage
   } = props
 
   const figure = (
@@ -49,12 +46,7 @@ const MoleculeThumbnail = props => {
         `${BASE_CLASS}--${shape}`
       )}
     >
-      <AtomImage
-        src={src}
-        alt={alt}
-        placeholder={placeholder}
-        skeleton={skeleton}
-      />
+      <AtomImage {...propsImage} />
       {captionText && (
         <figcaption className={CAPTION_CLASS}>{captionText}</figcaption>
       )}
@@ -86,16 +78,6 @@ MoleculeThumbnail.propTypes = {
   /** Text shown at the bottom of the component */
   captionText: PropTypes.string,
 
-  /* ---------------------------------------- */
-
-  /** Img props to be shown until the image loads */
-  // placeholder: PropTypes.object.isRequired,
-
-  /** Img props to be shown if the image fails loading */
-  // fallback: PropTypes.object,
-
-  /* ---------------------------------------- */
-
   /** Image displayed (blurred) while the final image is being loaded */
   placeholder: PropTypes.string,
 
@@ -116,8 +98,6 @@ MoleculeThumbnail.propTypes = {
 
   /** Function to be called when the image completed its loading  */
   onLoad: PropTypes.func,
-
-  /* ---------------------------------------- */
 
   /** Anchor link */
   href: PropTypes.string,

@@ -33,7 +33,7 @@ const Content = ({children}) => (
   </div>
 )
 
-const pText = 'Cras vitae consectetur dui. Nullam quis arcu id ligula rhoncus faucibus et eget odio. Etiam vulputate fringilla nibh sed sodales. Phasellus facilisis dignissim aliquet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque feugiat vehicula odio at venenatis. Integer rhoncus tortor sed auctor laoreet. Aliquam ac vulputate urna. Suspendisse felis eros, maximus eget urna vitae, pellentesque pretium odio. Duis mi arcu, laoreet sit amet pulvinar ac, congue quis turpis. Cras rutrum leo ac massa malesuada, quis vestibulum lorem convallis. Fusce eget tellus euismod, fringilla nulla ornare, blandit purus. Nam orci lacus, faucibus at nisi id, auctor molestie nunc. Nulla a porta quam. Donec vel iaculis nibh.'
+const pText = 'Cras '
 const pLoremStyle = {maxWidth: '600px'}
 const pScrollableLoremStyle = {maxWidth: '600px', maxHeight: '70px', border: '1px solid grey', overflow:'auto'}
 
@@ -80,11 +80,12 @@ class ScrollModal extends React.Component {
           closeOnEscKeyDown
           iconClose={<IconClose />}
           fitWindow
+          onAnimationEnd={() => console.log('demo animation end', this.state.open)}
           header={<strong>My new brand modal</strong>}
           onClose={this.closeModal}
         >
           <Content>
-            {[...Array(24).keys()].map(index => (
+            {[...Array(1).keys()].map(index => (
               <LoremIpsumParagraph key={index} />
             ))}
           </Content>

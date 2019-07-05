@@ -1,57 +1,50 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types'
 
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import Chevronright from '@schibstedspain/sui-svgiconset/lib/Chevronright'
 import cx from 'classnames'
 
-export default class BreadcrumbBasic extends Component {
-  state = {isExpanded: false}
+const breadcrumbClassName = isExpanded =>
+  cx('sui-BreadcrumbBasic', {
+    'is-expanded': isExpanded
+  })
 
-  _expandBreadcrumb = () => {
-    this.setState({isExpanded: true})
-  }
+export default function BreadcrumbBasic({items, icon, linkFactory: Link}) {
+  const [isExpanded, setIsExpanded] = useState(false)
+  const expandBreadcrumb = () => setIsExpanded(true)
 
-  _breadcrumbClassName = () =>
-    cx('sui-BreadcrumbBasic', {
-      'is-expanded': this.state.isExpanded
-    })
+  const IconAngle = icon || Chevronright
+  const numItems = items.length - 1
 
-  render() {
-    const {items, icon, linkFactory: Link} = this.props
-    const IconAngle = icon || Chevronright
-    const numItems = items.length - 1
-    return (
-      <nav aria-label="breadcrumb" role="navigation">
-        <div className={this._breadcrumbClassName()}>
-          <button
-            onClick={this._expandBreadcrumb}
-            className="sui-BreadcrumbBasic-btn"
-          >
-            ...
-          </button>
-          <ul className="sui-BreadcrumbBasic-list">
-            {items.map(({url, label}, index) => (
-              <li className="sui-BreadcrumbBasic-listItem" key={index}>
-                {index !== 0 &&
-                  index <= numItems && (
-                    <IconAngle svgClass="sui-BreadcrumbBasic-icon" />
-                  )}
-                {url ? (
-                  <Link href={url} className="sui-BreadcrumbBasic-link">
-                    {label}
-                  </Link>
-                ) : (
-                  label
+  return (
+    <nav aria-label="breadcrumb" role="navigation">
+      <div className={breadcrumbClassName(isExpanded)}>
+        <button onClick={expandBreadcrumb} className="sui-BreadcrumbBasic-btn">
+          ...
+        </button>
+        <ul className="sui-BreadcrumbBasic-list">
+          {items.map(({url, label}, index) => (
+            <li className="sui-BreadcrumbBasic-listItem" key={index}>
+              {index !== 0 &&
+                index <= numItems && (
+                  <IconAngle svgClass="sui-BreadcrumbBasic-icon" />
                 )}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
-    )
-  }
+              {url ? (
+                <Link href={url} className="sui-BreadcrumbBasic-link">
+                  {label}
+                </Link>
+              ) : (
+                label
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  )
 }
+
 BreadcrumbBasic.displayName = 'BreadcrumbBasic'
 
 BreadcrumbBasic.propTypes = {

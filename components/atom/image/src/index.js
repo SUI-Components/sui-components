@@ -16,7 +16,7 @@ const Error = (
   {className, icon: Icon, text} // eslint-disable-line react/prop-types
 ) => (
   <div className={className}>
-    {Icon && <Icon />}
+    {Icon}
     <p>{text}</p>
   </div>
 )
@@ -88,6 +88,12 @@ class AtomImage extends Component {
       backgroundImage: `url(${placeholder || skeleton})`
     }
 
+    const SpinnerExtended =
+      Spinner &&
+      React.cloneElement(Spinner, {
+        className: CLASS_SPINNER
+      })
+
     return (
       <div className={this.classNames}>
         <figure
@@ -102,7 +108,7 @@ class AtomImage extends Component {
             {...imgProps}
           />
         </figure>
-        {!error && loading && Spinner && <Spinner className={CLASS_SPINNER} />}
+        {!error && loading && SpinnerExtended}
         {error && (
           <Error className={CLASS_ERROR} icon={errorIcon} text={errorText} />
         )}

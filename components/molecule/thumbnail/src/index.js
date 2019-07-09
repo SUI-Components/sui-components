@@ -52,15 +52,28 @@ const MoleculeThumbnail = props => {
       )}
     </figure>
   )
+
   return href ? (
-    <Link
-      className={LINK_CLASS}
-      href={href}
-      target={target}
-      rel={target === '_blank' && 'noopener'}
+    <figure
+      className={cx(
+        `${BASE_CLASS}`,
+        `${BASE_CLASS}--${size}`,
+        `${BASE_CLASS}--${ratio}`,
+        `${BASE_CLASS}--${shape}`
+      )}
     >
-      {figure}
-    </Link>
+      <Link
+        className={LINK_CLASS}
+        href={href}
+        target={target}
+        rel={target === '_blank' && 'noopener'}
+      >
+        <AtomImage {...propsImage} />
+        {captionText && (
+          <figcaption className={CAPTION_CLASS}>{captionText}</figcaption>
+        )}
+      </Link>
+    </figure>
   ) : (
     figure
   )

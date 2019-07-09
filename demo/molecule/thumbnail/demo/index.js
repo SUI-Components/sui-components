@@ -33,9 +33,6 @@ const defaultErrorText = 'Image not found'
 const BASE_CLASS_DEMO = 'DemoMoleculeThumbnail'
 const CLASS_DEMO_TABLE = `${BASE_CLASS_DEMO}-table`
 const CLASS_DEMO_CELL = `${BASE_CLASS_DEMO}-cell`
-// const CLASS_DEMO_SECTION_VERTICAL = `${CLASS_DEMO_SECTION}--vertical`
-// const CLASS_DEMO_SECTION_RESPONSIVE = `${CLASS_DEMO_SECTION}-responsive`
-// const CLASS_DEMO_CONTENT_STEP = `${BASE_CLASS_DEMO}-contentStep`
 
 const Demo = () => {
   return (

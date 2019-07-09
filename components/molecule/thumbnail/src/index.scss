@@ -45,31 +45,9 @@ $ratios-molecule-thumbnail: (
     }
   }
 
-  .sui-AtomImage {
-    border: 0;
-    height: 100%;
-    overflow: hidden;
-    padding: $p-molecule-thumbnail-image;
-    position: relative;
-    width: 100%;
-
-    &-figure {
-      margin: 0;
-    }
-
-    &-image {
-      height: 100%;
-      object-fit: cover;
-      overflow: hidden;
-      width: 100%;    
-    }
-  }
-
   &--circled {
-    &,
-    .sui-AtomImage {
-      border-radius: 50%;
-    }
+    border-radius: 50%;
+    overflow: hidden;
 
     .sui-MoleculeThumbnail-caption {
       display: none;
@@ -103,9 +81,7 @@ $ratios-molecule-thumbnail: (
 
     @each $key-ratio, $ratio in $ratios-molecule-thumbnail {
       &--#{$key-size}.sui-MoleculeThumbnail--#{$key-ratio}-#{$ratio} {
-        .sui-AtomImage {
-          height: ($size / $key-ratio) * $ratio;
-        }   
+        height: ($size / $key-ratio) * $ratio;
       }
     }
   }
@@ -118,9 +94,7 @@ $ratios-molecule-thumbnail: (
 
       @each $key-ratio, $ratio in $ratios-molecule-thumbnail {
         &--#{$key-size}.sui-MoleculeThumbnail--#{$key-ratio}-#{$ratio} {
-          .sui-AtomImage {
-            height: ($size / $key-ratio) * $ratio;
-          }   
+          height: ($size / $key-ratio) * $ratio;
         }
       }
     }

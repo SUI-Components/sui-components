@@ -1,0 +1,16 @@
+@import '~@s-ui/react-atom-spinner/lib/index';
+
+.DemoMoleculeThumbnail {
+  padding: 20px;
+
+  &-table {
+    margin-bottom: 20px;
+  }
+
+  &-cell {
+    width: 25%;
+    vertical-align: top;
+    text-align: center;
+  }
+
+}

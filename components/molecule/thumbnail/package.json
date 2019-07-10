@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@schibstedspain/sui-image-placeholder": "2"
+    "@s-ui/react-atom-image": "2"
   },
   "keywords": [],
   "author": "",

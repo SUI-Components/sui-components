@@ -86,8 +86,10 @@ $ratios-molecule-thumbnail: (
     }
 
     @each $key-ratio, $ratio in $ratios-molecule-thumbnail {
-      &--#{$key-size}.sui-MoleculeThumbnail--#{$key-ratio}-#{$ratio} {
-        height: ($size / $key-ratio) * $ratio;
+      &--#{$key-size} {
+        .sui-MoleculeThumbnail-containerImage--#{$key-ratio}-#{$ratio} {
+          height: ($size / $key-ratio) * $ratio;
+        }
       }
     }
   }
@@ -99,8 +101,10 @@ $ratios-molecule-thumbnail: (
       }
 
       @each $key-ratio, $ratio in $ratios-molecule-thumbnail {
-        &--#{$key-size}.sui-MoleculeThumbnail--#{$key-ratio}-#{$ratio} {
-          height: ($size / $key-ratio) * $ratio;
+        &--#{$key-size} {
+          .sui-MoleculeThumbnail-containerImage--#{$key-ratio}-#{$ratio} {
+            height: ($size / $key-ratio) * $ratio;
+          }
         }
       }
     }

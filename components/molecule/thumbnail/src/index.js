@@ -6,6 +6,7 @@ import cx from 'classnames'
 const BASE_CLASS = 'sui-MoleculeThumbnail'
 const CAPTION_CLASS = `${BASE_CLASS}-caption`
 const LINK_CLASS = `${BASE_CLASS}-link`
+const CONTAINER_IMAGE = `${BASE_CLASS}-containerImage`
 
 const SIZES = {
   LARGE: 'large',
@@ -37,45 +38,38 @@ const MoleculeThumbnail = props => {
     ...propsImage
   } = props
 
-  const figure = (
-    <figure
-      className={cx(
-        `${BASE_CLASS}`,
-        `${BASE_CLASS}--${size}`,
-        `${BASE_CLASS}--${ratio}`,
-        `${BASE_CLASS}--${shape}`
-      )}
-    >
-      <AtomImage {...propsImage} />
+  const ImageCaption = () => (
+    <div>
+      <div className={cx(`${CONTAINER_IMAGE}`, `${CONTAINER_IMAGE}--${ratio}`)}>
+        <AtomImage {...propsImage} />
+      </div>
       {captionText && (
         <figcaption className={CAPTION_CLASS}>{captionText}</figcaption>
       )}
-    </figure>
+    </div>
   )
 
-  return href ? (
+  return (
     <figure
       className={cx(
         `${BASE_CLASS}`,
         `${BASE_CLASS}--${size}`,
-        `${BASE_CLASS}--${ratio}`,
         `${BASE_CLASS}--${shape}`
       )}
     >
-      <Link
-        className={LINK_CLASS}
-        href={href}
-        target={target}
-        rel={target === '_blank' && 'noopener'}
-      >
-        <AtomImage {...propsImage} />
-        {captionText && (
-          <figcaption className={CAPTION_CLASS}>{captionText}</figcaption>
-        )}
-      </Link>
+      {href ? (
+        <Link
+          className={LINK_CLASS}
+          href={href}
+          target={target}
+          rel={target === '_blank' && 'noopener'}
+        >
+          <ImageCaption />
+        </Link>
+      ) : (
+        <ImageCaption />
+      )}
     </figure>
-  ) : (
-    figure
   )
 }
 

@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2019-07-17)
+
+
+### Bug Fixes
+
+* fix sass lint errors to prevent commit blocks ([8bff90f](https://github.com/SUI-Components/sui-components/commit/8bff90f))
+
+
+### Features
+
+* first commit with only Schibsted Spain Components ([c0814de](https://github.com/SUI-Components/sui-components/commit/c0814de))
+* fixed issues detected in PR ([b9fde28](https://github.com/SUI-Components/sui-components/commit/b9fde28))
+* fixed issues detected in PR ([ad9d1f8](https://github.com/SUI-Components/sui-components/commit/ad9d1f8))
+* removed dependencies atomImage SASS ([0383441](https://github.com/SUI-Components/sui-components/commit/0383441))
+* use of AtomImage ([3d80d48](https://github.com/SUI-Components/sui-components/commit/3d80d48))
+* using last version of AtomImage and demo updated ([501b83b](https://github.com/SUI-Components/sui-components/commit/501b83b))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-06-07)
 

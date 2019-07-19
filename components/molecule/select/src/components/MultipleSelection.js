@@ -21,7 +21,8 @@ const MoleculeSelectFieldMultiSelection = props => {
     placeholder,
     keysSelection,
     id,
-    size
+    size,
+    optionsData = {}
   } = props
 
   const handleMultiSelection = (ev, {value: valueOptionSelected}) => {
@@ -39,11 +40,13 @@ const MoleculeSelectFieldMultiSelection = props => {
     refMoleculeSelect.current.focus()
   }
 
+  const tags = values.map(value => optionsData[value])
+
   return (
     <Fragment>
       <MoleculeInputSelect
         id={id}
-        tags={values}
+        tags={tags}
         onClick={onToggle}
         tagsCloseIcon={iconCloseTag}
         iconArrowDown={iconArrowDown}

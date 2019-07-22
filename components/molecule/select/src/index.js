@@ -24,7 +24,18 @@ class MoleculeSelect extends Component {
   refMoleculeSelect = this.props.refMoleculeSelect || React.createRef()
   refsMoleculeSelectOptions = []
   state = {
-    focus: false
+    focus: false,
+    optionsData: {}
+  }
+
+  componentDidMount() {
+    const {children} = this.props // eslint-disable-line react/prop-types
+    const optionsData = {}
+    React.Children.forEach(children, child => {
+      const {children, value} = child.props
+      optionsData[value] = children
+    })
+    this.setState({optionsData})
   }
 
   get extendedChildren() {
@@ -145,6 +156,7 @@ class MoleculeSelect extends Component {
 
   render() {
     const {multiselection, ..._props} = this.props
+    const {optionsData} = this.state
     const {
       className,
       handleKeyDown,
@@ -166,6 +178,7 @@ class MoleculeSelect extends Component {
         {multiselection ? (
           <MoleculeSelectMultipleSelection
             refMoleculeSelect={refMoleculeSelect}
+            optionsData={optionsData}
             {..._props}
           >
             {extendedChildren}
@@ -173,6 +186,7 @@ class MoleculeSelect extends Component {
         ) : (
           <MoleculeSelectSingleSelection
             refMoleculeSelect={refMoleculeSelect}
+            optionsData={optionsData}
             {..._props}
           >
             {extendedChildren}

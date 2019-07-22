@@ -20,7 +20,8 @@ const MoleculeSelectSingleSelection = props => {
     size,
     placeholder,
     id,
-    disabled
+    disabled,
+    optionsData = {}
   } = props
 
   const handleSelection = (ev, {value}) => {
@@ -35,7 +36,7 @@ const MoleculeSelectSingleSelection = props => {
         disabled={disabled}
         id={id}
         isOpen={isOpen}
-        value={value}
+        value={optionsData[value] || ''}
         onClick={onToggle}
         iconArrowDown={iconArrowDown}
         placeholder={placeholder}

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, {useState, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
@@ -24,40 +26,37 @@ const AtomBackToTop = ({
   refContainer,
   style
 }) => {
-  const [show, setShow] = useState(null)
+  const [show, setShow] = useState(false)
   const [hover, setHover] = useState(false)
 
   let intervalId = 0
-  let container = useRef(null)
 
-  container = getTarget(refContainer)
-  const {scrollHeight, clientHeight} = container
+  useEffect(() => {
+    const container = getTarget(refContainer)
+    const {scrollHeight, clientHeight} = container
+    const halfHeight = Math.floor((scrollHeight - clientHeight) / 2)
 
-  useEffect(
-    () => {
-      const halfHeight = Math.floor((scrollHeight - clientHeight) / 2)
+    const handleScroll = () => {
+      const {scrollTop} = container
 
-      const handleScroll = () => {
-        const {scrollTop} = container
-
-        if (scrollTop > halfHeight) {
-          if (!show) setShow(true)
-        } else {
-          if (show) {
-            setShow(false)
-            setHover(false)
-          }
+      if (scrollTop > halfHeight) {
+        if (!show) setShow(true)
+      } else {
+        if (show) {
+          setShow(false)
+          setHover(false)
         }
       }
-      container.addEventListener('scroll', handleScroll)
-      return () => {
-        container.removeEventListener('scroll', handleScroll)
-      }
-    },
-    [clientHeight, intervalId, scrollHeight, show]
-  )
+    }
+
+    container.addEventListener('scroll', handleScroll)
+    return () => {
+      container.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   const scrollStep = () => {
+    const container = getTarget(refContainer)
     const {scrollTop} = container
 
     if (scrollTop === 0) clearInterval(intervalId)

@@ -51,7 +51,6 @@ const AtomBackToTop = ({
       }
       container.addEventListener('scroll', handleScroll)
       return () => {
-        clearInterval(intervalId)
         container.removeEventListener('scroll', handleScroll)
       }
     },

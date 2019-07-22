@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2019-07-22)
+
+
+### Features
+
+* admit data w/ set of values/texts ([91fa0e8](https://github.com/SUI-Components/sui-components/commit/91fa0e8))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2019-07-04)
 

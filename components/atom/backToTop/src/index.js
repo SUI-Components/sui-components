@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import {getTarget} from '@s-ui/js/lib/react'
@@ -27,7 +27,7 @@ const AtomBackToTop = ({
   const [show, setShow] = useState(false)
   const [hover, setHover] = useState(false)
 
-  let intervalId = 0
+  let intervalRef = useRef()
 
   useEffect(
     () => {
@@ -60,13 +60,15 @@ const AtomBackToTop = ({
   const scrollStep = () => {
     const container = getTarget(refContainer)
     const {scrollTop} = container
+    const {current: intervalId} = intervalRef
 
     if (scrollTop === 0) clearInterval(intervalId)
     if (scrollTop) container.scrollTop = scrollTop - scrollSteps
   }
 
   const scrollToTop = () => {
-    intervalId = setInterval(scrollStep, scrollIntervalTime)
+    const intervalId = setInterval(scrollStep, scrollIntervalTime)
+    intervalRef.current = intervalId
   }
 
   const hoverButton = () => setHover(true)

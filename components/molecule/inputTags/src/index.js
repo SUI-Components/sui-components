@@ -33,9 +33,13 @@ class MoleculeInputTags extends Component {
   }
 
   removeTag = (e, {id: indexTag}) => {
-    const {onChangeTags, value} = this.props
-    const tags = this.props.tags.filter((_, i) => i !== indexTag)
-    onChangeTags(e, {tags, value})
+    const {onChangeTags, optionsData, tags: _tags} = this.props
+    let tags = _tags.filter((_, i) => i !== indexTag)
+    if (optionsData) {
+      const keys = Object.keys(optionsData)
+      tags = keys.filter(key => tags.includes(optionsData[key]))
+    }
+    onChangeTags(e, {tags})
   }
 
   addTag = ev => {
@@ -98,6 +102,9 @@ MoleculeInputTags.displayName = 'MoleculeInputTags'
 MoleculeInputTags.propTypes = {
   /* close icon to be displayed on tags */
   tagsCloseIcon: PropTypes.node.isRequired,
+
+  /* list of pairs value/text to be handled */
+  optionsData: PropTypes.object,
 
   /* list of values displayed as tags */
   tags: PropTypes.array,

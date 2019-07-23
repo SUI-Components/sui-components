@@ -53,6 +53,7 @@ const MoleculeSelectFieldMultiSelection = props => {
         onChangeTags={handleChangeTags}
         isOpen={isOpen}
         placeholder={!values.length ? placeholder : ''}
+        optionsData={optionsData}
         noBorder
       />
       <MoleculeDropdownList

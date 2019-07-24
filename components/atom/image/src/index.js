@@ -1,5 +1,4 @@
-/* eslint-disable */
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect, useRef, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -13,9 +12,8 @@ const CLASS_IMAGE = `${BASE_CLASS}-image`
 const CLASS_SPINNER = `${BASE_CLASS}-spinner`
 const CLASS_ERROR = `${BASE_CLASS}-error`
 
-const Error = (
-  {className, icon: Icon, text} // eslint-disable-line react/prop-types
-) => (
+/* eslint-disable-next-line react/prop-types */
+const Error = ({className, icon: Icon, text}) => (
   <div className={className}>
     {Icon}
     <p>{text}</p>
@@ -38,10 +36,13 @@ const AtomImage = ({
 
   const imageRef = useRef()
 
-  const handleLoad = () => {
-    setLoading(false)
-    onLoad && onLoad()
-  }
+  const handleLoad = useCallback(
+    () => {
+      setLoading(false)
+      onLoad && onLoad()
+    },
+    [onLoad]
+  )
 
   useEffect(
     () => {
@@ -80,16 +81,16 @@ const AtomImage = ({
     })
 
   return (
-    <div className={this.classNames}>
+    <div className={classNames}>
       <figure
-        className={this.classNamesFigure}
+        className={classNamesFigure}
         style={!error && (placeholder || skeleton) ? figureStyles : {}}
       >
         <img
           className={CLASS_IMAGE}
-          onLoad={this.handleLoad}
-          onError={this.handleError}
-          ref={this.imageRef}
+          onLoad={handleLoad}
+          onError={handleError}
+          ref={imageRef}
           {...imgProps}
         />
       </figure>

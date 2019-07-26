@@ -12,6 +12,8 @@ $class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
 $z-select-list: $z-navigation !default;
 $mr-select-list-arrow: -$p-xxl !default;
 $pr-select-atom-input-tags: $p-xxl !default;
+$w-select-list-arrow: $sz-icon-m !default;
+$h-select-list-arrow: $sz-icon-m !default;
 
 #{$base-class} {
   outline: none;
@@ -44,6 +46,11 @@ $pr-select-atom-input-tags: $p-xxl !default;
 
       &--up {
         transform: rotate(180deg);
+      }
+
+      svg {
+        width: $w-select-list-arrow;
+        height: $h-select-list-arrow;
       }
     }
 

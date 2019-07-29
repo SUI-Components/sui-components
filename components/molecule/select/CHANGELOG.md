@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2019-07-29)
+
+
+### Features
+
+* add dynamic loading data ([34d1157](https://github.com/SUI-Components/sui-components/commit/34d1157))
+* autocomplete off for the internal input ([4894d21](https://github.com/SUI-Components/sui-components/commit/4894d21))
+* default size for arrow icon ([55a89b7](https://github.com/SUI-Components/sui-components/commit/55a89b7))
+* fixed issue when removing tags on values/text source of data ([2147877](https://github.com/SUI-Components/sui-components/commit/2147877))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2019-07-22)
 

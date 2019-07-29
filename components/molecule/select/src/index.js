@@ -20,6 +20,15 @@ const ERROR_STATES = {
   SUCCESS: 'success'
 }
 
+const getOptionData = children => {
+  const optionsData = {}
+  React.Children.forEach(children, child => {
+    const {children, value} = child.props
+    optionsData[value] = children
+  })
+  return optionsData
+}
+
 class MoleculeSelect extends Component {
   refMoleculeSelect = this.props.refMoleculeSelect || React.createRef()
   refsMoleculeSelectOptions = []
@@ -28,13 +37,14 @@ class MoleculeSelect extends Component {
     optionsData: {}
   }
 
+  static getDerivedStateFromProps({children}, state) {
+    const optionsData = getOptionData(children)
+    return {...state, optionsData}
+  }
+
   componentDidMount() {
     const {children} = this.props // eslint-disable-line react/prop-types
-    const optionsData = {}
-    React.Children.forEach(children, child => {
-      const {children, value} = child.props
-      optionsData[value] = children
-    })
+    const optionsData = getOptionData(children)
     this.setState({optionsData})
   }
 

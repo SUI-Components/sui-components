@@ -9,6 +9,8 @@ import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 
 import {IconCloseTag, IconArrowDown} from './Icons'
 
+import ComboCountries from './components/ComboCountries'
+
 import {countries as countriesList} from './data'
 import countriesData from './data/countries.json'
 import './index.scss'
@@ -148,6 +150,12 @@ const Demo = () => (
           </MoleculeSelectOption>
         ))}
       </MoleculeSelectWithState>
+    </div>
+
+    <h2>Dependant Selection</h2>
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With Placeholder</h3>
+      <ComboCountries />
     </div>
   </div>
 )

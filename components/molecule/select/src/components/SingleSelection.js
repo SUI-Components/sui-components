@@ -40,7 +40,8 @@ const MoleculeSelectSingleSelection = props => {
         onClick={onToggle}
         iconArrowDown={iconArrowDown}
         placeholder={placeholder}
-        autocomplete="off"
+        autocomplete="false"
+        readonly
       />
       <MoleculeDropdownList
         size={size}

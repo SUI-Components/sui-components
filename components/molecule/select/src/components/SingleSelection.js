@@ -21,6 +21,7 @@ const MoleculeSelectSingleSelection = props => {
     placeholder,
     id,
     disabled,
+    readOnly,
     optionsData = {}
   } = props
 
@@ -33,6 +34,7 @@ const MoleculeSelectSingleSelection = props => {
   return (
     <Fragment>
       <MoleculeInputSelect
+        readOnly={readOnly}
         disabled={disabled}
         id={id}
         isOpen={isOpen}

@@ -136,6 +136,25 @@ const Demo = () => (
     </div>
 
     <div className={CLASS_DEMO_SECTION}>
+      <h3>With preselected Value and readOnly attr</h3>
+      <MoleculeSelectWithState
+        placeholder="Select some countries..."
+        value={['India', 'Luxembourg']}
+        onChange={(_, {value}) => console.log(value)}
+        iconCloseTag={<IconCloseTag />}
+        iconArrowDown={<IconArrowDown />}
+        multiselection
+        readOnly
+      >
+        {countriesList.map((country, i) => (
+          <MoleculeSelectOption key={i} value={country}>
+            {country}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelectWithState>
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
       <h3>With different value and displayed text</h3>
       <MoleculeSelectWithState
         placeholder="Select some countries..."

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.1.0"></a>
+# 2.1.0 (2019-07-30)
+
+
+### Features
+
+* hooks migratino ([1ac3104](https://github.com/SUI-Components/sui-components/commit/1ac3104))
+* hooks migration ([0a3fa9d](https://github.com/SUI-Components/sui-components/commit/0a3fa9d))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2019-07-05)
 

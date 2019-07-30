@@ -87,6 +87,7 @@ class Input extends Component {
         tabIndex={tabIndex}
         checked={checked}
         disabled={disabled || readOnly}
+        readOnly={readOnly}
         id={id}
         name={name}
         onChange={this.changeHandler}

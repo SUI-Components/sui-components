@@ -29,9 +29,11 @@ $badges: (
   ) !default;
 
 .sui-AtomBadge {
+  align-items: center;
   border-radius: $bdrs-atom-badge;
   box-sizing: border-box;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
   white-space: nowrap;
 
   & + & {
@@ -60,10 +62,12 @@ $badges: (
 
   &-icon {
     @include sui-icon--small;
-    display: inline-block;
-    height: auto;
     margin-right: $m-atom-badge-s;
     vertical-align: middle;
+
+    &--iconRight {
+      margin-left: $m-atom-badge-s;
+    }
   }
 
   @each $type, $element in $badges {

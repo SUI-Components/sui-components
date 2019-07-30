@@ -4,23 +4,31 @@ const icon = (
   </svg>
 )
 
+const stylesBlock = {
+  display: 'inline-flex'
+}
+
 return (
   <div>
-    <h2>With background</h2>
-    <p>
+    <h2>With Container</h2>
+    <h3>Small</h3>
+    <p style={stylesBlock}>
       <AtomBadge label='9.5 / 10'/>
       <AtomBadge label='5.5 / 10' type={atomBadgeTypes.ALERT} />
       <AtomBadge label='2.5 / 10' type={atomBadgeTypes.ERROR} />
       <AtomBadge label='Executive' type={atomBadgeTypes.INFO} />
     </p>
-    <p>
+    <h3>Large</h3>
+    <p style={stylesBlock}>
       <AtomBadge label='Badge xBasic' size={atomBadgeSizes.LARGE} />
       <AtomBadge label='Badge xIcon' type={atomBadgeTypes.ALERT} icon={icon} size={atomBadgeSizes.LARGE} />
+      <AtomBadge label='Badge xIcon' type={atomBadgeTypes.INFO} icon={icon} iconRight size={atomBadgeSizes.LARGE} />
     </p>
     <h2>Without background</h2>
-    <p><AtomBadge label='Basic badge' type={atomBadgeTypes.INFO} icon={icon} transparent /></p>
+    <p><AtomBadge label='Basic badge' type={atomBadgeTypes.INFO} transparent /></p>
     <p><AtomBadge label='Success badge' icon={icon} transparent /></p>
     <p><AtomBadge label='Error badge' type={atomBadgeTypes.ERROR} icon={icon} transparent /></p>
     <p><AtomBadge label='Alert badge' type={atomBadgeTypes.ALERT} icon={icon} transparent /></p>
+    <p><AtomBadge label='ERROR badge' type={atomBadgeTypes.ERROR} icon={icon} iconRight transparent size={atomBadgeSizes.LARGE} /></p>
   </div>
 )

@@ -16,6 +16,10 @@ const TYPES = {
   ALERT: 'alert'
 }
 
+const BASE_CLASS = `sui-AtomBadge`
+const CLASS_ICON = `${BASE_CLASS}-icon`
+const CLASS_ICON_RIGHT = `${CLASS_ICON}--iconRight`
+
 /**
  * Cuts off exceeded char limit
  * @param  {string} label
@@ -34,14 +38,22 @@ const truncateText = function(label) {
  * @param  {string} options.type
  * @return {string}
  */
-const getClassNames = function({className, size, transparent, type}) {
+const getClassNames = function({
+  className,
+  iconRight,
+  size,
+  transparent,
+  type
+}) {
   const transparentClass = (transparent && `--${TRANSPARENT}`) || ''
 
   return cx(
-    'sui-AtomBadge',
-    `sui-AtomBadge-${size}`,
-    `sui-AtomBadge-${type}${transparentClass}`,
-    className
+    BASE_CLASS,
+    `${BASE_CLASS}-${size}`,
+    `${BASE_CLASS}-${type}${transparentClass}`,
+    {
+      [CLASS_ICON_RIGHT]: iconRight
+    }
   )
 }
 
@@ -56,18 +68,21 @@ const shouldRenderIcon = function({icon, size, transparent}) {
   return icon && (size !== SIZES.SMALL || transparent)
 }
 
-const AtomBadge = function({icon, label, ...props}) {
+const AtomBadge = function({icon, iconRight, label, ...props}) {
   const truncatedLabel = truncateText(label)
   const classNames = getClassNames(props)
 
   return (
     <div className={classNames}>
-      {shouldRenderIcon({icon, ...props}) && (
-        <span className="sui-AtomBadge-icon">{icon}</span>
-      )}
+      {shouldRenderIcon({icon, ...props}) &&
+        !iconRight && <span className={CLASS_ICON}>{icon}</span>}
       <span className="sui-AtomBadge-text" title={truncatedLabel}>
         {label}
       </span>
+      {shouldRenderIcon({icon, ...props}) &&
+        iconRight && (
+          <span className={cx(CLASS_ICON, CLASS_ICON_RIGHT)}>{icon}</span>
+        )}
     </div>
   )
 }
@@ -75,29 +90,25 @@ const AtomBadge = function({icon, label, ...props}) {
 AtomBadge.displayName = 'AtomBadge'
 
 AtomBadge.propTypes = {
-  /**
-   * CSS Classes to be added to the component
-   */
+  /** CSS Classes to be added to the component */
   className: PropTypes.string,
-  /**
-   * Badge text to be shown
-   */
+
+  /** Badge text to be shown */
   label: PropTypes.string.isRequired,
-  /**
-   * Custom svg icon to be shown
-   */
+
+  /** Custom svg icon to be shown */
   icon: PropTypes.node,
-  /**
-   * Whether show a background color
-   */
+
+  /** Icon to the right (left by default) */
+  iconRight: PropTypes.bool,
+
+  /** Whether show a background color */
   transparent: PropTypes.bool,
-  /**
-   * Determine the size of the badge
-   */
+
+  /** Determine the size of the badge */
   size: PropTypes.oneOf(Object.values(SIZES)),
-  /**
-   * Determine the type of the badge
-   */
+
+  /** Determine the type of the badge */
   type: PropTypes.oneOf(Object.values(TYPES))
 }
 

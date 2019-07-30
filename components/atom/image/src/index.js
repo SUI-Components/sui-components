@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useState, useEffect, useRef, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -12,109 +12,94 @@ const CLASS_IMAGE = `${BASE_CLASS}-image`
 const CLASS_SPINNER = `${BASE_CLASS}-spinner`
 const CLASS_ERROR = `${BASE_CLASS}-error`
 
-const Error = (
-  {className, icon: Icon, text} // eslint-disable-line react/prop-types
-) => (
+/* eslint-disable-next-line react/prop-types */
+const Error = ({className, icon: Icon, text}) => (
   <div className={className}>
     {Icon}
     <p>{text}</p>
   </div>
 )
 
-class AtomImage extends Component {
-  state = {
-    loading: true,
-    error: false
-  }
+const AtomImage = ({
+  placeholder,
+  skeleton,
+  bgStyles,
+  spinner: Spinner,
+  errorIcon,
+  errorText,
+  onError,
+  onLoad,
+  ...imgProps
+}) => {
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
-  imageRef = React.createRef()
+  const imageRef = useRef()
 
-  get classNames() {
-    const {loading, error} = this.state
-    return cx(
-      BASE_CLASS,
-      `is-${loading ? 'loading' : 'loaded'}`,
-      error && `is-error`
-    )
-  }
+  const handleLoad = useCallback(
+    () => {
+      setLoading(false)
+      onLoad && onLoad()
+    },
+    [onLoad]
+  )
 
-  get classNamesFigure() {
-    const {placeholder, skeleton} = this.props
-    return cx(
-      BASE_CLASS_FIGURE,
-      placeholder && CLASS_PLACEHOLDER,
-      skeleton && CLASS_SKELETON
-    )
-  }
+  useEffect(
+    () => {
+      const {current: img} = imageRef
+      if (img && img.complete && loading) handleLoad()
+    },
+    [handleLoad, loading]
+  )
 
-  handleLoad = () => {
-    const {onLoad} = this.props
-    this.setState({loading: false})
-    onLoad && onLoad()
-  }
+  const classNames = cx(
+    BASE_CLASS,
+    `is-${loading ? 'loading' : 'loaded'}`,
+    error && `is-error`
+  )
 
-  handleError = () => {
-    const {onError} = this.props
-    this.setState({
-      error: true,
-      loading: false
-    })
+  const classNamesFigure = cx(
+    BASE_CLASS_FIGURE,
+    placeholder && CLASS_PLACEHOLDER,
+    skeleton && CLASS_SKELETON
+  )
+
+  const handleError = () => {
+    setLoading(false)
+    setError(true)
     onError && onError()
   }
 
-  componentDidMount() {
-    const img = this.imageRef.current
-    if (img && img.complete && this.state.loading) {
-      this.handleLoad()
-    }
+  const figureStyles = {
+    backgroundImage: `url(${placeholder || skeleton})`
   }
 
-  render() {
-    const {
-      placeholder,
-      skeleton,
-      bgStyles,
-      spinner: Spinner,
-      errorIcon,
-      errorText,
-      onError,
-      onLoad,
-      ...imgProps
-    } = this.props
+  const SpinnerExtended =
+    Spinner &&
+    React.cloneElement(Spinner, {
+      className: CLASS_SPINNER
+    })
 
-    const {loading, error} = this.state
-
-    const figureStyles = {
-      backgroundImage: `url(${placeholder || skeleton})`
-    }
-
-    const SpinnerExtended =
-      Spinner &&
-      React.cloneElement(Spinner, {
-        className: CLASS_SPINNER
-      })
-
-    return (
-      <div className={this.classNames}>
-        <figure
-          className={this.classNamesFigure}
-          style={!error && (placeholder || skeleton) ? figureStyles : {}}
-        >
-          <img
-            className={CLASS_IMAGE}
-            onLoad={this.handleLoad}
-            onError={this.handleError}
-            ref={this.imageRef}
-            {...imgProps}
-          />
-        </figure>
-        {!error && loading && SpinnerExtended}
-        {error && (
-          <Error className={CLASS_ERROR} icon={errorIcon} text={errorText} />
-        )}
-      </div>
-    )
-  }
+  return (
+    <div className={classNames}>
+      <figure
+        className={classNamesFigure}
+        style={!error && (placeholder || skeleton) ? figureStyles : {}}
+      >
+        <img
+          className={CLASS_IMAGE}
+          onLoad={handleLoad}
+          onError={handleError}
+          ref={imageRef}
+          {...imgProps}
+        />
+      </figure>
+      {!error && loading && SpinnerExtended}
+      {error && (
+        <Error className={CLASS_ERROR} icon={errorIcon} text={errorText} />
+      )}
+    </div>
+  )
 }
 
 AtomImage.displayName = 'AtomImage'

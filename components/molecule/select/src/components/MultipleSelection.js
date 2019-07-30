@@ -54,8 +54,8 @@ const MoleculeSelectFieldMultiSelection = props => {
         isOpen={isOpen}
         placeholder={!values.length ? placeholder : ''}
         optionsData={optionsData}
-        autocomplete="false"
-        readonly
+        autoComplete="off"
+        readOnly
         noBorder
       />
       <MoleculeDropdownList

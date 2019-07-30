@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.13.0"></a>
+# 1.13.0 (2019-07-30)
+
+
+### Features
+
+* disable autocomplete select ([c13077b](https://github.com/SUI-Components/sui-components/commit/c13077b))
+* improved disabling autocomplete ([86123c6](https://github.com/SUI-Components/sui-components/commit/86123c6))
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2019-07-29)
 

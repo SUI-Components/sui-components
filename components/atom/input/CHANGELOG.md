@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="3.11.0"></a>
+# 3.11.0 (2019-07-30)
+
+
+### Features
+
+* propagate readonly attribute ([a1d6a0e](https://github.com/SUI-Components/sui-components/commit/a1d6a0e))
+
+
+
 <a name="3.10.0"></a>
 # 3.10.0 (2019-06-19)
 

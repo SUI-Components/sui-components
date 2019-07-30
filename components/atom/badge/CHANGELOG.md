@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2019-07-30)
+
+
+### Features
+
+* atom Badge iteration ([f69e102](https://github.com/SUI-Components/sui-components/commit/f69e102))
+* first commit with only Schibsted Spain Components ([c0814de](https://github.com/SUI-Components/sui-components/commit/c0814de))
+* removed inline-grid for compatibility IE11 ([efd61ac](https://github.com/SUI-Components/sui-components/commit/efd61ac))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2018-07-20)
 

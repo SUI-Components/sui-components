@@ -1,41 +1,34 @@
-import React, {Component} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
 import Input from '../Input'
 
-class MaskInput extends Component {
-  componentWillUnmount() {
-    this.mask && this.mask.destroy()
+const MaskInput = ({name, onChange, mask: maskOptions, ...props}) => {
+  const [mask, setMask] = useState(null)
+  const refInput = useRef(null)
+
+  useEffect(() => () => mask && mask.destroy(), [mask])
+
+  const handleChange = (ev, {value}) => {
+    onChange(ev, {value})
   }
 
-  onChange = (ev, {value}) => {
-    const {onChange} = this.props
-    onChange && onChange(ev, {value})
-  }
-
-  onFocus = () => {
-    const {mask} = this.props
-    if (!this.mask) {
-      import('imask').then(imaskPackage => {
-        const IMask = imaskPackage.default
-        this.mask = new IMask(this.field, mask)
+  const handleFocus = () => {
+    if (!mask) {
+      import('imask').then(({default: IMask}) => {
+        setMask(new IMask(refInput.current, maskOptions))
       })
     }
   }
 
-  render() {
-    const {name} = this.props
-    return (
-      <Input
-        id={name}
-        reference={input => {
-          this.field = input
-        }}
-        onChange={this.onChange}
-        onFocus={this.onFocus}
-        {...this.props}
-      />
-    )
-  }
+  return (
+    <Input
+      id={name}
+      reference={refInput}
+      onChange={handleChange}
+      onFocus={handleFocus}
+      {...props}
+    />
+  )
 }
 
 MaskInput.displayName = 'MaskInput'
@@ -47,6 +40,10 @@ MaskInput.propTypes = {
   name: PropTypes.string,
   /* Event launched on every input change */
   onChange: PropTypes.func
+}
+
+MaskInput.defaultProps = {
+  onChange: () => {}
 }
 
 export default MaskInput

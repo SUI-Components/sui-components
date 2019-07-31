@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -14,17 +14,64 @@ const ERROR_STATES = {
   SUCCESS: 'success'
 }
 
-class Input extends Component {
-  changeHandler = ev => {
-    const {onChange} = this.props
+const getErrorStateClass = errorState => {
+  if (errorState) return `${BASE_CLASS}--${ERROR_STATES.ERROR}`
+  if (errorState === false) return `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
+  return ''
+}
+
+const getClassNames = ({
+  size,
+  charsSize,
+  hideInput,
+  noBorder,
+  readOnly,
+  errorState
+}) => {
+  return cx(
+    BASE_CLASS,
+    `${BASE_CLASS}-${size}`,
+    charsSize && `${BASE_CLASS}--size`,
+    hideInput && `${BASE_CLASS}--hidden`,
+    noBorder && `${BASE_CLASS}--noBorder`,
+    readOnly && `${BASE_CLASS}--readOnly`,
+    getErrorStateClass(errorState)
+  )
+}
+
+const Input = ({
+  checked,
+  disabled,
+  readOnly,
+  hideInput,
+  noBorder,
+  id,
+  name,
+  onBlur,
+  onFocus,
+  placeholder,
+  reference,
+  size,
+  errorState,
+  type,
+  value,
+  charsSize,
+  tabIndex,
+  maxLength,
+  autoComplete,
+  onChange,
+  onEnter,
+  onEnterKey,
+  onKeyDown
+}) => {
+  const changeHandler = ev => {
     const {
       target: {value}
     } = ev
     onChange(ev, {value})
   }
 
-  handleKeyDown = ev => {
-    const {onEnter, onEnterKey, onKeyDown} = this.props
+  const handleKeyDown = ev => {
     const {
       target: {value}
     } = ev
@@ -33,77 +80,37 @@ class Input extends Component {
     if (key === onEnterKey) onEnter(ev, {value})
   }
 
-  getErrorStateClass(errorState) {
-    if (errorState) return `${BASE_CLASS}--${ERROR_STATES.ERROR}`
-    if (errorState === false) return `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
-    return ''
-  }
+  const className = getClassNames({
+    size,
+    charsSize,
+    hideInput,
+    noBorder,
+    readOnly,
+    errorState
+  })
 
-  getClassNames({size, charsSize, hideInput, noBorder, readOnly, errorState}) {
-    return cx(
-      BASE_CLASS,
-      `${BASE_CLASS}-${size}`,
-      charsSize && `${BASE_CLASS}--size`,
-      hideInput && `${BASE_CLASS}--hidden`,
-      noBorder && `${BASE_CLASS}--noBorder`,
-      readOnly && `${BASE_CLASS}--readOnly`,
-      this.getErrorStateClass(errorState)
-    )
-  }
-
-  render() {
-    const {
-      checked,
-      disabled,
-      readOnly,
-      hideInput,
-      noBorder,
-      id,
-      name,
-      onBlur,
-      onFocus,
-      placeholder,
-      reference,
-      size,
-      errorState,
-      type,
-      value,
-      charsSize,
-      tabIndex,
-      maxLength,
-      autoComplete
-    } = this.props
-
-    return (
-      <input
-        className={this.getClassNames({
-          size,
-          charsSize,
-          hideInput,
-          noBorder,
-          readOnly,
-          errorState
-        })}
-        tabIndex={tabIndex}
-        checked={checked}
-        disabled={disabled || readOnly}
-        readOnly={readOnly}
-        id={id}
-        name={name}
-        onChange={this.changeHandler}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onKeyDown={this.handleKeyDown}
-        placeholder={placeholder}
-        ref={reference}
-        type={type}
-        value={value}
-        size={charsSize}
-        maxLength={maxLength}
-        autoComplete={autoComplete}
-      />
-    )
-  }
+  return (
+    <input
+      className={className}
+      tabIndex={tabIndex}
+      checked={checked}
+      disabled={disabled || readOnly}
+      readOnly={readOnly}
+      id={id}
+      name={name}
+      onChange={changeHandler}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      onKeyDown={handleKeyDown}
+      placeholder={placeholder}
+      ref={reference}
+      type={type}
+      value={value}
+      size={charsSize}
+      maxLength={maxLength}
+      autoComplete={autoComplete}
+    />
+  )
 }
 
 Input.propTypes = {

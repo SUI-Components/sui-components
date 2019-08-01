@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -13,31 +13,33 @@ const MODIFIERS = {
   ERROR: 'error'
 }
 
-class Circle extends Component {
-  static MAX_TRANSITION_TIME_IN_MS = 1250
+const MAX_TRANSITION_TIME_IN_MS = 1250
 
-  state = {
-    currentPercentage: this.props.percentage,
-    transitionTime: 0
-  }
+const Circle = ({
+  baseClassName,
+  modifier,
+  percentage,
+  strokeWidth,
+  size,
+  withAnimation
+}) => {
+  const [currentPercentage, setCurrentPercentage] = useState(percentage)
+  const [transitionTime, setTransitionTime] = useState(0)
 
-  static getDerivedStateFromProps(props, state) {
-    if (Math.abs(props.percentage - state.currentPercentage) < 5) {
-      return {
-        currentPercentage: props.percentage,
-        transitionTime: 0
+  useEffect(
+    (currentPercentage, percentage) => {
+      if (Math.abs(percentage - currentPercentage) < 5) {
+        setCurrentPercentage(percentage)
+        setTransitionTime(0)
+      } else {
+        setCurrentPercentage(percentage)
+        setTransitionTime((MAX_TRANSITION_TIME_IN_MS * percentage) / 100 / 1000)
       }
-    }
-    return {
-      currentPercentage: props.percentage,
-      transitionTime:
-        (Circle.MAX_TRANSITION_TIME_IN_MS * props.percentage) / 100 / 1000
-    }
-  }
+    },
+    [currentPercentage, percentage]
+  )
 
-  getPathStyles(percentage, strokeWidth) {
-    const {transitionTime} = this.state
-    const {withAnimation} = this.props
+  const getPathStyles = ({percentage, strokeWidth}) => {
     const radius = 50 - strokeWidth / 2
     const d = `M 50,50 m 0,-${radius}
      a ${radius},${radius} 0 1 1 0,${2 * radius}
@@ -56,54 +58,33 @@ class Circle extends Component {
     }
   }
 
-  getStokeList() {
-    const {baseClassName, modifier, percentage, strokeWidth} = this.props
-
-    const {pathString, pathStyle} = this.getPathStyles(percentage, strokeWidth)
-    return (
+  return (
+    <svg
+      className={cx(`${baseClassName}-circle`, {
+        [`${baseClassName}-circle--${modifier}`]: !!modifier,
+        [`${baseClassName}-circle--${size}`]: !!size
+      })}
+      viewBox="0 0 100 100"
+    >
+      <path
+        className={cx(`${baseClassName}-trail`, {
+          [`${baseClassName}-trail--${modifier}`]: !!modifier
+        })}
+        {...getPathStyles({percentage: 100, strokeWidth})}
+        strokeWidth={strokeWidth}
+        fillOpacity="0"
+      />
       <path
         className={cx(`${baseClassName}-path`, {
           [`${baseClassName}-path--${modifier}`]: !!modifier
         })}
-        d={pathString}
+        {...getPathStyles({percentage, strokeWidth})}
         strokeLinecap="square"
         strokeWidth={strokeWidth}
         fillOpacity="0"
-        style={pathStyle}
       />
-    )
-  }
-
-  render() {
-    const {baseClassName, modifier, percentage, strokeWidth, size} = this.props
-    return (
-      <svg
-        className={cx(`${baseClassName}-circle`, {
-          [`${baseClassName}-circle--${modifier}`]: !!modifier,
-          [`${baseClassName}-circle--${size}`]: !!size
-        })}
-        viewBox="0 0 100 100"
-      >
-        <path
-          className={cx(`${baseClassName}-trail`, {
-            [`${baseClassName}-trail--${modifier}`]: !!modifier
-          })}
-          {...this.getPathStyles(100, strokeWidth)}
-          strokeWidth={strokeWidth}
-          fillOpacity="0"
-        />
-        <path
-          className={cx(`${baseClassName}-path`, {
-            [`${baseClassName}-path--${modifier}`]: !!modifier
-          })}
-          {...this.getPathStyles(percentage, strokeWidth)}
-          strokeLinecap="square"
-          strokeWidth={strokeWidth}
-          fillOpacity="0"
-        />
-      </svg>
-    )
-  }
+    </svg>
+  )
 }
 
 Circle.propTypes = {

@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -23,24 +23,23 @@ const Indicator = props => {
   )
 }
 
-class LineProgressBar extends PureComponent {
-  render() {
-    const {percentage, indicatorBottom, isAnimatedOnChange} = this.props
-    const width = `${percentage}%`
-    const styleBar = {width}
-    return (
-      <div className={BASE_CLASS}>
-        {!indicatorBottom && <Indicator {...this.props} />}
-        <div className={CLASS_CONTAINER_BAR}>
-          <span
-            className={cx(CLASS_BAR, isAnimatedOnChange && CLASS_BAR_ANIMATED)}
-            style={styleBar}
-          />
-        </div>
-        {indicatorBottom && <Indicator {...this.props} />}
+const LineProgressBar = props => {
+  const {percentage, indicatorBottom, isAnimatedOnChange} = props
+  const width = `${percentage}%`
+  const styleBar = {width}
+
+  return (
+    <div className={BASE_CLASS}>
+      {!indicatorBottom && <Indicator {...props} />}
+      <div className={CLASS_CONTAINER_BAR}>
+        <span
+          className={cx(CLASS_BAR, isAnimatedOnChange && CLASS_BAR_ANIMATED)}
+          style={styleBar}
+        />
       </div>
-    )
-  }
+      {indicatorBottom && <Indicator {...props} />}
+    </div>
+  )
 }
 
 LineProgressBar.displayName = 'LineProgressBar'

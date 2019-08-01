@@ -14,6 +14,22 @@ $c-atom-label-type: success $c-success, error $c-error;
     margin-left: $m-s;
   }
 
+  &--xsmall {
+    font-size: $fz-xs;
+  }
+
+  &--small {
+    font-size: $fz-s;
+  }
+
+  &--medium {
+    font-size: $fz-m;
+  }
+
+  &--large {
+    font-size: $fz-l;
+  }
+
   &--inlineLeft {
     display: inline;
     margin-right: $m-m;

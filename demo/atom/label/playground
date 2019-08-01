@@ -54,5 +54,27 @@ return (
         inline="right"
       />
     </div>
+
+    <div style={{marginBottom: '16px'}}>
+      <input id="atomLabelRight" type="checkbox" />
+      <AtomLabel
+        name="atomLabelRight"
+        for="atomLabelRight"
+        text="Hello large font size label"
+        inline="right"
+        fontSize={AtomLabelFontSizes.LARGE}
+      />
+    </div>
+
+    <div style={{marginBottom: '16px'}}>
+      <input id="atomLabelRight" type="checkbox" />
+      <AtomLabel
+        name="atomLabelRight"
+        for="atomLabelRight"
+        text="Hello xsmall font size label"
+        inline="right"
+        fontSize={AtomLabelFontSizes.XSMALL}
+      />
+    </div>
   </div>
 )

@@ -36,7 +36,7 @@ const AtomLabel = ({name, inline, text, optionalText, type, fontSize, onClick}) 
 AtomLabel.displayName = 'AtomLabel'
 
 AtomLabel.defaultProps = {
-  fontSize: FONT_SIZES.BASE
+  fontSize: FONT_SIZES.MEDIUM
 }
 
 AtomLabel.propTypes = {

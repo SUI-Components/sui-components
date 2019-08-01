@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2019-08-01)
+
+
+### Bug Fixes
+
+* mEDIUM as default ([511b5db](https://github.com/SUI-Components/sui-components/commit/511b5db))
+
+
+### Features
+
+* $fz-base as a font base and medium as a modifier ([8ff0af3](https://github.com/SUI-Components/sui-components/commit/8ff0af3))
+* fontSize customization and styles ([67d5819](https://github.com/SUI-Components/sui-components/commit/67d5819))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2019-06-17)
 

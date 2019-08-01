@@ -6,12 +6,27 @@ $c-atom-label-type: success $c-success, error $c-error;
 
 .sui-AtomLabel {
   display: block;
-  font-size: $fz-base;
   margin-bottom: $m-s;
 
   &-optionalText {
     color: $c-atom-label-optional;
     margin-left: $m-s;
+  }
+
+  &--xsmall {
+    font-size: $fz-xs;
+  }
+
+  &--small {
+    font-size: $fz-s;
+  }
+
+  &--medium {
+    font-size: $fz-base;
+  }
+
+  &--large {
+    font-size: $fz-l;
   }
 
   &--inlineLeft {

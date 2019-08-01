@@ -9,15 +9,23 @@ const TYPES = {
   ERROR: 'error'
 }
 
-const getClass = ({type, inline}) =>
+const FONT_SIZES = {
+  LARGE: 'large',
+  MEDIUM: 'medium',
+  SMALL: 'small',
+  XSMALL: 'xsmall'
+}
+
+const getClass = ({type, inline, fontSize}) =>
   cx(CLASSNAME, {
+    [`${CLASSNAME}--${fontSize}`]: fontSize,
     [`${CLASSNAME}--${type}`]: type,
     [`${CLASSNAME}--inlineLeft`]: inline === 'left',
     [`${CLASSNAME}--inlineRight`]: inline === 'right'
   })
 
-const AtomLabel = ({name, inline, text, optionalText, type, onClick}) => (
-  <label htmlFor={name} className={getClass({type, inline})} onClick={onClick}>
+const AtomLabel = ({name, inline, text, optionalText, type, fontSize, onClick}) => (
+  <label htmlFor={name} className={getClass({type, inline, fontSize})} onClick={onClick}>
     {text}
     {optionalText && (
       <span className="sui-AtomLabel-optionalText">{optionalText}</span>
@@ -26,6 +34,10 @@ const AtomLabel = ({name, inline, text, optionalText, type, onClick}) => (
 )
 
 AtomLabel.displayName = 'AtomLabel'
+
+AtomLabel.defaultProps = {
+  fontSize: FONT_SIZES.BASE
+}
 
 AtomLabel.propTypes = {
   /**
@@ -48,6 +60,10 @@ AtomLabel.propTypes = {
    * Label type: 'success' or 'error', use AtomLabelTypes
    */
   type: PropTypes.oneOf(Object.values(TYPES)),
+  /**
+   * Font size: set different font sizes, use AtomLabelFontSizes
+   */
+  fontSize: PropTypes.oneOf(Object.values(FONT_SIZES)),
 
   /** onClick event handler */
   onClick: PropTypes.func
@@ -55,3 +71,4 @@ AtomLabel.propTypes = {
 
 export default AtomLabel
 export {TYPES as AtomLabelTypes}
+export {FONT_SIZES as AtomLabelFontSizes}

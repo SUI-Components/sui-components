@@ -1,74 +1,68 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {ToggleSwitchTypeRender} from './SwitchType/toggle'
 import {SingleSwitchTypeRender} from './SwitchType/single'
 import {SIZES, TYPES, SUPPORTED_KEYS} from './config'
 
-class AtomSwitch extends Component {
-  state = {
-    isToggle: this.props.initialValue,
-    isFocus: false,
-    isClick: false
+const AtomSwitch = props => {
+  const {initialValue, disabled, onToggle: _onToggle, value, type} = props
+  const [isToggle, setIsToggle] = useState(initialValue)
+  const [isFocus, setIsFocus] = useState(false)
+  const [isClick, setIsClick] = useState(false)
+
+  const onBlur = () => {
+    setIsFocus(false)
+    setIsClick(false)
   }
 
-  _onKeyDown = event => {
-    if (this.props.disabled === true) return
-
-    if (SUPPORTED_KEYS.includes(event.key)) {
-      this._onToggle()
-      event.preventDefault()
-    }
+  const onFocus = () => {
+    setTimeout(() => {
+      setIsFocus(true)
+    }, 150)
   }
 
-  _onToggle = forceValue => {
-    const {disabled, onToggle, value} = this.props
+  const onClick = () => {
+    setIsClick(true)
+  }
 
+  const onToggle = forceValue => {
     if (disabled === true) return
 
     if (value !== undefined) {
       return onToggle(!value)
     }
 
-    const {isToggle: stateToggle} = this.state
-    const isToggle = forceValue !== undefined ? forceValue : !stateToggle
-    this.setState({isToggle}, () => onToggle(isToggle))
+    const newIsToggle = forceValue !== undefined ? forceValue : !isToggle
+    setIsToggle(newIsToggle)
+    _onToggle(newIsToggle)
   }
 
-  _onBlur = () => {
-    this.setState({isFocus: false, isClick: false})
-  }
+  const onKeyDown = ev => {
+    if (disabled === true) return
 
-  _onFocus = e => {
-    setTimeout(() => {
-      this.setState({isFocus: true})
-    }, 150)
-  }
-
-  _onClick = e => {
-    this.setState({isClick: true})
-  }
-
-  render() {
-    const {isToggle, isFocus, isClick} = this.state
-
-    const commonProps = {
-      ...this.props,
-      isFocus,
-      isClick,
-      isToggle,
-      onBlur: this._onBlur,
-      onClick: this._onClick,
-      onFocus: this._onFocus,
-      onKeyDown: this._onKeyDown,
-      onToggle: this._onToggle
+    if (SUPPORTED_KEYS.includes(ev.key)) {
+      _onToggle()
+      ev.preventDefault()
     }
-
-    return this.props.type === TYPES.SINGLE ? (
-      <SingleSwitchTypeRender {...commonProps} />
-    ) : (
-      <ToggleSwitchTypeRender {...commonProps} />
-    )
   }
+
+  const commonProps = {
+    ...props,
+    isFocus,
+    isClick,
+    isToggle,
+    onBlur,
+    onClick,
+    onFocus,
+    onKeyDown,
+    onToggle
+  }
+
+  return type === TYPES.SINGLE ? (
+    <SingleSwitchTypeRender {...commonProps} />
+  ) : (
+    <ToggleSwitchTypeRender {...commonProps} />
+  )
 }
 
 AtomSwitch.displayName = 'AtomSwitch'

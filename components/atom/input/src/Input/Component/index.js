@@ -6,7 +6,8 @@ const BASE_CLASS = 'sui-AtomInput-input'
 
 const SIZES = {
   MEDIUM: 'm',
-  SMALL: 's'
+  SMALL: 's',
+  XSMALL: 'xs'
 }
 
 const ERROR_STATES = {

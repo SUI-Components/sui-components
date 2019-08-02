@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.6.0"></a>
+# 2.6.0 (2019-08-02)
+
+
+### Features
+
+* bumped version ([c062a60](https://github.com/SUI-Components/sui-components/commit/c062a60))
+
+
+
 <a name="2.5.0"></a>
 # 2.5.0 (2019-07-23)
 

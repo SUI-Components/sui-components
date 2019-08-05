@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="3.12.0"></a>
+# 3.12.0 (2019-08-05)
+
+
+### Features
+
+* update doc and playground with new xsmall input size ([4507925](https://github.com/SUI-Components/sui-components/commit/4507925))
+
+
+
 <a name="3.11.0"></a>
 # 3.11.0 (2019-07-30)
 

@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react'
-// import ReactDOM from 'react-dom'
+import React, {useState, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import SUILoader from './SUILoader'
@@ -28,30 +27,29 @@ const removeParentClass = parentNodeClassList => parentClassName =>
 
 const AtomSpinner = ({delayed: _delayed, loader, type, noBackground}) => {
   const [delayed, setDelayed] = useState(_delayed)
-  const parentClassName = getParentClassName({type, noBackground})
+  const refSpinner = useRef()
 
   useEffect(
     () => {
-      // const parentNodeClassList = ReactDOM.findDOMNode(loader).parentNode.classList
+      const parentClassName = getParentClassName({type, noBackground})
+      const parentNodeClassList = refSpinner.current.parentNode.classList
 
-      if (!delayed) {
-        addParentClass()
-        return
-      }
+      if (!delayed) addParentClass(parentNodeClassList)(parentClassName)
 
       const timer = setTimeout(() => {
         setDelayed(false)
-        addParentClass(addParentClass)
+        addParentClass(parentNodeClassList)(parentClassName)
       }, DELAY)
+
       return () => {
         clearTimeout(timer)
-        removeParentClass()
+        removeParentClass(parentNodeClassList)(parentClassName)
       }
     },
-    [delayed, loader, parentClassName]
+    [delayed, noBackground, type]
   )
 
-  return !delayed ? loader : <noscript />
+  return <span ref={refSpinner}>{!delayed ? loader : <noscript />}</span>
 }
 
 AtomSpinner.displayName = 'AtomSpinner'

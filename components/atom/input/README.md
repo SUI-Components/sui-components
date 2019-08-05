@@ -60,7 +60,14 @@ const bankAccountMask = { // checkout all options here https://unmanner.github.i
 
 ### Sizes
 
-There are defined 2 sizes (`MEDIUM` and `SMALL`) available at the exported object `inputSizes` and that can be set through the prop `size`
+There are defined 3 sizes (`MEDIUM`, `SMALL` and `XSMALL`) available at the exported object `inputSizes` and that can be set through the prop `size`
+
+Related size Sass vars are:
+```scss
+$h-atom-input--m: 40px;
+$h-atom-input--s: 32px;
+$h-atom-input--xs: 24px;
+```
 
 ```js
 <AtomInput

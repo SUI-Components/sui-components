@@ -197,11 +197,27 @@ const IconLocation = () => <img src={logoLocation} />
 return (
   <div style={{padding: '20px'}}>
     <div style={field}>
+      <h4>Size MEDIUM</h4>
+      <AtomInput
+        size={inputSizes.MEDIUM}
+        name="first"
+        placeholder="Medium input"
+      />
+    </div>
+    <div style={field}>
       <h4>Size SMALL</h4>
       <AtomInput
         size={inputSizes.SMALL}
         name="first"
         placeholder="Small input"
+      />
+    </div>
+    <div style={field}>
+      <h4>Size XSMALL</h4>
+      <AtomInput
+        size={inputSizes.XSMALL}
+        name="first"
+        placeholder="Extra Small input"
       />
     </div>
     <div style={field}>

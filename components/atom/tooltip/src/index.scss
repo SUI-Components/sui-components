@@ -17,8 +17,8 @@ $pr-atom-tooltip: $p-m !default;
 $m-atom-tooltip: 0 !default;
 $z-atom-tooltip: 1070 !default;
 
-$w-atom-tooltip-arrow: .8rem !default;
-$h-atom-tooltip-arrow: .4rem !default;
+$w-atom-tooltip-arrow: 0.8rem !default;
+$h-atom-tooltip-arrow: 0.4rem !default;
 $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
 
 $base-class: '.sui-AtomTooltip';
@@ -26,7 +26,7 @@ $class-inner: '#{$base-class}-inner';
 $class-arrow: '#{$base-class}-arrow';
 $class-target: '#{$base-class}-target';
 
-#{$class-target} {  
+#{$class-target} {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   -webkit-touch-callout: none; /* iOS Safari */
@@ -135,7 +135,7 @@ $class-target: '#{$base-class}-target';
       &::before {
         border-left-color: $c-atom-tooltip-arrow;
         border-width: ($w-atom-tooltip-arrow / 2) 0 ($w-atom-tooltip-arrow / 2)
-            $h-atom-tooltip-arrow;
+          $h-atom-tooltip-arrow;
         left: 0;
       }
     }
@@ -172,5 +172,4 @@ $class-target: '#{$base-class}-target';
       @extend #{$base-class}--left;
     }
   }
-
 }

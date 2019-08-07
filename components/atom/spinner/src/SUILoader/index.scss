@@ -8,23 +8,31 @@ $z-atom-spinner-loader: 999;
 
 @keyframes atom-spinner {
   0% {
-    box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner-oval $c-atom-spinner-loader-accent, 0 $sz-atom-spinner $c-atom-spinner-loader-primary;
+    box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner-oval
+        $c-atom-spinner-loader-accent,
+      0 $sz-atom-spinner $c-atom-spinner-loader-primary;
   }
 
   25% {
-    box-shadow: 0 $sz-atom-spinner-oval $c-atom-spinner-loader-accent, -$sz-atom-spinner-oval $sz-atom-spinner $c-atom-spinner-loader-primary;
+    box-shadow: 0 $sz-atom-spinner-oval $c-atom-spinner-loader-accent,
+      -$sz-atom-spinner-oval $sz-atom-spinner $c-atom-spinner-loader-primary;
   }
 
   50% {
-    box-shadow: 0 $sz-atom-spinner $c-atom-spinner-loader-accent, -$sz-atom-spinner-oval $sz-atom-spinner-oval $c-atom-spinner-loader-primary;
+    box-shadow: 0 $sz-atom-spinner $c-atom-spinner-loader-accent,
+      -$sz-atom-spinner-oval $sz-atom-spinner-oval $c-atom-spinner-loader-primary;
   }
 
   75% {
-    box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner $c-atom-spinner-loader-accent, 0 $sz-atom-spinner-oval $c-atom-spinner-loader-primary;
+    box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner
+        $c-atom-spinner-loader-accent,
+      0 $sz-atom-spinner-oval $c-atom-spinner-loader-primary;
   }
 
   100% {
-    box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner-oval $c-atom-spinner-loader-accent, 0 $sz-atom-spinner $c-atom-spinner-loader-primary;
+    box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner-oval
+        $c-atom-spinner-loader-accent,
+      0 $sz-atom-spinner $c-atom-spinner-loader-primary;
   }
 }
 
@@ -35,7 +43,9 @@ $anim-atom-spinner: atom-spinner 1.5s ease-in-out infinite;
     animation: $anim-atom-spinner;
     background-color: transparent;
     border-radius: 50%;
-    box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner-oval $c-atom-spinner-loader-accent, 0 $sz-atom-spinner $c-atom-spinner-loader-primary;
+    box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner-oval
+        $c-atom-spinner-loader-accent,
+      0 $sz-atom-spinner $c-atom-spinner-loader-primary;
     display: none;
     height: $sz-atom-spinner-oval;
     left: 0;

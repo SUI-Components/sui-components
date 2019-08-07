@@ -1,7 +1,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import './SUILoader/index';
 
-$bgc-atom-spinner: rgba($c-white, .6) !default;
+$bgc-atom-spinner: rgba($c-white, 0.6) !default;
 $z-atom-spinner: 1 !default;
 
 %spinner-layer {
@@ -27,7 +27,6 @@ $z-atom-spinner: 1 !default;
   }
 
   &--fullPage {
-
     &::before {
       @extend %spinner-layer;
       position: fixed;
@@ -41,5 +40,4 @@ $z-atom-spinner: 1 !default;
   #{&}-loader {
     display: block;
   }
-
 }

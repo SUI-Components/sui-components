@@ -11,7 +11,7 @@ $class-read-only: '#{$base-class}--readOnly';
   @extend %sui-atom-input-input;
   border-radius: $bdrs-atom-input;
   min-height: auto;
-  
+
   &--size {
     width: inherit;
   }

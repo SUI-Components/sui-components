@@ -4,7 +4,6 @@
 $validation: success $c-success, error $c-error;
 
 .sui-AtomValidationText {
-
   @each $type, $color in $validation {
     &--#{$type} {
       color: $color;

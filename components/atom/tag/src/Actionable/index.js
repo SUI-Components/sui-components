@@ -53,6 +53,7 @@ ActionableTag.propTypes = {
 }
 
 ActionableTag.defaultProps = {
+  // eslint-disable-next-line react/prop-types
   linkFactory: ({href, target, className, children} = {}) => (
     <a href={href} target={target} className={className}>
       {children}

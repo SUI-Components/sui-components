@@ -13,14 +13,14 @@ $sizes-molecule-thumbnail: (
   large: 144px,
   medium: 72px,
   small: 48px,
-  xsmall:  40px
+  xsmall: 40px
 ) !default;
 
 $sizes-mobile-molecule-thumbnail: (
   large: 96px,
   medium: 72px,
   small: 40px,
-  xsmall:  32px
+  xsmall: 32px
 ) !default;
 
 $ratios-molecule-thumbnail: (
@@ -29,13 +29,12 @@ $ratios-molecule-thumbnail: (
   16: 9
 ) !default;
 
-
 .sui-MoleculeThumbnail {
   background-color: $bgc-molecule-thumbnail;
   border: $bd-molecule-thumbnail;
-  box-shadow: $bs-molecule-thumbnail;  
+  box-shadow: $bs-molecule-thumbnail;
   display: inline-block;
-  margin: 0;  
+  margin: 0;
   position: relative;
   width: 100%;
 
@@ -64,7 +63,7 @@ $ratios-molecule-thumbnail: (
     border: $bd-molecule-thumbnail;
     color: $c-primary;
     display: block;
-    font-size: $fz-s;    
+    font-size: $fz-s;
     overflow: hidden;
     padding: $p-m;
     text-align: center;

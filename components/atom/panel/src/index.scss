@@ -16,7 +16,7 @@ $horizontal-alignments-atom-panel: ('left', 'center', 'right') !default;
 $vertical-alignments-atom-panel: ('top', 'center', 'bottom') !default;
 
 %sui-atom-panel-image {
-  background-color: $bgc-atom-panel;//default bg color
+  background-color: $bgc-atom-panel; //default bg color
   background-repeat: no-repeat;
 }
 
@@ -26,7 +26,6 @@ $vertical-alignments-atom-panel: ('top', 'center', 'bottom') !default;
   }
 
   @each $type, $attr in $bgc-panels {
-
     &--#{$type} {
       @include bgcolor-overlay-opacity($attr);
     }
@@ -34,7 +33,6 @@ $vertical-alignments-atom-panel: ('top', 'center', 'bottom') !default;
 
   &-color {
     @each $type, $attr in $bgc-panels {
-
       &--#{$type} {
         @include bgcolor-opacity($attr);
       }

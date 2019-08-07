@@ -7,7 +7,6 @@ $c-atom-slider-tooltip: $c-gray-dark !default;
 $c-atom-slider-rail: $c-gray-light-4 !default;
 $c-atom-slider-track: $c-gray-light !default;
 
-
 $ff-atom-slider: $ff-sans-serif !default;
 $fz-atom-slider: $fz-m !default;
 
@@ -23,7 +22,6 @@ $class-tooltip-content: '#{$class-tooltip}-content';
 $class-tooltip-inner: '#{$class-tooltip}-inner';
 $class-tooltip-arrow: '#{$class-tooltip}-arrow';
 $class-tooltip-hidden: '#{$class-tooltip}-hidden';
-
 
 .sui-AtomSlider {
   font-family: $ff-atom-slider;
@@ -92,9 +90,8 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
   }
 
   &--disabled {
-    
     #{$class-disabled} {
-      background-color: transparent; 
+      background-color: transparent;
     }
 
     #{$class-handle} {
@@ -113,11 +110,10 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
 }
 
 #{$class-tooltip-hidden} {
-  display: block; 
+  display: block;
 }
 
 #{$class-tooltip} {
-  
   #{$class-tooltip-inner} {
     background: transparent;
     border-color: transparent;
@@ -132,5 +128,4 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
     border-color: transparent;
     color: transparent;
   }
-
 }

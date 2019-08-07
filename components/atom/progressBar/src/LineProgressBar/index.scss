@@ -23,14 +23,13 @@ $h-progress-bar: $m-base;
     &--bottom {
       margin-top: $m-base;
     }
-
   }
 
   &-container {
     background: $bg-progress-bar;
     border: 1px solid $bc-progress-bar;
     border-radius: $br-progress-bar;
-    height: $h-progress-bar;  /* Can be anything */
+    height: $h-progress-bar; /* Can be anything */
     position: relative;
   }
 
@@ -46,5 +45,4 @@ $h-progress-bar: $m-base;
       transition: width $trsdu-progress-bar $trstf-progress-bar;
     }
   }
-
 }

@@ -58,6 +58,7 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
+  // eslint-disable-next-line react/prop-types
   linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>
 }
 

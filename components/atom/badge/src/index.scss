@@ -13,20 +13,20 @@ $badges: (
   success: (
     bgc: $c-success,
     c: $c-white
-    ),
+  ),
   error: (
     bgc: $c-error,
     c: $c-white
-    ),
+  ),
   alert: (
     bgc: $c-alert,
     c: $c-white
-    ),
+  ),
   info: (
     bgc: $c-gray,
     c: $c-white
-    )
-  ) !default;
+  )
+) !default;
 
 .sui-AtomBadge {
   align-items: center;

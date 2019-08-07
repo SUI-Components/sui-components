@@ -22,6 +22,7 @@ const MoleculeRating = ({
   label,
   href,
   target,
+  // eslint-disable-next-line react/prop-types
   linkFactory: Link = ({children, ...rest} = {}) => <a {...rest}>{children}</a>,
   ...props
 }) => {

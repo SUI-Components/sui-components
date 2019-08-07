@@ -4,8 +4,7 @@
 @import '~@schibstedspain/sui-atom-button/lib/index';
 
 .sui-MoleculePagination {
-  
-  &-prevButtonIcon { 
+  &-prevButtonIcon {
     display: flex;
     margin-right: $m-m;
 
@@ -14,7 +13,7 @@
     }
   }
 
-  &-nextButtonIcon { 
+  &-nextButtonIcon {
     display: flex;
     margin-left: $m-m;
 

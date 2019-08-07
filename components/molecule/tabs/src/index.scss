@@ -5,10 +5,9 @@ $bdw-sui-molecule-tabs: $p-s !default;
 $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
 
 .sui-MoleculeTabs {
-
   svg {
-    width: 100%; 
-    height: 100%; 
+    width: 100%;
+    height: 100%;
   }
 
   &-scroller {
@@ -159,7 +158,7 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
   }
 
   &--vertical {
-    display: flex; 
+    display: flex;
     align-items: flex-start;
 
     .sui-MoleculeTabs-scroller {
@@ -178,7 +177,6 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
         cursor: no-drop;
       }
     }
-
   }
 
   &--fullWidth {

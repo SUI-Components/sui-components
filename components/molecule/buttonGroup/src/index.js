@@ -13,7 +13,7 @@ const getGroupPosition = (groupPositions, numChildren, index) => {
 }
 
 const MoleculeButtonGroup = ({
-  children, // eslint-disable-line react/prop-types
+  children,
   fullWidth,
   groupPositions,
   type,
@@ -46,6 +46,7 @@ const MoleculeButtonGroup = ({
 MoleculeButtonGroup.displayName = 'MoleculeButtonGroup'
 
 MoleculeButtonGroup.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.element),
   /** Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary' */
   type: PropTypes.oneOf(atomButtonTypes),
 

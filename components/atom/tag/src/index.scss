@@ -60,7 +60,7 @@ $w-atom-tag-clickable: 32px !default;
     white-space: nowrap;
 
     // if only one icon is set
-    .sui-AtomTag-hasIcon &, 
+    .sui-AtomTag-hasIcon &,
     .sui-AtomTag-hasClose & {
       max-width: $w-label-base - ($p-l + $m-s);
     }

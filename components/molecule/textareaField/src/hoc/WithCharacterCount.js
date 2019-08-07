@@ -50,7 +50,7 @@ const WithCharacterCount = BaseComponent => {
       const {onChange, maxChars} = this.props
       if (value.length > maxChars) return
 
-      let messageAtomTextarea = this.getHelpTextArea(value.length, maxChars)
+      const messageAtomTextarea = this.getHelpTextArea(value.length, maxChars)
 
       this.setState(
         {value, messageAtomTextarea},

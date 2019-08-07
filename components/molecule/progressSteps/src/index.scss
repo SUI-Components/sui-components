@@ -38,7 +38,7 @@ $base-class: '.sui-MoleculeProgressSteps';
       flex-direction: column;
       position: relative;
 
-      svg, 
+      svg,
       use {
         fill: $c-progress-steps-icon;
       }
@@ -47,7 +47,7 @@ $base-class: '.sui-MoleculeProgressSteps';
       &--visited {
         color: $c-progress-steps-active;
 
-        svg, 
+        svg,
         use {
           fill: $c-progress-steps-active;
         }
@@ -84,7 +84,6 @@ $base-class: '.sui-MoleculeProgressSteps';
         width: 100px;
         word-wrap: break-word;
       }
-
     }
   }
 

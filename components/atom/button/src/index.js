@@ -37,7 +37,7 @@ const CLASSES = [...TYPES, ...SIZES, ...MODIFIERS, 'empty'].reduce(
  * @return {Object}
  */
 const cleanProps = props => {
-  let newProps = {...props}
+  const newProps = {...props}
   OWN_PROPS.forEach(key => delete newProps[key])
   return newProps
 }

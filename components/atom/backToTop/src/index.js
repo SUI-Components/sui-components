@@ -23,6 +23,7 @@ class AtomBackToTop extends PureComponent {
   }
 
   intervalId = 0
+
   container = null
 
   scrollStep = () => {

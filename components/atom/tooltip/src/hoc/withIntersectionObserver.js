@@ -10,6 +10,7 @@ export default BaseComponent => {
 
   return class WithIntersectionObserver extends Component {
     static displayName = `withIntersectionObserver(${displayName})`
+
     static contextTypes = BaseComponent.contextTypes
 
     state = {

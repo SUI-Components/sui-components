@@ -130,6 +130,7 @@ MoleculeThumbnail.defaultProps = {
   size: SIZES.MEDIUM,
   shape: SHAPES.SQUARED,
   ratio: RATIOS['1:1'],
+  // eslint-disable-next-line react/prop-types
   linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>
 }
 

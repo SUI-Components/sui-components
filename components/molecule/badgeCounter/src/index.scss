@@ -29,7 +29,6 @@ $molecule-badge-counter-medium-offset-right: -12px !default;
     font-size: $fz-xxs;
     justify-content: center;
 
-    
     &-small {
       height: $molecule-badge-counter-small-diameter;
       width: $molecule-badge-counter-small-diameter;
@@ -42,7 +41,8 @@ $molecule-badge-counter-medium-offset-right: -12px !default;
 
       &-dot {
         background-color: $c-white;
-        border: $molecule-badge-counter-small-diameter-dot solid $bg-molecule-badge-counter;
+        border: $molecule-badge-counter-small-diameter-dot solid
+          $bg-molecule-badge-counter;
       }
     }
 
@@ -58,7 +58,8 @@ $molecule-badge-counter-medium-offset-right: -12px !default;
 
       &-dot {
         background-color: $c-white;
-        border: $molecule-badge-counter-medium-diameter-dot solid $bg-molecule-badge-counter;
+        border: $molecule-badge-counter-medium-diameter-dot solid
+          $bg-molecule-badge-counter;
       }
 
       &-exclamation {

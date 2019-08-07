@@ -26,10 +26,9 @@ export default function BreadcrumbBasic({items, icon, linkFactory: Link}) {
         <ul className="sui-BreadcrumbBasic-list">
           {items.map(({url, label}, index) => (
             <li className="sui-BreadcrumbBasic-listItem" key={index}>
-              {index !== 0 &&
-                index <= numItems && (
-                  <IconAngle svgClass="sui-BreadcrumbBasic-icon" />
-                )}
+              {index !== 0 && index <= numItems && (
+                <IconAngle svgClass="sui-BreadcrumbBasic-icon" />
+              )}
               {url ? (
                 <Link href={url} className="sui-BreadcrumbBasic-link">
                   {label}

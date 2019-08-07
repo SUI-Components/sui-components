@@ -21,7 +21,7 @@
   z-index: $z-navigation;
 
   &--animate {
-    animation: slide-down .7s;
+    animation: slide-down 0.7s;
 
     * {
       z-index: 0;

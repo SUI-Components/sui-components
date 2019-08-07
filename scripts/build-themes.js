@@ -78,25 +78,27 @@ const writeThemesInDemoFolders = async themes => {
     [path.join(process.cwd(), 'demo', '**', '**'), '!**/node_modules/**'],
     {onlyDirectories: true, cwd: process.cwd()}
   )
-  paths.filter(p => p.match(/\/demo\/\w+\/\w+$/)).forEach(async demo => {
-    try {
-      const [, component] = demo.split('/demo/')
-      await createDir(`${demo}/themes`)
-      await Promise.all(
-        themes.map(theme =>
-          writeFile(
-            `${demo}/themes/${theme}.scss`,
-            `
+  paths
+    .filter(p => p.match(/\/demo\/\w+\/\w+$/))
+    .forEach(async demo => {
+      try {
+        const [, component] = demo.split('/demo/')
+        await createDir(`${demo}/themes`)
+        await Promise.all(
+          themes.map(theme =>
+            writeFile(
+              `${demo}/themes/${theme}.scss`,
+              `
 @import '../../../../themes/${theme}';
 @import '../../../../components/${component}/src/index.scss';
         `.trim()
+            )
           )
         )
-      )
-    } catch (e) {
+      } catch (e) {
       console.log('Err:', e) // eslint-disable-line
-    }
-  })
+      }
+    })
 }
 ;(async () => {
   const themes = await getThemesList()

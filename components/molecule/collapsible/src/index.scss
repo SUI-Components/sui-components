@@ -42,7 +42,6 @@
     width: 100%;
 
     &#{&}--withGradient.is-collapsed {
-      
       &::before {
         background: $bg-collapsible-container-gradient;
         content: '';

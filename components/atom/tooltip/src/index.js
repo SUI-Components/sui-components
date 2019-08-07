@@ -27,12 +27,19 @@ const PLACEMENTS = {
 
 class AtomTooltip extends Component {
   state = {Tooltip: null}
+
   preventNonTouchEvents = false
+
   hasTouchEnded = false
+
   touchTimer = null
+
   onClickTarget = null
+
   title = null
+
   refTooltip = React.createRef()
+
   refTarget = React.createRef()
 
   loadAsyncReacstrap(e) {
@@ -206,22 +213,21 @@ class AtomTooltip extends Component {
     return (
       <Fragment>
         {this.extendChildren()}
-        {target &&
-          Tooltip && (
-            <Tooltip
-              {...restrictedProps}
-              isOpen={isOpen}
-              toggle={this.handleToggle}
-              className={BASE_CLASS}
-              innerClassName={CLASS_INNER}
-              arrowClassName={CLASS_ARROW}
-              placementPrefix={PREFIX_PLACEMENT}
-              innerRef={this.refTooltip}
-              offset="auto,4px"
-            >
-              {HtmlContent ? <HtmlContent /> : this.title}
-            </Tooltip>
-          )}
+        {target && Tooltip && (
+          <Tooltip
+            {...restrictedProps}
+            isOpen={isOpen}
+            toggle={this.handleToggle}
+            className={BASE_CLASS}
+            innerClassName={CLASS_INNER}
+            arrowClassName={CLASS_ARROW}
+            placementPrefix={PREFIX_PLACEMENT}
+            innerRef={this.refTooltip}
+            offset="auto,4px"
+          >
+            {HtmlContent ? <HtmlContent /> : this.title}
+          </Tooltip>
+        )}
       </Fragment>
     )
   }

@@ -22,6 +22,7 @@ const MoleculeRating = ({
   label,
   href,
   target,
+  // eslint-disable-next-line react/prop-types
   linkFactory: Link = ({children, ...rest} = {}) => <a {...rest}>{children}</a>,
   ...props
 }) => {
@@ -44,11 +45,9 @@ const MoleculeRating = ({
   return (
     <div className={className}>
       <div className={CLASS_CONTAINER_STARS}>
-        {new Array(numStars)
-          .fill(0)
-          .map((_, index) => (
-            <Star key={index} index={index} value={value} {...props} />
-          ))}
+        {new Array(numStars).fill(0).map((_, index) => (
+          <Star key={index} index={index} value={value} {...props} />
+        ))}
       </div>
       <p className={CLASS_LABEL}>{labelLink}</p>
     </div>

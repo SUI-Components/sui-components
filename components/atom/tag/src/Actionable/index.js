@@ -28,17 +28,15 @@ const ActionableTag = function({
       href={href}
       target={target}
     >
-      {icon &&
-        iconPlacement === LEFT_ICON_PLACEMENT && (
-          <span className="sui-AtomTag-icon">{icon}</span>
-        )}
+      {icon && iconPlacement === LEFT_ICON_PLACEMENT && (
+        <span className="sui-AtomTag-icon">{icon}</span>
+      )}
       <span className="sui-AtomTag-label" title={label}>
         {label}
       </span>
-      {icon &&
-        iconPlacement === RIGHT_ICON_PLACEMENT && (
-          <span className="sui-AtomTag-secondary-icon">{icon}</span>
-        )}
+      {icon && iconPlacement === RIGHT_ICON_PLACEMENT && (
+        <span className="sui-AtomTag-secondary-icon">{icon}</span>
+      )}
     </ActionableTagContainer>
   )
 }
@@ -55,6 +53,7 @@ ActionableTag.propTypes = {
 }
 
 ActionableTag.defaultProps = {
+  // eslint-disable-next-line react/prop-types
   linkFactory: ({href, target, className, children} = {}) => (
     <a href={href} target={target} className={className}>
       {children}

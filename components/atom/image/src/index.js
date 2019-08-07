@@ -36,21 +36,15 @@ const AtomImage = ({
 
   const imageRef = useRef()
 
-  const handleLoad = useCallback(
-    () => {
-      setLoading(false)
-      onLoad && onLoad()
-    },
-    [onLoad]
-  )
+  const handleLoad = useCallback(() => {
+    setLoading(false)
+    onLoad && onLoad()
+  }, [onLoad])
 
-  useEffect(
-    () => {
-      const {current: img} = imageRef
-      if (img && img.complete && loading) handleLoad()
-    },
-    [handleLoad, loading]
-  )
+  useEffect(() => {
+    const {current: img} = imageRef
+    if (img && img.complete && loading) handleLoad()
+  }, [handleLoad, loading])
 
   const classNames = cx(
     BASE_CLASS,

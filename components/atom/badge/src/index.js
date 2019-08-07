@@ -74,15 +74,15 @@ const AtomBadge = function({icon, iconRight, label, ...props}) {
 
   return (
     <div className={classNames}>
-      {shouldRenderIcon({icon, ...props}) &&
-        !iconRight && <span className={CLASS_ICON}>{icon}</span>}
+      {shouldRenderIcon({icon, ...props}) && !iconRight && (
+        <span className={CLASS_ICON}>{icon}</span>
+      )}
       <span className="sui-AtomBadge-text" title={truncatedLabel}>
         {label}
       </span>
-      {shouldRenderIcon({icon, ...props}) &&
-        iconRight && (
-          <span className={cx(CLASS_ICON, CLASS_ICON_RIGHT)}>{icon}</span>
-        )}
+      {shouldRenderIcon({icon, ...props}) && iconRight && (
+        <span className={cx(CLASS_ICON, CLASS_ICON_RIGHT)}>{icon}</span>
+      )}
     </div>
   )
 }

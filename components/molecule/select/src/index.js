@@ -31,7 +31,9 @@ const getOptionData = children => {
 
 class MoleculeSelect extends Component {
   refMoleculeSelect = this.props.refMoleculeSelect || React.createRef()
+
   refsMoleculeSelectOptions = []
+
   state = {
     focus: false,
     optionsData: {}

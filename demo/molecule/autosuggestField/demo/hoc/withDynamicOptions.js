@@ -1,10 +1,15 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
 export default (BaseComponent, BaseChildComponent) => getDynamicOptions => {
   const displayName = BaseComponent.displayName
 
   return class withDynamicOptions extends Component {
     static displayName = `withDynamicOptions(${displayName})`
+
+    static propTypes = {
+      value: PropTypes.string
+    }
 
     state = {options: []}
 

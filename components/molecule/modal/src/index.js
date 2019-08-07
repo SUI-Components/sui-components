@@ -14,6 +14,7 @@ const toggleWindowScroll = disableScroll => {
 
 class MoleculeModal extends Component {
   _contentRef = React.createRef()
+
   _wrapperRef = React.createRef()
 
   state = {
@@ -38,6 +39,7 @@ class MoleculeModal extends Component {
     }
     document.addEventListener('keydown', this._onKeyDown)
   }
+
   componentWillUnmount() {
     toggleWindowScroll(false)
     document.removeEventListener('keydown', this._onKeyDown)

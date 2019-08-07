@@ -8,10 +8,12 @@ export default BaseComponent => {
     static displayName = `withAnimation(${displayName})`
 
     static contextTypes = BaseComponent.contextTypes
+
     static propTypes = {
       onClose: PropTypes.func,
       onAnimationEnd: PropTypes.func
     }
+
     static defaultProps = {
       onClose: () => {},
       onAnimationEnd: () => {}

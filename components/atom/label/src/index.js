@@ -24,8 +24,20 @@ const getClass = ({type, inline, fontSize}) =>
     [`${CLASSNAME}--inlineRight`]: inline === 'right'
   })
 
-const AtomLabel = ({name, inline, text, optionalText, type, fontSize, onClick}) => (
-  <label htmlFor={name} className={getClass({type, inline, fontSize})} onClick={onClick}>
+const AtomLabel = ({
+  name,
+  inline,
+  text,
+  optionalText,
+  type,
+  fontSize,
+  onClick
+}) => (
+  <label
+    htmlFor={name}
+    className={getClass({type, inline, fontSize})}
+    onClick={onClick}
+  >
     {text}
     {optionalText && (
       <span className="sui-AtomLabel-optionalText">{optionalText}</span>

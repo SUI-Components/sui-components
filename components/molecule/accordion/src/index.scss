@@ -55,7 +55,6 @@
     &:focus &Content {
       box-shadow: 0 0 6px 3px color-variation($c-primary, 1);
     }
-
   }
 
   &Content {
@@ -92,7 +91,6 @@
         }
       }
     }
-
   }
 
   &TitleContainer {
@@ -118,6 +116,5 @@
         transform: scale(-1);
       }
     }
-
   }
 }

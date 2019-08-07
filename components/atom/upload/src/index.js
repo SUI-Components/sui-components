@@ -54,10 +54,9 @@ class AtomUpload extends PureComponent {
         <span className={classNameIcon}>{IconStatus}</span>
         <div className={CLASS_BLOCK_TEXT}>
           <h4 className={CLASS_BLOCK_TEXT_MAIN}>{textStatus}</h4>
-          {status === STATUSES.ACTIVE &&
-            textExplanation && (
-              <p className={CLASS_BLOCK_TEXT_SECONDARY}>{textExplanation}</p>
-            )}
+          {status === STATUSES.ACTIVE && textExplanation && (
+            <p className={CLASS_BLOCK_TEXT_SECONDARY}>{textExplanation}</p>
+          )}
         </div>
       </div>
     )

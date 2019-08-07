@@ -25,7 +25,7 @@ $sizes-atom-input-paddings: m $p-m, s $p-s !default;
     height: 100%;
     padding-left: 0;
   }
-  
+
   @each $type, $attr in $sizes-atom-input {
     &-#{$type} {
       height: 100%;
@@ -55,6 +55,4 @@ $sizes-atom-input-paddings: m $p-m, s $p-s !default;
       border-color: $color;
     }
   }
-  
 }
-

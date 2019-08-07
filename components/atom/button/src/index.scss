@@ -224,7 +224,7 @@ $bdc-atom-button-accent: $c-accent !default;
   // Modifiers
   &--disabled {
     cursor: not-allowed;
-    opacity: .3;
+    opacity: 0.3;
   }
 
   &--small {

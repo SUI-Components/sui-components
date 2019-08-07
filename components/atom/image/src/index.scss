@@ -40,7 +40,7 @@ $base-class: '.sui-AtomImage';
     }
   }
 
-  &.is-loaded &-spinner { 
+  &.is-loaded &-spinner {
     display: none;
   }
 
@@ -63,9 +63,9 @@ $base-class: '.sui-AtomImage';
     display: none;
   }
 
-  &-error, 
+  &-error,
   &-spinner {
-    align-items: center; 
+    align-items: center;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -75,5 +75,4 @@ $base-class: '.sui-AtomImage';
     right: 0;
     top: 0;
   }
-
 }

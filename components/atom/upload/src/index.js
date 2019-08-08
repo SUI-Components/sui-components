@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from 'react'
+import React, {Fragment, useState, useEffect, lazy, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -24,6 +24,12 @@ const AtomUpload = ({
   textExplanation,
   ...props
 }) => {
+  const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    setReady(true)
+  }, [])
+
   const renderStatusBlock = status => {
     const classNameIcon = `${BASE_CLASS}-icon${capitalize(status)}`
     const IconStatus = props[`icon${capitalize(status)}`]
@@ -33,28 +39,30 @@ const AtomUpload = ({
         <span className={classNameIcon}>{IconStatus}</span>
         <div className={CLASS_BLOCK_TEXT}>
           <h4 className={CLASS_BLOCK_TEXT_MAIN}>{textStatus}</h4>
-          {status === STATUSES.ACTIVE &&
-            textExplanation && (
-              <p className={CLASS_BLOCK_TEXT_SECONDARY}>{textExplanation}</p>
-            )}
+          {status === STATUSES.ACTIVE && textExplanation && (
+            <p className={CLASS_BLOCK_TEXT_SECONDARY}>{textExplanation}</p>
+          )}
         </div>
       </div>
     )
   }
 
-  if (Object.values(STATUSES).includes(status)) {
-    return (
-      <Suspense fallback={null}>
-        <Dropzone
-          className={`${BASE_CLASS}-dropzone`}
-          disabled={status !== STATUSES.ACTIVE}
-          onDrop={onFilesSelection}
-        >
-          {renderStatusBlock(status)}
-        </Dropzone>
-      </Suspense>
-    )
-  }
+  const hasValidStatus = Object.values(STATUSES).includes(status)
+  return (
+    <Fragment>
+      {hasValidStatus && ready && (
+        <Suspense fallback={null}>
+          <Dropzone
+            className={`${BASE_CLASS}-dropzone`}
+            disabled={status !== STATUSES.ACTIVE}
+            onDrop={onFilesSelection}
+          >
+            {renderStatusBlock(status)}
+          </Dropzone>
+        </Suspense>
+      )}
+    </Fragment>
+  )
 }
 
 AtomUpload.displayName = 'AtomUpload'

@@ -1,48 +1,38 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import Input from '../Input'
+
+const BASE_CLASS = 'sui-AtomInput'
+const CLASS_PASSWORD = `${BASE_CLASS}-password`
+const CLASS_PASSWORD_TOGGLE_BUTTON = `${CLASS_PASSWORD}--toggleButton`
 
 const TEXT = 'text'
 const PASSWORD = 'password'
 const HIDE_LABEL = 'hide'
 const SHOW_LABEL = 'show'
 
-class Password extends React.Component {
-  state = {
-    type: PASSWORD,
-    value: ''
-  }
+const Password = ({onChange, pwShowLabel, pwHideLabel, ...props}) => {
+  const [type, setType] = useState(PASSWORD)
+  const [value, setValue] = useState('')
 
-  toggle = () => {
-    const {type} = this.state
+  const toggle = () => {
     const inputType = type === PASSWORD ? TEXT : PASSWORD
-
-    this.setState({type: inputType})
+    setType(inputType)
   }
 
-  onChange = (ev, {value}) => {
-    this.setState({value}, () => {
-      const {onChange} = this.props
-      onChange && onChange(ev, {value})
-    })
+  const handleChange = (ev, {value}) => {
+    setValue(value)
+    onChange(ev, {value})
   }
 
-  render() {
-    const {pwShowLabel, pwHideLabel, ...props} = this.props
-    const {type, value} = this.state
-
-    return (
-      <div className="sui-AtomInput-password">
-        <Input {...props} onChange={this.onChange} value={value} type={type} />
-        <div
-          onClick={this.toggle}
-          className="sui-AtomInput-password--toggleButton"
-        >
-          {type === PASSWORD ? pwShowLabel : pwHideLabel}
-        </div>
+  return (
+    <div className={CLASS_PASSWORD}>
+      <Input {...props} onChange={handleChange} value={value} type={type} />
+      <div onClick={toggle} className={CLASS_PASSWORD_TOGGLE_BUTTON}>
+        {type === PASSWORD ? pwShowLabel : pwHideLabel}
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 Password.propTypes = {

@@ -25,8 +25,13 @@ const addParentClass = parentNodeClassList => parentClassName =>
 const removeParentClass = parentNodeClassList => parentClassName =>
   parentNodeClassList.remove(...parentClassName.split(' '))
 
-const AtomSpinner = ({delayed: _delayed, loader, type, noBackground}) => {
-  const [delayed, setDelayed] = useState(_delayed)
+const AtomSpinner = ({
+  delayed: delayedFromProps,
+  loader,
+  type,
+  noBackground
+}) => {
+  const [delayed, setDelayed] = useState(delayedFromProps)
   const refSpinner = useRef()
 
   useEffect(

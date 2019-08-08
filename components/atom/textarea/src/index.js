@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -8,29 +8,22 @@ const SIZES = {
   LONG: 'long'
 }
 
-class AtomTextarea extends Component {
-  getClassNames(size) {
-    return cx(BASE_CLASS, `${BASE_CLASS}--${size}`)
-  }
+const AtomTextarea = ({onChange, size, value, ...props}) => {
+  const className = cx(BASE_CLASS, `${BASE_CLASS}--${size}`)
 
-  handleChange = ev => {
+  const handleChange = ev => {
     const {value} = ev.target
-    const {onChange} = this.props
     onChange(ev, {value})
   }
 
-  render() {
-    const {onChange, size, value, ...props} = this.props
-    const {handleChange} = this
-    return (
-      <textarea
-        {...props}
-        onChange={handleChange}
-        className={this.getClassNames(size)}
-        value={value}
-      />
-    )
-  }
+  return (
+    <textarea
+      {...props}
+      onChange={handleChange}
+      className={className}
+      value={value}
+    />
+  )
 }
 
 AtomTextarea.displayName = 'AtomTextarea'

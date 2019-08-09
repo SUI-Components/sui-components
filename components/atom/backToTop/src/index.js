@@ -27,35 +27,32 @@ const AtomBackToTop = ({
   const [show, setShow] = useState(false)
   const [hover, setHover] = useState(false)
 
-  let intervalRef = useRef()
+  const intervalRef = useRef()
 
-  useEffect(
-    () => {
-      const container = getTarget(refContainer)
-      const {scrollHeight, clientHeight} = container
-      const halfHeight = Math.floor((scrollHeight - clientHeight) / 2)
+  useEffect(() => {
+    const container = getTarget(refContainer)
+    const {scrollHeight, clientHeight} = container
+    const halfHeight = Math.floor((scrollHeight - clientHeight) / 2)
 
-      const handleScroll = () => {
-        const {scrollTop} = container
-        if (scrollTop > halfHeight) {
-          if (!show) {
-            setShow(true)
-          }
-        } else {
-          if (show) {
-            setShow(false)
-            setHover(false)
-          }
+    const handleScroll = () => {
+      const {scrollTop} = container
+      if (scrollTop > halfHeight) {
+        if (!show) {
+          setShow(true)
+        }
+      } else {
+        if (show) {
+          setShow(false)
+          setHover(false)
         }
       }
-
-      container.addEventListener('scroll', handleScroll)
-      return () => {
-        container.removeEventListener('scroll', handleScroll)
-      }
-    },
-    [refContainer, show]
-  )
+    }
+    container.removeEventListener('scroll', handleScroll)
+    container.addEventListener('scroll', handleScroll)
+    return () => {
+      container.removeEventListener('scroll', handleScroll)
+    }
+  }, [refContainer, show])
 
   const scrollStep = () => {
     const container = getTarget(refContainer)

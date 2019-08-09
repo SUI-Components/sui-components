@@ -1,5 +1,4 @@
-import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
+import React, {useState, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import SUILoader from './SUILoader'
@@ -14,58 +13,48 @@ const BASE_CLASS = 'sui-AtomSpinner'
 const CLASS_FULL = `${BASE_CLASS}--fullPage`
 const CLASS_NO_BACKGROUND = `${BASE_CLASS}--noBackground`
 
-class AtomSpinner extends Component {
-  state = {
-    delayed: this.props.delayed
-  }
+const getParentClassName = ({type, noBackground}) =>
+  cx({
+    [BASE_CLASS]: type === TYPES.SECTION,
+    [CLASS_FULL]: type === TYPES.FULL,
+    [CLASS_NO_BACKGROUND]: noBackground
+  })
 
-  get _parentNodeClassList() {
-    if (this._parentNodeClassListCache) return this._parentNodeClassListCache
+const addParentClass = parentNodeClassList => parentClassName =>
+  parentNodeClassList.add(...parentClassName.split(' '))
+const removeParentClass = parentNodeClassList => parentClassName =>
+  parentNodeClassList.remove(...parentClassName.split(' '))
 
-    this._parentNodeClassListCache = ReactDOM.findDOMNode(
-      this
-    ).parentNode.classList
-    return this._parentNodeClassListCache
-  }
+const AtomSpinner = ({
+  delayed: delayedFromProps,
+  loader,
+  type,
+  noBackground
+}) => {
+  const [delayed, setDelayed] = useState(delayedFromProps)
+  const refSpinner = useRef()
 
-  get _parentClassName() {
-    const {type, noBackground} = this.props
-    return cx({
-      [BASE_CLASS]: type === TYPES.SECTION,
-      [CLASS_FULL]: type === TYPES.FULL,
-      [CLASS_NO_BACKGROUND]: noBackground
-    })
-  }
+  useEffect(
+    () => {
+      const parentClassName = getParentClassName({type, noBackground})
+      const parentNodeClassList = refSpinner.current.parentNode.classList
 
-  componentDidMount() {
-    if (!this.state.delayed) {
-      this._addParentClass()
-      return
-    }
+      if (!delayed) addParentClass(parentNodeClassList)(parentClassName)
 
-    this.timer = setTimeout(() => {
-      this.setState({delayed: false}, this._addParentClass)
-    }, DELAY)
-  }
+      const timer = setTimeout(() => {
+        setDelayed(false)
+        addParentClass(parentNodeClassList)(parentClassName)
+      }, DELAY)
 
-  componentWillUnmount() {
-    clearTimeout(this.timer)
-    this._removeParentClass()
-  }
+      return () => {
+        clearTimeout(timer)
+        removeParentClass(parentNodeClassList)(parentClassName)
+      }
+    },
+    [delayed, noBackground, type]
+  )
 
-  _removeParentClass() {
-    this._parentNodeClassList.remove(...this._parentClassName.split(' '))
-  }
-
-  _addParentClass() {
-    this._parentNodeClassList.add(...this._parentClassName.split(' '))
-  }
-
-  render() {
-    const {loader} = this.props
-    const {delayed} = this.state
-    return !delayed ? loader : <noscript />
-  }
+  return <span ref={refSpinner}>{!delayed ? loader : <noscript />}</span>
 }
 
 AtomSpinner.displayName = 'AtomSpinner'

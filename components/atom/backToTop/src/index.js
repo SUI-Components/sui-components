@@ -31,11 +31,10 @@ const AtomBackToTop = ({
 
   useEffect(() => {
     const container = getTarget(refContainer)
-    const {scrollHeight, clientHeight} = container
+    const {scrollTop, scrollHeight, clientHeight} = container
     const halfHeight = Math.floor((scrollHeight - clientHeight) / 2)
 
     const handleScroll = () => {
-      const {scrollTop} = container
       if (scrollTop > halfHeight) {
         if (!show) {
           setShow(true)

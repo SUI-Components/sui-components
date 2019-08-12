@@ -36,6 +36,7 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
     keysCloseList,
     keysSelection
   } = props
+
   const refMoleculeAutosuggest = useRef(refMoleculeAutosuggestFromProps)
   const refsMoleculeAutosuggestOptions = useRef([])
   const refMoleculeAutosuggestInput = useRef()
@@ -45,9 +46,9 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
   const extendedChildren = React.Children.toArray(children)
     .filter(Boolean)
     .map((child, index) => {
-      refsMoleculeAutosuggestOptions[index] = React.createRef()
+      refsMoleculeAutosuggestOptions.current[index] = React.createRef()
       return React.cloneElement(child, {
-        innerRef: refsMoleculeAutosuggestOptions[index],
+        innerRef: refsMoleculeAutosuggestOptions.current[index],
         onSelectKey: keysSelection
       })
     })
@@ -55,9 +56,7 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
   const className = cx(BASE_CLASS, {[CLASS_FOCUS]: focus})
 
   const closeList = ev => {
-    const {
-      refMoleculeAutosuggest: {current: domMoleculeAutosuggest}
-    } = this
+    const {current: domMoleculeAutosuggest} = refMoleculeAutosuggest
     onToggle(ev, {isOpen: false})
     if (multiselection) onChange(ev, {value: ''})
     domMoleculeAutosuggest.focus()
@@ -75,8 +74,9 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
     ev.persist()
     const {current: domInnerInput} = refMoleculeAutosuggestInput
     const {current: domMoleculeAutosuggest} = refMoleculeAutosuggest
+    const {current: optionsFromRef} = refsMoleculeAutosuggestOptions
     const {key} = ev
-    const options = refsMoleculeAutosuggestOptions.map(getTarget)
+    const options = optionsFromRef.map(getTarget)
 
     const isTypeableKey = getIsTypeableKey(key)
     const isSelectionKey = keysSelection.includes(key)
@@ -100,7 +100,8 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
   const handleFocusOut = ev => {
     ev.persist()
     const {current: domInnerInput} = refMoleculeAutosuggestInput
-    const options = refsMoleculeAutosuggestOptions.map(getTarget)
+    const {current: optionsFromRef} = refsMoleculeAutosuggestOptions
+    const options = optionsFromRef.map(getTarget)
     setTimeout(() => {
       const currentElementFocused = getCurrentElementFocused()
       const focusOutFromOutside = ![domInnerInput, ...options].includes(

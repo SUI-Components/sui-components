@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, {Fragment} from 'react'
 
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
@@ -7,22 +8,19 @@ import withClearUI from '../hoc/withClearUI'
 
 const AtomInputWithClearUI = withClearUI(AtomInput)
 
-const MoleculeAutosuggestSingleSelection = props => {
-  /* eslint-disable react/prop-types */
-  const {
-    value = '',
-    children,
-    isOpen,
-    onToggle,
-    onChange,
-    onInputKeyDown,
-    size,
-    innerRefInput,
-    refMoleculeAutosuggest,
-    iconClear,
-    placeholder
-  } = props
-
+const MoleculeAutosuggestSingleSelection = ({
+  value = '',
+  children,
+  isOpen,
+  onToggle,
+  onChange,
+  onInputKeyDown,
+  size,
+  innerRefInput,
+  refMoleculeAutosuggest,
+  iconClear,
+  placeholder
+}) => {
   const handleSelection = (ev, {value}) => {
     onChange(ev, {value})
     onToggle(ev, {isOpen: false})

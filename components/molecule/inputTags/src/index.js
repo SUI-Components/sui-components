@@ -100,6 +100,9 @@ class MoleculeInputTags extends Component {
 MoleculeInputTags.displayName = 'MoleculeInputTags'
 
 MoleculeInputTags.propTypes = {
+  /** Tag size */
+  size: PropTypes.oneOf(Object.values(atomTagSizes)),
+
   /* close icon to be displayed on tags */
   tagsCloseIcon: PropTypes.node.isRequired,
 

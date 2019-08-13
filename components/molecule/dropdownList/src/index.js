@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -11,35 +11,36 @@ const SIZES = {
   LARGE: 'large'
 }
 
-class MoleculeDropdownList extends Component {
-  refDropdownList = React.createRef()
+const MoleculeDropdownList = ({
+  children,
+  value,
+  size,
+  visible,
+  onSelect,
+  ...props
+}) => {
+  const refDropdownList = useRef()
 
-  get extendedChildren() {
-    const {children, value, size, visible, onSelect, ...props} = this.props
-    return React.Children.toArray(children)
-      .filter(Boolean)
-      .map((child, index) => {
-        const {value: valueChild} = child.props
-        const selected = Array.isArray(value)
-          ? value.includes(valueChild)
-          : value === valueChild
-        return React.cloneElement(child, {
-          ...props,
-          index,
-          onSelect,
-          selected
-        })
+  const extendedChildren = React.Children.toArray(children)
+    .filter(Boolean)
+    .map((child, index) => {
+      const {value: valueChild} = child.props
+      const selected = Array.isArray(value)
+        ? value.includes(valueChild)
+        : value === valueChild
+      return React.cloneElement(child, {
+        ...props,
+        index,
+        onSelect,
+        selected
       })
-  }
-
-  get classNames() {
-    const {size, visible} = this.props
-    return cx(BASE_CLASS, `${BASE_CLASS}--${size}`, {
-      [CLASS_HIDDEN]: !visible
     })
-  }
 
-  getFocusedOptionIndex = options => {
+  const classNames = cx(BASE_CLASS, `${BASE_CLASS}--${size}`, {
+    [CLASS_HIDDEN]: !visible
+  })
+
+  const getFocusedOptionIndex = options => {
     const currentElementFocused = document.activeElement
     return Array.from(options).reduce((focusedOptionIndex, option, index) => {
       if (option === currentElementFocused) focusedOptionIndex = index
@@ -47,10 +48,11 @@ class MoleculeDropdownList extends Component {
     }, 0)
   }
 
-  handleKeyDown = ev => {
+  const handleKeyDown = ev => {
     const {key} = ev
-    const {getFocusedOptionIndex, refDropdownList} = this
-    const options = refDropdownList.current.children
+    const {
+      current: {children: options}
+    } = refDropdownList
     const numOptions = options.length
     if (key === 'ArrowDown' || key === 'ArrowUp') {
       const index = getFocusedOptionIndex(options)
@@ -64,20 +66,16 @@ class MoleculeDropdownList extends Component {
     }
   }
 
-  render() {
-    const {refDropdownList, handleKeyDown, classNames, extendedChildren} = this
-
-    return (
-      <ul
-        ref={refDropdownList}
-        tabIndex="0"
-        onKeyDown={handleKeyDown}
-        className={classNames}
-      >
-        {extendedChildren}
-      </ul>
-    )
-  }
+  return (
+    <ul
+      ref={refDropdownList}
+      tabIndex="0"
+      onKeyDown={handleKeyDown}
+      className={classNames}
+    >
+      {extendedChildren}
+    </ul>
+  )
 }
 
 MoleculeDropdownList.displayName = 'MoleculeDropdownList'

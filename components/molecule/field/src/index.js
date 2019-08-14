@@ -19,7 +19,7 @@ const MoleculeField = ({
   helpText,
   name,
   onClickLabel,
-  children // eslint-disable-line
+  children
 }) => {
   const className = cx(BASE_CLASS, inline && `${BASE_CLASS}--inline`)
   let statusValidationText, typeValidationLabel, typeValidationText
@@ -61,6 +61,9 @@ const MoleculeField = ({
 MoleculeField.displayName = 'MoleculeField'
 
 MoleculeField.propTypes = {
+  /** children */
+  children: PropTypes.any,
+
   /** Text to be displayed as label of the textarea */
   label: PropTypes.string.isRequired,
 

@@ -40,6 +40,7 @@ $bxsh-atom-button-primary: none !default;
 // Secondary
 $bgc-atom-button-secondary: $bgc-atom-button !default;
 $bgc-atom-button-secondary-focus: $bgc-atom-button-light !default;
+$c-atom-button-secondary-focus: $c-primary !default;
 
 $bdrs-atom-buton-first-secondary: $bdrs-m 0 0 $bdrs-m !default;
 $bdrs-atom-buton-last-secondary: 0 $bdrs-m $bdrs-m 0 !default;
@@ -184,6 +185,10 @@ $bdc-atom-button-accent: $c-accent !default;
     @include button-focused {
       background-color: $bgc-atom-button-secondary-focus;
     }
+  }
+
+  &--secondary:hover {
+    @include button-foreground-color($c-atom-button-secondary-focus);
   }
 
   &--tertiary {

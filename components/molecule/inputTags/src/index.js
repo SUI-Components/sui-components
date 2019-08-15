@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import AtomTag, {atomTagSizes} from '@schibstedspain/sui-atom-tag'
 import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
@@ -11,95 +11,91 @@ const CLASS_TAGS_ERROR = `${CLASS_TAGS}--error`
 const CLASS_TAGS_SUCCESS = `${CLASS_TAGS}--success`
 
 // eslint-disable-next-line react/prop-types
-const AtomTagItem = ({onClose, id, ...props}) => {
-  const _onClose = e => {
-    onClose && onClose(e, {id})
-  }
-  return <AtomTag onClose={_onClose} {...props} />
+const AtomTagItem = ({onClose: onCloseFromProps = () => {}, id, ...props}) => {
+  const onClose = e => onCloseFromProps(e, {id})
+
+  return <AtomTag onClose={onClose} {...props} />
 }
 
-class MoleculeInputTags extends Component {
-  state = {
-    focus: false
-  }
+const MoleculeInputTags = ({
+  errorState,
+  value,
+  optionsData,
+  onChangeTags,
+  onChange: onChangeFromProps,
+  innerRefInput,
+  tagsCloseIcon,
+  tags: tagsFromProps,
+  ...props
+}) => {
+  const {size} = props
+  const [focus, setFocus] = useState(false)
 
-  getClassNames = (focus, size, errorState) => {
-    return cx(CLASS_TAGS, {
-      [CLASS_TAGS_FOCUS]: focus === true,
-      [CLASS_TAGS_ERROR]: errorState === true,
-      [CLASS_TAGS_SUCCESS]: errorState === false,
-      [`${CLASS_TAGS}-${size}`]: size
-    })
-  }
+  const classNames = cx(CLASS_TAGS, {
+    [CLASS_TAGS_FOCUS]: focus === true,
+    [CLASS_TAGS_ERROR]: errorState === true,
+    [CLASS_TAGS_SUCCESS]: errorState === false,
+    [`${CLASS_TAGS}-${size}`]: size
+  })
 
-  removeTag = (e, {id: indexTag}) => {
-    const {onChangeTags, optionsData, tags: _tags} = this.props
-    let tags = _tags.filter((_, i) => i !== indexTag)
+  const removeTag = (ev, {id: indexTag}) => {
+    let tags = tagsFromProps.filter((_, i) => i !== indexTag)
     if (optionsData) {
       const keys = Object.keys(optionsData)
       tags = keys.filter(key => tags.includes(optionsData[key]))
     }
-    onChangeTags(e, {tags})
+    onChangeTags(ev, {tags})
   }
 
-  addTag = ev => {
+  const addTag = ev => {
     ev.preventDefault()
-    const {onChangeTags, value} = this.props
     if (value) {
-      const tags = [...this.props.tags, value]
+      const tags = [...tagsFromProps, value]
       onChangeTags(ev, {tags, value: ''})
     }
   }
 
-  onChange = (ev, {value}) => {
-    const {onChange} = this.props
-    onChange(ev, {value})
+  const onChange = (ev, {value}) => {
+    onChangeFromProps(ev, {value})
   }
 
-  handleFocusIn = () => {
-    this.setState({focus: true})
-  }
+  const handleFocusIn = () => setFocus(true)
 
-  handleFocusOut = () => {
-    this.setState({focus: false})
-  }
+  const handleFocusOut = () => setFocus(false)
 
-  render() {
-    const {onChange, addTag, removeTag, handleFocusIn, handleFocusOut} = this
-    const {tagsCloseIcon, tags, value, innerRefInput, ...props} = this.props
-    const {focus} = this.state
-
-    return (
-      <div className={this.getClassNames(focus, props.size, props.errorState)}>
-        {tags.map((label, index) => (
-          <AtomTagItem
-            key={index}
-            id={index}
-            closeIcon={tagsCloseIcon}
-            onClose={removeTag}
-            label={label}
-            size={atomTagSizes.SMALL}
-            responsive
-          />
-        ))}
-        <AtomInput
-          {...props}
-          value={value}
-          onChange={onChange}
-          onEnter={addTag}
-          onFocus={handleFocusIn}
-          onBlur={handleFocusOut}
-          reference={innerRefInput}
-          noBorder
+  return (
+    <div className={classNames}>
+      {tagsFromProps.map((label, index) => (
+        <AtomTagItem
+          key={index}
+          id={index}
+          closeIcon={tagsCloseIcon}
+          onClose={removeTag}
+          label={label}
+          size={atomTagSizes.SMALL}
+          responsive
         />
-      </div>
-    )
-  }
+      ))}
+      <AtomInput
+        {...props}
+        value={value}
+        onChange={onChange}
+        onEnter={addTag}
+        onFocus={handleFocusIn}
+        onBlur={handleFocusOut}
+        reference={innerRefInput}
+        noBorder
+      />
+    </div>
+  )
 }
 
 MoleculeInputTags.displayName = 'MoleculeInputTags'
 
 MoleculeInputTags.propTypes = {
+  /* errorState */
+  errorState: PropTypes.boolean,
+
   /** Tag size */
   size: PropTypes.oneOf(Object.values(atomTagSizes)),
 

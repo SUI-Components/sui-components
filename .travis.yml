@@ -13,9 +13,6 @@ install:
   - rm -Rf ./demo/**/**/themes
   - ./scripts/build-themes.js
 
-script:
-  - npm run build
-
 jobs:
   include:
     - stage: Deploy Pull Request
@@ -23,6 +20,7 @@ jobs:
         - NODE_ENV=production
       if: type = pull_request
       script:
+        - npm run build
         - npm i -g now
         - now public -p -t $NOW_TOKEN -V 2
 
@@ -31,6 +29,7 @@ jobs:
         - NODE_ENV=production
       if: branch = master AND NOT type = pull_request
       script:
+        - npm run build
         - npm i -g now
         - now public -n sui-components-$TRAVIS_PULL_REQUEST -p -t $NOW_TOKEN -V 2
 env:

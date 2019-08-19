@@ -8,8 +8,6 @@
     "check:release": "sui-studio check-release",
     "co": "sui-studio commit",
     "commitmsg": "validate-commit-msg",
-    "deploy": "npm run build && sui-deploy spa sui-components --now -p",
-    "deploy:pr": "npm run build && sui-deploy spa sui-components-PR-$TRAVIS_PULL_REQUEST --now -p",
     "dev": "sui-studio dev",
     "generate": "sui-studio generate -S s-ui -P react",
     "lint": "npm run lint:js && npm run lint:sass",
@@ -27,7 +25,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@s-ui/deploy": "2",
     "@s-ui/precommit": "2",
     "@s-ui/studio": "7",
     "husky": "0.13.4",

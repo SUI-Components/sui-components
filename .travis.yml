@@ -1,8 +1,9 @@
+dist: bionic
 sudo: false
 language: node_js
 
 node_js:
-  - '8'
+  - '11.0.0'
 
 before_install:
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
@@ -17,21 +18,21 @@ script:
 
 jobs:
   include:
-    - stage: Deploy PR
+    - stage: Deploy Pull Request
       env:
         - NODE_ENV=production
       if: type = pull_request
       script:
-        - npm install --only=dev --force-online
-        - npm run deploy:pr
+        - npm i -g now
+        - now -p
 
-    - stage: deploy pro
+    - stage: Deploy Production
       env:
         - NODE_ENV=production
       if: branch = master AND NOT type = pull_request
       script:
-        - npm install --only=dev --force-online
-        - npm run deploy
+        - npm i -g now
+        - now -n sui-components-$TRAVIS_PULL_REQUEST -p
 env:
   global:
     - secure: >-

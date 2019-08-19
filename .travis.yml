@@ -24,7 +24,7 @@ jobs:
       if: type = pull_request
       script:
         - npm i -g now
-        - now -p -t $NOW_TOKEN
+        - now public -p -t $NOW_TOKEN -V 2
 
     - stage: Deploy Production
       env:
@@ -32,7 +32,7 @@ jobs:
       if: branch = master AND NOT type = pull_request
       script:
         - npm i -g now
-        - now -n sui-components-$TRAVIS_PULL_REQUEST -p -t $NOW_TOKEN
+        - now public -n sui-components-$TRAVIS_PULL_REQUEST -p -t $NOW_TOKEN -V 2
 env:
   global:
     - secure: >-

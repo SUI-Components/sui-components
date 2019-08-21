@@ -12,6 +12,7 @@ install:
   - npm run phoenix:ci
   - rm -Rf ./demo/**/**/themes
   - ./scripts/build-themes.js
+  - npm i -g now
 
 after_install:
   - NODE_ENV=production npm run build
@@ -23,7 +24,8 @@ jobs:
         - NODE_ENV=production
       if: type = pull_request
       script:
-        - npm i -g now
+        - npm install --only=dev --force-online
+        - npm run build
         - now public -p -t $NOW_TOKEN -V 2
 
     - stage: Deploy Production
@@ -31,7 +33,8 @@ jobs:
         - NODE_ENV=production
       if: branch = master AND NOT type = pull_request
       script:
-        - npm i -g now
+        - npm install --only=dev --force-online
+        - npm run build
         - now public -n sui-components-$TRAVIS_PULL_REQUEST -p -t $NOW_TOKEN -V 2
 env:
   global:

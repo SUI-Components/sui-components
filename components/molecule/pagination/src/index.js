@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeButtonGroup from '@s-ui/react-molecule-button-group'
@@ -23,89 +23,85 @@ const PageButton = ({onSelectPage, page, ...props}) => {
   return <AtomButtom onClick={_onSelectPage} {...props} />
 }
 
-class MoleculePagination extends Component {
-  handleClickNext = e => {
-    const {onSelectNext, ...props} = this.props
-    const page = pagination.nextPage(props)
+const MoleculePagination = ({
+  onSelectNext,
+  onSelectPrev,
+  page,
+  totalPages,
+  showPages,
+  prevButtonText,
+  prevButtonIcon: PrevButtonIcon,
+  nextButtonText,
+  nextButtonIcon: NextButtonIcon,
+  onSelectPage,
+  compressed,
+  hideDisabled
+}) => {
+  const paramsPagination = {
+    page,
+    totalPages,
+    showPages
+  }
+
+  const handleClickNext = e => {
+    const page = pagination.nextPage(paramsPagination)
     onSelectNext(e, {page})
   }
 
-  handleClickPrev = e => {
-    const {onSelectPrev, ...props} = this.props
-    const page = pagination.prevPage(props)
+  const handleClickPrev = e => {
+    const page = pagination.prevPage(paramsPagination)
     onSelectPrev(e, {page})
   }
 
-  render() {
-    const {
-      page,
-      totalPages,
-      showPages,
-      prevButtonText,
-      prevButtonIcon: PrevButtonIcon,
-      nextButtonText,
-      nextButtonIcon: NextButtonIcon,
-      onSelectPage,
-      compressed,
-      hideDisabled
-    } = this.props
+  const range = pagination.range(paramsPagination)
+  const nextPage = pagination.nextPage(paramsPagination)
+  const prevPage = pagination.prevPage(paramsPagination)
 
-    const paramsPagination = {
-      page,
-      totalPages,
-      showPages
-    }
+  const isHidePrev = hideDisabled && !prevPage
+  const isHideNext = hideDisabled && !nextPage
 
-    const range = pagination.range(paramsPagination)
-    const nextPage = pagination.nextPage(paramsPagination)
-    const prevPage = pagination.prevPage(paramsPagination)
-
-    const isHidePrev = hideDisabled && !prevPage
-    const isHideNext = hideDisabled && !nextPage
-
-    return (
-      <div className={BASE_CLASS}>
-        <MoleculeButtonGroup type="tertiary">
-          {!isHidePrev && (
-            <AtomButtom onClick={this.handleClickPrev} disabled={!prevPage}>
-              {PrevButtonIcon && (
-                <span className={CLASS_PREV_BUTTON_ICON}>
-                  <PrevButtonIcon />
-                </span>
-              )}
-              {prevButtonText}
-            </AtomButtom>
-          )}
-          {compressed ? (
-            <PageButton page={page} focused onSelectPage={onSelectPage}>
-              {page}
+  return (
+    <div className={BASE_CLASS}>
+      <MoleculeButtonGroup type="tertiary">
+        {!isHidePrev && (
+          <AtomButtom onClick={handleClickPrev} disabled={!prevPage}>
+            {PrevButtonIcon && (
+              <span className={CLASS_PREV_BUTTON_ICON}>
+                <PrevButtonIcon />
+              </span>
+            )}
+            {prevButtonText}
+          </AtomButtom>
+        )}
+        {compressed ? (
+          <PageButton page={page} focused onSelectPage={onSelectPage}>
+            {page}
+          </PageButton>
+        ) : (
+          range.map(pageRange => (
+            <PageButton
+              key={pageRange}
+              page={pageRange}
+              focused={pageRange === page}
+              onSelectPage={onSelectPage}
+            >
+              {pageRange}
             </PageButton>
-          ) : (
-            range.map(pageRange => (
-              <PageButton
-                key={pageRange}
-                page={pageRange}
-                focused={pageRange === page}
-                onSelectPage={onSelectPage}
-              >
-                {pageRange}
-              </PageButton>
-            ))
-          )}
-          {!isHideNext && (
-            <AtomButtom onClick={this.handleClickNext} disabled={!nextPage}>
-              {nextButtonText}
-              {NextButtonIcon && (
-                <span className={CLASS_NEXT_BUTTON_ICON}>
-                  <NextButtonIcon />
-                </span>
-              )}
-            </AtomButtom>
-          )}
-        </MoleculeButtonGroup>
-      </div>
-    )
-  }
+          ))
+        )}
+        {!isHideNext && (
+          <AtomButtom onClick={handleClickNext} disabled={!nextPage}>
+            {nextButtonText}
+            {NextButtonIcon && (
+              <span className={CLASS_NEXT_BUTTON_ICON}>
+                <NextButtonIcon />
+              </span>
+            )}
+          </AtomButtom>
+        )}
+      </MoleculeButtonGroup>
+    </div>
+  )
 }
 
 MoleculePagination.displayName = 'MoleculePagination'

@@ -35,7 +35,7 @@ jobs:
       script:
         - npm install --only=dev --force-online
         - npm run build
-        - now public -n sui-components-$TRAVIS_PULL_REQUEST -p -t $NOW_TOKEN -V 2
+        - now public -n sui-components-$TRAVIS_PULL_REQUEST -p -t $NOW_TOKEN -V 2 --target staging
 env:
   global:
     - secure: >-

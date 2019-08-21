@@ -13,7 +13,7 @@ install:
   - rm -Rf ./demo/**/**/themes
   - ./scripts/build-themes.js
 
-script:
+after_install:
   - NODE_ENV=production npm run build
 
 jobs:

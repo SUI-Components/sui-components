@@ -26,7 +26,7 @@ jobs:
       script:
         - npm install --only=dev --force-online
         - npm run build
-        - now public -p -t $NOW_TOKEN -V 2
+        - now public -p -n sui-components -t $NOW_TOKEN -V 2
 
     - stage: Deploy Production
       env:

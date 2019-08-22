@@ -1,6 +1,8 @@
-import React, {PureComponent} from 'react'
+import React, {Fragment, useState, useEffect, lazy, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+
+const Dropzone = lazy(() => import('react-dropzone'))
 
 const STATUSES = {
   ACTIVE: 'active',
@@ -16,41 +18,24 @@ const CLASS_BLOCK_TEXT_SECONDARY = `${CLASS_BLOCK_TEXT}-secondary`
 
 const capitalize = text => text[0].toUpperCase() + text.substr(1)
 
-class AtomUpload extends PureComponent {
-  state = {
-    Dropzone: null
-  }
+const AtomUpload = ({
+  status,
+  onFilesSelection = () => {},
+  textExplanation,
+  ...props
+}) => {
+  const [ready, setReady] = useState(false)
 
-  loadAsyncReactDropzone() {
-    require.ensure(
-      [],
-      require => {
-        const Dropzone = require('react-dropzone').default
-        this.setState({Dropzone})
-      },
-      'react-dropzone'
-    )
-  }
+  useEffect(() => {
+    setReady(true)
+  }, [])
 
-  componentDidMount() {
-    this.loadAsyncReactDropzone()
-  }
-
-  onDrop = files => {
-    const {onFilesSelection} = this.props
-    onFilesSelection && onFilesSelection(files)
-  }
-
-  renderStatusBlock(status) {
+  const renderStatusBlock = status => {
     const classNameIcon = `${BASE_CLASS}-icon${capitalize(status)}`
-    const IconStatus = this.props[`icon${capitalize(status)}`]
-    const textStatus = this.props[`text${capitalize(status)}`]
-    const {textExplanation} = this.props
+    const IconStatus = props[`icon${capitalize(status)}`]
+    const textStatus = props[`text${capitalize(status)}`]
     return (
-      <div
-        className={cx(BASE_CLASS, `${BASE_CLASS}--${status}`)}
-        onClick={this.handleClick}
-      >
+      <div className={cx(BASE_CLASS, `${BASE_CLASS}--${status}`)}>
         <span className={classNameIcon}>{IconStatus}</span>
         <div className={CLASS_BLOCK_TEXT}>
           <h4 className={CLASS_BLOCK_TEXT_MAIN}>{textStatus}</h4>
@@ -62,25 +47,22 @@ class AtomUpload extends PureComponent {
     )
   }
 
-  render() {
-    const {status} = this.props
-    const {Dropzone} = this.state
-    const {onDrop} = this
-
-    if (Object.values(STATUSES).includes(status)) {
-      return (
-        Dropzone && (
+  const hasValidStatus = Object.values(STATUSES).includes(status)
+  return (
+    <Fragment>
+      {hasValidStatus && ready && (
+        <Suspense fallback={null}>
           <Dropzone
             className={`${BASE_CLASS}-dropzone`}
             disabled={status !== STATUSES.ACTIVE}
-            onDrop={onDrop}
+            onDrop={onFilesSelection}
           >
-            {this.renderStatusBlock(status)}
+            {renderStatusBlock(status)}
           </Dropzone>
-        )
-      )
-    }
-  }
+        </Suspense>
+      )}
+    </Fragment>
+  )
 }
 
 AtomUpload.displayName = 'AtomUpload'

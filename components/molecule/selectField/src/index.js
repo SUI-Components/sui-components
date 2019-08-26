@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
@@ -9,47 +9,44 @@ const hasErrors = (success, error) => {
   if (success) return false
 }
 
-class MoleculeSelectField extends Component {
-  refSelect = React.createRef()
+const MoleculeSelectField = ({
+  label,
+  id,
+  successText,
+  errorText,
+  helpText,
+  inline,
+  children, // eslint-disable-line
+  ...props
+}) => {
+  const refSelect = useRef()
 
-  handleClick = () => {
-    const {current: domSelect} = this.refSelect
+  const handleClick = () => {
+    const {current: domSelect} = refSelect
     if (domSelect) domSelect.focus()
   }
 
-  render() {
-    const {refSelect, handleClick} = this
-    const {
-      label,
-      id,
-      successText,
-      errorText,
-      helpText,
-      inline,
-      children, // eslint-disable-line
-      ...props
-    } = this.props
-    const errorState = hasErrors(successText, errorText)
-    return (
-      <MoleculeField
-        name={id}
-        label={label}
-        successText={successText}
-        errorText={errorText}
-        helpText={helpText}
-        inline={inline}
-        onClickLabel={handleClick}
+  const errorState = hasErrors(successText, errorText)
+
+  return (
+    <MoleculeField
+      name={id}
+      label={label}
+      successText={successText}
+      errorText={errorText}
+      helpText={helpText}
+      inline={inline}
+      onClickLabel={handleClick}
+    >
+      <MoleculeSelect
+        refMoleculeSelect={refSelect}
+        errorState={errorState}
+        {...props}
       >
-        <MoleculeSelect
-          refMoleculeSelect={refSelect}
-          errorState={errorState}
-          {...props}
-        >
-          {children}
-        </MoleculeSelect>
-      </MoleculeField>
-    )
-  }
+        {children}
+      </MoleculeSelect>
+    </MoleculeField>
+  )
 }
 
 MoleculeSelectField.displayName = 'MoleculeSelectField'

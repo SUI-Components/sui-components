@@ -1,7 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
 import PropTypes from 'prop-types'
-import React, {useRef, useState, useEffect} from 'react'
+import React, {useRef, useState, useEffect, useCallback} from 'react'
 import {createPortal} from 'react-dom'
 import cx from 'classnames'
 import {SUPPORTED_KEYS} from './config'
@@ -45,22 +43,27 @@ const MoleculeModal = ({
     return containerDOMEl
   }
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     toggleWindowScroll(false)
     onClose()
-  }
+  }, [onClose])
 
-  const onKeyDown = ev => {
-    if (isOpen === false || closeOnEscKeyDown === false) return
-    if (SUPPORTED_KEYS.includes(ev.key)) {
-      closeModal()
-      ev.preventDefault()
-    }
-  }
+  const onKeyDown = useCallback(
+    ev => {
+      if (isOpen === false || closeOnEscKeyDown === false) return
+      if (SUPPORTED_KEYS.includes(ev.key)) {
+        closeModal()
+        ev.preventDefault()
+      }
+    },
+    [isOpen, closeOnEscKeyDown, closeModal]
+  )
 
   useEffect(() => {
     if (usePortal) setIsClientReady(true)
+  }, [usePortal])
 
+  useEffect(() => {
     document.removeEventListener('keydown', onKeyDown)
     document.addEventListener('keydown', onKeyDown)
 
@@ -68,7 +71,7 @@ const MoleculeModal = ({
       toggleWindowScroll(false)
       document.removeEventListener('keydown', onKeyDown)
     }
-  }, [])
+  }, [onKeyDown])
 
   const preventScrollIfNeeded = ev => {
     const {clientHeight, scrollHeight} = contentRef.current

@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useRef, useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -11,83 +11,78 @@ const BUTTON_CONTENT_CLASS = `${BUTTON_CLASS}-content`
 const ICON_CLASS = `${BASE_CLASS}-icon`
 const MIN_HEIGHT = 100 // px
 
-class MoleculeCollapsible extends Component {
-  constructor(props) {
-    super(props)
-    this.childrenContainer = React.createRef()
-    this.state = {collapsed: true, showButton: true, maxHeight: MIN_HEIGHT}
-  }
+const MoleculeCollapsible = ({
+  onClose,
+  onOpen,
+  children,
+  height,
+  icon,
+  showText,
+  hideText,
+  withGradient,
+  withTransition
+}) => {
+  const childrenContainer = useRef()
+  const [collapsed, setCollapsed] = useState(true)
+  const [showButton, setShowButton] = useState(true)
+  const [maxHeight, setMaxHeight] = useState(MIN_HEIGHT)
 
-  toggleCollapse = () => {
-    const {collapsed, showButton} = this.state
-    const {onClose, onOpen} = this.props
+  const toggleCollapse = () => {
     if (showButton) {
-      this.setState({collapsed: !collapsed})
+      setCollapsed(!collapsed)
       ;(collapsed && onOpen()) || onClose()
     }
   }
 
-  componentDidMount() {
-    const offsetHeight = this.childrenContainer.current.offsetHeight
-    this.setState({
-      showButton: offsetHeight >= this.props.height,
-      maxHeight: offsetHeight
-    })
-  }
-
-  render() {
-    const {collapsed, showButton, maxHeight} = this.state
+  useEffect(() => {
     const {
-      children,
-      height,
-      icon,
-      showText,
-      hideText,
-      withGradient,
-      withTransition
-    } = this.props
-    const wrapperClassName = cx(`${BASE_CLASS}`, {
-      [`${BASE_CLASS}--withGradient`]: withGradient,
-      [COLLAPSED_CLASS]: collapsed
-    })
-    const iconClassName = cx(`${ICON_CLASS}`, {
-      [COLLAPSED_CLASS]: collapsed
-    })
-    const containerClassName = cx(`${CONTAINER_BUTTON_CLASS}`, {
-      [`${CONTAINER_BUTTON_CLASS}--withGradient`]: withGradient,
-      [COLLAPSED_CLASS]: collapsed
-    })
-    const contentClassName = cx(`${CONTENT_CLASS}`, {
-      [`${CONTENT_CLASS}--withTransition`]: withTransition
-    })
-    const containerHeight =
-      showButton && collapsed ? `${height}px` : `${maxHeight}px`
+      current: {offsetHeight}
+    } = childrenContainer
+    setShowButton(offsetHeight >= height)
+    setMaxHeight(offsetHeight)
+  }, [height])
 
-    return (
-      <div className={wrapperClassName}>
-        <div
-          className={contentClassName}
-          style={{maxHeight: `${containerHeight}`}}
-        >
-          <div ref={this.childrenContainer}>{children}</div>
-        </div>
-        {showButton && (
-          <div className={containerClassName}>
-            <button
-              type="button"
-              className={BUTTON_CLASS}
-              onClick={this.toggleCollapse}
-            >
-              <span className={BUTTON_CONTENT_CLASS} tabIndex="-1">
-                {collapsed ? showText : hideText}
-                <span className={iconClassName}>{icon}</span>
-              </span>
-            </button>
-          </div>
-        )}
+  const wrapperClassName = cx(`${BASE_CLASS}`, {
+    [`${BASE_CLASS}--withGradient`]: withGradient,
+    [COLLAPSED_CLASS]: collapsed
+  })
+  const iconClassName = cx(`${ICON_CLASS}`, {
+    [COLLAPSED_CLASS]: collapsed
+  })
+  const containerClassName = cx(`${CONTAINER_BUTTON_CLASS}`, {
+    [`${CONTAINER_BUTTON_CLASS}--withGradient`]: withGradient,
+    [COLLAPSED_CLASS]: collapsed
+  })
+  const contentClassName = cx(`${CONTENT_CLASS}`, {
+    [`${CONTENT_CLASS}--withTransition`]: withTransition
+  })
+  const containerHeight =
+    showButton && collapsed ? `${height}px` : `${maxHeight}px`
+
+  return (
+    <div className={wrapperClassName}>
+      <div
+        className={contentClassName}
+        style={{maxHeight: `${containerHeight}`}}
+      >
+        <div ref={childrenContainer}>{children}</div>
       </div>
-    )
-  }
+      {showButton && (
+        <div className={containerClassName}>
+          <button
+            type="button"
+            className={BUTTON_CLASS}
+            onClick={toggleCollapse}
+          >
+            <span className={BUTTON_CONTENT_CLASS} tabIndex="-1">
+              {collapsed ? showText : hideText}
+              <span className={iconClassName}>{icon}</span>
+            </span>
+          </button>
+        </div>
+      )}
+    </div>
+  )
 }
 
 MoleculeCollapsible.displayName = 'MoleculeCollapsible'

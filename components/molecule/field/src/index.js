@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -11,65 +11,59 @@ import AtomHelpText from '@s-ui/react-atom-help-text'
 const BASE_CLASS = 'sui-MoleculeField'
 const CLASS_CONTAINER = `${BASE_CLASS}-inputContainer`
 
-class MoleculeField extends Component {
-  get className() {
-    const {inline} = this.props
-    return cx(BASE_CLASS, inline && `${BASE_CLASS}--inline`)
+const MoleculeField = ({
+  inline,
+  errorText,
+  successText,
+  label,
+  helpText,
+  name,
+  onClickLabel,
+  children
+}) => {
+  const className = cx(BASE_CLASS, inline && `${BASE_CLASS}--inline`)
+  let statusValidationText, typeValidationLabel, typeValidationText
+
+  if (errorText) {
+    statusValidationText = errorText
+    typeValidationLabel = AtomLabelTypes.ERROR
+    typeValidationText = AtomValidationTextTypes.ERROR
   }
 
-  getTypeValidation(element) {
-    if (this.props.errorText) {
-      if (element === 'label') return AtomLabelTypes.ERROR
-      if (element === 'validationText') return AtomValidationTextTypes.ERROR
-    }
-    if (this.props.successText) {
-      if (element === 'label') return AtomLabelTypes.SUCCESS
-      if (element === 'validationText') return AtomValidationTextTypes.SUCCESS
-    }
+  if (successText) {
+    statusValidationText = successText
+    typeValidationLabel = AtomLabelTypes.SUCCESS
+    typeValidationText = AtomValidationTextTypes.SUCCESS
   }
 
-  get statusValidationText() {
-    if (this.props.errorText) return this.props.errorText
-    if (this.props.successText) return this.props.successText
-  }
-
-  render() {
-    const {
-      label,
-      helpText,
-      name,
-      successText,
-      errorText,
-      onClickLabel,
-      children // eslint-disable-line react/prop-types
-    } = this.props
-
-    return (
-      <div className={this.className}>
-        <AtomLabel
-          type={this.getTypeValidation('label')}
-          name={name}
-          text={label}
-          onClick={onClickLabel}
-        />
-        <div className={CLASS_CONTAINER}>
-          {children}
-          {(successText || errorText) && (
-            <AtomValidationText
-              type={this.getTypeValidation('validationText')}
-              text={this.statusValidationText}
-            />
-          )}
-          {helpText && <AtomHelpText text={helpText} />}
-        </div>
+  return (
+    <div className={className}>
+      <AtomLabel
+        type={typeValidationLabel}
+        name={name}
+        text={label}
+        onClick={onClickLabel}
+      />
+      <div className={CLASS_CONTAINER}>
+        {children}
+        {(successText || errorText) && (
+          <AtomValidationText
+            type={typeValidationText}
+            text={statusValidationText}
+          />
+        )}
+        {helpText && <AtomHelpText text={helpText} />}
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 MoleculeField.displayName = 'MoleculeField'
 
 MoleculeField.propTypes = {
+  /** children */
+  children: PropTypes.any,
+
   /** Text to be displayed as label of the textarea */
   label: PropTypes.string.isRequired,
 

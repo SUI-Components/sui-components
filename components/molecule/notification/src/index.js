@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+/* eslint-disable no-console */
+import React, {useState, useEffect, useCallback, useRef} from 'react'
 import PropTypes from 'prop-types'
 import Button from '@schibstedspain/sui-atom-button'
 import IconClose from '@schibstedspain/sui-svgiconset/lib/Close'
@@ -33,128 +34,294 @@ const VARIATIONS = {
   positive: 'positive'
 }
 
-class MoleculeNotification extends Component {
-  state = {
-    show: this.props.show,
-    delay: false
-  }
+const MoleculeNotification = ({
+  autoClose: autoCloseTiming,
+  onClose,
+  effect,
+  buttons,
+  children,
+  icon,
+  position,
+  showCloseButton,
+  text,
+  type,
+  variation,
+  show: showFromProps
+}) => {
+  const [show, setShow] = useState(showFromProps)
+  const [delay, setDelay] = useState(false)
 
-  componentWillReceiveProps(nextProps) {
-    this.state.show !== nextProps.show && this.toggleShow()
-  }
+  const transitionTimeout = useRef()
+  const autoCloseTimeout = useRef()
 
-  componentDidMount() {
-    const {show} = this.state
-    const autoCloseTimeInSeconds = this.getAutoCloseTime()
-    if (show && autoCloseTimeInSeconds)
-      this.triggerAutoClose(autoCloseTimeInSeconds)
-  }
+  useEffect(() => {
+    setShow(showFromProps)
+  }, [showFromProps])
 
-  shouldComponentUpdate(nextProps, nextState) {
-    const {show, delay} = this.state
-    return show !== nextState.show || delay !== nextState.delay
-  }
-
-  componentWillUnmount() {
-    clearTimeout(this.autoCloseTimout)
-    clearTimeout(this.transitionTimout)
-  }
-
-  getAutoCloseTime = () => {
-    const {autoClose: autoCloseTiming} = this.props
+  const getAutoCloseTime = useCallback(() => {
     const time = AUTO_CLOSE_TIME[autoCloseTiming]
     return time
-  }
+  }, [autoCloseTiming])
 
-  toggleShow = () => {
-    const show = !this.state.show
-    const {onClose, effect} = this.props
-    const autoCloseTimeInSeconds = this.getAutoCloseTime()
-
-    this.setState({show})
-    if (effect) this.setState({delay: true}, this.removeDelay(show))
-
-    if (show && autoCloseTimeInSeconds)
-      this.triggerAutoClose(autoCloseTimeInSeconds)
-    if (!show) {
-      clearTimeout(this.autoCloseTimout)
-      onClose()
-    }
-  }
-
-  triggerAutoClose = time => {
-    this.autoCloseTimout = setTimeout(() => {
-      const {show} = this.state
-      show && this.toggleShow()
-    }, time)
-  }
-
-  removeDelay = show => {
+  const removeDelay = show => {
     const delay = show ? 1 : TRANSITION_DELAY
-    this.transitionTimout = setTimeout(() => {
-      this.setState({delay: false})
+    transitionTimeout.current = setTimeout(() => {
+      setDelay(false)
     }, delay)
   }
 
-  getButtons = () => {
-    const {buttons} = this.props
-    return buttons
-      .slice(0, BUTTONS_MAX)
-      .map((button, i) => <Button key={i} {...button} />)
+  const triggerAutoClose = useCallback(
+    (time, show) => {
+      autoCloseTimeout.current = setTimeout(() => {
+        if (show) setShow(false)
+      }, time)
+    },
+    [autoCloseTimeout]
+  )
+
+  const handleClickClose = e => {
+    setShow(false)
   }
 
-  render() {
-    const {show, delay} = this.state
-    const {
-      buttons,
-      children,
+  // const handleToggleShow = useCallback(() => {
+  //   const autoCloseTimeInSeconds = getAutoCloseTime()
+
+  //   if (effect) {
+  //     setDelay(true)
+  //     removeDelay(show)
+  //   }
+
+  //   if (show) {
+  //     if (autoCloseTimeInSeconds) triggerAutoClose(autoCloseTimeInSeconds)
+  //   } else {
+  //     clearTimeout(this.autoCloseTimeout)
+  //     onClose()
+  //   }
+  // }, [effect, getAutoCloseTime, onClose, show, triggerAutoClose])
+
+  useEffect(() => {
+    const autoCloseTimeInSeconds = getAutoCloseTime()
+    console.log({
+      autoCloseTimeout,
+      transitionTimeout,
+      show,
+      triggerAutoClose,
       effect,
-      icon,
-      position,
-      showCloseButton,
-      text,
-      type,
-      variation
-    } = this.props
-    const wrapperClassName = cx(
-      `${CLASS} ${CLASS}--${type} ${CLASS}--${position}`,
-      {
-        [`${CLASS}--${variation}`]: variation === VARIATIONS.positive,
-        [`${CLASS}-effect--${position}`]: effect,
-        [`${CLASS}-effect--hide`]: effect && delay
-      }
-    )
-    const innerWrapperClassName = cx({
-      [`${CLASS}-children`]: children,
-      [`${CLASS}-text`]: text
+      onClose,
+      autoCloseTimeInSeconds
     })
 
-    if (!show && !delay) {
-      return null
+    if (show && autoCloseTimeInSeconds) triggerAutoClose(autoCloseTimeInSeconds)
+
+    if (effect) {
+      setDelay(true)
+      removeDelay(show)
     }
 
-    return (
-      <div className={wrapperClassName}>
-        <div className={`${CLASS}-content`}>
-          <div className={`${CLASS}-iconLeft`}>
-            <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
-          </div>
-          <div className={innerWrapperClassName}>{children || text}</div>
-          {showCloseButton && (
-            <div className={`${CLASS}-iconClose`} onClick={this.toggleShow}>
-              <span className={`${CLASS}-icon`}>
-                <IconClose />
-              </span>
-            </div>
-          )}
+    if (show) {
+      if (autoCloseTimeInSeconds) triggerAutoClose(autoCloseTimeInSeconds)
+    } else {
+      clearTimeout(autoCloseTimeout.current)
+      onClose()
+    }
+
+    return () => {
+      clearTimeout(autoCloseTimeout.current)
+      clearTimeout(transitionTimeout.current)
+    }
+  }, [
+    autoCloseTimeout,
+    transitionTimeout,
+    show,
+    triggerAutoClose,
+    effect,
+    onClose,
+    getAutoCloseTime
+  ])
+
+  const getButtons = () =>
+    buttons
+      .slice(0, BUTTONS_MAX)
+      .map((button, i) => <Button key={i} {...button} />)
+
+  const wrapperClassName = cx(
+    `${CLASS} ${CLASS}--${type} ${CLASS}--${position}`,
+    {
+      [`${CLASS}--${variation}`]: variation === VARIATIONS.positive,
+      [`${CLASS}-effect--${position}`]: effect,
+      [`${CLASS}-effect--hide`]: effect && delay
+    }
+  )
+
+  const innerWrapperClassName = cx({
+    [`${CLASS}-children`]: children,
+    [`${CLASS}-text`]: text
+  })
+  console.log({
+    autoCloseTiming,
+    onClose,
+    effect,
+    buttons,
+    children,
+    icon,
+    position,
+    showCloseButton,
+    text,
+    type,
+    variation,
+    showFromProps,
+    show,
+    delay
+  })
+
+  if (!show && !delay) {
+    return null
+  }
+
+  return (
+    <div className={wrapperClassName}>
+      <div className={`${CLASS}-content`}>
+        <div className={`${CLASS}-iconLeft`}>
+          <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
         </div>
-        {buttons && (
-          <div className={`${CLASS}-buttonsContainer`}>{this.getButtons()}</div>
+        <div className={innerWrapperClassName}>{children || text}</div>
+        {showCloseButton && (
+          <div className={`${CLASS}-iconClose`} onClick={handleClickClose}>
+            <span className={`${CLASS}-icon`}>
+              <IconClose />
+            </span>
+          </div>
         )}
       </div>
-    )
-  }
+      {buttons && (
+        <div className={`${CLASS}-buttonsContainer`}>{getButtons()}</div>
+      )}
+    </div>
+  )
 }
+
+// class MoleculeNotification extends Component {
+//   state = {
+//     show: this.props.show,
+//     delay: false
+//   }
+
+//   componentWillReceiveProps(nextProps) {
+//     this.state.show !== nextProps.show && this.toggleShow()
+//   }
+
+//   componentDidMount() {
+//     const {show} = this.state
+//     const autoCloseTimeInSeconds = this.getAutoCloseTime()
+//     if (show && autoCloseTimeInSeconds)
+//       this.triggerAutoClose(autoCloseTimeInSeconds)
+//   }
+
+//   shouldComponentUpdate(nextProps, nextState) {
+//     const {show, delay} = this.state
+//     return show !== nextState.show || delay !== nextState.delay
+//   }
+
+//   componentWillUnmount() {
+//     clearTimeout(this.autoCloseTimeout)
+//     clearTimeout(this.transitionTimout)
+//   }
+
+//   getAutoCloseTime = () => {
+//     const {autoClose: autoCloseTiming} = this.props
+//     const time = AUTO_CLOSE_TIME[autoCloseTiming]
+//     return time
+//   }
+
+//   toggleShow = () => {
+//     const show = !this.state.show
+//     const {onClose, effect} = this.props
+//     const autoCloseTimeInSeconds = this.getAutoCloseTime()
+
+//     this.setState({show})
+//     if (effect) this.setState({delay: true}, this.removeDelay(show))
+
+//     if (show && autoCloseTimeInSeconds)
+//       this.triggerAutoClose(autoCloseTimeInSeconds)
+//     if (!show) {
+//       clearTimeout(this.autoCloseTimeout)
+//       onClose()
+//     }
+//   }
+
+//   triggerAutoClose = time => {
+//     this.autoCloseTimeout = setTimeout(() => {
+//       const {show} = this.state
+//       show && this.toggleShow()
+//     }, time)
+//   }
+
+//   removeDelay = show => {
+//     const delay = show ? 1 : TRANSITION_DELAY
+//     this.transitionTimout = setTimeout(() => {
+//       this.setState({delay: false})
+//     }, delay)
+//   }
+
+//   getButtons = () => {
+//     const {buttons} = this.props
+//     return buttons
+//       .slice(0, BUTTONS_MAX)
+//       .map((button, i) => <Button key={i} {...button} />)
+//   }
+
+//   render() {
+//     const {show, delay} = this.state
+//     const {
+//       buttons,
+//       children,
+//       effect,
+//       icon,
+//       position,
+//       showCloseButton,
+//       text,
+//       type,
+//       variation
+//     } = this.props
+//     const wrapperClassName = cx(
+//       `${CLASS} ${CLASS}--${type} ${CLASS}--${position}`,
+//       {
+//         [`${CLASS}--${variation}`]: variation === VARIATIONS.positive,
+//         [`${CLASS}-effect--${position}`]: effect,
+//         [`${CLASS}-effect--hide`]: effect && delay
+//       }
+//     )
+//     const innerWrapperClassName = cx({
+//       [`${CLASS}-children`]: children,
+//       [`${CLASS}-text`]: text
+//     })
+
+//     if (!show && !delay) {
+//       return null
+//     }
+
+//     return (
+//       <div className={wrapperClassName}>
+//         <div className={`${CLASS}-content`}>
+//           <div className={`${CLASS}-iconLeft`}>
+//             <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
+//           </div>
+//           <div className={innerWrapperClassName}>{children || text}</div>
+//           {showCloseButton && (
+//             <div className={`${CLASS}-iconClose`} onClick={this.toggleShow}>
+//               <span className={`${CLASS}-icon`}>
+//                 <IconClose />
+//               </span>
+//             </div>
+//           )}
+//         </div>
+//         {buttons && (
+//           <div className={`${CLASS}-buttonsContainer`}>{this.getButtons()}</div>
+//         )}
+//       </div>
+//     )
+//   }
+// }
 
 MoleculeNotification.displayName = 'MoleculeNotification'
 

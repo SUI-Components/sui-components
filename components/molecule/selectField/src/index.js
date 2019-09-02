@@ -10,13 +10,13 @@ const hasErrors = (success, error) => {
 }
 
 const MoleculeSelectField = ({
-  label,
-  id,
-  successText,
+  children,
   errorText,
   helpText,
+  id,
   inline,
-  children, // eslint-disable-line
+  label,
+  successText,
   ...props
 }) => {
   const refSelect = useRef()
@@ -30,17 +30,17 @@ const MoleculeSelectField = ({
 
   return (
     <MoleculeField
-      name={id}
-      label={label}
-      successText={successText}
       errorText={errorText}
       helpText={helpText}
       inline={inline}
+      label={label}
+      name={id}
       onClickLabel={handleClick}
+      successText={successText}
     >
       <MoleculeSelect
-        refMoleculeSelect={refSelect}
         errorState={errorState}
+        refMoleculeSelect={refSelect}
         {...props}
       >
         {children}
@@ -52,17 +52,8 @@ const MoleculeSelectField = ({
 MoleculeSelectField.displayName = 'MoleculeSelectField'
 
 MoleculeSelectField.propTypes = {
-  /** Text to be displayed as label */
-  label: PropTypes.string.isRequired,
-
-  /** used as label for attribute and Select element id */
-  id: PropTypes.string.isRequired,
-
-  /** Success message to display when success state  */
-  successText: PropTypes.string,
-
-  /* onChange callback */
-  onChange: PropTypes.func,
+  /** cnhildren */
+  children: PropTypes.any,
 
   /** Error message to display when error state  */
   errorText: PropTypes.string,
@@ -70,8 +61,20 @@ MoleculeSelectField.propTypes = {
   /** Help Text to display */
   helpText: PropTypes.string,
 
+  /** used as label for attribute and Select element id */
+  id: PropTypes.string.isRequired,
+
   /** Boolean to decide if elements should be set inline */
-  inline: PropTypes.bool
+  inline: PropTypes.bool,
+
+  /** Text to be displayed as label */
+  label: PropTypes.string.isRequired,
+
+  /* onChange callback */
+  onChange: PropTypes.func,
+
+  /** Success message to display when success state  */
+  successText: PropTypes.string
 }
 
 export default MoleculeSelectField

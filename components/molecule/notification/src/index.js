@@ -71,9 +71,9 @@ const MoleculeNotification = ({
   }
 
   const triggerAutoClose = useCallback(
-    (time, show) => {
+    time => {
       autoCloseTimeout.current = setTimeout(() => {
-        if (show) setShow(false)
+        setShow(false)
       }, time)
     },
     [autoCloseTimeout]
@@ -83,33 +83,8 @@ const MoleculeNotification = ({
     setShow(false)
   }
 
-  // const handleToggleShow = useCallback(() => {
-  //   const autoCloseTimeInSeconds = getAutoCloseTime()
-
-  //   if (effect) {
-  //     setDelay(true)
-  //     removeDelay(show)
-  //   }
-
-  //   if (show) {
-  //     if (autoCloseTimeInSeconds) triggerAutoClose(autoCloseTimeInSeconds)
-  //   } else {
-  //     clearTimeout(this.autoCloseTimeout)
-  //     onClose()
-  //   }
-  // }, [effect, getAutoCloseTime, onClose, show, triggerAutoClose])
-
   useEffect(() => {
     const autoCloseTimeInSeconds = getAutoCloseTime()
-    console.log({
-      autoCloseTimeout,
-      transitionTimeout,
-      show,
-      triggerAutoClose,
-      effect,
-      onClose,
-      autoCloseTimeInSeconds
-    })
 
     if (show && autoCloseTimeInSeconds) triggerAutoClose(autoCloseTimeInSeconds)
 
@@ -157,22 +132,6 @@ const MoleculeNotification = ({
     [`${CLASS}-children`]: children,
     [`${CLASS}-text`]: text
   })
-  console.log({
-    autoCloseTiming,
-    onClose,
-    effect,
-    buttons,
-    children,
-    icon,
-    position,
-    showCloseButton,
-    text,
-    type,
-    variation,
-    showFromProps,
-    show,
-    delay
-  })
 
   if (!show && !delay) {
     return null
@@ -199,129 +158,6 @@ const MoleculeNotification = ({
     </div>
   )
 }
-
-// class MoleculeNotification extends Component {
-//   state = {
-//     show: this.props.show,
-//     delay: false
-//   }
-
-//   componentWillReceiveProps(nextProps) {
-//     this.state.show !== nextProps.show && this.toggleShow()
-//   }
-
-//   componentDidMount() {
-//     const {show} = this.state
-//     const autoCloseTimeInSeconds = this.getAutoCloseTime()
-//     if (show && autoCloseTimeInSeconds)
-//       this.triggerAutoClose(autoCloseTimeInSeconds)
-//   }
-
-//   shouldComponentUpdate(nextProps, nextState) {
-//     const {show, delay} = this.state
-//     return show !== nextState.show || delay !== nextState.delay
-//   }
-
-//   componentWillUnmount() {
-//     clearTimeout(this.autoCloseTimeout)
-//     clearTimeout(this.transitionTimout)
-//   }
-
-//   getAutoCloseTime = () => {
-//     const {autoClose: autoCloseTiming} = this.props
-//     const time = AUTO_CLOSE_TIME[autoCloseTiming]
-//     return time
-//   }
-
-//   toggleShow = () => {
-//     const show = !this.state.show
-//     const {onClose, effect} = this.props
-//     const autoCloseTimeInSeconds = this.getAutoCloseTime()
-
-//     this.setState({show})
-//     if (effect) this.setState({delay: true}, this.removeDelay(show))
-
-//     if (show && autoCloseTimeInSeconds)
-//       this.triggerAutoClose(autoCloseTimeInSeconds)
-//     if (!show) {
-//       clearTimeout(this.autoCloseTimeout)
-//       onClose()
-//     }
-//   }
-
-//   triggerAutoClose = time => {
-//     this.autoCloseTimeout = setTimeout(() => {
-//       const {show} = this.state
-//       show && this.toggleShow()
-//     }, time)
-//   }
-
-//   removeDelay = show => {
-//     const delay = show ? 1 : TRANSITION_DELAY
-//     this.transitionTimout = setTimeout(() => {
-//       this.setState({delay: false})
-//     }, delay)
-//   }
-
-//   getButtons = () => {
-//     const {buttons} = this.props
-//     return buttons
-//       .slice(0, BUTTONS_MAX)
-//       .map((button, i) => <Button key={i} {...button} />)
-//   }
-
-//   render() {
-//     const {show, delay} = this.state
-//     const {
-//       buttons,
-//       children,
-//       effect,
-//       icon,
-//       position,
-//       showCloseButton,
-//       text,
-//       type,
-//       variation
-//     } = this.props
-//     const wrapperClassName = cx(
-//       `${CLASS} ${CLASS}--${type} ${CLASS}--${position}`,
-//       {
-//         [`${CLASS}--${variation}`]: variation === VARIATIONS.positive,
-//         [`${CLASS}-effect--${position}`]: effect,
-//         [`${CLASS}-effect--hide`]: effect && delay
-//       }
-//     )
-//     const innerWrapperClassName = cx({
-//       [`${CLASS}-children`]: children,
-//       [`${CLASS}-text`]: text
-//     })
-
-//     if (!show && !delay) {
-//       return null
-//     }
-
-//     return (
-//       <div className={wrapperClassName}>
-//         <div className={`${CLASS}-content`}>
-//           <div className={`${CLASS}-iconLeft`}>
-//             <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
-//           </div>
-//           <div className={innerWrapperClassName}>{children || text}</div>
-//           {showCloseButton && (
-//             <div className={`${CLASS}-iconClose`} onClick={this.toggleShow}>
-//               <span className={`${CLASS}-icon`}>
-//                 <IconClose />
-//               </span>
-//             </div>
-//           )}
-//         </div>
-//         {buttons && (
-//           <div className={`${CLASS}-buttonsContainer`}>{this.getButtons()}</div>
-//         )}
-//       </div>
-//     )
-//   }
-// }
 
 MoleculeNotification.displayName = 'MoleculeNotification'
 
@@ -387,4 +223,4 @@ MoleculeNotification.defaultProps = {
   variation: VARIATIONS.negative
 }
 
-export default MoleculeNotification
+export default React.memo(MoleculeNotification)

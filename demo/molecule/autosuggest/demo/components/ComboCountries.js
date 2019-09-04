@@ -10,6 +10,7 @@ import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
 import regions from '../data/regions.json'
 import {IconArrowDown} from '../Icons/'
+import {filterOptionsCodeValue} from '../services/'
 
 const MoleculeSelectWithState = withStateValue(MoleculeSelect)
 const MoleculeAutosuggestWithState = withStateValue(MoleculeAutosuggest)
@@ -21,7 +22,14 @@ const getCountriesByRegion = region => {
 
 const ComboCountries = () => {
   const [countries, setCountries] = useState([])
+  const [query, setQuery] = useState('')
 
+  const handleChangeQuery = (_, {value}) => {
+    setQuery(value)
+    console.log({value})
+  }
+
+  // (_, {value: country}) => console.log({country}
   const handleChange = (_, {value: region}) => {
     console.log({region})
     getCountriesByRegion(region)
@@ -33,6 +41,8 @@ const ComboCountries = () => {
       )
       .then(setCountries)
   }
+
+  const filteredCountries = filterOptionsCodeValue(countries, query)
 
   return (
     <div style={{display: 'flex'}}>
@@ -52,10 +62,10 @@ const ComboCountries = () => {
       <div style={{width: '50%', margin: '0 10px'}}>
         <MoleculeAutosuggestWithState
           placeholder="Select a Country..."
-          onChange={(_, {value: country}) => console.log({country})}
+          onChange={handleChangeQuery}
           disabled={!countries.length}
         >
-          {countries.map(({code, name}, i) => (
+          {filteredCountries.map(({code, name}, i) => (
             <MoleculeDropdownOption key={i} value={name}>
               {name}
             </MoleculeDropdownOption>

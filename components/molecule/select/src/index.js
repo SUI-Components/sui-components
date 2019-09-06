@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -20,6 +20,12 @@ const ERROR_STATES = {
   SUCCESS: 'success'
 }
 
+const getErrorStateClass = errorState => {
+  if (errorState) return `${BASE_CLASS}--${ERROR_STATES.ERROR}`
+  if (errorState === false) return `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
+  return ''
+}
+
 const getOptionData = children => {
   const optionsData = {}
   React.Children.forEach(children, child => {
@@ -29,98 +35,69 @@ const getOptionData = children => {
   return optionsData
 }
 
-class MoleculeSelect extends Component {
-  refMoleculeSelect = this.props.refMoleculeSelect || React.createRef()
+const MoleculeSelect = props => {
+  const {
+    isOpen,
+    onToggle,
+    children,
+    errorState,
+    disabled,
+    keysSelection,
+    refMoleculeSelect: refMoleculeSelectFromProps
+  } = props
+  const refMoleculeSelect = useRef(refMoleculeSelectFromProps)
+  const refsMoleculeSelectOptions = useRef([])
+  const optionsData = useRef(getOptionData(children))
 
-  refsMoleculeSelectOptions = []
+  const [focus, setFocus] = useState([])
 
-  state = {
-    focus: false,
-    optionsData: {}
-  }
-
-  static getDerivedStateFromProps({children}, state) {
-    const optionsData = getOptionData(children)
-    return {...state, optionsData}
-  }
-
-  componentDidMount() {
-    const {children} = this.props // eslint-disable-line react/prop-types
-    const optionsData = getOptionData(children)
-    this.setState({optionsData})
-  }
-
-  get extendedChildren() {
-    const {children, keysSelection} = this.props // eslint-disable-line react/prop-types
-    const {refsMoleculeSelectOptions} = this
-    return React.Children.toArray(children)
-      .filter(Boolean)
-      .map((child, index) => {
-        refsMoleculeSelectOptions[index] = React.createRef()
-        return React.cloneElement(child, {
-          innerRef: refsMoleculeSelectOptions[index],
-          onSelectKey: keysSelection
-        })
+  const extendedChildren = React.Children.toArray(children)
+    .filter(Boolean)
+    .map((child, index) => {
+      refsMoleculeSelectOptions.current[index] = React.createRef()
+      return React.cloneElement(child, {
+        innerRef: refsMoleculeSelectOptions.current[index],
+        onSelectKey: keysSelection
       })
-  }
+    })
 
-  get className() {
-    const {focus} = this.state
-    const {disabled} = this.props
-    const {errorStateClass} = this
-    return cx(
-      BASE_CLASS,
-      {
-        [CLASS_FOCUS]: focus,
-        [CLASS_DISABLED]: disabled
-      },
-      errorStateClass
-    )
-  }
+  const className = cx(
+    BASE_CLASS,
+    {
+      [CLASS_FOCUS]: focus,
+      [CLASS_DISABLED]: disabled
+    },
+    getErrorStateClass(errorState)
+  )
 
-  get errorStateClass() {
-    const {errorState} = this.props
-    if (errorState) return `${BASE_CLASS}--${ERROR_STATES.ERROR}`
-    if (errorState === false) return `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
-    return ''
-  }
+  useEffect(() => {
+    optionsData.current = getOptionData(children)
+  }, [children])
 
-  closeList = ev => {
-    const {onToggle} = this.props
-    const {
-      refMoleculeSelect: {current: domMoleculeSelect}
-    } = this
+  const closeList = ev => {
+    const {current: domMoleculeSelect} = refMoleculeSelect
     onToggle(ev, {isOpen: false})
     domMoleculeSelect.focus()
     ev.preventDefault()
     ev.stopPropagation()
   }
 
-  focusFirstOption = (ev, {options}) => {
+  const focusFirstOption = (ev, {options}) => {
     options[0].focus()
     ev.preventDefault()
     ev.stopPropagation()
   }
 
-  handleToggle = ev => {
-    const {onToggle} = this.props
+  const handleToggle = ev => {
     onToggle(ev, {})
     ev.preventDefault()
     ev.stopPropagation()
   }
 
-  handleKeyDown = ev => {
+  const handleKeyDown = ev => {
     ev.persist()
-    const {isOpen} = this.props
-    const {
-      refMoleculeSelect,
-      refsMoleculeSelectOptions,
-      closeList,
-      focusFirstOption,
-      handleToggle
-    } = this
 
-    const options = refsMoleculeSelectOptions.map(getTarget)
+    const options = refsMoleculeSelectOptions.current.map(getTarget)
     const domSourceEvent = ev.target
     const domMoleculeSelect = refMoleculeSelect.current
     if (!isOpen) {
@@ -137,20 +114,17 @@ class MoleculeSelect extends Component {
     }
   }
 
-  handleSelect = () => {
-    this.setState({focus: true})
+  // const handleSelect = () => {
+  //   setFocus(true)
+  // }
+
+  const handleFocusIn = () => {
+    !disabled && setFocus(true)
   }
 
-  handleFocusIn = () => {
-    const {disabled} = this.props
-    !disabled && this.setState({focus: true})
-  }
-
-  handleFocusOut = ev => {
+  const handleFocusOut = ev => {
     ev.persist()
-    const {refsMoleculeSelectOptions, closeList} = this
-    const {isOpen} = this.props
-    const options = refsMoleculeSelectOptions.map(getTarget)
+    const options = refsMoleculeSelectOptions.current.map(getTarget)
     const firstOption = options[0]
     setTimeout(() => {
       const currentElementFocused = getCurrentElementFocused()
@@ -163,53 +137,224 @@ class MoleculeSelect extends Component {
         closeList(ev)
       }
     }, 1)
-    this.setState({focus: false})
+    setFocus(false)
   }
 
-  render() {
-    const {multiselection, ..._props} = this.props
-    const {optionsData} = this.state
-    const {
-      className,
-      handleKeyDown,
-      extendedChildren,
-      refMoleculeSelect,
-      handleFocusIn,
-      handleFocusOut
-    } = this
+  const {multiselection, ...propsFromProps} = props
 
-    return (
-      <div
-        ref={refMoleculeSelect}
-        tabIndex="0"
-        className={className}
-        onKeyDown={handleKeyDown}
-        onFocus={handleFocusIn}
-        onBlur={handleFocusOut}
-      >
-        {multiselection ? (
-          <MoleculeSelectMultipleSelection
-            refMoleculeSelect={refMoleculeSelect}
-            optionsData={optionsData}
-            {..._props}
-          >
-            {extendedChildren}
-          </MoleculeSelectMultipleSelection>
-        ) : (
-          <MoleculeSelectSingleSelection
-            refMoleculeSelect={refMoleculeSelect}
-            optionsData={optionsData}
-            {..._props}
-          >
-            {extendedChildren}
-          </MoleculeSelectSingleSelection>
-        )}
-      </div>
-    )
-  }
+  return (
+    <div
+      ref={refMoleculeSelect}
+      tabIndex="0"
+      className={className}
+      onKeyDown={handleKeyDown}
+      onFocus={handleFocusIn}
+      onBlur={handleFocusOut}
+    >
+      {multiselection ? (
+        <MoleculeSelectMultipleSelection
+          refMoleculeSelect={refMoleculeSelect}
+          optionsData={optionsData}
+          {...propsFromProps}
+        >
+          {extendedChildren}
+        </MoleculeSelectMultipleSelection>
+      ) : (
+        <MoleculeSelectSingleSelection
+          refMoleculeSelect={refMoleculeSelect}
+          optionsData={optionsData}
+          {...propsFromProps}
+        >
+          {extendedChildren}
+        </MoleculeSelectSingleSelection>
+      )}
+    </div>
+  )
 }
+// class MoleculeSelect extends Component {
+//   refMoleculeSelect = this.props.refMoleculeSelect || React.createRef()
+
+//   refsMoleculeSelectOptions = []
+
+//   state = {
+//     focus: false,
+//     optionsData: {}
+//   }
+
+//   static getDerivedStateFromProps({children}, state) {
+//     const optionsData = getOptionData(children)
+//     return {...state, optionsData}
+//   }
+
+//   componentDidMount() {
+//     const {children} = this.props // eslint-disable-line react/prop-types
+//     const optionsData = getOptionData(children)
+//     this.setState({optionsData})
+//   }
+
+//   get extendedChildren() {
+//     const {children, keysSelection} = this.props // eslint-disable-line react/prop-types
+//     const {refsMoleculeSelectOptions} = this
+//     return React.Children.toArray(children)
+//       .filter(Boolean)
+//       .map((child, index) => {
+//         refsMoleculeSelectOptions[index] = React.createRef()
+//         return React.cloneElement(child, {
+//           innerRef: refsMoleculeSelectOptions[index],
+//           onSelectKey: keysSelection
+//         })
+//       })
+//   }
+
+//   get className() {
+//     const {focus} = this.state
+//     const {disabled} = this.props
+//     const {errorStateClass} = this
+//     return cx(
+//       BASE_CLASS,
+//       {
+//         [CLASS_FOCUS]: focus,
+//         [CLASS_DISABLED]: disabled
+//       },
+//       errorStateClass
+//     )
+//   }
+
+//   get errorStateClass() {
+//     const {errorState} = this.props
+//     if (errorState) return `${BASE_CLASS}--${ERROR_STATES.ERROR}`
+//     if (errorState === false) return `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
+//     return ''
+//   }
+
+//   closeList = ev => {
+//     const {onToggle} = this.props
+//     const {
+//       refMoleculeSelect: {current: domMoleculeSelect}
+//     } = this
+//     onToggle(ev, {isOpen: false})
+//     domMoleculeSelect.focus()
+//     ev.preventDefault()
+//     ev.stopPropagation()
+//   }
+
+//   focusFirstOption = (ev, {options}) => {
+//     options[0].focus()
+//     ev.preventDefault()
+//     ev.stopPropagation()
+//   }
+
+//   handleToggle = ev => {
+//     const {onToggle} = this.props
+//     onToggle(ev, {})
+//     ev.preventDefault()
+//     ev.stopPropagation()
+//   }
+
+//   handleKeyDown = ev => {
+//     ev.persist()
+//     const {isOpen} = this.props
+//     const {
+//       refMoleculeSelect,
+//       refsMoleculeSelectOptions,
+//       closeList,
+//       focusFirstOption,
+//       handleToggle
+//     } = this
+
+//     const options = refsMoleculeSelectOptions.map(getTarget)
+//     const domSourceEvent = ev.target
+//     const domMoleculeSelect = refMoleculeSelect.current
+//     if (!isOpen) {
+//       if (['Enter', 'ArrowDown', 'ArrowUp'].includes(ev.key)) {
+//         if (domSourceEvent === domMoleculeSelect) handleToggle(ev)
+//         else closeList(ev)
+//       }
+//     } else {
+//       const currentElementFocused = getCurrentElementFocused()
+//       const isSomeOptionFocused = [...options].includes(currentElementFocused)
+//       if (ev.key === 'Escape') closeList(ev)
+//       if (ev.key === 'ArrowDown' && !isSomeOptionFocused)
+//         focusFirstOption(ev, {options})
+//     }
+//   }
+
+//   handleSelect = () => {
+//     this.setState({focus: true})
+//   }
+
+//   handleFocusIn = () => {
+//     const {disabled} = this.props
+//     !disabled && this.setState({focus: true})
+//   }
+
+//   handleFocusOut = ev => {
+//     ev.persist()
+//     const {refsMoleculeSelectOptions, closeList} = this
+//     const {isOpen} = this.props
+//     const options = refsMoleculeSelectOptions.map(getTarget)
+//     const firstOption = options[0]
+//     setTimeout(() => {
+//       const currentElementFocused = getCurrentElementFocused()
+//       const isSomeOptionFocused = [...options].includes(currentElementFocused)
+//       const isOptionListFocused = firstOption
+//         ? currentElementFocused.isSameNode(firstOption.parentNode)
+//         : false
+
+//       if (!isSomeOptionFocused && !isOptionListFocused && isOpen) {
+//         closeList(ev)
+//       }
+//     }, 1)
+//     this.setState({focus: false})
+//   }
+
+//   render() {
+//     const {multiselection, ..._props} = this.props
+//     const {optionsData} = this.state
+//     const {
+//       className,
+//       handleKeyDown,
+//       extendedChildren,
+//       refMoleculeSelect,
+//       handleFocusIn,
+//       handleFocusOut
+//     } = this
+
+//     return (
+//       <div
+//         ref={refMoleculeSelect}
+//         tabIndex="0"
+//         className={className}
+//         onKeyDown={handleKeyDown}
+//         onFocus={handleFocusIn}
+//         onBlur={handleFocusOut}
+//       >
+//         {multiselection ? (
+//           <MoleculeSelectMultipleSelection
+//             refMoleculeSelect={refMoleculeSelect}
+//             optionsData={optionsData}
+//             {..._props}
+//           >
+//             {extendedChildren}
+//           </MoleculeSelectMultipleSelection>
+//         ) : (
+//           <MoleculeSelectSingleSelection
+//             refMoleculeSelect={refMoleculeSelect}
+//             optionsData={optionsData}
+//             {..._props}
+//           >
+//             {extendedChildren}
+//           </MoleculeSelectSingleSelection>
+//         )}
+//       </div>
+//     )
+//   }
+// }
 
 MoleculeSelect.propTypes = {
+  /** children */
+  children: PropTypes.any,
+
   /** The DOM id global attribute. */
   id: PropTypes.string,
 

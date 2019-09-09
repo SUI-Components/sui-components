@@ -1,5 +1,4 @@
-/* eslint-disable */
-
+/* eslint-disable no-console */
 import React from 'react'
 
 import {withStateValue} from '@s-ui/hoc'
@@ -53,117 +52,111 @@ const Demo = () => (
       </MoleculeSelectWithState>
     </div>
 
-    {
-      /*
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With preselected Value</h3>
+      <MoleculeSelectWithState
+        value="Luxembourg"
+        onChange={(_, {value}) => console.log(value)}
+        iconArrowDown={<IconArrowDown />}
+      >
+        {countriesList.map((country, i) => (
+          <MoleculeSelectOption key={i} value={country}>
+            {country}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelectWithState>
+    </div>
 
-      <div className={CLASS_DEMO_SECTION}>
-        <h3>With preselected Value</h3>
-        <MoleculeSelectWithState
-          value="Luxembourg"
-          onChange={(_, {value}) => console.log(value)}
-          iconArrowDown={<IconArrowDown />}
-        >
-          {countriesList.map((country, i) => (
-            <MoleculeSelectOption key={i} value={country}>
-              {country}
-            </MoleculeSelectOption>
-          ))}
-        </MoleculeSelectWithState>
-      </div>
-  
-      <div className={CLASS_DEMO_SECTION}>
-        <h3>With disabled state</h3>
-        <MoleculeSelectWithState
-          disabled
-          placeholder="Select a Country..."
-          onChange={(_, {value}) => console.log(value)}
-          iconArrowDown={<IconArrowDown />}
-        >
-          {countriesList.map((country, i) => (
-            <MoleculeSelectOption key={i} value={country}>
-              {country}
-            </MoleculeSelectOption>
-          ))}
-        </MoleculeSelectWithState>
-      </div>
-  
-      <div className={CLASS_DEMO_SECTION}>
-        <h3>With different value and displayed text</h3>
-        <MoleculeSelectWithState
-          placeholder="Select some countries..."
-          onChange={(_, {value}) => console.log(value)}
-          iconCloseTag={<IconCloseTag />}
-          iconArrowDown={<IconArrowDown />}
-        >
-          {countriesData.map(({name, code}, i) => (
-            <MoleculeSelectOption key={i} value={code}>
-              {name}
-            </MoleculeSelectOption>
-          ))}
-        </MoleculeSelectWithState>
-      </div>
-  
-      <h2>Multiple Selection</h2>
-      <div className={CLASS_DEMO_SECTION}>
-        <h3>With Placeholder</h3>
-        <MoleculeSelectWithState
-          placeholder="Select some countries..."
-          onChange={(_, {value}) => console.log(value)}
-          iconCloseTag={<IconCloseTag />}
-          iconArrowDown={<IconArrowDown />}
-          multiselection
-        >
-          {countriesList.map((country, i) => (
-            <MoleculeSelectOption key={i} value={country}>
-              {country}
-            </MoleculeSelectOption>
-          ))}
-        </MoleculeSelectWithState>
-      </div>
-  
-      <div className={CLASS_DEMO_SECTION}>
-        <h3>With preselected Value</h3>
-        <MoleculeSelectWithState
-          placeholder="Select some countries..."
-          value={['India', 'Luxembourg']}
-          onChange={(_, {value}) => console.log(value)}
-          iconCloseTag={<IconCloseTag />}
-          iconArrowDown={<IconArrowDown />}
-          multiselection
-        >
-          {countriesList.map((country, i) => (
-            <MoleculeSelectOption key={i} value={country}>
-              {country}
-            </MoleculeSelectOption>
-          ))}
-        </MoleculeSelectWithState>
-      </div>
-  
-      <div className={CLASS_DEMO_SECTION}>
-        <h3>With different value and displayed text</h3>
-        <MoleculeSelectWithState
-          placeholder="Select some countries..."
-          onChange={(_, {value}) => console.log(value)}
-          iconCloseTag={<IconCloseTag />}
-          iconArrowDown={<IconArrowDown />}
-          multiselection
-        >
-          {countriesData.map(({name, code}, i) => (
-            <MoleculeSelectOption key={i} value={code}>
-              {name}
-            </MoleculeSelectOption>
-          ))}
-        </MoleculeSelectWithState>
-      </div>
-  
-      <h2>Dependant Selection</h2>
-      <div className={CLASS_DEMO_SECTION}>
-        <h3>With Placeholder</h3>
-        <ComboCountries />
-      </div>
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With disabled state</h3>
+      <MoleculeSelectWithState
+        disabled
+        placeholder="Select a Country..."
+        onChange={(_, {value}) => console.log(value)}
+        iconArrowDown={<IconArrowDown />}
+      >
+        {countriesList.map((country, i) => (
+          <MoleculeSelectOption key={i} value={country}>
+            {country}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelectWithState>
+    </div>
 
-      */
-    }
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With different value and displayed text</h3>
+      <MoleculeSelectWithState
+        placeholder="Select some countries..."
+        onChange={(_, {value}) => console.log(value)}
+        iconCloseTag={<IconCloseTag />}
+        iconArrowDown={<IconArrowDown />}
+      >
+        {countriesData.map(({name, code}, i) => (
+          <MoleculeSelectOption key={i} value={code}>
+            {name}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelectWithState>
+    </div>
+
+    <h2>Multiple Selection</h2>
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With Placeholder</h3>
+      <MoleculeSelectWithState
+        placeholder="Select some countries..."
+        onChange={(_, {value}) => console.log(value)}
+        iconCloseTag={<IconCloseTag />}
+        iconArrowDown={<IconArrowDown />}
+        multiselection
+      >
+        {countriesList.map((country, i) => (
+          <MoleculeSelectOption key={i} value={country}>
+            {country}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelectWithState>
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With preselected Value</h3>
+      <MoleculeSelectWithState
+        placeholder="Select some countries..."
+        value={['India', 'Luxembourg']}
+        onChange={(_, {value}) => console.log(value)}
+        iconCloseTag={<IconCloseTag />}
+        iconArrowDown={<IconArrowDown />}
+        multiselection
+      >
+        {countriesList.map((country, i) => (
+          <MoleculeSelectOption key={i} value={country}>
+            {country}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelectWithState>
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With different value and displayed text</h3>
+      <MoleculeSelectWithState
+        placeholder="Select some countries..."
+        onChange={(_, {value}) => console.log(value)}
+        iconCloseTag={<IconCloseTag />}
+        iconArrowDown={<IconArrowDown />}
+        multiselection
+      >
+        {countriesData.map(({name, code}, i) => (
+          <MoleculeSelectOption key={i} value={code}>
+            {name}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelectWithState>
+    </div>
+
+    <h2>Dependant Selection</h2>
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With Placeholder</h3>
+      <ComboCountries />
+    </div>
   </div>
 )
 

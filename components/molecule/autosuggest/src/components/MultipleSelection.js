@@ -63,7 +63,8 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
       innerRefInput,
       placeholder,
       children,
-      onInputKeyDown
+      onInputKeyDown,
+      disabled
     } = this.props
     return (
       <Fragment>
@@ -73,16 +74,17 @@ class MoleculeAutosuggestFieldMultiSelection extends Component {
           tags={tags}
           value={value}
           onClick={onToggle}
-          tagsCloseIcon={iconCloseTag}
+          tagsCloseIcon={!disabled && iconCloseTag}
           onChangeTags={handleChangeTags}
           onChange={handleChange}
           isOpen={isOpen}
-          isVisibleClear={tags.length}
+          isVisibleClear={!disabled && tags.length}
           iconClear={iconClear}
           onClickClear={handleClear}
           innerRefInput={innerRefInput}
           placeholder={!tags.length ? placeholder : ''}
           noBorder
+          disabled={disabled}
         />
         <MoleculeDropdownList
           checkbox
@@ -102,6 +104,7 @@ MoleculeAutosuggestFieldMultiSelection.displayName =
   'MoleculeAutosuggestFieldMultiSelection'
 
 MoleculeAutosuggestFieldMultiSelection.defaultProps = {
+  disabled: false,
   value: '',
   tags: [],
   iconCloseTag: <span />

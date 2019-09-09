@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import React, {useState, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
@@ -49,7 +51,7 @@ const MoleculeSelect = props => {
   const refsMoleculeSelectOptions = useRef([])
   const optionsData = useRef(getOptionData(children))
 
-  const [focus, setFocus] = useState([])
+  const [focus, setFocus] = useState(false)
 
   const extendedChildren = React.Children.toArray(children)
     .filter(Boolean)
@@ -141,6 +143,7 @@ const MoleculeSelect = props => {
   }
 
   const {multiselection, ...propsFromProps} = props
+  console.log(propsFromProps)
 
   return (
     <div

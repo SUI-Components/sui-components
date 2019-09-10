@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, {useState, useEffect, useCallback, useRef} from 'react'
 import PropTypes from 'prop-types'
 import Button from '@schibstedspain/sui-atom-button'
@@ -162,53 +161,40 @@ const MoleculeNotification = ({
 MoleculeNotification.displayName = 'MoleculeNotification'
 
 MoleculeNotification.propTypes = {
-  /**
-   * Auto close time: 'short' (3s), 'medium' (6s), 'long' (9s), 'manual' or null (disabled)
-   */
+  /** Auto close time: 'short' (3s), 'medium' (6s), 'long' (9s), 'manual' or null (disabled) */
   autoClose: PropTypes.string,
-  /**
-   * Array of props to sui-atom-buttons. Max: 3 buttons
-   */
+
+  /** Array of props to sui-atom-buttons. Max: 3 buttons */
   buttons: PropTypes.array,
-  /**
-   * Notification content
-   */
+
+  /** Notification content */
   children: PropTypes.node.isRequired,
-  /**
-   * Transition enabled
-   */
+
+  /** Transition enabled */
   effect: PropTypes.bool,
-  /**
-   * Icon to be added on the left of the content
-   */
+
+  /** Icon to be added on the left of the content */
   icon: PropTypes.node,
-  /**
-   * On close callback
-   */
+
+  /** On close callback */
   onClose: PropTypes.func,
-  /**
-   * Positions: 'top', 'bottom', 'relative'
-   */
+
+  /** Positions: 'top', 'bottom', 'relative' */
   position: PropTypes.string,
-  /**
-   * Show / hide notification
-   */
+
+  /** Show / hide notification */
   show: PropTypes.bool,
-  /**
-   * Show / hide close button
-   */
+
+  /** Show / hide close button */
   showCloseButton: PropTypes.bool,
-  /**
-   * Content text. Deprecated, use children instead.
-   */
+
+  /** Content text. Deprecated, use children instead. */
   text: PropTypes.string,
-  /**
-   * Notification type: 'info', 'success', 'warning', 'error', 'system'.
-   */
+
+  /** Notification type: 'info', 'success', 'warning', 'error', 'system'. */
   type: PropTypes.string,
-  /**
-   * Color variation of the notification: 'positive' with washed out colors, 'negative' with bold colors
-   */
+
+  /** Color variation of the notification: 'positive' with washed out colors, 'negative' with bold colors */
   variation: PropTypes.oneOf(Object.keys(VARIATIONS))
 }
 

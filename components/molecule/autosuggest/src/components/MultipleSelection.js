@@ -20,7 +20,8 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   children,
   onInputKeyDown,
   onChange,
-  onChangeTags
+  onChangeTags,
+  disabled
 }) => {
   const MoleculeInputTagsRef = useRef()
 
@@ -73,6 +74,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         innerRefInput={innerRefInput}
         placeholder={!tags.length ? placeholder : ''}
         noBorder
+        disabled={disabled}
       />
       <MoleculeDropdownList
         checkbox
@@ -91,6 +93,7 @@ MoleculeAutosuggestFieldMultiSelection.displayName =
   'MoleculeAutosuggestFieldMultiSelection'
 
 MoleculeAutosuggestFieldMultiSelection.defaultProps = {
+  disabled: false,
   value: '',
   tags: [],
   iconCloseTag: <span />

@@ -34,25 +34,22 @@ const AtomSpinner = ({
   const [delayed, setDelayed] = useState(delayedFromProps)
   const refSpinner = useRef()
 
-  useEffect(
-    () => {
-      const parentClassName = getParentClassName({type, noBackground})
-      const parentNodeClassList = refSpinner.current.parentNode.classList
+  useEffect(() => {
+    const parentClassName = getParentClassName({type, noBackground})
+    const parentNodeClassList = refSpinner.current.parentNode.classList
 
-      if (!delayed) addParentClass(parentNodeClassList)(parentClassName)
+    if (!delayed) addParentClass(parentNodeClassList)(parentClassName)
 
-      const timer = setTimeout(() => {
-        setDelayed(false)
-        addParentClass(parentNodeClassList)(parentClassName)
-      }, DELAY)
+    const timer = setTimeout(() => {
+      setDelayed(false)
+      addParentClass(parentNodeClassList)(parentClassName)
+    }, DELAY)
 
-      return () => {
-        clearTimeout(timer)
-        removeParentClass(parentNodeClassList)(parentClassName)
-      }
-    },
-    [delayed, noBackground, type]
-  )
+    return () => {
+      clearTimeout(timer)
+      removeParentClass(parentNodeClassList)(parentClassName)
+    }
+  }, [delayed, noBackground, type])
 
   return <span ref={refSpinner}>{!delayed ? loader : <noscript />}</span>
 }

@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2019-09-04)
+
+
+### Bug Fixes
+
+* fix infinite loop code ([3eda7a2](https://github.com/SUI-Components/sui-components/commit/3eda7a2))
+
+
+
+<a name="1.6.0"></a>
+# 1.6.0 (2019-09-03)
+
+
+### Features
+
+* hooks migration ([ec2879f](https://github.com/SUI-Components/sui-components/commit/ec2879f))
+* improved code based on PR feedback ([f9f9f53](https://github.com/SUI-Components/sui-components/commit/f9f9f53))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2019-04-23)
 

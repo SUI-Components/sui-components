@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2019-09-03)
+
+
+### Features
+
+* added disabled ([dc46a4e](https://github.com/SUI-Components/sui-components/commit/dc46a4e))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2019-02-20)
 

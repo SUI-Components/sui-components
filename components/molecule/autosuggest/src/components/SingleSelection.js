@@ -19,7 +19,8 @@ const MoleculeAutosuggestSingleSelection = ({
   innerRefInput,
   refMoleculeAutosuggest,
   iconClear,
-  placeholder
+  placeholder,
+  disabled
 }) => {
   const handleSelection = (ev, {value}) => {
     onChange(ev, {value})
@@ -43,10 +44,11 @@ const MoleculeAutosuggestSingleSelection = ({
         isVisibleClear={value}
         onClickClear={handleClear}
         onChange={handleChange}
-        iconClear={iconClear}
+        iconClear={!disabled && iconClear}
         reference={innerRefInput}
         placeholder={placeholder}
         onKeyDown={onInputKeyDown}
+        disabled={disabled}
       />
       {value && (
         <MoleculeDropdownList

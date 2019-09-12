@@ -13,6 +13,7 @@ import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 
 const BASE_CLASS = `sui-MoleculeAutosuggest`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
+const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 
 const getIsTypeableKey = key => {
   const keysEdit = [
@@ -34,7 +35,8 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
     onChange,
     isOpen,
     keysCloseList,
-    keysSelection
+    keysSelection,
+    disabled
   } = props
 
   const {
@@ -56,7 +58,10 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
       })
     })
 
-  const className = cx(BASE_CLASS, {[CLASS_FOCUS]: focus})
+  const className = cx(BASE_CLASS, {
+    [CLASS_FOCUS]: focus,
+    [CLASS_DISABLED]: disabled
+  })
 
   const closeList = ev => {
     const {current: domMoleculeAutosuggest} = refMoleculeAutosuggest
@@ -158,6 +163,9 @@ MoleculeAutosuggest.propTypes = {
 
   /** children */
   children: PropTypes.any,
+
+  /** if the component is disabled or not */
+  disabled: PropTypes.bool,
 
   /** value selected */
   value: PropTypes.any,

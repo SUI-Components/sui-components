@@ -12,6 +12,8 @@ import withDynamicOptions from './hoc/withDynamicOptions'
 
 import AutosuggestSingleWithAsyncOptions from './components/AutosuggestSingleFromAjax'
 
+import ComboCountries from './components/ComboCountries'
+
 import {IconClose} from './Icons'
 import {getAsyncCountriesFromQuery} from './services'
 import './index.scss'
@@ -117,6 +119,12 @@ const Demo = () => (
         multiselection
         disabled
       />
+    </div>
+
+    <h2>Dependant Selection</h2>
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With Placeholder</h3>
+      <ComboCountries />
     </div>
   </div>
 )

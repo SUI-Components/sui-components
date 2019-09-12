@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import {getTarget} from '@s-ui/js/lib/react'
@@ -16,96 +16,82 @@ const STYLES = {
   LIGHT: 'light'
 }
 
-class AtomBackToTop extends PureComponent {
-  state = {
-    show: null,
-    hover: false
-  }
+const AtomBackToTop = ({
+  iconTop: IconTop,
+  textTop,
+  scrollSteps,
+  scrollIntervalTime,
+  refContainer,
+  style
+}) => {
+  const [show, setShow] = useState(false)
+  const [hover, setHover] = useState(false)
 
-  intervalId = 0
+  const intervalRef = useRef()
 
-  container = null
+  useEffect(() => {
+    const container = getTarget(refContainer)
+    const handleScroll = () => {
+      const {scrollTop, scrollHeight, clientHeight} = container
+      const halfHeight = Math.floor((scrollHeight - clientHeight) / 2)
 
-  scrollStep = () => {
-    const {scrollTop} = this.container
-    const {scrollSteps} = this.props
-    const {intervalId} = this
+      if (scrollTop > halfHeight) {
+        if (!show) {
+          setShow(true)
+        }
+      } else {
+        if (show) {
+          setShow(false)
+          setHover(false)
+        }
+      }
+    }
+    container.removeEventListener('scroll', handleScroll)
+    container.addEventListener('scroll', handleScroll)
+    return () => {
+      container.removeEventListener('scroll', handleScroll)
+    }
+  }, [refContainer, show])
+
+  const scrollStep = () => {
+    const container = getTarget(refContainer)
+    const {scrollTop} = container
+    const {current: intervalId} = intervalRef
 
     if (scrollTop === 0) clearInterval(intervalId)
-    this.container.scrollTop = scrollTop - scrollSteps
+    if (scrollTop) container.scrollTop = scrollTop - scrollSteps
   }
 
-  scrollToTop = () => {
-    const {scrollStep} = this
-    const {scrollIntervalTime} = this.props
-    this.intervalId = setInterval(scrollStep, scrollIntervalTime)
+  const scrollToTop = () => {
+    const intervalId = setInterval(scrollStep, scrollIntervalTime)
+    intervalRef.current = intervalId
   }
 
-  handleScroll = halfHeight => {
-    const {scrollTop} = this.container
-    const {show} = this.state
+  const hoverButton = () => setHover(true)
+  const unhoverButton = () => setHover(false)
 
-    if (scrollTop > halfHeight) {
-      if (!show) this.setState({show: true})
-    } else {
-      if (show) this.setState({show: false, hover: false})
-    }
-  }
-
-  hoverButton = e => {
-    this.setState({hover: true})
-  }
-
-  unhoverButton = e => {
-    this.setState({hover: false})
-  }
-
-  componentDidMount() {
-    this.container = getTarget(this.props.refContainer)
-
-    const {handleScroll} = this
-    const {scrollHeight, clientHeight} = this.container
-    const halfHeight = Math.floor((scrollHeight - clientHeight) / 2)
-
-    this.container.addEventListener(
-      'scroll',
-      handleScroll.bind(this, halfHeight)
-    )
-  }
-
-  componentWillUnmount() {
-    const {handleScroll, intervalId} = this
-    clearInterval(intervalId)
-    this.container.removeEventListener('scroll', handleScroll)
-  }
-
-  render() {
-    const {scrollToTop, hoverButton, unhoverButton} = this
-    const {iconTop: IconTop, textTop, style} = this.props
-    const {show, hover} = this.state
-    return (
-      <button
-        title="Back to top"
-        className={cx(
-          BASE_CLASS,
-          `${BASE_CLASS}--${style}`,
-          show !== null && CLASS_READY,
-          show ? CLASS_SHOW : CLASS_HIDE,
-          hover && CLASS_HOVER
-        )}
-        onMouseOver={hoverButton}
-        onMouseOut={unhoverButton}
-        onClick={scrollToTop}
-      >
-        {IconTop && (
-          <span className={CLASS_ICON}>
-            <IconTop />
-          </span>
-        )}
-        {textTop && <span className={CLASS_TEXT}>{textTop}</span>}
-      </button>
-    )
-  }
+  return (
+    <button
+      title="Back to top"
+      className={cx(
+        BASE_CLASS,
+        `${BASE_CLASS}--${style}`,
+        show !== null && CLASS_READY,
+        show ? CLASS_SHOW : CLASS_HIDE,
+        hover && CLASS_HOVER
+      )}
+      onMouseOver={hoverButton}
+      onMouseOut={unhoverButton}
+      onClick={scrollToTop}
+    >
+      {IconTop && (
+        <span className={CLASS_ICON}>
+          <IconTop />
+        </span>
+      )}
+      {textTop && <span className={CLASS_TEXT}>{textTop}</span>}
+    </button>
+  )
 }
 
 AtomBackToTop.displayName = 'AtomBackToTop'

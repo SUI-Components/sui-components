@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.26.0"></a>
+# 1.26.0 (2019-09-13)
+
+
+### Bug Fixes
+
+* fix release version ([4d5a1d0](https://github.com/SUI-Components/sui-components/commit/4d5a1d0))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2019-09-13)
 

@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.0.0"></a>
+# 2.0.0 (2019-09-13)
+
+
+### Features
+
+* add new types and colors ([f909e6a](https://github.com/SUI-Components/sui-components/commit/f909e6a))
+* add social colors ([ce5f11e](https://github.com/SUI-Components/sui-components/commit/ce5f11e))
+* add social colors in proptypes desc ([5265ac6](https://github.com/SUI-Components/sui-components/commit/5265ac6))
+* fix box shadow ([7030d33](https://github.com/SUI-Components/sui-components/commit/7030d33))
+* fix compatibility with previous atom button ([509b3f5](https://github.com/SUI-Components/sui-components/commit/509b3f5))
+* fix typo ([154d267](https://github.com/SUI-Components/sui-components/commit/154d267))
+
+
+### BREAKING CHANGES
+
+* new types and colors
+
+
+
 <a name="1.25.0"></a>
 # 1.25.0 (2019-06-26)
 

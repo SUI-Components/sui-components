@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, {Component} from 'react'
+import React, {useRef, useState, useEffect, useCallback} from 'react'
 import {createPortal} from 'react-dom'
 import cx from 'classnames'
 import {SUPPORTED_KEYS} from './config'
@@ -12,17 +12,28 @@ const toggleWindowScroll = disableScroll => {
   window.document.body.classList.toggle('is-MoleculeModal-open', disableScroll)
 }
 
-class MoleculeModal extends Component {
-  _contentRef = React.createRef()
+const MoleculeModal = ({
+  portalContainerId,
+  header,
+  children,
+  iconClose,
+  isOpen,
+  fitWindow,
+  fitContent,
+  isClosing,
+  onAnimationEnd,
+  usePortal,
+  closeOnOutsideClick,
+  closeOnEscKeyDown,
+  onClose,
+  enableContentScroll
+}) => {
+  const contentRef = useRef()
+  const wrapperRef = useRef()
 
-  _wrapperRef = React.createRef()
+  const [isClientReady, setIsClientReady] = useState(false)
 
-  state = {
-    isClientReady: false
-  }
-
-  _getContainer() {
-    const {portalContainerId} = this.props
+  const getContainer = () => {
     let containerDOMEl = document.getElementById(portalContainerId)
     if (!containerDOMEl) {
       containerDOMEl = document.createElement('div')
@@ -32,90 +43,66 @@ class MoleculeModal extends Component {
     return containerDOMEl
   }
 
-  componentDidMount() {
-    const {usePortal} = this.props
-    if (usePortal) {
-      this.setState({isClientReady: true})
-    }
-    document.addEventListener('keydown', this._onKeyDown)
-  }
-
-  componentWillUnmount() {
+  const closeModal = useCallback(() => {
     toggleWindowScroll(false)
-    document.removeEventListener('keydown', this._onKeyDown)
-  }
+    onClose()
+  }, [onClose])
 
-  _onKeyDown = event => {
-    if (this.props.isOpen === false || this.props.closeOnEscKeyDown === false)
-      return
-    if (SUPPORTED_KEYS.includes(event.key)) {
-      this._closeModal()
-      event.preventDefault()
+  const onKeyDown = useCallback(
+    ev => {
+      if (isOpen === false || closeOnEscKeyDown === false) return
+      if (SUPPORTED_KEYS.includes(ev.key)) {
+        closeModal()
+        ev.preventDefault()
+      }
+    },
+    [isOpen, closeOnEscKeyDown, closeModal]
+  )
+
+  useEffect(() => {
+    if (usePortal) setIsClientReady(true)
+  }, [usePortal])
+
+  useEffect(() => {
+    document.removeEventListener('keydown', onKeyDown)
+    document.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      toggleWindowScroll(false)
+      document.removeEventListener('keydown', onKeyDown)
     }
+  }, [onKeyDown])
+
+  const preventScrollIfNeeded = ev => {
+    const {clientHeight, scrollHeight} = contentRef.current
+    const noScroll = scrollHeight <= clientHeight
+    if (!enableContentScroll && noScroll) ev.preventDefault()
   }
 
-  _preventScrollIfNeeded = e => {
-    if (!this.props.enableContentScroll && this.noScroll) e.preventDefault()
-  }
-
-  _avoidOverscroll = () => {
-    const {
-      clientHeight,
-      offsetHeight,
-      scrollTop,
-      scrollHeight
-    } = this._contentRef.current
+  const avoidOverscroll = () => {
+    const {offsetHeight, scrollTop, scrollHeight} = contentRef.current
     const currentScroll = scrollTop + offsetHeight
-    // check if the content has to scroll in order to prevent the default
-    // behaviour of the touchmove in case we don't need the scroll
-    // that fixes the weird overscroll on ios and android
-    this.noScroll = scrollHeight <= clientHeight
 
     if (scrollTop === 0) {
-      this._contentRef.current.scrollTop = 1
+      contentRef.current.scrollTop = 1
     } else if (currentScroll >= scrollHeight) {
-      this._contentRef.current.scrollTop = scrollTop - 1
+      contentRef.current.scrollTop = scrollTop - 1
     }
   }
 
-  _closeModal = () => {
-    toggleWindowScroll(false)
-    this.props.onClose()
-  }
-
-  _handleCloseClick = () => {
-    this._closeModal()
-  }
-
-  _handleOutsideClick = event => {
-    if (
-      this.props.closeOnOutsideClick &&
-      event.target === this._wrapperRef.current
-    ) {
-      this._closeModal()
+  const handleOutsideClick = ev => {
+    if (closeOnOutsideClick && ev.target === wrapperRef.current) {
+      closeModal()
     }
   }
 
-  get extendedChildren() {
-    const {children} = this.props
-    return React.Children.toArray(children).map((child, index) => {
-      return React.cloneElement(child, {
-        onClose: this._closeModal
-      })
+  const extendedChildren = React.Children.toArray(children).map(child =>
+    React.cloneElement(child, {
+      onClose: closeModal
     })
-  }
+  )
 
-  _renderModal() {
-    const {
-      header,
-      iconClose,
-      isOpen,
-      fitWindow,
-      fitContent,
-      isClosing,
-      onAnimationEnd
-    } = this.props
-
+  const renderModal = () => {
     const wrapperClassName = cx(suitClass(), {
       'is-MoleculeModal-open': isOpen,
       [suitClass({element: 'out'})]: isClosing
@@ -130,54 +117,45 @@ class MoleculeModal extends Component {
     return (
       <div
         className={wrapperClassName}
-        ref={this._wrapperRef}
+        ref={wrapperRef}
         onAnimationEnd={onAnimationEnd}
-        onClick={this._handleOutsideClick}
+        onClick={handleOutsideClick}
       >
         <div className={dialogClassName}>
           {(iconClose || header) && (
             <HeaderRender
               close={
-                iconClose && (
-                  <Close icon={iconClose} onClick={this._handleCloseClick} />
-                )
+                iconClose && <Close icon={iconClose} onClick={closeModal} />
               }
               header={header}
             />
           )}
           <div
             className={suitClass({element: 'content'})}
-            onTouchStart={this._avoidOverscroll}
-            onTouchMove={this._preventScrollIfNeeded}
-            ref={this._contentRef}
+            onTouchStart={avoidOverscroll}
+            onTouchMove={preventScrollIfNeeded}
+            ref={contentRef}
           >
-            {this.extendedChildren}
+            {extendedChildren}
           </div>
         </div>
       </div>
     )
   }
 
-  render() {
-    const {isOpen, usePortal} = this.props
-    const {isClientReady} = this.state
+  const modalElement = renderModal()
 
-    const modalElement = this._renderModal()
-
-    if (usePortal) {
-      return isClientReady
-        ? createPortal(modalElement, this._getContainer())
-        : null
-    }
-
-    // temporary fix to avoid executing this on SSR
-    // we should move to functions this and create as a function
-    if (isClientReady) {
-      toggleWindowScroll(isOpen)
-    }
-
-    return modalElement
+  if (usePortal) {
+    return isClientReady ? createPortal(modalElement, getContainer()) : null
   }
+
+  // temporary fix to avoid executing this on SSR
+  // we should move to functions this and create as a function
+  if (isClientReady) {
+    toggleWindowScroll(isOpen)
+  }
+
+  return modalElement
 }
 
 MoleculeModal.propTypes = {

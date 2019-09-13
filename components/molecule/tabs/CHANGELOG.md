@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.3.0"></a>
+# 2.3.0 (2019-09-13)
+
+
+### Bug Fixes
+
+* fix space borders ([57c0443](https://github.com/SUI-Components/sui-components/commit/57c0443))
+
+
+
 <a name="2.2.0"></a>
 # 2.2.0 (2019-06-26)
 

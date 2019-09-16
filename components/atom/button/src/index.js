@@ -126,7 +126,6 @@ const AtomButton = props => {
     !children && CLASSES.empty,
     className
   )
-  console.log(classNames)
 
   const newProps = cleanProps(props)
 

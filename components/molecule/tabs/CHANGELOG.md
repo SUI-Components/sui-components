@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.4.0"></a>
+# 2.4.0 (2019-09-16)
+
+
+### Bug Fixes
+
+* fix issue w/ border tabs margin ([fa52dba](https://github.com/SUI-Components/sui-components/commit/fa52dba))
+
+
+
 <a name="2.3.0"></a>
 # 2.3.0 (2019-09-13)
 

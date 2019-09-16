@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.27.0"></a>
+# 1.27.0 (2019-09-16)
+
+
+### Bug Fixes
+
+* remove console.log poluting console ([cf175a5](https://github.com/SUI-Components/sui-components/commit/cf175a5))
+
+
+
 <a name="1.26.0"></a>
 # 1.26.0 (2019-09-13)
 

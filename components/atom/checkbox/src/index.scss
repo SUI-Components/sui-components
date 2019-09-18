@@ -1,35 +1,36 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$fs-checkbox-label: 14px !default;
-$lh-checkbox-label: 130% !default;
-$maw-checkbox: 32px !default;
-$mt-checkbox-input: 3px !default;
+$fs-atom-checkbox-label: 14px !default;
+$lh-atom-checkbox-label: 130% !default;
+$maw-atom-checkbox: 32px !default;
+$mt-atom-checkbox-input: 3px !default;
+
+$m-atom-checkbox-type-left: $m-m !default;
+$m-atom-checkbox-type-right: $m-m !default;
 
 .sui-AtomCheckbox {
-  &-input {
-    border: $bdrs-none;
-    cursor: pointer;
-    display: inline-block;
-    margin: $mt-checkbox-input $m-m 0 0;
-    padding: 0;
-    vertical-align: top;
+  border: $bdrs-none;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  vertical-align: top;
 
-    &:disabled {
-      + .sui-AtomCheckbox-label {
-        color: $c-gray-light-1;
-      }
+  &[type='checkbox'] {
+    height: inherit;
+    margin-left: $m-atom-checkbox-type-left;
+    margin-right: $m-atom-checkbox-type-right;
+    width: inherit;
+
+    &:focus {
+      border: 0;
+      box-shadow: none;
+      outline: 0 none;
     }
   }
 
-  &-label {
-    border: $bdrs-none;
-    cursor: pointer;
-    display: inline-block;
-    font-size: $fs-checkbox-label;
-    line-height: $lh-checkbox-label;
-    margin: 0;
-    max-width: calc(100% - #{$maw-checkbox});
-    padding: 0;
-    width: auto;
+  @each $state, $color in $states-atom-input {
+    &.sui-AtomCheckbox--#{$state} {
+      border-color: $color;
+    }
   }
 }

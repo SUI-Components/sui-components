@@ -1,28 +1,44 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 const BASE_CLASS = 'sui-AtomCheckbox'
-const CLASS_LABEL = `${BASE_CLASS}-label`
 
-const AtomCheckbox = ({id, value, disabled, checked, onChange, label}) => {
+const ERROR_STATES = {
+  ERROR: 'error',
+  SUCCESS: 'success'
+}
+
+const getErrorStateClass = errorState => {
+  if (errorState) return `${BASE_CLASS}--${ERROR_STATES.ERROR}`
+  if (errorState === false) return `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
+  return ''
+}
+
+const AtomCheckbox = ({
+  id,
+  disabled,
+  checked,
+  onChange: onChangeFromProps,
+  errorState
+}) => {
   const handleChange = ev => {
-    onChange(ev, {value: ev.target.value})
+    const {checked} = ev.target
+    if (!disabled) onChangeFromProps(ev, {value: checked})
   }
+
+  const className = cx(BASE_CLASS, getErrorStateClass(errorState))
 
   return (
     <Fragment>
       <input
-        className={BASE_CLASS}
+        className={className}
         type="checkbox"
         id={id}
-        value={value}
         disabled={disabled}
         checked={checked}
         onChange={handleChange}
       />
-      <label className={CLASS_LABEL} htmlFor={id}>
-        {label}
-      </label>
     </Fragment>
   )
 }
@@ -37,9 +53,6 @@ AtomCheckbox.propTypes = {
   /* The DOM id global attribute. */
   id: PropTypes.string.isRequired,
 
-  /* value of the checkbox */
-  value: PropTypes.string.isRequired,
-
   /* This Boolean attribute prevents the user from interacting with the input */
   disabled: PropTypes.bool,
 
@@ -49,8 +62,8 @@ AtomCheckbox.propTypes = {
   /* onChange callback */
   onChange: PropTypes.func.isRequired,
 
-  /* label to be displayed for that option */
-  label: PropTypes.string.isRequired
+  /* Will set a red/green border if set to true/false */
+  errorState: PropTypes.bool
 }
 
 export default AtomCheckbox

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react'
 
 import AtomCheckbox from '../../../../components/atom/checkbox/src'

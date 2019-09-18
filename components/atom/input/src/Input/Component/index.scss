@@ -38,6 +38,8 @@ $class-read-only: '#{$base-class}--readOnly';
     &:not(#{$class-read-only}) {
       background: $bgc-atom-input-disabled;
     }
+    opacity: 1;
+    -webkit-appearance: none;
   }
 
   &:focus {

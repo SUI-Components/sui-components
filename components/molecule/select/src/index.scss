@@ -40,6 +40,11 @@ $bgc-atom-input-disabled: $c-gray-lightest !default;
         }
       }
 
+      #{$class-select-atom-input-input}:disabled {
+        opacity: 1;
+        -webkit-appearance: none;
+      }
+
       #{$class-select-atom-input-input}:first-child,
       #{$class-select-atom-input-tags} {
         padding-right: $pr-select-atom-input-tags;

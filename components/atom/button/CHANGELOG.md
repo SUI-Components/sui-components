@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.28.0"></a>
+# 1.28.0 (2019-09-18)
+
+
+### Features
+
+* add vars for background and color outline button on focused ([ad25721](https://github.com/SUI-Components/sui-components/commit/ad25721))
+
+
+
 <a name="1.27.0"></a>
 # 1.27.0 (2019-09-16)
 

@@ -189,7 +189,7 @@ $bxsh-atom-button-solid-primary-negative: none !default;
 
         @include button-foreground-color($color);
         @include button-focused {
-          background-color: $bgc-atom-button-focused; //
+          background-color: $bgc-atom-button-focused;
           color: $c-atom-button-focused;
         }
         background: none;
@@ -198,7 +198,7 @@ $bxsh-atom-button-solid-primary-negative: none !default;
         &#{$base-class}--negative {
           @include button-foreground-color($color-invert);
           @include button-focused {
-            background-color: $bgc-atom-button-focused-invert; //
+            background-color: $bgc-atom-button-focused-invert;
             color: $c-atom-button-focused-invert;
           }
           background-color: none;

@@ -159,11 +159,6 @@ $bxsh-atom-button-solid-primary-negative: none !default;
     $color: nth($pair, 1);
     $color-invert: nth($pair, 2);
 
-    $bgc-atom-button-focused: color-variation($color, 4) !default;
-    $bgc-atom-button-focused-invert: color-variation($color, -1) !default;
-    $c-atom-button-focused: $color !default;
-    $c-atom-button-focused-invert: $color-invert !default;
-
     &--#{$name}Color {
       &#{$base-class}--solid {
         @include button-foreground-color($color-invert);
@@ -187,9 +182,14 @@ $bxsh-atom-button-solid-primary-negative: none !default;
 
       &#{$base-class}--outline, 
       &#{$base-class}--flat {
+        $bgc-atom-button-focused: color-variation($color, 4) !default;
+        $bgc-atom-button-focused-invert: color-variation($color, -1) !default;
+        $c-atom-button-focused: $color !default;
+        $c-atom-button-focused-invert: $color-invert !default;
+
         @include button-foreground-color($color);
         @include button-focused {
-          background-color: $bgc-atom-button-focused;
+          background-color: $bgc-atom-button-focused; //
           color: $c-atom-button-focused;
         }
         background: none;
@@ -198,7 +198,7 @@ $bxsh-atom-button-solid-primary-negative: none !default;
         &#{$base-class}--negative {
           @include button-foreground-color($color-invert);
           @include button-focused {
-            background-color: $bgc-atom-button-focused-invert;
+            background-color: $bgc-atom-button-focused-invert; //
             color: $c-atom-button-focused-invert;
           }
           background-color: none;

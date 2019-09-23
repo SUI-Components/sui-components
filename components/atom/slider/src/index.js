@@ -131,7 +131,7 @@ AtomSlider.propTypes = {
   onChange: PropTypes.func,
   /* only if range=false, shows a position fixed label with the current value instead of a tooltip */
   valueLabel: PropTypes.bool,
-  /* min and max will be ignored if used. Set your own mark labels */
+  /* Set your own mark labels */
   marks: PropTypes.array,
   /* callback to format the value shown as label */
   valueLabelFormatter: PropTypes.func,

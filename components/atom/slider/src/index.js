@@ -13,13 +13,12 @@ const Label = lazy(() => import('./Label'))
 const createHandler = (
   refAtomSlider,
   handleComponent,
-  valueLabel,
-  range
+  hideTooltip
 ) => props => {
   const {value, index, dragging, ...restProps} = props // eslint-disable-line
   const {component: Handle} = handleComponent
 
-  if (shouldHideTooltip(valueLabel, range)) {
+  if (hideTooltip) {
     return (
       <Handle value={value} {...restProps} dragging={dragging.toString()} />
     )
@@ -38,8 +37,6 @@ const createHandler = (
   )
 }
 
-const shouldHideTooltip = (valueLabel, range) => valueLabel && !range
-
 const AtomSlider = ({
   onChange,
   value,
@@ -49,7 +46,8 @@ const AtomSlider = ({
   range,
   disabled,
   valueLabel,
-  valueLabelFormatter
+  valueLabelFormatter,
+  hideTooltip
 }) => {
   const [ready, setReady] = useState(false)
   const [handleComponent, setHandle] = useState({component: null})
@@ -85,7 +83,7 @@ const AtomSlider = ({
 
   const customProps = {
     defaultValue: range ? [min, max] : value,
-    handle: createHandler(refAtomSlider, handleComponent, valueLabel, range),
+    handle: createHandler(refAtomSlider, handleComponent, hideTooltip),
     onChange: handleChange,
     disabled,
     marks,
@@ -103,7 +101,7 @@ const AtomSlider = ({
     >
       {ready && (
         <Suspense fallback={null}>
-          {shouldHideTooltip(valueLabel, range) ? (
+          {valueLabel ? (
             <React.Fragment>
               <Label value={labelValue} formatter={valueLabelFormatter} />
               <Type {...customProps} />
@@ -143,14 +141,17 @@ AtomSlider.propTypes = {
   /* only if range=false, shows a position fixed label with the current value instead of a tooltip */
   valueLabel: PropTypes.bool,
   /* callback to format the value shown as label */
-  valueLabelFormatter: PropTypes.func
+  valueLabelFormatter: PropTypes.func,
+  /* flag to hide tooltip if wanted */
+  hideTooltip: PropTypes.bool
 }
 
 AtomSlider.defaultProps = {
   min: 0,
   max: 100,
   step: 1,
-  onChange: () => {}
+  onChange: () => {},
+  hideTooltip: false
 }
 
 export default AtomSlider

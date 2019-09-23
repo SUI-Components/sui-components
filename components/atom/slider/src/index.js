@@ -50,7 +50,8 @@ const AtomSlider = ({
   range,
   disabled,
   valueLabel,
-  marks
+  marks,
+  valueLabelFormatter
 }) => {
   const [ready, setReady] = useState(false)
   const [handleComponent, setHandle] = useState({component: null})
@@ -95,7 +96,7 @@ const AtomSlider = ({
         <Suspense fallback={null}>
           {shouldHideTooltip(valueLabel, range) ? (
             <React.Fragment>
-              <Label value={labelValue} />
+              <Label value={labelValue} formatter={valueLabelFormatter} />
               <Type {...customProps} />
             </React.Fragment>
           ) : (
@@ -133,7 +134,9 @@ AtomSlider.propTypes = {
   /* only if range=false, shows a position fixed label with the current value instead of a tooltip */
   valueLabel: PropTypes.bool,
   /* min and max will be ignored if used. Set your own mark labels */
-  marks: PropTypes.array
+  marks: PropTypes.array,
+  /* callback to format the value shown as label */
+  valueLabelFormatter: PropTypes.func
 }
 
 AtomSlider.defaultProps = {

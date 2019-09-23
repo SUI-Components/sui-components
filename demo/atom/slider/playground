@@ -13,7 +13,6 @@ return (
     <div style={stylesSection}>
       <AtomSlider onChange={console.log}/>
     </div>
-    <h3>Step 25</h3>
     <div style={stylesSection}>
       <AtomSlider step={25} value={50} onChange={console.log}/>
     </div>
@@ -33,6 +32,13 @@ return (
     <h2>Value as label</h2>
     <div style={stylesSection}>
       <AtomSlider onChange={console.log} valueLabel />
+    </div>
+    <h2>Custom Marks</h2>
+    <div style={stylesSection}>
+      <AtomSlider onChange={console.log} max={6} valueLabel marks={[0, 1, 2, 3, 4, 5, '+10']}/>
+    </div>
+    <div style={stylesSection}>
+      <AtomSlider onChange={console.log} min={6000} max={60000} step={1000} valueLabel marks={['6K', '+60K']}/>
     </div>
   </div>
 )

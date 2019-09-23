@@ -48,7 +48,8 @@ const AtomSlider = ({
   step,
   range,
   disabled,
-  valueLabel
+  valueLabel,
+  valueLabelFormatter
 }) => {
   const [ready, setReady] = useState(false)
   const [handleComponent, setHandle] = useState({component: null})
@@ -104,7 +105,7 @@ const AtomSlider = ({
         <Suspense fallback={null}>
           {shouldHideTooltip(valueLabel, range) ? (
             <React.Fragment>
-              <Label value={labelValue} />
+              <Label value={labelValue} formatter={valueLabelFormatter} />
               <Type {...customProps} />
             </React.Fragment>
           ) : (
@@ -140,7 +141,9 @@ AtomSlider.propTypes = {
   /* callback to be called with every update of the input value */
   onChange: PropTypes.func,
   /* only if range=false, shows a position fixed label with the current value instead of a tooltip */
-  valueLabel: PropTypes.bool
+  valueLabel: PropTypes.bool,
+  /* callback to format the value shown as label */
+  valueLabelFormatter: PropTypes.func
 }
 
 AtomSlider.defaultProps = {

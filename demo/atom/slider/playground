@@ -5,6 +5,10 @@ const stylesSection = {
   padding: '30px 10px'
 }
 
+const numberWithCommas = function(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+}
+
 return (
   <div>
     <h1>AtomSlider</h1>
@@ -33,6 +37,9 @@ return (
     <h2>Value as label</h2>
     <div style={stylesSection}>
       <AtomSlider onChange={console.log} valueLabel />
+    </div>
+    <div style={stylesSection}>
+      <AtomSlider onChange={console.log} step={1000} max={5000} valueLabel valueLabelFormatter={numberWithCommas} />
     </div>
   </div>
 )

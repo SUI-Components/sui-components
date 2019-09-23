@@ -35,17 +35,17 @@ return (
     </div>
     <h2>Value as label</h2>
     <div style={stylesSection}>
-      <AtomSlider onChange={console.log} valueLabel />
+      <AtomSlider onChange={console.log} valueLabel hideTooltip />
     </div>
     <div style={stylesSection}>
-      <AtomSlider onChange={console.log} step={1000} max={5000} valueLabel valueLabelFormatter={numberWithCommas} />
+      <AtomSlider onChange={console.log} step={1000} max={5000} valueLabel valueLabelFormatter={numberWithCommas} hideTooltip />
     </div>
     <h2>Custom Marks</h2>
     <div style={stylesSection}>
-      <AtomSlider onChange={console.log} max={6} range marks={[0, 1, 2, 3, 4, 5, '+10']}/>
+      <AtomSlider onChange={console.log} max={6} range marks={[0, 1, 2, 3, 4, 5, '+10']} hideTooltip/>
     </div>
     <div style={stylesSection}>
-      <AtomSlider onChange={console.log} min={6000} max={60000} step={1000} valueLabel valueLabelFormatter={numberWithCommas} marks={['6K', '+60K']}/>
+      <AtomSlider onChange={console.log} min={6000} max={60000} step={1000} valueLabel valueLabelFormatter={numberWithCommas} marks={['6K', '+60K']} hideTooltip />
     </div>
   </div>
 )

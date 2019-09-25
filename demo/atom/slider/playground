@@ -33,6 +33,10 @@ return (
     <div style={stylesSection}>
       <AtomSlider range step={10} onChange={console.log}/>
     </div>
+    <h3>With default value</h3>
+    <div style={stylesSection}>
+      <AtomSlider range step={10} onChange={console.log} defaultValue={[0, 30]}/>
+    </div>
     <h2>Value as label</h2>
     <div style={stylesSection}>
       <AtomSlider onChange={console.log} valueLabel hideTooltip />

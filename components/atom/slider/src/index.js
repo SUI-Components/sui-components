@@ -128,7 +128,7 @@ AtomSlider.propTypes = {
   /** value  */
   value: PropTypes.number,
 
-  /** defaultValue */
+  /** defaultValue prop that set initial positions of handles */
   defaultValue: PropTypes.array,
 
   /* callback to be called with every update of the input value */

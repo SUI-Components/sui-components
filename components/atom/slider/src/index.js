@@ -8,11 +8,21 @@ const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 const Range = lazy(() => import('rc-slider/lib/Range'))
 const Slider = lazy(() => import('rc-slider/lib/Slider'))
 const Tooltip = lazy(() => import('rc-tooltip'))
+const Label = lazy(() => import('./Label'))
 
-const createHandler = (refAtomSlider, handleComponent) => props => {
+const createHandler = (
+  refAtomSlider,
+  handleComponent,
+  hideTooltip
+) => props => {
   const {value, index, dragging, ...restProps} = props // eslint-disable-line
   const {component: Handle} = handleComponent
 
+  if (hideTooltip) {
+    return (
+      <Handle value={value} {...restProps} dragging={dragging.toString()} />
+    )
+  }
   return (
     <Tooltip
       getTooltipContainer={() => refAtomSlider.current}
@@ -27,9 +37,21 @@ const createHandler = (refAtomSlider, handleComponent) => props => {
   )
 }
 
-const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
+const AtomSlider = ({
+  onChange,
+  value,
+  min,
+  max,
+  step,
+  range,
+  disabled,
+  valueLabel,
+  valueLabelFormatter,
+  hideTooltip
+}) => {
   const [ready, setReady] = useState(false)
   const [handleComponent, setHandle] = useState({component: null})
+  const [labelValue, setLabelValue] = useState(value || 0)
   const refAtomSlider = React.createRef()
 
   useEffect(() => {
@@ -44,6 +66,7 @@ const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
 
   const handleChange = value => {
     const e = {}
+    setLabelValue(value)
     onChange(e, {value})
   }
 
@@ -60,7 +83,7 @@ const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
 
   const customProps = {
     defaultValue: range ? [min, max] : value,
-    handle: createHandler(refAtomSlider, handleComponent),
+    handle: createHandler(refAtomSlider, handleComponent, hideTooltip),
     onChange: handleChange,
     disabled,
     marks,
@@ -71,7 +94,6 @@ const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
 
   // Determine the type of the slider according to the range prop
   const Type = range ? Range : Slider
-
   return (
     <div
       ref={refAtomSlider}
@@ -79,7 +101,14 @@ const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
     >
       {ready && (
         <Suspense fallback={null}>
-          <Type {...customProps} />
+          {valueLabel ? (
+            <React.Fragment>
+              <Label value={labelValue} formatter={valueLabelFormatter} />
+              <Type {...customProps} />
+            </React.Fragment>
+          ) : (
+            <Type {...customProps} />
+          )}
         </Suspense>
       )}
     </div>
@@ -108,14 +137,21 @@ AtomSlider.propTypes = {
   value: PropTypes.number,
 
   /* callback to be called with every update of the input value */
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  /* only if range=false, shows a position fixed label with the current value instead of a tooltip */
+  valueLabel: PropTypes.bool,
+  /* callback to format the value shown as label */
+  valueLabelFormatter: PropTypes.func,
+  /* flag to hide tooltip if wanted */
+  hideTooltip: PropTypes.bool
 }
 
 AtomSlider.defaultProps = {
   min: 0,
   max: 100,
   step: 1,
-  onChange: () => {}
+  onChange: () => {},
+  hideTooltip: false
 }
 
 export default AtomSlider

@@ -1,6 +1,7 @@
 import React, {lazy, useState, useEffect, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import markerFactory from './markerFactory'
 
 const BASE_CLASS = `sui-AtomSlider`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
@@ -46,12 +47,13 @@ const AtomSlider = ({
   range,
   disabled,
   valueLabel,
+  marks,
   valueLabelFormatter,
   hideTooltip
 }) => {
   const [ready, setReady] = useState(false)
   const [handleComponent, setHandle] = useState({component: null})
-  const [labelValue, setLabelValue] = useState(value || 0)
+  const [labelValue, setLabelValue] = useState(value || min)
   const refAtomSlider = React.createRef()
 
   useEffect(() => {
@@ -70,23 +72,12 @@ const AtomSlider = ({
     onChange(e, {value})
   }
 
-  const numTicks = Math.round((max - min) / step) + 1
-  const steps = Array.from(Array(numTicks), (x, index) => index * step)
-
-  const marks =
-    step === 1
-      ? {[min]: min, [max]: max}
-      : steps.reduce((marksConfig, step) => {
-          marksConfig[step] = step
-          return marksConfig
-        }, {})
-
   const customProps = {
     defaultValue: range ? [min, max] : value,
     handle: createHandler(refAtomSlider, handleComponent, hideTooltip),
     onChange: handleChange,
     disabled,
-    marks,
+    marks: markerFactory({step, min, max, marks}),
     max,
     min,
     step
@@ -140,6 +131,8 @@ AtomSlider.propTypes = {
   onChange: PropTypes.func,
   /* only if range=false, shows a position fixed label with the current value instead of a tooltip */
   valueLabel: PropTypes.bool,
+  /* Set your own mark labels */
+  marks: PropTypes.array,
   /* callback to format the value shown as label */
   valueLabelFormatter: PropTypes.func,
   /* flag to hide tooltip if wanted */

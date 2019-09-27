@@ -76,7 +76,6 @@ const AtomSlider = ({
 
   const handleAfterChange = value => {
     const e = {}
-    setLabelValue(value)
     onAfterChange(e, {value})
   }
 

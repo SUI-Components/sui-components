@@ -49,7 +49,8 @@ const AtomSlider = ({
   valueLabel,
   marks,
   valueLabelFormatter,
-  hideTooltip
+  hideTooltip,
+  defaultValue
 }) => {
   const [ready, setReady] = useState(false)
   const [handleComponent, setHandle] = useState({component: null})
@@ -73,7 +74,7 @@ const AtomSlider = ({
   }
 
   const customProps = {
-    defaultValue: range ? [min, max] : value,
+    defaultValue: defaultValue || (range ? [min, max] : value),
     handle: createHandler(refAtomSlider, handleComponent, hideTooltip),
     onChange: handleChange,
     disabled,
@@ -126,6 +127,9 @@ AtomSlider.propTypes = {
 
   /** value  */
   value: PropTypes.number,
+
+  /** defaultValue prop that set initial positions of handles */
+  defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.number]),
 
   /* callback to be called with every update of the input value */
   onChange: PropTypes.func,

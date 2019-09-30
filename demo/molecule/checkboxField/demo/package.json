@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@s-ui/hoc": "^1.19.0"
+    "@s-ui/hoc": "1"
   }
 }

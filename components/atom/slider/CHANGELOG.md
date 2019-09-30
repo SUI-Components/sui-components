@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2019-09-30)
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2019-09-30)
 
@@ -11,6 +16,12 @@ All notable changes to this project will be documented in this file.
 * allow set the default values by prop ([57201e4](https://github.com/SUI-Components/sui-components/commit/57201e4))
 * update prop description and demo ([a3def8a](https://github.com/SUI-Components/sui-components/commit/a3def8a))
 * update PropType for defaultValue ([42ba165](https://github.com/SUI-Components/sui-components/commit/42ba165))
+
+
+### Features
+
+* add onAfterChange prop to allow to execute a callback when the user ends the inte ([eb5bbbf](https://github.com/SUI-Components/sui-components/commit/eb5bbbf))
+* remove double set of label ([89df1f2](https://github.com/SUI-Components/sui-components/commit/89df1f2))
 
 
 

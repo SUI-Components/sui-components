@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2019-09-30)
+
+
+### Features
+
+* inline reverse for checkbox ([ced96eb](https://github.com/SUI-Components/sui-components/commit/ced96eb))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2019-04-30)
 

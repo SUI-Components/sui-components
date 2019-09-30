@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2019-09-30)
+
+
+### Features
+
+* put vars in component ([6ac84fd](https://github.com/SUI-Components/sui-components/commit/6ac84fd))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2019-09-30)
 

@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useState, useEffect, useCallback, useRef} from 'react'
 import PropTypes from 'prop-types'
 import Button from '@schibstedspain/sui-atom-button'
 import IconClose from '@schibstedspain/sui-svgiconset/lib/Close'
@@ -33,181 +33,168 @@ const VARIATIONS = {
   positive: 'positive'
 }
 
-class MoleculeNotification extends Component {
-  state = {
-    show: this.props.show,
-    delay: false
-  }
+const MoleculeNotification = ({
+  autoClose: autoCloseTiming,
+  onClose,
+  effect,
+  buttons,
+  children,
+  icon,
+  position,
+  showCloseButton,
+  text,
+  type,
+  variation,
+  show: showFromProps
+}) => {
+  const [show, setShow] = useState(showFromProps)
+  const [delay, setDelay] = useState(false)
 
-  componentWillReceiveProps(nextProps) {
-    this.state.show !== nextProps.show && this.toggleShow()
-  }
+  const transitionTimeout = useRef()
+  const autoCloseTimeout = useRef()
 
-  componentDidMount() {
-    const {show} = this.state
-    if (show) {
-      this.autoCloseIfRequired()
-    }
-  }
+  useEffect(() => {
+    setShow(showFromProps)
+  }, [showFromProps])
 
-  shouldComponentUpdate(nextProps, nextState) {
-    const {show, delay} = this.state
-    return show !== nextState.show || delay !== nextState.delay
-  }
+  const getAutoCloseTime = useCallback(() => {
+    const time = AUTO_CLOSE_TIME[autoCloseTiming]
+    return time
+  }, [autoCloseTiming])
 
-  componentWillUnmount() {
-    clearTimeout(this.autoCloseTimout)
-    clearTimeout(this.transitionTimout)
-  }
-
-  toggleShow = () => {
-    const show = !this.state.show
-    const {onClose, effect} = this.props
-
-    effect
-      ? this.setState({show, delay: true}, this.removeDelay(show))
-      : this.setState({show})
-
-    if (show) {
-      this.autoCloseIfRequired()
-    } else {
-      clearTimeout(this.autoCloseTimout)
-      onClose()
-    }
-  }
-
-  autoCloseIfRequired() {
-    const {autoClose: autoCloseTiming} = this.props
-
-    if (AUTO_CLOSE_TIME[autoCloseTiming]) {
-      this.autoClose(AUTO_CLOSE_TIME[autoCloseTiming])
-    }
-  }
-
-  autoClose = time => {
-    this.autoCloseTimout = setTimeout(() => {
-      const {show} = this.state
-      show && this.toggleShow()
-    }, time)
-  }
-
-  removeDelay = show => {
+  const removeDelay = show => {
     const delay = show ? 1 : TRANSITION_DELAY
-    this.transitionTimout = setTimeout(() => {
-      this.setState({delay: false})
+    transitionTimeout.current = setTimeout(() => {
+      setDelay(false)
     }, delay)
   }
 
-  getButtons = () => {
-    const {buttons} = this.props
-    return buttons
-      .slice(0, BUTTONS_MAX)
-      .map((button, i) => <Button key={i} {...button} />)
+  const triggerAutoClose = useCallback(
+    time => {
+      autoCloseTimeout.current = setTimeout(() => {
+        setShow(false)
+      }, time)
+    },
+    [autoCloseTimeout]
+  )
+
+  const handleClickClose = e => {
+    setShow(false)
   }
 
-  render() {
-    const {show, delay} = this.state
-    const {
-      buttons,
-      children,
-      effect,
-      icon,
-      position,
-      showCloseButton,
-      text,
-      type,
-      variation
-    } = this.props
-    const wrapperClassName = cx(
-      `${CLASS} ${CLASS}--${type} ${CLASS}--${position}`,
-      {
-        [`${CLASS}--${variation}`]: variation === VARIATIONS.positive,
-        [`${CLASS}-effect--${position}`]: effect,
-        [`${CLASS}-effect--hide`]: effect && delay
-      }
-    )
-    const innerWrapperClassName = cx({
-      [`${CLASS}-children`]: children,
-      [`${CLASS}-text`]: text
-    })
+  useEffect(() => {
+    const autoCloseTimeInSeconds = getAutoCloseTime()
 
-    if (!show && !delay) {
-      return null
+    if (show && autoCloseTimeInSeconds) triggerAutoClose(autoCloseTimeInSeconds)
+
+    if (effect) {
+      setDelay(true)
+      removeDelay(show)
     }
 
-    return (
-      <div className={wrapperClassName}>
-        <div className={`${CLASS}-content`}>
-          <div className={`${CLASS}-iconLeft`}>
-            <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
-          </div>
-          <div className={innerWrapperClassName}>{children || text}</div>
-          {showCloseButton && (
-            <div className={`${CLASS}-iconClose`} onClick={this.toggleShow}>
-              <span className={`${CLASS}-icon`}>
-                <IconClose />
-              </span>
-            </div>
-          )}
+    if (show) {
+      if (autoCloseTimeInSeconds) triggerAutoClose(autoCloseTimeInSeconds)
+    } else {
+      clearTimeout(autoCloseTimeout.current)
+      onClose()
+    }
+
+    return () => {
+      clearTimeout(autoCloseTimeout.current)
+      clearTimeout(transitionTimeout.current)
+    }
+  }, [
+    autoCloseTimeout,
+    transitionTimeout,
+    show,
+    triggerAutoClose,
+    effect,
+    onClose,
+    getAutoCloseTime
+  ])
+
+  const getButtons = () =>
+    buttons
+      .slice(0, BUTTONS_MAX)
+      .map((button, i) => <Button key={i} {...button} />)
+
+  const wrapperClassName = cx(
+    `${CLASS} ${CLASS}--${type} ${CLASS}--${position}`,
+    {
+      [`${CLASS}--${variation}`]: variation === VARIATIONS.positive,
+      [`${CLASS}-effect--${position}`]: effect,
+      [`${CLASS}-effect--hide`]: effect && delay
+    }
+  )
+
+  const innerWrapperClassName = cx({
+    [`${CLASS}-children`]: children,
+    [`${CLASS}-text`]: text
+  })
+
+  if (!show && !delay) {
+    return null
+  }
+
+  return (
+    <div className={wrapperClassName}>
+      <div className={`${CLASS}-content`}>
+        <div className={`${CLASS}-iconLeft`}>
+          <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
         </div>
-        {buttons && (
-          <div className={`${CLASS}-buttonsContainer`}>{this.getButtons()}</div>
+        <div className={innerWrapperClassName}>{children || text}</div>
+        {showCloseButton && (
+          <div className={`${CLASS}-iconClose`} onClick={handleClickClose}>
+            <span className={`${CLASS}-icon`}>
+              <IconClose />
+            </span>
+          </div>
         )}
       </div>
-    )
-  }
+      {buttons && (
+        <div className={`${CLASS}-buttonsContainer`}>{getButtons()}</div>
+      )}
+    </div>
+  )
 }
 
 MoleculeNotification.displayName = 'MoleculeNotification'
 
 MoleculeNotification.propTypes = {
-  /**
-   * Auto close time: 'short' (3s), 'medium' (6s), 'long' (9s), 'manual' or null (disabled)
-   */
+  /** Auto close time: 'short' (3s), 'medium' (6s), 'long' (9s), 'manual' or null (disabled) */
   autoClose: PropTypes.string,
-  /**
-   * Array of props to sui-atom-buttons. Max: 3 buttons
-   */
+
+  /** Array of props to sui-atom-buttons. Max: 3 buttons */
   buttons: PropTypes.array,
-  /**
-   * Notification content
-   */
+
+  /** Notification content */
   children: PropTypes.node.isRequired,
-  /**
-   * Transition enabled
-   */
+
+  /** Transition enabled */
   effect: PropTypes.bool,
-  /**
-   * Icon to be added on the left of the content
-   */
+
+  /** Icon to be added on the left of the content */
   icon: PropTypes.node,
-  /**
-   * On close callback
-   */
+
+  /** On close callback */
   onClose: PropTypes.func,
-  /**
-   * Positions: 'top', 'bottom', 'relative'
-   */
+
+  /** Positions: 'top', 'bottom', 'relative' */
   position: PropTypes.string,
-  /**
-   * Show / hide notification
-   */
+
+  /** Show / hide notification */
   show: PropTypes.bool,
-  /**
-   * Show / hide close button
-   */
+
+  /** Show / hide close button */
   showCloseButton: PropTypes.bool,
-  /**
-   * Content text. Deprecated, use children instead.
-   */
+
+  /** Content text. Deprecated, use children instead. */
   text: PropTypes.string,
-  /**
-   * Notification type: 'info', 'success', 'warning', 'error', 'system'.
-   */
+
+  /** Notification type: 'info', 'success', 'warning', 'error', 'system'. */
   type: PropTypes.string,
-  /**
-   * Color variation of the notification: 'positive' with washed out colors, 'negative' with bold colors
-   */
+
+  /** Color variation of the notification: 'positive' with washed out colors, 'negative' with bold colors */
   variation: PropTypes.oneOf(Object.keys(VARIATIONS))
 }
 
@@ -222,4 +209,4 @@ MoleculeNotification.defaultProps = {
   variation: VARIATIONS.negative
 }
 
-export default MoleculeNotification
+export default React.memo(MoleculeNotification)

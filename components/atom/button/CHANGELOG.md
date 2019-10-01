@@ -2,6 +2,67 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.29.0"></a>
+# 1.29.0 (2019-09-20)
+
+
+### Bug Fixes
+
+* delete comments ([8d986e2](https://github.com/SUI-Components/sui-components/commit/8d986e2))
+* fix var scope ([30eac98](https://github.com/SUI-Components/sui-components/commit/30eac98))
+
+
+
+<a name="1.28.0"></a>
+# 1.28.0 (2019-09-18)
+
+
+### Features
+
+* add vars for background and color outline button on focused ([ad25721](https://github.com/SUI-Components/sui-components/commit/ad25721))
+
+
+
+<a name="1.27.0"></a>
+# 1.27.0 (2019-09-16)
+
+
+### Bug Fixes
+
+* remove console.log poluting console ([cf175a5](https://github.com/SUI-Components/sui-components/commit/cf175a5))
+
+
+
+<a name="1.26.0"></a>
+# 1.26.0 (2019-09-13)
+
+
+### Bug Fixes
+
+* fix release version ([4d5a1d0](https://github.com/SUI-Components/sui-components/commit/4d5a1d0))
+
+
+
+<a name="2.0.0"></a>
+# 2.0.0 (2019-09-13)
+
+
+### Features
+
+* add new types and colors ([f909e6a](https://github.com/SUI-Components/sui-components/commit/f909e6a))
+* add social colors ([ce5f11e](https://github.com/SUI-Components/sui-components/commit/ce5f11e))
+* add social colors in proptypes desc ([5265ac6](https://github.com/SUI-Components/sui-components/commit/5265ac6))
+* fix box shadow ([7030d33](https://github.com/SUI-Components/sui-components/commit/7030d33))
+* fix compatibility with previous atom button ([509b3f5](https://github.com/SUI-Components/sui-components/commit/509b3f5))
+* fix typo ([154d267](https://github.com/SUI-Components/sui-components/commit/154d267))
+
+
+### BREAKING CHANGES
+
+* new types and colors
+
+
+
 <a name="1.25.0"></a>
 # 1.25.0 (2019-06-26)
 

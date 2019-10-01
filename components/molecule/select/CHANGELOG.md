@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.14.0"></a>
+# 1.14.0 (2019-09-19)
+
+
+### Bug Fixes
+
+* set opacity: 1 and appearance: none to disabled input element when in molecule ([a10a54d](https://github.com/SUI-Components/sui-components/commit/a10a54d))
+
+
+
 <a name="1.13.0"></a>
 # 1.13.0 (2019-07-30)
 

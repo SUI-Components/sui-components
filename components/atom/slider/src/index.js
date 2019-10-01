@@ -1,6 +1,7 @@
 import React, {lazy, useState, useEffect, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import markerFactory from './markerFactory'
 
 const BASE_CLASS = `sui-AtomSlider`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
@@ -8,11 +9,21 @@ const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 const Range = lazy(() => import('rc-slider/lib/Range'))
 const Slider = lazy(() => import('rc-slider/lib/Slider'))
 const Tooltip = lazy(() => import('rc-tooltip'))
+const Label = lazy(() => import('./Label'))
 
-const createHandler = (refAtomSlider, handleComponent) => props => {
+const createHandler = (
+  refAtomSlider,
+  handleComponent,
+  hideTooltip
+) => props => {
   const {value, index, dragging, ...restProps} = props // eslint-disable-line
   const {component: Handle} = handleComponent
 
+  if (hideTooltip) {
+    return (
+      <Handle value={value} {...restProps} dragging={dragging.toString()} />
+    )
+  }
   return (
     <Tooltip
       getTooltipContainer={() => refAtomSlider.current}
@@ -27,9 +38,24 @@ const createHandler = (refAtomSlider, handleComponent) => props => {
   )
 }
 
-const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
+const AtomSlider = ({
+  onChange,
+  onAfterChange,
+  value,
+  min,
+  max,
+  step,
+  range,
+  disabled,
+  valueLabel,
+  marks,
+  valueLabelFormatter,
+  hideTooltip,
+  defaultValue
+}) => {
   const [ready, setReady] = useState(false)
   const [handleComponent, setHandle] = useState({component: null})
+  const [labelValue, setLabelValue] = useState(value || min)
   const refAtomSlider = React.createRef()
 
   useEffect(() => {
@@ -44,26 +70,22 @@ const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
 
   const handleChange = value => {
     const e = {}
+    setLabelValue(value)
     onChange(e, {value})
   }
 
-  const numTicks = Math.round((max - min) / step) + 1
-  const steps = Array.from(Array(numTicks), (x, index) => index * step)
-
-  const marks =
-    step === 1
-      ? {[min]: min, [max]: max}
-      : steps.reduce((marksConfig, step) => {
-          marksConfig[step] = step
-          return marksConfig
-        }, {})
+  const handleAfterChange = value => {
+    const e = {}
+    onAfterChange(e, {value})
+  }
 
   const customProps = {
-    defaultValue: range ? [min, max] : value,
-    handle: createHandler(refAtomSlider, handleComponent),
+    defaultValue: defaultValue || (range ? [min, max] : value),
+    handle: createHandler(refAtomSlider, handleComponent, hideTooltip),
     onChange: handleChange,
+    onAfterChange: handleAfterChange,
     disabled,
-    marks,
+    marks: markerFactory({step, min, max, marks}),
     max,
     min,
     step
@@ -71,7 +93,6 @@ const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
 
   // Determine the type of the slider according to the range prop
   const Type = range ? Range : Slider
-
   return (
     <div
       ref={refAtomSlider}
@@ -79,7 +100,14 @@ const AtomSlider = ({onChange, value, min, max, step, range, disabled}) => {
     >
       {ready && (
         <Suspense fallback={null}>
-          <Type {...customProps} />
+          {valueLabel ? (
+            <React.Fragment>
+              <Label value={labelValue} formatter={valueLabelFormatter} />
+              <Type {...customProps} />
+            </React.Fragment>
+          ) : (
+            <Type {...customProps} />
+          )}
         </Suspense>
       )}
     </div>
@@ -107,15 +135,32 @@ AtomSlider.propTypes = {
   /** value  */
   value: PropTypes.number,
 
+  /** defaultValue prop that set initial positions of handles */
+  defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.number]),
+
   /* callback to be called with every update of the input value */
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+
+  /* callback to be called with when the ontouchend or onmouseup event is triggered */
+  onAfterChange: PropTypes.func,
+
+  /* only if range=false, shows a position fixed label with the current value instead of a tooltip */
+  valueLabel: PropTypes.bool,
+  /* Set your own mark labels */
+  marks: PropTypes.array,
+  /* callback to format the value shown as label */
+  valueLabelFormatter: PropTypes.func,
+  /* flag to hide tooltip if wanted */
+  hideTooltip: PropTypes.bool
 }
 
 AtomSlider.defaultProps = {
   min: 0,
   max: 100,
   step: 1,
-  onChange: () => {}
+  onChange: () => {},
+  onAfterChange: () => {},
+  hideTooltip: false
 }
 
 export default AtomSlider

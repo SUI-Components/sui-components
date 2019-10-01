@@ -89,6 +89,11 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
     margin-top: 10px;
   }
 
+  &-label {
+    display: block;
+    margin-bottom: $m-m;
+  }
+
   &--disabled {
     #{$class-disabled} {
       background-color: transparent;

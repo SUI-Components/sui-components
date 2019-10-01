@@ -40,6 +40,7 @@ const createHandler = (
 
 const AtomSlider = ({
   onChange,
+  onAfterChange,
   value,
   min,
   max,
@@ -49,7 +50,8 @@ const AtomSlider = ({
   valueLabel,
   marks,
   valueLabelFormatter,
-  hideTooltip
+  hideTooltip,
+  defaultValue
 }) => {
   const [ready, setReady] = useState(false)
   const [handleComponent, setHandle] = useState({component: null})
@@ -72,10 +74,16 @@ const AtomSlider = ({
     onChange(e, {value})
   }
 
+  const handleAfterChange = value => {
+    const e = {}
+    onAfterChange(e, {value})
+  }
+
   const customProps = {
-    defaultValue: range ? [min, max] : value,
+    defaultValue: defaultValue || (range ? [min, max] : value),
     handle: createHandler(refAtomSlider, handleComponent, hideTooltip),
     onChange: handleChange,
+    onAfterChange: handleAfterChange,
     disabled,
     marks: markerFactory({step, min, max, marks}),
     max,
@@ -127,8 +135,15 @@ AtomSlider.propTypes = {
   /** value  */
   value: PropTypes.number,
 
+  /** defaultValue prop that set initial positions of handles */
+  defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.number]),
+
   /* callback to be called with every update of the input value */
   onChange: PropTypes.func,
+
+  /* callback to be called with when the ontouchend or onmouseup event is triggered */
+  onAfterChange: PropTypes.func,
+
   /* only if range=false, shows a position fixed label with the current value instead of a tooltip */
   valueLabel: PropTypes.bool,
   /* Set your own mark labels */
@@ -144,6 +159,7 @@ AtomSlider.defaultProps = {
   max: 100,
   step: 1,
   onChange: () => {},
+  onAfterChange: () => {},
   hideTooltip: false
 }
 

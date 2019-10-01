@@ -33,6 +33,10 @@ return (
     <div style={stylesSection}>
       <AtomSlider range step={10} onChange={console.log}/>
     </div>
+    <h3>With default value</h3>
+    <div style={stylesSection}>
+      <AtomSlider range step={10} onChange={console.log} defaultValue={[0, 30]}/>
+    </div>
     <h2>Value as label</h2>
     <div style={stylesSection}>
       <AtomSlider onChange={console.log} valueLabel hideTooltip />
@@ -46,6 +50,14 @@ return (
     </div>
     <div style={stylesSection}>
       <AtomSlider onChange={console.log} min={6000} max={60000} step={1000} valueLabel valueLabelFormatter={numberWithCommas} marks={['6K', '+60K']} hideTooltip />
+    </div>
+    <h3>Range with After Change callback</h3>
+    <div style={stylesSection}>
+      <AtomSlider range step={10} onAfterChange={console.log}/>
+    </div>
+    <h3>Slider with After Change callback</h3>
+    <div style={stylesSection}>
+      <AtomSlider  step={10} onAfterChange={console.log}/>
     </div>
   </div>
 )

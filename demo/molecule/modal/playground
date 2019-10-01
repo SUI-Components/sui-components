@@ -359,7 +359,7 @@ class MobileFitContentModal extends React.Component {
 }
 
 return (
-  <React.Fragment>
+  <>
     <div style={containerStyle}>
     <h1>
       <code>MoleculeModal</code>
@@ -395,5 +395,5 @@ return (
     </div>
     </div>
 
-  </React.Fragment>
+  </>
 )

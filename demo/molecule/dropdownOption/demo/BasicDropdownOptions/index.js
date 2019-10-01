@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import MoleculeDropdownOption from '../../../../../components/molecule/dropdownOption/src'
 
 const BASE_CLASS_DEMO = 'DemoMoleculeDropdownOption'
@@ -19,7 +19,7 @@ class BasicDropdownOptions extends Component {
     const {options} = this.props
     const {selected} = this.state
     return (
-      <Fragment>
+      <>
         <div className={CLASS_DEMO_OPTION}>
           {options.map((option, index) => (
             <MoleculeDropdownOption
@@ -33,7 +33,7 @@ class BasicDropdownOptions extends Component {
           ))}
         </div>
         <pre>{JSON.stringify(this.state, null, 2)}</pre>
-      </Fragment>
+      </>
     )
   }
 }

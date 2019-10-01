@@ -1,8 +1,7 @@
 # AtomCheckbox
 
-> Description
+AtomCheckbox is a component that displays an input checkbox w/ its expected behavior
 
-<!-- ![](./assets/preview.png) -->
 
 ## Installation
 
@@ -12,12 +11,32 @@ $ npm install @s-ui/react-atom-checkbox --save
 
 ## Usage
 
-### Basic usage
 ```js
 import AtomCheckbox from '@s-ui/react-atom-checkbox'
-
-return (<AtomCheckbox />)
 ```
 
+### Basic usage
 
-> **Find full description and more examples in the [demo page](#).**
+```js
+<AtomCheckbox />
+```
+
+### Checked
+
+```js
+<AtomCheckbox checked />
+```
+
+### Disabled
+
+```js
+<AtomCheckbox disabled />
+```
+
+### w/ onChange handler
+
+```js
+<AtomCheckbox onChange={console.log} />
+```
+
+> **Find full description and more examples in the [demo page](/workbench/atom/checkbox).**

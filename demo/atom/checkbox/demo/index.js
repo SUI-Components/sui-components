@@ -14,7 +14,7 @@ const AtomCheckboxWithState = withCheckedValue(AtomCheckbox)
 const Demo = () => {
   return (
     <div className={BASE_CLASS_DEMO}>
-      <h1>AtomUpload</h1>
+      <h1>AtomCheckbox</h1>
       <h2>Dynamic Behaviour</h2>
       <div className={CLASS_SECTION}>
         <h3>Checked (default) & w/ "onChange" handler</h3>

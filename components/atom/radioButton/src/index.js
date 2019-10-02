@@ -21,11 +21,12 @@ const AtomRadioButton = ({
   checked,
   onChange: onChangeFromProps,
   errorState,
-  value
+  value,
+  ...props
 }) => {
   const handleChange = ev => {
-    const {checked} = ev.target
-    if (!disabled) onChangeFromProps(ev, {value: checked})
+    const {value} = ev.target
+    if (!disabled) onChangeFromProps(ev, {value})
   }
 
   const className = cx(BASE_CLASS, getErrorStateClass(errorState))
@@ -40,6 +41,7 @@ const AtomRadioButton = ({
         disabled={disabled}
         checked={checked}
         onChange={handleChange}
+        {...props}
       />
     </Fragment>
   )

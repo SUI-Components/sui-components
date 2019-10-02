@@ -1,5 +1,36 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-.react-AtomRadioButton {
-  // Do your magic
+$fs-atom-radiobutton-label: 14px !default;
+$lh-atom-radiobutton-label: 130% !default;
+$maw-atom-radiobutton: 32px !default;
+$mt-atom-radiobutton-input: 3px !default;
+
+$m-atom-radiobutton-type-left: $m-m !default;
+$m-atom-radiobutton-type-right: $m-m !default;
+
+.sui-AtomRadioButton {
+  border: $bdrs-none;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  vertical-align: top;
+
+  &[type='radio'] {
+    height: inherit;
+    margin-left: $m-atom-radiobutton-type-left;
+    margin-right: $m-atom-radiobutton-type-right;
+    width: inherit;
+
+    &:focus {
+      border: 0;
+      box-shadow: none;
+      outline: 0 none;
+    }
+  }
+
+  @each $state, $color in $states-atom-input {
+    &.sui-AtomRadioButton--#{$state} {
+      border-color: $color;
+    }
+  }
 }

@@ -20,11 +20,12 @@ const AtomCheckbox = ({
   disabled,
   checked,
   onChange: onChangeFromProps,
-  errorState
+  errorState,
+  ...props
 }) => {
   const handleChange = ev => {
-    const {checked} = ev.target
-    if (!disabled) onChangeFromProps(ev, {value: checked})
+    const {checked, name} = ev.target
+    if (!disabled) onChangeFromProps(ev, {name, value: checked})
   }
 
   const className = cx(BASE_CLASS, getErrorStateClass(errorState))
@@ -38,6 +39,7 @@ const AtomCheckbox = ({
         disabled={disabled}
         checked={checked}
         onChange={handleChange}
+        {...props}
       />
     </Fragment>
   )

@@ -18,24 +18,32 @@ const Demo = () => {
       <h2>Dynamic Behaviour</h2>
       <div className={CLASS_SECTION}>
         <h3>Checked (default) & w/ "onChange" handler</h3>
-        <AtomCheckboxWithState
-          checked
-          id="checkbox1"
-          onChange={(ev, {value}) => {
-            console.log({value})
-          }}
-        />
+        <p>
+          <AtomCheckboxWithState
+            checked
+            id="checkbox1"
+            name="terms-agreement"
+            onChange={(ev, {value, name}) => {
+              console.log({[name]: value})
+            }}
+          />{' '}
+          Acepto los terminos
+        </p>
       </div>
       <div className={CLASS_SECTION}>
         <h3>Disabled & Checked (default) & w/ "onChange" handler</h3>
-        <AtomCheckboxWithState
-          checked
-          disabled
-          id="checkbox2"
-          onChange={(ev, {value}) => {
-            console.log({value})
-          }}
-        />
+        <p>
+          <AtomCheckboxWithState
+            checked
+            disabled
+            id="checkbox2"
+            name="older-than-18"
+            onChange={(ev, {value, name}) => {
+              console.log({[name]: value})
+            }}
+          />
+          Soy mayor de edad
+        </p>
       </div>
       <h2>Use Cases</h2>
       <div className={CLASS_SECTION}>

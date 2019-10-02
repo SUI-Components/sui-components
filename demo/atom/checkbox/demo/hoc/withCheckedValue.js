@@ -15,9 +15,9 @@ const withCheckedValue = BaseComponent => {
   }) => {
     const [checked, setChecked] = useState(checkedFromProps)
 
-    const handleChangeValue = (ev, {value}) => {
+    const handleChangeValue = (ev, {name, value}) => {
       setChecked(value)
-      onChangeFromProps(ev, {value})
+      onChangeFromProps(ev, {name, value})
     }
 
     return (

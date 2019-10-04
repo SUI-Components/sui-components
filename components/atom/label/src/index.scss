@@ -3,6 +3,7 @@
 
 $c-atom-label: inherit !default;
 $c-atom-label-optional: $c-gray-light !default;
+$fw-atom-label: $fw-semi-bold !default;
 $mb-atom-label: $m-s !default;
 $c-atom-label-type: success $c-success, error $c-error;
 
@@ -10,6 +11,7 @@ $c-atom-label-type: success $c-success, error $c-error;
   display: block;
   color: $c-atom-label;
   font-size: $fz-base;
+  font-weight: $fw-atom-label;
   margin-bottom: $mb-atom-label;
 
   &-optionalText {

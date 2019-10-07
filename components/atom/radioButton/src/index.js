@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-fragments */
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
@@ -25,8 +26,8 @@ const AtomRadioButton = ({
   ...props
 }) => {
   const handleChange = ev => {
-    const {value} = ev.target
-    if (!disabled) onChangeFromProps(ev, {value})
+    const {name, value} = ev.target
+    if (!disabled) onChangeFromProps(ev, {name, value})
   }
 
   const className = cx(BASE_CLASS, getErrorStateClass(errorState))
@@ -50,7 +51,8 @@ const AtomRadioButton = ({
 AtomRadioButton.displayName = 'AtomRadioButton'
 
 AtomRadioButton.defaultProps = {
-  checked: false
+  checked: false,
+  onChange: () => {}
 }
 
 AtomRadioButton.propTypes = {
@@ -64,7 +66,7 @@ AtomRadioButton.propTypes = {
   checked: PropTypes.bool,
 
   /* onChange callback */
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
 
   /* Will set a red/green border if set to true/false */
   errorState: PropTypes.bool,

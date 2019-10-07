@@ -14,17 +14,25 @@ const Demo = () => {
       <h1>AtomRadioButton</h1>
       <h2>Use Cases</h2>
       <div className={CLASS_SECTION}>
-        <h3>Unchecked & Disabled</h3>
+        <h3>Basic</h3>
         <AtomRadioButton
-          id="checkbox5"
-          onChange={(ev, {value}) => {
-            console.log({value})
-          }}
+          name="favorite-beatle"
+          value="john"
+          onChange={(e, {name, value}) => console.log({[name]: value})}
         />
       </div>
       <div className={CLASS_SECTION}>
-        <h3>Checked & disabled</h3>
-        <AtomRadioButton id="checkbox6" disabled checked />
+        <h3>Checked</h3>
+        <AtomRadioButton
+          name="favorite-beatle"
+          value="paul"
+          checked
+          onChange={(e, {name, value}) => console.log({[name]: value})}
+        />
+      </div>
+      <div className={CLASS_SECTION}>
+        <h3>Disabled</h3>
+        <AtomRadioButton name="favorite-beatle" value="george" disabled />
       </div>
     </div>
   )

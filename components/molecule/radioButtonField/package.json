@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-molecule-field": "1.7.0"
+    "@s-ui/react-molecule-field": "1.7.0",
+    "@s-ui/react-atom-radio-button": "1"
   },
   "keywords": [],
   "author": "",

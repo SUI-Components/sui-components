@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
-import AtomRadioButton from '../../../atom/radioButton/src'
+import AtomRadioButton from '@s-ui/react-atom-radio-button'
 
 const BASE_CLASS = 'sui-MoleculeRadioButtonField'
 

@@ -31,7 +31,7 @@ $fw-molecule-dropdown-option-selected-text: $fw-bold !default;
   }
 
   &.is-selected:not(&-checkbox) &-text {
-      font-weight: $fw-molecule-dropdown-option-selected-text;
+    font-weight: $fw-molecule-dropdown-option-selected-text;
   }
 
   &--disabled {

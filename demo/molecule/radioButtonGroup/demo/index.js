@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import React from 'react'
 
-import AtomRadioButton from '../../../../components/atom/radioButton/src'
-import AtomRadioButtonField from '../../../../components/molecule/radioButtonField/src'
+import AtomRadioButton from '@s-ui/react-atom-radio-button'
+import AtomRadioButtonField from '@s-ui/react-molecule-radio-button-field'
 import AtomRadioButtonGroup from '../../../../components/molecule/radioButtonGroup/src'
 
 import './index.scss'

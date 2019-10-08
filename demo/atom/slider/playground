@@ -5,6 +5,10 @@ const stylesSection = {
   padding: '30px 10px'
 }
 
+const numberWithCommas = function(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+}
+
 return (
   <div>
     <h1>AtomSlider</h1>
@@ -13,7 +17,6 @@ return (
     <div style={stylesSection}>
       <AtomSlider onChange={console.log}/>
     </div>
-    <h3>Step 25</h3>
     <div style={stylesSection}>
       <AtomSlider step={25} value={50} onChange={console.log}/>
     </div>
@@ -29,6 +32,32 @@ return (
     <h3>Step 10</h3>
     <div style={stylesSection}>
       <AtomSlider range step={10} onChange={console.log}/>
+    </div>
+    <h3>With default value</h3>
+    <div style={stylesSection}>
+      <AtomSlider range step={10} onChange={console.log} defaultValue={[0, 30]}/>
+    </div>
+    <h2>Value as label</h2>
+    <div style={stylesSection}>
+      <AtomSlider onChange={console.log} valueLabel hideTooltip />
+    </div>
+    <div style={stylesSection}>
+      <AtomSlider onChange={console.log} step={1000} max={5000} valueLabel valueLabelFormatter={numberWithCommas} hideTooltip />
+    </div>
+    <h2>Custom Marks</h2>
+    <div style={stylesSection}>
+      <AtomSlider onChange={console.log} max={6} range marks={[0, 1, 2, 3, 4, 5, '+10']} hideTooltip/>
+    </div>
+    <div style={stylesSection}>
+      <AtomSlider onChange={console.log} min={6000} max={60000} step={1000} valueLabel valueLabelFormatter={numberWithCommas} marks={['6K', '+60K']} hideTooltip />
+    </div>
+    <h3>Range with After Change callback</h3>
+    <div style={stylesSection}>
+      <AtomSlider range step={10} onAfterChange={console.log}/>
+    </div>
+    <h3>Slider with After Change callback</h3>
+    <div style={stylesSection}>
+      <AtomSlider  step={10} onAfterChange={console.log}/>
     </div>
   </div>
 )

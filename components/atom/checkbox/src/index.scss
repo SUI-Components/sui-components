@@ -1,0 +1,36 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$fs-atom-checkbox-label: 14px !default;
+$lh-atom-checkbox-label: 130% !default;
+$maw-atom-checkbox: 32px !default;
+$mt-atom-checkbox-input: 3px !default;
+
+$m-atom-checkbox-type-left: $m-m !default;
+$m-atom-checkbox-type-right: $m-m !default;
+
+.sui-AtomCheckbox {
+  border: $bdrs-none;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  vertical-align: top;
+
+  &[type='checkbox'] {
+    height: inherit;
+    margin-left: $m-atom-checkbox-type-left;
+    margin-right: $m-atom-checkbox-type-right;
+    width: inherit;
+
+    &:focus {
+      border: 0;
+      box-shadow: none;
+      outline: 0 none;
+    }
+  }
+
+  @each $state, $color in $states-atom-input {
+    &.sui-AtomCheckbox--#{$state} {
+      border-color: $color;
+    }
+  }
+}

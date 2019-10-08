@@ -1,13 +1,18 @@
 @import '~@schibstedspain/sui-theme/lib/settings';
 @import '~@schibstedspain/sui-theme/lib/index';
 
+$c-atom-label: inherit !default;
 $c-atom-label-optional: $c-gray-light !default;
+$fw-atom-label: inherit !default;
+$mb-atom-label: $m-s !default;
 $c-atom-label-type: success $c-success, error $c-error;
 
 .sui-AtomLabel {
   display: block;
+  color: $c-atom-label;
   font-size: $fz-base;
-  margin-bottom: $m-s;
+  font-weight: $fw-atom-label;
+  margin-bottom: $mb-atom-label;
 
   &-optionalText {
     color: $c-atom-label-optional;

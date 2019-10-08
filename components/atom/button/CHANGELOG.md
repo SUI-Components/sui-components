@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.29.0"></a>
+# 1.29.0 (2019-09-20)
+
+
+### Bug Fixes
+
+* delete comments ([8d986e2](https://github.com/SUI-Components/sui-components/commit/8d986e2))
+* fix var scope ([30eac98](https://github.com/SUI-Components/sui-components/commit/30eac98))
+
+
+
+<a name="1.28.0"></a>
+# 1.28.0 (2019-09-18)
+
+
+### Features
+
+* add vars for background and color outline button on focused ([ad25721](https://github.com/SUI-Components/sui-components/commit/ad25721))
+
+
+
 <a name="1.27.0"></a>
 # 1.27.0 (2019-09-16)
 

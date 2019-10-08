@@ -3,10 +3,26 @@
 @import '~@s-ui/react-atom-label/lib/index';
 @import '~@s-ui/react-atom-help-text/lib/index';
 
+$l-molecule-field: 30px !default;
+$t-molecule-field: 1px !default;
+
 .sui-MoleculeField {
   &--inline {
     display: flex;
     width: 100%;
+
+    &-reverse {
+      position: relative;
+      display: flex;
+      flex-direction: row-reverse;
+
+      .sui-AtomLabel {
+        position: absolute;
+        align-items: center;
+        left: $l-molecule-field;
+        top: $t-molecule-field;
+      }
+    }
   }
 
   &-inputContainer {

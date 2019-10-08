@@ -9,10 +9,13 @@ import AtomLabel, {AtomLabelTypes} from '@s-ui/react-atom-label'
 import AtomHelpText from '@s-ui/react-atom-help-text'
 
 const BASE_CLASS = 'sui-MoleculeField'
+const CLASS_INLINE = `${BASE_CLASS}--inline`
+const CLASS_INLINE_REVERSE = `${CLASS_INLINE}-reverse`
 const CLASS_CONTAINER = `${BASE_CLASS}-inputContainer`
 
 const MoleculeField = ({
   inline,
+  reverse,
   errorText,
   successText,
   label,
@@ -21,7 +24,11 @@ const MoleculeField = ({
   onClickLabel,
   children
 }) => {
-  const className = cx(BASE_CLASS, inline && `${BASE_CLASS}--inline`)
+  const className = cx(
+    BASE_CLASS,
+    inline && CLASS_INLINE,
+    inline && reverse && CLASS_INLINE_REVERSE
+  )
   let statusValidationText, typeValidationLabel, typeValidationText
 
   if (errorText) {
@@ -81,6 +88,9 @@ MoleculeField.propTypes = {
 
   /** Boolean to decide if elements should be set inline */
   inline: PropTypes.bool,
+
+  /** Boolean to decide if elements should be set inline but input first */
+  reverse: PropTypes.bool,
 
   /** Boolean to decide if elements should be set inline */
   onClickLabel: PropTypes.func

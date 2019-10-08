@@ -21,7 +21,7 @@ const Demo = () => {
   return (
     <div className={BASE_CLASS_DEMO}>
       <h1>
-        <code>MoleculeInputField</code>
+        <code>MoleculeCheckboxField</code>
       </h1>
       <ul style={styleList}>
         <li style={styleListItem}>

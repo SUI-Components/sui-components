@@ -1,8 +1,6 @@
 # MoleculeCheckboxField
 
-> Description
-
-<!-- ![](./assets/preview.png) -->
+`MoleculeCheckboxField` is the combination of and `AtomCheckbox` and a `MoleculeField`
 
 ## Installation
 
@@ -12,12 +10,40 @@ $ npm install @s-ui/react-molecule-checkbox-field --save
 
 ## Usage
 
-### Basic usage
 ```js
 import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
-
-return (<MoleculeCheckboxField />)
 ```
 
+### Basic usage (info)
 
-> **Find full description and more examples in the [demo page](#).**
+```js
+<MoleculeCheckbox
+    id="description-inline2"
+    label="Description"
+    helpText="Tu descripción en Latin"
+/>
+```
+
+### Success Message
+
+```js
+<MoleculeCheckbox
+    id="description2"
+    label="Description"
+    value="In some place of La Mancha which name..."
+    successText="Everything ok!"
+/>
+```
+
+### Error Message
+
+```js
+ <MoleculeCheckbox
+    id="notes"
+    label="Notes"
+    errorText="All wrong!"
+    value="In some place of La Mancha which name..."
+/>
+```
+
+> **Find full description and more examples in the [demo page](/workbench/molecule/checkboxField).**

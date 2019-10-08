@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="3.13.0"></a>
+# 3.13.0 (2019-10-08)
+
+
+### Bug Fixes
+
+* add fill var to input icon ([937c203](https://github.com/SUI-Components/sui-components/commit/937c203))
+
+
+
 <a name="3.12.0"></a>
 # 3.12.0 (2019-08-05)
 

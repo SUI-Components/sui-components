@@ -5,6 +5,7 @@ $h-dropdown-list--medium: 220px !default;
 $h-dropdown-list--large: 300px !default;
 
 $bc-dropdown-list: $c-white !default;
+$p-dropdown-list: $p-s !default;
 
 .sui-MoleculeDropdownList {
   background: $bc-dropdown-list;
@@ -12,7 +13,7 @@ $bc-dropdown-list: $c-white !default;
   box-shadow: $bxsh-l;
   margin: 0;
   overflow-y: scroll;
-  padding: $p-s;
+  padding: $p-dropdown-list;
   width: 100%;
 
   &.is-hidden {

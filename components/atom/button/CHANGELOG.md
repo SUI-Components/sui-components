@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.30.0"></a>
+# 1.30.0 (2019-10-09)
+
+
+### Features
+
+* add text transform on buttons ([d9b8391](https://github.com/SUI-Components/sui-components/commit/d9b8391))
+
+
+
 <a name="1.29.0"></a>
 # 1.29.0 (2019-09-20)
 

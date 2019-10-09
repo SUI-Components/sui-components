@@ -76,7 +76,7 @@ return (
     <h2>Types and variations</h2>
     {TYPES.map(type =>
       VARIATIONS.map(variation => (
-        < key={type + variation}>
+        <div key={type + variation}>
           <Title>
             Type: {type} - Variation: {variation}
           </Title>
@@ -89,7 +89,7 @@ return (
           >
             {TEXT}
           </MoleculeNotification>
-        </>
+        </div>
       ))
     )}
     <br />

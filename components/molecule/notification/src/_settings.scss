@@ -2,6 +2,7 @@ $w-notification: 100% !default;
 $z-notification: 1000 !default;
 $mh-notification: 500px !default;
 $sz-notification-icon: $sz-icon-m !default;
+$bdrs-notification: 8px !default;
 
 // Colors
 
@@ -19,6 +20,26 @@ $notification-type-font-colors: (
   warning: $c-white,
   error: $c-white,
   system: $c-white
+) !default;
+
+// Positive Text color
+
+$notification-type-positive-text-colors: (
+  info: $c-primary,
+  success: $c-success,
+  warning: $c-alert,
+  error: $c-error,
+  system: $c-system
+) !default;
+
+// Positive Icon color
+
+$notification-type-positive-icon-colors: (
+  info: $c-primary,
+  success: $c-success,
+  warning: $c-alert,
+  error: $c-error,
+  system: $c-system
 ) !default;
 
 // Effects

@@ -41,6 +41,7 @@ const MoleculeNotification = ({
   children,
   icon,
   position,
+  roundedCorners,
   showCloseButton,
   text,
   type,
@@ -123,7 +124,8 @@ const MoleculeNotification = ({
     {
       [`${CLASS}--${variation}`]: variation === VARIATIONS.positive,
       [`${CLASS}-effect--${position}`]: effect,
-      [`${CLASS}-effect--hide`]: effect && delay
+      [`${CLASS}-effect--hide`]: effect && delay,
+      [`${CLASS}--roundedCorners`]: roundedCorners
     }
   )
 
@@ -182,6 +184,9 @@ MoleculeNotification.propTypes = {
   /** Positions: 'top', 'bottom', 'relative' */
   position: PropTypes.string,
 
+  /** Adds / Remove rounded corners */
+  roundedCorners: PropTypes.bool,
+
   /** Show / hide notification */
   show: PropTypes.bool,
 
@@ -203,6 +208,7 @@ MoleculeNotification.defaultProps = {
   effect: true,
   onClose: () => {},
   position: 'relative',
+  roundedCorners: false,
   show: true,
   showCloseButton: true,
   type: 'info',

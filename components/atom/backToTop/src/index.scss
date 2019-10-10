@@ -12,18 +12,21 @@ $c-back-to-top--dark: $c-white !default;
 $bg-back-to-top--light: $c-white !default;
 $c-back-to-top--light: $c-primary !default;
 
+$b-back-to-top: $p-xl !default;
+$r-back-to-top: $p-xl !default;
+
 .sui-AtomBackToTop {
   align-items: center;
   border: 0;
   border-radius: $bdrs-back-to-top;
-  bottom: $p-xl;
+  bottom: $b-back-to-top;
   cursor: pointer;
   display: flex;
   font-size: $fz-m;
   justify-content: center;
   padding: $p-m;
   position: fixed;
-  right: $p-xl;
+  right: $r-back-to-top;
   visibility: hidden;
   z-index: $z-back-to-top;
 

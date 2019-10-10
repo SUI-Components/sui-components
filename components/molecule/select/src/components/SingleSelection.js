@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import AtomInput from '@s-ui/react-atom-input'
@@ -31,7 +31,7 @@ const MoleculeSelectSingleSelection = props => {
   }
 
   return (
-    <Fragment>
+    <>
       <MoleculeInputSelect
         disabled={disabled}
         id={id}
@@ -51,7 +51,7 @@ const MoleculeSelectSingleSelection = props => {
       >
         {children}
       </MoleculeDropdownList>
-    </Fragment>
+    </>
   )
 }
 

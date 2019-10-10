@@ -45,9 +45,9 @@ import AtomTooltip from '@s-ui/react-atom-tooltip'
 
 ```javascript
 <AtomTooltip content={ () => (
-  <React.Fragment>
+  <>
     Hello <strong>world</strong>!
-  </React.Fragment>
+  </>
 )}>
   <strong>december</strong>
 </AtomTooltip>

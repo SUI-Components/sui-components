@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
-import React from 'react'
+import React, {useState} from 'react'
 
 import MoleculeButtonGroup from '../../../../components/molecule/buttonGroup/src'
 import AtomButtom, {
@@ -11,13 +11,45 @@ import SimpleOptionsRadioForm from './inputRadio'
 import SimpleOptionsCheckboxForm from './inputCheckbox'
 import './index.scss'
 
+const ButtonDesignByState = () => {
+  const [selected, setSelected] = useState()
+
+  const _onClick = buttonId => {
+    console.log(buttonId)
+    setSelected(buttonId)
+  }
+
+  return (
+    <MoleculeButtonGroup>
+      <AtomButtom
+        design={selected !== 'A' && 'outline'}
+        onClick={() => _onClick('A')}
+      >
+        A
+      </AtomButtom>
+      <AtomButtom
+        design={selected !== 'B' && 'outline'}
+        onClick={() => _onClick('B')}
+      >
+        B
+      </AtomButtom>
+      <AtomButtom
+        design={selected !== 'C' && 'outline'}
+        onClick={() => _onClick('C')}
+      >
+        C
+      </AtomButtom>
+    </MoleculeButtonGroup>
+  )
+}
+
 const Demo = () => {
   return (
     <div className="DemoMoleculeButtonGroup">
       <h1>MoleculeButtonGroup</h1>
       <div className="DemoMoleculeButtonGroup-section">
         <h2>As a group of buttons that trigger some action (or link)</h2>
-        <MoleculeButtonGroup type="secondary">
+        <MoleculeButtonGroup>
           <AtomButtom onClick={e => window.alert('clicked A')}>A</AtomButtom>
           <AtomButtom onClick={e => window.alert('clicked B')}>B</AtomButtom>
           <AtomButtom onClick={e => window.alert('clicked C')}>C</AtomButtom>
@@ -35,52 +67,17 @@ const Demo = () => {
         </h2>
         <SimpleOptionsCheckboxForm />
       </div>
-      <div className="DemoMoleculeButtonGroup-section--fullWidth">
-        <h2>Secondary (Full Width)</h2>
-        <MoleculeButtonGroup type="secondary" fullWidth>
-          <AtomButtom>A</AtomButtom>
-          <AtomButtom>B</AtomButtom>
-          <AtomButtom>C</AtomButtom>
-        </MoleculeButtonGroup>
-      </div>
       <div style={{width: '500px'}} className="DemoMoleculeButtonGroup-section">
-        <h2>Secondary (specifying groupPositions)</h2>
-        <MoleculeButtonGroup
-          type="secondary"
-          groupPositions={atomButtonGroupPositions}
-        >
+        <h2>specifying groupPositions</h2>
+        <MoleculeButtonGroup groupPositions={atomButtonGroupPositions}>
           <AtomButtom>A</AtomButtom>
           <AtomButtom>B</AtomButtom>
           <AtomButtom>C</AtomButtom>
         </MoleculeButtonGroup>
       </div>
       <div className="DemoMoleculeButtonGroup-section">
-        <h2>Tertiary</h2>
-        <MoleculeButtonGroup type="tertiary">
-          <AtomButtom>A</AtomButtom>
-          <AtomButtom>B</AtomButtom>
-          <AtomButtom>C</AtomButtom>
-        </MoleculeButtonGroup>
-      </div>
-      <div className="DemoMoleculeButtonGroup-section">
-        <h2>Secondary (Negative)</h2>
-        <div className="DemoMoleculeButtonGroup-section--negative">
-          <MoleculeButtonGroup type="secondary" negative>
-            <AtomButtom>A</AtomButtom>
-            <AtomButtom>B</AtomButtom>
-            <AtomButtom>C</AtomButtom>
-          </MoleculeButtonGroup>
-        </div>
-      </div>
-      <div className="DemoMoleculeButtonGroup-section">
-        <h2>Tertiary (Negative)</h2>
-        <div className="DemoMoleculeButtonGroup-section--negative">
-          <MoleculeButtonGroup type="tertiary" negative>
-            <AtomButtom>A</AtomButtom>
-            <AtomButtom>B</AtomButtom>
-            <AtomButtom>C</AtomButtom>
-          </MoleculeButtonGroup>
-        </div>
+        <h2>different design dependeding on state</h2>
+        <ButtonDesignByState />
       </div>
     </div>
   )

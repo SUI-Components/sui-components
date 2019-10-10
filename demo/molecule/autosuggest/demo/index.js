@@ -59,6 +59,7 @@ const Demo = () => (
       <MoleculeAutosuggestWithState
         placeholder="Type a Country name..."
         onChange={(_, {value}) => console.log(value)}
+        onEnter={() => console.log('Enter pressed')}
         iconClear={<IconClose />}
       />
     </div>

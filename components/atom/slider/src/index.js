@@ -101,10 +101,10 @@ const AtomSlider = ({
       {ready && (
         <Suspense fallback={null}>
           {valueLabel ? (
-            <React.Fragment>
+            <>
               <Label value={labelValue} formatter={valueLabelFormatter} />
               <Type {...customProps} />
-            </React.Fragment>
+            </>
           ) : (
             <Type {...customProps} />
           )}

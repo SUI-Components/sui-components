@@ -50,7 +50,8 @@ Password.propTypes = {
 
 Password.defaultProps = {
   pwShowLabel: SHOW_LABEL,
-  pwHideLabel: HIDE_LABEL
+  pwHideLabel: HIDE_LABEL,
+  onChange: () => {}
 }
 
 export default Password

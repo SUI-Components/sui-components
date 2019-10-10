@@ -99,7 +99,7 @@ return (
       autoClose="manual"
       type="info"
       onClose={logClose}
-      roundedCorners
+      roundedCorners={BRDS_SIZE.medium}
     >
       <span>
         Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing</a> elit.

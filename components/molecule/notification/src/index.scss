@@ -89,8 +89,10 @@ $base-class: '.sui-MoleculeNotification';
   }
 
   // Rounded corners
-  &--roundedCorners {
-    border-radius: $bdrs-notification;
+  @each $key, $value in $bdrs-notification {
+    &#{$base-class}-roundedCorners--#{$key} {
+      border-radius: $value;
+    }
   }
 
   // Position

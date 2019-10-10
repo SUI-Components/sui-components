@@ -1,5 +1,4 @@
-/* eslint-disable react/jsx-fragments */
-import React, {Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -33,7 +32,7 @@ const AtomRadioButton = ({
   const className = cx(BASE_CLASS, getErrorStateClass(errorState))
 
   return (
-    <Fragment>
+    <>
       <input
         className={className}
         value={value}
@@ -44,7 +43,7 @@ const AtomRadioButton = ({
         onChange={handleChange}
         {...props}
       />
-    </Fragment>
+    </>
   )
 }
 

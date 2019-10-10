@@ -217,7 +217,7 @@ class AtomTooltip extends Component {
           <Tooltip
             {...restrictedProps}
             isOpen={isOpen}
-            toggle={this.handleToggle}
+            toggle={this.handleToggle} // eslint-disable-line
             className={BASE_CLASS}
             innerClassName={CLASS_INNER}
             arrowClassName={CLASS_ARROW}

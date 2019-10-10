@@ -18,11 +18,12 @@ const STYLES = {
 
 const AtomBackToTop = ({
   iconTop: IconTop,
+  minHeight,
   textTop,
-  scrollSteps,
-  scrollIntervalTime,
-  refContainer,
-  style
+  scrollSteps = 100,
+  scrollIntervalTime = 50,
+  refContainer = document.body,
+  style = STYLES.DARK
 }) => {
   const [show, setShow] = useState(false)
   const [hover, setHover] = useState(false)
@@ -35,7 +36,7 @@ const AtomBackToTop = ({
       const {scrollTop, scrollHeight, clientHeight} = container
       const halfHeight = Math.floor((scrollHeight - clientHeight) / 2)
 
-      if (scrollTop > halfHeight) {
+      if (scrollTop > halfHeight || scrollTop > minHeight) {
         if (!show) {
           setShow(true)
         }
@@ -51,7 +52,7 @@ const AtomBackToTop = ({
     return () => {
       container.removeEventListener('scroll', handleScroll)
     }
-  }, [refContainer, show])
+  }, [minHeight, refContainer, show])
 
   const scrollStep = () => {
     const container = getTarget(refContainer)
@@ -100,6 +101,9 @@ AtomBackToTop.propTypes = {
   /** Icon (component) to be displayed */
   iconTop: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 
+  /** Minimum height (in pixels) to show button */
+  minHeight: PropTypes.number,
+
   /** Text to be displayed */
   textTop: PropTypes.string,
 
@@ -118,13 +122,6 @@ AtomBackToTop.propTypes = {
    *  LIGHT →'light'
    */
   style: PropTypes.oneOf(Object.values(STYLES))
-}
-
-AtomBackToTop.defaultProps = {
-  refContainer: document.body,
-  style: STYLES.DARK,
-  scrollIntervalTime: 50,
-  scrollSteps: 100
 }
 
 export {STYLES as backToTopStyles}

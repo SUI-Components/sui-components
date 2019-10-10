@@ -1,8 +1,6 @@
 # AtomRadioButton
 
-> Description
-
-<!-- ![](./assets/preview.png) -->
+AtomRadioButton is a component that displays an input radio w/ its expected behavior
 
 ## Installation
 
@@ -12,12 +10,32 @@ $ npm install @s-ui/react-atom-radio-button --save
 
 ## Usage
 
-### Basic usage
 ```js
 import AtomRadioButton from '@s-ui/react-atom-radio-button'
-
-return (<AtomRadioButton />)
 ```
 
+### Basic usage
 
-> **Find full description and more examples in the [demo page](#).**
+```js
+<AtomRadioButton />
+```
+
+### Checked
+
+```js
+<AtomRadioButton checked />
+```
+
+### Disabled
+
+```js
+<AtomRadioButton disabled />
+```
+
+### w/ onChange handler
+
+```js
+<AtomRadioButton onChange={console.log} />
+```
+
+> **Find full description and more examples in the [demo page](/workbench/atom/radioButton).**

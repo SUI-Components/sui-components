@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2019-10-10)
+
+
+### Features
+
+* add example in readme ([56ef357](https://github.com/SUI-Components/sui-components/commit/56ef357))
+* add min height prop ([cf28c7d](https://github.com/SUI-Components/sui-components/commit/cf28c7d))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2019-10-03)
 

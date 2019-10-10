@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -31,7 +31,7 @@ const AtomCheckbox = ({
   const className = cx(BASE_CLASS, getErrorStateClass(errorState))
 
   return (
-    <Fragment>
+    <>
       <input
         className={className}
         type="checkbox"
@@ -41,7 +41,7 @@ const AtomCheckbox = ({
         onChange={handleChange}
         {...props}
       />
-    </Fragment>
+    </>
   )
 }
 

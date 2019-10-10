@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="3.14.0"></a>
+# 3.14.0 (2019-10-08)
+
+
+### Bug Fixes
+
+* add default prop value to onChange prop ([3000a86](https://github.com/SUI-Components/sui-components/commit/3000a86))
+
+
+
 <a name="3.13.0"></a>
 # 3.13.0 (2019-10-08)
 

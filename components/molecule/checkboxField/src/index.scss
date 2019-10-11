@@ -4,6 +4,11 @@
 
 $ml-atom-checkbox: 10px !default;
 
-.sui-AtomCheckbox + span {
-  margin-left: $ml-atom-checkbox;
+.sui-AtomCheckbox {
+  &[type='checkbox'] {
+    margin: 0;
+  }
+  & + span {
+    margin-left: $ml-atom-checkbox;
+  }
 }

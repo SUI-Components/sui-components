@@ -13,6 +13,7 @@ $fz-atom-slider: $fz-m !default;
 
 $h-atom-slider-handle: 24px !default;
 $ml-atom-slider-handle: -11px !default;
+$ml-atom-slider-label: 0 !default;
 $w-atom-slider-handle: 24px !default;
 
 $h-atom-slider-track: 8px !default;
@@ -112,6 +113,7 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
   &-label {
     display: block;
     margin-bottom: $m-m;
+    margin-left: $ml-atom-slider-label;
   }
 
   &--disabled {

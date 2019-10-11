@@ -11,7 +11,8 @@ import AtomHelpText from '@s-ui/react-atom-help-text'
 const BASE_CLASS = 'sui-MoleculeField'
 const CLASS_INLINE = `${BASE_CLASS}--inline`
 const CLASS_INLINE_REVERSE = `${CLASS_INLINE}-reverse`
-const CLASS_CONTAINER = `${BASE_CLASS}-inputContainer`
+const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-inputContainer`
+const CLASS_LABEL_CONTAINER = `${BASE_CLASS}-labelContainer`
 
 const MoleculeField = ({
   inline,
@@ -45,14 +46,17 @@ const MoleculeField = ({
 
   return (
     <div className={className}>
-      <AtomLabel
-        type={typeValidationLabel}
-        name={name}
-        text={label}
-        onClick={onClickLabel}
-      />
-      <div className={CLASS_CONTAINER}>
-        {children}
+      <div className={CLASS_LABEL_CONTAINER}>
+        {inline && children}
+        <AtomLabel
+          type={typeValidationLabel}
+          name={name}
+          text={label}
+          onClick={onClickLabel}
+        />
+      </div>
+      <div className={CLASS_INPUT_CONTAINER}>
+        {!inline && children}
         {(successText || errorText) && (
           <AtomValidationText
             type={typeValidationText}

@@ -3,8 +3,6 @@ $z-notification: 1000 !default;
 $mh-notification: 500px !default;
 $sz-notification-icon: $sz-icon-m !default;
 
-$bdrs-base: 8px !default; // To BE Defined in SUI-THEME
-
 $bdrs-notification: (
   xl: $bdrs-base * 4,
   l: $bdrs-base * 2,

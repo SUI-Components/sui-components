@@ -66,8 +66,18 @@ $base-class: '.sui-MoleculeNotification';
   &--positive {
     color: $c-black;
 
-    #{$base-class}-icon svg {
-      fill: $c-gray !important;
+    // Type text in positive variations
+    @each $key, $value in $notification-type-positive-text-colors {
+      &#{$base-class}--#{$key} {
+        color: $value !important;
+      }
+    }
+
+    // Type text in positive variations
+    @each $key, $value in $notification-type-positive-icon-colors {
+      &#{$base-class}--#{$key} #{$base-class}-icon svg {
+        fill: $value !important;
+      }
     }
 
     // Type variations
@@ -75,6 +85,13 @@ $base-class: '.sui-MoleculeNotification';
       &#{$base-class}--#{$key} {
         background-color: color-variation($value, $c-light-step * 2);
       }
+    }
+  }
+
+  // Rounded corners
+  @each $key, $value in $bdrs-notification {
+    &#{$base-class}-roundedCorners--#{$key} {
+      border-radius: $value;
     }
   }
 

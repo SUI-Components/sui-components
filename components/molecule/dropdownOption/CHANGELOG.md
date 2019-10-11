@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.17.0"></a>
+# 1.17.0 (2019-10-10)
+
+
+### Features
+
+* set dropdownoption text as var ([c1c65bf](https://github.com/SUI-Components/sui-components/commit/c1c65bf))
+
+
+
 <a name="1.16.0"></a>
 # 1.16.0 (2019-10-07)
 

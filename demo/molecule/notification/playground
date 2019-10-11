@@ -71,7 +71,7 @@ const TYPES = ['info', 'success', 'warning', 'error', 'system']
 const VARIATIONS = ['positive', 'negative']
 
 return (
-  <div>
+  <div style={{margin: '32px'}}>
     <h1>Notification</h1>
     <h2>Types and variations</h2>
     {TYPES.map(type =>
@@ -93,6 +93,21 @@ return (
       ))
     )}
     <br />
+
+    <h2>With rounded corners</h2>
+    <MoleculeNotification
+      autoClose="manual"
+      type="info"
+      onClose={logClose}
+      roundedCorners={BRDS_SIZE.medium}
+    >
+      <span>
+        Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing</a> elit.
+        Duis vitae orci consectetur ligula vel.
+      </span>
+    </MoleculeNotification>
+    <br />
+
     <h2>With children content</h2>
     <MoleculeNotification autoClose="manual" type="info" onClose={logClose}>
       <span>

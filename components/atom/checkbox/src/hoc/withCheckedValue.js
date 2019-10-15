@@ -1,12 +1,8 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 
-import {withSwitchValue} from '@s-ui/hoc'
-
 const withCheckedValue = BaseComponent => {
   const displayName = BaseComponent.displayName
-
-  const BaseComponentWithStateValue = withSwitchValue(BaseComponent)
 
   const BaseComponentWithCheckedValue = ({
     checked: checkedFromProps = false,
@@ -21,7 +17,7 @@ const withCheckedValue = BaseComponent => {
     }
 
     return (
-      <BaseComponentWithStateValue
+      <BaseComponent
         {...props}
         checked={checked}
         onChange={handleChangeValue}
@@ -32,10 +28,8 @@ const withCheckedValue = BaseComponent => {
   BaseComponentWithCheckedValue.displayName = `withCheckboxValue(${displayName})`
 
   BaseComponentWithCheckedValue.propTypes = {
-    /** value */
     checked: PropTypes.any,
 
-    /** onChange callback  */
     onChange: PropTypes.func
   }
 

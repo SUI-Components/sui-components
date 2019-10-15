@@ -1,10 +1,11 @@
 /* eslint-disable no-console */
 import React from 'react'
 
-import AtomCheckbox from '../../../../components/atom/checkbox/src'
+import AtomCheckbox, {
+  withCheckedValue
+} from '../../../../components/atom/checkbox/src'
 
 import './index.scss'
-import withCheckedValue from './hoc/withCheckedValue'
 
 const BASE_CLASS_DEMO = `DemoAtomCheckbox`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
@@ -26,8 +27,7 @@ const Demo = () => {
             onChange={(ev, {value, name}) => {
               console.log({[name]: value})
             }}
-          />{' '}
-          Acepto los terminos
+          />
         </p>
       </div>
       <div className={CLASS_SECTION}>
@@ -42,7 +42,6 @@ const Demo = () => {
               console.log({[name]: value})
             }}
           />
-          Soy mayor de edad
         </p>
       </div>
       <h2>Use Cases</h2>

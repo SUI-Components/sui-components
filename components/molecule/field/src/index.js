@@ -23,6 +23,7 @@ const MoleculeField = ({
   helpText,
   name,
   onClickLabel,
+  onChange: onChangeFromProps,
   children
 }) => {
   const className = cx(
@@ -32,6 +33,13 @@ const MoleculeField = ({
   )
   let statusValidationText, typeValidationLabel, typeValidationText
 
+  const extendedChildren = React.Children.toArray(children)
+    .filter(Boolean)
+    .map((child, index) => {
+      return React.cloneElement(child, {
+        onChange: onChangeFromProps
+      })
+    })
   if (errorText) {
     statusValidationText = errorText
     typeValidationLabel = AtomLabelTypes.ERROR
@@ -47,7 +55,7 @@ const MoleculeField = ({
   return (
     <div className={className}>
       <div className={CLASS_LABEL_CONTAINER}>
-        {inline && children}
+        {inline && extendedChildren}
         <AtomLabel
           type={typeValidationLabel}
           name={name}
@@ -56,7 +64,7 @@ const MoleculeField = ({
         />
       </div>
       <div className={CLASS_INPUT_CONTAINER}>
-        {!inline && children}
+        {!inline && extendedChildren}
         {(successText || errorText) && (
           <AtomValidationText
             type={typeValidationText}
@@ -77,6 +85,9 @@ MoleculeField.propTypes = {
 
   /** Text to be displayed as label of the textarea */
   label: PropTypes.string.isRequired,
+
+  /** Text to be displayed as label of the textarea */
+  onChange: PropTypes.func,
 
   /** used as for attribute. Must be the same as the input element id */
   name: PropTypes.string.isRequired,

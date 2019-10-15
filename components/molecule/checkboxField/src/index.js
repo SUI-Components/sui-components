@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
-import AtomCheckbox from '@s-ui/react-atom-checkbox'
+import AtomCheckbox, {withCheckedValue} from '@s-ui/react-atom-checkbox'
 
 const BASE_CLASS = 'sui-MoleculeCheckboxField'
 
@@ -11,12 +11,13 @@ const getErrorState = (success, error) => {
   if (error) return true
 }
 
-const MoleculeInputField = ({
+const MoleculeCheckboxField = ({
   id,
   label,
   successText,
   errorText,
   helpText,
+  onChange,
   ...props
 }) => {
   const errorState = getErrorState(successText, errorText)
@@ -28,6 +29,7 @@ const MoleculeInputField = ({
         successText={successText}
         errorText={errorText}
         helpText={helpText}
+        onChange={onChange}
         inline
         reverse
       >
@@ -37,9 +39,9 @@ const MoleculeInputField = ({
   )
 }
 
-MoleculeInputField.displayName = 'MoleculeInputField'
+MoleculeCheckboxField.displayName = 'MoleculeCheckboxField'
 
-MoleculeInputField.propTypes = {
+MoleculeCheckboxField.propTypes = {
   /** Text to be displayed as label */
   label: PropTypes.string.isRequired,
 
@@ -62,4 +64,4 @@ MoleculeInputField.propTypes = {
   inline: PropTypes.bool
 }
 
-export default MoleculeInputField
+export default withCheckedValue(MoleculeCheckboxField)

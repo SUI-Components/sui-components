@@ -3,6 +3,9 @@
 @import './settings';
 
 $bg-molecule-dropdown-option--highlight-mark: $c-highlight !default;
+$bg-molecule-dropdown-option-selected: none !default;
+$fw-molecule-dropdown-option-selected-text: $fw-bold !default;
+$fz-molecule-dropdown-option-text: inherit !default;
 
 .sui-MoleculeDropdownOption {
   align-items: center;
@@ -19,13 +22,18 @@ $bg-molecule-dropdown-option--highlight-mark: $c-highlight !default;
   }
 
   &-text {
+    font-size: $fz-molecule-dropdown-option-text;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
+  &.is-selected:not(&-checkbox) {
+    background: $bg-molecule-dropdown-option-selected;
+  }
+
   &.is-selected:not(&-checkbox) &-text {
-    font-weight: $fw-bold;
+    font-weight: $fw-molecule-dropdown-option-selected-text;
   }
 
   &--disabled {

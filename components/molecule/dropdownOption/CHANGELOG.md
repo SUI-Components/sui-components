@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.17.0"></a>
+# 1.17.0 (2019-10-10)
+
+
+### Features
+
+* set dropdownoption text as var ([c1c65bf](https://github.com/SUI-Components/sui-components/commit/c1c65bf))
+
+
+
+<a name="1.16.0"></a>
+# 1.16.0 (2019-10-07)
+
+
+### Features
+
+* add background as variable ([1e79e61](https://github.com/SUI-Components/sui-components/commit/1e79e61))
+* fix space ([5de48f4](https://github.com/SUI-Components/sui-components/commit/5de48f4))
+
+
+
 <a name="1.15.0"></a>
 # 1.15.0 (2019-06-26)
 

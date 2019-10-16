@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2019-10-03)
+
+
+### Features
+
+* added onEnter callback ([4535b88](https://github.com/SUI-Components/sui-components/commit/4535b88))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2019-09-03)
 

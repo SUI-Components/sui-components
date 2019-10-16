@@ -3,8 +3,8 @@
 @import '~@s-ui/react-atom-label/lib/index';
 @import '~@s-ui/react-atom-help-text/lib/index';
 
-$l-molecule-field: 30px !default;
-$t-molecule-field: 1px !default;
+$l-molecule-field: 20px !default;
+$t-molecule-field: -4px !default;
 
 .sui-MoleculeField {
   &--inline {
@@ -14,7 +14,7 @@ $t-molecule-field: 1px !default;
     &-reverse {
       position: relative;
       display: flex;
-      flex-direction: row-reverse;
+      flex-direction: column;
 
       .sui-AtomLabel {
         position: absolute;

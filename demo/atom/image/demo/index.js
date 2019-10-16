@@ -121,6 +121,7 @@ const Demo = () => {
           <a
             href="https://ma.ttias.be/simulate-low-bandwidth-conditions-with-chromes-network-throttling/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Here
           </a>{' '}

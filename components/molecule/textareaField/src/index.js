@@ -17,6 +17,7 @@ const MoleculeTextareaField = WithCharacterCount(
     successText,
     errorText,
     helpText,
+    onChange,
     ...props
   }) => {
     return (
@@ -28,6 +29,7 @@ const MoleculeTextareaField = WithCharacterCount(
         errorText={errorText}
         helpText={helpText}
         maxChars={maxChars}
+        onChange={onChange}
       >
         <AtomTextarea id={id} {...props} />
       </MoleculeField>

@@ -31,6 +31,9 @@
     flex-wrap: wrap;
 
     &Item {
+      display: flex;
+      font-size: $fz-breadcrumb-item;
+
       &:not(:last-child) {
         display: none;
       }

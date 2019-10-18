@@ -16,6 +16,7 @@ const MoleculeInputField = ({
   errorText,
   helpText,
   inline,
+  onChange,
   ...props
 }) => {
   const errorState = getErrorState(successText, errorText)
@@ -27,6 +28,7 @@ const MoleculeInputField = ({
       errorText={errorText}
       helpText={helpText}
       inline={inline}
+      onChange={onChange}
     >
       <AtomInput id={id} errorState={errorState} {...props} />
     </MoleculeField>

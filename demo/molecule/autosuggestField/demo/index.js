@@ -83,8 +83,8 @@ const Demo = () => (
     </div>
 
     <div className={CLASS_DEMO_SECTION}>
-      <h3>With Placeholder</h3>
-      <MoleculeAutosuggestFieldWithState
+      <h3>With specific label type</h3>
+      <MoleculeAutosuggestField
         id="with-placeholder"
         label="Country"
         placeholder="Select a Country..."

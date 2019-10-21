@@ -51,10 +51,10 @@ const MoleculeField = ({
   return (
     <div className={className}>
       <AtomLabel
+        type={typeValidationLabel}
         name={name}
         text={label}
         onClick={onClickLabel}
-        type={typeValidationLabel}
       />
       <div className={CLASS_CONTAINER}>
         {children}

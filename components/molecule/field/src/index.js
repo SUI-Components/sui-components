@@ -19,6 +19,7 @@ const MoleculeField = ({
   errorText,
   successText,
   label,
+  labelType,
   helpText,
   name,
   onClickLabel,
@@ -43,13 +44,17 @@ const MoleculeField = ({
     typeValidationText = AtomValidationTextTypes.SUCCESS
   }
 
+  if (labelType) {
+    typeValidationLabel = AtomLabelTypes[labelType]
+  }
+
   return (
     <div className={className}>
       <AtomLabel
-        type={typeValidationLabel}
         name={name}
         text={label}
         onClick={onClickLabel}
+        type={typeValidationLabel}
       />
       <div className={CLASS_CONTAINER}>
         {children}
@@ -73,6 +78,9 @@ MoleculeField.propTypes = {
 
   /** Text to be displayed as label of the textarea */
   label: PropTypes.string.isRequired,
+
+  /** If present it will set the type of the label to its value.'SUCCESS', 'ERROR' or 'CONTRAST' */
+  labelType: PropTypes.string,
 
   /** used as for attribute. Must be the same as the input element id */
   name: PropTypes.string.isRequired,

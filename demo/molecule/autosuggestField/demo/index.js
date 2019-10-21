@@ -83,14 +83,14 @@ const Demo = () => (
     </div>
 
     <div className={CLASS_DEMO_SECTION}>
-      <h3>With specific label type</h3>
+      <h3>With contrast label</h3>
       <MoleculeAutosuggestField
         id="with-placeholder"
         label="Country"
         placeholder="Select a Country..."
         onChange={(_, {value}) => console.log(value)}
         iconClear={<IconClose />}
-        labelType="CONTRAST"
+        useContrastLabel
       />
     </div>
 

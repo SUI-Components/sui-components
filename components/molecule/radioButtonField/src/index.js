@@ -17,6 +17,7 @@ const MoleculeRadioButtonField = ({
   successText,
   errorText,
   helpText,
+  onChange,
   ...props
 }) => {
   const errorState = getErrorState(successText, errorText)
@@ -28,6 +29,7 @@ const MoleculeRadioButtonField = ({
         successText={successText}
         errorText={errorText}
         helpText={helpText}
+        onChange={onChange}
         inline
         reverse
       >

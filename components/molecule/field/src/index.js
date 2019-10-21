@@ -19,7 +19,7 @@ const MoleculeField = ({
   errorText,
   successText,
   label,
-  labelType,
+  useContrastLabel,
   helpText,
   name,
   onClickLabel,
@@ -32,6 +32,10 @@ const MoleculeField = ({
   )
   let statusValidationText, typeValidationLabel, typeValidationText
 
+  if (useContrastLabel) {
+    typeValidationLabel = AtomLabelTypes.CONTRAST
+  }
+
   if (errorText) {
     statusValidationText = errorText
     typeValidationLabel = AtomLabelTypes.ERROR
@@ -42,10 +46,6 @@ const MoleculeField = ({
     statusValidationText = successText
     typeValidationLabel = AtomLabelTypes.SUCCESS
     typeValidationText = AtomValidationTextTypes.SUCCESS
-  }
-
-  if (labelType) {
-    typeValidationLabel = AtomLabelTypes[labelType]
   }
 
   return (
@@ -79,8 +79,8 @@ MoleculeField.propTypes = {
   /** Text to be displayed as label of the textarea */
   label: PropTypes.string.isRequired,
 
-  /** If present it will set the type of the label to its value.'SUCCESS', 'ERROR' or 'CONTRAST' */
-  labelType: PropTypes.string,
+  /** If true it will set the label type to 'CONTRAST' */
+  useContrastLabel: PropTypes.bool,
 
   /** used as for attribute. Must be the same as the input element id */
   name: PropTypes.string.isRequired,

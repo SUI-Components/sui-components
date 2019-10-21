@@ -118,10 +118,7 @@ const Demo = () => {
           to simulate in your browser low-bandwidth conditions.
         </p>
         <p>
-          <a
-            href="https://ma.ttias.be/simulate-low-bandwidth-conditions-with-chromes-network-throttling/"
-            target="_blank"
-          >
+          <a href="https://ma.ttias.be/simulate-low-bandwidth-conditions-with-chromes-network-throttling/">
             Here
           </a>{' '}
           you have an explanation of how to do this in Chrome.

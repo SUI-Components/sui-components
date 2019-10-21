@@ -28,6 +28,7 @@ class MoleculeAutosuggestField extends Component {
       helpText,
       inline,
       children, // eslint-disable-line
+      onChange,
       ...props
     } = this.props
     const errorState = hasErrors(successText, errorText)
@@ -40,6 +41,7 @@ class MoleculeAutosuggestField extends Component {
         helpText={helpText}
         inline={inline}
         onClickLabel={handleClick}
+        onChange={onChange}
         useContrastLabel={useContrastLabel}
       >
         <MoleculeAutosuggest

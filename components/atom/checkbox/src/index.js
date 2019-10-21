@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
+import withCheckedValue from './hoc/withCheckedValue'
+
 const BASE_CLASS = 'sui-AtomCheckbox'
 
 const ERROR_STATES = {
@@ -17,6 +19,7 @@ const getErrorStateClass = errorState => {
 
 const AtomCheckbox = ({
   id,
+  name,
   disabled,
   checked,
   onChange: onChangeFromProps,
@@ -36,6 +39,7 @@ const AtomCheckbox = ({
         className={className}
         type="checkbox"
         id={id}
+        name={name || id}
         disabled={disabled}
         checked={checked}
         onChange={handleChange}
@@ -55,6 +59,9 @@ AtomCheckbox.propTypes = {
   /* The DOM id global attribute. */
   id: PropTypes.string.isRequired,
 
+  /* name attribute for the input */
+  name: PropTypes.string,
+
   /* This Boolean attribute prevents the user from interacting with the input */
   disabled: PropTypes.bool,
 
@@ -69,3 +76,4 @@ AtomCheckbox.propTypes = {
 }
 
 export default AtomCheckbox
+export {withCheckedValue}

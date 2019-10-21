@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2019-10-11)
+
+
+### Bug Fixes
+
+* prop children is required, prop text is deprecated, use children instead ([445703b](https://github.com/SUI-Components/sui-components/commit/445703b))
+
+
+### Features
+
+* adds a BRDS_SIZE var including five border radius sizes ([1a93afb](https://github.com/SUI-Components/sui-components/commit/1a93afb))
+* adds a limited set of sizes to moleculeNotification borderRadius ([7ee2558](https://github.com/SUI-Components/sui-components/commit/7ee2558))
+* adds roundedCorners prop ([0cdc0f3](https://github.com/SUI-Components/sui-components/commit/0cdc0f3))
+* remove generic sass var to set it in the sui-theme ([128740a](https://github.com/SUI-Components/sui-components/commit/128740a))
+* updates stiling to rounded corners and maps bg color and icons ([c1a664e](https://github.com/SUI-Components/sui-components/commit/c1a664e))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2018-12-11)
 

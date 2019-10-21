@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2019-10-11)
+
+
+### Features
+
+* add variables atom backtotop position ([900c633](https://github.com/SUI-Components/sui-components/commit/900c633))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2019-10-10)
 

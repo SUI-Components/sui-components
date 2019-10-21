@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.18.0"></a>
+# 1.18.0 (2019-10-16)
+
+
+### Features
+
+* add font-weight as varible for highlighted text ([f730b10](https://github.com/SUI-Components/sui-components/commit/f730b10))
+
+
+
 <a name="1.17.0"></a>
 # 1.17.0 (2019-10-10)
 

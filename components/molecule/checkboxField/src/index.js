@@ -2,42 +2,46 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
-import AtomInput from '@s-ui/react-atom-input'
+import AtomCheckbox, {withCheckedValue} from '@s-ui/react-atom-checkbox'
+
+const BASE_CLASS = 'sui-MoleculeCheckboxField'
 
 const getErrorState = (success, error) => {
   if (success) return false
   if (error) return true
 }
 
-const MoleculeInputField = ({
+const MoleculeCheckboxField = ({
   id,
   label,
   successText,
   errorText,
   helpText,
-  inline,
   onChange,
   ...props
 }) => {
   const errorState = getErrorState(successText, errorText)
   return (
-    <MoleculeField
-      name={id}
-      label={label}
-      successText={successText}
-      errorText={errorText}
-      helpText={helpText}
-      inline={inline}
-      onChange={onChange}
-    >
-      <AtomInput id={id} errorState={errorState} {...props} />
-    </MoleculeField>
+    <div className={BASE_CLASS}>
+      <MoleculeField
+        name={id}
+        label={label}
+        successText={successText}
+        errorText={errorText}
+        helpText={helpText}
+        onChange={onChange}
+        inline
+        reverse
+      >
+        <AtomCheckbox id={id} errorState={errorState} {...props} />
+      </MoleculeField>
+    </div>
   )
 }
 
-MoleculeInputField.displayName = 'MoleculeInputField'
+MoleculeCheckboxField.displayName = 'MoleculeCheckboxField'
 
-MoleculeInputField.propTypes = {
+MoleculeCheckboxField.propTypes = {
   /** Text to be displayed as label */
   label: PropTypes.string.isRequired,
 
@@ -60,4 +64,4 @@ MoleculeInputField.propTypes = {
   inline: PropTypes.bool
 }
 
-export default MoleculeInputField
+export default withCheckedValue(MoleculeCheckboxField)

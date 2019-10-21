@@ -2,7 +2,7 @@
 @import '../../../../components/molecule/radioButtonField/src/index';
 @import '../../../../components/molecule/radioButtonGroup/src/index';
 
-.DemoAtomCheckbox {
+.DemoMoleculeRadioButtonGroup {
   padding: 20px;
 
   &-section {
@@ -11,5 +11,9 @@
     max-width: 800px;
     min-width: 300px;
     padding: 10px;
+  }
+
+  .sui-MoleculeRadioButtonField {
+    margin-bottom: 15px;
   }
 }

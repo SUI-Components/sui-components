@@ -32,6 +32,10 @@ $m-atom-radiobutton-type-right: $m-m !default;
   padding: 0;
   vertical-align: top;
 
+  &.is-hidden {
+    display: none;
+  }
+
   &[type='radio'] {
     margin-left: $m-atom-radiobutton-type-left;
     margin-right: $m-atom-radiobutton-type-right;

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 const BASE_CLASS = 'sui-AtomRadioButton'
+const CLASS_HIDDEN = `is-hidden`
 
 const ERROR_STATES = {
   ERROR: 'error',
@@ -21,6 +22,7 @@ const AtomRadioButton = ({
   checked,
   onChange: onChangeFromProps,
   errorState,
+  isHidden,
   value,
   ...props
 }) => {
@@ -29,7 +31,9 @@ const AtomRadioButton = ({
     if (!disabled) onChangeFromProps(ev, {name, value})
   }
 
-  const className = cx(BASE_CLASS, getErrorStateClass(errorState))
+  const className = cx(BASE_CLASS, getErrorStateClass(errorState), {
+    [CLASS_HIDDEN]: isHidden
+  })
 
   return (
     <>
@@ -71,7 +75,10 @@ AtomRadioButton.propTypes = {
   errorState: PropTypes.bool,
 
   /* Value assigned to the radio button */
-  value: PropTypes.string
+  value: PropTypes.string,
+
+  /* If is hidden */
+  isHidden: PropTypes.bool
 }
 
 export default AtomRadioButton

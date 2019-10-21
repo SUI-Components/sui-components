@@ -21,6 +21,7 @@ class MoleculeAutosuggestField extends Component {
     const {refAutosuggest, handleClick} = this
     const {
       label,
+      labelType,
       id,
       successText,
       errorText,
@@ -39,6 +40,7 @@ class MoleculeAutosuggestField extends Component {
         helpText={helpText}
         inline={inline}
         onClickLabel={handleClick}
+        labelType={labelType}
       >
         <MoleculeAutosuggest
           refMoleculeAutosuggest={refAutosuggest}
@@ -74,7 +76,10 @@ MoleculeAutosuggestField.propTypes = {
   helpText: PropTypes.string,
 
   /** Boolean to decide if elements should be set inline */
-  inline: PropTypes.bool
+  inline: PropTypes.bool,
+
+  /** String 'success', 'error' or 'contrast' */
+  labelType: PropTypes.string
 }
 
 export default MoleculeAutosuggestField

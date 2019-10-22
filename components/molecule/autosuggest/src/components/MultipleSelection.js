@@ -21,6 +21,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   onInputKeyDown,
   onChange,
   onChangeTags,
+  onSelect,
   disabled
 }) => {
   const MoleculeInputTagsRef = useRef()
@@ -31,6 +32,10 @@ const MoleculeAutosuggestFieldMultiSelection = ({
       : [...tags, value]
 
     onChangeTags(ev, {
+      value: '',
+      tags: newTags
+    })
+    onSelect(ev, {
       value: '',
       tags: newTags
     })

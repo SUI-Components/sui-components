@@ -61,7 +61,7 @@ return (
     </div>
     <h3>Slider with inverse colors</h3>
     <div style={stylesSection}>
-      <AtomSlider  step={10} onChange={console.log} inverseColors/>
+      <AtomSlider  step={10} onChange={console.log} invertColors/>
     </div>
   </div>
 )

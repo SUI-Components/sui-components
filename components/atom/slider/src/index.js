@@ -53,7 +53,7 @@ const AtomSlider = ({
   valueLabelFormatter,
   hideTooltip,
   defaultValue,
-  inverseColors
+  invertColors
 }) => {
   const [ready, setReady] = useState(false)
   const [handleComponent, setHandle] = useState({component: null})
@@ -101,7 +101,7 @@ const AtomSlider = ({
       className={cx(
         BASE_CLASS,
         {[CLASS_DISABLED]: disabled},
-        {[CLASS_INVERSE]: inverseColors}
+        {[CLASS_INVERSE]: invertColors}
       )}
     >
       {ready && (
@@ -159,7 +159,7 @@ AtomSlider.propTypes = {
   /* flag to hide tooltip if wanted */
   hideTooltip: PropTypes.bool,
   /* If true it will invert the colors for selected track and rail */
-  inverseColors: PropTypes.bool
+  invertColors: PropTypes.bool
 }
 
 AtomSlider.defaultProps = {

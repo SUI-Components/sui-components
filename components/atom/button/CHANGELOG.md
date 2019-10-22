@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.31.0"></a>
+# 1.31.0 (2019-10-22)
+
+
+### Features
+
+* fix rounded buttons on button group ([d0f82c1](https://github.com/SUI-Components/sui-components/commit/d0f82c1))
+
+
+
 <a name="1.30.0"></a>
 # 1.30.0 (2019-10-09)
 

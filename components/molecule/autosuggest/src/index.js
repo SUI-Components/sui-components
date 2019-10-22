@@ -207,6 +207,9 @@ MoleculeAutosuggest.propTypes = {
   /** callback triggered when the user press enter when the suggestion is closed */
   onEnter: PropTypes.func,
 
+  /** callback triggered when the user selects the suggested item */
+  onSelect: PropTypes.func,
+
   /** list of key identifiers that will trigger a selection */
   keysSelection: PropTypes.array,
 
@@ -221,6 +224,7 @@ MoleculeAutosuggest.defaultProps = {
   onChange: () => {},
   onToggle: () => {},
   onEnter: () => {},
+  onSelect: () => {},
   keysSelection: [' ', 'Enter'],
   keysCloseList: ['Escape']
 }

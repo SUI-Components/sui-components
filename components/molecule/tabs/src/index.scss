@@ -142,7 +142,7 @@ $p-sui-molecule-tabs-item: $p-m $p-l !default;
       }
 
       &:hover:not(.is-disabled) {
-        color: $c-sui-molecule-tabs-disabled;
+        color: $c-primary;
         cursor: pointer;
 
         svg,

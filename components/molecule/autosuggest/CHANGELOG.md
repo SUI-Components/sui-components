@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2019-10-22)
+
+
+### Features
+
+* add onSelect callback ([92fa216](https://github.com/SUI-Components/sui-components/commit/92fa216))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2019-10-22)
 

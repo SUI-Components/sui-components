@@ -158,7 +158,7 @@ AtomSlider.propTypes = {
   valueLabelFormatter: PropTypes.func,
   /* flag to hide tooltip if wanted */
   hideTooltip: PropTypes.bool,
-  /* If true it will rever colors for selected track */
+  /* If true it will invert the colors for selected track and rail */
   inverseColors: PropTypes.bool
 }
 

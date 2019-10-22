@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.4.0"></a>
+# 2.4.0 (2019-10-10)
+
+
+### Features
+
+* add new css margin variable ([71e8977](https://github.com/SUI-Components/sui-components/commit/71e8977))
+
+
+
 <a name="2.3.0"></a>
 # 2.3.0 (2019-04-25)
 

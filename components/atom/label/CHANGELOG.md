@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2019-10-07)
+
+
+### Features
+
+* added inherit as well to font-weight so its retrocompatible ([10e7ca4](https://github.com/SUI-Components/sui-components/commit/10e7ca4))
+* eanble tu customize the font-weight ([ff64653](https://github.com/SUI-Components/sui-components/commit/ff64653))
+* enable people to customize the color and the spacing with the next element via var ([f035800](https://github.com/SUI-Components/sui-components/commit/f035800))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2019-08-01)
 

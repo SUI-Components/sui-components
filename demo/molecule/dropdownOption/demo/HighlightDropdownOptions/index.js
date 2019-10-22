@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import MoleculeDropdownOption from '../../../../../components/molecule/dropdownOption/src'
 import AtomInput from '@s-ui/react-atom-input'
 
@@ -26,7 +26,7 @@ class HighlightDropdownOptions extends Component {
     const {options} = this.props
     const {selected, query} = this.state
     return (
-      <Fragment>
+      <>
         <div className={CLASS_DEMO_OPTION}>
           <AtomInput
             placeholder="Type a text (highlight)..."
@@ -45,7 +45,7 @@ class HighlightDropdownOptions extends Component {
           ))}
         </div>
         <pre>{JSON.stringify(this.state, null, 2)}</pre>
-      </Fragment>
+      </>
     )
   }
 }

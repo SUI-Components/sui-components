@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2019-10-15)
+
+
+### Features
+
+* proper connection between components ([584a9b8](https://github.com/SUI-Components/sui-components/commit/584a9b8))
+
+
+
+<a name="1.8.0"></a>
+# 1.8.0 (2019-10-14)
+
+
+### Features
+
+* styles inline improved ([9420de7](https://github.com/SUI-Components/sui-components/commit/9420de7))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2019-09-30)
 

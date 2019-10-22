@@ -33,6 +33,7 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
     children,
     onToggle,
     onChange,
+    onEnter,
     isOpen,
     keysCloseList,
     keysSelection,
@@ -99,6 +100,10 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
       else if (key === 'ArrowDown' && !isSomeOptionFocused)
         focusFirstOption(ev, {options})
       else if (isSomeOptionFocused) handleFocusIn(ev)
+    } else {
+      if (key === 'Enter') {
+        onEnter()
+      }
     }
   }
 
@@ -122,6 +127,9 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
   const handleInputKeyDown = ev => {
     const {key} = ev
     if (key !== 'ArrowDown') ev.stopPropagation()
+    if (key === 'Enter') {
+      onEnter()
+    }
   }
 
   return (
@@ -196,6 +204,9 @@ MoleculeAutosuggest.propTypes = {
   /** size (height) of the list */
   size: PropTypes.oneOf(Object.values(SIZES)),
 
+  /** callback triggered when the user press enter when the suggestion is closed */
+  onEnter: PropTypes.func,
+
   /** list of key identifiers that will trigger a selection */
   keysSelection: PropTypes.array,
 
@@ -209,6 +220,7 @@ MoleculeAutosuggest.propTypes = {
 MoleculeAutosuggest.defaultProps = {
   onChange: () => {},
   onToggle: () => {},
+  onEnter: () => {},
   keysSelection: [' ', 'Enter'],
   keysCloseList: ['Escape']
 }

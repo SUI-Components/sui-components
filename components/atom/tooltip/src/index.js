@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import withIntersectionObserver from './hoc/withIntersectionObserver'
 
@@ -211,13 +211,13 @@ class AtomTooltip extends Component {
     if (!isVisible && isOpen) isOpen = false
 
     return (
-      <Fragment>
+      <>
         {this.extendChildren()}
         {target && Tooltip && (
           <Tooltip
             {...restrictedProps}
             isOpen={isOpen}
-            toggle={this.handleToggle}
+            toggle={this.handleToggle} // eslint-disable-line
             className={BASE_CLASS}
             innerClassName={CLASS_INNER}
             arrowClassName={CLASS_ARROW}
@@ -228,7 +228,7 @@ class AtomTooltip extends Component {
             {HtmlContent ? <HtmlContent /> : this.title}
           </Tooltip>
         )}
-      </Fragment>
+      </>
     )
   }
 }

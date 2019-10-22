@@ -120,9 +120,8 @@ Bear in mind that relative position messages with transition will pull the conte
 
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_8772120B34E0CB7B174A0EEA386772318CAF9D1A92F3091FED38E365CE95C47C_1507200463973_3.1-Notification-Metrics.png)
 
-The component should have two versions (positive and negative). The color of the positive one should be the L4.
-
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_E092CE3EB611E387327F26BBC63239DAFC64F84BCDF8D5C533DE374AA594FD10_1542105969752_05-Content+NotificacionesSUI.jpg)
+- The component should have two versions (positive and negative). The color of the positive one should be the L4.
+- Rounded corners might be applied by using a declarative `roundedCorners` property.
 
 ## Responsive
 

@@ -14,11 +14,13 @@ const MoleculeAutosuggestSingleSelection = ({
   isOpen,
   onToggle,
   onChange,
+  onClickRightIcon,
   onInputKeyDown,
   onSelect,
   size,
   innerRefInput,
   refMoleculeAutosuggest,
+  rightIcon,
   iconClear,
   placeholder,
   disabled
@@ -39,6 +41,10 @@ const MoleculeAutosuggestSingleSelection = ({
     onChange(null, {value: ''})
   }
 
+  const handleRightClick = ev => {
+    onClickRightIcon(ev, {value})
+  }
+
   return (
     <>
       <AtomInputWithClearUI
@@ -47,6 +53,8 @@ const MoleculeAutosuggestSingleSelection = ({
         onClickClear={handleClear}
         onChange={handleChange}
         iconClear={!disabled && iconClear}
+        rightIcon={rightIcon}
+        onClickRightIcon={handleRightClick}
         reference={innerRefInput}
         placeholder={placeholder}
         onKeyDown={onInputKeyDown}

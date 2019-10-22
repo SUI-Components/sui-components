@@ -207,8 +207,14 @@ MoleculeAutosuggest.propTypes = {
   /** callback triggered when the user press enter when the suggestion is closed */
   onEnter: PropTypes.func,
 
+  /** callback triggered when the user clicks on right icon */
+  onClickRightIcon: PropTypes.func,
+
   /** callback triggered when the user selects the suggested item */
   onSelect: PropTypes.func,
+
+  /** Right UI Icon */
+  rightIcon: PropTypes.node,
 
   /** list of key identifiers that will trigger a selection */
   keysSelection: PropTypes.array,

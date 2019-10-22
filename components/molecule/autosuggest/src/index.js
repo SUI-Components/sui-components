@@ -121,7 +121,7 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
       )
       if (focusOutFromOutside && isOpen) closeList(ev)
     }, 1)
-    setFocus(true)
+    setFocus(false)
   }
 
   const handleInputKeyDown = ev => {

@@ -1,8 +1,7 @@
 # MoleculeRadioButtonField
 
-> Description
+`MoleculeRadioButtonField` is the combination of and `AtomRadioButton` and a `MoleculeField`
 
-<!-- ![](./assets/preview.png) -->
 
 ## Installation
 
@@ -12,12 +11,40 @@ $ npm install @s-ui/react-molecule-radio-button-field --save
 
 ## Usage
 
-### Basic usage
 ```js
 import MoleculeRadioButtonField from '@s-ui/react-molecule-radio-button-field'
-
-return (<MoleculeRadioButtonField />)
 ```
 
+### Basic (with Information help text)
 
-> **Find full description and more examples in the [demo page](#).**
+```js
+<MoleculeRadioButtonField
+  id="description-inline2"
+  label="Description"
+  helpText="Tu descripción en Latin"
+/>
+```
+
+### Success Message
+
+```js
+ <MoleculeRadioButtonField
+    id="description2"
+    label="Description"
+    value="In some place of La Mancha which name..."
+    successText="Everything ok!"
+  />
+```
+
+### Error Message
+
+```js
+ <MoleculeRadioButtonField
+    id="notes"
+    label="Notes"
+    errorText="All wrong!"
+    value="In some place of La Mancha which name..."
+  />
+```
+
+> **Find full description and more examples in the [demo page](/workbench/molecule/radioButtonField).**

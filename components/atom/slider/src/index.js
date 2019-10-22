@@ -5,6 +5,7 @@ import markerFactory from './markerFactory'
 
 const BASE_CLASS = `sui-AtomSlider`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
+const CLASS_INVERSE = `${BASE_CLASS}--inverse`
 
 const Range = lazy(() => import('rc-slider/lib/Range'))
 const Slider = lazy(() => import('rc-slider/lib/Slider'))
@@ -51,7 +52,8 @@ const AtomSlider = ({
   marks,
   valueLabelFormatter,
   hideTooltip,
-  defaultValue
+  defaultValue,
+  inverseColors
 }) => {
   const [ready, setReady] = useState(false)
   const [handleComponent, setHandle] = useState({component: null})
@@ -96,7 +98,11 @@ const AtomSlider = ({
   return (
     <div
       ref={refAtomSlider}
-      className={cx(BASE_CLASS, {[CLASS_DISABLED]: disabled})}
+      className={cx(
+        BASE_CLASS,
+        {[CLASS_DISABLED]: disabled},
+        {[CLASS_INVERSE]: inverseColors}
+      )}
     >
       {ready && (
         <Suspense fallback={null}>
@@ -151,7 +157,9 @@ AtomSlider.propTypes = {
   /* callback to format the value shown as label */
   valueLabelFormatter: PropTypes.func,
   /* flag to hide tooltip if wanted */
-  hideTooltip: PropTypes.bool
+  hideTooltip: PropTypes.bool,
+  /* If true it will rever colors for selected track */
+  inverseColors: PropTypes.bool
 }
 
 AtomSlider.defaultProps = {

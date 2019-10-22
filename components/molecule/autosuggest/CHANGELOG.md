@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2019-10-22)
+
+
+### Bug Fixes
+
+* fix focusOut ([ec228cf](https://github.com/SUI-Components/sui-components/commit/ec228cf))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2019-10-03)
 

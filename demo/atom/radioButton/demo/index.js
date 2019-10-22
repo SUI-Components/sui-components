@@ -16,7 +16,7 @@ const Demo = () => {
       <div className={CLASS_SECTION}>
         <h3>Basic</h3>
         <AtomRadioButton
-          name="favorite-beatle"
+          name="basic-favorite-beatle"
           value="john"
           onChange={(e, {name, value}) => console.log({[name]: value})}
         />
@@ -24,7 +24,7 @@ const Demo = () => {
       <div className={CLASS_SECTION}>
         <h3>Checked</h3>
         <AtomRadioButton
-          name="favorite-beatle"
+          name="checked-favorite-beatle"
           value="paul"
           checked
           onChange={(e, {name, value}) => console.log({[name]: value})}
@@ -32,7 +32,11 @@ const Demo = () => {
       </div>
       <div className={CLASS_SECTION}>
         <h3>Disabled</h3>
-        <AtomRadioButton name="favorite-beatle" value="george" disabled />
+        <AtomRadioButton
+          name="disabled-favorite-beatle"
+          value="george"
+          disabled
+        />
       </div>
     </div>
   )

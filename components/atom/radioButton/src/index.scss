@@ -1,16 +1,11 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$w-atom-radiobutton: 15px !default;
-$h-atom-radiobutton: 15px !default;
+$w-atom-radiobutton: $sz-icon-s !default;
+$h-atom-radiobutton: $sz-icon-s !default;
 $bc-atom-radiobutton: $c-gray !default;
 $bw-atom-radiobutton: $bdw-s !default;
-$bc-atom-radiobutton-checked: #6199f4 !default;
+$bc-atom-radiobutton-checked: $c-primary !default;
 $bw-atom-radiobutton-checked: 6px !default;
-
-$fs-atom-radiobutton-label: 14px !default;
-$lh-atom-radiobutton-label: 130% !default;
-$maw-atom-radiobutton: 32px !default;
-$mt-atom-radiobutton-input: 3px !default;
 
 $m-atom-radiobutton-type-left: $m-m !default;
 $m-atom-radiobutton-type-right: $m-m !default;
@@ -53,12 +48,6 @@ $m-atom-radiobutton-type-right: $m-m !default;
     &:checked {
       border-color: $bc-atom-radiobutton-checked;
       border-width: $bw-atom-radiobutton-checked;
-    }
-  }
-
-  @each $state, $color in $states-atom-input {
-    &.sui-AtomRadioButton--#{$state} {
-      border-color: $color;
     }
   }
 }

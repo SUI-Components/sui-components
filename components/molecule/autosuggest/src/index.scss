@@ -26,7 +26,7 @@ $w-autosuggest-icon-clear: 20px !default;
   &--focus {
     #{$class-input} {
       &-container {
-        @extend %sui-atom-input-input-focus;
+        @extend %sui-molecule-autosuggest-focus;
       }
     }
   }

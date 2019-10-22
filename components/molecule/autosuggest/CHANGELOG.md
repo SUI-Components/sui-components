@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2019-10-22)
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2019-10-22)
 
@@ -9,6 +14,7 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * add onSelect callback ([92fa216](https://github.com/SUI-Components/sui-components/commit/92fa216))
+* change placeholder in focus case ([e2641d3](https://github.com/SUI-Components/sui-components/commit/e2641d3))
 
 
 

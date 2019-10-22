@@ -17,7 +17,7 @@ import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 ### Basic usage (info)
 
 ```js
-<MoleculeCheckbox
+<MoleculeCheckboxField
     id="description-inline2"
     label="Description"
     helpText="Tu descripción en Latin"
@@ -27,7 +27,7 @@ import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 ### Success Message
 
 ```js
-<MoleculeCheckbox
+<MoleculeCheckboxField
     id="description2"
     label="Description"
     value="In some place of La Mancha which name..."
@@ -38,7 +38,7 @@ import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 ### Error Message
 
 ```js
- <MoleculeCheckbox
+ <MoleculeCheckboxField
     id="notes"
     label="Notes"
     errorText="All wrong!"

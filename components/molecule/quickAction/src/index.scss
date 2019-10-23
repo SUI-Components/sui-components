@@ -10,6 +10,7 @@ $icon-sz-molecule-quick-action: $sz-icon-s !default;
 $icon-m-molecule-quick-action: $m-m !default;
 $p-molecule-quick-action: $p-m !default;
 $bxsh-molecule-quick-action: $bxsh-l !default;
+$bgc-molecule-quick-action: $c-white !default;
 $bgc-molecule-quick-action-focused: color-variation($c-primary, 4) !default;
 
 $fz-molecule-quick-action-large: $fz-m !default;
@@ -33,6 +34,7 @@ $p-molecule-quick-action-large: $p-l !default;
 
   align-items: center;
   cursor: pointer;
+  background-color: $bgc-molecule-quick-action;
   border-radius: $bdrs-base;
   box-shadow: $bxsh-molecule-quick-action;
   font: {

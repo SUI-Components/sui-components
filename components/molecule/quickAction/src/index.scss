@@ -19,19 +19,7 @@ $fw-molecule-quick-action-large: $fw-semi-bold !default;
 $icon-sz-molecule-quick-action-large: $sz-icon-m !default;
 $p-molecule-quick-action-large: $p-l !default;
 
-@mixin action-focused {
-  &:not(#{$base-class}--disabled) {
-    &:active,
-    &:hover {
-      @content;
-    }
-  }
-}
-
 .sui-MoleculeQuickAction {
-  @include action-focused {
-    background-color: $bgc-molecule-quick-action-focused;
-  }
   align-items: center;
   cursor: pointer;
   background-color: $bgc-molecule-quick-action;
@@ -41,6 +29,16 @@ $p-molecule-quick-action-large: $p-l !default;
   display: flex;
   justify-content: space-between;
   line-height: normal;
+
+  &:not(#{$base-class}--disabled) {
+    &:active,
+    &:hover {
+      background-color: $bgc-molecule-quick-action-focused;
+    }
+    &:active {
+      box-shadow: none;
+    }
+  }
 
   &-text {
     width: 100%;

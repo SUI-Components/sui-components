@@ -12,6 +12,7 @@ $p-atom-tag-l: 0 $p-l !default;
 $p-atom-tag-m: 0 $p-l !default;
 $p-atom-tag-s: 0 $p-m !default;
 $w-atom-tag-clickable: 32px !default;
+$atom-tag-types: () !default;
 
 @mixin icon-atom-tag($type) {
   @include sui-icon--small;
@@ -159,6 +160,16 @@ $w-atom-tag-clickable: 32px !default;
       .sui-AtomTag-closeable {
         @include icon-secondary-clickable-area($h-atom-tag-l);
       }
+    }
+  }
+
+  @each $name, $type in $atom-tag-types {
+    $bgc: map-get($type, bgc);
+    $c: map-get($type, c);
+
+    &-#{$type} {
+      background-color: $bgc;
+      color: $c;
     }
   }
 }

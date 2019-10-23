@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.5.0"></a>
+# 2.5.0 (2019-10-23)
+
+
+### Features
+
+* add vars in cs ([a294812](https://github.com/SUI-Components/sui-components/commit/a294812))
+* fix bad assigned color var ([a2840df](https://github.com/SUI-Components/sui-components/commit/a2840df))
+
+
+
 <a name="2.4.0"></a>
 # 2.4.0 (2019-09-16)
 

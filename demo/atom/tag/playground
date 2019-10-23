@@ -23,6 +23,12 @@ return (
         onClose={() => alert('close!')}
         closeIcon={<CloseIcon />}
       />
+      <AtomTag
+        label="Tag with custom className"
+        className="custom-className"
+        onClose={() => alert('close!')}
+        closeIcon={<CloseIcon />}
+      />
       <AtomTag label="Icon Tag" icon={<Icon />} />
       <AtomTag
         label="Icon & Close Tag"

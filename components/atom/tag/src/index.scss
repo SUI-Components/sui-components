@@ -167,7 +167,7 @@ $atom-tag-types: () !default;
     $bgc: map-get($type, bgc);
     $c: map-get($type, c);
 
-    &-#{$type} {
+    &--#{$type} {
       background-color: $bgc;
       color: $c;
     }

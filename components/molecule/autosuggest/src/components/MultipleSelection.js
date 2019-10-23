@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, {Fragment, useRef} from 'react'
+import React, {useRef} from 'react'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
 
@@ -21,6 +21,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   onInputKeyDown,
   onChange,
   onChangeTags,
+  onSelect,
   disabled
 }) => {
   const MoleculeInputTagsRef = useRef()
@@ -31,6 +32,10 @@ const MoleculeAutosuggestFieldMultiSelection = ({
       : [...tags, value]
 
     onChangeTags(ev, {
+      value: '',
+      tags: newTags
+    })
+    onSelect(ev, {
       value: '',
       tags: newTags
     })
@@ -57,7 +62,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   }
 
   return (
-    <Fragment>
+    <>
       <MoleculeInputTagsWithClearUI
         onKeyDown={onInputKeyDown}
         ref={MoleculeInputTagsRef}
@@ -85,7 +90,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
       >
         {children}
       </MoleculeDropdownList>
-    </Fragment>
+    </>
   )
 }
 

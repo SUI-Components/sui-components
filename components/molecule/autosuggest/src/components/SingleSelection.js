@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, {Fragment} from 'react'
+import React from 'react'
 
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import AtomInput from '@s-ui/react-atom-input'
@@ -14,16 +14,20 @@ const MoleculeAutosuggestSingleSelection = ({
   isOpen,
   onToggle,
   onChange,
+  onClickRightIcon,
   onInputKeyDown,
+  onSelect,
   size,
   innerRefInput,
   refMoleculeAutosuggest,
+  rightIcon,
   iconClear,
   placeholder,
   disabled
 }) => {
   const handleSelection = (ev, {value}) => {
     onChange(ev, {value})
+    onSelect(ev, {value})
     onToggle(ev, {isOpen: false})
     refMoleculeAutosuggest.current.focus()
   }
@@ -37,14 +41,20 @@ const MoleculeAutosuggestSingleSelection = ({
     onChange(null, {value: ''})
   }
 
+  const handleRightClick = ev => {
+    onClickRightIcon(ev, {value})
+  }
+
   return (
-    <Fragment>
+    <>
       <AtomInputWithClearUI
         value={value}
         isVisibleClear={value}
         onClickClear={handleClear}
         onChange={handleChange}
         iconClear={!disabled && iconClear}
+        rightIcon={rightIcon}
+        onClickRightIcon={handleRightClick}
         reference={innerRefInput}
         placeholder={placeholder}
         onKeyDown={onInputKeyDown}
@@ -52,9 +62,8 @@ const MoleculeAutosuggestSingleSelection = ({
       />
       {value && (
         <MoleculeDropdownList
-          isOpen={isOpen}
           size={size}
-          visible={isOpen}
+          visible={isOpen && React.Children.count(children) > 0}
           onSelect={handleSelection}
           value={value}
           highlightQuery={value}
@@ -62,7 +71,7 @@ const MoleculeAutosuggestSingleSelection = ({
           {children}
         </MoleculeDropdownList>
       )}
-    </Fragment>
+    </>
   )
 }
 

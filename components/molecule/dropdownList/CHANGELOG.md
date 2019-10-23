@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2019-10-10)
+
+
+### Features
+
+* set box-shadow as component var ([54305de](https://github.com/SUI-Components/sui-components/commit/54305de))
+* var for padding ([433809d](https://github.com/SUI-Components/sui-components/commit/433809d))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2019-06-26)
 

@@ -33,6 +33,14 @@ const VARIATIONS = {
   positive: 'positive'
 }
 
+const BRDS_SIZE = {
+  extraLarge: 'xl',
+  large: 'l',
+  medium: 'm',
+  small: 's',
+  extraSmall: 'xs'
+}
+
 const MoleculeNotification = ({
   autoClose: autoCloseTiming,
   onClose,
@@ -41,6 +49,7 @@ const MoleculeNotification = ({
   children,
   icon,
   position,
+  roundedCorners,
   showCloseButton,
   text,
   type,
@@ -123,7 +132,8 @@ const MoleculeNotification = ({
     {
       [`${CLASS}--${variation}`]: variation === VARIATIONS.positive,
       [`${CLASS}-effect--${position}`]: effect,
-      [`${CLASS}-effect--hide`]: effect && delay
+      [`${CLASS}-effect--hide`]: effect && delay,
+      [`${CLASS}-roundedCorners--${roundedCorners}`]: roundedCorners
     }
   )
 
@@ -182,6 +192,16 @@ MoleculeNotification.propTypes = {
   /** Positions: 'top', 'bottom', 'relative' */
   position: PropTypes.string,
 
+  /**
+   * Border Radius sizes:
+   * 'xl',
+   * 'l',
+   * 'm' (default),
+   * 's',
+   * 'xs',
+   */
+  roundedCorners: PropTypes.oneOf(Object.values(BRDS_SIZE)),
+
   /** Show / hide notification */
   show: PropTypes.bool,
 
@@ -203,10 +223,13 @@ MoleculeNotification.defaultProps = {
   effect: true,
   onClose: () => {},
   position: 'relative',
+  roundedCorners: null,
   show: true,
   showCloseButton: true,
   type: 'info',
   variation: VARIATIONS.negative
 }
+
+export {BRDS_SIZE}
 
 export default React.memo(MoleculeNotification)

@@ -56,18 +56,18 @@ class FullScreenSpinnerExample extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <button style={buttonStyle} onClick={this.onClick}>
           Click to show fullscreen spinner for 5 seconds
         </button>
         {this.state.show && <AtomSpinner type={AtomSpinnerTypes.FULL} />}
-      </React.Fragment>
+      </>
     )
   }
 }
 
 return (
-  <React.Fragment>
+  <>
     <h2>Infinite spinner</h2>
     <div style={boxStyle}>
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
@@ -90,5 +90,5 @@ return (
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
       <AtomSpinner noBackground />
     </div>
-  </React.Fragment>
+  </>
 )

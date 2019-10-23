@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect, lazy, Suspense} from 'react'
+import React, {useState, useEffect, lazy, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -49,7 +49,7 @@ const AtomUpload = ({
 
   const hasValidStatus = Object.values(STATUSES).includes(status)
   return (
-    <Fragment>
+    <>
       {hasValidStatus && ready && (
         <Suspense fallback={null}>
           <Dropzone
@@ -61,7 +61,7 @@ const AtomUpload = ({
           </Dropzone>
         </Suspense>
       )}
-    </Fragment>
+    </>
   )
 }
 

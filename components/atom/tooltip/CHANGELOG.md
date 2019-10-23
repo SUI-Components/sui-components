@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-10-10)
+
+
+### Bug Fixes
+
+* disable linter for external lib case use ([1d863e2](https://github.com/SUI-Components/sui-components/commit/1d863e2))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2019-07-01)
 

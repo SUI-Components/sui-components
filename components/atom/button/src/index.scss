@@ -3,18 +3,54 @@
 $base-class: '.sui-AtomButton';
 
 $c-atom-button-colors: (
-  'primary': ($c-primary, $c-white),
-  'accent': ($c-accent, $c-white),
-  'neutral': ($c-gray, $c-white),
-  'success': ($c-success, $c-white),
-  'alert': ($c-alert, $c-white),
-  'error': ($c-error, $c-white),
-  'social-facebook': ($c-facebook, $c-white),
-  'social-twitter': ($c-twitter, $c-white),
-  'social-google': ($c-google, $c-white),
-  'social-youtube': ($c-youtube, $c-white),
-  'social-whatsapp': ($c-whatsapp, $c-white),
-  'social-instagram': ($c-instagram, $c-white),
+  'primary': (
+    $c-primary,
+    $c-white
+  ),
+  'accent': (
+    $c-accent,
+    $c-white
+  ),
+  'neutral': (
+    $c-gray,
+    $c-white
+  ),
+  'success': (
+    $c-success,
+    $c-white
+  ),
+  'alert': (
+    $c-alert,
+    $c-white
+  ),
+  'error': (
+    $c-error,
+    $c-white
+  ),
+  'social-facebook': (
+    $c-facebook,
+    $c-white
+  ),
+  'social-twitter': (
+    $c-twitter,
+    $c-white
+  ),
+  'social-google': (
+    $c-google,
+    $c-white
+  ),
+  'social-youtube': (
+    $c-youtube,
+    $c-white
+  ),
+  'social-whatsapp': (
+    $c-whatsapp,
+    $c-white
+  ),
+  'social-instagram': (
+    $c-instagram,
+    $c-white
+  )
 ) !default;
 
 $ff-atom-button: $ff-sans-serif !default;
@@ -46,11 +82,13 @@ $icon-sz-atom-button-large: $sz-icon-m !default;
 $icon-m-atom-button-large: $m-m !default;
 $p-atom-button-large: $p-l !default;
 
-$bdrs-atom-button-first-outline: $bdrs-m 0 0 $bdrs-m !default;
-$bdrs-atom-button-last-outline: 0 $bdrs-m $bdrs-m 0 !default;
+$bdrs-atom-button-first: $bdrs-m 0 0 $bdrs-m !default;
+$bdrs-atom-button-last: 0 $bdrs-m $bdrs-m 0 !default;
 
 $bxsh-atom-button-solid-primary: none !default;
 $bxsh-atom-button-solid-primary-negative: none !default;
+
+$tt-atom-button: none !default;
 
 // Set all color properties for text and icons
 @mixin button-foreground-color($color) {
@@ -90,7 +128,7 @@ $bxsh-atom-button-solid-primary-negative: none !default;
   }
 }
 
-#{$base-class}  {
+#{$base-class} {
   @include reset-button;
   @include button-icon($icon-sz-atom-button, $icon-m-atom-button);
   border: 1px solid;
@@ -107,6 +145,7 @@ $bxsh-atom-button-solid-primary-negative: none !default;
   min-width: $sz-atom-button;
   outline: 0;
   padding: 0 $p-atom-button;
+  text-transform: $tt-atom-button;
   white-space: nowrap;
 
   & + & {
@@ -123,20 +162,20 @@ $bxsh-atom-button-solid-primary-negative: none !default;
     }
 
     &--middle {
-      &#{$base-class}--outline {
+      &#{$base-class} {
         border-radius: 0;
       }
     }
 
     &--first {
-      &#{$base-class}--outline {
-        border-radius: $bdrs-atom-button-first-outline;
+      &#{$base-class} {
+        border-radius: $bdrs-atom-button-first;
       }
     }
 
     &--last {
-      &#{$base-class}--outline {
-        border-radius: $bdrs-atom-button-last-outline;
+      &#{$base-class} {
+        border-radius: $bdrs-atom-button-last;
       }
     }
   }
@@ -180,7 +219,7 @@ $bxsh-atom-button-solid-primary-negative: none !default;
         }
       }
 
-      &#{$base-class}--outline, 
+      &#{$base-class}--outline,
       &#{$base-class}--flat {
         $bgc-atom-button-focused: color-variation($color, 4) !default;
         $bgc-atom-button-focused-invert: color-variation($color, -1) !default;

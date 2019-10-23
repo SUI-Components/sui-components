@@ -5,7 +5,6 @@ import MoleculeField from '@s-ui/react-molecule-field'
 import AtomTextarea, {
   AtomTextareaSizes as SIZES
 } from '@s-ui/react-atom-textarea'
-
 import WithCharacterCount from './hoc/WithCharacterCount'
 
 const MoleculeTextareaField = WithCharacterCount(
@@ -17,6 +16,7 @@ const MoleculeTextareaField = WithCharacterCount(
     successText,
     errorText,
     helpText,
+    onChange,
     ...props
   }) => {
     return (
@@ -28,6 +28,7 @@ const MoleculeTextareaField = WithCharacterCount(
         errorText={errorText}
         helpText={helpText}
         maxChars={maxChars}
+        onChange={onChange}
       >
         <AtomTextarea id={id} {...props} />
       </MoleculeField>

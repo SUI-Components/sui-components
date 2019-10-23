@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.3.0"></a>
+# 2.3.0 (2019-10-18)
+
+
+### Features
+
+* propagate onchange prop to adapt to new version of molecule field ([9ee370f](https://github.com/SUI-Components/sui-components/commit/9ee370f))
+
+
+
 <a name="2.2.0"></a>
 # 2.2.0 (2019-04-30)
 
@@ -50,6 +60,16 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * first commit with only Schibsted Spain Components ([c0814de](https://github.com/SUI-Components/sui-components/commit/c0814de))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2018-09-05)
+
+
+### Features
+
+* renaming from AtomInput to MoleculeInputField ([60d43aa](https://github.com/SUI-Components/sui-components/commit/60d43aa))
 
 
 

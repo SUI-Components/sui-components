@@ -1,5 +1,86 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
-// .react-MoleculeQuickAction {
-//   // Do your magic
-// }
+$base-class: '.sui-MoleculeQuickAction';
+
+$ff-molecule-quick-action: $ff-sans-serif !default;
+$fz-molecule-quick-action: $fz-s !default;
+$fw-molecule-quick-action: $fw-semi-bold !default;
+$icon-c-molecule-quick-action: $c-primary;
+$icon-sz-molecule-quick-action: $sz-icon-s !default;
+$icon-m-molecule-quick-action: $m-m !default;
+$p-molecule-quick-action: $p-m !default;
+$bxsh-molecule-quick-action: $bxsh-l !default;
+$bgc-molecule-quick-action-focused: color-variation($c-primary, 4) !default;
+
+$fz-molecule-quick-action-large: $fz-m !default;
+$fw-molecule-quick-action-large: $fw-semi-bold !default;
+$icon-sz-molecule-quick-action-large: $sz-icon-m !default;
+$p-molecule-quick-action-large: $p-l !default;
+
+@mixin action-focused {
+  &:not(#{$base-class}--disabled) {
+    &:active,
+    &:hover {
+      @content;
+    }
+  }
+}
+
+.sui-MoleculeQuickAction {
+  @include action-focused {
+    background-color: $bgc-molecule-quick-action-focused;
+  }
+
+  align-items: center;
+  cursor: pointer;
+  border-radius: $bdrs-base;
+  box-shadow: $bxsh-molecule-quick-action;
+  font: {
+    family: $ff-molecule-quick-action;
+    size: $fz-molecule-quick-action;
+    weight: $fw-molecule-quick-action;
+  }
+  display: flex;
+  justify-content: space-between;
+  line-height: normal;
+  padding: $p-molecule-quick-action;
+
+  &-text {
+    width: 100%;
+  }
+
+  &-leftIcon,
+  &-rightIcon {
+    display: flex;
+
+    & [class*='Icon'] {
+      fill: $icon-c-molecule-quick-action;
+      height: $icon-sz-molecule-quick-action;
+      width: $icon-sz-molecule-quick-action;
+    }
+  }
+
+  &-leftIcon {
+    margin-right: $icon-m-molecule-quick-action;
+  }
+
+  &-rightIcon {
+    margin-left: $icon-m-molecule-quick-action;
+  }
+
+  &--large {
+    font-size: $fz-molecule-quick-action-large;
+    font-weight: $fw-molecule-quick-action-large;
+    padding: $p-molecule-quick-action-large;
+
+    & #{$base-class}-leftIcon [class*='Icon'] {
+      height: $icon-sz-molecule-quick-action-large;
+      width: $icon-sz-molecule-quick-action-large;
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
+}

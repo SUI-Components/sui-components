@@ -1,16 +1,73 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
+import cx from 'classnames'
 
-const MoleculeQuickAction = () => {
+const CLASS = 'sui-MoleculeQuickAction'
+
+const SIZES = {
+  LARGE: 'large'
+}
+
+const getClassName = variant => `${CLASS}--${variant}`
+
+const MoleculeQuickAction = ({
+  size,
+  children,
+  leftIcon,
+  rightIcon,
+  onClick = () => {},
+  disabled = false
+}) => {
+  const isEnabled = disabled === false
+  const classNames = cx(
+    CLASS,
+    size && getClassName(SIZES[size]),
+    disabled && getClassName('disabled')
+  )
+
+  const handleClick = ev => isEnabled && onClick(ev)
+
   return (
-    <div className="react-MoleculeQuickAction">
-      <h1>MoleculeQuickAction</h1>
+    <div className={classNames} onClick={handleClick}>
+      {leftIcon && <span className={`${CLASS}-leftIcon`}>{leftIcon}</span>}
+      {leftIcon || rightIcon ? (
+        <span className={`${CLASS}-text`}>{children}</span>
+      ) : (
+        children
+      )}
+      {rightIcon && <span className={`${CLASS}-rightIcon`}>{rightIcon}</span>}
     </div>
   )
 }
 
 MoleculeQuickAction.displayName = 'MoleculeQuickAction'
 
-// MoleculeQuickAction.propTypes = {}
+MoleculeQuickAction.propTypes = {
+  /**
+   * Size of MoleculeQuickAction
+   */
+  size: PropTypes.oneOf(Object.values(SIZES)),
+  /**
+   * Content to be included in the button
+   */
+  children: PropTypes.node,
+  /**
+   * Icon to be added on the left of the content
+   */
+  leftIcon: PropTypes.node,
+  /**
+   * Icon to be added on the right of the content
+   */
+  rightIcon: PropTypes.node,
+  /**
+   * Callback on click element
+   */
+  onClick: PropTypes.func,
+  /**
+   * Disable: faded with no interaction.
+   */
+  disabled: PropTypes.bool
+}
 
+export {SIZES as moleculeQuickActionSizes}
 export default MoleculeQuickAction

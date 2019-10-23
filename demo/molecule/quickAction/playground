@@ -38,7 +38,7 @@ return (
       onClick={handleOnClick}
       leftIcon={getLeftIcon()}
       rightIcon={getRightIcon()}
-      size="LARGE"
+      size="large"
     >
       Action
     </MoleculeQuickAction>
@@ -47,7 +47,7 @@ return (
       onClick={handleOnClick}
       leftIcon={getLeftIcon()}
       rightIcon={getRightIcon()}
-      size="LARGE"
+      size="large"
       disabled
     >
       Action

@@ -5,23 +5,25 @@ import cx from 'classnames'
 const CLASS = 'sui-MoleculeQuickAction'
 
 const SIZES = {
+  MEDIUM: 'medium',
   LARGE: 'large'
 }
 
 const getClassName = variant => `${CLASS}--${variant}`
 
 const MoleculeQuickAction = ({
-  size,
+  size = SIZES.MEDIUM,
   children,
   leftIcon,
   rightIcon,
   onClick = () => {},
   disabled = false
 }) => {
+  const sizeKey = size.toUpperCase()
   const isEnabled = disabled === false
   const classNames = cx(
     CLASS,
-    size && getClassName(SIZES[size]),
+    size && getClassName(SIZES[sizeKey]),
     disabled && getClassName('disabled')
   )
 

@@ -134,6 +134,16 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
       height: $h-atom-slider-track;
     }
   }
+
+  &--inverse {
+    #{$class-rail} {
+      background: $c-primary;
+    }
+
+    #{$class-track} {
+      background: $c-atom-slider-rail;
+    }
+  }
 }
 
 #{$class-tooltip-hidden} {

@@ -170,6 +170,11 @@ $atom-tag-types: () !default;
     &--#{$name} {
       background-color: $bgc;
       color: $c;
+
+      &:hover {
+        background-color: color-variation($bgc, 2);
+        color: color-variation($c, 2);
+      }
     }
   }
 }

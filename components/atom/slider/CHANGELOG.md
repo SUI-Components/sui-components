@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2019-10-24)
+
+
+### Features
+
+* allow slider to inverse the selection colors based on a prop ([ecf61ad](https://github.com/SUI-Components/sui-components/commit/ecf61ad))
+* rename prop to use verb ([dac968a](https://github.com/SUI-Components/sui-components/commit/dac968a))
+* update prop description ([bd220b6](https://github.com/SUI-Components/sui-components/commit/bd220b6))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2019-10-14)
 

@@ -1,0 +1,33 @@
+
+$types: (
+  'sale': (
+    background-color: blue,
+    color: white
+  ),
+  'date': (
+    background-color: lightgray,
+    color: black
+  ),
+  'special': (
+    background-color: red,
+    color: white
+  )
+) !default;
+
+.sui-AtomTag {
+  text-transform: uppercase;
+
+  @each $type, $attrs in $types {
+    &--#{$type} {
+      background-color: map-get($attrs, background-color);
+      border: 1px solid map-get($attrs, background-color);
+      color: map-get($attrs, color);
+
+      &:hover {
+        background-color: lighten((map-get($attrs, background-color)), 10%);
+        border: 1px solid darken((map-get($attrs, background-color)), 10%);
+        color: map-get($attrs, color);
+      }
+    }
+  }
+}

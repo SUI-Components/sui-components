@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.5.0"></a>
+# 2.5.0 (2019-10-24)
+
+
+### Bug Fixes
+
+* fix modifier ([84d2a46](https://github.com/SUI-Components/sui-components/commit/84d2a46))
+* fix modifier name ([fe386f9](https://github.com/SUI-Components/sui-components/commit/fe386f9))
+
+
+### Features
+
+* allow atom tag types for free color variations ([ed721ae](https://github.com/SUI-Components/sui-components/commit/ed721ae))
+
+
+
 <a name="2.4.0"></a>
 # 2.4.0 (2019-10-10)
 

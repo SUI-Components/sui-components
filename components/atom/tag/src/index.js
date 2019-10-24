@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-
 import ActionableTag from './Actionable'
 import StandardTag from './Standard'
 
@@ -34,12 +33,12 @@ const filterKeys = (obj, listOfProps) =>
   }, {})
 
 const AtomTag = props => {
-  const {href, icon, onClick, size, responsive} = props
-
+  const {href, icon, onClick, size, responsive, type} = props
   const isActionable = onClick || href
   const classNames = cx(
     'sui-AtomTag',
     `sui-AtomTag-${size}`,
+    type && `sui-AtomTag--${type}`,
     responsive && 'sui-AtomTag--responsive',
     icon && 'sui-AtomTag-hasIcon'
   )
@@ -105,6 +104,11 @@ AtomTag.propTypes = {
    * Tag size
    */
   size: PropTypes.oneOf(Object.values(SIZES)),
+  /**
+   * Tag type in order to color it as desired
+   * from a high order component.
+   */
+  type: PropTypes.string,
   /**
    * true for make responsive layout. keep large size in mobile
    */

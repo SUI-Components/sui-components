@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2019-10-25)
+
+
+### Features
+
+* add contrast type ([21ba141](https://github.com/SUI-Components/sui-components/commit/21ba141))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2019-10-07)
 

@@ -20,6 +20,7 @@ const MoleculeField = ({
   errorText,
   successText,
   label,
+  useContrastLabel,
   helpText,
   name,
   onClickLabel,
@@ -40,6 +41,10 @@ const MoleculeField = ({
         onChange: onChangeFromProps
       })
     })
+
+  if (useContrastLabel) {
+    typeValidationLabel = AtomLabelTypes.CONTRAST
+  }
   if (errorText) {
     statusValidationText = errorText
     typeValidationLabel = AtomLabelTypes.ERROR
@@ -85,6 +90,9 @@ MoleculeField.propTypes = {
 
   /** Text to be displayed as label of the textarea */
   label: PropTypes.string.isRequired,
+
+  /** If true it will set the label type to 'CONTRAST' */
+  useContrastLabel: PropTypes.bool,
 
   /** Text to be displayed as label of the textarea */
   onChange: PropTypes.func,

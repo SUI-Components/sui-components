@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2019-10-25)
+
+
+### Features
+
+* allow autosuggest field to specify a type for the label ([30b1c86](https://github.com/SUI-Components/sui-components/commit/30b1c86))
+* merge master ([1877e1e](https://github.com/SUI-Components/sui-components/commit/1877e1e))
+* update prop name and ussage ([a58dd7d](https://github.com/SUI-Components/sui-components/commit/a58dd7d))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2019-10-17)
 

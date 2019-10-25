@@ -44,20 +44,6 @@ $class-read-only: '#{$base-class}--readOnly';
     @extend %sui-atom-input-input-focus;
   }
 
-  &[type='radio'],
-  &[type='checkbox'] {
-    height: inherit;
-    margin-left: $m-atom-input-type-left;
-    margin-right: $m-atom-input-type-right;
-    width: inherit;
-
-    &:focus {
-      border: 0;
-      box-shadow: none;
-      outline: 0 none;
-    }
-  }
-
   @each $type, $attr in $sizes-atom-input {
     &-#{$type} {
       height: $attr;

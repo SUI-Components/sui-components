@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.6.0"></a>
+# 2.6.0 (2019-10-29)
+
+
+### Bug Fixes
+
+* add hover variations to atomTag, fix demo ([f4dba3b](https://github.com/SUI-Components/sui-components/commit/f4dba3b))
+
+
+
 <a name="2.5.0"></a>
 # 2.5.0 (2019-10-24)
 

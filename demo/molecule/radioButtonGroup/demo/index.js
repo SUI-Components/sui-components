@@ -63,7 +63,7 @@ const Demo = () => {
             helpText="George Harrison"
           />
           <MoleculeRadioButtonField
-            id="george"
+            id="ringo"
             value="ringo"
             label="Ringo"
             helpText="Ringo Star"

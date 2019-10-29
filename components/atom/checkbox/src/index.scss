@@ -26,6 +26,10 @@ $m-atom-checkbox-type-right: $m-m !default;
       box-shadow: none;
       outline: 0 none;
     }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 
   @each $state, $color in $states-atom-input {

@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="4.0.0"></a>
+# 4.0.0 (2019-10-29)
+
+
+### Features
+
+* removal checkbox and radioButton input AND name notification in event handler ([4c2acf6](https://github.com/SUI-Components/sui-components/commit/4c2acf6))
+
+
+### BREAKING CHANGES
+
+* checkbox and radioButton removal
+
+
+
 <a name="3.14.0"></a>
 # 3.14.0 (2019-10-08)
 

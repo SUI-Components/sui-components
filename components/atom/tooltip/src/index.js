@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import withIntersectionObserver from './hoc/withIntersectionObserver'
 
-import {withOpenToggle} from '@s-ui/hoc'
+import {withIntersectionObserver, withOpenToggle} from '@s-ui/hoc'
 
 const BASE_CLASS = 'sui-AtomTooltip'
 const CLASS_INNER = `${BASE_CLASS}-inner`
@@ -43,15 +42,15 @@ class AtomTooltip extends Component {
   refTarget = React.createRef()
 
   loadAsyncReacstrap(e) {
-    require.ensure(
-      [],
-      require => {
-        const Tooltip = require('reactstrap/lib/Tooltip').default
+    import(
+      /* webpackChunkName: "reactstrap-Tooltip" */
+      'reactstrap/lib/Tooltip'
+    )
+      .then(module => module.default)
+      .then(Tooltip => {
         this.setState({Tooltip})
         this.handleToggle(e)
-      },
-      'reactstrap-Tooltip'
-    )
+      })
   }
 
   extendChildren() {

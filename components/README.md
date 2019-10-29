@@ -38,7 +38,7 @@ SUI is a fundamental part of Adevinta's Design System, wich also includes UI Kit
   - [SUI Data display](https://sketch.cloud/s/9KAox "SUI Data display")
   - [SUI Buttons](https://sketch.cloud/s/bK4A4 "SUI Buttons")
 - SUI tools: 
-- Status Dashboard: https://pages.github.mpi-internal.com/scmspain/sui-dashboard/
+- Check the current status: [SUI Dashboard](https://pages.github.mpi-internal.com/scmspain/sui-dashboard/ "SUI Status Dashboard") (Restricted to Adevinta members only)
 - Get in touch: [Design-Ops](mailto:arturo.lopez@adevinta.com), Development
 
 ## The team

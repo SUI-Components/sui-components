@@ -2,7 +2,7 @@
 
 $w-atom-radiobutton: $sz-icon-s !default;
 $h-atom-radiobutton: $sz-icon-s !default;
-$bc-atom-radiobutton: $c-gray !default;
+$bc-atom-radiobutton: $c-gray-light-3 !default;
 $bw-atom-radiobutton: $bdw-s !default;
 $bc-atom-radiobutton-checked: $c-primary !default;
 $bw-atom-radiobutton-checked: 6px !default;
@@ -15,39 +15,28 @@ $m-atom-radiobutton-type-right: $m-m !default;
   border-style: solid;
   border-color: $bc-atom-radiobutton;
 
-  outline: none;
-  -webkit-appearance: none;
   width: $w-atom-radiobutton;
   height: $h-atom-radiobutton;
   border-radius: 50%;
 
-  border: $bdrs-none;
   cursor: pointer;
   display: inline-block;
   padding: 0;
   vertical-align: top;
 
+  margin-left: $m-atom-radiobutton-type-left;
+  margin-right: $m-atom-radiobutton-type-right;
+
   &.is-hidden {
     display: none;
   }
 
-  &[type='radio'] {
-    margin-left: $m-atom-radiobutton-type-left;
-    margin-right: $m-atom-radiobutton-type-right;
+  &:checked {
+    border-color: $bc-atom-radiobutton-checked;
+    border-width: $bw-atom-radiobutton-checked;
+  }
 
-    border-width: $bdw-s;
-    border-style: solid;
-    border-color: $bc-atom-radiobutton;
-
-    outline: none;
-    -webkit-appearance: none;
-    width: $w-atom-radiobutton;
-    height: $h-atom-radiobutton;
-    border-radius: 50%;
-
-    &:checked {
-      border-color: $bc-atom-radiobutton-checked;
-      border-width: $bw-atom-radiobutton-checked;
-    }
+  &:disabled {
+    cursor: not-allowed;
   }
 }

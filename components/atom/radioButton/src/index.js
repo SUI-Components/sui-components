@@ -24,18 +24,16 @@ const AtomRadioButton = ({
   })
 
   return (
-    <>
-      <input
-        className={className}
-        value={value}
-        type="radio"
-        id={id}
-        disabled={disabled}
-        checked={checked}
-        onChange={handleChange}
-        {...props}
-      />
-    </>
+    <input
+      className={className}
+      value={value}
+      type="radio"
+      id={id}
+      disabled={disabled}
+      checked={checked}
+      onChange={handleChange}
+      {...props}
+    />
   )
 }
 

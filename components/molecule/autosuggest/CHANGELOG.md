@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-10-29)
+
+
+### Bug Fixes
+
+* fix issue that was causing the dropdown to close after navigate some opti ([2caff8e](https://github.com/SUI-Components/sui-components/commit/2caff8e))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2019-10-22)
 

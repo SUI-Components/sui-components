@@ -12,8 +12,6 @@ const TYPES = {
   PASSWORD: 'password',
   SUI_PASSWORD: 'sui-password',
   TEXT: 'text',
-  RADIO: 'radio',
-  CHECKBOX: 'checkbox',
   TEL: 'tel',
   EMAIL: 'email'
 }

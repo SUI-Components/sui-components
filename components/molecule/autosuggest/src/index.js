@@ -68,6 +68,7 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
     onToggle(ev, {isOpen: false})
     if (multiselection) onChange(ev, {value: ''})
     domMoleculeAutosuggest.focus()
+    setFocus(false)
     ev.preventDefault()
     ev.stopPropagation()
   }
@@ -119,9 +120,11 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
       const focusOutFromOutside = ![domInnerInput, ...options].includes(
         currentElementFocused
       )
-      if (focusOutFromOutside && isOpen) closeList(ev)
+      if (focusOutFromOutside) {
+        isOpen ? closeList(ev) : setFocus(false)
+      }
     }, 1)
-    setFocus(false)
+    setFocus(true)
   }
 
   const handleInputKeyDown = ev => {

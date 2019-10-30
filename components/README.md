@@ -15,7 +15,7 @@ If you need to add or adjust any of the following for a component, you can send 
 <li>Box-Shadow style</li>
 <li>Background colour</li>
 <li>Paddings and Margins</li>
-<li>Icon and icon colour</li>
+<li>Icon, and icon's colour</li>
 </ul>
 
 ### Contribute

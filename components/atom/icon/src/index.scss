@@ -1,19 +1,19 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
 $atom-icon-sizes: (
-  "small": $sz-icon-s,
-  "medium": $sz-icon-m,
-  "large": $sz-icon-l,
-  "extraLarge": $sz-icon-xl 
+  'small': $sz-icon-s,
+  'medium': $sz-icon-m,
+  'large': $sz-icon-l,
+  'extraLarge': $sz-icon-xl
 );
 
 $atom-icon-colors: (
-  "accent": $c-accent,
-  "alert": $c-alert,
-  "currentColor": currentColor,
-  "error": $c-error,
-  "primary": $c-primary,
-  "success": $c-success
+  'accent': $c-accent,
+  'alert': $c-alert,
+  'currentColor': currentColor,
+  'error': $c-error,
+  'primary': $c-primary,
+  'success': $c-success
 );
 
 .sui-AtomIcon {

@@ -20,7 +20,7 @@ $atom-icon-colors: (
   // Colors
   @each $key, $value in $atom-icon-colors {
     &--#{$key} svg {
-      fill: $value !important; // !important usage for AtomButton compatibility
+      fill: $value;
     }
   }
 

@@ -252,6 +252,56 @@ export default function() {
           Try large icon
         </AtomButton>
       </section>
+      <h2 className="DemoAtomIcon-title">Lazy icons</h2>
+      <p>
+        By default, icons will be rendered <strong>eagerly</strong>. That means
+        that they will be rendered on the server and, on the client, they will
+        be hydrated asap. You could use the prop <code>render</code> and use the{' '}
+        <code>lazy</code> value so the icons are rendered only when near the
+        viewport. That could be useful when icons are used on a footer or on
+        large lists.
+      </p>
+      <section className="DemoAtomIcon-grid">
+        <AtomButton
+          size="large"
+          rightIcon={
+            <AtomIcon render="lazy">{selectedIcon.Component}</AtomIcon>
+          }
+        >
+          Large icon
+        </AtomButton>
+
+        <AtomButton
+          render="lazy"
+          rightIcon={
+            <AtomIcon render="lazy">{selectedIcon.Component}</AtomIcon>
+          }
+        >
+          Small icon
+        </AtomButton>
+
+        <AtomButton
+          size="small"
+          render="lazy"
+          rightIcon={
+            <AtomIcon render="lazy">{selectedIcon.Component}</AtomIcon>
+          }
+        >
+          Small icon
+        </AtomButton>
+
+        <AtomButton
+          size="small"
+          render="lazy"
+          rightIcon={
+            <AtomIcon render="lazy" size="large">
+              {selectedIcon.Component}
+            </AtomIcon>
+          }
+        >
+          Try large icon
+        </AtomButton>
+      </section>
     </div>
   )
 }

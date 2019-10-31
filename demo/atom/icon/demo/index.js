@@ -133,7 +133,7 @@ export default function() {
             <AtomIcon color="currentColor" size={ATOM_ICON_SIZES.extraLarge}>
               {selectedIcon.Component}
             </AtomIcon>
-            The icon inherits the color of this text <code>{color}</code>
+            <code>The icon inherits the color of this text {color}</code>
           </p>
         ))}
       </section>

@@ -1,0 +1,67 @@
+@import '@s-ui/react-molecule-select/lib/index';
+@import '@s-ui/react-molecule-dropdown-option/lib/index';
+@import '@schibstedspain/sui-atom-button/lib/index';
+
+.DemoAtomIcon {
+  &-colorExample {
+    margin-bottom: 16px;
+    padding: 4px;
+    text-align: center;
+
+    code {
+      display: block;
+    }
+  }
+
+  &-title {
+    font-weight: 300;
+    text-align: center;
+    padding-top: 32px;
+  }
+
+  &-grid {
+    display: grid;
+    grid-column-gap: 4px;
+    grid-row-gap: 4px;
+    &--small {
+      grid-template-columns: repeat(auto-fill, 50px);
+    }
+  }
+
+  &-option {
+    display: flex;
+    align-items: center;
+
+    strong {
+      padding-left: 16px;
+    }
+  }
+
+  &-table {
+    background: rgb(255, 255, 255);
+    margin: 0 auto;
+    padding: 0 16px 16px;
+
+    td {
+      text-align: center;
+    }
+  }
+
+  &-tableLabel {
+    color: rgb(153, 153, 153);
+    font-size: 12px;
+    font-weight: 300;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  p,
+  section {
+    line-height: 150%;
+    margin: 16px;
+  }
+
+  .sui-AtomButton + .sui-AtomButton {
+    margin: 0;
+  }
+}

@@ -21,19 +21,20 @@ const isAtomIcon = icon => icon?.type?.displayName === ATOM_ICON_DISPLAY_NAME
  */
 const prepareAtomIcon = (atomIconElement, {size}) => {
   const atomIconSize = ATOM_ICON_SIZES_MAPPER[size]
-  return React.cloneElement(atomIconElement, {size: atomIconSize})
+  return React.cloneElement(atomIconElement, {
+    color: undefined,
+    size: atomIconSize
+  })
 }
 
 export default function ButtonIcon({children, position, size}) {
   if (!children) return null
-
-  const className = `${CLASS}-${position}Icon`
-
+  // if the icon is an AtomIcon we've to be sure correct props are used
   const iconToRender = isAtomIcon(children)
     ? prepareAtomIcon(children, {size})
     : children
 
-  return <span className={className}>{iconToRender}</span>
+  return <span className={`${CLASS}-${position}Icon`}>{iconToRender}</span>
 }
 
 ButtonIcon.propTypes = {

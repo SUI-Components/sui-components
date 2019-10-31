@@ -2,7 +2,8 @@
 
 $w-atom-radiobutton: $sz-icon-s !default;
 $h-atom-radiobutton: $sz-icon-s !default;
-$bc-atom-radiobutton: $c-gray-light-3 !default;
+$bc-atom-radiobutton: $c-gray !default;
+$bc-atom-radiobutton-disabled: $c-gray-light-3 !default;
 $bw-atom-radiobutton: $bdw-s !default;
 $bc-atom-radiobutton-checked: $c-primary !default;
 $bw-atom-radiobutton-checked: 6px !default;
@@ -11,6 +12,9 @@ $m-atom-radiobutton-type-left: $m-m !default;
 $m-atom-radiobutton-type-right: $m-m !default;
 
 .sui-AtomRadioButton {
+  -webkit-appearance: none;
+  outline: none;
+
   border-width: $bw-atom-radiobutton;
   border-style: solid;
   border-color: $bc-atom-radiobutton;
@@ -38,5 +42,6 @@ $m-atom-radiobutton-type-right: $m-m !default;
 
   &:disabled {
     cursor: not-allowed;
+    border-color: $bc-atom-radiobutton-disabled;
   }
 }

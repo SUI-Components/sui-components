@@ -58,9 +58,6 @@ const MoleculeInputTags = ({
   }
 
   const onChange = (ev, valuesToPropagate) => {
-    console.log('MoleculeInputTags:onChange')
-    console.log(valuesToPropagate)
-    console.log(onChangeFromProps)
     onChangeFromProps(ev, valuesToPropagate)
   }
 

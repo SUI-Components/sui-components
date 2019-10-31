@@ -7,9 +7,6 @@ import AtomIcon, {
 } from '../../../../components/atom/icon/src'
 import './index.scss'
 
-const IconCloseTag = () => <span>x</span>
-const IconArrowDown = () => <span>▼</span>
-
 const CURRENT_COLOR_EXAMPLES = ['#0099ff', 'rgb(36, 211, 212)', 'brown']
 const ATOM_BUTTON_DESIGNS = ['solid', 'outline', 'flat']
 const ATOM_BUTTON_COLORS = [

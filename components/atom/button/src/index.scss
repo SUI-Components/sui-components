@@ -93,11 +93,6 @@ $tt-atom-button: none !default;
 // Set all color properties for text and icons
 @mixin button-foreground-color($color) {
   color: $color;
-
-  & svg path {
-    fill: $color;
-    stroke: $color;
-  }
 }
 // Sets active states when button is not disabled
 @mixin button-focused {
@@ -131,6 +126,7 @@ $tt-atom-button: none !default;
 #{$base-class} {
   @include reset-button;
   @include button-icon($icon-sz-atom-button, $icon-m-atom-button);
+
   border: 1px solid;
   border-radius: $bdrs-atom-button;
   box-sizing: border-box;
@@ -191,6 +187,16 @@ $tt-atom-button: none !default;
   &-leftIcon,
   &-rightIcon {
     display: inline-flex;
+
+    // add compatibility with SuiAtomIcon with correct alignment
+    .sui-AtomIcon {
+      display: inline-flex;
+    }
+
+    svg path {
+      fill: currentColor;
+      stroke: currentColor;
+    }
   }
 
   // Types and colors

@@ -5,8 +5,6 @@ import AtomIcon, {
   ATOM_ICON_COLORS,
   ATOM_ICON_SIZES
 } from '../../../../components/atom/icon/src'
-import MoleculeSelect from '@s-ui/react-molecule-select'
-import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 import './index.scss'
 
 const IconCloseTag = () => <span>x</span>
@@ -52,7 +50,7 @@ const ICONS = [
   {
     name: 'Space Invader  (from Streamline)',
     Component: (
-      <svg key="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M14 20.5c-.552 0-1-.448-1-1v-1c0-.552.448-1 1-1h3v-1H7v1h3c.551 0 1 .448 1 1v1c0 .552-.449 1-1 1H7c-.551 0-1-.448-1-1v-1H5c-.551 0-1-.448-1-1v-3H3v3c0 .552-.449 1-1 1H1c-.551 0-1-.448-1-1v-5c0-.551.449-1 1-1h1v-1c0-.551.449-1 1-1h1v-1c0-.551.449-1 1-1h1v-1H5c-.551 0-1-.449-1-1v-1c0-.551.449-1 1-1h1c.551 0 1 .449 1 1v1h1c.551 0 1 .449 1 1v1h6v-1c0-.551.448-1 1-1h1v-1c0-.551.448-1 1-1h1c.552 0 1 .449 1 1v1c0 .551-.448 1-1 1h-1v1h1c.552 0 1 .449 1 1v1h1c.552 0 1 .449 1 1v1h1c.552 0 1 .449 1 1v5c0 .552-.448 1-1 1h-1c-.552 0-1-.448-1-1v-3h-1v3c0 .552-.448 1-1 1h-1v1c0 .552-.448 1-1 1h-3zm0-1h3v-1h-3v1zm-7 0h3v-1H7v1zm14-6c.552 0 1 .448 1 1v3h1v-5h-1c-.552 0-1-.449-1-1v-1h-1c-.552 0-1-.449-1-1v-1h-1c-.552 0-1-.449-1-1v-1h-1v1c0 .551-.448 1-1 1H9c-.551 0-1-.449-1-1v-1H7v1c0 .551-.449 1-1 1H5v1c0 .551-.449 1-1 1H3v1c0 .551-.449 1-1 1H1v5h1v-3c0-.552.449-1 1-1h1c.551 0 1 .448 1 1v3h1v-1c0-.552.449-1 1-1h10c.552 0 1 .448 1 1v1h1v-3c0-.552.448-1 1-1h1zm-2-8v-1h-1v1h1zm-14 0h1v-1H5v1z" />
         <path d="M7 12.5c-.551 0-1-.449-1-1v-1c0-.551.449-1 1-1h1c.551 0 1 .449 1 1v1c0 .551-.449 1-1 1H7zm0-1h1v-1H7v1zM16 12.5c-.552 0-1-.449-1-1v-1c0-.551.448-1 1-1h1c.552 0 1 .449 1 1v1c0 .551-.448 1-1 1h-1zm0-1h1v-1h-1v1z" />
       </svg>
@@ -65,22 +63,23 @@ export default function() {
 
   return (
     <div className="DemoAtomIcon">
-      <MoleculeSelect
-        placeholder="Select a different icon..."
-        onChange={(_, {value}) => {
-          setIcon(ICONS.find(icon => icon.name === value))
-        }}
-        iconArrowDown={<IconArrowDown />}
-      >
-        {ICONS.map(({name, Component}) => (
-          <MoleculeSelectOption key={name} value={name}>
-            <div className="DemoAtomIcon-option">
-              <AtomIcon>{Component}</AtomIcon>
-              <strong>{name}</strong>
-            </div>
-          </MoleculeSelectOption>
+      <ul className="DemoAtomIcon-select">
+        <li className="DemoAtomIcon-option" style={{minWidth: '120px'}}>
+          Select your icon:
+        </li>
+        {ICONS.map(({name, Component}, idx) => (
+          <li
+            key={name}
+            className={`DemoAtomIcon-option ${
+              ICONS[idx].name === selectedIcon.name ? 'is-selected' : ''
+            }`}
+            onClick={() => setIcon(ICONS[idx])}
+          >
+            <AtomIcon size="large">{Component}</AtomIcon>
+            <strong>{name}</strong>
+          </li>
         ))}
-      </MoleculeSelect>
+      </ul>
       <h2 className="DemoAtomIcon-title">
         <code>color</code> and <code>size</code> props matrix
       </h2>

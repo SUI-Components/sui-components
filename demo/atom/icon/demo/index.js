@@ -222,7 +222,9 @@ export default function() {
           Size will be automatically detected from <code>AtomButton</code>
         </strong>{' '}
         so you don't have to worry. Even if you try to use an incorrect size,
-        the size will be used correctly.
+        the size will be used correctly. Also, this will happen with the{' '}
+        <code>color</code> prop, so, if you try to use a different color with
+        the <code>AtomButton</code> it will be corrected for you.
       </p>
       <section className="DemoAtomIcon-grid">
         <AtomButton

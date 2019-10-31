@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.2.0"></a>
+# 1.2.0 (2019-10-31)
+
+
+### Features
+
+* fix color border ([405e973](https://github.com/SUI-Components/sui-components/commit/405e973))
+* right color and disabled cursor ([ff48ad6](https://github.com/SUI-Components/sui-components/commit/ff48ad6))
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2019-10-23)
 

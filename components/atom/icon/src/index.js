@@ -1,6 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+
+import Icon from './Icon'
+import LazyIcon from './LazyIcon'
 
 const BASE_CLASS = 'sui-AtomIcon'
 export const ATOM_ICON_COLORS = {
@@ -17,31 +20,25 @@ export const ATOM_ICON_SIZES = {
   large: 'large',
   extraLarge: 'extraLarge'
 }
+export const ATOM_ICON_RENDERS = {
+  eager: 'eager',
+  lazy: 'lazy'
+}
 
 export default function AtomIcon({
   children,
   color = ATOM_ICON_COLORS.currentColor,
   size = ATOM_ICON_SIZES.small,
-  ssr = true
+  render = ATOM_ICON_RENDERS.eager
 }) {
-  const [render, setRender] = useState(ssr)
-  useEffect(() => {
-    if (ssr === false) setRender(true)
-  }, [ssr])
-
-  if (!render) return null
-
   const className = cx(
     BASE_CLASS,
     `${BASE_CLASS}--${size}`,
     color && `${BASE_CLASS}--${color}`
   )
 
-  return (
-    <span role="img" className={className}>
-      {children}
-    </span>
-  )
+  const IconRender = render === ATOM_ICON_RENDERS.eager ? Icon : LazyIcon
+  return <IconRender className={className}>{children}</IconRender>
 }
 
 AtomIcon.displayName = 'AtomIcon'
@@ -51,7 +48,7 @@ AtomIcon.propTypes = {
    * Besides the primary color types, you could use currentColor to inherit the color from the parent.
    * (default: ATOM_ICON_COLORS.currentColor)
    */
-  color: PropTypes.oneOf(Object.keys(ATOM_ICON_COLORS)),
+  color: PropTypes.oneOf(Object.values(ATOM_ICON_COLORS)),
   /**
    * The children must be a SVG that follows the definition stated on the UXDEF.md.
    */
@@ -59,9 +56,11 @@ AtomIcon.propTypes = {
   /**
    * Determine the size of the icon. (default: ATOM_ICON_SIZES.medium)
    */
-  size: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES)),
+  size: PropTypes.oneOf(Object.values(ATOM_ICON_SIZES)),
   /**
-   * Determine if the icon should be server-side rendered. (default: true)
+   * Determine the render type of the icon.
+   * 'eager': The icon will be server-side rendered (default)
+   * 'lazy': The icon will be loaded on client when visible
    */
-  ssr: PropTypes.bool
+  render: PropTypes.oneOf(Object.values(ATOM_ICON_RENDERS))
 }

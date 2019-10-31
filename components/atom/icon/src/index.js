@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -21,15 +21,27 @@ export const ATOM_ICON_SIZES = {
 export default function AtomIcon({
   children,
   color = ATOM_ICON_COLORS.currentColor,
-  size = ATOM_ICON_SIZES.small
+  size = ATOM_ICON_SIZES.small,
+  ssr = true
 }) {
+  const [render, setRender] = useState(ssr)
+  useEffect(() => {
+    if (ssr === false) setRender(true)
+  }, [ssr])
+
+  if (!render) return null
+
   const className = cx(
     BASE_CLASS,
     `${BASE_CLASS}--${size}`,
     color && `${BASE_CLASS}--${color}`
   )
 
-  return <span className={className}>{children}</span>
+  return (
+    <span role="img" className={className}>
+      {children}
+    </span>
+  )
 }
 
 AtomIcon.displayName = 'AtomIcon'
@@ -47,5 +59,9 @@ AtomIcon.propTypes = {
   /**
    * Determine the size of the icon. (default: ATOM_ICON_SIZES.medium)
    */
-  size: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES))
+  size: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES)),
+  /**
+   * Determine if the icon should be server-side rendered. (default: true)
+   */
+  ssr: PropTypes.bool
 }

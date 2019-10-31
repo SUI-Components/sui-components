@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2019-10-31)
+
+
+### Features
+
+* styles disabled ([d6bcbef](https://github.com/SUI-Components/sui-components/commit/d6bcbef))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2019-10-15)
 

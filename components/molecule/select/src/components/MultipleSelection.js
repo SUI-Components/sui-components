@@ -25,18 +25,18 @@ const MoleculeSelectFieldMultiSelection = props => {
     optionsData = {}
   } = props
 
-  const handleMultiSelection = (ev, {value: valueOptionSelected}) => {
+  const handleMultiSelection = (ev, {value: valueOptionSelected, name}) => {
     const newValues = values.includes(valueOptionSelected)
       ? values.filter(value => value !== valueOptionSelected)
       : [...values, valueOptionSelected]
     const {key} = ev
     const isKeySelection = keysSelection.includes(key)
-    onChange(ev, {value: newValues})
+    onChange(ev, {value: newValues, name})
     if (ev.key !== undefined && !isKeySelection) onToggle(ev, {isOpen: false})
   }
 
-  const handleChangeTags = (ev, {tags: value}) => {
-    onChange(ev, {value})
+  const handleChangeTags = (ev, {tags: value, name}) => {
+    onChange(ev, {value, name})
     refMoleculeSelect.current.focus()
   }
 

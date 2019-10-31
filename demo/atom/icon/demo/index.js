@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 import React, {useState} from 'react'
-import AtomButton from '@schibstedspain/sui-atom-button'
+import AtomButton from '../../../../components/atom/button/src'
 import AtomIcon, {
   ATOM_ICON_COLORS,
   ATOM_ICON_SIZES
@@ -149,22 +149,26 @@ export default function() {
         Using with the <code>AtomButton</code>
       </h2>
       <p>
-        Unfortunately, the <code>AtomButton</code> component was prepared
-        without the <code>AtomIcon</code> in mind and thus strong styling is
-        forced inside the button so using could be tricky.
+        While the <code>AtomButton</code> component was prepared without the{' '}
+        <code>AtomIcon</code> in mind, and thus strong styling is forced inside
+        the button, still you could safely use it.
       </p>
       <p>
         <strong>
           Using the <code>AtomButton</code> with only the icon:
         </strong>{' '}
-        Use the AtomIcon as children of the <code>AtomButton</code>.
+        Pass the AtomIcon as <code>leftIcon</code> or <code>rightIcon</code> of
+        the <code>AtomButton</code>.
       </p>
       <section className="DemoAtomIcon-grid DemoAtomIcon-grid--small">
         {ATOM_BUTTON_COLORS.map(color =>
           ATOM_BUTTON_DESIGNS.map(design => (
-            <AtomButton key={`${color}${design}`} color={color} design={design}>
-              <AtomIcon>{selectedIcon.Component}</AtomIcon>
-            </AtomButton>
+            <AtomButton
+              leftIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}
+              key={`${color}${design}`}
+              color={color}
+              design={design}
+            />
           ))
         )}
       </section>
@@ -172,19 +176,78 @@ export default function() {
         <strong>
           Using the <code>AtomButton</code> with text:
         </strong>{' '}
-        Use the <code>AtomIcon</code> along with the content of the button as
-        children. Put before the text if you want to put the icon on the left,
-        put after the text if you want the icon on the right.
+        Use the prop <code>leftIcon</code> or <code>rightIcon</code> in order to
+        show the icon on the desired placement.
       </p>
-      <section>
-        <AtomButton>
-          <AtomIcon>{selectedIcon.Component}</AtomIcon>
-          Do this
+      <p>
+        <strong>
+          <code>leftIcon</code>
+        </strong>
+      </p>
+      <section className="DemoAtomIcon-grid">
+        {ATOM_BUTTON_COLORS.map(color =>
+          ATOM_BUTTON_DESIGNS.map(design => (
+            <AtomButton
+              leftIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}
+              key={`${color}${design}`}
+              color={color}
+              design={design}
+            >
+              Do this
+            </AtomButton>
+          ))
+        )}
+      </section>
+      <p>
+        <strong>
+          <code>rightIcon</code>
+        </strong>
+      </p>
+      <section className="DemoAtomIcon-grid">
+        {ATOM_BUTTON_COLORS.map(color =>
+          ATOM_BUTTON_DESIGNS.map(design => (
+            <AtomButton
+              rightIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}
+              key={`${color}${design}`}
+              color={color}
+              design={design}
+            >
+              Do this
+            </AtomButton>
+          ))
+        )}
+      </section>
+      <p>
+        <strong>
+          Size will be automatically detected from <code>AtomButton</code>
+        </strong>{' '}
+        so you don't have to worry. Even if you try to use an incorrect size,
+        the size will be used correctly.
+      </p>
+      <section className="DemoAtomIcon-grid">
+        <AtomButton
+          size="large"
+          rightIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}
+        >
+          Large icon
         </AtomButton>
 
-        <AtomButton>
-          Do this
-          <AtomIcon>{selectedIcon.Component}</AtomIcon>
+        <AtomButton rightIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}>
+          Small icon
+        </AtomButton>
+
+        <AtomButton
+          size="small"
+          rightIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}
+        >
+          Small icon
+        </AtomButton>
+
+        <AtomButton
+          size="small"
+          rightIcon={<AtomIcon size="large">{selectedIcon.Component}</AtomIcon>}
+        >
+          Try large icon
         </AtomButton>
       </section>
     </div>

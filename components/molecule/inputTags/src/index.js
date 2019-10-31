@@ -39,24 +39,29 @@ const MoleculeInputTags = ({
   })
 
   const removeTag = (ev, {id: indexTag}) => {
+    const {name} = ev.target
     let tags = tagsFromProps.filter((_, i) => i !== indexTag)
     if (optionsData) {
       const keys = Object.keys(optionsData)
       tags = keys.filter(key => tags.includes(optionsData[key]))
     }
-    onChangeTags(ev, {tags})
+    onChangeTags(ev, {name, tags})
   }
 
   const addTag = ev => {
+    const {name} = ev.target
     ev.preventDefault()
     if (value) {
       const tags = [...tagsFromProps, value]
-      onChangeTags(ev, {tags, value: ''})
+      onChangeTags(ev, {tags, name, value: ''})
     }
   }
 
-  const onChange = (ev, {value}) => {
-    onChangeFromProps(ev, {value})
+  const onChange = (ev, valuesToPropagate) => {
+    console.log('MoleculeInputTags:onChange')
+    console.log(valuesToPropagate)
+    console.log(onChangeFromProps)
+    onChangeFromProps(ev, valuesToPropagate)
   }
 
   const handleFocusIn = () => setFocus(true)

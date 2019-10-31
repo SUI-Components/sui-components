@@ -1,6 +1,6 @@
 @import '@s-ui/react-molecule-select/lib/index';
 @import '@s-ui/react-molecule-dropdown-option/lib/index';
-@import '@schibstedspain/sui-atom-button/lib/index';
+@import '../../../../components/atom/button/src/index';
 
 .DemoAtomIcon {
   &-colorExample {
@@ -23,6 +23,8 @@
     display: grid;
     grid-column-gap: 4px;
     grid-row-gap: 4px;
+    grid-template-columns: repeat(auto-fill, 150px);
+
     &--small {
       grid-template-columns: repeat(auto-fill, 50px);
     }

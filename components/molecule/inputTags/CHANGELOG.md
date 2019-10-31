@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.7.0"></a>
+# 2.7.0 (2019-10-31)
+
+
+### Features
+
+* added name in event handlers ([63a6eba](https://github.com/SUI-Components/sui-components/commit/63a6eba))
+* removed console.log ([3955126](https://github.com/SUI-Components/sui-components/commit/3955126))
+
+
+
 <a name="2.6.0"></a>
 # 2.6.0 (2019-08-02)
 

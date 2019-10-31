@@ -67,6 +67,7 @@ const Demo = () => {
             value="ringo"
             label="Ringo"
             helpText="Ringo Star"
+            disabled
           />
         </MoleculeRadioButtonGroup>
       </div>

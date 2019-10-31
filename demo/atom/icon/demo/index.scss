@@ -1,13 +1,15 @@
 @import '../../../../components/atom/button/src/index';
 
 .DemoAtomIcon {
+  margin: 16px;
+
   &-colorExample {
-    margin-bottom: 16px;
-    padding: 4px;
-    text-align: center;
+    align-items: center;
+    display: flex;
 
     code {
       display: block;
+      padding-left: 8px;
     }
   }
 
@@ -50,7 +52,6 @@
 
   &-title {
     font-weight: 300;
-    text-align: center;
     padding-top: 32px;
   }
 
@@ -67,8 +68,7 @@
 
   &-table {
     background: rgb(255, 255, 255);
-    margin: 0 auto;
-    padding: 0 16px 16px;
+    padding: 0;
 
     td {
       text-align: center;
@@ -80,13 +80,14 @@
     font-size: 12px;
     font-weight: 300;
     margin: 0;
+    text-align: left;
     text-transform: uppercase;
   }
 
   p,
   section {
     line-height: 150%;
-    margin: 16px;
+    margin: 16px 0 16px;
   }
 
   .sui-AtomButton + .sui-AtomButton {

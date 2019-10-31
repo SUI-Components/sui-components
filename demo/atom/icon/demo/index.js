@@ -127,17 +127,14 @@ export default function() {
         your icon get a different color with endless posibilities to match your
         designs without having to care about variables on the SUI components.
       </p>
-      <section className="">
+      <section>
         {CURRENT_COLOR_EXAMPLES.map(color => (
-          <div
-            className="DemoAtomIcon-colorExample"
-            key={color}
-            style={{border: `1px solid ${color}`, color}}
-          >
+          <p className="DemoAtomIcon-colorExample" key={color} style={{color}}>
             <AtomIcon color="currentColor" size={ATOM_ICON_SIZES.extraLarge}>
-              {selectedIcon.Component} <code>{color}</code>
+              {selectedIcon.Component}
             </AtomIcon>
-          </div>
+            The icon inherits the color of this text <code>{color}</code>
+          </p>
         ))}
       </section>
 
@@ -157,16 +154,7 @@ export default function() {
         the <code>AtomButton</code>.
       </p>
       <section className="DemoAtomIcon-grid DemoAtomIcon-grid--small">
-        {ATOM_BUTTON_COLORS.map(color =>
-          ATOM_BUTTON_DESIGNS.map(design => (
-            <AtomButton
-              leftIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}
-              key={`${color}${design}`}
-              color={color}
-              design={design}
-            />
-          ))
-        )}
+        <AtomButton leftIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>} />
       </section>
       <p>
         <strong>
@@ -181,18 +169,9 @@ export default function() {
         </strong>
       </p>
       <section className="DemoAtomIcon-grid">
-        {ATOM_BUTTON_COLORS.map(color =>
-          ATOM_BUTTON_DESIGNS.map(design => (
-            <AtomButton
-              leftIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}
-              key={`${color}${design}`}
-              color={color}
-              design={design}
-            >
-              Do this
-            </AtomButton>
-          ))
-        )}
+        <AtomButton leftIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}>
+          Left icon
+        </AtomButton>
       </section>
       <p>
         <strong>
@@ -200,18 +179,9 @@ export default function() {
         </strong>
       </p>
       <section className="DemoAtomIcon-grid">
-        {ATOM_BUTTON_COLORS.map(color =>
-          ATOM_BUTTON_DESIGNS.map(design => (
-            <AtomButton
-              rightIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}
-              key={`${color}${design}`}
-              color={color}
-              design={design}
-            >
-              Do this
-            </AtomButton>
-          ))
-        )}
+        <AtomButton rightIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}>
+          Right icon
+        </AtomButton>
       </section>
       <p>
         <strong>

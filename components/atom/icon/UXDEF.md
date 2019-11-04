@@ -43,7 +43,7 @@ Please make sure you follow this rules:
 
 - All sizes scale from the original 24*24px base icon. This means that you can’t have more than one icon “weight” version for the same component in different sizes. 
 - You can’t use more than 1 color at the same time per icon. Icons are mono-color (any colour defined for icons)
-- The SVG must be as *clean* as possible (no class name, no fill, etc)
+- The SVG must be as *clean* as possible (no class name, no fill, etc).
 - Export your icons from Sketch as SVG
 - Extremely recommended: Open that SVG with [IconJar](https://geticonjar.com/) and export it again. We did many tests, and iconjar exports the cleanest version compared to Sketch and the Default iconography from Streamline. If you have a preferred way to clean your icons, you can still use it.
 - Open the final SVG with your favourite code editor (Sublime for instance) and remove the “fill” in any.

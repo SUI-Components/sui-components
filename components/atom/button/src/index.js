@@ -2,48 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
+import {
+  CLASS,
+  COLORS,
+  DESIGNS,
+  ICON_POSITIONS,
+  GROUP_POSITIONS,
+  MODIFIERS,
+  OWN_PROPS,
+  SIZES,
+  TYPES
+} from './config'
+
 import Button from './Button'
-
-const CLASS = 'sui-AtomButton'
-
-const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
-const DESIGNS = ['solid', 'outline', 'flat']
-const COLORS = [
-  'primary',
-  'accent',
-  'neutral',
-  'success',
-  'alert',
-  'error',
-  'social-facebook',
-  'social-twitter',
-  'social-google',
-  'social-youtube',
-  'social-whatsapp',
-  'social-instagram'
-]
-const GROUP_POSITIONS = {
-  FIRST: 'first',
-  MIDDLE: 'middle',
-  LAST: 'last'
-}
-const SIZES = ['small', 'large']
-const MODIFIERS = ['disabled', 'fullWidth', 'focused', 'negative', 'link']
-const OWN_PROPS = [
-  ...TYPES,
-  ...SIZES,
-  'children',
-  'className',
-  'color',
-  'design',
-  'focused',
-  'fullWidth',
-  'groupPosition',
-  'leftIcon',
-  'negative',
-  'rightIcon',
-  'type'
-]
+import ButtonIcon from './ButtonIcon'
 
 const createClasses = (array, sufix = '') => {
   return array.reduce(
@@ -132,13 +104,17 @@ const AtomButton = props => {
   return (
     <Button {...newProps} className={classNames} title={title}>
       <span className={`${CLASS}-inner`}>
-        {leftIcon && <span className={`${CLASS}-leftIcon`}>{leftIcon}</span>}
+        <ButtonIcon position={ICON_POSITIONS.LEFT} size={size}>
+          {leftIcon}
+        </ButtonIcon>
         {leftIcon || rightIcon ? (
           <span className={`${CLASS}-text`}>{children}</span>
         ) : (
           children
         )}
-        {rightIcon && <span className={`${CLASS}-rightIcon`}>{rightIcon}</span>}
+        <ButtonIcon position={ICON_POSITIONS.RIGHT} size={size}>
+          {rightIcon}
+        </ButtonIcon>
       </span>
     </Button>
   )

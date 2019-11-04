@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.32.0"></a>
+# 1.32.0 (2019-11-04)
+
+
+### Features
+
+* add AtomIcon compatibility and improve colors for icons ([38904cc](https://github.com/SUI-Components/sui-components/commit/38904cc))
+* create ButtonIcon sub component for working with AtomIcon better ([dcbd079](https://github.com/SUI-Components/sui-components/commit/dcbd079))
+* remove color of icon as well to always match ([da3c966](https://github.com/SUI-Components/sui-components/commit/da3c966))
+* separate config for clarity ([e59ae80](https://github.com/SUI-Components/sui-components/commit/e59ae80))
+* use config and new ButtonIcon sub component ([0a372dd](https://github.com/SUI-Components/sui-components/commit/0a372dd))
+
+
+
 <a name="1.31.0"></a>
 # 1.31.0 (2019-10-22)
 

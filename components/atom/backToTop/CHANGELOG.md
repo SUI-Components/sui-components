@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2019-11-05)
+
+
+### Features
+
+* Update sui-js dependency ([2862ab1](https://github.com/SUI-Components/sui-components/commit/2862ab1))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2019-10-11)
 

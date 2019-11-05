@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2019-11-05)
+
+
+### Features
+
+* Update sui-js dependency ([df948f1](https://github.com/SUI-Components/sui-components/commit/df948f1))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2019-10-29)
 

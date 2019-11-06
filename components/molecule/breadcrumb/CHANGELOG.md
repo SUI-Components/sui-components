@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.14.0"></a>
+# 1.14.0 (2019-11-06)
+
+
+### Features
+
+* align icons and add margin right ([c841044](https://github.com/SUI-Components/sui-components/commit/c841044))
+
+
+
 <a name="1.13.0"></a>
 # 1.13.0 (2019-10-18)
 

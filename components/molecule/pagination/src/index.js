@@ -15,12 +15,20 @@ const BASE_CLASS = 'sui-MoleculePagination'
 const CLASS_PREV_BUTTON_ICON = 'sui-MoleculePagination-prevButtonIcon'
 const CLASS_NEXT_BUTTON_ICON = 'sui-MoleculePagination-nextButtonIcon'
 
-// eslint-disable-next-line react/prop-types
-const PageButton = ({onSelectPage, page, ...props}) => {
+const PageButton = ({onSelectPage, page, design, ...props}) => {
   const _onSelectPage = e => {
     onSelectPage(e, {page})
   }
-  return <AtomButtom onClick={_onSelectPage} design={page} {...props} />
+  return <AtomButtom onClick={_onSelectPage} design={design} {...props} />
+}
+
+PageButton.propTypes = {
+  /** Callback that will be called with (event, page) on each page button click */
+  onSelectPage: PropTypes.func,
+  /** Current page selected */
+  page: isValidPage,
+  /** Design to be used for the page button. Design types 'solid', 'outline' or 'flat' */
+  design: PropTypes.string
 }
 
 const MoleculePagination = ({

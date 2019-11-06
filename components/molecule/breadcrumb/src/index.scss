@@ -31,8 +31,10 @@
     flex-wrap: wrap;
 
     &Item {
+      align-items: center;
       display: flex;
       font-size: $fz-breadcrumb-item;
+      margin-right: $m-breadcrumb-items-mobile;
 
       &:not(:last-child) {
         display: none;
@@ -40,7 +42,6 @@
 
       @include media-breakpoint-up(m) {
         &:not(:last-child) {
-          align-items: center;
           display: inline-flex;
           margin-right: $m-breadcrumb-items;
         }

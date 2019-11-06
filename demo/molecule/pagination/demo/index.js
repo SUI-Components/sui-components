@@ -258,6 +258,7 @@ const Demo = () => {
           prevButtonDesign="flat"
           nextButtonDesign="solid"
           showPages={5}
+          nonSelectedPageButtonDesign="outline"
         />
       </div>
     </div>

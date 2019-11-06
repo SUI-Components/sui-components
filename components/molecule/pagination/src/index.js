@@ -45,6 +45,7 @@ const MoleculePagination = ({
   compressed,
   hideDisabled,
   selectedPageButtonDesign,
+  nonSelectedPageButtonDesign,
   prevButtonDesign,
   nextButtonDesign
 }) => {
@@ -101,7 +102,11 @@ const MoleculePagination = ({
             <PageButton
               key={pageRange}
               page={pageRange}
-              design={pageRange === page ? selectedPageButtonDesign : 'flat'}
+              design={
+                pageRange === page
+                  ? selectedPageButtonDesign
+                  : nonSelectedPageButtonDesign
+              }
               onSelectPage={onSelectPage}
             >
               {pageRange}
@@ -169,6 +174,9 @@ MoleculePagination.propTypes = {
   /** Design to be used for the selected page. Design types 'solid', 'outline' or 'flat' */
   selectedPageButtonDesign: PropTypes.string,
 
+  /** Design to be used for the selected page. Design types 'solid', 'outline' or 'flat' */
+  nonSelectedPageButtonDesign: PropTypes.string,
+
   /** Design to be used for the previous button if its visible. Design types 'solid', 'outline' or 'flat' */
   prevButtonDesign: PropTypes.string,
 
@@ -185,6 +193,7 @@ MoleculePagination.defaultProps = {
   onSelectNext: () => {},
   onSelectPage: () => {},
   selectedPageButtonDesign: 'solid',
+  nonSelectedPageButtonDesign: 'flat',
   prevButtonDesign: 'flat',
   nextButtonDesign: 'flat'
 }

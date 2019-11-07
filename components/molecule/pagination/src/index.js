@@ -15,12 +15,20 @@ const BASE_CLASS = 'sui-MoleculePagination'
 const CLASS_PREV_BUTTON_ICON = 'sui-MoleculePagination-prevButtonIcon'
 const CLASS_NEXT_BUTTON_ICON = 'sui-MoleculePagination-nextButtonIcon'
 
-// eslint-disable-next-line react/prop-types
-const PageButton = ({onSelectPage, page, ...props}) => {
+const PageButton = ({onSelectPage, page, design, ...props}) => {
   const _onSelectPage = e => {
     onSelectPage(e, {page})
   }
-  return <AtomButtom onClick={_onSelectPage} {...props} />
+  return <AtomButtom onClick={_onSelectPage} design={design} {...props} />
+}
+
+PageButton.propTypes = {
+  /** Callback that will be called with (event, page) on each page button click */
+  onSelectPage: PropTypes.func,
+  /** Current page selected */
+  page: isValidPage,
+  /** Design to be used for the page button. Design types 'solid', 'outline' or 'flat' */
+  design: PropTypes.string
 }
 
 const MoleculePagination = ({
@@ -35,7 +43,11 @@ const MoleculePagination = ({
   nextButtonIcon: NextButtonIcon,
   onSelectPage,
   compressed,
-  hideDisabled
+  hideDisabled,
+  selectedPageButtonDesign,
+  nonSelectedPageButtonDesign,
+  prevButtonDesign,
+  nextButtonDesign
 }) => {
   const paramsPagination = {
     page,
@@ -62,9 +74,13 @@ const MoleculePagination = ({
 
   return (
     <div className={BASE_CLASS}>
-      <MoleculeButtonGroup type="tertiary">
+      <MoleculeButtonGroup>
         {!isHidePrev && (
-          <AtomButtom onClick={handleClickPrev} disabled={!prevPage}>
+          <AtomButtom
+            onClick={handleClickPrev}
+            design={prevButtonDesign}
+            disabled={!prevPage}
+          >
             {PrevButtonIcon && (
               <span className={CLASS_PREV_BUTTON_ICON}>
                 <PrevButtonIcon />
@@ -74,7 +90,11 @@ const MoleculePagination = ({
           </AtomButtom>
         )}
         {compressed ? (
-          <PageButton page={page} focused onSelectPage={onSelectPage}>
+          <PageButton
+            page={page}
+            design={selectedPageButtonDesign}
+            onSelectPage={onSelectPage}
+          >
             {page}
           </PageButton>
         ) : (
@@ -82,7 +102,11 @@ const MoleculePagination = ({
             <PageButton
               key={pageRange}
               page={pageRange}
-              focused={pageRange === page}
+              design={
+                pageRange === page
+                  ? selectedPageButtonDesign
+                  : nonSelectedPageButtonDesign
+              }
               onSelectPage={onSelectPage}
             >
               {pageRange}
@@ -90,7 +114,11 @@ const MoleculePagination = ({
           ))
         )}
         {!isHideNext && (
-          <AtomButtom onClick={handleClickNext} disabled={!nextPage}>
+          <AtomButtom
+            onClick={handleClickNext}
+            design={nextButtonDesign}
+            disabled={!nextPage}
+          >
             {nextButtonText}
             {NextButtonIcon && (
               <span className={CLASS_NEXT_BUTTON_ICON}>
@@ -141,7 +169,19 @@ MoleculePagination.propTypes = {
   onSelectPage: PropTypes.func,
 
   /** Hide Previous/Next buttons if they're disabled */
-  hideDisabled: PropTypes.bool
+  hideDisabled: PropTypes.bool,
+
+  /** Design to be used for the selected page. Design types 'solid', 'outline' or 'flat' */
+  selectedPageButtonDesign: PropTypes.string,
+
+  /** Design to be used for the selected page. Design types 'solid', 'outline' or 'flat' */
+  nonSelectedPageButtonDesign: PropTypes.string,
+
+  /** Design to be used for the previous button if its visible. Design types 'solid', 'outline' or 'flat' */
+  prevButtonDesign: PropTypes.string,
+
+  /** Design to be used for the next button if its visible. Design types 'solid', 'outline' or 'flat */
+  nextButtonDesign: PropTypes.string
 }
 
 MoleculePagination.defaultProps = {
@@ -151,7 +191,11 @@ MoleculePagination.defaultProps = {
   nextButtonText: 'Next',
   onSelectPrev: () => {},
   onSelectNext: () => {},
-  onSelectPage: () => {}
+  onSelectPage: () => {},
+  selectedPageButtonDesign: 'solid',
+  nonSelectedPageButtonDesign: 'flat',
+  prevButtonDesign: 'flat',
+  nextButtonDesign: 'flat'
 }
 
 export default MoleculePagination

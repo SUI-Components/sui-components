@@ -1,5 +1,6 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
+$bgc-atom-badge-info: $c-gray !default;
 $bdrs-atom-badge: $bdrs-m !default;
 $fz-atom-badge-l: $fz-m !default;
 $fz-atom-badge-m: $fz-s !default;
@@ -24,7 +25,7 @@ $badges: (
     c: $c-white
   ),
   info: (
-    bgc: $c-gray,
+    bgc: $bgc-atom-badge-info,
     c: $c-white
   )
 ) !default;

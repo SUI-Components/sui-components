@@ -18,6 +18,13 @@ return (
       <AtomBadge label='2.5 / 10' type={atomBadgeTypes.ERROR} />
       <AtomBadge label='Executive' type={atomBadgeTypes.INFO} />
     </p>
+    <h3>Medium</h3>
+    <p style={stylesBlock}>
+      <AtomBadge label='9.5 / 10'/>
+      <AtomBadge label='5.5 / 10' type={atomBadgeTypes.ALERT} size={atomBadgeSizes.MEDIUM}/>
+      <AtomBadge label='2.5 / 10' type={atomBadgeTypes.ERROR} size={atomBadgeSizes.MEDIUM}/>
+      <AtomBadge label='Executive' type={atomBadgeTypes.INFO} size={atomBadgeSizes.MEDIUM}/>
+    </p>
     <h3>Large</h3>
     <p style={stylesBlock}>
       <AtomBadge label='Badge xBasic' size={atomBadgeSizes.LARGE} />

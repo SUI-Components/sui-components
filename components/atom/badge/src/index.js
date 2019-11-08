@@ -6,6 +6,7 @@ const MAX_LABEL_LENGTH = 100
 const TRANSPARENT = 'transparent'
 const SIZES = {
   LARGE: 'large',
+  MEDIUM: 'medium',
   SMALL: 'small'
 }
 

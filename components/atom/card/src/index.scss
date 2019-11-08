@@ -1,21 +1,37 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
+$bg-atom-card: transparent !default;
+$bdrs-atom-card: $bdrs-none !default;
+$p-atom-card: 0 !default;
+$bgc-atom-card-hover: transparent !default;
+$bxsh-atom-card-hover: none !default;
 $c-atom-card-highlight: $c-highlight !default;
 $w-atom-card-media: 33% !default;
+$mr-atom-card-media: 0 !default;
 $mq-responsive-breakpoint-name: 'm' !default;
+$p-atom-card-info: $p-l !default;
 
 $base-class: '.sui-AtomCard';
 $class-media: '#{$base-class}-media';
 
 #{$base-class} {
+  background: $bg-atom-card;
+  border-radius: $bdrs-atom-card;
   display: flex;
+  padding: $p-atom-card;
+
+  &:hover {
+    background: $bgc-atom-card-hover;
+    box-shadow: $bxsh-atom-card-hover;
+  }
 
   &-media {
+    margin-right: $mr-atom-card-media;
     width: $w-atom-card-media;
   }
 
   &-info {
-    padding: $p-l;
+    padding: $p-atom-card-info;
   }
 
   &-link {

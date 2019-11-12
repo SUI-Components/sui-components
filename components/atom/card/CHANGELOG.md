@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2019-11-12)
+
+
+### Features
+
+* add mobile padding on card component ([2f6efeb](https://github.com/SUI-Components/sui-components/commit/2f6efeb))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2019-11-08)
 

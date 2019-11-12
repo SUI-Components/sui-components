@@ -13,13 +13,18 @@ const POSITIONS = {
   TOP_RIGHT: 'top-right'
 }
 
-const AUTO_CLOSE_TIME = 6000
+const AUTO_CLOSE_TIMES = {
+  SHORT: 3000,
+  MEDIUM: 6000,
+  LONG: 9000
+}
 
 function AtomToast({
   autoClose = false,
+  autoCloseTime = AUTO_CLOSE_TIMES.MANUAL,
   children,
   onClose = () => {},
-  position = 'bottom',
+  position = POSITIONS.BOTTOM,
   show: showFromProps = true
 }) {
   const [show, setShow] = useState(showFromProps)
@@ -37,7 +42,7 @@ function AtomToast({
       autoCloseTimeout.current = setTimeout(() => {
         setShow(false)
         onClose()
-      }, AUTO_CLOSE_TIME)
+      }, autoCloseTime)
     }
 
     return () => clearTimeout(autoCloseTimeout.current)
@@ -52,6 +57,7 @@ AtomToast.displayName = 'AtomToast'
 
 AtomToast.propTypes = {
   autoClose: PropTypes.bool,
+  autoCloseTime: PropTypes,
   children: PropTypes.node.isRequired,
   onClose: PropTypes.func,
   /** Positions: 'top-left', 'top', 'top-right', 'bottom-left', 'bottom', 'bottom-right' */
@@ -59,5 +65,8 @@ AtomToast.propTypes = {
   show: PropTypes.bool
 }
 
-export {POSITIONS as atomToastPosistions}
+export {
+  POSITIONS as atomToastPosistions,
+  AUTO_CLOSE_TIMES as atomToastAutoCloseTimes
+}
 export default AtomToast

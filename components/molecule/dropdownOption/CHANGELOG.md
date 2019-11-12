@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.19.0"></a>
+# 1.19.0 (2019-11-12)
+
+
+### Bug Fixes
+
+* remove react-atom-input styles, use react-atom-checkbox style instead ([46f4224](https://github.com/SUI-Components/sui-components/commit/46f4224))
+* remove unnecessary import of AtomInput ([e9b88f2](https://github.com/SUI-Components/sui-components/commit/e9b88f2))
+
+
+### Features
+
+* update deps to include new AtomCheckbox component ([563be81](https://github.com/SUI-Components/sui-components/commit/563be81))
+* use AtomCheckbox instead of AtomInput when checkbox prop is true ([77bb816](https://github.com/SUI-Components/sui-components/commit/77bb816))
+
+
+
 <a name="1.18.0"></a>
 # 1.18.0 (2019-10-16)
 

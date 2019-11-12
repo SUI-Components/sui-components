@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import IconClose from '@schibstedspain/sui-svgiconset/lib/Close'
 
 const BASE_CLASS = 'react-AtomToast'
 
@@ -23,6 +24,8 @@ function AtomToast({
   autoClose = false,
   autoCloseTime = AUTO_CLOSE_TIMES.MANUAL,
   children,
+  crossToClose = true,
+  iconClose = <IconClose />,
   onClose = () => {},
   position = POSITIONS.BOTTOM,
   show: showFromProps = true
@@ -50,7 +53,12 @@ function AtomToast({
 
   if (!show) return null
 
-  return <div className={wrapperClassName}>{children}</div>
+  return (
+    <div className={wrapperClassName}>
+      {iconClose}
+      {children}
+    </div>
+  )
 }
 
 AtomToast.displayName = 'AtomToast'
@@ -59,6 +67,8 @@ AtomToast.propTypes = {
   autoClose: PropTypes.bool,
   autoCloseTime: PropTypes,
   children: PropTypes.node.isRequired,
+  crossToClose: PropTypes.bool,
+  iconClose: PropTypes.node,
   onClose: PropTypes.func,
   /** Positions: 'top-left', 'top', 'top-right', 'bottom-left', 'bottom', 'bottom-right' */
   position: PropTypes.oneOf(Object.keys(POSITIONS)),

@@ -3,6 +3,7 @@
 $bg-atom-card: transparent !default;
 $bdrs-atom-card: $bdrs-none !default;
 $p-atom-card: 0 !default;
+$p-atom-card-small: 0 !default;
 $bgc-atom-card-hover: transparent !default;
 $bxsh-atom-card-hover: none !default;
 $c-atom-card-highlight: $c-highlight !default;
@@ -18,7 +19,11 @@ $class-media: '#{$base-class}-media';
   background: $bg-atom-card;
   border-radius: $bdrs-atom-card;
   display: flex;
-  padding: $p-atom-card;
+  padding: $p-atom-card-small;
+
+  @include media-breakpoint-up(m) {
+    padding: $p-atom-card;
+  }
 
   &:hover {
     background: $bgc-atom-card-hover;

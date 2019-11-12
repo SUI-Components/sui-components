@@ -35,6 +35,7 @@ $class-read-only: '#{$base-class}--readOnly';
   }
 
   &:disabled {
+    pointer-events: none;
     &:not(#{$class-read-only}) {
       background: $bgc-atom-input-disabled;
     }

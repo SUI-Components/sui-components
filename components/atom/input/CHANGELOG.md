@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="4.1.0"></a>
+# 4.1.0 (2019-11-12)
+
+
+### Bug Fixes
+
+* set css property pointer-events to none ([f845847](https://github.com/SUI-Components/sui-components/commit/f845847))
+
+
+
 <a name="4.0.0"></a>
 # 4.0.0 (2019-10-29)
 

@@ -9,8 +9,9 @@ import AtomToast, {
 import './index.scss'
 
 const Demo = () => {
-  const [showToast, setShowToast] = useState(false)
+  const [show, setShow] = useState(false)
   const [position, setPosition] = useState(atomToastPosistions.bottom)
+  const [autoClose, setAutoClose] = useState(true)
 
   const renderContent = () => (
     <div className="DemoToast-content">
@@ -22,8 +23,8 @@ const Demo = () => {
     <>
       <h1>Atom Toast</h1>
       <label>
-        Position
-        <select onChange={ev => setPosition(ev.target.value)}>
+        position
+        <select value={position} onChange={ev => setPosition(ev.target.value)}>
           {Object.keys(atomToastPosistions).map(position => (
             <option key={position} value={atomToastPosistions[position]}>
               {atomToastPosistions[position]}
@@ -32,9 +33,27 @@ const Demo = () => {
         </select>
       </label>
       <br />
-      <button onClick={() => setShowToast(true)}>Show Toast</button>
-      {showToast && (
-        <AtomToast position={position}>{renderContent()}</AtomToast>
+      <label>
+        autoClose
+        <select
+          value={autoClose}
+          onChange={ev => setAutoClose(ev.target.value)}
+        >
+          <option value>true</option>
+          <option value={false}>false</option>
+          ))}
+        </select>
+      </label>
+      <br />
+      <button onClick={() => setShow(true)}>Show Toast</button>
+      {show && (
+        <AtomToast
+          autoClose={autoClose}
+          position={position}
+          onClose={() => setShow(false)}
+        >
+          {renderContent()}
+        </AtomToast>
       )}
     </>
   )

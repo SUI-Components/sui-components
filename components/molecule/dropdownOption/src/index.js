@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import AtomInput from '@s-ui/react-atom-input'
+import AtomCheckbox from '@s-ui/react-atom-checkbox'
 
 import handlersFactory from './handlersFactory'
 
@@ -60,8 +61,7 @@ const MoleculeDropdownOption = ({
       onFocus={handleFocus}
     >
       {checkbox && (
-        <AtomInput
-          type="checkbox"
+        <AtomCheckbox
           checked={selected}
           disabled={disabled}
           onFocus={handleInnerFocus}

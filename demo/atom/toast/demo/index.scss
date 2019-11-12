@@ -1,3 +1,7 @@
 .DemoToast {
   background: white;
+
+  &-content {
+    padding: 16px;
+  }
 }

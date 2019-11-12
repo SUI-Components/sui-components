@@ -1,5 +1,43 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
+$b-atom-toast: 1px solid $c-gray !default;
+$bgc-atpm-toast: $c-white;
+
 .react-AtomToast {
-  // Do your magic
+  background-color: $bgc-atpm-toast;
+  border: $b-atom-toast;
+  position: fixed;
+  margin: $m-xl;
+  z-index: $z-notifications;
+
+  // Position
+
+  &--bottom,
+  &--bottom-right,
+  &--bottom-left {
+    bottom: 0;
+  }
+
+  &--top,
+  &--top-right,
+  &--top-left {
+    top: 0;
+  }
+
+  &--bottom,
+  &--top {
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin: $m-xl auto;
+  }
+
+  &--bottom-right,
+  &--top-right {
+    right: 0;
+  }
+
+  &--bottom-left,
+  &--top-left {
+    left: 0;
+  }
 }

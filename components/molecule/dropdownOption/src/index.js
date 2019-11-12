@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import AtomInput from '@s-ui/react-atom-input'
 import AtomCheckbox from '@s-ui/react-atom-checkbox'
 
 import handlersFactory from './handlersFactory'

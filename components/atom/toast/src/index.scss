@@ -1,6 +1,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
 $b-atom-toast: 1px solid $c-gray !default;
+$c-atom-toast-icon: $c-gray !default;
 $bgc-atpm-toast: $c-white;
 
 .react-AtomToast {
@@ -9,6 +10,19 @@ $bgc-atpm-toast: $c-white;
   position: fixed;
   margin: $m-xl;
   z-index: $z-notifications;
+
+  &-icon {
+    cursor: pointer;
+    position: fixed;
+    margin: $m-s;
+    right: 0;
+
+    svg {
+      width: $sz-icon-s;
+      height: $sz-icon-s;
+      fill: $c-atom-toast-icon !important;
+    }
+  }
 
   // Position
   &--bottom,

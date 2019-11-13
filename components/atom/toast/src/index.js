@@ -43,19 +43,27 @@ function AtomToast({
   useEffect(() => {
     if (autoClose) {
       autoCloseTimeout.current = setTimeout(() => {
-        setShow(false)
-        onClose()
+        handleClose()
       }, autoCloseTime)
     }
 
     return () => clearTimeout(autoCloseTimeout.current)
   })
 
+  const handleClose = () => {
+    setShow(false)
+    onClose()
+  }
+
   if (!show) return null
 
   return (
     <div className={wrapperClassName}>
-      {iconClose}
+      {crossToClose && (
+        <div onClick={handleClose} className={`${BASE_CLASS}-icon`}>
+          {iconClose}
+        </div>
+      )}
       {children}
     </div>
   )

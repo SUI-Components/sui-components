@@ -12,10 +12,11 @@ import './index.scss'
 const Demo = () => {
   const [show, setShow] = useState(false)
   const [position, setPosition] = useState(atomToastPosistions.bottom)
-  const [autoClose, setAutoClose] = useState(true)
+  const [autoClose, setAutoClose] = useState(false)
   const [autoCloseTime, setAutoCloseTime] = useState(
     atomToastAutoCloseTimes.SHORT
   )
+  const [crossToClose, setCrossToClose] = useState(true)
 
   const renderContent = () => (
     <div className="DemoToast-content">
@@ -60,11 +61,21 @@ const Demo = () => {
         </select>
       </label>
       <br />
+      <label>
+        crossToClose
+        <input
+          type="checkbox"
+          checked={crossToClose}
+          onChange={ev => setCrossToClose(ev.target.checked)}
+        />
+      </label>
+      <br />
       <button onClick={() => setShow(true)}>Show Toast</button>
       {show && (
         <AtomToast
           autoClose={Boolean(autoClose)}
           autoCloseTime={autoCloseTime}
+          crossToClose={crossToClose}
           position={position}
           onClose={() => setShow(false)}
         >

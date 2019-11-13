@@ -4,19 +4,21 @@ import React, {useState} from 'react'
 
 import AtomToast, {
   atomToastPosistions,
-  atomToastAutoCloseTimes
+  atomToastAutoCloseTimes,
+  atomToastSizes
 } from '../../../../components/atom/toast/src'
 
 import './index.scss'
 
 const Demo = () => {
   const [show, setShow] = useState(false)
-  const [position, setPosition] = useState(atomToastPosistions.bottom)
+  const [position, setPosition] = useState(atomToastPosistions.BOTTOM)
   const [autoClose, setAutoClose] = useState(false)
   const [autoCloseTime, setAutoCloseTime] = useState(
     atomToastAutoCloseTimes.SHORT
   )
   const [crossToClose, setCrossToClose] = useState(true)
+  const [size, setSize] = useState(atomToastSizes.M)
 
   const renderContent = () => (
     <div className="DemoToast-content">
@@ -70,6 +72,17 @@ const Demo = () => {
         />
       </label>
       <br />
+      <label>
+        size
+        <select value={size} onChange={ev => setSize(ev.target.value)}>
+          {Object.keys(atomToastSizes).map(size => (
+            <option key={size} value={atomToastSizes[size]}>
+              {size}
+            </option>
+          ))}
+        </select>
+      </label>
+      <br />
       <button onClick={() => setShow(true)}>Show Toast</button>
       {show && (
         <AtomToast
@@ -78,6 +91,7 @@ const Demo = () => {
           crossToClose={crossToClose}
           position={position}
           onClose={() => setShow(false)}
+          size={size}
         >
           {renderContent()}
         </AtomToast>

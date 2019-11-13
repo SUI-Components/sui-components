@@ -20,6 +20,12 @@ const AUTO_CLOSE_TIMES = {
   LONG: 9000
 }
 
+const SIZES = {
+  S: 's',
+  M: 'm',
+  L: 'l'
+}
+
 function AtomToast({
   autoClose = false,
   autoCloseTime = AUTO_CLOSE_TIMES.MANUAL,
@@ -28,13 +34,16 @@ function AtomToast({
   iconClose = <IconClose />,
   onClose = () => {},
   position = POSITIONS.BOTTOM,
-  show: showFromProps = true
+  show: showFromProps = true,
+  size = SIZES.M
 }) {
   const [show, setShow] = useState(showFromProps)
 
   const autoCloseTimeout = useRef()
 
-  const wrapperClassName = cx(`${BASE_CLASS} ${BASE_CLASS}--${position}`)
+  const wrapperClassName = cx(
+    `${BASE_CLASS} ${BASE_CLASS}--${position} ${BASE_CLASS}--${size}`
+  )
 
   useEffect(() => {
     setShow(showFromProps)
@@ -73,18 +82,20 @@ AtomToast.displayName = 'AtomToast'
 
 AtomToast.propTypes = {
   autoClose: PropTypes.bool,
-  autoCloseTime: PropTypes,
+  autoCloseTime: PropTypes.oneOf(Object.keys(AUTO_CLOSE_TIMES)),
   children: PropTypes.node.isRequired,
   crossToClose: PropTypes.bool,
   iconClose: PropTypes.node,
   onClose: PropTypes.func,
   /** Positions: 'top-left', 'top', 'top-right', 'bottom-left', 'bottom', 'bottom-right' */
   position: PropTypes.oneOf(Object.keys(POSITIONS)),
-  show: PropTypes.bool
+  show: PropTypes.bool,
+  size: PropTypes.oneOf(Object.keys(SIZES))
 }
 
 export {
   POSITIONS as atomToastPosistions,
-  AUTO_CLOSE_TIMES as atomToastAutoCloseTimes
+  AUTO_CLOSE_TIMES as atomToastAutoCloseTimes,
+  SIZES as atomToastSizes
 }
 export default AtomToast

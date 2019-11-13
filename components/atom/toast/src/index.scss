@@ -3,6 +3,12 @@
 $b-atom-toast: 1px solid $c-gray !default;
 $c-atom-toast-icon: $c-gray !default;
 $bgc-atpm-toast: $c-white;
+$h-atom-toast-s: 48px;
+$h-atom-toast-m: 64px;
+$h-atom-toast-l: 96px;
+$w-atom-toast-s: 264px;
+$w-atom-toast-m: 264px;
+$w-atom-toast-l: 264px;
 
 .react-AtomToast {
   background-color: $bgc-atpm-toast;
@@ -13,7 +19,7 @@ $bgc-atpm-toast: $c-white;
 
   &-icon {
     cursor: pointer;
-    position: fixed;
+    position: absolute;
     margin: $m-s;
     right: 0;
 
@@ -52,5 +58,21 @@ $bgc-atpm-toast: $c-white;
   &--bottom-left,
   &--top-left {
     left: 0;
+  }
+
+  // Size
+  &--s {
+    height: $h-atom-toast-s;
+    width: $w-atom-toast-s;
+  }
+
+  &--m {
+    height: $h-atom-toast-m;
+    width: $w-atom-toast-m;
+  }
+
+  &--l {
+    height: $h-atom-toast-l;
+    width: $w-atom-toast-l;
   }
 }

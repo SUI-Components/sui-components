@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 import IconClose from '@schibstedspain/sui-svgiconset/lib/Close'
 
 const BASE_CLASS = 'react-AtomToast'
@@ -21,9 +20,15 @@ const AUTO_CLOSE_TIMES = {
 }
 
 const SIZES = {
-  S: 's',
-  M: 'm',
-  L: 'l'
+  SMALL: 's',
+  MEDIUM: 'm',
+  LARGE: 'l'
+}
+
+const MARGINS = {
+  SMALL: 's',
+  MEDIUM: 'm',
+  LARGE: 'l'
 }
 
 function AtomToast({
@@ -35,15 +40,14 @@ function AtomToast({
   onClose = () => {},
   position = POSITIONS.BOTTOM,
   show: showFromProps = true,
-  size = SIZES.M
+  size = SIZES.MEDIUM,
+  margin = MARGINS.MEDIUM
 }) {
   const [show, setShow] = useState(showFromProps)
 
   const autoCloseTimeout = useRef()
 
-  const wrapperClassName = cx(
-    `${BASE_CLASS} ${BASE_CLASS}--${position} ${BASE_CLASS}--${size}`
-  )
+  const wrapperClassName = `${BASE_CLASS} ${BASE_CLASS}-position--${position} ${BASE_CLASS}-size--${size} ${BASE_CLASS}-margin--${margin}`
 
   useEffect(() => {
     setShow(showFromProps)
@@ -90,12 +94,14 @@ AtomToast.propTypes = {
   /** Positions: 'top-left', 'top', 'top-right', 'bottom-left', 'bottom', 'bottom-right' */
   position: PropTypes.oneOf(Object.keys(POSITIONS)),
   show: PropTypes.bool,
-  size: PropTypes.oneOf(Object.keys(SIZES))
+  size: PropTypes.oneOf(Object.keys(SIZES)),
+  margin: PropTypes.oneOf(Object.keys(MARGINS))
 }
 
 export {
   POSITIONS as atomToastPosistions,
   AUTO_CLOSE_TIMES as atomToastAutoCloseTimes,
-  SIZES as atomToastSizes
+  SIZES as atomToastSizes,
+  MARGINS as atomToastMargins
 }
 export default AtomToast

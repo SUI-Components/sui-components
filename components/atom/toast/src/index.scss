@@ -6,15 +6,12 @@ $bgc-atpm-toast: $c-white;
 $h-atom-toast-s: 48px;
 $h-atom-toast-m: 64px;
 $h-atom-toast-l: 96px;
-$w-atom-toast-s: 264px;
-$w-atom-toast-m: 264px;
-$w-atom-toast-l: 264px;
+$w-atom-toast: 264px;
 
 .react-AtomToast {
   background-color: $bgc-atpm-toast;
   border: $b-atom-toast;
   position: fixed;
-  margin: $m-xl;
   z-index: $z-notifications;
 
   &-icon {
@@ -30,49 +27,67 @@ $w-atom-toast-l: 264px;
     }
   }
 
+  // Margin
+  &-margin {
+    &--s {
+      margin: $m-s;
+    }
+
+    &--m {
+      margin: $m-m;
+    }
+
+    &--l {
+      margin: $m-l;
+    }
+  }
+
   // Position
-  &--bottom,
-  &--bottom-right,
-  &--bottom-left {
-    bottom: 0;
-  }
+  &-position {
+    &--bottom,
+    &--bottom-right,
+    &--bottom-left {
+      bottom: 0;
+    }
 
-  &--top,
-  &--top-right,
-  &--top-left {
-    top: 0;
-  }
+    &--top,
+    &--top-right,
+    &--top-left {
+      top: 0;
+    }
 
-  &--bottom,
-  &--top {
-    left: 50%;
-    transform: translate(-50%, 0);
-    margin: $m-xl auto;
-  }
+    &--bottom,
+    &--top {
+      left: 50%;
+      margin-left: calc(-#{$w-atom-toast} / 2);
+    }
 
-  &--bottom-right,
-  &--top-right {
-    right: 0;
-  }
+    &--bottom-right,
+    &--top-right {
+      right: 0;
+    }
 
-  &--bottom-left,
-  &--top-left {
-    left: 0;
+    &--bottom-left,
+    &--top-left {
+      left: 0;
+    }
   }
 
   // Size
-  &--s {
-    height: $h-atom-toast-s;
-    width: $w-atom-toast-s;
-  }
+  &-size {
+    &--s {
+      height: $h-atom-toast-s;
+      width: $w-atom-toast;
+    }
 
-  &--m {
-    height: $h-atom-toast-m;
-    width: $w-atom-toast-m;
-  }
+    &--m {
+      height: $h-atom-toast-m;
+      width: $w-atom-toast;
+    }
 
-  &--l {
-    height: $h-atom-toast-l;
-    width: $w-atom-toast-l;
+    &--l {
+      height: $h-atom-toast-l;
+      width: $w-atom-toast;
+    }
   }
 }

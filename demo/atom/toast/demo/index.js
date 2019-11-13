@@ -5,20 +5,22 @@ import React, {useState} from 'react'
 import AtomToast, {
   atomToastPosistions,
   atomToastAutoCloseTimes,
-  atomToastSizes
+  atomToastSizes,
+  atomToastMargins
 } from '../../../../components/atom/toast/src'
 
 import './index.scss'
 
 const Demo = () => {
   const [show, setShow] = useState(false)
-  const [position, setPosition] = useState(atomToastPosistions.BOTTOM)
+  const [position, setPosition] = useState(atomToastPosistions.TOP_RIGHT)
   const [autoClose, setAutoClose] = useState(false)
   const [autoCloseTime, setAutoCloseTime] = useState(
     atomToastAutoCloseTimes.SHORT
   )
   const [crossToClose, setCrossToClose] = useState(true)
-  const [size, setSize] = useState(atomToastSizes.M)
+  const [size, setSize] = useState(atomToastSizes.MEDIUM)
+  const [margin, setMargin] = useState(atomToastMargins.MEDIUM)
 
   const renderContent = () => (
     <div className="DemoToast-content">
@@ -83,6 +85,17 @@ const Demo = () => {
         </select>
       </label>
       <br />
+      <label>
+        margin
+        <select value={margin} onChange={ev => setMargin(ev.target.value)}>
+          {Object.keys(atomToastMargins).map(margin => (
+            <option key={margin} value={atomToastMargins[margin]}>
+              {margin}
+            </option>
+          ))}
+        </select>
+      </label>
+      <br />
       <button onClick={() => setShow(true)}>Show Toast</button>
       {show && (
         <AtomToast
@@ -92,6 +105,7 @@ const Demo = () => {
           position={position}
           onClose={() => setShow(false)}
           size={size}
+          margin={margin}
         >
           {renderContent()}
         </AtomToast>

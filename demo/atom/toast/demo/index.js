@@ -1,6 +1,11 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
 import React, {useState} from 'react'
+import Button from '@schibstedspain/sui-atom-button'
+import MoleculeSelect from '@s-ui/react-molecule-select'
+import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
+
+import {IconArrowDown} from './Icons'
 
 import AtomToast, {
   atomToastPosistions,
@@ -13,15 +18,14 @@ import './index.scss'
 
 const Demo = () => {
   const [show, setShow] = useState(false)
-  const [position, setPosition] = useState(atomToastPosistions.TOP_RIGHT)
-  const [autoClose, setAutoClose] = useState(false)
-  const [autoCloseTime, setAutoCloseTime] = useState(
-    atomToastAutoCloseTimes.SHORT
-  )
+
+  const [position, setPosition] = useState()
+  const [autoClose, setAutoClose] = useState(true)
+  const [autoCloseTime, setAutoCloseTime] = useState()
   const [crossToClose, setCrossToClose] = useState(true)
-  const [size, setSize] = useState(atomToastSizes.MEDIUM)
-  const [margin, setMargin] = useState(atomToastMargins.MEDIUM)
-  const [globalClose, setGlobalClose] = useState(false)
+  const [size, setSize] = useState()
+  const [margin, setMargin] = useState()
+  const [globalClose, setGlobalClose] = useState()
   const [effect, setEffect] = useState(true)
 
   const renderContent = () => (
@@ -31,92 +35,88 @@ const Demo = () => {
   )
 
   return (
-    <>
+    <div className="DemoToast">
       <h1>Atom Toast</h1>
-      <label>
-        position
-        <select value={position} onChange={ev => setPosition(ev.target.value)}>
-          {Object.keys(atomToastPosistions).map(position => (
-            <option key={position} value={atomToastPosistions[position]}>
-              {position}
-            </option>
-          ))}
-        </select>
-      </label>
+      <label className="DemoToast-label">Position</label>
+      <MoleculeSelect
+        value={position}
+        onChange={(ev, {value}) => setPosition(value)}
+        placeholder="Select a position..."
+        iconArrowDown={<IconArrowDown />}
+      >
+        {Object.keys(atomToastPosistions).map(key => (
+          <MoleculeSelectOption key={key} value={atomToastPosistions[key]}>
+            {key}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelect>
+      <label className="DemoToast-label">Auto close time</label>
+      <MoleculeSelect
+        value={autoCloseTime}
+        onChange={(ev, {value}) => setAutoCloseTime(value)}
+        placeholder="Select an auto close time..."
+        iconArrowDown={<IconArrowDown />}
+      >
+        {Object.keys(atomToastAutoCloseTimes).map(key => (
+          <MoleculeSelectOption key={key} value={atomToastAutoCloseTimes[key]}>
+            {key}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelect>
+      <label className="DemoToast-label">Size</label>
+      <MoleculeSelect
+        value={size}
+        onChange={(ev, {value}) => setSize(value)}
+        placeholder="Select a size..."
+        iconArrowDown={<IconArrowDown />}
+      >
+        {Object.keys(atomToastSizes).map(key => (
+          <MoleculeSelectOption key={key} value={atomToastSizes[key]}>
+            {key}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelect>
+      <label className="DemoToast-label">Margin</label>
+      <MoleculeSelect
+        value={margin}
+        onChange={(ev, {value}) => setMargin(value)}
+        placeholder="Select a margin..."
+        iconArrowDown={<IconArrowDown />}
+      >
+        {Object.keys(atomToastMargins).map(key => (
+          <MoleculeSelectOption key={key} value={atomToastMargins[key]}>
+            {key}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelect>
+      <label className="DemoToast-label">Auto close</label>
+      <input
+        type="checkbox"
+        checked={autoClose}
+        onChange={ev => setAutoClose(ev.target.checked)}
+      />
+      <label className="DemoToast-label">Cross to close</label>
+      <input
+        type="checkbox"
+        checked={crossToClose}
+        onChange={ev => setCrossToClose(ev.target.checked)}
+      />
+      <label className="DemoToast-label">Global close</label>
+      <input
+        type="checkbox"
+        checked={globalClose}
+        onChange={ev => setGlobalClose(ev.target.checked)}
+      />
+      <label className="DemoToast-label">Effect</label>
+      <input
+        type="checkbox"
+        checked={effect}
+        onChange={ev => setEffect(ev.target.checked)}
+      />
       <br />
-      <label>
-        autoClose
-        <input
-          type="checkbox"
-          checked={autoClose}
-          onChange={ev => setAutoClose(ev.target.checked)}
-        />
-      </label>
-      <br />
-      <label>
-        autoCloseTime
-        <select
-          value={autoCloseTime}
-          onChange={ev => setAutoCloseTime(ev.target.value)}
-        >
-          {Object.keys(atomToastAutoCloseTimes).map(time => (
-            <option key={time} value={atomToastAutoCloseTimes[time]}>
-              {time}
-            </option>
-          ))}
-        </select>
-      </label>
-      <br />
-      <label>
-        crossToClose
-        <input
-          type="checkbox"
-          checked={crossToClose}
-          onChange={ev => setCrossToClose(ev.target.checked)}
-        />
-      </label>
-      <br />
-      <label>
-        size
-        <select value={size} onChange={ev => setSize(ev.target.value)}>
-          {Object.keys(atomToastSizes).map(size => (
-            <option key={size} value={atomToastSizes[size]}>
-              {size}
-            </option>
-          ))}
-        </select>
-      </label>
-      <br />
-      <label>
-        margin
-        <select value={margin} onChange={ev => setMargin(ev.target.value)}>
-          {Object.keys(atomToastMargins).map(margin => (
-            <option key={margin} value={atomToastMargins[margin]}>
-              {margin}
-            </option>
-          ))}
-        </select>
-      </label>
-      <br />
-      <label>
-        globalClose
-        <input
-          type="checkbox"
-          checked={globalClose}
-          onChange={ev => setGlobalClose(ev.target.checked)}
-        />
-      </label>
-      <br />
-      <label>
-        effect
-        <input
-          type="checkbox"
-          checked={effect}
-          onChange={ev => setEffect(ev.target.checked)}
-        />
-      </label>
-      <br />
-      <button onClick={() => setShow(true)}>Show Toast</button>
+      <Button onClick={() => setShow(true)} fullWidth>
+        Show Toast
+      </Button>
       {show && (
         <AtomToast
           autoClose={Boolean(autoClose)}
@@ -132,7 +132,7 @@ const Demo = () => {
           {renderContent()}
         </AtomToast>
       )}
-    </>
+    </div>
   )
 }
 

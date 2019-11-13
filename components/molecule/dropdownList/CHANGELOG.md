@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2019-11-13)
+
+
+### Features
+
+* update deps molecule/dropdownList ([b91733a](https://github.com/SUI-Components/sui-components/commit/b91733a))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2019-10-10)
 

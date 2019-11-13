@@ -39,14 +39,11 @@ const Demo = () => {
       <br />
       <label>
         autoClose
-        <select
-          value={autoClose}
-          onChange={ev => setAutoClose(ev.target.value)}
-        >
-          <option value>true</option>
-          <option value={false}>false</option>
-          ))}
-        </select>
+        <input
+          type="checkbox"
+          checked={autoClose}
+          onChange={ev => setAutoClose(ev.target.checked)}
+        />
       </label>
       <br />
       <label>
@@ -66,7 +63,7 @@ const Demo = () => {
       <button onClick={() => setShow(true)}>Show Toast</button>
       {show && (
         <AtomToast
-          autoClose={autoClose}
+          autoClose={Boolean(autoClose)}
           autoCloseTime={autoCloseTime}
           position={position}
           onClose={() => setShow(false)}

@@ -9,6 +9,7 @@ $bdrs-molecule-thumbnail: initial !default;
 $bs-molecule-thumbnail: none !default;
 $p-molecule-thumbnail-image: 0 !default;
 $bgc-molecule-thumbnail-caption: color-variation($c-gray-light, 3) !default;
+$o-molecule-thumbnail: visible !default;
 
 $sizes-molecule-thumbnail: (
   large: 144px,
@@ -37,6 +38,7 @@ $ratios-molecule-thumbnail: (
   box-shadow: $bs-molecule-thumbnail;
   display: inline-block;
   margin: 0;
+  overflow: $o-molecule-thumbnail;
   position: relative;
   width: 100%;
 

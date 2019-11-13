@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-atom-input": "3"
+    "@s-ui/react-atom-input": "4"
   },
   "keywords": [],
   "author": "",

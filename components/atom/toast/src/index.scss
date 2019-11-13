@@ -1,38 +1,26 @@
 @import '~@schibstedspain/sui-theme/lib/index';
-
-$b-atom-toast: 1px solid $c-gray !default;
-$c-atom-toast-icon: $c-gray !default;
-$bgc-atpm-toast: $c-white;
-$h-atom-toast-s: 48px;
-$h-atom-toast-m: 64px;
-$h-atom-toast-l: 96px;
-$w-atom-toast: 264px;
-
-$toast-effect-slide-top-in: top 0.5s ease-out !default;
-$toast-effect-slide-top-out: top 0.5s ease-in !default;
-$toast-effect-slide-bottom-in: bottom 0.5s ease-out !default;
-$toast-effect-slide-bottom-out: bottom 0.5s ease-in !default;
-$toast-effect-slide-right-in: right 0.5s ease-out !default;
-$toast-effect-slide-right-out: right 0.5s ease-in !default;
-$toast-effect-slide-left-in: left 0.5s ease-out !default;
-$toast-effect-slide-left-out: left 0.5s ease-in !default;
+@import './settings';
 
 .react-AtomToast {
-  background-color: $bgc-atpm-toast;
+  background-color: $bgc-atom-toast;
+  border-radius: $bdrs-atom-toast;
   border: $b-atom-toast;
+  box-shadow: $bxsh-atom-toast;
+  color: $c-atom-toast-text;
+  font-size: $fz-atom-toast;
   position: fixed;
   z-index: $z-notifications;
 
   &-icon {
     cursor: pointer;
-    position: absolute;
     margin: $m-s;
+    position: absolute;
     right: 0;
 
     svg {
-      width: $sz-icon-s;
-      height: $sz-icon-s;
       fill: $c-atom-toast-icon !important;
+      height: $sz-icon-s;
+      width: $sz-icon-s;
     }
   }
 

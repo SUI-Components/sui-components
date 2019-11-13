@@ -26,7 +26,7 @@ const Demo = () => {
 
   const renderContent = () => (
     <div className="DemoToast-content">
-      <span>Lorem ipsum</span>
+      <span>Morty! I'm a pickle! 🥒</span>
     </div>
   )
 

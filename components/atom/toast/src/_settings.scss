@@ -1,0 +1,23 @@
+$b-atom-toast: 1px solid $c-gray !default;
+$bdrs-atom-toast: $bdrs-m !default;
+$bgc-atom-toast: $c-white !default;
+$bxsh-atom-toast: none !default;
+$c-atom-toast-icon: $c-gray !default;
+$c-atom-toast-text: $c-text-base !default;
+$fz-atom-toast: $fz-m !default;
+
+// size
+$w-atom-toast: 264px;
+$h-atom-toast-s: 48px;
+$h-atom-toast-m: 64px;
+$h-atom-toast-l: 96px;
+
+// effect
+$toast-effect-slide-top-in: top 0.5s ease-out !default;
+$toast-effect-slide-top-out: top 0.5s ease-in !default;
+$toast-effect-slide-bottom-in: bottom 0.5s ease-out !default;
+$toast-effect-slide-bottom-out: bottom 0.5s ease-in !default;
+$toast-effect-slide-right-in: right 0.5s ease-out !default;
+$toast-effect-slide-right-out: right 0.5s ease-in !default;
+$toast-effect-slide-left-in: left 0.5s ease-out !default;
+$toast-effect-slide-left-out: left 0.5s ease-in !default;

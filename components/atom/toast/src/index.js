@@ -2,48 +2,25 @@ import React, {useState, useEffect, useRef, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import IconClose from '@schibstedspain/sui-svgiconset/lib/Close'
 import cx from 'classnames'
-
-const BASE_CLASS = 'react-AtomToast'
-
-const POSITIONS = {
-  BOTTOM: 'bottom',
-  BOTTOM_LEFT: 'bottom-left',
-  BOTTOM_RIGHT: 'bottom-right',
-  TOP: 'top',
-  TOP_LEFT: 'top-left',
-  TOP_RIGHT: 'top-right'
-}
-
-const AUTO_CLOSE_TIMES = {
-  SHORT: 3000,
-  MEDIUM: 6000,
-  LONG: 9000
-}
-
-const SIZES = {
-  SMALL: 's',
-  MEDIUM: 'm',
-  LARGE: 'l'
-}
-
-const MARGINS = {
-  SMALL: 's',
-  MEDIUM: 'm',
-  LARGE: 'l'
-}
-
-const EFFECT_DELAY_CLOSE = 1000
-const EFFECT_DELAY_OPEN = 1
+import {
+  AUTO_CLOSE_TIMES,
+  BASE_CLASS,
+  EFFECT_DELAY_CLOSE,
+  EFFECT_DELAY_OPEN,
+  MARGINS,
+  POSITIONS,
+  SIZES
+} from './config'
 
 function AtomToast({
-  autoClose = false,
-  autoCloseTime = AUTO_CLOSE_TIMES.MANUAL,
+  autoClose = true,
+  autoCloseTime = AUTO_CLOSE_TIMES.MEDIUM,
   children,
   crossToClose = true,
-  effect = false,
+  effect = true,
   iconClose = <IconClose />,
   onClose = () => {},
-  position = POSITIONS.BOTTOM,
+  position = POSITIONS.TOP_RIGHT,
   show: showFromProps = true,
   size = SIZES.MEDIUM,
   margin = MARGINS.MEDIUM,

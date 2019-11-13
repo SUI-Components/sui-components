@@ -8,6 +8,15 @@ $h-atom-toast-m: 64px;
 $h-atom-toast-l: 96px;
 $w-atom-toast: 264px;
 
+$toast-effect-slide-top-in: top 0.5s ease-out !default;
+$toast-effect-slide-top-out: top 0.5s ease-in !default;
+$toast-effect-slide-bottom-in: bottom 0.5s ease-out !default;
+$toast-effect-slide-bottom-out: bottom 0.5s ease-in !default;
+$toast-effect-slide-right-in: right 0.5s ease-out !default;
+$toast-effect-slide-right-out: right 0.5s ease-in !default;
+$toast-effect-slide-left-in: left 0.5s ease-out !default;
+$toast-effect-slide-left-out: left 0.5s ease-in !default;
+
 .react-AtomToast {
   background-color: $bgc-atpm-toast;
   border: $b-atom-toast;
@@ -88,6 +97,49 @@ $w-atom-toast: 264px;
     &--l {
       height: $h-atom-toast-l;
       width: $w-atom-toast;
+    }
+  }
+
+  // Effect
+  &-effect {
+    &--top {
+      transition: $toast-effect-slide-top-in;
+    }
+
+    &--top#{&}--hide {
+      top: -50%;
+      transition: $toast-effect-slide-top-out;
+    }
+
+    &--bottom {
+      transition: $toast-effect-slide-bottom-in;
+    }
+
+    &--bottom#{&}--hide {
+      bottom: -50%;
+      transition: $toast-effect-slide-bottom-out;
+    }
+
+    &--top-right,
+    &--bottom-right {
+      transition: $toast-effect-slide-right-in;
+    }
+
+    &--top-right#{&}--hide,
+    &--bottom-right#{&}--hide {
+      right: -50%;
+      transition: $toast-effect-slide-right-out;
+    }
+
+    &--top-left,
+    &--bottom-left {
+      transition: $toast-effect-slide-left-in;
+    }
+
+    &--top-left#{&}--hide,
+    &--bottom-left#{&}--hide {
+      left: -50%;
+      transition: $toast-effect-slide-left-out;
     }
   }
 }

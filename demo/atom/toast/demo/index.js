@@ -22,6 +22,7 @@ const Demo = () => {
   const [size, setSize] = useState(atomToastSizes.MEDIUM)
   const [margin, setMargin] = useState(atomToastMargins.MEDIUM)
   const [globalClose, setGlobalClose] = useState(false)
+  const [effect, setEffect] = useState(true)
 
   const renderContent = () => (
     <div className="DemoToast-content">
@@ -97,7 +98,6 @@ const Demo = () => {
         </select>
       </label>
       <br />
-
       <label>
         globalClose
         <input
@@ -107,12 +107,22 @@ const Demo = () => {
         />
       </label>
       <br />
+      <label>
+        effect
+        <input
+          type="checkbox"
+          checked={effect}
+          onChange={ev => setEffect(ev.target.checked)}
+        />
+      </label>
+      <br />
       <button onClick={() => setShow(true)}>Show Toast</button>
       {show && (
         <AtomToast
           autoClose={Boolean(autoClose)}
           autoCloseTime={autoCloseTime}
           crossToClose={crossToClose}
+          effect={effect}
           position={position}
           onClose={() => setShow(false)}
           size={size}

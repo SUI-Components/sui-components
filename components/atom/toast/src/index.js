@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import IconClose from '@schibstedspain/sui-svgiconset/lib/Close'
+import cx from 'classnames'
 
 const BASE_CLASS = 'react-AtomToast'
 
@@ -31,11 +32,15 @@ const MARGINS = {
   LARGE: 'l'
 }
 
+const EFFECT_DELAY_CLOSE = 1000
+const EFFECT_DELAY_OPEN = 1
+
 function AtomToast({
   autoClose = false,
   autoCloseTime = AUTO_CLOSE_TIMES.MANUAL,
   children,
   crossToClose = true,
+  effect = false,
   iconClose = <IconClose />,
   onClose = () => {},
   position = POSITIONS.BOTTOM,
@@ -45,11 +50,28 @@ function AtomToast({
   globalClose = false
 }) {
   const [show, setShow] = useState(showFromProps)
+  const [delay, setDelay] = useState(true)
 
   const autoCloseTimeout = useRef()
+  const delayTimeout = useRef()
   const toastRef = useRef()
 
-  const wrapperClassName = `${BASE_CLASS} ${BASE_CLASS}-position--${position} ${BASE_CLASS}-size--${size} ${BASE_CLASS}-margin--${margin}`
+  const wrapperClassName = cx(
+    BASE_CLASS,
+    `${BASE_CLASS}-position--${position}`,
+    `${BASE_CLASS}-size--${size}`,
+    `${BASE_CLASS}-margin--${margin}`,
+    {
+      [`${BASE_CLASS}-effect--${position}`]: effect,
+      [`${BASE_CLASS}-effect--hide`]: effect && delay
+    }
+  )
+
+  const handleClose = useCallback(() => {
+    if (effect) setDelay(true)
+    setShow(false)
+    if (!effect) onClose()
+  }, [effect, onClose])
 
   useEffect(() => {
     setShow(showFromProps)
@@ -63,12 +85,26 @@ function AtomToast({
     }
 
     return () => clearTimeout(autoCloseTimeout.current)
-  })
+  }, [autoClose, autoCloseTime, handleClose])
 
-  const handleClose = useCallback(() => {
-    setShow(false)
-    onClose()
-  }, [onClose])
+  useEffect(() => {
+    // open effect
+    if (effect && show && delay) {
+      delayTimeout.current = setTimeout(() => {
+        setDelay(false)
+      }, EFFECT_DELAY_OPEN)
+    }
+
+    // close effect
+    if (effect && !show) {
+      delayTimeout.current = setTimeout(() => {
+        setDelay(false)
+        onClose()
+      }, EFFECT_DELAY_CLOSE)
+    }
+
+    return () => clearTimeout(delayTimeout.current)
+  }, [delay, effect, onClose, show])
 
   useEffect(() => {
     if (globalClose) {
@@ -85,7 +121,7 @@ function AtomToast({
     }
   }, [globalClose, handleClose])
 
-  if (!show) return null
+  if (!show && !delay) return null
 
   return (
     <div ref={toastRef} className={wrapperClassName}>
@@ -106,6 +142,7 @@ AtomToast.propTypes = {
   autoCloseTime: PropTypes.oneOf(Object.keys(AUTO_CLOSE_TIMES)),
   children: PropTypes.node.isRequired,
   crossToClose: PropTypes.bool,
+  effect: PropTypes.bool,
   iconClose: PropTypes.node,
   onClose: PropTypes.func,
   /** Positions: 'top-left', 'top', 'top-right', 'bottom-left', 'bottom', 'bottom-right' */

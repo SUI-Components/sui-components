@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.33.0"></a>
+# 1.33.0 (2019-11-14)
+
+
+### Bug Fixes
+
+* avoid following the link if link button is disabled ([a91cc36](https://github.com/SUI-Components/sui-components/commit/a91cc36))
+
+
+
 <a name="1.32.0"></a>
 # 1.32.0 (2019-11-04)
 

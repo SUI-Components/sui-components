@@ -116,7 +116,7 @@
 
     &--top-right#{&}--hide,
     &--bottom-right#{&}--hide {
-      right: -50%;
+      right: calc(-#{$w-atom-toast} - #{$m-l});
       transition: $toast-effect-slide-right-out;
     }
 
@@ -127,7 +127,7 @@
 
     &--top-left#{&}--hide,
     &--bottom-left#{&}--hide {
-      left: -50%;
+      left: calc(-#{$w-atom-toast} - #{$m-l});
       transition: $toast-effect-slide-left-out;
     }
   }

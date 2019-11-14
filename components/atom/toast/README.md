@@ -1,8 +1,6 @@
 # AtomToast
 
-> Description
-
-<!-- ![](./assets/preview.png) -->
+> AtomToast is a component that renders an empty floating box.
 
 ## Installation
 
@@ -14,9 +12,23 @@ $ npm install @s-ui/react-atom-toast --save
 
 ### Basic usage
 ```js
-import AtomToast from '@s-ui/react-atom-toast'
+import AtomToast, {
+  atomToastPosistions,
+  atomToastAutoCloseTimes,
+  atomToastSizes,
+  atomToastMargins
+} from '@s-ui/react-atom-toast'
 
-return (<AtomToast />)
+return (
+  <AtomToast
+    position={atomToastPosistions.topRight}
+    autoCloseTime={atomToastAutoCloseTimes.short}
+    size={atomToastSizes.medium}
+    margin={atomToastSizes.large}
+  >
+    <span>lorem ipsum</span>
+  </AtomToast>
+)
 ```
 
 

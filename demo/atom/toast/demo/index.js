@@ -19,12 +19,14 @@ import './index.scss'
 const Demo = () => {
   const [show, setShow] = useState(false)
 
-  const [position, setPosition] = useState()
+  const [position, setPosition] = useState(atomToastPosistions.topRight)
   const [autoClose, setAutoClose] = useState(true)
-  const [autoCloseTime, setAutoCloseTime] = useState()
+  const [autoCloseTime, setAutoCloseTime] = useState(
+    atomToastAutoCloseTimes.short
+  )
   const [crossToClose, setCrossToClose] = useState(true)
-  const [size, setSize] = useState()
-  const [margin, setMargin] = useState()
+  const [size, setSize] = useState(atomToastSizes.medium)
+  const [margin, setMargin] = useState(atomToastMargins.large)
   const [globalClose, setGlobalClose] = useState()
   const [effect, setEffect] = useState(true)
 

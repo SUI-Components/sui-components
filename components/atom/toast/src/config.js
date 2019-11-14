@@ -1,31 +1,33 @@
 export const BASE_CLASS = 'react-AtomToast'
 
 export const POSITIONS = {
-  BOTTOM: 'bottom',
-  BOTTOM_LEFT: 'bottom-left',
-  BOTTOM_RIGHT: 'bottom-right',
-  TOP: 'top',
-  TOP_LEFT: 'top-left',
-  TOP_RIGHT: 'top-right'
+  bottom: 'bottom',
+  bottomLeft: 'bottom-left',
+  bottomRight: 'bottom-right',
+  top: 'top',
+  topLeft: 'top-left',
+  topRight: 'top-right'
 }
 
 export const AUTO_CLOSE_TIMES = {
-  SHORT: 3000,
-  MEDIUM: 6000,
-  LONG: 9000
+  short: 3000,
+  medium: 6000,
+  long: 9000
 }
 
 export const SIZES = {
-  SMALL: 's',
-  MEDIUM: 'm',
-  LARGE: 'l'
+  small: 's',
+  medium: 'm',
+  large: 'l'
 }
 
 export const MARGINS = {
-  SMALL: 's',
-  MEDIUM: 'm',
-  LARGE: 'l'
+  small: 's',
+  medium: 'm',
+  large: 'l'
 }
 
-export const EFFECT_DELAY_CLOSE = 1000
-export const EFFECT_DELAY_OPEN = 1
+export const EFFECT_DELAY = {
+  close: 1000,
+  open: 1
+}

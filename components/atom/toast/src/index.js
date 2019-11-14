@@ -5,8 +5,7 @@ import cx from 'classnames'
 import {
   AUTO_CLOSE_TIMES,
   BASE_CLASS,
-  EFFECT_DELAY_CLOSE,
-  EFFECT_DELAY_OPEN,
+  EFFECT_DELAY,
   MARGINS,
   POSITIONS,
   SIZES
@@ -14,17 +13,17 @@ import {
 
 function AtomToast({
   autoClose = true,
-  autoCloseTime = AUTO_CLOSE_TIMES.MEDIUM,
+  autoCloseTime = AUTO_CLOSE_TIMES.medium,
   children,
   crossToClose = true,
   effect = true,
+  globalClose = false,
   iconClose = <IconClose />,
+  margin = MARGINS.medium,
   onClose = () => {},
-  position = POSITIONS.TOP_RIGHT,
+  position = POSITIONS.topRight,
   show: showFromProps = true,
-  size = SIZES.MEDIUM,
-  margin = MARGINS.MEDIUM,
-  globalClose = false
+  size = SIZES.medium
 }) {
   const [show, setShow] = useState(showFromProps)
   const [delay, setDelay] = useState(true)
@@ -69,7 +68,7 @@ function AtomToast({
     if (effect && show && delay) {
       delayTimeout.current = setTimeout(() => {
         setDelay(false)
-      }, EFFECT_DELAY_OPEN)
+      }, EFFECT_DELAY.open)
     }
 
     // close effect
@@ -77,7 +76,7 @@ function AtomToast({
       delayTimeout.current = setTimeout(() => {
         setDelay(false)
         onClose()
-      }, EFFECT_DELAY_CLOSE)
+      }, EFFECT_DELAY.close)
     }
 
     return () => clearTimeout(delayTimeout.current)
@@ -115,19 +114,30 @@ function AtomToast({
 AtomToast.displayName = 'AtomToast'
 
 AtomToast.propTypes = {
+  /** Enable/disable auto close */
   autoClose: PropTypes.bool,
+  /** Auto close times: 'short' (3000s), 'medium' (6000s), 'long' (9000s) */
   autoCloseTime: PropTypes.oneOf(Object.keys(AUTO_CLOSE_TIMES)),
+  /** Toast content */
   children: PropTypes.node.isRequired,
+  /** Enable/disable cross to close */
   crossToClose: PropTypes.bool,
+  /** Enable/disable toast transition */
   effect: PropTypes.bool,
+  /** Custom close icon  */
   iconClose: PropTypes.node,
+  /** On close callback */
   onClose: PropTypes.func,
   /** Positions: 'top-left', 'top', 'top-right', 'bottom-left', 'bottom', 'bottom-right' */
-  position: PropTypes.oneOf(Object.keys(POSITIONS)),
+  position: PropTypes.oneOf(Object.values(POSITIONS)),
+  /** Show/hide notification */
   show: PropTypes.bool,
+  /** Enable/disable global close */
   globalClose: PropTypes.bool,
-  size: PropTypes.oneOf(Object.keys(SIZES)),
-  margin: PropTypes.oneOf(Object.keys(MARGINS))
+  /** Sizes: 's', 'm', 'l' */
+  size: PropTypes.oneOf(Object.values(SIZES)),
+  /** Distance to the edge of the screen: 's', 'm', 'l'  */
+  margin: PropTypes.oneOf(Object.values(MARGINS))
 }
 
 export {

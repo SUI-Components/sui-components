@@ -4,10 +4,11 @@
 .react-AtomToast {
   background-color: $bgc-atom-toast;
   border-radius: $bdrs-atom-toast;
-  border: $b-atom-toast;
+  border: $bd-atom-toast;
   box-shadow: $bxsh-atom-toast;
   color: $c-atom-toast-text;
   font-size: $fz-atom-toast;
+  overflow: hidden;
   position: fixed;
   z-index: $z-notifications;
 

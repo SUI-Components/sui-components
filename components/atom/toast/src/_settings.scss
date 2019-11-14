@@ -1,4 +1,4 @@
-$b-atom-toast: 1px solid $c-gray !default;
+$bd-atom-toast: 1px solid $c-gray !default;
 $bdrs-atom-toast: $bdrs-m !default;
 $bgc-atom-toast: $c-white !default;
 $bxsh-atom-toast: none !default;
@@ -7,10 +7,10 @@ $c-atom-toast-text: $c-text-base !default;
 $fz-atom-toast: $fz-m !default;
 
 // size
-$w-atom-toast: 264px;
-$h-atom-toast-s: 48px;
-$h-atom-toast-m: 64px;
-$h-atom-toast-l: 96px;
+$w-atom-toast: 264px !default;
+$h-atom-toast-s: 48px !default;
+$h-atom-toast-m: 64px !default;
+$h-atom-toast-l: 96px !default;
 
 // effect
 $toast-effect-slide-top-in: top 0.5s ease-out !default;

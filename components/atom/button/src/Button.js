@@ -17,7 +17,7 @@ const Button = ({
   return link ? (
     <Link
       {...attrs}
-      href={href}
+      href={!disabled && href}
       target={target}
       rel={target === '_blank' ? 'noopener' : undefined}
     >

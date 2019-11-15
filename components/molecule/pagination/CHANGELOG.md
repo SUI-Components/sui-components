@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.1.0"></a>
+# 2.1.0 (2019-11-15)
+
+
+### Features
+
+* add pagination vars for icon color and transform ([a8ad052](https://github.com/SUI-Components/sui-components/commit/a8ad052))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2019-11-07)
 

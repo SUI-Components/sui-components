@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useRef, useCallback} from 'react'
 import PropTypes from 'prop-types'
-import IconClose from '@schibstedspain/sui-svgiconset/lib/Close'
 import cx from 'classnames'
 import {
   AUTO_CLOSE_TIMES,
@@ -15,10 +14,9 @@ function AtomToast({
   autoClose = true,
   autoCloseTime = AUTO_CLOSE_TIMES.medium,
   children,
-  crossToClose = true,
   effect = true,
   globalClose = false,
-  iconClose = <IconClose />,
+  iconClose,
   margin = MARGINS.medium,
   onClose = () => {},
   position = POSITIONS.topRight,
@@ -101,11 +99,9 @@ function AtomToast({
 
   return (
     <div ref={toastRef} className={wrapperClassName}>
-      {crossToClose && (
-        <div onClick={handleClose} className={`${BASE_CLASS}-icon`}>
-          {iconClose}
-        </div>
-      )}
+      <div onClick={handleClose} className={`${BASE_CLASS}-icon`}>
+        {iconClose}
+      </div>
       {children}
     </div>
   )
@@ -120,12 +116,10 @@ AtomToast.propTypes = {
   autoCloseTime: PropTypes.oneOf(Object.keys(AUTO_CLOSE_TIMES)),
   /** Toast content */
   children: PropTypes.node.isRequired,
-  /** Enable/disable cross to close */
-  crossToClose: PropTypes.bool,
   /** Enable/disable toast transition */
   effect: PropTypes.bool,
   /** Custom close icon  */
-  iconClose: PropTypes.node,
+  iconClose: PropTypes.node.isRequired,
   /** On close callback */
   onClose: PropTypes.func,
   /** Positions: 'top-left', 'top', 'top-right', 'bottom-left', 'bottom', 'bottom-right' */
@@ -141,7 +135,7 @@ AtomToast.propTypes = {
 }
 
 export {
-  POSITIONS as atomToastPosistions,
+  POSITIONS as atomToastPositions,
   AUTO_CLOSE_TIMES as atomToastAutoCloseTimes,
   SIZES as atomToastSizes,
   MARGINS as atomToastMargins

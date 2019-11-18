@@ -1,4 +1,4 @@
-export const BASE_CLASS = 'react-AtomToast'
+export const BASE_CLASS = 'sui-AtomToast'
 
 export const POSITIONS = {
   bottom: 'bottom',

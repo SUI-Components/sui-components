@@ -4,11 +4,11 @@ import React, {useState} from 'react'
 import Button from '@schibstedspain/sui-atom-button'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
-
+import IconClose from '@schibstedspain/sui-svgiconset/lib/Close'
 import {IconArrowDown} from './Icons'
 
 import AtomToast, {
-  atomToastPosistions,
+  atomToastPositions,
   atomToastAutoCloseTimes,
   atomToastSizes,
   atomToastMargins
@@ -19,12 +19,11 @@ import './index.scss'
 const Demo = () => {
   const [show, setShow] = useState(false)
 
-  const [position, setPosition] = useState(atomToastPosistions.topRight)
+  const [position, setPosition] = useState(atomToastPositions.topRight)
   const [autoClose, setAutoClose] = useState(true)
   const [autoCloseTime, setAutoCloseTime] = useState(
     atomToastAutoCloseTimes.short
   )
-  const [crossToClose, setCrossToClose] = useState(true)
   const [size, setSize] = useState(atomToastSizes.medium)
   const [margin, setMargin] = useState(atomToastMargins.large)
   const [globalClose, setGlobalClose] = useState()
@@ -46,8 +45,8 @@ const Demo = () => {
         placeholder="Select a position..."
         iconArrowDown={<IconArrowDown />}
       >
-        {Object.keys(atomToastPosistions).map(key => (
-          <MoleculeSelectOption key={key} value={atomToastPosistions[key]}>
+        {Object.keys(atomToastPositions).map(key => (
+          <MoleculeSelectOption key={key} value={atomToastPositions[key]}>
             {key}
           </MoleculeSelectOption>
         ))}
@@ -97,12 +96,6 @@ const Demo = () => {
         checked={autoClose}
         onChange={ev => setAutoClose(ev.target.checked)}
       />
-      <label className="DemoToast-label">Cross to close</label>
-      <input
-        type="checkbox"
-        checked={crossToClose}
-        onChange={ev => setCrossToClose(ev.target.checked)}
-      />
       <label className="DemoToast-label">Global close</label>
       <input
         type="checkbox"
@@ -123,8 +116,8 @@ const Demo = () => {
         <AtomToast
           autoClose={Boolean(autoClose)}
           autoCloseTime={autoCloseTime}
-          crossToClose={crossToClose}
           effect={effect}
+          iconClose={<IconClose />}
           position={position}
           onClose={() => setShow(false)}
           size={size}

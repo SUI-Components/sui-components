@@ -11,25 +11,25 @@ $ npm install @s-ui/react-atom-toast --save
 ## Usage
 
 ### Basic usage
+
 ```js
 import AtomToast, {
-  atomToastPosistions,
+  atomToastPositions,
   atomToastAutoCloseTimes,
   atomToastSizes,
   atomToastMargins
-} from '@s-ui/react-atom-toast'
+} from '@s-ui/react-atom-toast';
 
 return (
   <AtomToast
-    position={atomToastPosistions.topRight}
+    position={atomToastPositions.topRight}
     autoCloseTime={atomToastAutoCloseTimes.short}
     size={atomToastSizes.medium}
     margin={atomToastSizes.large}
   >
     <span>lorem ipsum</span>
   </AtomToast>
-)
+);
 ```
-
 
 > **Find full description and more examples in the [demo page](#).**

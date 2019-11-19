@@ -1,5 +1,4 @@
 @import '~@schibstedspain/sui-theme/lib/index';
-@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 
 @import '~@s-ui/react-molecule-button-group/lib/index';
 @import '~@schibstedspain/sui-atom-button/lib/index';
@@ -9,7 +8,12 @@ $trf-pagination-next-button-icon: none !default;
 $c-pagination-button-icon-path: inherit !default;
 
 .sui-MoleculePagination {
-  @include sui-list('inline');
+  @include reset-list;
+  display: flex;
+
+  &-item:not(:first-child) {
+    margin-left: $m-s;
+  }
 
   &-prevButtonIcon {
     display: flex;

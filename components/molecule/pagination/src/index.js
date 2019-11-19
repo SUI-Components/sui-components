@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import MoleculeButtonGroup from '@s-ui/react-molecule-button-group'
 import AtomButtom from '@schibstedspain/sui-atom-button'
 
 import * as pagination from './helpers/pagination'
@@ -19,7 +18,11 @@ const PageButton = ({onSelectPage, page, design, ...props}) => {
   const _onSelectPage = e => {
     onSelectPage(e, {page})
   }
-  return <AtomButtom onClick={_onSelectPage} design={design} {...props} />
+  return (
+    <li className={`${BASE_CLASS}-item`}>
+      <AtomButtom onClick={_onSelectPage} design={design} {...props} />
+    </li>
+  )
 }
 
 PageButton.propTypes = {
@@ -73,9 +76,9 @@ const MoleculePagination = ({
   const isHideNext = hideDisabled && !nextPage
 
   return (
-    <div className={BASE_CLASS}>
-      <MoleculeButtonGroup>
-        {!isHidePrev && (
+    <ul className={BASE_CLASS}>
+      {!isHidePrev && (
+        <li className={`${BASE_CLASS}-item`}>
           <AtomButtom
             onClick={handleClickPrev}
             design={prevButtonDesign}
@@ -88,32 +91,34 @@ const MoleculePagination = ({
             )}
             {prevButtonText}
           </AtomButtom>
-        )}
-        {compressed ? (
+        </li>
+      )}
+      {compressed ? (
+        <PageButton
+          page={page}
+          design={selectedPageButtonDesign}
+          onSelectPage={onSelectPage}
+        >
+          {page}
+        </PageButton>
+      ) : (
+        range.map(pageRange => (
           <PageButton
-            page={page}
-            design={selectedPageButtonDesign}
+            key={pageRange}
+            page={pageRange}
+            design={
+              pageRange === page
+                ? selectedPageButtonDesign
+                : nonSelectedPageButtonDesign
+            }
             onSelectPage={onSelectPage}
           >
-            {page}
+            {pageRange}
           </PageButton>
-        ) : (
-          range.map(pageRange => (
-            <PageButton
-              key={pageRange}
-              page={pageRange}
-              design={
-                pageRange === page
-                  ? selectedPageButtonDesign
-                  : nonSelectedPageButtonDesign
-              }
-              onSelectPage={onSelectPage}
-            >
-              {pageRange}
-            </PageButton>
-          ))
-        )}
-        {!isHideNext && (
+        ))
+      )}
+      {!isHideNext && (
+        <li className={`${BASE_CLASS}-item`}>
           <AtomButtom
             onClick={handleClickNext}
             design={nextButtonDesign}
@@ -126,9 +131,9 @@ const MoleculePagination = ({
               </span>
             )}
           </AtomButtom>
-        )}
-      </MoleculeButtonGroup>
-    </div>
+        </li>
+      )}
+    </ul>
   )
 }
 

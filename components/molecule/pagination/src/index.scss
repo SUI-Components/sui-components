@@ -7,8 +7,6 @@
 $trf-pagination-prev-button-icon: none !default;
 $trf-pagination-next-button-icon: none !default;
 $c-pagination-button-icon-path: inherit !default;
-$ml-pagination-item: 0 !default;
-$brds-pagination-item: $bdrs-none !default;
 
 .sui-MoleculePagination {
   @include sui-list('inline');

@@ -5,7 +5,6 @@ import {
   AUTO_CLOSE_TIMES,
   BASE_CLASS,
   EFFECT_DELAY,
-  MARGINS,
   POSITIONS,
   SIZES
 } from './config'
@@ -17,7 +16,6 @@ function AtomToast({
   effect = true,
   globalClose = false,
   iconClose,
-  margin = MARGINS.medium,
   onClose = () => {},
   position = POSITIONS.topRight,
   show: showFromProps = true,
@@ -34,7 +32,6 @@ function AtomToast({
     BASE_CLASS,
     `${BASE_CLASS}-position--${position}`,
     `${BASE_CLASS}-size--${size}`,
-    `${BASE_CLASS}-margin--${margin}`,
     {
       [`${BASE_CLASS}-effect--${position}`]: effect,
       [`${BASE_CLASS}-effect--hide`]: effect && delay
@@ -129,15 +126,12 @@ AtomToast.propTypes = {
   /** Enable/disable global close */
   globalClose: PropTypes.bool,
   /** Sizes: 's', 'm', 'l' */
-  size: PropTypes.oneOf(Object.values(SIZES)),
-  /** Distance to the edge of the screen: 's', 'm', 'l'  */
-  margin: PropTypes.oneOf(Object.values(MARGINS))
+  size: PropTypes.oneOf(Object.values(SIZES))
 }
 
 export {
   POSITIONS as atomToastPositions,
   AUTO_CLOSE_TIMES as atomToastAutoCloseTimes,
-  SIZES as atomToastSizes,
-  MARGINS as atomToastMargins
+  SIZES as atomToastSizes
 }
 export default AtomToast

@@ -8,6 +8,7 @@
   box-shadow: $bxsh-atom-toast;
   color: $c-atom-toast-text;
   font-size: $fz-atom-toast;
+  margin: $m-m;
   overflow: hidden;
   position: fixed;
   z-index: $z-notifications;
@@ -22,21 +23,6 @@
       fill: $c-atom-toast-icon !important;
       height: $sz-icon-s;
       width: $sz-icon-s;
-    }
-  }
-
-  // Margin
-  &-margin {
-    &--s {
-      margin: $m-s;
-    }
-
-    &--m {
-      margin: $m-m;
-    }
-
-    &--l {
-      margin: $m-l;
     }
   }
 

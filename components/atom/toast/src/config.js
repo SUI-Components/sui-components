@@ -21,12 +21,6 @@ export const SIZES = {
   large: 'l'
 }
 
-export const MARGINS = {
-  small: 's',
-  medium: 'm',
-  large: 'l'
-}
-
 export const EFFECT_DELAY = {
   close: 1000,
   open: 1

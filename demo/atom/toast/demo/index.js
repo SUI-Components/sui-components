@@ -10,8 +10,7 @@ import {IconArrowDown} from './Icons'
 import AtomToast, {
   atomToastPositions,
   atomToastAutoCloseTimes,
-  atomToastSizes,
-  atomToastMargins
+  atomToastSizes
 } from '../../../../components/atom/toast/src'
 
 import './index.scss'
@@ -25,7 +24,6 @@ const Demo = () => {
     atomToastAutoCloseTimes.short
   )
   const [size, setSize] = useState(atomToastSizes.medium)
-  const [margin, setMargin] = useState(atomToastMargins.large)
   const [globalClose, setGlobalClose] = useState()
   const [effect, setEffect] = useState(true)
 
@@ -77,19 +75,6 @@ const Demo = () => {
           </MoleculeSelectOption>
         ))}
       </MoleculeSelect>
-      <label className="DemoToast-label">Margin</label>
-      <MoleculeSelect
-        value={margin}
-        onChange={(ev, {value}) => setMargin(value)}
-        placeholder="Select a margin..."
-        iconArrowDown={<IconArrowDown />}
-      >
-        {Object.keys(atomToastMargins).map(key => (
-          <MoleculeSelectOption key={key} value={atomToastMargins[key]}>
-            {key}
-          </MoleculeSelectOption>
-        ))}
-      </MoleculeSelect>
       <label className="DemoToast-label">Auto close</label>
       <input
         type="checkbox"
@@ -121,7 +106,6 @@ const Demo = () => {
           position={position}
           onClose={() => setShow(false)}
           size={size}
-          margin={margin}
           globalClose={globalClose}
         >
           {renderContent()}

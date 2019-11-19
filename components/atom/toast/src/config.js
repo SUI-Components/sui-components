@@ -15,12 +15,6 @@ export const AUTO_CLOSE_TIMES = {
   long: 9000
 }
 
-export const SIZES = {
-  small: 's',
-  medium: 'm',
-  large: 'l'
-}
-
 export const EFFECT_DELAY = {
   close: 1000,
   open: 1

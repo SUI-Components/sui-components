@@ -1,13 +1,7 @@
 import React, {useState, useEffect, useRef, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import {
-  AUTO_CLOSE_TIMES,
-  BASE_CLASS,
-  EFFECT_DELAY,
-  POSITIONS,
-  SIZES
-} from './config'
+import {AUTO_CLOSE_TIMES, BASE_CLASS, EFFECT_DELAY, POSITIONS} from './config'
 
 function AtomToast({
   autoClose = true,
@@ -18,8 +12,7 @@ function AtomToast({
   iconClose,
   onClose = () => {},
   position = POSITIONS.topRight,
-  show: showFromProps = true,
-  size = SIZES.medium
+  show: showFromProps = true
 }) {
   const [show, setShow] = useState(showFromProps)
   const [delay, setDelay] = useState(true)
@@ -31,7 +24,6 @@ function AtomToast({
   const wrapperClassName = cx(
     BASE_CLASS,
     `${BASE_CLASS}-position--${position}`,
-    `${BASE_CLASS}-size--${size}`,
     {
       [`${BASE_CLASS}-effect--${position}`]: effect,
       [`${BASE_CLASS}-effect--hide`]: effect && delay
@@ -124,14 +116,11 @@ AtomToast.propTypes = {
   /** Show/hide notification */
   show: PropTypes.bool,
   /** Enable/disable global close */
-  globalClose: PropTypes.bool,
-  /** Sizes: 's', 'm', 'l' */
-  size: PropTypes.oneOf(Object.values(SIZES))
+  globalClose: PropTypes.bool
 }
 
 export {
   POSITIONS as atomToastPositions,
-  AUTO_CLOSE_TIMES as atomToastAutoCloseTimes,
-  SIZES as atomToastSizes
+  AUTO_CLOSE_TIMES as atomToastAutoCloseTimes
 }
 export default AtomToast

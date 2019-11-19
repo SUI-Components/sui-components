@@ -9,8 +9,7 @@ import {IconArrowDown} from './Icons'
 
 import AtomToast, {
   atomToastPositions,
-  atomToastAutoCloseTimes,
-  atomToastSizes
+  atomToastAutoCloseTimes
 } from '../../../../components/atom/toast/src'
 
 import './index.scss'
@@ -23,13 +22,12 @@ const Demo = () => {
   const [autoCloseTime, setAutoCloseTime] = useState(
     atomToastAutoCloseTimes.short
   )
-  const [size, setSize] = useState(atomToastSizes.medium)
   const [globalClose, setGlobalClose] = useState()
   const [effect, setEffect] = useState(true)
 
   const renderContent = () => (
     <div className="DemoToast-content">
-      <span>Morty! I'm a pickle! 🥒</span>
+      <span>Morty! I'm a pickle!!!!!!!!!!!!!!! 🥒</span>
     </div>
   )
 
@@ -58,19 +56,6 @@ const Demo = () => {
       >
         {Object.keys(atomToastAutoCloseTimes).map(key => (
           <MoleculeSelectOption key={key} value={atomToastAutoCloseTimes[key]}>
-            {key}
-          </MoleculeSelectOption>
-        ))}
-      </MoleculeSelect>
-      <label className="DemoToast-label">Size</label>
-      <MoleculeSelect
-        value={size}
-        onChange={(ev, {value}) => setSize(value)}
-        placeholder="Select a size..."
-        iconArrowDown={<IconArrowDown />}
-      >
-        {Object.keys(atomToastSizes).map(key => (
-          <MoleculeSelectOption key={key} value={atomToastSizes[key]}>
             {key}
           </MoleculeSelectOption>
         ))}
@@ -105,7 +90,6 @@ const Demo = () => {
           iconClose={<IconClose />}
           position={position}
           onClose={() => setShow(false)}
-          size={size}
           globalClose={globalClose}
         >
           {renderContent()}

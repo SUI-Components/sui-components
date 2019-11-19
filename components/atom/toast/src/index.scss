@@ -57,24 +57,6 @@
     }
   }
 
-  // Size
-  &-size {
-    &--s {
-      height: $h-atom-toast-s;
-      width: $w-atom-toast;
-    }
-
-    &--m {
-      height: $h-atom-toast-m;
-      width: $w-atom-toast;
-    }
-
-    &--l {
-      height: $h-atom-toast-l;
-      width: $w-atom-toast;
-    }
-  }
-
   // Effect
   &-effect {
     &--top {

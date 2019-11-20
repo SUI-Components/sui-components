@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2019-11-20)
+
+
+### Bug Fixes
+
+* fix z-index scope ([6658969](https://github.com/SUI-Components/sui-components/commit/6658969))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2019-09-02)
 

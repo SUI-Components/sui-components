@@ -8,6 +8,13 @@ $trf-pagination-next-button-icon: none !default;
 $c-pagination-button-icon-path: inherit !default;
 
 .sui-MoleculePagination {
+  @include reset-list;
+  display: flex;
+
+  &-item:not(:first-child) {
+    margin-left: $m-s;
+  }
+
   &-prevButtonIcon {
     display: flex;
     margin-right: $m-m;

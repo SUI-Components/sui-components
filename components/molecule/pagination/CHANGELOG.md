@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.2.0"></a>
+# 2.2.0 (2019-11-20)
+
+
+### Features
+
+* delete settings-compat-v7 dependency ([3811589](https://github.com/SUI-Components/sui-components/commit/3811589))
+* delete unused vars ([8f1749d](https://github.com/SUI-Components/sui-components/commit/8f1749d))
+* fix misspelling ([ae8473f](https://github.com/SUI-Components/sui-components/commit/ae8473f))
+* pagination no uses buttongroup ([5c1666d](https://github.com/SUI-Components/sui-components/commit/5c1666d))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2019-11-15)
 

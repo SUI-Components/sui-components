@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import AtomButtom from '@schibstedspain/sui-atom-button'
+import AtomButton from '@schibstedspain/sui-atom-button'
 
 import * as pagination from './helpers/pagination'
 import {
@@ -20,7 +20,7 @@ const PageButton = ({onSelectPage, page, design, ...props}) => {
   }
   return (
     <li className={`${BASE_CLASS}-item`}>
-      <AtomButtom onClick={_onSelectPage} design={design} {...props} />
+      <AtomButton onClick={_onSelectPage} design={design} {...props} />
     </li>
   )
 }
@@ -79,7 +79,7 @@ const MoleculePagination = ({
     <ul className={BASE_CLASS}>
       {!isHidePrev && (
         <li className={`${BASE_CLASS}-item`}>
-          <AtomButtom
+          <AtomButton
             onClick={handleClickPrev}
             design={prevButtonDesign}
             disabled={!prevPage}
@@ -90,7 +90,7 @@ const MoleculePagination = ({
               </span>
             )}
             {prevButtonText}
-          </AtomButtom>
+          </AtomButton>
         </li>
       )}
       {compressed ? (
@@ -119,7 +119,7 @@ const MoleculePagination = ({
       )}
       {!isHideNext && (
         <li className={`${BASE_CLASS}-item`}>
-          <AtomButtom
+          <AtomButton
             onClick={handleClickNext}
             design={nextButtonDesign}
             disabled={!nextPage}
@@ -130,7 +130,7 @@ const MoleculePagination = ({
                 <NextButtonIcon />
               </span>
             )}
-          </AtomButtom>
+          </AtomButton>
         </li>
       )}
     </ul>

@@ -18,7 +18,9 @@
   }
 
   .sui-MoleculePagination {
+    @include reset-list;
     background: white;
+    display: flex;
     padding: 10px;
   }
 

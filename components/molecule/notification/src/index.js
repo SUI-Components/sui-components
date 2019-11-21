@@ -66,10 +66,9 @@ const MoleculeNotification = ({
     setShow(showFromProps)
   }, [showFromProps])
 
-  const getAutoCloseTime = useCallback(() => {
-    const time = AUTO_CLOSE_TIME[autoCloseTiming]
-    return time
-  }, [autoCloseTiming])
+  const autoCloseTimeInSeconds = AUTO_CLOSE_TIME[autoCloseTiming]
+    ? AUTO_CLOSE_TIME[autoCloseTiming]
+    : null
 
   const removeDelay = show => {
     const delay = show ? 1 : TRANSITION_DELAY
@@ -78,49 +77,37 @@ const MoleculeNotification = ({
     }, delay)
   }
 
+  const handleClose = useCallback(() => {
+    setShow(false)
+    onClose()
+  }, [onClose])
+
   const triggerAutoClose = useCallback(
     time => {
       autoCloseTimeout.current = setTimeout(() => {
-        setShow(false)
+        handleClose()
       }, time)
     },
-    [autoCloseTimeout]
+    [handleClose]
   )
 
-  const handleClickClose = e => {
-    setShow(false)
-  }
-
   useEffect(() => {
-    const autoCloseTimeInSeconds = getAutoCloseTime()
-
-    if (show && autoCloseTimeInSeconds) triggerAutoClose(autoCloseTimeInSeconds)
+    if (show) {
+      if (autoCloseTimeInSeconds) {
+        triggerAutoClose(autoCloseTimeInSeconds)
+      }
+    }
 
     if (effect) {
       setDelay(true)
       removeDelay(show)
     }
 
-    if (show) {
-      if (autoCloseTimeInSeconds) triggerAutoClose(autoCloseTimeInSeconds)
-    } else {
-      clearTimeout(autoCloseTimeout.current)
-      onClose()
-    }
-
     return () => {
       clearTimeout(autoCloseTimeout.current)
       clearTimeout(transitionTimeout.current)
     }
-  }, [
-    autoCloseTimeout,
-    transitionTimeout,
-    show,
-    triggerAutoClose,
-    effect,
-    onClose,
-    getAutoCloseTime
-  ])
+  }, [show, triggerAutoClose, effect, autoCloseTimeInSeconds])
 
   const getButtons = () =>
     buttons
@@ -154,7 +141,7 @@ const MoleculeNotification = ({
         </div>
         <div className={innerWrapperClassName}>{children || text}</div>
         {showCloseButton && (
-          <div className={`${CLASS}-iconClose`} onClick={handleClickClose}>
+          <div className={`${CLASS}-iconClose`} onClick={handleClose}>
             <span className={`${CLASS}-icon`}>
               <IconClose />
             </span>

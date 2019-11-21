@@ -47,7 +47,7 @@ const MoleculeSelect = props => {
   } = props
   const refMoleculeSelect = useRef(refMoleculeSelectFromProps)
   const refsMoleculeSelectOptions = useRef([])
-  const refOptionsData = useRef(getOptionData(children))
+  const optionsData = getOptionData(children)
 
   const [focus, setFocus] = useState(false)
 
@@ -69,10 +69,6 @@ const MoleculeSelect = props => {
     },
     getErrorStateClass(errorState)
   )
-
-  useEffect(() => {
-    refOptionsData.current = getOptionData(children)
-  }, [children])
 
   const closeList = ev => {
     const {current: domMoleculeSelect} = refMoleculeSelect
@@ -137,7 +133,6 @@ const MoleculeSelect = props => {
   }
 
   const {multiselection, ...propsFromProps} = props
-  const {current: optionsData} = refOptionsData
 
   return (
     <div

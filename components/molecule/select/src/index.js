@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -47,8 +47,8 @@ const MoleculeSelect = props => {
   } = props
   const refMoleculeSelect = useRef(refMoleculeSelectFromProps)
   const refsMoleculeSelectOptions = useRef([])
-  const optionsData = getOptionData(children)
 
+  const [optionsData, setOptionsData] = useState(getOptionData(children))
   const [focus, setFocus] = useState(false)
 
   const extendedChildren = React.Children.toArray(children)
@@ -69,6 +69,10 @@ const MoleculeSelect = props => {
     },
     getErrorStateClass(errorState)
   )
+
+  useEffect(() => {
+    setOptionsData(getOptionData(children))
+  }, [children])
 
   const closeList = ev => {
     const {current: domMoleculeSelect} = refMoleculeSelect

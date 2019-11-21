@@ -10,6 +10,7 @@ import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 import {IconCloseTag, IconArrowDown} from './Icons'
 
 import ComboCountries from './components/ComboCountries'
+import MoleculeSelectUseEffect from './components/MoleculeSelectUseEffect'
 
 import {countries as countriesList} from './data'
 import countriesData from './data/countries.json'
@@ -50,6 +51,11 @@ const Demo = () => (
           </MoleculeSelectOption>
         ))}
       </MoleculeSelectWithState>
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With useEffect and preselected Value</h3>
+      <MoleculeSelectUseEffect value="EFTA" />
     </div>
 
     <div className={CLASS_DEMO_SECTION}>

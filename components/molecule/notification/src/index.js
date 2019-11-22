@@ -66,9 +66,8 @@ const MoleculeNotification = ({
     setShow(showFromProps)
   }, [showFromProps])
 
-  const autoCloseTimeInSeconds = AUTO_CLOSE_TIME[autoCloseTiming]
-    ? AUTO_CLOSE_TIME[autoCloseTiming]
-    : null
+  const autoCloseTimeInSeconds =
+    AUTO_CLOSE_TIME[autoCloseTiming] || AUTO_CLOSE_TIME.manual
 
   const removeDelay = show => {
     const delay = show ? 1 : TRANSITION_DELAY

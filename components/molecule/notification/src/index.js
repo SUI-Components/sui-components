@@ -84,9 +84,7 @@ const MoleculeNotification = ({
 
   const triggerAutoClose = useCallback(
     time => {
-      autoCloseTimeout.current = setTimeout(() => {
-        handleClose()
-      }, time)
+      autoCloseTimeout.current = setTimeout(handleClose, time)
     },
     [handleClose]
   )

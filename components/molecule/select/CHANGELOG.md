@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.17.0"></a>
+# 1.17.0 (2019-11-22)
+
+
+### Bug Fixes
+
+* remove useEffect when populating optionsData ([80150a7](https://github.com/SUI-Components/sui-components/commit/80150a7))
+* set options data only when children prop changes ([25ec687](https://github.com/SUI-Components/sui-components/commit/25ec687))
+
+
+
 <a name="1.16.0"></a>
 # 1.16.0 (2019-11-13)
 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -47,8 +47,8 @@ const MoleculeSelect = props => {
   } = props
   const refMoleculeSelect = useRef(refMoleculeSelectFromProps)
   const refsMoleculeSelectOptions = useRef([])
-  const refOptionsData = useRef(getOptionData(children))
 
+  const [optionsData, setOptionsData] = useState(getOptionData(children))
   const [focus, setFocus] = useState(false)
 
   const extendedChildren = React.Children.toArray(children)
@@ -71,7 +71,7 @@ const MoleculeSelect = props => {
   )
 
   useEffect(() => {
-    refOptionsData.current = getOptionData(children)
+    setOptionsData(getOptionData(children))
   }, [children])
 
   const closeList = ev => {
@@ -137,7 +137,6 @@ const MoleculeSelect = props => {
   }
 
   const {multiselection, ...propsFromProps} = props
-  const {current: optionsData} = refOptionsData
 
   return (
     <div

@@ -92,11 +92,7 @@ const MoleculeNotification = ({
   )
 
   useEffect(() => {
-    if (show) {
-      if (autoCloseTimeInSeconds) {
-        triggerAutoClose(autoCloseTimeInSeconds)
-      }
-    }
+    if (show && autoCloseTimeInSeconds) triggerAutoClose(autoCloseTimeInSeconds)
 
     if (effect) {
       setDelay(true)

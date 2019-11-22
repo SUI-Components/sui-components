@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2019-11-22)
+
+
+### Bug Fixes
+
+* remove not needed axios dependency causing vulnerability warning ([35d8cd0](https://github.com/SUI-Components/sui-components/commit/35d8cd0))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2019-11-05)
 

@@ -2,16 +2,20 @@
 @import './settings';
 
 .sui-AtomToast {
+  $self: &;
   background-color: $bgc-atom-toast;
   border-radius: $bdrs-atom-toast;
   border: $bd-atom-toast;
   box-shadow: $bxsh-atom-toast;
   color: $c-atom-toast-text;
   font-size: $fz-atom-toast;
-  margin: $m-m;
   overflow: hidden;
-  position: fixed;
-  z-index: $z-notifications;
+
+  &-container {
+    margin: $m-m;
+    position: fixed;
+    z-index: $z-notifications;
+  }
 
   &-icon {
     cursor: pointer;
@@ -43,7 +47,11 @@
     &--bottom,
     &--top {
       left: 50%;
-      margin-left: calc(-#{$w-atom-toast} / 2);
+
+      #{$self} {
+        left: -50%;
+        position: relative;
+      }
     }
 
     &--bottom-right,
@@ -84,7 +92,7 @@
 
     &--top-right#{&}--hide,
     &--bottom-right#{&}--hide {
-      right: calc(-#{$w-atom-toast} - #{$m-l});
+      right: -100vh;
       transition: $toast-effect-slide-right-out;
     }
 
@@ -95,7 +103,7 @@
 
     &--top-left#{&}--hide,
     &--bottom-left#{&}--hide {
-      left: calc(-#{$w-atom-toast} - #{$m-l});
+      left: -100vh;
       transition: $toast-effect-slide-left-out;
     }
   }

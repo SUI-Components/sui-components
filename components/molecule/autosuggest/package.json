@@ -14,8 +14,7 @@
     "@s-ui/js": "2",
     "@s-ui/react-atom-input": "3",
     "@s-ui/react-molecule-dropdown-list": "1",
-    "@s-ui/react-molecule-input-tags": "2",
-    "axios": "0.18.0"
+    "@s-ui/react-molecule-input-tags": "2"
   },
   "keywords": [],
   "author": "",

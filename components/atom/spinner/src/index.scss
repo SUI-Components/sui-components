@@ -27,8 +27,13 @@ $z-atom-spinner: 1 !default;
   }
 
   &--fullPage {
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+
     &::before {
       @extend %spinner-layer;
+      height: 100vh;
       position: fixed;
     }
 

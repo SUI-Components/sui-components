@@ -15,17 +15,13 @@ $ npm install @s-ui/react-atom-toast --save
 ```js
 import AtomToast, {
   atomToastPositions,
-  atomToastAutoCloseTimes,
-  atomToastSizes,
-  atomToastMargins
+  atomToastAutoCloseTimes
 } from '@s-ui/react-atom-toast';
 
 return (
   <AtomToast
     position={atomToastPositions.topRight}
     autoCloseTime={atomToastAutoCloseTimes.short}
-    size={atomToastSizes.medium}
-    margin={atomToastSizes.large}
   >
     <span>lorem ipsum</span>
   </AtomToast>

@@ -21,8 +21,8 @@ function AtomToast({
   const delayTimeout = useRef()
   const toastRef = useRef()
 
-  const wrapperClassName = cx(
-    BASE_CLASS,
+  const containerClassName = cx(
+    `${BASE_CLASS}-container`,
     `${BASE_CLASS}-position--${position}`,
     {
       [`${BASE_CLASS}-effect--${position}`]: effect,
@@ -87,11 +87,13 @@ function AtomToast({
   if (!show && !delay) return null
 
   return (
-    <div ref={toastRef} className={wrapperClassName}>
-      <div onClick={handleClose} className={`${BASE_CLASS}-icon`}>
-        {iconClose}
+    <div className={containerClassName}>
+      <div className={BASE_CLASS} ref={toastRef}>
+        <div onClick={handleClose} className={`${BASE_CLASS}-icon`}>
+          {iconClose}
+        </div>
+        {children}
       </div>
-      {children}
     </div>
   )
 }

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.2.0"></a>
+# 1.2.0 (2019-11-25)
+
+
+### Bug Fixes
+
+* fix readme ([c729122](https://github.com/SUI-Components/sui-components/commit/c729122))
+* remove size vars ([7894927](https://github.com/SUI-Components/sui-components/commit/7894927))
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2019-11-20)
 

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2019-11-26)
+
+
+### Features
+
+* add variable sass ([4e2efa5](https://github.com/SUI-Components/sui-components/commit/4e2efa5))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2019-11-25)
 

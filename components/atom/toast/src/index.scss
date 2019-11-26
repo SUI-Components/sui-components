@@ -12,7 +12,7 @@
   overflow: hidden;
 
   &-container {
-    margin: $m-m;
+    margin: $m-atom-toast;
     position: fixed;
     z-index: $z-notifications;
   }

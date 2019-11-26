@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.20.0"></a>
+# 1.20.0 (2019-11-26)
+
+
+### Bug Fixes
+
+* fix render if children is not text ([0cbc5e8](https://github.com/SUI-Components/sui-components/commit/0cbc5e8))
+
+
+
 <a name="1.19.0"></a>
 # 1.19.0 (2019-11-12)
 

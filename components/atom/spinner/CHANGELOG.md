@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2019-11-27)
+
+
+### Bug Fixes
+
+* rollback to previous state ([0b1cb39](https://github.com/SUI-Components/sui-components/commit/0b1cb39))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2019-11-25)
 

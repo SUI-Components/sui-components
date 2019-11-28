@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.13.0"></a>
+# 1.13.0 (2019-11-22)
+
+
+### Bug Fixes
+
+* fix execution of onClose when show is false ([76584a6](https://github.com/SUI-Components/sui-components/commit/76584a6))
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2019-10-11)
 

@@ -21,8 +21,8 @@ const AtomCheckbox = ({
   id,
   name,
   disabled,
-  checked,
-  onChange: onChangeFromProps,
+  checked = false,
+  onChange: onChangeFromProps = () => {},
   errorState,
   ...props
 }) => {
@@ -50,10 +50,6 @@ const AtomCheckbox = ({
 }
 
 AtomCheckbox.displayName = 'AtomCheckbox'
-
-AtomCheckbox.defaultProps = {
-  checked: false
-}
 
 AtomCheckbox.propTypes = {
   /* The DOM id global attribute. */

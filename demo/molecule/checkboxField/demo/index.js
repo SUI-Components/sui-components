@@ -51,6 +51,15 @@ const Demo = () => {
             onChange={(e, {name, value}) => console.log({[name]: value})}
           />
         </li>
+        <li style={styleListItem}>
+          <h2>With styling</h2>
+          <MoleculeCheckboxField
+            id="styled-help-text"
+            label="Description"
+            onChange={(e, {name, value}) => console.log({[name]: value})}
+            styled
+          />
+        </li>
       </ul>
     </div>
   )

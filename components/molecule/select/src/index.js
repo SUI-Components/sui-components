@@ -96,11 +96,10 @@ const MoleculeSelect = props => {
 
   const handleKeyDown = ev => {
     ev.persist()
-
+    const isEnabledKey = ENABLED_KEYS.includes(ev.key)
     const options = refsMoleculeSelectOptions.current.map(getTarget)
     const domSourceEvent = ev.target
     const domMoleculeSelect = refMoleculeSelect.current
-    const isEnabledKey = ENABLED_KEYS.includes(ev.key)
 
     if (!isOpen && isEnabledKey) {
       domSourceEvent === domMoleculeSelect && handleToggle(ev)

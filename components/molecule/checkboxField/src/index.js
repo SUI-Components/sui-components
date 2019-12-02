@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 import MoleculeField from '@s-ui/react-molecule-field'
 import AtomCheckbox, {withCheckedValue} from '@s-ui/react-atom-checkbox'
@@ -18,11 +19,15 @@ const MoleculeCheckboxField = ({
   errorText,
   helpText,
   onChange,
+  styled,
   ...props
 }) => {
+  const className = cx(BASE_CLASS, {[`${BASE_CLASS}--styled`]: styled})
+
   const errorState = getErrorState(successText, errorText)
+
   return (
-    <div className={BASE_CLASS}>
+    <div className={className}>
       <MoleculeField
         name={id}
         label={label}
@@ -61,7 +66,10 @@ MoleculeCheckboxField.propTypes = {
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
   /** Boolean to decide if elements should be set inline */
-  inline: PropTypes.bool
+  inline: PropTypes.bool,
+
+  /* Style the checkbox component instead of use the default navigation styles */
+  styled: PropTypes.element
 }
 
 export default withCheckedValue(MoleculeCheckboxField)

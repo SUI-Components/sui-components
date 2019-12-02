@@ -1,12 +1,53 @@
 @import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/spacing';
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/color';
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/box-style';
 @import '~@s-ui/react-molecule-field/lib/index';
 @import '~@s-ui/react-atom-checkbox/lib/index';
+
+$bgc-atom-checkbox-styled: $c-white !default;
+$bgc-checked-atom-checkbox-styled: $c-primary !default;
+$c-atom-checkbox-styled: str-slice(#{$c-white}, 2);
+$bgi-atom-checkbox-styled: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23#{$c-atom-checkbox-styled}" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"></path></svg>') !default;
+$br-atom-checkbox-styled: 1px solid $c-primary !default;
+$h-atom-checkbox-styled: 18px !default;
+$p-atom-checkbox-styled: $p-s 0 $p-s $p-xl !default;
+$w-atom-checkbox-styled: 18px !default;
 
 .sui-MoleculeCheckboxField {
   input[type='checkbox'] {
     margin: 0;
   }
+
   label {
     cursor: pointer;
+  }
+
+  &--styled {
+    .sui-MoleculeField-labelContainer {
+      .sui-AtomCheckbox {
+        display: none;
+
+        & + .sui-AtomLabel {
+          left: 0;
+          padding: $p-atom-checkbox-styled;
+
+          &:before {
+            background-color: $bgc-atom-checkbox-styled;
+            border: $br-atom-checkbox-styled;
+            content: '';
+            height: $h-atom-checkbox-styled;
+            left: 0;
+            position: absolute;
+            width: $w-atom-checkbox-styled;
+          }
+        }
+
+        &:checked + .sui-AtomLabel:before {
+          background-color: $bgc-checked-atom-checkbox-styled;
+          background-image: $bgi-atom-checkbox-styled;
+        }
+      }
+    }
   }
 }

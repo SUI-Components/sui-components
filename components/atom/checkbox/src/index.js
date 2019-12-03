@@ -65,7 +65,7 @@ AtomCheckbox.propTypes = {
   checked: PropTypes.bool,
 
   /* onChange callback */
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
 
   /* Will set a red/green border if set to true/false */
   errorState: PropTypes.bool

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.18.0"></a>
+# 1.18.0 (2019-12-03)
+
+
+### Bug Fixes
+
+* move isEnabledKeys const ([af2f4f5](https://github.com/SUI-Components/sui-components/commit/af2f4f5)), closes [#860](https://github.com/SUI-Components/sui-components/issues/860)
+* prevent focus when dropdown list is being closed ([014c7c2](https://github.com/SUI-Components/sui-components/commit/014c7c2))
+
+
+
 <a name="1.17.0"></a>
 # 1.17.0 (2019-11-22)
 

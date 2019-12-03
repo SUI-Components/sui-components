@@ -19,7 +19,7 @@ const MoleculeCheckboxField = ({
   errorText,
   helpText,
   onChange,
-  styled,
+  styled = false,
   ...props
 }) => {
   const className = cx(BASE_CLASS, {[`${BASE_CLASS}--styled`]: styled})
@@ -69,7 +69,7 @@ MoleculeCheckboxField.propTypes = {
   inline: PropTypes.bool,
 
   /* Style the checkbox component instead of use the default navigation styles */
-  styled: PropTypes.element
+  styled: PropTypes.bool
 }
 
 export default withCheckedValue(MoleculeCheckboxField)

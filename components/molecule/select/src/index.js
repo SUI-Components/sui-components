@@ -20,6 +20,8 @@ const ERROR_STATES = {
   SUCCESS: 'success'
 }
 
+const ENABLED_KEYS = ['Enter', 'ArrowDown', 'ArrowUp']
+
 const getErrorStateClass = errorState => {
   if (errorState) return `${BASE_CLASS}--${ERROR_STATES.ERROR}`
   if (errorState === false) return `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
@@ -75,9 +77,7 @@ const MoleculeSelect = props => {
   }, [children])
 
   const closeList = ev => {
-    const {current: domMoleculeSelect} = refMoleculeSelect
     onToggle(ev, {isOpen: false})
-    domMoleculeSelect.focus()
     ev.preventDefault()
     ev.stopPropagation()
   }
@@ -96,15 +96,13 @@ const MoleculeSelect = props => {
 
   const handleKeyDown = ev => {
     ev.persist()
-
+    const isEnabledKey = ENABLED_KEYS.includes(ev.key)
     const options = refsMoleculeSelectOptions.current.map(getTarget)
     const domSourceEvent = ev.target
     const domMoleculeSelect = refMoleculeSelect.current
-    if (!isOpen) {
-      if (['Enter', 'ArrowDown', 'ArrowUp'].includes(ev.key)) {
-        if (domSourceEvent === domMoleculeSelect) handleToggle(ev)
-        else closeList(ev)
-      }
+
+    if (!isOpen && isEnabledKey) {
+      domSourceEvent === domMoleculeSelect && handleToggle(ev)
     } else {
       const currentElementFocused = getCurrentElementFocused()
       const isSomeOptionFocused = [...options].includes(currentElementFocused)

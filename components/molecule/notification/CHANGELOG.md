@@ -2,8 +2,8 @@
 
 All notable changes to this project will be documented in this file.
 
-<a name="1.13.0"></a>
-# 1.13.0 (2019-11-22)
+<a name="1.14.0"></a>
+# 1.14.0 (2019-12-03)
 
 
 ### Bug Fixes

@@ -60,10 +60,6 @@ $w-atom-checkbox-styled: 24px !default;
     &.is-checked {
       background-color: $bgc-checked-atom-checkbox-styled;
       color: $c-atom-checkbox-styled;
-
-      svg path {
-        fill: $c-atom-checkbox-styled;
-      }
     }
   }
 }

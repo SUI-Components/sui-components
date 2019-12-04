@@ -24,7 +24,7 @@ const AtomCheckbox = ({
   checked = false,
   onChange: onChangeFromProps = () => {},
   errorState,
-  styledIcon,
+  styledIcon: StyledIcon,
   ...props
 }) => {
   const handleChange = ev => {
@@ -33,13 +33,13 @@ const AtomCheckbox = ({
   }
 
   const className = cx(BASE_CLASS, getErrorStateClass(errorState), {
-    [`${BASE_CLASS}--styled`]: styledIcon,
-    'is-checked': styledIcon && checked
+    [`${BASE_CLASS}--styled`]: StyledIcon,
+    'is-checked': StyledIcon && checked
   })
 
   return (
     <label className={className}>
-      {styledIcon && checked ? styledIcon : ''}
+      {StyledIcon && checked ? <StyledIcon /> : ''}
       <input
         type="checkbox"
         id={id}
@@ -74,8 +74,8 @@ AtomCheckbox.propTypes = {
   /* Will set a red/green border if set to true/false */
   errorState: PropTypes.bool,
 
-  /* Style the checkbox component instead of use the default navigation styles */
-  styledIcon: PropTypes.element
+  /* If you with you can change the look of checkbox using an AtomIcon */
+  styledIcon: PropTypes.elementType
 }
 
 export default AtomCheckbox

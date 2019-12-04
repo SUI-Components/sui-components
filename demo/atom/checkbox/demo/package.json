@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@s-ui/hoc": "1",
-    "@schibstedspain/fotocasa-iconset": "3"
+    "@s-ui/hoc": "1"
   }
 }

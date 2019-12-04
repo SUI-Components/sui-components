@@ -7,6 +7,8 @@ import AtomCheckbox, {
 
 import './index.scss'
 
+import Iconcheck from '@schibstedspain/fotocasa-iconset/lib/Check'
+
 const BASE_CLASS_DEMO = `DemoAtomCheckbox`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
@@ -52,6 +54,15 @@ const Demo = () => {
       <div className={CLASS_SECTION}>
         <h3>Checked & disabled</h3>
         <AtomCheckbox id="checkbox6" disabled checked />
+      </div>
+      <h2>Modifiers</h2>
+      <div className={CLASS_SECTION}>
+        <h3>StyledIcon</h3>
+        <AtomCheckboxWithState
+          id="checkbox7"
+          checked
+          styledIcon={<Iconcheck size="small" />}
+        />
       </div>
     </div>
   )

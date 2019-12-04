@@ -8,11 +8,9 @@
 $ npm install @s-ui/react-molecule-notification --save
 ```
 
-## Usage
-
 ### Basic usage
 ```js
-import MoleculeNotification from '@s-ui/react-molecule-notification'
+import MoleculeNotification, {BRDS_SIZE} from '@s-ui/react-molecule-notification'
 
 // sui-atom-button
 const BUTTONS = [
@@ -28,15 +26,29 @@ const BUTTONS = [
   }
 ]
 
+// import named export sizes from component as seen above
+BRDS_SIZE = {
+  extraLarge: 'xl',
+  large: 'l',
+  medium: 'm',
+  small: 's',
+  extraSmall: 'xs'
+}
+
 return (
   <MoleculeNotification
     type='success'
     autoclose='short'
     buttons={BUTTONS}
+    roundedCorners={BRDS_SIZE.medium}
   >
     <p>Lorem fistrum</p>
   </MoleculeNotification>
 )
 ```
+
+## Border Radius usage
+- Define a `$bdrs-base` Sass var value in your vertical theme to get 5 different border radius sizes. Then import the `BRDS_SIZE` object to get `extraSmall`, `small`, `medium`, `large` and `extraLarge` sizes in declarative way.
+
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/molecule/notification).**

@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useRef} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
@@ -12,18 +12,20 @@ const CLASS_COMPRESSED_INFO = `${BASE_CLASS}-compressedInfo`
 
 const CLASS_VERTICAL = `${BASE_CLASS}--vertical`
 const CLASS_COMPRESSED = `${BASE_CLASS}--compressed`
+const MoleculeProgressSteps = ({
+  vertical,
+  children,
+  iconStepDone,
+  compressed
+}) => {
+  const activeStepContent = useRef()
 
-class MoleculeProgressSteps extends Component {
-  get className() {
-    const {vertical, compressed} = this.props
-    return cx(BASE_CLASS, {
-      [CLASS_VERTICAL]: vertical,
-      [CLASS_COMPRESSED]: compressed
-    })
-  }
+  const className = cx(BASE_CLASS, {
+    [CLASS_VERTICAL]: vertical,
+    [CLASS_COMPRESSED]: compressed
+  })
 
-  get compressedInfoSteps() {
-    const {children} = this.props
+  const getCompressedInfoSteps = () => {
     const childrenNodes = React.Children.toArray(children)
     const totalSteps = childrenNodes.length
     const [activeLabel, numActiveStep] = childrenNodes.reduce(
@@ -38,58 +40,46 @@ class MoleculeProgressSteps extends Component {
     return `${stepPositionInfo}: ${activeLabel}`
   }
 
-  get extendedChildren() {
-    const {children, iconStepDone, compressed} = this.props
-    return React.Children.toArray(children)
-      .filter(Boolean)
-      .map((child, index, children) => {
-        const {
-          icon: iconChild,
-          iconActive,
-          status,
-          children: childrenChild
-        } = child.props
+  const extendedChildren = React.Children.toArray(children)
+    .filter(Boolean)
+    .map((child, index, children) => {
+      const {
+        icon: iconChild,
+        iconActive,
+        status,
+        children: childrenChild
+      } = child.props
 
-        const totalChildren = children.length
-        const numStep = index + 1
-        const lastStep = index >= totalChildren - 1
+      const totalChildren = children.length
+      const numStep = index + 1
+      const lastStep = index >= totalChildren - 1
 
-        const isVisited = status === STATUSES.VISITED
-        const isActive = status === STATUSES.ACTIVE
-        let icon = iconChild
-        if (isVisited) icon = iconStepDone
-        if (isActive) {
-          icon = iconActive || iconChild
-          this.activeStepContent = childrenChild
-        }
+      const isVisited = status === STATUSES.VISITED
+      const isActive = status === STATUSES.ACTIVE
+      let icon = iconChild
+      if (isVisited) icon = iconStepDone
+      if (isActive) {
+        icon = iconActive || iconChild
+        activeStepContent.current = childrenChild
+      }
 
-        return React.cloneElement(child, {
-          numStep,
-          lastStep,
-          icon,
-          compressed
-        })
+      return React.cloneElement(child, {
+        numStep,
+        lastStep,
+        icon,
+        compressed
       })
-  }
+    })
 
-  render() {
-    const {
-      extendedChildren,
-      compressedInfoSteps,
-      activeStepContent,
-      className
-    } = this
-    const {compressed} = this.props
-    return (
-      <div className={className}>
-        {compressed && (
-          <p className={CLASS_COMPRESSED_INFO}>{compressedInfoSteps}</p>
-        )}
-        <div className={CLASS_STEPS}>{extendedChildren}</div>
-        <div className={CLASS_CONTENT}>{activeStepContent}</div>
-      </div>
-    )
-  }
+  return (
+    <div className={className}>
+      {compressed && (
+        <p className={CLASS_COMPRESSED_INFO}>{getCompressedInfoSteps()}</p>
+      )}
+      <div className={CLASS_STEPS}>{extendedChildren}</div>
+      <div className={CLASS_CONTENT}>{activeStepContent.current}</div>
+    </div>
+  )
 }
 
 MoleculeProgressSteps.displayName = 'MoleculeProgressSteps'

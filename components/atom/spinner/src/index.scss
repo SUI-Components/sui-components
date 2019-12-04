@@ -11,11 +11,11 @@ $z-atom-spinner: 1 !default;
   left: 0;
   right: 0;
   top: 0;
+  z-index: $z-atom-spinner;
 }
 
 .sui-AtomSpinner {
   position: relative;
-  z-index: $z-atom-spinner;
 
   &::before {
     @extend %spinner-layer;

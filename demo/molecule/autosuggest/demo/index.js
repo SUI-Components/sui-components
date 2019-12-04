@@ -12,6 +12,8 @@ import withDynamicOptions from './hoc/withDynamicOptions'
 
 import AutosuggestSingleWithAsyncOptions from './components/AutosuggestSingleFromAjax'
 
+import ComboCountries from './components/ComboCountries'
+
 import {IconClose} from './Icons'
 import {getAsyncCountriesFromQuery} from './services'
 import './index.scss'
@@ -57,6 +59,7 @@ const Demo = () => (
       <MoleculeAutosuggestWithState
         placeholder="Type a Country name..."
         onChange={(_, {value}) => console.log(value)}
+        onEnter={() => console.log('Enter pressed')}
         iconClear={<IconClose />}
       />
     </div>
@@ -67,6 +70,16 @@ const Demo = () => (
         value="Luxembourg"
         onChange={(_, {value}) => console.log(value)}
         iconClear={<IconClose />}
+      />
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>disabled</h3>
+      <MoleculeAutosuggestWithState
+        value="Luxembourg"
+        onChange={(_, {value}) => console.log(value)}
+        iconClear={<IconClose />}
+        disabled
       />
     </div>
 
@@ -95,6 +108,24 @@ const Demo = () => (
         iconClear={<IconClose />}
         multiselection
       />
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>Disabled</h3>
+      <MoleculeAutosuggestWithStateTags
+        tags={['India', 'Luxembourg']}
+        onChangeTags={(_, {tags}) => console.log(tags)}
+        iconCloseTag={<IconClose />}
+        iconClear={<IconClose />}
+        multiselection
+        disabled
+      />
+    </div>
+
+    <h2>Dependant Selection</h2>
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With Placeholder</h3>
+      <ComboCountries />
     </div>
   </div>
 )

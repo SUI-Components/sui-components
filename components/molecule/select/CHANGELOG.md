@@ -2,6 +2,58 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.18.0"></a>
+# 1.18.0 (2019-12-03)
+
+
+### Bug Fixes
+
+* move isEnabledKeys const ([af2f4f5](https://github.com/SUI-Components/sui-components/commit/af2f4f5)), closes [#860](https://github.com/SUI-Components/sui-components/issues/860)
+* prevent focus when dropdown list is being closed ([014c7c2](https://github.com/SUI-Components/sui-components/commit/014c7c2))
+
+
+
+<a name="1.17.0"></a>
+# 1.17.0 (2019-11-22)
+
+
+### Bug Fixes
+
+* remove useEffect when populating optionsData ([80150a7](https://github.com/SUI-Components/sui-components/commit/80150a7))
+* set options data only when children prop changes ([25ec687](https://github.com/SUI-Components/sui-components/commit/25ec687))
+
+
+
+<a name="1.16.0"></a>
+# 1.16.0 (2019-11-13)
+
+
+### Features
+
+* update dependencies ([78c2eae](https://github.com/SUI-Components/sui-components/commit/78c2eae))
+
+
+
+<a name="1.15.0"></a>
+# 1.15.0 (2019-11-05)
+
+
+### Features
+
+* Update sui-js dependency ([ad0ba5f](https://github.com/SUI-Components/sui-components/commit/ad0ba5f))
+
+
+
+<a name="1.14.0"></a>
+# 1.14.0 (2019-09-19)
+
+
+### Bug Fixes
+
+* set opacity: 1 and appearance: none to disabled input element when in molecule ([a10a54d](https://github.com/SUI-Components/sui-components/commit/a10a54d))
+
+
+
 <a name="1.13.0"></a>
 # 1.13.0 (2019-07-30)
 

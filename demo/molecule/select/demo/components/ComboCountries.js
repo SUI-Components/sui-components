@@ -19,8 +19,9 @@ const getCountriesByRegion = region => {
 
 const ComboCountries = () => {
   const [countries, setCountries] = useState([])
+  const [selectedCountry, setSelectedCountry] = useState()
 
-  const handleChange = (_, {value: region}) => {
+  const handleRegionChange = (_, {value: region}) => {
     console.log({region})
     getCountriesByRegion(region)
       .then(countries =>
@@ -30,6 +31,12 @@ const ComboCountries = () => {
         }))
       )
       .then(setCountries)
+      .then(() => setSelectedCountry())
+  }
+
+  const handleCountryChange = (_, {value: country}) => {
+    console.log({country})
+    setSelectedCountry(country)
   }
 
   return (
@@ -38,7 +45,7 @@ const ComboCountries = () => {
         <MoleculeSelectWithState
           placeholder="Select a Region..."
           iconArrowDown={<IconArrowDown />}
-          onChange={handleChange}
+          onChange={handleRegionChange}
         >
           {regions.map(({code, text}, i) => (
             <MoleculeSelectOption key={i} value={code}>
@@ -50,9 +57,10 @@ const ComboCountries = () => {
       <div style={{width: '50%', margin: '0 10px'}}>
         <MoleculeSelectWithState
           placeholder="Select a Country..."
-          onChange={(_, {value: country}) => console.log({country})}
+          onChange={handleCountryChange}
           iconArrowDown={<IconArrowDown />}
           disabled={!countries.length}
+          value={selectedCountry}
         >
           {countries.map(({code, name}, i) => (
             <MoleculeSelectOption key={i} value={code}>

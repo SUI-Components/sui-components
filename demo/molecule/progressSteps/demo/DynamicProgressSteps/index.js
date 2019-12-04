@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 
 import MoleculeProgressSteps, {
   MoleculeProgressStep,
@@ -33,7 +33,7 @@ class DynamicMoleculeProgressSteps extends Component {
     const {statuses} = this.state // eslint-disable-line
 
     return (
-      <Fragment>
+      <>
         <div style={{paddingRight: '10px', margin: '10px 0 30px'}}>
           {Object.keys(config).map((stepNumber, index) => (
             <a
@@ -63,7 +63,7 @@ class DynamicMoleculeProgressSteps extends Component {
             )
           )}
         </MoleculeProgressSteps>
-      </Fragment>
+      </>
     )
   }
 }

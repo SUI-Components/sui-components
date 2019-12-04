@@ -2,6 +2,92 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2019-11-22)
+
+
+### Bug Fixes
+
+* remove not needed axios dependency causing vulnerability warning ([35d8cd0](https://github.com/SUI-Components/sui-components/commit/35d8cd0))
+
+
+
+<a name="1.11.0"></a>
+# 1.11.0 (2019-11-05)
+
+
+### Features
+
+* Update sui-js dependency ([df948f1](https://github.com/SUI-Components/sui-components/commit/df948f1))
+
+
+
+<a name="1.10.0"></a>
+# 1.10.0 (2019-10-29)
+
+
+### Bug Fixes
+
+* fix issue that was causing the dropdown to close after navigate some opti ([2caff8e](https://github.com/SUI-Components/sui-components/commit/2caff8e))
+
+
+
+<a name="1.9.0"></a>
+# 1.9.0 (2019-10-22)
+
+
+
+<a name="1.8.0"></a>
+# 1.8.0 (2019-10-22)
+
+
+### Features
+
+* allow right icon on atom-input ([f0259df](https://github.com/SUI-Components/sui-components/commit/f0259df))
+
+
+
+<a name="1.7.0"></a>
+# 1.7.0 (2019-10-22)
+
+
+### Features
+
+* add onSelect callback ([92fa216](https://github.com/SUI-Components/sui-components/commit/92fa216))
+* change placeholder in focus case ([e2641d3](https://github.com/SUI-Components/sui-components/commit/e2641d3))
+
+
+
+<a name="1.6.0"></a>
+# 1.6.0 (2019-10-22)
+
+
+### Bug Fixes
+
+* fix focusOut ([ec228cf](https://github.com/SUI-Components/sui-components/commit/ec228cf))
+
+
+
+<a name="1.5.0"></a>
+# 1.5.0 (2019-10-03)
+
+
+### Features
+
+* added onEnter callback ([4535b88](https://github.com/SUI-Components/sui-components/commit/4535b88))
+
+
+
+<a name="1.4.0"></a>
+# 1.4.0 (2019-09-03)
+
+
+### Features
+
+* added disabled ([dc46a4e](https://github.com/SUI-Components/sui-components/commit/dc46a4e))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2019-02-20)
 

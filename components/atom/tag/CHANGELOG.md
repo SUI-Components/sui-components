@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.6.0"></a>
+# 2.6.0 (2019-10-29)
+
+
+### Bug Fixes
+
+* add hover variations to atomTag, fix demo ([f4dba3b](https://github.com/SUI-Components/sui-components/commit/f4dba3b))
+
+
+
+<a name="2.5.0"></a>
+# 2.5.0 (2019-10-24)
+
+
+### Bug Fixes
+
+* fix modifier ([84d2a46](https://github.com/SUI-Components/sui-components/commit/84d2a46))
+* fix modifier name ([fe386f9](https://github.com/SUI-Components/sui-components/commit/fe386f9))
+
+
+### Features
+
+* allow atom tag types for free color variations ([ed721ae](https://github.com/SUI-Components/sui-components/commit/ed721ae))
+
+
+
+<a name="2.4.0"></a>
+# 2.4.0 (2019-10-10)
+
+
+### Features
+
+* add new css margin variable ([71e8977](https://github.com/SUI-Components/sui-components/commit/71e8977))
+
+
+
 <a name="2.3.0"></a>
 # 2.3.0 (2019-04-25)
 

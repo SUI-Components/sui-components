@@ -3,22 +3,35 @@
 @import '~@s-ui/react-molecule-button-group/lib/index';
 @import '~@schibstedspain/sui-atom-button/lib/index';
 
+$trf-pagination-prev-button-icon: none !default;
+$trf-pagination-next-button-icon: none !default;
+$c-pagination-button-icon-path: inherit !default;
+
 .sui-MoleculePagination {
+  @include reset-list;
+  display: flex;
+
+  &-item:not(:first-child) {
+    margin-left: $m-s;
+  }
+
   &-prevButtonIcon {
     display: flex;
     margin-right: $m-m;
+    transform: $trf-pagination-prev-button-icon;
 
     svg path {
-      fill: inherit;
+      fill: $c-pagination-button-icon-path;
     }
   }
 
   &-nextButtonIcon {
     display: flex;
     margin-left: $m-m;
+    transform: $trf-pagination-next-button-icon;
 
     svg path {
-      fill: inherit;
+      fill: $c-pagination-button-icon-path;
     }
   }
 }

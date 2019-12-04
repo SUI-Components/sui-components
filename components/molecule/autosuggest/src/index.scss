@@ -4,6 +4,7 @@
 @import '~@s-ui/react-molecule-dropdown-list/lib/index';
 
 $base-class: '.sui-MoleculeAutosuggest';
+$base-class-atom-input: '.sui-AtomInput';
 $class-input: '#{$base-class}-input';
 
 $z-autosuggest-list: $z-navigation !default;
@@ -12,6 +13,7 @@ $w-autosuggest-icon-clear: 20px !default;
 
 #{$base-class} {
   position: relative;
+  outline: none;
 
   .sui-MoleculeDropdownList {
     position: absolute;
@@ -25,7 +27,15 @@ $w-autosuggest-icon-clear: 20px !default;
   &--focus {
     #{$class-input} {
       &-container {
-        @extend %sui-atom-input-input-focus;
+        @extend %sui-molecule-autosuggest-focus;
+      }
+    }
+  }
+
+  &--disabled {
+    #{$class-input}-container {
+      #{$base-class-atom-input}--withTags {
+        background: $c-gray-lightest;
       }
     }
   }

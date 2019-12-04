@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useRef, useState} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -13,6 +13,7 @@ import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 
 const BASE_CLASS = `sui-MoleculeAutosuggest`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
+const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 
 const getIsTypeableKey = key => {
   const keysEdit = [
@@ -26,67 +27,65 @@ const getIsTypeableKey = key => {
   return key.length === 1 || keysEdit.includes(key)
 }
 
-class MoleculeAutosuggest extends Component {
-  refMoleculeAutosuggest =
-    this.props.refMoleculeAutosuggest || React.createRef()
+const MoleculeAutosuggest = ({multiselection, ...props}) => {
+  const {
+    refMoleculeAutosuggest: refMoleculeAutosuggestFromProps,
+    children,
+    onToggle,
+    onChange,
+    onEnter,
+    isOpen,
+    keysCloseList,
+    keysSelection,
+    disabled
+  } = props
 
-  refsMoleculeAutosuggestOptions = []
+  const refMoleculeAutosuggest = useRef(
+    refMoleculeAutosuggestFromProps?.current
+  )
+  const refsMoleculeAutosuggestOptions = useRef([])
+  const refMoleculeAutosuggestInput = useRef()
 
-  refMoleculeAutosuggestInput = React.createRef()
+  const [focus, setFocus] = useState(false)
 
-  state = {
-    focus: false
-  }
-
-  get extendedChildren() {
-    const {children, keysSelection} = this.props // eslint-disable-line react/prop-types
-    const {refsMoleculeAutosuggestOptions} = this
-    return React.Children.toArray(children)
-      .filter(Boolean)
-      .map((child, index) => {
-        refsMoleculeAutosuggestOptions[index] = React.createRef()
-        return React.cloneElement(child, {
-          innerRef: refsMoleculeAutosuggestOptions[index],
-          onSelectKey: keysSelection
-        })
+  const extendedChildren = React.Children.toArray(children)
+    .filter(Boolean)
+    .map((child, index) => {
+      refsMoleculeAutosuggestOptions.current[index] = React.createRef()
+      return React.cloneElement(child, {
+        innerRef: refsMoleculeAutosuggestOptions.current[index],
+        onSelectKey: keysSelection
       })
-  }
+    })
 
-  get className() {
-    const {focus} = this.state
-    return cx(BASE_CLASS, {[CLASS_FOCUS]: focus})
-  }
+  const className = cx(BASE_CLASS, {
+    [CLASS_FOCUS]: focus,
+    [CLASS_DISABLED]: disabled
+  })
 
-  closeList = ev => {
-    const {onToggle, onChange, multiselection} = this.props
-    const {
-      refMoleculeAutosuggest: {current: domMoleculeAutosuggest}
-    } = this
+  const closeList = ev => {
+    const {current: domMoleculeAutosuggest} = refMoleculeAutosuggest
     onToggle(ev, {isOpen: false})
     if (multiselection) onChange(ev, {value: ''})
     domMoleculeAutosuggest.focus()
+    setFocus(false)
     ev.preventDefault()
     ev.stopPropagation()
   }
 
-  focusFirstOption = (ev, {options}) => {
+  const focusFirstOption = (ev, {options}) => {
     if (options[0]) options[0].focus()
     ev.preventDefault()
     ev.stopPropagation()
   }
 
-  handleKeyDown = ev => {
+  const handleKeyDown = ev => {
     ev.persist()
-    const {isOpen, keysCloseList, keysSelection} = this.props
-    const {
-      refsMoleculeAutosuggestOptions,
-      refMoleculeAutosuggestInput: {current: domInnerInput},
-      refMoleculeAutosuggest: {current: domMoleculeAutosuggest},
-      closeList,
-      focusFirstOption
-    } = this
+    const {current: domInnerInput} = refMoleculeAutosuggestInput
+    const {current: domMoleculeAutosuggest} = refMoleculeAutosuggest
+    const {current: optionsFromRef} = refsMoleculeAutosuggestOptions
     const {key} = ev
-    const options = refsMoleculeAutosuggestOptions.map(getTarget)
+    const options = optionsFromRef.map(getTarget)
 
     const isTypeableKey = getIsTypeableKey(key)
     const isSelectionKey = keysSelection.includes(key)
@@ -101,87 +100,82 @@ class MoleculeAutosuggest extends Component {
       if (keysCloseList.includes(key)) closeList(ev)
       else if (key === 'ArrowDown' && !isSomeOptionFocused)
         focusFirstOption(ev, {options})
-      else if (isSomeOptionFocused) this.handleFocusIn(ev)
+      else if (isSomeOptionFocused) handleFocusIn(ev)
+    } else {
+      if (key === 'Enter') {
+        onEnter()
+      }
     }
   }
 
-  handleFocusIn = ev => {
-    this.setState({focus: true})
-  }
+  const handleFocusIn = ev => setFocus(true)
 
-  handleFocusOut = ev => {
+  const handleFocusOut = ev => {
     ev.persist()
-    const {
-      refsMoleculeAutosuggestOptions,
-      refMoleculeAutosuggestInput: {current: domInnerInput},
-      closeList
-    } = this
-    const options = refsMoleculeAutosuggestOptions.map(getTarget)
-    const {isOpen} = this.props
+    const {current: domInnerInput} = refMoleculeAutosuggestInput
+    const {current: optionsFromRef} = refsMoleculeAutosuggestOptions
+    const options = optionsFromRef.map(getTarget)
     setTimeout(() => {
       const currentElementFocused = getCurrentElementFocused()
       const focusOutFromOutside = ![domInnerInput, ...options].includes(
         currentElementFocused
       )
-      if (focusOutFromOutside && isOpen) closeList(ev)
+      if (focusOutFromOutside) {
+        isOpen ? closeList(ev) : setFocus(false)
+      }
     }, 1)
-    this.setState({focus: false})
+    setFocus(true)
   }
 
-  handleInputKeyDown = ev => {
+  const handleInputKeyDown = ev => {
     const {key} = ev
     if (key !== 'ArrowDown') ev.stopPropagation()
+    if (key === 'Enter') {
+      onEnter()
+    }
   }
 
-  render() {
-    const {multiselection, ...props} = this.props
-    const {
-      className,
-      handleKeyDown,
-      extendedChildren,
-      refMoleculeAutosuggest,
-      refMoleculeAutosuggestInput,
-      handleFocusIn,
-      handleFocusOut,
-      handleInputKeyDown
-    } = this
-
-    return (
-      <div
-        ref={refMoleculeAutosuggest}
-        tabIndex="0"
-        className={className}
-        onKeyDown={handleKeyDown}
-        onFocus={handleFocusIn}
-        onBlur={handleFocusOut}
-      >
-        {multiselection ? (
-          <MoleculeAutosuggestMultipleSelection
-            {...props}
-            onInputKeyDown={handleInputKeyDown}
-            refMoleculeAutosuggest={refMoleculeAutosuggest}
-            innerRefInput={refMoleculeAutosuggestInput}
-          >
-            {extendedChildren}
-          </MoleculeAutosuggestMultipleSelection>
-        ) : (
-          <MoleculeAutosuggestSingleSelection
-            {...props}
-            onInputKeyDown={handleInputKeyDown}
-            refMoleculeAutosuggest={refMoleculeAutosuggest}
-            innerRefInput={refMoleculeAutosuggestInput}
-          >
-            {extendedChildren}
-          </MoleculeAutosuggestSingleSelection>
-        )}
-      </div>
-    )
-  }
+  return (
+    <div
+      ref={refMoleculeAutosuggest}
+      tabIndex="0"
+      className={className}
+      onKeyDown={handleKeyDown}
+      onFocus={handleFocusIn}
+      onBlur={handleFocusOut}
+    >
+      {multiselection ? (
+        <MoleculeAutosuggestMultipleSelection
+          {...props}
+          onInputKeyDown={handleInputKeyDown}
+          refMoleculeAutosuggest={refMoleculeAutosuggest}
+          innerRefInput={refMoleculeAutosuggestInput}
+        >
+          {extendedChildren}
+        </MoleculeAutosuggestMultipleSelection>
+      ) : (
+        <MoleculeAutosuggestSingleSelection
+          {...props}
+          onInputKeyDown={handleInputKeyDown}
+          refMoleculeAutosuggest={refMoleculeAutosuggest}
+          innerRefInput={refMoleculeAutosuggestInput}
+        >
+          {extendedChildren}
+        </MoleculeAutosuggestSingleSelection>
+      )}
+    </div>
+  )
 }
 
 MoleculeAutosuggest.propTypes = {
   /** if select accept single value or multiple values */
   multiselection: PropTypes.bool,
+
+  /** children */
+  children: PropTypes.any,
+
+  /** if the component is disabled or not */
+  disabled: PropTypes.bool,
 
   /** value selected */
   value: PropTypes.any,
@@ -213,6 +207,18 @@ MoleculeAutosuggest.propTypes = {
   /** size (height) of the list */
   size: PropTypes.oneOf(Object.values(SIZES)),
 
+  /** callback triggered when the user press enter when the suggestion is closed */
+  onEnter: PropTypes.func,
+
+  /** callback triggered when the user clicks on right icon */
+  onClickRightIcon: PropTypes.func,
+
+  /** callback triggered when the user selects the suggested item */
+  onSelect: PropTypes.func,
+
+  /** Right UI Icon */
+  rightIcon: PropTypes.node,
+
   /** list of key identifiers that will trigger a selection */
   keysSelection: PropTypes.array,
 
@@ -226,6 +232,8 @@ MoleculeAutosuggest.propTypes = {
 MoleculeAutosuggest.defaultProps = {
   onChange: () => {},
   onToggle: () => {},
+  onEnter: () => {},
+  onSelect: () => {},
   keysSelection: [' ', 'Enter'],
   keysCloseList: ['Escape']
 }

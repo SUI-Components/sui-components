@@ -12,8 +12,8 @@ const AtomTextarea = ({onChange, size, value, ...props}) => {
   const className = cx(BASE_CLASS, `${BASE_CLASS}--${size}`)
 
   const handleChange = ev => {
-    const {value} = ev.target
-    onChange(ev, {value})
+    const {value, name} = ev.target
+    onChange(ev, {value, name})
   }
 
   return (

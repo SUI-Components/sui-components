@@ -2,34 +2,36 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import Button from './Button'
+import {
+  CLASS,
+  COLORS,
+  DESIGNS,
+  ICON_POSITIONS,
+  GROUP_POSITIONS,
+  MODIFIERS,
+  OWN_PROPS,
+  SIZES,
+  TYPES
+} from './config'
 
-const CLASS = 'sui-AtomButton'
-const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
-const GROUP_POSITIONS = {
-  FIRST: 'first',
-  MIDDLE: 'middle',
-  LAST: 'last'
+import Button from './Button'
+import ButtonIcon from './ButtonIcon'
+
+const createClasses = (array, sufix = '') => {
+  return array.reduce(
+    (res, key) => ({...res, [key]: `${CLASS}--${key}${sufix}`}),
+    {}
+  )
 }
-const SIZES = ['small', 'large']
-const MODIFIERS = ['disabled', 'fullWidth', 'focused', 'negative', 'link']
-const OWN_PROPS = [
+
+const CLASSES = createClasses([
   ...TYPES,
+  ...DESIGNS,
   ...SIZES,
-  'groupPosition',
-  'leftIcon',
-  'rightIcon',
-  'className',
-  'children',
-  'fullWidth',
-  'focused',
-  'negative',
-  'type'
-]
-const CLASSES = [...TYPES, ...SIZES, ...MODIFIERS, 'empty'].reduce(
-  (res, key) => Object.assign(res, {[key]: `${CLASS}--${key}`}),
-  {}
-)
+  ...MODIFIERS,
+  'empty'
+])
+const COLOR_CLASSES = createClasses(COLORS, 'Color')
 
 /**
  * Get props cleaning out AtomButton own props
@@ -53,39 +55,66 @@ const getModifiers = props => {
   )
 }
 
+const getPropsWithDefaultValues = props => {
+  let {color, design, type} = props
+  // if color or design are defined, use them with the passed or default value
+  if (color || design) {
+    color = color || 'primary'
+    design = design || 'solid'
+  } else {
+    type = type || 'primary'
+  }
+
+  return {
+    color,
+    design,
+    type,
+    ...props
+  }
+}
+
 const AtomButton = props => {
   const {
+    color,
     children,
     className,
     groupPosition,
     leftIcon,
     rightIcon,
     size,
+    design,
     title,
     type
-  } = props
+  } = getPropsWithDefaultValues(props)
 
   const classNames = cx(
     CLASS,
-    CLASSES[type],
+    !type && COLOR_CLASSES[color],
+    !type && CLASSES[design],
+    type && CLASSES[type],
     groupPosition && `${CLASS}-group ${CLASS}-group--${groupPosition}`,
     size && CLASSES[size],
     getModifiers(props).map(key => CLASSES[key]),
     !children && CLASSES.empty,
     className
   )
+
   const newProps = cleanProps(props)
 
   return (
     <Button {...newProps} className={classNames} title={title}>
       <span className={`${CLASS}-inner`}>
-        {leftIcon && <span className={`${CLASS}-leftIcon`}>{leftIcon}</span>}
+        <ButtonIcon position={ICON_POSITIONS.LEFT} size={size}>
+          {leftIcon}
+        </ButtonIcon>
         {leftIcon || rightIcon ? (
           <span className={`${CLASS}-text`}>{children}</span>
         ) : (
           children
         )}
-        {rightIcon && <span className={`${CLASS}-rightIcon`}>{rightIcon}</span>}
+        <ButtonIcon position={ICON_POSITIONS.RIGHT} size={size}>
+          {rightIcon}
+        </ButtonIcon>
       </span>
     </Button>
   )
@@ -94,6 +123,22 @@ const AtomButton = props => {
 AtomButton.displayName = 'AtomButton'
 
 AtomButton.propTypes = {
+  /**
+   * Color of button:
+   * 'primary' (default),
+   * 'accent',
+   * 'neutral',
+   * 'success',
+   * 'alert',
+   * 'error',
+   * 'social-facebook',
+   * 'social-twitter',
+   * 'social-google',
+   * 'social-youtube',
+   * 'social-whatsapp',
+   * 'social-instagram'
+   */
+  color: PropTypes.oneOf(COLORS),
   /**
    * HTML element: if true, render a link. Otherwise render a button
    */
@@ -111,9 +156,19 @@ AtomButton.propTypes = {
    */
   title: PropTypes.string,
   /**
-   * Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary'
+   * DEPRECATED. Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary'
    */
-  type: PropTypes.oneOf(TYPES),
+  type: function(props, propName, componentName) {
+    if (props[propName] !== undefined) {
+      console.warn(
+        `The prop ${propName} is DEPRECATED on ${componentName}. You should use now "design" and "color" props.`
+      )
+    }
+  },
+  /**
+   * Design style of button: 'solid' (default), 'outline', 'flat'
+   */
+  design: PropTypes.oneOf(DESIGNS),
   /**
    * Group position: 'first', 'middle' (default), 'last'
    */
@@ -171,10 +226,7 @@ AtomButton.propTypes = {
   isButton: PropTypes.bool
 }
 
-AtomButton.defaultProps = {
-  type: 'primary'
-}
-
 export default AtomButton
 export {GROUP_POSITIONS as atomButtonGroupPositions}
 export {TYPES as atomButtonTypes}
+export {COLORS as atomButtonColors}

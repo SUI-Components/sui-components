@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-10-25)
+
+
+### Features
+
+* allow to use property to set the type of the label ([82c3aae](https://github.com/SUI-Components/sui-components/commit/82c3aae))
+* merge master ([1877e1e](https://github.com/SUI-Components/sui-components/commit/1877e1e))
+* revert order change for props ([6d0ccf3](https://github.com/SUI-Components/sui-components/commit/6d0ccf3))
+* update prop name and ussage ([557c99c](https://github.com/SUI-Components/sui-components/commit/557c99c))
+
+
+
+<a name="1.9.0"></a>
+# 1.9.0 (2019-10-15)
+
+
+### Features
+
+* proper connection between components ([584a9b8](https://github.com/SUI-Components/sui-components/commit/584a9b8))
+
+
+
+<a name="1.8.0"></a>
+# 1.8.0 (2019-10-14)
+
+
+### Features
+
+* styles inline improved ([9420de7](https://github.com/SUI-Components/sui-components/commit/9420de7))
+
+
+
+<a name="1.7.0"></a>
+# 1.7.0 (2019-09-30)
+
+
+### Features
+
+* inline reverse for checkbox ([ced96eb](https://github.com/SUI-Components/sui-components/commit/ced96eb))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2019-04-30)
 

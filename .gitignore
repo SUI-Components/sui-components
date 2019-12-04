@@ -8,3 +8,4 @@ package-lock.json
 demo/**/**/themes
 .tern-port
 .DS_Store
+.npmrc

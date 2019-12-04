@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.2.0"></a>
+# 2.2.0 (2019-10-18)
+
+
+### Bug Fixes
+
+* close issue ([9241c00](https://github.com/SUI-Components/sui-components/commit/9241c00)), closes [#826](https://github.com/SUI-Components/sui-components/issues/826)
+* fix onChange Prop sent to AtomTextArea ([23745b3](https://github.com/SUI-Components/sui-components/commit/23745b3))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2019-05-01)
 

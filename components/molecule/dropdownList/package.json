@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-dropdown-list",
-  "version": "1.6.0",
+  "version": "1.8.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-atom-input": "3"
+    "@s-ui/react-atom-input": "4"
   },
   "keywords": [],
   "author": "",

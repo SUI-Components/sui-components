@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-pagination",
-  "version": "1.1.0",
+  "version": "2.2.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-molecule-button-group": "1",
+    "@s-ui/react-molecule-button-group": "2",
     "@schibstedspain/sui-atom-button": "1"
   },
   "keywords": [],

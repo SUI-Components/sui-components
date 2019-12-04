@@ -2,6 +2,51 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="4.1.0"></a>
+# 4.1.0 (2019-11-12)
+
+
+### Bug Fixes
+
+* set css property pointer-events to none ([f845847](https://github.com/SUI-Components/sui-components/commit/f845847))
+
+
+
+<a name="4.0.0"></a>
+# 4.0.0 (2019-10-29)
+
+
+### Features
+
+* removal checkbox and radioButton input AND name notification in event handler ([4c2acf6](https://github.com/SUI-Components/sui-components/commit/4c2acf6))
+
+
+### BREAKING CHANGES
+
+* checkbox and radioButton removal
+
+
+
+<a name="3.14.0"></a>
+# 3.14.0 (2019-10-08)
+
+
+### Bug Fixes
+
+* add default prop value to onChange prop ([3000a86](https://github.com/SUI-Components/sui-components/commit/3000a86))
+
+
+
+<a name="3.13.0"></a>
+# 3.13.0 (2019-10-08)
+
+
+### Bug Fixes
+
+* add fill var to input icon ([937c203](https://github.com/SUI-Components/sui-components/commit/937c203))
+
+
+
 <a name="3.12.0"></a>
 # 3.12.0 (2019-08-05)
 

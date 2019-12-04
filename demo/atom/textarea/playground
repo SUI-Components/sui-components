@@ -1,9 +1,15 @@
 const withState = BaseComponent =>
   class BaseComponentWithState extends React.Component {
+    static defaultProps = {
+      onChange: () => {}
+    }
+
     state = {value: this.props.value || ''}
 
-    handleChange = (e, {value}) => {
+    handleChange = (e, {value, name}) => {
+      const {onChange} = this.props
       this.setState({value})
+      onChange({[name]: value})
     }
     render() {
       const {value} = this.state
@@ -29,26 +35,38 @@ return (
       <code>short</code> <em>size</em> by default
     </p>
     <div style={stylesSection}>
-      <AtomTextareaWithState value="Saul Bass on failure: Failure is built into creativity" />
+      <AtomTextareaWithState 
+        name="textarea-1"
+        value="Saul Bass on failure: Failure is built into creativity"
+        onChange={console.log}
+      />
     </div>
 
     <h2>Long size</h2>
     <div style={stylesSection}>
       <AtomTextareaWithState
+        name="textarea-2"
         value="Saul Bass on failure: Failure is built into creativity"
         size="long"
+        onChange={console.log}
       />
     </div>
     <h2>Disabled</h2>
     <div style={stylesSection}>
       <AtomTextareaWithState
+        name="textarea-3"
         value="Saul Bass on failure: Failure is built into creativity"
         disabled
+        onChange={console.log}
       />
     </div>
     <h2> Placeholder</h2>
     <div style={stylesSection}>
-      <AtomTextareaWithState placeholder="Write something cool here..." />
+      <AtomTextareaWithState 
+        name="textarea-4"
+        placeholder="Write something cool here..."
+        onChange={console.log}
+      />
     </div>
   </div>
 )

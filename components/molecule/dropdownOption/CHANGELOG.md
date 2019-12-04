@@ -2,6 +2,64 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.20.0"></a>
+# 1.20.0 (2019-11-26)
+
+
+### Bug Fixes
+
+* fix render if children is not text ([0cbc5e8](https://github.com/SUI-Components/sui-components/commit/0cbc5e8))
+
+
+
+<a name="1.19.0"></a>
+# 1.19.0 (2019-11-12)
+
+
+### Bug Fixes
+
+* remove react-atom-input styles, use react-atom-checkbox style instead ([46f4224](https://github.com/SUI-Components/sui-components/commit/46f4224))
+* remove unnecessary import of AtomInput ([e9b88f2](https://github.com/SUI-Components/sui-components/commit/e9b88f2))
+
+
+### Features
+
+* update deps to include new AtomCheckbox component ([563be81](https://github.com/SUI-Components/sui-components/commit/563be81))
+* use AtomCheckbox instead of AtomInput when checkbox prop is true ([77bb816](https://github.com/SUI-Components/sui-components/commit/77bb816))
+
+
+
+<a name="1.18.0"></a>
+# 1.18.0 (2019-10-16)
+
+
+### Features
+
+* add font-weight as varible for highlighted text ([f730b10](https://github.com/SUI-Components/sui-components/commit/f730b10))
+
+
+
+<a name="1.17.0"></a>
+# 1.17.0 (2019-10-10)
+
+
+### Features
+
+* set dropdownoption text as var ([c1c65bf](https://github.com/SUI-Components/sui-components/commit/c1c65bf))
+
+
+
+<a name="1.16.0"></a>
+# 1.16.0 (2019-10-07)
+
+
+### Features
+
+* add background as variable ([1e79e61](https://github.com/SUI-Components/sui-components/commit/1e79e61))
+* fix space ([5de48f4](https://github.com/SUI-Components/sui-components/commit/5de48f4))
+
+
+
 <a name="1.15.0"></a>
 # 1.15.0 (2019-06-26)
 

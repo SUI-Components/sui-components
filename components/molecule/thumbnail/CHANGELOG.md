@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.2.0"></a>
+# 2.2.0 (2019-11-13)
+
+
+### Features
+
+* add var for overflow ([0bc9fdc](https://github.com/SUI-Components/sui-components/commit/0bc9fdc))
+
+
+
+<a name="2.1.0"></a>
+# 2.1.0 (2019-11-07)
+
+
+### Features
+
+* add border radius var ([c6e3962](https://github.com/SUI-Components/sui-components/commit/c6e3962))
+* fix name var ([636da09](https://github.com/SUI-Components/sui-components/commit/636da09))
+* fix name var ([63c62ee](https://github.com/SUI-Components/sui-components/commit/63c62ee))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2019-07-17)
 

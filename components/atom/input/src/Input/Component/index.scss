@@ -35,6 +35,7 @@ $class-read-only: '#{$base-class}--readOnly';
   }
 
   &:disabled {
+    pointer-events: none;
     &:not(#{$class-read-only}) {
       background: $bgc-atom-input-disabled;
     }
@@ -42,20 +43,6 @@ $class-read-only: '#{$base-class}--readOnly';
 
   &:focus {
     @extend %sui-atom-input-input-focus;
-  }
-
-  &[type='radio'],
-  &[type='checkbox'] {
-    height: inherit;
-    margin-left: $m-atom-input-type-left;
-    margin-right: $m-atom-input-type-right;
-    width: inherit;
-
-    &:focus {
-      border: 0;
-      box-shadow: none;
-      outline: 0 none;
-    }
   }
 
   @each $type, $attr in $sizes-atom-input {

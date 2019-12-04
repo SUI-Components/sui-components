@@ -72,7 +72,7 @@ class ContainerDemo extends React.Component {
               }}
               style={!dark ? {background: '#4d4d4d', color: 'white'} : {}}
             >
-              Dark Mode
+            Light Mode
             </button>
             <button
               onClick={() => {
@@ -80,7 +80,7 @@ class ContainerDemo extends React.Component {
               }}
               style={dark ? {background: '#4d4d4d', color: 'white'} : {}}
             >
-              Light Mode
+            Dark Mode
             </button>
           </div>
           <div>

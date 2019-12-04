@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
@@ -45,7 +45,7 @@ const MoleculeProgressStep = ({
   const [CLASS_STEP_STATUS, CLASS_BAR_STATUS] = getStatusClass(status)
   const bar = <hr className={cx(CLASS_BAR, CLASS_BAR_STATUS)} />
   return (
-    <Fragment>
+    <>
       {!compressed && (
         <div className={cx(CLASS_STEP, CLASS_STEP_STATUS)}>
           {icon ? (
@@ -57,7 +57,7 @@ const MoleculeProgressStep = ({
         </div>
       )}
       {!lastStep ? bar : compressed && bar}
-    </Fragment>
+    </>
   )
 }
 

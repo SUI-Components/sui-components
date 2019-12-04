@@ -55,9 +55,9 @@ const iconMenuHamburguer =
   'https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png'
 
 const HtmlTooltipDecember = () => (
-  <React.Fragment>
+  <>
     Last <em>month</em> of the <strong>year</strong>
-  </React.Fragment>
+  </>
 )
 
 return (
@@ -307,9 +307,9 @@ return (
         <AtomTooltip
           placement={atomTooltipPlacements.RIGHT}
           content={() => (
-            <React.Fragment>
+            <>
               Hello <strong>world</strong>!
-            </React.Fragment>
+            </>
           )}
           hideArrow
         >

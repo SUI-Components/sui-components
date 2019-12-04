@@ -1,0 +1,72 @@
+const styleList = {
+  listStyle: 'none'
+}
+
+const styleListItem = {
+  marginTop: '50px'
+}
+
+return (
+  <div>
+    <h1>
+      <code>MoleculeRadioButtonField</code>
+    </h1>
+    <ul style={styleList}>
+      <li style={styleListItem}>
+        <h2>With Information HelpText</h2>
+        <MoleculeRadioButtonField
+          id="description-inline2"
+          label="Description"
+          helpText="Tu descripción en Latin"
+        />
+      </li>
+      <li style={styleListItem}>
+        <h2>With Information HelpText checked</h2>
+        <MoleculeRadioButtonField
+          id="description-inline2"
+          label="Description"
+          checked
+          helpText="Tu descripción en Latin"
+        />
+      </li>
+      <li style={styleListItem}>
+        <h2>With Success Validation HelpText</h2>
+        <MoleculeRadioButtonField
+          id="description2"
+          label="Description"
+          value="In some place of La Mancha which name..."
+          successText="Everything ok!"
+        />
+      </li>
+      <li style={styleListItem}>
+        <h2>With Success Validation HelpText checked</h2>
+        <MoleculeRadioButtonField
+          checked
+          id="description2"
+          label="Description"
+          value="In some place of La Mancha which name..."
+          successText="Everything ok!"
+        />
+      </li>
+      <li style={styleListItem}>
+        <h2>With Error validation HelpText</h2>
+        <MoleculeRadioButtonField
+          id="notes"
+          label="Notes"
+          errorText="All wrong!"
+          value="In some place of La Mancha which name..."
+        />
+      </li>
+      <li style={styleListItem}>
+        <h2>With Error validation HelpText checked</h2>
+        <MoleculeRadioButtonField
+          id="notes"
+          checked
+          label="Notes"
+          errorText="All wrong!"
+          value="In some place of La Mancha which name..."
+        />
+      </li>
+    </ul>
+  </div>
+)

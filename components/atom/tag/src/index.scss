@@ -6,11 +6,13 @@ $c-atom-tag-actionable: $c-white !default;
 $h-atom-tag-l: 40px !default;
 $h-atom-tag-m: 32px !default;
 $h-atom-tag-s: 24px !default;
+$m-atom-tag: $m-m !default;
 $mw-label: 240px !default;
 $p-atom-tag-l: 0 $p-l !default;
 $p-atom-tag-m: 0 $p-l !default;
 $p-atom-tag-s: 0 $p-m !default;
 $w-atom-tag-clickable: 32px !default;
+$atom-tag-types: () !default;
 
 @mixin icon-atom-tag($type) {
   @include sui-icon--small;
@@ -43,7 +45,7 @@ $w-atom-tag-clickable: 32px !default;
   display: inline-block;
   font-size: $fz-s;
   height: $h-atom-tag-m;
-  margin: 0 $m-m $m-m 0;
+  margin: 0 $m-atom-tag $m-atom-tag 0;
   padding: $p-atom-tag-m;
   position: relative;
   white-space: nowrap;
@@ -157,6 +159,21 @@ $w-atom-tag-clickable: 32px !default;
 
       .sui-AtomTag-closeable {
         @include icon-secondary-clickable-area($h-atom-tag-l);
+      }
+    }
+  }
+
+  @each $name, $type in $atom-tag-types {
+    $bgc: map-get($type, bgc);
+    $c: map-get($type, c);
+
+    &--#{$name} {
+      background-color: $bgc;
+      color: $c;
+
+      &:hover {
+        background-color: color-variation($bgc, 2);
+        color: color-variation($c, 2);
       }
     }
   }

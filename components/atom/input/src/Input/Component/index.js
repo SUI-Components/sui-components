@@ -41,7 +41,6 @@ const getClassNames = ({
 }
 
 const Input = ({
-  checked,
   disabled,
   readOnly,
   hideInput,
@@ -67,18 +66,18 @@ const Input = ({
 }) => {
   const changeHandler = ev => {
     const {
-      target: {value}
+      target: {value, name}
     } = ev
-    onChange(ev, {value})
+    onChange(ev, {value, name})
   }
 
   const handleKeyDown = ev => {
     const {
-      target: {value}
+      target: {value, name}
     } = ev
     const {key} = ev
-    onKeyDown(ev, {value})
-    if (key === onEnterKey) onEnter(ev, {value})
+    onKeyDown(ev, {value, name})
+    if (key === onEnterKey) onEnter(ev, {value, name})
   }
 
   const className = getClassNames({
@@ -94,7 +93,6 @@ const Input = ({
     <input
       className={className}
       tabIndex={tabIndex}
-      checked={checked}
       disabled={disabled || readOnly}
       readOnly={readOnly}
       id={id}
@@ -119,8 +117,6 @@ Input.propTypes = {
   disabled: PropTypes.bool,
   /* This Boolean attribute prevents the user from interacting with the input but without disabled styles */
   readOnly: PropTypes.bool,
-  /* Mark the input as selected */
-  checked: PropTypes.bool,
   /* The DOM id global attribute. */
   id: PropTypes.string,
   /* sets the name property of an element in the DOM */

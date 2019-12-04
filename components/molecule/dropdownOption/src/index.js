@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import AtomInput from '@s-ui/react-atom-input'
+import AtomCheckbox from '@s-ui/react-atom-checkbox'
 
 import handlersFactory from './handlersFactory'
 
@@ -36,12 +36,25 @@ const MoleculeDropdownOption = ({
     onSelect
   })
 
-  const highlightOption = option => {
-    if (typeof option !== 'string') return option
+  const renderHighlightOption = option => {
+    if (typeof option !== 'string') {
+      return (
+        <span onFocus={handleInnerFocus} className={CLASS_TEXT}>
+          {option}
+        </span>
+      )
+    }
     const regExpHighlight = new RegExp(highlightQuery, 'gi')
-    return option.replace(
+    const mark = option.replace(
       regExpHighlight,
       `<mark class="${cx(CLASS_HIGHLIGHTED_MARK, CLASS_HIGHLIGHTED)}">$&</mark>`
+    )
+    return (
+      <span
+        onFocus={handleInnerFocus}
+        dangerouslySetInnerHTML={{__html: mark}}
+        className={CLASS_TEXT}
+      />
     )
   }
 
@@ -60,19 +73,14 @@ const MoleculeDropdownOption = ({
       onFocus={handleFocus}
     >
       {checkbox && (
-        <AtomInput
-          type="checkbox"
+        <AtomCheckbox
           checked={selected}
           disabled={disabled}
           onFocus={handleInnerFocus}
         />
       )}
       {highlightQuery ? (
-        <span
-          onFocus={handleInnerFocus}
-          dangerouslySetInnerHTML={{__html: highlightOption(children)}}
-          className={CLASS_TEXT}
-        />
+        renderHighlightOption(children)
       ) : (
         <span onFocus={handleInnerFocus} className={CLASS_TEXT}>
           {children}

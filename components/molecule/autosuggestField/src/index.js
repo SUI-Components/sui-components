@@ -21,12 +21,14 @@ class MoleculeAutosuggestField extends Component {
     const {refAutosuggest, handleClick} = this
     const {
       label,
+      useContrastLabel,
       id,
       successText,
       errorText,
       helpText,
       inline,
       children, // eslint-disable-line
+      onChange,
       ...props
     } = this.props
     const errorState = hasErrors(successText, errorText)
@@ -39,6 +41,8 @@ class MoleculeAutosuggestField extends Component {
         helpText={helpText}
         inline={inline}
         onClickLabel={handleClick}
+        onChange={onChange}
+        useContrastLabel={useContrastLabel}
       >
         <MoleculeAutosuggest
           refMoleculeAutosuggest={refAutosuggest}
@@ -74,7 +78,10 @@ MoleculeAutosuggestField.propTypes = {
   helpText: PropTypes.string,
 
   /** Boolean to decide if elements should be set inline */
-  inline: PropTypes.bool
+  inline: PropTypes.bool,
+
+  /** Boolean, if true it will use contrast label */
+  useContrastLabel: PropTypes.string
 }
 
 export default MoleculeAutosuggestField

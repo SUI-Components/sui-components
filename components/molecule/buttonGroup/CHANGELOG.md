@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.0.0"></a>
+# 2.0.0 (2019-10-01)
+
+
+### Features
+
+* remove type prop ([ce325e5](https://github.com/SUI-Components/sui-components/commit/ce325e5))
+
+
+### BREAKING CHANGES
+
+* remove type prop
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2018-11-07)
 

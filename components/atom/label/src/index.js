@@ -6,7 +6,8 @@ const CLASSNAME = 'sui-AtomLabel'
 
 const TYPES = {
   SUCCESS: 'success',
-  ERROR: 'error'
+  ERROR: 'error',
+  CONTRAST: 'contrast'
 }
 
 const FONT_SIZES = {
@@ -65,7 +66,7 @@ AtomLabel.propTypes = {
    */
   optionalText: PropTypes.string,
   /**
-   * Label type: 'success' or 'error', use AtomLabelTypes
+   * Label type: 'success', 'error' or 'contrast, use AtomLabelTypes
    */
   type: PropTypes.oneOf(Object.values(TYPES)),
   /**

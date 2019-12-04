@@ -3,6 +3,12 @@
 $bdc-sui-molecule-tabs: color-variation($c-gray, 3) !default;
 $bdw-sui-molecule-tabs: $p-s !default;
 $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
+$c-sui-molecule-tabs-disabled: $c-gray-lightest !default;
+$fz-sui-molecule-tabs: $fz-m !default;
+$fw-sui-molecule-tabs-active: $fw-regular !default;
+$m-sui-molecule-tabs-item: 0 !default;
+$m-sui-molecule-tabs-first-item: $m-sui-molecule-tabs-item !default;
+$p-sui-molecule-tabs-item: $p-m $p-l !default;
 
 .sui-MoleculeTabs {
   svg {
@@ -31,6 +37,7 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
         border-bottom: 0;
         border-color: $bdc-sui-molecule-tabs;
         color: $c-primary;
+        font-weight: $fw-sui-molecule-tabs-active;
         margin-top: 1px;
 
         span {
@@ -64,6 +71,7 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
         border-color: $bdc-sui-molecule-tabs;
         border-right-color: transparent;
         color: $c-primary;
+        font-weight: $fw-sui-molecule-tabs-active;
 
         svg,
         path {
@@ -94,6 +102,7 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
       &.is-active {
         border-bottom-color: $c-primary;
         color: $c-primary;
+        font-weight: $fw-sui-molecule-tabs-active;
 
         svg,
         path {
@@ -124,6 +133,7 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
       &.is-active {
         border-right-color: $c-primary;
         color: $c-primary;
+        font-weight: $fw-sui-molecule-tabs-active;
 
         svg,
         path {
@@ -194,12 +204,17 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
     background: transparent;
     color: $c-sui-molecule-tabs;
     flex: 1 1 auto;
-    font-size: $fz-m;
+    font-size: $fz-sui-molecule-tabs;
+    margin: $m-sui-molecule-tabs-item;
     outline: 0 none;
-    padding: $p-m $p-l;
+    padding: $p-sui-molecule-tabs-item;
     text-decoration: none;
     white-space: nowrap;
     width: 100%;
+
+    &:first-of-type {
+      margin: $m-sui-molecule-tabs-first-item;
+    }
 
     &-icon {
       display: flex;
@@ -216,12 +231,12 @@ $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
     }
 
     &.is-disabled {
-      color: $c-gray-lightest;
+      color: $c-sui-molecule-tabs-disabled;
       cursor: no-drop;
 
       svg,
       path {
-        fill: $c-gray-lightest;
+        fill: $c-sui-molecule-tabs-disabled;
       }
     }
   }

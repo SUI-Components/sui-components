@@ -5,13 +5,7 @@ import {SingleSwitchTypeRender} from './SwitchType/single'
 import {SIZES, TYPES, SUPPORTED_KEYS} from './config'
 
 const AtomSwitch = props => {
-  const {
-    initialValue,
-    disabled,
-    onToggle: onToggleCallback,
-    value,
-    type
-  } = props
+  const {initialValue, disabled, onToggle: onToggleCallback, type} = props
   const [isToggle, setIsToggle] = useState(initialValue)
   const [isFocus, setIsFocus] = useState(false)
   const [isClick, setIsClick] = useState(false)
@@ -33,10 +27,6 @@ const AtomSwitch = props => {
 
   const onToggle = forceValue => {
     if (disabled === true) return
-
-    if (value !== undefined) {
-      return onToggle(!value)
-    }
 
     const newIsToggle = forceValue !== undefined ? forceValue : !isToggle
     setIsToggle(newIsToggle)

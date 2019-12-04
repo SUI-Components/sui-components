@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -9,69 +9,93 @@ import AtomLabel, {AtomLabelTypes} from '@s-ui/react-atom-label'
 import AtomHelpText from '@s-ui/react-atom-help-text'
 
 const BASE_CLASS = 'sui-MoleculeField'
-const CLASS_CONTAINER = `${BASE_CLASS}-inputContainer`
+const CLASS_INLINE = `${BASE_CLASS}--inline`
+const CLASS_INLINE_REVERSE = `${CLASS_INLINE}-reverse`
+const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-inputContainer`
+const CLASS_LABEL_CONTAINER = `${BASE_CLASS}-labelContainer`
 
-class MoleculeField extends Component {
-  get className() {
-    const {inline} = this.props
-    return cx(BASE_CLASS, inline && `${BASE_CLASS}--inline`)
+const MoleculeField = ({
+  inline,
+  reverse,
+  errorText,
+  successText,
+  label,
+  useContrastLabel,
+  helpText,
+  name,
+  onClickLabel,
+  onChange: onChangeFromProps,
+  children
+}) => {
+  const className = cx(
+    BASE_CLASS,
+    inline && CLASS_INLINE,
+    inline && reverse && CLASS_INLINE_REVERSE
+  )
+  let statusValidationText, typeValidationLabel, typeValidationText
+
+  const extendedChildren = React.Children.toArray(children)
+    .filter(Boolean)
+    .map((child, index) => {
+      return React.cloneElement(child, {
+        onChange: onChangeFromProps
+      })
+    })
+
+  if (useContrastLabel) {
+    typeValidationLabel = AtomLabelTypes.CONTRAST
+  }
+  if (errorText) {
+    statusValidationText = errorText
+    typeValidationLabel = AtomLabelTypes.ERROR
+    typeValidationText = AtomValidationTextTypes.ERROR
   }
 
-  getTypeValidation(element) {
-    if (this.props.errorText) {
-      if (element === 'label') return AtomLabelTypes.ERROR
-      if (element === 'validationText') return AtomValidationTextTypes.ERROR
-    }
-    if (this.props.successText) {
-      if (element === 'label') return AtomLabelTypes.SUCCESS
-      if (element === 'validationText') return AtomValidationTextTypes.SUCCESS
-    }
+  if (successText) {
+    statusValidationText = successText
+    typeValidationLabel = AtomLabelTypes.SUCCESS
+    typeValidationText = AtomValidationTextTypes.SUCCESS
   }
 
-  get statusValidationText() {
-    if (this.props.errorText) return this.props.errorText
-    if (this.props.successText) return this.props.successText
-  }
-
-  render() {
-    const {
-      label,
-      helpText,
-      name,
-      successText,
-      errorText,
-      onClickLabel,
-      children // eslint-disable-line react/prop-types
-    } = this.props
-
-    return (
-      <div className={this.className}>
+  return (
+    <div className={className}>
+      <div className={CLASS_LABEL_CONTAINER}>
+        {inline && extendedChildren}
         <AtomLabel
-          type={this.getTypeValidation('label')}
+          type={typeValidationLabel}
           name={name}
           text={label}
           onClick={onClickLabel}
         />
-        <div className={CLASS_CONTAINER}>
-          {children}
-          {(successText || errorText) && (
-            <AtomValidationText
-              type={this.getTypeValidation('validationText')}
-              text={this.statusValidationText}
-            />
-          )}
-          {helpText && <AtomHelpText text={helpText} />}
-        </div>
       </div>
-    )
-  }
+      <div className={CLASS_INPUT_CONTAINER}>
+        {!inline && extendedChildren}
+        {(successText || errorText) && (
+          <AtomValidationText
+            type={typeValidationText}
+            text={statusValidationText}
+          />
+        )}
+        {helpText && <AtomHelpText text={helpText} />}
+      </div>
+    </div>
+  )
 }
 
 MoleculeField.displayName = 'MoleculeField'
 
 MoleculeField.propTypes = {
+  /** children */
+  children: PropTypes.any,
+
   /** Text to be displayed as label of the textarea */
   label: PropTypes.string.isRequired,
+
+  /** If true it will set the label type to 'CONTRAST' */
+  useContrastLabel: PropTypes.bool,
+
+  /** Text to be displayed as label of the textarea */
+  onChange: PropTypes.func,
 
   /** used as for attribute. Must be the same as the input element id */
   name: PropTypes.string.isRequired,
@@ -87,6 +111,9 @@ MoleculeField.propTypes = {
 
   /** Boolean to decide if elements should be set inline */
   inline: PropTypes.bool,
+
+  /** Boolean to decide if elements should be set inline but input first */
+  reverse: PropTypes.bool,
 
   /** Boolean to decide if elements should be set inline */
   onClickLabel: PropTypes.func

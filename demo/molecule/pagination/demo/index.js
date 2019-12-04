@@ -243,6 +243,24 @@ const Demo = () => {
           hideDisabled
         />
       </div>
+      <div className={CLASS_DEMO_SECTION}>
+        <h4>Change Navigation Buttons</h4>
+        <p>
+          <code>totalPages=25 page=1</code>
+        </p>
+        <DynamicMoleculePagination
+          totalPages={25}
+          page={1}
+          {...Icons}
+          {...Texts}
+          {...OnClicks}
+          hideDisabled
+          prevButtonDesign="flat"
+          nextButtonDesign="solid"
+          showPages={5}
+          nonSelectedPageButtonDesign="outline"
+        />
+      </div>
     </div>
   )
 }

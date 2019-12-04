@@ -14,7 +14,6 @@ const Demo = () => {
   const [show, setShow] = useState(false)
 
   const [position, setPosition] = useState(atomPopoverPositions.BOTTOM)
-  const [globalClose, setGlobalClose] = useState()
 
   const renderContent = () => (
     <div style={{width: '200px', padding: '16px'}}>

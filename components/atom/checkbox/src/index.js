@@ -74,7 +74,7 @@ AtomCheckbox.propTypes = {
   /* Will set a red/green border if set to true/false */
   errorState: PropTypes.bool,
 
-  /* If you with you can change the look of checkbox using an AtomIcon */
+  /* If you wish you can change the look of checkbox using an AtomIcon */
   styledIcon: PropTypes.elementType
 }
 

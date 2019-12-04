@@ -7,10 +7,10 @@ $bdc-atom-popover: $c-gray-light-3 !default;
 $bgc-atom-popover: $c-white !default;
 $bdrs-atom-popover: $bdrs-m !default;
 $bdw-atom-popover: 1px !default;
-$pt-atom-popover: $p-m !default;
-$pb-atom-popover: $p-m !default;
-$pl-atom-popover: $p-m !default;
-$pr-atom-popover: $p-m !default;
+$mt-atom-popover: $p-m !default;
+$mb-atom-popover: $p-m !default;
+$ml-atom-popover: $p-m !default;
+$mr-atom-popover: $p-m !default;
 $m-atom-popover: 0 !default;
 $z-atom-popover: $z-tooltips !default;
 $bxsh-atom-popover: $bxsh-l !default;
@@ -39,16 +39,16 @@ $class-inner: '#{$base-class}-inner';
   }
 
   &#{$base-class}--top {
-    padding: $pt-atom-popover 0;
+    margin: $mt-atom-popover 0;
   }
   &#{$base-class}--right {
-    padding: 0 $pr-atom-popover;
+    margin: 0 $mr-atom-popover;
   }
   &#{$base-class}--bottom {
-    padding: $pb-atom-popover 0;
+    margin: $mb-atom-popover 0;
   }
   &#{$base-class}--left {
-    padding: 0 $pl-atom-popover;
+    margin: 0 $ml-atom-popover;
   }
 
   &#{$base-class}--auto {

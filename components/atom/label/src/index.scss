@@ -5,7 +5,6 @@ $c-atom-label: inherit !default;
 $c-atom-label-optional: $c-gray-light !default;
 $c-atom-label-contrast: $c-white !default;
 $fw-atom-label: inherit !default;
-$mb-atom-label: $m-s !default;
 $c-atom-label-type: success $c-success, error $c-error,
   contrast $c-atom-label-contrast;
 
@@ -14,7 +13,6 @@ $c-atom-label-type: success $c-success, error $c-error,
   color: $c-atom-label;
   font-size: $fz-base;
   font-weight: $fw-atom-label;
-  margin-bottom: $mb-atom-label;
 
   &-optionalText {
     color: $c-atom-label-optional;

@@ -12,7 +12,7 @@ $ npm install @s-ui/react-atom-popover --save
 
 ### Basic usage
 ```js
-import AtomPopover from '@s-ui/react-atom-popover'
+import AtomPopover, { atomPopoverPositions } from '@s-ui/react-atom-popover'
 
 ```
 

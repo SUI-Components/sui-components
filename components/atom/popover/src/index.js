@@ -7,7 +7,7 @@ const CLASS_INNER = `${BASE_CLASS}-inner`
 const PREFIX_PLACEMENT = `${BASE_CLASS}-`
 const DEFAULT_OFFSET = 'auto,4px'
 
-let Popover
+const Popover = React.lazy(() => import('reactstrap/lib/Popover'))
 let targetRef
 
 function AtomPopover({
@@ -19,7 +19,7 @@ function AtomPopover({
 }) {
   targetRef = useRef()
   const [showPopover, setShowPopover] = useState(false)
-  Popover = React.lazy(() => import('reactstrap/lib/Popover'))
+
   const extendChildren = () => {
     const onClick = () => {
       setShowPopover(true)

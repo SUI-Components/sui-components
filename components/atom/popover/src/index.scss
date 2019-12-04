@@ -1,0 +1,71 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$fz-atom-popover: $fz-m !default;
+$lh-atom-popover: $lh-m !default;
+$c-atom-popover: $c-black !default;
+$bdc-atom-popover: $c-gray-light-3 !default;
+$bgc-atom-popover: $c-white !default;
+$bdrs-atom-popover: $bdrs-m !default;
+$bdw-atom-popover: 1px !default;
+$pt-atom-popover: $p-m !default;
+$pb-atom-popover: $p-m !default;
+$pl-atom-popover: $p-m !default;
+$pr-atom-popover: $p-m !default;
+$m-atom-popover: 0 !default;
+$z-atom-popover: $z-tooltips !default;
+$bxsh-atom-popover: $bxsh-l !default;
+
+$base-class: '.sui-AtomPopover';
+$class-inner: '#{$base-class}-inner';
+
+#{$base-class} {
+  display: block;
+  font-size: $fz-atom-popover;
+  margin: $m-atom-popover;
+  position: absolute;
+  z-index: $z-atom-popover;
+
+  #{$class-inner} {
+    background-color: $bgc-atom-popover;
+    border-color: $bdc-atom-popover;
+    border-radius: $bdrs-atom-popover;
+    border-style: solid;
+    border-width: $bdw-atom-popover;
+    box-shadow: $bxsh-atom-popover;
+    color: $c-atom-popover;
+    line-height: $lh-atom-popover;
+    overflow: hidden;
+    text-align: left;
+  }
+
+  &#{$base-class}--top {
+    padding: $pt-atom-popover 0;
+  }
+  &#{$base-class}--right {
+    padding: 0 $pr-atom-popover;
+  }
+  &#{$base-class}--bottom {
+    padding: $pb-atom-popover 0;
+  }
+  &#{$base-class}--left {
+    padding: 0 $pl-atom-popover;
+  }
+
+  &#{$base-class}--auto {
+    &[x-placement^='top'] {
+      @extend #{$base-class}--top;
+    }
+
+    &[x-placement^='right'] {
+      @extend #{$base-class}--right;
+    }
+
+    &[x-placement^='bottom'] {
+      @extend #{$base-class}--bottom;
+    }
+
+    &[x-placement^='left'] {
+      @extend #{$base-class}--left;
+    }
+  }
+}

@@ -3,7 +3,7 @@ sudo: false
 language: node_js
 
 node_js:
-  - '12'
+  - '13'
 
 before_install:
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
@@ -12,7 +12,7 @@ install:
   - npm run phoenix:ci
   - rm -Rf ./demo/**/**/themes
   - ./scripts/build-themes.js
-  - npm i -g now
+  - npm i -g now --no-audit
 
 after_install:
   - NODE_ENV=production npm run build

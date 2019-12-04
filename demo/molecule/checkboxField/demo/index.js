@@ -5,6 +5,8 @@ import MoleculeCheckboxField from '../../../../components/molecule/checkboxField
 
 import './index.scss'
 
+import Iconcheck from '@schibstedspain/fotocasa-iconset/lib/Check'
+
 const BASE_CLASS_DEMO = `DemoMoleculeCheckboxField`
 
 const styleList = {
@@ -49,6 +51,16 @@ const Demo = () => {
             errorText="All wrong!"
             value="In some place of La Mancha which name..."
             onChange={(e, {name, value}) => console.log({[name]: value})}
+          />
+        </li>
+
+        <li style={styleListItem}>
+          <h2>Styled</h2>
+          <MoleculeCheckboxField
+            id="styled"
+            label="Styled"
+            onChange={(e, {name, value}) => console.log({[name]: value})}
+            styledIcon={<Iconcheck size="small" />}
           />
         </li>
       </ul>

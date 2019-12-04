@@ -12,6 +12,7 @@ $mb-atom-popover: $p-m !default;
 $ml-atom-popover: $p-m !default;
 $mr-atom-popover: $p-m !default;
 $m-atom-popover: 0 !default;
+$p-atom-popover: 0 !default;
 $z-atom-popover: $z-tooltips !default;
 $bxsh-atom-popover: $bxsh-l !default;
 
@@ -35,6 +36,7 @@ $class-inner: '#{$base-class}-inner';
     color: $c-atom-popover;
     line-height: $lh-atom-popover;
     overflow: hidden;
+    padding: $p-atom-popover;
     text-align: left;
   }
 

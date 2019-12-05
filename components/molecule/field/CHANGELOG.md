@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2019-12-05)
+
+
+### Features
+
+* refactor ([fcbfb7e](https://github.com/SUI-Components/sui-components/commit/fcbfb7e))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2019-10-25)
 

@@ -1,0 +1,41 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/sui-atom-button/lib/index';
+@import '~@s-ui/react-molecule-select/lib/index';
+@import '~@s-ui/react-molecule-dropdown-option/lib/index';
+
+.DemoPopover {
+  padding: $p-l;
+
+  &-content {
+    padding: $p-xl;
+  }
+
+  &-label {
+    display: block;
+    margin: $m-l 0 $m-m;
+    font-weight: $fw-bold;
+  }
+
+  &-buttons {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 100px;
+    text-align: center;
+
+    @include media-breakpoint-up(l) {
+      align-items: baseline;
+      flex-direction: row;
+    }
+  }
+
+  &-button {
+    border: 1px solid $c-primary;
+    padding: $p-l;
+  }
+
+  .sui-AtomButton {
+    margin-top: $m-l;
+  }
+}

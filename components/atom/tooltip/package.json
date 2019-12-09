@@ -11,7 +11,7 @@
   "dependencies": {
     "@s-ui/component-dependencies": "1",
     "@s-ui/hoc": "1",
-    "reactstrap": "6.3.0"
+    "reactstrap": "7.1.0"
   },
   "keywords": [],
   "author": "",

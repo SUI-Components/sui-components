@@ -7,13 +7,14 @@ const CLASS_INNER = `${BASE_CLASS}-inner`
 const PREFIX_PLACEMENT = `${BASE_CLASS}-`
 const DEFAULT_OFFSET = 'auto,4px'
 const DEFAULT_TRIGGER = 'legacy'
+const DEFAULT_DELAY = 0
 
 const Popover = React.lazy(() => import('reactstrap/lib/Popover'))
 let targetRef
 
 function AtomPopover({
   children,
-  content = () => {},
+  content,
   id,
   onClose = () => {},
   placement = PLACEMENTS.BOTTOM
@@ -53,6 +54,7 @@ function AtomPopover({
           <Suspense fallback={<></>}>
             <Popover
               className={BASE_CLASS}
+              delay={DEFAULT_DELAY}
               innerClassName={CLASS_INNER}
               isOpen={showPopover}
               offset={DEFAULT_OFFSET}
@@ -62,7 +64,7 @@ function AtomPopover({
               toggle={handleToggle}
               trigger={DEFAULT_TRIGGER}
             >
-              {content()}
+              {content}
             </Popover>
           </Suspense>
         )}
@@ -75,8 +77,8 @@ AtomPopover.displayName = 'AtomPopover'
 
 AtomPopover.propTypes = {
   /** HTML (component) to be displayed on the Popover */
-  content: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-  /** Popover content */
+  content: PropTypes.element.isRequired,
+  /** Popover children */
   children: PropTypes.node.isRequired,
   /** Popover id: only is needed if use a children without ref */
   id: PropTypes.string,

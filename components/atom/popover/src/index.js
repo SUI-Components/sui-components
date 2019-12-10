@@ -6,6 +6,7 @@ const BASE_CLASS = 'sui-AtomPopover'
 const CLASS_INNER = `${BASE_CLASS}-inner`
 const PREFIX_PLACEMENT = `${BASE_CLASS}-`
 const DEFAULT_OFFSET = 'auto,4px'
+const DEFAULT_TRIGGER = 'legacy'
 
 const Popover = React.lazy(() => import('reactstrap/lib/Popover'))
 let targetRef
@@ -59,6 +60,7 @@ function AtomPopover({
               placementPrefix={PREFIX_PLACEMENT}
               target={id || targetRef.current}
               toggle={handleToggle}
+              trigger={DEFAULT_TRIGGER}
             >
               {content()}
             </Popover>

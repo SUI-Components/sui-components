@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2019-12-10)
+
+
+### Features
+
+* update reacstrap version ([de774a7](https://github.com/SUI-Components/sui-components/commit/de774a7))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2019-10-29)
 

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2019-12-10)
+
+
+### Features
+
+* set default delay and update content proptype ([7531e67](https://github.com/SUI-Components/sui-components/commit/7531e67))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2019-12-10)
 

@@ -46,7 +46,7 @@ const Demo = () => {
         <AtomPopover
           placement={position}
           onClose={() => console.log('CLOSE POPOVER!')}
-          content={() => renderContent()}
+          content={renderContent()}
           id="random-id"
         >
           <Button>Show Popover in component without "ref"</Button>
@@ -54,7 +54,7 @@ const Demo = () => {
         <AtomPopover
           placement={position}
           onClose={() => console.log('CLOSE POPOVER!')}
-          content={() => renderContent()}
+          content={renderContent()}
         >
           <div className="DemoPopover-button">Show Popover in HTML ELEMENT</div>
         </AtomPopover>

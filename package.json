@@ -17,7 +17,6 @@
     "phoenix:ci": "npx @s-ui/mono phoenix --no-progress && (cd demo && npx @s-ui/mono phoenix --no-progress)",
     "precommit": "sui-precommit run",
     "release": "sui-studio release",
-    "start": "sui-studio start",
     "test": "true"
   },
   "repository": {},

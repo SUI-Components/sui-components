@@ -1,9 +1,0 @@
-{
-  "alias": "sui-components",
-  "version": 2,
-  "public": true,
-  "rewrites": [{ "source": "/.*", "destination": "/index.html" }],
-  "github": {
-    "autoJobCancelation": false
-  }
-}

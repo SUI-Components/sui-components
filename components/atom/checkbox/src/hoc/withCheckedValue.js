@@ -16,14 +16,11 @@ const withCheckedValue = BaseComponent => {
         : checkedFromProps
     )
 
-    useEffect(
-      function() {
-        if (typeof controlledChecked !== 'undefined') {
-          setChecked(controlledChecked)
-        }
-      },
-      [controlledChecked]
-    )
+    useEffect(() => {
+      if (typeof controlledChecked !== 'undefined') {
+        setChecked(controlledChecked)
+      }
+    }, [controlledChecked])
 
     const handleChangeValue = (ev, {name, value}) => {
       setChecked(value)

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 
 const withCheckedValue = BaseComponent => {
@@ -6,10 +6,24 @@ const withCheckedValue = BaseComponent => {
 
   const BaseComponentWithCheckedValue = ({
     checked: checkedFromProps = false,
+    controlledChecked,
     onChange: onChangeFromProps,
     ...props
   }) => {
-    const [checked, setChecked] = useState(checkedFromProps)
+    const [checked, setChecked] = useState(
+      typeof controlledChecked !== 'undefined'
+        ? controlledChecked
+        : checkedFromProps
+    )
+
+    useEffect(
+      function() {
+        if (typeof controlledChecked !== 'undefined') {
+          setChecked(controlledChecked)
+        }
+      },
+      [controlledChecked]
+    )
 
     const handleChangeValue = (ev, {name, value}) => {
       setChecked(value)
@@ -28,8 +42,8 @@ const withCheckedValue = BaseComponent => {
   BaseComponentWithCheckedValue.displayName = `withCheckboxValue(${displayName})`
 
   BaseComponentWithCheckedValue.propTypes = {
-    checked: PropTypes.any,
-
+    checked: PropTypes.bool,
+    controlledChecked: PropTypes.bool,
     onChange: PropTypes.func
   }
 

@@ -34,7 +34,7 @@ jobs:
       script:
         - npm install --only=dev --force-online
         - npm run build
-        - now public -p -n sui-components -t $NOW_TOKEN -V 2
+        - now public -p -n sui-components -t $NOW_TOKEN -V 2 --target production
 
 env:
   global:

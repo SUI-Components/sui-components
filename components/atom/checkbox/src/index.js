@@ -22,6 +22,7 @@ const AtomCheckbox = ({
   name,
   disabled,
   checked = false,
+  shouldRenderIcon = false,
   onChange: onChangeFromProps = () => {},
   errorState,
   styledIcon: StyledIcon,
@@ -34,12 +35,12 @@ const AtomCheckbox = ({
 
   const className = cx(BASE_CLASS, getErrorStateClass(errorState), {
     [`${BASE_CLASS}--styled`]: StyledIcon,
-    'is-checked': StyledIcon && checked
+    'is-checked': shouldRenderIcon && checked
   })
 
   return (
     <label className={className}>
-      {StyledIcon && checked ? <StyledIcon /> : ''}
+      {StyledIcon && shouldRenderIcon ? <StyledIcon /> : ''}
       <input
         type="checkbox"
         id={id}
@@ -67,6 +68,9 @@ AtomCheckbox.propTypes = {
 
   /* Mark the input as selected */
   checked: PropTypes.bool,
+
+  /* Render the icon or not */
+  shouldRenderIcon: PropTypes.bool,
 
   /* onChange callback */
   onChange: PropTypes.func,

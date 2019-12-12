@@ -1,4 +1,8 @@
 {
   "version": 2,
-  "rewrites": [{ "source": "/.*", "destination": "/index.html" }]
+  "public": true,
+  "rewrites": [{ "source": "/.*", "destination": "/index.html" }],
+  "github": {
+    "autoJobCancelation": false
+  }
 }

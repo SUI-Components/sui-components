@@ -16,11 +16,11 @@ const OrganismNestedCheckboxes = ({
   onChangeItem = noop,
   fullCheckedStyledIcon: FullCheckedStyledIcon,
   halfCheckedStyledIcon: HalfCheckedStyledIcon,
-  defaultItemsVisibility = true,
+  showItems: showItemsProp = true,
   showItemsIcon: ShowItemsIcon,
   hideItemsIcon: HideItemsIcon
 }) => {
-  const [showItems, setShowItems] = useState(defaultItemsVisibility) //eslint-disable-line
+  const [showItems, setShowItems] = useState(showItemsProp)
   const showToggleIcons = ShowItemsIcon !== null
 
   const parentIsFullChecked = items.every(({checked}) => checked === true)
@@ -98,6 +98,9 @@ OrganismNestedCheckboxes.propTypes = {
   /* Remove default padding on items */
   join: PropTypes.bool,
 
+  /* Default visibility for items */
+  showItems: PropTypes.bool,
+
   /* Show items icon */
   showItemsIcon: PropTypes.elementType,
 
@@ -106,9 +109,6 @@ OrganismNestedCheckboxes.propTypes = {
 
   /* onChange callback for items */
   onChangeItem: PropTypes.func,
-
-  /* Default visibility for items */
-  defaultItemsVisibility: PropTypes.bool,
 
   /* Icon to show on items and on parent when all items are checked */
   fullCheckedStyledIcon: PropTypes.elementType,

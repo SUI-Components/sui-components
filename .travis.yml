@@ -26,8 +26,7 @@ jobs:
       script:
         - npm install --only=dev --force-online
         - npm run build
-        - now public -p -n sui-components -t $NOW_TOKEN -V 2
-
+        - now public -n sui-components-$TRAVIS_PULL_REQUEST -p -t $NOW_TOKEN -V 2 --target staging
     - stage: Deploy Production
       env:
         - NODE_ENV=production
@@ -35,7 +34,8 @@ jobs:
       script:
         - npm install --only=dev --force-online
         - npm run build
-        - now public -n sui-components-$TRAVIS_PULL_REQUEST -p -t $NOW_TOKEN -V 2 --target staging
+        - now public -p -n sui-components -t $NOW_TOKEN -V 2
+
 env:
   global:
     - secure: >-

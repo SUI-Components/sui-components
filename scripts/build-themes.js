@@ -8,8 +8,6 @@ const walker = require('walker')
 const globby = require('globby')
 const {getSpawnPromise} = require('@s-ui/helpers/cli')
 
-console.log(process.env)
-
 const themesPkgs = {
   '@schibstedspain/cf-theme': '1',
   '@schibstedspain/fc-theme': '10',
@@ -63,6 +61,7 @@ const getThemesList = () => {
 
 const installThemesPkgs = () =>
   getSpawnPromise(
+    `NPM_TOKEN=${process.env.NPM_TOKEN}`,
     'npm',
     Object.keys(themesPkgs).reduce((acc, pkg) => [...acc, pkg], [
       'i',

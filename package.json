@@ -4,7 +4,7 @@
   "description": "Mono repo, multi package containing all SUI components.",
   "private": true,
   "scripts": {
-    "build": "npx @s-ui/mono run-parallel npm install --no-audit --no-package-lock && (cd demo && npx @s-ui/mono phoenix --no-progress) && sui-studio build",
+    "build": "sui-mono phoenix --no-root --no-audit && (cd demo && sui-mono phoenix --no-audit) && sui-studio build",
     "check:release": "sui-studio check-release",
     "co": "sui-studio commit",
     "commitmsg": "validate-commit-msg",
@@ -13,8 +13,8 @@
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
-    "phoenix": "npx @s-ui/mono phoenix && (cd demo && npx @s-ui/mono phoenix)",
-    "phoenix:ci": "npx @s-ui/mono phoenix --no-progress && (cd demo && npx @s-ui/mono phoenix --no-progress)",
+    "phoenix": "sui-mono phoenix && (cd demo && sui-mono phoenix)",
+    "phoenix:ci": "sui-mono phoenix --no-progress && (cd demo && sui-mono phoenix --no-progress)",
     "precommit": "sui-precommit run",
     "release": "sui-studio release",
     "test": "true"
@@ -24,6 +24,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@s-ui/mono": "beta",
     "@s-ui/precommit": "2",
     "@s-ui/studio": "7",
     "husky": "0.13.4",

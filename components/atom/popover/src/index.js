@@ -16,6 +16,7 @@ function AtomPopover({
   children,
   content,
   id,
+  closeIcon,
   onClose = () => {},
   placement = PLACEMENTS.BOTTOM
 }) {
@@ -64,6 +65,14 @@ function AtomPopover({
               toggle={handleToggle}
               trigger={DEFAULT_TRIGGER}
             >
+              {closeIcon && (
+                <div
+                  className={`${BASE_CLASS}-closeIcon`}
+                  onClick={handleToggle}
+                >
+                  {closeIcon}
+                </div>
+              )}
               {content}
             </Popover>
           </Suspense>
@@ -82,6 +91,8 @@ AtomPopover.propTypes = {
   children: PropTypes.node.isRequired,
   /** Popover id: only is needed if use a children without ref */
   id: PropTypes.string,
+  /** Custom close icon  */
+  closeIcon: PropTypes.node,
   /** On close callback */
   onClose: PropTypes.func,
   /** Popover position */

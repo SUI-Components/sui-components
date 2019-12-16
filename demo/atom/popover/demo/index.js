@@ -4,6 +4,7 @@ import React, {useState} from 'react'
 import Button from '@schibstedspain/sui-atom-button'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
+import IconClose from '@schibstedspain/sui-svgiconset/lib/Close'
 import {IconArrowDown} from './Icons'
 import AtomPopover, {
   atomPopoverPositions
@@ -12,7 +13,7 @@ import './index.scss'
 
 const Demo = () => {
   const [show, setShow] = useState(false)
-
+  const [closeIcon, setCloseIcon] = useState(true)
   const [position, setPosition] = useState(atomPopoverPositions.BOTTOM)
 
   const renderContent = () => (
@@ -41,9 +42,16 @@ const Demo = () => {
         ))}
       </MoleculeSelect>
       <br />
+      <label className="DemoPopover-label">Add close icon</label>
+      <input
+        type="checkbox"
+        checked={closeIcon}
+        onChange={ev => setCloseIcon(ev.target.checked)}
+      />
 
       <div className="DemoPopover-buttons">
         <AtomPopover
+          closeIcon={closeIcon && <IconClose />}
           placement={position}
           onClose={() => console.log('CLOSE POPOVER!')}
           content={renderContent()}
@@ -52,6 +60,7 @@ const Demo = () => {
           <Button>Show Popover in component without "ref"</Button>
         </AtomPopover>
         <AtomPopover
+          closeIcon={closeIcon && <IconClose />}
           placement={position}
           onClose={() => console.log('CLOSE POPOVER!')}
           content={renderContent()}

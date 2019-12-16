@@ -18,8 +18,8 @@ const MoleculeCheckboxField = ({
   errorText,
   helpText,
   onChange,
-  auxIcon: AuxIcon,
-  auxIconOnChange = () => {},
+  toggleIcon: ToggleIcon,
+  toggleIconOnChange = () => {},
   ...props
 }) => {
   const errorState = getErrorState(successText, errorText)
@@ -36,9 +36,12 @@ const MoleculeCheckboxField = ({
         reverse
       >
         <AtomCheckbox id={id} errorState={errorState} {...props} />
-        {AuxIcon ? (
-          <span className={`${BASE_CLASS}-auxIcon`} onClick={auxIconOnChange}>
-            <AuxIcon />
+        {ToggleIcon ? (
+          <span
+            className={`${BASE_CLASS}-toggleIcon`}
+            onClick={toggleIconOnChange}
+          >
+            <ToggleIcon />
           </span>
         ) : null}
       </MoleculeField>
@@ -70,11 +73,11 @@ MoleculeCheckboxField.propTypes = {
   /** Boolean to decide if elements should be set inline */
   inline: PropTypes.bool,
 
-  /* Icon to show as auxiliar */
-  auxIcon: PropTypes.elementType,
+  /* Icon to show as toggle */
+  toggleIcon: PropTypes.elementType,
 
-  /* onChange callback for auxiliar icon */
-  auxIconOnChange: PropTypes.func
+  /* onChange callback for toggle icon */
+  toggleIconOnChange: PropTypes.func
 }
 
 export default withCheckedValue(MoleculeCheckboxField)

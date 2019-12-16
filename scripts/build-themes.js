@@ -19,36 +19,32 @@ const themesPkgs = {
 }
 
 const writeFile = (path, body) => {
-  return new Promise((resolve, reject) => {
-    fse.outputFile(path, body, err => {
-      if (err) {
-        console.error(`Fail modifying ${path}`) // eslint-disable-line
-        reject(err)
-      } else {
-        console.log(`Modified ${path}`) // eslint-disable-line
-        resolve()
-      }
+  return fse
+    .outputFile(path, body)
+    .then(() => {
+      console.log(`Modified ${path}`)
     })
-  })
+    .catch(err => {
+      console.error(`Fail modifying ${path}`)
+      throw err
+    })
 }
 
 const createDir = path => {
-  return new Promise((resolve, reject) => {
-    fse.mkdirp(path, err => {
-      if (err) {
-        console.error(`Fail creating ${path}`) // eslint-disable-line
-        reject(err)
-      } else {
-        console.log(`Created ${path}`) // eslint-disable-line
-        resolve()
-      }
+  return fse
+    .mkdirp(path)
+    .then(() => {
+      console.log(`Created ${path}`)
     })
-  })
+    .catch(err => {
+      console.error(`Fail creating ${path}`)
+      throw err
+    })
 }
 
 const getThemesList = () => {
   const themes = []
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     walker(path.join(__dirname, '..', 'themes'))
       .on('file', theme => themes.push(theme))
       .on('end', () => {
@@ -66,7 +62,9 @@ const installThemesPkgs = () =>
     'npm',
     Object.keys(themesPkgs).reduce((acc, pkg) => [...acc, pkg], [
       'i',
-      '--no-save'
+      '--no-save',
+      '--no-audit',
+      '--no-package-lock'
     ]),
     {cwd: process.cwd()}
   )
@@ -101,6 +99,7 @@ const writeThemesInDemoFolders = async themes => {
       }
     })
 }
+
 ;(async () => {
   const themes = await getThemesList()
   await installThemesPkgs()

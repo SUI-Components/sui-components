@@ -3,5 +3,10 @@
   "routes": [
     { "handle": "filesystem" },
     { "src": "/.*", "dest": "/index.html" }
-  ]
+  ],
+  "build": {
+    "env": {
+      "NPM_TOKEN": "@npm_token"
+    }
+  }
 }

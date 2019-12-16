@@ -62,8 +62,8 @@ const getThemesList = () => {
 const installThemesPkgs = () =>
   getSpawnPromise(
     `NPM_TOKEN=${process.env.NPM_TOKEN}`,
-    'npm',
     Object.keys(themesPkgs).reduce((acc, pkg) => [...acc, pkg], [
+      'npm',
       'i',
       '--no-save',
       '--no-audit',

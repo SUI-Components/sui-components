@@ -9,7 +9,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@s-ui/hoc": "1"
-  }
+  "dependencies": {}
 }

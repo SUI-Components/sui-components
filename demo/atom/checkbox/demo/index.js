@@ -1,9 +1,7 @@
 /* eslint-disable no-console */
-import React from 'react'
+import React, {useState} from 'react'
 import AtomIcon from '../../../../components/atom/icon/src'
-import AtomCheckbox, {
-  withCheckedValue
-} from '../../../../components/atom/checkbox/src'
+import AtomCheckbox from '../../../../components/atom/checkbox/src'
 
 import './index.scss'
 
@@ -21,54 +19,57 @@ const IconCheck = props => (
   </AtomIcon>
 )
 
-const AtomCheckboxWithState = withCheckedValue(AtomCheckbox)
+const IconHalfCheck = props => (
+  <AtomIcon {...props}>
+    <svg viewBox="0 0 24 24">
+      <path d="M.5 12.5a.5.5 0 010-1h23a.5.5 0 010 1H.5z" />
+    </svg>
+  </AtomIcon>
+)
 
 const Demo = () => {
+  const [checkboxValue, setCheckboxValue] = useState(true)
+
   return (
     <div className={BASE_CLASS_DEMO}>
       <h1>AtomCheckbox</h1>
-      <h2>Dynamic Behaviour</h2>
-      <div className={CLASS_SECTION}>
-        <h3>Checked (default) & w/ "onChange" handler</h3>
-        <p>
-          <AtomCheckboxWithState
-            checked
-            id="checkbox1"
-            name="terms-agreement"
-            onChange={(ev, {value, name}) => {
-              console.log({[name]: value})
-            }}
-          />
-        </p>
-      </div>
-      <div className={CLASS_SECTION}>
-        <h3>Disabled & Checked (default) & w/ "onChange" handler</h3>
-        <p>
-          <AtomCheckboxWithState
-            checked
-            disabled
-            id="checkbox2"
-            name="older-than-18"
-            onChange={(ev, {value, name}) => {
-              console.log({[name]: value})
-            }}
-          />
-        </p>
-      </div>
       <h2>Use Cases</h2>
       <div className={CLASS_SECTION}>
-        <h3>Unchecked & Disabled</h3>
-        <AtomCheckbox id="checkbox5" disabled />
+        <h3>Checked with onChange method</h3>
+        <AtomCheckbox
+          id="checkbox1"
+          checked={checkboxValue}
+          checkedIcon={IconCheck}
+          onChange={() => setCheckboxValue(!checkboxValue)}
+        />
       </div>
       <div className={CLASS_SECTION}>
-        <h3>Checked & disabled</h3>
-        <AtomCheckbox id="checkbox6" disabled checked />
+        <h3>Intermediate</h3>
+        <AtomCheckbox
+          id="checkbox2"
+          checkedIcon={IconCheck}
+          intermediate
+          intermediateIcon={IconHalfCheck}
+        />
       </div>
-      <h2>Modifiers</h2>
       <div className={CLASS_SECTION}>
-        <h3>StyledIcon</h3>
-        <AtomCheckboxWithState id="checkbox7" checked styledIcon={IconCheck} />
+        <h3>Unchecked</h3>
+        <AtomCheckbox id="checkbox3" checkedIcon={IconCheck} />
       </div>
+
+      <h2>Disabled</h2>
+      <h3>Checked</h3>
+      <AtomCheckbox id="checkbox4" disabled checked checkedIcon={IconCheck} />
+      <h3>Intermediate</h3>
+      <AtomCheckbox
+        id="checkbox5"
+        disabled
+        intermediate
+        checkedIcon={IconCheck}
+        intermediateIcon={IconHalfCheck}
+      />
+      <h3>Unchecked</h3>
+      <AtomCheckbox id="checkbox5" disabled checkedIcon={IconCheck} />
     </div>
   )
 }

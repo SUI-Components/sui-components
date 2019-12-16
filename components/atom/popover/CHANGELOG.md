@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2019-12-16)
+
+
+### Features
+
+* add new prop: closeIcon ([38211fa](https://github.com/SUI-Components/sui-components/commit/38211fa))
+* fix order styles ([1c073fa](https://github.com/SUI-Components/sui-components/commit/1c073fa))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2019-12-10)
 

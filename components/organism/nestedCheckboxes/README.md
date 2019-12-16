@@ -5,7 +5,7 @@ This component show a parent checkbox with children that their controls his own 
 ## Installation
 
 ```sh
-$ npm install @s-ui/react-organism-nested-checkboxes --save
+$ npm install @s-ui/react-organism-nested-checkboxes
 ```
 
 ## Usage

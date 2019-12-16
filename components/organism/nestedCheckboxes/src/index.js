@@ -29,20 +29,17 @@ const OrganismNestedCheckboxes = ({
 
   const parentIsFullOrHalfChecked = parentIsFullChecked || parentIsHalfChecked
 
-  const parentStyledIcon = parentIsHalfChecked
-    ? HalfCheckedStyledIcon
-    : FullCheckedStyledIcon
-
   return (
     <ul className={baseClass}>
       <li>
         <MoleculeCheckboxField
-          controlledChecked={parentIsFullChecked}
+          checked={parentIsFullChecked}
+          intermediate={parentIsHalfChecked}
           id={id}
           label={labelParent}
           onChange={() => onChangeParent(parentIsFullOrHalfChecked)}
-          shouldRenderIcon={parentIsFullOrHalfChecked}
-          styledIcon={parentStyledIcon}
+          checkedIcon={FullCheckedStyledIcon}
+          intermediateIcon={HalfCheckedStyledIcon}
           toggleIcon={showItems ? HideItemsIcon : ShowItemsIcon}
           toggleIconOnChange={() => setShowItems(!showItems)}
         />
@@ -60,8 +57,8 @@ const OrganismNestedCheckboxes = ({
                     controlledChecked={checked}
                     id={childId}
                     onChange={e => onChangeItem(e.target)}
-                    shouldRenderIcon={checked}
-                    styledIcon={FullCheckedStyledIcon}
+                    checkedIcon={FullCheckedStyledIcon}
+                    intermediateIcon={HalfCheckedStyledIcon}
                     {...item}
                   />
                 </li>

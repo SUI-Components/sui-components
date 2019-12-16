@@ -72,8 +72,8 @@ const Demo = () => {
     <div className={BASE_CLASS_DEMO}>
       <h1>Organism NestedCheckboxes</h1>
       <OrganismNestedCheckboxes
-        fullCheckedStyledIcon={IconCheck}
-        halfCheckedStyledIcon={IconHalfCheck}
+        checkedIcon={IconCheck}
+        intermediateIcon={IconHalfCheck}
         id="nested-1"
         items={items}
         labelParent="Nested checkboxes"
@@ -85,8 +85,8 @@ const Demo = () => {
         With Join prop | <small>Remove left padding on items</small>
       </h2>
       <OrganismNestedCheckboxes
-        fullCheckedStyledIcon={IconCheck}
-        halfCheckedStyledIcon={IconHalfCheck}
+        checkedIcon={IconCheck}
+        intermediateIcon={IconHalfCheck}
         id="nested-2"
         items={items}
         join
@@ -99,8 +99,8 @@ const Demo = () => {
         With Show/hide items feature | <small>Toggle items visibility</small>
       </h2>
       <OrganismNestedCheckboxes
-        fullCheckedStyledIcon={IconCheck}
-        halfCheckedStyledIcon={IconHalfCheck}
+        checkedIcon={IconCheck}
+        intermediateIcon={IconHalfCheck}
         id="nested-3"
         items={items}
         labelParent="Nested checkboxes"

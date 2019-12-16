@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-molecule-checkbox-field": "1"
+    "@s-ui/react-molecule-checkbox-field": "2"
   },
   "keywords": [],
   "author": "",

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2019-12-05)
+
+
+### Features
+
+* add compatibility ([a66651d](https://github.com/SUI-Components/sui-components/commit/a66651d))
+* allow new prop to style checkbox ([f4db50d](https://github.com/SUI-Components/sui-components/commit/f4db50d))
+* fix on icon prop ([4849d26](https://github.com/SUI-Components/sui-components/commit/4849d26))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2019-12-03)
 

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.34.0"></a>
+# 1.34.0 (2019-12-11)
+
+
+### Bug Fixes
+
+* fix error console when link is disabled ([c6cab9e](https://github.com/SUI-Components/sui-components/commit/c6cab9e))
+
+
+
 <a name="1.33.0"></a>
 # 1.33.0 (2019-11-14)
 

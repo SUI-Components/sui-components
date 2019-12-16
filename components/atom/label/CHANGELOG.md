@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2019-12-05)
+
+
+### Features
+
+* remove unnecessary margin ([8ba4eab](https://github.com/SUI-Components/sui-components/commit/8ba4eab))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2019-10-25)
 

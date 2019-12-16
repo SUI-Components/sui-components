@@ -1,0 +1,90 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$fz-atom-popover: $fz-m !default;
+$lh-atom-popover: $lh-m !default;
+$c-atom-popover: $c-black !default;
+$bdc-atom-popover: $c-gray-light-3 !default;
+$bgc-atom-popover: $c-white !default;
+$bdrs-atom-popover: $bdrs-m !default;
+$bdw-atom-popover: 1px !default;
+$mt-atom-popover: $p-m !default;
+$mb-atom-popover: $p-m !default;
+$ml-atom-popover: $p-m !default;
+$mr-atom-popover: $p-m !default;
+$m-atom-popover: 0 !default;
+$p-atom-popover: 0 !default;
+$z-atom-popover: $z-tooltips !default;
+$bxsh-atom-popover: $bxsh-l !default;
+$c-atom-popover-close-icon: $c-primary !default;
+$mr-atom-popover-close-icon: $m-s !default;
+$mt-atom-popover-close-icon: $m-s !default;
+$sz-atom-popover-close-icon: $sz-icon-s !default;
+
+$base-class: '.sui-AtomPopover';
+$class-inner: '#{$base-class}-inner';
+
+#{$base-class} {
+  display: block;
+  font-size: $fz-atom-popover;
+  margin: $m-atom-popover;
+  position: absolute;
+  z-index: $z-atom-popover;
+
+  #{$class-inner} {
+    background-color: $bgc-atom-popover;
+    border-color: $bdc-atom-popover;
+    border-radius: $bdrs-atom-popover;
+    border-style: solid;
+    border-width: $bdw-atom-popover;
+    box-shadow: $bxsh-atom-popover;
+    color: $c-atom-popover;
+    line-height: $lh-atom-popover;
+    overflow: hidden;
+    padding: $p-atom-popover;
+    text-align: left;
+  }
+
+  &-closeIcon {
+    cursor: pointer;
+    position: absolute;
+    right: $mt-atom-popover-close-icon;
+    top: $mr-atom-popover-close-icon;
+
+    svg {
+      fill: $c-atom-popover-close-icon !important;
+      height: $sz-atom-popover-close-icon;
+      width: $sz-atom-popover-close-icon;
+    }
+  }
+
+  &#{$base-class}--top {
+    margin: $mt-atom-popover 0;
+  }
+  &#{$base-class}--right {
+    margin: 0 $mr-atom-popover;
+  }
+  &#{$base-class}--bottom {
+    margin: $mb-atom-popover 0;
+  }
+  &#{$base-class}--left {
+    margin: 0 $ml-atom-popover;
+  }
+
+  &#{$base-class}--auto {
+    &[x-placement^='top'] {
+      @extend #{$base-class}--top;
+    }
+
+    &[x-placement^='right'] {
+      @extend #{$base-class}--right;
+    }
+
+    &[x-placement^='bottom'] {
+      @extend #{$base-class}--bottom;
+    }
+
+    &[x-placement^='left'] {
+      @extend #{$base-class}--left;
+    }
+  }
+}

@@ -2,14 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
-import AtomCheckbox, {withCheckedValue} from '@s-ui/react-atom-checkbox'
+import AtomCheckbox from '@s-ui/react-atom-checkbox'
 
 const BASE_CLASS = 'sui-MoleculeCheckboxField'
-
-const getErrorState = (success, error) => {
-  if (success) return false
-  if (error) return true
-}
 
 const MoleculeCheckboxField = ({
   id,
@@ -22,7 +17,6 @@ const MoleculeCheckboxField = ({
   toggleIconOnChange = () => {},
   ...props
 }) => {
-  const errorState = getErrorState(successText, errorText)
   return (
     <div className={BASE_CLASS}>
       <MoleculeField
@@ -35,7 +29,7 @@ const MoleculeCheckboxField = ({
         inline
         reverse
       >
-        <AtomCheckbox id={id} errorState={errorState} {...props} />
+        <AtomCheckbox id={id} {...props} />
         {ToggleIcon ? (
           <span
             className={`${BASE_CLASS}-toggleIcon`}
@@ -80,4 +74,4 @@ MoleculeCheckboxField.propTypes = {
   toggleIconOnChange: PropTypes.func
 }
 
-export default withCheckedValue(MoleculeCheckboxField)
+export default MoleculeCheckboxField

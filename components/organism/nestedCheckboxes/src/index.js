@@ -43,8 +43,8 @@ const OrganismNestedCheckboxes = ({
           onChange={() => onChangeParent(parentIsFullOrHalfChecked)}
           shouldRenderIcon={parentIsFullOrHalfChecked}
           styledIcon={parentStyledIcon}
-          auxIcon={showItems ? HideItemsIcon : ShowItemsIcon}
-          auxIconOnChange={() => setShowItems(!showItems)}
+          toggleIcon={showItems ? HideItemsIcon : ShowItemsIcon}
+          toggleIconOnChange={() => setShowItems(!showItems)}
         />
         {items.length > 0 && showToggleIcons && showItems && (
           <ul className={`${baseClass}-list`}>

@@ -1,7 +1,5 @@
 # OrganismNestedCheckboxes
 
-> Description
-
 This component show a parent checkbox with children that their controls his own state.
 
 ## Installation
@@ -16,7 +14,23 @@ $ npm install @s-ui/react-organism-nested-checkboxes --save
 ```js
 import OrganismNestedCheckboxes from '@s-ui/react-organism-nested-checkboxes'
 
-return (<OrganismNestedCheckboxes />) //pending
+const data = [
+  {id: 'nested-01', label: 'Nested 1', checked: true},
+  {id: 'nested-02', label: 'Nested 2', checked: true},
+  {id: 'nested-03', label: 'Nested 3', checked: true},
+  {id: 'nested-04', label: 'Nested 4', checked: false},
+  {id: 'nested-05', label: 'Nested 5', checked: false}
+]
+
+<OrganismNestedCheckboxes
+  fullCheckedStyledIcon={IconCheck}
+  halfCheckedStyledIcon={IconHalfCheck}
+  id="nested"
+  items={data}
+  labelParent="Nested checkboxes"
+  onChangeItem={handleChangeItem}
+  onChangeParent={handleChangeParent}
+/>
 ```
 
 

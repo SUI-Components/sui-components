@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+/* eslint-disable no-console */
+
 const path = require('path')
 const fse = require('fs-extra')
 const walker = require('walker')
@@ -95,7 +97,7 @@ const writeThemesInDemoFolders = async themes => {
           )
         )
       } catch (e) {
-      console.log('Err:', e) // eslint-disable-line
+        console.log('Err:', e)
       }
     })
 }

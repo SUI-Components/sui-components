@@ -4,7 +4,7 @@
   "description": "Mono repo, multi package containing all SUI components.",
   "private": true,
   "scripts": {
-    "build": "npx @s-ui/mono run-parallel npm install && (cd demo && npx @s-ui/mono phoenix --no-progress) && sui-studio build",
+    "build": "npx @s-ui/mono run-parallel npm install --no-audit --no-package-lock && (cd demo && npx @s-ui/mono phoenix --no-progress) && sui-studio build",
     "check:release": "sui-studio check-release",
     "co": "sui-studio commit",
     "commitmsg": "validate-commit-msg",

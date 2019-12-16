@@ -82,6 +82,9 @@ AtomInput.propTypes = {
   /** specifies the maximum number of characters (native "maxlength" attribute) */
   maxLength: PropTypes.number,
 
+  /** specifies the minimum number of characters (native "minlength" attribute) */
+  minLength: PropTypes.number,
+
   /** specifies whether or not an input field should have autocomplete enabled (on|off) */
   autoComplete: PropTypes.string,
 

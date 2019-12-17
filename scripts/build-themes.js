@@ -59,15 +59,23 @@ const getThemesList = () => {
   })
 }
 
+const INSTALL_WITH_NPM = [
+  'npm',
+  ['i', '--no-save', '--no-audit', '--no-package-lock']
+]
+const INSTALL_WITH_YARN = [
+  'yarn',
+  ['install', '--no-lockfile', '--non-interactive']
+]
+
+const [installCommand, installArgs] = process.env.NOW_REGION
+  ? INSTALL_WITH_YARN
+  : INSTALL_WITH_NPM
+
 const installThemesPkgs = () =>
   getSpawnPromise(
-    'npm',
-    themesPkgs.reduce((acc, pkg) => [...acc, pkg], [
-      'i',
-      '--no-save',
-      '--no-audit',
-      '--no-package-lock'
-    ]),
+    installCommand,
+    themesPkgs.reduce((acc, pkg) => [...acc, pkg], installArgs),
     {cwd: process.cwd()}
   )
 

@@ -63,7 +63,10 @@ const INSTALL_WITH_NPM = [
   'npm',
   ['i', '--no-save', '--no-audit', '--no-package-lock']
 ]
-const INSTALL_WITH_YARN = ['yarn', ['add']]
+const INSTALL_WITH_YARN = [
+  `YARN_REGISTRY=https://registry.npmjs.org/:_authToken=${process.env.NPM_TOKEN}`,
+  ['add']
+]
 
 const [installCommand, installArgs] = process.env.NPM_RC
   ? INSTALL_WITH_YARN

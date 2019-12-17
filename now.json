@@ -6,6 +6,7 @@
   ],
   "build": {
     "env": {
+      "NPM_TOKEN": "@npm_token",
       "NPM_RC": "@npmrc"
     }
   }

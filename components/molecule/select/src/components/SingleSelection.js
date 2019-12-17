@@ -21,7 +21,8 @@ const MoleculeSelectSingleSelection = props => {
     placeholder,
     id,
     disabled,
-    optionsData = {}
+    optionsData = {},
+    required
   } = props
 
   const handleSelection = (ev, {value}) => {
@@ -42,6 +43,7 @@ const MoleculeSelectSingleSelection = props => {
         placeholder={placeholder}
         autoComplete="off"
         readOnly
+        required={required}
       />
       <MoleculeDropdownList
         size={size}
@@ -58,7 +60,8 @@ const MoleculeSelectSingleSelection = props => {
 MoleculeSelectSingleSelection.displayName = 'MoleculeSelectSingleSelection'
 
 MoleculeSelectSingleSelection.defaultProps = {
-  value: ''
+  value: '',
+  required: false
 }
 
 export default MoleculeSelectSingleSelection

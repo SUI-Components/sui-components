@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "name": "sui-components",
   "routes": [
     { "handle": "filesystem" },
     { "src": "/.*", "dest": "/index.html" }

@@ -8,6 +8,8 @@ const walker = require('walker')
 const globby = require('globby')
 const {getSpawnPromise} = require('@s-ui/helpers/cli')
 
+const IS_DEPLOYMENT = Boolean(process.env.NPM_RC)
+
 const themesPkgs = [
   '@schibstedspain/cf-theme',
   '@schibstedspain/fc-theme',
@@ -24,7 +26,7 @@ const writeFile = (path, body) => {
   return fse
     .outputFile(path, body)
     .then(() => {
-      console.log(`Modified ${path}`)
+      !IS_DEPLOYMENT && console.log(`Modified ${path}`)
     })
     .catch(err => {
       console.error(`Fail modifying ${path}`)
@@ -36,7 +38,7 @@ const createDir = path => {
   return fse
     .mkdirp(path)
     .then(() => {
-      console.log(`Created ${path}`)
+      !IS_DEPLOYMENT && console.log(`Created ${path}`)
     })
     .catch(err => {
       console.error(`Fail creating ${path}`)

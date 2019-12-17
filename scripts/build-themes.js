@@ -8,17 +8,17 @@ const walker = require('walker')
 const globby = require('globby')
 const {getSpawnPromise} = require('@s-ui/helpers/cli')
 
-const themesPkgs = {
-  '@schibstedspain/cf-theme': '1',
-  '@schibstedspain/fc-theme': '10',
-  '@schibstedspain/ij-theme': '1',
-  '@schibstedspain/mt-theme': '4',
-  '@schibstedspain/nc-theme': '1',
-  '@schibstedspain/vb-theme': '1',
-  '@schibstedspain/ma-theme': '1',
-  '@schibstedspain/ep-theme': '1',
-  '@schibstedspain/hab-theme': '1'
-}
+const themesPkgs = [
+  '@schibstedspain/cf-theme',
+  '@schibstedspain/fc-theme',
+  '@schibstedspain/ij-theme',
+  '@schibstedspain/mt-theme',
+  '@schibstedspain/nc-theme',
+  '@schibstedspain/vb-theme',
+  '@schibstedspain/ma-theme',
+  '@schibstedspain/ep-theme',
+  '@schibstedspain/hab-theme'
+]
 
 const writeFile = (path, body) => {
   return fse

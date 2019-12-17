@@ -66,7 +66,7 @@ const INSTALL_WITH_NPM = [
 const INSTALL_WITH_YARN = [
   'yarn',
   [
-    'install',
+    'add',
     '--no-lockfile',
     '--non-interactive',
     '--registry=https://registry.npmjs.org'

@@ -65,7 +65,12 @@ const INSTALL_WITH_NPM = [
 ]
 const INSTALL_WITH_YARN = [
   'yarn',
-  ['install', '--no-lockfile', '--non-interactive']
+  [
+    'install',
+    '--no-lockfile',
+    '--non-interactive',
+    '--registry=https://registry.npmjs.org'
+  ]
 ]
 
 const [installCommand, installArgs] = process.env.NOW_REGION

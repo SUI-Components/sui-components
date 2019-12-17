@@ -23,7 +23,8 @@ const MoleculeAutosuggestSingleSelection = ({
   rightIcon,
   iconClear,
   placeholder,
-  disabled
+  disabled,
+  required
 }) => {
   const handleSelection = (ev, {value}) => {
     onChange(ev, {value})
@@ -59,6 +60,7 @@ const MoleculeAutosuggestSingleSelection = ({
         placeholder={placeholder}
         onKeyDown={onInputKeyDown}
         disabled={disabled}
+        required={required}
       />
       {value && (
         <MoleculeDropdownList
@@ -79,7 +81,8 @@ MoleculeAutosuggestSingleSelection.displayName =
   'MoleculeAutosuggestSingleSelection'
 
 MoleculeAutosuggestSingleSelection.defaultProps = {
-  value: ''
+  value: '',
+  required: false
 }
 
 export default MoleculeAutosuggestSingleSelection

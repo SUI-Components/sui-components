@@ -226,7 +226,10 @@ MoleculeAutosuggest.propTypes = {
   keysCloseList: PropTypes.array,
 
   /* object generated w/ Reacte.createRef method to get a DOM reference of internal input */
-  refMoleculeAutosuggest: PropTypes.object
+  refMoleculeAutosuggest: PropTypes.object,
+
+  /* native required html attribute */
+  required: PropTypes.bool
 }
 
 MoleculeAutosuggest.defaultProps = {
@@ -235,7 +238,8 @@ MoleculeAutosuggest.defaultProps = {
   onEnter: () => {},
   onSelect: () => {},
   keysSelection: [' ', 'Enter'],
-  keysCloseList: ['Escape']
+  keysCloseList: ['Escape'],
+  required: false
 }
 
 export default withOpenToggle(MoleculeAutosuggest)

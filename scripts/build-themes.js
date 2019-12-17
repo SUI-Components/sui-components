@@ -1,54 +1,54 @@
 #!/usr/bin/env node
 
+/* eslint-disable no-console */
+
 const path = require('path')
 const fse = require('fs-extra')
 const walker = require('walker')
 const globby = require('globby')
 const {getSpawnPromise} = require('@s-ui/helpers/cli')
 
-const themesPkgs = {
-  '@schibstedspain/cf-theme': '1',
-  '@schibstedspain/fc-theme': '10',
-  '@schibstedspain/ij-theme': '1',
-  '@schibstedspain/mt-theme': '4',
-  '@schibstedspain/nc-theme': '1',
-  '@schibstedspain/vb-theme': '1',
-  '@schibstedspain/ma-theme': '1',
-  '@schibstedspain/ep-theme': '1',
-  '@schibstedspain/hab-theme': '1'
-}
+const IS_DEPLOYMENT = Boolean(process.env.NPM_RC)
+
+const themesPkgs = [
+  '@schibstedspain/cf-theme',
+  '@schibstedspain/fc-theme',
+  '@schibstedspain/ij-theme',
+  '@schibstedspain/mt-theme',
+  '@schibstedspain/nc-theme',
+  '@schibstedspain/vb-theme',
+  '@schibstedspain/ma-theme',
+  '@schibstedspain/ep-theme',
+  '@schibstedspain/hab-theme'
+]
 
 const writeFile = (path, body) => {
-  return new Promise((resolve, reject) => {
-    fse.outputFile(path, body, err => {
-      if (err) {
-        console.error(`Fail modifying ${path}`) // eslint-disable-line
-        reject(err)
-      } else {
-        console.log(`Modified ${path}`) // eslint-disable-line
-        resolve()
-      }
+  return fse
+    .outputFile(path, body)
+    .then(() => {
+      !IS_DEPLOYMENT && console.log(`Modified ${path}`)
     })
-  })
+    .catch(err => {
+      console.error(`Fail modifying ${path}`)
+      throw err
+    })
 }
 
 const createDir = path => {
-  return new Promise((resolve, reject) => {
-    fse.mkdirp(path, err => {
-      if (err) {
-        console.error(`Fail creating ${path}`) // eslint-disable-line
-        reject(err)
-      } else {
-        console.log(`Created ${path}`) // eslint-disable-line
-        resolve()
-      }
+  return fse
+    .mkdirp(path)
+    .then(() => {
+      !IS_DEPLOYMENT && console.log(`Created ${path}`)
     })
-  })
+    .catch(err => {
+      console.error(`Fail creating ${path}`)
+      throw err
+    })
 }
 
 const getThemesList = () => {
   const themes = []
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     walker(path.join(__dirname, '..', 'themes'))
       .on('file', theme => themes.push(theme))
       .on('end', () => {
@@ -64,9 +64,11 @@ const getThemesList = () => {
 const installThemesPkgs = () =>
   getSpawnPromise(
     'npm',
-    Object.keys(themesPkgs).reduce((acc, pkg) => [...acc, pkg], [
+    themesPkgs.reduce((acc, pkg) => [...acc, pkg], [
       'i',
-      '--no-save'
+      '--no-save',
+      '--no-audit',
+      '--no-package-lock'
     ]),
     {cwd: process.cwd()}
   )
@@ -97,10 +99,11 @@ const writeThemesInDemoFolders = async themes => {
           )
         )
       } catch (e) {
-      console.log('Err:', e) // eslint-disable-line
+        console.log('Err:', e)
       }
     })
 }
+
 ;(async () => {
   const themes = await getThemesList()
   await installThemesPkgs()

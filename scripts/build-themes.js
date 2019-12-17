@@ -73,9 +73,7 @@ const INSTALL_WITH_YARN = [
   ]
 ]
 
-console.log(process.env)
-
-const [installCommand, installArgs] = process.env.NOW_REGION
+const [installCommand, installArgs] = process.env.NPM_RC
   ? INSTALL_WITH_YARN
   : INSTALL_WITH_NPM
 

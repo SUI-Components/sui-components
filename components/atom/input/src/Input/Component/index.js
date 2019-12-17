@@ -63,7 +63,8 @@ const Input = ({
   onChange,
   onEnter,
   onEnterKey,
-  onKeyDown
+  onKeyDown,
+  required
 }) => {
   const changeHandler = ev => {
     const {
@@ -110,6 +111,7 @@ const Input = ({
       maxLength={maxLength}
       minLength={minLength}
       autoComplete={autoComplete}
+      required={required}
     />
   )
 }
@@ -160,7 +162,9 @@ Input.propTypes = {
   /** Wether to hide the input border or not */
   noBorder: PropTypes.bool,
   /** tabindex value */
-  tabIndex: PropTypes.number
+  tabIndex: PropTypes.number,
+  /** native required attribtue  */
+  required: PropTypes.bool
 }
 
 Input.defaultProps = {

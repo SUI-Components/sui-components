@@ -6,6 +6,8 @@ import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 
 const baseClass = 'sui-OrganismNestedCheckboxes'
 
+const checkItemIsChecked = ({checked}) => checked === true
+
 const OrganismNestedCheckboxes = ({
   id,
   checkedIcon: CheckedIcon,
@@ -22,9 +24,9 @@ const OrganismNestedCheckboxes = ({
   const [showItems, setShowItems] = useState(showItemsProp)
   const showToggleIcons = ShowItemsIcon !== null
 
-  const isParentFullChecked = items.every(({checked}) => checked === true)
+  const isParentFullChecked = items.every(checkItemIsChecked)
   const isParentHalfChecked =
-    !isParentFullChecked && items.some(({checked}) => checked === true)
+    !isParentFullChecked && items.some(checkItemIsChecked)
 
   const isParentFullOrHalfChecked = isParentFullChecked || isParentHalfChecked
 
@@ -59,7 +61,7 @@ const OrganismNestedCheckboxes = ({
                     checked={checked}
                     checkedIcon={CheckedIcon}
                     intermediateIcon={IntermediateIcon}
-                    onChange={e => onChangeItem(e.target)}
+                    onChange={ev => onChangeItem(ev)}
                     {...item}
                   />
                 </li>

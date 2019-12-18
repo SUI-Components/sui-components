@@ -30,14 +30,14 @@ const MoleculeCheckboxField = ({
         reverse
       >
         <AtomCheckbox id={id} {...props} />
-        {ToggleIcon ? (
+        {ToggleIcon && (
           <span
             className={`${BASE_CLASS}-toggleIcon`}
             onClick={toggleIconOnChange}
           >
             <ToggleIcon />
           </span>
-        ) : null}
+        )}
       </MoleculeField>
     </div>
   )

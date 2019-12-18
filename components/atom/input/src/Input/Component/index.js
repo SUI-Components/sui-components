@@ -64,7 +64,8 @@ const Input = ({
   onEnter,
   onEnterKey,
   onKeyDown,
-  required
+  required,
+  pattern
 }) => {
   const changeHandler = ev => {
     const {
@@ -112,6 +113,7 @@ const Input = ({
       minLength={minLength}
       autoComplete={autoComplete}
       required={required}
+      pattern={pattern}
     />
   )
 }
@@ -164,7 +166,9 @@ Input.propTypes = {
   /** tabindex value */
   tabIndex: PropTypes.number,
   /** native required attribtue  */
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  /** native pattern attribute */
+  pattern: PropTypes.string
 }
 
 Input.defaultProps = {

@@ -1,25 +1,23 @@
 {
   "name": "@s-ui/react-components",
-  "version": "1.2.0",
+  "version": "1.0.0",
   "description": "Mono repo, multi package containing all SUI components.",
   "private": true,
   "scripts": {
-    "build": "sui-studio build",
+    "build": "sui-mono phoenix --no-root --no-audit --no-progress && npm run install:demos -- --no-audit --no-progress && npm run install:themes && sui-studio build",
     "check:release": "sui-studio check-release",
     "co": "sui-studio commit",
     "commitmsg": "validate-commit-msg",
-    "deploy": "npm run build && sui-deploy spa sui-components --now -p",
-    "deploy:pr": "npm run build && sui-deploy spa sui-components-PR-$TRAVIS_PULL_REQUEST --now -p",
     "dev": "sui-studio dev",
     "generate": "sui-studio generate -S s-ui -P react",
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
-    "phoenix": "npx @s-ui/mono phoenix && (cd demo && npx @s-ui/mono phoenix)",
-    "phoenix:ci": "npx @s-ui/mono phoenix --no-progress && (cd demo && npx @s-ui/mono phoenix --no-progress)",
+    "install:demos": "cd demo && sui-mono phoenix",
+    "install:themes": "node scripts/build-themes.js",
+    "phoenix": "sui-mono phoenix && npm run install:demos -- --no-audit",
     "precommit": "sui-precommit run",
     "release": "sui-studio release",
-    "start": "sui-studio start",
     "test": "true"
   },
   "repository": {},
@@ -27,18 +25,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@s-ui/deploy": "2",
+    "@s-ui/helpers": "1",
+    "@s-ui/mono": "1",
     "@s-ui/precommit": "2",
+    "fs-extra": "8.1.0",
+    "globby": "10.0.1",
+    "walker": "1.0.7",
     "@s-ui/studio": "7",
     "husky": "0.13.4",
     "validate-commit-msg": "2.12.2"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
-    "@s-ui/helpers": "1",
-    "fs-extra": "7.0.0",
-    "globby": "8.0.1",
-    "walker": "1.0.7"
+    "@s-ui/component-dependencies": "1"
   },
   "config": {
     "sui-studio": {

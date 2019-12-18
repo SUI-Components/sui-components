@@ -15,6 +15,10 @@ $m-atom-popover: 0 !default;
 $p-atom-popover: 0 !default;
 $z-atom-popover: $z-tooltips !default;
 $bxsh-atom-popover: $bxsh-l !default;
+$c-atom-popover-close-icon: $c-primary !default;
+$mr-atom-popover-close-icon: $m-s !default;
+$mt-atom-popover-close-icon: $m-s !default;
+$sz-atom-popover-close-icon: $sz-icon-s !default;
 
 $base-class: '.sui-AtomPopover';
 $class-inner: '#{$base-class}-inner';
@@ -38,6 +42,19 @@ $class-inner: '#{$base-class}-inner';
     overflow: hidden;
     padding: $p-atom-popover;
     text-align: left;
+  }
+
+  &-closeIcon {
+    cursor: pointer;
+    position: absolute;
+    right: $mt-atom-popover-close-icon;
+    top: $mr-atom-popover-close-icon;
+
+    svg {
+      fill: $c-atom-popover-close-icon !important;
+      height: $sz-atom-popover-close-icon;
+      width: $sz-atom-popover-close-icon;
+    }
   }
 
   &#{$base-class}--top {

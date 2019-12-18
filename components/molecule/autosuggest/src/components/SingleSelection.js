@@ -9,6 +9,7 @@ import withClearUI from '../hoc/withClearUI'
 const AtomInputWithClearUI = withClearUI(AtomInput)
 
 const MoleculeAutosuggestSingleSelection = ({
+  id,
   value = '',
   children,
   isOpen,
@@ -49,6 +50,7 @@ const MoleculeAutosuggestSingleSelection = ({
   return (
     <>
       <AtomInputWithClearUI
+        id={id}
         value={value}
         isVisibleClear={value}
         onClickClear={handleClear}

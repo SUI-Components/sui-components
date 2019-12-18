@@ -168,6 +168,9 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
 }
 
 MoleculeAutosuggest.propTypes = {
+  /** The DOM id global attribute. */
+  id: PropTypes.string,
+
   /** if select accept single value or multiple values */
   multiselection: PropTypes.bool,
 

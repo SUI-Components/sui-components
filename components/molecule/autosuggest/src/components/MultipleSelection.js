@@ -8,6 +8,7 @@ import withClearUI from '../hoc/withClearUI'
 const MoleculeInputTagsWithClearUI = withClearUI(MoleculeInputTags)
 
 const MoleculeAutosuggestFieldMultiSelection = ({
+  id,
   refMoleculeAutosuggest,
   tags,
   value,
@@ -65,6 +66,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   return (
     <>
       <MoleculeInputTagsWithClearUI
+        id={id}
         onKeyDown={onInputKeyDown}
         ref={MoleculeInputTagsRef}
         tags={tags}

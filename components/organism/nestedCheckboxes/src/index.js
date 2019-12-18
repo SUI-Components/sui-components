@@ -6,14 +6,17 @@ import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 
 const baseClass = 'sui-OrganismNestedCheckboxes'
 
-const checkItemIsChecked = ({checked}) => checked === true
+const checkItemIsChecked = ({props}) => {
+  const {checked} = props
+  return checked === true
+}
 
 const OrganismNestedCheckboxes = ({
+  children,
   id,
   checkedIcon: CheckedIcon,
   intermediateIcon: IntermediateIcon,
   hideItemsIcon: HideItemsIcon,
-  items = [],
   join = false,
   labelParent = '',
   onChangeItem = () => {},
@@ -24,30 +27,29 @@ const OrganismNestedCheckboxes = ({
   const [showItems, setShowItems] = useState(showItemsProp)
   const showToggleIcons = ShowItemsIcon !== null
 
-  const isParentFullChecked = items.every(checkItemIsChecked)
-  const isParentHalfChecked =
-    !isParentFullChecked && items.some(checkItemIsChecked)
-
-  const isParentFullOrHalfChecked = isParentFullChecked || isParentHalfChecked
+  const isParentChecked = children?.every(checkItemIsChecked)
+  const isParentIntermediate =
+    !isParentChecked && children?.some(checkItemIsChecked)
 
   return (
     <ul className={baseClass}>
       <li>
         <MoleculeCheckboxField
           id={id}
-          checked={isParentFullChecked}
+          checked={isParentChecked}
           checkedIcon={CheckedIcon}
-          intermediate={isParentHalfChecked}
+          intermediate={isParentIntermediate}
           intermediateIcon={IntermediateIcon}
           label={labelParent}
-          onChange={() => onChangeParent(isParentFullOrHalfChecked)}
+          onChange={onChangeParent}
           toggleIcon={showItems ? HideItemsIcon : ShowItemsIcon}
           toggleIconOnChange={() => setShowItems(!showItems)}
         />
-        {items.length > 0 && showToggleIcons && showItems && (
+        {children?.length > 0 && showToggleIcons && showItems && (
           <ul className={`${baseClass}-list`}>
-            {items.map(item => {
-              const {id: childId, checked} = item
+            {children?.map(child => {
+              const {props} = child
+              const {id: childId} = props
 
               const listItemClass = `${baseClass}-listItem`
               const listItemClassModifier = cx(listItemClass, {
@@ -56,14 +58,7 @@ const OrganismNestedCheckboxes = ({
 
               return (
                 <li key={childId} className={listItemClassModifier}>
-                  <MoleculeCheckboxField
-                    id={childId}
-                    checked={checked}
-                    checkedIcon={CheckedIcon}
-                    intermediateIcon={IntermediateIcon}
-                    onChange={ev => onChangeItem(ev)}
-                    {...item}
-                  />
+                  {child}
                 </li>
               )
             })}
@@ -77,6 +72,8 @@ const OrganismNestedCheckboxes = ({
 OrganismNestedCheckboxes.displayName = 'OrganismNestedCheckboxes'
 
 OrganismNestedCheckboxes.propTypes = {
+  /** children */
+  children: React.element,
   /* Used for the label and element identifier */
   id: PropTypes.string.isRequired,
 
@@ -88,15 +85,6 @@ OrganismNestedCheckboxes.propTypes = {
 
   /* Hide items icon */
   hideItemsIcon: PropTypes.elementType,
-
-  /* Shape for items */
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      checked: PropTypes.bool.isRequired,
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired
-    })
-  ),
 
   /* Remove default padding on items */
   join: PropTypes.bool,

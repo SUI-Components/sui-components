@@ -60,7 +60,9 @@ const Demo = () => {
     setItems(newItems)
   }
 
-  const handleChangeItem = target => {
+  const handleChangeItem = event => {
+    const {target} = event
+
     const newItems = items.map(item => ({
       ...item,
       checked: item.id === target.id ? !item.checked : item.checked

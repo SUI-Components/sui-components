@@ -177,8 +177,7 @@ Input.defaultProps = {
   tabIndex: -1,
   onKeyDown: () => {},
   onEnter: () => {},
-  onChange: () => {},
-  required: false
+  onChange: () => {}
 }
 
 export default Input

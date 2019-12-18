@@ -8,58 +8,48 @@ $mt-atom-checkbox-input: 3px !default;
 $m-atom-checkbox-type-left: $m-m !default;
 $m-atom-checkbox-type-right: $m-m !default;
 
-$bgc-atom-checkbox-styled: $c-white !default;
-$bgc-checked-atom-checkbox-styled: $c-primary !default;
-$bd-atom-checkbox-styled: 1px solid $c-primary !default;
-$bdrs-atom-checkbox-styled: $bdrs-m !default;
-$c-atom-checkbox-styled: $c-white !default;
-$h-atom-checkbox-styled: 24px !default;
-$p-atom-checkbox-styled: calc(#{$p-s} / 2) !default;
-$w-atom-checkbox-styled: 24px !default;
+$bgc-atom-checkbox: $c-white !default;
+$bgc-checked-atom-checkbox: $c-primary !default;
+$bd-atom-checkbox: 1px solid $c-primary !default;
+
+$c-atom-checkbox-is-disabled: color-variation($c-gray, -2) !default;
+$bgc-checked-atom-checkbox-is-disabled: color-variation($c-gray, 3) !default;
+$bdc-atom-checkbox-is-disabled: color-variation($c-gray, 1) !default;
+
+$bdrs-atom-checkbox: $bdrs-m !default;
+$c-atom-checkbox: $c-white !default;
+$h-atom-checkbox: 24px !default;
+$w-atom-checkbox: 24px !default;
 
 .sui-AtomCheckbox {
   $base: &;
 
-  border: $bdrs-none;
+  background-color: $bgc-atom-checkbox;
+  border-radius: $bdrs-atom-checkbox;
+  border: $bd-atom-checkbox;
   cursor: pointer;
   display: inline-flex;
-  padding: 0;
+  height: $h-atom-checkbox;
+  text-align: center;
   vertical-align: top;
+  width: $w-atom-checkbox;
+
+  span {
+    margin: auto;
+  }
+
+  &.is-checked {
+    background-color: $bgc-checked-atom-checkbox;
+    color: $c-atom-checkbox;
+  }
 
   input[type='checkbox'] {
-    #{$base} &:focus {
-      border: 0;
-      box-shadow: none;
-      outline: 0 none;
-    }
-
-    #{$base} &:disabled {
-      cursor: not-allowed;
-    }
+    display: none;
   }
 
-  @each $state, $color in $states-atom-input {
-    &.sui-AtomCheckbox--#{$state} input[type='checkbox'] {
-      border-color: $color;
-    }
-  }
-
-  &--styled {
-    background-color: $bgc-atom-checkbox-styled;
-    border: $bd-atom-checkbox-styled;
-    border-radius: $bdrs-atom-checkbox-styled;
-    height: $h-atom-checkbox-styled;
-    padding: 0 $p-atom-checkbox-styled;
-    text-align: center;
-    width: $w-atom-checkbox-styled;
-
-    input[type='checkbox'] {
-      display: none;
-    }
-
-    &.is-checked {
-      background-color: $bgc-checked-atom-checkbox-styled;
-      color: $c-atom-checkbox-styled;
-    }
+  &.is-disabled {
+    background-color: $bgc-checked-atom-checkbox-is-disabled;
+    border-color: $bdc-atom-checkbox-is-disabled;
+    color: $c-atom-checkbox-is-disabled;
   }
 }

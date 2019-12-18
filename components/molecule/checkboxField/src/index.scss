@@ -6,7 +6,15 @@
   input[type='checkbox'] {
     margin: 0;
   }
+
   label {
     cursor: pointer;
+  }
+
+  &-toggleIcon {
+    cursor: pointer;
+    order: 1;
+    position: absolute;
+    right: 0;
   }
 }

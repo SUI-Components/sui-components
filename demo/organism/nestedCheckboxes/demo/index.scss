@@ -1,0 +1,18 @@
+@import '../../../../components/atom/icon/src/index.scss';
+@import '../../../../components/molecule/checkboxField/src/index.scss';
+
+.DemoOrganismNestedCheckboxes {
+  padding: 15px;
+
+  h1 {
+    margin-top: 0;
+  }
+
+  h2 {
+    margin-top: 30px;
+  }
+
+  small {
+    font-weight: normal;
+  }
+}

@@ -2,14 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
-import AtomCheckbox, {withCheckedValue} from '@s-ui/react-atom-checkbox'
+import AtomCheckbox from '@s-ui/react-atom-checkbox'
 
 const BASE_CLASS = 'sui-MoleculeCheckboxField'
-
-const getErrorState = (success, error) => {
-  if (success) return false
-  if (error) return true
-}
 
 const MoleculeCheckboxField = ({
   id,
@@ -18,9 +13,10 @@ const MoleculeCheckboxField = ({
   errorText,
   helpText,
   onChange,
+  toggleIcon: ToggleIcon,
+  toggleIconOnChange = () => {},
   ...props
 }) => {
-  const errorState = getErrorState(successText, errorText)
   return (
     <div className={BASE_CLASS}>
       <MoleculeField
@@ -33,7 +29,15 @@ const MoleculeCheckboxField = ({
         inline
         reverse
       >
-        <AtomCheckbox id={id} errorState={errorState} {...props} />
+        <AtomCheckbox id={id} {...props} />
+        {ToggleIcon && (
+          <span
+            className={`${BASE_CLASS}-toggleIcon`}
+            onClick={toggleIconOnChange}
+          >
+            <ToggleIcon />
+          </span>
+        )}
       </MoleculeField>
     </div>
   )
@@ -61,7 +65,13 @@ MoleculeCheckboxField.propTypes = {
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
   /** Boolean to decide if elements should be set inline */
-  inline: PropTypes.bool
+  inline: PropTypes.bool,
+
+  /* Icon to show as toggle */
+  toggleIcon: PropTypes.elementType,
+
+  /* onChange callback for toggle icon */
+  toggleIconOnChange: PropTypes.func
 }
 
-export default withCheckedValue(MoleculeCheckboxField)
+export default MoleculeCheckboxField

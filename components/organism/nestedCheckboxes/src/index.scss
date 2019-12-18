@@ -1,0 +1,23 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$pl-organism-nested-checkboxes: $p-l !default;
+$mt-organism-nested-checkboxes: $m-m !default;
+
+.sui-OrganismNestedCheckboxes {
+  list-style: none;
+  padding: 0;
+
+  &-list {
+    padding: 0;
+
+    &Item {
+      list-style: none;
+      margin-top: $mt-organism-nested-checkboxes;
+      padding-left: $pl-organism-nested-checkboxes;
+
+      &.is-joined {
+        padding-left: 0;
+      }
+    }
+  }
+}

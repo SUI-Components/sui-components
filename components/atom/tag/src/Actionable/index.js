@@ -17,6 +17,7 @@ const ActionableTag = function({
   label,
   onClick,
   target,
+  rel,
   linkFactory,
   className
 }) {
@@ -27,6 +28,7 @@ const ActionableTag = function({
       onClick={ev => onClick(ev)}
       href={href}
       target={target}
+      rel={rel}
     >
       {icon && iconPlacement === LEFT_ICON_PLACEMENT && (
         <span className="sui-AtomTag-icon">{icon}</span>
@@ -49,13 +51,14 @@ ActionableTag.propTypes = {
   iconPlacement: PropTypes.oneOf([LEFT_ICON_PLACEMENT, RIGHT_ICON_PLACEMENT]),
   onClick: PropTypes.func,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+  rel: PropTypes.oneOf(['nofollow', 'noopener', 'noreferrer']),
   linkFactory: PropTypes.func
 }
 
 ActionableTag.defaultProps = {
   // eslint-disable-next-line react/prop-types
-  linkFactory: ({href, target, className, children} = {}) => (
-    <a href={href} target={target} className={className}>
+  linkFactory: ({href, target, rel, className, children} = {}) => (
+    <a href={href} target={target} rel={rel} className={className}>
       {children}
     </a>
   )

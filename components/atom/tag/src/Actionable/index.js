@@ -60,16 +60,16 @@ ActionableTag.propTypes = {
 
 ActionableTag.defaultProps = {
   // eslint-disable-next-line react/prop-types
-  linkFactory: ({href, target, rel, className, children} = {}) => (
-    <a
-      href={href}
-      target={target}
-      rel={getLinkTypesString(rel)}
-      className={className}
-    >
-      {children}
-    </a>
-  )
+  linkFactory: ({href, target, rel, className, children} = {}) => {
+    const optionalProps = {
+      ...(rel && {rel: getLinkTypesString(rel)})
+    }
+    return (
+      <a href={href} target={target} className={className} {...optionalProps}>
+        {children}
+      </a>
+    )
+  }
 }
 
 export default ActionableTag

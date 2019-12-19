@@ -100,7 +100,7 @@ $atom-switch-transition-time: 0.3s !default;
     cursor: pointer;
     height: $h-atom-switch-default;
     transition: all $atom-switch-transition-time ease-in-out;
-    width: $w-atom-switch-default;
+    min-width: $w-atom-switch-default;
   }
 
   &-circle {

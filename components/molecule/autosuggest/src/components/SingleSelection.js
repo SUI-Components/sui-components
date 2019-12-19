@@ -83,8 +83,7 @@ MoleculeAutosuggestSingleSelection.displayName =
   'MoleculeAutosuggestSingleSelection'
 
 MoleculeAutosuggestSingleSelection.defaultProps = {
-  value: '',
-  required: false
+  value: ''
 }
 
 export default MoleculeAutosuggestSingleSelection

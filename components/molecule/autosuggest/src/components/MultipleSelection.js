@@ -105,8 +105,7 @@ MoleculeAutosuggestFieldMultiSelection.defaultProps = {
   disabled: false,
   value: '',
   tags: [],
-  iconCloseTag: <span />,
-  required: false
+  iconCloseTag: <span />
 }
 
 export default MoleculeAutosuggestFieldMultiSelection

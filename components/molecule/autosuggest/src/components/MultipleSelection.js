@@ -8,6 +8,7 @@ import withClearUI from '../hoc/withClearUI'
 const MoleculeInputTagsWithClearUI = withClearUI(MoleculeInputTags)
 
 const MoleculeAutosuggestFieldMultiSelection = ({
+  id,
   refMoleculeAutosuggest,
   tags,
   value,
@@ -22,7 +23,8 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   onChange,
   onChangeTags,
   onSelect,
-  disabled
+  disabled,
+  required
 }) => {
   const MoleculeInputTagsRef = useRef()
 
@@ -64,6 +66,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   return (
     <>
       <MoleculeInputTagsWithClearUI
+        id={id}
         onKeyDown={onInputKeyDown}
         ref={MoleculeInputTagsRef}
         tags={tags}
@@ -80,6 +83,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         placeholder={!tags.length ? placeholder : ''}
         noBorder
         disabled={disabled}
+        required={required}
       />
       <MoleculeDropdownList
         checkbox

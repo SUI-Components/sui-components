@@ -213,6 +213,19 @@ $icon-stroke-color: currentColor !default;
         @include button-focused {
           background-color: color-variation($color, -1);
           border-color: color-variation($color, -1);
+
+          @if $name == 'accent' {
+            $bgc-atom-button-focused--solid: color-variation(
+              $color,
+              -1
+            ) !default;
+            $bdc-atom-button-focused--solid: color-variation(
+              $color,
+              -1
+            ) !default;
+            background-color: $bgc-atom-button-focused--solid;
+            border-color: $bdc-atom-button-focused--solid;
+          }
         }
         background-color: $color;
         border-color: $color;

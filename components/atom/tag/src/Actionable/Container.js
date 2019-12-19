@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {linkTypes as LINK_TYPES} from '../index'
 
 /**
  * Component treated as an anchor when href is defined
@@ -25,7 +26,16 @@ ActionableTagContainer.propTypes = {
   Link: PropTypes.func,
   href: PropTypes.string,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-  rel: PropTypes.oneOf(['nofollow', 'noopener', 'noreferrer']),
+  rel: PropTypes.arrayOf(
+    PropTypes.oneOf([
+      LINK_TYPES.NOFOLLOW,
+      LINK_TYPES.NOOPENER,
+      LINK_TYPES.NOREFERRER,
+      LINK_TYPES.PREV,
+      LINK_TYPES.NEXT,
+      LINK_TYPES.TAG
+    ])
+  ),
   children: PropTypes.node.isRequired
 }
 

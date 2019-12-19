@@ -19,9 +19,12 @@ const SIZES = {
   SMALL: 'small'
 }
 const LINK_TYPES = {
-  NO_FOLLOW: 'nofollow',
-  NO_OPENER: 'noopener',
-  NO_REFERRER: 'noreferrer'
+  NOFOLLOW: 'nofollow',
+  NOOPENER: 'noopener',
+  NOREFERRER: 'noreferrer',
+  PREV: 'prev',
+  NEXT: 'next',
+  TAG: 'tag'
 }
 /**
  * returns key:value in obj except for those keys defined in props
@@ -104,7 +107,16 @@ AtomTag.propTypes = {
   /**
    * To be used if href is defined
    */
-  rel: PropTypes.oneOf(['nofollow', 'noopener', 'noreferrer']),
+  rel: PropTypes.arrayOf(
+    PropTypes.oneOf([
+      LINK_TYPES.NOFOLLOW,
+      LINK_TYPES.NOOPENER,
+      LINK_TYPES.NOREFERRER,
+      LINK_TYPES.PREV,
+      LINK_TYPES.NEXT,
+      LINK_TYPES.TAG
+    ])
+  ),
   /**
    * Actionable tags can have iconPlacement='right'
    */

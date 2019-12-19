@@ -90,6 +90,9 @@ $bxsh-atom-button-solid-primary-negative: none !default;
 
 $tt-atom-button: none !default;
 
+$icon-fill-color: currentColor !default;
+$icon-stroke-color: currentColor !default;
+
 // Set all color properties for text and icons
 @mixin button-foreground-color($color) {
   color: $color;
@@ -194,8 +197,8 @@ $tt-atom-button: none !default;
     }
 
     svg path {
-      fill: currentColor;
-      stroke: currentColor;
+      fill: $icon-fill-color;
+      stroke: $icon-stroke-color;
     }
   }
 

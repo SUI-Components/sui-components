@@ -60,8 +60,7 @@ const MoleculeSelectSingleSelection = props => {
 MoleculeSelectSingleSelection.displayName = 'MoleculeSelectSingleSelection'
 
 MoleculeSelectSingleSelection.defaultProps = {
-  value: '',
-  required: false
+  value: ''
 }
 
 export default MoleculeSelectSingleSelection

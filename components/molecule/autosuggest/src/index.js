@@ -241,8 +241,7 @@ MoleculeAutosuggest.defaultProps = {
   onEnter: () => {},
   onSelect: () => {},
   keysSelection: [' ', 'Enter'],
-  keysCloseList: ['Escape'],
-  required: false
+  keysCloseList: ['Escape']
 }
 
 export default withOpenToggle(MoleculeAutosuggest)

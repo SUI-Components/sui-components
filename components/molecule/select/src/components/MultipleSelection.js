@@ -77,8 +77,7 @@ MoleculeSelectFieldMultiSelection.displayName =
   'MoleculeSelectFieldMultiSelection'
 
 MoleculeSelectFieldMultiSelection.defaultProps = {
-  value: [],
-  required: false
+  value: []
 }
 
 export default MoleculeSelectFieldMultiSelection

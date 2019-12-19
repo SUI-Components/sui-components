@@ -26,16 +26,7 @@ ActionableTagContainer.propTypes = {
   Link: PropTypes.func,
   href: PropTypes.string,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-  rel: PropTypes.arrayOf(
-    PropTypes.oneOf([
-      LINK_TYPES.NOFOLLOW,
-      LINK_TYPES.NOOPENER,
-      LINK_TYPES.NOREFERRER,
-      LINK_TYPES.PREV,
-      LINK_TYPES.NEXT,
-      LINK_TYPES.TAG
-    ])
-  ),
+  rel: PropTypes.arrayOf(PropTypes.oneOf(Object.values(LINK_TYPES))),
   children: PropTypes.node.isRequired
 }
 

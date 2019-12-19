@@ -11,7 +11,7 @@ const getClassNames = function({className}) {
   return cx('sui-AtomTag-actionable', className)
 }
 
-const getLinkTypesString = types => types.join(' ')
+const getLinkTypesString = types => types && types.join(' ')
 
 const ActionableTag = function({
   icon,
@@ -54,16 +54,7 @@ ActionableTag.propTypes = {
   iconPlacement: PropTypes.oneOf([LEFT_ICON_PLACEMENT, RIGHT_ICON_PLACEMENT]),
   onClick: PropTypes.func,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-  rel: PropTypes.arrayOf(
-    PropTypes.oneOf([
-      LINK_TYPES.NOFOLLOW,
-      LINK_TYPES.NOOPENER,
-      LINK_TYPES.NOREFERRER,
-      LINK_TYPES.PREV,
-      LINK_TYPES.NEXT,
-      LINK_TYPES.TAG
-    ])
-  ),
+  rel: PropTypes.arrayOf(PropTypes.oneOf(Object.values(LINK_TYPES))),
   linkFactory: PropTypes.func
 }
 

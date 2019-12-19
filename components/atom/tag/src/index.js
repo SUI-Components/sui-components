@@ -107,16 +107,7 @@ AtomTag.propTypes = {
   /**
    * To be used if href is defined
    */
-  rel: PropTypes.arrayOf(
-    PropTypes.oneOf([
-      LINK_TYPES.NOFOLLOW,
-      LINK_TYPES.NOOPENER,
-      LINK_TYPES.NOREFERRER,
-      LINK_TYPES.PREV,
-      LINK_TYPES.NEXT,
-      LINK_TYPES.TAG
-    ])
-  ),
+  rel: PropTypes.arrayOf(PropTypes.oneOf(Object.values(LINK_TYPES))),
   /**
    * Actionable tags can have iconPlacement='right'
    */

@@ -215,16 +215,16 @@ $icon-stroke-color: currentColor !default;
           border-color: color-variation($color, -1);
 
           @if $name == 'accent' {
-            $bgc-atom-button-focused--solid: color-variation(
+            $bgc-atom-button-focused--accent: color-variation(
               $color,
               -1
             ) !default;
-            $bdc-atom-button-focused--solid: color-variation(
+            $bdc-atom-button-focused--accent: color-variation(
               $color,
               -1
             ) !default;
-            background-color: $bgc-atom-button-focused--solid;
-            border-color: $bdc-atom-button-focused--solid;
+            background-color: $bgc-atom-button-focused--accent;
+            border-color: $bdc-atom-button-focused--accent;
           }
         }
         background-color: $color;

@@ -26,7 +26,7 @@
   "license": "ISC",
   "devDependencies": {
     "@s-ui/helpers": "1",
-    "@s-ui/mono": "1",
+    "@s-ui/mono": "1.46.0",
     "@s-ui/precommit": "2",
     "fs-extra": "8.1.0",
     "globby": "10.0.1",

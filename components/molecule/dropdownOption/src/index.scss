@@ -7,6 +7,7 @@ $bg-molecule-dropdown-option-selected: none !default;
 $fw-molecule-dropdown-option-selected-text: $fw-bold !default;
 $fz-molecule-dropdown-option-text: inherit !default;
 $fw-molecule-dropdown-option--highlight-mark: normal !default;
+$ln-molecule-dropdown-option-two-lines-text: $lh-m !default;
 
 .sui-MoleculeDropdownOption {
   align-items: center;
@@ -28,6 +29,15 @@ $fw-molecule-dropdown-option--highlight-mark: normal !default;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  &-twoLinesText {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    font-size: $fz-molecule-dropdown-option-text;
+    line-height: $ln-molecule-dropdown-option-two-lines-text;
+    overflow: hidden;
   }
 
   &.is-selected:not(&-checkbox) {

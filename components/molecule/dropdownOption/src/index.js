@@ -7,6 +7,7 @@ import handlersFactory from './handlersFactory'
 
 const BASE_CLASS = 'sui-MoleculeDropdownOption'
 const CLASS_CHECKBOX = `${BASE_CLASS}-checkbox`
+const CLASS_TWO_LINES = `${BASE_CLASS}-twoLinesText`
 const CLASS_TEXT = `${BASE_CLASS}-text`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 const CLASS_HIGHLIGHTED = `is-highlighted`
@@ -21,12 +22,18 @@ const MoleculeDropdownOption = ({
   onSelectKey,
   onSelect,
   innerRef,
-  value
+  value,
+  twoLinesText
 }) => {
   const className = cx(BASE_CLASS, {
     [CLASS_CHECKBOX]: checkbox,
     [CLASS_DISABLED]: disabled,
     'is-selected': selected
+  })
+
+  const innerClassName = cx({
+    [CLASS_TEXT]: !twoLinesText,
+    [CLASS_TWO_LINES]: twoLinesText
   })
 
   const {handleClick, handleKeyDown, handleFocus} = handlersFactory({
@@ -39,7 +46,7 @@ const MoleculeDropdownOption = ({
   const renderHighlightOption = option => {
     if (typeof option !== 'string') {
       return (
-        <span onFocus={handleInnerFocus} className={CLASS_TEXT}>
+        <span onFocus={handleInnerFocus} className={innerClassName}>
           {option}
         </span>
       )
@@ -53,7 +60,7 @@ const MoleculeDropdownOption = ({
       <span
         onFocus={handleInnerFocus}
         dangerouslySetInnerHTML={{__html: mark}}
-        className={CLASS_TEXT}
+        className={innerClassName}
       />
     )
   }
@@ -82,7 +89,7 @@ const MoleculeDropdownOption = ({
       {highlightQuery ? (
         renderHighlightOption(children)
       ) : (
-        <span onFocus={handleInnerFocus} className={CLASS_TEXT}>
+        <span onFocus={handleInnerFocus} className={innerClassName}>
           {children}
         </span>
       )}
@@ -118,7 +125,10 @@ MoleculeDropdownOption.propTypes = {
   onSelectKey: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 
   /** Custom ref handler that will be assigned to the "target" element */
-  innerRef: PropTypes.object
+  innerRef: PropTypes.object,
+
+  /** Text with css clamp = 2 */
+  twoLinesText: PropTypes.bool
 }
 
 MoleculeDropdownOption.defaultProps = {

@@ -71,6 +71,7 @@ const renderItems = ({items, handleChangeItem}) =>
 
 const Demo = () => {
   const [items, setItems] = useState(demoExample)
+  const [showItems, setShowItems] = useState(false)
 
   const handleChangeParent = () => {
     const newItems = items.map(item => ({
@@ -129,7 +130,8 @@ const Demo = () => {
         labelParent="Nested checkboxes"
         onChangeItem={handleChangeItem}
         onChangeParent={handleChangeParent}
-        defaultItemsVisibility={false}
+        onClickParent={() => setShowItems(prevState => !prevState)}
+        showItems={showItems}
         showItemsIcon={IconArrowDown}
         hideItemsIcon={IconArrowUp}
       >

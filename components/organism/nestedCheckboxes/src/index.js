@@ -21,6 +21,7 @@ const OrganismNestedCheckboxes = ({
   labelParent = '',
   onChangeItem = () => {},
   onChangeParent = () => {},
+  onClickParent = () => {},
   showItems: showItemsProp = true,
   showItemsIcon: ShowItemsIcon
 }) => {
@@ -33,7 +34,7 @@ const OrganismNestedCheckboxes = ({
 
   return (
     <ul className={baseClass}>
-      <li>
+      <li onClick={onClickParent}>
         <MoleculeCheckboxField
           id={id}
           checked={isParentChecked}
@@ -102,7 +103,10 @@ OrganismNestedCheckboxes.propTypes = {
   showItemsIcon: PropTypes.elementType,
 
   /* onChange callback for items */
-  onChangeItem: PropTypes.func
+  onChangeItem: PropTypes.func,
+
+  /* onChange callback for items */
+  onClickParent: PropTypes.func
 }
 
 export default OrganismNestedCheckboxes

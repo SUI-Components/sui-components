@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import AtomIcon from '../../../../components/atom/icon/src'
 import OrganismNestedCheckboxes from '../../../../components/organism/nestedCheckboxes/src'
+import MoleculeCheckboxField from '../../../../components/molecule/checkboxField/src'
 
 import './index.scss'
 
@@ -49,13 +50,33 @@ const demoExample = [
   {id: 'nested-05', label: 'Nested 5', checked: true}
 ]
 
+const checkItemIsChecked = ({checked}) => checked === true
+
+const renderItems = ({items, handleChangeItem}) =>
+  items.map(item => {
+    const {id: childId, checked} = item
+
+    return (
+      <MoleculeCheckboxField
+        key={childId}
+        id={childId}
+        checked={checked}
+        checkedIcon={IconCheck}
+        intermediateIcon={IconHalfCheck}
+        onChange={handleChangeItem}
+        {...item}
+      />
+    )
+  })
+
 const Demo = () => {
   const [items, setItems] = useState(demoExample)
+  const [showItems, setShowItems] = useState(false)
 
-  const handleChangeParent = anyItemIsChecked => {
+  const handleChangeParent = () => {
     const newItems = items.map(item => ({
       ...item,
-      checked: !anyItemIsChecked
+      checked: !items.some(checkItemIsChecked)
     }))
     setItems(newItems)
   }
@@ -77,11 +98,12 @@ const Demo = () => {
         checkedIcon={IconCheck}
         intermediateIcon={IconHalfCheck}
         id="nested-1"
-        items={items}
         labelParent="Nested checkboxes"
         onChangeItem={handleChangeItem}
         onChangeParent={handleChangeParent}
-      />
+      >
+        {renderItems({items, handleChangeItem})}
+      </OrganismNestedCheckboxes>
 
       <h2>
         With Join prop | <small>Remove left padding on items</small>
@@ -90,12 +112,13 @@ const Demo = () => {
         checkedIcon={IconCheck}
         intermediateIcon={IconHalfCheck}
         id="nested-2"
-        items={items}
         join
         labelParent="Nested checkboxes"
         onChangeItem={handleChangeItem}
         onChangeParent={handleChangeParent}
-      />
+      >
+        {renderItems({items, handleChangeItem})}
+      </OrganismNestedCheckboxes>
 
       <h2>
         With Show/hide items feature | <small>Toggle items visibility</small>
@@ -104,14 +127,16 @@ const Demo = () => {
         checkedIcon={IconCheck}
         intermediateIcon={IconHalfCheck}
         id="nested-3"
-        items={items}
         labelParent="Nested checkboxes"
         onChangeItem={handleChangeItem}
         onChangeParent={handleChangeParent}
-        defaultItemsVisibility={false}
+        onClickParent={() => setShowItems(prevState => !prevState)}
+        showItems={showItems}
         showItemsIcon={IconArrowDown}
         hideItemsIcon={IconArrowUp}
-      />
+      >
+        {renderItems({items, handleChangeItem})}
+      </OrganismNestedCheckboxes>
     </div>
   )
 }

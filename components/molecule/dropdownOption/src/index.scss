@@ -27,17 +27,18 @@ $ln-molecule-dropdown-option-two-lines-text: $lh-m !default;
   &-text {
     font-size: $fz-molecule-dropdown-option-text;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
 
-  &-twoLinesText {
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    display: -webkit-box;
-    font-size: $fz-molecule-dropdown-option-text;
-    line-height: $ln-molecule-dropdown-option-two-lines-text;
-    overflow: hidden;
+    &--ellipsis {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &--twoLines {
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      display: -webkit-box;
+      line-height: $ln-molecule-dropdown-option-two-lines-text;
+    }
   }
 
   &.is-selected:not(&-checkbox) {

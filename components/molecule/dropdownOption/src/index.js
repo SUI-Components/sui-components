@@ -7,7 +7,8 @@ import handlersFactory from './handlersFactory'
 
 const BASE_CLASS = 'sui-MoleculeDropdownOption'
 const CLASS_CHECKBOX = `${BASE_CLASS}-checkbox`
-const CLASS_TWO_LINES = `${BASE_CLASS}-twoLinesText`
+const MODIFIER_TWO_LINES = `twoLines`
+const MODIFIER_ELLIPSIS = 'ellipsis'
 const CLASS_TEXT = `${BASE_CLASS}-text`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 const CLASS_HIGHLIGHTED = `is-highlighted`
@@ -23,7 +24,7 @@ const MoleculeDropdownOption = ({
   onSelect,
   innerRef,
   value,
-  twoLinesText
+  withTwoLinesText
 }) => {
   const className = cx(BASE_CLASS, {
     [CLASS_CHECKBOX]: checkbox,
@@ -31,10 +32,12 @@ const MoleculeDropdownOption = ({
     'is-selected': selected
   })
 
-  const innerClassName = cx({
-    [CLASS_TEXT]: !twoLinesText,
-    [CLASS_TWO_LINES]: twoLinesText
-  })
+  const innerClassName = cx([
+    CLASS_TEXT,
+    withTwoLinesText
+      ? `${CLASS_TEXT}--${MODIFIER_TWO_LINES}`
+      : `${CLASS_TEXT}--${MODIFIER_ELLIPSIS}`
+  ])
 
   const {handleClick, handleKeyDown, handleFocus} = handlersFactory({
     disabled,
@@ -128,7 +131,7 @@ MoleculeDropdownOption.propTypes = {
   innerRef: PropTypes.object,
 
   /** Text with css clamp = 2 */
-  twoLinesText: PropTypes.bool
+  withTwoLinesText: PropTypes.bool
 }
 
 MoleculeDropdownOption.defaultProps = {

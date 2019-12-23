@@ -168,6 +168,9 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
 }
 
 MoleculeAutosuggest.propTypes = {
+  /** The DOM id global attribute. */
+  id: PropTypes.string,
+
   /** if select accept single value or multiple values */
   multiselection: PropTypes.bool,
 
@@ -226,7 +229,10 @@ MoleculeAutosuggest.propTypes = {
   keysCloseList: PropTypes.array,
 
   /* object generated w/ Reacte.createRef method to get a DOM reference of internal input */
-  refMoleculeAutosuggest: PropTypes.object
+  refMoleculeAutosuggest: PropTypes.object,
+
+  /* native required html attribute */
+  required: PropTypes.bool
 }
 
 MoleculeAutosuggest.defaultProps = {

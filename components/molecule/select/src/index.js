@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
+import {inputSizes as SELECT_SIZES} from '@s-ui/react-atom-input'
 
 import MoleculeSelectSingleSelection from './components/SingleSelection'
 import MoleculeSelectMultipleSelection from './components/MultipleSelection'
@@ -213,7 +214,10 @@ MoleculeSelect.propTypes = {
   disabled: PropTypes.bool,
 
   /** This Boolean attribute prevents the user from interacting with the input but without disabled styles  */
-  readOnly: PropTypes.bool
+  readOnly: PropTypes.bool,
+
+  /** Size of the select(input) */
+  selectSize: PropTypes.oneOf(Object.values(SELECT_SIZES))
 }
 
 MoleculeSelect.defaultProps = {
@@ -221,8 +225,10 @@ MoleculeSelect.defaultProps = {
   keysSelection: [' ', 'Enter'],
   onChange: () => {},
   onToggle: () => {},
-  readOnly: false
+  readOnly: false,
+  selectSize: SELECT_SIZES.MEDIUM
 }
 
 export default withOpenToggle(MoleculeSelect)
 export {SIZES as moleculeSelectDropdownListSizes}
+export {SELECT_SIZES as moleculeSelectSizes}

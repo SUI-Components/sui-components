@@ -17,7 +17,7 @@ const Demo = () => {
   const [position, setPosition] = useState(atomPopoverPositions.BOTTOM)
 
   const renderContent = () => (
-    <div style={{width: '200px', padding: '16px'}}>
+    <div style={{width: '200px', padding: '8px'}}>
       <span>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id mauris
         ornare, imperdiet nunc a, interdum dolor.

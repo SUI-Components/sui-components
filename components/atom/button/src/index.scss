@@ -2,54 +2,57 @@
 
 $base-class: '.sui-AtomButton';
 
+$c-accent-hover: color-variation($c-accent, -1) !default;
+
 $c-atom-button-colors: (
   'primary': (
-    $c-primary,
-    $c-white
+    color: $c-primary,
+    color-invert: $c-white
   ),
   'accent': (
-    $c-accent,
-    $c-white
+    color: $c-accent,
+    color-invert: $c-white,
+    color-hover: $c-accent-hover
   ),
   'neutral': (
-    $c-gray,
-    $c-white
+    color: $c-gray,
+    color-invert: $c-white
   ),
   'success': (
-    $c-success,
-    $c-white
+    color: $c-success,
+    color-invert: $c-white
   ),
   'alert': (
-    $c-alert,
-    $c-white
+    color: $c-alert,
+    color-invert: $c-white
   ),
   'error': (
-    $c-error,
-    $c-white
+    color: $c-error,
+    color-invert: $c-white
   ),
   'social-facebook': (
-    $c-facebook,
-    $c-white
+    color: $c-facebook,
+    color-invert: $c-white
   ),
   'social-twitter': (
-    $c-twitter,
-    $c-white
+    color: $c-twitter,
+    color-invert: $c-white
   ),
   'social-google': (
-    $c-google,
-    $c-white
+    color: $c-google,
+    color-invert: $c-white
   ),
   'social-youtube': (
-    $c-youtube,
-    $c-white
+    color: $c-youtube,
+    color-invert: $c-white
   ),
   'social-whatsapp': (
-    $c-whatsapp,
-    $c-white
+    color: $c-whatsapp,
+    color-invert: $c-white
   ),
   'social-instagram': (
-    $c-instagram,
-    $c-white
+    color: $c-instagram,
+    color-invert: $c-white
   )
 ) !default;
 
@@ -204,28 +207,15 @@ $icon-stroke-color: currentColor !default;
 
   // Types and colors
   @each $name, $pair in $c-atom-button-colors {
-    $color: nth($pair, 1);
-    $color-invert: nth($pair, 2);
+    $color: map-get($pair, color);
+    $color-invert: map-get($pair, color-invert);
 
     &--#{$name}Color {
       &#{$base-class}--solid {
         @include button-foreground-color($color-invert);
         @include button-focused {
-          background-color: color-variation($color, -1);
-          border-color: color-variation($color, -1);
-
-          @if $name == 'accent' {
-            $bgc-atom-button-focused--accent: color-variation(
-              $color,
-              -1
-            ) !default;
-            $bdc-atom-button-focused--accent: color-variation(
-              $color,
-              -1
-            ) !default;
-            background-color: $bgc-atom-button-focused--accent;
-            border-color: $bdc-atom-button-focused--accent;
-          }
+          background-color: if(map-has-key($pair,color-hover),map-get($pair, color-hover),color-variation($color, -1));
+          border-color: if(map-has-key($pair,color-hover),map-get($pair, color-hover),color-variation($color, -1));
         }
         background-color: $color;
         border-color: $color;

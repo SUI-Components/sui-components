@@ -23,7 +23,8 @@ const MoleculeSelectFieldMultiSelection = props => {
     id,
     size,
     required,
-    optionsData = {}
+    optionsData = {},
+    tabIndex
   } = props
 
   const handleMultiSelection = (ev, {value: valueOptionSelected}) => {
@@ -59,6 +60,7 @@ const MoleculeSelectFieldMultiSelection = props => {
         readOnly
         noBorder
         required={required}
+        tabIndex={tabIndex}
       />
       <MoleculeDropdownList
         checkbox

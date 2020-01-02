@@ -206,22 +206,22 @@ $icon-stroke-color: currentColor !default;
   }
 
   // Types and colors
-  @each $name, $pair in $c-atom-button-colors {
-    $color: map-get($pair, color);
-    $color-invert: map-get($pair, color-invert);
+  @each $name, $element in $c-atom-button-colors {
+    $color: map-get($element, color);
+    $color-invert: map-get($element, color-invert);
 
     &--#{$name}Color {
       &#{$base-class}--solid {
         @include button-foreground-color($color-invert);
         @include button-focused {
           background-color: if(
-            map-has-key($pair, color-hover),
-            map-get($pair, color-hover),
+            map-has-key($element, color-hover),
+            map-get($element, color-hover),
             color-variation($color, -1)
           );
           border-color: if(
-            map-has-key($pair, color-hover),
-            map-get($pair, color-hover),
+            map-has-key($element, color-hover),
+            map-get($element, color-hover),
             color-variation($color, -1)
           );
         }

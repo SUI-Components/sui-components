@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.20.0 (2019-12-27)
+
+
+### Features
+
+* add selectSize prop to set the input size ([542bf39](https://github.com/SUI-Components/sui-components/commit/542bf3980d0670b4e78a4dcc48b218fd5cda669b))
+
+
+
 # 1.19.0 (2019-12-19)
 
 

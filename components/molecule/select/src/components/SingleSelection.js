@@ -23,6 +23,7 @@ const MoleculeSelectSingleSelection = props => {
     disabled,
     optionsData = {},
     required,
+    selectSize,
     tabIndex
   } = props
 
@@ -45,6 +46,7 @@ const MoleculeSelectSingleSelection = props => {
         autoComplete="off"
         readOnly
         required={required}
+        size={selectSize}
         tabIndex={tabIndex}
       />
       <MoleculeDropdownList

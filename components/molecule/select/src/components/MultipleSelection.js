@@ -24,6 +24,7 @@ const MoleculeSelectFieldMultiSelection = props => {
     size,
     required,
     optionsData = {},
+    selectSize,
     tabIndex
   } = props
 
@@ -60,6 +61,7 @@ const MoleculeSelectFieldMultiSelection = props => {
         readOnly
         noBorder
         required={required}
+        size={selectSize}
         tabIndex={tabIndex}
       />
       <MoleculeDropdownList

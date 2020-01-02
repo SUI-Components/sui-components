@@ -98,6 +98,20 @@ const Demo = () => (
           </span>
         </MoleculeDropdownOption>
       </div>
+      <h3>Ellipsis</h3>
+      <div className={CLASS_DEMO_OPTION}>
+        <MoleculeDropdownOption value="option-basic">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </MoleculeDropdownOption>
+      </div>
+      <h3>Two lines text clamp</h3>
+      <div className={CLASS_DEMO_OPTION}>
+        <MoleculeDropdownOption value="option-basic" withTwoLinesText>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </MoleculeDropdownOption>
+      </div>
     </div>
   </div>
 )

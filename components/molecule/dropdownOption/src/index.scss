@@ -27,6 +27,7 @@ $ln-molecule-dropdown-option-two-lines-text: $lh-m !default;
   &-text {
     font-size: $fz-molecule-dropdown-option-text;
     overflow: hidden;
+    margin-left: $p-s;
 
     &--ellipsis {
       text-overflow: ellipsis;

@@ -232,7 +232,10 @@ MoleculeAutosuggest.propTypes = {
   refMoleculeAutosuggest: PropTypes.object,
 
   /* native required html attribute */
-  required: PropTypes.bool
+  required: PropTypes.bool,
+
+  /* native tabIndex html attribute */
+  tabIndex: PropTypes.number
 }
 
 MoleculeAutosuggest.defaultProps = {

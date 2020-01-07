@@ -15,7 +15,7 @@ $mt-organism-nested-checkboxes: $m-m !default;
       margin-top: $mt-organism-nested-checkboxes;
       padding-left: $pl-organism-nested-checkboxes;
 
-      &.is-joined {
+      &--joined {
         padding-left: 0;
       }
     }

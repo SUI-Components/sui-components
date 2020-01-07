@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-atom-badge",
+  "name": "@s-ui/react-atom-badge",
   "version": "1.7.0",
   "description": "",
   "main": "lib/index.js",

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import AtomButton from '@schibstedspain/sui-atom-button'
+import AtomButton from '@s-ui/react-atom-button'
 import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
 import MoleculeField from '@s-ui/react-molecule-field'
 

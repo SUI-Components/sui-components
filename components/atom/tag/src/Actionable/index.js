@@ -18,7 +18,7 @@ const ActionableTag = function({
   href,
   iconPlacement,
   label,
-  onClick,
+  onClick = () => {},
   target,
   rel,
   linkFactory,

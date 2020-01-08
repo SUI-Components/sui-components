@@ -2,40 +2,39 @@ import React, {useState} from 'react'
 import MoleculeSelectPopover from '../../../../components/molecule/selectPopover/src'
 import OrganismNestedCheckboxes from '../../../../components/organism/nestedCheckboxes/src'
 import MoleculeCheckboxField from '../../../../components/molecule/checkboxField/src'
-
-import {IconCheck, IconHalfCheck, IconArrowDown} from './Icons'
+import IconArrowDown from '@schibstedspain/fotocasa-iconset/lib/ArrowDown'
+import {IconCheck, IconHalfCheck} from './Icons'
 
 const demoExample = [
-  {id: 'nested-01', label: 'Nested 1', checked: true},
-  {id: 'nested-02', label: 'Nested 2', checked: false},
-  {id: 'nested-03', label: 'Nested 3', checked: true},
-  {id: 'nested-04', label: 'Nested 4', checked: true},
-  {id: 'nested-05', label: 'Nested 5', checked: true}
+  {id: 'nested-01', label: 'Compra', checked: false},
+  {id: 'nested-02', label: 'Alquiler', checked: false},
+  {id: 'nested-03', label: 'Alquiler con opción a compra', checked: false}
 ]
 
 const Demo = () => {
   const [items, setItems] = useState(demoExample)
+  const [unconfirmedItems, setUnconfirmedItems] = useState(demoExample)
 
   const handleChangeParent = () => {
-    const newItems = items.map(item => ({
+    const newItems = unconfirmedItems.map(item => ({
       ...item,
-      checked: !items.some(({checked}) => checked === true)
+      checked: !unconfirmedItems.some(({checked}) => checked === true)
     }))
-    setItems(newItems)
+    setUnconfirmedItems(newItems)
   }
 
   const handleChangeItem = event => {
     const {target} = event
 
-    const newItems = items.map(item => ({
+    const newItems = unconfirmedItems.map(item => ({
       ...item,
       checked: item.id === target.id ? !item.checked : item.checked
     }))
-    setItems(newItems)
+    setUnconfirmedItems(newItems)
   }
 
-  const renderItems = ({items, handleChangeItem}) =>
-    items.map(item => {
+  const renderItems = () =>
+    unconfirmedItems.map(item => {
       const {id: childId, checked} = item
 
       return (
@@ -51,13 +50,21 @@ const Demo = () => {
       )
     })
 
+  const checkedItems = items.filter(item => item.checked)
+  const isSelected = checkedItems.length > 0
+  const itemsText = checkedItems.map(item => item.label).join(', ')
+  const selectText = isSelected ? itemsText : 'Todas las operaciones'
+
   return (
-    <>
+    <div className="demo-container">
       <MoleculeSelectPopover
         acceptButtonText="Aceptar"
         cancelButtonText="Cancelar"
-        defaultText="Todas las operaciones"
         iconArrowDown={IconArrowDown}
+        isSelected={isSelected}
+        onAccept={() => setItems(unconfirmedItems)}
+        onCancel={() => setUnconfirmedItems(items)}
+        selectText={selectText}
       >
         <div className="demo-content">
           <h3>Tipo de operación</h3>
@@ -66,16 +73,14 @@ const Demo = () => {
             id="nested-1"
             intermediateIcon={IconHalfCheck}
             join
-            labelParent="Nested checkboxes"
-            onChangeItem={handleChangeItem}
+            labelParent="Todas las operaciones"
             onChangeParent={handleChangeParent}
           >
-            {renderItems({items, handleChangeItem})}
+            {renderItems()}
           </OrganismNestedCheckboxes>
         </div>
       </MoleculeSelectPopover>
-      <h1>TEST</h1>
-    </>
+    </div>
   )
 }
 

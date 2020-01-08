@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@schibstedspain/sui-svgiconset": "1",
-    "@s-ui/react-organism-nested-checkboxes": "2"
+    "@s-ui/react-organism-nested-checkboxes": "2",
+    "@schibstedspain/fotocasa-iconset": "3"
   }
 }

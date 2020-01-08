@@ -5,6 +5,12 @@
 @import '../../../../components/molecule/checkboxField/src/index';
 @import '../../../../components/organism/nestedCheckboxes/src/index';
 
-.demo-content {
-  padding: 0 16px;
+.demo {
+  &-container {
+    padding: $p-l;
+  }
+
+  &-content {
+    padding: 0 $p-l;
+  }
 }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect, useRef, useCallback} from 'react'
 import Button from '@s-ui/react-atom-button'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -9,15 +9,19 @@ export default function MoleculeSelectPopover({
   acceptButtonText,
   cancelButtonText,
   children,
-  defaultText,
   iconArrowDown: IconArrowDown,
-  onAccept = () => {}
+  isSelected = false,
+  onAccept,
+  onCancel,
+  selectText
 }) {
   const [isOpen, setIsOpen] = useState(false)
-  // const [isSelected, setIsSelected] = useState(false)
+
+  const popoverRef = useRef()
 
   const selectClassName = cx(`${BASE_CLASS}-select`, {
-    [`is-open`]: isOpen
+    [`is-open`]: isOpen,
+    [`is-selected`]: isSelected
   })
 
   const handleOnAccept = () => {
@@ -25,19 +29,37 @@ export default function MoleculeSelectPopover({
     onAccept()
   }
 
+  const handleOnCancel = useCallback(() => {
+    setIsOpen(false)
+    onCancel()
+  }, [onCancel])
+
+  useEffect(() => {
+    const handleClickOutside = e => {
+      if (isOpen && !popoverRef.current.contains(e.target)) {
+        handleOnCancel()
+      }
+    }
+    window.addEventListener('mousedown', handleClickOutside)
+
+    return () => {
+      window.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [handleOnCancel, isOpen])
+
   return (
     <div className={BASE_CLASS}>
       <div className={selectClassName} onClick={() => setIsOpen(!isOpen)}>
-        <span className={`${BASE_CLASS}-selectText`}>{defaultText}</span>
+        <span className={`${BASE_CLASS}-selectText`}>{selectText}</span>
         <div className={`${BASE_CLASS}-selectIcon`}>
           <IconArrowDown />
         </div>
       </div>
       {isOpen && (
-        <div className={`${BASE_CLASS}-popover`}>
+        <div className={`${BASE_CLASS}-popover`} ref={popoverRef}>
           <div className={`${BASE_CLASS}-popoverContent`}>{children}</div>
           <div className={`${BASE_CLASS}-popoverActionBar`}>
-            <Button onClick={() => setIsOpen(false)} design="flat">
+            <Button onClick={handleOnCancel} design="flat">
               {cancelButtonText}
             </Button>
             <Button onClick={handleOnAccept}>{acceptButtonText}</Button>
@@ -53,7 +75,9 @@ MoleculeSelectPopover.propTypes = {
   acceptButtonText: PropTypes.string.isRequired,
   cancelButtonText: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
-  defaultText: PropTypes.string.isRequired,
   iconArrowDown: PropTypes.node.isRequired,
-  onAccept: PropTypes.func
+  isSelected: PropTypes.bool,
+  onAccept: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
+  selectText: PropTypes.string.isRequired
 }

@@ -1,8 +1,6 @@
 # MoleculeSelectPopover
 
-> Description
-
-<!-- ![](./assets/preview.png) -->
+A component that shows a popover to select data.
 
 ## Installation
 

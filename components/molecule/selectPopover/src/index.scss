@@ -3,13 +3,26 @@
 @import './settings';
 
 .sui-MoleculeSelectPopover {
+  display: inline-block;
+
   &-select {
     $select: &;
-    border: 1px solid $c-gray-light-2;
     border-radius: $bdrs-select-popover;
+    border: 1px solid $c-gray-light-2;
     display: flex;
-    padding: $p-m $p-l;
     justify-content: space-between;
+    max-width: $mw-select-popover;
+    padding: $p-m $p-l;
+
+    &Text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &Icon {
+      margin-left: $m-m;
+    }
 
     &:hover {
       background-color: $c-primary-light-4;
@@ -23,6 +36,11 @@
         transform: rotate(180deg);
       }
     }
+
+    &.is-selected {
+      background-color: $c-primary;
+      color: $c-white;
+    }
   }
 
   &-popover {
@@ -31,7 +49,7 @@
     box-shadow: $bxsh-select-popover;
     margin-top: $m-m;
     position: absolute;
-    width: 100%;
+    width: $w-select-popover;
     z-index: $z-tooltips;
 
     &ActionBar {

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.22.0 (2020-01-08)
+
+
+### Bug Fixes
+
+* add padding s between text and checkbox ([7aac63e](https://github.com/SUI-Components/sui-components/commit/7aac63e6d63426b32a3b254d98fde1714d4a9368))
+* fix scss variable for margin ([8328b96](https://github.com/SUI-Components/sui-components/commit/8328b9641a8355185b181d34efa7b391d0c8d7b8))
+
+
+
 # 1.21.0 (2019-12-27)
 
 

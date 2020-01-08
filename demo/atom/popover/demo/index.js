@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
 import React, {useState} from 'react'
-import Button from '@schibstedspain/sui-atom-button'
+import Button from '@s-ui/react-atom-button'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 import IconClose from '@schibstedspain/sui-svgiconset/lib/Close'

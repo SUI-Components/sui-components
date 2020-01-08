@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '@schibstedspain/sui-atom-button'
+import Button from '@s-ui/react-atom-button'
 
 export default (
   {className} // eslint-disable-line

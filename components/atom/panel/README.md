@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-atom-panel --save
+$ npm install @s-ui/react-atom-panel --save
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ import AtomPanel, {
   atomPanelColors,
   atomPanelHorizontalAlign,
   atomPanelVerticalAlign
-} from '@schibstedspain/sui-atom-panel'
+} from '@s-ui/react-atom-panel'
 
 return (
   <div>

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.1.0 (2020-01-08)
+
+
+### Bug Fixes
+
+* fix Joined modifier styles ([3b5f9ca](https://github.com/SUI-Components/sui-components/commit/3b5f9ca5d06da105a2c7d36d9003a39acfbb2526))
+
+
+
 # 2.0.0 (2019-12-20)
 
 

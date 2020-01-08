@@ -41,6 +41,7 @@ $p-molecule-quick-action-large: $p-l !default;
   }
 
   &-text {
+    overflow: hidden;
     width: 100%;
   }
 

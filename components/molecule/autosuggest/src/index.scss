@@ -11,6 +11,8 @@ $z-autosuggest-list: $z-navigation !default;
 $mr-autosuggest-icon-clear: -34px !default;
 $w-autosuggest-icon-clear: 20px !default;
 
+$bdw-autosuggest-container: $bdw-s !default;
+
 #{$base-class} {
   position: relative;
   outline: none;
@@ -43,7 +45,7 @@ $w-autosuggest-icon-clear: 20px !default;
   #{$class-input} {
     &-container {
       align-items: center;
-      border: 1px solid transparent;
+      border: $bdw-autosuggest-container solid transparent;
       cursor: pointer;
       display: flex;
       min-height: $h-atom-input--m;

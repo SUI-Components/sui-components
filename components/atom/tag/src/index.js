@@ -9,7 +9,8 @@ const ACTIONABLE_ONLY_PROPS = [
   'iconPlacement',
   'target',
   'actionable',
-  'linkFactory'
+  'linkFactory',
+  'rel'
 ]
 const STANDARD_ONLY_PROPS = ['closeIcon', 'onClose']
 const SIZES = {
@@ -17,7 +18,14 @@ const SIZES = {
   MEDIUM: 'medium',
   SMALL: 'small'
 }
-
+const LINK_TYPES = {
+  NOFOLLOW: 'nofollow',
+  NOOPENER: 'noopener',
+  NOREFERRER: 'noreferrer',
+  PREV: 'prev',
+  NEXT: 'next',
+  TAG: 'tag'
+}
 /**
  * returns key:value in obj except for those keys defined in props
  * @param {Object} obj
@@ -97,6 +105,10 @@ AtomTag.propTypes = {
    */
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   /**
+   * To be used if href is defined
+   */
+  rel: PropTypes.arrayOf(PropTypes.oneOf(Object.values(LINK_TYPES))),
+  /**
    * Actionable tags can have iconPlacement='right'
    */
   iconPlacement: PropTypes.oneOf(['right', 'left']),
@@ -121,3 +133,4 @@ AtomTag.defaultProps = {
 
 export default AtomTag
 export {SIZES as atomTagSizes}
+export {LINK_TYPES as linkTypes}

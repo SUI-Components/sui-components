@@ -1,0 +1,11 @@
+.sui-AtomInput-withButton {
+  display: flex;
+
+  &-input {
+    width: 100%;
+  }
+
+  &-button {
+    margin-left: $m-m;
+  }
+}

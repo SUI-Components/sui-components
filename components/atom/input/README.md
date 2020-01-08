@@ -143,7 +143,7 @@ Each field returns its value on every onChange event so you can save it inside y
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Input from '@s-ui/react-atom-input'
-import Button from '@schibstedspain/sui-atom-button'
+import Button from '@s-ui/react-atom-button'
 
 class SimpleLoginForm extends React.Component {
   constructor() {

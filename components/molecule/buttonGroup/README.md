@@ -14,7 +14,7 @@ Having the proper elements imported
 
 ```js
 import MoleculeButtonGroup from '@s-ui/react-molecule-button-group'
-import AtomButtom, { atomButtonGroupPositions } from '@schibstedspain/sui-atom-button'
+import AtomButtom, { atomButtonGroupPositions } from '@s-ui/react-atom-button'
 ```
 
 ### Basic usage

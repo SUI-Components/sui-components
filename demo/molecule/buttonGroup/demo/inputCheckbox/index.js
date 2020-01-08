@@ -3,7 +3,7 @@
 import React from 'react'
 
 import MoleculeButtonGroup from '../../../../../components/molecule/buttonGroup/src'
-import AtomButtom from '@schibstedspain/sui-atom-button'
+import AtomButtom from '@s-ui/react-atom-button'
 
 const logoHouse =
   'https://cdn4.iconfinder.com/data/icons/icon-flat-icon-set/50/home-512.png'

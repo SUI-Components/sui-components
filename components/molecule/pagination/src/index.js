@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import AtomButton from '@schibstedspain/sui-atom-button'
+import AtomButton from '@s-ui/react-atom-button'
 
 import * as pagination from './helpers/pagination'
 import {

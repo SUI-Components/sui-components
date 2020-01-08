@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.3.0 (2020-01-08)
+
+
+
 # 4.2.0 (2019-12-19)
 
 
@@ -12,6 +16,7 @@ All notable changes to this project will be documented in this file.
 * add required prop ([a0fb572](https://github.com/SUI-Components/sui-components/commit/a0fb57217ce1c60c72c5b9b883c92857fff9662a))
 * remove default to required prop definition ([18b3f95](https://github.com/SUI-Components/sui-components/commit/18b3f957edf43f4a3f8c78eef6e20267e904878b))
 * required prop default to false ([b36f4af](https://github.com/SUI-Components/sui-components/commit/b36f4af723899eb4f412dce872929747b73c28a5))
+* with button ([5400020](https://github.com/SUI-Components/sui-components/commit/5400020ca6ace81929775b8eaa2cb26de80b75bf))
 
 
 

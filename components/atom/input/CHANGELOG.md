@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.4.0 (2020-01-08)
+
+
+### Features
+
+* Use new @s-ui/react-atom-button ([60a3751](https://github.com/SUI-Components/sui-components/commit/60a3751fa6a70887e113f8dcd382a666c84bf990))
+
+
+
 # 4.3.0 (2020-01-08)
 
 

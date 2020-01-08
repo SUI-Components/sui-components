@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-molecule-tabs --save
+$ npm install @s-ui/react-molecule-tabs --save
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ import MoleculeTabs, {
   MoleculeTab,
   moleculeTabsTypes,
   moleculeTabsVariants
-} from '@schibstedspain/sui-molecule-tabs'
+} from '@s-ui/react-molecule-tabs'
 ```
 
 ### Basic usage (Classic & horizontal)

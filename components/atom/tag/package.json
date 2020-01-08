@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-atom-tag",
+  "name": "@s-ui/react-atom-tag",
   "version": "2.6.0",
   "description": "",
   "main": "lib/index.js",

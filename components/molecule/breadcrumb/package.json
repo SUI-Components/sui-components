@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-breadcrumb-basic",
+  "name": "@s-ui/react-molecule-breadcrumb",
   "version": "1.14.0",
   "description": "SUI Breadcrumb Basic",
   "main": "lib/index.js",

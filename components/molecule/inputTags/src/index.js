@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
-import AtomTag, {atomTagSizes} from '@schibstedspain/sui-atom-tag'
+import AtomTag, {atomTagSizes} from '@s-ui/react-atom-tag'
 import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
 import cx from 'classnames'
 

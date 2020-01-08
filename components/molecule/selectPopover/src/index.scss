@@ -1,4 +1,5 @@
 @import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-atom-button/lib/index';
 @import './settings';
 
 .sui-MoleculeSelectPopover {
@@ -26,12 +27,17 @@
 
   &-popover {
     background-color: $c-white;
-    border: solid 1px $c-gray-light-5;
+    border: solid 1px $c-gray-light-3;
     box-shadow: $bxsh-select-popover;
     margin-top: $m-m;
-    padding: $p-l;
     position: absolute;
     width: 100%;
     z-index: $z-tooltips;
+
+    &ActionBar {
+      border-top: solid 1px $c-gray-light-3;
+      padding: $p-l;
+      text-align: right;
+    }
   }
 }

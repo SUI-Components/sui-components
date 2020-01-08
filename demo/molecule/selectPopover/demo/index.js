@@ -4,7 +4,15 @@ import {IconArrowDown} from './Icons'
 
 const Demo = () => {
   return (
-    <MoleculeSelectPopover defaultText="foo" iconArrowDown={IconArrowDown} />
+    <>
+      <MoleculeSelectPopover
+        acceptButtonText="Aceptar"
+        cancelButtonText="Cancelar"
+        defaultText="Todas las operaciones"
+        iconArrowDown={IconArrowDown}
+      />
+      <h1>TEST</h1>
+    </>
   )
 }
 

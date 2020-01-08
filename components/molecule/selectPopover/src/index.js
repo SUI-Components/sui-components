@@ -23,6 +23,7 @@ export default function MoleculeSelectPopover({
           <IconArrowDown />
         </div>
       </div>
+      {isOpen && <div className={`${BASE_CLASS}-popover`}>foo</div>}
     </div>
   )
 }

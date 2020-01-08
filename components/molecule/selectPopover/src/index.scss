@@ -23,4 +23,15 @@
       }
     }
   }
+
+  &-popover {
+    background-color: $c-white;
+    border: solid 1px $c-gray-light-5;
+    box-shadow: $bxsh-select-popover;
+    margin-top: $m-m;
+    padding: $p-l;
+    position: absolute;
+    width: 100%;
+    z-index: $z-tooltips;
+  }
 }

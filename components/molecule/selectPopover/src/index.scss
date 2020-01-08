@@ -3,10 +3,24 @@
 
 .sui-MoleculeSelectPopover {
   &-select {
+    $select: &;
     border: 1px solid $c-gray-light-2;
     border-radius: $bdrs-select-popover;
     display: flex;
     padding: $p-m $p-l;
     justify-content: space-between;
+
+    &:hover {
+      background-color: $c-primary-light-4;
+    }
+
+    &.is-open {
+      background-color: $c-primary-light-4;
+      color: $c-primary;
+
+      #{$select}Icon {
+        transform: rotate(180deg);
+      }
+    }
   }
 }

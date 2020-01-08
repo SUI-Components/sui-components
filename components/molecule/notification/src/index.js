@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useCallback, useRef} from 'react'
 import PropTypes from 'prop-types'
-import Button from '@schibstedspain/sui-atom-button'
+import Button from '@s-ui/react-atom-button'
 import IconClose from '@schibstedspain/sui-svgiconset/lib/Close'
 import IconSuccess from '@schibstedspain/sui-svgiconset/lib/Linecheck'
 import IconError from '@schibstedspain/sui-svgiconset/lib/Lineerror'

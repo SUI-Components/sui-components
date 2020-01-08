@@ -1,13 +1,28 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
-export default function MoleculeSelectPopover() {
+const BASE_CLASS = `sui-MoleculeSelectPopover`
+
+export default function MoleculeSelectPopover({
+  defaultText,
+  iconArrowDown: IconArrowDown
+}) {
+  // const [isOpen, setIsOpen] = useState(false)
+  // const [isSelected, setIsSelected] = useState(false)
   return (
-    <div className="react-MoleculeSelectPopover">
-      <h1>MoleculeSelectPopover</h1>
+    <div className={BASE_CLASS}>
+      <div className={`${BASE_CLASS}-select`}>
+        <span className={`${BASE_CLASS}-selectText`}>{defaultText}</span>
+        <div className={`${BASE_CLASS}-icon`}>
+          <IconArrowDown />
+        </div>
+      </div>
     </div>
   )
 }
 
 MoleculeSelectPopover.displayName = 'MoleculeSelectPopover'
-MoleculeSelectPopover.propTypes = {}
+MoleculeSelectPopover.propTypes = {
+  defaultText: PropTypes.string.isRequired,
+  iconArrowDown: PropTypes.node.isRequired
+}

@@ -1,5 +1,12 @@
 @import '~@schibstedspain/sui-theme/lib/index';
+@import './settings';
 
-.react-MoleculeSelectPopover {
-  // Do your magic
+.sui-MoleculeSelectPopover {
+  &-select {
+    border: 1px solid $c-gray-light-2;
+    border-radius: $bdrs-select-popover;
+    display: flex;
+    padding: $p-m $p-l;
+    justify-content: space-between;
+  }
 }

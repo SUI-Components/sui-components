@@ -7,13 +7,13 @@
 ## Installation
 
 ```sh
-npm install @schibstedspain/sui-atom-tag --save
+npm install @s-ui/react-atom-tag --save
 ```
 
 ## Usage
 
 ```js
-import AtomTag from '@schibstedspain/sui-atom-tag'
+import AtomTag from '@s-ui/react-atom-tag'
 
 <AtomTag
   label='Tag Structure'

@@ -2,23 +2,39 @@
 
 All notable changes to this project will be documented in this file.
 
-<a name="4.1.0"></a>
+# 4.3.0 (2020-01-08)
+
+
+
+# 4.2.0 (2019-12-19)
+
+
+### Features
+
+* add minLength prop ([a4452e5](https://github.com/SUI-Components/sui-components/commit/a4452e56ddc0f2dbe48198d592947a8c1f72e4a8))
+* add pattern prop ([a8b2df6](https://github.com/SUI-Components/sui-components/commit/a8b2df64173de40936534b81c66e74701bcb3dce))
+* add required prop ([a0fb572](https://github.com/SUI-Components/sui-components/commit/a0fb57217ce1c60c72c5b9b883c92857fff9662a))
+* remove default to required prop definition ([18b3f95](https://github.com/SUI-Components/sui-components/commit/18b3f957edf43f4a3f8c78eef6e20267e904878b))
+* required prop default to false ([b36f4af](https://github.com/SUI-Components/sui-components/commit/b36f4af723899eb4f412dce872929747b73c28a5))
+* with button ([5400020](https://github.com/SUI-Components/sui-components/commit/5400020ca6ace81929775b8eaa2cb26de80b75bf))
+
+
+
 # 4.1.0 (2019-11-12)
 
 
 ### Bug Fixes
 
-* set css property pointer-events to none ([f845847](https://github.com/SUI-Components/sui-components/commit/f845847))
+* set css property pointer-events to none ([f845847](https://github.com/SUI-Components/sui-components/commit/f8458477dffa419667deaaca3c2f2a3fe6ac4b40))
 
 
 
-<a name="4.0.0"></a>
 # 4.0.0 (2019-10-29)
 
 
 ### Features
 
-* removal checkbox and radioButton input AND name notification in event handler ([4c2acf6](https://github.com/SUI-Components/sui-components/commit/4c2acf6))
+* removal checkbox and radioButton input AND name notification in event handler ([4c2acf6](https://github.com/SUI-Components/sui-components/commit/4c2acf6c5deffe209c06dc45cadc683112a33e4f))
 
 
 ### BREAKING CHANGES
@@ -27,148 +43,135 @@ All notable changes to this project will be documented in this file.
 
 
 
-<a name="3.14.0"></a>
 # 3.14.0 (2019-10-08)
 
 
 ### Bug Fixes
 
-* add default prop value to onChange prop ([3000a86](https://github.com/SUI-Components/sui-components/commit/3000a86))
+* add default prop value to onChange prop ([3000a86](https://github.com/SUI-Components/sui-components/commit/3000a86869a28555525191b2079197c7da5cbb57))
 
 
 
-<a name="3.13.0"></a>
 # 3.13.0 (2019-10-08)
 
 
 ### Bug Fixes
 
-* add fill var to input icon ([937c203](https://github.com/SUI-Components/sui-components/commit/937c203))
+* add fill var to input icon ([937c203](https://github.com/SUI-Components/sui-components/commit/937c203adfab4730ef4449cd65e99d46bc5d4324))
 
 
 
-<a name="3.12.0"></a>
 # 3.12.0 (2019-08-05)
 
 
 ### Features
 
-* update doc and playground with new xsmall input size ([4507925](https://github.com/SUI-Components/sui-components/commit/4507925))
+* update doc and playground with new xsmall input size ([4507925](https://github.com/SUI-Components/sui-components/commit/450792516b16b63edd1c0fe10e7710fc1d6d5a22))
 
 
 
-<a name="3.11.0"></a>
 # 3.11.0 (2019-07-30)
 
 
 ### Features
 
-* propagate readonly attribute ([a1d6a0e](https://github.com/SUI-Components/sui-components/commit/a1d6a0e))
+* propagate readonly attribute ([a1d6a0e](https://github.com/SUI-Components/sui-components/commit/a1d6a0e39979bd8e958fd6afea2f80636c2b2e75))
 
 
 
-<a name="3.10.0"></a>
 # 3.10.0 (2019-06-19)
 
 
 ### Features
 
-* add new native props ([7b08766](https://github.com/SUI-Components/sui-components/commit/7b08766))
-* update new props: add camelCase ([1e1ab4b](https://github.com/SUI-Components/sui-components/commit/1e1ab4b))
+* add new native props ([7b08766](https://github.com/SUI-Components/sui-components/commit/7b087660c3f6ae6e0aeb5cf9ca0cc404a519ea72))
+* update new props: add camelCase ([1e1ab4b](https://github.com/SUI-Components/sui-components/commit/1e1ab4b71847ae62a28eb5835b72dcd0a7715ef9))
 
 
 
-<a name="3.9.0"></a>
 # 3.9.0 (2019-02-21)
 
 
 ### Bug Fixes
 
-* only download on focus ([578e99b](https://github.com/SUI-Components/sui-components/commit/578e99b))
+* only download on focus ([578e99b](https://github.com/SUI-Components/sui-components/commit/578e99b96e9e5940959cd2a3fa680dc1fbc77589))
 
 
 ### Performance Improvements
 
-* download imask only if component is used ([a3b51ba](https://github.com/SUI-Components/sui-components/commit/a3b51ba))
+* download imask only if component is used ([a3b51ba](https://github.com/SUI-Components/sui-components/commit/a3b51ba66a5957a646e0b104dc461372b98df5c3))
 
 
 
-<a name="3.8.0"></a>
 # 3.8.0 (2019-02-20)
 
 
 ### Bug Fixes
 
-* fix min-height setting in atom input ([5ad2e11](https://github.com/SUI-Components/sui-components/commit/5ad2e11))
-* linting fixes ([8c78094](https://github.com/SUI-Components/sui-components/commit/8c78094))
+* fix min-height setting in atom input ([5ad2e11](https://github.com/SUI-Components/sui-components/commit/5ad2e11b9ddaea63155b16343ae343367078e01a))
+* linting fixes ([8c78094](https://github.com/SUI-Components/sui-components/commit/8c780942033fc6701fa5c3c1bfea7ef328eaf1b1))
 
 
 
-<a name="3.5.0"></a>
 # 3.5.0 (2019-02-19)
 
 
 ### Features
 
-* add border radius to input ([f1623a0](https://github.com/SUI-Components/sui-components/commit/f1623a0))
-* onKeyDown handler as prop ([14ed0ff](https://github.com/SUI-Components/sui-components/commit/14ed0ff))
-* use $bdrs-none sui-theme var instead of 0 ([8f00a87](https://github.com/SUI-Components/sui-components/commit/8f00a87))
+* add border radius to input ([f1623a0](https://github.com/SUI-Components/sui-components/commit/f1623a07bd08e88da08f5e2d98773da6fe69e429))
+* onKeyDown handler as prop ([14ed0ff](https://github.com/SUI-Components/sui-components/commit/14ed0fff92e737229667570ff64df87c4fb4b3a0))
+* use $bdrs-none sui-theme var instead of 0 ([8f00a87](https://github.com/SUI-Components/sui-components/commit/8f00a8785cbbb46a945a77707f969ef6c44eaeae))
 
 
 
-<a name="3.4.0"></a>
 # 3.4.0 (2019-01-31)
 
 
 ### Bug Fixes
 
-* change version package.json ([671dcca](https://github.com/SUI-Components/sui-components/commit/671dcca))
+* change version package.json ([671dcca](https://github.com/SUI-Components/sui-components/commit/671dcca1247a7111774ff85bc88135d132ee22e5))
 
 
 ### Features
 
-* changes in the Readme and changes scss ([0154c33](https://github.com/SUI-Components/sui-components/commit/0154c33))
-* leave the package.json as it was ([bdfd95c](https://github.com/SUI-Components/sui-components/commit/bdfd95c))
+* changes in the Readme and changes scss ([0154c33](https://github.com/SUI-Components/sui-components/commit/0154c33cd521fdd967c1c19d9061fb5e551f2766))
+* leave the package.json as it was ([bdfd95c](https://github.com/SUI-Components/sui-components/commit/bdfd95cec75b98ac69196cf1fed9e102551b04a6))
 
 
 
-<a name="3.3.0"></a>
 # 3.3.0 (2019-01-14)
 
 
 ### Bug Fixes
 
-* fixed specificity error in dev mode ([2cdfbe2](https://github.com/SUI-Components/sui-components/commit/2cdfbe2))
+* fixed specificity error in dev mode ([2cdfbe2](https://github.com/SUI-Components/sui-components/commit/2cdfbe2a860cdcf93380d8f794aaf9ad8058a8d1))
 
 
 
-<a name="3.2.0"></a>
 # 3.2.0 (2019-01-11)
 
 
 ### Features
 
-* issues focus on checkbox ([55e042b](https://github.com/SUI-Components/sui-components/commit/55e042b))
+* issues focus on checkbox ([55e042b](https://github.com/SUI-Components/sui-components/commit/55e042be4ac113cb336c6e28f8f185dc707ceb58))
 
 
 
-<a name="3.1.0"></a>
 # 3.1.0 (2019-01-09)
 
 
 ### Features
 
-* add propType object to reference ([243f2b0](https://github.com/SUI-Components/sui-components/commit/243f2b0))
+* add propType object to reference ([243f2b0](https://github.com/SUI-Components/sui-components/commit/243f2b0c8826298d951e5be43a1999c66465933f))
 
 
 
-<a name="3.0.0"></a>
 # 3.0.0 (2019-01-03)
 
 
 ### Features
 
-* normalize way fo passing icons to components according to WIKI agreement ([e4f7ea3](https://github.com/SUI-Components/sui-components/commit/e4f7ea3))
+* normalize way fo passing icons to components according to WIKI agreement ([e4f7ea3](https://github.com/SUI-Components/sui-components/commit/e4f7ea30fc857dedea07b3dd829b23075a87a393))
 
 
 ### BREAKING CHANGES
@@ -177,49 +180,45 @@ All notable changes to this project will be documented in this file.
 
 
 
-<a name="2.3.0"></a>
 # 2.3.0 (2018-12-21)
 
 
 ### Bug Fixes
 
-* fixed noBorder on focus ([9c67211](https://github.com/SUI-Components/sui-components/commit/9c67211))
+* fixed noBorder on focus ([9c67211](https://github.com/SUI-Components/sui-components/commit/9c6721156995d0277c623bf05e64daaca0e93537))
 
 
 ### Features
 
-* fixed noBorder css applied always ([1ee2fa9](https://github.com/SUI-Components/sui-components/commit/1ee2fa9))
+* fixed noBorder css applied always ([1ee2fa9](https://github.com/SUI-Components/sui-components/commit/1ee2fa9335ab21a72eca29df12913f9c5840cc30))
 
 
 
-<a name="2.2.0"></a>
 # 2.2.0 (2018-12-12)
 
 
 ### Features
 
-* add tel and email input types ([a117695](https://github.com/SUI-Components/sui-components/commit/a117695))
+* add tel and email input types ([a117695](https://github.com/SUI-Components/sui-components/commit/a11769572272c1439051347e2de32c5c02aae267))
 
 
 
-<a name="2.1.0"></a>
 # 2.1.0 (2018-12-04)
 
 
 ### Features
 
-* shared styles and tabIndex ([248579a](https://github.com/SUI-Components/sui-components/commit/248579a))
+* shared styles and tabIndex ([248579a](https://github.com/SUI-Components/sui-components/commit/248579a5a5ffe4786b7408a7e51f0a5a5ab5bd91))
 
 
 
-<a name="2.0.0"></a>
 # 2.0.0 (2018-11-22)
 
 
 ### Features
 
-* change of parameters distribution in event handlers ([622e36d](https://github.com/SUI-Components/sui-components/commit/622e36d))
-* read only prop ([ec6cfdd](https://github.com/SUI-Components/sui-components/commit/ec6cfdd))
+* change of parameters distribution in event handlers ([622e36d](https://github.com/SUI-Components/sui-components/commit/622e36d80c43e19024b40a515d082df768656d6c))
+* read only prop ([ec6cfdd](https://github.com/SUI-Components/sui-components/commit/ec6cfdd5769fac6fd55893b37d54e6890b9752ee))
 
 
 ### BREAKING CHANGES
@@ -228,128 +227,117 @@ All notable changes to this project will be documented in this file.
 
 
 
-<a name="1.16.0"></a>
 # 1.16.0 (2018-11-06)
 
 
 ### Features
 
-* linter sass ([3b5c5f1](https://github.com/SUI-Components/sui-components/commit/3b5c5f1))
-* noBorder through prop ([58fa24f](https://github.com/SUI-Components/sui-components/commit/58fa24f))
+* linter sass ([3b5c5f1](https://github.com/SUI-Components/sui-components/commit/3b5c5f1e81edf7f8855eda7c61fcb83364c1dd7e))
+* noBorder through prop ([58fa24f](https://github.com/SUI-Components/sui-components/commit/58fa24fc3d895000270f2a0e0d9699aeb2073012))
 
 
 
-<a name="1.15.0"></a>
 # 1.15.0 (2018-11-02)
 
 
 ### Bug Fixes
 
-* fix typo ([f0eaec9](https://github.com/SUI-Components/sui-components/commit/f0eaec9))
+* fix typo ([f0eaec9](https://github.com/SUI-Components/sui-components/commit/f0eaec93ad150e3047cdb2b40d6988fc906bff20))
 
 
 ### Features
 
-* component prepared for MoleculeInputTags ([2719b1a](https://github.com/SUI-Components/sui-components/commit/2719b1a))
-* custom key onEnter ([ef57dc5](https://github.com/SUI-Components/sui-components/commit/ef57dc5))
-* placeholders instead of mixins ([95300ca](https://github.com/SUI-Components/sui-components/commit/95300ca))
-* use of sui-theme variables ([45a7628](https://github.com/SUI-Components/sui-components/commit/45a7628))
+* component prepared for MoleculeInputTags ([2719b1a](https://github.com/SUI-Components/sui-components/commit/2719b1a82a8b8e7badcc68b4644630496c385677))
+* custom key onEnter ([ef57dc5](https://github.com/SUI-Components/sui-components/commit/ef57dc5a384c299d3eb23af6146f44bd3bd8ac31))
+* placeholders instead of mixins ([95300ca](https://github.com/SUI-Components/sui-components/commit/95300ca10b3e7bf599e3b8e8bf87844ea884adb3))
+* use of sui-theme variables ([45a7628](https://github.com/SUI-Components/sui-components/commit/45a7628566fc8df8feec076b889c6ce29ec49382))
 
 
 
-<a name="1.14.0"></a>
 # 1.14.0 (2018-10-23)
 
 
 
-<a name="1.13.0"></a>
 # 1.13.0 (2018-10-23)
 
 
 ### Features
 
-* cursor pointer only when hanlder ([2700c5d](https://github.com/SUI-Components/sui-components/commit/2700c5d))
-* iconRight & clickHander & hoc features reorganization ([5c89813](https://github.com/SUI-Components/sui-components/commit/5c89813))
-* improved documentation ([fbe91ab](https://github.com/SUI-Components/sui-components/commit/fbe91ab))
-* left & right icon managed by HOC ([45dac5d](https://github.com/SUI-Components/sui-components/commit/45dac5d))
-* merge master & solved conflicts ([a90cb72](https://github.com/SUI-Components/sui-components/commit/a90cb72))
+* cursor pointer only when hanlder ([2700c5d](https://github.com/SUI-Components/sui-components/commit/2700c5d56adf3ac67a675fa43310598f723cd3cc))
+* iconRight & clickHander & hoc features reorganization ([5c89813](https://github.com/SUI-Components/sui-components/commit/5c89813d83bf42c6b2a86e2695cc013caba78118))
+* improved documentation ([fbe91ab](https://github.com/SUI-Components/sui-components/commit/fbe91ab4f3f0b557d6ba601e89f7d2a5fcecd2f5))
+* left & right icon managed by HOC ([45dac5d](https://github.com/SUI-Components/sui-components/commit/45dac5d304c12a823c1ed58892f2da64d80bade1))
+* merge master & solved conflicts ([a90cb72](https://github.com/SUI-Components/sui-components/commit/a90cb7282feffdc7a46a81128ffe397eec56eab5))
 
 
 
-<a name="1.12.0"></a>
 # 1.12.0 (2018-10-15)
 
 
 ### Bug Fixes
 
-* remove scss import from js file ([254d79d](https://github.com/SUI-Components/sui-components/commit/254d79d))
-* remove scss import indeed ([36c4ecb](https://github.com/SUI-Components/sui-components/commit/36c4ecb))
+* remove scss import from js file ([254d79d](https://github.com/SUI-Components/sui-components/commit/254d79d64a037dd58a9dbf71ab3d93cdfc0f0a54))
+* remove scss import indeed ([36c4ecb](https://github.com/SUI-Components/sui-components/commit/36c4ecb06d9d8a892c18412edc9fb86387242678))
 
 
 
-<a name="1.11.0"></a>
 # 1.11.0 (2018-10-05)
 
 
 
-<a name="1.10.0"></a>
 # 1.10.0 (2018-10-04)
 
 
 ### Bug Fixes
 
-* fixed issue on adddon on IE11 ([d65d26c](https://github.com/SUI-Components/sui-components/commit/d65d26c))
+* fixed issue on adddon on IE11 ([d65d26c](https://github.com/SUI-Components/sui-components/commit/d65d26c302b5347e389fc12185644be98b88be0d))
 
 
 
-<a name="1.9.0"></a>
 # 1.9.0 (2018-10-03)
 
 
 ### Bug Fixes
 
-* leftInput not as Addon ([880140c](https://github.com/SUI-Components/sui-components/commit/880140c))
-* small sass redefinition ([f1192ef](https://github.com/SUI-Components/sui-components/commit/f1192ef))
+* leftInput not as Addon ([880140c](https://github.com/SUI-Components/sui-components/commit/880140c5cc599da0c70d33cedc73413d0595cc50))
+* small sass redefinition ([f1192ef](https://github.com/SUI-Components/sui-components/commit/f1192ef9a97e3b67dad7baeac5d31b2a08c11c61))
 
 
 ### Features
 
-* added brief explanation to README ([ab568d5](https://github.com/SUI-Components/sui-components/commit/ab568d5))
-* better examples ([a9d0844](https://github.com/SUI-Components/sui-components/commit/a9d0844))
-* charsSize ([8ea729c](https://github.com/SUI-Components/sui-components/commit/8ea729c))
-* demo fix ([33496e6](https://github.com/SUI-Components/sui-components/commit/33496e6))
-* icon Left ([df6bedc](https://github.com/SUI-Components/sui-components/commit/df6bedc))
-* merged latest changes ([a2f4b7d](https://github.com/SUI-Components/sui-components/commit/a2f4b7d))
-* modifications after code review comments ([fff3cb0](https://github.com/SUI-Components/sui-components/commit/fff3cb0))
-* removed unnecesary dependency ([2f68b77](https://github.com/SUI-Components/sui-components/commit/2f68b77))
-* sizeChars ([4144365](https://github.com/SUI-Components/sui-components/commit/4144365))
+* added brief explanation to README ([ab568d5](https://github.com/SUI-Components/sui-components/commit/ab568d51871118cd3238a8b9bfb8b7a4103c9b73))
+* better examples ([a9d0844](https://github.com/SUI-Components/sui-components/commit/a9d084455c9ea4015fc2d6f0edd063d38eabd7e7))
+* charsSize ([8ea729c](https://github.com/SUI-Components/sui-components/commit/8ea729c01da243fd94d7b819a2afd9df21ad77ae))
+* demo fix ([33496e6](https://github.com/SUI-Components/sui-components/commit/33496e6d64c022df1a740652db37550f0862427e))
+* icon Left ([df6bedc](https://github.com/SUI-Components/sui-components/commit/df6bedc4f74b8d4ea837fba607840a5c93f6ae49))
+* merged latest changes ([a2f4b7d](https://github.com/SUI-Components/sui-components/commit/a2f4b7d1bf4306a683369454ec9bfca52ed5af47))
+* modifications after code review comments ([fff3cb0](https://github.com/SUI-Components/sui-components/commit/fff3cb09d7150c5d1c9dd8fac17a9fc076c787b5))
+* removed unnecesary dependency ([2f68b77](https://github.com/SUI-Components/sui-components/commit/2f68b77f9cbd0468d2532bec33d9c933461c7863))
+* sizeChars ([4144365](https://github.com/SUI-Components/sui-components/commit/41443650550046732e7cf97a2e1ea87d71b997f1))
 
 
 
-<a name="1.8.0"></a>
 # 1.8.0 (2018-09-18)
 
 
 ### Features
 
-* first commit with only Schibsted Spain Components ([c0814de](https://github.com/SUI-Components/sui-components/commit/c0814de))
-* fixed FormInput loose focus onChange ([3624cd9](https://github.com/SUI-Components/sui-components/commit/3624cd9))
+* fixed FormInput loose focus onChange ([3624cd9](https://github.com/SUI-Components/sui-components/commit/3624cd9c7de712c83744f7784db9b730d2a1e8c2))
 
 
 
-<a name="1.7.0"></a>
 # 1.7.0 (2018-09-05)
 
 
 ### Features
 
-* atomInput implementation ([ab16328](https://github.com/SUI-Components/sui-components/commit/ab16328))
-* changes after code review feedback ([e307b6a](https://github.com/SUI-Components/sui-components/commit/e307b6a))
-* major versions of dependencies ([9d91177](https://github.com/SUI-Components/sui-components/commit/9d91177))
-* new component ([c6086f5](https://github.com/SUI-Components/sui-components/commit/c6086f5))
-* propTypes ([32f7203](https://github.com/SUI-Components/sui-components/commit/32f7203))
-* rename from FormInput to AtomInput ([6d1efec](https://github.com/SUI-Components/sui-components/commit/6d1efec))
-* renaming from AtomInput to MoleculeInputField ([60d43aa](https://github.com/SUI-Components/sui-components/commit/60d43aa))
+* atomInput implementation ([ab16328](https://github.com/SUI-Components/sui-components/commit/ab16328ff4383f275014c8fa6caae93676e31691))
+* changes after code review feedback ([e307b6a](https://github.com/SUI-Components/sui-components/commit/e307b6aa067de9653fa0ecf36d058d91d29684ed))
+* major versions of dependencies ([9d91177](https://github.com/SUI-Components/sui-components/commit/9d911773a58b20d86cc96d377f595152aaa939ba))
+* new component ([c6086f5](https://github.com/SUI-Components/sui-components/commit/c6086f529fe4aca89b13f222037a5cf5239c681e))
+* propTypes ([32f7203](https://github.com/SUI-Components/sui-components/commit/32f7203429bd4ec723125895ba4baa286680f27c))
+* rename from FormInput to AtomInput ([6d1efec](https://github.com/SUI-Components/sui-components/commit/6d1efece1c2e7000c9c3bb1ff59d5baf7106f4e5))
+* renaming from AtomInput to MoleculeInputField ([60d43aa](https://github.com/SUI-Components/sui-components/commit/60d43aa3dfa1dcd7bcdaa9847d696347f88ef88c))
 
 
 

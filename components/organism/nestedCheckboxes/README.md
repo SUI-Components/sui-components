@@ -13,6 +13,7 @@ $ npm install @s-ui/react-organism-nested-checkboxes
 ### Basic usage
 ```js
 import OrganismNestedCheckboxes from '@s-ui/react-organism-nested-checkboxes'
+import MoleculeCheckboxField from '@s-ui/react-molecule-checkboxField'
 
 const data = [
   {id: 'nested-01', label: 'Nested 1', checked: true},
@@ -26,11 +27,28 @@ const data = [
   fullCheckedStyledIcon={IconCheck}
   halfCheckedStyledIcon={IconHalfCheck}
   id="nested"
-  items={data}
   labelParent="Nested checkboxes"
   onChangeItem={handleChangeItem}
   onChangeParent={handleChangeParent}
-/>
+>
+ {
+   data.map(item => {
+      const {id: childId, checked} = item
+
+      return (
+        <MoleculeCheckboxField
+          key={childId}
+          id={childId}
+          checked={checked}
+          checkedIcon={IconCheck}
+          intermediateIcon={IconHalfCheck}
+          onChange={handleChangeItem}
+          {...item}
+        />
+      )
+    })
+  }
+</OrganismNestedCheckboxes>
 ```
 
 

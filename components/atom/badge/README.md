@@ -7,13 +7,13 @@
 ## Installation
 
 ```sh
-npm install @schibstedspain/sui-atom-badge --save
+npm install @s-ui/react-atom-badge --save
 ```
 
 ## Usage
 
 ```js
-import Badge, { atomBadgeTypes, atomBadgeSizes } from '@schibstedspain/sui-atom-badge'
+import Badge, { atomBadgeTypes, atomBadgeSizes } from '@s-ui/react-atom-badge'
 
 render {
   return (

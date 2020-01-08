@@ -2,248 +2,248 @@
 
 All notable changes to this project will be documented in this file.
 
-<a name="1.20.0"></a>
+# 1.22.0 (2020-01-08)
+
+
+### Bug Fixes
+
+* add padding s between text and checkbox ([7aac63e](https://github.com/SUI-Components/sui-components/commit/7aac63e6d63426b32a3b254d98fde1714d4a9368))
+* fix scss variable for margin ([8328b96](https://github.com/SUI-Components/sui-components/commit/8328b9641a8355185b181d34efa7b391d0c8d7b8))
+
+
+
+# 1.21.0 (2019-12-27)
+
+
+### Features
+
+* two lines option prop ([23a8ddf](https://github.com/SUI-Components/sui-components/commit/23a8ddf28fcf0b7617d8959c9104b2dd077079e0))
+* use modifiers and improved prop name ([9bd10f2](https://github.com/SUI-Components/sui-components/commit/9bd10f2d4ff02e00b0b799994d7411650b50e711))
+
+
+
 # 1.20.0 (2019-11-26)
 
 
 ### Bug Fixes
 
-* fix render if children is not text ([0cbc5e8](https://github.com/SUI-Components/sui-components/commit/0cbc5e8))
+* fix render if children is not text ([0cbc5e8](https://github.com/SUI-Components/sui-components/commit/0cbc5e885d01a31564287ea2ddebad6a05571dd5))
 
 
 
-<a name="1.19.0"></a>
 # 1.19.0 (2019-11-12)
 
 
 ### Bug Fixes
 
-* remove react-atom-input styles, use react-atom-checkbox style instead ([46f4224](https://github.com/SUI-Components/sui-components/commit/46f4224))
-* remove unnecessary import of AtomInput ([e9b88f2](https://github.com/SUI-Components/sui-components/commit/e9b88f2))
+* remove react-atom-input styles, use react-atom-checkbox style instead ([46f4224](https://github.com/SUI-Components/sui-components/commit/46f4224e8f360343bcc93b56a7fa4231b6279bb9))
+* remove unnecessary import of AtomInput ([e9b88f2](https://github.com/SUI-Components/sui-components/commit/e9b88f227b48777caf81148b31d61128814d813b))
 
 
 ### Features
 
-* update deps to include new AtomCheckbox component ([563be81](https://github.com/SUI-Components/sui-components/commit/563be81))
-* use AtomCheckbox instead of AtomInput when checkbox prop is true ([77bb816](https://github.com/SUI-Components/sui-components/commit/77bb816))
+* update deps to include new AtomCheckbox component ([563be81](https://github.com/SUI-Components/sui-components/commit/563be81ac80a29497dda02ccaea5130de79057fc))
+* use AtomCheckbox instead of AtomInput when checkbox prop is true ([77bb816](https://github.com/SUI-Components/sui-components/commit/77bb816fb38ff1bbabe71e4ee5233679f8b609b0))
 
 
 
-<a name="1.18.0"></a>
 # 1.18.0 (2019-10-16)
 
 
 ### Features
 
-* add font-weight as varible for highlighted text ([f730b10](https://github.com/SUI-Components/sui-components/commit/f730b10))
+* add font-weight as varible for highlighted text ([f730b10](https://github.com/SUI-Components/sui-components/commit/f730b10742264fa638e1f9a08ab58df1d3c6c53f))
 
 
 
-<a name="1.17.0"></a>
 # 1.17.0 (2019-10-10)
 
 
 ### Features
 
-* set dropdownoption text as var ([c1c65bf](https://github.com/SUI-Components/sui-components/commit/c1c65bf))
+* set dropdownoption text as var ([c1c65bf](https://github.com/SUI-Components/sui-components/commit/c1c65bfeddc56046612e10cf50384c9c393ca198))
 
 
 
-<a name="1.16.0"></a>
 # 1.16.0 (2019-10-07)
 
 
 ### Features
 
-* add background as variable ([1e79e61](https://github.com/SUI-Components/sui-components/commit/1e79e61))
-* fix space ([5de48f4](https://github.com/SUI-Components/sui-components/commit/5de48f4))
+* add background as variable ([1e79e61](https://github.com/SUI-Components/sui-components/commit/1e79e6139a50c162df366d3ff94c4db8630329db))
+* fix space ([5de48f4](https://github.com/SUI-Components/sui-components/commit/5de48f495c0819aaadb9ad2b1fbae08034208111))
 
 
 
-<a name="1.15.0"></a>
 # 1.15.0 (2019-06-26)
 
 
 ### Features
 
-* make \`MoleculeDropdownList\` more semantic → SUIC-93 ([289ce24](https://github.com/SUI-Components/sui-components/commit/289ce24))
+* make \`MoleculeDropdownList\` more semantic → SUIC-93 ([289ce24](https://github.com/SUI-Components/sui-components/commit/289ce241715e71754919dbf0515644290f795d0e))
 
 
 
-<a name="1.14.0"></a>
 # 1.14.0 (2019-05-29)
 
 
 ### Features
 
-* fix issue w/ moleculeAutosuggest ([3255108](https://github.com/SUI-Components/sui-components/commit/3255108))
+* fix issue w/ moleculeAutosuggest ([3255108](https://github.com/SUI-Components/sui-components/commit/3255108261d299b1bac373950b2c5fb8bdfd0a85))
 
 
 
-<a name="1.13.0"></a>
 # 1.13.0 (2019-01-17)
 
 
 ### Features
 
-* handlersFactory to ease the creation of custom dropddownOptions ([46739fb](https://github.com/SUI-Components/sui-components/commit/46739fb))
+* handlersFactory to ease the creation of custom dropddownOptions ([46739fb](https://github.com/SUI-Components/sui-components/commit/46739fb09e08fce435cce72833d0e129bc07f9b6))
 
 
 
-<a name="1.12.0"></a>
 # 1.12.0 (2019-01-11)
 
 
 ### Features
 
-* better handling for checkbox focus inside option ([f5152c7](https://github.com/SUI-Components/sui-components/commit/f5152c7))
+* better handling for checkbox focus inside option ([f5152c7](https://github.com/SUI-Components/sui-components/commit/f5152c7ad96bd41761f0f8ad48051163f327a23b))
 
 
 
-<a name="1.11.0"></a>
 # 1.11.0 (2019-01-10)
 
 
 ### Features
 
-* onSelectKey and strings-arrays ([70b5f4d](https://github.com/SUI-Components/sui-components/commit/70b5f4d))
-* update major version atomInput ([6c271b1](https://github.com/SUI-Components/sui-components/commit/6c271b1))
+* onSelectKey and strings-arrays ([70b5f4d](https://github.com/SUI-Components/sui-components/commit/70b5f4df2c8177da95a520bb038d4cc6c74f9f3d))
+* update major version atomInput ([6c271b1](https://github.com/SUI-Components/sui-components/commit/6c271b1f5b4b6d417477fe668f8f4dad6b4b7e60))
 
 
 
-<a name="1.10.0"></a>
 # 1.10.0 (2019-01-09)
 
 
 ### Features
 
-* stop event propagation so we get the desired UX ([238337e](https://github.com/SUI-Components/sui-components/commit/238337e))
+* stop event propagation so we get the desired UX ([238337e](https://github.com/SUI-Components/sui-components/commit/238337ee641c28d8457fb0ff584a3c766e120608))
 
 
 
-<a name="1.9.0"></a>
 # 1.9.0 (2019-01-03)
 
 
 ### Features
 
-* added innerRef to DropdownOption ([c3c9e3f](https://github.com/SUI-Components/sui-components/commit/c3c9e3f))
-* better propType for innerRef ([986559c](https://github.com/SUI-Components/sui-components/commit/986559c))
-* remove console logs ([354d867](https://github.com/SUI-Components/sui-components/commit/354d867))
+* added innerRef to DropdownOption ([c3c9e3f](https://github.com/SUI-Components/sui-components/commit/c3c9e3ffc2315f2db51969c13731c7cd6a61c762))
+* better propType for innerRef ([986559c](https://github.com/SUI-Components/sui-components/commit/986559c8deaeb6513a2aeb5ffc92985b604d1c68))
+* remove console logs ([354d867](https://github.com/SUI-Components/sui-components/commit/354d867d0b2d42663686557e562a9fa23ab47fbb))
 
 
 
-<a name="1.8.0"></a>
 # 1.8.0 (2018-12-13)
 
 
 ### Bug Fixes
 
-* merge & fixed issues ([c7b915a](https://github.com/SUI-Components/sui-components/commit/c7b915a))
+* merge & fixed issues ([c7b915a](https://github.com/SUI-Components/sui-components/commit/c7b915a92c509f4dcfe957aa5b9a7efe9dda6175))
 
 
 ### Features
 
-* force release of dropdownOption ([6479cd7](https://github.com/SUI-Components/sui-components/commit/6479cd7))
+* force release of dropdownOption ([6479cd7](https://github.com/SUI-Components/sui-components/commit/6479cd753aa1da5bd4d20c7cd8e5855c90b7c43e))
 
 
 
-<a name="1.7.0"></a>
 # 1.7.0 (2018-12-10)
 
 
 ### Features
 
-* onSelect ([64b61bf](https://github.com/SUI-Components/sui-components/commit/64b61bf))
+* onSelect ([64b61bf](https://github.com/SUI-Components/sui-components/commit/64b61bf602459959b40d482218f037a1b9eab829))
 
 
 
-<a name="1.6.0"></a>
 # 1.6.0 (2018-12-05)
 
 
 ### Features
 
-* focus styles like hover ([6a5a538](https://github.com/SUI-Components/sui-components/commit/6a5a538))
-* key on enter via prop ([9648bd7](https://github.com/SUI-Components/sui-components/commit/9648bd7))
+* focus styles like hover ([6a5a538](https://github.com/SUI-Components/sui-components/commit/6a5a5389f4cfe205186e7beaba6c148d57216eb9))
+* key on enter via prop ([9648bd7](https://github.com/SUI-Components/sui-components/commit/9648bd7dbc4dbb5cd7e591aa3c240c40baa08838))
 
 
 
-<a name="1.5.0"></a>
 # 1.5.0 (2018-12-04)
 
 
 
-<a name="1.4.0"></a>
 # 1.4.0 (2018-12-04)
 
 
 ### Features
 
-* selection on enter & focus styles ([02b7fd0](https://github.com/SUI-Components/sui-components/commit/02b7fd0))
-* sui-theme var for grey color ([8ef7a01](https://github.com/SUI-Components/sui-components/commit/8ef7a01))
+* selection on enter & focus styles ([02b7fd0](https://github.com/SUI-Components/sui-components/commit/02b7fd0140efcae101634e2d22615887b3a305cc))
+* sui-theme var for grey color ([8ef7a01](https://github.com/SUI-Components/sui-components/commit/8ef7a01baa645a25927cdcf3c129b9f20be13e5a))
 
 
 
-<a name="1.3.0"></a>
 # 1.3.0 (2018-11-23)
 
 
 ### Bug Fixes
 
-* fixed prop description ([1a4d9c6](https://github.com/SUI-Components/sui-components/commit/1a4d9c6))
+* fixed prop description ([1a4d9c6](https://github.com/SUI-Components/sui-components/commit/1a4d9c645512f0a2aac2ce1d43f0da080e25a993))
 
 
 ### Features
 
-* fixed className ([1787182](https://github.com/SUI-Components/sui-components/commit/1787182))
-* highlight option ([b42025d](https://github.com/SUI-Components/sui-components/commit/b42025d))
-* improved class sass organization ([288556f](https://github.com/SUI-Components/sui-components/commit/288556f))
-* improved classnames semantic highlighted ([9c17709](https://github.com/SUI-Components/sui-components/commit/9c17709))
-* improved genreated markup ([1146acb](https://github.com/SUI-Components/sui-components/commit/1146acb))
-* more semantic prop highlightQuery and classes addded along with sui-t ([634172e](https://github.com/SUI-Components/sui-components/commit/634172e))
-* simplified mark selector ([37640b8](https://github.com/SUI-Components/sui-components/commit/37640b8))
-* update AtomInput version to v2 ([730d049](https://github.com/SUI-Components/sui-components/commit/730d049))
+* fixed className ([1787182](https://github.com/SUI-Components/sui-components/commit/17871823d8e499dd5b80c962a2e192e957c84d71))
+* highlight option ([b42025d](https://github.com/SUI-Components/sui-components/commit/b42025d2608c11964f65ac2e889de5005a90f6fe))
+* improved class sass organization ([288556f](https://github.com/SUI-Components/sui-components/commit/288556fb4c1f78062d79a3d170a4980e0d974b08))
+* improved classnames semantic highlighted ([9c17709](https://github.com/SUI-Components/sui-components/commit/9c17709ac8e713aa0b0efe12d4c1ea20f189d784))
+* improved genreated markup ([1146acb](https://github.com/SUI-Components/sui-components/commit/1146acbc8839d17ca19ed74d2692be6ec7ac86fb))
+* more semantic prop highlightQuery and classes addded along with sui-t ([634172e](https://github.com/SUI-Components/sui-components/commit/634172e01e6c3de1eb9a5ba43d14a5545ca57f71))
+* simplified mark selector ([37640b8](https://github.com/SUI-Components/sui-components/commit/37640b893078bcbba2e4b1d38b5b14f6a2b36f8f))
+* update AtomInput version to v2 ([730d049](https://github.com/SUI-Components/sui-components/commit/730d049c0502206ff7115599dd3650b113d166df))
 
 
 
-<a name="1.2.0"></a>
 # 1.2.0 (2018-11-16)
 
 
 ### Features
 
-* removed unnecesary demo use case ([a8ff6ca](https://github.com/SUI-Components/sui-components/commit/a8ff6ca))
-* stateless component + returning value to callback + extended demo ([9d12be8](https://github.com/SUI-Components/sui-components/commit/9d12be8))
+* removed unnecesary demo use case ([a8ff6ca](https://github.com/SUI-Components/sui-components/commit/a8ff6cabfea409f1dc89f3c8b2ba6649454bceef))
+* stateless component + returning value to callback + extended demo ([9d12be8](https://github.com/SUI-Components/sui-components/commit/9d12be8616c63ed5e33dbc6018b408dcc5a031d4))
 
 
 
-<a name="1.1.0"></a>
 # 1.1.0 (2018-11-12)
 
 
 ### Features
 
-* add checkbox ([c7bb704](https://github.com/SUI-Components/sui-components/commit/c7bb704))
-* add disabled ([dcdf7cd](https://github.com/SUI-Components/sui-components/commit/dcdf7cd))
-* add ellipsis ([308a9f4](https://github.com/SUI-Components/sui-components/commit/308a9f4))
-* add event on callback ([93d3e50](https://github.com/SUI-Components/sui-components/commit/93d3e50))
-* add on change param ([78a74c7](https://github.com/SUI-Components/sui-components/commit/78a74c7))
-* add pointer ([ab8c5c0](https://github.com/SUI-Components/sui-components/commit/ab8c5c0))
-* add readme ([a685cf7](https://github.com/SUI-Components/sui-components/commit/a685cf7))
-* add styles ([21b290c](https://github.com/SUI-Components/sui-components/commit/21b290c))
-* change initial selected state ([5c5bdbc](https://github.com/SUI-Components/sui-components/commit/5c5bdbc))
-* create component ([901f24c](https://github.com/SUI-Components/sui-components/commit/901f24c))
-* create new bgc var ([b72cefd](https://github.com/SUI-Components/sui-components/commit/b72cefd))
-* fix async ([7f37cc8](https://github.com/SUI-Components/sui-components/commit/7f37cc8))
-* fix package json ([a7ec590](https://github.com/SUI-Components/sui-components/commit/a7ec590))
-* fix props and state ([981e096](https://github.com/SUI-Components/sui-components/commit/981e096))
-* is selected ([6dc886c](https://github.com/SUI-Components/sui-components/commit/6dc886c))
-* update readme ([4810dc7](https://github.com/SUI-Components/sui-components/commit/4810dc7))
-* use children instead text prop ([8d7120a](https://github.com/SUI-Components/sui-components/commit/8d7120a))
-* use color variation ([d467e71](https://github.com/SUI-Components/sui-components/commit/d467e71))
-* use on click callback instead on change ([9a36f8d](https://github.com/SUI-Components/sui-components/commit/9a36f8d))
-* use span instead label ([aa80744](https://github.com/SUI-Components/sui-components/commit/aa80744))
+* add checkbox ([c7bb704](https://github.com/SUI-Components/sui-components/commit/c7bb704f7398b3d5aec97fca13c6b957b38e3b81))
+* add disabled ([dcdf7cd](https://github.com/SUI-Components/sui-components/commit/dcdf7cdd8997b5aa73e56bf1ab26ee9139fc0683))
+* add ellipsis ([308a9f4](https://github.com/SUI-Components/sui-components/commit/308a9f4a12be64cd314c7f4a1c5162456c67ca90))
+* add event on callback ([93d3e50](https://github.com/SUI-Components/sui-components/commit/93d3e50a88d5fc9154ce07ed8e6921bfcc09503c))
+* add on change param ([78a74c7](https://github.com/SUI-Components/sui-components/commit/78a74c7882c8bd51d0f49cce1b3e47849004c9cc))
+* add pointer ([ab8c5c0](https://github.com/SUI-Components/sui-components/commit/ab8c5c0e67931e16eb005ae18431ad1022a05a64))
+* add readme ([a685cf7](https://github.com/SUI-Components/sui-components/commit/a685cf73711dbe4361e45718807a9253f9b9c416))
+* add styles ([21b290c](https://github.com/SUI-Components/sui-components/commit/21b290c57e1814098860ba873374c8ad09ae8111))
+* change initial selected state ([5c5bdbc](https://github.com/SUI-Components/sui-components/commit/5c5bdbccbc9c6c0b8920c4fdd202eacbdd4ab71c))
+* create component ([901f24c](https://github.com/SUI-Components/sui-components/commit/901f24c1ded3a65e7e3958ac9155f5ff4e6ce220))
+* create new bgc var ([b72cefd](https://github.com/SUI-Components/sui-components/commit/b72cefd6700d16c6627c7172074be1a60f0f04b6))
+* fix async ([7f37cc8](https://github.com/SUI-Components/sui-components/commit/7f37cc8e552101745c18ea4d76b74ed68beff7c6))
+* fix package json ([a7ec590](https://github.com/SUI-Components/sui-components/commit/a7ec590a2944b1bb2c9d585a92472d2e44aa2aea))
+* fix props and state ([981e096](https://github.com/SUI-Components/sui-components/commit/981e09642d8a6acd3afbc7f206d6e6bfe18eecd0))
+* is selected ([6dc886c](https://github.com/SUI-Components/sui-components/commit/6dc886c5cfc0f1d0b636d04a7d55a9c40f652e06))
+* update readme ([4810dc7](https://github.com/SUI-Components/sui-components/commit/4810dc7b4062ef5243114be8b85ac4adf4f562ef))
+* use children instead text prop ([8d7120a](https://github.com/SUI-Components/sui-components/commit/8d7120a4f1b4f67a162c12b4a371e13051a50355))
+* use color variation ([d467e71](https://github.com/SUI-Components/sui-components/commit/d467e7129e4815b4bcaef4a1d9c305872dce51d2))
+* use on click callback instead on change ([9a36f8d](https://github.com/SUI-Components/sui-components/commit/9a36f8dcac8da0a01ca3b71e62cd90e19e024af3))
+* use span instead label ([aa80744](https://github.com/SUI-Components/sui-components/commit/aa807446d9a8ae3080bae689bc7f03d213dd51ad))
 
 
 

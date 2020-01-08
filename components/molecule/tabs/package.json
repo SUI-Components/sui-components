@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-molecule-tabs",
+  "name": "@s-ui/react-molecule-tabs",
   "version": "2.5.0",
   "description": "",
   "main": "lib/index.js",

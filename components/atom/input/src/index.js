@@ -82,6 +82,9 @@ AtomInput.propTypes = {
   /** specifies the maximum number of characters (native "maxlength" attribute) */
   maxLength: PropTypes.number,
 
+  /** specifies the minimum number of characters (native "minlength" attribute) */
+  minLength: PropTypes.number,
+
   /** specifies whether or not an input field should have autocomplete enabled (on|off) */
   autoComplete: PropTypes.string,
 
@@ -92,7 +95,10 @@ AtomInput.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
   /** mask object, see https://unmanner.github.io/imaskjs/ */
-  mask: PropTypes.object
+  mask: PropTypes.object,
+
+  /** a button to be added on the right side of the input */
+  button: PropTypes.node
 }
 
 AtomInput.displayName = 'AtomInput'

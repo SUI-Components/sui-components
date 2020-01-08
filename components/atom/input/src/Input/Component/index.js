@@ -58,11 +58,14 @@ const Input = ({
   charsSize,
   tabIndex,
   maxLength,
+  minLength,
   autoComplete,
   onChange,
   onEnter,
   onEnterKey,
-  onKeyDown
+  onKeyDown,
+  required,
+  pattern
 }) => {
   const changeHandler = ev => {
     const {
@@ -107,7 +110,10 @@ const Input = ({
       value={value}
       size={charsSize}
       maxLength={maxLength}
+      minLength={minLength}
       autoComplete={autoComplete}
+      required={required}
+      pattern={pattern}
     />
   )
 }
@@ -141,6 +147,8 @@ Input.propTypes = {
   charsSize: PropTypes.number,
   /* specifies the maximum number of characters (native "maxlength" attribute) */
   maxLength: PropTypes.number,
+  /* specifies the minimum number of characters (native "minlength" attribute) */
+  minLength: PropTypes.number,
   /** specifies whether or not an input field should have autocomplete enabled (on|off) */
   autoComplete: PropTypes.string,
   /* text, password, date or number */
@@ -156,7 +164,11 @@ Input.propTypes = {
   /** Wether to hide the input border or not */
   noBorder: PropTypes.bool,
   /** tabindex value */
-  tabIndex: PropTypes.number
+  tabIndex: PropTypes.number,
+  /** native required attribtue  */
+  required: PropTypes.bool,
+  /** native pattern attribute */
+  pattern: PropTypes.string
 }
 
 Input.defaultProps = {

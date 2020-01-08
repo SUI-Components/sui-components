@@ -45,6 +45,7 @@ class MoleculeAutosuggestField extends Component {
         useContrastLabel={useContrastLabel}
       >
         <MoleculeAutosuggest
+          id={id}
           refMoleculeAutosuggest={refAutosuggest}
           errorState={errorState}
           {...props}

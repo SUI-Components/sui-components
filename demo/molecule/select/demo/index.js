@@ -3,7 +3,9 @@ import React from 'react'
 
 import {withStateValue} from '@s-ui/hoc'
 
-import MoleculeSelect from '../../../../components/molecule/select/src'
+import MoleculeSelect, {
+  moleculeSelectSizes
+} from '../../../../components/molecule/select/src'
 
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 
@@ -37,6 +39,7 @@ const Demo = () => (
       <code>DropdownOption</code>. Recuerda que en dichos componentes existen
       más posibilidades si son necesarias
     </p>
+
     <h2>Single Selection</h2>
     <div className={CLASS_DEMO_SECTION}>
       <h3>With Placeholder</h3>
@@ -105,6 +108,22 @@ const Demo = () => (
       </MoleculeSelectWithState>
     </div>
 
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>Small size</h3>
+      <MoleculeSelect
+        placeholder="Select a Country..."
+        onChange={(_, {value}) => console.log(value)}
+        iconArrowDown={<IconArrowDown />}
+        selectSize={moleculeSelectSizes.SMALL}
+      >
+        {countriesData.map(({name, code}, i) => (
+          <MoleculeSelectOption key={i} value={code}>
+            {name}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelect>
+    </div>
+
     <h2>Multiple Selection</h2>
     <div className={CLASS_DEMO_SECTION}>
       <h3>With Placeholder</h3>
@@ -162,6 +181,24 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <h3>With Placeholder</h3>
       <ComboCountries />
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>Small size</h3>
+      <MoleculeSelectWithState
+        placeholder="Select some countries..."
+        onChange={(_, {value}) => console.log(value)}
+        iconCloseTag={<IconCloseTag />}
+        iconArrowDown={<IconArrowDown />}
+        multiselection
+        selectSize={moleculeSelectSizes.SMALL}
+      >
+        {countriesData.map(({name, code}, i) => (
+          <MoleculeSelectOption key={i} value={code}>
+            {name}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelectWithState>
     </div>
   </div>
 )

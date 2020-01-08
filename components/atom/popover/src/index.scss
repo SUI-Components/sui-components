@@ -47,8 +47,9 @@ $class-inner: '#{$base-class}-inner';
   &-closeIcon {
     cursor: pointer;
     position: absolute;
-    right: $mt-atom-popover-close-icon;
-    top: $mr-atom-popover-close-icon;
+    right: $mr-atom-popover-close-icon;
+    top: $mt-atom-popover-close-icon;
+    z-index: $z-tooltips;
 
     svg {
       fill: $c-atom-popover-close-icon !important;

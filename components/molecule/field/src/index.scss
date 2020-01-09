@@ -3,6 +3,7 @@
 @import '~@s-ui/react-atom-label/lib/index';
 @import '~@s-ui/react-atom-help-text/lib/index';
 
+$mb-molecule-field-label: 0 !default;
 $ml-molecule-field-label: $m-m !default;
 
 .sui-MoleculeField {
@@ -25,6 +26,7 @@ $ml-molecule-field-label: $m-m !default;
   &-labelContainer {
     align-items: center;
     display: flex;
+    margin-bottom: $mb-molecule-field-label;
   }
 
   &-inputContainer {

@@ -40,8 +40,6 @@ const IconArrowUp = props => (
   </AtomIcon>
 )
 
-const BASE_CLASS_DEMO = `DemoOrganismNestedCheckboxes`
-
 const demoExample = [
   {id: 'nested-01', label: 'Nested 1', checked: true},
   {id: 'nested-02', label: 'Nested 2', checked: false},
@@ -50,25 +48,6 @@ const demoExample = [
   {id: 'nested-05', label: 'Nested 5', checked: true}
 ]
 
-const checkItemIsChecked = ({checked}) => checked === true
-
-const renderItems = ({items, handleChangeItem}) =>
-  items.map(item => {
-    const {id: childId, checked} = item
-
-    return (
-      <MoleculeCheckboxField
-        key={childId}
-        id={childId}
-        checked={checked}
-        checkedIcon={IconCheck}
-        intermediateIcon={IconHalfCheck}
-        onChange={handleChangeItem}
-        {...item}
-      />
-    )
-  })
-
 const Demo = () => {
   const [items, setItems] = useState(demoExample)
   const [showItems, setShowItems] = useState(false)
@@ -76,7 +55,7 @@ const Demo = () => {
   const handleChangeParent = () => {
     const newItems = items.map(item => ({
       ...item,
-      checked: !items.some(checkItemIsChecked)
+      checked: !items.some(({checked}) => checked === true)
     }))
     setItems(newItems)
   }
@@ -91,18 +70,34 @@ const Demo = () => {
     setItems(newItems)
   }
 
+  const renderItems = () =>
+    items.map(item => {
+      const {id: childId, checked} = item
+
+      return (
+        <MoleculeCheckboxField
+          key={childId}
+          id={childId}
+          checked={checked}
+          checkedIcon={IconCheck}
+          intermediateIcon={IconHalfCheck}
+          onChange={handleChangeItem}
+          {...item}
+        />
+      )
+    })
+
   return (
-    <div className={BASE_CLASS_DEMO}>
+    <div className="DemoOrganismNestedCheckboxes">
       <h1>Organism NestedCheckboxes</h1>
       <OrganismNestedCheckboxes
         checkedIcon={IconCheck}
         intermediateIcon={IconHalfCheck}
         id="nested-1"
         labelParent="Nested checkboxes"
-        onChangeItem={handleChangeItem}
         onChangeParent={handleChangeParent}
       >
-        {renderItems({items, handleChangeItem})}
+        {renderItems()}
       </OrganismNestedCheckboxes>
 
       <h2>
@@ -114,10 +109,9 @@ const Demo = () => {
         id="nested-2"
         join
         labelParent="Nested checkboxes"
-        onChangeItem={handleChangeItem}
         onChangeParent={handleChangeParent}
       >
-        {renderItems({items, handleChangeItem})}
+        {renderItems()}
       </OrganismNestedCheckboxes>
 
       <h2>
@@ -128,14 +122,13 @@ const Demo = () => {
         intermediateIcon={IconHalfCheck}
         id="nested-3"
         labelParent="Nested checkboxes"
-        onChangeItem={handleChangeItem}
         onChangeParent={handleChangeParent}
         onClickParent={() => setShowItems(prevState => !prevState)}
         showItems={showItems}
         showItemsIcon={IconArrowDown}
         hideItemsIcon={IconArrowUp}
       >
-        {renderItems({items, handleChangeItem})}
+        {renderItems()}
       </OrganismNestedCheckboxes>
     </div>
   )

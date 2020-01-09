@@ -11,8 +11,8 @@ export default function MoleculeSelectPopover({
   children,
   iconArrowDown: IconArrowDown,
   isSelected = false,
-  onAccept,
-  onCancel,
+  onAccept = () => {},
+  onCancel = () => {},
   selectText
 }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -20,8 +20,8 @@ export default function MoleculeSelectPopover({
   const popoverRef = useRef()
 
   const selectClassName = cx(`${BASE_CLASS}-select`, {
-    [`is-open`]: isOpen,
-    [`is-selected`]: isSelected
+    'is-open': isOpen,
+    'is-selected': isSelected
   })
 
   const handleOnAccept = () => {
@@ -77,7 +77,7 @@ MoleculeSelectPopover.propTypes = {
   children: PropTypes.node.isRequired,
   iconArrowDown: PropTypes.node.isRequired,
   isSelected: PropTypes.bool,
-  onAccept: PropTypes.func.isRequired,
-  onCancel: PropTypes.func.isRequired,
+  onAccept: PropTypes.func,
+  onCancel: PropTypes.func,
   selectText: PropTypes.string.isRequired
 }

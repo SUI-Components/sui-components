@@ -1,5 +1,5 @@
 import React from 'react'
-import AtomIcon from '../../../../../components/atom/icon/src'
+import AtomIcon from '@s-ui/react-atom-icon'
 
 const IconCheck = props => (
   <AtomIcon {...props}>
@@ -20,4 +20,12 @@ const IconHalfCheck = props => (
   </AtomIcon>
 )
 
-export {IconCheck, IconHalfCheck}
+const IconArrowDown = props => (
+  <AtomIcon {...props}>
+    <svg viewBox="0 0 24 24">
+      <path d="M12.034 16.91L2.83 6.211a.5.5 0 10-.758.653l9.27 10.776a.912.912 0 001.383 0l9.272-10.776a.5.5 0 10-.759-.653l-9.204 10.7z" />
+    </svg>
+  </AtomIcon>
+)
+
+export {IconCheck, IconHalfCheck, IconArrowDown}

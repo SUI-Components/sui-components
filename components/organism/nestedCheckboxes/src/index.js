@@ -19,7 +19,6 @@ const OrganismNestedCheckboxes = ({
   hideItemsIcon: HideItemsIcon,
   join = false,
   labelParent = '',
-  onChangeItem = () => {},
   onChangeParent = () => {},
   onClickParent = () => {},
   showItems: showItemsProp = true,
@@ -101,9 +100,6 @@ OrganismNestedCheckboxes.propTypes = {
 
   /* Show items icon */
   showItemsIcon: PropTypes.elementType,
-
-  /* onChange callback for items */
-  onChangeItem: PropTypes.func,
 
   /* onChange callback for items */
   onClickParent: PropTypes.func

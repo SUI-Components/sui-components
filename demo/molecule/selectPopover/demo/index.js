@@ -4,6 +4,8 @@ import MoleculeCheckboxField from '../../../../components/molecule/checkboxField
 import MoleculeSelectPopover from '../../../../components/molecule/selectPopover/src/'
 import {IconCheck, IconHalfCheck, IconArrowDown} from './Icons'
 
+import './index.scss'
+
 const demoExample = [
   {id: 'nested-01', label: 'Compra', checked: false},
   {id: 'nested-02', label: 'Alquiler', checked: false},

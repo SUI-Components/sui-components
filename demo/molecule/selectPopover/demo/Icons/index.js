@@ -1,5 +1,5 @@
 import React from 'react'
-import AtomIcon from '../../../../../components/atom/icon/src'
+import AtomIcon from '@s-ui/react-atom-icon'
 
 const IconCheck = props => (
   <AtomIcon {...props}>

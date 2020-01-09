@@ -1,0 +1,16 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-molecule-dropdown-option/lib/index';
+@import '../../../../components/molecule/selectPopover/src/index';
+@import '../../../../components/atom/icon/src/index';
+@import '../../../../components/molecule/checkboxField/src/index';
+@import '../../../../components/organism/nestedCheckboxes/src/index';
+
+.demo {
+  &-container {
+    padding: $p-l;
+  }
+
+  &-content {
+    padding: 0 $p-l;
+  }
+}

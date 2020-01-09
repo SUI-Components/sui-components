@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@s-ui/hoc": "1"
+    "@s-ui/hoc": "1",
+    "@s-ui/react-atom-icon": "1"
   }
 }

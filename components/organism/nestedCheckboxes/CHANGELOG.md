@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.2.0 (2020-01-10)
+
+
+### Bug Fixes
+
+* add checkbox styles ([d2bb7bd](https://github.com/SUI-Components/sui-components/commit/d2bb7bde5f33314fb9103894a2dbf72136bf4fb0))
+* fix scss path ([e3f8dbd](https://github.com/SUI-Components/sui-components/commit/e3f8dbd6a58fb94bd0099ec7d5a4b723a0392e32))
+* remove unnecessary prop ([ad7272a](https://github.com/SUI-Components/sui-components/commit/ad7272a93fb4d74f8dcad67bdce1eb5c3ec4b309))
+
+
+
 # 2.1.0 (2020-01-08)
 
 

@@ -163,6 +163,10 @@ $atom-tag-types: () !default;
     }
   }
 
+  &--uppercase {
+    text-transform: uppercase;
+  }
+
   @each $name, $type in $atom-tag-types {
     $bgc: map-get($type, bgc);
     $c: map-get($type, c);

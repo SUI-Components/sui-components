@@ -17,6 +17,7 @@ export default function MoleculeSelectPopover({
 }) {
   const [isOpen, setIsOpen] = useState(false)
 
+  const selectRef = useRef()
   const popoverRef = useRef()
 
   const selectClassName = cx(`${BASE_CLASS}-select`, {
@@ -36,7 +37,11 @@ export default function MoleculeSelectPopover({
 
   useEffect(() => {
     const handleClickOutside = e => {
-      if (isOpen && !popoverRef.current.contains(e.target)) {
+      if (
+        isOpen &&
+        !popoverRef.current.contains(e.target) &&
+        !selectRef.current.contains(e.target)
+      ) {
         handleOnCancel()
       }
     }
@@ -49,7 +54,11 @@ export default function MoleculeSelectPopover({
 
   return (
     <div className={BASE_CLASS}>
-      <div className={selectClassName} onClick={() => setIsOpen(!isOpen)}>
+      <div
+        ref={selectRef}
+        className={selectClassName}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <span className={`${BASE_CLASS}-selectText`}>{selectText}</span>
         <div className={`${BASE_CLASS}-selectIcon`}>
           <IconArrowDown />

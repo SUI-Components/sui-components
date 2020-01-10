@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
-import MoleculeSelectPopover from '../../../../components/molecule/selectPopover/src'
-import OrganismNestedCheckboxes from '../../../../components/organism/nestedCheckboxes/src'
-import MoleculeCheckboxField from '../../../../components/molecule/checkboxField/src'
-import IconArrowDown from '@schibstedspain/fotocasa-iconset/lib/ArrowDown'
-import {IconCheck, IconHalfCheck} from './Icons'
+import OrganismNestedCheckboxes from '../../../../components/organism/nestedCheckboxes/src/'
+import MoleculeCheckboxField from '../../../../components/molecule/checkboxField/src/'
+import MoleculeSelectPopover from '../../../../components/molecule/selectPopover/src/'
+import {IconCheck, IconHalfCheck, IconArrowDown} from './Icons'
+
+import './index.scss'
 
 const demoExample = [
   {id: 'nested-01', label: 'Compra', checked: false},

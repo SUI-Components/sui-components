@@ -41,13 +41,14 @@ const filterKeys = (obj, listOfProps) =>
   }, {})
 
 const AtomTag = props => {
-  const {href, icon, onClick, size, responsive, type} = props
+  const {href, icon, onClick, size, responsive, type, uppercase} = props
   const isActionable = onClick || href
   const classNames = cx(
     'sui-AtomTag',
     `sui-AtomTag-${size}`,
     type && `sui-AtomTag--${type}`,
     responsive && 'sui-AtomTag--responsive',
+    uppercase && 'sui-AtomTag--uppercase',
     icon && 'sui-AtomTag-hasIcon'
   )
 
@@ -124,7 +125,11 @@ AtomTag.propTypes = {
   /**
    * true for make responsive layout. keep large size in mobile
    */
-  responsive: PropTypes.bool
+  responsive: PropTypes.bool,
+  /**
+   * true makes the label text appear all uppercase. Otherwise, it's displayed as it's passed.
+   */
+  uppercase: PropTypes.bool
 }
 
 AtomTag.defaultProps = {

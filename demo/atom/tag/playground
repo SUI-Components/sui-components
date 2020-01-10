@@ -22,6 +22,12 @@
           onClose={() => window.alert('close!')}
           closeIcon={<CloseIcon />}
         />
+        <AtomTag
+          label="Close Tag in uppercase"
+          onClose={() => window.alert('close!')}
+          closeIcon={<CloseIcon />}
+          uppercase
+        />
         <AtomTag label="Icon Tag" icon={<Icon />} />
         <AtomTag
           label="Icon & Close Tag"
@@ -103,6 +109,7 @@
       <h2>Large Tags</h2>
       <p>
         <AtomTag label="Tag Structure" size={atomTagSizes.LARGE} />
+        <AtomTag label="Tag Structure in uppercase" size={atomTagSizes.LARGE} uppercase />
         <AtomTag
           label="Close Tag"
           onClose={() => window.alert('close!')}

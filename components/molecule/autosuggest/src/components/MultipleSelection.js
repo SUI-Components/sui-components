@@ -24,7 +24,8 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   onChangeTags,
   onSelect,
   disabled,
-  required
+  required,
+  button
 }) => {
   const MoleculeInputTagsRef = useRef()
 
@@ -84,6 +85,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         noBorder
         disabled={disabled}
         required={required}
+        button={button}
       />
       <MoleculeDropdownList
         checkbox

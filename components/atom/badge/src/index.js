@@ -14,7 +14,8 @@ const TYPES = {
   SUCCESS: 'success',
   ERROR: 'error',
   INFO: 'info',
-  ALERT: 'alert'
+  ALERT: 'alert',
+  NEW: 'new'
 }
 
 const BASE_CLASS = `sui-AtomBadge`

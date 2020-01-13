@@ -57,7 +57,10 @@ MoleculeInputField.propTypes = {
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
   /** Boolean to decide if elements should be set inline */
-  inline: PropTypes.bool
+  inline: PropTypes.bool,
+
+  /** a button to be added on the right side of the input */
+  button: PropTypes.node
 }
 
 export default MoleculeInputField

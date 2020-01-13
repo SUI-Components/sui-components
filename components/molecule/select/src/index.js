@@ -217,7 +217,10 @@ MoleculeSelect.propTypes = {
   readOnly: PropTypes.bool,
 
   /** Size of the select(input) */
-  selectSize: PropTypes.oneOf(Object.values(SELECT_SIZES))
+  selectSize: PropTypes.oneOf(Object.values(SELECT_SIZES)),
+
+  /* native tabIndex html attribute */
+  tabIndex: PropTypes.number
 }
 
 MoleculeSelect.defaultProps = {

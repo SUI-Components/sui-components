@@ -2,6 +2,7 @@
 import React from 'react'
 
 import {withStateValue, withStateValueTags} from '@s-ui/hoc'
+import SuiButton from '@s-ui/react-atom-button'
 
 import MoleculeAutosuggestField from '../../../../components/molecule/autosuggestField/src'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
@@ -91,6 +92,20 @@ const Demo = () => (
         onChange={(_, {value}) => console.log(value)}
         iconClear={<IconClose />}
         useContrastLabel
+      />
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With Button</h3>
+      <MoleculeAutosuggestFieldWithState
+        id="with-placeholder"
+        label="With submit button"
+        placeholder="Select a Country..."
+        onChange={(_, {value}) => console.log(value)}
+        iconClear={<IconClose />}
+        button={
+          <SuiButton onClick={() => console.log('submit')}>Submit</SuiButton>
+        }
       />
     </div>
 

@@ -82,7 +82,10 @@ MoleculeAutosuggestField.propTypes = {
   inline: PropTypes.bool,
 
   /** Boolean, if true it will use contrast label */
-  useContrastLabel: PropTypes.string
+  useContrastLabel: PropTypes.string,
+
+  /** a button to be added on the right side of the input */
+  button: PropTypes.node
 }
 
 export default MoleculeAutosuggestField

@@ -26,7 +26,8 @@ const MoleculeAutosuggestSingleSelection = ({
   placeholder,
   disabled,
   required,
-  button
+  button,
+  tabIndex
 }) => {
   const handleSelection = (ev, {value}) => {
     onChange(ev, {value})
@@ -65,6 +66,7 @@ const MoleculeAutosuggestSingleSelection = ({
         disabled={disabled}
         required={required}
         button={button}
+        tabIndex={tabIndex}
       />
       {value && (
         <MoleculeDropdownList

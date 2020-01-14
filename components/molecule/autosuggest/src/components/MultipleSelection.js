@@ -86,7 +86,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         disabled={disabled}
         required={required}
         tabIndex={tabIndex}
-        autoComplete="off"
+        autoComplete="nope"
       />
       <MoleculeDropdownList
         checkbox

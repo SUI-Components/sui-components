@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.21.0 (2020-01-14)
+
+
+### Features
+
+* add tabIndex in PropTypes definition ([139d2ad](https://github.com/SUI-Components/sui-components/commit/139d2ad9db8fb8207be17ce9b18b8715cd8b338e))
+* add tabIndex prop ([6624c52](https://github.com/SUI-Components/sui-components/commit/6624c524898aee5de8307f4f7e4f17050e38b383))
+
+
+
 # 1.20.0 (2019-12-27)
 
 

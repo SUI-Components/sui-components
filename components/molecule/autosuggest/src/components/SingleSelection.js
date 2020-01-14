@@ -65,6 +65,7 @@ const MoleculeAutosuggestSingleSelection = ({
         disabled={disabled}
         required={required}
         tabIndex={tabIndex}
+        autoComplete="off"
       />
       {value && (
         <MoleculeDropdownList

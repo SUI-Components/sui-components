@@ -2,11 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.15.0 (2020-01-14)
+
+
+
 # 1.14.0 (2020-01-08)
 
 
 ### Features
 
+* add tabIndex in PropTypes definition ([ce8efef](https://github.com/SUI-Components/sui-components/commit/ce8efefd5f3c0f5fb8f0bf40770b4b6708aead7d))
+* add tabIndex prop ([69c7441](https://github.com/SUI-Components/sui-components/commit/69c744184fcca444fe8621182e7afbb832d113ac))
 * add var for border with ([f2f50d4](https://github.com/SUI-Components/sui-components/commit/f2f50d4a8f79f132259e5bbcabf909a4caee99a9))
 
 

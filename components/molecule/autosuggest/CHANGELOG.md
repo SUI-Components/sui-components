@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.16.0 (2020-01-14)
+
+
+### Features
+
+* add autocomplete=off to component ([f256ff2](https://github.com/SUI-Components/sui-components/commit/f256ff26000d2b3f2ac3555522a26d952e96cdfa))
+* replace autocomplete off by nope ([99c9fee](https://github.com/SUI-Components/sui-components/commit/99c9feecd78ecae87e45da11a2d15360ec379883))
+
+
+
 # 1.15.0 (2020-01-14)
 
 

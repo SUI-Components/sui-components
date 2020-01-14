@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.2.0 (2020-01-14)
+
+
+### Bug Fixes
+
+* fix open and close click ([be6d0fe](https://github.com/SUI-Components/sui-components/commit/be6d0fe6c9a83ba2ce43b4c578519674d7cd63fd))
+
+
+
 # 1.1.0 (2020-01-09)
 
 

@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.0.0 (2020-01-15)
+
+
+### Features
+
+* upgrade major in @s-ui/react-atom-input to version 4 ([6da96c6](https://github.com/SUI-Components/sui-components/commit/6da96c6fa224b0fc6d6a7a5b833e9949ed10d7ec))
+
+
+### BREAKING CHANGES
+
+* upgrade major
+
+
+
 # 1.16.0 (2020-01-14)
 
 

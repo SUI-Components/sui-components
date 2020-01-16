@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-autosuggest-field",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-molecule-autosuggest": "1",
+    "@s-ui/react-molecule-autosuggest": "2",
     "@s-ui/react-molecule-field": "1"
   },
   "keywords": [],

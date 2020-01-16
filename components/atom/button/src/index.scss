@@ -2,57 +2,54 @@
 
 $base-class: '.sui-AtomButton';
 
-$c-accent-hover: color-variation($c-accent, -1) !default;
-
 $c-atom-button-colors: (
   'primary': (
-    color: $c-primary,
-    color-invert: $c-white
+    $c-primary,
+    $c-white
   ),
   'accent': (
-    color: $c-accent,
-    color-invert: $c-white,
-    color-hover: $c-accent-hover
+    $c-accent,
+    $c-white
   ),
   'neutral': (
-    color: $c-gray,
-    color-invert: $c-white
+    $c-gray,
+    $c-white
   ),
   'success': (
-    color: $c-success,
-    color-invert: $c-white
+    $c-success,
+    $c-white
   ),
   'alert': (
-    color: $c-alert,
-    color-invert: $c-white
+    $c-alert,
+    $c-white
   ),
   'error': (
-    color: $c-error,
-    color-invert: $c-white
+    $c-error,
+    $c-white
   ),
   'social-facebook': (
-    color: $c-facebook,
-    color-invert: $c-white
+    $c-facebook,
+    $c-white
   ),
   'social-twitter': (
-    color: $c-twitter,
-    color-invert: $c-white
+    $c-twitter,
+    $c-white
   ),
   'social-google': (
-    color: $c-google,
-    color-invert: $c-white
+    $c-google,
+    $c-white
   ),
   'social-youtube': (
-    color: $c-youtube,
-    color-invert: $c-white
+    $c-youtube,
+    $c-white
   ),
   'social-whatsapp': (
-    color: $c-whatsapp,
-    color-invert: $c-white
+    $c-whatsapp,
+    $c-white
   ),
   'social-instagram': (
-    color: $c-instagram,
-    color-invert: $c-white
+    $c-instagram,
+    $c-white
   )
 ) !default;
 
@@ -206,24 +203,16 @@ $icon-stroke-color: currentColor !default;
   }
 
   // Types and colors
-  @each $name, $element in $c-atom-button-colors {
-    $color: map-get($element, color);
-    $color-invert: map-get($element, color-invert);
+  @each $name, $pair in $c-atom-button-colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
 
     &--#{$name}Color {
       &#{$base-class}--solid {
         @include button-foreground-color($color-invert);
         @include button-focused {
-          background-color: if(
-            map-has-key($element, color-hover),
-            map-get($element, color-hover),
-            color-variation($color, -1)
-          );
-          border-color: if(
-            map-has-key($element, color-hover),
-            map-get($element, color-hover),
-            color-variation($color, -1)
-          );
+          background-color: color-variation($color, -1);
+          border-color: color-variation($color, -1);
         }
         background-color: $color;
         border-color: $color;

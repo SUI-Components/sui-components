@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.0.0 (2020-01-16)
+
+
+### Features
+
+* update major to dependency @s-ui/react-molecule-autosuggest ([48fc1d8](https://github.com/SUI-Components/sui-components/commit/48fc1d89cb2d1db5cbee5b9df7a5183c35e6635f))
+
+
+### BREAKING CHANGES
+
+* update major to dependency
+
+
+
 # 1.4.0 (2019-12-19)
 
 

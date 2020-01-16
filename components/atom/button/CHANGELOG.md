@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.38.0 (2020-01-16)
+
+
+### Bug Fixes
+
+* add default color variable for accent-hover ([4e5564d](https://github.com/SUI-Components/sui-components/commit/4e5564df9fbe49ce3a16a350f12da65e710904ee))
+* fix button map ([d6789d4](https://github.com/SUI-Components/sui-components/commit/d6789d4753bbda779c004f80dbe8fc26383fa730))
+
+
+
 # 1.37.0 (2020-01-16)
 
 

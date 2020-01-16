@@ -2,6 +2,8 @@
 
 $base-class: '.sui-AtomButton';
 
+$c-accent-hover: color-variation($c-accent, -1) !default;
+
 $c-atom-button-colors: (
   'primary': (
     $c-primary,
@@ -9,7 +11,8 @@ $c-atom-button-colors: (
   ),
   'accent': (
     $c-accent,
-    $c-white
+    $c-white,
+    $c-accent-hover
   ),
   'neutral': (
     $c-gray,
@@ -212,7 +215,17 @@ $icon-stroke-color: currentColor !default;
         @include button-foreground-color($color-invert);
         @include button-focused {
           background-color: color-variation($color, -1);
-          border-color: color-variation($color, -1);
+          background-color: if(
+            length($pair) == 3,
+            nth($pair, 3),
+            color-variation($color, -1)
+          );
+
+          border-color: if(
+            length($pair) == 3,
+            nth($pair, 3),
+            color-variation($color, -1)
+          );
         }
         background-color: $color;
         border-color: $color;

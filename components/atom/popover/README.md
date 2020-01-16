@@ -18,13 +18,13 @@ import AtomPopover, { atomPopoverPositions } from '@s-ui/react-atom-popover'
 
 ```js
 <AtomPopover
-  placement={atomPopoverPositions.BOTTTOM}
+  placement={atomPopoverPositions.BOTTOM}
   onClose={() => console.log("CLOSE POPOVER!")}
-  content={ () => (
+  content={
     <>
       Hello <strong>world</strong>!
     </>
-  )}
+  }
 >
   <div>
     Show Popover

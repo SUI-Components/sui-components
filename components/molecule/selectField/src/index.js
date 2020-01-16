@@ -17,7 +17,7 @@ const MoleculeSelectField = ({
   inline,
   label,
   successText,
-  onChange,
+  onChange: handleChange,
   ...props
 }) => {
   const refSelect = useRef()
@@ -36,7 +36,7 @@ const MoleculeSelectField = ({
       inline={inline}
       label={label}
       name={id}
-      onChange={onChange}
+      onChange={handleChange}
       onClickLabel={handleClick}
       successText={successText}
     >

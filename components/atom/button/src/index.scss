@@ -2,6 +2,8 @@
 
 $base-class: '.sui-AtomButton';
 
+$c-accent-hover: color-variation($c-accent, -1) !default;
+
 $c-atom-button-colors: (
   'primary': (
     $c-primary,

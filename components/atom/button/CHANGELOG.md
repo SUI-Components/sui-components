@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.36.0 (2020-01-16)
+
+
+### Features
+
+* change map element ([c1701cb](https://github.com/SUI-Components/sui-components/commit/c1701cb406b32f12469aefb917cfdacdcc5b89d2))
+* changed var name ([5d1d311](https://github.com/SUI-Components/sui-components/commit/5d1d311ba81f37ac70d06f9060687e56619665a0))
+* fix sass ([7dd77ee](https://github.com/SUI-Components/sui-components/commit/7dd77ee07fdd79a28e05a18e265ffdf6a474a332))
+* improve code ([eed9fe8](https://github.com/SUI-Components/sui-components/commit/eed9fe8383678a0770d56ee7bb815545b151ad39))
+* set accent hover color as a variable ([1c122b9](https://github.com/SUI-Components/sui-components/commit/1c122b979f30ff7ae06dffcfdfdeff4c41ec327c))
+
+
+
 # 1.35.0 (2019-12-19)
 
 

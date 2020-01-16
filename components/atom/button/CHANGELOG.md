@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.37.0 (2020-01-16)
+
+
+### Bug Fixes
+
+* dont release assets image ([13a2951](https://github.com/SUI-Components/sui-components/commit/13a295178b717c1034ebf719c90c27cda7936f44))
+
+
+
 # 1.36.0 (2020-01-16)
 
 

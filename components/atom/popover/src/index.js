@@ -14,10 +14,11 @@ let targetRef
 
 function AtomPopover({
   children,
+  closeIcon,
   content,
   id,
-  closeIcon,
   onClose = () => {},
+  onOpen = () => {},
   placement = PLACEMENTS.BOTTOM
 }) {
   targetRef = useRef()
@@ -25,6 +26,7 @@ function AtomPopover({
 
   const extendChildren = () => {
     const onClick = () => {
+      onOpen()
       setShowPopover(true)
     }
     const ref = targetRef
@@ -95,6 +97,8 @@ AtomPopover.propTypes = {
   closeIcon: PropTypes.node,
   /** On close callback */
   onClose: PropTypes.func,
+  /** On open callback */
+  onOpen: PropTypes.func,
   /** Popover position */
   placement: PropTypes.oneOf(Object.values(PLACEMENTS))
 }

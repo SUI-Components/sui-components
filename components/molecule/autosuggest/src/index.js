@@ -15,6 +15,11 @@ const BASE_CLASS = `sui-MoleculeAutosuggest`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 
+const ERROR_STATES = {
+  ERROR: 'error',
+  SUCCESS: 'success'
+}
+
 const getIsTypeableKey = key => {
   const keysEdit = [
     'Backspace',
@@ -37,7 +42,8 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
     isOpen,
     keysCloseList,
     keysSelection,
-    disabled
+    disabled,
+    errorState
   } = props
 
   const refMoleculeAutosuggest = useRef(
@@ -58,10 +64,20 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
       })
     })
 
-  const className = cx(BASE_CLASS, {
-    [CLASS_FOCUS]: focus,
-    [CLASS_DISABLED]: disabled
-  })
+  const getErrorStateClass = errorState => {
+    if (errorState) return `${BASE_CLASS}--${ERROR_STATES.ERROR}`
+    if (errorState === false) return `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
+    return ''
+  }
+
+  const className = cx(
+    BASE_CLASS,
+    {
+      [CLASS_FOCUS]: focus,
+      [CLASS_DISABLED]: disabled
+    },
+    getErrorStateClass(errorState)
+  )
 
   const closeList = ev => {
     const {current: domMoleculeAutosuggest} = refMoleculeAutosuggest
@@ -235,7 +251,10 @@ MoleculeAutosuggest.propTypes = {
   required: PropTypes.bool,
 
   /* native tabIndex html attribute */
-  tabIndex: PropTypes.number
+  tabIndex: PropTypes.number,
+
+  /** true = error, false = success, null = neutral */
+  errorState: PropTypes.bool
 }
 
 MoleculeAutosuggest.defaultProps = {

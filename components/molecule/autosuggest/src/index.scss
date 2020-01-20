@@ -60,4 +60,10 @@ $bdw-autosuggest-container: $bdw-s !default;
       width: $w-autosuggest-icon-clear;
     }
   }
+
+  @each $state, $color in $states-atom-input {
+    &#{$base-class}--#{$state} #{$base-class}-input-container {
+      border-color: $color;
+    }
+  }
 }

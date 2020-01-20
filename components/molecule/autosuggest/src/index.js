@@ -64,19 +64,14 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
       })
     })
 
-  const getErrorStateClass = errorState => {
-    if (errorState) return `${BASE_CLASS}--${ERROR_STATES.ERROR}`
-    if (errorState === false) return `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
-    return ''
-  }
-
   const className = cx(
     BASE_CLASS,
+    errorState && `${BASE_CLASS}--${ERROR_STATES.ERROR}`,
+    errorState === false && `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`,
     {
       [CLASS_FOCUS]: focus,
       [CLASS_DISABLED]: disabled
-    },
-    getErrorStateClass(errorState)
+    }
   )
 
   const closeList = ev => {

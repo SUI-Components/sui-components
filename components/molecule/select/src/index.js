@@ -23,12 +23,6 @@ const ERROR_STATES = {
 
 const ENABLED_KEYS = ['Enter', 'ArrowDown', 'ArrowUp']
 
-const getErrorStateClass = errorState => {
-  if (errorState) return `${BASE_CLASS}--${ERROR_STATES.ERROR}`
-  if (errorState === false) return `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
-  return ''
-}
-
 const getOptionData = children => {
   const optionsData = {}
   React.Children.forEach(children, child => {
@@ -66,11 +60,12 @@ const MoleculeSelect = props => {
 
   const className = cx(
     BASE_CLASS,
+    errorState && `${BASE_CLASS}--${ERROR_STATES.ERROR}`,
+    errorState === false && `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`,
     {
       [CLASS_FOCUS]: focus,
       [CLASS_DISABLED]: disabled
-    },
-    getErrorStateClass(errorState)
+    }
   )
 
   useEffect(() => {

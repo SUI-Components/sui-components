@@ -13,17 +13,12 @@ const ERROR_STATES = {
   SUCCESS: 'success'
 }
 
-const getErrorStateClass = errorState => {
-  if (errorState) return `${BASE_CLASS}--${ERROR_STATES.ERROR}`
-  if (errorState === false) return `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
-  return ''
-}
-
 const AtomTextarea = ({onChange, size, value, errorState, ...props}) => {
   const className = cx(
     BASE_CLASS,
     `${BASE_CLASS}--${size}`,
-    getErrorStateClass(errorState)
+    errorState && `${BASE_CLASS}--${ERROR_STATES.ERROR}`,
+    errorState === false && `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
   )
 
   const handleChange = ev => {

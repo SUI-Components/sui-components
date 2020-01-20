@@ -19,6 +19,11 @@ const MoleculeTextareaField = WithCharacterCount(
     onChange,
     ...props
   }) => {
+    const hasErrors = (success, error) => {
+      if (error) return true
+      if (success) return false
+    }
+    const errorState = hasErrors(successText, errorText)
     return (
       <MoleculeField
         name={id}
@@ -30,7 +35,7 @@ const MoleculeTextareaField = WithCharacterCount(
         maxChars={maxChars}
         onChange={onChange}
       >
-        <AtomTextarea id={id} {...props} />
+        <AtomTextarea id={id} errorState={errorState} {...props} />
       </MoleculeField>
     )
   }

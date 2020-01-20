@@ -8,8 +8,23 @@ const SIZES = {
   LONG: 'long'
 }
 
-const AtomTextarea = ({onChange, size, value, ...props}) => {
-  const className = cx(BASE_CLASS, `${BASE_CLASS}--${size}`)
+const ERROR_STATES = {
+  ERROR: 'error',
+  SUCCESS: 'success'
+}
+
+const getErrorStateClass = errorState => {
+  if (errorState) return `${BASE_CLASS}--${ERROR_STATES.ERROR}`
+  if (errorState === false) return `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
+  return ''
+}
+
+const AtomTextarea = ({onChange, size, value, errorState, ...props}) => {
+  const className = cx(
+    BASE_CLASS,
+    `${BASE_CLASS}--${size}`,
+    getErrorStateClass(errorState)
+  )
 
   const handleChange = ev => {
     const {value, name} = ev.target
@@ -36,7 +51,10 @@ AtomTextarea.propTypes = {
   onChange: PropTypes.func,
 
   /** Value (content) of the textarea */
-  value: PropTypes.string
+  value: PropTypes.string,
+
+  /** true = error, false = success, null = neutral */
+  errorState: PropTypes.bool
 }
 
 AtomTextarea.defaultProps = {

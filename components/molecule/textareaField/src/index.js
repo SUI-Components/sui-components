@@ -7,6 +7,11 @@ import AtomTextarea, {
 } from '@s-ui/react-atom-textarea'
 import WithCharacterCount from './hoc/WithCharacterCount'
 
+const hasErrors = (success, error) => {
+  if (error) return true
+  if (success) return false
+}
+
 const MoleculeTextareaField = WithCharacterCount(
   ({
     id,
@@ -19,10 +24,6 @@ const MoleculeTextareaField = WithCharacterCount(
     onChange,
     ...props
   }) => {
-    const hasErrors = (success, error) => {
-      if (error) return true
-      if (success) return false
-    }
     const errorState = hasErrors(successText, errorText)
     return (
       <MoleculeField

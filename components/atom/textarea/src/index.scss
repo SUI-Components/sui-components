@@ -8,7 +8,9 @@ $pm-atom-textarea: $p-m !default;
 $fz-atom-textarea: $fz-base !default;
 $lh-atom-textarea: $lh-l !default;
 
-.sui-AtomTextarea {
+$base-class: '.sui-AtomTextarea';
+
+#{$base-class} {
   border: 1px solid $c-gray-light;
   font-size: $fz-atom-textarea;
   line-height: $lh-atom-textarea;
@@ -30,5 +32,11 @@ $lh-atom-textarea: $lh-l !default;
     height: calc(
       (#{$lh-atom-textarea} * #{$long-num-lines}) + #{$pm-atom-textarea}
     );
+  }
+
+  @each $state, $color in $states-atom-input {
+    &#{$base-class}--#{$state} {
+      border-color: $color;
+    }
   }
 }

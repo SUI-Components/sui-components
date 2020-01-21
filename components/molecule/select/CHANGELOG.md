@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.22.0 (2020-01-21)
+
+
+### Features
+
+* remove getErrorStateClass function ([e94c259](https://github.com/SUI-Components/sui-components/commit/e94c25908d6200f48e5af65d183f2128f8329de6))
+
+
+
 # 1.21.0 (2020-01-14)
 
 

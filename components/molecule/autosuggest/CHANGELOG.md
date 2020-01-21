@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.1.0 (2020-01-21)
+
+
+### Features
+
+* add error state ([6735e03](https://github.com/SUI-Components/sui-components/commit/6735e03fc61358ad3a0ce9553e7f1c97867c3b4e))
+* remove getErrorStateClass function ([ba01b57](https://github.com/SUI-Components/sui-components/commit/ba01b57b054eef6649ffed70008c9434a91e6138))
+
+
+
 # 2.0.0 (2020-01-15)
 
 

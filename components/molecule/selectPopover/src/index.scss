@@ -9,6 +9,7 @@
     $select: &;
     border-radius: $bdrs-select-popover;
     border: 1px solid $c-gray-light-2;
+    color: $c-black;
     display: flex;
     justify-content: space-between;
     max-width: $mw-select-popover;
@@ -24,12 +25,14 @@
       margin-left: $m-m;
     }
 
-    &:hover {
+    &:hover,
+    &.is-open,
+    &.is-selected {
       background-color: $c-primary-light-4;
+      border-color: $c-primary-light-4;
     }
 
     &.is-open {
-      background-color: $c-primary-light-4;
       color: $c-primary;
 
       #{$select}Icon {
@@ -38,8 +41,8 @@
     }
 
     &.is-selected {
-      background-color: $c-primary;
-      color: $c-white;
+      border-color: $c-primary;
+      color: $c-primary;
     }
   }
 

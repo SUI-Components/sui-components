@@ -62,7 +62,7 @@ $bdw-autosuggest-container: $bdw-s !default;
   }
 
   @each $state, $color in $states-atom-input {
-    &#{$base-class}--#{$state} #{$base-class}-input-container {
+    &#{$base-class}--#{$state} .sui-AtomInput-input {
       border-color: $color;
     }
   }

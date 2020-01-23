@@ -83,6 +83,16 @@ const Demo = () => (
       />
     </div>
 
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>Whit autocomplete "off"</h3>
+      <MoleculeAutosuggestWithState
+        value="Luxembourg"
+        onChange={(_, {value}) => console.log(value)}
+        iconClear={<IconClose />}
+        autoComplete="off"
+      />
+    </div>
+
     <h2>Multiple Selection</h2>
     <p>
       Este componente permite añadir nuevas opciones (como tags) aunque no esten

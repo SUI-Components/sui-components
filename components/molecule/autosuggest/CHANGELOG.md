@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.2.0 (2020-01-23)
+
+
+### Features
+
+* move the autoComplete value to a prop ([3ce3b29](https://github.com/SUI-Components/sui-components/commit/3ce3b2911d3ee4608ebde9baa27bbdf6f0fa5953))
+
+
+
 # 2.1.0 (2020-01-21)
 
 

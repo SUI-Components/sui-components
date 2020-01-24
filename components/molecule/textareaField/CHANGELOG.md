@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.4.0 (2020-01-24)
+
+
+### Features
+
+* bump version ([f9ce423](https://github.com/SUI-Components/sui-components/commit/f9ce423f650879b3d77b256f7096e92fbed3a759))
+
+
+
 # 2.3.0 (2020-01-21)
 
 

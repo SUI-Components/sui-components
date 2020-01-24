@@ -6,6 +6,7 @@
 $base-class: '.sui-MoleculeAutosuggest';
 $base-class-atom-input: '.sui-AtomInput';
 $class-input: '#{$base-class}-input';
+$base-class-atom-input-input: '#{$base-class-atom-input}-input';
 
 $z-autosuggest-list: $z-navigation !default;
 $mr-autosuggest-icon-clear: -34px !default;
@@ -62,7 +63,7 @@ $bdw-autosuggest-container: $bdw-s !default;
   }
 
   @each $state, $color in $states-atom-input {
-    &#{$base-class}--#{$state} #{$base-class}-input-container {
+    &#{$base-class}--#{$state} #{$base-class-atom-input-input} {
       border-color: $color;
     }
   }

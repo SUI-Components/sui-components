@@ -215,7 +215,7 @@ MoleculeAutosuggest.propTypes = {
   /** Icon for closing (removing) tags */
   iconCloseTag: PropTypes.node,
 
-  /** Icon for closing (removing) tags */
+  /** Icon for clearing values */
   iconClear: PropTypes.node,
 
   /** size (height) of the list */

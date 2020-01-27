@@ -14,13 +14,19 @@ const BASE_CLASS = 'sui-MoleculePagination'
 const CLASS_PREV_BUTTON_ICON = 'sui-MoleculePagination-prevButtonIcon'
 const CLASS_NEXT_BUTTON_ICON = 'sui-MoleculePagination-nextButtonIcon'
 
-const PageButton = ({onSelectPage, page, design, ...props}) => {
+const PageButton = ({onSelectPage, page, design, linkFactory, ...props}) => {
   const _onSelectPage = e => {
     onSelectPage(e, {page})
   }
   return (
     <li className={`${BASE_CLASS}-item`}>
-      <AtomButton onClick={_onSelectPage} design={design} {...props} />
+      <AtomButton
+        onClick={_onSelectPage}
+        design={design}
+        {...props}
+        link
+        linkFactory={linkFactory(page)}
+      />
     </li>
   )
 }
@@ -31,7 +37,9 @@ PageButton.propTypes = {
   /** Current page selected */
   page: isValidPage,
   /** Design to be used for the page button. Design types 'solid', 'outline' or 'flat' */
-  design: PropTypes.string
+  design: PropTypes.string,
+  /** Factory used to create navigation links */
+  linkFactory: PropTypes.func
 }
 
 const MoleculePagination = ({
@@ -51,9 +59,7 @@ const MoleculePagination = ({
   nonSelectedPageButtonDesign,
   prevButtonDesign,
   nextButtonDesign,
-  link,
-  linkFactory,
-  href
+  linkFactory
 }) => {
   const paramsPagination = {
     page,
@@ -86,6 +92,8 @@ const MoleculePagination = ({
             onClick={handleClickPrev}
             design={prevButtonDesign}
             disabled={!prevPage}
+            link
+            linkFactory={linkFactory(page)}
           >
             {PrevButtonIcon && (
               <span className={CLASS_PREV_BUTTON_ICON}>
@@ -101,6 +109,7 @@ const MoleculePagination = ({
           page={page}
           design={selectedPageButtonDesign}
           onSelectPage={onSelectPage}
+          linkFactory={linkFactory}
         >
           {page}
         </PageButton>
@@ -115,6 +124,7 @@ const MoleculePagination = ({
                 : nonSelectedPageButtonDesign
             }
             onSelectPage={onSelectPage}
+            linkFactory={linkFactory}
           >
             {pageRange}
           </PageButton>
@@ -126,6 +136,8 @@ const MoleculePagination = ({
             onClick={handleClickNext}
             design={nextButtonDesign}
             disabled={!nextPage}
+            link
+            linkFactory={linkFactory}
           >
             {nextButtonText}
             {NextButtonIcon && (
@@ -191,14 +203,8 @@ MoleculePagination.propTypes = {
   /** Design to be used for the next button if its visible. Design types 'solid', 'outline' or 'flat */
   nextButtonDesign: PropTypes.string,
 
-  /** Prop to be passed down to AtomButton so that it renders anchor tags instead of button tags */
-  link: PropTypes.bool,
-
   /** Factory used to create navigation links */
-  linkFactory: PropTypes.func,
-
-  /** URL to be added on the HTML link, page number would be concatenated by the pagination component itself */
-  href: PropTypes.string
+  linkFactory: PropTypes.func
 }
 
 MoleculePagination.defaultProps = {
@@ -212,8 +218,7 @@ MoleculePagination.defaultProps = {
   selectedPageButtonDesign: 'solid',
   nonSelectedPageButtonDesign: 'flat',
   prevButtonDesign: 'flat',
-  nextButtonDesign: 'flat',
-  link: false
+  nextButtonDesign: 'flat'
 }
 
 export default MoleculePagination

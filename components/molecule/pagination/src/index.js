@@ -76,7 +76,7 @@ const MoleculePagination = ({
   const isHideNext = hideDisabled && !nextPage
 
   return (
-    <ul className={BASE_CLASS}>
+    <ol className={BASE_CLASS}>
       {!isHidePrev && (
         <li className={`${BASE_CLASS}-item`}>
           <AtomButton
@@ -133,7 +133,7 @@ const MoleculePagination = ({
           </AtomButton>
         </li>
       )}
-    </ul>
+    </ol>
   )
 }
 

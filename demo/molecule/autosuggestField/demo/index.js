@@ -94,6 +94,17 @@ const Demo = () => (
       />
     </div>
 
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>Without label</h3>
+      <MoleculeAutosuggestField
+        id="with-placeholder"
+        placeholder="Select a Country..."
+        onChange={(_, {value}) => console.log(value)}
+        iconClear={<IconClose />}
+        useContrastLabel
+      />
+    </div>
+
     <h2>Multiple Selection</h2>
 
     <div className={CLASS_DEMO_SECTION}>

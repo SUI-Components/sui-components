@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.4.0 (2020-01-27)
+
+
+### Bug Fixes
+
+* avoid rendering a span when there is no icon provided ([d0f4ab0](https://github.com/SUI-Components/sui-components/commit/d0f4ab0c416c4ac7585ba444f3ed5e0559fb42cd))
+
+
+
 # 2.3.0 (2020-01-24)
 
 

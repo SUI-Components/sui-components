@@ -14,19 +14,13 @@ const BASE_CLASS = 'sui-MoleculePagination'
 const CLASS_PREV_BUTTON_ICON = 'sui-MoleculePagination-prevButtonIcon'
 const CLASS_NEXT_BUTTON_ICON = 'sui-MoleculePagination-nextButtonIcon'
 
-const PageButton = ({onSelectPage, page, design, linkFactory, ...props}) => {
+const PageButton = ({onSelectPage, page, design, ...props}) => {
   const _onSelectPage = e => {
     onSelectPage(e, {page})
   }
   return (
     <li className={`${BASE_CLASS}-item`}>
-      <AtomButton
-        onClick={_onSelectPage}
-        design={design}
-        {...props}
-        link
-        linkFactory={linkFactory(page)}
-      />
+      <AtomButton onClick={_onSelectPage} design={design} {...props} />
     </li>
   )
 }
@@ -84,6 +78,12 @@ const MoleculePagination = ({
   const isHidePrev = hideDisabled && !prevPage
   const isHideNext = hideDisabled && !nextPage
 
+  const linkProps = pageNumber =>
+    typeof linkFactory === 'function' && {
+      link: true,
+      linkFactory: linkFactory(pageNumber)
+    }
+
   return (
     <ul className={BASE_CLASS}>
       {!isHidePrev && (
@@ -92,8 +92,7 @@ const MoleculePagination = ({
             onClick={handleClickPrev}
             design={prevButtonDesign}
             disabled={!prevPage}
-            link
-            linkFactory={linkFactory(page)}
+            {...linkProps(prevPage)}
           >
             {PrevButtonIcon && (
               <span className={CLASS_PREV_BUTTON_ICON}>
@@ -109,7 +108,7 @@ const MoleculePagination = ({
           page={page}
           design={selectedPageButtonDesign}
           onSelectPage={onSelectPage}
-          linkFactory={linkFactory}
+          {...linkProps(page)}
         >
           {page}
         </PageButton>
@@ -124,7 +123,7 @@ const MoleculePagination = ({
                 : nonSelectedPageButtonDesign
             }
             onSelectPage={onSelectPage}
-            linkFactory={linkFactory}
+            {...linkProps(pageRange)}
           >
             {pageRange}
           </PageButton>
@@ -136,8 +135,7 @@ const MoleculePagination = ({
             onClick={handleClickNext}
             design={nextButtonDesign}
             disabled={!nextPage}
-            link
-            linkFactory={linkFactory}
+            {...linkProps(nextPage)}
           >
             {nextButtonText}
             {NextButtonIcon && (

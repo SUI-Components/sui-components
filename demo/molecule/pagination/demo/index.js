@@ -162,7 +162,7 @@ const Demo = () => {
         />
       </div>
       {/* ------------------------------------------------------------------------------------------------------------- */}
-      <h3>Compresed Version</h3>
+      <h3>Compressed Version</h3>
       <div className={CLASS_DEMO_SECTION}>
         <h4>First Page (only next)</h4>
         <p>

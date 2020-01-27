@@ -14,6 +14,8 @@ const BASE_CLASS = 'sui-MoleculePagination'
 const CLASS_PREV_BUTTON_ICON = 'sui-MoleculePagination-prevButtonIcon'
 const CLASS_NEXT_BUTTON_ICON = 'sui-MoleculePagination-nextButtonIcon'
 
+const PAGE_NUMBER_HOLDER = '%{pageNumber}'
+
 const PageButton = ({onSelectPage, page, design, ...props}) => {
   const _onSelectPage = e => {
     onSelectPage(e, {page})
@@ -53,7 +55,10 @@ const MoleculePagination = ({
   nonSelectedPageButtonDesign,
   prevButtonDesign,
   nextButtonDesign,
-  linkFactory
+  linkFactory,
+  createUrl,
+  urlPattern,
+  links
 }) => {
   const paramsPagination = {
     page,
@@ -79,9 +84,9 @@ const MoleculePagination = ({
   const isHideNext = hideDisabled && !nextPage
 
   const linkProps = pageNumber =>
-    typeof linkFactory === 'function' && {
+    links && {
       link: true,
-      linkFactory: linkFactory(pageNumber)
+      linkFactory: linkFactory({href: createUrl({pageNumber, urlPattern})})
     }
 
   return (
@@ -202,7 +207,16 @@ MoleculePagination.propTypes = {
   nextButtonDesign: PropTypes.string,
 
   /** Factory used to create navigation links */
-  linkFactory: PropTypes.func
+  linkFactory: PropTypes.func,
+
+  /** Factory used to create the urls */
+  createUrl: PropTypes.func,
+
+  /** URL patterns */
+  urlPattern: PropTypes.string,
+
+  /** tells wether to render links as anchor tags or as buttons */
+  links: PropTypes.bool
 }
 
 MoleculePagination.defaultProps = {
@@ -216,7 +230,20 @@ MoleculePagination.defaultProps = {
   selectedPageButtonDesign: 'solid',
   nonSelectedPageButtonDesign: 'flat',
   prevButtonDesign: 'flat',
-  nextButtonDesign: 'flat'
+  nextButtonDesign: 'flat',
+  createUrl: ({pageNumber, urlPattern}) => {
+    return urlPattern.replace(PAGE_NUMBER_HOLDER, pageNumber)
+  },
+  // eslint-disable-next-line
+  linkFactory: ({href, children, props}) => {
+    return (
+      <a {...props} href={href}>
+        {children}
+      </a>
+    )
+  },
+  urlPattern: '#',
+  links: false
 }
 
 export default MoleculePagination

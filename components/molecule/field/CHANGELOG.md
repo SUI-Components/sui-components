@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.13.0 (2020-01-27)
+
+
+### Bug Fixes
+
+* avoid rendering a label tag if the prop its not present ([7eaf883](https://github.com/SUI-Components/sui-components/commit/7eaf8838ed7c2d82a8287f6d688650336ff2af49))
+
+
+
 # 1.12.0 (2020-01-09)
 
 

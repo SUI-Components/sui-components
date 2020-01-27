@@ -50,7 +50,10 @@ const MoleculePagination = ({
   selectedPageButtonDesign,
   nonSelectedPageButtonDesign,
   prevButtonDesign,
-  nextButtonDesign
+  nextButtonDesign,
+  link,
+  linkFactory,
+  href
 }) => {
   const paramsPagination = {
     page,
@@ -186,7 +189,16 @@ MoleculePagination.propTypes = {
   prevButtonDesign: PropTypes.string,
 
   /** Design to be used for the next button if its visible. Design types 'solid', 'outline' or 'flat */
-  nextButtonDesign: PropTypes.string
+  nextButtonDesign: PropTypes.string,
+
+  /** Prop to be passed down to AtomButton so that it renders anchor tags instead of button tags */
+  link: PropTypes.bool,
+
+  /** Factory used to create navigation links */
+  linkFactory: PropTypes.func,
+
+  /** URL to be added on the HTML link, page number would be concatenated by the pagination component itself */
+  href: PropTypes.string
 }
 
 MoleculePagination.defaultProps = {
@@ -200,7 +212,8 @@ MoleculePagination.defaultProps = {
   selectedPageButtonDesign: 'solid',
   nonSelectedPageButtonDesign: 'flat',
   prevButtonDesign: 'flat',
-  nextButtonDesign: 'flat'
+  nextButtonDesign: 'flat',
+  link: false
 }
 
 export default MoleculePagination

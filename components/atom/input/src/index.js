@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Input, {inputSizes} from './Input'
+import Input, {inputSizes, inputStates} from './Input'
 import Password from './Password'
 import Mask from './Mask'
 
@@ -91,6 +91,9 @@ AtomInput.propTypes = {
   /** true = error, false = success, null = neutral */
   errorState: PropTypes.bool,
 
+  /** 'success', 'error' or 'alert' */
+  state: PropTypes.oneOf(Object.values(inputStates)),
+
   /** value of the control */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
@@ -104,4 +107,4 @@ AtomInput.propTypes = {
 AtomInput.displayName = 'AtomInput'
 
 export default AtomInput
-export {inputSizes}
+export {inputSizes, inputStates}

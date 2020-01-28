@@ -135,6 +135,26 @@ There are 3 error states:
 />
 ```
 
+
+### Input states
+
+There are 3 error states:
+
+* input state = **'error'**, will show a **red** border around the input field
+* input state = **'success'**, will show a **green** border around the input field
+* input state = **'alert'**, will show a **orange** border around the input field
+* input state = **null**, will show the by **default** border around the input field
+
+```js
+<AtomInput 
+  name="second" 
+  placeholder="Success input" 
+  state="alert"
+/>
+```
+
+
+
 ### Form Usage
 
 Each field returns its value on every onChange event so you can save it inside your form state.

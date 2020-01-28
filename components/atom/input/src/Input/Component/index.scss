@@ -6,7 +6,6 @@ $bdrs-atom-input: $bdrs-none !default;
 
 $base-class: '.sui-AtomInput-input';
 $class-read-only: '#{$base-class}--readOnly';
-$c-atom-input-type: success $c-success, error $c-error, alert $c-alert;
 
 #{$base-class} {
   @extend %sui-atom-input-input;
@@ -53,7 +52,7 @@ $c-atom-input-type: success $c-success, error $c-error, alert $c-alert;
     }
   }
 
-  @each $state, $color in $c-atom-input-type {
+  @each $state, $color in $states-atom-input {
     &.sui-AtomInput-input--#{$state} {
       border-color: $color;
     }

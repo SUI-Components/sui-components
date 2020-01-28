@@ -98,7 +98,7 @@ const Demo = () => {
         <p>
           <code>
             totalPages=25 page=7 linkFactory urlPattern="
-            {`/?page=%{pageNumber}`}" links
+            {`/?page=%{pageNumber}`}" renderLinks
           </code>
         </p>
         <MoleculePagination
@@ -106,7 +106,7 @@ const Demo = () => {
           page={7}
           linkFactory={linkFactory}
           urlPattern={PAGINATION_URL}
-          links
+          renderLinks
         />
       </div>
       <div className={CLASS_DEMO_SECTION}>

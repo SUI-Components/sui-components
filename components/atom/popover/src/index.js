@@ -90,7 +90,7 @@ AtomPopover.propTypes = {
   content: PropTypes.element.isRequired,
   /** Popover children */
   children: PropTypes.node.isRequired,
-  /** Initial value for the show pop over */
+  /** Controlled value for the show pop over */
   showPopover: PropTypes.bool,
   /** Popover id: only is needed if use a children without ref */
   id: PropTypes.string,

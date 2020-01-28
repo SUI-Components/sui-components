@@ -30,6 +30,16 @@ const BASE_CLASS_DEMO = 'DemoMoleculePagination'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
 const CLASS_DEMO_SECTION_RESPONSIVE = `${CLASS_DEMO_SECTION}-responsive`
 
+const PAGINATION_URL = '/?page=%{pageNumber}'
+
+const linkFactory = ({href}) => ({children, ...props}) => {
+  return (
+    <a {...props} href={href}>
+      {children}
+    </a>
+  )
+}
+
 const Demo = () => {
   return (
     <div className={BASE_CLASS_DEMO}>
@@ -82,6 +92,22 @@ const Demo = () => {
           <code>totalPages=25 page=7</code>
         </p>
         <MoleculePagination totalPages={25} page={7} />
+      </div>
+      <div className={CLASS_DEMO_SECTION}>
+        <h4>Basic with links and linkFactory</h4>
+        <p>
+          <code>
+            totalPages=25 page=7 linkFactory urlPattern="
+            {`/?page=%{pageNumber}`}" renderLinks
+          </code>
+        </p>
+        <MoleculePagination
+          totalPages={25}
+          page={7}
+          linkFactory={linkFactory}
+          urlPattern={PAGINATION_URL}
+          renderLinks
+        />
       </div>
       <div className={CLASS_DEMO_SECTION}>
         <h4>w/ Next</h4>
@@ -162,7 +188,7 @@ const Demo = () => {
         />
       </div>
       {/* ------------------------------------------------------------------------------------------------------------- */}
-      <h3>Compresed Version</h3>
+      <h3>Compressed Version</h3>
       <div className={CLASS_DEMO_SECTION}>
         <h4>First Page (only next)</h4>
         <p>

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-01-28)
+
+
+### Features
+
+* added showPopover value to control it from outside ([4eb5e40](https://github.com/SUI-Components/sui-components/commit/4eb5e40b1a386b7d17e5ea5cd19d454df955ccf2))
+* remove event function param ([d7c8ef2](https://github.com/SUI-Components/sui-components/commit/d7c8ef2ede53559b99d3f323f67cea135c9eea7b))
+
+
+
 # 1.6.0 (2020-01-17)
 
 

@@ -96,7 +96,10 @@ const Demo = () => {
       <div className={CLASS_DEMO_SECTION}>
         <h4>Basic with links and linkFactory</h4>
         <p>
-          <code>totalPages=25 page=7 linkFactory urlPattern links</code>
+          <code>
+            totalPages=25 page=7 linkFactory urlPattern="
+            {`/?page=%{pageNumber}`}" links
+          </code>
         </p>
         <MoleculePagination
           totalPages={25}

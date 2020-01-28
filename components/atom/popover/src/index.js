@@ -24,12 +24,9 @@ function AtomPopover({
   const targetRef = useRef()
   const [internalShowPopover, setInternalShowPopover] = useState(showPopover)
 
-  useEffect(
-    function() {
-      setInternalShowPopover(showPopover)
-    },
-    [showPopover]
-  )
+  useEffect(() => {
+    setInternalShowPopover(showPopover)
+  }, [showPopover])
 
   const extendChildren = () => {
     const onClick = e => {

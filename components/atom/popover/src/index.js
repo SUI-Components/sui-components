@@ -29,7 +29,7 @@ function AtomPopover({
   }, [showPopover])
 
   const extendChildren = () => {
-    const onClick = e => {
+    const onClick = () => {
       onOpen()
       setInternalShowPopover(true)
     }

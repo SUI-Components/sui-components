@@ -39,7 +39,7 @@ PageButton.propTypes = {
 }
 
 // eslint-disable-next-line
-const defaultLinkFactory = ({href}) => ({children, props}) => {
+const defaultLinkFactory = ({href}) => ({children, ...props}) => {
   return (
     <a {...props} href={href}>
       {children}

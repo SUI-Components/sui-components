@@ -1,7 +1,7 @@
 /* eslint react/prop-types: 0 */
 /* eslint no-console: 0 */
 import React from 'react'
-import MoleculeModal from '../../../../components/molecule/modal'
+import MoleculeModal from '../../../../components/molecule/modal/src'
 import {Content, LoremIpsumParagraph, IconClose} from './helperComponents'
 
 class ScrollModal extends React.Component {

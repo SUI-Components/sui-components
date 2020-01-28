@@ -1,6 +1,6 @@
 /* eslint react/prop-types: 0 */
 import React from 'react'
-import MoleculeModal from '../../../../components/molecule/modal'
+import MoleculeModal from '../../../../components/molecule/modal/src'
 import {Content, LoremIpsumParagraph, IconClose} from './helperComponents'
 
 class NoFullScreenModal extends React.Component {

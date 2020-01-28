@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.5.0 (2020-01-28)
+
+
+### Bug Fixes
+
+* fix props destructuring on defaultLinkFactory ([3ac8ed9](https://github.com/SUI-Components/sui-components/commit/3ac8ed9f54fdf85ec951b59bc5135eb92c502904))
+
+
+
 # 2.4.0 (2020-01-28)
 
 

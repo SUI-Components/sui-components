@@ -38,27 +38,39 @@ PageButton.propTypes = {
   linkFactory: PropTypes.func
 }
 
+// eslint-disable-next-line
+const defaultLinkFactory = ({href}) => ({children, props}) => {
+  return (
+    <a {...props} href={href}>
+      {children}
+    </a>
+  )
+}
+
+const defaultCreateUrl = ({pageNumber, urlPattern}) =>
+  urlPattern.replace(PAGE_NUMBER_HOLDER, pageNumber)
+
 const MoleculePagination = ({
-  onSelectNext,
-  onSelectPrev,
+  onSelectNext = () => {},
+  onSelectPage = () => {},
+  onSelectPrev = () => {},
   page,
   totalPages,
-  showPages,
-  prevButtonText,
+  showPages = 10,
+  prevButtonText = 'Previous',
   prevButtonIcon: PrevButtonIcon,
-  nextButtonText,
+  nextButtonText = 'Next',
   nextButtonIcon: NextButtonIcon,
-  onSelectPage,
-  compressed,
+  compressed = false,
   hideDisabled,
-  selectedPageButtonDesign,
-  nonSelectedPageButtonDesign,
-  prevButtonDesign,
-  nextButtonDesign,
-  linkFactory,
-  createUrl,
-  urlPattern,
-  links
+  selectedPageButtonDesign = 'solid',
+  nonSelectedPageButtonDesign = 'flat',
+  prevButtonDesign = 'flat',
+  nextButtonDesign = 'flat',
+  linkFactory = defaultLinkFactory,
+  createUrl = defaultCreateUrl,
+  urlPattern = '#',
+  renderLinks = false
 }) => {
   const paramsPagination = {
     page,
@@ -84,7 +96,7 @@ const MoleculePagination = ({
   const isHideNext = hideDisabled && !nextPage
 
   const linkProps = pageNumber =>
-    links && {
+    renderLinks && {
       link: true,
       linkFactory: linkFactory({href: createUrl({pageNumber, urlPattern})})
     }
@@ -216,34 +228,7 @@ MoleculePagination.propTypes = {
   urlPattern: PropTypes.string,
 
   /** tells wether to render links as anchor tags or as buttons */
-  links: PropTypes.bool
-}
-
-MoleculePagination.defaultProps = {
-  showPages: 10,
-  compressed: false,
-  prevButtonText: 'Previous',
-  nextButtonText: 'Next',
-  onSelectPrev: () => {},
-  onSelectNext: () => {},
-  onSelectPage: () => {},
-  selectedPageButtonDesign: 'solid',
-  nonSelectedPageButtonDesign: 'flat',
-  prevButtonDesign: 'flat',
-  nextButtonDesign: 'flat',
-  createUrl: ({pageNumber, urlPattern}) => {
-    return urlPattern.replace(PAGE_NUMBER_HOLDER, pageNumber)
-  },
-  // eslint-disable-next-line
-  linkFactory: ({href, children, props}) => {
-    return (
-      <a {...props} href={href}>
-        {children}
-      </a>
-    )
-  },
-  urlPattern: '#',
-  links: false
+  renderLinks: PropTypes.bool
 }
 
 export default MoleculePagination

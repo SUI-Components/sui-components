@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import AtomButton from '@s-ui/react-atom-button'
-
 import * as pagination from './helpers/pagination'
 import {
   isValidPage,
@@ -13,7 +11,6 @@ import {
 const BASE_CLASS = 'sui-MoleculePagination'
 const CLASS_PREV_BUTTON_ICON = 'sui-MoleculePagination-prevButtonIcon'
 const CLASS_NEXT_BUTTON_ICON = 'sui-MoleculePagination-nextButtonIcon'
-
 const PAGE_NUMBER_HOLDER = '%{pageNumber}'
 
 const PageButton = ({onSelectPage, page, design, ...props}) => {
@@ -38,15 +35,6 @@ PageButton.propTypes = {
   linkFactory: PropTypes.func
 }
 
-// eslint-disable-next-line
-const defaultLinkFactory = ({href}) => ({children, ...props}) => {
-  return (
-    <a {...props} href={href}>
-      {children}
-    </a>
-  )
-}
-
 const defaultCreateUrl = ({pageNumber, urlPattern}) =>
   urlPattern.replace(PAGE_NUMBER_HOLDER, pageNumber)
 
@@ -67,7 +55,7 @@ const MoleculePagination = ({
   nonSelectedPageButtonDesign = 'flat',
   prevButtonDesign = 'flat',
   nextButtonDesign = 'flat',
-  linkFactory = defaultLinkFactory,
+  linkFactory,
   createUrl = defaultCreateUrl,
   urlPattern = '#',
   renderLinks = false
@@ -91,14 +79,14 @@ const MoleculePagination = ({
   const range = pagination.range(paramsPagination)
   const nextPage = pagination.nextPage(paramsPagination)
   const prevPage = pagination.prevPage(paramsPagination)
-
   const isHidePrev = hideDisabled && !prevPage
   const isHideNext = hideDisabled && !nextPage
 
   const linkProps = pageNumber =>
     renderLinks && {
       link: true,
-      linkFactory: linkFactory({href: createUrl({pageNumber, urlPattern})})
+      href: createUrl({pageNumber, urlPattern}),
+      ...(linkFactory && {linkFactory})
     }
 
   return (

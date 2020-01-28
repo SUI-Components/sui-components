@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.4.0 (2020-01-28)
+
+
+### Features
+
+* add link, linkFactory and href props to molecule/pagination component ([0987183](https://github.com/SUI-Components/sui-components/commit/0987183334c9f1873f109b0673bb3e6647011244))
+* allow molecule/pagination to take a linkFactory prop and render links ins ([4d2376c](https://github.com/SUI-Components/sui-components/commit/4d2376c50165294a38e7137dcc8bd1504f238cdc))
+* refactor and implementation of new props ([58dec4d](https://github.com/SUI-Components/sui-components/commit/58dec4d2bfdcc0514335080124aa70fb0d49ab2b))
+* refactor component, move default props to default params, change links pr ([e3ca1eb](https://github.com/SUI-Components/sui-components/commit/e3ca1eb93e5b661b2459ef5c1537ad31b29ba6e5))
+* use a link factory as a prop for MoleculePagination instead of multiple p ([5d10d14](https://github.com/SUI-Components/sui-components/commit/5d10d14adb2f9470ffe1c2520a802929b0127dcd))
+
+
+
 # 2.3.0 (2020-01-08)
 
 

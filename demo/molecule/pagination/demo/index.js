@@ -32,12 +32,8 @@ const CLASS_DEMO_SECTION_RESPONSIVE = `${CLASS_DEMO_SECTION}-responsive`
 
 const PAGINATION_URL = '/?page=%{pageNumber}'
 
-const linkFactory = ({href}) => ({children, ...props}) => {
-  return (
-    <a {...props} href={href}>
-      {children}
-    </a>
-  )
+const linkFactory = ({children, ...props}) => {
+  return <a {...props}>{children}</a>
 }
 
 const Demo = () => {

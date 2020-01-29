@@ -9,6 +9,7 @@ import NoFullScreenModal from './NoFullScreenModal'
 import NoHeaderNoCloseButtonModal from './NoHeaderNoCloseButtonModal'
 import MobileFitContentModal from './MobileFitContentModal'
 import ScrollableChildrenModal from './ScrollableChildrenModal'
+import WithUrlStateModal from './WithUrlStateModal'
 
 const fieldStyle = {
   border: '1px solid rgb(204, 204, 204)',
@@ -58,6 +59,10 @@ const Demo = () => (
       <h2>Modal with scrollable children</h2>
       <div style={fieldStyle}>
         <ScrollableChildrenModal />
+      </div>
+      <h2>Modal with url state</h2>
+      <div style={fieldStyle}>
+        <WithUrlStateModal />
       </div>
     </div>
   </>

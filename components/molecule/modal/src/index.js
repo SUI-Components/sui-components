@@ -7,6 +7,7 @@ import {suitClass} from './helpers'
 import {Close} from './Close'
 import {HeaderRender} from './HeaderRender'
 import WithAnimation from './HoC/WithAnimation'
+import WithUrlState from './HoC/WithUrlState'
 
 const toggleWindowScroll = disableScroll => {
   window.document.body.classList.toggle('is-MoleculeModal-open', disableScroll)
@@ -231,4 +232,8 @@ MoleculeModal.defaultProps = {
 
 MoleculeModal.displayName = 'MoleculeModal'
 
-export default WithAnimation(MoleculeModal)
+const MoleculeModalWithAnimation = WithAnimation(MoleculeModal)
+const MoleculeModalWithUrlState = WithUrlState(MoleculeModalWithAnimation)
+
+export {MoleculeModalWithUrlState, MoleculeModalWithAnimation}
+export default MoleculeModalWithAnimation

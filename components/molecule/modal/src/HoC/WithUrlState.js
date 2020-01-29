@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 
-const getUrlWithHash = hashName => {
+const getUrl = ({hash: hashName} = {}) => {
   const location = window.location
   const hash = hashName ? `#${hashName}` : ''
   return `${location.origin}${location.pathname}${location.search}${hash}`
@@ -37,7 +37,7 @@ export default BaseComponent => {
     const _handleChangeState = () => {
       if (isPopStateChange) return setIsPopStateChange(false)
 
-      const nextUrl = isOpen ? getUrlWithHash(hash) : getUrlWithHash()
+      const nextUrl = isOpen ? getUrl({hash}) : getUrl()
       window.history.pushState({hash}, '', nextUrl)
     }
 

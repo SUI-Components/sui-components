@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.7.0 (2020-01-29)
+
+
+### Bug Fixes
+
+* add missing inputStates export ([c30f106](https://github.com/SUI-Components/sui-components/commit/c30f10608b893df2da9bf1e6a13d85d1f50acec4))
+
+
+
 # 4.6.0 (2020-01-29)
 
 

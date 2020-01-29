@@ -34,7 +34,7 @@ export default BaseComponent => {
       else onClose()
     }
 
-    const _handleChangeState = () => {
+    const _handleStateChange = () => {
       if (isPopStateChange) return setIsPopStateChange(false)
 
       const nextUrl = isOpen ? getUrl({hash}) : getUrl()
@@ -42,7 +42,7 @@ export default BaseComponent => {
     }
 
     useEffect(() => {
-      _handleChangeState()
+      _handleStateChange()
     }, [hash, isOpen]) // eslint-disable-line
 
     useEffect(() => {

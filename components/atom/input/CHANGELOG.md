@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.6.0 (2020-01-29)
+
+
+### Features
+
+* add new option to highlight input ([3290547](https://github.com/SUI-Components/sui-components/commit/329054791ae649ea0ae2bcbfc43860b9d34b4036))
+* use theme variable ([ec9de25](https://github.com/SUI-Components/sui-components/commit/ec9de25cba49e29e53378c5d78813222617ba099))
+
+
+
 # 4.5.0 (2020-01-21)
 
 

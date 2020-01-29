@@ -7,7 +7,7 @@ const getUrlWithHash = hashName => {
   return `${location.origin}${location.pathname}${location.search}${hash}`
 }
 
-const checkHash = () => Boolean(window.location.hash)
+const checkHash = hash => window.location.hash.includes(hash)
 
 const emptyFn = () => {}
 
@@ -24,10 +24,10 @@ export default BaseComponent => {
   const WithUrlState = props => {
     const {hash, openModalTrigger, onClose, ...rest} = props
     const {isOpen} = rest
-    const [isPopStateChange, setIsPopStateChange] = useState(checkHash())
+    const [isPopStateChange, setIsPopStateChange] = useState(checkHash(hash))
 
     const _handlePopState = ev => {
-      const hasHash = checkHash()
+      const hasHash = checkHash(hash)
       setIsPopStateChange(true)
 
       if (hasHash) openModalTrigger()

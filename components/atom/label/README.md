@@ -24,7 +24,8 @@ return (
       for='labelName'
       text='Hello label'
       optional='(optional text)'
-      inline='( left || right )' />
+      inline='( left || right )'
+      type='alert' />
 
     <input id='atomLabelName' type='text' />
   </div>

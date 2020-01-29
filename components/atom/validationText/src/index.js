@@ -5,7 +5,8 @@ import cx from 'classnames'
 const BASE_CLASS = 'sui-AtomValidationText'
 const TYPES = {
   SUCCESS: 'success',
-  ERROR: 'error'
+  ERROR: 'error',
+  ALERT: 'alert'
 }
 
 const getClassNames = type => cx(BASE_CLASS, `${BASE_CLASS}--${type}`)

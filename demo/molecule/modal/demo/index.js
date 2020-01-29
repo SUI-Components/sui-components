@@ -62,6 +62,10 @@ const Demo = () => (
       </div>
       <h2>Modal with url state</h2>
       <div style={fieldStyle}>
+        <p>
+          Given a defined hash it will look for url changes in order to open /
+          close himself
+        </p>
         <WithUrlStateModal />
       </div>
     </div>

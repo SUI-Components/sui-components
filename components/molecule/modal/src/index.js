@@ -215,7 +215,16 @@ MoleculeModal.propTypes = {
   /**
    * Determines if modal will be rendered using a React Portal.
    */
-  usePortal: PropTypes.bool
+  usePortal: PropTypes.bool,
+  /**
+   * Define the modal hash, for url update / read
+   */
+  hash: PropTypes.string,
+  /**
+   * The function that manages when the modal open. It'll be executed for open
+   * MoleculeModalWithUrlState on pop state changes
+   */
+  openModalTrigger: PropTypes.func
 }
 
 MoleculeModal.defaultProps = {

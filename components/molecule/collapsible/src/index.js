@@ -12,15 +12,16 @@ const ICON_CLASS = `${BASE_CLASS}-icon`
 const MIN_HEIGHT = 100 // px
 
 const MoleculeCollapsible = ({
-  onClose,
-  onOpen,
+  onClose = () => {},
+  onOpen = () => {},
   children,
-  height,
+  height = MIN_HEIGHT,
   icon,
   showText,
   hideText,
-  withGradient,
-  withTransition
+  withGradient = true,
+  withOverflow = false,
+  withTransition = true
 }) => {
   const childrenContainer = useRef()
   const [collapsed, setCollapsed] = useState(true)
@@ -54,7 +55,8 @@ const MoleculeCollapsible = ({
     [COLLAPSED_CLASS]: collapsed
   })
   const contentClassName = cx(`${CONTENT_CLASS}`, {
-    [`${CONTENT_CLASS}--withTransition`]: withTransition
+    [`${CONTENT_CLASS}--withTransition`]: withTransition,
+    [`${CONTENT_CLASS}--withOverflow`]: withOverflow
   })
   const containerHeight =
     showButton && collapsed ? `${height}px` : `${maxHeight}px`
@@ -113,6 +115,10 @@ MoleculeCollapsible.propTypes = {
    */
   withGradient: PropTypes.bool,
   /**
+   * Activate/deactivate horizontal overflow
+   */
+  withOverflow: PropTypes.bool,
+  /**
    * Activate/deactivate transition
    */
   withTransition: PropTypes.bool,
@@ -124,14 +130,6 @@ MoleculeCollapsible.propTypes = {
    * On close callback
    */
   onClose: PropTypes.func
-}
-
-MoleculeCollapsible.defaultProps = {
-  height: MIN_HEIGHT,
-  withGradient: true,
-  withTransition: true,
-  onOpen: () => {},
-  onClose: () => {}
 }
 
 export default MoleculeCollapsible

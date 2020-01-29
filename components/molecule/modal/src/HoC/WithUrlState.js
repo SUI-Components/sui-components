@@ -38,14 +38,7 @@ export default BaseComponent => {
       if (isPopStateChange) return setIsPopStateChange(false)
 
       const nextUrl = isOpen ? getUrlWithHash(hash) : getUrlWithHash()
-
-      window.history.pushState(
-        {
-          hash
-        },
-        '',
-        nextUrl
-      )
+      window.history.pushState({hash}, '', nextUrl)
     }
 
     useEffect(() => {

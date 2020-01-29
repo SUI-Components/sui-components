@@ -109,6 +109,18 @@ export default () => (
       <AtomInput name="second" placeholder="Error input" errorState />
     </div>
     <div style={field}>
+      <h4>With state="success"</h4>
+      <AtomInput name="second" placeholder="Success input" state="success" />
+    </div>
+    <div style={field}>
+      <h4>With state="error"</h4>
+      <AtomInput name="second" placeholder="Error input" state="error" />
+    </div>
+    <div style={field}>
+      <h4>With state="alert"</h4>
+      <AtomInput name="second" placeholder="Error input" state="alert" />
+    </div>
+    <div style={field}>
       <h4>Type: sui-password</h4>
       <AtomInput
         type="sui-password"

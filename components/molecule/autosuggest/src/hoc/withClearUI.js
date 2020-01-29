@@ -15,7 +15,7 @@ export default BaseComponent => {
       return (
         <div className={CLASS_CONTAINER}>
           <BaseComponent {...props} />
-          {!!isVisibleClear && (
+          {!!isVisibleClear && iconClear && (
             <span className={CLASS_ICON_CLEAR} onClick={onClickClear}>
               {iconClear}
             </span>

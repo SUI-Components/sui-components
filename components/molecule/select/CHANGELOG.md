@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.23.0 (2020-01-28)
+
+
+### Bug Fixes
+
+* moleculeSelectSingleSelection refMoleculeSelect.current.focus() crash fix ([87e8f4e](https://github.com/SUI-Components/sui-components/commit/87e8f4e77a4c0edc5059b672319db247d549c5ed))
+
+
+
+# 1.22.0 (2020-01-21)
+
+
+### Features
+
+* remove getErrorStateClass function ([e94c259](https://github.com/SUI-Components/sui-components/commit/e94c25908d6200f48e5af65d183f2128f8329de6))
+
+
+
 # 1.21.0 (2020-01-14)
 
 

@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.4.0 (2020-01-27)
+
+
+### Bug Fixes
+
+* avoid rendering a span when there is no icon provided ([d0f4ab0](https://github.com/SUI-Components/sui-components/commit/d0f4ab0c416c4ac7585ba444f3ed5e0559fb42cd))
+
+
+
+# 2.3.0 (2020-01-24)
+
+
+
+# 2.2.0 (2020-01-23)
+
+
+### Features
+
+* apply border-color on state in input class instead of container ([185a261](https://github.com/SUI-Components/sui-components/commit/185a261fae503e23ae84a1d0ea773ecb2a4e1ee6))
+* move the autoComplete value to a prop ([3ce3b29](https://github.com/SUI-Components/sui-components/commit/3ce3b2911d3ee4608ebde9baa27bbdf6f0fa5953))
+* usa sass variables ([72a01f6](https://github.com/SUI-Components/sui-components/commit/72a01f6bcdcee7670fd33812fd94e9673cadc289))
+
+
+
+# 2.1.0 (2020-01-21)
+
+
+### Features
+
+* add error state ([6735e03](https://github.com/SUI-Components/sui-components/commit/6735e03fc61358ad3a0ce9553e7f1c97867c3b4e))
+* remove getErrorStateClass function ([ba01b57](https://github.com/SUI-Components/sui-components/commit/ba01b57b054eef6649ffed70008c9434a91e6138))
+
+
+
 # 2.0.0 (2020-01-15)
 
 

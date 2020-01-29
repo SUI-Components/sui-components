@@ -85,6 +85,15 @@ return (
           value="In some place of La Mancha which name..."
         />
       </li>
+      <li style={styleListItem}>
+        <h2>
+          Without label
+        </h2>
+        <MoleculeInputFieldWithState
+          id="notes"
+          value="In some place of La Mancha which name..."
+        />
+      </li>
     </ul>
   </div>
 )

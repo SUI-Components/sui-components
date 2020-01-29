@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.3.0 (2020-01-22)
+
+
+### Features
+
+* add new styles ([b666008](https://github.com/SUI-Components/sui-components/commit/b66600859715442251b56b113d1d5870571e4a8c))
+
+
+
 # 1.2.0 (2020-01-14)
 
 

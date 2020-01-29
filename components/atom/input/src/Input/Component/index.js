@@ -15,12 +15,6 @@ const ERROR_STATES = {
   SUCCESS: 'success'
 }
 
-const getErrorStateClass = errorState => {
-  if (errorState) return `${BASE_CLASS}--${ERROR_STATES.ERROR}`
-  if (errorState === false) return `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
-  return ''
-}
-
 const getClassNames = ({
   size,
   charsSize,
@@ -36,7 +30,8 @@ const getClassNames = ({
     hideInput && `${BASE_CLASS}--hidden`,
     noBorder && `${BASE_CLASS}--noBorder`,
     readOnly && `${BASE_CLASS}--readOnly`,
-    getErrorStateClass(errorState)
+    errorState && `${BASE_CLASS}--${ERROR_STATES.ERROR}`,
+    errorState === false && `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
   )
 }
 

@@ -1,4 +1,4 @@
-import React, {useState, useRef, Suspense} from 'react'
+import React, {useEffect, useState, useRef, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import {PLACEMENTS} from './config'
 
@@ -10,22 +10,28 @@ const DEFAULT_TRIGGER = 'legacy'
 const DEFAULT_DELAY = 0
 
 const Popover = React.lazy(() => import('reactstrap/lib/Popover'))
-let targetRef
 
 function AtomPopover({
   children,
+  closeIcon,
   content,
   id,
-  closeIcon,
   onClose = () => {},
-  placement = PLACEMENTS.BOTTOM
+  onOpen = () => {},
+  placement = PLACEMENTS.BOTTOM,
+  showPopover
 }) {
-  targetRef = useRef()
-  const [showPopover, setShowPopover] = useState(false)
+  const targetRef = useRef()
+  const [internalShowPopover, setInternalShowPopover] = useState(showPopover)
+
+  useEffect(() => {
+    setInternalShowPopover(showPopover)
+  }, [showPopover])
 
   const extendChildren = () => {
     const onClick = () => {
-      setShowPopover(true)
+      onOpen()
+      setInternalShowPopover(true)
     }
     const ref = targetRef
     const childrenOnly = React.Children.only(children)
@@ -43,42 +49,37 @@ function AtomPopover({
   }
 
   const handleToggle = () => {
-    setShowPopover(!showPopover)
+    setInternalShowPopover(!internalShowPopover)
     onClose()
   }
 
   return (
-    <>
-      <div>
-        {extendChildren()}
-        {showPopover && (
-          <Suspense fallback={<></>}>
-            <Popover
-              className={BASE_CLASS}
-              delay={DEFAULT_DELAY}
-              innerClassName={CLASS_INNER}
-              isOpen={showPopover}
-              offset={DEFAULT_OFFSET}
-              placement={placement}
-              placementPrefix={PREFIX_PLACEMENT}
-              target={id || targetRef.current}
-              toggle={handleToggle}
-              trigger={DEFAULT_TRIGGER}
-            >
-              {closeIcon && (
-                <div
-                  className={`${BASE_CLASS}-closeIcon`}
-                  onClick={handleToggle}
-                >
-                  {closeIcon}
-                </div>
-              )}
-              {content}
-            </Popover>
-          </Suspense>
-        )}
-      </div>
-    </>
+    <div>
+      {extendChildren()}
+      {internalShowPopover && (
+        <Suspense fallback={<></>}>
+          <Popover
+            className={BASE_CLASS}
+            delay={DEFAULT_DELAY}
+            innerClassName={CLASS_INNER}
+            isOpen={internalShowPopover}
+            offset={DEFAULT_OFFSET}
+            placement={placement}
+            placementPrefix={PREFIX_PLACEMENT}
+            target={id || targetRef.current}
+            toggle={handleToggle}
+            trigger={DEFAULT_TRIGGER}
+          >
+            {closeIcon && (
+              <div className={`${BASE_CLASS}-closeIcon`} onClick={handleToggle}>
+                {closeIcon}
+              </div>
+            )}
+            {content}
+          </Popover>
+        </Suspense>
+      )}
+    </div>
   )
 }
 
@@ -89,12 +90,16 @@ AtomPopover.propTypes = {
   content: PropTypes.element.isRequired,
   /** Popover children */
   children: PropTypes.node.isRequired,
+  /** Controlled value for the show pop over */
+  showPopover: PropTypes.bool,
   /** Popover id: only is needed if use a children without ref */
   id: PropTypes.string,
   /** Custom close icon  */
   closeIcon: PropTypes.node,
   /** On close callback */
   onClose: PropTypes.func,
+  /** On open callback */
+  onOpen: PropTypes.func,
   /** Popover position */
   placement: PropTypes.oneOf(Object.values(PLACEMENTS))
 }

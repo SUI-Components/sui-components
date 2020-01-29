@@ -59,15 +59,17 @@ const MoleculeField = ({
 
   return (
     <div className={className}>
-      <div className={CLASS_LABEL_CONTAINER}>
-        {inline && extendedChildren}
-        <AtomLabel
-          type={typeValidationLabel}
-          name={name}
-          text={label}
-          onClick={onClickLabel}
-        />
-      </div>
+      {label && (
+        <div className={CLASS_LABEL_CONTAINER}>
+          {inline && extendedChildren}
+          <AtomLabel
+            type={typeValidationLabel}
+            name={name}
+            text={label}
+            onClick={onClickLabel}
+          />
+        </div>
+      )}
       <div className={CLASS_INPUT_CONTAINER}>
         {!inline && extendedChildren}
         {(successText || errorText) && (
@@ -89,7 +91,7 @@ MoleculeField.propTypes = {
   children: PropTypes.any,
 
   /** Text to be displayed as label of the textarea */
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
 
   /** If true it will set the label type to 'CONTRAST' */
   useContrastLabel: PropTypes.bool,

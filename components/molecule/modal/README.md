@@ -72,7 +72,7 @@ class ModalWrapper extends React.Component {
 return (<ModalWrapper />)
 ```
 
-###  Usage with url state
+### Usage with url state
 ```js
 import {MoleculeModalWithUrlState} from '@s-ui/react-molecule-modal'
 

@@ -92,7 +92,7 @@ return (
         <MoleculeInputFieldWithState
           id="notes"
           label="Notes"
-          alertText="All wrong!"
+          alertText="OK but there's something you must know..."
           value="In some place of La Mancha which name..."
         />
       </li>

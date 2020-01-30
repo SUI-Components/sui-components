@@ -34,4 +34,12 @@ import AtomTextarea from '@s-ui/react-atom-textarea'
 <AtomTextarea placeholder="Write something cool here..." />
 ```
 
+### Textarea States
+
+The component can receive a `success`, `error` or `alert` state, to highlight his border with colors defined on sui-theme.
+
+```javascript
+<AtomTextarea state="success" />
+```
+
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/textarea/demo).**

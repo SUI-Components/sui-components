@@ -19,6 +19,7 @@ const MoleculeField = ({
   reverse,
   errorText,
   successText,
+  alertText,
   label,
   useContrastLabel,
   helpText,
@@ -45,6 +46,7 @@ const MoleculeField = ({
   if (useContrastLabel) {
     typeValidationLabel = AtomLabelTypes.CONTRAST
   }
+
   if (errorText) {
     statusValidationText = errorText
     typeValidationLabel = AtomLabelTypes.ERROR
@@ -55,6 +57,12 @@ const MoleculeField = ({
     statusValidationText = successText
     typeValidationLabel = AtomLabelTypes.SUCCESS
     typeValidationText = AtomValidationTextTypes.SUCCESS
+  }
+
+  if (alertText) {
+    statusValidationText = alertText
+    typeValidationLabel = AtomLabelTypes.ALERT
+    typeValidationText = AtomValidationTextTypes.ALERT
   }
 
   return (
@@ -72,7 +80,7 @@ const MoleculeField = ({
       )}
       <div className={CLASS_INPUT_CONTAINER}>
         {!inline && extendedChildren}
-        {(successText || errorText) && (
+        {(successText || errorText || alertText) && (
           <AtomValidationText
             type={typeValidationText}
             text={statusValidationText}
@@ -107,6 +115,9 @@ MoleculeField.propTypes = {
 
   /** Error message to display when error state  */
   errorText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+
+  /** Error message to display when alert state  */
+  alertText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
   /** Help Text to display */
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),

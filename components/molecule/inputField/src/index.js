@@ -4,15 +4,15 @@ import PropTypes from 'prop-types'
 import MoleculeField from '@s-ui/react-molecule-field'
 import AtomInput, {inputStates} from '@s-ui/react-atom-input'
 
-const getErrorState = (success, error) => {
-  if (success) return false
-  if (error) return true
+const getErrorState = ({successText, errorText}) => {
+  if (successText) return false
+  if (errorText) return true
 }
 
-const getState = (success, error, alert) => {
-  if (success) return inputStates.SUCCESS
-  if (error) return inputStates.ERROR
-  if (alert) return inputStates.ALERT
+const getState = ({successText, errorState, alertText}) => {
+  if (successText) return inputStates.SUCCESS
+  if (errorState) return inputStates.ERROR
+  if (alertText) return inputStates.ALERT
 }
 
 const MoleculeInputField = ({
@@ -26,8 +26,8 @@ const MoleculeInputField = ({
   onChange,
   ...props
 }) => {
-  const errorState = getErrorState(successText, errorText)
-  const inputState = getState(successText, errorState, alertText)
+  const errorState = getErrorState({successText, errorText})
+  const inputState = getState({successText, errorState, alertText})
 
   return (
     <MoleculeField

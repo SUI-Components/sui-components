@@ -9,18 +9,24 @@ const input = {
   width: '100%',
 }
 return (
-  <div>
+  <div style={{margin: '16px'}}>
     <div style={{marginBottom: '16px'}}>
       <input style={input}
         type='text'
       />
       <AtomValidationText type={AtomValidationTextTypes.SUCCESS} text='Success validation text'/>
     </div>
-    <div>
+    <div style={{marginBottom: '16px'}}>
       <input style={input}
         type='text'
       />
       <AtomValidationText type={AtomValidationTextTypes.ERROR} text='Error validation text'/>
+    </div>
+    <div>
+      <input style={input}
+        type='text'
+      />
+      <AtomValidationText type={AtomValidationTextTypes.ALERT} text='Alert validation text'/>
     </div>
   </div>
 )

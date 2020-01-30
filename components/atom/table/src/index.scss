@@ -1,0 +1,26 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+.react-AtomTable {
+  border-collapse: collapse;
+  color: $c-gray-dark;
+  font-size: $fz-s;
+  padding: 0;
+
+  &--fullWidth {
+    width: 100%;
+  }
+
+  &-headerCell {
+    font-weight: $fw-regular;
+    text-align: left;
+  }
+
+  &-cell {
+    border-bottom: 1px solid $c-gray-light-5;
+    padding: $p-l;
+
+    &--noWrap {
+      white-space: nowrap;
+    }
+  }
+}

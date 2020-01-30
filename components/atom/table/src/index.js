@@ -12,7 +12,7 @@ const AtomTable = ({head, body, foot, fullWidth}) => {
   const hasFoot = Boolean(foot?.length)
   const baseClass = 'react-AtomTable'
   const tableClass = cx(`${baseClass}`, {
-    'react-AtomTable--fullWidth': fullWidth
+    [`${baseClass}--fullWidth`]: fullWidth
   })
 
   return (
@@ -38,7 +38,7 @@ const AtomTable = ({head, body, foot, fullWidth}) => {
             {row.map((cell, index) => {
               const {type: Element = CELL_TYPE.data} = cell
               const cellClassName = cx(`${baseClass}-cell`, {
-                'react-AtomTable-cell--noWrap': cell.isNowrap
+                [`${baseClass}-cell--noWrap`]: cell.isNowrap
               })
 
               return (

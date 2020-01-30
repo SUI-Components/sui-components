@@ -68,6 +68,16 @@ import MoleculeTextareaField from '@s-ui/react-molecule-textarea-field'
   />
 ```
 
+### With Alert Message 
+```
+  <MoleculeTextareaField
+    id="description"
+    label="Description"
+    value="In some place of La Mancha which name..."
+    alertText="Ok, but's something needs your attention..."
+  />
+```
+
 ### With Help Text
 
 ```

@@ -68,6 +68,18 @@ return (
           maxChars={60}
         />
       </li>
+      <li>
+        <h2>
+          With Alert validation HelpText and custom <code>maxChars</code>
+        </h2>
+        <MoleculeTextareaField
+          id="notes"
+          label="Notes"
+          alertText="Ok, but's something needs your attention..."
+          value="In some place of La Mancha which name..."
+          maxChars={60}
+        />
+      </li>
     </ul>
   </div>
 )

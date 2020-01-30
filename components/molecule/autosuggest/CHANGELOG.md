@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.5.0 (2020-01-30)
+
+
+### Bug Fixes
+
+* do not focus if inner ref is undefined ([3cb9af8](https://github.com/SUI-Components/sui-components/commit/3cb9af80090131f25e3018a09698c704b63ded30))
+
+
+
 # 2.4.0 (2020-01-27)
 
 

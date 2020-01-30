@@ -41,6 +41,14 @@ import MoleculeField from '@s-ui/react-molecule-field'
   </MoleculeField>
 ```
 
+### With Alert Message 
+
+```
+  <MoleculeField label="address" name="address" alertText="Alert!">
+    <input id="address" type="text"/>
+  </MoleculeField>
+```
+
 ### With Help Text
 
 ```

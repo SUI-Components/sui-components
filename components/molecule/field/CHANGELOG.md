@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.14.0 (2020-01-30)
+
+
+### Features
+
+* add new prop: alerText ([b037236](https://github.com/SUI-Components/sui-components/commit/b037236a2f0c8362270d8d85562d797b88cfc7eb))
+* simplify condition to show validation text ([f7af123](https://github.com/SUI-Components/sui-components/commit/f7af123be00a83a460eee621dd0c80749a54d861))
+
+
+
 # 1.13.0 (2020-01-27)
 
 

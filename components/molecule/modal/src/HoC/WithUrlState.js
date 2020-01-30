@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 
 const checkHash = hash => window.location.hash.includes(hash)
 
-const emptyFn = () => {}
-
 /**
  * It must be refactored with react-router hooks (in React Router > 5)
  * - useHistory
@@ -48,10 +46,8 @@ export default BaseComponent => {
 
       if (checkHash(hash)) openModalTrigger()
 
-      window.onpopstate = _handlePopState
-      return () => {
-        window.onpopstate = emptyFn
-      }
+      window.addEventListener('popstate', _handlePopState)
+      return () => window.removeEventListener('popstate', _handlePopState)
     }, [hash]) // eslint-disable-line
 
     return <BaseComponent {...rest} onClose={onClose} />

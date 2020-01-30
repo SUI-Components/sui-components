@@ -17,7 +17,7 @@ $ npm install @s-ui/react-atom-table --save
 ```js
 import AtomTable from '@s-ui/react-table-basic'
 
-const contentHeadMook = [
+const contentHead = [
   'Versión',
   'Año',
   'Combustible',
@@ -26,7 +26,7 @@ const contentHeadMook = [
   ''
 ]
 
-const contentBodyMook = [
+const contentBody = [
   [
     {
       content: 'Volkswagen Golf Edition 1.0 TSI 85kW',
@@ -53,7 +53,7 @@ const contentBodyMook = [
   ]
 ]
 
-return <AtomTable head={contentHeadMook} body={contentBodyMook} />
+return <AtomTable head={contentHead} body={contentBody} />
 
 
 > **Find full description and more examples in the [demo page](#).**

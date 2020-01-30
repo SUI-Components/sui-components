@@ -80,7 +80,7 @@ const MoleculeField = ({
       )}
       <div className={CLASS_INPUT_CONTAINER}>
         {!inline && extendedChildren}
-        {(successText || errorText || alertText) && (
+        {typeValidationText && (
           <AtomValidationText
             type={typeValidationText}
             text={statusValidationText}

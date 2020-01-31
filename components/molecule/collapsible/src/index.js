@@ -10,10 +10,15 @@ const BUTTON_CLASS = `${BASE_CLASS}-btn`
 const BUTTON_CONTENT_CLASS = `${BUTTON_CLASS}-content`
 const ICON_CLASS = `${BASE_CLASS}-icon`
 const MIN_HEIGHT = 100 // px
+const CONTENT_ALIGN = {
+  CENTER: 'center',
+  RIGHT: 'right'
+}
 
 const MoleculeCollapsible = ({
   onClose = () => {},
   onOpen = () => {},
+  alignContainer,
   children,
   height = MIN_HEIGHT,
   icon,
@@ -42,7 +47,6 @@ const MoleculeCollapsible = ({
     setShowButton(offsetHeight >= height)
     setMaxHeight(offsetHeight)
   }, [height])
-
   const wrapperClassName = cx(`${BASE_CLASS}`, {
     [`${BASE_CLASS}--withGradient`]: withGradient,
     [COLLAPSED_CLASS]: collapsed
@@ -56,7 +60,8 @@ const MoleculeCollapsible = ({
   })
   const contentClassName = cx(`${CONTENT_CLASS}`, {
     [`${CONTENT_CLASS}--withTransition`]: withTransition,
-    [`${CONTENT_CLASS}--withOverflow`]: withOverflow
+    [`${CONTENT_CLASS}--withOverflow`]: withOverflow,
+    [`${CONTENT_CLASS}--${alignContainer}`]: alignContainer
   })
   const containerHeight =
     showButton && collapsed ? `${height}px` : `${maxHeight}px`
@@ -90,6 +95,10 @@ const MoleculeCollapsible = ({
 MoleculeCollapsible.displayName = 'MoleculeCollapsible'
 
 MoleculeCollapsible.propTypes = {
+  /**
+   * Container align center || right
+   */
+  alignContainer: PropTypes.oneOf(Object.values(CONTENT_ALIGN)),
   /**
    * Content to collapse
    */
@@ -133,3 +142,5 @@ MoleculeCollapsible.propTypes = {
 }
 
 export default MoleculeCollapsible
+
+export {CONTENT_ALIGN}

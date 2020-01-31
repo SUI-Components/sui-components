@@ -4,7 +4,8 @@ import React from 'react'
 import {withStateValue} from '@s-ui/hoc'
 
 import MoleculeSelect, {
-  moleculeSelectSizes
+  moleculeSelectSizes,
+  moleculeSelectStates
 } from '../../../../components/molecule/select/src'
 
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
@@ -134,7 +135,7 @@ const Demo = () => (
         placeholder="Select a Country..."
         onChange={(_, {value}) => console.log(value)}
         iconArrowDown={<IconArrowDown />}
-        state="alert"
+        state={moleculeSelectStates.ALERT}
       >
         {countriesData.map(({name, code}, i) => (
           <MoleculeSelectOption key={i} value={code}>

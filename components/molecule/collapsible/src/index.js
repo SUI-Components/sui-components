@@ -47,7 +47,6 @@ const MoleculeCollapsible = ({
     setShowButton(offsetHeight >= height)
     setMaxHeight(offsetHeight)
   }, [height])
-  console.log('alignContainer', alignContainer)
   const wrapperClassName = cx(`${BASE_CLASS}`, {
     [`${BASE_CLASS}--withGradient`]: withGradient,
     [COLLAPSED_CLASS]: collapsed

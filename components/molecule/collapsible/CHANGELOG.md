@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2020-01-31)
+
+
+### Bug Fixes
+
+* fixed align class ([be09719](https://github.com/SUI-Components/sui-components/commit/be09719))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2020-01-31)
 

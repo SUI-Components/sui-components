@@ -56,12 +56,12 @@ const MoleculeCollapsible = ({
   })
   const containerClassName = cx(`${CONTAINER_BUTTON_CLASS}`, {
     [`${CONTAINER_BUTTON_CLASS}--withGradient`]: withGradient,
-    [COLLAPSED_CLASS]: collapsed
+    [COLLAPSED_CLASS]: collapsed,
+    [`${CONTAINER_BUTTON_CLASS}--${alignContainer}`]: alignContainer
   })
   const contentClassName = cx(`${CONTENT_CLASS}`, {
     [`${CONTENT_CLASS}--withTransition`]: withTransition,
-    [`${CONTENT_CLASS}--withOverflow`]: withOverflow,
-    [`${CONTENT_CLASS}--${alignContainer}`]: alignContainer
+    [`${CONTENT_CLASS}--withOverflow`]: withOverflow
   })
   const containerHeight =
     showButton && collapsed ? `${height}px` : `${maxHeight}px`

@@ -79,6 +79,24 @@ const options = ['John','Paul','George','Ringo']
 </MoleculeSelectField>
 ```
 
+### With Alert Message 
+
+```js
+<MoleculeSelectField
+    label="Country"
+    placeholder="Select a Country..."
+    onChange={(_, {value}) => console.log(value)}
+    iconArrowDown={<IconArrowDown />}
+    alertText="Error!"
+  >
+    {options.map((option, i) => (
+      <MoleculeSelectOption key={i} value={option}>
+        {option}
+      </MoleculeSelectOption>
+    ))}
+</MoleculeSelectField>
+```
+
 ### With Success Message 
 
 ```js

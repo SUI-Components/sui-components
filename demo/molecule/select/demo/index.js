@@ -124,6 +124,26 @@ const Demo = () => (
       </MoleculeSelect>
     </div>
 
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With state</h3>
+      <p>
+        State to highlight that can be <code>success</code>, <code>error</code>{' '}
+        or <code>alert</code>
+      </p>
+      <MoleculeSelect
+        placeholder="Select a Country..."
+        onChange={(_, {value}) => console.log(value)}
+        iconArrowDown={<IconArrowDown />}
+        state="alert"
+      >
+        {countriesData.map(({name, code}, i) => (
+          <MoleculeSelectOption key={i} value={code}>
+            {name}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelect>
+    </div>
+
     <h2>Multiple Selection</h2>
     <div className={CLASS_DEMO_SECTION}>
       <h3>With Placeholder</h3>

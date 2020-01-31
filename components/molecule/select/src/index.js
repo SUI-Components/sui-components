@@ -16,9 +16,10 @@ const BASE_CLASS = `sui-MoleculeSelect`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
 const CLASS_DISABLED = `is-disabled`
 
-const ERROR_STATES = {
+const SELECT_STATES = {
   ERROR: 'error',
-  SUCCESS: 'success'
+  SUCCESS: 'success',
+  ALERT: 'alert'
 }
 
 const ENABLED_KEYS = ['Enter', 'ArrowDown', 'ArrowUp']
@@ -38,6 +39,7 @@ const MoleculeSelect = props => {
     onToggle,
     children,
     errorState,
+    state,
     disabled,
     keysSelection,
     refMoleculeSelect: refMoleculeSelectFromProps
@@ -60,8 +62,9 @@ const MoleculeSelect = props => {
 
   const className = cx(
     BASE_CLASS,
-    errorState && `${BASE_CLASS}--${ERROR_STATES.ERROR}`,
-    errorState === false && `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`,
+    errorState && `${BASE_CLASS}--${SELECT_STATES.ERROR}`,
+    errorState === false && `${BASE_CLASS}--${SELECT_STATES.SUCCESS}`,
+    state && `${BASE_CLASS}--${state}`,
     {
       [CLASS_FOCUS]: focus,
       [CLASS_DISABLED]: disabled
@@ -205,6 +208,9 @@ MoleculeSelect.propTypes = {
   /** true = error, false = success, null = neutral */
   errorState: PropTypes.bool,
 
+  /* Will set a red/green/orange border if set to 'error' / 'success' / 'alert' */
+  state: PropTypes.oneOf(Object.values(SELECT_STATES)),
+
   /** This Boolean attribute prevents the user from interacting with the select */
   disabled: PropTypes.bool,
 
@@ -230,3 +236,4 @@ MoleculeSelect.defaultProps = {
 export default withOpenToggle(MoleculeSelect)
 export {SIZES as moleculeSelectDropdownListSizes}
 export {SELECT_SIZES as moleculeSelectSizes}
+export {SELECT_STATES as moleculeSelectStates}

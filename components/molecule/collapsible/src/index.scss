@@ -46,6 +46,14 @@
     text-align: $ta-collapsible-container;
     width: 100%;
 
+    &--center {
+      text-align: center;
+    }
+
+    &--right {
+      text-align: right;
+    }
+
     &#{&}--withGradient.is-collapsed {
       &::before {
         background: $bg-collapsible-container-gradient;

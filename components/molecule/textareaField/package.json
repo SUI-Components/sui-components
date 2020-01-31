@@ -11,7 +11,7 @@
   "dependencies": {
     "@s-ui/component-dependencies": "1",
     "@s-ui/react-molecule-field": "1",
-    "@s-ui/react-atom-textarea": "1"
+    "@s-ui/react-atom-textarea": "2"
   },
   "keywords": [],
   "author": "",

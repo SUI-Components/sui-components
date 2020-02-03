@@ -51,7 +51,7 @@ const Demo = () => {
           />
         </li>
         <li style={styleListItem}>
-          <h2>With Error validation HelpText</h2>
+          <h2>With Alert validation HelpText</h2>
           <MoleculeCheckboxField
             id="alert-help-text"
             label="Notes"

@@ -87,7 +87,7 @@ return (
       </li>
       <li style={styleListItem}>
         <h2>
-          With Error validation HelpText
+          With Alert validation HelpText
         </h2>
         <MoleculeFieldWithState
           id="notes"

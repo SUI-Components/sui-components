@@ -1,4 +1,4 @@
-/ 
+/*
  * Remember: YOUR COMPONENT IS DEFINED GLOBALLY
  * */
 

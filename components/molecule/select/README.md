@@ -73,6 +73,24 @@ const options = ['John','Paul','George','Ringo']
 </MoleculeSelect>
 ```
 
+#### With state highlight
+Can be `success`, `error` or `alert`.
+
+```js
+<MoleculeSelect
+      placeholder="Select a Country..."
+      onChange={(_, {value}) => console.log(value)}
+      iconArrowDown={<IconArrowDown />}
+      state="success"
+    >
+  {options.map((option, i) => (
+    <MoleculeSelectOption key={i} value={option}>
+      {option}
+    </MoleculeSelectOption>
+  ))}
+</MoleculeSelect>
+```
+
 ### Multiple Selection
 
 #### Basic usage

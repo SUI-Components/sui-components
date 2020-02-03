@@ -1,5 +1,5 @@
-/**
- * Remember: YOUR COMPONENT IS DEFINE GLOBALLY
+/ 
+ * Remember: YOUR COMPONENT IS DEFINED GLOBALLY
  * */
 
 /* eslint react/jsx-no-undef:0 */
@@ -12,7 +12,7 @@ import chaiDOM from 'chai-dom'
 
 chai.use(chaiDOM)
 
-describe('AtomButton', () => {
+describe('atom/checkbox', () => {
   it('Render', () => {
     // Example TO BE DELETED!!!!
     // const {getByRole} = render(<AtomButton>HOLA</AtomButton>)

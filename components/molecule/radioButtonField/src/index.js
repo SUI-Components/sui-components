@@ -6,9 +6,9 @@ import AtomRadioButton from '@s-ui/react-atom-radio-button'
 
 const BASE_CLASS = 'sui-MoleculeRadioButtonField'
 
-const getErrorState = (success, error) => {
-  if (success) return false
-  if (error) return true
+const getErrorState = ({successText, errorText}) => {
+  if (successText) return false
+  if (errorText) return true
 }
 
 const MoleculeRadioButtonField = ({
@@ -16,11 +16,13 @@ const MoleculeRadioButtonField = ({
   label,
   successText,
   errorText,
+  alertText,
   helpText,
   onChange,
   ...props
 }) => {
-  const errorState = getErrorState(successText, errorText)
+  const errorState = getErrorState({successText, errorText})
+
   return (
     <div className={BASE_CLASS}>
       <MoleculeField
@@ -28,6 +30,7 @@ const MoleculeRadioButtonField = ({
         label={label}
         successText={successText}
         errorText={errorText}
+        alertText={alertText}
         helpText={helpText}
         onChange={onChange}
         inline
@@ -56,6 +59,9 @@ MoleculeRadioButtonField.propTypes = {
 
   /** Error message to display when error state  */
   errorText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+
+  /** Alert message to display when alert state  */
+  alertText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
   /** Help Text to display */
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),

@@ -47,4 +47,15 @@ import MoleculeRadioButtonField from '@s-ui/react-molecule-radio-button-field'
   />
 ```
 
+### Alert Message
+
+```js
+ <MoleculeRadioButtonField
+    id="notes"
+    label="Notes"
+    alertText="Something meh..."
+    value="In some place of La Mancha which name..."
+  />
+```
+
 > **Find full description and more examples in the [demo page](/workbench/molecule/radioButtonField).**

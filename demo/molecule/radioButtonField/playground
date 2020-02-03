@@ -67,6 +67,25 @@ return (
           value="In some place of La Mancha which name..."
         />
       </li>
+      <li style={styleListItem}>
+        <h2>With Alert validation HelpText</h2>
+        <MoleculeRadioButtonField
+          id="notes"
+          label="Notes"
+          alertText="Something meh..."
+          value="In some place of La Mancha which name..."
+        />
+      </li>
+      <li style={styleListItem}>
+        <h2>With Alert validation HelpText checked</h2>
+        <MoleculeRadioButtonField
+          id="notes"
+          checked
+          label="Notes"
+          alertText="Something meh..."
+          value="In some place of La Mancha which name..."
+        />
+      </li>
     </ul>
   </div>
 )

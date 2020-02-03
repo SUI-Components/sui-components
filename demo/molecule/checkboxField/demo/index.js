@@ -50,6 +50,16 @@ const Demo = () => {
             onChange={(e, {name, value}) => console.log({[name]: value})}
           />
         </li>
+        <li style={styleListItem}>
+          <h2>With Alert validation HelpText</h2>
+          <MoleculeCheckboxField
+            id="alert-help-text"
+            label="Notes"
+            alertText="Something meh..."
+            value="In some place of La Mancha which name..."
+            onChange={(e, {name, value}) => console.log({[name]: value})}
+          />
+        </li>
       </ul>
     </div>
   )

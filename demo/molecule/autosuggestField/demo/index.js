@@ -86,7 +86,7 @@ const Demo = () => (
       <h3>With Alert validation HelpText</h3>
 
       <MoleculeAutosuggestFieldWithState
-        id="with-error-validation-help-text"
+        id="with-alert-validation-help-text"
         label="Country"
         placeholder="Select a Country..."
         onChange={(_, {value}) => console.log(value)}

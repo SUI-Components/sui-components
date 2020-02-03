@@ -11,6 +11,7 @@ const MoleculeCheckboxField = ({
   label,
   successText,
   errorText,
+  alertText,
   helpText,
   onChange,
   toggleIcon: ToggleIcon,
@@ -24,6 +25,7 @@ const MoleculeCheckboxField = ({
         label={label}
         successText={successText}
         errorText={errorText}
+        alertText={alertText}
         helpText={helpText}
         onChange={onChange}
         inline
@@ -60,6 +62,9 @@ MoleculeCheckboxField.propTypes = {
 
   /** Error message to display when error state  */
   errorText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+
+  /** Alert message to display when alert state  */
+  alertText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
   /** Help Text to display */
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),

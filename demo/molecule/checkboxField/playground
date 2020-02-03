@@ -85,6 +85,17 @@ return (
           value="In some place of La Mancha which name..."
         />
       </li>
+      <li style={styleListItem}>
+        <h2>
+          With Error validation HelpText
+        </h2>
+        <MoleculeFieldWithState
+          id="notes"
+          label="Notes"
+          alertText="Something meh..."
+          value="In some place of La Mancha which name..."
+        />
+      </li>
     </ul>
   </div>
 )

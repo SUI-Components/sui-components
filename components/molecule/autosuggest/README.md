@@ -29,6 +29,7 @@ const suggestions = ['John','Johnny']
   value={'Jo'}
   placeholder="Select an option..."
   iconClear={<IconClose />}
+  state="success"
 >
   {suggestions.map((suggestion, i) => (
     <MoleculeAutosuggestOption key={i} value={suggestion}>

@@ -15,9 +15,10 @@ const BASE_CLASS = `sui-MoleculeAutosuggest`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 
-const ERROR_STATES = {
+const AUTOSUGGEST_STATES = {
   ERROR: 'error',
-  SUCCESS: 'success'
+  SUCCESS: 'success',
+  ALERT: 'alert'
 }
 
 const getIsTypeableKey = key => {
@@ -43,7 +44,8 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
     keysCloseList,
     keysSelection,
     disabled,
-    errorState
+    errorState,
+    state
   } = props
 
   const refMoleculeAutosuggest = useRef(
@@ -66,8 +68,9 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
 
   const className = cx(
     BASE_CLASS,
-    errorState && `${BASE_CLASS}--${ERROR_STATES.ERROR}`,
-    errorState === false && `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`,
+    errorState && `${BASE_CLASS}--${AUTOSUGGEST_STATES.ERROR}`,
+    errorState === false && `${BASE_CLASS}--${AUTOSUGGEST_STATES.SUCCESS}`,
+    state && `${BASE_CLASS}--${state}`,
     {
       [CLASS_FOCUS]: focus,
       [CLASS_DISABLED]: disabled
@@ -249,7 +252,10 @@ MoleculeAutosuggest.propTypes = {
   tabIndex: PropTypes.number,
 
   /** true = error, false = success, null = neutral */
-  errorState: PropTypes.bool
+  errorState: PropTypes.bool,
+
+  /* Will set a red/green/orange border if set to 'error' / 'success' / 'alert' */
+  state: PropTypes.oneOf(Object.values(AUTOSUGGEST_STATES))
 }
 
 MoleculeAutosuggest.defaultProps = {
@@ -263,3 +269,4 @@ MoleculeAutosuggest.defaultProps = {
 
 export default withOpenToggle(MoleculeAutosuggest)
 export {SIZES as MoleculeAutosuggestDropdownListSizes}
+export {AUTOSUGGEST_STATES as MoleculeAutosuggestStates}

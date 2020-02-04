@@ -255,7 +255,10 @@ MoleculeAutosuggest.propTypes = {
   errorState: PropTypes.bool,
 
   /* Will set a red/green/orange border if set to 'error' / 'success' / 'alert' */
-  state: PropTypes.oneOf(Object.values(AUTOSUGGEST_STATES))
+  state: PropTypes.oneOf(Object.values(AUTOSUGGEST_STATES)),
+
+  /* Button prop to be passe down to the input field */
+  rigthButton: PropTypes.node
 }
 
 MoleculeAutosuggest.defaultProps = {

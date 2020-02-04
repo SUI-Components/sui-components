@@ -13,6 +13,7 @@
     "@s-ui/hoc": "1",
     "@s-ui/react-molecule-dropdown-option": "1",
     "@s-ui/react-molecule-select": "1",
+    "@s-ui/react-atom-button": "1",
     "axios": "^0.19.0"
   }
 }

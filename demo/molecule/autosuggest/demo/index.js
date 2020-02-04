@@ -142,7 +142,6 @@ const Demo = () => (
         placeholder="Type a Country name..."
         onChange={(_, {value}) => console.log(value)}
         onEnter={() => console.log('Enter pressed')}
-        state={MoleculeAutosuggestStates.ALERT}
         rightButton={<SuiButton>Submit</SuiButton>}
       />
     </div>

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.8.0 (2020-02-04)
+
+
+### Bug Fixes
+
+* add css to input with button ([ed41f34](https://github.com/SUI-Components/sui-components/commit/ed41f34f10fea4138be20509209c40527163cca3))
+
+
+
 # 4.7.0 (2020-01-29)
 
 

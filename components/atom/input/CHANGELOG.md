@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.9.0 (2020-02-05)
+
+
+### Features
+
+* add variable placeholder atom input ([986adcc](https://github.com/SUI-Components/sui-components/commit/986adccc160526c5aa65a100d23732b3c2535def))
+
+
+
 # 4.8.0 (2020-02-04)
 
 

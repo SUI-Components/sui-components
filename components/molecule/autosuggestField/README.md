@@ -95,6 +95,24 @@ const options = ['John','Paul','George','Ringo']
 </MoleculeAutosuggestField>
 ```
 
+### With Alert Message 
+
+```js
+<MoleculeAutosuggestField
+    label="Country"
+    placeholder="Select a Country..."
+    onChange={(_, {value}) => console.log(value)}
+    iconClear={<IconClose />}
+    alertText="Alert!"
+  >
+    {options.map((option, i) => (
+      <MoleculeAutosuggestOption key={i} value={option}>
+        {option}
+      </MoleculeAutosuggestOption>
+    ))}
+</MoleculeAutosuggestField>
+```
+
 ### With Help Text
 
 ```js

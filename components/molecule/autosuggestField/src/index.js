@@ -2,11 +2,19 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
-import MoleculeAutosuggest from '@s-ui/react-molecule-autosuggest'
+import MoleculeAutosuggest, {
+  MoleculeAutosuggestStates
+} from '@s-ui/react-molecule-autosuggest'
 
-const hasErrors = (success, error) => {
-  if (error) return true
-  if (success) return false
+const getErrorState = ({successText, errorText}) => {
+  if (successText) return false
+  if (errorText) return true
+}
+
+const getState = ({successText, errorState, alertText}) => {
+  if (successText) return MoleculeAutosuggestStates.SUCCESS
+  if (errorState) return MoleculeAutosuggestStates.ERROR
+  if (alertText) return MoleculeAutosuggestStates.ALERT
 }
 
 class MoleculeAutosuggestField extends Component {
@@ -25,19 +33,23 @@ class MoleculeAutosuggestField extends Component {
       id,
       successText,
       errorText,
+      alertText,
       helpText,
       inline,
       children, // eslint-disable-line
       onChange,
       ...props
     } = this.props
-    const errorState = hasErrors(successText, errorText)
+    const errorState = getErrorState({successText, errorText})
+    const autosuggestState = getState({successText, errorState, alertText})
+
     return (
       <MoleculeField
         name={id}
         label={label}
         successText={successText}
         errorText={errorText}
+        alertText={alertText}
         helpText={helpText}
         inline={inline}
         onClickLabel={handleClick}
@@ -48,6 +60,7 @@ class MoleculeAutosuggestField extends Component {
           id={id}
           refMoleculeAutosuggest={refAutosuggest}
           errorState={errorState}
+          state={autosuggestState}
           {...props}
         >
           {children}
@@ -74,6 +87,9 @@ MoleculeAutosuggestField.propTypes = {
 
   /** Error message to display when error state  */
   errorText: PropTypes.string,
+
+  /** Alert message to display when alert state  */
+  alertText: PropTypes.string,
 
   /** Help Text to display */
   helpText: PropTypes.string,

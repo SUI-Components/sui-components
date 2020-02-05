@@ -54,16 +54,28 @@ const MoleculeDropdownList = ({
       current: {children: options}
     } = refDropdownList
     const numOptions = options.length
+    const index = getFocusedOptionIndex(options)
     if (key === 'ArrowDown' || key === 'ArrowUp') {
-      const index = getFocusedOptionIndex(options)
       if (index >= 0 || index <= numOptions) {
         if (key === 'ArrowDown' && index < numOptions - 1)
           options[index + 1].focus()
         if (key === 'ArrowUp' && index > 0) options[index - 1].focus()
       }
-      ev.preventDefault()
-      ev.stopPropagation()
+    } else {
+      const optionToFocusOn =
+        Array.from(options).find(
+          (option, i) =>
+            i > index &&
+            option.innerText.charAt(0).toLowerCase() === key.toLowerCase()
+        ) ||
+        Array.from(options).find(
+          (option, i) =>
+            option.innerText.charAt(0).toLowerCase() === key.toLowerCase()
+        )
+      optionToFocusOn && optionToFocusOn.focus()
     }
+    ev.preventDefault()
+    ev.stopPropagation()
   }
 
   return (

@@ -3,6 +3,7 @@ $c-atom-input-placeholder: $c-gray-dark !default;
 $m-atom-input-type-left: $m-m !default;
 $m-atom-input-type-right: $m-m !default;
 $bdrs-atom-input: $bdrs-none !default;
+$tov-atom-input-placeholder: unset !default;
 
 $base-class: '.sui-AtomInput-input';
 $class-read-only: '#{$base-class}--readOnly';
@@ -11,7 +12,7 @@ $class-read-only: '#{$base-class}--readOnly';
   @extend %sui-atom-input-input;
   border-radius: $bdrs-atom-input;
   min-height: auto;
-
+  text-overflow: $tov-atom-input-placeholder;
   &--size {
     width: inherit;
   }

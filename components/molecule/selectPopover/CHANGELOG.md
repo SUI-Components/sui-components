@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.4.0 (2020-02-06)
+
+
+### Features
+
+* add sizes ([cfd1af3](https://github.com/SUI-Components/sui-components/commit/cfd1af3d3536bfa5fad8b9a07440099ba229aa38))
+
+
+
 # 1.3.0 (2020-01-22)
 
 

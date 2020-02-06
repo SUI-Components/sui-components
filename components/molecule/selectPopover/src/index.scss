@@ -7,6 +7,7 @@
 
   &-select {
     $select: &;
+    align-items: center;
     border-radius: $bdrs-select-popover;
     border: 1px solid $c-gray-light-2;
     color: $c-black;
@@ -43,6 +44,12 @@
     &.is-selected {
       border-color: $c-primary;
       color: $c-primary;
+    }
+
+    @each $type, $attr in $sizes-molecule-select-popover-heights {
+      &--#{$type} {
+        height: $attr;
+      }
     }
   }
 

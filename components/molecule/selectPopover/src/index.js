@@ -3,9 +3,15 @@ import Button from '@s-ui/react-atom-button'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-const BASE_CLASS = `sui-MoleculeSelectPopover`
+const BASE_CLASS = 'sui-MoleculeSelectPopover'
 
-export default function MoleculeSelectPopover({
+const SIZES = {
+  MEDIUM: 'm',
+  SMALL: 's',
+  XSMALL: 'xs'
+}
+
+function MoleculeSelectPopover({
   acceptButtonText,
   cancelButtonText,
   children,
@@ -13,17 +19,22 @@ export default function MoleculeSelectPopover({
   isSelected = false,
   onAccept = () => {},
   onCancel = () => {},
-  selectText
+  selectText,
+  size = 'm'
 }) {
   const [isOpen, setIsOpen] = useState(false)
 
   const selectRef = useRef()
   const popoverRef = useRef()
 
-  const selectClassName = cx(`${BASE_CLASS}-select`, {
-    'is-open': isOpen,
-    'is-selected': isSelected
-  })
+  const selectClassName = cx(
+    `${BASE_CLASS}-select`,
+    `${BASE_CLASS}-select--${size}`,
+    {
+      'is-open': isOpen,
+      'is-selected': isSelected
+    }
+  )
 
   const handleOnAccept = () => {
     setIsOpen(false)
@@ -88,5 +99,9 @@ MoleculeSelectPopover.propTypes = {
   isSelected: PropTypes.bool,
   onAccept: PropTypes.func,
   onCancel: PropTypes.func,
-  selectText: PropTypes.string.isRequired
+  selectText: PropTypes.string.isRequired,
+  size: PropTypes.string
 }
+
+export default MoleculeSelectPopover
+export {SIZES as selectPopoverSizes}

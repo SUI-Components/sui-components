@@ -68,13 +68,13 @@ AtomTextarea.propTypes = {
   value: PropTypes.string,
 
   /** true = error, false = success, null = neutral */
-  errorState: PropTypes.bool,
-
+  errorState: PropTypes.bool
+}
 
 AtomTextarea.defaultProps = {
   size: SIZES.SHORT,
   onChange: () => {},
-  onBlur: () => {}
+  onBlur: () => {},
   /* Will set a red/green/orange border if set to 'error' / 'success' / 'alert' */
   state: PropTypes.oneOf(Object.values(TEXTAREA_STATES))
 }

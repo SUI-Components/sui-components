@@ -3,16 +3,22 @@
 $base-class: '.sui-AtomButton';
 
 $c-accent-hover: color-variation($c-accent, -1) !default;
+$c-accent-flat-hover: color-variation($c-accent, 4) !default;
+$c-primary-hover: color-variation($c-primary, -1) !default;
+$c-primary-flat-hover: color-variation($c-primary, 4) !default;
 
 $c-atom-button-colors: (
   'primary': (
     $c-primary,
-    $c-white
+    $c-white,
+    $c-primary-hover,
+    $c-primary-flat-hover
   ),
   'accent': (
     $c-accent,
     $c-white,
-    $c-accent-hover
+    $c-accent-hover,
+    $c-accent-flat-hover
   ),
   'neutral': (
     $c-gray,
@@ -216,13 +222,13 @@ $icon-stroke-color: currentColor !default;
         @include button-focused {
           background-color: color-variation($color, -1);
           background-color: if(
-            length($pair) == 3,
+            length($pair) > 2,
             nth($pair, 3),
             color-variation($color, -1)
           );
 
           border-color: if(
-            length($pair) == 3,
+            length($pair) > 2,
             nth($pair, 3),
             color-variation($color, -1)
           );
@@ -251,6 +257,11 @@ $icon-stroke-color: currentColor !default;
         @include button-foreground-color($color);
         @include button-focused {
           background-color: $bgc-atom-button-focused;
+          background-color: if(
+            length($pair) > 2,
+            nth($pair, 4),
+            $bgc-atom-button-focused
+          );
           color: $c-atom-button-focused;
         }
         background: none;

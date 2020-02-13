@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.10.0 (2020-02-12)
+
+
+### Features
+
+* add flex property ([ad233b5](https://github.com/SUI-Components/sui-components/commit/ad233b55aca3eee89f073a1faffeb688a01b2f23))
+
+
+
 # 4.9.0 (2020-02-05)
 
 

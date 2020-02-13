@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.39.0 (2020-02-12)
+
+
+### Features
+
+* add values to button map ([24e77d5](https://github.com/SUI-Components/sui-components/commit/24e77d557ae8d0caf9893b15300c0f6805178ebd))
+
+
+
 # 1.38.0 (2020-01-16)
 
 

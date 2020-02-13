@@ -13,7 +13,14 @@ const ERROR_STATES = {
   SUCCESS: 'success'
 }
 
-const AtomTextarea = ({onChange, size, value, errorState, ...props}) => {
+const AtomTextarea = ({
+  onChange,
+  onBlur,
+  size,
+  value,
+  errorState,
+  ...props
+}) => {
   const className = cx(
     BASE_CLASS,
     `${BASE_CLASS}--${size}`,
@@ -29,6 +36,7 @@ const AtomTextarea = ({onChange, size, value, errorState, ...props}) => {
   return (
     <textarea
       {...props}
+      onBlur={onBlur}
       onChange={handleChange}
       className={className}
       value={value}
@@ -45,6 +53,9 @@ AtomTextarea.propTypes = {
   /** Handler triggered on change */
   onChange: PropTypes.func,
 
+  /** onBlur callback */
+  onBlur: PropTypes.func,
+
   /** Value (content) of the textarea */
   value: PropTypes.string,
 
@@ -54,7 +65,8 @@ AtomTextarea.propTypes = {
 
 AtomTextarea.defaultProps = {
   size: SIZES.SHORT,
-  onChange: () => {}
+  onChange: () => {},
+  onBlur: () => {}
 }
 
 export default AtomTextarea

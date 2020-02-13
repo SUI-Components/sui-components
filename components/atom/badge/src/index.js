@@ -34,19 +34,14 @@ const truncateText = function(label) {
 }
 
 /**
- * @param  {string} options.className
+ * @param  {object} options
  * @param  {string} options.size
  * @param  {boolean} options.transparent
+ * @param  {object} options.iconRight
  * @param  {string} options.type
  * @return {string}
  */
-const getClassNames = function({
-  className,
-  iconRight,
-  size,
-  transparent,
-  type
-}) {
+const getClassNames = function({iconRight, size, transparent, type}) {
   const transparentClass = (transparent && `--${TRANSPARENT}`) || ''
 
   return cx(
@@ -61,6 +56,7 @@ const getClassNames = function({
 
 /**
  * Small badges with background can't have icon
+ * @param  {Object} options
  * @param  {Object} options.icon
  * @param  {string} options.size
  * @param  {boolean} options.transparent

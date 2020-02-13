@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 3.1.0 (2020-01-30)
+
+
+### Features
+
+* add new alert text type ([06b2d63](https://github.com/SUI-Components/sui-components/commit/06b2d63fcc37088f5f8ab554f5c26efbf6b32d76))
+* reduce function arguments to one ([8d3f470](https://github.com/SUI-Components/sui-components/commit/8d3f470055130ac2dd873312bf268202730130a8))
+
+
+
 # 3.0.0 (2020-01-14)
 
 

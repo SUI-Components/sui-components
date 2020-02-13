@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.7.0 (2020-02-04)
+
+
+### Bug Fixes
+
+* fix typo ([971ce4e](https://github.com/SUI-Components/sui-components/commit/971ce4e32c571c7079230ca125373b5340c3968d))
+
+
+### Features
+
+* add prop to be able to use an input with a button ([5f73d12](https://github.com/SUI-Components/sui-components/commit/5f73d1280a31240f6fa26c794ea750857d62e676))
+
+
+
+# 2.6.0 (2020-02-03)
+
+
+### Features
+
+* add alert state ([a55a4b2](https://github.com/SUI-Components/sui-components/commit/a55a4b212014b648f84e46cfe81b4b09f7354f67))
+
+
+
+# 2.5.0 (2020-01-30)
+
+
+### Bug Fixes
+
+* do not focus if inner ref is undefined ([3cb9af8](https://github.com/SUI-Components/sui-components/commit/3cb9af80090131f25e3018a09698c704b63ded30))
+
+
+
 # 2.4.0 (2020-01-27)
 
 

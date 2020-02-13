@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.1.0 (2020-02-03)
+
+
+### Features
+
+* add alert state ([6a66c43](https://github.com/SUI-Components/sui-components/commit/6a66c438c8a6d2d175967ad9b2145ed01bab5292))
+
+
+
 # 2.0.0 (2019-12-18)
 
 

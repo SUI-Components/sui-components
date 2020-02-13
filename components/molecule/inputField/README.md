@@ -52,6 +52,15 @@ import MoleculeInputField from '@s-ui/react-molecule-input-field'
   />
 ```
 
+### With `alertText`
+    
+```
+  <MoleculeInputField
+    id="notes"
+    label="Notes"
+    alertText="All wrong!"
+  />
+
 ### With `helpText`
 ```
   <MoleculeInputField

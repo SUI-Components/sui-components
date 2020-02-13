@@ -34,6 +34,17 @@ return (
       <input id="atomLabelName" type="text" />
     </div>
 
+    <div style={{marginBottom: '16px'}}>
+      <AtomLabel
+        name="atomLabelName"
+        for="labelName"
+        text="Hello label"
+        type={AtomLabelTypes.ALERT}
+      />
+
+      <input id="atomLabelName" type="text" />
+    </div>
+
     <div style={{marginBottom: '16px', background: '#000000', width: '200px', padding:'8px'}}>
       <AtomLabel
         name="atomLabelName"

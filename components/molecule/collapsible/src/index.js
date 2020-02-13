@@ -10,17 +10,23 @@ const BUTTON_CLASS = `${BASE_CLASS}-btn`
 const BUTTON_CONTENT_CLASS = `${BUTTON_CLASS}-content`
 const ICON_CLASS = `${BASE_CLASS}-icon`
 const MIN_HEIGHT = 100 // px
+const CONTENT_ALIGN = {
+  CENTER: 'center',
+  RIGHT: 'right'
+}
 
 const MoleculeCollapsible = ({
-  onClose,
-  onOpen,
+  onClose = () => {},
+  onOpen = () => {},
+  alignContainer,
   children,
-  height,
+  height = MIN_HEIGHT,
   icon,
   showText,
   hideText,
-  withGradient,
-  withTransition
+  withGradient = true,
+  withOverflow = false,
+  withTransition = true
 }) => {
   const childrenContainer = useRef()
   const [collapsed, setCollapsed] = useState(true)
@@ -41,7 +47,6 @@ const MoleculeCollapsible = ({
     setShowButton(offsetHeight >= height)
     setMaxHeight(offsetHeight)
   }, [height])
-
   const wrapperClassName = cx(`${BASE_CLASS}`, {
     [`${BASE_CLASS}--withGradient`]: withGradient,
     [COLLAPSED_CLASS]: collapsed
@@ -51,10 +56,12 @@ const MoleculeCollapsible = ({
   })
   const containerClassName = cx(`${CONTAINER_BUTTON_CLASS}`, {
     [`${CONTAINER_BUTTON_CLASS}--withGradient`]: withGradient,
-    [COLLAPSED_CLASS]: collapsed
+    [COLLAPSED_CLASS]: collapsed,
+    [`${CONTAINER_BUTTON_CLASS}--${alignContainer}`]: alignContainer
   })
   const contentClassName = cx(`${CONTENT_CLASS}`, {
-    [`${CONTENT_CLASS}--withTransition`]: withTransition
+    [`${CONTENT_CLASS}--withTransition`]: withTransition,
+    [`${CONTENT_CLASS}--withOverflow`]: withOverflow
   })
   const containerHeight =
     showButton && collapsed ? `${height}px` : `${maxHeight}px`
@@ -89,6 +96,10 @@ MoleculeCollapsible.displayName = 'MoleculeCollapsible'
 
 MoleculeCollapsible.propTypes = {
   /**
+   * Container align center || right
+   */
+  alignContainer: PropTypes.oneOf(Object.values(CONTENT_ALIGN)),
+  /**
    * Content to collapse
    */
   children: PropTypes.node.isRequired,
@@ -113,6 +124,10 @@ MoleculeCollapsible.propTypes = {
    */
   withGradient: PropTypes.bool,
   /**
+   * Activate/deactivate horizontal overflow
+   */
+  withOverflow: PropTypes.bool,
+  /**
    * Activate/deactivate transition
    */
   withTransition: PropTypes.bool,
@@ -126,12 +141,6 @@ MoleculeCollapsible.propTypes = {
   onClose: PropTypes.func
 }
 
-MoleculeCollapsible.defaultProps = {
-  height: MIN_HEIGHT,
-  withGradient: true,
-  withTransition: true,
-  onOpen: () => {},
-  onClose: () => {}
-}
-
 export default MoleculeCollapsible
+
+export {CONTENT_ALIGN}

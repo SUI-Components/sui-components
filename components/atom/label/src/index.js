@@ -7,6 +7,7 @@ const CLASSNAME = 'sui-AtomLabel'
 const TYPES = {
   SUCCESS: 'success',
   ERROR: 'error',
+  ALERT: 'alert',
   CONTRAST: 'contrast'
 }
 
@@ -66,7 +67,7 @@ AtomLabel.propTypes = {
    */
   optionalText: PropTypes.string,
   /**
-   * Label type: 'success', 'error' or 'contrast, use AtomLabelTypes
+   * Label type: 'success', 'error', 'alert' or 'contrast, use AtomLabelTypes
    */
   type: PropTypes.oneOf(Object.values(TYPES)),
   /**

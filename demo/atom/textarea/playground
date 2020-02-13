@@ -68,5 +68,29 @@ return (
         onChange={console.log}
       />
     </div>
+    <h2>States</h2>
+    <div style={stylesSection}>
+    <h3>Success</h3>
+      <AtomTextareaWithState 
+        name="textarea-4"
+        placeholder="Write something cool here..."
+        onChange={console.log}
+        state="success"
+      />
+      <h3>Error</h3>
+      <AtomTextareaWithState 
+        name="textarea-4"
+        placeholder="Write something cool here..."
+        onChange={console.log}
+        state="error"
+      />
+      <h3>Alert</h3>
+      <AtomTextareaWithState 
+        name="textarea-4"
+        placeholder="Write something cool here..."
+        onChange={console.log}
+        state="alert"
+      />
+    </div>
   </div>
 )

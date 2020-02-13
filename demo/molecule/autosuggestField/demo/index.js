@@ -82,11 +82,35 @@ const Demo = () => (
       />
     </div>
 
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With Alert validation HelpText</h3>
+
+      <MoleculeAutosuggestFieldWithState
+        id="with-alert-validation-help-text"
+        label="Country"
+        placeholder="Select a Country..."
+        onChange={(_, {value}) => console.log(value)}
+        alertText="Something meh..."
+        iconClear={<IconClose />}
+      />
+    </div>
+
     <div className={CLASS_DEMO_SECTION} style={{background: '#2b91c1'}}>
       <h3>With contrast label</h3>
       <MoleculeAutosuggestField
         id="with-placeholder"
         label="Country"
+        placeholder="Select a Country..."
+        onChange={(_, {value}) => console.log(value)}
+        iconClear={<IconClose />}
+        useContrastLabel
+      />
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>Without label</h3>
+      <MoleculeAutosuggestField
+        id="with-placeholder"
         placeholder="Select a Country..."
         onChange={(_, {value}) => console.log(value)}
         iconClear={<IconClose />}

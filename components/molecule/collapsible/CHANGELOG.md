@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2020-01-31)
+
+
+### Bug Fixes
+
+* fixed align class ([be09719](https://github.com/SUI-Components/sui-components/commit/be09719))
+
+
+
+<a name="1.7.0"></a>
+# 1.7.0 (2020-01-31)
+
+
+### Features
+
+* added alignContainer prop ([1d19763](https://github.com/SUI-Components/sui-components/commit/1d19763))
+* export {CONTENT_ALIGN} ([faf6812](https://github.com/SUI-Components/sui-components/commit/faf6812))
+* removed console.log() 😅 ([573cc59](https://github.com/SUI-Components/sui-components/commit/573cc59))
+* removed unnecessary CSS property and Sass var ([58b67bd](https://github.com/SUI-Components/sui-components/commit/58b67bd))
+* we needed to retro compatibility ([ff14284](https://github.com/SUI-Components/sui-components/commit/ff14284))
+
+
+
+<a name="1.6.0"></a>
+# 1.6.0 (2020-01-30)
+
+
+### Features
+
+* added withOverflow prop ([1012f6e](https://github.com/SUI-Components/sui-components/commit/1012f6e))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2019-09-19)
 

@@ -4,9 +4,11 @@ import React from 'react'
 import {withStateValue, withStateValueTags} from '@s-ui/hoc'
 
 import MoleculeAutosuggest, {
-  MoleculeAutosuggestDropdownListSizes
+  MoleculeAutosuggestDropdownListSizes,
+  MoleculeAutosuggestStates
 } from '../../../../components/molecule/autosuggest/src'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
+import SuiButton from '@s-ui/react-atom-button'
 
 import withDynamicOptions from './hoc/withDynamicOptions'
 
@@ -98,6 +100,49 @@ const Demo = () => (
       <MoleculeAutosuggestWithState
         value="Luxembourg"
         onChange={(_, {value}) => console.log(value)}
+      />
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>with Success State</h3>
+      <MoleculeAutosuggestWithState
+        placeholder="Type a Country name..."
+        onChange={(_, {value}) => console.log(value)}
+        onEnter={() => console.log('Enter pressed')}
+        state={MoleculeAutosuggestStates.SUCCESS}
+        iconClear={<IconClose />}
+      />
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>with Error State</h3>
+      <MoleculeAutosuggestWithState
+        placeholder="Type a Country name..."
+        onChange={(_, {value}) => console.log(value)}
+        onEnter={() => console.log('Enter pressed')}
+        state={MoleculeAutosuggestStates.ERROR}
+        iconClear={<IconClose />}
+      />
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>with Alert State</h3>
+      <MoleculeAutosuggestWithState
+        placeholder="Type a Country name..."
+        onChange={(_, {value}) => console.log(value)}
+        onEnter={() => console.log('Enter pressed')}
+        state={MoleculeAutosuggestStates.ALERT}
+        iconClear={<IconClose />}
+      />
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>with submit button</h3>
+      <MoleculeAutosuggestWithState
+        placeholder="Type a Country name..."
+        onChange={(_, {value}) => console.log(value)}
+        onEnter={() => console.log('Enter pressed')}
+        rightButton={<SuiButton>Submit</SuiButton>}
       />
     </div>
 

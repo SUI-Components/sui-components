@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.10.0 (2020-02-12)
+
+
+### Features
+
+* add flex property ([ad233b5](https://github.com/SUI-Components/sui-components/commit/ad233b55aca3eee89f073a1faffeb688a01b2f23))
+
+
+
+# 4.9.0 (2020-02-05)
+
+
+### Features
+
+* add variable placeholder atom input ([986adcc](https://github.com/SUI-Components/sui-components/commit/986adccc160526c5aa65a100d23732b3c2535def))
+
+
+
+# 4.8.0 (2020-02-04)
+
+
+### Bug Fixes
+
+* add css to input with button ([ed41f34](https://github.com/SUI-Components/sui-components/commit/ed41f34f10fea4138be20509209c40527163cca3))
+
+
+
+# 4.7.0 (2020-01-29)
+
+
+### Bug Fixes
+
+* add missing inputStates export ([c30f106](https://github.com/SUI-Components/sui-components/commit/c30f10608b893df2da9bf1e6a13d85d1f50acec4))
+
+
+
+# 4.6.0 (2020-01-29)
+
+
+### Features
+
+* add new option to highlight input ([3290547](https://github.com/SUI-Components/sui-components/commit/329054791ae649ea0ae2bcbfc43860b9d34b4036))
+* use theme variable ([ec9de25](https://github.com/SUI-Components/sui-components/commit/ec9de25cba49e29e53378c5d78813222617ba099))
+
+
+
 # 4.5.0 (2020-01-21)
 
 

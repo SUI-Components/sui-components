@@ -8,24 +8,32 @@ const SIZES = {
   LONG: 'long'
 }
 
-const ERROR_STATES = {
+const TEXTAREA_STATES = {
   ERROR: 'error',
-  SUCCESS: 'success'
+  SUCCESS: 'success',
+  ALERT: 'alert'
+}
+
+const DEFAULT_PROPS = {
+  size: SIZES.SHORT,
+  onChange: () => {}
 }
 
 const AtomTextarea = ({
-  onChange,
-  onBlur,
-  size,
+  onChange = DEFAULT_PROPS.onChange,
+  onBlur = DEFAULT_PROPS.onBlur,
+  size = DEFAULT_PROPS.size,
   value,
   errorState,
+  state,
   ...props
 }) => {
   const className = cx(
     BASE_CLASS,
     `${BASE_CLASS}--${size}`,
-    errorState && `${BASE_CLASS}--${ERROR_STATES.ERROR}`,
-    errorState === false && `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
+    errorState && `${BASE_CLASS}--${TEXTAREA_STATES.ERROR}`,
+    errorState === false && `${BASE_CLASS}--${TEXTAREA_STATES.SUCCESS}`,
+    state && `${BASE_CLASS}--${state}`
   )
 
   const handleChange = ev => {
@@ -60,14 +68,16 @@ AtomTextarea.propTypes = {
   value: PropTypes.string,
 
   /** true = error, false = success, null = neutral */
-  errorState: PropTypes.bool
-}
+  errorState: PropTypes.bool,
+
 
 AtomTextarea.defaultProps = {
   size: SIZES.SHORT,
   onChange: () => {},
   onBlur: () => {}
+  /* Will set a red/green/orange border if set to 'error' / 'success' / 'alert' */
+  state: PropTypes.oneOf(Object.values(TEXTAREA_STATES))
 }
 
 export default AtomTextarea
-export {SIZES as AtomTextareaSizes}
+export {SIZES as AtomTextareaSizes, TEXTAREA_STATES as AtomTextareaStates}

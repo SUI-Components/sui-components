@@ -12,7 +12,7 @@ const IS_DEPLOYMENT = Boolean(process.env.NPM_RC)
 
 const themesPkgs = [
   '@schibstedspain/cf-theme',
-  '@schibstedspain/fc-theme',
+  '@adv-ui/fc-theme',
   '@schibstedspain/ij-theme',
   '@schibstedspain/mt-theme',
   '@schibstedspain/nc-theme',

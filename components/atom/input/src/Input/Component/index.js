@@ -10,9 +10,19 @@ const SIZES = {
   XSMALL: 'xs'
 }
 
-const ERROR_STATES = {
+const INPUT_STATES = {
   ERROR: 'error',
-  SUCCESS: 'success'
+  SUCCESS: 'success',
+  ALERT: 'alert'
+}
+
+const DEFAULT_PROPS = {
+  SIZE: SIZES.MEDIUM,
+  ON_ENTER_KEY: 'Enter',
+  TAB_INDEX: -1,
+  ON_KEY_DOWN: () => {},
+  ON_ENTER: () => {},
+  ON_CHANGE: () => {}
 }
 
 const getClassNames = ({
@@ -21,7 +31,8 @@ const getClassNames = ({
   hideInput,
   noBorder,
   readOnly,
-  errorState
+  errorState,
+  state
 }) => {
   return cx(
     BASE_CLASS,
@@ -30,8 +41,9 @@ const getClassNames = ({
     hideInput && `${BASE_CLASS}--hidden`,
     noBorder && `${BASE_CLASS}--noBorder`,
     readOnly && `${BASE_CLASS}--readOnly`,
-    errorState && `${BASE_CLASS}--${ERROR_STATES.ERROR}`,
-    errorState === false && `${BASE_CLASS}--${ERROR_STATES.SUCCESS}`
+    errorState && `${BASE_CLASS}--${INPUT_STATES.ERROR}`,
+    errorState === false && `${BASE_CLASS}--${INPUT_STATES.SUCCESS}`,
+    state && `${BASE_CLASS}--${state}`
   )
 }
 
@@ -46,19 +58,20 @@ const Input = ({
   onFocus,
   placeholder,
   reference,
-  size,
+  size = DEFAULT_PROPS.SIZE,
   errorState,
+  state,
   type,
   value,
   charsSize,
-  tabIndex,
+  tabIndex = DEFAULT_PROPS.TAB_INDEX,
   maxLength,
   minLength,
   autoComplete,
-  onChange,
-  onEnter,
-  onEnterKey,
-  onKeyDown,
+  onChange = DEFAULT_PROPS.ON_CHANGE,
+  onEnter = DEFAULT_PROPS.ON_ENTER,
+  onEnterKey = DEFAULT_PROPS.ON_ENTER_KEY,
+  onKeyDown = DEFAULT_PROPS.ON_KEY_DOWN,
   required,
   pattern
 }) => {
@@ -84,7 +97,8 @@ const Input = ({
     hideInput,
     noBorder,
     readOnly,
-    errorState
+    errorState,
+    state
   })
 
   return (
@@ -156,6 +170,8 @@ Input.propTypes = {
   hideInput: PropTypes.bool,
   /* Will set a red/green border if set to true/false */
   errorState: PropTypes.bool,
+  /* Will set a red/green/orange border if set to 'error' / 'success' / 'alert' */
+  state: PropTypes.oneOf(Object.values(INPUT_STATES)),
   /** Wether to hide the input border or not */
   noBorder: PropTypes.bool,
   /** tabindex value */
@@ -166,14 +182,5 @@ Input.propTypes = {
   pattern: PropTypes.string
 }
 
-Input.defaultProps = {
-  size: SIZES.MEDIUM,
-  onEnterKey: 'Enter',
-  tabIndex: -1,
-  onKeyDown: () => {},
-  onEnter: () => {},
-  onChange: () => {}
-}
-
 export default Input
-export {SIZES as inputSizes}
+export {SIZES as inputSizes, INPUT_STATES as inputStates}

@@ -30,7 +30,9 @@ const MoleculeSelectSingleSelection = props => {
   const handleSelection = (ev, {value}) => {
     onChange(ev, {value})
     onToggle(ev, {isOpen: false})
-    refMoleculeSelect.current.focus()
+    refMoleculeSelect &&
+      refMoleculeSelect.current &&
+      refMoleculeSelect.current.focus()
   }
 
   return (

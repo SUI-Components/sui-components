@@ -3,13 +3,20 @@ import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
 import AtomTextarea, {
-  AtomTextareaSizes as SIZES
+  AtomTextareaSizes as SIZES,
+  AtomTextareaStates
 } from '@s-ui/react-atom-textarea'
 import WithCharacterCount from './hoc/WithCharacterCount'
 
-const hasErrors = (success, error) => {
-  if (error) return true
-  if (success) return false
+const hasErrors = ({successText, errorText}) => {
+  if (errorText) return true
+  if (successText) return false
+}
+
+const getState = ({successText, errorState, alertText}) => {
+  if (successText) return AtomTextareaStates.SUCCESS
+  if (errorState) return AtomTextareaStates.ERROR
+  if (alertText) return AtomTextareaStates.ALERT
 }
 
 const MoleculeTextareaField = WithCharacterCount(
@@ -20,11 +27,14 @@ const MoleculeTextareaField = WithCharacterCount(
     textCharacters,
     successText,
     errorText,
+    alertText,
     helpText,
     onChange,
     ...props
   }) => {
-    const errorState = hasErrors(successText, errorText)
+    const errorState = hasErrors({successText, errorText})
+    const textAreaState = getState({successText, errorState, alertText})
+
     return (
       <MoleculeField
         name={id}
@@ -32,11 +42,17 @@ const MoleculeTextareaField = WithCharacterCount(
         textCharacters={textCharacters}
         successText={successText}
         errorText={errorText}
+        alertText={alertText}
         helpText={helpText}
         maxChars={maxChars}
         onChange={onChange}
       >
-        <AtomTextarea id={id} errorState={errorState} {...props} />
+        <AtomTextarea
+          id={id}
+          errorState={errorState}
+          state={textAreaState}
+          {...props}
+        />
       </MoleculeField>
     )
   }
@@ -78,6 +94,9 @@ MoleculeTextareaField.propTypes = {
 
   /** Error message to display when error state  */
   errorText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+
+  /** Alert message to display when error state  */
+  alertText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
   /** Help Text to display */
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),

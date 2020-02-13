@@ -1,7 +1,7 @@
 @import '~@schibstedspain/sui-theme/lib/settings';
 @import '~@schibstedspain/sui-theme/lib/index';
 
-$validation: success $c-success, error $c-error;
+$validation: success $c-success, error $c-error, alert $c-alert;
 
 .sui-AtomValidationText {
   @each $type, $color in $validation {

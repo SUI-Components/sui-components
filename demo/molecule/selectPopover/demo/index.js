@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 import OrganismNestedCheckboxes from '../../../../components/organism/nestedCheckboxes/src/'
 import MoleculeCheckboxField from '../../../../components/molecule/checkboxField/src/'
-import MoleculeSelectPopover from '../../../../components/molecule/selectPopover/src/'
+import MoleculeSelectPopover, {
+  selectPopoverSizes
+} from '../../../../components/molecule/selectPopover/src/'
 import {IconCheck, IconHalfCheck, IconArrowDown} from './Icons'
 
 import './index.scss'
@@ -56,31 +58,43 @@ const Demo = () => {
   const itemsText = checkedItems.map(item => item.label).join(', ')
   const selectText = isSelected ? itemsText : 'Todas las operaciones'
 
+  const renderSelectPopover = size => (
+    <MoleculeSelectPopover
+      acceptButtonText="Aceptar"
+      cancelButtonText="Cancelar"
+      iconArrowDown={IconArrowDown}
+      isSelected={isSelected}
+      onAccept={() => setItems(unconfirmedItems)}
+      onCancel={() => setUnconfirmedItems(items)}
+      selectText={selectText}
+      size={size}
+    >
+      <div className="demo-content">
+        <h3>Tipo de operación</h3>
+        <OrganismNestedCheckboxes
+          checkedIcon={IconCheck}
+          id="nested-1"
+          intermediateIcon={IconHalfCheck}
+          join
+          labelParent="Todas las operaciones"
+          onChangeParent={handleChangeParent}
+        >
+          {renderItems()}
+        </OrganismNestedCheckboxes>
+      </div>
+    </MoleculeSelectPopover>
+  )
+
   return (
     <div className="demo-container">
-      <MoleculeSelectPopover
-        acceptButtonText="Aceptar"
-        cancelButtonText="Cancelar"
-        iconArrowDown={IconArrowDown}
-        isSelected={isSelected}
-        onAccept={() => setItems(unconfirmedItems)}
-        onCancel={() => setUnconfirmedItems(items)}
-        selectText={selectText}
-      >
-        <div className="demo-content">
-          <h3>Tipo de operación</h3>
-          <OrganismNestedCheckboxes
-            checkedIcon={IconCheck}
-            id="nested-1"
-            intermediateIcon={IconHalfCheck}
-            join
-            labelParent="Todas las operaciones"
-            onChangeParent={handleChangeParent}
-          >
-            {renderItems()}
-          </OrganismNestedCheckboxes>
-        </div>
-      </MoleculeSelectPopover>
+      <h3>Size M (default)</h3>
+      {renderSelectPopover(selectPopoverSizes.MEDIUM)}
+
+      <h3>Size S</h3>
+      {renderSelectPopover(selectPopoverSizes.SMALL)}
+
+      <h3>Size XS</h3>
+      {renderSelectPopover(selectPopoverSizes.XSMALL)}
     </div>
   )
 }

@@ -46,4 +46,15 @@ import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 />
 ```
 
+### Alert Message
+
+```js
+ <MoleculeCheckboxField
+    id="notes"
+    label="Notes"
+    alertText="Something meh..."
+    value="In some place of La Mancha which name..."
+/>
+```
+
 > **Find full description and more examples in the [demo page](/workbench/molecule/checkboxField).**

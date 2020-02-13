@@ -34,6 +34,10 @@
     &--withTransition {
       transition: $trs-collapsible-content;
     }
+
+    &--withOverflow {
+      overflow-x: auto;
+    }
   }
 
   &-container {
@@ -41,6 +45,14 @@
     position: relative;
     text-align: $ta-collapsible-container;
     width: 100%;
+
+    &--center {
+      text-align: center;
+    }
+
+    &--right {
+      text-align: right;
+    }
 
     &#{&}--withGradient.is-collapsed {
       &::before {

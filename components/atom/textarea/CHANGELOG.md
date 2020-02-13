@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.3.0 (2020-01-30)
+
+
+### Features
+
+* add state prop ([310a4de](https://github.com/SUI-Components/sui-components/commit/310a4dea4afbea866c2de4168962aae61f423651))
+* improve README ([dd41fff](https://github.com/SUI-Components/sui-components/commit/dd41fff45f7709c894e4e638c660ac06782b25fb))
+
+
+
 # 2.2.0 (2020-01-21)
 
 

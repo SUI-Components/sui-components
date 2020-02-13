@@ -212,6 +212,9 @@ MoleculeAutosuggest.propTypes = {
   /* callback to be called with every update of the input value */
   onChange: PropTypes.func,
 
+  /* callback to be called when input losses focus */
+  onBlur: PropTypes.func,
+
   /** Icon for closing (removing) tags */
   iconCloseTag: PropTypes.node,
 
@@ -254,6 +257,7 @@ MoleculeAutosuggest.propTypes = {
 
 MoleculeAutosuggest.defaultProps = {
   onChange: () => {},
+  onBlur: () => {},
   onToggle: () => {},
   onEnter: () => {},
   onSelect: () => {},

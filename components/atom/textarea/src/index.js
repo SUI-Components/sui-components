@@ -14,15 +14,10 @@ const TEXTAREA_STATES = {
   ALERT: 'alert'
 }
 
-const DEFAULT_PROPS = {
-  size: SIZES.SHORT,
-  onChange: () => {}
-}
-
 const AtomTextarea = ({
-  onChange = DEFAULT_PROPS.onChange,
-  onBlur = DEFAULT_PROPS.onBlur,
-  size = DEFAULT_PROPS.size,
+  onChange,
+  onBlur,
+  size,
   value,
   errorState,
   state,
@@ -61,22 +56,23 @@ AtomTextarea.propTypes = {
   /** Handler triggered on change */
   onChange: PropTypes.func,
 
-  /** onBlur callback */
+  /** Handler triggered when losses focus */
   onBlur: PropTypes.func,
 
   /** Value (content) of the textarea */
   value: PropTypes.string,
 
   /** true = error, false = success, null = neutral */
-  errorState: PropTypes.bool
+  errorState: PropTypes.bool,
+
+  /* Will set a red/green/orange border if set to 'error' / 'success' / 'alert' */
+  state: PropTypes.oneOf(Object.values(TEXTAREA_STATES))
 }
 
 AtomTextarea.defaultProps = {
-  size: SIZES.SHORT,
   onChange: () => {},
   onBlur: () => {},
-  /* Will set a red/green/orange border if set to 'error' / 'success' / 'alert' */
-  state: PropTypes.oneOf(Object.values(TEXTAREA_STATES))
+  size: SIZES.SHORT
 }
 
 export default AtomTextarea

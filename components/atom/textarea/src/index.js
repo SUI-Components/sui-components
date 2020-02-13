@@ -15,9 +15,9 @@ const TEXTAREA_STATES = {
 }
 
 const DEFAULT_PROPS = {
+  size: SIZES.SHORT,
   onChange: () => {},
-  onBlur: () => {},
-  size: SIZES.SHORT
+  onBlur: () => {}
 }
 
 const AtomTextarea = ({

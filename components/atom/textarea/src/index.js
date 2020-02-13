@@ -14,10 +14,16 @@ const TEXTAREA_STATES = {
   ALERT: 'alert'
 }
 
+const DEFAULT_PROPS = {
+  onChange: () => {},
+  onBlur: () => {},
+  size: SIZES.SHORT
+}
+
 const AtomTextarea = ({
-  onChange = () => {},
-  onBlur = () => {},
-  size = SIZES.SHORT,
+  onChange = DEFAULT_PROPS.onChange,
+  onBlur = DEFAULT_PROPS.onBlur,
+  size = DEFAULT_PROPS.size,
   value,
   errorState,
   state,

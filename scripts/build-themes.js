@@ -17,7 +17,7 @@ const themesPkgs = [
   '@schibstedspain/mt-theme',
   '@schibstedspain/nc-theme',
   '@schibstedspain/vb-theme',
-  '@schibstedspain/ma-theme',
+  '@adv-ui/ma-theme',
   '@schibstedspain/ep-theme',
   '@schibstedspain/hab-theme'
 ]

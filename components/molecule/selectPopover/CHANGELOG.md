@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.5.0 (2020-02-14)
+
+
+### Features
+
+* add title prop ([91f2738](https://github.com/SUI-Components/sui-components/commit/91f27384dd235dcefeeb63c46c97e54b7a137f2c))
+
+
+
 # 1.4.0 (2020-02-06)
 
 

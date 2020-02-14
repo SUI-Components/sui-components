@@ -20,7 +20,8 @@ function MoleculeSelectPopover({
   onAccept = () => {},
   onCancel = () => {},
   selectText,
-  size = 'm'
+  size = 'm',
+  title
 }) {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -64,7 +65,7 @@ function MoleculeSelectPopover({
   }, [handleOnCancel, isOpen])
 
   return (
-    <div className={BASE_CLASS}>
+    <div className={BASE_CLASS} title={title}>
       <div
         ref={selectRef}
         className={selectClassName}
@@ -100,7 +101,8 @@ MoleculeSelectPopover.propTypes = {
   onAccept: PropTypes.func,
   onCancel: PropTypes.func,
   selectText: PropTypes.string.isRequired,
-  size: PropTypes.string
+  size: PropTypes.string,
+  title: PropTypes.string
 }
 
 export default MoleculeSelectPopover

@@ -19,7 +19,7 @@ const themesPkgs = [
   '@schibstedspain/vb-theme',
   '@adv-ui/ma-theme',
   '@schibstedspain/ep-theme',
-  '@schibstedspain/hab-theme'
+  '@adv-ui/hab-theme'
 ]
 
 const writeFile = (path, body) => {

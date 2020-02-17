@@ -15,6 +15,7 @@ const MoleculeAutosuggestSingleSelection = ({
   isOpen,
   onToggle,
   onChange,
+  onBlur,
   onClickRightIcon,
   onInputKeyDown,
   onSelect,
@@ -58,6 +59,7 @@ const MoleculeAutosuggestSingleSelection = ({
         isVisibleClear={value}
         onClickClear={handleClear}
         onChange={handleChange}
+        onBlur={onBlur}
         iconClear={!disabled && iconClear}
         rightIcon={rightIcon}
         onClickRightIcon={handleRightClick}

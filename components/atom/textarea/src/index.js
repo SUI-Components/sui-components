@@ -16,11 +16,13 @@ const TEXTAREA_STATES = {
 
 const DEFAULT_PROPS = {
   size: SIZES.SHORT,
-  onChange: () => {}
+  onChange: () => {},
+  onBlur: () => {}
 }
 
 const AtomTextarea = ({
   onChange = DEFAULT_PROPS.onChange,
+  onBlur = DEFAULT_PROPS.onBlur,
   size = DEFAULT_PROPS.size,
   value,
   errorState,
@@ -43,6 +45,7 @@ const AtomTextarea = ({
   return (
     <textarea
       {...props}
+      onBlur={onBlur}
       onChange={handleChange}
       className={className}
       value={value}
@@ -58,6 +61,9 @@ AtomTextarea.propTypes = {
 
   /** Handler triggered on change */
   onChange: PropTypes.func,
+
+  /** Handler triggered when losses focus */
+  onBlur: PropTypes.func,
 
   /** Value (content) of the textarea */
   value: PropTypes.string,

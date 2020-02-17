@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.8.0 (2020-02-17)
+
+
+### Features
+
+* add onblur callback ([c4bdb7a](https://github.com/SUI-Components/sui-components/commit/c4bdb7af592a691f15d693e41f0213403b454f57))
+
+
+
 # 2.7.0 (2020-02-04)
 
 

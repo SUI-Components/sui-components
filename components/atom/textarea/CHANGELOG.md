@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.4.0 (2020-02-17)
+
+
+### Features
+
+* add defalt props as js native ([6618989](https://github.com/SUI-Components/sui-components/commit/66189890689f97d28bc29f5cd58f34ff67efd1d7))
+* add onBlur callback ([1b1967f](https://github.com/SUI-Components/sui-components/commit/1b1967f86994e82bd3c3332fe6e32698078119ec))
+* refactor prop types and default props ([88c4679](https://github.com/SUI-Components/sui-components/commit/88c4679062bd22d4845bc508879cf3e03a448c56))
+* reorder props ([98d0209](https://github.com/SUI-Components/sui-components/commit/98d020928b03d750e7839712822e2f8be738d266))
+* solve conflict ([22c284d](https://github.com/SUI-Components/sui-components/commit/22c284d34ad372e3109201ad0e9cd2e79c38b12b))
+* use default props object ([6924209](https://github.com/SUI-Components/sui-components/commit/692420912bce4331c00172c1cbc14684e717bb0f))
+
+
+
 # 2.3.0 (2020-01-30)
 
 

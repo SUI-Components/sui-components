@@ -25,9 +25,11 @@ $class-media: '#{$base-class}-media';
     padding: $p-atom-card;
   }
 
-  &:hover {
-    background: $bgc-atom-card-hover;
-    box-shadow: $bxsh-atom-card-hover;
+  @media (hover: hover) {
+    &:hover {
+      background: $bgc-atom-card-hover;
+      box-shadow: $bxsh-atom-card-hover;
+    }
   }
 
   &-media {

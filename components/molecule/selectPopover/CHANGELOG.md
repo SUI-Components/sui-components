@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.6.0 (2020-02-18)
+
+
+### Bug Fixes
+
+* add missing cancel handler call on toggle ([ef4503b](https://github.com/SUI-Components/sui-components/commit/ef4503b019fbd83c69b6060c72bfdde29b58266a))
+
+
+
 # 1.5.0 (2020-02-14)
 
 

@@ -2,12 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-02-18)
+
+
+
 # 1.6.0 (2020-02-18)
 
 
 ### Bug Fixes
 
 * add missing cancel handler call on toggle ([ef4503b](https://github.com/SUI-Components/sui-components/commit/ef4503b019fbd83c69b6060c72bfdde29b58266a))
+* only run open events after first render ([3d15bf3](https://github.com/SUI-Components/sui-components/commit/3d15bf3447d35fea739b5d84dd66bdb60fbc4f72))
+
+
+### Features
+
+* add open events ([1322d77](https://github.com/SUI-Components/sui-components/commit/1322d777ba3f25eaf4fb83417a9c4f41ca1cb53a))
 
 
 

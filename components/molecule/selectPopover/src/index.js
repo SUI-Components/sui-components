@@ -37,9 +37,14 @@ function MoleculeSelectPopover({
   const previousIsOpen = usePrevious(isOpen)
 
   useEffect(() => {
-    // only run open events when isOpen actually changes (not event methods)
-    if (isOpen === previousIsOpen) return
-
+    /**
+     * Only run open events:
+     *  - After first render
+     *  - When isOpen actually changes
+     **/
+    if (typeof previousIsOpen === 'undefined' || isOpen === previousIsOpen) {
+      return
+    }
     const openEvent = isOpen ? onOpen : onClose
     openEvent()
   }, [isOpen, onClose, onOpen, previousIsOpen])

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.1.0 (2020-02-18)
+
+
+### Bug Fixes
+
+* align icon center ([64720d3](https://github.com/SUI-Components/sui-components/commit/64720d346e00dd1db948fe86a368e4d7c62680ae))
+
+
+
 # 2.0.0 (2019-12-18)
 
 

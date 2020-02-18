@@ -11,6 +11,14 @@ const SIZES = {
   XSMALL: 'xs'
 }
 
+function usePrevious(value) {
+  const ref = useRef()
+  useEffect(() => {
+    ref.current = value
+  }, [value])
+  return ref.current
+}
+
 function MoleculeSelectPopover({
   acceptButtonText,
   cancelButtonText,
@@ -19,11 +27,27 @@ function MoleculeSelectPopover({
   isSelected = false,
   onAccept = () => {},
   onCancel = () => {},
+  onClose = () => {},
+  onOpen = () => {},
   selectText,
   size = 'm',
   title
 }) {
   const [isOpen, setIsOpen] = useState(false)
+  const previousIsOpen = usePrevious(isOpen)
+
+  useEffect(() => {
+    /**
+     * Only run open events:
+     *  - After first render
+     *  - When isOpen actually changes
+     **/
+    if (typeof previousIsOpen === 'undefined' || isOpen === previousIsOpen) {
+      return
+    }
+    const openEvent = isOpen ? onOpen : onClose
+    openEvent()
+  }, [isOpen, onClose, onOpen, previousIsOpen])
 
   const selectRef = useRef()
   const popoverRef = useRef()
@@ -109,6 +133,8 @@ MoleculeSelectPopover.propTypes = {
   isSelected: PropTypes.bool,
   onAccept: PropTypes.func,
   onCancel: PropTypes.func,
+  onClose: PropTypes.func,
+  onOpen: PropTypes.func,
   selectText: PropTypes.string.isRequired,
   size: PropTypes.string,
   title: PropTypes.string

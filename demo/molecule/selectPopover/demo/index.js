@@ -95,6 +95,23 @@ const Demo = () => {
 
       <h3>Size XS</h3>
       {renderSelectPopover(selectPopoverSizes.XSMALL)}
+
+      <h2>Extra events</h2>
+      <h3>onOpen / onClose</h3>
+      <MoleculeSelectPopover
+        acceptButtonText="Accept"
+        cancelButtonText="Cancel"
+        iconArrowDown={IconArrowDown}
+        onClose={() => window.alert('Popover closed!')}
+        onOpen={() => window.alert('Popover open!')}
+        selectText="Click me!"
+        size={selectPopoverSizes.SMALL}
+      >
+        <div className="demo-content">
+          <h3>Demo title</h3>
+          <p>Check the alert!</p>
+        </div>
+      </MoleculeSelectPopover>
     </div>
   )
 }

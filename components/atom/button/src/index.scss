@@ -110,9 +110,13 @@ $icon-stroke-color: currentColor !default;
 @mixin button-focused {
   &:not(#{$base-class}--disabled) {
     &#{$base-class}--focused,
-    &:active,
-    &:hover {
+    &:active {
       @content;
+    }
+    @media (hover: hover) {
+      &:hover {
+        @content;
+      }
     }
   }
 }

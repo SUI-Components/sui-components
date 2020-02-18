@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.40.0 (2020-02-18)
+
+
+### Bug Fixes
+
+* hover styles when device has hover ([443dc57](https://github.com/SUI-Components/sui-components/commit/443dc574ba34ea247ac8cc2d8c2b509319d8c537))
+
+
+
 # 1.39.0 (2020-02-12)
 
 

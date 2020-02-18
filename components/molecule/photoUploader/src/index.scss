@@ -1,0 +1,309 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-atom-button/lib/index';
+@import '~@s-ui/react-atom-icon/lib/index';
+@import '~@s-ui/react-molecule-notification/lib/index';
+
+$base-class: '.sui-MoleculePhotoUploader';
+$thumb-class: '#{$base-class}-thumb';
+$skeleton-class: '#{$base-class}-skeleton';
+
+/* Overwritable variables */
+$bd-photo-uploader: $bdw-s dashed $c-primary !default;
+$bd-photo-uploader-drag-photo-rejected: none !default;
+$bd-photo-uploader-thumb: none !default;
+$bd-photo-uploader-thumb-drag: none !default;
+$bg-photo-uploader: $c-gray-light-4 !default;
+$bg-photo-uploader-drag-photo: rgba($c-primary, 0.85) !default;
+$bg-photo-uploader-drag-photo-rejected: rgba($c-error, 0.9) !default;
+$bg-photo-uploader-action-buttons: $c-gray-light-3 !default;
+$bg-photo-uploader-action-buttons-hover: $c-primary !default;
+$bg-photo-uploader-thumb-card: $c-gray-light-3 !default;
+$bg-photo-uploader-thumb-chosen: $bg-photo-uploader-thumb-card !default;
+$bg-photo-uploader-skeleton: $bg-photo-uploader-thumb-card !default;
+$c-photo-uploader: $c-primary !default;
+$c-photo-uploader-drag-photo: $c-white !default;
+$c-photo-uploader-action-buttons: $c-primary !default;
+$c-photo-uploader-action-buttons-hover: $c-white !default;
+$c-photo-uploader-drag-photo-rejected: $c-white !default;
+$c-photo-uploader-skeleton: $c-primary !default;
+$c-photo-uploader-skeleton-hover: $c-white !default;
+$jc-photo-uploader: center !default;
+$p-photo-uploader: $p-m !default;
+$p-photo-uploader-desktop: $p-xl !default;
+$w-photo-uploader-thumb-image: 100% !default;
+$w-photo-uploader-thumb-image-desktop: 160px !default;
+
+$mih-photo-uploader: 249px;
+$s-photo-uploader-counter: 16px;
+$h-photo-uploader-thumb-image: ($w-photo-uploader-thumb-image * 3) / 4;
+$h-photo-uploader-thumb-image-desktop: (
+    $w-photo-uploader-thumb-image-desktop * 3
+  ) / 4;
+$w-photo-uploader-skeleton: $w-photo-uploader-thumb-image;
+$w-photo-uploader-skeleton-desktop: $w-photo-uploader-thumb-image-desktop;
+$maw-photo-uploader-thumb-drag-text: 200px;
+
+#{$base-class} {
+  background: $bg-photo-uploader;
+  border-radius: $bdrs-l;
+  color: $c-photo-uploader;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  min-height: $mih-photo-uploader;
+  outline: none;
+  padding: $p-photo-uploader;
+  position: relative;
+
+  @include media-breakpoint-up(m) {
+    padding: $p-photo-uploader-desktop;
+  }
+
+  &--disabled {
+    cursor: no-drop;
+  }
+
+  &-initialState {
+    align-items: center;
+    border: $bd-photo-uploader;
+    border-radius: $bdrs-l;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    line-height: $lh-m;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &-textState {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $m-m;
+  }
+
+  &-dragState {
+    align-items: center;
+    border-radius: $bdrs-l;
+    color: $c-photo-uploader-drag-photo;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    left: 0;
+    min-height: $mih-photo-uploader;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    &-textState {
+      line-height: $lh-m;
+      max-width: $maw-photo-uploader-thumb-drag-text;
+      text-align: center;
+    }
+  }
+
+  &-dragState--accepted {
+    background-color: $bg-photo-uploader-drag-photo;
+    border: $bd-photo-uploader;
+  }
+
+  &-dragState--rejected {
+    background-color: $bg-photo-uploader-drag-photo-rejected;
+    border: $bd-photo-uploader-drag-photo-rejected;
+    color: $c-photo-uploader-drag-photo-rejected;
+    z-index: $z-notifications;
+  }
+
+  &-preview-fallback {
+    border-radius: $bdrs-rounded;
+  }
+
+  &-preview {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-gap: $m-m;
+    grid-template-columns: repeat(auto-fit, 45%);
+    justify-content: $jc-photo-uploader;
+    margin: 0;
+    padding: 0;
+
+    @include media-breakpoint-up(m) {
+      grid-template-columns: repeat(
+        auto-fit,
+        $w-photo-uploader-thumb-image-desktop
+      );
+    }
+  }
+
+  &-notification {
+    margin-top: $m-m;
+  }
+}
+
+#{$thumb-class} {
+  border: $bd-photo-uploader-thumb;
+  border-radius: $bdrs-l;
+  box-sizing: content-box;
+  cursor: grab;
+  display: inline-block;
+  overflow: hidden;
+
+  &Card {
+    background: $bg-photo-uploader-thumb-card;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    position: relative;
+
+    height: 100%;
+
+    &-counter {
+      align-items: center;
+      background-color: $c-primary;
+      border-radius: 999px;
+      color: $c-white;
+      display: inline-flex;
+      font-size: $fz-xs;
+      justify-content: center;
+      height: $s-photo-uploader-counter;
+      left: $m-m;
+      min-width: $s-photo-uploader-counter;
+      position: absolute;
+      top: $m-m;
+    }
+
+    &-mainCounter {
+      padding: 0 $p-m;
+    }
+
+    &-iconContainer {
+      background-color: rgba($c-primary, 0.1);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      text-align: center;
+      width: $w-photo-uploader-thumb-image;
+
+      @include media-breakpoint-up(m) {
+        height: $h-photo-uploader-thumb-image-desktop;
+        width: $w-photo-uploader-thumb-image-desktop;
+      }
+    }
+
+    &-image {
+      height: 100%;
+      object-fit: cover;
+      width: $w-photo-uploader-thumb-image;
+
+      @include media-breakpoint-up(m) {
+        height: $h-photo-uploader-thumb-image-desktop;
+        width: $w-photo-uploader-thumb-image-desktop;
+      }
+
+      &Container {
+        display: flex;
+        height: 100%;
+      }
+    }
+
+    &-actions {
+      cursor: pointer;
+      display: flex;
+      width: 100%;
+    }
+
+    &-button {
+      align-items: center;
+      background: $bg-photo-uploader-action-buttons;
+      border-right: $bdw-m solid $bg-photo-uploader;
+      color: $c-photo-uploader-action-buttons;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      padding: $p-m 0;
+      width: 50%;
+
+      &:hover {
+        @include media-breakpoint-up(m) {
+          background: $bg-photo-uploader-action-buttons-hover;
+          color: $c-photo-uploader-action-buttons-hover;
+        }
+      }
+
+      &:active {
+        background: $bg-photo-uploader-action-buttons-hover;
+        color: $c-photo-uploader-action-buttons-hover;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    &-iconButton {
+      width: 100%;
+    }
+  }
+
+  &--ghost {
+    border: none;
+    cursor: grabbing;
+    #{$thumb-class}Card {
+      display: none;
+    }
+  }
+
+  &--chosen {
+    background-color: $bg-photo-uploader-thumb-chosen;
+    cursor: grabbing;
+  }
+
+  &--drag {
+    border: $bd-photo-uploader-thumb-drag;
+    box-shadow: $bxsh-l;
+    cursor: grabbing;
+    opacity: 1;
+  }
+}
+
+#{$skeleton-class} {
+  align-items: center;
+  background-color: $bg-photo-uploader-skeleton;
+  border: $bd-photo-uploader;
+  border-radius: $bdrs-l;
+  color: $c-photo-uploader-skeleton;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-weight: $fw-semi-bold;
+  justify-content: center;
+  overflow: hidden;
+  width: $w-photo-uploader-skeleton;
+
+  @include media-breakpoint-up(m) {
+    width: $w-photo-uploader-skeleton-desktop;
+  }
+
+  &:hover {
+    @include media-breakpoint-up(m) {
+      background: $c-primary;
+      color: $c-photo-uploader-skeleton-hover;
+    }
+  }
+
+  &:active {
+    background: $c-primary;
+    color: $c-photo-uploader-skeleton-hover;
+  }
+
+  &Text {
+    font-size: $fz-m;
+    line-height: $lh-xl;
+  }
+}

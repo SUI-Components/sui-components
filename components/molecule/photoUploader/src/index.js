@@ -226,13 +226,10 @@ const MoleculePhotoUploader = ({
   const {
     getRootProps,
     getInputProps,
-    // acceptedFiles,
-    // rejectedFiles,
     isDragActive,
     isDragAccept,
     isDragReject
   } = useDropzone({
-    // disabled: files.length >= maxPhotos,
     noClick: isPhotoUploaderFully(),
     noKeyboard: isPhotoUploaderFully(),
     accept: acceptedFileTypes,
@@ -346,8 +343,6 @@ const MoleculePhotoUploader = ({
 
     return (
       <ReactSortable
-        // forceFallback --- iOS ?
-        // fallbackClass="drag"
         className="sui-MoleculePhotoUploader-preview"
         handle=".sui-MoleculePhotoUploader-thumbCard-imageContainer"
         ghostClass={`${THUMB_CLASS_NAME}--ghost`}

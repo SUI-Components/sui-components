@@ -1,9 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {useDropzone} from 'react-dropzone'
 import {ReactSortable} from 'react-sortablejs'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+
+import {useMount} from '@schibstedspain/sui-react-hooks'
 
 import {formatToBase64, cropAndRotateImage, base64ToBlob} from './photoTools'
 
@@ -182,8 +184,7 @@ const MoleculePhotoUploader = ({
     }, Promise.resolve())
   }
 
-  useEffect(() => {
-    // change for useMount <--
+  useMount(() => {
     if (initialPhotos.length) {
       const filesWithBase64 = initialPhotos.map(url =>
         formatToBase64({url, options: DEFAULT_FORMAT_TO_BASE_64_OPTIONS})
@@ -218,7 +219,7 @@ const MoleculePhotoUploader = ({
         setIsLoading(false)
       })
     }
-  }, [initialPhotos]) //eslint-disable-line
+  })
 
   const isPhotoUploaderFully = () => files.length >= maxPhotos
 

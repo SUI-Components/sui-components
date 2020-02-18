@@ -81,7 +81,7 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
     const {current: domMoleculeAutosuggest} = refMoleculeAutosuggest
     onToggle(ev, {isOpen: false})
     if (multiselection) onChange(ev, {value: ''})
-    domMoleculeAutosuggest && domMoleculeAutosuggest.focus()
+    domMoleculeAutosuggest && !focus && domMoleculeAutosuggest.focus()
     setFocus(false)
     ev.preventDefault()
     ev.stopPropagation()

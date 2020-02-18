@@ -24,18 +24,22 @@ $w-atom-checkbox: 24px !default;
 .sui-AtomCheckbox {
   $base: &;
 
+  align-items: center;
   background-color: $bgc-atom-checkbox;
   border-radius: $bdrs-atom-checkbox;
   border: $bd-atom-checkbox;
   cursor: pointer;
   display: inline-flex;
   height: $h-atom-checkbox;
+  justify-content: center;
   text-align: center;
   vertical-align: top;
   width: $w-atom-checkbox;
 
   span {
-    margin: auto;
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
 
   &.is-checked {

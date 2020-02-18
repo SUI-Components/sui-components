@@ -83,12 +83,21 @@ function MoleculeSelectPopover({
     }
   }, [handleOnCancel, isOpen])
 
+  const handleOpenToggle = () => {
+    if (isOpen) {
+      setIsOpen(false)
+      handleOnCancel()
+      return
+    }
+    setIsOpen(true)
+  }
+
   return (
     <div className={BASE_CLASS} title={title}>
       <div
         ref={selectRef}
         className={selectClassName}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleOpenToggle}
       >
         <span className={`${BASE_CLASS}-selectText`}>{selectText}</span>
         <div className={`${BASE_CLASS}-selectIcon`}>

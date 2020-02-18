@@ -2,7 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.9.0 (2020-02-18)
+
+
+
 # 2.8.0 (2020-02-17)
+
+
+### Bug Fixes
+
+* fix focus error when multiple autosuggest are in the same page ([0ba268b](https://github.com/SUI-Components/sui-components/commit/0ba268b09749637efa04c1409558ade0278d1954))
 
 
 ### Features

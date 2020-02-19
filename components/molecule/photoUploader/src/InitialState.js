@@ -11,7 +11,7 @@ const InitialState = ({buttonText, icon, text}) => {
   return (
     <div className={`${BASE_CLASS_NAME}-initialState`}>
       <div className={`${BASE_CLASS_NAME}-iconInitialState`}>
-        <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>{icon()}</AtomIcon>
+        <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>{icon}</AtomIcon>
       </div>
       <div className={`${BASE_CLASS_NAME}-textState`}>
         <span>{text}</span>

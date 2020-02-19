@@ -35,7 +35,7 @@ const ThumbCard = ({
         {hasErrors ? (
           <div className={`${ICON_THUMB_CARD_CLASS_NAME}`}>
             <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>
-              {rejectPhotosIcon()}
+              {rejectPhotosIcon}
             </AtomIcon>
           </div>
         ) : (
@@ -47,21 +47,21 @@ const ThumbCard = ({
           className="sui-MoleculePhotoUploader-thumbCard-button"
           onClick={() => callbackDeleteItem(index)}
         >
-          <AtomIcon size={ATOM_ICON_SIZES.small}>{deleteIcon()}</AtomIcon>
+          <AtomIcon size={ATOM_ICON_SIZES.small}>{deleteIcon}</AtomIcon>
         </div>
         {hasErrors ? (
           <div
             className="sui-MoleculePhotoUploader-thumbCard-button"
             onClick={e => callbackRetryUpload(index)}
           >
-            <AtomIcon size={ATOM_ICON_SIZES.small}>{retryIcon()}</AtomIcon>
+            <AtomIcon size={ATOM_ICON_SIZES.small}>{retryIcon}</AtomIcon>
           </div>
         ) : (
           <div
             className="sui-MoleculePhotoUploader-thumbCard-button"
             onClick={e => callbackRotateItem(index)}
           >
-            <AtomIcon size={ATOM_ICON_SIZES.small}>{rotateIcon()}</AtomIcon>
+            <AtomIcon size={ATOM_ICON_SIZES.small}>{rotateIcon}</AtomIcon>
           </div>
         )}
       </div>

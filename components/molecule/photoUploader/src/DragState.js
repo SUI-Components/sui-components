@@ -21,7 +21,7 @@ const DragState = ({icon, status = DRAG_STATE_STATUS_ACCEPTED, text}) => {
 
   return (
     <div className={dropzoneClassName}>
-      <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>{icon()}</AtomIcon>
+      <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>{icon}</AtomIcon>
       <div className={`${DRAG_STATE_CLASS_NAME}-textState`}>{text}</div>
     </div>
   )

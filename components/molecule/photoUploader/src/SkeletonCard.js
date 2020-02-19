@@ -9,7 +9,7 @@ const SkeletonCard = ({icon, text}) => {
   return (
     <li className={SKELETON_CLASS_NAME}>
       <div className={`${SKELETON_CLASS_NAME}Icon`}>
-        <AtomIcon size={ATOM_ICON_SIZES.medium}>{icon()}</AtomIcon>
+        <AtomIcon size={ATOM_ICON_SIZES.medium}>{icon}</AtomIcon>
       </div>
       <div className={`${SKELETON_CLASS_NAME}Text`}>{text}</div>
     </li>

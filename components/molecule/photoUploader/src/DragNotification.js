@@ -7,7 +7,6 @@ import MoleculeNotification, {
 } from '@s-ui/react-molecule-notification'
 
 const MOLECULE_NOTIFICATION_TYPE = 'error'
-const MOLECULE_NOTIFICATION_AUTOCLOSE = 'manual'
 
 const DragNotification = ({
   icon,
@@ -17,15 +16,13 @@ const DragNotification = ({
 }) => {
   return (
     <>
-      {Boolean(show) && (
+      {show && (
         <div className="sui-MoleculePhotoUploader-notification">
           <MoleculeNotification
-            icon={
-              <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>{icon()}</AtomIcon>
-            }
+            icon={<AtomIcon size={ATOM_ICON_SIZES.extraLarge}>{icon}</AtomIcon>}
             type={MOLECULE_NOTIFICATION_TYPE}
             show={show}
-            autoClose={MOLECULE_NOTIFICATION_AUTOCLOSE}
+            autoClose={null}
             roundedCorners={BRDS_SIZE.small}
             onClose={onCloseCallback}
           >

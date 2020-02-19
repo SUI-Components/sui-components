@@ -357,10 +357,10 @@ const MoleculePhotoUploader = ({
               callbackDeleteItem={_deleteItem}
               callbackRetryUpload={_retryUpload}
               callbackRotateItem={_rotateItem}
-              rotateIcon={rotateIcon}
-              deleteIcon={deleteIcon}
-              retryIcon={retryIcon}
-              rejectPhotosIcon={rejectPhotosIcon}
+              rotateIcon={rotateIcon()}
+              deleteIcon={deleteIcon()}
+              retryIcon={retryIcon()}
+              rejectPhotosIcon={rejectPhotosIcon()}
             />
           </li>
         )
@@ -385,7 +385,7 @@ const MoleculePhotoUploader = ({
           {thumbCards(files)}
           {!isPhotoUploaderFully() && (
             <SkeletonCard
-              icon={addMorePhotosIcon}
+              icon={addMorePhotosIcon()}
               text={addPhotoTextSkeleton}
             />
           )}
@@ -402,38 +402,38 @@ const MoleculePhotoUploader = ({
           {Boolean(!files.length) && !isDragActive && (
             <InitialState
               buttonText={addPhotoTextButton}
-              icon={dragPhotosIcon}
+              icon={dragPhotosIcon()}
               text={dragPhotoTextInitialContent}
             />
           )}
           {Boolean(files.length) && photosPreview()}
           {isDragAccept && !isPhotoUploaderFully() && !isLoading && (
-            <DragState icon={dragPhotosIcon} text={dropPhotosHereText} />
+            <DragState icon={dragPhotosIcon()} text={dropPhotosHereText} />
           )}
           {isDragAccept && isPhotoUploaderFully() && (
             <DragState
-              icon={rejectPhotosIcon}
+              icon={rejectPhotosIcon()}
               status={DRAG_STATE_STATUS_REJECTED}
               text={limitPhotosUploadedText}
             />
           )}
           {isDragAccept && !isPhotoUploaderFully() && isLoading && (
             <DragState
-              icon={rejectPhotosIcon}
+              icon={rejectPhotosIcon()}
               status={DRAG_STATE_STATUS_REJECTED}
               text={uploadingPhotosText}
             />
           )}
           {isDragReject && (
             <DragState
-              icon={rejectPhotosIcon}
+              icon={rejectPhotosIcon()}
               status={DRAG_STATE_STATUS_REJECTED}
               text={errorFormatPhotoUploadedText}
             />
           )}
         </div>
         <DragNotification
-          icon={infoIcon}
+          icon={infoIcon()}
           onCloseCallback={() =>
             setNotificationError(DEFAULT_NOTIFICATION_ERROR)
           }

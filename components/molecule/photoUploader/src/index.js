@@ -448,9 +448,9 @@ const MoleculePhotoUploader = ({
 MoleculePhotoUploader.displayName = 'MoleculePhotoUploader'
 MoleculePhotoUploader.propTypes = {
   /**
-   *  A string with MIME file types separated by comma, ie:
-   *  "image/jpeg, image/png, image/tiff"
-   *  The default value is "image/*" , so it can accept any image file
+   *  A string with MIME file types separated by comma, ie, the default value is:
+   *  "image/jpeg, image/gif, image/png, image/webp, image/bmp"
+   *  To use any format, use "image/*" , but not all format are tested, and some of them fails.
    */
   acceptedFileTypes: PropTypes.string,
 

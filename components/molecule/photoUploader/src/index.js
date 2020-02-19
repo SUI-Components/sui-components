@@ -35,6 +35,7 @@ import {
 const MoleculePhotoUploader = ({
   acceptedFileTypes = DEFAULT_FILE_TYPES_ACCEPTED,
   acceptedFileMaxSize = DEFAULT_MAX_FILE_SIZE_ACCEPTED,
+  allowUploadDuplicatedPhotos = false,
   addMorePhotosIcon,
   addPhotoTextButton,
   addPhotoTextSkeleton,
@@ -120,10 +121,28 @@ const MoleculePhotoUploader = ({
       return true
     })
 
-    const notRepeatedFiles = notExcedingMaxSizeFiles.filter(
-      notExcedingMaxSizeFile =>
-        !files.some(file => file.path === notExcedingMaxSizeFile?.path)
-    )
+    let notRepeatedFiles
+    if (allowUploadDuplicatedPhotos) {
+      notRepeatedFiles = notExcedingMaxSizeFiles
+    } else {
+      notRepeatedFiles = notExcedingMaxSizeFiles.filter(
+        notExcedingMaxSizeFile => {
+          const {
+            path: newFilePath,
+            size: newFileSize,
+            lastModified: newFileLastModified
+          } = notExcedingMaxSizeFile
+          return !files.some(file => {
+            const {path, size, lastModified} = file.properties
+            return (
+              path === newFilePath &&
+              size === newFileSize &&
+              lastModified === newFileLastModified
+            )
+          })
+        }
+      )
+    }
 
     if (!notRepeatedFiles.length) {
       setIsLoading(false)
@@ -170,7 +189,11 @@ const MoleculePhotoUploader = ({
               })
             } else {
               _files.push({
-                path: nextFile.path,
+                properties: {
+                  path: nextFile.path,
+                  size: nextFile.size,
+                  lastModified: nextFile.lastModified
+                },
                 blob,
                 originalBase64,
                 preview: croppedBase64,
@@ -464,6 +487,12 @@ MoleculePhotoUploader.propTypes = {
   addMorePhotosIcon: PropTypes.node.isRequired,
   addPhotoTextButton: PropTypes.string.isRequired,
   addPhotoTextSkeleton: PropTypes.string.isRequired,
+
+  /**
+   *  A boolean to let the user upload the same photo many times.
+   *  Default value: false
+   */
+  allowUploadDuplicatedPhotos: PropTypes.bool,
   callbackPhotosRejected: PropTypes.func,
   callbackPhotosUploaded: PropTypes.func,
   deleteIcon: PropTypes.node.isRequired,

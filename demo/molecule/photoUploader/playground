@@ -13,6 +13,7 @@ const _mainPhotoLabel = 'PRINCIPAL'
 const _addPhotoTextSkeleton = 'Añadir más'
 const _dropPhotosHere = 'Suelta las fotos aquí'
 const _addPhotoTextButton = 'Seleccionalas de tu dispositivo'
+const _allowUploadDuplicatedPhotos = true
 const _dragPhotoTextInitialContent = 'Arrastra las fotos aquí'
 const _limitPhotosUploaded = 'Ha alcanzado el límite de fotografías'
 const _limitPhotosUploadedNotification = 'Máximo de fotografias alcanzado'
@@ -123,6 +124,7 @@ const Demo = () => {
         addMorePhotosIcon={_addMorePhotosIcon}
         addPhotoTextButton={_addPhotoTextButton}
         addPhotoTextSkeleton={_addPhotoTextSkeleton}
+        allowUploadDuplicatedPhotos={_allowUploadDuplicatedPhotos}
         callbackPhotosRejected={_callbackPhotosRejected}
         callbackPhotosUploaded={_callbackPhotosUploaded}
         deleteIcon={_deleteIcon}

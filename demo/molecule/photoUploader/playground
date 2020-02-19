@@ -23,6 +23,7 @@ const _errorInitialPhotoDownloadError = 'Error al descargar imágenes'
 const _errorFileExcededMaxSize = 'Las fotografías deben tener un peso máximo de 50 MB'
 const _notificationErrorFormatPhotoUploaded = 'Sólo se aceptan los formatos: formato JPEG, PNG, GIF, BMP o WEBP'
 const _uploadingPhotosText = 'Subiendo imágenes...'
+const _rotationDirection = MoleculePhotoUploaderRotationDirection.clockwise
 
 const initialPhotos = [
   "https://picsum.photos/seed/---all---/200/200",
@@ -35,7 +36,6 @@ const initialPhotos = [
 ]
 
 const Demo = () => {
-
   const _callbackPhotosUploaded = (list) => {
     console.log("_callbackPhotosUploaded: ", list)
   }
@@ -118,7 +118,7 @@ const Demo = () => {
       <h1 style={lineStyles}>Molecule PhotoUploader with initialPhotos</h1>
       <p style={lineStyles}>This example has an array of URLs passed by props, and the third one fails on load, so it shows an error notification.</p>
       <p style={lineStyles}>Also, in this example we're blocking .bmp images, which are accepted by default.</p>
-
+      <p style={lineStyles}>Also, rotation direction is set to clockwise. rotateIcon not changed, though :P</p>
       <MoleculePhotoUploader
         acceptedFileTypes='image/jpeg, image/gif, image/png, image/webp'
         addMorePhotosIcon={_addMorePhotosIcon}
@@ -145,6 +145,7 @@ const Demo = () => {
         rejectPhotosIcon={_rejectPhotosIcon}
         retryIcon={_retryErrorPhotosIcon}
         rotateIcon={_rotateIcon}
+        rotationDirection={_rotationDirection}
         uploadingPhotosText={_uploadingPhotosText}
       />
     </div>

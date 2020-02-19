@@ -27,3 +27,8 @@ export const DEFAULT_HAS_ERRORS_STATUS = false
 
 export const DRAG_STATE_STATUS_ACCEPTED = 'accepted'
 export const DRAG_STATE_STATUS_REJECTED = 'rejected'
+
+export const ROTATION_DIRECTION = {
+  clockwise: 'clockwise',
+  counterclockwise: 'counterclockwise'
+}

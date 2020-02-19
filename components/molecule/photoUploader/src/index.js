@@ -29,7 +29,8 @@ import {
   DEFAULT_MAX_FILE_SIZE_ACCEPTED,
   DEFAULT_NOTIFICATION_ERROR,
   DEFAULT_HAS_ERRORS_STATUS,
-  DRAG_STATE_STATUS_REJECTED
+  DRAG_STATE_STATUS_REJECTED,
+  ROTATION_DIRECTION
 } from './config'
 
 const MoleculePhotoUploader = ({
@@ -63,6 +64,7 @@ const MoleculePhotoUploader = ({
   rejectPhotosIcon,
   retryIcon,
   rotateIcon,
+  rotationDirection = ROTATION_DIRECTION.counterclockwise,
   uploadingPhotosText
 }) => {
   const [files, setFiles] = useState([])
@@ -320,8 +322,14 @@ const MoleculePhotoUploader = ({
 
   const _rotateItem = index => {
     const list = [...files]
-    list[index].rotation =
-      list[index].rotation === 270 ? 0 : list[index].rotation + 90
+
+    if (rotationDirection === ROTATION_DIRECTION.clockwise) {
+      list[index].rotation =
+        list[index].rotation === 270 ? 0 : list[index].rotation + 90
+    } else {
+      list[index].rotation =
+        list[index].rotation === 0 ? 270 : list[index].rotation - 90
+    }
 
     cropAndRotateImage({
       base64Image: list[index].originalBase64,
@@ -505,6 +513,7 @@ MoleculePhotoUploader.propTypes = {
   errorFormatPhotoUploadedText: PropTypes.string.isRequired,
   errorInitialPhotoDownloadErrorText: PropTypes.string.isRequired,
   infoIcon: PropTypes.node.isRequired,
+
   /**
    *  An array containing URLs of default, maybe uploaded, images
    */
@@ -520,7 +529,16 @@ MoleculePhotoUploader.propTypes = {
   rejectPhotosIcon: PropTypes.node.isRequired,
   retryIcon: PropTypes.node.isRequired,
   rotateIcon: PropTypes.node.isRequired,
+
+  /**
+   *  A string defining rotation direction.
+   *  It can be 'clockwise' or 'counterclockwise'.
+   *  Take care of being consistent with your 'rotateIcon' pointing direction! :)
+   */
+  rotationDirection: PropTypes.oneOf(Object.values(ROTATION_DIRECTION)),
   uploadingPhotosText: PropTypes.string.isRequired
 }
 
 export default MoleculePhotoUploader
+
+export {ROTATION_DIRECTION as MoleculePhotoUploaderRotationDirection}

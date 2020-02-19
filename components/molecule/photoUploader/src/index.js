@@ -38,6 +38,7 @@ const MoleculePhotoUploader = ({
   addMorePhotosIcon,
   addPhotoTextButton,
   addPhotoTextSkeleton,
+  callbackPhotosRejected = () => {},
   callbackPhotosUploaded = () => {},
   deleteIcon,
   disableScrollToBottom = false,
@@ -93,6 +94,7 @@ const MoleculePhotoUploader = ({
       text: notificationErrorFormatPhotoUploaded
     })
     _scrollToBottom()
+    callbackPhotosRejected(rejectedFiles)
   }
 
   const _onDropAccepted = acceptedFiles => {
@@ -462,6 +464,7 @@ MoleculePhotoUploader.propTypes = {
   addMorePhotosIcon: PropTypes.node.isRequired,
   addPhotoTextButton: PropTypes.string.isRequired,
   addPhotoTextSkeleton: PropTypes.string.isRequired,
+  callbackPhotosRejected: PropTypes.func,
   callbackPhotosUploaded: PropTypes.func,
   deleteIcon: PropTypes.node.isRequired,
   disableScrollToBottom: PropTypes.bool,

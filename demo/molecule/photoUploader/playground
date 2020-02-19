@@ -36,7 +36,10 @@ const initialPhotos = [
 const Demo = () => {
 
   const _callbackPhotosUploaded = (list) => {
-    console.log("_callbackPhotosUploadedu: ", list)
+    console.log("_callbackPhotosUploaded: ", list)
+  }
+  const _callbackPhotosRejected = (list) => {
+    console.log("_callbackPhotosRejected: ", list)
   }
 
   const _infoIcon = () => (
@@ -74,7 +77,7 @@ const Demo = () => {
       <path d="M22 10.8888889 13.1111111 10.8888889 13.1111111 2 10.8888889 2 10.8888889 10.8888889 2 10.8888889 2 13.1111111 10.8888889 13.1111111 10.8888889 22 13.1111111 22 13.1111111 13.1111111 22 13.1111111z" />
     </svg>
   )
-  
+
   const _retryErrorPhotosIcon = () => (
     <svg viewBox="0 0 24 24">
       <path d="M12,2 C9.285,2 6.78,3.089 4.938,4.938 L3,3 L3,9 L9,9 L6.351,6.351 C7.824,4.871 9.828,4 12,4 C16.411,4 20,7.589 20,12 C20,16.411 16.411,20 12,20 C7.589,20 4,16.411 4,12 L2,12 C2,17.514 6.486,22 12,22 C17.514,22 22,17.514 22,12 C22,6.486 17.514,2 12,2" />
@@ -89,6 +92,7 @@ const Demo = () => {
         addMorePhotosIcon={_addMorePhotosIcon}
         addPhotoTextButton={_addPhotoTextButton}
         addPhotoTextSkeleton={_addPhotoTextSkeleton}
+        callbackPhotosRejected={_callbackPhotosRejected}
         callbackPhotosUploaded={_callbackPhotosUploaded}
         deleteIcon={_deleteIcon}
         dragPhotosIcon={_dragPhotosIcon}
@@ -119,6 +123,7 @@ const Demo = () => {
         addMorePhotosIcon={_addMorePhotosIcon}
         addPhotoTextButton={_addPhotoTextButton}
         addPhotoTextSkeleton={_addPhotoTextSkeleton}
+        callbackPhotosRejected={_callbackPhotosRejected}
         callbackPhotosUploaded={_callbackPhotosUploaded}
         deleteIcon={_deleteIcon}
         dragPhotosIcon={_dragPhotosIcon}

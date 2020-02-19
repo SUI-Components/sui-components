@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SUIContext from '@s-ui/react-context'
 import cx from 'classnames'
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
@@ -46,7 +45,7 @@ const ThumbCard = ({
       <div className="sui-MoleculePhotoUploader-thumbCard-actions">
         <div
           className="sui-MoleculePhotoUploader-thumbCard-button"
-          onClick={e => callbackDeleteItem(index)}
+          onClick={() => callbackDeleteItem(index)}
         >
           <AtomIcon size={ATOM_ICON_SIZES.small}>{deleteIcon()}</AtomIcon>
         </div>
@@ -85,4 +84,4 @@ ThumbCard.propTypes = {
   rotateIcon: PropTypes.node.isRequired
 }
 
-export default SUIContext.wrapper(ThumbCard, 'ThumbCard')
+export default ThumbCard

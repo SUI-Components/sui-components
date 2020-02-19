@@ -29,7 +29,7 @@ import {
   DEFAULT_MAX_FILE_SIZE_ACCEPTED,
   DEFAULT_NOTIFICATION_ERROR,
   DEFAULT_HAS_ERRORS_STATUS,
-  DRAG_STATUS_REJECTED
+  DRAG_STATE_STATUS_REJECTED
 } from './config'
 
 const MoleculePhotoUploader = ({
@@ -413,21 +413,21 @@ const MoleculePhotoUploader = ({
           {isDragAccept && isPhotoUploaderFully() && (
             <DragState
               icon={rejectPhotosIcon}
-              status={DRAG_STATUS_REJECTED}
+              status={DRAG_STATE_STATUS_REJECTED}
               text={limitPhotosUploadedText}
             />
           )}
           {isDragAccept && !isPhotoUploaderFully() && isLoading && (
             <DragState
               icon={rejectPhotosIcon}
-              status={DRAG_STATUS_REJECTED}
+              status={DRAG_STATE_STATUS_REJECTED}
               text={uploadingPhotosText}
             />
           )}
           {isDragReject && (
             <DragState
               icon={rejectPhotosIcon}
-              status={DRAG_STATUS_REJECTED}
+              status={DRAG_STATE_STATUS_REJECTED}
               text={errorFormatPhotoUploadedText}
             />
           )}

@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SUIContext from '@s-ui/react-context'
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
 import {BASE_CLASS_NAME} from './config'
@@ -24,4 +23,4 @@ SkeletonCard.propTypes = {
   text: PropTypes.string.isRequired
 }
 
-export default SUIContext.wrapper(SkeletonCard, 'SkeletonCard')
+export default SkeletonCard

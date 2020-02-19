@@ -44,25 +44,26 @@ $w-photo-uploader-skeleton-desktop: $w-photo-uploader-thumb-image-desktop;
 $maw-photo-uploader-thumb-drag-text: 200px;
 
 #{$base-class} {
-  background: $bg-photo-uploader;
-  border-radius: $bdrs-l;
-  color: $c-photo-uploader;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  min-height: $mih-photo-uploader;
-  outline: none;
-  padding: $p-photo-uploader;
-  position: relative;
+  &-dropzone {
+    background: $bg-photo-uploader;
+    border-radius: $bdrs-l;
+    color: $c-photo-uploader;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    min-height: $mih-photo-uploader;
+    outline: none;
+    padding: $p-photo-uploader;
+    position: relative;
 
-  @include media-breakpoint-up(m) {
-    padding: $p-photo-uploader-desktop;
+    @include media-breakpoint-up(m) {
+      padding: $p-photo-uploader-desktop;
+    }
+
+    &--disabled {
+      cursor: no-drop;
+    }
   }
-
-  &--disabled {
-    cursor: no-drop;
-  }
-
   &-initialState {
     align-items: center;
     border: $bd-photo-uploader;

@@ -1,4 +1,5 @@
 export const BASE_CLASS_NAME = 'sui-MoleculePhotoUploader'
+export const DROPZONE_CLASS_NAME = `${BASE_CLASS_NAME}-dropzone`
 export const THUMB_CLASS_NAME = `${BASE_CLASS_NAME}-thumb`
 export const THUMB_SORTABLE_CLASS_NAME = `${THUMB_CLASS_NAME}--sortable`
 

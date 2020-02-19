@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {useDropzone} from 'react-dropzone'
 import {ReactSortable} from 'react-sortablejs'
+import {getTarget} from '@s-ui/js/lib/react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -17,6 +18,7 @@ import SkeletonCard from './SkeletonCard'
 
 import {
   BASE_CLASS_NAME,
+  DROPZONE_CLASS_NAME,
   THUMB_CLASS_NAME,
   THUMB_SORTABLE_CLASS_NAME,
   DEFAULT_IMAGE_ROTATION_DEGREES,
@@ -38,6 +40,7 @@ const MoleculePhotoUploader = ({
   addPhotoTextSkeleton,
   callbackPhotosUploaded = () => {},
   deleteIcon,
+  disableScrollToBottom = false,
   dragPhotosIcon,
   dragPhotoTextInitialContent,
   dropPhotosHereText,
@@ -89,6 +92,7 @@ const MoleculePhotoUploader = ({
       isError: true,
       text: notificationErrorFormatPhotoUploaded
     })
+    _scrollToBottom()
   }
 
   const _onDropAccepted = acceptedFiles => {
@@ -99,6 +103,7 @@ const MoleculePhotoUploader = ({
         isError: true,
         text: limitPhotosUploadedNotification
       })
+      _scrollToBottom()
       return false
     }
 
@@ -107,6 +112,7 @@ const MoleculePhotoUploader = ({
     const notExcedingMaxSizeFiles = acceptedFiles.filter(acceptedFile => {
       if (acceptedFile.size >= acceptedFileMaxSize) {
         setNotificationError({isError: true, text: errorFileExcededMaxSizeText})
+        _scrollToBottom()
         return false
       }
       return true
@@ -178,6 +184,7 @@ const MoleculePhotoUploader = ({
           setFiles([..._files])
           if (index >= notRepeatedFiles.length - 1) {
             setIsLoading(false)
+            _scrollToBottom()
             _callbackPhotosUploaded(_files)
           }
         })
@@ -237,8 +244,8 @@ const MoleculePhotoUploader = ({
     onDropRejected: rejectedFiles => _onDropRejected(rejectedFiles)
   })
 
-  const dropzoneClassName = cx(BASE_CLASS_NAME, {
-    [`${BASE_CLASS_NAME}--disabled`]: isPhotoUploaderFully()
+  const dropzoneClassName = cx(DROPZONE_CLASS_NAME, {
+    [`${DROPZONE_CLASS_NAME}--disabled`]: isPhotoUploaderFully()
   })
 
   const _deleteItem = index => {
@@ -264,6 +271,7 @@ const MoleculePhotoUploader = ({
             isError: true,
             text: errorInitialPhotoDownloadErrorText
           })
+          _scrollToBottom()
         } else {
           setNotificationError(DEFAULT_NOTIFICATION_ERROR)
         }
@@ -315,6 +323,23 @@ const MoleculePhotoUploader = ({
   const thumbClassName = cx(THUMB_CLASS_NAME, {
     [THUMB_SORTABLE_CLASS_NAME]: files.length > 1
   })
+
+  const container = getTarget(document.querySelector(`.${BASE_CLASS_NAME}`))
+
+  const _scrollToBottom = () => {
+    if (!disableScrollToBottom) {
+      const bounding = container.getBoundingClientRect()
+      if (
+        bounding.bottom >
+        (window.innerHeight || document.documentElement.clientHeight)
+      ) {
+        container.scrollIntoView({
+          behavior: 'smooth',
+          block: 'end'
+        })
+      }
+    }
+  }
 
   const photosPreview = () => {
     const thumbCards = files =>
@@ -371,47 +396,51 @@ const MoleculePhotoUploader = ({
 
   return (
     <>
-      <div {...getRootProps({className: dropzoneClassName})}>
-        <input {...getInputProps()} />
-        {Boolean(!files.length) && !isDragActive && (
-          <InitialState
-            buttonText={addPhotoTextButton}
-            icon={dragPhotosIcon}
-            text={dragPhotoTextInitialContent}
-          />
-        )}
-        {Boolean(files.length) && photosPreview()}
-        {isDragAccept && !isPhotoUploaderFully() && !isLoading && (
-          <DragState icon={dragPhotosIcon} text={dropPhotosHereText} />
-        )}
-        {isDragAccept && isPhotoUploaderFully() && (
-          <DragState
-            icon={rejectPhotosIcon}
-            status={DRAG_STATUS_REJECTED}
-            text={limitPhotosUploadedText}
-          />
-        )}
-        {isDragAccept && !isPhotoUploaderFully() && isLoading && (
-          <DragState
-            icon={rejectPhotosIcon}
-            status={DRAG_STATUS_REJECTED}
-            text={uploadingPhotosText}
-          />
-        )}
-        {isDragReject && (
-          <DragState
-            icon={rejectPhotosIcon}
-            status={DRAG_STATUS_REJECTED}
-            text={errorFormatPhotoUploadedText}
-          />
-        )}
+      <div className={BASE_CLASS_NAME}>
+        <div {...getRootProps({className: dropzoneClassName})}>
+          <input {...getInputProps()} />
+          {Boolean(!files.length) && !isDragActive && (
+            <InitialState
+              buttonText={addPhotoTextButton}
+              icon={dragPhotosIcon}
+              text={dragPhotoTextInitialContent}
+            />
+          )}
+          {Boolean(files.length) && photosPreview()}
+          {isDragAccept && !isPhotoUploaderFully() && !isLoading && (
+            <DragState icon={dragPhotosIcon} text={dropPhotosHereText} />
+          )}
+          {isDragAccept && isPhotoUploaderFully() && (
+            <DragState
+              icon={rejectPhotosIcon}
+              status={DRAG_STATUS_REJECTED}
+              text={limitPhotosUploadedText}
+            />
+          )}
+          {isDragAccept && !isPhotoUploaderFully() && isLoading && (
+            <DragState
+              icon={rejectPhotosIcon}
+              status={DRAG_STATUS_REJECTED}
+              text={uploadingPhotosText}
+            />
+          )}
+          {isDragReject && (
+            <DragState
+              icon={rejectPhotosIcon}
+              status={DRAG_STATUS_REJECTED}
+              text={errorFormatPhotoUploadedText}
+            />
+          )}
+        </div>
+        <DragNotification
+          icon={infoIcon}
+          onCloseCallback={() =>
+            setNotificationError(DEFAULT_NOTIFICATION_ERROR)
+          }
+          show={notificationError.isError}
+          text={notificationError.text}
+        />
       </div>
-      <DragNotification
-        icon={infoIcon}
-        onCloseCallback={() => setNotificationError(DEFAULT_NOTIFICATION_ERROR)}
-        show={notificationError.isError}
-        text={notificationError.text}
-      />
     </>
   )
 }
@@ -435,6 +464,7 @@ MoleculePhotoUploader.propTypes = {
   addPhotoTextSkeleton: PropTypes.string.isRequired,
   callbackPhotosUploaded: PropTypes.func,
   deleteIcon: PropTypes.node.isRequired,
+  disableScrollToBottom: PropTypes.bool,
   dragPhotosIcon: PropTypes.node.isRequired,
   dragPhotoTextInitialContent: PropTypes.string.isRequired,
   dropPhotosHereText: PropTypes.string.isRequired,

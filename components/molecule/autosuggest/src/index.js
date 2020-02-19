@@ -39,6 +39,7 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
     children,
     onToggle,
     onChange,
+    onBlur,
     onEnter,
     isOpen,
     keysCloseList,
@@ -129,13 +130,19 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
     const {current: domInnerInput} = refMoleculeAutosuggestInput
     const {current: optionsFromRef} = refsMoleculeAutosuggestOptions
     const options = optionsFromRef.map(getTarget)
+
     setTimeout(() => {
       const currentElementFocused = getCurrentElementFocused()
       const focusOutFromOutside = ![domInnerInput, ...options].includes(
         currentElementFocused
       )
       if (focusOutFromOutside) {
-        isOpen ? closeList(ev) : setFocus(false)
+        if (isOpen) {
+          closeList(ev)
+        } else {
+          setFocus(false)
+          onBlur()
+        }
       }
     }, 1)
     setFocus(true)

@@ -16,6 +16,9 @@ export const FORM_IMAGE_UPLOADER_DEFAULT_FORMAT_TO_BASE_64_OPTIONS = {
   maxImageWidth: DEFAULT_MAX_IMAGE_WIDTH
 }
 
+export const DEFAULT_FILE_TYPE_EXPORTED = 'image/jpeg'
+export const DEFAULT_IMAGE_QUALITY_EXPORTED = 0.8
+
 export const DEFAULT_FILE_TYPES_ACCEPTED =
   'image/jpeg, image/gif, image/png, image/webp, image/bmp'
 export const DEFAULT_MAX_FILE_SIZE_ACCEPTED = 5e7

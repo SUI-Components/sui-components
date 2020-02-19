@@ -1,4 +1,9 @@
-import {FORM_IMAGE_UPLOADER_DEFAULT_FORMAT_TO_BASE_64_OPTIONS} from './config'
+import {
+  FORM_IMAGE_UPLOADER_DEFAULT_FORMAT_TO_BASE_64_OPTIONS,
+  DEFAULT_FILE_TYPE_EXPORTED,
+  DEFAULT_IMAGE_QUALITY_EXPORTED,
+  DEFAULT_IMAGE_ROTATION_DEGREES
+} from './config'
 
 export function formatToBase64({
   file,
@@ -125,12 +130,12 @@ export function resizeImage({
 export function cropAndRotateImage({
   base64Image,
   imageURL,
-  rotation = 0,
+  rotation = DEFAULT_IMAGE_ROTATION_DEGREES,
   outputImageAspectRatio,
   maxImageHeight,
   maxImageWidth,
-  imageQuality = 0.8,
-  imageMimeType = 'image/jpeg'
+  imageQuality = DEFAULT_IMAGE_QUALITY_EXPORTED,
+  imageMimeType = DEFAULT_FILE_TYPE_EXPORTED
 }) {
   const canvas = document.createElement('canvas')
   const context = canvas.getContext('2d')
@@ -221,7 +226,10 @@ export function cropAndRotateImage({
   })
 }
 
-export function base64ToBlob(base64, imageMimeType = 'image/jpeg') {
+export function base64ToBlob(
+  base64,
+  imageMimeType = DEFAULT_FILE_TYPE_EXPORTED
+) {
   var byteString = atob(base64.split(',')[1]) // eslint-disable-line
   var ab = new ArrayBuffer(byteString.length)
   var ia = new Uint8Array(ab)

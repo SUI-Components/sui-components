@@ -2,7 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.10.0 (2020-02-19)
+
+
+
 # 2.9.0 (2020-02-18)
+
+
+### Bug Fixes
+
+* call onBlur only when the user clicks outside the dropdown ([58c6f0a](https://github.com/SUI-Components/sui-components/commit/58c6f0add6c2e1b6f49adfe827466671edfa48d6))
 
 
 

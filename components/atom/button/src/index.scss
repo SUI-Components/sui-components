@@ -108,18 +108,17 @@ $icon-stroke-color: currentColor !default;
 }
 // Sets active states when button is not disabled
 @mixin button-focused {
-  &:not(#{$base-class}--disabled) {
-    &#{$base-class}--focused,
-    &:active {
+  &#{$base-class}--focused,
+  &:active {
+    @content;
+  }
+  @media (hover: hover) {
+    &:hover {
       @content;
-    }
-    @media (hover: hover) {
-      &:hover {
-        @content;
-      }
     }
   }
 }
+
 @mixin button-icon($size, $margin) {
   & #{$base-class}-leftIcon,
   & #{$base-class}-rightIcon {

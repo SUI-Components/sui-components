@@ -1,5 +1,5 @@
 {
-  "name": "sui-form-image-uploader",
+  "name": "@s-ui/react-molecule-photo-uploader",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

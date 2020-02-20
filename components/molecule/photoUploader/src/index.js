@@ -493,42 +493,114 @@ MoleculePhotoUploader.propTypes = {
    *  The default value is 5e7 bytes (50 MB).
    */
   acceptedFileMaxSize: PropTypes.number,
+
+  /** Icon placed in skeleton placed after thumbails */
   addMorePhotosIcon: PropTypes.node.isRequired,
+
+  /** Text showed at the button of initial screen, when no photos are added */
   addPhotoTextButton: PropTypes.string.isRequired,
+
+  /** Text showed at skeleton placed after thumbails */
   addPhotoTextSkeleton: PropTypes.string.isRequired,
 
-  /**
-   *  A boolean to let the user upload the same photo many times.
-   *  Default value: false
-   */
+  /** A boolean to let the user upload the same photo many times */
   allowUploadDuplicatedPhotos: PropTypes.bool,
+
+  /** Callback that returns an array of rejected files */
   callbackPhotosRejected: PropTypes.func,
-  callbackPhotosUploaded: PropTypes.func,
-  deleteIcon: PropTypes.node.isRequired,
-  disableScrollToBottom: PropTypes.bool,
-  dragPhotosIcon: PropTypes.node.isRequired,
-  dragPhotoTextInitialContent: PropTypes.string.isRequired,
-  dropPhotosHereText: PropTypes.string.isRequired,
-  errorCorruptedPhotoUploadedText: PropTypes.string.isRequired,
-  errorFileExcededMaxSizeText: PropTypes.string.isRequired,
-  errorFormatPhotoUploadedText: PropTypes.string.isRequired,
-  errorInitialPhotoDownloadErrorText: PropTypes.string.isRequired,
-  infoIcon: PropTypes.node.isRequired,
 
   /**
-   *  An array containing URLs of default, maybe uploaded, images
+   *  Callback that returns an array of files
+   *  It's executed everytime an image is added, or is deleted, or is rotated, or is sorted
    */
+  callbackPhotosUploaded: PropTypes.func,
+
+  /** Icon placed in the button that deletes image */
+  deleteIcon: PropTypes.node.isRequired,
+
+  /** A boolean to disable that the component scroll to bottom everytime the user add a photo or there's an error */
+  disableScrollToBottom: PropTypes.bool,
+
+  /** Icon placed in the initial screen to invite the user to drag images */
+  dragPhotosIcon: PropTypes.node.isRequired,
+
+  /** Text showed at the initial content screen, with the previous icon */
+  dragPhotoTextInitialContent: PropTypes.string.isRequired,
+
+  /** Text showed when the user drag files into the dropzone, to indicate he can drop */
+  dropPhotosHereText: PropTypes.string.isRequired,
+
+  /**
+   *  In this string you can add
+   *   %{filepath}
+   *  and it will be replaced with the failed file name
+   */
+  errorCorruptedPhotoUploadedText: PropTypes.string.isRequired,
+
+  /** Text showed at error notification when a file too big is dropped */
+  errorFileExcededMaxSizeText: PropTypes.string.isRequired,
+
+  /** Text showed at error notification when a file with not accepted filetype is dropped */
+  errorFormatPhotoUploadedText: PropTypes.string.isRequired,
+
+  /** Text showed at error notification when some file of the initialPhotos fails */
+  errorInitialPhotoDownloadErrorText: PropTypes.string.isRequired,
+
+  /** Info icon */
+  infoIcon: PropTypes.node.isRequired,
+
+  /** An array containing URLs of default images to be loaded into the preview */
   initialPhotos: PropTypes.arrayOf(PropTypes.string),
+
+  /** Text showed at dropzone when the user drag (but not drop) some images and maxPhotos has been reached */
   limitPhotosUploadedText: PropTypes.string.isRequired,
+
+  /** Text showed at error notification when the user drops more images than the max allowed at maxPhotos */
   limitPhotosUploadedNotification: PropTypes.string.isRequired,
+
+  /**
+   *  Text placed at badge of the preview first item.
+   *  If none is send: will be number '1'
+   */
   mainPhotoLabel: PropTypes.string,
+
+  /**
+   *  Maximum image height to be saved.
+   *  Default value: 1080
+   *  Maximum image width will be calculated with the ratio defined and this maxImageHeight
+   *  The user can upload images with a bigger resolution, but if he does, the component will resize automatically.
+   *  Too much big resolutions will decrease the performance, so be cautious!
+   * */
   maxImageHeight: PropTypes.number,
+
+  /**
+   *  Maximum photos that the user can upload to the component.
+   *  If not defined, unlimited photos can be upload.
+   */
   maxPhotos: PropTypes.number,
+
+  /**
+   *  You can define also maximum width resolution of the image.
+   *  If not, it will be calculated with maximum height and ratio (recommended)
+   */
   maxImageWidth: PropTypes.number,
+
+  /** Text showed at error notification when a file with not allowed MIME filetype is dropped */
   notificationErrorFormatPhotoUploaded: PropTypes.string.isRequired,
+
+  /**
+   *  Ratio to crop the dropped images.
+   *  Default value: 4/3
+   */
   outputImageAspectRatio: PropTypes.number,
+
+  /** Icon showed at the dropzone when an user drags (before drop!) not allowed files  */
   rejectPhotosIcon: PropTypes.node.isRequired,
+
+  /** Icon placed in the button that retry download initial image, when it fails */
   retryIcon: PropTypes.node.isRequired,
+
+  /** Icon placed in the button that rotate image */
   rotateIcon: PropTypes.node.isRequired,
 
   /**
@@ -537,6 +609,8 @@ MoleculePhotoUploader.propTypes = {
    *  Take care of being consistent with your 'rotateIcon' pointing direction! :)
    */
   rotationDirection: PropTypes.oneOf(Object.values(ROTATION_DIRECTION)),
+
+  /** Text placed at the dragzone when an user tries to drag files, before previous dropped photos has been fully loaded */
   uploadingPhotosText: PropTypes.string.isRequired
 }
 

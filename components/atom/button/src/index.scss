@@ -254,7 +254,6 @@ $icon-stroke-color: currentColor !default;
         $c-atom-button-focused: $color !default;
         $c-atom-button-focused-invert: $color-invert !default;
 
-        background: none;
         border-color: $color;
         color: $color;
 
@@ -264,20 +263,30 @@ $icon-stroke-color: currentColor !default;
             nth($pair, 4),
             $bgc-atom-button-focused
           );
-          color: $c-atom-button-focused;
+
+          @if ($color != $c-atom-button-focused) {
+            color: $c-atom-button-focused;
+          }
         }
 
         &#{$base-class}--negative {
-          background: none;
           border-color: $color-invert;
           color: $color-invert;
+
           @include button-focused {
             background: $bgc-atom-button-focused-invert;
-            color: $c-atom-button-focused-invert;
+            @if ($color-invert != $c-atom-button-focused-invert) {
+              color: $c-atom-button-focused-invert;
+            }
           }
         }
       }
     }
+  }
+
+  &--outline,
+  &--negative {
+    background: none;
   }
 
   &--flat {

@@ -8,10 +8,10 @@ const SKELETON_CLASS_NAME = `${BASE_CLASS_NAME}-skeleton`
 const SkeletonCard = ({icon, text}) => {
   return (
     <li className={SKELETON_CLASS_NAME}>
-      <div className={`${SKELETON_CLASS_NAME}Icon`}>
+      <div className={`${SKELETON_CLASS_NAME}-icon`}>
         <AtomIcon size={ATOM_ICON_SIZES.medium}>{icon}</AtomIcon>
       </div>
-      <div className={`${SKELETON_CLASS_NAME}Text`}>{text}</div>
+      <div className={`${SKELETON_CLASS_NAME}-text`}>{text}</div>
     </li>
   )
 }

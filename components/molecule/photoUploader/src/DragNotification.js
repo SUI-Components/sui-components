@@ -5,6 +5,7 @@ import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 import MoleculeNotification, {
   BRDS_SIZE
 } from '@s-ui/react-molecule-notification'
+import {BASE_CLASS_NAME} from './config'
 
 const MOLECULE_NOTIFICATION_TYPE = 'error'
 
@@ -17,7 +18,7 @@ const DragNotification = ({
   return (
     <>
       {show && (
-        <div className="sui-MoleculePhotoUploader-notification">
+        <div className={`${BASE_CLASS_NAME}-notification`}>
           <MoleculeNotification
             icon={<AtomIcon size={ATOM_ICON_SIZES.extraLarge}>{icon}</AtomIcon>}
             type={MOLECULE_NOTIFICATION_TYPE}

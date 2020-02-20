@@ -14,16 +14,23 @@ export function formatToBase64({
     const reader = new FileReader() //eslint-disable-line
     reader.readAsDataURL(file)
     let originalBase64
-    let exifOrientation
 
     return new Promise((resolve, reject) => {
       reader.onload = () => {
         getExifOrientation(file)
           .then(getExifOrientationResult => {
-            exifOrientation = getExifOrientationResult
+            switch (getExifOrientationResult) {
+              case (3, 4):
+                options.rotation = 180
+                break
+              case (5, 6):
+                options.rotation = 90
+                break
+              case (7, 8):
+                options.rotation = 270
+            }
             return resizeImage({
               base64Image: reader.result,
-              exifOrientation,
               ...options
             })
           })
@@ -71,7 +78,6 @@ export function formatToBase64({
 
 export function resizeImage({
   base64Image,
-  exifOrientation,
   maxImageWidth,
   maxImageHeight,
   imageMimeType
@@ -81,8 +87,6 @@ export function resizeImage({
 
   const image = new Image() // eslint-disable-line
   image.src = base64Image
-
-  console.log('exif oritentation : ', exifOrientation)
 
   return new Promise((resolve, reject) => {
     image.onerror = () => {

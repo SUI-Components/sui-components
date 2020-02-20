@@ -178,6 +178,7 @@ const MoleculePhotoUploader = ({
             blob,
             originalBase64,
             croppedBase64,
+            rotation,
             hasErrors = DEFAULT_HAS_ERRORS_STATUS
           }) => {
             if (hasErrors) {
@@ -199,7 +200,7 @@ const MoleculePhotoUploader = ({
                 blob,
                 originalBase64,
                 preview: croppedBase64,
-                rotation: DEFAULT_IMAGE_ROTATION_DEGREES,
+                rotation,
                 isNew: true,
                 isModified: false,
                 hasErrors

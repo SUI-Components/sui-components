@@ -47,7 +47,8 @@ export function formatToBase64({
               file,
               blob,
               originalBase64,
-              croppedBase64: base64
+              croppedBase64: base64,
+              rotation: options.rotation
             })
           })
           .catch(e => {
@@ -230,6 +231,13 @@ export function cropAndRotateImage({
   })
 }
 
+/**
+ *
+ * @param {String} base64 to transform to Blob type
+ * @param {String} imageMimeType to define the Blob's MIME type (default: JPEG)
+ *
+ * returns a new Blob and the original base64 string
+ */
 export function base64ToBlob(
   base64,
   imageMimeType = DEFAULT_FILE_TYPE_EXPORTED
@@ -244,6 +252,15 @@ export function base64ToBlob(
   return new Promise((resolve, reject) => resolve({blob: new Blob([ia], {type: imageMimeType}), base64})) // eslint-disable-line
 }
 
+/**
+ *
+ * @param {File} file containing image data
+ *
+ * returns a number, with this possible values:
+ *    1, 2, 3, 4, 5, 6, 7 or 8 : EXIF orientation values
+ *    -1 : EXIF orientation value not defined
+ *    -2 : not a JPEG type file
+ */
 function getExifOrientation(file) {
   var reader = new FileReader() // eslint-disable-line
 

@@ -1,14 +1,14 @@
 # MoleculePhotoUploader
 
-`MoleculePhotoUploader` is a component that let you drag and drop images on it, or click it to add images. Also, in mobile, let you add photos directly taken with the camera.
+`MoleculePhotoUploader` is a component that lets you drag and drop images on it, or click it to add images. Also, on mobile, let you add photos directly taken with the camera.
 
-All images uploaded will be resized if they are exceeding the max resolution defined by props and/or cropped to fit a given ratio.
+Once uploaded into the component, all images will be resized if they are exceeding the max resolution defined by props and/or cropped to fit a given ratio. And JPEG encoded with a little bit of compression.
 
 After they are loaded, the images can be sorted, rotated or deleted from the list.
 
-A set of initial images can be load with an array of urls passed by props.
+A set of initial images can be load with an array of URLs passed by props.
 
-Every modification of the list, will return a list of Blobs to be uploaded on a server or whatever you like, and with the Blob, some useful info:
+Every modification of the list will return a list of Blobs (jpeg encoded!) to be uploaded on a server or whatever you like, and with the Blob, some useful info:
 
 >`url` (String) if the image is one of the initially passed by props will contain an url, if it's undefined, it's a new image. 
 

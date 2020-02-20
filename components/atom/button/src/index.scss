@@ -102,10 +102,6 @@ $tt-atom-button: none !default;
 $icon-fill-color: currentColor !default;
 $icon-stroke-color: currentColor !default;
 
-// Set all color properties for text and icons
-@mixin button-foreground-color($color) {
-  color: $color;
-}
 // Sets active states when button is not disabled
 @mixin button-focused {
   &#{$base-class}--focused,
@@ -221,9 +217,12 @@ $icon-stroke-color: currentColor !default;
 
     &--#{$name}Color {
       &#{$base-class}--solid {
-        @include button-foreground-color($color-invert);
+        background: $color;
+        border-color: $color;
+        color: $color-invert;
+
         @include button-focused {
-          background-color: if(
+          background: if(
             length($pair) > 2,
             nth($pair, 3),
             color-variation($color, -1)
@@ -235,17 +234,16 @@ $icon-stroke-color: currentColor !default;
             color-variation($color, -1)
           );
         }
-        background-color: $color;
-        border-color: $color;
 
         &#{$base-class}--negative {
-          @include button-foreground-color($color);
+          background: $color-invert;
+          border-color: $color-invert;
+          color: $color;
+
           @include button-focused {
-            background-color: color-variation($color, 4);
+            background: color-variation($color, 4);
             border-color: color-variation($color, 4);
           }
-          background-color: $color-invert;
-          border-color: $color-invert;
         }
       }
 
@@ -256,26 +254,27 @@ $icon-stroke-color: currentColor !default;
         $c-atom-button-focused: $color !default;
         $c-atom-button-focused-invert: $color-invert !default;
 
-        @include button-foreground-color($color);
+        background: none;
+        border-color: $color;
+        color: $color;
+
         @include button-focused {
-          background-color: if(
+          background: if(
             length($pair) > 2,
             nth($pair, 4),
             $bgc-atom-button-focused
           );
           color: $c-atom-button-focused;
         }
-        background: none;
-        border-color: $color;
 
         &#{$base-class}--negative {
-          @include button-foreground-color($color-invert);
+          background: none;
+          border-color: $color-invert;
+          color: $color-invert;
           @include button-focused {
-            background-color: $bgc-atom-button-focused-invert;
+            background: $bgc-atom-button-focused-invert;
             color: $c-atom-button-focused-invert;
           }
-          background-color: none;
-          border-color: $color-invert;
         }
       }
     }

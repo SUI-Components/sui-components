@@ -90,7 +90,8 @@ const AtomSlider = ({
     marks: markerFactory({step, min, max, marks}),
     max,
     min,
-    step
+    step,
+    value
   }
 
   // Determine the type of the slider according to the range prop

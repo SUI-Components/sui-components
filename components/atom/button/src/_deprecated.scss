@@ -35,21 +35,23 @@ $bdc-atom-button-accent: $c-accent !default;
 
 // Types and colors
 #{$base-class}--primary {
-  @include button-foreground-color($c-atom-button-primary);
-  @include button-focused {
-    background-color: $bgc-atom-button-primary-focus;
-    border-color: $bdc-atom-button-primary-focus;
-  }
-  background-color: $bgc-atom-button-primary;
+  background: $bgc-atom-button-primary;
   border-color: $bdc-atom-button-primary;
   box-shadow: $bxsh-atom-button-primary;
+  color: $c-atom-button-primary;
+
+  @include button-focused {
+    background: $bgc-atom-button-primary-focus;
+    border-color: $bdc-atom-button-primary-focus;
+  }
 }
 
 #{$base-class}--secondary,
 #{$base-class}--tertiary {
-  @include button-foreground-color($bgc-atom-button-secondary);
+  color: $bgc-atom-button-secondary;
+
   @include button-focused {
-    background-color: $bgc-atom-button-secondary-focus;
+    background: $bgc-atom-button-secondary-focus;
   }
 }
 
@@ -59,31 +61,34 @@ $bdc-atom-button-accent: $c-accent !default;
 
 #{$base-class}--negative {
   &.sui-AtomButton--primary {
-    @include button-foreground-color($c-atom-button-negative-primary);
-    @include button-focused {
-      background-color: $bgc-atom-button-negative-primary-focus;
-      border-color: $bdc-atom-button-negative-primary-focus;
-    }
-    background-color: $bgc-atom-button-negative-primary;
+    background: $bgc-atom-button-negative-primary;
     border-color: $bdc-atom-button-negative-primary;
     box-shadow: $bxsh-atom-button-negative-primary;
+    color: $c-atom-button-negative-primary;
+
+    @include button-focused {
+      background: $bgc-atom-button-negative-primary-focus;
+      border-color: $bdc-atom-button-negative-primary-focus;
+    }
   }
 
   &.sui-AtomButton--secondary,
   &.sui-AtomButton--tertiary {
-    @include button-foreground-color($c-atom-button-negative-secondary);
+    color: $c-atom-button-negative-secondary;
+
     @include button-focused {
-      background-color: $bgc-atom-button-negative-secondary-focus;
+      background: $bgc-atom-button-negative-secondary-focus;
     }
   }
 }
 
 #{$base-class}--accent {
-  @include button-foreground-color($c-atom-button-accent);
+  background: $bgc-atom-button-accent;
+  border-color: $bdc-atom-button-accent;
+  color: $c-atom-button-accent;
+
   @include button-focused {
-    background-color: $bgc-atom-button-accent-focus;
+    background: $bgc-atom-button-accent-focus;
     border-color: $bdc-atom-button-accent-focus;
   }
-  background-color: $bgc-atom-button-accent;
-  border-color: $bdc-atom-button-accent;
 }

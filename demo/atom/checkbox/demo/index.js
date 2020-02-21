@@ -2,11 +2,14 @@
 import React, {useState} from 'react'
 import AtomIcon from '../../../../components/atom/icon/src'
 import AtomCheckbox from '../../../../components/atom/checkbox/src'
+import AtomSwitch from '../../../../components/atom/switch/src'
 
 import './index.scss'
 
 const BASE_CLASS_DEMO = `DemoAtomCheckbox`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
+
+const noop = () => {}
 
 const IconCheck = props => (
   <AtomIcon {...props}>
@@ -29,14 +32,22 @@ const IconHalfCheck = props => (
 
 const Demo = () => {
   const [checkboxValue, setCheckboxValue] = useState(true)
+  const [isNative, setIsNative] = useState(false)
 
   return (
     <div className={BASE_CLASS_DEMO}>
+      <AtomSwitch
+        label="Choose Design"
+        labelLeft="Custom"
+        labelRight="Native"
+        onToggle={setIsNative}
+      />
       <h1>AtomCheckbox</h1>
       <h2>Use Cases</h2>
       <div className={CLASS_SECTION}>
         <h3>Checked with onChange method</h3>
         <AtomCheckbox
+          isNative={isNative}
           id="checkbox1"
           checked={checkboxValue}
           checkedIcon={IconCheck}
@@ -46,30 +57,52 @@ const Demo = () => {
       <div className={CLASS_SECTION}>
         <h3>Intermediate</h3>
         <AtomCheckbox
+          isNative={isNative}
           id="checkbox2"
           checkedIcon={IconCheck}
           intermediate
           intermediateIcon={IconHalfCheck}
+          onChange={noop}
         />
       </div>
       <div className={CLASS_SECTION}>
         <h3>Unchecked</h3>
-        <AtomCheckbox id="checkbox3" checkedIcon={IconCheck} />
+        <AtomCheckbox
+          isNative={isNative}
+          id="checkbox3"
+          checkedIcon={IconCheck}
+          onChange={noop}
+        />
       </div>
 
       <h2>Disabled</h2>
       <h3>Checked</h3>
-      <AtomCheckbox id="checkbox4" disabled checked checkedIcon={IconCheck} />
+      <AtomCheckbox
+        isNative={isNative}
+        id="checkbox4"
+        disabled
+        checked
+        checkedIcon={IconCheck}
+        onChange={noop}
+      />
       <h3>Intermediate</h3>
       <AtomCheckbox
+        isNative={isNative}
         id="checkbox5"
         disabled
         intermediate
         checkedIcon={IconCheck}
         intermediateIcon={IconHalfCheck}
+        onChange={noop}
       />
       <h3>Unchecked</h3>
-      <AtomCheckbox id="checkbox5" disabled checkedIcon={IconCheck} />
+      <AtomCheckbox
+        isNative={isNative}
+        id="checkbox5"
+        disabled
+        checkedIcon={IconCheck}
+        onChange={noop}
+      />
     </div>
   )
 }

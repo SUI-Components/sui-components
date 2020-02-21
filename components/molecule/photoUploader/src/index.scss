@@ -11,6 +11,7 @@ $skeleton-class: '#{$base-class}-skeleton';
 $bd-photo-uploader: $bdw-s dashed $c-primary !default;
 $bd-photo-uploader-drag-photo-rejected: none !default;
 $bd-photo-uploader-thumb: none !default;
+$bd-photo-uploader-thumb-chosen: none !default;
 $bd-photo-uploader-thumb-drag: none !default;
 $bg-photo-uploader: $c-gray-light-4 !default;
 $bg-photo-uploader-drag-photo: rgba($c-primary, 0.85) !default;
@@ -262,6 +263,7 @@ $maw-photo-uploader-thumb-drag-text: 200px;
 
   &--chosen {
     background-color: $bg-photo-uploader-thumb-chosen;
+    border: $bd-photo-uploader-thumb-chosen;
     cursor: grabbing;
   }
 

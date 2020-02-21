@@ -59,7 +59,7 @@
     box-shadow: $bxsh-select-popover;
     margin-top: $m-m;
     position: absolute;
-    width: $w-select-popover;
+    min-width: $w-select-popover;
     z-index: $z-tooltips;
 
     &ActionBar {

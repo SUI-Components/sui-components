@@ -79,7 +79,7 @@ AtomCheckbox.propTypes = {
   checked: PropTypes.bool,
 
   /* AtomIcon when checkbox is checked */
-  checkedIcon: PropTypes.elementType.isRequired,
+  checkedIcon: PropTypes.elementType,
 
   /* Mark the input as intermediate */
   intermediate: PropTypes.bool,

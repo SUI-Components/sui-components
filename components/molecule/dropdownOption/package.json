@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-atom-checkbox": "1"
+    "@s-ui/react-atom-checkbox": "2"
   },
   "keywords": [],
   "author": "",

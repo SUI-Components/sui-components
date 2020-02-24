@@ -11,7 +11,7 @@ export function formatToBase64({
   options = FORM_IMAGE_UPLOADER_DEFAULT_FORMAT_TO_BASE_64_OPTIONS
 }) {
   if (file) {
-    const reader = new FileReader() //eslint-disable-line
+    const reader = new window.FileReader()
     reader.readAsDataURL(file)
     let originalBase64
 

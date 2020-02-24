@@ -8,6 +8,7 @@ $thumb-class: '#{$base-class}-thumb';
 $skeleton-class: '#{$base-class}-skeleton';
 
 /* Overwritable variables */
+$bdrs-photo-uploader-thumb-card-main-counter: $bdrs-base !default;
 $bd-photo-uploader: $bdw-s dashed $c-primary !default;
 $bd-photo-uploader-drag-photo-rejected: none !default;
 $bd-photo-uploader-thumb: none !default;
@@ -166,7 +167,7 @@ $maw-photo-uploader-thumb-drag-text: 200px;
 
     &-counter {
       background-color: $c-primary;
-      border-radius: 999px;
+      border-radius: $bdrs-rounded;
       color: $c-white;
       display: inline-flex;
       font-size: $fz-xs;
@@ -179,6 +180,7 @@ $maw-photo-uploader-thumb-drag-text: 200px;
     }
 
     &-mainCounter {
+      border-radius: $bdrs-photo-uploader-thumb-card-main-counter;
       padding: 0 $p-m;
     }
 

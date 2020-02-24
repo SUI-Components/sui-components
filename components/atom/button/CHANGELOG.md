@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.41.0 (2020-02-24)
+
+
+### Performance Improvements
+
+* avoid adding repeated properties when same value ([6889581](https://github.com/SUI-Components/sui-components/commit/6889581017061f57a0953c7e2bf45274bd7c5b03))
+* avoid writing repeated styles ([2e56a63](https://github.com/SUI-Components/sui-components/commit/2e56a637a3beefb97ce76d9520d84ab17f41385f))
+* shave off 70KB of bloated CSS ([f24e206](https://github.com/SUI-Components/sui-components/commit/f24e2061c937f20f4afce983ded3db33bbd3f7ff))
+* use background instead background-color ([80c9cfb](https://github.com/SUI-Components/sui-components/commit/80c9cfbf9e38a1968c2bc39ea89eb764c2756406))
+
+
+
 # 1.40.0 (2020-02-18)
 
 

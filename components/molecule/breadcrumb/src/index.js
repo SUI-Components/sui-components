@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types'
 
 import React, {useState} from 'react'
-import Chevronright from '@schibstedspain/sui-svgiconset/lib/Chevronright'
+import Chevronright from '@s-ui/react-icons/lib/Chevronright'
 import cx from 'classnames'
 
 const breadcrumbClassName = isExpanded =>

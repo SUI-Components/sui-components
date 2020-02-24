@@ -4,7 +4,7 @@ import React, {useState} from 'react'
 import Button from '@s-ui/react-atom-button'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
-import IconClose from '@schibstedspain/sui-svgiconset/lib/Close'
+import IconClose from '@s-ui/react-icons/lib/Close'
 import {IconArrowDown} from './Icons'
 
 import AtomToast, {

@@ -6,9 +6,12 @@ import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
 import {BASE_CLASS_NAME} from './config'
 const ALTERNATIVE_ACTION_TEXT = '- o -'
+const BUTTON_COLOR = 'primary'
+const BUTTON_SIZE = 'small'
 
 const InitialState = ({
   buttonText,
+  buttonSize = BUTTON_SIZE,
   icon,
   text,
   dividerText = ALTERNATIVE_ACTION_TEXT
@@ -25,7 +28,7 @@ const InitialState = ({
         </span>
       </div>
       <div className={`${BASE_CLASS_NAME}-buttonState`}>
-        <Button size="medium" color="primary">
+        <Button color={BUTTON_COLOR} size={buttonSize}>
           {buttonText}
         </Button>
       </div>
@@ -37,6 +40,7 @@ InitialState.displayName = 'InitialState'
 
 InitialState.propTypes = {
   buttonText: PropTypes.string.isRequired,
+  buttonSize: PropTypes.string,
   icon: PropTypes.node.isRequired,
   text: PropTypes.string.isRequired,
   dividerText: PropTypes.string

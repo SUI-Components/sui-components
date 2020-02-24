@@ -41,6 +41,7 @@ const MoleculePhotoUploader = ({
   allowUploadDuplicatedPhotos = false,
   addMorePhotosIcon,
   addPhotoTextButton,
+  addPhotoButtonSize,
   addPhotoTextSkeleton,
   callbackPhotosRejected = () => {},
   callbackPhotosUploaded = () => {},
@@ -441,6 +442,7 @@ const MoleculePhotoUploader = ({
           {Boolean(!files.length) && !isDragActive && (
             <InitialState
               buttonText={addPhotoTextButton}
+              buttonSize={addPhotoButtonSize}
               icon={dragPhotosIcon()}
               text={dragPhotoTextInitialContent}
               dividerText={dragPhotoDividerTextInitialContent}
@@ -502,6 +504,9 @@ MoleculePhotoUploader.propTypes = {
 
   /** Icon placed in skeleton placed after thumbails */
   addMorePhotosIcon: PropTypes.node.isRequired,
+
+  /** Button size of the initial state button */
+  addPhotoButtonSize: PropTypes.string,
 
   /** Text showed at the button of initial screen, when no photos are added */
   addPhotoTextButton: PropTypes.string.isRequired,

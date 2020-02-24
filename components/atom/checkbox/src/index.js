@@ -1,41 +1,61 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 const BASE_CLASS = 'sui-AtomCheckbox'
 
 const AtomCheckbox = ({
-  id,
-  name,
-  disabled,
   checked = false,
-  intermediate = false,
   checkedIcon: CheckedIcon,
+  disabled,
+  id,
+  intermediate = false,
   intermediateIcon: IntermediateIcon,
+  isNative: isNativeProp = false,
+  name,
   onChange: onChangeFromProps = () => {},
   ...props
 }) => {
+  const inputRef = useRef()
+  const hasNotCustomIcons = !CheckedIcon && !IntermediateIcon
+  const isNative = isNativeProp || hasNotCustomIcons
+  const isIntermediate = intermediate && !checked
+
+  const updateNativeIndeterminate = () => {
+    inputRef.current && (inputRef.current.indeterminate = isIntermediate)
+  }
+
   const handleChange = ev => {
+    // Handler doesn't necessarily trigger render, but browser could still set
+    // native indeterminate property which may end up in a mismatch between it
+    // and the component's prop, so native value should be kept updated here.
+    updateNativeIndeterminate()
+
     const {checked, name} = ev.target
     if (!disabled) onChangeFromProps(ev, {name, value: checked})
   }
 
   const className = cx(BASE_CLASS, {
     'is-checked': checked,
-    'is-disabled': disabled
+    'is-disabled': disabled,
+    [`${BASE_CLASS}--native`]: isNative
   })
+
+  // Keep native indeterminate property updated every render
+  updateNativeIndeterminate()
 
   return (
     <label className={className}>
-      {checked && <CheckedIcon />}
-      {intermediate && !checked && <IntermediateIcon />}
+      {!isNative && checked && <CheckedIcon />}
+      {!isNative && isIntermediate && <IntermediateIcon />}
       <input
+        ref={inputRef}
         type="checkbox"
         id={id}
         name={name || id}
         disabled={disabled}
         checked={checked}
-        intermediate={intermediate ? 'intermediate' : ''}
+        intermediate={isIntermediate ? 'intermediate' : ''}
         onChange={handleChange}
         {...props}
       />
@@ -49,7 +69,7 @@ AtomCheckbox.propTypes = {
   /* The DOM id global attribute. */
   id: PropTypes.string.isRequired,
 
-  /* name attribute for the input */
+  /* Name attribute for the input */
   name: PropTypes.string,
 
   /* This Boolean attribute prevents the user from interacting with the input */
@@ -59,13 +79,16 @@ AtomCheckbox.propTypes = {
   checked: PropTypes.bool,
 
   /* AtomIcon when checkbox is checked */
-  checkedIcon: PropTypes.elementType.isRequired,
+  checkedIcon: PropTypes.elementType,
 
   /* Mark the input as intermediate */
   intermediate: PropTypes.bool,
 
   /* AtomIcon when checkbox is intermediate */
   intermediateIcon: PropTypes.elementType,
+
+  /* Uses browser's native look and feel instead of custom icons */
+  isNative: PropTypes.bool,
 
   /* onChange callback */
   onChange: PropTypes.func.isRequired

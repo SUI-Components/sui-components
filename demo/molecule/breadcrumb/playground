@@ -31,8 +31,7 @@ return (
     <h1>Breadcrumb</h1>
     <h2>Breadcrumb basic</h2>
     <BreadcrumbBasic icon={ArrowRight} items={breadcrumbItems} />
-    <br />
-    <h2> Breadcrum basic scrollable</h2>
+    <h2>Breadcrum basic scrollable</h2>
     <BreadcrumbBasic icon={ArrowRight} items={breadcrumbItems} isScrollable />
   </div>
 )

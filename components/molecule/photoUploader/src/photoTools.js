@@ -262,7 +262,7 @@ export function base64ToBlob(
  *    -2 : not a JPEG type file
  */
 function getExifOrientation(file) {
-  var reader = new FileReader() // eslint-disable-line
+  var reader = new window.FileReader()
 
   return new Promise((resolve, reject) => {
     reader.onload = function(e) {

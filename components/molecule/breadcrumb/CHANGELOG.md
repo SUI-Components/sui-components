@@ -2,56 +2,65 @@
 
 All notable changes to this project will be documented in this file.
 
-<a name="1.14.0"></a>
+# 1.15.0 (2020-02-24)
+
+
+### Features
+
+* Use new [@s-ui](https://github.com/s-ui) react icons ([ffeb392](https://github.com/SUI-Components/sui-components/commit/ffeb392beb451d567d110f40ab7108869526a36e))
+
+
+
 # 1.14.0 (2019-11-06)
 
 
 ### Features
 
-* align icons and add margin right ([c841044](https://github.com/SUI-Components/sui-components/commit/c841044))
+* align icons and add margin right ([c841044](https://github.com/SUI-Components/sui-components/commit/c8410443e95fa16ff71d14bf2bb7ddff8af868d9))
 
 
 
-<a name="1.13.0"></a>
 # 1.13.0 (2019-10-18)
 
 
 ### Bug Fixes
 
-* breadcrumb item alignment and font size ([7c60496](https://github.com/SUI-Components/sui-components/commit/7c60496))
+* breadcrumb item alignment and font size ([7c60496](https://github.com/SUI-Components/sui-components/commit/7c6049696077cc79219ba0abb3439e720ac71183))
 
 
 
-<a name="1.12.0"></a>
 # 1.12.0 (2019-07-04)
 
 
 ### Features
 
-* move breadcrumb component to a function ([98183ec](https://github.com/SUI-Components/sui-components/commit/98183ec))
+* move breadcrumb component to a function ([98183ec](https://github.com/SUI-Components/sui-components/commit/98183ec5514362476fe10f03eff0c98166c04bb9))
 
 
 
-<a name="1.11.0"></a>
 # 1.11.0 (2019-06-06)
 
 
 ### Features
 
-* refactored so no use of media-breakpoint-down is needed ([8bd25c9](https://github.com/SUI-Components/sui-components/commit/8bd25c9))
-* removed deprecated dependency ([c5de91c](https://github.com/SUI-Components/sui-components/commit/c5de91c))
+* refactored so no use of media-breakpoint-down is needed ([8bd25c9](https://github.com/SUI-Components/sui-components/commit/8bd25c9ee301920dc048e26fd71ab57207b6cae0))
+* removed deprecated dependency ([c5de91c](https://github.com/SUI-Components/sui-components/commit/c5de91c8001b8e30478c9bf98d84db96478ff2dc))
 
 
 
-<a name="1.10.0"></a>
 # 1.10.0 (2018-10-18)
 
 
 ### Features
 
-* added text decoration sass var in hover link ([6915daa](https://github.com/SUI-Components/sui-components/commit/6915daa))
-* moved styles of breadcrumb in theme into component ([60f3799](https://github.com/SUI-Components/sui-components/commit/60f3799))
-* remove Schibsted Spain Components ([19f4e4d](https://github.com/SUI-Components/sui-components/commit/19f4e4d))
+* added text decoration sass var in hover link ([6915daa](https://github.com/SUI-Components/sui-components/commit/6915daab7384b113bcb43c19ba87c61bfbb63ad3))
+* moved styles of breadcrumb in theme into component ([60f3799](https://github.com/SUI-Components/sui-components/commit/60f37994c293387717ef4a9107314c5762d741ae))
+* remove Schibsted Spain Components ([19f4e4d](https://github.com/SUI-Components/sui-components/commit/19f4e4d7cc52159a1f061a81b8516a2232b2484a))
+
+
+### Reverts
+
+* Revert "refactor(molecule/breadcrumb): removed unnecessary import" ([9038bb4](https://github.com/SUI-Components/sui-components/commit/9038bb4f5f6034bd4e914e72743907cbe2298ff0))
 
 
 

@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.16.0 (2020-02-24)
+
+
+### Features
+
+* Use new [@s-ui](https://github.com/s-ui) react icons ([b7cd29c](https://github.com/SUI-Components/sui-components/commit/b7cd29c827332db9e436aa19f5a4b7197f5665f0))
+
+
+### Performance Improvements
+
+* remove not needed repeated css properties ([fbad87d](https://github.com/SUI-Components/sui-components/commit/fbad87d6f9d10783a958e0220569866db7aa4df9))
+
+
+
 # 1.15.0 (2020-01-08)
 
 

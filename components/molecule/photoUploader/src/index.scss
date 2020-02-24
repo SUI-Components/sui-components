@@ -13,6 +13,8 @@ $bd-photo-uploader-drag-photo-rejected: none !default;
 $bd-photo-uploader-thumb: none !default;
 $bd-photo-uploader-thumb-chosen: none !default;
 $bd-photo-uploader-thumb-drag: none !default;
+$bdrs-photo-uploader-thumb-card: $bdrs-l !default;
+$bdrs-photo-uploader-skeleton: $bdrs-l !default;
 $bg-photo-uploader: $c-gray-light-4 !default;
 $bg-photo-uploader-drag-photo: rgba($c-primary, 0.85) !default;
 $bg-photo-uploader-drag-photo-rejected: rgba($c-error, 0.9) !default;
@@ -28,11 +30,14 @@ $c-photo-uploader-action-buttons-hover: $c-white !default;
 $c-photo-uploader-drag-photo-rejected: $c-white !default;
 $c-photo-uploader-skeleton: $c-primary !default;
 $c-photo-uploader-skeleton-hover: $c-white !default;
+$c-photo-uploader-initial-state: $c-primary !default;
 $jc-photo-uploader: center !default;
 $p-photo-uploader: $p-m !default;
 $p-photo-uploader-desktop: $p-xl !default;
 $w-photo-uploader-thumb-image: 100% !default;
 $w-photo-uploader-thumb-image-desktop: 160px !default;
+$s-photo-uploader-thumb-icons: 16px !default;
+$fz-photo-uploader-initial-state: $fz-s !default;
 
 $mih-photo-uploader: 249px;
 $s-photo-uploader-counter: 16px;
@@ -69,8 +74,10 @@ $maw-photo-uploader-thumb-drag-text: 200px;
     align-items: center;
     border: $bd-photo-uploader;
     border-radius: $bdrs-l;
+    color: $c-photo-uploader-initial-state;
     display: flex;
     flex-direction: column;
+    font-size: $fz-photo-uploader-initial-state;
     height: 100%;
     justify-content: center;
     left: 0;
@@ -84,7 +91,13 @@ $maw-photo-uploader-thumb-drag-text: 200px;
     align-items: center;
     display: flex;
     flex-direction: column;
-    margin-bottom: $m-m;
+
+    &Text {
+      margin-top: $m-m;
+    }
+    &Divider {
+      margin: $m-m 0;
+    }
   }
 
   &-dragState {
@@ -148,7 +161,7 @@ $maw-photo-uploader-thumb-drag-text: 200px;
 
 #{$thumb-class} {
   border: $bd-photo-uploader-thumb;
-  border-radius: $bdrs-l;
+  border-radius: $bdrs-photo-uploader-thumb-card;
   box-sizing: content-box;
   cursor: grab;
   display: inline-block;
@@ -161,7 +174,6 @@ $maw-photo-uploader-thumb-drag-text: 200px;
     min-width: 0;
     overflow: hidden;
     position: relative;
-
     height: 100%;
 
     &-counter {
@@ -279,7 +291,7 @@ $maw-photo-uploader-thumb-drag-text: 200px;
   align-items: center;
   background-color: $bg-photo-uploader-skeleton;
   border: $bd-photo-uploader;
-  border-radius: $bdrs-l;
+  border-radius: $bdrs-photo-uploader-skeleton;
   color: $c-photo-uploader-skeleton;
   cursor: pointer;
   display: flex;
@@ -306,6 +318,7 @@ $maw-photo-uploader-thumb-drag-text: 200px;
   }
 
   &-text {
+    margin-top: $m-m;
     font-size: $fz-m;
     line-height: $lh-xl;
   }

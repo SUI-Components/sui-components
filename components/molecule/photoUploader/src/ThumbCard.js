@@ -9,6 +9,7 @@ const IMAGE_THUMB_CARD_CLASS_NAME = `${THUMB_CARD_CLASS_NAME}-image`
 const ICON_THUMB_CARD_CLASS_NAME = `${THUMB_CARD_CLASS_NAME}-iconContainer`
 
 const ThumbCard = ({
+  iconSize = ATOM_ICON_SIZES.small,
   callbackDeleteItem,
   callbackRetryUpload,
   callbackRotateItem,
@@ -47,21 +48,21 @@ const ThumbCard = ({
           className="sui-MoleculePhotoUploader-thumbCard-button"
           onClick={() => callbackDeleteItem(index)}
         >
-          <AtomIcon size={ATOM_ICON_SIZES.small}>{deleteIcon}</AtomIcon>
+          <AtomIcon size={iconSize}>{deleteIcon}</AtomIcon>
         </div>
         {hasErrors ? (
           <div
             className="sui-MoleculePhotoUploader-thumbCard-button"
             onClick={e => callbackRetryUpload(index)}
           >
-            <AtomIcon size={ATOM_ICON_SIZES.small}>{retryIcon}</AtomIcon>
+            <AtomIcon size={iconSize}>{retryIcon}</AtomIcon>
           </div>
         ) : (
           <div
             className="sui-MoleculePhotoUploader-thumbCard-button"
             onClick={e => callbackRotateItem(index)}
           >
-            <AtomIcon size={ATOM_ICON_SIZES.small}>{rotateIcon}</AtomIcon>
+            <AtomIcon size={iconSize}>{rotateIcon}</AtomIcon>
           </div>
         )}
       </div>
@@ -72,6 +73,7 @@ const ThumbCard = ({
 ThumbCard.displayName = 'ThumbCard'
 
 ThumbCard.propTypes = {
+  iconSize: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES)),
   callbackDeleteItem: PropTypes.func,
   callbackRetryUpload: PropTypes.func,
   callbackRotateItem: PropTypes.func,

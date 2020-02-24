@@ -16,6 +16,8 @@ import DragState from './DragState'
 import InitialState from './InitialState'
 import SkeletonCard from './SkeletonCard'
 
+import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
+
 import {
   BASE_CLASS_NAME,
   DROPZONE_CLASS_NAME,
@@ -46,6 +48,7 @@ const MoleculePhotoUploader = ({
   disableScrollToBottom = false,
   dragPhotosIcon,
   dragPhotoTextInitialContent,
+  dragPhotoDividerTextInitialContent,
   dropPhotosHereText,
   errorCorruptedPhotoUploadedText,
   errorFileExcededMaxSizeText,
@@ -65,7 +68,8 @@ const MoleculePhotoUploader = ({
   retryIcon,
   rotateIcon,
   rotationDirection = ROTATION_DIRECTION.counterclockwise,
-  uploadingPhotosText
+  uploadingPhotosText,
+  thumbIconSize
 }) => {
   const [files, setFiles] = useState([])
   const [isLoading, setIsLoading] = useState(Boolean(initialPhotos.length))
@@ -385,6 +389,7 @@ const MoleculePhotoUploader = ({
             onClick={e => e.stopPropagation()}
           >
             <ThumbCard
+              iconSize={thumbIconSize}
               image={file}
               index={index}
               mainPhotoLabel={mainPhotoLabel}
@@ -438,6 +443,7 @@ const MoleculePhotoUploader = ({
               buttonText={addPhotoTextButton}
               icon={dragPhotosIcon()}
               text={dragPhotoTextInitialContent}
+              dividerText={dragPhotoDividerTextInitialContent}
             />
           )}
           {Boolean(files.length) && photosPreview()}
@@ -527,6 +533,9 @@ MoleculePhotoUploader.propTypes = {
   /** Text showed at the initial content screen, with the previous icon */
   dragPhotoTextInitialContent: PropTypes.string.isRequired,
 
+  /** Text showed between the initial content screen (dragPhotosIcon), with the icon (dragPhotosIcon) */
+  dragPhotoDividerTextInitialContent: PropTypes.string.isRequired,
+
   /** Text showed when the user drag files into the dropzone, to indicate he can drop */
   dropPhotosHereText: PropTypes.string.isRequired,
 
@@ -611,7 +620,10 @@ MoleculePhotoUploader.propTypes = {
   rotationDirection: PropTypes.oneOf(Object.values(ROTATION_DIRECTION)),
 
   /** Text placed at the dragzone when an user tries to drag files, before previous dropped photos has been fully loaded */
-  uploadingPhotosText: PropTypes.string.isRequired
+  uploadingPhotosText: PropTypes.string.isRequired,
+
+  /** Icon size inside action buttons in thumb card */
+  thumbIconSize: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES))
 }
 
 export default MoleculePhotoUploader

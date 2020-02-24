@@ -13,6 +13,6 @@
     "@s-ui/react-molecule-dropdown-option": "1",
     "@s-ui/react-molecule-select": "1",
     "@s-ui/react-atom-button": "1",
-    "@schibstedspain/sui-svgiconset": "1"
+    "@s-ui/react-icons": "1"
   }
 }

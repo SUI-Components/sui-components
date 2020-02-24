@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.6.0 (2020-02-24)
+
+
+### Bug Fixes
+
+* copy paste not working when value is empty (some refactor also) ([8bddd11](https://github.com/SUI-Components/sui-components/commit/8bddd110b386ce6be7eb35eaacbb46592d8e6886))
+
+
+
 # 2.5.0 (2020-01-31)
 
 

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.23.0 (2020-02-24)
+
+
+### Features
+
+* update dependency major atom checkbox ([66d0617](https://github.com/SUI-Components/sui-components/commit/66d06177ebf51edc0e5bcafcdf89efe9aad76f54))
+
+
+
 # 1.22.0 (2020-01-08)
 
 

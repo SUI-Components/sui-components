@@ -5,12 +5,18 @@ import React, {useState} from 'react'
 import Chevronright from '@s-ui/react-icons/lib/Chevronright'
 import cx from 'classnames'
 
-const breadcrumbClassName = isExpanded =>
+const breadcrumbClassName = ({isExpanded, isScrollable}) =>
   cx('sui-BreadcrumbBasic', {
-    'is-expanded': isExpanded
+    'is-expanded': isExpanded,
+    'is-scrollable': isScrollable
   })
 
-export default function BreadcrumbBasic({items, icon, linkFactory: Link}) {
+export default function BreadcrumbBasic({
+  items,
+  icon,
+  linkFactory: Link,
+  isScrollable = false
+}) {
   const [isExpanded, setIsExpanded] = useState(false)
   const expandBreadcrumb = () => setIsExpanded(true)
 
@@ -19,7 +25,7 @@ export default function BreadcrumbBasic({items, icon, linkFactory: Link}) {
 
   return (
     <nav aria-label="breadcrumb" role="navigation">
-      <div className={breadcrumbClassName(isExpanded)}>
+      <div className={breadcrumbClassName({isExpanded, isScrollable})}>
         <button onClick={expandBreadcrumb} className="sui-BreadcrumbBasic-btn">
           ...
         </button>
@@ -69,7 +75,11 @@ BreadcrumbBasic.propTypes = {
   /**
    * Function for creating links so it allow to customize it
    */
-  linkFactory: PropTypes.func
+  linkFactory: PropTypes.func,
+  /**
+   * Boolean that allows us to show the items with a horizontal scroll
+   */
+  isScrollable: PropTypes.bool
 }
 
 BreadcrumbBasic.defaultProps = {

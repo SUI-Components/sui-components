@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.2.0 (2020-02-24)
+
+
+### Bug Fixes
+
+* remove isRequired from custom checked icon ([4f4e137](https://github.com/SUI-Components/sui-components/commit/4f4e137e5b22f2202de9cd38953476ea39cef06c))
+
+
+### Features
+
+* add native style option ([3f7b38e](https://github.com/SUI-Components/sui-components/commit/3f7b38e9395f639421e1f1859e700cb2a71d09e9))
+
+
+
 # 2.1.0 (2020-02-18)
 
 

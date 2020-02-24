@@ -26,4 +26,12 @@ const breadcrumbItems = [
   }
 ]
 
-return (<BreadcrumbBasic icon={ArrowRight} items={breadcrumbItems} />)
+return (
+  <div style={{padding: '20px'}}>
+    <h1>Breadcrumb</h1>
+    <h2>Breadcrumb basic</h2>
+    <BreadcrumbBasic icon={ArrowRight} items={breadcrumbItems} />
+    <h2>Breadcrum basic scrollable</h2>
+    <BreadcrumbBasic icon={ArrowRight} items={breadcrumbItems} isScrollable />
+  </div>
+)

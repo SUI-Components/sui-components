@@ -1,8 +1,11 @@
+/* eslint-disable react/prop-types */
 import React, {useState} from 'react'
-import OrganismNestedCheckboxes from '../../../../components/organism/nestedCheckboxes/src/'
+import MoleculeSelect from '@s-ui/react-molecule-select'
+import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 import MoleculeCheckboxField from '../../../../components/molecule/checkboxField/src/'
 import MoleculeSelectPopover, {
-  selectPopoverSizes
+  selectPopoverSizes,
+  selectPopoverPlacements
 } from '../../../../components/molecule/selectPopover/src/'
 import {IconCheck, IconHalfCheck, IconArrowDown} from './Icons'
 
@@ -17,14 +20,9 @@ const demoExample = [
 const Demo = () => {
   const [items, setItems] = useState(demoExample)
   const [unconfirmedItems, setUnconfirmedItems] = useState(demoExample)
-
-  const handleChangeParent = () => {
-    const newItems = unconfirmedItems.map(item => ({
-      ...item,
-      checked: !unconfirmedItems.some(({checked}) => checked === true)
-    }))
-    setUnconfirmedItems(newItems)
-  }
+  const [size, setSize] = useState(selectPopoverSizes.MEDIUM)
+  const [placement, setPlacement] = useState(selectPopoverPlacements.RIGHT)
+  const [hasEvents, setHasEvents] = useState(false)
 
   const handleChangeItem = event => {
     const {target} = event
@@ -36,80 +34,91 @@ const Demo = () => {
     setUnconfirmedItems(newItems)
   }
 
-  const renderItems = () =>
-    unconfirmedItems.map(item => {
-      const {id: childId, checked} = item
+  const handleClose = () => {
+    hasEvents && window.alert('Popover closed!')
+  }
 
-      return (
-        <MoleculeCheckboxField
-          key={childId}
-          id={childId}
-          checked={checked}
-          checkedIcon={IconCheck}
-          intermediateIcon={IconHalfCheck}
-          onChange={handleChangeItem}
-          {...item}
-        />
-      )
-    })
+  const handleOpen = () => {
+    hasEvents && window.alert('Popover opened!')
+  }
 
   const checkedItems = items.filter(item => item.checked)
   const isSelected = checkedItems.length > 0
   const itemsText = checkedItems.map(item => item.label).join(', ')
   const selectText = isSelected ? itemsText : 'Todas las operaciones'
 
-  const renderSelectPopover = size => (
-    <MoleculeSelectPopover
-      acceptButtonText="Aceptar"
-      cancelButtonText="Cancelar"
-      iconArrowDown={IconArrowDown}
-      isSelected={isSelected}
-      onAccept={() => setItems(unconfirmedItems)}
-      onCancel={() => setUnconfirmedItems(items)}
-      selectText={selectText}
-      size={size}
-    >
-      <div className="demo-content">
-        <h3>Tipo de operación</h3>
-        <OrganismNestedCheckboxes
-          checkedIcon={IconCheck}
-          id="nested-1"
-          intermediateIcon={IconHalfCheck}
-          join
-          labelParent="Todas las operaciones"
-          onChangeParent={handleChangeParent}
-        >
-          {renderItems()}
-        </OrganismNestedCheckboxes>
-      </div>
-    </MoleculeSelectPopover>
-  )
-
   return (
     <div className="demo-container">
-      <h3>Size M (default)</h3>
-      {renderSelectPopover(selectPopoverSizes.MEDIUM)}
+      <h1>Atom Popover</h1>
+      <h3>Props</h3>
+      <label>Size</label>
+      <MoleculeSelect
+        value={size}
+        onChange={(ev, {value}) => setSize(value)}
+        placeholder="Select a size..."
+        iconArrowDown={<IconArrowDown />}
+      >
+        {Object.keys(selectPopoverSizes).map(key => (
+          <MoleculeSelectOption key={key} value={selectPopoverSizes[key]}>
+            {key}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelect>
+      <br />
+      <label>Placements</label>
+      <MoleculeSelect
+        value={placement}
+        onChange={(ev, {value}) => setPlacement(value)}
+        placeholder="Select a size..."
+        iconArrowDown={<IconArrowDown />}
+      >
+        {Object.keys(selectPopoverPlacements).map(key => (
+          <MoleculeSelectOption key={key} value={selectPopoverPlacements[key]}>
+            {key}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelect>
+      <br />
+      <input
+        type="checkbox"
+        checked={hasEvents}
+        onChange={ev => setHasEvents(ev.target.checked)}
+      />
+      <label>With events (onOpen & onClose)</label>
 
-      <h3>Size S</h3>
-      {renderSelectPopover(selectPopoverSizes.SMALL)}
-
-      <h3>Size XS</h3>
-      {renderSelectPopover(selectPopoverSizes.XSMALL)}
-
-      <h2>Extra events</h2>
-      <h3>onOpen / onClose</h3>
+      <h3>Component</h3>
       <MoleculeSelectPopover
-        acceptButtonText="Accept"
-        cancelButtonText="Cancel"
+        acceptButtonText="Aceptar"
+        cancelButtonText="Cancelar"
         iconArrowDown={IconArrowDown}
-        onClose={() => window.alert('Popover closed!')}
-        onOpen={() => window.alert('Popover open!')}
-        selectText="Click me!"
-        size={selectPopoverSizes.SMALL}
+        isSelected={isSelected}
+        onAccept={() => setItems(unconfirmedItems)}
+        onCancel={() => setUnconfirmedItems(items)}
+        onClose={handleClose}
+        onOpen={handleOpen}
+        placement={placement}
+        selectText={selectText}
+        size={size}
       >
         <div className="demo-content">
-          <h3>Demo title</h3>
-          <p>Check the alert!</p>
+          <h3>Tipo de operación</h3>
+          <div className="demo-content-options">
+            {unconfirmedItems.map(item => {
+              const {id: childId, checked} = item
+
+              return (
+                <MoleculeCheckboxField
+                  key={childId}
+                  id={childId}
+                  checked={checked}
+                  checkedIcon={IconCheck}
+                  intermediateIcon={IconHalfCheck}
+                  onChange={handleChangeItem}
+                  {...item}
+                />
+              )
+            })}
+          </div>
         </div>
       </MoleculeSelectPopover>
     </div>

@@ -1,4 +1,6 @@
 @import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-molecule-select/lib/index';
+@import '~@s-ui/react-molecule-dropdown-option/lib/index';
 @import '../../../../components/molecule/checkboxField/src/index';
 @import '../../../../components/organism/nestedCheckboxes/src/index';
 @import '../../../../components/molecule/selectPopover/src/index';
@@ -10,6 +12,12 @@
   }
 
   &-content {
-    padding: 0 $p-l;
+    padding: $p-l;
+
+    &-options {
+      & * + * {
+        padding-top: $p-s;
+      }
+    }
   }
 }

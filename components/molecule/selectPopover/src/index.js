@@ -2,14 +2,9 @@ import React, {useState, useEffect, useRef, useCallback} from 'react'
 import Button from '@s-ui/react-atom-button'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+import {SIZES, PLACEMENTS} from './config'
 
 const BASE_CLASS = 'sui-MoleculeSelectPopover'
-
-const SIZES = {
-  MEDIUM: 'm',
-  SMALL: 's',
-  XSMALL: 'xs'
-}
 
 function usePrevious(value) {
   const ref = useRef()
@@ -29,6 +24,7 @@ function MoleculeSelectPopover({
   onCancel = () => {},
   onClose = () => {},
   onOpen = () => {},
+  placement = PLACEMENTS.RIGHT,
   selectText,
   size = 'm',
   title
@@ -59,6 +55,11 @@ function MoleculeSelectPopover({
       'is-open': isOpen,
       'is-selected': isSelected
     }
+  )
+
+  const popoverClassName = cx(
+    `${BASE_CLASS}-popover`,
+    `${BASE_CLASS}-popover--${placement}`
   )
 
   const handleOnAccept = () => {
@@ -110,7 +111,7 @@ function MoleculeSelectPopover({
         </div>
       </div>
       {isOpen && (
-        <div className={`${BASE_CLASS}-popover`} ref={popoverRef}>
+        <div className={popoverClassName} ref={popoverRef}>
           <div className={`${BASE_CLASS}-popoverContent`}>{children}</div>
           <div className={`${BASE_CLASS}-popoverActionBar`}>
             <Button onClick={handleOnCancel} design="flat">
@@ -135,10 +136,11 @@ MoleculeSelectPopover.propTypes = {
   onCancel: PropTypes.func,
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
+  placement: PropTypes.string,
   selectText: PropTypes.string.isRequired,
   size: PropTypes.string,
   title: PropTypes.string
 }
 
 export default MoleculeSelectPopover
-export {SIZES as selectPopoverSizes}
+export {SIZES as selectPopoverSizes, PLACEMENTS as selectPopoverPlacements}

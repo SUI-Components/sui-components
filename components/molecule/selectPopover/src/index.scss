@@ -4,6 +4,7 @@
 
 .sui-MoleculeSelectPopover {
   display: inline-block;
+  position: relative;
 
   &-select {
     $select: &;
@@ -66,6 +67,15 @@
       border-top: solid 1px $c-gray-light-3;
       padding: $p-l;
       text-align: right;
+    }
+
+    // placements
+    &--right {
+      left: 0;
+    }
+
+    &--left {
+      right: 0;
     }
   }
 }

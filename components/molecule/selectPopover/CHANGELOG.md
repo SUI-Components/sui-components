@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-02-25)
+
+
+### Features
+
+* add placements ([7b93363](https://github.com/SUI-Components/sui-components/commit/7b9336357d75f6c1b2aa6cf14a4a2bb4dd9865a9))
+* min width ([1c139d5](https://github.com/SUI-Components/sui-components/commit/1c139d5e1f03136448c5f7b4eec6f9bc89bf9f73))
+
+
+
 # 1.7.0 (2020-02-18)
 
 

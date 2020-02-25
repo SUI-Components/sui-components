@@ -1,6 +1,7 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
 $bdrs-atom-badge: $bdrs-m !default;
+$c-atom-badge: $c-white !default;
 $fz-atom-badge-l: $fz-m !default;
 $fz-atom-badge-m: $fz-s !default;
 $fz-atom-badge-s: $fz-xs !default;
@@ -37,6 +38,8 @@ $badges: (
   align-items: center;
   border-radius: $bdrs-atom-badge;
   box-sizing: border-box;
+  color: $c-atom-badge;
+  fill: currentColor;
   display: inline-flex;
   justify-content: center;
   white-space: nowrap;
@@ -90,15 +93,15 @@ $badges: (
     $c: map-get($element, c);
 
     &-#{$type} {
-      background-color: $bgc;
-      color: $c;
-      fill: $c;
+      background: $bgc;
+      @if ($c != $c-atom-badge) {
+        color: $c;
+      }
     }
 
     &-#{$type}--transparent {
-      background-color: transparent;
+      background: transparent;
       color: $bgc;
-      fill: $bgc;
       padding: 0;
     }
   }

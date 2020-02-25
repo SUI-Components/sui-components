@@ -36,6 +36,7 @@ $badges: (
 
 .sui-AtomBadge {
   align-items: center;
+  background: transparent;
   border-radius: $bdrs-atom-badge;
   box-sizing: border-box;
   color: $c-atom-badge;
@@ -50,32 +51,23 @@ $badges: (
 
   &-small {
     font-size: $fz-atom-badge-s;
+    line-height: $h-atom-badge-s;
     height: $h-atom-badge-s;
     padding: $p-atom-badge;
-
-    .sui-AtomBadge-text {
-      line-height: $h-atom-badge-s;
-    }
   }
 
   &-medium {
     font-size: $fz-atom-badge-m;
+    line-height: $h-atom-badge-s;
     height: $h-atom-badge-s;
     padding: $p-atom-badge;
-
-    .sui-AtomBadge-text {
-      line-height: $h-atom-badge-s;
-    }
   }
 
   &-large {
     font-size: $fz-atom-badge-l;
+    line-height: $h-atom-badge-l;
     height: $h-atom-badge-l;
     padding: $p-atom-badge;
-
-    .sui-AtomBadge-text {
-      line-height: $h-atom-badge-l;
-    }
   }
 
   &-icon {
@@ -86,6 +78,10 @@ $badges: (
     &--iconRight {
       margin-left: $m-atom-badge-s;
     }
+  }
+
+  &[class$='--transparent'] {
+    padding: 0;
   }
 
   @each $type, $element in $badges {
@@ -100,9 +96,7 @@ $badges: (
     }
 
     &-#{$type}--transparent {
-      background: transparent;
       color: $bgc;
-      padding: 0;
     }
   }
 }

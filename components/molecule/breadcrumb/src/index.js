@@ -73,7 +73,7 @@ BreadcrumbBasic.propTypes = {
    */
   icon: PropTypes.func,
   /**
-   * Function for creating links so it allow to customize it
+   * Function for creating links so it allows to customize it
    */
   linkFactory: PropTypes.func,
   /**

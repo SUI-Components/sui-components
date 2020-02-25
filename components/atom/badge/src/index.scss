@@ -72,6 +72,7 @@ $badges: (
 
   &-icon {
     @include sui-icon--small;
+    line-height: initial;
     margin-right: $m-atom-badge-s;
     vertical-align: middle;
 

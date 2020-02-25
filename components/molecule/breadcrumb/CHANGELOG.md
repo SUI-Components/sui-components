@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.16.0 (2020-02-25)
+
+
+### Features
+
+* breadcrumb collapsible ([8c4c1c2](https://github.com/SUI-Components/sui-components/commit/8c4c1c28d12739492c700923a258586c9868a240))
+* fix typo ([d34af86](https://github.com/SUI-Components/sui-components/commit/d34af8683700475c638d08c82559ef593252a6d6))
+
+
+
 # 1.15.0 (2020-02-24)
 
 

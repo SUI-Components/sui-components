@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {useNearScreen} from '@schibstedspain/sui-react-hooks'
+import {useNearScreen} from '@s-ui/react-hooks'
 import AtomIcon from './Icon'
 
 export default function LazyIcon({children, ...restOfProps}) {

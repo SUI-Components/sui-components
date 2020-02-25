@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@schibstedspain/sui-react-hooks": "1"
+    "@s-ui/react-hooks": "1"
   },
   "keywords": [],
   "author": "",

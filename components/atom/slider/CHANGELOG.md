@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-02-26)
+
+
+### Bug Fixes
+
+* fix label and update test to include state ([dd6b3b3](https://github.com/SUI-Components/sui-components/commit/dd6b3b3ea4d0a67823468b71a126a122a84becbd))
+* fix label value update ([7561259](https://github.com/SUI-Components/sui-components/commit/75612591a80ecee9d6105aca6624d92bcd048666))
+* remove console log ([3e5a3b0](https://github.com/SUI-Components/sui-components/commit/3e5a3b0d1199fdd5a3045e32465ecc929764d1f5))
+
+
+
 # 1.8.0 (2020-02-24)
 
 

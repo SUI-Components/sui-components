@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-02-26)
+
+
+### Features
+
+* Use new @s-ui/react-hooks ([a850480](https://github.com/SUI-Components/sui-components/commit/a850480d771e1e55fdbe4c08a32589bc168988ef))
+
+
+
 # 1.7.0 (2020-01-28)
 
 

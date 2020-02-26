@@ -68,7 +68,8 @@ const AtomSlider = ({
       setHandle({component: Handle})
       setReady(true)
     })
-  }, [])
+    setLabelValue(value)
+  }, [value])
 
   const handleChange = value => {
     const e = {}

@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-02-26)
+
+
+### Bug Fixes
+
+* fix the line-height for the icon ([070c2aa](https://github.com/SUI-Components/sui-components/commit/070c2aa6b7f152c7e81151020bc48df4b5c6bcea))
+
+
+### Performance Improvements
+
+* even less css ([cbbcb65](https://github.com/SUI-Components/sui-components/commit/cbbcb65b18af63014658b7c5b00dacd52b9cb178))
+* write less css for atom-badge ([ced608c](https://github.com/SUI-Components/sui-components/commit/ced608cc921cb748b4c3984d3b8011a8d475a1db))
+
+
+
 # 1.8.0 (2020-01-14)
 
 

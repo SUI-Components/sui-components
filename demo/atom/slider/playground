@@ -9,6 +9,16 @@ const numberWithCommas = function(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 }
 
+const SliderWithState = ({min}) => {
+  const [stateValue, setStateValue] =  React.useState(min)
+  const _handleChange = (e, {value}) => {
+    console.log(value)
+    setStateValue(value)
+  }
+  return <AtomSlider value={stateValue} onChange={_handleChange} valueLabel hideTooltip />
+
+}
+
 return (
   <div>
     <h1>AtomSlider</h1>
@@ -16,6 +26,10 @@ return (
     <h3>Basic</h3>
     <div style={stylesSection}>
       <AtomSlider onChange={console.log}/>
+    </div>
+    <h2>Value as label and state</h2>
+    <div style={stylesSection}>
+      <SliderWithState />
     </div>
     <div style={stylesSection}>
       <AtomSlider step={25} value={50} onChange={console.log}/>

@@ -68,8 +68,8 @@ const AtomSlider = ({
       setHandle({component: Handle})
       setReady(true)
     })
-    setLabelValue(value)
-  }, [value])
+    setLabelValue(value || min)
+  }, [min, value])
 
   const handleChange = value => {
     const e = {}

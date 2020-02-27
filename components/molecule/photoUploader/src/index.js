@@ -19,6 +19,7 @@ import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 import {
   BASE_CLASS_NAME,
   DROPZONE_CLASS_NAME,
+  DEFAULT_DRAG_DELAY_TIME,
   DEFAULT_IMAGE_ROTATION_DEGREES,
   DEFAULT_IMAGE_ASPECT_RATIO,
   DEFAULT_MAX_IMAGE_HEIGHT,
@@ -42,6 +43,7 @@ const MoleculePhotoUploader = ({
   callbackPhotosUploaded = () => {},
   deleteIcon,
   disableScrollToBottom = false,
+  dragDelay = DEFAULT_DRAG_DELAY_TIME,
   dragPhotosIcon,
   dragPhotoTextInitialContent,
   dragPhotoDividerTextInitialContent,
@@ -236,6 +238,7 @@ const MoleculePhotoUploader = ({
               addPhotoTextSkeleton={addPhotoTextSkeleton}
               defaultFormatToBase64Options={DEFAULT_FORMAT_TO_BASE_64_OPTIONS}
               deleteIcon={deleteIcon}
+              dragDelay={dragDelay}
               errorInitialPhotoDownloadErrorText={
                 errorInitialPhotoDownloadErrorText
               }
@@ -294,7 +297,7 @@ MoleculePhotoUploader.displayName = 'MoleculePhotoUploader'
 MoleculePhotoUploader.propTypes = {
   /**
    *  A string with MIME file types separated by comma, ie, the default value is:
-   *  "image/jpeg, image/gif, image/png, image/webp, image/bmp"
+   *  "image/jpeg, image/gif, image/png, image/webp, image/bmp" .
    *  To use any format, use "image/*" , but not all format are tested, and some of them fails.
    */
   acceptedFileTypes: PropTypes.string,
@@ -324,7 +327,7 @@ MoleculePhotoUploader.propTypes = {
   callbackPhotosRejected: PropTypes.func,
 
   /**
-   *  Callback that returns an array of files
+   *  Callback that returns an array of files.
    *  It's executed everytime an image is added, or is deleted, or is rotated, or is sorted
    */
   callbackPhotosUploaded: PropTypes.func,
@@ -334,6 +337,12 @@ MoleculePhotoUploader.propTypes = {
 
   /** A boolean to disable that the component scroll to bottom everytime the user add a photo or there's an error */
   disableScrollToBottom: PropTypes.bool,
+
+  /**
+   *  Delay time (in ms) to start dragging after clicking a thumbcard. Recommended: 0 in desktop, and around 100 in mobile.
+   *  Default Value: 100
+   */
+  dragDelay: PropTypes.number,
 
   /** Icon placed in the initial screen to invite the user to drag images */
   dragPhotosIcon: PropTypes.node.isRequired,
@@ -383,8 +392,8 @@ MoleculePhotoUploader.propTypes = {
 
   /**
    *  Maximum image height to be saved.
-   *  Default value: 1080
-   *  Maximum image width will be calculated with the ratio defined and this maxImageHeight
+   *  Default value: 1080 .
+   *  Maximum image width will be calculated with the ratio defined and this maxImageHeight.
    *  The user can upload images with a bigger resolution, but if he does, the component will resize automatically.
    *  Too much big resolutions will decrease the performance, so be cautious!
    * */

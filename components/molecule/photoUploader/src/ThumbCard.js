@@ -7,6 +7,9 @@ import {BASE_CLASS_NAME} from './config'
 const THUMB_CARD_CLASS_NAME = `${BASE_CLASS_NAME}-thumbCard`
 const IMAGE_THUMB_CARD_CLASS_NAME = `${THUMB_CARD_CLASS_NAME}-image`
 const ICON_THUMB_CARD_CLASS_NAME = `${THUMB_CARD_CLASS_NAME}-iconContainer`
+const CONTAINER_THUMB_CARD_CLASS_NAME = `${THUMB_CARD_CLASS_NAME}-imageContainer`
+const ACTION_THUMB_CARD_CLASS_NAME = `${THUMB_CARD_CLASS_NAME}-actions`
+const BUTTON_THUMB_CARD_CLASS_NAME = `${THUMB_CARD_CLASS_NAME}-button`
 
 const ThumbCard = ({
   iconSize = ATOM_ICON_SIZES.small,
@@ -28,11 +31,11 @@ const ThumbCard = ({
   })
 
   return (
-    <div className="sui-MoleculePhotoUploader-thumbCard">
+    <div className={THUMB_CARD_CLASS_NAME}>
       <div className={counterClass}>
         {index === 0 ? mainPhotoLabel : index + 1}
       </div>
-      <div className="sui-MoleculePhotoUploader-thumbCard-imageContainer">
+      <div className={CONTAINER_THUMB_CARD_CLASS_NAME}>
         {hasErrors ? (
           <div className={`${ICON_THUMB_CARD_CLASS_NAME}`}>
             <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>
@@ -43,23 +46,23 @@ const ThumbCard = ({
           <img src={image.preview} className={IMAGE_THUMB_CARD_CLASS_NAME} />
         )}
       </div>
-      <div className="sui-MoleculePhotoUploader-thumbCard-actions">
+      <div className={ACTION_THUMB_CARD_CLASS_NAME}>
         <div
-          className="sui-MoleculePhotoUploader-thumbCard-button"
+          className={BUTTON_THUMB_CARD_CLASS_NAME}
           onClick={() => callbackDeleteItem(index)}
         >
           <AtomIcon size={iconSize}>{deleteIcon}</AtomIcon>
         </div>
         {hasErrors ? (
           <div
-            className="sui-MoleculePhotoUploader-thumbCard-button"
+            className={BUTTON_THUMB_CARD_CLASS_NAME}
             onClick={e => callbackRetryUpload(index)}
           >
             <AtomIcon size={iconSize}>{retryIcon}</AtomIcon>
           </div>
         ) : (
           <div
-            className="sui-MoleculePhotoUploader-thumbCard-button"
+            className={BUTTON_THUMB_CARD_CLASS_NAME}
             onClick={e => callbackRotateItem(index)}
           >
             <AtomIcon size={iconSize}>{rotateIcon}</AtomIcon>

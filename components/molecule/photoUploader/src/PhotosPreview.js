@@ -29,6 +29,7 @@ const PhotosPreview = ({
   addPhotoTextSkeleton,
   defaultFormatToBase64Options,
   deleteIcon,
+  dragDelay,
   errorInitialPhotoDownloadErrorText,
   files,
   isPhotoUploaderFully,
@@ -162,7 +163,7 @@ const PhotosPreview = ({
       animation={200}
       draggable={`.${THUMB_SORTABLE_CLASS_NAME}`}
       onEnd={() => _onSortEnd()}
-      delay={100}
+      delay={dragDelay}
     >
       <>
         {thumbCards(files)}
@@ -186,6 +187,7 @@ PhotosPreview.propTypes = {
   addPhotoTextSkeleton: PropTypes.string.isRequired,
   defaultFormatToBase64Options: PropTypes.object.isRequired,
   deleteIcon: PropTypes.node.isRequired,
+  dragDelay: PropTypes.number.isRequired,
   errorInitialPhotoDownloadErrorText: PropTypes.string.isRequired,
   files: PropTypes.array.isRequired,
   isPhotoUploaderFully: PropTypes.bool.isRequired,

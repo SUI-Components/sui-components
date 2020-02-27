@@ -3,6 +3,7 @@ export const DROPZONE_CLASS_NAME = `${BASE_CLASS_NAME}-dropzone`
 export const THUMB_CLASS_NAME = `${BASE_CLASS_NAME}-thumb`
 export const THUMB_SORTABLE_CLASS_NAME = `${THUMB_CLASS_NAME}--sortable`
 
+export const DEFAULT_DRAG_DELAY_TIME = 100
 export const DEFAULT_IMAGE_ROTATION_DEGREES = 0
 export const DEFAULT_IMAGE_ASPECT_RATIO = 4 / 3
 export const DEFAULT_MAX_IMAGE_HEIGHT = 1080

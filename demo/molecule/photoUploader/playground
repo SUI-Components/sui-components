@@ -14,6 +14,7 @@ const _addPhotoTextSkeleton = 'Añadir más'
 const _dropPhotosHere = 'Suelta las fotos aquí'
 const _addPhotoTextButton = 'Seleccionalas de tu dispositivo'
 const _allowUploadDuplicatedPhotos = true
+const _dragDelay = 0
 const _dragPhotoTextInitialContent = 'Arrastra las fotos aquí'
 const _limitPhotosUploaded = 'Ha alcanzado el límite de fotografías'
 const _limitPhotosUploadedNotification = 'Máximo de fotografias alcanzado'
@@ -119,6 +120,7 @@ const Demo = () => {
       <p style={lineStyles}>This example has an array of URLs passed by props, and the third one fails on load, so it shows an error notification.</p>
       <p style={lineStyles}>Also, in this example we're blocking .bmp images, which are accepted by default.</p>
       <p style={lineStyles}>Also, rotation direction is set to clockwise. rotateIcon not changed, though :P</p>
+      <p style={lineStyles}>Also, dragDelay time set to 0, it must be 0 to improve user experience in desktop!</p>
       <MoleculePhotoUploader
         acceptedFileTypes='image/jpeg, image/gif, image/png, image/webp'
         addMorePhotosIcon={_addMorePhotosIcon}
@@ -128,6 +130,7 @@ const Demo = () => {
         callbackPhotosRejected={_callbackPhotosRejected}
         callbackPhotosUploaded={_callbackPhotosUploaded}
         deleteIcon={_deleteIcon}
+        dragDelay={_dragDelay}
         dragPhotosIcon={_dragPhotosIcon}
         dragPhotoTextInitialContent={_dragPhotoTextInitialContent}
         dropPhotosHereText={_dropPhotosHere}

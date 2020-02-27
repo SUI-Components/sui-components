@@ -65,6 +65,17 @@ return (
       </li>
       <li style={styleListItem}>
         <h2>
+          With Information HelpText and Autohide
+        </h2>
+        <MoleculeInputFieldWithState
+          id="description-inline-autohide"
+          label="Description"
+          helpText="Tu descripción en Latin"
+          autoHideHelpText
+        />
+      </li>
+      <li style={styleListItem}>
+        <h2>
           With Success Validation HelpText
         </h2>
         <MoleculeInputFieldWithState

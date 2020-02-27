@@ -10,6 +10,7 @@ import AtomHelpText from '@s-ui/react-atom-help-text'
 
 const BASE_CLASS = 'sui-MoleculeField'
 const CLASS_INLINE = `${BASE_CLASS}--inline`
+const CLASS_AUTOHIDE = `${BASE_CLASS}--autohide`
 const CLASS_INLINE_REVERSE = `${CLASS_INLINE}-reverse`
 const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-inputContainer`
 const CLASS_LABEL_CONTAINER = `${BASE_CLASS}-labelContainer`
@@ -26,15 +27,17 @@ const MoleculeField = ({
   name,
   onClickLabel,
   onChange: onChangeFromProps,
-  children
+  children,
+  autoHideHelpText
 }) => {
   const className = cx(
     BASE_CLASS,
     inline && CLASS_INLINE,
-    inline && reverse && CLASS_INLINE_REVERSE
+    inline && reverse && CLASS_INLINE_REVERSE,
+    autoHideHelpText && CLASS_AUTOHIDE
   )
-  let statusValidationText, typeValidationLabel, typeValidationText
 
+  let statusValidationText, typeValidationLabel, typeValidationText
   const extendedChildren = React.Children.toArray(children)
     .filter(Boolean)
     .map((child, index) => {
@@ -129,7 +132,10 @@ MoleculeField.propTypes = {
   reverse: PropTypes.bool,
 
   /** Boolean to decide if elements should be set inline */
-  onClickLabel: PropTypes.func
+  onClickLabel: PropTypes.func,
+
+  /** Boolean to decide if helptext should be auto hide */
+  autoHideHelpText: PropTypes.bool
 }
 
 export default MoleculeField

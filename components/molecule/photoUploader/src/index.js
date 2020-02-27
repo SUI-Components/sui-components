@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 
 import {useMount} from '@schibstedspain/sui-react-hooks'
 
-import {formatToBase64} from './photoTools'
+import {filterValidFiles, prepareFiles, loadInitialPhotos} from './fileTools'
 
 import DragNotification from './DragNotification'
 import DragState from './DragState'
@@ -26,7 +26,6 @@ import {
   DEFAULT_FILE_TYPES_ACCEPTED,
   DEFAULT_MAX_FILE_SIZE_ACCEPTED,
   DEFAULT_NOTIFICATION_ERROR,
-  DEFAULT_HAS_ERRORS_STATUS,
   DRAG_STATE_STATUS_REJECTED,
   ROTATION_DIRECTION
 } from './config'
@@ -81,6 +80,26 @@ const MoleculePhotoUploader = ({
     maxImageWidth
   }
 
+  const isPhotoUploaderFully = () => files.length >= maxPhotos
+
+  useMount(() => {
+    if (initialPhotos.length) {
+      loadInitialPhotos({
+        initialPhotos,
+        defaultFormatToBase64Options: DEFAULT_FORMAT_TO_BASE_64_OPTIONS,
+        setInitialDownloadError: () => {
+          setNotificationError({
+            isError: true,
+            text: errorInitialPhotoDownloadErrorText
+          })
+        },
+        setFiles,
+        _callbackPhotosUploaded,
+        setIsLoading
+      })
+    }
+  })
+
   const _callbackPhotosUploaded = list => {
     if (list.length) {
       const blobsArray = list.reduce((array, file) => {
@@ -104,6 +123,7 @@ const MoleculePhotoUploader = ({
   const _onDropAccepted = acceptedFiles => {
     setNotificationError(DEFAULT_NOTIFICATION_ERROR)
     if (isLoading) return false
+
     if (isPhotoUploaderFully()) {
       setNotificationError({
         isError: true,
@@ -115,149 +135,49 @@ const MoleculePhotoUploader = ({
 
     setIsLoading(true)
 
-    const notExcedingMaxSizeFiles = acceptedFiles.filter(acceptedFile => {
-      if (acceptedFile.size >= acceptedFileMaxSize) {
-        setNotificationError({isError: true, text: errorFileExcededMaxSizeText})
+    const validFiles = filterValidFiles({
+      files,
+      filesToBeFiltered: acceptedFiles,
+      acceptedFileMaxSize,
+      setMaxSizeError: () => {
+        setNotificationError({
+          isError: true,
+          text: errorFileExcededMaxSizeText
+        })
         _scrollToBottom()
-        return false
-      }
-      return true
+      },
+      setMaxPhotosError: () => {
+        setNotificationError({
+          isError: true,
+          text: limitPhotosUploadedNotification
+        })
+      },
+      allowUploadDuplicatedPhotos,
+      maxPhotos
     })
 
-    let notRepeatedFiles
-    if (allowUploadDuplicatedPhotos) {
-      notRepeatedFiles = notExcedingMaxSizeFiles
-    } else {
-      notRepeatedFiles = notExcedingMaxSizeFiles.filter(
-        notExcedingMaxSizeFile => {
-          const {
-            path: newFilePath,
-            size: newFileSize,
-            lastModified: newFileLastModified
-          } = notExcedingMaxSizeFile
-          return !files.some(file => {
-            const {path, size, lastModified} = file.properties
-            return (
-              path === newFilePath &&
-              size === newFileSize &&
-              lastModified === newFileLastModified
-            )
-          })
-        }
-      )
-    }
-
-    if (!notRepeatedFiles.length) {
+    if (!validFiles.length) {
       setIsLoading(false)
       return false
     }
 
-    if (files.length + notRepeatedFiles.length >= maxPhotos) {
-      setNotificationError({
-        isError: true,
-        text: limitPhotosUploadedNotification
-      })
-      const howManyFilesToMax = maxPhotos - files.length
-      notRepeatedFiles.splice(
-        howManyFilesToMax - 1,
-        notRepeatedFiles.length - howManyFilesToMax
-      )
-    }
-
-    const _files = [...files]
-
-    notRepeatedFiles.reduce((accumulatorPromise, nextFile, index) => {
-      return accumulatorPromise
-        .then(() =>
-          formatToBase64({
-            file: nextFile,
-            options: DEFAULT_FORMAT_TO_BASE_64_OPTIONS
-          })
-        )
-        .then(
-          ({
-            blob,
-            originalBase64,
-            croppedBase64,
-            rotation,
-            hasErrors = DEFAULT_HAS_ERRORS_STATUS
-          }) => {
-            if (hasErrors) {
-              const errorText = errorCorruptedPhotoUploadedText.replace(
-                '%{filepath}',
-                nextFile.path
-              )
-              setNotificationError({
-                isError: true,
-                text: errorText
-              })
-            } else {
-              _files.push({
-                properties: {
-                  path: nextFile.path,
-                  size: nextFile.size,
-                  lastModified: nextFile.lastModified
-                },
-                blob,
-                originalBase64,
-                preview: croppedBase64,
-                rotation,
-                isNew: true,
-                isModified: false,
-                hasErrors
-              })
-            }
-          }
-        )
-        .then(() => {
-          setFiles([..._files])
-          if (index >= notRepeatedFiles.length - 1) {
-            setIsLoading(false)
-            _scrollToBottom()
-            _callbackPhotosUploaded(_files)
-          }
+    prepareFiles({
+      currentFiles: [...files],
+      newFiles: validFiles,
+      defaultFormatToBase64Options: DEFAULT_FORMAT_TO_BASE_64_OPTIONS,
+      errorCorruptedPhotoUploadedText,
+      setCorruptedFileError: errorText => {
+        setNotificationError({
+          isError: true,
+          text: errorText
         })
-    }, Promise.resolve())
+      },
+      setFiles,
+      setIsLoading,
+      _scrollToBottom,
+      _callbackPhotosUploaded
+    })
   }
-
-  useMount(() => {
-    if (initialPhotos.length) {
-      const filesWithBase64 = initialPhotos.map(url =>
-        formatToBase64({url, options: DEFAULT_FORMAT_TO_BASE_64_OPTIONS})
-      )
-
-      Promise.all(filesWithBase64).then(newFiles => {
-        const readyPhotos = newFiles.map(
-          ({
-            blob,
-            croppedBase64,
-            url,
-            hasErrors = DEFAULT_HAS_ERRORS_STATUS
-          }) => ({
-            blob,
-            url,
-            hasErrors,
-            originalBase64: croppedBase64,
-            preview: croppedBase64,
-            rotation: DEFAULT_IMAGE_ROTATION_DEGREES,
-            isNew: false,
-            isModified: false
-          })
-        )
-        if (readyPhotos.some(photos => photos.hasErrors)) {
-          setNotificationError({
-            isError: true,
-            text: errorInitialPhotoDownloadErrorText
-          })
-        }
-        setFiles([...readyPhotos])
-        _callbackPhotosUploaded(readyPhotos)
-        setIsLoading(false)
-      })
-    }
-  })
-
-  const isPhotoUploaderFully = () => files.length >= maxPhotos
 
   const {
     getRootProps,

@@ -26,6 +26,7 @@ const MoleculeTextareaField = ({
   successText,
   errorText,
   alertText,
+  autoHideHelpText = false,
   helpText,
   value = '',
   onChange = () => {},
@@ -62,6 +63,7 @@ const MoleculeTextareaField = ({
       errorText={errorText}
       alertText={alertText}
       helpText={helpTextComputed}
+      autoHideHelpText={autoHideHelpText}
       maxChars={maxChars}
       onChange={onChangeHandler}
     >
@@ -120,7 +122,10 @@ MoleculeTextareaField.propTypes = {
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
   /** Boolean to decide if field elements should be set inline */
-  inline: PropTypes.bool
+  inline: PropTypes.bool,
+
+  /** Boolean to decide if helptext should be auto hide */
+  autoHideHelpText: PropTypes.bool
 }
 
 export default MoleculeTextareaField

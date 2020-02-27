@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {useDropzone} from 'react-dropzone'
-import {ReactSortable} from 'react-sortablejs'
 import {getTarget} from '@s-ui/js/lib/react'
 
 import cx from 'classnames'
@@ -8,21 +7,18 @@ import PropTypes from 'prop-types'
 
 import {useMount} from '@schibstedspain/sui-react-hooks'
 
-import {formatToBase64, cropAndRotateImage, base64ToBlob} from './photoTools'
+import {formatToBase64} from './photoTools'
 
-import ThumbCard from './ThumbCard'
 import DragNotification from './DragNotification'
 import DragState from './DragState'
 import InitialState from './InitialState'
-import SkeletonCard from './SkeletonCard'
+import PhotosPreview from './PhotosPreview'
 
 import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
 import {
   BASE_CLASS_NAME,
   DROPZONE_CLASS_NAME,
-  THUMB_CLASS_NAME,
-  THUMB_SORTABLE_CLASS_NAME,
   DEFAULT_IMAGE_ROTATION_DEGREES,
   DEFAULT_IMAGE_ASPECT_RATIO,
   DEFAULT_MAX_IMAGE_HEIGHT,
@@ -281,88 +277,6 @@ const MoleculePhotoUploader = ({
     [`${DROPZONE_CLASS_NAME}--disabled`]: isPhotoUploaderFully()
   })
 
-  const _deleteItem = index => {
-    const list = [...files]
-    list.splice(index, 1)
-    setFiles(list)
-    setNotificationError(DEFAULT_NOTIFICATION_ERROR)
-    _callbackPhotosUploaded(list)
-  }
-
-  const _retryUpload = index => {
-    setIsLoading(true)
-    const _files = [...files]
-    const photoToRetry = _files[index]
-
-    formatToBase64({
-      url: photoToRetry.url,
-      options: DEFAULT_FORMAT_TO_BASE_64_OPTIONS
-    }).then(
-      ({blob, croppedBase64, url, hasErrors = DEFAULT_HAS_ERRORS_STATUS}) => {
-        if (hasErrors) {
-          setNotificationError({
-            isError: true,
-            text: errorInitialPhotoDownloadErrorText
-          })
-          _scrollToBottom()
-        } else {
-          setNotificationError(DEFAULT_NOTIFICATION_ERROR)
-        }
-        _files[index] = {
-          blob,
-          url,
-          hasErrors,
-          originalBase64: croppedBase64,
-          preview: croppedBase64,
-          rotation: DEFAULT_IMAGE_ROTATION_DEGREES,
-          isNew: false,
-          isModified: false
-        }
-
-        setFiles([..._files])
-        _callbackPhotosUploaded(_files)
-        setIsLoading(false)
-      }
-    )
-  }
-
-  const _rotateItem = index => {
-    const list = [...files]
-
-    if (rotationDirection === ROTATION_DIRECTION.clockwise) {
-      list[index].rotation =
-        list[index].rotation === 270 ? 0 : list[index].rotation + 90
-    } else {
-      list[index].rotation =
-        list[index].rotation === 0 ? 270 : list[index].rotation - 90
-    }
-
-    cropAndRotateImage({
-      base64Image: list[index].originalBase64,
-      rotation: list[index].rotation,
-      outputImageAspectRatio: DEFAULT_IMAGE_ASPECT_RATIO,
-      maxImageHeight: DEFAULT_MAX_IMAGE_HEIGHT,
-      maxImageWidth: DEFAULT_MAX_IMAGE_WIDTH
-    })
-      .then(value => base64ToBlob(value))
-      .then(({blob, base64}) => {
-        list[index].preview = base64
-        list[index].blob = blob
-        setFiles(list)
-        list[index].isModified = true
-        setNotificationError(DEFAULT_NOTIFICATION_ERROR)
-        _callbackPhotosUploaded(list)
-      })
-  }
-
-  const _onSortEnd = () => {
-    _callbackPhotosUploaded(files)
-  }
-
-  const thumbClassName = cx(THUMB_CLASS_NAME, {
-    [THUMB_SORTABLE_CLASS_NAME]: files.length > 1
-  })
-
   const container = getTarget(document.querySelector(`.${BASE_CLASS_NAME}`))
 
   const _scrollToBottom = () => {
@@ -380,60 +294,6 @@ const MoleculePhotoUploader = ({
     }
   }
 
-  const photosPreview = () => {
-    const thumbCards = files =>
-      files.map((file, index) => {
-        return (
-          <li
-            className={thumbClassName}
-            key={`${file.preview}${index}`}
-            onClick={e => e.stopPropagation()}
-          >
-            <ThumbCard
-              iconSize={thumbIconSize}
-              image={file}
-              index={index}
-              mainPhotoLabel={mainPhotoLabel}
-              callbackDeleteItem={_deleteItem}
-              callbackRetryUpload={_retryUpload}
-              callbackRotateItem={_rotateItem}
-              rotateIcon={rotateIcon()}
-              deleteIcon={deleteIcon()}
-              retryIcon={retryIcon()}
-              rejectPhotosIcon={rejectPhotosIcon()}
-            />
-          </li>
-        )
-      })
-
-    return (
-      <ReactSortable
-        className="sui-MoleculePhotoUploader-preview"
-        handle=".sui-MoleculePhotoUploader-thumbCard-imageContainer"
-        ghostClass={`${THUMB_CLASS_NAME}--ghost`}
-        dragClass={`${THUMB_CLASS_NAME}--drag`}
-        chosenClass={`${THUMB_CLASS_NAME}--chosen`}
-        tag="ul"
-        list={files}
-        setList={setFiles}
-        animation={200}
-        draggable={`.${THUMB_SORTABLE_CLASS_NAME}`}
-        onEnd={() => _onSortEnd()}
-        delay={100}
-      >
-        <>
-          {thumbCards(files)}
-          {!isPhotoUploaderFully() && (
-            <SkeletonCard
-              icon={addMorePhotosIcon()}
-              text={addPhotoTextSkeleton}
-            />
-          )}
-        </>
-      </ReactSortable>
-    )
-  }
-
   return (
     <>
       <div className={BASE_CLASS_NAME}>
@@ -448,7 +308,30 @@ const MoleculePhotoUploader = ({
               dividerText={dragPhotoDividerTextInitialContent}
             />
           )}
-          {Boolean(files.length) && photosPreview()}
+          {Boolean(files.length) && (
+            <PhotosPreview
+              _callbackPhotosUploaded={_callbackPhotosUploaded}
+              _scrollToBottom={_scrollToBottom}
+              addMorePhotosIcon={addMorePhotosIcon}
+              addPhotoTextSkeleton={addPhotoTextSkeleton}
+              defaultFormatToBase64Options={DEFAULT_FORMAT_TO_BASE_64_OPTIONS}
+              deleteIcon={deleteIcon}
+              errorInitialPhotoDownloadErrorText={
+                errorInitialPhotoDownloadErrorText
+              }
+              files={files}
+              isPhotoUploaderFully={isPhotoUploaderFully}
+              mainPhotoLabel={mainPhotoLabel}
+              rejectPhotosIcon={rejectPhotosIcon}
+              rotateIcon={rotateIcon}
+              rotationDirection={rotationDirection}
+              retryIcon={retryIcon}
+              setFiles={setFiles}
+              setIsLoading={setIsLoading}
+              setNotificationError={setNotificationError}
+              thumbIconSize={thumbIconSize}
+            />
+          )}
           {isDragAccept && !isPhotoUploaderFully() && !isLoading && (
             <DragState icon={dragPhotosIcon()} text={dropPhotosHereText} />
           )}

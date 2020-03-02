@@ -6,7 +6,11 @@
 $mb-molecule-field-label: 0 !default;
 $ml-molecule-field-label: $m-m !default;
 
-.sui-MoleculeField {
+$base-class: '.sui-MoleculeField';
+$atomLabel-class: '.sui-AtomLabel';
+$atomHelpText-class: '.sui-AtomHelpText';
+
+#{$base-class} {
   &--inline {
     display: flex;
     width: 100%;
@@ -16,7 +20,7 @@ $ml-molecule-field-label: $m-m !default;
       flex-direction: column;
       position: relative;
 
-      .sui-AtomLabel {
+      #{$atomLabel-class} {
         align-items: center;
         margin-left: $ml-molecule-field-label;
       }
@@ -31,5 +35,16 @@ $ml-molecule-field-label: $m-m !default;
 
   &-inputContainer {
     width: 100%;
+  }
+
+  &--autohide {
+    #{$atomHelpText-class} {
+      display: none;
+    }
+    #{$base-class}-inputContainer {
+      & *:focus + #{$atomHelpText-class} {
+        display: block;
+      }
+    }
   }
 }

@@ -26,7 +26,7 @@ return (
     <ul style={styleList}>
       <li>
         <h2>
-          With <code>placeholder</code>
+          With <code>placeholder</code> 
         </h2>
         <MoleculeTextareaFieldWithState
           id="commentd"
@@ -34,6 +34,19 @@ return (
           maxChars={100}
           placeholder="Please, write something cool..."
           onChange={console.log}
+        />
+      </li>
+      <li>
+        <h2>
+          With <code>placeholder</code> and autohide HelpText
+        </h2>
+        <MoleculeTextareaFieldWithState
+          id="commentd"
+          label="Comments"
+          maxChars={100}
+          placeholder="Please, write something cool..."
+          onChange={console.log}
+          autoHideHelpText
         />
       </li>
       <li>

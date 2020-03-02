@@ -10,7 +10,7 @@ export const filterValidFiles = ({
   files,
   filesToBeFiltered,
   acceptedFileMaxSize,
-  callbackPhotosRejected,
+  handlePhotosRejected,
   setMaxSizeError,
   setMaxPhotosError,
   allowUploadDuplicatedPhotos,
@@ -63,7 +63,7 @@ export const filterValidFiles = ({
 
   if (excedingMaxSizeFiles.length) {
     setMaxSizeError()
-    callbackPhotosRejected(excedingMaxSizeFiles)
+    handlePhotosRejected(excedingMaxSizeFiles)
   }
 
   if (allowUploadDuplicatedPhotos) {
@@ -73,7 +73,7 @@ export const filterValidFiles = ({
   }
 
   if (repeatedFiles.length) {
-    callbackPhotosRejected(repeatedFiles)
+    handlePhotosRejected(repeatedFiles)
   }
 
   if (!notRepeatedFiles.length) return notRepeatedFiles
@@ -90,7 +90,7 @@ export const filterValidFiles = ({
 }
 
 export const prepareFiles = ({
-  callbackPhotosRejected,
+  handlePhotosRejected,
   currentFiles,
   newFiles,
   defaultFormatToBase64Options,
@@ -122,7 +122,7 @@ export const prepareFiles = ({
               '%{filepath}',
               nextFile.path
             )
-            callbackPhotosRejected([
+            handlePhotosRejected([
               {
                 rejectedFile: nextFile,
                 reason: REJECT_FILES_REASONS.loadFailed

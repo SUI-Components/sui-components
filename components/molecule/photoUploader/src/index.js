@@ -146,7 +146,7 @@ const MoleculePhotoUploader = ({
       files,
       filesToBeFiltered: acceptedFiles,
       acceptedFileMaxSize,
-      callbackPhotosRejected,
+      handlePhotosRejected: callbackPhotosRejected,
       setMaxSizeError: () => {
         setNotificationError({
           isError: true,
@@ -170,7 +170,7 @@ const MoleculePhotoUploader = ({
     }
 
     prepareFiles({
-      callbackPhotosRejected,
+      handlePhotosRejected: callbackPhotosRejected,
       currentFiles: [...files],
       newFiles: validFiles,
       defaultFormatToBase64Options: DEFAULT_FORMAT_TO_BASE_64_OPTIONS,

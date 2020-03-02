@@ -28,7 +28,8 @@ import {
   DEFAULT_MAX_FILE_SIZE_ACCEPTED,
   DEFAULT_NOTIFICATION_ERROR,
   DRAG_STATE_STATUS_REJECTED,
-  ROTATION_DIRECTION
+  ROTATION_DIRECTION,
+  REJECT_FILES_REASONS
 } from './config'
 
 const MoleculePhotoUploader = ({
@@ -119,7 +120,11 @@ const MoleculePhotoUploader = ({
       text: notificationErrorFormatPhotoUploaded
     })
     _scrollToBottom()
-    callbackPhotosRejected(rejectedFiles)
+    const rejectedFilesWithReason = rejectedFiles.map(rejectedFile => ({
+      rejectedFile,
+      reason: REJECT_FILES_REASONS.fileType
+    }))
+    callbackPhotosRejected(rejectedFilesWithReason)
   }
 
   const _onDropAccepted = acceptedFiles => {
@@ -141,6 +146,7 @@ const MoleculePhotoUploader = ({
       files,
       filesToBeFiltered: acceptedFiles,
       acceptedFileMaxSize,
+      callbackPhotosRejected,
       setMaxSizeError: () => {
         setNotificationError({
           isError: true,
@@ -164,6 +170,7 @@ const MoleculePhotoUploader = ({
     }
 
     prepareFiles({
+      callbackPhotosRejected,
       currentFiles: [...files],
       newFiles: validFiles,
       defaultFormatToBase64Options: DEFAULT_FORMAT_TO_BASE_64_OPTIONS,

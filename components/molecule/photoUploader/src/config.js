@@ -33,3 +33,10 @@ export const ROTATION_DIRECTION = {
   clockwise: 'clockwise',
   counterclockwise: 'counterclockwise'
 }
+
+export const REJECT_FILES_REASONS = {
+  repeated: 'File already loaded.',
+  fileType: 'Not accepted file type.',
+  maxSize: 'Exceding max size of : ',
+  loadFailed: 'Load failed, corrupt file.'
+}

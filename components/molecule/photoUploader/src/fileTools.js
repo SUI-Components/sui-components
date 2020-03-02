@@ -2,35 +2,46 @@ import {formatToBase64} from './photoTools'
 
 import {
   DEFAULT_HAS_ERRORS_STATUS,
-  DEFAULT_IMAGE_ROTATION_DEGREES
+  DEFAULT_IMAGE_ROTATION_DEGREES,
+  REJECT_FILES_REASONS
 } from './config'
 
 export const filterValidFiles = ({
   files,
   filesToBeFiltered,
   acceptedFileMaxSize,
+  callbackPhotosRejected,
   setMaxSizeError,
   setMaxPhotosError,
   allowUploadDuplicatedPhotos,
   maxPhotos
 }) => {
+  const notExcedingMaxSizeFiles = []
+  const excedingMaxSizeFiles = []
+
   const notExcedingMaxSizeFilesFilter = filesToFilter =>
-    filesToFilter.filter(fileToFilter => {
+    filesToFilter.map(fileToFilter => {
       if (fileToFilter.size >= acceptedFileMaxSize) {
-        setMaxSizeError()
-        return false
+        excedingMaxSizeFiles.push({
+          rejectedFile: fileToFilter,
+          reason: `${REJECT_FILES_REASONS.maxSize}${acceptedFileMaxSize}`
+        })
+      } else {
+        notExcedingMaxSizeFiles.push(fileToFilter)
       }
-      return true
     })
 
+  const notRepeatedFiles = []
+  const repeatedFiles = []
+
   const notRepeatedFilesFilter = filesToFilter =>
-    filesToFilter.filter(fileToFilter => {
+    filesToFilter.map(fileToFilter => {
       const {
         path: newFilePath,
         size: newFileSize,
         lastModified: newFileLastModified
       } = fileToFilter
-      return !files.some(file => {
+      const isFileAlready = files.some(file => {
         const {path, size, lastModified} = file.properties
         return (
           path === newFilePath &&
@@ -38,17 +49,31 @@ export const filterValidFiles = ({
           lastModified === newFileLastModified
         )
       })
+      if (isFileAlready) {
+        repeatedFiles.push({
+          rejectedFile: fileToFilter,
+          reason: REJECT_FILES_REASONS.repeated
+        })
+      } else {
+        notRepeatedFiles.push(fileToFilter)
+      }
     })
 
-  const notExcedingMaxSizeFiles = notExcedingMaxSizeFilesFilter(
-    filesToBeFiltered
-  )
+  notExcedingMaxSizeFilesFilter(filesToBeFiltered)
 
-  let notRepeatedFiles
+  if (excedingMaxSizeFiles.length) {
+    setMaxSizeError()
+    callbackPhotosRejected(excedingMaxSizeFiles)
+  }
+
   if (allowUploadDuplicatedPhotos) {
-    notRepeatedFiles = notExcedingMaxSizeFiles
+    notRepeatedFiles.push(...notExcedingMaxSizeFiles)
   } else {
-    notRepeatedFiles = notRepeatedFilesFilter(notExcedingMaxSizeFiles)
+    notRepeatedFilesFilter(notExcedingMaxSizeFiles)
+  }
+
+  if (repeatedFiles.length) {
+    callbackPhotosRejected(repeatedFiles)
   }
 
   if (!notRepeatedFiles.length) return notRepeatedFiles
@@ -65,6 +90,7 @@ export const filterValidFiles = ({
 }
 
 export const prepareFiles = ({
+  callbackPhotosRejected,
   currentFiles,
   newFiles,
   defaultFormatToBase64Options,
@@ -96,6 +122,12 @@ export const prepareFiles = ({
               '%{filepath}',
               nextFile.path
             )
+            callbackPhotosRejected([
+              {
+                rejectedFile: nextFile,
+                reason: REJECT_FILES_REASONS.loadFailed
+              }
+            ])
             setCorruptedFileError(errorText)
           } else {
             currentFiles.push({

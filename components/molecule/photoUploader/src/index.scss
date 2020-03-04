@@ -186,8 +186,8 @@ $maw-photo-uploader-thumb-drag-text: 200px;
       justify-content: center;
       height: $s-photo-uploader-counter;
       left: $m-m;
-      min-width: calc(#{$s-photo-uploader-counter} + calc(#{$p-s} / 2));
-      padding-top: calc(#{$p-s} / 2);
+      min-width: calc(#{$s-photo-uploader-counter} + 1px);
+      padding-top: 1px;
       position: absolute;
       top: $m-m;
     }

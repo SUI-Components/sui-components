@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.17.0 (2020-03-04)
+
+
+### Bug Fixes
+
+* fix react router link ([f94d3ba](https://github.com/SUI-Components/sui-components/commit/f94d3ba0bd80f0c3c5d795abbd1d186ef559fb90))
+
+
+
 # 1.16.0 (2020-02-25)
 
 

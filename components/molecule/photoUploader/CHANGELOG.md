@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.2.0 (2020-03-04)
+
+
+### Bug Fixes
+
+* counter positioning ([588024e](https://github.com/SUI-Components/sui-components/commit/588024e9943f16c1070e18799b9424ed95f2c662))
+
+
+### Features
+
+* add pixel ([b3d0ebc](https://github.com/SUI-Components/sui-components/commit/b3d0ebcc4f860ab355d9fdc080e881fbe409e3de))
+
+
+
 # 1.1.0 (2020-02-28)
 
 

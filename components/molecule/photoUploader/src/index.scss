@@ -186,14 +186,16 @@ $maw-photo-uploader-thumb-drag-text: 200px;
       justify-content: center;
       height: $s-photo-uploader-counter;
       left: $m-m;
-      min-width: $s-photo-uploader-counter;
+      min-width: calc(#{$s-photo-uploader-counter} + 1px);
+      padding-top: 1px;
       position: absolute;
       top: $m-m;
     }
 
     &-mainCounter {
       border-radius: $bdrs-photo-uploader-thumb-card-main-counter;
-      padding: 0 $p-m;
+      padding-left: $p-m;
+      padding-right: $p-m;
     }
 
     &-iconContainer {

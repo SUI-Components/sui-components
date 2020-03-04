@@ -137,8 +137,7 @@ export function cropAndRotateImage({
   imageURL,
   rotation = DEFAULT_IMAGE_ROTATION_DEGREES,
   outputImageAspectRatio,
-  maxImageHeight,
-  maxImageWidth,
+  outputImageAspectRatioDisabled,
   imageQuality = DEFAULT_IMAGE_QUALITY_EXPORTED,
   imageMimeType = DEFAULT_FILE_TYPE_EXPORTED
 }) {
@@ -185,10 +184,12 @@ export function cropAndRotateImage({
         outputHeight = inputWidth
       }
 
-      if (inputImageAspectRatio > outputImageAspectRatio) {
-        outputWidth = outputHeight * outputImageAspectRatio
-      } else if (inputImageAspectRatio < outputImageAspectRatio) {
-        outputHeight = outputWidth / outputImageAspectRatio
+      if (!outputImageAspectRatioDisabled) {
+        if (inputImageAspectRatio > outputImageAspectRatio) {
+          outputWidth = outputHeight * outputImageAspectRatio
+        } else if (inputImageAspectRatio < outputImageAspectRatio) {
+          outputHeight = outputWidth / outputImageAspectRatio
+        }
       }
 
       canvas.width = outputWidth

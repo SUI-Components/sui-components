@@ -62,6 +62,7 @@ const MoleculePhotoUploader = ({
   maxPhotos,
   maxImageWidth = DEFAULT_MAX_IMAGE_WIDTH,
   notificationErrorFormatPhotoUploaded,
+  outputImageAspectRatioDisabled = false,
   outputImageAspectRatio = DEFAULT_IMAGE_ASPECT_RATIO,
   rejectPhotosIcon,
   retryIcon,
@@ -78,6 +79,7 @@ const MoleculePhotoUploader = ({
 
   const DEFAULT_FORMAT_TO_BASE_64_OPTIONS = {
     rotation: DEFAULT_IMAGE_ROTATION_DEGREES,
+    outputImageAspectRatioDisabled,
     outputImageAspectRatio,
     maxImageHeight,
     maxImageWidth
@@ -252,6 +254,7 @@ const MoleculePhotoUploader = ({
               files={files}
               isPhotoUploaderFully={isPhotoUploaderFully}
               mainPhotoLabel={mainPhotoLabel}
+              outputImageAspectRatioDisabled={outputImageAspectRatioDisabled}
               rejectPhotosIcon={rejectPhotosIcon}
               rotateIcon={rotateIcon}
               rotationDirection={rotationDirection}
@@ -426,6 +429,9 @@ MoleculePhotoUploader.propTypes = {
    *  Default value: 4/3
    */
   outputImageAspectRatio: PropTypes.number,
+
+  /** Disable cropping funcionality */
+  outputImageAspectRatioDisabled: PropTypes.bool,
 
   /** Icon showed at the dropzone when an user drags (before drop!) not allowed files  */
   rejectPhotosIcon: PropTypes.node.isRequired,

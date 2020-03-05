@@ -34,6 +34,7 @@ const PhotosPreview = ({
   files,
   isPhotoUploaderFully,
   mainPhotoLabel,
+  outputImageAspectRatioDisabled,
   rejectPhotosIcon,
   rotateIcon,
   rotationDirection,
@@ -71,7 +72,8 @@ const PhotosPreview = ({
       rotation: list[index].rotation,
       outputImageAspectRatio: DEFAULT_IMAGE_ASPECT_RATIO,
       maxImageHeight: DEFAULT_MAX_IMAGE_HEIGHT,
-      maxImageWidth: DEFAULT_MAX_IMAGE_WIDTH
+      maxImageWidth: DEFAULT_MAX_IMAGE_WIDTH,
+      outputImageAspectRatioDisabled
     })
       .then(value => base64ToBlob(value))
       .then(({blob, base64}) => {
@@ -192,6 +194,7 @@ PhotosPreview.propTypes = {
   files: PropTypes.array.isRequired,
   isPhotoUploaderFully: PropTypes.bool.isRequired,
   mainPhotoLabel: PropTypes.string.isRequired,
+  outputImageAspectRatioDisabled: PropTypes.isRequired,
   rejectPhotosIcon: PropTypes.node.isRequired,
   rotateIcon: PropTypes.node.isRequired,
   rotationDirection: PropTypes.oneOf(Object.values(ROTATION_DIRECTION)),

@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.3.0 (2020-03-05)
+
+
+### Bug Fixes
+
+* add 1px more to style padding ([27ce682](https://github.com/SUI-Components/sui-components/commit/27ce6823d287d0f0fa753b664227519f6374a632))
+
+
+### Features
+
+* disable cropping via prop ([6f463c4](https://github.com/SUI-Components/sui-components/commit/6f463c471af0f3609dc8fd5e6e622008e77488a7))
+
+
+
 # 1.2.0 (2020-03-04)
 
 
@@ -13,6 +27,8 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * add pixel ([b3d0ebc](https://github.com/SUI-Components/sui-components/commit/b3d0ebcc4f860ab355d9fdc080e881fbe409e3de))
+* fix rejected files callback ([a32ccd2](https://github.com/SUI-Components/sui-components/commit/a32ccd21de7584f4b60307a65b6e5739111725f0))
+* rename func ([8ea9fd4](https://github.com/SUI-Components/sui-components/commit/8ea9fd4f7a1a4e3855f923f9ad5d66dab93e6daf))
 
 
 

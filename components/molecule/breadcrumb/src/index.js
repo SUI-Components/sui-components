@@ -36,7 +36,7 @@ export default function BreadcrumbBasic({
                 <IconAngle svgClass="sui-BreadcrumbBasic-icon" />
               )}
               {url ? (
-                <Link to={url} className="sui-BreadcrumbBasic-link">
+                <Link to={url} href={url} className="sui-BreadcrumbBasic-link">
                   {label}
                 </Link>
               ) : (
@@ -83,8 +83,8 @@ BreadcrumbBasic.propTypes = {
 }
 
 BreadcrumbBasic.defaultProps = {
-  linkFactory: ({to, className, children}) => (
-    <a href={to} className={className}>
+  linkFactory: ({to, href, className, children}) => (
+    <a href={to || href} className={className}>
       {children}
     </a>
   )

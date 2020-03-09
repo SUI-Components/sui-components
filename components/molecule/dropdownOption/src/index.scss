@@ -16,7 +16,7 @@ $ln-molecule-dropdown-option-two-lines-text: $lh-m !default;
   height: $h-dropdown-option;
   padding: 0 $p-l;
 
-  &-mark
+  &-mark {
     color: $c-molecule-dropdown-option--highlight-mark;
     &.is-highlighted {
       background-color: $bg-molecule-dropdown-option--highlight-mark;

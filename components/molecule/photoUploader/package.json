@@ -12,7 +12,7 @@
     "@s-ui/component-dependencies": "1",
     "react-dropzone": "10.2.1",
     "react-sortablejs": "2.0.11",
-    "@schibstedspain/sui-react-hooks": "1",
+    "@s-ui/react-hooks": "1",
     "@s-ui/js": "2",
     "@s-ui/react-atom-button": "1",
     "@s-ui/react-atom-icon": "1",

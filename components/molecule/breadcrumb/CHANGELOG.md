@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.18.0 (2020-03-06)
+
+
+### Bug Fixes
+
+* make molecule/breadrumb latest change non breaking ([7eae034](https://github.com/SUI-Components/sui-components/commit/7eae03448169db509a410c8558103551167fd3eb))
+
+
+
+# 1.17.0 (2020-03-04)
+
+
+### Bug Fixes
+
+* fix react router link ([f94d3ba](https://github.com/SUI-Components/sui-components/commit/f94d3ba0bd80f0c3c5d795abbd1d186ef559fb90))
+
+
+
 # 1.16.0 (2020-02-25)
 
 

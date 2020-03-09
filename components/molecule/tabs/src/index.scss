@@ -98,6 +98,7 @@ $p-sui-molecule-tabs-item: $p-m $p-l !default;
     .sui-MoleculeTabs-item {
       border: 0 none transparent;
       border-bottom: $bdw-sui-molecule-tabs solid transparent;
+      text-align: center;
 
       &.is-active {
         border-bottom-color: $c-primary;

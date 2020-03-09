@@ -1,6 +1,6 @@
 {
-  "name": "@s-ui/react-molecule-field",
-  "version": "1.15.0",
+  "name": "@s-ui/react-molecule-photo-uploader",
+  "version": "1.3.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,9 +10,13 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-atom-help-text": "1",
-    "@s-ui/react-atom-label": "1",
-    "@s-ui/react-atom-validation-text": "1"
+    "react-dropzone": "10.2.1",
+    "react-sortablejs": "2.0.11",
+    "@schibstedspain/sui-react-hooks": "1",
+    "@s-ui/js": "2",
+    "@s-ui/react-atom-button": "1",
+    "@s-ui/react-atom-icon": "1",
+    "@s-ui/react-molecule-notification": "1"
   },
   "keywords": [],
   "author": "",

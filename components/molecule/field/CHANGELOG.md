@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.15.0 (2020-03-02)
+
+
+### Features
+
+* add autohide prop ([76c55ce](https://github.com/SUI-Components/sui-components/commit/76c55ce739fca7f46287f9368281d90a3cbd70a6))
+
+
+
 # 1.14.0 (2020-01-30)
 
 

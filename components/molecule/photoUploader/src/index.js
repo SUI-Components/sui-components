@@ -5,7 +5,7 @@ import {getTarget} from '@s-ui/js/lib/react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {useMount} from '@schibstedspain/sui-react-hooks'
+import {useMount} from '@s-ui/react-hooks'
 
 import {filterValidFiles, prepareFiles, loadInitialPhotos} from './fileTools'
 

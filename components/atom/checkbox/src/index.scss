@@ -11,7 +11,7 @@ $m-atom-checkbox-type-right: $m-m !default;
 $bgc-atom-checkbox: $c-white !default;
 $bgc-checked-atom-checkbox: $c-primary !default;
 $bd-atom-checkbox: 1px solid $c-primary !default;
-$bd-atom-checkbox--checked: 1px solid $c-primary !default;
+$bd-atom-checkbox--checked: $bdw-s solid $c-primary !default;
 
 $c-atom-checkbox-is-disabled: color-variation($c-gray, -2) !default;
 $bgc-checked-atom-checkbox-is-disabled: color-variation($c-gray, 3) !default;

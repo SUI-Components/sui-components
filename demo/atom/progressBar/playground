@@ -160,6 +160,8 @@ return (
       <DynamicProgressBar intervalTime={1000} step={25} isAnimatedOnChange />
       <h4 style={{marginBottom: '2px'}} >steps: 1 (smooth)</h4>
       <DynamicProgressBar intervalTime={1000 / 60} step={1} />
+       <h4 style={{marginBottom: '2px'}} >Unique value without indicator</h4>
+      <StaticWithAnimation percentage={25} isAnimatedOnChange hideIndicator/>
     </div>
 
     <div style={styleSection}>

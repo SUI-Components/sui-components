@@ -7,6 +7,7 @@ $c-progress-bar-fill: $c-primary !default;
 $trsdu-progress-bar: 500ms !default;
 $trstf-progress-bar: linear !default;
 
+$br-progress-container: $bdrs-l;
 $br-progress-bar: $bdrs-l;
 $h-progress-bar: $m-base;
 
@@ -28,7 +29,7 @@ $h-progress-bar: $m-base;
   &-container {
     background: $bg-progress-bar;
     border: 1px solid $bc-progress-bar;
-    border-radius: $br-progress-bar;
+    border-radius: $br-progress-container;
     height: $h-progress-bar; /* Can be anything */
     position: relative;
   }

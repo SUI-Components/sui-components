@@ -24,20 +24,20 @@ const Indicator = props => {
 }
 
 const LineProgressBar = props => {
-  const {percentage, indicatorBottom, isAnimatedOnChange} = props
+  const {percentage, indicatorBottom, isAnimatedOnChange, hideIndicator} = props
   const width = `${percentage}%`
   const styleBar = {width}
 
   return (
     <div className={BASE_CLASS}>
-      {!indicatorBottom && <Indicator {...props} />}
+      {!hideIndicator && !indicatorBottom && <Indicator {...props} />}
       <div className={CLASS_CONTAINER_BAR}>
         <span
           className={cx(CLASS_BAR, isAnimatedOnChange && CLASS_BAR_ANIMATED)}
           style={styleBar}
         />
       </div>
-      {indicatorBottom && <Indicator {...props} />}
+      {!hideIndicator && indicatorBottom && <Indicator {...props} />}
     </div>
   )
 }
@@ -55,7 +55,10 @@ LineProgressBar.propTypes = {
   isAnimatedOnChange: PropTypes.bool,
 
   /** If the indicator should be placed below the bar */
-  indicatorBottom: PropTypes.bool
+  indicatorBottom: PropTypes.bool,
+
+  /** Hide the indicator */
+  hideIndicator: PropTypes.bool
 }
 
 export default LineProgressBar

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.25.0 (2020-03-11)
+
+
+### Features
+
+* new variable: color - select ([1870316](https://github.com/SUI-Components/sui-components/commit/1870316d49c14c2a5bf3dc0a6ae74393b651f054))
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([2630859](https://github.com/SUI-Components/sui-components/commit/263085976826c6a85213a39be9551e09ca4d3774))
+
+
+
 # 1.24.0 (2020-02-03)
 
 

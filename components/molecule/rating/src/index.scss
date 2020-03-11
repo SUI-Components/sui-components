@@ -25,12 +25,10 @@ $base-class: '.sui-MoleculeRating';
 $class-star: '#{$base-class}-Star';
 $class-label: '#{$base-class}-label';
 
-%c-molecule-rating-svg svg {
-  fill: $c-molecule-rating-svg;
-}
-
 #{$class-star} {
-  @extend %c-molecule-rating-svg;
+  svg {
+    fill: $c-molecule-rating-svg;
+  }
 }
 
 #{$base-class} {

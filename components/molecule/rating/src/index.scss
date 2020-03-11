@@ -19,9 +19,17 @@ $bg-molecule-rating-hover: $c-primary-light-5 !default;
 
 $m-molecule-rating-label: 0 0 0 $m-m !default;
 
+$c-molecule-rating-svg: $c-system !default;
+
 $base-class: '.sui-MoleculeRating';
 $class-star: '#{$base-class}-Star';
 $class-label: '#{$base-class}-label';
+
+#{$class-star} {
+  svg {
+    fill: $c-molecule-rating-svg;
+  }
+}
 
 #{$base-class} {
   align-items: center;

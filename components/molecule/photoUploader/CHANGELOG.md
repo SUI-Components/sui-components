@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.4.0 (2020-03-11)
+
+
+### Features
+
+* remove [@schibstedspain](https://github.com/schibstedspain) package ([d3d3b7d](https://github.com/SUI-Components/sui-components/commit/d3d3b7d3298bf6142c61cbcba01484833f445a36))
+
+
+
 # 1.3.0 (2020-03-05)
 
 

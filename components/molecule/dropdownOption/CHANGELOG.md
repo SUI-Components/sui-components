@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.24.0 (2020-03-11)
+
+
+### Features
+
+* add variable: color ([19d1eae](https://github.com/SUI-Components/sui-components/commit/19d1eae2b207fd85dbf1c01780f6fc7475f8498a))
+* fix ([250f25d](https://github.com/SUI-Components/sui-components/commit/250f25d7bc1c6fc4b4fbfa713bba7388859d3110))
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([503e361](https://github.com/SUI-Components/sui-components/commit/503e361fed4f4af7e69a087639ee2f79f2145ecf))
+
+
+
 # 1.23.0 (2020-02-24)
 
 

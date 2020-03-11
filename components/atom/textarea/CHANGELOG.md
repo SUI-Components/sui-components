@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.5.0 (2020-03-11)
+
+
+### Features
+
+* add new variables ([f8075e1](https://github.com/SUI-Components/sui-components/commit/f8075e119df7849f2355ada47ce9f4844540f6b1))
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([402c1a2](https://github.com/SUI-Components/sui-components/commit/402c1a203a257d0e60bc37fa44e85fbe438d6d31))
+
+
+
 # 2.4.0 (2020-02-17)
 
 

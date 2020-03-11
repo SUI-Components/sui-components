@@ -1,16 +1,17 @@
-@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/theme/lib/index';
 
 $h-dropdown-list--small: 145px !default;
 $h-dropdown-list--medium: 220px !default;
 $h-dropdown-list--large: 300px !default;
 
 $bc-dropdown-list: $c-white !default;
+$bd-dropdown-list: $bdw-s solid color-variation($c-gray, 2) !default;
 $p-dropdown-list: $p-s !default;
 $bxsh-dropdown-list: $bxsh-l !default;
 
 .sui-MoleculeDropdownList {
   background: $bc-dropdown-list;
-  border: $bdw-s solid color-variation($c-gray, 2);
+  border: $bd-dropdown-list;
   box-shadow: $bxsh-dropdown-list;
   margin: 0;
   overflow-y: scroll;

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.3.0 (2020-03-11)
+
+
+### Features
+
+* add new variable: border checkbox ([7c397ab](https://github.com/SUI-Components/sui-components/commit/7c397aba92b71a7072b8a45ed3e6a7a8fc3607bd))
+* fix: use variable ([f18bee2](https://github.com/SUI-Components/sui-components/commit/f18bee2b3427511beb3e067dbf3379e031d7fb48))
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([d7828f3](https://github.com/SUI-Components/sui-components/commit/d7828f3c5ef49f6fa5177231ef4f6b2321a2777c))
+
+
+
 # 2.2.0 (2020-02-24)
 
 

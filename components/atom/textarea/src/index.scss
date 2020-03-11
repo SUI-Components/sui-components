@@ -1,4 +1,4 @@
-@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/theme/lib/index';
 @import '~@s-ui/react-atom-help-text/lib/index';
 
 $short-num-lines: 5 !default;
@@ -8,18 +8,33 @@ $pm-atom-textarea: $p-m !default;
 $fz-atom-textarea: $fz-base !default;
 $lh-atom-textarea: $lh-l !default;
 
+$bgc-atom-textarea: initial !default;
+$bgc-atom-textarea--disabled: $c-gray-lightest !default;
+$bd-atom-textarea: 1px solid $c-gray-light !default;
+$bd-atom-textarea--disabled: $bdw-s solid initial !default;
+$c-atom-textarea: initial !default;
+$c-atom-textarea--disabled: $c-gray-light !default;
+$c-atom-textarea-placeholder: initial !default;
+
 $base-class: '.sui-AtomTextarea';
 
 #{$base-class} {
-  border: 1px solid $c-gray-light;
+  background: $bgc-atom-textarea;
+  border: $bd-atom-textarea;
+  color: $c-atom-textarea;
   font-size: $fz-atom-textarea;
   line-height: $lh-atom-textarea;
   padding-left: $p-l;
   padding-top: $pm-atom-textarea;
 
   &[disabled] {
-    background: $c-gray-lightest;
-    color: $c-gray-light;
+    background: $bgc-atom-textarea--disabled;
+    border: $bd-atom-textarea--disabled;
+    color: $c-atom-textarea--disabled;
+  }
+
+  &::placeholder {
+    color: $c-atom-textarea-placeholder;
   }
 
   &--short {

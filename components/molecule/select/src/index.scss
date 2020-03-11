@@ -1,4 +1,4 @@
-@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/theme/lib/index';
 @import '~@s-ui/react-atom-input/lib/index';
 @import '~@s-ui/react-molecule-input-tags/lib/index';
 @import '~@s-ui/react-molecule-dropdown-list/lib/index';
@@ -14,6 +14,7 @@ $mr-select-list-arrow: -$p-xxl !default;
 $pr-select-atom-input-tags: $p-xxl !default;
 $w-select-list-arrow: $sz-icon-m !default;
 $h-select-list-arrow: $sz-icon-m !default;
+$c-select-list-arrow-fill: initial !default;
 
 $bgc-atom-input-disabled: $c-gray-lightest !default;
 
@@ -59,6 +60,7 @@ $bgc-atom-input-disabled: $c-gray-lightest !default;
       }
 
       svg {
+        fill: $c-select-list-arrow-fill !important;
         width: $w-select-list-arrow;
         height: $h-select-list-arrow;
       }

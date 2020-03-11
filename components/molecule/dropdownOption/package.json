@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
+    "@s-ui/js": "2",
     "@s-ui/react-atom-checkbox": "2"
   },
   "keywords": [],

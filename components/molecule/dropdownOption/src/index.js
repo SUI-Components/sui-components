@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import {highlightText} from '@s-ui/js/lib/string'
 import AtomCheckbox from '@s-ui/react-atom-checkbox'
 
 import handlersFactory from './handlersFactory'
@@ -54,11 +55,17 @@ const MoleculeDropdownOption = ({
         </span>
       )
     }
-    const regExpHighlight = new RegExp(highlightQuery, 'gi')
-    const mark = option.replace(
-      regExpHighlight,
-      `<mark class="${cx(CLASS_HIGHLIGHTED_MARK, CLASS_HIGHLIGHTED)}">$&</mark>`
-    )
+
+    const mark = highlightText({
+      value: option,
+      query: highlightQuery,
+      startTag: `<mark class="${cx(
+        CLASS_HIGHLIGHTED_MARK,
+        CLASS_HIGHLIGHTED
+      )}">`,
+      endTag: '</mark>'
+    })
+
     return (
       <span
         onFocus={handleInnerFocus}

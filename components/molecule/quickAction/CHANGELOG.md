@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.4.0 (2020-03-11)
+
+
+### Features
+
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([1200607](https://github.com/SUI-Components/sui-components/commit/12006072057e9f606df19474bbdb36cd14858c12))
+
+
+
 # 1.3.0 (2020-01-08)
 
 

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.10.0 (2020-03-11)
+
+
+### Features
+
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([ced5eee](https://github.com/SUI-Components/sui-components/commit/ced5eee88c974828d1c5f6eb3408a3a0f6d5e6a2))
+
+
+
 # 1.9.0 (2020-01-30)
 
 
@@ -108,8 +117,8 @@ All notable changes to this project will be documented in this file.
 * added changes from QA comments ([5adc72b](https://github.com/SUI-Components/sui-components/commit/5adc72bd1d35829bbc5926acf730cfa3459b6a67))
 * added demo cases ([6d4a049](https://github.com/SUI-Components/sui-components/commit/6d4a0490d1f7807318a2f4808addd676010f0188))
 * added ESC handler and some refactor ([b5478ab](https://github.com/SUI-Components/sui-components/commit/b5478abf787ac037987702bcb727f2f187f86001))
-* added modal effects ([3044c4d](https://github.com/SUI-Components/sui-components/commit/3044c4d193863eac6dfdd029ffa225f1eb649959))
 * added modal effects ([47cc159](https://github.com/SUI-Components/sui-components/commit/47cc1595ec4509ebecb1f5d35ca7ee251fc55ee1))
+* added modal effects ([3044c4d](https://github.com/SUI-Components/sui-components/commit/3044c4d193863eac6dfdd029ffa225f1eb649959))
 * added molecule modal ([d0f712b](https://github.com/SUI-Components/sui-components/commit/d0f712b89fbeb3e1501c3647a4888d41f8885402))
 * added portal and allow actions from inside the content to close the modal ([92ad74e](https://github.com/SUI-Components/sui-components/commit/92ad74e6b7aaf3027d5bf27c6f2cb3dfbcf04496))
 * changed mixin for placeholder ([bb8d4f5](https://github.com/SUI-Components/sui-components/commit/bb8d4f50ed9113a1b2a87fdc9bc8927a8d275df4))

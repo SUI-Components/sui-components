@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.5.0 (2020-03-11)
+
+
+### Features
+
+* add fill var for rating component ([4de6cdc](https://github.com/SUI-Components/sui-components/commit/4de6cdcff667c90a21ba3f983797aad2988c6704))
+* remove placeholder ([3259e70](https://github.com/SUI-Components/sui-components/commit/3259e70eed638d3c017c748f268b9be4b28550fa))
+
+
+
 # 1.4.0 (2020-03-11)
 
 

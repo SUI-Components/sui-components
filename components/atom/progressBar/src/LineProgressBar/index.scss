@@ -7,8 +7,8 @@ $c-progress-bar-fill: $c-primary !default;
 $trsdu-progress-bar: 500ms !default;
 $trstf-progress-bar: linear !default;
 
-$br-progress-container: $bdrs-l;
-$br-progress-bar: $bdrs-l;
+$br-progress-container: $bdrs-l !default;
+$br-progress-bar: $bdrs-l !default;
 $h-progress-bar: $m-base;
 
 .sui-AtomLineProgressBar {

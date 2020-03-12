@@ -9,7 +9,7 @@ $trstf-progress-bar: linear !default;
 
 $br-progress-container: $bdrs-l !default;
 $br-progress-bar: $bdrs-l !default;
-$h-progress-bar: $m-base;
+$h-progress-bar: $m-base !default;
 
 .sui-AtomLineProgressBar {
   &-indicator {

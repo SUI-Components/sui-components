@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.6.0 (2020-03-12)
+
+
+### Features
+
+* add new prop: Hide indicator ([0fb7bf4](https://github.com/SUI-Components/sui-components/commit/0fb7bf43572a6fe862ef6c82bc80e946e41892db))
+
+
+
 # 1.5.0 (2020-03-11)
 
 

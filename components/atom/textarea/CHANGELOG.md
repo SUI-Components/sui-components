@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.6.0 (2020-03-12)
+
+
+### Features
+
+* add width variable to atom textarea ([404c508](https://github.com/SUI-Components/sui-components/commit/404c508bca5a45ad763290223b5b92564283a6e2))
+
+
+
 # 2.5.0 (2020-03-11)
 
 

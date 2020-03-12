@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-03-12)
+
+
+### Features
+
+* add default to variable ([8401862](https://github.com/SUI-Components/sui-components/commit/8401862d8aa12b170333eecd4ebce491fcbe9728))
+
+
+
 # 1.6.0 (2020-03-12)
 
 

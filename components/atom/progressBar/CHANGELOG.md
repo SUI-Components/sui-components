@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-03-12)
+
+
+### Features
+
+* add new variable ([fa05666](https://github.com/SUI-Components/sui-components/commit/fa056663f2eb8a0f4f104cd3ba15016ee8227427))
+
+
+
 # 1.7.0 (2020-03-12)
 
 

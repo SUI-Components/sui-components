@@ -73,7 +73,8 @@ const Input = ({
   onEnterKey = DEFAULT_PROPS.ON_ENTER_KEY,
   onKeyDown = DEFAULT_PROPS.ON_KEY_DOWN,
   required,
-  pattern
+  pattern,
+  inputMode
 }) => {
   const changeHandler = ev => {
     const {
@@ -123,6 +124,7 @@ const Input = ({
       autoComplete={autoComplete}
       required={required}
       pattern={pattern}
+      inputMode={inputMode}
     />
   )
 }
@@ -179,7 +181,9 @@ Input.propTypes = {
   /** native required attribtue  */
   required: PropTypes.bool,
   /** native pattern attribute */
-  pattern: PropTypes.string
+  pattern: PropTypes.string,
+  /** To select input keyboard mode on mobile. It can be 'numeric', 'decimal', 'email', etc */
+  inputMode: PropTypes.string
 }
 
 export default Input

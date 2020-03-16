@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.12.0 (2020-03-16)
+
+
+### Features
+
+* add inputmode prop ([708ffb5](https://github.com/SUI-Components/sui-components/commit/708ffb52f292068e73aaee72bfaf837974ba445c))
+
+
+
 # 4.11.0 (2020-03-11)
 
 

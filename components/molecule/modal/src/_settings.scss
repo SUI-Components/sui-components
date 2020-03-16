@@ -40,3 +40,9 @@ $pt-molecule-modal-content: $p-l !default;
 $pb-molecule-modal-content: $pt-molecule-modal-content !default;
 $pr-molecule-modal-content: $p-xl !default;
 $pl-molecule-modal-content: $pr-molecule-modal-content !default;
+
+// maintain backward compatibility in case someone uses any $pX-molecule-modal-content existing variables
+$mt-molecule-modal-content: $pt-molecule-modal-content !default;
+$mb-molecule-modal-content: $pb-molecule-modal-content !default;
+$mr-molecule-modal-content: $pr-molecule-modal-content !default;
+$ml-molecule-modal-content: $pl-molecule-modal-content !default;

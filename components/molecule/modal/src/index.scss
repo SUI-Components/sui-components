@@ -175,8 +175,8 @@ body.is-MoleculeModal-open {
     -webkit-overflow-scrolling: touch;
     flex: 1 1 auto;
     overflow-y: auto;
-    padding: $pt-molecule-modal-content $pr-molecule-modal-content 0
-      $pl-molecule-modal-content;
+    margin: $mt-molecule-modal-content $mr-molecule-modal-content 0
+      $ml-molecule-modal-content;
     position: relative;
 
     &:after {

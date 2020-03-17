@@ -148,6 +148,11 @@ const Demo = () => {
           responsive
         />
       </div>
+      <h2>Basic without image</h2>
+      <div className="DemoAtomCard-section DemoAtomCard-section--big">
+        <h2>From Vertical (mobile) to Horizontal (desktop)</h2>
+        <AtomCard tabIndex="6" content={CarInfo} href={urlTarget} responsive />
+      </div>
     </div>
   )
 }

@@ -45,13 +45,12 @@ const AtomCard = ({
       onClick={redirectToHref}
       onKeyDown={redirectOnEnter}
     >
-      <>
-        {Media && (
-          <div className={CLASS_MEDIA}>
-            <Media />
-          </div>
-        )}
-      </>
+      {Media && (
+        <div className={CLASS_MEDIA}>
+          <Media />
+        </div>
+      )}
+
       <div className={CLASS_INFO}>
         <Content />
       </div>

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.9.0 (2020-03-17)
+
+
+### Features
+
+* add new variables to atom tag ([f5970c7](https://github.com/SUI-Components/sui-components/commit/f5970c75bceb4217bf7d66a3fa22c6cdfcdc93d5))
+
+
+
 # 2.8.0 (2020-03-11)
 
 

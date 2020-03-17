@@ -45,9 +45,12 @@ const AtomCard = ({
       onClick={redirectToHref}
       onKeyDown={redirectOnEnter}
     >
-      <div className={CLASS_MEDIA}>
-        <Media />
-      </div>
+      {Media && (
+        <div className={CLASS_MEDIA}>
+          <Media />
+        </div>
+      )}
+
       <div className={CLASS_INFO}>
         <Content />
       </div>
@@ -58,7 +61,7 @@ const AtomCard = ({
 AtomCard.displayName = 'AtomCard'
 
 AtomCard.propTypes = {
-  /** HTML (component) to be displayed on the left/right side */
+  /** HTML (component) to be displayed on the left/right side. It's an optional component */
   media: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 
   /** HTML (component) to be displayed on the other side */

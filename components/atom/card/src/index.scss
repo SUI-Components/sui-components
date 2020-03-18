@@ -39,6 +39,7 @@ $class-media: '#{$base-class}-media';
 
   &-info {
     padding: $p-atom-card-info;
+    flex-grow: 1;
   }
 
   &-link {

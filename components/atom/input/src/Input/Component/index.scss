@@ -1,4 +1,6 @@
 $bgc-atom-input-disabled: $c-gray-lightest !default;
+$c-atom-input-disabled: $c-atom-input-placeholder !default;
+$bd-atom-input-disabled: $bd-atom-input-base !default;
 $c-atom-input-placeholder: $c-gray-dark !default;
 $m-atom-input-type-left: $m-m !default;
 $m-atom-input-type-right: $m-m !default;
@@ -36,7 +38,10 @@ $class-read-only: '#{$base-class}--readOnly';
   }
 
   &:disabled {
+    border: $bd-atom-input-disabled;
+    color: $c-atom-input-disabled;
     pointer-events: none;
+
     &:not(#{$class-read-only}) {
       background: $bgc-atom-input-disabled;
     }

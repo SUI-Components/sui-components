@@ -39,6 +39,10 @@ $base-class: '.sui-AtomTextarea';
     color: $c-atom-textarea-placeholder;
   }
 
+  &:focus {
+    @extend %sui-atom-input-input-focus;
+  }
+
   &--short {
     height: calc(
       (#{$lh-atom-textarea} * #{$short-num-lines}) + #{$pm-atom-textarea}

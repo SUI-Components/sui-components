@@ -10,7 +10,8 @@ $lh-atom-textarea: $lh-l !default;
 
 $bgc-atom-textarea: initial !default;
 $bgc-atom-textarea--disabled: $c-gray-lightest !default;
-$bd-atom-textarea: 1px solid $c-gray-light !default;
+$bd-atom-textarea: $bdw-s solid $c-gray-light !default;
+$bdrs-atom-textarea: 0 !default;
 $bd-atom-textarea--disabled: $bdw-s solid initial !default;
 $c-atom-textarea: initial !default;
 $c-atom-textarea--disabled: $c-gray-light !default;
@@ -22,6 +23,7 @@ $base-class: '.sui-AtomTextarea';
 #{$base-class} {
   background: $bgc-atom-textarea;
   border: $bd-atom-textarea;
+  border-radius: $bdrs-atom-textarea;
   color: $c-atom-textarea;
   font-size: $fz-atom-textarea;
   line-height: $lh-atom-textarea;

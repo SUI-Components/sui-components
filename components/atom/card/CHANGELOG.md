@@ -2,11 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-03-18)
+
+
+
 # 1.8.0 (2020-03-17)
 
 
 ### Features
 
+* add flex grow to atomCard info ([d6e53a4](https://github.com/SUI-Components/sui-components/commit/d6e53a43294b9fcab599bd821623a65095865ea0))
 * add media param optional in atom card ([5665caa](https://github.com/SUI-Components/sui-components/commit/5665caa59fb05fa96d7d6a0e57ce06e55ff40699))
 * remove unnedded fragment ([f327055](https://github.com/SUI-Components/sui-components/commit/f327055d2a6f7ff76712d9c6e962b16e21c0be0a))
 

@@ -9,13 +9,14 @@ $class-select-atom-input: '.sui-AtomInput';
 $class-select-atom-input-input: '#{$class-select-atom-input}-input';
 $class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
 
+$bd-select: $bdw-s solid transparent !default;
+$bdrs-select: 0 !default;
 $z-select-list: $z-navigation !default;
 $mr-select-list-arrow: -$p-xxl !default;
 $pr-select-atom-input-tags: $p-xxl !default;
 $w-select-list-arrow: $sz-icon-m !default;
 $h-select-list-arrow: $sz-icon-m !default;
 $c-select-list-arrow-fill: initial !default;
-
 $bgc-atom-input-disabled: $c-gray-lightest !default;
 
 #{$base-class} {
@@ -30,7 +31,8 @@ $bgc-atom-input-disabled: $c-gray-lightest !default;
   &-inputSelect {
     &-container {
       align-items: center;
-      border: 1px solid transparent;
+      border: $bd-select;
+      border-radius: $bdrs-select;
       cursor: pointer;
       display: flex;
 
@@ -44,6 +46,7 @@ $bgc-atom-input-disabled: $c-gray-lightest !default;
       #{$class-select-atom-input-input}:disabled {
         opacity: 1;
         -webkit-appearance: none;
+        // color: $c-black;
       }
 
       #{$class-select-atom-input-input}:first-child,

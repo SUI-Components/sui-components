@@ -31,6 +31,18 @@ const Demo = () => {
           />
         </li>
         <li style={styleListItem}>
+          <h2>With Html Label</h2>
+          <MoleculeCheckboxField
+            id="info-help-text"
+            nodeLabel={
+              <>
+                this is the <a href="#">nodeLabel</a>
+              </>
+            }
+            onChange={(e, {name, value}) => console.log({[name]: value})}
+          />
+        </li>
+        <li style={styleListItem}>
           <h2>With Success Validation HelpText</h2>
           <MoleculeCheckboxField
             id="success-help-text"

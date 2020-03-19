@@ -23,7 +23,8 @@ $class-read-only: '#{$base-class}--readOnly';
     display: none;
   }
 
-  &#{$base-class}--noBorder {
+  &#{$base-class}--noBorder,
+  &#{$base-class}--noBorder:disabled {
     border: 0;
 
     &:focus {

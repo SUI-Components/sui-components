@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.4.0 (2020-03-19)
+
+
+### Features
+
+* add var for margin and align in radiobuttons ([ec0b564](https://github.com/SUI-Components/sui-components/commit/ec0b564c3a7904f0055d10e7e20bed5e621d9fca))
+* fix sass ([e1991e8](https://github.com/SUI-Components/sui-components/commit/e1991e80d5d9e9cfb24bc4f2743ff23f4c76978c))
+
+
+
 # 1.3.0 (2020-03-11)
 
 

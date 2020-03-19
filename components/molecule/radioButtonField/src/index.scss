@@ -2,9 +2,11 @@
 @import '~@s-ui/react-molecule-field/lib/index';
 @import '~@s-ui/react-atom-radio-button/lib/index';
 
+$m-molecule-radiobutton-field: 0 !default;
+
 .sui-MoleculeRadioButtonField {
   input[type='radio'] {
-    margin: 0;
+    margin: $m-molecule-radiobutton-field;
   }
   .sui-AtomLabel {
     cursor: pointer;

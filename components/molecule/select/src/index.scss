@@ -46,7 +46,6 @@ $bgc-atom-input-disabled: $c-gray-lightest !default;
       #{$class-select-atom-input-input}:disabled {
         opacity: 1;
         -webkit-appearance: none;
-        // color: $c-black;
       }
 
       #{$class-select-atom-input-input}:first-child,

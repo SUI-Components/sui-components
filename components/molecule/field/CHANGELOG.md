@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.17.0 (2020-03-19)
+
+
+### Features
+
+* add var for margin radiobutton ([10a10c4](https://github.com/SUI-Components/sui-components/commit/10a10c4717ddd371624c5ff4c7db70f529d8e5a4))
+
+
+
 # 1.16.0 (2020-03-11)
 
 

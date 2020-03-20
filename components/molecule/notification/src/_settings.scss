@@ -2,6 +2,8 @@ $w-notification: 100% !default;
 $z-notification: 1000 !default;
 $mh-notification: 500px !default;
 $sz-notification-icon: $sz-icon-m !default;
+$ai-notification-content: normal !default;
+$bdrs-notification-content: initial !default;
 
 $bdrs-notification: (
   xl: $bdrs-base * 4,

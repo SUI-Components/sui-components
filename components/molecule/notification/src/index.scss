@@ -5,9 +5,11 @@
 $base-class: '.sui-MoleculeNotification';
 
 #{$base-class} {
+  border-radius: $bdrs-notification-content;
   max-height: $mh-notification;
 
   &-content {
+    align-items: $ai-notification-content;
     display: flex;
     justify-content: space-between;
     padding: $p-l;

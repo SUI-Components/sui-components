@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.26.0 (2020-03-20)
+
+
+### Features
+
+* add border-radius to select ([ac9e0a8](https://github.com/SUI-Components/sui-components/commit/ac9e0a818aced2e63f050b5618af8f6bca4fa27b))
+* remove added comment ([d142d42](https://github.com/SUI-Components/sui-components/commit/d142d42fc1b0196fcdb3e923e0d4b269d811066f))
+
+
+
 # 1.25.0 (2020-03-11)
 
 

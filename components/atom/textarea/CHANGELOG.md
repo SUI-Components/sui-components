@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.7.0 (2020-03-20)
+
+
+### Features
+
+* add border-radius token to textarea ([8e94f2f](https://github.com/SUI-Components/sui-components/commit/8e94f2fe96f2e3d402614850128e00bb32849351))
+* add focus state ([d750fc1](https://github.com/SUI-Components/sui-components/commit/d750fc165e43dbd81868a489cc6acb635428233a))
+
+
+
 # 2.6.0 (2020-03-12)
 
 

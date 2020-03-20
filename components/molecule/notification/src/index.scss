@@ -9,7 +9,6 @@ $base-class: '.sui-MoleculeNotification';
   max-height: $mh-notification;
 
   &-content {
-    align-items: $ai-notification-content;
     display: flex;
     justify-content: space-between;
     padding: $p-l;
@@ -17,6 +16,8 @@ $base-class: '.sui-MoleculeNotification';
 
   &-children,
   &-text {
+    align-items: $ai-notification-content;
+    display: flex;
     flex: 1 1 auto;
     font-size: $fz-m;
   }

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.3.0 (2020-03-20)
+
+
+### Features
+
+* add new prop nodeLabel ([d8a04ba](https://github.com/SUI-Components/sui-components/commit/d8a04bac364a53d011e38912b33cbc16cdf8dfd3))
+
+
+
 # 2.2.0 (2020-03-11)
 
 

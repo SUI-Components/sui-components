@@ -20,7 +20,7 @@ import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
 ### Basic usage
     
-```
+```javascript
   <MoleculeInputField
     id="second"
     placeholder="Medium Input"
@@ -33,7 +33,7 @@ import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
 ### With `successText`
     
-```
+```javascript
   <MoleculeInputField
     id="description2"
     label="Description"
@@ -44,7 +44,7 @@ import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
 ### With `errorText`
     
-```
+```javascript
   <MoleculeInputField
     id="notes"
     label="Notes"
@@ -53,16 +53,19 @@ import MoleculeInputField from '@s-ui/react-molecule-input-field'
 ```
 
 ### With `alertText`
-    
-```
+
+```javascript
   <MoleculeInputField
     id="notes"
     label="Notes"
     alertText="All wrong!"
   />
 
-### With `helpText`
 ```
+
+### With `helpText`
+
+```javascript
   <MoleculeInputField
     id="description-inline2"
     label="Description"
@@ -72,7 +75,8 @@ import MoleculeInputField from '@s-ui/react-molecule-input-field'
 ```
 
 ### Inline
-```
+
+```javascript
   <MoleculeInputField
     id="description"
     label="Description"

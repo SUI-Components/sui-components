@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mono repo, multi package containing all SUI components.",
   "private": true,
   "scripts": {

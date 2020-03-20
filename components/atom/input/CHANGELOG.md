@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.15.0 (2020-03-19)
+
+
+### Bug Fixes
+
+* atomInput has border when it is disabled and has noBorder prop ([dcd3e56](https://github.com/SUI-Components/sui-components/commit/dcd3e56550c737b31cc26be9eac7d47d58b070ae))
+
+
+
+# 4.14.0 (2020-03-18)
+
+
+### Bug Fixes
+
+* reorder variables ([dc37d51](https://github.com/SUI-Components/sui-components/commit/dc37d51cc5d38081ac1f5fab7b39f616c7c35ca2))
+
+
+
 # 4.13.0 (2020-03-18)
 
 

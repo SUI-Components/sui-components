@@ -6,6 +6,8 @@
 $mb-molecule-field-label: 0 !default;
 $ml-molecule-field-label: $m-m !default;
 
+$ai-molecule-field-label-container: center !default;
+
 $base-class: '.sui-MoleculeField';
 $atomLabel-class: '.sui-AtomLabel';
 $atomHelpText-class: '.sui-AtomHelpText';
@@ -28,7 +30,7 @@ $atomHelpText-class: '.sui-AtomHelpText';
   }
 
   &-labelContainer {
-    align-items: center;
+    align-items: $ai-molecule-field-label-container;
     display: flex;
     margin-bottom: $mb-molecule-field-label;
   }

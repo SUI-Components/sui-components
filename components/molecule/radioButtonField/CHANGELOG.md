@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.5.0 (2020-03-20)
+
+
+### Bug Fixes
+
+* backwards compatibility margin ([f1e5e23](https://github.com/SUI-Components/sui-components/commit/f1e5e23ba772310d8b5b6bed4f0ce21d514f5dae))
+
+
+
 # 1.4.0 (2020-03-19)
 
 
 ### Features
 
+* add margin token ([9532068](https://github.com/SUI-Components/sui-components/commit/9532068805a34f968f52ffe52598e04f114dc88d))
 * add var for margin and align in radiobuttons ([ec0b564](https://github.com/SUI-Components/sui-components/commit/ec0b564c3a7904f0055d10e7e20bed5e621d9fca))
 * fix sass ([e1991e8](https://github.com/SUI-Components/sui-components/commit/e1991e80d5d9e9cfb24bc4f2743ff23f4c76978c))
 

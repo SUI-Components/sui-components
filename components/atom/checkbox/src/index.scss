@@ -35,6 +35,7 @@ $w-atom-checkbox: 24px !default;
     text-align: center;
     vertical-align: top;
     width: $w-atom-checkbox;
+    min-width: $w-atom-checkbox;
 
     span {
       /* Center custom icons */
@@ -46,6 +47,12 @@ $w-atom-checkbox: 24px !default;
     &.is-checked {
       background-color: $bgc-checked-atom-checkbox;
       border: $bd-atom-checkbox--checked;
+      color: $c-atom-checkbox;
+      svg {
+        width: $w-atom-checkbox;
+        height: $h-atom-checkbox;
+        fill: $c-atom-checkbox;
+      }
     }
 
     &.is-disabled {

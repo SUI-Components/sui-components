@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.18.0 (2020-03-20)
+
+
+### Features
+
+* add display flex ([6351401](https://github.com/SUI-Components/sui-components/commit/63514019c293e2d6993c392e0fe5108c1925b172))
+* add new variables: align-items and border-radius ([73145e1](https://github.com/SUI-Components/sui-components/commit/73145e106866bfaa1a0ab1dbae30134889f7b1a2))
+
+
+
 # 1.17.0 (2020-03-11)
 
 

@@ -12,8 +12,32 @@ const BASE_CLASS = 'sui-MoleculeField'
 const CLASS_INLINE = `${BASE_CLASS}--inline`
 const CLASS_AUTOHIDE = `${BASE_CLASS}--autohide`
 const CLASS_INLINE_REVERSE = `${CLASS_INLINE}-reverse`
+const CLASS_NODE_LABEL_CONTAINER = `${BASE_CLASS}-nodeLabelContainer`
 const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-inputContainer`
 const CLASS_LABEL_CONTAINER = `${BASE_CLASS}-labelContainer`
+
+const MoleculeLabel = ({
+  label,
+  nodeLabel,
+  typeValidationLabel,
+  name,
+  onClickLabel
+}) => {
+  let response = null
+  if (label) {
+    response = (
+      <AtomLabel
+        type={typeValidationLabel}
+        name={name}
+        text={label}
+        onClick={onClickLabel}
+      />
+    )
+  } else if (nodeLabel) {
+    response = <div className={CLASS_NODE_LABEL_CONTAINER}>{nodeLabel}</div>
+  }
+  return response
+}
 
 const MoleculeField = ({
   inline,
@@ -22,6 +46,7 @@ const MoleculeField = ({
   successText,
   alertText,
   label,
+  nodeLabel,
   useContrastLabel,
   helpText,
   name,
@@ -70,13 +95,14 @@ const MoleculeField = ({
 
   return (
     <div className={className}>
-      {label && (
+      {(label || nodeLabel) && (
         <div className={CLASS_LABEL_CONTAINER}>
           {inline && extendedChildren}
-          <AtomLabel
+          <MoleculeLabel
             type={typeValidationLabel}
             name={name}
-            text={label}
+            label={label}
+            nodeLabel={nodeLabel}
             onClick={onClickLabel}
           />
         </div>
@@ -103,6 +129,9 @@ MoleculeField.propTypes = {
 
   /** Text to be displayed as label of the textarea */
   label: PropTypes.string,
+
+  /** React node to be displayed as label of the textarea if there is not a given label value */
+  nodeLabel: PropTypes.node,
 
   /** If true it will set the label type to 'CONTRAST' */
   useContrastLabel: PropTypes.bool,

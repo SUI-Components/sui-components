@@ -9,6 +9,7 @@ const BASE_CLASS = 'sui-MoleculeCheckboxField'
 const MoleculeCheckboxField = ({
   id,
   label,
+  nodeLabel,
   successText,
   errorText,
   alertText,
@@ -23,6 +24,7 @@ const MoleculeCheckboxField = ({
       <MoleculeField
         name={id}
         label={label}
+        nodeLabel={nodeLabel}
         successText={successText}
         errorText={errorText}
         alertText={alertText}
@@ -49,7 +51,10 @@ MoleculeCheckboxField.displayName = 'MoleculeCheckboxField'
 
 MoleculeCheckboxField.propTypes = {
   /** Text to be displayed as label */
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
+
+  /** React node to be displayed as label if there is not a label */
+  nodeLabel: PropTypes.node,
 
   /** used as label for attribute and input element id */
   id: PropTypes.string.isRequired,

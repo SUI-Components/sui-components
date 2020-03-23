@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.19.0 (2020-03-23)
+
+
+### Bug Fixes
+
+* fix prop name passed by to the label ([92c7aee](https://github.com/SUI-Components/sui-components/commit/92c7aee53cd3502c30410ee7e58f00f29a287729))
+
+
+
 # 1.18.0 (2020-03-20)
 
 

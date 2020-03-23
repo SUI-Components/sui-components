@@ -5,6 +5,7 @@ $short-num-lines: 5 !default;
 $long-num-lines: 7 !default;
 
 $p-atom-textarea: 2px !default;
+$pm-atom-textarea: $p-m !default; // deprecated
 $pt-atom-textarea: $p-m !default;
 $pl-atom-textarea: $p-m !default;
 $fz-atom-textarea: $fz-base !default;

@@ -26,6 +26,10 @@ const styleListItem = {
   marginTop: '50px'
 }
 
+const darkBackground = {
+  backgroundColor: '#2b91c1'
+}
+
 const MoleculeInputFieldWithState = withState(MoleculeInputField)
 
 return (
@@ -115,6 +119,19 @@ return (
           id="notes"
           value="In some place of La Mancha which name..."
         />
+      </li>
+      <li style={styleListItem}>
+        <h2>
+          With contrast label
+        </h2>
+        <div style={darkBackground}>
+          <MoleculeInputFieldWithState
+            id="notes"
+            value="In some place of La Mancha which name..."
+            label="Label"
+            useContrastLabel
+          />
+        </div>
       </li>
     </ul>
   </div>

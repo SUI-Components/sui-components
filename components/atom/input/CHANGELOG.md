@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.16.0 (2020-03-23)
+
+
+### Bug Fixes
+
+* move disabled styles only when not readonly but disabled ([92cbdd3](https://github.com/SUI-Components/sui-components/commit/92cbdd3cee244754159b8283ea7bfbfab6a26eb7))
+
+
+
 # 4.15.0 (2020-03-19)
 
 

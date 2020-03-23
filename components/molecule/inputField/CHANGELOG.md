@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 3.4.0 (2020-03-23)
+
+
+### Features
+
+* add useContrastLabel prop ([facf8f3](https://github.com/SUI-Components/sui-components/commit/facf8f3879a87f0b893b49a910ad45d4bbdd6daf))
+
+
+
 # 3.3.0 (2020-03-11)
 
 

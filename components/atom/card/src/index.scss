@@ -7,6 +7,7 @@ $p-atom-card-small: 0 !default;
 $bgc-atom-card-hover: transparent !default;
 $bxsh-atom-card-hover: none !default;
 $c-atom-card-highlight: $c-highlight !default;
+$bgc-atom-card-highlight-hover: $bgc-atom-card-hover !default; // using $bgc-atom-card-hover to keep styles backwards compatible
 $w-atom-card-media: 33% !default;
 $mr-atom-card-media: 0 !default;
 $mq-responsive-breakpoint-name: 'm' !default;
@@ -50,6 +51,11 @@ $class-media: '#{$base-class}-media';
 
   &--highlight {
     background: $c-atom-card-highlight;
+    @media (hover: hover) {
+      &:hover {
+        background: $bgc-atom-card-highlight-hover;
+      }
+    }
   }
 
   &--vertical {

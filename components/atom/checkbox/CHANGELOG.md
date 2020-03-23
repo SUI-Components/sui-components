@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.4.0 (2020-03-23)
+
+
+### Features
+
+* fix styles when atom checkbox uses non native ([1e610cd](https://github.com/SUI-Components/sui-components/commit/1e610cd46db34ceff6cc58e43044fa631eec6a80))
+* width and height svg always ([889379a](https://github.com/SUI-Components/sui-components/commit/889379a526b519fd3be77c4e5c4846ee6af8b16a))
+
+
+
 # 2.3.0 (2020-03-11)
 
 

@@ -39,12 +39,12 @@ $class-read-only: '#{$base-class}--readOnly';
   }
 
   &:disabled {
-    border: $bd-atom-input-disabled;
-    color: $c-atom-input-disabled;
     pointer-events: none;
 
     &:not(#{$class-read-only}) {
       background: $bgc-atom-input-disabled;
+      border: $bd-atom-input-disabled;
+      color: $c-atom-input-disabled;
     }
   }
 

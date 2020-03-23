@@ -44,13 +44,16 @@ $w-atom-checkbox: 24px !default;
       justify-content: center;
     }
 
+    svg {
+      width: $w-atom-checkbox;
+      height: $h-atom-checkbox;
+    }
+
     &.is-checked {
       background-color: $bgc-checked-atom-checkbox;
       border: $bd-atom-checkbox--checked;
       color: $c-atom-checkbox;
       svg {
-        width: $w-atom-checkbox;
-        height: $h-atom-checkbox;
         fill: $c-atom-checkbox;
       }
     }

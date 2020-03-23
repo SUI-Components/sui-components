@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.10.0 (2020-03-23)
+
+
+### Features
+
+* add new highlight bgc hover variable ([a2506bb](https://github.com/SUI-Components/sui-components/commit/a2506bbd4abd8631b218a4466a2e7826e54b1289))
+
+
+
 # 1.9.0 (2020-03-18)
 
 

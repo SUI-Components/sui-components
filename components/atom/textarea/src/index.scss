@@ -4,7 +4,10 @@
 $short-num-lines: 5 !default;
 $long-num-lines: 7 !default;
 
-$pm-atom-textarea: $p-m !default;
+$p-atom-textarea: 2px !default;
+$pm-atom-textarea: $p-m !default; // deprecated
+$pt-atom-textarea: $pm-atom-textarea !default;
+$pl-atom-textarea: $p-l !default;
 $fz-atom-textarea: $fz-base !default;
 $lh-atom-textarea: $lh-l !default;
 
@@ -27,8 +30,9 @@ $base-class: '.sui-AtomTextarea';
   color: $c-atom-textarea;
   font-size: $fz-atom-textarea;
   line-height: $lh-atom-textarea;
-  padding-left: $p-l;
-  padding-top: $pm-atom-textarea;
+  padding: $p-atom-textarea;
+  padding-left: $pl-atom-textarea;
+  padding-top: $pt-atom-textarea;
   width: $w-atom-textarea;
 
   &[disabled] {
@@ -47,13 +51,13 @@ $base-class: '.sui-AtomTextarea';
 
   &--short {
     height: calc(
-      (#{$lh-atom-textarea} * #{$short-num-lines}) + #{$pm-atom-textarea}
+      (#{$lh-atom-textarea} * #{$short-num-lines}) + #{$pt-atom-textarea}
     );
   }
 
   &--long {
     height: calc(
-      (#{$lh-atom-textarea} * #{$long-num-lines}) + #{$pm-atom-textarea}
+      (#{$lh-atom-textarea} * #{$long-num-lines}) + #{$pt-atom-textarea}
     );
   }
 

@@ -19,7 +19,7 @@ const CLASS_LABEL_CONTAINER = `${BASE_CLASS}-labelContainer`
 const MoleculeLabel = ({
   label,
   nodeLabel,
-  typeValidationLabel,
+  type: typeValidationLabel,
   name,
   onClickLabel
 }) => {

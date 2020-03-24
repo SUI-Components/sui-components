@@ -38,6 +38,7 @@ const MoleculePhotoUploader = ({
   allowUploadDuplicatedPhotos = false,
   addMorePhotosIcon,
   addPhotoButtonColor,
+  addPhotoButtonDesign,
   addPhotoTextButton,
   addPhotoButtonSize,
   addPhotoTextSkeleton,
@@ -234,6 +235,7 @@ const MoleculePhotoUploader = ({
           {Boolean(!files.length) && !isDragActive && (
             <InitialState
               buttonColor={addPhotoButtonColor}
+              buttonDesign={addPhotoButtonDesign}
               buttonText={addPhotoTextButton}
               buttonSize={addPhotoButtonSize}
               icon={dragPhotosIcon()}
@@ -326,6 +328,10 @@ MoleculePhotoUploader.propTypes = {
   /** Button color of the initial state button */
 
   addPhotoButtonColor: PropTypes.string,
+
+  /** Button design of the initial state button */
+
+  addPhotoButtonDesign: PropTypes.string,
 
   /** Button size of the initial state button */
   addPhotoButtonSize: PropTypes.string,

@@ -238,7 +238,7 @@ $maw-photo-uploader-thumb-drag-text: 200px;
     &-button {
       align-items: center;
       background: $bg-photo-uploader-action-buttons;
-      border-right: $bdw-m solid $bg-photo-uploader;
+      border-right: $bdr-photo-uploader-action-buttons;
       color: $c-photo-uploader-action-buttons;
       cursor: pointer;
       display: flex;

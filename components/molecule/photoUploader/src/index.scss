@@ -21,6 +21,7 @@ $bg-photo-uploader-drag-photo: rgba($c-primary, 0.85) !default;
 $bg-photo-uploader-drag-photo-rejected: rgba($c-error, 0.9) !default;
 $bg-photo-uploader-action-buttons: $c-gray-light-3 !default;
 $bg-photo-uploader-action-buttons-hover: $c-primary !default;
+$bdr-photo-uploader-action-buttons: $bdw-m solid $bg-photo-uploader;
 $bg-photo-uploader-thumb-card: $c-gray-light-3 !default;
 $bg-photo-uploader-thumb-chosen: $bg-photo-uploader-thumb-card !default;
 $bg-photo-uploader-skeleton: $bg-photo-uploader-thumb-card !default;

@@ -21,6 +21,8 @@ $bdrs-atom-checkbox: $bdrs-m !default;
 $c-atom-checkbox: $c-white !default;
 $h-atom-checkbox: 24px !default;
 $w-atom-checkbox: 24px !default;
+$h-atom-checkbox-icon: 16px !default;
+$w-atom-checkbox-icon: 16px !default;
 
 .sui-AtomCheckbox {
   &:not(&--native) {
@@ -45,8 +47,8 @@ $w-atom-checkbox: 24px !default;
     }
 
     svg {
-      width: $w-atom-checkbox;
-      height: $h-atom-checkbox;
+      width: $w-atom-checkbox-icon;
+      height: $h-atom-checkbox-icon;
     }
 
     &.is-checked {

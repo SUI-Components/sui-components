@@ -19,8 +19,10 @@ $bdc-atom-checkbox-is-disabled: color-variation($c-gray, 1) !default;
 
 $bdrs-atom-checkbox: $bdrs-m !default;
 $c-atom-checkbox: $c-white !default;
-$h-atom-checkbox: 24px !default;
-$w-atom-checkbox: 24px !default;
+$h-atom-checkbox: $sz-icon-m !default;
+$w-atom-checkbox: $sz-icon-m !default;
+$h-atom-checkbox-icon: $sz-icon-s !default;
+$w-atom-checkbox-icon: $sz-icon-s !default;
 
 .sui-AtomCheckbox {
   &:not(&--native) {
@@ -45,8 +47,8 @@ $w-atom-checkbox: 24px !default;
     }
 
     svg {
-      width: $w-atom-checkbox;
-      height: $h-atom-checkbox;
+      width: $w-atom-checkbox-icon;
+      height: $h-atom-checkbox-icon;
     }
 
     &.is-checked {

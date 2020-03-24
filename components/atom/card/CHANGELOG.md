@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.11.0 (2020-03-24)
+
+
+### Features
+
+* add  min width to fix issue in container width ([87285ed](https://github.com/SUI-Components/sui-components/commit/87285ed5f2b9818bdf83e3511fa6b8ae823f8311))
+
+
+
 # 1.10.0 (2020-03-23)
 
 

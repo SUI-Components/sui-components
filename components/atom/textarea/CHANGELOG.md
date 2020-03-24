@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.8.0 (2020-03-24)
+
+
+### Features
+
+* add variable 4 retrocompatibility ([52b79d8](https://github.com/SUI-Components/sui-components/commit/52b79d80676d073ed61ec06366e0ecda31bdab01))
+* mod styles ([b00d64f](https://github.com/SUI-Components/sui-components/commit/b00d64faa0966cd7f882ec4960be04113faf775b))
+* mod styles ([dcdd428](https://github.com/SUI-Components/sui-components/commit/dcdd428022ad3048c9a6c5f16a85f5652a7a670a))
+
+
+
 # 2.7.0 (2020-03-20)
 
 

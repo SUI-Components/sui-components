@@ -6,7 +6,7 @@ import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
 import {BASE_CLASS_NAME} from './config'
 const ALTERNATIVE_ACTION_TEXT = '- o -'
-const BUTTON_COLOR = 'secondary'
+const BUTTON_COLOR = 'primary'
 const BUTTON_SIZE = 'small'
 
 const InitialState = ({

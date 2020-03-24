@@ -2,6 +2,7 @@
 @import '~@s-ui/react-molecule-field/lib/index';
 @import '~@s-ui/react-atom-radio-button/lib/index';
 
+$c-molecule-radio-button-field-label--disabled: $c-gray-light !default;
 $m-molecule-radio-button-field: 0 !default;
 $m-molecule-radio-button-field-container: 0 !default;
 
@@ -9,6 +10,11 @@ $m-molecule-radio-button-field-container: 0 !default;
   margin: $m-molecule-radio-button-field-container;
   input[type='radio'] {
     margin: $m-molecule-radio-button-field;
+    &:disabled {
+      + .sui-AtomLabel {
+        color: $c-molecule-radio-button-field-label--disabled;
+      }
+    }
   }
   .sui-AtomLabel {
     cursor: pointer;

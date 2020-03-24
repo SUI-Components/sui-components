@@ -37,6 +37,7 @@ const MoleculePhotoUploader = ({
   acceptedFileMaxSize = DEFAULT_MAX_FILE_SIZE_ACCEPTED,
   allowUploadDuplicatedPhotos = false,
   addMorePhotosIcon,
+  addPhotoButtonColor,
   addPhotoTextButton,
   addPhotoButtonSize,
   addPhotoTextSkeleton,
@@ -232,6 +233,7 @@ const MoleculePhotoUploader = ({
           <input {...getInputProps()} />
           {Boolean(!files.length) && !isDragActive && (
             <InitialState
+              buttonColor={addPhotoButtonColor}
               buttonText={addPhotoTextButton}
               buttonSize={addPhotoButtonSize}
               icon={dragPhotosIcon()}
@@ -320,6 +322,10 @@ MoleculePhotoUploader.propTypes = {
 
   /** Icon placed in skeleton placed after thumbails */
   addMorePhotosIcon: PropTypes.node.isRequired,
+
+  /** Button color of the initial state button */
+
+  addPhotoButtonColor: PropTypes.string,
 
   /** Button size of the initial state button */
   addPhotoButtonSize: PropTypes.string,

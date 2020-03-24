@@ -6,10 +6,11 @@ import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
 import {BASE_CLASS_NAME} from './config'
 const ALTERNATIVE_ACTION_TEXT = '- o -'
-const BUTTON_COLOR = 'primary'
+const BUTTON_COLOR = 'secondary'
 const BUTTON_SIZE = 'small'
 
 const InitialState = ({
+  buttonColor = BUTTON_COLOR,
   buttonText,
   buttonSize = BUTTON_SIZE,
   icon,
@@ -39,6 +40,7 @@ const InitialState = ({
 InitialState.displayName = 'InitialState'
 
 InitialState.propTypes = {
+  buttonColor: PropTypes.string,
   buttonText: PropTypes.string.isRequired,
   buttonSize: PropTypes.string,
   icon: PropTypes.node.isRequired,

@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.5.0 (2020-03-24)
+
+
+### Bug Fixes
+
+* atom checkbox icon default siz ([116c16d](https://github.com/SUI-Components/sui-components/commit/116c16da3f1603d7b01b634a7d131ea3d60e2af8))
+
+
+### Features
+
+* use sui-theme size vars ([6821674](https://github.com/SUI-Components/sui-components/commit/68216745f1c84635ff562bc34d637f58d2a033e2))
+
+
+
 # 2.4.0 (2020-03-23)
 
 

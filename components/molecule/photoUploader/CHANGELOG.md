@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.5.0 (2020-03-24)
+
+
+### Features
+
+* add button color prop ([3bf3d8c](https://github.com/SUI-Components/sui-components/commit/3bf3d8c3a7ee2e557863263c7413817336294d42))
+* add button design prop ([f3a56aa](https://github.com/SUI-Components/sui-components/commit/f3a56aae0f4f58a969cc8a31559087cdf120ff9c))
+* add default to var ([67ae3f9](https://github.com/SUI-Components/sui-components/commit/67ae3f9514183e8399d2c96b7c111b10d3e5f250))
+* add default var ([3aefdea](https://github.com/SUI-Components/sui-components/commit/3aefdead154f8b5f1dded72a7e9b054697253f08))
+* add scss var ([7a69683](https://github.com/SUI-Components/sui-components/commit/7a696837b4837dccdcb4a22a0a770276f889ad0a))
+* use buttonColor passed as props ([0638882](https://github.com/SUI-Components/sui-components/commit/06388825f7685cc358ec241337bc9b5e803db8ec))
+* use primary color as defautl ([c0f47b2](https://github.com/SUI-Components/sui-components/commit/c0f47b2be79a62ca4f6b937cb182f95d2dc56711))
+
+
+
 # 1.4.0 (2020-03-11)
 
 

@@ -335,6 +335,7 @@ $icon-stroke-color: currentColor !default;
   }
 
   &--empty {
+    padding: 0;
     #{$base-class}-leftIcon,
     #{$base-class}-rightIcon {
       margin: 0;

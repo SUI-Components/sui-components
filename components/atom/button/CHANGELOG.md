@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.43.0 (2020-03-25)
+
+
+### Features
+
+* remove unnecesary paddings for empty buttons ([4f4191c](https://github.com/SUI-Components/sui-components/commit/4f4191c8c9738e5616e0f3d2d61cf1d9c4db9c4b))
+
+
+
 # 1.42.0 (2020-03-11)
 
 

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
 const BASE_CLASS = 'sui-AtomRadioButtonGroup'
@@ -12,6 +12,10 @@ const AtomRadioButtonGroup = ({
   ...props
 }) => {
   const [value, setValue] = useState(initValue)
+
+  useEffect(() => {
+    setValue(initValue)
+  }, [initValue])
 
   const handleChangeGroup = (e, {name, value: innerValue}) => {
     setValue(innerValue)

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.6.0 (2020-03-25)
+
+
+### Features
+
+* add disabled style ([13d4dee](https://github.com/SUI-Components/sui-components/commit/13d4dee777e4c9fc38ec39f3d328c2e53ae4edef))
+
+
+
 # 1.5.0 (2020-03-20)
 
 

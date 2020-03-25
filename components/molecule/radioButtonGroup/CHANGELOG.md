@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.4.0 (2020-03-25)
+
+
+### Features
+
+* allow state to be changed from props ([8d5d9ba](https://github.com/SUI-Components/sui-components/commit/8d5d9ba4d53ecba052bdf8bab68954a71d1214eb))
+
+
+
 # 1.3.0 (2020-03-11)
 
 

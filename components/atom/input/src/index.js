@@ -55,11 +55,23 @@ AtomInput.propTypes = {
   /** Text to be shown in order to hide the password on click */
   pwHideLabel: PropTypes.string,
 
-  /** onBlur callback */
+  /** onBlur callback **/
   onBlur: PropTypes.func,
 
-  /** onChange callback */
+  /** onKeyDown callback **/
+  onKeyDown: PropTypes.func,
+
+  /** onChange callback **/
   onChange: PropTypes.func,
+
+  /** onFocus callback **/
+  onFocus: PropTypes.func,
+
+  /** onEnter callback **/
+  onEnter: PropTypes.func,
+
+  /** key to provoke the onEnter callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values **/
+  onEnterKey: PropTypes.string,
 
   /** sets the name property of an element in the DOM */
   name: PropTypes.string,
@@ -101,7 +113,19 @@ AtomInput.propTypes = {
   mask: PropTypes.object,
 
   /** a button to be added on the right side of the input */
-  button: PropTypes.node
+  button: PropTypes.node,
+
+  /** tabindex value */
+  tabIndex: PropTypes.number,
+
+  /** native required attribtue  */
+  required: PropTypes.bool,
+
+  /** native pattern attribute */
+  pattern: PropTypes.string,
+
+  /** To select input keyboard mode on mobile. It can be 'numeric', 'decimal', 'email', etc */
+  inputMode: PropTypes.string
 }
 
 AtomInput.displayName = 'AtomInput'

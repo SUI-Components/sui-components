@@ -18,6 +18,7 @@
     "phoenix": "sui-mono phoenix && npm run install:demos -- --no-audit",
     "precommit": "sui-precommit run",
     "release": "sui-studio release",
+    "start": "sui-studio start",
     "test": "true"
   },
   "repository": {},

@@ -7,6 +7,7 @@ import AtomButtom, {atomButtonGroupPositions} from '@s-ui/react-atom-button'
 
 import SimpleOptionsRadioForm from './inputRadio'
 import SimpleOptionsCheckboxForm from './inputCheckbox'
+import './index.scss'
 
 const ButtonDesignByState = () => {
   const [selected, setSelected] = useState()

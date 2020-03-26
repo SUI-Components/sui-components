@@ -118,7 +118,7 @@ AtomInput.propTypes = {
   /** tabindex value */
   tabIndex: PropTypes.number,
 
-  /** native required attribtue  */
+  /** native required attribute  */
   required: PropTypes.bool,
 
   /** native pattern attribute */

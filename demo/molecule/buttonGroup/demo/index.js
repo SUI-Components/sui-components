@@ -3,9 +3,7 @@
 import React, {useState} from 'react'
 
 import MoleculeButtonGroup from '../../../../components/molecule/buttonGroup/src'
-import AtomButtom, {
-  atomButtonGroupPositions
-} from '@s-ui/react-atom-button'
+import AtomButtom, {atomButtonGroupPositions} from '@s-ui/react-atom-button'
 
 import SimpleOptionsRadioForm from './inputRadio'
 import SimpleOptionsCheckboxForm from './inputCheckbox'

@@ -34,6 +34,8 @@ const writeFile = (path, body) => {
     })
 }
 
+const checkFileExists = path => fse.pathExists(path)
+
 const createDir = path => {
   return fse
     .mkdirp(path)
@@ -87,12 +89,14 @@ const writeThemesInDemoFolders = async themes => {
       try {
         const [, component] = demo.split('/demo/')
         await createDir(`${demo}/themes`)
+        const hasDemoStyles = await checkFileExists(`${demo}/demo/index.scss`)
         await Promise.all(
           themes.map(theme =>
             writeFile(
               `${demo}/themes/${theme}.scss`,
               `
 @import '../../../../themes/${theme}';
+${hasDemoStyles ? `@import '../demo/index.scss';` : ''}
 @import '../../../../components/${component}/src/index.scss';
         `.trim()
             )

@@ -29,12 +29,12 @@
     "@s-ui/helpers": "1",
     "@s-ui/mono": "1",
     "@s-ui/precommit": "2",
+    "@s-ui/studio": "7",
     "fs-extra": "8.1.0",
     "globby": "10.0.1",
-    "walker": "1.0.7",
-    "@s-ui/studio": "7",
     "husky": "0.13.4",
-    "validate-commit-msg": "2.12.2"
+    "validate-commit-msg": "2.12.2",
+    "walker": "1.0.7"
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1"

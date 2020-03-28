@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.17.0 (2020-03-28)
+
+
+### Features
+
+* fixed typo ([dabe78e](https://github.com/SUI-Components/sui-components/commit/dabe78ec3e3ec724a4c0505286e8d3cb3b4b859a))
+
+
+
 # 4.16.0 (2020-03-23)
 
 

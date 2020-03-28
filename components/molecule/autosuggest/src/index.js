@@ -79,6 +79,8 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
   )
 
   const closeList = ev => {
+    const {key} = ev
+    if (key === 'Enter') onEnter(ev)
     const {current: domMoleculeAutosuggest} = refMoleculeAutosuggest
     onToggle(ev, {isOpen: false})
     if (multiselection) onChange(ev, {value: ''})
@@ -152,7 +154,7 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
     const {key} = ev
     if (key !== 'ArrowDown') ev.stopPropagation()
     if (key === 'Enter') {
-      onEnter(ev)
+      closeList(ev)
     }
   }
 

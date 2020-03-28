@@ -118,7 +118,7 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
       else if (isSomeOptionFocused) handleFocusIn(ev)
     } else {
       if (key === 'Enter') {
-        onEnter()
+        onEnter(ev)
       }
     }
   }
@@ -152,7 +152,7 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
     const {key} = ev
     if (key !== 'ArrowDown') ev.stopPropagation()
     if (key === 'Enter') {
-      onEnter()
+      onEnter(ev)
     }
   }
 

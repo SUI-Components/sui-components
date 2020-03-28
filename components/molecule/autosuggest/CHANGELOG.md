@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.12.0 (2020-03-28)
+
+
+### Features
+
+* send event up onEnter event handler ([05136f0](https://github.com/SUI-Components/sui-components/commit/05136f017249862e559ad5c0d7ae7f769222da62))
+
+
+
 # 2.11.0 (2020-03-11)
 
 

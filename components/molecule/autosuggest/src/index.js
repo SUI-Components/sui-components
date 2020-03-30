@@ -153,6 +153,7 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
     if (key !== 'ArrowDown') ev.stopPropagation()
     if (key === 'Enter') {
       onEnter(ev)
+      closeList(ev)
     }
   }
 

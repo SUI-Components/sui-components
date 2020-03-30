@@ -1,8 +1,26 @@
 @import '~@s-ui/react-atom-button/lib/index';
 
-.DemoMoleculeButtonGroup {
+$base-class: '.DemoMoleculeButtonGroup';
+
+#{$base-class} {
   &-section {
     margin: 10px;
+
+    &#{$base-class}-designs > div {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: flex-start;
+      padding: 20px;
+      .sui-MoleculeButtonGroup {
+        margin: 0 10px 0 0;
+      }
+      &#{$base-class}-negative {
+        background-color: #444;
+      }
+    }
 
     &--fullWidth {
       border: 2px dashed blue;

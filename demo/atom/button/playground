@@ -155,18 +155,6 @@ return (
       <ButtonsSocialRow design="outline" negative />
       <ButtonsSocialRow design="flat" negative />
     </ButtonsSocialTable>
-    
-    <Title>DEPRECATED types</Title>
-    <ButtonsTable>
-      <ButtonsRow type="primary" />
-      <ButtonsRow type="accent" />
-      <ButtonsRow type="secondary" />
-      <ButtonsRow type="tertiary"/>
-      <ButtonsRow type="primary" negative />
-      <ButtonsRow type="accent" negative />
-      <ButtonsRow type="secondary" negative />
-      <ButtonsRow type="tertiary" negative />
-    </ButtonsTable>
 
     <Title>SIZE MEDIUM</Title>
     <ButtonsTable>

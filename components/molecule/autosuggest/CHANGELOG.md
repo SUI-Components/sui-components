@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.13.0 (2020-03-30)
+
+
+### Features
+
+* close list when Enter key is pressed and send onEnter event up ([16ccc0e](https://github.com/SUI-Components/sui-components/commit/16ccc0e7ab8e38847512243fb1c1c208066dbcb2))
+
+
+
 # 2.12.0 (2020-03-28)
 
 

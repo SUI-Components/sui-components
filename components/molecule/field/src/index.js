@@ -15,23 +15,28 @@ const CLASS_INLINE_REVERSE = `${CLASS_INLINE}-reverse`
 const CLASS_NODE_LABEL_CONTAINER = `${BASE_CLASS}-nodeLabelContainer`
 const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-inputContainer`
 const CLASS_LABEL_CONTAINER = `${BASE_CLASS}-labelContainer`
+const CLASS_LABEL_DESCRIPTION_CONTAINER = `${BASE_CLASS}-labelDescriptionContainer`
 
 const MoleculeLabel = ({
   label,
   nodeLabel,
   type: typeValidationLabel,
   name,
-  onClickLabel
+  onClickLabel,
+  children
 }) => {
   let response = null
   if (label) {
     response = (
-      <AtomLabel
-        type={typeValidationLabel}
-        name={name}
-        text={label}
-        onClick={onClickLabel}
-      />
+      <>
+        <AtomLabel
+          type={typeValidationLabel}
+          name={name}
+          text={label}
+          onClick={onClickLabel}
+        />
+        {children}
+      </>
     )
   } else if (nodeLabel) {
     response = <div className={CLASS_NODE_LABEL_CONTAINER}>{nodeLabel}</div>
@@ -53,6 +58,7 @@ const MoleculeField = ({
   onClickLabel,
   onChange: onChangeFromProps,
   children,
+  labelDescriptionNode,
   autoHideHelpText
 }) => {
   const className = cx(
@@ -104,7 +110,11 @@ const MoleculeField = ({
             label={label}
             nodeLabel={nodeLabel}
             onClick={onClickLabel}
-          />
+          >
+            <div className={CLASS_LABEL_DESCRIPTION_CONTAINER}>
+              {labelDescriptionNode}
+            </div>
+          </MoleculeLabel>
         </div>
       )}
       <div className={CLASS_INPUT_CONTAINER}>
@@ -164,7 +174,10 @@ MoleculeField.propTypes = {
   onClickLabel: PropTypes.func,
 
   /** Boolean to decide if helptext should be auto hide */
-  autoHideHelpText: PropTypes.bool
+  autoHideHelpText: PropTypes.bool,
+
+  /** Description node to be attached to the label but it does not interact with the field itself */
+  labelDescriptionNode: PropTypes.node
 }
 
 export default MoleculeField

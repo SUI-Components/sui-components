@@ -19,6 +19,7 @@ const MoleculeRadioButtonField = ({
   alertText,
   helpText,
   onChange,
+  labelDescriptionNode,
   ...props
 }) => {
   const errorState = getErrorState({successText, errorText})
@@ -33,6 +34,7 @@ const MoleculeRadioButtonField = ({
         alertText={alertText}
         helpText={helpText}
         onChange={onChange}
+        labelDescriptionNode={labelDescriptionNode}
         inline
         reverse
       >
@@ -67,7 +69,10 @@ MoleculeRadioButtonField.propTypes = {
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
   /** Boolean to decide if elements should be set inline */
-  inline: PropTypes.bool
+  inline: PropTypes.bool,
+
+  /** Description node to be attached to the label but it does not interact with the field itself */
+  labelDescriptionNode: PropTypes.node
 }
 
 export default MoleculeRadioButtonField

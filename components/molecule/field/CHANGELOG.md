@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.20.0 (2020-03-30)
+
+
+### Features
+
+* added margin-left to  node label container ([a4309fb](https://github.com/SUI-Components/sui-components/commit/a4309fbc39f72f3f37b59892c2085ed103071f6d))
+
+
+
 # 1.19.0 (2020-03-23)
 
 

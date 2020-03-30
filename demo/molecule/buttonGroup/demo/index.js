@@ -20,19 +20,19 @@ const ButtonDesignByState = () => {
   return (
     <MoleculeButtonGroup>
       <AtomButtom
-        design={selected !== 'A' && 'outline'}
+        design={selected !== 'A' ? 'outline' : 'solid'}
         onClick={() => _onClick('A')}
       >
         A
       </AtomButtom>
       <AtomButtom
-        design={selected !== 'B' && 'outline'}
+        design={selected !== 'B' ? 'outline' : 'solid'}
         onClick={() => _onClick('B')}
       >
         B
       </AtomButtom>
       <AtomButtom
-        design={selected !== 'C' && 'outline'}
+        design={selected !== 'C' ? 'outline' : 'solid'}
         onClick={() => _onClick('C')}
       >
         C
@@ -178,9 +178,9 @@ const Demo = () => {
       <div style={{width: '500px'}} className="DemoMoleculeButtonGroup-section">
         <h2>specifying groupPositions</h2>
         <MoleculeButtonGroup groupPositions={atomButtonGroupPositions}>
-          <AtomButtom>A</AtomButtom>
-          <AtomButtom>B</AtomButtom>
-          <AtomButtom>C</AtomButtom>
+          <AtomButtom design="solid">A</AtomButtom>
+          <AtomButtom design="solid">B</AtomButtom>
+          <AtomButtom design="solid">C</AtomButtom>
         </MoleculeButtonGroup>
       </div>
       <div className="DemoMoleculeButtonGroup-section">

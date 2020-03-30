@@ -61,6 +61,7 @@ class SimpleCheckboxRadioForm extends React.Component {
         <MoleculeButtonGroup>
           <AtomButtom
             isButton
+            design="solid"
             focused={this.isCategorySelected('house')}
             onClick={() => this.onChange({value: 'house', field: 'category'})}
           >
@@ -68,6 +69,7 @@ class SimpleCheckboxRadioForm extends React.Component {
           </AtomButtom>
           <AtomButtom
             isButton
+            design="solid"
             focused={this.isCategorySelected('rocket')}
             onClick={() => this.onChange({value: 'rocket', field: 'category'})}
           >
@@ -75,6 +77,7 @@ class SimpleCheckboxRadioForm extends React.Component {
           </AtomButtom>
           <AtomButtom
             isButton
+            design="solid"
             focused={this.isCategorySelected('globe')}
             onClick={() => this.onChange({value: 'globe', field: 'category'})}
           >
@@ -83,7 +86,9 @@ class SimpleCheckboxRadioForm extends React.Component {
         </MoleculeButtonGroup>
 
         <pre>{JSON.stringify(this.state, null, 2)}</pre>
-        <AtomButtom isSubmit>Send</AtomButtom>
+        <AtomButtom design="solid" isSubmit>
+          Send
+        </AtomButtom>
       </form>
     )
   }

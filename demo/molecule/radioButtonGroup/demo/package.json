@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@s-ui/hoc": "1",
+    "@s-ui/react-atom-label": "1",
     "@s-ui/react-atom-radio-button": "1",
     "@s-ui/react-molecule-radio-button-field": "1"
   }

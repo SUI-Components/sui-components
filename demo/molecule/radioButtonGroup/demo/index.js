@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 
 import AtomRadioButton from '@s-ui/react-atom-radio-button'
 import MoleculeRadioButtonField from '@s-ui/react-molecule-radio-button-field'
+import AtomLabel from '@s-ui/react-atom-label'
 import MoleculeRadioButtonGroup from '../../../../components/molecule/radioButtonGroup/src'
 
 import RadioButtonGroupIcons from './components/radioButtonGroupIcons'
@@ -10,6 +11,20 @@ import './index.scss'
 
 const BASE_CLASS_DEMO = `DemoMoleculeRadioButtonGroup`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
+
+// eslint-disable-next-line react/prop-types
+const CustomLabel = ({text, type, name, onClickLabel}) => (
+  <>
+    <AtomLabel
+      name={name}
+      text={text}
+      inline="left"
+      onClick={onClickLabel}
+      type={type}
+    />
+    <span>I am out of the label</span>
+  </>
+)
 
 const RadioButtonGroupStateWrapper = () => {
   const [value, setValue] = useState('john')
@@ -95,7 +110,7 @@ const Demo = () => {
           <MoleculeRadioButtonField
             id="john"
             value="john"
-            label="John"
+            nodeLabel={<CustomLabel text="John" />}
             helpText="John Lennon"
           />
           <MoleculeRadioButtonField

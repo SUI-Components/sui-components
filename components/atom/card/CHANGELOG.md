@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.12.0 (2020-03-31)
+
+
+### Features
+
+* add var to backgroun color for atom card link ([4eca723](https://github.com/SUI-Components/sui-components/commit/4eca723ba392d331e8ba908c5bf6ce9e9f3de56e))
+
+
+
 # 1.11.0 (2020-03-24)
 
 

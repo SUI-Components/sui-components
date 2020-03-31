@@ -86,6 +86,19 @@ return (
           value="In some place of La Mancha which name..."
         />
       </li>
+      <li style={styleListItem}>
+        <h2>With nodeLabel</h2>
+        <MoleculeRadioButtonField
+          id="with-node-label"
+          nodeLabel={
+            <>
+              <label for="with-node-label">Description</label>{' '}
+              <span>I am out of the label</span>
+            </>
+          }
+          helpText="Tu descripción en Latin"
+        />
+      </li>
     </ul>
   </div>
 )

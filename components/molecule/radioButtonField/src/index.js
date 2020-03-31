@@ -14,6 +14,7 @@ const getErrorState = ({successText, errorText}) => {
 const MoleculeRadioButtonField = ({
   id,
   label,
+  nodeLabel,
   successText,
   errorText,
   alertText,
@@ -28,6 +29,7 @@ const MoleculeRadioButtonField = ({
       <MoleculeField
         name={id}
         label={label}
+        nodeLabel={nodeLabel}
         successText={successText}
         errorText={errorText}
         alertText={alertText}
@@ -46,7 +48,10 @@ MoleculeRadioButtonField.displayName = 'MoleculeRadioButtonField'
 
 MoleculeRadioButtonField.propTypes = {
   /** Text to be displayed as label */
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
+
+  /** React node to be displayed as label if there is not a label */
+  nodeLabel: PropTypes.node,
 
   /** used as label for attribute and input element id */
   id: PropTypes.string.isRequired,

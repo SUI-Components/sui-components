@@ -11,7 +11,7 @@ $m-molecule-radio-button-field-container: 0 !default;
   input[type='radio'] {
     margin: $m-molecule-radio-button-field;
     &:disabled {
-      + .sui-AtomLabel {
+      + .sui-MoleculeField-nodeLabelContainer .sui-AtomLabel {
         color: $c-molecule-radio-button-field-label--disabled;
       }
     }

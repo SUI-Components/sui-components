@@ -15,7 +15,12 @@ $pb-atom-tooltip: $p-m !default;
 $pl-atom-tooltip: $p-m !default;
 $pr-atom-tooltip: $p-m !default;
 $m-atom-tooltip: 0 !default;
+$ta-atom-tooltip: left !default;
 $z-atom-tooltip: 1070 !default;
+
+$c-atom-tooltip-target: inherit !default;
+$fz-atom-tooltip-target: $fz-m !default;
+$ml-atom-tooltip-target: 0 !default;
 
 $w-atom-tooltip-arrow: 0.8rem !default;
 $h-atom-tooltip-arrow: 0.4rem !default;
@@ -27,6 +32,9 @@ $class-arrow: '#{$base-class}-arrow';
 $class-target: '#{$base-class}-target';
 
 #{$class-target} {
+  color: $c-atom-tooltip-target;
+  font-size: $fz-atom-tooltip-target;
+  margin-left: $ml-atom-tooltip-target;
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   -webkit-touch-callout: none; /* iOS Safari */
@@ -61,7 +69,7 @@ $class-target: '#{$base-class}-target';
     max-height: $mah-atom-tooltip;
     max-width: $maw-atom-tooltip;
     overflow: hidden;
-    text-align: left;
+    text-align: $ta-atom-tooltip;
     text-overflow: ellipsis;
   }
 

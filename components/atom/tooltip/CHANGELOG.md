@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.14.0 (2020-03-31)
+
+
+### Features
+
+* added variables for target font-size and alignt-text ([64ff775](https://github.com/SUI-Components/sui-components/commit/64ff7751a2e6f9f4cbb4a90f2e0720a3aa14a6bf))
+
+
+
 # 1.13.0 (2020-03-11)
 
 

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-03-31)
+
+
+### Features
+
+* allow radiobuttonfield to use nodeLabel ([2cb9763](https://github.com/SUI-Components/sui-components/commit/2cb97633a67cedcb4d6727b64fedd89ed69ba377))
+
+
+
 # 1.6.0 (2020-03-25)
 
 

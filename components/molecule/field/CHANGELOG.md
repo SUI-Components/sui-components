@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.21.0 (2020-03-31)
+
+
+### Features
+
+* allow nodeLabel to contain an AtomLabel ([475132d](https://github.com/SUI-Components/sui-components/commit/475132db1d1b36b1aa526e3a5c92a1f44704dbf9))
+
+
+
 # 1.20.0 (2020-03-30)
 
 

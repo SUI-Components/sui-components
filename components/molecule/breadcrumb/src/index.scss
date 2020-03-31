@@ -3,14 +3,10 @@
 @import './settings';
 
 .sui-BreadcrumbBasic {
-  @include media-breakpoint-up(m) {
-    padding: $p-breadcrumb-desktop;
-  }
   background-color: $bgc-breadcrumb;
   box-shadow: $bxsh-breadcrumb;
   color: $c-breadcrumb;
   display: flex;
-  padding: $p-breadcrumb-mobile;
 
   &-btn {
     @include reset-button;

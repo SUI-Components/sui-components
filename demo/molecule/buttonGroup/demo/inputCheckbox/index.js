@@ -7,20 +7,6 @@ import AtomButton from '@s-ui/react-atom-button'
 
 import {IconSquare, IconTriangle, IconCircle} from '../icons'
 
-const logoHouse =
-  'https://cdn4.iconfinder.com/data/icons/icon-flat-icon-set/50/home-512.png'
-const logoRocket =
-  'https://cdn4.iconfinder.com/data/icons/icon-flat-icon-set/50/rocket-128.png'
-const logoGlobe =
-  'https://cdn4.iconfinder.com/data/icons/icon-flat-icon-set/50/globe-2-128.png'
-
-const imageCheckboxStyle = {
-  height: '30px',
-  width: '30px',
-  padding: '3px',
-  cursor: 'pointer'
-}
-
 class SimpleCheckboxRadioForm extends React.Component {
   constructor() {
     super()

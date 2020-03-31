@@ -3,23 +3,9 @@
 import React from 'react'
 
 import MoleculeButtonGroup from '../../../../../components/molecule/buttonGroup/src'
-import AtomButtom from '@s-ui/react-atom-button'
+import AtomButton from '@s-ui/react-atom-button'
 
 import {IconSquare, IconTriangle, IconCircle} from '../icons'
-
-const logoHouse =
-  'https://cdn4.iconfinder.com/data/icons/icon-flat-icon-set/50/home-512.png'
-const logoRocket =
-  'https://cdn4.iconfinder.com/data/icons/icon-flat-icon-set/50/rocket-128.png'
-const logoGlobe =
-  'https://cdn4.iconfinder.com/data/icons/icon-flat-icon-set/50/globe-2-128.png'
-
-const imageCheckboxStyle = {
-  height: '30px',
-  width: '30px',
-  padding: '3px',
-  cursor: 'pointer'
-}
 
 class SimpleCheckboxRadioForm extends React.Component {
   constructor() {
@@ -58,21 +44,21 @@ class SimpleCheckboxRadioForm extends React.Component {
     return (
       <form onSubmit={this.onSubmit}>
         <MoleculeButtonGroup>
-          <AtomButtom
+          <AtomButton
             isButton
             design="solid"
             focused={this.isCategorySelected('house')}
             onClick={() => this.onChange({value: 'house', field: 'category'})}
             leftIcon={<IconSquare />}
           />
-          <AtomButtom
+          <AtomButton
             isButton
             design="solid"
             focused={this.isCategorySelected('rocket')}
             onClick={() => this.onChange({value: 'rocket', field: 'category'})}
             leftIcon={<IconTriangle />}
           />
-          <AtomButtom
+          <AtomButton
             isButton
             design="solid"
             focused={this.isCategorySelected('globe')}
@@ -82,7 +68,7 @@ class SimpleCheckboxRadioForm extends React.Component {
         </MoleculeButtonGroup>
 
         <pre>{JSON.stringify(this.state, null, 2)}</pre>
-        <AtomButtom isSubmit>Send</AtomButtom>
+        <AtomButton isSubmit>Send</AtomButton>
       </form>
     )
   }

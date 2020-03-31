@@ -23,20 +23,33 @@ const MoleculeLabel = ({
   name,
   onClickLabel
 }) => {
-  let response = null
-  if (label) {
-    response = (
-      <AtomLabel
-        type={typeValidationLabel}
-        name={name}
-        text={label}
-        onClick={onClickLabel}
-      />
-    )
-  } else if (nodeLabel) {
-    response = <div className={CLASS_NODE_LABEL_CONTAINER}>{nodeLabel}</div>
+  const innerLabel = () => {
+    if (label) {
+      return (
+        <AtomLabel
+          type={typeValidationLabel}
+          name={name}
+          text={label}
+          onClick={onClickLabel}
+        />
+      )
+    } else if (nodeLabel) {
+      return React.cloneElement(nodeLabel, {
+        type: typeValidationLabel,
+        name,
+        onClickLabel
+      })
+    }
   }
-  return response
+  return <div className={CLASS_NODE_LABEL_CONTAINER}>{innerLabel()}</div>
+}
+
+MoleculeLabel.propTypes = {
+  label: PropTypes.string,
+  nodeLabel: PropTypes.node,
+  type: PropTypes.oneOf(Object.values(AtomLabelTypes)),
+  name: PropTypes.string,
+  onClickLabel: PropTypes.func
 }
 
 const MoleculeField = ({

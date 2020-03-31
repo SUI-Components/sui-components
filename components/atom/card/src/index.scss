@@ -5,7 +5,7 @@ $bdrs-atom-card: $bdrs-none !default;
 $p-atom-card: 0 !default;
 $p-atom-card-small: 0 !default;
 $bgc-atom-card-hover: transparent !default;
-$bgc-atom-card-link-hover: transparent !default;
+$bgc-atom-card-link-hover: $bgc-atom-card-hover !default;
 $bxsh-atom-card-hover: none !default;
 $c-atom-card-highlight: $c-highlight !default;
 $bgc-atom-card-highlight-hover: $bgc-atom-card-hover !default; // using $bgc-atom-card-hover to keep styles backwards compatible

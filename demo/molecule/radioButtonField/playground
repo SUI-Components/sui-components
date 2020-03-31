@@ -92,7 +92,7 @@ return (
           id="with-node-label"
           nodeLabel={
             <>
-              <label for="with-node-label">Description</label>{' '}
+              <label htmlFor="with-node-label">Description</label>{' '}
               <span>I am out of the label</span>
             </>
           }

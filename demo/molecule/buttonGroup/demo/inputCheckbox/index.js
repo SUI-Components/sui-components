@@ -5,6 +5,8 @@ import React from 'react'
 import MoleculeButtonGroup from '../../../../../components/molecule/buttonGroup/src'
 import AtomButton from '@s-ui/react-atom-button'
 
+import {IconSquare, IconTriangle, IconCircle} from '../icons'
+
 const logoHouse =
   'https://cdn4.iconfinder.com/data/icons/icon-flat-icon-set/50/home-512.png'
 const logoRocket =
@@ -64,25 +66,22 @@ class SimpleCheckboxRadioForm extends React.Component {
             design="solid"
             focused={this.isCategorySelected('house')}
             onClick={() => this.onChange({value: 'house', field: 'category'})}
-          >
-            <img style={imageCheckboxStyle} src={logoHouse} alt="" />
-          </AtomButton>
+            leftIcon={<IconSquare />}
+          />
           <AtomButton
             isButton
             design="solid"
             focused={this.isCategorySelected('rocket')}
             onClick={() => this.onChange({value: 'rocket', field: 'category'})}
-          >
-            <img style={imageCheckboxStyle} src={logoRocket} alt="" />
-          </AtomButton>
+            leftIcon={<IconTriangle />}
+          />
           <AtomButton
             isButton
             design="solid"
             focused={this.isCategorySelected('globe')}
             onClick={() => this.onChange({value: 'globe', field: 'category'})}
-          >
-            <img style={imageCheckboxStyle} src={logoGlobe} alt="" />
-          </AtomButton>
+            leftIcon={<IconCircle />}
+          />
         </MoleculeButtonGroup>
 
         <pre>{JSON.stringify(this.state, null, 2)}</pre>

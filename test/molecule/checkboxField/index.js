@@ -54,7 +54,7 @@ describe('molecule/checkboxField', () => {
         // Given
         const text = 'nodeLabel'
         const props = {
-          nodeLabel: <div>{text}</div>
+          nodeLabel: <div className="testNodeLabel">{text}</div>
         }
         // When
         const {container, getByText} = setup(props)
@@ -64,18 +64,14 @@ describe('molecule/checkboxField', () => {
         expect(container).to.be.not.undefined
         expect(labelElement).to.be.not.undefined
         expect(labelElement.innerText).to.equal(text)
-        expect(
-          labelElement.parentNode.classList.contains(
-            'sui-MoleculeField-nodeLabelContainer'
-          )
-        ).to.be.true
+        expect(labelElement.classList.contains('testNodeLabel')).to.be.true
       })
       it('should render the component with label value if there is label and nodeLabel props', async () => {
         // Given
         const text = 'label'
         const props = {
           label: text,
-          nodeLabel: <div>{text}</div>
+          nodeLabel: <div className="testNodeLabel">{text}</div>
         }
         // When
         const {container, getByText} = setup(props)
@@ -86,11 +82,7 @@ describe('molecule/checkboxField', () => {
         expect(labelElement).to.be.not.undefined
         expect(labelElement.innerText).to.equal(props.label)
         expect(labelElement.classList.contains('sui-AtomLabel')).to.be.true
-        expect(
-          labelElement.parentNode.classList.contains(
-            'sui-MoleculeField-nodeLabelContainer'
-          )
-        ).to.be.false
+        expect(labelElement.classList.contains('testNodeLabel')).to.be.false
       })
     })
   })

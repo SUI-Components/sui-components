@@ -6,14 +6,10 @@ import AtomRadioButton from '@s-ui/react-atom-radio-button'
 
 const BASE_CLASS = 'sui-MoleculeRadioButtonField'
 
-const getErrorState = ({successText, errorText}) => {
-  if (successText) return false
-  if (errorText) return true
-}
-
 const MoleculeRadioButtonField = ({
   id,
   label,
+  nodeLabel,
   successText,
   errorText,
   alertText,
@@ -21,13 +17,12 @@ const MoleculeRadioButtonField = ({
   onChange,
   ...props
 }) => {
-  const errorState = getErrorState({successText, errorText})
-
   return (
     <div className={BASE_CLASS}>
       <MoleculeField
         name={id}
         label={label}
+        nodeLabel={nodeLabel}
         successText={successText}
         errorText={errorText}
         alertText={alertText}
@@ -36,7 +31,7 @@ const MoleculeRadioButtonField = ({
         inline
         reverse
       >
-        <AtomRadioButton id={id} errorState={errorState} {...props} />
+        <AtomRadioButton id={id} {...props} />
       </MoleculeField>
     </div>
   )
@@ -46,7 +41,10 @@ MoleculeRadioButtonField.displayName = 'MoleculeRadioButtonField'
 
 MoleculeRadioButtonField.propTypes = {
   /** Text to be displayed as label */
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
+
+  /** React node to be displayed as label if there is not a label */
+  nodeLabel: PropTypes.node,
 
   /** used as label for attribute and input element id */
   id: PropTypes.string.isRequired,

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.13.0 (2020-04-01)
+
+
+### Features
+
+* using $bgc-atom-card-hover to keep styles backwards compatible ([3cf9815](https://github.com/SUI-Components/sui-components/commit/3cf981502586a23550529ec222b1c6214fd2f868))
+
+
+
 # 1.12.0 (2020-03-31)
 
 

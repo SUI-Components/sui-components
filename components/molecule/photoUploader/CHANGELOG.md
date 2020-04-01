@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.6.0 (2020-04-01)
+
+
+### Features
+
+* add $bdrs-photo-uploader-initial-state var ([1027157](https://github.com/SUI-Components/sui-components/commit/102715777d124fb86a44f08683db9bc1d9854f7c))
+
+
+
 # 1.5.0 (2020-03-24)
 
 

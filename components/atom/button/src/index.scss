@@ -205,17 +205,8 @@ $icon-stroke-color: currentColor !default;
     }
 
     svg {
-      // svg shape elements
-      circle,
-      ellipse,
-      line,
-      path,
-      polygon,
-      polyline,
-      rect {
-        fill: $icon-fill-color;
-        stroke: $icon-stroke-color;
-      }
+      fill: $icon-fill-color;
+      stroke: $icon-stroke-color;
     }
   }
 

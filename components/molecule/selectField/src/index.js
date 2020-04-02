@@ -53,6 +53,7 @@ const MoleculeSelectField = ({
         errorState={errorState}
         refMoleculeSelect={refSelect}
         state={selectState}
+        id={id}
         {...props}
       >
         {children}

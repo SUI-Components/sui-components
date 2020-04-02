@@ -5,7 +5,14 @@ import React from 'react'
 import MoleculeButtonGroup from '../../../../../components/molecule/buttonGroup/src'
 import AtomButton from '@s-ui/react-atom-button'
 
-import {IconSquare, IconTriangle, IconCircle} from '../icons'
+import {
+  IconSquare,
+  IconTriangle,
+  IconCircle,
+  IconEllipse,
+  IconStar,
+  IconMinus
+} from '../icons'
 
 class SimpleCheckboxRadioForm extends React.Component {
   constructor() {
@@ -47,22 +54,45 @@ class SimpleCheckboxRadioForm extends React.Component {
           <AtomButton
             isButton
             design="solid"
-            focused={this.isCategorySelected('house')}
-            onClick={() => this.onChange({value: 'house', field: 'category'})}
+            focused={this.isCategorySelected('square')}
+            onClick={() => this.onChange({value: 'square', field: 'category'})}
             leftIcon={<IconSquare />}
           />
           <AtomButton
             isButton
             design="solid"
-            focused={this.isCategorySelected('rocket')}
-            onClick={() => this.onChange({value: 'rocket', field: 'category'})}
+            focused={this.isCategorySelected('triangle')}
+            onClick={() =>
+              this.onChange({value: 'triangle', field: 'category'})
+            }
             leftIcon={<IconTriangle />}
           />
           <AtomButton
             isButton
             design="solid"
-            focused={this.isCategorySelected('globe')}
-            onClick={() => this.onChange({value: 'globe', field: 'category'})}
+            focused={this.isCategorySelected('ellipse')}
+            onClick={() => this.onChange({value: 'ellipse', field: 'category'})}
+            leftIcon={<IconEllipse />}
+          />
+          <AtomButton
+            isButton
+            design="solid"
+            focused={this.isCategorySelected('star')}
+            onClick={() => this.onChange({value: 'star', field: 'category'})}
+            leftIcon={<IconStar />}
+          />
+          <AtomButton
+            isButton
+            design="solid"
+            focused={this.isCategorySelected('minus')}
+            onClick={() => this.onChange({value: 'minus', field: 'category'})}
+            leftIcon={<IconMinus />}
+          />
+          <AtomButton
+            isButton
+            design="solid"
+            focused={this.isCategorySelected('circle')}
+            onClick={() => this.onChange({value: 'circle', field: 'category'})}
             leftIcon={<IconCircle />}
           />
         </MoleculeButtonGroup>

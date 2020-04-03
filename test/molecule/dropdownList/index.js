@@ -4,19 +4,90 @@
 
 /* eslint react/jsx-no-undef:0 */
 
-// import React from 'react'
-// import {render} from '@testing-library/react'
+import React from 'react'
+import {render} from '@testing-library/react'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
+import MoleculeDropdownList from '../../../components/molecule/dropdownList/src/index'
+import MoleculeDropdownOption from '../../../components/molecule/dropdownOption/src/index'
+
 chai.use(chaiDOM)
 
+const setupBuilder = Component => props => (
+  renderFn = () => <Component {...props} />
+) => {
+  const container = document.createElement('div')
+  container.setAttribute('id', 'test-container')
+  const utils = render(renderFn(), {
+    container: document.body.appendChild(container)
+  })
+  return utils
+}
+
+const setup = setupBuilder(MoleculeDropdownList)
+
+const testDefaultProps = {
+  children: (
+    <>
+      {Array(5)
+        .fill()
+        .map((value, index) => (
+          <MoleculeDropdownOption value={index} key={index}>
+            {index}
+          </MoleculeDropdownOption>
+        ))}
+    </>
+  )
+}
+
 describe('molecule/dropdownList', () => {
-  it('Render', () => {
-    // Example TO BE DELETED!!!!
-    // const {getByRole} = render(<AtomButton>HOLA</AtomButton>)
-    // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(false)
+  describe('props', () => {
+    describe('visible', () => {
+      it('should render NOT the children if visible is not defined', async () => {
+        // Given
+        const props = {}
+        // When
+        const {container} = setup({
+          ...testDefaultProps,
+          ...props
+        })()
+        // The
+        expect(container).to.be.not.undefined
+        expect(container.children.length).to.be.equal(0)
+      })
+
+      it('should render the children if it is visible', async () => {
+        // Given
+        const props = {
+          visible: true
+        }
+        // When
+        const {container, getByText} = setup({
+          ...testDefaultProps,
+          ...props
+        })()
+        // Then
+        const element = getByText('1')
+        expect(container).to.be.not.undefined
+        expect(element).to.be.not.undefined
+      })
+
+      it('should NOT render the children if it is not visible', async () => {
+        // Given
+        const props = {
+          visible: false
+        }
+        // When
+        const {container} = setup({
+          ...testDefaultProps,
+          ...props
+        })()
+        // Then
+        expect(container).to.be.not.undefined
+        expect(container.children.length).to.be.equal(0)
+      })
+    })
   })
 })

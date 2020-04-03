@@ -78,6 +78,8 @@ const MoleculeDropdownList = ({
     ev.stopPropagation()
   }
 
+  if (!visible) return null
+
   return (
     <ul
       ref={refDropdownList}

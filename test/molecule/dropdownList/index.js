@@ -45,7 +45,7 @@ const testDefaultProps = {
 describe('molecule/dropdownList', () => {
   describe('props', () => {
     describe('visible', () => {
-      it('should render NOT the children if visible is not defined', async () => {
+      it('should NOT render the children if visible is not defined', async () => {
         // Given
         const props = {}
         // When
@@ -53,7 +53,7 @@ describe('molecule/dropdownList', () => {
           ...testDefaultProps,
           ...props
         })()
-        // The
+        // Then
         expect(container).to.be.not.undefined
         expect(container.children.length).to.be.equal(0)
       })

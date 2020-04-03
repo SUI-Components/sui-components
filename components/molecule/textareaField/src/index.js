@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
@@ -29,6 +29,7 @@ const MoleculeTextareaField = ({
   autoHideHelpText = false,
   helpText,
   value = '',
+  updateInternalValue = '',
   onChange = () => {},
   ...props
 }) => {
@@ -36,6 +37,10 @@ const MoleculeTextareaField = ({
   const textAreaState = getState({successText, errorState, alertText})
 
   const [internalValue, setInternalValue] = useState(value)
+
+  useEffect(() => {
+    setInternalValue(updateInternalValue)
+  }, [updateInternalValue])
 
   const computeHelpText = () => {
     const numCharacters = internalValue.length
@@ -102,6 +107,9 @@ MoleculeTextareaField.propTypes = {
 
   /** Value (content) of the textarea */
   value: PropTypes.string,
+
+  /** Value (content) of the textarea allow to change internal value of the Textarea */
+  updateInternalValue: PropTypes.string,
 
   /** Text to be displayed as label */
   label: PropTypes.string,

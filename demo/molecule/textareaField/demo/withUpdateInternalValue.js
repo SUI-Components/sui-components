@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import MoleculeTextareaField from '../../../../components/molecule/textareaField/src'
-import Button from '../../../../components/atom/button/src'
+import Button from '@s-ui/react-atom-button'
 
 export default () => {
   const [value, setValue] = useState('Click the button')

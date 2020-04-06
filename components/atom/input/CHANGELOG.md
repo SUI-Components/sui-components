@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.18.0 (2020-04-06)
+
+
+### Features
+
+* add max and min prop to atom inpu ([b75d1dd](https://github.com/SUI-Components/sui-components/commit/b75d1dd2bcf2bd90a89181d5b9350613577c41cd))
+* add step prop ([083d560](https://github.com/SUI-Components/sui-components/commit/083d5603edb434c38a48da391ee4ecd18f913d77))
+
+
+
 # 4.17.0 (2020-03-28)
 
 

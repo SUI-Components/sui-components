@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.44.0 (2020-04-06)
+
+
+### Features
+
+* add diferent svg shapes to the color styles rule ([d23c34f](https://github.com/SUI-Components/sui-components/commit/d23c34fdf7e23dbe030cb52c67a9c5337a564295))
+* modify svg fill rules in solid designs ([3b5411b](https://github.com/SUI-Components/sui-components/commit/3b5411b9a43726deae2165cacb1cb7591f4e2659))
+
+
+
 # 1.43.0 (2020-03-25)
 
 

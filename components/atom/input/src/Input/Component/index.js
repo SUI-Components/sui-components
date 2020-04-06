@@ -69,6 +69,7 @@ const Input = ({
   minLength,
   min,
   max,
+  step,
   autoComplete,
   onChange = DEFAULT_PROPS.ON_CHANGE,
   onEnter = DEFAULT_PROPS.ON_ENTER,
@@ -125,6 +126,7 @@ const Input = ({
       minLength={minLength}
       max={max}
       min={min}
+      step={step}
       autoComplete={autoComplete}
       required={required}
       pattern={pattern}
@@ -168,6 +170,8 @@ Input.propTypes = {
   max: PropTypes.number,
   /* specifies the minimum number allowed (native "min" attribute) */
   min: PropTypes.number,
+  /** stepping interval to use when using up and down arrows to adjust the value, as well as for validation (native "step" attribute) */
+  step: PropTypes.number,
   /** specifies whether or not an input field should have autocomplete enabled (on|off) */
   autoComplete: PropTypes.string,
   /* text, password, date or number */

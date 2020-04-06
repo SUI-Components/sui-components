@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
@@ -36,6 +36,10 @@ const MoleculeTextareaField = ({
   const textAreaState = getState({successText, errorState, alertText})
 
   const [internalValue, setInternalValue] = useState(value)
+
+  useEffect(() => {
+    setInternalValue(value)
+  }, [value])
 
   const computeHelpText = () => {
     const numCharacters = internalValue.length

@@ -98,7 +98,9 @@ class SimpleCheckboxRadioForm extends React.Component {
         </MoleculeButtonGroup>
 
         <pre>{JSON.stringify(this.state, null, 2)}</pre>
-        <AtomButton isSubmit>Send</AtomButton>
+        <AtomButton design="solid" isSubmit>
+          Send
+        </AtomButton>
       </form>
     )
   }

@@ -26,7 +26,7 @@ export default () => {
         onChange={(ev, {value: newValue}) => {
           setValue(newValue)
         }}
-        updateInternalValue={value}
+        value={value}
       />
       <Button onClick={onClick}>Choose your favorite</Button>
     </>

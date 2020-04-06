@@ -1,6 +1,6 @@
 import React from 'react'
-import TextareaWithUpdateInternalValue from './withUpdateInternalValue'
 import MoleculeTextareaField from '../../../../components/molecule/textareaField/src'
+import TextareaUpdatingValue from './updatingValue'
 import withState from './withState'
 
 const styleList = {
@@ -25,7 +25,6 @@ const Demo = () => {
             label="Comments"
             maxChars={100}
             placeholder="Please, write something cool..."
-            onChange={console.log}
           />
         </li>
         <li>
@@ -37,7 +36,6 @@ const Demo = () => {
             label="Comments"
             maxChars={100}
             placeholder="Please, write something cool..."
-            onChange={console.log}
             autoHideHelpText
           />
         </li>
@@ -89,7 +87,7 @@ const Demo = () => {
           <h2>
             With <code>updateInternalValue</code> from outside
           </h2>
-          <TextareaWithUpdateInternalValue />
+          <TextareaUpdatingValue />
         </li>
       </ul>
     </div>

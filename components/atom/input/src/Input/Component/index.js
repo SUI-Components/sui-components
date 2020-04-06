@@ -67,6 +67,8 @@ const Input = ({
   tabIndex = DEFAULT_PROPS.TAB_INDEX,
   maxLength,
   minLength,
+  min,
+  max,
   autoComplete,
   onChange = DEFAULT_PROPS.ON_CHANGE,
   onEnter = DEFAULT_PROPS.ON_ENTER,
@@ -121,6 +123,8 @@ const Input = ({
       size={charsSize}
       maxLength={maxLength}
       minLength={minLength}
+      max={max}
+      min={min}
       autoComplete={autoComplete}
       required={required}
       pattern={pattern}
@@ -160,6 +164,10 @@ Input.propTypes = {
   maxLength: PropTypes.number,
   /* specifies the minimum number of characters (native "minlength" attribute) */
   minLength: PropTypes.number,
+  /* specifies the maximum number allowed (native "max" attribute) */
+  max: PropTypes.number,
+  /* specifies the minimum number allowed (native "min" attribute) */
+  min: PropTypes.number,
   /** specifies whether or not an input field should have autocomplete enabled (on|off) */
   autoComplete: PropTypes.string,
   /* text, password, date or number */

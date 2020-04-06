@@ -1,6 +1,7 @@
 import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PerfDynamicRendering from '@s-ui/react-perf-dynamic-rendering'
 
 const BASE_CLASS = `sui-MoleculeDropdownList`
 const CLASS_HIDDEN = `is-hidden`
@@ -10,7 +11,16 @@ const SIZES = {
   MEDIUM: 'medium',
   LARGE: 'large'
 }
-
+const chunk = (arr, size) =>
+  Array.from({length: Math.ceil(arr.length / size)}, (v, i) =>
+    arr.slice(i * size, i * size + size)
+  )
+const flatten = (arr, depth = 1) =>
+  arr.reduce(
+    (a, v) =>
+      a.concat(depth > 1 && Array.isArray(v) ? flatten(v, depth - 1) : v),
+    []
+  )
 const MoleculeDropdownList = ({
   children,
   value,
@@ -77,6 +87,25 @@ const MoleculeDropdownList = ({
     ev.preventDefault()
     ev.stopPropagation()
   }
+  if (!visible) return null
+  const firstChildChunk = extendedChildren.slice(0, 100)
+  const restChildren = extendedChildren.slice(100)
+
+  const restChildrenChunks = chunk(
+    restChildren,
+    Math.max(restChildren.length * 0.1, 100)
+  )
+  const flattenRestChildrenChunks = flatten(
+    restChildrenChunks.map((childrenChunk, index) => (
+      <PerfDynamicRendering
+        key={index}
+        height={50}
+        userAgent={navigator.userAgent}
+      >
+        {childrenChunk}
+      </PerfDynamicRendering>
+    ))
+  )
 
   return (
     <ul
@@ -85,7 +114,8 @@ const MoleculeDropdownList = ({
       onKeyDown={handleKeyDown}
       className={classNames}
     >
-      {extendedChildren}
+      {firstChildChunk}
+      {flattenRestChildrenChunks}
     </ul>
   )
 }

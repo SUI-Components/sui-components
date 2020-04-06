@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.22.0 (2020-04-06)
+
+
+### Bug Fixes
+
+* fix margin-left for non-inline labels. ([2693df1](https://github.com/SUI-Components/sui-components/commit/2693df1b28d2ad6c23a69b02d16cd4ceb7da46f1)), closes [#462](https://github.com/SUI-Components/sui-components/issues/462)
+
+
+
 # 1.21.0 (2020-03-31)
 
 

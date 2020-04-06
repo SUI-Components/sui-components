@@ -204,7 +204,7 @@ $icon-stroke-color: currentColor !default;
       display: inline-flex;
     }
 
-    svg path {
+    svg {
       fill: $icon-fill-color;
       stroke: $icon-stroke-color;
     }

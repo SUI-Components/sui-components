@@ -20,19 +20,19 @@ const ButtonDesignByState = () => {
   return (
     <MoleculeButtonGroup>
       <AtomButtom
-        design={selected !== 'A' && 'outline'}
+        design={selected !== 'A' ? 'outline' : 'solid'}
         onClick={() => _onClick('A')}
       >
         A
       </AtomButtom>
       <AtomButtom
-        design={selected !== 'B' && 'outline'}
+        design={selected !== 'B' ? 'outline' : 'solid'}
         onClick={() => _onClick('B')}
       >
         B
       </AtomButtom>
       <AtomButtom
-        design={selected !== 'C' && 'outline'}
+        design={selected !== 'C' ? 'outline' : 'solid'}
         onClick={() => _onClick('C')}
       >
         C
@@ -45,13 +45,123 @@ const Demo = () => {
   return (
     <div className="DemoMoleculeButtonGroup">
       <h1>MoleculeButtonGroup</h1>
-      <div className="DemoMoleculeButtonGroup-section">
+      <div className="DemoMoleculeButtonGroup-section DemoMoleculeButtonGroup-designs">
         <h2>As a group of buttons that trigger some action (or link)</h2>
-        <MoleculeButtonGroup>
-          <AtomButtom onClick={e => window.alert('clicked A')}>A</AtomButtom>
-          <AtomButtom onClick={e => window.alert('clicked B')}>B</AtomButtom>
-          <AtomButtom onClick={e => window.alert('clicked C')}>C</AtomButtom>
-        </MoleculeButtonGroup>
+        <div>
+          <MoleculeButtonGroup>
+            <AtomButtom design="solid" onClick={e => window.alert('clicked A')}>
+              A
+            </AtomButtom>
+            <AtomButtom design="solid" onClick={e => window.alert('clicked B')}>
+              B
+            </AtomButtom>
+            <AtomButtom design="solid" onClick={e => window.alert('clicked C')}>
+              C
+            </AtomButtom>
+          </MoleculeButtonGroup>
+          <MoleculeButtonGroup>
+            <AtomButtom
+              design="outline"
+              onClick={e => window.alert('clicked A')}
+            >
+              A
+            </AtomButtom>
+            <AtomButtom
+              design="outline"
+              onClick={e => window.alert('clicked B')}
+            >
+              B
+            </AtomButtom>
+            <AtomButtom
+              design="outline"
+              onClick={e => window.alert('clicked C')}
+            >
+              C
+            </AtomButtom>
+          </MoleculeButtonGroup>
+          <MoleculeButtonGroup>
+            <AtomButtom design="flat" onClick={e => window.alert('clicked A')}>
+              A
+            </AtomButtom>
+            <AtomButtom design="flat" onClick={e => window.alert('clicked B')}>
+              B
+            </AtomButtom>
+            <AtomButtom design="flat" onClick={e => window.alert('clicked C')}>
+              C
+            </AtomButtom>
+          </MoleculeButtonGroup>
+        </div>
+        <div className="DemoMoleculeButtonGroup-negative">
+          <MoleculeButtonGroup>
+            <AtomButtom
+              design="solid"
+              negative
+              onClick={e => window.alert('clicked A')}
+            >
+              A
+            </AtomButtom>
+            <AtomButtom
+              design="solid"
+              negative
+              onClick={e => window.alert('clicked B')}
+            >
+              B
+            </AtomButtom>
+            <AtomButtom
+              design="solid"
+              negative
+              onClick={e => window.alert('clicked C')}
+            >
+              C
+            </AtomButtom>
+          </MoleculeButtonGroup>
+          <MoleculeButtonGroup>
+            <AtomButtom
+              design="outline"
+              negative
+              onClick={e => window.alert('clicked A')}
+            >
+              A
+            </AtomButtom>
+            <AtomButtom
+              design="outline"
+              negative
+              onClick={e => window.alert('clicked B')}
+            >
+              B
+            </AtomButtom>
+            <AtomButtom
+              design="outline"
+              negative
+              onClick={e => window.alert('clicked C')}
+            >
+              C
+            </AtomButtom>
+          </MoleculeButtonGroup>
+          <MoleculeButtonGroup>
+            <AtomButtom
+              design="flat"
+              negative
+              onClick={e => window.alert('clicked A')}
+            >
+              A
+            </AtomButtom>
+            <AtomButtom
+              design="flat"
+              negative
+              onClick={e => window.alert('clicked B')}
+            >
+              B
+            </AtomButtom>
+            <AtomButtom
+              design="flat"
+              negative
+              onClick={e => window.alert('clicked C')}
+            >
+              C
+            </AtomButtom>
+          </MoleculeButtonGroup>
+        </div>
       </div>
       <div className="DemoMoleculeButtonGroup-section">
         <h2>
@@ -68,9 +178,9 @@ const Demo = () => {
       <div style={{width: '500px'}} className="DemoMoleculeButtonGroup-section">
         <h2>specifying groupPositions</h2>
         <MoleculeButtonGroup groupPositions={atomButtonGroupPositions}>
-          <AtomButtom>A</AtomButtom>
-          <AtomButtom>B</AtomButtom>
-          <AtomButtom>C</AtomButtom>
+          <AtomButtom design="solid">A</AtomButtom>
+          <AtomButtom design="solid">B</AtomButtom>
+          <AtomButtom design="solid">C</AtomButtom>
         </MoleculeButtonGroup>
       </div>
       <div className="DemoMoleculeButtonGroup-section">

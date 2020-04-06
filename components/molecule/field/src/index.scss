@@ -25,6 +25,10 @@ $atomHelpText-class: '.sui-AtomHelpText';
       #{$atomLabel-class} {
         align-items: center;
       }
+
+      #{$base-class}-nodeLabelContainer {
+        margin-left: $ml-molecule-field-label;
+      }
     }
   }
 
@@ -32,10 +36,6 @@ $atomHelpText-class: '.sui-AtomHelpText';
     align-items: $ai-molecule-field-label-container;
     display: flex;
     margin-bottom: $mb-molecule-field-label;
-  }
-
-  &-nodeLabelContainer {
-    margin-left: $ml-molecule-field-label;
   }
 
   &-inputContainer {

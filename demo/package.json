@@ -8,8 +8,5 @@
       "packagesFolder": ".",
       "deepLevel": 3
     }
-  },
-  "dependencies": {
-    "@s-ui/react-atom-button": "^1.43.0"
   }
 }

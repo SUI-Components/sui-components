@@ -1,17 +1,16 @@
-import React from 'react'
+import React, {useState, useCallback} from 'react'
 
-export default BaseComponent =>
-  class BaseComponentWithState extends React.Component {
-    // eslint-disable-next-line react/prop-types
-    state = {value: this.props.value || ''}
+const handleChange = setter => (e, {value}) => {
+  setter(value)
+}
 
-    handleChange = (e, {value}) => {
-      this.setState({value})
-    }
-
-    render() {
-      const {value} = this.state
-      const {handleChange, props} = this
-      return <BaseComponent {...props} value={value} onChange={handleChange} />
-    }
-  }
+export default BaseComponent => ({value, onChange, ...otherProps}) => {
+  const [ownValue, setValue] = useState(value || '')
+  return (
+    <BaseComponent
+      {...otherProps}
+      value={ownValue}
+      onChange={useCallback(handleChange(setValue))}
+    />
+  )
+}

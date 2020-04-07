@@ -6,7 +6,7 @@ $c-atom-label-optional: $c-gray-light !default;
 $c-atom-label-contrast: $c-white !default;
 $fw-atom-label: inherit !default;
 $c-atom-label-type: success $c-success, error $c-error, alert $c-alert,
-  contrast $c-atom-label-contrast;
+  contrast $c-atom-label-contrast !default;
 
 .sui-AtomLabel {
   display: block;

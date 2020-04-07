@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.12.0 (2020-04-07)
+
+
+### Features
+
+* add !default to $c-atom-label-type sass var ([ac0188b](https://github.com/SUI-Components/sui-components/commit/ac0188b283033f39c32f9264d9e97d5270054f34))
+
+
+
 # 1.11.0 (2020-03-11)
 
 

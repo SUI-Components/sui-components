@@ -18,7 +18,7 @@ return (
     <h2>As Color Panel</h2>
     <div>
       <h3>Structure - Alpha</h3>
-      <div style={Object.assign({}, flexWrapper, {background: 'white url(https://picsum.photos/1000/800?blur)'})}>
+      <div style={Object.assign({}, flexWrapper, {background: 'white url(https://picsum.photos/1000/800)'})}>
       {
         Object.values(atomPanelAlpha).map((alpha, idx) =>
           <div key={idx} style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}>

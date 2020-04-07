@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.13.0 (2020-04-07)
+
+
+### Features
+
+* add $fz-atom-label as a sass var ([dcd5d6d](https://github.com/SUI-Components/sui-components/commit/dcd5d6d4454fe47f981471aa9e1cc1d246dcd904))
+
+
+
 # 1.12.0 (2020-04-07)
 
 

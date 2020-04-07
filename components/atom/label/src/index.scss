@@ -7,11 +7,12 @@ $c-atom-label-contrast: $c-white !default;
 $fw-atom-label: inherit !default;
 $c-atom-label-type: success $c-success, error $c-error, alert $c-alert,
   contrast $c-atom-label-contrast !default;
+$fz-atom-label: $fz-base !default;
 
 .sui-AtomLabel {
   display: block;
   color: $c-atom-label;
-  font-size: $fz-base;
+  font-size: $fz-atom-label;
   font-weight: $fw-atom-label;
 
   &-optionalText {

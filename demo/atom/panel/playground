@@ -18,7 +18,7 @@ return (
     <h2>As Color Panel</h2>
     <div>
       <h3>Structure - Alpha</h3>
-      <div style={Object.assign({}, flexWrapper, {background: 'white url(https://picsum.photos/1000/800?blur)'})}>
+      <div style={Object.assign({}, flexWrapper, {background: 'white url(https://picsum.photos/1000/800)'})}>
       {
         Object.values(atomPanelAlpha).map((alpha, idx) =>
           <div key={idx} style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}>
@@ -167,7 +167,7 @@ return (
           {
             Object.keys(atomPanelAlpha).map((alpha) =>
               <div style={Object.assign({}, flexItem, {width: '250px'})}>
-                <AtomPanel src={'https://picsum.photos/250/200'} overlayColor={color} overlayAlpha={alpha}>
+                <AtomPanel src={'https://picsum.photos/250/200'} overlayColor={color.toLowerCase()} overlayAlpha={alpha}>
                   <div style={{height: '150px'}} />
                 </AtomPanel>
                 <span>{color} {alpha}</span>

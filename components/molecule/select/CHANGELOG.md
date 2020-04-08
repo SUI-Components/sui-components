@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.27.0 (2020-04-08)
+
+
+### Bug Fixes
+
+* onKeyDown logic, don't closeList before selection ([c515c5c](https://github.com/SUI-Components/sui-components/commit/c515c5c472a969cf77059989ed85aea26d5af714))
+
+
+### Features
+
+* perform first letter keydown option search ([b72a845](https://github.com/SUI-Components/sui-components/commit/b72a845d611735335fddebbd1319475a53b73682))
+
+
+
 # 1.26.0 (2020-03-20)
 
 

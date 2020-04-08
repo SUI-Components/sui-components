@@ -1,4 +1,4 @@
-import React, {lazy, useState, useEffect, Suspense} from 'react'
+import React, {lazy, useState, useEffect, useRef, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import markerFactory from './markerFactory'
@@ -58,7 +58,7 @@ const AtomSlider = ({
   const [ready, setReady] = useState(false)
   const [handleComponent, setHandle] = useState({component: null})
   const [labelValue, setLabelValue] = useState(value || min)
-  const refAtomSlider = React.createRef()
+  const refAtomSlider = useRef()
 
   useEffect(() => {
     // import Handle here and set it in the state as tooltip need this to be loaded

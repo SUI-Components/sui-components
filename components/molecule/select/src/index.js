@@ -71,30 +71,33 @@ const MoleculeSelect = props => {
     }
   )
 
-  const closeList = ev => {
+  const closeList = (ev, {isOutsideEvent = false}) => {
     onToggle(ev, {isOpen: false})
-    ev.preventDefault()
-    ev.stopPropagation()
+    if (!isOutsideEvent) {
+      ev.preventDefault()
+      ev.stopPropagation()
+    }
   }
 
-  const handleClick = ev => {
+  const handleOutsideClick = ev => {
     if (disabled) return
-    if (!refMoleculeSelect.current.contains(ev.target)) {
+    if (
+      refMoleculeSelect.current &&
+      !refMoleculeSelect.current.contains(ev.target)
+    ) {
       // outside click
-      closeList(ev)
+      closeList(ev, {isOutsideEvent: true})
       setFocus(false)
-    } else {
-      refMoleculeSelect.current.focus()
     }
   }
 
   useEffect(() => {
-    document.addEventListener('touchend', handleClick)
-    document.addEventListener('mousedown', handleClick)
+    document.addEventListener('touchend', handleOutsideClick)
+    document.addEventListener('mousedown', handleOutsideClick)
 
     return () => {
-      document.removeEventListener('touchend', handleClick)
-      document.removeEventListener('mousedown', handleClick)
+      document.removeEventListener('touchend', handleOutsideClick)
+      document.removeEventListener('mousedown', handleOutsideClick)
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -131,7 +134,9 @@ const MoleculeSelect = props => {
       if (key === 'ArrowDown' && !isSomeOptionFocused)
         focusFirstOption(ev, {options})
       const optionToFocusOn = Array.from(options).find(
-        option => option.innerText.charAt(0).toLowerCase() === key.toLowerCase()
+        option =>
+          option &&
+          option.innerText.charAt(0).toLowerCase() === key.toLowerCase()
       )
       optionToFocusOn && optionToFocusOn.focus()
     }

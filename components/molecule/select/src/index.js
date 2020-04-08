@@ -85,7 +85,6 @@ const MoleculeSelect = props => {
       setFocus(false)
     } else {
       refMoleculeSelect.current.focus()
-      setFocus(true)
     }
   }
 
@@ -127,9 +126,14 @@ const MoleculeSelect = props => {
     } else {
       const currentElementFocused = getCurrentElementFocused()
       const isSomeOptionFocused = [...options].includes(currentElementFocused)
-      if (ev.key === 'Escape') closeList(ev)
-      if (ev.key === 'ArrowDown' && !isSomeOptionFocused)
+      const {key} = ev
+      if (key === 'Escape') closeList(ev)
+      if (key === 'ArrowDown' && !isSomeOptionFocused)
         focusFirstOption(ev, {options})
+      const optionToFocusOn = Array.from(options).find(
+        option => option.innerText.charAt(0).toLowerCase() === key.toLowerCase()
+      )
+      optionToFocusOn && optionToFocusOn.focus()
     }
   }
 

@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# 3.0.0 (2020-04-08)
+
+
+### Features
+
+* added prop updateInternalValue in order to update the internal value o ([18307a3](https://github.com/SUI-Components/sui-components/commit/18307a3b83631b94260f250ceba3b0f9d25ae2bc))
+* modify value prop to update the internalValue ([314e91c](https://github.com/SUI-Components/sui-components/commit/314e91cb82b1ffc9e3f0bd0a41a126d0e8e571de))
+
+
+### BREAKING CHANGES
+
+* value prop
+
+
+
 # 2.8.0 (2020-03-11)
 
 

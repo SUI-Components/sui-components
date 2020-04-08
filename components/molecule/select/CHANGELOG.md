@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.28.0 (2020-04-08)
+
+
+### Bug Fixes
+
+* outside click logic fix ([1ada914](https://github.com/SUI-Components/sui-components/commit/1ada91452b609546ee8764709aa977bbbdd02818))
+
+
+
 # 1.27.0 (2020-04-08)
 
 

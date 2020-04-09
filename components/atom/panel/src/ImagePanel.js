@@ -16,6 +16,7 @@ const VERTICAL_ALIGNMENTS = {
 }
 
 const DEFAULT_ALPHA = 'CONTRAST'
+const DEFAULT_COLOR = 'ACCENT'
 
 const getClassNames = function({
   verticalAlign,
@@ -28,12 +29,13 @@ const getClassNames = function({
   const BASE_CLASS = 'sui-atom-panel'
   const IMAGE_PANEL_CLASS = `${BASE_CLASS}-image`
   const overlayAlphaValue = ALPHA[overlayAlpha] || DEFAULT_ALPHA
+  const overlayColorValue = COLORS[overlayColor] || DEFAULT_COLOR
 
   return cx(
     `${IMAGE_PANEL_CLASS}--vertical-${verticalAlign}`,
     `${IMAGE_PANEL_CLASS}--horizontal-${horizontalAlign}`,
     overlayColor &&
-      `${BASE_CLASS}--${overlayColor}-overlay-${overlayAlphaValue}`,
+      `${BASE_CLASS}--${overlayColorValue}-overlay-${overlayAlphaValue}`,
     `${BASE_CLASS}-color--${color}`,
     resized && `${IMAGE_PANEL_CLASS}--resized`
   )

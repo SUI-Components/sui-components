@@ -11,6 +11,7 @@ import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 import {formatToBase64, cropAndRotateImage, base64ToBlob} from './photoTools'
 
 import {
+  BASE_CLASS_NAME,
   THUMB_CLASS_NAME,
   THUMB_SORTABLE_CLASS_NAME,
   DEFAULT_NOTIFICATION_ERROR,
@@ -21,6 +22,8 @@ import {
   DEFAULT_MAX_IMAGE_HEIGHT,
   DEFAULT_MAX_IMAGE_WIDTH
 } from './config'
+
+const PREVIEW_CARD_CLASS_NAME = `${BASE_CLASS_NAME}-preview`
 
 const PhotosPreview = ({
   _callbackPhotosUploaded,
@@ -147,14 +150,19 @@ const PhotosPreview = ({
             deleteIcon={deleteIcon()}
             retryIcon={retryIcon()}
             rejectPhotosIcon={rejectPhotosIcon()}
+            outputImageAspectRatioDisabled={outputImageAspectRatioDisabled}
           />
         </li>
       )
     })
 
+  const previewCardClass = cx(PREVIEW_CARD_CLASS_NAME, {
+    [`${PREVIEW_CARD_CLASS_NAME}--ratioDisabled`]: outputImageAspectRatioDisabled
+  })
+
   return (
     <ReactSortable
-      className="sui-MoleculePhotoUploader-preview"
+      className={previewCardClass}
       handle=".sui-MoleculePhotoUploader-thumbCard-imageContainer"
       ghostClass={`${THUMB_CLASS_NAME}--ghost`}
       dragClass={`${THUMB_CLASS_NAME}--drag`}

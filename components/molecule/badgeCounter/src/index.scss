@@ -3,6 +3,10 @@
 $bg-molecule-badge-counter: #ff0057 !default;
 $c-molecule-badge-counter: $c-white !default;
 $br-molecule-badge-counter: $bdw-xl !default;
+$bdc-molecule-badge-counter: transparent !default;
+$bds-molecule-badge-counter: solid !default;
+$bdw-molecule-badge-counter: 0 !default;
+$fz-molecule-badge-counter: $fz-xxs !default;
 
 /* small */
 $molecule-badge-counter-small-diameter: 12px !default;
@@ -23,10 +27,13 @@ $molecule-badge-counter-medium-offset-right: -12px !default;
   &-bullet {
     align-items: center;
     background-color: $bg-molecule-badge-counter;
+    border-color: $bdc-molecule-badge-counter;
+    border-style: $bds-molecule-badge-counter;
+    border-width: $bdw-molecule-badge-counter;
     border-radius: 100%;
     color: $c-molecule-badge-counter;
     display: inline-flex;
-    font-size: $fz-xxs;
+    font-size: $fz-molecule-badge-counter;
     justify-content: center;
 
     &-small {

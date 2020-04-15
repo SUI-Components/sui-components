@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.10.0 (2020-04-15)
+
+
+### Features
+
+* add new color variables ([4850324](https://github.com/SUI-Components/sui-components/commit/48503247e4baacf69ae9934763cdc0f24718247f))
+
+
+
 # 2.9.0 (2020-03-17)
 
 

@@ -110,7 +110,11 @@ const AtomSlider = ({
         <Suspense fallback={null}>
           {valueLabel ? (
             <>
-              <Label value={labelValue} formatter={valueLabelFormatter} />
+              <Label
+                value={labelValue}
+                formatter={valueLabelFormatter}
+                percentage={((labelValue - min) / (max - min)) * 100}
+              />
               <Type {...customProps} />
             </>
           ) : (

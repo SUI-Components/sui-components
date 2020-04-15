@@ -14,6 +14,8 @@ $fz-atom-slider: $fz-m !default;
 $h-atom-slider-handle: 24px !default;
 $ml-atom-slider-handle: 0 !default;
 $ml-atom-slider-label: 0 !default;
+$mb-atom-slider-label: $m-m !default;
+$trf-atom-slider-label: translateX(-50%) !default;
 $w-atom-slider-handle: 24px !default;
 
 $h-atom-slider-track: 8px !default;
@@ -125,8 +127,10 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
       display: inline-block;
       vertical-align: middle;
       text-align: center;
-      transform: translateX(-50%);
-      bottom: $m-m;
+      transform: $trf-atom-slider-label;
+      margin-left: $ml-atom-slider-label;
+      margin-bottom: $mb-atom-slider-label;
+      bottom: 0;
       box-sizing: border-box;
     }
   }

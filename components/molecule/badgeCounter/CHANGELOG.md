@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.3.0 (2020-04-15)
+
+
+### Features
+
+* add molecule-badge-counter sass variables ([06bf1b9](https://github.com/SUI-Components/sui-components/commit/06bf1b9d07ee7263052ae7c73548a381292896d4))
+
+
+
 # 1.2.0 (2020-03-11)
 
 

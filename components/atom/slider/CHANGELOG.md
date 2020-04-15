@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.11.0 (2020-04-15)
+
+
+### Bug Fixes
+
+* fix slider label alignement ([685526e](https://github.com/SUI-Components/sui-components/commit/685526e921224c6793d1b155fe32191dbf6b8246))
+* slider handler margin style ([fd5ebb0](https://github.com/SUI-Components/sui-components/commit/fd5ebb0bb1ef4ea446f982035cfa17d84ef977c8))
+
+
+### Features
+
+* replace createRef by useRef 4 functional component ([2d48942](https://github.com/SUI-Components/sui-components/commit/2d4894202c0c89d1c00d9452d4daf9bd7b5ffeaf))
+
+
+
 # 1.10.0 (2020-03-11)
 
 

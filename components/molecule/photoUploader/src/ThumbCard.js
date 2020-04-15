@@ -20,6 +20,7 @@ const ThumbCard = ({
   index,
   image,
   mainPhotoLabel,
+  outputImageAspectRatioDisabled,
   rejectPhotosIcon,
   retryIcon,
   rotateIcon
@@ -28,6 +29,10 @@ const ThumbCard = ({
 
   const counterClass = cx(`${THUMB_CARD_CLASS_NAME}-counter`, {
     [`${THUMB_CARD_CLASS_NAME}-mainCounter`]: index === 0
+  })
+
+  const imageThumbClass = cx(IMAGE_THUMB_CARD_CLASS_NAME, {
+    [`${IMAGE_THUMB_CARD_CLASS_NAME}--ratioDisabled`]: outputImageAspectRatioDisabled
   })
 
   return (
@@ -43,7 +48,7 @@ const ThumbCard = ({
             </AtomIcon>
           </div>
         ) : (
-          <img src={image.preview} className={IMAGE_THUMB_CARD_CLASS_NAME} />
+          <img src={image.preview} className={imageThumbClass} />
         )}
       </div>
       <div className={ACTION_THUMB_CARD_CLASS_NAME}>
@@ -84,6 +89,7 @@ ThumbCard.propTypes = {
   index: PropTypes.number,
   image: PropTypes.object.isRequired,
   mainPhotoLabel: PropTypes.string,
+  outputImageAspectRatioDisabled: PropTypes.bool,
   rejectPhotosIcon: PropTypes.node.isRequired,
   retryIcon: PropTypes.node.isRequired,
   rotateIcon: PropTypes.node.isRequired

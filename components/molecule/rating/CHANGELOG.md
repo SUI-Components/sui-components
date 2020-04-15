@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.6.0 (2020-04-15)
+
+
+### Features
+
+* change size for rating stars ([d4425af](https://github.com/SUI-Components/sui-components/commit/d4425afd93d4164e02d55ff02022831f0a3f6827))
+
+
+
 # 1.5.0 (2020-03-11)
 
 

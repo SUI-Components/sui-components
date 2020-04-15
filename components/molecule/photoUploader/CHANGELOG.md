@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-04-15)
+
+
+### Features
+
+* fix counter styles ([6ab5325](https://github.com/SUI-Components/sui-components/commit/6ab5325e423686d10d61260885535d21a6a3615b))
+* fix photouploader: ratio image disabled ([38829c6](https://github.com/SUI-Components/sui-components/commit/38829c6edde5293bd102b10880694c28073c1755))
+
+
+
 # 1.6.0 (2020-04-01)
 
 

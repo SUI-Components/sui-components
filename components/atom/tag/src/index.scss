@@ -17,6 +17,8 @@ $p-atom-tag-m: 0 $p-l !default;
 $p-atom-tag-s: 0 $p-m !default;
 $w-atom-tag-clickable: 32px !default;
 $atom-tag-types: () !default;
+$bgc-atom-tag-closable-icon--hover: $c-system !default;
+$c-atom-tag-closable-icon--hover: $c-gray !default;
 
 @mixin icon-atom-tag($type) {
   @include sui-icon--small;
@@ -87,9 +89,9 @@ $atom-tag-types: () !default;
       position: relative;
 
       &:hover {
-        background-color: $c-system;
+        background-color: $bgc-atom-tag-closable-icon--hover;
         border-radius: 50%;
-        fill: color-variation($c-gray, 3);
+        fill: color-variation($c-atom-tag-closable-icon--hover, 3);
       }
     }
   }

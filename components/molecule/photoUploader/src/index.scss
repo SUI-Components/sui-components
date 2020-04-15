@@ -180,6 +180,7 @@ $maw-photo-uploader-thumb-drag-text: 200px;
     height: 100%;
 
     &-counter {
+      align-items: center;
       background-color: $c-primary;
       border-radius: $bdrs-rounded;
       color: $c-white;
@@ -188,8 +189,9 @@ $maw-photo-uploader-thumb-drag-text: 200px;
       justify-content: center;
       height: $s-photo-uploader-counter;
       left: $m-m;
-      min-width: calc(#{$s-photo-uploader-counter} + calc(#{$p-s} / 2));
-      padding-top: calc(#{$p-s} / 2);
+      line-height: $fz-s;
+      min-width: $s-photo-uploader-counter;
+      padding: calc(#{$p-s} / 2);
       position: absolute;
       top: $m-m;
     }

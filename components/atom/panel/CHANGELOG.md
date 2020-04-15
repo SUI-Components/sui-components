@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.5.0 (2020-04-15)
+
+
+### Features
+
+* fixed overlay color-alpha feature ([8edbc0e](https://github.com/SUI-Components/sui-components/commit/8edbc0eb8c5f38b7847f1ae5b3ae60a8d9fea2b7))
+
+
+
 # 1.4.0 (2020-03-11)
 
 

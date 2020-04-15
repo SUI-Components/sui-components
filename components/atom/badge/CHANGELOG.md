@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.11.0 (2020-04-15)
+
+
+### Bug Fixes
+
+* changed margin left for margin right ([0315b50](https://github.com/SUI-Components/sui-components/commit/0315b50a81a5954daa63d8a8205133d0019d02a5))
+
+
+
 # 1.10.0 (2020-03-11)
 
 

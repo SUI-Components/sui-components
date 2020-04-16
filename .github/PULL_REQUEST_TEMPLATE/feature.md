@@ -15,3 +15,4 @@
 <!--- If it is solving an issue... How can it be reproduced in order to compare between both behaviors? -->
 
 ##### Screenshots - Animations:
+<!-- Adding images or gif animations of your changes improves the understanding of your changes -->

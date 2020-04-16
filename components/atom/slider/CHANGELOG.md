@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.12.0 (2020-04-16)
+
+
+### Bug Fixes
+
+* fix slider-behaviour ([280f9ad](https://github.com/SUI-Components/sui-components/commit/280f9ad660524b599df9e803b1224cfda792b1b3))
+* resulting slider behavior ([2b53c33](https://github.com/SUI-Components/sui-components/commit/2b53c337b297eccd689f141353e9c8a7b108a8a1))
+
+
+
 # 1.11.0 (2020-04-15)
 
 

@@ -14,4 +14,4 @@
 <!--- Why is this change required? What problem does it solve? -->
 <!--- If it is solving an issue... How can it be reproduced in order to compare between both behaviors? -->
 
-##### Screenshots - Animations (if appropriate):
+##### Screenshots - Animations:

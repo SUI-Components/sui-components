@@ -14,5 +14,5 @@
 <!--- Why is this change required? What problem does it solve? -->
 <!--- If it is solving an issue... How can it be reproduced in order to compare between both behaviors? -->
 
-##### Screenshots - Animations:
+##### Screenshots - Animations
 <!-- Adding images or gif animations of your changes improves the understanding of your changes -->

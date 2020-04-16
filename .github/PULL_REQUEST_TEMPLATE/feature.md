@@ -1,7 +1,6 @@
 #### [LEVEL]/[COMPONENT]
-| TASK | <!--- [jira TASK ID](jiraURL) -->             |
-| ---- | --------------------------------------------- |
-| DEMO | <!--- [[LEVEL]/[COMPONENT]](zeit now URL) --> |
+**TASK**: <!--- [jira TASK ID](jiraURL) -->
+
 
 ##### Types of changes
 <!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->

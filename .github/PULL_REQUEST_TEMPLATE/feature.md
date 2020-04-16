@@ -1,5 +1,5 @@
 #### [LEVEL]/[COMPONENT]
-| TASK | <!--- [jira TASK ID](jiraURL) -->                  |
+| TASK | <!--- [jira TASK ID](jiraURL) -->             |
 | ---- | --------------------------------------------- |
 | DEMO | <!--- [[LEVEL]/[COMPONENT]](zeit now URL) --> |
 

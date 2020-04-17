@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.14.0 (2020-04-17)
+
+
+### Bug Fixes
+
+* clicks on dropdown scrollbar are ignored when focusing out ([1160465](https://github.com/SUI-Components/sui-components/commit/11604656c108ae33259991d9431118d273e16a22))
+
+
+
 # 2.13.0 (2020-03-30)
 
 

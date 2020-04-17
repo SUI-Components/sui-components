@@ -127,15 +127,16 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
 
   const handleFocusOut = ev => {
     ev.persist()
+    const {current: domContainer} = refMoleculeAutosuggest
     const {current: domInnerInput} = refMoleculeAutosuggestInput
     const {current: optionsFromRef} = refsMoleculeAutosuggestOptions
     const options = optionsFromRef.map(getTarget)
 
     setTimeout(() => {
       const currentElementFocused = getCurrentElementFocused()
-      const focusOutFromOutside = ![domInnerInput, ...options].includes(
-        currentElementFocused
-      )
+      const focusOutFromOutside =
+        ![domInnerInput, ...options].includes(currentElementFocused) &&
+        !domContainer.contains(currentElementFocused)
       if (focusOutFromOutside) {
         if (isOpen) {
           closeList(ev)

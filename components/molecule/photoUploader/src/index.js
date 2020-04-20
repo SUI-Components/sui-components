@@ -367,7 +367,7 @@ MoleculePhotoUploader.propTypes = {
   dragDelay: PropTypes.number,
 
   /** Icon render prop placed in the initial screen to invite the user to drag images */
-  dragPhotosIcon: PropTypes.function.isRequired,
+  dragPhotosIcon: PropTypes.func.isRequired,
 
   /** Text showed at the initial content screen, with the previous icon */
   dragPhotoTextInitialContent: PropTypes.string.isRequired,
@@ -395,7 +395,7 @@ MoleculePhotoUploader.propTypes = {
   errorInitialPhotoDownloadErrorText: PropTypes.string.isRequired,
 
   /** Info icon render prop */
-  infoIcon: PropTypes.function.isRequired,
+  infoIcon: PropTypes.func.isRequired,
 
   /** An array containing URLs of default images to be loaded into the preview */
   initialPhotos: PropTypes.arrayOf(PropTypes.string),

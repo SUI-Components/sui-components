@@ -19,7 +19,8 @@
     "precommit": "sui-precommit run",
     "release": "sui-studio release",
     "start": "sui-studio start",
-    "test": "true"
+    "test:browser": "cross-env NODE_ENV=test sui-test browser -P \"./test/**/*.spec.js\"",
+    "test": "npm run test:browser"
   },
   "repository": {},
   "keywords": [],
@@ -30,6 +31,7 @@
     "@s-ui/mono": "1",
     "@s-ui/precommit": "2",
     "@s-ui/studio": "7",
+    "@s-ui/test": "^3.0.0",
     "fs-extra": "8.1.0",
     "globby": "10.0.1",
     "husky": "0.13.4",

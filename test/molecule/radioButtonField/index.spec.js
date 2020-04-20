@@ -23,8 +23,10 @@ describe('molecule/radioButtonField', () => {
     describe('label & nodeLabel', () => {
       it('should render the empty component if there is not label or nodeLabel props', async () => {
         // Given
+
         // When
         const {container} = setup()
+
         // Then
         expect(container).to.be.not.undefined
       })
@@ -34,8 +36,10 @@ describe('molecule/radioButtonField', () => {
         const props = {
           label: 'label'
         }
+
         // When
         const {container, getByText} = setup(props)
+
         // Then
         const labelElement = getByText(props.label)
         expect(container).to.be.not.undefined
@@ -49,6 +53,7 @@ describe('molecule/radioButtonField', () => {
         const props = {
           nodeLabel: <div className="testNodeLabel">{text}</div>
         }
+
         // When
         const {container, getByText} = setup(props)
 
@@ -66,6 +71,7 @@ describe('molecule/radioButtonField', () => {
           label: text,
           nodeLabel: <div className="testNodeLabel">{text}</div>
         }
+
         // When
         const {container, getByText} = setup(props)
 

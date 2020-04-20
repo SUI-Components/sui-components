@@ -1,6 +1,6 @@
 /* eslint react/jsx-no-undef:0 */
 
-// import React from 'react'
+import React from 'react'
 
 import chai from 'chai'
 import chaiDOM from 'chai-dom'
@@ -14,12 +14,23 @@ import nullishTest from '../../shared/nullishTest'
 chai.use(chaiSnapshot)
 chai.use(chaiDOM)
 
+const TestComponent = props => {
+  const renderProp = () => <i />
+  return (
+    <MoleculePhotoUploader
+      dragPhotosIcon={renderProp}
+      infoIcon={renderProp}
+      {...props}
+    />
+  )
+}
+
 const setup = setupBuilder(childrenComponent => childrenComponent)(
-  MoleculePhotoUploader
+  TestComponent
 )
 
-describe('organism/nestedCheckboxes', () => {
-  renderTest({Component: MoleculePhotoUploader})()
+describe('molecule/photoUploader', () => {
+  renderTest({Component: TestComponent})()
 
   nullishTest({setup})()
 })

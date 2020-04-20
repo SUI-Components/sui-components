@@ -12,9 +12,7 @@ import nullishTest from '../../shared/nullishTest'
 
 chai.use(chaiDOM)
 
-const setup = setupBuilder(childrenComponent => childrenComponent)(
-  MoleculeTextAreaField
-)
+const setup = setupBuilder()(MoleculeTextAreaField)
 
 describe('molecule/textareaField', () => {
   renderTest({Component: MoleculeTextAreaField})()

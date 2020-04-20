@@ -12,9 +12,7 @@ import nullishTest from '../../shared/nullishTest'
 
 chai.use(chaiDOM)
 
-const setup = setupBuilder(childrenComponent => childrenComponent)(
-  MoleculeThumbnail
-)
+const setup = setupBuilder()(MoleculeThumbnail)
 
 describe('molecule/tumbnail', () => {
   renderTest({Component: MoleculeThumbnail})()

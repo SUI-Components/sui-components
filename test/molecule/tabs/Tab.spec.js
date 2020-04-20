@@ -12,23 +12,13 @@ import nullishTest from '../../shared/nullishTest'
 
 chai.use(chaiDOM)
 
-const TestedComponent = props => (
-  <MoleculeTabs>
-    <MoleculeTab />
-  </MoleculeTabs>
-)
-
-const setup = setupBuilder(childrenComponent => childrenComponent)(
-  TestedComponent
-)
+const setup = setupBuilder(childElement => (
+  <MoleculeTabs>{childElement}</MoleculeTabs>
+))(MoleculeTab)
 
 describe('molecule/tabs', () => {
   describe('tab', () => {
     renderTest({Component: MoleculeTab})()
-
-    renderTest({Component: TestedComponent})(
-      'should render in a MoleculeTab without crushing'
-    )
 
     nullishTest({setup})()
 

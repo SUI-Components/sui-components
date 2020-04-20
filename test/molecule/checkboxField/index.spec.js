@@ -12,9 +12,7 @@ import nullishTest from '../../shared/nullishTest'
 
 chai.use(chaiDOM)
 
-const setup = setupBuilder(childrenComponent => childrenComponent)(
-  MoleculeCheckBoxField
-)
+const setup = setupBuilder()(MoleculeCheckBoxField)
 
 describe('molecule/checkboxField', () => {
   renderTest({Component: MoleculeCheckBoxField})()

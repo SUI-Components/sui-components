@@ -20,7 +20,7 @@ const Component = props => (
   </MoleculeButtonGroupField>
 )
 
-const setup = setupBuilder(childrenComponent => childrenComponent)(Component)
+const setup = setupBuilder()(Component)
 
 describe('molecule/buttonGroupField', () => {
   renderTest({Component})()

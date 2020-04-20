@@ -12,9 +12,7 @@ import nullishTest from '../../shared/nullishTest'
 
 chai.use(chaiDOM)
 
-const setup = setupBuilder(childrenComponent => childrenComponent)(
-  MoleculeRadioButtonField
-)
+const setup = setupBuilder()(MoleculeRadioButtonField)
 
 describe('molecule/radioButtonField', () => {
   renderTest({Component: MoleculeRadioButtonField})()

@@ -25,9 +25,7 @@ const TestComponent = props => {
   )
 }
 
-const setup = setupBuilder(childrenComponent => childrenComponent)(
-  TestComponent
-)
+const setup = setupBuilder()(TestComponent)
 
 describe('molecule/photoUploader', () => {
   renderTest({Component: TestComponent})()

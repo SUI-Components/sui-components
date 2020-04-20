@@ -14,9 +14,7 @@ import nullishTest from '../../shared/nullishTest'
 chai.use(chaiSnapshot)
 chai.use(chaiDOM)
 
-const setup = setupBuilder(childrenComponent => childrenComponent)(
-  OrganismNestedCheckboxes
-)
+const setup = setupBuilder()(OrganismNestedCheckboxes)
 
 describe('organism/nestedCheckboxes', () => {
   renderTest({Component: OrganismNestedCheckboxes})()

@@ -110,8 +110,8 @@ const MoleculePhotoUploader = ({
   const _callbackPhotosUploaded = list => {
     if (list.length) {
       const blobsArray = list.reduce((array, file) => {
-        const {blob, url, isNew, isModified, hasErrors} = file
-        array.push({blob, url, isNew, isModified, hasErrors})
+        const {blob, url, isNew, isModified, hasErrors, fileName = ''} = file
+        array.push({blob, url, isNew, isModified, hasErrors, fileName})
         return [...array]
       }, [])
       callbackPhotosUploaded(blobsArray)
@@ -367,7 +367,7 @@ MoleculePhotoUploader.propTypes = {
   dragDelay: PropTypes.number,
 
   /** Icon placed in the initial screen to invite the user to drag images */
-  dragPhotosIcon: PropTypes.node.isRequired,
+  dragPhotosIcon: PropTypes.func.isRequired,
 
   /** Text showed at the initial content screen, with the previous icon */
   dragPhotoTextInitialContent: PropTypes.string.isRequired,
@@ -395,7 +395,7 @@ MoleculePhotoUploader.propTypes = {
   errorInitialPhotoDownloadErrorText: PropTypes.string.isRequired,
 
   /** Info icon */
-  infoIcon: PropTypes.node.isRequired,
+  infoIcon: PropTypes.func.isRequired,
 
   /** An array containing URLs of default images to be loaded into the preview */
   initialPhotos: PropTypes.arrayOf(PropTypes.string),

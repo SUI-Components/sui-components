@@ -111,6 +111,7 @@ export const prepareFiles = ({
       )
       .then(
         ({
+          file,
           blob,
           originalBase64,
           croppedBase64,
@@ -142,7 +143,8 @@ export const prepareFiles = ({
               rotation,
               isNew: true,
               isModified: false,
-              hasErrors
+              hasErrors,
+              fileName: file.name || ''
             })
           }
         }

@@ -132,19 +132,19 @@ export const prepareFiles = ({
             setCorruptedFileError(errorText)
           } else {
             currentFiles.push({
+              blob,
+              file,
+              hasErrors,
+              isModified: false,
+              isNew: true,
+              originalBase64,
               properties: {
                 path: nextFile.path,
                 size: nextFile.size,
                 lastModified: nextFile.lastModified
               },
-              blob,
-              originalBase64,
               preview: croppedBase64,
-              rotation,
-              isNew: true,
-              isModified: false,
-              hasErrors,
-              fileName: file.name || ''
+              rotation
             })
           }
         }

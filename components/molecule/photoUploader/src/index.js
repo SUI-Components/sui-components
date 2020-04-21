@@ -109,9 +109,9 @@ const MoleculePhotoUploader = ({
 
   const _callbackPhotosUploaded = list => {
     if (list.length) {
-      const blobsArray = list.reduce((array, file) => {
-        const {blob, url, isNew, isModified, hasErrors, fileName = ''} = file
-        array.push({blob, url, isNew, isModified, hasErrors, fileName})
+      const blobsArray = list.reduce((array, currentFile) => {
+        const {blob, url, isNew, isModified, hasErrors, file} = currentFile
+        array.push({blob, url, isNew, isModified, hasErrors, file})
         return [...array]
       }, [])
       callbackPhotosUploaded(blobsArray)

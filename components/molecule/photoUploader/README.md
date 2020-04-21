@@ -18,7 +18,7 @@ Every modification of the list will return a list of Blobs (jpeg encoded!) to be
 
 > `hasErrors` (Boolean) if a initial photo has some kind of error when the component try to download, will have `hasErrors: true`
 
-> `fileName` (String) this is the file name of the file we have uploaded.
+> `file` (Object) it's the new uploaded file.
 
 ## Installation
 

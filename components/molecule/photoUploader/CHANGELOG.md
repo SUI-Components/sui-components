@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-04-21)
+
+
+### Features
+
+* add fileName on returned list of files ([74999b3](https://github.com/SUI-Components/sui-components/commit/74999b303084ea596d5280afe2aadfe9467ed570)), closes [#1097](https://github.com/SUI-Components/sui-components/issues/1097)
+* expose file instead of fileName ([64eeba5](https://github.com/SUI-Components/sui-components/commit/64eeba58852451b008b7e25ee80d8658fdd4f7e1))
+
+
+
 # 1.7.0 (2020-04-15)
 
 

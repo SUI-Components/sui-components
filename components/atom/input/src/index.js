@@ -109,6 +109,9 @@ AtomInput.propTypes = {
   /** specifies whether or not an input field should have autocomplete enabled (on|off) */
   autoComplete: PropTypes.string,
 
+  /** native autofocus attribute */
+  autoFocus: PropTypes.bool,
+
   /** true = error, false = success, null = neutral */
   errorState: PropTypes.bool,
 

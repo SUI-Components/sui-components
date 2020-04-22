@@ -31,7 +31,12 @@ const InitialState = ({
         </span>
       </div>
       <div className={`${BASE_CLASS_NAME}-buttonState`}>
-        <Button color={buttonColor} size={buttonSize} design={buttonDesign}>
+        <Button
+          color={buttonColor}
+          design={buttonDesign}
+          isButton
+          size={buttonSize}
+        >
           {buttonText}
         </Button>
       </div>

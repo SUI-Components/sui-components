@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-04-23)
+
+
+### Bug Fixes
+
+* prevent submit form when photo uploader button is clicked ([21ec7e5](https://github.com/SUI-Components/sui-components/commit/21ec7e5c4f0c3c6e477351cc347ac8cb0c17cbfc))
+
+
+
 # 1.8.0 (2020-04-21)
 
 

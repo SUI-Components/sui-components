@@ -78,6 +78,8 @@ const MoleculeDropdownList = ({
     ev.stopPropagation()
   }
 
+  if (!visible) return null
+
   return (
     <ul
       ref={refDropdownList}
@@ -110,6 +112,7 @@ MoleculeDropdownList.propTypes = {
 }
 
 MoleculeDropdownList.defaultProps = {
+  visible: true,
   size: SIZES.SMALL,
   onSelect: () => {}
 }

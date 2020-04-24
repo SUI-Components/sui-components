@@ -112,6 +112,7 @@ MoleculeDropdownList.propTypes = {
 }
 
 MoleculeDropdownList.defaultProps = {
+  visible: true,
   size: SIZES.SMALL,
   onSelect: () => {}
 }

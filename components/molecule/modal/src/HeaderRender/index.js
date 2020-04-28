@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 import {suitClass} from '../helpers'
 import cx from 'classnames'
 
-export const HeaderRender = ({header, close}) => (
+export const HeaderRender = ({header, close, floatingIconClose}) => (
   <div
     className={cx({
-      [suitClass({element: 'no-header'})]: !header,
+      [suitClass({element: 'empty-header'})]: !header && floatingIconClose,
+      [suitClass({element: 'no-header'})]: !header && !floatingIconClose,
       [suitClass({element: 'header'})]: !!header
     })}
   >
@@ -17,5 +18,6 @@ export const HeaderRender = ({header, close}) => (
 
 HeaderRender.propTypes = {
   close: PropTypes.node,
-  header: PropTypes.node
+  header: PropTypes.node,
+  floatingIconClose: PropTypes.bool
 }

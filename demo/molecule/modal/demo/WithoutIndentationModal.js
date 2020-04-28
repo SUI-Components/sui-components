@@ -38,7 +38,6 @@ class WithoutIndentationModal extends React.Component {
           isOpen={this.state.open}
           closeOnOutsideClick
           closeOnEscKeyDown
-          // header={<strong>Modal without indentation</strong>}
           floatingIconClose
           iconClose={<IconClose />}
           fitWindow

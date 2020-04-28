@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 const BASE_CLASS = `sui-MoleculeProgressSteps`
 
 const CLASS_STEPS = `${BASE_CLASS}-path`
+const CLASS_FULL_STEP = `${CLASS_STEPS}-fullStep`
 
 const CLASS_BAR = `${CLASS_STEPS}-bar`
 const CLASS_STEP = `${CLASS_STEPS}-step`
@@ -40,12 +41,21 @@ const MoleculeProgressStep = ({
   label,
   numStep,
   lastStep,
-  compressed
+  compressed,
+  vertical,
+  isActive,
+  isInline,
+  children
 }) => {
   const [CLASS_STEP_STATUS, CLASS_BAR_STATUS] = getStatusClass(status)
+  const CLASS_INLINE_CONTENT = `${CLASS_STEPS}-labelBar`
+  const CLASS_FULL_STEP_MODIFIERS = cx(CLASS_FULL_STEP, {
+    [`${CLASS_FULL_STEP}--isInline`]: isInline,
+    [`${CLASS_FULL_STEP}--vertical`]: vertical
+  })
   const bar = <hr className={cx(CLASS_BAR, CLASS_BAR_STATUS)} />
   return (
-    <>
+    <div className={CLASS_FULL_STEP_MODIFIERS}>
       {!compressed && (
         <div className={cx(CLASS_STEP, CLASS_STEP_STATUS)}>
           {icon ? (
@@ -56,8 +66,11 @@ const MoleculeProgressStep = ({
           <p className={CLASS_STEP_DESCRIPTION}>{label}</p>
         </div>
       )}
-      {!lastStep ? bar : compressed && bar}
-    </>
+      <div className={CLASS_INLINE_CONTENT}>
+        {!lastStep ? bar : compressed && bar}
+        {vertical && isActive && isInline && children}
+      </div>
+    </div>
   )
 }
 
@@ -71,14 +84,25 @@ MoleculeProgressStep.propTypes = {
   /** text to display */
   label: PropTypes.string,
 
-  /** Vertical mode */
+  /** step number */
   numStep: PropTypes.number,
 
-  /** Vertical mode */
+  /** is last step */
   lastStep: PropTypes.bool,
 
   /** Compressed */
-  compressed: PropTypes.bool
+  compressed: PropTypes.bool,
+
+  /** vertical mode */
+  vertical: PropTypes.bool,
+
+  /** is step active */
+  isActive: PropTypes.bool,
+
+  /** show content inline with label */
+  isInline: PropTypes.bool,
+
+  children: PropTypes.element
 }
 
 export default MoleculeProgressStep

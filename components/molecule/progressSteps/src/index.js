@@ -16,7 +16,8 @@ const MoleculeProgressSteps = ({
   vertical,
   children,
   iconStepDone,
-  compressed
+  compressed,
+  isInline = false
 }) => {
   const activeStepContent = useRef()
 
@@ -28,14 +29,10 @@ const MoleculeProgressSteps = ({
   const getCompressedInfoSteps = () => {
     const childrenNodes = React.Children.toArray(children)
     const totalSteps = childrenNodes.length
-    const [activeLabel, numActiveStep] = childrenNodes.reduce(
-      (acc, child, index) => {
-        const {status} = child.props
-        if (status === STATUSES.ACTIVE) acc = [child.props.label, index + 1]
-        return acc
-      },
-      []
-    )
+
+    const numActiveStep =
+      childrenNodes.findIndex(child => child.status === STATUSES.ACTIVE) + 1
+    const activeLabel = childrenNodes[numActiveStep].props.label
     const stepPositionInfo = `${numActiveStep}/${totalSteps}`
     return `${stepPositionInfo}: ${activeLabel}`
   }
@@ -67,7 +64,10 @@ const MoleculeProgressSteps = ({
         numStep,
         lastStep,
         icon,
-        compressed
+        compressed,
+        vertical,
+        isActive,
+        isInline
       })
     })
 
@@ -77,7 +77,9 @@ const MoleculeProgressSteps = ({
         <p className={CLASS_COMPRESSED_INFO}>{getCompressedInfoSteps()}</p>
       )}
       <div className={CLASS_STEPS}>{extendedChildren}</div>
-      <div className={CLASS_CONTENT}>{activeStepContent.current}</div>
+      {!isInline && (
+        <div className={CLASS_CONTENT}>{activeStepContent.current}</div>
+      )}
     </div>
   )
 }
@@ -95,7 +97,10 @@ MoleculeProgressSteps.propTypes = {
   compressed: PropTypes.bool,
 
   /** Vertical mode */
-  vertical: PropTypes.bool
+  vertical: PropTypes.bool,
+
+  /** show content inline with label */
+  isInline: PropTypes.bool
 }
 
 export default MoleculeProgressSteps

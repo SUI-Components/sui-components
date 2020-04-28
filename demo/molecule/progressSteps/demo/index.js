@@ -129,6 +129,30 @@ const Demo = () => {
           )}
         </MoleculeProgressSteps>
       </div>
+
+      <h3>Vertical w/ Icons and Inline</h3>
+
+      <div className={cx(CLASS_DEMO_SECTION, CLASS_DEMO_SECTION_VERTICAL)}>
+        <MoleculeProgressSteps
+          iconStepDone={<IconFillCheck />}
+          vertical
+          isInline
+        >
+          {Object.values(configWithIcons).map(
+            ({status, label, content, icon, iconActive}, index) => (
+              <MoleculeProgressStep
+                key={index}
+                label={label}
+                status={status}
+                icon={icon}
+                iconActive={iconActive}
+              >
+                {content}
+              </MoleculeProgressStep>
+            )
+          )}
+        </MoleculeProgressSteps>
+      </div>
     </div>
   )
 }

@@ -8,14 +8,33 @@ $c-progress-steps-active: $c-primary !default;
 
 $bdw-progress-steps-bar: 2px !default;
 $h-progress-steps-bar: $bdw-progress-steps-bar * 2 !default;
-
 $base-class: '.sui-MoleculeProgressSteps';
 
 .sui-MoleculeProgressSteps {
   &-path {
     align-items: center;
     display: flex;
-
+    justify-content: space-between;
+    &-fullStep {
+      display: flex;
+      align-items: center;
+      &:not(:last-of-type) {
+        flex-grow: 1;
+      }
+      &--vertical {
+        align-items: flex-start;
+        flex-direction: column;
+        height: 100%;
+      }
+      &--horizontal {
+        flex-direction: row;
+        width: 100%;
+      }
+    }
+    &-labelBar {
+      display: flex;
+      flex-grow: 1;
+    }
     &-bar {
       background: $c-progress-steps-bar;
       border-color: $c-progress-steps-bar;
@@ -24,6 +43,8 @@ $base-class: '.sui-MoleculeProgressSteps';
       border-width: $bdw-progress-steps-bar;
       height: $h-progress-steps-bar;
       width: 100%;
+      margin-block-start: 0;
+      margin-block-end: 0;
 
       &--visited {
         background: $c-progress-steps-active;
@@ -36,7 +57,7 @@ $base-class: '.sui-MoleculeProgressSteps';
       color: $c-progress-steps-label;
       display: flex;
       flex-direction: column;
-      position: relative;
+      justify-content: center;
 
       svg,
       use {
@@ -116,25 +137,29 @@ $base-class: '.sui-MoleculeProgressSteps';
     height: 100%;
 
     #{$base-class}-path {
+      align-items: flex-start;
       flex-direction: column;
       justify-content: space-between;
       margin-right: 100px;
+
+      &-labelBar {
+        min-height: 30px;
+      }
 
       &-step {
         flex-direction: row;
         position: relative;
 
         &-description {
-          left: 45px;
-          margin-top: 0;
-          position: absolute;
+          margin: 0;
+          position: unset;
+          width: 100px;
           text-align: left;
         }
       }
-
       &-bar {
+        margin: 0 21px;
         height: 100%;
-        margin: 20px 0;
         transform: translateY(0);
         width: 1px;
       }
@@ -142,6 +167,16 @@ $base-class: '.sui-MoleculeProgressSteps';
 
     #{$base-class}-path-step-icon + #{$base-class}-path-step-description {
       left: 55px;
+    }
+  }
+
+  &--isInline {
+    #{$base-class}-path {
+      &-step {
+        &-description {
+          width: auto;
+        }
+      }
     }
   }
 }

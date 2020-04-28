@@ -18,9 +18,11 @@ const MoleculeModal = ({
   header,
   children,
   iconClose,
+  floatingIconClose,
   isOpen,
   fitWindow,
   fitContent,
+  withoutIndentation,
   isClosing,
   onAnimationEnd,
   usePortal,
@@ -115,6 +117,10 @@ const MoleculeModal = ({
       [suitClass({element: 'dialog--fit'})]: fitContent
     })
 
+    const contentClassName = cx(suitClass({element: 'content'}), {
+      [suitClass({element: 'content--without-indentation'})]: withoutIndentation
+    })
+
     return (
       <div
         className={wrapperClassName}
@@ -126,13 +132,20 @@ const MoleculeModal = ({
           {(iconClose || header) && (
             <HeaderRender
               close={
-                iconClose && <Close icon={iconClose} onClick={closeModal} />
+                iconClose && (
+                  <Close
+                    icon={iconClose}
+                    onClick={closeModal}
+                    floating={floatingIconClose}
+                  />
+                )
               }
               header={header}
+              floatingIconClose={floatingIconClose}
             />
           )}
           <div
-            className={suitClass({element: 'content'})}
+            className={contentClassName}
             onTouchStart={avoidOverscroll}
             onTouchMove={preventScrollIfNeeded}
             ref={contentRef}
@@ -185,6 +198,10 @@ MoleculeModal.propTypes = {
    */
   fitContent: PropTypes.bool,
   /**
+   * true if you want a modal without content indentation
+   */
+  withoutIndentation: PropTypes.bool,
+  /**
    * content of the modal's header
    */
   header: PropTypes.element,
@@ -192,6 +209,10 @@ MoleculeModal.propTypes = {
    * customitzable close icon
    */
   iconClose: PropTypes.element,
+  /**
+   * If is true, iconClose will be floating over layers
+   */
+  floatingIconClose: PropTypes.bool,
   /**
    * prop to mark if the modal is currently open or not
    */
@@ -231,8 +252,10 @@ MoleculeModal.defaultProps = {
   closeOnOutsideClick: false,
   closeOnEscKeyDown: false,
   enableContentScroll: false,
+  floatingIconClose: false,
   fitWindow: false,
   fitContent: false,
+  withoutIndentation: false,
   isOpen: false,
   portalContainerId: 'modal-react-portal',
   usePortal: true,

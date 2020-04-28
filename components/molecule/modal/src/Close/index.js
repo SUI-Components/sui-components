@@ -1,18 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 import {suitClass} from '../helpers'
 
-export const Close = ({icon, onClick}) => (
-  <button
-    type="button"
-    className={suitClass({element: 'close'})}
-    onClick={onClick}
-  >
-    {icon}
-  </button>
-)
+export const Close = ({icon, onClick, floating}) => {
+  const BUTTON_CLASS = cx(suitClass({element: 'close'}), {
+    [suitClass({element: 'close--floating'})]: floating
+  })
+
+  return (
+    <button type="button" className={BUTTON_CLASS} onClick={onClick}>
+      {icon}
+    </button>
+  )
+}
 
 Close.propTypes = {
   icon: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
+  floating: PropTypes.bool
 }

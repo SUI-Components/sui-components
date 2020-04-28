@@ -5,6 +5,7 @@ import React from 'react'
 import ScrollModal from './ScrollModal'
 import NoScrollModal from './NoScrollModal'
 import NoHeaderModal from './NoHeaderModal'
+import WithoutIndentationModal from './WithoutIndentationModal'
 import NoFullScreenModal from './NoFullScreenModal'
 import NoHeaderNoCloseButtonModal from './NoHeaderNoCloseButtonModal'
 import MobileFitContentModal from './MobileFitContentModal'
@@ -39,6 +40,10 @@ const Demo = () => (
       <h2>No header Modal</h2>
       <div style={fieldStyle}>
         <NoHeaderModal />
+      </div>
+      <h2>Without indentation</h2>
+      <div style={fieldStyle}>
+        <WithoutIndentationModal />
       </div>
       <h2>Modal with max-width</h2>
       <div style={fieldStyle}>

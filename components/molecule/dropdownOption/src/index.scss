@@ -9,12 +9,13 @@ $fw-molecule-dropdown-option-selected-text: $fw-bold !default;
 $fz-molecule-dropdown-option-text: inherit !default;
 $fw-molecule-dropdown-option--highlight-mark: normal !default;
 $ln-molecule-dropdown-option-two-lines-text: $lh-m !default;
+$p-molecule-dropdown-option: $p-l !default;
 
 .sui-MoleculeDropdownOption {
   align-items: center;
   display: flex;
   height: $h-dropdown-option;
-  padding: 0 $p-l;
+  padding: 0 $p-molecule-dropdown-option;
 
   &-mark {
     color: $c-molecule-dropdown-option--highlight-mark;

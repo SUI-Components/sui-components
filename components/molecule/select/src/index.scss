@@ -55,7 +55,9 @@ $bgc-atom-input-disabled: $c-gray-lightest !default;
     }
 
     &-arrow {
+      height: $h-select-list-arrow;
       margin-left: $mr-select-list-arrow;
+      width: $w-select-list-arrow;
 
       &--up {
         transform: rotate(180deg);
@@ -63,8 +65,8 @@ $bgc-atom-input-disabled: $c-gray-lightest !default;
 
       svg {
         fill: $c-select-list-arrow-fill !important;
-        width: $w-select-list-arrow;
         height: $h-select-list-arrow;
+        width: $w-select-list-arrow;
       }
     }
   }

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.11.0 (2020-04-28)
+
+
+### Features
+
+* do not render list if is not vibile ([a3600af](https://github.com/SUI-Components/sui-components/commit/a3600af937be237abe024275e35532a9c80555a5))
+* visible default prop value addition ([bf28fbb](https://github.com/SUI-Components/sui-components/commit/bf28fbb456c530ee9e88c6db580e3db8053ac69d))
+
+
+
 # 1.10.0 (2020-03-11)
 
 

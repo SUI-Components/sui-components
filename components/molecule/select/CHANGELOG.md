@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.29.0 (2020-04-28)
+
+
+### Features
+
+* equalize size for centering ([51561a8](https://github.com/SUI-Components/sui-components/commit/51561a8acc7b8f7004766bb2c6adccce598b09ba))
+
+
+
 # 1.28.0 (2020-04-08)
 
 

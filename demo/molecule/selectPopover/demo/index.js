@@ -23,6 +23,7 @@ const Demo = () => {
   const [size, setSize] = useState(selectPopoverSizes.MEDIUM)
   const [placement, setPlacement] = useState(selectPopoverPlacements.RIGHT)
   const [hasEvents, setHasEvents] = useState(false)
+  const [actionsAreHidden, setActionsAreHidden] = useState(false)
 
   const handleChangeItem = event => {
     const {target} = event
@@ -79,17 +80,32 @@ const Demo = () => {
         ))}
       </MoleculeSelect>
       <br />
-      <input
-        type="checkbox"
-        checked={hasEvents}
-        onChange={ev => setHasEvents(ev.target.checked)}
-      />
-      <label>With events (onOpen & onClose)</label>
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={hasEvents}
+            onChange={ev => setHasEvents(ev.target.checked)}
+          />
+          With events (onOpen & onClose)
+        </label>
+      </div>
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={actionsAreHidden}
+            onChange={ev => setActionsAreHidden(ev.target.checked)}
+          />
+          Actions are hidden
+        </label>
+      </div>
 
       <h3>Component</h3>
       <MoleculeSelectPopover
         acceptButtonText="Aceptar"
         cancelButtonText="Cancelar"
+        hideActions={actionsAreHidden}
         iconArrowDown={IconArrowDown}
         isSelected={isSelected}
         onAccept={() => setItems(unconfirmedItems)}

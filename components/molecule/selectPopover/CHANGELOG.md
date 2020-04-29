@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.10.0 (2020-04-29)
+
+
+### Features
+
+* add hide actions prop ([92aacbb](https://github.com/SUI-Components/sui-components/commit/92aacbb2f4beba1520b9b9fbc36a8b1897d8e62d))
+
+
+
 # 1.9.0 (2020-03-11)
 
 

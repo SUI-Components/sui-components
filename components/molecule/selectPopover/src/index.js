@@ -18,6 +18,7 @@ function MoleculeSelectPopover({
   acceptButtonText,
   cancelButtonText,
   children,
+  hideActions,
   iconArrowDown: IconArrowDown,
   isSelected = false,
   onAccept = () => {},
@@ -113,12 +114,14 @@ function MoleculeSelectPopover({
       {isOpen && (
         <div className={popoverClassName} ref={popoverRef}>
           <div className={`${BASE_CLASS}-popoverContent`}>{children}</div>
-          <div className={`${BASE_CLASS}-popoverActionBar`}>
-            <Button onClick={handleOnCancel} design="flat">
-              {cancelButtonText}
-            </Button>
-            <Button onClick={handleOnAccept}>{acceptButtonText}</Button>
-          </div>
+          {!hideActions && (
+            <div className={`${BASE_CLASS}-popoverActionBar`}>
+              <Button onClick={handleOnCancel} design="flat">
+                {cancelButtonText}
+              </Button>
+              <Button onClick={handleOnAccept}>{acceptButtonText}</Button>
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -130,6 +133,7 @@ MoleculeSelectPopover.propTypes = {
   acceptButtonText: PropTypes.string.isRequired,
   cancelButtonText: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
+  hideActions: PropTypes.bool,
   iconArrowDown: PropTypes.node.isRequired,
   isSelected: PropTypes.bool,
   onAccept: PropTypes.func,

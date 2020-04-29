@@ -170,12 +170,10 @@ $base-class: '.sui-MoleculeProgressSteps';
     }
   }
 
-  &--isInline {
-    #{$base-class}-path {
-      &-step {
-        &-description {
-          width: auto;
-        }
+  &-path-fullStep--isInline {
+    #{$base-class}-path-step {
+      &-description {
+        width: auto;
       }
     }
   }

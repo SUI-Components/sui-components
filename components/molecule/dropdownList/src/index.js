@@ -13,10 +13,11 @@ const SIZES = {
 
 const MoleculeDropdownList = ({
   children,
-  value,
-  size,
-  visible,
   onSelect,
+  alwaysRender,
+  size,
+  value,
+  visible,
   ...props
 }) => {
   const refDropdownList = useRef()
@@ -78,12 +79,12 @@ const MoleculeDropdownList = ({
     ev.stopPropagation()
   }
 
-  if (!visible) return null
+  if (!visible && !alwaysRender) return null
 
   return (
     <ul
       ref={refDropdownList}
-      tabIndex="0"
+      tabIndex={0}
       onKeyDown={handleKeyDown}
       className={classNames}
     >
@@ -95,26 +96,29 @@ const MoleculeDropdownList = ({
 MoleculeDropdownList.displayName = 'MoleculeDropdownList'
 
 MoleculeDropdownList.propTypes = {
+  /** No matter if is visible or invisible, render always the content */
+  alwaysRender: PropTypes.bool,
+
   /** Content to be included in the list (MoleculeDropdownOption) */
   children: PropTypes.node,
 
-  /** Visible or not */
-  visible: PropTypes.bool,
-
-  /** selected value */
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  /** callback on select option */
+  onSelect: PropTypes.func,
 
   /** size (height) of the list */
   size: PropTypes.oneOf(Object.values(SIZES)),
 
-  /** callback on select option */
-  onSelect: PropTypes.func
+  /** selected value */
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+
+  /** Visible or not */
+  visible: PropTypes.bool
 }
 
 MoleculeDropdownList.defaultProps = {
-  visible: true,
-  size: SIZES.SMALL,
-  onSelect: () => {}
+  alwaysRender: true,
+  onSelect: () => {},
+  size: SIZES.SMALL
 }
 
 export default MoleculeDropdownList

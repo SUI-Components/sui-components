@@ -71,6 +71,7 @@ const Input = ({
   max,
   step,
   autoComplete,
+  autoFocus,
   onChange = DEFAULT_PROPS.ON_CHANGE,
   onEnter = DEFAULT_PROPS.ON_ENTER,
   onEnterKey = DEFAULT_PROPS.ON_ENTER_KEY,
@@ -128,6 +129,7 @@ const Input = ({
       min={min}
       step={step}
       autoComplete={autoComplete}
+      autoFocus={autoFocus}
       required={required}
       pattern={pattern}
       inputMode={inputMode}
@@ -174,6 +176,8 @@ Input.propTypes = {
   step: PropTypes.number,
   /** specifies whether or not an input field should have autocomplete enabled (on|off) */
   autoComplete: PropTypes.string,
+  /** native autofocus attribute */
+  autoFocus: PropTypes.bool,
   /* text, password, date or number */
   type: PropTypes.string,
   /* value of the control */

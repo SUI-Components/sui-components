@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.12.0 (2020-04-30)
+
+
+### Bug Fixes
+
+* fix breaking change but keep functionality ([b0df3bd](https://github.com/SUI-Components/sui-components/commit/b0df3bd23523823e1ca99367625d63fa44732b12))
+
+
+
 # 1.11.0 (2020-04-28)
 
 

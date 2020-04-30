@@ -174,14 +174,16 @@ $c-atom-tag-closable-icon--hover: $c-gray !default;
   @each $name, $type in $atom-tag-types {
     $bgc: map-get($type, bgc);
     $c: map-get($type, c);
+    $bgc-atom-tag-type--hover: color-variation($bgc, 2) !default;
+    $c-atom-tag-type--hover: color-variation($c, 2) !default;
 
     &--#{$name} {
       background-color: $bgc;
       color: $c;
 
       &:hover {
-        background-color: color-variation($bgc, 2);
-        color: color-variation($c, 2);
+        background-color: $bgc-atom-tag-type--hover;
+        color: $c-atom-tag-type--hover;
       }
     }
   }

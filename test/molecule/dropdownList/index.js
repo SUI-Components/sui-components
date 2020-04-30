@@ -75,9 +75,41 @@ describe('molecule/dropdownList', () => {
         expect(element).to.be.not.undefined
       })
 
-      it('should NOT render the children if it is not visible', async () => {
+      it('should render the children if it is not visible', async () => {
         // Given
         const props = {
+          visible: false
+        }
+        // When
+        const {container} = setup({
+          ...testDefaultProps,
+          ...props
+        })()
+        // Then
+        expect(container).to.be.not.undefined
+        expect(container.children.length).to.be.equal(1)
+      })
+
+      it('should render the children if it is not visible but alwaysRender is enabled', async () => {
+        // Given
+        const props = {
+          alwaysRender: true,
+          visible: false
+        }
+        // When
+        const {container} = setup({
+          ...testDefaultProps,
+          ...props
+        })()
+        // Then
+        expect(container).to.be.not.undefined
+        expect(container.children.length).to.be.equal(1)
+      })
+
+      it('should NOT render the children if it is not visible and alwaysRender is disabled', async () => {
+        // Given
+        const props = {
+          alwaysRender: false,
           visible: false
         }
         // When

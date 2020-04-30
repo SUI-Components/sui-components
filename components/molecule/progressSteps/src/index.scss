@@ -3,13 +3,18 @@
 $c-progress-steps-bar: $c-gray-light !default;
 $c-progress-steps-label: $c-gray-dark-2 !default;
 $c-progress-steps-icon: $c-gray-light !default;
+$c-progress-steps-icon-use: $c-white !default;
+$sz-progress-steps-icon: $sz-icon-m;
 
 $c-progress-steps-active: $c-primary !default;
 
 $bdw-progress-steps-bar: 2px !default;
 $h-progress-steps-bar: $bdw-progress-steps-bar * 2 !default;
-$base-class: '.sui-MoleculeProgressSteps';
 
+$fz-progress-steps-number: $fz-xxl !default;
+$fw-progress-steps-number: $fw-regular !default;
+
+$base-class: '.sui-MoleculeProgressSteps';
 .sui-MoleculeProgressSteps {
   &-path {
     align-items: center;
@@ -59,9 +64,13 @@ $base-class: '.sui-MoleculeProgressSteps';
       flex-direction: column;
       justify-content: center;
 
-      svg,
-      use {
+      svg {
+        width: $sz-progress-steps-icon;
+        height: $sz-progress-steps-icon;
         fill: $c-progress-steps-icon;
+        use {
+          fill: $c-progress-steps-icon-use;
+        }
       }
 
       &--active,
@@ -78,7 +87,6 @@ $base-class: '.sui-MoleculeProgressSteps';
       &-icon {
         align-items: center;
         display: flex;
-        height: 40px;
         margin: 5px;
         padding: 0;
         width: 40px;
@@ -91,7 +99,8 @@ $base-class: '.sui-MoleculeProgressSteps';
       &-number {
         align-items: center;
         display: flex;
-        font-size: $fz-xxl;
+        font-size: $fz-progress-steps-number;
+        font-weight: $fw-progress-steps-number;
         justify-content: center;
       }
 

@@ -43,6 +43,20 @@ const Demo = () => {
           />
         </li>
         <li style={styleListItem}>
+          <h2>With Html Label + fullWidth</h2>
+          <MoleculeCheckboxField
+            id="info-help-text"
+            fullWidth
+            nodeLabel={
+              <div style={{display: 'flex', border: '1px dashed #000'}}>
+                <div style={{flexGrow: 1}}>I'm full width</div>
+                <button>Action</button>
+              </div>
+            }
+            onChange={(e, {name, value}) => console.log({[name]: value})}
+          />
+        </li>
+        <li style={styleListItem}>
           <h2>With Success Validation HelpText</h2>
           <MoleculeCheckboxField
             id="success-help-text"

@@ -32,6 +32,11 @@ $atomHelpText-class: '.sui-AtomHelpText';
     }
   }
 
+  &--fullWidth #{$base-class}-nodeLabelContainer {
+    min-width: 0; // https://css-tricks.com/flexbox-truncated-text/
+    width: 100%;
+  }
+
   &-labelContainer {
     align-items: $ai-molecule-field-label-container;
     display: flex;

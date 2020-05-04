@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.19.0 (2020-05-04)
+
+
+### Features
+
+* add autofocus attribute as a prop ([ea24532](https://github.com/SUI-Components/sui-components/commit/ea24532cb8b14dafb0eae8112913be313c130f32))
+
+
+
 # 4.18.0 (2020-04-06)
 
 

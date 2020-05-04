@@ -39,6 +39,23 @@
   "dependencies": {
     "@s-ui/component-dependencies": "1"
   },
+  "sui-bundler": {
+    "vendor": [
+      "react",
+      "react-dom",
+      "react-router"
+    ],
+    "scripts": {
+      "defaultAttribute": "defer",
+      "inline": "runtime",
+      "prefetch": false,
+      "preload": false
+    },
+    "sourcemaps": {
+      "dev": "cheap-module-eval-source-map",
+      "prod": "hidden-source-map"
+    }
+  },
   "config": {
     "sui-studio": {
       "font": "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i",

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-05-04)
+
+
+### Features
+
+* remove hover when the label is not a link ([e5b076d](https://github.com/SUI-Components/sui-components/commit/e5b076d83239e1a8ced9fff7e77c4a80b13a63a3))
+
+
+
 # 1.6.0 (2020-04-15)
 
 

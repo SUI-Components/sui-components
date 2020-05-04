@@ -64,7 +64,7 @@ $bgc-atom-input-disabled: $c-gray-lightest !default;
       }
 
       svg {
-        fill: $c-select-list-arrow-fill !important;
+        fill: $c-select-list-arrow-fill;
         height: $h-select-list-arrow;
         width: $w-select-list-arrow;
       }

@@ -149,7 +149,7 @@ MoleculeField.propTypes = {
   /** React node to be displayed as label of the textarea if there is not a given label value */
   nodeLabel: PropTypes.node,
 
-  /** Makes the container full width */
+  /** Makes nodeLabelContainer full width */
   fullWidth: PropTypes.bool,
 
   /** If true it will set the label type to 'CONTRAST' */

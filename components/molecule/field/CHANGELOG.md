@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.23.0 (2020-05-05)
+
+
+### Features
+
+* add fullWidth prop ([9eab0d5](https://github.com/SUI-Components/sui-components/commit/9eab0d5ff2d8d34972ff2de86b88df3efec70d04))
+
+
+
 # 1.22.0 (2020-04-06)
 
 

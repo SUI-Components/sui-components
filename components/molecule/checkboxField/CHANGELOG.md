@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.4.0 (2020-05-05)
+
+
+### Bug Fixes
+
+* remove unnecessary CSS for fullWidth ([57cec03](https://github.com/SUI-Components/sui-components/commit/57cec03448d19f4ee07d33eeae14b9451ae25959))
+
+
+### Features
+
+* add fullWidth prop ([c40d1d8](https://github.com/SUI-Components/sui-components/commit/c40d1d84414b305d0d747f25d31cf299afcf62e2))
+
+
+
 # 2.3.0 (2020-03-20)
 
 

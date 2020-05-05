@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 
 import MoleculeField from '@s-ui/react-molecule-field'
 import AtomCheckbox from '@s-ui/react-atom-checkbox'
@@ -22,7 +21,7 @@ const MoleculeCheckboxField = ({
   ...props
 }) => {
   return (
-    <div className={cx(BASE_CLASS, fullWidth && `${BASE_CLASS}--fullWidth`)}>
+    <div className={BASE_CLASS}>
       <MoleculeField
         name={id}
         label={label}
@@ -62,7 +61,7 @@ MoleculeCheckboxField.propTypes = {
   /** used as label for attribute and input element id */
   id: PropTypes.string.isRequired,
 
-  /** Makes the container full width */
+  /** Makes MoleculeField full width */
   fullWidth: PropTypes.bool,
 
   /* onChange callback */

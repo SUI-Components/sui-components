@@ -3,10 +3,6 @@
 @import '~@s-ui/react-atom-checkbox/lib/index';
 
 .sui-MoleculeCheckboxField {
-  &--fullWidth {
-    width: 100%;
-  }
-
   input[type='checkbox'] {
     margin: 0;
   }

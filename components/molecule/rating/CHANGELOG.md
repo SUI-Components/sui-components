@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-05-05)
+
+
+### Features
+
+* add default var ([620be8b](https://github.com/SUI-Components/sui-components/commit/620be8bcee306844a94bf04f101f74979aca85ca))
+
+
+
 # 1.7.0 (2020-05-04)
 
 

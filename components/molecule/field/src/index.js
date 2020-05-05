@@ -11,6 +11,7 @@ import AtomHelpText from '@s-ui/react-atom-help-text'
 const BASE_CLASS = 'sui-MoleculeField'
 const CLASS_INLINE = `${BASE_CLASS}--inline`
 const CLASS_AUTOHIDE = `${BASE_CLASS}--autohide`
+const CLASS_FULLWIDTH = `${BASE_CLASS}--fullWidth`
 const CLASS_INLINE_REVERSE = `${CLASS_INLINE}-reverse`
 const CLASS_NODE_LABEL_CONTAINER = `${BASE_CLASS}-nodeLabelContainer`
 const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-inputContainer`
@@ -60,6 +61,7 @@ const MoleculeField = ({
   alertText,
   label,
   nodeLabel,
+  fullWidth,
   useContrastLabel,
   helpText,
   name,
@@ -72,7 +74,8 @@ const MoleculeField = ({
     BASE_CLASS,
     inline && CLASS_INLINE,
     inline && reverse && CLASS_INLINE_REVERSE,
-    autoHideHelpText && CLASS_AUTOHIDE
+    autoHideHelpText && CLASS_AUTOHIDE,
+    fullWidth && CLASS_FULLWIDTH
   )
 
   let statusValidationText, typeValidationLabel, typeValidationText
@@ -145,6 +148,9 @@ MoleculeField.propTypes = {
 
   /** React node to be displayed as label of the textarea if there is not a given label value */
   nodeLabel: PropTypes.node,
+
+  /** Makes nodeLabelContainer full width */
+  fullWidth: PropTypes.bool,
 
   /** If true it will set the label type to 'CONTRAST' */
   useContrastLabel: PropTypes.bool,

@@ -2,8 +2,9 @@
 
 $bdc-sui-molecule-tabs-highlighted: transparent !default;
 $bdc-sui-molecule-tabs: color-variation($c-gray, 3) !default;
-$bdw-sui-molecule-tabs-highlighted-active: $p-s !default;
+$bdw-sui-molecule-tabs: $p-s !default;
 $bdw-sui-molecule-tabs-highlighted: 0 !default;
+$bdw-sui-molecule-tabs-highlighted-active: $bdw-sui-molecule-tabs !default;
 $c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
 $c-sui-molecule-tabs-disabled: $c-gray-lightest !default;
 $fz-sui-molecule-tabs: $fz-m !default;
@@ -102,6 +103,7 @@ $ws-sui-molecule-tabs-vertical-item: nowrap !default;
 
     .sui-MoleculeTabs-item {
       border: 0 none transparent;
+      border-bottom: $bdw-sui-molecule-tabs-highlighted solid transparent;
       text-align: center;
 
       &.is-active {

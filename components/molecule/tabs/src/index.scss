@@ -1,14 +1,20 @@
 @import '~@s-ui/theme/lib/index';
 
-$bdc-sui-molecule-tabs: color-variation($c-gray, 3) !default;
+$bdc-sui-molecule-tabs-highlighted: transparent !default;
+$bdc-sui-molecule-tabs: $c-gray-light-3 !default;
 $bdw-sui-molecule-tabs: $p-s !default;
-$c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
+$bdw-sui-molecule-tabs-highlighted: 0 !default;
+$bdw-sui-molecule-tabs-highlighted-active: $bdw-sui-molecule-tabs !default;
+$c-sui-molecule-tabs: $c-gray-light-1 !default;
 $c-sui-molecule-tabs-disabled: $c-gray-lightest !default;
 $fz-sui-molecule-tabs: $fz-m !default;
 $fw-sui-molecule-tabs-active: $fw-regular !default;
 $m-sui-molecule-tabs-item: 0 !default;
 $m-sui-molecule-tabs-first-item: $m-sui-molecule-tabs-item !default;
 $p-sui-molecule-tabs-item: $p-m $p-l !default;
+$ta-sui-molecule-tabs-vertical-item: center !default;
+$w-sui-molecule-tabs-vertical-item: 100% !default;
+$ws-sui-molecule-tabs-vertical-item: nowrap !default;
 
 .sui-MoleculeTabs {
   svg {
@@ -97,10 +103,11 @@ $p-sui-molecule-tabs-item: $p-m $p-l !default;
 
     .sui-MoleculeTabs-item {
       border: 0 none transparent;
-      border-bottom: $bdw-sui-molecule-tabs solid transparent;
+      border-bottom: $bdw-sui-molecule-tabs-highlighted solid transparent;
       text-align: center;
 
       &.is-active {
+        border-bottom: $bdw-sui-molecule-tabs-highlighted-active solid $c-primary;
         border-bottom-color: $c-primary;
         color: $c-primary;
         font-weight: $fw-sui-molecule-tabs-active;
@@ -121,6 +128,10 @@ $p-sui-molecule-tabs-item: $p-m $p-l !default;
         }
       }
     }
+
+    .sui-MoleculeTabs-content {
+      border-top: $bdw-sui-molecule-tabs-highlighted solid $bdc-sui-molecule-tabs-highlighted;
+    }
   }
 
   &--highlighted.sui-MoleculeTabs--vertical {
@@ -128,11 +139,10 @@ $p-sui-molecule-tabs-item: $p-m $p-l !default;
 
     .sui-MoleculeTabs-item {
       border: 0 none transparent;
-      border-right: $bdw-sui-molecule-tabs solid transparent;
       cursor: pointer;
 
       &.is-active {
-        border-right-color: $c-primary;
+        border-right: $bdw-sui-molecule-tabs-highlighted-active solid $c-primary;
         color: $c-primary;
         font-weight: $fw-sui-molecule-tabs-active;
 
@@ -151,6 +161,10 @@ $p-sui-molecule-tabs-item: $p-m $p-l !default;
           fill: $c-primary;
         }
       }
+    }
+
+    .sui-MoleculeTabs-content {
+      border-left: $bdw-sui-molecule-tabs-highlighted solid $bdc-sui-molecule-tabs-highlighted;
     }
   }
 
@@ -177,12 +191,17 @@ $p-sui-molecule-tabs-item: $p-m $p-l !default;
     }
 
     .sui-MoleculeTabs-content {
-      margin-left: 20px;
+      padding-left: 20px;
     }
 
     .sui-MoleculeTabs-item {
-      text-align: center;
+      text-align: $ta-sui-molecule-tabs-vertical-item;
+      white-space: $ws-sui-molecule-tabs-vertical-item;
       width: 100%;
+
+      @include media-breakpoint-up(m) {
+        width: $w-sui-molecule-tabs-vertical-item;
+      }
 
       &.is-disabled {
         cursor: no-drop;

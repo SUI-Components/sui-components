@@ -4,6 +4,7 @@ $mh-notification: 500px !default;
 $sz-notification-icon: $sz-icon-m !default;
 $ai-notification-content: normal !default;
 $bdrs-notification-content: initial !default;
+$mt-notification-text: 0 !default;
 
 $bdrs-notification: (
   xl: $bdrs-base * 4,

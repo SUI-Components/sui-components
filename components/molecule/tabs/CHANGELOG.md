@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.8.0 (2020-05-12)
+
+
+### Bug Fixes
+
+* fix break ([2d20e80](https://github.com/SUI-Components/sui-components/commit/2d20e805c45868e9c6f84630e1d538fd5769a21f))
+
+
+### Features
+
+* add new border vars ([f475140](https://github.com/SUI-Components/sui-components/commit/f4751400294309ea406141981290795a5109f008))
+* highlighted border bottom ([18aae76](https://github.com/SUI-Components/sui-components/commit/18aae760e34a287f3c65693708cf8876770dc5cf))
+* use color vars ([e57f8f7](https://github.com/SUI-Components/sui-components/commit/e57f8f7580a03bb2de75444493780264c6f12eca))
+* vertical item styles ([5572c19](https://github.com/SUI-Components/sui-components/commit/5572c19afda70385f90e0b18bf13a60678338341))
+
+
+
 # 2.7.0 (2020-03-11)
 
 

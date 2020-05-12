@@ -1,11 +1,11 @@
 @import '~@s-ui/theme/lib/index';
 
 $bdc-sui-molecule-tabs-highlighted: transparent !default;
-$bdc-sui-molecule-tabs: color-variation($c-gray, 3) !default;
+$bdc-sui-molecule-tabs: $c-gray-light-3 !default;
 $bdw-sui-molecule-tabs: $p-s !default;
 $bdw-sui-molecule-tabs-highlighted: 0 !default;
 $bdw-sui-molecule-tabs-highlighted-active: $bdw-sui-molecule-tabs !default;
-$c-sui-molecule-tabs: color-variation($c-gray, 1) !default;
+$c-sui-molecule-tabs: $c-gray-light-1 !default;
 $c-sui-molecule-tabs-disabled: $c-gray-lightest !default;
 $fz-sui-molecule-tabs: $fz-m !default;
 $fw-sui-molecule-tabs-active: $fw-regular !default;

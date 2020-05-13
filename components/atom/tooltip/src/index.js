@@ -284,7 +284,7 @@ AtomTooltip.propTypes = {
 
   /**
    * Color of tooltip:
-   * 'primary' (default),
+   * 'primary',
    * 'accent',
    * 'neutral',
    * 'success',

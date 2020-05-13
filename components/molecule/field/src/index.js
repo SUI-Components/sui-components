@@ -144,7 +144,7 @@ MoleculeField.propTypes = {
   label: PropTypes.string,
 
   /** React node to be displayed as label of the textarea if there is not a given label value */
-  nodeLabel: PropTypes.node,
+  nodeLabel: PropTypes.element,
 
   /** If true it will set the label type to 'CONTRAST' */
   useContrastLabel: PropTypes.bool,

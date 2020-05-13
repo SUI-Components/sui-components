@@ -85,6 +85,67 @@ return (
         </AtomTooltip>
       </p>
     </div>
+    <h2>Color tooltip</h2>
+    <p>
+      We can set <code>color</code> property to <code>AtomTooltip</code> in order use theme colors.
+    </p>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip color="primary">
+          <u title="This is the primary color" tabIndex="1">
+            primary color
+          </u>
+        </AtomTooltip>
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip color="accent">
+          <u title="This is the accent color" tabIndex="1">
+            accent color
+          </u>
+        </AtomTooltip>
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip color="neutral">
+          <u title="This is the neutral color" tabIndex="1">
+            neutral color
+          </u>
+        </AtomTooltip>
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip color="success">
+          <u title="This is the success color" tabIndex="1">
+            success color
+          </u>
+        </AtomTooltip>
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip color="alert">
+          <u title="This is the alert color" tabIndex="1">
+            alert color
+          </u>
+        </AtomTooltip>
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip color="error">
+          <u title="This is the error color" tabIndex="1">
+            error color
+          </u>
+        </AtomTooltip>
+      </p>
+    </div>
     <h2>HTML for content of the tooltip </h2>
     <p>
       We can also set HTML as content of the Tooltip by passing a React component to the prop <code>content</code> of <code>AtomTooltip</code>.

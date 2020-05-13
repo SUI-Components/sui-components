@@ -46,7 +46,7 @@ const MoleculeLabel = ({
 
 MoleculeLabel.propTypes = {
   label: PropTypes.string,
-  nodeLabel: PropTypes.node,
+  nodeLabel: PropTypes.element,
   type: PropTypes.oneOf(Object.values(AtomLabelTypes)),
   name: PropTypes.string,
   onClickLabel: PropTypes.func

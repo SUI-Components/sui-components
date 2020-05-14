@@ -44,7 +44,7 @@ MoleculeRadioButtonField.propTypes = {
   label: PropTypes.string,
 
   /** React node to be displayed as label if there is not a label */
-  nodeLabel: PropTypes.node,
+  nodeLabel: PropTypes.element,
 
   /** used as label for attribute and input element id */
   id: PropTypes.string.isRequired,

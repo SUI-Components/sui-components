@@ -1,4 +1,4 @@
-/* global atomTooltipPlacements, React */
+/* global React */
 /* eslint-disable react/react-in-jsx-scope, react/jsx-no-undef */
 
 const listContainerStyles = {
@@ -85,6 +85,67 @@ return (
         </AtomTooltip>
       </p>
     </div>
+    <h2>Color tooltip</h2>
+    <p>
+      We can set <code>color</code> property to <code>AtomTooltip</code> in order use theme colors.
+    </p>
+    <div
+      style={{
+        border: '1px solid #CCC',
+        background: '#fff',
+        marginTop: '10px',
+        padding: '10px'
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip color="primary">
+          <u title="This is the primary color" tabIndex="1">
+            primary color
+          </u>
+        </AtomTooltip>
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip color="accent">
+          <u title="This is the accent color" tabIndex="1">
+            accent color
+          </u>
+        </AtomTooltip>
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip color="neutral">
+          <u title="This is the neutral color" tabIndex="1">
+            neutral color
+          </u>
+        </AtomTooltip>
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip color="success">
+          <u title="This is the success color" tabIndex="1">
+            success color
+          </u>
+        </AtomTooltip>
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip color="alert">
+          <u title="This is the alert color" tabIndex="1">
+            alert color
+          </u>
+        </AtomTooltip>
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet{' '}
+        <AtomTooltip color="error">
+          <u title="This is the error color" tabIndex="1">
+            error color
+          </u>
+        </AtomTooltip>
+      </p>
+    </div>
     <h2>HTML for content of the tooltip </h2>
     <p>
       We can also set HTML as content of the Tooltip by passing a React component to the prop <code>content</code> of <code>AtomTooltip</code>.
@@ -124,20 +185,20 @@ return (
           {/* --- top --- */}
           <li style={listItemTop}>
             <AtomTooltip
-              placement={atomTooltipPlacements.TOP_START}
+              placement={AtomTooltip.TOP_START}
               content={() => <code>placement='top-start'</code>}
             >
               <strong tabIndex="5">top-start</strong>
             </AtomTooltip>
 
             <AtomTooltip
-              placement={atomTooltipPlacements.TOP}
+              placement={AtomTooltip.TOP}
               content={() => <code>placement='top'</code>}
             >
               <strong tabIndex="6">top</strong>
             </AtomTooltip>
             <AtomTooltip
-              placement={atomTooltipPlacements.TOP_END}
+              placement={AtomTooltip.TOP_END}
               content={() => <code>placement='top-end'</code>}
             >
               <strong tabIndex="7">top-end</strong>
@@ -147,7 +208,7 @@ return (
           {/* --- right --- */}
           <li style={listItemRight}>
             <AtomTooltip
-              placement={atomTooltipPlacements.RIGHT_START}
+              placement={AtomTooltip.RIGHT_START}
               content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='right-start'</code></span>}
             >
               <strong tabIndex="8" style={{textAlign: 'right'}}>
@@ -155,7 +216,7 @@ return (
               </strong>
             </AtomTooltip>
             <AtomTooltip
-              placement={atomTooltipPlacements.RIGHT}
+              placement={AtomTooltip.RIGHT}
               content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='right'</code></span>}
             >
               <strong tabIndex="9" style={{textAlign: 'right'}}>
@@ -163,7 +224,7 @@ return (
               </strong>
             </AtomTooltip>
             <AtomTooltip
-              placement={atomTooltipPlacements.RIGHT_END}
+              placement={AtomTooltip.RIGHT_END}
               content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='right-end'</code></span>}
             >
               <strong tabIndex="10" style={{textAlign: 'right'}}>
@@ -175,19 +236,19 @@ return (
           {/* --- bottom --- */}
           <li style={listItemBottom}>
             <AtomTooltip
-              placement={atomTooltipPlacements.BOTTOM_START}
+              placement={AtomTooltip.BOTTOM_START}
               content={() => <code>placement='bottom-start'</code>}
             >
               <strong tabIndex="11">bottom-start</strong>
             </AtomTooltip>
             <AtomTooltip
-              placement={atomTooltipPlacements.BOTTOM}
+              placement={AtomTooltip.BOTTOM}
               content={() => <code>placement='bottom'</code>}
             >
               <strong tabIndex="12">bottom</strong>
             </AtomTooltip>
             <AtomTooltip
-              placement={atomTooltipPlacements.BOTTOM_END}
+              placement={AtomTooltip.BOTTOM_END}
               content={() => <code>placement='bottom-end'</code>}
             >
               <strong tabIndex="13">bottom-end</strong>
@@ -197,19 +258,19 @@ return (
           {/* --- left --- */}
           <li style={listItemLeft}>
             <AtomTooltip
-              placement={atomTooltipPlacements.LEFT_START}
+              placement={AtomTooltip.LEFT_START}
               content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='left-start'</code></span>}
             >
               <strong tabIndex="14">left-start</strong>
             </AtomTooltip>
             <AtomTooltip
-              placement={atomTooltipPlacements.LEFT}
+              placement={AtomTooltip.LEFT}
               content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='left'</code></span>}
             >
               <strong tabIndex="15">left</strong>
             </AtomTooltip>
             <AtomTooltip
-              placement={atomTooltipPlacements.LEFT_END}
+              placement={AtomTooltip.LEFT_END}
               content={() => <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit<br /><code>placement='left-end'</code></span>}
             >
               <strong tabIndex="16">left-end</strong>
@@ -278,7 +339,7 @@ return (
     >
       <p>
         Lorem ipsum dolor sit amet{' '}
-        <AtomTooltip placement={atomTooltipPlacements.BOTTOM_END}>
+        <AtomTooltip placement={AtomTooltip.BOTTOM_END}>
           <strong
             title="Hendrerit varius luctus scelerisque habitant ridiculus, vulputate mollis
           platea nunc sociosqu magna, suscipit montes ullamcorper vivamus. Montes
@@ -305,7 +366,7 @@ return (
       <p>
         Lorem ipsum dolor sit amet{' '}
         <AtomTooltip
-          placement={atomTooltipPlacements.RIGHT}
+          placement={AtomTooltip.RIGHT}
           content={() => (
             <>
               Hello <strong>world</strong>!

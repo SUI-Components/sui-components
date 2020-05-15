@@ -31,6 +31,33 @@ $class-inner: '#{$base-class}-inner';
 $class-arrow: '#{$base-class}-arrow';
 $class-target: '#{$base-class}-target';
 
+$c-atom-tooltip-colors: (
+  'primary': (
+    $c-primary,
+    $c-white
+  ),
+  'accent': (
+    $c-accent,
+    $c-white
+  ),
+  'neutral': (
+    $c-gray,
+    $c-white
+  ),
+  'success': (
+    $c-success,
+    $c-white
+  ),
+  'alert': (
+    $c-alert,
+    $c-white
+  ),
+  'error': (
+    $c-error,
+    $c-white
+  )
+) !default;
+
 #{$class-target} {
   color: $c-atom-tooltip-target;
   font-size: $fz-atom-tooltip-target;
@@ -178,6 +205,51 @@ $class-target: '#{$base-class}-target';
 
     &[x-placement^='left'] {
       @extend #{$base-class}--left;
+    }
+  }
+
+  @each $name, $pair in $c-atom-tooltip-colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &--#{$name}Color {
+      #{$class-inner} {
+        background-color: $color;
+        border-color: $color;
+        color: $color-invert;
+      }
+
+      &#{$base-class}--top {
+        #{$class-arrow} {
+          &::before {
+            border-top-color: $color;
+          }
+        }
+      }
+
+      &#{$base-class}--right {
+        #{$class-arrow} {
+          &::before {
+            border-right-color: $color;
+          }
+        }
+      }
+
+      &#{$base-class}--bottom {
+        #{$class-arrow} {
+          &::before {
+            border-bottom-color: $color;
+          }
+        }
+      }
+
+      &#{$base-class}--left {
+        #{$class-arrow} {
+          &::before {
+            border-left-color: $color;
+          }
+        }
+      }
     }
   }
 }

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.24.0 (2020-05-14)
+
+
+### Bug Fixes
+
+* change proptype node by element ([bd7d53a](https://github.com/SUI-Components/sui-components/commit/bd7d53a13ae6f948da3ae14b10053a633f644c02))
+* change proptype node by element ([29d90bf](https://github.com/SUI-Components/sui-components/commit/29d90bf2e081451e8e13a74061522ed7b0cb27a9))
+
+
+
 # 1.23.0 (2020-05-05)
 
 

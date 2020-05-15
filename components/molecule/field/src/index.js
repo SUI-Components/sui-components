@@ -47,7 +47,7 @@ const MoleculeLabel = ({
 
 MoleculeLabel.propTypes = {
   label: PropTypes.string,
-  nodeLabel: PropTypes.node,
+  nodeLabel: PropTypes.element,
   type: PropTypes.oneOf(Object.values(AtomLabelTypes)),
   name: PropTypes.string,
   onClickLabel: PropTypes.func
@@ -147,7 +147,7 @@ MoleculeField.propTypes = {
   label: PropTypes.string,
 
   /** React node to be displayed as label of the textarea if there is not a given label value */
-  nodeLabel: PropTypes.node,
+  nodeLabel: PropTypes.element,
 
   /** Makes nodeLabelContainer full width */
   fullWidth: PropTypes.bool,

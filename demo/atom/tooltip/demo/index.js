@@ -353,6 +353,9 @@ const Demo = () => {
             </u>
           </AtomTooltipBase>
         </p>
+        <button onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? 'hide tooltip' : 'open tooltip'}
+        </button>
       </div>
     </div>
   )

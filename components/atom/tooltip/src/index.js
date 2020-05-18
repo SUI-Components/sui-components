@@ -294,7 +294,17 @@ AtomTooltip.propTypes = {
   color: PropTypes.oneOf(COLORS)
 }
 
-export default withIntersectionObserver(withOpenToggle(AtomTooltip))
+const ExportedAtomTooltip = withIntersectionObserver(
+  withOpenToggle(AtomTooltip)
+)
+
+ExportedAtomTooltip.COLORS = COLORS
+ExportedAtomTooltip.PLACEMENTS = PLACEMENTS
+
+AtomTooltip.COLORS = COLORS
+AtomTooltip.PLACEMENTS = PLACEMENTS
+
+export default ExportedAtomTooltip
 export {AtomTooltip as AtomTooltipBase}
 export {COLORS as atomTooltipColors}
 export {PLACEMENTS as atomTooltipPlacements}

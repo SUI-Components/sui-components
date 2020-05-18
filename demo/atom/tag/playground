@@ -205,5 +205,68 @@
           responsive
         />
       </p>
+
+      <h2>Tags with large labels</h2>
+      <p>
+       <AtomTag label="Tag Structure" />{' '}
+        <AtomTag
+          label="Close Tag"
+          onClose={() => window.alert('close!')}
+          closeIcon={<CloseIcon />}
+          extendedLabel
+        />
+        <AtomTag label="Icon Tag" icon={<Icon />} />
+        <AtomTag
+          label="Icon & Close Tag"
+          icon={<Icon />}
+          onClose={() => window.alert('close!')}
+          closeIcon={<CloseIcon />}
+          extendedLabel
+        />
+        <AtomTag label="Maximum Tag Width. Very long text, without close nor icon" extendedLabel/>
+        <AtomTag
+          label="Maximum Tag Width. Very long text, no icon, close"
+          onClose={() => window.alert('close!')}
+          closeIcon={<CloseIcon />}
+          extendedLabel
+        />
+        <AtomTag
+          label="Maximum Tag Width. Very long text, icon, no close"
+          icon={<Icon />}
+          extendedLabel
+        />
+        <AtomTag
+          label="Maximum Tag Width. Very long text, with icon and close"
+          icon={<Icon />}
+          onClose={() => window.alert('close!')}
+          closeIcon={<CloseIcon />}
+          extendedLabel
+        />
+        <AtomTag
+          label="Large tag. Maximum Tag Width. Very long text, with icon and close"
+          icon={<Icon />}
+          onClose={() => window.alert('close!')}
+          closeIcon={<CloseIcon />}
+          extendedLabel
+          size={atomTagSizes.LARGE}
+        />
+        <AtomTag
+          label="Medium tag. Maximum Tag Width. Very long text, with icon and close"
+          icon={<Icon />}
+          onClose={() => window.alert('close!')}
+          closeIcon={<CloseIcon />}
+          extendedLabel
+          size={atomTagSizes.MEDIUM}
+        />
+        <AtomTag
+          label="Small tag. Maximum Tag Width. Very long text, with icon and close"
+          icon={<Icon />}
+          onClose={() => window.alert('close!')}
+          closeIcon={<CloseIcon />}
+          extendedLabel
+          size={atomTagSizes.SMALL}
+        />
+        <AtomTag label="101 char length, Very long text char890123456789012345678901234567890123456789012345678901234567890" extendedLabel />
+      </p>
     </div>
   )

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.16.0 (2020-05-18)
+
+
+### Bug Fixes
+
+* revert changes at export component ([2d83a1f](https://github.com/SUI-Components/sui-components/commit/2d83a1fa0887d510951cf8d12b59dfa1d1856288))
+
+
+
 # 1.15.0 (2020-05-15)
 
 

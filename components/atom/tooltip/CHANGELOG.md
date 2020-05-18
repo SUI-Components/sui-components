@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.17.0 (2020-05-18)
+
+
+### Bug Fixes
+
+* allow retrocompatibility between different export types ([f3b47f0](https://github.com/SUI-Components/sui-components/commit/f3b47f044f39577b8ca28ad24c269d172b948381))
+
+
+
 # 1.16.0 (2020-05-18)
 
 

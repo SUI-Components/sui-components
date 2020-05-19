@@ -6,7 +6,7 @@ import {render, getByText} from '@testing-library/react'
 
 chai.use(chaiDOM)
 
-const BUTTON_TEXT = 'My button text'
+const BUTTON_TEXT = 'Lorem Ipsum'
 
 const container = document.body
 
@@ -28,8 +28,15 @@ describe('atom/actionButton', () => {
     render(component)
   })
 
-  it('Displays the action button with the expected label', () => {
+  it('Displays the expected button', () => {
     const expectedLabel = getByText(container, BUTTON_TEXT)
     expect(expectedLabel).to.be.exist
+  })
+
+  it('Displays the expected text', () => {
+    const {getByText} = render(createComponent)
+    const actionButtonElement = getByText(BUTTON_TEXT)
+
+    expect(actionButtonElement.innerText).to.be.equal(BUTTON_TEXT)
   })
 })

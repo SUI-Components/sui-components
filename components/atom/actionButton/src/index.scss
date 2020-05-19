@@ -69,19 +69,6 @@ $tt-atom-action-button: none !default;
 $icon-fill-color: currentColor !default;
 $icon-stroke-color: currentColor !default;
 
-// Sets active states when button is not disabled
-@mixin action-button-focused {
-  &#{$base-class}--focused,
-  &:active {
-    @content;
-  }
-  @media (hover: hover) {
-    &:hover {
-      @content;
-    }
-  }
-}
-
 @mixin action-button-icon($size) {
   & #{$base-class}-icon {
     height: $size;

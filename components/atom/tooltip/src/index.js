@@ -1,28 +1,27 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 import {withIntersectionObserver, withOpenToggle} from '@s-ui/hoc'
 
-const BASE_CLASS = 'sui-AtomTooltip'
-const CLASS_INNER = `${BASE_CLASS}-inner`
-const CLASS_ARROW = `${BASE_CLASS}-arrow`
-const PREFIX_PLACEMENT = `${BASE_CLASS}-`
-const CLASS_TARGET = `${BASE_CLASS}-target`
+import {
+  BASE_CLASS,
+  CLASS_ARROW,
+  CLASS_INNER,
+  CLASS_TARGET,
+  COLORS,
+  PREFIX_PLACEMENT,
+  PLACEMENTS
+} from './config'
 
-const PLACEMENTS = {
-  TOP: 'top',
-  TOP_START: 'top-start',
-  TOP_END: 'top-end',
-  RIGHT: 'right',
-  RIGHT_START: 'right-start',
-  RIGHT_END: 'right-end',
-  BOTTOM: 'bottom',
-  BOTTOM_START: 'bottom-start',
-  BOTTOM_END: 'bottom-end',
-  LEFT: 'left',
-  LEFT_START: 'left-start',
-  LEFT_END: 'left-end'
+const createClasses = (array, sufix = '') => {
+  return array.reduce(
+    (res, key) => ({...res, [key]: `${BASE_CLASS}--${key}${sufix}`}),
+    {}
+  )
 }
+
+const COLOR_CLASSES = createClasses(COLORS, 'Color')
 
 class AtomTooltip extends Component {
   state = {Tooltip: null}
@@ -190,24 +189,27 @@ class AtomTooltip extends Component {
 
   render() {
     const {
-      hideArrow,
+      autohide,
+      color,
       content: HtmlContent,
       delay,
-      autohide,
+      hideArrow,
       placement
     } = this.props // eslint-disable-line react/prop-types
 
     const {Tooltip} = this.state
     const target = this.refTarget.current
     const restrictedProps = {
-      hideArrow,
-      target,
-      delay,
       autohide,
-      placement
+      delay,
+      hideArrow,
+      placement,
+      target
     }
     let {isVisible, isOpen} = this.props // eslint-disable-line react/prop-types
     if (!isVisible && isOpen) isOpen = false
+
+    const classNames = cx(BASE_CLASS, color && COLOR_CLASSES[color])
 
     return (
       <>
@@ -217,7 +219,7 @@ class AtomTooltip extends Component {
             {...restrictedProps}
             isOpen={isOpen}
             toggle={this.handleToggle} // eslint-disable-line
-            className={BASE_CLASS}
+            className={classNames}
             innerClassName={CLASS_INNER}
             arrowClassName={CLASS_ARROW}
             placementPrefix={PREFIX_PLACEMENT}
@@ -278,8 +280,31 @@ AtomTooltip.propTypes = {
   ]),
 
   /** Time in miliseconds for longpress duration */
-  longPressTime: PropTypes.number
+  longPressTime: PropTypes.number,
+
+  /**
+   * Color of tooltip:
+   * 'primary',
+   * 'accent',
+   * 'neutral',
+   * 'success',
+   * 'alert',
+   * 'error'
+   */
+  color: PropTypes.oneOf(COLORS)
 }
 
-export default withIntersectionObserver(withOpenToggle(AtomTooltip))
-export {AtomTooltip as AtomTooltipBase, PLACEMENTS as atomTooltipPlacements}
+const ExportedAtomTooltip = withIntersectionObserver(
+  withOpenToggle(AtomTooltip)
+)
+
+ExportedAtomTooltip.COLORS = COLORS
+ExportedAtomTooltip.PLACEMENTS = PLACEMENTS
+
+AtomTooltip.COLORS = COLORS
+AtomTooltip.PLACEMENTS = PLACEMENTS
+
+export default ExportedAtomTooltip
+export {AtomTooltip as AtomTooltipBase}
+export {COLORS as atomTooltipColors}
+export {PLACEMENTS as atomTooltipPlacements}

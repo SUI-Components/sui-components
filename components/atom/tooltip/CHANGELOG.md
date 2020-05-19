@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.17.0 (2020-05-18)
+
+
+### Bug Fixes
+
+* allow retrocompatibility between different export types ([f3b47f0](https://github.com/SUI-Components/sui-components/commit/f3b47f044f39577b8ca28ad24c269d172b948381))
+
+
+
+# 1.16.0 (2020-05-18)
+
+
+### Bug Fixes
+
+* revert changes at export component ([2d83a1f](https://github.com/SUI-Components/sui-components/commit/2d83a1fa0887d510951cf8d12b59dfa1d1856288))
+
+
+
+# 1.15.0 (2020-05-15)
+
+
+### Features
+
+* add color property to make component customizable ([f7814fc](https://github.com/SUI-Components/sui-components/commit/f7814fcbfade0fe020587317ac8e5847d3348ad0))
+* improve how component is exported ([d6a3924](https://github.com/SUI-Components/sui-components/commit/d6a39245a6051d8851892642e623466784e8c392))
+* primary color is not the default color ([f829734](https://github.com/SUI-Components/sui-components/commit/f82973450b873dceeea8fcb7986432bd99c06629))
+
+
+
 # 1.14.0 (2020-03-31)
 
 

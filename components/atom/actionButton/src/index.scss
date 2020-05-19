@@ -3,6 +3,8 @@
 
 $base-class: '.react-AtomActionButton';
 
+$bdsz-atom-action-button-icon-outline: 1px;
+
 $c-atom-action-button-neutral: color-variation($c-gray, 2);
 
 $c-accent-active: color-variation($c-accent, -2) !default;
@@ -21,6 +23,10 @@ $c-accent-hover-2: color-variation($c-accent, 4) !default;
 $c-neutral-hover-2: color-variation($c-gray, 5) !default;
 $c-primary-hover-2: color-variation($c-primary, 4) !default;
 
+$c-accent-icon-bg: color-variation($c-accent, 3) !default;
+$c-neutral-icon-bg: color-variation($c-atom-action-button-neutral, 3) !default;
+$c-primary-icon-bg: color-variation($c-primary, 3) !default;
+
 $c-atom-action-button-colors: (
   'accent': (
     $c-accent,
@@ -28,7 +34,8 @@ $c-atom-action-button-colors: (
     $c-accent-active,
     $c-accent-disabled,
     $c-accent-hover,
-    $c-accent-hover-2
+    $c-accent-hover-2,
+    $c-accent-icon-bg
   ),
   'neutral': (
     $c-atom-action-button-neutral,
@@ -36,7 +43,8 @@ $c-atom-action-button-colors: (
     $c-neutral-active,
     $c-neutral-disabled,
     $c-neutral-hover,
-    $c-neutral-hover-2
+    $c-neutral-hover-2,
+    $c-neutral-icon-bg
   ),
   'primary': (
     $c-primary,
@@ -44,7 +52,8 @@ $c-atom-action-button-colors: (
     $c-primary-active,
     $c-primary-disabled,
     $c-primary-hover,
-    $c-primary-hover-2
+    $c-primary-hover-2,
+    $c-primary-icon-bg
   )
 ) !default;
 
@@ -131,6 +140,7 @@ $icon-stroke-color: currentColor !default;
     $color-disabled: nth($pair, 4);
     $color-hover: nth($pair, 5);
     $color-hover-2: nth($pair, 6);
+    $color-positive-icon-bg: nth($pair, 7);
 
     &--#{$name}Color {
       color: $color;
@@ -148,7 +158,7 @@ $icon-stroke-color: currentColor !default;
 
       &#{$base-class}--filledPositive {
         & #{$base-class}-icon {
-          background: color-variation($color, 3);
+          background: $color-positive-icon-bg;
         }
         &:hover #{$base-class}-icon {
           background: $color-hover-2;
@@ -158,7 +168,7 @@ $icon-stroke-color: currentColor !default;
       &#{$base-class}--outline {
         & #{$base-class}-icon {
           background: none;
-          border: 1px solid $color;
+          border: $bdsz-atom-action-button-icon-outline solid $color;
         }
         &:hover #{$base-class}-icon {
           background: $color-hover-2;

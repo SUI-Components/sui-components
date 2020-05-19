@@ -182,6 +182,5 @@ AtomActionButton.propTypes = {
 
 export default AtomActionButton
 export {COLORS as atomActionButtonColors}
-export {MODIFIERS as atomActionButtonModifiers}
 export {SIZES as atomActionButtonSizes}
 export {STYLES as atomActionButtonStyles}

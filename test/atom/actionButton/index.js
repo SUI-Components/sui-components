@@ -34,9 +34,8 @@ describe('atom/actionButton', () => {
   })
 
   it('Displays the expected text', () => {
-    const {getByText} = render(createComponent)
-    const actionButtonElement = getByText(BUTTON_TEXT)
+    const actionButtonElement = getByText(container, BUTTON_TEXT)
 
-    expect(actionButtonElement.innerText).to.be.equal(BUTTON_TEXT)
+    expect(actionButtonElement.innerText).to.be.equal('BUTTON_TEXT')
   })
 })

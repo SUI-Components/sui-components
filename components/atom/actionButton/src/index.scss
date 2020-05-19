@@ -48,47 +48,21 @@ $c-atom-action-button-colors: (
   )
 ) !default;
 
-$ff-atom-action-button: $ff-sans-serif !default;
-
 $bdrs-atom-action-button: $bdrs-m !default;
 $bdrs-atom-action-button-icon: $bdrs-rounded !default;
-$bgc-atom-action-button: $c-primary !default;
-$bgc-atom-action-button-light: color-variation(
-  $bgc-atom-action-button,
-  4
-) !default;
-$bgc-atom-action-button-dark: color-variation(
-  $bgc-atom-action-button,
-  -1
-) !default;
-$bgc-atom-action-button-light-contrast: color-variation(
-  $bgc-atom-action-button,
-  3
-) !default;
 
-$sz-atom-action-button-small: $p-base * 4 !default;
-$fw-atom-action-button-small: $fw-semi-bold !default;
-$icon-m-atom-action-button-small: $sz-icon-l !default;
-$icon-sz-atom-action-button-small: $sz-icon-l !default;
-
+$ff-atom-action-button: $ff-sans-serif !default;
 $fz-atom-action-button: $fz-m !default;
 $fw-atom-action-button: $fw-semi-bold !default;
-$icon-sz-atom-action-button: $sz-icon-xl !default;
-$icon-m-atom-action-button: $m-m !default;
-$p-atom-action-button: $p-m !default;
-$sz-atom-action-button: $p-base * 5 !default;
 
-$sz-atom-action-button-large: $p-base * 6 !default;
-$fz-atom-action-button-large: $fz-m !default;
-$fw-atom-action-button-large: $fw-semi-bold !default;
-$icon-m-atom-action-button-large: $m-m !default;
+$icon-m-atom-action-button: $m-m !default;
+
+$icon-sz-atom-action-button-small: $sz-icon-l !default;
+$icon-sz-atom-action-button: $sz-icon-xl !default;
 $icon-sz-atom-action-button-large: $sz-icon-xxl !default;
 
-$bdrs-atom-action-button-first: $bdrs-m 0 0 $bdrs-m !default;
-$bdrs-atom-action-button-last: 0 $bdrs-m $bdrs-m 0 !default;
-
-$bxsh-atom-action-button-solid-primary: none !default;
-$bxsh-atom-action-button-solid-primary-negative: none !default;
+$p-atom-action-button: $p-m !default;
+$sz-atom-action-button: $p-base * 5 !default;
 
 $tt-atom-action-button: none !default;
 
@@ -173,6 +147,7 @@ $icon-stroke-color: currentColor !default;
 
     &--#{$name}Color {
       color: $color;
+
       &#{$base-class}--filledNegative {
         & #{$base-class}-icon {
           background: $color;
@@ -210,25 +185,6 @@ $icon-stroke-color: currentColor !default;
         &:hover {
           background: $color-hover-2;
         }
-      }
-    }
-  }
-
-  &--outline,
-  &--negative {
-    background: none;
-  }
-
-  &--flat {
-    border: 0;
-  }
-
-  &--solid {
-    &#{$base-class}--primary {
-      box-shadow: $bxsh-atom-action-button-solid-primary;
-
-      &#{$base-class}--negative {
-        box-shadow: $bxsh-atom-action-button-solid-primary-negative;
       }
     }
   }

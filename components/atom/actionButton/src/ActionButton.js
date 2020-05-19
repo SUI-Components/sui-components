@@ -6,8 +6,8 @@ const ActionButton = ({
   href,
   target,
   disabled,
-  isSubmit, // eslint-disable-line react/prop-types
-  isButton, // eslint-disable-line react/prop-types
+  isSubmit,
+  isButton,
   link,
   linkFactory: Link,
   ...attrs
@@ -36,25 +36,33 @@ ActionButton.propTypes = {
    */
   children: PropTypes.node,
   /**
-   * HTML element: if true, render a link. Otherwise render a button
+   * Disable: faded with no interaction.
    */
-  link: PropTypes.bool,
+  disabled: PropTypes.bool,
   /**
    * URL to be added on the HTML link
    */
   href: PropTypes.string,
   /**
-   * Target to be added on the HTML link
+   * HTML element: if true, render a link. Otherwise render a button
    */
-  target: PropTypes.string,
-  /**
-   * Disable: faded with no interaction.
-   */
-  disabled: PropTypes.bool,
+  link: PropTypes.bool,
   /**
    * Factory used to create navigation links
    */
-  linkFactory: PropTypes.func
+  linkFactory: PropTypes.func,
+  /**
+   * if true, type="submit" (needed when several buttons coexist under the same form)
+   */
+  isSubmit: PropTypes.bool,
+  /**
+   * if true, type="button" (needed when several buttons coexist under the same form)
+   */
+  isButton: PropTypes.bool,
+  /**
+   * Target to be added on the HTML link
+   */
+  target: PropTypes.string
 }
 
 ActionButton.defaultProps = {

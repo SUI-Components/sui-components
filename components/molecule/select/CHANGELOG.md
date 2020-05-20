@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.30.0 (2020-05-20)
+
+
+### Features
+
+* add leftIcon prop to be shown into the main option ([4f5ab24](https://github.com/SUI-Components/sui-components/commit/4f5ab24744d79ac8f83dee41eb103d310a2fb958))
+
+
+
 # 1.29.0 (2020-04-28)
 
 

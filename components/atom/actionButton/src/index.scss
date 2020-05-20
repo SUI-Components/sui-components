@@ -75,9 +75,9 @@ $fw-atom-action-button: $fw-semi-bold !default;
 
 $icon-m-atom-action-button: $m-m !default;
 
-$icon-sz-atom-action-button-small: $sz-icon-l !default;
-$icon-sz-atom-action-button: $sz-icon-xl !default;
-$icon-sz-atom-action-button-large: $sz-icon-xxl !default;
+$sz-atom-action-button-icon-small: $sz-icon-l !default;
+$sz-atom-action-button-icon: $sz-icon-xl !default;
+$sz-atom-action-button-icon-large: $sz-icon-xxl !default;
 
 $p-atom-action-button: $p-m !default;
 $sz-atom-action-button: $p-base * 5 !default;
@@ -96,7 +96,7 @@ $icon-stroke-color: currentColor !default;
 
 #{$base-class} {
   @include reset-button;
-  @include action-button-icon($icon-sz-atom-action-button);
+  @include action-button-icon($sz-atom-action-button-icon);
 
   align-items: center;
   background: none;
@@ -203,11 +203,11 @@ $icon-stroke-color: currentColor !default;
   }
 
   &--small {
-    @include action-button-icon($icon-sz-atom-action-button-small);
+    @include action-button-icon($sz-atom-action-button-icon-small);
   }
 
   &--large {
-    @include action-button-icon($icon-sz-atom-action-button-large);
+    @include action-button-icon($sz-atom-action-button-icon-large);
   }
 
   &--link {

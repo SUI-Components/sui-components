@@ -73,8 +73,6 @@ $ff-atom-action-button: $ff-sans-serif !default;
 $fz-atom-action-button: $fz-m !default;
 $fw-atom-action-button: $fw-semi-bold !default;
 
-$icon-m-atom-action-button: $m-m !default;
-
 $sz-atom-action-button-icon-small: $sz-icon-l !default;
 $sz-atom-action-button-icon: $sz-icon-xl !default;
 $sz-atom-action-button-icon-large: $sz-icon-xxl !default;
@@ -84,8 +82,8 @@ $sz-atom-action-button: $p-base * 5 !default;
 
 $tt-atom-action-button: none !default;
 
-$icon-fill-color: currentColor !default;
-$icon-stroke-color: currentColor !default;
+$c-atom-action-icon-fill: currentColor !default;
+$c-atom-action-icon-stroke: currentColor !default;
 
 @mixin action-button-icon($size) {
   & #{$base-class}-icon {
@@ -136,8 +134,8 @@ $icon-stroke-color: currentColor !default;
     margin-bottom: $m-m;
 
     svg {
-      fill: $icon-fill-color;
-      stroke: $icon-stroke-color;
+      fill: $c-atom-action-icon-fill;
+      stroke: $c-atom-action-icon-stroke;
     }
   }
 

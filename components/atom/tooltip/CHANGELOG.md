@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.18.0 (2020-05-20)
+
+
+### Features
+
+* support secondary color ([8f643f6](https://github.com/SUI-Components/sui-components/commit/8f643f6d613a237ad8c15c58761e197a132f2ad5))
+
+
+
 # 1.17.0 (2020-05-18)
 
 

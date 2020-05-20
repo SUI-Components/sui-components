@@ -15,6 +15,7 @@ const MoleculeSelectSingleSelection = props => {
     isOpen,
     onToggle,
     onChange,
+    leftIcon,
     iconArrowDown,
     refMoleculeSelect,
     size,
@@ -43,6 +44,7 @@ const MoleculeSelectSingleSelection = props => {
         isOpen={isOpen}
         value={optionsData[value] || ''}
         onClick={onToggle}
+        leftIcon={leftIcon}
         iconArrowDown={iconArrowDown}
         placeholder={placeholder}
         autoComplete="off"

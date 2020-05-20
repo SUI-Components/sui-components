@@ -28,6 +28,7 @@ export const CLASS_TARGET = `${BASE_CLASS}-target`
  */
 export const COLORS = [
   'primary',
+  'secondary',
   'accent',
   'neutral',
   'success',

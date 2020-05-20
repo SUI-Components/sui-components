@@ -10,7 +10,7 @@ import MoleculeSelect, {
 
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 
-import {IconCloseTag, IconArrowDown} from './Icons'
+import {IconCloseTag, IconArrowDown, IconClock} from './Icons'
 
 import ComboCountries from './components/ComboCountries'
 import MoleculeSelectUseEffect from './components/MoleculeSelectUseEffect'
@@ -47,6 +47,22 @@ const Demo = () => (
       <MoleculeSelectWithState
         placeholder="Select a Country..."
         onChange={(_, {value}) => console.log(value)}
+        iconArrowDown={<IconArrowDown />}
+      >
+        {countriesList.map((country, i) => (
+          <MoleculeSelectOption key={i} value={country}>
+            {country}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelectWithState>
+    </div>
+
+    <div className={CLASS_DEMO_SECTION}>
+      <h3>With leftIcon</h3>
+      <MoleculeSelectWithState
+        placeholder="Select a Country..."
+        onChange={(_, {value}) => console.log(value)}
+        leftIcon={<IconClock />}
         iconArrowDown={<IconArrowDown />}
       >
         {countriesList.map((country, i) => (

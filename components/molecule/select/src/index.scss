@@ -59,6 +59,10 @@ $bgc-atom-input-disabled: $c-gray-lightest !default;
       margin-left: $mr-select-list-arrow;
       width: $w-select-list-arrow;
 
+      &--down {
+        transform: rotate(0deg);
+      }
+
       &--up {
         transform: rotate(180deg);
       }

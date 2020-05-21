@@ -8,7 +8,7 @@ const ButtonsRow = props => (
       <Title>{props.style}</Title>
     </td>
     <td>
-      <Button {...props} icon={Icon}>Button</Button>
+      <Button {...props} icon={Icon} onClick={() => alert('Button with onClick')} >Button w/ onClick</Button>
     </td>
     <td>
       <Button {...props} icon={Icon} disabled>

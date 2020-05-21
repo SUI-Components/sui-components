@@ -20,6 +20,8 @@ Every modification of the list will return a list of Blobs (jpeg encoded!) to be
 
 > `file` (Object) it's the new uploaded file.
 
+> `previewUrl` (String) a preview url to use if you wanna preview the images outside the photoUploader component
+
 ## Installation
 
 ```sh

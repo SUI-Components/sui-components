@@ -108,14 +108,28 @@ const MoleculePhotoUploader = ({
   })
 
   const _callbackPhotosUploaded = list => {
-    if (list.length) {
-      const blobsArray = list.reduce((array, currentFile) => {
-        const {blob, url, isNew, isModified, hasErrors, file} = currentFile
-        array.push({blob, url, isNew, isModified, hasErrors, file})
-        return [...array]
-      }, [])
-      callbackPhotosUploaded(blobsArray)
-    }
+    const blobsArray = list.reduce((array, currentFile) => {
+      const {
+        blob,
+        url,
+        isNew,
+        isModified,
+        hasErrors,
+        file,
+        preview
+      } = currentFile
+      array.push({
+        blob,
+        url,
+        isNew,
+        isModified,
+        hasErrors,
+        file,
+        previewUrl: preview
+      })
+      return [...array]
+    }, [])
+    callbackPhotosUploaded(blobsArray)
   }
 
   const _onDropRejected = rejectedFiles => {

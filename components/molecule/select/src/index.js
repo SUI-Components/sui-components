@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useState, useRef, useEffect, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -71,27 +71,34 @@ const MoleculeSelect = props => {
     }
   )
 
-  const closeList = (ev, {isOutsideEvent = false}) => {
-    onToggle(ev, {isOpen: false})
-    if (!isOutsideEvent) {
-      ev.preventDefault()
-      ev.stopPropagation()
-    }
-  }
+  const closeList = useCallback(
+    (ev, {isOutsideEvent = false}) => {
+      onToggle(ev, {isOpen: false})
+      if (!isOutsideEvent) {
+        ev.preventDefault()
+        ev.stopPropagation()
+      }
+    },
+    [onToggle]
+  )
 
-  const handleOutsideClick = ev => {
-    if (disabled) return
-    if (
-      refMoleculeSelect.current &&
-      !refMoleculeSelect.current.contains(ev.target)
-    ) {
-      // outside click
-      closeList(ev, {isOutsideEvent: true})
-      setFocus(false)
-    }
-  }
+  const handleOutsideClick = useCallback(
+    ev => {
+      if (disabled) return
+      if (
+        refMoleculeSelect.current &&
+        !refMoleculeSelect.current.contains(ev.target)
+      ) {
+        // outside click
+        closeList(ev, {isOutsideEvent: true})
+        setFocus(false)
+      }
+    },
+    [closeList, disabled]
+  )
 
   useEffect(() => {
+    setOptionsData(getOptionData(children))
     document.addEventListener('touchend', handleOutsideClick)
     document.addEventListener('mousedown', handleOutsideClick)
 
@@ -99,11 +106,7 @@ const MoleculeSelect = props => {
       document.removeEventListener('touchend', handleOutsideClick)
       document.removeEventListener('mousedown', handleOutsideClick)
     }
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
-
-  useEffect(() => {
-    setOptionsData(getOptionData(children))
-  }, [children])
+  }, [children, handleOutsideClick])
 
   const focusFirstOption = (ev, {options}) => {
     options[0] && options[0].focus()
@@ -130,7 +133,7 @@ const MoleculeSelect = props => {
       const currentElementFocused = getCurrentElementFocused()
       const isSomeOptionFocused = [...options].includes(currentElementFocused)
       const {key} = ev
-      if (key === 'Escape') closeList(ev)
+      if (key === 'Escape') closeList(ev, {isOutsideEvent: true})
       if (key === 'ArrowDown' && !isSomeOptionFocused)
         focusFirstOption(ev, {options})
       const optionToFocusOn = Array.from(options).find(

@@ -230,3 +230,4 @@ export default AtomButton
 export {GROUP_POSITIONS as atomButtonGroupPositions}
 export {TYPES as atomButtonTypes}
 export {COLORS as atomButtonColors}
+export {DESIGNS as atomButtonDesigns}

@@ -11,7 +11,7 @@ export const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
 /**
  * Different designs for the button
  */
-export const DESIGNS = ['solid', 'outline', 'flat']
+export const DESIGNS = {SOLID: 'solid', OUTLINE: 'outline', FLAT: 'flat'}
 
 /**
  * Available colors for the button
@@ -43,7 +43,7 @@ export const GROUP_POSITIONS = {
 /**
  * Sizes for the button
  */
-export const SIZES = ['small', 'large']
+export const SIZES = {SMALL: 'small', LARGE: 'large'}
 
 /**
  * All the available modifiers for the button

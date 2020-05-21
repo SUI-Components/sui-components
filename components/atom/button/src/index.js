@@ -26,7 +26,7 @@ const createClasses = (array, sufix = '') => {
 
 const CLASSES = createClasses([
   ...TYPES,
-  ...DESIGNS,
+  ...Object.values(DESIGNS),
   ...MODIFIERS,
   ...Object.values(SIZES),
   'empty'
@@ -168,7 +168,7 @@ AtomButton.propTypes = {
   /**
    * Design style of button: 'solid' (default), 'outline', 'flat'
    */
-  design: PropTypes.oneOf(DESIGNS),
+  design: PropTypes.oneOf(Object.values(DESIGNS)),
   /**
    * Group position: 'first', 'middle' (default), 'last'
    */
@@ -226,5 +226,6 @@ AtomButton.propTypes = {
 export default AtomButton
 export {GROUP_POSITIONS as atomButtonGroupPositions}
 export {COLORS as atomButtonColors}
-export {TYPES as atomButtonTypes}
+export {DESIGNS as atomButtonDesigns}
 export {SIZES as atomButtonSizes}
+export {TYPES as atomButtonTypes}

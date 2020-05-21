@@ -56,23 +56,26 @@ const CLASSES = createClasses([
 ])
 const COLOR_CLASSES = createClasses([...Object.values(COLORS)], 'Color')
 
-const AtomActionButton = ({
-  children,
-  className,
-  color = COLORS.PRIMARY,
-  disabled,
-  focused,
-  href,
-  icon,
-  isButton,
-  isSubmit,
-  link,
-  linkFactory,
-  size = SIZES.MEDIUM,
-  style = STYLES.FILLED_NEGATIVE,
-  target,
-  title
-}) => {
+const AtomActionButton = props => {
+  const {
+    children,
+    className,
+    color = COLORS.PRIMARY,
+    disabled,
+    focused,
+    href,
+    icon,
+    isButton,
+    isSubmit,
+    link,
+    linkFactory,
+    size = SIZES.MEDIUM,
+    style = STYLES.FILLED_NEGATIVE,
+    target,
+    title,
+    ...restProps
+  } = props
+
   const classNames = cx(
     BASE_CLASS,
     COLOR_CLASSES[color],
@@ -91,7 +94,8 @@ const AtomActionButton = ({
     link,
     linkFactory,
     target,
-    title
+    title,
+    ...restProps
   }
 
   return (

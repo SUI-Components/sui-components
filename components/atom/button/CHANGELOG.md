@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.45.0 (2020-05-21)
+
+
+### Features
+
+* export atom button designs' constants ([6e254a8](https://github.com/SUI-Components/sui-components/commit/6e254a823ef603f952b77663af11c406489f72b8))
+
+
+
 # 1.44.0 (2020-04-06)
 
 

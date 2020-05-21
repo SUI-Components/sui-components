@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.6.0 (2020-05-21)
+
+
+### Features
+
+* custom color in checkbox when disabled ([81afeae](https://github.com/SUI-Components/sui-components/commit/81afeaeea0da546a7682ecf47b80b2c86b38047e))
+
+
+
 # 2.5.0 (2020-03-24)
 
 

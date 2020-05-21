@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.2.0 (2020-05-21)
+
+
+### Features
+
+* pass extra props down to button ([e41f84a](https://github.com/SUI-Components/sui-components/commit/e41f84a30eee42153cd50b9d1b5023bdf040c52f))
+
+
+
 # 1.1.0 (2020-05-20)
 
 

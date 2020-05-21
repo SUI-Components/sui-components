@@ -27,8 +27,8 @@ const createClasses = (array, sufix = '') => {
 const CLASSES = createClasses([
   ...TYPES,
   ...DESIGNS,
-  ...SIZES,
   ...MODIFIERS,
+  ...Object.values(SIZES),
   'empty'
 ])
 const COLOR_CLASSES = createClasses(COLORS, 'Color')
@@ -174,12 +174,9 @@ AtomButton.propTypes = {
    */
   groupPosition: PropTypes.oneOf(Object.values(GROUP_POSITIONS)),
   /**
-   * Size of button{
-   * FIRST: 'first',
-   * MIDDLE: 'middle',
-   * LAST: 'last'}: 'small',
+   * Size of button 'small' (default), 'large'
    */
-  size: PropTypes.oneOf(SIZES),
+  size: PropTypes.oneOf(Object.values(SIZES)),
   /**
    * Negative: style for dark backgrounds.
    */
@@ -228,6 +225,6 @@ AtomButton.propTypes = {
 
 export default AtomButton
 export {GROUP_POSITIONS as atomButtonGroupPositions}
-export {TYPES as atomButtonTypes}
 export {COLORS as atomButtonColors}
-export {DESIGNS as atomButtonDesigns}
+export {TYPES as atomButtonTypes}
+export {SIZES as atomButtonSizes}

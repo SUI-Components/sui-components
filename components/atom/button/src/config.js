@@ -43,7 +43,7 @@ export const GROUP_POSITIONS = {
 /**
  * Sizes for the button
  */
-export const SIZES = ['small', 'large']
+export const SIZES = {SMALL: 'small', LARGE: 'large'}
 
 /**
  * All the available modifiers for the button

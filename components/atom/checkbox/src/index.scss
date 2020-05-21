@@ -24,6 +24,8 @@ $w-atom-checkbox: $sz-icon-m !default;
 $h-atom-checkbox-icon: $sz-icon-s !default;
 $w-atom-checkbox-icon: $sz-icon-s !default;
 
+$c-atom-checkbox-custom-is-disabled: $c-atom-checkbox !default;
+
 .sui-AtomCheckbox {
   &:not(&--native) {
     align-items: center;
@@ -63,6 +65,10 @@ $w-atom-checkbox-icon: $sz-icon-s !default;
     &.is-disabled {
       background-color: $bgc-checked-atom-checkbox-is-disabled;
       border-color: $bdc-atom-checkbox-is-disabled;
+
+      svg {
+        fill: $c-atom-checkbox-custom-is-disabled;
+      }
     }
   }
 
@@ -84,3 +90,4 @@ $w-atom-checkbox-icon: $sz-icon-s !default;
     color: $c-atom-checkbox-is-disabled;
   }
 }
+

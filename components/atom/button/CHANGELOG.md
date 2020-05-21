@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.46.0 (2020-05-21)
+
+
+### Bug Fixes
+
+* export designs' constants de right way, and little refactor ([1c948e3](https://github.com/SUI-Components/sui-components/commit/1c948e3d356c0034a1c71abcc97d4b767b3fb03b))
+
+
+### Features
+
+* export atom button sizes and little refactor ([1cb0758](https://github.com/SUI-Components/sui-components/commit/1cb075852c4386b8cdca201368fb2fc5f9c45211))
+
+
+
 # 1.45.0 (2020-05-21)
 
 

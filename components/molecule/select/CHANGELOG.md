@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.31.0 (2020-05-22)
+
+
+### Features
+
+* refactor useEffect children, handleOutsideClick exhaustive deps ([1af8768](https://github.com/SUI-Components/sui-components/commit/1af87683acbc5b089fe133634f85019fc558ecb5))
+
+
+
 # 1.30.0 (2020-05-20)
 
 

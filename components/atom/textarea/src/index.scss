@@ -8,6 +8,7 @@ $p-atom-textarea: 2px !default;
 $pm-atom-textarea: $p-m !default; // deprecated
 $pt-atom-textarea: $pm-atom-textarea !default;
 $pl-atom-textarea: $p-l !default;
+$ff-atom-textarea: $ff-sans-serif !default;
 $fz-atom-textarea: $fz-base !default;
 $lh-atom-textarea: $lh-l !default;
 
@@ -28,6 +29,7 @@ $base-class: '.sui-AtomTextarea';
   border: $bd-atom-textarea;
   border-radius: $bdrs-atom-textarea;
   color: $c-atom-textarea;
+  font-family: $ff-atom-textarea;
   font-size: $fz-atom-textarea;
   line-height: $lh-atom-textarea;
   padding: $p-atom-textarea;

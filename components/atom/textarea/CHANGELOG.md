@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.9.0 (2020-05-25)
+
+
+### Features
+
+* add token for font-family ([2bb7823](https://github.com/SUI-Components/sui-components/commit/2bb782345a31819b03d16429280d2ea5a12a9f3f))
+
+
+
 # 2.8.0 (2020-03-24)
 
 

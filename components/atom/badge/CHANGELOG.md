@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.12.0 (2020-05-25)
+
+
+### Features
+
+* add var for white-space ([221e405](https://github.com/SUI-Components/sui-components/commit/221e4053171affcb9b725799a0735ef0a154c954))
+
+
+
 # 1.11.0 (2020-04-15)
 
 

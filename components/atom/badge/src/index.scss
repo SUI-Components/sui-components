@@ -10,6 +10,7 @@ $h-atom-badge-s: 16px !default;
 $m-atom-badge-l: $m-m !default;
 $m-atom-badge-s: $m-s !default;
 $p-atom-badge: 0 $p-m !default;
+$ws-atom-badge: nowrap !default;
 
 $badges: (
   success: (
@@ -44,7 +45,7 @@ $badges: (
   display: inline-flex;
   justify-content: center;
   margin-right: $m-atom-badge-l;
-  white-space: nowrap;
+  white-space: $ws-atom-badge;
 
   &:last-child {
     margin-right: 0;

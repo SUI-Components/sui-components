@@ -204,6 +204,19 @@
           target="_blank"
           responsive
         />
+        <h2>Using custom classes</h2>
+        <AtomTag
+          label="Close Tag"
+          onClose={() => window.alert('close!')}
+          closeIcon={<CloseIcon />}
+          className="customClass"
+        />
+        <AtomTag
+          label="Close Tag"
+          onClose={() => window.alert('close!')}
+          closeIcon={<CloseIcon />}
+          className="customClass anotherCustomClass"
+        />
       </p>
     </div>
   )

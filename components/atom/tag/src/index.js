@@ -41,14 +41,15 @@ const filterKeys = (obj, listOfProps) =>
   }, {})
 
 const AtomTag = props => {
-  const {href, icon, onClick, size, responsive, type} = props
+  const {href, icon, onClick, size, responsive, type, className} = props
   const isActionable = onClick || href
   const classNames = cx(
     'sui-AtomTag',
     `sui-AtomTag-${size}`,
     type && `sui-AtomTag--${type}`,
     responsive && 'sui-AtomTag--responsive',
-    icon && 'sui-AtomTag-hasIcon'
+    icon && 'sui-AtomTag-hasIcon',
+    className
   )
 
   /**

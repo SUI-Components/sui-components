@@ -78,7 +78,7 @@ $bgc-atom-input-disabled: $c-gray-lightest !default;
   &--focus {
     #{$class-input} {
       &-container {
-        @extend %sui-atom-input-input-focus;
+        @extend %sui-atom-input-select-focus;
         border: 1px solid $c-primary;
       }
     }

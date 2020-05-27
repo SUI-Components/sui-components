@@ -88,9 +88,6 @@ const AtomBadge = function({icon, iconRight, label, ...props}) {
 AtomBadge.displayName = 'AtomBadge'
 
 AtomBadge.propTypes = {
-  /** CSS Classes to be added to the component */
-  className: PropTypes.string,
-
   /** Badge text to be shown */
   label: PropTypes.string.isRequired,
 

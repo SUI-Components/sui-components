@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.3.0 (2020-05-28)
+
+
+### Features
+
+* added the colspan feature ([040ce75](https://github.com/SUI-Components/sui-components/commit/040ce7563a696c8694298b8dfaf9fceac3b2666e))
+
+
+
 # 1.2.0 (2020-03-11)
 
 

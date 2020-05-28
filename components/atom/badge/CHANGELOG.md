@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.13.0 (2020-05-28)
+
+
+### Features
+
+* remove className prop ([7170991](https://github.com/SUI-Components/sui-components/commit/71709915c755c1f8ee7e16f75b1c3fb231d8469c))
+
+
+
 # 1.12.0 (2020-05-25)
 
 

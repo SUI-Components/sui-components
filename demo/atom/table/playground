@@ -35,6 +35,22 @@ const contentBodyMook = [
   ],
   [
     {
+      content: 'This <td> element has a colspan 6',
+      colspan: 6
+    }
+  ],
+  [
+    {
+      content: 'This <td> element has a colspan 3',
+      colspan: 3
+    },
+    {
+      content: 'This <td> element has a colspan 3',
+      colspan: 3
+    }
+  ],
+  [
+    {
       content: 'Volkswagen Golf Edition 1.0 TSI 85kW',
       type: 'th'
     },

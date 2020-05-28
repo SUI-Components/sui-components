@@ -36,14 +36,23 @@ const AtomTable = ({head, body, foot, fullWidth}) => {
         {body.map((row, index) => (
           <tr key={index}>
             {row.map((cell, index) => {
-              const {type: Element = CELL_TYPE.data} = cell
+              const {
+                type: Element = CELL_TYPE.data,
+                content = '',
+                isNowrap,
+                colspan = 1
+              } = cell
               const cellClassName = cx(`${baseClass}-cell`, {
-                [`${baseClass}-cell--noWrap`]: cell.isNowrap
+                [`${baseClass}-cell--noWrap`]: isNowrap
               })
 
               return (
-                <Element key={index} className={cellClassName}>
-                  {cell.content}
+                <Element
+                  key={index}
+                  className={cellClassName}
+                  colspan={colspan}
+                >
+                  {content}
                 </Element>
               )
             })}

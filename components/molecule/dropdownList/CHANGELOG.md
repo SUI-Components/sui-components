@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.13.0 (2020-05-28)
+
+
+### Features
+
+* add new variables ([7031d9a](https://github.com/SUI-Components/sui-components/commit/7031d9acab45fb198181293e4c644d151920d5fa))
+* fix default value ([8dab1c9](https://github.com/SUI-Components/sui-components/commit/8dab1c998197ad8745998f74b2cf16e82070f90b))
+* fix variable ([a33bfc7](https://github.com/SUI-Components/sui-components/commit/a33bfc7f9098e1359334f58da5e1df0f4c0dc540))
+
+
+
 # 1.12.0 (2020-04-30)
 
 

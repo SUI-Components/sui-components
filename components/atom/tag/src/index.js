@@ -77,10 +77,6 @@ AtomTag.defaultProps = {
 }
 
 AtomTag.propTypes = {
-  /**
-   * Custom classes
-   */
-  className: PropTypes.string,
   label: PropTypes.string.isRequired,
   icon: PropTypes.node,
   onClose: PropTypes.func,

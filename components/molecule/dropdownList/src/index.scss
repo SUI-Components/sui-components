@@ -9,7 +9,7 @@ $bd-dropdown-list: $bdw-s solid color-variation($c-gray, 2) !default;
 $p-dropdown-list: $p-s !default;
 $bxsh-dropdown-list: $bxsh-l !default;
 $bdrs-dropdown-list: none !default;
-$bxz-dropdown-list: initial !default;
+$bxz-dropdown-list: inherit !default;
 
 .sui-MoleculeDropdownList {
   background: $bc-dropdown-list;

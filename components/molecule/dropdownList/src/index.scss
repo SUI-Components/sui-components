@@ -8,11 +8,15 @@ $bc-dropdown-list: $c-white !default;
 $bd-dropdown-list: $bdw-s solid color-variation($c-gray, 2) !default;
 $p-dropdown-list: $p-s !default;
 $bxsh-dropdown-list: $bxsh-l !default;
+$bdrs-dropdown-list: none !default;
+$bxz-dropdown-list: inherit !default;
 
 .sui-MoleculeDropdownList {
   background: $bc-dropdown-list;
   border: $bd-dropdown-list;
+  border-radius: $bdrs-dropdown-list;
   box-shadow: $bxsh-dropdown-list;
+  box-sizing: $bxz-dropdown-list;
   margin: 0;
   overflow-y: scroll;
   padding: $p-dropdown-list;

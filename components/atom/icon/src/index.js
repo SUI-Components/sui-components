@@ -15,6 +15,7 @@ export const ATOM_ICON_COLORS = {
   success: 'success'
 }
 export const ATOM_ICON_SIZES = {
+  extraSmall: 'extraSmall',
   small: 'small',
   medium: 'medium',
   large: 'large',

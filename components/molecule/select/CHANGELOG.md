@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.32.0 (2020-05-28)
+
+
+### Features
+
+* update extend select focus ([843d7b8](https://github.com/SUI-Components/sui-components/commit/843d7b8bbfae0e4c402ac16536a21c0a4958cd47))
+
+
+
 # 1.31.0 (2020-05-22)
 
 

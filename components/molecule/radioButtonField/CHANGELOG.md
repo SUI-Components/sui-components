@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-05-29)
+
+
+### Features
+
+* add assets folder to .npmignore ([1d60fa7](https://github.com/SUI-Components/sui-components/commit/1d60fa79cc7fff019581a8aed8b53222f58de95b))
+
+
+
 # 1.8.0 (2020-05-15)
 
 

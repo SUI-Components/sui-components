@@ -8,6 +8,7 @@ const CELL_TYPE = {
 }
 
 const CELL_PADDING = {
+  none: false,
   xs: 'xs',
   s: 's',
   m: 'm',
@@ -20,7 +21,7 @@ const AtomTable = ({
   body,
   foot,
   fullWidth,
-  cellPadding = false,
+  cellPadding = CELL_PADDING.none,
   borderBottom = false
 }) => {
   const hasHead = Boolean(head?.length)
@@ -29,7 +30,7 @@ const AtomTable = ({
   const tableClass = cx(`${baseClass}`, {
     [`${baseClass}--fullWidth`]: fullWidth
   })
-  const headerClass = cx(`${baseClass}-cell ${baseClass}-headerCell`, {
+  const headerClass = cx(`${baseClass}-cell`, `${baseClass}-headerCell`, {
     [`${baseClass}-cell--${cellPadding}`]: cellPadding
   })
 
@@ -39,7 +40,7 @@ const AtomTable = ({
         <thead>
           <tr>
             {head.map((element, index) => (
-              <th key={index} className={`${headerClass}`}>
+              <th key={index} className={headerClass}>
                 {element}
               </th>
             ))}
@@ -135,5 +136,5 @@ AtomTable.propTypes = {
   borderBottom: PropTypes.bool
 }
 
-export {CELL_TYPE as AtomTableCellTypes, CELL_PADDING as AtomTableCellPadding}
+export {CELL_TYPE as atomTableCellTypes, CELL_PADDING as atomTableCellPadding}
 export default AtomTable

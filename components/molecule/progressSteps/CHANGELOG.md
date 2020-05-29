@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.3.0 (2020-05-29)
+
+
+### Features
+
+* add assets folder to .npmignore ([e33ca11](https://github.com/SUI-Components/sui-components/commit/e33ca116c0c8acaca27cf331a722deadbc6ed3a2))
+
+
+
 # 1.2.0 (2020-03-11)
 
 
@@ -24,9 +33,9 @@ All notable changes to this project will be documented in this file.
 * icons alignment ([63ffce0](https://github.com/SUI-Components/sui-components/commit/63ffce024121632f98cce00e86eeb07ba199f3f5))
 * icons status ([b8f72d8](https://github.com/SUI-Components/sui-components/commit/b8f72d87b480abda3360eca62a944dc55e4c448b))
 * linter sass ([cc08b12](https://github.com/SUI-Components/sui-components/commit/cc08b12c2f7c62eb83ed3606db2ad1a8a360e451))
-* linter sass ([7c99264](https://github.com/SUI-Components/sui-components/commit/7c99264d7ec852f8c1ed14991ae40e865a6fd04a))
 * linter sass ([36916ce](https://github.com/SUI-Components/sui-components/commit/36916cefe2925150d034194e93204b31425fdd0f))
 * linter sass ([ff7d969](https://github.com/SUI-Components/sui-components/commit/ff7d969018efb6d45c6f61207f8975b4e8a4a738))
+* linter sass ([7c99264](https://github.com/SUI-Components/sui-components/commit/7c99264d7ec852f8c1ed14991ae40e865a6fd04a))
 * margins adjusted to avoid weird movements ([fcd30af](https://github.com/SUI-Components/sui-components/commit/fcd30af2a2605f835257ca3b3081e2393e8ca5a9))
 * moleculeProgressStep ([0587313](https://github.com/SUI-Components/sui-components/commit/0587313e00eda900b694f42b8fbb68e67fd40342))
 * readme ([1e98523](https://github.com/SUI-Components/sui-components/commit/1e985232c8d5163cacffc6bed0cd917cf350486d))

@@ -8,7 +8,6 @@ const CELL_TYPE = {
 }
 
 const CELL_PADDING = {
-  none: false,
   xs: 'xs',
   s: 's',
   m: 'm',
@@ -21,17 +20,17 @@ const AtomTable = ({
   body,
   foot,
   fullWidth,
-  cellPadding = CELL_PADDING.none,
-  borderBottom = false
+  cellPadding,
+  borderBottom
 }) => {
   const hasHead = Boolean(head?.length)
   const hasFoot = Boolean(foot?.length)
   const baseClass = 'react-AtomTable'
   const tableClass = cx(`${baseClass}`, {
-    [`${baseClass}--fullWidth`]: fullWidth
+    [`${baseClass}--fullWidth`]: Boolean(fullWidth)
   })
   const headerClass = cx(`${baseClass}-cell`, `${baseClass}-headerCell`, {
-    [`${baseClass}-cell--${cellPadding}`]: cellPadding
+    [`${baseClass}-cell--${cellPadding}`]: Boolean(cellPadding)
   })
 
   return (
@@ -60,8 +59,8 @@ const AtomTable = ({
               } = cell
               const cellClassName = cx(`${baseClass}-cell`, {
                 [`${baseClass}-cell--noWrap`]: isNowrap,
-                [`${baseClass}-cell--${cellPadding}`]: cellPadding,
-                [`${baseClass}-cell--borderBottom`]: borderBottom
+                [`${baseClass}-cell--${cellPadding}`]: Boolean(cellPadding),
+                [`${baseClass}-cell--borderBottom`]: Boolean(borderBottom)
               })
 
               return (

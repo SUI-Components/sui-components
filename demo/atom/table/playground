@@ -1,9 +1,9 @@
 const CELL_PADDING = {
-  xs: 'sizeXS',
-  s: 'sizeS',
-  m: 'sizeM',
-  l: 'sizeL',
-  xl: 'sizeL'
+  xs: 'xs',
+  s: 's',
+  m: 'm',
+  l: 'l',
+  xl: 'xl'
 }
 
 const PriceComponent = () => (

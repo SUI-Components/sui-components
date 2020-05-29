@@ -1,3 +1,11 @@
+const CELL_PADDING = {
+  xs: 'sizeXS',
+  s: 'sizeS',
+  m: 'sizeM',
+  l: 'sizeL',
+  xl: 'sizeL'
+}
+
 const PriceComponent = () => (
   <div>
     <span>Desde </span>
@@ -90,11 +98,12 @@ return (
 
     <hr/>
 
-    <h2>Version with thead, tbody and tfoot</h2>
+    <h2>Version with thead, tbody and tfoot and fullWidth behavior</h2>
     <AtomTable 
       head={contentHeadMook}
       body={contentBodyMook}
       foot={contentFootMook}
+      fullWidth
     />
     <br/>
     <hr/>
@@ -109,6 +118,18 @@ return (
 
     <h2>Version only with tbody</h2>
     <AtomTable body={contentBodyMook} />
+    <br/>
+    <hr/>
+
+    <h2>Version with thead, tbody and tfoot, and the props cellPadding and borderBottom</h2>
+    <AtomTable
+      head={contentHeadMook}
+      body={contentBodyMook}
+      foot={contentFootMook}
+      fullWidth
+      cellPadding={CELL_PADDING.l}
+      borderBottom
+    />
     <br/>
   </div>
 )

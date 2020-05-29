@@ -16,8 +16,25 @@
   }
 
   &-cell {
-    border-bottom: 1px solid $c-gray-light-5;
-    padding: $p-l;
+    &--borderBottom {
+      border-bottom: 1px solid $c-gray-light-5;
+    }
+
+    &--sizeXS {
+      padding: $p-xs;
+    }
+    &--sizeS {
+      padding: $p-s;
+    }
+    &--sizeM {
+      padding: $p-m;
+    }
+    &--sizeL {
+      padding: $p-l;
+    }
+    &--sizeXL {
+      padding: $p-xl;
+    }
 
     &--noWrap {
       white-space: nowrap;

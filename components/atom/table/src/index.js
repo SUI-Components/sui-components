@@ -7,12 +7,30 @@ const CELL_TYPE = {
   data: 'td'
 }
 
-const AtomTable = ({head, body, foot, fullWidth}) => {
+const CELL_PADDING = {
+  xs: 'sizeXS',
+  s: 'sizeS',
+  m: 'sizeM',
+  l: 'sizeL',
+  xl: 'sizeL'
+}
+
+const AtomTable = ({
+  head,
+  body,
+  foot,
+  fullWidth,
+  cellPadding,
+  borderBottom = false
+}) => {
   const hasHead = Boolean(head?.length)
   const hasFoot = Boolean(foot?.length)
   const baseClass = 'react-AtomTable'
   const tableClass = cx(`${baseClass}`, {
     [`${baseClass}--fullWidth`]: fullWidth
+  })
+  const headerClass = cx(`${baseClass}-cell ${baseClass}-headerCell`, {
+    [`${baseClass}-cell--${cellPadding}`]: cellPadding
   })
 
   return (
@@ -21,10 +39,7 @@ const AtomTable = ({head, body, foot, fullWidth}) => {
         <thead>
           <tr>
             {head.map((element, index) => (
-              <th
-                key={index}
-                className={`${baseClass}-cell ${baseClass}-headerCell`}
-              >
+              <th key={index} className={`${headerClass}`}>
                 {element}
               </th>
             ))}
@@ -43,7 +58,9 @@ const AtomTable = ({head, body, foot, fullWidth}) => {
                 colspan = 1
               } = cell
               const cellClassName = cx(`${baseClass}-cell`, {
-                [`${baseClass}-cell--noWrap`]: isNowrap
+                [`${baseClass}-cell--noWrap`]: isNowrap,
+                [`${baseClass}-cell--${cellPadding}`]: cellPadding,
+                [`${baseClass}-cell--borderBottom`]: borderBottom
               })
 
               return (
@@ -78,19 +95,45 @@ const AtomTable = ({head, body, foot, fullWidth}) => {
 AtomTable.displayName = 'AtomTable'
 
 AtomTable.propTypes = {
+  /**
+   * Table head content
+   */
   head: PropTypes.array,
+  /**
+   * Table body content.
+   * You can define per row:
+   *  - colspan: as a number
+   *  - content: as a string or React component
+   *  - type: of cell (th,td)
+   *  - isNowrap: to add no-wrap behavior to the cell
+   */
   body: PropTypes.arrayOf(
     PropTypes.arrayOf(
       PropTypes.shape({
+        colspan: PropTypes.number,
         content: PropTypes.string.isRequired,
         type: PropTypes.oneOf(Object.values(CELL_TYPE)),
         isNowrap: PropTypes.bool
       })
     )
   ).isRequired,
+  /**
+   * Cell padding size (xs,x,m,l,xl)
+   */
+  cellPadding: PropTypes.oneOf(Object.values(CELL_PADDING)),
+  /**
+   * Table foot conntent
+   */
   foot: PropTypes.array,
-  fullWidth: PropTypes.bool
+  /**
+   * With fullWith you have a full width behavior
+   */
+  fullWidth: PropTypes.bool,
+  /**
+   * Add a default border bootom to all cells
+   */
+  borderBottom: PropTypes.bool
 }
 
-export {CELL_TYPE as AtomTableTypes}
+export {CELL_TYPE as AtomTableTypes, CELL_PADDING as AtomTableCellPadding}
 export default AtomTable

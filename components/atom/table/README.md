@@ -14,8 +14,16 @@ $ npm install @s-ui/react-atom-table --save
 
 ### Basic usage
 
+#### CSS
+
+```scss
+@import '@s-ui/react-atom-table/lib/index';
+```
+
+#### Javascript
+
 ```js
-import AtomTable from '@s-ui/react-table-basic'
+import AtomTable from '@s-ui/react-atom-table'
 
 const contentHead = [
   'Versión',

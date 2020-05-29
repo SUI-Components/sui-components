@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-textarea-field",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

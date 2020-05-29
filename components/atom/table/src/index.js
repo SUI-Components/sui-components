@@ -8,11 +8,11 @@ const CELL_TYPE = {
 }
 
 const CELL_PADDING = {
-  xs: 'sizeXS',
-  s: 'sizeS',
-  m: 'sizeM',
-  l: 'sizeL',
-  xl: 'sizeL'
+  xs: 'xs',
+  s: 's',
+  m: 'm',
+  l: 'l',
+  xl: 'l'
 }
 
 const AtomTable = ({
@@ -20,7 +20,7 @@ const AtomTable = ({
   body,
   foot,
   fullWidth,
-  cellPadding,
+  cellPadding = false,
   borderBottom = false
 }) => {
   const hasHead = Boolean(head?.length)
@@ -135,5 +135,5 @@ AtomTable.propTypes = {
   borderBottom: PropTypes.bool
 }
 
-export {CELL_TYPE as AtomTableTypes, CELL_PADDING as AtomTableCellPadding}
+export {CELL_TYPE as AtomTableCellTypes, CELL_PADDING as AtomTableCellPadding}
 export default AtomTable

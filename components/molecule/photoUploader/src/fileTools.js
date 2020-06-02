@@ -42,7 +42,9 @@ export const filterValidFiles = ({
         lastModified: newFileLastModified
       } = fileToFilter
       const isFileAlready = files.some(file => {
-        const {path, size, lastModified} = file.properties
+        const {url, properties} = file
+        if (url) return false
+        const {path, size, lastModified} = properties
         return (
           path === newFilePath &&
           size === newFileSize &&

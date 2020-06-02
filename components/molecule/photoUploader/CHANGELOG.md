@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.13.0 (2020-06-02)
+
+
+### Features
+
+* fix NotRepeatedFilter ([59a6359](https://github.com/SUI-Components/sui-components/commit/59a6359753225a1bcc11c7cfad6640d85339cdbb))
+
+
+
 # 1.12.0 (2020-05-29)
 
 

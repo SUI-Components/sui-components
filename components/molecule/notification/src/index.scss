@@ -20,6 +20,7 @@ $base-class: '.sui-MoleculeNotification';
     display: flex;
     flex: 1 1 auto;
     font-size: $fz-m;
+    line-height: $lh-notification-text;
     margin-top: $mt-notification-text;
   }
 

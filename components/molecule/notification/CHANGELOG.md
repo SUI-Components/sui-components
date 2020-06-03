@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.20.0 (2020-06-03)
+
+
+### Features
+
+* add line height to notification text ([f8ef4b0](https://github.com/SUI-Components/sui-components/commit/f8ef4b0ae422b3d7d23f9f207c588e07177ccf10))
+* fix default value for line height ([b283f7d](https://github.com/SUI-Components/sui-components/commit/b283f7d33c73369216ae65e65d3c0138a52fecb5))
+
+
+
 # 1.19.0 (2020-05-29)
 
 

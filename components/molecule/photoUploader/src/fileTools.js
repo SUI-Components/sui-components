@@ -91,12 +91,22 @@ export const filterValidFiles = ({
   return notRepeatedFiles
 }
 
+async function callbackUploadPhotoHandler(blob, callbackUploadPhoto) {
+  if (callbackUploadPhoto) {
+    try {
+      const response = await callbackUploadPhoto(blob)
+      return response.url
+    } catch (e) {}
+  }
+}
+
 export const prepareFiles = ({
-  handlePhotosRejected,
+  callbackUploadPhoto,
   currentFiles,
-  newFiles,
   defaultFormatToBase64Options,
   errorCorruptedPhotoUploadedText,
+  handlePhotosRejected,
+  newFiles,
   setCorruptedFileError,
   setFiles,
   setIsLoading,
@@ -112,7 +122,7 @@ export const prepareFiles = ({
         })
       )
       .then(
-        ({
+        async ({
           file,
           blob,
           originalBase64,
@@ -133,6 +143,10 @@ export const prepareFiles = ({
             ])
             setCorruptedFileError(errorText)
           } else {
+            const url = await callbackUploadPhotoHandler(
+              blob,
+              callbackUploadPhoto
+            )
             currentFiles.push({
               blob,
               file,
@@ -146,7 +160,8 @@ export const prepareFiles = ({
                 lastModified: nextFile.lastModified
               },
               preview: croppedBase64,
-              rotation
+              rotation,
+              url
             })
           }
         }

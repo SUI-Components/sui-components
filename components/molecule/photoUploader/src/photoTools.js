@@ -43,7 +43,6 @@ export function formatToBase64({
           })
           .then(value => base64ToBlob(value))
           .then(({blob, base64}) => {
-            // TODO: uploadPhoto
             resolve({
               file,
               blob,

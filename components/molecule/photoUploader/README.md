@@ -68,6 +68,7 @@ import MoleculePhotoUploader from '@s-ui/react-molecule-photo-uploader'
   // Not required props
   callbackPhotosRejected={rejectedPhotos => console.log(rejectedPhotos)}
   callbackPhotosUploaded={acceptedPhotos => console.log(acceptedPhotos)}
+  callbackUploadPhoto= {(file,oldUrl) => console.log(file,oldUrl)}
   limitPhotosUploadedText={_limitPhotosUploaded}
   limitPhotosUploadedNotification={_limitPhotosUploadedNotification}
   mainPhotoLabel={'PRINCIPAL'}

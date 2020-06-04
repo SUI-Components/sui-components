@@ -44,9 +44,8 @@ const Demo = () => {
     console.log("_callbackPhotosRejected: ", list)
   }
 
-  const _callbackUploadPhoto = file => {
+  const _callbackUploadPhoto = (file, oldUrl) => {
     const url = {url:`https://pre.cdn.coches.net/${Date.now()}`}
-    console.log(url)
     return Promise.resolve(url)
     }
 

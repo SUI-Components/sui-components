@@ -91,10 +91,14 @@ export const filterValidFiles = ({
   return notRepeatedFiles
 }
 
-async function callbackUploadPhotoHandler(blob, callbackUploadPhoto) {
+export async function callbackUploadPhotoHandler(
+  blob,
+  callbackUploadPhoto,
+  oldUrl
+) {
   if (callbackUploadPhoto) {
     try {
-      const response = await callbackUploadPhoto(blob)
+      const response = await callbackUploadPhoto(blob, oldUrl)
       return response.url
     } catch (e) {}
   }

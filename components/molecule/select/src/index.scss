@@ -40,6 +40,7 @@ $bgc-atom-input-disabled: $c-gray-lightest !default;
         cursor: default;
         #{$class-select-atom-input-input} {
           background: $bgc-atom-input-disabled;
+          border: $bd-atom-input-disabled;
         }
       }
 

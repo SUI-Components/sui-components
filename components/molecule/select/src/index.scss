@@ -17,6 +17,7 @@ $pr-select-atom-input-tags: $p-xxl !default;
 $w-select-list-arrow: $sz-icon-m !default;
 $h-select-list-arrow: $sz-icon-m !default;
 $c-select-list-arrow-fill: initial !default;
+$c-select-list-arrow-disabled: $c-select-list-arrow-fill !default;
 $bgc-atom-input-disabled: $c-gray-lightest !default;
 
 #{$base-class} {
@@ -41,6 +42,12 @@ $bgc-atom-input-disabled: $c-gray-lightest !default;
         #{$class-select-atom-input-input} {
           background: $bgc-atom-input-disabled;
           border: $bd-atom-input-disabled;
+        }
+
+        #{$class-input}-arrow {
+          svg {
+            fill: $c-select-list-arrow-disabled !important;
+          }
         }
       }
 

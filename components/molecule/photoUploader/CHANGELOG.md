@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.14.0 (2020-06-08)
+
+
+### Features
+
+* add callback to uploadPhoto when image is modified ([a6246fb](https://github.com/SUI-Components/sui-components/commit/a6246fbd6f82c4053b3e99064b628c1697c8949f))
+* add upload Callback ([416cb5c](https://github.com/SUI-Components/sui-components/commit/416cb5ccb09ead225e01ebc885955c11aca8bdbb))
+* fix a typo ([529e331](https://github.com/SUI-Components/sui-components/commit/529e3312cc08f66e10a752f848f394ad0aafad16))
+
+
+
 # 1.13.0 (2020-06-02)
 
 

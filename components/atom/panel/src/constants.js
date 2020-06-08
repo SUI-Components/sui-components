@@ -1,4 +1,5 @@
 const COLORS = {
+  CANVAS: 'canvas',
   ACCENT: 'accent',
   BASE: 'base',
   DARK: 'dark',

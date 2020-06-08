@@ -44,6 +44,7 @@ const MoleculePhotoUploader = ({
   addPhotoTextSkeleton,
   callbackPhotosRejected = () => {},
   callbackPhotosUploaded = () => {},
+  callbackUploadPhoto,
   deleteIcon,
   disableScrollToBottom = false,
   dragDelay = DEFAULT_DRAG_DELAY_TIME,
@@ -202,6 +203,7 @@ const MoleculePhotoUploader = ({
       setFiles,
       setIsLoading,
       _scrollToBottom,
+      callbackUploadPhoto,
       _callbackPhotosUploaded
     })
   }
@@ -263,6 +265,7 @@ const MoleculePhotoUploader = ({
               _scrollToBottom={_scrollToBottom}
               addMorePhotosIcon={addMorePhotosIcon}
               addPhotoTextSkeleton={addPhotoTextSkeleton}
+              callbackUploadPhoto={callbackUploadPhoto}
               defaultFormatToBase64Options={DEFAULT_FORMAT_TO_BASE_64_OPTIONS}
               deleteIcon={deleteIcon}
               dragDelay={dragDelay}
@@ -367,6 +370,12 @@ MoleculePhotoUploader.propTypes = {
    *  It's executed everytime an image is added, or is deleted, or is rotated, or is sorted
    */
   callbackPhotosUploaded: PropTypes.func,
+
+  /**
+   * Callback that executes every time that new image is added or modified.
+   * Returns the new Blob and old URL if exists
+   */
+  callbackUploadPhoto: PropTypes.func,
 
   /** Icon placed in the button that deletes image */
   deleteIcon: PropTypes.node.isRequired,

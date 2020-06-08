@@ -9,6 +9,7 @@ import SkeletonCard from './SkeletonCard'
 import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
 import {formatToBase64, cropAndRotateImage, base64ToBlob} from './photoTools'
+import {callbackUploadPhotoHandler} from './fileTools'
 
 import {
   BASE_CLASS_NAME,
@@ -30,6 +31,7 @@ const PhotosPreview = ({
   _scrollToBottom,
   addMorePhotosIcon,
   addPhotoTextSkeleton,
+  callbackUploadPhoto,
   defaultFormatToBase64Options,
   deleteIcon,
   dragDelay,
@@ -79,11 +81,17 @@ const PhotosPreview = ({
       outputImageAspectRatioDisabled
     })
       .then(value => base64ToBlob(value))
-      .then(({blob, base64}) => {
+      .then(async ({blob, base64}) => {
         list[index].preview = base64
         list[index].blob = blob
-        setFiles(list)
         list[index].isModified = true
+
+        list[index].url = await callbackUploadPhotoHandler(
+          blob,
+          callbackUploadPhoto,
+          list[index].url
+        )
+        setFiles(list)
         setNotificationError(DEFAULT_NOTIFICATION_ERROR)
         _callbackPhotosUploaded(list)
       })
@@ -195,6 +203,7 @@ PhotosPreview.propTypes = {
   _scrollToBottom: PropTypes.func.isRequired,
   addMorePhotosIcon: PropTypes.node.isRequired,
   addPhotoTextSkeleton: PropTypes.string.isRequired,
+  callbackUploadPhoto: PropTypes.func,
   defaultFormatToBase64Options: PropTypes.object.isRequired,
   deleteIcon: PropTypes.node.isRequired,
   dragDelay: PropTypes.number.isRequired,

@@ -44,6 +44,11 @@ const Demo = () => {
     console.log("_callbackPhotosRejected: ", list)
   }
 
+  const _callbackUploadPhoto = (file, oldUrl) => {
+    const url = {url:`https://pre.cdn.coches.net/${Date.now()}`}
+    return Promise.resolve(url)
+    }
+
   const _infoIcon = () => (
     <svg viewBox="0 0 24 24">
       <path d="M12,2 C17.514,2 22,6.486 22,12 C22,17.515 17.514,22 12,22 C6.486,22 2,17.515 2,12 C2,6.486 6.486,2 12,2 Z M12,4 C7.589,4 4,7.589 4,12 C4,16.411 7.589,20 12,20 C16.411,20 20,16.411 20,12 C20,7.589 16.411,4 12,4 Z M12,10 C12.552,10 13,10.448 13,11 L13,11 L13,15 L15,15 L15,17 L9,17 L9,15 L11,15 L11,12 L10,12 L10,10 Z M12,6.75 C12.69,6.75 13.25,7.31 13.25,8 C13.25,8.69 12.69,9.25 12,9.25 C11.31,9.25 10.75,8.69 10.75,8 C10.75,7.31 11.31,6.75 12,6.75 Z" />
@@ -96,6 +101,7 @@ const Demo = () => {
         addPhotoTextSkeleton={_addPhotoTextSkeleton}
         callbackPhotosRejected={_callbackPhotosRejected}
         callbackPhotosUploaded={_callbackPhotosUploaded}
+        callbackUploadPhoto={_callbackUploadPhoto}
         deleteIcon={_deleteIcon}
         dragPhotosIcon={_dragPhotosIcon}
         dragPhotoTextInitialContent={_dragPhotoTextInitialContent}
@@ -114,6 +120,7 @@ const Demo = () => {
         retryIcon={_retryErrorPhotosIcon}
         rotateIcon={_rotateIcon}
         uploadingPhotosText={_uploadingPhotosText}
+
       />
 
       <h1 style={lineStyles}>Molecule PhotoUploader with initialPhotos</h1>

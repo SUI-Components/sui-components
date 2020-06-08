@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.35.0 (2020-06-08)
+
+
+### Features
+
+* fix select disabled ([bf80050](https://github.com/SUI-Components/sui-components/commit/bf8005053597a3661235a18027933fb097c5256a))
+
+
+
 # 1.34.0 (2020-06-08)
 
 

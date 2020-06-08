@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.34.0 (2020-06-08)
+
+
+### Features
+
+* add arrow disabled variable ([c144874](https://github.com/SUI-Components/sui-components/commit/c144874f54eb66748419c020989d9da0bea00a02))
+* add disabled border to select ([799e8f1](https://github.com/SUI-Components/sui-components/commit/799e8f1db0c225ecfd307268a4b920c5526a4aae))
+* add new prop background disabled ([8d61372](https://github.com/SUI-Components/sui-components/commit/8d6137295cfa4efdc0ae4d500abb9e2fc6b3d812))
+* fix prop name ([ad0fef3](https://github.com/SUI-Components/sui-components/commit/ad0fef39d887266e849bb80a204c413c64cd19bd))
+
+
+
 # 1.33.0 (2020-05-29)
 
 

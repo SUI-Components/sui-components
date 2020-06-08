@@ -20,7 +20,7 @@ $c-select-list-arrow-fill: initial !default;
 $bgc-atom-input-disabled: $c-gray-lightest !default;
 
 $bg-molecule-select-disabled: $bgc-atom-input-disabled !default;
-$bd-molecule-select-disabled: $bd-atom-input-disabled !default;
+$bd-molecule-select-disabled: $bd-atom-input-base !default;
 $c-molecule-select-arrow-disabled: $c-select-list-arrow-fill !default;
 
 #{$base-class} {

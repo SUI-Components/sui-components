@@ -67,7 +67,7 @@ const AtomTable = ({
                 <Element
                   key={index}
                   className={cellClassName}
-                  colspan={colspan}
+                  colSpan={colspan}
                 >
                   {content}
                 </Element>

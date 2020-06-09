@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-06-09)
+
+
+### Features
+
+* added canvas color ([374ed6d](https://github.com/SUI-Components/sui-components/commit/374ed6d8b8d61c07592ab034fbf514b819cf787f))
+
+
+
 # 1.6.0 (2020-05-29)
 
 

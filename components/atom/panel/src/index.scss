@@ -1,5 +1,6 @@
 @import '~@s-ui/theme/lib/index';
 
+$bdrs-atom-panel: 0px !default;
 $bgc-atom-panel: color-variation($c-gray, -2) !default;
 $bgc-panels: (
   'canvas': $c-white,
@@ -32,6 +33,7 @@ $vertical-alignments-atom-panel: ('top', 'center', 'bottom') !default;
   }
 
   &-color {
+    border-radius: $bdrs-atom-panel;
     @each $type, $attr in $bgc-panels {
       &--#{$type} {
         @include bgcolor-opacity($attr);

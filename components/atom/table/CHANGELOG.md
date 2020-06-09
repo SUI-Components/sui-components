@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.6.0 (2020-06-09)
+
+
+### Bug Fixes
+
+* small fix colspan to colSpan ([614e6e7](https://github.com/SUI-Components/sui-components/commit/614e6e7286bfe60bb39b36b5a60dc2b432d317da))
+
+
+
 # 1.5.0 (2020-06-02)
 
 

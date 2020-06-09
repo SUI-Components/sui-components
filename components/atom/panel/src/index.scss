@@ -1,6 +1,6 @@
 @import '~@s-ui/theme/lib/index';
 
-$bdrs-atom-panel: 0px !default;
+$bdrs-atom-panel: 0 !default;
 $bgc-atom-panel: color-variation($c-gray, -2) !default;
 $bgc-panels: (
   'canvas': $c-white,

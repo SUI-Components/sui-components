@@ -5,12 +5,12 @@ $fz-atom-validation-text: $fz-xs !default;
 $validation: success $c-success, error $c-error, alert $c-alert;
 
 .sui-AtomValidationText {
+  display: block;
+  font-size: $fz-atom-validation-text;
+  margin: $m-s 0 0;
   @each $type, $color in $validation {
     &--#{$type} {
       color: $color;
-      display: block;
-      font-size: $fz-atom-validation-text;
-      margin: $m-s 0 0;
     }
   }
 }

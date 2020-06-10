@@ -3,9 +3,12 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import {ALPHA, COLORS} from './constants'
 
-const getClassNames = function({color, alpha}) {
+const getClassNames = function({color, alpha, floating}) {
   const COLOR_PANEL_CLASS = 'sui-atom-panel-color'
-  return cx(COLOR_PANEL_CLASS, `${COLOR_PANEL_CLASS}--${color}-${alpha}`)
+  return cx(COLOR_PANEL_CLASS, {
+    [`${COLOR_PANEL_CLASS}--${color}-${alpha}`]: color,
+    [`${COLOR_PANEL_CLASS}--floating`]: floating
+  })
 }
 
 const ColorPanel = function({children, ...props}) {

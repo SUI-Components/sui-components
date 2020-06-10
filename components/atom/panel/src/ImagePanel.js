@@ -24,7 +24,8 @@ const getClassNames = function({
   resized,
   overlayColor,
   overlayAlpha,
-  color
+  color,
+  floating
 }) {
   const BASE_CLASS = 'sui-atom-panel'
   const IMAGE_PANEL_CLASS = `${BASE_CLASS}-image`
@@ -37,7 +38,8 @@ const getClassNames = function({
     overlayColor &&
       `${BASE_CLASS}--${overlayColorValue}-overlay-${overlayAlphaValue}`,
     `${BASE_CLASS}-color--${color}`,
-    resized && `${IMAGE_PANEL_CLASS}--resized`
+    resized && `${IMAGE_PANEL_CLASS}--resized`,
+    floating && `${IMAGE_PANEL_CLASS}--floating`
   )
 }
 

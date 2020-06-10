@@ -34,7 +34,11 @@ AtomPanel.propTypes = {
   /**
    * Specify the type of alignment horizontally
    */
-  horizontalAlign: PropTypes.oneOf(Object.values(HORIZONTAL_ALIGNMENTS))
+  horizontalAlign: PropTypes.oneOf(Object.values(HORIZONTAL_ALIGNMENTS)),
+  /**
+   * Specify if the panel should be displayed as a floating panel or not
+   */
+  floating: PropTypes.bool
 }
 
 AtomPanel.defaultProps = {

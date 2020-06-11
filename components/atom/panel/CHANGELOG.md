@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-06-11)
+
+
+### Features
+
+* added border-radius ([f2ddbc7](https://github.com/SUI-Components/sui-components/commit/f2ddbc730a372f420fbaefbf5d66657558fa3aa1))
+* added prop floating ([7fd8006](https://github.com/SUI-Components/sui-components/commit/7fd8006864f3135ea9e5acff0e5d29b2ba9b3571))
+* added rounded prop to add a border-radius ([a287ea3](https://github.com/SUI-Components/sui-components/commit/a287ea3e306d8a4ba9549fc7c48eeed9206ca50f))
+* remove unit from value 0 ([103ad7e](https://github.com/SUI-Components/sui-components/commit/103ad7e16fef9b7369118e8b2253877d800a6506))
+
+
+
 # 1.7.0 (2020-06-09)
 
 

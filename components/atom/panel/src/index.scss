@@ -1,5 +1,10 @@
 @import '~@s-ui/theme/lib/index';
 
+$bdrs-atom-panel-rounded: (
+  'm': $bdrs-m,
+  'l': $bdrs-m * 2,
+  'xl': $bdrs-m * 3
+) !default;
 $bgc-atom-panel: color-variation($c-gray, -2) !default;
 $bgc-panels: (
   'canvas': $c-white,
@@ -21,6 +26,12 @@ $vertical-alignments-atom-panel: ('top', 'center', 'bottom') !default;
 }
 
 .sui-atom-panel {
+  @each $type, $attr in $bdrs-atom-panel-rounded {
+    &--rounded-#{$type} {
+      border-radius: $attr;
+    }
+  }
+
   &-content {
     position: relative;
   }

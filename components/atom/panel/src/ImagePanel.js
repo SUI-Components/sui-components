@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import {COLORS, ALPHA} from './constants'
+import {COLORS, ALPHA, BORDER_RADIUS} from './constants'
 
 const HORIZONTAL_ALIGNMENTS = {
   LEFT: 'left',
@@ -24,7 +24,8 @@ const getClassNames = function({
   resized,
   overlayColor,
   overlayAlpha,
-  color
+  color,
+  rounded
 }) {
   const BASE_CLASS = 'sui-atom-panel'
   const IMAGE_PANEL_CLASS = `${BASE_CLASS}-image`
@@ -32,6 +33,8 @@ const getClassNames = function({
   const overlayColorValue = COLORS[overlayColor] || DEFAULT_COLOR
 
   return cx(
+    BASE_CLASS,
+    rounded !== BORDER_RADIUS.NONE && `${BASE_CLASS}--rounded-${rounded}`,
     `${IMAGE_PANEL_CLASS}--vertical-${verticalAlign}`,
     `${IMAGE_PANEL_CLASS}--horizontal-${horizontalAlign}`,
     overlayColor &&
@@ -74,12 +77,14 @@ ImagePanel.propTypes = {
   /**
    * Background position y
    */
-  verticalAlign: PropTypes.oneOf(Object.values(VERTICAL_ALIGNMENTS))
+  verticalAlign: PropTypes.oneOf(Object.values(VERTICAL_ALIGNMENTS)),
+  rounded: PropTypes.oneOf(Object.values(BORDER_RADIUS))
 }
 
 ImagePanel.defaultProps = {
   overlayAlpha: DEFAULT_ALPHA,
-  color: COLORS.DEFAULT
+  color: COLORS.DEFAULT,
+  rounded: BORDER_RADIUS.NONE
 }
 
 export default ImagePanel

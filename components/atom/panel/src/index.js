@@ -5,7 +5,7 @@ import ImagePanel, {
   HORIZONTAL_ALIGNMENTS,
   VERTICAL_ALIGNMENTS
 } from './ImagePanel'
-import {COLORS, ALPHA} from './constants'
+import {COLORS, ALPHA, BORDER_RADIUS} from './constants'
 
 const isImagePanel = function({src}) {
   return !!src
@@ -34,12 +34,17 @@ AtomPanel.propTypes = {
   /**
    * Specify the type of alignment horizontally
    */
-  horizontalAlign: PropTypes.oneOf(Object.values(HORIZONTAL_ALIGNMENTS))
+  horizontalAlign: PropTypes.oneOf(Object.values(HORIZONTAL_ALIGNMENTS)),
+  /**
+   * Specify the border-radius of the panel
+   */
+  rounded: PropTypes.oneOf(Object.values(BORDER_RADIUS))
 }
 
 AtomPanel.defaultProps = {
   horizontalAlign: HORIZONTAL_ALIGNMENTS.CENTER,
-  verticalAlign: VERTICAL_ALIGNMENTS.CENTER
+  verticalAlign: VERTICAL_ALIGNMENTS.CENTER,
+  rounded: BORDER_RADIUS.NONE
 }
 
 export default AtomPanel
@@ -47,5 +52,6 @@ export {
   HORIZONTAL_ALIGNMENTS as atomPanelHorizontalAlign,
   VERTICAL_ALIGNMENTS as atomPanelVerticalAlign,
   COLORS as atomPanelColors,
-  ALPHA as atomPanelAlpha
+  ALPHA as atomPanelAlpha,
+  BORDER_RADIUS as atomPanelRounded
 }

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.4.0 (2020-06-11)
+
+
+### Features
+
+* add new variable font-size ([7b58431](https://github.com/SUI-Components/sui-components/commit/7b58431dcdc700b7b9f32818fb1638de88e66222))
+
+
+
 # 1.3.0 (2020-05-29)
 
 

@@ -2,10 +2,11 @@
 @import '~@s-ui/theme/lib/index';
 
 $c-help-text: $c-gray-light !default;
+$fz-atom-help-text: $fz-xs !default;
 
 .sui-AtomHelpText {
   color: $c-help-text;
   display: block;
-  font-size: $fz-xs;
+  font-size: $fz-atom-help-text;
   margin: $m-s 0 0;
 }

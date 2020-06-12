@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.10.0 (2020-06-12)
+
+
+### Features
+
+* tabs styles ([e19c8c4](https://github.com/SUI-Components/sui-components/commit/e19c8c49c215491482d375e02b7ebaa1aa9786fc))
+
+
+
 # 2.9.0 (2020-05-29)
 
 

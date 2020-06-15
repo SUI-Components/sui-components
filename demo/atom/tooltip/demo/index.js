@@ -19,6 +19,7 @@ const Demo = () => {
   // Usefull for isOpen example
   const ref = useRef()
   const [isOpen, setIsOpen] = useState(false)
+  const [isAlwaysOpen, setIsAlwaysOpen] = useState(true)
   const setInnerRef = innerRef => {
     ref.current = innerRef
   }
@@ -355,6 +356,27 @@ const Demo = () => {
         </p>
         <button onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? 'hide tooltip' : 'open tooltip'}
+        </button>
+      </div>
+      <h2>
+        Use <b>alwaysShown</b> to always show tooltip
+      </h2>
+      <p>
+        You can use the <b>alwaysShown</b> property to force show tooltip, but
+        you can still manage `isOpen` state from outside. This flags only fires
+        a client event to display the tooltip once his reference is rendered.
+      </p>
+      <div className={`${baseClass}-boxExample`}>
+        <p>
+          Lorem ipsum dolor sit amet{' '}
+          <AtomTooltipBase isOpen={isAlwaysOpen} alwaysShown>
+            <u title="Last month of this year 2018" tabIndex="1">
+              december
+            </u>
+          </AtomTooltipBase>
+        </p>
+        <button onClick={() => setIsAlwaysOpen(!isAlwaysOpen)}>
+          {isAlwaysOpen ? 'hide tooltip' : 'open tooltip'}
         </button>
       </div>
     </div>

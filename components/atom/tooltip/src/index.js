@@ -86,6 +86,12 @@ class AtomTooltip extends Component {
     target.oncontextmenu = this.handleContextMenu
     target.addEventListener('mouseover', this.disableTitle)
     target.addEventListener('mouseout', this.restoreTitle)
+
+    // We are emulating a client event to force display
+    if (target && this.props.alwaysShown) {
+      const event = new window.Event('touchstart')
+      target.dispatchEvent(event)
+    }
   }
 
   componentWillUnmount() {
@@ -237,8 +243,11 @@ class AtomTooltip extends Component {
 AtomTooltip.displayName = 'AtomTooltip'
 
 AtomTooltip.defaultProps = {
+  alwaysShown: false,
+  innerRef: () => {},
   isVisible: true,
-  longPressTime: 1000
+  longPressTime: 1000,
+  onToggle: () => {}
 }
 
 AtomTooltip.propTypes = {
@@ -291,7 +300,10 @@ AtomTooltip.propTypes = {
    * 'alert',
    * 'error'
    */
-  color: PropTypes.oneOf(COLORS)
+  color: PropTypes.oneOf(COLORS),
+
+  /** Force a client event to show AtomTooltip on load */
+  alwaysShown: PropTypes.bool
 }
 
 const ExportedAtomTooltip = withIntersectionObserver(

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.11.0 (2020-06-15)
+
+
+### Features
+
+* add new padding vertical item var ([9c524cf](https://github.com/SUI-Components/sui-components/commit/9c524cf5a9b04ba4ddb29b67e71f553996e70b13))
+
+
+
 # 2.10.0 (2020-06-12)
 
 

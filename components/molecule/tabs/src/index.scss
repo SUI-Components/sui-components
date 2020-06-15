@@ -13,6 +13,7 @@ $fw-sui-molecule-tabs-active: $fw-regular !default;
 $m-sui-molecule-tabs-item: 0 !default;
 $m-sui-molecule-tabs-first-item: $m-sui-molecule-tabs-item !default;
 $p-sui-molecule-tabs-item: $p-m $p-l !default;
+$p-sui-molecule-tabs-vertical-item: $p-sui-molecule-tabs-item !default;
 $ta-sui-molecule-tabs-vertical-item: center !default;
 $w-sui-molecule-tabs-vertical-item: 100% !default;
 $ws-sui-molecule-tabs-vertical-item: nowrap !default;
@@ -197,6 +198,7 @@ $ws-sui-molecule-tabs-vertical-item: nowrap !default;
     }
 
     .sui-MoleculeTabs-item {
+      padding: $p-sui-molecule-tabs-vertical-item;
       text-align: $ta-sui-molecule-tabs-vertical-item;
       white-space: $ws-sui-molecule-tabs-vertical-item;
       width: 100%;

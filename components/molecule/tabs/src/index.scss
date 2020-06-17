@@ -6,12 +6,18 @@ $bdc-sui-molecule-tabs-highlighted-vertical-right: $bdc-sui-molecule-tabs !defau
 $bdw-sui-molecule-tabs: $p-s !default;
 $bdw-sui-molecule-tabs-highlighted: 0 !default;
 $bdw-sui-molecule-tabs-highlighted-active: $bdw-sui-molecule-tabs !default;
+$bgc-sui-molecule-tabs-active: transparent !default;
+$bgc-sui-molecule-tabs: transparent !default;
 $c-sui-molecule-tabs: $c-gray-light-1 !default;
+$c-sui-molecule-tabs-active: $c-primary !default;
+$c-sui-molecule-tabs-icon-active: $c-primary !default;
 $c-sui-molecule-tabs-disabled: $c-gray-lightest !default;
+$c-sui-molecule-tabs-highlighted-active: $c-primary !default;
 $fz-sui-molecule-tabs: $fz-m !default;
 $fw-sui-molecule-tabs-active: $fw-regular !default;
 $m-sui-molecule-tabs-item: 0 !default;
 $m-sui-molecule-tabs-first-item: $m-sui-molecule-tabs-item !default;
+$mt-sui-molecule-tabs-active: 1px !default;
 $p-sui-molecule-tabs-item: $p-m $p-l !default;
 $p-sui-molecule-tabs-vertical-item: $p-sui-molecule-tabs-item !default;
 $ta-sui-molecule-tabs-vertical-item: center !default;
@@ -36,35 +42,35 @@ $ws-sui-molecule-tabs-vertical-item: nowrap !default;
   &--classic.sui-MoleculeTabs--horizontal,
   &--classic.sui-MoleculeTabs--fullWidth {
     .sui-MoleculeTabs-item {
+      background: $bgc-sui-molecule-tabs;
       border: 1px solid transparent;
       border-bottom-color: $bdc-sui-molecule-tabs;
       display: flex;
       flex-direction: column;
 
       &.is-active {
+        background: $bgc-sui-molecule-tabs-active;
         border-bottom: 0;
         border-color: $bdc-sui-molecule-tabs;
-        color: $c-primary;
+        color: $c-sui-molecule-tabs-active;
         font-weight: $fw-sui-molecule-tabs-active;
-        margin-top: 1px;
+        margin-top: $mt-sui-molecule-tabs-active;
 
         span {
           transform: translateY(-1px);
         }
 
-        svg,
-        path {
-          fill: $c-primary;
+        svg {
+          fill: $c-sui-molecule-tabs-icon-active;
         }
       }
 
       &:hover:not(.is-disabled) {
-        color: $c-primary;
+        color: $c-sui-molecule-tabs-active;
         cursor: pointer;
 
-        svg,
-        path {
-          fill: $c-primary;
+        svg {
+          fill: $c-sui-molecule-tabs-icon-active;
         }
       }
     }
@@ -72,28 +78,28 @@ $ws-sui-molecule-tabs-vertical-item: nowrap !default;
 
   &--classic.sui-MoleculeTabs--vertical {
     .sui-MoleculeTabs-item {
+      background: $bgc-sui-molecule-tabs;
       border: 1px solid transparent;
       border-right-color: $bdc-sui-molecule-tabs;
 
       &.is-active {
+        background: $bgc-sui-molecule-tabs-active;
         border-color: $bdc-sui-molecule-tabs;
         border-right-color: transparent;
-        color: $c-primary;
+        color: $c-sui-molecule-tabs-active;
         font-weight: $fw-sui-molecule-tabs-active;
 
-        svg,
-        path {
-          fill: $c-primary;
+        svg {
+          fill: $c-sui-molecule-tabs-active;
         }
       }
 
       &:hover:not(.is-disabled) {
-        color: $c-primary;
+        color: $c-sui-molecule-tabs-active;
         cursor: pointer;
 
-        svg,
-        path {
-          fill: $c-primary;
+        svg {
+          fill: $c-sui-molecule-tabs-active;
         }
       }
     }
@@ -104,35 +110,37 @@ $ws-sui-molecule-tabs-vertical-item: nowrap !default;
     border-bottom: 1px solid $bdc-sui-molecule-tabs;
 
     .sui-MoleculeTabs-item {
+      background: $bgc-sui-molecule-tabs;
       border: 0 none transparent;
       border-bottom: $bdw-sui-molecule-tabs-highlighted solid transparent;
       text-align: center;
 
       &.is-active {
-        border-bottom: $bdw-sui-molecule-tabs-highlighted-active solid $c-primary;
+        background: $bgc-sui-molecule-tabs-active;
+        border-bottom: $bdw-sui-molecule-tabs-highlighted-active solid
+          $c-primary;
         border-bottom-color: $c-primary;
-        color: $c-primary;
+        color: $c-sui-molecule-tabs-highlighted-active;
         font-weight: $fw-sui-molecule-tabs-active;
 
-        svg,
-        path {
-          fill: $c-primary;
+        svg {
+          fill: $c-sui-molecule-tabs-active;
         }
       }
 
       &:hover:not(.is-disabled) {
-        color: $c-primary;
+        color: $c-sui-molecule-tabs-active;
         cursor: pointer;
 
-        svg,
-        path {
-          fill: $c-primary;
+        svg {
+          fill: $c-sui-molecule-tabs-active;
         }
       }
     }
 
     .sui-MoleculeTabs-content {
-      border-top: $bdw-sui-molecule-tabs-highlighted solid $bdc-sui-molecule-tabs-highlighted;
+      border-top: $bdw-sui-molecule-tabs-highlighted solid
+        $bdc-sui-molecule-tabs-highlighted;
     }
   }
 
@@ -140,33 +148,34 @@ $ws-sui-molecule-tabs-vertical-item: nowrap !default;
     border-right: 1px solid $bdc-sui-molecule-tabs-highlighted-vertical-right;
 
     .sui-MoleculeTabs-item {
+      background: $bgc-sui-molecule-tabs;
       border: 0 none transparent;
       cursor: pointer;
 
       &.is-active {
+        background: $bgc-sui-molecule-tabs-active;
         border-right: $bdw-sui-molecule-tabs-highlighted-active solid $c-primary;
-        color: $c-primary;
+        color: $c-sui-molecule-tabs-active;
         font-weight: $fw-sui-molecule-tabs-active;
 
-        svg,
-        path {
-          fill: $c-primary;
+        svg {
+          fill: $c-sui-molecule-tabs-active;
         }
       }
 
       &:hover:not(.is-disabled) {
-        color: $c-primary;
+        color: $c-sui-molecule-tabs-active;
         cursor: pointer;
 
-        svg,
-        path {
-          fill: $c-primary;
+        svg {
+          fill: $c-sui-molecule-tabs-active;
         }
       }
     }
 
     .sui-MoleculeTabs-content {
-      border-left: $bdw-sui-molecule-tabs-highlighted solid $bdc-sui-molecule-tabs-highlighted;
+      border-left: $bdw-sui-molecule-tabs-highlighted solid
+        $bdc-sui-molecule-tabs-highlighted;
     }
   }
 
@@ -249,8 +258,7 @@ $ws-sui-molecule-tabs-vertical-item: nowrap !default;
       width: $sz-icon-l;
     }
 
-    svg,
-    path {
+    svg {
       fill: $c-sui-molecule-tabs;
     }
 
@@ -258,8 +266,7 @@ $ws-sui-molecule-tabs-vertical-item: nowrap !default;
       color: $c-sui-molecule-tabs-disabled;
       cursor: no-drop;
 
-      svg,
-      path {
+      svg {
         fill: $c-sui-molecule-tabs-disabled;
       }
     }

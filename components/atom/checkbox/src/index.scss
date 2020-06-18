@@ -1,5 +1,12 @@
 @import '~@s-ui/theme/lib/index';
 
+$bdrs-atom-checkbox: $bdrs-m !default;
+$c-atom-checkbox: $c-white !default;
+$h-atom-checkbox: $sz-icon-m !default;
+$w-atom-checkbox: $sz-icon-m !default;
+$h-atom-checkbox-icon: $sz-icon-s !default;
+$w-atom-checkbox-icon: $sz-icon-s !default;
+
 $fs-atom-checkbox-label: 14px !default;
 $lh-atom-checkbox-label: 130% !default;
 $maw-atom-checkbox: 32px !default;
@@ -13,18 +20,12 @@ $bgc-checked-atom-checkbox: $c-primary !default;
 $bd-atom-checkbox: 1px solid $c-primary !default;
 $bd-atom-checkbox--checked: $bdw-s solid $c-primary !default;
 
-$c-atom-checkbox-is-disabled: color-variation($c-gray, -2) !default;
-$bgc-checked-atom-checkbox-is-disabled: color-variation($c-gray, 3) !default;
 $bdc-atom-checkbox-is-disabled: color-variation($c-gray, 1) !default;
-
-$bdrs-atom-checkbox: $bdrs-m !default;
-$c-atom-checkbox: $c-white !default;
-$h-atom-checkbox: $sz-icon-m !default;
-$w-atom-checkbox: $sz-icon-m !default;
-$h-atom-checkbox-icon: $sz-icon-s !default;
-$w-atom-checkbox-icon: $sz-icon-s !default;
-
+$bgc-checked-atom-checkbox-is-disabled: color-variation($c-gray, 3) !default;
+$bgc-checked-atom-checkbox-is-intermediate: $bgc-atom-checkbox !default;
 $c-atom-checkbox-custom-is-disabled: $c-atom-checkbox !default;
+$c-atom-checkbox-is-disabled: color-variation($c-gray, -2) !default;
+$c-atom-checkbox-is-intermediate: unset !default;
 
 .sui-AtomCheckbox {
   &:not(&--native) {
@@ -70,6 +71,11 @@ $c-atom-checkbox-custom-is-disabled: $c-atom-checkbox !default;
         fill: $c-atom-checkbox-custom-is-disabled;
       }
     }
+
+    &.is-intermediate {
+      background-color: $bgc-checked-atom-checkbox-is-intermediate;
+      color: $c-atom-checkbox-is-intermediate;
+    }
   }
 
   &.is-checked {
@@ -90,4 +96,3 @@ $c-atom-checkbox-custom-is-disabled: $c-atom-checkbox !default;
     color: $c-atom-checkbox-is-disabled;
   }
 }
-

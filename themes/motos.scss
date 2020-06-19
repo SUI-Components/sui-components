@@ -6,7 +6,10 @@
 @import '~@adv-ui/mt-theme/lib/motos';
 
 // Common css for sui-studio
-@import 'common';
+@import './common';
+
+// Reset styles
+@import './destyle';
 
 // Load font
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:#{$fw-light},#{$fw-regular},#{$fw-regular}i,#{$fw-semi-bold},#{$fw-bold},#{$fw-bold}i');

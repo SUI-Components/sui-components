@@ -40,7 +40,7 @@ class AtomTooltip extends Component {
 
   refTarget = React.createRef()
 
-  loadAsyncReacstrap(e) {
+  loadAsyncReacstrap() {
     import(
       /* webpackChunkName: "reactstrap-Tooltip" */
       'reactstrap/lib/Tooltip'
@@ -48,7 +48,6 @@ class AtomTooltip extends Component {
       .then(module => module.default)
       .then(Tooltip => {
         this.setState({Tooltip})
-        this.handleToggle(e)
       })
   }
 
@@ -77,7 +76,10 @@ class AtomTooltip extends Component {
     this.props.innerRef(target)
     ;['touchstart', 'mouseover'].forEach(event =>
       target.addEventListener(event, e => {
-        if (!this.state.Tooltip) this.loadAsyncReacstrap(e)
+        if (!this.state.Tooltip) {
+          this.loadAsyncReacstrap()
+          this.handleToggle(e)
+        }
       })
     )
     ;['click', 'touchend'].forEach(event =>
@@ -87,10 +89,10 @@ class AtomTooltip extends Component {
     target.addEventListener('mouseover', this.disableTitle)
     target.addEventListener('mouseout', this.restoreTitle)
 
-    // We are emulating a client event to force display
-    if (target && this.props.alwaysShown) {
-      const event = new window.Event('touchstart')
-      target.dispatchEvent(event)
+    if (target && this.props.isOpen) {
+      if (!this.state.Tooltip) {
+        this.loadAsyncReacstrap()
+      }
     }
   }
 
@@ -243,7 +245,6 @@ class AtomTooltip extends Component {
 AtomTooltip.displayName = 'AtomTooltip'
 
 AtomTooltip.defaultProps = {
-  alwaysShown: false,
   innerRef: () => {},
   isVisible: true,
   longPressTime: 1000,
@@ -300,10 +301,7 @@ AtomTooltip.propTypes = {
    * 'alert',
    * 'error'
    */
-  color: PropTypes.oneOf(COLORS),
-
-  /** Force a client event to show AtomTooltip on load */
-  alwaysShown: PropTypes.bool
+  color: PropTypes.oneOf(COLORS)
 }
 
 const ExportedAtomTooltip = withIntersectionObserver(

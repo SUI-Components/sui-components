@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.12.0 (2020-06-19)
+
+
+### Features
+
+* add color variables ([f17afb8](https://github.com/SUI-Components/sui-components/commit/f17afb8549677239697183a0c528ec8d8ada0960))
+
+
+
 # 2.11.0 (2020-06-15)
 
 

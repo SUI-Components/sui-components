@@ -29,7 +29,6 @@ const MoleculeTab = ({
     [CLASS_TAB_ACTIVE]: active,
     [CLASS_TAB_DISABLED]: disabled
   })
-
   return (
     <li className={className} onClick={handleChange}>
       {icon && <span className={CLASS_TAB_ICON}>{icon}</span>}

@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.20.0 (2020-06-22)
+
+
+### Bug Fixes
+
+* bug when controlling tooltips with isOpen prop ([b072b60](https://github.com/SUI-Components/sui-components/commit/b072b606d097f6657627bb7da0cfa2270a789ec6))
+* take control over tooltip behavior from the isOpen prop in onMounting cycle ([73c9991](https://github.com/SUI-Components/sui-components/commit/73c9991611a82caebceb2845c60ddd25bb2f3fce))
+
+
+### Features
+
+* add alwaysShown flag to display tooltip on load ([04424d7](https://github.com/SUI-Components/sui-components/commit/04424d7430a91560bba8cd48a7d2ede4579edee4))
+
+
+
 # 1.19.0 (2020-05-29)
 
 

@@ -46,9 +46,7 @@ class AtomTooltip extends Component {
       'reactstrap/lib/Tooltip'
     )
       .then(module => module.default)
-      .then(Tooltip => {
-        this.setState({Tooltip})
-      })
+      .then(Tooltip => this.setState({Tooltip}))
   }
 
   extendChildren() {
@@ -104,6 +102,14 @@ class AtomTooltip extends Component {
     )
     target.removeEventListener('mouseover', this.disableTitle)
     target.removeEventListener('mouseout', this.restoreTitle)
+  }
+
+  componentDidUpdate() {
+    const {Tooltip} = this.state
+    const {isOpen} = this.props
+    if (!Tooltip && isOpen) {
+      this.loadAsyncReacstrap()
+    }
   }
 
   disableTitle(e) {

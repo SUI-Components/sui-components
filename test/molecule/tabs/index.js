@@ -25,7 +25,7 @@ const setupBuilder = Component => props => {
 }
 
 describe('molecule/tabs', () => {
-  const Enviorement = propsArray => {
+  const Environment = propsArray => {
     return (
       <MoleculeTabs>
         {Object.values(propsArray).map((props, index) => {
@@ -48,7 +48,7 @@ describe('molecule/tabs', () => {
     ]
 
     // When
-    const {getByText} = setupBuilder(Enviorement)(propsArray)
+    const {getByText} = setupBuilder(Environment)(propsArray)
 
     // Then
     expect(getByText(propsArray[0].children).innerHTML).to.equal(
@@ -65,7 +65,7 @@ describe('molecule/tabs', () => {
     ]
 
     // When
-    const {getByText} = setupBuilder(Enviorement)(propsArray)
+    const {getByText} = setupBuilder(Environment)(propsArray)
 
     // Then
     expect(getByText(propsArray[0].children).innerHTML).to.equal(

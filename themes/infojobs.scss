@@ -7,7 +7,10 @@ $fz-base: 16px;
 @import '~@adv-ui/ij-theme/lib/index';
 
 // Common css for sui-studio
-@import 'common';
+@import './common';
+
+// Reset styles
+@import './destyle';
 
 // Load font
 $ff-path: 'https://proximanova-dtcthsajie.now.sh/';

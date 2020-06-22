@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.6.0 (2020-06-19)
+
+
+### Features
+
+* add prop font family and font weight to accordion component ([4474bd4](https://github.com/SUI-Components/sui-components/commit/4474bd4e0c34b8db30a6025e154fed4307fee8cf))
+
+
+
 # 1.5.0 (2020-03-11)
 
 

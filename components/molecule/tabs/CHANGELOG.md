@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.13.0 (2020-06-22)
+
+
+### Features
+
+* add tabs with counter ([38878a3](https://github.com/SUI-Components/sui-components/commit/38878a3c842085edf04466d0bde4eaa5db7c4722))
+
+
+
 # 2.12.0 (2020-06-22)
 
 

@@ -2,4 +2,7 @@
 @import '~@adv-ui/hab-theme/lib/index';
 
 // Common css for sui-studio
-@import 'common';
+@import './common';
+
+// Reset styles
+@import './destyle';

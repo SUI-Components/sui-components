@@ -8,3 +8,11 @@
   padding: 0.25em 0.5em;
   position: fixed;
 }
+
+.sui-StudioTable {
+  td,
+  th {
+    vertical-align: baseline;
+    padding: 8px;
+  }
+}

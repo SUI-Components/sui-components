@@ -33,7 +33,7 @@ const MoleculeTab = ({
   return (
     <li className={className} onClick={handleChange}>
       {icon && <span className={CLASS_TAB_ICON}>{icon}</span>}
-      {count && <span className={CLASS_TAB_COUNT}>{count}</span>}
+      {!isNaN(count) && <span className={CLASS_TAB_COUNT}>{count}</span>}
       <span>{label}</span>
     </li>
   )

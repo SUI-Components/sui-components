@@ -92,23 +92,23 @@ export const configWhitCount = {
   1: {
     label: 'Tab 1',
     content: <Content1 />,
-    count: '302'
+    count: 302
   },
   2: {
     label: 'Tab 2',
     content: <Content2 />,
-    count: '123',
+    count: 123,
     active: true
   },
   3: {
     label: 'Tab 3',
     content: <Content3 />,
-    count: '0'
+    count: 0
   },
   4: {
     label: 'Tab 4',
     content: <Content4 />,
-    count: '24',
+    count: 24,
     disabled: true
   }
 }

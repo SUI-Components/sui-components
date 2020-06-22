@@ -212,13 +212,13 @@ const Demo = () => {
           type={moleculeTabsTypes.FULLWIDTH}
           variant={moleculeTabsVariants.HIGHLIGHTED}
         >
-          <MoleculeTab numTab="1" label="Tab 1" count="17" active>
+          <MoleculeTab numTab="1" label="Tab 1" count={17} active>
             <div>
               <h1>Content Tab 1</h1>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
           </MoleculeTab>
-          <MoleculeTab numTab="2" label="Tab 2" count="173">
+          <MoleculeTab numTab="2" label="Tab 2" count={173}>
             <div>
               <h1>Content Tab 2</h1>
               <p>
@@ -228,7 +228,7 @@ const Demo = () => {
               </p>
             </div>
           </MoleculeTab>
-          <MoleculeTab numTab="3" label="Tab 3" count="0" disabled>
+          <MoleculeTab numTab="3" label="Tab 3" count={0} disabled>
             <div>
               <h1>Content Tab 3</h1>
               <p>

@@ -11,7 +11,12 @@ import MoleculeTabs, {
   moleculeTabsVariants
 } from '../../../../components/molecule/tabs/src'
 
-import {configBasic, configBasic6Steps, configWithIcons} from './config'
+import {
+  configBasic,
+  configBasic6Steps,
+  configWithIcons,
+  configWhitCount
+} from './config'
 import {IconLineBackup, IconLineDashboard, IconLineExtension} from './Icons'
 
 import './index.scss'
@@ -113,6 +118,20 @@ const Demo = () => {
         </MoleculeTabs>
       </div>
 
+      <h3>w/ Counter</h3>
+      <div className={CLASS_DEMO_SECTION}>
+        <MoleculeTabs
+          variant={moleculeTabsVariants.HIGHLIGHTED}
+          type={moleculeTabsTypes.FULLWIDTH}
+        >
+          {Object.values(configWhitCount).map(({content, ...props}, index) => (
+            <MoleculeTab key={index} numTab={index + 1} {...props}>
+              {content}
+            </MoleculeTab>
+          ))}
+        </MoleculeTabs>
+      </div>
+
       <h2>Static</h2>
 
       <h3>Basic</h3>
@@ -176,6 +195,40 @@ const Demo = () => {
             icon={<IconLineExtension />}
             disabled
           >
+            <div>
+              <h1>Content Tab 3</h1>
+              <p>
+                Deleniti voluptate iusto excepturi rem officia qui nihil natus,
+                quos doloribus numquam
+              </p>
+            </div>
+          </MoleculeTab>
+        </StaticMoleculeTabs>
+      </div>
+
+      <h3>w/ Counter</h3>
+      <div className={CLASS_DEMO_SECTION}>
+        <StaticMoleculeTabs
+          type={moleculeTabsTypes.FULLWIDTH}
+          variant={moleculeTabsVariants.HIGHLIGHTED}
+        >
+          <MoleculeTab numTab="1" label="Tab 1" count="17" active>
+            <div>
+              <h1>Content Tab 1</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </MoleculeTab>
+          <MoleculeTab numTab="2" label="Tab 2" count="173">
+            <div>
+              <h1>Content Tab 2</h1>
+              <p>
+                Cumque ad corrupti id neque aperiam deleniti voluptate iusto
+                excepturi rem officia qui nihil natus, quos doloribus numquam
+                laboriosam veritatis?
+              </p>
+            </div>
+          </MoleculeTab>
+          <MoleculeTab numTab="3" label="Tab 3" count="0" disabled>
             <div>
               <h1>Content Tab 3</h1>
               <p>

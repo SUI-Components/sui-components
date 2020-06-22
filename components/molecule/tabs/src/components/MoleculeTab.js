@@ -6,12 +6,21 @@ const BASE_CLASS = `sui-MoleculeTabs`
 
 const CLASS_TAB = `${BASE_CLASS}-item`
 const CLASS_TAB_ICON = `${CLASS_TAB}-icon`
+const CLASS_TAB_COUNT = `${CLASS_TAB}-count`
 
 /* status */
 const CLASS_TAB_ACTIVE = `is-active`
 const CLASS_TAB_DISABLED = `is-disabled`
 
-const MoleculeTab = ({active, onChange, disabled, icon, label, numTab}) => {
+const MoleculeTab = ({
+  active,
+  onChange,
+  disabled,
+  icon,
+  count,
+  label,
+  numTab
+}) => {
   const handleChange = ev => {
     !disabled && onChange(ev, {numTab})
   }
@@ -24,6 +33,7 @@ const MoleculeTab = ({active, onChange, disabled, icon, label, numTab}) => {
   return (
     <li className={className} onClick={handleChange}>
       {icon && <span className={CLASS_TAB_ICON}>{icon}</span>}
+      {count && <span className={CLASS_TAB_COUNT}>{count}</span>}
       <span>{label}</span>
     </li>
   )
@@ -35,6 +45,9 @@ MoleculeTab.propTypes = {
 
   /** icon (React component) */
   icon: PropTypes.node,
+
+  /** count to display */
+  count: PropTypes.string,
 
   /** text to display */
   label: PropTypes.string,

@@ -9,9 +9,6 @@ $fz-base: 16px;
 // Common css for sui-studio
 @import './common';
 
-// Reset styles
-@import './destyle';
-
 // Load font
 $ff-path: 'https://proximanova-dtcthsajie.now.sh/';
 @font-face {

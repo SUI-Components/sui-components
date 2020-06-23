@@ -10,7 +10,7 @@ import {render} from '@testing-library/react'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
-import MoleculeTabs from '../../../components/molecule/tabs'
+import MoleculeTabs from '../../../components/molecule/tabs/src'
 import MoleculeTab from '../../../components/molecule/tabs/src/components/MoleculeTab'
 
 chai.use(chaiDOM)

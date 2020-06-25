@@ -282,6 +282,27 @@ const Demo = () => {
           showPages={5}
           nonSelectedPageButtonDesign="outline"
         />
+
+        <p>
+          <code>totalPages=25 page=3</code>
+        </p>
+        <DynamicMoleculePagination
+          totalPages={25}
+          page={3}
+          {...Icons}
+          {...Texts}
+          {...OnClicks}
+          hideDisabled
+          prevButtonDesign="flat"
+          nextButtonDesign="flat"
+          showPages={5}
+          selectedPageButtonDesign="outline"
+          nonSelectedPageButtonDesign="flat"
+          selectedPageButtonColor="accent"
+          nonSelectedPageButtonColor="accent"
+          prevButtonColor="accent"
+          nextButtonColor="accent"
+        />
       </div>
     </div>
   )

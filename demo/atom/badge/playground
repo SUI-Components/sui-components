@@ -18,6 +18,8 @@ return (
       <AtomBadge label='2.5 / 10' type={atomBadgeTypes.ERROR} />
       <AtomBadge label='Executive' type={atomBadgeTypes.INFO} />
       <AtomBadge label='New' type={atomBadgeTypes.NEW} />
+      <AtomBadge label='Primary' type={atomBadgeTypes.PRIMARY} />
+
     </p>
     <h3>Medium</h3>
     <p style={stylesBlock}>
@@ -26,18 +28,23 @@ return (
       <AtomBadge label='2.5 / 10' type={atomBadgeTypes.ERROR} size={atomBadgeSizes.MEDIUM}/>
       <AtomBadge label='Executive' type={atomBadgeTypes.INFO} size={atomBadgeSizes.MEDIUM}/>
       <AtomBadge label='New' type={atomBadgeTypes.NEW} size={atomBadgeSizes.MEDIUM}/>
+      <AtomBadge label='Primary' type={atomBadgeTypes.PRIMARY} size={atomBadgeSizes.MEDIUM} />
+
     </p>
     <h3>Large</h3>
     <p style={stylesBlock}>
       <AtomBadge label='Badge xBasic' size={atomBadgeSizes.LARGE} />
       <AtomBadge label='Badge xIcon' type={atomBadgeTypes.ALERT} icon={icon} size={atomBadgeSizes.LARGE} />
       <AtomBadge label='Badge xIcon' type={atomBadgeTypes.INFO} icon={icon} iconRight size={atomBadgeSizes.LARGE} />
+      <AtomBadge label='Primary' type={atomBadgeTypes.PRIMARY} size={atomBadgeSizes.LARGE} />
+
     </p>
     <h2>Without background</h2>
     <p><AtomBadge label='Basic badge' type={atomBadgeTypes.INFO} transparent /></p>
     <p><AtomBadge label='Success badge' icon={icon} transparent /></p>
     <p><AtomBadge label='Error badge' type={atomBadgeTypes.ERROR} icon={icon} transparent /></p>
     <p><AtomBadge label='Alert badge' type={atomBadgeTypes.ALERT} icon={icon} transparent /></p>
+    <p><AtomBadge label='Primary badge' type={atomBadgeTypes.PRIMARY} icon={icon} transparent /></p>
     <p><AtomBadge label='ERROR badge' type={atomBadgeTypes.ERROR} icon={icon} iconRight transparent size={atomBadgeSizes.LARGE} /></p>
   </div>
 )

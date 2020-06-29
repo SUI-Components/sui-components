@@ -166,7 +166,7 @@ AtomButton.propTypes = {
     }
   },
   /**
-   * Design style of button: 'solid' (default), 'outline', 'flat'
+   * Design style of button: 'solid' (default), 'outline', 'flat', 'link'
    */
   design: PropTypes.oneOf(Object.values(DESIGNS)),
   /**

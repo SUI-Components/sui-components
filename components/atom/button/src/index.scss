@@ -281,6 +281,27 @@ $icon-stroke-color: currentColor !default;
           }
         }
       }
+      &#{$base-class}--link {
+        background: none;
+        border: none;
+        padding: 0;
+        text-decoration: underline;
+        cursor: pointer;
+        color: $color;
+        height: auto;
+        min-height: 0;
+        font-size: inherit;
+        text-transform: none;
+        &#{$base-class}--negative {
+          color: $color;
+        }
+        #{$base-class}-inner {
+          height: auto;
+        }
+        @include button-focused {
+          text-decoration: underline;
+        }
+      }
     }
   }
 

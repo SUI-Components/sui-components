@@ -289,12 +289,12 @@ $icon-stroke-color: currentColor !default;
 
         &#{$base-class}--negative {
           border-color: $color-invert;
-          color: $color;
+          color: $color-invert;
 
           @include button-focused {
-            background: $bgc-atom-button-focused;
+            background: $bgc-atom-button-focused-invert;
             @if ($color-invert != $c-atom-button-focused-invert) {
-              color: $c-atom-button-focused;
+              color: $c-atom-button-focused-invert;
             }
           }
         }
@@ -309,9 +309,10 @@ $icon-stroke-color: currentColor !default;
         }
         &#{$base-class}--negative {
           background: transparent;
+          color: $color;
           @include button-focused {
             background: transparent;
-            color: $c-atom-button-focused-invert;
+            color: $c-atom-button-focused;
           }
         }
       }

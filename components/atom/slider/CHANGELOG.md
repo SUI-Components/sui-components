@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.14.0 (2020-06-30)
+
+
+### Features
+
+* add prop color to label ([968c755](https://github.com/SUI-Components/sui-components/commit/968c755231a82d806116be5602430bd67fc71c2e))
+
+
+
 # 1.13.0 (2020-05-29)
 
 

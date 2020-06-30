@@ -11,7 +11,12 @@ export const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
 /**
  * Different designs for the button
  */
-export const DESIGNS = {SOLID: 'solid', OUTLINE: 'outline', FLAT: 'flat'}
+export const DESIGNS = {
+  SOLID: 'solid',
+  OUTLINE: 'outline',
+  FLAT: 'flat',
+  LINK: 'link'
+}
 
 /**
  * Available colors for the button

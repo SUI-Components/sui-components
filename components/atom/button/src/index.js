@@ -59,7 +59,9 @@ const getPropsWithDefaultValues = props => {
   let {color, design, type} = props
   // if color or design are defined, use them with the passed or default value
   if (color || design) {
-    color = color || 'primary'
+    if (design !== DESIGNS.LINK) {
+      color = color || 'primary'
+    }
     design = design || 'solid'
   } else {
     type = type || 'primary'
@@ -166,7 +168,7 @@ AtomButton.propTypes = {
     }
   },
   /**
-   * Design style of button: 'solid' (default), 'outline', 'flat'
+   * Design style of button: 'solid' (default), 'outline', 'flat', 'link'
    */
   design: PropTypes.oneOf(Object.values(DESIGNS)),
   /**

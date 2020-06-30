@@ -4,36 +4,36 @@ const boxStyle = {padding: 20, paddingTop: 0, width: 400, textAlign: 'center'}
 
 const ButtonsRow = props => (
   <tr style={{background: props.negative ? '#444' : '#fff'}}>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Title>{props.design}</Title>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props}>Button</Button>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props} focused>
         Button
       </Button>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props} disabled>
         Button
       </Button>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props} leftIcon={Icon}>
         Button
       </Button>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props} rightIcon={Icon}>
         Button
       </Button>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props} leftIcon={Icon} />
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props}>1</Button>
     </td>
   </tr>
@@ -65,30 +65,30 @@ const ButtonsColorsRow = props => (
     <td>
       <Title>{props.design}</Title>
     </td>
-    <td>
-      <Button {...props}>Button</Button>
+    <td style={{textAlign: 'center'}}>
+      <Button {...props} color="primary">Button</Button>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props} color="accent">
         Button
       </Button>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props} color="neutral">
         Button
       </Button>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props} color="success">
         Button
       </Button>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props} color="alert">
         Button
       </Button>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props} color="error">
         Button
       </Button>
@@ -101,32 +101,32 @@ const ButtonsSocialRow = props => (
     <td>
       <Title>{props.design}</Title>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props} color="social-facebook" leftIcon={getFacebookIcon()}>
         Facebook
       </Button>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props} color="social-twitter" leftIcon={getTwitterIcon()}>
         Twitter
       </Button>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props} color="social-google" leftIcon={getGoogleIcon()}>
         Google
       </Button>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props} color="social-youtube" leftIcon={getYoutubeIcon()}>
         Youtube
       </Button>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props} color="social-whatsapp" leftIcon={getWhatsappIcon()}>
         Whatsapp
       </Button>
     </td>
-    <td>
+    <td style={{textAlign: 'center'}}>
       <Button {...props} color="social-instagram" leftIcon={getInstagramIcon()}>
         Instagram
       </Button>
@@ -136,24 +136,27 @@ const ButtonsSocialRow = props => (
 
 return (
   <div>
-
     <Title>Colors</Title>
     <ButtonsColorsTable>
       <ButtonsColorsRow design="solid" />
       <ButtonsColorsRow design="outline" />
       <ButtonsColorsRow design="flat" />
+      <ButtonsColorsRow design="link" />
       <ButtonsColorsRow design="solid" negative />
       <ButtonsColorsRow design="outline" negative />
       <ButtonsColorsRow design="flat" negative />
+      <ButtonsColorsRow design="link" negative />
     </ButtonsColorsTable>
 
     <ButtonsSocialTable>
       <ButtonsSocialRow design="solid" />
       <ButtonsSocialRow design="outline" />
       <ButtonsSocialRow design="flat" />
+      <ButtonsSocialRow design="link" />
       <ButtonsSocialRow design="solid" negative />
       <ButtonsSocialRow design="outline" negative />
       <ButtonsSocialRow design="flat" negative />
+      <ButtonsSocialRow design="link" negative />
     </ButtonsSocialTable>
 
     <Title>SIZE MEDIUM</Title>
@@ -408,6 +411,8 @@ return (
     <FormWithSubmitButton />
     <Title>Form w/ several Buttons</Title>
     <FormWithSeveralButtons />
+    <Title>Button Links</Title>
+    <div>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea <Button design="link">commodo</Button> consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non <a href="#">proident</a>, sunt in culpa qui officia deserunt mollit anim id est laborum."</div>
   </div>
 )
 

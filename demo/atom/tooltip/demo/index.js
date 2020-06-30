@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useRef, useState} from 'react'
 
 import AtomTooltip, {
   AtomTooltipBase
@@ -17,21 +17,12 @@ const iconMenuHamburguer =
 
 const Demo = () => {
   // Usefull for isOpen example
-  const ref = useRef()
   const [isOpen, setIsOpen] = useState(false)
-  const setInnerRef = innerRef => {
+  const ref1 = useRef()
+  const ref2 = useRef()
+  const setInnerRef = ref => innerRef => {
     ref.current = innerRef
   }
-
-  // Usefull for isOpen example
-  useEffect(() => {
-    if (ref.current) {
-      // Important to emulate a client event
-      const event = new window.Event('touchstart')
-      ref.current.dispatchEvent(event)
-      setIsOpen(true)
-    }
-  }, [])
 
   return (
     <div className="DemoTooltip">
@@ -343,13 +334,15 @@ const Demo = () => {
       <div className={`${baseClass}-boxExample`}>
         <p>
           Lorem ipsum dolor sit amet{' '}
-          <AtomTooltipBase
-            isOpen={isOpen}
-            onToggle={() => {}}
-            innerRef={setInnerRef}
-          >
+          <AtomTooltipBase isOpen={isOpen} innerRef={setInnerRef(ref1)}>
             <u title="Last month of this year 2018" tabIndex="1">
               december
+            </u>
+          </AtomTooltipBase>
+          &nbsp;and&nbsp;
+          <AtomTooltipBase isOpen={!isOpen} innerRef={setInnerRef(ref2)}>
+            <u title="Last month of this year 2018" tabIndex="1">
+              not december
             </u>
           </AtomTooltipBase>
         </p>

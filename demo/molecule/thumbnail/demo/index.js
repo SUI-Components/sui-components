@@ -31,7 +31,7 @@ const IMAGES = {
 const defaultErrorText = 'Image not found'
 
 const BASE_CLASS_DEMO = 'DemoMoleculeThumbnail'
-const CLASS_DEMO_TABLE = `${BASE_CLASS_DEMO}-table`
+const CLASS_DEMO_TABLE = `sui-StudioTable ${BASE_CLASS_DEMO}-table`
 const CLASS_DEMO_CELL = `${BASE_CLASS_DEMO}-cell`
 
 const Demo = () => {

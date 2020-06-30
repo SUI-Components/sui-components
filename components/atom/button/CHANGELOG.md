@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.47.0 (2020-06-22)
+
+
+### Features
+
+* add reset styles & fix align in atom/button ([f1ba854](https://github.com/SUI-Components/sui-components/commit/f1ba854f436262d9dd665eeeacceb6b78e8d996b))
+
+
+
 # 1.46.0 (2020-05-21)
 
 

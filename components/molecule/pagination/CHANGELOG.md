@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.9.0 (2020-06-25)
+
+
+### Features
+
+* add button color ([0d835ac](https://github.com/SUI-Components/sui-components/commit/0d835ac13ec8a1d0052d4b9b25b78280befbc0ef))
+
+
+
 # 2.8.0 (2020-05-29)
 
 

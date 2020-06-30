@@ -81,7 +81,7 @@ export default function() {
         <code>color</code> and <code>size</code> props matrix
       </h2>
       <table
-        className="DemoAtomIcon-table"
+        className="sui-StudioTable DemoAtomIcon-table"
         width="auto"
         cellPadding="8"
         cellSpacing="0"

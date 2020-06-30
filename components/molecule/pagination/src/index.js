@@ -13,13 +13,18 @@ const CLASS_PREV_BUTTON_ICON = 'sui-MoleculePagination-prevButtonIcon'
 const CLASS_NEXT_BUTTON_ICON = 'sui-MoleculePagination-nextButtonIcon'
 const PAGE_NUMBER_HOLDER = '%{pageNumber}'
 
-const PageButton = ({onSelectPage, page, design, ...props}) => {
+const PageButton = ({onSelectPage, page, design, color, ...props}) => {
   const _onSelectPage = e => {
     onSelectPage(e, {page})
   }
   return (
     <li className={`${BASE_CLASS}-item`}>
-      <AtomButton onClick={_onSelectPage} design={design} {...props} />
+      <AtomButton
+        onClick={_onSelectPage}
+        design={design}
+        color={color}
+        {...props}
+      />
     </li>
   )
 }
@@ -31,6 +36,8 @@ PageButton.propTypes = {
   page: isValidPage,
   /** Design to be used for the page button. Design types 'solid', 'outline' or 'flat' */
   design: PropTypes.string,
+  /** Button color */
+  color: PropTypes.string,
   /** Factory used to create navigation links */
   linkFactory: PropTypes.func
 }
@@ -55,6 +62,10 @@ const MoleculePagination = ({
   nonSelectedPageButtonDesign = 'flat',
   prevButtonDesign = 'flat',
   nextButtonDesign = 'flat',
+  selectedPageButtonColor = 'primary',
+  nonSelectedPageButtonColor = 'primary',
+  prevButtonColor = 'primary',
+  nextButtonColor = 'primary',
   linkFactory,
   createUrl = defaultCreateUrl,
   urlPattern = '#',
@@ -96,6 +107,7 @@ const MoleculePagination = ({
           <AtomButton
             onClick={handleClickPrev}
             design={prevButtonDesign}
+            color={prevButtonColor}
             disabled={!prevPage}
             {...linkProps(prevPage)}
           >
@@ -112,6 +124,7 @@ const MoleculePagination = ({
         <PageButton
           page={page}
           design={selectedPageButtonDesign}
+          color={selectedPageButtonColor}
           onSelectPage={onSelectPage}
           {...linkProps(page)}
         >
@@ -127,6 +140,11 @@ const MoleculePagination = ({
                 ? selectedPageButtonDesign
                 : nonSelectedPageButtonDesign
             }
+            color={
+              pageRange === page
+                ? selectedPageButtonColor
+                : nonSelectedPageButtonColor
+            }
             onSelectPage={onSelectPage}
             {...linkProps(pageRange)}
           >
@@ -139,6 +157,7 @@ const MoleculePagination = ({
           <AtomButton
             onClick={handleClickNext}
             design={nextButtonDesign}
+            color={nextButtonColor}
             disabled={!nextPage}
             {...linkProps(nextPage)}
           >
@@ -205,6 +224,18 @@ MoleculePagination.propTypes = {
 
   /** Design to be used for the next button if its visible. Design types 'solid', 'outline' or 'flat */
   nextButtonDesign: PropTypes.string,
+
+  /** Color to be used for the selected page. */
+  selectedPageButtonColor: PropTypes.string,
+
+  /** Color to be used for the selected page. */
+  nonSelectedPageButtonColor: PropTypes.string,
+
+  /** Color to be used for the previous button if its visible. */
+  prevButtonColor: PropTypes.string,
+
+  /** Color to be used for the next button if its visible. */
+  nextButtonColor: PropTypes.string,
 
   /** Factory used to create navigation links */
   linkFactory: PropTypes.func,

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.14.0 (2020-06-30)
+
+
+### Features
+
+* add type: PRIMARY that use primary color as background ([1a17498](https://github.com/SUI-Components/sui-components/commit/1a174980333ef5c55c5dfe9603d2cf77b84947ef))
+
+
+
 # 1.13.0 (2020-05-28)
 
 

@@ -40,16 +40,13 @@ class AtomTooltip extends Component {
 
   refTarget = React.createRef()
 
-  loadAsyncReacstrap(e) {
+  loadAsyncReacstrap() {
     import(
       /* webpackChunkName: "reactstrap-Tooltip" */
       'reactstrap/lib/Tooltip'
     )
       .then(module => module.default)
-      .then(Tooltip => {
-        this.setState({Tooltip})
-        this.handleToggle(e)
-      })
+      .then(Tooltip => this.setState({Tooltip}))
   }
 
   extendChildren() {
@@ -77,7 +74,10 @@ class AtomTooltip extends Component {
     this.props.innerRef(target)
     ;['touchstart', 'mouseover'].forEach(event =>
       target.addEventListener(event, e => {
-        if (!this.state.Tooltip) this.loadAsyncReacstrap(e)
+        if (!this.state.Tooltip) {
+          this.loadAsyncReacstrap()
+          this.handleToggle(e)
+        }
       })
     )
     ;['click', 'touchend'].forEach(event =>
@@ -86,6 +86,12 @@ class AtomTooltip extends Component {
     target.oncontextmenu = this.handleContextMenu
     target.addEventListener('mouseover', this.disableTitle)
     target.addEventListener('mouseout', this.restoreTitle)
+
+    if (target && this.props.isOpen) {
+      if (!this.state.Tooltip) {
+        this.loadAsyncReacstrap()
+      }
+    }
   }
 
   componentWillUnmount() {
@@ -96,6 +102,14 @@ class AtomTooltip extends Component {
     )
     target.removeEventListener('mouseover', this.disableTitle)
     target.removeEventListener('mouseout', this.restoreTitle)
+  }
+
+  componentDidUpdate() {
+    const {Tooltip} = this.state
+    const {isOpen} = this.props
+    if (!Tooltip && isOpen) {
+      this.loadAsyncReacstrap()
+    }
   }
 
   disableTitle(e) {
@@ -237,8 +251,10 @@ class AtomTooltip extends Component {
 AtomTooltip.displayName = 'AtomTooltip'
 
 AtomTooltip.defaultProps = {
+  innerRef: () => {},
   isVisible: true,
-  longPressTime: 1000
+  longPressTime: 1000,
+  onToggle: () => {}
 }
 
 AtomTooltip.propTypes = {

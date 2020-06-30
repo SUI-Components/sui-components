@@ -3,17 +3,21 @@
 $bdc-sui-molecule-tabs-highlighted: transparent !default;
 $bdc-sui-molecule-tabs: $c-gray-light-3 !default;
 $bdc-sui-molecule-tabs-highlighted-vertical-right: $bdc-sui-molecule-tabs !default;
+$bb-sui-molecule-tabs-fullwidth: 1px solid $bdc-sui-molecule-tabs !default;
 $bdw-sui-molecule-tabs: $p-s !default;
 $bdw-sui-molecule-tabs-highlighted: 0 !default;
 $bdw-sui-molecule-tabs-highlighted-active: $bdw-sui-molecule-tabs !default;
 $bgc-sui-molecule-tabs-active: transparent !default;
 $bgc-sui-molecule-tabs: transparent !default;
+$bt-sui-molecule-tabs-content: $bdw-sui-molecule-tabs-highlighted solid
+  $bdc-sui-molecule-tabs-highlighted !default;
 $c-sui-molecule-tabs: $c-gray-light-1 !default;
 $c-sui-molecule-tabs-active: $c-primary !default;
 $c-sui-molecule-tabs-icon-active: $c-primary !default;
 $c-sui-molecule-tabs-disabled: $c-gray-lightest !default;
 $c-sui-molecule-tabs-highlighted-active: $c-primary !default;
 $fz-sui-molecule-tabs: $fz-m !default;
+$fz-sui-molecule-tabs-counter: $fz-m !default;
 $fw-sui-molecule-tabs-active: $fw-regular !default;
 $m-sui-molecule-tabs-item: 0 !default;
 $m-sui-molecule-tabs-first-item: $m-sui-molecule-tabs-item !default;
@@ -107,7 +111,7 @@ $ws-sui-molecule-tabs-vertical-item: nowrap !default;
 
   &--highlighted.sui-MoleculeTabs--horizontal,
   &--highlighted.sui-MoleculeTabs--fullWidth {
-    border-bottom: 1px solid $bdc-sui-molecule-tabs;
+    border-bottom: $bb-sui-molecule-tabs-fullwidth;
 
     .sui-MoleculeTabs-item {
       background: $bgc-sui-molecule-tabs;
@@ -139,8 +143,7 @@ $ws-sui-molecule-tabs-vertical-item: nowrap !default;
     }
 
     .sui-MoleculeTabs-content {
-      border-top: $bdw-sui-molecule-tabs-highlighted solid
-        $bdc-sui-molecule-tabs-highlighted;
+      border-top: $bt-sui-molecule-tabs-content;
     }
   }
 
@@ -256,6 +259,14 @@ $ws-sui-molecule-tabs-vertical-item: nowrap !default;
       margin: 0 auto $m-s;
       vertical-align: middle;
       width: $sz-icon-l;
+    }
+
+    &-count {
+      display: flex;
+      font-size: $fz-sui-molecule-tabs-counter;
+      font-weight: bold;
+      justify-content: center;
+      margin: $m-m;
     }
 
     svg {

@@ -139,7 +139,7 @@ return (
     </MoleculeNotification>
     <br />
     <h2>Positions</h2>
-    <table width="auto" cellPadding="8" cellSpacing="0" style={{padding: 15}}>
+    <table width="auto" className="sui-StudioTable" cellPadding="8" cellSpacing="0" style={{padding: 15}}>
       <tbody>
         <tr>
           <td>

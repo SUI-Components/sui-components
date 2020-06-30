@@ -2,7 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
-# 2.12.0 (2020-06-19)
+# 2.14.0 (2020-06-22)
+
+
+### Features
+
+* add number 0 verify ([2e64c0d](https://github.com/SUI-Components/sui-components/commit/2e64c0d3eddd6997ba2d16752fabda7f6b982718))
+
+
+
+# 2.13.0 (2020-06-22)
+
+
+### Features
+
+* add tabs with counter ([38878a3](https://github.com/SUI-Components/sui-components/commit/38878a3c842085edf04466d0bde4eaa5db7c4722))
+
+
+
+# 2.12.0 (2020-06-22)
 
 
 ### Features

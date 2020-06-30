@@ -285,21 +285,16 @@ $icon-stroke-color: currentColor !default;
         background: none;
         border: none;
         padding: 0;
-        text-decoration: underline;
         cursor: pointer;
-        color: $color;
         height: auto;
         min-height: 0;
-        font-size: inherit;
-        text-transform: none;
-        &#{$base-class}--negative {
-          color: $color;
-        }
         #{$base-class}-inner {
           height: auto;
         }
-        @include button-focused {
-          text-decoration: underline;
+        @include text-link;
+        @include link();
+        &#{$base-class}--negative {
+          @include link(true);
         }
       }
     }

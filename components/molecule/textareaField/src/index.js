@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
@@ -35,14 +35,8 @@ const MoleculeTextareaField = ({
   const errorState = hasErrors({successText, errorText})
   const textAreaState = getState({successText, errorState, alertText})
 
-  const [internalValue, setInternalValue] = useState(value)
-
-  useEffect(() => {
-    setInternalValue(value)
-  }, [value])
-
   const computeHelpText = () => {
-    const numCharacters = internalValue.length
+    const numCharacters = value.length
     const dynamicText = `${numCharacters}/${maxChars} ${textCharacters}`
     return helpText ? `${helpText} - ${dynamicText}` : dynamicText
   }
@@ -51,7 +45,6 @@ const MoleculeTextareaField = ({
     ev.persist()
     const value = ev.target.value
     if (value.length <= maxChars) {
-      setInternalValue(value)
       onChange(ev, {value})
     }
   }
@@ -75,7 +68,7 @@ const MoleculeTextareaField = ({
         id={id}
         errorState={errorState}
         state={textAreaState}
-        value={internalValue}
+        value={value}
         {...props}
       />
     </MoleculeField>

@@ -289,12 +289,12 @@ $icon-stroke-color: currentColor !default;
 
         &#{$base-class}--negative {
           border-color: $color-invert;
-          color: $color-invert;
+          color: $color;
 
           @include button-focused {
             background: $bgc-atom-button-focused-invert;
             @if ($color-invert != $c-atom-button-focused-invert) {
-              color: $c-atom-button-focused-invert;
+              color: $c-atom-button-focused;
             }
           }
         }

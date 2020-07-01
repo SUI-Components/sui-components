@@ -195,7 +195,7 @@ $icon-stroke-color: currentColor !default;
     pointer-events: none;
   }
   // link
-  &#{$base-class}--link {
+  &#{$base-class}--link:not(a) {
     background: none;
     border: none;
     padding: 0;
@@ -267,7 +267,7 @@ $icon-stroke-color: currentColor !default;
 
       &#{$base-class}--outline,
       &#{$base-class}--flat,
-      &#{$base-class}--link {
+      &#{$base-class}--link:not(a) {
         $bgc-atom-button-focused: color-variation($color, 4) !default;
         $bgc-atom-button-focused-invert: color-variation($color, -1) !default;
         $c-atom-button-focused: $color !default;
@@ -300,7 +300,7 @@ $icon-stroke-color: currentColor !default;
           }
         }
       }
-      &#{$base-class}--link {
+      &#{$base-class}--link:not(a) {
         $c-atom-button-focused: $color !default;
         $c-atom-button-focused-invert: $color-invert !default;
         background: transparent;

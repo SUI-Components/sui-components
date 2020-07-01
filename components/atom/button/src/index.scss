@@ -377,12 +377,12 @@ $icon-stroke-color: currentColor !default;
     }
   }
 
-  //&--link {
-  //  &,
-  //  &:hover {
-  //    text-decoration: none;
-  //  }
-  //}
+  &--link {
+    &,
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 @import './deprecated';

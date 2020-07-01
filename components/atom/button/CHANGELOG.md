@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.49.0 (2020-07-01)
+
+
+### Bug Fixes
+
+* let the code be as is ([b1afed2](https://github.com/SUI-Components/sui-components/commit/b1afed21098e16b0e910d3ff860597392a7fd57e))
+* retrocompatibility with ancient button links styling as anchors ([0de5f43](https://github.com/SUI-Components/sui-components/commit/0de5f43fda81f970b2aa65784d129f009c88997c))
+
+
+
 # 1.48.0 (2020-06-30)
 
 

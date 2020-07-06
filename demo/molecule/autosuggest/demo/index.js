@@ -16,7 +16,7 @@ import AutosuggestSingleWithAsyncOptions from './components/AutosuggestSingleFro
 
 import ComboCountries from './components/ComboCountries'
 
-import {IconClose} from './Icons'
+import {IconClose, IconSearch} from './Icons'
 import {getAsyncCountriesFromQuery} from './services'
 import './index.scss'
 
@@ -59,6 +59,7 @@ const Demo = () => (
     <div className={CLASS_DEMO_SECTION}>
       <h3>with Placeholder</h3>
       <MoleculeAutosuggestWithState
+        leftIcon={<IconSearch />}
         placeholder="Type a Country name..."
         onChange={(_, {value}) => console.log(value)}
         onEnter={() => console.log('Enter pressed')}

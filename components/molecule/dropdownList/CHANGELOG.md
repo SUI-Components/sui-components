@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.15.0 (2020-07-07)
+
+
+### Bug Fixes
+
+* fix default value for list border-radius ([f0cdd6c](https://github.com/SUI-Components/sui-components/commit/f0cdd6c3627a5f86eed4b4d4ede3bf855b305e1c))
+
+
+
 # 1.14.0 (2020-05-29)
 
 

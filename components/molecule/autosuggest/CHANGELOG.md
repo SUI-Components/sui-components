@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.16.0 (2020-07-07)
+
+
+### Features
+
+* add leftIcon prop for single-selection autosuggest ([51376d4](https://github.com/SUI-Components/sui-components/commit/51376d4c571fcbf9b67aecb36cd7280f5f5ca80d))
+
+
+
 # 2.15.0 (2020-05-29)
 
 

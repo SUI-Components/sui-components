@@ -21,6 +21,7 @@ const MoleculeAutosuggestSingleSelection = ({
   size,
   innerRefInput,
   refMoleculeAutosuggest,
+  leftIcon,
   rightIcon,
   iconClear,
   placeholder,
@@ -59,6 +60,7 @@ const MoleculeAutosuggestSingleSelection = ({
         onClickClear={handleClear}
         onChange={handleChange}
         iconClear={!disabled && iconClear}
+        leftIcon={leftIcon}
         rightIcon={rightIcon}
         onClickRightIcon={handleRightClick}
         reference={innerRefInput}

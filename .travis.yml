@@ -12,6 +12,9 @@ before_script:
   - npm run install:demos -- --ci
   - npm run install:themes
   - export NODE_OPTIONS=--max_old_space_size=4096
+  - echo fs.inotify.max_user_instances=524288 | tee -a /etc/sysctl.conf && sysctl -p
+  - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sysctl -p
+  - echo fs.inotify.max_queued_events=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 script:
   - npm run build

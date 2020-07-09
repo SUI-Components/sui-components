@@ -4,6 +4,9 @@ language: node_js
 
 node_js: 10
 
+env:
+  - NODE_OPTIONS=–-max_old_space_size=8192
+
 before_install:
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 

@@ -4,15 +4,12 @@ import React from 'react'
 import {withStateValue, withStateValueTags} from '@s-ui/hoc'
 
 import MoleculeAutosuggest, {
-  MoleculeAutosuggestDropdownListSizes,
   MoleculeAutosuggestStates
 } from '../../../../components/molecule/autosuggest/src'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
 import SuiButton from '@s-ui/react-atom-button'
 
 import withDynamicOptions from './hoc/withDynamicOptions'
-
-import AutosuggestSingleWithAsyncOptions from './components/AutosuggestSingleFromAjax'
 
 import ComboCountries from './components/ComboCountries'
 

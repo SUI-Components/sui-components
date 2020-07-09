@@ -11,9 +11,9 @@ before_script:
   - npx sui-mono phoenix --ci --no-root
   - npm run install:demos -- --ci
   - npm run install:themes
+  - export NODE_OPTIONS=--max_old_space_size=4096
 
 script:
-  - export NODE_OPTIONS=–-max_old_space_size=8192
   - npm run build
   - npm run test
 

@@ -10,3 +10,4 @@ demo/**/**/themes
 .npmrc
 .vscode/
 */**/package-lock.json
+.vercel

@@ -7,8 +7,8 @@ node_js: 10
 before_install:
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
-install:
-  - npx @s-ui/mono phoenix --ci
+after_install:
+  - npx sui-mono phoenix --ci --no-root
   - npm run install:demos -- --ci
   - npm run install:themes
 

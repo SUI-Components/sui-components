@@ -15,7 +15,7 @@ before_script:
 
 script:
   - npm run build
-  - npm run test
+  - npm run test -- --ci
 
 after_success:
   - rm -rf ./node_modules

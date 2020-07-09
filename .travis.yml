@@ -8,7 +8,7 @@ before_install:
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
 install:
-  - sui-mono phoenix --ci
+  - npx @s-ui/mono phoenix --ci
   - npm run install:demos -- --ci
   - npm run install:themes
 

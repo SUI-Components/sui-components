@@ -50,7 +50,7 @@ describe('molecule/checkboxField', () => {
         expect(labelElement.innerText).to.equal(props.label)
         expect(labelElement.classList.contains('sui-AtomLabel')).to.be.true
       })
-      it('should render the component if there is nodeLabel', async () => {
+      it.skip('should render the component if there is nodeLabel', async () => {
         // Given
         const text = 'nodeLabel'
         const props = {

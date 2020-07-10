@@ -13,10 +13,10 @@ import chaiDOM from 'chai-dom'
 chai.use(chaiDOM)
 
 describe('molecule/badgeCounter', () => {
-  it('Render', () => {
+  it.skip('Render', () => {
     // Example TO BE DELETED!!!!
     // const {getByRole} = render(<AtomButton>HOLA</AtomButton>)
     // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(true)
+    expect(true).to.be.eql(false)
   })
 })

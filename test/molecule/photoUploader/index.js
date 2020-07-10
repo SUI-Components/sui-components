@@ -7,8 +7,8 @@ import {render} from '@testing-library/react'
 chai.use(chaiDOM)
 
 describe('MoleculePhotoUploader', () => {
-  it('Render', () => {
+  it.skip('Render', () => {
     render(<MoleculePhotoUploader />)
-    expect(true).to.be.eql(true)
+    expect(true).to.be.eql(false)
   })
 })

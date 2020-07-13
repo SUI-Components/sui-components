@@ -51,4 +51,18 @@ describe('atom/backToTop', () => {
     expect(container.innerHTML).to.be.a('string')
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
+
+  it.skip('example', () => {
+    // Example TO BE DELETED!!!!
+
+    // Given
+    // const props = {}
+
+    // When
+    // const {getByRole} = setup(props)
+
+    // Then
+    // expect(getByRole('button')).to.have.text('HOLA')
+    expect(true).to.be.eql(false)
+  })
 })

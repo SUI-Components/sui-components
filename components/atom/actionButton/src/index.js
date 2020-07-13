@@ -12,7 +12,7 @@ import ActionButton from './ActionButton'
 /**
  * Base class for the component
  */
-const BASE_CLASS = 'react-AtomActionButton'
+const BASE_CLASS = 'sui-AtomActionButton'
 
 /**
  * Available colors for the Action Button

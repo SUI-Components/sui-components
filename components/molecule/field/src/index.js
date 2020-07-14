@@ -179,7 +179,7 @@ MoleculeField.propTypes = {
   /** Boolean to decide if elements should be set inline but input first */
   reverse: PropTypes.bool,
 
-  /** Boolean to decide if elements should be set inline */
+  /** Function triggered when field's label is clicked */
   onClickLabel: PropTypes.func,
 
   /** Boolean to decide if helptext should be auto hide */

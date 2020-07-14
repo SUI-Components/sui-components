@@ -41,6 +41,7 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
     onChange,
     onBlur,
     onEnter,
+    onFocus,
     isOpen,
     keysCloseList,
     keysSelection,
@@ -123,7 +124,10 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
     }
   }
 
-  const handleFocusIn = ev => setFocus(true)
+  const handleFocusIn = ev => {
+    onFocus(ev)
+    setFocus(true)
+  }
 
   const handleFocusOut = ev => {
     ev.persist()
@@ -273,7 +277,10 @@ MoleculeAutosuggest.propTypes = {
   rightButton: PropTypes.node,
 
   /** Left UI Icon */
-  leftIcon: PropTypes.node
+  leftIcon: PropTypes.node,
+
+  /** callback triggered when the user press focuses the input */
+  onFocus: PropTypes.func,
 }
 
 MoleculeAutosuggest.defaultProps = {
@@ -282,6 +289,7 @@ MoleculeAutosuggest.defaultProps = {
   onToggle: () => {},
   onEnter: () => {},
   onSelect: () => {},
+  onFocus: () => {},
   keysSelection: [' ', 'Enter'],
   keysCloseList: ['Escape']
 }

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.3.0 (2020-07-14)
+
+
+### Features
+
+* add variables in scss ([706498e](https://github.com/SUI-Components/sui-components/commit/706498e95fe20a50733e23f3957f51c0cd834842))
+
+
+
 # 2.2.0 (2020-05-29)
 
 

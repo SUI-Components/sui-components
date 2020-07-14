@@ -82,7 +82,7 @@ describe('molecule/radioButtonField', () => {
         expect(labelElement.classList.contains('sui-AtomLabel')).to.be.true
       })
 
-      it.skip('should render the component if there is nodeLabel', async () => {
+      it('should render the component if there is nodeLabel', async () => {
         // Given
         const text = 'nodeLabel'
         const props = {

@@ -21,10 +21,12 @@ const AtomTable = ({
   foot,
   fullWidth,
   cellPadding,
-  borderBottom
+  borderBottom,
+  onRowClick
 }) => {
   const hasHead = Boolean(head?.length)
   const hasFoot = Boolean(foot?.length)
+  const isRowActionable = Boolean(onRowClick)
   const baseClass = 'react-AtomTable'
   const tableClass = cx(`${baseClass}`, {
     [`${baseClass}--fullWidth`]: Boolean(fullWidth)
@@ -32,6 +34,11 @@ const AtomTable = ({
   const headerClass = cx(`${baseClass}-cell`, `${baseClass}-headerCell`, {
     [`${baseClass}-cell--${cellPadding}`]: Boolean(cellPadding)
   })
+  const rowClass = cx(`${baseClass}-row`, {
+    [`${baseClass}-row--actionable`]: isRowActionable
+  })
+
+  const handleOnRowClick = index => onRowClick(index)
 
   return (
     <table className={tableClass}>
@@ -49,7 +56,11 @@ const AtomTable = ({
 
       <tbody>
         {body.map((row, index) => (
-          <tr key={index}>
+          <tr
+            key={index}
+            className={rowClass}
+            {...(isRowActionable && {onClick: () => handleOnRowClick(index)})}
+          >
             {row.map((cell, index) => {
               const {
                 type: Element = CELL_TYPE.data,
@@ -132,7 +143,11 @@ AtomTable.propTypes = {
   /**
    * Add a default border bootom to all cells
    */
-  borderBottom: PropTypes.bool
+  borderBottom: PropTypes.bool,
+  /**
+   * Trigger callback with row index clicked
+   */
+  onRowClick: PropTypes.func
 }
 
 export {CELL_TYPE as atomTableCellTypes, CELL_PADDING as atomTableCellPadding}

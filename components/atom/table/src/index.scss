@@ -1,5 +1,8 @@
 @import '~@s-ui/theme/lib/index';
 
+$bgc-atom-table-row-actionable--hover: $c-gray-light-4 !default;
+$bgc-atom-table-row-actionable--active: $c-gray-light-3 !default;
+
 .react-AtomTable {
   border-collapse: collapse;
   color: $c-gray-dark;
@@ -13,6 +16,20 @@
   &-headerCell {
     font-weight: $fw-regular;
     text-align: left;
+  }
+
+  &-row {
+    &--actionable {
+      cursor: pointer;
+
+      &:hover {
+        background-color: $bgc-atom-table-row-actionable--hover;
+      }
+
+      &:active {
+        background-color: $bgc-atom-table-row-actionable--active;
+      }
+    }
   }
 
   &-cell {

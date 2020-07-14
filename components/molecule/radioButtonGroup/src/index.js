@@ -41,7 +41,7 @@ const MoleculeRadioButtonGroup = ({
   return <div className={BASE_CLASS}>{extendedChildren}</div>
 }
 
-MoleculeRadioButtonGroup.displayName = 'MoleculeRadioButton'
+MoleculeRadioButtonGroup.displayName = 'MoleculeRadioButtonGroup'
 
 MoleculeRadioButtonGroup.defaultProps = {
   checked: false

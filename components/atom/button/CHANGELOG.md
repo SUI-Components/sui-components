@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.49.0 (2020-07-01)
+
+
+### Bug Fixes
+
+* let the code be as is ([b1afed2](https://github.com/SUI-Components/sui-components/commit/b1afed21098e16b0e910d3ff860597392a7fd57e))
+* retrocompatibility with ancient button links styling as anchors ([0de5f43](https://github.com/SUI-Components/sui-components/commit/0de5f43fda81f970b2aa65784d129f009c88997c))
+
+
+
+# 1.48.0 (2020-06-30)
+
+
+### Bug Fixes
+
+* atom button link ineritance ([c3dd613](https://github.com/SUI-Components/sui-components/commit/c3dd61343de444b574ed08b9c33d22abd0c87b5e))
+* inheritance color when focusing ([d12ae3a](https://github.com/SUI-Components/sui-components/commit/d12ae3a96670be92b43867b23d15651847bc9f0c))
+
+
+### Features
+
+* button link [@mixin](https://github.com/mixin) ([56966e8](https://github.com/SUI-Components/sui-components/commit/56966e890b3df6add39a5d870d4540b303595d2a))
+* fix texts transform ([268092e](https://github.com/SUI-Components/sui-components/commit/268092e7be1c97d088edb99f9317dfb728fd8d16))
+* inherit link mixins ([9bf1e7d](https://github.com/SUI-Components/sui-components/commit/9bf1e7d9f4c8a7b67a24b6db77f725b8380c4bbf))
+* inverted inheriting color ([8075f48](https://github.com/SUI-Components/sui-components/commit/8075f48593a06a5752b58ef8685049d32b379ff1))
+* link design ([a627b45](https://github.com/SUI-Components/sui-components/commit/a627b45d7fa0efd8f9d193cc036cd71bb4493909))
+
+
+
+# 1.47.0 (2020-06-22)
+
+
+### Features
+
+* add reset styles & fix align in atom/button ([f1ba854](https://github.com/SUI-Components/sui-components/commit/f1ba854f436262d9dd665eeeacceb6b78e8d996b))
+
+
+
 # 1.46.0 (2020-05-21)
 
 

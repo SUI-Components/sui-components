@@ -142,6 +142,7 @@ $icon-stroke-color: currentColor !default;
   border-radius: $bdrs-atom-button;
   box-sizing: border-box;
   display: inline-block;
+  text-align: center;
   font: {
     family: $ff-atom-button;
     size: $fz-atom-button;
@@ -192,6 +193,23 @@ $icon-stroke-color: currentColor !default;
     display: inline-flex;
     height: 100%;
     pointer-events: none;
+  }
+  // link
+  &#{$base-class}--link:not(a) {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    height: auto;
+    min-height: 0;
+    #{$base-class}-inner {
+      height: auto;
+    }
+    text-transform: none;
+    @include link();
+    &#{$base-class}--negative {
+      @include link(true);
+    }
   }
 
   // Icons
@@ -248,7 +266,8 @@ $icon-stroke-color: currentColor !default;
       }
 
       &#{$base-class}--outline,
-      &#{$base-class}--flat {
+      &#{$base-class}--flat,
+      &#{$base-class}--link:not(a) {
         $bgc-atom-button-focused: color-variation($color, 4) !default;
         $bgc-atom-button-focused-invert: color-variation($color, -1) !default;
         $c-atom-button-focused: $color !default;
@@ -278,6 +297,23 @@ $icon-stroke-color: currentColor !default;
             @if ($color-invert != $c-atom-button-focused-invert) {
               color: $c-atom-button-focused-invert;
             }
+          }
+        }
+      }
+      &#{$base-class}--link:not(a) {
+        $c-atom-button-focused: $color !default;
+        $c-atom-button-focused-invert: $color-invert !default;
+        background: transparent;
+        @include button-focused {
+          background: transparent;
+          color: $c-atom-button-focused;
+        }
+        &#{$base-class}--negative {
+          background: transparent;
+          color: $color;
+          @include button-focused {
+            background: transparent;
+            color: $c-atom-button-focused;
           }
         }
       }

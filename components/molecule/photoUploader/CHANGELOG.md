@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.15.0 (2020-06-17)
+
+
+### Features
+
+* fix to avoid rotation based on exif, if browser has this feature by de ([91ae59d](https://github.com/SUI-Components/sui-components/commit/91ae59d64cdf9f14c4eb2186eaca0c5645673fbe))
+
+
+
 # 1.14.0 (2020-06-08)
 
 

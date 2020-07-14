@@ -29,4 +29,14 @@ const IconArrowDown = () => (
   </svg>
 )
 
-export {IconClose, IconArrowDown}
+const IconSearch = () => (
+  <svg viewBox="0 0 24 24">
+    <path
+      d="M18.8,17.4l5.7,5.7c0.4,0.4,0.4,1,0,1.4s-1,0.4-1.4,0l-5.7-5.7c-1.6,1.3-3.6,2-5.7,2c-5.1,0-9.2-4.1-9.2-9.2
+s4.1-9.2,9.2-9.2s9.2,4.1,9.2,9.2C20.8,13.8,20.1,15.8,18.8,17.4z M11.7,18.8c4,0,7.2-3.2,7.2-7.2s-3.2-7.2-7.2-7.2
+s-7.2,3.2-7.2,7.2S7.7,18.8,11.7,18.8z"
+    />
+  </svg>
+)
+
+export {IconClose, IconArrowDown, IconSearch}

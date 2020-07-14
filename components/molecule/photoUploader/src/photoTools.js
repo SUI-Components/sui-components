@@ -19,15 +19,24 @@ export function formatToBase64({
       reader.onload = () => {
         getExifOrientation(file)
           .then(getExifOrientationResult => {
-            switch (getExifOrientationResult) {
-              case (3, 4):
-                options.rotation = 180
-                break
-              case (5, 6):
-                options.rotation = 90
-                break
-              case (7, 8):
-                options.rotation = 270
+            /*
+             *  Since Chrome 81, image EXIF orientation is respected by default.
+             *  Latest Safari (13.1 as of now) is also working correctly.
+             */
+            const browserAutoRotates =
+              getComputedStyle(document.body).imageOrientation == 'from-image' // eslint-disable-line
+
+            if (!browserAutoRotates) {
+              switch (getExifOrientationResult) {
+                case (3, 4):
+                  options.rotation = 180
+                  break
+                case (5, 6):
+                  options.rotation = 90
+                  break
+                case (7, 8):
+                  options.rotation = 270
+              }
             }
             return resizeImage({
               base64Image: reader.result,

@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.9.0 (2020-07-07)
+
+
+### Features
+
+* add var to change border in is-intermediate state ([0dded0f](https://github.com/SUI-Components/sui-components/commit/0dded0f5770b15a06508a936b15ddb6c60606bab))
+
+
+
+# 2.8.0 (2020-06-19)
+
+
+### Features
+
+* add intermediate color ([06746b8](https://github.com/SUI-Components/sui-components/commit/06746b8eee554e8d453d6366bd2d53f48ca734ce))
+
+
+
 # 2.7.0 (2020-05-29)
 
 

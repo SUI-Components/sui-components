@@ -38,6 +38,7 @@ const AtomCheckbox = ({
   const className = cx(BASE_CLASS, {
     'is-checked': checked,
     'is-disabled': disabled,
+    'is-intermediate': isIntermediate,
     [`${BASE_CLASS}--native`]: isNative
   })
 

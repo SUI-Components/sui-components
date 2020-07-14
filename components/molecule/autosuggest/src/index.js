@@ -270,7 +270,10 @@ MoleculeAutosuggest.propTypes = {
   state: PropTypes.oneOf(Object.values(AUTOSUGGEST_STATES)),
 
   /* Button prop to be passe down to the input field */
-  rightButton: PropTypes.node
+  rightButton: PropTypes.node,
+
+  /** Left UI Icon */
+  leftIcon: PropTypes.node
 }
 
 MoleculeAutosuggest.defaultProps = {

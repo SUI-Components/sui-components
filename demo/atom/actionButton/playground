@@ -190,6 +190,7 @@ function ButtonsTable({children, style}) {
   return (
     <table
       width="auto"
+      className="sui-StudioTable"
       cellPadding="8"
       cellSpacing="0"
       style={{background: '#fff', padding: 15}}
@@ -217,6 +218,7 @@ function ButtonsColorsTable({children, style}) {
   return (
     <table
       width="auto"
+      className="sui-StudioTable"
       cellPadding="8"
       cellSpacing="0"
       style={{background: '#fff', padding: 15}}

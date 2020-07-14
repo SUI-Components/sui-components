@@ -40,6 +40,8 @@
 
     &Title {
       flex: 1 0 0;
+      font-family: $ff-molecule-accordion-title;
+      font-weight: $fw-molecule-accordion-title;
       overflow: hidden;
       padding: $p-accordion-title;
       text-align: left;

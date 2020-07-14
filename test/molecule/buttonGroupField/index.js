@@ -1,61 +1,156 @@
-/* global MoleculeButtonGroupField */
+/*
+ * Remember: YOUR COMPONENT IS DEFINED GLOBALLY
+ * */
+
+/* eslint react/jsx-no-undef:0 */
+/* eslint no-undef:0 */
 
 import React from 'react'
-import {render, getByText} from '@testing-library/react'
+import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import {render} from '@testing-library/react'
 
 chai.use(chaiDOM)
 
-const moleculeButtonGroupTestId = 'testId'
-const label = 'Test Label'
-const help = 'Test description here'
-const success = 'Test Everything ok!'
-const error = 'Test All wrong!'
-const alert = 'Test Alert!!!'
-
-const createComponent = props => {
-  return (
-    <MoleculeButtonGroupField
-      id={moleculeButtonGroupTestId}
-      label={label}
-      {...props}
-    >
-      <>
-        <div>BUTTON 1</div>
-        <div>BUTTON 2</div>
-      </>
-    </MoleculeButtonGroupField>
-  )
+const setupBuilder = Component => props => {
+  const container = document.createElement('div')
+  container.setAttribute('id', 'test-container')
+  const utils = render(<Component {...props} />, {
+    container: document.body.appendChild(container)
+  })
+  return utils
 }
 
-describe('SUI - MoleculeButtonGroupField', () => {
-  it('User can see a label before button group', () => {
-    const component = createComponent({helpTest: help})
-    const {container} = render(component)
-    const expectedLabel = getByText(container, label)
-    expect(expectedLabel).to.be.exist
+describe('molecule/buttonGroupField', () => {
+  const Component = MoleculeButtonGroupField
+  const setup = setupBuilder(Component)
+
+  it('should render without crashing', () => {
+    // Given
+    const props = {
+      children: (
+        <>
+          <div>BUTTON 1</div>
+          <div>BUTTON 2</div>
+        </>
+      )
+    }
+
+    // When
+    const component = <Component {...props} />
+
+    // Then
+    const div = document.createElement('div')
+    ReactDOM.render(component, div)
+    ReactDOM.unmountComponentAtNode(div)
   })
 
-  it('User can see successHelpText after button group', () => {
-    const component = createComponent({successText: success})
-    const {container} = render(component)
-    const expectedSuccessText = getByText(container, success)
-    expect(expectedSuccessText).to.be.exist
+  it('should NOT render null', () => {
+    // Given
+    const props = {
+      children: (
+        <>
+          <div>BUTTON 1</div>
+          <div>BUTTON 2</div>
+        </>
+      )
+    }
+
+    // When
+    const {container} = setup(props)
+
+    // Then
+    expect(container.innerHTML).to.be.a('string')
+    expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
-  it('User can see errorHelpText after button group', () => {
-    const component = createComponent({errorText: error})
-    const {container} = render(component)
-    const expectedErrorText = getByText(container, error)
-    expect(expectedErrorText).to.be.exist
+  it('should see a label before button group', () => {
+    // Given
+    const props = {
+      id: 'testId',
+      label: 'Test Label',
+      helpTest: 'Test description here',
+      children: (
+        <>
+          <div>BUTTON 1</div>
+          <div>BUTTON 2</div>
+        </>
+      )
+    }
+
+    // When
+    const {getByText} = setup(props)
+
+    // Then
+    const expected = getByText(props.label)
+    expect(expected).to.be.exist
   })
 
-  it('User can see alertHelpText after button group', () => {
-    const component = createComponent({alertText: alert})
-    const {container} = render(component)
-    const expectedAlertText = getByText(container, alert)
-    expect(expectedAlertText).to.be.exist
+  it('should see successHelpText after button group', () => {
+    // Given
+    const props = {
+      id: 'testId',
+      label: 'Test Label',
+      successText: 'Test Everything ok!',
+      children: (
+        <>
+          <div>BUTTON 1</div>
+          <div>BUTTON 2</div>
+        </>
+      )
+    }
+
+    // When
+    const {getByText} = setup(props)
+
+    // Then
+    const expected = getByText(props.successText)
+    expect(expected).to.be.exist
+  })
+
+  it('should see errorHelpText after button group', () => {
+    // Given
+    const props = {
+      id: 'testId',
+      label: 'Test Label',
+      errorText: 'Test All wrong!',
+      children: (
+        <>
+          <div>BUTTON 1</div>
+          <div>BUTTON 2</div>
+        </>
+      )
+    }
+
+    // When
+    const {getByText} = setup(props)
+
+    // Then
+    const expected = getByText(props.errorText)
+    expect(expected).to.be.exist
+  })
+
+  it('should see alertHelpText after button group', () => {
+    // Given
+    const props = {
+      id: 'testId',
+      label: 'Test Label',
+      alertText: 'Test Alert!!!',
+      children: (
+        <>
+          <div>BUTTON 1</div>
+          <div>BUTTON 2</div>
+        </>
+      )
+    }
+
+    // When
+    const {getByText} = setup(props)
+
+    // Then
+    const expected = getByText(props.alertText)
+    expect(expected).to.be.exist
   })
 })

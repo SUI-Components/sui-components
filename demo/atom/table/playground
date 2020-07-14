@@ -134,7 +134,7 @@ return (
     <br/>
 
     <h2>Actionable Version with thead, tbody and tfoot, and the props cellPadding and borderBottom</h2>
-    <p>Pass an onClick callback that returns the index of the row clicked</p>
+    <p>Pass an onRowClick callback that returns the index of the row clicked</p>
     <AtomTable
       head={contentHeadMook}
       body={contentBodyMook}
@@ -142,7 +142,7 @@ return (
       fullWidth
       cellPadding={CELL_PADDING.l}
       borderBottom
-      onClick={handleClick}
+      onRowClick={handleClick}
     />
     <br/>
   </div>

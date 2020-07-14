@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
-const BASE_CLASS = 'sui-AtomRadioButtonGroup'
+const BASE_CLASS = 'sui-MoleculeRadioButtonGroup'
 
-const AtomRadioButtonGroup = ({
+const MoleculeRadioButtonGroup = ({
   id,
   value: initValue,
   onChange: onChangeFromProps,
@@ -41,13 +41,13 @@ const AtomRadioButtonGroup = ({
   return <div className={BASE_CLASS}>{extendedChildren}</div>
 }
 
-AtomRadioButtonGroup.displayName = 'AtomRadioButton'
+MoleculeRadioButtonGroup.displayName = 'MoleculeRadioButton'
 
-AtomRadioButtonGroup.defaultProps = {
+MoleculeRadioButtonGroup.defaultProps = {
   checked: false
 }
 
-AtomRadioButtonGroup.propTypes = {
+MoleculeRadioButtonGroup.propTypes = {
   /* children */
   children: PropTypes.any,
 
@@ -70,4 +70,4 @@ AtomRadioButtonGroup.propTypes = {
   value: PropTypes.string
 }
 
-export default AtomRadioButtonGroup
+export default MoleculeRadioButtonGroup

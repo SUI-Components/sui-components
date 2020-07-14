@@ -26,7 +26,7 @@ const AtomTable = ({
 }) => {
   const hasHead = Boolean(head?.length)
   const hasFoot = Boolean(foot?.length)
-  const isActionable = Boolean(onRowClick)
+  const isRowActionable = Boolean(onRowClick)
   const baseClass = 'react-AtomTable'
   const tableClass = cx(`${baseClass}`, {
     [`${baseClass}--fullWidth`]: Boolean(fullWidth)
@@ -35,7 +35,7 @@ const AtomTable = ({
     [`${baseClass}-cell--${cellPadding}`]: Boolean(cellPadding)
   })
   const rowClass = cx(`${baseClass}-row`, {
-    [`${baseClass}-row--actionable`]: isActionable
+    [`${baseClass}-row--actionable`]: isRowActionable
   })
 
   const handleOnRowClick = index => onRowClick(index)
@@ -59,7 +59,7 @@ const AtomTable = ({
           <tr
             key={index}
             className={rowClass}
-            {...(isActionable && {onClick: () => handleOnRowClick(index)})}
+            {...(isRowActionable && {onClick: () => handleOnRowClick(index)})}
           >
             {row.map((cell, index) => {
               const {

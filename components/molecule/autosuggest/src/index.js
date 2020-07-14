@@ -279,7 +279,7 @@ MoleculeAutosuggest.propTypes = {
   /** Left UI Icon */
   leftIcon: PropTypes.node,
 
-  /** callback triggered when the user press focuses the input */
+  /** callback triggered when the user focuses on the input */
   onFocus: PropTypes.func
 }
 

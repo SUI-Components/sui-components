@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-07-14)
+
+
+### Features
+
+* actionable onClick on atom table ([9e4659c](https://github.com/SUI-Components/sui-components/commit/9e4659ccd65f6a3231cf9c719bdc502d071ec3fe))
+* add action on atom table ([c01b00a](https://github.com/SUI-Components/sui-components/commit/c01b00ac3f0e63d21aa62333e2c79a70acef14f9))
+* change to onRowClick prop on atom/table ([22a6130](https://github.com/SUI-Components/sui-components/commit/22a6130e87f9af9eb90fea425be3a406b675e528))
+* refactor atom/table isRowActionable ([900af04](https://github.com/SUI-Components/sui-components/commit/900af04f50f544e21e972251e52ae078b6b1893d))
+
+
+
 # 1.6.0 (2020-06-09)
 
 

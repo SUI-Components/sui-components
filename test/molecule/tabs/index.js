@@ -3,15 +3,16 @@
  * */
 
 /* eslint react/jsx-no-undef:0 */
+/* eslint no-undef:0 */
 
 import React from 'react'
-import {render} from '@testing-library/react'
+import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import {render} from '@testing-library/react'
 
-import MoleculeTabs from '../../../components/molecule/tabs/src'
-import MoleculeTab from '../../../components/molecule/tabs/src/components/MoleculeTab'
+import {MoleculeTab} from '../../../components/molecule/tabs/src'
 
 chai.use(chaiDOM)
 
@@ -25,60 +26,86 @@ const setupBuilder = Component => props => {
 }
 
 describe('molecule/tabs', () => {
-  const Environment = propsArray => {
-    return (
-      <MoleculeTabs>
-        {Object.values(propsArray).map((props, index) => {
-          const {children, ...otherProps} = props // eslint-disable-line
-          return (
-            <MoleculeTab key={index} {...otherProps}>
-              {children}
-            </MoleculeTab>
-          )
-        })}
-      </MoleculeTabs>
-    )
-  }
+  const Component = MoleculeTabs
+  const setup = setupBuilder(Component)
+
+  it('should render without crashing', () => {
+    // Given
+    const props = {}
+
+    // When
+    const component = <Component {...props} />
+
+    // Then
+    const div = document.createElement('div')
+    ReactDOM.render(component, div)
+    ReactDOM.unmountComponentAtNode(div)
+  })
+
+  it('should NOT render null', () => {
+    // Given
+    const props = {}
+
+    // When
+    const {container} = setup(props)
+
+    // Then
+    expect(container.innerHTML).to.be.a('string')
+    expect(container.innerHTML).to.not.have.lengthOf(0)
+  })
 
   it('should display the active content', () => {
     // Given
-    const propsArray = [
-      {label: 'Tab 1', children: 'Content 1', active: true},
-      {label: 'Tab 2', children: 'Content 2'}
-    ]
+    const content = 'Content 1'
+    const props = {
+      children: [
+        <MoleculeTab key={0} label="Tab 1" active>
+          {content}
+        </MoleculeTab>,
+        <MoleculeTab key={1} label="Tab 2">
+          Content 2
+        </MoleculeTab>
+      ]
+    }
 
     // When
-    const {getByText} = setupBuilder(Environment)(propsArray)
+    const {getByText} = setup(props)
 
     // Then
-    expect(getByText(propsArray[0].children).innerHTML).to.equal(
-      propsArray[0].children
-    )
+    expect(getByText(content).innerHTML).to.equal(content)
   })
 
   it('should display the active content given count props', () => {
     // Given
-    const propsArray = [
-      {label: 'Tab 1', count: 3, children: 'Content 1', active: true},
-      {label: 'Tab 2', count: -3, children: 'Content 2'},
-      {label: 'Tab 3', count: 0, children: 'Content 3'}
-    ]
+    const content = 'Content 1'
+    const count = [3, -3, 0]
+    const props = {
+      children: [
+        <MoleculeTab key={0} label="Tab 1" count={count[0]} active>
+          {content}
+        </MoleculeTab>,
+        <MoleculeTab key={1} label="Tab 2" count={count[1]}>
+          Content 2
+        </MoleculeTab>,
+        <MoleculeTab key={2} label="Tab 3" count={count[2]}>
+          Content 3
+        </MoleculeTab>
+      ]
+    }
 
     // When
-    const {getByText} = setupBuilder(Environment)(propsArray)
+    const {getByText} = setup(props)
 
     // Then
-    expect(getByText(propsArray[0].children).innerHTML).to.equal(
-      propsArray[0].children
+    expect(getByText(content).innerHTML).to.equal(content)
+    expect(getByText(count[0].toString()).innerHTML).to.equal(
+      count[0].toString()
     )
-    expect(getByText(propsArray[0].count.toString()).innerHTML).to.equal(
-      propsArray[0].count.toString()
+    expect(getByText(count[1].toString()).innerHTML).to.equal(
+      count[1].toString()
     )
-    expect(getByText(propsArray[1].count.toString()).innerHTML).to.equal(
-      propsArray[1].count.toString()
-    )
-    expect(getByText(propsArray[2].count.toString()).innerHTML).to.equal(
-      propsArray[2].count.toString()
+    expect(getByText(count[2].toString()).innerHTML).to.equal(
+      count[2].toString()
     )
   })
 })

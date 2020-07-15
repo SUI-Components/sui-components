@@ -22,6 +22,7 @@ $bgc-atom-input-disabled: $c-gray-lightest !default;
 $bg-molecule-select-disabled: $bgc-atom-input-disabled !default;
 $bd-molecule-select-disabled: $bd-atom-input-base !default;
 $c-molecule-select-arrow-disabled: $c-select-list-arrow-fill !default;
+$c-molecule-select-disabled: inherit !default;
 
 #{$base-class} {
   outline: none;
@@ -45,6 +46,7 @@ $c-molecule-select-arrow-disabled: $c-select-list-arrow-fill !default;
         #{$class-select-atom-input-input} {
           background: $bg-molecule-select-disabled;
           border: $bd-molecule-select-disabled;
+          color: $c-molecule-select-disabled;
         }
 
         #{$class-input}-arrow {

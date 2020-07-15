@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.17.0 (2020-07-15)
+
+
+### Features
+
+* add onFocus prop ([a5b233c](https://github.com/SUI-Components/sui-components/commit/a5b233c289e6935f8b412b00d625a1e5f5fadc69))
+
+
+
 # 2.16.0 (2020-07-07)
 
 

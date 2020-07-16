@@ -21,6 +21,7 @@ $c-atom-textarea: initial !default;
 $c-atom-textarea--disabled: $c-gray-light !default;
 $c-atom-textarea-placeholder: initial !default;
 $w-atom-textarea: initial !default;
+$rsz-atom-textarea: auto !default;
 
 $base-class: '.sui-AtomTextarea';
 
@@ -35,6 +36,7 @@ $base-class: '.sui-AtomTextarea';
   padding: $p-atom-textarea;
   padding-left: $pl-atom-textarea;
   padding-top: $pt-atom-textarea;
+  resize: $rsz-atom-textarea;
   width: $w-atom-textarea;
 
   &[disabled] {

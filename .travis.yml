@@ -14,6 +14,9 @@ before_install:
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
 before_script:
+  - export SUI_TOPIC=install
+  - node ./scripts/write-comment-to-pr RUN
+  - node scripts/write-comment-to-pr "{}"
   - npx sui-mono phoenix --ci --no-root
   - npm run install:demos -- --ci
   - npm run install:themes
@@ -23,10 +26,22 @@ before_script:
   - echo fs.inotify.max_queued_events=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 script:
+  - export SUI_TOPIC=script
+  - node ./scripts/write-comment-to-pr RUN
   - npm run build
+
+after_script:
+  - export SUI_TOPIC=test
+  - node ./scripts/write-comment-to-pr RUN
   - npm run test -- --ci
 
+after_failure:
+  - node ./scripts/write-comment-to-pr
+
 after_success:
+  - export SUI_TOPIC=deploy
+  - node ./scripts/write-comment-to-pr RUN
   - rm -rf ./node_modules
   - npm i vercel@latest
   - vercel --token $NOW_TOKEN --confirm
+  - node ./scripts/write-comment-to-pr OK

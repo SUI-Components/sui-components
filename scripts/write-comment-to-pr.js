@@ -9,8 +9,6 @@ const {
   TRAVIS_PULL_REQUEST_SHA: commit
 } = process.env
 
-console.log({commit})
-
 const STATUS_CONTEXT = '@s-ui/ci'
 const STATUS_STATES = {
   KO: 'error',
@@ -37,19 +35,17 @@ const STATUS_DESCRIPTION = {
   }
 }
 
-const [, , state = STATUS_STATES.KO] = process.argv
+const [, , state = 'KO'] = process.argv
 const [owner, repo] = repoSlug.split('/')
+console.log({owner, repo, state, buildUrl, commit, topic})
 
 const octokit = new Octokit({auth})
-
-;(async () => {
-  await octokit.request('POST /repos/{owner}/{repo}/statuses/{sha}', {
-    context: STATUS_CONTEXT,
-    description: STATUS_DESCRIPTION[topic][state],
-    owner,
-    repo,
-    sha: commit,
-    state,
-    target_url: buildUrl
-  })
-})()
+octokit.request('POST /repos/{owner}/{repo}/statuses/{sha}', {
+  context: STATUS_CONTEXT,
+  description: STATUS_DESCRIPTION[topic][state],
+  owner,
+  repo,
+  sha: commit,
+  state: STATUS_STATES[state],
+  target_url: buildUrl
+})

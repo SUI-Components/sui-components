@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.11.0 (2020-07-16)
+
+
+### Features
+
+* add new prop: resize ([8b47693](https://github.com/SUI-Components/sui-components/commit/8b47693fb3131461b9be735fe99863bff9625288))
+
+
+
 # 2.10.0 (2020-05-29)
 
 

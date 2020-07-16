@@ -52,10 +52,6 @@
       "inline": "runtime",
       "prefetch": false,
       "preload": false
-    },
-    "sourcemaps": {
-      "dev": "cheap-module-eval-source-map",
-      "prod": "hidden-source-map"
     }
   },
   "config": {

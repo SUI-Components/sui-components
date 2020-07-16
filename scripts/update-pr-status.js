@@ -16,23 +16,27 @@ const STATUS_STATES = {
   RUN: 'pending',
   OK: 'success'
 }
+
 const STATUS_DESCRIPTION = {
+  tests: {
+    [STATUS_STATES.KO]: 'Failed passing tests',
+    [STATUS_STATES.OK]: 'All tests passed successfully',
+    [STATUS_STATES.RUN]: 'Testing components...'
+  },
   bundle: {
     [STATUS_STATES.KO]: 'Bundling failed',
+    [STATUS_STATES.OK]: 'Bundle completed',
     [STATUS_STATES.RUN]: 'Creating bundle...'
+  },
+  install: {
+    [STATUS_STATES.KO]: 'Failed installing packages',
+    [STATUS_STATES.OK]: 'Package installed',
+    [STATUS_STATES.RUN]: 'Installing packages'
   },
   deploy: {
     [STATUS_STATES.KO]: 'Deploy failed',
     [STATUS_STATES.OK]: 'Deployment has completed',
     [STATUS_STATES.RUN]: 'Deploying your app...'
-  },
-  install: {
-    [STATUS_STATES.KO]: 'Failed installing packages',
-    [STATUS_STATES.RUN]: 'Installing packages'
-  },
-  tests: {
-    [STATUS_STATES.KO]: 'Failed passing tests',
-    [STATUS_STATES.RUN]: 'Testing components...'
   }
 }
 
@@ -41,7 +45,7 @@ const [owner, repo] = repoSlug.split('/')
 const state = STATUS_STATES[stateKey]
 
 const requestParams = {
-  context: STATUS_CONTEXT,
+  context: `${STATUS_CONTEXT} (${topic})`,
   description: STATUS_DESCRIPTION[topic][state],
   owner,
   repo,

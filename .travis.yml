@@ -15,8 +15,8 @@ before_install:
 
 before_script:
   - export SUI_TOPIC=install
-  - node ./scripts/write-comment-to-pr RUN
-  - node scripts/write-comment-to-pr "{}"
+  - node ./scripts/update-pr-status RUN
+  - node scripts/update-pr-status "{}"
   - npx sui-mono phoenix --ci --no-root
   - npm run install:demos -- --ci
   - npm run install:themes
@@ -24,24 +24,27 @@ before_script:
   - echo fs.inotify.max_user_instances=524288 | sudo tee -a /etc/sysctl.conf && sysctl -p
   - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sysctl -p
   - echo fs.inotify.max_queued_events=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+  - node ./scripts/update-pr-status OK
 
 script:
   - export SUI_TOPIC=bundle
-  - node ./scripts/write-comment-to-pr RUN
+  - node ./scripts/update-pr-status RUN
   - npm run build
+  - node ./scripts/update-pr-status OK
 
 after_success:
   - export SUI_TOPIC=tests
-  - node ./scripts/write-comment-to-pr RUN
+  - node ./scripts/update-pr-status RUN
   - npm run test -- --ci
+  - node ./scripts/update-pr-status OK
 
 after_failure:
-  - node ./scripts/write-comment-to-pr
+  - node ./scripts/update-pr-status
 
 after_script:
   - export SUI_TOPIC=deploy
-  - node ./scripts/write-comment-to-pr RUN
+  - node ./scripts/update-pr-status RUN
   - rm -rf ./node_modules
   - npm i vercel@latest
   - DEPLOYMENT_URL=$(vercel --token $NOW_TOKEN --confirm)
-  - node ./scripts/write-comment-to-pr OK $DEPLOYMENT_URL
+  - node ./scripts/update-pr-status OK $DEPLOYMENT_URL

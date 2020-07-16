@@ -39,8 +39,7 @@ const [, , state = 'KO'] = process.argv
 const [owner, repo] = repoSlug.split('/')
 console.log({owner, repo, state, buildUrl, commit, topic})
 
-const octokit = new Octokit({auth})
-octokit.request('POST /repos/{owner}/{repo}/statuses/{sha}', {
+const requestParams = {
   context: STATUS_CONTEXT,
   description: STATUS_DESCRIPTION[topic][state],
   owner,
@@ -48,4 +47,9 @@ octokit.request('POST /repos/{owner}/{repo}/statuses/{sha}', {
   sha: commit,
   state: STATUS_STATES[state],
   target_url: buildUrl
-})
+}
+
+console.log(requestParams)
+
+const octokit = new Octokit({auth})
+octokit.request('POST /repos/{owner}/{repo}/statuses/{sha}', requestParams)

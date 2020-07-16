@@ -45,7 +45,7 @@ const requestParams = {
   owner,
   repo,
   sha: commit,
-  state: STATUS_STATES[state],
+  state,
   target_url: targetUrl
 }
 

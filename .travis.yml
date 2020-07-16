@@ -38,7 +38,7 @@ after_success:
 after_failure:
   - node ./scripts/write-comment-to-pr
 
-deploy:
+after_script:
   - export SUI_TOPIC=deploy
   - node ./scripts/write-comment-to-pr RUN
   - rm -rf ./node_modules

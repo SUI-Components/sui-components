@@ -43,5 +43,5 @@ after_success:
   - node ./scripts/write-comment-to-pr RUN
   - rm -rf ./node_modules
   - npm i vercel@latest
-  - vercel --token $NOW_TOKEN --confirm
-  - node ./scripts/write-comment-to-pr OK
+  - DEPLOYMENT_URL=$(vercel --token $NOW_TOKEN --confirm)
+  - node ./scripts/write-comment-to-pr OK $DEPLOYMENT_URL

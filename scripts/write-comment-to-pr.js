@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const {Octokit} = require('@octokit/core')
+
 const {
   GH_TOKEN: auth,
   SUI_TOPIC: topic,

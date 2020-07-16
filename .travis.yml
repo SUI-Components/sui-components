@@ -45,6 +45,6 @@ after_script:
   - export SUI_TOPIC=deploy
   - node ./scripts/update-pr-status RUN
   - rm -rf ./node_modules
-  - npm i vercel@latest
+  - npm i vercel@latest --no-save --no-fund --no-audit
   - DEPLOYMENT_URL=$(vercel --token $NOW_TOKEN --confirm)
   - node ./scripts/update-pr-status OK $DEPLOYMENT_URL

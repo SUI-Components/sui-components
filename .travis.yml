@@ -30,15 +30,15 @@ script:
   - node ./scripts/write-comment-to-pr RUN
   - npm run build
 
-after_script:
-  - export SUI_TOPIC=test
+after_success:
+  - export SUI_TOPIC=tests
   - node ./scripts/write-comment-to-pr RUN
   - npm run test -- --ci
 
 after_failure:
   - node ./scripts/write-comment-to-pr
 
-after_success:
+deploy:
   - export SUI_TOPIC=deploy
   - node ./scripts/write-comment-to-pr RUN
   - rm -rf ./node_modules

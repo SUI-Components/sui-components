@@ -9,6 +9,8 @@ const {
   TRAVIS_PULL_REQUEST_SHA: commit
 } = process.env
 
+console.log({commit})
+
 const STATUS_CONTEXT = '@s-ui/ci'
 const STATUS_STATES = {
   KO: 'error',

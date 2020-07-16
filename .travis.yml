@@ -26,7 +26,7 @@ before_script:
   - echo fs.inotify.max_queued_events=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 script:
-  - export SUI_TOPIC=script
+  - export SUI_TOPIC=bundle
   - node ./scripts/write-comment-to-pr RUN
   - npm run build
 

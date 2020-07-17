@@ -41,6 +41,7 @@ script:
   - node ./scripts/update-pr-status OK
   # deploy
   - export SUI_TOPIC=deploy
+  - [ "$TRAVIS_PULL_REQUEST" = "false" ] && VERCEL_PARAMS=--prod || VERCEL_PARAMS=
   - node ./scripts/update-pr-status RUN
   - rm -rf ./node_modules
   - npm i vercel@latest --no-save --no-fund --no-audit

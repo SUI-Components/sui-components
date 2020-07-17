@@ -102,3 +102,4 @@ MoleculeAutosuggestField.propTypes = {
 }
 
 export default MoleculeAutosuggestField
+export {MoleculeAutosuggestStates}

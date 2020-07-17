@@ -4,7 +4,7 @@
   "description": "Mono repo, multi package containing all SUI components.",
   "private": true,
   "scripts": {
-    "build": "sui-mono phoenix --no-root --ci && npm run install:demos -- --ci && npm run install:themes && sui-studio build",
+    "build": "sui-studio build",
     "check:release": "sui-studio check-release",
     "co": "sui-studio commit",
     "commitmsg": "validate-commit-msg",
@@ -19,13 +19,15 @@
     "precommit": "sui-precommit run",
     "release": "sui-studio release",
     "start": "sui-studio start",
-    "test": "true"
+    "test": "sui-studio test",
+    "test:watch": "sui-studio test --watch"
   },
   "repository": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@octokit/core": "3.1.0",
     "@s-ui/helpers": "1",
     "@s-ui/mono": "1",
     "@s-ui/precommit": "2",
@@ -50,10 +52,6 @@
       "inline": "runtime",
       "prefetch": false,
       "preload": false
-    },
-    "sourcemaps": {
-      "dev": "cheap-module-eval-source-map",
-      "prod": "hidden-source-map"
     }
   },
   "config": {

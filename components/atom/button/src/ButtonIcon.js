@@ -17,7 +17,8 @@ const isAtomIcon = icon => icon?.type?.displayName === ATOM_ICON_DISPLAY_NAME
 /**
  * Prepare the AtomIcon element to use the correct size
  * @param {React.ReactElement} atomIconElement
- * @param {String} size Size of the button to grab the correct icon size
+ * @param {object} options
+ * @param {string} options.size Size of the button to grab the correct icon size
  */
 const prepareAtomIcon = (atomIconElement, {size}) => {
   const atomIconSize = ATOM_ICON_SIZES_MAPPER[size]

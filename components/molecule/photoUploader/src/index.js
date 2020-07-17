@@ -32,6 +32,8 @@ import {
   REJECT_FILES_REASONS
 } from './config'
 
+const noop = () => {}
+
 const MoleculePhotoUploader = ({
   acceptedFileTypes = DEFAULT_FILE_TYPES_ACCEPTED,
   acceptedFileMaxSize = DEFAULT_MAX_FILE_SIZE_ACCEPTED,
@@ -42,13 +44,13 @@ const MoleculePhotoUploader = ({
   addPhotoTextButton,
   addPhotoButtonSize,
   addPhotoTextSkeleton,
-  callbackPhotosRejected = () => {},
-  callbackPhotosUploaded = () => {},
+  callbackPhotosRejected = noop,
+  callbackPhotosUploaded = noop,
   callbackUploadPhoto,
   deleteIcon,
   disableScrollToBottom = false,
   dragDelay = DEFAULT_DRAG_DELAY_TIME,
-  dragPhotosIcon,
+  dragPhotosIcon = noop,
   dragPhotoTextInitialContent,
   dragPhotoDividerTextInitialContent,
   dropPhotosHereText,
@@ -56,7 +58,7 @@ const MoleculePhotoUploader = ({
   errorFileExcededMaxSizeText,
   errorFormatPhotoUploadedText,
   errorInitialPhotoDownloadErrorText,
-  infoIcon,
+  infoIcon = noop,
   initialPhotos = [],
   limitPhotosUploadedText,
   limitPhotosUploadedNotification,

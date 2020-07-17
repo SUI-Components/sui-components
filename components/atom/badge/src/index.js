@@ -22,6 +22,7 @@ const TYPES = {
 const BASE_CLASS = `sui-AtomBadge`
 const CLASS_ICON = `${BASE_CLASS}-icon`
 const CLASS_ICON_RIGHT = `${CLASS_ICON}--iconRight`
+const CLASS_TEXT = `${CLASS_ICON}-text`
 
 /**
  * Cuts off exceeded char limit
@@ -76,7 +77,7 @@ const AtomBadge = function({icon, iconRight, label, ...props}) {
       {shouldRenderIcon({icon, ...props}) && !iconRight && (
         <span className={CLASS_ICON}>{icon}</span>
       )}
-      <span className="sui-AtomBadge-text" title={truncatedLabel}>
+      <span className={CLASS_TEXT} title={truncatedLabel}>
         {label}
       </span>
       {shouldRenderIcon({icon, ...props}) && iconRight && (

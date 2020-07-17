@@ -14,12 +14,14 @@ before_install:
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
 before_script:
+  # install npm packages
   - export SUI_TOPIC=install
   - node ./scripts/update-pr-status RUN
   - node scripts/update-pr-status "{}"
   - npx sui-mono phoenix --ci --no-root
   - npm run install:demos -- --ci
   - npm run install:themes
+  # some tweaks for tests to work
   - export NODE_OPTIONS=--max_old_space_size=4096
   - echo fs.inotify.max_user_instances=524288 | sudo tee -a /etc/sysctl.conf && sysctl -p
   - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sysctl -p
@@ -27,24 +29,23 @@ before_script:
   - node ./scripts/update-pr-status OK
 
 script:
+  # create the bundle
   - export SUI_TOPIC=bundle
   - node ./scripts/update-pr-status RUN
   - npm run build
   - node ./scripts/update-pr-status OK
-
-after_success:
+  # execute tests
   - export SUI_TOPIC=tests
   - node ./scripts/update-pr-status RUN
   - npm run test -- --ci
   - node ./scripts/update-pr-status OK
-
-after_failure:
-  - node ./scripts/update-pr-status
-
-after_script:
+  # deploy
   - export SUI_TOPIC=deploy
   - node ./scripts/update-pr-status RUN
   - rm -rf ./node_modules
   - npm i vercel@latest --no-save --no-fund --no-audit
   - DEPLOYMENT_URL=$(vercel --token $NOW_TOKEN --confirm)
   - node ./scripts/update-pr-status OK $DEPLOYMENT_URL
+
+after_failure:
+  - node ./scripts/update-pr-status

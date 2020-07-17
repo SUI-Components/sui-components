@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.37.0 (2020-07-17)
+
+
+### Features
+
+* fix disqbled color ([2d0f1a4](https://github.com/SUI-Components/sui-components/commit/2d0f1a4e864ca69cd28b6434d9488efe129c1bee))
+
+
+
 # 1.36.0 (2020-07-15)
 
 

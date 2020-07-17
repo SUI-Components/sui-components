@@ -40,11 +40,12 @@ script:
   - npm run test -- --ci
   - node ./scripts/update-pr-status OK
   # deploy
+  - export VERCEL_PARAMS=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo --prod; else echo; fi)
   - export SUI_TOPIC=deploy
   - node ./scripts/update-pr-status RUN
   - rm -rf ./node_modules
   - npm i vercel@latest --no-save --no-fund --no-audit
-  - DEPLOYMENT_URL=$(vercel --token $NOW_TOKEN --confirm)
+  - DEPLOYMENT_URL=$(vercel --token $NOW_TOKEN --confirm $VERCEL_PARAMS)
   - node ./scripts/update-pr-status OK $DEPLOYMENT_URL
 
 after_failure:

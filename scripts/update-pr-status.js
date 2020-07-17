@@ -6,9 +6,12 @@ const {
   GH_TOKEN: auth,
   SUI_TOPIC: topic,
   TRAVIS_BUILD_WEB_URL: buildUrl,
+  TRAVIS_COMMIT,
   TRAVIS_REPO_SLUG: repoSlug,
-  TRAVIS_PULL_REQUEST_SHA: commit
+  TRAVIS_PULL_REQUEST_SHA
 } = process.env
+
+const commit = TRAVIS_PULL_REQUEST_SHA || TRAVIS_COMMIT
 
 const STATUS_CONTEXT = '@s-ui/ci'
 const STATUS_STATES = {

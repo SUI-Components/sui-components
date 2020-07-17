@@ -42,6 +42,8 @@ $class-read-only: '#{$base-class}--readOnly';
     pointer-events: none;
 
     &:not(#{$class-read-only}) {
+      -webkit-text-fill-color: $c-atom-input-disabled;
+
       background: $bgc-atom-input-disabled;
       border: $bd-atom-input-disabled;
       color: $c-atom-input-disabled;

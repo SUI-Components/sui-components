@@ -44,6 +44,8 @@ $c-molecule-select-disabled: inherit !default;
       .is-disabled & {
         cursor: default;
         #{$class-select-atom-input-input} {
+          -webkit-text-fill-color: $c-molecule-select-disabled;
+
           background: $bg-molecule-select-disabled;
           border: $bd-molecule-select-disabled;
           color: $c-molecule-select-disabled;

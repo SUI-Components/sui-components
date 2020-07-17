@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.21.0 (2020-07-17)
+
+
+### Features
+
+* fix disabled color ([a105762](https://github.com/SUI-Components/sui-components/commit/a10576281548eb24f44e465d0dd58b49b9a1f81f))
+
+
+
 # 4.20.0 (2020-05-29)
 
 

@@ -1,0 +1,12 @@
+// Settings
+//
+
+// Inherit from original theme
+@import '~@s-ui/theme/lib/index';
+@import '~@adv-ui/adv-theme/lib/index';
+
+// Common css for sui-studio
+@import './common';
+
+// Load font
+@import url('https://fonts.googleapis.com/css?family=Roboto:#{$fw-light},#{$fw-regular},#{$fw-regular}i,#{$fw-semi-bold},#{$fw-bold},#{$fw-bold}i');

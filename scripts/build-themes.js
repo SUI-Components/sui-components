@@ -11,6 +11,7 @@ const {getSpawnPromise} = require('@s-ui/helpers/cli')
 const IS_DEPLOYMENT = Boolean(process.env.NPM_RC)
 
 const themesPkgs = [
+  '@adv-ui/adv-theme',
   '@adv-ui/cf-theme',
   '@adv-ui/fc-theme',
   '@adv-ui/ij-theme',

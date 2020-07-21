@@ -9,9 +9,9 @@ $p-atom-upload: $p-l * 3 $p-l * 2 $p-l !default;
 $ai-atom-upload: center !default;
 $jc-atom-upload: center !default;
 $br-atom-upload: 0 !default;
-$ai-atom-uplaod-block-text: center !default;
-$fs-atom-upload-text: $fz-xl !default;
-$fs-atom-upload-text-secondary: $fz-l !default;
+$ai-atom-upload-block-text: center !default;
+$fz-atom-upload-text: $fz-xl !default;
+$fz-atom-upload-text-secondary: $fz-l !default;
 $h-atom-upload-icon: $sz-icon-xl * 2 !default;
 $w-atom-upload-icon: $sz-icon-xl * 2 !default;
 
@@ -29,7 +29,7 @@ $w-atom-upload-icon: $sz-icon-xl * 2 !default;
   text-align: center;
 
   &-blockText {
-    align-items: $ai-atom-uplaod-block-text;
+    align-items: $ai-atom-upload-block-text;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,13 +40,13 @@ $w-atom-upload-icon: $sz-icon-xl * 2 !default;
     }
 
     &-main {
-      font-size: $fs-atom-upload-text;
+      font-size: $fz-atom-upload-text;
       font-weight: $fw-semi-bold;
       margin: $m-l 0;
     }
 
     &-secondary {
-      font-size: $fs-atom-upload-text-secondary;
+      font-size: $fz-atom-upload-text-secondary;
       font-weight: $fw-light;
       margin-bottom: $m-l;
     }

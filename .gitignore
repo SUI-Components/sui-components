@@ -12,3 +12,4 @@ demo/**/**/themes
 package-lock.json
 */**/package-lock.json
 .vercel
+package-lock.json

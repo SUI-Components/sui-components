@@ -6,24 +6,30 @@ $c-atom-upload: $c-gray !default;
 $ff-atom-upload: $ff-sans-serif !default;
 $fd-atom-upload: column !default;
 $p-atom-upload: $p-l * 3 $p-l * 2 $p-l !default;
-$fs-atom-upload-text: $fz-xl !default;
+$ai-atom-upload: center !default;
+$jc-atom-upload: center !default;
+$br-atom-upload: 0 !default;
+$ai-atom-upload-block-text: center !default;
+$fz-atom-upload-text: $fz-xl !default;
+$fz-atom-upload-text-secondary: $fz-l !default;
 $h-atom-upload-icon: $sz-icon-xl * 2 !default;
 $w-atom-upload-icon: $sz-icon-xl * 2 !default;
 
 .sui-AtomUpload {
-  align-items: center;
+  align-items: $ai-atom-upload;
   background-color: $bg-atom-upload;
   border: $bw-atom-upload dashed $c-atom-upload;
+  border-radius: $br-atom-upload;
   color: $c-atom-upload;
   display: flex;
   flex-direction: $fd-atom-upload;
   font-family: $ff-atom-upload;
-  justify-content: center;
+  justify-content: $jc-atom-upload;
   padding: $p-atom-upload;
   text-align: center;
 
   &-blockText {
-    align-items: center;
+    align-items: $ai-atom-upload-block-text;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,13 +40,13 @@ $w-atom-upload-icon: $sz-icon-xl * 2 !default;
     }
 
     &-main {
-      font-size: $fs-atom-upload-text;
+      font-size: $fz-atom-upload-text;
       font-weight: $fw-semi-bold;
       margin: $m-l 0;
     }
 
     &-secondary {
-      font-size: $fz-l;
+      font-size: $fz-atom-upload-text-secondary;
       font-weight: $fw-light;
       margin-bottom: $m-l;
     }

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.6.0 (2020-07-21)
+
+
+### Bug Fixes
+
+* fix displayname ([0486872](https://github.com/SUI-Components/sui-components/commit/048687236c53970a0e70ee063773c3cc66359ae3))
+* fix naming convention ([6c65be3](https://github.com/SUI-Components/sui-components/commit/6c65be3d84da6dea5436b47e5def2161b58c56df))
+
+
+
 # 1.5.0 (2020-05-29)
 
 

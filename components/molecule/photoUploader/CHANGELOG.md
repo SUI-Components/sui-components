@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.16.0 (2020-07-21)
+
+
+### Bug Fixes
+
+* fix missing default values making tests to fail ([f5802ee](https://github.com/SUI-Components/sui-components/commit/f5802eede1d15f2227784d9b3715135dd87a21c9))
+
+
+
 # 1.15.0 (2020-06-17)
 
 

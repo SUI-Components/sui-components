@@ -9,5 +9,6 @@ demo/**/**/themes
 .DS_Store
 .npmrc
 .vscode/
+package-lock.json
 */**/package-lock.json
 .vercel

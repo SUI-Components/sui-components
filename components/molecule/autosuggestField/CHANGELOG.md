@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.4.0 (2020-07-21)
+
+
+### Bug Fixes
+
+* export a missing module on the component to fix tests ([02bce38](https://github.com/SUI-Components/sui-components/commit/02bce38d6a6f5f4b7a6e1680390af8e2a4de8e39))
+
+
+
 # 2.3.0 (2020-05-29)
 
 

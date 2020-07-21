@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.4.0 (2020-07-21)
+
+
+### Bug Fixes
+
+* fix typo errors ([5592c84](https://github.com/SUI-Components/sui-components/commit/5592c84cabf84a112d78742fbe1882289b51fa7b))
+
+
+### Features
+
+* add style vars ([449f9ae](https://github.com/SUI-Components/sui-components/commit/449f9ae1fd274ad5bde4105723ee0a1d8fbf628d))
+
+
+
 # 2.3.0 (2020-07-14)
 
 

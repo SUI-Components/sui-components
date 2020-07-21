@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.3.0 (2020-07-21)
+
+
+### Bug Fixes
+
+* baseclass naming ([1630cbd](https://github.com/SUI-Components/sui-components/commit/1630cbd442335e2823ca61f5029cbc29c83b865e))
+
+
+
 # 1.2.0 (2020-05-21)
 
 

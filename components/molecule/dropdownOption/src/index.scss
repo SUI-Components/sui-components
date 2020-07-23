@@ -9,14 +9,20 @@ $fw-molecule-dropdown-option-selected-text: $fw-bold !default;
 $fz-molecule-dropdown-option-text: inherit !default;
 $fw-molecule-dropdown-option--highlight-mark: normal !default;
 $ln-molecule-dropdown-option-two-lines-text: $lh-m !default;
+$ln-molecule-dropdown-option-line-wrap-text: $lh-m !default;
 $ml-molecule-dropdown-option-text: $m-s !default;
 $p-molecule-dropdown-option: $p-l !default;
+$pl-molecule-dropdown-option: $p-molecule-dropdown-option !default;
+$pr-molecule-dropdown-option: $p-molecule-dropdown-option !default;
+$pt-molecule-dropdown-option: 0 !default;
+$pb-molecule-dropdown-option: 0 !default;
 
 .sui-MoleculeDropdownOption {
   align-items: center;
   display: flex;
   min-height: $mih-dropdown-option;
-  padding: 0 $p-molecule-dropdown-option;
+  padding: $pt-molecule-dropdown-option $pr-molecule-dropdown-option
+    $pb-molecule-dropdown-option $pl-molecule-dropdown-option;
 
   &-mark {
     color: $c-molecule-dropdown-option--highlight-mark;
@@ -38,6 +44,10 @@ $p-molecule-dropdown-option: $p-l !default;
     &--ellipsis {
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+
+    &--lineWrap {
+      line-height: $ln-molecule-dropdown-option-line-wrap-text;
     }
 
     &--twoLines {

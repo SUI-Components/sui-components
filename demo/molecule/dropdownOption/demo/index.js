@@ -112,6 +112,13 @@ const Demo = () => (
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </MoleculeDropdownOption>
       </div>
+      <h3>With Line Wrap</h3>
+      <div className={CLASS_DEMO_OPTION}>
+        <MoleculeDropdownOption value="option-basic" withLineWrap>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </MoleculeDropdownOption>
+      </div>
     </div>
   </div>
 )

@@ -14,7 +14,7 @@ $p-molecule-dropdown-option: $p-l !default;
 .sui-MoleculeDropdownOption {
   align-items: center;
   display: flex;
-  height: $h-dropdown-option;
+  min-height: $mih-dropdown-option;
   padding: 0 $p-molecule-dropdown-option;
 
   &-mark {

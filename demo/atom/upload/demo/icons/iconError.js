@@ -1,6 +1,6 @@
 import React from 'react'
 
-const IconError = () => (
+const IconError = (
   <svg
     version="1.2"
     baseProfile="tiny"

@@ -9,6 +9,7 @@ $fw-molecule-dropdown-option-selected-text: $fw-bold !default;
 $fz-molecule-dropdown-option-text: inherit !default;
 $fw-molecule-dropdown-option--highlight-mark: normal !default;
 $lh-molecule-dropdown-option-line-wrap-text: $lh-m !default;
+$ln-molecule-dropdown-option-two-lines-text: $lh-molecule-dropdown-option-line-wrap-text !default; // deprecated
 $ml-molecule-dropdown-option-text: $m-s !default;
 $p-molecule-dropdown-option: $p-l !default;
 $pl-molecule-dropdown-option: $p-molecule-dropdown-option !default;

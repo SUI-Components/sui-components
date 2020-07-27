@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.27.0 (2020-07-27)
+
+
+### Bug Fixes
+
+* added backwards compatibility with $h-dropdown-option ([ad35f9e](https://github.com/SUI-Components/sui-components/commit/ad35f9e2133840b64da716c04c1a809a2db3375c))
+* fix logic for textWrap default prop value ([33684cb](https://github.com/SUI-Components/sui-components/commit/33684cbadb2def94afe3a5e2ba30c962b647780f))
+* rename modifier, make it backwards compatible ([079967d](https://github.com/SUI-Components/sui-components/commit/079967d3516ece6743ddc34e9f4cee8660202ab7))
+* restored $ln-molecule-dropdown-option-two-lines-text for backwards com ([2be7933](https://github.com/SUI-Components/sui-components/commit/2be7933f39f3bd67397fae686585b7587e9bb7fc))
+
+
+### Features
+
+* add linewrap prop, modifier and sass vars ([42a0177](https://github.com/SUI-Components/sui-components/commit/42a01776fee4089f8673493d6dee0c658c1087ff))
+* add new ml sass variable to stylesheet ([19f8f16](https://github.com/SUI-Components/sui-components/commit/19f8f166ec21bc39b4f7b85c9e1cfba0ec808459))
+* add three lines style ([5448828](https://github.com/SUI-Components/sui-components/commit/5448828da563cf14d8854aec5b7b7760ceec55c7))
+* replace withLineWrap prop by textWrap enum prop ([de7fb61](https://github.com/SUI-Components/sui-components/commit/de7fb61957f4274b230d026d92d5d52fc444a8ba))
+* turn dropdown option height to min height ([640c9dc](https://github.com/SUI-Components/sui-components/commit/640c9dc5177bae51bb030508a80d291cc29e50c2))
+
+
+
 # 1.26.0 (2020-05-29)
 
 

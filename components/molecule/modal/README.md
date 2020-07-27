@@ -1,54 +1,139 @@
-# MoleculeNotification
+# MoleculeModal
 
-> Notifications offer users information on the system. The content may confirm that an action has been performed correctly, warn the user of an error or simply give information on certain circumstances.
+> Description
+
+Modal windows focus users' attention to inform them about a specific interaction. They may require users to make a decision or warn them when an error may have very significant consequences.
+
 
 ## Installation
 
 ```sh
-$ npm install @s-ui/react-molecule-notification --save
+$ npm install @s-ui/react-molecule-modal --save
 ```
+
+## Usage
 
 ### Basic usage
 ```js
-import MoleculeNotification, {BRDS_SIZE} from '@s-ui/react-molecule-notification'
+import MoleculeModal from '@s-ui/react-molecule-modal'
 
-// sui-atom-button
-const BUTTONS = [
-  {
-    type: 'secondary',
-    children: 'Secondary',
-    negative: true
-  },
-  {
-    type: 'primary',
-    children: 'Primary',
-    negative: true
+const ContentWithCloseButton = ({children, onClose}) => (
+  <div>
+    {children}
+    <button type="button" onClick={onClose}>
+      close modal
+    </button>
+  </div>
+)
+
+class ModalWrapper extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      open: false
+    }
   }
-]
 
-// import named export sizes from component as seen above
-BRDS_SIZE = {
-  extraLarge: 'xl',
-  large: 'l',
-  medium: 'm',
-  small: 's',
-  extraSmall: 'xs'
+  openModal = () => {
+    this.setState({
+      open: true
+    })
+  }
+
+  closeModal = () => {
+    this.setState({
+      open: false
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <button type="button" onClick={this.openModal}>
+          Open modal
+        </button>
+        <MoleculeModal
+          isOpen={this.state.open}
+          closeOnOutsideClick
+          closeOnEscKeyDown
+          header={<strong>My new brand modal</strong>}
+          iconClose={<IconClose />}
+          onClose={this.closeModal}
+        >
+          <ContentWithCloseButton>
+            <p>This is my modal content</p>
+          </ContentWithCloseButton>
+        </MoleculeModal>
+      </div>
+    )
+  }
 }
 
-return (
-  <MoleculeNotification
-    type='success'
-    autoclose='short'
-    buttons={BUTTONS}
-    roundedCorners={BRDS_SIZE.medium}
-  >
-    <p>Lorem fistrum</p>
-  </MoleculeNotification>
-)
+return (<ModalWrapper />)
 ```
 
-## Border Radius usage
-- Define a `$bdrs-base` Sass var value in your vertical theme to get 5 different border radius sizes. Then import the `BRDS_SIZE` object to get `extraSmall`, `small`, `medium`, `large` and `extraLarge` sizes in declarative way.
+### Usage with url state
+```js
+import {MoleculeModalWithUrlState} from '@s-ui/react-molecule-modal'
+
+const ContentWithCloseButton = ({children, onClose}) => (
+  <div>
+    {children}
+    <button type="button" onClick={onClose}>
+      close modal
+    </button>
+  </div>
+)
+
+const MODAL_HASH = 'myModal'
+
+class ModalWrapper extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      open: false
+    }
+  }
+
+  openModal = () => {
+    this.setState({
+      open: true
+    })
+  }
+
+  closeModal = () => {
+    this.setState({
+      open: false
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <button type="button" onClick={this.openModal}>
+          Open modal with url state
+        </button>
+        <MoleculeModalWithUrlState
+          isOpen={this.state.open}
+          closeOnOutsideClick
+          closeOnEscKeyDown
+          header={<strong>My new brand modal</strong>}
+          iconClose={<IconClose />}
+          onClose={this.closeModal}
+          hash={MODAL_HASH}
+          openModalTrigger={this.openModal}
+        >
+          <ContentWithCloseButton>
+            <p>This is my modal content</p>
+          </ContentWithCloseButton>
+        </MoleculeModalWithUrlState>
+      </div>
+    )
+  }
+}
+
+return (<ModalWrapper />)
+```
 
 
-> **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/molecule/notification).**
+> **Find full description and more examples in the [demo page](#).**

@@ -8,8 +8,7 @@ $bg-molecule-dropdown-option-selected: none !default;
 $fw-molecule-dropdown-option-selected-text: $fw-bold !default;
 $fz-molecule-dropdown-option-text: inherit !default;
 $fw-molecule-dropdown-option--highlight-mark: normal !default;
-$ln-molecule-dropdown-option-two-lines-text: $lh-m !default;
-$ln-molecule-dropdown-option-line-wrap-text: $lh-m !default;
+$lh-molecule-dropdown-option-line-wrap-text: $lh-m !default;
 $ml-molecule-dropdown-option-text: $m-s !default;
 $p-molecule-dropdown-option: $p-l !default;
 $pl-molecule-dropdown-option: $p-molecule-dropdown-option !default;
@@ -46,22 +45,23 @@ $pb-molecule-dropdown-option: 0 !default;
       white-space: nowrap;
     }
 
-    &--lineWrap {
-      line-height: $ln-molecule-dropdown-option-line-wrap-text;
+    &--lineWrap,
+    &--twoLines,
+    &--threeLines {
+      line-height: $lh-molecule-dropdown-option-line-wrap-text;
+    }
+
+    &--twoLines,
+    &--threeLines {
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
     }
 
     &--twoLines {
-      -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
-      display: -webkit-box;
-      line-height: $ln-molecule-dropdown-option-two-lines-text;
     }
-
     &--threeLines {
-      -webkit-box-orient: vertical;
       -webkit-line-clamp: 3;
-      display: -webkit-box;
-      line-height: $ln-molecule-dropdown-option-two-lines-text;
     }
   }
 

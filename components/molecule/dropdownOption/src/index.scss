@@ -8,14 +8,21 @@ $bg-molecule-dropdown-option-selected: none !default;
 $fw-molecule-dropdown-option-selected-text: $fw-bold !default;
 $fz-molecule-dropdown-option-text: inherit !default;
 $fw-molecule-dropdown-option--highlight-mark: normal !default;
-$ln-molecule-dropdown-option-two-lines-text: $lh-m !default;
+$lh-molecule-dropdown-option-line-wrap-text: $lh-m !default;
+$ln-molecule-dropdown-option-two-lines-text: $lh-molecule-dropdown-option-line-wrap-text !default; // deprecated
+$ml-molecule-dropdown-option-text: $m-s !default;
 $p-molecule-dropdown-option: $p-l !default;
+$pl-molecule-dropdown-option: $p-molecule-dropdown-option !default;
+$pr-molecule-dropdown-option: $p-molecule-dropdown-option !default;
+$pt-molecule-dropdown-option: 0 !default;
+$pb-molecule-dropdown-option: 0 !default;
 
 .sui-MoleculeDropdownOption {
   align-items: center;
   display: flex;
-  height: $h-dropdown-option;
-  padding: 0 $p-molecule-dropdown-option;
+  min-height: $mih-dropdown-option;
+  padding: $pt-molecule-dropdown-option $pr-molecule-dropdown-option
+    $pb-molecule-dropdown-option $pl-molecule-dropdown-option;
 
   &-mark {
     color: $c-molecule-dropdown-option--highlight-mark;
@@ -32,18 +39,30 @@ $p-molecule-dropdown-option: $p-l !default;
   &-text {
     font-size: $fz-molecule-dropdown-option-text;
     overflow: hidden;
-    margin-left: $m-s;
+    margin-left: $ml-molecule-dropdown-option-text;
+    text-overflow: ellipsis;
 
-    &--ellipsis {
-      text-overflow: ellipsis;
+    &--noWrap {
       white-space: nowrap;
     }
 
-    &--twoLines {
+    &--lineWrap,
+    &--twoLines,
+    &--threeLines {
+      line-height: $lh-molecule-dropdown-option-line-wrap-text;
+    }
+
+    &--twoLines,
+    &--threeLines {
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
       display: -webkit-box;
-      line-height: $ln-molecule-dropdown-option-two-lines-text;
+    }
+
+    &--twoLines {
+      -webkit-line-clamp: 2;
+    }
+    &--threeLines {
+      -webkit-line-clamp: 3;
     }
   }
 

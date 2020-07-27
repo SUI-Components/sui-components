@@ -9,11 +9,20 @@ import handlersFactory from './handlersFactory'
 const BASE_CLASS = 'sui-MoleculeDropdownOption'
 const CLASS_CHECKBOX = `${BASE_CLASS}-checkbox`
 const MODIFIER_TWO_LINES = `twoLines`
-const MODIFIER_ELLIPSIS = 'ellipsis'
+const MODIFIER_THREE_LINES = `threeLines`
+const MODIFIER_NO_WRAP = 'noWrap'
+const MODIFIER_LINE_WRAP = 'lineWrap'
 const CLASS_TEXT = `${BASE_CLASS}-text`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 const CLASS_HIGHLIGHTED = `is-highlighted`
 const CLASS_HIGHLIGHTED_MARK = `${BASE_CLASS}-mark`
+
+const TEXT_WRAP_STYLES = {
+  NO_WRAP: 'noWrap',
+  TWO_LINES: 'twoLines',
+  THREE_LINES: 'threeLines',
+  LINE_WRAP: 'lineWrap'
+}
 
 const MoleculeDropdownOption = ({
   children,
@@ -25,7 +34,8 @@ const MoleculeDropdownOption = ({
   onSelect,
   innerRef,
   value,
-  withTwoLinesText
+  withTwoLinesText,
+  textWrap
 }) => {
   const className = cx(BASE_CLASS, {
     [CLASS_CHECKBOX]: checkbox,
@@ -35,9 +45,15 @@ const MoleculeDropdownOption = ({
 
   const innerClassName = cx([
     CLASS_TEXT,
-    withTwoLinesText
-      ? `${CLASS_TEXT}--${MODIFIER_TWO_LINES}`
-      : `${CLASS_TEXT}--${MODIFIER_ELLIPSIS}`
+    (withTwoLinesText || textWrap === TEXT_WRAP_STYLES.TWO_LINES) &&
+      `${CLASS_TEXT}--${MODIFIER_TWO_LINES}`,
+    textWrap === TEXT_WRAP_STYLES.THREE_LINES &&
+      `${CLASS_TEXT}--${MODIFIER_THREE_LINES}`,
+    textWrap === TEXT_WRAP_STYLES.LINE_WRAP &&
+      `${CLASS_TEXT}--${MODIFIER_LINE_WRAP}`,
+    ((!withTwoLinesText && !textWrap) ||
+      textWrap === TEXT_WRAP_STYLES.NO_WRAP) &&
+      `${CLASS_TEXT}--${MODIFIER_NO_WRAP}`
   ])
 
   const {handleClick, handleKeyDown, handleFocus} = handlersFactory({
@@ -138,7 +154,10 @@ MoleculeDropdownOption.propTypes = {
   innerRef: PropTypes.object,
 
   /** Text with css clamp = 2 */
-  withTwoLinesText: PropTypes.bool
+  withTwoLinesText: PropTypes.bool,
+
+  /** Text wrapping options */
+  textWrap: PropTypes.oneOf(TEXT_WRAP_STYLES)
 }
 
 MoleculeDropdownOption.defaultProps = {
@@ -152,3 +171,4 @@ MoleculeDropdownOption.defaultProps = {
 
 export default MoleculeDropdownOption
 export {handlersFactory}
+export {TEXT_WRAP_STYLES as MoleculeDropdownOptionTextWrapStyles}

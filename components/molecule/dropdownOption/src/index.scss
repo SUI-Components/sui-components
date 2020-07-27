@@ -40,9 +40,9 @@ $pb-molecule-dropdown-option: 0 !default;
     font-size: $fz-molecule-dropdown-option-text;
     overflow: hidden;
     margin-left: $ml-molecule-dropdown-option-text;
+    text-overflow: ellipsis;
 
-    &--ellipsis {
-      text-overflow: ellipsis;
+    &--noWrap {
       white-space: nowrap;
     }
 

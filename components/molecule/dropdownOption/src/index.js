@@ -10,7 +10,7 @@ const BASE_CLASS = 'sui-MoleculeDropdownOption'
 const CLASS_CHECKBOX = `${BASE_CLASS}-checkbox`
 const MODIFIER_TWO_LINES = `twoLines`
 const MODIFIER_THREE_LINES = `threeLines`
-const MODIFIER_ELLIPSIS = 'ellipsis'
+const MODIFIER_NO_WRAP = 'noWrap'
 const MODIFIER_LINE_WRAP = 'lineWrap'
 const CLASS_TEXT = `${BASE_CLASS}-text`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
@@ -18,7 +18,7 @@ const CLASS_HIGHLIGHTED = `is-highlighted`
 const CLASS_HIGHLIGHTED_MARK = `${BASE_CLASS}-mark`
 
 const TEXT_WRAP_STYLES = {
-  NO_WRAP: 'nowWrap',
+  NO_WRAP: 'noWrap',
   TWO_LINES: 'twoLines',
   THREE_LINES: 'threeLines',
   LINE_WRAP: 'lineWrap'
@@ -35,7 +35,7 @@ const MoleculeDropdownOption = ({
   innerRef,
   value,
   withTwoLinesText,
-  textWrap = TEXT_WRAP_STYLES.NO_WRAP
+  textWrap
 }) => {
   const className = cx(BASE_CLASS, {
     [CLASS_CHECKBOX]: checkbox,
@@ -52,7 +52,7 @@ const MoleculeDropdownOption = ({
     textWrap === TEXT_WRAP_STYLES.LINE_WRAP &&
       `${CLASS_TEXT}--${MODIFIER_LINE_WRAP}`,
     textWrap === TEXT_WRAP_STYLES.NO_WRAP &&
-      `${CLASS_TEXT}--${MODIFIER_ELLIPSIS}`
+      `${CLASS_TEXT}--${MODIFIER_NO_WRAP}`
   ])
 
   const {handleClick, handleKeyDown, handleFocus} = handlersFactory({

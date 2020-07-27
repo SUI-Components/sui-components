@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
 import React from 'react'
-import MoleculeDropdownOption from '../../../../components/molecule/dropdownOption/src'
+import MoleculeDropdownOption, {
+  MoleculeDropdownOptionTextWrapStyles
+} from '../../../../components/molecule/dropdownOption/src'
 import './index.scss'
 
 import BasicDropdownOptions from './BasicDropdownOptions'
@@ -105,18 +107,47 @@ const Demo = () => (
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </MoleculeDropdownOption>
       </div>
-      <h3>Two lines text clamp</h3>
+      <h3>Two lines text clamp (deprecated prop withTwoLinesText)</h3>
       <div className={CLASS_DEMO_OPTION}>
         <MoleculeDropdownOption value="option-basic" withTwoLinesText>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </MoleculeDropdownOption>
       </div>
+      <h3>With Two Lines Wrap</h3>
+      <div className={CLASS_DEMO_OPTION}>
+        <MoleculeDropdownOption
+          value="option-basic"
+          textWrap={MoleculeDropdownOptionTextWrapStyles.TWO_LINES}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </MoleculeDropdownOption>
+      </div>
+      <h3>With Three Lines Wrap</h3>
+      <div className={CLASS_DEMO_OPTION}>
+        <MoleculeDropdownOption
+          value="option-basic"
+          textWrap={MoleculeDropdownOptionTextWrapStyles.THREE_LINES}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </MoleculeDropdownOption>
+      </div>
       <h3>With Line Wrap</h3>
       <div className={CLASS_DEMO_OPTION}>
-        <MoleculeDropdownOption value="option-basic" withLineWrap>
+        <MoleculeDropdownOption
+          value="option-basic"
+          textWrap={MoleculeDropdownOptionTextWrapStyles.LINE_WRAP}
+        >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
         </MoleculeDropdownOption>
       </div>
     </div>

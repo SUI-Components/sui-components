@@ -56,6 +56,13 @@ $pb-molecule-dropdown-option: 0 !default;
       display: -webkit-box;
       line-height: $ln-molecule-dropdown-option-two-lines-text;
     }
+
+    &--threeLines {
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      display: -webkit-box;
+      line-height: $ln-molecule-dropdown-option-two-lines-text;
+    }
   }
 
   &.is-selected:not(&-checkbox) {

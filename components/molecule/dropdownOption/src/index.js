@@ -51,7 +51,8 @@ const MoleculeDropdownOption = ({
       `${CLASS_TEXT}--${MODIFIER_THREE_LINES}`,
     textWrap === TEXT_WRAP_STYLES.LINE_WRAP &&
       `${CLASS_TEXT}--${MODIFIER_LINE_WRAP}`,
-    textWrap === TEXT_WRAP_STYLES.NO_WRAP &&
+    ((!withTwoLinesText && !textWrap) ||
+      textWrap === TEXT_WRAP_STYLES.NO_WRAP) &&
       `${CLASS_TEXT}--${MODIFIER_NO_WRAP}`
   ])
 

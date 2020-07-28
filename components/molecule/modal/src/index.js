@@ -6,7 +6,7 @@ import {SUPPORTED_KEYS} from './config'
 import {suitClass} from './helpers'
 import {Close} from './Close'
 import {HeaderRender} from './HeaderRender'
-import WithAnimation from './HoC/WithAnimation'
+// import WithAnimation from './HoC/WithAnimation'
 // import WithUrlState from './HoC/WithUrlState'
 
 const toggleWindowScroll = disableScroll => {
@@ -172,13 +172,7 @@ const MoleculeModal = ({
   return modalElement
 }
 
-MoleculeModal.displayName = 'MoleculeModal'
-
-const MoleculeModalWithAnimation = WithAnimation(MoleculeModal)
-// const MoleculeModalWithUrlState = WithUrlState(MoleculeModalWithAnimation)
-
-MoleculeModalWithAnimation.propTypes = {
-  ...MoleculeModalWithAnimation.propTypes,
+MoleculeModal.propTypes = {
   /**
    * true if you want close the modal by clicking outside the modal itself, otherwise, false
    */
@@ -254,8 +248,7 @@ MoleculeModalWithAnimation.propTypes = {
   openModalTrigger: PropTypes.func
 }
 
-MoleculeModalWithAnimation.defaultProps = {
-  ...MoleculeModalWithAnimation.defaultProps,
+MoleculeModal.defaultProps = {
   closeOnOutsideClick: false,
   closeOnEscKeyDown: false,
   enableContentScroll: false,
@@ -269,5 +262,10 @@ MoleculeModalWithAnimation.defaultProps = {
   onClose: () => {}
 }
 
+MoleculeModal.displayName = 'MoleculeModal'
+
+// const MoleculeModalWithAnimation = WithAnimation(MoleculeModal)
+// const MoleculeModalWithUrlState = WithUrlState(MoleculeModalWithAnimation)
+//
 // export {MoleculeModalWithUrlState, MoleculeModalWithAnimation}
-export default MoleculeModalWithAnimation
+export default MoleculeModal

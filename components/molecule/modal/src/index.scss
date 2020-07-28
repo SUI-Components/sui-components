@@ -197,6 +197,14 @@ body.is-MoleculeModal-open {
       height: $pb-molecule-modal-content;
     }
 
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
     &--without-indentation {
       margin: 0;
     }

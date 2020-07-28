@@ -269,12 +269,5 @@ MoleculeModalWithAnimation.defaultProps = {
   onClose: () => {}
 }
 
-MoleculeModal.propTypes = {
-  ...MoleculeModalWithAnimation.propTypes
-}
-MoleculeModal.defaultProps = {
-  ...MoleculeModalWithAnimation.defaultProps
-}
-
 export {MoleculeModalWithUrlState, MoleculeModalWithAnimation}
 export default MoleculeModalWithAnimation

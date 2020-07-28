@@ -258,7 +258,7 @@ MoleculeAutosuggest.propTypes = {
   /** list of key identifiers that will close the list */
   keysCloseList: PropTypes.array,
 
-  /* object generated w/ Reacte.createRef method to get a DOM reference of internal input */
+  /* object generated with React.createRef method to get a DOM reference of internal input */
   refMoleculeAutosuggest: PropTypes.object,
 
   /* native required html attribute */

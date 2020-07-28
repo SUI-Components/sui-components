@@ -119,7 +119,7 @@ MoleculeInputTags.propTypes = {
   /* callback to be called with every update of the input value */
   onChange: PropTypes.func,
 
-  /* object generated w/ Reacte.createRef method to get a DOM reference of internal input */
+  /* object generated with React.createRef method to get a DOM reference of internal input */
   innerRefInput: PropTypes.object
 }
 

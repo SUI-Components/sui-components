@@ -71,7 +71,7 @@ const Demo = () => {
         </MoleculeTabs>
       </div>
 
-      <h3>w/ Icons</h3>
+      <h3>With Icons</h3>
       <div className={CLASS_DEMO_SECTION}>
         <MoleculeTabs>
           {Object.values(configWithIcons).map(({content, ...props}, index) => (
@@ -82,7 +82,7 @@ const Demo = () => {
         </MoleculeTabs>
       </div>
 
-      <h3>w/ Icons (Type → FULLWIDTH)</h3>
+      <h3>With Icons (Type → FULLWIDTH)</h3>
       <div className={CLASS_DEMO_SECTION}>
         <MoleculeTabs type={moleculeTabsTypes.FULLWIDTH}>
           {Object.values(configWithIcons).map(({content, ...props}, index) => (
@@ -93,7 +93,7 @@ const Demo = () => {
         </MoleculeTabs>
       </div>
 
-      <h3>w/ Icons (Type → VERTICAL)</h3>
+      <h3>With Icons (Type → VERTICAL)</h3>
       <div className={CLASS_DEMO_SECTION}>
         <MoleculeTabs type={moleculeTabsTypes.VERTICAL}>
           {Object.values(configWithIcons).map(({content, ...props}, index) => (
@@ -104,7 +104,7 @@ const Demo = () => {
         </MoleculeTabs>
       </div>
 
-      <h3>w/ Icons (Type → VERTICAL & Variant → HIGHLIGHTED)</h3>
+      <h3>With Icons (Type → VERTICAL & Variant → HIGHLIGHTED)</h3>
       <div className={CLASS_DEMO_SECTION}>
         <MoleculeTabs
           type={moleculeTabsTypes.VERTICAL}
@@ -118,7 +118,7 @@ const Demo = () => {
         </MoleculeTabs>
       </div>
 
-      <h3>w/ Counter</h3>
+      <h3>With Counter</h3>
       <div className={CLASS_DEMO_SECTION}>
         <MoleculeTabs
           variant={moleculeTabsVariants.HIGHLIGHTED}
@@ -165,7 +165,7 @@ const Demo = () => {
         </StaticMoleculeTabs>
       </div>
 
-      <h3>w/ Icons</h3>
+      <h3>With Icons</h3>
       <div className={CLASS_DEMO_SECTION}>
         <StaticMoleculeTabs>
           <MoleculeTab
@@ -206,7 +206,7 @@ const Demo = () => {
         </StaticMoleculeTabs>
       </div>
 
-      <h3>w/ Counter</h3>
+      <h3>With Counter</h3>
       <div className={CLASS_DEMO_SECTION}>
         <StaticMoleculeTabs
           type={moleculeTabsTypes.FULLWIDTH}

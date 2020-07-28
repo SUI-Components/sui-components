@@ -43,7 +43,7 @@ const Demo = () => {
         <code>MoleculePagination</code>
       </h1>
       <h2>
-        Responsive <code>w/ LayoutMediaQuery</code>
+        Responsive with <code>LayoutMediaQuery</code>
       </h2>
       <div className={CLASS_DEMO_SECTION_RESPONSIVE}>
         <LayoutMediaQuery>
@@ -106,14 +106,14 @@ const Demo = () => {
         />
       </div>
       <div className={CLASS_DEMO_SECTION}>
-        <h4>w/ Next</h4>
+        <h4>With Next</h4>
         <p>
           <code>totalPages=25 page=7</code>
         </p>
         <MoleculePagination totalPages={25} page={7} {...Icons} {...OnClicks} />
       </div>
       <div className={CLASS_DEMO_SECTION}>
-        <h4>w/ Prev & Next</h4>
+        <h4>With Prev & Next</h4>
         <p>
           <code>totalPages=25 page=17</code>
         </p>
@@ -125,7 +125,7 @@ const Demo = () => {
         />
       </div>
       <div className={CLASS_DEMO_SECTION}>
-        <h4>w/ Prev</h4>
+        <h4>With Prev</h4>
         <p>
           <code>totalPages=25 page=27</code>
         </p>
@@ -199,7 +199,7 @@ const Demo = () => {
         />
       </div>
       <div className={CLASS_DEMO_SECTION}>
-        <h4>w/ Prev & Next</h4>
+        <h4>With Prev & Next</h4>
         <p>
           <code>totalPages=25 page=17</code>
         </p>

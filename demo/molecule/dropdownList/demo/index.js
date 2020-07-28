@@ -114,7 +114,7 @@ const Demo = () => (
           ))}
         </MoleculeDropdownList>
       </div>
-      <h3>w/ Checkbox</h3>
+      <h3>With Checkbox</h3>
       <div className={CLASS_DEMO_LIST}>
         <MoleculeDropdownList checkbox visible={isOpen}>
           {countries.map((option, index) => (
@@ -128,7 +128,7 @@ const Demo = () => (
           ))}
         </MoleculeDropdownList>
       </div>
-      <h3>w/ Disabled Options</h3>
+      <h3>With Disabled Options</h3>
       <div className={CLASS_DEMO_LIST}>
         <MoleculeDropdownList checkbox visible={isOpen}>
           {countries.map((option, index) => (
@@ -146,7 +146,7 @@ const Demo = () => (
         </MoleculeDropdownList>
       </div>
       <h3>
-        w/ Highlight Query (<code>'an'</code>)
+        With Highlight Query (<code>'an'</code>)
       </h3>
       <div className={CLASS_DEMO_LIST}>
         <MoleculeDropdownList visible={isOpen}>

@@ -42,7 +42,7 @@ const Demo = () => {
         </LayoutMediaQuery>
       </div>
 
-      <h3>w/ Icons (Responsive)</h3>
+      <h3>With Icons (Responsive)</h3>
       <div className={CLASS_DEMO_SECTION_RESPONSIVE}>
         <LayoutMediaQuery>
           {({S}) => {
@@ -110,7 +110,7 @@ const Demo = () => {
         </MoleculeProgressSteps>
       </div>
 
-      <h3>Vertical w/ Icons</h3>
+      <h3>Vertical Icons</h3>
 
       <div className={cx(CLASS_DEMO_SECTION, CLASS_DEMO_SECTION_VERTICAL)}>
         <MoleculeProgressSteps iconStepDone={<IconFillCheck />} vertical>

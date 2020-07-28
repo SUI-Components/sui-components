@@ -225,7 +225,7 @@ MoleculeSelect.propTypes = {
   /** list of key identifiers that will trigger a selection */
   keysSelection: PropTypes.array,
 
-  /* object generated w/ Reacte.createRef method to get a DOM reference of internal input */
+  /* object generated with React.createRef method to get a DOM reference of internal input */
   refMoleculeSelect: PropTypes.object,
 
   /** true = error, false = success, null = neutral */

@@ -172,7 +172,13 @@ const MoleculeModal = ({
   return modalElement
 }
 
-MoleculeModal.propTypes = {
+MoleculeModal.displayName = 'MoleculeModal'
+
+const MoleculeModalWithAnimation = WithAnimation(MoleculeModal)
+const MoleculeModalWithUrlState = WithUrlState(MoleculeModalWithAnimation)
+
+MoleculeModalWithAnimation.propTypes = {
+  ...MoleculeModalWithAnimation.propTypes,
   /**
    * true if you want close the modal by clicking outside the modal itself, otherwise, false
    */
@@ -248,7 +254,8 @@ MoleculeModal.propTypes = {
   openModalTrigger: PropTypes.func
 }
 
-MoleculeModal.defaultProps = {
+MoleculeModalWithAnimation.defaultProps = {
+  ...MoleculeModalWithAnimation.defaultProps,
   closeOnOutsideClick: false,
   closeOnEscKeyDown: false,
   enableContentScroll: false,
@@ -262,10 +269,12 @@ MoleculeModal.defaultProps = {
   onClose: () => {}
 }
 
-MoleculeModal.displayName = 'MoleculeModal'
-
-const MoleculeModalWithAnimation = WithAnimation(MoleculeModal)
-const MoleculeModalWithUrlState = WithUrlState(MoleculeModalWithAnimation)
+MoleculeModal.propTypes = {
+  ...MoleculeModalWithAnimation.propTypes
+}
+MoleculeModal.defaultProps = {
+  ...MoleculeModalWithAnimation.defaultProps
+}
 
 export {MoleculeModalWithUrlState, MoleculeModalWithAnimation}
-export default MoleculeModal
+export default MoleculeModalWithAnimation

@@ -268,5 +268,5 @@ MoleculeModal.displayName = 'MoleculeModal'
 // const MoleculeModalWithUrlState = WithUrlState(MoleculeModalWithAnimation)
 //
 // export {MoleculeModalWithUrlState, MoleculeModalWithAnimation}
-export {MoleculeModal}
+// export {MoleculeModal}
 export default MoleculeModal

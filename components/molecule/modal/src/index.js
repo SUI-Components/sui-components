@@ -269,8 +269,4 @@ MoleculeModal.displayName = 'MoleculeModal'
 //
 // export {MoleculeModalWithUrlState, MoleculeModalWithAnimation}
 export {MoleculeModal}
-export {
-  MoleculeModal as MoleculeModalWithUrlState,
-  MoleculeModal as MoleculeModalWithAnimation
-}
 export default MoleculeModal

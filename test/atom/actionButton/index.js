@@ -10,18 +10,8 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
-import {render} from '@testing-library/react'
 
 chai.use(chaiDOM)
-
-const setupBuilder = Component => props => {
-  const container = document.createElement('div')
-  container.setAttribute('id', 'test-container')
-  const utils = render(<Component {...props} />, {
-    container: document.body.appendChild(container)
-  })
-  return utils
-}
 
 describe('atom/actionButton', () => {
   const Component = AtomActionButton
@@ -30,7 +20,7 @@ describe('atom/actionButton', () => {
       <path d="m6.3506 6.3506 2.649 2.649h-6v-6l1.938 1.938c1.842-1.849 4.347-2.938 7.062-2.938 5.515 0 10 4.486 10 10h-2c0-4.411-3.588-8-8-8-2.172 0-4.176.872-5.649 2.351zm11.2988 11.2988-2.649-2.649h6v6l-1.938-1.939c-1.842 1.85-4.347 2.939-7.062 2.939-5.515 0-10-4.486-10-10h2c0 4.411 3.588 8 8 8 2.172 0 4.176-.872 5.649-2.351z" />
     </svg>
   )
-  const setup = setupBuilder(Component)
+  const setup = setupEnvironment(Component)
 
   it('should render without crashing', () => {
     // Given

@@ -34,7 +34,7 @@
     "@s-ui/studio": "8",
     "fs-extra": "8.1.0",
     "globby": "10.0.1",
-    "husky": "0.13.4",
+    "husky": "4.2.5",
     "validate-commit-msg": "2.12.2",
     "walker": "1.0.7"
   },
@@ -79,5 +79,10 @@
   "stylelint": {
     "extends": "./node_modules/@s-ui/lint/stylelint.config.js"
   },
-  "prettier": "./node_modules/@s-ui/lint/.prettierrc.js"
+  "prettier": "./node_modules/@s-ui/lint/.prettierrc.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "sui-precommit run"
+    }
+  }
 }

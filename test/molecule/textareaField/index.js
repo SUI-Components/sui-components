@@ -10,22 +10,13 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
-import {render, fireEvent} from '@testing-library/react'
+import {fireEvent} from '@testing-library/react'
 
 chai.use(chaiDOM)
 
-const setupBuilder = Component => props => {
-  const container = document.createElement('div')
-  container.setAttribute('id', 'test-container')
-  const utils = render(<Component {...props} />, {
-    container: document.body.appendChild(container)
-  })
-  return utils
-}
-
 describe('molecule/textareaField', () => {
   const Component = MoleculeTextareaField
-  const setup = setupBuilder(Component)
+  const setup = setupEnvironment(Component)
 
   it('should render without crashing', () => {
     // Given

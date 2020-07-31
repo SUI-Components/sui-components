@@ -84,6 +84,7 @@ $icon-sz-atom-button: $sz-icon-s !default;
 $icon-m-atom-button: $m-m !default;
 $p-atom-button: $p-l !default;
 
+$bdrs-atom-button-large: $bdrs-m !default;
 $sz-atom-button-large: $p-base * 6 !default;
 $fz-atom-button-large: $fz-m !default;
 $fw-atom-button-large: $fw-semi-bold !default;
@@ -357,6 +358,7 @@ $icon-stroke-color: currentColor !default;
 
   &--large {
     @include button-icon($icon-sz-atom-button-large, $icon-m-atom-button-large);
+    border-radius: $bdrs-atom-button-large;
     font-size: $fz-atom-button-large;
     font-weight: $fw-atom-button-large;
     height: $sz-atom-button-large;

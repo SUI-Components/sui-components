@@ -39,6 +39,15 @@ $badges: (
   )
 ) !default;
 
+$badge-transparent: (
+  success: $c-success,
+  error: $c-error,
+  alert: $c-alert,
+  info: $c-gray,
+  new: $c-accent,
+  primary: $c-primary
+) !default;
+
 .sui-AtomBadge {
   align-items: center;
   background: transparent;
@@ -101,9 +110,11 @@ $badges: (
         color: $c;
       }
     }
+  }
 
+  @each $type, $element in $badge-transparent {
     &-#{$type}--transparent {
-      color: $bgc;
+      color: $element;
     }
   }
 }

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.15.0 (2020-07-31)
+
+
+### Features
+
+* add color font custom in transparent option ([226166a](https://github.com/SUI-Components/sui-components/commit/226166a1fcc67fdf80ec321146557e2c4987162f))
+
+
+
 # 1.14.0 (2020-06-30)
 
 

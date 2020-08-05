@@ -143,4 +143,4 @@ AtomInput.propTypes = {
 AtomInput.displayName = 'AtomInput'
 
 export default AtomInput
-export {inputSizes, inputStates}
+export {inputSizes, inputStates, TYPES as inputTypes}

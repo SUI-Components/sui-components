@@ -13,6 +13,7 @@
   padding: 0;
   position: relative;
   width: 100%;
+  border-radius: $bdrs-accordion-tab;
 
   &:last-child {
     border-bottom: $bd-accordion-tab-container;
@@ -99,6 +100,7 @@
     background-color: $bgc-accordion-tab-container;
     position: relative;
     width: 100%;
+    border-radius: $bdrs-accordion-tab;
   }
 
   &Icon {

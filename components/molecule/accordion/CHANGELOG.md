@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-08-06)
+
+
+### Features
+
+* add default sass variable on molecule accordion tab border-radius ([9e023cf](https://github.com/SUI-Components/sui-components/commit/9e023cf33118a1f8f1c676be60703f2f23f319e9))
+
+
+
 # 1.6.0 (2020-06-19)
 
 

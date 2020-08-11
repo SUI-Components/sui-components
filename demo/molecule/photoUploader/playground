@@ -92,8 +92,8 @@ const Demo = () => {
   )
 
   return (
-    <div style={demoStyles}>
-      <h1 style={lineStyles}>Molecule PhotoUploader</h1>
+    <div>
+      <h1>Photo Uploader</h1>
 
       <MoleculePhotoUploader
         addMorePhotosIcon={_addMorePhotosIcon}

@@ -9,7 +9,8 @@ const input = {
   width: '100%',
 }
 return (
-  <div style={{margin: '16px'}}>
+  <div>
+    <h1>Validation Text</h1>
     <div style={{marginBottom: '16px'}}>
       <input style={input}
         type='text'

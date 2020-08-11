@@ -22,7 +22,7 @@ const SliderWithState = ({value, onChange, ...otherProps}) => {
 
 return (
   <div>
-    <h1>AtomSlider</h1>
+    <h1>Slider</h1>
     <h2>Segmented</h2>
     <h3>Basic</h3>
     <div style={stylesSection}>

@@ -22,112 +22,114 @@ const CLASS_DEMO_CONTENT_STEP = `${BASE_CLASS_DEMO}-contentStep`
 
 const Demo = () => {
   return (
-    <div className={BASE_CLASS_DEMO}>
-      <h1>
-        <code>MoleculeProgressSteps</code>
-      </h1>
-      <h2>Dynamic</h2>
+    <div className="sui-StudioPreview">
+      <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+        <h1>Progress Steps</h1>
+        <h2>Dynamic</h2>
+        <h3>Basic (Responsive)</h3>
+        <div className={CLASS_DEMO_SECTION_RESPONSIVE}>
+          <LayoutMediaQuery>
+            {({S}) => {
+              return (
+                <DynamicProgressSteps
+                  config={configBasic6Steps}
+                  compressed={!S}
+                />
+              )
+            }}
+          </LayoutMediaQuery>
+        </div>
 
-      <h3>Basic (Responsive)</h3>
-      <div className={CLASS_DEMO_SECTION_RESPONSIVE}>
-        <LayoutMediaQuery>
-          {({S}) => {
-            return (
-              <DynamicProgressSteps
-                config={configBasic6Steps}
-                compressed={!S}
-              />
-            )
-          }}
-        </LayoutMediaQuery>
-      </div>
+        <h3>w/ Icons (Responsive)</h3>
+        <div className={CLASS_DEMO_SECTION_RESPONSIVE}>
+          <LayoutMediaQuery>
+            {({S}) => {
+              return (
+                <DynamicProgressSteps
+                  config={configWithIcons}
+                  compressed={!S}
+                />
+              )
+            }}
+          </LayoutMediaQuery>
+        </div>
 
-      <h3>w/ Icons (Responsive)</h3>
-      <div className={CLASS_DEMO_SECTION_RESPONSIVE}>
-        <LayoutMediaQuery>
-          {({S}) => {
-            return (
-              <DynamicProgressSteps config={configWithIcons} compressed={!S} />
-            )
-          }}
-        </LayoutMediaQuery>
-      </div>
+        <h2>Static</h2>
 
-      <h2>Static</h2>
+        <h3>Basic</h3>
+        <div className={CLASS_DEMO_SECTION}>
+          <MoleculeProgressSteps iconStepDone={<IconFillCheck />}>
+            {Object.values(configBasic).map(
+              ({status, label, content, icon}, index) => (
+                <MoleculeProgressStep
+                  key={index}
+                  label={label}
+                  status={status}
+                  icon={icon}
+                >
+                  {content}
+                </MoleculeProgressStep>
+              )
+            )}
+          </MoleculeProgressSteps>
+        </div>
 
-      <h3>Basic</h3>
-      <div className={CLASS_DEMO_SECTION}>
-        <MoleculeProgressSteps iconStepDone={<IconFillCheck />}>
-          {Object.values(configBasic).map(
-            ({status, label, content, icon}, index) => (
-              <MoleculeProgressStep
-                key={index}
-                label={label}
-                status={status}
-                icon={icon}
-              >
-                {content}
-              </MoleculeProgressStep>
-            )
-          )}
-        </MoleculeProgressSteps>
-      </div>
+        <h3>Compressed</h3>
+        <div className={CLASS_DEMO_SECTION}>
+          <MoleculeProgressSteps iconStepDone={<IconFillCheck />} compressed>
+            {Object.values(configBasic).map(
+              ({status, label, content, icon}, index) => (
+                <MoleculeProgressStep
+                  key={index}
+                  label={label}
+                  status={status}
+                  icon={icon}
+                >
+                  {content}
+                </MoleculeProgressStep>
+              )
+            )}
+          </MoleculeProgressSteps>
+        </div>
 
-      <h3>Compressed</h3>
-      <div className={CLASS_DEMO_SECTION}>
-        <MoleculeProgressSteps iconStepDone={<IconFillCheck />} compressed>
-          {Object.values(configBasic).map(
-            ({status, label, content, icon}, index) => (
-              <MoleculeProgressStep
-                key={index}
-                label={label}
-                status={status}
-                icon={icon}
-              >
-                {content}
-              </MoleculeProgressStep>
-            )
-          )}
-        </MoleculeProgressSteps>
-      </div>
+        <h3>Vertical</h3>
 
-      <h3>Vertical</h3>
+        <div className={cx(CLASS_DEMO_SECTION, CLASS_DEMO_SECTION_VERTICAL)}>
+          <MoleculeProgressSteps iconStepDone={<IconFillCheck />} vertical>
+            {Object.values(configBasic6Steps).map(
+              ({status, label, content, icon}, index) => (
+                <MoleculeProgressStep
+                  key={index}
+                  label={label}
+                  status={status}
+                  icon={icon}
+                >
+                  {content}
+                </MoleculeProgressStep>
+              )
+            )}
+          </MoleculeProgressSteps>
+        </div>
 
-      <div className={cx(CLASS_DEMO_SECTION, CLASS_DEMO_SECTION_VERTICAL)}>
-        <MoleculeProgressSteps iconStepDone={<IconFillCheck />} vertical>
-          {Object.values(configBasic6Steps).map(
-            ({status, label, content, icon}, index) => (
-              <MoleculeProgressStep
-                key={index}
-                label={label}
-                status={status}
-                icon={icon}
-              >
-                {content}
-              </MoleculeProgressStep>
-            )
-          )}
-        </MoleculeProgressSteps>
-      </div>
+        <h3>Vertical w/ Icons</h3>
 
-      <h3>Vertical w/ Icons</h3>
-
-      <div className={cx(CLASS_DEMO_SECTION, CLASS_DEMO_SECTION_VERTICAL)}>
-        <MoleculeProgressSteps iconStepDone={<IconFillCheck />} vertical>
-          {Object.values(configWithIcons).map(
-            ({status, label, content, icon, iconActive}, index) => (
-              <MoleculeProgressStep
-                key={index}
-                label={label}
-                status={status}
-                icon={icon}
-                iconActive={iconActive}
-              >
-                {content}
-              </MoleculeProgressStep>
-            )
-          )}
-        </MoleculeProgressSteps>
+        <div className={cx(CLASS_DEMO_SECTION, CLASS_DEMO_SECTION_VERTICAL)}>
+          <MoleculeProgressSteps iconStepDone={<IconFillCheck />} vertical>
+            {Object.values(configWithIcons).map(
+              ({status, label, content, icon, iconActive}, index) => (
+                <MoleculeProgressStep
+                  key={index}
+                  label={label}
+                  status={status}
+                  icon={icon}
+                  iconActive={iconActive}
+                >
+                  {content}
+                </MoleculeProgressStep>
+              )
+            )}
+          </MoleculeProgressSteps>
+        </div>
       </div>
     </div>
   )

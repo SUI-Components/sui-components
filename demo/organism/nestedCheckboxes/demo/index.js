@@ -88,48 +88,50 @@ const Demo = () => {
     })
 
   return (
-    <div className="DemoOrganismNestedCheckboxes">
-      <h1>Organism NestedCheckboxes</h1>
-      <OrganismNestedCheckboxes
-        checkedIcon={IconCheck}
-        intermediateIcon={IconHalfCheck}
-        id="nested-1"
-        labelParent="Nested checkboxes"
-        onChangeParent={handleChangeParent}
-      >
-        {renderItems()}
-      </OrganismNestedCheckboxes>
+    <div className="sui-StudioPreview">
+      <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+        <h1>Nested Checkboxes</h1>
+        <OrganismNestedCheckboxes
+          checkedIcon={IconCheck}
+          intermediateIcon={IconHalfCheck}
+          id="nested-1"
+          labelParent="Nested checkboxes"
+          onChangeParent={handleChangeParent}
+        >
+          {renderItems()}
+        </OrganismNestedCheckboxes>
 
-      <h2>
-        With Join prop | <small>Remove left padding on items</small>
-      </h2>
-      <OrganismNestedCheckboxes
-        checkedIcon={IconCheck}
-        intermediateIcon={IconHalfCheck}
-        id="nested-2"
-        join
-        labelParent="Nested checkboxes"
-        onChangeParent={handleChangeParent}
-      >
-        {renderItems()}
-      </OrganismNestedCheckboxes>
+        <h2>
+          With Join prop | <small>Remove left padding on items</small>
+        </h2>
+        <OrganismNestedCheckboxes
+          checkedIcon={IconCheck}
+          intermediateIcon={IconHalfCheck}
+          id="nested-2"
+          join
+          labelParent="Nested checkboxes"
+          onChangeParent={handleChangeParent}
+        >
+          {renderItems()}
+        </OrganismNestedCheckboxes>
 
-      <h2>
-        With Show/hide items feature | <small>Toggle items visibility</small>
-      </h2>
-      <OrganismNestedCheckboxes
-        checkedIcon={IconCheck}
-        intermediateIcon={IconHalfCheck}
-        id="nested-3"
-        labelParent="Nested checkboxes"
-        onChangeParent={handleChangeParent}
-        onClickParent={() => setShowItems(prevState => !prevState)}
-        showItems={showItems}
-        showItemsIcon={IconArrowDown}
-        hideItemsIcon={IconArrowUp}
-      >
-        {renderItems()}
-      </OrganismNestedCheckboxes>
+        <h2>
+          With Show/hide items feature | <small>Toggle items visibility</small>
+        </h2>
+        <OrganismNestedCheckboxes
+          checkedIcon={IconCheck}
+          intermediateIcon={IconHalfCheck}
+          id="nested-3"
+          labelParent="Nested checkboxes"
+          onChangeParent={handleChangeParent}
+          onClickParent={() => setShowItems(prevState => !prevState)}
+          showItems={showItems}
+          showItemsIcon={IconArrowDown}
+          hideItemsIcon={IconArrowUp}
+        >
+          {renderItems()}
+        </OrganismNestedCheckboxes>
+      </div>
     </div>
   )
 }

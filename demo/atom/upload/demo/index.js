@@ -71,98 +71,100 @@ class DynamicStatusContainer extends Component {
 
 const Demo = () => {
   return (
-    <div>
-      <h1>AtomUpload</h1>
-      <h2>Dynamic Behaviour</h2>
-      <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
-        <p>
-          Click on the component or drag&drop some files to start upload
-          simulation
-        </p>
-        <DynamicStatusContainer
-          iconActive={<IconActive />}
-          textActive={textActive}
-          textExplanation={textExplanation}
-          iconUpload={<AtomSpinner noBackground />}
-          textUpload={textUpload}
-          iconSuccess={<IconSuccess />}
-          textSuccess={textSuccess}
-          iconError={<IconError />}
-          textError={textError}
-        />
-      </div>
-      <h2>Use Cases</h2>
-      <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
-        <h3>Active</h3>
-        <LayoutMediaQuery>
-          {({XS}) => {
-            if (XS) {
+    <div className="sui-StudioPreview">
+      <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+        <h1>Upload</h1>
+        <h2>Dynamic Behaviour</h2>
+        <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
+          <p>
+            Click on the component or drag&drop some files to start upload
+            simulation
+          </p>
+          <DynamicStatusContainer
+            iconActive={<IconActive />}
+            textActive={textActive}
+            textExplanation={textExplanation}
+            iconUpload={<AtomSpinner noBackground />}
+            textUpload={textUpload}
+            iconSuccess={<IconSuccess />}
+            textSuccess={textSuccess}
+            iconError={<IconError />}
+            textError={textError}
+          />
+        </div>
+        <h2>Use Cases</h2>
+        <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
+          <h3>Active</h3>
+          <LayoutMediaQuery>
+            {({XS}) => {
+              if (XS) {
+                return (
+                  <AtomUpload
+                    status={uploadStatuses.ACTIVE}
+                    iconActive={<IconActive />}
+                    textActive={textActive}
+                    textExplanation={textExplanation}
+                  />
+                )
+              }
               return (
                 <AtomUpload
                   status={uploadStatuses.ACTIVE}
                   iconActive={<IconActive />}
                   textActive={textActive}
-                  textExplanation={textExplanation}
                 />
               )
-            }
-            return (
-              <AtomUpload
-                status={uploadStatuses.ACTIVE}
-                iconActive={<IconActive />}
-                textActive={textActive}
-              />
-            )
-          }}
-        </LayoutMediaQuery>
-      </div>
-      <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive DemoAtomUpload-section--responsive-large">
-        <h3>Active</h3>
-        <LayoutMediaQuery>
-          {({XS}) => {
-            if (XS) {
+            }}
+          </LayoutMediaQuery>
+        </div>
+        <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive DemoAtomUpload-section--responsive-large">
+          <h3>Active</h3>
+          <LayoutMediaQuery>
+            {({XS}) => {
+              if (XS) {
+                return (
+                  <AtomUpload
+                    status={uploadStatuses.ACTIVE}
+                    iconActive={<IconActive />}
+                    textActive={textActive}
+                    textExplanation={textExplanation}
+                  />
+                )
+              }
               return (
                 <AtomUpload
                   status={uploadStatuses.ACTIVE}
                   iconActive={<IconActive />}
                   textActive={textActive}
-                  textExplanation={textExplanation}
                 />
               )
-            }
-            return (
-              <AtomUpload
-                status={uploadStatuses.ACTIVE}
-                iconActive={<IconActive />}
-                textActive={textActive}
-              />
-            )
-          }}
-        </LayoutMediaQuery>
-      </div>
-      <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
-        <h3>Upload</h3>
-        <AtomUpload
-          status={uploadStatuses.UPLOAD}
-          iconUpload={<AtomSpinner noBackground />}
-          textUpload={textUpload}
-        />
-      </div>
-      <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
-        <h3>Success</h3>
-        <AtomUpload
-          status={uploadStatuses.SUCCESS}
-          iconSuccess={<IconSuccess />}
-          textSuccess={textSuccess}
-        />
-      </div>
-      <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
-        <h3>Error</h3>
-        <AtomUpload
-          iconError={<IconError />}
-          textError={textError}
-          status={uploadStatuses.ERROR}
-        />
+            }}
+          </LayoutMediaQuery>
+        </div>
+        <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
+          <h3>Upload</h3>
+          <AtomUpload
+            status={uploadStatuses.UPLOAD}
+            iconUpload={<AtomSpinner noBackground />}
+            textUpload={textUpload}
+          />
+        </div>
+        <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
+          <h3>Success</h3>
+          <AtomUpload
+            status={uploadStatuses.SUCCESS}
+            iconSuccess={<IconSuccess />}
+            textSuccess={textSuccess}
+          />
+        </div>
+        <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
+          <h3>Error</h3>
+          <AtomUpload
+            iconError={<IconError />}
+            textError={textError}
+            status={uploadStatuses.ERROR}
+          />
+        </div>
       </div>
     </div>
   )

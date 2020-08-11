@@ -93,8 +93,8 @@ const contentFootMook = [
 const handleClick = index => console.log(index)
 
 return (
-  <div style={{ maxWidth: 800, padding: 16 }}>
-    <h1>Atom Table</h1>
+  <div>
+    <h1>Table</h1>
     <p>Atom Table to show tabular information.</p>
 
     <hr/>

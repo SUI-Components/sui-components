@@ -29,7 +29,7 @@ const AtomTextareaWithState = withState(AtomTextarea)
 
 return (
   <div>
-    <h1>AtomTextarea</h1>
+    <h1>Text-area</h1>
     <h2>Basic Usage</h2>
     <p>
       <code>short</code> <em>size</em> by default

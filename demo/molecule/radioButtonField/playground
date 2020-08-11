@@ -8,9 +8,7 @@ const styleListItem = {
 
 return (
   <div>
-    <h1>
-      <code>MoleculeRadioButtonField</code>
-    </h1>
+    <h1>Radio-button Field</h1>
     <ul style={styleList}>
       <li style={styleListItem}>
         <h2>With Information HelpText</h2>

@@ -67,7 +67,8 @@ class FullScreenSpinnerExample extends React.Component {
 }
 
 return (
-  <>
+  <div>
+    <h1>Spinner</h1>
     <h2>Infinite spinner</h2>
     <div style={boxStyle}>
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
@@ -90,5 +91,5 @@ return (
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
       <AtomSpinner noBackground />
     </div>
-  </>
+  </div>
 )

@@ -136,7 +136,8 @@ const ButtonsSocialRow = props => (
 
 return (
   <div>
-    <Title>Colors</Title>
+    <h1>Button</h1>
+    <h2>Colours</h2>
     <ButtonsColorsTable>
       <ButtonsColorsRow design="solid" />
       <ButtonsColorsRow design="outline" />

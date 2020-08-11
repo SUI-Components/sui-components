@@ -19,16 +19,11 @@ const fieldStyle = {
   padding: '10px',
   maxWidth: '600px'
 }
-const containerStyle = {
-  padding: '20px'
-}
 
 const Demo = () => (
-  <>
-    <div style={containerStyle}>
-      <h1>
-        <code>MoleculeModal</code>
-      </h1>
+  <div className="sui-StudioPreview">
+    <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+      <h1>Modal</h1>
       <h2>Scroll Modal</h2>
       <div style={fieldStyle}>
         <ScrollModal />
@@ -74,7 +69,7 @@ const Demo = () => (
         <WithUrlStateModal />
       </div>
     </div>
-  </>
+  </div>
 )
 
 export default Demo

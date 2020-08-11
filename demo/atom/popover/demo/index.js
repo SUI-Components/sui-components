@@ -26,47 +26,51 @@ const Demo = () => {
   )
 
   return (
-    <div className="DemoPopover">
-      <h1>Atom Popover</h1>
-      <label className="DemoPopover-label">Position</label>
-      <MoleculeSelect
-        value={position}
-        onChange={(ev, {value}) => setPosition(value)}
-        placeholder="Select a position..."
-        iconArrowDown={<IconArrowDown />}
-      >
-        {Object.keys(atomPopoverPositions).map(key => (
-          <MoleculeSelectOption key={key} value={atomPopoverPositions[key]}>
-            {key}
-          </MoleculeSelectOption>
-        ))}
-      </MoleculeSelect>
-      <br />
-      <label className="DemoPopover-label">Add close icon</label>
-      <input
-        type="checkbox"
-        checked={closeIcon}
-        onChange={ev => setCloseIcon(ev.target.checked)}
-      />
+    <div className="sui-StudioPreview">
+      <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+        <h1>Popover</h1>
+        <label className="DemoPopover-label">Position</label>
+        <MoleculeSelect
+          value={position}
+          onChange={(ev, {value}) => setPosition(value)}
+          placeholder="Select a position..."
+          iconArrowDown={<IconArrowDown />}
+        >
+          {Object.keys(atomPopoverPositions).map(key => (
+            <MoleculeSelectOption key={key} value={atomPopoverPositions[key]}>
+              {key}
+            </MoleculeSelectOption>
+          ))}
+        </MoleculeSelect>
+        <br />
+        <label className="DemoPopover-label">Add close icon</label>
+        <input
+          type="checkbox"
+          checked={closeIcon}
+          onChange={ev => setCloseIcon(ev.target.checked)}
+        />
 
-      <div className="DemoPopover-buttons">
-        <AtomPopover
-          closeIcon={closeIcon && <IconClose />}
-          placement={position}
-          onClose={() => console.log('CLOSE POPOVER!')}
-          content={renderContent()}
-          id="random-id"
-        >
-          <Button>Show Popover in component without "ref"</Button>
-        </AtomPopover>
-        <AtomPopover
-          closeIcon={closeIcon && <IconClose />}
-          placement={position}
-          onClose={() => console.log('CLOSE POPOVER!')}
-          content={renderContent()}
-        >
-          <div className="DemoPopover-button">Show Popover in HTML ELEMENT</div>
-        </AtomPopover>
+        <div className="DemoPopover-buttons">
+          <AtomPopover
+            closeIcon={closeIcon && <IconClose />}
+            placement={position}
+            onClose={() => console.log('CLOSE POPOVER!')}
+            content={renderContent()}
+            id="random-id"
+          >
+            <Button>Show Popover in component without "ref"</Button>
+          </AtomPopover>
+          <AtomPopover
+            closeIcon={closeIcon && <IconClose />}
+            placement={position}
+            onClose={() => console.log('CLOSE POPOVER!')}
+            content={renderContent()}
+          >
+            <div className="DemoPopover-button">
+              Show Popover in HTML ELEMENT
+            </div>
+          </AtomPopover>
+        </div>
       </div>
     </div>
   )

@@ -147,7 +147,7 @@ const styleSection = {
 
 return (
   <div>
-    <h1>AtomLineProgressBar</h1>
+    <h1>Line Progress Bar</h1>
 
     <div style={styleSection}>
       <h2>Dynamic</h2>
@@ -181,7 +181,7 @@ return (
       <AtomProgressBar percentage={25} indicatorTotal />
     </div>
 
-    <h1>AtomCircleProgressBar</h1>
+    <h1>Circle Progress Bar</h1>
 
     <div style={styleSection}>
       <h2>Dynamic</h2>

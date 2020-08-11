@@ -1,7 +1,6 @@
 return (
   <div>
-    <br />
-    <br />
+    <h1>Label</h1>
     <div style={{marginBottom: '16px'}}>
       <AtomLabel
         name="atomLabelName1"

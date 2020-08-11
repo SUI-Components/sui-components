@@ -10,6 +10,7 @@ const stylesBlock = {
 
 return (
   <div>
+    <h1>Badge</h1>
     <h2>With Container</h2>
     <h3>Small</h3>
     <p style={stylesBlock}>

@@ -27,7 +27,7 @@ const breadcrumbItems = [
 ]
 
 return (
-  <div style={{padding: '20px'}}>
+  <div>
     <h1>Breadcrumb</h1>
     <h2>Breadcrumb basic</h2>
     <BreadcrumbBasic icon={ArrowRight} items={breadcrumbItems} />

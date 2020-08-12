@@ -30,100 +30,102 @@ const CLASS_DEMO_LIST_ITEM = `${BASE_CLASS_DEMO}-listItem`
 
 const Demo = () => {
   return (
-    <div className={BASE_CLASS_DEMO}>
-      <h1>AtomImage</h1>
-      <ul className={CLASS_DEMO_LIST}>
-        <li className={CLASS_DEMO_LIST_ITEM}>
-          <div className={CLASS_DEMO_CONTAINER_IMAGES}>
-            <AtomImage src={IMAGES.FINAL} alt="Nice View" />
-          </div>
-          <small style={{margin: '10px'}}>
-            Most simple Image with only required props
-          </small>
-        </li>
+    <div className="sui-StudioPreview">
+      <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+        <h1>Image</h1>
+        <ul className={CLASS_DEMO_LIST}>
+          <li className={CLASS_DEMO_LIST_ITEM}>
+            <div className={CLASS_DEMO_CONTAINER_IMAGES}>
+              <AtomImage src={IMAGES.FINAL} alt="Nice View" />
+            </div>
+            <small style={{margin: '10px'}}>
+              Most simple Image with only required props
+            </small>
+          </li>
 
-        <li className={CLASS_DEMO_LIST_ITEM}>
-          <div className={CLASS_DEMO_CONTAINER_IMAGES}>
-            <AtomImage
-              src={IMAGES.FINAL}
-              skeleton={IMAGES.SKELETON}
-              alt="Nice View"
-            />
-          </div>
-          <small style={{margin: '10px'}}>
-            Image with Skeleton while loading final image
-          </small>
-        </li>
+          <li className={CLASS_DEMO_LIST_ITEM}>
+            <div className={CLASS_DEMO_CONTAINER_IMAGES}>
+              <AtomImage
+                src={IMAGES.FINAL}
+                skeleton={IMAGES.SKELETON}
+                alt="Nice View"
+              />
+            </div>
+            <small style={{margin: '10px'}}>
+              Image with Skeleton while loading final image
+            </small>
+          </li>
 
-        <li className={CLASS_DEMO_LIST_ITEM}>
-          <div className={CLASS_DEMO_CONTAINER_IMAGES}>
-            <AtomImage
-              src={IMAGES.BAD}
-              spinner={<AtomSpinner />}
-              placeholder={IMAGES.PLACEHOLDER}
-              errorIcon={<ImageNotFoundIcon />}
-              errorText={defaultErrorText}
-              alt="Nice View"
-            />
-          </div>
-          <small style={{margin: '10px'}}>
-            Image with bad Image src and Error Box
-          </small>
-        </li>
+          <li className={CLASS_DEMO_LIST_ITEM}>
+            <div className={CLASS_DEMO_CONTAINER_IMAGES}>
+              <AtomImage
+                src={IMAGES.BAD}
+                spinner={<AtomSpinner />}
+                placeholder={IMAGES.PLACEHOLDER}
+                errorIcon={<ImageNotFoundIcon />}
+                errorText={defaultErrorText}
+                alt="Nice View"
+              />
+            </div>
+            <small style={{margin: '10px'}}>
+              Image with bad Image src and Error Box
+            </small>
+          </li>
 
-        <li className={CLASS_DEMO_LIST_ITEM}>
-          <div className={CLASS_DEMO_CONTAINER_IMAGES}>
-            <AtomImage
-              src={IMAGES.FINAL}
-              spinner={<AtomSpinner />}
-              placeholder={IMAGES.PLACEHOLDER}
-              alt="Nice View"
-            />
-          </div>
-          <small style={{margin: '10px'}}>
-            Image with placeholder and spinner while loading final image
-          </small>
-        </li>
+          <li className={CLASS_DEMO_LIST_ITEM}>
+            <div className={CLASS_DEMO_CONTAINER_IMAGES}>
+              <AtomImage
+                src={IMAGES.FINAL}
+                spinner={<AtomSpinner />}
+                placeholder={IMAGES.PLACEHOLDER}
+                alt="Nice View"
+              />
+            </div>
+            <small style={{margin: '10px'}}>
+              Image with placeholder and spinner while loading final image
+            </small>
+          </li>
 
-        <li className={CLASS_DEMO_LIST_ITEM}>
-          <div className={CLASS_DEMO_CONTAINER_IMAGES}>
-            <AtomImage
-              src={IMAGES.FINAL}
-              alt="Nice View"
-              spinner={<AtomSpinner />}
-            />
-          </div>
-          <small style={{margin: '10px'}}>
-            Image with spinner (only) while loading final image
-          </small>
-        </li>
+          <li className={CLASS_DEMO_LIST_ITEM}>
+            <div className={CLASS_DEMO_CONTAINER_IMAGES}>
+              <AtomImage
+                src={IMAGES.FINAL}
+                alt="Nice View"
+                spinner={<AtomSpinner />}
+              />
+            </div>
+            <small style={{margin: '10px'}}>
+              Image with spinner (only) while loading final image
+            </small>
+          </li>
 
-        <li className={CLASS_DEMO_LIST_ITEM}>
-          <div className={CLASS_DEMO_CONTAINER_IMAGES}>
-            <AtomImage
-              src={IMAGES.FINAL}
-              placeholder={IMAGES.PLACEHOLDER}
-              alt="Nice View"
-            />
-          </div>
-          <small style={{margin: '10px'}}>
-            Image with placeholder (only) while loading final image
-          </small>
-        </li>
-      </ul>
-      <blockquote>
-        <p>
-          Note: If images load too fast and you cannot appreciate the different
-          behaviours that can be set while images are loading, i recommend you
-          to simulate in your browser low-bandwidth conditions.
-        </p>
-        <p>
-          <a href="https://ma.ttias.be/simulate-low-bandwidth-conditions-with-chromes-network-throttling/">
-            Here
-          </a>{' '}
-          you have an explanation of how to do this in Chrome.
-        </p>
-      </blockquote>
+          <li className={CLASS_DEMO_LIST_ITEM}>
+            <div className={CLASS_DEMO_CONTAINER_IMAGES}>
+              <AtomImage
+                src={IMAGES.FINAL}
+                placeholder={IMAGES.PLACEHOLDER}
+                alt="Nice View"
+              />
+            </div>
+            <small style={{margin: '10px'}}>
+              Image with placeholder (only) while loading final image
+            </small>
+          </li>
+        </ul>
+        <blockquote>
+          <p>
+            Note: If images load too fast and you cannot appreciate the
+            different behaviours that can be set while images are loading, i
+            recommend you to simulate in your browser low-bandwidth conditions.
+          </p>
+          <p>
+            <a href="https://ma.ttias.be/simulate-low-bandwidth-conditions-with-chromes-network-throttling/">
+              Here
+            </a>{' '}
+            you have an explanation of how to do this in Chrome.
+          </p>
+        </blockquote>
+      </div>
     </div>
   )
 }

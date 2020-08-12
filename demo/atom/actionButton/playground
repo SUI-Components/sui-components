@@ -46,8 +46,8 @@ const ButtonsColorsRow = props => (
 
 return (
   <div>
-
-    <Title>Colors</Title>
+    <h1>Action Button</h1>
+    <h2>Colours</h2>
     <ButtonsColorsTable>
       <ButtonsColorsRow style="filledNegative" />
       <ButtonsColorsRow style="filledPositive" />

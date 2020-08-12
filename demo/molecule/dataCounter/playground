@@ -23,7 +23,7 @@ const propsMessages = {
 
 return (
   <div>
-   <h1><pre>MoleculeDataCounter</pre></h1>  
+   <h1>Data Counter</h1>  
     <h2>Basic</h2>
     <div style={stylesSection}>
       <MoleculeDataCounter onChange={consoleValue} label="Label" id="demo1"  {...propsMessages} />

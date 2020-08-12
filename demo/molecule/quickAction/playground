@@ -18,13 +18,9 @@ function handleOnClick() {
   alert('clicked')
 }
 
-const stylesSection = {
-  margin: '15px',
-  maxWidth: '300px'
-}
-
 return (
-  <div style={stylesSection}>
+  <div>
+    <h1>Quick Action</h1>
     <p>Default</p>
     <MoleculeQuickAction
       onClick={handleOnClick}

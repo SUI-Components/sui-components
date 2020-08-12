@@ -13,7 +13,8 @@
     </svg>
   )
   return (
-    <div style={{float: 'left'}}>
+    <div>
+      <h1>Tag</h1>
       <h2>Standard Tags</h2>
       <p>
         <AtomTag label="Tag Structure" />{' '}

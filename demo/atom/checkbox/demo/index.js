@@ -35,74 +35,77 @@ const Demo = () => {
   const [isNative, setIsNative] = useState(false)
 
   return (
-    <div className={BASE_CLASS_DEMO}>
-      <AtomSwitch
-        label="Choose Design"
-        labelLeft="Custom"
-        labelRight="Native"
-        onToggle={setIsNative}
-      />
-      <h1>AtomCheckbox</h1>
-      <h2>Use Cases</h2>
-      <div className={CLASS_SECTION}>
-        <h3>Checked with onChange method</h3>
+    <div className="sui-StudioPreview">
+      <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+        <h1>Checkbox</h1>
+        <AtomSwitch
+          label="Choose Design"
+          labelLeft="Custom"
+          labelRight="Native"
+          onToggle={setIsNative}
+        />
+
+        <h2>Use Cases</h2>
+        <div className={CLASS_SECTION}>
+          <h3>Checked with onChange method</h3>
+          <AtomCheckbox
+            isNative={isNative}
+            id="checkbox1"
+            checked={checkboxValue}
+            checkedIcon={IconCheck}
+            onChange={() => setCheckboxValue(!checkboxValue)}
+          />
+        </div>
+        <div className={CLASS_SECTION}>
+          <h3>Intermediate</h3>
+          <AtomCheckbox
+            isNative={isNative}
+            id="checkbox2"
+            checkedIcon={IconCheck}
+            intermediate
+            intermediateIcon={IconHalfCheck}
+            onChange={noop}
+          />
+        </div>
+        <div className={CLASS_SECTION}>
+          <h3>Unchecked</h3>
+          <AtomCheckbox
+            isNative={isNative}
+            id="checkbox3"
+            checkedIcon={IconCheck}
+            onChange={noop}
+          />
+        </div>
+
+        <h2>Disabled</h2>
+        <h3>Checked</h3>
         <AtomCheckbox
           isNative={isNative}
-          id="checkbox1"
-          checked={checkboxValue}
+          id="checkbox4"
+          disabled
+          checked
           checkedIcon={IconCheck}
-          onChange={() => setCheckboxValue(!checkboxValue)}
+          onChange={noop}
         />
-      </div>
-      <div className={CLASS_SECTION}>
         <h3>Intermediate</h3>
         <AtomCheckbox
           isNative={isNative}
-          id="checkbox2"
-          checkedIcon={IconCheck}
+          id="checkbox5"
+          disabled
           intermediate
+          checkedIcon={IconCheck}
           intermediateIcon={IconHalfCheck}
           onChange={noop}
         />
-      </div>
-      <div className={CLASS_SECTION}>
         <h3>Unchecked</h3>
         <AtomCheckbox
           isNative={isNative}
-          id="checkbox3"
+          id="checkbox5"
+          disabled
           checkedIcon={IconCheck}
           onChange={noop}
         />
       </div>
-
-      <h2>Disabled</h2>
-      <h3>Checked</h3>
-      <AtomCheckbox
-        isNative={isNative}
-        id="checkbox4"
-        disabled
-        checked
-        checkedIcon={IconCheck}
-        onChange={noop}
-      />
-      <h3>Intermediate</h3>
-      <AtomCheckbox
-        isNative={isNative}
-        id="checkbox5"
-        disabled
-        intermediate
-        checkedIcon={IconCheck}
-        intermediateIcon={IconHalfCheck}
-        onChange={noop}
-      />
-      <h3>Unchecked</h3>
-      <AtomCheckbox
-        isNative={isNative}
-        id="checkbox5"
-        disabled
-        checkedIcon={IconCheck}
-        onChange={noop}
-      />
     </div>
   )
 }

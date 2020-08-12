@@ -11,7 +11,7 @@ const Icon = () => (
 
 return (
   <div>
-    <h1>MoleculeBadgeCounter</h1>
+    <h1>Badge Counter</h1>
     <h2>Small</h2>
     <p>
       <MoleculeBadgeCounter />

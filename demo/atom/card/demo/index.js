@@ -32,126 +32,133 @@ const CarInfoLinks = () => (
 
 const Demo = () => {
   return (
-    <div>
-      <h1>AtomCard</h1>
-      <div className="DemoAtomCard-section">
+    <div className="sui-StudioPreview">
+      <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+        <h1>Card</h1>
+        <div className="DemoAtomCard-section">
+          <h2>
+            Basic with <code>href</code>
+          </h2>
+          <AtomCard
+            tabIndex="1"
+            media={CarImage}
+            content={CarInfo}
+            href={urlTarget}
+          />
+        </div>
+        <div className="DemoAtomCard-section">
+          <h2>
+            Basic without <code>href</code>
+          </h2>
+          <AtomCard tabIndex="2" media={CarImage} content={CarInfoLinks} />
+        </div>
+        <div className="DemoAtomCard-section">
+          <h2>
+            Basic with <code>href</code> and secondary actions
+          </h2>
+          <AtomCard
+            tabIndex="2"
+            media={CarImage}
+            href={urlTarget}
+            content={CarInfoLinks}
+          />
+        </div>
+        <div className="DemoAtomCard-section">
+          <h2>
+            Basic with <code>highlight</code>
+          </h2>
+          <AtomCard
+            tabIndex="3"
+            media={CarImage}
+            content={CarInfo}
+            href={urlTarget}
+            highlight
+          />
+        </div>
+        <div className="DemoAtomCard-section DemoAtomCard-section--vertical">
+          <h2>Vertical</h2>
+          <AtomCard
+            tabIndex="4"
+            media={CarImage}
+            content={CarInfo}
+            href={urlTarget}
+            vertical
+          />
+        </div>
         <h2>
-          Basic with <code>href</code>
+          Responsive using <code>@s-ui/react-layout-media-query</code>
         </h2>
-        <AtomCard
-          tabIndex="1"
-          media={CarImage}
-          content={CarInfo}
-          href={urlTarget}
-        />
-      </div>
-      <div className="DemoAtomCard-section">
-        <h2>
-          Basic without <code>href</code>
-        </h2>
-        <AtomCard tabIndex="2" media={CarImage} content={CarInfoLinks} />
-      </div>
-      <div className="DemoAtomCard-section">
-        <h2>
-          Basic with <code>href</code> and secondary actions
-        </h2>
-        <AtomCard
-          tabIndex="2"
-          media={CarImage}
-          href={urlTarget}
-          content={CarInfoLinks}
-        />
-      </div>
-      <div className="DemoAtomCard-section">
-        <h2>
-          Basic with <code>highlight</code>
-        </h2>
-        <AtomCard
-          tabIndex="3"
-          media={CarImage}
-          content={CarInfo}
-          href={urlTarget}
-          highlight
-        />
-      </div>
-      <div className="DemoAtomCard-section DemoAtomCard-section--vertical">
-        <h2>Vertical</h2>
-        <AtomCard
-          tabIndex="4"
-          media={CarImage}
-          content={CarInfo}
-          href={urlTarget}
-          vertical
-        />
-      </div>
-      <h2>
-        Responsive using <code>@s-ui/react-layout-media-query</code>
-      </h2>
-      <div className="DemoAtomCard-section DemoAtomCard-section--responsive">
-        <h2>From Horizontal to Vertical Responsive</h2>
-        <LayoutMediaQuery>
-          {({S}) => {
-            if (S)
+        <div className="DemoAtomCard-section DemoAtomCard-section--responsive">
+          <h2>From Horizontal to Vertical Responsive</h2>
+          <LayoutMediaQuery>
+            {({S}) => {
+              if (S)
+                return (
+                  <AtomCard
+                    tabIndex="5"
+                    media={CarImage}
+                    content={CarInfo}
+                    href={urlTarget}
+                  />
+                )
               return (
                 <AtomCard
                   tabIndex="5"
                   media={CarImage}
                   content={CarInfo}
                   href={urlTarget}
+                  vertical
                 />
               )
-            return (
-              <AtomCard
-                tabIndex="5"
-                media={CarImage}
-                content={CarInfo}
-                href={urlTarget}
-                vertical
-              />
-            )
-          }}
-        </LayoutMediaQuery>
-      </div>
-      <div className="DemoAtomCard-section DemoAtomCard-section--responsive-vertical">
-        <h2>From Vertical to Horizontal Responsive</h2>
-        <LayoutMediaQuery>
-          {({S}) => {
-            if (S)
+            }}
+          </LayoutMediaQuery>
+        </div>
+        <div className="DemoAtomCard-section DemoAtomCard-section--responsive-vertical">
+          <h2>From Vertical to Horizontal Responsive</h2>
+          <LayoutMediaQuery>
+            {({S}) => {
+              if (S)
+                return (
+                  <AtomCard
+                    tabIndex="5"
+                    media={CarImage}
+                    content={CarInfo}
+                    href={urlTarget}
+                  />
+                )
               return (
                 <AtomCard
                   tabIndex="5"
                   media={CarImage}
                   content={CarInfo}
                   href={urlTarget}
+                  vertical
                 />
               )
-            return (
-              <AtomCard
-                tabIndex="5"
-                media={CarImage}
-                content={CarInfo}
-                href={urlTarget}
-                vertical
-              />
-            )
-          }}
-        </LayoutMediaQuery>
-      </div>
-      <h2>Responsive using MediaQueries</h2>
-      <div className="DemoAtomCard-section DemoAtomCard-section--big">
-        <h2>From Vertical (mobile) to Horizontal (desktop)</h2>
-        <AtomCard
-          tabIndex="6"
-          media={CarImage}
-          content={CarInfo}
-          href={urlTarget}
-          responsive
-        />
-      </div>
-      <h2>Basic without image</h2>
-      <div className="DemoAtomCard-section DemoAtomCard-section--big">
-        <h2>From Vertical (mobile) to Horizontal (desktop)</h2>
-        <AtomCard tabIndex="6" content={CarInfo} href={urlTarget} responsive />
+            }}
+          </LayoutMediaQuery>
+        </div>
+        <h2>Responsive using MediaQueries</h2>
+        <div className="DemoAtomCard-section DemoAtomCard-section--big">
+          <h2>From Vertical (mobile) to Horizontal (desktop)</h2>
+          <AtomCard
+            tabIndex="6"
+            media={CarImage}
+            content={CarInfo}
+            href={urlTarget}
+            responsive
+          />
+        </div>
+        <h2>Basic without image</h2>
+        <div className="DemoAtomCard-section DemoAtomCard-section--big">
+          <h2>From Vertical (mobile) to Horizontal (desktop)</h2>
+          <AtomCard
+            tabIndex="6"
+            content={CarInfo}
+            href={urlTarget}
+            responsive
+          />
+        </div>
       </div>
     </div>
   )

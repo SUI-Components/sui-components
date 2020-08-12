@@ -27,141 +27,141 @@ const MoleculeDropdownOptionListWithStateMulti = withStateMulti(
 )
 
 const Demo = () => (
-  <div className={BASE_CLASS_DEMO}>
-    <h1>
-      <code>MoleculeDropdownList</code>
-    </h1>
-    <h2>Dynamic</h2>
-    <div className={CLASS_DEMO_SECTION}>
-      <h3>Single selection</h3>
+  <div className="sui-StudioPreview">
+    <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+      <h1>Dropdown List</h1>
+      <h2>Dynamic</h2>
+      <div className={CLASS_DEMO_SECTION}>
+        <h3>Single selection</h3>
 
-      <MoleculeDropdownOptionListWithStateSingle visible={isOpen}>
-        {countries.map((option, index) => (
-          <MoleculeDropdownOption value={option} key={index}>
-            {option}
-          </MoleculeDropdownOption>
-        ))}
-      </MoleculeDropdownOptionListWithStateSingle>
-
-      <h3>Multi selection</h3>
-
-      <MoleculeDropdownOptionListWithStateMulti
-        visible={isOpen}
-        checkbox
-        onSelectKey=" "
-      >
-        {countries.map((option, index) => (
-          <MoleculeDropdownOption value={option} key={index}>
-            {option}
-          </MoleculeDropdownOption>
-        ))}
-      </MoleculeDropdownOptionListWithStateMulti>
-    </div>
-
-    <h2>Static</h2>
-    <div className={CLASS_DEMO_SECTION}>
-      <h3>
-        Basic (default <code>size → SMALL</code>)
-      </h3>
-      <div className={CLASS_DEMO_LIST}>
-        <MoleculeDropdownList visible={isOpen}>
+        <MoleculeDropdownOptionListWithStateSingle visible={isOpen}>
           {countries.map((option, index) => (
-            <MoleculeDropdownOption
-              value={option}
-              key={index}
-              selected={option === 'Canary Islands'}
-            >
+            <MoleculeDropdownOption value={option} key={index}>
               {option}
             </MoleculeDropdownOption>
           ))}
-        </MoleculeDropdownList>
-      </div>
-      <h3>
-        Basic (<code>size → MEDIUM</code>)
-      </h3>
-      <div className={CLASS_DEMO_LIST}>
-        <MoleculeDropdownList
+        </MoleculeDropdownOptionListWithStateSingle>
+
+        <h3>Multi selection</h3>
+
+        <MoleculeDropdownOptionListWithStateMulti
           visible={isOpen}
-          size={moleculeDropdownListSizes.MEDIUM}
+          checkbox
+          onSelectKey=" "
         >
           {countries.map((option, index) => (
-            <MoleculeDropdownOption
-              value={option}
-              key={index}
-              selected={option === 'Canary Islands'}
-            >
+            <MoleculeDropdownOption value={option} key={index}>
               {option}
             </MoleculeDropdownOption>
           ))}
-        </MoleculeDropdownList>
+        </MoleculeDropdownOptionListWithStateMulti>
       </div>
-      <h3>
-        Basic (<code>size → LARGE</code>)
-      </h3>
-      <div className={CLASS_DEMO_LIST}>
-        <MoleculeDropdownList
-          visible={isOpen}
-          size={moleculeDropdownListSizes.LARGE}
-        >
-          {countries.map((option, index) => (
-            <MoleculeDropdownOption
-              value={option}
-              key={index}
-              selected={option === 'Canary Islands'}
-            >
-              {option}
-            </MoleculeDropdownOption>
-          ))}
-        </MoleculeDropdownList>
-      </div>
-      <h3>w/ Checkbox</h3>
-      <div className={CLASS_DEMO_LIST}>
-        <MoleculeDropdownList checkbox visible={isOpen}>
-          {countries.map((option, index) => (
-            <MoleculeDropdownOption
-              value={option}
-              key={index}
-              selected={option === 'Canary Islands'}
-            >
-              {option}
-            </MoleculeDropdownOption>
-          ))}
-        </MoleculeDropdownList>
-      </div>
-      <h3>w/ Disabled Options</h3>
-      <div className={CLASS_DEMO_LIST}>
-        <MoleculeDropdownList checkbox visible={isOpen}>
-          {countries.map((option, index) => (
-            <MoleculeDropdownOption
-              value={option}
-              key={index}
-              selected={option === 'Canary Islands'}
-              disabled={['Luxembourg', 'Cameroon', 'Venezuela'].includes(
-                option
-              )}
-            >
-              {option}
-            </MoleculeDropdownOption>
-          ))}
-        </MoleculeDropdownList>
-      </div>
-      <h3>
-        w/ Highlight Query (<code>'an'</code>)
-      </h3>
-      <div className={CLASS_DEMO_LIST}>
-        <MoleculeDropdownList visible={isOpen}>
-          {countries
-            .filter(country => country.toLowerCase().includes('an'))
-            .map((option, index) => (
+
+      <h2>Static</h2>
+      <div className={CLASS_DEMO_SECTION}>
+        <h3>
+          Basic (default <code>size → SMALL</code>)
+        </h3>
+        <div className={CLASS_DEMO_LIST}>
+          <MoleculeDropdownList visible={isOpen}>
+            {countries.map((option, index) => (
               <MoleculeDropdownOption
                 value={option}
                 key={index}
-                highlightQuery="an"
+                selected={option === 'Canary Islands'}
               >
                 {option}
               </MoleculeDropdownOption>
             ))}
-        </MoleculeDropdownList>
+          </MoleculeDropdownList>
+        </div>
+        <h3>
+          Basic (<code>size → MEDIUM</code>)
+        </h3>
+        <div className={CLASS_DEMO_LIST}>
+          <MoleculeDropdownList
+            visible={isOpen}
+            size={moleculeDropdownListSizes.MEDIUM}
+          >
+            {countries.map((option, index) => (
+              <MoleculeDropdownOption
+                value={option}
+                key={index}
+                selected={option === 'Canary Islands'}
+              >
+                {option}
+              </MoleculeDropdownOption>
+            ))}
+          </MoleculeDropdownList>
+        </div>
+        <h3>
+          Basic (<code>size → LARGE</code>)
+        </h3>
+        <div className={CLASS_DEMO_LIST}>
+          <MoleculeDropdownList
+            visible={isOpen}
+            size={moleculeDropdownListSizes.LARGE}
+          >
+            {countries.map((option, index) => (
+              <MoleculeDropdownOption
+                value={option}
+                key={index}
+                selected={option === 'Canary Islands'}
+              >
+                {option}
+              </MoleculeDropdownOption>
+            ))}
+          </MoleculeDropdownList>
+        </div>
+        <h3>w/ Checkbox</h3>
+        <div className={CLASS_DEMO_LIST}>
+          <MoleculeDropdownList checkbox visible={isOpen}>
+            {countries.map((option, index) => (
+              <MoleculeDropdownOption
+                value={option}
+                key={index}
+                selected={option === 'Canary Islands'}
+              >
+                {option}
+              </MoleculeDropdownOption>
+            ))}
+          </MoleculeDropdownList>
+        </div>
+        <h3>w/ Disabled Options</h3>
+        <div className={CLASS_DEMO_LIST}>
+          <MoleculeDropdownList checkbox visible={isOpen}>
+            {countries.map((option, index) => (
+              <MoleculeDropdownOption
+                value={option}
+                key={index}
+                selected={option === 'Canary Islands'}
+                disabled={['Luxembourg', 'Cameroon', 'Venezuela'].includes(
+                  option
+                )}
+              >
+                {option}
+              </MoleculeDropdownOption>
+            ))}
+          </MoleculeDropdownList>
+        </div>
+        <h3>
+          w/ Highlight Query (<code>'an'</code>)
+        </h3>
+        <div className={CLASS_DEMO_LIST}>
+          <MoleculeDropdownList visible={isOpen}>
+            {countries
+              .filter(country => country.toLowerCase().includes('an'))
+              .map((option, index) => (
+                <MoleculeDropdownOption
+                  value={option}
+                  key={index}
+                  highlightQuery="an"
+                >
+                  {option}
+                </MoleculeDropdownOption>
+              ))}
+          </MoleculeDropdownList>
+        </div>
       </div>
     </div>
   </div>

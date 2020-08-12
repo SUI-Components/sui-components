@@ -59,215 +59,227 @@ export default function() {
   const [selectedIcon, setIcon] = useState(ICONS[0])
 
   return (
-    <div className="DemoAtomIcon">
-      <ul className="DemoAtomIcon-select">
-        <li className="DemoAtomIcon-option" style={{minWidth: '120px'}}>
-          Select your icon:
-        </li>
-        {ICONS.map(({name, Component}, idx) => (
-          <li
-            key={name}
-            className={`DemoAtomIcon-option ${
-              ICONS[idx].name === selectedIcon.name ? 'is-selected' : ''
-            }`}
-            onClick={() => setIcon(ICONS[idx])}
-          >
-            <AtomIcon size="large">{Component}</AtomIcon>
-            <strong>{name}</strong>
+    <div className="sui-StudioPreview">
+      <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+        <h1>Icon</h1>
+        <ul className="DemoAtomIcon-select">
+          <li className="DemoAtomIcon-option" style={{minWidth: '120px'}}>
+            Select your icon:
           </li>
-        ))}
-      </ul>
-      <h2 className="DemoAtomIcon-title">
-        <code>color</code> and <code>size</code> props matrix
-      </h2>
-      <table
-        className="sui-StudioTable DemoAtomIcon-table"
-        width="auto"
-        cellPadding="8"
-        cellSpacing="0"
-      >
-        <tbody>
-          <tr>
-            <td />
-            {Object.keys(ATOM_ICON_COLORS).map(color => {
+          {ICONS.map(({name, Component}, idx) => (
+            <li
+              key={name}
+              className={`DemoAtomIcon-option ${
+                ICONS[idx].name === selectedIcon.name ? 'is-selected' : ''
+              }`}
+              onClick={() => setIcon(ICONS[idx])}
+            >
+              <AtomIcon size="large">{Component}</AtomIcon>
+              <strong>{name}</strong>
+            </li>
+          ))}
+        </ul>
+        <h2 className="DemoAtomIcon-title">
+          <code>color</code> and <code>size</code> props matrix
+        </h2>
+        <table
+          className="sui-StudioTable DemoAtomIcon-table"
+          width="auto"
+          cellPadding="8"
+          cellSpacing="0"
+        >
+          <tbody>
+            <tr>
+              <td />
+              {Object.keys(ATOM_ICON_COLORS).map(color => {
+                return (
+                  <td key={color}>
+                    <h4 className="DemoAtomIcon-tableLabel">{color}</h4>
+                  </td>
+                )
+              })}
+            </tr>
+            {Object.keys(ATOM_ICON_SIZES).map(size => {
               return (
-                <td key={color}>
-                  <h4 className="DemoAtomIcon-tableLabel">{color}</h4>
-                </td>
+                <tr key={size}>
+                  <td key="label">
+                    <h4 className="DemoAtomIcon-tableLabel">{size}</h4>
+                  </td>
+                  {Object.keys(ATOM_ICON_COLORS).map(color => {
+                    return (
+                      <td key={color}>
+                        <AtomIcon color={color} size={size}>
+                          {selectedIcon.Component}
+                        </AtomIcon>
+                      </td>
+                    )
+                  })}
+                </tr>
               )
             })}
-          </tr>
-          {Object.keys(ATOM_ICON_SIZES).map(size => {
-            return (
-              <tr key={size}>
-                <td key="label">
-                  <h4 className="DemoAtomIcon-tableLabel">{size}</h4>
-                </td>
-                {Object.keys(ATOM_ICON_COLORS).map(color => {
-                  return (
-                    <td key={color}>
-                      <AtomIcon color={color} size={size}>
-                        {selectedIcon.Component}
-                      </AtomIcon>
-                    </td>
-                  )
-                })}
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
-      <h2 className="DemoAtomIcon-title">
-        Using <code>currentColor</code> color type
-      </h2>
-      <p>
-        <code>currentColor</code> value for <code>color</code> prop is the
-        default value and will inherit the color from the inmediate nearest
-        parent value of color property in CSS. This way you could safely make
-        your icon get a different color with endless posibilities to match your
-        designs without having to care about variables on the SUI components.
-      </p>
-      <section>
-        {CURRENT_COLOR_EXAMPLES.map(color => (
-          <p className="DemoAtomIcon-colorExample" key={color} style={{color}}>
-            <AtomIcon color="currentColor" size={ATOM_ICON_SIZES.extraLarge}>
-              {selectedIcon.Component}
-            </AtomIcon>
-            <code>The icon inherits the color of this text {color}</code>
-          </p>
-        ))}
-      </section>
+          </tbody>
+        </table>
+        <h2 className="DemoAtomIcon-title">
+          Using <code>currentColor</code> color type
+        </h2>
+        <p>
+          <code>currentColor</code> value for <code>color</code> prop is the
+          default value and will inherit the color from the inmediate nearest
+          parent value of color property in CSS. This way you could safely make
+          your icon get a different color with endless posibilities to match
+          your designs without having to care about variables on the SUI
+          components.
+        </p>
+        <section>
+          {CURRENT_COLOR_EXAMPLES.map(color => (
+            <p
+              className="DemoAtomIcon-colorExample"
+              key={color}
+              style={{color}}
+            >
+              <AtomIcon color="currentColor" size={ATOM_ICON_SIZES.extraLarge}>
+                {selectedIcon.Component}
+              </AtomIcon>
+              <code>The icon inherits the color of this text {color}</code>
+            </p>
+          ))}
+        </section>
 
-      <h2 className="DemoAtomIcon-title">
-        Using with the <code>AtomButton</code>
-      </h2>
-      <p>
-        While the <code>AtomButton</code> component was prepared without the{' '}
-        <code>AtomIcon</code> in mind, and thus strong styling is forced inside
-        the button, still you could safely use it.
-      </p>
-      <p>
-        <strong>
-          Using the <code>AtomButton</code> with only the icon:
-        </strong>{' '}
-        Pass the AtomIcon as <code>leftIcon</code> or <code>rightIcon</code> of
-        the <code>AtomButton</code>.
-      </p>
-      <section className="DemoAtomIcon-grid DemoAtomIcon-grid--small">
-        <AtomButton leftIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>} />
-      </section>
-      <p>
-        <strong>
-          Using the <code>AtomButton</code> with text:
-        </strong>{' '}
-        Use the prop <code>leftIcon</code> or <code>rightIcon</code> in order to
-        show the icon on the desired placement.
-      </p>
-      <p>
-        <strong>
-          <code>leftIcon</code>
-        </strong>
-      </p>
-      <section className="DemoAtomIcon-grid">
-        <AtomButton leftIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}>
-          Left icon
-        </AtomButton>
-      </section>
-      <p>
-        <strong>
-          <code>rightIcon</code>
-        </strong>
-      </p>
-      <section className="DemoAtomIcon-grid">
-        <AtomButton rightIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}>
-          Right icon
-        </AtomButton>
-      </section>
-      <p>
-        <strong>
-          Size will be automatically detected from <code>AtomButton</code>
-        </strong>{' '}
-        so you don't have to worry. Even if you try to use an incorrect size,
-        the size will be used correctly. Also, this will happen with the{' '}
-        <code>color</code> prop, so, if you try to use a different color with
-        the <code>AtomButton</code> it will be corrected for you.
-      </p>
-      <section className="DemoAtomIcon-grid">
-        <AtomButton
-          size="large"
-          rightIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}
-        >
-          Large icon
-        </AtomButton>
+        <h2 className="DemoAtomIcon-title">
+          Using with the <code>AtomButton</code>
+        </h2>
+        <p>
+          While the <code>AtomButton</code> component was prepared without the{' '}
+          <code>AtomIcon</code> in mind, and thus strong styling is forced
+          inside the button, still you could safely use it.
+        </p>
+        <p>
+          <strong>
+            Using the <code>AtomButton</code> with only the icon:
+          </strong>{' '}
+          Pass the AtomIcon as <code>leftIcon</code> or <code>rightIcon</code>{' '}
+          of the <code>AtomButton</code>.
+        </p>
+        <section className="DemoAtomIcon-grid DemoAtomIcon-grid--small">
+          <AtomButton
+            leftIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}
+          />
+        </section>
+        <p>
+          <strong>
+            Using the <code>AtomButton</code> with text:
+          </strong>{' '}
+          Use the prop <code>leftIcon</code> or <code>rightIcon</code> in order
+          to show the icon on the desired placement.
+        </p>
+        <p>
+          <strong>
+            <code>leftIcon</code>
+          </strong>
+        </p>
+        <section className="DemoAtomIcon-grid">
+          <AtomButton leftIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}>
+            Left icon
+          </AtomButton>
+        </section>
+        <p>
+          <strong>
+            <code>rightIcon</code>
+          </strong>
+        </p>
+        <section className="DemoAtomIcon-grid">
+          <AtomButton rightIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}>
+            Right icon
+          </AtomButton>
+        </section>
+        <p>
+          <strong>
+            Size will be automatically detected from <code>AtomButton</code>
+          </strong>{' '}
+          so you don't have to worry. Even if you try to use an incorrect size,
+          the size will be used correctly. Also, this will happen with the{' '}
+          <code>color</code> prop, so, if you try to use a different color with
+          the <code>AtomButton</code> it will be corrected for you.
+        </p>
+        <section className="DemoAtomIcon-grid">
+          <AtomButton
+            size="large"
+            rightIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}
+          >
+            Large icon
+          </AtomButton>
 
-        <AtomButton rightIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}>
-          Small icon
-        </AtomButton>
+          <AtomButton rightIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}>
+            Small icon
+          </AtomButton>
 
-        <AtomButton
-          size="small"
-          rightIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}
-        >
-          Small icon
-        </AtomButton>
+          <AtomButton
+            size="small"
+            rightIcon={<AtomIcon>{selectedIcon.Component}</AtomIcon>}
+          >
+            Small icon
+          </AtomButton>
 
-        <AtomButton
-          size="small"
-          rightIcon={<AtomIcon size="large">{selectedIcon.Component}</AtomIcon>}
-        >
-          Try large icon
-        </AtomButton>
-      </section>
-      <h2 className="DemoAtomIcon-title">Lazy icons</h2>
-      <p>
-        By default, icons will be rendered <strong>eagerly</strong>. That means
-        that they will be rendered on the server and, on the client, they will
-        be hydrated asap. You could use the prop <code>render</code> and use the{' '}
-        <code>lazy</code> value so the icons are rendered only when near the
-        viewport. That could be useful when icons are used on a footer or on
-        large lists.
-      </p>
-      <section className="DemoAtomIcon-grid">
-        <AtomButton
-          size="large"
-          rightIcon={
-            <AtomIcon render="lazy">{selectedIcon.Component}</AtomIcon>
-          }
-        >
-          Large icon
-        </AtomButton>
+          <AtomButton
+            size="small"
+            rightIcon={
+              <AtomIcon size="large">{selectedIcon.Component}</AtomIcon>
+            }
+          >
+            Try large icon
+          </AtomButton>
+        </section>
+        <h2 className="DemoAtomIcon-title">Lazy icons</h2>
+        <p>
+          By default, icons will be rendered <strong>eagerly</strong>. That
+          means that they will be rendered on the server and, on the client,
+          they will be hydrated asap. You could use the prop <code>render</code>{' '}
+          and use the <code>lazy</code> value so the icons are rendered only
+          when near the viewport. That could be useful when icons are used on a
+          footer or on large lists.
+        </p>
+        <section className="DemoAtomIcon-grid">
+          <AtomButton
+            size="large"
+            rightIcon={
+              <AtomIcon render="lazy">{selectedIcon.Component}</AtomIcon>
+            }
+          >
+            Large icon
+          </AtomButton>
 
-        <AtomButton
-          render="lazy"
-          rightIcon={
-            <AtomIcon render="lazy">{selectedIcon.Component}</AtomIcon>
-          }
-        >
-          Small icon
-        </AtomButton>
+          <AtomButton
+            render="lazy"
+            rightIcon={
+              <AtomIcon render="lazy">{selectedIcon.Component}</AtomIcon>
+            }
+          >
+            Small icon
+          </AtomButton>
 
-        <AtomButton
-          size="small"
-          render="lazy"
-          rightIcon={
-            <AtomIcon render="lazy">{selectedIcon.Component}</AtomIcon>
-          }
-        >
-          Small icon
-        </AtomButton>
+          <AtomButton
+            size="small"
+            render="lazy"
+            rightIcon={
+              <AtomIcon render="lazy">{selectedIcon.Component}</AtomIcon>
+            }
+          >
+            Small icon
+          </AtomButton>
 
-        <AtomButton
-          size="small"
-          render="lazy"
-          rightIcon={
-            <AtomIcon render="lazy" size="large">
-              {selectedIcon.Component}
-            </AtomIcon>
-          }
-        >
-          Try large icon
-        </AtomButton>
-      </section>
+          <AtomButton
+            size="small"
+            render="lazy"
+            rightIcon={
+              <AtomIcon render="lazy" size="large">
+                {selectedIcon.Component}
+              </AtomIcon>
+            }
+          >
+            Try large icon
+          </AtomButton>
+        </section>
+      </div>
     </div>
   )
 }

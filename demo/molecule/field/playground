@@ -1,6 +1,6 @@
 return (
   <div>
-    <h1>MoleculeField</h1>
+    <h1>Field</h1>
     <h2>
       With <code>AtomInput</code>
     </h2>

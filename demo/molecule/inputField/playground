@@ -34,9 +34,7 @@ const MoleculeInputFieldWithState = withState(MoleculeInputField)
 
 return (
   <div>
-    <h1>
-      <code>MoleculeInputField</code>
-    </h1>
+    <h1>Input Field</h1>
     <ul style={styleList}>
       <li style={styleListItem}>
         <h2>

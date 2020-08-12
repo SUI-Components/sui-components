@@ -10,6 +10,7 @@ const input = {
 }
 return (
   <div>
+    <h1>Help Text</h1>
     <input style={input}
       type='text'
     />

@@ -14,7 +14,7 @@ const flexItem = {
 
 return (
   <div>
-    <h1>AtomPanel</h1>
+    <h1>Panel</h1>
     <h2>As Color Panel</h2>
     <div>
       <h3>Structure - Alpha</h3>

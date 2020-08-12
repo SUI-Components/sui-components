@@ -71,7 +71,7 @@ const TYPES = ['info', 'success', 'warning', 'error', 'system']
 const VARIATIONS = ['positive', 'negative']
 
 return (
-  <div style={{margin: '32px'}}>
+  <div>
     <h1>Notification</h1>
     <h2>Types and variations</h2>
     {TYPES.map(type =>

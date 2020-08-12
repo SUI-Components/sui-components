@@ -36,327 +36,330 @@ const CLASS_DEMO_CELL = `${BASE_CLASS_DEMO}-cell`
 
 const Demo = () => {
   return (
-    <div className={BASE_CLASS_DEMO}>
-      <h2>Basic examples</h2>
-      <table className={CLASS_DEMO_TABLE}>
-        <tbody>
-          <tr>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Link</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                size={moleculeThumbnailSize.MEDIUM}
-              />
-            </td>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>No link</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                target="_blank"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                size={moleculeThumbnailSize.MEDIUM}
-              />
-            </td>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Caption</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                size={moleculeThumbnailSize.MEDIUM}
-              />
-            </td>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Circled</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                shape={moleculeThumbnailShape.CIRCLED}
-                size={moleculeThumbnailSize.MEDIUM}
-              />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div className="sui-StudioPreview">
+      <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+        <h1>Thumbnail</h1>
+        <h2>Basic examples</h2>
+        <table className={CLASS_DEMO_TABLE}>
+          <tbody>
+            <tr>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Link</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.MEDIUM}
+                />
+              </td>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>No link</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  target="_blank"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.MEDIUM}
+                />
+              </td>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Caption</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.MEDIUM}
+                />
+              </td>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Circled</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  shape={moleculeThumbnailShape.CIRCLED}
+                  size={moleculeThumbnailSize.MEDIUM}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-      <h2>Squared & Ratio 1:1</h2>
-      <table className={CLASS_DEMO_TABLE}>
-        <tbody>
-          <tr>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Large</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                size={moleculeThumbnailSize.LARGE}
-              />
-            </td>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Medium</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                size={moleculeThumbnailSize.MEDIUM}
-              />
-            </td>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Small</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                size={moleculeThumbnailSize.SMALL}
-              />
-            </td>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Xsmall</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                size={moleculeThumbnailSize.XSMALL}
-              />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <h2>Squared & Ratio 1:1</h2>
+        <table className={CLASS_DEMO_TABLE}>
+          <tbody>
+            <tr>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Large</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.LARGE}
+                />
+              </td>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Medium</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.MEDIUM}
+                />
+              </td>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Small</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.SMALL}
+                />
+              </td>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Xsmall</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.XSMALL}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-      <h2>Squared & Ratio 4:3</h2>
-      <table className={CLASS_DEMO_TABLE}>
-        <tbody>
-          <tr>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Large</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                size={moleculeThumbnailSize.LARGE}
-                ratio={moleculeThumbnailRatio['4:3']}
-              />
-            </td>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Medium</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                size={moleculeThumbnailSize.MEDIUM}
-                ratio={moleculeThumbnailRatio['4:3']}
-              />
-            </td>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Small</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                size={moleculeThumbnailSize.SMALL}
-                ratio={moleculeThumbnailRatio['4:3']}
-              />
-            </td>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Xsmall</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                size={moleculeThumbnailSize.XSMALL}
-                ratio={moleculeThumbnailRatio['4:3']}
-              />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <h2>Squared & Ratio 4:3</h2>
+        <table className={CLASS_DEMO_TABLE}>
+          <tbody>
+            <tr>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Large</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.LARGE}
+                  ratio={moleculeThumbnailRatio['4:3']}
+                />
+              </td>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Medium</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.MEDIUM}
+                  ratio={moleculeThumbnailRatio['4:3']}
+                />
+              </td>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Small</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.SMALL}
+                  ratio={moleculeThumbnailRatio['4:3']}
+                />
+              </td>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Xsmall</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.XSMALL}
+                  ratio={moleculeThumbnailRatio['4:3']}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-      <h2>Squared & Ratio 16:9</h2>
-      <table className={CLASS_DEMO_TABLE}>
-        <tbody>
-          <tr>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Large</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                size={moleculeThumbnailSize.LARGE}
-                ratio={moleculeThumbnailRatio['16:9']}
-              />
-            </td>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Medium</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                size={moleculeThumbnailSize.MEDIUM}
-                ratio={moleculeThumbnailRatio['16:9']}
-              />
-            </td>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Small</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                size={moleculeThumbnailSize.SMALL}
-                ratio={moleculeThumbnailRatio['16:9']}
-              />
-            </td>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Xsmall</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                size={moleculeThumbnailSize.XSMALL}
-                ratio={moleculeThumbnailRatio['16:9']}
-              />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <h2>Squared & Ratio 16:9</h2>
+        <table className={CLASS_DEMO_TABLE}>
+          <tbody>
+            <tr>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Large</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.LARGE}
+                  ratio={moleculeThumbnailRatio['16:9']}
+                />
+              </td>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Medium</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.MEDIUM}
+                  ratio={moleculeThumbnailRatio['16:9']}
+                />
+              </td>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Small</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.SMALL}
+                  ratio={moleculeThumbnailRatio['16:9']}
+                />
+              </td>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Xsmall</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.XSMALL}
+                  ratio={moleculeThumbnailRatio['16:9']}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-      <h2>Circled & ratio 1:1</h2>
-      <table className={CLASS_DEMO_TABLE}>
-        <tbody>
-          <tr>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Large</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                shape={moleculeThumbnailShape.CIRCLED}
-                size={moleculeThumbnailSize.LARGE}
-              />
-            </td>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Medium</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                shape={moleculeThumbnailShape.CIRCLED}
-                size={moleculeThumbnailSize.MEDIUM}
-              />
-            </td>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Small</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                shape={moleculeThumbnailShape.CIRCLED}
-                size={moleculeThumbnailSize.SMALL}
-              />
-            </td>
-            <td className={CLASS_DEMO_CELL}>
-              <h3>Xsmall</h3>
-              <MoleculeThumbnail
-                src={IMAGES.FINAL}
-                alt="Some alt"
-                href="https://someLink"
-                target="_blank"
-                captionText="Show!"
-                spinner={<Spinner noBackground />}
-                placeholder={IMAGES.PLACEHOLDER}
-                shape={moleculeThumbnailShape.CIRCLED}
-                size={moleculeThumbnailSize.XSMALL}
-              />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <h2>Circled & ratio 1:1</h2>
+        <table className={CLASS_DEMO_TABLE}>
+          <tbody>
+            <tr>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Large</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  shape={moleculeThumbnailShape.CIRCLED}
+                  size={moleculeThumbnailSize.LARGE}
+                />
+              </td>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Medium</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  shape={moleculeThumbnailShape.CIRCLED}
+                  size={moleculeThumbnailSize.MEDIUM}
+                />
+              </td>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Small</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  shape={moleculeThumbnailShape.CIRCLED}
+                  size={moleculeThumbnailSize.SMALL}
+                />
+              </td>
+              <td className={CLASS_DEMO_CELL}>
+                <h3>Xsmall</h3>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  shape={moleculeThumbnailShape.CIRCLED}
+                  size={moleculeThumbnailSize.XSMALL}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-      <h2>Fallback example</h2>
-      <div style={{width: '20%'}}>
-        <MoleculeThumbnail
-          src={IMAGES.BAD}
-          alt="Some alt"
-          captionText="Show!"
-          spinner={<Spinner noBackground />}
-          placeholder={IMAGES.PLACEHOLDER}
-          errorIcon={<ImageNotFoundIcon />}
-          errorText={defaultErrorText}
-          size={moleculeThumbnailSize.LARGE}
-        />
+        <h2>Fallback example</h2>
+        <div style={{width: '20%'}}>
+          <MoleculeThumbnail
+            src={IMAGES.BAD}
+            alt="Some alt"
+            captionText="Show!"
+            spinner={<Spinner noBackground />}
+            placeholder={IMAGES.PLACEHOLDER}
+            errorIcon={<ImageNotFoundIcon />}
+            errorText={defaultErrorText}
+            size={moleculeThumbnailSize.LARGE}
+          />
+        </div>
       </div>
     </div>
   )

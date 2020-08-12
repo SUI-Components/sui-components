@@ -49,94 +49,99 @@ const Demo = () => {
   const selectText = isSelected ? itemsText : 'Todas las operaciones'
 
   return (
-    <div className="demo-container">
-      <h1>Atom Popover</h1>
-      <h3>Props</h3>
-      <label>Size</label>
-      <MoleculeSelect
-        value={size}
-        onChange={(ev, {value}) => setSize(value)}
-        placeholder="Select a size..."
-        iconArrowDown={<IconArrowDown />}
-      >
-        {Object.keys(selectPopoverSizes).map(key => (
-          <MoleculeSelectOption key={key} value={selectPopoverSizes[key]}>
-            {key}
-          </MoleculeSelectOption>
-        ))}
-      </MoleculeSelect>
-      <br />
-      <label>Placements</label>
-      <MoleculeSelect
-        value={placement}
-        onChange={(ev, {value}) => setPlacement(value)}
-        placeholder="Select a size..."
-        iconArrowDown={<IconArrowDown />}
-      >
-        {Object.keys(selectPopoverPlacements).map(key => (
-          <MoleculeSelectOption key={key} value={selectPopoverPlacements[key]}>
-            {key}
-          </MoleculeSelectOption>
-        ))}
-      </MoleculeSelect>
-      <br />
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={hasEvents}
-            onChange={ev => setHasEvents(ev.target.checked)}
-          />
-          With events (onOpen & onClose)
-        </label>
-      </div>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={actionsAreHidden}
-            onChange={ev => setActionsAreHidden(ev.target.checked)}
-          />
-          Actions are hidden
-        </label>
-      </div>
-
-      <h3>Component</h3>
-      <MoleculeSelectPopover
-        acceptButtonText="Aceptar"
-        cancelButtonText="Cancelar"
-        hideActions={actionsAreHidden}
-        iconArrowDown={IconArrowDown}
-        isSelected={isSelected}
-        onAccept={() => setItems(unconfirmedItems)}
-        onCancel={() => setUnconfirmedItems(items)}
-        onClose={handleClose}
-        onOpen={handleOpen}
-        placement={placement}
-        selectText={selectText}
-        size={size}
-      >
-        <div className="demo-content">
-          <h3>Tipo de operación</h3>
-          <div className="demo-content-options">
-            {unconfirmedItems.map(item => {
-              const {id: childId, checked} = item
-
-              return (
-                <MoleculeCheckboxField
-                  key={childId}
-                  id={childId}
-                  checked={checked}
-                  checkedIcon={IconCheck}
-                  intermediateIcon={IconHalfCheck}
-                  onChange={handleChangeItem}
-                  {...item}
-                />
-              )
-            })}
-          </div>
+    <div className="sui-StudioPreview">
+      <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+        <h1>Select Popover</h1>
+        <h3>Props</h3>
+        <label>Size</label>
+        <MoleculeSelect
+          value={size}
+          onChange={(ev, {value}) => setSize(value)}
+          placeholder="Select a size..."
+          iconArrowDown={<IconArrowDown />}
+        >
+          {Object.keys(selectPopoverSizes).map(key => (
+            <MoleculeSelectOption key={key} value={selectPopoverSizes[key]}>
+              {key}
+            </MoleculeSelectOption>
+          ))}
+        </MoleculeSelect>
+        <br />
+        <label>Placements</label>
+        <MoleculeSelect
+          value={placement}
+          onChange={(ev, {value}) => setPlacement(value)}
+          placeholder="Select a size..."
+          iconArrowDown={<IconArrowDown />}
+        >
+          {Object.keys(selectPopoverPlacements).map(key => (
+            <MoleculeSelectOption
+              key={key}
+              value={selectPopoverPlacements[key]}
+            >
+              {key}
+            </MoleculeSelectOption>
+          ))}
+        </MoleculeSelect>
+        <br />
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              checked={hasEvents}
+              onChange={ev => setHasEvents(ev.target.checked)}
+            />
+            With events (onOpen & onClose)
+          </label>
         </div>
-      </MoleculeSelectPopover>
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              checked={actionsAreHidden}
+              onChange={ev => setActionsAreHidden(ev.target.checked)}
+            />
+            Actions are hidden
+          </label>
+        </div>
+
+        <h3>Component</h3>
+        <MoleculeSelectPopover
+          acceptButtonText="Aceptar"
+          cancelButtonText="Cancelar"
+          hideActions={actionsAreHidden}
+          iconArrowDown={IconArrowDown}
+          isSelected={isSelected}
+          onAccept={() => setItems(unconfirmedItems)}
+          onCancel={() => setUnconfirmedItems(items)}
+          onClose={handleClose}
+          onOpen={handleOpen}
+          placement={placement}
+          selectText={selectText}
+          size={size}
+        >
+          <div className="demo-content">
+            <h3>Tipo de operación</h3>
+            <div className="demo-content-options">
+              {unconfirmedItems.map(item => {
+                const {id: childId, checked} = item
+
+                return (
+                  <MoleculeCheckboxField
+                    key={childId}
+                    id={childId}
+                    checked={checked}
+                    checkedIcon={IconCheck}
+                    intermediateIcon={IconHalfCheck}
+                    onChange={handleChangeItem}
+                    {...item}
+                  />
+                )
+              })}
+            </div>
+          </div>
+        </MoleculeSelectPopover>
+      </div>
     </div>
   )
 }

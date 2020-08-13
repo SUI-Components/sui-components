@@ -23,11 +23,13 @@ const Tab = ({
   isOpen,
   maxHeight,
   autoHeight,
-  withGap
+  withGap,
+  withMultilineLabel = false
 }) => {
   const wrapperClassName = cx(BASE_CLASS, {
     [OPEN_CLASS]: isOpen,
-    [`${BASE_CLASS}--withGap`]: withGap
+    [`${BASE_CLASS}--withGap`]: withGap,
+    [`${BASE_CLASS}--withMultilineLabel`]: withMultilineLabel
   })
   const iconClassName = cx(ICON_CLASS, {
     [OPEN_CLASS]: isOpen
@@ -105,7 +107,11 @@ Tab.propTypes = {
   /**
    * Add gap between tabs
    */
-  withGap: PropTypes.bool
+  withGap: PropTypes.bool,
+  /**
+   * Activate/deactivate multiline label
+   */
+  withMultilineLabel: PropTypes.bool
 }
 
 Tab.defaultProps = {

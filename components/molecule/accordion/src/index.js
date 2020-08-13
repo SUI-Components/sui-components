@@ -71,7 +71,11 @@ MoleculeAccordion.propTypes = {
   /**
    * Activate/deactivate gap between tabs
    */
-  withGap: PropTypes.bool
+  withGap: PropTypes.bool,
+  /**
+   * Activate/deactivate multiline label
+   */
+  withMultilineLabel: PropTypes.bool
 }
 MoleculeAccordion.defaultProps = {
   withAutoClose: true

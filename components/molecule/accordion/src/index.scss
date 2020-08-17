@@ -1,7 +1,9 @@
 @import '~@s-ui/theme/lib/index';
 @import './settings';
 
-.sui-MoleculeAccordion-tab {
+$base-class: '.sui-MoleculeAccordion-tab';
+
+#{$base-class} {
   background-color: $bgc-accordion-tab-container;
   border: $bd-accordion-tab-container;
   border-bottom: $bd-accordion-tab-container-none;
@@ -34,6 +36,10 @@
     padding: 0;
     width: 100%;
 
+    #{$base-class}--withMultilineLabel & {
+      height: auto;
+    }
+
     &Content {
       align-items: center;
       display: flex;
@@ -48,6 +54,10 @@
       text-align: left;
       text-overflow: ellipsis;
       white-space: nowrap;
+
+      #{$base-class}--withMultilineLabel & {
+        white-space: normal;
+      }
     }
 
     &:focus,

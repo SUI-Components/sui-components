@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.15.0 (2020-08-17)
+
+
+### Bug Fixes
+
+* fix close propagtion ([b55de18](https://github.com/SUI-Components/sui-components/commit/b55de18a57b8b3f6ee25b9cf99b521d70ec49586))
+
+
+
 # 1.14.0 (2020-07-29)
 
 

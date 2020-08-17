@@ -11,7 +11,7 @@ $fd-atom-upload: column !default;
 $p-atom-upload: $p-l * 3 $p-l * 2 $p-l !default;
 $ai-atom-upload: center !default;
 $jc-atom-upload: center !default;
-$br-atom-upload: $bdrs-none !default;
+$br-atom-upload: $bdrs-atom-upload;
 $ai-atom-upload-block-text: center !default;
 $fz-atom-upload-text: $fz-xl !default;
 $fz-atom-upload-text-secondary: $fz-l !default;

@@ -26,7 +26,9 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   disabled,
   required,
   tabIndex,
-  autoComplete
+  autoComplete,
+  inputMode,
+  type
 }) => {
   const MoleculeInputTagsRef = useRef()
 
@@ -88,6 +90,8 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         required={required}
         tabIndex={tabIndex}
         autoComplete={autoComplete}
+        inputMode={inputMode}
+        type={type}
       />
       <MoleculeDropdownList
         checkbox

@@ -29,7 +29,9 @@ const MoleculeAutosuggestSingleSelection = ({
   required,
   tabIndex,
   autoComplete,
-  rightButton
+  rightButton,
+  inputMode,
+  type
 }) => {
   const handleSelection = (ev, {value}) => {
     onChange(ev, {value})
@@ -71,6 +73,8 @@ const MoleculeAutosuggestSingleSelection = ({
         tabIndex={tabIndex}
         autoComplete={autoComplete}
         button={rightButton}
+        inputMode={inputMode}
+        type={type}
       />
       {value && (
         <MoleculeDropdownList

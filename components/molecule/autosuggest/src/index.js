@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
+import {inputTypes} from '@s-ui/react-atom-input'
 
 import MoleculeAutosuggestSingleSelection from './components/SingleSelection'
 import MoleculeAutosuggestMultipleSelection from './components/MultipleSelection'
@@ -280,7 +281,13 @@ MoleculeAutosuggest.propTypes = {
   leftIcon: PropTypes.node,
 
   /** callback triggered when the user focuses on the input */
-  onFocus: PropTypes.func
+  onFocus: PropTypes.func,
+
+  /** To select input keyboard mode on mobile. It can be 'numeric', 'decimal', 'email', etc */
+  inputMode: PropTypes.string,
+
+  /** native input types (text, date, ...), 'sui-password' */
+  type: PropTypes.oneOf(Object.values(inputTypes))
 }
 
 MoleculeAutosuggest.defaultProps = {

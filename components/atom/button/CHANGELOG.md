@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.50.0 (2020-08-17)
+
+
+### Features
+
+* add border radius in button large ([0c91b48](https://github.com/SUI-Components/sui-components/commit/0c91b48dd986ddea7fc0759e3d2c2c1f714d0fb1))
+
+
+
 # 1.49.0 (2020-07-01)
 
 

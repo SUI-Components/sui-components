@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.18.0 (2020-08-17)
+
+
+### Features
+
+* add types and inputMode props ([65077ce](https://github.com/SUI-Components/sui-components/commit/65077ced55fa9484d74abba516c86c6b300b2e37))
+
+
+
 # 2.17.0 (2020-07-15)
 
 

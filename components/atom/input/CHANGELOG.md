@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.22.0 (2020-08-17)
+
+
+### Features
+
+* export inputTypes dict ([4c836b3](https://github.com/SUI-Components/sui-components/commit/4c836b368d8e96bdb8fbbb14af425109271e4982))
+
+
+
 # 4.21.0 (2020-07-17)
 
 

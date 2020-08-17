@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-08-17)
+
+
+### Features
+
+* accordion multiline label feature ([8bb4eb5](https://github.com/SUI-Components/sui-components/commit/8bb4eb591977ea6f12d6c70132042ea07a22cca2))
+
+
+
 # 1.7.0 (2020-08-06)
 
 

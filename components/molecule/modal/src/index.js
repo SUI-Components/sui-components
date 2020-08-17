@@ -46,10 +46,14 @@ const MoleculeModal = ({
     return containerDOMEl
   }
 
-  const closeModal = useCallback(() => {
-    toggleWindowScroll(false)
-    onClose()
-  }, [onClose])
+  const closeModal = useCallback(
+    ev => {
+      ev.stopPropagation()
+      toggleWindowScroll(false)
+      onClose()
+    },
+    [onClose]
+  )
 
   const onKeyDown = useCallback(
     ev => {

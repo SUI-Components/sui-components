@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.10.0 (2020-08-24)
+
+
+### Features
+
+* add hideIndicator prop to circle version ([551534b](https://github.com/SUI-Components/sui-components/commit/551534bddce63cb5aa08cbccde8f6fde5bcf304a))
+
+
+
 # 1.9.0 (2020-05-29)
 
 

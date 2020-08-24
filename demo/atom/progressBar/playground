@@ -201,6 +201,10 @@ return (
       <div style={{background: 'white', padding: '10px'}} >
         <AtomProgressBar percentage={25} type="circle" />
       </div>
+      <h3>Without indicator</h3>
+      <div style={{background: 'white', padding: '10px'}} >
+        <AtomProgressBar percentage={25} type="circle" hideIndicator />
+      </div>
       <h2>With Error</h2>
       <h3>Large</h3>
       <div style={{background: 'white', padding: '10px'}} >

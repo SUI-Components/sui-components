@@ -47,7 +47,8 @@ const CircleProgressBar = ({
   status,
   errorIcon,
   size,
-  isAnimatedOnChange
+  isAnimatedOnChange,
+  hideIndicator
 }) => {
   const circleWidth = SIZE_TO_WIDTH_LINE_MAP[size]
 
@@ -65,12 +66,14 @@ const CircleProgressBar = ({
         strokeWidth={circleWidth}
         size={size}
       />
-      <Indicator
-        percentage={percentage}
-        size={size}
-        status={status}
-        errorIcon={errorIcon}
-      />
+      {!hideIndicator && (
+        <Indicator
+          percentage={percentage}
+          size={size}
+          status={status}
+          errorIcon={errorIcon}
+        />
+      )}
     </div>
   )
 }
@@ -91,12 +94,16 @@ CircleProgressBar.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZES)),
 
   /** If the bar "value" (width) should be displayed with animation */
-  isAnimatedOnChange: PropTypes.bool
+  isAnimatedOnChange: PropTypes.bool,
+
+  /** Hide the indicator */
+  hideIndicator: PropTypes.bool
 }
 
 CircleProgressBar.defaultProps = {
   isAnimatedOnChange: false,
-  status: STATUS.PROGRESS
+  status: STATUS.PROGRESS,
+  hideIndicator: false
 }
 
 export default CircleProgressBar

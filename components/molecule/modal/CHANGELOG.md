@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.16.0 (2020-08-25)
+
+
+### Bug Fixes
+
+* fix stop propagation bug when click esc key or outside the modal ([152b333](https://github.com/SUI-Components/sui-components/commit/152b3336e7ba23945634257f62a1c1761cda7326))
+
+
+
 # 1.15.0 (2020-08-17)
 
 

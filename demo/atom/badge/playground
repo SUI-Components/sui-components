@@ -11,7 +11,7 @@ return (
     <div className="sui-Studio-wrapper--light">
       <h2 className="sui-Studio-h2">Type</h2>
       <div>
-        <p className="sui-Studio-p">These are all the available <code className="sui-Studio-code">type</code> of bagdes, which are <b>solid</b> by default.</p>
+        <p className="sui-Studio-p">These are the available <code className="sui-Studio-code">types</code> of bagdes, which are solid by default.</p>
         <AtomBadge label='success' type={atomBadgeTypes.SUCCESS}/>
         <AtomBadge label='error' type={atomBadgeTypes.ERROR}/>
         <AtomBadge label='info' type={atomBadgeTypes.INFO}/>
@@ -32,7 +32,7 @@ return (
     </div>
     <div className="sui-Studio-wrapper--light">
       <h2 className="sui-Studio-h2">Sizes</h2>
-      <p className="sui-Studio-p">There are three options for <code className="sui-Studio-code">size</code> available</p>
+      <p className="sui-Studio-p">There are three options for <code className="sui-Studio-code">size</code></p>
       <table>
         <tr>
           <td className="sui-Studio-label">Small</td>
@@ -75,7 +75,7 @@ return (
       </table>
       <h4 className="sui-Studio-h4">Icons</h4>
       <ul className="sui-Studio-ul">
-        <li><b>Icons are optional</b> and can be placed either right side or left side, but never on both sides at the same time</li>
+        <li><b>Icons are optional</b> and can be placed either on the right or the left side, but never on both at the same time.</li>
         <li>Small badges with background won't display icons</li>
       </ul>
       <table>
@@ -105,7 +105,8 @@ return (
     <div className="sui-Studio-wrapper--dark">
       <h2 className="sui-Studio-h2">Dark mode</h2>
       <div>
-        <p className="sui-Studio-p">There is no <code className="sui-Studio-code">negative</code> Prop for this component. This is how the Badges looks like over dark backgrounds.</p>
+        <p className="sui-Studio-p">There is no <code className="sui-Studio-code">negative</code> Prop for this component.</p>
+        <p className="sui-Studio-p">This is how the Badges look like over dark backgrounds.</p>
         <AtomBadge label='success' type={atomBadgeTypes.SUCCESS}/>
         <AtomBadge label='error' type={atomBadgeTypes.ERROR}/>
         <AtomBadge label='info' type={atomBadgeTypes.INFO}/>
@@ -113,6 +114,7 @@ return (
         <AtomBadge label='new' type={atomBadgeTypes.NEW}/>
         <AtomBadge label='primary' type={atomBadgeTypes.PRIMARY}/>
       </div>
+      <p className="sui-Studio-p">___</p>
       <div>
         <AtomBadge label='success' type={atomBadgeTypes.SUCCESS} transparent/>
         <AtomBadge label='error' type={atomBadgeTypes.ERROR} transparent/>

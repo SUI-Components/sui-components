@@ -1,7 +1,10 @@
 import React, {useState, useEffect, lazy, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-
+import AtomIcon, {
+  ATOM_ICON_COLORS,
+  ATOM_ICON_SIZES
+} from '@s-ui/react-atom-icon'
 const Dropzone = lazy(() => import('react-dropzone'))
 
 const STATUSES = {
@@ -22,6 +25,10 @@ const AtomUpload = ({
   status,
   onFilesSelection = () => {},
   textExplanation,
+  actionButton: Button,
+  multiple,
+  maxSize,
+  accept,
   ...props
 }) => {
   const [ready, setReady] = useState(false)
@@ -30,19 +37,37 @@ const AtomUpload = ({
     setReady(true)
   }, [])
 
+  const handleFileSelectionChange = files => {
+    onFilesSelection(files)
+  }
+
   const renderStatusBlock = status => {
     const classNameIcon = `${BASE_CLASS}-icon${capitalize(status)}`
     const IconStatus = props[`icon${capitalize(status)}`]
     const textStatus = props[`text${capitalize(status)}`]
+    const isActive = status === STATUSES.ACTIVE
+    const hasTextExplanation = Boolean(textExplanation)
+    const hasButton = Boolean(Button)
     return (
       <div className={cx(BASE_CLASS, `${BASE_CLASS}--${status}`)}>
-        <span className={classNameIcon}>{IconStatus}</span>
-        <div className={CLASS_BLOCK_TEXT}>
-          <h4 className={CLASS_BLOCK_TEXT_MAIN}>{textStatus}</h4>
-          {status === STATUSES.ACTIVE && textExplanation && (
-            <p className={CLASS_BLOCK_TEXT_SECONDARY}>{textExplanation}</p>
-          )}
-        </div>
+        <>
+          <AtomIcon
+            size={ATOM_ICON_SIZES.large}
+            color={ATOM_ICON_COLORS.currentColor}
+            className={classNameIcon}
+          >
+            {IconStatus}
+          </AtomIcon>
+          <div className={CLASS_BLOCK_TEXT}>
+            <h4 className={CLASS_BLOCK_TEXT_MAIN}>{textStatus}</h4>
+            {isActive && (hasTextExplanation || hasButton) && (
+              <>
+                {Button}
+                <p className={CLASS_BLOCK_TEXT_SECONDARY}>{textExplanation}</p>
+              </>
+            )}
+          </div>
+        </>
       </div>
     )
   }
@@ -55,7 +80,10 @@ const AtomUpload = ({
           <Dropzone
             className={`${BASE_CLASS}-dropzone`}
             disabled={status !== STATUSES.ACTIVE}
-            onDrop={onFilesSelection}
+            onDrop={handleFileSelectionChange}
+            multiple={multiple}
+            maxSize={maxSize}
+            accept={accept}
           >
             {renderStatusBlock(status)}
           </Dropzone>
@@ -92,6 +120,9 @@ AtomUpload.propTypes = {
   /** Text to be displayed on error status */
   textError: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
 
+  /** Button component to be displayed on active status */
+  actionButton: PropTypes.node, // eslint-disable-line react/no-unused-prop-types
+
   /** Text to be displayed as explanation on active status */
   textExplanation: PropTypes.string,
 
@@ -105,7 +136,21 @@ AtomUpload.propTypes = {
   status: PropTypes.oneOf(Object.values(STATUSES)).isRequired,
 
   /** Callback to be called (with files selected) when there`s a file selection (via click or drag & drop) */
-  onFilesSelection: PropTypes.func
+  onFilesSelection: PropTypes.func,
+  /**
+   * Allow drag 'n' drop (or selection from the file dialog) of multiple files
+   */
+  multiple: PropTypes.bool,
+  /** Maximum file size (in bytes) */
+  maxSize: PropTypes.number,
+  /**
+   * Set accepted file types.
+   * See https://github.com/okonet/attr-accept for more information.
+   */
+  accept: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ])
 }
 
 export {STATUSES as uploadStatuses}

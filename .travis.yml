@@ -15,9 +15,8 @@ before_install:
 
 before_script:
   # install npm packages
-  - export SUI_TOPIC=install
-  - node ./scripts/update-pr-status RUN
-  - node scripts/update-pr-status "{}"
+  - export SUI_CI_TOPIC=install
+  - npx @s-ui/ci update-commit-status --state RUN
   - npx sui-mono phoenix --ci --no-root
   - npm run install:demos -- --ci
   - npm run install:themes
@@ -26,27 +25,27 @@ before_script:
   - echo fs.inotify.max_user_instances=524288 | sudo tee -a /etc/sysctl.conf && sysctl -p
   - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sysctl -p
   - echo fs.inotify.max_queued_events=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-  - node ./scripts/update-pr-status OK
+  - npx @s-ui/ci update-commit-status --state OK
 
 script:
   # create the bundle
-  - export SUI_TOPIC=bundle
-  - node ./scripts/update-pr-status RUN
+  - export SUI_CI_TOPIC=bundle
+  - npx @s-ui/ci update-commit-status --state RUN
   - npm run build
-  - node ./scripts/update-pr-status OK
+  - npx @s-ui/ci update-commit-status --state OK
   # execute tests
-  - export SUI_TOPIC=tests
-  - node ./scripts/update-pr-status RUN
+  - export SUI_CI_TOPIC=tests
+  - npx @s-ui/ci update-commit-status --state RUN
   - npm run test -- --ci
-  - node ./scripts/update-pr-status OK
+  - npx @s-ui/ci update-commit-status --state OK
   # deploy
   - export VERCEL_PARAMS=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo --prod; else echo; fi)
-  - export SUI_TOPIC=deploy
-  - node ./scripts/update-pr-status RUN
+  - export SUI_CI_TOPIC=deploy
+  - npx @s-ui/ci update-commit-status --state RUN
   - rm -rf ./node_modules
   - npm i vercel@latest --no-save --no-fund --no-audit
   - DEPLOYMENT_URL=$(vercel --token $NOW_TOKEN --confirm $VERCEL_PARAMS)
-  - node ./scripts/update-pr-status OK $DEPLOYMENT_URL
+  - npx @s-ui/ci update-commit-status --state OK $DEPLOYMENT_URL
 
 after_failure:
-  - node ./scripts/update-pr-status
+  - npx @s-ui/ci update-commit-status --state

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.17.0 (2020-09-01)
+
+
+### Bug Fixes
+
+* fix pass event object to closeModal ([159ba58](https://github.com/SUI-Components/sui-components/commit/159ba58858a8edf7ab1dd0ce72d240eefbe87271))
+
+
+
 # 1.16.0 (2020-08-25)
 
 

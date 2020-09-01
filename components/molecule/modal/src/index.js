@@ -59,7 +59,7 @@ const MoleculeModal = ({
     ev => {
       if (isOpen === false || closeOnEscKeyDown === false) return
       if (SUPPORTED_KEYS.includes(ev.key)) {
-        closeModal()
+        closeModal(ev)
         ev.preventDefault()
       }
     },
@@ -99,7 +99,7 @@ const MoleculeModal = ({
 
   const handleOutsideClick = ev => {
     if (closeOnOutsideClick && ev.target === wrapperRef.current) {
-      closeModal()
+      closeModal(ev)
     }
   }
 

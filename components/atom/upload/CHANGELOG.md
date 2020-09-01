@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.6.0 (2020-09-01)
+
+
+### Features
+
+* Added border-radius, max file size and accept formats ([c65da3d](https://github.com/SUI-Components/sui-components/commit/c65da3db9d35e356e318e5010666575ba2a4afe6))
+* improved code readability ([a1f471d](https://github.com/SUI-Components/sui-components/commit/a1f471dca2ccdd64a269c11efad8d5881b70d927))
+* remove duplicated token ([06d71d6](https://github.com/SUI-Components/sui-components/commit/06d71d65850445b21163605a3a5962d5ba2df5b1))
+
+
+
 # 2.4.0 (2020-07-21)
 
 

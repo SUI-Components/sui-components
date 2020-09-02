@@ -9,10 +9,10 @@ $bgc-atom-table-row-actionable--active: $c-gray-light-3 !default;
 .react-AtomTable {
   border-collapse: collapse;
   border-radius: $bdrs-atom-table;
-  overflow: hidden;
   color: $c-gray-dark;
   font-size: $fz-s;
   padding: 0;
+  overflow: hidden;
 
   &--fullWidth {
     width: 100%;

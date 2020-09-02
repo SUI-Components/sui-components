@@ -1,10 +1,15 @@
 @import '~@s-ui/theme/lib/index';
 
+$bgc-atom-table-header-cell: transparent !default;
+$bgc-atom-table-row: transparent !default;
+$bdrs-atom-table: 0px !default;
 $bgc-atom-table-row-actionable--hover: $c-gray-light-4 !default;
 $bgc-atom-table-row-actionable--active: $c-gray-light-3 !default;
 
 .react-AtomTable {
   border-collapse: collapse;
+  border-radius: $bdrs-atom-table;
+  overflow: hidden;
   color: $c-gray-dark;
   font-size: $fz-s;
   padding: 0;
@@ -14,11 +19,15 @@ $bgc-atom-table-row-actionable--active: $c-gray-light-3 !default;
   }
 
   &-headerCell {
+    background-color: $bgc-atom-table-header-cell;
     font-weight: $fw-regular;
     text-align: left;
   }
 
   &-row {
+    &:nth-child(2n + 2) {
+      background-color: $bgc-atom-table-row;
+    }
     &--actionable {
       cursor: pointer;
 

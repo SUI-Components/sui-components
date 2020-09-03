@@ -48,7 +48,7 @@ const MoleculeModal = ({
 
   const closeModal = useCallback(
     ev => {
-      ev.stopPropagation()
+      ev && ev.stopPropagation()
       toggleWindowScroll(false)
       onClose()
     },

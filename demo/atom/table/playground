@@ -145,5 +145,15 @@ return (
       onRowClick={handleClick}
     />
     <br/>
+        <h2>Version with thead, tbody and tfoot and the props cellPadding and isZebra </h2>
+    <AtomTable 
+      head={contentHeadMook}
+      body={contentBodyMook}
+      foot={contentFootMook}
+      cellPadding={CELL_PADDING.l}
+      isZebra
+    />
+    <br/>
+
   </div>
 )

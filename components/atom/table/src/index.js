@@ -22,7 +22,8 @@ const AtomTable = ({
   fullWidth,
   cellPadding,
   borderBottom,
-  onRowClick
+  onRowClick,
+  isZebra
 }) => {
   const hasHead = Boolean(head?.length)
   const hasFoot = Boolean(foot?.length)
@@ -35,7 +36,8 @@ const AtomTable = ({
     [`${baseClass}-cell--${cellPadding}`]: Boolean(cellPadding)
   })
   const rowClass = cx(`${baseClass}-row`, {
-    [`${baseClass}-row--actionable`]: isRowActionable
+    [`${baseClass}-row--actionable`]: isRowActionable,
+    [`${baseClass}-row--zebra`]: isZebra
   })
 
   const handleOnRowClick = index => onRowClick(index)
@@ -147,7 +149,11 @@ AtomTable.propTypes = {
   /**
    * Trigger callback with row index clicked
    */
-  onRowClick: PropTypes.func
+  onRowClick: PropTypes.func,
+  /**
+   * Add interspersed stripes to rows
+   */
+  isZebra: PropTypes.bool
 }
 
 export {CELL_TYPE as atomTableCellTypes, CELL_PADDING as atomTableCellPadding}

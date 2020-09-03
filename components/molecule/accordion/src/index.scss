@@ -38,6 +38,7 @@ $base-class: '.sui-MoleculeAccordion-tab';
 
     #{$base-class}--withMultilineLabel & {
       height: auto;
+      min-height: $h-accordion-tab-btn;
     }
 
     &Content {

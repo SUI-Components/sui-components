@@ -25,7 +25,7 @@ $bgc-atom-table-row-actionable--active: $c-gray-light-3 !default;
   }
 
   &-row {
-    &:nth-child(2n + 2) {
+    &:nth-child(2n) {
       background-color: $bgc-atom-table-row;
     }
     &--actionable {

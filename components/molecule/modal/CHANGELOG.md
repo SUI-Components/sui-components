@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.18.0 (2020-09-03)
+
+
+### Features
+
+* add condition to the modal close event ([8742149](https://github.com/SUI-Components/sui-components/commit/87421493efef2132e58356787b1aa59364096b46))
+* add new tokens ([bd36999](https://github.com/SUI-Components/sui-components/commit/bd36999616718c48d991a7fbed2d17d8953a2dc4))
+
+
+
 # 1.17.0 (2020-09-01)
 
 

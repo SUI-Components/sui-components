@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-09-03)
+
+
+### Features
+
+* add new tokens ([bd36999](https://github.com/SUI-Components/sui-components/commit/bd36999616718c48d991a7fbed2d17d8953a2dc4))
+* add prop isZebra ([8c909be](https://github.com/SUI-Components/sui-components/commit/8c909be7eca7c31cfcfd89f008dd980d2a7b125d))
+* rename prop ([80b02fd](https://github.com/SUI-Components/sui-components/commit/80b02fdd4fc966ee4fe1c364de7299ceeec78514))
+* update ([0cb28ad](https://github.com/SUI-Components/sui-components/commit/0cb28ade043b97d296a8deffe383521eda0ab6ec))
+* update ([609c845](https://github.com/SUI-Components/sui-components/commit/609c84556791b2c7b15b1af98af0e8baf20daa3b))
+* update ([1dafcf6](https://github.com/SUI-Components/sui-components/commit/1dafcf6081d34469fa593e80fdd204be12c163f8))
+* update ([53bc6a8](https://github.com/SUI-Components/sui-components/commit/53bc6a85f8f3f07b2f72e5a2debb89c4bfba879c))
+* update ([2c18b18](https://github.com/SUI-Components/sui-components/commit/2c18b186eade8e65c51f065d2633ef2d6fb85277))
+* update color ([ca9537f](https://github.com/SUI-Components/sui-components/commit/ca9537f0994d907f52c97ee922fba8619a2fcb3d))
+
+
+
 # 1.7.0 (2020-07-14)
 
 

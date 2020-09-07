@@ -17,16 +17,16 @@ $m-atom-checkbox-type-right: $m-m !default;
 
 $bgc-atom-checkbox: $c-white !default;
 $bgc-checked-atom-checkbox: $c-primary !default;
-$bd-atom-checkbox: 1px solid $c-primary !default;
+$bd-atom-checkbox: $bdw-s solid $c-gray !default;
 $bd-atom-checkbox--checked: $bdw-s solid $c-primary !default;
-$bd-atom-checkbox-is-intermediate: $bd-atom-checkbox !default;
+$bd-atom-checkbox-is-intermediate: $bd-atom-checkbox--checked !default;
 
 $bdc-atom-checkbox-is-disabled: color-variation($c-gray, 1) !default;
 $bgc-checked-atom-checkbox-is-disabled: color-variation($c-gray, 3) !default;
-$bgc-checked-atom-checkbox-is-intermediate: $bgc-atom-checkbox !default;
+$bgc-checked-atom-checkbox-is-intermediate: $bgc-checked-atom-checkbox !default;
 $c-atom-checkbox-custom-is-disabled: $c-atom-checkbox !default;
 $c-atom-checkbox-is-disabled: color-variation($c-gray, -2) !default;
-$c-atom-checkbox-is-intermediate: unset !default;
+$c-atom-checkbox-is-intermediate: $c-atom-checkbox !default;
 
 .sui-AtomCheckbox {
   &:not(&--native) {
@@ -64,6 +64,12 @@ $c-atom-checkbox-is-intermediate: unset !default;
       }
     }
 
+    &.is-intermediate {
+      background-color: $bgc-checked-atom-checkbox-is-intermediate;
+      border: $bd-atom-checkbox-is-intermediate;
+      color: $c-atom-checkbox-is-intermediate;
+    }
+
     &.is-disabled {
       background-color: $bgc-checked-atom-checkbox-is-disabled;
       border-color: $bdc-atom-checkbox-is-disabled;
@@ -71,12 +77,6 @@ $c-atom-checkbox-is-intermediate: unset !default;
       svg {
         fill: $c-atom-checkbox-custom-is-disabled;
       }
-    }
-
-    &.is-intermediate {
-      background-color: $bgc-checked-atom-checkbox-is-intermediate;
-      border: $bd-atom-checkbox-is-intermediate;
-      color: $c-atom-checkbox-is-intermediate;
     }
   }
 

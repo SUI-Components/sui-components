@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.10.0 (2020-09-08)
+
+
+### Features
+
+* change color for indeterminate with primary theme ([faed939](https://github.com/SUI-Components/sui-components/commit/faed9392c8257cee201fc2ead28fb9a8eb261013))
+
+
+
 # 2.9.0 (2020-07-07)
 
 

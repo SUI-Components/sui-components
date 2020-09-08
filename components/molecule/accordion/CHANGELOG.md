@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-09-08)
+
+
+### Bug Fixes
+
+* fix withMultilineLabel tab min-height ([93327b5](https://github.com/SUI-Components/sui-components/commit/93327b5f75852f0827c10d97612f15e987e07599))
+
+
+
 # 1.8.0 (2020-08-17)
 
 

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.13.0 (2020-09-08)
+
+
+### Bug Fixes
+
+* get hover variables values from atom-tag-types variable instead hardcoded one ([d2b25ea](https://github.com/SUI-Components/sui-components/commit/d2b25eaaa6dd9949866b78cbe683949e72198db8))
+
+
+
 # 2.12.0 (2020-05-28)
 
 

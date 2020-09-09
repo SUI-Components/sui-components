@@ -24,8 +24,8 @@ $bd-atom-checkbox-is-intermediate: $bd-atom-checkbox--checked !default;
 $bdc-atom-checkbox-is-disabled: color-variation($c-gray, 1) !default;
 $bgc-checked-atom-checkbox-is-disabled: color-variation($c-gray, 3) !default;
 $bgc-checked-atom-checkbox-is-intermediate: $bgc-checked-atom-checkbox !default;
-$c-atom-checkbox-custom-is-disabled: $c-atom-checkbox !default;
 $c-atom-checkbox-is-disabled: color-variation($c-gray, -2) !default;
+$c-atom-checkbox-custom-is-disabled: $c-atom-checkbox-is-disabled;
 $c-atom-checkbox-is-intermediate: $c-atom-checkbox !default;
 
 .sui-AtomCheckbox {

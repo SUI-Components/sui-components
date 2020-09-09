@@ -1,0 +1,59 @@
+@import '~@s-ui/theme/lib/index';
+
+$bg-skeleton: $c-gray-light-3 !default;
+$bg-skeleton-highlight: $c-gray-light-4 !default;
+$bdrs-skeleton: 8px !default;
+$delay-skeleton-wave: 1.2s !default;
+$delay-skeleton-pulse: 1.5s !default;
+
+@keyframes wave {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.react-AtomSkeleton {
+  background-color: $bg-skeleton;
+  background-repeat: no-repeat;
+  display: inline-block;
+  line-height: 1;
+  width: 100%;
+
+  &--wave {
+    background-image: linear-gradient(
+      90deg,
+      $bg-skeleton,
+      $bg-skeleton-highlight,
+      $bg-skeleton
+    );
+    background-size: 200px 100%;
+    animation: wave $delay-skeleton-wave ease-in-out infinite;
+  }
+
+  &--pulse {
+    animation: pulse $delay-skeleton-pulse ease-in-out infinite;
+  }
+
+  &--round {
+    border-radius: $bdrs-skeleton;
+  }
+
+  &--circle {
+    border-radius: 50%;
+  }
+}

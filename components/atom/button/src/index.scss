@@ -92,6 +92,7 @@ $icon-sz-atom-button-large: $sz-icon-m !default;
 $icon-m-atom-button-large: $m-m !default;
 $p-atom-button-large: $p-l !default;
 
+$bd-atom-button-group-focused: none !default;
 $bdrs-atom-button-first: $bdrs-m 0 0 $bdrs-m !default;
 $bdrs-atom-button-last: 0 $bdrs-m $bdrs-m 0 !default;
 
@@ -186,6 +187,10 @@ $icon-stroke-color: currentColor !default;
       &#{$base-class} {
         border-radius: $bdrs-atom-button-last;
       }
+    }
+
+    &--focused {
+      border: $bd-atom-button-group-focused;
     }
   }
 

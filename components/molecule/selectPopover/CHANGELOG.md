@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.12.0 (2020-09-10)
+
+
+### Features
+
+* add border radius to select popover content ([9c7293c](https://github.com/SUI-Components/sui-components/commit/9c7293c5808e2bcd194fc9b1e674a6d0db00400a))
+
+
+
 # 1.11.0 (2020-05-29)
 
 

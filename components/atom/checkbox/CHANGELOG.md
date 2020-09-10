@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.11.0 (2020-09-10)
+
+
+### Bug Fixes
+
+* fix repeated line ([da0b9fe](https://github.com/SUI-Components/sui-components/commit/da0b9fe34d0af447bd01a6c5d97f91a1ba438a90))
+
+
+### Features
+
+* create new token for disabled checkbox ([38f8515](https://github.com/SUI-Components/sui-components/commit/38f8515ac30979ab2bdfc1849131da07fbe4808a))
+* modify to gray color disabled icon ([ed39657](https://github.com/SUI-Components/sui-components/commit/ed396573f50a60b374ec4f4382c7209dbd73c1ae))
+
+
+
 # 2.10.0 (2020-09-08)
 
 

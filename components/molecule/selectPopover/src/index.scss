@@ -57,6 +57,7 @@
   &-popover {
     background-color: $c-white;
     border: solid 1px $c-gray-light-3;
+    border-radius: $bdrs-select-popover-content;
     box-shadow: $bxsh-select-popover;
     margin-top: $m-m;
     position: absolute;

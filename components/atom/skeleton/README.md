@@ -69,7 +69,7 @@ Use `animation` prop to choose between `wave` and `pulse` animation, if the prop
 ```jsx
 import AtomSkeleton, {ATOM_SKELETON_ANIMATIONS} from '@s-ui/react-atom-skeleton'
 
-const VariantStory = () => (
+const AnimationStory = () => (
   <>
     <AtomSkeleton animation={ATOM_SKELETON_ANIMATIONS.wave} />
     <AtomSkeleton animation={ATOM_SKELETON_ANIMATIONS.pulse} />
@@ -83,7 +83,7 @@ const VariantStory = () => (
 Use `count` prop to display several skeletons
 
 ```jsx
-const VariantStory = () => (
+const CountStory = () => (
   <>
     <AtomSkeleton count={4} />
   </>

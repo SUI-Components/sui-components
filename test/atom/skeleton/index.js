@@ -47,6 +47,7 @@ describe('AtomSkeleton', () => {
       count
     }
 
+    // When
     const {getAllByTestId} = setup(props)
 
     // Then

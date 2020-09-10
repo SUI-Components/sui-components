@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.51.0 (2020-09-10)
+
+
+### Features
+
+* create sass variable ([366120c](https://github.com/SUI-Components/sui-components/commit/366120ccc7e498aaeac1024872dcc2474db31dfb))
+* use defualt border value ([5128eea](https://github.com/SUI-Components/sui-components/commit/5128eea7470396a426161161e30e4cbf8c009792))
+
+
+
 # 1.50.0 (2020-08-17)
 
 

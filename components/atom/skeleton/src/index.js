@@ -48,10 +48,28 @@ export default function AtomSkeleton({
 
 AtomSkeleton.displayName = 'AtomSkeleton'
 AtomSkeleton.propTypes = {
+  /**
+   * Display count number of skeletons
+   */
   count: PropTypes.number,
+  /**
+   * Set a specific width
+   */
   width: PropTypes.string,
+  /**
+   * Set a specific height
+   */
   height: PropTypes.height,
+  /**
+   * Set custom styles
+   */
   style: PropTypes.object,
+  /**
+   * Choose between wave and pulse animation, if falsy no animation will be shown
+   */
   animation: PropTypes.oneOf(Object.values(ATOM_SKELETON_ANIMATIONS)),
+  /**
+   * Shape the skeleton and make it look like the final user interface
+   */
   variant: PropTypes.oneOf(Object.values(ATOM_SKELETON_VARIANTS))
 }

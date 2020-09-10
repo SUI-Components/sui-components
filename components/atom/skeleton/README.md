@@ -1,6 +1,6 @@
 # AtomSkeleton
 
-> Skeleton is used to display the loading state of a component while avoding layout shift.
+> Skeleton is used to display the loading state of a component while avoiding layout shift.
 
 <!-- ![](./assets/preview.png) -->
 
@@ -79,6 +79,8 @@ const VariantStory = () => (
 ```
 
 ### Count
+
+Use `count` prop to display several skeletons
 
 ```jsx
 const VariantStory = () => (

@@ -97,7 +97,7 @@ const Demo = () => (
       <div className={CLASS_DEMO_SECTION} style={{background: '#2b91c1'}}>
         <h3>With contrast label</h3>
         <MoleculeAutosuggestField
-          id="with-placeholder"
+          id="with-contrast-label"
           label="Country"
           placeholder="Select a Country..."
           onChange={(_, {value}) => console.log(value)}
@@ -109,7 +109,7 @@ const Demo = () => (
       <div className={CLASS_DEMO_SECTION}>
         <h3>Without label</h3>
         <MoleculeAutosuggestField
-          id="with-placeholder"
+          id="without-label"
           placeholder="Select a Country..."
           onChange={(_, {value}) => console.log(value)}
           iconClear={<IconClose />}

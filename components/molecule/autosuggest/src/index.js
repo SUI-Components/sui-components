@@ -34,23 +34,24 @@ const getIsTypeableKey = key => {
   return key.length === 1 || keysEdit.includes(key)
 }
 
-const MoleculeAutosuggest = ({multiselection, ...props}) => {
-  const {
-    refMoleculeAutosuggest: refMoleculeAutosuggestFromProps,
-    children,
-    onToggle,
-    onChange,
-    onBlur,
-    onEnter,
-    onFocus,
-    isOpen,
-    keysCloseList,
-    keysSelection,
-    disabled,
-    errorState,
-    state
-  } = props
-
+const MoleculeAutosuggest = ({
+  multiselection,
+  refMoleculeAutosuggest: refMoleculeAutosuggestFromProps,
+  children,
+  onToggle,
+  onChange,
+  onBlur,
+  onEnter,
+  onFocus,
+  isOpen,
+  keysCloseList,
+  keysSelection,
+  disabled,
+  errorState,
+  state,
+  id = '',
+  ...restProps
+}) => {
   const refMoleculeAutosuggest = useRef(
     refMoleculeAutosuggestFromProps?.current
   )
@@ -163,6 +164,31 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
     }
   }
 
+  const autosuggestSelectionProps = {
+    refMoleculeAutosuggestFromProps,
+    onToggle,
+    onChange,
+    onBlur,
+    onEnter,
+    onFocus,
+    isOpen,
+    keysCloseList,
+    keysSelection,
+    disabled,
+    errorState,
+    state,
+    id,
+    onInputKeyDown: handleInputKeyDown,
+    refMoleculeAutosuggest: refMoleculeAutosuggest,
+    innerRefInput: refMoleculeAutosuggestInput,
+    children: extendedChildren,
+    ...restProps
+  }
+
+  const AutosuggestSelection = multiselection
+    ? MoleculeAutosuggestMultipleSelection
+    : MoleculeAutosuggestSingleSelection
+
   return (
     <div
       ref={refMoleculeAutosuggest}
@@ -171,26 +197,11 @@ const MoleculeAutosuggest = ({multiselection, ...props}) => {
       onKeyDown={handleKeyDown}
       onFocus={handleFocusIn}
       onBlur={handleFocusOut}
+      role="combobox"
+      aria-controls={id}
+      aria-expanded={isOpen}
     >
-      {multiselection ? (
-        <MoleculeAutosuggestMultipleSelection
-          {...props}
-          onInputKeyDown={handleInputKeyDown}
-          refMoleculeAutosuggest={refMoleculeAutosuggest}
-          innerRefInput={refMoleculeAutosuggestInput}
-        >
-          {extendedChildren}
-        </MoleculeAutosuggestMultipleSelection>
-      ) : (
-        <MoleculeAutosuggestSingleSelection
-          {...props}
-          onInputKeyDown={handleInputKeyDown}
-          refMoleculeAutosuggest={refMoleculeAutosuggest}
-          innerRefInput={refMoleculeAutosuggestInput}
-        >
-          {extendedChildren}
-        </MoleculeAutosuggestSingleSelection>
-      )}
+      <AutosuggestSelection {...autosuggestSelectionProps} />
     </div>
   )
 }

@@ -164,6 +164,11 @@ const MoleculeAutosuggest = ({
     }
   }
 
+  const handleClick = () => {
+    refMoleculeAutosuggestInput?.current &&
+      refMoleculeAutosuggestInput.current.focus()
+  }
+
   const autosuggestSelectionProps = {
     refMoleculeAutosuggestFromProps,
     onToggle,
@@ -197,6 +202,7 @@ const MoleculeAutosuggest = ({
       onKeyDown={handleKeyDown}
       onFocus={handleFocusIn}
       onBlur={handleFocusOut}
+      onClick={handleClick}
       role="combobox"
       aria-controls={id}
       aria-expanded={isOpen}

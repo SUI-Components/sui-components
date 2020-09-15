@@ -1,5 +1,4 @@
-/* eslint-disable */
-
+/* eslint-disable no-console */
 import React, {useRef} from 'react'
 import './index.scss'
 

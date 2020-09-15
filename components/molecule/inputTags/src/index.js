@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import AtomTag, {atomTagSizes} from '@s-ui/react-atom-tag'
@@ -67,12 +65,8 @@ const MoleculeInputTags = ({
 
   const handleFocusOut = () => setFocus(false)
 
-  const handleWrapperClick = () => {
-    innerRefInput?.current && innerRefInput.current.focus()
-  }
-
   return (
-    <div className={className} onClick={handleWrapperClick}>
+    <div className={className}>
       {tagsFromProps.map((label, index) => (
         <AtomTagItem
           key={index}

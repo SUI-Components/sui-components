@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.19.0 (2020-09-16)
+
+
+### Features
+
+* add accesibilty props and refactor for render one content component ([033e100](https://github.com/SUI-Components/sui-components/commit/033e100e6510217abde98b04c2e3efdab749e1b8))
+* add click event for wrapper ([7629628](https://github.com/SUI-Components/sui-components/commit/7629628d4c0abc7a60d76fa9c08d940a876982a8))
+
+
+
 # 2.18.0 (2020-08-17)
 
 

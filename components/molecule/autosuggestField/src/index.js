@@ -19,6 +19,7 @@ const getState = ({successText, errorState, alertText}) => {
 
 function MoleculeAutosuggestField({
   alertText,
+  children,
   errorText,
   helpText,
   id,
@@ -27,7 +28,6 @@ function MoleculeAutosuggestField({
   onChange,
   successText,
   useContrastLabel,
-  children,
   ...restProps
 }) {
   const refAutosuggest = useRef()

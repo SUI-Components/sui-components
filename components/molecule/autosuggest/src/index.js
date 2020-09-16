@@ -35,21 +35,21 @@ const getIsTypeableKey = key => {
 }
 
 const MoleculeAutosuggest = ({
-  multiselection,
-  refMoleculeAutosuggest: refMoleculeAutosuggestFromProps,
   children,
-  onToggle,
-  onChange,
-  onBlur,
-  onEnter,
-  onFocus,
+  disabled,
+  errorState,
+  id = '',
   isOpen,
   keysCloseList,
   keysSelection,
-  disabled,
-  errorState,
+  multiselection,
+  onBlur,
+  onChange,
+  onEnter,
+  onFocus,
+  onToggle,
+  refMoleculeAutosuggest: refMoleculeAutosuggestFromProps,
   state,
-  id = '',
   ...restProps
 }) => {
   const refMoleculeAutosuggest = useRef(

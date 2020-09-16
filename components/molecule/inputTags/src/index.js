@@ -11,27 +11,27 @@ const CLASS_TAGS_ERROR = `${CLASS_TAGS}--error`
 const CLASS_TAGS_SUCCESS = `${CLASS_TAGS}--success`
 
 // eslint-disable-next-line react/prop-types
-const AtomTagItem = ({onClose: onCloseFromProps = () => {}, id, ...props}) => {
-  const onClose = e => onCloseFromProps(e, {id})
+const AtomTagItem = ({onClose = () => {}, id, ...restProps}) => {
+  const handleClose = e => onClose(e, {id})
 
-  return <AtomTag onClose={onClose} {...props} />
+  return <AtomTag onClose={handleClose} {...restProps} />
 }
 
 const MoleculeInputTags = ({
   errorState,
-  value,
-  optionsData,
-  onChangeTags,
-  onChange: onChangeFromProps,
   innerRefInput,
-  tagsCloseIcon,
+  onChange: onInputChange,
+  onChangeTags,
+  optionsData,
+  size,
   tags: tagsFromProps,
-  ...props
+  tagsCloseIcon,
+  value,
+  ...restProps
 }) => {
-  const {size} = props
   const [focus, setFocus] = useState(false)
 
-  const classNames = cx(CLASS_TAGS, {
+  const className = cx(CLASS_TAGS, {
     [CLASS_TAGS_FOCUS]: focus === true,
     [CLASS_TAGS_ERROR]: errorState === true,
     [CLASS_TAGS_SUCCESS]: errorState === false,
@@ -57,8 +57,8 @@ const MoleculeInputTags = ({
     }
   }
 
-  const onChange = (ev, valuesToPropagate) => {
-    onChangeFromProps(ev, valuesToPropagate)
+  const handleInputChange = (ev, valuesToPropagate) => {
+    onInputChange(ev, valuesToPropagate)
   }
 
   const handleFocusIn = () => setFocus(true)
@@ -66,7 +66,7 @@ const MoleculeInputTags = ({
   const handleFocusOut = () => setFocus(false)
 
   return (
-    <div className={classNames}>
+    <div className={className}>
       {tagsFromProps.map((label, index) => (
         <AtomTagItem
           key={index}
@@ -79,9 +79,9 @@ const MoleculeInputTags = ({
         />
       ))}
       <AtomInput
-        {...props}
+        {...restProps}
         value={value}
-        onChange={onChange}
+        onChange={handleInputChange}
         onEnter={addTag}
         onFocus={handleFocusIn}
         onBlur={handleFocusOut}

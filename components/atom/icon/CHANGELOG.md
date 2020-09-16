@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.6.0 (2020-09-16)
+
+
+### Features
+
+* add token gray color ([d128bed](https://github.com/SUI-Components/sui-components/commit/d128bed2b087d0339c9105845cdb6219c026ac27))
+
+
+
 # 1.5.0 (2020-05-29)
 
 

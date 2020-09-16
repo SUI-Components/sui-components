@@ -19,14 +19,14 @@ const AtomTagItem = ({onClose = () => {}, id, ...restProps}) => {
 
 const MoleculeInputTags = ({
   errorState,
-  value,
-  optionsData,
-  onChangeTags,
-  onChange: onInputChange,
   innerRefInput,
-  tagsCloseIcon,
-  tags: tagsFromProps,
+  onChange: onInputChange,
+  onChangeTags,
+  optionsData,
   size,
+  tags: tagsFromProps,
+  tagsCloseIcon,
+  value,
   ...restProps
 }) => {
   const [focus, setFocus] = useState(false)

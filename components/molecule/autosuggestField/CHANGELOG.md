@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.5.0 (2020-09-16)
+
+
+### Features
+
+* move class component to functional component ([0748223](https://github.com/SUI-Components/sui-components/commit/0748223f73ed816d30912038893ae5d997a1d29c))
+
+
+
 # 2.4.0 (2020-07-21)
 
 

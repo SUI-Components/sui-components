@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.11.0 (2020-09-16)
+
+
+### Features
+
+* add wrapper focus by onClick and refactor ([a0e0587](https://github.com/SUI-Components/sui-components/commit/a0e058780284fdac678d1d305a2615e63439e3b1))
+* remove onClick event ([84e511e](https://github.com/SUI-Components/sui-components/commit/84e511e33349fb67d73974f04938620f504a70d2))
+
+
+
 # 2.10.0 (2020-05-29)
 
 

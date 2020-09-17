@@ -5,9 +5,11 @@ import Tab from './Tab'
 const BASE_CLASS = 'sui-MoleculeAccordion'
 
 function MoleculeAccordion(props) {
-  const {children, defaultOpenedTab, ...tabProps} = props
+  const {children, defaultOpenedTabs = [], ...tabProps} = props
 
-  const initialOpenTabs = children.map((_, index) => defaultOpenedTab === index)
+  const initialOpenTabs = children.map((_, index) =>
+    defaultOpenedTabs.includes(index)
+  )
 
   const [openTabs, setOpenTabs] = useState(initialOpenTabs)
 
@@ -48,9 +50,9 @@ MoleculeAccordion.propTypes = {
    */
   children: PropTypes.instanceOf(Object).isRequired,
   /**
-   * Index of the tab to be opened by default
+   * Array with tab indexes to be opened by default
    */
-  defaultOpenedTab: PropTypes.Number,
+  defaultOpenedTabs: PropTypes.arrayOf(PropTypes.Number),
   /**
    * Icon for the button
    */

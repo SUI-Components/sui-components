@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.10.0 (2020-09-17)
+
+
+### Features
+
+* add defaultOpenedTab prop to sui molecule accordion component ([b055f3d](https://github.com/SUI-Components/sui-components/commit/b055f3df9c346184b1e5d821e191aebc0e8981ab))
+* add support on molecule accordion to multiple defaultOpenedTabs ([e1e4331](https://github.com/SUI-Components/sui-components/commit/e1e433190ec9614dde2051d20993b981828f2f9b))
+
+
+
 # 1.9.0 (2020-09-08)
 
 

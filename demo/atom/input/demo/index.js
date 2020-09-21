@@ -211,7 +211,7 @@ export default () => (
       </div>
 
       <div style={field}>
-        <h4>Inline Form</h4>
+        <h4>Default value</h4>
         <AtomInput defaultValue="Default value" />
       </div>
     </div>

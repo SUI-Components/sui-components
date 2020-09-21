@@ -67,6 +67,7 @@ const Input = ({
   tabIndex = DEFAULT_PROPS.TAB_INDEX,
   maxLength,
   minLength,
+  defaultValue,
   min,
   max,
   step,
@@ -123,6 +124,7 @@ const Input = ({
       type={type}
       value={value}
       size={charsSize}
+      defaultValue={defaultValue}
       maxLength={maxLength}
       minLength={minLength}
       max={max}
@@ -182,6 +184,8 @@ Input.propTypes = {
   type: PropTypes.string,
   /* value of the control */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  /* default value of the control */
+  defaultValue: PropTypes.string,
   /* react ref to access DOM node */
   reference: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   /** Wether to show the input or not */

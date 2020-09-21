@@ -11,7 +11,7 @@ $p-atom-upload: $p-l * 3 $p-l * 2 $p-l !default;
 $ai-atom-upload: center !default;
 $jc-atom-upload: center !default;
 $ai-atom-upload-block-text: center !default;
-$fz-atom-upload-text-main: $fz-xl !default;
+$fz-atom-upload-text: $fz-xl !default;
 $fz-atom-upload-text-secondary: $fz-l !default;
 $h-atom-upload-icon: $sz-icon-xl * 2 !default;
 $w-atom-upload-icon: $sz-icon-xl * 2 !default;
@@ -48,7 +48,7 @@ $c-atom-upload-text-secondary: $c-atom-upload !default;
 
     &-main {
       color: $c-atom-upload-text-main;
-      font-size: $fz-atom-upload-text-main;
+      font-size: $fz-atom-upload-text;
       font-weight: $fw-atom-upload-text-main;
       margin: $m-atom-upload-text-main;
     }

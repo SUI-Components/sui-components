@@ -1,0 +1,28 @@
+$s-avatar-badge: 0.6em !default;
+$bw-avatar-badge-icon: 0.12em !default;
+
+.react-MoleculeAvatarBadge {
+  border-radius: $bdrs-rounded;
+  border: $bw-avatar-badge-icon solid;
+  height: $s-avatar-badge;
+  width: $s-avatar-badge;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+
+  &--error {
+    background-color: $c-error;
+  }
+
+  &--success {
+    background-color: $c-success;
+  }
+
+  &--top {
+    top: 0;
+  }
+
+  &--bottom {
+    bottom: 0;
+  }
+}

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.23.0 (2020-09-24)
+
+
+### Features
+
+* add defaultValue prop support ([a56e0db](https://github.com/SUI-Components/sui-components/commit/a56e0db6ee7ccac926a9d2ff3c7b8bbebeda86f2))
+
+
+
 # 4.22.0 (2020-08-17)
 
 

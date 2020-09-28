@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.15.0 (2020-09-24)
+
+
+### Features
+
+* add icon size token ([a13afd9](https://github.com/SUI-Components/sui-components/commit/a13afd99efa65e524dc8f6c328201fc09a365437))
+
+
+
 # 2.14.0 (2020-06-22)
 
 

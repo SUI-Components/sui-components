@@ -27,6 +27,7 @@ $p-sui-molecule-tabs-vertical-item: $p-sui-molecule-tabs-item !default;
 $ta-sui-molecule-tabs-vertical-item: center !default;
 $w-sui-molecule-tabs-vertical-item: 100% !default;
 $ws-sui-molecule-tabs-vertical-item: nowrap !default;
+$sz-sui-molecule-tabs-icon: $sz-icon-l !default;
 
 .sui-MoleculeTabs {
   svg {
@@ -254,11 +255,11 @@ $ws-sui-molecule-tabs-vertical-item: nowrap !default;
 
     &-icon {
       display: flex;
-      height: $sz-icon-l;
+      height: $sz-sui-molecule-tabs-icon;
       justify-content: center;
       margin: 0 auto $m-s;
       vertical-align: middle;
-      width: $sz-icon-l;
+      width: $sz-sui-molecule-tabs-icon;
     }
 
     &-count {

@@ -8,7 +8,7 @@ services:
 branches:
   only: master
 
-node_js: 10
+node_js: 12
 
 before_install:
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
@@ -45,7 +45,7 @@ script:
   - rm -rf ./node_modules
   - npm i vercel@latest --no-save --no-fund --no-audit
   - DEPLOYMENT_URL=$(vercel --token $NOW_TOKEN --confirm $VERCEL_PARAMS)
-  - npx @s-ui/ci update-commit-status --state OK $DEPLOYMENT_URL
+  - npx @s-ui/ci update-commit-status --state OK --url $DEPLOYMENT_URL
 
 after_failure:
   - npx @s-ui/ci update-commit-status --state

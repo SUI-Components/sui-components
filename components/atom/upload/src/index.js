@@ -69,12 +69,12 @@ const AtomUpload = ({
       {hasValidStatus && ready && (
         <Suspense fallback={null}>
           <Dropzone
+            accept={accept}
             className={`${BASE_CLASS}-dropzone`}
             disabled={status !== STATUSES.ACTIVE}
-            onDrop={handleFileSelectionChange}
-            multiple={multiple}
             maxSize={maxSize}
-            accept={accept}
+            multiple={multiple}
+            onDrop={handleFileSelectionChange}
           >
             {renderStatusBlock(status)}
           </Dropzone>

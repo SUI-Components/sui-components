@@ -11,7 +11,7 @@ $s-avatar: (
   small: 32px
 ) !default;
 
-$fs-avatar-name: (
+$fz-avatar: (
   xlarge: 38px,
   large: 24px,
   medium: 18px,
@@ -46,7 +46,7 @@ $bgc-avatar: $c-gray-light-3 !default;
     }
   }
 
-  @each $key-size, $size in $fs-avatar-name {
+  @each $key-size, $size in $fz-avatar {
     &--#{$key-size} {
       font-size: $size;
     }

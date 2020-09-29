@@ -30,7 +30,7 @@ const MoleculeAvatar = forwardRef(
     },
     ref
   ) => {
-    const baseClassName = 'react-MoleculeAvatar'
+    const baseClassName = 'sui-MoleculeAvatar'
     const className = cx(
       baseClassName,
       classNameProp,

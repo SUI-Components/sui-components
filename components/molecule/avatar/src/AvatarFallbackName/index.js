@@ -8,7 +8,7 @@ const MoleculeAvatarFallbackName = ({
   className: classNameProp,
   ...others
 }) => {
-  const baseClassName = 'react-MoleculeAvatarFallbackName'
+  const baseClassName = 'sui-MoleculeAvatarFallbackName'
   const className = cx(
     baseClassName,
     classNameProp,

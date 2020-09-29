@@ -22,7 +22,7 @@ const MoleculeAvatarBadge = forwardRef(
     },
     ref
   ) => {
-    const baseClassName = 'react-MoleculeAvatarBadge'
+    const baseClassName = 'sui-MoleculeAvatarBadge'
     const className = cx(
       baseClassName,
       classNameProp,

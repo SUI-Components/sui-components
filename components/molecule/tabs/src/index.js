@@ -73,7 +73,10 @@ MoleculeTabs.defaultProps = {
   onChange: () => {}
 }
 
-export default withStateActiveTab(MoleculeTabs)
+const MoleculeTabsWithStateActive = withStateActiveTab(MoleculeTabs)
+MoleculeTabsWithStateActive.displayName = MoleculeTabs.displayName
+
+export default MoleculeTabsWithStateActive
 export {
   MoleculeTabs,
   MoleculeTab,

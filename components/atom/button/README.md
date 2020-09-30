@@ -117,7 +117,7 @@ When `link` property is passed, the component will render an html link.
 import Button from '@s-ui/react-atom-button'
 
 return (
-  <Button link href='http://www.schibsted.com/' target='_blank'>Link</Button>
+  <Button link href='http://www.schibsted.com/' target='_blank' rel="nofollow noopener">Link</Button>
 )
 
 ```

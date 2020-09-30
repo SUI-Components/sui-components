@@ -316,6 +316,7 @@ const ExportedAtomTooltip = withIntersectionObserver(
 
 ExportedAtomTooltip.COLORS = COLORS
 ExportedAtomTooltip.PLACEMENTS = PLACEMENTS
+ExportedAtomTooltip.displayName = AtomTooltip.displayName
 
 AtomTooltip.COLORS = COLORS
 AtomTooltip.PLACEMENTS = PLACEMENTS

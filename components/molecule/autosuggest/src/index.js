@@ -318,6 +318,9 @@ MoleculeAutosuggest.defaultProps = {
   keysCloseList: ['Escape']
 }
 
-export default withOpenToggle(MoleculeAutosuggest)
+const MoleculeAutoSuggestWithOpenToggle = withOpenToggle(MoleculeAutosuggest)
+MoleculeAutoSuggestWithOpenToggle.displayName = 'MoleculeAutosuggest'
+
+export default MoleculeAutoSuggestWithOpenToggle
 export {SIZES as MoleculeAutosuggestDropdownListSizes}
 export {AUTOSUGGEST_STATES as MoleculeAutosuggestStates}

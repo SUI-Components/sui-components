@@ -271,5 +271,7 @@ MoleculeModal.displayName = 'MoleculeModal'
 const MoleculeModalWithAnimation = WithAnimation(MoleculeModal)
 const MoleculeModalWithUrlState = WithUrlState(MoleculeModalWithAnimation)
 
+MoleculeModalWithAnimation.displayName = 'MoleculeModal'
+
 export {MoleculeModalWithUrlState, MoleculeModalWithAnimation}
 export default MoleculeModalWithAnimation

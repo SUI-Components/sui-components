@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.20.0 (2020-10-01)
+
+
+### Features
+
+* Use correct displayName for each Component ([7ff34f8](https://github.com/SUI-Components/sui-components/commit/7ff34f86e2f2246917c2d5475be008cf547306f4))
+
+
+
 # 2.19.0 (2020-09-16)
 
 

@@ -65,7 +65,11 @@ class AtomTooltip extends Component {
       return typeof child?.type !== 'string'
         ? React.createElement(
             'div',
-            {ref, className, onTouchEnd},
+            {
+              ref,
+              className: cx(className, `${className}--wrapper`),
+              onTouchEnd
+            },
             React.cloneElement(child)
           )
         : React.cloneElement(child, {ref, className, onTouchEnd})

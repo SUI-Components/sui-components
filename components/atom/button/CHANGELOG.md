@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.52.0 (2020-10-01)
+
+
+### Bug Fixes
+
+* use prop rel in AtomButton when it is a link ([d84c410](https://github.com/SUI-Components/sui-components/commit/d84c410569a5824198c849f8b788f83503322a44))
+
+
+
 # 1.51.0 (2020-09-10)
 
 

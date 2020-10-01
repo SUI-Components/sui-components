@@ -61,11 +61,14 @@ class AtomTooltip extends Component {
     return React.Children.map(childrenOnly, child => {
       this.onClickTarget = child.props.onClick
       this.title = child.props.title
-      return React.cloneElement(child, {
-        ref,
-        className,
-        onTouchEnd
-      })
+
+      return typeof child?.type !== 'string'
+        ? React.createElement(
+            'div',
+            {ref, className, onTouchEnd},
+            React.cloneElement(child)
+          )
+        : React.cloneElement(child, {ref, className, onTouchEnd})
     })
   }
 

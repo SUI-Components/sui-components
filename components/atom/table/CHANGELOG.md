@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-10-02)
+
+
+### Features
+
+* add prop background color to atom table ([49bc213](https://github.com/SUI-Components/sui-components/commit/49bc2136aa410383f63e92808cc2909c8e64a039))
+
+
+
 # 1.8.0 (2020-09-03)
 
 

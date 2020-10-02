@@ -67,7 +67,7 @@ class AtomTooltip extends Component {
             'div',
             {
               ref,
-              className: cx(className, `${className}--wrapper`),
+              className: `${className} ${className}--wrapper`,
               onTouchEnd
             },
             React.cloneElement(child)

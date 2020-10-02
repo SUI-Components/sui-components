@@ -5,14 +5,14 @@
 @import './AvatarBadge/index';
 
 $s-avatar: (
-  xlarge: 96px,
+  xlarge: 80px,
   large: 64px,
   medium: 48px,
   small: 32px
 ) !default;
 
 $fz-avatar: (
-  xlarge: 38px,
+  xlarge: 30px,
   large: 24px,
   medium: 18px,
   small: 12px
@@ -46,9 +46,9 @@ $bgc-avatar: $c-gray-light-3 !default;
     }
   }
 
-  @each $key-size, $size in $fz-avatar {
+  @each $key-size, $fz in $fz-avatar {
     &--#{$key-size} {
-      font-size: $size;
+      font-size: $fz;
     }
   }
 }

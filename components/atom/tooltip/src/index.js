@@ -62,7 +62,7 @@ class AtomTooltip extends Component {
       this.onClickTarget = child.props.onClick
       this.title = child.props.title
 
-      return typeof child?.type !== 'string'
+      return typeof child.type !== 'string'
         ? React.createElement(
             'div',
             {

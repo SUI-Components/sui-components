@@ -71,6 +71,10 @@ $c-atom-tooltip-colors: (
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+
+  &--wrapper {
+    display: inline-flex;
+  }
 }
 
 #{$base-class} {

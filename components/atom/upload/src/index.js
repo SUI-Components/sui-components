@@ -29,6 +29,7 @@ const AtomUpload = ({
   multiple,
   maxSize,
   accept,
+  iconSize = ATOM_ICON_SIZES.large,
   ...props
 }) => {
   const [ready, setReady] = useState(false)
@@ -52,7 +53,7 @@ const AtomUpload = ({
       <div className={cx(BASE_CLASS, `${BASE_CLASS}--${status}`)}>
         <>
           <AtomIcon
-            size={ATOM_ICON_SIZES.large}
+            size={iconSize}
             color={ATOM_ICON_COLORS.currentColor}
             className={classNameIcon}
           >
@@ -150,7 +151,9 @@ AtomUpload.propTypes = {
   accept: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string)
-  ])
+  ]),
+  /** Size of icon */
+  iconSize: PropTypes.oneOf(Object.values(ATOM_ICON_SIZES))
 }
 
 export {STATUSES as uploadStatuses}

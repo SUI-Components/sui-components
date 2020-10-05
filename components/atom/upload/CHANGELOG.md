@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.7.0 (2020-10-05)
+
+
+### Bug Fixes
+
+* fix description of proptypes ([1a4c5fc](https://github.com/SUI-Components/sui-components/commit/1a4c5fc5a2d0d05886a1257c4af6e64ab5e81209))
+* iconSize proptypes ([8cc9268](https://github.com/SUI-Components/sui-components/commit/8cc926815adac5b112cf40aea54396bd5c021383))
+
+
+### Features
+
+* add style props ([7ce891c](https://github.com/SUI-Components/sui-components/commit/7ce891c1c6ba2fd041580ec3c9a564f49d9d55f9))
+* change comment of proptype ([de55a9d](https://github.com/SUI-Components/sui-components/commit/de55a9df06d91ff2359ddbc1fa154ef5ed187237))
+
+
+
 # 2.6.0 (2020-09-01)
 
 

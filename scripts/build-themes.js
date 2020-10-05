@@ -69,8 +69,10 @@ const installThemesPkgs = () =>
     'npm',
     themesPkgs.reduce((acc, pkg) => [...acc, pkg], [
       'i',
+      '--no-optional',
       '--no-save',
       '--no-audit',
+      '--no-fund',
       '--no-package-lock'
     ]),
     {cwd: process.cwd()}

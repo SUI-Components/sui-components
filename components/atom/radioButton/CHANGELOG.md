@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.5.0 (2020-10-05)
+
+
+### Features
+
+* fix radio button when label breaks line ([4c9c532](https://github.com/SUI-Components/sui-components/commit/4c9c532736225d2d5eda9c9a0b732e3a5fb60d5e))
+
+
+
 # 1.4.0 (2020-05-29)
 
 

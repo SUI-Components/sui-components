@@ -8,18 +8,20 @@ services:
 branches:
   only: master
 
-node_js: 10
+node_js: 12
 
 before_install:
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
-before_script:
+install:
   # install npm packages
   - export SUI_CI_TOPIC=install
   - npx @s-ui/ci update-commit-status --state RUN
-  - npx sui-mono phoenix --ci --no-root
+  - npx @s-ui/mono phoenix --ci
   - npm run install:demos -- --ci
   - npm run install:themes
+
+before_script:
   # some tweaks for tests to work
   - export NODE_OPTIONS=--max_old_space_size=4096
   - echo fs.inotify.max_user_instances=524288 | sudo tee -a /etc/sysctl.conf && sysctl -p
@@ -45,7 +47,7 @@ script:
   - rm -rf ./node_modules
   - npm i vercel@latest --no-save --no-fund --no-audit
   - DEPLOYMENT_URL=$(vercel --token $NOW_TOKEN --confirm $VERCEL_PARAMS)
-  - npx @s-ui/ci update-commit-status --state OK $DEPLOYMENT_URL
+  - npx @s-ui/ci update-commit-status --state OK --url $DEPLOYMENT_URL
 
 after_failure:
   - npx @s-ui/ci update-commit-status --state

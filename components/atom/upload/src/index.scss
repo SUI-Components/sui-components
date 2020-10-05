@@ -16,11 +16,12 @@ $fz-atom-upload-text-secondary: $fz-l !default;
 $h-atom-upload-icon: $sz-icon-xl * 2 !default;
 $w-atom-upload-icon: $sz-icon-xl * 2 !default;
 $m-atom-upload-text-secondary: 0px 0px $m-l 0px !default;
-$m-atom-upload-text-main: $m-l 0px $m-l 0px !default;
 $fw-atom-upload-text-main: $fw-semi-bold !default;
 $fw-atom-upload-text-secondary: $fw-light !default;
 $c-atom-upload-text-main: $c-atom-upload !default;
 $c-atom-upload-text-secondary: $c-atom-upload !default;
+$jc-atom-upload-content: inherit !default;
+$m-atom-upload-main-text: $m-l 0 !default;
 
 .sui-AtomUpload {
   align-items: $ai-atom-upload;
@@ -51,6 +52,7 @@ $c-atom-upload-text-secondary: $c-atom-upload !default;
       font-size: $fz-atom-upload-text;
       font-weight: $fw-atom-upload-text-main;
       margin: $m-atom-upload-text-main;
+      margin: $m-atom-upload-main-text;
     }
 
     &-secondary {
@@ -77,5 +79,9 @@ $c-atom-upload-text-secondary: $c-atom-upload !default;
 
   &--active {
     cursor: pointer;
+  }
+
+  &--upload {
+    justify-content: $jc-atom-upload-content;
   }
 }

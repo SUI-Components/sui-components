@@ -209,6 +209,11 @@ export default () => (
           button={<SuiButton>Submit</SuiButton>}
         />
       </div>
+
+      <div style={field}>
+        <h4>Default value</h4>
+        <AtomInput defaultValue="Default value" />
+      </div>
     </div>
   </div>
 )

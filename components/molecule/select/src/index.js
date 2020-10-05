@@ -256,7 +256,10 @@ MoleculeSelect.defaultProps = {
   selectSize: SELECT_SIZES.MEDIUM
 }
 
-export default withOpenToggle(MoleculeSelect)
+const WithOpenToggleMoleculeSelect = withOpenToggle(MoleculeSelect)
+WithOpenToggleMoleculeSelect.displayName = 'MoleculeSelect'
+
+export default WithOpenToggleMoleculeSelect
 export {SIZES as moleculeSelectDropdownListSizes}
 export {SELECT_SIZES as moleculeSelectSizes}
 export {SELECT_STATES as moleculeSelectStates}

@@ -152,9 +152,7 @@ AtomUpload.propTypes = {
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string)
   ]),
-  /** Size of icon
-   * @param {(ATOM_ICON_SIZES.extraSmall|ATOM_ICON_SIZES.small|ATOM_ICON_SIZES.medium| ATOM_ICON_SIZES.large|ATOM_ICON_SIZES.extraLarge)}
-   * */
+  /** Size of icon */
   iconSize: PropTypes.oneOf(Object.values(ATOM_ICON_SIZES))
 }
 

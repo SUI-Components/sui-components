@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.22.0 (2020-10-05)
+
+
+### Features
+
+* add modificator class when children include a wrapper ([72dc677](https://github.com/SUI-Components/sui-components/commit/72dc67740329fb2c2351c9a5692a01ee8caca58b)), closes [#1223](https://github.com/SUI-Components/sui-components/issues/1223)
+* fix children element when include component ([0c1886d](https://github.com/SUI-Components/sui-components/commit/0c1886d171e1e87198b9abe71e8f9966de04d664)), closes [#1223](https://github.com/SUI-Components/sui-components/issues/1223)
+* remove optional chaining operator to read type key ([26af2c1](https://github.com/SUI-Components/sui-components/commit/26af2c1deb4582a959a49c0469180bfeda9060af))
+
+
+
 # 1.21.0 (2020-10-01)
 
 

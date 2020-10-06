@@ -11,6 +11,7 @@
   "dependencies": {
     "@s-ui/component-dependencies": "1",
     "@s-ui/react-atom-button": "1",
+    "@s-ui/react-atom-icon": "1",
     "react-dropzone": "5.1.1"
   },
   "keywords": [],

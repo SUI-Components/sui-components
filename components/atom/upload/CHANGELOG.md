@@ -2,19 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.8.0 (2020-10-07)
+
+
+### Bug Fixes
+
+* fix sass variable name ([3a17aff](https://github.com/SUI-Components/sui-components/commit/3a17aff39da7ec97253354112f0ed10325ba81a5))
+
+
+
 # 2.7.0 (2020-10-05)
 
 
 ### Bug Fixes
 
+* add css vars and remove atomIcon ussage ([282fc45](https://github.com/SUI-Components/sui-components/commit/282fc45784aa7a2fd51db6a5f603a454f2e8dee7))
 * fix description of proptypes ([1a4c5fc](https://github.com/SUI-Components/sui-components/commit/1a4c5fc5a2d0d05886a1257c4af6e64ab5e81209))
 * iconSize proptypes ([8cc9268](https://github.com/SUI-Components/sui-components/commit/8cc926815adac5b112cf40aea54396bd5c021383))
+* rever const name change ([2206d81](https://github.com/SUI-Components/sui-components/commit/2206d81792c493ffe6cea8d43dce7ddd80394679))
 
 
 ### Features
 
 * add style props ([7ce891c](https://github.com/SUI-Components/sui-components/commit/7ce891c1c6ba2fd041580ec3c9a564f49d9d55f9))
 * change comment of proptype ([de55a9d](https://github.com/SUI-Components/sui-components/commit/de55a9df06d91ff2359ddbc1fa154ef5ed187237))
+* force major ([ce69f84](https://github.com/SUI-Components/sui-components/commit/ce69f843774d4e4308a203f77629d5b3a4aa5470))
+
+
+### BREAKING CHANGES
+
+* no atom-icon dep
 
 
 

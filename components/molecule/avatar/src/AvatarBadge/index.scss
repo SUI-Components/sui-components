@@ -1,0 +1,51 @@
+$s-avatar-badge: (
+  xlarge: 20px,
+  large: 16px,
+  medium: 12px,
+  small: 8px
+) !default;
+
+$bw-avatar-badge: (
+  xlarge: 3px,
+  large: 2px,
+  medium: 2px,
+  small: 1px
+) !default;
+
+.sui-MoleculeAvatarBadge {
+  border-radius: $bdrs-rounded;
+  position: absolute;
+  box-sizing: border-box;
+  right: 0;
+  z-index: 1;
+
+  &--error {
+    background-color: $c-error;
+  }
+
+  &--success {
+    background-color: $c-success;
+  }
+
+  &--top {
+    top: 0;
+  }
+
+  &--bottom {
+    bottom: 0;
+  }
+
+  @each $key-size, $size in $s-avatar-badge {
+    &--#{$key-size} {
+      width: $size;
+      min-width: $size;
+      height: $size;
+    }
+  }
+
+  @each $key-size, $bw in $bw-avatar-badge {
+    &--#{$key-size} {
+      border: $bw solid;
+    }
+  }
+}

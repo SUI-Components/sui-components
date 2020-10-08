@@ -46,7 +46,9 @@ const MoleculeTabs = ({variant, type, children, onChange}) => {
   return (
     <div className={className}>
       <ul className={CLASS_SCROLLER}>{extendedChildren}</ul>
-      <div className={CLASS_CONTENT}>{activeTabContent}</div>
+      {activeTabContent ? (
+        <div className={CLASS_CONTENT}>{activeTabContent}</div>
+      ) : null}
     </div>
   )
 }

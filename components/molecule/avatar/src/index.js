@@ -27,11 +27,7 @@ const MoleculeAvatar = ({
   ...others
 }) => {
   const baseClassName = 'sui-MoleculeAvatar'
-  const className = cx(
-    baseClassName,
-    classNameProp,
-    `${baseClassName}--${size}`
-  )
+  const className = cx(baseClassName, `${baseClassName}--${size}`)
   const backgroundColor = useConvertStringToHex(name)
   const children = React.Children.toArray(childrenProp)
     .filter(child => React.isValidElement(child))

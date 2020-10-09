@@ -1,4 +1,5 @@
 @import '~@s-ui/theme/lib/index';
+@import './buttonSpinnerIcon/index';
 
 $base-class: '.sui-AtomButton';
 
@@ -119,7 +120,8 @@ $icon-stroke-color: currentColor !default;
 
 @mixin button-icon($size, $margin) {
   & #{$base-class}-leftIcon,
-  & #{$base-class}-rightIcon {
+  & #{$base-class}-rightIcon,
+  & #{$base-class}-centerIcon {
     &,
     & [class*='Icon'] {
       height: $size;
@@ -137,6 +139,8 @@ $icon-stroke-color: currentColor !default;
 }
 
 #{$base-class} {
+  $self: &;
+
   @include reset-button;
   @include button-icon($icon-sz-atom-button, $icon-m-atom-button);
 
@@ -200,6 +204,17 @@ $icon-stroke-color: currentColor !default;
     height: 100%;
     pointer-events: none;
   }
+
+  &--loading {
+    #{ $self }-inner {
+      justify-content: center;
+    }
+
+    #{ $self }-text {
+      opacity: 0;
+    }
+  }
+
   // link
   &#{$base-class}--link:not(a) {
     background: none;
@@ -220,7 +235,8 @@ $icon-stroke-color: currentColor !default;
 
   // Icons
   &-leftIcon,
-  &-rightIcon {
+  &-rightIcon,
+  &-centerIcon {
     display: inline-flex;
 
     // add compatibility with SuiAtomIcon with correct alignment
@@ -232,6 +248,10 @@ $icon-stroke-color: currentColor !default;
       fill: $icon-fill-color;
       stroke: $icon-stroke-color;
     }
+  }
+
+  &-centerIcon {
+    position: absolute;
   }
 
   // Types and colors

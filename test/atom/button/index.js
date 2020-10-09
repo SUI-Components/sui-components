@@ -1,7 +1,3 @@
-/*
- * Remember: YOUR COMPONENT IS DEFINED GLOBALLY
- * */
-
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
@@ -30,7 +26,7 @@ describe('atom/button', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
-  it('should NOT render null', () => {
+  it('should not render null', () => {
     // Given
     const props = {}
 
@@ -42,17 +38,53 @@ describe('atom/button', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
-  it.skip('example', () => {
-    // Example TO BE DELETED!!!!
-
+  it('should show loader if loading', () => {
     // Given
-    // const props = {}
+    const text = 'Text'
+    const loaderId = 'loader'
+    const props = {
+      children: text,
+      loader: <span data-testid={loaderId} />,
+      isLoading: true
+    }
 
     // When
-    // const {getByRole} = setup(props)
+    const {queryByTestId} = setup(props)
 
     // Then
-    // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(false)
+    expect(queryByTestId(loaderId)).to.be.visible
+  })
+
+  it('should show loader if loading', () => {
+    // Given
+    const loaderId = 'loader'
+    const props = {
+      loader: <span data-testid={loaderId} />,
+      isLoading: true
+    }
+
+    // When
+    const {queryByTestId} = setup(props)
+
+    // Then
+    expect(queryByTestId(loaderId)).to.be.visible
+  })
+
+  it('should show loader if loading and loading text if set', () => {
+    // Given
+    const loadingText = 'Loading'
+    const loaderId = 'loader'
+    const props = {
+      loader: <span data-testid={loaderId} />,
+      loadingText,
+      isLoading: true
+    }
+
+    // When
+    const {getByText, queryByTestId} = setup(props)
+
+    // Then
+    expect(getByText(loadingText)).to.be.visible
+    expect(queryByTestId(loaderId)).to.be.visible
   })
 })

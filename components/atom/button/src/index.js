@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-
 import {
   CLASS,
   COLORS,
@@ -13,9 +12,9 @@ import {
   SIZES,
   TYPES
 } from './config'
-
 import Button from './Button'
 import ButtonIcon from './ButtonIcon'
+import ButtonSpinnerIcon from './ButtonSpinnerIcon'
 
 const createClasses = (array, sufix = '') => {
   return array.reduce(
@@ -87,7 +86,11 @@ const AtomButton = props => {
     size,
     design,
     title,
-    type
+    disabled,
+    isLoading,
+    loadingText,
+    type,
+    loader = <ButtonSpinnerIcon />
   } = getPropsWithDefaultValues(props)
 
   const classNames = cx(
@@ -98,27 +101,53 @@ const AtomButton = props => {
     groupPosition && `${CLASS}-group ${CLASS}-group--${groupPosition}`,
     groupPosition && focused && `${CLASS}-group--focused`,
     size && CLASSES[size],
-    getModifiers(props).map(key => CLASSES[key]),
+    getModifiers({...props, disabled: disabled || isLoading}).map(
+      key => CLASSES[key]
+    ),
     !children && CLASSES.empty,
+    {
+      [`${CLASS}--loading`]: isLoading
+    },
     className
   )
 
   const newProps = cleanProps(props)
 
   return (
-    <Button {...newProps} className={classNames} title={title}>
+    <Button
+      {...newProps}
+      className={classNames}
+      title={title}
+      disabled={disabled || isLoading}
+    >
       <span className={`${CLASS}-inner`}>
-        <ButtonIcon position={ICON_POSITIONS.LEFT} size={size}>
-          {leftIcon}
-        </ButtonIcon>
-        {leftIcon || rightIcon ? (
-          <span className={`${CLASS}-text`}>{children}</span>
+        {isLoading ? (
+          <>
+            <ButtonIcon
+              position={
+                loadingText ? ICON_POSITIONS.LEFT : ICON_POSITIONS.CENTER
+              }
+              size={size}
+            >
+              {loader}
+            </ButtonIcon>
+            {loadingText || <span className={`${CLASS}-text`}>{children}</span>}
+          </>
         ) : (
-          children
+          <>
+            <ButtonIcon position={ICON_POSITIONS.LEFT} size={size}>
+              {leftIcon}
+            </ButtonIcon>
+            {leftIcon || rightIcon ? (
+              <span className={`${CLASS}-text`}>{children}</span>
+            ) : (
+              children
+            )}
+            <ButtonIcon position={ICON_POSITIONS.RIGHT} size={size}>
+              {rightIcon}
+            </ButtonIcon>
+          </>
         )}
-        <ButtonIcon position={ICON_POSITIONS.RIGHT} size={size}>
-          {rightIcon}
-        </ButtonIcon>
       </span>
     </Button>
   )

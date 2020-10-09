@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.17.0 (2020-10-09)
+
+
+### Bug Fixes
+
+* prevent render content element if there is empty ([5896ba0](https://github.com/SUI-Components/sui-components/commit/5896ba09b9e4354ece7ae8310db155468dab3cea))
+
+
+
 # 2.16.0 (2020-10-01)
 
 

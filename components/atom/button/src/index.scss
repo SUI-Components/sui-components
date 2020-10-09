@@ -144,6 +144,7 @@ $icon-stroke-color: currentColor !default;
   @include reset-button;
   @include button-icon($icon-sz-atom-button, $icon-m-atom-button);
 
+  position: relative;
   border: 1px solid;
   border-radius: $bdrs-atom-button;
   box-sizing: border-box;

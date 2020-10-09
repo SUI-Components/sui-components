@@ -131,7 +131,9 @@ const AtomButton = props => {
             >
               {loader}
             </ButtonIcon>
-            {loadingText || <span className={`${CLASS}-text`}>{children}</span>}
+            {(children && loadingText) || (
+              <span className={`${CLASS}-text`}>{children}</span>
+            )}
           </>
         ) : (
           <>

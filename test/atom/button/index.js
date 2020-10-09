@@ -49,28 +49,32 @@ describe('atom/button', () => {
     }
 
     // When
-    const {queryByTestId} = setup(props)
+    const {getByTestId} = setup(props)
 
     // Then
-    expect(queryByTestId(loaderId)).to.be.visible
+    expect(getByTestId(loaderId)).to.be.visible
   })
 
-  it('should show loader if loading', () => {
+  it('should show loading text if loading and there is content', () => {
     // Given
+    const loadingText = 'Loading'
     const loaderId = 'loader'
     const props = {
       loader: <span data-testid={loaderId} />,
+      loadingText,
+      children: 'Button',
       isLoading: true
     }
 
     // When
-    const {queryByTestId} = setup(props)
+    const {getByText, getByTestId} = setup(props)
 
     // Then
-    expect(queryByTestId(loaderId)).to.be.visible
+    expect(getByText(loadingText)).to.be.visible
+    expect(getByTestId(loaderId)).to.be.visible
   })
 
-  it('should show loader if loading and loading text if set', () => {
+  it('should not show loading text if loading and there is no content', () => {
     // Given
     const loadingText = 'Loading'
     const loaderId = 'loader'
@@ -81,10 +85,10 @@ describe('atom/button', () => {
     }
 
     // When
-    const {getByText, queryByTestId} = setup(props)
+    const {queryByText, getByTestId} = setup(props)
 
     // Then
-    expect(getByText(loadingText)).to.be.visible
-    expect(queryByTestId(loaderId)).to.be.visible
+    expect(queryByText(loadingText)).to.be.null
+    expect(getByTestId(loaderId)).to.be.visible
   })
 })

@@ -215,6 +215,18 @@ AtomButton.propTypes = {
    */
   size: PropTypes.oneOf(Object.values(SIZES)),
   /**
+   * If true loading state will be enabled
+   */
+  isLoading: PropTypes.bool,
+  /**
+   * If loading the element will be shown as loader
+   */
+  loader: PropTypes.element,
+  /**
+   * If loading the text will be shown next to the loader
+   */
+  loadingText: PropTypes.string,
+  /**
    * Negative: style for dark backgrounds.
    */
   negative: PropTypes.bool,

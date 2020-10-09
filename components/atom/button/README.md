@@ -70,6 +70,20 @@ return (<div>
 </div>)
 ```
 
+### Button rounded
+
+Use `isRounded` prop to enable rounded borders.
+
+```js
+import Button from '@s-ui/react-atom-button'
+
+return (
+  <Button isRounded>
+    Button
+  </Button>
+)
+```
+
 ### Button inside Form
 
 By default `AtomButton` inside a `form` will submit the form

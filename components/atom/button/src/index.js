@@ -87,7 +87,8 @@ const AtomButton = props => {
     size,
     design,
     title,
-    type
+    type,
+    isRounded
   } = getPropsWithDefaultValues(props)
 
   const classNames = cx(
@@ -100,6 +101,7 @@ const AtomButton = props => {
     size && CLASSES[size],
     getModifiers(props).map(key => CLASSES[key]),
     !children && CLASSES.empty,
+    {[`${CLASS}--rounded`]: isRounded},
     className
   )
 
@@ -193,6 +195,10 @@ AtomButton.propTypes = {
    * Disable: faded with no interaction.
    */
   disabled: PropTypes.bool,
+  /**
+   * If true display rounded corners
+   */
+  isRounded: PropTypes.bool,
   /**
    * Modifier: full width (100%)
    */

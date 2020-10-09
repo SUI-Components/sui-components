@@ -14,7 +14,7 @@ import {
 } from './config'
 import Button from './Button'
 import ButtonIcon from './ButtonIcon'
-import ButtonSpinnerIcon from './ButtonSpinnerIcon'
+import ButtonSpinnerIcon from './buttonSpinnerIcon'
 
 const createClasses = (array, sufix = '') => {
   return array.reduce(

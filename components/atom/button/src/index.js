@@ -187,7 +187,7 @@ AtomButton.propTypes = {
    */
   size: PropTypes.oneOf(Object.values(SIZES)),
   /**
-   * Size of shadow button
+   * Size of button shadow
    */
   elevation: PropTypes.oneOf(Object.values(ELEVATIONS)),
   /**

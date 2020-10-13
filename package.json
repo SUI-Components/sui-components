@@ -4,8 +4,7 @@
   "description": "Mono repo, multi package containing all SUI components.",
   "private": true,
   "workspaces": [
-    "./components/*/*",
-    "./demo/*/*"
+    "components/*/*"
   ],
   "scripts": {
     "build": "sui-studio build",

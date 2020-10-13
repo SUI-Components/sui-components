@@ -18,7 +18,8 @@ install:
   # install npm packages
   - export SUI_CI_TOPIC=install
   - npx @s-ui/ci update-commit-status --state RUN
-  - npm install --legacy-peer-deps --no-package-lock --no-audit --no-fund --no-progress --no-optional
+  - npm install --legacy-peer-deps --no-package-lock --no-audit --no-fund --no-progress --no-optional --loglevel error
+  - npm run install:demos -- --ci
   - npm run install:themes
 
 before_script:

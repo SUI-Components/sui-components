@@ -2,6 +2,9 @@ dist: bionic
 
 language: node_js
 
+cache:
+  npm: false
+
 services:
   - xvfb
 
@@ -16,7 +19,7 @@ before_install:
 
 install:
   # install npm packages
-  - npm install --legacy-peer-deps --no-package-lock --no-audit --no-fund --no-progress --no-optional
+  - npm install --legacy-peer-deps --no-package-lock --no-audit --no-fund --no-progress --no-optional --loglevel error
   - export SUI_CI_TOPIC=install
   - npx @s-ui/ci update-commit-status --state RUN
   - npm run install:demos -- --ci

@@ -3,6 +3,10 @@
   "version": "1.0.2",
   "description": "Mono repo, multi package containing all SUI components.",
   "private": true,
+  "workspaces": [
+    "./components/*/*",
+    "./demo/*/*"
+  ],
   "scripts": {
     "build": "sui-studio build",
     "check:release": "sui-studio check-release",

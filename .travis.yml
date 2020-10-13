@@ -12,13 +12,13 @@ node_js: 12
 
 before_install:
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+  - npm install -g npm@7
 
 install:
   # install npm packages
   - export SUI_CI_TOPIC=install
   - npx @s-ui/ci update-commit-status --state RUN
-  - npx @s-ui/mono phoenix --ci
-  - npm run install:demos -- --ci
+  - npm install --legacy-peer-deps --no-package-lock --no-audit --no-fund --no-progress --no-optional
   - npm run install:themes
 
 before_script:

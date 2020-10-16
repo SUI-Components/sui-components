@@ -27,6 +27,12 @@ const ValueParameter = () => {
 return (
 <div>
   <h1>Switch</h1>
+  <p class="sui-Studio-h4">
+    The switch is the radio button when there’re only 2 exclusive options. “On/off” is a common and clear example for explaining this component.
+    In order to collect the result of this switch there is a callback `onToggle`, this callback receives a flag on `true` if select is active. If you're using a `select` type of this component, `false` means the first option and `true` the second one.
+    There are several two sizes for this component: `default` and `large`.
+  </p>
+
   <h3>Styles</h3>
   <div style={ {...flexInlineContainer, ...stylesSection} } >
     <div style={itemInlineFlex}>
@@ -40,6 +46,15 @@ return (
     <div style={itemInlineFlex}>
       <h4>Disabled</h4>
       <AtomSwitch disabled={true} name='inputSwitchTest'  label='Label title' onToggle={log} />
+    </div>
+  </div>
+
+  <h3>States</h3>
+  <div style={ {...flexInlineContainer, ...stylesSection} } >
+    <div style={itemInlineFlex}>
+      <h4>Disabled</h4>
+      <AtomSwitch value={true} disabled/>
+      <AtomSwitch value={false} disabled/>
     </div>
   </div>
 

@@ -33,7 +33,7 @@ return (
     There are two sizes for this component: `default` and `large`.
   </p>
 
-  <h3>Styles</h3>
+  <h3>Sizes</h3>
   <div style={ {...flexInlineContainer, ...stylesSection} } >
     <div style={itemInlineFlex}>
       <h4>Medium</h4>

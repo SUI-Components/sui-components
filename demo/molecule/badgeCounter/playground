@@ -10,7 +10,7 @@ const Icon = () => (
 )
 
 return (
-  <div>
+  <div style={{padding: '0 16px'}}>
     <h1>Badge Counter</h1>
     <h2>Small</h2>
     <p>
@@ -27,6 +27,7 @@ return (
         <Icon />
       </MoleculeBadgeCounter>
     </p>
+    
     <h2>Medium</h2>
     <p>
       <MoleculeBadgeCounter size="medium" />
@@ -59,6 +60,42 @@ return (
     </p>
     <p>
       <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.MEDIUM}>
+        <Icon />
+      </MoleculeBadgeCounter>
+    </p>
+
+    <h2>Large</h2>
+    <p>
+      <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.LARGE} />
+    </p>
+    <p>
+      <MoleculeBadgeCounter
+        variant={moleculeBadgeCounterVariants.DOT}
+        size={moleculeBadgeCounterSizes.LARGE}
+      />
+    </p>
+    <p>
+      <MoleculeBadgeCounter
+        variant={moleculeBadgeCounterVariants.EXCLAMATION}
+        size={moleculeBadgeCounterSizes.LARGE}
+      />
+    </p>
+    <p>
+      <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.LARGE} label="4" />
+    </p>
+    <p>
+      <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.LARGE} label="42" />
+    </p>
+    <p>
+      <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.LARGE} label="142" />
+    </p>
+    <p>
+      <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.LARGE}>
+        Text
+      </MoleculeBadgeCounter>
+    </p>
+    <p>
+      <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.LARGE}>
         <Icon />
       </MoleculeBadgeCounter>
     </p>

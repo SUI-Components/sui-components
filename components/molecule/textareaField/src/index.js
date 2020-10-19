@@ -133,3 +133,5 @@ MoleculeTextareaField.propTypes = {
 }
 
 export default MoleculeTextareaField
+
+export const MoleculeTextareaSizes = SIZES

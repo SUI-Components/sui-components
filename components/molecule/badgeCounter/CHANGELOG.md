@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.5.0 (2020-10-19)
+
+
+### Bug Fixes
+
+* fix naming ([fbf75a1](https://github.com/SUI-Components/sui-components/commit/fbf75a11a9a9b2cf7d5f217617e12db5f95e202a))
+* fix value using sui-theme ([d266e04](https://github.com/SUI-Components/sui-components/commit/d266e046de60e3a64abccd6d05639ac13fd78e0d))
+
+
+### Features
+
+* add custom prop ([c84a9f7](https://github.com/SUI-Components/sui-components/commit/c84a9f719b8ec81e2c4bfbc0dbf481d97d35016b))
+* add Large size to molecule badgeConter ([6df6cf6](https://github.com/SUI-Components/sui-components/commit/6df6cf614a55414e8552584cca8d153c2918a378))
+
+
+
 # 1.4.0 (2020-05-29)
 
 

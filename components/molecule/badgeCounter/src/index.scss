@@ -2,7 +2,7 @@
 
 $bg-molecule-badge-counter: #ff0057 !default;
 $c-molecule-badge-counter: $c-white !default;
-$br-molecule-badge-counter: 16px !default;
+$br-molecule-badge-counter: calc(2 * $bdrs-xl) !default;
 $bdc-molecule-badge-counter: transparent !default;
 $bds-molecule-badge-counter: solid !default;
 $bdw-molecule-badge-counter: 0 !default;

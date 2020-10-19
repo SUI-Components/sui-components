@@ -91,7 +91,7 @@ MoleculeBadgeCounter.propTypes = {
   /** children */
   children: PropTypes.node,
 
-  /** Custom */
+  /** Allows you to customize the background and text color */
   custom: PropTypes.bool,
 
   /** Number to be displayed inside the bullet */

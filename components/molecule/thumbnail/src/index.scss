@@ -9,6 +9,8 @@ $bdrs-molecule-thumbnail: initial !default;
 $bs-molecule-thumbnail: none !default;
 $p-molecule-thumbnail-image: 0 !default;
 $bgc-molecule-thumbnail-caption: color-variation($c-gray-light, 3) !default;
+$c-molecule-thumbnail-caption: $c-primary !default;
+$ta-molecule-thumbnail-caption: center !default;
 $o-molecule-thumbnail: visible !default;
 
 $sizes-molecule-thumbnail: (
@@ -65,12 +67,12 @@ $ratios-molecule-thumbnail: (
   &-caption {
     background: $bgc-molecule-thumbnail-caption;
     border: $bd-molecule-thumbnail;
-    color: $c-primary;
+    color: $c-molecule-thumbnail-caption;
     display: block;
     font-size: $fz-s;
     overflow: hidden;
     padding: $p-m;
-    text-align: center;
+    text-align: $ta-molecule-thumbnail-caption;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 100%;

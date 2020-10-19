@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.5.0 (2020-10-19)
+
+
+### Features
+
+* add vars for color and text align ([57aace1](https://github.com/SUI-Components/sui-components/commit/57aace1cb19196e958ee0a824d47e6f30e947755))
+
+
+
 # 2.4.0 (2020-05-29)
 
 

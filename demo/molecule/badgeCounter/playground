@@ -23,6 +23,12 @@ return (
       <MoleculeBadgeCounter>Text</MoleculeBadgeCounter>
     </p>
     <p>
+      <MoleculeBadgeCounter status={moleculeBadgeCounterStatus.DISABLED} />
+    </p>
+    <p>
+      <MoleculeBadgeCounter status={moleculeBadgeCounterStatus.SELECTED} />
+    </p>
+    <p>
       <MoleculeBadgeCounter>
         <Icon />
       </MoleculeBadgeCounter>
@@ -52,6 +58,12 @@ return (
     </p>
     <p>
       <MoleculeBadgeCounter label="142" />
+    </p>
+    <p>
+      Disabled: <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.MEDIUM} status={moleculeBadgeCounterStatus.DISABLED} label="50" />
+    </p>
+    <p>
+      Selected: <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.MEDIUM} status={moleculeBadgeCounterStatus.SELECTED} label="50" />
     </p>
     <p>
       <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.MEDIUM}>
@@ -90,7 +102,10 @@ return (
       <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.LARGE} label="142" />
     </p>
     <p>
-      <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.LARGE} custom label="50" />
+      Disabled: <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.LARGE} status={moleculeBadgeCounterStatus.DISABLED} label="50" />
+    </p>
+    <p>
+      Selected: <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.LARGE} status={moleculeBadgeCounterStatus.SELECTED} label="50" />
     </p>
     <p>
       <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.LARGE}>

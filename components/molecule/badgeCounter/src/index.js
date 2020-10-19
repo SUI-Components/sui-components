@@ -9,7 +9,8 @@ const CLASS_BULLET = `${BASE_CLASS}-bullet`
 const CLASS_SMALL = `${CLASS_BULLET}-small`
 const CLASS_MEDIUM = `${CLASS_BULLET}-medium`
 const CLASS_LARGE = `${CLASS_BULLET}-large`
-const CLASS_CUSTOM = `${CLASS_BULLET}-custom`
+const CLASS_DISABLED = 'is-disabled'
+const CLASS_SELECTED = 'is-selected'
 
 const CLASS_MEDIUM_THREE_CHARS = `${CLASS_MEDIUM}--threeCharacters`
 const CLASS_LARGE_THREE_CHARS = `${CLASS_LARGE}--threeCharacters`
@@ -18,6 +19,12 @@ const SIZES = {
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large'
+}
+
+const STATUS = {
+  DEFAULT: 'default',
+  DISABLED: 'disabled',
+  SELECTED: 'selected'
 }
 
 const VARIANTS = {
@@ -29,15 +36,17 @@ const MAX_LABEL = '+99'
 
 const MoleculeBadgeCounter = ({
   children,
-  custom = false,
   label = '',
   size,
+  status,
   variant
 }) => {
   const hasLabel = Boolean(label)
   const hasChildren = Boolean(children)
 
   const CLASS_SIZE = getClassSize({size, hasLabel})
+
+  const CLASS_STATUS = getClassStatus({status})
 
   const CLASS_LENGTH_LABEL = getClassLengthLabel({hasLabel, label, size})
 
@@ -52,10 +61,10 @@ const MoleculeBadgeCounter = ({
   const classNameBullet = cx(
     CLASS_BULLET,
     CLASS_SIZE,
+    CLASS_STATUS,
     CLASS_VARIANT,
     CLASS_LENGTH_LABEL,
     {
-      [CLASS_CUSTOM]: custom,
       [CLASS_WITH_CHILDREN]: Boolean(children)
     }
   )
@@ -78,6 +87,13 @@ const getClassSize = ({size, hasLabel}) => {
   return CLASS_SMALL
 }
 
+const getClassStatus = ({status}) => {
+  if (status === STATUS.DISABLED) return CLASS_DISABLED
+  if (status === STATUS.SELECTED) return CLASS_SELECTED
+
+  return ''
+}
+
 const getClassLengthLabel = ({hasLabel, label, size}) => {
   if (!hasLabel || (label + '').length < 3) return ''
 
@@ -91,14 +107,14 @@ MoleculeBadgeCounter.propTypes = {
   /** children */
   children: PropTypes.node,
 
-  /** Allows you to customize the background and text color */
-  custom: PropTypes.bool,
-
   /** Number to be displayed inside the bullet */
   label: PropTypes.number,
 
   /** Size (small, medium or large) */
   size: PropTypes.oneOf(Object.values(SIZES)),
+
+  /** Status (default, disabled or selected) */
+  status: PropTypes.oneOf(Object.values(STATUS)),
 
   /** Variant (dot or exclamation) */
   variant: PropTypes.oneOf(Object.values(VARIANTS))
@@ -107,5 +123,6 @@ MoleculeBadgeCounter.propTypes = {
 export default MoleculeBadgeCounter
 export {
   SIZES as moleculeBadgeCounterSizes,
+  STATUS as moleculeBadgeCounterStatus,
   VARIANTS as moleculeBadgeCounterVariants
 }

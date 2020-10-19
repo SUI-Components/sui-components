@@ -1,7 +1,7 @@
 
 ### MoleculeBreadcrumb
 
-> Molecule Element: SUI Breadcrumb
+> Breadcrumbs, or a breadcrumb navigation, can help to enhance how users navigate to previous page levels of a website, especially if that website has many pages or products.
 
 ## Installation
 

@@ -29,9 +29,14 @@ const breadcrumbItems = [
 return (
   <div>
     <h1>Breadcrumb</h1>
-    <h2>Breadcrumb basic</h2>
-    <BreadcrumbBasic icon={ArrowRight} items={breadcrumbItems} />
-    <h2>Breadcrum basic scrollable</h2>
-    <BreadcrumbBasic icon={ArrowRight} items={breadcrumbItems} isScrollable />
+    <p class="sui-Studio-h4">Breadcrumbs, or a breadcrumb navigation, can help to enhance how users navigate to previous page levels of a website, especially if that website has many pages or products.</p>
+    <div className="sui-Studio-wrapper--light">
+      <h2 className="sui-Studio-h2">Basic</h2>
+      <BreadcrumbBasic icon={ArrowRight} items={breadcrumbItems} />
+    </div>
+    <div className="sui-Studio-wrapper--light">
+      <h2 className="sui-Studio-h2">Basic scrollable</h2>
+      <BreadcrumbBasic icon={ArrowRight} items={breadcrumbItems} isScrollable />
+    </div>
   </div>
 )

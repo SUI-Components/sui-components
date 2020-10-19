@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.6.0 (2020-10-19)
+
+
+### Features
+
+* use status instead of custom property ([bb66c82](https://github.com/SUI-Components/sui-components/commit/bb66c827dc83a7277396f81a5211833257d2a58a))
+
+
+
 # 1.5.0 (2020-10-19)
 
 

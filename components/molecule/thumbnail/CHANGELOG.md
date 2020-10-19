@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.6.0 (2020-10-19)
+
+
+### Features
+
+* add vars for borders and font size ([bb25f93](https://github.com/SUI-Components/sui-components/commit/bb25f93238274f79ff9e61d5c1837065663a4e77))
+
+
+
 # 2.5.0 (2020-10-19)
 
 

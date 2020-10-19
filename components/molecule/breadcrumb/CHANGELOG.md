@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.20.0 (2020-10-19)
+
+
+### Features
+
+* adds description and organize demos ([cb95f60](https://github.com/SUI-Components/sui-components/commit/cb95f606f612922943096d5f08c027a53a97dd3a)), closes [#1246](https://github.com/SUI-Components/sui-components/issues/1246)
+
+
+
 # 1.19.0 (2020-05-29)
 
 

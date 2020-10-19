@@ -9,6 +9,7 @@ const CLASS_BULLET = `${BASE_CLASS}-bullet`
 const CLASS_SMALL = `${CLASS_BULLET}-small`
 const CLASS_MEDIUM = `${CLASS_BULLET}-medium`
 const CLASS_LARGE = `${CLASS_BULLET}-large`
+const CLASS_CUSTOM = `${CLASS_BULLET}-custom`
 
 const CLASS_MEDIUM_THREE_CHARS = `${CLASS_MEDIUM}--threeCharacters`
 const CLASS_LARGE_THREE_CHARS = `${CLASS_LARGE}--threeCharacters`
@@ -24,7 +25,15 @@ const VARIANTS = {
   EXCLAMATION: 'exclamation'
 }
 
-const MoleculeBadgeCounter = ({children, label = '', size, variant}) => {
+const MAX_LABEL = '+99'
+
+const MoleculeBadgeCounter = ({
+  children,
+  custom = false,
+  label = '',
+  size,
+  variant
+}) => {
   const hasLabel = Boolean(label)
   const hasChildren = Boolean(children)
 
@@ -38,7 +47,7 @@ const MoleculeBadgeCounter = ({children, label = '', size, variant}) => {
     [CLASS_WITH_CHILDREN]: hasChildren
   })
 
-  const processedLabel = label.length >= 3 ? '+99' : label
+  const processedLabel = label.length >= 3 ? MAX_LABEL : label
 
   const classNameBullet = cx(
     CLASS_BULLET,
@@ -46,6 +55,7 @@ const MoleculeBadgeCounter = ({children, label = '', size, variant}) => {
     CLASS_VARIANT,
     CLASS_LENGTH_LABEL,
     {
+      [CLASS_CUSTOM]: custom,
       [CLASS_WITH_CHILDREN]: Boolean(children)
     }
   )
@@ -80,6 +90,9 @@ MoleculeBadgeCounter.displayName = 'MoleculeBadgeCounter'
 MoleculeBadgeCounter.propTypes = {
   /** children */
   children: PropTypes.node,
+
+  /** Custom */
+  custom: PropTypes.bool,
 
   /** Number to be displayed inside the bullet */
   label: PropTypes.number,

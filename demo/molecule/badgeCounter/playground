@@ -90,6 +90,9 @@ return (
       <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.LARGE} label="142" />
     </p>
     <p>
+      <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.LARGE} custom label="50" />
+    </p>
+    <p>
       <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.LARGE}>
         Text
       </MoleculeBadgeCounter>

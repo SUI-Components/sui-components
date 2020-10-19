@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 
 import React from 'react'
-import cx from 'classnames'
 import './index.scss'
 
 import MoleculeRating, {

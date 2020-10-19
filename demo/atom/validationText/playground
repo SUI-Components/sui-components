@@ -10,24 +10,36 @@ const input = {
 }
 return (
   <div>
-    <h1>Validation Text</h1>
-    <div style={{marginBottom: '16px'}}>
-      <input style={input}
-        type='text'
-      />
-      <AtomValidationText type={AtomValidationTextTypes.SUCCESS} text='Success validation text'/>
-    </div>
-    <div style={{marginBottom: '16px'}}>
-      <input style={input}
-        type='text'
-      />
-      <AtomValidationText type={AtomValidationTextTypes.ERROR} text='Error validation text'/>
-    </div>
-    <div>
-      <input style={input}
-        type='text'
-      />
-      <AtomValidationText type={AtomValidationTextTypes.ALERT} text='Alert validation text'/>
+    <h1 className="sui-Studio-h1">Validation Text</h1>
+    <p className="sui-Studio-h4">Validation text is used for indicating whether the entered data is correct. It is provided by using the "Help Text" plus one color each.</p>
+    <div className="sui-Studio-wrapper--light">
+      <h2 className="sui-Studio-h2">Type</h2>
+      <div>
+        <div>
+          <p>sucess</p>
+          <input
+            style={input}
+            type='text'
+          />
+          <AtomValidationText type={AtomValidationTextTypes.SUCCESS} text='Success validation text'/>
+        </div>
+        <div>
+          <p>error</p>
+          <input
+            style={input}
+            type='text'
+          />
+          <AtomValidationText type={AtomValidationTextTypes.ERROR} text='Error validation text'/>
+        </div>
+        <div>
+          <p>alert</p>
+          <input
+            style={input}
+            type='text'
+          />
+          <AtomValidationText type={AtomValidationTextTypes.ALERT} text='Alert validation text'/>
+        </div>
+      </div>
     </div>
   </div>
 )

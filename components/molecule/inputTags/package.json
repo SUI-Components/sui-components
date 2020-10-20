@@ -9,9 +9,11 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
     "@s-ui/react-atom-input": "4",
     "@s-ui/react-atom-tag": "2"
+  },
+  "peerDependencies": {
+    "@s-ui/component-dependencies": "1"
   },
   "keywords": [],
   "author": "",

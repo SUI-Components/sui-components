@@ -4,7 +4,6 @@
 $bgc-molecule-thumbnail: transparent !default;
 $bgc-molecule-thumbnail-hover: color-variation($c-primary, 4) !default;
 $bd-molecule-thumbnail: 1px solid transparent !default;
-$bd-molecule-thumbnail-link: $bd-molecule-thumbnail !default;
 $bdc-molecule-thumbnail-hover: $c-primary !default;
 $bdrs-molecule-thumbnail: initial !default;
 $bs-molecule-thumbnail: none !default;
@@ -14,6 +13,7 @@ $c-molecule-thumbnail-caption: $c-primary !default;
 $fz-molecule-thumbnail-caption: $fz-s !default;
 $ta-molecule-thumbnail-caption: center !default;
 $o-molecule-thumbnail: visible !default;
+$bd-molecule-thumbnail-container-image: 0 !default;
 
 $sizes-molecule-thumbnail: (
   large: 144px,
@@ -48,19 +48,31 @@ $ratios-molecule-thumbnail: (
 
   &-link {
     display: inline-block;
-    border: $bd-molecule-thumbnail-link;
-    border-radius: inherit;
+    border: $bd-molecule-thumbnail;
     text-decoration: none;
 
     &:hover {
       border-color: $bdc-molecule-thumbnail-hover;
       background-color: $bgc-molecule-thumbnail-hover;
+
+      .sui-MoleculeThumbnail-containerImage {
+        border: $bd-molecule-thumbnail-container-image;
+        border-color: $bdc-molecule-thumbnail-hover;
+      }
     }
   }
 
-  &--circled > * {
-    border-radius: 50%;
-    overflow: hidden;
+  &--circled {
+    > * {
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .sui-MoleculeThumbnail-containerImage {
+      border-radius: 50%;
+      overflow: hidden;
+      border:$bd-molecule-thumbnail-container-image;
+    }
 
     .sui-MoleculeThumbnail-caption {
       display: none;
@@ -79,6 +91,12 @@ $ratios-molecule-thumbnail: (
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 100%;
+  }
+
+  &-containerImage {
+    border: $bd-molecule-thumbnail-container-image;
+    border-radius: $bdrs-molecule-thumbnail;
+    overflow: $o-molecule-thumbnail;
   }
 
   &--small,

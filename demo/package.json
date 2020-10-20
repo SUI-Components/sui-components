@@ -8,5 +8,8 @@
       "packagesFolder": ".",
       "deepLevel": 3
     }
+  },
+  "dependencies": {
+    "undefined": "^0.1.0"
   }
 }

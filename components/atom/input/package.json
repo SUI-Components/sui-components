@@ -9,8 +9,10 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
     "imask": "3.4.0"
+  },
+  "peerDependencies": {
+    "@s-ui/component-dependencies": "1"
   },
   "keywords": [],
   "author": "",

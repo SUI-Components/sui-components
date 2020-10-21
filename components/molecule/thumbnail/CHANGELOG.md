@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.7.0 (2020-10-21)
+
+
+### Features
+
+* add rules for styling in IJ theme ([f0c8100](https://github.com/SUI-Components/sui-components/commit/f0c8100f30f76402fa998db79956639cbb24c0ab))
+
+
+
 # 2.6.0 (2020-10-19)
 
 

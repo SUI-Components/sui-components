@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.53.0 (2020-10-22)
+
+
+### Bug Fixes
+
+* fix typo ([05825ab](https://github.com/SUI-Components/sui-components/commit/05825ab03f39de489e9e7098d7c5e8519b2b73f6))
+
+
+### Features
+
+* add isLoading and loadingText props support ([3f61841](https://github.com/SUI-Components/sui-components/commit/3f61841b6cec20d85e878e24ef142661e3328fb0))
+* add propTypes ([c9aad89](https://github.com/SUI-Components/sui-components/commit/c9aad891cc54a9b50893646bf3b7b6394e7a12c5))
+* fix some styles and add examples ([b8bb971](https://github.com/SUI-Components/sui-components/commit/b8bb971c12df6e41ee235f2271239a3a98059566))
+
+
+
 # 1.52.0 (2020-10-01)
 
 

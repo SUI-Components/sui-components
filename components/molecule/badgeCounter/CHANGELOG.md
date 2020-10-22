@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-10-22)
+
+
+### Features
+
+* use new brds xxl value ([b7367fd](https://github.com/SUI-Components/sui-components/commit/b7367fd7cbfe58eff2acf7cbb61951581260494b))
+
+
+
 # 1.6.0 (2020-10-19)
 
 

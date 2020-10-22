@@ -1,0 +1,32 @@
+@import '~@s-ui/theme/lib/index';
+@import './settings';
+
+.sui-LayoutGrid {
+  $self: &;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0 -8px;
+  width: calc(100% + 16px);
+  background: blue;
+  @include getAlignContent($align-content);
+
+  &-item {
+    box-sizing: border-box;
+    flex-grow: 0;
+    margin: 0;
+    padding: 16px;
+    @include getItemsSizes($breakpoints, $columns);
+
+    #{$self}-item {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.box {
+  background: gray;
+  padding: 20px;
+  min-height: 200px;
+}

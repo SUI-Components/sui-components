@@ -1,31 +1,29 @@
-$columns: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
-
-$breakpoints: (
+$lg-columns: 12;
+$lg-column-gap: $p-l;
+$lg-breakpoints: (
   sm: 0,
   md: 768px,
   lg: 960px,
   xl: 1280px
 );
 
-$breakpoint-names: map-keys($breakpoxints) !default;
-
 $align-content: stretch flex-start flex-end space-between space-around;
 
 @mixin getItemValue($bpName, $size) {
   &--#{$bpName}-#{$size} {
-    flex-basis: (100% / 12) * $size;
+    flex-basis: (100% / $lg-columns) * $size;
   }
 }
 
-@mixin getItemsSizes($breakpoints, $sizes) {
+@mixin getItemsSizes($breakpoints, $columns) {
   @each $bpName, $bpValue in $breakpoints {
-    @each $size in $sizes {
+    @for $col from 1 through $columns {
       @if ($bpValue != 0) {
         @media (min-width: $bpValue) {
-          @include getItemValue($bpName, $size);
+          @include getItemValue($bpName, $col);
         }
       } @else {
-        @include getItemValue($bpName, $size);
+        @include getItemValue($bpName, $col);
       }
     }
   }
@@ -34,7 +32,7 @@ $align-content: stretch flex-start flex-end space-between space-around;
 @mixin getAlignContent($properties) {
   @each $value in $properties {
     &--#{$value} {
-      align-content: $value;
+      justify-content: $value;
     }
   }
 }

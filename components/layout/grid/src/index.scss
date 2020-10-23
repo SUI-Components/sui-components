@@ -7,7 +7,7 @@
   flex-wrap: wrap;
   list-style: none;
   margin: 0 -8px;
-  width: calc(100% + 16px);
+  width: calc(100% + $lg-column-gap);
   background: blue;
   @include getAlignContent($align-content);
 
@@ -15,8 +15,8 @@
     box-sizing: border-box;
     flex-grow: 0;
     margin: 0;
-    padding: 16px;
-    @include getItemsSizes($breakpoints, $columns);
+    padding: $lg-column-gap;
+    @include getItemsSizes($lg-breakpoints, $lg-columns);
 
     #{$self}-item {
       padding-top: 0;

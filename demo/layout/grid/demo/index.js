@@ -49,13 +49,13 @@ export default () => (
 
     <LayoutGrid>
       <LayoutGridItem sm={6}>
-        <div className="box" />
+        <div className="box">sm: 6</div>
       </LayoutGridItem>
       <LayoutGridItem sm={3}>
-        <div className="box" />
+        <div className="box">sm: 3</div>
       </LayoutGridItem>
       <LayoutGridItem sm={3}>
-        <div className="box" />
+        <div className="box">sm: 3</div>
       </LayoutGridItem>
     </LayoutGrid>
 
@@ -64,58 +64,58 @@ export default () => (
 
     <LayoutGrid>
       <LayoutGridItem sm={6}>
-        <div className="box" />
+        <div className="box">sm: 6</div>
       </LayoutGridItem>
       <LayoutGridItem sm={2}>
-        <div className="box" />
+        <div className="box">sm: 2</div>
       </LayoutGridItem>
       <LayoutGridItem sm={2}>
-        <div className="box" />
+        <div className="box">sm: 2</div>
       </LayoutGridItem>
       <LayoutGridItem sm={2}>
-        <div className="box" />
+        <div className="box">sm: 2</div>
       </LayoutGridItem>
     </LayoutGrid>
 
     <br />
     <br />
 
-    <LayoutGrid>
+    <LayoutGrid alignContent="stretch">
       <LayoutGridItem sm={1}>
-        <div className="box" />
+        <div className="box">sm: 1</div>
       </LayoutGridItem>
       <LayoutGridItem sm={1}>
-        <div className="box" />
+        <div className="box">sm: 1</div>
       </LayoutGridItem>
       <LayoutGridItem sm={1}>
-        <div className="box" />
+        <div className="box">sm: 1</div>
       </LayoutGridItem>
       <LayoutGridItem sm={1}>
-        <div className="box" />
+        <div className="box">sm: 1</div>
       </LayoutGridItem>
       <LayoutGridItem sm={1}>
-        <div className="box" />
+        <div className="box">sm: 1</div>
       </LayoutGridItem>
       <LayoutGridItem sm={1}>
-        <div className="box" />
+        <div className="box">sm: 1</div>
       </LayoutGridItem>
       <LayoutGridItem sm={1}>
-        <div className="box" />
+        <div className="box">sm: 1</div>
       </LayoutGridItem>
       <LayoutGridItem sm={1}>
-        <div className="box" />
+        <div className="box">sm: 1</div>
       </LayoutGridItem>
       <LayoutGridItem sm={1}>
-        <div className="box" />
+        <div className="box">sm: 1</div>
       </LayoutGridItem>
       <LayoutGridItem sm={1}>
-        <div className="box" />
+        <div className="box">sm: 1</div>
       </LayoutGridItem>
       <LayoutGridItem sm={1}>
-        <div className="box" />
+        <div className="box">sm: 1</div>
       </LayoutGridItem>
       <LayoutGridItem sm={1}>
-        <div className="box" />
+        <div className="box">sm: 1</div>
       </LayoutGridItem>
     </LayoutGrid>
   </div>

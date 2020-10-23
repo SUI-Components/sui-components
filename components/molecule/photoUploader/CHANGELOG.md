@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.17.0 (2020-10-23)
+
+
+### Bug Fixes
+
+* install fixed version of file-selector to avoid problems to verticals ([d9fb2c4](https://github.com/SUI-Components/sui-components/commit/d9fb2c41f6905dfced81107c77d651419f066af9))
+
+
+
 # 1.16.0 (2020-07-21)
 
 

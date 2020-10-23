@@ -2,7 +2,7 @@
 
 $bgc-molecule-badge-counter: #ff0057 !default;
 $bg-molecule-badge-counter: $bgc-molecule-badge-counter !default; // deprecated
-$bdrs-molecule-badge-counter: 16px !default;
+$bdrs-molecule-badge-counter: $bdrs-xxl !default;
 $br-molecule-badge-counter: $bdrs-molecule-badge-counter !default; // deprecated
 $bdc-molecule-badge-counter: transparent !default;
 $bds-molecule-badge-counter: solid !default;

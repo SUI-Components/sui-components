@@ -8,7 +8,7 @@
     "build:js": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
-  "@//COMMENT": "file-selector dependency is installed and fixed to 0.1.13 in order to avoid problems with https://github.com/react-dropzone/file-selector/issues/37.",
+  "@//COMMENT": "file-selector dependency is installed and fixed to 0.1.13 in order to avoid problems with https://github.com/react-dropzone/file-selector/issues/37",
   "dependencies": {
     "file-selector": "0.1.13",
     "react-dropzone": "10.2.1",

@@ -11,30 +11,29 @@ export default () => (
         <h2 className="sui-Studio-h2">Size</h2>
         <p className="sui-Studio-p">
           There are three options for{' '}
-          <code className="sui-Studio-code">size</code>
-          <code className="sui-Studio-code">size</code>
-          The are thre options of si
+          <code className="sui-Studio-code">size</code> (small, medium{' '}
+          <small>(default)</small>, large)
         </p>
         <table>
           <tr>
-            <td className="sui-Studio-label">Large</td>
+            <td className="sui-Studio-label">Small</td>
             <td>
-              <AtomTag label="Tag Structure" size={atomTagSizes.LARGE} />
+              <AtomTag label="Tag Structure" size={atomTagSizes.SMALL} />
               <AtomTag
                 closeIcon={<CloseIcon />}
                 label="Close Tag"
-                size={atomTagSizes.LARGE}
+                size={atomTagSizes.SMALL}
               />
               <AtomTag
                 icon={<Icon />}
                 label="Icon Tag"
-                size={atomTagSizes.LARGE}
+                size={atomTagSizes.SMALL}
               />{' '}
               <AtomTag
                 closeIcon={<CloseIcon />}
                 icon={<Icon />}
                 label="Icon & Close Tag"
-                size={atomTagSizes.LARGE}
+                size={atomTagSizes.SMALL}
               />
             </td>
           </tr>
@@ -61,24 +60,24 @@ export default () => (
             </td>
           </tr>
           <tr>
-            <td className="sui-Studio-label">Small</td>
+            <td className="sui-Studio-label">Large</td>
             <td>
-              <AtomTag label="Tag Structure" size={atomTagSizes.SMALL} />
+              <AtomTag label="Tag Structure" size={atomTagSizes.LARGE} />
               <AtomTag
                 closeIcon={<CloseIcon />}
                 label="Close Tag"
-                size={atomTagSizes.SMALL}
+                size={atomTagSizes.LARGE}
               />
               <AtomTag
                 icon={<Icon />}
                 label="Icon Tag"
-                size={atomTagSizes.SMALL}
+                size={atomTagSizes.LARGE}
               />{' '}
               <AtomTag
                 closeIcon={<CloseIcon />}
                 icon={<Icon />}
                 label="Icon & Close Tag"
-                size={atomTagSizes.SMALL}
+                size={atomTagSizes.LARGE}
               />
             </td>
           </tr>
@@ -101,8 +100,8 @@ export default () => (
       <div className="sui-Studio-wrapper--light">
         <h2 className="sui-Studio-h2">Actionable</h2>
         <p className="sui-Studio-p">
-          Use the <code className="sui-Studio-code">type</code> in order to
-          color it as desired from a high order component.
+          Actionable tags can be used as an anchor. Same as{' '}
+          <code className="sui-Studio-code">{'<a>'}</code>.
         </p>
         <div>
           <AtomTag

@@ -6,13 +6,16 @@ export default () => (
   <div className="sui-StudioPreview">
     <div className="sui-StudioPreview-content sui-StudioDemo-preview">
       <h1 className="sui-Studio-h1">Tag</h1>
-      <p className="sui-Studio-h4">Lorem ipsum dolor sit amet...</p>
+      <p className="sui-Studio-h4">
+        We use tags to visually emphasise features of the UI and make
+        recognition and interaction easier.
+      </p>
       <div className="sui-Studio-wrapper--light">
         <h2 className="sui-Studio-h2">Size</h2>
         <p className="sui-Studio-p">
-          There are three options for{' '}
-          <code className="sui-Studio-code">size</code> (small, medium{' '}
-          <small>(default)</small>, large)
+          Tags structure can have 3 main sizes: Small, medium{' '}
+          <small>(default)</small> and large. You can use this prop{' '}
+          <code className="sui-Studio-code">size</code> to modify it.
         </p>
         <table>
           <tr>
@@ -83,7 +86,6 @@ export default () => (
           </tr>
         </table>
       </div>
-
       <div className="sui-Studio-wrapper--light">
         <h2 className="sui-Studio-h2">Types</h2>
         <p className="sui-Studio-p">
@@ -96,12 +98,12 @@ export default () => (
           <AtomTag label="5 min ago" type="date" />
         </div>
       </div>
-
       <div className="sui-Studio-wrapper--light">
         <h2 className="sui-Studio-h2">Actionable</h2>
         <p className="sui-Studio-p">
           Actionable tags can be used as an anchor. Same as{' '}
-          <code className="sui-Studio-code">{'<a>'}</code>.
+          <code className="sui-Studio-code">{'<a>'}</code> to define an
+          interactivity with the component.
         </p>
         <div>
           <AtomTag
@@ -133,7 +135,10 @@ export default () => (
       <div className="sui-Studio-wrapper--light">
         <h2 className="sui-Studio-h2">Icons</h2>
         <p className="sui-Studio-p">
-          Use the <code className="sui-Studio-code">icon</code>.
+          Tags can include an action icon (generally a close icon). This icon
+          will always be located to the right of content. You can add use the{' '}
+          <code className="sui-Studio-code">icon</code> and{' '}
+          <code className="sui-Studio-code">closeIcon</code> to added a icon.
         </p>
         <div>
           <AtomTag
@@ -154,13 +159,28 @@ export default () => (
             target="_blank"
           />
         </div>
-
-        <p>
-          Only actionable tags can have{' '}
-          <code className="sui-Studio-code">iconPlacement="right"</code>
+        <ul className="sui-Studio-ul">
+          <li>
+            <b>Icons are optional</b> and can be placed either on the right or
+            the left side, but never on both at the same time.
+          </li>
+          <li>
+            Only actionable tags can have{' '}
+            <code className="sui-Studio-code">iconPlacement="right"</code>.
+          </li>
+        </ul>
+        <p className="sui-Studio-p">___</p>
+        <p className="sui-Studio-p">
+          You can use a handler through the property with prop{' '}
+          <code className="sui-Studio-code">onClose</code> to add event handler.
         </p>
+        <AtomTag
+          closeIcon={<CloseIcon />}
+          label="Close Tag"
+          onClose={() => window.alert('close!')}
+          responsive
+        />
       </div>
-
       <div className="sui-Studio-wrapper--light">
         <h2 className="sui-Studio-h2">Responsive</h2>
         <p className="sui-Studio-p">

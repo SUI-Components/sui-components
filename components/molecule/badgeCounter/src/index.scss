@@ -1,14 +1,13 @@
 @import '~@s-ui/theme/lib/index';
 
-$bgc-molecule-badge-counter: #ff0057 !default;
-$bg-molecule-badge-counter: $bgc-molecule-badge-counter !default; // deprecated
-$bdrs-molecule-badge-counter: $bdrs-xxl !default;
-$br-molecule-badge-counter: $bdrs-molecule-badge-counter !default; // deprecated
+$bg-molecule-badge-counter: #ff0057 !default;
+$c-molecule-badge-counter: $c-white !default;
+$br-molecule-badge-counter: $bdw-xl !default;
 $bdc-molecule-badge-counter: transparent !default;
 $bds-molecule-badge-counter: solid !default;
 $bdw-molecule-badge-counter: 0 !default;
-$c-molecule-badge-counter: $c-white !default;
 $fz-molecule-badge-counter: $fz-xxs !default;
+$z-molecule-badge-counter: 1 !default;
 
 /* small */
 $molecule-badge-counter-small-diameter: 12px !default;
@@ -22,29 +21,13 @@ $molecule-badge-counter-medium-diameter-dot: 5px !default;
 $molecule-badge-counter-medium-offset-top: -6px !default;
 $molecule-badge-counter-medium-offset-right: -12px !default;
 
-/* large */
-$molecule-badge-counter-large-diameter: 24px !default;
-$molecule-badge-counter-large-diameter-dot: 6px !default;
-$molecule-badge-counter-large-offset-top: -12px !default;
-$molecule-badge-counter-large-offset-right: -22px !default;
-$fz-molecule-badge-counter-large: $fz-xs !default;
-
-/* disabled */
-$bgc-molecule-badge-counter-disabled: $c-gray-light-3 !default;
-$c-molecule-badge-counter-disabled: $c-gray !default;
-
-/* selected */
-$bgc-molecule-badge-counter-selected: $c-primary-light-3 !default;
-$c-molecule-badge-counter-selected: $c-primary !default;
-
 .sui-MoleculeBadgeCounter {
   display: inline-block;
   position: relative;
 
   &-bullet {
-    $bullet: &;
     align-items: center;
-    background-color: $bgc-molecule-badge-counter;
+    background-color: $bg-molecule-badge-counter;
     border-color: $bdc-molecule-badge-counter;
     border-style: $bds-molecule-badge-counter;
     border-width: $bdw-molecule-badge-counter;
@@ -54,28 +37,6 @@ $c-molecule-badge-counter-selected: $c-primary !default;
     font-size: $fz-molecule-badge-counter;
     justify-content: center;
 
-    &.is-disabled {
-      background-color: $bgc-molecule-badge-counter-disabled;
-      color: $c-molecule-badge-counter-disabled;
-    }
-  
-    &.is-selected {
-      background-color: $bgc-molecule-badge-counter-selected;
-      color: $c-molecule-badge-counter-selected;
-    }
-
-    &-dot {
-      background-color: $c-white;
-      border-style: solid;
-      border-color: $bgc-molecule-badge-counter;
-    }
-
-    &-exclamation {
-      &::after {
-        content: '!';
-      }
-    }
-
     &-small {
       height: $molecule-badge-counter-small-diameter;
       width: $molecule-badge-counter-small-diameter;
@@ -84,10 +45,13 @@ $c-molecule-badge-counter-selected: $c-primary !default;
         position: absolute;
         right: $molecule-badge-counter-small-offset-right;
         top: $molecule-badge-counter-small-offset-top;
+        z-index: $z-molecule-badge-counter;
       }
 
-      &#{$bullet}-dot {
-        border-width: $molecule-badge-counter-small-diameter-dot;
+      &-dot {
+        background-color: $c-white;
+        border: $molecule-badge-counter-small-diameter-dot solid
+          $bg-molecule-badge-counter;
       }
     }
 
@@ -99,36 +63,24 @@ $c-molecule-badge-counter-selected: $c-primary !default;
         position: absolute;
         right: $molecule-badge-counter-medium-offset-right;
         top: $molecule-badge-counter-medium-offset-top;
+        z-index: $z-molecule-badge-counter;
       }
 
-      &#{$bullet}-dot {
-        border-width: $molecule-badge-counter-medium-diameter-dot;
+      &-dot {
+        background-color: $c-white;
+        border: $molecule-badge-counter-medium-diameter-dot solid
+          $bg-molecule-badge-counter;
+      }
+
+      &-exclamation {
+        &::after {
+          content: '!';
+        }
       }
 
       &--threeCharacters {
-        border-radius: $bdrs-molecule-badge-counter;
+        border-radius: $br-molecule-badge-counter;
         padding: 0 $p-s;
-      }
-    }
-
-    &-large {
-      font-size: $fz-molecule-badge-counter-large;
-      height: $molecule-badge-counter-large-diameter;
-      min-width: $molecule-badge-counter-large-diameter;
-
-      .sui-MoleculeBadgeCounter--withChildren & {
-        position: absolute;
-        right: $molecule-badge-counter-large-offset-right;
-        top: $molecule-badge-counter-large-offset-top;
-      }
-
-      &#{$bullet}-dot {
-        border-width: $molecule-badge-counter-large-diameter-dot;
-      }
-
-      &--threeCharacters {
-        border-radius: $bdrs-molecule-badge-counter;
-        padding: 0 $p-m;
       }
     }
   }

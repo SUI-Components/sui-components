@@ -33,6 +33,10 @@ $badges: (
     bgc: $c-accent,
     c: $c-white
   ),
+  neutral: (
+    bgc: $c-white,
+    c: $c-gray-dark-3
+  ),
   primary: (
     bgc: $c-primary,
     c: $c-white
@@ -45,6 +49,7 @@ $badge-transparent: (
   alert: $c-alert,
   info: $c-gray,
   new: $c-accent,
+  neutral: $c-white,
   primary: $c-primary
 ) !default;
 

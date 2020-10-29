@@ -17,6 +17,7 @@ return (
         <AtomBadge label='info' type={atomBadgeTypes.INFO}/>
         <AtomBadge label='alert' type={atomBadgeTypes.ALERT}/>
         <AtomBadge label='new' type={atomBadgeTypes.NEW}/>
+        <AtomBadge label='neutral' type={atomBadgeTypes.NEUTRAL}/>
         <AtomBadge label='primary' type={atomBadgeTypes.PRIMARY}/>
       </div>
       <p className="sui-Studio-p">___</p>

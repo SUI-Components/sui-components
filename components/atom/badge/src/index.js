@@ -16,6 +16,7 @@ const TYPES = {
   INFO: 'info',
   ALERT: 'alert',
   NEW: 'new',
+  NEUTRAL: 'neutral',
   PRIMARY: 'primary'
 }
 

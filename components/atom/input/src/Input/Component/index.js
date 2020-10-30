@@ -111,7 +111,7 @@ const Input = ({
     <input
       className={className}
       tabIndex={tabIndex}
-      disabled={disabled || readOnly}
+      disabled={disabled}
       readOnly={readOnly}
       id={id}
       name={name}

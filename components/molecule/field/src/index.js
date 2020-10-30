@@ -162,16 +162,32 @@ MoleculeField.propTypes = {
   name: PropTypes.string.isRequired,
 
   /** Success message to display when success state  */
-  successText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  successText: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.boo,
+    PropTypes.elementl
+  ]),
 
   /** Error message to display when error state  */
-  errorText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  errorText: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+    PropTypes.element
+  ]),
 
   /** Error message to display when alert state  */
-  alertText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  alertText: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+    PropTypes.element
+  ]),
 
   /** Help Text to display */
-  helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  helpText: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+    PropTypes.element
+  ]),
 
   /** Boolean to decide if elements should be set inline */
   inline: PropTypes.bool,

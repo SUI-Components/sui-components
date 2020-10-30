@@ -162,7 +162,7 @@ MoleculeField.propTypes = {
   name: PropTypes.string.isRequired,
 
   /** Success message to display when success state  */
-  successText: PropTypes.oneOfType([PropTypes.boo, PropTypes.element]),
+  successText: PropTypes.oneOfType([PropTypes.bool, PropTypes.element]),
 
   /** Error message to display when error state  */
   errorText: PropTypes.oneOfType([PropTypes.bool, PropTypes.element]),

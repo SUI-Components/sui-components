@@ -26,6 +26,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@s-ui/documentation-library": "1",
     "@s-ui/helpers": "1",
     "@s-ui/mono": "1",
     "@s-ui/precommit": "2",

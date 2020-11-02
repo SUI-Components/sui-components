@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.18.0 (2020-10-27)
+
+
+### Bug Fixes
+
+* comment issue redirection ([5e16429](https://github.com/SUI-Components/sui-components/commit/5e164299deb2f2034d186e1f03789c4da811b512))
+* rollback usage of fixed version as new version has been released with t ([86736b9](https://github.com/SUI-Components/sui-components/commit/86736b9ab7fff4136770ab30514a69011c099e0e))
+
+
+
 # 1.17.0 (2020-10-23)
 
 

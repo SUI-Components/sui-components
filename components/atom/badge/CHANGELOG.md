@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.16.0 (2020-10-30)
+
+
+### Features
+
+* add NEUTRAL type ([0a67ed4](https://github.com/SUI-Components/sui-components/commit/0a67ed402819c9fb390525f497e42415108aa151))
+* change color with transparent prop ([8d85d7b](https://github.com/SUI-Components/sui-components/commit/8d85d7b39abc4edb77f16a1b4d7ed043e6ff13f0))
+
+
+
 # 1.15.0 (2020-07-31)
 
 

@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-10-27)
+
+
+### Features
+
+* add z-index support ([a7cd9ca](https://github.com/SUI-Components/sui-components/commit/a7cd9ca6ae0937b6ae6c3ba69378fbb458e7b414))
+* update with master ([10309ae](https://github.com/SUI-Components/sui-components/commit/10309aec16a8da1560a6ba75c8860ae2625f5125))
+
+
+
+# 1.7.0 (2020-10-22)
+
+
+### Features
+
+* use new brds xxl value ([b7367fd](https://github.com/SUI-Components/sui-components/commit/b7367fd7cbfe58eff2acf7cbb61951581260494b))
+
+
+
 # 1.6.0 (2020-10-19)
 
 

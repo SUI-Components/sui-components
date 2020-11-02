@@ -66,7 +66,8 @@ export const MODIFIERS = [
  */
 export const ICON_POSITIONS = {
   LEFT: 'left',
-  RIGHT: 'right'
+  RIGHT: 'right',
+  CENTER: 'center'
 }
 
 /**

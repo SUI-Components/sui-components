@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.24.0 (2020-10-27)
+
+
+### Features
+
+* remove browser  native arrows appearance in input type number ([76dd119](https://github.com/SUI-Components/sui-components/commit/76dd1194101ce3781db12924a3ec8a226f965533)), closes [#1274](https://github.com/SUI-Components/sui-components/issues/1274)
+
+
+
 # 4.23.0 (2020-09-24)
 
 

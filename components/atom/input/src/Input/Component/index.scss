@@ -66,4 +66,14 @@ $class-read-only: '#{$base-class}--readOnly';
       border-color: $color;
     }
   }
+
+  &[type='number'] {
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+      margin: 0;
+    }
+  }
 }

@@ -4,14 +4,16 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "build": "npx rimraf ./lib && npx mkdirp ./lib && npm run build:js && npm run build:styles",
+    "prepare": "npx rimraf ./lib && npx mkdirp ./lib && npm run build:js && npm run build:styles",
     "build:js": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
     "@s-ui/react-molecule-select": "1",
     "@s-ui/react-molecule-field": "1"
+  },
+  "peerDependencies": {
+    "@s-ui/component-dependencies": "1"
   },
   "keywords": [],
   "author": "",

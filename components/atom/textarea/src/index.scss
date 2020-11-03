@@ -3,6 +3,8 @@
 
 $short-num-lines: 5 !default;
 $long-num-lines: 7 !default;
+$short-num-lines-atom-textarea: $short-num-lines !default;
+$long-num-lines-atom-textarea: $long-num-lines !default;
 
 $p-atom-textarea: 2px !default;
 $pm-atom-textarea: $p-m !default; // deprecated
@@ -55,13 +57,13 @@ $base-class: '.sui-AtomTextarea';
 
   &--short {
     height: calc(
-      (#{$lh-atom-textarea} * #{$short-num-lines}) + #{$pt-atom-textarea}
+      (#{$lh-atom-textarea} * #{$short-num-lines-atom-textarea}) + #{$pt-atom-textarea}
     );
   }
 
   &--long {
     height: calc(
-      (#{$lh-atom-textarea} * #{$long-num-lines}) + #{$pt-atom-textarea}
+      (#{$lh-atom-textarea} * #{$long-num-lines-atom-textarea}) + #{$pt-atom-textarea}
     );
   }
 

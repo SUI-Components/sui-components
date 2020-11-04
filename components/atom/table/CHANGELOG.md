@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.10.0 (2020-11-02)
+
+
+### Bug Fixes
+
+* remove Optiona Chaining to generate the API documentation ([44d26aa](https://github.com/SUI-Components/sui-components/commit/44d26aa3bfe6e67b70fd6e8e06e3aae391ece7f3))
+
+
+
 # 1.9.0 (2020-10-02)
 
 

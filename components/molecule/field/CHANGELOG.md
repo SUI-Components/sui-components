@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.26.0 (2020-11-02)
+
+
+### Bug Fixes
+
+* typo ([cc50aa2](https://github.com/SUI-Components/sui-components/commit/cc50aa27b879108e867fe450b0f7a6970be17f28))
+
+
+### Features
+
+* accept element in successText, errorText, alertText, helpText ([ca90d60](https://github.com/SUI-Components/sui-components/commit/ca90d606db665cc520024afc0f33a8365c54c746))
+* remove string since it is a subset of element ([44b5d2e](https://github.com/SUI-Components/sui-components/commit/44b5d2ec27f3996eaeafbd2cc93f8d72cb1dba3e))
+
+
+
 # 1.25.0 (2020-05-29)
 
 

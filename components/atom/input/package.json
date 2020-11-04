@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-atom-input",
-  "version": "4.23.0",
+  "version": "5.0.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

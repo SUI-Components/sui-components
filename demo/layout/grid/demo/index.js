@@ -4,119 +4,53 @@ import LayoutGrid, {
 } from '../../../../components/layout/grid/src'
 
 export default () => (
-  <div className="SUI-Preview">
-    <LayoutGrid>
-      <LayoutGridItem sm={6} md={3} lg={10}>
-        <div className="box">
-          sm: 6<br />
-          md: 3<br />
-          lg: 10
+  <div className="sui-StudioPreview">
+    <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+      <h1 className="sui-Studio-h1">Grid</h1>
+      <p className="sui-Studio-h4">
+        We use tags to visually emphasise features of the UI and make
+        recognition and interaction easier.
+      </p>
+      <div className="sui-Studio-wrapper--light">
+        <h2 className="sui-Studio-h2">Size</h2>
+        <p className="sui-Studio-p">
+          Tags structure can have 3 main sizes: Small, medium{' '}
+          <small>(default)</small> and large. You can use this prop{' '}
+          <code className="sui-Studio-code">size</code> to modify it.
+        </p>
+        <div>
+          <LayoutGrid>
+            <LayoutGridItem sm={3}>
+              <div className="box">
+                sm: 6<br />
+                md: 3<br />
+                lg: 10
+              </div>
+            </LayoutGridItem>
+            <LayoutGridItem sm={3}>
+              <div className="box">
+                sm: 6<br />
+                md: 3<br />
+                lg: 10
+              </div>
+            </LayoutGridItem>
+            <LayoutGridItem sm={3}>
+              <div className="box">
+                sm: 6<br />
+                md: 3<br />
+                lg: 10
+              </div>
+            </LayoutGridItem>
+            <LayoutGridItem sm={3}>
+              <div className="box">
+                sm: 6<br />
+                md: 3<br />
+                lg: 10
+              </div>
+            </LayoutGridItem>
+          </LayoutGrid>
         </div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={6} md={9} lg={2}>
-        <div className="box">
-          sm: 6<br />
-          md: 9<br />
-          lg: 2
-        </div>
-      </LayoutGridItem>
-    </LayoutGrid>
-
-    <br />
-    <br />
-
-    <LayoutGrid>
-      <LayoutGridItem sm={3}>
-        <div className="box">
-          sm: 6<br />
-          md: 9<br />
-          lg: 2
-        </div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={3}>
-        <div className="box">sm: 3</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={3}>
-        <div className="box">sm: 3</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={3}>
-        <div className="box">sm: 3</div>
-      </LayoutGridItem>
-    </LayoutGrid>
-
-    <br />
-    <br />
-
-    <LayoutGrid>
-      <LayoutGridItem sm={6}>
-        <div className="box">sm: 6</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={3}>
-        <div className="box">sm: 3</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={3}>
-        <div className="box">sm: 3</div>
-      </LayoutGridItem>
-    </LayoutGrid>
-
-    <br />
-    <br />
-
-    <LayoutGrid>
-      <LayoutGridItem sm={6}>
-        <div className="box">sm: 6</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={2}>
-        <div className="box">sm: 2</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={2}>
-        <div className="box">sm: 2</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={2}>
-        <div className="box">sm: 2</div>
-      </LayoutGridItem>
-    </LayoutGrid>
-
-    <br />
-    <br />
-
-    <LayoutGrid alignContent="stretch">
-      <LayoutGridItem sm={1}>
-        <div className="box">sm: 1</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={1}>
-        <div className="box">sm: 1</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={1}>
-        <div className="box">sm: 1</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={1}>
-        <div className="box">sm: 1</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={1}>
-        <div className="box">sm: 1</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={1}>
-        <div className="box">sm: 1</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={1}>
-        <div className="box">sm: 1</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={1}>
-        <div className="box">sm: 1</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={1}>
-        <div className="box">sm: 1</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={1}>
-        <div className="box">sm: 1</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={1}>
-        <div className="box">sm: 1</div>
-      </LayoutGridItem>
-      <LayoutGridItem sm={1}>
-        <div className="box">sm: 1</div>
-      </LayoutGridItem>
-    </LayoutGrid>
+      </div>
+    </div>
   </div>
 )

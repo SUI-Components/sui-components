@@ -38,7 +38,7 @@ export default () => (
             <LayoutGridItem xxs={6} xxsOffset={3} lOffset={6}>
               <Box>s:12</Box>
             </LayoutGridItem>
-            <LayoutGridItem s={6}>
+            <LayoutGridItem s={6} sOffset={6} lOffset={3}>
               <Box>s:6</Box>
             </LayoutGridItem>
             <LayoutGridItem s={6}>

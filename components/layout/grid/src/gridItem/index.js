@@ -4,13 +4,16 @@ import cx from 'classnames'
 
 import {baseClass, CELL_NUMBERS} from '../settings'
 
-export default function LayoutGridItem({children, sm, md, lg, xl}) {
+export default function LayoutGridItem({children, xxs, xs, s, m, l, xl, xxl}) {
   const classNames = cx(
     `${baseClass}-item`,
-    sm && `${baseClass}-item--sm-${sm}`,
-    md && `${baseClass}-item--md-${md}`,
-    lg && `${baseClass}-item--lg-${lg}`,
-    xl && `${baseClass}-item--xl-${xl}`
+    xxs && `${baseClass}-item--xxs-${xxs}`,
+    xs && `${baseClass}-item--xs-${xs}`,
+    s && `${baseClass}-item--s-${s}`,
+    m && `${baseClass}-item--m-${m}`,
+    l && `${baseClass}-item--l-${l}`,
+    xl && `${baseClass}-item--xl-${xl}`,
+    xxl && `${baseClass}-item--xxl-${xxl}`
   )
 
   return <div className={classNames}>{children}</div>
@@ -20,8 +23,11 @@ LayoutGridItem.displayName = 'sui-LayoutGrid-Item'
 
 LayoutGridItem.propTypes = {
   children: PropTypes.node.isRequired,
-  sm: PropTypes.oneOf(CELL_NUMBERS),
-  md: PropTypes.oneOf(CELL_NUMBERS),
-  lg: PropTypes.oneOf(CELL_NUMBERS),
-  xl: PropTypes.oneOf(CELL_NUMBERS)
+  xxs: PropTypes.oneOf(CELL_NUMBERS),
+  xs: PropTypes.oneOf(CELL_NUMBERS),
+  s: PropTypes.oneOf(CELL_NUMBERS),
+  m: PropTypes.oneOf(CELL_NUMBERS),
+  l: PropTypes.oneOf(CELL_NUMBERS),
+  xl: PropTypes.oneOf(CELL_NUMBERS),
+  xxl: PropTypes.oneOf(CELL_NUMBERS)
 }

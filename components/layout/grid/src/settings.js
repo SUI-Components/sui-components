@@ -1,12 +1,11 @@
 export const baseClass = 'sui-LayoutGrid'
 
-export const ALIGN_CONTENT = [
-  'stretch',
+export const JUSTIFY_CONTENT = [
   'center',
-  'flex-start',
   'flex-end',
-  'space-between',
-  'space-around'
+  'flex-start',
+  'space-around',
+  'space-between'
 ]
 
 export const CELL_NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]

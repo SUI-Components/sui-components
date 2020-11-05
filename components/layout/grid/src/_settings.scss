@@ -1,13 +1,8 @@
-$lg-columns: 12;
-$lg-column-gap: $p-l;
-$lg-breakpoints: (
-  sm: 0,
-  md: 768px,
-  lg: 960px,
-  xl: 1280px
-);
+$lg-breakpoints: $breakpoints !default;
+$lg-column-gap: $p-l !default;
+$lg-columns: 12 !default;
 
-$align-content: stretch flex-start flex-end space-between space-around;
+$justify-content: flex-start center flex-end space-between space-around;
 
 @mixin getItemValue($bpName, $size) {
   &--#{$bpName}-#{$size} {
@@ -19,7 +14,7 @@ $align-content: stretch flex-start flex-end space-between space-around;
   @each $bpName, $bpValue in $breakpoints {
     @for $col from 1 through $columns {
       @if ($bpValue != 0) {
-        @media (min-width: $bpValue) {
+        @include media-breakpoint-up($bpName) {
           @include getItemValue($bpName, $col);
         }
       } @else {
@@ -29,7 +24,7 @@ $align-content: stretch flex-start flex-end space-between space-around;
   }
 }
 
-@mixin getAlignContent($properties) {
+@mixin getJustifyContent($properties) {
   @each $value in $properties {
     &--#{$value} {
       justify-content: $value;

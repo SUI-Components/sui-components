@@ -2,31 +2,18 @@
 @import './settings';
 
 .sui-LayoutGrid {
-  $self: &;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: 0 -8px;
-  width: calc(100% + $lg-column-gap);
-  background: blue;
-  @include getAlignContent($align-content);
+  margin: 0 (-$lg-column-gap / 2);
+  width: calc(100% + #{$lg-column-gap});
+  @include getJustifyContent($justify-content);
 
   &-item {
     box-sizing: border-box;
     flex-grow: 0;
     margin: 0;
-    padding: $lg-column-gap;
+    padding: 0 $lg-column-gap;
     @include getItemsSizes($lg-breakpoints, $lg-columns);
-
-    #{$self}-item {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
   }
-}
-
-.box {
-  background: gray;
-  padding: 20px;
-  min-height: 200px;
 }

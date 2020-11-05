@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import LayoutGridItem from './gridItem'
 import cx from 'classnames'
 
-import {baseClass, ALIGN_CONTENT} from './settings'
+import {baseClass, JUSTIFY_CONTENT} from './settings'
 
-function LayoutGrid({alignContent, children}) {
+function LayoutGrid({justifyContent, children}) {
   const classNames = cx(
     `${baseClass}`,
-    alignContent && `${baseClass}--${alignContent}`
+    justifyContent && `${baseClass}--${justifyContent}`
   )
 
   return <div className={classNames}>{children}</div>
@@ -17,10 +17,10 @@ function LayoutGrid({alignContent, children}) {
 LayoutGrid.displayName = 'LayoutGrid'
 
 LayoutGrid.propTypes = {
-  alignContent: PropTypes.oneOf(ALIGN_CONTENT),
+  justifyContent: PropTypes.oneOf(JUSTIFY_CONTENT),
   children: PropTypes.node.isRequired
 }
 
 export default LayoutGrid
 
-export {LayoutGridItem}
+export {LayoutGridItem, JUSTIFY_CONTENT}

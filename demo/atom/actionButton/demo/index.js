@@ -20,8 +20,6 @@ import AtomActionButton, {
   atomActionButtonStyles
 } from '../../../../components/atom/actionButton/src'
 
-import './index.scss'
-
 const BASE_CLASS_DEMO = `DemoAtomActionButton`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 

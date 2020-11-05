@@ -19,8 +19,6 @@ import AtomBadge, {
   atomBadgeSizes
 } from '../../../../components/atom/badge/src'
 
-import './index.scss'
-
 const BASE_CLASS_DEMO = `DemoAtomBadge`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 

@@ -7,6 +7,7 @@
   list-style: none;
   margin: 0 (-$lg-column-gap / 2);
   width: calc(100% + #{$lg-column-gap});
+  @include getAlignItems($align-items);
   @include getJustifyContent($justify-content);
 
   &-item {

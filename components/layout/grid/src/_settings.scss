@@ -2,31 +2,65 @@ $lg-breakpoints: $breakpoints !default;
 $lg-column-gap: $p-l !default;
 $lg-columns: 12 !default;
 
+$align-items: center flex-start flex-end;
+
 $justify-content: flex-start center flex-end space-between space-around;
 
+@mixin getFlexBasis($size) {
+  flex-basis: (100% / $lg-columns) * $size;
+}
+
+// Use only SASS
+@mixin getBpValue($bpName, $size) {
+  @include media-breakpoint-up($bpName) {
+    @include getFlexBasis($size);
+  }
+}
+
+// Example:
+/*
+.componente {
+  @include getBpValue(xs, 6);
+  @include getBpValue(l, 12);
+}
+*/
+
+// Use as Component
 @mixin getItemValue($bpName, $size) {
   &--#{$bpName}-#{$size} {
-    flex-basis: (100% / $lg-columns) * $size;
+    @include getFlexBasis($size);
+  }
+
+  &--#{$bpName}Offset-#{$size} {
+    margin-left: (100% / $lg-columns) * $size;
   }
 }
 
 @mixin getItemsSizes($breakpoints, $columns) {
   @each $bpName, $bpValue in $breakpoints {
-    @for $col from 1 through $columns {
-      @if ($bpValue != 0) {
-        @include media-breakpoint-up($bpName) {
+    @include media-breakpoint-up($bpName) {
+      @for $col from 1 through $columns {
+        @if ($bpValue != 0) {
+          @include getItemValue($bpName, $col);
+        } @else {
           @include getItemValue($bpName, $col);
         }
-      } @else {
-        @include getItemValue($bpName, $col);
       }
+    }
+  }
+}
+
+@mixin getAlignItems($properties) {
+  @each $value in $properties {
+    &--ai-#{$value} {
+      align-items: $value;
     }
   }
 }
 
 @mixin getJustifyContent($properties) {
   @each $value in $properties {
-    &--#{$value} {
+    &--jc-#{$value} {
       justify-content: $value;
     }
   }

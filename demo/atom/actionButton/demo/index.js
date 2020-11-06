@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, {Fragment} from 'react'
+import React from 'react'
 import {
   H1,
   H2,
@@ -8,29 +8,34 @@ import {
   Article,
   DevIcon,
   Grid,
-  Cell,
-  Text,
-  ButtonGroup,
-  Button
+  Cell
 } from '@s-ui/documentation-library'
 
 import AtomActionButton, {
   atomActionButtonColors,
-  atomActionButtonSizes,
-  atomActionButtonStyles
+  atomActionButtonSizes
 } from '../../../../components/atom/actionButton/src'
+import ActionButtonCatalog from './ActionButtonCatalog'
+
+const icon = <DevIcon icon="DiGithubBadge" />
 
 const BASE_CLASS_DEMO = `DemoAtomActionButton`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
-const icon = <DevIcon icon="DiGithubBadge" />
+const flexCenteredStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  wrap: 'nowrap',
+  alignItems: 'center',
+  alignContent: 'center'
+}
 
 const Demo = () => {
   return (
     <div className="sui-StudioPreview" mode="light">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <H1>ActionButton</H1>
-        <Paragraph>Description here</Paragraph>
+        <Paragraph>Button used as</Paragraph>
         <Article className={CLASS_SECTION}>
           <H2>Colours</H2>
           <div>
@@ -39,53 +44,107 @@ const Demo = () => {
               which are <Code>"{atomActionButtonColors.PRIMARY}"</Code> by
               default.
             </Paragraph>
-            <Grid
-              cols={Object.values(atomActionButtonColors).length + 1}
-              gutter="10"
-            >
-              <Cell />
-              {Object.values(atomActionButtonColors).map(
-                (atomActionButtonColor, key) => (
-                  <Cell key={key}>
-                    <Text>color="{atomActionButtonColor}"</Text>
-                  </Cell>
-                )
-              )}
-              {Object.values(atomActionButtonStyles).map(
-                (atomActionButtonStyle, index) => (
-                  <Fragment key={index}>
-                    <Cell>
-                      <Text>style="{atomActionButtonStyle}"</Text>
-                    </Cell>
-                    {Object.values(atomActionButtonColors).map(
-                      (atomActionButtonColor, iterator) => (
-                        <Cell key={iterator}>
-                          <AtomActionButton
-                            style={atomActionButtonStyle}
-                            icon={icon}
-                          >
-                            Button
-                          </AtomActionButton>
-                        </Cell>
-                      )
-                    )}
-                  </Fragment>
-                )
-              )}
+            <ActionButtonCatalog icon={icon} />
+          </div>
+        </Article>
+        <br />
+        <Article className={CLASS_SECTION}>
+          <H2>Sizes</H2>
+          <Paragraph>Size of the icon</Paragraph>
+          <div>
+            <Paragraph>
+              We define 3 diferent sizes for action button exported as{' '}
+              <Code>atomActionButtonSizes</Code>
+            </Paragraph>
+            <Grid cols={3} gutter="10">
+              <Cell style={flexCenteredStyle}>atomActionButtonSizes.SMALL</Cell>
+              <Cell style={flexCenteredStyle}>
+                atomActionButtonSizes.MEDIUM
+              </Cell>
+              <Cell style={flexCenteredStyle}>atomActionButtonSizes.LARGE</Cell>
+              <Cell style={flexCenteredStyle}>
+                <AtomActionButton
+                  icon={icon}
+                  size={atomActionButtonSizes.SMALL}
+                >
+                  Button
+                </AtomActionButton>
+              </Cell>
+              <Cell style={flexCenteredStyle}>
+                <AtomActionButton
+                  icon={icon}
+                  size={atomActionButtonSizes.MEDIUM}
+                >
+                  Button
+                </AtomActionButton>
+              </Cell>
+              <Cell style={flexCenteredStyle}>
+                <AtomActionButton
+                  icon={icon}
+                  size={atomActionButtonSizes.LARGE}
+                >
+                  Button
+                </AtomActionButton>
+              </Cell>
             </Grid>
           </div>
         </Article>
         <br />
         <Article className={CLASS_SECTION}>
-          <H2>Size</H2>
-          <Paragraph>Size of the icon</Paragraph>
-          <ButtonGroup>
-            {Object.values(atomActionButtonSizes).map(
-              (atomActionButtonSize, index) => (
-                <Button key={index}>{atomActionButtonSize}</Button>
-              )
-            )}
-          </ButtonGroup>
+          <H2>Link buttons</H2>
+          <Paragraph>
+            Action-Buttons can also be used as anchors to redirect to a
+            different url once clicking on them.
+          </Paragraph>
+          <div>
+            <Grid cols={4} gutter="10">
+              <Cell style={flexCenteredStyle}>
+                <AtomActionButton
+                  link
+                  title="button link"
+                  target="_blank"
+                  href="http://www.google.com"
+                  icon={icon}
+                >
+                  Button link
+                </AtomActionButton>
+              </Cell>
+              <Cell style={flexCenteredStyle}>
+                <AtomActionButton
+                  link
+                  href="http://www.google.com"
+                  icon={icon}
+                  style="outline"
+                  title="button link"
+                >
+                  Button link
+                </AtomActionButton>
+              </Cell>
+              <Cell style={flexCenteredStyle}>
+                <AtomActionButton
+                  link
+                  href="http://www.google.com"
+                  icon={icon}
+                  title="button link"
+                  style="flat"
+                >
+                  Button link
+                </AtomActionButton>
+              </Cell>
+              <Cell style={flexCenteredStyle}>
+                <AtomActionButton
+                  link
+                  href="http://www.google.com"
+                  icon={icon}
+                  title="button link"
+                  style="flat"
+                  disabled
+                >
+                  Button link disabled
+                </AtomActionButton>
+              </Cell>
+            </Grid>
+          </div>
         </Article>
       </div>
     </div>

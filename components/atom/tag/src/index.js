@@ -12,12 +12,15 @@ const ACTIONABLE_ONLY_PROPS = [
   'linkFactory',
   'rel'
 ]
+
 const STANDARD_ONLY_PROPS = ['closeIcon', 'onClose']
+
 const SIZES = {
   LARGE: 'large',
   MEDIUM: 'medium',
   SMALL: 'small'
 }
+
 const LINK_TYPES = {
   NOFOLLOW: 'nofollow',
   NOOPENER: 'noopener',
@@ -26,6 +29,12 @@ const LINK_TYPES = {
   NEXT: 'next',
   TAG: 'tag'
 }
+
+export const DESIGNS = {
+  SOLID: 'solid',
+  OUTLINE: 'outline'
+}
+
 /**
  * returns key:value in obj except for those keys defined in props
  * @param {Object} obj
@@ -41,11 +50,20 @@ const filterKeys = (obj, listOfProps) =>
   }, {})
 
 const AtomTag = props => {
-  const {href, icon, onClick, size, responsive, type} = props
+  const {
+    design = DESIGNS.SOLID,
+    href,
+    icon,
+    onClick,
+    responsive,
+    size,
+    type
+  } = props
   const isActionable = onClick || href
   const classNames = cx(
     'sui-AtomTag',
     `sui-AtomTag-${size}`,
+    `sui-AtomTag--${design}`,
     type && `sui-AtomTag--${type}`,
     responsive && 'sui-AtomTag--responsive',
     icon && 'sui-AtomTag-hasIcon'
@@ -120,7 +138,11 @@ AtomTag.propTypes = {
   /**
    * true for make responsive layout. keep large size in mobile
    */
-  responsive: PropTypes.bool
+  responsive: PropTypes.bool,
+  /**
+   * Design style of button: 'solid' (default), 'outline', 'flat', 'link'
+   */
+  design: PropTypes.oneOf(Object.values(DESIGNS))
 }
 
 AtomTag.defaultProps = {
@@ -128,5 +150,6 @@ AtomTag.defaultProps = {
 }
 
 export default AtomTag
+export {DESIGNS as atomTagDesigns}
 export {SIZES as atomTagSizes}
 export {LINK_TYPES as linkTypes}

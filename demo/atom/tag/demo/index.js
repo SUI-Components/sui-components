@@ -1,5 +1,8 @@
 import React from 'react'
-import AtomTag, {atomTagSizes} from '../../../../components/atom/tag/src'
+import AtomTag, {
+  atomTagDesigns,
+  atomTagSizes
+} from '../../../../components/atom/tag/src'
 import {CloseIcon, Icon} from './icons'
 
 export default () => (
@@ -23,6 +26,11 @@ export default () => (
             <td>
               <AtomTag label="Tag Structure" size={atomTagSizes.SMALL} />
               <AtomTag
+                design={atomTagDesigns.OUTLINE}
+                label="Tag Outline"
+                size={atomTagSizes.SMALL}
+              />
+              <AtomTag
                 closeIcon={<CloseIcon />}
                 label="Close Tag"
                 size={atomTagSizes.SMALL}
@@ -31,7 +39,7 @@ export default () => (
                 icon={<Icon />}
                 label="Icon Tag"
                 size={atomTagSizes.SMALL}
-              />{' '}
+              />
               <AtomTag
                 closeIcon={<CloseIcon />}
                 icon={<Icon />}
@@ -45,6 +53,11 @@ export default () => (
             <td>
               <AtomTag label="Tag Structure" size={atomTagSizes.MEDIUM} />
               <AtomTag
+                design={atomTagDesigns.OUTLINE}
+                label="Tag Outline"
+                size={atomTagSizes.MEDIUM}
+              />
+              <AtomTag
                 closeIcon={<CloseIcon />}
                 label="Close Tag"
                 size={atomTagSizes.MEDIUM}
@@ -53,7 +66,7 @@ export default () => (
                 icon={<Icon />}
                 label="Icon Tag"
                 size={atomTagSizes.MEDIUM}
-              />{' '}
+              />
               <AtomTag
                 closeIcon={<CloseIcon />}
                 icon={<Icon />}
@@ -67,6 +80,11 @@ export default () => (
             <td>
               <AtomTag label="Tag Structure" size={atomTagSizes.LARGE} />
               <AtomTag
+                design={atomTagDesigns.OUTLINE}
+                label="Tag Outline"
+                size={atomTagSizes.LARGE}
+              />
+              <AtomTag
                 closeIcon={<CloseIcon />}
                 label="Close Tag"
                 size={atomTagSizes.LARGE}
@@ -75,7 +93,7 @@ export default () => (
                 icon={<Icon />}
                 label="Icon Tag"
                 size={atomTagSizes.LARGE}
-              />{' '}
+              />
               <AtomTag
                 closeIcon={<CloseIcon />}
                 icon={<Icon />}
@@ -87,16 +105,65 @@ export default () => (
         </table>
       </div>
       <div className="sui-Studio-wrapper--light">
-        <h2 className="sui-Studio-h2">Types</h2>
+        <h2 className="sui-Studio-h2">Design</h2>
         <p className="sui-Studio-p">
-          Use the <code className="sui-Studio-code">type</code> in order to
-          color it as desired from a high order component.
+          Tags structure can have 2 designs: Solid <small>(default)</small> and
+          outline. You can use this prop{' '}
+          <code className="sui-Studio-code">design</code> to modify it.
         </p>
-        <div>
-          <AtomTag label="Sale" type="warning" />
-          <AtomTag label="Special" type="special" />
-          <AtomTag label="5 min ago" type="date" />
-        </div>
+        <table>
+          <tr>
+            <td className="sui-Studio-label">Solid</td>
+            <td>
+              <AtomTag label="Tag Structure" size={atomTagSizes.MEDIUM} />
+              <AtomTag
+                closeIcon={<CloseIcon />}
+                label="Close Tag"
+                size={atomTagSizes.MEDIUM}
+              />
+              <AtomTag
+                icon={<Icon />}
+                label="Icon Tag"
+                size={atomTagSizes.MEDIUM}
+              />
+              <AtomTag
+                closeIcon={<CloseIcon />}
+                icon={<Icon />}
+                label="Icon & Close Tag"
+                size={atomTagSizes.MEDIUM}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td className="sui-Studio-label">Outline</td>
+            <td>
+              <AtomTag
+                design={atomTagDesigns.OUTLINE}
+                label="Tag Structure"
+                size={atomTagSizes.MEDIUM}
+              />
+              <AtomTag
+                closeIcon={<CloseIcon />}
+                design={atomTagDesigns.OUTLINE}
+                label="Close Tag"
+                size={atomTagSizes.MEDIUM}
+              />
+              <AtomTag
+                design={atomTagDesigns.OUTLINE}
+                icon={<Icon />}
+                label="Icon Tag"
+                size={atomTagSizes.MEDIUM}
+              />
+              <AtomTag
+                closeIcon={<CloseIcon />}
+                design={atomTagDesigns.OUTLINE}
+                icon={<Icon />}
+                label="Icon & Close Tag"
+                size={atomTagSizes.MEDIUM}
+              />
+            </td>
+          </tr>
+        </table>
       </div>
       <div className="sui-Studio-wrapper--light">
         <h2 className="sui-Studio-h2">Actionable</h2>
@@ -130,8 +197,40 @@ export default () => (
             target="_blank"
           />
         </div>
+        <p className="sui-Studio-p">___</p>
+        <p className="sui-Studio-p">
+          With <code className="sui-Studio-code">outline</code> design.
+        </p>
+        <div>
+          <AtomTag
+            design={atomTagDesigns.OUTLINE}
+            label="Navigation Tag"
+            onClick={() => window.alert('click!')}
+          />
+          <AtomTag
+            design={atomTagDesigns.OUTLINE}
+            href="https://sui-components.now.sh/"
+            label="Anchor Tag"
+            target="_blank"
+          />
+          <AtomTag
+            design={atomTagDesigns.OUTLINE}
+            href="https://sui-components.now.sh/"
+            icon={<Icon />}
+            iconPlacement="right"
+            label="Icon placement right"
+            target="_blank"
+          />
+          <AtomTag
+            design={atomTagDesigns.OUTLINE}
+            href="https://sui-components.now.sh/"
+            icon={<Icon />}
+            iconPlacement="left"
+            label="Icon placement left"
+            target="_blank"
+          />
+        </div>
       </div>
-
       <div className="sui-Studio-wrapper--light">
         <h2 className="sui-Studio-h2">Icons</h2>
         <p className="sui-Studio-p">
@@ -219,6 +318,18 @@ export default () => (
             responsive
             size={atomTagSizes.LARGE}
           />
+        </div>
+      </div>
+      <div className="sui-Studio-wrapper--light">
+        <h2 className="sui-Studio-h2">Types</h2>
+        <p className="sui-Studio-p">
+          Use the <code className="sui-Studio-code">type</code> in order to
+          color it as desired from a high order component.
+        </p>
+        <div>
+          <AtomTag label="Sale" type="warning" />
+          <AtomTag label="Special" type="special" />
+          <AtomTag label="5 min ago" type="date" />
         </div>
       </div>
     </div>

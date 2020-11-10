@@ -50,23 +50,15 @@ const filterKeys = (obj, listOfProps) =>
   }, {})
 
 const AtomTag = props => {
-  const {
-    design = DESIGNS.SOLID,
-    href,
-    icon,
-    onClick,
-    responsive,
-    size,
-    type
-  } = props
+  const {design, href, icon, onClick, responsive, size, type} = props
   const isActionable = onClick || href
   const classNames = cx(
     'sui-AtomTag',
     `sui-AtomTag-${size}`,
-    `sui-AtomTag--${design}`,
-    type && `sui-AtomTag--${type}`,
+    design && `sui-AtomTag--${design}`,
+    icon && 'sui-AtomTag-hasIcon',
     responsive && 'sui-AtomTag--responsive',
-    icon && 'sui-AtomTag-hasIcon'
+    type && `sui-AtomTag--${type}`
   )
 
   /**
@@ -151,5 +143,5 @@ AtomTag.defaultProps = {
 
 export default AtomTag
 export {DESIGNS as atomTagDesigns}
-export {SIZES as atomTagSizes}
 export {LINK_TYPES as linkTypes}
+export {SIZES as atomTagSizes}

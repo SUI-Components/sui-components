@@ -73,7 +73,7 @@ Actionable tags can be used as an anchor. Same as `<a>` to define an interactivi
 ```js
 <AtomTag
   label="Navigation Tag"
-  onClick={() => window.alert('click!')}
+  onClick={() => alert('click!')}
 />
 
 <AtomTag

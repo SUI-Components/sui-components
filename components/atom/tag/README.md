@@ -18,11 +18,6 @@ import AtomTag from '@s-ui/react-atom-tag'
 <AtomTag
   label='Tag Structure'
 />
-
-<AtomTag
-  label='Navigation Tag'
-  onClick={() => alert('click!')}
-/>
 ```
 
 ### Size
@@ -109,11 +104,11 @@ If you want to customize your tag you can pass a prop to identify this type and 
 
 ```css
 $atom-tag-types: (
-  'alert': (
+  "alert": (
     bgc: red,
     c: white
   ),
-  'warning': (
+  "warning": (
     bgc: orange,
     c: white
   )

@@ -15,9 +15,7 @@ npm install @s-ui/react-atom-tag --save
 ```js
 import AtomTag from '@s-ui/react-atom-tag'
 
-<AtomTag
-  label='Tag Structure'
-/>
+<AtomTag label='Tag Structure' />
 ```
 
 ### Size

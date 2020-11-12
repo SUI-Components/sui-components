@@ -31,6 +31,56 @@ export default () => (
         </pre>
         <DemoWrapper>
           <LayoutGrid>
+            <LayoutGridItem s={6}>
+              <DemoBox>s:6</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={6}>
+              <DemoBox>s:6</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={4}>
+              <DemoBox>s:4</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={4}>
+              <DemoBox>s:4</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={4}>
+              <DemoBox>s:4</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={3}>
+              <DemoBox>s:3</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={3}>
+              <DemoBox>s:3</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={3}>
+              <DemoBox>s:3</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={3}>
+              <DemoBox>s:3</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={2}>
+              <DemoBox>s:2</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={2}>
+              <DemoBox>s:2</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={2}>
+              <DemoBox>s:2</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={2}>
+              <DemoBox>s:2</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={2}>
+              <DemoBox>s:2</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={2}>
+              <DemoBox>s:2</DemoBox>
+            </LayoutGridItem>
+          </LayoutGrid>
+        </DemoWrapper>
+        <p className="sui-Studio-p">With offset</p>
+        <DemoWrapper>
+          <LayoutGrid>
             <LayoutGridItem xxs={6} xxsOffset={3} lOffset={6}>
               <DemoBox>
                 xxs:6 | xxsOffset:3

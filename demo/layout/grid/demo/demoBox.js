@@ -9,10 +9,10 @@ const styles = {
   margin: '16px 0'
 }
 
-export default function Box({children}) {
+export default function DemoBox({children}) {
   return <div style={styles}>{children}</div>
 }
 
-Box.propTypes = {
+DemoBox.propTypes = {
   children: PropTypes.node.isRequired
 }

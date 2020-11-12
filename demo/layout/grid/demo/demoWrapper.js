@@ -5,10 +5,10 @@ const styles = {
   padding: '24px'
 }
 
-export default function Wrapper({children}) {
+export default function DemoWrapper({children}) {
   return <div style={styles}>{children}</div>
 }
 
-Wrapper.propTypes = {
+DemoWrapper.propTypes = {
   children: PropTypes.node.isRequired
 }

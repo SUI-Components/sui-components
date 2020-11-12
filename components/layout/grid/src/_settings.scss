@@ -10,22 +10,6 @@ $justify-content: flex-start center flex-end space-between space-around;
   flex-basis: (100% / $lg-columns) * $size;
 }
 
-// Use only SASS
-@mixin getBpValue($bpName, $size) {
-  @include media-breakpoint-up($bpName) {
-    @include getFlexBasis($size);
-  }
-}
-
-// Example:
-/*
-.componente {
-  @include getBpValue(xs, 6);
-  @include getBpValue(l, 12);
-}
-*/
-
-// Use as Component
 @mixin getItemValue($bpName, $size) {
   &--#{$bpName}-#{$size} {
     @include getFlexBasis($size);
@@ -65,3 +49,19 @@ $justify-content: flex-start center flex-end space-between space-around;
     }
   }
 }
+
+// For use SASS only (wihout component)
+@mixin getLayoutGridValue($bpName, $size) {
+  @include media-breakpoint-up($bpName) {
+    @include getFlexBasis($size);
+  }
+}
+
+/*
+Example of use mixin
+
+.cell {
+  @include getLayoutGridValue(xs, 6); // Added a `xs` breakpoint, 6 columns
+  @include getLayoutGridValue(l, 12); // Added a `l` breakpoint, 12 columns
+}
+*/

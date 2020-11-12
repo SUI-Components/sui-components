@@ -3,8 +3,8 @@ import LayoutGrid, {
   ALIGN_ITEMS,
   JUSTIFY_CONTENT
 } from '../../../../components/layout/grid/src'
-import Box from './box'
-import Wrapper from './wrapper'
+import DemoBox from './demoBox'
+import DemoWrapper from './demoWrapper'
 
 export default () => (
   <div className="sui-StudioPreview">
@@ -29,31 +29,38 @@ export default () => (
             {`<LayoutGrid><LayoutGridItem s={6} /></LayoutGrid>`}
           </code>
         </pre>
-        <Wrapper>
+        <DemoWrapper>
           <LayoutGrid>
             <LayoutGridItem xxs={6} xxsOffset={3} lOffset={6}>
-              <Box>s:12</Box>
+              <DemoBox>
+                xxs:6 | xxsOffset:3
+                <br />
+                lOffset:6
+              </DemoBox>
             </LayoutGridItem>
             <LayoutGridItem s={6} sOffset={6} lOffset={3}>
-              <Box>s:6</Box>
+              <DemoBox>
+                s:6 | sOffset: 6<br />
+                lOffset:3
+              </DemoBox>
             </LayoutGridItem>
             <LayoutGridItem s={6}>
-              <Box>s:6</Box>
+              <DemoBox>s:6</DemoBox>
             </LayoutGridItem>
             <LayoutGridItem s={3}>
-              <Box>s:3</Box>
+              <DemoBox>s:3</DemoBox>
             </LayoutGridItem>
             <LayoutGridItem s={3}>
-              <Box>s:3</Box>
+              <DemoBox>s:3</DemoBox>
             </LayoutGridItem>
             <LayoutGridItem s={3}>
-              <Box>s:3</Box>
+              <DemoBox>s:3</DemoBox>
             </LayoutGridItem>
             <LayoutGridItem s={3}>
-              <Box>s:3</Box>
+              <DemoBox>s:3</DemoBox>
             </LayoutGridItem>
           </LayoutGrid>
-        </Wrapper>
+        </DemoWrapper>
       </div>
 
       <div className="sui-Studio-wrapper--light">
@@ -63,60 +70,60 @@ export default () => (
           <small>(default)</small> and large. You can use this prop{' '}
           <code className="sui-Studio-code">size</code> to modify it.
         </p>
-        <Wrapper>
+        <DemoWrapper>
           <LayoutGrid justifyContent="space-between">
-            <LayoutGridItem s={3}>
+            <LayoutGridItem s={6}>
               <LayoutGrid>
                 <LayoutGridItem s={12}>
-                  <Box>s:12</Box>
+                  <DemoBox>s:12</DemoBox>
                 </LayoutGridItem>
                 <LayoutGridItem s={6}>
-                  <Box>s:6</Box>
+                  <DemoBox>s:6</DemoBox>
                 </LayoutGridItem>
                 <LayoutGridItem s={6}>
-                  <Box>s:6</Box>
+                  <DemoBox>s:6</DemoBox>
                 </LayoutGridItem>
                 <LayoutGridItem s={3}>
-                  <Box>s:3</Box>
+                  <DemoBox>s:3</DemoBox>
                 </LayoutGridItem>
                 <LayoutGridItem s={3}>
-                  <Box>s:3</Box>
+                  <DemoBox>s:3</DemoBox>
                 </LayoutGridItem>
                 <LayoutGridItem s={3}>
-                  <Box>s:3</Box>
+                  <DemoBox>s:3</DemoBox>
                 </LayoutGridItem>
                 <LayoutGridItem s={3}>
-                  <Box>s:3</Box>
+                  <DemoBox>s:3</DemoBox>
                 </LayoutGridItem>
               </LayoutGrid>
             </LayoutGridItem>
-            <LayoutGridItem s={3}>
+            <LayoutGridItem s={6}>
               <LayoutGrid>
                 <LayoutGridItem s={3}>
-                  <Box>s:3</Box>
+                  <DemoBox>s:3</DemoBox>
                 </LayoutGridItem>
                 <LayoutGridItem s={3}>
-                  <Box>s:3</Box>
+                  <DemoBox>s:3</DemoBox>
                 </LayoutGridItem>
                 <LayoutGridItem s={3}>
-                  <Box>s:3</Box>
+                  <DemoBox>s:3</DemoBox>
                 </LayoutGridItem>
                 <LayoutGridItem s={3}>
-                  <Box>s:3</Box>
+                  <DemoBox>s:3</DemoBox>
                 </LayoutGridItem>
                 <LayoutGridItem s={6}>
-                  <Box>s:6</Box>
+                  <DemoBox>s:6</DemoBox>
                 </LayoutGridItem>
                 <LayoutGridItem s={6}>
-                  <Box>s:6</Box>
+                  <DemoBox>s:6</DemoBox>
                 </LayoutGridItem>
                 <LayoutGridItem s={12}>
-                  <Box>s:12</Box>
+                  <DemoBox>s:12</DemoBox>
                 </LayoutGridItem>
               </LayoutGrid>
             </LayoutGridItem>
           </LayoutGrid>
-        </Wrapper>
+        </DemoWrapper>
       </div>
 
       <div className="sui-Studio-wrapper--light">
@@ -136,16 +143,16 @@ export default () => (
             <p className="sui-Studio-p">
               <code className="sui-Studio-code">{justifyContent}</code>
             </p>
-            <Wrapper>
+            <DemoWrapper>
               <LayoutGrid justifyContent={justifyContent}>
                 <LayoutGridItem s={3}>
-                  <Box>s:2</Box>
+                  <DemoBox>s:2</DemoBox>
                 </LayoutGridItem>
                 <LayoutGridItem s={3}>
-                  <Box>s:3</Box>
+                  <DemoBox>s:3</DemoBox>
                 </LayoutGridItem>
               </LayoutGrid>
-            </Wrapper>
+            </DemoWrapper>
           </div>
         ))}
       </div>
@@ -167,78 +174,16 @@ export default () => (
             <p className="sui-Studio-p">
               <code className="sui-Studio-code">{alignItems}</code>
             </p>
-            <Wrapper>
+            <DemoWrapper>
               <LayoutGrid alignItems={alignItems}>
                 <LayoutGridItem s={3}>
-                  <Box>s:2</Box>
+                  <DemoBox>s:2</DemoBox>
                 </LayoutGridItem>
                 <LayoutGridItem s={3}>
-                  <Box>
-                    s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3 s:3
-                    <br />
-                    s:3
-                  </Box>
+                  <DemoBox>s:3</DemoBox>
                 </LayoutGridItem>
               </LayoutGrid>
-            </Wrapper>
+            </DemoWrapper>
           </div>
         ))}
       </div>

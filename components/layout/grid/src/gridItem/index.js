@@ -1,8 +1,7 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import {baseClass, CELL_NUMBERS} from '../settings'
+import {BASE_CLASS, CELL_NUMBERS} from '../settings'
 
 export default function LayoutGridItem({
   children,
@@ -22,42 +21,87 @@ export default function LayoutGridItem({
   xxsOffset
 }) {
   const classNames = cx(
-    `${baseClass}-item`,
-    l && `${baseClass}-item--l-${l}`,
-    lOffset && `${baseClass}-item--lOffset-${lOffset}`,
-    m && `${baseClass}-item--m-${m}`,
-    mOffset && `${baseClass}-item--mOffset-${mOffset}`,
-    s && `${baseClass}-item--s-${s}`,
-    sOffset && `${baseClass}-item--sOffset-${sOffset}`,
-    xl && `${baseClass}-item--xl-${xl}`,
-    xlOffset && `${baseClass}-item--xlOffset-${xlOffset}`,
-    xs && `${baseClass}-item--xs-${xs}`,
-    xsOffset && `${baseClass}-item--xsOffset-${xsOffset}`,
-    xxl && `${baseClass}-item--xxl-${xxl}`,
-    xxlOffset && `${baseClass}-item--xxlOffset-${xxlOffset}`,
-    xxs && `${baseClass}-item--xxs-${xxs}`,
-    xxsOffset && `${baseClass}-item--xxsOffset-${xxsOffset}`
+    `${BASE_CLASS}-item`,
+    l && `${BASE_CLASS}-item--l-${l}`,
+    lOffset && `${BASE_CLASS}-item--lOffset-${lOffset}`,
+    m && `${BASE_CLASS}-item--m-${m}`,
+    mOffset && `${BASE_CLASS}-item--mOffset-${mOffset}`,
+    s && `${BASE_CLASS}-item--s-${s}`,
+    sOffset && `${BASE_CLASS}-item--sOffset-${sOffset}`,
+    xl && `${BASE_CLASS}-item--xl-${xl}`,
+    xlOffset && `${BASE_CLASS}-item--xlOffset-${xlOffset}`,
+    xs && `${BASE_CLASS}-item--xs-${xs}`,
+    xsOffset && `${BASE_CLASS}-item--xsOffset-${xsOffset}`,
+    xxl && `${BASE_CLASS}-item--xxl-${xxl}`,
+    xxlOffset && `${BASE_CLASS}-item--xxlOffset-${xxlOffset}`,
+    xxs && `${BASE_CLASS}-item--xxs-${xxs}`,
+    xxsOffset && `${BASE_CLASS}-item--xxsOffset-${xxsOffset}`
   )
 
   return <div className={classNames}>{children}</div>
 }
 
-LayoutGridItem.displayName = 'sui-LayoutGrid-Item'
+LayoutGridItem.displayName = 'LayoutGridItem'
 
 LayoutGridItem.propTypes = {
-  children: PropTypes.node.isRequired,
+  /**
+   * The content of the component.
+   */
+  children: PropTypes.node,
+  /**
+   * Number of cells the component has to fill. It's applied for the `l` breakpoint and wider screens.
+   */
   l: PropTypes.oneOf(CELL_NUMBERS),
+  /**
+   * Number of cells offset to move component. It's applied for the `l` breakpoint and wider screens.
+   */
   lOffset: PropTypes.oneOf(CELL_NUMBERS),
+  /**
+   * Number of cells the component has to fill. It's applied for the `m` breakpoint and wider screens.
+   */
   m: PropTypes.oneOf(CELL_NUMBERS),
+  /**
+   * Number of cells offset to move component. It's applied for the `m` breakpoint and wider screens.
+   */
   mOffset: PropTypes.oneOf(CELL_NUMBERS),
+  /**
+   * Number of cells the component has to fill. It's applied for the `s` breakpoint and wider screens.
+   */
   s: PropTypes.oneOf(CELL_NUMBERS),
+  /**
+   * Number of cells offset to move component. It's applied for the `s` breakpoint and wider screens.
+   */
   sOffset: PropTypes.oneOf(CELL_NUMBERS),
+  /**
+   * Number of cells the component has to fill. It's applied for the `xl` breakpoint and wider screens.
+   */
   xl: PropTypes.oneOf(CELL_NUMBERS),
+  /**
+   * Number of cells offset to move component. It's applied for the `xl` breakpoint and wider screens.
+   */
   xlOffset: PropTypes.oneOf(CELL_NUMBERS),
+  /**
+   * Number of cells the component has to fill. It's applied for the `xs` breakpoint and wider screens.
+   */
   xs: PropTypes.oneOf(CELL_NUMBERS),
+  /**
+   * Number of cells offset to move component. It's applied for the `xs` breakpoint and wider screens.
+   */
   xsOffset: PropTypes.oneOf(CELL_NUMBERS),
+  /**
+   * Number of cells the component has to fill. It's applied for the `xxl` breakpoint and wider screens.
+   */
   xxl: PropTypes.oneOf(CELL_NUMBERS),
+  /**
+   * Number of cells offset to move component. It's applied for the `xxl` breakpoint and wider screens.
+   */
   xxlOffset: PropTypes.oneOf(CELL_NUMBERS),
+  /**
+   * Number of cells the component has to fill. It's applied for the `xxs` breakpoint and wider screens.
+   */
   xxs: PropTypes.oneOf(CELL_NUMBERS),
+  /**
+   * Number of cells offset to move component. It's applied for the `xxs` breakpoint and wider screens.
+   */
   xxsOffset: PropTypes.oneOf(CELL_NUMBERS)
 }

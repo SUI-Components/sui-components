@@ -10,11 +10,7 @@ const styles = {
 }
 
 export default function Box({children}) {
-  return (
-    <div className="box" style={styles}>
-      {children}
-    </div>
-  )
+  return <div style={styles}>{children}</div>
 }
 
 Box.propTypes = {

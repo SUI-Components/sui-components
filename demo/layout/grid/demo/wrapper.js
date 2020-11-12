@@ -6,11 +6,7 @@ const styles = {
 }
 
 export default function Wrapper({children}) {
-  return (
-    <div className="wrapper" style={styles}>
-      {children}
-    </div>
-  )
+  return <div style={styles}>{children}</div>
 }
 
 Wrapper.propTypes = {

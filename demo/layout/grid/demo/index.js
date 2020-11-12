@@ -1,4 +1,3 @@
-import React from 'react'
 import LayoutGrid, {
   LayoutGridItem,
   ALIGN_ITEMS,
@@ -6,11 +5,6 @@ import LayoutGrid, {
 } from '../../../../components/layout/grid/src'
 import Box from './box'
 import Wrapper from './wrapper'
-
-const test = `<LayoutGrid>
-  <LayoutGridItem s={6} />
-  <LayoutGridItem s={6} />
-</LayoutGrid>`
 
 export default () => (
   <div className="sui-StudioPreview">
@@ -31,7 +25,9 @@ export default () => (
           <strong>Example of use:</strong>
         </p>
         <pre>
-          <code className="sui-Studio-code">{test}</code>
+          <code className="sui-Studio-code">
+            {`<LayoutGrid><LayoutGridItem s={6} /></LayoutGrid>`}
+          </code>
         </pre>
         <Wrapper>
           <LayoutGrid>

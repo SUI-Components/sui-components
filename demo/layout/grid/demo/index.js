@@ -115,11 +115,7 @@ export default () => (
 
       <div className="sui-Studio-wrapper--light">
         <h2 className="sui-Studio-h2">Multiples grids</h2>
-        <p className="sui-Studio-p">
-          Tags structure can have 3 main sizes: Small, medium{' '}
-          <small>(default)</small> and large. You can use this prop{' '}
-          <code className="sui-Studio-code">size</code> to modify it.
-        </p>
+        <p className="sui-Studio-p">Include nested grids in your layout.</p>
         <DemoWrapper>
           <LayoutGrid justifyContent="space-between">
             <LayoutGridItem s={6}>

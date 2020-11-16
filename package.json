@@ -43,8 +43,7 @@
     "sui-bundler": {
       "vendor": [
         "react",
-        "react-dom",
-        "react-router"
+        "react-dom"
       ]
     },
     "sui-studio": {

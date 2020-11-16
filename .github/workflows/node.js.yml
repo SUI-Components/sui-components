@@ -32,7 +32,7 @@ jobs:
         npm run install:themes
         npx @s-ui/ci update-commit-status --state OK
       env:
-        SUI_CI_TOPIC=install
+        SUI_CI_TOPIC: install
 
     - name: Lint
       run: |
@@ -40,7 +40,7 @@ jobs:
         npm run lint
         npx @s-ui/ci update-commit-status --state OK
       env:
-        SUI_CI_TOPIC=lint
+        SUI_CI_TOPIC: lint
 
     - name: Build dependencies
       run: |
@@ -68,7 +68,7 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
         GITHUB_USER: sui-bot
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        SUI_CI_TOPIC=release
+        SUI_CI_TOPIC: release
 
     - name: Deploy
       run: |
@@ -78,6 +78,6 @@ jobs:
         DEPLOYMENT_URL=$(vercel --token $VERCEL_TOKEN --confirm $VERCEL_PARAMS)
         npx @s-ui/ci update-commit-status --state OK --url $DEPLOYMENT_URL
       env:
-        SUI_CI_TOPIC=deploy
-        VERCEL_PARAMS=
-        VERCEL_TOKEN={{secrets.VERCEL_TOKEN}}
+        SUI_CI_TOPIC: deploy
+        VERCEL_PARAMS: 
+        VERCEL_TOKEN: {{secrets.VERCEL_TOKEN}}

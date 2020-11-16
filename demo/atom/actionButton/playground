@@ -36,15 +36,10 @@ const ActionButtonCatalog = props => {
                 Object.values(atomActionButtonColors).map(
                   (atomActionButtonColor, iterator) => (
                     <Cell key={iterator}>
-                      <AtomActionButton
-                        style={atomActionButtonStyle}
-                        color={atomActionButtonColor}
-                        icon={props.icon}
-                        {...props}
-                        >
+                      <AtomActionButton style={atomActionButtonStyle} color={atomActionButtonColor} icon={props.icon} {...props}>
                           Button
-                        </AtomActionButton>
-                      </Cell>
+                      </AtomActionButton>
+                    </Cell>
                   )
                 )
               }
@@ -102,26 +97,17 @@ const Demo = () => {
             </Cell>
             <Cell style={flexCenteredStyle}>atomActionButtonSizes.LARGE</Cell>
             <Cell style={flexCenteredStyle}>
-              <AtomActionButton
-              icon={icon}
-              size={atomActionButtonSizes.SMALL}
-              >
+              <AtomActionButton icon={icon} size={atomActionButtonSizes.SMALL}>
                 Button
               </AtomActionButton>
             </Cell>
             <Cell style={flexCenteredStyle}>
-              <AtomActionButton
-              icon={icon}
-              size={atomActionButtonSizes.MEDIUM}
-              >
+              <AtomActionButton icon={icon} size={atomActionButtonSizes.MEDIUM}>
                 Button
               </AtomActionButton>
             </Cell>
             <Cell style={flexCenteredStyle}>
-              <AtomActionButton
-              icon={icon}
-              size={atomActionButtonSizes.LARGE}
-              >
+              <AtomActionButton icon={icon} size={atomActionButtonSizes.LARGE}>
                 Button
               </AtomActionButton>
             </Cell>
@@ -138,47 +124,22 @@ const Demo = () => {
         <div>
           <Grid cols={4} gutter="10">
             <Cell style={flexCenteredStyle}>
-              <AtomActionButton
-              link
-              title="button link"
-              target="_blank"
-              href="http://www.google.com"
-              icon={icon}
-              >
+              <AtomActionButton link title="button link" target="_blank" href="http://www.google.com" icon={icon}>
                 Button link
               </AtomActionButton>
             </Cell>
             <Cell style={flexCenteredStyle}>
-              <AtomActionButton
-              link
-              href="http://www.google.com"
-              icon={icon}
-              style="outline"
-              title="button link"
-              >
+              <AtomActionButton link href="http://www.google.com" icon={icon} style="outline" title="button link">
                 Button link
               </AtomActionButton>
             </Cell>
             <Cell style={flexCenteredStyle}>
-              <AtomActionButton
-              link
-              href="http://www.google.com"
-              icon={icon}
-              title="button link"
-              style="flat"
-              >
+              <AtomActionButton link href="http://www.google.com" icon={icon} title="button link" style="flat">
                 Button link
               </AtomActionButton>
             </Cell>
             <Cell style={flexCenteredStyle}>
-              <AtomActionButton
-              link
-              href="http://www.google.com"
-              icon={icon}
-              title="button link"
-              style="flat"
-              disabled
-              >
+              <AtomActionButton link href="http://www.google.com" icon={icon} title="button link" style="flat" disabled>
                 Button link disabled
               </AtomActionButton>
             </Cell>

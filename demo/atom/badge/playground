@@ -143,11 +143,7 @@ return (
               <AtomBadge label="label" size={atomBadgeSizes.LARGE} />
             </td>
             <td>
-              <AtomBadge
-              label="label"
-              transparent
-              size={atomBadgeSizes.LARGE}
-              />
+              <AtomBadge label="label" transparent size={atomBadgeSizes.LARGE} />
             </td>
           </tr>
         </table>
@@ -167,38 +163,16 @@ return (
               <Label>Small</Label>
             </td>
             <td>
-              <AtomBadge
-              label="label"
-              icon={icon}
-              iconRight
-              size={atomBadgeSizes.SMALL}
-              />
+              <AtomBadge label="label" icon={icon} iconRight size={atomBadgeSizes.SMALL} />
             </td>
             <td>
-              <AtomBadge
-              label="label"
-              icon={icon}
-              iconLeft
-              size={atomBadgeSizes.SMALL}
-              />
+              <AtomBadge label="label" icon={icon} iconLeft size={atomBadgeSizes.SMALL} />
             </td>
             <td>
-              <AtomBadge
-              label="label"
-              icon={icon}
-              iconRight
-              transparent
-              size={atomBadgeSizes.SMALL}
-              />
+              <AtomBadge label="label" icon={icon} iconRight transparent size={atomBadgeSizes.SMALL} />
             </td>
             <td>
-              <AtomBadge
-              label="label"
-              icon={icon}
-              iconLeft
-              transparent
-              size={atomBadgeSizes.SMALL}
-              />
+              <AtomBadge label="label" icon={icon} iconLeft transparent size={atomBadgeSizes.SMALL} />
             </td>
           </tr>
           <tr>
@@ -206,38 +180,16 @@ return (
               <Label>Medium</Label>
             </td>
             <td>
-              <AtomBadge
-              label="label"
-              icon={icon}
-              iconRight
-              size={atomBadgeSizes.MEDIUM}
-              />
+              <AtomBadge label="label" icon={icon} iconRight size={atomBadgeSizes.MEDIUM} />
             </td>
             <td>
-              <AtomBadge
-              label="label"
-              icon={icon}
-              iconLeft
-              size={atomBadgeSizes.MEDIUM}
-              />
+              <AtomBadge label="label" icon={icon} iconLeft size={atomBadgeSizes.MEDIUM} />
             </td>
             <td>
-              <AtomBadge
-              label="label"
-              icon={icon}
-              iconRight
-              transparent
-              size={atomBadgeSizes.MEDIUM}
-              />
+              <AtomBadge label="label" icon={icon} iconRight transparent size={atomBadgeSizes.MEDIUM} />
             </td>
             <td>
-              <AtomBadge
-              label="label"
-              icon={icon}
-              iconLeft
-              transparent
-              size={atomBadgeSizes.MEDIUM}
-              />
+              <AtomBadge label="label" icon={icon} iconLeft transparent size={atomBadgeSizes.MEDIUM} />
             </td>
           </tr>
           <tr>
@@ -245,38 +197,16 @@ return (
               <Label>Large</Label>
             </td>
             <td>
-              <AtomBadge
-              label="label"
-              icon={icon}
-              iconRight
-              size={atomBadgeSizes.LARGE}
-              />
+              <AtomBadge label="label" icon={icon} iconRight size={atomBadgeSizes.LARGE} />
             </td>
             <td>
-              <AtomBadge
-              label="label"
-              icon={icon}
-              iconLeft
-              size={atomBadgeSizes.LARGE}
-              />
+              <AtomBadge label="label" icon={icon} iconLeft size={atomBadgeSizes.LARGE} />
             </td>
             <td>
-              <AtomBadge
-              label="label"
-              icon={icon}
-              iconRight
-              transparent
-              size={atomBadgeSizes.LARGE}
-              />
+              <AtomBadge label="label" icon={icon} iconRight transparent size={atomBadgeSizes.LARGE} />
             </td>
             <td>
-              <AtomBadge
-              label="label"
-              icon={icon}
-              iconLeft
-              transparent
-              size={atomBadgeSizes.LARGE}
-              />
+              <AtomBadge label="label" icon={icon} iconLeft transparent size={atomBadgeSizes.LARGE} />
             </td>
           </tr>
         </table>
@@ -300,20 +230,12 @@ return (
         </div>
         <Paragraph>___</Paragraph>
         <div>
-          <AtomBadge
-          label="success"
-          type={atomBadgeTypes.SUCCESS}
-          transparent
-          />
+          <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} transparent />
           <AtomBadge label="error" type={atomBadgeTypes.ERROR} transparent />
           <AtomBadge label="info" type={atomBadgeTypes.INFO} transparent />
           <AtomBadge label="alert" type={atomBadgeTypes.ALERT} transparent />
           <AtomBadge label="new" type={atomBadgeTypes.NEW} transparent />
-          <AtomBadge
-          label="primary"
-          type={atomBadgeTypes.PRIMARY}
-          transparent
-          />
+          <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} transparent />
         </div>
       </Article>
     </div>

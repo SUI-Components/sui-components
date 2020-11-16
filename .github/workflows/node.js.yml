@@ -48,7 +48,7 @@ jobs:
         npm run build
         npx @s-ui/ci update-commit-status --state OK
       env:
-        SUI_CI_TOPIC=bundle
+        SUI_CI_TOPIC: bundle
     
     - name: Testing
       run: |
@@ -56,7 +56,7 @@ jobs:
         npm run test -- --ci
         npx @s-ui/ci update-commit-status --state OK
       env:
-        SUI_CI_TOPIC=tests
+        SUI_CI_TOPIC: tests
 
     - name: Release components
       run: |

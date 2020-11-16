@@ -59,7 +59,7 @@ jobs:
         SUI_CI_TOPIC=tests
 
     - name: Release components
-    - run: |
+      run: |
         npx @s-ui/ci update-commit-status --state RUN
         npx @s-ui/ci release
         npx @s-ui/ci update-commit-status --state OK
@@ -71,7 +71,7 @@ jobs:
         SUI_CI_TOPIC=release
 
     - name: Deploy
-    - run: |
+      run: |
         npx @s-ui/ci update-commit-status --state RUN
         rm -rf ./node_modules
         npm i vercel@latest --no-save --no-fund --no-audit --no-optional --no-scripts

@@ -27,10 +27,6 @@ jobs:
         node-version: 14
         registry-url: 'https://registry.npmjs.org'
 
-    - name: Commit step
-      run: |
-        npx @s-ui/ci@beta update-commit-status --state OK --topic commit
-
     - name: Install dependencies
       run: |
         npx @s-ui/ci@beta update-commit-status --state RUN

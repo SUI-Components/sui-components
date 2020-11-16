@@ -66,7 +66,7 @@ const flexCenteredStyle = {
 
 const Demo = () => {
   return (
-  <div className="sui-StudioPreview" mode="light">
+  <div className="sui-StudioPreview">
     <div className="sui-StudioPreview-content sui-StudioDemo-preview">
       <H1>ActionButton</H1>
       <Paragraph>Button used as b</Paragraph>

@@ -30,6 +30,7 @@ jobs:
 
     - name: Commit step
       run: |
+        echo ${{ github.event.pull_request.head.sha }}
         npx @s-ui/ci@beta update-commit-status --state OK --topic commit
 
     - name: Install dependencies

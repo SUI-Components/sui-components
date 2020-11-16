@@ -32,27 +32,21 @@
     "@s-ui/studio": "9",
     "fs-extra": "8.1.0",
     "globby": "10.0.1",
-    "husky": "4.2.5",
+    "husky": "4.3.0",
     "validate-commit-msg": "2.12.2",
     "walker": "1.0.7"
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1"
   },
-  "sui-bundler": {
-    "vendor": [
-      "react",
-      "react-dom",
-      "react-router"
-    ],
-    "scripts": {
-      "defaultAttribute": "defer",
-      "inline": "runtime",
-      "prefetch": false,
-      "preload": false
-    }
-  },
   "config": {
+    "sui-bundler": {
+      "vendor": [
+        "react",
+        "react-dom",
+        "react-router"
+      ]
+    },
     "sui-studio": {
       "font": "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i",
       "name": "SUIComponents"

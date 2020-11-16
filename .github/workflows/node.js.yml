@@ -29,47 +29,47 @@ jobs:
 
     - name: Commit step
       run: |
-        @s-ui/ci@beta update-commit-status --state OK --topic commit
+        npx @s-ui/ci@beta update-commit-status --state OK --topic commit
 
     - name: Install dependencies
       run: |
-        @s-ui/ci@beta update-commit-status --state RUN
+        npx @s-ui/ci@beta update-commit-status --state RUN
         npx -p @s-ui/mono sui-mono phoenix --ci
         npm run install:demos -- --ci
         npm run install:themes
-        @s-ui/ci@beta update-commit-status --state OK
+        npx @s-ui/ci@beta update-commit-status --state OK
       env:
         SUI_CI_TOPIC: install
 
     - name: Lint
       run: |
-        @s-ui/ci@beta update-commit-status --state RUN
+        npx @s-ui/ci@beta update-commit-status --state RUN
         npm run lint
-        @s-ui/ci@beta update-commit-status --state OK
+        npx @s-ui/ci@beta update-commit-status --state OK
       env:
         SUI_CI_TOPIC: lint
 
     - name: Build dependencies
       run: |
-        @s-ui/ci@beta update-commit-status --state RUN
+        npx @s-ui/ci@beta update-commit-status --state RUN
         npm run build
-        @s-ui/ci@beta update-commit-status --state OK
+        npx @s-ui/ci@beta update-commit-status --state OK
       env:
         SUI_CI_TOPIC: bundle
     
     - name: Testing
       run: |
-        @s-ui/ci@beta update-commit-status --state RUN
+        npx @s-ui/ci@beta update-commit-status --state RUN
         npm run test -- --ci
-        @s-ui/ci@beta update-commit-status --state OK
+        npx @s-ui/ci@beta update-commit-status --state OK
       env:
         SUI_CI_TOPIC: tests
 
     - name: Release components
       run: |
-        @s-ui/ci@beta update-commit-status --state RUN
-        @s-ui/ci@beta release
-        @s-ui/ci@beta update-commit-status --state OK
+        npx @s-ui/ci@beta update-commit-status --state RUN
+        npx @s-ui/ci@beta release
+        npx @s-ui/ci@beta update-commit-status --state OK
       env:
         GITHUB_EMAIL: cloud-accounts@scmspain.com
         GITHUB_USER: sui-bot
@@ -77,11 +77,11 @@ jobs:
 
     - name: Deploy
       run: |
-        @s-ui/ci@beta update-commit-status --state RUN
+        npx @s-ui/ci@beta update-commit-status --state RUN
         rm -rf ./node_modules
         npm i vercel@latest --no-save --no-fund --no-audit --no-optional --no-scripts
         DEPLOYMENT_URL=$(vercel --token $VERCEL_TOKEN --confirm $VERCEL_PARAMS)
-        @s-ui/ci@beta update-commit-status --state OK --url $DEPLOYMENT_URL
+        npx @s-ui/ci@beta update-commit-status --state OK --url $DEPLOYMENT_URL
       env:
         SUI_CI_TOPIC: deploy
         VERCEL_PARAMS: 

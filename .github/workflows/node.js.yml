@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{github.token}}
-      GITHUB_SHA: ${{github.event.pull_request.head.sha}}
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
@@ -30,7 +29,6 @@ jobs:
 
     - name: Commit step
       run: |
-        echo ${{ github.event.pull_request.head.sha }}
         npx @s-ui/ci@beta update-commit-status --state OK --topic commit
 
     - name: Install dependencies

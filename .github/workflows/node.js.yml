@@ -80,4 +80,4 @@ jobs:
       env:
         SUI_CI_TOPIC: deploy
         VERCEL_PARAMS: 
-        VERCEL_TOKEN: {{secrets.VERCEL_TOKEN}}
+        VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}

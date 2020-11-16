@@ -10,6 +10,8 @@ jobs:
   build:
     if: "! contains(github.event.head_commit.message, '[skip ci]')"
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{github.token}}
 
     steps:
     - name: Cancel Previous Redundant Builds
@@ -69,7 +71,6 @@ jobs:
         npx @s-ui/ci update-commit-status --state OK
       env:
         GITHUB_EMAIL: cloud-accounts@scmspain.com
-        GITHUB_TOKEN: ${{ github.token }}
         GITHUB_USER: sui-bot
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         SUI_CI_TOPIC: release

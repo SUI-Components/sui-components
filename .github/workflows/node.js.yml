@@ -29,8 +29,6 @@ jobs:
 
     - name: Install dependencies
       run: |
-        echo $GITHUB_SHA
-        echo $VERCEL_PARAMS
         npx @s-ui/ci@beta update-commit-status --state RUN
         npx -p @s-ui/mono sui-mono phoenix --ci
         npm run install:demos -- --ci
@@ -39,7 +37,6 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         SUI_CI_TOPIC: install
-        VERCEL_PARAMS: ${{ github.event_name == 'pull_request' && '--name sui-components-${{github.sha}}' || '--prod'}}
 
     - name: Lint
       run: |
@@ -91,5 +88,5 @@ jobs:
         npx @s-ui/ci@beta update-commit-status --state OK --url $DEPLOYMENT_URL
       env:
         SUI_CI_TOPIC: deploy
-        VERCEL_PARAMS: ${{ github.event_name == 'pull_request' && '--name sui-components-$GITHUB_SHA' || '--prod'}}
+        VERCEL_PARAMS: ${{ github.event_name != 'pull_request' && '--prod' || ''}}
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

@@ -72,7 +72,6 @@ jobs:
         SUI_CI_TOPIC: tests
 
     - name: Release components
-      needs: ['test', 'build', 'lint']
       run: |
         npx @s-ui/ci@beta update-commit-status --state RUN
         npx @s-ui/ci@beta release

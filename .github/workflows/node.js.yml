@@ -39,7 +39,7 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         SUI_CI_TOPIC: install
-        VERCEL_PARAMS: ${{ github.event_name == 'pull_request' && '--name sui-components-$GITHUB_SHA' || '--prod'}}
+        VERCEL_PARAMS: ${{ github.event_name == 'pull_request' && '--name sui-components-${{github.sha}}' || '--prod'}}
 
     - name: Lint
       run: |

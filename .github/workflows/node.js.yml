@@ -31,6 +31,9 @@ jobs:
         node-version: 14
         registry-url: 'https://registry.npmjs.org'
 
+    - name: Setup xvfb for headless testing
+      run: sudo apt-get install xvfb
+
     - name: Install dependencies
       run: |
         npx @s-ui/ci@beta update-commit-status --state RUN
@@ -60,7 +63,7 @@ jobs:
     - name: Testing
       run: |
         npx @s-ui/ci@beta update-commit-status --state RUN
-        npm run test -- --ci
+        xvfb-run --auto-servernum npm run test -- --ci
         npx @s-ui/ci@beta update-commit-status --state OK
       env:
         SUI_CI_TOPIC: tests

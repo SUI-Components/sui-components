@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{github.token}}
-      IS_PULL_REQUEST: ${{github.event.pull_request}}
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:

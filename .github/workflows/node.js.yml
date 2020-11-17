@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{github.token}}
+      IS_PULL_REQUEST: ${{github.event.pull_request}}
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
@@ -87,5 +88,5 @@ jobs:
         npx @s-ui/ci@beta update-commit-status --state OK --url $DEPLOYMENT_URL
       env:
         SUI_CI_TOPIC: deploy
-        VERCEL_PARAMS: 
+        VERCEL_PARAMS: --name sui-components-$GITHUB_SHA $(if ${{github.event_name != 'pull_request'}}; then echo "--prod"; fi;)
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

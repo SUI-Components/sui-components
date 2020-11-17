@@ -88,5 +88,5 @@ jobs:
         npx @s-ui/ci@beta update-commit-status --state OK --url $DEPLOYMENT_URL
       env:
         SUI_CI_TOPIC: deploy
-        VERCEL_PARAMS: $(if [ "${{github.event_name}}" != 'pull_request' ]; then echo "--prod"; else echo "--name sui-components-$GITHUB_SHA"; fi;)
+        VERCEL_PARAMS: ${{ github.event_name == 'pull_request' && '--name sui-components-$GITHUB_SHA' || '--prod'}}
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{github.token}}
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
     - name: Cancel Previous Redundant Builds
@@ -42,6 +41,7 @@ jobs:
         npm run install:themes
         npx @s-ui/ci@beta update-commit-status --state OK
       env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         SUI_CI_TOPIC: install
 
     - name: Lint
@@ -76,6 +76,7 @@ jobs:
       env:
         GITHUB_EMAIL: cloud-accounts@scmspain.com
         GITHUB_USER: sui-bot
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         SUI_CI_TOPIC: release
 
     - name: Deploy
@@ -87,5 +88,5 @@ jobs:
         npx @s-ui/ci@beta update-commit-status --state OK --url $DEPLOYMENT_URL
       env:
         SUI_CI_TOPIC: deploy
-        VERCEL_PARAMS: --name sui-components-$GITHUB_SHA $(if ${{github.event_name != 'pull_request'}}; then echo "--prod"; fi;)
+        VERCEL_PARAMS: $(if [ "${{github.event_name}}" != 'pull_request' ]; then echo "--prod"; else echo "--name sui-components-$GITHUB_SHA"; fi;)
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

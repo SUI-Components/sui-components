@@ -38,7 +38,15 @@ return (
       <table>
         <tr>
           <td className="sui-Studio-label">Solid</td>
-          <td>Showed on Type block.</td> 
+          <td>
+            <AtomBadge label='success' type={atomBadgeTypes.SUCCESS}/>
+            <AtomBadge label='error' type={atomBadgeTypes.ERROR}/>
+            <AtomBadge label='info' type={atomBadgeTypes.INFO}/>
+            <AtomBadge label='alert' type={atomBadgeTypes.ALERT}/>
+            <AtomBadge label='new' type={atomBadgeTypes.NEW}/>
+            <AtomBadge label='neutral' type={atomBadgeTypes.NEUTRAL}/>
+            <AtomBadge label='primary' type={atomBadgeTypes.PRIMARY}/>
+          </td> 
         </tr>
         <tr>
           <td className="sui-Studio-label">Soft</td>

@@ -21,7 +21,7 @@ const SIZE_TO_WIDTH_LINE_MAP = {
   [SIZES.SMALL]: 8
 }
 
-const BASE_CLASS_NAME = 'sui-AtomCircleProgressBar'
+const BASE_CLASS_NAME = 'sui-AtomCircleProgressBarV2'
 const INDICATOR_CLASS_NAME = `${BASE_CLASS_NAME}-indicator`
 
 const Indicator = ({percentage, status, errorIcon, size, children}) => {

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const BASE_CLASS = 'sui-AtomLineProgressBar'
+const BASE_CLASS = 'sui-AtomLineProgressBarV2'
 const CLASS_INDICATOR = 'sui-AtomLineProgressBar-indicator'
 const CLASS_CONTAINER_BAR = 'sui-AtomLineProgressBar-container'
 const CLASS_BAR = 'sui-AtomLineProgressBar-bar'

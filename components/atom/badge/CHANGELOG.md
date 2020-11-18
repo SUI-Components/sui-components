@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.17.0 (2020-11-18)
+
+
+### Bug Fixes
+
+* fixes ([79cf6a4](https://github.com/SUI-Components/sui-components/commit/79cf6a401f316956cc2c156adebe18d233a1af09))
+
+
+### Features
+
+* add design feature on AtomBadge component ([cd5ade6](https://github.com/SUI-Components/sui-components/commit/cd5ade654e65d085d0d57fa898cbd3af6cfbe64c)), closes [#1298](https://github.com/SUI-Components/sui-components/issues/1298)
+
+
+
 # 1.16.0 (2020-10-30)
 
 

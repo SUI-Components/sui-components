@@ -4,6 +4,7 @@
 .sui-AtomCircleProgressBar {
   background-color: transparent;
   font-size: $fz-atom-circle-progress-bar-text--outer;
+  position: relative;
 
   &--small {
     height: $h-atom-circle-progress-bar-circle-small;
@@ -13,7 +14,6 @@
   &--medium {
     align-items: center;
     display: flex;
-    position: relative;
     justify-content: center;
     font-size: $fz-atom-circle-progress-bar-text--inner;
     height: $h-atom-circle-progress-bar-circle-medium;
@@ -23,7 +23,6 @@
   &--large {
     align-items: center;
     display: flex;
-    position: relative;
     justify-content: center;
     font-size: $fz-atom-circle-progress-bar-text--inner;
     height: $h-atom-circle-progress-bar-circle-large;

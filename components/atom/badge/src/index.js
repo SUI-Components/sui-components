@@ -127,7 +127,6 @@ AtomBadge.defaultProps = {
 }
 
 export default AtomBadge
-export {}
 export {
   DESIGNS as atomBadgeDesigns,
   TYPES as atomBadgeTypes,

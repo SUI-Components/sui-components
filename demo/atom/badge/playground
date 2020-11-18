@@ -33,6 +33,36 @@ return (
       </div>
     </div>
     <div className="sui-Studio-wrapper--light">
+      <h2 className="sui-Studio-h2">Design</h2>
+      <p className="sui-Studio-p">There are two options for <code className="sui-Studio-code">design</code> prop.</p>
+      <table>
+        <tr>
+          <td className="sui-Studio-label">Solid</td>
+          <td>
+            <AtomBadge label='success' type={atomBadgeTypes.SUCCESS}/>
+            <AtomBadge label='error' type={atomBadgeTypes.ERROR}/>
+            <AtomBadge label='info' type={atomBadgeTypes.INFO}/>
+            <AtomBadge label='alert' type={atomBadgeTypes.ALERT}/>
+            <AtomBadge label='new' type={atomBadgeTypes.NEW}/>
+            <AtomBadge label='neutral' type={atomBadgeTypes.NEUTRAL}/>
+            <AtomBadge label='primary' type={atomBadgeTypes.PRIMARY}/>
+          </td> 
+        </tr>
+        <tr>
+          <td className="sui-Studio-label">Soft</td>
+          <td>
+            <AtomBadge design='soft' label='success' type={atomBadgeTypes.SUCCESS}/>
+            <AtomBadge design='soft' label='error' type={atomBadgeTypes.ERROR}/>
+            <AtomBadge design='soft' label='info' type={atomBadgeTypes.INFO}/>
+            <AtomBadge design='soft' label='alert' type={atomBadgeTypes.ALERT}/>
+            <AtomBadge design='soft' label='new' type={atomBadgeTypes.NEW}/>
+            <AtomBadge design='soft' label='neutral' type={atomBadgeTypes.NEUTRAL}/>
+            <AtomBadge design='soft' label='primary' type={atomBadgeTypes.PRIMARY}/>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div className="sui-Studio-wrapper--light">
       <h2 className="sui-Studio-h2">Sizes</h2>
       <p className="sui-Studio-p">There are three options for <code className="sui-Studio-code">size</code></p>
       <table>

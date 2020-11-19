@@ -28,7 +28,8 @@ const MoleculeAutosuggestSingleSelection = ({
   disabled,
   required,
   tabIndex,
-  autoComplete,
+  ariaLabel,
+  autoComplete = 'nope',
   rightButton,
   inputMode,
   type
@@ -71,6 +72,7 @@ const MoleculeAutosuggestSingleSelection = ({
         disabled={disabled}
         required={required}
         tabIndex={tabIndex}
+        ariaLabel={ariaLabel}
         autoComplete={autoComplete}
         button={rightButton}
         inputMode={inputMode}
@@ -93,10 +95,5 @@ const MoleculeAutosuggestSingleSelection = ({
 
 MoleculeAutosuggestSingleSelection.displayName =
   'MoleculeAutosuggestSingleSelection'
-
-MoleculeAutosuggestSingleSelection.defaultProps = {
-  value: '',
-  autoComplete: 'nope'
-}
 
 export default MoleculeAutosuggestSingleSelection

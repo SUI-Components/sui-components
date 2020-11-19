@@ -24,7 +24,7 @@ jobs:
     - uses: actions/setup-node@v1
       with: 
         node-version: 14
-    - name: Cache Node Modules
+    - name: Use Cache of Node Modules
       id: cache
       uses: actions/cache@v2
       with:
@@ -44,8 +44,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
-      with:
+      with: 
         node-version: 14
+    - name: Use Cache of Node Modules
+      id: cache
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: ${{ github.run_id }}
     - name: Lint 
       run: npm run lint
 
@@ -55,8 +61,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
-      with:
+      with: 
         node-version: 14
+    - name: Use Cache of Node Modules
+      id: cache
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: ${{ github.run_id }}
     - name: Build dependencies
       run: npm run build
     - uses: actions/upload-artifact@v2
@@ -70,8 +82,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
-      with:
+      with: 
         node-version: 14
+    - name: Use Cache of Node Modules
+      id: cache
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: ${{ github.run_id }}
     - name: Install xvfb for headless testing
       run: sudo apt-get install xvfb
 
@@ -88,8 +106,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
-      with:
+      with: 
         node-version: 14
+    - name: Use Cache of Node Modules
+      id: cache
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: ${{ github.run_id }}
     - name: Release components
       run: npx @s-ui/ci@beta release
       env:
@@ -110,7 +134,7 @@ jobs:
         name: public-folder
     - name: Deploy
       run: |
-        npm i vercel@latest --no-save --no-fund --no-audit --no-optional --no-scripts
+        npm i -g vercel --no-save --no-fund --no-audit --no-optional --no-scripts
         DEPLOYMENT_URL=$(vercel --token $VERCEL_TOKEN --confirm $VERCEL_PARAMS)
       env:
         VERCEL_PARAMS: ${{ github.event_name != 'pull_request' && '--prod' || ''}}

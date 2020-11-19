@@ -1,13 +1,12 @@
-$lg-breakpoints: $breakpoints !default;
-$lg-column-gap: $p-l !default;
-$lg-columns: 12 !default;
+$layout-grid-breakpoints: $breakpoints !default;
+$layout-grid-column-gap: $p-l !default;
+$layout-grid-columns: 12;
 
-$align-items: center flex-start flex-end;
-
-$justify-content: flex-start center flex-end space-between space-around;
+$ai-layout-grid: center flex-start flex-end;
+$jc-layout-grid: flex-start center flex-end space-between space-around;
 
 @mixin getFlexBasis($size) {
-  flex-basis: (100% / $lg-columns) * $size;
+  flex-basis: (100% / $layout-grid-columns) * $size;
 }
 
 @mixin getItemValue($bpName, $size) {
@@ -16,7 +15,7 @@ $justify-content: flex-start center flex-end space-between space-around;
   }
 
   &--#{$bpName}Offset-#{$size} {
-    margin-left: (100% / $lg-columns) * $size;
+    margin-left: (100% / $layout-grid-columns) * $size;
   }
 }
 

@@ -24,11 +24,12 @@ jobs:
     - uses: actions/setup-node@v1
       with: 
         node-version: 14
-    - name: Use Cache of Node Modules
+    - name: node_modules cache
       id: cache
       uses: actions/cache@v2
       with:
-        path: node_modules
+        path: |
+          **/node_modules
         key: ${{ github.run_id }}
     - name: Install dependencies
       run: |
@@ -46,11 +47,12 @@ jobs:
     - uses: actions/setup-node@v1
       with: 
         node-version: 14
-    - name: Use Cache of Node Modules
+    - name: node_modules cache
       id: cache
       uses: actions/cache@v2
       with:
-        path: node_modules
+        path: |
+          **/node_modules
         key: ${{ github.run_id }}
     - name: Lint 
       run: npm run lint
@@ -63,11 +65,12 @@ jobs:
     - uses: actions/setup-node@v1
       with: 
         node-version: 14
-    - name: Use Cache of Node Modules
+    - name: node_modules cache
       id: cache
       uses: actions/cache@v2
       with:
-        path: node_modules
+        path: |
+          **/node_modules
         key: ${{ github.run_id }}
     - name: Build dependencies
       run: npm run build
@@ -84,11 +87,12 @@ jobs:
     - uses: actions/setup-node@v1
       with: 
         node-version: 14
-    - name: Use Cache of Node Modules
+    - name: node_modules cache
       id: cache
       uses: actions/cache@v2
       with:
-        path: node_modules
+        path: |
+          **/node_modules
         key: ${{ github.run_id }}
     - name: Install xvfb for headless testing
       run: sudo apt-get install xvfb
@@ -108,11 +112,12 @@ jobs:
     - uses: actions/setup-node@v1
       with: 
         node-version: 14
-    - name: Use Cache of Node Modules
+    - name: node_modules cache
       id: cache
       uses: actions/cache@v2
       with:
-        path: node_modules
+        path: |
+          **/node_modules
         key: ${{ github.run_id }}
     - name: Release components
       run: npx @s-ui/ci@beta release

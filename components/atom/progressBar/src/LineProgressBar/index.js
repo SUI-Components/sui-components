@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 const BASE_CLASS = 'sui-AtomLineProgressBarV2'
-const CLASS_INDICATOR = 'sui-AtomLineProgressBarV2-indicator'
-const CLASS_CONTAINER_BAR = 'sui-AtomLineProgressBarV2-container'
-const CLASS_BAR = 'sui-AtomLineProgressBarV2-bar'
-const CLASS_BAR_ANIMATED = 'sui-AtomLineProgressBarV2-bar--animated'
+const CLASS_INDICATOR = `${BASE_CLASS}-indicator`
+const CLASS_CONTAINER_BAR = `${BASE_CLASS}-container`
+const CLASS_BAR = `${BASE_CLASS}-bar`
+const CLASS_BAR_ANIMATED = `${CLASS_BAR}--animated`
 
 const Indicator = props => {
   const {indicatorBottom, percentage, indicatorTotal} = props // eslint-disable-line react/prop-types

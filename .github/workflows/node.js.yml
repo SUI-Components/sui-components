@@ -7,53 +7,63 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  check-skip:
     if: "! contains(github.event.head_commit.message, '[skip ci]')"
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{github.token}}
-
     steps:
     - name: Cancel Previous Redundant Builds
       uses: styfle/cancel-workflow-action@0.6.0
       with:
         access_token: ${{ github.token }}
 
+  install:
+    needs: check-skip
+    runs-on: ubuntu-latest
     - uses: actions/checkout@v2
+    - uses: actions/cache@v2
       with:
-        fetch-depth: 0
+        path: '~/.npm'
+        key: "ubuntu-latest-node-v14-${{ hashFiles('**/package-lock.json') }}"
+        restore-keys: |
+          ubuntu-latest-node-v14-
     - uses: actions/setup-node@v1
       with:
         node-version: 14
-        registry-url: 'https://registry.npmjs.org'
-
     - name: Install dependencies
       run: |
-        npx @s-ui/ci@beta update-commit-status --state RUN
         npx -p @s-ui/mono sui-mono phoenix --ci
         npm run install:demos -- --ci
         npm run install:themes
-        npx @s-ui/ci@beta update-commit-status --state OK
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        SUI_CI_TOPIC: install
-
+        
+  lint:
+    runs-on: ubuntu-latest
+    needs: install
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      width:
+        node-version: 14
     - name: Lint
-      run: |
-        npx @s-ui/ci@beta update-commit-status --state RUN
-        npm run lint
-        npx @s-ui/ci@beta update-commit-status --state OK
-      env:
-        SUI_CI_TOPIC: lint
+      run: npx @s-ui/lint
 
+  build:
+    runs-on: ubuntu-latest
+    needs: install
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      width:
+        node-version: 14
     - name: Build dependencies
-      run: |
-        npx @s-ui/ci@beta update-commit-status --state RUN
-        npm run build
-        npx @s-ui/ci@beta update-commit-status --state OK
-      env:
-        SUI_CI_TOPIC: bundle
+      run: npm run build
+    - uses: actions/upload-artifact@v2
+    with:
+      name: artifact
+      path: public
 
+  testing:
+    needs: install
+    runs-on: ubuntu-latest
     - name: Install xvfb for headless testing
       run: sudo apt-get install xvfb
 
@@ -62,31 +72,23 @@ jobs:
 
     - name: Testing
       run: |
-        npx @s-ui/ci@beta update-commit-status --state RUN
         xvfb-run --auto-servernum npm run test -- --ci
-        npx @s-ui/ci@beta update-commit-status --state OK
-      env:
-        SUI_CI_TOPIC: tests
 
+  release:
+    needs: testing
     - name: Release components
-      run: |
-        npx @s-ui/ci@beta update-commit-status --state RUN
-        npx @s-ui/ci@beta release
-        npx @s-ui/ci@beta update-commit-status --state OK
+      run: npx @s-ui/ci@beta release
       env:
         GITHUB_EMAIL: cloud-accounts@scmspain.com
         GITHUB_USER: sui-bot
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        SUI_CI_TOPIC: release
 
+  deploy:
+    needs: [build, testing]
     - name: Deploy
       run: |
-        npx @s-ui/ci@beta update-commit-status --state RUN
-        rm -rf ./node_modules
         npm i vercel@latest --no-save --no-fund --no-audit --no-optional --no-scripts
         DEPLOYMENT_URL=$(vercel --token $VERCEL_TOKEN --confirm $VERCEL_PARAMS)
-        npx @s-ui/ci@beta update-commit-status --state OK --url $DEPLOYMENT_URL
       env:
-        SUI_CI_TOPIC: deploy
         VERCEL_PARAMS: ${{ github.event_name != 'pull_request' && '--prod' || ''}}
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

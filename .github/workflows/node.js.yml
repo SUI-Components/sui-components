@@ -46,10 +46,8 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: 14
-    - name: Lint Javascript
-      run: npx @s-ui/lint js
-    - name: Lint SCSS
-      run: npx @s-ui/lint scss
+    - name: Lint 
+      run: npm run lint
 
   build:
     runs-on: ubuntu-latest

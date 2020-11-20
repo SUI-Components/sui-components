@@ -1,162 +1,193 @@
-const icon = (
- <svg viewBox="0 0 24 24">
-  <path d="M11.9999037,20.1703578 L10.523143,21.1184608 C9.59364714,21.7152114 8.35637996,21.445468 7.75962938,20.5159722 C7.66349077,20.3662271 7.58776711,20.2043212 7.53446375,20.034542 L6.99753841,18.3243546 L5.22996698,18.0834124 C4.13551871,17.9342254 3.36923309,16.9260598 3.51842013,15.8316115 C3.54092851,15.6664882 3.58398673,15.5048255 3.64659363,15.3503822 L4.33583544,13.6501104 L3.11145138,12.2878836 C2.37307329,11.4663779 2.44046151,10.2018423 3.26196718,9.46346418 C3.38297581,9.35470033 3.51680437,9.26110912 3.66048571,9.18476559 L5.26023518,8.33475604 L5.18688692,6.51702664 C5.14235204,5.41335531 6.00095178,4.48255025 7.10462312,4.43801537 C7.27715727,4.43105334 7.44986661,4.44646443 7.6184423,4.48386415 L9.33820072,4.86540487 L10.4084408,3.45927225 C11.0774229,2.58033156 12.3322622,2.41012649 13.2112029,3.07910858 C13.3544566,3.18814226 13.4823329,3.31601858 13.5913666,3.45927225 L14.6616067,4.86540487 L16.3813651,4.48386415 C17.4597148,4.24462454 18.5278321,4.92485771 18.7670717,6.00320746 C18.8044714,6.17178316 18.8198825,6.34449249 18.8129205,6.51702664 L18.7395722,8.33475604 L20.3393217,9.18476559 C21.3147483,9.70304798 21.685337,10.9139384 21.1670546,11.889365 C21.090711,12.0330464 20.9971198,12.166875 20.888356,12.2878836 L19.6639719,13.6501104 L20.3532137,15.3503822 C20.7681764,16.3740422 20.2747297,17.5402763 19.2510697,17.9552389 C19.0966264,18.0178458 18.9349637,18.060904 18.7698404,18.0834124 L17.002269,18.3243546 L16.4653436,20.034542 C16.1344796,21.0883934 15.0119459,21.6744905 13.9580945,21.3436264 C13.7883154,21.2903231 13.6264094,21.2145994 13.4766644,21.1184608 L11.9999037,20.1703578 Z M9.4103093,12.2315078 C8.99186466,11.8710601 8.36044768,11.9180759 8,12.3365206 C7.63955232,12.7549652 7.68656814,13.3863822 8.10501278,13.7468299 L10.5303303,15.686094 C10.9445205,16.042877 11.5684531,16.0009333 11.9311632,15.5919236 L16.4963693,10.6635017 C16.862805,10.2502907 16.8248862,9.61826222 16.4116752,9.25182649 C15.9984642,8.88539077 15.3664357,8.9233096 15,9.33652056 L11.0887983,13.5274549 L9.4103093,12.2315078 Z"></path>
- </svg>
-)
+const {
+  Label,
+  H1,
+  H2,
+  H4,
+  Code,
+  Bold,
+  Paragraph,
+  Article,
+  UnorderedList,
+  ListItem,
+  DevIcon,
+  Grid,
+  Cell,
+} = window.DOC
+
+const BASE_CLASS_DEMO = `DemoAtomBadge`
+const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
+
+const icon = <DevIcon icon="DiGithubBadge" />
 
 return (
-  <div>
-    <h1 className="sui-Studio-h1">Badge</h1>
-    <p className="sui-Studio-h4">This is an informative UI element, it doesn't change on hover or click, so the user can't interact with it.</p>
-    <div className="sui-Studio-wrapper--light">
-      <h2 className="sui-Studio-h2">Type</h2>
-      <div>
-        <p className="sui-Studio-p">These are the available <code className="sui-Studio-code">types</code> of bagdes, which are solid by default.</p>
-        <AtomBadge label='success' type={atomBadgeTypes.SUCCESS}/>
-        <AtomBadge label='error' type={atomBadgeTypes.ERROR}/>
-        <AtomBadge label='info' type={atomBadgeTypes.INFO}/>
-        <AtomBadge label='alert' type={atomBadgeTypes.ALERT}/>
-        <AtomBadge label='new' type={atomBadgeTypes.NEW}/>
-        <AtomBadge label='neutral' type={atomBadgeTypes.NEUTRAL}/>
-        <AtomBadge label='primary' type={atomBadgeTypes.PRIMARY}/>
-      </div>
-      <p className="sui-Studio-p">___</p>
-      <div>
-        <p className="sui-Studio-p">Use the Prop <code className="sui-Studio-code">transparent</code> to remove the background.</p>
-        <AtomBadge label='success' type={atomBadgeTypes.SUCCESS} transparent/>
-        <AtomBadge label='error' type={atomBadgeTypes.ERROR} transparent/>
-        <AtomBadge label='info' type={atomBadgeTypes.INFO} transparent/>
-        <AtomBadge label='alert' type={atomBadgeTypes.ALERT} transparent/>
-        <AtomBadge label='new' type={atomBadgeTypes.NEW} transparent/>
-        <AtomBadge label='neutral' type={atomBadgeTypes.NEUTRAL} transparent/>
-        <AtomBadge label='primary' type={atomBadgeTypes.PRIMARY} transparent/>
-      </div>
-    </div>
-    <div className="sui-Studio-wrapper--light">
-      <h2 className="sui-Studio-h2">Design</h2>
-      <p className="sui-Studio-p">There are two options for <code className="sui-Studio-code">design</code> prop.</p>
-      <table>
-        <tr>
-          <td className="sui-Studio-label">Solid</td>
-          <td>
-            <AtomBadge label='success' type={atomBadgeTypes.SUCCESS}/>
-            <AtomBadge label='error' type={atomBadgeTypes.ERROR}/>
-            <AtomBadge label='info' type={atomBadgeTypes.INFO}/>
-            <AtomBadge label='alert' type={atomBadgeTypes.ALERT}/>
-            <AtomBadge label='new' type={atomBadgeTypes.NEW}/>
-            <AtomBadge label='neutral' type={atomBadgeTypes.NEUTRAL}/>
-            <AtomBadge label='primary' type={atomBadgeTypes.PRIMARY}/>
-          </td> 
-        </tr>
-        <tr>
-          <td className="sui-Studio-label">Soft</td>
-          <td>
-            <AtomBadge design='soft' label='success' type={atomBadgeTypes.SUCCESS}/>
-            <AtomBadge design='soft' label='error' type={atomBadgeTypes.ERROR}/>
-            <AtomBadge design='soft' label='info' type={atomBadgeTypes.INFO}/>
-            <AtomBadge design='soft' label='alert' type={atomBadgeTypes.ALERT}/>
-            <AtomBadge design='soft' label='new' type={atomBadgeTypes.NEW}/>
-            <AtomBadge design='soft' label='neutral' type={atomBadgeTypes.NEUTRAL}/>
-            <AtomBadge design='soft' label='primary' type={atomBadgeTypes.PRIMARY}/>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <div className="sui-Studio-wrapper--light">
-      <h2 className="sui-Studio-h2">Sizes</h2>
-      <p className="sui-Studio-p">There are three options for <code className="sui-Studio-code">size</code></p>
-      <table>
-        <tr>
-          <td className="sui-Studio-label">Small</td>
-          <td><AtomBadge label='label' size={atomBadgeSizes.SMALL}/> </td> 
-        </tr>
-        <tr>
-          <td className="sui-Studio-label">Medium</td>
-          <td><AtomBadge label='label' size={atomBadgeSizes.MEDIUM}/></td>
-        </tr>
-        <tr>
-          <td className="sui-Studio-label">Large</td>
-          <td><AtomBadge label='label' size={atomBadgeSizes.LARGE}/> </td>
-        </tr>
-      </table>
-    </div>
-    <div className="sui-Studio-wrapper--light">
-      <h2 className="sui-Studio-h2">Content</h2>
-      <h4 className="sui-Studio-h4">Text</h4>
-      <ul className="sui-Studio-ul">
-        <li>Numbers, text and icons are valid</li>
-        <li>The content will never split in two lines</li>
-        <li>There's no limit of characters</li>
-      </ul>
-      <table>
-        <tr>
-          <td className="sui-Studio-label">Small</td>
-          <td><AtomBadge label='label' size={atomBadgeSizes.SMALL}/> </td>
-          <td><AtomBadge label='label' transparent size={atomBadgeSizes.SMALL}/></td>
-        </tr>
-        <tr>
-          <td className="sui-Studio-label">Medium</td>
-          <td><AtomBadge label='label' size={atomBadgeSizes.MEDIUM}/> </td>
-          <td><AtomBadge label='label' transparent size={atomBadgeSizes.MEDIUM}/></td>
-        </tr>
-        <tr>
-          <td className="sui-Studio-label">Large</td>
-          <td><AtomBadge label='label' size={atomBadgeSizes.LARGE}/> </td>
-          <td><AtomBadge label='label' transparent size={atomBadgeSizes.LARGE}/></td>
-        </tr>
-      </table>
-      <h4 className="sui-Studio-h4">Icons</h4>
-      <ul className="sui-Studio-ul">
-        <li><b>Icons are optional</b> and can be placed either on the right or the left side, but never on both at the same time.</li>
-        <li>Small badges with background won't display icons</li>
-      </ul>
-      <table>
-        <tr>
-          <td className="sui-Studio-label">Small</td>
-          <td><AtomBadge label='label' icon={icon} iconRight size={atomBadgeSizes.SMALL}/> </td>
-          <td><AtomBadge label='label' icon={icon} iconLeft size={atomBadgeSizes.SMALL}/></td>
-          <td><AtomBadge label='label' icon={icon} iconRight transparent size={atomBadgeSizes.SMALL}/></td>
-          <td><AtomBadge label='label' icon={icon} iconLeft transparent size={atomBadgeSizes.SMALL}/></td>
-        </tr>
-        <tr>
-          <td className="sui-Studio-label">Medium</td>
-          <td><AtomBadge label='label' icon={icon} iconRight size={atomBadgeSizes.MEDIUM}/> </td>
-          <td><AtomBadge label='label' icon={icon} iconLeft size={atomBadgeSizes.MEDIUM}/></td>
-          <td><AtomBadge label='label' icon={icon} iconRight transparent size={atomBadgeSizes.MEDIUM}/></td>
-          <td><AtomBadge label='label' icon={icon} iconLeft transparent size={atomBadgeSizes.MEDIUM}/></td>
-        </tr>
-        <tr>
-          <td className="sui-Studio-label">Large</td>
-          <td><AtomBadge label='label' icon={icon} iconRight size={atomBadgeSizes.LARGE}/> </td>
-          <td><AtomBadge label='label' icon={icon} iconLeft size={atomBadgeSizes.LARGE}/></td>
-          <td><AtomBadge label='label' icon={icon} iconRight transparent size={atomBadgeSizes.LARGE}/></td>
-          <td><AtomBadge label='label' icon={icon} iconLeft transparent size={atomBadgeSizes.LARGE}/></td>
-        </tr>
-      </table>
-    </div>
-    <div className="sui-Studio-wrapper--dark">
-      <h2 className="sui-Studio-h2">Dark mode</h2>
-      <div>
-        <p className="sui-Studio-p">There is no <code className="sui-Studio-code">negative</code> Prop for this component.</p>
-        <p className="sui-Studio-p">This is how the Badges look like over dark backgrounds.</p>
-        <AtomBadge label='success' type={atomBadgeTypes.SUCCESS}/>
-        <AtomBadge label='error' type={atomBadgeTypes.ERROR}/>
-        <AtomBadge label='info' type={atomBadgeTypes.INFO}/>
-        <AtomBadge label='alert' type={atomBadgeTypes.ALERT}/>
-        <AtomBadge label='new' type={atomBadgeTypes.NEW}/>
-        <AtomBadge label='neutral' type={atomBadgeTypes.NEUTRAL}/>
-        <AtomBadge label='primary' type={atomBadgeTypes.PRIMARY}/>
-      </div>
-      <p className="sui-Studio-p">___</p>
-      <div>
-        <AtomBadge label='success' type={atomBadgeTypes.SUCCESS} transparent/>
-        <AtomBadge label='error' type={atomBadgeTypes.ERROR} transparent/>
-        <AtomBadge label='info' type={atomBadgeTypes.INFO} transparent/>
-        <AtomBadge label='alert' type={atomBadgeTypes.ALERT} transparent/>
-        <AtomBadge label='new' type={atomBadgeTypes.NEW} transparent/>
-        <AtomBadge label='neutral' type={atomBadgeTypes.NEUTRAL} transparent/>
-        <AtomBadge label='primary' type={atomBadgeTypes.PRIMARY} transparent/>
-      </div>
+  <div className="sui-StudioPreview">
+    <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+      <H1>Badge</H1>
+      <Paragraph>
+        This is an informative UI element, it doesn't change on hover or
+        click, so the user can't interact with it.
+      </Paragraph>
+      <Article className={CLASS_SECTION}>
+        <H2>Type</H2>
+        <div>
+          <Paragraph>
+            These are the available <Code>types</Code> of bagdes, which are
+            solid by default.
+          </Paragraph>
+          <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} />
+          <AtomBadge label="error" type={atomBadgeTypes.ERROR} />
+          <AtomBadge label="info" type={atomBadgeTypes.INFO} />
+          <AtomBadge label="alert" type={atomBadgeTypes.ALERT} />
+          <AtomBadge label="new" type={atomBadgeTypes.NEW} />
+          <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} />
+          <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} />
+        </div>
+        <Paragraph>___</Paragraph>
+        <div>
+          <Paragraph>
+            Use the Prop <Code>transparent</Code> to remove the background.
+          </Paragraph>
+          <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} transparent />
+          <AtomBadge label="error" type={atomBadgeTypes.ERROR} transparent />
+          <AtomBadge label="info" type={atomBadgeTypes.INFO} transparent />
+          <AtomBadge label="alert" type={atomBadgeTypes.ALERT} transparent />
+          <AtomBadge label="new" type={atomBadgeTypes.NEW} transparent />
+          <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} transparent />
+          <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} transparent />
+        </div>
+      </Article>
+      <br />
+      <Article className={CLASS_SECTION}>
+        <H2>Design</H2>
+        <div>
+          <Paragraph>
+            These are the available <Code>designs</Code> of bagdes, which are
+            solid by default.
+          </Paragraph>
+          <Grid cols={8} gutter={10} style={{width: 600}}>
+            <Cell><Label>Solid</Label></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOLID} label="success" type={atomBadgeTypes.SUCCESS} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOLID} label="error" type={atomBadgeTypes.ERROR} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOLID} label="info" type={atomBadgeTypes.INFO} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOLID} label="alert" type={atomBadgeTypes.ALERT} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOLID} label="new" type={atomBadgeTypes.NEW} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOLID} label="neutral" type={atomBadgeTypes.NEUTRAL} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOLID} label="primary" type={atomBadgeTypes.PRIMARY} /></Cell>
+            <Cell><Label>Soft</Label></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOFT} label="success" type={atomBadgeTypes.SUCCESS} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOFT} label="error" type={atomBadgeTypes.ERROR} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOFT} label="info" type={atomBadgeTypes.INFO} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOFT} label="alert" type={atomBadgeTypes.ALERT} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOFT} label="new" type={atomBadgeTypes.NEW} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOFT} label="neutral" type={atomBadgeTypes.NEUTRAL} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOFT} label="primary" type={atomBadgeTypes.PRIMARY} /></Cell>
+          </Grid>
+        </div>
+      </Article>
+      <br/>
+      <Article className={CLASS_SECTION}>
+        <H2>Sizes</H2>
+        <div>
+          <Paragraph>
+            There are three options for <Code>size</Code>
+          </Paragraph>
+          <Grid cols={2} gutter={10} style={{width: 100}}>
+            <Cell><Label>Small</Label></Cell>
+            <Cell><AtomBadge label="label" size={atomBadgeSizes.SMALL} /></Cell>
+            <Cell><Label>Medium</Label></Cell>
+            <Cell><AtomBadge label="label" size={atomBadgeSizes.MEDIUM} /></Cell>
+            <Cell><Label>Large</Label></Cell>
+            <Cell><AtomBadge label="label" size={atomBadgeSizes.LARGE} /></Cell>
+          </Grid>
+        </div>
+      </Article>
+      <br />
+      <Article className={CLASS_SECTION}>
+        <H2>Content</H2>
+        <H4>Text</H4>
+        <UnorderedList>
+          <ListItem>Numbers, text and icons are valid</ListItem>
+          <ListItem>The content will never split in two lines</ListItem>
+          <ListItem>There's no limit of characters</ListItem>
+        </UnorderedList>
+        <Grid cols={3} gutter={10} style={{width: 200}}>
+          <Cell><Label>Small</Label></Cell>
+          <Cell><AtomBadge label="label" size={atomBadgeSizes.SMALL} /></Cell>
+          <Cell><AtomBadge label="label" transparent size={atomBadgeSizes.SMALL} /></Cell>
+          <Cell><Label>Medium</Label></Cell>
+          <Cell><AtomBadge label="label" size={atomBadgeSizes.MEDIUM} /></Cell>
+          <Cell><AtomBadge label="label" transparent size={atomBadgeSizes.MEDIUM} /></Cell>
+          <Cell><Label>Large</Label></Cell>
+          <Cell><AtomBadge label="label" size={atomBadgeSizes.LARGE} /></Cell>
+          <Cell><AtomBadge label="label" transparent size={atomBadgeSizes.LARGE} /></Cell>
+        </Grid>
+        <H4>Icons</H4>
+        <UnorderedList>
+          <ListItem>
+            <Bold>Icons are optional</Bold> and can be placed either on the
+            right or the left side, but never on both at the same time.
+          </ListItem>
+          <ListItem>
+            Small badges with background won't display icons
+          </ListItem>
+        </UnorderedList>
+        <Grid cols={5} gutter={10} style={{width: 500}}>
+          <Cell><Label>Small</Label></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconRight size={atomBadgeSizes.SMALL} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconLeft size={atomBadgeSizes.SMALL} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconRight transparent size={atomBadgeSizes.SMALL} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconLeft transparent size={atomBadgeSizes.SMALL} /></Cell>
+          <Cell><Label>Medium</Label></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconRight size={atomBadgeSizes.MEDIUM} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconLeft size={atomBadgeSizes.MEDIUM} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconRight transparent size={atomBadgeSizes.MEDIUM} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconLeft transparent size={atomBadgeSizes.MEDIUM} /></Cell>
+          <Cell><Label>Large</Label></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconRight size={atomBadgeSizes.LARGE} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconLeft size={atomBadgeSizes.LARGE} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconRight transparent size={atomBadgeSizes.LARGE} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconLeft transparent size={atomBadgeSizes.LARGE} /></Cell>
+        </Grid>
+      </Article>
+      <br />
+      <Article mode="dark">
+        <H2>Dark mode</H2>
+        <div>
+          <Paragraph>
+            There is no <Code>negative</Code> Prop for this component.
+          </Paragraph>
+          <Paragraph>
+            This is how the Badges look like over dark backgrounds.
+          </Paragraph>
+          <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} />
+          <AtomBadge label="error" type={atomBadgeTypes.ERROR} />
+          <AtomBadge label="info" type={atomBadgeTypes.INFO} />
+          <AtomBadge label="alert" type={atomBadgeTypes.ALERT} />
+          <AtomBadge label="new" type={atomBadgeTypes.NEW} />
+          <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} />
+          <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} />
+        </div>
+        <Paragraph>___</Paragraph>
+        <div>
+          <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} transparent />
+          <AtomBadge label="error" type={atomBadgeTypes.ERROR} transparent />
+          <AtomBadge label="info" type={atomBadgeTypes.INFO} transparent />
+          <AtomBadge label="alert" type={atomBadgeTypes.ALERT} transparent />
+          <AtomBadge label="new" type={atomBadgeTypes.NEW} transparent />
+          <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} transparent />
+          <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} transparent />
+        </div>
+        <Paragraph>___</Paragraph>
+        <div>
+          <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} design={atomBadgeDesigns.SOFT} />
+          <AtomBadge label="error" type={atomBadgeTypes.ERROR} design={atomBadgeDesigns.SOFT} />
+          <AtomBadge label="info" type={atomBadgeTypes.INFO} design={atomBadgeDesigns.SOFT} />
+          <AtomBadge label="alert" type={atomBadgeTypes.ALERT} design={atomBadgeDesigns.SOFT} />
+          <AtomBadge label="new" type={atomBadgeTypes.NEW} design={atomBadgeDesigns.SOFT} />
+          <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} design={atomBadgeDesigns.SOFT} />
+          <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} design={atomBadgeDesigns.SOFT} />
+        </div>
+      </Article>
     </div>
   </div>
 )

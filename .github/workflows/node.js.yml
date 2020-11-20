@@ -24,6 +24,7 @@ jobs:
     - uses: actions/setup-node@v1
       with: 
         node-version: 14
+        registry-url: 'https://registry.npmjs.org'
     - name: node_modules cache
       id: cache
       uses: actions/cache@v2
@@ -120,7 +121,7 @@ jobs:
           **/node_modules
         key: ${{ github.run_id }}
     - name: Release components
-      run: npx @s-ui/ci@beta release
+      run: npx @s-ui/ci release
       env:
         GITHUB_EMAIL: cloud-accounts@scmspain.com
         GITHUB_USER: sui-bot

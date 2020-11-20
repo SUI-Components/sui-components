@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-
+import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 import {IconStarFilled, IconStarHalfFilled, IconStarOutline} from '../Icons'
 
 const BASE_CLASS = `sui-MoleculeRating-Star`
@@ -20,7 +20,8 @@ const MoleculeRatingStar = ({
   index,
   IconStarEmpty = DEFAULTS.IconStarEmpty,
   IconStarFilled = DEFAULTS.IconStarFilled,
-  IconStarHalfFilled = DEFAULTS.IconStarHalfFilled
+  IconStarHalfFilled = DEFAULTS.IconStarHalfFilled,
+  size
 }) => {
   let StarMode = IconStarEmpty
   if (value >= index + fullValue) StarMode = IconStarFilled
@@ -28,7 +29,7 @@ const MoleculeRatingStar = ({
 
   return (
     <div className={BASE_CLASS}>
-      <StarMode />
+      <StarMode size={size} />
     </div>
   )
 }
@@ -55,7 +56,10 @@ MoleculeRatingStar.propTypes = {
   IconStarHalfFilled: PropTypes.node,
 
   /** Icon for star empty */
-  IconStarEmpty: PropTypes.node
+  IconStarEmpty: PropTypes.node,
+
+  /** size */
+  size: PropTypes.oneOf(Object.values(ATOM_ICON_SIZES))
 }
 
 export default MoleculeRatingStar

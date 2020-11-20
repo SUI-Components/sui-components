@@ -20,8 +20,14 @@ $mr-atom-popover-close-icon: $m-s !default;
 $mt-atom-popover-close-icon: $m-s !default;
 $sz-atom-popover-close-icon: $sz-icon-s !default;
 
+$w-atom-popover-arrow: 0.8rem !default;
+$h-atom-popover-arrow: 0.4rem !default;
+$c-atom-popover-arrow: $bgc-atom-popover !default;
+
 $base-class: '.sui-AtomPopover';
 $class-inner: '#{$base-class}-inner';
+
+$class-arrow: '#{$base-class}-arrow';
 
 #{$base-class} {
   display: block;
@@ -60,15 +66,72 @@ $class-inner: '#{$base-class}-inner';
 
   &#{$base-class}--top {
     margin: $mt-atom-popover 0;
+
+    padding: $h-atom-popover-arrow 0;
+
+    #{$class-arrow} {
+      bottom: 0;
+
+      &::before {
+        border-top-color: $c-atom-popover-arrow;
+        border-width: $h-atom-popover-arrow ($w-atom-popover-arrow / 2) 0;
+        top: 0;
+      }
+    }
   }
   &#{$base-class}--right {
     margin: 0 $mr-atom-popover;
+    padding: 0 $h-atom-popover-arrow;
+
+    #{$class-arrow} {
+      height: $w-atom-popover-arrow;
+      left: 0;
+      width: $h-atom-popover-arrow;
+
+      &::before {
+        border-right-color: $c-atom-popover-arrow;
+        border-width: ($w-atom-popover-arrow / 2) $h-atom-popover-arrow
+          ($w-atom-popover-arrow / 2) 0;
+        right: 0;
+      }
+    }
   }
   &#{$base-class}--bottom {
     margin: $mb-atom-popover 0;
+    padding: $h-atom-popover-arrow 0;
+
+    #{$class-arrow} {
+      top: 0;
+
+      &::before {
+        border-bottom-color: $c-atom-popover-arrow;
+        border-width: 0 ($w-atom-popover-arrow / 2) $h-atom-popover-arrow;
+        bottom: 0;
+      }
+
+      &::after {
+        top: 1px;
+        border-width: 0 0.5rem 0.5rem 0.5rem;
+        border-bottom-color: #fff;
+      }
+    }
   }
   &#{$base-class}--left {
     margin: 0 $ml-atom-popover;
+    padding: 0 $h-atom-popover-arrow;
+
+    #{$class-arrow} {
+      height: $w-atom-popover-arrow;
+      right: 0;
+      width: $h-atom-popover-arrow;
+
+      &::before {
+        border-left-color: $c-atom-popover-arrow;
+        border-width: ($w-atom-popover-arrow / 2) 0 ($w-atom-popover-arrow / 2)
+          $h-atom-popover-arrow;
+        left: 0;
+      }
+    }
   }
 
   &#{$base-class}--auto {
@@ -86,6 +149,28 @@ $class-inner: '#{$base-class}-inner';
 
     &[x-placement^='left'] {
       @extend #{$base-class}--left;
+    }
+  }
+
+  #{$class-arrow} {
+    display: block;
+    height: $h-atom-popover-arrow;
+    position: absolute;
+    width: $w-atom-popover-arrow;
+
+    &::before {
+      border-color: transparent;
+      border-style: solid;
+      content: '';
+      position: absolute;
+    }
+
+    &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      border-color: transparent;
+      border-style: solid;
     }
   }
 }

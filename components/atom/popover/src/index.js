@@ -62,6 +62,8 @@ function AtomPopover({
             className={BASE_CLASS}
             delay={DEFAULT_DELAY}
             innerClassName={CLASS_INNER}
+            hideArrow
+            arrowClassName={`${BASE_CLASS}-arrow`}
             isOpen={internalShowPopover}
             offset={DEFAULT_OFFSET}
             placement={placement}

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-atom-icon": "^1.6.0"
+    "@s-ui/react-atom-icon": "1"
   },
   "keywords": [],
   "author": "",

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.1.0 (2020-11-03)
+
+
+### Features
+
+* update input version ([ac1d51f](https://github.com/SUI-Components/sui-components/commit/ac1d51f1f872b276676feeddeb180c9e42eee577))
+
+
+
 # 3.5.0 (2020-05-29)
 
 

@@ -20,6 +20,11 @@ const TYPES = {
   PRIMARY: 'primary'
 }
 
+export const DESIGNS = {
+  SOLID: 'solid',
+  SOFT: 'soft'
+}
+
 const BASE_CLASS = `sui-AtomBadge`
 const CLASS_ICON = `${BASE_CLASS}-icon`
 const CLASS_ICON_RIGHT = `${CLASS_ICON}--iconRight`
@@ -44,13 +49,14 @@ const truncateText = function(label) {
  * @param  {string} options.type
  * @return {string}
  */
-const getClassNames = function({iconRight, size, transparent, type}) {
+const getClassNames = function({design, iconRight, size, transparent, type}) {
   const transparentClass = (transparent && `--${TRANSPARENT}`) || ''
 
   return cx(
     BASE_CLASS,
     `${BASE_CLASS}-${size}`,
     `${BASE_CLASS}-${type}${transparentClass}`,
+    design && `${BASE_CLASS}-${type}--${design}`,
     {
       [CLASS_ICON_RIGHT]: iconRight
     }
@@ -91,6 +97,11 @@ const AtomBadge = function({icon, iconRight, label, ...props}) {
 AtomBadge.displayName = 'AtomBadge'
 
 AtomBadge.propTypes = {
+  /**
+   * Design style of button: 'solid' (default) or 'soft'
+   */
+  design: PropTypes.oneOf(Object.values(DESIGNS)),
+
   /** Badge text to be shown */
   label: PropTypes.string.isRequired,
 
@@ -116,4 +127,8 @@ AtomBadge.defaultProps = {
 }
 
 export default AtomBadge
-export {TYPES as atomBadgeTypes, SIZES as atomBadgeSizes}
+export {
+  DESIGNS as atomBadgeDesigns,
+  TYPES as atomBadgeTypes,
+  SIZES as atomBadgeSizes
+}

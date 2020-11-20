@@ -4,6 +4,7 @@ const {
   H1,
   H2,
   Code,
+  Label,
   Paragraph,
   Article,
   DevIcon,
@@ -14,13 +15,13 @@ const {
 
 const ActionButtonCatalog = props => {
   return (
-  <Grid cols={Object.values(atomActionButtonColors).length + 1} gutter="10">
+  <Grid cols={Object.values(atomActionButtonColors).length + 1} gutter="10" style={{width: 800}}>
     <Cell />
       {
         Object.values(atomActionButtonColors).map(
           (atomActionButtonColor, key) => (
             <Cell key={key}>
-              <Text>color="{atomActionButtonColor}"</Text>
+              <Text><Label>color=</Label>"<Code>{atomActionButtonColor}</Code>"</Text>
             </Cell>
           )
         )
@@ -30,7 +31,7 @@ const ActionButtonCatalog = props => {
           (atomActionButtonStyle, index) => (
             <>
               <Cell>
-                <Text>style="{atomActionButtonStyle}"</Text>
+                <Text><Label>style=</Label>"<Code>{atomActionButtonStyle}</Code>"</Text>
               </Cell>
               {
                 Object.values(atomActionButtonColors).map(
@@ -69,13 +70,13 @@ const Demo = () => {
   <div className="sui-StudioPreview">
     <div className="sui-StudioPreview-content sui-StudioDemo-preview">
       <H1>ActionButton</H1>
-      <Paragraph>Button used as b</Paragraph>
+      <Paragraph>Icon used as a button which fires an action</Paragraph>
       <Article className={CLASS_SECTION}>
         <H2>Colours</H2>
         <div>
           <Paragraph>
             These are the available <Code>color</Code> of action buttons,
-            which are <Code>"{atomActionButtonColors.PRIMARY}"</Code> by
+            which are "<Code>{atomActionButtonColors.PRIMARY}</Code>" by
             default.
           </Paragraph>
           <ActionButtonCatalog icon={icon} />
@@ -90,12 +91,10 @@ const Demo = () => {
             We define 3 diferent sizes for action button exported as{' '}
             <Code>atomActionButtonSizes</Code>
           </Paragraph>
-          <Grid cols={3} gutter="10">
-            <Cell style={flexCenteredStyle}>atomActionButtonSizes.SMALL</Cell>
-            <Cell style={flexCenteredStyle}>
-              atomActionButtonSizes.MEDIUM
-            </Cell>
-            <Cell style={flexCenteredStyle}>atomActionButtonSizes.LARGE</Cell>
+          <Grid cols={3} gutter="10" style={{width: 600}}>
+            <Cell style={flexCenteredStyle}><Label>SMALL</Label></Cell>
+            <Cell style={flexCenteredStyle}><Label>MEDIUM</Label></Cell>
+            <Cell style={flexCenteredStyle}><Label>LARGE</Label></Cell>
             <Cell style={flexCenteredStyle}>
               <AtomActionButton icon={icon} size={atomActionButtonSizes.SMALL}>
                 Button
@@ -122,7 +121,7 @@ const Demo = () => {
           different url once clicking on them.
         </Paragraph>
         <div>
-          <Grid cols={4} gutter="10">
+          <Grid cols={4} gutter="10" style={{width: 600}}>
             <Cell style={flexCenteredStyle}>
               <AtomActionButton link title="button link" target="_blank" href="http://www.google.com" icon={icon}>
                 Button link

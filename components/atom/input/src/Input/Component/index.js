@@ -65,6 +65,7 @@ const Input = ({
   value,
   charsSize,
   tabIndex = DEFAULT_PROPS.TAB_INDEX,
+  ariaLabel,
   maxLength,
   minLength,
   defaultValue,
@@ -111,6 +112,7 @@ const Input = ({
     <input
       className={className}
       tabIndex={tabIndex}
+      aria-label={ariaLabel}
       disabled={disabled}
       readOnly={readOnly}
       id={id}
@@ -198,6 +200,8 @@ Input.propTypes = {
   noBorder: PropTypes.bool,
   /** tabindex value */
   tabIndex: PropTypes.number,
+  /* Native aria-label attribute for a11y */
+  ariaLabel: PropTypes.string,
   /** native required attribtue  */
   required: PropTypes.bool,
   /** native pattern attribute */

@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import {useRef, useState} from 'react'
 
 import AtomTooltip, {
   AtomTooltipBase
@@ -37,9 +37,7 @@ const Demo = () => {
           <p>
             Lorem ipsum dolor sit amet{' '}
             <AtomTooltip>
-              <u title="Last month of this year 2018" tabIndex="1">
-                december
-              </u>
+              <u title="Last month of this year 2018">december</u>
             </AtomTooltip>
           </p>
         </div>
@@ -54,7 +52,7 @@ const Demo = () => {
             <p key={`color-${colorName}`}>
               Lorem ipsum dolor sit amet{' '}
               <AtomTooltip color={colorName}>
-                <u title={`This is the ${colorName} color`} tabIndex="1">
+                <u title={`This is the ${colorName} color`}>
                   {colorName} color
                 </u>
               </AtomTooltip>
@@ -75,7 +73,7 @@ const Demo = () => {
           <p>
             Lorem ipsum dolor sit amet{' '}
             <AtomTooltip content={HtmlTooltipDecember}>
-              <strong tabIndex="1">december</strong>
+              <strong>december</strong>
             </AtomTooltip>
           </p>
         </div>
@@ -238,7 +236,6 @@ const Demo = () => {
               <strong
                 title="Leo sagittis dignissim ornare egestas primis parturient ante diam fusce,
             sollicitudin viverra felis inceptos turpis."
-                tabIndex="1"
               >
                 december
               </strong>
@@ -318,7 +315,6 @@ const Demo = () => {
                 border: '1px solid #ccc',
                 fontSize: '30px'
               }}
-              tabIndex="1"
               title="This menu display some cool options"
               onClick={() => console.log('👍  action triggered')}
             >
@@ -337,15 +333,11 @@ const Demo = () => {
           <p>
             Lorem ipsum dolor sit amet{' '}
             <AtomTooltipBase isOpen={isOpen} innerRef={setInnerRef(ref1)}>
-              <u title="Last month of this year 2018" tabIndex="1">
-                december
-              </u>
+              <u title="Last month of this year 2018">december</u>
             </AtomTooltipBase>
             &nbsp;and&nbsp;
             <AtomTooltipBase isOpen={!isOpen} innerRef={setInnerRef(ref2)}>
-              <u title="Last month of this year 2018" tabIndex="1">
-                not december
-              </u>
+              <u title="Last month of this year 2018">not december</u>
             </AtomTooltipBase>
           </p>
           <button onClick={() => setIsOpen(!isOpen)}>

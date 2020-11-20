@@ -9,7 +9,9 @@ const {
   Article,
   UnorderedList,
   ListItem,
-  DevIcon
+  DevIcon,
+  Grid,
+  Cell,
 } = window.DOC
 
 const BASE_CLASS_DEMO = `DemoAtomBadge`
@@ -37,6 +39,7 @@ return (
           <AtomBadge label="info" type={atomBadgeTypes.INFO} />
           <AtomBadge label="alert" type={atomBadgeTypes.ALERT} />
           <AtomBadge label="new" type={atomBadgeTypes.NEW} />
+          <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} />
           <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} />
         </div>
         <Paragraph>___</Paragraph>
@@ -44,55 +47,58 @@ return (
           <Paragraph>
             Use the Prop <Code>transparent</Code> to remove the background.
           </Paragraph>
-          <AtomBadge
-          label="success"
-          type={atomBadgeTypes.SUCCESS}
-          transparent
-          />
+          <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} transparent />
           <AtomBadge label="error" type={atomBadgeTypes.ERROR} transparent />
           <AtomBadge label="info" type={atomBadgeTypes.INFO} transparent />
           <AtomBadge label="alert" type={atomBadgeTypes.ALERT} transparent />
           <AtomBadge label="new" type={atomBadgeTypes.NEW} transparent />
-          <AtomBadge
-          label="primary"
-          type={atomBadgeTypes.PRIMARY}
-          transparent
-          />
+          <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} transparent />
+          <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} transparent />
         </div>
       </Article>
       <br />
+      <Article className={CLASS_SECTION}>
+        <H2>Design</H2>
+        <div>
+          <Paragraph>
+            These are the available <Code>designs</Code> of bagdes, which are
+            solid by default.
+          </Paragraph>
+          <Grid cols={8} gutter={10} style={{width: 600}}>
+            <Cell><Label>Solid</Label></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOLID} label="success" type={atomBadgeTypes.SUCCESS} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOLID} label="error" type={atomBadgeTypes.ERROR} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOLID} label="info" type={atomBadgeTypes.INFO} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOLID} label="alert" type={atomBadgeTypes.ALERT} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOLID} label="new" type={atomBadgeTypes.NEW} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOLID} label="neutral" type={atomBadgeTypes.NEUTRAL} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOLID} label="primary" type={atomBadgeTypes.PRIMARY} /></Cell>
+            <Cell><Label>Soft</Label></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOFT} label="success" type={atomBadgeTypes.SUCCESS} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOFT} label="error" type={atomBadgeTypes.ERROR} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOFT} label="info" type={atomBadgeTypes.INFO} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOFT} label="alert" type={atomBadgeTypes.ALERT} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOFT} label="new" type={atomBadgeTypes.NEW} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOFT} label="neutral" type={atomBadgeTypes.NEUTRAL} /></Cell>
+            <Cell><AtomBadge design={atomBadgeDesigns.SOFT} label="primary" type={atomBadgeTypes.PRIMARY} /></Cell>
+          </Grid>
+        </div>
+      </Article>
+      <br/>
       <Article className={CLASS_SECTION}>
         <H2>Sizes</H2>
         <div>
           <Paragraph>
             There are three options for <Code>size</Code>
           </Paragraph>
-          <table>
-            <tr>
-              <td>
-                <Label>Small</Label>
-              </td>
-              <td>
-                <AtomBadge label="label" size={atomBadgeSizes.SMALL} />{' '}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Label>Medium</Label>
-              </td>
-              <td>
-                <AtomBadge label="label" size={atomBadgeSizes.MEDIUM} />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Label>Large</Label>
-              </td>
-              <td>
-                <AtomBadge label="label" size={atomBadgeSizes.LARGE} />{' '}
-              </td>
-            </tr>
-          </table>
+          <Grid cols={2} gutter={10} style={{width: 100}}>
+            <Cell><Label>Small</Label></Cell>
+            <Cell><AtomBadge label="label" size={atomBadgeSizes.SMALL} /></Cell>
+            <Cell><Label>Medium</Label></Cell>
+            <Cell><AtomBadge label="label" size={atomBadgeSizes.MEDIUM} /></Cell>
+            <Cell><Label>Large</Label></Cell>
+            <Cell><AtomBadge label="label" size={atomBadgeSizes.LARGE} /></Cell>
+          </Grid>
         </div>
       </Article>
       <br />
@@ -104,49 +110,17 @@ return (
           <ListItem>The content will never split in two lines</ListItem>
           <ListItem>There's no limit of characters</ListItem>
         </UnorderedList>
-        <table>
-          <tr>
-            <td>
-              <Label>Small</Label>
-            </td>
-            <td>
-              <AtomBadge label="label" size={atomBadgeSizes.SMALL} />
-            </td>
-            <td>
-              <AtomBadge
-              label="label"
-              transparent
-              size={atomBadgeSizes.SMALL}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Label>Medium</Label>
-            </td>
-            <td>
-              <AtomBadge label="label" size={atomBadgeSizes.MEDIUM} />
-            </td>
-            <td>
-              <AtomBadge
-              label="label"
-              transparent
-              size={atomBadgeSizes.MEDIUM}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Label>Large</Label>
-            </td>
-            <td>
-              <AtomBadge label="label" size={atomBadgeSizes.LARGE} />
-            </td>
-            <td>
-              <AtomBadge label="label" transparent size={atomBadgeSizes.LARGE} />
-            </td>
-          </tr>
-        </table>
+        <Grid cols={3} gutter={10} style={{width: 200}}>
+          <Cell><Label>Small</Label></Cell>
+          <Cell><AtomBadge label="label" size={atomBadgeSizes.SMALL} /></Cell>
+          <Cell><AtomBadge label="label" transparent size={atomBadgeSizes.SMALL} /></Cell>
+          <Cell><Label>Medium</Label></Cell>
+          <Cell><AtomBadge label="label" size={atomBadgeSizes.MEDIUM} /></Cell>
+          <Cell><AtomBadge label="label" transparent size={atomBadgeSizes.MEDIUM} /></Cell>
+          <Cell><Label>Large</Label></Cell>
+          <Cell><AtomBadge label="label" size={atomBadgeSizes.LARGE} /></Cell>
+          <Cell><AtomBadge label="label" transparent size={atomBadgeSizes.LARGE} /></Cell>
+        </Grid>
         <H4>Icons</H4>
         <UnorderedList>
           <ListItem>
@@ -157,59 +131,23 @@ return (
             Small badges with background won't display icons
           </ListItem>
         </UnorderedList>
-        <table>
-          <tr>
-            <td>
-              <Label>Small</Label>
-            </td>
-            <td>
-              <AtomBadge label="label" icon={icon} iconRight size={atomBadgeSizes.SMALL} />
-            </td>
-            <td>
-              <AtomBadge label="label" icon={icon} iconLeft size={atomBadgeSizes.SMALL} />
-            </td>
-            <td>
-              <AtomBadge label="label" icon={icon} iconRight transparent size={atomBadgeSizes.SMALL} />
-            </td>
-            <td>
-              <AtomBadge label="label" icon={icon} iconLeft transparent size={atomBadgeSizes.SMALL} />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Label>Medium</Label>
-            </td>
-            <td>
-              <AtomBadge label="label" icon={icon} iconRight size={atomBadgeSizes.MEDIUM} />
-            </td>
-            <td>
-              <AtomBadge label="label" icon={icon} iconLeft size={atomBadgeSizes.MEDIUM} />
-            </td>
-            <td>
-              <AtomBadge label="label" icon={icon} iconRight transparent size={atomBadgeSizes.MEDIUM} />
-            </td>
-            <td>
-              <AtomBadge label="label" icon={icon} iconLeft transparent size={atomBadgeSizes.MEDIUM} />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Label>Large</Label>
-            </td>
-            <td>
-              <AtomBadge label="label" icon={icon} iconRight size={atomBadgeSizes.LARGE} />
-            </td>
-            <td>
-              <AtomBadge label="label" icon={icon} iconLeft size={atomBadgeSizes.LARGE} />
-            </td>
-            <td>
-              <AtomBadge label="label" icon={icon} iconRight transparent size={atomBadgeSizes.LARGE} />
-            </td>
-            <td>
-              <AtomBadge label="label" icon={icon} iconLeft transparent size={atomBadgeSizes.LARGE} />
-            </td>
-          </tr>
-        </table>
+        <Grid cols={5} gutter={10} style={{width: 500}}>
+          <Cell><Label>Small</Label></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconRight size={atomBadgeSizes.SMALL} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconLeft size={atomBadgeSizes.SMALL} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconRight transparent size={atomBadgeSizes.SMALL} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconLeft transparent size={atomBadgeSizes.SMALL} /></Cell>
+          <Cell><Label>Medium</Label></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconRight size={atomBadgeSizes.MEDIUM} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconLeft size={atomBadgeSizes.MEDIUM} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconRight transparent size={atomBadgeSizes.MEDIUM} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconLeft transparent size={atomBadgeSizes.MEDIUM} /></Cell>
+          <Cell><Label>Large</Label></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconRight size={atomBadgeSizes.LARGE} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconLeft size={atomBadgeSizes.LARGE} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconRight transparent size={atomBadgeSizes.LARGE} /></Cell>
+          <Cell><AtomBadge label="label" icon={icon} iconLeft transparent size={atomBadgeSizes.LARGE} /></Cell>
+        </Grid>
       </Article>
       <br />
       <Article mode="dark">
@@ -226,6 +164,7 @@ return (
           <AtomBadge label="info" type={atomBadgeTypes.INFO} />
           <AtomBadge label="alert" type={atomBadgeTypes.ALERT} />
           <AtomBadge label="new" type={atomBadgeTypes.NEW} />
+          <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} />
           <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} />
         </div>
         <Paragraph>___</Paragraph>
@@ -235,7 +174,18 @@ return (
           <AtomBadge label="info" type={atomBadgeTypes.INFO} transparent />
           <AtomBadge label="alert" type={atomBadgeTypes.ALERT} transparent />
           <AtomBadge label="new" type={atomBadgeTypes.NEW} transparent />
+          <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} transparent />
           <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} transparent />
+        </div>
+        <Paragraph>___</Paragraph>
+        <div>
+          <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} design={atomBadgeDesigns.SOFT} />
+          <AtomBadge label="error" type={atomBadgeTypes.ERROR} design={atomBadgeDesigns.SOFT} />
+          <AtomBadge label="info" type={atomBadgeTypes.INFO} design={atomBadgeDesigns.SOFT} />
+          <AtomBadge label="alert" type={atomBadgeTypes.ALERT} design={atomBadgeDesigns.SOFT} />
+          <AtomBadge label="new" type={atomBadgeTypes.NEW} design={atomBadgeDesigns.SOFT} />
+          <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} design={atomBadgeDesigns.SOFT} />
+          <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} design={atomBadgeDesigns.SOFT} />
         </div>
       </Article>
     </div>

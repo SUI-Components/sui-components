@@ -16,8 +16,7 @@ const themesPkgs = [
   '@adv-ui/hab-theme',
   '@adv-ui/ij-theme',
   '@adv-ui/ma-theme',
-  '@adv-ui/mt-theme',
-  '@adv-ui/nc-theme'
+  '@adv-ui/mt-theme'
 ]
 
 const writeFile = (path, body) =>

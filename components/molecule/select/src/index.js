@@ -1,4 +1,12 @@
-import React, {useState, useRef, useEffect, useCallback} from 'react'
+import {
+  Children,
+  createRef,
+  cloneElement,
+  useState,
+  useRef,
+  useEffect,
+  useCallback
+} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -26,7 +34,7 @@ const ENABLED_KEYS = ['Enter', 'ArrowDown', 'ArrowUp']
 
 const getOptionData = children => {
   const optionsData = {}
-  React.Children.forEach(children, child => {
+  Children.forEach(children, child => {
     const {children, value} = child.props
     optionsData[value] = children
   })
@@ -50,11 +58,11 @@ const MoleculeSelect = props => {
   const [optionsData, setOptionsData] = useState(getOptionData(children))
   const [focus, setFocus] = useState(false)
 
-  const extendedChildren = React.Children.toArray(children)
+  const extendedChildren = Children.toArray(children)
     .filter(Boolean)
     .map((child, index) => {
-      refsMoleculeSelectOptions.current[index] = React.createRef()
-      return React.cloneElement(child, {
+      refsMoleculeSelectOptions.current[index] = createRef()
+      return cloneElement(child, {
         innerRef: refsMoleculeSelectOptions.current[index],
         onSelectKey: keysSelection
       })

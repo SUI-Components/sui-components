@@ -1,5 +1,3 @@
-import React from 'react'
-
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import AtomInput from '@s-ui/react-atom-input'
 

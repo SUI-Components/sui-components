@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import {Children, cloneElement, useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
 const BASE_CLASS = 'sui-MoleculeRadioButtonGroup'
@@ -22,7 +22,7 @@ const MoleculeRadioButtonGroup = ({
     onChangeFromProps(e, {name, value: innerValue})
   }
 
-  const extendedChildren = React.Children.toArray(children)
+  const extendedChildren = Children.toArray(children)
     .filter(Boolean)
     .map((child, index) => {
       const {
@@ -30,7 +30,7 @@ const MoleculeRadioButtonGroup = ({
       } = child
       const checked = value === childValue
       const onChange = handleChangeGroup
-      return React.cloneElement(child, {
+      return cloneElement(child, {
         ...props,
         checked,
         onChange,

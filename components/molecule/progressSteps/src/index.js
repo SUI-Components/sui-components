@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import {Children, cloneElement, useRef} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
@@ -26,7 +26,7 @@ const MoleculeProgressSteps = ({
   })
 
   const getCompressedInfoSteps = () => {
-    const childrenNodes = React.Children.toArray(children)
+    const childrenNodes = Children.toArray(children)
     const totalSteps = childrenNodes.length
     const [activeLabel, numActiveStep] = childrenNodes.reduce(
       (acc, child, index) => {
@@ -40,7 +40,7 @@ const MoleculeProgressSteps = ({
     return `${stepPositionInfo}: ${activeLabel}`
   }
 
-  const extendedChildren = React.Children.toArray(children)
+  const extendedChildren = Children.toArray(children)
     .filter(Boolean)
     .map((child, index, children) => {
       const {
@@ -63,7 +63,7 @@ const MoleculeProgressSteps = ({
         activeStepContent.current = childrenChild
       }
 
-      return React.cloneElement(child, {
+      return cloneElement(child, {
         numStep,
         lastStep,
         icon,

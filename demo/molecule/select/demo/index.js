@@ -1,6 +1,4 @@
 /* eslint-disable no-console */
-import React from 'react'
-
 import {withStateValue} from '@s-ui/hoc'
 
 import MoleculeSelect, {

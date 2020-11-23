@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, {useState} from 'react'
+import {useState} from 'react'
 
 import AtomRadioButton from '@s-ui/react-atom-radio-button'
 import MoleculeRadioButtonField from '@s-ui/react-molecule-radio-button-field'

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, {useRef} from 'react'
+import {useRef} from 'react'
 import './index.scss'
 
 import MoleculeInputTags, {

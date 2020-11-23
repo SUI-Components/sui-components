@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import React from 'react'
 import MoleculeCheckboxField from '../../../../components/molecule/checkboxField/src'
 
 import './index.scss'

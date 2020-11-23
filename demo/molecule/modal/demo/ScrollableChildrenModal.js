@@ -1,5 +1,5 @@
 /* eslint react/prop-types: 0 */
-import React from 'react'
+import {Component} from 'react'
 import MoleculeModal from '../../../../components/molecule/modal/src'
 import {
   Content,
@@ -8,7 +8,7 @@ import {
   IconClose
 } from './helperComponents'
 
-class ScrollableChildrenModal extends React.Component {
+class ScrollableChildrenModal extends Component {
   constructor(props) {
     super(props)
     this.state = {

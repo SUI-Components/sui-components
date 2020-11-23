@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console, no-debugger */
 
-import React from 'react'
+import {Component} from 'react'
 
 import MoleculeButtonGroup from '../../../../../components/molecule/buttonGroup/src'
 import AtomButton from '@s-ui/react-atom-button'
@@ -14,7 +14,7 @@ import {
   IconMinus
 } from '../icons'
 
-class SimpleCheckboxRadioForm extends React.Component {
+class SimpleCheckboxRadioForm extends Component {
   constructor() {
     super()
     this.state = {category: []}

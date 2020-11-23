@@ -1,5 +1,3 @@
-import React from 'react'
-
 const BASE_CLASS_DEMO = 'DemoMoleculeProgressSteps'
 const CLASS_DEMO_CONTENT_STEP = `${BASE_CLASS_DEMO}-contentStep`
 

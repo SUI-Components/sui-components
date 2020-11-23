@@ -1,5 +1,3 @@
-import React from 'react'
-
 const BASE_CLASS_DEMO = 'DemoMoleculeTabs'
 const CLASS_DEMO_CONTENT_TAB = `${BASE_CLASS_DEMO}-contentTab`
 

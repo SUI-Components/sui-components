@@ -1,7 +1,5 @@
 /* eslint-disable no-console */
 
-import React from 'react'
-
 import MoleculeRating, {
   MoleculeRatingSizes
 } from '../../../../components/molecule/rating/src'

@@ -1,9 +1,9 @@
 /* eslint react/prop-types: 0 */
-import React from 'react'
+import {Component} from 'react'
 import MoleculeModal from '../../../../components/molecule/modal/src'
 import {ContentWithCloseButton, LoremIpsumParagraph} from './helperComponents'
 
-class NoHeaderNoCloseButtonModal extends React.Component {
+class NoHeaderNoCloseButtonModal extends Component {
   constructor(props) {
     super(props)
     this.state = {

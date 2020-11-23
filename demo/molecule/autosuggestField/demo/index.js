@@ -1,6 +1,4 @@
 /* eslint-disable no-console */
-import React from 'react'
-
 import {withStateValue, withStateValueTags} from '@s-ui/hoc'
 
 import MoleculeAutosuggestField from '../../../../components/molecule/autosuggestField/src'

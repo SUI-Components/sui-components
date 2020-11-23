@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
-import React, {useState} from 'react'
+import {useState} from 'react'
 import AtomButton from '../../../../components/atom/button/src'
 import AtomIcon, {
   ATOM_ICON_COLORS,

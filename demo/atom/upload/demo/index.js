@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
-import React, {Component} from 'react'
+import {Component} from 'react'
 
 import AtomUpload, {
   uploadStatuses

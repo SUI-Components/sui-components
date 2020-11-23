@@ -1,4 +1,3 @@
-import React from 'react'
 import AtomInput, {inputSizes} from '../../../../components/atom/input/src'
 import SuiButton from '@s-ui/react-atom-button'
 

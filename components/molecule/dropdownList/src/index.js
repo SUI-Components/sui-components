@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import {Children, cloneElement, useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -22,14 +22,14 @@ const MoleculeDropdownList = ({
 }) => {
   const refDropdownList = useRef()
 
-  const extendedChildren = React.Children.toArray(children)
+  const extendedChildren = Children.toArray(children)
     .filter(Boolean)
     .map((child, index) => {
       const {value: valueChild} = child.props
       const selected = Array.isArray(value)
         ? value.includes(valueChild)
         : value === valueChild
-      return React.cloneElement(child, {
+      return cloneElement(child, {
         ...props,
         index,
         onSelect,

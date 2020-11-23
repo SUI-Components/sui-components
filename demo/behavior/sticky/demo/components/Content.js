@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default ({className}) => ( // eslint-disable-line
   <div className={className}>
     <div

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef, useCallback} from 'react'
+import {cloneElement, useState, useEffect, useRef, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -70,7 +70,7 @@ const AtomImage = ({
 
   const SpinnerExtended =
     Spinner &&
-    React.cloneElement(Spinner, {
+    cloneElement(Spinner, {
       className: CLASS_SPINNER
     })
 

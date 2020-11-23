@@ -1,4 +1,3 @@
-import React from 'react'
 import MoleculeTextareaField, {
   MoleculeTextareaSizes
 } from '../../../../components/molecule/textareaField/src'

@@ -1,4 +1,4 @@
-import React from 'react'
+import {createRef} from 'react'
 import './index.scss'
 
 import BehaviorSticky, {
@@ -18,8 +18,8 @@ const CLASS_DEMO_FIXED_FOOTER = `${BASE_CLASS_DEMO}-fixed-footer`
 const CLASS_DEMO_FIXED_BUTTONS = `${BASE_CLASS_DEMO}-fixed-header-buttons`
 const CLASS_DEMO_CONTENT = `${BASE_CLASS_DEMO}-content`
 
-const container1 = React.createRef()
-const container2 = React.createRef()
+const container1 = createRef()
+const container2 = createRef()
 
 const Demo = () => (
   <BehaviorStickyProvider>

@@ -1,7 +1,5 @@
 /* eslint react/prop-types: 0 */
 /* eslint react/no-multi-comp: 0 */
-import React from 'react'
-
 const IconClose = () => (
   <svg viewBox="0 0 24 24">
     <path

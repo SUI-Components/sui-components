@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
-import React from 'react'
-
 import MoleculeButtonGroupField from '../../../../components/molecule/buttonGroupField/src'
 import AtomButtom from '@s-ui/react-atom-button'
 

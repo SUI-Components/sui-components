@@ -1,5 +1,3 @@
-import React from 'react'
-
 const IconError = (
   <svg
     version="1.2"

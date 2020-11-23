@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import {Children, cloneElement, Component} from 'react'
 import PropTypes from 'prop-types'
 
 const withStateActiveTab = BaseComponent => {
@@ -25,7 +25,7 @@ const withStateActiveTab = BaseComponent => {
 
     componentDidMount() {
       const {children} = this.props // eslint-disable-line
-      React.Children.forEach(children, (child, index) => {
+      Children.forEach(children, (child, index) => {
         const {active} = child.props
         if (active) this.setState({activeTab: index + 1})
       })
@@ -34,12 +34,12 @@ const withStateActiveTab = BaseComponent => {
     get extendedChildren() {
       const {children} = this.props // eslint-disable-line
       const {activeTab} = this.state
-      return React.Children.toArray(children)
+      return Children.toArray(children)
         .filter(Boolean)
         .map((child, index, children) => {
           const numTab = index + 1
           const active = activeTab === numTab
-          return React.cloneElement(child, {active})
+          return cloneElement(child, {active})
         })
     }
 

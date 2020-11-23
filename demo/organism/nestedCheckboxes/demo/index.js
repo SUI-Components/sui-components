@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import AtomIcon from '../../../../components/atom/icon/src'
 import OrganismNestedCheckboxes from '../../../../components/organism/nestedCheckboxes/src'
 import MoleculeCheckboxField from '../../../../components/molecule/checkboxField/src'

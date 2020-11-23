@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
-import React from 'react'
-
 import AtomImage from '@s-ui/react-atom-image'
 import AtomCard from '../../../../components/atom/card/src'
 import LayoutMediaQuery from '@s-ui/react-layout-media-query'

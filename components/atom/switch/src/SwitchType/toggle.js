@@ -1,4 +1,3 @@
-import React from 'react'
 import cx from 'classnames'
 import AtomLabel from '@s-ui/react-atom-label'
 import {suitClass, switchClassNames} from './helpers'

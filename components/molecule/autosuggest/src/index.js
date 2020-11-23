@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import {Children, createRef, cloneElement, useRef, useState} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -60,11 +60,11 @@ const MoleculeAutosuggest = ({
 
   const [focus, setFocus] = useState(false)
 
-  const extendedChildren = React.Children.toArray(children)
+  const extendedChildren = Children.toArray(children)
     .filter(Boolean)
     .map((child, index) => {
-      refsMoleculeAutosuggestOptions.current[index] = React.createRef()
-      return React.cloneElement(child, {
+      refsMoleculeAutosuggestOptions.current[index] = createRef()
+      return cloneElement(child, {
         innerRef: refsMoleculeAutosuggestOptions.current[index],
         onSelectKey: keysSelection
       })

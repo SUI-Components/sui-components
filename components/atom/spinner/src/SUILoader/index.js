@@ -1,5 +1,3 @@
-import React from 'react'
-
 const SUILoader = () => <span className="sui-AtomSpinner-loader" />
 
 SUILoader.displayName = 'SUILoader'

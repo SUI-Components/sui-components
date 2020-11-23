@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'

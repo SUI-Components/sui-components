@@ -1,4 +1,4 @@
-import React, {useState, useEffect, lazy, Suspense} from 'react'
+import {useState, useEffect, lazy, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 const Dropzone = lazy(() => import('react-dropzone'))

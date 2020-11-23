@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import {Component} from 'react'
 import cx from 'classnames'
 
 const BASE_CLASS = `sui-MoleculeSelect-inputSelect`

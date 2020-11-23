@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
+import {Children} from 'react'
 
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import AtomInput from '@s-ui/react-atom-input'
@@ -81,7 +81,7 @@ const MoleculeAutosuggestSingleSelection = ({
       {value && (
         <MoleculeDropdownList
           size={size}
-          visible={isOpen && React.Children.count(children) > 0}
+          visible={isOpen && Children.count(children) > 0}
           onSelect={handleSelection}
           value={value}
           highlightQuery={value}

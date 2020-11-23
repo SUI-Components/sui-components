@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef, useCallback} from 'react'
+import {useState, useEffect, useRef, useCallback} from 'react'
 import Button from '@s-ui/react-atom-button'
 import cx from 'classnames'
 import PropTypes from 'prop-types'

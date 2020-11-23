@@ -1,4 +1,12 @@
-import React, {useEffect, useState, useRef, Suspense} from 'react'
+import {
+  lazy,
+  Children,
+  cloneElement,
+  useEffect,
+  useState,
+  useRef,
+  Suspense
+} from 'react'
 import PropTypes from 'prop-types'
 import {PLACEMENTS} from './config'
 
@@ -9,7 +17,7 @@ const DEFAULT_OFFSET = 'auto,4px'
 const DEFAULT_TRIGGER = 'legacy'
 const DEFAULT_DELAY = 0
 
-const Popover = React.lazy(() => import('reactstrap/lib/Popover'))
+const Popover = lazy(() => import('reactstrap/lib/Popover'))
 
 function AtomPopover({
   children,
@@ -34,8 +42,8 @@ function AtomPopover({
       setInternalShowPopover(true)
     }
     const ref = targetRef
-    const childrenOnly = React.Children.only(children)
-    return React.Children.map(childrenOnly, child => {
+    const childrenOnly = Children.only(children)
+    return Children.map(childrenOnly, child => {
       const attrs = {
         onClick
       }
@@ -44,7 +52,7 @@ function AtomPopover({
       } else {
         attrs.ref = ref
       }
-      return React.cloneElement(child, attrs)
+      return cloneElement(child, attrs)
     })
   }
 

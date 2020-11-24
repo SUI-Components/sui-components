@@ -109,7 +109,7 @@ const Demo = () => {
             These are the available <Code>color</Code> types of button, which
             are solid by default for each <Code>design</Code>.
           </Paragraph>
-          <Article outline>
+          <Article>
             <Grid cols={7} gutter={10}>
               <Cell />
               {atomButtonColorsIterator.map(([{color}], index) => (
@@ -119,7 +119,9 @@ const Demo = () => {
               ))}
               {atomButtonDesignsIterator.map(([{design}], index) => (
                 <>
-                  <Cell key={index} style={flexCenteredStyle}>
+                  <Cell
+                    style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
+                  >
                     <Label>{design}</Label>
                   </Cell>
                   {atomButtonColorsIterator.map(([{color}], index) => (
@@ -148,7 +150,9 @@ const Demo = () => {
               ))}
               {atomButtonDesignsIterator.map(([{design}], index) => (
                 <Fragment key={index}>
-                  <Cell style={flexCenteredStyle}>
+                  <Cell
+                    style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
+                  >
                     <Label>{design}</Label>
                   </Cell>
                   {atomButtonColorsIterator.map(([{color}], index) => (
@@ -172,7 +176,7 @@ const Demo = () => {
             These are the available sosial network color types of button, which
             are solid by default for each <Code>design</Code>.
           </Paragraph>
-          <Article outline>
+          <Article>
             <Grid cols={7} gutter={10}>
               <Cell />
               {atomButtonSocialColorsIterator.map(([{color}], index) => (
@@ -182,7 +186,9 @@ const Demo = () => {
               ))}
               {atomButtonDesignsIterator.map(([{design}], index) => (
                 <Fragment key={index}>
-                  <Cell style={flexCenteredStyle}>
+                  <Cell
+                    style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
+                  >
                     <Label>{design}</Label>
                   </Cell>
                   {atomButtonSocialColorsIterator.map(([{color}], index) => (
@@ -209,13 +215,15 @@ const Demo = () => {
             <Grid cols={7} gutter={10}>
               <Cell />
               {atomButtonSocialColorsIterator.map(([{color}], index) => (
-                <Cell key={index} style={flexCenteredStyle}>
+                <Cell style={flexCenteredStyle}>
                   <Label>{color}</Label>
                 </Cell>
               ))}
               {atomButtonDesignsIterator.map(([{design}], index) => (
                 <Fragment key={index}>
-                  <Cell style={flexCenteredStyle}>
+                  <Cell
+                    style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
+                  >
                     <Label>{design}</Label>
                   </Cell>
                   {atomButtonSocialColorsIterator.map(([{color}], index) => (
@@ -241,13 +249,15 @@ const Demo = () => {
         <H2>Design</H2>
         <div>
           <Paragraph>
-            Buttons have different displaying <Code>desing</Code> types
+            Buttons have different displaying <Code>design</Code> types
             available
           </Paragraph>
           <Grid cols={14} gutter={10}>
             {atomButtonDesignsIterator.map(([{design}], index) => (
               <Fragment key={index}>
-                <Cell style={flexCenteredStyle}>
+                <Cell
+                  style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
+                >
                   <Label>{design}</Label>
                 </Cell>
                 {[
@@ -255,12 +265,18 @@ const Demo = () => {
                   ...atomButtonSocialColorsIterator
                 ].map(([{color}], index) => (
                   <Cell key={index} style={flexCenteredStyle}>
-                    <AtomButton design={design} color={color} leftIcon={socialIconsMapper[color]}>
+                    <AtomButton
+                      design={design}
+                      color={color}
+                      leftIcon={socialIconsMapper[color]}
+                    >
                       Button
                     </AtomButton>
                   </Cell>
                 ))}
-                <Cell style={flexCenteredStyle}>
+                <Cell
+                  style={{...flexCenteredStyle, justifyContent: 'flex-end'}}
+                >
                   <Label>{design}</Label>
                 </Cell>
               </Fragment>
@@ -301,7 +317,7 @@ const Demo = () => {
             <Code>design</Code> 'link' prop value
           </Paragraph>
         </div>
-        <Article outline>
+        <Article>
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -465,7 +481,7 @@ const Demo = () => {
             )}
           </Cell>
           <Cell span={2}>
-            <Article mode={negative ? 'dark' : 'light'} outline={!negative}>
+            <Article mode={negative ? 'dark' : 'light'}>
               <Grid cols={7} gutter={10}>
                 <Cell />
                 {atomButtonColorsIterator.map(([{color}], index) => (
@@ -475,7 +491,12 @@ const Demo = () => {
                 ))}
                 {atomButtonDesignsIterator.map(([{design}], index) => (
                   <Fragment key={index}>
-                    <Cell style={flexCenteredStyle}>
+                    <Cell
+                      style={{
+                        ...flexCenteredStyle,
+                        justifyContent: 'flex-start'
+                      }}
+                    >
                       <Label>{design}</Label>
                     </Cell>
                     {atomButtonColorsIterator.map(([{color}], index) => (

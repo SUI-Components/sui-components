@@ -215,7 +215,7 @@ const Demo = () => {
             <Grid cols={7} gutter={10}>
               <Cell />
               {atomButtonSocialColorsIterator.map(([{color}], index) => (
-                <Cell style={flexCenteredStyle}>
+                <Cell key={index} style={flexCenteredStyle}>
                   <Label>{color}</Label>
                 </Cell>
               ))}

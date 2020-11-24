@@ -21,7 +21,7 @@ const ActionButtonCatalog = props => {
         Object.values(atomActionButtonColors).map(
           (atomActionButtonColor, key) => (
             <Cell key={key}>
-              <Text><Label>color=</Label>"<Code>{atomActionButtonColor}</Code>"</Text>
+              <Text><Label>{atomActionButtonColor}</Label></Text>
             </Cell>
           )
         )
@@ -31,7 +31,7 @@ const ActionButtonCatalog = props => {
           (atomActionButtonStyle, index) => (
             <>
               <Cell>
-                <Text><Label>style=</Label>"<Code>{atomActionButtonStyle}</Code>"</Text>
+                <Text><Label>{atomActionButtonStyle}</Label></Text>
               </Cell>
               {
                 Object.values(atomActionButtonColors).map(

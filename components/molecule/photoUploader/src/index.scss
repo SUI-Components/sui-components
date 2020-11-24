@@ -32,8 +32,10 @@ $c-photo-uploader-action-buttons-hover: $c-white !default;
 $c-photo-uploader-drag-photo-rejected: $c-white !default;
 $c-photo-uploader-skeleton: $c-primary !default;
 $c-photo-uploader-skeleton-hover: $c-white !default;
+$bd-photo-uploader-dropzone: 0 !default;
 $bdrs-photo-uploader-dropzone: $bdrs-l !default;
 $bdrs-photo-uploader-initial-state: $bdrs-l !default;
+$bg-photo-uploader-initial-state: $bg-photo-uploader !default;
 $bdrs-photo-uploader-drag-photo: $bdrs-l !default;
 $c-photo-uploader-initial-state: $c-primary !default;
 $jc-photo-uploader: center !default;
@@ -57,6 +59,7 @@ $maw-photo-uploader-thumb-drag-text: 200px;
 #{$base-class} {
   &-dropzone {
     background: $bg-photo-uploader;
+    border: $bd-photo-uploader-dropzone;
     border-radius: $bdrs-photo-uploader-dropzone;
     color: $c-photo-uploader;
     cursor: pointer;
@@ -77,6 +80,7 @@ $maw-photo-uploader-thumb-drag-text: 200px;
   }
   &-initialState {
     align-items: center;
+    background: $bg-photo-uploader-initial-state;
     border: $bd-photo-uploader;
     border-radius: $bdrs-photo-uploader-initial-state;
     color: $c-photo-uploader-initial-state;

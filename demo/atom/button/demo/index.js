@@ -103,7 +103,7 @@ const Demo = () => {
         corresponding business logic.
       </Paragraph>
       <Article className={CLASS_SECTION}>
-        <H2>Colours</H2>
+        <H2>Colors and Designs</H2>
         <div>
           <Paragraph>
             These are the available <Code>color</Code> types of button, which
@@ -170,10 +170,10 @@ const Demo = () => {
       </Article>
       <br />
       <Article className={CLASS_SECTION}>
-        <H2>Social network colours</H2>
+        <H2>Social network colors</H2>
         <div>
           <Paragraph>
-            These are the available sosial network color types of button, which
+            These are the available social network color types of button, which
             are solid by default for each <Code>design</Code>.
           </Paragraph>
           <Article>
@@ -242,46 +242,6 @@ const Demo = () => {
               ))}
             </Grid>
           </Article>
-        </div>
-      </Article>
-      <br />
-      <Article className={CLASS_SECTION}>
-        <H2>Design</H2>
-        <div>
-          <Paragraph>
-            Buttons have different displaying <Code>design</Code> types
-            available
-          </Paragraph>
-          <Grid cols={14} gutter={10}>
-            {atomButtonDesignsIterator.map(([{design}], index) => (
-              <Fragment key={index}>
-                <Cell
-                  style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
-                >
-                  <Label>{design}</Label>
-                </Cell>
-                {[
-                  ...atomButtonColorsIterator,
-                  ...atomButtonSocialColorsIterator
-                ].map(([{color}], index) => (
-                  <Cell key={index} style={flexCenteredStyle}>
-                    <AtomButton
-                      design={design}
-                      color={color}
-                      leftIcon={socialIconsMapper[color]}
-                    >
-                      Button
-                    </AtomButton>
-                  </Cell>
-                ))}
-                <Cell
-                  style={{...flexCenteredStyle, justifyContent: 'flex-end'}}
-                >
-                  <Label>{design}</Label>
-                </Cell>
-              </Fragment>
-            ))}
-          </Grid>
         </div>
       </Article>
       <br />

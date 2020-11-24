@@ -61,7 +61,7 @@ return (
         <H2>Design</H2>
         <div>
           <Paragraph>
-            These are the available <Code>designs</Code> of bagdes, which are
+            These are the available <Code>design</Code> types of bagdes, which are
             solid by default.
           </Paragraph>
           <Grid cols={8} gutter={10} style={{width: 600}}>

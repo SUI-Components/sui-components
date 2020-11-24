@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
-import {useState} from 'react'
+import {useState, Fragment} from 'react'
 
 import AtomButton, {
   atomButtonColors,
@@ -112,18 +112,18 @@ const Demo = () => {
           <Article outline>
             <Grid cols={7} gutter={10}>
               <Cell />
-              {atomButtonColorsIterator.map(([{color}]) => (
-                <Cell style={flexCenteredStyle}>
+              {atomButtonColorsIterator.map(([{color}], index) => (
+                <Cell key={index} style={flexCenteredStyle}>
                   <Label>{color}</Label>
                 </Cell>
               ))}
-              {atomButtonDesignsIterator.map(([{design}]) => (
+              {atomButtonDesignsIterator.map(([{design}], index) => (
                 <>
-                  <Cell style={flexCenteredStyle}>
+                  <Cell key={index} style={flexCenteredStyle}>
                     <Label>{design}</Label>
                   </Cell>
-                  {atomButtonColorsIterator.map(([{color}]) => (
-                    <Cell style={flexCenteredStyle}>
+                  {atomButtonColorsIterator.map(([{color}], index) => (
+                    <Cell key={index} style={flexCenteredStyle}>
                       <AtomButton design={design} color={color}>
                         Button
                       </AtomButton>
@@ -141,24 +141,24 @@ const Demo = () => {
           <Article mode="dark">
             <Grid cols={7} gutter={10}>
               <Cell />
-              {atomButtonColorsIterator.map(([{color}]) => (
-                <Cell style={flexCenteredStyle}>
+              {atomButtonColorsIterator.map(([{color}], index) => (
+                <Cell key={index} style={flexCenteredStyle}>
                   <Label>{color}</Label>
                 </Cell>
               ))}
-              {atomButtonDesignsIterator.map(([{design}]) => (
-                <>
+              {atomButtonDesignsIterator.map(([{design}], index) => (
+                <Fragment key={index}>
                   <Cell style={flexCenteredStyle}>
                     <Label>{design}</Label>
                   </Cell>
-                  {atomButtonColorsIterator.map(([{color}]) => (
-                    <Cell style={flexCenteredStyle}>
+                  {atomButtonColorsIterator.map(([{color}], index) => (
+                    <Cell key={index} style={flexCenteredStyle}>
                       <AtomButton negative design={design} color={color}>
                         Button
                       </AtomButton>
                     </Cell>
                   ))}
-                </>
+                </Fragment>
               ))}
             </Grid>
           </Article>
@@ -175,18 +175,18 @@ const Demo = () => {
           <Article outline>
             <Grid cols={7} gutter={10}>
               <Cell />
-              {atomButtonSocialColorsIterator.map(([{color}]) => (
-                <Cell style={flexCenteredStyle}>
+              {atomButtonSocialColorsIterator.map(([{color}], index) => (
+                <Cell key={index} style={flexCenteredStyle}>
                   <Label>{color}</Label>
                 </Cell>
               ))}
-              {atomButtonDesignsIterator.map(([{design}]) => (
-                <>
+              {atomButtonDesignsIterator.map(([{design}], index) => (
+                <Fragment key={index}>
                   <Cell style={flexCenteredStyle}>
                     <Label>{design}</Label>
                   </Cell>
-                  {atomButtonSocialColorsIterator.map(([{color}]) => (
-                    <Cell style={flexCenteredStyle}>
+                  {atomButtonSocialColorsIterator.map(([{color}], index) => (
+                    <Cell key={index} style={flexCenteredStyle}>
                       <AtomButton
                         leftIcon={socialIconsMapper[color]}
                         design={design}
@@ -196,7 +196,7 @@ const Demo = () => {
                       </AtomButton>
                     </Cell>
                   ))}
-                </>
+                </Fragment>
               ))}
             </Grid>
           </Article>
@@ -208,18 +208,18 @@ const Demo = () => {
           <Article mode="dark">
             <Grid cols={7} gutter={10}>
               <Cell />
-              {atomButtonSocialColorsIterator.map(([{color}]) => (
-                <Cell style={flexCenteredStyle}>
+              {atomButtonSocialColorsIterator.map(([{color}], index) => (
+                <Cell key={index} style={flexCenteredStyle}>
                   <Label>{color}</Label>
                 </Cell>
               ))}
-              {atomButtonDesignsIterator.map(([{design}]) => (
-                <>
+              {atomButtonDesignsIterator.map(([{design}], index) => (
+                <Fragment key={index}>
                   <Cell style={flexCenteredStyle}>
                     <Label>{design}</Label>
                   </Cell>
-                  {atomButtonSocialColorsIterator.map(([{color}]) => (
-                    <Cell style={flexCenteredStyle}>
+                  {atomButtonSocialColorsIterator.map(([{color}], index) => (
+                    <Cell key={index} style={flexCenteredStyle}>
                       <AtomButton
                         negative
                         leftIcon={socialIconsMapper[color]}
@@ -230,7 +230,7 @@ const Demo = () => {
                       </AtomButton>
                     </Cell>
                   ))}
-                </>
+                </Fragment>
               ))}
             </Grid>
           </Article>
@@ -245,16 +245,16 @@ const Demo = () => {
             available
           </Paragraph>
           <Grid cols={14} gutter={10}>
-            {atomButtonDesignsIterator.map(([{design}]) => (
-              <>
+            {atomButtonDesignsIterator.map(([{design}], index) => (
+              <Fragment key={index}>
                 <Cell style={flexCenteredStyle}>
                   <Label>{design}</Label>
                 </Cell>
                 {[
                   ...atomButtonColorsIterator,
                   ...atomButtonSocialColorsIterator
-                ].map(([{color}]) => (
-                  <Cell style={flexCenteredStyle}>
+                ].map(([{color}], index) => (
+                  <Cell key={index} style={flexCenteredStyle}>
                     <AtomButton design={design} color={color} leftIcon={socialIconsMapper[color]}>
                       Button
                     </AtomButton>
@@ -263,7 +263,7 @@ const Demo = () => {
                 <Cell style={flexCenteredStyle}>
                   <Label>{design}</Label>
                 </Cell>
-              </>
+              </Fragment>
             ))}
           </Grid>
         </div>
@@ -278,15 +278,15 @@ const Demo = () => {
           </Paragraph>
         </div>
         <Grid cols={3} gutter={10}>
-          {atomButtonSizesIterator.map(([{size}]) => (
-            <>
+          {atomButtonSizesIterator.map(([{size}], index) => (
+            <Fragment key={index}>
               <Cell style={flexCenteredStyle}>
                 <Label>{size}</Label>
               </Cell>
-            </>
+            </Fragment>
           ))}
-          {atomButtonSizesIterator.map(([{size}]) => (
-            <Cell style={flexCenteredStyle}>
+          {atomButtonSizesIterator.map(([{size}], index) => (
+            <Cell key={index} style={flexCenteredStyle}>
               <AtomButton size={size}>Button</AtomButton>
             </Cell>
           ))}
@@ -468,18 +468,18 @@ const Demo = () => {
             <Article mode={negative ? 'dark' : 'light'} outline={!negative}>
               <Grid cols={7} gutter={10}>
                 <Cell />
-                {atomButtonColorsIterator.map(([{color}]) => (
-                  <Cell style={flexCenteredStyle}>
+                {atomButtonColorsIterator.map(([{color}], index) => (
+                  <Cell key={index} style={flexCenteredStyle}>
                     <Label>{color}</Label>
                   </Cell>
                 ))}
-                {atomButtonDesignsIterator.map(([{design}]) => (
-                  <>
+                {atomButtonDesignsIterator.map(([{design}], index) => (
+                  <Fragment key={index}>
                     <Cell style={flexCenteredStyle}>
                       <Label>{design}</Label>
                     </Cell>
-                    {atomButtonColorsIterator.map(([{color}]) => (
-                      <Cell style={flexCenteredStyle}>
+                    {atomButtonColorsIterator.map(([{color}], index) => (
+                      <Cell key={index} style={flexCenteredStyle}>
                         <AtomButton
                           design={design}
                           color={color}
@@ -493,7 +493,7 @@ const Demo = () => {
                         </AtomButton>
                       </Cell>
                     ))}
-                  </>
+                  </Fragment>
                 ))}
               </Grid>
             </Article>

@@ -303,7 +303,9 @@ const Demo = () => {
           ))}
           {atomButtonSizesIterator.map(([{size}], index) => (
             <Cell key={index} style={flexCenteredStyle}>
-              <AtomButton size={size} color="primary">Button</AtomButton>
+              <AtomButton size={size} color="primary">
+                Button
+              </AtomButton>
             </Cell>
           ))}
         </Grid>

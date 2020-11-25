@@ -75,6 +75,7 @@
         background-color: $bgc-atom-tag-closable-icon--hover;
         border-radius: 50%;
         fill: color-variation($c-atom-tag-closable-icon--hover, 3);
+        color: color-variation($c-atom-tag-closable-icon--hover, 3);
       }
     }
   }

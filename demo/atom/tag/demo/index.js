@@ -111,7 +111,7 @@ export default () => (
       </Grid>
     </Article>
     <br />
-    <Article>
+    <Article className={CLASS_SECTION}>
       <H2>Design</H2>
       <Paragraph>
         Tags structure can have 2 designs: Solid <Small>(default)</Small> and
@@ -156,7 +156,7 @@ export default () => (
       </Grid>
     </Article>
     <br />
-    <Article>
+    <Article className={CLASS_SECTION}>
       <H2>Actionable</H2>
       <Paragraph>
         Actionable tags can be used as an anchor. Same as <Code>{'<a>'}</Code>{' '}
@@ -215,7 +215,7 @@ export default () => (
       />
     </Article>
     <br />
-    <Article>
+    <Article className={CLASS_SECTION}>
       <H2>Icons</H2>
       <Paragraph>
         Tags can include an action icon (generally a close icon). This icon will
@@ -255,7 +255,7 @@ export default () => (
       />
     </Article>
     <br />
-    <Article>
+    <Article className={CLASS_SECTION}>
       <H2>Responsive</H2>
       <Paragraph>
         Use the <Code>responsive</Code> true for make responsive layout. keep
@@ -296,7 +296,7 @@ export default () => (
       </div>
     </Article>
     <br />
-    <Article>
+    <Article className={CLASS_SECTION}>
       <H2>Types</H2>
       <Paragraph>
         Use the <Code>type</Code> in order to color it as desired from a high

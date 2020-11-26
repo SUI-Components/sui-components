@@ -13,9 +13,7 @@ import {
   Code,
   Grid,
   Cell,
-  Label,
-  UnorderedList,
-  ListItem
+  Label
 } from '@s-ui/documentation-library'
 
 import './index.scss'
@@ -56,14 +54,6 @@ const ICONS = {
   )
 }
 
-const IconHalfCheck = props => (
-  <AtomIcon {...props}>
-    <svg viewBox="0 0 24 24">
-      <path d="M.5 12.5a.5.5 0 010-1h23a.5.5 0 010 1H.5z" />
-    </svg>
-  </AtomIcon>
-)
-
 const flexCenteredStyle = {
   display: 'flex',
   justifyContent: 'center',
@@ -75,13 +65,11 @@ const flexCenteredStyle = {
 
 const Demo = () => {
   const [state, setStatus] = useState({
-    isNative: false,
-    disabled: false,
     checkedIcon: 'aiOutlineCheck',
     intermediateIcon: 'aiOutlineLine'
   })
   const setState = overrideState => setStatus({...state, ...overrideState})
-  const {isNative, disabled, checkedIcon, intermediateIcon} = state
+  const {checkedIcon, intermediateIcon} = state
 
   return (
     <div className="sui-StudioPreview">
@@ -133,7 +121,7 @@ const Demo = () => {
                     <AtomCheckbox
                       id={`${index1}-${index2}`}
                       checkedIcon={() => ICONS.aiOutlineCheck}
-                      intermediateIcon={IconHalfCheck}
+                      intermediateIcon={() => ICONS.aiOutlineLine}
                       {...{...props1, ...props2}}
                     />
                   </Cell>
@@ -145,24 +133,13 @@ const Demo = () => {
       </Article>
       <br />
       <Article className={CLASS_SECTION}>
-        <H2>Other extra props</H2>
-        <UnorderedList>
-          <ListItem>
-            <Code>disabled</Code>: for disabling the checkbox usages.
-          </ListItem>
-        </UnorderedList>
-        Tick icons can be fully customized using the props:
-        <UnorderedList>
-          <ListItem>
-            <Code>checkedIcon</Code>: icon displayed when checkbox status is
-            checked
-          </ListItem>
-          <ListItem>
-            <Code>intermediateIcon</Code>: icon displayed when checkbox status
-            is checked unchecked and <Code>intermediate</Code> prop i true
-          </ListItem>
-        </UnorderedList>
-        <Grid cols={7} gutter={[10, 10]}>
+        <H2>Disabled</H2>
+        <Paragraph>
+          Checkbox can remain disabled in order avoid its triggering behavior
+          <Code>Disabled</Code> boolean prop can give this option.
+        </Paragraph>
+        <Grid cols={4} gutter={[10, 10]}>
+          <Cell />
           {Object.entries({
             checked: {checked: true},
             intermediate: {intermediate: true},
@@ -174,97 +151,99 @@ const Demo = () => {
               </Cell>
             </Fragment>
           ))}
-          <Cell style={flexCenteredStyle}>
-            <Label>disabled</Label>
-          </Cell>
-          <Cell style={flexCenteredStyle}>
-            <Label>isNative</Label>
-          </Cell>
-          <Cell style={flexCenteredStyle}>
-            <Label>{!isNative && 'checkedIcon'}</Label>
-          </Cell>
-          <Cell style={flexCenteredStyle}>
-            <Label>{!isNative && 'intermediateIcon'}</Label>
-          </Cell>
-        </Grid>
-        <Grid cols={7} gutter={[10, 10]}>
           {Object.entries({
-            checked: {checked: true},
-            intermediate: {intermediate: true},
-            unchecked: {checked: false}
-          }).map(([label, props2], index2) => (
-            <Fragment key={index2}>
-              <Cell style={flexCenteredStyle}>
-                <AtomCheckbox
-                  id={index2}
-                  checkedIcon={() => ICONS[checkedIcon] || null}
-                  intermediateIcon={() => ICONS[intermediateIcon] || null}
-                  isNative={isNative}
-                  disabled={disabled}
-                  {...{...props2}}
-                />
+            customized: {isNative: false},
+            native: {isNative: true}
+          }).map(([label, props1], index1) => (
+            <Fragment key={index1}>
+              <Cell
+                style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
+              >
+                <Label>{label}</Label>
               </Cell>
+              {Object.entries({
+                checked: {checked: true},
+                intermediate: {intermediate: true},
+                unchecked: {checked: false}
+              }).map(([label, props2], index2) => (
+                <Fragment key={index2}>
+                  <Cell style={flexCenteredStyle}>
+                    <AtomCheckbox
+                      id={`${index1}-${index2}`}
+                      checkedIcon={() => ICONS.aiOutlineCheck}
+                      intermediateIcon={() => ICONS.aiOutlineLine}
+                      disabled
+                      {...{...props1, ...props2}}
+                    />
+                  </Cell>
+                </Fragment>
+              ))}
             </Fragment>
           ))}
-          <Cell style={flexCenteredStyle}>
-            <RadioButton
+        </Grid>
+      </Article>
+      <br />
+      <Article className={CLASS_SECTION}>
+        <H2>Custom icons</H2>
+        <Paragraph>
+          Tick icons can be fully customized using the props unless if the{' '}
+          <Code>isNative</Code> flag is activated.
+        </Paragraph>
+        <Paragraph>
+          <Code>checkedIcon</Code>: icon displayed when checkbox status is
+          checked.
+        </Paragraph>
+        <Grid cols={6}>
+          <Cell>
+            <RadioButtonGroup
+              value={checkedIcon}
               fullWidth
-              value="disabled"
-              label={disabled.toString()}
-              onClick={(_, value) => setState({disabled: value === 'disabled'})}
+              onChange={value => setState({checkedIcon: value})}
+            >
+              <RadioButton
+                value="aiOutlineCheck"
+                label={ICONS.aiOutlineCheck}
+              />
+              <RadioButton
+                value="aiOutlineClose"
+                label={ICONS.aiOutlineClose}
+              />
+            </RadioButtonGroup>
+          </Cell>
+          <Cell style={flexCenteredStyle}>
+            <AtomCheckbox
+              checkedIcon={() => ICONS[checkedIcon] || null}
+              intermediateIcon={() => ICONS[intermediateIcon] || null}
+              checked
             />
           </Cell>
-          <Cell style={flexCenteredStyle}>
-            <RadioButton
+        </Grid>
+        <Paragraph>
+          <Code>intermediateIcon</Code>: icon displayed when checkbox status is
+          checked unchecked and <Code>intermediate</Code> prop i true.
+        </Paragraph>
+        <Grid cols={6}>
+          <Cell>
+            <RadioButtonGroup
+              value={intermediateIcon}
               fullWidth
-              value="native"
-              label={isNative.toString()}
-              onClick={(_, value) => setState({isNative: value === 'native'})}
+              onChange={value => setState({intermediateIcon: value})}
+            >
+              <RadioButton value="aiOutlineLine" label={ICONS.aiOutlineLine} />
+              <RadioButton value="aiOutlineInfo" label={ICONS.aiOutlineInfo} />
+              <RadioButton
+                value="aiOutlinePause"
+                label={ICONS.aiOutlinePause}
+              />
+              <RadioButton value="aiOutlinePlus" label={ICONS.aiOutlinePlus} />
+            </RadioButtonGroup>
+          </Cell>
+          <Cell style={flexCenteredStyle}>
+            <AtomCheckbox
+              checkedIcon={() => ICONS[checkedIcon] || null}
+              intermediateIcon={() => ICONS[intermediateIcon] || null}
+              intermediate
             />
-          </Cell>
-          <Cell>
-            {!isNative && (
-              <RadioButtonGroup
-                value={checkedIcon}
-                fullWidth
-                onChange={value => setState({checkedIcon: value})}
-              >
-                <RadioButton
-                  value="aiOutlineCheck"
-                  label={ICONS.aiOutlineCheck}
-                />
-                <RadioButton
-                  value="aiOutlineClose"
-                  label={ICONS.aiOutlineClose}
-                />
-              </RadioButtonGroup>
-            )}
-          </Cell>
-          <Cell>
-            {!isNative && (
-              <RadioButtonGroup
-                value={intermediateIcon}
-                fullWidth
-                onChange={value => setState({intermediateIcon: value})}
-              >
-                <RadioButton
-                  value="aiOutlineLine"
-                  label={ICONS.aiOutlineLine}
-                />
-                <RadioButton
-                  value="aiOutlineInfo"
-                  label={ICONS.aiOutlineInfo}
-                />
-                <RadioButton
-                  value="aiOutlinePause"
-                  label={ICONS.aiOutlinePause}
-                />
-                <RadioButton
-                  value="aiOutlinePlus"
-                  label={ICONS.aiOutlinePlus}
-                />
-              </RadioButtonGroup>
-            )}
           </Cell>
         </Grid>
       </Article>

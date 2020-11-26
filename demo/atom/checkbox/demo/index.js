@@ -96,6 +96,10 @@ const Demo = () => {
           checkbox have 3 different possible values combining the prop{' '}
           <Code>checked</Code> and the boolean prop <Code>intermediate</Code>
         </Paragraph>
+        <Paragraph>
+          For native checkbox look and feel purposes we have{' '}
+          <Code>isNative</Code> boolean prop also.
+        </Paragraph>
         <Grid cols={4} gutter={[10, 10]}>
           <Cell />
           {Object.entries({
@@ -144,10 +148,18 @@ const Demo = () => {
         <H2>Other extra props</H2>
         <UnorderedList>
           <ListItem>
-            <Code>isNative</Code>: for native checkbox look and feel
+            <Code>disabled</Code>: for disabling the checkbox usages.
+          </ListItem>
+        </UnorderedList>
+        Tick icons can be fully customized using the props:
+        <UnorderedList>
+          <ListItem>
+            <Code>checkedIcon</Code>: icon displayed when checkbox status is
+            checked
           </ListItem>
           <ListItem>
-            <Code>disabled</Code>: for native disabled checkbox usages
+            <Code>intermediateIcon</Code>: icon displayed when checkbox status
+            is checked unchecked and <Code>intermediate</Code> prop i true
           </ListItem>
         </UnorderedList>
         <Grid cols={7} gutter={[10, 10]}>
@@ -162,20 +174,52 @@ const Demo = () => {
               </Cell>
             </Fragment>
           ))}
-          <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
-            <RadioButton
-              fullWidth
-              value="native"
-              label="isNative"
-              onClick={(_, value) => setState({isNative: value === 'native'})}
-            />
+          <Cell style={flexCenteredStyle}>
+            <Label>disabled</Label>
           </Cell>
-          <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
+          <Cell style={flexCenteredStyle}>
+            <Label>isNative</Label>
+          </Cell>
+          <Cell style={flexCenteredStyle}>
+            <Label>{!isNative && 'checkedIcon'}</Label>
+          </Cell>
+          <Cell style={flexCenteredStyle}>
+            <Label>{!isNative && 'intermediateIcon'}</Label>
+          </Cell>
+        </Grid>
+        <Grid cols={7} gutter={[10, 10]}>
+          {Object.entries({
+            checked: {checked: true},
+            intermediate: {intermediate: true},
+            unchecked: {checked: false}
+          }).map(([label, props2], index2) => (
+            <Fragment key={index2}>
+              <Cell style={flexCenteredStyle}>
+                <AtomCheckbox
+                  id={index2}
+                  checkedIcon={() => ICONS[checkedIcon] || null}
+                  intermediateIcon={() => ICONS[intermediateIcon] || null}
+                  isNative={isNative}
+                  disabled={disabled}
+                  {...{...props2}}
+                />
+              </Cell>
+            </Fragment>
+          ))}
+          <Cell style={flexCenteredStyle}>
             <RadioButton
               fullWidth
               value="disabled"
-              label="disabled"
+              label={disabled.toString()}
               onClick={(_, value) => setState({disabled: value === 'disabled'})}
+            />
+          </Cell>
+          <Cell style={flexCenteredStyle}>
+            <RadioButton
+              fullWidth
+              value="native"
+              label={isNative.toString()}
+              onClick={(_, value) => setState({isNative: value === 'native'})}
             />
           </Cell>
           <Cell>
@@ -221,38 +265,6 @@ const Demo = () => {
                 />
               </RadioButtonGroup>
             )}
-          </Cell>
-        </Grid>
-        <Grid cols={7} gutter={[10, 10]}>
-          {Object.entries({
-            checked: {checked: true},
-            intermediate: {intermediate: true},
-            unchecked: {checked: false}
-          }).map(([label, props2], index2) => (
-            <Fragment key={index2}>
-              <Cell style={flexCenteredStyle}>
-                <AtomCheckbox
-                  id={index2}
-                  checkedIcon={() => ICONS[checkedIcon] || null}
-                  intermediateIcon={() => ICONS[intermediateIcon] || null}
-                  isNative={isNative}
-                  disabled={disabled}
-                  {...{...props2}}
-                />
-              </Cell>
-            </Fragment>
-          ))}
-          <Cell style={flexCenteredStyle}>
-            <Label>{isNative.toString()}</Label>
-          </Cell>
-          <Cell style={flexCenteredStyle}>
-            <Label>{disabled.toString()}</Label>
-          </Cell>
-          <Cell style={flexCenteredStyle}>
-            {!isNative && ICONS[checkedIcon]}
-          </Cell>
-          <Cell style={flexCenteredStyle}>
-            {!isNative && ICONS[intermediateIcon]}
           </Cell>
         </Grid>
       </Article>

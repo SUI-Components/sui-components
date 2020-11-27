@@ -55,7 +55,6 @@ const MoleculeDataCounter = ({
   const incrementDisabled = disabled || numInternalValue >= numMax
 
   const assignValue = (e, {nValue}) => {
-    setLastActions(ACTIONS.CHANGE)
     const value = String(nValue)
     setInternalValue(value)
     onChange(e, {value})

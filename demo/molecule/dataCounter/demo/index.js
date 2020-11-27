@@ -3,6 +3,9 @@ import MoleculeDataCounter, {
   moleculeDataCounterSizes
 } from '../../../../components/molecule/dataCounter/src'
 
+import AddIcon from '@adv-ui/fc-iconset/lib/Add'
+import SubstractIcon from '@adv-ui/fc-iconset/lib/Substract'
+
 const stylesSection = {
   border: '1px solid #CCC',
   background: '#fff',
@@ -61,12 +64,25 @@ const Demo = () => {
         />
       </div>
 
+      <h2>Custom icons</h2>
+      <div style={stylesSection}>
+        <MoleculeDataCounter
+          addIcon={AddIcon}
+          id="demo2"
+          disabled
+          label="Label"
+          onChange={consoleValue}
+          substractIcon={SubstractIcon}
+          {...propsMessages}
+        />
+      </div>
+
       <h2>Disabled</h2>
       <div style={stylesSection}>
         <MoleculeDataCounter
           onChange={consoleValue}
           label="All"
-          id="demo2"
+          id="demo3"
           disabled
           {...propsMessages}
         />
@@ -74,7 +90,7 @@ const Demo = () => {
         <MoleculeDataCounter
           onChange={consoleValue}
           label="Input"
-          id="demo2"
+          id="demo4"
           inputDisabled
           {...propsMessages}
         />
@@ -88,7 +104,7 @@ const Demo = () => {
           max={7}
           label="Label"
           value={13}
-          id="demo3"
+          id="demo5"
           {...propsMessages}
         />
       </div>
@@ -98,7 +114,7 @@ const Demo = () => {
         <MoleculeDataCounter
           onChange={consoleValue}
           label="Label"
-          id="demo4"
+          id="demo6"
           min={3}
           size={moleculeDataCounterSizes.SMALL}
           {...propsMessages}

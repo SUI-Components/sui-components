@@ -5,8 +5,6 @@ import cx from 'classnames'
 import AtomButton, {atomButtonSizes} from '@s-ui/react-atom-button'
 import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
 import MoleculeField from '@s-ui/react-molecule-field'
-import AddIcon from '@adv-ui/fc-iconset/lib/Add'
-import SubstractIcon from '@adv-ui/fc-iconset/lib/Substract'
 
 import {ACTIONS} from './config'
 
@@ -16,6 +14,7 @@ const BASE_CLASS = `sui-MoleculeDataCounter`
 const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-container`
 
 const MoleculeDataCounter = ({
+  addIcon: AddIcon,
   charsSize = 2,
   disabled,
   errorText: errorTextProps,
@@ -31,6 +30,7 @@ const MoleculeDataCounter = ({
   minValueHelpText,
   onChange,
   size = inputSizes.MEDIUM,
+  substractIcon: SubstractIcon,
   value
 }) => {
   if (value) value = String(value)
@@ -123,7 +123,7 @@ const MoleculeDataCounter = ({
             size={size === inputSizes.SMALL ? atomButtonSizes.SMALL : null}
             type={BUTTON_TYPE}
           >
-            <SubstractIcon />
+            {SubstractIcon ? <SubstractIcon /> : '-'}
           </AtomButton>
           <AtomInput
             charsSize={charsSize}
@@ -142,7 +142,7 @@ const MoleculeDataCounter = ({
             size={size === inputSizes.SMALL ? atomButtonSizes.SMALL : null}
             type={BUTTON_TYPE}
           >
-            <AddIcon />
+            {AddIcon ? <AddIcon /> : '+'}
           </AtomButton>
         </div>
       </MoleculeField>
@@ -199,7 +199,13 @@ MoleculeDataCounter.propTypes = {
   isLoading: PropTypes.bool,
 
   /** input disabled or not */
-  inputDisabled: PropTypes.bool
+  inputDisabled: PropTypes.bool,
+
+  /** Icon to show on add button */
+  addIcon: PropTypes.node,
+
+  /** Icon to show on substract button */
+  substractIcon: PropTypes.node
 }
 
 export default MoleculeDataCounter

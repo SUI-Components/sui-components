@@ -34,7 +34,7 @@ const StateArticle = () => (
     <H2>State</H2>
     <Paragraph>
       We can distinguish between 2 different toogle states using the{' '}
-      <Code>state</Code> boolean prop value
+      <Code>value</Code> boolean prop value
     </Paragraph>
     <Grid cols={3} style={{width: 400}}>
       {[

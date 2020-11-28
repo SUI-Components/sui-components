@@ -34,7 +34,7 @@ const StateArticle = () => (
     <H2>State</H2>
     <Paragraph>
       We can distinguish between 2 different toogle states using the{' '}
-      <Code>value</Code> boolean prop value
+      <Code>value</Code> boolean prop given.
     </Paragraph>
     <Grid cols={3} style={{width: 400}}>
       {[
@@ -149,10 +149,10 @@ const ControlledAndUncontrolledArticle = () => {
       <Grid cols={5} gutter={[10, 10]}>
         <Cell />
         <Cell span={2} style={flexCenteredStyle}>
-          <Label>initialValue</Label>
+          <Label>value</Label>
         </Cell>
         <Cell span={2} style={flexCenteredStyle}>
-          <Label>value</Label>
+          <Label>initialValue</Label>
         </Cell>
         <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
           <Label>Mounted value</Label>

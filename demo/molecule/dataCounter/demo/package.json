@@ -9,8 +9,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@adv-ui/fc-iconset": "3",
-    "@s-ui/react-molecule-data-counter": "1"
-  }
+  "dependencies": {}
 }

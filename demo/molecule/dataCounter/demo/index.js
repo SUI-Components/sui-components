@@ -3,9 +3,6 @@ import MoleculeDataCounter, {
   moleculeDataCounterSizes
 } from '../../../../components/molecule/dataCounter/src'
 
-import AddIcon from '@adv-ui/fc-iconset/lib/Add'
-import SubstractIcon from '@adv-ui/fc-iconset/lib/Substract'
-
 const stylesSection = {
   border: '1px solid #CCC',
   background: '#fff',
@@ -60,19 +57,6 @@ const Demo = () => {
           onChange={consoleValueLoading}
           label="Click an action to start loading"
           id="demo1"
-          {...propsMessages}
-        />
-      </div>
-
-      <h2>Custom icons</h2>
-      <div style={stylesSection}>
-        <MoleculeDataCounter
-          addIcon={AddIcon}
-          id="demo2"
-          disabled
-          label="Label"
-          onChange={consoleValue}
-          substractIcon={SubstractIcon}
           {...propsMessages}
         />
       </div>

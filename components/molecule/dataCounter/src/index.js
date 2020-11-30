@@ -14,7 +14,7 @@ const BASE_CLASS = `sui-MoleculeDataCounter`
 const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-container`
 
 const MoleculeDataCounter = ({
-  addIcon: AddIcon,
+  addIcon = '+',
   charsSize = 2,
   disabled,
   errorText: errorTextProps,
@@ -30,7 +30,7 @@ const MoleculeDataCounter = ({
   minValueHelpText,
   onChange,
   size = inputSizes.MEDIUM,
-  substractIcon: SubstractIcon,
+  substractIcon = '-',
   value
 }) => {
   if (value) value = String(value)
@@ -123,7 +123,7 @@ const MoleculeDataCounter = ({
             size={size === inputSizes.SMALL ? atomButtonSizes.SMALL : null}
             type={BUTTON_TYPE}
           >
-            {SubstractIcon ? <SubstractIcon /> : '-'}
+            {substractIcon}
           </AtomButton>
           <AtomInput
             charsSize={charsSize}
@@ -142,7 +142,7 @@ const MoleculeDataCounter = ({
             size={size === inputSizes.SMALL ? atomButtonSizes.SMALL : null}
             type={BUTTON_TYPE}
           >
-            {AddIcon ? <AddIcon /> : '+'}
+            {addIcon}
           </AtomButton>
         </div>
       </MoleculeField>

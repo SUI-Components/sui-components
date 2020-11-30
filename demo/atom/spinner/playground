@@ -1,3 +1,14 @@
+const {
+  Label,
+  H1,
+  H2,
+  Code,
+  Paragraph,
+  Article,
+  Grid,
+  Cell,
+} = window.DOC
+
 const boxStyle = {
   backgroundColor: '#ffffff',
   border: '1px dashed lightgrey',
@@ -66,30 +77,42 @@ class FullScreenSpinnerExample extends React.Component {
   }
 }
 
+const BASE_CLASS_DEMO = `DemoAtomSpinner`
+const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
+
 return (
-  <div>
-    <h1>Spinner</h1>
-    <h2>Infinite spinner</h2>
-    <div style={boxStyle}>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-      <AtomSpinner />
-    </div>
-    <h2>Delayed spinner</h2>
-    <div style={boxStyle}>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-      <AtomSpinner delayed />
-    </div>
 
-    <h2>Spinner While content is loading</h2>
-    <SpinnerWrapperExample />
-
-    <h2>Full Screen Spinner</h2>
-    <FullScreenSpinnerExample />
-    
-    <h2>No backgorund Spinner </h2>
-    <div style={boxStyleBlack}>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-      <AtomSpinner noBackground />
-    </div>
+<div className="sui-StudioPreview">
+  <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+    <H1>Spinner</H1>
+    <Paragraph>An animated loop used for giving users feedback while the content of a page or section is being loaded.</Paragraph>
   </div>
+  <Article className={CLASS_SECTION}>
+    <H2>Infinite spinner</H2>
+    <Paragraph>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</Paragraph>
+    <AtomSpinner />
+  </Article>
+  <br/>
+  <Article className={CLASS_SECTION}>
+    <H2>Delayed spinner</H2>
+    <Paragraph>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</Paragraph>
+    <AtomSpinner delayed />
+  </Article>
+  <br/>
+  <Article className={CLASS_SECTION}>
+    <H2>Spinner While content is loading</H2>
+    <SpinnerWrapperExample />
+  </Article>
+  <br/>
+  <Article className={CLASS_SECTION}>
+    <H2>Full Screen Spinner</H2>
+    <FullScreenSpinnerExample />
+  </Article>
+  <br/>
+  <Article className={CLASS_SECTION} mode="dark">
+    <H2>Dark mode Spinner</H2>
+    <Paragraph>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</Paragraph>
+    <AtomSpinner noBackground />
+  </Article>
+</div>
 )

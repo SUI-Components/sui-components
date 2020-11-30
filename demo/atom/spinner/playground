@@ -5,29 +5,17 @@ const {
   Code,
   Paragraph,
   Article,
-  Grid,
-  Cell,
+  Button,
 } = window.DOC
 
-const boxStyle = {
-  backgroundColor: '#ffffff',
+const {Component} = React
+
+const dashStyle = {
   border: '1px dashed lightgrey',
-  borderRadius: '5px',
-  padding: '20px',
-  marginBottom: '16px'
+  padding: 30
 }
 
-const boxStyleBlack = {
-  ...boxStyle,
-  backgroundColor: '#000'
-}
-
-const buttonStyle = {
-  backgroundColor: '#ffffff',
-  padding: '10px'
-}
-
-class SpinnerWrapperExample extends React.Component {
+class SpinnerWrapperExample extends Component {
   constructor(props) {
     super(props)
     this.state = {contentLoaded: false}
@@ -42,17 +30,17 @@ class SpinnerWrapperExample extends React.Component {
   render() {
     const {contentLoaded} = this.state
     return contentLoaded ? (
-      <p style={boxStyle}>Content loaded, spinner dissapears</p>
+      <Paragraph style={dashStyle}>Content loaded, spinner dissapears</Paragraph>
     ) : (
-      <p style={boxStyle}>
+      <Paragraph style={dashStyle}>
         Slowly loading content, delayed spinner will be shown
         <AtomSpinner delayed />
-      </p>
+      </Paragraph>
     )
   }
 }
 
-class FullScreenSpinnerExample extends React.Component {
+class FullScreenSpinnerExample extends Component {
   constructor(props) {
     super(props)
     this.state = {show: false}
@@ -68,9 +56,9 @@ class FullScreenSpinnerExample extends React.Component {
   render() {
     return (
       <>
-        <button style={buttonStyle} onClick={this.onClick}>
+        <Button onClick={this.onClick}>
           Click to show fullscreen spinner for 5 seconds
-        </button>
+        </Button>
         {this.state.show && <AtomSpinner type={AtomSpinnerTypes.FULL} />}
       </>
     )

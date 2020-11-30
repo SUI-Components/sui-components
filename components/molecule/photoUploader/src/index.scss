@@ -50,7 +50,7 @@ $fz-photo-uploader-initial-state: $fz-s !default;
 
 $mih-photo-uploader: 249px;
 $s-photo-uploader-counter: 16px;
-$bct-photo-uploader-counter: $c-primary !default;
+$bgc-photo-uploader-counter: $c-primary !default;
 $bdrs-photo-uploader-counter: $bdrs-rounded !default;
 $h-photo-uploader-thumb-image: ($w-photo-uploader-thumb-image * 3) / 4;
 $h-photo-uploader-thumb-image-desktop: (
@@ -200,7 +200,7 @@ $maw-photo-uploader-thumb-drag-text: 200px;
 
     &-counter {
       align-items: center;
-      background-color: $bct-photo-uploader-counter;
+      background-color: $bgc-photo-uploader-counter;
       border-radius: $bdrs-photo-uploader-counter;
       color: $c-white;
       display: inline-flex;

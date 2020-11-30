@@ -3,6 +3,8 @@ import MoleculeDataCounter, {
   moleculeDataCounterSizes
 } from '../../../../components/molecule/dataCounter/src'
 
+import {AntDesignIcon} from '@s-ui/documentation-library'
+
 const stylesSection = {
   border: '1px solid #CCC',
   background: '#fff',
@@ -57,6 +59,28 @@ const Demo = () => {
           onChange={consoleValueLoading}
           label="Click an action to start loading"
           id="demo1"
+          {...propsMessages}
+        />
+      </div>
+
+      <h2>Custom Icons</h2>
+      <div style={stylesSection}>
+        <MoleculeDataCounter
+          addIcon={
+            <AntDesignIcon
+              icon="AiOutlinePlus"
+              style={{color: 'currentColor'}}
+            />
+          }
+          id="demo2"
+          label="Label"
+          onChange={consoleValue}
+          substractIcon={
+            <AntDesignIcon
+              icon="AiOutlineMinus"
+              style={{color: 'currentColor'}}
+            />
+          }
           {...propsMessages}
         />
       </div>

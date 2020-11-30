@@ -30,7 +30,7 @@ class SpinnerWrapperExample extends Component {
   render() {
     const {contentLoaded} = this.state
     return contentLoaded ? (
-      <Paragraph style={dashStyle}>Content loaded, spinner dissapears</Paragraph>
+      <Paragraph style={dashStyle}>Content loaded, spinner disappears</Paragraph>
     ) : (
       <Paragraph style={dashStyle}>
         Slowly loading content, delayed spinner will be shown
@@ -69,38 +69,35 @@ const BASE_CLASS_DEMO = `DemoAtomSpinner`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
 return (
-
-<div className="sui-StudioPreview">
   <div className="sui-StudioPreview-content sui-StudioDemo-preview">
     <H1>Spinner</H1>
     <Paragraph>An animated loop used for giving users feedback while the content of a page or section is being loaded.</Paragraph>
+    <Article className={CLASS_SECTION}>
+      <H2>Infinite spinner</H2>
+      <Paragraph>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</Paragraph>
+      <AtomSpinner />
+    </Article>
+    <br/>
+    <Article className={CLASS_SECTION}>
+      <H2>Delayed spinner</H2>
+      <Paragraph>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</Paragraph>
+      <AtomSpinner delayed />
+    </Article>
+    <br/>
+    <Article className={CLASS_SECTION}>
+      <H2>Spinner While content is loading</H2>
+      <SpinnerWrapperExample />
+    </Article>
+    <br/>
+    <Article className={CLASS_SECTION}>
+      <H2>Full Screen Spinner</H2>
+      <FullScreenSpinnerExample />
+    </Article>
+    <br/>
+    <Article className={CLASS_SECTION} mode="dark">
+      <H2>Dark mode Spinner</H2>
+      <Paragraph>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</Paragraph>
+      <AtomSpinner noBackground />
+    </Article>
   </div>
-  <Article className={CLASS_SECTION}>
-    <H2>Infinite spinner</H2>
-    <Paragraph>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</Paragraph>
-    <AtomSpinner />
-  </Article>
-  <br/>
-  <Article className={CLASS_SECTION}>
-    <H2>Delayed spinner</H2>
-    <Paragraph>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</Paragraph>
-    <AtomSpinner delayed />
-  </Article>
-  <br/>
-  <Article className={CLASS_SECTION}>
-    <H2>Spinner While content is loading</H2>
-    <SpinnerWrapperExample />
-  </Article>
-  <br/>
-  <Article className={CLASS_SECTION}>
-    <H2>Full Screen Spinner</H2>
-    <FullScreenSpinnerExample />
-  </Article>
-  <br/>
-  <Article className={CLASS_SECTION} mode="dark">
-    <H2>Dark mode Spinner</H2>
-    <Paragraph>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</Paragraph>
-    <AtomSpinner noBackground />
-  </Article>
-</div>
 )

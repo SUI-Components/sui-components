@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@s-ui/hoc": "1",
+    "@s-ui/react-atom-button": "1",
     "@s-ui/react-atom-input": "3",
-    "@s-ui/react-molecule-field": "1",
-    "@s-ui/react-atom-button": "1"
+    "@s-ui/react-molecule-field": "1"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

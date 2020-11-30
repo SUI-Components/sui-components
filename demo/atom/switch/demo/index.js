@@ -96,8 +96,8 @@ const DisabledArticle = () => (
       ))}
       <Cell />
       {[{value: true}, {value: false}].map((props, index) => (
-        <Cell key={index} disabled style={flexCenteredStyle}>
-          <AtomSwitch {...props} />
+        <Cell key={index} style={flexCenteredStyle}>
+          <AtomSwitch disabled {...props} />
         </Cell>
       ))}
     </Grid>

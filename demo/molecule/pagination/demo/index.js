@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
-import React from 'react'
-
 import LayoutMediaQuery from '@s-ui/react-layout-media-query'
 
 import MoleculePagination from '../../../../components/molecule/pagination/src'

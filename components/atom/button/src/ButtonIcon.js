@@ -1,4 +1,4 @@
-import React from 'react'
+import {cloneElement} from 'react'
 import PropTypes from 'prop-types'
 import {
   ATOM_ICON_DISPLAY_NAME,
@@ -22,7 +22,7 @@ const isAtomIcon = icon => icon?.type?.displayName === ATOM_ICON_DISPLAY_NAME
  */
 const prepareAtomIcon = (atomIconElement, {size}) => {
   const atomIconSize = ATOM_ICON_SIZES_MAPPER[size]
-  return React.cloneElement(atomIconElement, {
+  return cloneElement(atomIconElement, {
     color: undefined,
     size: atomIconSize
   })

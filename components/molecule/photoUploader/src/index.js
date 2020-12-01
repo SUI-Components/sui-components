@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {useDropzone} from 'react-dropzone'
 import {getTarget} from '@s-ui/js/lib/react'
 

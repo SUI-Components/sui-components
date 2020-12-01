@@ -86,8 +86,8 @@ All notable changes to this project will be documented in this file.
 * iIFE removal ([7034979](https://github.com/SUI-Components/sui-components/commit/7034979ed5ea64f95893c438abb5e0d8745f37f3))
 * moleculeButtonGroup ([38139ec](https://github.com/SUI-Components/sui-components/commit/38139ecd020677ca44433b306b9fe06b0a856286))
 * rEADME ([08fab48](https://github.com/SUI-Components/sui-components/commit/08fab48c1c94cc33cce8c154520630556df99375))
-* rEADME updated ([fb8cea0](https://github.com/SUI-Components/sui-components/commit/fb8cea003d769863c62cf19b72489925a55a62fb))
 * rEADME updated ([2ec6d77](https://github.com/SUI-Components/sui-components/commit/2ec6d77099a9ecc742a25cf1d5d678df4ec2bf8e))
+* rEADME updated ([fb8cea0](https://github.com/SUI-Components/sui-components/commit/fb8cea003d769863c62cf19b72489925a55a62fb))
 * use of AtomButton constants and README typo ([4f3a5ec](https://github.com/SUI-Components/sui-components/commit/4f3a5ec0df11a8a4cf7d01c0b33e99be751814e4))
 
 

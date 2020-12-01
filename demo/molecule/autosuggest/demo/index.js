@@ -1,6 +1,4 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
-import React from 'react'
-
 import {withStateValue, withStateValueTags} from '@s-ui/hoc'
 
 import MoleculeAutosuggest, {

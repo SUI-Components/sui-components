@@ -1,4 +1,4 @@
-import React from 'react'
+import {cloneElement, Children} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -35,7 +35,7 @@ const MoleculeLabel = ({
         />
       )
     } else if (nodeLabel) {
-      return React.cloneElement(nodeLabel, {
+      return cloneElement(nodeLabel, {
         type: typeValidationLabel,
         name,
         onClickLabel
@@ -79,10 +79,10 @@ const MoleculeField = ({
   )
 
   let statusValidationText, typeValidationLabel, typeValidationText
-  const extendedChildren = React.Children.toArray(children)
+  const extendedChildren = Children.toArray(children)
     .filter(Boolean)
     .map((child, index) => {
-      return React.cloneElement(child, {
+      return cloneElement(child, {
         onChange: onChangeFromProps
       })
     })

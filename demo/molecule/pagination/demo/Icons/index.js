@@ -1,5 +1,3 @@
-import React from 'react'
-
 const prevButtonIcon = () => (
   <svg width={16} height={16} style={{background: 'transparent'}}>
     <g fill="none" fillRule="evenodd">

@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
-import React from 'react'
 import cx from 'classnames'
 
 // import LayoutMediaQuery from '@s-ui/react-layout-media-query'

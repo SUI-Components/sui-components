@@ -1,83 +1,93 @@
-import React from 'react'
+import {forwardRef} from 'react'
 import cx from 'classnames'
 import AtomLabel from '@s-ui/react-atom-label'
 import {suitClass, switchClassNames} from './helpers'
 import PropTypes from 'prop-types'
 
-export const ToggleSwitchTypeRender = ({
-  disabled,
-  isFocus,
-  isClick,
-  isToggle,
-  label,
-  labelLeft,
-  labelOptionalText,
-  labelRight,
-  name,
-  onBlur,
-  onFocus,
-  onClick,
-  onKeyDown,
-  onToggle,
-  size,
-  type,
-  value
-}) => {
-  const isActive = value !== undefined ? value : isToggle
+export const ToggleSwitchTypeRender = forwardRef(
+  (
+    {
+      disabled,
+      isFocus,
+      isClick,
+      isToggle,
+      label,
+      labelLeft,
+      labelOptionalText,
+      labelRight,
+      name,
+      onBlur,
+      onFocus,
+      onClick,
+      onKeyDown,
+      onToggle,
+      size,
+      type,
+      value
+    },
+    ref
+  ) => {
+    const isActive = value !== undefined ? value : isToggle
 
-  return (
-    <div
-      className={switchClassNames(
-        size,
-        type,
-        'toggleType',
-        isActive,
-        isFocus,
-        isClick,
-        disabled
-      )}
-    >
-      <AtomLabel name={name} text={label} optionalText={labelOptionalText} />
+    const onKeyDownHandler = event => {
+      onKeyDown(event, isActive)
+    }
+
+    return (
       <div
-        className={cx(suitClass({element: 'container'}))}
-        tabIndex="0"
-        onFocus={onFocus}
-        onClick={onClick}
-        onBlur={onBlur}
-        onKeyDown={onKeyDown}
+        className={switchClassNames(
+          size,
+          type,
+          'toggleType',
+          isActive,
+          isFocus,
+          isClick,
+          disabled
+        )}
       >
-        <span
-          className={cx(
-            suitClass({element: 'text'}),
-            suitClass({element: 'left'})
-          )}
-          onClick={() => onToggle(false)}
-        >
-          {labelLeft}
-        </span>
+        <AtomLabel name={name} text={label} optionalText={labelOptionalText} />
         <div
-          className={cx(suitClass({element: 'inputContainer'}))}
-          onClick={() => onToggle()}
+          className={cx(suitClass({element: 'container'}))}
+          tabIndex="0"
+          onFocus={onFocus}
+          onClick={onClick}
+          onBlur={onBlur}
+          onKeyDown={onKeyDownHandler}
+          ref={ref}
         >
+          <span
+            className={cx(
+              suitClass({element: 'text'}),
+              suitClass({element: 'left'})
+            )}
+            onClick={() => onToggle(false)}
+          >
+            {labelLeft}
+          </span>
           <div
-            className={cx(suitClass({element: 'circle'}), {
-              [suitClass({modifier: 'toggle'})]: isActive
-            })}
-          />
+            className={cx(suitClass({element: 'inputContainer'}))}
+            onClick={() => onToggle()}
+          >
+            <div
+              className={cx(suitClass({element: 'circle'}), {
+                [suitClass({modifier: 'toggle'})]: isActive
+              })}
+            />
+          </div>
+          <span
+            className={cx(
+              suitClass({element: 'text'}),
+              suitClass({element: 'right'})
+            )}
+            onClick={() => onToggle(true)}
+          >
+            {labelRight}
+          </span>
         </div>
-        <span
-          className={cx(
-            suitClass({element: 'text'}),
-            suitClass({element: 'right'})
-          )}
-          onClick={() => onToggle(true)}
-        >
-          {labelRight}
-        </span>
       </div>
-    </div>
-  )
-}
+    )
+  }
+)
 
 ToggleSwitchTypeRender.displayName = 'ToggleSwitchTypeRender'
 

@@ -1,5 +1,5 @@
 /* eslint react/prop-types: 0 */
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {MoleculeModalWithUrlState} from '../../../../components/molecule/modal/src'
 import {Content, LoremIpsumParagraph, IconClose} from './helperComponents'
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -17,7 +17,7 @@ const CLASS_ICON_COMPONENT_LEFT = `${CLASS_ICON_COMPONENT}--${TYPES.LEFT}`
 const CLASS_ICON_COMPONENT_RIGHT = `${CLASS_ICON_COMPONENT}--${TYPES.RIGHT}`
 
 const IconHoC = WrappedInput =>
-  class Icon extends React.Component {
+  class Icon extends Component {
     static propTypes = {
       /* Left icon component */
       leftIcon: PropTypes.node,

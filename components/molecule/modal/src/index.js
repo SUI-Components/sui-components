@@ -1,5 +1,12 @@
 import PropTypes from 'prop-types'
-import React, {useRef, useState, useEffect, useCallback} from 'react'
+import {
+  Children,
+  cloneElement,
+  useRef,
+  useState,
+  useEffect,
+  useCallback
+} from 'react'
 import {createPortal} from 'react-dom'
 import cx from 'classnames'
 import {SUPPORTED_KEYS} from './config'
@@ -108,8 +115,8 @@ const MoleculeModal = ({
       return children({onClose: closeModal})
     }
 
-    return React.Children.toArray(children).map(child =>
-      React.cloneElement(child, {
+    return Children.toArray(children).map(child =>
+      cloneElement(child, {
         onClose: closeModal
       })
     )

@@ -1,4 +1,4 @@
-import React, {useRef, useState, useEffect} from 'react'
+import {useRef, useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -63,14 +63,13 @@ const MoleculeCollapsible = ({
     [`${CONTENT_CLASS}--withTransition`]: withTransition,
     [`${CONTENT_CLASS}--withOverflow`]: withOverflow
   })
-  const containerHeight =
-    showButton && collapsed ? `${height}px` : `${maxHeight}px`
+  const containerHeight = collapsed ? `${height}px` : `${maxHeight}px`
 
   return (
     <div className={wrapperClassName}>
       <div
         className={contentClassName}
-        style={{maxHeight: `${containerHeight}`}}
+        style={{maxHeight: !showButton ? 'none' : containerHeight}}
       >
         <div ref={childrenContainer}>{children}</div>
       </div>

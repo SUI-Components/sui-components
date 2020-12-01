@@ -1,4 +1,5 @@
-import React, {useState, useCallback} from 'react'
+/* eslint-disable react/prop-types */
+import {useState, useCallback} from 'react'
 
 const handleChange = setter => (e, {value}) => {
   setter(value)

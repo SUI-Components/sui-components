@@ -1,61 +1,71 @@
-import React from 'react'
+import {forwardRef} from 'react'
 import cx from 'classnames'
 import AtomLabel from '@s-ui/react-atom-label'
 import {suitClass, switchClassNames} from './helpers'
 import PropTypes from 'prop-types'
 
-export const SingleSwitchTypeRender = ({
-  disabled,
-  isFocus,
-  isClick,
-  isToggle,
-  label,
-  labelOptionalText,
-  name,
-  onBlur,
-  onFocus,
-  onClick,
-  onKeyDown,
-  onToggle,
-  size,
-  type,
-  value
-}) => {
-  const isActive = value !== undefined ? value : isToggle
+export const SingleSwitchTypeRender = forwardRef(
+  (
+    {
+      disabled,
+      isFocus,
+      isClick,
+      isToggle,
+      label,
+      labelOptionalText,
+      name,
+      onBlur,
+      onFocus,
+      onClick,
+      onKeyDown,
+      onToggle,
+      size,
+      type,
+      value
+    },
+    ref
+  ) => {
+    const isActive = value !== undefined ? value : isToggle
 
-  return (
-    <div
-      className={switchClassNames(
-        size,
-        type,
-        'singleType',
-        isActive,
-        isFocus,
-        isClick,
-        disabled
-      )}
-      onClick={() => onToggle()}
-    >
+    return (
       <div
-        className={suitClass({element: 'container'})}
-        tabIndex="0"
-        onKeyDown={onKeyDown}
-        onFocus={onFocus}
-        onClick={onClick}
-        onBlur={onBlur}
+        className={switchClassNames(
+          size,
+          type,
+          'singleType',
+          isActive,
+          isFocus,
+          isClick,
+          disabled
+        )}
+        onClick={() => onToggle()}
       >
-        <AtomLabel name={name} text={label} optionalText={labelOptionalText} />
-        <div className={suitClass({element: 'inputContainer'})}>
-          <div
-            className={cx(suitClass({element: 'circle'}), {
-              [suitClass({modifier: 'toggle'})]: isActive
-            })}
+        <div
+          className={suitClass({element: 'container'})}
+          tabIndex="0"
+          onKeyDown={onKeyDown}
+          onFocus={onFocus}
+          onClick={onClick}
+          onBlur={onBlur}
+          ref={ref}
+        >
+          <AtomLabel
+            name={name}
+            text={label}
+            optionalText={labelOptionalText}
           />
+          <div className={suitClass({element: 'inputContainer'})}>
+            <div
+              className={cx(suitClass({element: 'circle'}), {
+                [suitClass({modifier: 'toggle'})]: isActive
+              })}
+            />
+          </div>
         </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
+)
 
 SingleSwitchTypeRender.displayName = 'SingleSwitchTypeRender'
 

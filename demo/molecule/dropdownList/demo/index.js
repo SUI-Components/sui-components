@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
-import React from 'react'
 import MoleculeDropdownList, {
   moleculeDropdownListSizes
 } from '../../../../components/molecule/dropdownList/src'

@@ -1,4 +1,3 @@
-import React from 'react'
 import AtomIcon from '../../../../../components/atom/icon/src/'
 
 const IconCheck = props => (

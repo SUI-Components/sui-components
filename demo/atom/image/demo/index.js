@@ -1,5 +1,3 @@
-import React from 'react'
-
 import AtomImage from '../../../../components/atom/image/src'
 import AtomSpinner from '@s-ui/react-atom-spinner'
 

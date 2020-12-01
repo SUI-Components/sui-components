@@ -1,4 +1,4 @@
-import React from 'react'
+import {cloneElement} from 'react'
 import PropTypes from 'prop-types'
 import AvatarFallbackName from '../AvatarFallbackName'
 import AvatarFallbackIcon from '../AvatarFallbackIcon'
@@ -11,7 +11,7 @@ const MoleculeAvatarFallback = ({
   return name ? (
     <AvatarFallbackName name={name} {...others} />
   ) : (
-    React.cloneElement(icon, {...others, role: 'img'})
+    cloneElement(icon, {...others, role: 'img'})
   )
 }
 

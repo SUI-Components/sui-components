@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import {Component} from 'react'
 
 import MoleculePagination from '../../../../../components/molecule/pagination/src'
 import {prevButtonIcon, nextButtonIcon} from '../Icons'

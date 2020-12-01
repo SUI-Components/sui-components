@@ -1,4 +1,4 @@
-# SUI React Components <img src="https://travis-ci.org/SUI-Components/sui-components.svg?branch=master" />
+# SUI React Components
 
 <img src="https://avatars2.githubusercontent.com/u/13288987?s=200&v=4" alt="SUI Logo" width="150">
 

@@ -1,4 +1,4 @@
-import React, {lazy, useState, useEffect, useRef, Suspense} from 'react'
+import {lazy, useState, useEffect, useRef, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import markerFactory from './markerFactory'

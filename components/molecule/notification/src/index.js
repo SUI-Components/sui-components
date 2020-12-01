@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback, useRef} from 'react'
+import {memo, useState, useEffect, useCallback, useRef} from 'react'
 import PropTypes from 'prop-types'
 import Button from '@s-ui/react-atom-button'
 import IconClose from '@s-ui/react-icons/lib/Close'
@@ -212,4 +212,4 @@ MoleculeNotification.defaultProps = {
 
 export {BRDS_SIZE}
 
-export default React.memo(MoleculeNotification)
+export default memo(MoleculeNotification)

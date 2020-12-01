@@ -1,22 +1,21 @@
-const boxStyle = {
-  backgroundColor: '#ffffff',
+const {
+  Label,
+  H1,
+  H2,
+  Code,
+  Paragraph,
+  Article,
+  Button,
+} = window.DOC
+
+const {Component} = React
+
+const dashStyle = {
   border: '1px dashed lightgrey',
-  borderRadius: '5px',
-  padding: '20px',
-  marginBottom: '16px'
+  padding: 30
 }
 
-const boxStyleBlack = {
-  ...boxStyle,
-  backgroundColor: '#000'
-}
-
-const buttonStyle = {
-  backgroundColor: '#ffffff',
-  padding: '10px'
-}
-
-class SpinnerWrapperExample extends React.Component {
+class SpinnerWrapperExample extends Component {
   constructor(props) {
     super(props)
     this.state = {contentLoaded: false}
@@ -31,17 +30,17 @@ class SpinnerWrapperExample extends React.Component {
   render() {
     const {contentLoaded} = this.state
     return contentLoaded ? (
-      <p style={boxStyle}>Content loaded, spinner dissapears</p>
+      <Paragraph style={dashStyle}>Content loaded, spinner disappears</Paragraph>
     ) : (
-      <p style={boxStyle}>
+      <Paragraph style={dashStyle}>
         Slowly loading content, delayed spinner will be shown
         <AtomSpinner delayed />
-      </p>
+      </Paragraph>
     )
   }
 }
 
-class FullScreenSpinnerExample extends React.Component {
+class FullScreenSpinnerExample extends Component {
   constructor(props) {
     super(props)
     this.state = {show: false}
@@ -57,39 +56,48 @@ class FullScreenSpinnerExample extends React.Component {
   render() {
     return (
       <>
-        <button style={buttonStyle} onClick={this.onClick}>
+        <Button onClick={this.onClick}>
           Click to show fullscreen spinner for 5 seconds
-        </button>
+        </Button>
         {this.state.show && <AtomSpinner type={AtomSpinnerTypes.FULL} />}
       </>
     )
   }
 }
 
+const BASE_CLASS_DEMO = `DemoAtomSpinner`
+const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
+
 return (
-  <div>
-    <h1>Spinner</h1>
-    <h2>Infinite spinner</h2>
-    <div style={boxStyle}>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+  <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+    <H1>Spinner</H1>
+    <Paragraph>An animated loop used for giving users feedback while the content of a page or section is being loaded.</Paragraph>
+    <Article className={CLASS_SECTION}>
+      <H2>Infinite spinner</H2>
+      <Paragraph>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</Paragraph>
       <AtomSpinner />
-    </div>
-    <h2>Delayed spinner</h2>
-    <div style={boxStyle}>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+    </Article>
+    <br/>
+    <Article className={CLASS_SECTION}>
+      <H2>Delayed spinner</H2>
+      <Paragraph>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</Paragraph>
       <AtomSpinner delayed />
-    </div>
-
-    <h2>Spinner While content is loading</h2>
-    <SpinnerWrapperExample />
-
-    <h2>Full Screen Spinner</h2>
-    <FullScreenSpinnerExample />
-    
-    <h2>No backgorund Spinner </h2>
-    <div style={boxStyleBlack}>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+    </Article>
+    <br/>
+    <Article className={CLASS_SECTION}>
+      <H2>Spinner While content is loading</H2>
+      <SpinnerWrapperExample />
+    </Article>
+    <br/>
+    <Article className={CLASS_SECTION}>
+      <H2>Full Screen Spinner</H2>
+      <FullScreenSpinnerExample />
+    </Article>
+    <br/>
+    <Article className={CLASS_SECTION} mode="dark">
+      <H2>Dark mode Spinner</H2>
+      <Paragraph>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</Paragraph>
       <AtomSpinner noBackground />
-    </div>
+    </Article>
   </div>
 )

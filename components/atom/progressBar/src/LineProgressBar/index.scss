@@ -11,7 +11,7 @@ $br-progress-container: $bdrs-l !default;
 $br-progress-bar: $bdrs-l !default;
 $h-progress-bar: $m-base !default;
 
-.sui-AtomLineProgressBar {
+.sui-AtomLineProgressBarV2 {
   &-indicator {
     display: inline-block;
     font-size: $fz-s;

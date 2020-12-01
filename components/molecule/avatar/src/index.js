@@ -1,4 +1,4 @@
-import React from 'react'
+import {Children, isValidElement, cloneElement} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import AtomImage from '@s-ui/react-atom-image'
@@ -29,9 +29,9 @@ const MoleculeAvatar = ({
   const baseClassName = 'sui-MoleculeAvatar'
   const className = cx(baseClassName, `${baseClassName}--${size}`)
   const backgroundColor = useConvertStringToHex(name)
-  const children = React.Children.toArray(childrenProp)
-    .filter(child => React.isValidElement(child))
-    .map(child => React.cloneElement(child, {size}))
+  const children = Children.toArray(childrenProp)
+    .filter(child => isValidElement(child))
+    .map(child => cloneElement(child, {size}))
 
   const renderFallback = () => {
     return <AvatarFallback name={name} size={size} icon={fallbackIcon} />

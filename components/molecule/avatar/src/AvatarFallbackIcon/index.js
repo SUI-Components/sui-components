@@ -1,5 +1,3 @@
-import React from 'react'
-
 const MoleculeAvatarFallbackIcon = props => {
   const baseClassName = 'sui-MoleculeAvatarFallbackIcon'
 

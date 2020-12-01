@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
+import {Children} from 'react'
 
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import AtomInput from '@s-ui/react-atom-input'
@@ -28,7 +28,8 @@ const MoleculeAutosuggestSingleSelection = ({
   disabled,
   required,
   tabIndex,
-  autoComplete,
+  ariaLabel,
+  autoComplete = 'nope',
   rightButton,
   inputMode,
   type
@@ -71,6 +72,7 @@ const MoleculeAutosuggestSingleSelection = ({
         disabled={disabled}
         required={required}
         tabIndex={tabIndex}
+        ariaLabel={ariaLabel}
         autoComplete={autoComplete}
         button={rightButton}
         inputMode={inputMode}
@@ -79,7 +81,7 @@ const MoleculeAutosuggestSingleSelection = ({
       {value && (
         <MoleculeDropdownList
           size={size}
-          visible={isOpen && React.Children.count(children) > 0}
+          visible={isOpen && Children.count(children) > 0}
           onSelect={handleSelection}
           value={value}
           highlightQuery={value}
@@ -93,10 +95,5 @@ const MoleculeAutosuggestSingleSelection = ({
 
 MoleculeAutosuggestSingleSelection.displayName =
   'MoleculeAutosuggestSingleSelection'
-
-MoleculeAutosuggestSingleSelection.defaultProps = {
-  value: '',
-  autoComplete: 'nope'
-}
 
 export default MoleculeAutosuggestSingleSelection

@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import AtomButton from '@s-ui/react-atom-button'
+import AtomButton, {atomButtonSizes} from '@s-ui/react-atom-button'
 import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
 import MoleculeField from '@s-ui/react-molecule-field'
+
+import {ACTIONS} from './config'
 
 const BUTTON_TYPE = 'secondary'
 
@@ -12,26 +14,31 @@ const BASE_CLASS = `sui-MoleculeDataCounter`
 const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-container`
 
 const MoleculeDataCounter = ({
-  id,
-  label,
-  value,
-  errorText: errorTextProps,
-  size = inputSizes.MEDIUM,
+  addIcon = '+',
   charsSize = 2,
+  disabled,
+  errorText: errorTextProps,
+  id,
+  inputDisabled = false,
+  isLoading = false,
+  label,
   max = 99,
-  min = 1,
-  minValueHelpText,
-  minValueErrorText,
-  maxValueHelpText,
   maxValueErrorText,
+  maxValueHelpText,
+  min = 1,
+  minValueErrorText,
+  minValueHelpText,
   onChange,
-  disabled
+  size = inputSizes.MEDIUM,
+  substractIcon = '-',
+  value
 }) => {
   if (value) value = String(value)
   else if (min) value = String(min)
   else value = '0'
 
   const [internalValue, setInternalValue] = useState(value)
+  const [lastAction, setLastActions] = useState()
 
   const numInternalValue = Number(internalValue)
   const numMax = Number(max)
@@ -54,6 +61,7 @@ const MoleculeDataCounter = ({
   }
 
   const incrementValue = e => {
+    setLastActions(ACTIONS.MORE)
     if (isBelowMaxValue) {
       const nValue = internalValue === '' ? min : parseInt(internalValue) + 1
       assignValue(e, {nValue})
@@ -61,6 +69,7 @@ const MoleculeDataCounter = ({
   }
 
   const decrementValue = e => {
+    setLastActions(ACTIONS.LESS)
     if (isOverMinValue) {
       const nValue = internalValue === '' ? min : parseInt(internalValue) - 1
       assignValue(e, {nValue})
@@ -68,6 +77,7 @@ const MoleculeDataCounter = ({
   }
 
   const handleChange = (e, {value}) => {
+    setLastActions(ACTIONS.CHANGE)
     const nValue = parseInt(value, 10)
     if (value.length <= 2 && !isNaN(nValue)) {
       assignValue(e, {nValue})
@@ -108,26 +118,31 @@ const MoleculeDataCounter = ({
         >
           <AtomButton
             disabled={decrementDisabled}
+            isLoading={isLoading && lastAction === ACTIONS.LESS}
             onClick={decrementValue}
+            size={size === inputSizes.SMALL ? atomButtonSizes.SMALL : null}
             type={BUTTON_TYPE}
           >
-            -
+            {substractIcon}
           </AtomButton>
           <AtomInput
-            id={id}
-            disabled={disabled}
-            size={size}
             charsSize={charsSize}
-            value={internalValue}
-            onKeyDown={handleKeyDown}
+            disabled={disabled || inputDisabled}
+            id={id}
+            isLoading={isLoading && lastAction === ACTIONS.CHANGE}
             onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            size={size}
+            value={internalValue}
           />
           <AtomButton
             disabled={incrementDisabled}
+            isLoading={isLoading && lastAction === ACTIONS.MORE}
             onClick={incrementValue}
+            size={size === inputSizes.SMALL ? atomButtonSizes.SMALL : null}
             type={BUTTON_TYPE}
           >
-            +
+            {addIcon}
           </AtomButton>
         </div>
       </MoleculeField>
@@ -178,7 +193,19 @@ MoleculeDataCounter.propTypes = {
   disabled: PropTypes.bool,
 
   /** 's' or 'm', default: 'm' */
-  size: PropTypes.oneOf(Object.values(inputSizes))
+  size: PropTypes.oneOf(Object.values(inputSizes)),
+
+  /** use to show loading icon on apply an action */
+  isLoading: PropTypes.bool,
+
+  /** input disabled or not */
+  inputDisabled: PropTypes.bool,
+
+  /** Icon to show on add button */
+  addIcon: PropTypes.node,
+
+  /** Icon to show on substract button */
+  substractIcon: PropTypes.node
 }
 
 export default MoleculeDataCounter

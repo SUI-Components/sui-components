@@ -39,7 +39,7 @@ export default class MobileFitContentModal extends Component {
           closeOnEscKeyDown
           fitContent
           iconClose={<IconClose />}
-          header="My new brand modal"
+          header={<strong>My new brand modal</strong>}
           onClose={this.handleCloseModal}
         >
           <ContentWithCloseButton>

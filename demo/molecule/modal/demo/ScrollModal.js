@@ -39,7 +39,7 @@ class ScrollModal extends Component {
           onAnimationEnd={() =>
             console.log('demo animation end', this.state.open)
           }
-          header="My new brand modal"
+          header={<strong>My new brand modal</strong>}
           onClose={this.handleCloseModal}
         >
           <Content>

@@ -103,11 +103,17 @@ const MoleculeModal = ({
     }
   }
 
-  const extendedChildren = React.Children.toArray(children).map(child =>
-    React.cloneElement(child, {
-      onClose: closeModal
-    })
-  )
+  const renderChildren = () => {
+    if (typeof children === 'function') {
+      return children({onClose: closeModal})
+    }
+
+    return React.Children.toArray(children).map(child =>
+      React.cloneElement(child, {
+        onClose: closeModal
+      })
+    )
+  }
 
   const renderModal = () => {
     const wrapperClassName = cx(suitClass(), {
@@ -154,7 +160,7 @@ const MoleculeModal = ({
             onTouchMove={preventScrollIfNeeded}
             ref={contentRef}
           >
-            {extendedChildren}
+            {renderChildren()}
           </div>
         </div>
       </div>

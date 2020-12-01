@@ -37,10 +37,9 @@ const MoleculeDataCounter = ({
   else if (min) value = String(min)
   else value = '0'
 
-  const [internalValue, setInternalValue] = useState(value)
   const [lastAction, setLastActions] = useState()
 
-  const numInternalValue = Number(internalValue)
+  const numInternalValue = Number(value)
   const numMax = Number(max)
   const numMin = Number(min)
 
@@ -56,14 +55,13 @@ const MoleculeDataCounter = ({
 
   const assignValue = (e, {nValue}) => {
     const value = String(nValue)
-    setInternalValue(value)
     onChange(e, {value})
   }
 
   const incrementValue = e => {
     setLastActions(ACTIONS.MORE)
     if (isBelowMaxValue) {
-      const nValue = internalValue === '' ? min : parseInt(internalValue) + 1
+      const nValue = value === '' ? min : parseInt(value) + 1
       assignValue(e, {nValue})
     }
   }
@@ -71,7 +69,7 @@ const MoleculeDataCounter = ({
   const decrementValue = e => {
     setLastActions(ACTIONS.LESS)
     if (isOverMinValue) {
-      const nValue = internalValue === '' ? min : parseInt(internalValue) - 1
+      const nValue = value === '' ? min : parseInt(value) - 1
       assignValue(e, {nValue})
     }
   }
@@ -133,7 +131,7 @@ const MoleculeDataCounter = ({
             onChange={handleChange}
             onKeyDown={handleKeyDown}
             size={size}
-            value={internalValue}
+            value={value}
           />
           <AtomButton
             disabled={incrementDisabled}

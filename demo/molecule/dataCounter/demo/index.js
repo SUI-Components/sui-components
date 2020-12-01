@@ -49,6 +49,11 @@ const Demo = () => {
       <h1>Data Counter</h1>
       <h2>Basic</h2>
       <div style={stylesSection}>
+        <MoleculeDataCounter id="demo1" label="Label" {...propsMessages} />
+      </div>
+
+      <h2>Controlled</h2>
+      <div style={stylesSection}>
         <MoleculeDataCounter
           id="demo1"
           label="Label"

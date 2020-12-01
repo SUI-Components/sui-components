@@ -21,7 +21,7 @@ const ModalWithUrlState = () => {
         disableScroll={false}
         iconClose={<IconClose />}
         fitWindow
-        header="My new brand modal"
+        header={<strong>My new brand modal</strong>}
         onClose={handleCloseModal}
         hash="ModalWithUrlState"
         openModalTrigger={handleOpenModal}

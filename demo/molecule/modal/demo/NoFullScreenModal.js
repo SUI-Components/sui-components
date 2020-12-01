@@ -33,7 +33,7 @@ class NoFullScreenModal extends Component {
           isOpen={this.state.open}
           closeOnOutsideClick
           closeOnEscKeyDown
-          header="My new brand modal"
+          header={<strong>My new brand modal</strong>}
           iconClose={<IconClose />}
           onClose={this.handleCloseModal}
         >

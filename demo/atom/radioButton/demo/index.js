@@ -1,6 +1,4 @@
 /* eslint-disable no-console */
-import React from 'react'
-
 import AtomRadioButton from '../../../../components/atom/radioButton/src'
 
 import './index.scss'

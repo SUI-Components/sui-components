@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types'
 
-import React, {useState} from 'react'
+import {useState} from 'react'
 import Chevronright from '@s-ui/react-icons/lib/Chevronright'
 import cx from 'classnames'
 

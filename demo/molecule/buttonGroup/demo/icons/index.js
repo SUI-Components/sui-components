@@ -1,4 +1,4 @@
-import React from 'react'
+/* eslint-disable react/prop-types */
 import AtomIcon from '@s-ui/react-atom-icon'
 
 const withIconSVGBounds = SVGChildren => ({

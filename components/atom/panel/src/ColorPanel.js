@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import {ALPHA, COLORS, BORDER_RADIUS} from './constants'

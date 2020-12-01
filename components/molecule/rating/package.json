@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-rating",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "1",
+    "@s-ui/react-atom-icon": "1"
   },
   "keywords": [],
   "author": "",

@@ -1,4 +1,4 @@
-import React from 'react'
+import {Children, cloneElement} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -22,11 +22,11 @@ const MoleculeButtonGroup = ({
     groupPositions,
     numChildren
   )
-  const extendedChildren = React.Children.toArray(children)
+  const extendedChildren = Children.toArray(children)
     .filter(Boolean)
     .map((child, index) => {
       const groupPosition = getGroupPositionByIndex(index)
-      return React.cloneElement(child, {
+      return cloneElement(child, {
         ...props,
         groupPosition,
         fullWidth

@@ -253,13 +253,15 @@ export function base64ToBlob(
   imageMimeType = DEFAULT_FILE_TYPE_EXPORTED
 ) {
   var byteString = atob(base64.split(',')[1]) // eslint-disable-line
-  var ab = new ArrayBuffer(byteString.length)
-  var ia = new Uint8Array(ab)
+  const ab = new ArrayBuffer(byteString.length)
+  const ia = new Uint8Array(ab)
 
-  for (var i = 0; i < byteString.length; i++) {
+  for (let i = 0; i < byteString.length; i++) {
     ia[i] = byteString.charCodeAt(i)
   }
-  return new Promise((resolve, reject) => resolve({blob: new Blob([ia], {type: imageMimeType}), base64})) // eslint-disable-line
+  return new Promise(resolve =>
+    resolve({blob: new Blob([ia], {type: imageMimeType}), base64})
+  ) // eslint-disable-line
 }
 
 /**
@@ -272,31 +274,31 @@ export function base64ToBlob(
  *    -2 : not a JPEG type file
  */
 function getExifOrientation(file) {
-  var reader = new window.FileReader()
+  const reader = new window.FileReader()
 
   return new Promise((resolve, reject) => {
     reader.onload = function(e) {
-      var view = new DataView(e.target.result)
+      const view = new DataView(e.target.result)
 
       if (view.getUint16(0, false) !== 0xffd8) {
         resolve(-2)
       }
-      var length = view.byteLength
-      var offset = 2
+      const length = view.byteLength
+      let offset = 2
       while (offset < length) {
         if (view.getUint16(offset + 2, false) <= 8) resolve(-1)
-        var marker = view.getUint16(offset, false)
+        const marker = view.getUint16(offset, false)
         offset += 2
         if (marker === 0xffe1) {
           if (view.getUint32((offset += 2), false) !== 0x45786966) {
             resolve(-1)
           }
 
-          var little = view.getUint16((offset += 6), false) === 0x4949
+          const little = view.getUint16((offset += 6), false) === 0x4949
           offset += view.getUint32(offset + 4, little)
-          var tags = view.getUint16(offset, little)
+          const tags = view.getUint16(offset, little)
           offset += 2
-          for (var i = 0; i < tags; i++) {
+          for (let i = 0; i < tags; i++) {
             if (view.getUint16(offset + i * 12, little) === 0x0112) {
               resolve(view.getUint16(offset + i * 12 + 8, little))
             }

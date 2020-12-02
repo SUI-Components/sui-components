@@ -56,7 +56,7 @@ class ModalWrapper extends React.Component {
           isOpen={this.state.open}
           closeOnOutsideClick
           closeOnEscKeyDown
-          header={<strong>My new brand modal</strong>}
+          header="My new brand modal"
           iconClose={<IconClose />}
           onClose={this.closeModal}
         >
@@ -117,7 +117,7 @@ class ModalWrapper extends React.Component {
           isOpen={this.state.open}
           closeOnOutsideClick
           closeOnEscKeyDown
-          header={<strong>My new brand modal</strong>}
+          header="My new brand modal"
           iconClose={<IconClose />}
           onClose={this.closeModal}
           hash={MODAL_HASH}

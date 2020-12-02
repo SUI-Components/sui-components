@@ -139,7 +139,7 @@ body.is-MoleculeModal-open {
     display: flex;
     flex: 0 0 auto;
     font-size: $fz-xl;
-    font-weight: $fw-regular;
+    font-weight: $fw-molecule-modal-header;
     justify-content: space-between;
     padding: $pt-molecule-modal-header $pr-molecule-modal-header
       $pb-molecule-modal-header $pl-molecule-modal-header;

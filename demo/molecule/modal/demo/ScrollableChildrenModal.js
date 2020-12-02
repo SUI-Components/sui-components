@@ -41,7 +41,7 @@ class ScrollableChildrenModal extends Component {
           enableContentScroll
           iconClose={<IconClose />}
           fitWindow
-          header={<strong>My new brand modal</strong>}
+          header="My new brand modal"
           onClose={this.handleCloseModal}
         >
           <Content>

@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect, forwardRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -13,142 +13,169 @@ const BUTTON_TYPE = 'secondary'
 const BASE_CLASS = `sui-MoleculeDataCounter`
 const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-container`
 
-const MoleculeDataCounter = ({
-  addIcon = '+',
-  charsSize = 2,
-  disabled,
-  errorText: errorTextProps,
-  id,
-  inputDisabled = false,
-  isLoading = false,
-  label,
-  max = 99,
-  maxValueErrorText,
-  maxValueHelpText,
-  min = 1,
-  minValueErrorText,
-  minValueHelpText,
-  onChange,
-  size = inputSizes.MEDIUM,
-  substractIcon = '-',
-  value
-}) => {
-  if (value) value = String(value)
-  else if (min) value = String(min)
-  else value = '0'
+const MoleculeDataCounter = forwardRef(
+  (
+    {
+      addIcon = '+',
+      charsSize,
+      disabled,
+      errorText: errorTextProps,
+      id,
+      inputDisabled = false,
+      isLoading = false,
+      label,
+      max = 100,
+      maxValueErrorText,
+      maxValueHelpText,
+      min = 0,
+      minValueErrorText,
+      minValueHelpText,
+      onChange,
+      size = inputSizes.MEDIUM,
+      substractIcon = '-',
+      initialValue,
+      value
+    },
+    ref
+  ) => {
+    let initialStateValue
 
-  const [internalValue, setInternalValue] = useState(value)
-  const [lastAction, setLastActions] = useState()
+    const numMax = Number(max)
+    const numMin = Number(min)
 
-  const numInternalValue = Number(internalValue)
-  const numMax = Number(max)
-  const numMin = Number(min)
-
-  const isBelowMaxValue = numInternalValue < numMax
-  const isOverMinValue = numInternalValue > numMin
-  const isMaxValue = numInternalValue === numMax
-  const isMinValue = numInternalValue === numMin
-  const isLowerThanMinValue = numInternalValue < numMin
-  const isHigherThanMaxValue = numInternalValue > numMax
-
-  const decrementDisabled = disabled || numInternalValue <= numMin
-  const incrementDisabled = disabled || numInternalValue >= numMax
-
-  const assignValue = (e, {nValue}) => {
-    const value = String(nValue)
-    setInternalValue(value)
-    onChange(e, {value})
-  }
-
-  const incrementValue = e => {
-    setLastActions(ACTIONS.MORE)
-    if (isBelowMaxValue) {
-      const nValue = internalValue === '' ? min : parseInt(internalValue) + 1
-      assignValue(e, {nValue})
+    if (value !== undefined) {
+      initialStateValue = Number(value)
+    } else if (initialValue !== undefined) {
+      initialStateValue = Number(initialValue)
+    } else {
+      initialStateValue = Math.trunc((numMax - numMin) / 2)
     }
-  }
 
-  const decrementValue = e => {
-    setLastActions(ACTIONS.LESS)
-    if (isOverMinValue) {
-      const nValue = internalValue === '' ? min : parseInt(internalValue) - 1
-      assignValue(e, {nValue})
+    const [lastAction, setLastActions] = useState()
+    const [internalValue, setInternalValue] = useState(initialStateValue)
+
+    useEffect(() => {
+      if (value !== undefined) {
+        setInternalValue(Number(value))
+      }
+    }, [value])
+
+    const isMaxValue = (number = internalValue) => number === numMax
+    const isMinValue = (number = internalValue) => number === numMin
+    const isLowerThanMinValue = (number = internalValue) => number < numMin
+    const isHigherThanMaxValue = (number = internalValue) => number > numMax
+
+    const decrementDisabled = disabled || internalValue <= numMin
+    const incrementDisabled = disabled || internalValue >= numMax
+
+    const assignValue = (event, {newValue, lastAction}) => {
+      if (value === undefined) {
+        // uncontrolled component
+        setInternalValue(newValue)
+      }
+      if (lastAction) {
+        setLastActions(lastAction)
+      }
+      if (typeof onChange === 'function') {
+        onChange(event, {value: String(newValue), action: lastAction})
+      }
     }
-  }
 
-  const handleChange = (e, {value}) => {
-    setLastActions(ACTIONS.CHANGE)
-    const nValue = parseInt(value, 10)
-    if (value.length <= 2 && !isNaN(nValue)) {
-      assignValue(e, {nValue})
+    const incrementValue = event => {
+      let newValue = internalValue + 1
+      if (isHigherThanMaxValue(newValue)) {
+        newValue = internalValue
+      }
+      assignValue(event, {newValue, lastAction: ACTIONS.MORE})
     }
-  }
 
-  const handleKeyDown = (e, {value}) => {
-    const {key} = e
-    if (key === 'ArrowUp') incrementValue(e)
-    if (key === 'ArrowDown') decrementValue(e)
-  }
+    const decrementValue = event => {
+      let newValue = internalValue - 1
+      if (isLowerThanMinValue(newValue)) {
+        newValue = internalValue
+      }
+      assignValue(event, {newValue, lastAction: ACTIONS.LESS})
+    }
 
-  let helpText, errorText
-  if (!disabled) {
-    if (isMaxValue) helpText = maxValueHelpText
-    else if (isMinValue) helpText = minValueHelpText
-    else helpText = null
+    const handleChange = (event, {value}) => {
+      const newValue = parseInt(value, 10)
+      assignValue(event, {
+        newValue: isNaN(newValue) ? '' : newValue,
+        lastAction: ACTIONS.CHANGE
+      })
+    }
 
-    if (isLowerThanMinValue) errorText = minValueErrorText
-    else if (isHigherThanMaxValue) errorText = maxValueErrorText
-    else if (errorTextProps) errorText = errorTextProps
-    else errorText = null
-  }
+    const handleKeyDown = event => {
+      const {key} = event
+      if (key === 'ArrowUp') incrementValue(event)
+      if (key === 'ArrowDown') decrementValue(event)
+    }
 
-  return (
-    <div className={BASE_CLASS}>
-      <MoleculeField
-        name={id}
-        label={label}
-        helpText={helpText}
-        errorText={errorText}
-      >
-        <div
-          className={cx(
-            CLASS_INPUT_CONTAINER,
-            `${CLASS_INPUT_CONTAINER}--${size}`
-          )}
+    let helpText, errorText
+    if (!disabled) {
+      if (isMaxValue()) helpText = maxValueHelpText
+      else if (isMinValue()) helpText = minValueHelpText
+      else helpText = null
+
+      if (isLowerThanMinValue()) errorText = minValueErrorText
+      else if (isHigherThanMaxValue()) errorText = maxValueErrorText
+      else if (errorTextProps) errorText = errorTextProps
+      else errorText = null
+    }
+
+    return (
+      <div className={BASE_CLASS}>
+        <MoleculeField
+          name={id}
+          label={label}
+          helpText={helpText}
+          errorText={errorText}
         >
-          <AtomButton
-            disabled={decrementDisabled}
-            isLoading={isLoading && lastAction === ACTIONS.LESS}
-            onClick={decrementValue}
-            size={size === inputSizes.SMALL ? atomButtonSizes.SMALL : null}
-            type={BUTTON_TYPE}
+          <div
+            className={cx(
+              CLASS_INPUT_CONTAINER,
+              `${CLASS_INPUT_CONTAINER}--${size}`
+            )}
           >
-            {substractIcon}
-          </AtomButton>
-          <AtomInput
-            charsSize={charsSize}
-            disabled={disabled || inputDisabled}
-            id={id}
-            isLoading={isLoading && lastAction === ACTIONS.CHANGE}
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-            size={size}
-            value={internalValue}
-          />
-          <AtomButton
-            disabled={incrementDisabled}
-            isLoading={isLoading && lastAction === ACTIONS.MORE}
-            onClick={incrementValue}
-            size={size === inputSizes.SMALL ? atomButtonSizes.SMALL : null}
-            type={BUTTON_TYPE}
-          >
-            {addIcon}
-          </AtomButton>
-        </div>
-      </MoleculeField>
-    </div>
-  )
-}
+            <AtomButton
+              disabled={decrementDisabled}
+              isLoading={isLoading && lastAction === ACTIONS.LESS}
+              onClick={decrementValue}
+              size={size === inputSizes.SMALL ? atomButtonSizes.SMALL : null}
+              type={BUTTON_TYPE}
+            >
+              {substractIcon}
+            </AtomButton>
+            <AtomInput
+              ref={ref}
+              charsSize={
+                charsSize || internalValue.toString().length <= 2
+                  ? 2
+                  : internalValue.toString().length
+              }
+              disabled={disabled || inputDisabled}
+              id={id}
+              isLoading={isLoading && lastAction === ACTIONS.CHANGE}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              size={size}
+              value={internalValue}
+            />
+            <AtomButton
+              disabled={incrementDisabled}
+              isLoading={isLoading && lastAction === ACTIONS.MORE}
+              onClick={incrementValue}
+              size={size === inputSizes.SMALL ? atomButtonSizes.SMALL : null}
+              type={BUTTON_TYPE}
+            >
+              {addIcon}
+            </AtomButton>
+          </div>
+        </MoleculeField>
+      </div>
+    )
+  }
+)
 
 MoleculeDataCounter.displayName = 'MoleculeDataCounter'
 
@@ -166,7 +193,10 @@ MoleculeDataCounter.propTypes = {
   errorText: PropTypes.string,
 
   /** value of the control */
-  value: PropTypes.number.isRequired,
+  value: PropTypes.number,
+
+  /** initial value of the control */
+  initialValue: PropTypes.number,
 
   /** max value allowed */
   max: PropTypes.number.isRequired,

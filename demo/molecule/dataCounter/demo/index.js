@@ -29,6 +29,7 @@ const propsMessages = {
 }
 
 const Demo = () => {
+  const [value, setValue] = useState(5)
   const [isLoading, setIsLoading] = useState(false)
 
   const consoleValueLoading = (e, {value}) => {
@@ -39,15 +40,25 @@ const Demo = () => {
     }, 1000)
   }
 
+  const handleClick = (e, {value}) => {
+    setValue(value)
+  }
+
   return (
     <div>
       <h1>Data Counter</h1>
       <h2>Basic</h2>
       <div style={stylesSection}>
+        <MoleculeDataCounter id="demo1" label="Label" {...propsMessages} />
+      </div>
+
+      <h2>Controlled</h2>
+      <div style={stylesSection}>
         <MoleculeDataCounter
-          onChange={consoleValue}
-          label="Label"
           id="demo1"
+          label="Label"
+          onChange={handleClick}
+          value={value}
           {...propsMessages}
         />
       </div>

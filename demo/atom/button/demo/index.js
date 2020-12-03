@@ -155,56 +155,52 @@ const LinkAndDesignLinkArticle = () => {
             </Fragment>
           ))}
           <Cell />
-          {[...atomButtonColorsIterator, ...atomButtonSocialColorsIterator].map(
-            ([{color}], index) => (
-              <Fragment key={index}>
-                <Cell
-                  style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
-                >
-                  <Label>{color}</Label>
-                </Cell>
-                {atomButtonDesignsIterator.map(([{design}], key) => (
-                  <Fragment key={key}>
-                    <Cell
-                      style={{...flexCenteredStyle, flexDirection: 'column'}}
+          {[
+            ...atomButtonColorsIterator,
+            [{color: undefined}],
+            ...atomButtonSocialColorsIterator
+          ].map(([{color}], index) => (
+            <Fragment key={index}>
+              <Cell
+                style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
+              >
+                <Label>{color || '–'}</Label>
+              </Cell>
+              {atomButtonDesignsIterator.map(([{design}], key) => (
+                <Fragment key={key}>
+                  <Cell style={{...flexCenteredStyle, flexDirection: 'column'}}>
+                    <AtomButton
+                      design={design}
+                      color={color}
+                      leftIcon={socialIconsMapper[color]}
+                      negative={mode === 'dark'}
+                      size={size}
+                      fullWidth
                     >
-                      <AtomButton
-                        design={design}
-                        color={color}
-                        leftIcon={socialIconsMapper[color]}
-                        negative={mode === 'dark'}
-                        size={size}
-                        fullWidth
-                      >
-                        Button
-                      </AtomButton>
-                    </Cell>
-                    <Cell
-                      style={{...flexCenteredStyle, flexDirection: 'column'}}
+                      Button
+                    </AtomButton>
+                  </Cell>
+                  <Cell style={{...flexCenteredStyle, flexDirection: 'column'}}>
+                    <AtomButton
+                      link
+                      href="#"
+                      design={design}
+                      color={color}
+                      leftIcon={socialIconsMapper[color]}
+                      negative={mode === 'dark'}
+                      size={size}
+                      fullWidth
                     >
-                      <AtomButton
-                        link
-                        href="#"
-                        design={design}
-                        color={color}
-                        leftIcon={socialIconsMapper[color]}
-                        negative={mode === 'dark'}
-                        size={size}
-                        fullWidth
-                      >
-                        Button
-                      </AtomButton>
-                    </Cell>
-                  </Fragment>
-                ))}
-                <Cell
-                  style={{...flexCenteredStyle, justifyContent: 'flex-end'}}
-                >
-                  <Label>{color}</Label>
-                </Cell>
-              </Fragment>
-            )
-          )}
+                      Button
+                    </AtomButton>
+                  </Cell>
+                </Fragment>
+              ))}
+              <Cell style={{...flexCenteredStyle, justifyContent: 'flex-end'}}>
+                <Label>{color || '–'}</Label>
+              </Cell>
+            </Fragment>
+          ))}
           <Cell />
           {Array.from(Array(4).keys()).map(key => (
             <Fragment key={key}>

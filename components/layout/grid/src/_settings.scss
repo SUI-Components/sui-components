@@ -1,17 +1,17 @@
-$layout-grid-breakpoints: $breakpoints !default;
-$layout-grid-column-gap: $p-l !default;
+$layout-grid-breakpoints: $breakpoints;
 $layout-grid-columns: 12;
+$layout-grid-gap: $p-l !default;
 
 $ai-layout-grid: center flex-start flex-end;
 $jc-layout-grid: flex-start center flex-end space-between space-around;
 
-@mixin getFlexBasis($size) {
+@mixin get-flex-basis($size) {
   flex-basis: (100% / $layout-grid-columns) * $size;
 }
 
-@mixin getItemValue($bpName, $size) {
+@mixin get-item-value($bpName, $size) {
   &--#{$bpName}-#{$size} {
-    @include getFlexBasis($size);
+    @include get-flex-basis($size);
   }
 
   &--#{$bpName}Offset-#{$size} {
@@ -19,21 +19,17 @@ $jc-layout-grid: flex-start center flex-end space-between space-around;
   }
 }
 
-@mixin getItemsSizes($breakpoints, $columns) {
+@mixin get-item-sizes($breakpoints, $columns) {
   @each $bpName, $bpValue in $breakpoints {
     @include media-breakpoint-up($bpName) {
       @for $col from 1 through $columns {
-        @if ($bpValue != 0) {
-          @include getItemValue($bpName, $col);
-        } @else {
-          @include getItemValue($bpName, $col);
-        }
+        @include get-item-value($bpName, $col);
       }
     }
   }
 }
 
-@mixin getAlignItems($properties) {
+@mixin get-align-items($properties) {
   @each $value in $properties {
     &--ai-#{$value} {
       align-items: $value;
@@ -41,7 +37,7 @@ $jc-layout-grid: flex-start center flex-end space-between space-around;
   }
 }
 
-@mixin getJustifyContent($properties) {
+@mixin get-justify-content($properties) {
   @each $value in $properties {
     &--jc-#{$value} {
       justify-content: $value;

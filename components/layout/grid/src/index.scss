@@ -5,16 +5,16 @@
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: 0 (-$layout-grid-column-gap / 2);
-  width: calc(100% + #{$layout-grid-column-gap});
-  @include getAlignItems($ai-layout-grid);
-  @include getJustifyContent($jc-layout-grid);
+  margin: 0 (-$layout-grid-gap / 2);
+  width: calc(100% + #{$layout-grid-gap});
+  @include get-align-items($ai-layout-grid);
+  @include get-justify-content($jc-layout-grid);
 
   &-item {
     box-sizing: border-box;
     flex-grow: 0;
     margin: 0;
-    padding: 0 $layout-grid-column-gap;
-    @include getItemsSizes($layout-grid-breakpoints, $layout-grid-columns);
+    padding: 0 $layout-grid-gap;
+    @include get-item-sizes($layout-grid-breakpoints, $layout-grid-columns);
   }
 }

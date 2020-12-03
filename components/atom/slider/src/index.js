@@ -43,47 +43,74 @@ const AtomSlider = ({
   onChange,
   onAfterChange,
   value,
-  min,
-  max,
-  step,
+  min = 0,
+  max = 100,
+  step = 1,
   range,
   disabled,
   valueLabel,
   marks,
   valueLabelFormatter,
-  hideTooltip,
+  hideTooltip = false,
   defaultValue,
   invertColors
 }) => {
-  const [ready, setReady] = useState(false)
-  const [handleComponent, setHandle] = useState({component: null})
-  const [labelValue, setLabelValue] = useState(value || min)
+  let initialStateValue
   const refAtomSlider = useRef()
 
-  useEffect(() => {
-    // import Handle here and set it in the state as tooltip need this to be loaded
-    // before trying to be shown, otherwise, the reference is wrong
-    // and the tooltip is not positioned correctly
-    import('rc-slider/lib/Handle').then(({default: Handle}) => {
-      setHandle({component: Handle})
-      setReady(true)
-    })
-    setLabelValue(value || min)
-  }, [min, value])
+  const numMax = Number(max)
+  const numMin = Number(min)
 
-  const handleChange = value => {
+  if (value !== undefined) {
+    initialStateValue = range ? value.map(Number) : Number(value)
+  } else if (defaultValue !== undefined) {
+    initialStateValue = range ? defaultValue.map(Number) : Number(defaultValue)
+  } else {
+    initialStateValue = range
+      ? [numMin, numMax]
+      : Math.trunc((numMin + numMax - numMin) / 2)
+  }
+
+  const [internalValue, setInternalValue] = useState(initialStateValue)
+  const [ready, setReady] = useState(false)
+  const [handleComponent, setHandle] = useState({component: null})
+
+  useEffect(() => {
+    if (!ready) {
+      // import Handle here and set it in the state as tooltip need this to be loaded
+      // before trying to be shown, otherwise, the reference is wrong
+      // and the tooltip is not positioned correctly
+      import('rc-slider/lib/Handle').then(({default: Handle}) => {
+        setHandle({component: Handle})
+        setReady(true)
+      })
+    }
+    if (value !== undefined) {
+      setInternalValue(range ? value.map(Number) : Number(value))
+    }
+  }, [value, ready, range])
+
+  useEffect(() => {
+    return () => setReady(false)
+  }, [])
+
+  const handleChange = newValue => {
     const e = {}
-    setLabelValue(value)
-    onChange(e, {value})
+    if (value === undefined) {
+      setInternalValue(newValue)
+    }
+    if (typeof onChange === 'function') {
+      onChange(e, {value: newValue})
+    }
   }
 
   const handleAfterChange = value => {
-    const e = {}
-    onAfterChange(e, {value})
+    if (typeof onAfterChange === 'function') {
+      onAfterChange({}, {value})
+    }
   }
 
   const customProps = {
-    defaultValue: defaultValue || (range ? [min, max] : value),
     handle: createHandler(refAtomSlider, handleComponent, hideTooltip),
     onChange: handleChange,
     onAfterChange: handleAfterChange,
@@ -92,7 +119,7 @@ const AtomSlider = ({
     max,
     min,
     step,
-    value
+    value: internalValue
   }
 
   // Determine the type of the slider according to the range prop
@@ -111,9 +138,9 @@ const AtomSlider = ({
           {valueLabel ? (
             <>
               <Label
-                value={labelValue}
+                value={internalValue}
                 formatter={valueLabelFormatter}
-                percentage={((labelValue - min) / (max - min)) * 100}
+                percentage={((internalValue - min) / (max - min)) * 100}
               />
               <Type {...customProps} />
             </>
@@ -145,10 +172,16 @@ AtomSlider.propTypes = {
   disabled: PropTypes.bool,
 
   /** value  */
-  value: PropTypes.number,
+  value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.arrayOf(PropTypes.number)
+  ]),
 
   /** defaultValue prop that set initial positions of handles */
-  defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.number]),
+  defaultValue: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.arrayOf(PropTypes.number)
+  ]),
 
   /* callback to be called with every update of the input value */
   onChange: PropTypes.func,
@@ -158,23 +191,18 @@ AtomSlider.propTypes = {
 
   /* only if range=false, shows a position fixed label with the current value instead of a tooltip */
   valueLabel: PropTypes.bool,
+
   /* Set your own mark labels */
   marks: PropTypes.array,
+
   /* callback to format the value shown as label */
   valueLabelFormatter: PropTypes.func,
+
   /* flag to hide tooltip if wanted */
   hideTooltip: PropTypes.bool,
+
   /* If true it will invert the colors for selected track and rail */
   invertColors: PropTypes.bool
-}
-
-AtomSlider.defaultProps = {
-  min: 0,
-  max: 100,
-  step: 1,
-  onChange: () => {},
-  onAfterChange: () => {},
-  hideTooltip: false
 }
 
 export default AtomSlider

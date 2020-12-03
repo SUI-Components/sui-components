@@ -12,6 +12,7 @@ import {
   Label,
   H1,
   H2,
+  Box,
   Paragraph,
   Article,
   Code,
@@ -90,6 +91,144 @@ const flexCenteredStyle = {
   wrap: 'nowrap',
   alignItems: 'center',
   alignContent: 'center'
+}
+
+const LinkAndDesignLinkArticle = () => {
+  const [state, setState] = useState({mode: 'light', size: undefined})
+  const setStatus = newState => setState({...state, ...newState})
+  const {size, mode} = state
+  return (
+    <Article className={CLASS_SECTION}>
+      <H2>Combining Design Link and Prop Link</H2>
+      <Paragraph>
+        This component offers a simple way to replate its own HTML element for
+        an anchor ('a') element using the boolean <Code>link</Code> prop
+        combined with the <Code>href</Code> prop for the destination url.
+      </Paragraph>
+      <Grid cols={2} gutter={[10, 10]}>
+        <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
+          <Label>negative</Label>
+        </Cell>
+        <Cell style={{...flexCenteredStyle, justifyContent: 'flex-end'}}>
+          <Label>size</Label>
+        </Cell>
+        <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
+          <RadioButtonGroup
+            label="negative"
+            value={mode === 'light' ? 'false' : 'true'}
+            onChange={value =>
+              setStatus({mode: value === 'true' ? 'dark' : 'light'})
+            }
+          >
+            <RadioButton value="false" label="false" />
+            <RadioButton value="true" label="true" />
+          </RadioButtonGroup>
+        </Cell>
+        <Cell style={{...flexCenteredStyle, justifyContent: 'flex-end'}}>
+          <RadioButtonGroup onChange={value => setStatus({size: value})}>
+            <RadioButton value="small" label="small" />
+            <RadioButton value="medium" label="medium" />
+            <RadioButton value="large" label="large" />
+          </RadioButtonGroup>
+        </Cell>
+      </Grid>
+      <br />
+      <Box mode={mode}>
+        <Grid cols={10} gutter={[10, 10]}>
+          <Cell />
+          {atomButtonDesignsIterator.map(([{design}], index) => (
+            <Fragment key={index}>
+              <Cell span={2} style={flexCenteredStyle}>
+                <Label>{design}</Label>
+              </Cell>
+            </Fragment>
+          ))}
+          <Cell />
+          <Cell />
+          {Array.from(Array(4).keys()).map(key => (
+            <Fragment key={key}>
+              {['button', 'link'].map((type, index) => (
+                <Cell key={index} style={flexCenteredStyle}>
+                  <Label>{type}</Label>
+                </Cell>
+              ))}
+            </Fragment>
+          ))}
+          <Cell />
+          {[...atomButtonColorsIterator, ...atomButtonSocialColorsIterator].map(
+            ([{color}], index) => (
+              <Fragment key={index}>
+                <Cell
+                  style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
+                >
+                  <Label>{color}</Label>
+                </Cell>
+                {atomButtonDesignsIterator.map(([{design}], key) => (
+                  <Fragment key={key}>
+                    <Cell
+                      style={{...flexCenteredStyle, flexDirection: 'column'}}
+                    >
+                      <AtomButton
+                        design={design}
+                        color={color}
+                        leftIcon={socialIconsMapper[color]}
+                        negative={mode === 'dark'}
+                        size={size}
+                        fullWidth
+                      >
+                        Button
+                      </AtomButton>
+                    </Cell>
+                    <Cell
+                      style={{...flexCenteredStyle, flexDirection: 'column'}}
+                    >
+                      <AtomButton
+                        link
+                        href="#"
+                        design={design}
+                        color={color}
+                        leftIcon={socialIconsMapper[color]}
+                        negative={mode === 'dark'}
+                        size={size}
+                        fullWidth
+                      >
+                        Button
+                      </AtomButton>
+                    </Cell>
+                  </Fragment>
+                ))}
+                <Cell
+                  style={{...flexCenteredStyle, justifyContent: 'flex-end'}}
+                >
+                  <Label>{color}</Label>
+                </Cell>
+              </Fragment>
+            )
+          )}
+          <Cell />
+          {Array.from(Array(4).keys()).map(key => (
+            <Fragment key={key}>
+              {['button', 'link'].map((type, index) => (
+                <Cell key={index} style={flexCenteredStyle}>
+                  <Label>{type}</Label>
+                </Cell>
+              ))}
+            </Fragment>
+          ))}
+          <Cell />
+          <Cell />
+          {atomButtonDesignsIterator.map(([{design}], index) => (
+            <Fragment key={index}>
+              <Cell span={2} style={flexCenteredStyle}>
+                <Label>{design}</Label>
+              </Cell>
+            </Fragment>
+          ))}
+          <Cell />
+        </Grid>
+      </Box>
+    </Article>
+  )
 }
 
 const Demo = () => {
@@ -272,7 +411,7 @@ const Demo = () => {
       </Article>
       <br />
       <Article className={CLASS_SECTION}>
-        <H2>Link</H2>
+        <H2>Link Design</H2>
         <div>
           <Paragraph>
             Buttons, can also look like links in some cases under the{' '}
@@ -290,6 +429,8 @@ const Demo = () => {
           deserunt mollit anim id est laborum."
         </Article>
       </Article>
+      <br />
+      <LinkAndDesignLinkArticle />
       <br />
       <Article className={CLASS_SECTION} mode="light">
         <H2>Other extra button boolean props</H2>

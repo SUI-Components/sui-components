@@ -7,14 +7,14 @@
   list-style: none;
   margin: 0 (-$layout-grid-gap / 2);
   width: calc(100% + #{$layout-grid-gap});
-  @include get-align-items($ai-layout-grid);
-  @include get-justify-content($jc-layout-grid);
+  @include grid-align-items($ai-layout-grid);
+  @include grid-justify-content($jc-layout-grid);
 
   &-item {
     box-sizing: border-box;
     flex-grow: 0;
     margin: 0;
     padding: 0 $layout-grid-gap;
-    @include get-item-sizes($layout-grid-breakpoints, $layout-grid-columns);
+    @include grid-item-sizes($layout-grid-breakpoints, $layout-grid-columns);
   }
 }

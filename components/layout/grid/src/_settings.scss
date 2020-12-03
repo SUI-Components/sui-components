@@ -5,31 +5,27 @@ $layout-grid-gap: $p-l !default;
 $ai-layout-grid: center flex-start flex-end;
 $jc-layout-grid: flex-start center flex-end space-between space-around;
 
-@mixin get-flex-basis($size) {
-  flex-basis: (100% / $layout-grid-columns) * $size;
-}
-
-@mixin get-item-value($bpName, $size) {
-  &--#{$bpName}-#{$size} {
-    @include get-flex-basis($size);
+@mixin grid-item-value($breakpoint-name, $size) {
+  &--#{$breakpoint-name}-#{$size} {
+    @include grid-flex-basis($size);
   }
 
-  &--#{$bpName}Offset-#{$size} {
+  &--#{$breakpoint-name}Offset-#{$size} {
     margin-left: (100% / $layout-grid-columns) * $size;
   }
 }
 
-@mixin get-item-sizes($breakpoints, $columns) {
-  @each $bpName, $bpValue in $breakpoints {
-    @include media-breakpoint-up($bpName) {
+@mixin grid-item-sizes($breakpoints, $columns) {
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include media-breakpoint-up($breakpoint-name) {
       @for $col from 1 through $columns {
-        @include get-item-value($bpName, $col);
+        @include grid-item-value($breakpoint-name, $col);
       }
     }
   }
 }
 
-@mixin get-align-items($properties) {
+@mixin grid-align-items($properties) {
   @each $value in $properties {
     &--ai-#{$value} {
       align-items: $value;
@@ -37,26 +33,10 @@ $jc-layout-grid: flex-start center flex-end space-between space-around;
   }
 }
 
-@mixin get-justify-content($properties) {
+@mixin grid-justify-content($properties) {
   @each $value in $properties {
     &--jc-#{$value} {
       justify-content: $value;
     }
   }
 }
-
-// For use SASS only (wihout component)
-@mixin getLayoutGridValue($bpName, $size) {
-  @include media-breakpoint-up($bpName) {
-    @include getFlexBasis($size);
-  }
-}
-
-/*
-Example of use mixin
-
-.cell {
-  @include getLayoutGridValue(xs, 6); // Added a `xs` breakpoint, 6 columns
-  @include getLayoutGridValue(l, 12); // Added a `l` breakpoint, 12 columns
-}
-*/

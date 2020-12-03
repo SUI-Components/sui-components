@@ -1,17 +1,17 @@
 $layout-grid-breakpoints: $breakpoints;
-$layout-grid-columns: 12;
+$layout-grid-columns: $grid-columns;
 $layout-grid-gap: $p-l !default;
 
 $ai-layout-grid: center flex-start flex-end;
 $jc-layout-grid: flex-start center flex-end space-between space-around;
 
-@mixin grid-item-value($breakpoint-name, $size) {
-  &--#{$breakpoint-name}-#{$size} {
-    @include grid-flex-basis($size);
+@mixin grid-item-value($breakpoint-name, $columns) {
+  &--#{$breakpoint-name}-#{$columns} {
+    @include grid-flex-basis($columns);
   }
 
-  &--#{$breakpoint-name}Offset-#{$size} {
-    margin-left: (100% / $layout-grid-columns) * $size;
+  &--#{$breakpoint-name}Offset-#{$columns} {
+    margin-left: (100% / $layout-grid-columns) * $columns;
   }
 }
 
@@ -19,7 +19,7 @@ $jc-layout-grid: flex-start center flex-end space-between space-around;
   @each $breakpoint-name, $breakpoint-value in $breakpoints {
     @include media-breakpoint-up($breakpoint-name) {
       @for $col from 1 through $columns {
-        @include grid-item-value($breakpoint-name, $col);
+        @include grid-value($breakpoint-name, $col);
       }
     }
   }

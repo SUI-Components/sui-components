@@ -8,6 +8,7 @@ import withClearUI from '../hoc/withClearUI'
 const MoleculeInputTagsWithClearUI = withClearUI(MoleculeInputTags)
 
 const MoleculeAutosuggestFieldMultiSelection = ({
+  autoClose,
   id,
   refMoleculeAutosuggest,
   tags,
@@ -45,21 +46,21 @@ const MoleculeAutosuggestFieldMultiSelection = ({
       value: '',
       tags: newTags
     })
-    onToggle(ev, {isOpen: false})
+    autoClose && onToggle(ev, {isOpen: false})
     refMoleculeAutosuggest.current.focus()
   }
 
   const handleChangeTags = (ev, {tags, value}) => {
     const isOpen = Boolean(value)
     onChangeTags(ev, {tags})
-    onToggle(ev, {isOpen})
+    autoClose && onToggle(ev, {isOpen})
     refMoleculeAutosuggest.current.focus()
   }
 
   const handleChange = (ev, {value}) => {
     const isOpen = Boolean(value)
     onChange(ev, {value})
-    onToggle(ev, {isOpen})
+    autoClose && onToggle(ev, {isOpen})
   }
 
   const handleClear = () => {

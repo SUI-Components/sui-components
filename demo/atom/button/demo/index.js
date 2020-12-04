@@ -140,7 +140,7 @@ const LinkAndDesignLinkArticle = () => {
             ([{design}], index) => (
               <Fragment key={index}>
                 <Cell span={2} style={flexCenteredStyle}>
-                  <Label>{design || '-'}</Label>
+                  <Label>{design || '–'}</Label>
                 </Cell>
               </Fragment>
             )
@@ -210,7 +210,7 @@ const LinkAndDesignLinkArticle = () => {
             </Fragment>
           ))}
           <Cell />
-          {Array.from(Array(4).keys()).map(key => (
+          {Array.from(Array(5).keys()).map(key => (
             <Fragment key={key}>
               {['button', 'link'].map((type, index) => (
                 <Cell key={index} style={flexCenteredStyle}>
@@ -221,13 +221,15 @@ const LinkAndDesignLinkArticle = () => {
           ))}
           <Cell />
           <Cell />
-          {atomButtonDesignsIterator.map(([{design}], index) => (
-            <Fragment key={index}>
-              <Cell span={2} style={flexCenteredStyle}>
-                <Label>{design}</Label>
-              </Cell>
-            </Fragment>
-          ))}
+          {[...atomButtonDesignsIterator, [{design: undefined}]].map(
+            ([{design}], index) => (
+              <Fragment key={index}>
+                <Cell span={2} style={flexCenteredStyle}>
+                  <Label>{design || '–'}</Label>
+                </Cell>
+              </Fragment>
+            )
+          )}
           <Cell />
         </Grid>
       </Box>

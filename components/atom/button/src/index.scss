@@ -214,24 +214,6 @@ $icon-stroke-color: currentColor !default;
     }
   }
 
-  // link
-  &#{$base-class}--link:not(a) {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    height: auto;
-    min-height: 0;
-    #{$base-class}-inner {
-      height: auto;
-    }
-    text-transform: none;
-    @include link();
-    &#{$base-class}--negative {
-      @include link(true);
-    }
-  }
-
   // Icons
   &-leftIcon,
   &-rightIcon,
@@ -253,6 +235,28 @@ $icon-stroke-color: currentColor !default;
     position: absolute;
   }
 
+  &#{$base-class}--link:not(#{$base-class}--solid):not(#{$base-class}--outline):not(#{$base-class}--flat) {
+    text-decoration: underline;
+    background: transparent;
+
+    border: none;
+    @include link();
+    padding: 0;
+    justify-content: center;
+    text-align: center;
+
+    @include button-focused {
+      background: transparent;
+    }
+
+    &#{$base-class}--negative {
+      background: transparent;
+      @include button-focused {
+        background: transparent;
+      }
+    }
+  }
+
   // Types and colors
   @each $name, $pair in $c-atom-button-colors {
     $color: nth($pair, 1);
@@ -263,6 +267,7 @@ $icon-stroke-color: currentColor !default;
         background: $color;
         border-color: $color;
         color: $color-invert;
+        text-decoration-line: none;
 
         @include button-focused {
           background: if(
@@ -291,8 +296,7 @@ $icon-stroke-color: currentColor !default;
       }
 
       &#{$base-class}--outline,
-      &#{$base-class}--flat,
-      &#{$base-class}--link:not(a) {
+      &#{$base-class}--flat {
         $bgc-atom-button-focused: color-variation($color, 4) !default;
         $bgc-atom-button-focused-invert: color-variation($color, -1) !default;
         $c-atom-button-focused: $color !default;
@@ -300,6 +304,7 @@ $icon-stroke-color: currentColor !default;
 
         border-color: $color;
         color: $color;
+        text-decoration-line: none;
 
         @include button-focused {
           background: if(
@@ -325,19 +330,20 @@ $icon-stroke-color: currentColor !default;
           }
         }
       }
-      &#{$base-class}--link:not(a) {
-        $c-atom-button-focused: $color !default;
-        $c-atom-button-focused-invert: $color-invert !default;
-        background: transparent;
+      &#{$base-class}--link:not(#{$base-class}--solid):not(#{$base-class}--outline):not(#{$base-class}--flat) {
+        $c-atom-button-focused: color-variation($color, -1) !default;
+        $c-atom-button-focused-invert: color-variation(
+          $color-invert,
+          -1
+        ) !default;
+
+        color: $color;
         @include button-focused {
-          background: transparent;
           color: $c-atom-button-focused;
         }
         &#{$base-class}--negative {
-          background: transparent;
           color: $color;
           @include button-focused {
-            background: transparent;
             color: $c-atom-button-focused;
           }
         }
@@ -401,13 +407,6 @@ $icon-stroke-color: currentColor !default;
     #{$base-class}-leftIcon,
     #{$base-class}-rightIcon {
       margin: 0;
-    }
-  }
-
-  &--link {
-    &,
-    &:hover {
-      text-decoration: none;
     }
   }
 }

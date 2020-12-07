@@ -58,11 +58,11 @@ const getPropsWithDefaultValues = props => {
   // if color or design are defined, use them with the passed or default value
   if (color || design) {
     if (design !== DESIGNS.LINK) {
-      color = color || COLORS.PRIMARY
+      color = color || 'primary'
     }
     design = design || DESIGNS.SOLID
   } else {
-    type = type || COLORS.PRIMARY
+    type = type || 'primary'
   }
 
   return {
@@ -96,7 +96,7 @@ const AtomButton = props => {
     CLASS,
     !type && COLOR_CLASSES[color],
     !type && CLASSES[design],
-    type ? CLASSES[type] : COLOR_CLASSES[type],
+    type && CLASSES[type],
     groupPosition && `${CLASS}-group ${CLASS}-group--${groupPosition}`,
     groupPosition && focused && `${CLASS}-group--focused`,
     size && CLASSES[size],

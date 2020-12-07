@@ -100,6 +100,24 @@ const Demo = () => {
           <li className={CLASS_DEMO_LIST_ITEM}>
             <div className={CLASS_DEMO_CONTAINER_IMAGES}>
               <AtomImage
+                src="https://via.placeholder.com/50"
+                alt=""
+                sources={[
+                  {
+                    srcSet: 'https://via.placeholder.com/150',
+                    media: '(min-width: 480px)'
+                  }
+                ]}
+              />
+            </div>
+            <small style={{margin: '10px'}}>
+              Loads 50x50 image when viewport is under 480px
+            </small>
+          </li>
+
+          <li className={CLASS_DEMO_LIST_ITEM}>
+            <div className={CLASS_DEMO_CONTAINER_IMAGES}>
+              <AtomImage
                 src={IMAGES.FINAL}
                 placeholder={IMAGES.PLACEHOLDER}
                 alt="Nice View"

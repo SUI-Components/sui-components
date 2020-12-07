@@ -137,7 +137,12 @@ AtomImage.propTypes = {
    * Source tags inside picture element,
    * array of props defined in https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source expected
    */
-  sources: PropTypes.array,
+  sources: PropTypes.arrayOf(
+    PropTypes.shape({
+      srcSet: PropTypes.string,
+      media: PropTypes.string
+    })
+  ),
 
   /** <img> props */
   ...htmlImgProps

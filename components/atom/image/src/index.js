@@ -29,6 +29,8 @@ const AtomImage = ({
   errorText,
   onError,
   onLoad,
+  sources = [],
+  alt,
   ...imgProps
 }) => {
   const [loading, setLoading] = useState(true)
@@ -80,13 +82,19 @@ const AtomImage = ({
         className={classNamesFigure}
         style={!error && (placeholder || skeleton) ? figureStyles : {}}
       >
-        <img
-          className={CLASS_IMAGE}
-          onLoad={handleLoad}
-          onError={handleError}
-          ref={imageRef}
-          {...imgProps}
-        />
+        <picture>
+          {sources.map((source, idx) => (
+            <source key={idx} {...source} />
+          ))}
+          <img
+            className={CLASS_IMAGE}
+            onLoad={handleLoad}
+            onError={handleError}
+            ref={imageRef}
+            alt={alt}
+            {...imgProps}
+          />
+        </picture>
       </figure>
       {!error && loading && SpinnerExtended}
       {error && (
@@ -124,6 +132,17 @@ AtomImage.propTypes = {
 
   /** Function to be called when the image completed its loading  */
   onLoad: PropTypes.func,
+
+  /**
+   * Source tags inside picture element,
+   * array of props defined in https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source expected
+   */
+  sources: PropTypes.arrayOf(
+    PropTypes.shape({
+      srcSet: PropTypes.string,
+      media: PropTypes.string
+    })
+  ),
 
   /** <img> props */
   ...htmlImgProps

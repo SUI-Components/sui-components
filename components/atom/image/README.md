@@ -20,28 +20,28 @@ import AtomImage from '@s-ui/react-atom-image'
 ### Basic usage
 
 ```javascript
-<AtomImage 
-  src={ urlImage } 
-  alt="Nice Picture" 
+<AtomImage
+  src={ urlImage }
+  alt="Nice Picture"
 />
 ```
 
 ### With skeleton while loading
 
 ```javascript
-<AtomImage 
-  src={ urlImage } 
-  alt="Nice Picture" 
-  skeleton={ urlImageSkeleton } 
+<AtomImage
+  src={ urlImage }
+  alt="Nice Picture"
+  skeleton={ urlImageSkeleton }
 />
 ```
 
 ### With placeholder while loading
 
 ```javascript
-<AtomImage 
-  src={ urlImage } 
-  alt="Nice Picture" 
+<AtomImage
+  src={ urlImage }
+  alt="Nice Picture"
   placeholder={ urlImagePlaceholder }
 />
 ```
@@ -49,9 +49,9 @@ import AtomImage from '@s-ui/react-atom-image'
 ### With spinner while loading
 
 ```javascript
-<AtomImage 
-  src={ urlImage } 
-  alt="Nice Picture" 
+<AtomImage
+  src={ urlImage }
+  alt="Nice Picture"
   spinner={ Spinner }
 />
 ```
@@ -59,12 +59,25 @@ import AtomImage from '@s-ui/react-atom-image'
 ### With custom Error if error loading
 
 ```javascript
-<AtomImage 
-  src={ urlImage } 
-  alt="Nice Picture" 
+<AtomImage
+  src={ urlImage }
+  alt="Nice Picture"
   errorText="Oh no!! This image couldn't be loaded"
   errorIcon={ MyIconErrorLoading }
 />
+```
+
+### With picture sources [mdn picture](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture)
+
+Loads 50x50 image when the viewport is under 480px, elsewise it loads a 150x150 image
+
+```js
+<AtomImage
+  src='https://via.placeholder.com/50'
+  alt=''
+  sources={[
+    {srcset: 'https://via.placeholder.com/150', media: '(min-width: 480px)'}
+  ]}
 ```
 
 

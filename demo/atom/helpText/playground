@@ -1,19 +1,14 @@
-const input = {
-  borderColor: '#bbbbbb',
-  borderStyle: 'solid',
-  borderWidth: '1px',
-  fontSize: '16px',
-  height: '40px',
-  paddingLeft: '16px',
-  paddingRight: '16px',
-  width: '100%',
-}
+const { H1, H2, Paragraph, Article, Input, Code } = window.DOC
+
 return (
   <div>
-    <h1>Help Text</h1>
-    <input style={input}
-      type='text'
-    />
-    <AtomHelpText text='hello help text'/>
+    <H1>Help text</H1>
+    <Paragraph>Help Text is a feedback that the system gives users to make them clearly understand which information is required</Paragraph>
+    <Article>
+      <H2>Text</H2>
+      <Paragraph>The prop <Code>text</Code> is used to set the text included in.</Paragraph>
+      <Input/>
+      <AtomHelpText text='hello help text'/>
+    </Article>
   </div>
 )

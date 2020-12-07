@@ -29,7 +29,7 @@ const AtomImage = ({
   errorText,
   onError,
   onLoad,
-  sources,
+  sources = [],
   alt,
   ...imgProps
 }) => {
@@ -146,10 +146,6 @@ AtomImage.propTypes = {
 
   /** <img> props */
   ...htmlImgProps
-}
-
-AtomImage.defaultProps = {
-  sources: []
 }
 
 export default AtomImage

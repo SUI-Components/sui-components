@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.22.0 (2020-12-02)
+
+
+### Features
+
+* add font weight header var ([a717ffd](https://github.com/SUI-Components/sui-components/commit/a717ffda4ca85d677d04ee4f8c9754b16feed1ce))
+* Use new jsx runtime ([3ea0abb](https://github.com/SUI-Components/sui-components/commit/3ea0abbe4d3b45c5709bde59beeb42669a8a0aa8))
+
+
+
 # 1.19.0 (2020-10-01)
 
 

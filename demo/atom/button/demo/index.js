@@ -12,6 +12,7 @@ import {
   Label,
   H1,
   H2,
+  Box,
   Paragraph,
   Article,
   Code,
@@ -93,8 +94,16 @@ const flexCenteredStyle = {
 }
 
 const Demo = () => {
-  const [state, setState] = useState({content: 'button'})
-  const {negative, content, icon, leftIcon, rightIcon} = state
+  const [state, setState] = useState({content: 'button', link: false})
+  const {
+    negative,
+    content,
+    icon,
+    leftIcon,
+    rightIcon,
+    socialButtons,
+    link
+  } = state
   return (
     <div className="sui-StudioPreview">
       <H1>Button</H1>
@@ -272,7 +281,7 @@ const Demo = () => {
       </Article>
       <br />
       <Article className={CLASS_SECTION}>
-        <H2>Link</H2>
+        <H2>Link Design</H2>
         <div>
           <Paragraph>
             Buttons, can also look like links in some cases under the{' '}
@@ -308,6 +317,12 @@ const Demo = () => {
         </Paragraph>
         <Paragraph>
           <Code>fullWidth</Code>: fits all the available with given.
+        </Paragraph>
+        <Paragraph>
+          <Code>link</Code>: converts the button element to an anchor element,
+          keeping its own configured design. A simple way to replace its own
+          HTML element for an anchor ('a') element using the boolean link prop
+          combined with the href prop for the destination url.
         </Paragraph>
         <Grid cols={2} gutter={10}>
           <Cell
@@ -415,7 +430,23 @@ const Demo = () => {
               label={starIcon}
             />
           </Cell>
-          <Cell />
+          <Cell
+            style={{
+              ...flexCenteredStyle,
+              justifyContent: 'flex-start',
+              flexDirection: 'column',
+              alignItems: 'flex-start'
+            }}
+          >
+            <Label>Social buttons</Label>
+            <RadioButton
+              value={socialButtons}
+              onClick={() => {
+                setState({...state, socialButtons: !socialButtons})
+              }}
+              label={socialButtons ? 'disable' : 'enable'}
+            />
+          </Cell>
           <Cell
             style={{
               ...flexCenteredStyle,
@@ -442,16 +473,43 @@ const Demo = () => {
               </>
             )}
           </Cell>
+          <Cell
+            span={2}
+            style={{
+              ...flexCenteredStyle,
+              justifyContent: 'flex-start',
+              flexDirection: 'column',
+              alignItems: 'flex-start'
+            }}
+          >
+            <Label>Link element</Label>
+            <RadioButton
+              value={link}
+              onClick={() => {
+                setState({...state, link: !link})
+              }}
+              label={link ? 'disable' : 'enable'}
+            />
+          </Cell>
           <Cell span={2}>
-            <Article mode={negative ? 'dark' : 'light'}>
-              <Grid cols={7} gutter={10}>
+            <Box mode={negative ? 'dark' : 'light'}>
+              <Grid cols={7} gutter={[10, 10]}>
                 <Cell />
-                {atomButtonColorsIterator.map(([{color}], index) => (
-                  <Cell key={index} style={flexCenteredStyle}>
-                    <Label>{color}</Label>
-                  </Cell>
-                ))}
-                {atomButtonDesignsIterator.map(([{design}], index) => (
+                {[[{design: undefined}], ...atomButtonDesignsIterator].map(
+                  ([{design}], index) => (
+                    <Fragment key={index}>
+                      <Cell style={flexCenteredStyle}>
+                        <Label>{design || '–'}</Label>
+                      </Cell>
+                    </Fragment>
+                  )
+                )}
+                <Cell />
+                {[
+                  ...atomButtonColorsIterator,
+                  [{color: undefined}],
+                  ...(socialButtons ? atomButtonSocialColorsIterator : [])
+                ].map(([{color}], index) => (
                   <Fragment key={index}>
                     <Cell
                       style={{
@@ -459,27 +517,56 @@ const Demo = () => {
                         justifyContent: 'flex-start'
                       }}
                     >
-                      <Label>{design}</Label>
+                      <Label>{color || '–'}</Label>
                     </Cell>
-                    {atomButtonColorsIterator.map(([{color}], index) => (
-                      <Cell key={index} style={flexCenteredStyle}>
-                        <AtomButton
-                          design={design}
-                          color={color}
-                          {...state}
-                          {...{
-                            leftIcon: icon && leftIcon,
-                            rightIcon: icon && rightIcon
-                          }}
-                        >
-                          {icon && !leftIcon && !rightIcon ? starIcon : content}
-                        </AtomButton>
-                      </Cell>
-                    ))}
+                    {[[{design: undefined}], ...atomButtonDesignsIterator].map(
+                      ([{design}], key) => (
+                        <Fragment key={key}>
+                          <Cell
+                            style={{
+                              ...flexCenteredStyle,
+                              flexDirection: 'column'
+                            }}
+                          >
+                            <AtomButton
+                              negative={negative === 'dark'}
+                              design={design}
+                              color={color}
+                              {...state}
+                              {...{
+                                leftIcon: icon && leftIcon,
+                                rightIcon: icon && rightIcon,
+                                href: link ? '#' : undefined
+                              }}
+                            >
+                              {icon && !leftIcon && !rightIcon
+                                ? starIcon
+                                : content}
+                            </AtomButton>
+                          </Cell>
+                        </Fragment>
+                      )
+                    )}
+                    <Cell
+                      style={{...flexCenteredStyle, justifyContent: 'flex-end'}}
+                    >
+                      <Label>{color || '–'}</Label>
+                    </Cell>
                   </Fragment>
                 ))}
+                <Cell />
+                {[...atomButtonDesignsIterator, [{design: undefined}]].map(
+                  ([{design}], index) => (
+                    <Fragment key={index}>
+                      <Cell style={flexCenteredStyle}>
+                        <Label>{design || '–'}</Label>
+                      </Cell>
+                    </Fragment>
+                  )
+                )}
+                <Cell />
               </Grid>
-            </Article>
+            </Box>
           </Cell>
         </Grid>
       </Article>

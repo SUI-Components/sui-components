@@ -5,7 +5,7 @@ return (
   <H1>Radio Button</H1>
   <Paragraph>AtomRadioButton is a component that displays an input radio w/ its expected behavior</Paragraph>
   <Article>
-    <H2>Defualt</H2>
+    <H2>Default</H2>
     <Paragraph>Radio button must be used like native input radio types. its value is declared via <Code>value</Code> prop and the selection is under the <Code>checked</Code> boolean prop.</Paragraph>
     <Grid style={{width: 200}} cols={3}>
       <Cell/>
@@ -18,10 +18,9 @@ return (
       {[{checked: false}, {checked: true}].map((props, index) => (
         <Cell key={index}>
           <AtomRadioButton
-            name="basic-favorite-beatle"
-            value="john"
-            onChange={(e, {name, value}) => console.log({[name]: value})}
-            {...props}
+          name={`basic-favorite-beatle`}
+          value={`john-${index}`}
+          {...props}
           />
         </Cell>
       ))}
@@ -34,21 +33,20 @@ return (
     <Grid style={{width: 200}} cols={3}>
       <Cell/>
       {[{checked: false}, {checked: true}].map((props, index) => (
-      <Cell key={index}>
-        <Label>{props.checked.toString()}</Label>
-      </Cell>
+        <Cell key={index}>
+          <Label>{props.checked.toString()}</Label>
+        </Cell>
       ))}
       <Cell><Label>checked</Label></Cell>
       {[{checked: false}, {checked: true}].map((props, index) => (
-      <Cell key={index}>
-        <AtomRadioButton
-        name="basic-favorite-beatle"
-        value="john"
-        onChange={(e, {name, value}) => console.log({[name]: value})}
-        disabled
-        {...props}
-        />
-      </Cell>
+        <Cell key={index}>
+          <AtomRadioButton
+          name="basic-favorite-beatle-1"
+          value={`john-${index}`}
+          disabled
+          {...props}
+          />
+        </Cell>
       ))}
     </Grid>
   </Article>
@@ -59,21 +57,20 @@ return (
     <Grid style={{width: 200}} cols={3}>
       <Cell/>
       {[{checked: false}, {checked: true}].map((props, index) => (
-      <Cell key={index}>
-        <Label>{props.checked.toString()}</Label>
-      </Cell>
+        <Cell key={index}>
+          <Label>{props.checked.toString()}</Label>
+        </Cell>
       ))}
       <Cell><Label>checked</Label></Cell>
       {[{checked: false}, {checked: true}].map((props, index) => (
-      <Cell key={index}>
-        <AtomRadioButton
-        name="basic-favorite-beatle"
-        value="john"
-        onChange={(e, {name, value}) => console.log({[name]: value})}
-        isHidden
-        {...props}
-        />
-      </Cell>
+        <Cell key={index}>
+          <AtomRadioButton
+          name="basic-favorite-beatle-2"
+          value={`john-${index}`}
+          isHidden
+          {...props}
+          />
+        </Cell>
       ))}
     </Grid>
   </Article>

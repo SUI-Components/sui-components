@@ -9,27 +9,28 @@ const MoleculeInputTagsWithClearUI = withClearUI(MoleculeInputTags)
 
 const MoleculeAutosuggestFieldMultiSelection = ({
   autoClose,
-  id,
-  refMoleculeAutosuggest,
-  tags,
-  value,
-  onToggle,
-  iconCloseTag,
-  isOpen,
-  iconClear,
-  innerRefInput,
-  placeholder,
+  autoComplete = 'nope',
   children,
-  onInputKeyDown,
+  disabled = false,
+  iconClear,
+  iconCloseTag = <span />,
+  id,
+  innerRefInput,
+  inputMode,
+  isOpen,
   onChange,
   onChangeTags,
+  onInputKeyDown,
   onSelect,
-  disabled,
+  onToggle,
+  placeholder,
+  refMoleculeAutosuggest,
   required,
+  size,
   tabIndex,
-  autoComplete,
-  inputMode,
-  type
+  tags = [],
+  type,
+  value = ''
 }) => {
   const MoleculeInputTagsRef = useRef()
 
@@ -71,35 +72,36 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   return (
     <>
       <MoleculeInputTagsWithClearUI
+        autoComplete={autoComplete}
+        disabled={disabled}
+        iconClear={iconClear}
         id={id}
-        onKeyDown={onInputKeyDown}
-        ref={MoleculeInputTagsRef}
-        tags={tags}
-        value={value}
-        onClick={onToggle}
-        tagsCloseIcon={iconCloseTag}
-        onChangeTags={handleChangeTags}
-        onChange={handleChange}
+        innerRefInput={innerRefInput}
+        inputMode={inputMode}
         isOpen={isOpen}
         isVisibleClear={tags.length}
-        iconClear={iconClear}
-        onClickClear={handleClear}
-        innerRefInput={innerRefInput}
-        placeholder={!tags.length ? placeholder : ''}
         noBorder
-        disabled={disabled}
+        onChange={handleChange}
+        onChangeTags={handleChangeTags}
+        onClick={onToggle}
+        onClickClear={handleClear}
+        onKeyDown={onInputKeyDown}
+        placeholder={!tags.length ? placeholder : ''}
+        ref={MoleculeInputTagsRef}
         required={required}
         tabIndex={tabIndex}
-        autoComplete={autoComplete}
-        inputMode={inputMode}
+        tags={tags}
+        tagsCloseIcon={iconCloseTag}
         type={type}
+        value={value}
       />
       <MoleculeDropdownList
         checkbox
-        visible={isOpen}
-        onSelect={handleMultiSelection}
-        value={tags}
         highlightQuery={value}
+        onSelect={handleMultiSelection}
+        size={size}
+        value={tags}
+        visible={isOpen}
       >
         {children}
       </MoleculeDropdownList>
@@ -109,13 +111,5 @@ const MoleculeAutosuggestFieldMultiSelection = ({
 
 MoleculeAutosuggestFieldMultiSelection.displayName =
   'MoleculeAutosuggestFieldMultiSelection'
-
-MoleculeAutosuggestFieldMultiSelection.defaultProps = {
-  disabled: false,
-  value: '',
-  tags: [],
-  iconCloseTag: <span />,
-  autoComplete: 'nope'
-}
 
 export default MoleculeAutosuggestFieldMultiSelection

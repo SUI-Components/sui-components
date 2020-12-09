@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
 import MoleculeAutosuggest, {
-  MoleculeAutosuggestStates
+  MoleculeAutosuggestStates,
+  MoleculeAutosuggestDropdownListSizes
 } from '@s-ui/react-molecule-autosuggest'
 
 const getErrorState = ({successText, errorText}) => {
@@ -101,4 +102,4 @@ MoleculeAutosuggestField.propTypes = {
 }
 
 export default MoleculeAutosuggestField
-export {MoleculeAutosuggestStates}
+export {MoleculeAutosuggestStates, MoleculeAutosuggestDropdownListSizes}

@@ -88,7 +88,7 @@ export const OWN_PROPS = [
   'design',
   'focused',
   'fullWidth',
-  'alignText',
+  'alignment',
   'groupPosition',
   'leftIcon',
   'negative',

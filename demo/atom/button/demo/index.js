@@ -5,7 +5,8 @@ import {useState, Fragment} from 'react'
 import AtomButton, {
   atomButtonColors,
   atomButtonDesigns,
-  atomButtonSizes
+  atomButtonSizes,
+  atomButtonAlignment
 } from '../../../../components/atom/button/src'
 import {
   AntDesignIcon,
@@ -75,6 +76,11 @@ const atomButtonSizesIterator = [
   undefined,
   atomButtonSizes.LARGE
 ].map((size, index) => [{size}, index])
+const atomButtonAlignmentIterator = [
+  undefined,
+  atomButtonAlignment.LEFT,
+  atomButtonAlignment.RIGHT
+].map((alignment, index) => [{alignment}, index])
 const socialIconsMapper = {
   'social-facebook': facebookIcon,
   'social-twitter': twitterIcon,
@@ -273,6 +279,32 @@ const Demo = () => {
           {atomButtonSizesIterator.map(([{size}], index) => (
             <Cell key={index} style={flexCenteredStyle}>
               <AtomButton size={size} color="primary">
+                Button
+              </AtomButton>
+            </Cell>
+          ))}
+        </Grid>
+      </Article>
+      <br />
+      <Article className={CLASS_SECTION}>
+        <H2>Alignment</H2>
+        <div>
+          <Paragraph>
+            Button content alignment, under the prop <Code>alignment</Code>{' '}
+            exported from <Code>atomButtonAlignment</Code>
+          </Paragraph>
+        </div>
+        <Grid cols={3} gutter={10} style={{columnGap: '20px'}}>
+          {atomButtonAlignmentIterator.map(([{alignment}], index) => (
+            <Fragment key={index}>
+              <Cell style={flexCenteredStyle}>
+                <Label>{alignment || 'DEFAULT'}</Label>
+              </Cell>
+            </Fragment>
+          ))}
+          {atomButtonAlignmentIterator.map(([{alignment}], index) => (
+            <Cell key={index}>
+              <AtomButton alignment={alignment} fullWidth color="primary">
                 Button
               </AtomButton>
             </Cell>

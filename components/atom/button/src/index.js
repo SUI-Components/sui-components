@@ -219,7 +219,7 @@ AtomButton.propTypes = {
    */
   size: PropTypes.oneOf(Object.values(SIZES)),
   /**
-   * Align content 'center' (default), 'left'
+   * Align content 'center' (default), 'left' and 'right'
    */
   alignment: PropTypes.oneOf(Object.values(ALIGNMENT)),
   /**

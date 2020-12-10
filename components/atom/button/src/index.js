@@ -4,7 +4,7 @@ import {
   CLASS,
   COLORS,
   DESIGNS,
-  ALIGN_TEXT,
+  ALIGNMENT,
   ICON_POSITIONS,
   GROUP_POSITIONS,
   MODIFIERS,
@@ -26,7 +26,7 @@ const createClasses = (array, sufix = '') => {
 const CLASSES = createClasses([
   ...TYPES,
   ...Object.values(DESIGNS),
-  ...Object.values(ALIGN_TEXT),
+  ...Object.values(ALIGNMENT),
   ...MODIFIERS,
   ...Object.values(SIZES),
   'empty'
@@ -56,7 +56,7 @@ const getModifiers = props => {
 }
 
 const getPropsWithDefaultValues = props => {
-  let {color, design, alignText, type} = props
+  let {color, design, alignment = ALIGNMENT.CENTER, type} = props
   // if color or design are defined, use them with the passed or default value
   if (color || design) {
     if (design !== DESIGNS.LINK) {
@@ -71,7 +71,7 @@ const getPropsWithDefaultValues = props => {
     color,
     design,
     type,
-    alignText: alignText || ALIGN_TEXT.CENTER,
+    alignment,
     ...props
   }
 }
@@ -87,7 +87,7 @@ const AtomButton = props => {
     rightIcon,
     size,
     design,
-    alignText,
+    alignment,
     title,
     disabled,
     isLoading,
@@ -101,7 +101,7 @@ const AtomButton = props => {
     !type && COLOR_CLASSES[color],
     !type && CLASSES[design],
     type && CLASSES[type],
-    alignText && CLASSES[alignText],
+    alignment && CLASSES[alignment],
     groupPosition && `${CLASS}-group ${CLASS}-group--${groupPosition}`,
     groupPosition && focused && `${CLASS}-group--focused`,
     size && CLASSES[size],
@@ -219,9 +219,9 @@ AtomButton.propTypes = {
    */
   size: PropTypes.oneOf(Object.values(SIZES)),
   /**
-   * Align text 'center' (default), 'left'
+   * Align content 'center' (default), 'left'
    */
-  alignText: PropTypes.oneOf(Object.values(ALIGN_TEXT)),
+  alignment: PropTypes.oneOf(Object.values(ALIGNMENT)),
   /**
    * If true loading state will be enabled
    */
@@ -286,4 +286,4 @@ export {COLORS as atomButtonColors}
 export {DESIGNS as atomButtonDesigns}
 export {SIZES as atomButtonSizes}
 export {TYPES as atomButtonTypes}
-export {ALIGN_TEXT as atomButtonAlignText}
+export {ALIGNMENT as atomButtonAlignment}

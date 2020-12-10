@@ -18,9 +18,10 @@ export const DESIGNS = {
   LINK: 'link'
 }
 
-export const ALIGN_TEXT = {
+export const ALIGNMENT = {
   CENTER: 'center',
-  LEFT: 'left'
+  LEFT: 'left',
+  RIGHT: 'right'
 }
 
 /**

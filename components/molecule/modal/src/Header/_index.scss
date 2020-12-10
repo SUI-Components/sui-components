@@ -1,0 +1,31 @@
+.ma-MoleculeModalHeader {
+  &--filled {
+    align-items: center;
+    background-color: $bg-molecule-modal-header;
+    border-bottom: $bd-molecule-modal-header;
+    border-top-left-radius: $bdrs-molecule-modal-dialog;
+    border-top-right-radius: $bdrs-molecule-modal-dialog;
+    color: $c-molecule-modal-header;
+    display: flex;
+    flex: 0 0 auto;
+    font-size: $fz-xl;
+    font-weight: $fw-molecule-modal-header;
+    justify-content: space-between;
+    padding: $pt-molecule-modal-header $pr-molecule-modal-header
+      $pb-molecule-modal-header $pl-molecule-modal-header;
+    position: relative;
+  }
+
+  &--empty {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    padding: $pt-molecule-modal-no-header $pr-molecule-modal-no-header
+      $pb-molecule-modal-no-header $pl-molecule-modal-no-header;
+    position: relative;
+  }
+
+  &--floating {
+    position: relative;
+  }
+}

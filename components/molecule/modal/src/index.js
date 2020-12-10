@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+
 import PropTypes from 'prop-types'
 import {
   Children,
@@ -11,10 +14,24 @@ import {createPortal} from 'react-dom'
 import cx from 'classnames'
 import {SUPPORTED_KEYS} from './config'
 import {suitClass} from './helpers'
-import {Close} from './Close'
-import {HeaderRender} from './HeaderRender'
 import WithAnimation from './HoC/WithAnimation'
 import WithUrlState from './HoC/WithUrlState'
+import MoleculeModalHeader from './Header'
+import MoleculeModalClose from './Close'
+import MoleculeModalContent from './Content'
+import MoleculeModalFooter from './Footer'
+
+export const MOLECULE_MODAL_SIZES = {
+  XSMALL: 'xsmall',
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large'
+}
+
+export const MOLECULE_MODAL_SCROLL = {
+  INSIDE: 'inside',
+  OUTSIDE: 'outside'
+}
 
 const toggleWindowScroll = disableScroll => {
   window.document.body.classList.toggle('is-MoleculeModal-open', disableScroll)
@@ -25,10 +42,11 @@ const MoleculeModal = ({
   header,
   children,
   iconClose,
-  floatingIconClose,
+  floatingIconClose: isFloatingIconClose,
   isOpen,
   fitWindow,
   fitContent,
+  size,
   withoutIndentation,
   isClosing,
   onAnimationEnd,
@@ -36,12 +54,11 @@ const MoleculeModal = ({
   closeOnOutsideClick,
   closeOnEscKeyDown,
   onClose,
-  enableContentScroll
+  scroll,
+  isSimple
 }) => {
-  const contentRef = useRef()
-  const wrapperRef = useRef()
-
   const [isClientReady, setIsClientReady] = useState(false)
+  const wrapperRef = useRef()
 
   const getContainer = () => {
     let containerDOMEl = document.getElementById(portalContainerId)
@@ -87,83 +104,65 @@ const MoleculeModal = ({
     }
   }, [onKeyDown])
 
-  const preventScrollIfNeeded = ev => {
-    const {clientHeight, scrollHeight} = contentRef.current
-    const noScroll = scrollHeight <= clientHeight
-    if (!enableContentScroll && noScroll) ev.preventDefault()
-  }
-
-  const avoidOverscroll = () => {
-    const {offsetHeight, scrollTop, scrollHeight} = contentRef.current
-    const currentScroll = scrollTop + offsetHeight
-
-    if (scrollTop === 0) {
-      contentRef.current.scrollTop = 1
-    } else if (currentScroll >= scrollHeight) {
-      contentRef.current.scrollTop = scrollTop - 1
-    }
-  }
-
   const handleOutsideClick = ev => {
     if (closeOnOutsideClick && ev.target === wrapperRef.current) {
       closeModal(ev)
     }
   }
 
-  const extendedChildren = Children.toArray(children).map(child =>
-    cloneElement(child, {
-      onClose: closeModal
-    })
-  )
+  const renderChildren = () => {
+    return Children.toArray(children).map(child =>
+      cloneElement(child, {
+        onClose: closeModal
+      })
+    )
+  }
 
   const renderModal = () => {
     const wrapperClassName = cx(suitClass(), {
       'is-MoleculeModal-open': isOpen,
-      [suitClass({element: 'out'})]: isClosing
+      [suitClass({element: 'out'})]: isClosing,
+      [suitClass({modifier: `scroll-${scroll}`})]: !!scroll
     })
 
     const dialogClassName = cx(suitClass({element: 'dialog'}), {
-      [suitClass({element: 'dialog--full'})]: fitWindow,
       [suitClass({element: 'dialog--out'})]: isClosing,
-      [suitClass({element: 'dialog--fit'})]: fitContent
-    })
-
-    const contentClassName = cx(suitClass({element: 'content'}), {
-      [suitClass({element: 'content--without-indentation'})]: withoutIndentation
+      [suitClass({element: 'dialog--fit'})]: fitContent,
+      [suitClass({element: 'dialog--full'})]: fitWindow,
+      [suitClass({element: `dialog--${size}`})]: !!size,
+      [suitClass({element: `dialog--scroll-${scroll}`})]: !!scroll
     })
 
     return (
       <div
-        className={wrapperClassName}
         ref={wrapperRef}
+        className={wrapperClassName}
         onAnimationEnd={onAnimationEnd}
         onClick={handleOutsideClick}
       >
-        <div className={dialogClassName}>
+        <section role="dialog" aria-modal="true" className={dialogClassName}>
           {(iconClose || header) && (
-            <HeaderRender
+            <MoleculeModalHeader
               close={
                 iconClose && (
-                  <Close
-                    icon={iconClose}
+                  <MoleculeModalClose
+                    iconClose={iconClose}
                     onClick={closeModal}
-                    floating={floatingIconClose}
                   />
                 )
               }
-              header={header}
-              floatingIconClose={floatingIconClose}
-            />
+              isFloating={!!isFloatingIconClose}
+            >
+              {header}
+            </MoleculeModalHeader>
           )}
-          <div
-            className={contentClassName}
-            onTouchStart={avoidOverscroll}
-            onTouchMove={preventScrollIfNeeded}
-            ref={contentRef}
-          >
-            {extendedChildren}
-          </div>
-        </div>
+
+          {!isSimple ? (
+            <MoleculeModalContent>{renderChildren()}</MoleculeModalContent>
+          ) : (
+            renderChildren()
+          )}
+        </section>
       </div>
     )
   }
@@ -279,6 +278,10 @@ const MoleculeModalWithAnimation = WithAnimation(MoleculeModal)
 const MoleculeModalWithUrlState = WithUrlState(MoleculeModalWithAnimation)
 
 MoleculeModalWithAnimation.displayName = 'MoleculeModal'
+MoleculeModalWithAnimation.Header = MoleculeModalHeader
+MoleculeModalWithAnimation.Content = MoleculeModalContent
+MoleculeModalWithAnimation.Close = MoleculeModalClose
+MoleculeModalWithAnimation.Footer = MoleculeModalFooter
 
 export {MoleculeModalWithUrlState, MoleculeModalWithAnimation}
 export default MoleculeModalWithAnimation

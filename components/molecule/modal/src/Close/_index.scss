@@ -1,0 +1,8 @@
+.ma-MoleculeModalClose {
+  &--floating {
+    position: absolute;
+    right: $r-molecule-modal-icon-floating;
+    top: $t-molecule-modal-icon-floating;
+    z-index: $z-molecule-modal-icon-floating;
+  }
+}

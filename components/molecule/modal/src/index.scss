@@ -1,5 +1,11 @@
 @import '~@s-ui/theme/lib/index';
 @import './settings';
+@import '~@s-ui/react-atom-button/lib/index';
+@import '~@s-ui/react-atom-icon/lib/index';
+@import './Header/index';
+@import './Close/index';
+@import './Content/index';
+@import './Footer/index';
 
 %modal-position {
   bottom: 0;
@@ -84,6 +90,10 @@ body.is-MoleculeModal-open {
     z-index: $z-molecule-modal;
   }
 
+  &--scroll-outside {
+    align-items: flex-start;
+  }
+
   &-dialog {
     @include media-breakpoint-up(xs) {
       border-radius: $bdrs-molecule-modal-dialog;
@@ -127,86 +137,18 @@ body.is-MoleculeModal-open {
       max-height: calc(100% - #{$m-molecule-modal-dialog} * 2);
       width: initial;
     }
-  }
 
-  &-header {
-    align-items: center;
-    background-color: $bg-molecule-modal-header;
-    border-bottom: $bd-molecule-modal-header;
-    border-top-left-radius: $bdrs-molecule-modal-dialog;
-    border-top-right-radius: $bdrs-molecule-modal-dialog;
-    color: $c-molecule-modal-header;
-    display: flex;
-    flex: 0 0 auto;
-    font-size: $fz-xl;
-    font-weight: $fw-molecule-modal-header;
-    justify-content: space-between;
-    padding: $pt-molecule-modal-header $pr-molecule-modal-header
-      $pb-molecule-modal-header $pl-molecule-modal-header;
-    position: relative;
-  }
-
-  &-no-header {
-    align-items: center;
-    display: flex;
-    justify-content: flex-end;
-    padding: $pt-molecule-modal-no-header $pr-molecule-modal-no-header
-      $pb-molecule-modal-no-header $pl-molecule-modal-no-header;
-    position: relative;
-  }
-
-  &-empty-header {
-    position: relative;
-  }
-
-  &-close {
-    -webkit-tap-highlight-color: transparent;
-    background-color: transparent;
-    border: 0;
-    cursor: pointer;
-    display: flex;
-    outline: 0 none;
-    padding: $pt-molecule-modal-icon $pl-molecule-modal-icon
-      $pb-molecule-modal-icon $pr-molecule-modal-icon;
-
-    &--floating {
-      position: absolute;
-      right: $r-molecule-modal-icon-floating;
-      top: $t-molecule-modal-icon-floating;
-      z-index: $z-molecule-modal-icon-floating;
+    &--scroll-outside {
+      @include media-breakpoint-up(xs) {
+        max-height: none;
+      }
     }
 
-    svg {
-      fill: $c-molecule-modal-icon;
-      height: $h-molecule-modal-icon;
-      width: $w-molecule-modal-icon;
-    }
-  }
-
-  &-content {
-    -webkit-overflow-scrolling: touch;
-    flex: 1 1 auto;
-    overflow-y: auto;
-    margin: $mt-molecule-modal-content $mr-molecule-modal-content 0
-      $ml-molecule-modal-content;
-    position: relative;
-
-    &:after {
-      content: '';
-      display: block;
-      height: $pb-molecule-modal-content;
-    }
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    &--without-indentation {
-      margin: 0;
+    @each $key-size, $size in $s-molecule-modal-dialog {
+      &--#{$key-size} {
+        width: 100%;
+        max-width: $size;
+      }
     }
   }
 }

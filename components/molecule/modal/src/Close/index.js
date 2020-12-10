@@ -1,21 +1,23 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import {suitClass} from '../helpers'
+import Button from '@s-ui/react-atom-button'
+import Icon from '@s-ui/react-atom-icon'
 
-export const Close = ({icon, onClick, floating}) => {
-  const BUTTON_CLASS = cx(suitClass({element: 'close'}), {
-    [suitClass({element: 'close--floating'})]: floating
+const MoleculeModalClose = ({icon, isFloating, ...others}) => {
+  const baseClassName = 'ma-MoleculeModalClose'
+  const className = cx(baseClassName, {
+    [`${baseClassName}--floating`]: isFloating
   })
 
   return (
-    <button type="button" className={BUTTON_CLASS} onClick={onClick}>
-      {icon}
-    </button>
+    <Button className={className} leftIcon={<Icon>{icon}</Icon>} {...others} />
   )
 }
 
-Close.propTypes = {
-  icon: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired,
-  floating: PropTypes.bool
+MoleculeModalClose.propTypes = {
+  ...Button.propTypes,
+  'aria-label': PropTypes.string.isRequired,
+  isFloating: PropTypes.bool
 }
+
+export default MoleculeModalClose

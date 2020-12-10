@@ -1,6 +1,7 @@
 import {useState} from 'react'
-import Button from '../../../../components/atom/button'
-import Modal, {MODAL_SIZES} from '../../../../components/molecule/modal/src'
+import MoleculeModal, {
+  MODAL_SIZES
+} from '../../../../components/molecule/modal/src'
 
 const SizeModal = () => {
   const [size, setSize] = useState('')
@@ -17,12 +18,12 @@ const SizeModal = () => {
   return (
     <>
       {Object.values(MODAL_SIZES).map(size => (
-        <Button key="size" onClick={handleClick(size)}>
+        <button key="size" onClick={handleClick(size)}>
           Open {size} modal
-        </Button>
+        </button>
       ))}
 
-      <Modal
+      <MoleculeModal
         isOpen={isOpen}
         size={size}
         onClose={handleClose}
@@ -30,9 +31,9 @@ const SizeModal = () => {
         closeOnEscKeyDown
         isContentless
       >
-        <Modal.Content>Content</Modal.Content>
-        <Modal.Footer>Footer</Modal.Footer>
-      </Modal>
+        <MoleculeModal.Content>Content</MoleculeModal.Content>
+        <MoleculeModal.Footer>Footer</MoleculeModal.Footer>
+      </MoleculeModal>
     </>
   )
 }

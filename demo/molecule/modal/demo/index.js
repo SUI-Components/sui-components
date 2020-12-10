@@ -1,5 +1,7 @@
 /* eslint react/prop-types: 0 */
 import ScrollModal from './ScrollModal'
+import ContentlessModal from './ContentlessModal'
+import SizeModal from './SizeModal'
 import NoScrollModal from './NoScrollModal'
 import NoHeaderModal from './NoHeaderModal'
 import WithoutIndentationModal from './WithoutIndentationModal'
@@ -64,6 +66,14 @@ const Demo = () => (
           close himself
         </p>
         <WithUrlStateModal />
+      </div>
+      <h2>Contentless Modal</h2>
+      <div style={fieldStyle}>
+        <ContentlessModal />
+      </div>
+      <h2>Size Modal</h2>
+      <div style={fieldStyle}>
+        <SizeModal />
       </div>
     </div>
   </div>

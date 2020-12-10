@@ -147,7 +147,6 @@ $icon-stroke-color: currentColor !default;
   border-radius: $bdrs-atom-button;
   box-sizing: border-box;
   display: inline-block;
-  text-align: center;
   font: {
     family: $ff-atom-button;
     size: $fz-atom-button;
@@ -256,7 +255,7 @@ $icon-stroke-color: currentColor !default;
     }
   }
 
-  // Types and colors
+  // Types, colors and align text
   @each $name, $pair in $c-atom-button-colors {
     $color: nth($pair, 1);
     $color-invert: nth($pair, 2);
@@ -369,6 +368,18 @@ $icon-stroke-color: currentColor !default;
     }
   }
 
+  &--center {
+    text-align: center;
+  }
+
+  &--left {
+    text-align: left;
+  }
+
+  &--right {
+    text-align: right;
+  }
+
   // Modifiers
   &--disabled {
     cursor: default;
@@ -397,7 +408,6 @@ $icon-stroke-color: currentColor !default;
 
   &--fullWidth {
     justify-content: center;
-    text-align: center;
     width: 100%;
   }
 

@@ -1,218 +1,235 @@
-import AtomInput, {inputSizes} from '../../../../components/atom/input/src'
-import SuiButton from '@s-ui/react-atom-button'
+import AtomInput, {
+  inputSizes,
+  inputTypes
+} from '../../../../components/atom/input/src'
+import {useState} from 'react'
+import {
+  H1,
+  H2,
+  Paragraph,
+  Article,
+  Grid,
+  Cell,
+  Label,
+  Code,
+  Input
+  // RadioButtonGroup,
+  // RadioGroup
+} from '@s-ui/documentation-library'
 
-import './styles.scss'
-
-const field = {
-  marginBottom: '16px'
+const flexCenteredStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'row',
+  wrap: 'nowrap',
+  alignItems: 'center',
+  alignContent: 'center'
 }
 
-const bankAccountMask = {
-  mask: 'ES00 0000 0000 00 0000000000'
+const DefaultDemo = () => (
+  <Article>
+    <H2>Default</H2>
+    <Paragraph>
+      By default, the element gets the following look and feel.
+    </Paragraph>
+    <div>
+      <AtomInput />
+    </div>
+  </Article>
+)
+
+const SizeDemo = () => (
+  <Article>
+    <H2>Size</H2>
+    <Paragraph>
+      By default, the element gets the following look and feel.
+    </Paragraph>
+    <Grid gutter={[8, 8]} cols={4}>
+      {[['default', undefined], ...Object.entries(inputSizes)].map(
+        ([key], index) => (
+          <Cell
+            style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
+            key={index}
+          >
+            <Label>{key}</Label>
+          </Cell>
+        )
+      )}
+      {[['default', undefined], ...Object.entries(inputSizes)].map(
+        ([key, value], index) => (
+          <Cell style={flexCenteredStyle} key={index}>
+            <AtomInput size={value} />
+          </Cell>
+        )
+      )}
+    </Grid>
+  </Article>
+)
+
+const PlaceholderValueAndDefaultValueDemo = () => {
+  const [placeholder, setPlaceholder] = useState('placeholder')
+  const [value, setValue] = useState(undefined)
+  const [defaultValue, setDefaultValue] = useState('default value')
+  return (
+    <Article>
+      <H2>value, defaultValue and placeholder</H2>
+      <Paragraph>
+        <Code>value</Code>: controlled component.
+      </Paragraph>
+      <Paragraph>
+        <Code>defaultValue</Code>: for uncontrolled component
+      </Paragraph>
+      <Paragraph>
+        <Code>placeholder</Code>: the placeholder for empty component value
+        hint.
+      </Paragraph>
+      <Grid gutter={[8, 8]} cols={3}>
+        <Cell>
+          <Label fullWidth>placeholder</Label>
+        </Cell>
+        <Cell>
+          <Label fullWidth>defaultValue</Label>
+        </Cell>
+        <Cell>
+          <Label fullWidth>value</Label>
+        </Cell>
+        <Cell>
+          <Input
+            fullWidth
+            value={placeholder}
+            onChange={event => setPlaceholder(event.target.value)}
+          />
+        </Cell>
+        <Cell>
+          <Input
+            fullWidth
+            defaultValue={defaultValue}
+            onChange={event => setDefaultValue(event.target.value)}
+          />
+        </Cell>
+        <Cell>
+          <Input
+            fullWidth
+            defaultValue={value}
+            onChange={event => setValue(event.target.value)}
+          />
+        </Cell>
+        <Cell span={3}>
+          <Label>result:</Label>
+        </Cell>
+        <Cell span={3}>
+          <AtomInput
+            value={value}
+            defaultValue={defaultValue}
+            placeholder={placeholder}
+            onChange={event => setValue(event.target.value)}
+          />
+        </Cell>
+      </Grid>
+    </Article>
+  )
 }
 
-const logoLocation = 'https://image.flaticon.com/icons/svg/67/67347.svg'
-const IconLocation = () => <img src={logoLocation} />
+const TypeDemo = () => {
+  return (
+    <Article>
+      <H2>Type</H2>
+      <Paragraph>
+        AtomInput provides diferent types of usage depending on its{' '}
+        <Code>type</Code> value prop.
+      </Paragraph>
+      <div>
+        {[
+          ['DATE', {type: inputTypes.DATE, charsSize: 10}],
+          [
+            'MASK',
+            {
+              type: inputTypes.MASK,
+              mask: 'ES00 0000 0000 00 0000000000',
+              placeholder: 'ES00 0000 0000 00 0000000000',
+              charsSize: 31
+            }
+          ],
+          [
+            'NUMBER',
+            {
+              type: inputTypes.NUMBER,
+              placeholder: 'Number only input',
+              charsSize: 10
+            }
+          ],
+          ['PASSWORD', {type: inputTypes.PASSWORD}],
+          [
+            'SUI_PASSWORD',
+            {type: inputTypes.SUI_PASSWORD, placeholder: 'Password Input'}
+          ],
+          ['TEXT', {type: inputTypes.TEXT}],
+          ['TEL', {type: inputTypes.TEL}],
+          ['EMAIL', {type: inputTypes.EMAIL}]
+        ].map(([key, props], index) => (
+          <div key={index}>
+            <Label>{key}</Label>: <AtomInput {...props} />
+            <br />
+            <br />
+          </div>
+        ))}
+      </div>
+    </Article>
+  )
+}
 
-export default () => (
+const DisabledReadOnlyDemo = () => {
+  return (
+    <Article>
+      <H2>Disable and ReadOnly</H2>
+      <Paragraph>
+        Input provides two different modes that blocks the component behavior
+        the difference between them is the appearance.
+      </Paragraph>
+      <Paragraph>
+        The developer can disable the component using the <Code>disabled</Code>{' '}
+        boolean prop. It can be blocked also using the <Code>readOnly</Code>{' '}
+        boolean propm, but it will look like the default input.
+      </Paragraph>
+      <Grid gutter={[8, 8]} cols={2}>
+        <Cell>
+          <Label>disabed</Label>
+        </Cell>
+        <Cell>
+          <Label>readOnly</Label>
+        </Cell>
+        <Cell>
+          <AtomInput value="disabled" disabled />
+        </Cell>
+        <Cell>
+          <AtomInput value="readOnly" readOnly />
+        </Cell>
+      </Grid>
+    </Article>
+  )
+}
+
+const Demo = () => (
   <div className="sui-StudioPreview">
     <div className="sui-StudioPreview-content sui-StudioDemo-preview">
-      <h1>Input</h1>
-      <div style={field}>
-        <h4>Size MEDIUM</h4>
-        <AtomInput
-          size={inputSizes.MEDIUM}
-          name="first"
-          placeholder="Medium input"
-        />
-      </div>
-      <div style={field}>
-        <h4>Size SMALL</h4>
-        <AtomInput
-          size={inputSizes.SMALL}
-          name="first"
-          placeholder="Small input"
-        />
-      </div>
-      <div style={field}>
-        <h4>Size XSMALL</h4>
-        <AtomInput
-          size={inputSizes.XSMALL}
-          name="first"
-          placeholder="Extra Small input"
-        />
-      </div>
-      <div style={field}>
-        <h4>With placeholder</h4>
-        <AtomInput name="second" placeholder="Medium Input" />
-      </div>
-      <div style={field}>
-        <h4>With placeholder and value</h4>
-        <AtomInput
-          name="second"
-          placeholder="Medium Input"
-          value="Somewhere over the..."
-        />
-      </div>
-      <div style={field}>
-        <h4>Disabled</h4>
-        <AtomInput
-          name="disabled"
-          placeholder="Medium Disabled Input"
-          disabled
-        />
-      </div>
-      <div style={field}>
-        <h4>Read Only</h4>
-        <AtomInput name="disabled" value="Medium Read Only Input" readOnly />
-      </div>
-      <div style={field}>
-        <h4>Type: number</h4>
-        <AtomInput
-          type="number"
-          name="number"
-          placeholder="Number only input"
-          charsSize={10}
-        />
-      </div>
-      <div style={field}>
-        <h4>Type: date</h4>
-        <AtomInput type="date" name="date" charsSize={10} />
-      </div>
-      <div style={field}>
-        <h4>With leftAddon and rightAddon</h4>
-        <AtomInput
-          name="second"
-          placeholder="Medium Input"
-          leftAddon="http://"
-          rightAddon="@schibsted.com"
-        />
-      </div>
-      <div style={field}>
-        <h4>With leftIcon</h4>
-        <AtomInput
-          name="second"
-          placeholder="Medium Input"
-          leftIcon={<IconLocation />}
-        />
-      </div>
-      <div style={field}>
-        <h4>With leftIcon and rightAddon</h4>
-        <AtomInput
-          name="second"
-          placeholder="Medium Input"
-          leftIcon={<IconLocation />}
-          rightAddon="Location"
-        />
-      </div>
-      <div style={field}>
-        <h4>With errorState=false</h4>
-        <AtomInput
-          name="second"
-          placeholder="Success input"
-          errorState={false}
-        />
-      </div>
-      <div style={field}>
-        <h4>With errorState=true</h4>
-        <AtomInput name="second" placeholder="Error input" errorState />
-      </div>
-      <div style={field}>
-        <h4>With state="success"</h4>
-        <AtomInput name="second" placeholder="Success input" state="success" />
-      </div>
-      <div style={field}>
-        <h4>With state="error"</h4>
-        <AtomInput name="second" placeholder="Error input" state="error" />
-      </div>
-      <div style={field}>
-        <h4>With state="alert"</h4>
-        <AtomInput name="second" placeholder="Error input" state="alert" />
-      </div>
-      <div style={field}>
-        <h4>Type: sui-password</h4>
-        <AtomInput
-          type="sui-password"
-          name="password"
-          placeholder="Password Input"
-        />
-      </div>
-      <div style={field}>
-        <h4>Type: mask</h4>
-        <AtomInput
-          type="mask"
-          mask={bankAccountMask}
-          placeholder="ES00 0000 0000 00 0000000000"
-          charsSize={31}
-        />
-      </div>
-      <div style={field}>
-        <h4>With rightIcon</h4>
-        <AtomInput
-          name="second"
-          placeholder="Medium Input"
-          rightIcon={<IconLocation />}
-        />
-      </div>
-      <div style={field}>
-        <h4>With rightIcon and leftAddon</h4>
-        <AtomInput
-          name="second"
-          placeholder="Medium Input"
-          leftAddon="City"
-          rightIcon={<IconLocation />}
-        />
-      </div>
-      <div style={field}>
-        <h4>With rightIcon & handler on it</h4>
-        <AtomInput
-          name="second"
-          placeholder="Medium Input"
-          rightIcon={<IconLocation />}
-          onClickRightIcon={e => window.alert('clicked right icon')}
-        />
-      </div>
-
-      <div style={field}>
-        <h4>No border</h4>
-        <AtomInput name="second" placeholder="Type something..." noBorder />
-      </div>
-
-      <div style={field}>
-        <h4>onEnter</h4>
-        <AtomInput
-          name="on-enter-input"
-          onEnter={(ev, {value, name}) => {
-            ev.preventDefault()
-            window.alert(JSON.stringify({[name]: value}))
-          }}
-        />
-      </div>
-
-      <div style={field}>
-        <h4>onEnter on Tab</h4>
-        <AtomInput
-          name="on-tab-input"
-          onEnter={(ev, {value, name}) => {
-            ev.preventDefault()
-            window.alert(JSON.stringify({[name]: value}))
-          }}
-          onEnterKey="Tab"
-        />
-      </div>
-      <div style={field}>
-        <h4>Inline Form</h4>
-        <AtomInput
-          name="inlineForm"
-          placeholder="Inline Form"
-          button={<SuiButton>Submit</SuiButton>}
-        />
-      </div>
-
-      <div style={field}>
-        <h4>Default value</h4>
-        <AtomInput defaultValue="Default value" />
-      </div>
+      <H1>Input</H1>
+      <Paragraph>
+        Inputs are the text fields that users fill in with different types of
+        information. These include dates, passwords or even short answers. It’s
+        a field where users can write alphanumeric texts.
+      </Paragraph>
+      <DefaultDemo />
+      <br />
+      <PlaceholderValueAndDefaultValueDemo />
+      <br />
+      <TypeDemo />
+      <br />
+      <SizeDemo />
+      <br />
+      <DisabledReadOnlyDemo />
+      <br />
     </div>
   </div>
 )
+
+export default Demo

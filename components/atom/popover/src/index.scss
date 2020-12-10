@@ -20,9 +20,9 @@ $mr-atom-popover-close-icon: $m-s !default;
 $mt-atom-popover-close-icon: $m-s !default;
 $sz-atom-popover-close-icon: $sz-icon-s !default;
 
-$w-atom-popover-arrow: 0.8rem !default;
-$h-atom-popover-arrow: 0.4rem !default;
-$c-atom-popover-arrow: $bgc-atom-popover !default;
+$w-atom-popover-arrow: 12px !default;
+$h-atom-popover-arrow: 8px !default;
+$c-atom-popover-arrow: $bdc-atom-popover !default;
 
 $base-class: '.sui-AtomPopover';
 $class-inner: '#{$base-class}-inner';
@@ -64,73 +64,66 @@ $class-arrow: '#{$base-class}-arrow';
     }
   }
 
+  #{$class-arrow} {
+    display: block;
+    height: $h-atom-popover-arrow;
+    position: absolute;
+    width: $w-atom-popover-arrow;
+
+    &::before {
+      border-color: transparent;
+      border-bottom-color: $c-atom-popover-arrow;
+      border-style: solid;
+      border-width: 0 $w-atom-popover-arrow/2 $w-atom-popover-arrow/2;
+      bottom: $h-atom-popover-arrow/2;
+      content: '';
+      position: absolute;
+    }
+
+    &::after {
+      border-width: 0 $w-atom-popover-arrow/2 $w-atom-popover-arrow/2
+        $w-atom-popover-arrow/2;
+      border-color: transparent;
+      border-bottom-color: $bgc-atom-popover;
+      border-style: solid;
+      content: '';
+      display: block;
+      position: absolute;
+    }
+  }
+
   &#{$base-class}--top {
     margin: $mt-atom-popover 0;
 
-    padding: $h-atom-popover-arrow 0;
-
     #{$class-arrow} {
-      bottom: 0;
-
-      &::before {
-        border-top-color: $c-atom-popover-arrow;
-        border-width: $h-atom-popover-arrow ($w-atom-popover-arrow / 2) 0;
-        top: 0;
-      }
+      bottom: -$h-atom-popover-arrow/2;
+      transform: rotate(180deg);
     }
   }
+
   &#{$base-class}--right {
     margin: 0 $mr-atom-popover;
-    padding: 0 $h-atom-popover-arrow;
 
     #{$class-arrow} {
-      height: $w-atom-popover-arrow;
-      left: 0;
-      width: $h-atom-popover-arrow;
-
-      &::before {
-        border-right-color: $c-atom-popover-arrow;
-        border-width: ($w-atom-popover-arrow / 2) $h-atom-popover-arrow
-          ($w-atom-popover-arrow / 2) 0;
-        right: 0;
-      }
+      left: -$w-atom-popover-arrow/2;
+      transform: rotate(-90deg);
     }
   }
+
   &#{$base-class}--bottom {
     margin: $mb-atom-popover 0;
-    padding: $h-atom-popover-arrow 0;
 
     #{$class-arrow} {
-      top: 0;
-
-      &::before {
-        border-bottom-color: $c-atom-popover-arrow;
-        border-width: 0 ($w-atom-popover-arrow / 2) $h-atom-popover-arrow;
-        bottom: 0;
-      }
-
-      &::after {
-        top: 1px;
-        border-width: 0 0.5rem 0.5rem 0.5rem;
-        border-bottom-color: #fff;
-      }
+      top: -$h-atom-popover-arrow/2;
     }
   }
+
   &#{$base-class}--left {
     margin: 0 $ml-atom-popover;
-    padding: 0 $h-atom-popover-arrow;
 
     #{$class-arrow} {
-      height: $w-atom-popover-arrow;
-      right: 0;
-      width: $h-atom-popover-arrow;
-
-      &::before {
-        border-left-color: $c-atom-popover-arrow;
-        border-width: ($w-atom-popover-arrow / 2) 0 ($w-atom-popover-arrow / 2)
-          $h-atom-popover-arrow;
-        left: 0;
-      }
+      right: -$w-atom-popover-arrow/2;
+      transform: rotate(90deg);
     }
   }
 
@@ -149,28 +142,6 @@ $class-arrow: '#{$base-class}-arrow';
 
     &[x-placement^='left'] {
       @extend #{$base-class}--left;
-    }
-  }
-
-  #{$class-arrow} {
-    display: block;
-    height: $h-atom-popover-arrow;
-    position: absolute;
-    width: $w-atom-popover-arrow;
-
-    &::before {
-      border-color: transparent;
-      border-style: solid;
-      content: '';
-      position: absolute;
-    }
-
-    &::after {
-      position: absolute;
-      display: block;
-      content: '';
-      border-color: transparent;
-      border-style: solid;
     }
   }
 }

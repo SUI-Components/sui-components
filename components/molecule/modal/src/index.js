@@ -241,6 +241,10 @@ MoleculeModal.propTypes = {
    */
   onAnimationEnd: PropTypes.func,
   /**
+   * If true children won't be wrapped with content
+   */
+  isContentless: PropTypes.bool,
+  /**
    * Container id element to be used to render the portal. If not available, it will be created for you.
    */
   portalContainerId: PropTypes.string,

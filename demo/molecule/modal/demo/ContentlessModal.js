@@ -17,7 +17,7 @@ const ContentlessModal = () => {
   }
 
   return (
-    <div>
+    <>
       <button type="button" onClick={handleClick}>
         Open modal
       </button>
@@ -37,7 +37,7 @@ const ContentlessModal = () => {
 
         <MoleculeModal.Footer>Footer</MoleculeModal.Footer>
       </MoleculeModal>
-    </div>
+    </>
   )
 }
 

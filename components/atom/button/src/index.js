@@ -71,7 +71,7 @@ const getPropsWithDefaultValues = props => {
     color,
     design,
     type,
-    alignText: alignText || 'center',
+    alignText: alignText || ALIGN_TEXT.CENTER,
     ...props
   }
 }
@@ -221,7 +221,7 @@ AtomButton.propTypes = {
   /**
    * Align text 'center' (default), 'left'
    */
-  alignText: PropTypes.bool,
+  alignText: PropTypes.oneOf(Object.values(ALIGN_TEXT)),
   /**
    * If true loading state will be enabled
    */

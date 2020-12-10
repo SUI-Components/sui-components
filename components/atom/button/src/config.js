@@ -18,6 +18,11 @@ export const DESIGNS = {
   LINK: 'link'
 }
 
+export const ALIGN_TEXT = {
+  CENTER: 'center',
+  LEFT: 'left'
+}
+
 /**
  * Available colors for the button
  */
@@ -82,6 +87,7 @@ export const OWN_PROPS = [
   'design',
   'focused',
   'fullWidth',
+  'alignText',
   'groupPosition',
   'leftIcon',
   'negative',

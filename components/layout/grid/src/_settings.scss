@@ -19,7 +19,7 @@ $jc-layout-grid: flex-start center flex-end space-between space-around;
   @each $breakpoint-name, $breakpoint-value in $breakpoints {
     @include media-breakpoint-up($breakpoint-name) {
       @for $col from 1 through $columns {
-        @include grid-value($breakpoint-name, $col);
+        @include grid-item-value($breakpoint-name, $col);
       }
     }
   }

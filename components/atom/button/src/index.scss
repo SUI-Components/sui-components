@@ -142,11 +142,11 @@ $icon-stroke-color: currentColor !default;
   @include reset-button;
   @include button-icon($icon-sz-atom-button, $icon-m-atom-button);
 
-  position: relative;
-  border: 1px solid;
   border-radius: $bdrs-atom-button;
+  border: 1px solid;
   box-sizing: border-box;
   display: inline-block;
+  position: relative;
   font: {
     family: $ff-atom-button;
     size: $fz-atom-button;
@@ -157,6 +157,7 @@ $icon-stroke-color: currentColor !default;
   min-width: $sz-atom-button;
   outline: 0;
   padding: 0 $p-atom-button;
+  text-decoration: none;
   text-transform: $tt-atom-button;
   white-space: nowrap;
 

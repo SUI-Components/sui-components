@@ -7,15 +7,17 @@ const CLASS_HIDDEN = `is-hidden`
 const AtomRadioButton = ({
   id,
   disabled,
-  checked,
-  onChange: onChangeFromProps,
+  checked = false,
+  onChange,
   isHidden,
   value,
   ...props
 }) => {
   const handleChange = ev => {
-    const {name, value} = ev.target
-    if (!disabled) onChangeFromProps(ev, {name, value})
+    if (!disabled) {
+      const {name, value} = ev.target
+      typeof onChange === 'function' && onChange(ev, {name, value})
+    }
   }
 
   const className = cx(BASE_CLASS, {
@@ -37,11 +39,6 @@ const AtomRadioButton = ({
 }
 
 AtomRadioButton.displayName = 'AtomRadioButton'
-
-AtomRadioButton.defaultProps = {
-  checked: false,
-  onChange: () => {}
-}
 
 AtomRadioButton.propTypes = {
   /* The DOM id global attribute. */

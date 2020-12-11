@@ -1,82 +1,193 @@
-const stylesSection = {
-  border: '1px solid #CCC',
-  background: '#fff',
-  margin: '40px 0',
-  padding: '30px 10px'
-}
+const {
+  Label,
+  H1,
+  H2,
+  H3,
+  Code,
+  Paragraph,
+  Article,
+  Grid,
+  Cell,
+  Box,
+  Input
+} = window.DOC
 
-const numberWithCommas = function(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
-}
 
-const SliderWithState = ({value, onChange, ...otherProps}) => {
-  const [stateValue, setStateValue] =  React.useState(value)
-  const _handleChange = (e, {value}) => {
-    console.log(value)
-    setStateValue(value)
-    typeof onChange === 'function' && onChange(e, {value});
+const {useState} = React
+
+const BASE_CLASS_DEMO = `DemoAtomSlider`
+const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
+
+const range = n => Array.from(Array(n).keys())
+
+const [uncontrolledState, setUncontrolledState] = useState(50);
+const [uncontrolledRangeState, setUncontrolledRangeState] = useState([0, 100]);
+const [controlledState, setControlledState] = useState(50);
+const [controlledRangeState, setControlledRangeState] = useState([0, 100]);
+const [disabledState, setDisabledState] = useState(50);
+
+const ThresholdSliderArticle = ({max=100, min=-100}) => {
+  const [thresholdedState, setThresholdedState] = useState((max-min)/2 + min);
+  const [maxState, setMaxState] = useState(max);
+  const [minState, setMinState] = useState(min);
+  const setValue = ({min, max, value}) => {
+    if (min !== minState && typeof min !== 'undefined') {
+      setMinState(min)
+    }
+    if (max !== maxState && typeof max !== 'undefined') {
+      setMaxState(max)
+    }
+    if (typeof value === 'number') {
+      setThresholdedState(value)
+    }
   }
-  return <AtomSlider {...otherProps} value={stateValue} onChange={_handleChange}/>
-
+  return (
+    <Article className={CLASS_SECTION}>
+      <H2>Thresholds</H2>
+      <Paragraph>Component thresholds can be customized using the <Code>min</Code> and <Code>max</Code> props</Paragraph>
+      <Grid cols={3} gutter={[10,10]}>
+        <Cell>
+          <Label>min</Label>: <Input type="number" onChange={event => {
+            const newValue = parseInt(event.target.value)
+            setValue({min: newValue, value: (maxState - newValue) / 2 + newValue})
+          }} value={minState}/>
+        </Cell>
+        <Cell>
+          <Label>max</Label>: <Input type="number" onChange={event => {
+            const newValue = parseInt(event.target.value)
+            setValue({max: newValue, value: (newValue - minState) / 2 + minState})
+          }} value={maxState}></Input>
+        </Cell>
+        <Cell>
+          <Label>value</Label>: {typeof thresholdedState === 'string' ? '' : thresholdedState.toString()}
+        </Cell>
+      </Grid>
+      <br/>
+      <Box>
+        <AtomSlider
+          max={maxState}
+          min={minState}
+          onChange={(event, {value}) => setThresholdedState(value)}
+          value={parseInt(thresholdedState)}
+        />
+      </Box>
+    </Article>
+  )
 }
 
 return (
-  <div>
-    <h1>Slider</h1>
-    <h2>Segmented</h2>
-    <h3>Basic</h3>
-    <div style={stylesSection}>
-      <AtomSlider onChange={console.log}/>
-    </div>
-    <h2>Value as label and state</h2>
-    <div style={stylesSection}>
-      <SliderWithState valueLabel hideTooltip/>
-    </div>
-    <div style={stylesSection}>
-      <SliderWithState step={25} value={50} onChange={console.log}/>
-    </div>
-    <h3>Disabled</h3>
-    <div style={stylesSection}>
-      <SliderWithState step={25} value={25} disabled onChange={console.log}/>
-    </div>
-    <h2>Range</h2>
-    <h3>Basic</h3>
-    <div style={stylesSection}>
-      <SliderWithState range onChange={console.log}/>
-    </div>
-    <h3>Step 10</h3>
-    <div style={stylesSection}>
-      <SliderWithState range step={10} onChange={console.log}/>
-    </div>
-    <h3>With default value</h3>
-    <div style={stylesSection}>
-      <SliderWithState range step={10} onChange={console.log} defaultValue={[0, 30]}/>
-    </div>
-    <h2>Value as label</h2>
-    <div style={stylesSection}>
-      <SliderWithState onChange={console.log} valueLabel hideTooltip />
-    </div>
-    <div style={stylesSection}>
-      <SliderWithState onChange={console.log} step={1000} max={5000} valueLabel valueLabelFormatter={numberWithCommas} hideTooltip />
-    </div>
-    <h2>Custom Marks</h2>
-    <div style={stylesSection}>
-      <SliderWithState onChange={console.log} max={6} range marks={[0, 1, 2, 3, 4, 5, '+10']} hideTooltip/>
-    </div>
-    <div style={stylesSection}>
-      <SliderWithState onChange={console.log} min={6000} max={60000} step={1000} valueLabel valueLabelFormatter={numberWithCommas} marks={['6K', '+60K']} hideTooltip />
-    </div>
-    <h3>Range with After Change callback</h3>
-    <div style={stylesSection}>
-      <SliderWithState range step={10} onAfterChange={console.log}/>
-    </div>
-    <h3>Slider with After Change callback</h3>
-    <div style={stylesSection}>
-      <SliderWithState  step={10} onAfterChange={console.log}/>
-    </div>
-    <h3>Slider with inverse colors</h3>
-    <div style={stylesSection}>
-      <SliderWithState  step={10} onChange={console.log} invertColors/>
+  <div className="sui-StudioPreview">
+    <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+      <H1>Slider</H1>
+      <Paragraph>Component that works as an input that provides a slider a number</Paragraph>
+      <Article className={CLASS_SECTION}>
+        <H2>Default</H2>
+        <Paragraph>By default, the component gets a 0-100 thresholds and uses its own internal status getting the half range value by default.</Paragraph>
+        <Paragraph>The <Code>defaultValue</Code> prop can modify the starting value.</Paragraph>
+        <Label>value</Label>: {uncontrolledState}
+        <Box>
+          <AtomSlider onChange={(event, {value}) =>{setUncontrolledState(value);console.log(event, {value})}} />
+        </Box>
+      </Article>
+      <br/>
+      <Article className={CLASS_SECTION}>
+        <H2>With Controlled State value</H2>
+        <Paragraph>The component provides a way to give a value displayed under the <Code>value</Code> prop.</Paragraph>
+        <Label>value</Label>: <Input type="number" max={100} min={0} onChange={event => setSegmentedState(event.target.value)} value={controlledState}></Input>
+        <Box>
+          <AtomSlider onChange={(event, {value}) => {setControlledState(value);console.log(event, {value})}} value={parseInt(controlledState)}/>
+        </Box>
+      </Article>
+      <br/>
+      <Article className={CLASS_SECTION}>
+        <H2>Disabled</H2>
+        <Paragraph>Component can be disabled usign the <Code>disabled</Code> prop. Its value cannot be modified by its handlers.</Paragraph>
+        <Label>value</Label>: <Input type="number" max={100} min={0} onChange={event => setDisabledState(event.target.value)} value={disabledState}></Input>
+        <Box>
+          <AtomSlider disabled onChange={console.log} onChange={(event, {value}) => setDisabledState(value)} value={parseInt(disabledState)}/>
+        </Box>
+      </Article>
+      <br/>
+      <ThresholdSliderArticle />
+      <br/>
+      <Article className={CLASS_SECTION}>
+        <H2>Steps</H2>
+        <Paragraph>User can tackle the valid values spreading the domain using gaps with the <Code>step</Code> prop</Paragraph>
+        <Box>
+          <AtomSlider step={10}/>
+        </Box>
+      </Article>
+      <br/>
+      <Article className={CLASS_SECTION}>
+        <H2>Marks</H2>
+        <Paragraph>To modify the ranges, use the <Code>marks</Code> prop.</Paragraph>
+        <Box>
+          <AtomSlider marks={range(10)}/>
+        </Box>
+      </Article>
+      <br/>
+      <Article className={CLASS_SECTION}>
+        <H2>Invert colors</H2>
+        <Paragraph>Slider provides a boolean prop to also set an alternative colors configuration inverting the track and rail colors under the <Code>invertColors</Code> prop.</Paragraph>
+        <Box>
+          <AtomSlider invertColors/>
+        </Box>
+      </Article>
+      <br/>
+      <Article className={CLASS_SECTION}>
+        <H2>Value Label</H2>
+        <Paragraph>Slider provides a boolean prop to set a label with the inner value under the <Code>valueLabel</Code> prop. This prop is only valid for no-range sliders. You can combine it with the <Code>hideTooltip</Code> boolean prop.</Paragraph>
+        <Box>
+          <AtomSlider valueLabel hideTooltip/>
+        </Box>
+      </Article>
+      <br/>
+      <H1>Range</H1>
+      <Paragraph>Component that works as an input that provides a slider a set of two numbers (range)</Paragraph>
+      <Article className={CLASS_SECTION}>
+        <H2>Default</H2>
+        <Paragraph>To configure it only add the <Code>range</Code> boolean prop</Paragraph>
+        <Paragraph>The initial value is the whole range by default. You cn modify it providing and array of values contained in the valid range provided using the props <Code>defaultValue</Code> (array) and <Code>max</Code> and <Code>min</Code> thesholds.</Paragraph>
+        <Label>values</Label>: [{uncontrolledRangeState[0]}, {uncontrolledRangeState[1]}]
+        <Box>
+          <AtomSlider range defaultValue={uncontrolledRangeState} onChange={(event, {value}) =>{setUncontrolledRangeState(value);console.log(event, {value})}} />
+        </Box>
+      </Article>
+      <br/>
+      <Article className={CLASS_SECTION}>
+        <H2>With Controlled State value</H2>
+        <Paragraph>The component provides a way to give a value displayed under the <Code>value</Code> prop.</Paragraph>
+        <Label>value</Label>:{' '}
+        <Input type="number" max={99} min={0} onChange={event => setControlledRangeState([Number(event.target.value), controlledRangeState[1]])} value={controlledRangeState[0]}/>
+        <Input type="number" max={100} min={1} onChange={event => setControlledRangeState([controlledRangeState[0], Number(event.target.value)])} value={controlledRangeState[1]} style={{marginLeft: 10}}/>
+        <Box>
+          <AtomSlider range onChange={(event, {value}) => {setControlledRangeState(value);console.log(event, {value})}} value={controlledRangeState} />
+        </Box>
+      </Article>
+      <br/>
+      <Article className={CLASS_SECTION}>
+        <H2>Steps</H2>
+        <Paragraph>User can tackle the valid values spreading the domain using gaps with the <Code>step</Code> prop</Paragraph>
+        <Box>
+          <AtomSlider range step={10} />
+        </Box>
+      </Article>
+      <br/>
+      <Article className={CLASS_SECTION}>
+        <H2>Marks</H2>
+        <Paragraph>To modify the ranges, use the <Code>marks</Code> prop.</Paragraph>
+        <Box>
+          <AtomSlider range marks={range(10)} />
+        </Box>
+      </Article>
+      <br/>
+      <Article className={CLASS_SECTION}>
+        <H2>Invert colors</H2>
+        <Paragraph>Slider ranged provides a boolean prop to also set an alternative colors configuration inverting the track and rail colors under the <Code>invertColors</Code> prop.</Paragraph>
+        <Box>
+          <AtomSlider range invertColors defaultValue={[20, 80]}/>
+        </Box>
+      </Article>
     </div>
   </div>
 )

@@ -1,115 +1,90 @@
+const {H1, H2, Label, Paragraph, Article, Grid, Cell, Box, Input, Code, Radio, Button} = window.DOC
+
+const flexCenteredStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'row',
+  wrap: 'nowrap',
+  alignItems: 'center',
+  alignContent: 'center'
+}
+
 return (
   <div>
-    <h1>Label</h1>
-    <p class="sui-Studio-h4">The Label is the name of the associated field, that explains what is the about. It should be clear, concise and short.</p>
-    <div className="sui-Studio-wrapper--light">
-      <h2 className="sui-Studio-h2">Type</h2>
-      <div>
-        <div style={{marginBottom: '16px'}}>
-          <AtomLabel
-            name="atomLabelName1"
-            for="labelName1"
-            text="Hello label"
-            optionalText="*"
-          />
-
-          <input id="atomLabelName1" type="text" />
-        </div>
-        <div style={{marginBottom: '16px'}}>
-          <AtomLabel
-            name="atomLabelName2"
-            for="labelName2"
-            text="label type SUCCESS"
-            type={AtomLabelTypes.SUCCESS}
-          />
-
-          <input id="atomLabelName2" type="text" />
-        </div>
-
-        <div style={{marginBottom: '16px'}}>
-          <AtomLabel
-            name="atomLabelName"
-            for="labelName"
-            text="label type ERROR"
-            type={AtomLabelTypes.ERROR}
-          />
-
-          <input id="atomLabelName" type="text" />
-        </div>
-
-        <div style={{marginBottom: '16px'}}>
-          <AtomLabel
-            name="atomLabelName"
-            for="labelName"
-            text="label type ALERT"
-            type={AtomLabelTypes.ALERT}
-          />
-
-          <input id="atomLabelName" type="text" />
-        </div>
-
-        <div style={{marginBottom: '16px', background: '#000000', width: '200px', padding:'8px'}}>
-          <AtomLabel
-            name="atomLabelName"
-            for="labelName"
-            text="label type CONTRAST"
-            type={AtomLabelTypes.CONTRAST}
-          />
-
-          <input id="atomLabelName" type="text" />
-        </div>
-      </div>
-    </div>
-
-    <div className="sui-Studio-wrapper--light">
-      <h2 className="sui-Studio-h2">Inline</h2>
-      <div>
-        <div style={{marginBottom: '16px'}}>
-          <AtomLabel
-            name="atomLabelLeft"
-            for="atomLabelLeft"
-            text="Hello inline left label"
-            inline="left"
-          />
-
-          <input id="atomLabelLeft" type="text" />
-        </div>
-        <div style={{marginBottom: '16px'}}>
-          <input id="atomLabelRight" type="checkbox" />
-          <AtomLabel
-            name="atomLabelRight"
-            for="atomLabelRight"
-            text="Hello inline right label"
-            inline="right"
-          />
-        </div>
-      </div>
-    </div>
-    <div className="sui-Studio-wrapper--light">
-      <h2 className="sui-Studio-h2">Size</h2>
-      <div>
-        <div style={{marginBottom: '16px'}}>
-          <input id="atomLabelRight" type="checkbox" />
-          <AtomLabel
-            name="atomLabelRight"
-            for="atomLabelRight"
-            text="Hello large font size label"
-            inline="right"
-            fontSize={AtomLabelFontSizes.LARGE}
-          />
-        </div>
-
-        <div style={{marginBottom: '16px'}}>
-          <input id="atomLabelRight" type="checkbox" />
-          <AtomLabel
-            name="atomLabelRight"
-            for="atomLabelRight"
-            text="Hello xsmall font size label"
-            inline="right"
-            fontSize={AtomLabelFontSizes.XSMALL}
-          />
-        </div>
-      </div>
-    </div>
+    <H1>Label</H1>
+    <Paragraph>The Label is the name of the associated field, that explains what is the about. It should be clear, concise and short.</Paragraph>
+    <Article>
+      <H2>Type</H2>
+      <Paragraph>You can select any of the avaliable predefined types using the <Code>type</Code> prop.</Paragraph>
+      <Grid cols={5} gutter={[8, 8]}>
+        {[['default', ''], ...Object.entries(AtomLabelTypes)].map(([key, value], index) => (
+          <Cell key={index} style={flexCenteredStyle}>
+            <Box mode={value===AtomLabelTypes.CONTRAST ? 'dark': 'light'}>
+              <AtomLabel
+                name={`atomLabelName-${key}`}
+                for={`labelName-${key}`}
+                text={`label ${value}`}
+                optionalText="*"
+                type={value}
+              />
+              <Input />
+            </Box>
+          </Cell>
+        ))}
+      </Grid>
+    </Article>
+    <br/>
+    <Article>
+      <H2>Inline</H2>
+      <Paragraph><Code>inline</Code> prop can be used to define where teh element is going to be inline positioned. The value options are 'left' and 'right'</Paragraph>
+      <Grid cols={3} gutter={[8, 8]}>
+        {
+          [
+            <Input/>,
+            <Radio />,
+            <Button >Button</Button>
+          ].map((component, index) => ([
+            'left', undefined, 'right'
+            ].map((value, index) => (
+              <Cell key={index} style={flexCenteredStyle}>
+                <Box>
+                  {value === 'right' && component}
+                  <AtomLabel
+                  name={`atomLabelName-${value}`}
+                  for={`labelName-${value}`}
+                  text={`label ${value}`}
+                  optionalText="*"
+                  inline={value}
+                  />
+                  {value !== 'right' && component}
+                </Box>
+              </Cell>
+            ))
+          ))
+        }
+      </Grid>
+    </Article>
+    <br/>
+    <Article>
+      <H2>FontSize</H2>
+      <Paragraph>The component provides 4 diferent sizes provided using the <Code>fontSize</Code> prop</Paragraph>
+      <Grid cols={5} gutter={[8, 8]}>
+        {
+          [['default', undefined], ...Object.entries(AtomLabelFontSizes)].map(([key, value], index) => (
+          <Cell key={index} style={flexCenteredStyle}>
+            <Box>
+              <AtomLabel
+                name={`atomLabelName-${key}`}
+                for={`labelName-${key}`}
+                text={`size ${value}`}
+                fontSize={value}
+              />
+              <Input/>
+            </Box>
+          </Cell>
+          ))
+        }
+      </Grid>
+    </Article>
   </div>
 )

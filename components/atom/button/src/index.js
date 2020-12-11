@@ -4,6 +4,7 @@ import {
   CLASS,
   COLORS,
   DESIGNS,
+  ALIGNMENT,
   ICON_POSITIONS,
   GROUP_POSITIONS,
   MODIFIERS,
@@ -25,6 +26,7 @@ const createClasses = (array, sufix = '') => {
 const CLASSES = createClasses([
   ...TYPES,
   ...Object.values(DESIGNS),
+  ...Object.values(ALIGNMENT),
   ...MODIFIERS,
   ...Object.values(SIZES),
   'empty'
@@ -54,21 +56,22 @@ const getModifiers = props => {
 }
 
 const getPropsWithDefaultValues = props => {
-  let {color, design, type} = props
+  let {color, design, alignment = ALIGNMENT.CENTER, type} = props
   // if color or design are defined, use them with the passed or default value
   if (color || design) {
     if (design !== DESIGNS.LINK) {
-      color = color || COLORS.PRIMARY
+      color = color || 'primary'
     }
     design = design || DESIGNS.SOLID
   } else {
-    type = type || COLORS.PRIMARY
+    type = type || 'primary'
   }
 
   return {
     color,
     design,
     type,
+    alignment,
     ...props
   }
 }
@@ -84,6 +87,7 @@ const AtomButton = props => {
     rightIcon,
     size,
     design,
+    alignment,
     title,
     disabled,
     isLoading,
@@ -96,7 +100,8 @@ const AtomButton = props => {
     CLASS,
     !type && COLOR_CLASSES[color],
     !type && CLASSES[design],
-    type ? CLASSES[type] : COLOR_CLASSES[type],
+    type && CLASSES[type],
+    alignment && CLASSES[alignment],
     groupPosition && `${CLASS}-group ${CLASS}-group--${groupPosition}`,
     groupPosition && focused && `${CLASS}-group--focused`,
     size && CLASSES[size],
@@ -214,6 +219,10 @@ AtomButton.propTypes = {
    */
   size: PropTypes.oneOf(Object.values(SIZES)),
   /**
+   * Align content 'center' (default), 'left' and 'right'
+   */
+  alignment: PropTypes.oneOf(Object.values(ALIGNMENT)),
+  /**
    * If true loading state will be enabled
    */
   isLoading: PropTypes.bool,
@@ -277,3 +286,4 @@ export {COLORS as atomButtonColors}
 export {DESIGNS as atomButtonDesigns}
 export {SIZES as atomButtonSizes}
 export {TYPES as atomButtonTypes}
+export {ALIGNMENT as atomButtonAlignment}

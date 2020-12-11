@@ -35,19 +35,21 @@ const getIsTypeableKey = key => {
 }
 
 const MoleculeAutosuggest = ({
+  autoClose = true,
   children,
   disabled,
   errorState,
   id = '',
   isOpen,
-  keysCloseList,
-  keysSelection,
+  keysCloseList = ['Escape'],
+  keysSelection = [' ', 'Enter'],
   multiselection,
-  onBlur,
-  onChange,
-  onEnter,
-  onFocus,
-  onToggle,
+  onBlur = () => {},
+  onChange = () => {},
+  onEnter = () => {},
+  onFocus = () => {},
+  onSelect = () => {},
+  onToggle = () => {},
   refMoleculeAutosuggest: refMoleculeAutosuggestFromProps,
   state,
   ...restProps
@@ -144,7 +146,7 @@ const MoleculeAutosuggest = ({
         ![domInnerInput, ...options].includes(currentElementFocused) &&
         !domContainer.contains(currentElementFocused)
       if (focusOutFromOutside) {
-        if (isOpen) {
+        if (autoClose && isOpen) {
           closeList(ev)
         } else {
           setFocus(false)
@@ -160,7 +162,7 @@ const MoleculeAutosuggest = ({
     if (key !== 'ArrowDown') ev.stopPropagation()
     if (key === 'Enter') {
       onEnter(ev)
-      closeList(ev)
+      onEnter && autoClose && closeList(ev)
     }
   }
 
@@ -170,23 +172,25 @@ const MoleculeAutosuggest = ({
   }
 
   const autosuggestSelectionProps = {
-    refMoleculeAutosuggestFromProps,
-    onToggle,
-    onChange,
-    onBlur,
-    onEnter,
-    onFocus,
+    autoClose,
+    children: extendedChildren,
+    disabled,
+    errorState,
+    id,
+    innerRefInput: refMoleculeAutosuggestInput,
     isOpen,
     keysCloseList,
     keysSelection,
-    disabled,
-    errorState,
-    state,
-    id,
+    onBlur,
+    onChange,
+    onEnter,
+    onFocus,
     onInputKeyDown: handleInputKeyDown,
+    onSelect,
+    onToggle,
     refMoleculeAutosuggest: refMoleculeAutosuggest,
-    innerRefInput: refMoleculeAutosuggestInput,
-    children: extendedChildren,
+    refMoleculeAutosuggestFromProps,
+    state,
     ...restProps
   }
 
@@ -213,11 +217,8 @@ const MoleculeAutosuggest = ({
 }
 
 MoleculeAutosuggest.propTypes = {
-  /** The DOM id global attribute. */
-  id: PropTypes.string,
-
-  /** if select accept single value or multiple values */
-  multiselection: PropTypes.bool,
+  /** Auto close suggestion list. */
+  autoClose: PropTypes.bool,
 
   /** children */
   children: PropTypes.any,
@@ -225,97 +226,92 @@ MoleculeAutosuggest.propTypes = {
   /** if the component is disabled or not */
   disabled: PropTypes.bool,
 
-  /** value selected */
-  value: PropTypes.any,
-
-  /* list of values displayed as tags */
-  tags: PropTypes.array,
-
-  /** list of values to be displayed on the select */
-  options: PropTypes.array,
-
-  /** if list of options is displayed or not */
-  isOpen: PropTypes.bool,
-
-  /** callback when arrow up/down is clicked → to show/hide list of options */
-  onToggle: PropTypes.func,
-
-  /* callback to be called with every update of the list of tags */
-  onChangeTags: PropTypes.func,
-
-  /* callback to be called with every update of the input value */
-  onChange: PropTypes.func,
-
-  /* callback to be called when input losses focus */
-  onBlur: PropTypes.func,
-
-  /** Icon for closing (removing) tags */
-  iconCloseTag: PropTypes.node,
+  /** true = error, false = success, null = neutral */
+  errorState: PropTypes.bool,
 
   /** Icon for clearing values */
   iconClear: PropTypes.node,
 
-  /** size (height) of the list */
-  size: PropTypes.oneOf(Object.values(SIZES)),
+  /** Icon for closing (removing) tags */
+  iconCloseTag: PropTypes.node,
 
-  /** callback triggered when the user press enter when the suggestion is closed */
-  onEnter: PropTypes.func,
-
-  /** callback triggered when the user clicks on right icon */
-  onClickRightIcon: PropTypes.func,
-
-  /** callback triggered when the user selects the suggested item */
-  onSelect: PropTypes.func,
-
-  /** Right UI Icon */
-  rightIcon: PropTypes.node,
-
-  /** list of key identifiers that will trigger a selection */
-  keysSelection: PropTypes.array,
-
-  /** list of key identifiers that will close the list */
-  keysCloseList: PropTypes.array,
-
-  /* object generated w/ Reacte.createRef method to get a DOM reference of internal input */
-  refMoleculeAutosuggest: PropTypes.object,
-
-  /* native required html attribute */
-  required: PropTypes.bool,
-
-  /* native tabIndex html attribute */
-  tabIndex: PropTypes.number,
-
-  /** true = error, false = success, null = neutral */
-  errorState: PropTypes.bool,
-
-  /* Will set a red/green/orange border if set to 'error' / 'success' / 'alert' */
-  state: PropTypes.oneOf(Object.values(AUTOSUGGEST_STATES)),
-
-  /* Button prop to be passe down to the input field */
-  rightButton: PropTypes.node,
-
-  /** Left UI Icon */
-  leftIcon: PropTypes.node,
-
-  /** callback triggered when the user focuses on the input */
-  onFocus: PropTypes.func,
+  /** The DOM id global attribute. */
+  id: PropTypes.string,
 
   /** To select input keyboard mode on mobile. It can be 'numeric', 'decimal', 'email', etc */
   inputMode: PropTypes.string,
 
-  /** native input types (text, date, ...), 'sui-password' */
-  type: PropTypes.oneOf(Object.values(inputTypes))
-}
+  /** if list of options is displayed or not */
+  isOpen: PropTypes.bool,
 
-MoleculeAutosuggest.defaultProps = {
-  onChange: () => {},
-  onBlur: () => {},
-  onToggle: () => {},
-  onEnter: () => {},
-  onSelect: () => {},
-  onFocus: () => {},
-  keysSelection: [' ', 'Enter'],
-  keysCloseList: ['Escape']
+  /** list of key identifiers that will close the list */
+  keysCloseList: PropTypes.array,
+
+  /** list of key identifiers that will trigger a selection */
+  keysSelection: PropTypes.array,
+
+  /** Left UI Icon */
+  leftIcon: PropTypes.node,
+
+  /** if select accept single value or multiple values */
+  multiselection: PropTypes.bool,
+
+  /** callback to be called when input losses focus */
+  onBlur: PropTypes.func,
+
+  /** callback to be called with every update of the input value */
+  onChange: PropTypes.func,
+
+  /** callback to be called with every update of the list of tags */
+  onChangeTags: PropTypes.func,
+
+  /** callback triggered when the user clicks on right icon */
+  onClickRightIcon: PropTypes.func,
+
+  /** callback triggered when the user press enter when the suggestion is closed */
+  onEnter: PropTypes.func,
+
+  /** callback triggered when the user focuses on the input */
+  onFocus: PropTypes.func,
+
+  /** callback triggered when the user selects the suggested item */
+  onSelect: PropTypes.func,
+
+  /** callback when arrow up/down is clicked → to show/hide list of options */
+  onToggle: PropTypes.func,
+
+  /** list of values to be displayed on the select */
+  options: PropTypes.array,
+
+  /** object generated w/ Reacte.createRef method to get a DOM reference of internal input */
+  refMoleculeAutosuggest: PropTypes.object,
+
+  /** native required html attribute */
+  required: PropTypes.bool,
+
+  /** Button prop to be passe down to the input field */
+  rightButton: PropTypes.node,
+
+  /** Right UI Icon */
+  rightIcon: PropTypes.node,
+
+  /** size (height) of the list */
+  size: PropTypes.oneOf(Object.values(SIZES)),
+
+  /** Will set a red/green/orange border if set to 'error' / 'success' / 'alert' */
+  state: PropTypes.oneOf(Object.values(AUTOSUGGEST_STATES)),
+
+  /** native tabIndex html attribute */
+  tabIndex: PropTypes.number,
+
+  /** list of values displayed as tags */
+  tags: PropTypes.array,
+
+  /** native input types (text, date, ...), 'sui-password' */
+  type: PropTypes.oneOf(Object.values(inputTypes)),
+
+  /** value selected */
+  value: PropTypes.any
 }
 
 const MoleculeAutoSuggestWithOpenToggle = withOpenToggle(MoleculeAutosuggest)

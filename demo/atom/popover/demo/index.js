@@ -14,6 +14,7 @@ import './index.scss'
 const Demo = () => {
   const [show, setShow] = useState(false)
   const [closeIcon, setCloseIcon] = useState(true)
+  const [showArrow, setShowArrow] = useState(true)
   const [position, setPosition] = useState(atomPopoverPositions.BOTTOM)
 
   const renderContent = () => (
@@ -49,10 +50,17 @@ const Demo = () => {
           checked={closeIcon}
           onChange={ev => setCloseIcon(ev.target.checked)}
         />
+        <label className="DemoPopover-label">Add arrow</label>
+        <input
+          type="checkbox"
+          checked={showArrow}
+          onChange={ev => setShowArrow(ev.target.checked)}
+        />
 
         <div className="DemoPopover-buttons">
           <AtomPopover
             closeIcon={closeIcon && <IconClose />}
+            hideArrow={!showArrow}
             placement={position}
             onClose={() => console.log('CLOSE POPOVER!')}
             content={renderContent()}
@@ -62,6 +70,7 @@ const Demo = () => {
           </AtomPopover>
           <AtomPopover
             closeIcon={closeIcon && <IconClose />}
+            hideArrow={!showArrow}
             placement={position}
             onClose={() => console.log('CLOSE POPOVER!')}
             content={renderContent()}

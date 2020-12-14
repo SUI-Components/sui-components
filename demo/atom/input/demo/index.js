@@ -1,11 +1,13 @@
 import AtomInput, {
   inputSizes,
-  inputTypes
+  inputTypes,
+  inputStates
 } from '../../../../components/atom/input/src'
 import {useState} from 'react'
 import {
   H1,
   H2,
+  H3,
   H4,
   Box,
   UnorderedList,
@@ -18,6 +20,7 @@ import {
   Label,
   Code,
   Input,
+  Button,
   RadioButton,
   RadioButtonGroup,
   AntDesignIcon
@@ -31,6 +34,13 @@ const flexCenteredStyle = {
   alignItems: 'center',
   alignContent: 'center'
 }
+
+const stackMap = (arr = [], ...mappingCallbacks) =>
+  mappingCallbacks.flatMap(function(e, index) {
+    return this.map((value, innerIndex) =>
+      e(value, innerIndex + this.length * index)
+    )
+  }, arr)
 
 const DefaultDemo = () => (
   <Article>
@@ -481,6 +491,73 @@ const BorderlessDemo = () => {
   )
 }
 
+const StateDemo = () => {
+  return (
+    <Article>
+      <H2>State</H2>
+      <Paragraph>
+        Input has {Object.values(inputStates).length} different values. It can
+        be used giving a valid <Code>state</Code> prop to the component.
+      </Paragraph>
+      <Grid cols={Object.values(inputStates).length + 1} gutter={[8, 8]}>
+        {stackMap(
+          [['undefined', undefined], ...Object.entries(inputStates)],
+          ([key], index) => (
+            <Label key={index}>{key}</Label>
+          ),
+          ([key, value], index) => (
+            <AtomInput key={index} state={value} />
+          )
+        )}
+      </Grid>
+    </Article>
+  )
+}
+
+const ErrorStatusDemo = () => {
+  return (
+    <Article>
+      <H2>Error State</H2>
+      <Paragraph>
+        Input can show its error mode using the boolean prop{' '}
+        <Code>errorStatus</Code>
+      </Paragraph>
+      <Grid cols={3} gutter={[8, 8]}>
+        <Cell>
+          <Label>true</Label>
+        </Cell>
+        <Cell>
+          <Label>undefined</Label>
+        </Cell>
+        <Cell>
+          <Label>false</Label>
+        </Cell>
+        <Cell>
+          <AtomInput errorState />
+        </Cell>
+        <Cell>
+          <AtomInput errorState={undefined} />
+        </Cell>
+        <Cell>
+          <AtomInput errorState={false} />
+        </Cell>
+      </Grid>
+    </Article>
+  )
+}
+
+const InlineFormDemo = () => (
+  <Article>
+    <H2 deprecated>Inline Form</H2>
+    <H3>Deprecated</H3>
+    <Paragraph>
+      Input have its own way of provide a submision using the{' '}
+      <Code>button</Code> prop, you can pass a React node.
+    </Paragraph>
+    <AtomInput button={<Button>Send</Button>} />
+  </Article>
+)
+
 const Demo = () => (
   <div className="sui-StudioPreview">
     <div className="sui-StudioPreview-content sui-StudioDemo-preview">
@@ -503,6 +580,12 @@ const Demo = () => (
       <AddonAndIconDemo />
       <br />
       <BorderlessDemo />
+      <br />
+      <StateDemo />
+      <br />
+      <ErrorStatusDemo />
+      <br />
+      <InlineFormDemo />
       <br />
     </div>
   </div>

@@ -6,15 +6,18 @@ import {useState} from 'react'
 import {
   H1,
   H2,
+  // H3,
+  H4,
+  Anchor,
   Paragraph,
   Article,
   Grid,
   Cell,
   Label,
   Code,
-  Input
-  // RadioButtonGroup,
-  // RadioGroup
+  Input,
+  RadioButton,
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 
 const flexCenteredStyle = {
@@ -138,9 +141,24 @@ const TypeDemo = () => {
         AtomInput provides diferent types of usage depending on its{' '}
         <Code>type</Code> value prop.
       </Paragraph>
-      <div>
+      <Grid cols={2} gutter={[8, 8]}>
         {[
-          ['DATE', {type: inputTypes.DATE, charsSize: 10}],
+          [
+            'TEXT',
+            {type: inputTypes.TEXT},
+            {
+              description:
+                'Elements of type text create basic single-line text fields'
+            }
+          ],
+          [
+            'DATE',
+            {type: inputTypes.DATE, charsSize: 10},
+            {
+              description:
+                'Create input fields that let the user enter a date, either with a textbox that validates the input or a special date picker interface. The resulting value includes the year, month, and day, but not the time. The time and datetime-local input types support time and date+time input.'
+            }
+          ],
           [
             'MASK',
             {
@@ -148,6 +166,17 @@ const TypeDemo = () => {
               mask: 'ES00 0000 0000 00 0000000000',
               placeholder: 'ES00 0000 0000 00 0000000000',
               charsSize: 31
+            },
+            {
+              description: (
+                <>
+                  Let the user define its own mask for custom purposes. More
+                  info at{' '}
+                  <Anchor href="http://shorturl.at/foBF1">
+                    http://shorturl.at/foBF1
+                  </Anchor>
+                </>
+              )
             }
           ],
           [
@@ -156,24 +185,61 @@ const TypeDemo = () => {
               type: inputTypes.NUMBER,
               placeholder: 'Number only input',
               charsSize: 10
+            },
+            {
+              description: (
+                <>
+                  A control for entering a number. Displays a spinner and adds
+                  default validation when supported. Displays a numeric keypad
+                  in some devices with dynamic keypads. Arrows for number inputs
+                  are not shown due to:{' '}
+                  <Anchor href="http://shorturl.at/tR149">
+                    http://shorturl.at/tR149
+                  </Anchor>
+                </>
+              )
             }
           ],
-          ['PASSWORD', {type: inputTypes.PASSWORD}],
+          [
+            'PASSWORD',
+            {type: inputTypes.PASSWORD, placeholder: 'Password Input'},
+            {
+              description:
+                'A single-line text field whose value is obscured. Will alert user if site is not secure'
+            }
+          ],
           [
             'SUI_PASSWORD',
-            {type: inputTypes.SUI_PASSWORD, placeholder: 'Password Input'}
+            {type: inputTypes.SUI_PASSWORD, placeholder: 'Password Input'},
+            {
+              description:
+                'Like password but whith a show button for value displaying state'
+            }
           ],
-          ['TEXT', {type: inputTypes.TEXT}],
-          ['TEL', {type: inputTypes.TEL}],
-          ['EMAIL', {type: inputTypes.EMAIL}]
-        ].map(([key, props], index) => (
-          <div key={index}>
-            <Label>{key}</Label>: <AtomInput {...props} />
-            <br />
-            <br />
-          </div>
+          [
+            'TEL',
+            {type: inputTypes.TEL},
+            {
+              description:
+                'A control for entering a telephone number. Displays a telephone keypad in some devices with dynamic keypads.'
+            }
+          ],
+          [
+            'EMAIL',
+            {type: inputTypes.EMAIL},
+            {
+              description:
+                'A field for editing an email address. Looks like a text input, but has validation parameters and relevant keyboard in supporting browsers and devices with dynamic keyboards.'
+            }
+          ]
+        ].map(([key, props, {description} = {}], index) => (
+          <Cell key={index}>
+            <H4>{key}</H4>
+            <AtomInput {...props} />
+            <Paragraph>{description}</Paragraph>
+          </Cell>
         ))}
-      </div>
+      </Grid>
     </Article>
   )
 }
@@ -209,6 +275,40 @@ const DisabledReadOnlyDemo = () => {
   )
 }
 
+const AddonAndIconDemo = () => {
+  const [state, setState] = useState({})
+  const setStatus = (newState = {}) => setState({...state, ...newState})
+  console.log(state)
+  return (
+    <Article>
+      <H2>Addon and Icon</H2>
+      <Grid cols={2} gutter={[8, 8]}>
+        <Paragraph>lorem</Paragraph>
+        <Cell span={2}>
+          <AtomInput />
+        </Cell>
+        <Cell>
+          <RadioButtonGroup
+            onChange={value => {
+              setStatus({icon: value})
+            }}
+            fullWidth
+          >
+            <RadioButton value="leftIcon" label="leftIcon" />
+            <RadioButton value="rightIcon" label="rightIcon" />
+          </RadioButtonGroup>
+        </Cell>
+        <Cell>
+          <Input
+            fullWidth
+            onChange={event => setState({iconValue: event.target.value})}
+          />
+        </Cell>
+      </Grid>
+    </Article>
+  )
+}
+
 const Demo = () => (
   <div className="sui-StudioPreview">
     <div className="sui-StudioPreview-content sui-StudioDemo-preview">
@@ -227,6 +327,8 @@ const Demo = () => (
       <SizeDemo />
       <br />
       <DisabledReadOnlyDemo />
+      <br />
+      <AddonAndIconDemo />
       <br />
     </div>
   </div>

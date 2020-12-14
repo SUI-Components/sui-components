@@ -27,7 +27,8 @@ function AtomPopover({
   onClose = () => {},
   onOpen = () => {},
   placement = PLACEMENTS.BOTTOM,
-  showPopover
+  showPopover,
+  hideArrow = true
 }) {
   const targetRef = useRef()
   const [internalShowPopover, setInternalShowPopover] = useState(showPopover)
@@ -70,6 +71,8 @@ function AtomPopover({
             className={BASE_CLASS}
             delay={DEFAULT_DELAY}
             innerClassName={CLASS_INNER}
+            hideArrow={hideArrow}
+            arrowClassName={`${BASE_CLASS}-arrow`}
             isOpen={internalShowPopover}
             offset={DEFAULT_OFFSET}
             placement={placement}
@@ -109,7 +112,9 @@ AtomPopover.propTypes = {
   /** On open callback */
   onOpen: PropTypes.func,
   /** Popover position */
-  placement: PropTypes.oneOf(Object.values(PLACEMENTS))
+  placement: PropTypes.oneOf(Object.values(PLACEMENTS)),
+  /** Wether to show arrow or not. */
+  hideArrow: PropTypes.bool
 }
 
 export {PLACEMENTS as atomPopoverPositions}

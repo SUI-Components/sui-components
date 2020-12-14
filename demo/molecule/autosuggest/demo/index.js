@@ -201,17 +201,17 @@ const Demo = () => (
       <div className={CLASS_DEMO_SECTION} style={{paddingBottom: '200px'}}>
         <h3>With preselected Value</h3>
         <MoleculeAutosuggestWithStateTagsLabels
-          label="Etiquetas"
-          placeholder="Selecciona las etiquetas a asignar al contacto"
-          onChange={(_, {value}) => console.log(value)}
-          onEnter={(_, {value}) => console.log(value)}
-          onSelect={(_, {value}) => console.log(value)}
-          iconClear={<IconClose />}
-          tags={['Mola.']}
-          isOpen
           autoClose={false}
+          iconClear={<IconClose />}
+          isOpen
+          label="Etiquetas"
           multiselection
-          onChangeTags={(_, {tags}) => console.log(tags)}
+          onChange={() => console.log('onChange')}
+          onChangeTags={() => console.log('onChangeTags')}
+          onEnter={() => console.log('onEnter')}
+          onSelect={() => console.log('onSelect')}
+          placeholder="Selecciona las etiquetas a asignar al contacto"
+          tags={['Mola']}
         >
           {options.map(({id, name}) => (
             <MoleculeAutosuggestOption id={id} key={id} value={name}>

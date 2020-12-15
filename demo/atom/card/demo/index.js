@@ -19,8 +19,6 @@ import {
 import AtomCard from '../../../../components/atom/card/src'
 import PlaceHolder from './PlaceHolder'
 
-import './index.scss'
-
 const DefaultDemo = () => {
   const [media, setMedia] = useState(true)
   const [content, setContent] = useState(true)

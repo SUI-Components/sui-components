@@ -17,7 +17,7 @@ export const AVATAR_BADGE_SIZES = {
   LARGE: 'large',
   MEDIUM: 'medium',
   SMALL: 'small',
-  XSMALL: 'ssmall'
+  XSMALL: 'xsmall'
 }
 
 const MoleculeAvatarBadge = ({

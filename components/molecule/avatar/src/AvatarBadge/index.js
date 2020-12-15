@@ -12,10 +12,12 @@ export const AVATAR_BADGE_PLACEMENTS = {
 }
 
 export const AVATAR_BADGE_SIZES = {
+  XXLARGE: 'xxlarge',
   XLARGE: 'xlarge',
   LARGE: 'large',
   MEDIUM: 'medium',
-  SMALL: 'small'
+  SMALL: 'small',
+  XSMALL: 'ssmall'
 }
 
 const MoleculeAvatarBadge = ({

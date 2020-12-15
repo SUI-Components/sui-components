@@ -31,7 +31,7 @@ const CLASSES = createClasses([
   ...Object.values(SIZES),
   'empty'
 ])
-const COLOR_CLASSES = createClasses(COLORS, 'Color')
+const COLOR_CLASSES = createClasses(Object.values(COLORS), 'Color')
 
 /**
  * Get props cleaning out AtomButton own props
@@ -56,23 +56,22 @@ const getModifiers = props => {
 }
 
 const getPropsWithDefaultValues = props => {
-  let {color, design, alignment = ALIGNMENT.CENTER, type} = props
-  // if color or design are defined, use them with the passed or default value
-  if (color || design) {
-    if (design !== DESIGNS.LINK) {
-      color = color || 'primary'
-    }
-    design = design || DESIGNS.SOLID
-  } else {
+  let {
+    color = COLORS.PRIMARY,
+    design = DESIGNS.SOLID,
+    alignment = ALIGNMENT.CENTER,
+    type,
+    ...rest
+  } = props
+  if (type) {
     type = type || 'primary'
   }
-
   return {
     color,
     design,
     type,
     alignment,
-    ...props
+    ...rest
   }
 }
 
@@ -179,7 +178,7 @@ AtomButton.propTypes = {
    * 'social-whatsapp',
    * 'social-instagram'
    */
-  color: PropTypes.oneOf(COLORS),
+  color: PropTypes.oneOf(Object.values(COLORS)),
   /**
    * HTML element: if true, render a link. Otherwise render a button
    */

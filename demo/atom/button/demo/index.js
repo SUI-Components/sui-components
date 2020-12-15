@@ -49,14 +49,14 @@ const starIcon = (
   <AntDesignIcon icon="AiFillStar" style={{color: 'currentColor'}} />
 )
 
-const atomButtonColorsIterator = atomButtonColors
+const atomButtonColorsIterator = Object.values(atomButtonColors)
   .filter(color =>
     ['primary', 'accent', 'neutral', 'success', 'alert', 'error'].includes(
       color
     )
   )
   .map((color, index) => [{color}, index])
-const atomButtonSocialColorsIterator = atomButtonColors
+const atomButtonSocialColorsIterator = Object.values(atomButtonColors)
   .filter(color =>
     [
       'social-facebook',
@@ -587,7 +587,7 @@ const Demo = () => {
                   </Fragment>
                 ))}
                 <Cell />
-                {[...atomButtonDesignsIterator, [{design: undefined}]].map(
+                {[[{design: undefined}], ...atomButtonDesignsIterator].map(
                   ([{design}], index) => (
                     <Fragment key={index}>
                       <Cell style={flexCenteredStyle}>

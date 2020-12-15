@@ -27,20 +27,20 @@ export const ALIGNMENT = {
 /**
  * Available colors for the button
  */
-export const COLORS = [
-  'primary',
-  'accent',
-  'neutral',
-  'success',
-  'alert',
-  'error',
-  'social-facebook',
-  'social-twitter',
-  'social-google',
-  'social-youtube',
-  'social-whatsapp',
-  'social-instagram'
-]
+export const COLORS = {
+  PRIMARY: 'primary',
+  ACCENT: 'accent',
+  NEUTRAL: 'neutral',
+  SUCCESS: 'success',
+  ALERT: 'alert',
+  ERROR: 'error',
+  SOCIAL_FACEBOOK: 'social-facebook',
+  SOCIAL_TWITTER: 'social-twitter',
+  SOCIAL_GOOGLE: 'social-google',
+  SOCIAL_YOUTUBE: 'social-youtube',
+  SOCIAL_WHATSAPP: 'social-whatsapp',
+  SOCIAL_INSTAGRAM: 'social-instagram'
+}
 
 /**
  * Positions to be used when the button is used on group

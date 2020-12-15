@@ -6,6 +6,7 @@ import AtomButton, {
   atomButtonColors,
   atomButtonDesigns,
   atomButtonSizes,
+  atomButtonTypes,
   atomButtonAlignment
 } from '../../../../components/atom/button/src'
 import {
@@ -13,7 +14,9 @@ import {
   Label,
   H1,
   H2,
+  H4,
   Box,
+  Bold,
   Paragraph,
   Article,
   Code,
@@ -23,9 +26,17 @@ import {
   RadioButton,
   Input
 } from '@s-ui/documentation-library'
+import AtomButtom from '@s-ui/react-atom-button'
 
 const BASE_CLASS_DEMO = `DemoAtomButton`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
+
+const stackMap = (arr = [], ...mappingCallbacks) =>
+  mappingCallbacks.flatMap(function(e, index) {
+    return this.map((value, innerIndex) =>
+      e(value, innerIndex + this.length * index)
+    )
+  }, arr)
 
 const facebookIcon = (
   <AntDesignIcon icon="AiFillFacebook" style={{color: 'currentColor'}} />
@@ -97,6 +108,152 @@ const flexCenteredStyle = {
   wrap: 'nowrap',
   alignItems: 'center',
   alignContent: 'center'
+}
+
+const TypeDeprecatedArticle = () => {
+  const [color, setColor] = useState()
+  const [design, setDesign] = useState()
+  return (
+    <Article>
+      <H2 deprecated>TYPES</H2>
+      <H4>Deprecated</H4>
+      <Paragraph>
+        Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary'
+      </Paragraph>
+      <Paragraph>
+        This prop should <Bold>NEVER</Bold> be combined with <Code>color</Code>{' '}
+        and <Code>design</Code> props. It causes unexpected behaviors. This prop
+        is priorized over the 2 others previously mentioned.
+      </Paragraph>
+      <Grid gutter={[8, 8]} cols={atomButtonTypes.length + 1}>
+        {stackMap(
+          [undefined, ...atomButtonTypes],
+          (type, index) => (
+            <Cell key={index}>
+              <Label>{`${type}`}</Label>
+            </Cell>
+          ),
+          (type, index) => (
+            <Cell key={index}>
+              <AtomButtom type={type} design={design} color={color}>
+                button
+              </AtomButtom>
+            </Cell>
+          )
+        )}
+      </Grid>
+      <br />
+      <Grid cols={1} gutter={[8, 8]}>
+        <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
+          <Label>color</Label>: {`${color || 'undefined'}`}
+        </Cell>
+        <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
+          <Label>design</Label>: {`${design || 'undefined'}`}
+        </Cell>
+      </Grid>
+      <Paragraph>–––</Paragraph>
+      <Grid cols={1} gutter={[8, 8]}>
+        <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
+          <RadioButtonGroup onChange={value => setColor(value)}>
+            {atomButtonColorsIterator.map(([{color}], index) => (
+              <RadioButton key={index} value={color} label={color} />
+            ))}
+          </RadioButtonGroup>
+        </Cell>
+        <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
+          <RadioButtonGroup onChange={value => setDesign(value)}>
+            {atomButtonDesignsIterator.map(([{design}], index) => (
+              <RadioButton key={index} value={design} label={design} />
+            ))}
+          </RadioButtonGroup>
+        </Cell>
+      </Grid>
+      <H4>Transition</H4>
+      <Box outline style={{width: 500}}>
+        <Grid cols={5} gutter={[8, 8]}>
+          <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
+            <Label>type</Label>
+          </Cell>
+          <Cell />
+          <Cell />
+          <Cell style={flexCenteredStyle}>
+            <Label>color</Label>
+          </Cell>
+          <Cell style={flexCenteredStyle}>
+            <Label>design</Label>
+          </Cell>
+          <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
+            <Label>primary</Label>
+          </Cell>
+          <Cell>
+            <AtomButtom type="primary">button</AtomButtom>
+          </Cell>
+          <Cell>
+            <AtomButtom color="primary" design="solid">
+              button
+            </AtomButtom>
+          </Cell>
+          <Cell style={flexCenteredStyle}>
+            <Label>primary</Label>
+          </Cell>
+          <Cell style={flexCenteredStyle}>
+            <Label>solid</Label>
+          </Cell>
+          <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
+            <Label>accent</Label>
+          </Cell>
+          <Cell>
+            <AtomButtom type="accent">button</AtomButtom>
+          </Cell>
+          <Cell>
+            <AtomButtom color="accent" design="solid">
+              button
+            </AtomButtom>
+          </Cell>
+          <Cell style={flexCenteredStyle}>
+            <Label>accent</Label>
+          </Cell>
+          <Cell style={flexCenteredStyle}>
+            <Label>solid</Label>
+          </Cell>
+          <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
+            <Label>secondary</Label>
+          </Cell>
+          <Cell>
+            <AtomButtom type="secondary">button</AtomButtom>
+          </Cell>
+          <Cell>
+            <AtomButtom color="primary" design="outline">
+              button
+            </AtomButtom>
+          </Cell>
+          <Cell style={flexCenteredStyle}>
+            <Label>primary</Label>
+          </Cell>
+          <Cell style={flexCenteredStyle}>
+            <Label>outline</Label>
+          </Cell>
+          <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
+            <Label>tertiary</Label>
+          </Cell>
+          <Cell>
+            <AtomButtom type="tertiary">button</AtomButtom>
+          </Cell>
+          <Cell>
+            <AtomButtom color="primary" design="flat">
+              button
+            </AtomButtom>
+          </Cell>
+          <Cell style={flexCenteredStyle}>
+            <Label>primary</Label>
+          </Cell>
+          <Cell style={flexCenteredStyle}>
+            <Label>flat</Label>
+          </Cell>
+        </Grid>
+      </Box>
+    </Article>
+  )
 }
 
 const Demo = () => {
@@ -331,6 +488,8 @@ const Demo = () => {
           deserunt mollit anim id est laborum."
         </Article>
       </Article>
+      <br />
+      <TypeDeprecatedArticle />
       <br />
       <Article className={CLASS_SECTION} mode="light">
         <H2>Other extra button boolean props</H2>

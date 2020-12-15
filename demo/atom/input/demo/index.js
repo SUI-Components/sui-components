@@ -58,7 +58,8 @@ const SizeDemo = () => (
   <Article>
     <H2>Size</H2>
     <Paragraph>
-      By default, the element gets the following look and feel.
+      The element gets {Object.values(inputSizes).length} different size
+      configurations using its <Code>size</Code> prop.
     </Paragraph>
     <Grid gutter={[8, 8]} cols={4}>
       {[['default', undefined], ...Object.entries(inputSizes)].map(

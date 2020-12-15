@@ -8,10 +8,12 @@ import AvatarFallback from './AvatarFallback'
 import AvatarBadge from './AvatarBadge'
 
 export const AVATAR_SIZES = {
+  XXLARGE: 'xxlarge',
   XLARGE: 'xlarge',
   LARGE: 'large',
   MEDIUM: 'medium',
-  SMALL: 'small'
+  SMALL: 'small',
+  XSMALL: 'xsmall'
 }
 
 const MoleculeAvatar = ({

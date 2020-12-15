@@ -26,6 +26,11 @@ return (
       <MoleculeAvatar
         style={{marginRight: '8px'}}
         name="Arnau Rius"
+        size="xsmall"
+      />
+      <MoleculeAvatar
+        style={{marginRight: '8px'}}
+        name="Arnau Rius"
         size="small"
       />
       <MoleculeAvatar
@@ -38,7 +43,12 @@ return (
         name="Sabrina Castelli"
         size="large"
       />
-      <MoleculeAvatar name="David Garcia" size="xlarge" />
+      <MoleculeAvatar
+        style={{marginRight: '8px'}}
+        name="Sabrina Castelli"
+        size="xlarge"
+      />
+      <MoleculeAvatar name="David Garcia" size="xxlarge" />
     </div>
 
     <h2>Image</h2>

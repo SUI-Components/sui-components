@@ -5,17 +5,21 @@
 @import './AvatarBadge/index';
 
 $s-avatar: (
-  xlarge: 80px,
-  large: 64px,
-  medium: 48px,
-  small: 32px
+  xxlarge: 80px,
+  xlarge: 64px,
+  large: 48px,
+  medium: 40px,
+  small: 32px,
+  xsmall: 24px
 ) !default;
 
 $fz-avatar: (
-  xlarge: 30px,
-  large: 24px,
-  medium: 18px,
-  small: 12px
+  xxlarge: 30px,
+  xlarge: 24px,
+  large: 18px,
+  medium: 15px,
+  small: 12px,
+  xsmall: 8px
 ) !default;
 
 $c-avatar: white !default;

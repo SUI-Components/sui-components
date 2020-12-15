@@ -1,15 +1,19 @@
 $s-avatar-badge: (
-  xlarge: 20px,
-  large: 16px,
-  medium: 12px,
-  small: 8px
+  xxlarge: 20px,
+  xlarge: 16px,
+  large: 12px,
+  medium: 14px,
+  small: 8px,
+  xsmall: 8px
 ) !default;
 
 $bw-avatar-badge: (
-  xlarge: 3px,
+  xxlarge: 3px,
+  xlarge: 2px,
   large: 2px,
   medium: 2px,
-  small: 1px
+  small: 1px,
+  xsmall: 1px
 ) !default;
 
 .sui-MoleculeAvatarBadge {

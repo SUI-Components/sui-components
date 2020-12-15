@@ -1,162 +1,151 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
+import {useState} from 'react'
+import {
+  H1,
+  H2,
+  H3,
+  Text,
+  Paragraph,
+  Article,
+  UnorderedList,
+  ListItem,
+  Code,
+  Grid,
+  Cell,
+  RadioButton,
+  Label
+} from '@s-ui/documentation-library'
 
-import AtomImage from '@s-ui/react-atom-image'
 import AtomCard from '../../../../components/atom/card/src'
-import LayoutMediaQuery from '@s-ui/react-layout-media-query'
+import PlaceHolder from './PlaceHolder'
 
 import './index.scss'
 
-const srcImageCar =
-  'http://media.astropublications.com.my/media/cars/assets/news/2016/10/week%204/mercedes-benz%20suv/mercedes-benz-glc-coupe-1.jpg'
-const urlTarget = 'https://www.google.com/'
-const urlTarget2 = 'https://www.twitter.com/'
-
-const CarImage = () => <AtomImage src={srcImageCar} alt="" />
-const CarInfo = () => (
-  <div>
-    <h2 style={{marginTop: 0}}>Mercedes Benz</h2>
-    <p>A super cool car</p>
-  </div>
-)
-
-const CarInfoLinks = () => (
-  <div>
-    <h2 style={{marginTop: 0}}>
-      <a href={urlTarget2}>Mercedes Benz</a>
-    </h2>
-    <p>A super cool car</p>
-  </div>
-)
+const DefaultDemo = () => {
+  const [media, setMedia] = useState(true)
+  const [content, setContent] = useState(true)
+  const [HREF, setHREF] = useState(false)
+  const [vertical, setVertical] = useState(false)
+  const [highlight, setHighlight] = useState(false)
+  return (
+    <Article>
+      <H2>Default</H2>
+      <Paragraph>
+        By default, the component encapsulates inner elements on a wrapper.
+      </Paragraph>
+      <Paragraph>This have 3 different containing areas:</Paragraph>
+      <UnorderedList>
+        <ListItem>
+          <Code>media</Code>: By default it takes 1/3 of its width.
+        </ListItem>
+        <ListItem>
+          <Code>content</Code>: By default it takes 2/3 of its width.
+        </ListItem>
+      </UnorderedList>
+      <Grid cols={5} gutter={[8, 8]}>
+        <Cell>
+          <Label>Media</Label>
+        </Cell>
+        <Cell>
+          <Label>Content</Label>
+        </Cell>
+        <Cell>
+          <Label>href</Label>
+        </Cell>
+        <Cell>
+          <Label>Highlight</Label>
+        </Cell>
+        <Cell>
+          <Label>Vertical</Label>
+        </Cell>
+        <Cell>
+          <RadioButton
+            label={media ? 'setted' : 'unsetted'}
+            value="media"
+            checked={media}
+            fullWidth
+            onClick={(target, value) => setMedia(value === 'media')}
+          />
+        </Cell>
+        <Cell>
+          <RadioButton
+            label={content ? 'setted' : 'unsetted'}
+            value="content"
+            checked={content}
+            fullWidth
+            onClick={(target, value) => setContent(value === 'content')}
+          />
+        </Cell>
+        <Cell>
+          <RadioButton
+            label={HREF ? 'setted' : 'unsetted'}
+            value="HREF"
+            checked={HREF}
+            fullWidth
+            onClick={(target, value) => setHREF(value === 'HREF')}
+          />
+        </Cell>
+        <Cell>
+          <RadioButton
+            label={highlight ? 'true' : 'false'}
+            value="highlight"
+            checked={highlight}
+            fullWidth
+            onClick={(target, value) => setHighlight(value === 'highlight')}
+          />
+        </Cell>
+        <Cell>
+          <RadioButton
+            label={vertical ? 'true' : 'false'}
+            value="vertical"
+            checked={vertical}
+            fullWidth
+            onClick={(target, value) => setVertical(value === 'vertical')}
+          />
+        </Cell>
+      </Grid>
+      <br />
+      <AtomCard
+        media={
+          media &&
+          (() => (
+            <PlaceHolder
+              width={200}
+              text="media area"
+              style={{width: '100%'}}
+            />
+          ))
+        }
+        content={
+          content &&
+          (() => (
+            <div>
+              <H3>content title</H3>
+              <Text>content text</Text>
+            </div>
+          ))
+        }
+        vertical={vertical}
+        href={HREF && 'http://www.google.com'}
+        highlight={highlight}
+      />
+    </Article>
+  )
+}
 
 const Demo = () => {
   return (
     <div className="sui-StudioPreview">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
-        <h1>Card</h1>
-        <div className="DemoAtomCard-section">
-          <h2>
-            Basic with <code>href</code>
-          </h2>
-          <AtomCard
-            tabIndex="1"
-            media={CarImage}
-            content={CarInfo}
-            href={urlTarget}
-          />
-        </div>
-        <div className="DemoAtomCard-section">
-          <h2>
-            Basic without <code>href</code>
-          </h2>
-          <AtomCard tabIndex="2" media={CarImage} content={CarInfoLinks} />
-        </div>
-        <div className="DemoAtomCard-section">
-          <h2>
-            Basic with <code>href</code> and secondary actions
-          </h2>
-          <AtomCard
-            tabIndex="2"
-            media={CarImage}
-            href={urlTarget}
-            content={CarInfoLinks}
-          />
-        </div>
-        <div className="DemoAtomCard-section">
-          <h2>
-            Basic with <code>highlight</code>
-          </h2>
-          <AtomCard
-            tabIndex="3"
-            media={CarImage}
-            content={CarInfo}
-            href={urlTarget}
-            highlight
-          />
-        </div>
-        <div className="DemoAtomCard-section DemoAtomCard-section--vertical">
-          <h2>Vertical</h2>
-          <AtomCard
-            tabIndex="4"
-            media={CarImage}
-            content={CarInfo}
-            href={urlTarget}
-            vertical
-          />
-        </div>
-        <h2>
-          Responsive using <code>@s-ui/react-layout-media-query</code>
-        </h2>
-        <div className="DemoAtomCard-section DemoAtomCard-section--responsive">
-          <h2>From Horizontal to Vertical Responsive</h2>
-          <LayoutMediaQuery>
-            {({S}) => {
-              if (S)
-                return (
-                  <AtomCard
-                    tabIndex="5"
-                    media={CarImage}
-                    content={CarInfo}
-                    href={urlTarget}
-                  />
-                )
-              return (
-                <AtomCard
-                  tabIndex="5"
-                  media={CarImage}
-                  content={CarInfo}
-                  href={urlTarget}
-                  vertical
-                />
-              )
-            }}
-          </LayoutMediaQuery>
-        </div>
-        <div className="DemoAtomCard-section DemoAtomCard-section--responsive-vertical">
-          <h2>From Vertical to Horizontal Responsive</h2>
-          <LayoutMediaQuery>
-            {({S}) => {
-              if (S)
-                return (
-                  <AtomCard
-                    tabIndex="5"
-                    media={CarImage}
-                    content={CarInfo}
-                    href={urlTarget}
-                  />
-                )
-              return (
-                <AtomCard
-                  tabIndex="5"
-                  media={CarImage}
-                  content={CarInfo}
-                  href={urlTarget}
-                  vertical
-                />
-              )
-            }}
-          </LayoutMediaQuery>
-        </div>
-        <h2>Responsive using MediaQueries</h2>
-        <div className="DemoAtomCard-section DemoAtomCard-section--big">
-          <h2>From Vertical (mobile) to Horizontal (desktop)</h2>
-          <AtomCard
-            tabIndex="6"
-            media={CarImage}
-            content={CarInfo}
-            href={urlTarget}
-            responsive
-          />
-        </div>
-        <h2>Basic without image</h2>
-        <div className="DemoAtomCard-section DemoAtomCard-section--big">
-          <h2>From Vertical (mobile) to Horizontal (desktop)</h2>
-          <AtomCard
-            tabIndex="6"
-            content={CarInfo}
-            href={urlTarget}
-            responsive
-          />
-        </div>
+        <H1>Card</H1>
+        <Paragraph>
+          Component that structures two main containers (media & info for
+          example), with the purpose of giving information about a
+          product/client/article and linking to more detailed information about
+          it.
+        </Paragraph>
+        <DefaultDemo />
+        <br />
       </div>
     </div>
   )

@@ -50,9 +50,7 @@ const AtomCard = ({
         </div>
       )}
 
-      <div className={CLASS_INFO}>
-        <Content />
-      </div>
+      <div className={CLASS_INFO}>{Content && <Content />}</div>
     </div>
   )
 }

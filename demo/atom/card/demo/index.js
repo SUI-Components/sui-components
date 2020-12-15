@@ -34,12 +34,27 @@ const DefaultDemo = () => {
       <Paragraph>This have 3 different containing areas:</Paragraph>
       <UnorderedList>
         <ListItem>
-          <Code>media</Code>: By default it takes 1/3 of its width.
+          <Code>media</Code>: (React element) – An area specially defined for
+          including a media.
         </ListItem>
         <ListItem>
-          <Code>content</Code>: By default it takes 2/3 of its width.
+          <Code>content</Code>: (React element) An area defined for including
+          some other content.
         </ListItem>
       </UnorderedList>
+      <Paragraph>–––</Paragraph>
+      <Paragraph>
+        The component can become clickable adding an url to it <Code>href</Code>{' '}
+        prop.
+      </Paragraph>
+      <Paragraph>
+        Card can highlight its content with a <Code>highlight</Code> boolean
+        prop.
+      </Paragraph>
+      <Paragraph>
+        Card can give a vertical orientation of elements under the{' '}
+        <Code>vertical</Code> boolean prop.
+      </Paragraph>
       <Grid cols={5} gutter={[8, 8]}>
         <Cell>
           <Label>Media</Label>

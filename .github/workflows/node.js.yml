@@ -152,6 +152,6 @@ jobs:
       env:
         VERCEL_PARAMS: ${{ github.event_name != 'pull_request' && '--prod' || ''}}
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-  environment:
-    name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}
-    url: ${{ steps.deploy.outputs.url }}
+    environment:
+      name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}
+      url: ${{ steps.deploy.outputs.url }}

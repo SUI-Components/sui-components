@@ -189,6 +189,7 @@ body.is-MoleculeModal-open {
     overflow-y: auto;
     margin: $mt-molecule-modal-content $mr-molecule-modal-content 0
       $ml-molecule-modal-content;
+    padding: $p-molecule-modal-content;
     position: relative;
 
     &:after {

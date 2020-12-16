@@ -136,7 +136,6 @@ jobs:
     needs: [build, testing]
     runs-on: ubuntu-latest
     steps:
-    - id: deploy
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
@@ -145,6 +144,7 @@ jobs:
       with:
         name: public-folder
     - name: Deploy
+      id: deploy
       run: |
         npm i -g vercel --no-save --no-fund --no-audit --no-optional --no-scripts
         DEPLOYMENT_URL=$(vercel --token $VERCEL_TOKEN --confirm $VERCEL_PARAMS)

@@ -144,9 +144,14 @@ jobs:
       with:
         name: public-folder
     - name: Deploy
+      id: deploy
       run: |
         npm i -g vercel --no-save --no-fund --no-audit --no-optional --no-scripts
         DEPLOYMENT_URL=$(vercel --token $VERCEL_TOKEN --confirm $VERCEL_PARAMS)
+        echo "::set-output name=url::$(echo $DEPLOYMENT_URL)"
       env:
         VERCEL_PARAMS: ${{ github.event_name != 'pull_request' && '--prod' || ''}}
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    environment:
+      name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}
+      url: ${{ steps.deploy.outputs.url }}

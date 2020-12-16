@@ -1,4 +1,4 @@
-# SUI React Components
+# SUI React Components ![CI](https://github.com/SUI-Components/sui-components/workflows/CI/badge.svg)
 
 <img src="https://avatars2.githubusercontent.com/u/13288987?s=200&v=4" alt="SUI Logo" width="150">
 

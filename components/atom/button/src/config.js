@@ -27,20 +27,20 @@ export const ALIGNMENT = {
 /**
  * Available colors for the button
  */
-export const COLORS = {
-  PRIMARY: 'primary',
-  ACCENT: 'accent',
-  NEUTRAL: 'neutral',
-  SUCCESS: 'success',
-  ALERT: 'alert',
-  ERROR: 'error',
-  SOCIAL_FACEBOOK: 'social-facebook',
-  SOCIAL_TWITTER: 'social-twitter',
-  SOCIAL_GOOGLE: 'social-google',
-  SOCIAL_YOUTUBE: 'social-youtube',
-  SOCIAL_WHATSAPP: 'social-whatsapp',
-  SOCIAL_INSTAGRAM: 'social-instagram'
-}
+export const COLORS = [
+  'primary',
+  'accent',
+  'neutral',
+  'success',
+  'alert',
+  'error',
+  'social-facebook',
+  'social-twitter',
+  'social-google',
+  'social-youtube',
+  'social-whatsapp',
+  'social-instagram'
+]
 
 /**
  * Positions to be used when the button is used on group
@@ -110,4 +110,11 @@ export const ATOM_ICON_SIZES_MAPPER = {
   default: 'small',
   small: 'small',
   large: 'medium'
+}
+
+export const TYPES_CONVERSION = {
+  primary: {design: DESIGNS.SOLID, color: 'primary'},
+  accent: {design: DESIGNS.SOLID, color: 'accent'},
+  secondary: {design: DESIGNS.OUTLINE, color: 'primary'},
+  tertiary: {design: DESIGNS.FLAT, color: 'primary'}
 }

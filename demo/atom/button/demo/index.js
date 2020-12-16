@@ -26,7 +26,6 @@ import {
   RadioButton,
   Input
 } from '@s-ui/documentation-library'
-import AtomButtom from '@s-ui/react-atom-button'
 
 const BASE_CLASS_DEMO = `DemoAtomButton`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
@@ -60,14 +59,14 @@ const starIcon = (
   <AntDesignIcon icon="AiFillStar" style={{color: 'currentColor'}} />
 )
 
-const atomButtonColorsIterator = Object.values(atomButtonColors)
+const atomButtonColorsIterator = atomButtonColors
   .filter(color =>
     ['primary', 'accent', 'neutral', 'success', 'alert', 'error'].includes(
       color
     )
   )
   .map((color, index) => [{color}, index])
-const atomButtonSocialColorsIterator = Object.values(atomButtonColors)
+const atomButtonSocialColorsIterator = atomButtonColors
   .filter(color =>
     [
       'social-facebook',
@@ -114,7 +113,7 @@ const TypeDeprecatedArticle = () => {
   const [color, setColor] = useState()
   const [design, setDesign] = useState()
   return (
-    <Article>
+    <Article className={CLASS_SECTION}>
       <H2 deprecated>TYPES</H2>
       <H4>Deprecated</H4>
       <Paragraph>
@@ -135,9 +134,9 @@ const TypeDeprecatedArticle = () => {
           ),
           (type, index) => (
             <Cell key={index}>
-              <AtomButtom type={type} design={design} color={color}>
+              <AtomButton type={type} design={design} color={color}>
                 button
-              </AtomButtom>
+              </AtomButton>
             </Cell>
           )
         )}
@@ -186,12 +185,12 @@ const TypeDeprecatedArticle = () => {
             <Label>primary</Label>
           </Cell>
           <Cell>
-            <AtomButtom type="primary">button</AtomButtom>
+            <AtomButton type="primary">button</AtomButton>
           </Cell>
           <Cell>
-            <AtomButtom color="primary" design="solid">
+            <AtomButton color="primary" design="solid">
               button
-            </AtomButtom>
+            </AtomButton>
           </Cell>
           <Cell style={flexCenteredStyle}>
             <Label>primary</Label>
@@ -203,12 +202,12 @@ const TypeDeprecatedArticle = () => {
             <Label>accent</Label>
           </Cell>
           <Cell>
-            <AtomButtom type="accent">button</AtomButtom>
+            <AtomButton type="accent">button</AtomButton>
           </Cell>
           <Cell>
-            <AtomButtom color="accent" design="solid">
+            <AtomButton color="accent" design="solid">
               button
-            </AtomButtom>
+            </AtomButton>
           </Cell>
           <Cell style={flexCenteredStyle}>
             <Label>accent</Label>
@@ -220,12 +219,12 @@ const TypeDeprecatedArticle = () => {
             <Label>secondary</Label>
           </Cell>
           <Cell>
-            <AtomButtom type="secondary">button</AtomButtom>
+            <AtomButton type="secondary">button</AtomButton>
           </Cell>
           <Cell>
-            <AtomButtom color="primary" design="outline">
+            <AtomButton color="primary" design="outline">
               button
-            </AtomButtom>
+            </AtomButton>
           </Cell>
           <Cell style={flexCenteredStyle}>
             <Label>primary</Label>
@@ -237,12 +236,12 @@ const TypeDeprecatedArticle = () => {
             <Label>tertiary</Label>
           </Cell>
           <Cell>
-            <AtomButtom type="tertiary">button</AtomButtom>
+            <AtomButton type="tertiary">button</AtomButton>
           </Cell>
           <Cell>
-            <AtomButtom color="primary" design="flat">
+            <AtomButton color="primary" design="flat">
               button
-            </AtomButtom>
+            </AtomButton>
           </Cell>
           <Cell style={flexCenteredStyle}>
             <Label>primary</Label>

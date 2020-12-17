@@ -21,14 +21,13 @@ const createClasses = (array, sufix = '') =>
   array.reduce((res, key) => ({...res, [key]: `${CLASS}--${key}${sufix}`}), {})
 
 const CLASSES = createClasses([
-  ...TYPES,
+  ...COLORS,
   ...Object.values(DESIGNS),
   ...Object.values(ALIGNMENT),
   ...MODIFIERS,
   ...Object.values(SIZES),
   'empty'
 ])
-const COLOR_CLASSES = createClasses(COLORS, 'Color')
 
 /**
  * Get props cleaning out AtomButton own props
@@ -160,7 +159,7 @@ const AtomButton = props => {
 
   const classNames = cx(
     CLASS,
-    COLOR_CLASSES[color],
+    CLASSES[color],
     CLASSES[design],
     alignment && CLASSES[alignment],
     groupPosition && `${CLASS}-group ${CLASS}-group--${groupPosition}`,

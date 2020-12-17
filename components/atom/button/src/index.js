@@ -54,9 +54,8 @@ const getModifiers = props => {
 function deprecated(
   validator,
   callback = (props, propName, componentName) => {
-    console.warn(
-      `The prop ${'\x1b[32m'}${propName}${'\u001b[39m'} is DEPRECATED on ${'\x1b[32m'}${componentName}${'\u001b[39m'}.`
-    )
+    const deprecatedMessage = `The prop ${'\x1b[32m'}${propName}${'\u001b[39m'} is DEPRECATED on ${'\x1b[32m'}${componentName}${'\u001b[39m'}.`
+    console.warn(deprecatedMessage)
   }
 ) {
   return function deprecated(props, propName, componentName, ...rest) {
@@ -261,12 +260,9 @@ AtomButton.propTypes = {
    * DEPRECATED. Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary'
    */
   type: deprecated(PropTypes.oneOf(TYPES), (props, propName, componentName) => {
-    console.groupCollapsed(
-      `The prop ${'\x1b[32m'}${propName}${'\u001b[39m'} is DEPRECATED on ${'\x1b[32m'}${componentName}${'\u001b[39m'}. You should use now ${'\x1b[32m'}design${'\u001b[39m'} and ${'\x1b[32m'}color${'\u001b[39m'} props.`
-    )
-    console.warn(
-      `The prop ${'\x1b[32m'}${propName}${'\u001b[39m'} is DEPRECATED on ${'\x1b[32m'}${componentName}${'\u001b[39m'}. You should use now ${'\x1b[32m'}design${'\u001b[39m'} and ${'\x1b[32m'}color${'\u001b[39m'} props.`
-    )
+    const deprecatedMessage = `The prop ${'\x1b[32m'}${propName}${'\u001b[39m'} is DEPRECATED on ${'\x1b[32m'}${componentName}${'\u001b[39m'}. You should use now ${'\x1b[32m'}design${'\u001b[39m'} and ${'\x1b[32m'}color${'\u001b[39m'} props.`
+    console.groupCollapsed(deprecatedMessage)
+    console.warn(deprecatedMessage)
     console.table(TYPES_CONVERSION)
     console.groupEnd()
   }),

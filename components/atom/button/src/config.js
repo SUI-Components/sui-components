@@ -111,3 +111,10 @@ export const ATOM_ICON_SIZES_MAPPER = {
   small: 'small',
   large: 'medium'
 }
+
+export const TYPES_CONVERSION = {
+  primary: {design: DESIGNS.SOLID, color: 'primary'},
+  accent: {design: DESIGNS.SOLID, color: 'accent'},
+  secondary: {design: DESIGNS.OUTLINE, color: 'primary'},
+  tertiary: {design: DESIGNS.FLAT, color: 'primary'}
+}

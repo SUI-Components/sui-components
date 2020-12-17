@@ -261,7 +261,7 @@ $icon-stroke-color: currentColor !default;
     $color: nth($pair, 1);
     $color-invert: nth($pair, 2);
 
-    &--#{$name}Color {
+    &--#{$name} {
       &#{$base-class}--solid {
         background: $color;
         border-color: $color;
@@ -420,5 +420,3 @@ $icon-stroke-color: currentColor !default;
     }
   }
 }
-
-@import './deprecated';

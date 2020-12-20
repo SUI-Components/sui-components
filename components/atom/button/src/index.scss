@@ -92,6 +92,7 @@ $fw-atom-button-large: $fw-semi-bold !default;
 $icon-sz-atom-button-large: $sz-icon-m !default;
 $icon-m-atom-button-large: $m-m !default;
 $p-atom-button-large: $p-l !default;
+$m-consecutive-atom-button: $m-m !default;
 
 $bd-atom-button-group-focused: 1px solid !default;
 $bdrs-atom-button-first: $bdrs-m 0 0 $bdrs-m !default;
@@ -162,7 +163,7 @@ $icon-stroke-color: currentColor !default;
   white-space: nowrap;
 
   & + & {
-    margin-left: $m-m;
+    margin-left: $m-consecutive-atom-button;
   }
 
   &-group {

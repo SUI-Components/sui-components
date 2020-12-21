@@ -157,7 +157,7 @@ MoleculeDropdownOption.propTypes = {
   withTwoLinesText: PropTypes.bool,
 
   /** Text wrapping options */
-  textWrap: PropTypes.oneOf(TEXT_WRAP_STYLES)
+  textWrap: PropTypes.oneOf(Object.values(TEXT_WRAP_STYLES))
 }
 
 MoleculeDropdownOption.defaultProps = {

@@ -18,7 +18,10 @@ describe('atom/image', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {
+      src: '#',
+      alt: 'alt'
+    }
 
     // When
     const component = <Component {...props} />
@@ -31,7 +34,10 @@ describe('atom/image', () => {
 
   it('should NOT render null', () => {
     // Given
-    const props = {}
+    const props = {
+      src: '#',
+      alt: 'alt'
+    }
 
     // When
     const {container} = setup(props)

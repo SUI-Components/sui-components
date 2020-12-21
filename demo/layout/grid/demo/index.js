@@ -1,7 +1,7 @@
 import LayoutGrid, {
   LayoutGridItem,
-  ALIGN_ITEMS,
-  JUSTIFY_CONTENT
+  LayoutGridAlignItems,
+  LayoutGridJustifyContent
 } from '../../../../components/layout/grid/src'
 import DemoBox from './demoBox'
 import DemoWrapper from './demoWrapper'
@@ -184,7 +184,7 @@ export default () => (
           <code className="sui-Studio-code">space-between</code>
         </p>
         <p className="sui-Studio-p">___</p>
-        {JUSTIFY_CONTENT.map(justifyContent => (
+        {Object.values(LayoutGridJustifyContent).map(justifyContent => (
           <div key={justifyContent}>
             <p className="sui-Studio-p">
               <code className="sui-Studio-code">{justifyContent}</code>
@@ -215,7 +215,7 @@ export default () => (
           <code className="sui-Studio-code">space-between</code>
         </p>
         <p className="sui-Studio-p">___</p>
-        {ALIGN_ITEMS.map(alignItems => (
+        {Object.values(LayoutGridAlignItems).map(alignItems => (
           <div key={alignItems}>
             <p className="sui-Studio-p">
               <code className="sui-Studio-code">{alignItems}</code>

@@ -1,52 +1,16 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+
 import ActionableTag from './Actionable'
 import StandardTag from './Standard'
-
-const ACTIONABLE_ONLY_PROPS = [
-  'href',
-  'iconPlacement',
-  'target',
-  'actionable',
-  'linkFactory',
-  'rel'
-]
-
-const STANDARD_ONLY_PROPS = ['closeIcon', 'onClose']
-
-const SIZES = {
-  LARGE: 'large',
-  MEDIUM: 'medium',
-  SMALL: 'small'
-}
-
-const LINK_TYPES = {
-  NOFOLLOW: 'nofollow',
-  NOOPENER: 'noopener',
-  NOREFERRER: 'noreferrer',
-  PREV: 'prev',
-  NEXT: 'next',
-  TAG: 'tag'
-}
-
-export const DESIGNS = {
-  SOLID: 'solid',
-  OUTLINE: 'outline'
-}
-
-/**
- * returns key:value in obj except for those keys defined in props
- * @param {Object} obj
- * @param {Array.<string>} props
- * @return {Object}
- */
-const filterKeys = (obj, listOfProps) =>
-  Object.keys(obj).reduce((acc, key) => {
-    if (listOfProps.indexOf(key) === -1) {
-      acc[key] = obj[key]
-    }
-    return acc
-  }, {})
+import {
+  ACTIONABLE_ONLY_PROPS,
+  STANDARD_ONLY_PROPS,
+  SIZES,
+  LINK_TYPES,
+  DESIGNS
+} from './constants'
+import {filterKeys} from './helpers'
 
 const AtomTag = props => {
   const {design, href, icon, onClick, responsive, size, type} = props
@@ -80,10 +44,6 @@ const AtomTag = props => {
 }
 
 AtomTag.displayName = 'AtomTag'
-
-AtomTag.defaultProps = {
-  iconPlacement: 'left'
-}
 
 AtomTag.propTypes = {
   label: PropTypes.string.isRequired,
@@ -137,6 +97,7 @@ AtomTag.propTypes = {
 }
 
 AtomTag.defaultProps = {
+  iconPlacement: 'left',
   size: SIZES.MEDIUM
 }
 

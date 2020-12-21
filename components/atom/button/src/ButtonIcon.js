@@ -41,5 +41,5 @@ export default function ButtonIcon({children, position, size}) {
 ButtonIcon.propTypes = {
   children: PropTypes.element,
   position: PropTypes.oneOf(Object.values(ICON_POSITIONS)),
-  size: PropTypes.oneOf(SIZES)
+  size: PropTypes.oneOf(Object.values(SIZES))
 }

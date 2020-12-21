@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import ActionableTagContainer from './Container'
-import {linkTypes as LINK_TYPES} from '../index'
+import {LINK_TYPES} from '../constants'
 
 const RIGHT_ICON_PLACEMENT = 'right'
 const LEFT_ICON_PLACEMENT = 'left'

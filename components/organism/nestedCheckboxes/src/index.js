@@ -1,4 +1,4 @@
-import {element, useState} from 'react'
+import {useState} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -73,7 +73,7 @@ OrganismNestedCheckboxes.displayName = 'OrganismNestedCheckboxes'
 
 OrganismNestedCheckboxes.propTypes = {
   /** children */
-  children: element.isRequired,
+  children: PropTypes.element.isRequired,
   /* Used for the label and element identifier */
   id: PropTypes.string.isRequired,
 

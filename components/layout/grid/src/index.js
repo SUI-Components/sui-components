@@ -24,13 +24,17 @@ LayoutGrid.propTypes = {
   /**
    * Sets the align-self value on all direct children as a group. It's applied for all screen sizes.
    */
-  alignItems: PropTypes.oneOf(ALIGN_ITEMS),
+  alignItems: PropTypes.oneOf(Object.values(ALIGN_ITEMS)),
   /**
    * Distribute space between and around content items. It's applied for all screen sizes.
    */
-  justifyContent: PropTypes.oneOf(JUSTIFY_CONTENT)
+  justifyContent: PropTypes.oneOf(Object.values(JUSTIFY_CONTENT))
 }
 
 export default LayoutGrid
 
-export {LayoutGridItem, ALIGN_ITEMS, JUSTIFY_CONTENT}
+export {
+  LayoutGridItem,
+  ALIGN_ITEMS as LayoutGridAlignItems,
+  JUSTIFY_CONTENT as LayoutGridJustifyContent
+}

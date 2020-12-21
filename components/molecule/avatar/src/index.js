@@ -11,7 +11,7 @@ import AvatarBadge, {
   AVATAR_BADGE_SIZES
 } from './AvatarBadge'
 
-const AVATAR_SIZES = {
+export const AVATAR_SIZES = {
   XXLARGE: 'xxlarge',
   XLARGE: 'xlarge',
   LARGE: 'large',

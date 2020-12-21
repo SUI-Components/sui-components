@@ -77,43 +77,23 @@ const typeConversion = ({type, design, color, link, href, ...other}) => {
   switch (type) {
     case 'primary':
       result.color = color || 'primary'
-      result.design = design
-        ? design
-        : link || href
-        ? DESIGNS.LINK
-        : DESIGNS.SOLID
+      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID)
       break
     case 'accent':
       result.color = color || 'accent'
-      result.design = design
-        ? design
-        : link || href
-        ? DESIGNS.LINK
-        : DESIGNS.SOLID
+      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID)
       break
     case 'secondary':
       result.color = color || 'primary'
-      result.design = design
-        ? design
-        : link || href
-        ? DESIGNS.LINK
-        : DESIGNS.OUTLINE
+      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.OUTLINE)
       break
     case 'tertiary':
       result.color = color || 'primary'
-      result.design = design
-        ? design
-        : link || href
-        ? DESIGNS.LINK
-        : DESIGNS.FLAT
+      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.FLAT)
       break
     default:
       result.color = color || 'primary'
-      result.design = design
-        ? design
-        : link || href
-        ? DESIGNS.LINK
-        : DESIGNS.SOLID
+      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID)
       break
   }
   return result
@@ -131,7 +111,7 @@ const getPropsWithDefaultValues = ({
   ...other,
   link,
   type: undefined,
-  design: design ? design : link || href ? DESIGNS.LINK : DESIGNS.SOLID,
+  design: design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID),
   color: color || 'colors',
   alignment: alignment || ALIGNMENT.CENTER
 })

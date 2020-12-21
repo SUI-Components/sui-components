@@ -11,7 +11,7 @@ import AvatarBadge, {
   AVATAR_BADGE_SIZES
 } from './AvatarBadge'
 
-export const AVATAR_SIZES = {
+const AVATAR_SIZES = {
   XXLARGE: 'xxlarge',
   XLARGE: 'xlarge',
   LARGE: 'large',
@@ -88,6 +88,7 @@ MoleculeAvatar.propTypes = {
 }
 MoleculeAvatar.Badge = AvatarBadge
 
+export {AVATAR_SIZES as MOLECULE_AVATAR_SIZES}
 export {AVATAR_BADGE_STATUSES as MOLECULE_AVATAR_BADGE_STATUSES}
 export {AVATAR_BADGE_PLACEMENTS as MOLECULE_AVATAR_BADGE_PLACEMENTS}
 export {AVATAR_BADGE_SIZES as MOLECULE_AVATAR_BADGE_SIZES}

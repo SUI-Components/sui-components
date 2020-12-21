@@ -8,10 +8,9 @@ import {
   STANDARD_ONLY_PROPS,
   SIZES,
   LINK_TYPES,
-  DESIGNS,
+  DESIGNS
 } from './constants'
 import {filterKeys} from './helpers'
-
 
 const AtomTag = props => {
   const {design, href, icon, onClick, responsive, size, type} = props

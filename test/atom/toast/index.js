@@ -18,7 +18,9 @@ describe('atom/toast', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {
+      children: 'children'
+    }
 
     // When
     const component = <Component {...props} />
@@ -31,7 +33,9 @@ describe('atom/toast', () => {
 
   it('should NOT render null', () => {
     // Given
-    const props = {}
+    const props = {
+      children: 'children'
+    }
 
     // When
     const {container} = setup(props)

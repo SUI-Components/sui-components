@@ -18,7 +18,10 @@ describe('atom/switch', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {
+      name: 'name',
+      label: 'label'
+    }
 
     // When
     const component = <Component {...props} />
@@ -31,7 +34,10 @@ describe('atom/switch', () => {
 
   it('should NOT render null', () => {
     // Given
-    const props = {}
+    const props = {
+      name: 'name',
+      label: 'label'
+    }
 
     // When
     const {container} = setup(props)

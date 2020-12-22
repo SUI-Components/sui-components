@@ -8,8 +8,8 @@ import {
 const isValidPage = (props, propName, componentName) => {
   const page = props[propName]
   const {totalPages} = props
-  if (!page)
-    return new Error(getMessageErrorRequired({propName, componentName}))
+  if (page === undefined)
+    return null
   if (typeof page !== 'number')
     return new Error(getMessageErrorNumber({propName, componentName}))
   if (page <= 0)

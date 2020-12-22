@@ -8,8 +8,7 @@ import {
 const isValidShowPages = (props, propName, componentName) => {
   const showPages = props[propName]
   const {totalPages} = props
-  if (!showPages)
-    return new Error(getMessageErrorRequired({propName, componentName}))
+  if (showPages === undefined) return null
   if (typeof showPages !== 'number')
     return new Error(getMessageErrorNumber({propName, componentName}))
   if (showPages <= 0)

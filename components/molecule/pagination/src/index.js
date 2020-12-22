@@ -44,11 +44,13 @@ PageButton.propTypes = {
 const defaultCreateUrl = ({pageNumber, urlPattern}) =>
   urlPattern.replace(PAGE_NUMBER_HOLDER, pageNumber)
 
+const noop = () => {}
+
 const MoleculePagination = ({
-  onSelectNext = () => {},
-  onSelectPage = () => {},
-  onSelectPrev = () => {},
-  page,
+  onSelectNext = noop,
+  onSelectPage = noop,
+  onSelectPrev = noop,
+  page = 1,
   totalPages,
   showPages = 10,
   prevButtonText = 'Previous',

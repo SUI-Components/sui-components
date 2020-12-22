@@ -203,13 +203,10 @@ $icon-stroke-color: currentColor !default;
     display: inline-flex;
     height: 100%;
     pointer-events: none;
+    justify-content: center;
   }
 
   &--loading {
-    #{$base-class}-inner {
-      justify-content: center;
-    }
-
     #{$base-class}-text {
       opacity: 0;
     }
@@ -221,7 +218,7 @@ $icon-stroke-color: currentColor !default;
   &-centerIcon {
     display: inline-flex;
 
-    // add compatibility with SuiAtomIcon with correct alignment
+    // Add compatibility with SuiAtomIcon with correct alignment
     .sui-AtomIcon {
       display: inline-flex;
     }
@@ -234,17 +231,25 @@ $icon-stroke-color: currentColor !default;
 
   &-centerIcon {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   &#{$base-class}--link:not(#{$base-class}--solid):not(#{$base-class}--outline):not(#{$base-class}--flat) {
-    background: transparent;
-
-    border: none;
     @include link();
-    padding: 0;
+    background: transparent;
+    border: none;
+    height: auto;
     justify-content: center;
+    padding: 0;
     text-align: center;
     text-decoration: none;
+
+    #{$base-class}-inner {
+      display: inline;
+    }
+
     @include button-focused {
       background: transparent;
     }

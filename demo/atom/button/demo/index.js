@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
+import './index.scss'
 
 import {useState, Fragment} from 'react'
 
@@ -478,13 +479,28 @@ const Demo = () => {
         </div>
         <Article>
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea <AtomButton design="link">commodo</AtomButton>{' '}
+          eiusmod tempor incididunt{' '}
+          <AtomButton link href="#">
+            link with anchor
+          </AtomButton>{' '}
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+          nostrud exercitation ullamco laboris nisi ut aliquip ex ea{' '}
+          <AtomButton design="link" onClick={() => console.log('ON CLICK')}>
+            link design without anchor
+          </AtomButton>{' '}
           consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-          esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-          cupidatat non <a href="#">proident</a>, sunt in culpa qui officia
-          deserunt mollit anim id est laborum."
+          esse cillum dolore{' '}
+          <AtomButton
+            design="link"
+            onClick={() => console.log('ON CLICK')}
+            className="AtomButtonLinkEllipsis"
+          >
+            link design without anchor and ellipsis styles set directly to that
+            component
+          </AtomButton>{' '}
+          eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non{' '}
+          <a href="#">proident</a>, sunt in culpa qui officia deserunt mollit
+          anim id est laborum."
         </Article>
       </Article>
       <br />

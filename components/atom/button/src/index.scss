@@ -246,6 +246,13 @@ $icon-stroke-color: currentColor !default;
     text-align: center;
     text-decoration: none;
 
+    &#{$base-class}-ellipsis {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     #{$base-class}-inner {
       display: inline;
     }

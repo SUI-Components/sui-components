@@ -124,6 +124,7 @@ const AtomButton = props => {
     color,
     design,
     disabled,
+    ellipsis,
     isLoading,
     focused,
     groupPosition,
@@ -141,6 +142,7 @@ const AtomButton = props => {
     CLASSES[color],
     CLASSES[design],
     alignment && CLASSES[alignment],
+    ellipsis && `${CLASS}-ellipsis`,
     groupPosition && `${CLASS}-group ${CLASS}-group--${groupPosition}`,
     groupPosition && focused && `${CLASS}-group--focused`,
     size && CLASSES[size],
@@ -220,6 +222,10 @@ AtomButton.propTypes = {
    * 'social-instagram'
    */
   color: PropTypes.oneOf(COLORS),
+  /**
+   * If true set ellipsis styles, only if it has link design
+   */
+  ellipsis: PropTypes.bool,
   /**
    * HTML element: if true, render a link. Otherwise render a button
    */

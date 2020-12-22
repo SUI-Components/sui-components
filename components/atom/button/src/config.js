@@ -86,6 +86,7 @@ export const OWN_PROPS = [
   'className',
   'color',
   'design',
+  'ellipsis',
   'focused',
   'fullWidth',
   'alignment',

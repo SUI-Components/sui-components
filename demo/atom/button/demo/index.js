@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 import './index.scss'
-
 import {useState, Fragment} from 'react'
 
 import AtomButton, {
@@ -490,14 +489,16 @@ const Demo = () => {
           </AtomButton>{' '}
           consequat. Duis aute irure dolor in reprehenderit in voluptate velit
           esse cillum dolore{' '}
-          <AtomButton
-            design="link"
-            onClick={() => console.log('ON CLICK')}
-            className="AtomButtonLinkEllipsis"
-          >
-            link design without anchor and ellipsis styles set directly to that
-            component
-          </AtomButton>{' '}
+          <div className="AtomButtonLinkEllipsisWrapper">
+            <AtomButton
+              ellipsis
+              design="link"
+              onClick={() => console.log('ON CLICK')}
+            >
+              link design without anchor and ellipsis styles set directly to
+              that component
+            </AtomButton>
+          </div>{' '}
           eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non{' '}
           <a href="#">proident</a>, sunt in culpa qui officia deserunt mollit
           anim id est laborum."

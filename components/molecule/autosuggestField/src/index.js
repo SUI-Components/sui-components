@@ -74,7 +74,7 @@ MoleculeAutosuggestField.propTypes = {
   label: PropTypes.string.isRequired,
 
   /** used as label for attribute and Autosuggest element id */
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   /** Success message to display when success state  */
   successText: PropTypes.string,

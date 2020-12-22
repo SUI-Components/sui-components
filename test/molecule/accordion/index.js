@@ -19,7 +19,15 @@ describe('molecule/accordion', () => {
   it('should render without crashing', () => {
     // Given
     const props = {
-      children: [<div key={0}>element 1</div>, <div key={1}>element 2</div>]
+      children: [
+        <div key={0} label="label 1">
+          element 1
+        </div>,
+        <div key={1} label="label 2">
+          element 2
+        </div>
+      ],
+      icon: <svg />
     }
 
     // When
@@ -34,7 +42,15 @@ describe('molecule/accordion', () => {
   it('should NOT render null', () => {
     // Given
     const props = {
-      children: [<div key={0}>element 1</div>, <div key={1}>element 2</div>]
+      children: [
+        <div key={0} label="label 1">
+          element 1
+        </div>,
+        <div key={1} label="label 2">
+          element 2
+        </div>
+      ],
+      icon: <svg />
     }
 
     // When

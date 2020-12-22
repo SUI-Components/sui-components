@@ -75,7 +75,7 @@ OrganismNestedCheckboxes.propTypes = {
   /** children */
   children: PropTypes.element.isRequired,
   /* Used for the label and element identifier */
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   /* Icon to show on items and on parent when all items are checked */
   checkedIcon: PropTypes.elementType,

@@ -19,7 +19,7 @@ describe('molecule/dataCounter', () => {
   it('should render without crashing', () => {
     // Given
     const props = {
-      charSize: 10,
+      charsSize: 10,
       label: 'label',
       minValueHelpText: 'minValueHelpText',
       minValueErrorText: 'minValueErrorText',
@@ -39,7 +39,7 @@ describe('molecule/dataCounter', () => {
   it('should NOT render null', () => {
     // Given
     const props = {
-      charSize: 10,
+      charsSize: 10,
       label: 'label',
       minValueHelpText: 'minValueHelpText',
       minValueErrorText: 'minValueErrorText',

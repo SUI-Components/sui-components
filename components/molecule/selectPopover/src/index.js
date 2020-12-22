@@ -134,7 +134,7 @@ MoleculeSelectPopover.propTypes = {
   cancelButtonText: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   hideActions: PropTypes.bool,
-  iconArrowDown: PropTypes.node.isRequired,
+  iconArrowDown: PropTypes.elementType.isRequired,
   isSelected: PropTypes.bool,
   onAccept: PropTypes.func,
   onCancel: PropTypes.func,

@@ -18,7 +18,12 @@ describe('molecule/collapsible', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {
+      hideText: 'hideText',
+      icon: <svg />,
+      showText: 'showText',
+      children: 'children'
+    }
 
     // When
     const component = <Component {...props} />
@@ -31,7 +36,12 @@ describe('molecule/collapsible', () => {
 
   it('should NOT render null', () => {
     // Given
-    const props = {}
+    const props = {
+      hideText: 'hideText',
+      icon: <svg />,
+      showText: 'showText',
+      children: 'children'
+    }
 
     // When
     const {container} = setup(props)

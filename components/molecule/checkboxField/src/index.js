@@ -58,7 +58,7 @@ MoleculeCheckboxField.propTypes = {
   nodeLabel: PropTypes.element,
 
   /** used as label for attribute and input element id */
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   /** Makes MoleculeField full width */
   fullWidth: PropTypes.bool,

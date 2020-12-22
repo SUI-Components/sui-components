@@ -10,6 +10,8 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
+import {uploadStatuses} from '../../../components/atom/upload'
+
 chai.use(chaiDOM)
 
 describe('atom/upload', () => {
@@ -18,7 +20,9 @@ describe('atom/upload', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {
+      status: uploadStatuses.ACTIVE
+    }
 
     // When
     const component = <Component {...props} />
@@ -31,7 +35,9 @@ describe('atom/upload', () => {
 
   it('should render null', () => {
     // Given
-    const props = {}
+    const props = {
+      status: uploadStatuses.ACTIVE
+    }
 
     // When
     const {container} = setup(props)

@@ -342,7 +342,7 @@ MoleculePhotoUploader.propTypes = {
   acceptedFileMaxSize: PropTypes.number,
 
   /** Icon placed in skeleton placed after thumbails */
-  addMorePhotosIcon: PropTypes.node.isRequired,
+  addMorePhotosIcon: PropTypes.func.isRequired,
 
   /** Button color of the initial state button */
 

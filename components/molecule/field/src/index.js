@@ -22,7 +22,7 @@ const MoleculeLabel = ({
   nodeLabel,
   type: typeValidationLabel,
   name,
-  onClickLabel
+  onClick
 }) => {
   const innerLabel = () => {
     if (label) {
@@ -31,14 +31,14 @@ const MoleculeLabel = ({
           type={typeValidationLabel}
           name={name}
           text={label}
-          onClick={onClickLabel}
+          onClick={onClick}
         />
       )
     } else if (nodeLabel) {
       return cloneElement(nodeLabel, {
         type: typeValidationLabel,
         name,
-        onClickLabel
+        onClick
       })
     }
   }
@@ -50,7 +50,7 @@ MoleculeLabel.propTypes = {
   nodeLabel: PropTypes.element,
   type: PropTypes.oneOf(Object.values(AtomLabelTypes)),
   name: PropTypes.string,
-  onClickLabel: PropTypes.func
+  onClick: PropTypes.func
 }
 
 const MoleculeField = ({

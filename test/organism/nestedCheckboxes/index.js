@@ -10,8 +10,6 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
-import MoleculeCheckboxField from '../../../components/molecule/checkboxField'
-
 chai.use(chaiDOM)
 
 describe('organism/nestedCheckboxes', () => {

@@ -64,7 +64,7 @@ const MoleculeAvatar = ({
     <span
       style={{
         ...style,
-        backgroundColor
+        ...(!src && {backgroundColor})
       }}
       className={className}
       {...others}

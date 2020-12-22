@@ -59,6 +59,18 @@ return (
       />
     </div>
 
+    <h2>Broken image</h2>
+    <div style={{display: 'flex'}}>
+      <MoleculeAvatar
+        style={{marginRight: '8px'}}
+        src="https://static/x.png"
+      />
+      <MoleculeAvatar
+        name="Jon Snow"
+        src="https://static/x.png"
+      />
+    </div>
+
     <h2>Loading</h2>
     <div style={{display: 'flex'}}>
       <MoleculeAvatar isLoading />

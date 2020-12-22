@@ -16,7 +16,7 @@ const CLASS_ERROR = `${BASE_CLASS}-error`
 const Error = ({className, icon: Icon, text}) => (
   <div className={className}>
     {Icon}
-    <p>{text}</p>
+    {Boolean(text) && <p>{text}</p>}
   </div>
 )
 

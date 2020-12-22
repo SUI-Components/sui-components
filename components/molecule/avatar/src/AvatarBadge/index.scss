@@ -16,6 +16,8 @@ $bw-avatar-badge: (
   xsmall: 1px
 ) !default;
 
+$bdc-avatar-badge: white !default;
+
 .sui-MoleculeAvatarBadge {
   border-radius: $bdrs-rounded;
   position: absolute;
@@ -49,7 +51,7 @@ $bw-avatar-badge: (
 
   @each $key-size, $bw in $bw-avatar-badge {
     &--#{$key-size} {
-      border: $bw solid;
+      border: $bw solid $bdc-avatar-badge;
     }
   }
 }

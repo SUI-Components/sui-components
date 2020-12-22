@@ -14,7 +14,7 @@ const MoleculeRadioButtonField = ({
   alertText,
   helpText,
   onChange,
-                                    onClickLabel,
+  onClickLabel,
   ...props
 }) => {
   return (

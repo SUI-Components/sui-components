@@ -75,7 +75,7 @@ MoleculeSelectField.propTypes = {
   helpText: PropTypes.string,
 
   /** used as label for attribute and Select element id */
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   /** Boolean to decide if elements should be set inline */
   inline: PropTypes.bool,

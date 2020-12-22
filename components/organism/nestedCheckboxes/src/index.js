@@ -73,7 +73,7 @@ OrganismNestedCheckboxes.displayName = 'OrganismNestedCheckboxes'
 
 OrganismNestedCheckboxes.propTypes = {
   /** children */
-  children: PropTypes.element.isRequired,
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
   /* Used for the label and element identifier */
   id: PropTypes.string,
 

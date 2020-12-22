@@ -21,5 +21,7 @@ const BehaviorSticky = ({children, animate, ...props}) => {
 
 BehaviorSticky.displayName = 'BehaviorSticky'
 
+BehaviorSticky.BehaviorStickyProvider = BehaviorStickyProvider
+
 export default BehaviorSticky
 export {BehaviorStickyProvider}

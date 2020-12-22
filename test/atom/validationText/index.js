@@ -18,7 +18,10 @@ describe('atom/validationText', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {
+      type: 'success',
+      text: 'text'
+    }
 
     // When
     const component = <Component {...props} />
@@ -31,7 +34,10 @@ describe('atom/validationText', () => {
 
   it('should NOT render null', () => {
     // Given
-    const props = {}
+    const props = {
+      type: 'success',
+      text: 'text'
+    }
 
     // When
     const {container} = setup(props)

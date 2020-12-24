@@ -20,7 +20,7 @@ describe('atom/actionButton', () => {
   it('should render without crashing', () => {
     // Given
     const props = {
-      icon: <Icon />,
+      icon: <Icon />
     }
 
     // When
@@ -35,7 +35,7 @@ describe('atom/actionButton', () => {
   it('should NOT render null', () => {
     // Given
     const props = {
-      icon: <Icon />,
+      icon: <Icon />
     }
 
     // When

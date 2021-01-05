@@ -12,7 +12,8 @@
     "@s-ui/react-atom-input": "4"
   },
   "peerDependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "1",
+    "@s-ui/react-hooks": "1"
   },
   "keywords": [],
   "author": "",

@@ -2,7 +2,7 @@ import {lazy, useState, useEffect, useRef, useCallback, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import markerFactory from './markerFactory'
-import createHandler from '../createHandler'
+import createHandler from './createHandler'
 
 const BASE_CLASS = `sui-AtomSlider`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`

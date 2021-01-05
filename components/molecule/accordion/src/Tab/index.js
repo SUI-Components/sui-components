@@ -82,7 +82,7 @@ Tab.propTypes = {
   /**
    * Icon to be added on the right of the content
    */
-  icon: PropTypes.node.isRequired,
+  icon: PropTypes.node,
   /**
    * Title tab
    */

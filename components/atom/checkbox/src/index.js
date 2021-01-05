@@ -68,7 +68,7 @@ AtomCheckbox.displayName = 'AtomCheckbox'
 
 AtomCheckbox.propTypes = {
   /* The DOM id global attribute. */
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   /* Name attribute for the input */
   name: PropTypes.string,
@@ -92,7 +92,7 @@ AtomCheckbox.propTypes = {
   isNative: PropTypes.bool,
 
   /* onChange callback */
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func
 }
 
 export default AtomCheckbox

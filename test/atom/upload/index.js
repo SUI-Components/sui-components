@@ -18,7 +18,9 @@ describe('atom/upload', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {
+      status: 'active'
+    }
 
     // When
     const component = <Component {...props} />
@@ -31,7 +33,9 @@ describe('atom/upload', () => {
 
   it('should render null', () => {
     // Given
-    const props = {}
+    const props = {
+      status: 'active'
+    }
 
     // When
     const {container} = setup(props)

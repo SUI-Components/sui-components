@@ -13,7 +13,12 @@ import chaiDOM from 'chai-dom'
 chai.use(chaiDOM)
 
 describe('behavior/sticky', () => {
-  const Component = BehaviorSticky
+  const {BehaviorStickyProvider} = BehaviorSticky
+  const Component = props => (
+    <BehaviorStickyProvider>
+      <BehaviorSticky {...props} />
+    </BehaviorStickyProvider>
+  )
   const setup = setupEnvironment(Component)
 
   it('should render without crashing', () => {

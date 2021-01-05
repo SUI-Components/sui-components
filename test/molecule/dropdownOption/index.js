@@ -18,7 +18,7 @@ describe('molecule/dropdownOption', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {value: 'value'}
 
     // When
     const component = <Component {...props} />
@@ -31,7 +31,7 @@ describe('molecule/dropdownOption', () => {
 
   it('should NOT render null', () => {
     // Given
-    const props = {}
+    const props = {value: 'value'}
 
     // When
     const {container} = setup(props)

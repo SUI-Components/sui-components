@@ -14,6 +14,7 @@ const MoleculeRadioButtonField = ({
   alertText,
   helpText,
   onChange,
+  onClickLabel,
   ...props
 }) => {
   return (
@@ -27,6 +28,7 @@ const MoleculeRadioButtonField = ({
         alertText={alertText}
         helpText={helpText}
         onChange={onChange}
+        onClickLabel={onClickLabel}
         inline
         reverse
       >
@@ -46,10 +48,13 @@ MoleculeRadioButtonField.propTypes = {
   nodeLabel: PropTypes.element,
 
   /** used as label for attribute and input element id */
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   /* onChange callback */
   onChange: PropTypes.func,
+
+  /* onClickLabel callback */
+  onClickLabel: PropTypes.func,
 
   /** Success message to display when success state  */
   successText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),

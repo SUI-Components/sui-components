@@ -1,7 +1,8 @@
-import {lazy, useState, useEffect, useRef, Suspense} from 'react'
+import {lazy, useState, useEffect, useRef, useCallback, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import markerFactory from './markerFactory'
+import createHandler from '../createHandler'
 
 const BASE_CLASS = `sui-AtomSlider`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
@@ -9,35 +10,7 @@ const CLASS_INVERSE = `${BASE_CLASS}--inverse`
 
 const Range = lazy(() => import('rc-slider/lib/Range'))
 const Slider = lazy(() => import('rc-slider/lib/Slider'))
-const Tooltip = lazy(() => import('rc-tooltip'))
 const Label = lazy(() => import('./Label'))
-
-const createHandler = (
-  refAtomSlider,
-  handleComponent,
-  hideTooltip
-) => props => {
-  const {value, index, dragging, ...restProps} = props // eslint-disable-line
-  const {component: Handle} = handleComponent
-
-  if (hideTooltip) {
-    return (
-      <Handle value={value} {...restProps} dragging={dragging.toString()} />
-    )
-  }
-  return (
-    <Tooltip
-      getTooltipContainer={() => refAtomSlider.current}
-      key={index}
-      overlay={value}
-      placement="top"
-      prefixCls="rc-slider-tooltip"
-      visible
-    >
-      <Handle value={value} {...restProps} dragging={dragging.toString()} />
-    </Tooltip>
-  )
-}
 
 const AtomSlider = ({
   onChange,
@@ -72,27 +45,14 @@ const AtomSlider = ({
   }
 
   const [internalValue, setInternalValue] = useState(initialStateValue)
-  const [ready, setReady] = useState(false)
-  const [handleComponent, setHandle] = useState({component: null})
+
+  const createHandle = useCallback(createHandler, [refAtomSlider, hideTooltip])
 
   useEffect(() => {
-    if (!ready) {
-      // import Handle here and set it in the state as tooltip need this to be loaded
-      // before trying to be shown, otherwise, the reference is wrong
-      // and the tooltip is not positioned correctly
-      import('rc-slider/lib/Handle').then(({default: Handle}) => {
-        setHandle({component: Handle})
-        setReady(true)
-      })
-    }
     if (value !== undefined) {
       setInternalValue(range ? value.map(Number) : Number(value))
     }
-  }, [value, ready, range])
-
-  useEffect(() => {
-    return () => setReady(false)
-  }, [])
+  }, [value, range])
 
   const handleChange = newValue => {
     const e = {}
@@ -111,7 +71,7 @@ const AtomSlider = ({
   }
 
   const customProps = {
-    handle: createHandler(refAtomSlider, handleComponent, hideTooltip),
+    handle: createHandle(refAtomSlider, hideTooltip),
     onChange: handleChange,
     onAfterChange: handleAfterChange,
     disabled,
@@ -133,22 +93,20 @@ const AtomSlider = ({
         {[CLASS_INVERSE]: invertColors}
       )}
     >
-      {ready && (
-        <Suspense fallback={null}>
-          {valueLabel ? (
-            <>
-              <Label
-                value={internalValue}
-                formatter={valueLabelFormatter}
-                percentage={((internalValue - min) / (max - min)) * 100}
-              />
-              <Type {...customProps} />
-            </>
-          ) : (
+      <Suspense fallback={null}>
+        {valueLabel && customProps.handle ? (
+          <>
+            <Label
+              value={internalValue.toString()}
+              formatter={valueLabelFormatter}
+              percentage={((internalValue - min) / (max - min)) * 100}
+            />
             <Type {...customProps} />
-          )}
-        </Suspense>
-      )}
+          </>
+        ) : (
+          <Type {...customProps} />
+        )}
+      </Suspense>
     </div>
   )
 }

@@ -184,7 +184,7 @@ MoleculeDataCounter.propTypes = {
   label: PropTypes.string.isRequired,
 
   /** used as label for attribute and input element id */
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   /** width of input based in number of characters (native "size" attribute) */
   charsSize: PropTypes.number.isRequired,
@@ -199,10 +199,10 @@ MoleculeDataCounter.propTypes = {
   initialValue: PropTypes.number,
 
   /** max value allowed */
-  max: PropTypes.number.isRequired,
+  max: PropTypes.number,
 
   /** min value allowed */
-  min: PropTypes.number.isRequired,
+  min: PropTypes.number,
 
   /* callback to be called with every update of the input value */
   onChange: PropTypes.func,

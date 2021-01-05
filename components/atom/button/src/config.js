@@ -82,15 +82,17 @@ export const ICON_POSITIONS = {
 export const OWN_PROPS = [
   ...TYPES,
   ...SIZES,
+  'alignment',
   'children',
   'className',
   'color',
   'design',
   'focused',
   'fullWidth',
-  'alignment',
   'groupPosition',
+  'isLoading',
   'leftIcon',
+  'loadingText',
   'negative',
   'rightIcon',
   'type'

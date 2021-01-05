@@ -60,7 +60,7 @@ MoleculeInputField.propTypes = {
   label: PropTypes.string.isRequired,
 
   /** used as label for attribute and input element id */
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   /* onChange callback */
   onChange: PropTypes.func,

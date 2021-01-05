@@ -18,7 +18,6 @@ import MoleculeSelectMultipleSelection from './components/MultipleSelection'
 
 import {withOpenToggle} from '@s-ui/hoc'
 import {getTarget} from '@s-ui/js/lib/react'
-import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 
 const BASE_CLASS = `sui-MoleculeSelect`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
@@ -57,6 +56,8 @@ const MoleculeSelect = props => {
 
   const [optionsData, setOptionsData] = useState(getOptionData(children))
   const [focus, setFocus] = useState(false)
+
+  const options = refsMoleculeSelectOptions.current.map(getTarget)
 
   const extendedChildren = Children.toArray(children)
     .filter(Boolean)
@@ -116,7 +117,7 @@ const MoleculeSelect = props => {
     }
   }, [children, handleOutsideClick])
 
-  const focusFirstOption = (ev, {options}) => {
+  const focusFirstOption = ev => {
     options[0] && options[0].focus()
     ev.preventDefault()
     ev.stopPropagation()
@@ -131,34 +132,27 @@ const MoleculeSelect = props => {
   const handleKeyDown = ev => {
     ev.persist()
     const isEnabledKey = ENABLED_KEYS.includes(ev.key)
-    const options = refsMoleculeSelectOptions.current.map(getTarget)
     const domSourceEvent = ev.target
     const domMoleculeSelect = refMoleculeSelect.current
-
     if (!isOpen && isEnabledKey) {
       domSourceEvent === domMoleculeSelect && handleToggle(ev)
+      setTimeout(() => focusFirstOption(ev))
+    } else if (ev.key === 'Escape') {
+      closeList(ev, {isOutsideEvent: true})
     } else {
-      const currentElementFocused = getCurrentElementFocused()
-      const isSomeOptionFocused = [...options].includes(currentElementFocused)
-      const {key} = ev
-      if (key === 'Escape') closeList(ev, {isOutsideEvent: true})
-      if (key === 'ArrowDown' && !isSomeOptionFocused)
-        focusFirstOption(ev, {options})
-      const optionToFocusOn = Array.from(options).find(
-        option =>
-          option &&
-          option.innerText.charAt(0).toLowerCase() === key.toLowerCase()
-      )
-      optionToFocusOn && optionToFocusOn.focus()
+      setTimeout(() => focusFirstOption(ev))
     }
   }
 
-  const handleFocusOut = ev => {
-    setFocus(false)
-  }
+  const handleFocusOut = () => setFocus(false)
 
-  const handleFocusIn = () => {
-    !disabled && setFocus(true)
+  const handleFocusIn = () => !disabled && setFocus(true)
+
+  const handleClick = ev => {
+    ev.persist()
+    if (focus) {
+      setTimeout(() => focusFirstOption(ev))
+    }
   }
 
   const {multiselection, ...propsFromProps} = props
@@ -171,6 +165,7 @@ const MoleculeSelect = props => {
       onKeyDown={handleKeyDown}
       onFocus={handleFocusIn}
       onBlur={handleFocusOut}
+      onClick={handleClick}
     >
       {multiselection ? (
         <MoleculeSelectMultipleSelection

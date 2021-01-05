@@ -49,6 +49,7 @@ const MoleculeSelect = props => {
     state,
     disabled,
     keysSelection,
+    multiselection,
     refMoleculeSelect: refMoleculeSelectFromProps
   } = props
   const refMoleculeSelect = useRef(refMoleculeSelectFromProps)
@@ -155,8 +156,6 @@ const MoleculeSelect = props => {
     }
   }
 
-  const {multiselection, ...propsFromProps} = props
-
   return (
     <div
       ref={refMoleculeSelect}
@@ -171,7 +170,7 @@ const MoleculeSelect = props => {
         <MoleculeSelectMultipleSelection
           refMoleculeSelect={refMoleculeSelect}
           optionsData={optionsData}
-          {...propsFromProps}
+          {...props}
         >
           {extendedChildren}
         </MoleculeSelectMultipleSelection>
@@ -179,7 +178,7 @@ const MoleculeSelect = props => {
         <MoleculeSelectSingleSelection
           refMoleculeSelect={refMoleculeSelect}
           optionsData={optionsData}
-          {...propsFromProps}
+          {...props}
         >
           {extendedChildren}
         </MoleculeSelectSingleSelection>
@@ -220,7 +219,7 @@ MoleculeSelect.propTypes = {
   leftIcon: PropTypes.node,
 
   /** Icon for arrow in select (down direction when closed) */
-  iconArrowDown: PropTypes.node.isRequired,
+  iconArrowDown: PropTypes.node,
 
   /** size (height) of the list */
   size: PropTypes.oneOf(Object.values(SIZES)),

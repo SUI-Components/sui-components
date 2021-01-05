@@ -19,7 +19,8 @@ const MoleculeRadioButtonGroup = ({
 
   const handleChangeGroup = (e, {name, value: innerValue}) => {
     setValue(innerValue)
-    onChangeFromProps(e, {name, value: innerValue})
+    typeof onChangeFromProps === 'function' &&
+      onChangeFromProps(e, {name, value: innerValue})
   }
 
   const extendedChildren = Children.toArray(children)
@@ -55,7 +56,7 @@ MoleculeRadioButtonGroup.propTypes = {
   name: PropTypes.string,
 
   /* The DOM id global attribute. */
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   /* This Boolean attribute prevents the user from interacting with the input */
   disabled: PropTypes.bool,
@@ -64,7 +65,7 @@ MoleculeRadioButtonGroup.propTypes = {
   checked: PropTypes.bool,
 
   /* onChange callback */
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
 
   /* Value assigned to the radio button */
   value: PropTypes.string

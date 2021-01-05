@@ -19,12 +19,11 @@ describe('molecule/buttonGroupField', () => {
   it('should render without crashing', () => {
     // Given
     const props = {
-      children: (
-        <>
-          <div>BUTTON 1</div>
-          <div>BUTTON 2</div>
-        </>
-      )
+      label: 'label',
+      children: [
+        <AtomButton key={1}>BUTTON 1</AtomButton>,
+        <AtomButton key={2}>BUTTON 2</AtomButton>
+      ]
     }
 
     // When
@@ -39,12 +38,11 @@ describe('molecule/buttonGroupField', () => {
   it('should NOT render null', () => {
     // Given
     const props = {
-      children: (
-        <>
-          <div>BUTTON 1</div>
-          <div>BUTTON 2</div>
-        </>
-      )
+      label: 'label',
+      children: [
+        <AtomButton key={1}>BUTTON 1</AtomButton>,
+        <AtomButton key={2}>BUTTON 2</AtomButton>
+      ]
     }
 
     // When
@@ -60,13 +58,11 @@ describe('molecule/buttonGroupField', () => {
     const props = {
       id: 'testId',
       label: 'Test Label',
-      helpTest: 'Test description here',
-      children: (
-        <>
-          <div>BUTTON 1</div>
-          <div>BUTTON 2</div>
-        </>
-      )
+      helpText: 'Test description here',
+      children: [
+        <AtomButton key={1}>BUTTON 1</AtomButton>,
+        <AtomButton key={2}>BUTTON 2</AtomButton>
+      ]
     }
 
     // When
@@ -83,12 +79,10 @@ describe('molecule/buttonGroupField', () => {
       id: 'testId',
       label: 'Test Label',
       successText: 'Test Everything ok!',
-      children: (
-        <>
-          <div>BUTTON 1</div>
-          <div>BUTTON 2</div>
-        </>
-      )
+      children: [
+        <AtomButton key={1}>BUTTON 1</AtomButton>,
+        <AtomButton key={2}>BUTTON 2</AtomButton>
+      ]
     }
 
     // When
@@ -105,12 +99,10 @@ describe('molecule/buttonGroupField', () => {
       id: 'testId',
       label: 'Test Label',
       errorText: 'Test All wrong!',
-      children: (
-        <>
-          <div>BUTTON 1</div>
-          <div>BUTTON 2</div>
-        </>
-      )
+      children: [
+        <AtomButton key={1}>BUTTON 1</AtomButton>,
+        <AtomButton key={2}>BUTTON 2</AtomButton>
+      ]
     }
 
     // When
@@ -127,12 +119,10 @@ describe('molecule/buttonGroupField', () => {
       id: 'testId',
       label: 'Test Label',
       alertText: 'Test Alert!!!',
-      children: (
-        <>
-          <div>BUTTON 1</div>
-          <div>BUTTON 2</div>
-        </>
-      )
+      children: [
+        <AtomButton key={1}>BUTTON 1</AtomButton>,
+        <AtomButton key={2}>BUTTON 2</AtomButton>
+      ]
     }
 
     // When

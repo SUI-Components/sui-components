@@ -42,7 +42,7 @@ AtomRadioButton.displayName = 'AtomRadioButton'
 
 AtomRadioButton.propTypes = {
   /* The DOM id global attribute. */
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   /* This Boolean attribute prevents the user from interacting with the input */
   disabled: PropTypes.bool,

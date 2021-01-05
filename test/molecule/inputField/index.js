@@ -18,7 +18,9 @@ describe('molecule/inputField', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {
+      label: 'label'
+    }
 
     // When
     const component = <Component {...props} />
@@ -31,7 +33,9 @@ describe('molecule/inputField', () => {
 
   it('should NOT render null', () => {
     // Given
-    const props = {}
+    const props = {
+      label: 'label'
+    }
 
     // When
     const {container} = setup(props)

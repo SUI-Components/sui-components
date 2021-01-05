@@ -96,7 +96,7 @@ MoleculeInputTags.displayName = 'MoleculeInputTags'
 
 MoleculeInputTags.propTypes = {
   /* errorState */
-  errorState: PropTypes.boolean,
+  errorState: PropTypes.bool,
 
   /** Tag size */
   size: PropTypes.oneOf(Object.values(atomTagSizes)),

@@ -18,7 +18,9 @@ describe('atom/helpText', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {
+      text: 'AtomHelpText'
+    }
 
     // When
     const component = <Component {...props} />
@@ -31,7 +33,9 @@ describe('atom/helpText', () => {
 
   it('should NOT render null', () => {
     // Given
-    const props = {}
+    const props = {
+      text: 'AtomHelpText'
+    }
 
     // When
     const {container} = setup(props)

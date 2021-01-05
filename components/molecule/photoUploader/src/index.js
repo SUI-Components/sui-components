@@ -342,7 +342,7 @@ MoleculePhotoUploader.propTypes = {
   acceptedFileMaxSize: PropTypes.number,
 
   /** Icon placed in skeleton placed after thumbails */
-  addMorePhotosIcon: PropTypes.node.isRequired,
+  addMorePhotosIcon: PropTypes.func.isRequired,
 
   /** Button color of the initial state button */
 
@@ -380,7 +380,7 @@ MoleculePhotoUploader.propTypes = {
   callbackUploadPhoto: PropTypes.func,
 
   /** Icon placed in the button that deletes image */
-  deleteIcon: PropTypes.node.isRequired,
+  deleteIcon: PropTypes.func.isRequired,
 
   /** A boolean to disable that the component scroll to bottom everytime the user add a photo or there's an error */
   disableScrollToBottom: PropTypes.bool,
@@ -471,13 +471,13 @@ MoleculePhotoUploader.propTypes = {
   outputImageAspectRatioDisabled: PropTypes.bool,
 
   /** Icon showed at the dropzone when an user drags (before drop!) not allowed files  */
-  rejectPhotosIcon: PropTypes.node.isRequired,
+  rejectPhotosIcon: PropTypes.func.isRequired,
 
   /** Icon placed in the button that retry download initial image, when it fails */
-  retryIcon: PropTypes.node.isRequired,
+  retryIcon: PropTypes.func.isRequired,
 
   /** Icon placed in the button that rotate image */
-  rotateIcon: PropTypes.node.isRequired,
+  rotateIcon: PropTypes.func.isRequired,
 
   /**
    *  A string defining rotation direction.

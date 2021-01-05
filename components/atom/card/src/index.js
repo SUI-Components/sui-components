@@ -41,6 +41,7 @@ const AtomCard = ({
     <div
       className={classNames}
       tabIndex={tabIndex}
+      role="button"
       onClick={redirectToHref}
       onKeyDown={redirectOnEnter}
     >

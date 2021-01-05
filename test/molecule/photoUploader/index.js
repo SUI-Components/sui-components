@@ -15,10 +15,33 @@ chai.use(chaiDOM)
 describe('molecule/photoUploader', () => {
   const Component = MoleculePhotoUploader
   const setup = setupEnvironment(Component)
+  const IconElement = () => <svg />
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {
+      addMorePhotosIcon: IconElement,
+      addPhotoTextSkeleton: 'addPhotoTextSkeleton',
+      addPhotoTextButton: 'addPhotoTextButton',
+      deleteIcon: IconElement,
+      dragPhotoDividerTextInitialContent: 'dragPhotoDividerTextInitialContent',
+      dragPhotoTextInitialContent: 'dragPhotoTextInitialContent',
+      dragPhotosIcon: IconElement,
+      dropPhotosHereText: 'dropPhotosHereText',
+      errorCorruptedPhotoUploadedText: 'errorCorruptedPhotoUploadedText',
+      errorFileExcededMaxSizeText: 'errorFileExcededMaxSizeText',
+      errorFormatPhotoUploadedText: 'errorFormatPhotoUploadedText',
+      errorInitialPhotoDownloadErrorText: 'errorInitialPhotoDownloadErrorText',
+      infoIcon: IconElement,
+      limitPhotosUploadedText: 'limitPhotosUploadedText',
+      limitPhotosUploadedNotification: 'limitPhotosUploadedNotification',
+      notificationErrorFormatPhotoUploaded:
+        'notificationErrorFormatPhotoUploaded',
+      rejectPhotosIcon: IconElement,
+      retryIcon: IconElement,
+      rotateIcon: IconElement,
+      uploadingPhotosText: 'uploadingPhotosText'
+    }
 
     // When
     const component = <Component {...props} />
@@ -31,7 +54,29 @@ describe('molecule/photoUploader', () => {
 
   it('should NOT render null', () => {
     // Given
-    const props = {}
+    const props = {
+      addMorePhotosIcon: IconElement,
+      addPhotoTextSkeleton: 'addPhotoTextSkeleton',
+      addPhotoTextButton: 'addPhotoTextButton',
+      deleteIcon: IconElement,
+      dragPhotoDividerTextInitialContent: 'dragPhotoDividerTextInitialContent',
+      dragPhotoTextInitialContent: 'dragPhotoTextInitialContent',
+      dragPhotosIcon: IconElement,
+      dropPhotosHereText: 'dropPhotosHereText',
+      errorCorruptedPhotoUploadedText: 'errorCorruptedPhotoUploadedText',
+      errorFileExcededMaxSizeText: 'errorFileExcededMaxSizeText',
+      errorFormatPhotoUploadedText: 'errorFormatPhotoUploadedText',
+      errorInitialPhotoDownloadErrorText: 'errorInitialPhotoDownloadErrorText',
+      infoIcon: IconElement,
+      limitPhotosUploadedText: 'limitPhotosUploadedText',
+      limitPhotosUploadedNotification: 'limitPhotosUploadedNotification',
+      notificationErrorFormatPhotoUploaded:
+        'notificationErrorFormatPhotoUploaded',
+      rejectPhotosIcon: IconElement,
+      retryIcon: IconElement,
+      rotateIcon: IconElement,
+      uploadingPhotosText: 'uploadingPhotosText'
+    }
 
     // When
     const {container} = setup(props)

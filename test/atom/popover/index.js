@@ -20,7 +20,8 @@ describe('atom/popover', () => {
     // Given
     const props = {
       id: 'random-id',
-      children: <span>test</span>
+      children: <span>test</span>,
+      content: <span>content</span>
     }
 
     // When
@@ -36,7 +37,8 @@ describe('atom/popover', () => {
     // Given
     const props = {
       id: 'random-id',
-      children: <span>test</span>
+      children: <span>test</span>,
+      content: <span>content</span>
     }
 
     // When

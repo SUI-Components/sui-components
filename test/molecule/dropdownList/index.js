@@ -21,7 +21,7 @@ describe('molecule/dropdownList', () => {
         {Array(5)
           .fill()
           .map((value, index) => (
-            <MoleculeDropdownOption value={index} key={index}>
+            <MoleculeDropdownOption value={index.toString()} key={index}>
               {index}
             </MoleculeDropdownOption>
           ))}

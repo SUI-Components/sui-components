@@ -9,7 +9,7 @@ function AtomToast({
   children,
   effect = true,
   globalClose = false,
-  iconClose,
+  iconClose = null,
   onClose = () => {},
   position = POSITIONS.topRight,
   show: showFromProps = true
@@ -110,7 +110,7 @@ AtomToast.propTypes = {
   /** Enable/disable toast transition */
   effect: PropTypes.bool,
   /** Custom close icon  */
-  iconClose: PropTypes.node.isRequired,
+  iconClose: PropTypes.node,
   /** On close callback */
   onClose: PropTypes.func,
   /** Positions: 'top-left', 'top', 'top-right', 'bottom-left', 'bottom', 'bottom-right' */

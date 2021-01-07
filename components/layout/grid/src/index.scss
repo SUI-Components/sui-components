@@ -10,10 +10,15 @@
   @include grid-align-items($ai-layout-grid);
   @include grid-justify-content($jc-layout-grid);
 
+  @include media-breakpoint-up(s) {
+    flex-wrap: nowrap;
+  }
+
   &-item {
     box-sizing: border-box;
     flex-grow: 0;
     margin: 0;
+    min-width: 100%;
     padding: 0 $layout-grid-gap;
     @include grid-item-sizes($breakpoints, $grid-columns);
   }

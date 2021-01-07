@@ -17,18 +17,10 @@ export default () => (
           To implement the grid, you need to use the two components it provides
           <code className="sui-Studio-code">{'<LayoutGrid />'}</code> is used as
           a container, while each{' '}
-          <code className="sui-Studio-code">{'<LayoutGridItem />'}</code> will
-          as a cell to define your grid with the size you specify for each one
-          of them.
+          <code className="sui-Studio-code">{'<LayoutGridItem s={3} />'}</code>{' '}
+          will as a cell to define your grid with the size you specify for each
+          one of them.
         </p>
-        <p className="sui-Studio-p">
-          <strong>Example of use:</strong>
-        </p>
-        <pre>
-          <code className="sui-Studio-code">
-            {`<LayoutGrid><LayoutGridItem s={6} /></LayoutGrid>`}
-          </code>
-        </pre>
         <DemoWrapper>
           <LayoutGrid>
             <LayoutGridItem s={6}>
@@ -37,6 +29,8 @@ export default () => (
             <LayoutGridItem s={6}>
               <DemoBox>s:6</DemoBox>
             </LayoutGridItem>
+          </LayoutGrid>
+          <LayoutGrid>
             <LayoutGridItem s={4}>
               <DemoBox>s:4</DemoBox>
             </LayoutGridItem>
@@ -46,6 +40,8 @@ export default () => (
             <LayoutGridItem s={4}>
               <DemoBox>s:4</DemoBox>
             </LayoutGridItem>
+          </LayoutGrid>
+          <LayoutGrid>
             <LayoutGridItem s={3}>
               <DemoBox>s:3</DemoBox>
             </LayoutGridItem>
@@ -58,6 +54,8 @@ export default () => (
             <LayoutGridItem s={3}>
               <DemoBox>s:3</DemoBox>
             </LayoutGridItem>
+          </LayoutGrid>
+          <LayoutGrid>
             <LayoutGridItem s={2}>
               <DemoBox>s:2</DemoBox>
             </LayoutGridItem>
@@ -88,20 +86,18 @@ export default () => (
                 lOffset:6
               </DemoBox>
             </LayoutGridItem>
+          </LayoutGrid>
+          <LayoutGrid>
             <LayoutGridItem s={6} sOffset={6} lOffset={3}>
               <DemoBox>
                 s:6 | sOffset: 6<br />
                 lOffset:3
               </DemoBox>
             </LayoutGridItem>
+          </LayoutGrid>
+          <LayoutGrid>
             <LayoutGridItem s={6}>
               <DemoBox>s:6</DemoBox>
-            </LayoutGridItem>
-            <LayoutGridItem s={3}>
-              <DemoBox>s:3</DemoBox>
-            </LayoutGridItem>
-            <LayoutGridItem s={3}>
-              <DemoBox>s:3</DemoBox>
             </LayoutGridItem>
             <LayoutGridItem s={3}>
               <DemoBox>s:3</DemoBox>
@@ -123,12 +119,16 @@ export default () => (
                 <LayoutGridItem s={12}>
                   <DemoBox>s:12</DemoBox>
                 </LayoutGridItem>
+              </LayoutGrid>
+              <LayoutGrid>
                 <LayoutGridItem s={6}>
                   <DemoBox>s:6</DemoBox>
                 </LayoutGridItem>
                 <LayoutGridItem s={6}>
                   <DemoBox>s:6</DemoBox>
                 </LayoutGridItem>
+              </LayoutGrid>
+              <LayoutGrid>
                 <LayoutGridItem s={3}>
                   <DemoBox>s:3</DemoBox>
                 </LayoutGridItem>
@@ -157,12 +157,16 @@ export default () => (
                 <LayoutGridItem s={3}>
                   <DemoBox>s:3</DemoBox>
                 </LayoutGridItem>
+              </LayoutGrid>
+              <LayoutGrid>
                 <LayoutGridItem s={6}>
                   <DemoBox>s:6</DemoBox>
                 </LayoutGridItem>
                 <LayoutGridItem s={6}>
                   <DemoBox>s:6</DemoBox>
                 </LayoutGridItem>
+              </LayoutGrid>
+              <LayoutGrid>
                 <LayoutGridItem s={12}>
                   <DemoBox>s:12</DemoBox>
                 </LayoutGridItem>
@@ -222,11 +226,11 @@ export default () => (
             </p>
             <DemoWrapper>
               <LayoutGrid alignItems={alignItems}>
-                <LayoutGridItem s={3}>
-                  <DemoBox>s:2</DemoBox>
+                <LayoutGridItem s={4}>
+                  <DemoBox>s:4</DemoBox>
                 </LayoutGridItem>
-                <LayoutGridItem s={3}>
-                  <DemoBox>s:3</DemoBox>
+                <LayoutGridItem s={4}>
+                  <DemoBox tiny>s:4</DemoBox>
                 </LayoutGridItem>
               </LayoutGrid>
             </DemoWrapper>

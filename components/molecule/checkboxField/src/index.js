@@ -33,6 +33,7 @@ const MoleculeCheckboxField = ({
         onChange={onChange}
         inline
         reverse
+        withBox
       >
         <AtomCheckbox id={id} {...props} />
         {ToggleIcon && (

@@ -45,6 +45,9 @@ $atomHelpText-class: '.sui-AtomHelpText';
 
   &-inputContainer {
     width: 100%;
+    &--with-box {
+      padding-left: $p-xl;
+    }
   }
 
   &--autohide {

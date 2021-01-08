@@ -1,9 +1,11 @@
-import {Children, cloneElement, useRef} from 'react'
+import {Children, cloneElement, useState, useEffect, useRef} from 'react'
+import {useDebounce} from '@s-ui/react-hooks'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 const BASE_CLASS = `sui-MoleculeDropdownList`
 const CLASS_HIDDEN = `is-hidden`
+const DEBOUNCE_TIME = 500
 
 const SIZES = {
   SMALL: 'small',
@@ -21,6 +23,8 @@ const MoleculeDropdownList = ({
   ...props
 }) => {
   const refDropdownList = useRef()
+  const [typedWord, setTypedWord] = useState('')
+  const debouncedTypedWord = useDebounce(typedWord, DEBOUNCE_TIME)
 
   const extendedChildren = Children.toArray(children)
     .filter(Boolean)
@@ -63,21 +67,26 @@ const MoleculeDropdownList = ({
         if (key === 'ArrowUp' && index > 0) options[index - 1].focus()
       }
     } else {
+      setTypedWord(v => v + key.toLowerCase())
+      const word = typedWord + key.toLowerCase()
       const optionToFocusOn =
         Array.from(options).find(
           (option, i) =>
-            i > index &&
-            option.innerText.charAt(0).toLowerCase() === key.toLowerCase()
+            i >= index && option.innerText.toLowerCase().indexOf(word) === 0
         ) ||
         Array.from(options).find(
-          (option, i) =>
-            option.innerText.charAt(0).toLowerCase() === key.toLowerCase()
+          option => option.innerText.toLowerCase().indexOf(word) === 0
         )
       optionToFocusOn && optionToFocusOn.focus()
     }
     ev.preventDefault()
     ev.stopPropagation()
   }
+
+  // When DEBOUNCE_TIME reset typed word
+  useEffect(() => {
+    setTypedWord('')
+  }, [debouncedTypedWord])
 
   if (!visible && !alwaysRender) return null
 

@@ -31,6 +31,7 @@ const MoleculeRadioButtonField = ({
         onClickLabel={onClickLabel}
         inline
         reverse
+        isAligned
       >
         <AtomRadioButton id={id} {...props} />
       </MoleculeField>

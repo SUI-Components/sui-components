@@ -68,7 +68,8 @@ const MoleculeField = ({
   onClickLabel,
   onChange: onChangeFromProps,
   children,
-  autoHideHelpText
+  autoHideHelpText,
+  isAligned
 }) => {
   const className = cx(
     BASE_CLASS,
@@ -123,7 +124,12 @@ const MoleculeField = ({
           />
         </div>
       )}
-      <div className={CLASS_INPUT_CONTAINER}>
+      <div
+        className={cx(
+          CLASS_INPUT_CONTAINER,
+          isAligned && `${CLASS_INPUT_CONTAINER}--aligned`
+        )}
+      >
         {!inline && extendedChildren}
         {typeValidationText && (
           <AtomValidationText
@@ -183,7 +189,10 @@ MoleculeField.propTypes = {
   onClickLabel: PropTypes.func,
 
   /** Boolean to decide if helptext should be auto hide */
-  autoHideHelpText: PropTypes.bool
+  autoHideHelpText: PropTypes.bool,
+
+  /** Boolean to indicate if there is a checkbox or radiobutton & it has to be aligned  */
+  isAligned: PropTypes.bool
 }
 
 export default MoleculeField

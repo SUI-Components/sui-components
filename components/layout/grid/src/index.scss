@@ -20,4 +20,8 @@
     padding: 0 $layout-grid-gap;
     @include grid-item-sizes($breakpoints, $grid-columns);
   }
+
+  &.is-gapless &-item {
+    padding: 0;
+  }
 }

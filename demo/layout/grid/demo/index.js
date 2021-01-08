@@ -107,6 +107,31 @@ export default () => (
             </LayoutGridItem>
           </LayoutGrid>
         </DemoWrapper>
+        <p className="sui-Studio-p">With gapless</p>
+        <DemoWrapper>
+          <LayoutGrid isGapless>
+            <LayoutGridItem s={6}>
+              <DemoBox>s:6</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={6}>
+              <DemoBox>s:6</DemoBox>
+            </LayoutGridItem>
+          </LayoutGrid>
+          <LayoutGrid isGapless>
+            <LayoutGridItem s={3}>
+              <DemoBox>s:3</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={3}>
+              <DemoBox>s:3</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={3}>
+              <DemoBox>s:3</DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={3}>
+              <DemoBox>s:3</DemoBox>
+            </LayoutGridItem>
+          </LayoutGrid>
+        </DemoWrapper>
       </div>
 
       <div className="sui-Studio-wrapper--light">

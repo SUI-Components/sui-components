@@ -2,6 +2,7 @@
 @import './settings';
 
 .sui-LayoutGrid {
+  $self: &;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -21,7 +22,12 @@
     @include grid-item-sizes($breakpoints, $grid-columns);
   }
 
-  &.is-gapless &-item {
-    padding: 0;
+  &.is-gapless {
+    margin: 0;
+    width: 100%;
+
+    #{$self}-item {
+      padding: 0;
+    }
   }
 }

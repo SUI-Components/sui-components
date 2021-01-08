@@ -4,11 +4,12 @@ import cx from 'classnames'
 
 import {ALIGN_ITEMS, BASE_CLASS, JUSTIFY_CONTENT} from './settings'
 
-function LayoutGrid({alignItems, children, justifyContent}) {
+function LayoutGrid({alignItems, children, justifyContent, isGapless = false}) {
   const classNames = cx(
     `${BASE_CLASS}`,
     alignItems && `${BASE_CLASS}--ai-${alignItems}`,
-    justifyContent && `${BASE_CLASS}--jc-${justifyContent}`
+    justifyContent && `${BASE_CLASS}--jc-${justifyContent}`,
+    isGapless && `is-gapless`
   )
 
   return <div className={classNames}>{children}</div>
@@ -28,7 +29,11 @@ LayoutGrid.propTypes = {
   /**
    * Distribute space between and around content items. It's applied for all screen sizes.
    */
-  justifyContent: PropTypes.oneOf(Object.values(JUSTIFY_CONTENT))
+  justifyContent: PropTypes.oneOf(Object.values(JUSTIFY_CONTENT)),
+  /**
+   * Removes items padding.
+   */
+  isGapless: PropTypes.bool
 }
 
 export default LayoutGrid

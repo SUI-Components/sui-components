@@ -108,7 +108,7 @@ const MoleculeNotification = ({
         {showCloseButton && (
           <div className={`${CLASS}-iconClose`} onClick={handleClose}>
             <span className={`${CLASS}-icon`}>
-              <IconClose color="success" />
+              <IconClose />
             </span>
           </div>
         )}

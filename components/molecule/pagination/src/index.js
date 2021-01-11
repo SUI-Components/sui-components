@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import AtomButton from '@s-ui/react-atom-button'
+import AtomButton, {atomButtonSizes} from '@s-ui/react-atom-button'
 import * as pagination from './helpers/pagination'
 import {
   isValidPage,
@@ -11,6 +11,7 @@ const BASE_CLASS = 'sui-MoleculePagination'
 const CLASS_PREV_BUTTON_ICON = 'sui-MoleculePagination-prevButtonIcon'
 const CLASS_NEXT_BUTTON_ICON = 'sui-MoleculePagination-nextButtonIcon'
 const PAGE_NUMBER_HOLDER = '%{pageNumber}'
+const divider = '···'
 
 const PageButton = ({onSelectPage, page, design, color, ...props}) => {
   const _onSelectPage = e => {
@@ -60,10 +61,12 @@ const MoleculePagination = ({
   compressed = false,
   hideDisabled,
   selectedPageButtonDesign = 'solid',
+  showEdges,
   nonSelectedPageButtonDesign = 'flat',
   prevButtonDesign = 'flat',
   nextButtonDesign = 'flat',
   selectedPageButtonColor = 'primary',
+  size,
   nonSelectedPageButtonColor = 'primary',
   prevButtonColor = 'primary',
   nextButtonColor = 'primary',
@@ -75,7 +78,8 @@ const MoleculePagination = ({
   const paramsPagination = {
     page,
     totalPages,
-    showPages
+    showPages,
+    showEdges
   }
 
   const handleClickNext = e => {
@@ -110,6 +114,7 @@ const MoleculePagination = ({
             design={prevButtonDesign}
             color={prevButtonColor}
             disabled={!prevPage}
+            size={size}
             {...linkProps(prevPage)}
           >
             {PrevButtonIcon && (
@@ -127,31 +132,87 @@ const MoleculePagination = ({
           design={selectedPageButtonDesign}
           color={selectedPageButtonColor}
           onSelectPage={onSelectPage}
+          size={size}
           {...linkProps(page)}
         >
           {page}
         </PageButton>
       ) : (
-        range.map(pageRange => (
-          <PageButton
-            key={pageRange}
-            page={pageRange}
-            design={
-              pageRange === page
-                ? selectedPageButtonDesign
-                : nonSelectedPageButtonDesign
-            }
-            color={
-              pageRange === page
-                ? selectedPageButtonColor
-                : nonSelectedPageButtonColor
-            }
-            onSelectPage={onSelectPage}
-            {...linkProps(pageRange)}
-          >
-            {pageRange}
-          </PageButton>
-        ))
+        <>
+          {showEdges && (
+            <>
+              <PageButton
+                key={1}
+                page={1}
+                design={
+                  page === 1
+                    ? selectedPageButtonDesign
+                    : nonSelectedPageButtonDesign
+                }
+                color={
+                  page === 1
+                    ? selectedPageButtonColor
+                    : nonSelectedPageButtonColor
+                }
+                onSelectPage={onSelectPage}
+                size={size}
+                {...linkProps(1)}
+              >
+                {1}
+              </PageButton>
+              {page > showPages && showPages + 2 < totalPages - 1 && (
+                <li className={`${BASE_CLASS}-divider`}>{divider}</li>
+              )}
+            </>
+          )}
+          {range.map(pageRange => (
+            <PageButton
+              key={pageRange}
+              page={pageRange}
+              design={
+                pageRange === page
+                  ? selectedPageButtonDesign
+                  : nonSelectedPageButtonDesign
+              }
+              color={
+                pageRange === page
+                  ? selectedPageButtonColor
+                  : nonSelectedPageButtonColor
+              }
+              onSelectPage={onSelectPage}
+              size={size}
+              {...linkProps(pageRange)}
+            >
+              {pageRange}
+            </PageButton>
+          ))}
+          {showEdges && totalPages > 1 && (
+            <>
+              {range[range.length - 1] < totalPages - 1 && (
+                <li className={`${BASE_CLASS}-divider`}>{divider}</li>
+              )}
+              <PageButton
+                key={totalPages}
+                page={totalPages}
+                design={
+                  page === totalPages
+                    ? selectedPageButtonDesign
+                    : nonSelectedPageButtonDesign
+                }
+                color={
+                  page === totalPages
+                    ? selectedPageButtonColor
+                    : nonSelectedPageButtonColor
+                }
+                onSelectPage={onSelectPage}
+                size={size}
+                {...linkProps(totalPages)}
+              >
+                {totalPages}
+              </PageButton>
+            </>
+          )}
+        </>
       )}
       {!isHideNext && (
         <li className={`${BASE_CLASS}-item`}>
@@ -160,6 +221,7 @@ const MoleculePagination = ({
             design={nextButtonDesign}
             color={nextButtonColor}
             disabled={!nextPage}
+            size={size}
             {...linkProps(nextPage)}
           >
             {nextButtonText}
@@ -186,6 +248,9 @@ MoleculePagination.propTypes = {
 
   /** Number of pages to be displayed in the range (10 by default) */
   showPages: isValidShowPages,
+
+  /** Size of buttons */
+  size: PropTypes.oneOf(Object.values(atomButtonSizes)),
 
   /** If the pagination should be displayed in compressed mode or not */
   compressed: PropTypes.bool,
@@ -228,6 +293,9 @@ MoleculePagination.propTypes = {
 
   /** Color to be used for the selected page. */
   selectedPageButtonColor: PropTypes.string,
+
+  /** Makes first and last always visible. */
+  showEdges: PropTypes.bool,
 
   /** Color to be used for the selected page. */
   nonSelectedPageButtonColor: PropTypes.string,

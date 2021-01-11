@@ -15,6 +15,13 @@ $c-pagination-button-icon-path: inherit !default;
     margin-left: $m-s;
   }
 
+  &-divider {
+    margin-left: $m-s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &-prevButtonIcon {
     display: flex;
     margin-right: $m-m;

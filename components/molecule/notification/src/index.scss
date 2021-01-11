@@ -31,13 +31,17 @@ $base-class: '.sui-MoleculeNotification';
   }
 
   &-icon {
+    display: flex;
+    align-items: center;
     svg {
       fill: currentColor !important;
-      height: $sz-notification-icon;
-      width: $sz-notification-icon;
     }
 
     &Left {
+      svg {
+        height: $sz-notification-icon;
+        width: $sz-notification-icon;
+      }
       @include media-breakpoint-up(xs) {
         display: block;
       }
@@ -46,6 +50,10 @@ $base-class: '.sui-MoleculeNotification';
     }
 
     &Close {
+      svg {
+        height: $sz-icon-m;
+        width: $sz-icon-m;
+      }
       @include media-breakpoint-up(xs) {
         margin-left: $m-m;
       }
@@ -66,7 +74,7 @@ $base-class: '.sui-MoleculeNotification';
 
   // Variation
   &--positive {
-    color: $c-black;
+    color: $c-notification-positive;
 
     // Type text in positive variations
     @each $key, $value in $notification-type-positive-text-colors {
@@ -79,6 +87,24 @@ $base-class: '.sui-MoleculeNotification';
     @each $key, $value in $notification-type-colors {
       &#{$base-class}--#{$key} {
         background: color-variation($value, $c-light-step * 2);
+      }
+    }
+  }
+
+  &--outline {
+    background-color: $bgc-notification-outline;
+    border-style: solid;
+    border-width: $bdw-notification-outline;
+    box-shadow: $bxsh-notification-outline;
+    color: $c-notification-outline;
+
+    // Type variations
+    @each $key, $value in $notification-type-colors {
+      &#{$base-class}--#{$key} {
+        border-color: #{$value};
+        #{$base-class}-iconLeft svg {
+          fill: #{$value} !important;
+        }
       }
     }
   }
@@ -112,7 +138,6 @@ $base-class: '.sui-MoleculeNotification';
   }
 
   // Effect
-
   &-effect {
     &--top {
       transition: $notification-effect-slide-top-in;

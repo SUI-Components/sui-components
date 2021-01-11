@@ -2,10 +2,17 @@ $w-notification: 100% !default;
 $z-notification: 1000 !default;
 $mh-notification: 500px !default;
 $sz-notification-icon: $sz-icon-m !default;
-$ai-notification-content: normal !default;
+$ai-notification-content: center !default;
 $bdrs-notification-content: initial !default;
 $lh-notification-text: inherit !default;
 $mt-notification-text: 0 !default;
+$c-notification-positive: $c-black !default;
+
+// Outline
+$c-notification-outline: $c-black !default;
+$bdw-notification-outline: $bdw-m !default;
+$bgc-notification-outline: $c-gray-light-5 !default;
+$bxsh-notification-outline: none !default;
 
 $bdrs-notification: (
   xl: $bdrs-base * 4,
@@ -16,7 +23,6 @@ $bdrs-notification: (
 ) !default;
 
 // Colors
-
 $notification-type-colors: (
   info: $c-primary,
   success: $c-success,
@@ -34,7 +40,6 @@ $notification-type-font-colors: (
 ) !default;
 
 // Positive Text color
-
 $notification-type-positive-text-colors: (
   info: $c-primary,
   success: $c-success,
@@ -44,7 +49,6 @@ $notification-type-positive-text-colors: (
 ) !default;
 
 // Positive Icon color
-
 $notification-type-positive-icon-colors: (
   info: $c-primary,
   success: $c-success,
@@ -54,7 +58,6 @@ $notification-type-positive-icon-colors: (
 ) !default;
 
 // Effects
-
 $notification-effect-slide-top-in: top 0.5s ease-out !default;
 $notification-effect-slide-top-out: top 0.3s ease-in !default;
 $notification-effect-slide-bottom-in: bottom 0.5s ease-out !default;

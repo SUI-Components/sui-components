@@ -30,12 +30,11 @@ const PLACEMENTS = {
 export default function MoleculeDrawer({
   portalContainerId = 'drawer-react-portal',
   isOpen = false,
-  placement = 'left',
+  placement = PLACEMENTS.LEFT,
   onClose,
   children
 }) {
   const overlayRef = useRef(null)
-  const contentRef = useRef(null)
   const [isClientReady, setClientReady] = useState(false)
   const [isOpenState, handlerOnAnimationEnd] = useOnCloseAnimation(isOpen)
 
@@ -55,7 +54,6 @@ export default function MoleculeDrawer({
   )
 
   useEffect(() => {
-    document.removeEventListener('keydown', onKeyDown)
     document.addEventListener('keydown', onKeyDown)
 
     return () => {
@@ -83,7 +81,6 @@ export default function MoleculeDrawer({
         }}
       >
         <Content
-          ref={contentRef}
           onAnimationEnd={handlerOnAnimationEnd}
           className={cx(
             'react-MoleculeDrawer-content',

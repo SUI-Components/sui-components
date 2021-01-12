@@ -46,7 +46,7 @@ const Demo = () => {
           <h3>Large</h3>
           <MoleculePagination totalPages={25} page={17} />
         </div>
-        {/* ------------------------------------------------------------------------------------------------------------- */}
+
         <h2>
           Responsive <code>w/ LayoutMediaQuery</code>
         </h2>
@@ -69,7 +69,7 @@ const Demo = () => {
             }
           </LayoutMediaQuery>
         </div>
-        {/* ------------------------------------------------------------------------------------------------------------- */}
+
         <h2>Dynamic</h2>
         <div className={CLASS_DEMO_SECTION}>
           <h3>Extended Version</h3>
@@ -94,7 +94,7 @@ const Demo = () => {
           <h3>Compressed Version</h3>
           <DynamicMoleculePagination totalPages={25} page={17} compressed />
         </div>
-        {/* ------------------------------------------------------------------------------------------------------------- */}
+
         <h2>Static</h2>
         <h3>Extended Version</h3>
         <div className={CLASS_DEMO_SECTION}>
@@ -210,7 +210,7 @@ const Demo = () => {
           </p>
           <MoleculePagination totalPages={25} page={15} showEdges />
         </div>
-        {/* ------------------------------------------------------------------------------------------------------------- */}
+
         <h3>Compressed Version</h3>
         <div className={CLASS_DEMO_SECTION}>
           <h4>First Page (only next)</h4>

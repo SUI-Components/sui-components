@@ -10,6 +10,7 @@
 const lowRange = ({page, showEdges, showPages, totalPages}) => {
   const lowRangeFixer = Math.floor(showPages / 2)
   let lowRange
+
   if (page % showPages) lowRange = page - (page % showPages)
   else lowRange = page - showPages
 
@@ -18,8 +19,7 @@ const lowRange = ({page, showEdges, showPages, totalPages}) => {
 
     if (lowRange + showPages === page) {
       lowRange = page - lowRangeFixer
-    }
-    if (lowRange === page - 1) {
+    } else if (lowRange === page - 1) {
       lowRange = lowRange - lowRangeFixer
     }
   }

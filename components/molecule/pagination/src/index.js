@@ -11,7 +11,7 @@ const BASE_CLASS = 'sui-MoleculePagination'
 const CLASS_PREV_BUTTON_ICON = 'sui-MoleculePagination-prevButtonIcon'
 const CLASS_NEXT_BUTTON_ICON = 'sui-MoleculePagination-nextButtonIcon'
 const PAGE_NUMBER_HOLDER = '%{pageNumber}'
-const divider = '···'
+const DIVIDER = '···'
 
 const PageButton = ({onSelectPage, page, design, color, ...props}) => {
   const _onSelectPage = e => {
@@ -161,7 +161,7 @@ const MoleculePagination = ({
                 {1}
               </PageButton>
               {page > showPages && showPages + 2 < totalPages - 1 && (
-                <li className={`${BASE_CLASS}-divider`}>{divider}</li>
+                <li className={`${BASE_CLASS}-divider`}>{DIVIDER}</li>
               )}
             </>
           )}
@@ -189,7 +189,7 @@ const MoleculePagination = ({
           {showEdges && totalPages > 1 && (
             <>
               {range[range.length - 1] < totalPages - 1 && (
-                <li className={`${BASE_CLASS}-divider`}>{divider}</li>
+                <li className={`${BASE_CLASS}-divider`}>{DIVIDER}</li>
               )}
               <PageButton
                 key={totalPages}

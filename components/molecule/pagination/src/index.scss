@@ -16,10 +16,10 @@ $c-pagination-button-icon-path: inherit !default;
   }
 
   &-divider {
-    margin-left: $m-s;
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-left: $m-s;
   }
 
   &-prevButtonIcon {

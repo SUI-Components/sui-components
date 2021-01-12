@@ -1,60 +1,35 @@
 import {memo, useState, useEffect, useCallback, useRef} from 'react'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
+import {
+  CLASS,
+  TYPES,
+  ICONS,
+  AUTO_CLOSE,
+  AUTO_CLOSE_TIME,
+  TRANSITION_DELAY,
+  BUTTONS_MAX,
+  VARIATIONS,
+  BRDS_SIZE,
+  POSITION
+} from './settings'
 import Button from '@s-ui/react-atom-button'
 import IconClose from '@s-ui/react-icons/lib/Close'
-import IconSuccess from '@s-ui/react-icons/lib/Linecheck'
-import IconError from '@s-ui/react-icons/lib/Lineerror'
-import IconInfo from '@s-ui/react-icons/lib/Lineinfo'
-import IconWarning from '@s-ui/react-icons/lib/Linewarning'
-import cx from 'classnames'
-
-const CLASS = 'sui-MoleculeNotification'
-
-const ICONS = {
-  info: <IconInfo />,
-  error: <IconError />,
-  success: <IconSuccess />,
-  system: <IconInfo />,
-  warning: <IconWarning />
-}
-
-const AUTO_CLOSE_TIME = {
-  short: 3000,
-  medium: 6000,
-  long: 9000,
-  manual: null
-}
-
-const TRANSITION_DELAY = 1000 // ms
-const BUTTONS_MAX = 3 // buttons
-
-const VARIATIONS = {
-  negative: 'negative',
-  positive: 'positive'
-}
-
-const BRDS_SIZE = {
-  extraLarge: 'xl',
-  large: 'l',
-  medium: 'm',
-  small: 's',
-  extraSmall: 'xs'
-}
 
 const MoleculeNotification = ({
-  autoClose: autoCloseTiming,
-  onClose,
-  effect,
+  autoClose: autoCloseTiming = AUTO_CLOSE.short,
+  onClose = () => {},
+  effect = true,
   buttons,
   children,
   icon,
-  position,
-  roundedCorners,
-  showCloseButton,
+  position = POSITION.relative,
+  roundedCorners = null,
+  showCloseButton = true,
   text,
-  type,
-  variation,
-  show: showFromProps
+  type = TYPES.info,
+  variation = VARIATIONS.negative,
+  show: showFromProps = true
 }) => {
   const [show, setShow] = useState(showFromProps)
   const [delay, setDelay] = useState(false)
@@ -108,15 +83,13 @@ const MoleculeNotification = ({
       .map((button, i) => <Button key={i} {...button} />)
 
   const wrapperClassName = cx(
-    `${CLASS} ${CLASS}--${type} ${CLASS}--${position}`,
+    `${CLASS} ${CLASS}--${type} ${CLASS}--${position} ${CLASS}--${variation}`,
     {
-      [`${CLASS}--${variation}`]: variation === VARIATIONS.positive,
       [`${CLASS}-effect--${position}`]: effect,
       [`${CLASS}-effect--hide`]: effect && delay,
       [`${CLASS}-roundedCorners--${roundedCorners}`]: roundedCorners
     }
   )
-
   const innerWrapperClassName = cx({
     [`${CLASS}-children`]: children,
     [`${CLASS}-text`]: text
@@ -125,7 +98,6 @@ const MoleculeNotification = ({
   if (!show && !delay) {
     return null
   }
-
   return (
     <div className={wrapperClassName}>
       <div className={`${CLASS}-content`}>
@@ -198,18 +170,5 @@ MoleculeNotification.propTypes = {
   variation: PropTypes.oneOf(Object.keys(VARIATIONS))
 }
 
-MoleculeNotification.defaultProps = {
-  autoClose: 'short',
-  effect: true,
-  onClose: () => {},
-  position: 'relative',
-  roundedCorners: null,
-  show: true,
-  showCloseButton: true,
-  type: 'info',
-  variation: VARIATIONS.negative
-}
-
-export {BRDS_SIZE}
-
+export {POSITION, AUTO_CLOSE, TYPES, VARIATIONS, BRDS_SIZE}
 export default memo(MoleculeNotification)

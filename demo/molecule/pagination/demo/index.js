@@ -39,6 +39,14 @@ const Demo = () => {
     <div className="sui-StudioPreview">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <h1>Pagination</h1>
+        <h2>Size</h2>
+        <div className={CLASS_DEMO_SECTION}>
+          <h3>Small</h3>
+          <MoleculePagination totalPages={25} page={17} size="small" />
+          <h3>Large</h3>
+          <MoleculePagination totalPages={25} page={17} />
+        </div>
+
         <h2>
           Responsive <code>w/ LayoutMediaQuery</code>
         </h2>
@@ -61,6 +69,7 @@ const Demo = () => {
             }
           </LayoutMediaQuery>
         </div>
+
         <h2>Dynamic</h2>
         <div className={CLASS_DEMO_SECTION}>
           <h3>Extended Version</h3>
@@ -71,12 +80,21 @@ const Demo = () => {
             Extended Version <code>showPages=7</code>
           </h3>
           <DynamicMoleculePagination totalPages={25} page={17} showPages={7} />
+          <h3>
+            Extended Version <code>showEdges</code>
+          </h3>
+          <DynamicMoleculePagination
+            totalPages={25}
+            page={17}
+            showPages={7}
+            showEdges
+          />
         </div>
         <div className={CLASS_DEMO_SECTION}>
           <h3>Compressed Version</h3>
           <DynamicMoleculePagination totalPages={25} page={17} compressed />
         </div>
-        {/* ------------------------------------------------------------------------------------------------------------- */}
+
         <h2>Static</h2>
         <h3>Extended Version</h3>
         <div className={CLASS_DEMO_SECTION}>
@@ -185,7 +203,14 @@ const Demo = () => {
             {...OnClicks}
           />
         </div>
-        {/* ------------------------------------------------------------------------------------------------------------- */}
+        <div className={CLASS_DEMO_SECTION}>
+          <h4>Show edges</h4>
+          <p>
+            <code>totalPages=25 page=15 showEdges</code>
+          </p>
+          <MoleculePagination totalPages={25} page={15} showEdges />
+        </div>
+
         <h3>Compressed Version</h3>
         <div className={CLASS_DEMO_SECTION}>
           <h4>First Page (only next)</h4>

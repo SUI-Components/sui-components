@@ -49,11 +49,13 @@ export const SingleSwitchTypeRender = forwardRef(
           onBlur={onBlur}
           ref={ref}
         >
-          <AtomLabel
-            name={name}
-            text={label}
-            optionalText={labelOptionalText}
-          />
+          {label && (
+            <AtomLabel
+              name={name}
+              text={label}
+              optionalText={labelOptionalText}
+            />
+          )}
           <div className={suitClass({element: 'inputContainer'})}>
             <div
               className={cx(suitClass({element: 'circle'}), {

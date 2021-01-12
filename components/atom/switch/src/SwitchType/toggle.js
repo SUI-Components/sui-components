@@ -45,7 +45,13 @@ export const ToggleSwitchTypeRender = forwardRef(
           disabled
         )}
       >
-        <AtomLabel name={name} text={label} optionalText={labelOptionalText} />
+        {label && (
+          <AtomLabel
+            name={name}
+            text={label}
+            optionalText={labelOptionalText}
+          />
+        )}
         <div
           className={cx(suitClass({element: 'container'}))}
           tabIndex="0"

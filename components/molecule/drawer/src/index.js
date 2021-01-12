@@ -1,19 +1,7 @@
-import {useState, useEffect, useRef, forwardRef, useCallback} from 'react'
+import {useState, useEffect, useRef, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import {createPortal} from 'react-dom'
 import cx from 'classnames'
-
-const Overlay = forwardRef((props, ref) => {
-  return <div ref={ref} className="react-MoleculeDrawer-overlay" {...props} />
-})
-
-const Body = props => {
-  return <div className="react-MoleculeDrawer-body" {...props} />
-}
-
-const Content = forwardRef((props, ref) => {
-  return <div ref={ref} className="react-MoleculeDrawer-content" {...props} />
-})
 
 const useOnCloseAnimation = isOpen => {
   const [showDrawer, setShowDrawer] = useState(isOpen)
@@ -26,6 +14,17 @@ const useOnCloseAnimation = isOpen => {
   }
 
   return [showDrawer, handlerOnAnimationEnd]
+}
+
+const Overlay = 'div'
+const Body = 'div'
+const Content = 'div'
+
+const PLACEMENTS = {
+  TOP: 'top',
+  RIGHT: 'right',
+  BOTTOM: 'bottom',
+  LEFT: 'left'
 }
 
 export default function MoleculeDrawer({
@@ -78,6 +77,7 @@ export default function MoleculeDrawer({
     <div className="react-MoleculeDrawer">
       <Overlay
         ref={overlayRef}
+        className="react-MoleculeDrawer-overlay"
         onClick={e => {
           overlayRef.current === e.target && onClose()
         }}
@@ -95,7 +95,7 @@ export default function MoleculeDrawer({
             }-drawer-${placement} 0.3s both`
           }}
         >
-          <Body>{children}</Body>
+          <Body className="react-MoleculeDrawer-body">{children}</Body>
         </Content>
       </Overlay>
     </div>
@@ -104,9 +104,14 @@ export default function MoleculeDrawer({
   return isClientReady ? createPortal(drawer, getContainer()) : null
 }
 
+export {PLACEMENTS as moleculeDrawerPlacements}
+
 MoleculeDrawer.displayName = 'MoleculeDrawer'
 MoleculeDrawer.propTypes = {
+  /** Tells if the drawer is open or not */
   isOpen: PropTypes.bool,
+  /** On close callback used to manage the isOpen prop from the parent */
   onClose: PropTypes.func.isRequired,
-  placement: PropTypes.oneOf(['right', 'left', 'bottom', 'top'])
+  /** Screen position where the drawer will be displayed */
+  placement: PropTypes.oneOf(Object.values(PLACEMENTS))
 }

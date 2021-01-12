@@ -95,7 +95,7 @@ AtomSwitch.propTypes = {
   name: PropTypes.string.isRequired,
 
   /** The label itself. Proxy from label */
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
 
   /** The optional label text. Proxy from label */
   labelOptionalText: PropTypes.string,

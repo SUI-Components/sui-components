@@ -73,8 +73,8 @@ $atom-switch-transition-time: 0.3s !default;
   }
 
   &-singleType {
-    .sui-AtomSwitch-inputContainer {
-      margin-left: $m-l;
+    .sui-AtomLabel {
+      margin-right: $m-l;
     }
   }
 

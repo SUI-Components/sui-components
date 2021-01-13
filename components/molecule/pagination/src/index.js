@@ -82,6 +82,8 @@ const MoleculePagination = ({
     showEdges
   }
 
+  const FIRST_PAGE = 1
+
   const handleClickNext = e => {
     const page = pagination.nextPage(paramsPagination)
     onSelectNext(e, {page})
@@ -139,28 +141,27 @@ const MoleculePagination = ({
         </PageButton>
       ) : (
         <>
-          {showEdges && (
+          {showEdges && range[0] !== FIRST_PAGE && (
             <>
               <PageButton
-                key={1}
-                page={1}
+                page={FIRST_PAGE}
                 design={
-                  page === 1
+                  page === FIRST_PAGE
                     ? selectedPageButtonDesign
                     : nonSelectedPageButtonDesign
                 }
                 color={
-                  page === 1
+                  page === FIRST_PAGE
                     ? selectedPageButtonColor
                     : nonSelectedPageButtonColor
                 }
                 onSelectPage={onSelectPage}
                 size={size}
-                {...linkProps(1)}
+                {...linkProps(FIRST_PAGE)}
               >
-                {1}
+                {FIRST_PAGE}
               </PageButton>
-              {page > showPages && showPages + 2 < totalPages - 1 && (
+              {range[0] - 1 > FIRST_PAGE && (
                 <li className={`${BASE_CLASS}-divider`}>{DIVIDER}</li>
               )}
             </>
@@ -186,32 +187,33 @@ const MoleculePagination = ({
               {pageRange}
             </PageButton>
           ))}
-          {showEdges && totalPages > 1 && (
-            <>
-              {range[range.length - 1] < totalPages - 1 && (
-                <li className={`${BASE_CLASS}-divider`}>{DIVIDER}</li>
-              )}
-              <PageButton
-                key={totalPages}
-                page={totalPages}
-                design={
-                  page === totalPages
-                    ? selectedPageButtonDesign
-                    : nonSelectedPageButtonDesign
-                }
-                color={
-                  page === totalPages
-                    ? selectedPageButtonColor
-                    : nonSelectedPageButtonColor
-                }
-                onSelectPage={onSelectPage}
-                size={size}
-                {...linkProps(totalPages)}
-              >
-                {totalPages}
-              </PageButton>
-            </>
-          )}
+          {showEdges &&
+            totalPages > 1 &&
+            range[range.length - 1] !== totalPages && (
+              <>
+                {totalPages - range[range.length - 1] > 1 && (
+                  <li className={`${BASE_CLASS}-divider`}>{DIVIDER}</li>
+                )}
+                <PageButton
+                  page={totalPages}
+                  design={
+                    page === totalPages
+                      ? selectedPageButtonDesign
+                      : nonSelectedPageButtonDesign
+                  }
+                  color={
+                    page === totalPages
+                      ? selectedPageButtonColor
+                      : nonSelectedPageButtonColor
+                  }
+                  onSelectPage={onSelectPage}
+                  size={size}
+                  {...linkProps(totalPages)}
+                >
+                  {totalPages}
+                </PageButton>
+              </>
+            )}
         </>
       )}
       {!isHideNext && (

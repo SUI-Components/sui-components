@@ -46,6 +46,7 @@ $ml-molecule-dropdown-option: 0 !default;
 
   &-text {
     font-size: $fz-molecule-dropdown-option-text;
+    flex-basis: 100%;
     overflow: hidden;
     margin-left: $ml-molecule-dropdown-option-text;
     text-overflow: ellipsis;

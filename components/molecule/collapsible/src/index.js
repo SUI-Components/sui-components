@@ -40,13 +40,13 @@ const MoleculeCollapsible = ({
     }
   }
 
+  const offsetHeight = childrenContainer?.current?.offsetHeight
+
   useEffect(() => {
-    const {
-      current: {offsetHeight}
-    } = childrenContainer
+    if (!offsetHeight) return
     setShowButton(offsetHeight >= height)
     setMaxHeight(offsetHeight)
-  }, [height])
+  }, [offsetHeight, height])
   const wrapperClassName = cx(`${BASE_CLASS}`, {
     [`${BASE_CLASS}--withGradient`]: withGradient,
     [COLLAPSED_CLASS]: collapsed

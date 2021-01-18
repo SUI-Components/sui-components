@@ -76,7 +76,7 @@ const MoleculeNotification = ({
       clearTimeout(autoCloseTimeout.current)
       clearTimeout(transitionTimeout.current)
     }
-  }, [show, effect, autoCloseTimeInSeconds])
+  }, [show, effect, triggerAutoClose, autoCloseTimeInSeconds])
 
   const getButtons = () =>
     buttons

@@ -1,20 +1,8 @@
-import {useState, useEffect, useRef, useCallback} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
 import {createPortal} from 'react-dom'
 import cx from 'classnames'
-
-const useOnCloseAnimation = isOpen => {
-  const [showDrawer, setShowDrawer] = useState(isOpen)
-  useEffect(() => {
-    isOpen && setShowDrawer(isOpen)
-  }, [isOpen])
-
-  const handlerOnAnimationEnd = () => {
-    !isOpen && setShowDrawer(false)
-  }
-
-  return [showDrawer, handlerOnAnimationEnd]
-}
+import {useEventListener, useBoolean} from '@s-ui/react-hooks'
 
 const Overlay = 'div'
 const Body = 'div'
@@ -36,30 +24,23 @@ export default function MoleculeDrawer({
 }) {
   const overlayRef = useRef(null)
   const [isClientReady, setClientReady] = useState(false)
-  const [isOpenState, handlerOnAnimationEnd] = useOnCloseAnimation(isOpen)
+  const [value, {off, on}] = useBoolean(isOpen)
 
   useEffect(() => {
     setClientReady(true)
   }, [])
 
-  const onKeyDown = useCallback(
-    ev => {
-      if (isOpen === false) return
-      if (ev.key === 'Escape') {
-        onClose(ev)
-        ev.preventDefault()
-      }
-    },
-    [isOpen, onClose]
-  )
-
   useEffect(() => {
-    document.addEventListener('keydown', onKeyDown)
+    isOpen && on()
+  }, [isOpen, on])
 
-    return () => {
-      document.removeEventListener('keydown', onKeyDown)
+  useEventListener('keydown', ev => {
+    if (isOpen === false) return
+    if (ev.key === 'Escape') {
+      onClose(ev)
+      ev.preventDefault()
     }
-  }, [onKeyDown])
+  })
 
   const getContainer = () => {
     let containerDOMEl = document.getElementById(portalContainerId)
@@ -71,7 +52,7 @@ export default function MoleculeDrawer({
     return containerDOMEl
   }
 
-  const drawer = isOpenState && (
+  const drawer = value && (
     <div className="react-MoleculeDrawer">
       <Overlay
         ref={overlayRef}
@@ -81,7 +62,7 @@ export default function MoleculeDrawer({
         }}
       >
         <Content
-          onAnimationEnd={handlerOnAnimationEnd}
+          onAnimationEnd={() => !isOpen && off()}
           className={cx(
             'react-MoleculeDrawer-content',
             `react-MoleculeDrawer-content--${placement}`

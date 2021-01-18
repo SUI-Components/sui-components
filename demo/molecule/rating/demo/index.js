@@ -12,6 +12,10 @@ const customPropsStar = {
   IconStarEmpty: IconStarFilled
 }
 
+const handleClick = (e, {value}) => {
+  console.log(value)
+}
+
 const Demo = () => (
   <div className="sui-StudioPreview">
     <div className="sui-StudioPreview-content sui-StudioDemo-preview">
@@ -98,6 +102,18 @@ const Demo = () => (
             label="25 opiniones"
             href="https://www.adevinta.com/"
             {...customPropsStar}
+          />
+        </div>
+      </div>
+
+      <div className="sui-Studio-wrapper--light">
+        <h2 className="sui-Studio-h2">Stars with Hover and with onClick</h2>
+        <div>
+          <MoleculeRating
+            isHovered
+            ratingValues={[1, 2, 3, 4, 5]}
+            size={MoleculeRatingSizes.LARGE}
+            onClick={handleClick}
           />
         </div>
       </div>

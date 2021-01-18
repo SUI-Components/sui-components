@@ -5,6 +5,8 @@ import IconWarning from '@s-ui/react-icons/lib/Linewarning'
 
 export const CLASS = 'sui-MoleculeNotification'
 
+export const EMPTY_METHOD = () => {}
+
 export const POSITION = {
   top: 'top',
   bottom: 'bottom',

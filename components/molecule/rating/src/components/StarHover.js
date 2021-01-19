@@ -12,7 +12,7 @@ const DEFAULTS = {
 }
 
 const MoleculeRatingStarHover = ({
-  IconStar = DEFAULTS.IconStarEmpty,
+  iconStar = DEFAULTS.IconStarEmpty,
   initialRating = 0,
   onClick,
   size,
@@ -21,7 +21,7 @@ const MoleculeRatingStarHover = ({
   const [selectedRating, setSelectedRating] = useState(null)
   const [rating, setRating] = useState(initialRating)
 
-  const StarHover = IconStar
+  const StarHover = iconStar
 
   const handleClick = (e, {value}) => {
     setRating(value)
@@ -57,7 +57,7 @@ MoleculeRatingStarHover.propTypes = {
   ratingValues: PropTypes.array,
 
   /** Icon for star */
-  IconStar: PropTypes.node,
+  iconStar: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 
   /** init value assigned to rating */
   initialRating: PropTypes.number,

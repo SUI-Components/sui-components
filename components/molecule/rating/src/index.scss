@@ -19,6 +19,7 @@ $c-molecule-rating-label-hover: $c-primary !default;
 $bg-molecule-rating-hover: $c-primary-light-5 !default;
 
 $m-molecule-rating-label: 0 0 0 $m-m !default;
+$ml-molecule-rating-stars: 0 !default;
 $p-molecule-rating-label: $p-m !default;
 $p-molecule-rating-stars: 0 !default;
 
@@ -34,7 +35,7 @@ $class-label-link: '#{$class-label}Link';
   align-items: center;
   color: $c-molecule-rating-svg;
   display: flex;
-  padding: $p-molecule-rating-stars;
+  margin-left: $m-l-molecule-rating-stars;
 
   &.is-active {
     color: $c-molecule-rating-svg-hover;

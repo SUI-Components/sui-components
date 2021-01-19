@@ -17,6 +17,8 @@ const CLASS_LINK = `${BASE_CLASS}--withLink`
 const CLASS_LABEL_LINK = `${CLASS_LABEL}Link`
 
 const MoleculeRating = ({
+  iconStar,
+  initialRating,
   isHovered = false,
   numStars = 5,
   value,
@@ -64,13 +66,15 @@ const MoleculeRating = ({
             ))
         ) : (
           <StarHover
-            size={size}
-            ratingValues={ratingValues}
+            iconStar={iconStar}
+            initialRating={initialRating}
             onClick={onClick}
+            ratingValues={ratingValues}
+            size={size}
           />
         )}
       </div>
-      <p className={CLASS_LABEL}>{labelLink}</p>
+      {label && <p className={CLASS_LABEL}>{labelLink}</p>}
     </div>
   )
 }
@@ -90,6 +94,9 @@ MoleculeRating.propTypes = {
   /** Label of Rating */
   label: PropTypes.string,
 
+  /** init value assigned to rating */
+  initialRating: PropTypes.number,
+
   /** Prop to get the hovered behavior of the component */
   isHovered: PropTypes.bool,
 
@@ -106,7 +113,10 @@ MoleculeRating.propTypes = {
   linkFactory: PropTypes.func,
 
   /** Callback used component hovered */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+
+  /** Icon custom to StarHover  */
+  iconStar: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
 }
 
 export default MoleculeRating

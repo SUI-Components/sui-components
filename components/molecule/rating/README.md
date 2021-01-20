@@ -52,6 +52,19 @@ const customPropsStar = {
 />
 ```
 
+### With Hover and onClick
+
+```js
+<MoleculeRating
+  isHovered
+  ratingValues={[1, 2, 3, 4, 5]}
+  size={MoleculeRatingSizes.LARGE}
+  onClick={handleClick}
+/>
+```
+
+
+
 
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/molecule/rating/demo).**

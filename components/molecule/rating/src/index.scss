@@ -19,9 +19,12 @@ $c-molecule-rating-label-hover: $c-primary !default;
 $bg-molecule-rating-hover: $c-primary-light-5 !default;
 
 $m-molecule-rating-label: 0 0 0 $m-m !default;
+$m-l-molecule-rating-stars: 0 !default;
 $p-molecule-rating-label: $p-m !default;
+$p-molecule-rating-stars: 0 !default;
 
 $c-molecule-rating-svg: $c-system !default;
+$c-molecule-rating-svg-hover: $c-primary !default;
 
 $base-class: '.sui-MoleculeRating';
 $class-star: '#{$base-class}-Star';
@@ -32,9 +35,13 @@ $class-label-link: '#{$class-label}Link';
   align-items: center;
   color: $c-molecule-rating-svg;
   display: flex;
+  margin-left: $m-l-molecule-rating-stars;
+
+  &.is-active {
+    color: $c-molecule-rating-svg-hover;
+  }
 
   svg {
-    fill: $c-molecule-rating-svg;
     height: 100%;
     width: 100%;
   }

@@ -1,17 +1,20 @@
 {
-  "name": "@s-ui/react-molecule-collapsible",
-  "version": "1.13.0",
+  "name": "@s-ui/react-molecule-drawer",
+  "version": "1.1.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "prepare": "rm -Rf ./lib && mkdir -p ./lib && npm run build:js && npm run build:styles",
+    "prepare": "npx rimraf ./lib && npm run build:js && npm run build:styles",
     "build:js": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@s-ui/component-dependencies": "1"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@s-ui/react-hooks": "1"
+  }
 }

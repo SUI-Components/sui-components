@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 import Star from './components/Star'
+import StarHover from './components/StarHover'
 
 const SIZES = {
   SMALL: ATOM_ICON_SIZES.small,
@@ -16,12 +17,17 @@ const CLASS_LINK = `${BASE_CLASS}--withLink`
 const CLASS_LABEL_LINK = `${CLASS_LABEL}Link`
 
 const MoleculeRating = ({
+  iconStar,
+  initialRating,
+  isHovered = false,
   numStars = 5,
   value,
+  ratingValues,
   size = SIZES.SMALL,
   label,
   href,
   target,
+  onClick,
   // eslint-disable-next-line react/prop-types
   linkFactory: Link = ({children, ...rest} = {}) => <a {...rest}>{children}</a>,
   ...props
@@ -46,17 +52,29 @@ const MoleculeRating = ({
   return (
     <div className={className}>
       <div className={CLASS_CONTAINER_STARS}>
-        {new Array(numStars).fill(0).map((_, index) => (
-          <Star
+        {!isHovered ? (
+          new Array(numStars)
+            .fill(0)
+            .map((_, index) => (
+              <Star
+                size={size}
+                key={index}
+                index={index}
+                value={value}
+                {...props}
+              />
+            ))
+        ) : (
+          <StarHover
+            iconStar={iconStar}
+            initialRating={initialRating}
+            onClick={onClick}
+            ratingValues={ratingValues}
             size={size}
-            key={index}
-            index={index}
-            value={value}
-            {...props}
           />
-        ))}
+        )}
       </div>
-      <p className={CLASS_LABEL}>{labelLink}</p>
+      {label && <p className={CLASS_LABEL}>{labelLink}</p>}
     </div>
   )
 }
@@ -70,8 +88,17 @@ MoleculeRating.propTypes = {
   /** Value of Rating */
   value: PropTypes.number,
 
+  /** Rating value of each Star */
+  ratingValues: PropTypes.array,
+
   /** Label of Rating */
   label: PropTypes.string,
+
+  /** init value assigned to rating */
+  initialRating: PropTypes.number,
+
+  /** Prop to get the hovered behavior of the component */
+  isHovered: PropTypes.bool,
 
   /** size */
   size: PropTypes.oneOf(Object.values(SIZES)),
@@ -83,7 +110,13 @@ MoleculeRating.propTypes = {
   href: PropTypes.string,
 
   /** Factory used to create navigation links */
-  linkFactory: PropTypes.func
+  linkFactory: PropTypes.func,
+
+  /** Callback used component hovered */
+  onClick: PropTypes.func,
+
+  /** Icon custom to StarHover  */
+  iconStar: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
 }
 
 export default MoleculeRating

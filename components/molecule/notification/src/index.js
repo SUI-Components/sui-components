@@ -11,14 +11,15 @@ import {
   BUTTONS_MAX,
   VARIATIONS,
   BRDS_SIZE,
-  POSITION
+  POSITION,
+  EMPTY_METHOD
 } from './settings'
 import Button from '@s-ui/react-atom-button'
 import IconClose from '@s-ui/react-icons/lib/Close'
 
 const MoleculeNotification = ({
   autoClose: autoCloseTiming = AUTO_CLOSE.short,
-  onClose = () => {},
+  onClose = EMPTY_METHOD,
   effect = true,
   buttons,
   children,
@@ -75,7 +76,7 @@ const MoleculeNotification = ({
       clearTimeout(autoCloseTimeout.current)
       clearTimeout(transitionTimeout.current)
     }
-  }, [show, effect, autoCloseTimeInSeconds])
+  }, [show, effect, triggerAutoClose, autoCloseTimeInSeconds])
 
   const getButtons = () =>
     buttons

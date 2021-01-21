@@ -1,6 +1,7 @@
-import {lazy, useState, useEffect, useRef, useCallback, Suspense} from 'react'
+import {useState, useEffect, useRef, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import loadable from '@loadable/component'
 import markerFactory from './markerFactory'
 import createHandler from './createHandler'
 
@@ -8,9 +9,9 @@ const BASE_CLASS = `sui-AtomSlider`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 const CLASS_INVERSE = `${BASE_CLASS}--inverse`
 
-const Range = lazy(() => import('rc-slider/lib/Range'))
-const Slider = lazy(() => import('rc-slider/lib/Slider'))
-const Label = lazy(() => import('./Label'))
+const Range = loadable(() => import('rc-slider/lib/Range'), {ssr: true})
+const Slider = loadable(() => import('rc-slider/lib/Slider'), {ssr: true})
+const Label = loadable(() => import('./Label'), {ssr: true})
 
 const AtomSlider = ({
   onChange,
@@ -93,20 +94,18 @@ const AtomSlider = ({
         {[CLASS_INVERSE]: invertColors}
       )}
     >
-      <Suspense fallback={null}>
-        {valueLabel && customProps.handle ? (
-          <>
-            <Label
-              value={internalValue.toString()}
-              formatter={valueLabelFormatter}
-              percentage={((internalValue - min) / (max - min)) * 100}
-            />
-            <Type {...customProps} />
-          </>
-        ) : (
+      {valueLabel && customProps.handle ? (
+        <>
+          <Label
+            value={internalValue.toString()}
+            formatter={valueLabelFormatter}
+            percentage={((internalValue - min) / (max - min)) * 100}
+          />
           <Type {...customProps} />
-        )}
-      </Suspense>
+        </>
+      ) : (
+        <Type {...customProps} />
+      )}
     </div>
   )
 }

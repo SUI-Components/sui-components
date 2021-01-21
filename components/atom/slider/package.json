@@ -9,6 +9,7 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
+    "@loadable/component": "5",
     "rc-slider": "8"
   },
   "peerDependencies": {

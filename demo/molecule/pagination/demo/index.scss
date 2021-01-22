@@ -9,7 +9,7 @@
 
     &-responsive {
       background: white;
-      border: 2px dashed blue;
+      border: $bdw-m dashed blue;
       margin-top: 10px;
       overflow: hidden;
       padding: 10px;
@@ -25,7 +25,7 @@
   }
 
   &--fullWidth {
-    border: 2px dashed blue;
+    border: $bdw-m dashed blue;
     margin-right: 20px;
     overflow: hidden;
     padding: 10px;

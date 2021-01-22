@@ -17,7 +17,7 @@
 
   &-section {
     background: white;
-    border: 1px solid #ccc;
+    border: $bdw-s solid #ccc;
     margin-bottom: 16px;
     padding: 40px;
 
@@ -27,12 +27,11 @@
 
     &-responsive {
       background: white;
-      border: 2px dashed blue;
+      border: $bdw-m dashed blue;
       margin-top: 10px;
       overflow: hidden;
       padding: 30px;
       resize: horizontal;
     }
   }
-
 }

@@ -7,7 +7,7 @@
   }
 
   &-containerImage {
-    border: 2px solid #cccccc;
+    border: $bdw-m solid #cccccc;
     height: 200px;
   }
 
@@ -19,7 +19,7 @@
   }
 
   &-section {
-    border: 1px solid blue;
+    border: $bdw-s solid blue;
     margin: 20px 20px 20px 0;
     max-width: 800px;
     min-width: 300px;

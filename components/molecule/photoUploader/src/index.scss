@@ -8,7 +8,7 @@ $thumb-class: '#{$base-class}-thumb';
 $skeleton-class: '#{$base-class}-skeleton';
 
 /* Overwritable variables */
-$bdrs-photo-uploader-thumb-card-main-counter: $bdrs-base !default;
+$bdrs-photo-uploader-thumb-card-main-counter: $bdrs-xl !default;
 $bd-photo-uploader: $bdw-s dashed $c-primary !default;
 $bd-photo-uploader-drag-photo-rejected: none !default;
 $bd-photo-uploader-thumb: none !default;

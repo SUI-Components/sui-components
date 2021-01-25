@@ -42,6 +42,7 @@ $class-label-link: '#{$class-label}Link';
   }
 
   svg {
+    fill: currentColor;
     height: 100%;
     width: 100%;
   }

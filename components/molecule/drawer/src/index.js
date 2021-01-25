@@ -34,11 +34,11 @@ export default function MoleculeDrawer({
     isOpen && on()
   }, [isOpen, on])
 
-  useEventListener('keydown', ev => {
+  useEventListener('keydown', event => {
     if (isOpen === false) return
-    if (ev.key === 'Escape') {
-      onClose(ev)
-      ev.preventDefault()
+    if (event.key === 'Escape') {
+      typeof onClose === 'function' && onClose(event)
+      event.preventDefault()
     }
   })
 
@@ -57,8 +57,10 @@ export default function MoleculeDrawer({
       <Overlay
         ref={overlayRef}
         className="react-MoleculeDrawer-overlay"
-        onClick={e => {
-          overlayRef.current === e.target && onClose()
+        onClick={event => {
+          overlayRef.current === event.target &&
+            typeof onClose === 'function' &&
+            onClose(event)
         }}
       >
         <Content
@@ -89,7 +91,7 @@ MoleculeDrawer.propTypes = {
   /** Tells if the drawer is open or not */
   isOpen: PropTypes.bool,
   /** On close callback used to manage the isOpen prop from the parent */
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
   /** Screen position where the drawer will be displayed */
   placement: PropTypes.oneOf(Object.values(PLACEMENTS))
 }

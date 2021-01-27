@@ -28,7 +28,6 @@ import {
   Strong,
   Text
 } from '@s-ui/documentation-library'
-import AtomButtom from '@s-ui/react-atom-button'
 
 const BASE_CLASS_DEMO = `DemoAtomButton`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`

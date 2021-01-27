@@ -24,7 +24,9 @@ import {
   Cell,
   RadioButtonGroup,
   RadioButton,
-  Input
+  Input,
+  Strong,
+  Text
 } from '@s-ui/documentation-library'
 
 const BASE_CLASS_DEMO = `DemoAtomButton`
@@ -112,10 +114,77 @@ const flexCenteredStyle = {
 const TypeDeprecatedArticle = () => {
   const [color, setColor] = useState()
   const [design, setDesign] = useState()
+  const handleSubmit = event => {
+    event.preventDefault()
+    alert('I was submitted!')
+  }
   return (
     <Article className={CLASS_SECTION}>
-      <H2 deprecated>TYPES</H2>
-      <H4>Deprecated</H4>
+      <H2>TYPES</H2>
+      <H4>Correct usage</H4>
+      <Paragraph>
+        HTML button <Code>type</Code> attribute is used for specifying the
+        behavior of button.
+      </Paragraph>
+      <Paragraph>
+        <Strong>Tip</Strong>: Always specify the type attribute for the button
+        element. Different browsers may use different default types for the
+        button element
+      </Paragraph>
+      <Grid cols={1} gutter={[8, 8]}>
+        {Object.entries({
+          button: 'The button is a clickable button',
+          submit: 'The button is a submit button (submits form-data)',
+          reset:
+            'The button is a reset button (resets the form-data to its initial values)'
+        }).map(([key, value]) => (
+          <Fragment key={key}>
+            <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
+              <Label>{key}</Label>: <Text>{value}</Text>
+            </Cell>
+          </Fragment>
+        ))}
+      </Grid>
+      <br />
+      <br />
+      <form onSubmit={handleSubmit}>
+        <Grid cols={3} gutter={[8, 8]}>
+          <Cell span={3}>
+            <Input
+              fullWidth
+              type="text"
+              id="fname"
+              name="fname"
+              placeholder="first name"
+            />
+          </Cell>
+          <Cell span={3}>
+            <Input
+              fullWidth
+              type="text"
+              id="lname"
+              name="lname"
+              placeholder="Last name"
+            />
+          </Cell>
+          <Cell>
+            <AtomButton fullWidth type="submit">
+              Submit
+            </AtomButton>
+          </Cell>
+          <Cell>
+            <AtomButton fullWidth type="button">
+              Button
+            </AtomButton>
+          </Cell>
+          <Cell>
+            <AtomButton fullWidth type="reset">
+              Reset
+            </AtomButton>
+          </Cell>
+        </Grid>
+      </form>
+      <H4 deprecated>Deprecated usage</H4>
       <Paragraph>
         Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary'
       </Paragraph>

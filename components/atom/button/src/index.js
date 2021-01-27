@@ -92,6 +92,7 @@ const typeConversion = ({type, design, color, link, href, ...other}) => {
       result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.FLAT)
       break
     default:
+      result.type = type
       result.color = color || 'primary'
       result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID)
       break
@@ -110,7 +111,7 @@ const getPropsWithDefaultValues = ({
 }) => ({
   ...other,
   link,
-  type: undefined,
+  type,
   design: design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID),
   color: color || 'colors',
   alignment: alignment || ALIGNMENT.CENTER
@@ -133,7 +134,8 @@ const AtomButton = props => {
     loader = <ButtonSpinnerIcon />,
     rightIcon,
     size,
-    title
+    title,
+    type
   } = getPropsWithDefaultValues(typeConversion(props))
 
   const classNames = cx(
@@ -159,6 +161,7 @@ const AtomButton = props => {
   return (
     <Button
       {...newProps}
+      type={type}
       link={link}
       className={classNames}
       title={title}
@@ -239,13 +242,16 @@ AtomButton.propTypes = {
   /**
    * DEPRECATED. Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary'
    */
-  type: deprecated(PropTypes.oneOf(TYPES), (props, propName, componentName) => {
-    const deprecatedMessage = `The prop ${'\x1b[32m'}${propName}${'\u001b[39m'} is DEPRECATED on ${'\x1b[32m'}${componentName}${'\u001b[39m'}. You should use now ${'\x1b[32m'}design${'\u001b[39m'} and ${'\x1b[32m'}color${'\u001b[39m'} props.`
-    console.groupCollapsed(deprecatedMessage)
-    console.warn(deprecatedMessage)
-    console.table(TYPES_CONVERSION)
-    console.groupEnd()
-  }),
+  type: PropTypes.oneOfType([
+    PropTypes.oneOf(['button', 'submit', 'reset']),
+    deprecated(PropTypes.oneOf(TYPES), (props, propName, componentName) => {
+      const deprecatedMessage = `The prop ${'\x1b[32m'}${propName}${'\u001b[39m'} is DEPRECATED on ${'\x1b[32m'}${componentName}${'\u001b[39m'}. You should use now ${'\x1b[32m'}design${'\u001b[39m'} and ${'\x1b[32m'}color${'\u001b[39m'} props.`
+      console.groupCollapsed(deprecatedMessage)
+      console.warn(deprecatedMessage)
+      console.table(TYPES_CONVERSION)
+      console.groupEnd()
+    })
+  ]),
   /**
    * Design style of button: 'solid' (default), 'outline', 'flat', 'link'
    */

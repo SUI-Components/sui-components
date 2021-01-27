@@ -33,10 +33,6 @@ const AtomUpload = ({
     setReady(true)
   }, [])
 
-  const handleFileSelectionChange = files => {
-    onFilesSelection(files)
-  }
-
   const renderStatusBlock = status => {
     const classNameIcon = `${BASE_CLASS}-icon${capitalize(status)}`
     const IconStatus = props[`icon${capitalize(status)}`]
@@ -46,40 +42,37 @@ const AtomUpload = ({
     const hasButton = Boolean(Button)
     return (
       <div className={cx(BASE_CLASS, `${BASE_CLASS}--${status}`)}>
-        <>
-          <span className={classNameIcon}>{IconStatus}</span>
-          <div className={CLASS_BLOCK_TEXT}>
-            <h4 className={CLASS_BLOCK_TEXT_MAIN}>{textStatus}</h4>
-            {isActive && (hasTextExplanation || hasButton) && (
-              <>
-                {Button}
-                <p className={CLASS_BLOCK_TEXT_SECONDARY}>{textExplanation}</p>
-              </>
-            )}
-          </div>
-        </>
+        <span className={classNameIcon}>{IconStatus}</span>
+        <div className={CLASS_BLOCK_TEXT}>
+          <h4 className={CLASS_BLOCK_TEXT_MAIN}>{textStatus}</h4>
+          {isActive && (hasTextExplanation || hasButton) && (
+            <>
+              {Button}
+              <p className={CLASS_BLOCK_TEXT_SECONDARY}>{textExplanation}</p>
+            </>
+          )}
+        </div>
       </div>
     )
   }
 
   const hasValidStatus = Object.values(STATUSES).includes(status)
+  const shouldRender = hasValidStatus && ready
   return (
-    <>
-      {hasValidStatus && ready && (
-        <Suspense fallback={null}>
-          <Dropzone
-            accept={accept}
-            className={`${BASE_CLASS}-dropzone`}
-            disabled={status !== STATUSES.ACTIVE}
-            maxSize={maxSize}
-            multiple={multiple}
-            onDrop={handleFileSelectionChange}
-          >
-            {renderStatusBlock(status)}
-          </Dropzone>
-        </Suspense>
-      )}
-    </>
+    shouldRender && (
+      <Suspense fallback={null}>
+        <Dropzone
+          accept={accept}
+          className={`${BASE_CLASS}-dropzone`}
+          disabled={status !== STATUSES.ACTIVE}
+          maxSize={maxSize}
+          multiple={multiple}
+          onDrop={onFilesSelection}
+        >
+          {renderStatusBlock(status)}
+        </Dropzone>
+      </Suspense>
+    )
   )
 }
 

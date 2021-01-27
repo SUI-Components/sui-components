@@ -24,7 +24,10 @@
     "test": "sui-studio test",
     "test:watch": "sui-studio test --watch"
   },
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

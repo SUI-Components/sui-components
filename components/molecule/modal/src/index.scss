@@ -138,7 +138,7 @@ body.is-MoleculeModal-open {
     color: $c-molecule-modal-header;
     display: flex;
     flex: 0 0 auto;
-    font-size: $fz-xl;
+    font-size: $fz-molecule-modal-header;
     font-weight: $fw-molecule-modal-header;
     justify-content: space-between;
     padding: $pt-molecule-modal-header $pr-molecule-modal-header
@@ -186,25 +186,10 @@ body.is-MoleculeModal-open {
   &-content {
     -webkit-overflow-scrolling: touch;
     flex: 1 1 auto;
+    margin: $m-molecule-modal-content;
     overflow-y: auto;
-    margin: $mt-molecule-modal-content $mr-molecule-modal-content 0
-      $ml-molecule-modal-content;
     padding: $p-molecule-modal-content;
     position: relative;
-
-    &:after {
-      content: '';
-      display: block;
-      height: $pb-molecule-modal-content;
-    }
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
 
     &--without-indentation {
       margin: 0;

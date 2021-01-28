@@ -1,6 +1,7 @@
 $layout-grid-breakpoints: $breakpoints;
 $layout-grid-columns: $grid-columns;
 $layout-grid-gap: $p-l !default;
+$layout-grid-breakpoint-min: s !default;
 
 $ai-layout-grid: center flex-start flex-end;
 $jc-layout-grid: flex-start center flex-end space-between space-around;

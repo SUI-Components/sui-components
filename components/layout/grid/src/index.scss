@@ -11,7 +11,7 @@
   @include grid-align-items($ai-layout-grid);
   @include grid-justify-content($jc-layout-grid);
 
-  @include media-breakpoint-up(s) {
+  @include media-breakpoint-up($layout-grid-breakpoint-min) {
     flex-wrap: nowrap;
   }
 

@@ -163,11 +163,12 @@ body.is-MoleculeModal-open {
     -webkit-tap-highlight-color: transparent;
     background-color: transparent;
     border: 0;
+    color: $c-molecule-modal-icon;
     cursor: pointer;
     display: flex;
     outline: 0 none;
-    padding: $pt-molecule-modal-icon $pl-molecule-modal-icon
-      $pb-molecule-modal-icon $pr-molecule-modal-icon;
+    padding: $pt-molecule-modal-icon $pr-molecule-modal-icon
+      $pb-molecule-modal-icon $pl-molecule-modal-icon;
 
     &--floating {
       position: absolute;
@@ -177,7 +178,6 @@ body.is-MoleculeModal-open {
     }
 
     svg {
-      fill: $c-molecule-modal-icon;
       height: $h-molecule-modal-icon;
       width: $w-molecule-modal-icon;
     }

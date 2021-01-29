@@ -1,9 +1,7 @@
 /* eslint react/prop-types: 0 */
 /* eslint react/no-multi-comp: 0 */
 
-import AtomIcon, {
-  ATOM_ICON_SIZES
-} from '@s-ui/react-atom-icon'
+import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
 const IconClose = () => (
   <AtomIcon size={ATOM_ICON_SIZES.medium}>

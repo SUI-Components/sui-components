@@ -15,11 +15,11 @@ $bgc-notification-outline: $c-gray-light-5 !default;
 $bxsh-notification-outline: none !default;
 
 $bdrs-notification: (
-  xl: $bdrs-xl * 4,
-  l: $bdrs-xl * 2,
-  m: $bdrs-xl,
-  s: $bdrs-xl / 2,
-  xs: $bdrs-xl / 4
+  xl: $bdrs-base * 4,
+  l: $bdrs-base * 2,
+  m: $bdrs-base,
+  s: $bdrs-base / 2,
+  xs: $bdrs-base / 4
 ) !default;
 
 // Colors

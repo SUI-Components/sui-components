@@ -3,7 +3,7 @@
 
 $bgc-molecule-thumbnail: transparent !default;
 $bgc-molecule-thumbnail-hover: color-variation($c-primary, 4) !default;
-$bd-molecule-thumbnail: 1px solid transparent !default;
+$bd-molecule-thumbnail: $bdw-s solid transparent !default;
 $bdc-molecule-thumbnail-hover: $c-primary !default;
 $bdrs-molecule-thumbnail: initial !default;
 $bs-molecule-thumbnail: none !default;
@@ -64,12 +64,12 @@ $ratios-molecule-thumbnail: (
 
   &--circled {
     > * {
-      border-radius: 50%;
+      border-radius: $bdrs-rounded;
       overflow: hidden;
     }
 
     .sui-MoleculeThumbnail-containerImage {
-      border-radius: 50%;
+      border-radius: $bdrs-rounded;
       overflow: hidden;
       border: $bd-molecule-thumbnail-container-image;
     }

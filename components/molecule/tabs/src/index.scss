@@ -43,7 +43,7 @@ $sz-sui-molecule-tabs-icon: $sz-icon-l !default;
   &--classic.sui-MoleculeTabs--fullWidth {
     .sui-MoleculeTabs-item {
       background: $bgc-sui-molecule-tabs;
-      border: 1px solid transparent;
+      border: $bdw-s solid transparent;
       border-bottom-color: $bdc-sui-molecule-tabs;
       display: flex;
       flex-direction: column;
@@ -79,7 +79,7 @@ $sz-sui-molecule-tabs-icon: $sz-icon-l !default;
   &--classic.sui-MoleculeTabs--vertical {
     .sui-MoleculeTabs-item {
       background: $bgc-sui-molecule-tabs;
-      border: 1px solid transparent;
+      border: $bdw-s solid transparent;
       border-right-color: $bdc-sui-molecule-tabs;
 
       &.is-active {

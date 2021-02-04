@@ -10,7 +10,7 @@
     $select: &;
     align-items: center;
     border-radius: $bdrs-select-popover;
-    border: 1px solid $c-gray-light-2;
+    border: $bdw-s solid $c-gray-light-2;
     color: $c-black;
     display: flex;
     justify-content: space-between;
@@ -56,7 +56,7 @@
 
   &-popover {
     background-color: $c-white;
-    border: solid 1px $c-gray-light-3;
+    border: $bdw-s solid $c-gray-light-3;
     border-radius: $bdrs-select-popover-content;
     box-shadow: $bxsh-select-popover;
     margin-top: $m-m;
@@ -65,7 +65,7 @@
     z-index: $z-tooltips;
 
     &ActionBar {
-      border-top: solid 1px $c-gray-light-3;
+      border-top: $bdw-s solid $c-gray-light-3;
       padding: $p-l;
       text-align: right;
     }

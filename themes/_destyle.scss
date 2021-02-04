@@ -110,7 +110,7 @@ hr {
   height: 0; /* 1 */
   overflow: visible; /* 2 */
   border: 0;
-  border-top: 1px solid;
+  border-top: $bdw-s solid;
   margin: 0;
   clear: both;
   color: inherit;

@@ -8,8 +8,6 @@ import {
 } from './customPropTypes'
 
 const BASE_CLASS = 'sui-MoleculePagination'
-const CLASS_PREV_BUTTON_ICON = 'sui-MoleculePagination-prevButtonIcon'
-const CLASS_NEXT_BUTTON_ICON = 'sui-MoleculePagination-nextButtonIcon'
 const PAGE_NUMBER_HOLDER = '%{pageNumber}'
 const DIVIDER = '···'
 
@@ -117,13 +115,9 @@ const MoleculePagination = ({
             color={prevButtonColor}
             disabled={!prevPage}
             size={size}
+            leftIcon={PrevButtonIcon && <PrevButtonIcon />}
             {...linkProps(prevPage)}
           >
-            {PrevButtonIcon && (
-              <span className={CLASS_PREV_BUTTON_ICON}>
-                <PrevButtonIcon />
-              </span>
-            )}
             {prevButtonText}
           </AtomButton>
         </li>
@@ -224,14 +218,10 @@ const MoleculePagination = ({
             color={nextButtonColor}
             disabled={!nextPage}
             size={size}
+            rightIcon={NextButtonIcon && <NextButtonIcon />}
             {...linkProps(nextPage)}
           >
             {nextButtonText}
-            {NextButtonIcon && (
-              <span className={CLASS_NEXT_BUTTON_ICON}>
-                <NextButtonIcon />
-              </span>
-            )}
           </AtomButton>
         </li>
       )}

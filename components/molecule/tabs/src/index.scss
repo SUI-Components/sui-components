@@ -30,11 +30,6 @@ $ws-sui-molecule-tabs-vertical-item: nowrap !default;
 $sz-sui-molecule-tabs-icon: $sz-icon-l !default;
 
 .sui-MoleculeTabs {
-  svg {
-    width: 100%;
-    height: 100%;
-  }
-
   &-scroller {
     @include reset-list;
     align-items: flex-start;
@@ -260,6 +255,11 @@ $sz-sui-molecule-tabs-icon: $sz-icon-l !default;
       margin: 0 auto $m-s;
       vertical-align: middle;
       width: $sz-sui-molecule-tabs-icon;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     &-count {

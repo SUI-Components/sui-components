@@ -29,8 +29,6 @@ export default () => (
             <LayoutGridItem s={6}>
               <DemoBox>s:6</DemoBox>
             </LayoutGridItem>
-          </LayoutGrid>
-          <LayoutGrid>
             <LayoutGridItem s={4}>
               <DemoBox>s:4</DemoBox>
             </LayoutGridItem>
@@ -40,8 +38,6 @@ export default () => (
             <LayoutGridItem s={4}>
               <DemoBox>s:4</DemoBox>
             </LayoutGridItem>
-          </LayoutGrid>
-          <LayoutGrid>
             <LayoutGridItem s={3}>
               <DemoBox>s:3</DemoBox>
             </LayoutGridItem>
@@ -54,8 +50,6 @@ export default () => (
             <LayoutGridItem s={3}>
               <DemoBox>s:3</DemoBox>
             </LayoutGridItem>
-          </LayoutGrid>
-          <LayoutGrid>
             <LayoutGridItem s={2}>
               <DemoBox>s:2</DemoBox>
             </LayoutGridItem>
@@ -76,6 +70,7 @@ export default () => (
             </LayoutGridItem>
           </LayoutGrid>
         </DemoWrapper>
+
         <p className="sui-Studio-p">With offset</p>
         <DemoWrapper>
           <LayoutGrid>

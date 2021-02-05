@@ -1,30 +1,47 @@
 @import '~@s-ui/theme/lib/index';
 @import './settings';
 
-.sui-LayoutGrid {
-  $self: &;
+/////
+
+$grid-columns: 12;
+
+@mixin grid-parent($gap) {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: 0 (-$layout-grid-gap / 2);
-  width: calc(100% + #{$layout-grid-gap});
+  margin: 0 (-$gap);
+}
+
+@mixin grid-flex-basis($columns) {
+  $w-column: (100% / $grid-columns) * $columns;
+  flex-basis: $w-column;
+  max-width: $w-column;
+}
+
+@mixin grid-value($breakpoint-name, $columns) {
+  @include media-breakpoint-up($breakpoint-name) {
+    @include grid-flex-basis($columns);
+  }
+}
+
+/////
+
+.sui-LayoutGrid {
+  $self: &;
+  @include grid-parent($layout-grid-gap);
   @include grid-align-items($ai-layout-grid);
   @include grid-justify-content($jc-layout-grid);
 
-  @include media-breakpoint-up($layout-grid-breakpoint-min) {
-    flex-wrap: nowrap;
-  }
-
   &-item {
+    flex-basis: 100%;
     margin: 0;
-    min-width: 100%;
+    max-width: 100%;
     padding: 0 $layout-grid-gap;
     @include grid-item-sizes($breakpoints, $grid-columns);
   }
 
   &.is-gapless {
     margin: 0;
-    width: 100%;
 
     #{$self}-item {
       padding: 0;

@@ -23,7 +23,7 @@ $base-class: '.DemoMoleculeButtonGroup';
     }
 
     &--fullWidth {
-      border: $bdw-m dashed blue;
+      border: 2px dashed blue;
       overflow: hidden;
       padding: 10px;
       resize: horizontal;

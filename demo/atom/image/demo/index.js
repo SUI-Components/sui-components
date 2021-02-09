@@ -405,6 +405,10 @@ const ViewportDemo = () => {
         depending on the device it is being viewed from. Use the prop{' '}
         <Code>sources</Code> (array) to configure it.
       </Paragraph>
+      <Paragraph>
+        For the proper responsive behavior, the array of breakpoint values given
+        to the <Code>source</Code> prop should be ordered descendant.
+      </Paragraph>
       <div style={{height: 300}} className="viewport-demo">
         <AtomImage
           src="https://via.placeholder.com/50"

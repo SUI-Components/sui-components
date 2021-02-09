@@ -2,11 +2,11 @@
 
 The buttons usually act as the main call to action for the users, focusing their attention on what they need to do at each moment.
 
-|   Status          | Complete |
-|   :----           |   :---- |
-|   Current version |   2.0|
-|   Category        |   Atom |
-|   Owners          |   @turolopezsanabria, UX @Julia C, UI @Chris J, FE @David A |
+| Status          | Complete                                                  |
+| :-------------- | :-------------------------------------------------------- |
+| Current version | 2.0                                                       |
+| Category        | Atom                                                      |
+| Owners          | @turolopezsanabria, UX @Julia C, UI @Chris J, FE @David A |
 
 ## Structure
 
@@ -16,8 +16,8 @@ The buttons usually act as the main call to action for the users, focusing their
 
 ## Types
 
-- **Solid:** Solid colour no shadow nor border in SUI by default 
-- **Outline:** White background, 1px border and border color in SUI by default
+- **Solid:** Solid colour no shadow nor border in SUI by default
+- **Outline:** White background, \$bdw-s border and border color in SUI by default
 - **Flat:** Transparent background, no border in SUI by default
 
 ## Style
@@ -27,16 +27,16 @@ The buttons usually act as the main call to action for the users, focusing their
 - **Tertiary:** Tertiary colour in SUI by default
 - **Accent:** Accent colour in SUI by default
 - **Neutral:** Grey colour in SUI by default
-- **Semantics** Use the semantic colours 
-    - Success (also known as "Green", or "Positive")
-    - Error (also known as "Red", or "Negative")
-    - Warning (also known as "Alert")
+- **Semantics** Use the semantic colours
+  - Success (also known as "Green", or "Positive")
+  - Error (also known as "Red", or "Negative")
+  - Warning (also known as "Alert")
 - **Social-media** Use social media colours by default (new values to add in Tokens)
-    - Facebook (also known as "FB")
-    - Whatsapp
-    - Youtube
-    - Twitter 
-    - Instagram
+  - Facebook (also known as "FB")
+  - Whatsapp
+  - Youtube
+  - Twitter
+  - Instagram
 
 ## Contrast variations
 
@@ -60,8 +60,8 @@ Occasionally, you may use a “full-width" or “wider” button whose width wil
 
 The buttons will be available in 3 shapes:
 
-- Square 
-- Rounded (br 4px by default in SUI) 
+- Square
+- Rounded (br 4px by default in SUI)
 - Circle (br 50%)
 
 Each brand should be able to customise the border-radius per each of the 3 types.
@@ -89,14 +89,14 @@ For this component it is recommended to pay special attention to the following r
 1. Every interactive element should be focusable
 2. Focus order should match visual order
 3. Focus should be visible
-7. Interactive elements and images should be correctly labelled 
-9. Interactive elements should be differentiated from content  
-10. Clickable area should be sufficient
-15. Content should have enough contrast to its background
+4. Interactive elements and images should be correctly labelled
+5. Interactive elements should be differentiated from content
+6. Clickable area should be sufficient
+7. Content should have enough contrast to its background
 
 ## Links
 
-- Zeplin: 
+- Zeplin:
 
 ## Customisable variables
 
@@ -115,114 +115,119 @@ For all the buttons, any vertical should be able to change the following variabl
 
 ### Default values in SUI:
 
-- Border-radius for the rounded version: 4px (it should also be the value of $bdrs-m in Tokens)
+- Border-radius for the rounded version: 4px (it should also be the value of \$bdrs-m in Tokens)
 - Box shadow: none for all the styles
 - Lateral paddings: $p-m for small buttons, and $p-l for medium and large buttons
 - Font-sizes:
-    - Small button: $fz-s (16px)
-    - Medium button: $fz-m (16px)
-    - Large button: $fz-m (16px)
+
+  - Small button: \$fz-s (16px)
+  - Medium button: \$fz-m (16px)
+  - Large button: \$fz-m (16px)
 
 - **Positive buttons**
-    - Border size: 1px
-    - Background colours: ("Pure Color" is the colour without changes of lighness or darkness)
-        - Solid:
-            - Default: Pure Color
-            - Active and Hover: Color-L1
-            - Disabled: Color-L5
-        - Outline: 
-            - Default: White
-            - Active and Hover: Color-L5
-            - Disabled: White
-        - Flat: 
-            - Default: Transparent
-            - Active and Hover: Color-L5
-            - Disabled: Transparent
-        
-    - Border colours:
-        - Solid:
-            - Default: Transparent
-            - Active and Hover: Transparent
-            - Disabled: Transparent
-        - Outline: 
-            - Default: Pure Color
-            - Active and Hover: Pure Color
-            - Disabled: Color-L5
-        - Flat: 
-            - Default: Transparent
-            - Active and Hover: Transparent
-            - Disabled: Transparent
 
-    - Font-colours:
-        - Solid:
-            - Default: White
-            - Active and Hover: White
-            - Disabled: White
-        - Outline: 
-            - Default: Pure Color
-            - Active and Hover: Color-D1
-            - Disabled: Color-D5
-        - Flat: 
-            - Default: Pure Color
-            - Active and Hover: Color-D1
-            - Disabled: Color-D5
+  - Border size: \$bdw-s
+  - Background colours: ("Pure Color" is the colour without changes of lighness or darkness)
+    - Solid:
+      - Default: Pure Color
+      - Active and Hover: Color-L1
+      - Disabled: Color-L5
+    - Outline:
+      - Default: White
+      - Active and Hover: Color-L5
+      - Disabled: White
+    - Flat:
+      - Default: Transparent
+      - Active and Hover: Color-L5
+      - Disabled: Transparent
+  - Border colours:
 
-    - Colours for SociaMedia:
-        - Facebook: #3b5998
-        - Whatsapp: #25D366
-        - Youtube: #FF0000
-        - Twitter: #1DA1F2
-        - Instagram: #833AB4
+    - Solid:
+      - Default: Transparent
+      - Active and Hover: Transparent
+      - Disabled: Transparent
+    - Outline:
+      - Default: Pure Color
+      - Active and Hover: Pure Color
+      - Disabled: Color-L5
+    - Flat:
+      - Default: Transparent
+      - Active and Hover: Transparent
+      - Disabled: Transparent
+
+  - Font-colours:
+
+    - Solid:
+      - Default: White
+      - Active and Hover: White
+      - Disabled: White
+    - Outline:
+      - Default: Pure Color
+      - Active and Hover: Color-D1
+      - Disabled: Color-D5
+    - Flat:
+      - Default: Pure Color
+      - Active and Hover: Color-D1
+      - Disabled: Color-D5
+
+  - Colours for SociaMedia:
+    - Facebook: #3b5998
+    - Whatsapp: #25D366
+    - Youtube: #FF0000
+    - Twitter: #1DA1F2
+    - Instagram: #833AB4
 
 - **Negative buttons**
-    - Background colours: ("Pure Color" is the colour without changes of lighness or darkness)
-        - Solid:
-            - Default: White
-            - Active and Hover: White
-            - Disabled: White
-        - Outline: 
-            - Default: Transparent
-            - Active and Hover: Transparent
-            - Disabled: Transparent
-        - Flat: 
-            - Default: Transparent
-            - Active and Hover: Transparent
-            - Disabled: Transparent
-        
-    - Border colours:
-        - Solid:
-            - Default: Transparent
-            - Active and Hover: Transparent
-            - Disabled: Transparent
-        - Outline: **Change border size to 2px for hover**
-            - Default: White
-            - Active and Hover: White
-            - Disabled: White
-        - Flat: 
-            - Default: Transparent
-            - Active and Hover: Transparent
-            - Disabled: Transparent
 
-    - Font-colours:
-        - Solid:
-            - Default: Pure Color
-            - Active and Hover: Color-L1
-            - Disabled: Color-D1
-        - Outline: 
-            - Default: White
-            - Active and Hover: White
-            - Disabled: White
-        - Flat: 
-            - Default: Pure Color
-            - Active and Hover: Color-D1
-            - Disabled: Color-D5
+  - Background colours: ("Pure Color" is the colour without changes of lighness or darkness)
+    - Solid:
+      - Default: White
+      - Active and Hover: White
+      - Disabled: White
+    - Outline:
+      - Default: Transparent
+      - Active and Hover: Transparent
+      - Disabled: Transparent
+    - Flat:
+      - Default: Transparent
+      - Active and Hover: Transparent
+      - Disabled: Transparent
+  - Border colours:
 
-    - Colours for SociaMedia:
-        - Facebook: #3b5998
-        - Whatsapp: #25D366
-        - Youtube: #FF0000
-        - Twitter: #1DA1F2
-        - Instagram: #833AB4
+    - Solid:
+      - Default: Transparent
+      - Active and Hover: Transparent
+      - Disabled: Transparent
+    - Outline: **Change border size to 2px for hover**
+      - Default: White
+      - Active and Hover: White
+      - Disabled: White
+    - Flat:
+      - Default: Transparent
+      - Active and Hover: Transparent
+      - Disabled: Transparent
+
+  - Font-colours:
+
+    - Solid:
+      - Default: Pure Color
+      - Active and Hover: Color-L1
+      - Disabled: Color-D1
+    - Outline:
+      - Default: White
+      - Active and Hover: White
+      - Disabled: White
+    - Flat:
+      - Default: Pure Color
+      - Active and Hover: Color-D1
+      - Disabled: Color-D5
+
+  - Colours for SociaMedia:
+    - Facebook: #3b5998
+    - Whatsapp: #25D366
+    - Youtube: #FF0000
+    - Twitter: #1DA1F2
+    - Instagram: #833AB4
 
 ### Values for each of the themes:
 
@@ -248,10 +253,10 @@ Iterated by @turolopezsanabria
 
 ### Version 1.3
 
-- Text: customizable text button definition, per vertical and per button size. 
+- Text: customizable text button definition, per vertical and per button size.
 
 ### Version 1.2
 
-- Types: Added button icon right, button only with icon, button only with one letter. 
-- Visual: Small Button change horizontal paddings to 8px. 
+- Types: Added button icon right, button only with icon, button only with one letter.
+- Visual: Small Button change horizontal paddings to 8px.
 - Visual: Added visual of the disabled buttons state.

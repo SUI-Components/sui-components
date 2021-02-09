@@ -127,4 +127,18 @@ describe('MoleculeAvatar', () => {
     // Then
     expect(getByTestId(testId)).to.be.visible
   })
+
+  it('should render fallback name initials uppercase', () => {
+    // Given
+    const name = 'jon snow'
+    const props = {
+      name
+    }
+
+    // When
+    const {getByText} = setup(props)
+
+    // Then
+    expect(getByText('JS')).to.be.visible
+  })
 })

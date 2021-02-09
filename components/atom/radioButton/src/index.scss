@@ -16,7 +16,7 @@ $m-atom-radiobutton-type-right: $m-m !default;
   border-width: $bw-atom-radiobutton;
   border-style: solid;
   border-color: $bc-atom-radiobutton;
-  border-radius: 50%;
+  border-radius: $bdrs-rounded;
   cursor: pointer;
   display: inline-block;
   flex-shrink: 0;

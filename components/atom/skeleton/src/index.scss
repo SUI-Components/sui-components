@@ -54,6 +54,6 @@ $delay-skeleton-pulse: 1.5s !default;
   }
 
   &--circle {
-    border-radius: 50%;
+    border-radius: $bdrs-rounded;
   }
 }

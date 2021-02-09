@@ -3,7 +3,7 @@
 @import './settings';
 
 $c-molecule-dropdown-option--highlight-mark: initial !default;
-$bdr-molecule-dropdown-option: $bdrs-none !default;
+$bdr-molecule-dropdown-option: 0 !default;
 $bg-molecule-dropdown-option--highlight-mark: $c-highlight !default;
 $bg-molecule-dropdown-option-selected: none !default;
 $fw-molecule-dropdown-option-selected-text: $fw-bold !default;

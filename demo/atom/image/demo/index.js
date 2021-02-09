@@ -351,7 +351,8 @@ const SpinnerDemo = () => {
     <Article className={CLASS_SECTION}>
       <H2>Spinner Loader</H2>
       <Paragraph>
-        <Code>spinner</Code>
+        AtomImage can show an spinner loader while the image is loading using
+        the <Code>spinner</Code> (React.node) prop
       </Paragraph>
       <div ref={articleRef} style={{height: 300}} className="spinner-demo">
         {isIntersecting && (
@@ -365,18 +366,6 @@ const SpinnerDemo = () => {
           />
         )}
       </div>
-      <Paragraph>Hover the image to see the spinner image.</Paragraph>
-      <Paragraph>–––</Paragraph>
-      <Paragraph>
-        <Bold>Tip</Bold>: to better understand the behavior change the
-        connection to a lower one (For example 2g). if you are using chrome you
-        can find out how to configure it{' '}
-        <Anchor href="https://developers.google.com/web/tools/chrome-devtools/network#throttle">
-          here
-        </Anchor>
-        .
-        <ConnectionViewer />
-      </Paragraph>
     </Article>
   )
 }

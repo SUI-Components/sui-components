@@ -1,28 +1,18 @@
 @import '~@s-ui/react-atom-spinner/lib/index';
+@import '~@s-ui/react-atom-icon/lib/index';
 
 .DemoAtomImage {
-  &-list {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  &-containerImage {
-    border: 2px solid #cccccc;
-    height: 200px;
-  }
-
-  &-listItem {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    width: 300px;
-  }
-
   &-section {
-    border: 1px solid blue;
-    margin: 20px 20px 20px 0;
-    max-width: 800px;
-    min-width: 300px;
-    padding: 10px;
+    .placeholder-demo,
+    .skeleton-demo {
+      .sui-AtomImage .sui-AtomImage-image {
+        opacity: 1;
+        &:hover {
+          opacity: 0;
+          transition: opacity 0.8s ease-in-out;
+        }
+      }
+    }
+
   }
 }

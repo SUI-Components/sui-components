@@ -13,7 +13,7 @@ const CLASS_SPINNER = `${BASE_CLASS}-spinner`
 const CLASS_ERROR = `${BASE_CLASS}-error`
 
 /* eslint-disable-next-line react/prop-types */
-const Error = ({className, icon: Icon, text}) => (
+const ErrorImage = ({className, icon: Icon, text}) => (
   <div className={className}>
     {Icon}
     {Boolean(text) && <p>{text}</p>}
@@ -33,20 +33,26 @@ const AtomImage = ({
   alt,
   ...imgProps
 }) => {
+  const imageRef = useRef()
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
-
-  const imageRef = useRef()
-
-  const handleLoad = useCallback(() => {
-    setLoading(false)
-    onLoad && onLoad()
-  }, [onLoad])
+  const {src} = imgProps
 
   useEffect(() => {
-    const {current: img} = imageRef
-    if (img && img.complete && loading) handleLoad()
-  }, [handleLoad, loading])
+    setLoading(true)
+  }, [src])
+
+  const handleLoad = useCallback(() => {
+    const loadCompleted = imageRef?.current?.complete
+    if (loadCompleted === true) {
+      setLoading(!loadCompleted)
+      onLoad && onLoad()
+    }
+  }, [onLoad, setLoading])
+
+  useEffect(() => {
+    handleLoad()
+  }, [handleLoad, imageRef])
 
   const classNames = cx(
     BASE_CLASS,
@@ -98,7 +104,7 @@ const AtomImage = ({
       </figure>
       {!error && loading && SpinnerExtended}
       {error && (
-        <Error className={CLASS_ERROR} icon={errorIcon} text={errorText} />
+        <ErrorImage className={CLASS_ERROR} icon={errorIcon} text={errorText} />
       )}
     </div>
   )

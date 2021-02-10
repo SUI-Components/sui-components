@@ -90,6 +90,7 @@ const MoleculePhotoUploader = ({
     maxImageWidth
   }
 
+  const isPhotoUploaderEmpty = !files.length
   const isPhotoUploaderFully = () => files.length >= maxPhotos
 
   useMount(() => {
@@ -225,7 +226,8 @@ const MoleculePhotoUploader = ({
   })
 
   const dropzoneClassName = cx(DROPZONE_CLASS_NAME, {
-    [`${DROPZONE_CLASS_NAME}--disabled`]: isPhotoUploaderFully()
+    [`${DROPZONE_CLASS_NAME}--disabled`]: isPhotoUploaderFully(),
+    [`${DROPZONE_CLASS_NAME}--empty`]: isPhotoUploaderEmpty
   })
 
   const container = getTarget(document.querySelector(`.${BASE_CLASS_NAME}`))
@@ -250,7 +252,7 @@ const MoleculePhotoUploader = ({
       <div className={BASE_CLASS_NAME}>
         <div {...getRootProps({className: dropzoneClassName})}>
           <input {...getInputProps()} />
-          {Boolean(!files.length) && !isDragActive && (
+          {isPhotoUploaderEmpty && !isDragActive && (
             <InitialState
               buttonColor={addPhotoButtonColor}
               buttonDesign={addPhotoButtonDesign}
@@ -261,7 +263,7 @@ const MoleculePhotoUploader = ({
               dividerText={dragPhotoDividerTextInitialContent}
             />
           )}
-          {Boolean(files.length) && (
+          {!isPhotoUploaderEmpty && (
             <PhotosPreview
               _callbackPhotosUploaded={_callbackPhotosUploaded}
               _scrollToBottom={_scrollToBottom}

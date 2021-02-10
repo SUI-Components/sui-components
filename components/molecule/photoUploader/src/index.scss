@@ -35,6 +35,7 @@ $c-photo-uploader-drag-photo-rejected: $c-white !default;
 $c-photo-uploader-skeleton: $c-primary !default;
 $c-photo-uploader-skeleton-hover: $c-white !default;
 $bd-photo-uploader-dropzone: 0 !default;
+$bd-photo-uploader-dropzone-empty: $bd-photo-uploader-dropzone !default;
 $bdrs-photo-uploader-dropzone: $bdrs-l !default;
 $bdrs-photo-uploader-initial-state: $bdrs-l !default;
 $bg-photo-uploader-initial-state: $bg-photo-uploader !default;
@@ -78,6 +79,9 @@ $maw-photo-uploader-thumb-drag-text: 200px;
       padding: $p-photo-uploader-desktop;
     }
 
+    &--empty {
+      border: $bd-photo-uploader-dropzone-empty;
+    }
     &--disabled {
       cursor: no-drop;
     }

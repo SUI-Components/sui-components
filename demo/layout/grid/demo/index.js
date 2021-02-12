@@ -135,62 +135,68 @@ export default () => (
         <DemoWrapper>
           <LayoutGrid justifyContent="space-between">
             <LayoutGridItem s={6}>
-              <LayoutGrid>
-                <LayoutGridItem s={12}>
-                  <DemoBox>s:12</DemoBox>
-                </LayoutGridItem>
-              </LayoutGrid>
-              <LayoutGrid>
-                <LayoutGridItem s={6}>
-                  <DemoBox>s:6</DemoBox>
-                </LayoutGridItem>
-                <LayoutGridItem s={6}>
-                  <DemoBox>s:6</DemoBox>
-                </LayoutGridItem>
-              </LayoutGrid>
-              <LayoutGrid>
-                <LayoutGridItem s={3}>
-                  <DemoBox>s:3</DemoBox>
-                </LayoutGridItem>
-                <LayoutGridItem s={3}>
-                  <DemoBox>s:3</DemoBox>
-                </LayoutGridItem>
-                <LayoutGridItem s={3}>
-                  <DemoBox>s:3</DemoBox>
-                </LayoutGridItem>
-                <LayoutGridItem s={3}>
-                  <DemoBox>s:3</DemoBox>
-                </LayoutGridItem>
-              </LayoutGrid>
+              <DemoBox color="#07F">
+                g:1– s: 6
+                <LayoutGrid>
+                  <LayoutGridItem s={12}>
+                    <DemoBox>g:2 – s:12</DemoBox>
+                  </LayoutGridItem>
+                </LayoutGrid>
+                <LayoutGrid>
+                  <LayoutGridItem s={6}>
+                    <DemoBox>g:2 – s:6</DemoBox>
+                  </LayoutGridItem>
+                  <LayoutGridItem s={6}>
+                    <DemoBox>g:2 – s:6</DemoBox>
+                  </LayoutGridItem>
+                </LayoutGrid>
+                <LayoutGrid>
+                  <LayoutGridItem s={3}>
+                    <DemoBox>g:2 – s:3</DemoBox>
+                  </LayoutGridItem>
+                  <LayoutGridItem s={3}>
+                    <DemoBox>g:2 – s:3</DemoBox>
+                  </LayoutGridItem>
+                  <LayoutGridItem s={3}>
+                    <DemoBox>g:2 – s:3</DemoBox>
+                  </LayoutGridItem>
+                  <LayoutGridItem s={3}>
+                    <DemoBox>g:2 – s:3</DemoBox>
+                  </LayoutGridItem>
+                </LayoutGrid>
+              </DemoBox>
             </LayoutGridItem>
             <LayoutGridItem s={6}>
-              <LayoutGrid>
-                <LayoutGridItem s={3}>
-                  <DemoBox>s:3</DemoBox>
-                </LayoutGridItem>
-                <LayoutGridItem s={3}>
-                  <DemoBox>s:3</DemoBox>
-                </LayoutGridItem>
-                <LayoutGridItem s={3}>
-                  <DemoBox>s:3</DemoBox>
-                </LayoutGridItem>
-                <LayoutGridItem s={3}>
-                  <DemoBox>s:3</DemoBox>
-                </LayoutGridItem>
-              </LayoutGrid>
-              <LayoutGrid>
-                <LayoutGridItem s={6}>
-                  <DemoBox>s:6</DemoBox>
-                </LayoutGridItem>
-                <LayoutGridItem s={6}>
-                  <DemoBox>s:6</DemoBox>
-                </LayoutGridItem>
-              </LayoutGrid>
-              <LayoutGrid>
-                <LayoutGridItem s={12}>
-                  <DemoBox>s:12</DemoBox>
-                </LayoutGridItem>
-              </LayoutGrid>
+              <DemoBox color="#07F">
+                g:1 – s:6
+                <LayoutGrid>
+                  <LayoutGridItem s={3}>
+                    <DemoBox>g:2 – s:3</DemoBox>
+                  </LayoutGridItem>
+                  <LayoutGridItem s={3}>
+                    <DemoBox>g:2 – s:3</DemoBox>
+                  </LayoutGridItem>
+                  <LayoutGridItem s={3}>
+                    <DemoBox>g:2 – s:3</DemoBox>
+                  </LayoutGridItem>
+                  <LayoutGridItem s={3}>
+                    <DemoBox>g:2 – s:3</DemoBox>
+                  </LayoutGridItem>
+                </LayoutGrid>
+                <LayoutGrid>
+                  <LayoutGridItem s={6}>
+                    <DemoBox>g:2 – s:6</DemoBox>
+                  </LayoutGridItem>
+                  <LayoutGridItem s={6}>
+                    <DemoBox>g:2 – s:6</DemoBox>
+                  </LayoutGridItem>
+                </LayoutGrid>
+                <LayoutGrid>
+                  <LayoutGridItem s={12}>
+                    <DemoBox>g:2 – s:12</DemoBox>
+                  </LayoutGridItem>
+                </LayoutGrid>
+              </DemoBox>
             </LayoutGridItem>
           </LayoutGrid>
         </DemoWrapper>

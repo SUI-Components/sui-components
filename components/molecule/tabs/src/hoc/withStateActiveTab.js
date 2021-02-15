@@ -26,8 +26,10 @@ const withStateActiveTab = BaseComponent => {
     componentDidMount() {
       const {children} = this.props // eslint-disable-line
       Children.forEach(children, (child, index) => {
-        const {active} = child.props
-        if (active) this.setState({activeTab: index + 1})
+        if (child) {
+          const {active} = child.props
+          if (active) this.setState({activeTab: index + 1})
+        }
       })
     }
 
@@ -39,7 +41,7 @@ const withStateActiveTab = BaseComponent => {
         .map((child, index, children) => {
           const numTab = index + 1
           const active = activeTab === numTab
-          return cloneElement(child, {active})
+          return child && cloneElement(child, {active})
         })
     }
 

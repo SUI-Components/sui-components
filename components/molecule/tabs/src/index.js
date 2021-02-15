@@ -37,7 +37,7 @@ const MoleculeTabs = ({variant, type, children, onChange}) => {
 
   const activeTabContent = Children.toArray(children).reduce(
     (activeContent, child) => {
-      const {children: childrenChild, active} = child.props
+      const {children: childrenChild, active} = child?.props
       return active ? childrenChild : activeContent
     },
     null

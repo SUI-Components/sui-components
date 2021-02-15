@@ -41,7 +41,7 @@ const withStateActiveTab = BaseComponent => {
         .map((child, index, children) => {
           const numTab = index + 1
           const active = activeTab === numTab
-          return child && cloneElement(child, {active})
+          return cloneElement(child, {active})
         })
     }
 

@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 
 * add isLoading and loadingText props support ([3f61841](https://github.com/SUI-Components/sui-components/commit/3f61841b6cec20d85e878e24ef142661e3328fb0))
 * add propTypes ([c9aad89](https://github.com/SUI-Components/sui-components/commit/c9aad891cc54a9b50893646bf3b7b6394e7a12c5))
+* add rounded button support ([bab5f2e](https://github.com/SUI-Components/sui-components/commit/bab5f2ecc17b768b0dd9d66d0397df7dba512041))
 * fix some styles and add examples ([b8bb971](https://github.com/SUI-Components/sui-components/commit/b8bb971c12df6e41ee235f2271239a3a98059566))
 
 

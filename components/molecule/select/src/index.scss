@@ -94,7 +94,7 @@ $c-molecule-select-disabled: inherit !default;
     #{$class-input} {
       &-container {
         @extend %sui-atom-input-select-focus;
-        border: 1px solid $c-primary;
+        border: $bdw-s solid $c-primary;
       }
     }
   }

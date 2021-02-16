@@ -1,10 +1,8 @@
 @import '~@s-ui/react-atom-spinner/lib/index';
 
 .DemoAtomUpload {
-
-  
   &-section {
-    border: 1px solid blue;
+    border: $bdw-s solid blue;
     margin: 20px 20px 20px 0;
     max-width: 800px;
     min-width: 300px;
@@ -21,10 +19,9 @@
         text-indent: -1000px;
       }
     }
-    
 
     &--responsive {
-      border: 2px dotted blue;
+      border: $bdw-m dotted blue;
       max-width: 1000px;
       overflow: hidden;
       resize: horizontal;

@@ -21,7 +21,7 @@ const MoleculeAvatarFallbackName = ({
 
   return (
     <div className={className} aria-label={nameProp} {...others}>
-      {name}
+      {name.toUpperCase()}
     </div>
   )
 }

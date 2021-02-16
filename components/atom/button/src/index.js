@@ -14,6 +14,7 @@ import {
   OWN_PROPS,
   SIZES,
   TYPES,
+  SHAPES,
   TYPES_CONVERSION
 } from './config'
 
@@ -136,7 +137,7 @@ const AtomButton = props => {
     size,
     title,
     type,
-    isRounded
+    shape
   } = getPropsWithDefaultValues(typeConversion(props))
 
   const classNames = cx(
@@ -151,7 +152,7 @@ const AtomButton = props => {
       key => CLASSES[key]
     ),
     !children && CLASSES.empty,
-    {[`${CLASS}--rounded`]: isRounded},
+    {[`${CLASS}--${shape}`]: Object.values(SHAPES).includes(shape)},
     {
       [`${CLASS}--loading`]: isLoading
     },
@@ -226,6 +227,10 @@ AtomButton.propTypes = {
    */
   color: PropTypes.oneOf(COLORS),
   /**
+   * Shape of button
+   */
+  shape: PropTypes.oneOf(Object.values(SHAPES)),
+  /**
    * HTML element: if true, render a link. Otherwise render a button
    */
   link: PropTypes.bool,
@@ -295,10 +300,6 @@ AtomButton.propTypes = {
    */
   disabled: PropTypes.bool,
   /**
-   * If true display rounded corners
-   */
-  isRounded: PropTypes.bool,
-  /**
    * Modifier: full width (100%)
    */
   fullWidth: PropTypes.bool,
@@ -339,3 +340,4 @@ export {DESIGNS as atomButtonDesigns}
 export {SIZES as atomButtonSizes}
 export {TYPES as atomButtonTypes}
 export {ALIGNMENT as atomButtonAlignment}
+export {SHAPES as atomButtonShapes}

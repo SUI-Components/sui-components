@@ -77,7 +77,6 @@ $fw-atom-button-small: $fw-semi-bold !default;
 $icon-sz-atom-button-small: $sz-icon-s !default;
 $icon-m-atom-button-small: $m-s !default;
 $p-atom-button-small: $p-m !default;
-$bdrs-atom-button-small-rounded: 16px !default;
 
 $sz-atom-button: $p-base * 5 !default;
 $fz-atom-button: $fz-m !default;
@@ -85,7 +84,6 @@ $fw-atom-button: $fw-semi-bold !default;
 $icon-sz-atom-button: $sz-icon-s !default;
 $icon-m-atom-button: $m-m !default;
 $p-atom-button: $p-l !default;
-$bdrs-atom-button-rounded: 20px !default;
 
 $bdrs-atom-button-large: $bdrs-m !default;
 $sz-atom-button-large: $p-base * 6 !default;
@@ -94,7 +92,6 @@ $fw-atom-button-large: $fw-semi-bold !default;
 $icon-sz-atom-button-large: $sz-icon-m !default;
 $icon-m-atom-button-large: $m-m !default;
 $p-atom-button-large: $p-l !default;
-$bdrs-atom-button-large-rounded: 24px !default;
 $m-consecutive-atom-button: $m-m !default;
 
 $bd-atom-button-group-focused: 1px solid !default;
@@ -140,6 +137,10 @@ $icon-stroke-color: currentColor !default;
   & #{$base-class}-rightIcon {
     margin-left: $margin;
   }
+}
+
+@mixin button-circular($size) {
+  border-radius: #{$size / 2};
 }
 
 #{$base-class} {
@@ -373,8 +374,12 @@ $icon-stroke-color: currentColor !default;
     }
   }
 
-  &--rounded {
-    border-radius: $bdrs-atom-button-rounded;
+  &--squared {
+    border-radius: 0;
+  }
+
+  &--circular {
+    @include button-circular($sz-atom-button);
   }
 
   &--center {
@@ -404,8 +409,12 @@ $icon-stroke-color: currentColor !default;
     min-width: $sz-atom-button-small;
     padding: 0 $p-atom-button-small;
 
-    &#{$base-class}--rounded {
-      border-radius: $bdrs-atom-button-small-rounded;
+    &#{$base-class}--squared {
+      border-radius: 0;
+    }
+
+    &#{$base-class}--circular {
+      @include button-circular($sz-atom-button-small);
     }
   }
 
@@ -418,8 +427,12 @@ $icon-stroke-color: currentColor !default;
     min-width: $sz-atom-button-large;
     padding: 0 $p-atom-button-large;
 
-    &#{$base-class}--rounded {
-      border-radius: $bdrs-atom-button-large-rounded;
+    &#{$base-class}--squared {
+      border-radius: 0;
+    }
+
+    &#{$base-class}--circular {
+      @include button-circular($sz-atom-button-large);
     }
   }
 
@@ -433,10 +446,6 @@ $icon-stroke-color: currentColor !default;
     #{$base-class}-leftIcon,
     #{$base-class}-rightIcon {
       margin: 0;
-    }
-
-    &#{$base-class}--rounded {
-      border-radius: $bdrs-rounded;
     }
   }
 }

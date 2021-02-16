@@ -7,7 +7,8 @@ import AtomButton, {
   atomButtonDesigns,
   atomButtonSizes,
   atomButtonTypes,
-  atomButtonAlignment
+  atomButtonAlignment,
+  atomButtonShapes
 } from '../../../../components/atom/button/src'
 import {
   AntDesignIcon,
@@ -93,6 +94,9 @@ const atomButtonAlignmentIterator = [
   atomButtonAlignment.LEFT,
   atomButtonAlignment.RIGHT
 ].map((alignment, index) => [{alignment}, index])
+const atomButtonShapesIterator = Object.values(
+  atomButtonShapes
+).map((shape, index) => [{shape}, index])
 const socialIconsMapper = {
   'social-facebook': facebookIcon,
   'social-twitter': twitterIcon,
@@ -533,6 +537,42 @@ const Demo = () => {
                 Button
               </AtomButton>
             </Cell>
+          ))}
+        </Grid>
+      </Article>
+      <br />
+      <Article className={CLASS_SECTION}>
+        <H2>Shape</H2>
+        <div>
+          <Paragraph>
+            Use <Code>shape</Code> prop to modify the border radius of the
+            component. Choose between: <Code>squared</Code>,{' '}
+            <Code>rounded</Code> and <Code>circular</Code>
+          </Paragraph>
+        </div>
+
+        <Grid cols={4} gutter={[8, 8]}>
+          <Cell />
+          {atomButtonShapesIterator.map(([{shape}], index) => (
+            <Cell key={index} style={flexCenteredStyle}>
+              <Label>{shape}</Label>
+            </Cell>
+          ))}
+          {atomButtonSizesIterator.map(([{size}], index) => (
+            <Fragment key={index}>
+              <Cell
+                style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
+              >
+                <Label>{size}</Label>
+              </Cell>
+              {atomButtonShapesIterator.map(([{shape}], index) => (
+                <Cell key={index} style={flexCenteredStyle}>
+                  <AtomButton size={size} shape={shape}>
+                    Button
+                  </AtomButton>
+                </Cell>
+              ))}
+            </Fragment>
           ))}
         </Grid>
       </Article>

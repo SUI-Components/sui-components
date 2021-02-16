@@ -15,6 +15,7 @@ const MoleculeRadioButtonField = ({
   helpText,
   onChange,
   onClickLabel,
+  fullWidth,
   ...props
 }) => {
   return (
@@ -29,6 +30,7 @@ const MoleculeRadioButtonField = ({
         helpText={helpText}
         onChange={onChange}
         onClickLabel={onClickLabel}
+        fullWidth={fullWidth}
         inline
         reverse
         isAligned
@@ -70,7 +72,10 @@ MoleculeRadioButtonField.propTypes = {
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
   /** Boolean to decide if elements should be set inline */
-  inline: PropTypes.bool
+  inline: PropTypes.bool,
+
+  /** Makes nodeLabelContainer full width */
+  fullWidth: PropTypes.bool
 }
 
 export default MoleculeRadioButtonField

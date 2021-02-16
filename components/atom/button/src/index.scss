@@ -139,6 +139,10 @@ $icon-stroke-color: currentColor !default;
   }
 }
 
+@mixin button-circular($size) {
+  border-radius: #{$size / 2};
+}
+
 #{$base-class} {
   @include reset-button;
   @include button-icon($icon-sz-atom-button, $icon-m-atom-button);
@@ -370,6 +374,14 @@ $icon-stroke-color: currentColor !default;
     }
   }
 
+  &--squared {
+    border-radius: 0;
+  }
+
+  &--circular {
+    @include button-circular($sz-atom-button);
+  }
+
   &--center {
     text-align: center;
   }
@@ -396,6 +408,14 @@ $icon-stroke-color: currentColor !default;
     height: $sz-atom-button-small;
     min-width: $sz-atom-button-small;
     padding: 0 $p-atom-button-small;
+
+    &#{$base-class}--squared {
+      border-radius: 0;
+    }
+
+    &#{$base-class}--circular {
+      @include button-circular($sz-atom-button-small);
+    }
   }
 
   &--large {
@@ -406,6 +426,14 @@ $icon-stroke-color: currentColor !default;
     height: $sz-atom-button-large;
     min-width: $sz-atom-button-large;
     padding: 0 $p-atom-button-large;
+
+    &#{$base-class}--squared {
+      border-radius: 0;
+    }
+
+    &#{$base-class}--circular {
+      @include button-circular($sz-atom-button-large);
+    }
   }
 
   &--fullWidth {

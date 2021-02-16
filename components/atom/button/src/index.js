@@ -14,6 +14,7 @@ import {
   OWN_PROPS,
   SIZES,
   TYPES,
+  SHAPES,
   TYPES_CONVERSION
 } from './config'
 
@@ -135,7 +136,8 @@ const AtomButton = props => {
     rightIcon,
     size,
     title,
-    type
+    type,
+    shape
   } = getPropsWithDefaultValues(typeConversion(props))
 
   const classNames = cx(
@@ -150,6 +152,7 @@ const AtomButton = props => {
       key => CLASSES[key]
     ),
     !children && CLASSES.empty,
+    {[`${CLASS}--${shape}`]: Object.values(SHAPES).includes(shape)},
     {
       [`${CLASS}--loading`]: isLoading
     },
@@ -223,6 +226,10 @@ AtomButton.propTypes = {
    * 'social-instagram'
    */
   color: PropTypes.oneOf(COLORS),
+  /**
+   * Shape of button
+   */
+  shape: PropTypes.oneOf(Object.values(SHAPES)),
   /**
    * HTML element: if true, render a link. Otherwise render a button
    */
@@ -333,3 +340,4 @@ export {DESIGNS as atomButtonDesigns}
 export {SIZES as atomButtonSizes}
 export {TYPES as atomButtonTypes}
 export {ALIGNMENT as atomButtonAlignment}
+export {SHAPES as atomButtonShapes}

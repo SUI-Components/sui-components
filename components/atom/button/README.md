@@ -70,6 +70,22 @@ return (<div>
 </div>)
 ```
 
+### Button shape
+
+Use `shape` prop to modify the border radius of the component. Choose between: `squared`, `rounded` and `circular`
+
+```js
+import Button, {atomButtonShapes} from '@s-ui/react-atom-button'
+
+return (
+  <>
+    <AtomButton shape={atomButtonShapes.SQUARED} />
+    <AtomButton shape={atomButtonShapes.ROUNDED} />
+    <AtomButton shape={atomButtonShapes.CIRCULAR} />
+  </>
+)
+```
+
 ### Button loading
 
 Set `isLoading` prop to display the loading state of a button. Optionally, use `loader` prop if you want to overwrite the default spinner and `loadingText` prop if you want to display some text next to the `loader`.

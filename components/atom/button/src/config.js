@@ -52,6 +52,15 @@ export const GROUP_POSITIONS = {
 }
 
 /**
+ * Shapes for the button
+ */
+export const SHAPES = {
+  SQUARED: 'squared',
+  ROUNDED: 'rounded',
+  CIRCULAR: 'circular'
+}
+
+/**
  * Sizes for the button
  */
 export const SIZES = {SMALL: 'small', LARGE: 'large'}

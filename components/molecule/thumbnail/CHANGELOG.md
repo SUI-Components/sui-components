@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.7.0 (2020-10-21)
+
+
+### Features
+
+* add rules for styling in IJ theme ([f0c8100](https://github.com/SUI-Components/sui-components/commit/f0c8100f30f76402fa998db79956639cbb24c0ab))
+
+
+
+# 2.6.0 (2020-10-19)
+
+
+### Features
+
+* add vars for borders and font size ([bb25f93](https://github.com/SUI-Components/sui-components/commit/bb25f93238274f79ff9e61d5c1837065663a4e77))
+
+
+
+# 2.5.0 (2020-10-19)
+
+
+### Features
+
+* add vars for color and text align ([57aace1](https://github.com/SUI-Components/sui-components/commit/57aace1cb19196e958ee0a824d47e6f30e947755))
+
+
+
 # 2.4.0 (2020-05-29)
 
 

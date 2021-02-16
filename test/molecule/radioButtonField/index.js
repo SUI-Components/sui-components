@@ -5,7 +5,6 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
-import React from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
@@ -76,7 +75,11 @@ describe('molecule/radioButtonField', () => {
         // Given
         const text = 'nodeLabel'
         const props = {
-          nodeLabel: <div className="testNodeLabel">{text}</div>
+          nodeLabel: (
+            <div data-role="button" className="testNodeLabel">
+              {text}
+            </div>
+          )
         }
 
         // When
@@ -95,7 +98,11 @@ describe('molecule/radioButtonField', () => {
         const text = 'label'
         const props = {
           label: text,
-          nodeLabel: <div className="testNodeLabel">{text}</div>
+          nodeLabel: (
+            <div data-role="button" className="testNodeLabel">
+              {text}
+            </div>
+          )
         }
 
         // When

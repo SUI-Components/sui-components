@@ -20,6 +20,8 @@ $miw-molecule-modal-dialog: 288px !default;
 $bg-molecule-modal-header: transparent !default;
 $bd-molecule-modal-header: 1px solid $c-gray-light !default;
 $c-molecule-modal-header: inherit !default;
+$fw-molecule-modal-header: $fw-regular !default;
+$fz-molecule-modal-header: $fz-xl !default;
 $pt-molecule-modal-header: $p-l !default;
 $pb-molecule-modal-header: $pt-molecule-modal-header !default;
 $pr-molecule-modal-header: 0 !default;
@@ -42,13 +44,5 @@ $r-molecule-modal-icon-floating: 0 !default;
 $t-molecule-modal-icon-floating: $p-l !default;
 $z-molecule-modal-icon-floating: $z-modal !default;
 
-$pt-molecule-modal-content: $p-l !default;
-$pb-molecule-modal-content: $pt-molecule-modal-content !default;
-$pr-molecule-modal-content: $p-xl !default;
-$pl-molecule-modal-content: $pr-molecule-modal-content !default;
-
-// maintain backward compatibility in case someone uses any $pX-molecule-modal-content existing variables
-$mt-molecule-modal-content: $pt-molecule-modal-content !default;
-$mb-molecule-modal-content: $pb-molecule-modal-content !default;
-$mr-molecule-modal-content: $pr-molecule-modal-content !default;
-$ml-molecule-modal-content: $pl-molecule-modal-content !default;
+$m-molecule-modal-content: $m-l $m-xl !default;
+$p-molecule-modal-content: 0 !default;

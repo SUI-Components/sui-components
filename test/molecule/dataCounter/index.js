@@ -5,7 +5,6 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
-import React from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
@@ -19,7 +18,14 @@ describe('molecule/dataCounter', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {
+      charsSize: 10,
+      label: 'label',
+      minValueHelpText: 'minValueHelpText',
+      minValueErrorText: 'minValueErrorText',
+      maxValueHelpText: 'maxValueHelpText',
+      maxValueErrorText: 'maxValueErrorText'
+    }
 
     // When
     const component = <Component {...props} />
@@ -32,7 +38,14 @@ describe('molecule/dataCounter', () => {
 
   it('should NOT render null', () => {
     // Given
-    const props = {}
+    const props = {
+      charsSize: 10,
+      label: 'label',
+      minValueHelpText: 'minValueHelpText',
+      minValueErrorText: 'minValueErrorText',
+      maxValueHelpText: 'maxValueHelpText',
+      maxValueErrorText: 'maxValueErrorText'
+    }
 
     // When
     const {container} = setup(props)

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import {IconMenu} from '../icons'
 
 export default ({className}) => ( // eslint-disable-line

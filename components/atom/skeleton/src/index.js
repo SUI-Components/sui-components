@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -55,11 +54,11 @@ AtomSkeleton.propTypes = {
   /**
    * Set a specific width
    */
-  width: PropTypes.string,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /**
    * Set a specific height
    */
-  height: PropTypes.height,
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /**
    * Set custom styles
    */

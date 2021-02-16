@@ -1,10 +1,6 @@
-import React, {useState, useEffect, lazy, Suspense} from 'react'
+import {useState, useEffect, lazy, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import AtomIcon, {
-  ATOM_ICON_COLORS,
-  ATOM_ICON_SIZES
-} from '@s-ui/react-atom-icon'
 const Dropzone = lazy(() => import('react-dropzone'))
 
 const STATUSES = {
@@ -29,7 +25,6 @@ const AtomUpload = ({
   multiple,
   maxSize,
   accept,
-  iconSize = ATOM_ICON_SIZES.large,
   ...props
 }) => {
   const [ready, setReady] = useState(false)
@@ -37,10 +32,6 @@ const AtomUpload = ({
   useEffect(() => {
     setReady(true)
   }, [])
-
-  const handleFileSelectionChange = files => {
-    onFilesSelection(files)
-  }
 
   const renderStatusBlock = status => {
     const classNameIcon = `${BASE_CLASS}-icon${capitalize(status)}`
@@ -51,46 +42,37 @@ const AtomUpload = ({
     const hasButton = Boolean(Button)
     return (
       <div className={cx(BASE_CLASS, `${BASE_CLASS}--${status}`)}>
-        <>
-          <AtomIcon
-            size={iconSize}
-            color={ATOM_ICON_COLORS.currentColor}
-            className={classNameIcon}
-          >
-            {IconStatus}
-          </AtomIcon>
-          <div className={CLASS_BLOCK_TEXT}>
-            <h4 className={CLASS_BLOCK_TEXT_MAIN}>{textStatus}</h4>
-            {isActive && (hasTextExplanation || hasButton) && (
-              <>
-                {Button}
-                <p className={CLASS_BLOCK_TEXT_SECONDARY}>{textExplanation}</p>
-              </>
-            )}
-          </div>
-        </>
+        <span className={classNameIcon}>{IconStatus}</span>
+        <div className={CLASS_BLOCK_TEXT}>
+          <h4 className={CLASS_BLOCK_TEXT_MAIN}>{textStatus}</h4>
+          {isActive && (hasTextExplanation || hasButton) && (
+            <>
+              {Button}
+              <p className={CLASS_BLOCK_TEXT_SECONDARY}>{textExplanation}</p>
+            </>
+          )}
+        </div>
       </div>
     )
   }
 
   const hasValidStatus = Object.values(STATUSES).includes(status)
+  const shouldRender = hasValidStatus && ready
   return (
-    <>
-      {hasValidStatus && ready && (
-        <Suspense fallback={null}>
-          <Dropzone
-            className={`${BASE_CLASS}-dropzone`}
-            disabled={status !== STATUSES.ACTIVE}
-            onDrop={handleFileSelectionChange}
-            multiple={multiple}
-            maxSize={maxSize}
-            accept={accept}
-          >
-            {renderStatusBlock(status)}
-          </Dropzone>
-        </Suspense>
-      )}
-    </>
+    shouldRender && (
+      <Suspense fallback={null}>
+        <Dropzone
+          accept={accept}
+          className={`${BASE_CLASS}-dropzone`}
+          disabled={status !== STATUSES.ACTIVE}
+          maxSize={maxSize}
+          multiple={multiple}
+          onDrop={onFilesSelection}
+        >
+          {renderStatusBlock(status)}
+        </Dropzone>
+      </Suspense>
+    )
   )
 }
 
@@ -151,9 +133,7 @@ AtomUpload.propTypes = {
   accept: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string)
-  ]),
-  /** Size of icon */
-  iconSize: PropTypes.oneOf(Object.values(ATOM_ICON_SIZES))
+  ])
 }
 
 export {STATUSES as uploadStatuses}

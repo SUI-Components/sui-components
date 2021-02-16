@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.17.0 (2020-11-18)
+
+
+### Bug Fixes
+
+* fixes ([79cf6a4](https://github.com/SUI-Components/sui-components/commit/79cf6a401f316956cc2c156adebe18d233a1af09))
+
+
+### Features
+
+* add design feature on AtomBadge component ([cd5ade6](https://github.com/SUI-Components/sui-components/commit/cd5ade654e65d085d0d57fa898cbd3af6cfbe64c)), closes [#1298](https://github.com/SUI-Components/sui-components/issues/1298)
+
+
+
+# 1.16.0 (2020-10-30)
+
+
+### Features
+
+* add NEUTRAL type ([0a67ed4](https://github.com/SUI-Components/sui-components/commit/0a67ed402819c9fb390525f497e42415108aa151))
+* change color with transparent prop ([8d85d7b](https://github.com/SUI-Components/sui-components/commit/8d85d7b39abc4edb77f16a1b4d7ed043e6ff13f0))
+
+
+
 # 1.15.0 (2020-07-31)
 
 

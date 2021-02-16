@@ -5,7 +5,6 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
-import React from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
@@ -19,7 +18,10 @@ describe('atom/label', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {
+      name: 'name',
+      text: 'text'
+    }
 
     // When
     const component = <Component {...props} />
@@ -32,7 +34,10 @@ describe('atom/label', () => {
 
   it('should NOT render null', () => {
     // Given
-    const props = {}
+    const props = {
+      name: 'name',
+      text: 'text'
+    }
 
     // When
     const {container} = setup(props)

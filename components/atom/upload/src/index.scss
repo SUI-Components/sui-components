@@ -1,8 +1,7 @@
 @import '~@s-ui/theme/lib/index';
 @import '~@s-ui/react-atom-button/lib/index';
-@import '~@s-ui/react-atom-icon/lib/index';
 
-$bdrs-atom-upload: $bdrs-none !default;
+$bdrs-atom-upload: 0 !default;
 $bw-atom-upload: $bdw-m !default;
 $bg-atom-upload: $c-gray-lightest !default;
 $c-atom-upload: $c-gray !default;
@@ -16,6 +15,11 @@ $fz-atom-upload-text: $fz-xl !default;
 $fz-atom-upload-text-secondary: $fz-l !default;
 $h-atom-upload-icon: $sz-icon-xl * 2 !default;
 $w-atom-upload-icon: $sz-icon-xl * 2 !default;
+$m-atom-upload-text-secondary: 0px 0px $m-l 0px !default;
+$fw-atom-upload-text-main: $fw-semi-bold !default;
+$fw-atom-upload-text-secondary: $fw-light !default;
+$c-atom-upload-text-main: $c-atom-upload !default;
+$c-atom-upload-text-secondary: $c-atom-upload !default;
 $jc-atom-upload-content: inherit !default;
 $m-atom-upload-main-text: $m-l 0 !default;
 
@@ -44,15 +48,17 @@ $m-atom-upload-main-text: $m-l 0 !default;
     }
 
     &-main {
+      color: $c-atom-upload-text-main;
       font-size: $fz-atom-upload-text;
-      font-weight: $fw-semi-bold;
+      font-weight: $fw-atom-upload-text-main;
       margin: $m-atom-upload-main-text;
     }
 
     &-secondary {
+      color: $c-atom-upload-text-secondary;
       font-size: $fz-atom-upload-text-secondary;
-      font-weight: $fw-light;
-      margin-bottom: $m-l;
+      font-weight: $fw-atom-upload-text-secondary;
+      margin: $m-atom-upload-text-secondary;
     }
   }
 

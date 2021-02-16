@@ -18,6 +18,12 @@ export const DESIGNS = {
   LINK: 'link'
 }
 
+export const ALIGNMENT = {
+  CENTER: 'center',
+  LEFT: 'left',
+  RIGHT: 'right'
+}
+
 /**
  * Available colors for the button
  */
@@ -66,7 +72,8 @@ export const MODIFIERS = [
  */
 export const ICON_POSITIONS = {
   LEFT: 'left',
-  RIGHT: 'right'
+  RIGHT: 'right',
+  CENTER: 'center'
 }
 
 /**
@@ -75,6 +82,7 @@ export const ICON_POSITIONS = {
 export const OWN_PROPS = [
   ...TYPES,
   ...SIZES,
+  'alignment',
   'children',
   'className',
   'color',
@@ -82,7 +90,9 @@ export const OWN_PROPS = [
   'focused',
   'fullWidth',
   'groupPosition',
+  'isLoading',
   'leftIcon',
+  'loadingText',
   'negative',
   'rightIcon',
   'type'
@@ -102,4 +112,11 @@ export const ATOM_ICON_SIZES_MAPPER = {
   default: 'small',
   small: 'small',
   large: 'medium'
+}
+
+export const TYPES_CONVERSION = {
+  primary: {design: DESIGNS.SOLID, color: 'primary'},
+  accent: {design: DESIGNS.SOLID, color: 'accent'},
+  secondary: {design: DESIGNS.OUTLINE, color: 'primary'},
+  tertiary: {design: DESIGNS.FLAT, color: 'primary'}
 }

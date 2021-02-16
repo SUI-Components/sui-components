@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -42,6 +41,7 @@ const AtomCard = ({
     <div
       className={classNames}
       tabIndex={tabIndex}
+      role="button"
       onClick={redirectToHref}
       onKeyDown={redirectOnEnter}
     >
@@ -51,9 +51,7 @@ const AtomCard = ({
         </div>
       )}
 
-      <div className={CLASS_INFO}>
-        <Content />
-      </div>
+      <div className={CLASS_INFO}>{Content && <Content />}</div>
     </div>
   )
 }

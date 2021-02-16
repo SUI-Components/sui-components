@@ -1,4 +1,4 @@
-import React from 'react'
+import {cloneElement, Children} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -22,7 +22,7 @@ const MoleculeLabel = ({
   nodeLabel,
   type: typeValidationLabel,
   name,
-  onClickLabel
+  onClick
 }) => {
   const innerLabel = () => {
     if (label) {
@@ -31,14 +31,14 @@ const MoleculeLabel = ({
           type={typeValidationLabel}
           name={name}
           text={label}
-          onClick={onClickLabel}
+          onClick={onClick}
         />
       )
     } else if (nodeLabel) {
-      return React.cloneElement(nodeLabel, {
+      return cloneElement(nodeLabel, {
         type: typeValidationLabel,
         name,
-        onClickLabel
+        onClick
       })
     }
   }
@@ -50,7 +50,7 @@ MoleculeLabel.propTypes = {
   nodeLabel: PropTypes.element,
   type: PropTypes.oneOf(Object.values(AtomLabelTypes)),
   name: PropTypes.string,
-  onClickLabel: PropTypes.func
+  onClick: PropTypes.func
 }
 
 const MoleculeField = ({
@@ -68,7 +68,8 @@ const MoleculeField = ({
   onClickLabel,
   onChange: onChangeFromProps,
   children,
-  autoHideHelpText
+  autoHideHelpText,
+  isAligned
 }) => {
   const className = cx(
     BASE_CLASS,
@@ -79,10 +80,10 @@ const MoleculeField = ({
   )
 
   let statusValidationText, typeValidationLabel, typeValidationText
-  const extendedChildren = React.Children.toArray(children)
+  const extendedChildren = Children.toArray(children)
     .filter(Boolean)
     .map((child, index) => {
-      return React.cloneElement(child, {
+      return cloneElement(child, {
         onChange: onChangeFromProps
       })
     })
@@ -123,7 +124,12 @@ const MoleculeField = ({
           />
         </div>
       )}
-      <div className={CLASS_INPUT_CONTAINER}>
+      <div
+        className={cx(
+          CLASS_INPUT_CONTAINER,
+          isAligned && `${CLASS_INPUT_CONTAINER}--aligned`
+        )}
+      >
         {!inline && extendedChildren}
         {typeValidationText && (
           <AtomValidationText
@@ -162,16 +168,16 @@ MoleculeField.propTypes = {
   name: PropTypes.string.isRequired,
 
   /** Success message to display when success state  */
-  successText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  successText: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
 
   /** Error message to display when error state  */
-  errorText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  errorText: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
 
   /** Error message to display when alert state  */
-  alertText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  alertText: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
 
   /** Help Text to display */
-  helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  helpText: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
 
   /** Boolean to decide if elements should be set inline */
   inline: PropTypes.bool,
@@ -183,7 +189,10 @@ MoleculeField.propTypes = {
   onClickLabel: PropTypes.func,
 
   /** Boolean to decide if helptext should be auto hide */
-  autoHideHelpText: PropTypes.bool
+  autoHideHelpText: PropTypes.bool,
+
+  /** Boolean to indicate if there is a checkbox or radiobutton & it has to be aligned  */
+  isAligned: PropTypes.bool
 }
 
 export default MoleculeField

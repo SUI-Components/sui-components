@@ -1,4 +1,3 @@
-import React from 'react'
 import Button from '@s-ui/react-atom-button'
 
 export default (

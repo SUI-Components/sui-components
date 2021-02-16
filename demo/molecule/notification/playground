@@ -1,12 +1,12 @@
 function getButtons(variation = 'negative') {
   return [
     {
-      type: variation === 'positive' ? 'primary' : 'secondary',
+      type: variation !== 'negative' ? 'primary' : 'secondary',
       children: 'Secondary',
       negative: true
     },
     {
-      type: variation === 'positive' ? 'primary' : 'secondary',
+      type: variation !== 'negative' ? 'primary' : 'secondary',
       children: 'Primary',
       negative: true
     }
@@ -67,15 +67,12 @@ class PositionNotification extends React.Component {
   }
 }
 
-const TYPES = ['info', 'success', 'warning', 'error', 'system']
-const VARIATIONS = ['positive', 'negative']
-
 return (
   <div>
     <h1>Notification</h1>
     <h2>Types and variations</h2>
-    {TYPES.map(type =>
-      VARIATIONS.map(variation => (
+    {Object.values(TYPES).map(type =>
+      Object.values(VARIATIONS).map(variation => (
         <div key={type + variation}>
           <Title>
             Type: {type} - Variation: {variation}

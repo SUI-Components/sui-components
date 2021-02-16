@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
@@ -34,6 +33,7 @@ const MoleculeCheckboxField = ({
         onChange={onChange}
         inline
         reverse
+        isAligned
       >
         <AtomCheckbox id={id} {...props} />
         {ToggleIcon && (
@@ -59,7 +59,7 @@ MoleculeCheckboxField.propTypes = {
   nodeLabel: PropTypes.element,
 
   /** used as label for attribute and input element id */
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   /** Makes MoleculeField full width */
   fullWidth: PropTypes.bool,

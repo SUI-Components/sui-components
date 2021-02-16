@@ -1,5 +1,5 @@
 /* eslint react/prop-types: 0 */
-import React from 'react'
+import {Component} from 'react'
 import MoleculeModal from '../../../../components/molecule/modal/src'
 import {
   ContentWithCloseButton,
@@ -7,7 +7,7 @@ import {
   IconClose
 } from './helperComponents'
 
-export default class MobileFitContentModal extends React.Component {
+export default class MobileFitContentModal extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -39,7 +39,7 @@ export default class MobileFitContentModal extends React.Component {
           closeOnEscKeyDown
           fitContent
           iconClose={<IconClose />}
-          header={<strong>My new brand modal</strong>}
+          header="My new brand modal"
           onClose={this.handleCloseModal}
         >
           <ContentWithCloseButton>

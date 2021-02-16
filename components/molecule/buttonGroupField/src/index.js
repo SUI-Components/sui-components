@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
@@ -40,7 +39,7 @@ MoleculeButtonGroupField.propTypes = {
   label: PropTypes.string.isRequired,
 
   /** used as label for attribute and input element id */
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   /* onChange callback */
   onChange: PropTypes.func,

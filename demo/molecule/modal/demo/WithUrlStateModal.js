@@ -1,5 +1,5 @@
 /* eslint react/prop-types: 0 */
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {MoleculeModalWithUrlState} from '../../../../components/molecule/modal/src'
 import {Content, LoremIpsumParagraph, IconClose} from './helperComponents'
 
@@ -21,7 +21,7 @@ const ModalWithUrlState = () => {
         disableScroll={false}
         iconClose={<IconClose />}
         fitWindow
-        header={<strong>My new brand modal</strong>}
+        header="My new brand modal"
         onClose={handleCloseModal}
         hash="ModalWithUrlState"
         openModalTrigger={handleOpenModal}

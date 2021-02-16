@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.3.0 (2020-12-15)
+
+
+### Bug Fixes
+
+* fix type "ssmall" to "xsmall" ([cb35800](https://github.com/SUI-Components/sui-components/commit/cb35800f12d3f9ca1bd11f5af934ce7274fe62ee))
+
+
+### Features
+
+* add new sizes ([263a137](https://github.com/SUI-Components/sui-components/commit/263a137306aa1dd50cada8a25009904fb2a9de51))
+* Use new jsx runtime ([238ddc1](https://github.com/SUI-Components/sui-components/commit/238ddc1c2f63c4c0df19ab000a0ec87522a19454))
+
+
+
 # 1.1.0 (2020-10-09)
 
 

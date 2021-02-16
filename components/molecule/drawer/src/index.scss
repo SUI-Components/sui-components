@@ -1,0 +1,129 @@
+@import '~@s-ui/theme/lib/index';
+
+$w-molecule-drawer: 260px !default;
+$h-molecule-drawer: $w-molecule-drawer !default;
+$z-molecule-drawer: $z-modal !default;
+$z-molecule-drawer-overlay: $z-modal !default;
+$bxsh-molecule-drawer: 0 0 6px rgba(0, 0, 0, 0.4) !default;
+
+@keyframes bg-overlay {
+  0% {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+@keyframes open-drawer-left {
+  0% {
+    left: -$w-molecule-drawer;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes close-drawer-left {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: -$w-molecule-drawer;
+  }
+}
+
+@keyframes open-drawer-right {
+  0% {
+    right: -$w-molecule-drawer;
+  }
+  100% {
+    right: 0px;
+  }
+}
+
+@keyframes close-drawer-right {
+  0% {
+    right: 0px;
+  }
+  100% {
+    right: -$w-molecule-drawer;
+  }
+}
+
+@keyframes open-drawer-top {
+  0% {
+    top: -$h-molecule-drawer;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+@keyframes close-drawer-top {
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: -$h-molecule-drawer;
+  }
+}
+
+@keyframes open-drawer-bottom {
+  0% {
+    bottom: -$h-molecule-drawer;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+
+@keyframes close-drawer-bottom {
+  0% {
+    bottom: 0px;
+  }
+  100% {
+    bottom: -$h-molecule-drawer;
+  }
+}
+
+.react-MoleculeDrawer {
+  &-overlay {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: $z-molecule-drawer-overlay;
+    animation: bg-overlay 1s both;
+  }
+
+  &-content {
+    box-shadow: $bxsh-molecule-drawer;
+    position: fixed;
+    z-index: $z-molecule-drawer;
+    background-color: white;
+    &--left {
+      height: 100%;
+      width: $w-molecule-drawer;
+      left: 0px;
+      top: 0px;
+    }
+    &--right {
+      height: 100%;
+      width: $w-molecule-drawer;
+      right: 0px;
+      top: 0px;
+    }
+    &--top {
+      width: 100%;
+      height: $h-molecule-drawer;
+      top: 0px;
+    }
+    &--bottom {
+      width: 100%;
+      height: $h-molecule-drawer;
+      bottom: 0px;
+    }
+  }
+}

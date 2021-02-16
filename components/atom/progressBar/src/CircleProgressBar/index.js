@@ -1,10 +1,10 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Circle from './Circle'
 
 const SIZES = {
   LARGE: 'large',
+  MEDIUM: 'medium',
   SMALL: 'small'
 }
 
@@ -16,30 +16,35 @@ const STATUS = {
 
 const SIZE_TO_WIDTH_LINE_MAP = {
   [SIZES.LARGE]: 4,
+  [SIZES.MEDIUM]: 8,
   [SIZES.SMALL]: 8
 }
 
-const BASE_CLASS_NAME = 'sui-AtomCircleProgressBar'
+const BASE_CLASS_NAME = 'sui-AtomCircleProgressBarV2'
 const INDICATOR_CLASS_NAME = `${BASE_CLASS_NAME}-indicator`
 
-const Indicator = props => {
-  const {percentage, status, errorIcon, size} = props // eslint-disable-line react/prop-types
+const Indicator = ({percentage, status, errorIcon, size, children}) => {
   if (status === STATUS.LOADING) return null
   return (
     <span
-      className={cx(INDICATOR_CLASS_NAME, {
-        [`${INDICATOR_CLASS_NAME}--small`]: size === SIZES.SMALL,
-        [`${INDICATOR_CLASS_NAME}--inner`]:
-          size === SIZES.LARGE || status === STATUS.ERROR,
-        [`${INDICATOR_CLASS_NAME}--outer`]:
-          size === SIZES.SMALL && status !== STATUS.ERROR,
-        [`${INDICATOR_CLASS_NAME}--error`]: status === STATUS.ERROR
-      })}
+      className={cx(
+        INDICATOR_CLASS_NAME,
+        `${INDICATOR_CLASS_NAME}--${status}`,
+        `${INDICATOR_CLASS_NAME}--${size}`
+      )}
     >
-      {status === STATUS.PROGRESS && <span>{percentage}%</span>}
+      {status === STATUS.PROGRESS && (children || `${percentage}%`)}
       {status === STATUS.ERROR && errorIcon}
     </span>
   )
+}
+
+Indicator.propTypes = {
+  percentage: PropTypes.number.isRequired,
+  status: PropTypes.oneOf(Object.values(STATUS)),
+  errorIcon: PropTypes.node,
+  size: PropTypes.oneOf(Object.values(SIZES)),
+  children: PropTypes.node
 }
 
 const CircleProgressBar = ({
@@ -48,15 +53,18 @@ const CircleProgressBar = ({
   errorIcon,
   size,
   isAnimatedOnChange,
-  hideIndicator
+  hideIndicator,
+  children
 }) => {
   const circleWidth = SIZE_TO_WIDTH_LINE_MAP[size]
 
   return (
     <div
-      className={cx(BASE_CLASS_NAME, {
-        [`${BASE_CLASS_NAME}--${size}`]: !!size && status !== STATUS.ERROR
-      })}
+      className={cx(
+        BASE_CLASS_NAME,
+        `${BASE_CLASS_NAME}--${size}`,
+        `${BASE_CLASS_NAME}--${status}`
+      )}
     >
       <Circle
         baseClassName={BASE_CLASS_NAME}
@@ -72,7 +80,9 @@ const CircleProgressBar = ({
           size={size}
           status={status}
           errorIcon={errorIcon}
-        />
+        >
+          {children}
+        </Indicator>
       )}
     </div>
   )
@@ -97,7 +107,9 @@ CircleProgressBar.propTypes = {
   isAnimatedOnChange: PropTypes.bool,
 
   /** Hide the indicator */
-  hideIndicator: PropTypes.bool
+  hideIndicator: PropTypes.bool,
+  /** Component to render inside the circle instead of the current progress */
+  children: PropTypes.node
 }
 
 CircleProgressBar.defaultProps = {

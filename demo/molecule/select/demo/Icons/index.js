@@ -1,5 +1,3 @@
-import React from 'react'
-
 const IconCloseTag = () => (
   <svg viewBox="0 0 24 24">
     <path

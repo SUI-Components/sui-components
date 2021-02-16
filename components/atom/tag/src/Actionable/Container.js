@@ -1,6 +1,5 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-import {linkTypes as LINK_TYPES} from '../index'
+import {LINK_TYPES} from '../constants'
 
 /**
  * Component treated as an anchor when href is defined

@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-12-02)
+
+
+### Bug Fixes
+
+* fix behaviors, handlers, no controlled status support, reduce cached valu ([cb2c06f](https://github.com/SUI-Components/sui-components/commit/cb2c06fa5d6b456c533b84625cc9032c32bfcd8d))
+* icons and demo ([3d2ce52](https://github.com/SUI-Components/sui-components/commit/3d2ce52f8d994cf6077ee47789dc6655a448843d))
+
+
+### Features
+
+* make component uncontrolled ([2a6d0ff](https://github.com/SUI-Components/sui-components/commit/2a6d0ffb8de9a6c5175f29f12b28fab850b14579))
+
+
+
+# 1.6.0 (2020-11-30)
+
+
+### Bug Fixes
+
+* fix loading icons ([2c07d4c](https://github.com/SUI-Components/sui-components/commit/2c07d4ce2205d12936c5254f3bb20d64670682c9))
+* fix on use icons ([5bc1e39](https://github.com/SUI-Components/sui-components/commit/5bc1e39636bb83acf1e2403cd1c5d354daba1f60))
+
+
+### Features
+
+* improve datacounter improving features ([bc7ce87](https://github.com/SUI-Components/sui-components/commit/bc7ce876f84a721cc840b3da4006faf80f704068))
+* Use new jsx runtime ([7e497d8](https://github.com/SUI-Components/sui-components/commit/7e497d8b94cf8bcae92d4d89a8f1db48a175a1ab))
+
+
+
 # 1.4.0 (2020-05-29)
 
 

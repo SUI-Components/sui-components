@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, {useState} from 'react'
+import {useState} from 'react'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 import MoleculeCheckboxField from '../../../../components/molecule/checkboxField/src/'

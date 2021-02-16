@@ -17,7 +17,7 @@ $ npm install @s-ui/react-molecule-avatar
 ```js
 import MoleculeAvatar from '@s-ui/react-molecule-avatar'
 
-return (<MoleculeAvatar />)
+return <MoleculeAvatar />
 ```
 
 #### Import the styles (Sass)
@@ -40,9 +40,9 @@ import MoleculeAvatar from '@s-ui/react-molecule-avatar'
 const FallbackIconStory = () => (
   <>
     <MoleculeAvatar />
-    <MoleculeAvatar fallbackIcon={<Icon />}/>
+    <MoleculeAvatar fallbackIcon={<Icon />} />
   </>
-);
+)
 ```
 
 #### Name
@@ -56,24 +56,26 @@ const FallbackNameStory = () => (
   <>
     <MoleculeAvatar name="Jon Snow" />
   </>
-);
+)
 ```
 
 ### Size
 
-Modify the size of the avatar with `size` prop. Choose between `small`, `medium`, `large` and `xlarge`
+Modify the size of the avatar with `size` prop. Choose between `xsmall`, `small`, `medium`, `large`, `xlarge` and `xxlarge`
 
 ```jsx
 import MoleculeAvatar, {AVATAR_SIZES} from '@s-ui/react-molecule-avatar'
 
 const SizeStory = () => (
   <>
+    <MoleculeAvatar size={USER_AVATAR_SIZES.XSMALL} />
     <MoleculeAvatar size={USER_AVATAR_SIZES.SMALL} />
     <MoleculeAvatar size={USER_AVATAR_SIZES.MEDIUM} />
     <MoleculeAvatar size={USER_AVATAR_SIZES.LARGE} />
     <MoleculeAvatar size={USER_AVATAR_SIZES.XLARGE} />
+    <MoleculeAvatar size={USER_AVATAR_SIZES.XXLARGE} />
   </>
-);
+)
 ```
 
 ### Image
@@ -87,7 +89,7 @@ const ImageStory = () => (
   <>
     <MoleculeAvatar name="Jon Snow" src="https://www.images/jon_snow.png" />
   </>
-);
+)
 ```
 
 ### Badge
@@ -103,7 +105,7 @@ const BadgeStory = () => (
       <MoleculeAvatar.Badge />
     </MoleculeAvatar>
   </>
-);
+)
 ```
 
 > **Find full description and more examples in the [demo page](#).**

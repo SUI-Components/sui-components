@@ -33,6 +33,10 @@ $badges: (
     bgc: $c-accent,
     c: $c-white
   ),
+  neutral: (
+    bgc: $c-white,
+    c: $c-gray-dark-3
+  ),
   primary: (
     bgc: $c-primary,
     c: $c-white
@@ -45,12 +49,44 @@ $badge-transparent: (
   alert: $c-alert,
   info: $c-gray,
   new: $c-accent,
+  neutral: $c-gray-dark-3,
   primary: $c-primary
+) !default;
+
+$badge-soft: (
+  success: (
+    bgc: $c-success-light-4,
+    c: $c-success
+  ),
+  error: (
+    bgc: $c-error-light-4,
+    c: $c-error
+  ),
+  alert: (
+    bgc: $c-alert-light-4,
+    c: $c-alert
+  ),
+  info: (
+    bgc: $c-gray-light-4,
+    c: $c-gray
+  ),
+  new: (
+    bgc: $c-accent-light-4,
+    c: $c-accent
+  ),
+  neutral: (
+    bgc: $c-gray-light-4,
+    c: $c-gray
+  ),
+  primary: (
+    bgc: $c-primary-light-5,
+    c: $c-primary
+  )
 ) !default;
 
 .sui-AtomBadge {
   align-items: center;
-  background: transparent;
+  background-color: transparent;
   border-radius: $bdrs-atom-badge;
   box-sizing: border-box;
   color: $c-atom-badge;
@@ -105,7 +141,7 @@ $badge-transparent: (
     $c: map-get($element, c);
 
     &-#{$type} {
-      background: $bgc;
+      background-color: $bgc;
       @if ($c != $c-atom-badge) {
         color: $c;
       }
@@ -115,6 +151,16 @@ $badge-transparent: (
   @each $type, $element in $badge-transparent {
     &-#{$type}--transparent {
       color: $element;
+    }
+  }
+
+  @each $type, $element in $badge-soft {
+    $bgc: map-get($element, bgc);
+    $c: map-get($element, c);
+
+    &-#{$type}--soft {
+      background-color: $bgc;
+      color: $c;
     }
   }
 }

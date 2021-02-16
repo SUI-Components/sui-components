@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef, useCallback} from 'react'
+import {cloneElement, useState, useEffect, useRef, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -13,10 +13,10 @@ const CLASS_SPINNER = `${BASE_CLASS}-spinner`
 const CLASS_ERROR = `${BASE_CLASS}-error`
 
 /* eslint-disable-next-line react/prop-types */
-const Error = ({className, icon: Icon, text}) => (
+const ErrorImage = ({className, icon: Icon, text}) => (
   <div className={className}>
     {Icon}
-    <p>{text}</p>
+    {Boolean(text) && <p>{text}</p>}
   </div>
 )
 
@@ -29,22 +29,30 @@ const AtomImage = ({
   errorText,
   onError,
   onLoad,
+  sources = [],
+  alt,
   ...imgProps
 }) => {
+  const imageRef = useRef()
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
-
-  const imageRef = useRef()
-
-  const handleLoad = useCallback(() => {
-    setLoading(false)
-    onLoad && onLoad()
-  }, [onLoad])
+  const {src} = imgProps
 
   useEffect(() => {
-    const {current: img} = imageRef
-    if (img && img.complete && loading) handleLoad()
-  }, [handleLoad, loading])
+    setLoading(true)
+  }, [src])
+
+  const handleLoad = useCallback(() => {
+    const loadCompleted = imageRef?.current?.complete
+    if (loadCompleted === true) {
+      setLoading(!loadCompleted)
+      onLoad && onLoad()
+    }
+  }, [onLoad, setLoading])
+
+  useEffect(() => {
+    handleLoad()
+  }, [handleLoad, imageRef])
 
   const classNames = cx(
     BASE_CLASS,
@@ -70,7 +78,7 @@ const AtomImage = ({
 
   const SpinnerExtended =
     Spinner &&
-    React.cloneElement(Spinner, {
+    cloneElement(Spinner, {
       className: CLASS_SPINNER
     })
 
@@ -80,17 +88,23 @@ const AtomImage = ({
         className={classNamesFigure}
         style={!error && (placeholder || skeleton) ? figureStyles : {}}
       >
-        <img
-          className={CLASS_IMAGE}
-          onLoad={handleLoad}
-          onError={handleError}
-          ref={imageRef}
-          {...imgProps}
-        />
+        <picture>
+          {sources.map((source, idx) => (
+            <source key={idx} {...source} />
+          ))}
+          <img
+            className={CLASS_IMAGE}
+            onLoad={handleLoad}
+            onError={handleError}
+            ref={imageRef}
+            alt={alt}
+            {...imgProps}
+          />
+        </picture>
       </figure>
       {!error && loading && SpinnerExtended}
       {error && (
-        <Error className={CLASS_ERROR} icon={errorIcon} text={errorText} />
+        <ErrorImage className={CLASS_ERROR} icon={errorIcon} text={errorText} />
       )}
     </div>
   )
@@ -124,6 +138,17 @@ AtomImage.propTypes = {
 
   /** Function to be called when the image completed its loading  */
   onLoad: PropTypes.func,
+
+  /**
+   * Source tags inside picture element,
+   * array of props defined in https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source expected
+   */
+  sources: PropTypes.arrayOf(
+    PropTypes.shape({
+      srcSet: PropTypes.string,
+      media: PropTypes.string
+    })
+  ),
 
   /** <img> props */
   ...htmlImgProps

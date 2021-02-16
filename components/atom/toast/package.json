@@ -1,10 +1,10 @@
 {
   "name": "@s-ui/react-atom-toast",
-  "version": "1.5.0",
+  "version": "1.7.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "build": "npx rimraf ./lib && npx mkdirp ./lib && npm run build:js && npm run build:styles",
+    "prepare": "npx rimraf ./lib && npx mkdirp ./lib && npm run build:js && npm run build:styles",
     "build:js": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },

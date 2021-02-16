@@ -3,13 +3,17 @@
 
 $bgc-molecule-thumbnail: transparent !default;
 $bgc-molecule-thumbnail-hover: color-variation($c-primary, 4) !default;
-$bd-molecule-thumbnail: 1px solid transparent !default;
+$bd-molecule-thumbnail: $bdw-s solid transparent !default;
 $bdc-molecule-thumbnail-hover: $c-primary !default;
 $bdrs-molecule-thumbnail: initial !default;
 $bs-molecule-thumbnail: none !default;
 $p-molecule-thumbnail-image: 0 !default;
 $bgc-molecule-thumbnail-caption: color-variation($c-gray-light, 3) !default;
+$c-molecule-thumbnail-caption: $c-primary !default;
+$fz-molecule-thumbnail-caption: $fz-s !default;
+$ta-molecule-thumbnail-caption: center !default;
 $o-molecule-thumbnail: visible !default;
+$bd-molecule-thumbnail-container-image: 0 !default;
 
 $sizes-molecule-thumbnail: (
   large: 144px,
@@ -50,12 +54,25 @@ $ratios-molecule-thumbnail: (
     &:hover {
       border-color: $bdc-molecule-thumbnail-hover;
       background-color: $bgc-molecule-thumbnail-hover;
+
+      .sui-MoleculeThumbnail-containerImage {
+        border: $bd-molecule-thumbnail-container-image;
+        border-color: $bdc-molecule-thumbnail-hover;
+      }
     }
   }
 
-  &--circled > * {
-    border-radius: 50%;
-    overflow: hidden;
+  &--circled {
+    > * {
+      border-radius: $bdrs-rounded;
+      overflow: hidden;
+    }
+
+    .sui-MoleculeThumbnail-containerImage {
+      border-radius: $bdrs-rounded;
+      overflow: hidden;
+      border: $bd-molecule-thumbnail-container-image;
+    }
 
     .sui-MoleculeThumbnail-caption {
       display: none;
@@ -65,15 +82,21 @@ $ratios-molecule-thumbnail: (
   &-caption {
     background: $bgc-molecule-thumbnail-caption;
     border: $bd-molecule-thumbnail;
-    color: $c-primary;
+    color: $c-molecule-thumbnail-caption;
     display: block;
-    font-size: $fz-s;
+    font-size: $fz-molecule-thumbnail-caption;
     overflow: hidden;
     padding: $p-m;
-    text-align: center;
+    text-align: $ta-molecule-thumbnail-caption;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 100%;
+  }
+
+  &-containerImage {
+    border: $bd-molecule-thumbnail-container-image;
+    border-radius: $bdrs-molecule-thumbnail;
+    overflow: $o-molecule-thumbnail;
   }
 
   &--small,

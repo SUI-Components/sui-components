@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-10-27)
+
+
+### Features
+
+* add z-index support ([a7cd9ca](https://github.com/SUI-Components/sui-components/commit/a7cd9ca6ae0937b6ae6c3ba69378fbb458e7b414))
+* update with master ([10309ae](https://github.com/SUI-Components/sui-components/commit/10309aec16a8da1560a6ba75c8860ae2625f5125))
+
+
+
+# 1.7.0 (2020-10-22)
+
+
+### Features
+
+* use new brds xxl value ([b7367fd](https://github.com/SUI-Components/sui-components/commit/b7367fd7cbfe58eff2acf7cbb61951581260494b))
+
+
+
+# 1.6.0 (2020-10-19)
+
+
+### Features
+
+* use status instead of custom property ([bb66c82](https://github.com/SUI-Components/sui-components/commit/bb66c827dc83a7277396f81a5211833257d2a58a))
+
+
+
+# 1.5.0 (2020-10-19)
+
+
+### Bug Fixes
+
+* fix naming ([fbf75a1](https://github.com/SUI-Components/sui-components/commit/fbf75a11a9a9b2cf7d5f217617e12db5f95e202a))
+* fix value using sui-theme ([d266e04](https://github.com/SUI-Components/sui-components/commit/d266e046de60e3a64abccd6d05639ac13fd78e0d))
+
+
+### Features
+
+* add custom prop ([c84a9f7](https://github.com/SUI-Components/sui-components/commit/c84a9f719b8ec81e2c4bfbc0dbf481d97d35016b))
+* add Large size to molecule badgeConter ([6df6cf6](https://github.com/SUI-Components/sui-components/commit/6df6cf614a55414e8552584cca8d153c2918a378))
+
+
+
 # 1.4.0 (2020-05-29)
 
 

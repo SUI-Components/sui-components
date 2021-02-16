@@ -1,8 +1,11 @@
 {
   "name": "@s-ui/react-components",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "Mono repo, multi package containing all SUI components.",
   "private": true,
+  "workspaces": [
+    "components/**"
+  ],
   "scripts": {
     "build": "sui-studio build",
     "check:release": "sui-studio check-release",
@@ -21,38 +24,35 @@
     "test": "sui-studio test",
     "test:watch": "sui-studio test --watch"
   },
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@s-ui/documentation-library": "1",
     "@s-ui/helpers": "1",
     "@s-ui/mono": "1",
     "@s-ui/precommit": "2",
     "@s-ui/studio": "9",
-    "fs-extra": "8.1.0",
-    "globby": "10.0.1",
-    "husky": "4.2.5",
+    "fs-extra": "9.0.1",
+    "globby": "11.0.1",
+    "husky": "4.3.0",
     "validate-commit-msg": "2.12.2",
     "walker": "1.0.7"
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1"
   },
-  "sui-bundler": {
-    "vendor": [
-      "react",
-      "react-dom",
-      "react-router"
-    ],
-    "scripts": {
-      "defaultAttribute": "defer",
-      "inline": "runtime",
-      "prefetch": false,
-      "preload": false
-    }
-  },
   "config": {
+    "sui-bundler": {
+      "vendor": [
+        "react",
+        "react-dom"
+      ]
+    },
     "sui-studio": {
       "font": "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i",
       "name": "SUIComponents"

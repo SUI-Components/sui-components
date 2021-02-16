@@ -1,3 +1,0 @@
-return (
-    <p>this shouldn't be displayed</p>   
-)

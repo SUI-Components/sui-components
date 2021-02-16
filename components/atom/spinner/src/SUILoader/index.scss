@@ -42,7 +42,7 @@ $anim-atom-spinner: atom-spinner 1.5s ease-in-out infinite;
   &-loader {
     animation: $anim-atom-spinner;
     background-color: transparent;
-    border-radius: 50%;
+    border-radius: $bdrs-rounded;
     box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner-oval
         $c-atom-spinner-loader-accent,
       0 $sz-atom-spinner $c-atom-spinner-loader-primary;

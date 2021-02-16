@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 3.0.0 (2020-10-13)
+
+
+### Features
+
+* remove atom icon and add sass vars ([8ee007c](https://github.com/SUI-Components/sui-components/commit/8ee007cd2bd4362688bbc753c620fae2d3e1de95))
+
+
+### BREAKING CHANGES
+
+* Remove atom icon dep
+
+
+
 # 2.8.0 (2020-10-07)
 
 

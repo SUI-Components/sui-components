@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.13.0 (2020-11-03)
+
+
+### Features
+
+* rename sass variables to follow naming convention ([51b5378](https://github.com/SUI-Components/sui-components/commit/51b53786b180197b1ed48b2d6b7c76e169f18abd))
+
+
+
+# 2.12.0 (2020-10-21)
+
+
+### Features
+
+* textarea 100% default width ([c9a5be4](https://github.com/SUI-Components/sui-components/commit/c9a5be4176067960b828efb14177e4a3624b7926)), closes [#1265](https://github.com/SUI-Components/sui-components/issues/1265)
+
+
+
 # 2.11.0 (2020-07-16)
 
 

@@ -1,4 +1,12 @@
-import React, {useState, useRef, useEffect, useCallback} from 'react'
+import {
+  Children,
+  createRef,
+  cloneElement,
+  useState,
+  useRef,
+  useEffect,
+  useCallback
+} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -10,7 +18,6 @@ import MoleculeSelectMultipleSelection from './components/MultipleSelection'
 
 import {withOpenToggle} from '@s-ui/hoc'
 import {getTarget} from '@s-ui/js/lib/react'
-import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 
 const BASE_CLASS = `sui-MoleculeSelect`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
@@ -26,7 +33,7 @@ const ENABLED_KEYS = ['Enter', 'ArrowDown', 'ArrowUp']
 
 const getOptionData = children => {
   const optionsData = {}
-  React.Children.forEach(children, child => {
+  Children.forEach(children, child => {
     const {children, value} = child.props
     optionsData[value] = children
   })
@@ -42,6 +49,7 @@ const MoleculeSelect = props => {
     state,
     disabled,
     keysSelection,
+    multiselection,
     refMoleculeSelect: refMoleculeSelectFromProps
   } = props
   const refMoleculeSelect = useRef(refMoleculeSelectFromProps)
@@ -50,11 +58,13 @@ const MoleculeSelect = props => {
   const [optionsData, setOptionsData] = useState(getOptionData(children))
   const [focus, setFocus] = useState(false)
 
-  const extendedChildren = React.Children.toArray(children)
+  const options = refsMoleculeSelectOptions.current.map(getTarget)
+
+  const extendedChildren = Children.toArray(children)
     .filter(Boolean)
     .map((child, index) => {
-      refsMoleculeSelectOptions.current[index] = React.createRef()
-      return React.cloneElement(child, {
+      refsMoleculeSelectOptions.current[index] = createRef()
+      return cloneElement(child, {
         innerRef: refsMoleculeSelectOptions.current[index],
         onSelectKey: keysSelection
       })
@@ -108,7 +118,7 @@ const MoleculeSelect = props => {
     }
   }, [children, handleOutsideClick])
 
-  const focusFirstOption = (ev, {options}) => {
+  const focusFirstOption = ev => {
     options[0] && options[0].focus()
     ev.preventDefault()
     ev.stopPropagation()
@@ -123,37 +133,28 @@ const MoleculeSelect = props => {
   const handleKeyDown = ev => {
     ev.persist()
     const isEnabledKey = ENABLED_KEYS.includes(ev.key)
-    const options = refsMoleculeSelectOptions.current.map(getTarget)
     const domSourceEvent = ev.target
     const domMoleculeSelect = refMoleculeSelect.current
-
     if (!isOpen && isEnabledKey) {
       domSourceEvent === domMoleculeSelect && handleToggle(ev)
+      setTimeout(() => focusFirstOption(ev))
+    } else if (ev.key === 'Escape') {
+      closeList(ev, {isOutsideEvent: true})
     } else {
-      const currentElementFocused = getCurrentElementFocused()
-      const isSomeOptionFocused = [...options].includes(currentElementFocused)
-      const {key} = ev
-      if (key === 'Escape') closeList(ev, {isOutsideEvent: true})
-      if (key === 'ArrowDown' && !isSomeOptionFocused)
-        focusFirstOption(ev, {options})
-      const optionToFocusOn = Array.from(options).find(
-        option =>
-          option &&
-          option.innerText.charAt(0).toLowerCase() === key.toLowerCase()
-      )
-      optionToFocusOn && optionToFocusOn.focus()
+      setTimeout(() => focusFirstOption(ev))
     }
   }
 
-  const handleFocusOut = ev => {
-    setFocus(false)
-  }
+  const handleFocusOut = () => setFocus(false)
 
-  const handleFocusIn = () => {
-    !disabled && setFocus(true)
-  }
+  const handleFocusIn = () => !disabled && setFocus(true)
 
-  const {multiselection, ...propsFromProps} = props
+  const handleClick = ev => {
+    ev.persist()
+    if (focus) {
+      setTimeout(() => focusFirstOption(ev))
+    }
+  }
 
   return (
     <div
@@ -163,12 +164,13 @@ const MoleculeSelect = props => {
       onKeyDown={handleKeyDown}
       onFocus={handleFocusIn}
       onBlur={handleFocusOut}
+      onClick={handleClick}
     >
       {multiselection ? (
         <MoleculeSelectMultipleSelection
           refMoleculeSelect={refMoleculeSelect}
           optionsData={optionsData}
-          {...propsFromProps}
+          {...props}
         >
           {extendedChildren}
         </MoleculeSelectMultipleSelection>
@@ -176,7 +178,7 @@ const MoleculeSelect = props => {
         <MoleculeSelectSingleSelection
           refMoleculeSelect={refMoleculeSelect}
           optionsData={optionsData}
-          {...propsFromProps}
+          {...props}
         >
           {extendedChildren}
         </MoleculeSelectSingleSelection>
@@ -217,7 +219,7 @@ MoleculeSelect.propTypes = {
   leftIcon: PropTypes.node,
 
   /** Icon for arrow in select (down direction when closed) */
-  iconArrowDown: PropTypes.node.isRequired,
+  iconArrowDown: PropTypes.node,
 
   /** size (height) of the list */
   size: PropTypes.oneOf(Object.values(SIZES)),

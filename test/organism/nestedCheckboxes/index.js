@@ -5,7 +5,6 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
-import React from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
@@ -19,7 +18,25 @@ describe('organism/nestedCheckboxes', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {
+      children: [
+        {id: 'nested-01', label: 'Nested 1', checked: true},
+        {id: 'nested-02', label: 'Nested 2', checked: false},
+        {id: 'nested-03', label: 'Nested 3', checked: true},
+        {id: 'nested-04', label: 'Nested 4', checked: true},
+        {id: 'nested-05', label: 'Nested 5', checked: true}
+      ].map(({checked, id, label}, index) => (
+        <MoleculeCheckboxField
+          key={id}
+          id={id}
+          checked={checked}
+          checkedIcon={() => null}
+          intermediateIcon={() => null}
+          onChange={() => null}
+          label={label}
+        />
+      ))
+    }
 
     // When
     const component = <Component {...props} />
@@ -32,7 +49,25 @@ describe('organism/nestedCheckboxes', () => {
 
   it('should NOT render null', () => {
     // Given
-    const props = {}
+    const props = {
+      children: [
+        {id: 'nested-01', label: 'Nested 1', checked: true},
+        {id: 'nested-02', label: 'Nested 2', checked: false},
+        {id: 'nested-03', label: 'Nested 3', checked: true},
+        {id: 'nested-04', label: 'Nested 4', checked: true},
+        {id: 'nested-05', label: 'Nested 5', checked: true}
+      ].map(({checked, id, label}, index) => (
+        <MoleculeCheckboxField
+          key={id}
+          id={id}
+          checked={checked}
+          checkedIcon={() => null}
+          intermediateIcon={() => null}
+          onChange={() => null}
+          label={label}
+        />
+      ))
+    }
 
     // When
     const {container} = setup(props)

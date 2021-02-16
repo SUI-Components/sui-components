@@ -1,4 +1,3 @@
-import React from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
@@ -22,7 +21,7 @@ const MoleculeAvatarFallbackName = ({
 
   return (
     <div className={className} aria-label={nameProp} {...others}>
-      {name}
+      {name.toUpperCase()}
     </div>
   )
 }

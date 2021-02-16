@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.28.0 (2020-12-14)
+
+
+### Bug Fixes
+
+* add default value fot onSelect prop ([3de6062](https://github.com/SUI-Components/sui-components/commit/3de6062df119b9f0797fb0567d9d0feb31622026))
+* force new release ([11e3e5c](https://github.com/SUI-Components/sui-components/commit/11e3e5cb8b10faf3a35bd07efc9b48c22ef23ad2))
+* recover removed onSelect default value ([b4f8474](https://github.com/SUI-Components/sui-components/commit/b4f8474029dbc9f57e63cad484a3f26051809eb4))
+
+
+### Features
+
+* add an ariaLabel prop ([34ba739](https://github.com/SUI-Components/sui-components/commit/34ba73908aa541c62dc9b1e49bc5ee99e5ec81a1))
+* add autoclose behavior ([3ae12cc](https://github.com/SUI-Components/sui-components/commit/3ae12cc071781486ccd890f0175d46603dd4327a))
+* add prop size to pass it to MoleculeDropdownList component ([d79d6f6](https://github.com/SUI-Components/sui-components/commit/d79d6f60993fc048ca833174334d3ad53606947d))
+* Use new jsx runtime ([08f3682](https://github.com/SUI-Components/sui-components/commit/08f36827d0a3cf517df209cbbdc504f70699f09e))
+
+
+
 # 2.20.0 (2020-10-01)
 
 

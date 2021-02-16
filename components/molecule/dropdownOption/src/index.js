@@ -1,4 +1,4 @@
-import React from 'react'
+import {createRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import {highlightText} from '@s-ui/js/lib/string'
@@ -157,7 +157,7 @@ MoleculeDropdownOption.propTypes = {
   withTwoLinesText: PropTypes.bool,
 
   /** Text wrapping options */
-  textWrap: PropTypes.oneOf(TEXT_WRAP_STYLES)
+  textWrap: PropTypes.oneOf(Object.values(TEXT_WRAP_STYLES))
 }
 
 MoleculeDropdownOption.defaultProps = {
@@ -166,7 +166,7 @@ MoleculeDropdownOption.defaultProps = {
   onSelect: () => {},
   selected: false,
   onSelectKey: 'Enter',
-  innerRef: React.createRef()
+  innerRef: createRef()
 }
 
 export default MoleculeDropdownOption

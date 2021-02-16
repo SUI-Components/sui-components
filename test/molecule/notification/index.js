@@ -5,7 +5,6 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
-import React from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
@@ -19,7 +18,9 @@ describe('molecule/notification', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {
+      children: 'children'
+    }
 
     // When
     const component = <Component {...props} />
@@ -32,7 +33,9 @@ describe('molecule/notification', () => {
 
   it('should NOT render null', () => {
     // Given
-    const props = {}
+    const props = {
+      children: 'children'
+    }
 
     // When
     const {container} = setup(props)
@@ -40,19 +43,5 @@ describe('molecule/notification', () => {
     // Then
     expect(container.innerHTML).to.be.a('string')
     expect(container.innerHTML).to.not.have.lengthOf(0)
-  })
-
-  it.skip('example', () => {
-    // Example TO BE DELETED!!!!
-
-    // Given
-    // const props = {}
-
-    // When
-    // const {getByRole} = setup(props)
-
-    // Then
-    // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(false)
   })
 })

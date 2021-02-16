@@ -9,12 +9,19 @@ import highRange from './highRange'
  * @param {number} params.showPages - Number of pages to display in the range of pages displayed
  * @return {number[]} range of page numbers
  */
-const range = ({page, totalPages, showPages}) => {
-  const _lowRange = lowRange({page, showPages})
-  const _highRange = highRange({page, totalPages, showPages})
+const range = ({page, totalPages: totalPagesParam, showEdges, showPages}) => {
+  const totalPages = showEdges ? totalPagesParam - 1 : totalPagesParam
+  const _lowRange = lowRange({page, showEdges, showPages, totalPages})
+  const _highRangeFixer = showPages > totalPages ? totalPages - 1 : showPages
+  const _highRange = showEdges
+    ? _lowRange + _highRangeFixer
+    : highRange({page, totalPages, showPages})
+
   const rangeNumItems =
     _highRange === totalPages ? totalPages - _lowRange : showPages
-  return [...Array.from(new Array(rangeNumItems), (_, i) => _lowRange + i + 1)]
+  return rangeNumItems > 0
+    ? [...Array.from(new Array(rangeNumItems), (_, i) => _lowRange + i + 1)]
+    : []
 }
 
 export default range

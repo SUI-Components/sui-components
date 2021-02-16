@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import {useRef} from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
@@ -75,7 +75,7 @@ MoleculeSelectField.propTypes = {
   helpText: PropTypes.string,
 
   /** used as label for attribute and Select element id */
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   /** Boolean to decide if elements should be set inline */
   inline: PropTypes.bool,

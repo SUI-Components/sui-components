@@ -17,7 +17,7 @@
     align-items: center;
     backdrop-filter: blur(8px);
     background: rgba(255, 255, 255, 0.65);
-    border-bottom: 1px dashed #eee;
+    border-bottom: $bdw-s dashed #eee;
     display: flex;
     list-style: none;
     margin: 0;
@@ -36,7 +36,7 @@
 
     &.is-selected {
       background: rgba(0, 0, 0, 0.1);
-      border-radius: 4px;
+      border-radius: $bdw-l;
     }
 
     &:hover {

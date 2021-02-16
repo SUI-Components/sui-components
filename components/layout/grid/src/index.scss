@@ -1,0 +1,33 @@
+@import '~@s-ui/theme/lib/index';
+@import './settings';
+
+.sui-LayoutGrid {
+  $self: &;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0 (-$layout-grid-gap / 2);
+  width: calc(100% + #{$layout-grid-gap});
+  @include grid-align-items($ai-layout-grid);
+  @include grid-justify-content($jc-layout-grid);
+
+  @include media-breakpoint-up($layout-grid-breakpoint-min) {
+    flex-wrap: nowrap;
+  }
+
+  &-item {
+    margin: 0;
+    min-width: 100%;
+    padding: 0 $layout-grid-gap;
+    @include grid-item-sizes($breakpoints, $grid-columns);
+  }
+
+  &.is-gapless {
+    margin: 0;
+    width: 100%;
+
+    #{$self}-item {
+      padding: 0;
+    }
+  }
+}

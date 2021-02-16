@@ -1,9 +1,9 @@
 /* eslint react/prop-types: 0 */
-import React from 'react'
+import {Component} from 'react'
 import MoleculeModal from '../../../../components/molecule/modal/src'
 import {Content, LoremIpsumParagraph, IconClose} from './helperComponents'
 
-class NoFullScreenModal extends React.Component {
+class NoFullScreenModal extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -33,7 +33,7 @@ class NoFullScreenModal extends React.Component {
           isOpen={this.state.open}
           closeOnOutsideClick
           closeOnEscKeyDown
-          header={<strong>My new brand modal</strong>}
+          header="My new brand modal"
           iconClose={<IconClose />}
           onClose={this.handleCloseModal}
         >

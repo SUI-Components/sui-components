@@ -1,7 +1,4 @@
 /* eslint react/prop-types: 0 */
-import React from 'react'
-
-// DEMO components
 import ScrollModal from './ScrollModal'
 import NoScrollModal from './NoScrollModal'
 import NoHeaderModal from './NoHeaderModal'

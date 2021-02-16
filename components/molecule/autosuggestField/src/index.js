@@ -1,9 +1,10 @@
-import React, {useRef} from 'react'
+import {useRef} from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
 import MoleculeAutosuggest, {
-  MoleculeAutosuggestStates
+  MoleculeAutosuggestStates,
+  MoleculeAutosuggestDropdownListSizes
 } from '@s-ui/react-molecule-autosuggest'
 
 const getErrorState = ({successText, errorText}) => {
@@ -73,7 +74,7 @@ MoleculeAutosuggestField.propTypes = {
   label: PropTypes.string.isRequired,
 
   /** used as label for attribute and Autosuggest element id */
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   /** Success message to display when success state  */
   successText: PropTypes.string,
@@ -101,4 +102,4 @@ MoleculeAutosuggestField.propTypes = {
 }
 
 export default MoleculeAutosuggestField
-export {MoleculeAutosuggestStates}
+export {MoleculeAutosuggestStates, MoleculeAutosuggestDropdownListSizes}

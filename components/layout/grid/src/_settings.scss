@@ -1,0 +1,43 @@
+$layout-grid-breakpoints: $breakpoints;
+$layout-grid-columns: $grid-columns;
+$layout-grid-gap: $p-l !default;
+$layout-grid-breakpoint-min: s !default;
+
+$ai-layout-grid: center flex-start flex-end;
+$jc-layout-grid: flex-start center flex-end space-between space-around;
+
+@mixin grid-item-value($breakpoint-name, $columns) {
+  &--#{$breakpoint-name}-#{$columns} {
+    @include grid-flex-basis($columns);
+  }
+
+  &--#{$breakpoint-name}Offset-#{$columns} {
+    margin-left: (100% / $layout-grid-columns) * $columns;
+  }
+}
+
+@mixin grid-item-sizes($breakpoints, $columns) {
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include media-breakpoint-up($breakpoint-name) {
+      @for $col from 1 through $columns {
+        @include grid-item-value($breakpoint-name, $col);
+      }
+    }
+  }
+}
+
+@mixin grid-align-items($properties) {
+  @each $value in $properties {
+    &--ai-#{$value} {
+      align-items: $value;
+    }
+  }
+}
+
+@mixin grid-justify-content($properties) {
+  @each $value in $properties {
+    &--jc-#{$value} {
+      justify-content: $value;
+    }
+  }
+}

@@ -5,7 +5,6 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
-import React from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
@@ -19,7 +18,9 @@ describe('molecule/inputField', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {
+      label: 'label'
+    }
 
     // When
     const component = <Component {...props} />
@@ -32,7 +33,9 @@ describe('molecule/inputField', () => {
 
   it('should NOT render null', () => {
     // Given
-    const props = {}
+    const props = {
+      label: 'label'
+    }
 
     // When
     const {container} = setup(props)

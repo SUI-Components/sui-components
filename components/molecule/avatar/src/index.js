@@ -1,17 +1,23 @@
-import React from 'react'
+import {Children, isValidElement, cloneElement} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import AtomImage from '@s-ui/react-atom-image'
 import AtomSkeleton from '@s-ui/react-atom-skeleton'
 import useConvertStringToHex from './useConvertStringToHex'
 import AvatarFallback from './AvatarFallback'
-import AvatarBadge from './AvatarBadge'
+import AvatarBadge, {
+  AVATAR_BADGE_STATUSES,
+  AVATAR_BADGE_PLACEMENTS,
+  AVATAR_BADGE_SIZES
+} from './AvatarBadge'
 
 export const AVATAR_SIZES = {
+  XXLARGE: 'xxlarge',
   XLARGE: 'xlarge',
   LARGE: 'large',
   MEDIUM: 'medium',
-  SMALL: 'small'
+  SMALL: 'small',
+  XSMALL: 'xsmall'
 }
 
 const MoleculeAvatar = ({
@@ -29,9 +35,9 @@ const MoleculeAvatar = ({
   const baseClassName = 'sui-MoleculeAvatar'
   const className = cx(baseClassName, `${baseClassName}--${size}`)
   const backgroundColor = useConvertStringToHex(name)
-  const children = React.Children.toArray(childrenProp)
-    .filter(child => React.isValidElement(child))
-    .map(child => React.cloneElement(child, {size}))
+  const children = Children.toArray(childrenProp)
+    .filter(child => isValidElement(child))
+    .map(child => cloneElement(child, {size}))
 
   const renderFallback = () => {
     return <AvatarFallback name={name} size={size} icon={fallbackIcon} />
@@ -58,7 +64,7 @@ const MoleculeAvatar = ({
     <span
       style={{
         ...style,
-        backgroundColor
+        ...(!src && {backgroundColor})
       }}
       className={className}
       {...others}
@@ -82,4 +88,8 @@ MoleculeAvatar.propTypes = {
 }
 MoleculeAvatar.Badge = AvatarBadge
 
+export {AVATAR_SIZES as MOLECULE_AVATAR_SIZES}
+export {AVATAR_BADGE_STATUSES as MOLECULE_AVATAR_BADGE_STATUSES}
+export {AVATAR_BADGE_PLACEMENTS as MOLECULE_AVATAR_BADGE_PLACEMENTS}
+export {AVATAR_BADGE_SIZES as MOLECULE_AVATAR_BADGE_SIZES}
 export default MoleculeAvatar

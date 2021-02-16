@@ -5,7 +5,6 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
-import React from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
@@ -71,7 +70,7 @@ describe('molecule/checkboxField', () => {
         expect(labelElement.innerText).to.equal(props.label)
         expect(labelElement.classList.contains('sui-AtomLabel')).to.be.true
       })
-      it.skip('should render the component if there is nodeLabel', async () => {
+      it('should render the component if there is nodeLabel', async () => {
         // Given
         const text = 'nodeLabel'
         const props = {

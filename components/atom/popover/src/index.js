@@ -1,4 +1,12 @@
-import React, {useEffect, useState, useRef, Suspense} from 'react'
+import {
+  lazy,
+  Children,
+  cloneElement,
+  useEffect,
+  useState,
+  useRef,
+  Suspense
+} from 'react'
 import PropTypes from 'prop-types'
 import {PLACEMENTS} from './config'
 
@@ -9,7 +17,7 @@ const DEFAULT_OFFSET = 'auto,4px'
 const DEFAULT_TRIGGER = 'legacy'
 const DEFAULT_DELAY = 0
 
-const Popover = React.lazy(() => import('reactstrap/lib/Popover'))
+const Popover = lazy(() => import('reactstrap/lib/Popover'))
 
 function AtomPopover({
   children,
@@ -19,7 +27,8 @@ function AtomPopover({
   onClose = () => {},
   onOpen = () => {},
   placement = PLACEMENTS.BOTTOM,
-  showPopover
+  showPopover,
+  hideArrow = true
 }) {
   const targetRef = useRef()
   const [internalShowPopover, setInternalShowPopover] = useState(showPopover)
@@ -34,8 +43,8 @@ function AtomPopover({
       setInternalShowPopover(true)
     }
     const ref = targetRef
-    const childrenOnly = React.Children.only(children)
-    return React.Children.map(childrenOnly, child => {
+    const childrenOnly = Children.only(children)
+    return Children.map(childrenOnly, child => {
       const attrs = {
         onClick
       }
@@ -44,7 +53,7 @@ function AtomPopover({
       } else {
         attrs.ref = ref
       }
-      return React.cloneElement(child, attrs)
+      return cloneElement(child, attrs)
     })
   }
 
@@ -62,6 +71,8 @@ function AtomPopover({
             className={BASE_CLASS}
             delay={DEFAULT_DELAY}
             innerClassName={CLASS_INNER}
+            hideArrow={hideArrow}
+            arrowClassName={`${BASE_CLASS}-arrow`}
             isOpen={internalShowPopover}
             offset={DEFAULT_OFFSET}
             placement={placement}
@@ -101,7 +112,9 @@ AtomPopover.propTypes = {
   /** On open callback */
   onOpen: PropTypes.func,
   /** Popover position */
-  placement: PropTypes.oneOf(Object.values(PLACEMENTS))
+  placement: PropTypes.oneOf(Object.values(PLACEMENTS)),
+  /** Wether to show arrow or not. */
+  hideArrow: PropTypes.bool
 }
 
 export {PLACEMENTS as atomPopoverPositions}

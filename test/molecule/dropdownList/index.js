@@ -5,7 +5,6 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
-import React from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
@@ -22,7 +21,7 @@ describe('molecule/dropdownList', () => {
         {Array(5)
           .fill()
           .map((value, index) => (
-            <MoleculeDropdownOption value={index} key={index}>
+            <MoleculeDropdownOption value={index.toString()} key={index}>
               {index}
             </MoleculeDropdownOption>
           ))}

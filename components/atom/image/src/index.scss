@@ -4,7 +4,7 @@ $bgc-atom-image: $c-gray-light !default;
 $trsdu-atom-image: 1s !default;
 
 $bgs-atom-image-placeholder: cover !default;
-$bgs-atom-image-skeleton: 30% !default;
+$bgs-atom-image-skeleton: contain !default;
 
 $base-class: '.sui-AtomImage';
 
@@ -22,12 +22,12 @@ $base-class: '.sui-AtomImage';
     margin: 0;
     height: 100%;
 
-    &--placeholder {
-      background-size: $bgs-atom-image-placeholder;
-    }
-
     &--skeleton {
       background-size: $bgs-atom-image-skeleton;
+    }
+
+    &--placeholder {
+      background-size: $bgs-atom-image-placeholder;
     }
 
     #{$base-class}.is-loading &--placeholder {

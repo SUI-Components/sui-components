@@ -8,6 +8,7 @@ $maw-atom-tooltip: 250px !default;
 $mah-atom-tooltip: 100px !default;
 $c-atom-tooltip: $c-white !default;
 $bgc-atom-tooltip: $c-black !default;
+$bdc-atom-tooltip: $bgc-atom-tooltip !default;
 $bdrs-atom-tooltip: $bdrs-l !default;
 $op-atom-tooltip: 1 !default;
 $pt-atom-tooltip: $p-m !default;
@@ -25,6 +26,9 @@ $ml-atom-tooltip-target: 0 !default;
 $w-atom-tooltip-arrow: 0.8rem !default;
 $h-atom-tooltip-arrow: 0.4rem !default;
 $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
+
+$bdw-atom-tooltip: $pt-atom-tooltip $pr-atom-tooltip !default;
+$p-atom-tooltip: 0 !default;
 
 $base-class: '.sui-AtomTooltip';
 $class-inner: '#{$base-class}-inner';
@@ -94,15 +98,16 @@ $c-atom-tooltip-colors: (
     -webkit-box-orient: vertical;
     -webkit-line-clamp: $wlc-atom-tooltip;
     background-color: $bgc-atom-tooltip;
-    border-color: $bgc-atom-tooltip;
+    border-color: $bdc-atom-tooltip;
     border-radius: $bdrs-atom-tooltip;
     border-style: solid;
-    border-width: $pt-atom-tooltip $pr-atom-tooltip;
+    border-width: $bdw-atom-tooltip;
     color: $c-atom-tooltip;
     display: -webkit-box;
     line-height: $lh-atom-tooltip;
     max-height: $mah-atom-tooltip;
     max-width: $maw-atom-tooltip;
+    padding: $p-atom-tooltip;
     overflow: hidden;
     text-align: $ta-atom-tooltip;
     text-overflow: ellipsis;

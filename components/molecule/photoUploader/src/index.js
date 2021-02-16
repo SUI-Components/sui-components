@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {useDropzone} from 'react-dropzone'
 import {getTarget} from '@s-ui/js/lib/react'
 
@@ -90,6 +90,7 @@ const MoleculePhotoUploader = ({
     maxImageWidth
   }
 
+  const isPhotoUploaderEmpty = !files.length
   const isPhotoUploaderFully = () => files.length >= maxPhotos
 
   useMount(() => {
@@ -225,7 +226,8 @@ const MoleculePhotoUploader = ({
   })
 
   const dropzoneClassName = cx(DROPZONE_CLASS_NAME, {
-    [`${DROPZONE_CLASS_NAME}--disabled`]: isPhotoUploaderFully()
+    [`${DROPZONE_CLASS_NAME}--disabled`]: isPhotoUploaderFully(),
+    [`${DROPZONE_CLASS_NAME}--empty`]: isPhotoUploaderEmpty
   })
 
   const container = getTarget(document.querySelector(`.${BASE_CLASS_NAME}`))
@@ -250,7 +252,7 @@ const MoleculePhotoUploader = ({
       <div className={BASE_CLASS_NAME}>
         <div {...getRootProps({className: dropzoneClassName})}>
           <input {...getInputProps()} />
-          {Boolean(!files.length) && !isDragActive && (
+          {isPhotoUploaderEmpty && !isDragActive && (
             <InitialState
               buttonColor={addPhotoButtonColor}
               buttonDesign={addPhotoButtonDesign}
@@ -261,7 +263,7 @@ const MoleculePhotoUploader = ({
               dividerText={dragPhotoDividerTextInitialContent}
             />
           )}
-          {Boolean(files.length) && (
+          {!isPhotoUploaderEmpty && (
             <PhotosPreview
               _callbackPhotosUploaded={_callbackPhotosUploaded}
               _scrollToBottom={_scrollToBottom}
@@ -342,7 +344,7 @@ MoleculePhotoUploader.propTypes = {
   acceptedFileMaxSize: PropTypes.number,
 
   /** Icon placed in skeleton placed after thumbails */
-  addMorePhotosIcon: PropTypes.node.isRequired,
+  addMorePhotosIcon: PropTypes.func.isRequired,
 
   /** Button color of the initial state button */
 
@@ -380,7 +382,7 @@ MoleculePhotoUploader.propTypes = {
   callbackUploadPhoto: PropTypes.func,
 
   /** Icon placed in the button that deletes image */
-  deleteIcon: PropTypes.node.isRequired,
+  deleteIcon: PropTypes.func.isRequired,
 
   /** A boolean to disable that the component scroll to bottom everytime the user add a photo or there's an error */
   disableScrollToBottom: PropTypes.bool,
@@ -471,13 +473,13 @@ MoleculePhotoUploader.propTypes = {
   outputImageAspectRatioDisabled: PropTypes.bool,
 
   /** Icon showed at the dropzone when an user drags (before drop!) not allowed files  */
-  rejectPhotosIcon: PropTypes.node.isRequired,
+  rejectPhotosIcon: PropTypes.func.isRequired,
 
   /** Icon placed in the button that retry download initial image, when it fails */
-  retryIcon: PropTypes.node.isRequired,
+  retryIcon: PropTypes.func.isRequired,
 
   /** Icon placed in the button that rotate image */
-  rotateIcon: PropTypes.node.isRequired,
+  rotateIcon: PropTypes.func.isRequired,
 
   /**
    *  A string defining rotation direction.

@@ -1,5 +1,5 @@
-$bdw-atom-input-addon-right: 1px 1px 1px 0 !default;
-$bdw-atom-input-addon-left: 1px 0 1px 1px !default;
+$bdw-atom-input-addon-right: $bdrs-s $bdrs-s $bdrs-s 0 !default;
+$bdw-atom-input-addon-left: $bdrs-s 0 $bdrs-s $bdrs-s !default;
 $bgc-atom-input-addon: $c-gray-lightest !default;
 $bdc-atom-input-addon: $c-gray-light !default;
 $c-atom-input-addon: $c-gray-light !default;

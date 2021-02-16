@@ -5,7 +5,6 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
-import React from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
@@ -68,7 +67,7 @@ describe('molecule/tabs', () => {
   it('should display the active content given count props', () => {
     // Given
     const content = 'Content 1'
-    const count = [3, -3, 0]
+    const count = ['3', '-3', '0']
     const props = {
       children: [
         <MoleculeTab key={0} label="Tab 1" count={count[0]} active>

@@ -1,4 +1,3 @@
-import React from 'react'
 import cx from 'classnames'
 import * as ReactSticky from 'react-stickup'
 
@@ -21,6 +20,8 @@ const BehaviorSticky = ({children, animate, ...props}) => {
 }
 
 BehaviorSticky.displayName = 'BehaviorSticky'
+
+BehaviorSticky.BehaviorStickyProvider = BehaviorStickyProvider
 
 export default BehaviorSticky
 export {BehaviorStickyProvider}

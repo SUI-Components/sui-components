@@ -1,37 +1,33 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-
+import Button from './Button'
+import ButtonIcon from './ButtonIcon'
+import ButtonSpinnerIcon from './buttonSpinnerIcon'
 import {
   CLASS,
   COLORS,
   DESIGNS,
+  ALIGNMENT,
   ICON_POSITIONS,
   GROUP_POSITIONS,
   MODIFIERS,
   OWN_PROPS,
   SIZES,
-  TYPES
+  TYPES,
+  TYPES_CONVERSION
 } from './config'
 
-import Button from './Button'
-import ButtonIcon from './ButtonIcon'
-
-const createClasses = (array, sufix = '') => {
-  return array.reduce(
-    (res, key) => ({...res, [key]: `${CLASS}--${key}${sufix}`}),
-    {}
-  )
-}
+const createClasses = (array, sufix = '') =>
+  array.reduce((res, key) => ({...res, [key]: `${CLASS}--${key}${sufix}`}), {})
 
 const CLASSES = createClasses([
-  ...TYPES,
+  ...COLORS,
   ...Object.values(DESIGNS),
+  ...Object.values(ALIGNMENT),
   ...MODIFIERS,
   ...Object.values(SIZES),
   'empty'
 ])
-const COLOR_CLASSES = createClasses(COLORS, 'Color')
 
 /**
  * Get props cleaning out AtomButton own props
@@ -55,72 +51,156 @@ const getModifiers = props => {
   )
 }
 
-const getPropsWithDefaultValues = props => {
-  let {color, design, type} = props
-  // if color or design are defined, use them with the passed or default value
-  if (color || design) {
-    if (design !== DESIGNS.LINK) {
-      color = color || 'primary'
-    }
-    design = design || 'solid'
-  } else {
-    type = type || 'primary'
+function deprecated(
+  validator,
+  callback = (props, propName, componentName) => {
+    const deprecatedMessage = `The prop ${'\x1b[32m'}${propName}${'\u001b[39m'} is DEPRECATED on ${'\x1b[32m'}${componentName}${'\u001b[39m'}.`
+    console.warn(deprecatedMessage)
   }
-
-  return {
-    color,
-    design,
-    type,
-    ...props
+) {
+  return function deprecated(props, propName, componentName, ...rest) {
+    if (props[propName] != null && process.env.NODE_ENV === 'development') {
+      callback(props, propName, componentName, ...rest)
+    }
+    return validator(props, propName, componentName, ...rest)
   }
 }
 
+const typeConversion = ({type, design, color, link, href, ...other}) => {
+  const result = {
+    design,
+    color,
+    link,
+    href,
+    ...other
+  }
+  switch (type) {
+    case 'primary':
+      result.color = color || 'primary'
+      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID)
+      break
+    case 'accent':
+      result.color = color || 'accent'
+      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID)
+      break
+    case 'secondary':
+      result.color = color || 'primary'
+      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.OUTLINE)
+      break
+    case 'tertiary':
+      result.color = color || 'primary'
+      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.FLAT)
+      break
+    default:
+      result.type = type
+      result.color = color || 'primary'
+      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID)
+      break
+  }
+  return result
+}
+
+const getPropsWithDefaultValues = ({
+  type,
+  design,
+  color,
+  alignment,
+  link,
+  href,
+  ...other
+}) => ({
+  ...other,
+  link,
+  type,
+  design: design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID),
+  color: color || 'colors',
+  alignment: alignment || ALIGNMENT.CENTER
+})
+
 const AtomButton = props => {
   const {
-    color,
-    children,
+    alignment,
     className,
+    children,
+    color,
+    design,
+    disabled,
+    isLoading,
     focused,
     groupPosition,
+    link,
     leftIcon,
+    loadingText,
+    loader = <ButtonSpinnerIcon />,
     rightIcon,
     size,
-    design,
     title,
     type,
     isRounded
-  } = getPropsWithDefaultValues(props)
+  } = getPropsWithDefaultValues(typeConversion(props))
 
   const classNames = cx(
     CLASS,
-    !type && COLOR_CLASSES[color],
-    !type && CLASSES[design],
-    type && CLASSES[type],
+    CLASSES[color],
+    CLASSES[design],
+    alignment && CLASSES[alignment],
     groupPosition && `${CLASS}-group ${CLASS}-group--${groupPosition}`,
     groupPosition && focused && `${CLASS}-group--focused`,
     size && CLASSES[size],
-    getModifiers(props).map(key => CLASSES[key]),
+    getModifiers({...props, disabled: disabled || isLoading}).map(
+      key => CLASSES[key]
+    ),
     !children && CLASSES.empty,
     {[`${CLASS}--rounded`]: isRounded},
+    {
+      [`${CLASS}--loading`]: isLoading
+    },
     className
   )
 
   const newProps = cleanProps(props)
 
   return (
-    <Button {...newProps} className={classNames} title={title}>
+    <Button
+      {...newProps}
+      type={type}
+      link={link}
+      className={classNames}
+      title={title}
+      disabled={disabled || isLoading}
+    >
       <span className={`${CLASS}-inner`}>
-        <ButtonIcon position={ICON_POSITIONS.LEFT} size={size}>
-          {leftIcon}
-        </ButtonIcon>
-        {leftIcon || rightIcon ? (
-          <span className={`${CLASS}-text`}>{children}</span>
+        {isLoading ? (
+          <>
+            <ButtonIcon
+              position={
+                loadingText ? ICON_POSITIONS.LEFT : ICON_POSITIONS.CENTER
+              }
+              size={size}
+            >
+              {loader}
+            </ButtonIcon>
+            {children && loadingText ? (
+              loadingText
+            ) : (
+              <span className={`${CLASS}-text`}>{children}</span>
+            )}
+          </>
         ) : (
-          children
+          <>
+            <ButtonIcon position={ICON_POSITIONS.LEFT} size={size}>
+              {leftIcon}
+            </ButtonIcon>
+            {leftIcon || rightIcon ? (
+              <span className={`${CLASS}-text`}>{children}</span>
+            ) : (
+              children
+            )}
+            <ButtonIcon position={ICON_POSITIONS.RIGHT} size={size}>
+              {rightIcon}
+            </ButtonIcon>
+          </>
         )}
-        <ButtonIcon position={ICON_POSITIONS.RIGHT} size={size}>
-          {rightIcon}
-        </ButtonIcon>
       </span>
     </Button>
   )
@@ -164,13 +244,16 @@ AtomButton.propTypes = {
   /**
    * DEPRECATED. Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary'
    */
-  type: function(props, propName, componentName) {
-    if (props[propName] !== undefined) {
-      console.warn(
-        `The prop ${propName} is DEPRECATED on ${componentName}. You should use now "design" and "color" props.`
-      )
-    }
-  },
+  type: PropTypes.oneOfType([
+    PropTypes.oneOf(['button', 'submit', 'reset']),
+    deprecated(PropTypes.oneOf(TYPES), (props, propName, componentName) => {
+      const deprecatedMessage = `The prop ${'\x1b[32m'}${propName}${'\u001b[39m'} is DEPRECATED on ${'\x1b[32m'}${componentName}${'\u001b[39m'}. You should use now ${'\x1b[32m'}design${'\u001b[39m'} and ${'\x1b[32m'}color${'\u001b[39m'} props.`
+      console.groupCollapsed(deprecatedMessage)
+      console.warn(deprecatedMessage)
+      console.table(TYPES_CONVERSION)
+      console.groupEnd()
+    })
+  ]),
   /**
    * Design style of button: 'solid' (default), 'outline', 'flat', 'link'
    */
@@ -183,6 +266,22 @@ AtomButton.propTypes = {
    * Size of button 'small' (default), 'large'
    */
   size: PropTypes.oneOf(Object.values(SIZES)),
+  /**
+   * Align content 'center' (default), 'left' and 'right'
+   */
+  alignment: PropTypes.oneOf(Object.values(ALIGNMENT)),
+  /**
+   * If true loading state will be enabled
+   */
+  isLoading: PropTypes.bool,
+  /**
+   * If loading the element will be shown as loader
+   */
+  loader: PropTypes.element,
+  /**
+   * If loading the text will be shown next to the loader
+   */
+  loadingText: PropTypes.string,
   /**
    * Negative: style for dark backgrounds.
    */
@@ -239,3 +338,4 @@ export {COLORS as atomButtonColors}
 export {DESIGNS as atomButtonDesigns}
 export {SIZES as atomButtonSizes}
 export {TYPES as atomButtonTypes}
+export {ALIGNMENT as atomButtonAlignment}

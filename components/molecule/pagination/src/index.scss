@@ -15,23 +15,10 @@ $c-pagination-button-icon-path: inherit !default;
     margin-left: $m-s;
   }
 
-  &-prevButtonIcon {
+  &-divider {
+    align-items: center;
     display: flex;
-    margin-right: $m-m;
-    transform: $trf-pagination-prev-button-icon;
-
-    svg path {
-      fill: $c-pagination-button-icon-path;
-    }
-  }
-
-  &-nextButtonIcon {
-    display: flex;
-    margin-left: $m-m;
-    transform: $trf-pagination-next-button-icon;
-
-    svg path {
-      fill: $c-pagination-button-icon-path;
-    }
+    justify-content: center;
+    margin-left: $m-s;
   }
 }

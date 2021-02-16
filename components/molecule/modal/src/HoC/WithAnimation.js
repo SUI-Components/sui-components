@@ -1,50 +1,45 @@
-import React, {Component} from 'react'
+import {useState} from 'react'
 import PropTypes from 'prop-types'
 
 export default BaseComponent => {
   const displayName = BaseComponent.displayName
 
-  return class WithAnimation extends Component {
-    static displayName = `withAnimation(${displayName})`
+  const WithAnimation = ({
+    onClose = () => {},
+    onAnimationEnd = () => {},
+    ...rest
+  }) => {
+    const [isClosing, setIsClosing] = useState(false)
 
-    static contextTypes = BaseComponent.contextTypes
-
-    static propTypes = {
-      onClose: PropTypes.func,
-      onAnimationEnd: PropTypes.func
-    }
-
-    static defaultProps = {
-      onClose: () => {},
-      onAnimationEnd: () => {}
-    }
-
-    state = {
-      closing: false
-    }
-
-    _onAnimationEnd = ev => {
-      const {onAnimationEnd, onClose} = this.props
-
+    const handleAnimationEnd = ev => {
       onAnimationEnd()
-      if (!this.state.closing) return
-      this.setState({closing: false}, () => onClose())
+
+      if (!isClosing) return
+
+      setIsClosing(false)
+      onClose()
     }
 
-    _onClose = () => {
-      this.setState({closing: true})
+    const handleClose = () => {
+      setIsClosing(true)
     }
 
-    render() {
-      const {onClose, ...rest} = this.props
-      return (
-        <BaseComponent
-          {...rest}
-          onClose={this._onClose}
-          isClosing={this.state.closing}
-          onAnimationEnd={this._onAnimationEnd}
-        />
-      )
-    }
+    return (
+      <BaseComponent
+        isClosing={isClosing}
+        onAnimationEnd={handleAnimationEnd}
+        onClose={handleClose}
+        {...rest}
+      />
+    )
   }
+
+  WithAnimation.displayName = `withAnimation(${displayName})`
+  WithAnimation.contextTypes = BaseComponent.contextTypes
+  WithAnimation.propTypes = {
+    onClose: PropTypes.func,
+    onAnimationEnd: PropTypes.func
+  }
+
+  return WithAnimation
 }

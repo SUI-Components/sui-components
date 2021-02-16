@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import PropTypes from 'prop-types'
 import AtomTag, {atomTagSizes} from '@s-ui/react-atom-tag'
 import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
@@ -96,7 +96,7 @@ MoleculeInputTags.displayName = 'MoleculeInputTags'
 
 MoleculeInputTags.propTypes = {
   /* errorState */
-  errorState: PropTypes.boolean,
+  errorState: PropTypes.bool,
 
   /** Tag size */
   size: PropTypes.oneOf(Object.values(atomTagSizes)),

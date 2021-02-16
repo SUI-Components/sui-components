@@ -1,15 +1,14 @@
 {
   "name": "@s-ui/react-molecule-photo-uploader",
-  "version": "1.16.0",
+  "version": "1.23.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "build": "npx rimraf ./lib && npx mkdirp ./lib && npm run build:js && npm run build:styles",
+    "prepare": "npx rimraf ./lib && npx mkdirp ./lib && npm run build:js && npm run build:styles",
     "build:js": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
     "react-dropzone": "10.2.1",
     "react-sortablejs": "2.0.11",
     "@s-ui/react-hooks": "1",
@@ -17,6 +16,9 @@
     "@s-ui/react-atom-button": "1",
     "@s-ui/react-atom-icon": "1",
     "@s-ui/react-molecule-notification": "1"
+  },
+  "peerDependencies": {
+    "@s-ui/component-dependencies": "1"
   },
   "keywords": [],
   "author": "",

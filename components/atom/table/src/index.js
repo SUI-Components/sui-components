@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -16,17 +15,17 @@ const CELL_PADDING = {
 }
 
 const AtomTable = ({
-  head,
+  head = [],
   body,
-  foot,
+  foot = [],
   fullWidth,
   cellPadding,
   borderBottom,
   onRowClick,
   zebraStriped
 }) => {
-  const hasHead = Boolean(head?.length)
-  const hasFoot = Boolean(foot?.length)
+  const hasHead = Boolean(head.length)
+  const hasFoot = Boolean(foot.length)
   const isRowActionable = Boolean(onRowClick)
   const baseClass = 'react-AtomTable'
   const tableClass = cx(`${baseClass}`, {

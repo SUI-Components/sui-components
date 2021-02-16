@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
-import React from 'react'
-
 import {withStateValue, withStateValueTags} from '@s-ui/hoc'
 
 import MoleculeAutosuggest, {
   MoleculeAutosuggestStates
 } from '../../../../components/molecule/autosuggest/src'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
+import MoleculeAutosuggestField from '@s-ui/react-molecule-autosuggest-field'
 import SuiButton from '@s-ui/react-atom-button'
 
 import withDynamicOptions from './hoc/withDynamicOptions'
@@ -30,8 +29,20 @@ const MoleculeAutosuggestWithStateTags = withStateValueTags(
   MoleculeAutosuggestWithDynamicOptions
 )
 
+const MoleculeAutosuggestWithStateTagsLabels = withStateValueTags(
+  MoleculeAutosuggestField
+)
+
 const BASE_CLASS_DEMO = 'DemoMoleculeAutosuggest'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
+
+const options = [
+  {id: 'C10', name: 'Reservado'},
+  {id: 'C20', name: 'Llamar'},
+  {id: 'C30', name: 'No se Rick'},
+  {id: 'C40', name: 'Comisión'},
+  {id: '100', name: 'Mola'}
+]
 
 const Demo = () => (
   <div className="sui-StudioPreview">
@@ -184,6 +195,30 @@ const Demo = () => (
       <div className={CLASS_DEMO_SECTION}>
         <h3>With Placeholder</h3>
         <ComboCountries />
+      </div>
+
+      <h2>Autosugegst list is open</h2>
+      <div className={CLASS_DEMO_SECTION} style={{paddingBottom: '200px'}}>
+        <h3>With preselected Value</h3>
+        <MoleculeAutosuggestWithStateTagsLabels
+          autoClose={false}
+          iconClear={<IconClose />}
+          isOpen
+          label="Etiquetas"
+          multiselection
+          onChange={() => console.log('onChange')}
+          onChangeTags={() => console.log('onChangeTags')}
+          onEnter={() => console.log('onEnter')}
+          onSelect={() => console.log('onSelect')}
+          placeholder="Selecciona las etiquetas a asignar al contacto"
+          tags={['Mola']}
+        >
+          {options.map(({id, name}) => (
+            <MoleculeAutosuggestOption id={id} key={id} value={name}>
+              {name}
+            </MoleculeAutosuggestOption>
+          ))}
+        </MoleculeAutosuggestWithStateTagsLabels>
       </div>
     </div>
   </div>

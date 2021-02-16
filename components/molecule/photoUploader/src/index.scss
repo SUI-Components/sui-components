@@ -13,6 +13,7 @@ $bd-photo-uploader: $bdw-s dashed $c-primary !default;
 $bd-photo-uploader-drag-photo-rejected: none !default;
 $bd-photo-uploader-thumb: none !default;
 $bd-photo-uploader-thumb-chosen: none !default;
+$bxsh-photo-uploader-thumb-drag: $bxsh-l !default;
 $bd-photo-uploader-thumb-drag: none !default;
 $bdrs-photo-uploader-thumb-card: $bdrs-l !default;
 $bdrs-photo-uploader-skeleton: $bdrs-l !default;
@@ -29,11 +30,15 @@ $c-photo-uploader: $c-primary !default;
 $c-photo-uploader-drag-photo: $c-white !default;
 $c-photo-uploader-action-buttons: $c-primary !default;
 $c-photo-uploader-action-buttons-hover: $c-white !default;
+$p-photo-uploader-action-buttons: $p-m 0 !default;
 $c-photo-uploader-drag-photo-rejected: $c-white !default;
 $c-photo-uploader-skeleton: $c-primary !default;
 $c-photo-uploader-skeleton-hover: $c-white !default;
+$bd-photo-uploader-dropzone: 0 !default;
+$bd-photo-uploader-dropzone-empty: $bd-photo-uploader-dropzone !default;
 $bdrs-photo-uploader-dropzone: $bdrs-l !default;
 $bdrs-photo-uploader-initial-state: $bdrs-l !default;
+$bg-photo-uploader-initial-state: $bg-photo-uploader !default;
 $bdrs-photo-uploader-drag-photo: $bdrs-l !default;
 $c-photo-uploader-initial-state: $c-primary !default;
 $jc-photo-uploader: center !default;
@@ -46,6 +51,8 @@ $fz-photo-uploader-initial-state: $fz-s !default;
 
 $mih-photo-uploader: 249px;
 $s-photo-uploader-counter: 16px;
+$bgc-photo-uploader-counter: $c-primary !default;
+$bdrs-photo-uploader-counter: $bdrs-rounded !default;
 $h-photo-uploader-thumb-image: ($w-photo-uploader-thumb-image * 3) / 4;
 $h-photo-uploader-thumb-image-desktop: (
     $w-photo-uploader-thumb-image-desktop * 3
@@ -57,6 +64,7 @@ $maw-photo-uploader-thumb-drag-text: 200px;
 #{$base-class} {
   &-dropzone {
     background: $bg-photo-uploader;
+    border: $bd-photo-uploader-dropzone;
     border-radius: $bdrs-photo-uploader-dropzone;
     color: $c-photo-uploader;
     cursor: pointer;
@@ -71,12 +79,17 @@ $maw-photo-uploader-thumb-drag-text: 200px;
       padding: $p-photo-uploader-desktop;
     }
 
+    &--empty {
+      border: $bd-photo-uploader-dropzone-empty;
+    }
+
     &--disabled {
       cursor: no-drop;
     }
   }
   &-initialState {
     align-items: center;
+    background: $bg-photo-uploader-initial-state;
     border: $bd-photo-uploader;
     border-radius: $bdrs-photo-uploader-initial-state;
     color: $c-photo-uploader-initial-state;
@@ -192,8 +205,8 @@ $maw-photo-uploader-thumb-drag-text: 200px;
 
     &-counter {
       align-items: center;
-      background-color: $c-primary;
-      border-radius: $bdrs-rounded;
+      background-color: $bgc-photo-uploader-counter;
+      border-radius: $bdrs-photo-uploader-counter;
       color: $c-white;
       display: inline-flex;
       font-size: $fz-xs;
@@ -262,7 +275,7 @@ $maw-photo-uploader-thumb-drag-text: 200px;
       cursor: pointer;
       display: flex;
       justify-content: center;
-      padding: $p-m 0;
+      padding: $p-photo-uploader-action-buttons;
       width: 50%;
 
       &:hover {
@@ -303,7 +316,7 @@ $maw-photo-uploader-thumb-drag-text: 200px;
 
   &--drag {
     border: $bd-photo-uploader-thumb-drag;
-    box-shadow: $bxsh-l;
+    box-shadow: $bxsh-photo-uploader-thumb-drag;
     cursor: grabbing;
     opacity: 1;
   }

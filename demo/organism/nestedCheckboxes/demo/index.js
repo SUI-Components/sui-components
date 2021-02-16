@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import AtomIcon from '../../../../components/atom/icon/src'
 import OrganismNestedCheckboxes from '../../../../components/organism/nestedCheckboxes/src'
 import MoleculeCheckboxField from '../../../../components/molecule/checkboxField/src'
@@ -102,7 +102,7 @@ const Demo = () => {
         </OrganismNestedCheckboxes>
 
         <h2>
-          With Join prop | <small>Remove left padding on items</small>
+          With Join prop | <small>Remove left padding on items</small>
         </h2>
         <OrganismNestedCheckboxes
           checkedIcon={IconCheck}
@@ -116,7 +116,7 @@ const Demo = () => {
         </OrganismNestedCheckboxes>
 
         <h2>
-          With Show/hide items feature | <small>Toggle items visibility</small>
+          With Show/hide items feature | <small>Toggle items visibility</small>
         </h2>
         <OrganismNestedCheckboxes
           checkedIcon={IconCheck}

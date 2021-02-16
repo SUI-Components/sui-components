@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 3.2.0 (2020-10-19)
+
+
+### Features
+
+* organize demos molecule-textareafeld ([fb353e8](https://github.com/SUI-Components/sui-components/commit/fb353e8324b1f0fc6643ce772c3b3ed872d6fad1)), closes [#1248](https://github.com/SUI-Components/sui-components/issues/1248)
+
+
+
 # 3.1.0 (2020-05-29)
 
 

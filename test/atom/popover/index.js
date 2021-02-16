@@ -5,7 +5,6 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
-import React from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
@@ -21,7 +20,8 @@ describe('atom/popover', () => {
     // Given
     const props = {
       id: 'random-id',
-      children: <span>test</span>
+      children: <span>test</span>,
+      content: <span>content</span>
     }
 
     // When
@@ -37,7 +37,8 @@ describe('atom/popover', () => {
     // Given
     const props = {
       id: 'random-id',
-      children: <span>test</span>
+      children: <span>test</span>,
+      content: <span>content</span>
     }
 
     // When

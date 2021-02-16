@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import {Component} from 'react'
 
 const BASE_CLASS = `sui-MoleculeAutosuggest-input`
 const CLASS_CONTAINER = `${BASE_CLASS}-container`

@@ -1,9 +1,9 @@
 /* eslint react/prop-types: 0 */
-import React from 'react'
+import {Component} from 'react'
 import MoleculeModal from '../../../../components/molecule/modal/src'
 import {Content, LoremIpsumParagraph, IconClose} from './helperComponents'
 
-class NoScrollModal extends React.Component {
+class NoScrollModal extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -36,7 +36,7 @@ class NoScrollModal extends React.Component {
           disableScroll={false}
           iconClose={<IconClose />}
           fitWindow
-          header={<strong>My new brand modal</strong>}
+          header="My new brand modal"
           onClose={this.handleCloseModal}
         >
           <Content>

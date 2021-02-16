@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 const styles = {
   background: '#eee',
-  padding: '16px 32px'
+  padding: 0
 }
 
 export default function DemoWrapper({children}) {

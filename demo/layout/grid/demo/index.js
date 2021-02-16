@@ -81,16 +81,12 @@ export default () => (
                 lOffset:6
               </DemoBox>
             </LayoutGridItem>
-          </LayoutGrid>
-          <LayoutGrid>
             <LayoutGridItem s={6} sOffset={6} lOffset={3}>
               <DemoBox>
                 s:6 | sOffset: 6<br />
                 lOffset:3
               </DemoBox>
             </LayoutGridItem>
-          </LayoutGrid>
-          <LayoutGrid>
             <LayoutGridItem s={6}>
               <DemoBox>s:6</DemoBox>
             </LayoutGridItem>
@@ -111,8 +107,6 @@ export default () => (
             <LayoutGridItem s={6}>
               <DemoBox>s:6</DemoBox>
             </LayoutGridItem>
-          </LayoutGrid>
-          <LayoutGrid isGapless>
             <LayoutGridItem s={3}>
               <DemoBox>s:3</DemoBox>
             </LayoutGridItem>
@@ -135,22 +129,27 @@ export default () => (
         <DemoWrapper>
           <LayoutGrid justifyContent="space-between">
             <LayoutGridItem s={6}>
+              <DemoBox color="#07F" style={{minHeight: 0}}>
+                g:1 – s:6
+              </DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={6}>
+              <DemoBox color="#07F" style={{minHeight: 0}}>
+                g:1 – s:6
+              </DemoBox>
+            </LayoutGridItem>
+            <LayoutGridItem s={6}>
               <DemoBox color="#07F">
-                g:1– s: 6
                 <LayoutGrid>
                   <LayoutGridItem s={12}>
                     <DemoBox>g:2 – s:12</DemoBox>
                   </LayoutGridItem>
-                </LayoutGrid>
-                <LayoutGrid>
                   <LayoutGridItem s={6}>
                     <DemoBox>g:2 – s:6</DemoBox>
                   </LayoutGridItem>
                   <LayoutGridItem s={6}>
                     <DemoBox>g:2 – s:6</DemoBox>
                   </LayoutGridItem>
-                </LayoutGrid>
-                <LayoutGrid>
                   <LayoutGridItem s={3}>
                     <DemoBox>g:2 – s:3</DemoBox>
                   </LayoutGridItem>
@@ -168,7 +167,6 @@ export default () => (
             </LayoutGridItem>
             <LayoutGridItem s={6}>
               <DemoBox color="#07F">
-                g:1 – s:6
                 <LayoutGrid>
                   <LayoutGridItem s={3}>
                     <DemoBox>g:2 – s:3</DemoBox>
@@ -182,16 +180,12 @@ export default () => (
                   <LayoutGridItem s={3}>
                     <DemoBox>g:2 – s:3</DemoBox>
                   </LayoutGridItem>
-                </LayoutGrid>
-                <LayoutGrid>
                   <LayoutGridItem s={6}>
                     <DemoBox>g:2 – s:6</DemoBox>
                   </LayoutGridItem>
                   <LayoutGridItem s={6}>
                     <DemoBox>g:2 – s:6</DemoBox>
                   </LayoutGridItem>
-                </LayoutGrid>
-                <LayoutGrid>
                   <LayoutGridItem s={12}>
                     <DemoBox>g:2 – s:12</DemoBox>
                   </LayoutGridItem>

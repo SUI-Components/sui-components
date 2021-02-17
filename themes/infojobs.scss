@@ -1,5 +1,6 @@
 // Settings
-$ff-sans-serif: 'Proximanova', Helvetica, Arial, sans-serif;
+$ff-sans-serif: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+  sans-serif, Apple Color Emoji, Segoe UI Emoji;
 $fz-base: 16px;
 
 // Inherit from original theme
@@ -8,14 +9,3 @@ $fz-base: 16px;
 
 // Common css for sui-studio
 @import './common';
-
-// Load font
-$ff-path: 'https://proximanova-dtcthsajie.now.sh/';
-@font-face {
-  font-family: 'Proximanova';
-  font-weight: $fw-regular;
-  src: url('#{$ff-path}proximanova-regular.eot?') format('eot'),
-    url('#{$ff-path}proximanova-regular.woff') format('woff'),
-    url('#{$ff-path}proximanova-regular.otf') format('opentype'),
-    url('#{$ff-path}proximanova-regular.ttf') format('truetype');
-}

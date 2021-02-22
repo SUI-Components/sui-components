@@ -6,6 +6,7 @@ $base-class: '.sui-LayoutGrid';
 /////
 
 $grid-columns: 12;
+$grid-gutters: 10;
 
 @mixin grid-parent($gap) {
   display: flex;
@@ -21,11 +22,8 @@ $grid-columns: 12;
   max-width: $w-column;
 }
 
-@mixin grid-value($breakpoint-name, $columns) {
-  @include media-breakpoint-up($breakpoint-name) {
-    @include grid-flex-basis($columns);
-  }
-}
+// Margins
+$grid-m-base: $m-base / 2;
 
 /////
 
@@ -35,21 +33,9 @@ $grid-columns: 12;
   @include grid-justify-content($jc-layout-grid);
 
   &-item {
-    flex-basis: 100%;
-    max-width: 100%;
     @include grid-item-sizes($breakpoints, $grid-columns);
     margin: 0;
     padding: 0 $layout-grid-gap;
   }
-
-  &#{$base-class}--gutter {
-    &-none {
-      margin: 0;
-      row-gap: 0;
-
-      #{$base-class}-item {
-        padding: 0;
-      }
-    }
-  }
+  @include grid-gutters($base-class, $breakpoints, $grid-gutters);
 }

@@ -1,10 +1,30 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import {BASE_CLASS, CELL_NUMBERS} from '../settings'
+import {BASE_CLASS, CELL_NUMBERS, BREAKPOINTS} from '../settings'
+
+const getColSpanClassNamesTransform = ({colSpan, ...otherProps}) => {
+  const className = []
+  if (CELL_NUMBERS.includes(colSpan) && otherProps.xxs === undefined) {
+    className.push(`${BASE_CLASS}-item--xxs-${colSpan}`)
+  } else if (typeof colSpan === 'object') {
+    Object.values(BREAKPOINTS).forEach(breakpoint => {
+      if (
+        CELL_NUMBERS.includes(colSpan[breakpoint]) &&
+        otherProps[breakpoint] === undefined
+      ) {
+        className.push(
+          `${BASE_CLASS}-item--${breakpoint}-${colSpan[[breakpoint]]}`
+        )
+      }
+    })
+  }
+  return className.join(' ')
+}
 
 export default function LayoutGridItem({
   children,
+  colSpan,
   l,
   lOffset,
   m,
@@ -22,6 +42,7 @@ export default function LayoutGridItem({
 }) {
   const classNames = cx(
     `${BASE_CLASS}-item`,
+    getColSpanClassNamesTransform({colSpan, xxl, xl, l, m, s, xs, xxs}),
     l && `${BASE_CLASS}-item--l-${l}`,
     lOffset && `${BASE_CLASS}-item--lOffset-${lOffset}`,
     m && `${BASE_CLASS}-item--m-${m}`,
@@ -48,9 +69,17 @@ LayoutGridItem.propTypes = {
    * The content of the component.
    */
   children: PropTypes.node,
+  /***
+   * Defines the number of columns an item should span
+   */
+  colSpan: PropTypes.oneOfType([
+    PropTypes.oneOf(CELL_NUMBERS),
+    PropTypes.objectOf(PropTypes.oneOf(CELL_NUMBERS))
+  ]),
   /**
    * Number of cells the component has to fill. It's applied for the `l` breakpoint and wider screens.
    */
+
   l: PropTypes.oneOf(CELL_NUMBERS),
   /**
    * Number of cells offset to move component. It's applied for the `l` breakpoint and wider screens.

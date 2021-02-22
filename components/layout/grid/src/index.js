@@ -6,12 +6,29 @@ import {
   ALIGN_ITEMS,
   BASE_CLASS,
   JUSTIFY_CONTENT,
-  GUTTER_TYPES
+  GUTTER_VALUES,
+  BREAKPOINTS
 } from './settings'
 
 const transition = ({isGapless, ...oldProps}) => {
-  const gutter = oldProps.gutter || isGapless ? GUTTER_TYPES.NONE : undefined
+  const gutter = oldProps.gutter || isGapless ? 0 : undefined
   return {gutter, ...oldProps}
+}
+
+const getGutterClassNames = (gutterConfig = {}) => {
+  if (GUTTER_VALUES.includes(gutterConfig)) {
+    return `${BASE_CLASS}--gutter-${BREAKPOINTS.XXS}-${gutterConfig}`
+  } else if (typeof gutterConfig === 'object') {
+    return Object.entries(gutterConfig)
+      .map(([key, value]) =>
+        Object.values(BREAKPOINTS).includes(key)
+          ? `${BASE_CLASS}--gutter-${key}-${value}`
+          : null
+      )
+      .filter(value => value !== null)
+      .join(' ')
+  }
+  return null
 }
 
 function LayoutGrid(props) {
@@ -20,7 +37,7 @@ function LayoutGrid(props) {
     `${BASE_CLASS}`,
     alignItems && `${BASE_CLASS}--ai-${alignItems}`,
     justifyContent && `${BASE_CLASS}--jc-${justifyContent}`,
-    {[`${BASE_CLASS}--gutter-${gutter}`]: gutter}
+    getGutterClassNames(gutter)
   )
 
   return <div className={classNames}>{children}</div>
@@ -49,8 +66,8 @@ LayoutGrid.propTypes = {
    * Spacing between cells.
    */
   gutter: PropTypes.oneOfType([
-    PropTypes.oneOf(Object.values(GUTTER_TYPES)),
-    PropTypes.arrayOf(PropTypes.oneOf(Object.values(GUTTER_TYPES)))
+    PropTypes.oneOf(Object.values(GUTTER_VALUES)),
+    PropTypes.objectOf(PropTypes.oneOf(Object.values(GUTTER_VALUES)))
   ])
 }
 
@@ -59,5 +76,7 @@ export default LayoutGrid
 export {
   LayoutGridItem,
   ALIGN_ITEMS as LayoutGridAlignItems,
-  JUSTIFY_CONTENT as LayoutGridJustifyContent
+  JUSTIFY_CONTENT as LayoutGridJustifyContent,
+  GUTTER_VALUES as LayoutGridGutterValues,
+  BREAKPOINTS as LayoutGridBreakpoints
 }

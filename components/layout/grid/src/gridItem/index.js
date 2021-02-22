@@ -79,7 +79,6 @@ LayoutGridItem.propTypes = {
   /**
    * Number of cells the component has to fill. It's applied for the `l` breakpoint and wider screens.
    */
-
   l: PropTypes.oneOf(CELL_NUMBERS),
   /**
    * Number of cells offset to move component. It's applied for the `l` breakpoint and wider screens.

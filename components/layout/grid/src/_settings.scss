@@ -1,6 +1,6 @@
 $layout-grid-breakpoints: $breakpoints;
 $layout-grid-columns: $grid-columns;
-$layout-grid-gap: $m-base !default;
+$layout-grid-m-base: $m-base / 2;
 
 $ai-layout-grid: center flex-start flex-end;
 $jc-layout-grid: flex-start center flex-end space-between space-around;
@@ -17,9 +17,9 @@ $jc-layout-grid: flex-start center flex-end space-between space-around;
   }
 }
 
-@mixin grid-item-gutter($base-class, $grid-m-base, $gutter) {
+@mixin grid-item-gutter($base-class, $m-base, $gutter) {
   #{$base-class}-item {
-    padding: 0 $grid-m-base * $gutter;
+    padding: 0 $m-base * $gutter;
   }
 }
 
@@ -39,8 +39,8 @@ $jc-layout-grid: flex-start center flex-end space-between space-around;
     @for $gutter from 0 through $gutters {
       @media (min-width: $breakpoint-value) {
         &#{$base-class}--gutter-#{$breakpoint-name}-#{$gutter} {
-          @include grid-parent($grid-m-base * $gutter);
-          @include grid-item-gutter($base-class, $grid-m-base, $gutter);
+          @include grid-parent($layout-grid-m-base * $gutter);
+          @include grid-item-gutter($base-class, $layout-grid-m-base, $gutter);
         }
       }
     }

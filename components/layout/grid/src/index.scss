@@ -22,20 +22,17 @@ $grid-gutters: 10;
   max-width: $w-column;
 }
 
-// Margins
-$grid-m-base: $m-base / 2;
-
 /////
 
 #{$base-class} {
-  @include grid-parent($layout-grid-gap);
+  @include grid-parent($layout-grid-m-base);
   @include grid-align-items($ai-layout-grid);
   @include grid-justify-content($jc-layout-grid);
 
   &-item {
     @include grid-item-sizes($breakpoints, $grid-columns);
     margin: 0;
-    padding: 0 $layout-grid-gap;
+    padding: 0 $layout-grid-m-base;
   }
   @include grid-gutters($base-class, $breakpoints, $grid-gutters);
 }

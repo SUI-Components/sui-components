@@ -4,23 +4,12 @@ import PropTypes from 'prop-types'
 const withStateActiveTab = BaseComponent => {
   const displayName = BaseComponent.displayName
 
-  return class BaseComponentWithState extends Component {
-    static displayName = `withStateActiveTab(${displayName})`
-
-    static propTypes = {
-      /** value */
-      activeTab: PropTypes.any,
-
-      /** onChange callback  */
-      onChange: PropTypes.func
-    }
-
-    static defaultProps = {
-      onChange: () => {}
-    }
-
-    state = {
-      activeTab: null
+  class BaseComponentWithState extends Component {
+    constructor(props) {
+      super(props)
+      this.state = {
+        activeTab: null
+      }
     }
 
     componentDidMount() {
@@ -60,6 +49,20 @@ const withStateActiveTab = BaseComponent => {
       )
     }
   }
+  BaseComponentWithState.propTypes = {
+    /** value */
+    activeTab: PropTypes.any,
+
+    /** onChange callback  */
+    onChange: PropTypes.func
+  }
+
+  BaseComponentWithState.defaultProps = {
+    onChange: () => {}
+  }
+  BaseComponentWithState.displayName = `withStateActiveTab(${displayName})`
+
+  return BaseComponentWithState
 }
 
 export default withStateActiveTab

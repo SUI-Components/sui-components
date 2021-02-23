@@ -7,6 +7,7 @@ $bc-atom-radiobutton-disabled: $c-gray-light-3 !default;
 $bw-atom-radiobutton: $bdw-s !default;
 $bc-atom-radiobutton-checked: $c-primary !default;
 $bw-atom-radiobutton-checked: 6px !default;
+$bg-atom-radiobutton-checked: transparent !default;
 
 $m-atom-radiobutton-type-left: $m-m !default;
 $m-atom-radiobutton-type-right: $m-m !default;
@@ -33,6 +34,7 @@ $m-atom-radiobutton-type-right: $m-m !default;
   }
 
   &:checked {
+    background: $bg-atom-radiobutton-checked;
     border-color: $bc-atom-radiobutton-checked;
     border-width: $bw-atom-radiobutton-checked;
   }

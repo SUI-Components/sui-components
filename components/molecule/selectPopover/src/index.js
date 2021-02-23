@@ -16,13 +16,18 @@ function usePrevious(value) {
 
 function MoleculeSelectPopover({
   acceptButtonText,
+  acceptButtonOptions,
   cancelButtonText,
+  cancelButtonOptions,
+  customButtonText,
+  customButtonOptions,
   children,
   hideActions,
   iconArrowDown: IconArrowDown,
   isSelected = false,
   onAccept = () => {},
   onCancel = () => {},
+  onCustomAction = () => {},
   onClose = () => {},
   onOpen = () => {},
   placement = PLACEMENTS.RIGHT,
@@ -66,6 +71,10 @@ function MoleculeSelectPopover({
   const handleOnAccept = () => {
     setIsOpen(false)
     onAccept()
+  }
+
+  const handleOnCustomAction = () => {
+    onCustomAction()
   }
 
   const handleOnCancel = useCallback(() => {
@@ -116,10 +125,26 @@ function MoleculeSelectPopover({
           <div className={`${BASE_CLASS}-popoverContent`}>{children}</div>
           {!hideActions && (
             <div className={`${BASE_CLASS}-popoverActionBar`}>
-              <Button onClick={handleOnCancel} design="flat">
-                {cancelButtonText}
-              </Button>
-              <Button onClick={handleOnAccept}>{acceptButtonText}</Button>
+              {customButtonText ? (
+                <Button onClick={handleOnCustomAction} {...customButtonOptions}>
+                  {customButtonText}
+                </Button>
+              ) : null}
+              {cancelButtonText ? (
+                <Button
+                  onClick={handleOnCancel}
+                  design="flat"
+                  {...cancelButtonOptions}
+                >
+                  {cancelButtonText}
+                </Button>
+              ) : null}
+
+              {acceptButtonText ? (
+                <Button onClick={handleOnAccept} {...acceptButtonOptions}>
+                  {acceptButtonText}
+                </Button>
+              ) : null}
             </div>
           )}
         </div>
@@ -130,14 +155,28 @@ function MoleculeSelectPopover({
 
 MoleculeSelectPopover.displayName = 'MoleculeSelectPopover'
 MoleculeSelectPopover.propTypes = {
-  acceptButtonText: PropTypes.string.isRequired,
-  cancelButtonText: PropTypes.string.isRequired,
+  acceptButtonText: PropTypes.string,
+  acceptButtonOptions: PropTypes.shape({
+    design: PropTypes.string,
+    negative: PropTypes.bool
+  }),
+  cancelButtonText: PropTypes.string,
+  cancelButtonOptions: PropTypes.shape({
+    design: PropTypes.string,
+    negative: PropTypes.bool
+  }),
+  customButtonText: PropTypes.string,
+  customButtonOptions: PropTypes.shape({
+    design: PropTypes.string,
+    negative: PropTypes.bool
+  }),
   children: PropTypes.node.isRequired,
   hideActions: PropTypes.bool,
   iconArrowDown: PropTypes.elementType.isRequired,
   isSelected: PropTypes.bool,
   onAccept: PropTypes.func,
   onCancel: PropTypes.func,
+  onCustomAction: PropTypes.func,
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
   placement: PropTypes.string,

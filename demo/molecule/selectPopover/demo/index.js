@@ -24,6 +24,7 @@ const Demo = () => {
   const [placement, setPlacement] = useState(selectPopoverPlacements.RIGHT)
   const [hasEvents, setHasEvents] = useState(false)
   const [actionsAreHidden, setActionsAreHidden] = useState(false)
+  const [addCustomButton, setAddCustomButton] = useState(false)
 
   const handleChangeItem = event => {
     const {target} = event
@@ -104,16 +105,33 @@ const Demo = () => {
             Actions are hidden
           </label>
         </div>
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              checked={addCustomButton}
+              onChange={ev => setAddCustomButton(ev.target.checked)}
+            />
+            Add custom button
+          </label>
+        </div>
 
         <h3>Component</h3>
         <MoleculeSelectPopover
           acceptButtonText="Aceptar"
           cancelButtonText="Cancelar"
+          customButtonText={addCustomButton && 'Borrar'}
+          customButtonOptions={{
+            design: 'outline',
+            negative: false,
+            color: 'accent'
+          }}
           hideActions={actionsAreHidden}
           iconArrowDown={IconArrowDown}
           isSelected={isSelected}
           onAccept={() => setItems(unconfirmedItems)}
           onCancel={() => setUnconfirmedItems(items)}
+          onCustomAction={() => setUnconfirmedItems(items)}
           onClose={handleClose}
           onOpen={handleOpen}
           placement={placement}

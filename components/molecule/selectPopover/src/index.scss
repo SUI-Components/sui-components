@@ -2,6 +2,19 @@
 @import '~@s-ui/react-atom-button/lib/index';
 @import './settings';
 
+$bd-select-popover: 1px solid $c-gray-light-2 !default;
+$c-select-popover: $c-black !default;
+$bgc-select-popover-hover: $c-primary-light-4 !default;
+$bdc-select-popover-hover: $c-primary-light-4 !default;
+$c-select-popover--is-open: $c-primary !default;
+
+$bgc-select-popover-content: $c-white !default;
+$bd-select-popover-content: solid 1px $c-gray-light-3 !default;
+$bdt-select-popover-action-bar: solid 1px $c-gray-light-3 !default;
+
+$bdc-select-popover-selected: $c-primary !default;
+$c-select-popover-selected: $c-primary !default;
+
 .sui-MoleculeSelectPopover {
   display: inline-block;
   position: relative;
@@ -9,9 +22,9 @@
   &-select {
     $select: &;
     align-items: center;
+    border: $bd-select-popover;
     border-radius: $bdrs-select-popover;
-    border: $bdw-s solid $c-gray-light-2;
-    color: $c-black;
+    color: $c-select-popover;
     display: flex;
     justify-content: space-between;
     max-width: $mw-select-popover;
@@ -30,12 +43,12 @@
     &:hover,
     &.is-open,
     &.is-selected {
-      background-color: $c-primary-light-4;
-      border-color: $c-primary-light-4;
+      background-color: $bgc-select-popover-hover;
+      border-color: $bdc-select-popover-hover;
     }
 
     &.is-open {
-      color: $c-primary;
+      color: $c-select-popover--is-open;
 
       #{$select}Icon {
         transform: rotate(180deg);
@@ -43,8 +56,8 @@
     }
 
     &.is-selected {
-      border-color: $c-primary;
-      color: $c-primary;
+      border-color: $bdc-select-popover-selected;
+      color: $c-select-popover-selected;
     }
 
     @each $type, $attr in $sizes-molecule-select-popover-heights {
@@ -55,8 +68,8 @@
   }
 
   &-popover {
-    background-color: $c-white;
-    border: $bdw-s solid $c-gray-light-3;
+    background-color: $bgc-select-popover-content;
+    border: $bd-select-popover-content;
     border-radius: $bdrs-select-popover-content;
     box-shadow: $bxsh-select-popover;
     margin-top: $m-m;
@@ -65,7 +78,7 @@
     z-index: $z-tooltips;
 
     &ActionBar {
-      border-top: $bdw-s solid $c-gray-light-3;
+      border-top: $bdt-select-popover-action-bar;
       padding: $p-l;
       text-align: right;
     }

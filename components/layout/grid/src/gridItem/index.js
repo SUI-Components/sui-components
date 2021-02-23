@@ -1,25 +1,45 @@
+import {useMemo} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import {BASE_CLASS, CELL_NUMBERS, BREAKPOINTS} from '../settings'
 
-const getColSpanClassNamesTransform = ({colSpan, ...otherProps}) => {
-  const className = []
-  if (CELL_NUMBERS.includes(colSpan) && otherProps.xxs === undefined) {
-    className.push(`${BASE_CLASS}-item--xxs-${colSpan}`)
-  } else if (typeof colSpan === 'object') {
-    Object.values(BREAKPOINTS).forEach(breakpoint => {
-      if (
-        CELL_NUMBERS.includes(colSpan[breakpoint]) &&
-        otherProps[breakpoint] === undefined
-      ) {
-        className.push(
-          `${BASE_CLASS}-item--${breakpoint}-${colSpan[[breakpoint]]}`
-        )
-      }
-    })
-  }
-  return className.join(' ')
+/**
+ * getColSpanClassNamesTransform: gets the classes of each media query
+ * depending on the combination of its values. breakpoint key values
+ * are preferred over colSpan values
+ * @param colSpan
+ * @param otherProps {xxs, xs, s, m, l, xl, xxl}
+ * @returns {null|string} – classnames for the column span
+ */
+export const getColSpanClassNamesTransform = ({colSpan, ...otherProps}) => {
+  const getValidBreakpointValue = (colSpanValue, breakpointValue) =>
+    CELL_NUMBERS.includes(breakpointValue)
+      ? breakpointValue
+      : false || CELL_NUMBERS.includes(colSpanValue)
+      ? colSpanValue
+      : false
+
+  const response = Object.values(BREAKPOINTS).reduce((acc, breakpointName) => {
+    let value
+    if (breakpointName === 'xxs') {
+      value = getValidBreakpointValue(
+        typeof colSpan === 'number' && CELL_NUMBERS.includes(colSpan)
+          ? colSpan
+          : colSpan?.[breakpointName],
+        otherProps[breakpointName]
+      )
+    } else {
+      value = getValidBreakpointValue(
+        colSpan?.[breakpointName],
+        otherProps[breakpointName]
+      )
+    }
+    return value
+      ? `${acc} ${BASE_CLASS}-item--${breakpointName}-${value}`.trim()
+      : acc
+  }, '')
+  return response === '' ? null : response
 }
 
 export default function LayoutGridItem({
@@ -40,23 +60,20 @@ export default function LayoutGridItem({
   xxs,
   xxsOffset
 }) {
+  const spanClassnames = useMemo(
+    () => getColSpanClassNamesTransform({colSpan, xxl, xl, l, m, s, xs, xxs}),
+    [colSpan, xxl, xl, l, m, s, xs, xxs]
+  )
   const classNames = cx(
     `${BASE_CLASS}-item`,
-    getColSpanClassNamesTransform({colSpan, xxl, xl, l, m, s, xs, xxs}),
-    l && `${BASE_CLASS}-item--l-${l}`,
-    lOffset && `${BASE_CLASS}-item--lOffset-${lOffset}`,
-    m && `${BASE_CLASS}-item--m-${m}`,
-    mOffset && `${BASE_CLASS}-item--mOffset-${mOffset}`,
-    s && `${BASE_CLASS}-item--s-${s}`,
-    sOffset && `${BASE_CLASS}-item--sOffset-${sOffset}`,
-    xl && `${BASE_CLASS}-item--xl-${xl}`,
-    xlOffset && `${BASE_CLASS}-item--xlOffset-${xlOffset}`,
-    xs && `${BASE_CLASS}-item--xs-${xs}`,
+    spanClassnames,
+    xxsOffset && `${BASE_CLASS}-item--xxsOffset-${xxsOffset}`,
     xsOffset && `${BASE_CLASS}-item--xsOffset-${xsOffset}`,
-    xxl && `${BASE_CLASS}-item--xxl-${xxl}`,
-    xxlOffset && `${BASE_CLASS}-item--xxlOffset-${xxlOffset}`,
-    xxs && `${BASE_CLASS}-item--xxs-${xxs}`,
-    xxsOffset && `${BASE_CLASS}-item--xxsOffset-${xxsOffset}`
+    sOffset && `${BASE_CLASS}-item--sOffset-${sOffset}`,
+    mOffset && `${BASE_CLASS}-item--mOffset-${mOffset}`,
+    lOffset && `${BASE_CLASS}-item--lOffset-${lOffset}`,
+    xlOffset && `${BASE_CLASS}-item--xlOffset-${xlOffset}`,
+    xxlOffset && `${BASE_CLASS}-item--xxlOffset-${xxlOffset}`
   )
 
   return <div className={classNames}>{children}</div>

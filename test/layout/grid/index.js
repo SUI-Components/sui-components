@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import {getColSpanClassNamesTransform} from '../../../components/layout/grid/src/gridItem'
 
 chai.use(chaiDOM)
 
@@ -28,5 +29,136 @@ describe('layout/grid', () => {
 
     expect(container.innerHTML).to.be.a('string')
     expect(container.innerHTML).to.not.have.lengthOf(0)
+  })
+
+  describe('getColSpanClassNamesTransform', () => {
+    it('not giving any value should be null', () => {
+      // given
+      const props = {}
+      // when
+      const response = getColSpanClassNamesTransform(props)
+      // then
+      expect(response).to.be.null
+    })
+
+    it('giving a single integer valid value should return xxs class', () => {
+      // given
+      const props = {
+        colSpan: 1
+      }
+      // when
+      const response = getColSpanClassNamesTransform(props)
+      // then
+      expect(response).to.not.be.null
+      expect(response).to.be.a('string')
+      expect(response).to.not.have.lengthOf(0)
+      expect(response).to.equal('sui-LayoutGrid-item--xxs-1')
+    })
+
+    it('giving a single integer NOT valid value should be null', () => {
+      // given
+      const props = {
+        colSpan: -1
+      }
+      // when
+      let response = getColSpanClassNamesTransform(props)
+      // then
+      expect(response).to.be.null
+
+      // and
+      // then
+      props.colSpan = 13
+      // when
+      response = getColSpanClassNamesTransform(props)
+      // then
+      expect(response).to.be.null
+    })
+
+    it('giving a value for each breakpoint should be a combination of all of them', () => {
+      // given
+      const props = {
+        colSpan: {xxs: 1, xs: 2, s: 3, m: 4, l: 5, xl: 6, xxl: 7}
+      }
+      // when
+      const response = getColSpanClassNamesTransform(props)
+      // then
+      expect(response).to.not.be.null
+      expect(response).to.be.a('string')
+      expect(response).to.not.have.lengthOf(0)
+      expect(response).to.equal(
+        'sui-LayoutGrid-item--xxs-1 sui-LayoutGrid-item--xs-2 sui-LayoutGrid-item--s-3 sui-LayoutGrid-item--m-4 sui-LayoutGrid-item--l-5 sui-LayoutGrid-item--xl-6 sui-LayoutGrid-item--xxl-7'
+      )
+    })
+
+    it('giving a value for each breakpoint should be a combination of all of them prefering the direct prop', () => {
+      // given
+      const props = {
+        colSpan: {xxs: 1, xs: 2, s: 3, m: 4, l: 5, xl: 6, xxl: 7},
+        xxs: 2,
+        s: 1
+      }
+      // when
+      const response = getColSpanClassNamesTransform(props)
+      // then
+      expect(response).to.not.be.null
+      expect(response).to.be.a('string')
+      expect(response).to.not.have.lengthOf(0)
+      expect(response).to.equal(
+        'sui-LayoutGrid-item--xxs-2 sui-LayoutGrid-item--xs-2 sui-LayoutGrid-item--s-1 sui-LayoutGrid-item--m-4 sui-LayoutGrid-item--l-5 sui-LayoutGrid-item--xl-6 sui-LayoutGrid-item--xxl-7'
+      )
+    })
+    it('giving a value for each breakpoint should ignore colSpan unique value', () => {
+      // given
+      const props = {
+        colSpan: 1,
+        xxs: 2,
+        xs: 2,
+        s: 2,
+        m: 2,
+        l: 2,
+        xl: 2,
+        xxl: 2
+      }
+      // when
+      const response = getColSpanClassNamesTransform(props)
+      // then
+      expect(response).to.not.be.null
+      expect(response).to.be.a('string')
+      expect(response).to.not.have.lengthOf(0)
+      expect(response).to.equal(
+        'sui-LayoutGrid-item--xxs-2 sui-LayoutGrid-item--xs-2 sui-LayoutGrid-item--s-2 sui-LayoutGrid-item--m-2 sui-LayoutGrid-item--l-2 sui-LayoutGrid-item--xl-2 sui-LayoutGrid-item--xxl-2'
+      )
+    })
+
+    it('giving a value for each breakpoint should ignore colSpan value keys', () => {
+      // given
+      const props = {
+        colSpan: {
+          xxs: 1,
+          xs: 1,
+          s: 1,
+          m: 1,
+          l: 1,
+          xl: 1,
+          xxl: 1
+        },
+        xxs: 2,
+        xs: 2,
+        s: 2,
+        m: 2,
+        l: 2,
+        xl: 2,
+        xxl: 2
+      }
+      // when
+      const response = getColSpanClassNamesTransform(props)
+      // then
+      expect(response).to.not.be.null
+      expect(response).to.be.a('string')
+      expect(response).to.not.have.lengthOf(0)
+      expect(response).to.equal(
+        'sui-LayoutGrid-item--xxs-2 sui-LayoutGrid-item--xs-2 sui-LayoutGrid-item--s-2 sui-LayoutGrid-item--m-2 sui-LayoutGrid-item--l-2 sui-LayoutGrid-item--xl-2 sui-LayoutGrid-item--xxl-2'
+      )
+    })
   })
 })

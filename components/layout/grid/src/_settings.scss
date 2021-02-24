@@ -1,7 +1,6 @@
 $layout-grid-breakpoints: $breakpoints;
 $layout-grid-columns: $grid-columns;
-$layout-grid-gap: $p-l !default;
-$layout-grid-breakpoint-min: s !default;
+$layout-grid-m-base: $m-base / 2 !default;
 
 $ai-layout-grid: center flex-start flex-end;
 $jc-layout-grid: flex-start center flex-end space-between space-around;
@@ -10,17 +9,39 @@ $jc-layout-grid: flex-start center flex-end space-between space-around;
   &--#{$breakpoint-name}-#{$columns} {
     @include grid-flex-basis($columns);
   }
+}
 
+@mixin grid-item-offset($breakpoint-name, $columns) {
   &--#{$breakpoint-name}Offset-#{$columns} {
     margin-left: (100% / $layout-grid-columns) * $columns;
   }
 }
 
+@mixin grid-item-gutter($base-class, $m-base, $gutter) {
+  #{$base-class}-item {
+    padding: 0 $m-base * $gutter;
+  }
+}
+
 @mixin grid-item-sizes($breakpoints, $columns) {
   @each $breakpoint-name, $breakpoint-value in $breakpoints {
-    @include media-breakpoint-up($breakpoint-name) {
-      @for $col from 1 through $columns {
+    @for $col from 1 through $columns {
+      @media (min-width: $breakpoint-value) {
         @include grid-item-value($breakpoint-name, $col);
+        @include grid-item-offset($breakpoint-name, $col);
+      }
+    }
+  }
+}
+
+@mixin grid-gutters($base-class, $breakpoints, $gutters) {
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @for $gutter from 0 through $gutters {
+      @media (min-width: $breakpoint-value) {
+        &#{$base-class}--gutter-#{$breakpoint-name}-#{$gutter} {
+          @include grid-parent($layout-grid-m-base * $gutter);
+          @include grid-item-gutter($base-class, $layout-grid-m-base, $gutter);
+        }
       }
     }
   }

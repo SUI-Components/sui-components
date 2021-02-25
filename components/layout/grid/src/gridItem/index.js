@@ -44,7 +44,7 @@ export const getColSpanClassNamesTransform = ({colSpan, ...otherProps}) => {
 
 export default function LayoutGridItem({
   children,
-  colSpan,
+  colSpan = 1,
   l,
   lOffset,
   m,

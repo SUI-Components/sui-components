@@ -33,6 +33,7 @@ $grid-gutters: 10;
     @include grid-item-sizes($breakpoints, $grid-columns);
     margin: 0;
     padding: 0 $layout-grid-m-base;
+    box-sizing: border-box;
   }
   @include grid-gutters($base-class, $breakpoints, $grid-gutters);
 }

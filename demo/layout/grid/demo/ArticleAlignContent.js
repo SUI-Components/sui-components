@@ -10,56 +10,53 @@ import {
 } from '@s-ui/documentation-library'
 
 import LayoutGrid, {
-  LayoutGridAlignItems,
+  LayoutGridAlignContent,
   LayoutGridItem
 } from '../../../../components/layout/grid/src'
 import DemoWrapper from './demoWrapper'
 import DemoBox from './demoBox'
 
-const ArticleAlignItems = ({classname}) => {
-  const [alignItemsState, setAlignItemsState] = useState()
+const ArticleAlignContent = ({classname}) => {
+  const [alignContentState, setAlignContentState] = useState()
   return (
     <Article className={classname}>
-      <H2>Align Items</H2>
+      <H2>Align Content</H2>
       <Paragraph>
-        Use the <Code>alignItems</Code> prop to distribute container’s lines.
-        Valid values:
-        <Code>center</Code> <Code>flex-end</Code> <Code>flex-start</Code>{' '}
-        <Code>space-around</Code> <Code>space-between</Code>
+        Use the <Code>alignContent</Code> prop to distribute container’s lines.
+        Valid values: <Code>center</Code> <Code>flex-start</Code>{' '}
+        <Code>flex-end</Code> <Code>space-around</Code>{' '}
+        <Code>space-between</Code> <Code>space-evenly</Code>{' '}
       </Paragraph>
       <RadioButtonGroup
-        value={alignItemsState}
+        value={alignContentState}
         fullWidth
-        onChange={value => setAlignItemsState(value)}
+        onChange={value => setAlignContentState(value)}
       >
-        {Object.values(LayoutGridAlignItems).map(alignItems => (
+        {Object.values(LayoutGridAlignContent).map(alignContent => (
           <RadioButton
-            key={alignItems}
-            value={alignItems.toString()}
-            label={alignItems}
+            key={alignContent}
+            value={alignContent.toString()}
+            label={alignContent}
           />
         ))}
       </RadioButtonGroup>
-      <div key={alignItemsState}>
+      <div key={alignContentState}>
         <p className="sui-Studio-p">
-          alignItems: <Code>{alignItemsState || 'undefined'}</Code>
+          alignContent: <Code>{alignContentState || 'undefined'}</Code>
         </p>
-        <DemoWrapper>
-          <LayoutGrid alignItems={alignItemsState}>
+        <DemoWrapper style={{height: 300}}>
+          <LayoutGrid alignContent={alignContentState}>
             <LayoutGridItem colSpan={4}>
-              <DemoBox>s:4</DemoBox>
+              <DemoBox tiny>s:4</DemoBox>
             </LayoutGridItem>
             <LayoutGridItem colSpan={4}>
               <DemoBox tiny>s:4</DemoBox>
             </LayoutGridItem>
             <LayoutGridItem colSpan={4}>
-              <DemoBox>s:4</DemoBox>
-            </LayoutGridItem>
-            <LayoutGridItem colSpan={4}>
               <DemoBox tiny>s:4</DemoBox>
             </LayoutGridItem>
             <LayoutGridItem colSpan={4}>
-              <DemoBox>s:4</DemoBox>
+              <DemoBox tiny>s:4</DemoBox>
             </LayoutGridItem>
             <LayoutGridItem colSpan={4}>
               <DemoBox tiny>s:4</DemoBox>
@@ -71,8 +68,8 @@ const ArticleAlignItems = ({classname}) => {
   )
 }
 
-ArticleAlignItems.propTypes = {
+ArticleAlignContent.propTypes = {
   classname: PropTypes.string
 }
 
-export default ArticleAlignItems
+export default ArticleAlignContent

@@ -6,6 +6,7 @@ const styles = ({tiny, color, style}) => ({
   borderRadius: '8px',
   padding: '16px',
   minHeight: tiny ? '60px' : '120px',
+  height: '100%',
   margin: 0,
   ...style
 })

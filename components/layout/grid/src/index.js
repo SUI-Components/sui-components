@@ -4,9 +4,11 @@ import cx from 'classnames'
 
 import {
   ALIGN_ITEMS,
+  ALIGN_CONTENT,
   BASE_CLASS,
   JUSTIFY_CONTENT,
   GUTTER_VALUES,
+  CELL_NUMBERS,
   BREAKPOINTS
 } from './settings'
 
@@ -32,11 +34,21 @@ const getGutterClassNames = (gutterConfig = {}) => {
 }
 
 function LayoutGrid(props) {
-  const {alignItems, children, justifyContent, gutter} = transition(props)
+  const {
+    alignContent,
+    alignItems,
+    children,
+    justifyContent,
+    gutter
+  } = transition(props)
   const classNames = cx(
     `${BASE_CLASS}`,
-    alignItems && `${BASE_CLASS}--ai-${alignItems}`,
-    justifyContent && `${BASE_CLASS}--jc-${justifyContent}`,
+    Object.values(ALIGN_CONTENT).includes(alignContent) &&
+      `${BASE_CLASS}--ac-${alignContent}`,
+    Object.values(ALIGN_ITEMS).includes(alignItems) &&
+      `${BASE_CLASS}--ai-${alignItems}`,
+    Object.values(JUSTIFY_CONTENT).includes(justifyContent) &&
+      `${BASE_CLASS}--jc-${justifyContent}`,
     getGutterClassNames(gutter)
   )
 
@@ -50,6 +62,10 @@ LayoutGrid.propTypes = {
    * The content of the component.
    */
   children: PropTypes.node,
+  /**
+   * Sets the grid-line-self alignment. It's applied for all screen sizes.
+   */
+  alignContent: PropTypes.oneOf(Object.values(ALIGN_CONTENT)),
   /**
    * Sets the align-self value on all direct children as a group. It's applied for all screen sizes.
    */
@@ -75,8 +91,10 @@ export default LayoutGrid
 
 export {
   LayoutGridItem,
+  ALIGN_CONTENT as LayoutGridAlignContent,
   ALIGN_ITEMS as LayoutGridAlignItems,
   JUSTIFY_CONTENT as LayoutGridJustifyContent,
   GUTTER_VALUES as LayoutGridGutterValues,
+  CELL_NUMBERS as LayoutGridCellNumbers,
   BREAKPOINTS as LayoutGridBreakpoints
 }

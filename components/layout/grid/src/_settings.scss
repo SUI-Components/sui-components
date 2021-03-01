@@ -2,7 +2,9 @@ $layout-grid-breakpoints: $breakpoints;
 $layout-grid-columns: $grid-columns;
 $layout-grid-m-base: $m-base / 2 !default;
 
-$ai-layout-grid: center flex-start flex-end;
+$ac-layout-grid: flex-start flex-end center space-between space-around
+  space-evenly stretch;
+$ai-layout-grid: stretch space-around space-between center flex-start flex-end;
 $jc-layout-grid: flex-start center flex-end space-between space-around;
 
 @mixin grid-item-value($breakpoint-name, $columns) {
@@ -51,6 +53,15 @@ $jc-layout-grid: flex-start center flex-end space-between space-around;
   @each $value in $properties {
     &--ai-#{$value} {
       align-items: $value;
+    }
+  }
+}
+
+@mixin grid-align-content($properties) {
+  @each $value in $properties {
+    &--ac-#{$value} {
+      height: 100%;
+      align-content: $value;
     }
   }
 }

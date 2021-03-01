@@ -7,6 +7,7 @@ import ArticleGutter from './ArticleGutter'
 import ArticleCombine from './ArticleCombine'
 import ArticleJustifyContent from './ArticleJustifyContent'
 import ArticleAlignItems from './ArticleAlignItems'
+import ArticleAlignContent from './ArticleAlignContent'
 
 const BASE_CLASS_DEMO = `DemoLayoutGrid`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
@@ -34,6 +35,8 @@ export default () => (
     <ArticleJustifyContent classname={CLASS_SECTION} />
     <br />
     <ArticleAlignItems classname={CLASS_SECTION} />
+    <br />
+    <ArticleAlignContent classname={CLASS_SECTION} />
     <br />
   </div>
 )

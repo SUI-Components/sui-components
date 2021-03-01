@@ -31,8 +31,8 @@ Default
 
 ```js
 <LayoutGrid>
-  <LayoutGridItem xxs={4}>...</LayoutGridItem>
-  <LayoutGridItem xxs={8}>...</LayoutGridItem>
+  <LayoutGridItem colSpan={4}>...</LayoutGridItem>
+  <LayoutGridItem colSpan={8}>...</LayoutGridItem>
 </LayoutGrid>
 ```
 
@@ -40,19 +40,19 @@ With breakpooints
 
 ```js
 <LayoutGrid>
-  <LayoutGridItem s={4} m={2} xl={6}>
+  <LayoutGridItem xxs={1} s={4} m={2} xl={6}>
     ...
   </LayoutGridItem>
-  <LayoutGridItem s={8} m={10} xl={6}>
+  <LayoutGridItem xxs={1} s={8} m={10} xl={6}>
     ...
   </LayoutGridItem>
 </LayoutGrid>
 ```
 
-With `alignItems` and `justifyContent` props
+With `alignItems` and `justifyContent` and `alignContent` props
 
 ```js
-<LayoutGrid alignItems="center" justifyContent="space-around">
+<LayoutGrid alignItems="center" justifyContent="space-around" alignContent="stretch">
   <LayoutGridItem s={4} xl={6}>
     ...
   </LayoutGridItem>

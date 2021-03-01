@@ -282,65 +282,65 @@ const ArticleCombine = ({classname}) => {
       </Paragraph>
       <DemoWrapper>
         <LayoutGrid justifyContent="space-between">
-          <LayoutGridItem s={6}>
+          <LayoutGridItem colSpan={6}>
             <DemoBox color="#07F" style={{minHeight: 0}}>
               g:1 – s:6
             </DemoBox>
           </LayoutGridItem>
-          <LayoutGridItem s={6}>
+          <LayoutGridItem colSpan={6}>
             <DemoBox color="#07F" style={{minHeight: 0}}>
               g:1 – s:6
             </DemoBox>
           </LayoutGridItem>
-          <LayoutGridItem s={6}>
+          <LayoutGridItem colSpan={6}>
             <DemoBox color="#07F" style={{padding: 0}}>
               <LayoutGrid>
-                <LayoutGridItem s={12}>
+                <LayoutGridItem colSpan={12}>
                   <DemoBox>g:2 – s:12</DemoBox>
                 </LayoutGridItem>
-                <LayoutGridItem s={6}>
+                <LayoutGridItem colSpan={6}>
                   <DemoBox>g:2 – s:6</DemoBox>
                 </LayoutGridItem>
-                <LayoutGridItem s={6}>
+                <LayoutGridItem colSpan={6}>
                   <DemoBox>g:2 – s:6</DemoBox>
                 </LayoutGridItem>
-                <LayoutGridItem s={3}>
+                <LayoutGridItem colSpan={3}>
                   <DemoBox>g:2 – s:3</DemoBox>
                 </LayoutGridItem>
-                <LayoutGridItem s={3}>
+                <LayoutGridItem colSpan={3}>
                   <DemoBox>g:2 – s:3</DemoBox>
                 </LayoutGridItem>
-                <LayoutGridItem s={3}>
+                <LayoutGridItem colSpan={3}>
                   <DemoBox>g:2 – s:3</DemoBox>
                 </LayoutGridItem>
-                <LayoutGridItem s={3}>
+                <LayoutGridItem colSpan={3}>
                   <DemoBox>g:2 – s:3</DemoBox>
                 </LayoutGridItem>
               </LayoutGrid>
             </DemoBox>
           </LayoutGridItem>
-          <LayoutGridItem s={6}>
+          <LayoutGridItem colSpan={6}>
             <DemoBox color="#07F" style={{padding: 0}}>
               <LayoutGrid>
-                <LayoutGridItem s={3}>
+                <LayoutGridItem colSpan={3}>
                   <DemoBox>g:2 – s:3</DemoBox>
                 </LayoutGridItem>
-                <LayoutGridItem s={3}>
+                <LayoutGridItem colSpan={3}>
                   <DemoBox>g:2 – s:3</DemoBox>
                 </LayoutGridItem>
-                <LayoutGridItem s={3}>
+                <LayoutGridItem colSpan={3}>
                   <DemoBox>g:2 – s:3</DemoBox>
                 </LayoutGridItem>
-                <LayoutGridItem s={3}>
+                <LayoutGridItem colSpan={3}>
                   <DemoBox>g:2 – s:3</DemoBox>
                 </LayoutGridItem>
-                <LayoutGridItem s={6}>
+                <LayoutGridItem colSpan={6}>
                   <DemoBox>g:2 – s:6</DemoBox>
                 </LayoutGridItem>
-                <LayoutGridItem s={6}>
+                <LayoutGridItem colSpan={6}>
                   <DemoBox>g:2 – s:6</DemoBox>
                 </LayoutGridItem>
-                <LayoutGridItem s={12}>
+                <LayoutGridItem colSpan={12}>
                   <DemoBox>g:2 – s:12</DemoBox>
                 </LayoutGridItem>
               </LayoutGrid>

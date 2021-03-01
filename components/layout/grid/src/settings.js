@@ -19,9 +19,22 @@ export const BREAKPOINTS = {
 
 // All `align-items` property values allowed
 export const ALIGN_ITEMS = {
+  BASELINE: 'baseline',
   CENTER: 'center',
   FLEX_START: 'flex-start',
-  FLEX_END: 'flex-end'
+  FLEX_END: 'flex-end',
+  STRETCH: 'stretch'
+}
+
+// All `align-content` property values allowed
+export const ALIGN_CONTENT = {
+  CENTER: 'center',
+  FLEX_START: 'flex-start',
+  FLEX_END: 'flex-end',
+  SPACE_AROUND: 'space-around',
+  SPACE_BETWEEN: 'space-between',
+  SPACE_EVENLY: 'space-evenly',
+  STRETCH: 'stretch'
 }
 
 // All `justify-content` property values allowed

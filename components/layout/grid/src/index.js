@@ -8,6 +8,7 @@ import {
   BASE_CLASS,
   JUSTIFY_CONTENT,
   GUTTER_VALUES,
+  CELL_NUMBERS,
   BREAKPOINTS
 } from './settings'
 
@@ -94,5 +95,6 @@ export {
   ALIGN_ITEMS as LayoutGridAlignItems,
   JUSTIFY_CONTENT as LayoutGridJustifyContent,
   GUTTER_VALUES as LayoutGridGutterValues,
+  CELL_NUMBERS as LayoutGridCellNumbers,
   BREAKPOINTS as LayoutGridBreakpoints
 }

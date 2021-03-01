@@ -6,6 +6,14 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import {
+  LayoutGridAlignContent,
+  LayoutGridAlignItems,
+  LayoutGridJustifyContent,
+  LayoutGridGutterValues,
+  LayoutGridCellNumbers,
+  LayoutGridBreakpoints
+} from '../../../components/layout/grid/src/'
 import {getColSpanClassNamesTransform} from '../../../components/layout/grid/src/gridItem'
 
 chai.use(chaiDOM)
@@ -15,20 +23,176 @@ describe('layout/grid', () => {
   const setup = setupEnvironment(Component)
 
   it('should render without crashing', () => {
+    // given
     const props = {}
+    // when
     const component = <Component {...props} />
-
+    // then
     const div = document.createElement('div')
     ReactDOM.render(component, div)
     ReactDOM.unmountComponentAtNode(div)
   })
 
   it('should NOT render null', () => {
+    // given
     const props = {}
+    // when
     const {container} = setup(props)
-
+    // then
     expect(container.innerHTML).to.be.a('string')
     expect(container.innerHTML).to.not.have.lengthOf(0)
+  })
+  describe('LayoutGridAlignContent', () => {
+    it('enum', () => {
+      // given
+      const actual = LayoutGridAlignContent
+      const expected = {
+        CENTER: 'center',
+        FLEX_START: 'flex-start',
+        FLEX_END: 'flex-end',
+        SPACE_AROUND: 'space-around',
+        SPACE_BETWEEN: 'space-between',
+        SPACE_EVENLY: 'space-evenly',
+        STRETCH: 'stretch'
+      }
+      // when
+
+      // then
+      expect(actual).to.be.a('object')
+      expect(Object.keys(actual).length).to.equal(Object.keys(expected).length)
+      expect(Object.values(actual).length).to.equal(
+        Object.values(expected).length
+      )
+      Object.keys(actual).forEach(value => {
+        const expectedValue = Object.keys(expected).find(val => value === val)
+        expect(value).to.equal(expectedValue)
+      })
+      Object.values(actual).forEach(value => {
+        const expectedValue = Object.values(expected).find(val => value === val)
+        expect(value).to.equal(expectedValue)
+      })
+    })
+  })
+  describe('LayoutGridAlignItems', () => {
+    it('enum', () => {
+      // given
+      const actual = LayoutGridAlignItems
+      const expected = {
+        BASELINE: 'baseline',
+        CENTER: 'center',
+        FLEX_START: 'flex-start',
+        FLEX_END: 'flex-end',
+        STRETCH: 'stretch'
+      }
+      // when
+
+      // then
+      expect(actual).to.be.a('object')
+      expect(Object.keys(actual).length).to.equal(Object.keys(expected).length)
+      expect(Object.values(actual).length).to.equal(
+        Object.values(expected).length
+      )
+      Object.keys(actual).forEach(value => {
+        const expectedValue = Object.keys(expected).find(val => value === val)
+        expect(value).to.equal(expectedValue)
+      })
+      Object.values(actual).forEach(value => {
+        const expectedValue = Object.values(expected).find(val => value === val)
+        expect(value).to.equal(expectedValue)
+      })
+    })
+  })
+  describe('LayoutGridJustifyContent', () => {
+    it('enum', () => {
+      // given
+      const actual = LayoutGridJustifyContent
+      const expected = {
+        CENTER: 'center',
+        FLEX_START: 'flex-start',
+        FLEX_END: 'flex-end',
+        SPACE_AROUND: 'space-around',
+        SPACE_BETWEEN: 'space-between'
+      }
+      // when
+
+      // then
+      expect(actual).to.be.a('object')
+      expect(Object.keys(actual).length).to.equal(Object.keys(expected).length)
+      expect(Object.values(actual).length).to.equal(
+        Object.values(expected).length
+      )
+      Object.keys(actual).forEach(value => {
+        const expectedValue = Object.keys(expected).find(val => value === val)
+        expect(value).to.equal(expectedValue)
+      })
+      Object.values(actual).forEach(value => {
+        const expectedValue = Object.values(expected).find(val => value === val)
+        expect(value).to.equal(expectedValue)
+      })
+    })
+  })
+  describe('LayoutGridBreakpoints', () => {
+    it('enum', () => {
+      // given
+      const actual = LayoutGridBreakpoints
+      const expected = {
+        XXS: 'xxs',
+        XS: 'xs',
+        S: 's',
+        M: 'm',
+        L: 'l',
+        XL: 'xl',
+        XXL: 'xxl'
+      }
+      // when
+
+      // then
+      expect(actual).to.be.a('object')
+      expect(Object.keys(actual).length).to.equal(Object.keys(expected).length)
+      expect(Object.values(actual).length).to.equal(
+        Object.values(expected).length
+      )
+      Object.keys(actual).forEach(value => {
+        const expectedValue = Object.keys(expected).find(val => value === val)
+        expect(value).to.equal(expectedValue)
+      })
+      Object.values(actual).forEach(value => {
+        const expectedValue = Object.values(expected).find(val => value === val)
+        expect(value).to.equal(expectedValue)
+      })
+    })
+  })
+  describe('LayoutGridGutterValues', () => {
+    it('array', () => {
+      // given
+      const actual = LayoutGridGutterValues
+      const expected = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      // when
+
+      // then
+      expect(actual).to.be.a('array')
+      expect(actual.length).to.equal(expected.length)
+      actual.forEach(value => {
+        const expectedValue = expected.find(val => value === val)
+        expect(value).to.equal(expectedValue)
+      })
+    })
+  })
+  describe('LayoutGridCellNumbers', () => {
+    it('array', () => {
+      // given
+      const actual = LayoutGridCellNumbers
+      const expected = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      // when
+
+      // then
+      expect(actual).to.be.a('array')
+      expect(actual.length).to.equal(expected.length)
+      actual.forEach(value => {
+        const expectedValue = expected.find(val => value === val)
+        expect(value).to.equal(expectedValue)
+      })
+    })
   })
 
   describe('getColSpanClassNamesTransform', () => {

@@ -59,8 +59,10 @@ function AtomPopover({
   }
 
   const handleToggle = () => {
-    !disableToggle && setInternalShowPopover(!internalShowPopover)
-    onClose()
+    if (!disableToggle) {
+      setInternalShowPopover(!internalShowPopover)
+      onClose()
+    }
   }
 
   const handleOnClickCloseIcon = () => {

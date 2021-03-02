@@ -22,6 +22,7 @@ const Popover = lazy(() => import('reactstrap/lib/Popover'))
 function AtomPopover({
   children,
   closeIcon,
+  disableToggle,
   content,
   id,
   onClose = () => {},
@@ -58,6 +59,11 @@ function AtomPopover({
   }
 
   const handleToggle = () => {
+    !disableToggle && setInternalShowPopover(!internalShowPopover)
+    onClose()
+  }
+
+  const handleOnClickCloseIcon = () => {
     setInternalShowPopover(!internalShowPopover)
     onClose()
   }
@@ -82,7 +88,10 @@ function AtomPopover({
             trigger={DEFAULT_TRIGGER}
           >
             {closeIcon && (
-              <div className={`${BASE_CLASS}-closeIcon`} onClick={handleToggle}>
+              <div
+                className={`${BASE_CLASS}-closeIcon`}
+                onClick={handleOnClickCloseIcon}
+              >
                 {closeIcon}
               </div>
             )}
@@ -107,6 +116,8 @@ AtomPopover.propTypes = {
   id: PropTypes.string,
   /** Custom close icon  */
   closeIcon: PropTypes.node,
+  /** Controlled value for disable toggle  */
+  disableToggle: PropTypes.bool,
   /** On close callback */
   onClose: PropTypes.func,
   /** On open callback */

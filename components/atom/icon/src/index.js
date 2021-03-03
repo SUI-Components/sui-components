@@ -19,7 +19,8 @@ export const ATOM_ICON_SIZES = {
   small: 'small',
   medium: 'medium',
   large: 'large',
-  extraLarge: 'extraLarge'
+  extraLarge: 'extraLarge',
+  extraExtraLarge: 'extraExtraLarge'
 }
 export const ATOM_ICON_RENDERS = {
   eager: 'eager',

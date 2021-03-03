@@ -57,7 +57,7 @@ const Demo = () => {
           checked={showArrow}
           onChange={ev => setShowArrow(ev.target.checked)}
         />
-        <label className="DemoPopover-label">Disable toggle</label>
+        <label className="DemoPopover-label">Disable native toggle </label>
         <input
           type="checkbox"
           checked={disableNativeToggle}

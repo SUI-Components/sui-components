@@ -79,7 +79,7 @@ function AtomPopover({
             placement={placement}
             placementPrefix={PREFIX_PLACEMENT}
             target={id || targetRef.current}
-            toggle={!disableNativeToggle && handleToggle}
+            toggle={!disableNativeToggle ? handleToggle : undefined}
             trigger={DEFAULT_TRIGGER}
           >
             {closeIcon && (

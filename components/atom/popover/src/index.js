@@ -22,6 +22,7 @@ const Popover = lazy(() => import('reactstrap/lib/Popover'))
 function AtomPopover({
   children,
   closeIcon,
+  disableNativeToggle,
   content,
   id,
   onClose = () => {},
@@ -78,7 +79,7 @@ function AtomPopover({
             placement={placement}
             placementPrefix={PREFIX_PLACEMENT}
             target={id || targetRef.current}
-            toggle={handleToggle}
+            toggle={!disableNativeToggle ? handleToggle : undefined}
             trigger={DEFAULT_TRIGGER}
           >
             {closeIcon && (
@@ -107,6 +108,8 @@ AtomPopover.propTypes = {
   id: PropTypes.string,
   /** Custom close icon  */
   closeIcon: PropTypes.node,
+  /** Controlled value for to disable the native toggle that is passed to the popover component */
+  disableNativeToggle: PropTypes.bool,
   /** On close callback */
   onClose: PropTypes.func,
   /** On open callback */

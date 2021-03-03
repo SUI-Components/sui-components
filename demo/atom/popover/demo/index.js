@@ -15,6 +15,7 @@ const Demo = () => {
   const [show, setShow] = useState(false)
   const [closeIcon, setCloseIcon] = useState(true)
   const [showArrow, setShowArrow] = useState(true)
+  const [disableNativeToggle, setDisableNativeToggle] = useState(false)
   const [position, setPosition] = useState(atomPopoverPositions.BOTTOM)
 
   const renderContent = () => (
@@ -56,9 +57,16 @@ const Demo = () => {
           checked={showArrow}
           onChange={ev => setShowArrow(ev.target.checked)}
         />
+        <label className="DemoPopover-label">Disable native toggle </label>
+        <input
+          type="checkbox"
+          checked={disableNativeToggle}
+          onChange={ev => setDisableNativeToggle(ev.target.checked)}
+        />
 
         <div className="DemoPopover-buttons">
           <AtomPopover
+            disableNativeToggle={disableNativeToggle}
             closeIcon={closeIcon && <IconClose />}
             hideArrow={!showArrow}
             placement={position}
@@ -69,6 +77,7 @@ const Demo = () => {
             <Button>Show Popover in component without "ref"</Button>
           </AtomPopover>
           <AtomPopover
+            disableNativeToggle={disableNativeToggle}
             closeIcon={closeIcon && <IconClose />}
             hideArrow={!showArrow}
             placement={position}

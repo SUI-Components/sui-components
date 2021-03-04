@@ -9,6 +9,7 @@ const Button = ({
   isButton, // eslint-disable-line react/prop-types
   link,
   linkFactory: Link,
+  forwardingRef, // eslint-disable-line react/prop-types
   ...attrs
 }) => {
   if (isSubmit) attrs.type = 'submit'
@@ -18,11 +19,11 @@ const Button = ({
   const rel = attrs.rel || defaultRel
 
   return link ? (
-    <Link {...attrs} href={href} target={target} rel={rel}>
+    <Link {...attrs} href={href} target={target} rel={rel} ref={forwardingRef}>
       {children}
     </Link>
   ) : (
-    <button {...attrs} disabled={disabled}>
+    <button {...attrs} disabled={disabled} ref={forwardingRef}>
       {children}
     </button>
   )

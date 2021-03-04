@@ -123,6 +123,8 @@ $badge-soft: (
 
   &-icon {
     @include sui-icon--small;
+    align-items: center;
+    display: flex;
     line-height: initial;
     margin-right: $m-atom-badge-s;
     vertical-align: middle;

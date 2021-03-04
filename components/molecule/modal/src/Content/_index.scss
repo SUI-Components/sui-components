@@ -1,0 +1,13 @@
+.sui-MoleculeModalContent {
+  -webkit-overflow-scrolling: touch;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: $pt-molecule-modal-content $pr-molecule-modal-content
+    $pb-molecule-modal-content $pl-molecule-modal-content;
+  position: relative;
+
+  &--without-indentation {
+    padding: 0;
+    margin: 0;
+  }
+}

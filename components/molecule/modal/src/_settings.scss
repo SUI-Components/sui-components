@@ -16,6 +16,12 @@ $m-molecule-modal-dialog-mobile: $m-l !default;
 $maw-molecule-modal-dialog: 600px !default;
 $maw-molecule-modal-dialog--full: 1200px !default;
 $miw-molecule-modal-dialog: 288px !default;
+$s-molecule-modal-dialog: (
+  xsmall: 384px,
+  small: 448px,
+  medium: 512px,
+  large: 576px
+) !default;
 
 $bg-molecule-modal-header: transparent !default;
 $bd-molecule-modal-header: 1px solid $c-gray-light !default;
@@ -46,3 +52,20 @@ $z-molecule-modal-icon-floating: $z-modal !default;
 
 $m-molecule-modal-content: $m-l $m-xl !default;
 $p-molecule-modal-content: 0 !default;
+
+$pt-molecule-modal-content: $p-l !default;
+$pb-molecule-modal-content: $pt-molecule-modal-content !default;
+$pr-molecule-modal-content: $p-xl !default;
+$pl-molecule-modal-content: $pr-molecule-modal-content !default;
+
+// maintain backward compatibility in case someone uses any $pX-molecule-modal-content existing variables
+$mt-molecule-modal-content: $pt-molecule-modal-content !default;
+$mb-molecule-modal-content: $pb-molecule-modal-content !default;
+$mr-molecule-modal-content: $pr-molecule-modal-content !default;
+$ml-molecule-modal-content: $pl-molecule-modal-content !default;
+
+$bd-molecule-modal-footer: 1px solid $c-gray-light !default;
+$pt-molecule-modal-footer: $p-l !default;
+$pb-molecule-modal-footer: $p-l !default;
+$pr-molecule-modal-footer: $pr-molecule-modal-content !default;
+$pl-molecule-modal-footer: $pl-molecule-modal-content !default;

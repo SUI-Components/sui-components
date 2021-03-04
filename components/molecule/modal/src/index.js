@@ -105,13 +105,12 @@ const MoleculeModal = ({
     }
   }
 
-  const renderChildren = () => {
-    return Children.toArray(children).map(child =>
+  const renderChildren = () =>
+    Children.toArray(children).map(child =>
       cloneElement(child, {
         onClose: closeModal
       })
     )
-  }
 
   const renderModal = () => {
     const wrapperClassName = cx(suitClass(), {
@@ -241,7 +240,7 @@ MoleculeModal.propTypes = {
    */
   onAnimationEnd: PropTypes.func,
   /**
-   * If true children won't be wrapped with content
+   * Defines whether children will be wrapped with content or not
    */
   isContentless: PropTypes.bool,
   /**

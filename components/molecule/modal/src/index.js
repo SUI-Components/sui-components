@@ -116,7 +116,7 @@ const MoleculeModal = forwardRef(
     }, [onKeyDown])
 
     const handleOutsideClick = ev => {
-      if (closeOnOutsideClick && ev.target === ref.current) {
+      if (closeOnOutsideClick && ev.target === wrapperRef.current) {
         closeModal(ev)
       }
     }

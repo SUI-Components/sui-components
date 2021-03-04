@@ -1,38 +1,37 @@
-import {useState} from 'react'
+import {forwardRef, useState} from 'react'
 import PropTypes from 'prop-types'
 
 export default BaseComponent => {
   const displayName = BaseComponent.displayName
 
-  const WithAnimation = ({
-    onClose = () => {},
-    onAnimationEnd = () => {},
-    ...rest
-  }) => {
-    const [isClosing, setIsClosing] = useState(false)
+  const WithAnimation = forwardRef(
+    ({onClose = () => {}, onAnimationEnd = () => {}, ...rest}, ref) => {
+      const [isClosing, setIsClosing] = useState(false)
 
-    const handleAnimationEnd = ev => {
-      onAnimationEnd()
+      const handleAnimationEnd = ev => {
+        onAnimationEnd()
 
-      if (!isClosing) return
+        if (!isClosing) return
 
-      setIsClosing(false)
-      onClose()
+        setIsClosing(false)
+        onClose()
+      }
+
+      const handleClose = () => {
+        setIsClosing(true)
+      }
+
+      return (
+        <BaseComponent
+          ref={ref}
+          isClosing={isClosing}
+          onAnimationEnd={handleAnimationEnd}
+          onClose={handleClose}
+          {...rest}
+        />
+      )
     }
-
-    const handleClose = () => {
-      setIsClosing(true)
-    }
-
-    return (
-      <BaseComponent
-        isClosing={isClosing}
-        onAnimationEnd={handleAnimationEnd}
-        onClose={handleClose}
-        {...rest}
-      />
-    )
-  }
+  )
 
   WithAnimation.displayName = `withAnimation(${displayName})`
   WithAnimation.contextTypes = BaseComponent.contextTypes

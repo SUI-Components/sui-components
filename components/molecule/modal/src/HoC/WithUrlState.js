@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {forwardRef, useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 
 const checkHash = hash => window.location.hash.includes(hash)
@@ -13,7 +13,7 @@ export default BaseComponent => {
 
   if (typeof window === 'undefined') return BaseComponent
 
-  const WithUrlState = props => {
+  const WithUrlState = forwardRef((props, ref) => {
     const {hash, openModalTrigger, onClose, ...rest} = props
     const {isOpen} = rest
     const [isPopStateChange, setIsPopStateChange] = useState(checkHash(hash))
@@ -50,8 +50,8 @@ export default BaseComponent => {
       return () => window.removeEventListener('popstate', _handlePopState)
     }, [hash]) // eslint-disable-line
 
-    return <BaseComponent {...rest} onClose={onClose} />
-  }
+    return <BaseComponent ref={ref} {...rest} onClose={onClose} />
+  })
 
   WithUrlState.displayName = `WithUrlState(${displayName})`
 

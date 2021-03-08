@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import {forwardRef} from 'react'
 
 const Button = ({
   children,
@@ -58,7 +59,11 @@ Button.propTypes = {
 
 Button.defaultProps = {
   // eslint-disable-next-line react/prop-types
-  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>
+  linkFactory: forwardRef(({children, ...props}, ref) => (
+    <a {...props} ref={ref}>
+      {children}
+    </a>
+  ))
 }
 
 export default Button

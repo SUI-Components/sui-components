@@ -38,19 +38,40 @@ describe('atom/button', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
-  it('should return forwardRef when giving a ref to the component', () => {
-    // Given
-    const props = {children: 'button'}
-    const ref = createRef()
+  describe('forwardRef', () => {
+    it('should return forwardRef html button element when giving a ref to the component', () => {
+      // Given
+      const props = {children: 'button'}
+      const ref = createRef()
 
-    // When
-    const component = <Component {...props} ref={ref} />
-    const div = document.createElement('div')
-    ReactDOM.render(component, div)
+      // When
+      const component = <Component {...props} ref={ref} />
+      const div = document.createElement('div')
+      ReactDOM.render(component, div)
 
-    // Then
-    expect(ref.current).to.not.equal(undefined)
-    expect(ref.current.nodeName).to.equal('BUTTON')
+      // Then
+      expect(ref.current).to.not.equal(undefined)
+      expect(ref.current.nodeName).to.equal('BUTTON')
+    })
+
+    it('should return forwardRef html anchor element when giving a ref to the component', () => {
+      // Given
+      const props = {
+        children: 'button',
+        link: true,
+        href: 'htttps://www.google.com'
+      }
+      const ref = createRef()
+
+      // When
+      const component = <Component {...props} ref={ref} />
+      const div = document.createElement('div')
+      ReactDOM.render(component, div)
+
+      // Then
+      expect(ref.current).to.not.equal(undefined)
+      expect(ref.current.nodeName).to.equal('A')
+    })
   })
 
   it('should show loader if loading', () => {

@@ -1,3 +1,4 @@
+import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Button from './Button'
@@ -118,7 +119,7 @@ const getPropsWithDefaultValues = ({
   alignment: alignment || ALIGNMENT.CENTER
 })
 
-const AtomButton = props => {
+const AtomButton = forwardRef((props, ref) => {
   const {
     alignment,
     className,
@@ -169,6 +170,7 @@ const AtomButton = props => {
       className={classNames}
       title={title}
       disabled={disabled || isLoading}
+      forwardingRef={ref}
     >
       <span className={`${CLASS}-inner`}>
         {isLoading ? (
@@ -205,7 +207,7 @@ const AtomButton = props => {
       </span>
     </Button>
   )
-}
+})
 
 AtomButton.displayName = 'AtomButton'
 

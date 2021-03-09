@@ -12,6 +12,7 @@ import {
 } from 'react'
 import {createPortal} from 'react-dom'
 import cx from 'classnames'
+import {useMergeRefs} from '@s-ui/react-hooks'
 import {SUPPORTED_KEYS} from './config'
 import {suitClass} from './helpers'
 import {Close} from './Close'
@@ -30,16 +31,6 @@ export const MODAL_SIZES = {
 
 const toggleWindowScroll = disableScroll => {
   window.document.body.classList.toggle('is-MoleculeModal-open', disableScroll)
-}
-
-const combineRefs = (...refs) => value => {
-  refs.forEach(ref => {
-    if (typeof ref === 'function') {
-      ref(value)
-    } else if (ref != null) {
-      ref.current = value
-    }
-  })
 }
 
 const MoleculeModal = forwardRef(
@@ -67,7 +58,7 @@ const MoleculeModal = forwardRef(
     forwardedRef
   ) => {
     const wrapperRef = useRef()
-    const ref = combineRefs(wrapperRef, forwardedRef)
+    const ref = useMergeRefs(wrapperRef, forwardedRef)
 
     const [isClientReady, setIsClientReady] = useState(false)
 

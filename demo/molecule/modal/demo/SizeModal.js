@@ -18,7 +18,7 @@ const SizeModal = () => {
   return (
     <>
       {Object.values(MODAL_SIZES).map(size => (
-        <button key="size" onClick={handleClick(size)}>
+        <button key={size} onClick={handleClick(size)}>
           Open {size} modal
         </button>
       ))}

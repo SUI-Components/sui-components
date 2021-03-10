@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import {
   Children,
   cloneElement,
+  forwardRef,
   useRef,
   useState,
   useEffect,
@@ -11,6 +12,7 @@ import {
 } from 'react'
 import {createPortal} from 'react-dom'
 import cx from 'classnames'
+import {useMergeRefs} from '@s-ui/react-hooks'
 import {SUPPORTED_KEYS} from './config'
 import {suitClass} from './helpers'
 import {Close} from './Close'
@@ -31,152 +33,158 @@ const toggleWindowScroll = disableScroll => {
   window.document.body.classList.toggle('is-MoleculeModal-open', disableScroll)
 }
 
-const MoleculeModal = ({
-  children,
-  closeOnEscKeyDown = false,
-  closeOnOutsideClick = false,
-  enableContentScroll = false,
-  fitContent = false,
-  fitWindow = false,
-  floatingIconClose = false,
-  size,
-  header,
-  iconClose = false,
-  isClosing,
-  isOpen = false,
-  onAnimationEnd,
-  onClose = () => {},
-  portalContainerId = 'modal-react-portal',
-  usePortal = true,
-  withoutIndentation = false,
-  isContentless
-}) => {
-  const wrapperRef = useRef()
-
-  const [isClientReady, setIsClientReady] = useState(false)
-
-  const getContainer = () => {
-    let containerDOMEl = document.getElementById(portalContainerId)
-    if (!containerDOMEl) {
-      containerDOMEl = document.createElement('div')
-      containerDOMEl.id = portalContainerId
-      document.body.appendChild(containerDOMEl)
-    }
-    return containerDOMEl
-  }
-
-  const closeModal = useCallback(
-    ev => {
-      ev && ev.stopPropagation()
-      toggleWindowScroll(false)
-      onClose()
+const MoleculeModal = forwardRef(
+  (
+    {
+      children,
+      closeOnEscKeyDown = false,
+      closeOnOutsideClick = false,
+      enableContentScroll = false,
+      fitContent = false,
+      fitWindow = false,
+      floatingIconClose = false,
+      size,
+      header,
+      iconClose = false,
+      isClosing,
+      isOpen = false,
+      onAnimationEnd,
+      onClose = () => {},
+      portalContainerId = 'modal-react-portal',
+      usePortal = true,
+      withoutIndentation = false,
+      isContentless
     },
-    [onClose]
-  )
+    forwardedRef
+  ) => {
+    const wrapperRef = useRef()
+    const ref = useMergeRefs(wrapperRef, forwardedRef)
 
-  const onKeyDown = useCallback(
-    ev => {
-      if (isOpen === false || closeOnEscKeyDown === false) return
-      if (SUPPORTED_KEYS.includes(ev.key)) {
-        closeModal(ev)
-        ev.preventDefault()
+    const [isClientReady, setIsClientReady] = useState(false)
+
+    const getContainer = () => {
+      let containerDOMEl = document.getElementById(portalContainerId)
+      if (!containerDOMEl) {
+        containerDOMEl = document.createElement('div')
+        containerDOMEl.id = portalContainerId
+        document.body.appendChild(containerDOMEl)
       }
-    },
-    [isOpen, closeOnEscKeyDown, closeModal]
-  )
+      return containerDOMEl
+    }
 
-  useEffect(() => {
-    if (usePortal) setIsClientReady(true)
-  }, [usePortal])
+    const closeModal = useCallback(
+      ev => {
+        ev && ev.stopPropagation()
+        toggleWindowScroll(false)
+        onClose()
+      },
+      [onClose]
+    )
 
-  useEffect(() => {
-    document.removeEventListener('keydown', onKeyDown)
-    document.addEventListener('keydown', onKeyDown)
+    const onKeyDown = useCallback(
+      ev => {
+        if (isOpen === false || closeOnEscKeyDown === false) return
+        if (SUPPORTED_KEYS.includes(ev.key)) {
+          closeModal(ev)
+          ev.preventDefault()
+        }
+      },
+      [isOpen, closeOnEscKeyDown, closeModal]
+    )
 
-    return () => {
-      toggleWindowScroll(false)
+    useEffect(() => {
+      if (usePortal) setIsClientReady(true)
+    }, [usePortal])
+
+    useEffect(() => {
       document.removeEventListener('keydown', onKeyDown)
-    }
-  }, [onKeyDown])
+      document.addEventListener('keydown', onKeyDown)
 
-  const handleOutsideClick = ev => {
-    if (closeOnOutsideClick && ev.target === wrapperRef.current) {
-      closeModal(ev)
-    }
-  }
+      return () => {
+        toggleWindowScroll(false)
+        document.removeEventListener('keydown', onKeyDown)
+      }
+    }, [onKeyDown])
 
-  const renderChildren = () =>
-    Children.toArray(children).map(child =>
-      cloneElement(child, {
-        onClose: closeModal
+    const handleOutsideClick = ev => {
+      if (closeOnOutsideClick && ev.target === wrapperRef.current) {
+        closeModal(ev)
+      }
+    }
+
+    const renderChildren = () =>
+      Children.toArray(children).map(child =>
+        cloneElement(child, {
+          onClose: closeModal
+        })
+      )
+
+    const renderModal = () => {
+      const wrapperClassName = cx(suitClass(), {
+        'is-MoleculeModal-open': isOpen,
+        [suitClass({element: 'out'})]: isClosing
       })
-    )
 
-  const renderModal = () => {
-    const wrapperClassName = cx(suitClass(), {
-      'is-MoleculeModal-open': isOpen,
-      [suitClass({element: 'out'})]: isClosing
-    })
+      const dialogClassName = cx(suitClass({element: 'dialog'}), {
+        [suitClass({element: 'dialog--full'})]: fitWindow,
+        [suitClass({element: 'dialog--out'})]: isClosing,
+        [suitClass({element: 'dialog--fit'})]: fitContent,
+        [suitClass({element: `dialog--${size}`})]: !!size
+      })
 
-    const dialogClassName = cx(suitClass({element: 'dialog'}), {
-      [suitClass({element: 'dialog--full'})]: fitWindow,
-      [suitClass({element: 'dialog--out'})]: isClosing,
-      [suitClass({element: 'dialog--fit'})]: fitContent,
-      [suitClass({element: `dialog--${size}`})]: !!size
-    })
-
-    return (
-      <div
-        className={wrapperClassName}
-        ref={wrapperRef}
-        onAnimationEnd={onAnimationEnd}
-        onClick={handleOutsideClick}
-      >
-        <div className={dialogClassName}>
-          {(iconClose || header) && (
-            <HeaderRender
-              close={
-                iconClose && (
-                  <Close
-                    icon={iconClose}
-                    onClick={closeModal}
-                    floating={floatingIconClose}
-                  />
-                )
-              }
-              header={header}
-              floatingIconClose={floatingIconClose}
-            />
-          )}
-          {isContentless ? (
-            renderChildren()
-          ) : (
-            <MoleculeModalContent
-              enableContentScroll={enableContentScroll}
-              withoutIndentation={withoutIndentation}
-            >
-              {renderChildren()}
-            </MoleculeModalContent>
-          )}
+      return (
+        <div
+          className={wrapperClassName}
+          ref={ref}
+          onAnimationEnd={onAnimationEnd}
+          onClick={handleOutsideClick}
+        >
+          <div className={dialogClassName}>
+            {(iconClose || header) && (
+              <HeaderRender
+                close={
+                  iconClose && (
+                    <Close
+                      icon={iconClose}
+                      onClick={closeModal}
+                      floating={floatingIconClose}
+                    />
+                  )
+                }
+                header={header}
+                floatingIconClose={floatingIconClose}
+              />
+            )}
+            {isContentless ? (
+              renderChildren()
+            ) : (
+              <MoleculeModalContent
+                enableContentScroll={enableContentScroll}
+                withoutIndentation={withoutIndentation}
+              >
+                {renderChildren()}
+              </MoleculeModalContent>
+            )}
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
+
+    const modalElement = renderModal()
+
+    if (usePortal) {
+      return isClientReady ? createPortal(modalElement, getContainer()) : null
+    }
+
+    // temporary fix to avoid executing this on SSR
+    // we should move to functions this and create as a function
+    if (isClientReady) {
+      toggleWindowScroll(isOpen)
+    }
+
+    return modalElement
   }
-
-  const modalElement = renderModal()
-
-  if (usePortal) {
-    return isClientReady ? createPortal(modalElement, getContainer()) : null
-  }
-
-  // temporary fix to avoid executing this on SSR
-  // we should move to functions this and create as a function
-  if (isClientReady) {
-    toggleWindowScroll(isOpen)
-  }
-
-  return modalElement
-}
+)
 
 MoleculeModal.propTypes = {
   /**

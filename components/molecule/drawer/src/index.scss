@@ -5,6 +5,7 @@ $h-molecule-drawer: $w-molecule-drawer !default;
 $z-molecule-drawer: $z-modal !default;
 $z-molecule-drawer-overlay: $z-modal !default;
 $bxsh-molecule-drawer: 0 0 6px rgba(0, 0, 0, 0.4) !default;
+$bgc-molecule-drawer: white !default;
 
 @keyframes bg-overlay {
   0% {
@@ -102,7 +103,7 @@ $bxsh-molecule-drawer: 0 0 6px rgba(0, 0, 0, 0.4) !default;
     box-shadow: $bxsh-molecule-drawer;
     position: fixed;
     z-index: $z-molecule-drawer;
-    background-color: white;
+    background-color: $bgc-molecule-drawer;
     &--left {
       height: 100%;
       width: $w-molecule-drawer;

@@ -131,7 +131,6 @@ body.is-MoleculeModal-open {
     }
 
     @each $key-size, $size in $s-molecule-modal-dialog {
-
       &--#{$key-size} {
         width: 100%;
 

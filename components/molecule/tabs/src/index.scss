@@ -113,7 +113,8 @@ $sz-sui-molecule-tabs-icon: $sz-icon-l !default;
     .sui-MoleculeTabs-item {
       background: $bgc-sui-molecule-tabs;
       border: 0 none transparent;
-      border-bottom: $bdw-sui-molecule-tabs-highlighted solid $bc-sui-molecule-tabs-highlighted;
+      border-bottom: $bdw-sui-molecule-tabs-highlighted solid
+        $bc-sui-molecule-tabs-highlighted;
       text-align: center;
 
       &.is-active {

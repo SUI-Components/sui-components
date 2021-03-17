@@ -132,8 +132,9 @@ body.is-MoleculeModal-open {
 
     @each $key-size, $size in $s-molecule-modal-dialog {
       &--#{$key-size} {
+        width: 100%;
+
         @include media-breakpoint-up(xs) {
-          width: 100%;
           max-width: $size;
         }
       }

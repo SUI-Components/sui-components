@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import {ALPHA, COLORS, BORDER_RADIUS, BOX_SHADOW} from './constants'
+import {ALPHA, COLORS, BORDER_RADIUS, ELEVATION} from './constants'
 
-const getClassNames = function({color, alpha, rounded, boxShadow}) {
+const getClassNames = function({color, alpha, rounded, elevation}) {
   const BASE_CLASS = 'sui-atom-panel'
   const COLOR_PANEL_CLASS = 'sui-atom-panel-color'
   return cx(
@@ -10,7 +10,7 @@ const getClassNames = function({color, alpha, rounded, boxShadow}) {
     rounded !== BORDER_RADIUS.NONE && `${BASE_CLASS}--rounded-${rounded}`,
     COLOR_PANEL_CLASS,
     color && `${COLOR_PANEL_CLASS}--${color}-${alpha}`,
-    boxShadow !== BOX_SHADOW.NONE && `${BASE_CLASS}--box-shadow-${boxShadow}`
+    elevation !== ELEVATION.NONE && `${BASE_CLASS}--elevation-${elevation}`
   )
 }
 
@@ -25,7 +25,7 @@ ColorPanel.propTypes = {
   color: PropTypes.string,
   alpha: PropTypes.string,
   rounded: PropTypes.oneOf(Object.values(BORDER_RADIUS)),
-  boxShadow: PropTypes.oneOf(Object.values(BOX_SHADOW))
+  elevation: PropTypes.oneOf(Object.values(ELEVATION))
 }
 
 ColorPanel.defaultProps = {

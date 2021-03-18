@@ -4,7 +4,7 @@ import ImagePanel, {
   HORIZONTAL_ALIGNMENTS,
   VERTICAL_ALIGNMENTS
 } from './ImagePanel'
-import {COLORS, ALPHA, BORDER_RADIUS, BOX_SHADOW} from './constants'
+import {COLORS, ALPHA, BORDER_RADIUS, ELEVATION} from './constants'
 
 const isImagePanel = function({src}) {
   return !!src
@@ -41,14 +41,14 @@ AtomPanel.propTypes = {
   /**
    * Specify the box-shadow of the panel
    */
-  boxShadow: PropTypes.oneOf(Object.values(BOX_SHADOW))
+  elevation: PropTypes.oneOf(Object.values(ELEVATION))
 }
 
 AtomPanel.defaultProps = {
   horizontalAlign: HORIZONTAL_ALIGNMENTS.CENTER,
   verticalAlign: VERTICAL_ALIGNMENTS.CENTER,
   rounded: BORDER_RADIUS.NONE,
-  boxShadow: BOX_SHADOW.NONE
+  elevation: ELEVATION.NONE
 }
 
 export default AtomPanel
@@ -58,5 +58,5 @@ export {
   COLORS as atomPanelColors,
   ALPHA as atomPanelAlpha,
   BORDER_RADIUS as atomPanelRounded,
-  BOX_SHADOW as atomPanelBoxShadow
+  ELEVATION as atomPanelElevation
 }

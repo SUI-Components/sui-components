@@ -5,7 +5,8 @@ $bdrs-atom-panel-rounded: (
   'l': $bdrs-m * 2,
   'xl': $bdrs-m * 3
 ) !default;
-$bxsh-atom-panel: (
+$bxsh-atom-panel-elevation: (
+  's': $bxsh-s,
   'm': $bxsh-m,
   'l': $bxsh-l
 ) !default;
@@ -36,8 +37,8 @@ $vertical-alignments-atom-panel: ('top', 'center', 'bottom') !default;
     }
   }
 
-  @each $type, $attr in $bxsh-atom-panel {
-    &--box-shadow-#{$type} {
+  @each $type, $attr in $bxsh-atom-panel-elevation {
+    &--elevation-#{$type} {
       box-shadow: $attr;
     }
   }

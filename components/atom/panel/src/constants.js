@@ -24,4 +24,11 @@ const BORDER_RADIUS = {
   XL: 'xl'
 }
 
-export {COLORS, ALPHA, BORDER_RADIUS}
+const ELEVATION = {
+  NONE: 'none',
+  S: 's',
+  M: 'm',
+  L: 'l'
+}
+
+export {COLORS, ALPHA, BORDER_RADIUS, ELEVATION}

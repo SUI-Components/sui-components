@@ -65,6 +65,24 @@ return (
         )
       }
       </div>
+      <h3>Elevated</h3>
+      <div style={{
+        backgroundColor: 'white',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center'
+      }}>
+      {
+        Object.keys(atomPanelElevation).map((elevation, idx) =>
+          <div key={idx} style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}>
+            <AtomPanel elevation={atomPanelElevation[elevation]} floating>
+              <div style={{height: '100px', width: '100px'}} />
+            </AtomPanel>
+            <span style={{color: 'grey'}}>{atomPanelElevation[elevation]}</span>
+          </div>
+        )
+      }
+      </div>
       <h3>Container example</h3>
       <div style={flexWrapper}>
         <div style={flexItem}>
@@ -130,6 +148,24 @@ return (
               <div style={{height: '100px', width: '100px'}} />
             </AtomPanel>
             <span style={{color: 'grey'}}>{atomPanelRounded[rounded]}</span>
+          </div>
+        )
+      }
+      </div>
+      <h3>Elevated</h3>
+      <div style={{
+        backgroundColor: 'white',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center'
+      }}>
+      {
+        Object.keys(atomPanelElevation).map((elevation, idx) =>
+          <div key={idx} style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}>
+            <AtomPanel src={'https://picsum.photos/250/200'} elevation={atomPanelElevation[elevation]} floating>
+              <div style={{height: '100px', width: '100px'}} />
+            </AtomPanel>
+            <span style={{color: 'grey'}}>{atomPanelElevation[elevation]}</span>
           </div>
         )
       }

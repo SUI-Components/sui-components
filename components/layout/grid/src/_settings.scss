@@ -20,7 +20,7 @@ $jc-layout-grid: flex-start center flex-end space-between space-around;
 }
 
 @mixin grid-item-gutter($base-class, $m-base, $gutter) {
-  #{$base-class}-item {
+  > #{$base-class}-item {
     padding: 0 $m-base * $gutter;
   }
 }

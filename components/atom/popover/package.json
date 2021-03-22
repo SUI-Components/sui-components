@@ -9,6 +9,7 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
+    "@loadable/component": "5.14.1",
     "@s-ui/hoc": "1",
     "@s-ui/react-hooks": "1",
     "reactstrap": "7.1.0"

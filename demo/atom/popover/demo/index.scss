@@ -3,39 +3,16 @@
 @import '~@s-ui/react-molecule-select/lib/index';
 @import '~@s-ui/react-molecule-dropdown-option/lib/index';
 
-.DemoPopover {
-  padding: $p-l;
-
-  &-content {
-    padding: $p-xl;
-  }
-
-  &-label {
-    display: block;
-    margin: $m-l 0 $m-m;
-    font-weight: $fw-bold;
-  }
-
-  &-buttons {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding-top: 100px;
-    text-align: center;
-
-    @include media-breakpoint-up(l) {
-      align-items: baseline;
-      flex-direction: row;
+.DemoAtomPopover-section {
+  .blink {
+    color: currentColor;
+    &.is-blinking {
+      transition: color 0.05s ease-out;
+      color: #0091c4;
     }
-  }
-
-  &-button {
-    border: $bdw-s solid $c-primary;
-    padding: $p-l;
-  }
-
-  .sui-AtomButton {
-    margin-top: $m-l;
+    &.is-unblinking {
+      transition: color 5s ease-out;
+      color: currentColor;
+    }
   }
 }

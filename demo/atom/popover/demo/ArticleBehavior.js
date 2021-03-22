@@ -17,9 +17,9 @@ import {
   Text
 } from '@s-ui/documentation-library'
 import AtomPopover, {
-  atomPopoverTriggers
+  atomPopoverTriggers,
+  atomPopoverPositions
 } from '../../../../components/atom/popover/src'
-import {atomPopoverPositions} from '../../../../components/atom/popover'
 
 const StatusDisplayer = ({value, values = []}) => (
   <Box fullWidth>

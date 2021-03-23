@@ -32,7 +32,6 @@ const AtomPopover = forwardRef((props, outRef) => {
   const {
     children,
     closeIcon,
-    disableNativeToggle,
     content,
     onClose = () => {},
     onOpen = () => {},
@@ -101,7 +100,7 @@ const AtomPopover = forwardRef((props, outRef) => {
           placement={placement}
           placementPrefix={PREFIX_PLACEMENT}
           target={targetRef.current}
-          toggle={!disableNativeToggle ? handleToggle : undefined}
+          toggle={handleToggle}
           trigger={Array.isArray(trigger) ? trigger.join(' ') : trigger}
           innerRef={outRef}
         >
@@ -130,8 +129,6 @@ AtomPopover.propTypes = {
   id: PropTypes.string,
   /** Custom close icon  */
   closeIcon: PropTypes.node,
-  /** Controlled value for to disable the native toggle that is passed to the popover component */
-  disableNativeToggle: PropTypes.bool,
   /** On close callback */
   onClose: PropTypes.func,
   /** On open callback */

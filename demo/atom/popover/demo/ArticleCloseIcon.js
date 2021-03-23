@@ -44,8 +44,8 @@ const ArticleCloseIcon = ({className, content: Content}) => {
         <AtomPopover
           isVisible
           content={<Content />}
-          onClose={onCloseHandler(onCloseCounter + 1)}
           trigger={atomPopoverTriggers.MANUAL}
+          onClose={onCloseHandler(onCloseCounter + 1)}
           closeIcon={isVisible === 'true' ? <IconClose /> : undefined}
         >
           <Box outline>Target</Box>
@@ -60,7 +60,7 @@ const ArticleCloseIcon = ({className, content: Content}) => {
 
 ArticleCloseIcon.propTypes = {
   className: PropTypes.string,
-  content: PropTypes.Element
+  content: PropTypes.elementType
 }
 
 export default ArticleCloseIcon

@@ -42,7 +42,12 @@ const StatusDisplayer = ({value, values = []}) => (
 
 StatusDisplayer.propTypes = {
   value: PropTypes.string,
-  values: PropTypes.arrayOf(PropTypes.string)
+  values: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string,
+      label: PropTypes.string
+    })
+  )
 }
 
 const BehaviorDisplayer = ({
@@ -267,7 +272,7 @@ const ArticleBehavior = ({className, content: Content}) => {
 
 ArticleBehavior.propTypes = {
   className: PropTypes.string,
-  content: PropTypes.Element
+  content: PropTypes.elementType
 }
 
 export default ArticleBehavior

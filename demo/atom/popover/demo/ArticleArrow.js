@@ -56,7 +56,7 @@ const ArticleArrow = ({className, content: Content}) => {
 
 ArticleArrow.propTypes = {
   className: PropTypes.string,
-  content: PropTypes.Element
+  content: PropTypes.elementType
 }
 
 export default ArticleArrow

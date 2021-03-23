@@ -257,7 +257,7 @@ const ArticleDefault = ({className, content: Content}) => {
 ArticleDefault.displayName = 'ArticleDefault'
 ArticleDefault.propTypes = {
   className: PropTypes.string,
-  content: PropTypes.Element
+  content: PropTypes.elementType
 }
 
 export default ArticleDefault

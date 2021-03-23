@@ -274,7 +274,7 @@ const ArticlePosition = ({className, content: Content}) => {
 
 ArticlePosition.propTypes = {
   className: PropTypes.string,
-  content: PropTypes.Element
+  content: PropTypes.elementType
 }
 
 export default ArticlePosition

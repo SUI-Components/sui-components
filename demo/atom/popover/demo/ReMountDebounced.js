@@ -67,7 +67,7 @@ const ReMountDebounced = ({
 ReMountDebounced.propTypes = {
   observe: PropTypes.arrayOf(PropTypes.any),
   timeout: PropTypes.number,
-  fallback: PropTypes.func,
+  fallback: PropTypes.node,
   children: PropTypes.node
 }
 

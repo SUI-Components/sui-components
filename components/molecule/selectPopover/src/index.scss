@@ -34,6 +34,7 @@ $cur-select-popover-select: auto !default;
     justify-content: space-between;
     max-width: $mw-select-popover;
     padding: $p-m $p-l;
+    user-select: none;
 
     &Text {
       overflow: hidden;

@@ -264,7 +264,7 @@ MoleculeAutosuggest.propTypes = {
   /** callback to be called with every update of the input value */
   onChange: PropTypes.func,
 
-  /** callback to be called when after clear when clicks on clear icon */
+  /** callback to be called when clear icon is clicked */
   onClear: PropTypes.func,
 
   /** callback to be called with every update of the list of tags */

@@ -48,9 +48,9 @@ const MoleculeAutosuggestSingleSelection = ({
     autoClose && onToggle(ev, {isOpen: true})
   }
 
-  const handleClear = () => {
+  const handleClear = ev => {
     onChange(null, {value: ''})
-    onClear()
+    onClear(ev)
   }
 
   const handleRightClick = ev => {

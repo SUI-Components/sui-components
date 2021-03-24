@@ -46,6 +46,7 @@ const MoleculeAutosuggest = ({
   multiselection,
   onBlur = () => {},
   onChange = () => {},
+  onClear = () => {},
   onEnter = () => {},
   onFocus = () => {},
   onSelect = () => {},
@@ -183,6 +184,7 @@ const MoleculeAutosuggest = ({
     keysSelection,
     onBlur,
     onChange,
+    onClear,
     onEnter,
     onFocus,
     onInputKeyDown: handleInputKeyDown,
@@ -261,6 +263,9 @@ MoleculeAutosuggest.propTypes = {
 
   /** callback to be called with every update of the input value */
   onChange: PropTypes.func,
+
+  /** callback to be called when after clear when clicks on clear icon */
+  onClear: PropTypes.func,
 
   /** callback to be called with every update of the list of tags */
   onChangeTags: PropTypes.func,

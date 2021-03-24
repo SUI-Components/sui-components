@@ -67,6 +67,7 @@ const Demo = () => (
           placeholder="Type a Country name..."
           onChange={(_, {value}) => console.log(value)}
           onEnter={() => console.log('Enter pressed')}
+          onClear={() => console.log('Clear pressed')}
           iconClear={<IconClose />}
         />
       </div>
@@ -76,6 +77,7 @@ const Demo = () => (
         <MoleculeAutosuggestWithState
           value="Luxembourg"
           onChange={(_, {value}) => console.log(value)}
+          onClear={() => console.log('Clear pressed')}
           iconClear={<IconClose />}
         />
       </div>
@@ -85,6 +87,7 @@ const Demo = () => (
         <MoleculeAutosuggestWithState
           value="Luxembourg"
           onChange={(_, {value}) => console.log(value)}
+          onClear={() => console.log('Clear pressed')}
           iconClear={<IconClose />}
           disabled
         />
@@ -95,6 +98,7 @@ const Demo = () => (
         <MoleculeAutosuggestWithState
           value="Luxembourg"
           onChange={(_, {value}) => console.log(value)}
+          onClear={() => console.log('Clear pressed')}
           iconClear={<IconClose />}
           autoComplete="off"
         />
@@ -114,7 +118,9 @@ const Demo = () => (
           placeholder="Type a Country name..."
           onChange={(_, {value}) => console.log(value)}
           onEnter={() => console.log('Enter pressed')}
+          onClear={() => console.log('Clear pressed')}
           state={MoleculeAutosuggestStates.SUCCESS}
+          onClear={() => console.log('Clear pressed')}
           iconClear={<IconClose />}
         />
       </div>
@@ -125,7 +131,9 @@ const Demo = () => (
           placeholder="Type a Country name..."
           onChange={(_, {value}) => console.log(value)}
           onEnter={() => console.log('Enter pressed')}
+          onClear={() => console.log('Clear pressed')}
           state={MoleculeAutosuggestStates.ERROR}
+          onClear={() => console.log('Clear pressed')}
           iconClear={<IconClose />}
         />
       </div>
@@ -137,6 +145,7 @@ const Demo = () => (
           onChange={(_, {value}) => console.log(value)}
           onEnter={() => console.log('Enter pressed')}
           state={MoleculeAutosuggestStates.ALERT}
+          onClear={() => console.log('Clear pressed')}
           iconClear={<IconClose />}
         />
       </div>
@@ -162,6 +171,7 @@ const Demo = () => (
         <MoleculeAutosuggestWithStateTags
           placeholder="Type a Country name..."
           onChangeTags={(_, {tags}) => console.log(tags)}
+          onClear={() => console.log('Clear pressed')}
           iconCloseTag={<IconClose />}
           iconClear={<IconClose />}
           multiselection
@@ -173,6 +183,7 @@ const Demo = () => (
         <MoleculeAutosuggestWithStateTags
           tags={['India', 'Luxembourg']}
           onChangeTags={(_, {tags}) => console.log(tags)}
+          onClear={() => console.log('Clear pressed')}
           iconCloseTag={<IconClose />}
           iconClear={<IconClose />}
           multiselection
@@ -184,6 +195,7 @@ const Demo = () => (
         <MoleculeAutosuggestWithStateTags
           tags={['India', 'Luxembourg']}
           onChangeTags={(_, {tags}) => console.log(tags)}
+          onClear={() => console.log('Clear pressed')}
           iconCloseTag={<IconClose />}
           iconClear={<IconClose />}
           multiselection
@@ -208,6 +220,7 @@ const Demo = () => (
           multiselection
           onChange={() => console.log('onChange')}
           onChangeTags={() => console.log('onChangeTags')}
+          onClear={() => console.log('Clear pressed')}
           onEnter={() => console.log('onEnter')}
           onSelect={() => console.log('onSelect')}
           placeholder="Selecciona las etiquetas a asignar al contacto"

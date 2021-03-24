@@ -21,6 +21,7 @@ const MoleculeAutosuggestSingleSelection = ({
   isOpen,
   leftIcon,
   onChange,
+  onClear,
   onClickRightIcon,
   onInputKeyDown,
   onSelect,
@@ -49,6 +50,7 @@ const MoleculeAutosuggestSingleSelection = ({
 
   const handleClear = () => {
     onChange(null, {value: ''})
+    onClear()
   }
 
   const handleRightClick = ev => {

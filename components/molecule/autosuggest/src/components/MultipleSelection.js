@@ -20,6 +20,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   isOpen,
   onChange,
   onChangeTags,
+  onClear,
   onInputKeyDown,
   onSelect,
   onToggle,
@@ -64,9 +65,10 @@ const MoleculeAutosuggestFieldMultiSelection = ({
     autoClose && onToggle(ev, {isOpen})
   }
 
-  const handleClear = () => {
+  const handleClear = ev => {
     onChange(null, {value: ''})
     onChangeTags(null, {tags: []})
+    onClear(ev)
   }
 
   return (

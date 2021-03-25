@@ -79,7 +79,7 @@ $r-back-to-top: $p-xl !default;
     opacity: $op-back-to-top;
     transition: opacity $trsdu-back-to-top--show ease-in;
 
-    &--hover {
+    &:hover {
       opacity: 1;
     }
   }

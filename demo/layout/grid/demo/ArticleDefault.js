@@ -102,7 +102,7 @@ const ArticleDefault = ({classname}) => {
       <RadioButtonGroup
         value={columnState}
         fullWidth
-        onChange={value => setColumnState(value.toString())}
+        onChange={(event, value) => setColumnState(value.toString())}
       >
         {[1, 2, 3, 4, 6, 12].reverse().map(column => (
           <RadioButton

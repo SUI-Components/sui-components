@@ -344,7 +344,7 @@ const AddonAndIconDemo = () => {
         </Cell>
         <Cell>
           <RadioButtonGroup
-            onChange={value => {
+            onChange={(event, value) => {
               setStatus({icon: value})
             }}
             fullWidth
@@ -355,7 +355,7 @@ const AddonAndIconDemo = () => {
         </Cell>
         <Cell>
           <RadioButtonGroup
-            onChange={value =>
+            onChange={(event, value) =>
               setStatus({
                 iconValue: value
               })

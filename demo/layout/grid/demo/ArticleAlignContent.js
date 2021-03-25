@@ -30,7 +30,7 @@ const ArticleAlignContent = ({classname}) => {
       <RadioButtonGroup
         value={alignContentState}
         fullWidth
-        onChange={value => setAlignContentState(value)}
+        onChange={(event, value) => setAlignContentState(value)}
       >
         {Object.values(LayoutGridAlignContent).map(alignContent => (
           <RadioButton

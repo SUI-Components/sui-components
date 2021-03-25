@@ -198,7 +198,7 @@ const Demo = () => {
             <RadioButtonGroup
               value={checkedIcon}
               fullWidth
-              onChange={value => setState({checkedIcon: value})}
+              onChange={(event, value) => setState({checkedIcon: value})}
             >
               <RadioButton
                 value="aiOutlineCheck"
@@ -227,7 +227,7 @@ const Demo = () => {
             <RadioButtonGroup
               value={intermediateIcon}
               fullWidth
-              onChange={value => setState({intermediateIcon: value})}
+              onChange={(event, value) => setState({intermediateIcon: value})}
             >
               <RadioButton value="aiOutlineLine" label={ICONS.aiOutlineLine} />
               <RadioButton value="aiOutlineInfo" label={ICONS.aiOutlineInfo} />

@@ -65,20 +65,20 @@ class ContainerDemo extends React.Component {
         </div>
         <div style={{display: 'flex', justifyContent: 'space-between', padding: '10px 0'}}>
           <RadioButtonGroup
-            onChange={(value) => {
+            onChange={(event, value) => {
               this.setState({dark: value==='dark'})
             }}
-            value="light"
+            defaultValue="light"
           >
             <RadioButton label="Light Mode" value="light"/>
             <RadioButton label="Dark Mode" value="dark" />
           </RadioButtonGroup>
           <RadioButtonGroup
-            onChange={(value) => {
+            onChange={(event, value) => {
               const values = value.split('|');
               this.setState({text: values.includes('text'), icon: values.includes('icon')})
             }}
-            value="icon"
+            defaultValue="icon"
           >
             <RadioButton label="Icon only" value="icon"/>
             <RadioButton label="Icon & Text" value="icon|text" />

@@ -8,7 +8,6 @@ const CLASS_ICON = `${BASE_CLASS}-icon`
 const CLASS_TEXT = `${BASE_CLASS}-text`
 const CLASS_SHOW = `${BASE_CLASS}--show`
 const CLASS_HIDE = `${BASE_CLASS}--hide`
-const CLASS_HOVER = `${CLASS_SHOW}--hover`
 const CLASS_READY = `${BASE_CLASS}--ready`
 
 const STYLES = {
@@ -26,7 +25,6 @@ const AtomBackToTop = ({
   style = STYLES.DARK
 }) => {
   const [show, setShow] = useState(false)
-  const [hover, setHover] = useState(false)
 
   const intervalRef = useRef()
 
@@ -43,7 +41,6 @@ const AtomBackToTop = ({
       } else {
         if (show) {
           setShow(false)
-          setHover(false)
         }
       }
     }
@@ -68,9 +65,6 @@ const AtomBackToTop = ({
     intervalRef.current = intervalId
   }
 
-  const hoverButton = () => setHover(true)
-  const unhoverButton = () => setHover(false)
-
   return (
     <button
       title="Back to top"
@@ -78,11 +72,8 @@ const AtomBackToTop = ({
         BASE_CLASS,
         `${BASE_CLASS}--${style}`,
         show !== null && CLASS_READY,
-        show ? CLASS_SHOW : CLASS_HIDE,
-        hover && CLASS_HOVER
+        show ? CLASS_SHOW : CLASS_HIDE
       )}
-      onMouseOver={hoverButton}
-      onMouseOut={unhoverButton}
       onClick={scrollToTop}
     >
       {IconTop && (

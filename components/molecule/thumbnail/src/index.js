@@ -61,7 +61,7 @@ const MoleculeThumbnail = props => {
           className={LINK_CLASS}
           href={href}
           target={target}
-          rel={target === '_blank' && 'noopener'}
+          rel={target === '_blank' ? 'noopener' : undefined}
         >
           <ImageCaption />
         </Link>

@@ -56,7 +56,10 @@ const ColorsAndSizesDemo = () => {
       –––
       <br />
       <br />
-      <RadioButtonGroup onChange={value => setIcon(value)} value={selectedIcon}>
+      <RadioButtonGroup
+        onChange={(event, value) => setIcon(value)}
+        value={selectedIcon}
+      >
         {Object.values(ICONS).map((iconName, index) => (
           <RadioButton
             key={index}
@@ -128,7 +131,7 @@ const ColorInheritanceDemo = () => {
       <br />
       <br />
       <RadioButtonGroup
-        onChange={value => setColor(value)}
+        onChange={(event, value) => setColor(value)}
         value={selectedColor}
       >
         {COLOR_EXAMPLES.map((colorValue, index) => (

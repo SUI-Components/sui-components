@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import {COLORS, ALPHA, BORDER_RADIUS} from './constants'
+import {COLORS, ALPHA, BORDER_RADIUS, ELEVATION} from './constants'
 
 const HORIZONTAL_ALIGNMENTS = {
   LEFT: 'left',
@@ -24,7 +24,8 @@ const getClassNames = function({
   overlayColor,
   overlayAlpha,
   color,
-  rounded
+  rounded,
+  elevation
 }) {
   const BASE_CLASS = 'sui-atom-panel'
   const IMAGE_PANEL_CLASS = `${BASE_CLASS}-image`
@@ -39,7 +40,8 @@ const getClassNames = function({
     overlayColor &&
       `${BASE_CLASS}--${overlayColorValue}-overlay-${overlayAlphaValue}`,
     `${BASE_CLASS}-color--${color}`,
-    resized && `${IMAGE_PANEL_CLASS}--resized`
+    resized && `${IMAGE_PANEL_CLASS}--resized`,
+    elevation !== ELEVATION.NONE && `${BASE_CLASS}--elevation-${elevation}`
   )
 }
 
@@ -77,7 +79,8 @@ ImagePanel.propTypes = {
    * Background position y
    */
   verticalAlign: PropTypes.oneOf(Object.values(VERTICAL_ALIGNMENTS)),
-  rounded: PropTypes.oneOf(Object.values(BORDER_RADIUS))
+  rounded: PropTypes.oneOf(Object.values(BORDER_RADIUS)),
+  elevation: PropTypes.oneOf(Object.values(ELEVATION))
 }
 
 ImagePanel.defaultProps = {

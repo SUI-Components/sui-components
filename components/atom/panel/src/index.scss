@@ -5,6 +5,11 @@ $bdrs-atom-panel-rounded: (
   'l': $bdrs-m * 2,
   'xl': $bdrs-m * 3
 ) !default;
+$bxsh-atom-panel-elevation: (
+  's': $bxsh-s,
+  'm': $bxsh-m,
+  'l': $bxsh-l
+) !default;
 $bgc-atom-panel: color-variation($c-gray, -2) !default;
 $bgc-panels: (
   'canvas': $c-white,
@@ -29,6 +34,12 @@ $vertical-alignments-atom-panel: ('top', 'center', 'bottom') !default;
   @each $type, $attr in $bdrs-atom-panel-rounded {
     &--rounded-#{$type} {
       border-radius: $attr;
+    }
+  }
+
+  @each $type, $attr in $bxsh-atom-panel-elevation {
+    &--elevation-#{$type} {
+      box-shadow: $attr;
     }
   }
 

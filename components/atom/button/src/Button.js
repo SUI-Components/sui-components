@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import {forwardRef} from 'react'
 
 const Button = ({
   children,
@@ -9,6 +10,7 @@ const Button = ({
   isButton, // eslint-disable-line react/prop-types
   link,
   linkFactory: Link,
+  forwardingRef, // eslint-disable-line react/prop-types
   ...attrs
 }) => {
   if (isSubmit) attrs.type = 'submit'
@@ -18,11 +20,11 @@ const Button = ({
   const rel = attrs.rel || defaultRel
 
   return link ? (
-    <Link {...attrs} href={href} target={target} rel={rel}>
+    <Link {...attrs} href={href} target={target} rel={rel} ref={forwardingRef}>
       {children}
     </Link>
   ) : (
-    <button {...attrs} disabled={disabled}>
+    <button {...attrs} disabled={disabled} ref={forwardingRef}>
       {children}
     </button>
   )
@@ -57,7 +59,11 @@ Button.propTypes = {
 
 Button.defaultProps = {
   // eslint-disable-next-line react/prop-types
-  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>
+  linkFactory: forwardRef(({children, ...props}, ref) => (
+    <a {...props} ref={ref}>
+      {children}
+    </a>
+  ))
 }
 
 export default Button

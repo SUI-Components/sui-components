@@ -30,7 +30,7 @@ const ArticleJustifyContent = ({classname}) => {
       <RadioButtonGroup
         value={justifyContentState}
         fullWidth
-        onChange={value => setJustifyContentState(value)}
+        onChange={(event, value) => setJustifyContentState(value)}
       >
         {Object.values(LayoutGridJustifyContent).map(justifyContent => (
           <RadioButton

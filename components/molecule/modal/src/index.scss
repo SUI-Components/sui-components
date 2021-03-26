@@ -1,5 +1,7 @@
 @import '~@s-ui/theme/lib/index';
 @import './settings';
+@import './Content/index';
+@import './Footer/index';
 
 %modal-position {
   bottom: 0;
@@ -126,6 +128,16 @@ body.is-MoleculeModal-open {
       margin: $m-molecule-modal-dialog-mobile;
       max-height: calc(100% - #{$m-molecule-modal-dialog} * 2);
       width: initial;
+    }
+
+    @each $key-size, $size in $s-molecule-modal-dialog {
+      &--#{$key-size} {
+        width: 100%;
+
+        @include media-breakpoint-up(xs) {
+          max-width: $size;
+        }
+      }
     }
   }
 

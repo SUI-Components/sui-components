@@ -17,6 +17,10 @@
     margin-top: $mt-collapsible-btn;
     padding: $p-collapsible-btn 0;
 
+    &-content {
+      display: flex;
+    }
+
     &:focus,
     &-content:focus {
       outline: none;

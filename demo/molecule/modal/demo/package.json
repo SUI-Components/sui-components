@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "react-lorem-component": "0",
     "@s-ui/react-atom-icon": "1"
   }
 }

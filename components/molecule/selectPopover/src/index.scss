@@ -15,6 +15,9 @@ $bdt-select-popover-action-bar: solid 1px $c-gray-light-3 !default;
 $bdc-select-popover-selected: $c-primary !default;
 $c-select-popover-selected: $c-primary !default;
 
+$bxz-select-popover-select: border-box !default;
+$cur-select-popover-select: auto !default;
+
 .sui-MoleculeSelectPopover {
   display: inline-block;
   position: relative;
@@ -24,11 +27,14 @@ $c-select-popover-selected: $c-primary !default;
     align-items: center;
     border: $bd-select-popover;
     border-radius: $bdrs-select-popover;
+    box-sizing: $bxz-select-popover-select;
     color: $c-select-popover;
+    cursor: $cur-select-popover-select;
     display: flex;
     justify-content: space-between;
     max-width: $mw-select-popover;
     padding: $p-m $p-l;
+    user-select: none;
 
     &Text {
       overflow: hidden;

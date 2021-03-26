@@ -226,14 +226,14 @@ const TypeDeprecatedArticle = () => {
       <Paragraph>–––</Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
-          <RadioButtonGroup onChange={value => setColor(value)}>
+          <RadioButtonGroup onChange={(event, value) => setColor(value)}>
             {atomButtonColorsIterator.map(([{color}], index) => (
               <RadioButton key={index} value={color} label={color} />
             ))}
           </RadioButtonGroup>
         </Cell>
         <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
-          <RadioButtonGroup onChange={value => setDesign(value)}>
+          <RadioButtonGroup onChange={(event, value) => setDesign(value)}>
             {atomButtonDesignsIterator.map(([{design}], index) => (
               <RadioButton key={index} value={design} label={design} />
             ))}
@@ -634,7 +634,7 @@ const Demo = () => {
           >
             <Label>boolean props</Label>
             <RadioButtonGroup
-              onChange={value => {
+              onChange={(event, value) => {
                 const newState = {
                   ...state,
                   negative: undefined,
@@ -703,7 +703,7 @@ const Demo = () => {
           >
             <Label>size</Label>
             <RadioButtonGroup
-              onChange={value => {
+              onChange={(event, value) => {
                 setState({...state, size: value})
               }}
             >
@@ -758,7 +758,7 @@ const Demo = () => {
               <>
                 <Label>icon position</Label>
                 <RadioButtonGroup
-                  onChange={value => {
+                  onChange={(event, value) => {
                     const status = {
                       leftIcon: value === 'leftIcon' ? starIcon : undefined,
                       rightIcon: value === 'rightIcon' ? starIcon : undefined

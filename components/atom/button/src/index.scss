@@ -345,10 +345,12 @@ $icon-stroke-color: currentColor !default;
         @include button-focused {
           color: $c-atom-button-focused;
         }
+
         &#{$base-class}--negative {
-          color: $color;
+          color: $color-invert;
+
           @include button-focused {
-            color: $c-atom-button-focused;
+            color: $c-atom-button-focused-invert;
           }
         }
       }

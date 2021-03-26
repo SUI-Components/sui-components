@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import {
   Children,
   cloneElement,
+  forwardRef,
   useRef,
   useState,
   useEffect,
@@ -11,179 +12,179 @@ import {
 } from 'react'
 import {createPortal} from 'react-dom'
 import cx from 'classnames'
+import {useMergeRefs} from '@s-ui/react-hooks'
 import {SUPPORTED_KEYS} from './config'
 import {suitClass} from './helpers'
 import {Close} from './Close'
 import {HeaderRender} from './HeaderRender'
+import MoleculeModalContent from './Content'
+import MoleculeModalFooter from './Footer'
 import WithAnimation from './HoC/WithAnimation'
 import WithUrlState from './HoC/WithUrlState'
+
+export const MODAL_SIZES = {
+  XSMALL: 'xsmall',
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large'
+}
 
 const toggleWindowScroll = disableScroll => {
   window.document.body.classList.toggle('is-MoleculeModal-open', disableScroll)
 }
 
-const MoleculeModal = ({
-  children,
-  closeOnEscKeyDown = false,
-  closeOnOutsideClick = false,
-  enableContentScroll = false,
-  fitContent = false,
-  fitWindow = false,
-  floatingIconClose = false,
-  header,
-  iconClose = false,
-  isClosing,
-  isOpen = false,
-  onAnimationEnd,
-  onClose = () => {},
-  portalContainerId = 'modal-react-portal',
-  usePortal = true,
-  withoutIndentation = false
-}) => {
-  const contentRef = useRef()
-  const wrapperRef = useRef()
-
-  const [isClientReady, setIsClientReady] = useState(false)
-
-  const getContainer = () => {
-    let containerDOMEl = document.getElementById(portalContainerId)
-    if (!containerDOMEl) {
-      containerDOMEl = document.createElement('div')
-      containerDOMEl.id = portalContainerId
-      document.body.appendChild(containerDOMEl)
-    }
-    return containerDOMEl
-  }
-
-  const closeModal = useCallback(
-    ev => {
-      ev && ev.stopPropagation()
-      toggleWindowScroll(false)
-      onClose()
+const MoleculeModal = forwardRef(
+  (
+    {
+      children,
+      closeOnEscKeyDown = false,
+      closeOnOutsideClick = false,
+      enableContentScroll = false,
+      fitContent = false,
+      fitWindow = false,
+      floatingIconClose = false,
+      size,
+      header,
+      iconClose = false,
+      isClosing,
+      isOpen = false,
+      onAnimationEnd,
+      onClose = () => {},
+      portalContainerId = 'modal-react-portal',
+      usePortal = true,
+      withoutIndentation = false,
+      isContentless
     },
-    [onClose]
-  )
+    forwardedRef
+  ) => {
+    const wrapperRef = useRef()
+    const ref = useMergeRefs(wrapperRef, forwardedRef)
 
-  const onKeyDown = useCallback(
-    ev => {
-      if (isOpen === false || closeOnEscKeyDown === false) return
-      if (SUPPORTED_KEYS.includes(ev.key)) {
-        closeModal(ev)
-        ev.preventDefault()
+    const [isClientReady, setIsClientReady] = useState(false)
+
+    const getContainer = () => {
+      let containerDOMEl = document.getElementById(portalContainerId)
+      if (!containerDOMEl) {
+        containerDOMEl = document.createElement('div')
+        containerDOMEl.id = portalContainerId
+        document.body.appendChild(containerDOMEl)
       }
-    },
-    [isOpen, closeOnEscKeyDown, closeModal]
-  )
+      return containerDOMEl
+    }
 
-  useEffect(() => {
-    if (usePortal) setIsClientReady(true)
-  }, [usePortal])
+    const closeModal = useCallback(
+      ev => {
+        ev && ev.stopPropagation()
+        toggleWindowScroll(false)
+        onClose()
+      },
+      [onClose]
+    )
 
-  useEffect(() => {
-    document.removeEventListener('keydown', onKeyDown)
-    document.addEventListener('keydown', onKeyDown)
+    const onKeyDown = useCallback(
+      ev => {
+        if (isOpen === false || closeOnEscKeyDown === false) return
+        if (SUPPORTED_KEYS.includes(ev.key)) {
+          closeModal(ev)
+          ev.preventDefault()
+        }
+      },
+      [isOpen, closeOnEscKeyDown, closeModal]
+    )
 
-    return () => {
-      toggleWindowScroll(false)
+    useEffect(() => {
+      if (usePortal) setIsClientReady(true)
+    }, [usePortal])
+
+    useEffect(() => {
       document.removeEventListener('keydown', onKeyDown)
+      document.addEventListener('keydown', onKeyDown)
+
+      return () => {
+        toggleWindowScroll(false)
+        document.removeEventListener('keydown', onKeyDown)
+      }
+    }, [onKeyDown])
+
+    const handleOutsideClick = ev => {
+      if (closeOnOutsideClick && ev.target === wrapperRef.current) {
+        closeModal(ev)
+      }
     }
-  }, [onKeyDown])
 
-  const preventScrollIfNeeded = ev => {
-    const {clientHeight, scrollHeight} = contentRef.current
-    const noScroll = scrollHeight <= clientHeight
-    if (!enableContentScroll && noScroll) ev.preventDefault()
-  }
+    const renderChildren = () =>
+      Children.toArray(children).map(child =>
+        cloneElement(child, {
+          onClose: closeModal
+        })
+      )
 
-  const avoidOverscroll = () => {
-    const {offsetHeight, scrollTop, scrollHeight} = contentRef.current
-    const currentScroll = scrollTop + offsetHeight
+    const renderModal = () => {
+      const wrapperClassName = cx(suitClass(), {
+        'is-MoleculeModal-open': isOpen,
+        [suitClass({element: 'out'})]: isClosing
+      })
 
-    if (scrollTop === 0) {
-      contentRef.current.scrollTop = 1
-    } else if (currentScroll >= scrollHeight) {
-      contentRef.current.scrollTop = scrollTop - 1
-    }
-  }
+      const dialogClassName = cx(suitClass({element: 'dialog'}), {
+        [suitClass({element: 'dialog--full'})]: fitWindow,
+        [suitClass({element: 'dialog--out'})]: isClosing,
+        [suitClass({element: 'dialog--fit'})]: fitContent,
+        [suitClass({element: `dialog--${size}`})]: !!size
+      })
 
-  const handleOutsideClick = ev => {
-    if (closeOnOutsideClick && ev.target === wrapperRef.current) {
-      closeModal(ev)
-    }
-  }
-
-  const extendedChildren = Children.toArray(children).map(child =>
-    cloneElement(child, {
-      onClose: closeModal
-    })
-  )
-
-  const renderModal = () => {
-    const wrapperClassName = cx(suitClass(), {
-      'is-MoleculeModal-open': isOpen,
-      [suitClass({element: 'out'})]: isClosing
-    })
-
-    const dialogClassName = cx(suitClass({element: 'dialog'}), {
-      [suitClass({element: 'dialog--full'})]: fitWindow,
-      [suitClass({element: 'dialog--out'})]: isClosing,
-      [suitClass({element: 'dialog--fit'})]: fitContent
-    })
-
-    const contentClassName = cx(suitClass({element: 'content'}), {
-      [suitClass({element: 'content--without-indentation'})]: withoutIndentation
-    })
-
-    return (
-      <div
-        className={wrapperClassName}
-        ref={wrapperRef}
-        onAnimationEnd={onAnimationEnd}
-        onClick={handleOutsideClick}
-      >
-        <div className={dialogClassName}>
-          {(iconClose || header) && (
-            <HeaderRender
-              close={
-                iconClose && (
-                  <Close
-                    icon={iconClose}
-                    onClick={closeModal}
-                    floating={floatingIconClose}
-                  />
-                )
-              }
-              header={header}
-              floatingIconClose={floatingIconClose}
-            />
-          )}
-          <div
-            className={contentClassName}
-            onTouchStart={avoidOverscroll}
-            onTouchMove={preventScrollIfNeeded}
-            ref={contentRef}
-          >
-            {extendedChildren}
+      return (
+        <div
+          className={wrapperClassName}
+          ref={ref}
+          onAnimationEnd={onAnimationEnd}
+          onClick={handleOutsideClick}
+        >
+          <div className={dialogClassName}>
+            {(iconClose || header) && (
+              <HeaderRender
+                close={
+                  iconClose && (
+                    <Close
+                      icon={iconClose}
+                      onClick={closeModal}
+                      floating={floatingIconClose}
+                    />
+                  )
+                }
+                header={header}
+                floatingIconClose={floatingIconClose}
+              />
+            )}
+            {isContentless ? (
+              renderChildren()
+            ) : (
+              <MoleculeModalContent
+                enableContentScroll={enableContentScroll}
+                withoutIndentation={withoutIndentation}
+              >
+                {renderChildren()}
+              </MoleculeModalContent>
+            )}
           </div>
         </div>
-      </div>
-    )
+      )
+    }
+
+    const modalElement = renderModal()
+
+    if (usePortal) {
+      return isClientReady ? createPortal(modalElement, getContainer()) : null
+    }
+
+    // temporary fix to avoid executing this on SSR
+    // we should move to functions this and create as a function
+    if (isClientReady) {
+      toggleWindowScroll(isOpen)
+    }
+
+    return modalElement
   }
-
-  const modalElement = renderModal()
-
-  if (usePortal) {
-    return isClientReady ? createPortal(modalElement, getContainer()) : null
-  }
-
-  // temporary fix to avoid executing this on SSR
-  // we should move to functions this and create as a function
-  if (isClientReady) {
-    toggleWindowScroll(isOpen)
-  }
-
-  return modalElement
-}
+)
 
 MoleculeModal.propTypes = {
   /**
@@ -210,6 +211,10 @@ MoleculeModal.propTypes = {
    * true if you want a modal that fit contents in mobile devices, otherwise, false
    */
   fitContent: PropTypes.bool,
+  /**
+   * Max width of the modal to be used
+   */
+  size: PropTypes.oneOf(Object.values(MODAL_SIZES)),
   /**
    * true if you want a modal without content indentation
    */
@@ -243,6 +248,10 @@ MoleculeModal.propTypes = {
    */
   onAnimationEnd: PropTypes.func,
   /**
+   * Defines whether children will be wrapped with content or not
+   */
+  isContentless: PropTypes.bool,
+  /**
    * Container id element to be used to render the portal. If not available, it will be created for you.
    */
   portalContainerId: PropTypes.string,
@@ -267,6 +276,9 @@ const MoleculeModalWithAnimation = WithAnimation(MoleculeModal)
 const MoleculeModalWithUrlState = WithUrlState(MoleculeModalWithAnimation)
 
 MoleculeModalWithAnimation.displayName = 'MoleculeModal'
+
+MoleculeModalWithAnimation.Content = MoleculeModalContent
+MoleculeModalWithAnimation.Footer = MoleculeModalFooter
 
 export {MoleculeModalWithUrlState, MoleculeModalWithAnimation}
 export default MoleculeModalWithAnimation

@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-modal",
-  "version": "1.27.0",
+  "version": "1.30.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "1",
+    "@s-ui/react-hooks": "1"
   },
   "keywords": [],
   "author": "",

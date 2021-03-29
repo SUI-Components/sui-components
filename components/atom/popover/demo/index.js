@@ -10,7 +10,6 @@ import AtomPopover, {atomPopoverPositions} from 'components/atom/popover/src'
 import './index.scss'
 
 const Demo = () => {
-  const [show, setShow] = useState(false)
   const [closeIcon, setCloseIcon] = useState(true)
   const [showArrow, setShowArrow] = useState(true)
   const [disableNativeToggle, setDisableNativeToggle] = useState(false)

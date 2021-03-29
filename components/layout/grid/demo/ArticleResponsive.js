@@ -11,9 +11,7 @@ import {
 } from '@s-ui/documentation-library'
 import {useWindowSize} from 'react-use'
 
-import LayoutGrid, {
-  LayoutGridItem
-} from 'components/layout/grid/src'
+import LayoutGrid, {LayoutGridItem} from 'components/layout/grid/src'
 import DemoWrapper from './demoWrapper'
 import DemoBox from './demoBox'
 

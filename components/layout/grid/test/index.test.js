@@ -13,8 +13,8 @@ import {
   LayoutGridGutterValues,
   LayoutGridCellNumbers,
   LayoutGridBreakpoints
-} from '../../../components/layout/grid/src/'
-import {getColSpanClassNamesTransform} from '../../../components/layout/grid/src/gridItem'
+} from 'components/layout/grid/src'
+import {getColSpanClassNamesTransform} from 'components/layout/grid/src/gridItem'
 
 chai.use(chaiDOM)
 

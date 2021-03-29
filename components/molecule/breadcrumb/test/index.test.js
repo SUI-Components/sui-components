@@ -9,7 +9,7 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
-import BreadcrumbBasic from '../../../components/molecule/breadcrumb/src'
+import BreadcrumbBasic from 'components/molecule/breadcrumb/src'
 
 chai.use(chaiDOM)
 

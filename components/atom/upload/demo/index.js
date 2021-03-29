@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 import {Component} from 'react'
 
-import AtomUpload, {
-  uploadStatuses
-} from 'components/atom/upload/src'
+import AtomUpload, {uploadStatuses} from 'components/atom/upload/src'
 import LayoutMediaQuery from '@s-ui/react-layout-media-query'
 import AtomSpinner from '@s-ui/react-atom-spinner'
 import AtomButton from '@s-ui/react-atom-button'

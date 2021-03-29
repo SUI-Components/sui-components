@@ -1,8 +1,6 @@
 import {useRef, useState} from 'react'
 
-import AtomTooltip, {
-  AtomTooltipBase
-} from 'components/atom/tooltip/src'
+import AtomTooltip, {AtomTooltipBase} from 'components/atom/tooltip/src'
 
 const {COLORS, PLACEMENTS} = AtomTooltip
 const baseClass = 'DemoTooltip'

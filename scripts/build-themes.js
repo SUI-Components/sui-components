@@ -77,9 +77,7 @@ const writeThemesInDemoFolders = async themes => {
     .filter(p => p.match(/\/components\/(\w+)\/(\w+)\/demo/))
     .forEach(async demo => {
       try {
-        const [demoRoute, category, component] = demo.match(
-          /\/components\/(\w+)\/(\w+)\/demo/
-        )
+        const [demoRoute] = demo.match(/\/components\/(\w+)\/(\w+)\/demo/)
         const hasDemoStyles = await checkFileExists(`.${demoRoute}/index.scss`)
         await Promise.all(
           themes.map(theme =>

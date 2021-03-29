@@ -3,7 +3,7 @@ import {useState} from 'react'
 import axios from 'axios'
 import {withStateValue} from '@s-ui/hoc'
 
-import MoleculeSelect from '../components/molecule/select/src'
+import MoleculeSelect from 'components/molecule/select/src'
 
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 

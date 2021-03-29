@@ -16,7 +16,7 @@ import {
   IconLineHttps,
   IconFillHttps
 } from '../Icons'
-import {STATUSES} from '../components/molecule/progressSteps/src'
+import {STATUSES} from 'components/molecule/progressSteps/src'
 
 export const configBasic = {
   1: {

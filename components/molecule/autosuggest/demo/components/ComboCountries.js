@@ -4,7 +4,7 @@ import axios from 'axios'
 import {withStateValue} from '@s-ui/hoc'
 
 import MoleculeSelect from '@s-ui/react-molecule-select'
-import MoleculeAutosuggest from '../components/molecule/autosuggest/src'
+import MoleculeAutosuggest from 'components/molecule/autosuggest/src'
 
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 

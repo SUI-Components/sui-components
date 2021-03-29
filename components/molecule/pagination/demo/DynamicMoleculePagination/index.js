@@ -1,6 +1,6 @@
 import {Component} from 'react'
 
-import MoleculePagination from '../components/molecule/pagination/src'
+import MoleculePagination from 'components/molecule/pagination/src'
 import {prevButtonIcon, nextButtonIcon} from '../Icons'
 
 const Icons = {prevButtonIcon, nextButtonIcon}

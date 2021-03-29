@@ -2,7 +2,7 @@
 
 import {Component} from 'react'
 
-import MoleculeButtonGroup from '../components/molecule/buttonGroup/src'
+import MoleculeButtonGroup from 'components/molecule/buttonGroup/src'
 import AtomButton from '@s-ui/react-atom-button'
 
 import {

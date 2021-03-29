@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import {withStateValue} from '@s-ui/hoc'
 
-import MoleculeSelect from '../components/molecule/select/src'
+import MoleculeSelect from 'components/molecule/select/src'
 
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 

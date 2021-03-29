@@ -3,7 +3,7 @@ import {Component} from 'react'
 import MoleculeProgressSteps, {
   MoleculeProgressStep,
   STATUSES
-} from '../components/molecule/progressSteps/src'
+} from 'components/molecule/progressSteps/src'
 import {IconFillCheck} from '../Icons'
 
 class DynamicMoleculeProgressSteps extends Component {

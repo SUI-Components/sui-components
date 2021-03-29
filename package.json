@@ -47,6 +47,9 @@
   },
   "config": {
     "sui-bundler": {
+      "optimizations": {
+        "useExperimentalMinifier": true
+      },
       "vendor": [
         "react",
         "react-dom"

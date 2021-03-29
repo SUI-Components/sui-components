@@ -63,28 +63,32 @@ const installThemesPkgs = () =>
   )
 
 const writeThemesInDemoFolders = async themes => {
-  await getSpawnPromise('rm', ['-Rf', './demo/**/**/themes'], {
+  await getSpawnPromise('rm', ['-Rf', './components/**/**/demo/themes'], {
     cwd: process.cwd()
   })
   const paths = await globby(
-    [path.join(process.cwd(), 'demo', '**', '**'), '!**/node_modules/**'],
+    [
+      path.join(process.cwd(), 'components', '**', '**', 'demo'),
+      '!**/node_modules/**'
+    ],
     {onlyDirectories: true, cwd: process.cwd()}
   )
   paths
-    .filter(p => p.match(/\/demo\/\w+\/\w+$/))
+    .filter(p => p.match(/\/components\/(\w+)\/(\w+)\/demo/))
     .forEach(async demo => {
       try {
-        const [, component] = demo.split('/demo/')
-        const hasDemoStyles = await checkFileExists(`${demo}/demo/index.scss`)
+        const [demoRoute, category, component] = demo.match(
+          /\/components\/(\w+)\/(\w+)\/demo/
+        )
+        const hasDemoStyles = await checkFileExists(`.${demoRoute}/index.scss`)
         await Promise.all(
           themes.map(theme =>
             writeFile(
-              `${demo}/themes/${theme}.scss`,
+              `.${demoRoute}/themes/${theme}.scss`,
               `
-@import '../../../../themes/${theme}';
-${hasDemoStyles ? `@import '../demo/index.scss';` : ''}
-@import '../../../../components/${component}/src/index.scss';
-        `.trim()
+            @import '../../../../../themes/${theme}';
+${hasDemoStyles ? `@import '../index.scss';` : ''}
+@import '../../src/index.scss';`.trim()
             )
           )
         )

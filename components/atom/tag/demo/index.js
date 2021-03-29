@@ -1,8 +1,5 @@
 import {Fragment} from 'react'
-import AtomTag, {
-  atomTagDesigns,
-  atomTagSizes
-} from 'components/atom/tag/src'
+import AtomTag, {atomTagDesigns, atomTagSizes} from 'components/atom/tag/src'
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 import {
   AntDesignIcon,

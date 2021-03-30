@@ -194,17 +194,4 @@ body.is-MoleculeModal-open {
       width: $w-molecule-modal-icon;
     }
   }
-
-  &-content {
-    -webkit-overflow-scrolling: touch;
-    flex: 1 1 auto;
-    margin: $m-molecule-modal-content;
-    overflow-y: auto;
-    padding: $p-molecule-modal-content;
-    position: relative;
-
-    &--without-indentation {
-      margin: 0;
-    }
-  }
 }

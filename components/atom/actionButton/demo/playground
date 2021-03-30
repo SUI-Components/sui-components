@@ -60,7 +60,7 @@ const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 const flexCenteredStyle = {
   display: 'flex',
   justifyContent: 'center',
-  wrap: 'nowrap',
+  flexWrap: 'nowrap',
   alignItems: 'center',
   alignContent: 'center'
 }

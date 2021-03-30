@@ -3,7 +3,7 @@ const { H1, H2, Paragraph, Article, Input, Code, RadioButton, Label, Grid, Cell 
 const flexCenteredStyle = {
   display: 'flex',
   justifyContent: 'center',
-  wrap: 'nowrap',
+  flexWrap: 'nowrap',
   alignItems: 'center',
   alignContent: 'center'
 }

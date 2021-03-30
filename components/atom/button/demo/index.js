@@ -110,7 +110,7 @@ const flexCenteredStyle = {
   display: 'flex',
   justifyContent: 'center',
   flexDirection: 'row',
-  wrap: 'nowrap',
+  flexWrap: 'nowrap',
   alignItems: 'center',
   alignContent: 'center'
 }

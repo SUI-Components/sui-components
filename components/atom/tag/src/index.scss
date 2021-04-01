@@ -13,7 +13,9 @@
   @if $type == 'icon' {
     margin: 0 $m-s 0 (-$m-m);
   } @else if $type == 'icon-secondary' {
+    display: inline-block;
     margin: 0 (-$m-m) 0 $m-m;
+    vertical-align: middle;
   }
 }
 

@@ -9,7 +9,6 @@
   display: inline-flex;
   justify-content: center;
   line-height: initial;
-  vertical-align: middle;
 
   @if $type == 'icon' {
     margin: 0 $m-s 0 (-$m-m);

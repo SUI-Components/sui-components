@@ -154,6 +154,21 @@ const Demo = () => {
           />
         </div>
         <div className={CLASS_DEMO_SECTION}>
+          <h4>with maxTags value smaller than initial values</h4>
+          <MoleculeInputTagsWithState
+            name="inputTagsBeatles1"
+            tagsCloseIcon={<CloseIcon />}
+            onChangeTags={(_, {tags, name}) => {
+              console.log({[`onChangeTags___${name}`]: tags})
+            }}
+            maxTags={1}
+            tags={beatles}
+            value="George Martin"
+            placeHolderText="Placeholder text"
+            innerRefInput={basicInputEl}
+          />
+        </div>
+        <div className={CLASS_DEMO_SECTION}>
           <h4>with disabled prop</h4>
           <MoleculeInputTagsWithState
             name="inputTagsBeatles1"

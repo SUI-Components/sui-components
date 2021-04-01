@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types'
 import LineProgressBar from './LineProgressBar'
 import CircleProgressBar from './CircleProgressBar'
+import LineDoubleProgressBar from './LineDoubleProgressBar'
 
 const TYPES = {
   CIRCLE: 'circle',
-  LINE: 'line'
+  LINE: 'line',
+  LINE_DOUBLE_BAR: 'lineDoubleBar'
 }
 
 const SIZES = {
@@ -18,6 +20,8 @@ const AtomProgressBar = ({type, size, ...props}) => {
       return <LineProgressBar {...props} />
     case TYPES.CIRCLE:
       return <CircleProgressBar size={size} {...props} />
+    case TYPES.LINE_DOUBLE_BAR:
+      return <LineDoubleProgressBar size={size} {...props} />
     default:
       return <LineProgressBar {...props} />
   }

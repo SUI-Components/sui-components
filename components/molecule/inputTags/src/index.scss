@@ -20,6 +20,10 @@ $sizes-atom-input-paddings: m $p-m, s $p-s !default;
     @extend %sui-atom-input-input-focus;
   }
 
+  &--disabled {
+    background-color: $c-gray-light-4;
+  }
+
   & #{$class-input} {
     flex: 1;
     height: 100%;

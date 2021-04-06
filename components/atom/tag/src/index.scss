@@ -2,19 +2,13 @@
 @import '~@s-ui/theme/lib/index';
 @import './settings';
 
+$base-class: '.sui-AtomTag';
+
 @mixin icon-atom-tag($type) {
   @include sui-icon--small;
-  align-content: center;
-  align-items: center;
-  display: inline-flex;
-  justify-content: center;
+  display: inline-block;
   line-height: initial;
-
-  @if $type == 'icon' {
-    margin: 0 $m-s 0 (-$m-m);
-  } @else if $type == 'icon-secondary' {
-    margin: 0 (-$m-m) 0 $m-m;
-  }
+  vertical-align: middle;
 }
 
 @mixin icon-secondary-clickable-area($size) {
@@ -28,21 +22,32 @@
   }
 }
 
-.sui-AtomTag {
+#{$base-class} {
   $self: &;
+  align-items: center;
+  align-content: center;
   background-color: $bgc-atom-tag;
   border: $bd-atom-tag;
   border-radius: ceil($h-atom-tag-m / 2);
   box-sizing: border-box;
-  display: inline-block;
+  display: inline-flex;
   font-size: $fz-s;
   height: $h-atom-tag-m;
+  justify-content: center;
   margin: 0 $m-atom-tag $m-atom-tag 0;
   padding: $p-atom-tag-m;
   position: relative;
   white-space: nowrap;
 
-  &-label {
+  * ~ #{$base-class}-label {
+    margin: 0 0 0 $m-s;
+  }
+
+  #{$base-class}-label + * {
+    margin: 0 0 0 $m-s;
+  }
+
+  #{$base-class}-label {
     // max width - 2 icon size
     $w-label-base: $mw-label - ($p-l * 2);
     display: inline-block;

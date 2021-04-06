@@ -34,5 +34,14 @@ import AtomProgressBar from '@s-ui/react-atom-progress-bar'
 <AtomProgressBar percentage={25} indicatorTotal />
 ```
 
+### Line double bar
+
+```javascript
+<AtomProgressBar
+  mainBarPercentage={25}
+  extraBarPercentage={50}
+  type="lineDoubleBar"
+/>
+```
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/progressBar/demo).**

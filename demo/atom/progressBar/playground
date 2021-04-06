@@ -156,35 +156,12 @@ const styleSection = {
 
 return (
   <div>
-
-    <h1>Line Double Progress Bar</h1>
-    <div style={styleSection}>
-      <h2>Dynamic</h2>
-      <h4 style={{marginBottom: '2px'}} >Unique value with animation</h4>
-      <StaticWithAnimation mainBarPercentage={25} extraBarPercentage={50} type="lineDoubleBar" isAnimatedOnChange />
-      <h4 style={{marginBottom: '2px'}} >Unique value without indicator</h4>
-      <StaticWithAnimation mainBarPercentage={25} extraBarPercentage={50} type="lineDoubleBar" isAnimatedOnChange hideIndicator/>
-    </div>
-    <div style={styleSection}>
-      <h2>Basic</h2>
-      <AtomProgressBar mainBarPercentage = {25} extraBarPercentage={50} type="lineDoubleBar"/>
-    </div>
-    <div style={styleSection}>
-      <h2>Indicator Bottom</h2>
-      <AtomProgressBar mainBarPercentage = {25} extraBarPercentage={50} type="lineDoubleBar" indicatorBottom />
-    </div>
-
-    <div style={styleSection}>
-      <h2>Indicator Total</h2>
-      <AtomProgressBar mainBarPercentage = {25} extraBarPercentage={50} type="lineDoubleBar" indicatorTotal />
-    </div>
-
     <h1>Line Progress Bar</h1>
 
     <div style={styleSection}>
       <h2>Dynamic</h2>
       <h4 style={{marginBottom: '2px'}} >Unique value with animation</h4>
-      {/* <DynamicProgressBar topPercentage={65} step={65}  isMainBarAnimatedOnChange /> */}
+      {/* <DynamicProgressBar topPercentage={65} step={65} isAnimatedOnChange /> */}
       <StaticWithAnimation percentage={25} isAnimatedOnChange/>
       <h4 style={{marginBottom: '2px'}} >steps: random</h4>
       <DynamicProgressBar intervalTime={1000} indicatorTotal isAnimatedOnChange />
@@ -274,6 +251,28 @@ return (
       <InputRangeProgressBar type="circle" step={1} />
       <h3>Small</h3>
       <InputRangeProgressBar type="circle" size="small" step={1} />
+    </div>
+
+    <h1>Line Double Progress Bar</h1>
+    <div style={styleSection}>
+      <h2>Dynamic</h2>
+      <h4 style={{marginBottom: '2px'}} >Unique value with animation</h4>
+      <StaticWithAnimation mainBarPercentage={25} extraBarPercentage={50} type="lineDoubleBar" isAnimatedOnChange />
+      <h4 style={{marginBottom: '2px'}} >Unique value without indicator</h4>
+      <StaticWithAnimation mainBarPercentage={25} extraBarPercentage={50} type="lineDoubleBar" isAnimatedOnChange hideIndicator/>
+    </div>
+    <div style={styleSection}>
+      <h2>Basic</h2>
+      <AtomProgressBar mainBarPercentage = {25} extraBarPercentage={50} type="lineDoubleBar"/>
+    </div>
+    <div style={styleSection}>
+      <h2>Indicator Bottom</h2>
+      <AtomProgressBar mainBarPercentage = {25} extraBarPercentage={50} type="lineDoubleBar" indicatorBottom />
+    </div>
+
+    <div style={styleSection}>
+      <h2>Indicator Total</h2>
+      <AtomProgressBar mainBarPercentage = {25} extraBarPercentage={50} type="lineDoubleBar" indicatorTotal />
     </div>
 
   </div>

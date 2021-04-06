@@ -9,6 +9,7 @@ const CLASS_TAGS = `${BASE_CLASS}--withTags`
 const CLASS_TAGS_FOCUS = `${CLASS_TAGS}--focus`
 const CLASS_TAGS_ERROR = `${CLASS_TAGS}--error`
 const CLASS_TAGS_SUCCESS = `${CLASS_TAGS}--success`
+const CLASS_TAGS_DISABLED = `${CLASS_TAGS}--disabled`
 
 // eslint-disable-next-line react/prop-types
 const AtomTagItem = ({onClose = () => {}, id, ...restProps}) => {
@@ -27,14 +28,24 @@ const MoleculeInputTags = ({
   tags: tagsFromProps,
   tagsCloseIcon,
   value,
+  maxTags,
+  placeholder,
+  disabled,
   ...restProps
 }) => {
   const [focus, setFocus] = useState(false)
+
+  const isFull = maxTags && tagsFromProps?.length >= maxTags
+
+  const isEmpty = tagsFromProps.length === 0
+
+  const shouldRenderInput = !isFull && !disabled
 
   const className = cx(CLASS_TAGS, {
     [CLASS_TAGS_FOCUS]: focus === true,
     [CLASS_TAGS_ERROR]: errorState === true,
     [CLASS_TAGS_SUCCESS]: errorState === false,
+    [CLASS_TAGS_DISABLED]: disabled === true || isFull === true,
     [`${CLASS_TAGS}-${size}`]: size
   })
 
@@ -78,16 +89,19 @@ const MoleculeInputTags = ({
           responsive
         />
       ))}
-      <AtomInput
-        {...restProps}
-        value={value}
-        onChange={handleInputChange}
-        onEnter={addTag}
-        onFocus={handleFocusIn}
-        onBlur={handleFocusOut}
-        reference={innerRefInput}
-        noBorder
-      />
+      {shouldRenderInput && (
+        <AtomInput
+          {...restProps}
+          value={value}
+          onChange={handleInputChange}
+          onEnter={addTag}
+          onFocus={handleFocusIn}
+          onBlur={handleFocusOut}
+          reference={innerRefInput}
+          noBorder
+          placeholder={isEmpty && placeholder}
+        />
+      )}
     </div>
   )
 }
@@ -120,7 +134,16 @@ MoleculeInputTags.propTypes = {
   onChange: PropTypes.func,
 
   /* object generated w/ Reacte.createRef method to get a DOM reference of internal input */
-  innerRefInput: PropTypes.object
+  innerRefInput: PropTypes.object,
+
+  /* text to be displayed if there is no tags and the input is empty */
+  placeholder: PropTypes.string,
+
+  /* number of maximum tags that can be added, after reaching this number the component will be disabled */
+  maxTags: PropTypes.number,
+
+  /* prop to indicate that the field is disable (will not render the input) */
+  disabled: PropTypes.bool
 }
 
 MoleculeInputTags.defaultProps = {
@@ -128,7 +151,9 @@ MoleculeInputTags.defaultProps = {
   value: '',
   tags: [],
   onChangeTags: () => {},
-  onChange: () => {}
+  onChange: () => {},
+  placeholder: '',
+  disabled: false
 }
 
 export default MoleculeInputTags

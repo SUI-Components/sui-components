@@ -1,7 +1,3 @@
-/*
- * Remember: YOUR COMPONENT IS DEFINED GLOBALLY
- * */
-
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
@@ -16,48 +12,50 @@ describe('molecule/inputTags', () => {
   const Component = MoleculeInputTags
   const setup = setupEnvironment(Component)
 
-  it('should render without crashing', () => {
-    // Given
-    const props = {
-      size: 'medium',
-      tagsCloseIcon: <svg />
-    }
+  describe('when the is disabled', () => {
+    it('should be disabled', () => {
+      const {queryByRole} = setup({disabled: true})
 
-    // When
-    const component = <Component {...props} />
-
-    // Then
-    const div = document.createElement('div')
-    ReactDOM.render(component, div)
-    ReactDOM.unmountComponentAtNode(div)
+      const input = queryByRole('textbox')
+      expect(input).to.be.null
+    })
   })
 
-  it('should NOT render null', () => {
-    // Given
-    const props = {
-      size: 'medium',
-      tagsCloseIcon: <svg />
-    }
+  describe('when has placeholder', () => {
+    it('should display the placeholder if no tags avaiable', () => {
+      const placeholder = 'Type your favorite beetle'
+      const {getByPlaceholderText} = setup({placeholder})
 
-    // When
-    const {container} = setup(props)
+      expect(getByPlaceholderText(placeholder)).to.be.visible
+    })
 
-    // Then
-    expect(container.innerHTML).to.be.a('string')
-    expect(container.innerHTML).to.not.have.lengthOf(0)
+    it('should not display the placeholder after adding tags', async () => {
+      const placeholder = 'Type your favorite beetle'
+
+      const {queryByPlaceholderText} = setup({
+        placeholder,
+        tags: ['Lenon']
+      })
+
+      expect(queryByPlaceholderText(placeholder)).to.be.null
+    })
   })
 
-  it.skip('example', () => {
-    // Example TO BE DELETED!!!!
+  describe('when has maxTags', () => {
+    it('should allow add tags if max not reached', () => {
+      const {getByRole} = setup({
+        maxTags: 4,
+        tags: []
+      })
+      expect(getByRole('textbox')).to.be.visible
+    })
 
-    // Given
-    // const props = {}
-
-    // When
-    // const {getByRole} = setup(props)
-
-    // Then
-    // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(false)
+    it('should not allow add tags if max reached', () => {
+      const {queryByRole} = setup({
+        maxTags: 4,
+        tags: ['Paul', 'John', 'Ringo', 'George']
+      })
+      expect(queryByRole('textbox')).to.be.null
+    })
   })
 })

@@ -115,6 +115,75 @@ const Demo = () => {
             innerRefInput={withOnChangeHandlerInputEl}
           />
         </div>
+        <div className={CLASS_DEMO_SECTION}>
+          <h4>with no initial values and placeHolderText</h4>
+          <MoleculeInputTagsWithState
+            name="inputTagsBeatles1"
+            tagsCloseIcon={<CloseIcon />}
+            onChangeTags={(_, {tags, name}) => {
+              console.log({[`onChangeTags___${name}`]: tags})
+            }}
+            placeholder="Type something..."
+            innerRefInput={basicInputEl}
+          />
+        </div>
+        <div className={CLASS_DEMO_SECTION}>
+          <h4>with no initial values and no placeHolderText</h4>
+          <MoleculeInputTagsWithState
+            name="inputTagsBeatles1"
+            tagsCloseIcon={<CloseIcon />}
+            onChangeTags={(_, {tags, name}) => {
+              console.log({[`onChangeTags___${name}`]: tags})
+            }}
+            innerRefInput={basicInputEl}
+          />
+        </div>
+        <div className={CLASS_DEMO_SECTION}>
+          <h4>with maxTags value = 5</h4>
+          <MoleculeInputTagsWithState
+            name="inputTagsBeatles1"
+            tagsCloseIcon={<CloseIcon />}
+            onChangeTags={(_, {tags, name}) => {
+              console.log({[`onChangeTags___${name}`]: tags})
+            }}
+            maxTags={5}
+            tags={beatles}
+            value="George Martin"
+            placeHolderText="Placeholder text"
+            innerRefInput={basicInputEl}
+          />
+        </div>
+        <div className={CLASS_DEMO_SECTION}>
+          <h4>with maxTags value smaller than initial values</h4>
+          <MoleculeInputTagsWithState
+            name="inputTagsBeatles1"
+            tagsCloseIcon={<CloseIcon />}
+            onChangeTags={(_, {tags, name}) => {
+              console.log({[`onChangeTags___${name}`]: tags})
+            }}
+            maxTags={1}
+            tags={beatles}
+            value="George Martin"
+            placeHolderText="Placeholder text"
+            innerRefInput={basicInputEl}
+          />
+        </div>
+        <div className={CLASS_DEMO_SECTION}>
+          <h4>with disabled prop</h4>
+          <MoleculeInputTagsWithState
+            name="inputTagsBeatles1"
+            tagsCloseIcon={<CloseIcon />}
+            onChangeTags={(_, {tags, name}) => {
+              console.log({[`onChangeTags___${name}`]: tags})
+            }}
+            maxTags={5}
+            tags={beatles}
+            value="George Martin"
+            placeHolderText="Placeholder text"
+            innerRefInput={basicInputEl}
+            disabled
+          />
+        </div>
       </div>
     </div>
   )

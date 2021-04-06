@@ -8,6 +8,7 @@ $class-tags: '#{$base-class}--withTags';
 $class-input: '#{$base-class}-input';
 
 $sizes-atom-input-paddings: m $p-m, s $p-s !default;
+$bg-input-tag-disable: $c-gray-light-4 !default;
 
 #{$class-tags} {
   @extend %sui-atom-input-input;
@@ -18,6 +19,10 @@ $sizes-atom-input-paddings: m $p-m, s $p-s !default;
 
   &--focus {
     @extend %sui-atom-input-input-focus;
+  }
+
+  &--disabled {
+    background-color: $bg-input-tag-disable;
   }
 
   & #{$class-input} {

@@ -9,8 +9,8 @@ const CLASS_BAR_ANIMATED = `${CLASS_BAR}--animated`
 const CLASS_EXTRA_BAR = `${BASE_CLASS}-extraBar`
 const CLASS_EXTRA_BAR_ANIMATED = `${CLASS_EXTRA_BAR}--animated`
 
-const Indicator = props => {
-  const {indicatorBottom, mainBarPercentage, indicatorTotal} = props // eslint-disable-line react/prop-types
+// eslint-disable-next-line react/prop-types
+const Indicator = ({indicatorBottom, indicatorTotal, mainBarPercentage}) => {
   return (
     <span
       className={cx(
@@ -24,15 +24,14 @@ const Indicator = props => {
   )
 }
 
-const LineDoubleProgressBar = props => {
-  const {
-    mainBarPercentage,
-    extraBarPercentage,
-    indicatorBottom,
-    isAnimatedOnChange,
-    hideIndicator
-  } = props
-
+const LineDoubleProgressBar = ({
+  extraBarPercentage,
+  hideIndicator,
+  indicatorBottom,
+  indicatorTotal,
+  isAnimatedOnChange,
+  mainBarPercentage
+}) => {
   const width = `${mainBarPercentage}%`
   const widthExtraBar = `${extraBarPercentage}%`
   const styleBar = {width}
@@ -40,7 +39,13 @@ const LineDoubleProgressBar = props => {
 
   return (
     <div className={BASE_CLASS}>
-      {!hideIndicator && !indicatorBottom && <Indicator {...props} />}
+      {!hideIndicator && !indicatorBottom && (
+        <Indicator
+          indicatorBottom={indicatorBottom}
+          mainBarPercentage={mainBarPercentage}
+          indicatorTotal={indicatorTotal}
+        />
+      )}
       <div className={CLASS_CONTAINER_BAR}>
         <span
           className={cx(CLASS_BAR, isAnimatedOnChange && CLASS_BAR_ANIMATED)}
@@ -54,7 +59,13 @@ const LineDoubleProgressBar = props => {
           style={styleExtraBar}
         />
       </div>
-      {!hideIndicator && indicatorBottom && <Indicator {...props} />}
+      {!hideIndicator && indicatorBottom && (
+        <Indicator
+          indicatorBottom={indicatorBottom}
+          mainBarPercentage={mainBarPercentage}
+          indicatorTotal={indicatorTotal}
+        />
+      )}
     </div>
   )
 }
@@ -62,8 +73,11 @@ const LineDoubleProgressBar = props => {
 LineDoubleProgressBar.displayName = 'LineDoubleProgressBar'
 
 LineDoubleProgressBar.propTypes = {
-  /** Percentage value to be displayed in main bar as number and as bar width  */
-  mainBarPercentage: PropTypes.number,
+  /** Percentage value to be displayed in extra bar as number  */
+  extraBarPercentage: PropTypes.number,
+
+  /** If the indicator should be placed below the bar */
+  indicatorBottom: PropTypes.bool,
 
   /** If the indicator should be displayed with the pattern → {percentage}/100 ({percentage}% as default) */
   indicatorTotal: PropTypes.bool,
@@ -71,14 +85,11 @@ LineDoubleProgressBar.propTypes = {
   /** If the bar "value" (width) should be displayed with animation */
   isAnimatedOnChange: PropTypes.bool,
 
-  /** If the indicator should be placed below the bar */
-  indicatorBottom: PropTypes.bool,
-
   /** Hide the indicator */
   hideIndicator: PropTypes.bool,
 
-  /** Percentage value to be displayed in extra bar as number  */
-  extraBarPercentage: PropTypes.number
+  /** Percentage value to be displayed in main bar as number and as bar width  */
+  mainBarPercentage: PropTypes.number
 }
 
 export default LineDoubleProgressBar

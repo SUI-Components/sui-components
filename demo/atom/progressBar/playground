@@ -13,15 +13,22 @@ class StaticWithAnimation extends React.Component {
   constructor() {
     super()
     this.state = {
-      percentage: 0
+      percentage: 0, 
+      mainBarPercentage: 0,
+      extraBarPercentage: 0
     }
     this.timeoutId = null
   }
 
   componentDidMount() {
-    const {percentage} = this.props
+    const {percentage, mainBarPercentage, extraBarPercentage} = this.props
     this.timeoutId = setTimeout(() => {
-      this.setState({percentage})
+      if(mainBarPercentage) {
+        this.setState({mainBarPercentage})
+        this.setState({extraBarPercentage})
+        } else {
+          this.setState({percentage})
+        }
     }, 1000)
   }
 
@@ -30,11 +37,11 @@ class StaticWithAnimation extends React.Component {
   }
 
   render() {
-    const {percentage} = this.state
+    const {percentage, mainBarPercentage, extraBarPercentage} = this.state
     const {type} = this.props
     return (
       <div style={{background: 'white', padding: '10px'}} >
-        <AtomProgressBar {...this.props} type={type} percentage={percentage} />
+        <AtomProgressBar {...this.props} type={type} percentage={percentage} mainBarPercentage={mainBarPercentage} extraBarPercentage = {extraBarPercentage}/>
       </div>
     )
   }
@@ -154,7 +161,7 @@ return (
     <div style={styleSection}>
       <h2>Dynamic</h2>
       <h4 style={{marginBottom: '2px'}} >Unique value with animation</h4>
-      {/* <DynamicProgressBar topPercentage={65} step={65}  isAnimatedOnChange /> */}
+      {/* <DynamicProgressBar topPercentage={65} step={65} isAnimatedOnChange /> */}
       <StaticWithAnimation percentage={25} isAnimatedOnChange/>
       <h4 style={{marginBottom: '2px'}} >steps: random</h4>
       <DynamicProgressBar intervalTime={1000} indicatorTotal isAnimatedOnChange />
@@ -245,5 +252,28 @@ return (
       <h3>Small</h3>
       <InputRangeProgressBar type="circle" size="small" step={1} />
     </div>
+
+    <h1>Line Double Progress Bar</h1>
+    <div style={styleSection}>
+      <h2>Dynamic</h2>
+      <h4 style={{marginBottom: '2px'}} >Unique value with animation</h4>
+      <StaticWithAnimation mainBarPercentage={25} extraBarPercentage={50} type="lineDoubleBar" isAnimatedOnChange />
+      <h4 style={{marginBottom: '2px'}} >Unique value without indicator</h4>
+      <StaticWithAnimation mainBarPercentage={25} extraBarPercentage={50} type="lineDoubleBar" isAnimatedOnChange hideIndicator/>
+    </div>
+    <div style={styleSection}>
+      <h2>Basic</h2>
+      <AtomProgressBar mainBarPercentage = {25} extraBarPercentage={50} type="lineDoubleBar"/>
+    </div>
+    <div style={styleSection}>
+      <h2>Indicator Bottom</h2>
+      <AtomProgressBar mainBarPercentage = {25} extraBarPercentage={50} type="lineDoubleBar" indicatorBottom />
+    </div>
+
+    <div style={styleSection}>
+      <h2>Indicator Total</h2>
+      <AtomProgressBar mainBarPercentage = {25} extraBarPercentage={50} type="lineDoubleBar" indicatorTotal />
+    </div>
+
   </div>
 )

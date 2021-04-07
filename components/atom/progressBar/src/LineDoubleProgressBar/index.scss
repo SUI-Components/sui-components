@@ -1,0 +1,68 @@
+@import '~@s-ui/theme/lib/index';
+
+$bg-progress-bar: $c-gray-lightest !default;
+$bc-progress-bar: $c-gray-light !default;
+$c-progress-bar-fill: $c-primary !default;
+
+$trsdu-progress-bar: 500ms !default;
+$trstf-progress-bar: linear !default;
+
+$br-progress-container: $bdrs-l !default;
+$br-progress-bar: $bdrs-l !default;
+$h-progress-bar: $m-base !default;
+
+$c-progress-extra-bar-fill: $c-primary-dark-3 !default;
+$trsdu-progress-exrta-bar: 500ms !default;
+
+.sui-AtomLineDoubleProgressBarV2 {
+  &-bar {
+    background-color: $c-progress-bar-fill;
+    border-radius: $br-progress-bar;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 9;
+
+    &--animated {
+      transition: width $trsdu-progress-bar $trstf-progress-bar;
+    }
+  }
+
+  &-container {
+    background: $bg-progress-bar;
+    border-radius: $br-progress-container;
+    border: $bdw-s solid $bc-progress-bar;
+    height: $h-progress-bar; /* Can be anything */
+    position: relative;
+  }
+
+  &-extraBar {
+    background-color: $c-progress-extra-bar-fill;
+    border-radius: $br-progress-bar;
+    bottom: calc(#{$h-progress-bar} - 2px);
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+    &--animated {
+      transition: width
+        calc(#{$trsdu-progress-bar} + #{$trsdu-progress-exrta-bar})
+        $trstf-progress-bar;
+    }
+  }
+  &-indicator {
+    display: inline-block;
+    font-size: $fz-s;
+    line-height: $lh-s;
+
+    &--bottom {
+      margin-top: $m-base;
+    }
+
+    &--top {
+      margin-bottom: $m-base;
+    }
+  }
+}

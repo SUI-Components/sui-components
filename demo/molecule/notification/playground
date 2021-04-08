@@ -164,5 +164,12 @@ return (
         </tr>
       </tbody>
     </table>
+    <h2>Override container</h2>
+    <MoleculeNotification
+      autoClose="manual"
+      overrideContainer="true"      
+    >
+      {TEXT}
+    </MoleculeNotification>
   </div>
 )

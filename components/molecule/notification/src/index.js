@@ -16,6 +16,7 @@ import {
 } from './settings'
 import Button from '@s-ui/react-atom-button'
 import IconClose from '@s-ui/react-icons/lib/Close'
+import {createPortal} from 'react-dom'
 
 const MoleculeNotification = ({
   autoClose: autoCloseTiming = AUTO_CLOSE.short,
@@ -30,7 +31,9 @@ const MoleculeNotification = ({
   text,
   type = TYPES.info,
   variation = VARIATIONS.negative,
-  show: showFromProps = true
+  show: showFromProps = true,
+  overrideContainer = false,
+  containerId = 'notification-react-portal'
 }) => {
   const [show, setShow] = useState(showFromProps)
   const [delay, setDelay] = useState(false)
@@ -99,26 +102,47 @@ const MoleculeNotification = ({
   if (!show && !delay) {
     return null
   }
-  return (
-    <div className={wrapperClassName}>
-      <div className={`${CLASS}-content`}>
-        <div className={`${CLASS}-iconLeft`}>
-          <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
-        </div>
-        <div className={innerWrapperClassName}>{children || text}</div>
-        {showCloseButton && (
-          <div className={`${CLASS}-iconClose`} onClick={handleClose}>
-            <span className={`${CLASS}-icon`}>
-              <IconClose />
-            </span>
+
+  const getContainer = () => {
+    let containerDOMEl = document.getElementById(containerId)
+    if (!containerDOMEl) {
+      containerDOMEl = document.createElement('div')
+      containerDOMEl.id = containerId
+      document.body.appendChild(containerDOMEl)
+    }
+    return containerDOMEl
+  }
+
+  const render = () => {
+    return (
+      <div className={wrapperClassName}>
+        <div className={`${CLASS}-content`}>
+          <div className={`${CLASS}-iconLeft`}>
+            <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
           </div>
+          <div className={innerWrapperClassName}>{children || text}</div>
+          {showCloseButton && (
+            <div className={`${CLASS}-iconClose`} onClick={handleClose}>
+              <span className={`${CLASS}-icon`}>
+                <IconClose />
+              </span>
+            </div>
+          )}
+        </div>
+        {buttons && (
+          <div className={`${CLASS}-buttonsContainer`}>{getButtons()}</div>
         )}
       </div>
-      {buttons && (
-        <div className={`${CLASS}-buttonsContainer`}>{getButtons()}</div>
-      )}
-    </div>
-  )
+    )
+  }
+
+  const modalElement = render()
+
+  if (overrideContainer) {
+    return createPortal(modalElement, getContainer())
+  }
+  
+  return modalElement
 }
 
 MoleculeNotification.displayName = 'MoleculeNotification'
@@ -168,7 +192,11 @@ MoleculeNotification.propTypes = {
   type: PropTypes.string,
 
   /** Color variation of the notification: 'positive' with washed out colors, 'negative' with bold colors */
-  variation: PropTypes.oneOf(Object.keys(VARIATIONS))
+  variation: PropTypes.oneOf(Object.keys(VARIATIONS)),
+
+  overrideContainer: PropTypes.bool,
+
+  containerId: PropTypes.string
 }
 
 export {POSITION, AUTO_CLOSE, TYPES, VARIATIONS, BRDS_SIZE}

@@ -141,7 +141,7 @@ const MoleculeNotification = ({
   if (overrideContainer) {
     return createPortal(modalElement, getContainer())
   }
-  
+
   return modalElement
 }
 

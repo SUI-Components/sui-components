@@ -18,6 +18,14 @@ import Button from '@s-ui/react-atom-button'
 import IconClose from '@s-ui/react-icons/lib/Close'
 import {createPortal} from 'react-dom'
 
+const getContainer = ref => {
+  const hasRef = ref !== undefined
+  if (hasRef) {
+    return ref.current
+  }
+  return document.body
+}
+
 const MoleculeNotification = ({
   autoClose: autoCloseTiming = AUTO_CLOSE.short,
   onClose = EMPTY_METHOD,
@@ -40,7 +48,6 @@ const MoleculeNotification = ({
 
   const transitionTimeout = useRef()
   const autoCloseTimeout = useRef()
-  const containerId = 'react-notification-portal'
 
   useEffect(() => {
     setShow(showFromProps)
@@ -104,22 +111,6 @@ const MoleculeNotification = ({
     return null
   }
 
-  const getContainer = () => {
-    const hasRef = targetRef !== undefined
-    if (hasRef) {
-      return targetRef.current
-    }
-
-    let containerEl = document.getElementById(containerId)
-    if (!containerEl) {
-      containerEl = document.createElement('div')
-      containerEl.id = containerId
-      document.body.appendChild(containerEl)
-    }
-
-    return containerEl
-  }
-
   const render = () => {
     return (
       <div className={wrapperClassName}>
@@ -146,7 +137,7 @@ const MoleculeNotification = ({
   const notificationEl = render()
 
   if (overrideContainer) {
-    const container = getContainer()
+    const container = getContainer(targetRef)
     return container ? createPortal(notificationEl, container) : notificationEl
   }
 

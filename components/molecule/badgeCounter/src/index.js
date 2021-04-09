@@ -28,7 +28,8 @@ const STATUS = {
 
 const VARIANTS = {
   DOT: 'dot',
-  EXCLAMATION: 'exclamation'
+  EXCLAMATION: 'exclamation',
+  EXTENDED: 'extended'
 }
 
 const MAX_LABEL = '+99'

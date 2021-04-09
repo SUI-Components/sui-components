@@ -33,13 +33,14 @@ const MoleculeNotification = ({
   variation = VARIATIONS.negative,
   show: showFromProps = true,
   overrideContainer = false,
-  containerId = 'notification-react-portal'
+  targetRef = undefined
 }) => {
   const [show, setShow] = useState(showFromProps)
   const [delay, setDelay] = useState(false)
 
   const transitionTimeout = useRef()
   const autoCloseTimeout = useRef()
+  const containerId = 'react-notification-portal'
 
   useEffect(() => {
     setShow(showFromProps)
@@ -104,13 +105,19 @@ const MoleculeNotification = ({
   }
 
   const getContainer = () => {
-    let containerDOMEl = document.getElementById(containerId)
-    if (!containerDOMEl) {
-      containerDOMEl = document.createElement('div')
-      containerDOMEl.id = containerId
-      document.body.appendChild(containerDOMEl)
+    const hasRef = targetRef !== undefined
+    if (hasRef) {
+      return targetRef.current
     }
-    return containerDOMEl
+
+    let containerEl = document.getElementById(containerId)
+    if (!containerEl) {
+      containerEl = document.createElement('div')
+      containerEl.id = containerId
+      document.body.appendChild(containerEl)
+    }
+
+    return containerEl
   }
 
   const render = () => {
@@ -136,13 +143,14 @@ const MoleculeNotification = ({
     )
   }
 
-  const modalElement = render()
+  const notificationEl = render()
 
   if (overrideContainer) {
-    return createPortal(modalElement, getContainer())
+    const container = getContainer()
+    return container ? createPortal(notificationEl, container) : notificationEl
   }
 
-  return modalElement
+  return notificationEl
 }
 
 MoleculeNotification.displayName = 'MoleculeNotification'
@@ -194,9 +202,11 @@ MoleculeNotification.propTypes = {
   /** Color variation of the notification: 'positive' with washed out colors, 'negative' with bold colors */
   variation: PropTypes.oneOf(Object.keys(VARIATIONS)),
 
+  /** Allows to change the container of the notifaction. This can be specified on targetRef prop, otherwise will be use the div "notification-react-portal".  */
   overrideContainer: PropTypes.bool,
 
-  containerId: PropTypes.string
+  /** Used along with overrideContainer let specify a dom elment to render the notification. */
+  targetRef: PropTypes.string
 }
 
 export {POSITION, AUTO_CLOSE, TYPES, VARIATIONS, BRDS_SIZE}

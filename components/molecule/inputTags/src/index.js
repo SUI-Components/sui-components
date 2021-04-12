@@ -70,7 +70,7 @@ const MoleculeInputTags = ({
     ev.preventDefault()
     if (value) {
       const tags = [...tagsFromProps]
-      if (allowDuplicates || (!allowDuplicates && !isDuplicate(tags, value))) {
+      if (allowDuplicates || !isDuplicate(tags, value)) {
         tags.push(value)
       }
       onChangeTags(ev, {tags, name, value: ''})

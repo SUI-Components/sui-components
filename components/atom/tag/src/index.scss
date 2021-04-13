@@ -101,6 +101,7 @@ $base-class: '.sui-AtomTag';
     color: $c-atom-tag-actionable;
     cursor: pointer;
     fill: $c-atom-tag-actionable;
+    text-decoration: none;
 
     &:hover,
     &:active {

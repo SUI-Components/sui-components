@@ -31,6 +31,7 @@ $base-class: '.sui-AtomTextarea';
   background: $bgc-atom-textarea;
   border: $bd-atom-textarea;
   border-radius: $bdrs-atom-textarea;
+  box-sizing: border-box;
   color: $c-atom-textarea;
   font-family: $ff-atom-textarea;
   font-size: $fz-atom-textarea;

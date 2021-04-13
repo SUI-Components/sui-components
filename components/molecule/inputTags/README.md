@@ -1,6 +1,6 @@
 # MoleculeInputTags
 
-`MoleculeInputTags` is an `AtomInput` with the behavior of adding/removing `AtomTag` as a list 
+`MoleculeInputTags` is an `AtomInput` with the behavior of adding/removing `AtomTag` as a list
 
 ## Installation
 
@@ -12,7 +12,7 @@ $ npm install @s-ui/react-molecule-input-tags --save
 
 ```js
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
-const closeIcon = () => <span>X</span>  
+const closeIcon = () => <span>X</span>
 ```
 
 ### Basic usage
@@ -39,6 +39,22 @@ All props of `AtomInput` can also be passed to `MoleculeInputTags`
 
 ```js
 <MoleculeInputTags tagsCloseIcon={closeIcon} errorState={true} />
+```
+
+### Just unique values
+
+You can set `allowDuplicates` to false to force unique values
+
+```js
+<MoleculeInputTags allowDuplicates={false} />
+```
+
+### Max tags
+
+use `maxTags` prop to set a number of maximum tags that can be entered, after reaching that number the field gets disabled
+
+```js
+<MoleculeInputTags maxTags={3} />
 ```
 
 

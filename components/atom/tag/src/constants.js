@@ -4,7 +4,8 @@ export const ACTIONABLE_ONLY_PROPS = [
   'target',
   'actionable',
   'linkFactory',
-  'rel'
+  'rel',
+  'value'
 ]
 
 export const STANDARD_ONLY_PROPS = ['closeIcon', 'onClose']

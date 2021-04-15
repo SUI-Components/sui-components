@@ -113,6 +113,20 @@ $atom-tag-types: (
 );
 ```
 
+
+### Value
+
+Use the prop value if you want to use this the value on you onClick handler
+
+```js
+<AtomTag
+  label="Tag with value"
+  onClick={(_, {value}) => alert('click! this is my value', value)}
+  value={'test}
+/>
+```
+
+
 **Your high order component**
 
 ```js

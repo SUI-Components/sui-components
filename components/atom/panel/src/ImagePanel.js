@@ -22,7 +22,7 @@ const getClassNames = function({
   horizontalAlign,
   resized,
   overlayColor,
-  overlayAlpha,
+  overlayAlpha = DEFAULT_ALPHA,
   color,
   rounded,
   elevation
@@ -81,12 +81,6 @@ ImagePanel.propTypes = {
   verticalAlign: PropTypes.oneOf(Object.values(VERTICAL_ALIGNMENTS)),
   rounded: PropTypes.oneOf(Object.values(BORDER_RADIUS)),
   elevation: PropTypes.oneOf(Object.values(ELEVATION))
-}
-
-ImagePanel.defaultProps = {
-  overlayAlpha: DEFAULT_ALPHA,
-  color: COLORS.DEFAULT,
-  rounded: BORDER_RADIUS.NONE
 }
 
 export default ImagePanel

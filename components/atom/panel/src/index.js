@@ -10,11 +10,34 @@ const isImagePanel = function({src}) {
   return !!src
 }
 
-const AtomPanel = function(props) {
-  return isImagePanel(props) ? (
-    <ImagePanel {...props} />
+const AtomPanel = function({
+  alpha = ALPHA.CONTRAST,
+  color = COLORS.DEFAULT,
+  elevation = ELEVATION.NONE,
+  horizontalAlign = HORIZONTAL_ALIGNMENTS.CENTER,
+  rounded = BORDER_RADIUS.NONE,
+  src,
+  verticalAlign = VERTICAL_ALIGNMENTS.CENTER,
+  ...props
+}) {
+  return isImagePanel({src}) ? (
+    <ImagePanel
+      color={color}
+      elevation={elevation}
+      horizontalAlign={horizontalAlign}
+      rounded={rounded}
+      src={src}
+      verticalAlign={verticalAlign}
+      {...props}
+    />
   ) : (
-    <ColorPanel {...props} />
+    <ColorPanel
+      alpha={alpha}
+      color={color}
+      elevation={elevation}
+      rounded={rounded}
+      {...props}
+    />
   )
 }
 
@@ -50,13 +73,6 @@ AtomPanel.propTypes = {
    * Specify the opacity
    */
   alpha: PropTypes.oneOf(Object.values(ALPHA))
-}
-
-AtomPanel.defaultProps = {
-  horizontalAlign: HORIZONTAL_ALIGNMENTS.CENTER,
-  verticalAlign: VERTICAL_ALIGNMENTS.CENTER,
-  rounded: BORDER_RADIUS.NONE,
-  elevation: ELEVATION.NONE
 }
 
 export default AtomPanel

@@ -41,7 +41,15 @@ AtomPanel.propTypes = {
   /**
    * Specify the box-shadow of the panel
    */
-  elevation: PropTypes.oneOf(Object.values(ELEVATION))
+  elevation: PropTypes.oneOf(Object.values(ELEVATION)),
+  /**
+   * Specify the background-color
+   */
+  color: PropTypes.oneOf(Object.values(COLORS)),
+  /**
+   * Specify the opacity
+   */
+  alpha: PropTypes.oneOf(Object.values(ALPHA))
 }
 
 AtomPanel.defaultProps = {

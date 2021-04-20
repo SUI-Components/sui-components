@@ -49,29 +49,6 @@ const ArticleSemanticColors = ({className}) => {
                         />
                       </Cell>
                     ))}
-                    {variationsArray.map((variationToken, key) => {
-                      let [type, value] = variationToken.split('-')
-                      let tokenName = `$c-${brandToken}`
-                      switch (type) {
-                        case 'light':
-                          tokenName = `color-variation(${tokenName}, ${value})`
-                          break
-                        case 'dark':
-                          value = -value
-                          tokenName = `color-variation(${tokenName}, ${value})`
-                          break
-                        default:
-                          break
-                      }
-                      return (
-                        <Cell key={key}>
-                          <Color
-                            className={`color-semantic--${brandToken}--color-variation-${variationToken}`}
-                            tokenName={tokenName}
-                          />
-                        </Cell>
-                      )
-                    })}
                   </Grid>
                 </Cell>
               </Grid>

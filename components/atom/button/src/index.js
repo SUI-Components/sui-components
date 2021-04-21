@@ -57,7 +57,7 @@ function deprecated(
   validator,
   callback = (props, propName, componentName) => {
     const deprecatedMessage = `The prop ${'\x1b[32m'}${propName}${'\u001b[39m'} is DEPRECATED on ${'\x1b[32m'}${componentName}${'\u001b[39m'}.`
-    console.warn(deprecatedMessage)
+    console.warn(deprecatedMessage) // eslint-disable-line
   }
 ) {
   return function deprecated(props, propName, componentName, ...rest) {
@@ -255,10 +255,10 @@ AtomButton.propTypes = {
     PropTypes.oneOf(['button', 'submit', 'reset']),
     deprecated(PropTypes.oneOf(TYPES), (props, propName, componentName) => {
       const deprecatedMessage = `The prop ${'\x1b[32m'}${propName}${'\u001b[39m'} is DEPRECATED on ${'\x1b[32m'}${componentName}${'\u001b[39m'}. You should use now ${'\x1b[32m'}design${'\u001b[39m'} and ${'\x1b[32m'}color${'\u001b[39m'} props.`
-      console.groupCollapsed(deprecatedMessage)
-      console.warn(deprecatedMessage)
-      console.table(TYPES_CONVERSION)
-      console.groupEnd()
+      console.groupCollapsed(deprecatedMessage) // eslint-disable-line
+      console.warn(deprecatedMessage) // eslint-disable-line
+      console.table(TYPES_CONVERSION) // eslint-disable-line
+      console.groupEnd() // eslint-disable-line
     })
   ]),
   /**

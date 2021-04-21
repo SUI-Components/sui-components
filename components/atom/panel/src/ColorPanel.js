@@ -22,16 +22,10 @@ ColorPanel.displayName = 'ColorPanel'
 
 ColorPanel.propTypes = {
   children: PropTypes.node,
-  color: PropTypes.string,
-  alpha: PropTypes.string,
+  color: PropTypes.oneOf(Object.values(COLORS)),
+  alpha: PropTypes.oneOf(Object.values(ALPHA)),
   rounded: PropTypes.oneOf(Object.values(BORDER_RADIUS)),
   elevation: PropTypes.oneOf(Object.values(ELEVATION))
-}
-
-ColorPanel.defaultProps = {
-  alpha: ALPHA.CONTRAST,
-  color: COLORS.DEFAULT,
-  rounded: BORDER_RADIUS.NONE
 }
 
 export default ColorPanel

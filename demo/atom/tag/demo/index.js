@@ -213,6 +213,21 @@ export default () => (
         label="Icon placement left"
         target="_blank"
       />
+      <Paragraph>–––––</Paragraph>
+      <H2>With Value prop</H2>
+      <Paragraph>
+        Use the <Code>Value</Code> prop if the tag represents a value and want
+        it to be returned on the onClick handler
+      </Paragraph>
+      <div>
+        <AtomTag
+          label="With Value"
+          value="test"
+          onClick={(_, {value}) => {
+            console.log('This is my value', value)
+          }}
+        />
+      </div>
     </Article>
     <br />
     <Article className={CLASS_SECTION}>

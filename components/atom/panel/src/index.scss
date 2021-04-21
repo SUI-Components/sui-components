@@ -19,7 +19,10 @@ $bgc-panels: (
   'base': color-variation($c-gray, 3),
   'dark': color-variation($c-gray, -1),
   'default': $c-gray-lightest,
-  'highlight': color-variation($c-accent, 4)
+  'highlight': color-variation($c-accent, 4),
+  'success': $c-success,
+  'alert': $c-alert,
+  'error': $c-error
 ) !default;
 $c-atom-panel: $c-black !default;
 $horizontal-alignments-atom-panel: ('left', 'center', 'right') !default;

@@ -6,7 +6,10 @@ const COLORS = {
   CONTRAST: 'contrast',
   CORPORATE: 'corporate',
   DEFAULT: 'default',
-  HIGHLIGHT: 'highlight'
+  HIGHLIGHT: 'highlight',
+  SUCCESS: 'success',
+  ALERT: 'alert',
+  ERROR: 'error'
 }
 
 const ALPHA = {

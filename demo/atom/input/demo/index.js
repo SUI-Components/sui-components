@@ -293,6 +293,9 @@ const AddonAndIconDemo = () => {
   const [state, setState] = useState({})
   const {icon, iconValue, rightAddon, leftAddon} = state
   const setStatus = (newState = {}) => setState({...state, ...newState})
+  const valueIcon = iconValue ? (
+    <AntDesignIcon icon={iconValue} style={{color: 'currentColor'}} />
+  ) : null
   return (
     <Article>
       <H2>Addon and Icon</H2>
@@ -314,30 +317,8 @@ const AddonAndIconDemo = () => {
       <Grid cols={2} gutter={[8, 8]}>
         <Cell span={2}>
           <AtomInput
-            leftIcon={
-              icon === 'leftIcon' ? (
-                iconValue ? (
-                  <AntDesignIcon
-                    icon={iconValue}
-                    style={{color: 'currentColor'}}
-                  />
-                ) : null
-              ) : (
-                undefined
-              )
-            }
-            rightIcon={
-              icon === 'rightIcon' ? (
-                iconValue ? (
-                  <AntDesignIcon
-                    icon={iconValue}
-                    style={{color: 'currentColor'}}
-                  />
-                ) : null
-              ) : (
-                undefined
-              )
-            }
+            leftIcon={icon === 'leftIcon' ? valueIcon : undefined}
+            rightIcon={icon === 'rightIcon' ? valueIcon : undefined}
             leftAddon={leftAddon}
             rightAddon={rightAddon}
           />

@@ -33,14 +33,13 @@ const getGutterClassNames = (gutterConfig = {}) => {
   return null
 }
 
-function LayoutGrid(props) {
-  const {
-    alignContent,
-    alignItems,
-    children,
-    justifyContent,
-    gutter
-  } = transition(props)
+function LayoutGrid({
+  alignContent,
+  alignItems,
+  children,
+  justifyContent,
+  gutter
+}) {
   const classNames = cx(
     `${BASE_CLASS}`,
     Object.values(ALIGN_CONTENT).includes(alignContent) &&
@@ -74,10 +73,6 @@ LayoutGrid.propTypes = {
    * Distribute space between and around content items. It's applied for all screen sizes.
    */
   justifyContent: PropTypes.oneOf(Object.values(JUSTIFY_CONTENT)),
-  /**
-   * Removes items padding. (Deprecated)
-   */
-  isGapless: PropTypes.bool,
   /***
    * Spacing between cells.
    */
@@ -87,9 +82,12 @@ LayoutGrid.propTypes = {
   ])
 }
 
+const DeprecatedLayoutGrid = props => <LayoutGrid {...transition(props)} />
+
 export default LayoutGrid
 
 export {
+  DeprecatedLayoutGrid,
   LayoutGridItem,
   ALIGN_CONTENT as LayoutGridAlignContent,
   ALIGN_ITEMS as LayoutGridAlignItems,

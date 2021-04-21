@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 import {H2, H4, Paragraph, Article, Code} from '@s-ui/documentation-library'
 
-import LayoutGrid, {
+import {
+  DeprecatedLayoutGrid,
   LayoutGridItem
 } from '../../../../components/layout/grid/src'
 import DemoWrapper from './demoWrapper'
@@ -16,7 +17,7 @@ const ArticleIsGapless = ({classname}) => {
         Please, replace it to <Code>gutter</Code>: 0 as soon as possible.
       </Paragraph>
       <DemoWrapper>
-        <LayoutGrid isGapless>
+        <DeprecatedLayoutGrid isGapless>
           <LayoutGridItem s={6}>
             <DemoBox>s:6</DemoBox>
           </LayoutGridItem>
@@ -35,7 +36,7 @@ const ArticleIsGapless = ({classname}) => {
           <LayoutGridItem s={3}>
             <DemoBox>s:3</DemoBox>
           </LayoutGridItem>
-        </LayoutGrid>
+        </DeprecatedLayoutGrid>
       </DemoWrapper>
     </Article>
   )

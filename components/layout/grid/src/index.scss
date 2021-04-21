@@ -35,6 +35,9 @@ $grid-gutters: 10;
     margin: 0;
     padding: 0 $layout-grid-m-base;
     box-sizing: border-box;
+    > * {
+      box-sizing: inherit;
+    }
   }
   @include grid-gutters($base-class, $breakpoints, $grid-gutters);
 }

@@ -13,22 +13,23 @@ import {BASE_CLASS, CELL_NUMBERS, BREAKPOINTS} from '../settings'
  * @returns {null|string} – classnames for the column span
  */
 export const getColSpanClassNamesTransform = ({colSpan, ...otherProps}) => {
-  const getValidBreakpointValue = (colSpanValue, breakpointValue) =>
-    CELL_NUMBERS.includes(breakpointValue)
-      ? breakpointValue
-      : false || CELL_NUMBERS.includes(colSpanValue)
-      ? colSpanValue
-      : false
+  const getValidBreakpointValue = (colSpanValue, breakpointValue) => {
+    if (CELL_NUMBERS.includes(breakpointValue)) {
+      return breakpointValue
+    } else if (CELL_NUMBERS.includes(colSpanValue)) {
+      return colSpanValue
+    }
+    return false
+  }
 
   const response = Object.values(BREAKPOINTS).reduce((acc, breakpointName) => {
     let value
     if (breakpointName === 'xxs') {
-      value = getValidBreakpointValue(
+      const colSpanValue =
         typeof colSpan === 'number' && CELL_NUMBERS.includes(colSpan)
           ? colSpan
-          : colSpan?.[breakpointName],
-        otherProps[breakpointName]
-      )
+          : colSpan?.[breakpointName]
+      value = getValidBreakpointValue(colSpanValue, otherProps[breakpointName])
     } else {
       value = getValidBreakpointValue(
         colSpan?.[breakpointName],

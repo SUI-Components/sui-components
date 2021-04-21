@@ -19,11 +19,11 @@ class SimpleCheckboxRadioForm extends Component {
     super()
     this.state = {category: []}
 
-    this.onChange = this.onChange.bind(this)
-    this.onSubmit = this.onSubmit.bind(this)
+    this.handleOnChange = this.handleOnChange.bind(this)
+    this.handleOnSubmit = this.handleOnSubmit.bind(this)
   }
 
-  onChange({value, field}) {
+  handleOnChange({value, field}) {
     const values = this.state[field]
 
     this.setState({
@@ -33,7 +33,7 @@ class SimpleCheckboxRadioForm extends Component {
     })
   }
 
-  onSubmit(ev) {
+  handleOnSubmit(ev) {
     ev.preventDefault()
     ev.stopPropagation()
 
@@ -51,14 +51,15 @@ class SimpleCheckboxRadioForm extends Component {
   }
 
   render() {
+    const {handleOnChange, handleOnSubmit} = this
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={handleOnSubmit}>
         <MoleculeButtonGroup>
           <AtomButton
             isButton
             design="solid"
             focused={this.isCategorySelected('square')}
-            onClick={() => this.onChange({value: 'square', field: 'category'})}
+            onClick={() => handleOnChange({value: 'square', field: 'category'})}
             leftIcon={<IconSquare />}
           />
           <AtomButton
@@ -66,7 +67,7 @@ class SimpleCheckboxRadioForm extends Component {
             design="solid"
             focused={this.isCategorySelected('triangle')}
             onClick={() =>
-              this.onChange({value: 'triangle', field: 'category'})
+              handleOnChange({value: 'triangle', field: 'category'})
             }
             leftIcon={<IconTriangle />}
           />
@@ -74,28 +75,30 @@ class SimpleCheckboxRadioForm extends Component {
             isButton
             design="solid"
             focused={this.isCategorySelected('ellipse')}
-            onClick={() => this.onChange({value: 'ellipse', field: 'category'})}
+            onClick={() =>
+              handleOnChange({value: 'ellipse', field: 'category'})
+            }
             leftIcon={<IconEllipse />}
           />
           <AtomButton
             isButton
             design="solid"
             focused={this.isCategorySelected('star')}
-            onClick={() => this.onChange({value: 'star', field: 'category'})}
+            onClick={() => handleOnChange({value: 'star', field: 'category'})}
             leftIcon={<IconStar />}
           />
           <AtomButton
             isButton
             design="solid"
             focused={this.isCategorySelected('minus')}
-            onClick={() => this.onChange({value: 'minus', field: 'category'})}
+            onClick={() => handleOnChange({value: 'minus', field: 'category'})}
             leftIcon={<IconMinus />}
           />
           <AtomButton
             isButton
             design="solid"
             focused={this.isCategorySelected('circle')}
-            onClick={() => this.onChange({value: 'circle', field: 'category'})}
+            onClick={() => handleOnChange({value: 'circle', field: 'category'})}
             leftIcon={<IconCircle />}
           />
         </MoleculeButtonGroup>

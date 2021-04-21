@@ -23,6 +23,7 @@ const Demo = () => {
   const setInnerRef = ref => innerRef => {
     ref.current = innerRef
   }
+  const log = msg => () => console.log(msg) // eslint-disable-line
 
   return (
     <div className="sui-StudioPreview">
@@ -316,7 +317,7 @@ const Demo = () => {
                 fontSize: '30px'
               }}
               title="This menu display some cool options"
-              onClick={() => console.log('👍  action triggered')}
+              onClick={log('👍  action triggered')}
             >
               <img height="30" src={iconMenuHamburguer} alt="" />
             </button>

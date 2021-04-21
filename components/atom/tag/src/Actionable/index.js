@@ -21,13 +21,14 @@ const ActionableTag = function({
   target,
   rel,
   linkFactory,
-  className
+  className,
+  value = null
 }) {
   return (
     <ActionableTagContainer
       className={getClassNames({className})}
       Link={linkFactory}
-      onClick={ev => onClick(ev)}
+      onClick={ev => onClick(ev, {value, label})}
       href={href}
       target={target}
       rel={rel}
@@ -54,7 +55,8 @@ ActionableTag.propTypes = {
   onClick: PropTypes.func,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   rel: PropTypes.arrayOf(PropTypes.oneOf(Object.values(LINK_TYPES))),
-  linkFactory: PropTypes.func
+  linkFactory: PropTypes.func,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 ActionableTag.defaultProps = {

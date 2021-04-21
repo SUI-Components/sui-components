@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import PropTypes from 'prop-types'
 import {
   Children,
@@ -262,12 +260,12 @@ MoleculeModal.propTypes = {
   /**
    * Define the modal hash, for url update / read
    */
-  hash: PropTypes.string,
+  hash: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
   /**
    * The function that manages when the modal open. It'll be executed for open
    * MoleculeModalWithUrlState on pop state changes
    */
-  openModalTrigger: PropTypes.func
+  openModalTrigger: PropTypes.func // eslint-disable-line react/no-unused-prop-types
 }
 
 MoleculeModal.displayName = 'MoleculeModal'

@@ -184,6 +184,22 @@ const Demo = () => {
             disabled
           />
         </div>
+        <div className={CLASS_DEMO_SECTION}>
+          <h4>with allowDuplicates = false </h4>
+          <MoleculeInputTagsWithState
+            name="inputTagsBeatles1"
+            tagsCloseIcon={<CloseIcon />}
+            onChangeTags={(_, {tags, name}) => {
+              console.log({[`onChangeTags___${name}`]: tags})
+            }}
+            maxTags={5}
+            tags={beatles}
+            value="George Martin"
+            placeHolderText="Placeholder text"
+            innerRefInput={basicInputEl}
+            allowDuplicates={false}
+          />
+        </div>
       </div>
     </div>
   )

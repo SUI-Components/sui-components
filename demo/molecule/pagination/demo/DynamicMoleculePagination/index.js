@@ -10,7 +10,7 @@ class DynamicMoleculePagination extends Component {
     page: this.props.page // eslint-disable-line
   }
 
-  updatePage = (e, {page}) => {
+  handlePageUpdate = (e, {page}) => {
     console.log({e, page}) // eslint-disable-line
     this.setState({page}, () => {
       console.log(this.state) // eslint-disable-line
@@ -19,15 +19,16 @@ class DynamicMoleculePagination extends Component {
 
   render() {
     const {page} = this.state
+    const {handlePageUpdate} = this
     return (
       <div>
         <MoleculePagination
           {...Icons}
           {...this.props}
           page={page}
-          onSelectNext={this.updatePage}
-          onSelectPrev={this.updatePage}
-          onSelectPage={this.updatePage}
+          onSelectNext={handlePageUpdate}
+          onSelectPrev={handlePageUpdate}
+          onSelectPage={handlePageUpdate}
         />
         <pre>{JSON.stringify({...this.props, ...this.state}, null, 2)}</pre>
       </div>

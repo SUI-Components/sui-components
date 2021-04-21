@@ -13,7 +13,7 @@ const stylesSection = {
 }
 
 const consoleValue = (e, {value}) => {
-  console.log({value})
+  console.log({value}) // eslint-disable-line
 }
 
 const minValueHelpText = 'Minimum Value'
@@ -35,7 +35,7 @@ const Demo = () => {
   const consoleValueLoading = (e, {value}) => {
     setIsLoading(true)
     setTimeout(() => {
-      console.log({value})
+      console.log({value}) // eslint-disable-line
       setIsLoading(false)
     }, 1000)
   }

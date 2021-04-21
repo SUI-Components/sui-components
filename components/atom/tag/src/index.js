@@ -93,7 +93,11 @@ AtomTag.propTypes = {
   /**
    * Design style of button: 'solid' (default), 'outline', 'flat', 'link'
    */
-  design: PropTypes.oneOf(Object.values(DESIGNS))
+  design: PropTypes.oneOf(Object.values(DESIGNS)),
+  /**
+   * Value of the tag to be returned on actionable tags
+   */
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 AtomTag.defaultProps = {

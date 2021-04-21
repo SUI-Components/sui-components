@@ -18,6 +18,11 @@ const AtomTagItem = ({onClose = () => {}, id, ...restProps}) => {
   return <AtomTag onClose={handleClose} {...restProps} />
 }
 
+const isDuplicate = (values, newValue) => {
+  const upperTags = values.map(val => val.toUpperCase())
+  return upperTags.includes(newValue.toUpperCase())
+}
+
 const MoleculeInputTags = ({
   errorState,
   innerRefInput,
@@ -31,6 +36,7 @@ const MoleculeInputTags = ({
   maxTags,
   placeholder,
   disabled,
+  allowDuplicates,
   ...restProps
 }) => {
   const [focus, setFocus] = useState(false)
@@ -63,7 +69,10 @@ const MoleculeInputTags = ({
     const {name} = ev.target
     ev.preventDefault()
     if (value) {
-      const tags = [...tagsFromProps, value]
+      const tags = [...tagsFromProps]
+      if (allowDuplicates || !isDuplicate(tags, value)) {
+        tags.push(value)
+      }
       onChangeTags(ev, {tags, name, value: ''})
     }
   }
@@ -143,7 +152,10 @@ MoleculeInputTags.propTypes = {
   maxTags: PropTypes.number,
 
   /* prop to indicate that the field is disable (will not render the input) */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+
+  /* prop to determinate if the field allows to introduce duplicate values for the tags (case insensitive) */
+  allowDuplicates: PropTypes.bool
 }
 
 MoleculeInputTags.defaultProps = {
@@ -153,7 +165,8 @@ MoleculeInputTags.defaultProps = {
   onChangeTags: () => {},
   onChange: () => {},
   placeholder: '',
-  disabled: false
+  disabled: false,
+  allowDuplicates: true
 }
 
 export default MoleculeInputTags

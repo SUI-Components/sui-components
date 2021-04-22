@@ -46,17 +46,32 @@ describe('atom/card', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
-  it.skip('example', () => {
-    // Example TO BE DELETED!!!!
+  it('should have link class when having onClick', () => {
+    const props = {
+      onClick: () => console.log('Hello!'),
+      content: () => <span>card with click</span>
+    }
+    const {getByRole} = setup(props)
+    const card = getByRole('button')
+    expect(card).to.have.class('sui-AtomCard-link')
+  })
 
-    // Given
-    // const props = {}
+  it('should have link class when having href', () => {
+    const props = {
+      href: 'http://www.google.com',
+      content: () => <span>card with click</span>
+    }
+    const {getByRole} = setup(props)
+    const card = getByRole('button')
+    expect(card).to.have.class('sui-AtomCard-link')
+  })
 
-    // When
-    // const {getByRole} = setup(props)
-
-    // Then
-    // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(false)
+  it('should NOT have link class when not having href or onClick', () => {
+    const props = {
+      content: () => <span>card with click</span>
+    }
+    const {getByRole} = setup(props)
+    const card = getByRole('button')
+    expect(card).to.have.not.class('sui-AtomCard-link')
   })
 })

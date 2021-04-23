@@ -9,15 +9,25 @@ const ActionableTagContainer = ({
   href,
   target,
   rel,
+  disabled,
   children,
   ...props
 }) => {
-  return href ? (
-    <Link href={href} target={target} rel={rel} {...props}>
+  return href && !disabled ? (
+    <Link
+      role="button"
+      href={href}
+      target={target}
+      rel={rel}
+      disabled={disabled}
+      {...props}
+    >
       {children}
     </Link>
   ) : (
-    <span {...props}>{children}</span>
+    <span role="button" {...props} disabled={disabled}>
+      {children}
+    </span>
   )
 }
 
@@ -26,6 +36,7 @@ ActionableTagContainer.propTypes = {
   href: PropTypes.string,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   rel: PropTypes.arrayOf(PropTypes.oneOf(Object.values(LINK_TYPES))),
+  disabled: PropTypes.bool,
   children: PropTypes.node.isRequired
 }
 

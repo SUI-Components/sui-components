@@ -6,8 +6,12 @@ import {LINK_TYPES} from '../constants'
 const RIGHT_ICON_PLACEMENT = 'right'
 const LEFT_ICON_PLACEMENT = 'left'
 
-const getClassNames = function({className}) {
-  return cx('sui-AtomTag-actionable', className)
+const getClassNames = function({className, disabled}) {
+  return cx(
+    'sui-AtomTag-actionable',
+    disabled && 'sui-AtomTag--disabled',
+    className
+  )
 }
 
 const getLinkTypesString = types => types && types.join(' ')
@@ -22,16 +26,23 @@ const ActionableTag = function({
   rel,
   linkFactory,
   className,
+  disabled,
   value = null
 }) {
   return (
     <ActionableTagContainer
-      className={getClassNames({className})}
+      className={getClassNames({className, disabled})}
       Link={linkFactory}
-      onClick={ev => onClick(ev, {value, label})}
+      onClick={ev => {
+        if (disabled) {
+          return
+        }
+        onClick(ev, {value, label})
+      }}
       href={href}
       target={target}
       rel={rel}
+      disabled={disabled}
     >
       {icon && iconPlacement === LEFT_ICON_PLACEMENT && (
         <span className="sui-AtomTag-icon">{icon}</span>
@@ -48,6 +59,7 @@ const ActionableTag = function({
 
 ActionableTag.propTypes = {
   className: PropTypes.string,
+  disabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
   icon: PropTypes.node,
   href: PropTypes.string,
@@ -61,12 +73,18 @@ ActionableTag.propTypes = {
 
 ActionableTag.defaultProps = {
   // eslint-disable-next-line react/prop-types
-  linkFactory: ({href, target, rel, className, children} = {}) => {
+  linkFactory: ({href, target, rel, className, role, children} = {}) => {
     const optionalProps = {
       ...(rel && {rel: getLinkTypesString(rel)})
     }
     return (
-      <a href={href} target={target} className={className} {...optionalProps}>
+      <a
+        href={href}
+        target={target}
+        className={className}
+        role={role}
+        {...optionalProps}
+      >
         {children}
       </a>
     )

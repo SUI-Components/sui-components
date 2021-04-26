@@ -9,6 +9,8 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import sinon from 'sinon'
+import userEvents from '@testing-library/user-event'
 
 chai.use(chaiDOM)
 
@@ -45,17 +47,16 @@ describe('atom/tag', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
-  it.skip('example', () => {
-    // Example TO BE DELETED!!!!
+  it('should not trigger click when disabled', () => {
+    const spy = sinon.spy()
+    const {getByRole} = setup({
+      disabled: true,
+      onClick: spy,
+      label: 'Actionable'
+    })
 
-    // Given
-    // const props = {}
-
-    // When
-    // const {getByRole} = setup(props)
-
-    // Then
-    // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(false)
+    const tag = getByRole('button', {name: /actionable/i})
+    userEvents.click(tag)
+    sinon.assert.notCalled(spy)
   })
 })

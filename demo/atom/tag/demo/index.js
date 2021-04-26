@@ -104,6 +104,7 @@ export default () => (
                   icon={icon}
                   label="Icon & Close Tag"
                   size={size}
+                  disabled
                 />
               </Cell>
             </Fragment>
@@ -212,6 +213,39 @@ export default () => (
         iconPlacement="left"
         label="Icon placement left"
         target="_blank"
+      />
+      <Paragraph>–––––</Paragraph>
+      <Paragraph>
+        With <Code>disabled</Code> prop.
+      </Paragraph>
+      <AtomTag
+        design={atomTagDesigns.OUTLINE}
+        label="Navigation Tag"
+        onClick={() => window.alert('click!')}
+        disabled
+      />
+      <AtomTag
+        design={atomTagDesigns.OUTLINE}
+        href="https://sui-components.now.sh/"
+        label="Anchor Tag"
+        target="_blank"
+        disabled
+      />
+      <AtomTag
+        href="https://sui-components.now.sh/"
+        icon={icon}
+        iconPlacement="right"
+        label="Icon placement right"
+        target="_blank"
+        disabled
+      />
+      <AtomTag
+        href="https://sui-components.now.sh/"
+        icon={icon}
+        iconPlacement="left"
+        label="Icon placement left"
+        target="_blank"
+        disabled
       />
       <Paragraph>–––––</Paragraph>
       <H2>With Value prop</H2>

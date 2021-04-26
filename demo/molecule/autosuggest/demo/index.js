@@ -120,7 +120,6 @@ const Demo = () => (
           onEnter={() => console.log('Enter pressed')}
           onClear={() => console.log('Clear pressed')}
           state={MoleculeAutosuggestStates.SUCCESS}
-          onClear={() => console.log('Clear pressed')}
           iconClear={<IconClose />}
         />
       </div>
@@ -133,7 +132,6 @@ const Demo = () => (
           onEnter={() => console.log('Enter pressed')}
           onClear={() => console.log('Clear pressed')}
           state={MoleculeAutosuggestStates.ERROR}
-          onClear={() => console.log('Clear pressed')}
           iconClear={<IconClose />}
         />
       </div>

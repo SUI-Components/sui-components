@@ -258,7 +258,7 @@ export default () => (
           label="With Value"
           value="test"
           onClick={(_, {value}) => {
-            console.log('This is my value', value)
+            console.log('This is my value', value) // eslint-disable-line
           }}
         />
       </div>

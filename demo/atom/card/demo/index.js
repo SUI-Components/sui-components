@@ -24,6 +24,7 @@ const DefaultDemo = () => {
   const [content, setContent] = useState(true)
   const [HREF, setHREF] = useState(false)
   const [vertical, setVertical] = useState(false)
+  const [actionable, setActionable] = useState(false)
   const [highlight, setHighlight] = useState(false)
   return (
     <Article>
@@ -55,7 +56,11 @@ const DefaultDemo = () => {
         Card can give a vertical orientation of elements under the{' '}
         <Code>vertical</Code> boolean prop.
       </Paragraph>
-      <Grid cols={5} gutter={[8, 8]}>
+      <Paragraph>
+        Card can be actionable and trigger an event clicking on it under{' '}
+        <Code>onClick</Code> prop.
+      </Paragraph>
+      <Grid cols={6} gutter={[8, 8]}>
         <Cell>
           <Label>Media</Label>
         </Cell>
@@ -70,6 +75,9 @@ const DefaultDemo = () => {
         </Cell>
         <Cell>
           <Label>Vertical</Label>
+        </Cell>
+        <Cell>
+          <Label>Actionable</Label>
         </Cell>
         <Cell>
           <RadioButton
@@ -116,6 +124,16 @@ const DefaultDemo = () => {
             onClick={(target, value) => setVertical(value === 'vertical')}
           />
         </Cell>
+
+        <Cell>
+          <RadioButton
+            label={actionable ? 'true' : 'false'}
+            value="actionable"
+            checked={actionable}
+            fullWidth
+            onClick={(target, value) => setActionable(value === 'actionable')}
+          />
+        </Cell>
       </Grid>
       <br />
       <AtomCard
@@ -141,6 +159,7 @@ const DefaultDemo = () => {
         vertical={vertical}
         href={HREF && 'http://www.google.com'}
         highlight={highlight}
+        onClick={actionable ? () => alert('Hello!') : undefined}
       />
     </Article>
   )

@@ -47,7 +47,7 @@ const options = [
 const Demo = () => (
   <div className="sui-StudioPreview">
     <div className="sui-StudioPreview-content sui-StudioDemo-preview">
-      <h1>Autosuggest</h1>
+      {/* <h1>Autosuggest</h1>
       <p>
         El componente <code>Autosuggest</code> solo se usará cuando se pueda
         escribir en el <code>input</code> (lo que generará una búsqueda en las
@@ -227,6 +227,29 @@ const Demo = () => (
           tags={['Mola']}
         >
           {options.map(({id, name}) => (
+            <MoleculeAutosuggestOption id={id} key={id} value={name}>
+              {name}
+            </MoleculeAutosuggestOption>
+          ))}
+        </MoleculeAutosuggestWithStateTagsLabels>
+      </div> */}
+
+      <h2>Autosuggest with array objects</h2>
+      <div className={CLASS_DEMO_SECTION} style={{paddingBottom: '200px'}}>
+        <MoleculeAutosuggestWithStateTagsLabels
+          autoClose={false}
+          iconClear={<IconClose />}
+          label="Etiquetas"
+          multiselection
+          onChange={() => console.log('onChange')}
+          onChangeTags={() => console.log('onChangeTags')}
+          onClear={() => console.log('Clear pressed')}
+          onEnter={() => console.log('onEnter')}
+          onSelect={() => console.log('onSelect')}
+          placeholder="Selecciona las etiquetas a asignar al contacto"
+          tags={[{key: 1, value: 'mola'}]}
+        >
+          {[].map(({id, name}) => (
             <MoleculeAutosuggestOption id={id} key={id} value={name}>
               {name}
             </MoleculeAutosuggestOption>

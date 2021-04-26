@@ -8,7 +8,7 @@ import MoleculeInputTags, {
 
 import {withStateValueTags} from '@s-ui/hoc'
 import {CloseIcon} from './icons'
-import {beatles, ledZeppelin, queen} from './data'
+import {beatles, ledZeppelin, queen, beatlesArrayObject} from './data'
 
 const BASE_CLASS_DEMO = 'DemoMoleculeInputTags'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
@@ -195,6 +195,22 @@ const Demo = () => {
             maxTags={5}
             tags={beatles}
             value="George Martin"
+            placeHolderText="Placeholder text"
+            innerRefInput={basicInputEl}
+            allowDuplicates={false}
+          />
+        </div>
+
+        <div className={CLASS_DEMO_SECTION}>
+          <h4>with allowDuplicates = false and array of object </h4>
+          <MoleculeInputTagsWithState
+            name="inputTagsBeatlesArrayObject"
+            tagsCloseIcon={<CloseIcon />}
+            onChangeTags={(_, {tags, name}) => {
+              console.log({[`onChangeTags___${name}`]: tags})
+            }}
+            tags={beatlesArrayObject}
+            value=""
             placeHolderText="Placeholder text"
             innerRefInput={basicInputEl}
             allowDuplicates={false}

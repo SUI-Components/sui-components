@@ -54,7 +54,7 @@ describe('molecule/radioButtonField', () => {
         expect(container).to.be.not.undefined
       })
 
-      it('should render the component if there is label', async () => {
+      it('should render the component if there is label', () => {
         // Given
         const props = {
           label: 'label'
@@ -71,7 +71,7 @@ describe('molecule/radioButtonField', () => {
         expect(labelElement.classList.contains('sui-AtomLabel')).to.be.true
       })
 
-      it('should render the component if there is nodeLabel', async () => {
+      it('should render the component if there is nodeLabel', () => {
         // Given
         const text = 'nodeLabel'
         const props = {
@@ -93,7 +93,7 @@ describe('molecule/radioButtonField', () => {
         expect(labelElement.classList.contains('testNodeLabel')).to.be.true
       })
 
-      it('should render the component with label value if there is label and nodeLabel props', async () => {
+      it('should render the component with label value if there is label and nodeLabel props', () => {
         // Given
         const text = 'label'
         const props = {

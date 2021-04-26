@@ -1,4 +1,7 @@
 export const PLACEMENTS = {
+  AUTO: 'auto',
+  AUTO_START: 'auto-start',
+  AUTO_END: 'auto-end',
   TOP: 'top',
   TOP_START: 'top-start',
   TOP_END: 'top-end',
@@ -11,4 +14,12 @@ export const PLACEMENTS = {
   LEFT: 'left',
   LEFT_START: 'left-start',
   LEFT_END: 'left-end'
+}
+
+export const TRIGGERS = {
+  CLICK: 'click',
+  FOCUS: 'focus',
+  HOVER: 'hover',
+  LEGACY: 'legacy',
+  MANUAL: 'manual'
 }

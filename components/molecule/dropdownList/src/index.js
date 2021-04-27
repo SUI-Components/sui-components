@@ -30,9 +30,16 @@ const MoleculeDropdownList = ({
     .filter(Boolean)
     .map((child, index) => {
       const {value: valueChild} = child.props
-      const selected = Array.isArray(value)
-        ? value.includes(valueChild)
-        : value === valueChild
+      let selected = false
+      if (Array.isArray(value)) {
+        selected = value
+          .map(innerValue =>
+            typeof innerValue === 'object' ? innerValue.label : innerValue
+          )
+          .includes(valueChild)
+      } else {
+        value === valueChild
+      }
       return cloneElement(child, {
         ...props,
         index,

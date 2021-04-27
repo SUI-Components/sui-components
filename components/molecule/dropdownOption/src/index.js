@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import {highlightText} from '@s-ui/js/lib/string'
 import AtomCheckbox from '@s-ui/react-atom-checkbox'
-
 import handlersFactory from './handlersFactory'
-
 const BASE_CLASS = 'sui-MoleculeDropdownOption'
 const CLASS_CHECKBOX = `${BASE_CLASS}-checkbox`
 const MODIFIER_TWO_LINES = `twoLines`
@@ -16,14 +14,12 @@ const CLASS_TEXT = `${BASE_CLASS}-text`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 const CLASS_HIGHLIGHTED = `is-highlighted`
 const CLASS_HIGHLIGHTED_MARK = `${BASE_CLASS}-mark`
-
 const TEXT_WRAP_STYLES = {
   NO_WRAP: 'noWrap',
   TWO_LINES: 'twoLines',
   THREE_LINES: 'threeLines',
   LINE_WRAP: 'lineWrap'
 }
-
 const MoleculeDropdownOption = ({
   children,
   selected,
@@ -35,14 +31,14 @@ const MoleculeDropdownOption = ({
   innerRef,
   value,
   withTwoLinesText,
-  textWrap
+  textWrap,
+  id
 }) => {
   const className = cx(BASE_CLASS, {
     [CLASS_CHECKBOX]: checkbox,
     [CLASS_DISABLED]: disabled,
     'is-selected': selected
   })
-
   const innerClassName = cx([
     CLASS_TEXT,
     (withTwoLinesText || textWrap === TEXT_WRAP_STYLES.TWO_LINES) &&
@@ -55,14 +51,13 @@ const MoleculeDropdownOption = ({
       textWrap === TEXT_WRAP_STYLES.NO_WRAP) &&
       `${CLASS_TEXT}--${MODIFIER_NO_WRAP}`
   ])
-
   const {handleClick, handleKeyDown, handleFocus} = handlersFactory({
     disabled,
     value,
     onSelectKey,
-    onSelect
+    onSelect,
+    id
   })
-
   const renderHighlightOption = option => {
     if (typeof option !== 'string') {
       return (
@@ -71,7 +66,6 @@ const MoleculeDropdownOption = ({
         </span>
       )
     }
-
     const mark = highlightText({
       value: option,
       query: highlightQuery,
@@ -81,7 +75,6 @@ const MoleculeDropdownOption = ({
       )}">`,
       endTag: '</mark>'
     })
-
     return (
       <span
         onFocus={handleInnerFocus}
@@ -90,12 +83,10 @@ const MoleculeDropdownOption = ({
       />
     )
   }
-
   const handleInnerFocus = ev => {
     ev.preventDefault()
     innerRef.current.focus()
   }
-
   return (
     <li
       ref={innerRef}
@@ -122,44 +113,33 @@ const MoleculeDropdownOption = ({
     </li>
   )
 }
-
 MoleculeDropdownOption.displayName = 'MoleculeDropdownOption'
-
 MoleculeDropdownOption.propTypes = {
   /** option value */
   value: PropTypes.string.isRequired,
-
   /** Content to be included in the option */
   children: PropTypes.node,
-
   /** Contains checkbox */
   checkbox: PropTypes.bool,
-
   /** Is disabled */
   disabled: PropTypes.bool,
-
   /** onSelect callback (ev, {value}) */
   onSelect: PropTypes.func,
-
   /** Is initial selected */
   selected: PropTypes.bool,
-
   /** Text to be highlighted in the option text if found */
   highlightQuery: PropTypes.string,
-
   /* key to provoke the onClick callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values */
   onSelectKey: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-
   /** Custom ref handler that will be assigned to the "target" element */
   innerRef: PropTypes.object,
-
   /** Text with css clamp = 2 */
   withTwoLinesText: PropTypes.bool,
-
   /** Text wrapping options */
-  textWrap: PropTypes.oneOf(Object.values(TEXT_WRAP_STYLES))
+  textWrap: PropTypes.oneOf(Object.values(TEXT_WRAP_STYLES)),
+  /** option id */
+  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 }
-
 MoleculeDropdownOption.defaultProps = {
   checkbox: false,
   disabled: false,
@@ -168,7 +148,6 @@ MoleculeDropdownOption.defaultProps = {
   onSelectKey: 'Enter',
   innerRef: createRef()
 }
-
 export default MoleculeDropdownOption
 export {handlersFactory}
 export {TEXT_WRAP_STYLES as MoleculeDropdownOptionTextWrapStyles}

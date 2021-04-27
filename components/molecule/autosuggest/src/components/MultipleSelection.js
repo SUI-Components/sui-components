@@ -15,6 +15,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   iconClear,
   iconCloseTag = <span />,
   id,
+  allowDuplicates,
   innerRefInput,
   inputMode,
   isOpen,
@@ -31,23 +32,26 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   tabIndex,
   tags = [],
   type,
-  value = '',
-  allowDuplicates
+  value = ''
 }) => {
   const MoleculeInputTagsRef = useRef()
 
-  const handleMultiSelection = (ev, {value}) => {
-    debugger
+  const handleMultiSelection = (ev, {id, value}) => {
+    let newTags = [...tags]
+    const existsTag = tags.some(tagValue =>
+      typeof tagValue === 'object'
+        ? tagValue.label === value
+        : tagValue === value
+    )
 
-    const newTags = tags
-      .map(tagValue =>
-        typeof tagValue === 'object' ? tagValue.label : tagValue
+    if (existsTag) {
+      // delete
+      newTags = tags.filter(tag =>
+        typeof tag === 'object' ? tag.label !== value : tag !== value
       )
-      .includes(value)
-      ? tags.filter(tag =>
-          typeof tag === 'object' ? tag.label !== value : tag !== value
-        ) // delete
-      : [...tags, value] // add
+    } else {
+      newTags.push(id === undefined ? value : {key: id, label: value})
+    }
 
     onChangeTags(ev, {
       value: '',

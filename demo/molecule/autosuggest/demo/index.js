@@ -38,11 +38,11 @@ const BASE_CLASS_DEMO = 'DemoMoleculeAutosuggest'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
 
 const options = [
-  {id: 'C10', name: 'Reservado'},
-  {id: 'C20', name: 'Llamar'},
-  {id: 'C30', name: 'No se Rick'},
-  {id: 'C40', name: 'Comisión'},
-  {id: '100', name: 'Mola'}
+  {key: 'C10', label: 'Reservado'},
+  {key: 'C20', label: 'Llamar'},
+  {key: 'C30', label: 'No se Rick'},
+  {key: 'C40', label: 'Comisión'},
+  {key: '100', label: 'Mola'}
 ]
 
 const Demo = () => {
@@ -51,172 +51,176 @@ const Demo = () => {
   return (
     <div className="sui-StudioPreview">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
-        {/*<h1>Autosuggest</h1>*/}
-        {/*<p>*/}
-        {/*  El componente <code>Autosuggest</code> solo se usará cuando se pueda*/}
-        {/*  escribir en el <code>input</code> (lo que generará una búsqueda en las*/}
-        {/*  opciones del <code>DropdownList</code>)*/}
-        {/*</p>*/}
-        {/*<p>*/}
-        {/*  En esta demo sólo se utiliza el tamaño por defecto del{' '}*/}
-        {/*  <code>DropdownList</code> y las opciones básicas del{' '}*/}
-        {/*  <code>DropdownOption</code>. Recuerda que en dichos componentes*/}
-        {/*  existen más posibilidades si son necesarias*/}
-        {/*</p>*/}
-        {/*<h2>Single Selection</h2>*/}
-        {/*<div className={CLASS_DEMO_SECTION}>*/}
-        {/*  <h3>with Placeholder</h3>*/}
-        {/*  <MoleculeAutosuggestWithState*/}
-        {/*    leftIcon={<IconSearch />}*/}
-        {/*    placeholder="Type a Country name..."*/}
-        {/*    onChange={(_, {value}) => console.log(value)}*/}
-        {/*    onEnter={() => console.log('Enter pressed')}*/}
-        {/*    onClear={() => console.log('Clear pressed')}*/}
-        {/*    iconClear={<IconClose />}*/}
-        {/*  />*/}
-        {/*</div>*/}
+        <h1>Autosuggest</h1>
+        <p>
+          El componente <code>Autosuggest</code> solo se usará cuando se pueda
+          escribir en el <code>input</code> (lo que generará una búsqueda en las
+          opciones del <code>DropdownList</code>)
+        </p>
+        <p>
+          En esta demo sólo se utiliza el tamaño por defecto del
+          <code>DropdownList</code> y las opciones básicas del
+          <code>DropdownOption</code>. Recuerda que en dichos componentes
+          existen más posibilidades si son necesarias
+        </p>
+        <h2>Single Selection</h2>
 
-        {/*<div className={CLASS_DEMO_SECTION}>*/}
-        {/*  <h3>with preselected Value</h3>*/}
-        {/*  <MoleculeAutosuggestWithState*/}
-        {/*    value="Luxembourg"*/}
-        {/*    onChange={(_, {value}) => console.log(value)}*/}
-        {/*    onClear={() => console.log('Clear pressed')}*/}
-        {/*    iconClear={<IconClose />}*/}
-        {/*  />*/}
-        {/*</div>*/}
+        <div className={CLASS_DEMO_SECTION}>
+          <h3>with Placeholder</h3>
+          <MoleculeAutosuggestWithState
+            leftIcon={<IconSearch />}
+            placeholder="Type a Country name..."
+            onChange={(_, {value}) => console.log(value)}
+            onEnter={() => console.log('Enter pressed')}
+            onClear={() => console.log('Clear pressed')}
+            iconClear={<IconClose />}
+          />
+        </div>
 
-        {/*<div className={CLASS_DEMO_SECTION}>*/}
-        {/*  <h3>disabled</h3>*/}
-        {/*  <MoleculeAutosuggestWithState*/}
-        {/*    value="Luxembourg"*/}
-        {/*    onChange={(_, {value}) => console.log(value)}*/}
-        {/*    onClear={() => console.log('Clear pressed')}*/}
-        {/*    iconClear={<IconClose />}*/}
-        {/*    disabled*/}
-        {/*  />*/}
-        {/*</div>*/}
+        <div className={CLASS_DEMO_SECTION}>
+          <h3>with preselected Value</h3>
+          <MoleculeAutosuggestWithState
+            value="Luxembourg"
+            onChange={(_, {value}) => console.log(value)}
+            onClear={() => console.log('Clear pressed')}
+            iconClear={<IconClose />}
+          />
+        </div>
 
-        {/*<div className={CLASS_DEMO_SECTION}>*/}
-        {/*  <h3>Whit autocomplete "off"</h3>*/}
-        {/*  <MoleculeAutosuggestWithState*/}
-        {/*    value="Luxembourg"*/}
-        {/*    onChange={(_, {value}) => console.log(value)}*/}
-        {/*    onClear={() => console.log('Clear pressed')}*/}
-        {/*    iconClear={<IconClose />}*/}
-        {/*    autoComplete="off"*/}
-        {/*  />*/}
-        {/*</div>*/}
+        <div className={CLASS_DEMO_SECTION}>
+          <h3>disabled</h3>
+          <MoleculeAutosuggestWithState
+            value="Luxembourg"
+            onChange={(_, {value}) => console.log(value)}
+            onClear={() => console.log('Clear pressed')}
+            iconClear={<IconClose />}
+            disabled
+          />
+        </div>
 
-        {/*<div className={CLASS_DEMO_SECTION}>*/}
-        {/*  <h3>With no clear icon</h3>*/}
-        {/*  <MoleculeAutosuggestWithState*/}
-        {/*    value="Luxembourg"*/}
-        {/*    onChange={(_, {value}) => console.log(value)}*/}
-        {/*  />*/}
-        {/*</div>*/}
+        <div className={CLASS_DEMO_SECTION}>
+          <h3>Whit autocomplete "off"</h3>
+          <MoleculeAutosuggestWithState
+            value="Luxembourg"
+            onChange={(_, {value}) => console.log(value)}
+            onClear={() => console.log('Clear pressed')}
+            iconClear={<IconClose />}
+            autoComplete="off"
+          />
+        </div>
 
-        {/*<div className={CLASS_DEMO_SECTION}>*/}
-        {/*  <h3>with Success State</h3>*/}
-        {/*  <MoleculeAutosuggestWithState*/}
-        {/*    placeholder="Type a Country name..."*/}
-        {/*    onChange={(_, {value}) => console.log(value)}*/}
-        {/*    onEnter={() => console.log('Enter pressed')}*/}
-        {/*    onClear={() => console.log('Clear pressed')}*/}
-        {/*    state={MoleculeAutosuggestStates.SUCCESS}*/}
-        {/*    iconClear={<IconClose />}*/}
-        {/*  />*/}
-        {/*</div>*/}
+        <div className={CLASS_DEMO_SECTION}>
+          <h3>With no clear icon</h3>
+          <MoleculeAutosuggestWithState
+            value="Luxembourg"
+            onChange={(_, {value}) => console.log(value)}
+          />
+        </div>
 
-        {/*<div className={CLASS_DEMO_SECTION}>*/}
-        {/*  <h3>with Error State</h3>*/}
-        {/*  <MoleculeAutosuggestWithState*/}
-        {/*    placeholder="Type a Country name..."*/}
-        {/*    onChange={(_, {value}) => console.log(value)}*/}
-        {/*    onEnter={() => console.log('Enter pressed')}*/}
-        {/*    onClear={() => console.log('Clear pressed')}*/}
-        {/*    state={MoleculeAutosuggestStates.ERROR}*/}
-        {/*    iconClear={<IconClose />}*/}
-        {/*  />*/}
-        {/*</div>*/}
+        <div className={CLASS_DEMO_SECTION}>
+          <h3>with Success State</h3>
+          <MoleculeAutosuggestWithState
+            placeholder="Type a Country name..."
+            onChange={(_, {value}) => console.log(value)}
+            onEnter={() => console.log('Enter pressed')}
+            onClear={() => console.log('Clear pressed')}
+            state={MoleculeAutosuggestStates.SUCCESS}
+            iconClear={<IconClose />}
+          />
+        </div>
 
-        {/*<div className={CLASS_DEMO_SECTION}>*/}
-        {/*  <h3>with Alert State</h3>*/}
-        {/*  <MoleculeAutosuggestWithState*/}
-        {/*    placeholder="Type a Country name..."*/}
-        {/*    onChange={(_, {value}) => console.log(value)}*/}
-        {/*    onEnter={() => console.log('Enter pressed')}*/}
-        {/*    state={MoleculeAutosuggestStates.ALERT}*/}
-        {/*    onClear={() => console.log('Clear pressed')}*/}
-        {/*    iconClear={<IconClose />}*/}
-        {/*  />*/}
-        {/*</div>*/}
+        <div className={CLASS_DEMO_SECTION}>
+          <h3>with Error State</h3>
+          <MoleculeAutosuggestWithState
+            placeholder="Type a Country name..."
+            onChange={(_, {value}) => console.log(value)}
+            onEnter={() => console.log('Enter pressed')}
+            onClear={() => console.log('Clear pressed')}
+            state={MoleculeAutosuggestStates.ERROR}
+            iconClear={<IconClose />}
+          />
+        </div>
 
-        {/*<div className={CLASS_DEMO_SECTION}>*/}
-        {/*  <h3>with submit button</h3>*/}
-        {/*  <MoleculeAutosuggestWithState*/}
-        {/*    placeholder="Type a Country name..."*/}
-        {/*    onChange={(_, {value}) => console.log(value)}*/}
-        {/*    onEnter={() => console.log('Enter pressed')}*/}
-        {/*    rightButton={<SuiButton>Submit</SuiButton>}*/}
-        {/*  />*/}
-        {/*</div>*/}
+        <div className={CLASS_DEMO_SECTION}>
+          <h3>with Alert State</h3>
+          <MoleculeAutosuggestWithState
+            placeholder="Type a Country name..."
+            onChange={(_, {value}) => console.log(value)}
+            onEnter={() => console.log('Enter pressed')}
+            state={MoleculeAutosuggestStates.ALERT}
+            onClear={() => console.log('Clear pressed')}
+            iconClear={<IconClose />}
+          />
+        </div>
 
-        {/*<h2>Multiple Selection</h2>*/}
-        {/*<p>*/}
-        {/*  Este componente permite añadir nuevas opciones (como tags) aunque no*/}
-        {/*  esten disponibles entre las opciones disponibles del{' '}*/}
-        {/*  <code>DropdownList</code>*/}
-        {/*</p>*/}
-        {/*<div className={CLASS_DEMO_SECTION}>*/}
-        {/*  <h3>with Placeholder</h3>*/}
-        {/*  <MoleculeAutosuggestWithStateTags*/}
-        {/*    placeholder="Type a Country name..."*/}
-        {/*    onChangeTags={(_, {tags}) => console.log(tags)}*/}
-        {/*    onClear={() => console.log('Clear pressed')}*/}
-        {/*    iconCloseTag={<IconClose />}*/}
-        {/*    iconClear={<IconClose />}*/}
-        {/*    multiselection*/}
-        {/*  />*/}
-        {/*</div>*/}
+        <div className={CLASS_DEMO_SECTION}>
+          <h3>with submit button</h3>
+          <MoleculeAutosuggestWithState
+            placeholder="Type a Country name..."
+            onChange={(_, {value}) => console.log(value)}
+            onEnter={() => console.log('Enter pressed')}
+            rightButton={<SuiButton>Submit</SuiButton>}
+          />
+        </div>
 
-        {/*<div className={CLASS_DEMO_SECTION}>*/}
-        {/*  <h3>With preselected Value</h3>*/}
-        {/*  <MoleculeAutosuggestWithStateTags*/}
-        {/*    tags={['India', 'Luxembourg']}*/}
-        {/*    onChangeTags={(_, {tags}) => console.log(tags)}*/}
-        {/*    onClear={() => console.log('Clear pressed')}*/}
-        {/*    iconCloseTag={<IconClose />}*/}
-        {/*    iconClear={<IconClose />}*/}
-        {/*    multiselection*/}
-        {/*  />*/}
-        {/*</div>*/}
+        <h2>Multiple Selection</h2>
+        <p>
+          Este componente permite añadir nuevas opciones (como tags) aunque no
+          esten disponibles entre las opciones disponibles del
+          <code>DropdownList</code>
+        </p>
 
-        {/*<div className={CLASS_DEMO_SECTION}>*/}
-        {/*  <h3>Disabled</h3>*/}
-        {/*  <MoleculeAutosuggestWithStateTags*/}
-        {/*    tags={['India', 'Luxembourg']}*/}
-        {/*    onChangeTags={(_, {tags}) => console.log(tags)}*/}
-        {/*    onClear={() => console.log('Clear pressed')}*/}
-        {/*    iconCloseTag={<IconClose />}*/}
-        {/*    iconClear={<IconClose />}*/}
-        {/*    multiselection*/}
-        {/*    disabled*/}
-        {/*  />*/}
-        {/*</div>*/}
+        <div className={CLASS_DEMO_SECTION}>
+          <h3>with Placeholder</h3>
+          <MoleculeAutosuggestWithStateTags
+            placeholder="Type a Country name..."
+            onChangeTags={(_, {tags}) => console.log(tags)}
+            onClear={() => console.log('Clear pressed')}
+            iconCloseTag={<IconClose />}
+            iconClear={<IconClose />}
+            multiselection
+          />
+        </div>
 
-        {/*<h2>Dependant Selection</h2>*/}
-        {/*<div className={CLASS_DEMO_SECTION}>*/}
-        {/*  <h3>With Placeholder</h3>*/}
-        {/*  <ComboCountries />*/}
-        {/*</div>*/}
+        <div className={CLASS_DEMO_SECTION}>
+          <h3>With preselected Value</h3>
+          <MoleculeAutosuggestWithStateTags
+            tags={['India', 'Luxembourg']}
+            onChangeTags={(_, {tags}) => console.log(tags)}
+            onClear={() => console.log('Clear pressed')}
+            iconCloseTag={<IconClose />}
+            iconClear={<IconClose />}
+            multiselection
+          />
+        </div>
+
+        <div className={CLASS_DEMO_SECTION}>
+          <h3>Disabled</h3>
+          <MoleculeAutosuggestWithStateTags
+            tags={['India', 'Luxembourg']}
+            onChangeTags={(_, {tags}) => console.log(tags)}
+            onClear={() => console.log('Clear pressed')}
+            iconCloseTag={<IconClose />}
+            iconClear={<IconClose />}
+            multiselection
+            disabled
+          />
+        </div>
+
+        <h2>Dependant Selection</h2>
+        <div className={CLASS_DEMO_SECTION}>
+          <h3>With Placeholder</h3>
+          <ComboCountries />
+        </div>
 
         <h2>Autosugegst list is open</h2>
-        <div className={CLASS_DEMO_SECTION} style={{paddingBottom: '200px'}}>
+        <div className={CLASS_DEMO_SECTION}>
           <h3>With preselected Value</h3>
           <MoleculeAutosuggestWithStateTagsLabels
             iconClear={<IconClose />}
+            iconCloseTag={<IconClose />}
             label="Etiquetas"
+            isOpen
             multiselection
             onChange={() => console.log('onChange')}
             onChangeTags={() => console.log('onChangeTags')}
@@ -226,18 +230,24 @@ const Demo = () => {
             placeholder="Selecciona las etiquetas a asignar al contacto"
             tags={['Mola']}
           >
-            {options.map(({id, name}) => (
-              <MoleculeAutosuggestOption id={id} key={id} value={name}>
-                {name}
+            {options.map(({key, label}) => (
+              <MoleculeAutosuggestOption id={key} key={key} value={label}>
+                {label}
               </MoleculeAutosuggestOption>
             ))}
           </MoleculeAutosuggestWithStateTagsLabels>
         </div>
 
         <h2>Autosuggest with array objects</h2>
-        <div className={CLASS_DEMO_SECTION} style={{paddingBottom: '200px'}}>
+        <div className={CLASS_DEMO_SECTION}>
+          <p>
+            Esta implementación permite usar el Autosuggest con un array de
+            objetos JSON con las propiedades <code>key</code> y
+            <code>label</code>
+          </p>
           <MoleculeAutosuggestField
             iconClear={<IconClose />}
+            iconCloseTag={<IconClose />}
             label="Etiquetas"
             multiselection
             allowDuplicates={false}
@@ -247,19 +257,9 @@ const Demo = () => {
               setValue(value)
             }}
             onChangeTags={(_, {tags}) => {
-              let lastTag = tags[tags.length - 1]
-              if (typeof lastTag !== 'object') {
-                let key = options.find(({name}) => name === lastTag)?.id
-                if (key === undefined) {
-                  // new value
-                  key = -(tags.length - 1)
-                }
-                lastTag = {key, label: lastTag}
-              }
-              const nextTags = [...tags.slice(0, -1), lastTag]
-              setTags(nextTags)
+              setTags(tags)
               setValue('')
-              console.log('onChangeTags', nextTags)
+              console.log('onChangeTags', tags)
             }}
             onClear={() => {
               console.log('Clear pressed')
@@ -272,9 +272,9 @@ const Demo = () => {
             placeholder="Selecciona las etiquetas a asignar al contacto"
             tags={tags}
           >
-            {options.map(({id, name}, index) => (
-              <MoleculeAutosuggestOption id={id} key={index} value={name}>
-                {name}
+            {options.map(({key, label}, index) => (
+              <MoleculeAutosuggestOption id={key} key={key} value={label}>
+                {label}
               </MoleculeAutosuggestOption>
             ))}
           </MoleculeAutosuggestField>

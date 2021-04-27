@@ -47,7 +47,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
     if (existsTag) {
       // delete
       newTags = tags.filter(tag =>
-        typeof tag === 'object' ? tag.label !== value : tag !== value
+        typeof tag === 'object' ? tag.id !== id : tag !== value
       )
     } else {
       newTags.push(id === undefined ? value : {key: id, label: value})

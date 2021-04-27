@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-atom-tag",
-  "version": "2.21.0",
+  "version": "2.22.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

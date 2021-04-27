@@ -1,94 +1,59 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
-import {useState} from 'react'
-import Button from '@s-ui/react-atom-button'
-import MoleculeSelect from '@s-ui/react-molecule-select'
-import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
-import IconClose from '@s-ui/react-icons/lib/Close'
-import {IconArrowDown} from './Icons'
-import AtomPopover, {
-  atomPopoverPositions
-} from '../../../../components/atom/popover/src'
+import {forwardRef} from 'react'
 import './index.scss'
+import {H1, Paragraph, Anchor} from '@s-ui/documentation-library'
+import ArticleDefault from './ArticleDefault'
+import ArticlePosition from './ArticlePosition'
+import ArticleCloseIcon from './ArticleCloseIcon'
+import ArticleArrow from './ArticleArrow'
+import ArticleRef from './ArticleRef'
+import ArticleBehavior from './ArticleBehavior'
 
-const Demo = () => {
-  const [show, setShow] = useState(false)
-  const [closeIcon, setCloseIcon] = useState(true)
-  const [showArrow, setShowArrow] = useState(true)
-  const [disableNativeToggle, setDisableNativeToggle] = useState(false)
-  const [position, setPosition] = useState(atomPopoverPositions.BOTTOM)
+const BASE_CLASS_DEMO = `DemoAtomPopover`
+const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
-  const renderContent = () => (
-    <div style={{width: '200px', padding: '8px'}}>
+const Content = forwardRef((props, forwardedRef) => {
+  return (
+    <div ref={forwardedRef} style={{width: '200px', padding: '8px'}}>
       <span>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id mauris
         ornare, imperdiet nunc a, interdum dolor.
       </span>
     </div>
   )
+})
 
+const Demo = () => {
   return (
     <div className="sui-StudioPreview">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
-        <h1>Popover</h1>
-        <label className="DemoPopover-label">Position</label>
-        <MoleculeSelect
-          value={position}
-          onChange={(ev, {value}) => setPosition(value)}
-          placeholder="Select a position..."
-          iconArrowDown={<IconArrowDown />}
-        >
-          {Object.keys(atomPopoverPositions).map(key => (
-            <MoleculeSelectOption key={key} value={atomPopoverPositions[key]}>
-              {key}
-            </MoleculeSelectOption>
-          ))}
-        </MoleculeSelect>
+        <H1>Popover</H1>
+        <Paragraph>
+          A popover is a transient view that shows on a content screen when a
+          user clicks on a control button or within a defined area. It is
+          generally used in big screens (tablet or bigger) and might be avoid
+          for mobile devices.
+        </Paragraph>
+        <Paragraph>
+          Popovers subject to the general rules about{' '}
+          <Anchor href="http://developer.apple.com/design/human-interface-guidelines/ios/app-architecture/modality/">
+            modality
+          </Anchor>
+          , which renders a temporary context to get user’s attention.
+        </Paragraph>
+        <ArticleDefault className={CLASS_SECTION} content={Content} />
         <br />
-        <label className="DemoPopover-label">Add close icon</label>
-        <input
-          type="checkbox"
-          checked={closeIcon}
-          onChange={ev => setCloseIcon(ev.target.checked)}
-        />
-        <label className="DemoPopover-label">Add arrow</label>
-        <input
-          type="checkbox"
-          checked={showArrow}
-          onChange={ev => setShowArrow(ev.target.checked)}
-        />
-        <label className="DemoPopover-label">Disable native toggle </label>
-        <input
-          type="checkbox"
-          checked={disableNativeToggle}
-          onChange={ev => setDisableNativeToggle(ev.target.checked)}
-        />
-
-        <div className="DemoPopover-buttons">
-          <AtomPopover
-            disableNativeToggle={disableNativeToggle}
-            closeIcon={closeIcon && <IconClose />}
-            hideArrow={!showArrow}
-            placement={position}
-            onClose={() => console.log('CLOSE POPOVER!')}
-            content={renderContent()}
-            id="random-id"
-          >
-            <Button>Show Popover in component without "ref"</Button>
-          </AtomPopover>
-          <AtomPopover
-            disableNativeToggle={disableNativeToggle}
-            closeIcon={closeIcon && <IconClose />}
-            hideArrow={!showArrow}
-            placement={position}
-            onClose={() => console.log('CLOSE POPOVER!')}
-            content={renderContent()}
-          >
-            <div className="DemoPopover-button">
-              Show Popover in HTML ELEMENT
-            </div>
-          </AtomPopover>
-        </div>
+        <ArticlePosition className={CLASS_SECTION} content={Content} />
+        <br />
+        <ArticleCloseIcon className={CLASS_SECTION} content={Content} />
+        <br />
+        <ArticleArrow className={CLASS_SECTION} content={Content} />
+        <br />
+        <ArticleBehavior className={CLASS_SECTION} content={Content} />
+        <br />
+        <ArticleRef className={CLASS_SECTION} content={Content} />
+        <br />
       </div>
     </div>
   )

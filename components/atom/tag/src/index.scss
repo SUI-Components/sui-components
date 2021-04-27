@@ -103,12 +103,14 @@ $base-class: '.sui-AtomTag';
     fill: $c-atom-tag-actionable;
     text-decoration: none;
 
-    &:hover,
-    &:active {
-      background-color: $bgc-atom-tag-actionable--hover;
-      color: $c-atom-tag-actionable;
-      cursor: pointer;
-      fill: $c-atom-tag-actionable;
+    &:not(#{$base-class}--disabled) {
+      &:hover,
+      &:active {
+        background-color: $bgc-atom-tag-actionable--hover;
+        color: $c-atom-tag-actionable;
+        cursor: pointer;
+        fill: $c-atom-tag-actionable;
+      }
     }
 
     &#{$self}--outline {
@@ -116,11 +118,13 @@ $base-class: '.sui-AtomTag';
       color: $c-atom-tag-actionable-invert;
       fill: $c-atom-tag-actionable-invert;
 
-      &:hover,
-      &:active {
-        background-color: $bgc-atom-tag-actionable-invert--hover;
-        color: $c-atom-tag-actionable-invert--hover;
-        fill: $c-atom-tag-actionable-invert--hover;
+      &:not(#{$base-class}--disabled) {
+        &:hover,
+        &:active {
+          background-color: $bgc-atom-tag-actionable-invert--hover;
+          color: $c-atom-tag-actionable-invert--hover;
+          fill: $c-atom-tag-actionable-invert--hover;
+        }
       }
     }
   }
@@ -179,6 +183,11 @@ $base-class: '.sui-AtomTag';
   &--outline {
     background-color: $bgc-atom-tag-outline;
     border: $bdw-atom-tag-outline solid $bc-atom-tag-outline;
+  }
+
+  &--disabled {
+    cursor: default;
+    opacity: 0.3;
   }
 
   @each $name, $type in $atom-tag-types {

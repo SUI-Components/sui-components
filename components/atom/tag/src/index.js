@@ -46,6 +46,7 @@ const AtomTag = props => {
 AtomTag.displayName = 'AtomTag'
 
 AtomTag.propTypes = {
+  disabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
   icon: PropTypes.node,
   onClose: PropTypes.func,

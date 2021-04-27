@@ -17,6 +17,7 @@ const AtomCard = ({
   responsive,
   highlight,
   href,
+  onClick,
   tabIndex
 }) => {
   const redirectToHref = () => {
@@ -34,7 +35,8 @@ const AtomCard = ({
     isVertical && CLASS_VERTICAL,
     responsive && CLASS_RESPONSIVE,
     highlight && CLASS_HIGHLIGHT,
-    href && CLASS_LINK
+    href && CLASS_LINK,
+    onClick && CLASS_LINK
   )
 
   return (
@@ -42,7 +44,7 @@ const AtomCard = ({
       className={classNames}
       tabIndex={tabIndex}
       role="button"
-      onClick={redirectToHref}
+      onClick={onClick ?? redirectToHref}
       onKeyDown={redirectOnEnter}
     >
       {Media && (
@@ -78,7 +80,10 @@ AtomCard.propTypes = {
   href: PropTypes.string,
 
   /** tab order */
-  tabIndex: PropTypes.string
+  tabIndex: PropTypes.string,
+
+  /**  */
+  onClick: PropTypes.func
 }
 
 export default AtomCard

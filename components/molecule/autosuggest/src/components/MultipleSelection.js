@@ -31,14 +31,23 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   tabIndex,
   tags = [],
   type,
-  value = ''
+  value = '',
+  allowDuplicates
 }) => {
   const MoleculeInputTagsRef = useRef()
 
   const handleMultiSelection = (ev, {value}) => {
-    const newTags = tags.includes(value)
-      ? tags.filter(tag => tag !== value)
-      : [...tags, value]
+    debugger
+
+    const newTags = tags
+      .map(tagValue =>
+        typeof tagValue === 'object' ? tagValue.label : tagValue
+      )
+      .includes(value)
+      ? tags.filter(tag =>
+          typeof tag === 'object' ? tag.label !== value : tag !== value
+        ) // delete
+      : [...tags, value] // add
 
     onChangeTags(ev, {
       value: '',
@@ -96,6 +105,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         tagsCloseIcon={iconCloseTag}
         type={type}
         value={value}
+        allowDuplicates={allowDuplicates}
       />
       <MoleculeDropdownList
         checkbox

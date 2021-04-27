@@ -19,7 +19,9 @@ const AtomTagItem = ({onClose = () => {}, id, ...restProps}) => {
 }
 
 const isDuplicate = (values, newValue) => {
-  const upperTags = values.map(val => val.toUpperCase())
+  const upperTags = values.map(val =>
+    typeof val === 'object' ? val.label.toUpperCase() : val.toUpperCase()
+  )
   return upperTags.includes(newValue.toUpperCase())
 }
 
@@ -92,7 +94,7 @@ const MoleculeInputTags = ({
         return (
           <AtomTagItem
             key={key}
-            id={MediaKeyMessageEvent}
+            id={index}
             closeIcon={tagsCloseIcon}
             onClose={removeTag}
             label={label}

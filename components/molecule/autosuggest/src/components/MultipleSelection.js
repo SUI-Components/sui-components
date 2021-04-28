@@ -50,6 +50,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         typeof tag === 'object' ? tag.id !== id : tag !== value
       )
     } else {
+      // add
       newTags.push(id === undefined ? value : {key: id, label: value})
     }
 
@@ -87,6 +88,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   return (
     <>
       <MoleculeInputTagsWithClearUI
+        allowDuplicates={allowDuplicates}
         autoComplete={autoComplete}
         disabled={disabled}
         iconClear={iconClear}
@@ -109,7 +111,6 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         tagsCloseIcon={iconCloseTag}
         type={type}
         value={value}
-        allowDuplicates={allowDuplicates}
       />
       <MoleculeDropdownList
         checkbox

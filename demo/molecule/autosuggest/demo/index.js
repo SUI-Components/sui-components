@@ -46,7 +46,7 @@ const options = [
 ]
 
 const Demo = () => {
-  const [tags, setTags] = useState([{key: 1, label: 'mola'}])
+  const [tags, setTags] = useState([{key: 1, label: 'Label'}])
   const [value, setValue] = useState('')
   return (
     <div className="sui-StudioPreview">
@@ -243,7 +243,9 @@ const Demo = () => {
           <p>
             Esta implementación permite usar el Autosuggest con un array de
             objetos JSON con las propiedades <code>key</code> y
-            <code>label</code>
+            <code>label</code>. Al cambiar las etiquetas en onChangeTags
+            devuelve un array de objetos. Si la etiqueta es nueva lo que vuelca
+            en el array de tags seleccionados es un string.
           </p>
           <MoleculeAutosuggestField
             iconClear={<IconClose />}

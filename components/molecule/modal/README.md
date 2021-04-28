@@ -13,7 +13,7 @@ $ npm install @s-ui/react-molecule-modal --save
 
 ## Usage
 
-⚠️ By default, import will take `MoleculeModalWithAnimation`, if you want to import an speciffic modal, just use named imports.
+⚠️ By default, import will take `MoleculeModalWithAnimation`, if you want to import a speciffic modal, just use named imports.
 
 Those are the named exports enabled:
 - MoleculeModal

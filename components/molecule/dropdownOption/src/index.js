@@ -21,18 +21,18 @@ const TEXT_WRAP_STYLES = {
   LINE_WRAP: 'lineWrap'
 }
 const MoleculeDropdownOption = ({
-  children,
-  selected,
   checkbox,
+  children,
   disabled,
   highlightQuery,
+  id,
+  innerRef,
   onSelectKey,
   onSelect,
-  innerRef,
-  value,
-  withTwoLinesText,
+  selected,
   textWrap,
-  id
+  value,
+  withTwoLinesText
 }) => {
   const className = cx(BASE_CLASS, {
     [CLASS_CHECKBOX]: checkbox,
@@ -53,10 +53,10 @@ const MoleculeDropdownOption = ({
   ])
   const {handleClick, handleKeyDown, handleFocus} = handlersFactory({
     disabled,
-    value,
+    id,
     onSelectKey,
     onSelect,
-    id
+    value
   })
   const renderHighlightOption = option => {
     if (typeof option !== 'string') {

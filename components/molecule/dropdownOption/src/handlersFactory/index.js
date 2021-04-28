@@ -1,9 +1,9 @@
 const handlersFactory = ({
   disabled = false,
-  onSelectKey = 'Enter',
-  value,
   id,
-  onSelect
+  onSelect,
+  onSelectKey = 'Enter',
+  value
 }) => {
   const handleClick = ev => {
     if (!disabled) onSelect(ev, {value, id})

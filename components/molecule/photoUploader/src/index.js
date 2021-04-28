@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, forwardRef} from 'react'
 import {useDropzone} from 'react-dropzone'
 import {getTarget} from '@s-ui/js/lib/react'
 
@@ -34,299 +34,304 @@ import {
 
 const noop = () => {}
 
-const MoleculePhotoUploader = ({
-  acceptedFileTypes = DEFAULT_FILE_TYPES_ACCEPTED,
-  acceptedFileMaxSize = DEFAULT_MAX_FILE_SIZE_ACCEPTED,
-  allowUploadDuplicatedPhotos = false,
-  addMorePhotosIcon,
-  addPhotoButtonColor,
-  addPhotoButtonDesign,
-  addPhotoTextButton,
-  addPhotoButtonSize,
-  addPhotoTextSkeleton,
-  callbackPhotosRejected = noop,
-  callbackPhotosUploaded = noop,
-  callbackUploadPhoto,
-  deleteIcon,
-  disableScrollToBottom = false,
-  dragDelay = DEFAULT_DRAG_DELAY_TIME,
-  dragPhotosIcon = noop,
-  dragPhotoTextInitialContent,
-  dragPhotoDividerTextInitialContent,
-  dropPhotosHereText,
-  errorCorruptedPhotoUploadedText,
-  errorFileExcededMaxSizeText,
-  errorFormatPhotoUploadedText,
-  errorInitialPhotoDownloadErrorText,
-  infoIcon = noop,
-  initialPhotos = [],
-  limitPhotosUploadedText,
-  limitPhotosUploadedNotification,
-  mainPhotoLabel,
-  maxImageHeight = DEFAULT_MAX_IMAGE_HEIGHT,
-  maxPhotos,
-  maxImageWidth = DEFAULT_MAX_IMAGE_WIDTH,
-  notificationErrorFormatPhotoUploaded,
-  outputImageAspectRatioDisabled = false,
-  outputImageAspectRatio = DEFAULT_IMAGE_ASPECT_RATIO,
-  rejectPhotosIcon,
-  retryIcon,
-  rotateIcon,
-  rotationDirection = ROTATION_DIRECTION.counterclockwise,
-  uploadingPhotosText,
-  thumbIconSize
-}) => {
-  const [files, setFiles] = useState([])
-  const [isLoading, setIsLoading] = useState(Boolean(initialPhotos.length))
-  const [notificationError, setNotificationError] = useState(
-    DEFAULT_NOTIFICATION_ERROR
-  )
+const MoleculePhotoUploader = forwardRef(
+  (
+    {
+      acceptedFileTypes = DEFAULT_FILE_TYPES_ACCEPTED,
+      acceptedFileMaxSize = DEFAULT_MAX_FILE_SIZE_ACCEPTED,
+      allowUploadDuplicatedPhotos = false,
+      addMorePhotosIcon,
+      addPhotoButtonColor,
+      addPhotoButtonDesign,
+      addPhotoTextButton,
+      addPhotoButtonSize,
+      addPhotoTextSkeleton,
+      callbackPhotosRejected = noop,
+      callbackPhotosUploaded = noop,
+      callbackUploadPhoto,
+      deleteIcon,
+      disableScrollToBottom = false,
+      dragDelay = DEFAULT_DRAG_DELAY_TIME,
+      dragPhotosIcon = noop,
+      dragPhotoTextInitialContent,
+      dragPhotoDividerTextInitialContent,
+      dropPhotosHereText,
+      errorCorruptedPhotoUploadedText,
+      errorFileExcededMaxSizeText,
+      errorFormatPhotoUploadedText,
+      errorInitialPhotoDownloadErrorText,
+      infoIcon = noop,
+      initialPhotos = [],
+      limitPhotosUploadedText,
+      limitPhotosUploadedNotification,
+      mainPhotoLabel,
+      maxImageHeight = DEFAULT_MAX_IMAGE_HEIGHT,
+      maxPhotos,
+      maxImageWidth = DEFAULT_MAX_IMAGE_WIDTH,
+      notificationErrorFormatPhotoUploaded,
+      outputImageAspectRatioDisabled = false,
+      outputImageAspectRatio = DEFAULT_IMAGE_ASPECT_RATIO,
+      rejectPhotosIcon,
+      retryIcon,
+      rotateIcon,
+      rotationDirection = ROTATION_DIRECTION.counterclockwise,
+      uploadingPhotosText,
+      thumbIconSize
+    },
+    ref
+  ) => {
+    const [files, setFiles] = useState([])
+    const [isLoading, setIsLoading] = useState(Boolean(initialPhotos.length))
+    const [notificationError, setNotificationError] = useState(
+      DEFAULT_NOTIFICATION_ERROR
+    )
 
-  const DEFAULT_FORMAT_TO_BASE_64_OPTIONS = {
-    rotation: DEFAULT_IMAGE_ROTATION_DEGREES,
-    outputImageAspectRatioDisabled,
-    outputImageAspectRatio,
-    maxImageHeight,
-    maxImageWidth
-  }
-
-  const isPhotoUploaderEmpty = !files.length
-  const isPhotoUploaderFully = () => files.length >= maxPhotos
-
-  useMount(() => {
-    if (initialPhotos.length) {
-      loadInitialPhotos({
-        initialPhotos,
-        defaultFormatToBase64Options: DEFAULT_FORMAT_TO_BASE_64_OPTIONS,
-        setInitialDownloadError: () => {
-          setNotificationError({
-            isError: true,
-            text: errorInitialPhotoDownloadErrorText
-          })
-        },
-        setFiles,
-        _callbackPhotosUploaded,
-        setIsLoading
-      })
+    const DEFAULT_FORMAT_TO_BASE_64_OPTIONS = {
+      rotation: DEFAULT_IMAGE_ROTATION_DEGREES,
+      outputImageAspectRatioDisabled,
+      outputImageAspectRatio,
+      maxImageHeight,
+      maxImageWidth
     }
-  })
 
-  const _callbackPhotosUploaded = list => {
-    const blobsArray = list.reduce((array, currentFile) => {
-      const {
-        blob,
-        url,
-        isNew,
-        isModified,
-        hasErrors,
-        file,
-        preview
-      } = currentFile
-      array.push({
-        blob,
-        url,
-        isNew,
-        isModified,
-        hasErrors,
-        file,
-        previewUrl: preview
-      })
-      return [...array]
-    }, [])
-    callbackPhotosUploaded(blobsArray)
-  }
+    const isPhotoUploaderEmpty = !files.length
+    const isPhotoUploaderFully = () => files.length >= maxPhotos
 
-  const _onDropRejected = rejectedFiles => {
-    setNotificationError({
-      isError: true,
-      text: notificationErrorFormatPhotoUploaded
+    useMount(() => {
+      if (initialPhotos.length) {
+        loadInitialPhotos({
+          initialPhotos,
+          defaultFormatToBase64Options: DEFAULT_FORMAT_TO_BASE_64_OPTIONS,
+          setInitialDownloadError: () => {
+            setNotificationError({
+              isError: true,
+              text: errorInitialPhotoDownloadErrorText
+            })
+          },
+          setFiles,
+          _callbackPhotosUploaded,
+          setIsLoading
+        })
+      }
     })
-    _scrollToBottom()
-    const rejectedFilesWithReason = rejectedFiles.map(rejectedFile => ({
-      rejectedFile,
-      reason: REJECT_FILES_REASONS.fileType
-    }))
-    callbackPhotosRejected(rejectedFilesWithReason)
-  }
 
-  const _onDropAccepted = acceptedFiles => {
-    setNotificationError(DEFAULT_NOTIFICATION_ERROR)
-    if (isLoading) return false
+    const _callbackPhotosUploaded = list => {
+      const blobsArray = list.reduce((array, currentFile) => {
+        const {
+          blob,
+          url,
+          isNew,
+          isModified,
+          hasErrors,
+          file,
+          preview
+        } = currentFile
+        array.push({
+          blob,
+          url,
+          isNew,
+          isModified,
+          hasErrors,
+          file,
+          previewUrl: preview
+        })
+        return [...array]
+      }, [])
+      callbackPhotosUploaded(blobsArray)
+    }
 
-    if (isPhotoUploaderFully()) {
+    const _onDropRejected = rejectedFiles => {
       setNotificationError({
         isError: true,
-        text: limitPhotosUploadedNotification
+        text: notificationErrorFormatPhotoUploaded
       })
       _scrollToBottom()
-      return false
+      const rejectedFilesWithReason = rejectedFiles.map(rejectedFile => ({
+        rejectedFile,
+        reason: REJECT_FILES_REASONS.fileType
+      }))
+      callbackPhotosRejected(rejectedFilesWithReason)
     }
 
-    setIsLoading(true)
+    const _onDropAccepted = acceptedFiles => {
+      setNotificationError(DEFAULT_NOTIFICATION_ERROR)
+      if (isLoading) return false
 
-    const validFiles = filterValidFiles({
-      files,
-      filesToBeFiltered: acceptedFiles,
-      acceptedFileMaxSize,
-      handlePhotosRejected: callbackPhotosRejected,
-      setMaxSizeError: () => {
-        setNotificationError({
-          isError: true,
-          text: errorFileExcededMaxSizeText
-        })
-        _scrollToBottom()
-      },
-      setMaxPhotosError: () => {
+      if (isPhotoUploaderFully()) {
         setNotificationError({
           isError: true,
           text: limitPhotosUploadedNotification
         })
-      },
-      allowUploadDuplicatedPhotos,
-      maxPhotos
-    })
+        _scrollToBottom()
+        return false
+      }
 
-    if (!validFiles.length) {
-      setIsLoading(false)
-      return false
+      setIsLoading(true)
+
+      const validFiles = filterValidFiles({
+        files,
+        filesToBeFiltered: acceptedFiles,
+        acceptedFileMaxSize,
+        handlePhotosRejected: callbackPhotosRejected,
+        setMaxSizeError: () => {
+          setNotificationError({
+            isError: true,
+            text: errorFileExcededMaxSizeText
+          })
+          _scrollToBottom()
+        },
+        setMaxPhotosError: () => {
+          setNotificationError({
+            isError: true,
+            text: limitPhotosUploadedNotification
+          })
+        },
+        allowUploadDuplicatedPhotos,
+        maxPhotos
+      })
+
+      if (!validFiles.length) {
+        setIsLoading(false)
+        return false
+      }
+
+      prepareFiles({
+        handlePhotosRejected: callbackPhotosRejected,
+        currentFiles: [...files],
+        newFiles: validFiles,
+        defaultFormatToBase64Options: DEFAULT_FORMAT_TO_BASE_64_OPTIONS,
+        errorCorruptedPhotoUploadedText,
+        setCorruptedFileError: errorText => {
+          setNotificationError({
+            isError: true,
+            text: errorText
+          })
+        },
+        setFiles,
+        setIsLoading,
+        _scrollToBottom,
+        callbackUploadPhoto,
+        _callbackPhotosUploaded
+      })
     }
 
-    prepareFiles({
-      handlePhotosRejected: callbackPhotosRejected,
-      currentFiles: [...files],
-      newFiles: validFiles,
-      defaultFormatToBase64Options: DEFAULT_FORMAT_TO_BASE_64_OPTIONS,
-      errorCorruptedPhotoUploadedText,
-      setCorruptedFileError: errorText => {
-        setNotificationError({
-          isError: true,
-          text: errorText
-        })
-      },
-      setFiles,
-      setIsLoading,
-      _scrollToBottom,
-      callbackUploadPhoto,
-      _callbackPhotosUploaded
+    const {
+      getRootProps,
+      getInputProps,
+      isDragActive,
+      isDragAccept,
+      isDragReject
+    } = useDropzone({
+      noClick: isPhotoUploaderFully(),
+      noKeyboard: isPhotoUploaderFully(),
+      accept: acceptedFileTypes,
+      onDropAccepted: acceptedFiles => _onDropAccepted(acceptedFiles),
+      onDropRejected: rejectedFiles => _onDropRejected(rejectedFiles)
     })
-  }
 
-  const {
-    getRootProps,
-    getInputProps,
-    isDragActive,
-    isDragAccept,
-    isDragReject
-  } = useDropzone({
-    noClick: isPhotoUploaderFully(),
-    noKeyboard: isPhotoUploaderFully(),
-    accept: acceptedFileTypes,
-    onDropAccepted: acceptedFiles => _onDropAccepted(acceptedFiles),
-    onDropRejected: rejectedFiles => _onDropRejected(rejectedFiles)
-  })
+    const dropzoneClassName = cx(DROPZONE_CLASS_NAME, {
+      [`${DROPZONE_CLASS_NAME}--disabled`]: isPhotoUploaderFully(),
+      [`${DROPZONE_CLASS_NAME}--empty`]: isPhotoUploaderEmpty
+    })
 
-  const dropzoneClassName = cx(DROPZONE_CLASS_NAME, {
-    [`${DROPZONE_CLASS_NAME}--disabled`]: isPhotoUploaderFully(),
-    [`${DROPZONE_CLASS_NAME}--empty`]: isPhotoUploaderEmpty
-  })
+    const container = getTarget(document.querySelector(`.${BASE_CLASS_NAME}`))
 
-  const container = getTarget(document.querySelector(`.${BASE_CLASS_NAME}`))
-
-  const _scrollToBottom = () => {
-    if (!disableScrollToBottom) {
-      const bounding = container.getBoundingClientRect()
-      if (
-        bounding.bottom >
-        (window.innerHeight || document.documentElement.clientHeight)
-      ) {
-        container.scrollIntoView({
-          behavior: 'smooth',
-          block: 'end'
-        })
+    const _scrollToBottom = () => {
+      if (!disableScrollToBottom) {
+        const bounding = container.getBoundingClientRect()
+        if (
+          bounding.bottom >
+          (window.innerHeight || document.documentElement.clientHeight)
+        ) {
+          container.scrollIntoView({
+            behavior: 'smooth',
+            block: 'end'
+          })
+        }
       }
     }
-  }
 
-  return (
-    <>
-      <div className={BASE_CLASS_NAME}>
-        <div {...getRootProps({className: dropzoneClassName})}>
-          <input {...getInputProps()} />
-          {isPhotoUploaderEmpty && !isDragActive && (
-            <InitialState
-              buttonColor={addPhotoButtonColor}
-              buttonDesign={addPhotoButtonDesign}
-              buttonText={addPhotoTextButton}
-              buttonSize={addPhotoButtonSize}
-              icon={dragPhotosIcon()}
-              text={dragPhotoTextInitialContent}
-              dividerText={dragPhotoDividerTextInitialContent}
-            />
-          )}
-          {!isPhotoUploaderEmpty && (
-            <PhotosPreview
-              _callbackPhotosUploaded={_callbackPhotosUploaded}
-              _scrollToBottom={_scrollToBottom}
-              addMorePhotosIcon={addMorePhotosIcon}
-              addPhotoTextSkeleton={addPhotoTextSkeleton}
-              callbackUploadPhoto={callbackUploadPhoto}
-              defaultFormatToBase64Options={DEFAULT_FORMAT_TO_BASE_64_OPTIONS}
-              deleteIcon={deleteIcon}
-              dragDelay={dragDelay}
-              errorInitialPhotoDownloadErrorText={
-                errorInitialPhotoDownloadErrorText
-              }
-              files={files}
-              isPhotoUploaderFully={isPhotoUploaderFully}
-              mainPhotoLabel={mainPhotoLabel}
-              outputImageAspectRatioDisabled={outputImageAspectRatioDisabled}
-              rejectPhotosIcon={rejectPhotosIcon}
-              rotateIcon={rotateIcon}
-              rotationDirection={rotationDirection}
-              retryIcon={retryIcon}
-              setFiles={setFiles}
-              setIsLoading={setIsLoading}
-              setNotificationError={setNotificationError}
-              thumbIconSize={thumbIconSize}
-            />
-          )}
-          {isDragAccept && !isPhotoUploaderFully() && !isLoading && (
-            <DragState icon={dragPhotosIcon()} text={dropPhotosHereText} />
-          )}
-          {isDragAccept && isPhotoUploaderFully() && (
-            <DragState
-              icon={rejectPhotosIcon()}
-              status={DRAG_STATE_STATUS_REJECTED}
-              text={limitPhotosUploadedText}
-            />
-          )}
-          {isDragAccept && !isPhotoUploaderFully() && isLoading && (
-            <DragState
-              icon={rejectPhotosIcon()}
-              status={DRAG_STATE_STATUS_REJECTED}
-              text={uploadingPhotosText}
-            />
-          )}
-          {isDragReject && (
-            <DragState
-              icon={rejectPhotosIcon()}
-              status={DRAG_STATE_STATUS_REJECTED}
-              text={errorFormatPhotoUploadedText}
-            />
-          )}
+    return (
+      <>
+        <div className={BASE_CLASS_NAME}>
+          <div {...getRootProps({className: dropzoneClassName})}>
+            <input {...getInputProps()} ref={ref} />
+            {isPhotoUploaderEmpty && !isDragActive && (
+              <InitialState
+                buttonColor={addPhotoButtonColor}
+                buttonDesign={addPhotoButtonDesign}
+                buttonText={addPhotoTextButton}
+                buttonSize={addPhotoButtonSize}
+                icon={dragPhotosIcon()}
+                text={dragPhotoTextInitialContent}
+                dividerText={dragPhotoDividerTextInitialContent}
+              />
+            )}
+            {!isPhotoUploaderEmpty && (
+              <PhotosPreview
+                _callbackPhotosUploaded={_callbackPhotosUploaded}
+                _scrollToBottom={_scrollToBottom}
+                addMorePhotosIcon={addMorePhotosIcon}
+                addPhotoTextSkeleton={addPhotoTextSkeleton}
+                callbackUploadPhoto={callbackUploadPhoto}
+                defaultFormatToBase64Options={DEFAULT_FORMAT_TO_BASE_64_OPTIONS}
+                deleteIcon={deleteIcon}
+                dragDelay={dragDelay}
+                errorInitialPhotoDownloadErrorText={
+                  errorInitialPhotoDownloadErrorText
+                }
+                files={files}
+                isPhotoUploaderFully={isPhotoUploaderFully}
+                mainPhotoLabel={mainPhotoLabel}
+                outputImageAspectRatioDisabled={outputImageAspectRatioDisabled}
+                rejectPhotosIcon={rejectPhotosIcon}
+                rotateIcon={rotateIcon}
+                rotationDirection={rotationDirection}
+                retryIcon={retryIcon}
+                setFiles={setFiles}
+                setIsLoading={setIsLoading}
+                setNotificationError={setNotificationError}
+                thumbIconSize={thumbIconSize}
+              />
+            )}
+            {isDragAccept && !isPhotoUploaderFully() && !isLoading && (
+              <DragState icon={dragPhotosIcon()} text={dropPhotosHereText} />
+            )}
+            {isDragAccept && isPhotoUploaderFully() && (
+              <DragState
+                icon={rejectPhotosIcon()}
+                status={DRAG_STATE_STATUS_REJECTED}
+                text={limitPhotosUploadedText}
+              />
+            )}
+            {isDragAccept && !isPhotoUploaderFully() && isLoading && (
+              <DragState
+                icon={rejectPhotosIcon()}
+                status={DRAG_STATE_STATUS_REJECTED}
+                text={uploadingPhotosText}
+              />
+            )}
+            {isDragReject && (
+              <DragState
+                icon={rejectPhotosIcon()}
+                status={DRAG_STATE_STATUS_REJECTED}
+                text={errorFormatPhotoUploadedText}
+              />
+            )}
+          </div>
+          <DragNotification
+            icon={infoIcon()}
+            onCloseCallback={() =>
+              setNotificationError(DEFAULT_NOTIFICATION_ERROR)
+            }
+            show={notificationError.isError}
+            text={notificationError.text}
+          />
         </div>
-        <DragNotification
-          icon={infoIcon()}
-          onCloseCallback={() =>
-            setNotificationError(DEFAULT_NOTIFICATION_ERROR)
-          }
-          show={notificationError.isError}
-          text={notificationError.text}
-        />
-      </div>
-    </>
-  )
-}
+      </>
+    )
+  }
+)
 
 MoleculePhotoUploader.displayName = 'MoleculePhotoUploader'
 MoleculePhotoUploader.propTypes = {

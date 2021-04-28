@@ -1,4 +1,4 @@
-import {Children, cloneElement} from 'react'
+import {Children, cloneElement, isValidElement} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -27,13 +27,15 @@ const MoleculeTabs = ({variant, type, children, onChange}) => {
 
   const className = cx(BASE_CLASS, CLASS_VARIANT, CLASS_TYPE)
 
-  const extendedChildren = Children.map(children, (child, index) => {
-    const numTab = index + 1
-    return cloneElement(child, {
-      onChange,
-      numTab
+  const extendedChildren = Children.toArray(children)
+    .filter(child => isValidElement(child))
+    .map((child, index) => {
+      const numTab = index + 1
+      return cloneElement(child, {
+        onChange,
+        numTab
+      })
     })
-  })
 
   const activeTabContent = Children.toArray(children).reduce(
     (activeContent, child) => {

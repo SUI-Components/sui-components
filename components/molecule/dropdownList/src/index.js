@@ -33,7 +33,9 @@ const MoleculeDropdownList = ({
       let selected = false
       if (Array.isArray(value)) {
         selected = value.some(innerValue =>
-          typeof innerValue === 'object' ? innerValue.label : innerValue
+          typeof innerValue === 'object'
+            ? innerValue.label === valueChild
+            : innerValue === valueChild
         )
       } else {
         selected = value === valueChild

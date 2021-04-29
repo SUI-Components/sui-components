@@ -78,6 +78,14 @@ body.is-MoleculeModal-open {
     animation: modal-overlay-out 0.25s both;
   }
 
+  &.is-static::before {
+    display: block;
+  }
+
+  &-out.is-static::before {
+    display: none;
+  }
+
   &.is-MoleculeModal-open {
     display: flex;
     justify-content: center;
@@ -139,6 +147,11 @@ body.is-MoleculeModal-open {
         }
       }
     }
+  }
+
+  &.is-static::before,
+  &.is-static &-dialog {
+    animation-name: none;
   }
 
   &-header {

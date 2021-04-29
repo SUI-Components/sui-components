@@ -10,6 +10,7 @@ import NoHeaderNoCloseButtonModal from './NoHeaderNoCloseButtonModal'
 import MobileFitContentModal from './MobileFitContentModal'
 import ScrollableChildrenModal from './ScrollableChildrenModal'
 import WithUrlStateModal from './WithUrlStateModal'
+import WithoutAnimationModal from './WithoutAnimationModal'
 
 const fieldStyle = {
   border: '1px solid rgb(204, 204, 204)',
@@ -26,6 +27,10 @@ const Demo = () => (
       <h2>Scroll Modal</h2>
       <div style={fieldStyle}>
         <ScrollModal />
+      </div>
+      <h2>WithoutAnimationModal</h2>
+      <div style={fieldStyle}>
+        <WithoutAnimationModal />
       </div>
       <h2>No Scroll Modal</h2>
       <div style={fieldStyle}>

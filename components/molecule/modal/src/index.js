@@ -18,6 +18,7 @@ import {HeaderRender} from './HeaderRender'
 import MoleculeModalContent from './Content'
 import MoleculeModalFooter from './Footer'
 import WithAnimation from './HoC/WithAnimation'
+import withoutAnimation from './HoC/WithoutAnimation'
 import WithUrlState from './HoC/WithUrlState'
 
 export const MODAL_SIZES = {
@@ -51,7 +52,8 @@ const MoleculeModal = forwardRef(
       portalContainerId = 'modal-react-portal',
       usePortal = true,
       withoutIndentation = false,
-      isContentless
+      isContentless,
+      withAnimation = true
     },
     forwardedRef
   ) => {
@@ -119,6 +121,7 @@ const MoleculeModal = forwardRef(
 
     const renderModal = () => {
       const wrapperClassName = cx(suitClass(), {
+        'is-static': !withAnimation,
         'is-MoleculeModal-open': isOpen,
         [suitClass({element: 'out'})]: isClosing
       })
@@ -265,18 +268,28 @@ MoleculeModal.propTypes = {
    * The function that manages when the modal open. It'll be executed for open
    * MoleculeModalWithUrlState on pop state changes
    */
-  openModalTrigger: PropTypes.func // eslint-disable-line react/no-unused-prop-types
+  openModalTrigger: PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+  /**
+   * Determines if modal has open/close animation
+   */
+  withAnimation: PropTypes.bool
 }
 
 MoleculeModal.displayName = 'MoleculeModal'
 
 const MoleculeModalWithAnimation = WithAnimation(MoleculeModal)
 const MoleculeModalWithUrlState = WithUrlState(MoleculeModalWithAnimation)
+const MoleculeModalWithoutAnimation = withoutAnimation(MoleculeModal)
 
 MoleculeModalWithAnimation.displayName = 'MoleculeModal'
 
 MoleculeModalWithAnimation.Content = MoleculeModalContent
 MoleculeModalWithAnimation.Footer = MoleculeModalFooter
 
-export {MoleculeModalWithUrlState, MoleculeModalWithAnimation}
+export {
+  MoleculeModal,
+  MoleculeModalWithUrlState,
+  MoleculeModalWithAnimation,
+  MoleculeModalWithoutAnimation
+}
 export default MoleculeModalWithAnimation

@@ -275,7 +275,7 @@ const Demo = () => {
             tags={tags}
           >
             {options.map(({key, label}, index) => (
-              <MoleculeAutosuggestOption id={key} key={key} value={label}>
+              <MoleculeAutosuggestOption key={key} value={{key, label}}>
                 {label}
               </MoleculeAutosuggestOption>
             ))}

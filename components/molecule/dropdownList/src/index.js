@@ -1,5 +1,6 @@
 import {Children, cloneElement, useState, useEffect, useRef} from 'react'
 import {useDebounce} from '@s-ui/react-hooks'
+import isEqual from 'lodash.isequal'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -32,13 +33,9 @@ const MoleculeDropdownList = ({
       const {value: valueChild} = child.props
       let selected = false
       if (Array.isArray(value)) {
-        selected = value.some(innerValue =>
-          typeof innerValue === 'object'
-            ? innerValue.label === valueChild
-            : innerValue === valueChild
-        )
+        selected = value.some(innerValue => isEqual(valueChild, innerValue))
       } else {
-        selected = value === valueChild
+        selected = isEqual(value, valueChild)
       }
       return cloneElement(child, {
         ...props,

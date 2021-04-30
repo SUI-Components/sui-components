@@ -25,7 +25,6 @@ const MoleculeDropdownOption = ({
   children,
   disabled,
   highlightQuery,
-  id,
   innerRef,
   onSelectKey,
   onSelect,
@@ -53,7 +52,6 @@ const MoleculeDropdownOption = ({
   ])
   const {handleClick, handleKeyDown, handleFocus} = handlersFactory({
     disabled,
-    id,
     onSelectKey,
     onSelect,
     value
@@ -116,7 +114,7 @@ const MoleculeDropdownOption = ({
 MoleculeDropdownOption.displayName = 'MoleculeDropdownOption'
 MoleculeDropdownOption.propTypes = {
   /** option value */
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired, // TODO change types object – string - number
   /** Content to be included in the option */
   children: PropTypes.node,
   /** Contains checkbox */
@@ -136,9 +134,7 @@ MoleculeDropdownOption.propTypes = {
   /** Text with css clamp = 2 */
   withTwoLinesText: PropTypes.bool,
   /** Text wrapping options */
-  textWrap: PropTypes.oneOf(Object.values(TEXT_WRAP_STYLES)),
-  /** option id */
-  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+  textWrap: PropTypes.oneOf(Object.values(TEXT_WRAP_STYLES))
 }
 MoleculeDropdownOption.defaultProps = {
   checkbox: false,

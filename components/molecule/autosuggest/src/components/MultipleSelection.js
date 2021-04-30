@@ -2,6 +2,7 @@
 import {useRef} from 'react'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
+import isEqual from 'lodash.isequal'
 
 import withClearUI from '../hoc/withClearUI'
 
@@ -36,22 +37,17 @@ const MoleculeAutosuggestFieldMultiSelection = ({
 }) => {
   const MoleculeInputTagsRef = useRef()
 
-  const handleMultiSelection = (ev, {id, value}) => {
+  const handleMultiSelection = (ev, args) => {
+    const {value} = args
     let newTags = [...tags]
-    const existsTag = tags.some(tagValue =>
-      typeof tagValue === 'object'
-        ? tagValue.label === value
-        : tagValue === value
-    )
+    const existsTag = tags.some(tagValue => isEqual(tagValue, value))
 
     if (existsTag) {
       // delete
-      newTags = tags.filter(tag =>
-        typeof tag === 'object' ? tag.id !== id : tag !== value
-      )
+      newTags = tags.filter(tagValue => !isEqual(tagValue, value))
     } else {
       // add
-      newTags.push(id === undefined ? value : {key: id, label: value})
+      newTags.push(value)
     }
 
     onChangeTags(ev, {

@@ -1,12 +1,11 @@
 const handlersFactory = ({
   disabled = false,
-  id,
   onSelect,
   onSelectKey = 'Enter',
   value
 }) => {
   const handleClick = ev => {
-    if (!disabled) onSelect(ev, {value, id})
+    if (!disabled) onSelect(ev, {value})
   }
   const handleKeyDown = ev => {
     const {key} = ev
@@ -16,7 +15,7 @@ const handlersFactory = ({
       : onSelectKey.includes(key)
     if (isPressedOnSelectKey && !disabled) {
       ev.preventDefault()
-      onSelect(ev, {value, id})
+      onSelect(ev, {value})
     }
   }
   const handleFocus = ev => {

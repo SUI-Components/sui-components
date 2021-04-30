@@ -242,11 +242,47 @@ const Demo = () => {
         <div className={CLASS_DEMO_SECTION}>
           <p>
             Esta implementación permite usar el Autosuggest con un array de
-            objetos JSON con las propiedades <code>key</code> y
-            <code>label</code>. Al cambiar las etiquetas en onChangeTags
+            objetos JSON. Al hacer las comprobaciones comparará el contenido
+            completo del value. Al cambiar las etiquetas en onChangeTags
             devuelve un array de objetos. Si la etiqueta es nueva lo que vuelca
             en el array de tags seleccionados es un string.
           </p>
+
+          <h3>Single selection</h3>
+          <MoleculeAutosuggestField
+            iconClear={<IconClose />}
+            iconCloseTag={<IconClose />}
+            label="Etiquetas"
+            allowDuplicates={false}
+            value={value}
+            onChange={(_, {value}) => {
+              console.log('onChange', value)
+              setValue(value)
+            }}
+            onChangeTags={(_, {tags}) => {
+              setTags(tags)
+              setValue('')
+              console.log('onChangeTags', tags)
+            }}
+            onClear={() => {
+              console.log('Clear pressed')
+              setTags([])
+            }}
+            onEnter={() => console.log('onEnter')}
+            onSelect={(_, {tags}) => {
+              console.log('onSelect', tags)
+            }}
+            placeholder="Selecciona las etiquetas a asignar al contacto"
+            tags={tags}
+          >
+            {options.map(({key, label}, index) => (
+              <MoleculeAutosuggestOption key={key} value={{key, label}}>
+                {label}
+              </MoleculeAutosuggestOption>
+            ))}
+          </MoleculeAutosuggestField>
+
+          <h3>Multiselection</h3>
           <MoleculeAutosuggestField
             iconClear={<IconClose />}
             iconCloseTag={<IconClose />}

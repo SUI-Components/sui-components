@@ -114,7 +114,11 @@ const MoleculeDropdownOption = ({
 MoleculeDropdownOption.displayName = 'MoleculeDropdownOption'
 MoleculeDropdownOption.propTypes = {
   /** option value */
-  value: PropTypes.string.isRequired, // TODO change types object – string - number
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.object
+  ]).isRequired,
   /** Content to be included in the option */
   children: PropTypes.node,
   /** Contains checkbox */

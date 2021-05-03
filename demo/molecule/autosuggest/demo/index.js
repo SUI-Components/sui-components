@@ -47,7 +47,8 @@ const options = [
 
 const Demo = () => {
   const [tags, setTags] = useState([{key: 1, label: 'Label'}])
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState()
+  const [singleValue, setSingleValue] = useState()
   return (
     <div className="sui-StudioPreview">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
@@ -242,10 +243,10 @@ const Demo = () => {
         <div className={CLASS_DEMO_SECTION}>
           <p>
             Esta implementación permite usar el Autosuggest con un array de
-            objetos JSON. Al hacer las comprobaciones comparará el contenido
-            completo del value. Al cambiar las etiquetas en onChangeTags
-            devuelve un array de objetos. Si la etiqueta es nueva lo que vuelca
-            en el array de tags seleccionados es un string.
+            objetos. Para la comproación de los valores seleccionados en el
+            dropdown utilizará una deep comparison. Al cambiar las etiquetas en
+            onChangeTags devuelve un array de objetos. Si la etiqueta es nueva
+            lo que vuelca en el array de tags seleccionados es un string.
           </p>
 
           <h3>Single selection</h3>
@@ -254,26 +255,21 @@ const Demo = () => {
             iconCloseTag={<IconClose />}
             label="Etiquetas"
             allowDuplicates={false}
-            value={value}
+            value={singleValue}
             onChange={(_, {value}) => {
               console.log('onChange', value)
-              setValue(value)
-            }}
-            onChangeTags={(_, {tags}) => {
-              setTags(tags)
-              setValue('')
-              console.log('onChangeTags', tags)
+              setSingleValue(value)
             }}
             onClear={() => {
               console.log('Clear pressed')
-              setTags([])
+              setSingleValue(undefined)
             }}
             onEnter={() => console.log('onEnter')}
-            onSelect={(_, {tags}) => {
-              console.log('onSelect', tags)
+            onSelect={(_, {value}) => {
+              setSingleValue(value.label)
+              console.log('onSelect', value)
             }}
-            placeholder="Selecciona las etiquetas a asignar al contacto"
-            tags={tags}
+            placeholder="Selecciona el value a asignar al campo"
           >
             {options.map(({key, label}, index) => (
               <MoleculeAutosuggestOption key={key} value={{key, label}}>

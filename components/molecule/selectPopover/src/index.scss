@@ -18,6 +18,8 @@ $c-select-popover-selected: $c-primary !default;
 $bxz-select-popover-select: border-box !default;
 $cur-select-popover-select: auto !default;
 
+$z-select-popover-select-popover: $z-tooltips !default;
+
 .sui-MoleculeSelectPopover {
   display: inline-block;
   position: relative;
@@ -81,7 +83,7 @@ $cur-select-popover-select: auto !default;
     margin-top: $m-m;
     position: absolute;
     min-width: $w-select-popover;
-    z-index: $z-tooltips;
+    z-index: $z-select-popover-select-popover;
 
     &ActionBar {
       border-top: $bdt-select-popover-action-bar;

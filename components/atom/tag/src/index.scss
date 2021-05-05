@@ -94,7 +94,6 @@ $base-class: '.sui-AtomTag';
   &-secondary-icon {
     @include icon-atom-tag(icon-secondary);
   }
-
   &-actionable {
     background-color: $bgc-atom-tag-actionable;
     border: $bd-atom-tag-actionable;
@@ -204,10 +203,6 @@ $base-class: '.sui-AtomTag';
         background-color: $bgc;
         color: $c;
         fill: $c;
-        &#{$self}--disabled {
-          cursor: default;
-          opacity: 0.3;
-        }
       }
       &#{$self}--outline {
         border-color: $bgc;

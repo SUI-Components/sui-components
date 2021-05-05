@@ -10,11 +10,25 @@ const CLASS_RESPONSIVE = `${BASE_CLASS}--responsive`
 const CLASS_HIGHLIGHT = `${BASE_CLASS}--highlight`
 const CLASS_LINK = `${BASE_CLASS}-link`
 
+const BORDER_RADIUS = {
+  S: 's',
+  M: 'm',
+  L: 'l'
+}
+
+const ELEVATION = {
+  S: 's',
+  M: 'm',
+  L: 'l'
+}
+
 const AtomCard = ({
   media: Media,
   content: Content,
   vertical,
   responsive,
+  rounded,
+  elevation,
   highlight,
   href,
   onClick,
@@ -36,7 +50,9 @@ const AtomCard = ({
     responsive && CLASS_RESPONSIVE,
     highlight && CLASS_HIGHLIGHT,
     href && CLASS_LINK,
-    onClick && CLASS_LINK
+    onClick && CLASS_LINK,
+    rounded && `${BASE_CLASS}--rounded-${rounded}`,
+    elevation && `${BASE_CLASS}--elevation-${elevation}`
   )
 
   return (
@@ -73,6 +89,12 @@ AtomCard.propTypes = {
   /** true for make responsive layout */
   responsive: PropTypes.bool,
 
+  /** Specify the border-radius of the card  */
+  rounded: PropTypes.oneOf(Object.values(BORDER_RADIUS)),
+
+  /** Specify the box-shadow of the card  */
+  elevation: PropTypes.oneOf(Object.values(ELEVATION)),
+
   /** true for highlight mode */
   highlight: PropTypes.bool,
 
@@ -87,3 +109,4 @@ AtomCard.propTypes = {
 }
 
 export default AtomCard
+export {BORDER_RADIUS as atomCardRounded, ELEVATION as atomCardElevation}

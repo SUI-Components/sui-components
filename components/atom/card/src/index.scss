@@ -14,6 +14,16 @@ $w-atom-card-media: 33% !default;
 $mr-atom-card-media: 0 !default;
 $mq-responsive-breakpoint-name: 'm' !default;
 $p-atom-card-info: $p-l !default;
+$bdrs-atom-card-rounded: (
+  's': $bdrs-s,
+  'm': $bdrs-m,
+  'l': $bdrs-l
+) !default;
+$bxsh-atom-card-elevation: (
+  's': $bxsh-s,
+  'm': $bxsh-m,
+  'l': $bxsh-l
+) !default;
 
 $base-class: '.sui-AtomCard';
 $class-media: '#{$base-class}-media';
@@ -88,6 +98,24 @@ $class-media: '#{$base-class}-media';
 
       #{$class-media} {
         width: $w-atom-card-media;
+      }
+    }
+  }
+
+  @each $type, $attr in $bdrs-atom-card-rounded {
+    &--rounded-#{$type} {
+      border-radius: $attr;
+    }
+  }
+
+  @each $type, $attr in $bxsh-atom-card-elevation {
+    &--elevation-#{$type} {
+      box-shadow: $attr;
+
+      @media (hover: hover) {
+        &:hover {
+          box-shadow: $attr;
+        }
       }
     }
   }

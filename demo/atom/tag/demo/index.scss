@@ -1,1 +1,28 @@
 @import '~@s-ui/react-atom-icon/lib/index';
+
+$atom-tag-types: (
+  'alert': (
+    bgc: red,
+    c: white,
+    bgc-hover: color-variation(red, 2),
+    c-hover: white
+  ),
+  'warning': (
+    bgc: orange,
+    c: white,
+    bgc-hover: color-variation(orange, 2),
+    c-hover: white
+  ),
+  'special': (
+    bgc: blue,
+    c: white,
+    bgc-hover: color-variation(blue, 2),
+    c-hover: white
+  ),
+  'date': (
+    bgc: gray,
+    c: white,
+    bgc-hover: color-variation(gray, 2),
+    c-hover: white
+  )
+);

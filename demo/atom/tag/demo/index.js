@@ -19,6 +19,7 @@ import {
   UnorderedList,
   ListItem
 } from '@s-ui/documentation-library'
+import ArticleTypes from './ArticleTypes'
 
 import './index.scss'
 
@@ -345,17 +346,6 @@ export default () => (
       </div>
     </Article>
     <br />
-    <Article className={CLASS_SECTION}>
-      <H2>Types</H2>
-      <Paragraph>
-        Use the <Code>type</Code> in order to color it as desired from a high
-        order component.
-      </Paragraph>
-      <div>
-        <AtomTag label="Sale" type="warning" />
-        <AtomTag label="Special" type="special" />
-        <AtomTag label="5 min ago" type="date" />
-      </div>
-    </Article>
+    <ArticleTypes className={CLASS_SECTION} icon={icon} />
   </div>
 )

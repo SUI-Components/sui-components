@@ -103,6 +103,11 @@ $base-class: '.sui-AtomTag';
     fill: $c-atom-tag-actionable;
     text-decoration: none;
 
+    &#{$base-class}--disabled {
+      cursor: default;
+      opacity: 0.3;
+    }
+
     &:not(#{$base-class}--disabled) {
       &:hover,
       &:active {
@@ -185,11 +190,6 @@ $base-class: '.sui-AtomTag';
     border: $bdw-atom-tag-outline solid $bc-atom-tag-outline;
   }
 
-  &--disabled {
-    cursor: default;
-    opacity: 0.3;
-  }
-
   @each $name, $type in $atom-tag-types {
     $bgc: map-get($type, bgc);
     $c: map-get($type, c);
@@ -199,12 +199,37 @@ $base-class: '.sui-AtomTag';
     &--#{$name} {
       background-color: $bgc;
       color: $c;
+      fill: $c;
+      &#{$self}-actionable {
+        background-color: $bgc;
+        color: $c;
+        fill: $c;
+        &#{$self}--disabled {
+          cursor: default;
+          opacity: 0.3;
+        }
+      }
+      &#{$self}--outline {
+        border-color: $bgc;
+        color: $bgc;
+        background-color: $c;
+        fill: $bgc;
+      }
 
       @if $bgc-hover or $c-hover {
         @media (hover: hover) {
-          &:hover {
-            background-color: $bgc-hover;
-            color: $c-hover;
+          &:not(#{$self}--disabled) {
+            &:hover,
+            &:active {
+              background-color: $bgc-hover;
+              color: $c-hover;
+              &#{$self}--outline {
+                background-color: $bgc;
+                border-color: $bgc;
+                color: $c;
+                fill: $c;
+              }
+            }
           }
         }
       }

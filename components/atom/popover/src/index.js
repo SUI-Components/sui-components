@@ -21,100 +21,97 @@ const DEFAULT_DELAY = 0
 // https://github.com/reactstrap/reactstrap/blob/7.1.0/src/TooltipPopoverWrapper.js
 const Popover = loadable(() => import('reactstrap/lib/Popover'), {ssr: true})
 
-const adaptDeprecatedProps = ({showPopover, isVisible, ...props}) => {
-  return {
-    isVisible: isVisible === undefined ? showPopover : isVisible,
-    ...props
-  }
-}
+const AtomPopover = forwardRef(
+  (
+    {
+      children,
+      closeIcon,
+      content,
+      onClose = () => {},
+      onOpen = () => {},
+      placement = PLACEMENTS.BOTTOM,
+      isVisible,
+      defaultIsVisible,
+      hideArrow = true,
+      trigger = DEFAULT_TRIGGER
+    },
+    outRef
+  ) => {
+    const targetRef = useRef()
+    const [ready, setReady] = useState()
+    const [isVisibleState, setIsVisibleState] = useControlledState(
+      isVisible,
+      defaultIsVisible
+    )
+    useEffect(() => {
+      setReady(targetRef.current)
+    }, [targetRef, setReady])
 
-const AtomPopover = forwardRef((props, outRef) => {
-  const {
-    children,
-    closeIcon,
-    content,
-    onClose = () => {},
-    onOpen = () => {},
-    placement = PLACEMENTS.BOTTOM,
-    isVisible,
-    defaultIsVisible,
-    hideArrow = true,
-    trigger = DEFAULT_TRIGGER
-  } = adaptDeprecatedProps(props)
-  const targetRef = useRef()
-  const [ready, setReady] = useState()
-  const [isVisibleState, setIsVisibleState] = useControlledState(
-    isVisible,
-    defaultIsVisible
-  )
-  useEffect(() => {
-    setReady(targetRef.current)
-  }, [targetRef, setReady])
-
-  const extendChildren = () => {
-    const onClick = (onClickHandler = () => null) => ev => {
-      onOpen()
-      setIsVisibleState(true)
-      onClickHandler(ev)
+    const extendChildren = () => {
+      const onClick = (onClickHandler = () => null) => ev => {
+        onOpen()
+        setIsVisibleState(true)
+        onClickHandler(ev)
+      }
+      const childrenOnly =
+        typeof children === 'string'
+          ? [<span key={1}>{children}</span>]
+          : Children.only(children)
+      const response = Children.map(childrenOnly, (child, key) => {
+        const attrs = {
+          onClick: onClick(child.props.onClick)
+        }
+        attrs.ref = node => {
+          ;[child.ref, targetRef].forEach(ref => {
+            if (typeof ref === 'function') {
+              ref(node)
+            } else if (ref !== null) {
+              ref.current = node
+            }
+          })
+        }
+        attrs.key = key
+        return cloneElement(child, attrs)
+      })
+      return response
     }
-    const childrenOnly =
-      typeof children === 'string'
-        ? [<span key={1}>{children}</span>]
-        : Children.only(children)
-    const response = Children.map(childrenOnly, (child, key) => {
-      const attrs = {
-        onClick: onClick(child.props.onClick)
-      }
-      attrs.ref = node => {
-        ;[child.ref, targetRef].forEach(ref => {
-          if (typeof ref === 'function') {
-            ref(node)
-          } else if (ref !== null) {
-            ref.current = node
-          }
-        })
-      }
-      attrs.key = key
-      return cloneElement(child, attrs)
-    })
-    return response
-  }
 
-  const handleToggle = ev => {
-    setIsVisibleState(!isVisibleState)
-    onClose(ev)
-  }
+    const handleToggle = ev => {
+      setIsVisibleState(!isVisibleState)
+      onClose(ev)
+    }
 
-  return (
-    <>
-      {extendChildren()}
-      {isVisibleState && ready && (
-        <Popover
-          className={BASE_CLASS}
-          delay={DEFAULT_DELAY}
-          innerClassName={CLASS_INNER}
-          hideArrow={hideArrow}
-          arrowClassName={`${BASE_CLASS}-arrow`}
-          isOpen={isVisibleState}
-          offset={DEFAULT_OFFSET}
-          placement={placement}
-          placementPrefix={PREFIX_PLACEMENT}
-          target={targetRef.current}
-          toggle={handleToggle}
-          trigger={Array.isArray(trigger) ? trigger.join(' ') : trigger}
-          innerRef={outRef}
-        >
-          {closeIcon && (
-            <div className={`${BASE_CLASS}-closeIcon`} onClick={handleToggle}>
-              {closeIcon}
-            </div>
-          )}
-          {content}
-        </Popover>
-      )}
-    </>
-  )
-})
+    return (
+      <>
+        {extendChildren()}
+        {isVisibleState && ready && (
+          <Popover
+            className={BASE_CLASS}
+            delay={DEFAULT_DELAY}
+            innerClassName={CLASS_INNER}
+            hideArrow={hideArrow}
+            arrowClassName={`${BASE_CLASS}-arrow`}
+            isOpen={isVisibleState}
+            offset={DEFAULT_OFFSET}
+            placement={placement}
+            placementPrefix={PREFIX_PLACEMENT}
+            target={targetRef.current}
+            toggle={handleToggle}
+            trigger={Array.isArray(trigger) ? trigger.join(' ') : trigger}
+            innerRef={outRef}
+          >
+            {closeIcon && (
+              <div className={`${BASE_CLASS}-closeIcon`} onClick={handleToggle}>
+                {closeIcon}
+              </div>
+            )}
+            {content}
+          </Popover>
+        )}
+      </>
+    )
+  }
+)
 
 AtomPopover.displayName = 'AtomPopover'
 
@@ -123,10 +120,10 @@ AtomPopover.propTypes = {
   content: PropTypes.element.isRequired,
   /** Popover children */
   children: PropTypes.node.isRequired,
+  /** initial value for the show pop over */
+  defaultIsVisible: PropTypes.bool,
   /** Controlled value for the show pop over */
-  showPopover: PropTypes.bool,
-  /** Popover id: only is needed if use a children without ref */
-  id: PropTypes.string,
+  isVisible: PropTypes.bool,
   /** Custom close icon  */
   closeIcon: PropTypes.node,
   /** On close callback */

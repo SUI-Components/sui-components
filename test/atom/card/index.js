@@ -74,4 +74,50 @@ describe('atom/card', () => {
     const card = getByRole('button')
     expect(card).to.have.not.class('sui-AtomCard-link')
   })
+
+  it('should have rounded class when having borders rounded', () => {
+    const props = {
+      rounded: 's',
+      content: () => <span>card</span>
+    }
+    const {getByRole} = setup(props)
+    const card = getByRole('button')
+    expect(card).to.have.class('sui-AtomCard--rounded-s')
+    expect(card).to.have.not.class('sui-AtomCard--rounded-m')
+    expect(card).to.have.not.class('sui-AtomCard--rounded-l')
+  })
+
+  it('should NOT have rounded class when not having border rounded ', () => {
+    const props = {
+      content: () => <span>card</span>
+    }
+    const {getByRole} = setup(props)
+    const card = getByRole('button')
+    expect(card).to.have.not.class('sui-AtomCard--rounded-s')
+    expect(card).to.have.not.class('sui-AtomCard--rounded-m')
+    expect(card).to.have.not.class('sui-AtomCard--rounded-l')
+  })
+
+  it('should have box-shadow class when having elevated border', () => {
+    const props = {
+      elevation: 's',
+      content: () => <span>card</span>
+    }
+    const {getByRole} = setup(props)
+    const card = getByRole('button')
+    expect(card).to.have.class('sui-AtomCard--elevation-s')
+    expect(card).to.have.not.class('sui-AtomCard--elevation-m')
+    expect(card).to.have.not.class('sui-AtomCard--elevation-l')
+  })
+
+  it('should NOT have rounded class when not having elevated border ', () => {
+    const props = {
+      content: () => <span>card</span>
+    }
+    const {getByRole} = setup(props)
+    const card = getByRole('button')
+    expect(card).to.have.not.class('sui-AtomCard--elevation-s')
+    expect(card).to.have.not.class('sui-AtomCard--elevation-m')
+    expect(card).to.have.not.class('sui-AtomCard--elevation-l')
+  })
 })

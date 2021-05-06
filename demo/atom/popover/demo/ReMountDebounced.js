@@ -48,7 +48,7 @@ const ReMountDebounced = ({
   useDebounce(() => setIsFiltering(false), timeout, [...observe])
   useEffect(() => {
     setIsFiltering(true)
-  }, [...observe])
+  }, [observe])
   return isFiltering
     ? fallback &&
         Children.map(

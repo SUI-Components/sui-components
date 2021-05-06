@@ -197,7 +197,7 @@ const ArticleDefault = ({className, content: Content}) => {
           <RadioButtonGroup
             value={`${defaultIsVisible}`}
             fullWidth
-            onChange={value => {
+            onChange={(event, value) => {
               switch (value) {
                 case 'true':
                   setDefaultIsVisible(true)
@@ -225,7 +225,7 @@ const ArticleDefault = ({className, content: Content}) => {
           <RadioButtonGroup
             value={`${isVisible}`}
             fullWidth
-            onChange={value => {
+            onChange={(event, value) => {
               switch (value) {
                 case 'true':
                   setIsVisible(true)

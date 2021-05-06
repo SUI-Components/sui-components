@@ -48,7 +48,7 @@ describe('atom/card', () => {
 
   it('should have link class when having onClick', () => {
     const props = {
-      onClick: () => console.log('Hello!'),
+      onClick: () => console.log('Hello!'), // eslint-disable-line no-console
       content: () => <span>card with click</span>
     }
     const {getByRole} = setup(props)

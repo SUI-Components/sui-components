@@ -5,6 +5,13 @@ export const beatles = [
   'Ringo Starr'
 ]
 
+export const beatlesArrayObject = [
+  {key: 1, label: 'John Lennon'},
+  {key: 2, label: 'Paul McCartney'},
+  {key: 3, label: 'George Harrison'},
+  {key: 4, label: 'Ringo Starr'}
+]
+
 export const ledZeppelin = [
   'Robert Plant',
   'Jimmy Page',

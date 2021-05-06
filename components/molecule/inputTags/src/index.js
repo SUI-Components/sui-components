@@ -19,7 +19,9 @@ const AtomTagItem = ({onClose = () => {}, id, ...restProps}) => {
 }
 
 const isDuplicate = (values, newValue) => {
-  const upperTags = values.map(val => val.toUpperCase())
+  const upperTags = values.map(val =>
+    typeof val === 'object' ? val.label.toUpperCase() : val.toUpperCase()
+  )
   return upperTags.includes(newValue.toUpperCase())
 }
 
@@ -37,6 +39,7 @@ const MoleculeInputTags = ({
   placeholder,
   disabled,
   allowDuplicates,
+  name,
   ...restProps
 }) => {
   const [focus, setFocus] = useState(false)
@@ -56,7 +59,6 @@ const MoleculeInputTags = ({
   })
 
   const removeTag = (ev, {id: indexTag}) => {
-    const {name} = ev.target
     let tags = tagsFromProps.filter((_, i) => i !== indexTag)
     if (optionsData) {
       const keys = Object.keys(optionsData)
@@ -66,7 +68,6 @@ const MoleculeInputTags = ({
   }
 
   const addTag = ev => {
-    const {name} = ev.target
     ev.preventDefault()
     if (value) {
       const tags = [...tagsFromProps]
@@ -87,20 +88,25 @@ const MoleculeInputTags = ({
 
   return (
     <div className={className}>
-      {tagsFromProps.map((label, index) => (
-        <AtomTagItem
-          key={index}
-          id={index}
-          closeIcon={tagsCloseIcon}
-          onClose={removeTag}
-          label={label}
-          size={atomTagSizes.SMALL}
-          responsive
-        />
-      ))}
+      {tagsFromProps.map((value, index) => {
+        const label = typeof value === 'object' ? value.label : value
+        const key = typeof value === 'object' ? value.key : index
+        return (
+          <AtomTagItem
+            key={key}
+            id={index}
+            closeIcon={tagsCloseIcon}
+            onClose={removeTag}
+            label={label}
+            size={atomTagSizes.SMALL}
+            responsive
+          />
+        )
+      })}
       {shouldRenderInput && (
         <AtomInput
           {...restProps}
+          name={name}
           value={value}
           onChange={handleInputChange}
           onEnter={addTag}
@@ -155,7 +161,10 @@ MoleculeInputTags.propTypes = {
   disabled: PropTypes.bool,
 
   /* prop to determinate if the field allows to introduce duplicate values for the tags (case insensitive) */
-  allowDuplicates: PropTypes.bool
+  allowDuplicates: PropTypes.bool,
+
+  /* input name */
+  name: PropTypes.string
 }
 
 MoleculeInputTags.defaultProps = {

@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@s-ui/react-atom-input": "4",
-    "@s-ui/react-hooks": "1"
+    "@s-ui/react-hooks": "1",
+    "lodash.isequal": "4.5"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

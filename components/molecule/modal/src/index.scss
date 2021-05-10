@@ -120,6 +120,12 @@ body.is-MoleculeModal-open {
     width: 100%;
     z-index: $z-molecule-modal;
 
+    &--fitWindow {
+      @include media-breakpoint-up(xs) {
+        max-width: $maw-molecule-modal-dialog--fitWindow;
+      }
+    }
+
     &--full {
       @include media-breakpoint-up(xs) {
         border: 0;

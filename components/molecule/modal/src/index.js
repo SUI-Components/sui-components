@@ -128,7 +128,7 @@ const MoleculeModal = forwardRef(
       })
 
       const dialogClassName = cx(suitClass({element: 'dialog'}), {
-        [suitClass({element: 'dialog--full'})]: fitWindow,
+        [suitClass({element: 'dialog--fitWindow'})]: fitWindow,
         [suitClass({element: 'dialog--out'})]: isClosing,
         [suitClass({element: 'dialog--fit'})]: fitContent,
         [suitClass({element: `dialog--${size}`})]: !!size

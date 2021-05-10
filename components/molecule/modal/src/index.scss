@@ -122,7 +122,11 @@ body.is-MoleculeModal-open {
 
     &--full {
       @include media-breakpoint-up(xs) {
-        max-width: $maw-molecule-modal-dialog--full;
+        border: 0;
+        border-radius: 0;
+        height: 100%;
+        margin: 0;
+        max-height: 100%;
       }
     }
 

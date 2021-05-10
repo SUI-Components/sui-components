@@ -25,7 +25,8 @@ export const MODAL_SIZES = {
   XSMALL: 'xsmall',
   SMALL: 'small',
   MEDIUM: 'medium',
-  LARGE: 'large'
+  LARGE: 'large',
+  FULL: 'full'
 }
 
 const toggleWindowScroll = disableScroll => {

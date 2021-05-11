@@ -1,5 +1,5 @@
 import {Children, cloneElement, useState, useEffect, useRef} from 'react'
-import {useDebounce} from '@s-ui/react-hooks'
+import useDebounce from '@s-ui/react-hooks/lib/useDebounce'
 import isEqual from 'lodash.isequal'
 import PropTypes from 'prop-types'
 import cx from 'classnames'

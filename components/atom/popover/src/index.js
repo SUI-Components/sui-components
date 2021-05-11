@@ -7,7 +7,7 @@ import {
   forwardRef
 } from 'react'
 import PropTypes from 'prop-types'
-import {useControlledState} from '@s-ui/react-hooks'
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 import loadable from '@loadable/component'
 import {PLACEMENTS, TRIGGERS} from './config'
 

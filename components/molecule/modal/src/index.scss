@@ -120,22 +120,6 @@ body.is-MoleculeModal-open {
     width: 100%;
     z-index: $z-molecule-modal;
 
-    &--fitWindow {
-      @include media-breakpoint-up(xs) {
-        max-width: $maw-molecule-modal-dialog--fitWindow;
-      }
-    }
-
-    &--full {
-      @include media-breakpoint-up(xs) {
-        border: 0;
-        border-radius: 0;
-        height: 100%;
-        margin: 0;
-        max-height: 100%;
-      }
-    }
-
     &--out {
       animation: modal-content-out 0.25s ease-in;
     }
@@ -148,8 +132,18 @@ body.is-MoleculeModal-open {
       width: initial;
     }
 
+    &--size-full {
+      @include media-breakpoint-up(xs) {
+        border: 0;
+        border-radius: 0;
+        height: 100%;
+        margin: 0;
+        max-height: 100%;
+      }
+    }
+
     @each $key-size, $size in $s-molecule-modal-dialog {
-      &--#{$key-size} {
+      &--size-#{$key-size} {
         width: 100%;
 
         @include media-breakpoint-up(xs) {

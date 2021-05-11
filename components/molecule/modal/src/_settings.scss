@@ -14,13 +14,13 @@ $bxsh-molecule-modal-dialog: $bxsh-m !default;
 $m-molecule-modal-dialog: $m-xl !default;
 $m-molecule-modal-dialog-mobile: $m-l !default;
 $maw-molecule-modal-dialog: 600px !default;
-$maw-molecule-modal-dialog--full: 1200px !default;
 $miw-molecule-modal-dialog: 288px !default;
 $s-molecule-modal-dialog: (
   xsmall: 384px,
   small: 448px,
   medium: 512px,
-  large: 576px
+  large: 576px,
+  full: 100%
 ) !default;
 
 $bg-molecule-modal-header: transparent !default;

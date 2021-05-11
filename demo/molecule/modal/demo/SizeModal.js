@@ -3,6 +3,8 @@ import MoleculeModal, {
   MODAL_SIZES
 } from '../../../../components/molecule/modal/src'
 
+import {IconClose} from './helperComponents'
+
 const SizeModal = () => {
   const [size, setSize] = useState('')
   const isOpen = !!size
@@ -24,6 +26,7 @@ const SizeModal = () => {
       ))}
 
       <MoleculeModal
+        iconClose={<IconClose />}
         isOpen={isOpen}
         size={size}
         onClose={handleClose}

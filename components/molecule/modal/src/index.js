@@ -25,7 +25,8 @@ export const MODAL_SIZES = {
   XSMALL: 'xsmall',
   SMALL: 'small',
   MEDIUM: 'medium',
-  LARGE: 'large'
+  LARGE: 'large',
+  FULL: 'full'
 }
 
 const toggleWindowScroll = disableScroll => {
@@ -40,7 +41,6 @@ const MoleculeModal = forwardRef(
       closeOnOutsideClick = false,
       enableContentScroll = false,
       fitContent = false,
-      fitWindow = false,
       floatingIconClose = false,
       size,
       header,
@@ -127,10 +127,9 @@ const MoleculeModal = forwardRef(
       })
 
       const dialogClassName = cx(suitClass({element: 'dialog'}), {
-        [suitClass({element: 'dialog--full'})]: fitWindow,
         [suitClass({element: 'dialog--out'})]: isClosing,
         [suitClass({element: 'dialog--fit'})]: fitContent,
-        [suitClass({element: `dialog--${size}`})]: !!size
+        [suitClass({element: `dialog--size-${size}`})]: !!size
       })
 
       return (
@@ -204,10 +203,6 @@ MoleculeModal.propTypes = {
    * true to prevent scroll
    */
   enableContentScroll: PropTypes.bool,
-  /**
-   * true if you want a fullscreen modal, otherwise, false
-   */
-  fitWindow: PropTypes.bool,
   /**
    * true if you want a modal that fit contents in mobile devices, otherwise, false
    */

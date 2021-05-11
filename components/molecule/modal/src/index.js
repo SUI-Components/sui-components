@@ -10,7 +10,7 @@ import {
 } from 'react'
 import {createPortal} from 'react-dom'
 import cx from 'classnames'
-import {useMergeRefs} from '@s-ui/react-hooks'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 import {SUPPORTED_KEYS} from './config'
 import {suitClass} from './helpers'
 import {Close} from './Close'

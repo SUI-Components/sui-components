@@ -51,6 +51,13 @@ return (
       />
     </p>
     <p>
+      <MoleculeBadgeCounter
+        variant={moleculeBadgeCounterVariants.EXTENDED}
+        size={moleculeBadgeCounterSizes.MEDIUM}
+        label="48"
+      />
+    </p>
+    <p>
       <MoleculeBadgeCounter label="4" />
     </p>
     <p>
@@ -90,6 +97,13 @@ return (
       <MoleculeBadgeCounter
         variant={moleculeBadgeCounterVariants.EXCLAMATION}
         size={moleculeBadgeCounterSizes.LARGE}
+      />
+    </p>
+    <p>
+      <MoleculeBadgeCounter
+        variant={moleculeBadgeCounterVariants.EXTENDED}
+        size={moleculeBadgeCounterSizes.LARGE}
+        label="45"
       />
     </p>
     <p>

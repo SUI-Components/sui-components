@@ -58,6 +58,15 @@ import MoleculeBadgeCounter, {
 />
 ```
 
+### Extended Variant
+
+```js
+<MoleculeBadgeCounter
+  variant={moleculeBadgeCounterVariants.EXTENDED}
+  size={moleculeBadgeCounterSizes.MEDIUM}
+/>
+```
+
 ### Labels
 
 ```js

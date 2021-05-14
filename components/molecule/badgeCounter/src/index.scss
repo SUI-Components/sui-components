@@ -22,6 +22,7 @@ $molecule-badge-counter-medium-diameter: 16px !default;
 $molecule-badge-counter-medium-diameter-dot: 5px !default;
 $molecule-badge-counter-medium-offset-top: -6px !default;
 $molecule-badge-counter-medium-offset-right: -12px !default;
+$p-molecule-badge-counter-medium: 0 $p-s !default;
 
 /* large */
 $molecule-badge-counter-large-diameter: 24px !default;
@@ -29,6 +30,7 @@ $molecule-badge-counter-large-diameter-dot: 6px !default;
 $molecule-badge-counter-large-offset-top: -12px !default;
 $molecule-badge-counter-large-offset-right: -22px !default;
 $fz-molecule-badge-counter-large: $fz-xs !default;
+$p-molecule-badge-counter-large: 0 $p-base !default;
 
 /* disabled */
 $bgc-molecule-badge-counter-disabled: $c-gray-light-3 !default;
@@ -50,6 +52,7 @@ $c-molecule-badge-counter-selected: $c-primary !default;
     border-style: $bds-molecule-badge-counter;
     border-width: $bdw-molecule-badge-counter;
     border-radius: 100%;
+    box-sizing: border-box;
     color: $c-molecule-badge-counter;
     display: inline-flex;
     font-size: $fz-molecule-badge-counter;
@@ -108,6 +111,11 @@ $c-molecule-badge-counter-selected: $c-primary !default;
         border-width: $molecule-badge-counter-medium-diameter-dot;
       }
 
+      &#{$bullet}-extended {
+        border-radius: $bdrs-molecule-badge-counter;
+        padding: $p-molecule-badge-counter-medium;
+      }
+
       &--threeCharacters {
         border-radius: $bdrs-molecule-badge-counter;
         padding: 0 $p-s;
@@ -128,6 +136,11 @@ $c-molecule-badge-counter-selected: $c-primary !default;
 
       &#{$bullet}-dot {
         border-width: $molecule-badge-counter-large-diameter-dot;
+      }
+
+      &#{$bullet}-extended {
+        border-radius: $bdrs-molecule-badge-counter;
+        padding: $p-molecule-badge-counter-large;
       }
 
       &--threeCharacters {

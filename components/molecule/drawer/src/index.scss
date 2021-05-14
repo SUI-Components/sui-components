@@ -6,13 +6,15 @@ $z-molecule-drawer: $z-modal !default;
 $z-molecule-drawer-overlay: $z-modal !default;
 $bxsh-molecule-drawer: 0 0 6px rgba(0, 0, 0, 0.4) !default;
 $bgc-molecule-drawer: $c-white !default;
+$bgc-molecule-drawer-overlay-start: rgba(0, 0, 0, 0.4) !default;
+$bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
 
 @keyframes bg-overlay {
   0% {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: $bgc-molecule-drawer-overlay-start;
   }
   100% {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: $bgc-molecule-drawer-overlay-finish;
   }
 }
 

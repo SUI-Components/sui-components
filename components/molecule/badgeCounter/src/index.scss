@@ -52,6 +52,7 @@ $c-molecule-badge-counter-selected: $c-primary !default;
     border-style: $bds-molecule-badge-counter;
     border-width: $bdw-molecule-badge-counter;
     border-radius: 100%;
+    box-sizing: border-box;
     color: $c-molecule-badge-counter;
     display: inline-flex;
     font-size: $fz-molecule-badge-counter;

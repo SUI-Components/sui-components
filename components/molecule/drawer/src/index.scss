@@ -18,7 +18,7 @@ $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
   }
 }
 
-@keyframes open-drawer-left {
+@keyframes open-drawer-left--m {
   0% {
     left: -$w-molecule-drawer;
   }
@@ -27,7 +27,7 @@ $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
   }
 }
 
-@keyframes close-drawer-left {
+@keyframes close-drawer-left--m {
   0% {
     left: 0px;
   }
@@ -36,7 +36,7 @@ $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
   }
 }
 
-@keyframes open-drawer-right {
+@keyframes open-drawer-right--m {
   0% {
     right: -$w-molecule-drawer;
   }
@@ -45,7 +45,7 @@ $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
   }
 }
 
-@keyframes close-drawer-right {
+@keyframes close-drawer-right--m {
   0% {
     right: 0px;
   }
@@ -54,7 +54,7 @@ $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
   }
 }
 
-@keyframes open-drawer-top {
+@keyframes open-drawer-top--m {
   0% {
     top: -$h-molecule-drawer;
   }
@@ -63,7 +63,7 @@ $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
   }
 }
 
-@keyframes close-drawer-top {
+@keyframes close-drawer-top--m {
   0% {
     top: 0px;
   }
@@ -72,7 +72,7 @@ $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
   }
 }
 
-@keyframes open-drawer-bottom {
+@keyframes open-drawer-bottom--m {
   0% {
     bottom: -$h-molecule-drawer;
   }
@@ -81,12 +81,84 @@ $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
   }
 }
 
-@keyframes close-drawer-bottom {
+@keyframes close-drawer-bottom--m {
   0% {
     bottom: 0px;
   }
   100% {
     bottom: -$h-molecule-drawer;
+  }
+}
+
+@keyframes open-drawer-left--fullscreen {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes close-drawer-left--fullscreen {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@keyframes open-drawer-right--fullscreen {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 0px;
+  }
+}
+
+@keyframes close-drawer-right--fullscreen {
+  0% {
+    right: 0px;
+  }
+  100% {
+    right: -100%;
+  }
+}
+
+@keyframes open-drawer-top--fullscreen {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+@keyframes close-drawer-top--fullscreen {
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: -100%;
+  }
+}
+
+@keyframes open-drawer-bottom--fullscreen {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+
+@keyframes close-drawer-bottom--fullscreen {
+  0% {
+    bottom: 0px;
+  }
+  100% {
+    bottom: -100%;
   }
 }
 
@@ -128,5 +200,16 @@ $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
       height: $h-molecule-drawer;
       bottom: 0px;
     }
+
+    &--fullscreen {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-body {
+    overflow: auto;
+    height: 100%;
+    width: 100%;
   }
 }

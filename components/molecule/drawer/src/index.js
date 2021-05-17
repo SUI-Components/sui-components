@@ -15,15 +15,33 @@ const PLACEMENTS = {
   LEFT: 'left'
 }
 
+const SIZES = {
+  M: 'm',
+  FULLSCREEN: 'fullscreen'
+}
+
+const SPEEDS = {
+  SLOW: 'slow',
+  FAST: 'fast'
+}
+
+const SPEED_TO_SECONDS = {
+  slow: '1s',
+  fast: '0.3s'
+}
+
 export default function MoleculeDrawer({
   portalContainerId = 'drawer-react-portal',
   isOpen = false,
   placement = PLACEMENTS.LEFT,
+  size = SIZES.M,
+  speed = SPEEDS.FAST,
   onClose,
   children
 }) {
   const overlayRef = useRef(null)
   const [isClientReady, setClientReady] = useState(false)
+  const [animating, setAnimating] = useState(false)
   const [value, {off, on}] = useBoolean(isOpen)
 
   useEffect(() => {
@@ -34,10 +52,13 @@ export default function MoleculeDrawer({
     isOpen && on()
   }, [isOpen, on])
 
+  const onCloseHandler = event =>
+    typeof onClose === 'function' && !animating && onClose(event)
+
   useEventListener('keydown', event => {
     if (isOpen === false) return
     if (event.key === 'Escape') {
-      typeof onClose === 'function' && onClose(event)
+      onCloseHandler(event)
       event.preventDefault()
     }
   })
@@ -58,26 +79,31 @@ export default function MoleculeDrawer({
         ref={overlayRef}
         className="react-MoleculeDrawer-overlay"
         onClick={event => {
-          overlayRef.current === event.target &&
-            typeof onClose === 'function' &&
-            onClose(event)
+          overlayRef.current === event.target && onCloseHandler(event)
+        }}
+      />
+      <Content
+        onAnimationEnd={() => {
+          setAnimating(false)
+          !isOpen && off()
+        }}
+        onAnimationStart={() => setAnimating(true)}
+        className={cx(
+          'react-MoleculeDrawer-content',
+          `react-MoleculeDrawer-content--${placement}`,
+          {
+            'react-MoleculeDrawer-content--fullscreen':
+              size === SIZES.FULLSCREEN
+          }
+        )}
+        style={{
+          animation: `${
+            isOpen ? 'open' : 'close'
+          }-drawer-${placement}--${size} ${SPEED_TO_SECONDS[speed]} both`
         }}
       >
-        <Content
-          onAnimationEnd={() => !isOpen && off()}
-          className={cx(
-            'react-MoleculeDrawer-content',
-            `react-MoleculeDrawer-content--${placement}`
-          )}
-          style={{
-            animation: `${
-              isOpen ? 'open' : 'close'
-            }-drawer-${placement} 0.3s both`
-          }}
-        >
-          <Body className="react-MoleculeDrawer-body">{children}</Body>
-        </Content>
-      </Overlay>
+        <Body className="react-MoleculeDrawer-body">{children}</Body>
+      </Content>
     </div>
   )
 
@@ -85,6 +111,8 @@ export default function MoleculeDrawer({
 }
 
 export {PLACEMENTS as moleculeDrawerPlacements}
+export {SIZES as moleculeDrawerSizes}
+export {SPEEDS as moleculeDrawerAnimationSpeeds}
 
 MoleculeDrawer.displayName = 'MoleculeDrawer'
 MoleculeDrawer.propTypes = {
@@ -93,5 +121,9 @@ MoleculeDrawer.propTypes = {
   /** On close callback used to manage the isOpen prop from the parent */
   onClose: PropTypes.func,
   /** Screen position where the drawer will be displayed */
-  placement: PropTypes.oneOf(Object.values(PLACEMENTS))
+  placement: PropTypes.oneOf(Object.values(PLACEMENTS)),
+  /** Size of the drawer content */
+  size: PropTypes.oneOf(Object.values(SIZES)),
+  /** Duration in seconds for open/close animation */
+  speed: PropTypes.oneOf(Object.values(SPEEDS))
 }

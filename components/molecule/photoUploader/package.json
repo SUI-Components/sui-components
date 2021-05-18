@@ -9,13 +9,13 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "react-dropzone": "10.2.1",
-    "react-sortablejs": "2.0.11",
-    "@s-ui/react-hooks": "1",
     "@s-ui/js": "2",
     "@s-ui/react-atom-button": "1",
     "@s-ui/react-atom-icon": "1",
-    "@s-ui/react-molecule-notification": "1"
+    "@s-ui/react-hooks": "1",
+    "@s-ui/react-molecule-notification": "1",
+    "react-dropzone": "10.2.1",
+    "react-sortablejs": "2.0.11"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

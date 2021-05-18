@@ -9,11 +9,11 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/js": "2",
     "@s-ui/hoc": "1",
+    "@s-ui/js": "2",
     "@s-ui/react-atom-input": "4",
-    "@s-ui/react-molecule-input-tags": "2",
-    "@s-ui/react-molecule-dropdown-list": "1"
+    "@s-ui/react-molecule-dropdown-list": "1",
+    "@s-ui/react-molecule-input-tags": "2"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

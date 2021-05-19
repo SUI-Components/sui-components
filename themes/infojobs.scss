@@ -6,6 +6,7 @@ $fz-base: 16px;
 // Inherit from original theme
 @import '~@s-ui/theme/lib/settings';
 @import '~@adv-ui/ij-theme/lib/index';
+@import '~@adv-ui/ij-theme/lib/normalize';
 
 // Common css for sui-studio
 @import './common';

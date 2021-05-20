@@ -72,6 +72,7 @@ body.is-MoleculeModal-open {
     animation: modal-overlay-in 5s both;
     background-color: $bg-molecule-modal-overlay;
     content: '';
+    z-index: $z-molecule-modal--before;
   }
 
   &-out::before {

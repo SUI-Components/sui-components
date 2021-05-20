@@ -1,6 +1,7 @@
 $bg-molecule-modal: $c-black !default;
 $op-molecule-modal: 0.6 !default;
 $z-molecule-modal: $z-modal !default;
+$z-molecule-modal--before: -1 !default;
 
 $bg-molecule-modal-overlay: rgba(
   $bg-molecule-modal,

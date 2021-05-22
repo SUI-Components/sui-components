@@ -7,7 +7,7 @@ const BASE_CLASS = 'sui-MoleculeAccordion'
 const MoleculeAccordion = ({
   children,
   defaultOpenedTabs = [],
-  onToggleTab,
+  onToggleTab = () => {},
   withAutoClose,
   ...tabProps
 }) => {

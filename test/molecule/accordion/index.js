@@ -65,6 +65,7 @@ describe('molecule/accordion', () => {
 
   it('should trigger onToggleTab when tab is clicked', () => {
     // Given
+    const spy = sinon.spy()
     const props = {
       children: [
         <div key={0} label="label 1">
@@ -74,16 +75,12 @@ describe('molecule/accordion', () => {
           element 2
         </div>
       ],
-      icon: <svg />
+      icon: <svg />,
+      onToggleTab: spy
     }
+    const {getByText} = setup(props)
 
     // When
-    const spy = sinon.spy()
-    const {getByText} = setup({
-      ...props,
-      onToggleTab: spy
-    })
-
     const tab = getByText('label 1')
     userEvents.click(tab)
 

@@ -5,7 +5,8 @@ import {getTarget} from '@s-ui/js/lib/react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {useMount, useMergeRefs} from '@s-ui/react-hooks'
+import useMount from '@s-ui/react-hooks/lib/useMount'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import {filterValidFiles, prepareFiles, loadInitialPhotos} from './fileTools'
 

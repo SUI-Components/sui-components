@@ -154,7 +154,7 @@ const MoleculeAutosuggest = ({
       const currentElementFocused = getCurrentElementFocused()
       const focusOutFromOutside =
         ![domInnerInput, ...options].includes(currentElementFocused) &&
-        !domContainer.contains(currentElementFocused)
+        !domContainer?.contains(currentElementFocused)
       if (focusOutFromOutside) {
         if (autoClose && isOpen) {
           closeList(ev)

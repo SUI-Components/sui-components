@@ -297,10 +297,10 @@ MoleculeAutosuggest.propTypes = {
   /** list of values to be displayed on the select */
   options: PropTypes.array,
 
-  /** object generated w/ Reacte.createRef method to get a DOM reference of wrapper div */
+  /** object generated w/ React.createRef method to get a DOM reference of wrapper div */
   refMoleculeAutosuggest: PropTypes.object,
 
-  /** object generated w/ Reacte.createRef method to get a DOM reference of internal input */
+  /** object generated w/ React.createRef method to get a DOM reference of internal input */
   refMoleculeAutosuggestInput: PropTypes.object,
 
   /** native required html attribute */

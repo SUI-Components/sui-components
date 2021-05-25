@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 import {inputTypes} from '@s-ui/react-atom-input'
 
 import MoleculeAutosuggestSingleSelection from './components/SingleSelection'
@@ -51,15 +52,23 @@ const MoleculeAutosuggest = ({
   onFocus = () => {},
   onSelect = () => {},
   onToggle = () => {},
-  refMoleculeAutosuggest: refMoleculeAutosuggestFromProps,
+  refMoleculeAutosuggest: refMoleculeAutosuggestFromProps = {},
+  refMoleculeAutosuggestInput: refMoleculeAutosuggestInputFromProps = {},
   state,
   ...restProps
 }) => {
-  const refMoleculeAutosuggest = useRef(
-    refMoleculeAutosuggestFromProps?.current
+  const innerRefMoleculeAutosuggest = useRef()
+  const refMoleculeAutosuggest = useMergeRefs(
+    innerRefMoleculeAutosuggest,
+    refMoleculeAutosuggestFromProps
   )
+
   const refsMoleculeAutosuggestOptions = useRef([])
-  const refMoleculeAutosuggestInput = useRef()
+  const innerRefMoleculeAutosuggestInput = useRef()
+  const refMoleculeAutosuggestInput = useMergeRefs(
+    innerRefMoleculeAutosuggestInput,
+    refMoleculeAutosuggestInputFromProps
+  )
 
   const [focus, setFocus] = useState(false)
 
@@ -288,8 +297,11 @@ MoleculeAutosuggest.propTypes = {
   /** list of values to be displayed on the select */
   options: PropTypes.array,
 
-  /** object generated w/ Reacte.createRef method to get a DOM reference of internal input */
+  /** object generated w/ React.createRef method to get a DOM reference of wrapper div */
   refMoleculeAutosuggest: PropTypes.object,
+
+  /** object generated w/ React.createRef method to get a DOM reference of internal input */
+  refMoleculeAutosuggestInput: PropTypes.object,
 
   /** native required html attribute */
   required: PropTypes.bool,

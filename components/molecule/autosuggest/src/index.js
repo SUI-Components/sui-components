@@ -52,15 +52,13 @@ const MoleculeAutosuggest = ({
   onFocus = () => {},
   onSelect = () => {},
   onToggle = () => {},
-  refMoleculeAutosuggest: refMoleculeAutosuggestFromProps = {},
+  refMoleculeAutosuggest: refMoleculeAutosuggestFromProps,
   refMoleculeAutosuggestInput: refMoleculeAutosuggestInputFromProps = {},
   state,
   ...restProps
 }) => {
-  const innerRefMoleculeAutosuggest = useRef()
-  const refMoleculeAutosuggest = useMergeRefs(
-    innerRefMoleculeAutosuggest,
-    refMoleculeAutosuggestFromProps
+  const refMoleculeAutosuggest = useRef(
+    refMoleculeAutosuggestFromProps?.current
   )
 
   const refsMoleculeAutosuggestOptions = useRef([])

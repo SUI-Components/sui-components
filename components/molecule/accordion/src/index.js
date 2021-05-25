@@ -17,8 +17,7 @@ const MoleculeAccordion = ({
 
   const [openTabs, setOpenTabs] = useState(initialOpenTabs)
 
-  const _handleOnToggle = index => {
-    onToggleTab(index)
+  const _handleOnToggle = index => event => {
     let newOpenTabs = []
     if (withAutoClose) {
       newOpenTabs[index] = openTabs[index] ? undefined : true
@@ -26,6 +25,7 @@ const MoleculeAccordion = ({
       newOpenTabs = [...openTabs]
       newOpenTabs[index] = newOpenTabs[index] ? undefined : true
     }
+    onToggleTab(event, {index, openTabs: [...newOpenTabs]})
     setOpenTabs([...newOpenTabs])
   }
 

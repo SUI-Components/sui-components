@@ -35,7 +35,7 @@ const MoleculeAccordion = ({
         <Tab
           isOpen={!!openTabs[index]}
           key={index}
-          onToggle={() => _handleOnToggle(index)}
+          onToggle={_handleOnToggle(index)}
           title={child.props.label}
           {...tabProps}
         >

@@ -58,14 +58,14 @@ const MoleculeAutosuggestFieldMultiSelection = ({
       tags: newTags
     })
     autoClose && onToggle(ev, {isOpen: false})
-    innerRefInput.current.focus()
+    innerRefInput.current && innerRefInput.current.focus()
   }
 
   const handleChangeTags = (ev, {tags, value}) => {
     const isOpen = Boolean(value)
     onChangeTags(ev, {tags})
     autoClose && onToggle(ev, {isOpen})
-    innerRefInput.current.focus()
+    innerRefInput.current && innerRefInput.current.focus()
   }
 
   const handleChange = (ev, {value}) => {

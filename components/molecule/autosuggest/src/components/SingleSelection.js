@@ -39,7 +39,7 @@ const MoleculeAutosuggestSingleSelection = ({
     onChange(ev, {value})
     onSelect(ev, {value})
     autoClose && onToggle(ev, {isOpen: false})
-    innerRefInput.current.focus()
+    innerRefInput.current && innerRefInput.current.focus()
   }
 
   const handleChange = (ev, {value}) => {

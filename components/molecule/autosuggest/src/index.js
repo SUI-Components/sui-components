@@ -23,8 +23,6 @@ const AUTOSUGGEST_STATES = {
   ALERT: 'alert'
 }
 
-const isValidRef = ref => ref != null
-
 const getIsTypeableKey = key => {
   const keysEdit = [
     'Backspace',
@@ -54,25 +52,22 @@ const MoleculeAutosuggest = ({
   onFocus = () => {},
   onSelect = () => {},
   onToggle = () => {},
-  refMoleculeAutosuggest: refMoleculeAutosuggestFromProps,
-  refMoleculeAutosuggestInput: refMoleculeAutosuggestInputFromProps,
+  refMoleculeAutosuggest: refMoleculeAutosuggestFromProps = {},
+  refMoleculeAutosuggestInput: refMoleculeAutosuggestInputFromProps = {},
   state,
   ...restProps
 }) => {
   const innerRefMoleculeAutosuggest = useRef()
   const refMoleculeAutosuggest = useMergeRefs(
-    ...[innerRefMoleculeAutosuggest, refMoleculeAutosuggestFromProps].filter(
-      isValidRef
-    )
+    innerRefMoleculeAutosuggest,
+    refMoleculeAutosuggestFromProps
   )
 
   const refsMoleculeAutosuggestOptions = useRef([])
   const innerRefMoleculeAutosuggestInput = useRef()
   const refMoleculeAutosuggestInput = useMergeRefs(
-    ...[
-      innerRefMoleculeAutosuggestInput,
-      refMoleculeAutosuggestInputFromProps
-    ].filter(isValidRef)
+    innerRefMoleculeAutosuggestInput,
+    refMoleculeAutosuggestInputFromProps
   )
 
   const [focus, setFocus] = useState(false)
@@ -99,7 +94,7 @@ const MoleculeAutosuggest = ({
   )
 
   const closeList = ev => {
-    const {current: domMoleculeAutosuggest} = refMoleculeAutosuggest
+    const {current: domMoleculeAutosuggest} = innerRefMoleculeAutosuggest
     onToggle(ev, {isOpen: false})
     if (multiselection) onChange(ev, {value: ''})
     domMoleculeAutosuggest && !focus && domMoleculeAutosuggest.focus()
@@ -117,7 +112,7 @@ const MoleculeAutosuggest = ({
   const handleKeyDown = ev => {
     ev.persist()
     const {current: domInnerInput} = refMoleculeAutosuggestInput
-    const {current: domMoleculeAutosuggest} = refMoleculeAutosuggest
+    const {current: domMoleculeAutosuggest} = innerRefMoleculeAutosuggest
     const {current: optionsFromRef} = refsMoleculeAutosuggestOptions
     const {key} = ev
     const options = optionsFromRef.map(getTarget)

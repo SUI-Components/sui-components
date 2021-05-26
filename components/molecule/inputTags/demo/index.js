@@ -2,9 +2,7 @@
 import {useRef} from 'react'
 import './index.scss'
 
-import MoleculeInputTags, {
-  inputSizes
-} from 'components/molecule/inputTags/src'
+import MoleculeInputTags, {inputSizes} from 'components/molecule/inputTags/src'
 
 import {withStateValueTags} from '@s-ui/hoc'
 import {CloseIcon} from './icons'

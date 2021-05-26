@@ -1,7 +1,5 @@
 import {useState} from 'react'
-import MoleculeModal, {
-  MODAL_SIZES
-} from 'components/molecule/modal/src'
+import MoleculeModal, {MODAL_SIZES} from 'components/molecule/modal/src'
 
 import {IconClose} from './helperComponents'
 

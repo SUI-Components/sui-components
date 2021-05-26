@@ -10,9 +10,7 @@ import {
   Code,
   Label
 } from '@s-ui/documentation-library'
-import AtomPopover, {
-  atomPopoverTriggers
-} from 'components/atom/popover/src'
+import AtomPopover, {atomPopoverTriggers} from 'components/atom/popover/src'
 import IconClose from './Icons/IconClose'
 
 const ArticleCloseIcon = ({className, content: Content}) => {

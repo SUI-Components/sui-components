@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types'
 import {H2, Paragraph, Article, Code} from '@s-ui/documentation-library'
 
-import LayoutGrid, {
-  LayoutGridItem
-} from 'components/layout/grid/src'
+import LayoutGrid, {LayoutGridItem} from 'components/layout/grid/src'
 import DemoWrapper from './demoWrapper'
 import DemoBox from './demoBox'
 

@@ -9,9 +9,7 @@ import {
   RadioButtonGroup,
   Code
 } from '@s-ui/documentation-library'
-import AtomPopover, {
-  atomPopoverTriggers
-} from 'components/atom/popover/src'
+import AtomPopover, {atomPopoverTriggers} from 'components/atom/popover/src'
 import ReMountDebounced from './ReMountDebounced'
 
 const ArticleArrow = ({className, content: Content}) => {

@@ -13,7 +13,7 @@
   "scripts": {
     "build": "sui-studio build",
     "check:release": "sui-studio check-release",
-    "co": "sui-studio commit",
+    "co": "sui-mono commit",
     "commitmsg": "validate-commit-msg",
     "dev": "sui-studio dev",
     "generate": "sui-studio generate -S s-ui -P react",
@@ -24,7 +24,7 @@
     "install:themes": "node scripts/build-themes.js",
     "phoenix": "npx @s-ui/mono@2 run 'rm -rf ./node_modules' && rm -rf ./node_modules && npm install --legacy-peer-deps",
     "phoenix:ci": "npm run phoenix -- --no-optional --no-fund --no-audit",
-    "release": "sui-studio release",
+    "release": "sui-mono release",
     "start": "sui-studio start",
     "test": "sui-studio test",
     "test:watch": "sui-studio test --watch"

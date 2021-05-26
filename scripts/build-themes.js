@@ -3,12 +3,22 @@
 /* eslint-disable no-console */
 
 const path = require('path')
+const {promisify} = require('util')
+const exec = promisify(require('child_process').exec)
 const fse = require('fs-extra')
 const walker = require('walker')
 const globby = require('globby')
-const {getSpawnPromise} = require('@s-ui/helpers/cli')
 
-const themesPkgs = [
+const INSTALL_FLAGS = [
+  '--silent',
+  '--no-optional',
+  '--no-save',
+  '--no-audit',
+  '--no-fund',
+  '--no-package-lock'
+]
+
+const THEMES_PACKAGES = [
   '@adv-ui/adv-theme',
   '@adv-ui/cf-theme',
   '@adv-ui/ep-theme',
@@ -18,6 +28,8 @@ const themesPkgs = [
   '@adv-ui/ma-theme',
   '@adv-ui/mt-theme'
 ]
+
+console.log(process.cwd())
 
 const writeFile = (path, body) =>
   fse
@@ -48,43 +60,37 @@ const getThemesList = () => {
 }
 
 const installThemesPkgs = () =>
-  getSpawnPromise(
-    'npm',
-    themesPkgs.reduce((acc, pkg) => [...acc, pkg], [
-      'i',
-      '--silent',
-      '--no-optional',
-      '--no-save',
-      '--no-audit',
-      '--no-fund',
-      '--no-package-lock'
-    ]),
-    {cwd: process.cwd()}
-  )
-
-const writeThemesInDemoFolders = async themes => {
-  await getSpawnPromise('rm', ['-Rf', './demo/**/**/themes'], {
+  exec(`npm i ${THEMES_PACKAGES.join(' ')} ${INSTALL_FLAGS.join(' ')}`, {
     cwd: process.cwd()
   })
+
+const writeThemesInDemoFolders = async themes => {
+  await exec('rm -Rf components/**/**/demo/themes', {
+    cwd: process.cwd()
+  })
+
   const paths = await globby(
-    [path.join(process.cwd(), 'demo', '**', '**'), '!**/node_modules/**'],
+    [
+      path.join(process.cwd(), 'components', '**', '**', 'demo'),
+      '!**/node_modules/**'
+    ],
     {onlyDirectories: true, cwd: process.cwd()}
   )
+
   paths
-    .filter(p => p.match(/\/demo\/\w+\/\w+$/))
-    .forEach(async demo => {
+    .filter(p => p.match(/\/components\/\w+\/\w+\/demo$/))
+    .forEach(async demoPath => {
       try {
-        const [, component] = demo.split('/demo/')
-        const hasDemoStyles = await checkFileExists(`${demo}/demo/index.scss`)
+        const [, component, category] = demoPath.split('/').reverse()
+        const hasDemoStyles = await checkFileExists(`${demoPath}/index.scss`)
         await Promise.all(
           themes.map(theme =>
             writeFile(
-              `${demo}/themes/${theme}.scss`,
-              `
-@import '../../../../themes/${theme}';
-${hasDemoStyles ? `@import '../demo/index.scss';` : ''}
-@import '../../../../components/${component}/src/index.scss';
-        `.trim()
+              `${demoPath}/themes/${theme}.scss`,
+              `@import 'themes/${theme}';
+        ${hasDemoStyles ? `@import '../index.scss';` : ''}
+        @import 'components/${category}/${component}/src/index.scss';
+        `
             )
           )
         )

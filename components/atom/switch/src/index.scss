@@ -7,6 +7,7 @@ $h-atom-switch-default: 24px !default;
 $w-atom-switch-default: 40px !default;
 $w-atom-switch-circle-default: 22px !default;
 $m-atom-switch-circle-default--active: $m-l !default;
+$p-atom-switch-container: $p-s !default;
 
 /* LARGE SIZE */
 $h-atom-switch-container-large: 42px !default;
@@ -45,7 +46,7 @@ $atom-switch-transition-time: 0.3s !default;
     height: $h-atom-switch-container-default;
     justify-content: center;
     outline: none;
-    padding: $p-s;
+    padding: $p-atom-switch-container;
   }
 
   &--click {

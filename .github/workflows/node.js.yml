@@ -50,7 +50,7 @@ jobs:
 
     - name: Testing
       run: |
-        npm run phoenix
+        npm run phoenix:ci
         npm run lint
         xvfb-run --auto-servernum npm run test -- --ci
 

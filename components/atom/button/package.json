@@ -4,7 +4,7 @@
   "description": "Atom Element: SUI button",
   "main": "lib/index.js",
   "scripts": {
-    "prepare": "rm -Rf ./lib && mkdir -p ./lib && npm run build:js && npm run build:styles",
+    "prepare": "npm run build:js && npm run build:styles",
     "build:js": "babel --presets sui ./src --out-dir ./lib",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },

@@ -46,7 +46,8 @@
     "husky": "4.3.0",
     "sinon": "10.0.0",
     "validate-commit-msg": "2.12.2",
-    "walker": "1.0.7"
+    "walker": "1.0.7",
+    "wepback": "4"
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1"

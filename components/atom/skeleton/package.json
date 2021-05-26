@@ -4,7 +4,7 @@
   "description": "Display the loading state of a component while avoding layout shift",
   "main": "lib/index.js",
   "scripts": {
-    "prepare": "npx rimraf ./lib && npm run build:js && npm run build:styles",
+    "prepare": "npm run build:js && npm run build:styles",
     "build:js": "babel --presets sui ./src --out-dir ./lib",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },

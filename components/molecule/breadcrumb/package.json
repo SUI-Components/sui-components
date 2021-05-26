@@ -4,7 +4,7 @@
   "description": "SUI Breadcrumb Basic",
   "main": "lib/index.js",
   "scripts": {
-    "prepare": "rm -Rf ./lib && mkdir -p ./lib && npm run babel && npm run sass",
+    "prepare": "npm run babel && npm run sass",
     "babel": "babel --presets sui ./src --out-dir ./lib",
     "sass": "cpx './src/**/*.scss' ./lib"
   },

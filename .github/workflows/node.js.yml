@@ -34,7 +34,6 @@ jobs:
     - name: Install dependencies
       run: |
         npm run phoenix
-        npm run install:demos -- --ci
         
   lint:
     needs: install

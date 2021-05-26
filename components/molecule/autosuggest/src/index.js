@@ -59,7 +59,7 @@ const MoleculeAutosuggest = ({
   state,
   ...restProps
 }) => {
-  const innerRefMoleculeAutosuggest = useRef(useRef(null))
+  const innerRefMoleculeAutosuggest = useRef()
   const refMoleculeAutosuggest = useMergeRefs(
     ...[innerRefMoleculeAutosuggest, refMoleculeAutosuggestFromProps].filter(
       isValidRef
@@ -67,7 +67,7 @@ const MoleculeAutosuggest = ({
   )
 
   const refsMoleculeAutosuggestOptions = useRef([])
-  const innerRefMoleculeAutosuggestInput = useRef(null)
+  const innerRefMoleculeAutosuggestInput = useRef()
   const refMoleculeAutosuggestInput = useMergeRefs(
     ...[
       innerRefMoleculeAutosuggestInput,

@@ -29,8 +29,6 @@ const THEMES_PACKAGES = [
   '@adv-ui/mt-theme'
 ]
 
-console.log(process.cwd())
-
 const writeFile = (path, body) =>
   fse
     .outputFile(path, body)

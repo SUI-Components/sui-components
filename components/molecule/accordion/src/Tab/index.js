@@ -13,15 +13,15 @@ const ICON_CLASS = `${BASE_CLASS}Icon`
 const MAX_HEIGHT = 100
 
 const Tab = ({
-  onToggle,
+  autoHeight,
   children,
   icon,
+  isOpen,
+  maxHeight,
+  onToggle,
   title,
   withScrollVisible,
   withTransition,
-  isOpen,
-  maxHeight,
-  autoHeight,
   withGap,
   withMultilineLabel = false
 }) => {

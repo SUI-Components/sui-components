@@ -9,6 +9,8 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import sinon from 'sinon'
+import userEvents from '@testing-library/user-event'
 
 chai.use(chaiDOM)
 
@@ -61,17 +63,28 @@ describe('molecule/accordion', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
-  it.skip('example', () => {
-    // Example TO BE DELETED!!!!
-
+  it('should trigger onToggleTab when tab is clicked', () => {
     // Given
-    // const props = {}
+    const spy = sinon.spy()
+    const props = {
+      children: [
+        <div key={0} label="label 1">
+          element 1
+        </div>,
+        <div key={1} label="label 2">
+          element 2
+        </div>
+      ],
+      icon: <svg />,
+      onToggleTab: spy
+    }
+    const {getByText} = setup(props)
 
     // When
-    // const {getByRole} = setup(props)
+    const tab = getByText('label 1')
+    userEvents.click(tab)
 
     // Then
-    // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(false)
+    sinon.assert.called(spy)
   })
 })

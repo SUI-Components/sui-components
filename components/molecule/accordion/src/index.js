@@ -4,24 +4,28 @@ import Tab from './Tab'
 
 const BASE_CLASS = 'sui-MoleculeAccordion'
 
-function MoleculeAccordion(props) {
-  const {children, defaultOpenedTabs = [], ...tabProps} = props
-
+const MoleculeAccordion = ({
+  children,
+  defaultOpenedTabs = [],
+  onToggleTab = () => {},
+  withAutoClose,
+  ...tabProps
+}) => {
   const initialOpenTabs = children.map((_, index) =>
     defaultOpenedTabs.includes(index)
   )
 
   const [openTabs, setOpenTabs] = useState(initialOpenTabs)
 
-  function onToggle(id) {
-    const {withAutoClose} = props
+  const _handleOnToggle = index => event => {
     let newOpenTabs = []
     if (withAutoClose) {
-      newOpenTabs[id] = openTabs[id] ? undefined : true
+      newOpenTabs[index] = openTabs[index] ? undefined : true
     } else {
       newOpenTabs = [...openTabs]
-      newOpenTabs[id] = newOpenTabs[id] ? undefined : true
+      newOpenTabs[index] = newOpenTabs[index] ? undefined : true
     }
+    onToggleTab(event, {index, openTabs: [...newOpenTabs]})
     setOpenTabs([...newOpenTabs])
   }
 
@@ -29,10 +33,10 @@ function MoleculeAccordion(props) {
     <div className={BASE_CLASS}>
       {children.map((child, index) => (
         <Tab
-          key={index}
           isOpen={!!openTabs[index]}
+          key={index}
+          onToggle={_handleOnToggle(index)}
           title={child.props.label}
-          onToggle={() => onToggle(index)}
           {...tabProps}
         >
           {child.props.children}
@@ -65,6 +69,10 @@ MoleculeAccordion.propTypes = {
    * Define the auto height
    */
   autoHeight: PropTypes.bool,
+  /**
+   * On toggle tab callback
+   */
+  onToggleTab: PropTypes.func,
   /**
    * Activate/deactivate autoclose
    */

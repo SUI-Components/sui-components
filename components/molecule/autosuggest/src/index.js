@@ -9,7 +9,7 @@ import {inputTypes} from '@s-ui/react-atom-input'
 import MoleculeAutosuggestSingleSelection from './components/SingleSelection'
 import MoleculeAutosuggestMultipleSelection from './components/MultipleSelection'
 
-import {withOpenToggle} from '@s-ui/hoc'
+import withOpenToggle from '@s-ui/hoc/lib/withOpenToggle'
 import {getTarget} from '@s-ui/js/lib/react'
 import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 
@@ -22,6 +22,8 @@ const AUTOSUGGEST_STATES = {
   SUCCESS: 'success',
   ALERT: 'alert'
 }
+
+const isValidRef = ref => ref != null
 
 const getIsTypeableKey = key => {
   const keysEdit = [
@@ -53,19 +55,24 @@ const MoleculeAutosuggest = ({
   onSelect = () => {},
   onToggle = () => {},
   refMoleculeAutosuggest: refMoleculeAutosuggestFromProps,
-  refMoleculeAutosuggestInput: refMoleculeAutosuggestInputFromProps = {},
+  refMoleculeAutosuggestInput: refMoleculeAutosuggestInputFromProps,
   state,
   ...restProps
 }) => {
-  const refMoleculeAutosuggest = useRef(
-    refMoleculeAutosuggestFromProps?.current
+  const innerRefMoleculeAutosuggest = useRef(null)
+  const refMoleculeAutosuggest = useMergeRefs(
+    ...[innerRefMoleculeAutosuggest, refMoleculeAutosuggestFromProps].filter(
+      isValidRef
+    )
   )
 
   const refsMoleculeAutosuggestOptions = useRef([])
   const innerRefMoleculeAutosuggestInput = useRef()
   const refMoleculeAutosuggestInput = useMergeRefs(
-    innerRefMoleculeAutosuggestInput,
-    refMoleculeAutosuggestInputFromProps
+    ...[
+      innerRefMoleculeAutosuggestInput,
+      refMoleculeAutosuggestInputFromProps
+    ].filter(isValidRef)
   )
 
   const [focus, setFocus] = useState(false)
@@ -143,8 +150,8 @@ const MoleculeAutosuggest = ({
 
   const handleFocusOut = ev => {
     ev.persist()
-    const {current: domContainer} = refMoleculeAutosuggest
-    const {current: domInnerInput} = refMoleculeAutosuggestInput
+    const {current: domContainer} = innerRefMoleculeAutosuggest
+    const {current: domInnerInput} = innerRefMoleculeAutosuggestInput
     const {current: optionsFromRef} = refsMoleculeAutosuggestOptions
     const options = optionsFromRef.map(getTarget)
 
@@ -185,7 +192,7 @@ const MoleculeAutosuggest = ({
     disabled,
     errorState,
     id,
-    innerRefInput: refMoleculeAutosuggestInput,
+    innerRefInput: innerRefMoleculeAutosuggestInput,
     isOpen,
     keysCloseList,
     keysSelection,
@@ -197,8 +204,6 @@ const MoleculeAutosuggest = ({
     onInputKeyDown: handleInputKeyDown,
     onSelect,
     onToggle,
-    refMoleculeAutosuggest: refMoleculeAutosuggest,
-    refMoleculeAutosuggestFromProps,
     state,
     ...restProps
   }

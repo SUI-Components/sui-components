@@ -187,7 +187,7 @@ const MoleculeAutosuggest = ({
     disabled,
     errorState,
     id,
-    innerRefInput: innerRefMoleculeAutosuggestInput,
+    innerRefInput: refMoleculeAutosuggestInput,
     isOpen,
     keysCloseList,
     keysSelection,

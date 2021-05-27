@@ -12,7 +12,7 @@ export const PLACEMENTS = {
 export const SIZES = {
   AUTO: 'auto',
   M: 'm',
-  FULLSCREEN: 'fullscreen'
+  FILL: 'fill'
 }
 
 export const ANIMATION_DURATION = {

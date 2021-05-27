@@ -1,0 +1,72 @@
+@import '~@s-ui/theme/lib/index';
+@import 'components/atom/tooltip/src/index';
+
+.DemoTooltip {
+  padding: $p-l;
+
+  &-boxExample {
+    border: $bdw-s solid $c-gray-light-3;
+    background: $c-white;
+    margin-top: $m-m;
+    padding: $p-m;
+  }
+
+  &-containerList {
+    list-style: 'none';
+    padding: $p-m;
+    border: $bdw-s solid $c-gray-light-3;
+    max-width: 400px;
+    min-height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+
+    &Item {
+      &--bottom,
+      &--left,
+      &--right,
+      &--top {
+        padding: $p-m;
+        position: absolute;
+      }
+
+      &--bottom {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        bottom: 0;
+      }
+
+      &--left {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        left: 0;
+        align-self: center;
+
+        &Label {
+          text-align: right;
+        }
+      }
+
+      &--right {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        right: 0;
+        align-self: center;
+      }
+
+      &--top {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        top: 0;
+        z-index: 10;
+      }
+    }
+  }
+}

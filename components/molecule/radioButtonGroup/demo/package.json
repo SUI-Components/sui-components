@@ -1,0 +1,18 @@
+{
+  "name": "molecule-radio-button-group-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@s-ui/hoc": "1",
+    "@s-ui/react-atom-label": "1",
+    "@s-ui/react-atom-radio-button": "1",
+    "@s-ui/react-molecule-radio-button-field": "1"
+  }
+}

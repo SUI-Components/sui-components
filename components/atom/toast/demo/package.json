@@ -1,0 +1,18 @@
+{
+  "name": "atom-toast-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@s-ui/react-atom-button": "1",
+    "@s-ui/react-icons": "1",
+    "@s-ui/react-molecule-dropdown-option": "1",
+    "@s-ui/react-molecule-select": "1"
+  }
+}

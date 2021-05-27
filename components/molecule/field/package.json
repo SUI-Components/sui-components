@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-field",
-  "version": "1.29.1",
+  "version": "1.30.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

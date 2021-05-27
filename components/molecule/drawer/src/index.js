@@ -68,26 +68,26 @@ export default function MoleculeDrawer({
             onClose(event)
         }}
       >
-        <CONTENT_ELEMENT_TYPE
-          onAnimationEnd={event => {
-            debugger
-            setOpenedState(false)
-            typeof onClosed === 'function' && onClosed(event)
-          }}
-          className={cx(
-            'react-MoleculeDrawer-content',
-            `react-MoleculeDrawer-content--${size}--${placement}`,
-            `react-MoleculeDrawer-content--duration-${duration}`,
-            {
-              'react-MoleculeDrawer-content-open': openedState
-            }
-          )}
-        >
-          <BODY_ELEMENT_TYPE className="react-MoleculeDrawer-body">
-            {children}
-          </BODY_ELEMENT_TYPE>
-        </CONTENT_ELEMENT_TYPE>
       </OVERLAY_ELEMENT_TYPE>
+      <CONTENT_ELEMENT_TYPE
+        onAnimationEnd={event => {
+          debugger
+          setOpenedState(false)
+          typeof onClosed === 'function' && onClosed(event)
+        }}
+        className={cx(
+          'react-MoleculeDrawer-content',
+          `react-MoleculeDrawer-content--${size}--${placement}`,
+          `react-MoleculeDrawer-content--duration-${duration}`,
+          {
+            'react-MoleculeDrawer-content-open': openedState
+          }
+        )}
+      >
+        <BODY_ELEMENT_TYPE className="react-MoleculeDrawer-body">
+          {children}
+        </BODY_ELEMENT_TYPE>
+      </CONTENT_ELEMENT_TYPE>
     </div>
   )
 

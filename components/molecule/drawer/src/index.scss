@@ -56,7 +56,6 @@ $trsdu-molecule-drawer-map: (
 
   &-content {
     $this: &;
-    box-shadow: $bxsh-molecule-drawer;
     position: absolute;
     z-index: $z-molecule-drawer;
     background-color: $bgc-molecule-drawer;
@@ -78,7 +77,8 @@ $trsdu-molecule-drawer-map: (
         transform: translateX(-100%);
         &#{$this}-open {
           transform: translateX(0);
-          transition-property: translateX;
+          transition-property: transform;
+          box-shadow: $bxsh-molecule-drawer;
         }
       }
       &--#{$size-name}--right {
@@ -90,7 +90,8 @@ $trsdu-molecule-drawer-map: (
         transform: translateX(100%);
         &#{$this}-open {
           transform: translateX(0);
-          transition-property: translateX;
+          transition-property: transform;
+          box-shadow: $bxsh-molecule-drawer;
         }
       }
       &--#{$size-name}--top {
@@ -102,7 +103,8 @@ $trsdu-molecule-drawer-map: (
         transform: translateY(-100%);
         &#{$this}-open {
           transform: translateY(0);
-          transition-property: translateY;
+          transition-property: transform;
+          box-shadow: $bxsh-molecule-drawer;
         }
       }
       &--#{$size-name}--bottom {
@@ -114,7 +116,8 @@ $trsdu-molecule-drawer-map: (
         transform: translateY(100%);
         &#{$this}-open {
           transform: translateY(0);
-          transition-property: translateY;
+          transition-property: transform;
+          box-shadow: $bxsh-molecule-drawer;
         }
       }
     }

@@ -9,7 +9,7 @@ import {inputTypes} from '@s-ui/react-atom-input'
 import MoleculeAutosuggestSingleSelection from './components/SingleSelection'
 import MoleculeAutosuggestMultipleSelection from './components/MultipleSelection'
 
-import {withOpenToggle} from '@s-ui/hoc'
+import withOpenToggle from '@s-ui/hoc/lib/withOpenToggle'
 import {getTarget} from '@s-ui/js/lib/react'
 import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 
@@ -52,13 +52,15 @@ const MoleculeAutosuggest = ({
   onFocus = () => {},
   onSelect = () => {},
   onToggle = () => {},
-  refMoleculeAutosuggest: refMoleculeAutosuggestFromProps,
+  refMoleculeAutosuggest: refMoleculeAutosuggestFromProps = {},
   refMoleculeAutosuggestInput: refMoleculeAutosuggestInputFromProps = {},
   state,
   ...restProps
 }) => {
-  const refMoleculeAutosuggest = useRef(
-    refMoleculeAutosuggestFromProps?.current
+  const innerRefMoleculeAutosuggest = useRef()
+  const refMoleculeAutosuggest = useMergeRefs(
+    innerRefMoleculeAutosuggest,
+    refMoleculeAutosuggestFromProps
   )
 
   const refsMoleculeAutosuggestOptions = useRef([])
@@ -92,7 +94,7 @@ const MoleculeAutosuggest = ({
   )
 
   const closeList = ev => {
-    const {current: domMoleculeAutosuggest} = refMoleculeAutosuggest
+    const {current: domMoleculeAutosuggest} = innerRefMoleculeAutosuggest
     onToggle(ev, {isOpen: false})
     if (multiselection) onChange(ev, {value: ''})
     domMoleculeAutosuggest && !focus && domMoleculeAutosuggest.focus()
@@ -110,7 +112,7 @@ const MoleculeAutosuggest = ({
   const handleKeyDown = ev => {
     ev.persist()
     const {current: domInnerInput} = refMoleculeAutosuggestInput
-    const {current: domMoleculeAutosuggest} = refMoleculeAutosuggest
+    const {current: domMoleculeAutosuggest} = innerRefMoleculeAutosuggest
     const {current: optionsFromRef} = refsMoleculeAutosuggestOptions
     const {key} = ev
     const options = optionsFromRef.map(getTarget)
@@ -143,8 +145,8 @@ const MoleculeAutosuggest = ({
 
   const handleFocusOut = ev => {
     ev.persist()
-    const {current: domContainer} = refMoleculeAutosuggest
-    const {current: domInnerInput} = refMoleculeAutosuggestInput
+    const {current: domContainer} = innerRefMoleculeAutosuggest
+    const {current: domInnerInput} = innerRefMoleculeAutosuggestInput
     const {current: optionsFromRef} = refsMoleculeAutosuggestOptions
     const options = optionsFromRef.map(getTarget)
 
@@ -185,7 +187,7 @@ const MoleculeAutosuggest = ({
     disabled,
     errorState,
     id,
-    innerRefInput: refMoleculeAutosuggestInput,
+    innerRefInput: innerRefMoleculeAutosuggestInput,
     isOpen,
     keysCloseList,
     keysSelection,
@@ -197,8 +199,6 @@ const MoleculeAutosuggest = ({
     onInputKeyDown: handleInputKeyDown,
     onSelect,
     onToggle,
-    refMoleculeAutosuggest: refMoleculeAutosuggest,
-    refMoleculeAutosuggestFromProps,
     state,
     ...restProps
   }

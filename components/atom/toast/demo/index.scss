@@ -1,0 +1,23 @@
+@import '~@s-ui/theme/lib/index';
+@import '~@s-ui/react-atom-button/lib/index';
+@import '~@s-ui/react-molecule-select/lib/index';
+@import '~@s-ui/react-molecule-dropdown-option/lib/index';
+@import 'components/atom/toast/src/index';
+
+.DemoToast {
+  padding: $p-l;
+
+  &-content {
+    padding: $p-xl;
+  }
+
+  &-label {
+    display: block;
+    margin: $m-l 0 $m-m;
+    font-weight: $fw-bold;
+  }
+
+  .sui-AtomButton {
+    margin-top: $m-l;
+  }
+}

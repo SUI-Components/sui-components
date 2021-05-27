@@ -3,23 +3,27 @@
   "version": "1.0.0",
   "description": "Mono repo, multi package containing all SUI components.",
   "private": true,
+  "engines": {
+    "node": "16",
+    "npm": "7"
+  },
   "workspaces": [
     "components/**"
   ],
   "scripts": {
     "build": "sui-studio build",
     "check:release": "sui-studio check-release",
-    "co": "sui-studio commit",
+    "co": "sui-mono commit",
     "commitmsg": "validate-commit-msg",
     "dev": "sui-studio dev",
     "generate": "sui-studio generate -S s-ui -P react",
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
-    "install:demos": "cd demo && sui-mono phoenix",
     "install:themes": "node scripts/build-themes.js",
-    "phoenix": "sui-mono phoenix && npm run install:demos -- --no-audit",
-    "release": "sui-studio release",
+    "phoenix": "npx @s-ui/mono@2 run 'rm -rf ./node_modules' && rm -rf ./node_modules && npm install --legacy-peer-deps",
+    "phoenix:ci": "npm run phoenix -- --no-optional --no-fund --no-audit",
+    "release": "sui-mono release",
     "start": "sui-studio start",
     "test": "sui-studio test",
     "test:watch": "sui-studio test --watch"
@@ -34,15 +38,15 @@
   "devDependencies": {
     "@s-ui/documentation-library": "1",
     "@s-ui/helpers": "1",
-    "@s-ui/mono": "1",
+    "@s-ui/mono": "2",
     "@s-ui/precommit": "2",
-    "@s-ui/studio": "9",
-    "fs-extra": "9.0.1",
-    "globby": "11.0.1",
+    "@s-ui/studio": "10",
+    "fs-extra": "10.0.0",
+    "globby": "11.0.3",
     "husky": "4.3.0",
-    "sinon": "10.0.0",
+    "sinon": "11.1.1",
     "validate-commit-msg": "2.12.2",
-    "walker": "1.0.7"
+    "webpack": "4"
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1"
@@ -52,16 +56,15 @@
       "vendor": [
         "react",
         "react-dom"
-      ]
+      ],
+      "optimizations": {
+        "splitFrameworkOnChunk": true,
+        "useExperimentalMinifier": true
+      }
     },
     "sui-studio": {
       "font": "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i",
       "name": "SUIComponents"
-    },
-    "sui-mono": {
-      "access": "public",
-      "packagesFolder": "components",
-      "deepLevel": 2
     },
     "validate-commit-msg": {
       "types": "@s-ui/mono/src/types"

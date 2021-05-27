@@ -66,7 +66,9 @@ jobs:
         node-version: 16
         registry-url: 'https://registry.npmjs.org'
     - name: Release components
-      run: npx @s-ui/ci release
+      run: |
+        npm install @s-ui/mono@2
+        npx @s-ui/ci release
       env:
         GITHUB_EMAIL: cloud-accounts@scmspain.com
         GITHUB_TOKEN: ${{github.token}}

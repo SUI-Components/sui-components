@@ -6,7 +6,7 @@ const path = require('path')
 const {promisify} = require('util')
 const exec = promisify(require('child_process').exec)
 const fse = require('fs-extra')
-const walker = require('walker')
+const fs = require('fs/promises')
 const globby = require('globby')
 
 const INSTALL_FLAGS = [
@@ -42,19 +42,11 @@ const writeFile = (path, body) =>
 
 const checkFileExists = path => fse.pathExists(path)
 
-const getThemesList = () => {
-  const themes = []
-  return new Promise(resolve => {
-    walker(path.join(__dirname, '..', 'themes'))
-      .on('file', theme => themes.push(theme))
-      .on('end', () => {
-        resolve(
-          themes
-            .map(theme => path.parse(theme).name)
-            .filter(name => !name.match(/^_/))
-        )
-      })
-  })
+const getThemesList = async () => {
+  const files = await fs.readdir(path.join(__dirname, '..', 'themes'))
+  return files
+    .filter(file => !file.startsWith('_'))
+    .map(file => file.split('.')[0])
 }
 
 const installThemesPkgs = () =>

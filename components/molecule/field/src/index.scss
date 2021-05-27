@@ -3,7 +3,8 @@
 @import '~@s-ui/react-atom-label/lib/index';
 @import '~@s-ui/react-atom-help-text/lib/index';
 
-$mb-molecule-field-label: 0 !default;
+$fw-molecule-field-label: $fw-regular !default;
+$mb-molecule-field-label: 8px !default;
 $ml-molecule-field-label: $m-m !default;
 
 $ai-molecule-field-label-container: center !default;
@@ -40,6 +41,7 @@ $atomHelpText-class: '.sui-AtomHelpText';
   &-labelContainer {
     align-items: $ai-molecule-field-label-container;
     display: flex;
+    font-weight: $fw-molecule-field-label;
     margin-bottom: $mb-molecule-field-label;
   }
 

@@ -3,7 +3,7 @@ public/
 lib/
 npm-debug.log
 lib
-demo/**/**/themes
+components/**/**/themes
 .tern-port
 .env
 .DS_Store

@@ -2,6 +2,7 @@
 import {useRef} from 'react'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 import isEqual from 'lodash.isequal'
 
 import withClearUI from '../hoc/withClearUI'
@@ -17,7 +18,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   iconCloseTag = <span />,
   id,
   allowDuplicates,
-  innerRefInput,
+  innerRefInput: refInput = {},
   inputMode,
   isOpen,
   onChange,
@@ -35,6 +36,8 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   value = ''
 }) => {
   const MoleculeInputTagsRef = useRef()
+  const innerRefInput = useRef()
+  const moleculeInputRef = useMergeRefs(innerRefInput, refInput)
 
   const handleMultiSelection = (ev, args) => {
     const {value} = args
@@ -88,7 +91,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         disabled={disabled}
         iconClear={iconClear}
         id={id}
-        innerRefInput={innerRefInput}
+        innerRefInput={moleculeInputRef}
         inputMode={inputMode}
         isOpen={isOpen}
         isVisibleClear={tags.length}

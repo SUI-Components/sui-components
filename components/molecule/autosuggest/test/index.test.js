@@ -57,5 +57,22 @@ describe('molecule/autosuggest', () => {
       expect(ref.current).to.not.equal(undefined)
       expect(ref.current.nodeName).to.equal('DIV')
     })
+
+    it('should return refMoleculeAutosuggestInput forwardRef html input element when giving a ref to the component', () => {
+      // Given
+      const props = {}
+      const ref = createRef()
+
+      // When
+      const component = (
+        <Component {...props} refMoleculeAutosuggestInput={ref} />
+      )
+      const div = document.createElement('div')
+      ReactDOM.render(component, div)
+
+      // Then
+      expect(ref.current).to.not.equal(undefined)
+      expect(ref.current.nodeName).to.equal('INPUT')
+    })
   })
 })

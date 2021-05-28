@@ -54,6 +54,21 @@ describe('molecule/dropdownList', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
+  it('should forward a given ref to the `ul` element', () => {
+    // Given
+    const props = {}
+    const ref = createRef()
+
+    // When
+    const component = <Component {...props} ref={ref} />
+    const div = document.createElement('div')
+    ReactDOM.render(component, div)
+
+    // Then
+    expect(ref.current).to.not.equal(undefined)
+    expect(ref.current.nodeName).to.equal('UL')
+  })
+
   describe('props', () => {
     describe('visible', () => {
       it('should render the children if visible is not defined', async () => {

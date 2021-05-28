@@ -1,19 +1,60 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 1.30.0 (2021-05-27)
+
+
+### Bug Fixes
+
+* **components/molecule/field:** Force release ([8852df0](https://github.com/SUI-Components/sui-components/commit/8852df0b06aa20df1d221e8747983fa1cd976e4b))
+
+
+### Features
+
+* **molecule/field:** update label styles ([97fb470](https://github.com/SUI-Components/sui-components/commit/97fb4700b618c711ae0fcf7168dab43f3d5e11ad))
+* **molecule/field:** use margin var ([1e74deb](https://github.com/SUI-Components/sui-components/commit/1e74deb492675c7bdc6a028e240f1c5121487322))
+
+
+
+# 1.29.0 (2021-01-08)
+
+
+### Features
+
+* **molecule/checkboxField:** change naming variable ([b14ca14](https://github.com/SUI-Components/sui-components/commit/b14ca144fa48a7834d82926b239c21a15e2f1c05))
+* **molecule/field:** align help texts under description ([bd996c8](https://github.com/SUI-Components/sui-components/commit/bd996c8e2ac2635ebd3a7d135be5643ccbb178f3))
+
+
+
+# 1.28.0 (2021-01-05)
+
+
+### Bug Fixes
+
+* **molecule/field:** unknown handler warning ([ca91e70](https://github.com/SUI-Components/sui-components/commit/ca91e70bffbe58753a05d1e1a99c8275aec60e22))
+
+
+
+# 1.27.0 (2020-11-24)
+
+
+### Features
+
+* **molecule/field:** Use new jsx runtime ([17a5da7](https://github.com/SUI-Components/sui-components/commit/17a5da7c71e9ef4decc0598d559216f81cce2579))
+
+
 
 # 1.26.0 (2020-11-02)
 
 
 ### Bug Fixes
 
-* typo ([cc50aa2](https://github.com/SUI-Components/sui-components/commit/cc50aa27b879108e867fe450b0f7a6970be17f28))
+* **molecule/field:** typo ([cc50aa2](https://github.com/SUI-Components/sui-components/commit/cc50aa27b879108e867fe450b0f7a6970be17f28))
 
 
 ### Features
 
-* accept element in successText, errorText, alertText, helpText ([ca90d60](https://github.com/SUI-Components/sui-components/commit/ca90d606db665cc520024afc0f33a8365c54c746))
-* remove string since it is a subset of element ([44b5d2e](https://github.com/SUI-Components/sui-components/commit/44b5d2ec27f3996eaeafbd2cc93f8d72cb1dba3e))
+* **molecule/field:** accept element in successText, errorText, alertText, helpText ([ca90d60](https://github.com/SUI-Components/sui-components/commit/ca90d606db665cc520024afc0f33a8365c54c746))
+* **molecule/field:** remove string since it is a subset of element ([44b5d2e](https://github.com/SUI-Components/sui-components/commit/44b5d2ec27f3996eaeafbd2cc93f8d72cb1dba3e))
 
 
 
@@ -22,7 +63,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add assets folder to .npmignore ([6ffc6cb](https://github.com/SUI-Components/sui-components/commit/6ffc6cbb0c611799c0559e008bf7cd891975025f))
+* **molecule/field:** add assets folder to .npmignore ([6ffc6cb](https://github.com/SUI-Components/sui-components/commit/6ffc6cbb0c611799c0559e008bf7cd891975025f))
 
 
 
@@ -31,8 +72,8 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* change proptype node by element ([bd7d53a](https://github.com/SUI-Components/sui-components/commit/bd7d53a13ae6f948da3ae14b10053a633f644c02))
-* change proptype node by element ([29d90bf](https://github.com/SUI-Components/sui-components/commit/29d90bf2e081451e8e13a74061522ed7b0cb27a9))
+* **molecule/field:** change proptype node by element ([bd7d53a](https://github.com/SUI-Components/sui-components/commit/bd7d53a13ae6f948da3ae14b10053a633f644c02))
+* **molecule/field:** change proptype node by element ([29d90bf](https://github.com/SUI-Components/sui-components/commit/29d90bf2e081451e8e13a74061522ed7b0cb27a9))
 
 
 
@@ -41,7 +82,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add fullWidth prop ([9eab0d5](https://github.com/SUI-Components/sui-components/commit/9eab0d5ff2d8d34972ff2de86b88df3efec70d04))
+* **molecule/field:** add fullWidth prop ([9eab0d5](https://github.com/SUI-Components/sui-components/commit/9eab0d5ff2d8d34972ff2de86b88df3efec70d04))
 
 
 
@@ -50,7 +91,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix margin-left for non-inline labels. ([2693df1](https://github.com/SUI-Components/sui-components/commit/2693df1b28d2ad6c23a69b02d16cd4ceb7da46f1)), closes [#462](https://github.com/SUI-Components/sui-components/issues/462)
+* **molecule/field:** fix margin-left for non-inline labels. ([2693df1](https://github.com/SUI-Components/sui-components/commit/2693df1b28d2ad6c23a69b02d16cd4ceb7da46f1)), closes [#462](https://github.com/SUI-Components/sui-components/issues/462)
 
 
 
@@ -59,7 +100,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* allow nodeLabel to contain an AtomLabel ([475132d](https://github.com/SUI-Components/sui-components/commit/475132db1d1b36b1aa526e3a5c92a1f44704dbf9))
+* **molecule/field:** allow nodeLabel to contain an AtomLabel ([475132d](https://github.com/SUI-Components/sui-components/commit/475132db1d1b36b1aa526e3a5c92a1f44704dbf9))
 
 
 
@@ -68,7 +109,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* added margin-left to  node label container ([a4309fb](https://github.com/SUI-Components/sui-components/commit/a4309fbc39f72f3f37b59892c2085ed103071f6d))
+* **molecule/field:** added margin-left to  node label container ([a4309fb](https://github.com/SUI-Components/sui-components/commit/a4309fbc39f72f3f37b59892c2085ed103071f6d))
 
 
 
@@ -77,7 +118,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix prop name passed by to the label ([92c7aee](https://github.com/SUI-Components/sui-components/commit/92c7aee53cd3502c30410ee7e58f00f29a287729))
+* **molecule/field:** fix prop name passed by to the label ([92c7aee](https://github.com/SUI-Components/sui-components/commit/92c7aee53cd3502c30410ee7e58f00f29a287729))
 
 
 
@@ -86,7 +127,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add new prop nodeLabel ([7857b81](https://github.com/SUI-Components/sui-components/commit/7857b811bea3ba8ddada399594d8565a3025fa8a))
+* **molecule/field:** add new prop nodeLabel ([7857b81](https://github.com/SUI-Components/sui-components/commit/7857b811bea3ba8ddada399594d8565a3025fa8a))
 
 
 
@@ -95,7 +136,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add var for margin radiobutton ([10a10c4](https://github.com/SUI-Components/sui-components/commit/10a10c4717ddd371624c5ff4c7db70f529d8e5a4))
+* **molecule/field:** add var for margin radiobutton ([10a10c4](https://github.com/SUI-Components/sui-components/commit/10a10c4717ddd371624c5ff4c7db70f529d8e5a4))
 
 
 
@@ -104,7 +145,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([5d11c50](https://github.com/SUI-Components/sui-components/commit/5d11c5009e0906a4760fede4dcb0a7da399cfbbd))
+* **molecule/field:** Use new [@s-ui-theme](https://github.com/s-ui-theme) ([5d11c50](https://github.com/SUI-Components/sui-components/commit/5d11c5009e0906a4760fede4dcb0a7da399cfbbd))
 
 
 
@@ -113,7 +154,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add autohide prop ([76c55ce](https://github.com/SUI-Components/sui-components/commit/76c55ce739fca7f46287f9368281d90a3cbd70a6))
+* **molecule/field:** add autohide prop ([76c55ce](https://github.com/SUI-Components/sui-components/commit/76c55ce739fca7f46287f9368281d90a3cbd70a6))
 
 
 
@@ -122,8 +163,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add new prop: alerText ([b037236](https://github.com/SUI-Components/sui-components/commit/b037236a2f0c8362270d8d85562d797b88cfc7eb))
-* simplify condition to show validation text ([f7af123](https://github.com/SUI-Components/sui-components/commit/f7af123be00a83a460eee621dd0c80749a54d861))
+* **molecule/field:** add new prop: alerText ([b037236](https://github.com/SUI-Components/sui-components/commit/b037236a2f0c8362270d8d85562d797b88cfc7eb))
+* **molecule/field:** simplify condition to show validation text ([f7af123](https://github.com/SUI-Components/sui-components/commit/f7af123be00a83a460eee621dd0c80749a54d861))
 
 
 
@@ -132,7 +173,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* avoid rendering a label tag if the prop its not present ([7eaf883](https://github.com/SUI-Components/sui-components/commit/7eaf8838ed7c2d82a8287f6d688650336ff2af49))
+* **molecule/field:** avoid rendering a label tag if the prop its not present ([7eaf883](https://github.com/SUI-Components/sui-components/commit/7eaf8838ed7c2d82a8287f6d688650336ff2af49))
 
 
 
@@ -141,7 +182,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add var for margin bottom ([fac6f5f](https://github.com/SUI-Components/sui-components/commit/fac6f5f78f8c5901067139a40ed8066067ae594c))
+* **molecule/field:** add var for margin bottom ([fac6f5f](https://github.com/SUI-Components/sui-components/commit/fac6f5f78f8c5901067139a40ed8066067ae594c))
 
 
 
@@ -150,7 +191,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* refactor ([fcbfb7e](https://github.com/SUI-Components/sui-components/commit/fcbfb7ec4f409aebb653863a81d28af91c461b63))
+* **molecule/field:** refactor ([fcbfb7e](https://github.com/SUI-Components/sui-components/commit/fcbfb7ec4f409aebb653863a81d28af91c461b63))
 
 
 
@@ -159,10 +200,10 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* allow to use property to set the type of the label ([82c3aae](https://github.com/SUI-Components/sui-components/commit/82c3aaef504014a0be0a8b12c1ea899d32685ab7))
-* merge master ([1877e1e](https://github.com/SUI-Components/sui-components/commit/1877e1ece55b4443a98c7d64e4e1588e8f0dc011))
-* revert order change for props ([6d0ccf3](https://github.com/SUI-Components/sui-components/commit/6d0ccf350de097e55ccc2f80a7441dc7c635fcdd))
-* update prop name and ussage ([557c99c](https://github.com/SUI-Components/sui-components/commit/557c99cbb2a09a7ae06ba6e538c0db64457be7f8))
+* **META:** merge master ([1877e1e](https://github.com/SUI-Components/sui-components/commit/1877e1ece55b4443a98c7d64e4e1588e8f0dc011))
+* **molecule/field:** allow to use property to set the type of the label ([82c3aae](https://github.com/SUI-Components/sui-components/commit/82c3aaef504014a0be0a8b12c1ea899d32685ab7))
+* **molecule/field:** revert order change for props ([6d0ccf3](https://github.com/SUI-Components/sui-components/commit/6d0ccf350de097e55ccc2f80a7441dc7c635fcdd))
+* **molecule/field:** update prop name and ussage ([557c99c](https://github.com/SUI-Components/sui-components/commit/557c99cbb2a09a7ae06ba6e538c0db64457be7f8))
 
 
 
@@ -171,7 +212,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* proper connection between components ([584a9b8](https://github.com/SUI-Components/sui-components/commit/584a9b8a223134213b20f7f869727acdca8dd2e8))
+* **molecule/field:** proper connection between components ([584a9b8](https://github.com/SUI-Components/sui-components/commit/584a9b8a223134213b20f7f869727acdca8dd2e8))
 
 
 
@@ -180,7 +221,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* styles inline improved ([9420de7](https://github.com/SUI-Components/sui-components/commit/9420de7631170147d82e6f41507a54d013e7be5d))
+* **molecule/field:** styles inline improved ([9420de7](https://github.com/SUI-Components/sui-components/commit/9420de7631170147d82e6f41507a54d013e7be5d))
 
 
 
@@ -189,7 +230,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* inline reverse for checkbox ([ced96eb](https://github.com/SUI-Components/sui-components/commit/ced96ebbdbe62f738d78d44b77bd5d0f6efb4e59))
+* **molecule/field:** inline reverse for checkbox ([ced96eb](https://github.com/SUI-Components/sui-components/commit/ced96ebbdbe62f738d78d44b77bd5d0f6efb4e59))
 
 
 
@@ -198,7 +239,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix issue w/ prop-types messages props ([7db02ac](https://github.com/SUI-Components/sui-components/commit/7db02acd726f616b75606e4440ba95db8479e185))
+* **molecule/field:** fix issue w/ prop-types messages props ([7db02ac](https://github.com/SUI-Components/sui-components/commit/7db02acd726f616b75606e4440ba95db8479e185))
 
 
 
@@ -207,7 +248,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* fixed issue w/ inline mode ([f492935](https://github.com/SUI-Components/sui-components/commit/f492935f46fe622552f9f0d006d61724255d7384))
+* **molecule/field:** fixed issue w/ inline mode ([f492935](https://github.com/SUI-Components/sui-components/commit/f492935f46fe622552f9f0d006d61724255d7384))
 
 
 
@@ -216,7 +257,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* inline takes 100% of width available ([9e24d6c](https://github.com/SUI-Components/sui-components/commit/9e24d6c9f3e111b71e5336a142f288482b2521dc))
+* **molecule/field:** inline takes 100% of width available ([9e24d6c](https://github.com/SUI-Components/sui-components/commit/9e24d6c9f3e111b71e5336a142f288482b2521dc))
 
 
 
@@ -225,7 +266,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add onClick label handler as prop ([c4d12ce](https://github.com/SUI-Components/sui-components/commit/c4d12ce480ad8d92ecc765f3a97f37a917b8f1b2))
+* **molecule/field:** add onClick label handler as prop ([c4d12ce](https://github.com/SUI-Components/sui-components/commit/c4d12ce480ad8d92ecc765f3a97f37a917b8f1b2))
 
 
 
@@ -234,8 +275,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* moleculeFieldTextarea & WithCharacterCount ([264533a](https://github.com/SUI-Components/sui-components/commit/264533a3cd90358e9d63a21caab1e148a3b8d3cd))
-* moleculeFieldTextarea more encapsulated ([7cf6418](https://github.com/SUI-Components/sui-components/commit/7cf6418f9fd0f9544d06c79ebe7b093e6b9958c5))
+* **molecule/field:** moleculeFieldTextarea & WithCharacterCount ([264533a](https://github.com/SUI-Components/sui-components/commit/264533a3cd90358e9d63a21caab1e148a3b8d3cd))
+* **molecule/field:** moleculeFieldTextarea more encapsulated ([7cf6418](https://github.com/SUI-Components/sui-components/commit/7cf6418f9fd0f9544d06c79ebe7b093e6b9958c5))
 
 
 
@@ -244,8 +285,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* change name to field ([15a88f4](https://github.com/SUI-Components/sui-components/commit/15a88f431677f5e77397b971dc25d221669ee685))
-* error first ([ddec546](https://github.com/SUI-Components/sui-components/commit/ddec546e4483fc73bafb0ce987862152de26a157))
+* **molecule/field:** change name to field ([15a88f4](https://github.com/SUI-Components/sui-components/commit/15a88f431677f5e77397b971dc25d221669ee685))
+* **molecule/field:** error first ([ddec546](https://github.com/SUI-Components/sui-components/commit/ddec546e4483fc73bafb0ce987862152de26a157))
 
 
 

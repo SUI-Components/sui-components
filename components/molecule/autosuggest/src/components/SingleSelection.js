@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
-import {Children} from 'react'
+import {Children, useRef} from 'react'
 
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import AtomInput from '@s-ui/react-atom-input'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import withClearUI from '../hoc/withClearUI'
 
@@ -16,7 +17,7 @@ const MoleculeAutosuggestSingleSelection = ({
   disabled,
   iconClear,
   id,
-  innerRefInput,
+  innerRefInput: refInput = {},
   inputMode,
   isOpen,
   leftIcon,
@@ -35,6 +36,8 @@ const MoleculeAutosuggestSingleSelection = ({
   type,
   value = ''
 }) => {
+  const innerRefInput = useRef()
+  const moleculeInputRef = useMergeRefs(innerRefInput, refInput)
   const handleSelection = (ev, {value}) => {
     onChange(ev, {value})
     onSelect(ev, {value})
@@ -73,7 +76,7 @@ const MoleculeAutosuggestSingleSelection = ({
         onClickRightIcon={handleRightClick}
         onKeyDown={onInputKeyDown}
         placeholder={placeholder}
-        reference={innerRefInput}
+        reference={moleculeInputRef}
         required={required}
         rightIcon={rightIcon}
         tabIndex={tabIndex}

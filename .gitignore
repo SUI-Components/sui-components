@@ -3,13 +3,14 @@ public/
 lib/
 npm-debug.log
 lib
-.env
 demo/**/**/themes
 .tern-port
+.env
 .DS_Store
 .npmrc
 .vscode/
+.idea
+.vercel
 package-lock.json
 */**/package-lock.json
-.vercel
 package-lock.json

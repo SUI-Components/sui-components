@@ -36,6 +36,7 @@ const MoleculeNotification = ({
   position = POSITION.relative,
   roundedCorners = null,
   showCloseButton = true,
+  showLeftIconMobile = false,
   text,
   type = TYPES.info,
   variation = VARIATIONS.negative,
@@ -106,6 +107,9 @@ const MoleculeNotification = ({
     [`${CLASS}-children`]: children,
     [`${CLASS}-text`]: text
   })
+  const iconLeftClassName = cx(`${CLASS}-iconLeft`, {
+    [`${CLASS}-iconLeft--show`]: showLeftIconMobile
+  })
 
   if (!show && !delay) {
     return null
@@ -115,7 +119,7 @@ const MoleculeNotification = ({
     return (
       <div className={wrapperClassName}>
         <div className={`${CLASS}-content`}>
-          <div className={`${CLASS}-iconLeft`}>
+          <div className={iconLeftClassName}>
             <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
           </div>
           <div className={innerWrapperClassName}>{children || text}</div>
@@ -183,6 +187,9 @@ MoleculeNotification.propTypes = {
 
   /** Show / hide close button */
   showCloseButton: PropTypes.bool,
+
+  /** Show / hide left icon on mobile */
+  showLeftIconMobile: PropTypes.bool,
 
   /** Content text. Deprecated, use children instead. */
   text: PropTypes.string,

@@ -77,7 +77,7 @@ const AtomSlider = ({
     onChange: handleChange,
     onAfterChange: handleAfterChange,
     disabled,
-    marks: !hideMarks && markerFactory({step, min, max, marks}),
+    marks: hideMarks ? {} : markerFactory({step, min, max, marks}),
     max,
     min,
     step,

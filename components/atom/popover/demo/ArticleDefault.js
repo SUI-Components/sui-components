@@ -10,8 +10,7 @@ import {
   Grid,
   Cell,
   Code,
-  Separator,
-  Bold
+  Separator
 } from '@s-ui/documentation-library'
 
 const ArticleDefault = ({className}) => {

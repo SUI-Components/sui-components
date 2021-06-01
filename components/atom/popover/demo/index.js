@@ -3,7 +3,7 @@
 import {forwardRef} from 'react'
 import './index.scss'
 import {H1, Paragraph, Anchor} from '@s-ui/documentation-library'
-// import ArticleDefault from './ArticleDefault'
+import ArticleDefault from './ArticleDefault'
 // import ArticlePosition from './ArticlePosition'
 // import ArticleCloseIcon from './ArticleCloseIcon'
 // import ArticleArrow from './ArticleArrow'
@@ -42,6 +42,7 @@ const Demo = () => {
           </Anchor>
           , which renders a temporary context to get user’s attention.
         </Paragraph>
+        <ArticleDefault className={CLASS_SECTION} content={Content} />
         <br />
         <br />
       </div>

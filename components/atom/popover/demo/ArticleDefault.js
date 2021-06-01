@@ -13,54 +13,11 @@ import {
   Separator,
   Bold
 } from '@s-ui/documentation-library'
-import AtomPopover from 'components/atom/popover/src'
 import ReMountDebounced from './ReMountDebounced'
 
-const PopIt = ({
-  isVisible,
-  defaultIsVisible,
-  children,
-  content,
-  onClose,
-  onOpen
-}) => {
-  return (
-    <AtomPopover
-      isVisible={isVisible}
-      defaultIsVisible={defaultIsVisible}
-      content={content}
-      onClose={onClose}
-      onOpen={onOpen}
-    >
-      <Bold onClick={onOpen}>{children}</Bold>
-    </AtomPopover>
-  )
-}
-
-PopIt.propTypes = {
-  isVisible: PropTypes.bool,
-  defaultIsVisible: PropTypes.bool,
-  children: PropTypes.node,
-  content: PropTypes.node,
-  onClose: PropTypes.func,
-  onOpen: PropTypes.func
-}
-
-const ArticleDefault = ({className, content: Content}) => {
+const ArticleDefault = ({className}) => {
   const [isVisible, setIsVisible] = useState(undefined)
   const [defaultIsVisible, setDefaultIsVisible] = useState(undefined)
-  const possibleProps = {
-    uncontrolled: {
-      defaultIsVisible: defaultIsVisible,
-      content: <Content />
-    },
-    controlled: {
-      isVisible: isVisible,
-      content: <Content />,
-      onOpen: () => setIsVisible(true),
-      onClose: () => setIsVisible(false)
-    }
-  }
 
   return (
     <Article className={className}>

@@ -16,7 +16,6 @@ import {
 const ArticleDefault = ({className}) => {
   const [isVisible, setIsVisible] = useState(undefined)
   const [defaultIsVisible, setDefaultIsVisible] = useState(undefined)
-
   return (
     <Article className={className}>
       <H2>Default</H2>

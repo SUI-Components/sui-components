@@ -6,8 +6,8 @@ $h-molecule-image-editor: 300px !default;
 .react-MoleculeImageEditor {
   &-crop {
     position: relative;
-    margin: 30px auto;
     height: $h-molecule-image-editor;
+    margin-bottom: $m-xxl;
   }
 
   &-slider {

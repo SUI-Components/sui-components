@@ -5,8 +5,6 @@ import {
   H2,
   H4,
   Paragraph,
-  RadioButtonGroup,
-  RadioButton,
   Grid,
   Cell,
   Code,
@@ -14,8 +12,8 @@ import {
 } from '@s-ui/documentation-library'
 
 const ArticleDefault = ({className}) => {
-  const [isVisible, setIsVisible] = useState(undefined)
-  const [defaultIsVisible, setDefaultIsVisible] = useState(undefined)
+  const [isVisible] = useState(undefined)
+  const [defaultIsVisible] = useState(undefined)
   return (
     <Article className={className}>
       <H2>Default</H2>
@@ -76,62 +74,6 @@ const ArticleDefault = ({className}) => {
         </Cell>
         <Cell>
           <Paragraph style={{textAlign: 'right'}}>{`${isVisible}`}</Paragraph>
-        </Cell>
-        <Cell span={3}>
-          <RadioButtonGroup
-            value={`${defaultIsVisible}`}
-            fullWidth
-            onChange={(event, value) => {
-              switch (value) {
-                case 'true':
-                  setDefaultIsVisible(true)
-                  break
-                case 'false':
-                  setDefaultIsVisible(false)
-                  break
-                case 'undefined':
-                default:
-                  setDefaultIsVisible(undefined)
-                  break
-              }
-            }}
-          >
-            {[undefined, false, true].map((possibleValue, index) => (
-              <RadioButton
-                key={index}
-                value={`${possibleValue}`}
-                label={`${possibleValue}`}
-              />
-            ))}
-          </RadioButtonGroup>
-        </Cell>
-        <Cell span={3}>
-          <RadioButtonGroup
-            value={`${isVisible}`}
-            fullWidth
-            onChange={(event, value) => {
-              switch (value) {
-                case 'true':
-                  setIsVisible(true)
-                  break
-                case 'false':
-                  setIsVisible(false)
-                  break
-                case 'undefined':
-                default:
-                  setIsVisible(undefined)
-                  break
-              }
-            }}
-          >
-            {[undefined, false, true].map((possibleValue, index) => (
-              <RadioButton
-                key={index}
-                value={`${possibleValue}`}
-                label={`${possibleValue}`}
-              />
-            ))}
-          </RadioButtonGroup>
         </Cell>
       </Grid>
     </Article>

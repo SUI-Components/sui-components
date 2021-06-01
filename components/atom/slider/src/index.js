@@ -25,6 +25,7 @@ const AtomSlider = ({
   valueLabel,
   marks,
   valueLabelFormatter,
+  hideMarks = false,
   hideTooltip = false,
   defaultValue,
   invertColors
@@ -76,7 +77,7 @@ const AtomSlider = ({
     onChange: handleChange,
     onAfterChange: handleAfterChange,
     disabled,
-    marks: markerFactory({step, min, max, marks}),
+    marks: !hideMarks && markerFactory({step, min, max, marks}),
     max,
     min,
     step,
@@ -154,6 +155,9 @@ AtomSlider.propTypes = {
 
   /* callback to format the value shown as label */
   valueLabelFormatter: PropTypes.func,
+
+  /* flag to hide marks if wanted */
+  hideMarks: PropTypes.bool,
 
   /* flag to hide tooltip if wanted */
   hideTooltip: PropTypes.bool,

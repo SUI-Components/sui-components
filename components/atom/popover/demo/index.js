@@ -44,15 +44,15 @@ const Demo = () => {
         </Paragraph>
         <ArticleDefault className={CLASS_SECTION} content={Content} />
         <br />
-        <ArticlePosition className={CLASS_SECTION} content={Content} />
-        <br />
-        <ArticleCloseIcon className={CLASS_SECTION} content={Content} />
-        <br />
-        <ArticleArrow className={CLASS_SECTION} content={Content} />
-        <br />
-        <ArticleBehavior className={CLASS_SECTION} content={Content} />
-        <br />
-        <ArticleRef className={CLASS_SECTION} content={Content} />
+        {/*<ArticlePosition className={CLASS_SECTION} content={Content} />*/}
+        {/*<br />*/}
+        {/*<ArticleCloseIcon className={CLASS_SECTION} content={Content} />*/}
+        {/*<br />*/}
+        {/*<ArticleArrow className={CLASS_SECTION} content={Content} />*/}
+        {/*<br />*/}
+        {/*<ArticleBehavior className={CLASS_SECTION} content={Content} />*/}
+        {/*<br />*/}
+        {/*<ArticleRef className={CLASS_SECTION} content={Content} />*/}
         <br />
       </div>
     </div>

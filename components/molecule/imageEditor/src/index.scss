@@ -1,5 +1,16 @@
 @import '~@s-ui/theme/lib/index';
+@import '~@s-ui/react-atom-slider/lib/index';
+
+$h-molecule-image-editor: 300px !default;
 
 .react-MoleculeImageEditor {
-  // Do your magic
+  &-crop {
+    position: relative;
+    margin: 30px auto;
+    height: $h-molecule-image-editor;
+  }
+
+  &-slider {
+    margin-top: $m-xl;
+  }
 }

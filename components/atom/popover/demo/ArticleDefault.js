@@ -13,7 +13,6 @@ import {
   Separator,
   Bold
 } from '@s-ui/documentation-library'
-import ReMountDebounced from './ReMountDebounced'
 
 const ArticleDefault = ({className}) => {
   const [isVisible, setIsVisible] = useState(undefined)
@@ -72,32 +71,7 @@ const ArticleDefault = ({className}) => {
           <Paragraph>{`${defaultIsVisible}`}</Paragraph>
         </Cell>
         <Cell span={2}>
-          <Paragraph>
-            <ReMountDebounced
-              observe={[defaultIsVisible]}
-              fallback={
-                <>
-                  Lorem ipsum dolor sit <Bold>amet</Bold>, consectetur
-                  adipiscing elit. Sed volutpat facilisis lectus, eu posuere
-                  arcu fermentum ut. Duis vel gravida enim. Etiam{' '}
-                  <Bold>lobortis</Bold> sapien elit, non facilisis velit
-                  vulputate non. Aenean nec iaculis <Bold>lacus</Bold>. Ut
-                  ultrices risus velit, vel tempor felis pulvinar convallis. In
-                  volutpat leo in risus ultrices <Bold>consectetur</Bold>. Ut ac
-                  tortor vel lacus pretium dapibus. Nam ullamcorper nulla a
-                  ornare pellentesque. <Bold>Suspendisse</Bold> placerat
-                  accumsan consectetur. Curabitur vitae ligula fermentum,
-                  imperdiet ante malesuada, <Bold>ullamcorper</Bold> enim. Nam
-                  ac nulla eu dui sagittis facilisis. Phasellus porta porttitor
-                  sapien ut <Bold>consectetur</Bold>. Maecenas in{' '}
-                  <Bold>congue</Bold> sem. Integer sed urna vitae erat{' '}
-                  <Bold>laoreet</Bold> laoreet sed in turpis.
-                </>
-              }
-            >
-              Lorem ipsum dolor sit{' '}
-            </ReMountDebounced>
-          </Paragraph>
+          <Paragraph>a</Paragraph>
         </Cell>
         <Cell span={2}>
           <Paragraph>Lorem ipsum dolor sit </Paragraph>

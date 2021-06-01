@@ -17,5 +17,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@s-ui/react-atom-slider": "1",
+    "react-easy-crop": "3.4.0"
+  }
 }

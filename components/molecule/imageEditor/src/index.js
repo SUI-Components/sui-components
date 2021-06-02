@@ -9,8 +9,12 @@ const baseClass = 'react-MoleculeImageEditor'
 const DEFAULT_ASPECT = 4 / 3
 export default function MoleculeImageEditor({
   aspect = DEFAULT_ASPECT,
+  cropLabelIcon,
+  cropLabelText,
   image,
-  onChange
+  onChange,
+  rotateLabelIcon,
+  rotateLabelText
 }) {
   const [crop, setCrop] = useState({x: 0, y: 0})
   const [rotation, setRotation] = useState(0)
@@ -47,6 +51,16 @@ export default function MoleculeImageEditor({
         />
       </div>
       <div className={`${baseClass}-slider`}>
+        {(cropLabelIcon || cropLabelText) && (
+          <div className={`${baseClass}-label`}>
+            {cropLabelIcon && (
+              <span className={`${baseClass}-labelIcon`}>{cropLabelIcon}</span>
+            )}
+            {cropLabelText && (
+              <span className={`${baseClass}-labelText`}>{cropLabelText}</span>
+            )}
+          </div>
+        )}
         <AtomSlider
           onChange={(event, {value}) => setZoom(value)}
           value={zoom}
@@ -54,6 +68,20 @@ export default function MoleculeImageEditor({
         />
       </div>
       <div className={`${baseClass}-slider`}>
+        {(rotateLabelIcon || rotateLabelText) && (
+          <div className={`${baseClass}-label`}>
+            {rotateLabelIcon && (
+              <span className={`${baseClass}-labelIcon`}>
+                {rotateLabelIcon}
+              </span>
+            )}
+            {rotateLabelText && (
+              <span className={`${baseClass}-labelText`}>
+                {rotateLabelText}
+              </span>
+            )}
+          </div>
+        )}
         <AtomSlider
           onChange={(event, {value}) => setRotation(value)}
           value={rotation}
@@ -67,6 +95,10 @@ export default function MoleculeImageEditor({
 MoleculeImageEditor.displayName = 'MoleculeImageEditor'
 MoleculeImageEditor.propTypes = {
   aspect: PropTypes.number,
+  cropLabelIcon: PropTypes.node,
+  cropLabelText: PropTypes.string,
   image: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  rotateLabelIcon: PropTypes.node,
+  rotateLabelText: PropTypes.string
 }

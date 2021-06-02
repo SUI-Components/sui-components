@@ -10,7 +10,12 @@ export default () => {
   return (
     <div>
       <h1>Component</h1>
-      <MoleculeImageEditor onChange={setCroppedImage} image={DEMO_IMAGE} />
+      <MoleculeImageEditor
+        onChange={setCroppedImage}
+        image={DEMO_IMAGE}
+        cropLabelText="Crop"
+        rotateLabelText="Rotate"
+      />
       <h1>Result</h1>
       <img src={croppedImage} style={{width: '300px'}} />
     </div>

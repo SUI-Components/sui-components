@@ -1,8 +1,6 @@
 # MoleculeImageEditor
 
-> Description
-
-<!-- ![](./assets/preview.png) -->
+Component to crop and rotate an image.
 
 ## Installation
 
@@ -19,7 +17,16 @@ $ npm install @s-ui/react-molecule-image-editor
 ```js
 import MoleculeImageEditor from '@s-ui/react-molecule-image-editor'
 
-return (<MoleculeImageEditor />)
+return (
+  <MoleculeImageEditor 
+    cropLabelIcon={<CropIcon>}
+    cropLabelText="Crop"
+    image={image}
+    onChange={handleChange}
+    rotateLabelIcon={<RotateIcon>}
+    rotateLabelText="Rotate"
+  />
+)
 ```
 
 #### Import the styles (Sass)
@@ -29,6 +36,3 @@ return (<MoleculeImageEditor />)
 /* @import 'your theme'; */
 @import '~@s-ui/react-molecule-image-editor/lib/index';
 ```
-
-
-> **Find full description and more examples in the [demo page](#).**

@@ -7,6 +7,7 @@ import getCroppedImg from './utils/cropImage'
 
 const baseClass = 'react-MoleculeImageEditor'
 const DEFAULT_ASPECT = 4 / 3
+
 export default function MoleculeImageEditor({
   aspect = DEFAULT_ASPECT,
   cropLabelIcon,

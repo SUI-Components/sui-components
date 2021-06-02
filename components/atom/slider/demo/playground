@@ -141,6 +141,14 @@ return (
         </Box>
       </Article>
       <br/>
+      <Article className={CLASS_SECTION}>
+        <H2>Hide marks</H2>
+        <Paragraph>Slider provides a boolean prop to hide marks.</Paragraph>
+        <Box>
+          <AtomSlider hideMarks />
+        </Box>
+      </Article>
+      <br/>
       <H1>Range</H1>
       <Paragraph>Component that works as an input that provides a slider a set of two numbers (range)</Paragraph>
       <Article className={CLASS_SECTION}>

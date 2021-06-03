@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import PropTypes from 'prop-types'
 import {
   Article,
@@ -10,8 +9,6 @@ import {
 } from '@s-ui/documentation-library'
 
 const ArticleDefault = ({className}) => {
-  const [isVisible] = useState(undefined)
-  const [defaultIsVisible] = useState(undefined)
   return (
     <Article className={className}>
       <H2>Default</H2>
@@ -36,10 +33,10 @@ const ArticleDefault = ({className}) => {
             <span>isVisible</span>
           </Separator>
         </Cell>
-        <Cell>{`${defaultIsVisible}`}</Cell>
+        <Cell />
         <Cell span={2} />
         <Cell span={2} />
-        <Cell>{`${isVisible}`}</Cell>
+        <Cell />
       </Grid>
     </Article>
   )

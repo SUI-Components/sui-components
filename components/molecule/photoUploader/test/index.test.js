@@ -17,7 +17,8 @@ describe('molecule/photoUploader', () => {
   const setup = setupEnvironment(Component)
   const IconElement = () => <svg />
 
-  it('should render without crashing', () => {
+  // https://github.com/SUI-Components/sui-components/issues/1546
+  it.skip('should render without crashing', () => {
     // Given
     const props = {
       addMorePhotosIcon: IconElement,
@@ -52,7 +53,8 @@ describe('molecule/photoUploader', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
-  it('should NOT render null', () => {
+  // https://github.com/SUI-Components/sui-components/issues/1546
+  it.skip('should NOT render null', () => {
     // Given
     const props = {
       addMorePhotosIcon: IconElement,

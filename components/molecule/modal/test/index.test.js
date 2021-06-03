@@ -16,7 +16,8 @@ describe('molecule/modal', () => {
   const Component = MoleculeModal
   const setup = setupEnvironment(Component)
 
-  it('should render without crashing', () => {
+  // https://github.com/SUI-Components/sui-components/issues/1546
+  it.skip('should render without crashing', () => {
     // Given
     const props = {}
 
@@ -29,7 +30,8 @@ describe('molecule/modal', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
-  it('should render null', () => {
+  // https://github.com/SUI-Components/sui-components/issues/1546
+  it.skip('should render null', () => {
     // Given
     const props = {}
 

@@ -25,6 +25,7 @@ const MoleculeInputField = ({
   inline,
   onChange,
   useContrastLabel,
+  fullWidth,
   ...props
 }) => {
   const errorState = getErrorState({successText, errorText})
@@ -42,6 +43,7 @@ const MoleculeInputField = ({
       inline={inline}
       onChange={onChange}
       useContrastLabel={useContrastLabel}
+      fullWidth={fullWidth}
     >
       <AtomInput
         id={id}
@@ -84,7 +86,10 @@ MoleculeInputField.propTypes = {
   autoHideHelpText: PropTypes.bool,
 
   /** label prop to use contrast type */
-  useContrastLabel: PropTypes.bool
+  useContrastLabel: PropTypes.bool,
+
+  /** Flag to apply full-width */
+  fullWidth: PropTypes.bool
 }
 
 export default MoleculeInputField

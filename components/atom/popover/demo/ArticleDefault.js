@@ -4,16 +4,14 @@ import {
   Article,
   H2,
   H4,
-  Paragraph,
   Grid,
   Cell,
-  Code,
   Separator
 } from '@s-ui/documentation-library'
 
 const ArticleDefault = ({className}) => {
-  const [isVisible] = useState(undefined)
-  const [defaultIsVisible] = useState(undefined)
+  // const [isVisible] = useState(undefined)
+  // const [defaultIsVisible] = useState(undefined)
   return (
     <Article className={className}>
       <H2>Default</H2>
@@ -38,18 +36,10 @@ const ArticleDefault = ({className}) => {
             <span>isVisible</span>
           </Separator>
         </Cell>
-        <Cell>
-          <Paragraph>{`${defaultIsVisible}`}</Paragraph>
-        </Cell>
-        <Cell span={2}>
-          <Paragraph>a</Paragraph>
-        </Cell>
-        <Cell span={2}>
-          <Paragraph>Lorem ipsum dolor sit </Paragraph>
-        </Cell>
-        <Cell>
-          <Paragraph style={{textAlign: 'right'}}>{`${isVisible}`}</Paragraph>
-        </Cell>
+        <Cell />
+        <Cell span={2} />
+        <Cell span={2} />
+        <Cell />
       </Grid>
     </Article>
   )

@@ -9,15 +9,14 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import Component from '../src/index'
 
 chai.use(chaiDOM)
 
-describe('molecule/modal', () => {
-  const Component = MoleculeModal
+describe('MoleculeImageEditor', () => {
   const setup = setupEnvironment(Component)
 
-  // https://github.com/SUI-Components/sui-components/issues/1546
-  it.skip('should render without crashing', () => {
+  it('should render without crashing', () => {
     // Given
     const props = {}
 
@@ -30,8 +29,7 @@ describe('molecule/modal', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
-  // https://github.com/SUI-Components/sui-components/issues/1546
-  it.skip('should render null', () => {
+  it('should NOT render null', () => {
     // Given
     const props = {}
 
@@ -40,20 +38,6 @@ describe('molecule/modal', () => {
 
     // Then
     expect(container.innerHTML).to.be.a('string')
-    expect(container.innerHTML).to.have.lengthOf(0)
-  })
-
-  it.skip('example', () => {
-    // Example TO BE DELETED!!!!
-
-    // Given
-    // const props = {}
-
-    // When
-    // const {getByRole} = setup(props)
-
-    // Then
-    // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(false)
+    expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 })

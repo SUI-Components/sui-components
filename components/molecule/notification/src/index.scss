@@ -47,6 +47,10 @@ $base-class: '.sui-MoleculeNotification';
       }
       display: none;
       margin-right: $m-m;
+
+      &--show {
+        display: block;
+      }
     }
 
     &Close {

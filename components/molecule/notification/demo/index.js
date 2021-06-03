@@ -49,6 +49,22 @@ const Demo = () => {
       </MoleculeNotification>
       <br />
 
+      <h2>Show Left Icon on Mobile</h2>
+      <MoleculeNotification
+        autoClose="manual"
+        type="info"
+        onClose={logClose}
+        roundedCorners={BRDS_SIZE.medium}
+        showLeftIconMobile
+      >
+        <span>
+          Lorem ipsum dolor sit amet,{' '}
+          <a href="#fistrum">consectetur adipiscing</a> elit. Duis vitae orci
+          consectetur ligula vel.
+        </span>
+      </MoleculeNotification>
+      <br />
+
       <h2>With children content</h2>
       <MoleculeNotification autoClose="manual" type="info" onClose={logClose}>
         <span>
@@ -125,6 +141,7 @@ const Demo = () => {
       >
         {TEXT}
       </MoleculeNotification>
+
       <h2>Override container</h2>
       <MoleculeNotification autoClose="manual" overrideContainer>
         {TEXT}

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.27.0 (2021-06-03)
+
+
+### Bug Fixes
+
+* **components/molecule/notification:** update .npmignore and force release ([1c7b32d](https://github.com/SUI-Components/sui-components/commit/1c7b32de76c5219d32a898ba4d1b5a37f4fe395b))
+
+
+
 # 1.26.0 (2021-05-31)
 
 

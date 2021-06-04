@@ -1,6 +1,5 @@
-import {useState, useEffect, useRef} from 'react'
+import {useState, useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
-import {createPortal} from 'react-dom'
 import cx from 'classnames'
 import {useEventListener} from '@s-ui/react-hooks'
 
@@ -26,7 +25,6 @@ const ANIMATIONS = {
 }
 
 export default function MoleculeDrawer({
-  portalContainerId = 'drawer-react-portal',
   isOpen = false,
   placement = PLACEMENTS.LEFT,
   size = SIZES.M,
@@ -35,11 +33,11 @@ export default function MoleculeDrawer({
   children
 }) {
   const overlayRef = useRef(null)
-  const [isClientReady, setClientReady] = useState(false)
+  const [startsClosed, setStartsClosed] = useState(!isOpen)
 
   useEffect(() => {
-    setClientReady(true)
-  }, [])
+    isOpen && setStartsClosed(false)
+  }, [isOpen])
 
   useEventListener('keydown', event => {
     if (isOpen === false) return
@@ -49,17 +47,7 @@ export default function MoleculeDrawer({
     }
   })
 
-  const getContainer = () => {
-    let containerDOMEl = document.getElementById(portalContainerId)
-    if (!containerDOMEl) {
-      containerDOMEl = document.createElement('div')
-      containerDOMEl.id = portalContainerId
-      document.body.appendChild(containerDOMEl)
-    }
-    return containerDOMEl
-  }
-
-  const drawer = (
+  return (
     <div className="react-MoleculeDrawer">
       {isOpen && (
         <Overlay
@@ -79,6 +67,7 @@ export default function MoleculeDrawer({
           'react-MoleculeDrawer-contentTransition',
           `react-MoleculeDrawer-content--${placement}`,
           {
+            [`react-MoleculeDrawer-content--${placement}--closed`]: startsClosed,
             'react-MoleculeDrawer-open': isOpen,
             'react-MoleculeDrawer-content--fullscreen':
               size === SIZES.FULLSCREEN,
@@ -91,8 +80,6 @@ export default function MoleculeDrawer({
       </Content>
     </div>
   )
-
-  return isClientReady ? createPortal(drawer, getContainer()) : null
 }
 
 export {PLACEMENTS as moleculeDrawerPlacements}
@@ -110,5 +97,6 @@ MoleculeDrawer.propTypes = {
   /** Size of the drawer content */
   size: PropTypes.oneOf(Object.values(SIZES)),
   /** Duration in seconds for open/close animation */
-  velocity: PropTypes.oneOf(Object.values(ANIMATIONS))
+  velocity: PropTypes.oneOf(Object.values(ANIMATIONS)),
+  children: PropTypes.node
 }

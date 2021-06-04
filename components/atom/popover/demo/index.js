@@ -4,11 +4,11 @@ import {forwardRef} from 'react'
 import './index.scss'
 import {H1, Paragraph, Anchor} from '@s-ui/documentation-library'
 import ArticleDefault from './ArticleDefault'
-// import ArticlePosition from './ArticlePosition'
-// import ArticleCloseIcon from './ArticleCloseIcon'
-// import ArticleArrow from './ArticleArrow'
-// import ArticleRef from './ArticleRef'
-// import ArticleBehavior from './ArticleBehavior'
+import ArticlePosition from './ArticlePosition'
+import ArticleCloseIcon from './ArticleCloseIcon'
+import ArticleArrow from './ArticleArrow'
+import ArticleRef from './ArticleRef'
+import ArticleBehavior from './ArticleBehavior'
 
 const BASE_CLASS_DEMO = `DemoAtomPopover`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
@@ -44,6 +44,15 @@ const Demo = () => {
         </Paragraph>
         <ArticleDefault className={CLASS_SECTION} content={Content} />
         <br />
+        <ArticlePosition className={CLASS_SECTION} content={Content} />
+        <br />
+        <ArticleCloseIcon className={CLASS_SECTION} content={Content} />
+        <br />
+        <ArticleArrow className={CLASS_SECTION} content={Content} />
+        <br />
+        <ArticleBehavior className={CLASS_SECTION} content={Content} />
+        <br />
+        <ArticleRef className={CLASS_SECTION} content={Content} />
         <br />
       </div>
     </div>

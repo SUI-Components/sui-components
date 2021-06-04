@@ -42,19 +42,6 @@ describe('MoleculeDrawer', () => {
     expect(getByText('I am a drawer')).to.be.visible
   })
 
-  it('should not render the drawer content if drawer is not open', () => {
-    // Given
-    const props = {
-      isOpen: false,
-      children: <p>I am a drawer</p>
-    }
-
-    // When
-    const {queryByText} = render(<Component {...props} />)
-    // Then
-    expect(queryByText('I am a drawer')).to.be.null
-  })
-
   it('should close the drawer if esc key is pressed', () => {
     // Given
     let calledCounter = 0

@@ -19,7 +19,7 @@ const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 const Demo = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [size, setSize] = useState('m')
-  const [speed, setSpeed] = useState('fast')
+  const [velocity, setVelocity] = useState('fast')
   const [placement, setPlacement] = useState('left')
 
   return (
@@ -43,9 +43,9 @@ const Demo = () => {
                 {['left', 'right', 'bottom', 'top'].map(placementOption => (
                   <Button
                     key={placementOption}
+                    outline={placement === placementOption}
                     onClick={() => {
                       setPlacement(placementOption)
-                      setIsOpen(true)
                     }}
                   >
                     {placementOption}
@@ -55,6 +55,13 @@ const Demo = () => {
             </Cell>
           </Grid>
         </Box>
+        <Button
+          onClick={() => {
+            setIsOpen(true)
+          }}
+        >
+          OPEN
+        </Button>
       </Article>
       <br />
       <Article className={CLASS_SECTION}>
@@ -69,9 +76,9 @@ const Demo = () => {
                 {['m', 'fullscreen'].map(sizeOption => (
                   <Button
                     key={sizeOption}
+                    outline={size === sizeOption}
                     onClick={() => {
                       setSize(sizeOption)
-                      setIsOpen(true)
                     }}
                   >
                     {sizeOption}
@@ -81,6 +88,13 @@ const Demo = () => {
             </Cell>
           </Grid>
         </Box>
+        <Button
+          onClick={() => {
+            setIsOpen(true)
+          }}
+        >
+          OPEN
+        </Button>
       </Article>
       <br />
       <Article className={CLASS_SECTION}>
@@ -93,31 +107,38 @@ const Demo = () => {
             <Cell>
               <ButtonGroup
                 onChange={value => {
-                  setSpeed(value)
-                  setIsOpen(true)
+                  setVelocity(value)
                 }}
               >
-                {['slow', 'fast'].map(speedOption => (
+                {['slow', 'fast'].map(velocityOption => (
                   <Button
-                    key={speedOption}
+                    key={velocityOption}
+                    outline={velocity === velocityOption}
                     onClick={() => {
-                      setSpeed(speedOption)
-                      setIsOpen(true)
+                      setVelocity(velocityOption)
                     }}
                   >
-                    {speedOption}
+                    {velocityOption}
                   </Button>
                 ))}
               </ButtonGroup>
             </Cell>
           </Grid>
         </Box>
+        <Button
+          onClick={() => {
+            setIsOpen(true)
+          }}
+        >
+          OPEN
+        </Button>
       </Article>
       <MoleculeDrawer
+        key={placement}
         isOpen={isOpen}
         placement={placement}
         size={size}
-        speed={speed}
+        velocity={velocity}
         onClose={() => setIsOpen(false)}
       >
         <H2>MoleculeDrawer</H2>

@@ -8,6 +8,8 @@ $bxsh-molecule-drawer: 0 0 6px rgba(0, 0, 0, 0.4) !default;
 $bgc-molecule-drawer: $c-white !default;
 $bgc-molecule-drawer-overlay-start: rgba(0, 0, 0, 0.4) !default;
 $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
+$trsdu-molecule-drawer-fast: 0.3s !default;
+$trsdu-molecule-drawer-slow: 1s !default;
 
 @keyframes bg-overlay {
   0% {
@@ -15,78 +17,6 @@ $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
   }
   100% {
     background-color: $bgc-molecule-drawer-overlay-finish;
-  }
-}
-
-@keyframes open-drawer-left {
-  0% {
-    left: -$w-molecule-drawer;
-  }
-  100% {
-    left: 0px;
-  }
-}
-
-@keyframes close-drawer-left {
-  0% {
-    left: 0px;
-  }
-  100% {
-    left: -$w-molecule-drawer;
-  }
-}
-
-@keyframes open-drawer-right {
-  0% {
-    right: -$w-molecule-drawer;
-  }
-  100% {
-    right: 0px;
-  }
-}
-
-@keyframes close-drawer-right {
-  0% {
-    right: 0px;
-  }
-  100% {
-    right: -$w-molecule-drawer;
-  }
-}
-
-@keyframes open-drawer-top {
-  0% {
-    top: -$h-molecule-drawer;
-  }
-  100% {
-    top: 0px;
-  }
-}
-
-@keyframes close-drawer-top {
-  0% {
-    top: 0px;
-  }
-  100% {
-    top: -$h-molecule-drawer;
-  }
-}
-
-@keyframes open-drawer-bottom {
-  0% {
-    bottom: -$h-molecule-drawer;
-  }
-  100% {
-    bottom: 0px;
-  }
-}
-
-@keyframes close-drawer-bottom {
-  0% {
-    bottom: 0px;
-  }
-  100% {
-    bottom: -$h-molecule-drawer;
   }
 }
 
@@ -102,31 +32,70 @@ $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
   }
 
   &-content {
-    box-shadow: $bxsh-molecule-drawer;
     position: fixed;
     z-index: $z-molecule-drawer;
     background-color: $bgc-molecule-drawer;
+    &Transition {
+      transition: transform $trsdu-molecule-drawer-fast linear;
+      &--slow {
+        transition: transform $trsdu-molecule-drawer-slow linear;
+      }
+    }
     &--left {
       height: 100%;
       width: $w-molecule-drawer;
       left: 0px;
       top: 0px;
+      &--closed {
+        left: -$w-molecule-drawer;
+      }
+      transform: translate3d(-100%, 0, 0);
     }
     &--right {
       height: 100%;
       width: $w-molecule-drawer;
-      right: 0px;
-      top: 0px;
+      right: 0;
+      top: 0;
+      &--closed {
+        right: -$w-molecule-drawer;
+      }
+      transform: translate3d(100%, 0, 0);
     }
     &--top {
       width: 100%;
       height: $h-molecule-drawer;
-      top: 0px;
+      top: 0;
+      left: 0;
+      &--closed {
+        top: -$w-molecule-drawer;
+      }
+      transform: translate3d(0, -100%, 0);
     }
     &--bottom {
       width: 100%;
       height: $h-molecule-drawer;
-      bottom: 0px;
+      bottom: 0;
+      left: 0;
+      &--closed {
+        bottom: -$w-molecule-drawer;
+      }
+      transform: translate3d(0, 100%, 0);
     }
+
+    &--fullscreen {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-open {
+    box-shadow: $bxsh-molecule-drawer;
+    transform: translate3d(0, 0, 0);
+  }
+
+  &-body {
+    overflow: auto;
+    height: 100%;
+    width: 100%;
   }
 }

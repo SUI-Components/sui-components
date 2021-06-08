@@ -1,18 +1,48 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 3.3.0 (2021-06-08)
+
+
+### Features
+
+* **components/atom/upload:** use loadable ([ed55fec](https://github.com/SUI-Components/sui-components/commit/ed55fec3b088c8185e3208b08a820284cd6f3ea8))
+
+
+
+# 3.2.0 (2021-01-27)
+
+
+### Bug Fixes
+
+* **atom/upload:** pass onFileSelected prop by reference to get extra arguments (success, failure, ev ([245c84d](https://github.com/SUI-Components/sui-components/commit/245c84d3e3a75ff3dcd2cb024b6a8d6461461f1c))
+
+
+### Features
+
+* **Root:** normalize bborder variables ([b5da148](https://github.com/SUI-Components/sui-components/commit/b5da1482ca96b523f0c168c7040783ce78a7f14d))
+
+
+
+# 3.1.0 (2020-11-24)
+
+
+### Features
+
+* **atom/upload:** Use new jsx runtime ([6b59f62](https://github.com/SUI-Components/sui-components/commit/6b59f626c407d0b8085b96a15d4de64a91e8343d))
+
+
 
 # 3.0.0 (2020-10-13)
 
 
 ### Features
 
-* remove atom icon and add sass vars ([8ee007c](https://github.com/SUI-Components/sui-components/commit/8ee007cd2bd4362688bbc753c620fae2d3e1de95))
+* **atom/upload:** remove atom icon and add sass vars ([8ee007c](https://github.com/SUI-Components/sui-components/commit/8ee007cd2bd4362688bbc753c620fae2d3e1de95))
 
 
 ### BREAKING CHANGES
 
-* Remove atom icon dep
+* **atom/upload:** Remove atom icon dep
 
 
 
@@ -21,7 +51,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix sass variable name ([3a17aff](https://github.com/SUI-Components/sui-components/commit/3a17aff39da7ec97253354112f0ed10325ba81a5))
+* **atom/upload:** fix sass variable name ([3a17aff](https://github.com/SUI-Components/sui-components/commit/3a17aff39da7ec97253354112f0ed10325ba81a5))
 
 
 
@@ -30,22 +60,22 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* add css vars and remove atomIcon ussage ([282fc45](https://github.com/SUI-Components/sui-components/commit/282fc45784aa7a2fd51db6a5f603a454f2e8dee7))
-* fix description of proptypes ([1a4c5fc](https://github.com/SUI-Components/sui-components/commit/1a4c5fc5a2d0d05886a1257c4af6e64ab5e81209))
-* iconSize proptypes ([8cc9268](https://github.com/SUI-Components/sui-components/commit/8cc926815adac5b112cf40aea54396bd5c021383))
-* rever const name change ([2206d81](https://github.com/SUI-Components/sui-components/commit/2206d81792c493ffe6cea8d43dce7ddd80394679))
+* **atom/upload:** add css vars and remove atomIcon ussage ([282fc45](https://github.com/SUI-Components/sui-components/commit/282fc45784aa7a2fd51db6a5f603a454f2e8dee7))
+* **atom/upload:** fix description of proptypes ([1a4c5fc](https://github.com/SUI-Components/sui-components/commit/1a4c5fc5a2d0d05886a1257c4af6e64ab5e81209))
+* **atom/upload:** iconSize proptypes ([8cc9268](https://github.com/SUI-Components/sui-components/commit/8cc926815adac5b112cf40aea54396bd5c021383))
+* **atom/upload:** rever const name change ([2206d81](https://github.com/SUI-Components/sui-components/commit/2206d81792c493ffe6cea8d43dce7ddd80394679))
 
 
 ### Features
 
-* add style props ([7ce891c](https://github.com/SUI-Components/sui-components/commit/7ce891c1c6ba2fd041580ec3c9a564f49d9d55f9))
-* change comment of proptype ([de55a9d](https://github.com/SUI-Components/sui-components/commit/de55a9df06d91ff2359ddbc1fa154ef5ed187237))
-* force major ([ce69f84](https://github.com/SUI-Components/sui-components/commit/ce69f843774d4e4308a203f77629d5b3a4aa5470))
+* **atom/upload:** add style props ([7ce891c](https://github.com/SUI-Components/sui-components/commit/7ce891c1c6ba2fd041580ec3c9a564f49d9d55f9))
+* **atom/upload:** change comment of proptype ([de55a9d](https://github.com/SUI-Components/sui-components/commit/de55a9df06d91ff2359ddbc1fa154ef5ed187237))
+* **atom/upload:** force major ([ce69f84](https://github.com/SUI-Components/sui-components/commit/ce69f843774d4e4308a203f77629d5b3a4aa5470))
 
 
 ### BREAKING CHANGES
 
-* no atom-icon dep
+* **atom/upload:** no atom-icon dep
 
 
 
@@ -54,9 +84,9 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Added border-radius, max file size and accept formats ([c65da3d](https://github.com/SUI-Components/sui-components/commit/c65da3db9d35e356e318e5010666575ba2a4afe6))
-* improved code readability ([a1f471d](https://github.com/SUI-Components/sui-components/commit/a1f471dca2ccdd64a269c11efad8d5881b70d927))
-* remove duplicated token ([06d71d6](https://github.com/SUI-Components/sui-components/commit/06d71d65850445b21163605a3a5962d5ba2df5b1))
+* **atom/upload:** Added border-radius, max file size and accept formats ([c65da3d](https://github.com/SUI-Components/sui-components/commit/c65da3db9d35e356e318e5010666575ba2a4afe6))
+* **atom/upload:** improved code readability ([a1f471d](https://github.com/SUI-Components/sui-components/commit/a1f471dca2ccdd64a269c11efad8d5881b70d927))
+* **atom/upload:** remove duplicated token ([06d71d6](https://github.com/SUI-Components/sui-components/commit/06d71d65850445b21163605a3a5962d5ba2df5b1))
 
 
 
@@ -65,12 +95,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix typo errors ([5592c84](https://github.com/SUI-Components/sui-components/commit/5592c84cabf84a112d78742fbe1882289b51fa7b))
+* **atom/upload:** fix typo errors ([5592c84](https://github.com/SUI-Components/sui-components/commit/5592c84cabf84a112d78742fbe1882289b51fa7b))
 
 
 ### Features
 
-* add style vars ([449f9ae](https://github.com/SUI-Components/sui-components/commit/449f9ae1fd274ad5bde4105723ee0a1d8fbf628d))
+* **atom/upload:** add style vars ([449f9ae](https://github.com/SUI-Components/sui-components/commit/449f9ae1fd274ad5bde4105723ee0a1d8fbf628d))
 
 
 
@@ -79,7 +109,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add variables in scss ([706498e](https://github.com/SUI-Components/sui-components/commit/706498e95fe20a50733e23f3957f51c0cd834842))
+* **atom/upload:** add variables in scss ([706498e](https://github.com/SUI-Components/sui-components/commit/706498e95fe20a50733e23f3957f51c0cd834842))
 
 
 
@@ -88,7 +118,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add assets folder to .npmignore ([73f66f2](https://github.com/SUI-Components/sui-components/commit/73f66f20ba551ccc8c62780899047685d061f323))
+* **atom/upload:** add assets folder to .npmignore ([73f66f2](https://github.com/SUI-Components/sui-components/commit/73f66f20ba551ccc8c62780899047685d061f323))
 
 
 
@@ -97,7 +127,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([fd7ef27](https://github.com/SUI-Components/sui-components/commit/fd7ef27d55e0ac14b21cca1c7af738b5291db5b4))
+* **atom/upload:** Use new [@s-ui-theme](https://github.com/s-ui-theme) ([fd7ef27](https://github.com/SUI-Components/sui-components/commit/fd7ef27d55e0ac14b21cca1c7af738b5291db5b4))
 
 
 
@@ -106,12 +136,12 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* no background for spinner and good way of passing icons to component ([7bade84](https://github.com/SUI-Components/sui-components/commit/7bade8426181925360420824f8b1589c92a552a8))
+* **atom/upload:** no background for spinner and good way of passing icons to component ([7bade84](https://github.com/SUI-Components/sui-components/commit/7bade8426181925360420824f8b1589c92a552a8))
 
 
 ### BREAKING CHANGES
 
-* Component Icons are now passed in the agreed way
+* **atom/upload:** Component Icons are now passed in the agreed way
 
 
 
@@ -120,7 +150,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* sUIC-70 ([daa3386](https://github.com/SUI-Components/sui-components/commit/daa3386c38939af939c3d7e6eb42818666cab045))
+* **atom/upload:** sUIC-70 ([daa3386](https://github.com/SUI-Components/sui-components/commit/daa3386c38939af939c3d7e6eb42818666cab045))
 
 
 
@@ -129,14 +159,14 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* active, success & error use cases ([d7b0deb](https://github.com/SUI-Components/sui-components/commit/d7b0deb249e7576ba7798a3b7abc10009c591363))
-* component creation ([711486c](https://github.com/SUI-Components/sui-components/commit/711486c40373f2d1c0863b19aa4e1e65ea2cad80))
-* custom classes for text elements ([82cfccd](https://github.com/SUI-Components/sui-components/commit/82cfccd3de7cf72b0c5b1b72a974ef6b3fe19d27))
-* default sui-theme colors ([db955e9](https://github.com/SUI-Components/sui-components/commit/db955e90f91b39e301841e25acd1a6f0f515c115))
-* drag & drop | dynamic example for playground ([592375d](https://github.com/SUI-Components/sui-components/commit/592375d930224594ad5f9774a45420103df661a8))
-* readme and some fixes ([7da5fc0](https://github.com/SUI-Components/sui-components/commit/7da5fc0989623554747aa89cfb5079a5e008d150))
-* responsive demo ([11dd158](https://github.com/SUI-Components/sui-components/commit/11dd158d65aafb5dab30efd36f0ac31b15bf8680))
-* success state ([2aee062](https://github.com/SUI-Components/sui-components/commit/2aee062b427684b13c76e5db99748abe2a2156a3))
+* **atom/upload:** active, success & error use cases ([d7b0deb](https://github.com/SUI-Components/sui-components/commit/d7b0deb249e7576ba7798a3b7abc10009c591363))
+* **atom/upload:** component creation ([711486c](https://github.com/SUI-Components/sui-components/commit/711486c40373f2d1c0863b19aa4e1e65ea2cad80))
+* **atom/upload:** custom classes for text elements ([82cfccd](https://github.com/SUI-Components/sui-components/commit/82cfccd3de7cf72b0c5b1b72a974ef6b3fe19d27))
+* **atom/upload:** default sui-theme colors ([db955e9](https://github.com/SUI-Components/sui-components/commit/db955e90f91b39e301841e25acd1a6f0f515c115))
+* **atom/upload:** drag & drop | dynamic example for playground ([592375d](https://github.com/SUI-Components/sui-components/commit/592375d930224594ad5f9774a45420103df661a8))
+* **atom/upload:** readme and some fixes ([7da5fc0](https://github.com/SUI-Components/sui-components/commit/7da5fc0989623554747aa89cfb5079a5e008d150))
+* **atom/upload:** responsive demo ([11dd158](https://github.com/SUI-Components/sui-components/commit/11dd158d65aafb5dab30efd36f0ac31b15bf8680))
+* **atom/upload:** success state ([2aee062](https://github.com/SUI-Components/sui-components/commit/2aee062b427684b13c76e5db99748abe2a2156a3))
 
 
 

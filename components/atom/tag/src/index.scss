@@ -230,4 +230,12 @@ $base-class: '.sui-AtomTag';
       }
     }
   }
+
+  @media print {
+    border: {
+      color: $bgc-atom-tag;
+      style: solid;
+      width: $bdrs-s;
+    }
+  }
 }

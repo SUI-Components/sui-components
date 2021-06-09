@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import MoleculeDrawer from '../../../../components/molecule/drawer/src'
+import '../src/index.scss'
 
 import {
   H1,
@@ -21,6 +22,9 @@ const Demo = () => {
   const [size, setSize] = useState('m')
   const [velocity, setVelocity] = useState('fast')
   const [placement, setPlacement] = useState('left')
+
+  const openDrawer = () => setIsOpen(true)
+  const closeDrawer = () => setIsOpen(false)
 
   return (
     <div className="sui-StudioPreview">
@@ -55,13 +59,7 @@ const Demo = () => {
             </Cell>
           </Grid>
         </Box>
-        <Button
-          onClick={() => {
-            setIsOpen(true)
-          }}
-        >
-          OPEN
-        </Button>
+        <Button onClick={openDrawer}>OPEN</Button>
       </Article>
       <br />
       <Article className={CLASS_SECTION}>
@@ -88,13 +86,7 @@ const Demo = () => {
             </Cell>
           </Grid>
         </Box>
-        <Button
-          onClick={() => {
-            setIsOpen(true)
-          }}
-        >
-          OPEN
-        </Button>
+        <Button onClick={openDrawer}>OPEN</Button>
       </Article>
       <br />
       <Article className={CLASS_SECTION}>
@@ -125,24 +117,21 @@ const Demo = () => {
             </Cell>
           </Grid>
         </Box>
-        <Button
-          onClick={() => {
-            setIsOpen(true)
-          }}
-        >
-          OPEN
-        </Button>
+        <Button onClick={openDrawer}>OPEN</Button>
       </Article>
+      {isOpen && size !== 'fullscreen' && (
+        <MoleculeDrawer.Overlay onClick={closeDrawer} />
+      )}
       <MoleculeDrawer
         key={placement}
         isOpen={isOpen}
         placement={placement}
         size={size}
         velocity={velocity}
-        onClose={() => setIsOpen(false)}
+        onClose={closeDrawer}
       >
         <H2>MoleculeDrawer</H2>
-        <Button onClick={() => setIsOpen(false)}>Close</Button>
+        <Button onClick={closeDrawer}>Close</Button>
         <Paragraph>This is the content of the drawer</Paragraph>
         <Button onClick={() => alert('button inside drawer clicked')}>
           Click me

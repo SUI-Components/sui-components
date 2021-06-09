@@ -2,11 +2,27 @@ import {useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import useEventListener from '@s-ui/react-hooks/lib/useEventListener'
-import useMountedState from '@s-ui/react-hooks/lib/useMountedState'
 
-const Overlay = 'div'
+const Overlay = ({onClick}) => {
+  const overlayRef = useRef(null)
+  return (
+    <div
+      ref={overlayRef}
+      className="react-MoleculeDrawer-overlay"
+      onClick={event => {
+        overlayRef.current === event.target &&
+          typeof onClick === 'function' &&
+          onClick(event)
+      }}
+    />
+  )
+}
+
+Overlay.propTypes = {
+  onClick: PropTypes.func
+}
+
 const Body = 'div'
-const Content = 'div'
 
 const PLACEMENTS = {
   TOP: 'top',
@@ -33,9 +49,6 @@ export default function MoleculeDrawer({
   onClose,
   children
 }) {
-  const overlayRef = useRef(null)
-  const isMounted = useMountedState()
-
   useEventListener('keydown', event => {
     if (isOpen === false) return
     if (event.key === 'Escape') {
@@ -45,36 +58,23 @@ export default function MoleculeDrawer({
   })
 
   return (
-    <div className="react-MoleculeDrawer">
-      {isOpen && (
-        <Overlay
-          ref={overlayRef}
-          className="react-MoleculeDrawer-overlay"
-          onClick={event => {
-            overlayRef.current === event.target &&
-              typeof onClose === 'function' &&
-              onClose(event)
-          }}
-        />
+    <div
+      onAnimationEnd={() => {
+        !isOpen && onClose()
+      }}
+      className={cx(
+        'react-MoleculeDrawer-content',
+        `react-MoleculeDrawer-content--${placement}`,
+        'react-MoleculeDrawer-contentTransition',
+        {
+          'react-MoleculeDrawer-open': isOpen,
+          'react-MoleculeDrawer-content--fullscreen': size === SIZES.FULLSCREEN,
+          'react-MoleculeDrawer-contentTransition--slow':
+            velocity === ANIMATIONS.SLOW
+        }
       )}
-      <Content
-        onAnimationEnd={() => !isOpen && onClose()}
-        className={cx(
-          'react-MoleculeDrawer-content',
-          'react-MoleculeDrawer-contentTransition',
-          `react-MoleculeDrawer-content--${placement}`,
-          {
-            [`react-MoleculeDrawer-content--${placement}--closed`]: !isMounted(),
-            'react-MoleculeDrawer-open': isOpen,
-            'react-MoleculeDrawer-content--fullscreen':
-              size === SIZES.FULLSCREEN,
-            'react-MoleculeDrawer-contentTransition--slow':
-              velocity === ANIMATIONS.SLOW
-          }
-        )}
-      >
-        <Body className="react-MoleculeDrawer-body">{children}</Body>
-      </Content>
+    >
+      <Body className="react-MoleculeDrawer-body">{children}</Body>
     </div>
   )
 }
@@ -82,6 +82,8 @@ export default function MoleculeDrawer({
 export {PLACEMENTS as moleculeDrawerPlacements}
 export {SIZES as moleculeDrawerSizes}
 export {ANIMATIONS as moleculeDrawerAnimation}
+
+MoleculeDrawer.Overlay = Overlay
 
 MoleculeDrawer.displayName = 'MoleculeDrawer'
 MoleculeDrawer.propTypes = {

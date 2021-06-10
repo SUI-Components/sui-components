@@ -7,7 +7,7 @@ import {
 
 export function formatToBase64({
   file,
-  url,
+  item,
   options = FORM_IMAGE_UPLOADER_DEFAULT_FORMAT_TO_BASE_64_OPTIONS
 }) {
   if (file) {
@@ -66,6 +66,7 @@ export function formatToBase64({
       }
     })
   } else {
+    const {url, id} = item
     return new Promise((resolve, reject) => {
       cropAndRotateImage({
         imageURL: url,
@@ -76,11 +77,12 @@ export function formatToBase64({
           resolve({
             url,
             blob,
-            croppedBase64: base64
+            croppedBase64: base64,
+            id
           })
         })
         .catch(e => {
-          resolve({url, hasErrors: true})
+          resolve({item, hasErrors: true})
         })
     })
   }

@@ -125,7 +125,8 @@ const MoleculePhotoUploader = forwardRef(
           isModified,
           hasErrors,
           file,
-          preview
+          preview,
+          id
         } = currentFile
         array.push({
           blob,
@@ -134,7 +135,8 @@ const MoleculePhotoUploader = forwardRef(
           isModified,
           hasErrors,
           file,
-          previewUrl: preview
+          previewUrl: preview,
+          id
         })
         return [...array]
       }, [])

@@ -36,7 +36,6 @@ const AtomPopover = forwardRef(
       isVisible,
       defaultIsVisible
     )
-
     const handleToggle = ev => {
       setIsVisibleState(!isVisibleState)
       isVisibleState

@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 3.1.0 (2021-06-10)
+
+
+### Bug Fixes
+
+* **components/atom/popover:** versions ([0497e20](https://github.com/SUI-Components/sui-components/commit/0497e205ef9854c9bfadc277b9ed5947b93b612c))
+* **components/atom/popover:** WIP ([33584da](https://github.com/SUI-Components/sui-components/commit/33584da249d01a1cbdcb79ebd8796f6d6bec4240))
+
+
+### Features
+
+* **components/atom/popover:** Major ([f13763b](https://github.com/SUI-Components/sui-components/commit/f13763b9d502d917188e923cdacd6625fd11d9cb))
+
+
+
 # 2.3.0 (2021-06-08)
 
 

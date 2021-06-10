@@ -21,8 +21,8 @@ const AtomPopover = forwardRef(
       children,
       closeIcon,
       content,
-      onClose = () => {},
-      onOpen = () => {},
+      onClose,
+      onOpen,
       placement = PLACEMENTS.BOTTOM,
       isVisible,
       defaultIsVisible,
@@ -39,7 +39,9 @@ const AtomPopover = forwardRef(
 
     const handleToggle = ev => {
       setIsVisibleState(!isVisibleState)
-      onClose(ev)
+      isVisibleState
+        ? typeof onClose === 'function' && onClose(ev)
+        : typeof onOpen === 'function' && onOpen(ev)
     }
     return (
       <>

@@ -1,10 +1,9 @@
 import {Children, cloneElement, forwardRef} from 'react'
 import PropTypes from 'prop-types'
 
-const PopoverExtendChildren = forwardRef(({children, onToggle}, targetRef) => {
+const PopoverExtendChildren = forwardRef(({children}, targetRef) => {
   const onClickHandler = handler => ev => {
     typeof handler === 'function' && handler(ev)
-    typeof onToggle === 'function' && onToggle(ev)
   }
   const childrenOnly =
     typeof children === 'string'
@@ -31,8 +30,7 @@ const PopoverExtendChildren = forwardRef(({children, onToggle}, targetRef) => {
 })
 
 PopoverExtendChildren.propTypes = {
-  children: PropTypes.node.isRequired,
-  onToggle: PropTypes.func
+  children: PropTypes.node.isRequired
 }
 
 export default PopoverExtendChildren

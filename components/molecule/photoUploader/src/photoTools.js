@@ -82,7 +82,7 @@ export function formatToBase64({
           })
         })
         .catch(e => {
-          resolve({item, hasErrors: true})
+          resolve({url, id, hasErrors: true})
         })
     })
   }

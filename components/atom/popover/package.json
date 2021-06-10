@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-atom-popover",
-  "version": "2.3.0",
+  "version": "3.0.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "@loadable/component": "5.15.x",
     "@s-ui/hoc": "1",
     "@s-ui/react-hooks": "1",
-    "reactstrap": "7.1.0"
+    "reactstrap": "8.9.0"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

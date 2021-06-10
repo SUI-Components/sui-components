@@ -30,7 +30,7 @@ $class-inner: '#{$base-class}-inner';
 $class-arrow: '#{$base-class}-arrow';
 
 #{$base-class} {
-  display: block;
+  display: contents;
   font-size: $fz-atom-popover;
   margin: $m-atom-popover;
   position: absolute;

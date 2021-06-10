@@ -201,19 +201,17 @@ export const loadInitialPhotos = ({
         url,
         hasErrors = DEFAULT_HAS_ERRORS_STATUS,
         id
-      }) => {
-        return {
-          blob,
-          url,
-          hasErrors,
-          originalBase64: croppedBase64,
-          preview: croppedBase64,
-          rotation: DEFAULT_IMAGE_ROTATION_DEGREES,
-          isNew: false,
-          isModified: false,
-          id
-        }
-      }
+      }) => ({
+        blob,
+        url,
+        hasErrors,
+        originalBase64: croppedBase64,
+        preview: croppedBase64,
+        rotation: DEFAULT_IMAGE_ROTATION_DEGREES,
+        isNew: false,
+        isModified: false,
+        id
+      })
     )
     if (readyPhotos.some(photos => photos.hasErrors)) {
       setInitialDownloadError()

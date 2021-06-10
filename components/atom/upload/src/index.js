@@ -1,7 +1,9 @@
-import {useState, useEffect, lazy, Suspense} from 'react'
+import {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
+import loadable from '@loadable/component'
 import cx from 'classnames'
-const Dropzone = lazy(() => import('react-dropzone'))
+
+const Dropzone = loadable(() => import('react-dropzone'), {ssr: true})
 
 const STATUSES = {
   ACTIVE: 'active',
@@ -58,20 +60,19 @@ const AtomUpload = ({
 
   const hasValidStatus = Object.values(STATUSES).includes(status)
   const shouldRender = hasValidStatus && ready
+
   return (
     shouldRender && (
-      <Suspense fallback={null}>
-        <Dropzone
-          accept={accept}
-          className={`${BASE_CLASS}-dropzone`}
-          disabled={status !== STATUSES.ACTIVE}
-          maxSize={maxSize}
-          multiple={multiple}
-          onDrop={onFilesSelection}
-        >
-          {renderStatusBlock(status)}
-        </Dropzone>
-      </Suspense>
+      <Dropzone
+        accept={accept}
+        className={`${BASE_CLASS}-dropzone`}
+        disabled={status !== STATUSES.ACTIVE}
+        maxSize={maxSize}
+        multiple={multiple}
+        onDrop={onFilesSelection}
+      >
+        {renderStatusBlock(status)}
+      </Dropzone>
     )
   )
 }

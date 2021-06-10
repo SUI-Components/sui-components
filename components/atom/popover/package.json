@@ -12,7 +12,7 @@
     "@loadable/component": "5.14.1",
     "@s-ui/hoc": "1",
     "@s-ui/react-hooks": "1",
-    "reactstrap": "8.9.0"
+    "reactstrap": "7.1.0"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

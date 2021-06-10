@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 1.21.0 (2021-06-08)
+
+
+### Features
+
+* **components/atom/slider:** use loadable ([893d7e3](https://github.com/SUI-Components/sui-components/commit/893d7e3566423ba3f2c28df0dc180a3355f9a279))
+
+
+
+# 1.20.0 (2021-06-08)
+
+
+### Features
+
+* **components/atom/slider:** fix loadable version ([508d0b8](https://github.com/SUI-Components/sui-components/commit/508d0b8a7d2607d713d9bef4b1074edc8cb37ede))
+
+
+
 # 1.19.0 (2021-06-03)
 
 

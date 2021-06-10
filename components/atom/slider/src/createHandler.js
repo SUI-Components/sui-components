@@ -1,7 +1,7 @@
-import {lazy, Suspense} from 'react'
+import loadable from '@loadable/component'
 import Handle from 'rc-slider/lib/Handle'
 
-const Tooltip = lazy(() => import('rc-tooltip'))
+const Tooltip = loadable(() => import('rc-tooltip'), {ssr: true})
 
 const createHandler = (refAtomSlider, hideTooltip) => props => {
   const {value, index, dragging, ...restProps} = props // eslint-disable-line
@@ -11,24 +11,20 @@ const createHandler = (refAtomSlider, hideTooltip) => props => {
 
   if (hideTooltip) {
     return Handle ? (
-      <Suspense fallback={null}>
-        <Handle value={value} {...restProps} dragging={dragging.toString()} />
-      </Suspense>
+      <Handle value={value} {...restProps} dragging={dragging.toString()} />
     ) : null
   }
   return Handle ? (
-    <Suspense fallback={null}>
-      <Tooltip
-        getTooltipContainer={() => refAtomSlider.current}
-        key={index}
-        overlay={value}
-        placement="top"
-        prefixCls="rc-slider-tooltip"
-        visible
-      >
-        <Handle value={value} {...restProps} dragging={dragging.toString()} />
-      </Tooltip>
-    </Suspense>
+    <Tooltip
+      getTooltipContainer={() => refAtomSlider.current}
+      key={index}
+      overlay={value}
+      placement="top"
+      prefixCls="rc-slider-tooltip"
+      visible
+    >
+      <Handle value={value} {...restProps} dragging={dragging.toString()} />
+    </Tooltip>
   ) : null
 }
 

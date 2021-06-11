@@ -1,16 +1,9 @@
-import {
-  Children,
-  forwardRef,
-  cloneElement,
-  useState,
-  useEffect,
-  useRef
-} from 'react'
+import {Children, forwardRef, useState, useEffect, useRef} from 'react'
 import useDebounce from '@s-ui/react-hooks/lib/useDebounce'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
-import isEqual from 'lodash.isequal'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import ExtendedChildren from './ExtendedChildren'
 
 const BASE_CLASS = `sui-MoleculeDropdownList`
 const CLASS_HIDDEN = `is-hidden`
@@ -24,7 +17,16 @@ const SIZES = {
 
 const MoleculeDropdownList = forwardRef(
   (
-    {children, onSelect, alwaysRender, size, value, visible, ...props},
+    {
+      children,
+      onSelect,
+      alwaysRender = true,
+      size = SIZES.SMALL,
+      value,
+      visible,
+      onKeyDown,
+      ...props
+    },
     forwardedRef
   ) => {
     const refDropdownList = useRef()
@@ -32,24 +34,6 @@ const MoleculeDropdownList = forwardRef(
 
     const [typedWord, setTypedWord] = useState('')
     const debouncedTypedWord = useDebounce(typedWord, DEBOUNCE_TIME)
-
-    const extendedChildren = Children.toArray(children)
-      .filter(Boolean)
-      .map((child, index) => {
-        const {value: valueChild} = child.props
-        let selected = false
-        if (Array.isArray(value)) {
-          selected = value.some(innerValue => isEqual(valueChild, innerValue))
-        } else {
-          selected = isEqual(value, valueChild)
-        }
-        return cloneElement(child, {
-          ...props,
-          index,
-          onSelect,
-          selected
-        })
-      })
 
     const classNames = cx(BASE_CLASS, `${BASE_CLASS}--${size}`, {
       [CLASS_HIDDEN]: !visible
@@ -63,8 +47,8 @@ const MoleculeDropdownList = forwardRef(
       }, 0)
     }
 
-    const handleKeyDown = ev => {
-      const {key} = ev
+    const handleKeyDown = event => {
+      const {key} = event
       const {
         current: {children: options}
       } = refDropdownList
@@ -77,7 +61,7 @@ const MoleculeDropdownList = forwardRef(
           if (key === 'ArrowUp' && index > 0) options[index - 1].focus()
         }
       } else {
-        setTypedWord(v => v + key.toLowerCase())
+        setTypedWord(value => value + key.toLowerCase())
         const word = typedWord + key.toLowerCase()
         const optionToFocusOn =
           Array.from(options).find(
@@ -89,8 +73,9 @@ const MoleculeDropdownList = forwardRef(
           )
         optionToFocusOn && optionToFocusOn.focus()
       }
-      ev.preventDefault()
-      ev.stopPropagation()
+      typeof onKeyDown === 'function' && onKeyDown(event)
+      event.preventDefault()
+      event.stopPropagation()
     }
 
     // When DEBOUNCE_TIME reset typed word
@@ -107,7 +92,20 @@ const MoleculeDropdownList = forwardRef(
         onKeyDown={handleKeyDown}
         className={classNames}
       >
-        {extendedChildren}
+        {Children.toArray(children)
+          .filter(Boolean)
+          .map((child, index) => (
+            <ExtendedChildren
+              key={index}
+              index={index}
+              value={value}
+              onSelect={onSelect}
+              onKeyDown={onKeyDown}
+              {...props}
+            >
+              {child}
+            </ExtendedChildren>
+          ))}
       </ul>
     )
   }
@@ -132,13 +130,10 @@ MoleculeDropdownList.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 
   /** Visible or not */
-  visible: PropTypes.bool
-}
+  visible: PropTypes.bool,
 
-MoleculeDropdownList.defaultProps = {
-  alwaysRender: true,
-  onSelect: () => {},
-  size: SIZES.SMALL
+  /** Keydown handler callback **/
+  onKeyDown: PropTypes.func
 }
 
 export default MoleculeDropdownList

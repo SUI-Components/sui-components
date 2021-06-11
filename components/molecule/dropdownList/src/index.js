@@ -1,16 +1,9 @@
-import {
-  Children,
-  forwardRef,
-  cloneElement,
-  useState,
-  useEffect,
-  useRef
-} from 'react'
+import {Children, forwardRef, useState, useEffect, useRef} from 'react'
 import useDebounce from '@s-ui/react-hooks/lib/useDebounce'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
-import isEqual from 'lodash.isequal'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import ExtendedChildren from './ExtendedChildren'
 
 const BASE_CLASS = `sui-MoleculeDropdownList`
 const CLASS_HIDDEN = `is-hidden`
@@ -27,8 +20,8 @@ const MoleculeDropdownList = forwardRef(
     {
       children,
       onSelect,
-      alwaysRender,
-      size,
+      alwaysRender = true,
+      size = SIZES.SMALL,
       value,
       visible,
       onKeyDown,
@@ -41,24 +34,6 @@ const MoleculeDropdownList = forwardRef(
 
     const [typedWord, setTypedWord] = useState('')
     const debouncedTypedWord = useDebounce(typedWord, DEBOUNCE_TIME)
-
-    const extendedChildren = Children.toArray(children)
-      .filter(Boolean)
-      .map((child, index) => {
-        const {value: valueChild} = child.props
-        let selected = false
-        if (Array.isArray(value)) {
-          selected = value.some(innerValue => isEqual(valueChild, innerValue))
-        } else {
-          selected = isEqual(value, valueChild)
-        }
-        return cloneElement(child, {
-          ...props,
-          index,
-          onSelect,
-          selected
-        })
-      })
 
     const classNames = cx(BASE_CLASS, `${BASE_CLASS}--${size}`, {
       [CLASS_HIDDEN]: !visible
@@ -117,7 +92,20 @@ const MoleculeDropdownList = forwardRef(
         onKeyDown={handleKeyDown}
         className={classNames}
       >
-        {extendedChildren}
+        {Children.toArray(children)
+          .filter(Boolean)
+          .map((child, index) => (
+            <ExtendedChildren
+              key={index}
+              index={index}
+              value={value}
+              onSelect={onSelect}
+              onKeyDown={onKeyDown}
+              {...props}
+            >
+              {child}
+            </ExtendedChildren>
+          ))}
       </ul>
     )
   }
@@ -146,12 +134,6 @@ MoleculeDropdownList.propTypes = {
 
   /** Keydown handler callback **/
   onKeyDown: PropTypes.func
-}
-
-MoleculeDropdownList.defaultProps = {
-  alwaysRender: true,
-  onSelect: () => {},
-  size: SIZES.SMALL
 }
 
 export default MoleculeDropdownList

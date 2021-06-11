@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.45.0 (2021-06-11)
+
+
+### Features
+
+* **components/molecule/autosuggest:** restore the input caret after selecting and option with arrow ([fbd1387](https://github.com/SUI-Components/sui-components/commit/fbd13876c18c3073250bbd73a10a3f2177ca50bb))
+
+
+
 # 2.44.0 (2021-05-28)
 
 

@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
-import {Children, useRef} from 'react'
+import {Children} from 'react'
 
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import AtomInput from '@s-ui/react-atom-input'
-import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import withClearUI from '../hoc/withClearUI'
 
@@ -25,6 +24,7 @@ const MoleculeAutosuggestSingleSelection = ({
   onClear,
   onClickRightIcon,
   onInputKeyDown,
+  onKeyDown,
   onSelect,
   onToggle,
   placeholder,
@@ -36,13 +36,10 @@ const MoleculeAutosuggestSingleSelection = ({
   type,
   value = ''
 }) => {
-  const innerRefInput = useRef()
-  const moleculeInputRef = useMergeRefs(innerRefInput, refInput)
   const handleSelection = (ev, {value}) => {
     onChange(ev, {value})
     onSelect(ev, {value})
     autoClose && onToggle(ev, {isOpen: false})
-    innerRefInput.current && innerRefInput.current.focus()
   }
 
   const handleChange = (ev, {value}) => {
@@ -76,7 +73,7 @@ const MoleculeAutosuggestSingleSelection = ({
         onClickRightIcon={handleRightClick}
         onKeyDown={onInputKeyDown}
         placeholder={placeholder}
-        reference={moleculeInputRef}
+        reference={refInput}
         required={required}
         rightIcon={rightIcon}
         tabIndex={tabIndex}
@@ -90,6 +87,7 @@ const MoleculeAutosuggestSingleSelection = ({
           onSelect={handleSelection}
           value={value}
           highlightQuery={value}
+          onKeyDown={onKeyDown}
         >
           {children}
         </MoleculeDropdownList>

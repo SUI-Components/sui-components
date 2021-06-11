@@ -26,6 +26,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   onClear,
   onInputKeyDown,
   onSelect,
+  onKeyDown,
   onToggle,
   placeholder,
   required,
@@ -114,6 +115,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         checkbox
         highlightQuery={value}
         onSelect={handleMultiSelection}
+        onKeyDown={onKeyDown}
         size={size}
         value={tags}
         visible={isOpen}

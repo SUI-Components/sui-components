@@ -112,8 +112,8 @@ const MoleculeAutosuggest = ({
   const handleKeyDown = ev => {
     ev.persist()
     const {current: domInnerInput} = refMoleculeAutosuggestInput
-    const {current: domMoleculeAutosuggest} = innerRefMoleculeAutosuggest
     const {current: optionsFromRef} = refsMoleculeAutosuggestOptions
+    const {current: innerRefInput} = innerRefMoleculeAutosuggestInput
     const {key} = ev
     const options = optionsFromRef.map(getTarget)
 
@@ -122,7 +122,7 @@ const MoleculeAutosuggest = ({
 
     if (isTypeableKey) {
       if (!isSelectionKey) domInnerInput.focus()
-    } else domMoleculeAutosuggest.focus()
+    }
 
     if (isOpen) {
       const currentElementFocused = getCurrentElementFocused()
@@ -131,9 +131,9 @@ const MoleculeAutosuggest = ({
       else if (key === 'ArrowDown' && !isSomeOptionFocused)
         focusFirstOption(ev, {options})
       else if (isSomeOptionFocused) handleFocusIn(ev)
-    } else {
       if (key === 'Enter') {
         onEnter(ev)
+        innerRefInput && innerRefInput.focus()
       }
     }
   }
@@ -177,8 +177,8 @@ const MoleculeAutosuggest = ({
   }
 
   const handleClick = () => {
-    refMoleculeAutosuggestInput?.current &&
-      refMoleculeAutosuggestInput.current.focus()
+    const {current: innerRefInput} = innerRefMoleculeAutosuggestInput
+    innerRefInput && innerRefInput.focus()
   }
 
   const autosuggestSelectionProps = {
@@ -197,6 +197,7 @@ const MoleculeAutosuggest = ({
     onEnter,
     onFocus,
     onInputKeyDown: handleInputKeyDown,
+    onKeyDown: handleKeyDown,
     onSelect,
     onToggle,
     state,

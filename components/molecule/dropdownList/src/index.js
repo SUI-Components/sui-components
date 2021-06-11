@@ -24,7 +24,16 @@ const SIZES = {
 
 const MoleculeDropdownList = forwardRef(
   (
-    {children, onSelect, alwaysRender, size, value, visible, ...props},
+    {
+      children,
+      onSelect,
+      alwaysRender,
+      size,
+      value,
+      visible,
+      onKeyDown,
+      ...props
+    },
     forwardedRef
   ) => {
     const refDropdownList = useRef()
@@ -63,8 +72,8 @@ const MoleculeDropdownList = forwardRef(
       }, 0)
     }
 
-    const handleKeyDown = ev => {
-      const {key} = ev
+    const handleKeyDown = event => {
+      const {key} = event
       const {
         current: {children: options}
       } = refDropdownList
@@ -77,7 +86,7 @@ const MoleculeDropdownList = forwardRef(
           if (key === 'ArrowUp' && index > 0) options[index - 1].focus()
         }
       } else {
-        setTypedWord(v => v + key.toLowerCase())
+        setTypedWord(value => value + key.toLowerCase())
         const word = typedWord + key.toLowerCase()
         const optionToFocusOn =
           Array.from(options).find(
@@ -89,8 +98,9 @@ const MoleculeDropdownList = forwardRef(
           )
         optionToFocusOn && optionToFocusOn.focus()
       }
-      ev.preventDefault()
-      ev.stopPropagation()
+      typeof onKeyDown === 'function' && onKeyDown(event)
+      event.preventDefault()
+      event.stopPropagation()
     }
 
     // When DEBOUNCE_TIME reset typed word
@@ -132,7 +142,10 @@ MoleculeDropdownList.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 
   /** Visible or not */
-  visible: PropTypes.bool
+  visible: PropTypes.bool,
+
+  /** Keydown handler callback **/
+  onKeyDown: PropTypes.func
 }
 
 MoleculeDropdownList.defaultProps = {

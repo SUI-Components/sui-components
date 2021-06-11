@@ -16,8 +16,7 @@ describe('atom/popover', () => {
   const Component = AtomPopover
   const setup = setupEnvironment(Component)
 
-  // https://github.com/SUI-Components/sui-components/issues/1546
-  it.skip('should render without crashing', () => {
+  it('should render without crashing', () => {
     // Given
     const props = {
       id: 'random-id',
@@ -34,8 +33,7 @@ describe('atom/popover', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
-  // https://github.com/SUI-Components/sui-components/issues/1546
-  it.skip('should NOT render null', () => {
+  it('should NOT render null', () => {
     // Given
     const props = {
       id: 'random-id',

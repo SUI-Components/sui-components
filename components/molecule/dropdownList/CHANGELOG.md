@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.21.0 (2021-06-11)
+
+
+### Features
+
+* **components/molecule/dropdownList:** add keyDown handler ([a99c86d](https://github.com/SUI-Components/sui-components/commit/a99c86dabfec576064fd89ee1455a5ff0fb1517b))
+
+
+
 # 1.20.0 (2021-05-31)
 
 

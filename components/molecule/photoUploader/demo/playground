@@ -30,8 +30,14 @@ const _uploadingPhotosText = 'Subiendo imágenes...'
 const _rotationDirection = MoleculePhotoUploaderRotationDirection.clockwise
 
 const initialPhotos = [
-  {url: 'https://picsum.photos/seed/---all---/200/200'},
-  {url: 'https://picsum.photos/seed/--your---/800/300'},
+  {
+    url: 'https://picsum.photos/seed/---all---/200/200',
+    id: '9cded3e2-7fc6-4999-acc5-1fd42d6ea49a'
+  },
+  {
+    url: 'https://picsum.photos/seed/--your---/800/300',
+    id: '6c7ee3d8-97db-4142-8520-5136fccfc40b'
+  },
   {url: 'https://FAILUM.FAILED/FAIL/--base---/200/800'},
   {url: 'https://picsum.photos/seed/---are---/800/600'},
   {url: 'https://picsum.photos/seed/--belong-/200/300'},

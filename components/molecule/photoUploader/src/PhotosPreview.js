@@ -102,7 +102,7 @@ const PhotosPreview = ({
     const photoToRetry = _files[index]
 
     formatToBase64({
-      url: photoToRetry.url,
+      item: photoToRetry,
       options: defaultFormatToBase64Options
     }).then(
       ({blob, croppedBase64, url, hasErrors = DEFAULT_HAS_ERRORS_STATUS}) => {

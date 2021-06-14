@@ -1,5 +1,5 @@
 const demoStyles = {
-  margin:'auto',
+  margin: 'auto',
   marginTop: 20
 }
 
@@ -18,36 +18,45 @@ const _dragDelay = 0
 const _dragPhotoTextInitialContent = 'Arrastra las fotos aquí'
 const _limitPhotosUploaded = 'Ha alcanzado el límite de fotografías'
 const _limitPhotosUploadedNotification = 'Máximo de fotografias alcanzado'
-const _errorFormatPhotoUploaded = 'Las fotografías deben tener formato JPEG, PNG, GIF, BMP o WEBP'
+const _errorFormatPhotoUploaded =
+  'Las fotografías deben tener formato JPEG, PNG, GIF, BMP o WEBP'
 const _errorCorruptedPhotoUploaded = 'Archivo %{filepath} ha fallado'
 const _errorInitialPhotoDownloadError = 'Error al descargar imágenes'
-const _errorFileExcededMaxSize = 'Las fotografías deben tener un peso máximo de 50 MB'
-const _notificationErrorFormatPhotoUploaded = 'Sólo se aceptan los formatos: formato JPEG, PNG, GIF, BMP o WEBP'
+const _errorFileExcededMaxSize =
+  'Las fotografías deben tener un peso máximo de 50 MB'
+const _notificationErrorFormatPhotoUploaded =
+  'Sólo se aceptan los formatos: formato JPEG, PNG, GIF, BMP o WEBP'
 const _uploadingPhotosText = 'Subiendo imágenes...'
 const _rotationDirection = MoleculePhotoUploaderRotationDirection.clockwise
 
 const initialPhotos = [
-  "https://picsum.photos/seed/---all---/200/200",
-  "https://picsum.photos/seed/--your---/800/300",
-  "https://FAILUM.FAILED/FAIL/--base---/200/800",
-  "https://picsum.photos/seed/---are---/800/600",
-  "https://picsum.photos/seed/--belong-/200/300",
-  "https://picsum.photos/seed/---to----/200/300",
-  "https://picsum.photos/seed/---us----/200/300"
+  {
+    url: 'https://picsum.photos/seed/---all---/200/200',
+    id: '9cded3e2-7fc6-4999-acc5-1fd42d6ea49a'
+  },
+  {
+    url: 'https://picsum.photos/seed/--your---/800/300',
+    id: '6c7ee3d8-97db-4142-8520-5136fccfc40b'
+  },
+  {url: 'https://FAILUM.FAILED/FAIL/--base---/200/800'},
+  {url: 'https://picsum.photos/seed/---are---/800/600'},
+  {url: 'https://picsum.photos/seed/--belong-/200/300'},
+  {url: 'https://picsum.photos/seed/---to----/200/300'},
+  {url: 'https://picsum.photos/seed/---us----/200/300'}
 ]
 
 const Demo = () => {
-  const _callbackPhotosUploaded = (list) => {
-    console.log("_callbackPhotosUploaded: ", list)
+  const _callbackPhotosUploaded = list => {
+    console.log('_callbackPhotosUploaded: ', list)
   }
-  const _callbackPhotosRejected = (list) => {
-    console.log("_callbackPhotosRejected: ", list)
+  const _callbackPhotosRejected = list => {
+    console.log('_callbackPhotosRejected: ', list)
   }
 
   const _callbackUploadPhoto = (file, oldUrl) => {
-    const url = {url:`https://pre.cdn.coches.net/${Date.now()}`}
+    const url = {url: `https://pre.cdn.coches.net/${Date.now()}`}
     return Promise.resolve(url)
-    }
+  }
 
   const _infoIcon = () => (
     <svg viewBox="0 0 24 24">
@@ -115,21 +124,34 @@ const Demo = () => {
         limitPhotosUploadedNotification={_limitPhotosUploadedNotification}
         mainPhotoLabel={_mainPhotoLabel}
         maxPhotos={_maxPhotos}
-        notificationErrorFormatPhotoUploaded={_notificationErrorFormatPhotoUploaded}
+        notificationErrorFormatPhotoUploaded={
+          _notificationErrorFormatPhotoUploaded
+        }
         rejectPhotosIcon={_rejectPhotosIcon}
         retryIcon={_retryErrorPhotosIcon}
         rotateIcon={_rotateIcon}
         uploadingPhotosText={_uploadingPhotosText}
-
       />
 
       <h1 style={lineStyles}>Molecule PhotoUploader with initialPhotos</h1>
-      <p style={lineStyles}>This example has an array of URLs passed by props, and the third one fails on load, so it shows an error notification.</p>
-      <p style={lineStyles}>Also, in this example we're blocking .bmp images, which are accepted by default.</p>
-      <p style={lineStyles}>Also, rotation direction is set to clockwise. rotateIcon not changed, though :P</p>
-      <p style={lineStyles}>Also, dragDelay time set to 0, it must be 0 to improve user experience in desktop!</p>
+      <p style={lineStyles}>
+        This example has an array of URLs passed by props, and the third one
+        fails on load, so it shows an error notification.
+      </p>
+      <p style={lineStyles}>
+        Also, in this example we're blocking .bmp images, which are accepted by
+        default.
+      </p>
+      <p style={lineStyles}>
+        Also, rotation direction is set to clockwise. rotateIcon not changed,
+        though :P
+      </p>
+      <p style={lineStyles}>
+        Also, dragDelay time set to 0, it must be 0 to improve user experience
+        in desktop!
+      </p>
       <MoleculePhotoUploader
-        acceptedFileTypes='image/jpeg, image/gif, image/png, image/webp'
+        acceptedFileTypes="image/jpeg, image/gif, image/png, image/webp"
         addMorePhotosIcon={_addMorePhotosIcon}
         addPhotoTextButton={_addPhotoTextButton}
         addPhotoTextSkeleton={_addPhotoTextSkeleton}
@@ -151,7 +173,9 @@ const Demo = () => {
         limitPhotosUploadedNotification={_limitPhotosUploadedNotification}
         mainPhotoLabel={_mainPhotoLabel}
         maxPhotos={_maxPhotos}
-        notificationErrorFormatPhotoUploaded={_notificationErrorFormatPhotoUploaded}
+        notificationErrorFormatPhotoUploaded={
+          _notificationErrorFormatPhotoUploaded
+        }
         rejectPhotosIcon={_rejectPhotosIcon}
         retryIcon={_retryErrorPhotosIcon}
         rotateIcon={_rotateIcon}

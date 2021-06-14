@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.0.0 (2021-06-14)
+
+
+### Features
+
+* **components/molecule/photoUploader:** fix forgotten url in formatToBase64 and follow contract on ([843ec93](https://github.com/SUI-Components/sui-components/commit/843ec932dd632a9335ebafea439da13ee3b37491))
+* **components/molecule/photoUploader:** restore the way how is returning newFiles ([a9d974b](https://github.com/SUI-Components/sui-components/commit/a9d974b16cfd2aece0410b9434b423cd22eba208))
+* **components/molecule/photoUploader:** treat initialPhotos as an object and extract it an id ([7eccaad](https://github.com/SUI-Components/sui-components/commit/7eccaad5e3d101e615800a034b3b1b682caed8ae))
+
+
+
 # 1.28.0 (2021-06-03)
 
 

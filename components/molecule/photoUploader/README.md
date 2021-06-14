@@ -12,6 +12,8 @@ Every modification of the list will return a list of Blobs (jpeg encoded!) to be
 
 > `url` (String) if the image is one of the initially passed by props will contain an url, if it's undefined, it's a new image.
 
+> `id` (String) you could pass an id to identify each image that was initially passed
+
 > `isNew` (Boolean) if it's a new uploaded image, will be true, if not, will be false and it will have an `url`.
 
 > `isModified` (Boolean): if an image of the initialPhotos, has been rotated, will be `isModified: true`
@@ -68,15 +70,15 @@ import MoleculePhotoUploader from '@s-ui/react-molecule-photo-uploader'
   // Not required props
   callbackPhotosRejected={rejectedPhotos => console.log(rejectedPhotos)}
   callbackPhotosUploaded={acceptedPhotos => console.log(acceptedPhotos)}
-  callbackUploadPhoto= {(file,oldUrl) => console.log(file,oldUrl)}
+  callbackUploadPhoto={(file, oldUrl) => console.log(file, oldUrl)}
   limitPhotosUploadedText={_limitPhotosUploaded}
   limitPhotosUploadedNotification={_limitPhotosUploadedNotification}
   mainPhotoLabel={'PRINCIPAL'}
   maxPhotos={10}
   rotationDirection={'clockwise'}
   initialPhotos={[
-    'https://images.net/image1.jpg',
-    'https://images.net/image2.jpg'
+    {'https://images.net/image1.jpg'},
+    {'https://images.net/image2.jpg}'
   ]}
 />
 ```

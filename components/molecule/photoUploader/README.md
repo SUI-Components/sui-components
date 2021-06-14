@@ -77,8 +77,8 @@ import MoleculePhotoUploader from '@s-ui/react-molecule-photo-uploader'
   maxPhotos={10}
   rotationDirection={'clockwise'}
   initialPhotos={[
-    {'https://images.net/image1.jpg'},
-    {'https://images.net/image2.jpg}'
+    {url: 'https://images.net/image1.jpg'},
+    {url: 'https://images.net/image2.jpg}'
   ]}
 />
 ```

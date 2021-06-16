@@ -7,6 +7,7 @@ import getCroppedImg from './utils/cropImage'
 
 const baseClass = 'react-MoleculeImageEditor'
 const DEFAULT_ASPECT = 4 / 3
+const noop = () => {}
 
 export default function MoleculeImageEditor({
   aspect = DEFAULT_ASPECT,
@@ -14,6 +15,7 @@ export default function MoleculeImageEditor({
   cropLabelText,
   image,
   onChange,
+  onCropping = noop,
   rotateLabelIcon,
   rotateLabelText
 }) {
@@ -26,14 +28,16 @@ export default function MoleculeImageEditor({
   const onCropComplete = useCallback(
     async (croppedArea, croppedAreaPixels) => {
       const rotationDegrees = getRotationDegrees(rotation)
+      onCropping(true)
       const croppedImage = await getCroppedImg(
         image,
         croppedAreaPixels,
         rotationDegrees
       )
       onChange(croppedImage)
+      onCropping(false)
     },
-    [rotation, image, onChange]
+    [rotation, onCropping, image, onChange]
   )
 
   return (
@@ -100,6 +104,7 @@ MoleculeImageEditor.propTypes = {
   cropLabelText: PropTypes.string,
   image: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  onCropping: PropTypes.func,
   rotateLabelIcon: PropTypes.node,
   rotateLabelText: PropTypes.string
 }

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.2.0 (2021-06-16)
+
+
+### Features
+
+* **components/molecule/imageEditor:** add on cropping prop ([637e9a2](https://github.com/SUI-Components/sui-components/commit/637e9a2c06cd621058829b9396b9985e6e61b551))
+
+
+
 # 1.1.0 (2021-06-03)
 
 

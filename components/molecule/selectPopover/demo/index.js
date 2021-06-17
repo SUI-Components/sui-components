@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import {useState} from 'react'
+import MoleculeModal from '@s-ui/react-molecule-modal'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 import MoleculeCheckboxField from 'components/molecule/checkboxField/src/'
@@ -26,6 +27,7 @@ const Demo = () => {
   const [isFullWidth, setIsFullWidth] = useState(false)
   const [actionsAreHidden, setActionsAreHidden] = useState(false)
   const [addCustomButton, setAddCustomButton] = useState(false)
+  const [customContentWrapper, setCustomContentWrapper] = useState(false)
 
   const handleChangeItem = event => {
     const {target} = event
@@ -43,6 +45,28 @@ const Demo = () => {
 
   const handleOpen = () => {
     hasEvents && window.alert('Popover opened!')
+  }
+
+  const renderContentWrapper = ({actions, content, isOpen, setIsOpen}) => {
+    const handleClose = () => setIsOpen(false)
+
+    return (
+      <MoleculeModal
+        fitWindow
+        isContentless
+        isOpen={isOpen}
+        onClose={handleClose}
+      >
+        <MoleculeModal.Content withoutIndentation>
+          {content}
+        </MoleculeModal.Content>
+        <MoleculeModal.Footer>
+          <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+            {actions}
+          </div>
+        </MoleculeModal.Footer>
+      </MoleculeModal>
+    )
   }
 
   const checkedItems = items.filter(item => item.checked)
@@ -126,6 +150,16 @@ const Demo = () => {
             Add custom button
           </label>
         </div>
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              checked={customContentWrapper}
+              onChange={ev => setCustomContentWrapper(ev.target.checked)}
+            />
+            Custom content wrapper as a modal
+          </label>
+        </div>
 
         <h3>Component</h3>
         <MoleculeSelectPopover
@@ -137,6 +171,7 @@ const Demo = () => {
             negative: false,
             color: 'accent'
           }}
+          renderContentWrapper={customContentWrapper && renderContentWrapper}
           fullWidth={isFullWidth}
           hideActions={actionsAreHidden}
           iconArrowDown={IconArrowDown}

@@ -106,7 +106,6 @@ $z-select-popover-select-popover: $z-tooltips !default;
     display: block;
 
     #{$self}-select {
-      width: 100%;
       max-width: none;
     }
   }

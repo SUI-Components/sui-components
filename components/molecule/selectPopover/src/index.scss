@@ -21,6 +21,7 @@ $cur-select-popover-select: auto !default;
 $z-select-popover-select-popover: $z-tooltips !default;
 
 .sui-MoleculeSelectPopover {
+  $self: &;
   display: inline-block;
   position: relative;
 
@@ -98,6 +99,14 @@ $z-select-popover-select-popover: $z-tooltips !default;
 
     &--left {
       right: 0;
+    }
+  }
+
+  &--fullWidth {
+    display: block;
+
+    #{$self}-select {
+      max-width: none;
     }
   }
 }

@@ -22,6 +22,7 @@ function MoleculeSelectPopover({
   customButtonText,
   customButtonOptions,
   children,
+  fullWidth,
   hideActions,
   iconArrowDown: IconArrowDown,
   isSelected = false,
@@ -108,8 +109,10 @@ function MoleculeSelectPopover({
     setIsOpen(true)
   }
 
+  const classNames = cx(BASE_CLASS, fullWidth && `${BASE_CLASS}--fullWidth`)
+
   return (
-    <div className={BASE_CLASS} title={title}>
+    <div className={classNames} title={title}>
       <div
         ref={selectRef}
         className={selectClassName}
@@ -171,6 +174,7 @@ MoleculeSelectPopover.propTypes = {
     negative: PropTypes.bool
   }),
   children: PropTypes.node.isRequired,
+  fullWidth: PropTypes.bool,
   hideActions: PropTypes.bool,
   iconArrowDown: PropTypes.elementType.isRequired,
   isSelected: PropTypes.bool,

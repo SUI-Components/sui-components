@@ -23,6 +23,7 @@ const Demo = () => {
   const [size, setSize] = useState(selectPopoverSizes.MEDIUM)
   const [placement, setPlacement] = useState(selectPopoverPlacements.RIGHT)
   const [hasEvents, setHasEvents] = useState(false)
+  const [isFullWidth, setIsFullWidth] = useState(false)
   const [actionsAreHidden, setActionsAreHidden] = useState(false)
   const [addCustomButton, setAddCustomButton] = useState(false)
 
@@ -99,6 +100,16 @@ const Demo = () => {
           <label>
             <input
               type="checkbox"
+              checked={isFullWidth}
+              onChange={ev => setIsFullWidth(ev.target.checked)}
+            />
+            Full width
+          </label>
+        </div>
+        <div>
+          <label>
+            <input
+              type="checkbox"
               checked={actionsAreHidden}
               onChange={ev => setActionsAreHidden(ev.target.checked)}
             />
@@ -126,6 +137,7 @@ const Demo = () => {
             negative: false,
             color: 'accent'
           }}
+          fullWidth={isFullWidth}
           hideActions={actionsAreHidden}
           iconArrowDown={IconArrowDown}
           isSelected={isSelected}

@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types'
-import {OVERLAY_ELEMENT_TYPE} from './settings'
 
 const DrawerOverlay = ({onClick}) => {
   return (
-    <OVERLAY_ELEMENT_TYPE
+    <div
       className="react-MoleculeDrawer-overlay"
       onClick={event => {
         typeof onClick === 'function' && onClick(event)

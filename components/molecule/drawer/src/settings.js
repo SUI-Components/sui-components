@@ -1,8 +1,3 @@
-export const BODY_ELEMENT_TYPE = 'div'
-export const CONTENT_ELEMENT_TYPE = 'div'
-
-export const OVERLAY_ELEMENT_TYPE = 'div'
-
 export const PLACEMENTS = {
   TOP: 'top',
   RIGHT: 'right',

@@ -1,13 +1,7 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import useEventListener from '@s-ui/react-hooks/lib/useEventListener'
-import {
-  ANIMATION_DURATION,
-  PLACEMENTS,
-  SIZES,
-  CONTENT_ELEMENT_TYPE,
-  BODY_ELEMENT_TYPE
-} from './settings'
+import {ANIMATION_DURATION, PLACEMENTS, SIZES} from './settings'
 
 const MoleculeDrawer = ({
   isOpen = false,
@@ -26,7 +20,7 @@ const MoleculeDrawer = ({
   })
 
   return (
-    <BODY_ELEMENT_TYPE
+    <div
       onAnimationEnd={() => {
         !isOpen && onClose()
       }}
@@ -40,10 +34,8 @@ const MoleculeDrawer = ({
         }
       )}
     >
-      <CONTENT_ELEMENT_TYPE className="react-MoleculeDrawer-body">
-        {children}
-      </CONTENT_ELEMENT_TYPE>
-    </BODY_ELEMENT_TYPE>
+      <div className="react-MoleculeDrawer-body">{children}</div>
+    </div>
   )
 }
 

@@ -1,5 +1,9 @@
 import {useState} from 'react'
-import MoleculeDrawer from '../../../../components/molecule/drawer/src'
+import MoleculeDrawer, {
+  MoleculeDrawerOverlay,
+  moleculeDrawerSizes,
+  moleculeDrawerAnimationDuration
+} from '../../../../components/molecule/drawer/src'
 import '../src/index.scss'
 
 import {
@@ -9,19 +13,27 @@ import {
   Paragraph,
   Article,
   Button,
-  ButtonGroup,
+  RadioButton,
+  RadioButtonGroup,
   Grid,
-  Cell
+  Cell,
+  UnorderedList,
+  ListItem,
+  Bold,
+  Code
 } from '@s-ui/documentation-library'
+import {moleculeDrawerPlacements} from '../lib'
 
 const BASE_CLASS_DEMO = `DemoMoleculeDrawer`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
 const Demo = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [size, setSize] = useState('m')
-  const [velocity, setVelocity] = useState('fast')
-  const [placement, setPlacement] = useState('left')
+  const [size, setSize] = useState(moleculeDrawerSizes.AUTO)
+  const [animationDuration, setAnimationDuration] = useState(
+    moleculeDrawerAnimationDuration.FAST
+  )
+  const [placement, setPlacement] = useState(moleculeDrawerPlacements.LEFT)
 
   const openDrawer = () => setIsOpen(true)
   const closeDrawer = () => setIsOpen(false)
@@ -43,19 +55,18 @@ const Demo = () => {
         <Box>
           <Grid align="center">
             <Cell>
-              <ButtonGroup>
+              <RadioButtonGroup
+                onChange={(event, value) => setPlacement(value)}
+                value={placement}
+              >
                 {['left', 'right', 'bottom', 'top'].map(placementOption => (
-                  <Button
+                  <RadioButton
                     key={placementOption}
-                    outline={placement === placementOption}
-                    onClick={() => {
-                      setPlacement(placementOption)
-                    }}
-                  >
-                    {placementOption}
-                  </Button>
+                    value={placementOption}
+                    label={placementOption}
+                  />
                 ))}
-              </ButtonGroup>
+              </RadioButtonGroup>
             </Cell>
           </Grid>
         </Box>
@@ -65,24 +76,37 @@ const Demo = () => {
       <Article className={CLASS_SECTION}>
         <H2>Sizes</H2>
         <Paragraph>
-          A client can configure 2 different sizes, medium or fullscreen.
+          A client can configure {Object.values(moleculeDrawerSizes).length}{' '}
+          different sizes:
         </Paragraph>
+        <UnorderedList>
+          <ListItem>
+            <Bold>Auto</Bold>:(default) sets the width or height dependent to
+            its inner content.
+          </ListItem>
+          <ListItem>
+            <Bold>M</Bold>: sets the width or height configurable under the{' '}
+            <Code>$w-molecule-drawer</Code> SCSS token.
+          </ListItem>
+          <ListItem>
+            <Bold>FILL</Bold>: sets a full-viewport drawer.
+          </ListItem>
+        </UnorderedList>
         <Box>
           <Grid align="center">
             <Cell>
-              <ButtonGroup>
-                {['m', 'fullscreen'].map(sizeOption => (
-                  <Button
+              <RadioButtonGroup
+                onChange={(event, value) => setSize(value)}
+                value={size}
+              >
+                {Object.values(moleculeDrawerSizes).map(sizeOption => (
+                  <RadioButton
                     key={sizeOption}
-                    outline={size === sizeOption}
-                    onClick={() => {
-                      setSize(sizeOption)
-                    }}
-                  >
-                    {sizeOption}
-                  </Button>
+                    value={sizeOption}
+                    label={sizeOption}
+                  />
                 ))}
-              </ButtonGroup>
+              </RadioButtonGroup>
             </Cell>
           </Grid>
         </Box>
@@ -92,50 +116,57 @@ const Demo = () => {
       <Article className={CLASS_SECTION}>
         <H2>Animation Speeds</H2>
         <Paragraph>
-          A client can configure 2 different animation speed, slow or fast.
+          A client can configure 4 different animation speed: none,fast, normal
+          or slow.
         </Paragraph>
         <Box>
           <Grid align="center">
             <Cell>
-              <ButtonGroup
-                onChange={value => {
-                  setVelocity(value)
-                }}
+              <RadioButtonGroup
+                onChange={(event, value) => setAnimationDuration(value)}
+                value={animationDuration}
               >
-                {['slow', 'fast'].map(velocityOption => (
-                  <Button
-                    key={velocityOption}
-                    outline={velocity === velocityOption}
-                    onClick={() => {
-                      setVelocity(velocityOption)
-                    }}
-                  >
-                    {velocityOption}
-                  </Button>
-                ))}
-              </ButtonGroup>
+                {Object.values(moleculeDrawerAnimationDuration).map(
+                  animationDurationOption => (
+                    <RadioButton
+                      key={animationDurationOption}
+                      value={animationDurationOption}
+                      label={animationDurationOption}
+                    />
+                  )
+                )}
+              </RadioButtonGroup>
             </Cell>
           </Grid>
         </Box>
         <Button onClick={openDrawer}>OPEN</Button>
       </Article>
       {isOpen && size !== 'fullscreen' && (
-        <MoleculeDrawer.Overlay onClick={closeDrawer} />
+        <MoleculeDrawerOverlay onClick={closeDrawer} />
       )}
       <MoleculeDrawer
         key={placement}
         isOpen={isOpen}
         placement={placement}
         size={size}
-        velocity={velocity}
+        animationDuration={animationDuration}
         onClose={closeDrawer}
       >
-        <H2>MoleculeDrawer</H2>
-        <Button onClick={closeDrawer}>Close</Button>
-        <Paragraph>This is the content of the drawer</Paragraph>
-        <Button onClick={() => alert('button inside drawer clicked')}>
-          Click me
-        </Button>
+        <Box outline>
+          <H2>Drawer</H2>
+          <Button onClick={closeDrawer}>Close</Button>
+          <Paragraph>
+            This is the
+            <br />
+            content of the
+            <br />
+            drawer
+          </Paragraph>
+
+          <Button onClick={() => alert('button inside drawer clicked')}>
+            Click me
+          </Button>
+        </Box>
       </MoleculeDrawer>
     </div>
   )

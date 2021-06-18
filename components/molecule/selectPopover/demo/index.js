@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import {useState} from 'react'
+import IconClose from '@s-ui/react-icons/lib/Close'
 import MoleculeModal from '@s-ui/react-molecule-modal'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
@@ -53,6 +54,7 @@ const Demo = () => {
     return (
       <MoleculeModal
         fitWindow
+        iconClose={<IconClose size="medium" />}
         isContentless
         isOpen={isOpen}
         onClose={handleClose}
@@ -60,11 +62,13 @@ const Demo = () => {
         <MoleculeModal.Content withoutIndentation>
           {content}
         </MoleculeModal.Content>
-        <MoleculeModal.Footer>
-          <div style={{display: 'flex', justifyContent: 'flex-end'}}>
-            {actions}
-          </div>
-        </MoleculeModal.Footer>
+        {!actionsAreHidden && (
+          <MoleculeModal.Footer>
+            <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+              {actions}
+            </div>
+          </MoleculeModal.Footer>
+        )}
       </MoleculeModal>
     )
   }

@@ -109,4 +109,10 @@ $z-select-popover-select-popover: $z-tooltips !default;
       max-width: none;
     }
   }
+
+  &--hasCustomWrapper {
+    #{$self}-selectIcon {
+      transform: rotate(-90deg) !important;
+    }
+  }
 }

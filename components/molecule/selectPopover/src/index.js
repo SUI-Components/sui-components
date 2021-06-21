@@ -32,6 +32,7 @@ function MoleculeSelectPopover({
   onClose = () => {},
   onOpen = () => {},
   placement = PLACEMENTS.RIGHT,
+  renderContentWrapper: renderContentWrapperProp,
   selectText,
   size = 'm',
   title
@@ -53,7 +54,7 @@ function MoleculeSelectPopover({
   }, [isOpen, onClose, onOpen, previousIsOpen])
 
   const selectRef = useRef()
-  const popoverRef = useRef()
+  const contentWrapperRef = useRef()
 
   const selectClassName = cx(
     `${BASE_CLASS}-select`,
@@ -87,7 +88,8 @@ function MoleculeSelectPopover({
     const handleClickOutside = e => {
       if (
         isOpen &&
-        !popoverRef.current.contains(e.target) &&
+        contentWrapperRef.current &&
+        !contentWrapperRef.current.contains(e.target) &&
         !selectRef.current.contains(e.target)
       ) {
         handleOnCancel()
@@ -109,7 +111,62 @@ function MoleculeSelectPopover({
     setIsOpen(true)
   }
 
-  const classNames = cx(BASE_CLASS, fullWidth && `${BASE_CLASS}--fullWidth`)
+  const renderActions = () => (
+    <>
+      {customButtonText ? (
+        <Button onClick={handleOnCustomAction} {...customButtonOptions}>
+          {customButtonText}
+        </Button>
+      ) : null}
+      {cancelButtonText ? (
+        <Button onClick={handleOnCancel} design="flat" {...cancelButtonOptions}>
+          {cancelButtonText}
+        </Button>
+      ) : null}
+      {acceptButtonText ? (
+        <Button onClick={handleOnAccept} {...acceptButtonOptions}>
+          {acceptButtonText}
+        </Button>
+      ) : null}
+    </>
+  )
+
+  const renderContentWrapper = () => {
+    const pieces = {
+      actions: renderActions(),
+      content: children,
+      contentWrapperRef, // required for `handleClickOutside` to work
+      isOpen,
+      setIsOpen
+    }
+
+    /**
+     * Custom content wrapper from render prop
+     */
+    if (renderContentWrapperProp) return renderContentWrapperProp(pieces)
+
+    /**
+     * Default content wrapper as a popover
+     */
+    return (
+      pieces.isOpen && (
+        <div className={popoverClassName} ref={contentWrapperRef}>
+          <div className={`${BASE_CLASS}-popoverContent`}>{pieces.content}</div>
+          {!hideActions && (
+            <div className={`${BASE_CLASS}-popoverActionBar`}>
+              {pieces.actions}
+            </div>
+          )}
+        </div>
+      )
+    )
+  }
+
+  const classNames = cx(
+    BASE_CLASS,
+    fullWidth && `${BASE_CLASS}--fullWidth`,
+    renderContentWrapperProp && `${BASE_CLASS}--hasCustomWrapper`
+  )
 
   return (
     <div className={classNames} title={title}>
@@ -123,35 +180,7 @@ function MoleculeSelectPopover({
           <IconArrowDown />
         </div>
       </div>
-      {isOpen && (
-        <div className={popoverClassName} ref={popoverRef}>
-          <div className={`${BASE_CLASS}-popoverContent`}>{children}</div>
-          {!hideActions && (
-            <div className={`${BASE_CLASS}-popoverActionBar`}>
-              {customButtonText ? (
-                <Button onClick={handleOnCustomAction} {...customButtonOptions}>
-                  {customButtonText}
-                </Button>
-              ) : null}
-              {cancelButtonText ? (
-                <Button
-                  onClick={handleOnCancel}
-                  design="flat"
-                  {...cancelButtonOptions}
-                >
-                  {cancelButtonText}
-                </Button>
-              ) : null}
-
-              {acceptButtonText ? (
-                <Button onClick={handleOnAccept} {...acceptButtonOptions}>
-                  {acceptButtonText}
-                </Button>
-              ) : null}
-            </div>
-          )}
-        </div>
-      )}
+      {renderContentWrapper()}
     </div>
   )
 }
@@ -184,6 +213,7 @@ MoleculeSelectPopover.propTypes = {
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
   placement: PropTypes.string,
+  renderContentWrapper: PropTypes.func,
   selectText: PropTypes.string.isRequired,
   size: PropTypes.string,
   title: PropTypes.string

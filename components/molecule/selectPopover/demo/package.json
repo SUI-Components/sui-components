@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@s-ui/react-icons": "1",
     "@s-ui/react-molecule-dropdown-option": "1",
+    "@s-ui/react-molecule-modal": "1",
     "@s-ui/react-molecule-select": "1"
   }
 }

@@ -140,7 +140,7 @@ $icon-stroke-color: currentColor !default;
 }
 
 @mixin button-circular($size) {
-  border-radius: #{$size / 2};
+  border-radius: #{$size * 0.5};
 }
 
 #{$base-class} {

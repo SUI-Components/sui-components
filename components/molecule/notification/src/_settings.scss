@@ -18,8 +18,8 @@ $bdrs-notification: (
   xl: $bdrs-base * 4,
   l: $bdrs-base * 2,
   m: $bdrs-base,
-  s: $bdrs-base / 2,
-  xs: $bdrs-base / 4
+  s: $bdrs-base * 0.5,
+  xs: $bdrs-base * 0.25
 ) !default;
 
 // Colors

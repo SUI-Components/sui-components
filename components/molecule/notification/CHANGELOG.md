@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.28.0 (2021-06-22)
+
+
+### Features
+
+* **components/molecule/notification:** Avoid using slash ([f4fbee0](https://github.com/SUI-Components/sui-components/commit/f4fbee0d6c0bdbd018014a7015edd5103efd0c6a))
+
+
+
 # 1.27.0 (2021-06-03)
 
 

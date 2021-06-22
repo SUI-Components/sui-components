@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.25.0 (2021-06-22)
+
+
+### Features
+
+* **components/atom/tag:** Avoid using slash ([6dbb952](https://github.com/SUI-Components/sui-components/commit/6dbb952f7076999c70327fff0ad31b6680e36985))
+
+
+
 # 2.24.0 (2021-06-09)
 
 

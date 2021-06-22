@@ -74,15 +74,15 @@ $class-arrow: '#{$base-class}-arrow';
       border-color: transparent;
       border-bottom-color: $c-atom-popover-arrow;
       border-style: solid;
-      border-width: 0 $w-atom-popover-arrow/2 $w-atom-popover-arrow/2;
-      bottom: $h-atom-popover-arrow/2;
+      border-width: 0 $w-atom-popover-arrow * 0.5 $w-atom-popover-arrow * 0.5;
+      bottom: $h-atom-popover-arrow * 0.5;
       content: '';
       position: absolute;
     }
 
     &::after {
-      border-width: 0 $w-atom-popover-arrow/2 $w-atom-popover-arrow/2
-        $w-atom-popover-arrow/2;
+      border-width: 0 $w-atom-popover-arrow * 0.5 $w-atom-popover-arrow * 0.5
+        $w-atom-popover-arrow * 0.5;
       border-color: transparent;
       border-bottom-color: $bgc-atom-popover;
       border-style: solid;
@@ -96,7 +96,7 @@ $class-arrow: '#{$base-class}-arrow';
     margin: $mt-atom-popover 0;
 
     #{$class-arrow} {
-      bottom: -$h-atom-popover-arrow/2;
+      bottom: -$h-atom-popover-arrow * 0.5;
       transform: rotate(180deg);
     }
   }
@@ -105,7 +105,7 @@ $class-arrow: '#{$base-class}-arrow';
     margin: 0 $mr-atom-popover;
 
     #{$class-arrow} {
-      left: -$w-atom-popover-arrow/2;
+      left: -$w-atom-popover-arrow * 0.5;
       transform: rotate(-90deg);
     }
   }
@@ -114,7 +114,7 @@ $class-arrow: '#{$base-class}-arrow';
     margin: $mb-atom-popover 0;
 
     #{$class-arrow} {
-      top: -$h-atom-popover-arrow/2;
+      top: -$h-atom-popover-arrow * 0.5;
     }
   }
 
@@ -122,7 +122,7 @@ $class-arrow: '#{$base-class}-arrow';
     margin: 0 $ml-atom-popover;
 
     #{$class-arrow} {
-      right: -$w-atom-popover-arrow/2;
+      right: -$w-atom-popover-arrow * 0.5;
       transform: rotate(90deg);
     }
   }

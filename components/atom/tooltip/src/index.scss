@@ -135,7 +135,7 @@ $c-atom-tooltip-colors: (
 
       &::before {
         border-top-color: $c-atom-tooltip-arrow;
-        border-width: $h-atom-tooltip-arrow ($w-atom-tooltip-arrow / 2) 0;
+        border-width: $h-atom-tooltip-arrow ($w-atom-tooltip-arrow * 0.5) 0;
         top: 0;
       }
     }
@@ -151,8 +151,8 @@ $c-atom-tooltip-colors: (
 
       &::before {
         border-right-color: $c-atom-tooltip-arrow;
-        border-width: ($w-atom-tooltip-arrow / 2) $h-atom-tooltip-arrow
-          ($w-atom-tooltip-arrow / 2) 0;
+        border-width: ($w-atom-tooltip-arrow * 0.5) $h-atom-tooltip-arrow
+          ($w-atom-tooltip-arrow * 0.5) 0;
         right: 0;
       }
     }
@@ -166,7 +166,7 @@ $c-atom-tooltip-colors: (
 
       &::before {
         border-bottom-color: $c-atom-tooltip-arrow;
-        border-width: 0 ($w-atom-tooltip-arrow / 2) $h-atom-tooltip-arrow;
+        border-width: 0 ($w-atom-tooltip-arrow * 0.5) $h-atom-tooltip-arrow;
         bottom: 0;
       }
     }
@@ -182,8 +182,8 @@ $c-atom-tooltip-colors: (
 
       &::before {
         border-left-color: $c-atom-tooltip-arrow;
-        border-width: ($w-atom-tooltip-arrow / 2) 0 ($w-atom-tooltip-arrow / 2)
-          $h-atom-tooltip-arrow;
+        border-width: ($w-atom-tooltip-arrow * 0.5) 0
+          ($w-atom-tooltip-arrow * 0.5) $h-atom-tooltip-arrow;
         left: 0;
       }
     }

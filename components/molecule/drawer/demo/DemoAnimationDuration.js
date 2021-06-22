@@ -25,10 +25,11 @@ const DemoAnimationDuration = ({className}) => {
 
   return (
     <Article className={className}>
-      <H2>Size</H2>
+      <H2>Animation Duration</H2>
       <Paragraph>
         A client can configure{' '}
-        {Object.values(moleculeDrawerAnimationDuration).length} different sizes:
+        {Object.values(moleculeDrawerAnimationDuration).length} different
+        animation durations:
       </Paragraph>
       <RadioButton
         value={moleculeDrawerSizes.AUTO}

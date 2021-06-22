@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.1.0 (2021-06-22)
+
+
+### Features
+
+* **components/molecule/photoUploader:** Avoid using slash ([4f99ea9](https://github.com/SUI-Components/sui-components/commit/4f99ea9d8e4f9ce27655d68b34730a819c965134))
+
+
+
 # 2.0.0 (2021-06-14)
 
 

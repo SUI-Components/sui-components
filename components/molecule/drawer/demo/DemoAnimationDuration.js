@@ -32,7 +32,6 @@ const DemoAnimationDuration = ({className}) => {
         animation durations:
       </Paragraph>
       <RadioButton
-        value={moleculeDrawerSizes.AUTO}
         label={<Label>OPEN</Label>}
         checked={opened}
         onClick={() => setOpened(!opened)}

@@ -1,6 +1,8 @@
+@use 'sass:math';
+
 $layout-grid-breakpoints: $breakpoints;
 $layout-grid-columns: $grid-columns;
-$layout-grid-m-base: $m-base / 2 !default;
+$layout-grid-m-base: $m-base * 0.5 !default;
 
 $ac-layout-grid: flex-start flex-end center space-between space-around
   space-evenly stretch;
@@ -15,7 +17,7 @@ $jc-layout-grid: flex-start center flex-end space-between space-around;
 
 @mixin grid-item-offset($breakpoint-name, $columns) {
   &--#{$breakpoint-name}Offset-#{$columns} {
-    margin-left: (100% / $layout-grid-columns) * $columns;
+    margin-left: math.div(100%, $layout-grid-columns) * $columns;
   }
 }
 

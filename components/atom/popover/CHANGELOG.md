@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.2.0 (2021-06-22)
+
+
+### Features
+
+* **components/atom/popover:** Avoid using slash ([3e770df](https://github.com/SUI-Components/sui-components/commit/3e770dfb36af4ee45a153c3afdd7f1ef8d7289e4))
+
+
+
 # 3.1.0 (2021-06-10)
 
 

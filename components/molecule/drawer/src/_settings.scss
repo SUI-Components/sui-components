@@ -1,7 +1,7 @@
 $w-molecule-drawer: 260px !default;
 $h-molecule-drawer: $w-molecule-drawer !default;
 $z-molecule-drawer: $z-modal !default;
-$z-molecule-drawer-overlay: $z-modal !default;
+$z-molecule-drawer-overlay: $z-modal -1 !default;
 $bxsh-molecule-drawer: 0 0 6px rgba(0, 0, 0, 0.4) !default;
 $bgc-molecule-drawer: $c-white !default;
 

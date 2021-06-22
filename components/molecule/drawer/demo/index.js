@@ -1,173 +1,57 @@
-import {useState} from 'react'
-import MoleculeDrawer, {
-  MoleculeDrawerOverlay,
-  moleculeDrawerSizes,
-  moleculeDrawerAnimationDuration
-} from '../../../../components/molecule/drawer/src'
-import '../src/index.scss'
-
 import {
   H1,
-  H2,
-  Box,
   Paragraph,
-  Article,
-  Button,
-  RadioButton,
-  RadioButtonGroup,
-  Grid,
-  Cell,
   UnorderedList,
   ListItem,
-  Bold,
-  Code
+  Code,
+  Anchor,
+  Label
 } from '@s-ui/documentation-library'
-import {moleculeDrawerPlacements} from '../lib'
+
+import DemoDefault from './DemoDefault'
+import DemoPlacement from './DemoPlacement'
+import DemoSize from './DemoSize'
+import DemoAnimationDuration from './DemoAnimationDuration'
+
+import '../src/index.scss'
 
 const BASE_CLASS_DEMO = `DemoMoleculeDrawer`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
 const Demo = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [size, setSize] = useState(moleculeDrawerSizes.AUTO)
-  const [animationDuration, setAnimationDuration] = useState(
-    moleculeDrawerAnimationDuration.FAST
-  )
-  const [placement, setPlacement] = useState(moleculeDrawerPlacements.LEFT)
-
-  const openDrawer = () => setIsOpen(true)
-  const closeDrawer = () => setIsOpen(false)
-
   return (
     <div className="sui-StudioPreview">
       <H1>MoleculeDrawer</H1>
       <Paragraph>
-        Drawers can toggle open or closed. Closed by default, the drawer opens
-        above all other content. The Drawer can be cancelled by clicking the
-        overlay or pressing the Esc key.
+        Navigation drawers provide access to destinations in your app. It uses
+        the compound component technique providing the{' '}
+        <Code>MoleculeDrawer</Code> and the <Code>MoleculeDrawerOverlay</Code>{' '}
+        under the{' '}
+        <Anchor href="https://www.npmjs.com/package/@s-ui/react-molecule-drawer">
+          @s-ui/react-molecule-drawer
+        </Anchor>{' '}
+        npm package.
       </Paragraph>
-      <Article className={CLASS_SECTION}>
-        <H2>Placement</H2>
-        <Paragraph>
-          A client can configure where the drawer will be placed in the screen
-          (left, bottom, right, top).
-        </Paragraph>
-        <Box>
-          <Grid align="center">
-            <Cell>
-              <RadioButtonGroup
-                onChange={(event, value) => setPlacement(value)}
-                value={placement}
-              >
-                {['left', 'right', 'bottom', 'top'].map(placementOption => (
-                  <RadioButton
-                    key={placementOption}
-                    value={placementOption}
-                    label={placementOption}
-                  />
-                ))}
-              </RadioButtonGroup>
-            </Cell>
-          </Grid>
-        </Box>
-        <Button onClick={openDrawer}>OPEN</Button>
-      </Article>
+      <UnorderedList>
+        <ListItem>
+          <Label>MoleculeDrawer</Label>: panel that is typically overlaid on top
+          of a page and slides in from the side. It contains a set of
+          information or actions. Since the user can interact with the Drawer
+          without leaving the current page, tasks can be achieved more
+          efficiently within the same context. (also called Sidebar)
+        </ListItem>
+        <ListItem>
+          <Label>MoleculeDrawerOverlay</Label> Element provided to cover (fade)
+          the sidebar content to the background.
+        </ListItem>
+      </UnorderedList>
+      <DemoDefault className={CLASS_SECTION} />
       <br />
-      <Article className={CLASS_SECTION}>
-        <H2>Sizes</H2>
-        <Paragraph>
-          A client can configure {Object.values(moleculeDrawerSizes).length}{' '}
-          different sizes:
-        </Paragraph>
-        <UnorderedList>
-          <ListItem>
-            <Bold>Auto</Bold>:(default) sets the width or height dependent to
-            its inner content.
-          </ListItem>
-          <ListItem>
-            <Bold>M</Bold>: sets the width or height configurable under the{' '}
-            <Code>$w-molecule-drawer</Code> SCSS token.
-          </ListItem>
-          <ListItem>
-            <Bold>FILL</Bold>: sets a full-viewport drawer.
-          </ListItem>
-        </UnorderedList>
-        <Box>
-          <Grid align="center">
-            <Cell>
-              <RadioButtonGroup
-                onChange={(event, value) => setSize(value)}
-                value={size}
-              >
-                {Object.values(moleculeDrawerSizes).map(sizeOption => (
-                  <RadioButton
-                    key={sizeOption}
-                    value={sizeOption}
-                    label={sizeOption}
-                  />
-                ))}
-              </RadioButtonGroup>
-            </Cell>
-          </Grid>
-        </Box>
-        <Button onClick={openDrawer}>OPEN</Button>
-      </Article>
+      <DemoPlacement className={CLASS_SECTION} />
       <br />
-      <Article className={CLASS_SECTION}>
-        <H2>Animation Speeds</H2>
-        <Paragraph>
-          A client can configure 4 different animation speed: none,fast, normal
-          or slow.
-        </Paragraph>
-        <Box>
-          <Grid align="center">
-            <Cell>
-              <RadioButtonGroup
-                onChange={(event, value) => setAnimationDuration(value)}
-                value={animationDuration}
-              >
-                {Object.values(moleculeDrawerAnimationDuration).map(
-                  animationDurationOption => (
-                    <RadioButton
-                      key={animationDurationOption}
-                      value={animationDurationOption}
-                      label={animationDurationOption}
-                    />
-                  )
-                )}
-              </RadioButtonGroup>
-            </Cell>
-          </Grid>
-        </Box>
-        <Button onClick={openDrawer}>OPEN</Button>
-      </Article>
-      {isOpen && size !== 'fullscreen' && (
-        <MoleculeDrawerOverlay onClick={closeDrawer} />
-      )}
-      <MoleculeDrawer
-        key={placement}
-        isOpen={isOpen}
-        placement={placement}
-        size={size}
-        animationDuration={animationDuration}
-        onClose={closeDrawer}
-      >
-        <Box outline>
-          <H2>Drawer</H2>
-          <Button onClick={closeDrawer}>Close</Button>
-          <Paragraph>
-            This is the
-            <br />
-            content of the
-            <br />
-            drawer
-          </Paragraph>
-
-          <Button onClick={() => alert('button inside drawer clicked')}>
-            Click me
-          </Button>
-        </Box>
-      </MoleculeDrawer>
+      <DemoSize className={CLASS_SECTION} />
+      <br />
+      <DemoAnimationDuration className={CLASS_SECTION} />
     </div>
   )
 }

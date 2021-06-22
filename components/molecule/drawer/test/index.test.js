@@ -9,7 +9,7 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
-import {render, fireEvent} from '@testing-library/react'
+import {render} from '@testing-library/react'
 
 chai.use(chaiDOM)
 
@@ -40,25 +40,5 @@ describe('MoleculeDrawer', () => {
     const {getByText} = render(<Component {...props} />)
     // Then
     expect(getByText('I am a drawer')).to.be.visible
-  })
-
-  it('should close the drawer if esc key is pressed', () => {
-    // Given
-    let calledCounter = 0
-    const props = {
-      isOpen: true,
-      children: <p>I am a drawer</p>,
-      onClose: () => ++calledCounter
-    }
-
-    // When
-    const {queryByText} = render(<Component {...props} />)
-    // Then
-    expect(queryByText('I am a drawer')).to.be.visible
-
-    // And When
-    fireEvent.keyDown(document, {key: 'Escape', code: 'Escape'})
-    // Then
-    expect(calledCounter).to.equal(1)
   })
 })

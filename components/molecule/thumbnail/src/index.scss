@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 @import '~@s-ui/theme/lib/index';
 @import '~@s-ui/react-atom-image/lib/index';
 
@@ -114,7 +116,7 @@ $ratios-molecule-thumbnail: (
     @each $key-ratio, $ratio in $ratios-molecule-thumbnail {
       &--#{$key-size} {
         .sui-MoleculeThumbnail-containerImage--#{$key-ratio}-#{$ratio} {
-          height: ($size / $key-ratio) * $ratio;
+          height: math.div($size, $key-ratio) * $ratio;
         }
       }
     }
@@ -129,7 +131,7 @@ $ratios-molecule-thumbnail: (
       @each $key-ratio, $ratio in $ratios-molecule-thumbnail {
         &--#{$key-size} {
           .sui-MoleculeThumbnail-containerImage--#{$key-ratio}-#{$ratio} {
-            height: ($size / $key-ratio) * $ratio;
+            height: math.div($size, $key-ratio) * $ratio;
           }
         }
       }

@@ -28,7 +28,7 @@ $base-class: '.sui-AtomTag';
   align-content: center;
   background-color: $bgc-atom-tag;
   border: $bd-atom-tag;
-  border-radius: ceil($h-atom-tag-m / 2);
+  border-radius: ceil($h-atom-tag-m * 0.5);
   box-sizing: border-box;
   display: inline-flex;
   font-size: $fz-s;
@@ -155,7 +155,7 @@ $base-class: '.sui-AtomTag';
   }
 
   &-large {
-    border-radius: ceil($h-atom-tag-l / 2);
+    border-radius: ceil($h-atom-tag-l * 0.5);
     height: $h-atom-tag-l;
     padding: $p-atom-tag-l;
 
@@ -170,7 +170,7 @@ $base-class: '.sui-AtomTag';
 
   &--responsive {
     @include media-breakpoint-down(s) {
-      border-radius: ceil($h-atom-tag-l / 2);
+      border-radius: ceil($h-atom-tag-l * 0.5);
       height: $h-atom-tag-l;
       padding: $p-atom-tag-l;
 

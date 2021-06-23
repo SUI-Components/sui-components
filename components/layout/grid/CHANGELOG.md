@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.8.0 (2021-06-23)
+
+
+### Bug Fixes
+
+* **components/layout/grid:** Add prepare script ([1a618c0](https://github.com/SUI-Components/sui-components/commit/1a618c0352badc177599e74492d5bf6bb2cc80ca))
+* **components/layout/grid:** Force release ([35afe05](https://github.com/SUI-Components/sui-components/commit/35afe05e62b5d9be94e3d825fe7f20b920371a70))
+* **components/layout/grid:** patch ([b6d59d0](https://github.com/SUI-Components/sui-components/commit/b6d59d0e6662274908ea340d388c687ccc8fa626))
+
+
+
 # 2.6.0 (2021-06-23)
 
 

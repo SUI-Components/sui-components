@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import {useEffect, forwardRef} from 'react'
 
 const DrawerOverlay = forwardRef(
-  ({onClick, isVisible, target, children, ...props}, forwardedRef) => {
+  ({isVisible, target, children, ...props}, forwardedRef) => {
     useEffect(() => {
       if (target !== undefined) {
         target.current.style.position = 'relative'
@@ -13,9 +13,6 @@ const DrawerOverlay = forwardRef(
       <div
         ref={forwardedRef}
         className="react-MoleculeDrawer-overlay"
-        onClick={event => {
-          typeof onClick === 'function' && onClick(event)
-        }}
         {...props}
       >
         {children}

@@ -1,4 +1,4 @@
-import {forwardRef, useEffect, useState} from 'react'
+import {forwardRef, useEffect, useState, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import useEventListener from '@s-ui/react-hooks/lib/useEventListener'
@@ -36,20 +36,25 @@ const MoleculeDrawer = forwardRef(
       }
     })
 
+    const onTransitionEndHandler = useCallback(
+      event => {
+        setIsOpenedState(isOpenState)
+        if (isOpenState && !isOpenedState && typeof onOpen === 'function') {
+          onOpen(event, {isOpen: isOpenState})
+        } else if (
+          !isOpenState &&
+          isOpenedState &&
+          typeof onClose === 'function'
+        ) {
+          onClose(event, {isOpen: isOpenState})
+        }
+      },
+      [setIsOpenedState, isOpenState, isOpenedState, onClose, onOpen]
+    )
+
     return (
       <div
-        onTransitionEnd={event => {
-          setIsOpenedState(isOpenState)
-          if (isOpenState && !isOpenedState && typeof onOpen === 'function') {
-            onOpen(event, {isOpen: isOpenState})
-          } else if (
-            !isOpenState &&
-            isOpenedState &&
-            typeof onClose === 'function'
-          ) {
-            onClose(event, {isOpen: isOpenState})
-          }
-        }}
+        onTransitionEnd={onTransitionEndHandler}
         className={cx(
           'react-MoleculeDrawer-content',
           `react-MoleculeDrawer-content--placement-${placement}`,

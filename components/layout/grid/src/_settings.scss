@@ -62,8 +62,8 @@ $jc-layout-grid: flex-start center flex-end space-between space-around;
 @mixin grid-align-content($properties) {
   @each $value in $properties {
     &--ac-#{$value} {
-      height: 100%;
       align-content: $value;
+      height: 100%;
     }
   }
 }

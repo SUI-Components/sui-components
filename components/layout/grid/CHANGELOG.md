@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.6.0 (2021-06-23)
+
+
+### Features
+
+* **components/layout/grid:** dummy commit ([b8bc670](https://github.com/SUI-Components/sui-components/commit/b8bc670490185d30f9ac6ab006454e677ac07d05))
+
+
+
 # 2.5.0 (2021-06-22)
 
 

@@ -1,75 +1,57 @@
-import {useState} from 'react'
-import MoleculeDrawer from 'components/molecule/drawer/src'
-
 import {
   H1,
-  H2,
-  Box,
   Paragraph,
-  Article,
-  Button,
-  ButtonGroup,
-  Grid,
-  Cell
+  UnorderedList,
+  ListItem,
+  Code,
+  Anchor,
+  Label
 } from '@s-ui/documentation-library'
+
+import DemoDefault from './DemoDefault'
+import DemoPlacement from './DemoPlacement'
+import DemoSize from './DemoSize'
+import DemoAnimationDuration from './DemoAnimationDuration'
+
+import '../src/index.scss'
 
 const BASE_CLASS_DEMO = `DemoMoleculeDrawer`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
 const Demo = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [placement, setPlacement] = useState('left')
-
   return (
     <div className="sui-StudioPreview">
       <H1>MoleculeDrawer</H1>
       <Paragraph>
-        Drawers can toggle open or closed. Closed by default, the drawer opens
-        above all other content. The Drawer can be cancelled by clicking the
-        overlay or pressing the Esc key.
+        Navigation drawers provide access to destinations in your app. It uses
+        the compound component technique providing the{' '}
+        <Code>MoleculeDrawer</Code> and the <Code>MoleculeDrawerOverlay</Code>{' '}
+        under the{' '}
+        <Anchor href="https://www.npmjs.com/package/@s-ui/react-molecule-drawer">
+          @s-ui/react-molecule-drawer
+        </Anchor>{' '}
+        npm package.
       </Paragraph>
-      <Article className={CLASS_SECTION}>
-        <H2>Placement</H2>
-        <Paragraph>
-          A client can configure where the drawer will be placed in the screen
-          (left, bottom, right, top).
-        </Paragraph>
-        <Box>
-          <Grid align="center">
-            <Cell>
-              <ButtonGroup
-                onChange={value => {
-                  setPlacement(value)
-                  setIsOpen(true)
-                }}
-              >
-                {['left', 'right', 'bottom', 'top'].map(placementOption => (
-                  <Button
-                    key={placementOption}
-                    onClick={() => {
-                      setPlacement(placementOption)
-                      setIsOpen(true)
-                    }}
-                  >
-                    {placementOption}
-                  </Button>
-                ))}
-              </ButtonGroup>
-            </Cell>
-          </Grid>
-        </Box>
-        <MoleculeDrawer
-          isOpen={isOpen}
-          placement={placement}
-          onClose={() => setIsOpen(false)}
-        >
-          <H2>MoleculeDrawer</H2>
-          <Paragraph>This is the content of the drawer</Paragraph>
-          <Button onClick={() => alert('button inside drawer clicked')}>
-            Click me
-          </Button>
-        </MoleculeDrawer>
-      </Article>
+      <UnorderedList>
+        <ListItem>
+          <Label>MoleculeDrawer</Label>: panel that is typically overlaid on top
+          of a page and slides in from the side. It contains a set of
+          information or actions. Since the user can interact with the Drawer
+          without leaving the current page, tasks can be achieved more
+          efficiently within the same context. (also called Sidebar)
+        </ListItem>
+        <ListItem>
+          <Label>MoleculeDrawerOverlay</Label> Element provided to cover (fade)
+          the sidebar content to the background.
+        </ListItem>
+      </UnorderedList>
+      <DemoDefault className={CLASS_SECTION} />
+      <br />
+      <DemoPlacement className={CLASS_SECTION} />
+      <br />
+      <DemoSize className={CLASS_SECTION} />
+      <br />
+      <DemoAnimationDuration className={CLASS_SECTION} />
     </div>
   )
 }

@@ -1,0 +1,22 @@
+$w-molecule-drawer: 260px !default;
+$h-molecule-drawer: $w-molecule-drawer !default;
+$z-molecule-drawer: $z-modal !default;
+$z-molecule-drawer-overlay: $z-modal -1 !default;
+$bxsh-molecule-drawer: 0 0 6px rgba(0, 0, 0, 0.4) !default;
+$bgc-molecule-drawer: $c-white !default;
+
+$z-molecule-drawer-map: (
+  auto: auto,
+  m: $w-molecule-drawer,
+  fill: 100%
+);
+
+$trsdu-molecule-drawer-map: (
+  none: $dur-none,
+  fast: $dur-fast,
+  normal: $dur-normal,
+  slow: $dur-slow
+);
+
+$bgc-molecule-drawer-overlay-start: rgba(0, 0, 0, 0.4) !default;
+$bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;

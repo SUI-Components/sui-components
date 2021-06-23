@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.7.0 (2021-06-23)
+
+
+### Bug Fixes
+
+* **components/layout/grid:** patch ([b6d59d0](https://github.com/SUI-Components/sui-components/commit/b6d59d0e6662274908ea340d388c687ccc8fa626))
+
+
+
 # 2.6.0 (2021-06-23)
 
 

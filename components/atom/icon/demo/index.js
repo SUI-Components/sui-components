@@ -4,7 +4,7 @@ import AtomIcon, {
   ATOM_ICON_COLORS,
   ATOM_ICON_SIZES
 } from 'components/atom/icon/src'
-import AtomButton from 'components/atom/button/src'
+import AtomButton from '@s-ui/react-atom-button'
 import './index.scss'
 import {
   AntDesignIcon,

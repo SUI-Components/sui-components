@@ -35,6 +35,10 @@ $atom-icon-colors: (
     }
   }
 
+  > span {
+    display: inherit;
+  }
+
   svg {
     vertical-align: middle;
 

@@ -1,4 +1,4 @@
-import {useState, forwardRef} from 'react'
+import {useEffect, useState, forwardRef} from 'react'
 import {useDropzone} from 'react-dropzone'
 import {getTarget} from '@s-ui/js/lib/react'
 
@@ -50,6 +50,7 @@ const MoleculePhotoUploader = forwardRef(
       callbackPhotosRejected = noop,
       callbackPhotosUploaded = noop,
       callbackUploadPhoto,
+      handledFiles = [],
       deleteIcon,
       disableScrollToBottom = false,
       dragDelay = DEFAULT_DRAG_DELAY_TIME,
@@ -86,6 +87,10 @@ const MoleculePhotoUploader = forwardRef(
     const [notificationError, setNotificationError] = useState(
       DEFAULT_NOTIFICATION_ERROR
     )
+
+    useEffect(() => {
+      setFiles(handledFiles)
+    }, [handledFiles])
 
     const DEFAULT_FORMAT_TO_BASE_64_OPTIONS = {
       rotation: DEFAULT_IMAGE_ROTATION_DEGREES,
@@ -385,6 +390,9 @@ MoleculePhotoUploader.propTypes = {
    *  It's executed everytime an image is added, or is deleted, or is rotated, or is sorted
    */
   callbackPhotosUploaded: PropTypes.func,
+
+  /** An array containing objects of handled images to update internal component state */
+  handledFiles: PropTypes.arrayOf(PropTypes.object),
 
   /**
    * Callback that executes every time that new image is added or modified.

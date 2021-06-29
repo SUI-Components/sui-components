@@ -388,7 +388,8 @@ MoleculePhotoUploader.propTypes = {
 
   /**
    * Callback that executes every time that new image is added or modified.
-   * Returns the new Blob and old URL if exists
+   * Returns the new Blob and old URL if exists.
+   * If the callback returns the new URL it will be added to the image.
    */
   callbackUploadPhoto: PropTypes.func,
 

@@ -1,15 +1,32 @@
-node_modules/
+# project
 public/
-lib/
-npm-debug.log
-lib
-components/**/**/themes
-.tern-port
+
+# environment
 .env
+
+# OS
 .DS_Store
-.npmrc
+
+# server
+.tern-port
+
+# IDEs
 .vscode/
 .idea
+
+# framework
 .vercel
+
+# language
+node_modules/
+lib/
+*/**/lib/
+npm-debug.log
+components/**/**/themes
+.npmrc
 package-lock.json
 */**/package-lock.json
+
+# coverage
+coverage/
+.coverage/

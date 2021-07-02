@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 2.2.0 (2021-07-02)
+
+
+### Features
+
+* **components/molecule/photoUploader:** add tokens ([c5ab832](https://github.com/SUI-Components/sui-components/commit/c5ab8322ceb1684b7d84325a4a33a723dcf288f0))
+
+
+
+# 1.1.0 (2021-07-01)
+
+
+### Bug Fixes
+
+* **components/molecule/photoUploader/demo:** fix demo ([5f0c787](https://github.com/SUI-Components/sui-components/commit/5f0c787fc5d15b39e17e4080b088c6faa19d4be4))
+
+
+
 # 2.1.0 (2021-06-22)
 
 

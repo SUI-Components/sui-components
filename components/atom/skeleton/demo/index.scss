@@ -1,0 +1,8 @@
+$base-class: 'DemoAtomSkeleton';
+$section: 'section';
+
+$base-class-section: '.#{$base-class}-#{$section}';
+
+#{$base-class-section} {
+  // Add here your magic
+}

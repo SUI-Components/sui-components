@@ -45,10 +45,10 @@ const initialPhotos = [
 ]
 
 const _callbackPhotosUploaded = list => {
-  console.log('_callbackPhotosUploaded: ', list)
+  console.log('_callbackPhotosUploaded: ', list) // eslint-disable-line no-console
 }
 const _callbackPhotosRejected = list => {
-  console.log('_callbackPhotosRejected: ', list)
+  console.log('_callbackPhotosRejected: ', list) // eslint-disable-line no-console
 }
 
 const _callbackUploadPhoto = (file, oldUrl) => {

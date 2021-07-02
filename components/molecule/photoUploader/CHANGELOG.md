@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.3.0 (2021-07-02)
+
+
+### Features
+
+* **components/molecule/photoUploader:** add tokens ([fae4f3b](https://github.com/SUI-Components/sui-components/commit/fae4f3bd04a156973381aa40d37190742fe3de3a))
+
+
+
 # 2.2.0 (2021-07-02)
 
 

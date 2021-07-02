@@ -28,7 +28,6 @@ export default function AtomSkeleton({
     [`${baseClass}--round`]: variant === ATOM_SKELETON_VARIANTS.round,
     [`${baseClass}--circle`]: variant === ATOM_SKELETON_VARIANTS.circle
   })
-
   return (
     <>
       {Array.from(Array(count).keys()).map(index => (
@@ -46,6 +45,7 @@ export default function AtomSkeleton({
 }
 
 AtomSkeleton.displayName = 'AtomSkeleton'
+
 AtomSkeleton.propTypes = {
   /**
    * Display count number of skeletons

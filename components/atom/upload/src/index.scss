@@ -5,6 +5,7 @@ $bdrs-atom-upload: 0 !default;
 $bw-atom-upload: $bdw-m !default;
 $bg-atom-upload: $c-gray-lightest !default;
 $c-atom-upload: $c-gray !default;
+$bd-atom-upload: $bw-atom-upload dashed $c-atom-upload !default;
 $ff-atom-upload: $ff-sans-serif !default;
 $fd-atom-upload: column !default;
 $p-atom-upload: $p-l * 3 $p-l * 2 $p-l !default;
@@ -26,7 +27,7 @@ $m-atom-upload-main-text: $m-l 0 !default;
 .sui-AtomUpload {
   align-items: $ai-atom-upload;
   background-color: $bg-atom-upload;
-  border: $bw-atom-upload dashed $c-atom-upload;
+  border: $bd-atom-upload;
   border-radius: $bdrs-atom-upload;
   color: $c-atom-upload;
   display: flex;

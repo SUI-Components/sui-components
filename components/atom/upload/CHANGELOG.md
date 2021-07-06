@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.4.0 (2021-07-06)
+
+
+### Features
+
+* **components/atom/upload:** custom border ([e626588](https://github.com/SUI-Components/sui-components/commit/e62658815941427c56b028db2f07077ab822b1b8))
+
+
+
 # 3.3.0 (2021-06-08)
 
 

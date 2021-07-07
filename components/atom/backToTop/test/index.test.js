@@ -9,6 +9,7 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import {createRef} from 'react'
 
 chai.use(chaiDOM)
 
@@ -41,17 +42,20 @@ describe('atom/backToTop', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
-  it.skip('example', () => {
-    // Example TO BE DELETED!!!!
+  describe('forwardRef', () => {
+    it('should return forwardRef html button element when giving a ref to the component', () => {
+      // Given
+      const props = {children: 'button'}
+      const ref = createRef()
 
-    // Given
-    // const props = {}
+      // When
+      const component = <Component {...props} ref={ref} />
+      const div = document.createElement('div')
+      ReactDOM.render(component, div)
 
-    // When
-    // const {getByRole} = setup(props)
-
-    // Then
-    // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(false)
+      // Then
+      expect(ref.current).to.not.equal(undefined)
+      expect(ref.current.nodeName).to.equal('BUTTON')
+    })
   })
 })

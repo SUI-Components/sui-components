@@ -108,12 +108,12 @@ const Demo = () => {
             <RadioButton
               label="document"
               value="document"
-              checked={'document' === element}
+              checked={element === 'document'}
             />
             <RadioButton
               label="article"
               value="articleElement"
-              checked={'articleElement' === element}
+              checked={element === 'articleElement'}
             />
           </RadioButtonGroup>
           <RadioButtonGroup

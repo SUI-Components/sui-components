@@ -14,6 +14,7 @@
     "@s-ui/react-atom-icon": "1",
     "@s-ui/react-hooks": "1",
     "@s-ui/react-molecule-notification": "1",
+    "file-selector": "0.2.4",
     "react-dropzone": "10.2.1",
     "react-sortablejs": "2.0.11"
   },

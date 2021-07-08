@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@s-ui/hoc": "1",
-    "reactstrap": "7.1.0"
+    "lodash.isfunction": "3.0.9",
+    "reactstrap": "8.9.0"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

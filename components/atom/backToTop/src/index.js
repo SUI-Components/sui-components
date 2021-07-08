@@ -42,7 +42,6 @@ const AtomBackToTop = forwardRef(
         setShow(nextShow)
         typeof onScroll === 'function' && onScroll(event, {...properties, show})
         if (typeof onIsVisibleToggle === 'function' && show !== nextShow) {
-          debugger
           onIsVisibleToggle(event, {...properties, show: nextShow})
         }
       }

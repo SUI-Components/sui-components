@@ -1,5 +1,28 @@
 @import '~@s-ui/theme/lib/index';
 
+$sz-atom-validation-code-input: 40px;
+
 .react-AtomValidationCode {
-  // Do your magic
+  &-label {
+    font-size: $fz-m;
+  }
+
+  &-input {
+    border: 1px solid $c-gray;
+    border-radius: $bdrs-xl;
+    box-sizing: border-box;
+    height: $sz-atom-validation-code-input;
+    padding: $p-m;
+    text-align: center;
+    width: $sz-atom-validation-code-input;
+
+    &:focus {
+      outline: none;
+      border: 1px solid $c-primary;
+    }
+
+    & + & {
+      margin-left: $m-l;
+    }
+  }
 }

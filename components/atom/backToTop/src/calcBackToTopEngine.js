@@ -33,7 +33,7 @@ const calcBackToTopEngine = (target = window.document, minHeight) => {
     minHeight
   }
   return [
-    scrollTop > (minHeight === undefined ? minHeight : clientHeight / 4),
+    scrollTop > (minHeight !== undefined ? minHeight : clientHeight / 4),
     properties
   ]
 }

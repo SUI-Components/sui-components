@@ -1,4 +1,5 @@
 import {useCallback, useEffect, forwardRef} from 'react'
+import {createPortal} from 'react-dom'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import {getTarget} from '@s-ui/js/lib/react'
@@ -20,10 +21,12 @@ const AtomBackToTop = forwardRef(
       iconTop: IconTop,
       isVisible,
       minHeight,
-      textTop,
+      onScroll,
+      onIsVisibleToggle,
       refContainer = window.document,
       scrollBehavior = SCROLL_BEHAVIOR.SMOOTH,
-      style = STYLES.DARK
+      style = STYLES.DARK,
+      textTop
     },
     forwardedRef
   ) => {
@@ -31,10 +34,17 @@ const AtomBackToTop = forwardRef(
 
     useEffect(() => {
       const container = getTarget(refContainer)
-      const handleScroll = () => {
-        const [show] = calcBackToTopEngine(refContainer, minHeight)
-
-        setShow(show)
+      const handleScroll = event => {
+        const [nextShow, properties] = calcBackToTopEngine(
+          refContainer,
+          minHeight
+        )
+        setShow(nextShow)
+        typeof onScroll === 'function' && onScroll(event, {...properties, show})
+        if (typeof onIsVisibleToggle === 'function' && show !== nextShow) {
+          debugger
+          onIsVisibleToggle(event, {...properties, show: nextShow})
+        }
       }
       container.removeEventListener('scroll', handleScroll)
       container.addEventListener('scroll', handleScroll)
@@ -46,20 +56,13 @@ const AtomBackToTop = forwardRef(
     const scrollToTop = useCallback(() => {
       const container = getTarget(refContainer)
       const isDocument = isDocumentElement(container)
-      if (isDocument) {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        })
-      } else {
-        container.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        })
-      }
+      ;(isDocument ? window : container).scrollTo({
+        top: 0,
+        behavior: scrollBehavior
+      })
     }, [refContainer])
 
-    return (
+    return createPortal(
       <button
         title="Back to top"
         className={cx(
@@ -77,7 +80,8 @@ const AtomBackToTop = forwardRef(
           </span>
         )}
         {textTop && <span className={CLASS_TEXT}>{textTop}</span>}
-      </button>
+      </button>,
+      refContainer === document ? refContainer.body : refContainer
     )
   }
 )
@@ -94,8 +98,11 @@ AtomBackToTop.propTypes = {
   /** Minimum height (in pixels) to show button */
   minHeight: PropTypes.number,
 
-  /** Text to be displayed */
-  textTop: PropTypes.string,
+  /** scroll event handler **/
+  onScroll: PropTypes.func,
+
+  /** on isVisible inner state changes handler **/
+  onIsVisibleToggle: PropTypes.func,
 
   /** Container to be scrolled. Can be a selector, or a React ref object */
   refContainer: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
@@ -107,7 +114,10 @@ AtomBackToTop.propTypes = {
    *  DARK → 'dark'
    *  LIGHT →'light'
    */
-  style: PropTypes.oneOf(Object.values(STYLES))
+  style: PropTypes.oneOf(Object.values(STYLES)),
+
+  /** Text to be displayed */
+  textTop: PropTypes.string
 }
 
 export {STYLES as backToTopStyles}

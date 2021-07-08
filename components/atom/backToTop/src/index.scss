@@ -7,6 +7,8 @@ $sz-back-to-top-icon: $sz-icon-s !default;
 $trsdu-back-to-top--show: 0.25s !default;
 $trsdu-back-to-top--hide: 0.25s !default;
 
+$sz-back-to-top: $p-base * 4 !default;
+
 $bg-back-to-top--dark: $c-gray-dark !default;
 $c-back-to-top--dark: $c-white !default;
 $bg-back-to-top--light: $c-white !default;
@@ -25,10 +27,13 @@ $r-back-to-top: $p-xl !default;
   font-size: $fz-m;
   justify-content: center;
   padding: $p-m;
-  position: fixed;
+  position: sticky;
   right: $r-back-to-top;
   visibility: hidden;
   z-index: $z-back-to-top;
+  float: right;
+  height: $sz-back-to-top;
+  margin-top: -$sz-back-to-top;
 
   &:focus {
     outline: 0;

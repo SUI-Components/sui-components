@@ -7,8 +7,8 @@ The following is a set of guidelines for contributing with developing new compon
 ### Environment
 
 To develop new packages, you only need to install Node with NPM. Find below the default versions this repo was built with:
-* Node: `v6+`
-* NPM: `v3`
+* Node: `v16+`
+* NPM: `v7`
 
 ### Main commands
 

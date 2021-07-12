@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import {useState, useRef, createRef} from 'react'
-import cx from 'classnames'
 
 const DEFAULT_LENGTH = 6
 const BASE_CLASS = 'react-AtomValidationCode'

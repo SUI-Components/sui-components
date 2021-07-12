@@ -15,6 +15,14 @@ $sz-atom-validation-code-input: 40px;
     padding: $p-m;
     text-align: center;
     width: $sz-atom-validation-code-input;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
 
     &:focus {
       outline: none;

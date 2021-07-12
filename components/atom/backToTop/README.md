@@ -43,34 +43,6 @@ import AtomBackToTop, {backToTopStyles} from '@s-ui/react-atom-back-to-top'
 </div>
 ```
 
-### Customizing Scroll to Top Animation → bigger steps
-
-```javascript
-<div id="container">
-  <p>Very looong text...</p>
-  <AtomBackToTop
-    iconTop={iconTop}
-    textTop="TOP"
-    refContainer="container"
-    scrollSteps={500}
-  />
-</div>
-```
-
-### Customizing Scroll to Top Animation → faster
-
-```javascript
-<div id="container">
-  <p>Very looong text...</p>
-  <AtomBackToTop
-    iconTop={iconTop}
-    textTop="TOP"
-    refContainer="container"
-    scrollIntervalTime={500}
-  />
-</div>
-```
-
 ### Customizing minimum height when back to top button become visible → 1000px
 
 ```javascript

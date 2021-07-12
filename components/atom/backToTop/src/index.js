@@ -1,7 +1,12 @@
-import {useState, useEffect, useRef} from 'react'
+import {useCallback, useEffect, forwardRef} from 'react'
+import {createPortal} from 'react-dom'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import {getTarget} from '@s-ui/js/lib/react'
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
+
+import calcBackToTopEngine, {isDocumentElement} from './calcBackToTopEngine'
+import {SCROLL_BEHAVIOR, STYLES} from './settings'
 
 const BASE_CLASS = 'sui-AtomBackToTop'
 const CLASS_ICON = `${BASE_CLASS}-icon`
@@ -10,81 +15,75 @@ const CLASS_SHOW = `${BASE_CLASS}--show`
 const CLASS_HIDE = `${BASE_CLASS}--hide`
 const CLASS_READY = `${BASE_CLASS}--ready`
 
-const STYLES = {
-  DARK: 'dark',
-  LIGHT: 'light'
-}
+const AtomBackToTop = forwardRef(
+  (
+    {
+      iconTop: IconTop,
+      isVisible,
+      minHeight,
+      onScroll,
+      onIsVisibleToggle,
+      refContainer = window.document,
+      scrollBehavior = SCROLL_BEHAVIOR.SMOOTH,
+      style = STYLES.DARK,
+      textTop
+    },
+    forwardedRef
+  ) => {
+    const [show, setShow] = useControlledState(isVisible)
 
-const AtomBackToTop = ({
-  iconTop: IconTop,
-  minHeight,
-  textTop,
-  scrollSteps = 100,
-  scrollIntervalTime = 50,
-  refContainer = document.body,
-  style = STYLES.DARK
-}) => {
-  const [show, setShow] = useState(false)
-
-  const intervalRef = useRef()
-
-  useEffect(() => {
-    const container = getTarget(refContainer)
-    const handleScroll = () => {
-      const {scrollTop, scrollHeight, clientHeight} = container
-      const halfHeight = Math.floor((scrollHeight - clientHeight) / 2)
-
-      if (scrollTop > halfHeight || scrollTop > minHeight) {
-        if (!show) {
-          setShow(true)
-        }
-      } else {
-        if (show) {
-          setShow(false)
+    useEffect(() => {
+      const container = getTarget(refContainer)
+      const handleScroll = event => {
+        const [nextShow, properties] = calcBackToTopEngine(
+          refContainer,
+          minHeight
+        )
+        setShow(nextShow)
+        typeof onScroll === 'function' && onScroll(event, {...properties, show})
+        if (typeof onIsVisibleToggle === 'function' && show !== nextShow) {
+          onIsVisibleToggle(event, {...properties, show: nextShow})
         }
       }
-    }
-    container.removeEventListener('scroll', handleScroll)
-    container.addEventListener('scroll', handleScroll)
-    return () => {
       container.removeEventListener('scroll', handleScroll)
-    }
-  }, [minHeight, refContainer, show])
+      container.addEventListener('scroll', handleScroll)
+      return () => {
+        container.removeEventListener('scroll', handleScroll)
+      }
+    }, [minHeight, refContainer, show, setShow])
 
-  const scrollStep = () => {
-    const container = getTarget(refContainer)
-    const {scrollTop} = container
-    const {current: intervalId} = intervalRef
+    const scrollToTop = useCallback(() => {
+      const container = getTarget(refContainer)
+      const isDocument = isDocumentElement(container)
+      ;(isDocument ? window : container).scrollTo({
+        top: 0,
+        behavior: scrollBehavior
+      })
+    }, [refContainer])
 
-    if (scrollTop === 0) clearInterval(intervalId)
-    if (scrollTop) container.scrollTop = scrollTop - scrollSteps
+    return createPortal(
+      <button
+        title="Back to top"
+        className={cx(
+          BASE_CLASS,
+          `${BASE_CLASS}--${style}`,
+          show !== null && CLASS_READY,
+          show ? CLASS_SHOW : CLASS_HIDE
+        )}
+        ref={forwardedRef}
+        onClick={scrollToTop}
+      >
+        {IconTop && (
+          <span className={CLASS_ICON}>
+            <IconTop />
+          </span>
+        )}
+        {textTop && <span className={CLASS_TEXT}>{textTop}</span>}
+      </button>,
+      refContainer === document ? refContainer.body : refContainer
+    )
   }
-
-  const scrollToTop = () => {
-    const intervalId = setInterval(scrollStep, scrollIntervalTime)
-    intervalRef.current = intervalId
-  }
-
-  return (
-    <button
-      title="Back to top"
-      className={cx(
-        BASE_CLASS,
-        `${BASE_CLASS}--${style}`,
-        show !== null && CLASS_READY,
-        show ? CLASS_SHOW : CLASS_HIDE
-      )}
-      onClick={scrollToTop}
-    >
-      {IconTop && (
-        <span className={CLASS_ICON}>
-          <IconTop />
-        </span>
-      )}
-      {textTop && <span className={CLASS_TEXT}>{textTop}</span>}
-    </button>
-  )
-}
+)
 
 AtomBackToTop.displayName = 'AtomBackToTop'
 
@@ -92,27 +91,32 @@ AtomBackToTop.propTypes = {
   /** Icon (component) to be displayed */
   iconTop: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 
+  /** controlled visible value **/
+  isVisible: PropTypes.bool,
+
   /** Minimum height (in pixels) to show button */
   minHeight: PropTypes.number,
 
-  /** Text to be displayed */
-  textTop: PropTypes.string,
+  /** scroll event handler **/
+  onScroll: PropTypes.func,
 
-  /** Number of pixels which will be scrolled on every step */
-  scrollSteps: PropTypes.number,
-
-  /** Time in ms which will be scrolled a step */
-  scrollIntervalTime: PropTypes.number,
+  /** on isVisible inner state changes handler **/
+  onIsVisibleToggle: PropTypes.func,
 
   /** Container to be scrolled. Can be a selector, or a React ref object */
   refContainer: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 
+  /** scroll to top effect behavior */
+  scrollBehavior: PropTypes.oneOf(Object.values(SCROLL_BEHAVIOR)),
   /**
    * Styles
    *  DARK → 'dark'
    *  LIGHT →'light'
    */
-  style: PropTypes.oneOf(Object.values(STYLES))
+  style: PropTypes.oneOf(Object.values(STYLES)),
+
+  /** Text to be displayed */
+  textTop: PropTypes.string
 }
 
 export {STYLES as backToTopStyles}

@@ -7,7 +7,6 @@ const BASE_CLASS = 'react-AtomValidationCode'
 
 export default function AtomValidationCode({label, length = DEFAULT_LENGTH}) {
   const [numbers, setNumbers] = useState(new Array(length).fill(null))
-  const [focus, setFocus] = useState(0)
 
   const numberRefs = useRef([])
   numberRefs.current = numbers.map(
@@ -15,10 +14,19 @@ export default function AtomValidationCode({label, length = DEFAULT_LENGTH}) {
   )
 
   const handleChange = ({i, value}) => {
-    const numberArray = [...numbers]
-    numberArray[i] = value
-    setNumbers(numberArray)
-    setFocus(focus + 1)
+    if (value < 10) {
+      const numberArray = [...numbers]
+      numberArray[i] = value
+      setNumbers(numberArray)
+    }
+
+    if (value !== '') {
+      const nextInput = numberRefs.current[i + 1]
+
+      nextInput
+        ? nextInput.current.focus()
+        : numberRefs.current[i].current.blur()
+    }
   }
 
   return (
@@ -26,13 +34,9 @@ export default function AtomValidationCode({label, length = DEFAULT_LENGTH}) {
       {label && <h3 className={`${BASE_CLASS}-label`}>{label}</h3>}
       <div className={`${BASE_CLASS}-code`}>
         {numbers.map((number, i) => {
-          const inputClass = cx(`${BASE_CLASS}-input`, {
-            'is-focused': i === focus
-          })
-
           return (
             <input
-              className={inputClass}
+              className={`${BASE_CLASS}-input`}
               key={i}
               ref={numberRefs.current[i]}
               type="number"

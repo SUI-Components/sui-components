@@ -40,7 +40,8 @@ const AtomImage = ({
 
   useEffect(() => {
     setLoading(true)
-  }, [src])
+    setError(false)
+  }, [src, setLoading, setError])
 
   const handleLoad = useCallback(() => {
     const loadCompleted = imageRef?.current?.complete

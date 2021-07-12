@@ -13,7 +13,6 @@ const getTarget = value => {
 export const isDocumentElement = target => target === window.document
 
 const calcBackToTopEngine = (target = window.document, minHeight) => {
-  let properties = {}
   const element = getTarget(target)
   const isDocument = isDocumentElement(target)
   const scrollTop = isDocument ? window.scrollY : element.scrollTop
@@ -23,8 +22,7 @@ const calcBackToTopEngine = (target = window.document, minHeight) => {
   const offsetHeight = isDocument ? window.innerHeight : element.offsetHeight
   const scrollHeight = isDocument ? element.scrollHeight : element.scrollHeight
   const borderHeight = offsetHeight - clientHeight
-  properties = {
-    ...properties,
+  const properties = {
     scrollTop,
     clientHeight,
     offsetHeight,
@@ -33,6 +31,7 @@ const calcBackToTopEngine = (target = window.document, minHeight) => {
     minHeight
   }
   return [
+    // if the scrolled area exceeds a quarter of its scrollable visible area, it might return true by default
     scrollTop > (minHeight !== undefined ? minHeight : clientHeight / 4),
     properties
   ]

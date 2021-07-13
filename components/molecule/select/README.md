@@ -114,7 +114,7 @@ Can be `success`, `error` or `alert`.
 </MoleculeSelect>
 ```
 
-#### With tags limit
+#### With selected items limit
 
 ```js
 <MoleculeSelect

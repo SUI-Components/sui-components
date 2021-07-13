@@ -177,9 +177,10 @@ const Demo = () => (
       </div>
 
       <div className={CLASS_DEMO_SECTION}>
-        <h3>With Placeholder</h3>
+        <h3>With preselected Value</h3>
         <MoleculeSelectWithState
           placeholder="Select some countries..."
+          value={['India', 'Luxembourg']}
           onChange={(_, {value}) => console.log(value)}
           iconCloseTag={<IconCloseTag />}
           iconArrowDown={<IconArrowDown />}
@@ -211,7 +212,7 @@ const Demo = () => (
       </div>
 
       <div className={CLASS_DEMO_SECTION}>
-        <h3>With tags limit</h3>
+        <h3>With selected items limit</h3>
         <MoleculeSelectWithState
           placeholder="Select some countries..."
           value={['India', 'Luxembourg']}

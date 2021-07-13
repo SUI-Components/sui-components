@@ -41,13 +41,15 @@ export default function AtomValidationCode({
         {numbers.map((_, i) => {
           return (
             <input
+              autoComplete="one-time-code"
               autoFocus={i === 0}
               className={`${BASE_CLASS}-input`}
+              inputMode="numeric"
               key={i}
+              onChange={e => handleChange({i, value: e.target.value})}
+              onClick={e => e.target.select()}
               ref={numberRefs.current[i]}
               type="number"
-              onClick={e => e.target.select()}
-              onChange={e => handleChange({i, value: e.target.value})}
               value={numbers[i]}
             />
           )

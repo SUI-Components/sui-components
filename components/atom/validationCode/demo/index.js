@@ -7,10 +7,7 @@ export default () => {
   return (
     <div style={{maxWidth: '400px'}}>
       <h1>Component</h1>
-      <AtomValidationCode
-        label="Tu código de verificación"
-        onChange={setCode}
-      />
+      <AtomValidationCode onChange={setCode} />
       <h1>Code</h1>
       <p>{code}</p>
     </div>

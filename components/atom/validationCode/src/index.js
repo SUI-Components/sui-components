@@ -2,12 +2,12 @@ import PropTypes from 'prop-types'
 import {useState, useRef, createRef} from 'react'
 
 const DEFAULT_LENGTH = 6
-const BASE_CLASS = 'react-AtomValidationCode'
+const BASE_CLASS = 'sui-AtomValidationCode'
+const INPUT_MAX_NUMBER = 10
 const noop = () => {}
 
 export default function AtomValidationCode({
   onChange = noop,
-  label,
   length = DEFAULT_LENGTH
 }) {
   const [numbers, setNumbers] = useState(new Array(length).fill(null))
@@ -18,7 +18,7 @@ export default function AtomValidationCode({
   )
 
   const handleChange = ({i, value}) => {
-    if (value < 10) {
+    if (value < INPUT_MAX_NUMBER) {
       const numberArray = [...numbers]
       numberArray[i] = value
       setNumbers(numberArray)
@@ -36,7 +36,6 @@ export default function AtomValidationCode({
 
   return (
     <div className={BASE_CLASS}>
-      {label && <h3 className={`${BASE_CLASS}-label`}>{label}</h3>}
       <div className={`${BASE_CLASS}-code`}>
         {numbers.map((_, i) => {
           return (
@@ -62,6 +61,5 @@ export default function AtomValidationCode({
 AtomValidationCode.displayName = 'AtomValidationCode'
 AtomValidationCode.propTypes = {
   onChange: PropTypes.func,
-  label: PropTypes.string,
   length: PropTypes.array
 }

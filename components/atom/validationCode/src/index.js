@@ -3,8 +3,13 @@ import {useState, useRef, createRef} from 'react'
 
 const DEFAULT_LENGTH = 6
 const BASE_CLASS = 'react-AtomValidationCode'
+const noop = () => {}
 
-export default function AtomValidationCode({label, length = DEFAULT_LENGTH}) {
+export default function AtomValidationCode({
+  onChange = noop,
+  label,
+  length = DEFAULT_LENGTH
+}) {
   const [numbers, setNumbers] = useState(new Array(length).fill(null))
 
   const numberRefs = useRef([])
@@ -17,6 +22,7 @@ export default function AtomValidationCode({label, length = DEFAULT_LENGTH}) {
       const numberArray = [...numbers]
       numberArray[i] = value
       setNumbers(numberArray)
+      onChange(numberArray.join(''))
     }
 
     if (value !== '') {
@@ -53,6 +59,7 @@ export default function AtomValidationCode({label, length = DEFAULT_LENGTH}) {
 
 AtomValidationCode.displayName = 'AtomValidationCode'
 AtomValidationCode.propTypes = {
+  onChange: PropTypes.func,
   label: PropTypes.string,
   length: PropTypes.array
 }

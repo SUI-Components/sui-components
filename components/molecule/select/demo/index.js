@@ -177,10 +177,9 @@ const Demo = () => (
       </div>
 
       <div className={CLASS_DEMO_SECTION}>
-        <h3>With preselected Value</h3>
+        <h3>With Placeholder</h3>
         <MoleculeSelectWithState
           placeholder="Select some countries..."
-          value={['India', 'Luxembourg']}
           onChange={(_, {value}) => console.log(value)}
           iconCloseTag={<IconCloseTag />}
           iconArrowDown={<IconArrowDown />}
@@ -206,6 +205,25 @@ const Demo = () => (
           {countriesData.map(({name, code}, i) => (
             <MoleculeSelectOption key={i} value={code}>
               {name}
+            </MoleculeSelectOption>
+          ))}
+        </MoleculeSelectWithState>
+      </div>
+
+      <div className={CLASS_DEMO_SECTION}>
+        <h3>With tags limit</h3>
+        <MoleculeSelectWithState
+          placeholder="Select some countries..."
+          value={['India', 'Luxembourg']}
+          onChange={(_, {value}) => console.log(value)}
+          iconCloseTag={<IconCloseTag />}
+          iconArrowDown={<IconArrowDown />}
+          multiselection
+          maxTags={2}
+        >
+          {countriesList.map((country, i) => (
+            <MoleculeSelectOption key={i} value={country}>
+              {country}
             </MoleculeSelectOption>
           ))}
         </MoleculeSelectWithState>

@@ -18,21 +18,22 @@ import MoleculeSelect, {
 } from '@s-ui/react-molecule-select'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 
-const IconCloseTag = () => <span>x</span>  
-const IconArrowDown = () => <span>▼</span>  
+const IconCloseTag = () => <span>x</span>
+const IconArrowDown = () => <span>▼</span>
 
-const options = ['John','Paul','George','Ringo']
+const options = ['John', 'Paul', 'George', 'Ringo']
 ```
 
 ### Single Selection
 
 #### Basic usage
+
 ```js
 <MoleculeSelect
-      placeholder="Select a Country..."
-      onChange={(_, {value}) => console.log(value)}
-      iconArrowDown={<IconArrowDown />}
-    >
+  placeholder="Select a Country..."
+  onChange={(_, {value}) => console.log(value)}
+  iconArrowDown={<IconArrowDown />}
+>
   {options.map((option, i) => (
     <MoleculeSelectOption key={i} value={option}>
       {option}
@@ -42,13 +43,14 @@ const options = ['John','Paul','George','Ringo']
 ```
 
 #### With default value
+
 ```js
 <MoleculeSelect
-      placeholder="Select a Country..."
-      onChange={(_, {value}) => console.log(value)}
-      iconArrowDown={<IconArrowDown />}
-      value='John'
-    >
+  placeholder="Select a Country..."
+  onChange={(_, {value}) => console.log(value)}
+  iconArrowDown={<IconArrowDown />}
+  value="John"
+>
   {options.map((option, i) => (
     <MoleculeSelectOption key={i} value={option}>
       {option}
@@ -58,13 +60,14 @@ const options = ['John','Paul','George','Ringo']
 ```
 
 #### Large List
+
 ```js
 <MoleculeSelect
-      placeholder="Select a Country..."
-      onChange={(_, {value}) => console.log(value)}
-      iconArrowDown={<IconArrowDown />}
-      size={moleculeSelectDropdownListSizes.LARGE}
-    >
+  placeholder="Select a Country..."
+  onChange={(_, {value}) => console.log(value)}
+  iconArrowDown={<IconArrowDown />}
+  size={moleculeSelectDropdownListSizes.LARGE}
+>
   {options.map((option, i) => (
     <MoleculeSelectOption key={i} value={option}>
       {option}
@@ -74,15 +77,16 @@ const options = ['John','Paul','George','Ringo']
 ```
 
 #### With state highlight
+
 Can be `success`, `error` or `alert`.
 
 ```js
 <MoleculeSelect
-      placeholder="Select a Country..."
-      onChange={(_, {value}) => console.log(value)}
-      iconArrowDown={<IconArrowDown />}
-      state="success"
-    >
+  placeholder="Select a Country..."
+  onChange={(_, {value}) => console.log(value)}
+  iconArrowDown={<IconArrowDown />}
+  state="success"
+>
   {options.map((option, i) => (
     <MoleculeSelectOption key={i} value={option}>
       {option}
@@ -94,12 +98,31 @@ Can be `success`, `error` or `alert`.
 ### Multiple Selection
 
 #### Basic usage
+
 ```js
- <MoleculeSelect
+<MoleculeSelect
   iconCloseTag={<IconCloseTag />}
   iconArrowDown={<IconArrowDown />}
   multiselection
-  value={['John','Paul']}
+  value={['John', 'Paul']}
+>
+  {options.map((option, i) => (
+    <MoleculeSelectOption key={i} value={option}>
+      {option}
+    </MoleculeSelectOption>
+  ))}
+</MoleculeSelect>
+```
+
+#### With tags limit
+
+```js
+<MoleculeSelect
+  iconCloseTag={<IconCloseTag />}
+  iconArrowDown={<IconArrowDown />}
+  multiselection
+  value={['John', 'Paul']}
+  max={2}
 >
   {options.map((option, i) => (
     <MoleculeSelectOption key={i} value={option}>
@@ -123,7 +146,7 @@ import React, {Component} from 'react'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 
-const options = ['John','Paul','George','Ringo']
+const options = ['John', 'Paul', 'George', 'Ringo']
 
 export default class SelectSingleWithAsyncOptions extends Component {
   state = {value: ''}
@@ -147,22 +170,20 @@ export default class SelectSingleWithAsyncOptions extends Component {
     )
   }
 }
-
 ```
 
 so then, the `SelectSingleWithAsyncOptions` can used in this way...
 
 ```js
-  <SelectSingleWithAsyncOptions iconClear={<IconClear />} />
+<SelectSingleWithAsyncOptions iconClear={<IconClear />} />
 ```
 
 ### Using the hoc `withStateValue`
 
-There's a hoc called `withStateValue` available at `@s-ui/hoc` 
-that can be used to simplify the use of this component with internal state 
+There's a hoc called `withStateValue` available at `@s-ui/hoc`
+that can be used to simplify the use of this component with internal state
 
 ```js
-
 import MoleculeSelect from '@s-ui/react-molecule-select'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 
@@ -170,8 +191,7 @@ import withDynamicOptions from './hoc/withDynamicOptions'
 import {withStateValue} from '@s-ui/hoc'
 
 const MoleculeSelectWithState = withStateValue(MoleculeSelect)
-const options = ['John','Paul','George','Ringo']
-
+const options = ['John', 'Paul', 'George', 'Ringo']
 ```
 
 so then, the `MoleculeSelectWithState` can be used in this way...
@@ -245,7 +265,5 @@ so then you can do something like...
   ))}
 </MoleculeSelect>
 ```
-
-
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/molecule/select/demo).**

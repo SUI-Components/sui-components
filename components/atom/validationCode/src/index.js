@@ -32,13 +32,15 @@ export default function AtomValidationCode({label, length = DEFAULT_LENGTH}) {
     <div className={BASE_CLASS}>
       {label && <h3 className={`${BASE_CLASS}-label`}>{label}</h3>}
       <div className={`${BASE_CLASS}-code`}>
-        {numbers.map((number, i) => {
+        {numbers.map((_, i) => {
           return (
             <input
+              autoFocus={i === 0}
               className={`${BASE_CLASS}-input`}
               key={i}
               ref={numberRefs.current[i]}
               type="number"
+              onClick={e => e.target.select()}
               onChange={e => handleChange({i, value: e.target.value})}
               value={numbers[i]}
             />

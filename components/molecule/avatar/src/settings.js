@@ -6,3 +6,5 @@ export const AVATAR_SIZES = {
   SMALL: 'small',
   XSMALL: 'xsmall'
 }
+
+export const baseClassName = 'sui-MoleculeAvatar'

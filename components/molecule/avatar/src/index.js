@@ -17,7 +17,7 @@ import AvatarBadge, {
   AVATAR_BADGE_SIZES
 } from './AvatarBadge'
 
-import {AVATAR_SIZES} from './settings'
+import {baseClassName, AVATAR_SIZES} from './settings'
 
 const MoleculeAvatar = forwardRef(
   (
@@ -35,7 +35,6 @@ const MoleculeAvatar = forwardRef(
     },
     forwardedRef
   ) => {
-    const baseClassName = 'sui-MoleculeAvatar'
     const className = cx(baseClassName, `${baseClassName}--${size}`)
     const backgroundColor = useConvertStringToHex(name)
     const children = Children.toArray(childrenProp)

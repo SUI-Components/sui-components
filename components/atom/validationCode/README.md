@@ -1,8 +1,6 @@
 # AtomValidationCode
 
-> Description
-
-<!-- ![](./assets/preview.png) -->
+Component to input a validation code.
 
 ## Installation
 
@@ -19,7 +17,12 @@ $ npm install @s-ui/react-atom-validation-code
 ```js
 import AtomValidationCode from '@s-ui/react-atom-validation-code'
 
-return (<AtomValidationCode />)
+return (
+  <AtomValidationCode 
+    onChange={handleChange}
+    label="Verification code"
+    lenght={6} 
+  />)
 ```
 
 #### Import the styles (Sass)
@@ -31,4 +34,4 @@ return (<AtomValidationCode />)
 ```
 
 
-> **Find full description and more examples in the [demo page](#).**
+> **Find full description and more examples in the [demo page](https://sui-components.vercel.app//workbench/atom/validationCode/demo).**

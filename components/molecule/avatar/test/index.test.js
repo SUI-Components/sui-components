@@ -1,6 +1,7 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
+import {createRef} from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
@@ -140,5 +141,22 @@ describe('MoleculeAvatar', () => {
 
     // Then
     expect(getByText('JS')).to.be.visible
+  })
+
+  describe('forwardRef', () => {
+    it('should return forwardRef html span element when giving a ref to the component', () => {
+      // Given
+      const props = {}
+      const ref = createRef()
+
+      // When
+      const component = <Component {...props} ref={ref} />
+      const div = document.createElement('div')
+      ReactDOM.render(component, div)
+
+      // Then
+      expect(ref.current).to.not.equal(undefined)
+      expect(ref.current.nodeName).to.equal('SPAN')
+    })
   })
 })

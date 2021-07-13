@@ -1,0 +1,8 @@
+$base-class: 'DemoMoleculeAvatar';
+$section: 'section';
+
+$base-class-section: '.#{$base-class}-#{$section}';
+
+#{$base-class-section} {
+  // Add here your magic
+}

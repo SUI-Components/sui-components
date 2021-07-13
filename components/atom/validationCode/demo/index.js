@@ -5,7 +5,7 @@ export default () => {
   const [code, setCode] = useState()
 
   return (
-    <div style={{maxWidth: '400px'}}>
+    <div style={{maxWidth: '400px', padding: '16px'}}>
       <h1>Component</h1>
       <AtomValidationCode onChange={setCode} />
       <h1>Code</h1>

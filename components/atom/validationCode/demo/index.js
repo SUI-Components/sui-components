@@ -5,7 +5,7 @@ export default () => {
   const [code, setCode] = useState()
 
   return (
-    <>
+    <div style={{maxWidth: '400px'}}>
       <h1>Component</h1>
       <AtomValidationCode
         label="Tu código de verificación"
@@ -13,6 +13,6 @@ export default () => {
       />
       <h1>Code</h1>
       <p>{code}</p>
-    </>
+    </div>
   )
 }

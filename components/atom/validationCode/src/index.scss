@@ -9,6 +9,11 @@ $bd-atom-validation-code-input-focus: $bdw-s solid $c-primary !default;
     font-size: $fz-m;
   }
 
+  &-code {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &-input {
     border-radius: $bdrs-xl;
     border: $bd-atom-validation-code-input;
@@ -33,7 +38,7 @@ $bd-atom-validation-code-input-focus: $bdw-s solid $c-primary !default;
     }
 
     & + & {
-      margin-left: $m-l;
+      margin-left: $m-m;
     }
   }
 }

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {useState, useRef, createRef} from 'react'
+import {useState, useRef, createRef, useCallback} from 'react'
 
 const DEFAULT_LENGTH = 6
 const BASE_CLASS = 'sui-AtomValidationCode'
@@ -17,22 +17,27 @@ export default function AtomValidationCode({
     (_, i) => numberRefs.current[i] ?? createRef()
   )
 
-  const handleChange = ({i, value}) => {
-    if (value < INPUT_MAX_NUMBER) {
-      const numberArray = [...numbers]
-      numberArray[i] = value
-      setNumbers(numberArray)
-      onChange(numberArray.join(''))
-    }
+  const handleChange = useCallback(
+    ({ev, i}) => {
+      const {value} = ev.target
 
-    if (value !== '') {
-      const nextInput = numberRefs.current[i + 1]
+      if (value < INPUT_MAX_NUMBER) {
+        const numberArray = [...numbers]
+        numberArray[i] = value
+        setNumbers(numberArray)
+        onChange(ev, {value: numberArray.join('')})
+      }
 
-      nextInput
-        ? nextInput.current.focus()
-        : numberRefs.current[i].current.blur()
-    }
-  }
+      if (value !== '') {
+        const nextInput = numberRefs.current[i + 1]
+
+        nextInput
+          ? nextInput.current.focus()
+          : numberRefs.current[i].current.blur()
+      }
+    },
+    [numbers, onChange]
+  )
 
   return (
     <div className={BASE_CLASS}>
@@ -45,8 +50,8 @@ export default function AtomValidationCode({
               className={`${BASE_CLASS}-input`}
               inputMode="numeric"
               key={i}
-              onChange={e => handleChange({i, value: e.target.value})}
-              onClick={e => e.target.select()}
+              onChange={ev => handleChange({ev, i})}
+              onClick={ev => ev.target.select()}
               ref={numberRefs.current[i]}
               type="number"
               value={numbers[i]}

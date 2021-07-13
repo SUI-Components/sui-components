@@ -1,6 +1,8 @@
 @import '~@s-ui/theme/lib/index';
 
-$sz-atom-validation-code-input: 40px;
+$sz-atom-validation-code-input: 40px !default;
+$bd-atom-validation-code-input: $bdw-s solid $c-gray !default;
+$bd-atom-validation-code-input-focus: $bdw-s solid $c-primary !default;
 
 .react-AtomValidationCode {
   &-label {
@@ -8,10 +10,11 @@ $sz-atom-validation-code-input: 40px;
   }
 
   &-input {
-    border: 1px solid $c-gray;
     border-radius: $bdrs-xl;
+    border: $bd-atom-validation-code-input;
     box-sizing: border-box;
     height: $sz-atom-validation-code-input;
+    font-size: $fz-m;
     padding: $p-m;
     text-align: center;
     width: $sz-atom-validation-code-input;
@@ -26,7 +29,7 @@ $sz-atom-validation-code-input: 40px;
 
     &:focus {
       outline: none;
-      border: 1px solid $c-primary;
+      border: $bd-atom-validation-code-input-focus;
     }
 
     & + & {

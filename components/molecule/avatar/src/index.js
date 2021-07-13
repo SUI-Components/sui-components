@@ -1,4 +1,10 @@
-import {Children, isValidElement, cloneElement} from 'react'
+import {
+  Children,
+  isValidElement,
+  cloneElement,
+  useCallback,
+  forwardRef
+} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import AtomImage from '@s-ui/react-atom-image'
@@ -11,68 +17,67 @@ import AvatarBadge, {
   AVATAR_BADGE_SIZES
 } from './AvatarBadge'
 
-export const AVATAR_SIZES = {
-  XXLARGE: 'xxlarge',
-  XLARGE: 'xlarge',
-  LARGE: 'large',
-  MEDIUM: 'medium',
-  SMALL: 'small',
-  XSMALL: 'xsmall'
-}
+import {AVATAR_SIZES} from './settings'
 
-const MoleculeAvatar = ({
-  className: classNameProp,
-  size = AVATAR_SIZES.MEDIUM,
-  skeleton = <AtomSkeleton width="100%" height="100%" animation="wave" />,
-  name,
-  src,
-  fallbackIcon,
-  style,
-  isLoading,
-  children: childrenProp,
-  ...others
-}) => {
-  const baseClassName = 'sui-MoleculeAvatar'
-  const className = cx(baseClassName, `${baseClassName}--${size}`)
-  const backgroundColor = useConvertStringToHex(name)
-  const children = Children.toArray(childrenProp)
-    .filter(child => isValidElement(child))
-    .map(child => cloneElement(child, {size}))
+const MoleculeAvatar = forwardRef(
+  (
+    {
+      className: classNameProp,
+      size = AVATAR_SIZES.MEDIUM,
+      skeleton = <AtomSkeleton width="100%" height="100%" animation="wave" />,
+      name,
+      src,
+      fallbackIcon,
+      style,
+      isLoading,
+      children: childrenProp,
+      ...others
+    },
+    forwardedRef
+  ) => {
+    const baseClassName = 'sui-MoleculeAvatar'
+    const className = cx(baseClassName, `${baseClassName}--${size}`)
+    const backgroundColor = useConvertStringToHex(name)
+    const children = Children.toArray(childrenProp)
+      .filter(child => isValidElement(child))
+      .map(child => cloneElement(child, {size}))
 
-  const renderFallback = () => {
-    return <AvatarFallback name={name} size={size} icon={fallbackIcon} />
-  }
+    const renderContent = useCallback(() => {
+      if (isLoading) {
+        return skeleton
+      }
 
-  const renderContent = () => {
-    if (isLoading) {
-      return skeleton
-    }
+      const fallback = (
+        <AvatarFallback name={name} size={size} icon={fallbackIcon} />
+      )
+
+      return (
+        <>
+          {src ? (
+            <AtomImage src={src} alt={name} errorIcon={fallback} />
+          ) : (
+            fallback
+          )}
+          {!isLoading && children}
+        </>
+      )
+    }, [isLoading, skeleton, children, src, name, fallbackIcon, size])
 
     return (
-      <>
-        {src ? (
-          <AtomImage src={src} alt={name} errorIcon={renderFallback()} />
-        ) : (
-          renderFallback()
-        )}
-        {!isLoading && children}
-      </>
+      <span
+        style={{
+          ...style,
+          ...(!src && {backgroundColor})
+        }}
+        className={className}
+        {...others}
+        ref={forwardedRef}
+      >
+        {renderContent()}
+      </span>
     )
   }
-
-  return (
-    <span
-      style={{
-        ...style,
-        ...(!src && {backgroundColor})
-      }}
-      className={className}
-      {...others}
-    >
-      {renderContent()}
-    </span>
-  )
-}
+)
 
 MoleculeAvatar.displayName = 'MoleculeAvatar'
 MoleculeAvatar.propTypes = {

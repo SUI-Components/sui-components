@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.1.0 (2021-07-14)
+
+
+### Bug Fixes
+
+* **components/atom/backToTop:** remove warnings ([5d6b101](https://github.com/SUI-Components/sui-components/commit/5d6b101bbf19ce243e6dc14348e4a118565fbf8c))
+
+
+
 # 2.0.0 (2021-07-12)
 
 

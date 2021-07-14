@@ -77,10 +77,13 @@ $base-class: '.sui-AtomTag';
       cursor: pointer;
       line-height: initial;
       position: relative;
+      border-radius: $bdrs-rounded;
+      background-color: $bgc-atom-tag-closable-icon;
+      fill: color-variation($c-atom-tag-closable-icon, 3);
+      color: color-variation($c-atom-tag-closable-icon, 3);
 
       &:hover {
         background-color: $bgc-atom-tag-closable-icon--hover;
-        border-radius: $bdrs-rounded;
         fill: color-variation($c-atom-tag-closable-icon--hover, 3);
         color: color-variation($c-atom-tag-closable-icon--hover, 3);
       }

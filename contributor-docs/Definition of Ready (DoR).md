@@ -11,3 +11,4 @@
 - The reported bugs include "how to reproduce" information
 - Demo structure proposal specs
 - Feedback from 1 Dev and 1 UX from each team
+- Clearely communicated if the component should be either a molecule, an atom, or else 

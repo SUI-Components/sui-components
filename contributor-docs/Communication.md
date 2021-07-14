@@ -1,3 +1,5 @@
+# Comunication
+
 Design systems provide a vocabulary between design and engineering, the language we use should be correct but not at the expense of providing clarity. Use words and descriptions that both designers and engineers can understand.
 
 - Be a bridge not a barrier. Use vocabulary that provides meaning to both designers and engineers.

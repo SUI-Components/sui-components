@@ -30,10 +30,10 @@ $c-atom-tag-actionable-invert--hover: $c-white !default;
 $w-atom-tag-clickable: 32px !default;
 
 // closable
-$bgc-atom-tag-closable-icon: $c-system !default;
-$c-atom-tag-closable-icon: $c-gray !default;
-$bgc-atom-tag-closable-icon--hover: $bgc-atom-tag-closable-icon;
-$c-atom-tag-closable-icon--hover: $c-atom-tag-closable-icon;
+$bgc-atom-tag-closable-icon: transparent !default;
+$c-atom-tag-closable-icon: transparent !default;
+$bgc-atom-tag-closable-icon--hover: $c-system !default;
+$c-atom-tag-closable-icon--hover: $c-gray !default;
 
 // types
 $atom-tag-types: () !default;

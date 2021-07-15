@@ -12,3 +12,5 @@
 - We communicate the resolutions of all issues proactivelly
 - We document all our processes and agreements under [contribution-docs](https://github.com/SUI-Components/sui-components/contributor-docs/)
 - If we are forced to publish something with bugs or defects, we make sure they are properly documented
+
+### [Comunication](<Comunication.md>)

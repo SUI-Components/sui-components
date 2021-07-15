@@ -1,4 +1,4 @@
-# Contributors Agreements
+# Our Agreements
 
 - Specs: We add feedback to Design Proposals and Specs in form of comments in Figma
 - Discussions: We record are latest agreements in the comments section of the proposal

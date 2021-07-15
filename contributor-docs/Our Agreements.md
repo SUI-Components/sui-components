@@ -14,3 +14,6 @@
 - If we are forced to publish something with bugs or defects, we make sure they are properly documented
 
 ### [Communication](<Communication.md>)
+### [Judgement](<Judgement.md>)
+### [Implementation](<Implementation.md>)
+### [Innovation](<Innovation.md>)

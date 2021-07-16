@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.26.0 (2021-07-16)
+
+
+### Features
+
+* **components/atom/tag:** add variables for normal status close icon (no hover) ([15e4548](https://github.com/SUI-Components/sui-components/commit/15e454870d424b4f5cf58fd105ffb77c7fd7e01d))
+* **components/atom/tag:** add variables for normal status close icon (no hover) ([b31e2ae](https://github.com/SUI-Components/sui-components/commit/b31e2ae381e7d11a8c91663906e8b258b8e96200))
+
+
+
 # 2.25.0 (2021-06-22)
 
 

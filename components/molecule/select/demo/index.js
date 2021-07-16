@@ -211,6 +211,25 @@ const Demo = () => (
         </MoleculeSelectWithState>
       </div>
 
+      <div className={CLASS_DEMO_SECTION}>
+        <h3>With selected items limit</h3>
+        <MoleculeSelectWithState
+          placeholder="Select some countries..."
+          value={['India', 'Luxembourg']}
+          onChange={(_, {value}) => console.log(value)}
+          iconCloseTag={<IconCloseTag />}
+          iconArrowDown={<IconArrowDown />}
+          multiselection
+          maxTags={2}
+        >
+          {countriesList.map((country, i) => (
+            <MoleculeSelectOption key={i} value={country}>
+              {country}
+            </MoleculeSelectOption>
+          ))}
+        </MoleculeSelectWithState>
+      </div>
+
       <h2>Dependant Selection</h2>
       <div className={CLASS_DEMO_SECTION}>
         <h3>With Placeholder</h3>

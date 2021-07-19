@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.3.0 (2021-07-19)
+
+
+### Bug Fixes
+
+* **components/atom/popover:** fix css selector for show arrows ([c3161dc](https://github.com/SUI-Components/sui-components/commit/c3161dc9efb1134c2fe4b57a84caa7d9c21ebc51))
+
+
+
 # 3.2.0 (2021-06-22)
 
 

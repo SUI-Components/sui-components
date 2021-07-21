@@ -17,8 +17,11 @@ import {
   CLASS_TARGET,
   COLORS,
   PREFIX_PLACEMENT,
-  PLACEMENTS
+  PLACEMENTS, DEFAULT_OFFSET
 } from './config'
+import loadable from '@loadable/component'
+
+import TooltipExtendChildren from './TooltipExtendChildren'
 
 const createClasses = (array, sufix = '') => {
   return array.reduce(
@@ -29,9 +32,10 @@ const createClasses = (array, sufix = '') => {
 
 const COLOR_CLASSES = createClasses(COLORS, 'Color')
 
-class AtomTooltip extends Component {
-  state = {Tooltip: null}
+// https://github.com/reactstrap/reactstrap/blob/8.9.0/src/Tooltip.js
+const Tooltip = loadable(() => import('reactstrap/lib/Tooltip'), {ssr: true})
 
+class AtomTooltip extends Component {
   preventNonTouchEvents = false
 
   hasTouchEnded = false
@@ -44,81 +48,62 @@ class AtomTooltip extends Component {
 
   refTooltip = createRef()
 
-  refTarget = createRef()
+  targetRef = createRef()
 
-  loadAsyncReacstrap() {
-    import(
-      /* webpackChunkName: "reactstrap-Tooltip" */
-      'reactstrap/lib/Tooltip'
-    )
-      .then(module => module.default)
-      .then(Tooltip => this.setState({Tooltip}))
-  }
-
-  extendChildren() {
-    const {children} = this.props // eslint-disable-line react/prop-types
-
-    const ref = this.refTarget
-    const className = CLASS_TARGET
-    const onTouchEnd = this.handleToggle
-
-    const childrenOnly = Children.only(children)
-
-    return Children.map(childrenOnly, child => {
-      this.onClickTarget = child.props.onClick
-      this.title = child.props.title
-
-      return typeof child.type !== 'string'
-        ? createElement(
-            'div',
-            {
-              ref,
-              className: `${className} ${className}--wrapper`,
-              onTouchEnd
-            },
-            cloneElement(child)
-          )
-        : cloneElement(child, {ref, className, onTouchEnd})
-    })
-  }
+  // extendChildren() {
+  //   const {children} = this.props // eslint-disable-line react/prop-types
+  //
+  //   const ref = this.targetRef
+  //   const className = CLASS_TARGET
+  //   const onTouchEnd = this.handleToggle
+  //
+  //   const childrenOnly = Children.only(children)
+  //
+  //   return Children.map(childrenOnly, child => {
+  //     this.onClickTarget = child.props.onClick
+  //     this.title = child.props.title
+  //
+  //     return typeof child.type !== 'string'
+  //       ? createElement(
+  //           'div',
+  //           {
+  //             ref,
+  //             className: `${className} ${className}--wrapper`,
+  //             onTouchEnd
+  //           },
+  //           cloneElement(child)
+  //         )
+  //       : cloneElement(child, {ref, className, onTouchEnd})
+  //   })
+  // }
 
   componentDidMount() {
-    const target = this.refTarget.current
-    this.props.innerRef(target)
-    ;['touchstart', 'mouseover'].forEach(event =>
-      target.addEventListener(event, e => {
-        if (!this.state.Tooltip) {
-          this.loadAsyncReacstrap()
-          this.handleToggle(e)
-        }
-      })
-    )
-    ;['click', 'touchend'].forEach(event =>
-      window.addEventListener(event, this.handleClickOutsideElement)
-    )
-    target.oncontextmenu = this.handleContextMenu
-    target.addEventListener('mouseover', this.disableTitle)
-    target.addEventListener('mouseout', this.restoreTitle)
-
-    if (target && this.props.isOpen) {
-      if (!this.state.Tooltip) {
-        this.loadAsyncReacstrap()
-      }
-    }
+    // const targetRef = this.targetRef.current
+    // this.props.innerRef(target)
+    // ;['touchstart', 'mouseover'].forEach(event =>
+    //   targetRef.addEventListener(event, e => {
+    //     this.handleToggle(e)
+    //   })
+    // )
+    // ;['click', 'touchend'].forEach(event =>
+    //   window.addEventListener(event, this.handleClickOutsideElement)
+    // )
+    // target.oncontextmenu = this.handleContextMenu
+    // targetRef.addEventListener('mouseover', this.disableTitle)
+    // targetRef.addEventListener('mouseout', this.restoreTitle)
   }
 
   componentWillUnmount() {
-    const target = this.refTarget.current
-    clearTimeout(this.touchTimer)
-    ;['click', 'touchend'].forEach(event =>
-      window.removeEventListener(event, this.handleClickOutsideElement)
-    )
-    target.removeEventListener('mouseover', this.disableTitle)
-    target.removeEventListener('mouseout', this.restoreTitle)
+    // const targetRef = this.targetRef.current
+    // clearTimeout(this.touchTimer)
+    // ;['click', 'touchend'].forEach(event =>
+    //   window.removeEventListener(event, this.handleClickOutsideElement)
+    // )
+    // targetRef.removeEventListener('mouseover', this.disableTitle)
+    // targetRef.removeEventListener('mouseout', this.restoreTitle)
   }
 
   componentDidUpdate() {
-    const {Tooltip} = this.state
     const {isOpen} = this.props
     if (!Tooltip && isOpen) {
       this.loadAsyncReacstrap()
@@ -142,7 +127,7 @@ class AtomTooltip extends Component {
 
   handleClickOutsideElement = e => {
     const {isOpen, onToggle} = this.props
-    const target = this.refTarget.current
+    const target = this.targetRef.current
     if (isOpen) {
       const tooltipDom = this.refTooltip.current
       const isOutside = tooltipDom && !tooltipDom.contains(e.target)
@@ -221,17 +206,15 @@ class AtomTooltip extends Component {
       content: HtmlContent,
       delay,
       hideArrow,
-      placement
+      placement,
+      children
     } = this.props // eslint-disable-line react/prop-types
 
-    const {Tooltip} = this.state
-    const target = this.refTarget.current
     const restrictedProps = {
       autohide,
       delay,
       hideArrow,
-      placement,
-      target
+      placement
     }
     let {isVisible, isOpen} = this.props // eslint-disable-line react/prop-types
     if (!isVisible && isOpen) isOpen = false
@@ -240,22 +223,27 @@ class AtomTooltip extends Component {
 
     return (
       <>
-        {this.extendChildren()}
-        {target && Tooltip && (
-          <Tooltip
-            {...restrictedProps}
-            isOpen={isOpen}
-            toggle={this.handleToggle} // eslint-disable-line
-            className={classNames}
-            innerClassName={CLASS_INNER}
-            arrowClassName={CLASS_ARROW}
-            placementPrefix={PREFIX_PLACEMENT}
-            innerRef={this.refTooltip}
-            offset="auto,4px"
-          >
-            {HtmlContent ? <HtmlContent /> : this.title}
-          </Tooltip>
-        )}
+        <TooltipExtendChildren
+          ref={this.targetRef}
+          onToggle={this.handleToggle}
+        >
+          {children}
+        </TooltipExtendChildren>
+        <Tooltip
+          {...restrictedProps}
+          target={this.targetRef}
+          isOpen={isOpen}
+          toggle={this.handleToggle} // eslint-disable-line
+          className={classNames}
+          innerClassName={CLASS_INNER}
+          arrowClassName={CLASS_ARROW}
+          placementPrefix={PREFIX_PLACEMENT}
+          innerRef={this.refTooltip}
+          offset={DEFAULT_OFFSET}
+          trigger="click"
+        >
+          {HtmlContent ? <HtmlContent /> : this.title}
+        </Tooltip>
       </>
     )
   }
@@ -323,9 +311,10 @@ AtomTooltip.propTypes = {
   color: PropTypes.oneOf(COLORS)
 }
 
-const ExportedAtomTooltip = withIntersectionObserver(
+const ExportedAtomTooltip =
+  // withIntersectionObserver(
   withOpenToggle(AtomTooltip)
-)
+// )
 
 ExportedAtomTooltip.COLORS = COLORS
 ExportedAtomTooltip.PLACEMENTS = PLACEMENTS

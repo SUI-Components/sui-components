@@ -9,8 +9,10 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
+    "@loadable/component": "5.15.x",
     "@s-ui/hoc": "1",
-    "reactstrap": "7.1.0"
+    "@s-ui/react-hooks": "1",
+    "reactstrap": "8.9.0"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

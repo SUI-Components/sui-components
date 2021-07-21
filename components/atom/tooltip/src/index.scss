@@ -12,10 +12,17 @@ $bdc-atom-tooltip: $bgc-atom-tooltip !default;
 $bdrs-atom-tooltip: $bdrs-l !default;
 $op-atom-tooltip: 1 !default;
 $pt-atom-tooltip: $p-m !default;
+$pr-atom-tooltip: $p-m !default;
 $pb-atom-tooltip: $p-m !default;
 $pl-atom-tooltip: $p-m !default;
-$pr-atom-tooltip: $p-m !default;
-$m-atom-tooltip: 0 !default;
+$p-atom-tooltip: $pt-atom-tooltip $pr-atom-tooltip $pb-atom-tooltip
+  $pl-atom-tooltip !default;
+$mt-atom-tooltip: $m-m !default;
+$mb-atom-tooltip: $m-m !default;
+$ml-atom-tooltip: $m-m !default;
+$mr-atom-tooltip: $m-m !default;
+$m-atom-tooltip: $mt-atom-tooltip $mr-atom-tooltip $mb-atom-tooltip
+  $ml-atom-tooltip !default;
 $ta-atom-tooltip: left !default;
 $z-atom-tooltip: 1070 !default;
 
@@ -23,12 +30,11 @@ $c-atom-tooltip-target: inherit !default;
 $fz-atom-tooltip-target: $fz-m !default;
 $ml-atom-tooltip-target: 0 !default;
 
-$w-atom-tooltip-arrow: 0.8rem !default;
-$h-atom-tooltip-arrow: 0.4rem !default;
+$w-atom-tooltip-arrow: $p-m + $p-s !default;
+$h-atom-tooltip-arrow: $p-m !default;
 $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
 
-$bdw-atom-tooltip: $pt-atom-tooltip $pr-atom-tooltip !default;
-$p-atom-tooltip: 0 !default;
+$bdw-atom-tooltip: 0 !default;
 
 $base-class: '.sui-AtomTooltip';
 $class-inner: '#{$base-class}-inner';
@@ -82,7 +88,7 @@ $c-atom-tooltip-colors: (
 }
 
 #{$base-class} {
-  display: block;
+  display: contents;
   font-size: $fz-atom-tooltip;
   margin: $m-atom-tooltip;
   // Avoid flick on hover
@@ -121,89 +127,62 @@ $c-atom-tooltip-colors: (
 
     &::before {
       border-color: transparent;
+      border-bottom-color: $c-atom-tooltip-arrow;
+      border-style: solid;
+      border-width: 0 $w-atom-tooltip-arrow * 0.5 $w-atom-tooltip-arrow * 0.5;
+      bottom: $h-atom-tooltip-arrow * 0.5;
+      content: '';
+      position: absolute;
+    }
+
+    &::after {
+      border-width: 0 $w-atom-tooltip-arrow * 0.5 $w-atom-tooltip-arrow * 0.5
+        $w-atom-tooltip-arrow * 0.5;
+      border-color: transparent;
+      border-bottom-color: $bgc-atom-tooltip;
       border-style: solid;
       content: '';
+      display: block;
       position: absolute;
     }
   }
 
-  &#{$base-class}--top {
-    padding: $h-atom-tooltip-arrow 0;
+  &--top {
+    margin: $mt-atom-tooltip 0;
 
     #{$class-arrow} {
-      bottom: 0;
-
-      &::before {
-        border-top-color: $c-atom-tooltip-arrow;
-        border-width: $h-atom-tooltip-arrow ($w-atom-tooltip-arrow * 0.5) 0;
-        top: 0;
-      }
+      bottom: -$h-atom-tooltip-arrow * 0.5;
+      transform: rotate(180deg);
     }
   }
 
-  &#{$base-class}--right {
-    padding: 0 $h-atom-tooltip-arrow;
+  &--right {
+    margin: 0 $mr-atom-tooltip;
 
     #{$class-arrow} {
-      height: $w-atom-tooltip-arrow;
-      left: 0;
-      width: $h-atom-tooltip-arrow;
-
-      &::before {
-        border-right-color: $c-atom-tooltip-arrow;
-        border-width: ($w-atom-tooltip-arrow * 0.5) $h-atom-tooltip-arrow
-          ($w-atom-tooltip-arrow * 0.5) 0;
-        right: 0;
-      }
+      left: -$w-atom-tooltip-arrow * 0.5;
+      transform: rotate(-90deg);
     }
   }
 
-  &#{$base-class}--bottom {
-    padding: $h-atom-tooltip-arrow 0;
+  &--bottom {
+    margin: $mb-atom-tooltip 0;
 
     #{$class-arrow} {
-      top: 0;
-
-      &::before {
-        border-bottom-color: $c-atom-tooltip-arrow;
-        border-width: 0 ($w-atom-tooltip-arrow * 0.5) $h-atom-tooltip-arrow;
-        bottom: 0;
-      }
+      top: -$h-atom-tooltip-arrow * 0.5;
     }
   }
 
-  &#{$base-class}--left {
-    padding: 0 $h-atom-tooltip-arrow;
+  &--left {
+    margin: 0 $ml-atom-tooltip;
 
     #{$class-arrow} {
-      height: $w-atom-tooltip-arrow;
-      right: 0;
-      width: $h-atom-tooltip-arrow;
-
-      &::before {
-        border-left-color: $c-atom-tooltip-arrow;
-        border-width: ($w-atom-tooltip-arrow * 0.5) 0
-          ($w-atom-tooltip-arrow * 0.5) $h-atom-tooltip-arrow;
-        left: 0;
-      }
+      right: -$w-atom-tooltip-arrow * 0.5;
+      transform: rotate(90deg);
     }
   }
 
-  &[data-placement='left-start'],
-  &[data-placement='right-start'] {
-    #{$class-inner} {
-      transform: translateY(-8px);
-    }
-  }
-
-  &[data-placement='left-end'],
-  &[data-placement='right-end'] {
-    #{$class-inner} {
-      transform: translateY(8px);
-    }
-  }
-
-  &#{$base-class}--auto {
+  &--auto {
     &[x-placement^='top'] {
       @extend #{$base-class}--top;
     }
@@ -221,6 +200,20 @@ $c-atom-tooltip-colors: (
     }
   }
 
+  &[data-placement='left-start'],
+  &[data-placement='right-start'] {
+    #{$class-inner} {
+      transform: translateY(-8px);
+    }
+  }
+
+  &[data-placement='left-end'],
+  &[data-placement='right-end'] {
+    #{$class-inner} {
+      transform: translateY(8px);
+    }
+  }
+
   @each $name, $pair in $c-atom-tooltip-colors {
     $color: nth($pair, 1);
     $color-invert: nth($pair, 2);
@@ -232,34 +225,16 @@ $c-atom-tooltip-colors: (
         color: $color-invert;
       }
 
-      &#{$base-class}--top {
+      #{$base-class}--top,
+      #{$base-class}--right,
+      #{$base-class}--bottom,
+      #{$base-class}--left,
+      #{$base-class}--auto {
         #{$class-arrow} {
-          &::before {
-            border-top-color: $color;
-          }
-        }
-      }
-
-      &#{$base-class}--right {
-        #{$class-arrow} {
-          &::before {
-            border-right-color: $color;
-          }
-        }
-      }
-
-      &#{$base-class}--bottom {
-        #{$class-arrow} {
-          &::before {
+          &::before,
+          &::after {
+            border-color: transparent;
             border-bottom-color: $color;
-          }
-        }
-      }
-
-      &#{$base-class}--left {
-        #{$class-arrow} {
-          &::before {
-            border-left-color: $color;
           }
         }
       }

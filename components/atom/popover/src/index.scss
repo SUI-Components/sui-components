@@ -7,10 +7,10 @@ $bdc-atom-popover: $c-gray-light-3 !default;
 $bgc-atom-popover: $c-white !default;
 $bdrs-atom-popover: $bdrs-m !default;
 $bdw-atom-popover: $bdw-s !default;
-$mt-atom-popover: $p-m !default;
-$mb-atom-popover: $p-m !default;
-$ml-atom-popover: $p-m !default;
-$mr-atom-popover: $p-m !default;
+$mt-atom-popover: $m-m !default;
+$mb-atom-popover: $m-m !default;
+$ml-atom-popover: $m-m !default;
+$mr-atom-popover: $m-m !default;
 $m-atom-popover: 0 !default;
 $p-atom-popover: 0 !default;
 $z-atom-popover: $z-tooltips !default;
@@ -20,8 +20,8 @@ $mr-atom-popover-close-icon: $m-s !default;
 $mt-atom-popover-close-icon: $m-s !default;
 $sz-atom-popover-close-icon: $sz-icon-s !default;
 
-$w-atom-popover-arrow: 12px !default;
-$h-atom-popover-arrow: 8px !default;
+$w-atom-popover-arrow: $p-m + $p-s !default;
+$h-atom-popover-arrow: $p-m !default;
 $c-atom-popover-arrow: $bdc-atom-popover !default;
 
 $base-class: '.sui-AtomPopover';

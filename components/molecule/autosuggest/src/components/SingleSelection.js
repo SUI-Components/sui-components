@@ -20,6 +20,8 @@ const MoleculeAutosuggestSingleSelection = ({
   inputMode,
   isOpen,
   leftIcon,
+  maxLength,
+  minLength,
   onChange,
   onClear,
   onClickRightIcon,
@@ -68,6 +70,8 @@ const MoleculeAutosuggestSingleSelection = ({
         inputMode={inputMode}
         isVisibleClear={value}
         leftIcon={leftIcon}
+        maxLength={maxLength}
+        minLength={minLength}
         onChange={handleChange}
         onClickClear={handleClear}
         onClickRightIcon={handleRightClick}

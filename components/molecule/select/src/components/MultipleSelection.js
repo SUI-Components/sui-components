@@ -23,25 +23,41 @@ const MoleculeSelectFieldMultiSelection = props => {
     required,
     optionsData = {},
     selectSize,
-    tabIndex
+    tabIndex,
+    maxTags
   } = props
 
+  const tags = values.map(value => optionsData[value])
+
   const handleMultiSelection = (ev, {value: valueOptionSelected}) => {
-    const newValues = values.includes(valueOptionSelected)
-      ? values.filter(value => value !== valueOptionSelected)
-      : [...values, valueOptionSelected]
-    const {key} = ev
-    const isKeySelection = keysSelection.includes(key)
-    onChange(ev, {value: newValues})
-    if (ev.key !== undefined && !isKeySelection) onToggle(ev, {isOpen: false})
+    const handleToggle = ev => {
+      const {key} = ev
+      const isKeySelection = keysSelection.includes(key)
+      if (ev.key !== undefined && !isKeySelection) onToggle(ev, {isOpen: false})
+    }
+
+    const isValueSelectedAlreadySelected = () =>
+      values.includes(valueOptionSelected)
+
+    const removeFromValues = () =>
+      values.filter(value => value !== valueOptionSelected)
+
+    const addToValues = () => [...values, valueOptionSelected]
+
+    const isFull = () => maxTags && tags?.length >= maxTags
+
+    if (isValueSelectedAlreadySelected()) {
+      onChange(ev, {value: removeFromValues()})
+    } else if (!isFull()) {
+      onChange(ev, {value: addToValues()})
+    }
+    handleToggle(ev)
   }
 
   const handleChangeTags = (ev, {tags: value}) => {
     onChange(ev, {value})
     refMoleculeSelect.current.focus()
   }
-
-  const tags = values.map(value => optionsData[value])
 
   return (
     <>
@@ -61,6 +77,7 @@ const MoleculeSelectFieldMultiSelection = props => {
         required={required}
         size={selectSize}
         tabIndex={tabIndex}
+        maxTags={maxTags}
       />
       <MoleculeDropdownList
         checkbox

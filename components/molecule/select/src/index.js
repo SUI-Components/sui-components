@@ -197,6 +197,9 @@ MoleculeSelect.propTypes = {
   /** if select accept single value or multiple values */
   multiselection: PropTypes.bool,
 
+  /** if multiselection, limit the number of selected values */
+  maxTags: PropTypes.number,
+
   /** value selected */
   value: PropTypes.any,
 

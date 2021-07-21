@@ -1,9 +1,13 @@
 import {useRef, useState} from 'react'
+import {H1, Paragraph} from '@s-ui/documentation-library'
 
 import AtomTooltip, {AtomTooltipBase} from 'components/atom/tooltip/src'
 
+import DefaultArticle from './DefaultArticle'
+
 const {COLORS, PLACEMENTS} = AtomTooltip
 const baseClass = 'DemoTooltip'
+const articleClass = `${baseClass}-article`
 
 const HtmlTooltipDecember = () => (
   <>
@@ -26,7 +30,13 @@ const Demo = () => {
   return (
     <div className="sui-StudioPreview">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
-        <h1>Tooltip</h1>
+        <H1>Tooltip</H1>
+        <Paragraph>
+          A tooltip is a transient view that shows on a content screen when a
+          user hovers on a defined html element. It is generally used in big
+          screens (tablet or bigger) and might be avoid for mobile devices.
+        </Paragraph>
+        <DefaultArticle className={articleClass} />
         <h2>Basic Usage</h2>
         <p>
           <code>AtomTooltip</code> will use the <code>title</code> (plain text)
@@ -35,7 +45,7 @@ const Demo = () => {
         <div className={`${baseClass}-boxExample`}>
           <p>
             Lorem ipsum dolor sit amet{' '}
-            <AtomTooltip>
+            <AtomTooltip content={HtmlTooltipDecember} hideArrow={false}>
               <u title="Last month of this year 2018">december</u>
             </AtomTooltip>
           </p>
@@ -50,7 +60,7 @@ const Demo = () => {
           {COLORS.map(colorName => (
             <p key={`color-${colorName}`}>
               Lorem ipsum dolor sit amet{' '}
-              <AtomTooltip color={colorName}>
+              <AtomTooltip color={colorName} content={HtmlTooltipDecember}>
                 <u title={`This is the ${colorName} color`}>
                   {colorName} color
                 </u>

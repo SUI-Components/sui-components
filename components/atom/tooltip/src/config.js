@@ -53,3 +53,5 @@ export const PLACEMENTS = {
   LEFT_START: 'left-start',
   LEFT_END: 'left-end'
 }
+
+export const DEFAULT_OFFSET = 'auto,4px'

@@ -1,14 +1,11 @@
-import {
-  createRef,
-  Children,
-  createElement,
-  cloneElement,
-  Component
-} from 'react'
+import {createRef, Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import {withIntersectionObserver, withOpenToggle} from '@s-ui/hoc'
+import {
+  // withIntersectionObserver,
+  withOpenToggle
+} from '@s-ui/hoc'
 
 import {
   BASE_CLASS,
@@ -17,7 +14,8 @@ import {
   CLASS_TARGET,
   COLORS,
   PREFIX_PLACEMENT,
-  PLACEMENTS, DEFAULT_OFFSET
+  PLACEMENTS,
+  DEFAULT_OFFSET
 } from './config'
 import loadable from '@loadable/component'
 
@@ -224,6 +222,7 @@ class AtomTooltip extends Component {
     return (
       <>
         <TooltipExtendChildren
+          className={CLASS_TARGET}
           ref={this.targetRef}
           onToggle={this.handleToggle}
         >
@@ -308,7 +307,9 @@ AtomTooltip.propTypes = {
    * 'alert',
    * 'error'
    */
-  color: PropTypes.oneOf(COLORS)
+  color: PropTypes.oneOf(COLORS),
+
+  children: PropTypes.node
 }
 
 const ExportedAtomTooltip =

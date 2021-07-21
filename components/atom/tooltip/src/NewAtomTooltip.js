@@ -1,7 +1,20 @@
 import {forwardRef, useCallback, useRef} from 'react'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 import loadable from '@loadable/component'
+import PropTypes from 'prop-types'
 import cx from 'classnames'
+
+import {
+  BASE_CLASS,
+  CLASS_INNER,
+  CLASS_ARROW,
+  PREFIX_PLACEMENT,
+  CLASS_TARGET,
+  COLORS,
+  // PLACEMENTS,
+  DEFAULT_OFFSET
+} from './config'
+import TooltipExtendChildren from './TooltipExtendChildren'
 
 const createClasses = (array, sufix = '') => {
   return array.reduce(
@@ -11,18 +24,6 @@ const createClasses = (array, sufix = '') => {
 }
 
 const COLOR_CLASSES = createClasses(COLORS, 'Color')
-
-import {
-  BASE_CLASS,
-  CLASS_INNER,
-  CLASS_ARROW,
-  PREFIX_PLACEMENT,
-  CLASS_TARGET,
-  COLORS,
-  PLACEMENTS,
-  DEFAULT_OFFSET
-} from './config'
-import TooltipExtendChildren from './TooltipExtendChildren'
 
 const Tooltip = loadable(() => import('reactstrap/lib/Tooltip'), {ssr: true})
 
@@ -50,7 +51,7 @@ const NewAtomTooltip = forwardRef(
     const childrenRef = useRef()
     return (
       <>
-        <TooltipExtendChildren ref={childrenRef}>
+        <TooltipExtendChildren ref={childrenRef} className={CLASS_TARGET}>
           {children}
         </TooltipExtendChildren>
         <Tooltip
@@ -72,5 +73,16 @@ const NewAtomTooltip = forwardRef(
     )
   }
 )
+
+NewAtomTooltip.propTypes = {
+  isVisible: PropTypes.any,
+  defaultIsVisible: PropTypes.any,
+  handleToggle: PropTypes.any,
+  children: PropTypes.any,
+  color: PropTypes.any,
+  trigger: PropTypes.any,
+  placement: PropTypes.any,
+  content: PropTypes.any
+}
 
 export default NewAtomTooltip

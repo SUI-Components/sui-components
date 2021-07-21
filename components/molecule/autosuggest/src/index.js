@@ -263,6 +263,12 @@ MoleculeAutosuggest.propTypes = {
   /** Left UI Icon */
   leftIcon: PropTypes.node,
 
+  /** Max allowed input value length */
+  maxLength: PropTypes.number,
+
+  /** Min required input value length */
+  minLength: PropTypes.number,
+
   /** if select accept single value or multiple values */
   multiselection: PropTypes.bool,
 

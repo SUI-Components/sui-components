@@ -28,13 +28,16 @@ export function formatToBase64({
 
             if (!browserAutoRotates) {
               switch (getExifOrientationResult) {
-                case (3, 4):
+                case 3:
+                case 4:
                   options.rotation = 180
                   break
-                case (5, 6):
+                case 5:
+                case 6:
                   options.rotation = 90
                   break
-                case (7, 8):
+                case 7:
+                case 8:
                   options.rotation = 270
               }
             }

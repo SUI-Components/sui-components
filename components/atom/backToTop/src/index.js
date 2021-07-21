@@ -50,7 +50,7 @@ const AtomBackToTop = forwardRef(
       return () => {
         container.removeEventListener('scroll', handleScroll)
       }
-    }, [minHeight, refContainer, show, setShow])
+    }, [minHeight, refContainer, show, setShow, onIsVisibleToggle, onScroll])
 
     const scrollToTop = useCallback(() => {
       const container = getTarget(refContainer)
@@ -59,7 +59,7 @@ const AtomBackToTop = forwardRef(
         top: 0,
         behavior: scrollBehavior
       })
-    }, [refContainer])
+    }, [refContainer, scrollBehavior])
 
     return createPortal(
       <button

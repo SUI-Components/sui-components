@@ -92,7 +92,7 @@ $class-arrow: '#{$base-class}-arrow';
     }
   }
 
-  &#{$base-class}--top {
+  &--top {
     margin: $mt-atom-popover 0;
 
     #{$class-arrow} {
@@ -101,7 +101,7 @@ $class-arrow: '#{$base-class}-arrow';
     }
   }
 
-  &#{$base-class}--right {
+  &--right {
     margin: 0 $mr-atom-popover;
 
     #{$class-arrow} {
@@ -110,7 +110,7 @@ $class-arrow: '#{$base-class}-arrow';
     }
   }
 
-  &#{$base-class}--bottom {
+  &--bottom {
     margin: $mb-atom-popover 0;
 
     #{$class-arrow} {
@@ -118,7 +118,7 @@ $class-arrow: '#{$base-class}-arrow';
     }
   }
 
-  &#{$base-class}--left {
+  &--left {
     margin: 0 $ml-atom-popover;
 
     #{$class-arrow} {
@@ -127,7 +127,7 @@ $class-arrow: '#{$base-class}-arrow';
     }
   }
 
-  &#{$base-class}--auto {
+  &--auto {
     &[x-placement^='top'] {
       @extend #{$base-class}--top;
     }

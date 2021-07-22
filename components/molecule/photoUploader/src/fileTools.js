@@ -1,6 +1,7 @@
 import {formatToBase64} from './photoTools'
 
 import {
+  ACTIONS,
   DEFAULT_HAS_ERRORS_STATUS,
   DEFAULT_IMAGE_ROTATION_DEGREES,
   REJECT_FILES_REASONS
@@ -175,7 +176,7 @@ export const prepareFiles = ({
         if (index >= newFiles.length - 1) {
           setIsLoading(false)
           _scrollToBottom()
-          _callbackPhotosUploaded(currentFiles)
+          _callbackPhotosUploaded(currentFiles, {action: ACTIONS.UPLOAD})
         }
       })
   }, Promise.resolve())
@@ -217,7 +218,7 @@ export const loadInitialPhotos = ({
       setInitialDownloadError()
     }
     setFiles([...readyPhotos])
-    _callbackPhotosUploaded(readyPhotos)
+    _callbackPhotosUploaded(readyPhotos, {action: ACTIONS.LOAD_INITIAL_PHOTOS})
     setIsLoading(false)
   })
 }

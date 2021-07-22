@@ -40,3 +40,12 @@ export const REJECT_FILES_REASONS = {
   maxSize: 'Exceding max size of : ',
   loadFailed: 'Load failed, corrupt file.'
 }
+
+export const ACTIONS = {
+  SORT: 'SORT',
+  DELETE: 'DELETE',
+  ROTATE: 'ROTATE',
+  RETRY_UPLOAD: 'RETRY_UPLOAD',
+  UPLOAD: 'UPLOAD',
+  LOAD_INITIAL_PHOTOS: 'LOAD_INITIAL_PHOTOS'
+}

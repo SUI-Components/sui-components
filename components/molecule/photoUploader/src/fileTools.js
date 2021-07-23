@@ -218,7 +218,7 @@ export const loadInitialPhotos = ({
       setInitialDownloadError()
     }
     setFiles([...readyPhotos])
-    _callbackPhotosUploaded(readyPhotos, {action: ACTIONS.LOAD_INITIAL_PHOTOS})
+    _callbackPhotosUploaded(readyPhotos, {action: ACTIONS.INITIAL_LOAD})
     setIsLoading(false)
   })
 }

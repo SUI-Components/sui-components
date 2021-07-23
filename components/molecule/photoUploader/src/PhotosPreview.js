@@ -198,7 +198,7 @@ const PhotosPreview = ({
       setList={setFiles}
       animation={200}
       draggable={`.${THUMB_SORTABLE_CLASS_NAME}`}
-      onEnd={sortedFile => _onSortEnd(sortedFile)}
+      onEnd={event => _onSortEnd(event)}
       delay={dragDelay}
     >
       <>

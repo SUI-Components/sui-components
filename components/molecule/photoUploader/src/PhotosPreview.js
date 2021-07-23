@@ -20,7 +20,8 @@ import {
   ROTATION_DIRECTION,
   DEFAULT_IMAGE_ASPECT_RATIO,
   DEFAULT_MAX_IMAGE_HEIGHT,
-  DEFAULT_MAX_IMAGE_WIDTH
+  DEFAULT_MAX_IMAGE_WIDTH,
+  ACTIONS
 } from './config'
 
 const PREVIEW_CARD_CLASS_NAME = `${BASE_CLASS_NAME}-preview`
@@ -48,8 +49,8 @@ const PhotosPreview = ({
   setNotificationError,
   thumbIconSize
 }) => {
-  const _onSortEnd = () => {
-    _callbackPhotosUploaded(files)
+  const _onSortEnd = event => {
+    _callbackPhotosUploaded(files, {action: ACTIONS.SORT, data: event})
   }
 
   const _deleteItem = index => {
@@ -57,7 +58,13 @@ const PhotosPreview = ({
     list.splice(index, 1)
     setFiles(list)
     setNotificationError(DEFAULT_NOTIFICATION_ERROR)
-    _callbackPhotosUploaded(list)
+    _callbackPhotosUploaded(list, {
+      action: ACTIONS.DELETE,
+      data: {
+        itemIndex: index,
+        item: files[index]
+      }
+    })
   }
 
   const _rotateItem = index => {
@@ -92,7 +99,13 @@ const PhotosPreview = ({
         )
         setFiles(list)
         setNotificationError(DEFAULT_NOTIFICATION_ERROR)
-        _callbackPhotosUploaded(list)
+        _callbackPhotosUploaded(list, {
+          action: ACTIONS.ROTATE,
+          data: {
+            itemIndex: index,
+            item: files[index]
+          }
+        })
       })
   }
 
@@ -127,7 +140,13 @@ const PhotosPreview = ({
         }
 
         setFiles([..._files])
-        _callbackPhotosUploaded(_files)
+        _callbackPhotosUploaded(_files, {
+          ACTION: ACTIONS.RETRY_UPLOAD,
+          data: {
+            itemIndex: index,
+            item: files[index]
+          }
+        })
         setIsLoading(false)
       }
     )
@@ -179,7 +198,7 @@ const PhotosPreview = ({
       setList={setFiles}
       animation={200}
       draggable={`.${THUMB_SORTABLE_CLASS_NAME}`}
-      onEnd={() => _onSortEnd()}
+      onEnd={event => _onSortEnd(event)}
       delay={dragDelay}
     >
       <>

@@ -3,55 +3,24 @@ const path = require('path')
 
 const regex = /!\[(?<alt>.*?)]\((?<filename>.*?)(?="|\))(?<optionalpart>".*")?\)/g
 
+const THRESHOLDS = Object.freeze({
+  0: '000000',
+  30: '330000',
+  40: '550000',
+  50: 'AA0000',
+  60: 'red',
+  70: 'orange',
+  75: 'yellow',
+  80: 'yellowgreen',
+  85: 'green',
+  90: 'brightgreen'
+})
+
 const colorThresholds = {
-  lines: {
-    0: '000000',
-    30: '330000',
-    40: '550000',
-    50: 'AA0000',
-    60: 'red',
-    70: 'orange',
-    75: 'yellow',
-    80: 'yellowgreen',
-    85: 'green',
-    90: 'brightgreen'
-  },
-  statements: {
-    0: '000000',
-    30: '330000',
-    40: '550000',
-    50: 'AA0000',
-    60: 'red',
-    70: 'orange',
-    75: 'yellow',
-    80: 'yellowgreen',
-    85: 'green',
-    90: 'brightgreen'
-  },
-  functions: {
-    0: '000000',
-    30: '330000',
-    40: '550000',
-    50: 'AA0000',
-    60: 'red',
-    70: 'orange',
-    75: 'yellow',
-    80: 'yellowgreen',
-    85: 'green',
-    90: 'brightgreen'
-  },
-  branches: {
-    0: '000000',
-    30: '330000',
-    40: '550000',
-    50: 'AA0000',
-    60: 'red',
-    70: 'orange',
-    75: 'yellow',
-    80: 'yellowgreen',
-    85: 'green',
-    90: 'brightgreen'
-  }
+  lines: Object.assign({}, THRESHOLDS),
+  statements: Object.assign({}, THRESHOLDS),
+  functions: Object.assign({}, THRESHOLDS),
+  branches: Object.assign({}, THRESHOLDS)
 }
 
 const getShield = ({key, value}) => {

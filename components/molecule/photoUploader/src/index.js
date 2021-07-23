@@ -117,7 +117,7 @@ const MoleculePhotoUploader = forwardRef(
       }
     })
 
-    const _callbackPhotosUploaded = (list, data) => {
+    const _callbackPhotosUploaded = (list, ...rest) => {
       const blobsArray = list.reduce((array, currentFile) => {
         const {
           blob,
@@ -141,7 +141,7 @@ const MoleculePhotoUploader = forwardRef(
         })
         return [...array]
       }, [])
-      callbackPhotosUploaded(blobsArray, data)
+      callbackPhotosUploaded(blobsArray, ...rest)
     }
 
     const _onDropRejected = rejectedFiles => {

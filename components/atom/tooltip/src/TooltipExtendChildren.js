@@ -9,7 +9,11 @@ const TooltipExtendChildren = forwardRef(
     }
     const childrenOnly =
       typeof children === 'string'
-        ? [<span key={1}>{children}</span>]
+        ? [
+            <span className={`${classNameTarget}--wrapper`} key={1}>
+              {children}
+            </span>
+          ]
         : Children.only(children)
     const response = Children.map(childrenOnly, (child, key) => {
       const {onClick, className} = child.props

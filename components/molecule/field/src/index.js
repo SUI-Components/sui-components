@@ -16,14 +16,17 @@ const CLASS_INLINE_REVERSE = `${CLASS_INLINE}-reverse`
 const CLASS_NODE_LABEL_CONTAINER = `${BASE_CLASS}-nodeLabelContainer`
 const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-inputContainer`
 const CLASS_LABEL_CONTAINER = `${BASE_CLASS}-labelContainer`
+const CLASS_BOLD = `${BASE_CLASS}--isBold`
 
 const MoleculeLabel = ({
   label,
   nodeLabel,
   type: typeValidationLabel,
   name,
+  isBold = false,
   onClick
 }) => {
+  const className = cx(CLASS_NODE_LABEL_CONTAINER, isBold && CLASS_BOLD)
   const innerLabel = () => {
     if (label) {
       return (
@@ -42,7 +45,7 @@ const MoleculeLabel = ({
       })
     }
   }
-  return <div className={CLASS_NODE_LABEL_CONTAINER}>{innerLabel()}</div>
+  return <div className={className}>{innerLabel()}</div>
 }
 
 MoleculeLabel.propTypes = {
@@ -50,7 +53,8 @@ MoleculeLabel.propTypes = {
   nodeLabel: PropTypes.element,
   type: PropTypes.oneOf(Object.values(AtomLabelTypes)),
   name: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  isBold: PropTypes.bool
 }
 
 const MoleculeField = ({
@@ -64,6 +68,7 @@ const MoleculeField = ({
   fullWidth,
   useContrastLabel,
   helpText,
+  isBold,
   name,
   onClickLabel,
   onChange: onChangeFromProps,
@@ -116,6 +121,7 @@ const MoleculeField = ({
         <div className={CLASS_LABEL_CONTAINER}>
           {inline && extendedChildren}
           <MoleculeLabel
+            isBold={isBold}
             type={typeValidationLabel}
             name={name}
             label={label}
@@ -192,7 +198,10 @@ MoleculeField.propTypes = {
   autoHideHelpText: PropTypes.bool,
 
   /** Boolean to indicate if there is a checkbox or radiobutton & it has to be aligned  */
-  isAligned: PropTypes.bool
+  isAligned: PropTypes.bool,
+
+  /** Boolean to decide if input should be bold or not */
+  isBold: PropTypes.bool
 }
 
 export default MoleculeField

@@ -52,6 +52,10 @@ $atomHelpText-class: '.sui-AtomHelpText';
     }
   }
 
+  &--isBold {
+    font-weight: $fw-bold;
+  }
+
   &--autohide {
     #{$atomHelpText-class} {
       display: none;

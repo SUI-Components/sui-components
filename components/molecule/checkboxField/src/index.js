@@ -15,6 +15,7 @@ const MoleculeCheckboxField = ({
   alertText,
   helpText,
   onChange,
+  isBoldLabel,
   toggleIcon: ToggleIcon,
   toggleIconOnChange = () => {},
   ...props
@@ -22,6 +23,7 @@ const MoleculeCheckboxField = ({
   return (
     <div className={BASE_CLASS}>
       <MoleculeField
+        isBold={isBoldLabel}
         name={id}
         label={label}
         nodeLabel={nodeLabel}
@@ -86,7 +88,10 @@ MoleculeCheckboxField.propTypes = {
   toggleIcon: PropTypes.elementType,
 
   /* onChange callback for toggle icon */
-  toggleIconOnChange: PropTypes.func
+  toggleIconOnChange: PropTypes.func,
+
+  /** Boolean to decide if text should be bold or not */
+  isBoldLabel: PropTypes.bool
 }
 
 export default MoleculeCheckboxField

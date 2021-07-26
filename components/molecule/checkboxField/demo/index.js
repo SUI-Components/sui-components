@@ -82,6 +82,16 @@ const Demo = () => {
               onChange={(e, {name, value}) => console.log({[name]: value})}
             />
           </li>
+          <li style={styleListItem}>
+            <h2>With isBoldLabel true</h2>
+            <MoleculeCheckboxField
+              id="is-bold-label"
+              isBoldLabel
+              label="Notes"
+              value="In some place of La Mancha which name..."
+              onChange={(e, {name, value}) => console.log({[name]: value})}
+            />
+          </li>
         </ul>
       </div>
     </div>

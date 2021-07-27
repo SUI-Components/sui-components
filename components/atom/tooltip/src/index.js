@@ -28,7 +28,7 @@ const createClasses = (array, sufix = '') => {
   )
 }
 
-const COLOR_CLASSES = createClasses(COLORS, 'Color')
+const COLOR_CLASSES = createClasses(Object.values(COLORS), 'Color')
 
 // https://github.com/reactstrap/reactstrap/blob/8.9.0/src/Tooltip.js
 const Tooltip = loadable(() => import('reactstrap/lib/Tooltip'), {ssr: true})
@@ -239,7 +239,7 @@ class AtomTooltip extends Component {
           placementPrefix={PREFIX_PLACEMENT}
           innerRef={this.refTooltip}
           offset={DEFAULT_OFFSET}
-          trigger="click"
+          trigger="legacy"
         >
           {HtmlContent ? <HtmlContent /> : this.title}
         </Tooltip>

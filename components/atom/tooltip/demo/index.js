@@ -1,9 +1,25 @@
-import {useRef, useState} from 'react'
-import {H1, Paragraph} from '@s-ui/documentation-library'
+import {useRef, useState, useEffect} from 'react'
+import {
+  H1,
+  Paragraph,
+  RadioButtonGroup,
+  RadioButton,
+  AntDesignIcon,
+  ListItem,
+  UnorderedList,
+  Bold,
+  Code,
+  Label
+} from '@s-ui/documentation-library'
 
 import AtomTooltip, {AtomTooltipBase} from 'components/atom/tooltip/src'
 
 import DefaultArticle from './DefaultArticle'
+import ControlledAndUncontrolledArticle from './ControlledAndUncontrolledArticle'
+import PlacementArticle from './PlacementArticle'
+import DelayArticle from './DelayArticle'
+import ColorArticle from './ColorArticle'
+import IsArrowedArticle from './IsArrowedArticle'
 
 const {COLORS, PLACEMENTS} = AtomTooltip
 const baseClass = 'DemoTooltip'
@@ -17,15 +33,29 @@ const HtmlTooltipDecember = () => (
 const iconMenuHamburguer =
   'https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png'
 
+const DEVICE_TO_TRIGGER = {
+  undefined: '',
+  desktop: 'hover',
+  mobile: 'legacy',
+  tablet: 'legacy'
+}
+
 const Demo = () => {
   // Usefull for isOpen example
   const [isOpen, setIsOpen] = useState(false)
+  const [device, setDevice] = useState('undefined')
+  const [trigger, setTrigger] = useState(undefined)
+
   const ref1 = useRef()
   const ref2 = useRef()
   const setInnerRef = ref => innerRef => {
     ref.current = innerRef
   }
   const log = msg => () => console.log(msg) // eslint-disable-line
+
+  useEffect(() => {
+    setTrigger(DEVICE_TO_TRIGGER[device])
+  }, [device, DEVICE_TO_TRIGGER, setTrigger])
 
   return (
     <div className="sui-StudioPreview">
@@ -36,323 +66,61 @@ const Demo = () => {
           user hovers on a defined html element. It is generally used in big
           screens (tablet or bigger) and might be avoid for mobile devices.
         </Paragraph>
-        <DefaultArticle className={articleClass} />
-        <h2>Basic Usage</h2>
-        <p>
-          <code>AtomTooltip</code> will use the <code>title</code> (plain text)
-          of the wrapped element as content for the tooltip
-        </p>
-        <div className={`${baseClass}-boxExample`}>
-          <p>
-            Lorem ipsum dolor sit amet{' '}
-            <AtomTooltip content={HtmlTooltipDecember} hideArrow={false}>
-              <u title="Last month of this year 2018">december</u>
-            </AtomTooltip>
-          </p>
-        </div>
-        <h2>Color tooltip</h2>
-        <p>
-          We can set <code>color</code> property to <code>AtomTooltip</code> in
-          order use theme colors.
-        </p>
-        <small>By default it will use the default color by SCSS (black).</small>
-        <div className={`${baseClass}-boxExample`}>
-          {COLORS.map(colorName => (
-            <p key={`color-${colorName}`}>
-              Lorem ipsum dolor sit amet{' '}
-              <AtomTooltip color={colorName} content={HtmlTooltipDecember}>
-                <u title={`This is the ${colorName} color`}>
-                  {colorName} color
-                </u>
-              </AtomTooltip>
-            </p>
-          ))}
-        </div>
-        <h2>HTML for content of the tooltip </h2>
-        <p>
-          We can also set HTML as content of the Tooltip by passing a React
-          component to the prop <code>content</code> of <code>AtomTooltip</code>
-          .
-        </p>
-        <small>
-          By default it will use the <code>title</code> of the wrapped element
-          as content of the tooltip
-        </small>
-        <div className={`${baseClass}-boxExample`}>
-          <p>
-            Lorem ipsum dolor sit amet{' '}
-            <AtomTooltip content={HtmlTooltipDecember}>
-              <strong>december</strong>
-            </AtomTooltip>
-          </p>
-        </div>
-        <h2>
-          Positioning tooltip with <code>placement</code>
-        </h2>
-        <div>
-          <div className={`${baseClass}-boxExample`}>
-            <ul className={`${baseClass}-containerList`}>
-              {/* --- bottom --- */}
-              <li className={`${baseClass}-containerListItem--bottom`}>
-                <AtomTooltip
-                  placement={PLACEMENTS.BOTTOM_START}
-                  content={() => <code>placement='bottom-start'</code>}
-                >
-                  <strong tabIndex="11">bottom-start</strong>
-                </AtomTooltip>
-                <AtomTooltip
-                  placement={PLACEMENTS.BOTTOM}
-                  content={() => <code>placement='bottom'</code>}
-                >
-                  <strong tabIndex="12">bottom</strong>
-                </AtomTooltip>
-                <AtomTooltip
-                  placement={PLACEMENTS.BOTTOM_END}
-                  content={() => <code>placement='bottom-end'</code>}
-                >
-                  <strong tabIndex="13">bottom-end</strong>
-                </AtomTooltip>
-              </li>
-
-              {/* --- left --- */}
-              <li className={`${baseClass}-containerListItem--left`}>
-                <AtomTooltip
-                  placement={PLACEMENTS.LEFT_START}
-                  content={() => (
-                    <span>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                      <br />
-                      <code>placement='left-start'</code>
-                    </span>
-                  )}
-                >
-                  <strong tabIndex="14">left-start</strong>
-                </AtomTooltip>
-                <AtomTooltip
-                  placement={PLACEMENTS.LEFT}
-                  content={() => (
-                    <span>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                      <br />
-                      <code>placement='left'</code>
-                    </span>
-                  )}
-                >
-                  <strong tabIndex="15">left</strong>
-                </AtomTooltip>
-                <AtomTooltip
-                  placement={PLACEMENTS.LEFT_END}
-                  content={() => (
-                    <span>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                      <br />
-                      <code>placement='left-end'</code>
-                    </span>
-                  )}
-                >
-                  <strong tabIndex="16">left-end</strong>
-                </AtomTooltip>
-              </li>
-
-              {/* --- right --- */}
-              <li className={`${baseClass}-containerListItem--right`}>
-                <AtomTooltip
-                  placement={PLACEMENTS.RIGHT_START}
-                  content={() => (
-                    <span>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                      <br />
-                      <code>placement='right-start'</code>
-                    </span>
-                  )}
-                >
-                  <strong
-                    className={`${baseClass}-containerListItem--rightLabel`}
-                    tabIndex="8"
-                  >
-                    right-start
-                  </strong>
-                </AtomTooltip>
-                <AtomTooltip
-                  placement={PLACEMENTS.RIGHT}
-                  content={() => (
-                    <span>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                      <br />
-                      <code>placement='right'</code>
-                    </span>
-                  )}
-                >
-                  <strong
-                    className={`${baseClass}-containerListItem--rightLabel`}
-                    tabIndex="9"
-                  >
-                    right
-                  </strong>
-                </AtomTooltip>
-                <AtomTooltip
-                  placement={PLACEMENTS.RIGHT_END}
-                  content={() => (
-                    <span>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                      <br />
-                      <code>placement='right-end'</code>
-                    </span>
-                  )}
-                >
-                  <strong
-                    className={`${baseClass}-containerListItem--rightLabel`}
-                    tabIndex="10"
-                  >
-                    right-end
-                  </strong>
-                </AtomTooltip>
-              </li>
-
-              {/* --- top --- */}
-              <li className={`${baseClass}-containerListItem--top`}>
-                <AtomTooltip
-                  placement={PLACEMENTS.TOP_START}
-                  content={() => <code>placement='top-start'</code>}
-                >
-                  <strong tabIndex="5">top-start</strong>
-                </AtomTooltip>
-
-                <AtomTooltip
-                  placement={PLACEMENTS.TOP}
-                  content={() => <code>placement='top'</code>}
-                >
-                  <strong tabIndex="6">top</strong>
-                </AtomTooltip>
-                <AtomTooltip
-                  placement={PLACEMENTS.TOP_END}
-                  content={() => <code>placement='top-end'</code>}
-                >
-                  <strong tabIndex="7">top-end</strong>
-                </AtomTooltip>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <h2>
-          Maintain tooltip on hover over tooltp with <code>autohide=false</code>{' '}
-          (so users can select text in tooltip)
-        </h2>
-        <div className={`${baseClass}-boxExample`}>
-          <p>
-            Lorem ipsum dolor sit amet{' '}
-            <AtomTooltip autohide={false}>
-              <strong
-                title="Leo sagittis dignissim ornare egestas primis parturient ante diam fusce,
-            sollicitudin viverra felis inceptos turpis."
-              >
-                december
-              </strong>
-            </AtomTooltip>
-          </p>
-        </div>
-        <h2>Delay on show/hide and click outside to hide</h2>
-        <div className={`${baseClass}-boxExample`}>
-          <p>
-            Lorem ipsum dolor sit amet{' '}
-            <AtomTooltip delay={{show: 300, hide: 1500}}>
-              <strong
-                title="Vehicula neque sociis leo odio nostra fames ridiculus cubilia nunc,
-            ultricies tortor egestas vitae sed maecenas "
-                tabIndex="2"
-              >
-                november
-              </strong>
-            </AtomTooltip>
-          </p>
-        </div>
-        <h2>
-          Maximum of 4 lines with <em>ellipsis</em>
-        </h2>
-        <div className={`${baseClass}-boxExample`}>
-          <p>
-            Lorem ipsum dolor sit amet{' '}
-            <AtomTooltip placement={PLACEMENTS.BOTTOM_END}>
-              <strong
-                title="Hendrerit varius luctus scelerisque habitant ridiculus, vulputate mollis
-            platea nunc sociosqu magna, suscipit montes ullamcorper vivamus. Montes
-            aenean nostra magna inceptos himenaeos enim lacinia ornare libero,
-            quisque sed duis placerat hac arcu porttitor lobortis rutrum,"
-                tabIndex="3"
-              >
-                astros
-              </strong>
-            </AtomTooltip>
-          </p>
-        </div>
-        <h2>
-          Tooltip without arrow using <code>hideArrow</code>
-        </h2>
-        <div className={`${baseClass}-boxExample`}>
-          <p>
-            Lorem ipsum dolor sit amet{' '}
-            <AtomTooltip
-              placement={PLACEMENTS.RIGHT}
-              content={() => (
-                <>
-                  Hello <strong>world</strong>!
-                </>
-              )}
-              hideArrow
-            >
-              <strong tabIndex="4">astros</strong>
-            </AtomTooltip>
-          </p>
-        </div>
-        <h2>
-          Buttons with <code>onClick</code> can also have a tooltip
-        </h2>
-        <ul>
-          <li>
-            Desktop (Non-touch devices)→ <code>click</code>: button action |{' '}
-            <code>hover</code>: tooltip
-          </li>
-          <li>
-            Mobile (Touch devices)→ <code>click</code>: button action |{' '}
-            <code>long press</code>: tooltip
-          </li>
-        </ul>
-        <div className={`${baseClass}-boxExample`}>
-          <AtomTooltip>
-            <button
-              style={{
-                border: '1px solid #ccc',
-                fontSize: '30px'
-              }}
-              title="This menu display some cool options"
-              onClick={log('👍  action triggered')}
-            >
-              <img height="30" src={iconMenuHamburguer} alt="" />
-            </button>
-          </AtomTooltip>
-        </div>
-        <h2>
-          Manage <b>isOpen</b> status from outside
-        </h2>
-        <p>
-          You can use the <b>isOpen</b> property to set to the AtomTooltipBase
-          if it should be shown or not.
-        </p>
-        <div className={`${baseClass}-boxExample`}>
-          <p>
-            Lorem ipsum dolor sit amet{' '}
-            <AtomTooltipBase isOpen={isOpen} innerRef={setInnerRef(ref1)}>
-              <u title="Last month of this year 2018">december</u>
-            </AtomTooltipBase>
-            &nbsp;and&nbsp;
-            <AtomTooltipBase isOpen={!isOpen} innerRef={setInnerRef(ref2)}>
-              <u title="Last month of this year 2018">not december</u>
-            </AtomTooltipBase>
-          </p>
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? 'hide tooltip' : 'open tooltip'}
-          </button>
-        </div>
+        <Paragraph>General behaviour will be:</Paragraph>
+        <UnorderedList>
+          <ListItem>
+            <Bold>Desktop (Non-touch devices)</Bold>: tooltip will be displayed
+            only on <Code>mouseover</Code>.
+          </ListItem>
+          <ListItem>
+            <Bold>Mobile (Touch devices)</Bold>: tooltip will be displayed on{' '}
+            <Code>touch</Code> over target element and hidden w/ another{' '}
+            <Code>touch</Code> outside of it
+          </ListItem>
+        </UnorderedList>
+        <Label>Device:</Label>
+        <RadioButtonGroup
+          value={device}
+          onChange={(ev, val) => setDevice(val || 'undefined')}
+        >
+          <RadioButton
+            checked={device === 'undefined'}
+            value="undefined"
+            label={'undefined'}
+          />
+          <RadioButton
+            checked={device === 'desktop'}
+            value="desktop"
+            label={<AntDesignIcon icon="AiOutlineDesktop" />}
+          />
+          <RadioButton
+            checked={device === 'mobile'}
+            value="mobile"
+            label={<AntDesignIcon icon="AiOutlineMobile" />}
+          />
+          <RadioButton
+            checked={device === 'tablet'}
+            value="tablet"
+            label={<AntDesignIcon icon="AiOutlineTablet" />}
+          />
+        </RadioButtonGroup>
+        <br />
+        <br />
+        <DefaultArticle className={articleClass} trigger={trigger} />
+        <br />
+        <ControlledAndUncontrolledArticle
+          className={articleClass}
+          trigger={trigger}
+        />
+        <br />
+        <ColorArticle className={articleClass} trigger={trigger} />
+        <br />
+        <PlacementArticle className={articleClass} trigger={trigger} />
+        <br />
+        <DelayArticle className={articleClass} trigger={trigger} />
+        <br />
+        <IsArrowedArticle className={articleClass} trigger={trigger} />
+        <br />
       </div>
     </div>
   )

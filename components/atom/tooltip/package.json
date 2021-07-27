@@ -12,7 +12,10 @@
     "@loadable/component": "5.15.x",
     "@s-ui/hoc": "1",
     "@s-ui/react-hooks": "1",
-    "reactstrap": "8.9.0"
+    "react-intersection-observer": "8.32.0",
+    "react-use": "^17.2.4",
+    "reactstrap": "8.9.0",
+    "ua-parser-js": "0.7.28"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

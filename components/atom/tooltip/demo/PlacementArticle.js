@@ -1,28 +1,30 @@
 import {useState} from 'react'
-import PropTypes from 'prop-types'
 import {
-  Article,
   H2,
   Paragraph,
-  RadioButton,
+  Code,
+  Article,
   Grid,
   Cell,
-  Box,
-  Code,
-  UnorderedList,
   ListItem,
-  Label
+  Bold,
+  UnorderedList,
+  Label,
+  Box,
+  Input,
+  RadioButton
 } from '@s-ui/documentation-library'
-import AtomPopover from 'components/atom/popover/src'
+import PropTypes from 'prop-types'
+import NewAtomTooltip, {AtomTooltipTriggers} from '../src/NewAtomTooltip'
 
-const ArticlePosition = ({className, content: Content}) => {
-  const [position, setPosition] = useState(undefined)
+const PlacementArticle = ({className, trigger}) => {
+  const [placement, setPlacement] = useState(undefined)
   const handleClick = (event, value) => {
-    setPosition(value)
+    setPlacement(value)
   }
   return (
     <Article className={className}>
-      <H2>Position</H2>
+      <H2>Placement</H2>
       <Paragraph>
         User can define the position where the element is located relative to
         its target using the <Code>placement</Code> prop. There are 15 different
@@ -96,11 +98,11 @@ const ArticlePosition = ({className, content: Content}) => {
         </Cell>
       </Grid>
       <Paragraph>
-        the default value is bottom. it will place the popover at the bottom of
+        the default value is bottom. it will place the tooltip at the bottom of
         the referenced element.
       </Paragraph>
       <Paragraph>
-        If value is auto. It will place the popover automatically depending on
+        If value is auto. It will place the tooltip automatically depending on
         the targeted element and its bindings over the middle of the viewport
         location.
       </Paragraph>
@@ -110,7 +112,7 @@ const ArticlePosition = ({className, content: Content}) => {
           <RadioButton
             onClick={handleClick}
             value="auto-start"
-            checked={position === 'auto-start'}
+            checked={placement === 'auto-start'}
             label="auto-start"
             fullWidth
           />
@@ -119,7 +121,7 @@ const ArticlePosition = ({className, content: Content}) => {
           <RadioButton
             onClick={handleClick}
             value="auto"
-            checked={position === 'auto'}
+            checked={placement === 'auto'}
             label="auto"
             fullWidth
           />
@@ -128,7 +130,7 @@ const ArticlePosition = ({className, content: Content}) => {
           <RadioButton
             onClick={handleClick}
             value="auto-end"
-            checked={position === 'auto-end'}
+            checked={placement === 'auto-end'}
             label="auto-end"
             fullWidth
           />
@@ -139,7 +141,7 @@ const ArticlePosition = ({className, content: Content}) => {
           <RadioButton
             onClick={handleClick}
             value="top-start"
-            checked={position === 'top-start'}
+            checked={placement === 'top-start'}
             label="top-start"
             fullWidth
           />
@@ -148,7 +150,7 @@ const ArticlePosition = ({className, content: Content}) => {
           <RadioButton
             onClick={handleClick}
             value="top"
-            checked={position === 'top'}
+            checked={placement === 'top'}
             label="top"
             fullWidth
           />
@@ -157,7 +159,7 @@ const ArticlePosition = ({className, content: Content}) => {
           <RadioButton
             onClick={handleClick}
             value="top-end"
-            checked={position === 'top-end'}
+            checked={placement === 'top-end'}
             label="top-end"
             fullWidth
           />
@@ -167,7 +169,7 @@ const ArticlePosition = ({className, content: Content}) => {
           <RadioButton
             onClick={handleClick}
             value="left-start"
-            checked={position === 'left-start'}
+            checked={placement === 'left-start'}
             label="left-start"
             fullWidth
           />
@@ -177,7 +179,7 @@ const ArticlePosition = ({className, content: Content}) => {
           <RadioButton
             onClick={handleClick}
             value="right-start"
-            checked={position === 'right-start'}
+            checked={placement === 'right-start'}
             label="right-start"
             fullWidth
           />
@@ -186,14 +188,18 @@ const ArticlePosition = ({className, content: Content}) => {
           <RadioButton
             onClick={handleClick}
             value="left"
-            checked={position === 'left'}
+            checked={placement === 'left'}
             label="left"
             fullWidth
           />
         </Cell>
         <Cell />
         <Cell>
-          <AtomPopover isVisible content={<Content />} placement={position}>
+          <NewAtomTooltip
+            isVisible
+            content="tooltip content"
+            placement={placement}
+          >
             <Box
               fullWidth
               outline
@@ -207,14 +213,14 @@ const ArticlePosition = ({className, content: Content}) => {
             >
               TARGET
             </Box>
-          </AtomPopover>
+          </NewAtomTooltip>
         </Cell>
         <Cell />
         <Cell>
           <RadioButton
             onClick={handleClick}
             value="right"
-            checked={position === 'right'}
+            checked={placement === 'right'}
             label="right"
             fullWidth
           />
@@ -223,7 +229,7 @@ const ArticlePosition = ({className, content: Content}) => {
           <RadioButton
             onClick={handleClick}
             value="left-end"
-            checked={position === 'left-end'}
+            checked={placement === 'left-end'}
             label="left-end"
             fullWidth
           />
@@ -233,7 +239,7 @@ const ArticlePosition = ({className, content: Content}) => {
           <RadioButton
             onClick={handleClick}
             value="right-end"
-            checked={position === 'right-end'}
+            checked={placement === 'right-end'}
             label="right-end"
             fullWidth
           />
@@ -243,7 +249,7 @@ const ArticlePosition = ({className, content: Content}) => {
           <RadioButton
             onClick={handleClick}
             value="bottom-start"
-            checked={position === 'bottom-start'}
+            checked={placement === 'bottom-start'}
             label="bottom-start"
             fullWidth
           />
@@ -252,7 +258,7 @@ const ArticlePosition = ({className, content: Content}) => {
           <RadioButton
             onClick={handleClick}
             value="bottom"
-            checked={position === 'bottom'}
+            checked={placement === 'bottom'}
             label="bottom"
             fullWidth
           />
@@ -261,7 +267,7 @@ const ArticlePosition = ({className, content: Content}) => {
           <RadioButton
             onClick={handleClick}
             value="bottom-end"
-            checked={position === 'bottom-end'}
+            checked={placement === 'bottom-end'}
             label="bottom-end"
             fullWidth
           />
@@ -272,9 +278,9 @@ const ArticlePosition = ({className, content: Content}) => {
   )
 }
 
-ArticlePosition.propTypes = {
+PlacementArticle.defaultProps = {
   className: PropTypes.string,
-  content: PropTypes.elementType
+  trigger: PropTypes.oneOf(Object.values(AtomTooltipTriggers))
 }
 
-export default ArticlePosition
+export default PlacementArticle

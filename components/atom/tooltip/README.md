@@ -1,4 +1,4 @@
-# AtomTooltip
+# AtomTooltip   
 
 AtomTooltip is a component that wraps an element and shows a tooltip over it. It has some properties like:
 - it will show the `title` attribute of the wrapped element by default
@@ -13,11 +13,7 @@ AtomTooltip is a component that wraps an element and shows a tooltip over it. It
 
 General behaviour will be:
 - **Desktop (Non-touch devices)** → tooltip will be displayed only on `mouseover`
-- **Mobile (Touch devices)** → tooltip will be displayed on `click` over target element and hidden w/ another `click` outside of it
-
-For wrapped elements w/ `onClick` action defined:
-- **Desktop (Non-touch devices)** → tooltip will be displayed only on `mouseover`
-- **Mobile (Touch devices)** → tooltip will be displayed on `longpress` (having the element pressed more than 1s). The `click` will trigger the defined action for the element
+- **Mobile (Touch devices)** → tooltip will be displayed on `touch` over target element and hidden w/ another `touch` outside of it
 
 ## Installation
 

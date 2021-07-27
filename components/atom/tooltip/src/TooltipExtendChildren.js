@@ -4,16 +4,12 @@ import PropTypes from 'prop-types'
 
 const TooltipExtendChildren = forwardRef(
   ({className: classNameTarget, children}, targetRef) => {
-    const onClickHandler = handler => ev => {
-      typeof handler === 'function' && handler(ev)
+    const onClickHandler = handler => (...handlerAttrs) => {
+      typeof handler === 'function' && handler(...handlerAttrs)
     }
     const childrenOnly =
       typeof children === 'string'
-        ? [
-            <span className={`${classNameTarget}--wrapper`} key={1}>
-              {children}
-            </span>
-          ]
+        ? [<span key={1}>{children}</span>]
         : Children.only(children)
     const response = Children.map(childrenOnly, (child, key) => {
       const {onClick, className} = child.props

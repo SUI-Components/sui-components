@@ -30,7 +30,8 @@ import {
   DEFAULT_NOTIFICATION_ERROR,
   DRAG_STATE_STATUS_REJECTED,
   ROTATION_DIRECTION,
-  REJECT_FILES_REASONS
+  REJECT_FILES_REASONS,
+  ACTIONS
 } from './config'
 
 const noop = () => {}
@@ -116,7 +117,7 @@ const MoleculePhotoUploader = forwardRef(
       }
     })
 
-    const _callbackPhotosUploaded = list => {
+    const _callbackPhotosUploaded = (list, ...rest) => {
       const blobsArray = list.reduce((array, currentFile) => {
         const {
           blob,
@@ -140,7 +141,7 @@ const MoleculePhotoUploader = forwardRef(
         })
         return [...array]
       }, [])
-      callbackPhotosUploaded(blobsArray)
+      callbackPhotosUploaded(blobsArray, ...rest)
     }
 
     const _onDropRejected = rejectedFiles => {
@@ -509,4 +510,7 @@ MoleculePhotoUploader.propTypes = {
 
 export default MoleculePhotoUploader
 
-export {ROTATION_DIRECTION as MoleculePhotoUploaderRotationDirection}
+export {
+  ROTATION_DIRECTION as MoleculePhotoUploaderRotationDirection,
+  ACTIONS as MoleculePhotoUploaderActions
+}

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.46.0 (2021-07-21)
+
+
+### Features
+
+* **components/molecule/autosuggest:** add maxLength and minLength props to autosuggest ([5e071d2](https://github.com/SUI-Components/sui-components/commit/5e071d2b422fe3fd90270e13ec9c761bd65c28c5))
+
+
+
 # 2.45.0 (2021-06-11)
 
 

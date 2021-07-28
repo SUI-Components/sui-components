@@ -1,5 +1,18 @@
 # CHANGELOG
 
+# 2.4.0 (2021-07-23)
+
+
+### Features
+
+* **components/molecule/photoUploader:** add actions enum in config ([7c0a420](https://github.com/SUI-Components/sui-components/commit/7c0a4201c9c8f4809bcb0bddcc83dcf8753c7b1b))
+* **components/molecule/photoUploader:** instead of name the param, get the rest and pass it to the ([1a77d44](https://github.com/SUI-Components/sui-components/commit/1a77d44b4e6bf917fe286d094a0440a580945947))
+* **components/molecule/photoUploader:** on callbackPhotosUploaded pass data object with which actio ([8cae650](https://github.com/SUI-Components/sui-components/commit/8cae6504c5de286bf98bbbfff7251dae482c9e57))
+* **components/molecule/photoUploader:** onEnd callback rename incoming sortedFile param into event ([1f94b8d](https://github.com/SUI-Components/sui-components/commit/1f94b8d237e680d97eacf5e923593dc1fe9d73f0))
+* **components/molecule/photoUploader:** rename LOAD_INITIAL_PHOTOS action to INITIAL_LOAD ([be0dde1](https://github.com/SUI-Components/sui-components/commit/be0dde1af8409e093c159e2f8b8590821d46deac))
+
+
+
 # 2.3.0 (2021-07-02)
 
 

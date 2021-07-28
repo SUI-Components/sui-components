@@ -183,34 +183,35 @@ $c-atom-tooltip-colors: (
   }
 
   &--auto {
-    &[x-placement^='top'] {
+    &[x-placement*='top'] {
       @extend #{$base-class}--top;
     }
 
-    &[x-placement^='right'] {
-      @extend #{$base-class}--right;
-    }
-
-    &[x-placement^='bottom'] {
+    &[x-placement*='bottom'] {
       @extend #{$base-class}--bottom;
     }
 
-    &[x-placement^='left'] {
+    &[x-placement*='right'] {
+      @extend #{$base-class}--right;
+    }
+
+    &[x-placement*='left'] {
       @extend #{$base-class}--left;
     }
-  }
-
-  &[data-placement='left-start'],
-  &[data-placement='right-start'] {
-    #{$class-inner} {
-      transform: translateY(-8px);
-    }
-  }
-
-  &[data-placement='left-end'],
-  &[data-placement='right-end'] {
-    #{$class-inner} {
-      transform: translateY(8px);
+    &[x-placement*='top'],
+    &[x-placement*='bottom'] {
+      &[x-placement*='start'] {
+        #{$class-arrow} {
+          right: $bdrs-atom-tooltip;
+          left: auto !important;
+        }
+      }
+      &[x-placement*='end'] {
+        #{$class-arrow} {
+          left: $bdrs-atom-tooltip !important;
+          right: auto;
+        }
+      }
     }
   }
 

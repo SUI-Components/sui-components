@@ -32,7 +32,7 @@ const DefaultArticle = ({className, trigger}) => {
       <Grid cols={2} gutter={[8, 8]} style={{height: 340}}>
         <Cell style={cssStyles}>
           <Paragraph>
-            <AtomTooltip content="Tooltip content" trigger={trigger} isVisible>
+            <AtomTooltip content="Tooltip content" trigger={trigger}>
               Simple text with simple text content
             </AtomTooltip>
           </Paragraph>
@@ -46,14 +46,13 @@ const DefaultArticle = ({className, trigger}) => {
                 </Box>
               }
               trigger={trigger}
-              isVisible
             >
               Simple text with React Element content
             </AtomTooltip>
           </Paragraph>
         </Cell>
         <Cell style={cssStyles}>
-          <AtomTooltip content="Tooltip content" trigger={trigger} isVisible>
+          <AtomTooltip content="Tooltip content" trigger={trigger}>
             <Box outline>
               <Label>React Element</Label>
             </Box>
@@ -67,7 +66,6 @@ const DefaultArticle = ({className, trigger}) => {
               </Box>
             }
             trigger={trigger}
-            isVisible
           >
             <Box outline>
               <Label>React Element</Label>

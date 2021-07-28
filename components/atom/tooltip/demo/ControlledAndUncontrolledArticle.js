@@ -12,7 +12,7 @@ import {
   Label
 } from '@s-ui/documentation-library'
 import PropTypes from 'prop-types'
-import NewAtomTooltip, { AtomTooltipTriggers } from '../src/NewAtomTooltip'
+import AtomTooltip, {AtomTooltipTriggers} from '../src'
 
 const ControlledAndUncontrolledArticle = ({className, trigger}) => {
   const [isVisibleControlled, setIsVisibleControlled] = useState(true)
@@ -30,7 +30,7 @@ const ControlledAndUncontrolledArticle = ({className, trigger}) => {
           </Paragraph>
           <br />
           <br />
-          <NewAtomTooltip
+          <AtomTooltip
             content="Tooltip content"
             isVisible={isVisibleControlled}
             trigger={trigger}
@@ -41,14 +41,14 @@ const ControlledAndUncontrolledArticle = ({className, trigger}) => {
             <Box outline>
               <Label>target</Label>
             </Box>
-          </NewAtomTooltip>
+          </AtomTooltip>
           <br />
           <RadioButtonGroup
             value={isVisibleControlled}
             onChange={(event, value) => setIsVisibleControlled(value === true)}
           >
             <RadioButton
-              value={true}
+              value
               label="true"
               checked={isVisibleControlled === true}
             />
@@ -66,7 +66,7 @@ const ControlledAndUncontrolledArticle = ({className, trigger}) => {
           </Paragraph>
           <br />
           <br />
-          <NewAtomTooltip
+          <AtomTooltip
             content="Tooltip content"
             defaultIsVisible={isVisibleControlled}
             trigger={trigger}
@@ -77,7 +77,7 @@ const ControlledAndUncontrolledArticle = ({className, trigger}) => {
             <Box outline>
               <Label>target</Label>
             </Box>
-          </NewAtomTooltip>
+          </AtomTooltip>
           <br />
           <RadioButtonGroup
             value={isVisibleUncontrolled}
@@ -86,7 +86,7 @@ const ControlledAndUncontrolledArticle = ({className, trigger}) => {
             }
           >
             <RadioButton
-              value={true}
+              value
               label="true"
               checked={isVisibleUncontrolled === true}
             />
@@ -106,7 +106,7 @@ const ControlledAndUncontrolledArticle = ({className, trigger}) => {
   )
 }
 
-ControlledAndUncontrolledArticle.defaultProps = {
+ControlledAndUncontrolledArticle.propTypes = {
   className: PropTypes.string,
   trigger: PropTypes.oneOf(Object.values(AtomTooltipTriggers))
 }

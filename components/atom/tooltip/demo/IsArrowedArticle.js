@@ -1,74 +1,83 @@
-import {useState} from 'react'
 import {
   H2,
   Paragraph,
-  Code,
   Article,
   Grid,
   Cell,
-  ListItem,
-  Bold,
-  UnorderedList,
   Label,
-  Box,
-  RadioButtonGroup,
-  RadioButton
+  Code
 } from '@s-ui/documentation-library'
 import PropTypes from 'prop-types'
-import NewAtomTooltip, {
-  AtomTooltipTriggers,
-  AtomTooltipColors
-} from '../src/NewAtomTooltip'
+import AtomTooltip, {AtomTooltipTriggers} from '../src'
 
 const IsArrowedArticle = ({className, trigger}) => {
-  const [isArrowed, setIsArrowed] = useState(undefined)
   return (
     <Article className={className}>
       <H2>IsArrowed</H2>
-      <Paragraph>isArrowed</Paragraph>
-
-      <Grid cols={2} gutter={[8, 8]}>
+      <Paragraph>
+        The arrow which points the targetted element can be removed using the{' '}
+        <Code>isArrowed</Code> boolean prop (by default is true)
+      </Paragraph>
+      <br />
+      <br />
+      <Grid cols={3} gutter={[8, 8]}>
         <Cell>
-          <Label>isArrowed</Label>{' '}
-          <RadioButtonGroup
-            value={isArrowed}
-            onChange={(ev, value) => {
-              setIsArrowed(value === "undefined" ? undefined : value)
-            }}
-          >
-            <RadioButton
-              value={'undefined'}
-              label="undefined"
-              checked={isArrowed === undefined}
-            />
-            <RadioButton
-              value={true}
-              label="true"
-              checked={isArrowed === true}
-            />
-            <RadioButton
-              value={false}
-              label="false"
-              checked={isArrowed === false}
-            />
-          </RadioButtonGroup>
+          <Label>undefined</Label>
           <br />
           <br />
-          <NewAtomTooltip
+          <br />
+          <br />
+        </Cell>
+        <Cell>
+          <Label>false</Label>
+          <br />
+          <br />
+          <br />
+          <br />
+        </Cell>
+        <Cell>
+          <Label>true</Label>
+          <br />
+          <br />
+          <br />
+          <br />
+        </Cell>
+        <Cell>
+          <AtomTooltip
             content="tooltip content"
             trigger={trigger}
-            isVisible={true}
-            isArrowed={isArrowed}
+            isVisible
+            isArrowed={undefined}
           >
             <Label>tooltip</Label>
-          </NewAtomTooltip>
+          </AtomTooltip>
+        </Cell>
+        <Cell>
+          <AtomTooltip
+            content="tooltip content"
+            trigger={trigger}
+            isVisible
+            isArrowed={false}
+          >
+            <Label>tooltip</Label>
+          </AtomTooltip>
+        </Cell>
+        <Cell>
+          <AtomTooltip
+            content="tooltip content"
+            trigger={trigger}
+            isVisible
+            isArrowed
+          >
+            <Label>tooltip</Label>
+          </AtomTooltip>
         </Cell>
       </Grid>
     </Article>
   )
 }
 
-IsArrowedArticle.defaultProps = {
+IsArrowedArticle.propTypes = {
   className: PropTypes.string,
   trigger: PropTypes.oneOf(Object.values(AtomTooltipTriggers))
 }

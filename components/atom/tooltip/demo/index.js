@@ -1,4 +1,4 @@
-import {useRef, useState, useEffect} from 'react'
+import {useState, useEffect} from 'react'
 import {
   H1,
   Paragraph,
@@ -12,8 +12,6 @@ import {
   Label
 } from '@s-ui/documentation-library'
 
-import AtomTooltip, {AtomTooltipBase} from 'components/atom/tooltip/src'
-
 import DefaultArticle from './DefaultArticle'
 import ControlledAndUncontrolledArticle from './ControlledAndUncontrolledArticle'
 import PlacementArticle from './PlacementArticle'
@@ -21,17 +19,8 @@ import DelayArticle from './DelayArticle'
 import ColorArticle from './ColorArticle'
 import IsArrowedArticle from './IsArrowedArticle'
 
-const {COLORS, PLACEMENTS} = AtomTooltip
 const baseClass = 'DemoTooltip'
 const articleClass = `${baseClass}-article`
-
-const HtmlTooltipDecember = () => (
-  <>
-    Last <em>month</em> of the <strong>year</strong>
-  </>
-)
-const iconMenuHamburguer =
-  'https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png'
 
 const DEVICE_TO_TRIGGER = {
   undefined: '',
@@ -41,21 +30,12 @@ const DEVICE_TO_TRIGGER = {
 }
 
 const Demo = () => {
-  // Usefull for isOpen example
-  const [isOpen, setIsOpen] = useState(false)
   const [device, setDevice] = useState('undefined')
   const [trigger, setTrigger] = useState(undefined)
 
-  const ref1 = useRef()
-  const ref2 = useRef()
-  const setInnerRef = ref => innerRef => {
-    ref.current = innerRef
-  }
-  const log = msg => () => console.log(msg) // eslint-disable-line
-
   useEffect(() => {
     setTrigger(DEVICE_TO_TRIGGER[device])
-  }, [device, DEVICE_TO_TRIGGER, setTrigger])
+  }, [device, setTrigger])
 
   return (
     <div className="sui-StudioPreview">
@@ -86,7 +66,7 @@ const Demo = () => {
           <RadioButton
             checked={device === 'undefined'}
             value="undefined"
-            label={'undefined'}
+            label="undefined"
           />
           <RadioButton
             checked={device === 'desktop'}

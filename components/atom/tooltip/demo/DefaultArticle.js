@@ -6,13 +6,12 @@ import {
   Grid,
   Cell,
   ListItem,
-  Bold,
   UnorderedList,
   Label,
   Box
 } from '@s-ui/documentation-library'
 import PropTypes from 'prop-types'
-import NewAtomTooltip, {AtomTooltipTriggers} from '../src/NewAtomTooltip'
+import AtomTooltip, {AtomTooltipTriggers} from '../src'
 
 const cssStyles = {
   alignItems: 'center',
@@ -33,66 +32,78 @@ const DefaultArticle = ({className, trigger}) => {
       <Grid cols={2} gutter={[8, 8]} style={{height: 340}}>
         <Cell style={cssStyles}>
           <Paragraph>
-            <NewAtomTooltip
-              content="Tooltip content"
-              trigger={trigger}
-              isVisible={true}
-            >
+            <AtomTooltip content="Tooltip content" trigger={trigger} isVisible>
               Simple text with simple text content
-            </NewAtomTooltip>
+            </AtomTooltip>
           </Paragraph>
         </Cell>
         <Cell style={cssStyles}>
           <Paragraph>
-            <NewAtomTooltip
+            <AtomTooltip
               content={
                 <Box outline>
                   <Label>react element content</Label>
                 </Box>
               }
               trigger={trigger}
-              isVisible={true}
+              isVisible
             >
               Simple text with React Element content
-            </NewAtomTooltip>
+            </AtomTooltip>
           </Paragraph>
         </Cell>
         <Cell style={cssStyles}>
-          <NewAtomTooltip
-            content="Tooltip content"
-            trigger={trigger}
-            isVisible={true}
-          >
+          <AtomTooltip content="Tooltip content" trigger={trigger} isVisible>
             <Box outline>
               <Label>React Element</Label>
             </Box>
-          </NewAtomTooltip>
+          </AtomTooltip>
         </Cell>
         <Cell style={cssStyles}>
-          <NewAtomTooltip
+          <AtomTooltip
             content={
               <Box outline>
                 <Label>react element content</Label>
               </Box>
             }
             trigger={trigger}
-            isVisible={true}
+            isVisible
           >
             <Box outline>
               <Label>React Element</Label>
             </Box>
-          </NewAtomTooltip>
+          </AtomTooltip>
         </Cell>
       </Grid>
       <Paragraph>
         The placement where the Tooltip is displayed is automatically located
         depending on the referenced element viewport position.
       </Paragraph>
+      <Paragraph>–––</Paragraph>
+      <Paragraph>It provides 3 different handlers:</Paragraph>
+      <UnorderedList>
+        <ListItem>
+          <Code>onOpen</Code>: fired every time the tooltip changes its
+          isVisible inner state from false to true.
+        </ListItem>
+      </UnorderedList>
+      <UnorderedList>
+        <ListItem>
+          <Code>onClose</Code>: fired every time the tooltip changes its
+          isVisible inner state from true to false.
+        </ListItem>
+      </UnorderedList>
+      <UnorderedList>
+        <ListItem>
+          <Code>onToogle</Code>: fired every time the tooltip changes its
+          isVisible inner state.
+        </ListItem>
+      </UnorderedList>
     </Article>
   )
 }
 
-DefaultArticle.defaultProps = {
+DefaultArticle.propTypes = {
   className: PropTypes.string,
   trigger: PropTypes.oneOf(Object.values(AtomTooltipTriggers))
 }

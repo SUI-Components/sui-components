@@ -6,15 +6,11 @@ import {
   Article,
   Grid,
   Cell,
-  ListItem,
-  Bold,
-  UnorderedList,
   Label,
-  Box,
   Input
 } from '@s-ui/documentation-library'
 import PropTypes from 'prop-types'
-import NewAtomTooltip, {AtomTooltipTriggers} from '../src/NewAtomTooltip'
+import AtomTooltip, {AtomTooltipTriggers} from '../src'
 
 const DelayArticle = ({className, trigger}) => {
   const [all, setAll] = useState(0)
@@ -79,20 +75,16 @@ const DelayArticle = ({className, trigger}) => {
         </Cell>
       </Grid>
       <Paragraph>
-        <NewAtomTooltip
-          delay={delay}
-          content="Tooltip content"
-          trigger={trigger}
-        >
-          Simple text delayed
-        </NewAtomTooltip>
+        <AtomTooltip delay={delay} content="Tooltip content" trigger={trigger}>
+          Simple text delayed with tooltip
+        </AtomTooltip>
       </Paragraph>
       <Label>delay</Label>: {JSON.stringify(delay)}ms
     </Article>
   )
 }
 
-DelayArticle.defaultProps = {
+DelayArticle.propTypes = {
   className: PropTypes.string,
   trigger: PropTypes.oneOf(Object.values(AtomTooltipTriggers))
 }

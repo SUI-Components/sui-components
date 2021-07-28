@@ -31,7 +31,7 @@ const COLOR_CLASSES = createClasses(Object.values(COLORS), 'Color')
 
 const Tooltip = loadable(() => import('reactstrap/lib/Tooltip'), {ssr: true})
 
-const NewAtomTooltip = forwardRef(
+const AtomTooltip = forwardRef(
   (
     {
       children,
@@ -63,12 +63,14 @@ const NewAtomTooltip = forwardRef(
         setIsVisibleState(newState)
         typeof onToggle === 'function' && onToggle(event, {isVisible: newState})
       },
-      [setIsVisibleState, isVisibleState]
+      [setIsVisibleState, isVisibleState, onOpen, onClose, onToggle]
     )
     const childrenRef = useRef()
     const deviceType = useMemo(
-      () => new UAParser(navigator.userAgent).getDevice().type,
-      [navigator.userAgent]
+      () =>
+        trigger !== undefined &&
+        new UAParser(navigator.userAgent).getDevice().type,
+      [trigger]
     )
     const intersection = useIntersection(childrenRef, {threshold: 0})
     return (
@@ -103,7 +105,7 @@ const NewAtomTooltip = forwardRef(
   }
 )
 
-NewAtomTooltip.propTypes = {
+AtomTooltip.propTypes = {
   /** inner element wrapped by the tooltip **/
   children: PropTypes.node,
 
@@ -137,7 +139,6 @@ NewAtomTooltip.propTypes = {
   trigger: PropTypes.oneOf(Object.values(TRIGGERS))
 }
 
-export {COLORS as AtomTooltipColors}
-export {TRIGGERS as AtomTooltipTriggers}
+AtomTooltip.displayName = 'AtomTooltip'
 
-export default NewAtomTooltip
+export default AtomTooltip

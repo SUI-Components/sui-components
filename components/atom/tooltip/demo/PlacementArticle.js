@@ -7,15 +7,13 @@ import {
   Grid,
   Cell,
   ListItem,
-  Bold,
   UnorderedList,
   Label,
   Box,
-  Input,
   RadioButton
 } from '@s-ui/documentation-library'
 import PropTypes from 'prop-types'
-import NewAtomTooltip, {AtomTooltipTriggers} from '../src/NewAtomTooltip'
+import AtomTooltip, {AtomTooltipTriggers} from '../src'
 
 const PlacementArticle = ({className, trigger}) => {
   const [placement, setPlacement] = useState(undefined)
@@ -195,16 +193,17 @@ const PlacementArticle = ({className, trigger}) => {
         </Cell>
         <Cell />
         <Cell>
-          <NewAtomTooltip
+          <AtomTooltip
             isVisible
             content="tooltip content"
             placement={placement}
+            trigger={trigger}
           >
             <Box
-              fullWidth
               outline
               style={{
                 padding: 0,
+                width: '100%',
                 height: '100%',
                 display: 'flex',
                 justifyContent: 'center',
@@ -213,7 +212,7 @@ const PlacementArticle = ({className, trigger}) => {
             >
               TARGET
             </Box>
-          </NewAtomTooltip>
+          </AtomTooltip>
         </Cell>
         <Cell />
         <Cell>
@@ -278,7 +277,7 @@ const PlacementArticle = ({className, trigger}) => {
   )
 }
 
-PlacementArticle.defaultProps = {
+PlacementArticle.propTypes = {
   className: PropTypes.string,
   trigger: PropTypes.oneOf(Object.values(AtomTooltipTriggers))
 }

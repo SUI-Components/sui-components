@@ -5,35 +5,37 @@ import {
   Article,
   Grid,
   Cell,
-  ListItem,
-  Bold,
-  UnorderedList,
-  Label,
-  Box
+  Label
 } from '@s-ui/documentation-library'
 import PropTypes from 'prop-types'
-import NewAtomTooltip, {
-  AtomTooltipTriggers,
-  AtomTooltipColors
-} from '../src/NewAtomTooltip'
+import AtomTooltip, {AtomTooltipTriggers, AtomTooltipColors} from '../src'
 
 const ColorArticle = ({className, trigger}) => {
   return (
     <Article className={className}>
       <H2>Color</H2>
-      <Paragraph>color</Paragraph>
-
+      <Paragraph>
+        All defined brand and semantic colors are available using the{' '}
+        <Code>color</Code> enum prop.
+      </Paragraph>
+      <Paragraph>
+        Available values can be obtained using the{' '}
+        <Code>AtomTooltipColors</Code> enum.
+      </Paragraph>
+      <br />
+      <br />
+      <br />
       <Grid cols={Object.values(AtomTooltipColors).length}>
         {Object.entries(AtomTooltipColors).map(([key, value]) => (
           <Cell key={key}>
-            <NewAtomTooltip
+            <AtomTooltip
               content={value}
               trigger={trigger}
-              isVisible={true}
+              isVisible
               color={value}
             >
               <Label>{value}</Label>
-            </NewAtomTooltip>
+            </AtomTooltip>
           </Cell>
         ))}
       </Grid>
@@ -41,7 +43,7 @@ const ColorArticle = ({className, trigger}) => {
   )
 }
 
-ColorArticle.defaultProps = {
+ColorArticle.propTypes = {
   className: PropTypes.string,
   trigger: PropTypes.oneOf(Object.values(AtomTooltipTriggers))
 }

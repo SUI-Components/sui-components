@@ -20,15 +20,6 @@ import {
 
 import TooltipExtendChildren from './TooltipExtendChildren'
 
-const createClasses = (array, sufix = '') => {
-  return array.reduce(
-    (res, key) => ({...res, [key]: `${BASE_CLASS}--${key}${sufix}`}),
-    {}
-  )
-}
-
-const COLOR_CLASSES = createClasses(Object.values(COLORS), 'Color')
-
 const Tooltip = loadable(() => import('reactstrap/lib/Tooltip'), {ssr: true})
 
 const AtomTooltip = forwardRef(
@@ -81,7 +72,7 @@ const AtomTooltip = forwardRef(
         {intersection && intersection.isIntersecting && (
           <Tooltip
             arrowClassName={CLASS_ARROW}
-            className={cx(BASE_CLASS, color && COLOR_CLASSES[color])}
+            className={cx(BASE_CLASS, color && `${BASE_CLASS}--${color}Color`)}
             delay={delay}
             hideArrow={!isArrowed}
             innerClassName={CLASS_INNER}

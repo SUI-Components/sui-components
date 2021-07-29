@@ -2,6 +2,8 @@
 @import '~@s-ui/react-molecule-field/lib/index';
 @import '~@s-ui/react-atom-checkbox/lib/index';
 
+$fw-molecule-checkbox-field-label: $fw-atom-label !default;
+
 .sui-MoleculeCheckboxField {
   input[type='checkbox'] {
     margin: 0;
@@ -9,6 +11,7 @@
 
   label {
     cursor: pointer;
+    font-weight: $fw-molecule-checkbox-field-label;
   }
 
   &-toggleIcon {

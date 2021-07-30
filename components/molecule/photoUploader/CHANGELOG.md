@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.5.0 (2021-07-30)
+
+
+### Features
+
+* **components/molecule/photoUploader:** Add new bg token for add new photo button ([d8c9a7d](https://github.com/SUI-Components/sui-components/commit/d8c9a7d2edecc6ab90b84c1b4696e8d4a27aea1e))
+
+
+
 # 2.4.0 (2021-07-23)
 
 

@@ -62,7 +62,11 @@ const MoleculeDrawer = forwardRef(
           `react-MoleculeDrawer-content--animationDuration-${animationDuration}`,
           `react-MoleculeDrawer-content--state-${
             isOpenState ? 'opened' : 'closed'
-          }`
+          }`,
+          {
+            'react-MoleculeDrawer-content--placement':
+              typeof target === 'undefined'
+          }
         )}
         ref={forwardedRef}
       >

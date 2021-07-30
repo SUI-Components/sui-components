@@ -32,6 +32,7 @@ $bg-photo-uploader-empty: $bg-photo-uploader !default;
 $bg-photo-uploader-initial-state: $bg-photo-uploader !default;
 $bg-photo-uploader-thumb-card: $c-gray-light-3 !default;
 $bg-photo-uploader-skeleton: $bg-photo-uploader-thumb-card !default;
+$bg-photo-uploader-skeleton-hover: $c-primary !default;
 $bg-photo-uploader-thumb-chosen: $bg-photo-uploader-thumb-card !default;
 $bxsh-photo-uploader-thumb-card: none !default;
 $bxsh-photo-uploader-thumb-drag: $bxsh-l !default;
@@ -352,13 +353,13 @@ $maw-photo-uploader-thumb-drag-text: 200px;
 
   &:hover {
     @include media-breakpoint-up(m) {
-      background: $c-primary;
+      background: $bg-photo-uploader-skeleton-hover;
       color: $c-photo-uploader-skeleton-hover;
     }
   }
 
   &:active {
-    background: $c-primary;
+    background: $bg-photo-uploader-skeleton-hover;
     color: $c-photo-uploader-skeleton-hover;
   }
 

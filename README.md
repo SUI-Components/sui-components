@@ -5,7 +5,7 @@
 SUI Components is an Open-Source, high quality library of React components that empowers teams to craft any product with ease.
 
 ## ⚙️ Minimum requirements
-- ![node](https://shields.io/badge/node-v16+-lightgray?logo=node-dot-js&logoWidth=20&style=for-the-badge)
+- ![node](https://shields.io/badge/node-v16+-lightgray?logo=nodedotjs&logoWidth=20&style=for-the-badge)
 - ![npm](https://shields.io/badge/npm-v7+-lightgrey?logo=npm&logoWidth=20&style=for-the-badge)
 
 ## 🖥 Environment Support

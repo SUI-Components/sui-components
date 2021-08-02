@@ -26,20 +26,34 @@ export const CLASS_TARGET = `${BASE_CLASS}-target`
 /**
  * Available colors for the tooltip
  */
-export const COLORS = [
-  'primary',
-  'secondary',
-  'accent',
-  'neutral',
-  'success',
-  'alert',
-  'error'
-]
+export const COLORS = {
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+  ACCENT: 'accent',
+  NEUTRAL: 'neutral',
+  SUCCESS: 'success',
+  ALERT: 'alert',
+  ERROR: 'error'
+}
+
+/**
+ * Available trigger behaviors for tooltip
+ */
+export const TRIGGERS = {
+  CLICK: 'click',
+  FOCUS: 'focus',
+  HOVER: 'hover',
+  LEGACY: 'legacy',
+  MANUAL: 'manual'
+}
 
 /**
  * Available placements for the tooltip
  */
 export const PLACEMENTS = {
+  AUTO: 'auto',
+  AUTO_START: 'auto-start',
+  AUTO_END: 'auto-end',
   TOP: 'top',
   TOP_START: 'top-start',
   TOP_END: 'top-end',
@@ -53,3 +67,5 @@ export const PLACEMENTS = {
   LEFT_START: 'left-start',
   LEFT_END: 'left-end'
 }
+
+export const DEFAULT_OFFSET = 'auto,4px'

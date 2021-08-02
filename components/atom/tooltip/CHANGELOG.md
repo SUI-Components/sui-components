@@ -1,5 +1,24 @@
 # CHANGELOG
 
+# 2.0.0 (2021-08-02)
+
+
+### Bug Fixes
+
+* **components/atom/tooltip:** arrows ([2cfc5ee](https://github.com/SUI-Components/sui-components/commit/2cfc5eef2a617d48285fa3ff0841147f04bdee05))
+* **components/atom/tooltip:** remove unnecesary library ([f2ecc7e](https://github.com/SUI-Components/sui-components/commit/f2ecc7e02c6327ce1c1d73e547085c803d5de861))
+
+
+### Features
+
+* **components/atom/tooltip:** all code is new ([48b6ffb](https://github.com/SUI-Components/sui-components/commit/48b6ffb0961d69c3f51f0c5f2b1148c48cfb2eb1))
+* **components/atom/tooltip:** functional component ([266ca44](https://github.com/SUI-Components/sui-components/commit/266ca44ac69431023c92e2788f95cb6157a3eead))
+* **components/atom/tooltip:** remove color classname caching ([e88c862](https://github.com/SUI-Components/sui-components/commit/e88c862092ddc5fc131878ca038ac9993d160e18))
+* **components/atom/tooltip:** wip ([1b976e1](https://github.com/SUI-Components/sui-components/commit/1b976e1870345f9872a377a9b543aed7837a197f))
+* **components/atom/tooltip:** Wip ([2ce257d](https://github.com/SUI-Components/sui-components/commit/2ce257d40534784874fbc6ce861eea0600c37a93))
+
+
+
 # 1.29.0 (2021-06-22)
 
 

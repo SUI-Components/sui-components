@@ -12,7 +12,8 @@ export const ATOM_ICON_COLORS = {
   error: 'error',
   primary: 'primary',
   success: 'success',
-  gray: 'gray'
+  gray: 'gray',
+  lightGray: 'lightGray'
 }
 export const ATOM_ICON_SIZES = {
   extraSmall: 'extraSmall',

@@ -8,7 +8,10 @@ import {
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import AtomImage from '@s-ui/react-atom-image'
-import AtomSkeleton from '@s-ui/react-atom-skeleton'
+import AtomSkeleton, {
+  ATOM_SKELETON_VARIANTS,
+  ATOM_SKELETON_ANIMATIONS
+} from '@s-ui/react-atom-skeleton'
 import useConvertStringToHex from './useConvertStringToHex'
 import AvatarFallback from './AvatarFallback'
 import AvatarBadge, {
@@ -24,7 +27,14 @@ const MoleculeAvatar = forwardRef(
     {
       className: classNameProp,
       size = AVATAR_SIZES.MEDIUM,
-      skeleton = <AtomSkeleton width="100%" height="100%" animation="wave" />,
+      skeleton = (
+        <AtomSkeleton
+          width="100%"
+          height="100%"
+          variant={ATOM_SKELETON_VARIANTS.circle}
+          animation={ATOM_SKELETON_ANIMATIONS.wave}
+        />
+      ),
       name,
       src,
       fallbackIcon,

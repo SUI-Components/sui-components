@@ -9,9 +9,11 @@ $class-input: '#{$base-class}-input';
 
 $sizes-atom-input-paddings: m $p-m, s $p-s !default;
 $bg-input-tag-disable: $c-gray-light-4 !default;
+$bdrs-molecule-input-tags: 0 !default;
 
 #{$class-tags} {
   @extend %sui-atom-input-input;
+  border-radius: $bdrs-molecule-input-tags;
   align-items: center;
   display: flex;
   flex-wrap: wrap;

@@ -1,14 +1,77 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 2.17.0 (2021-08-10)
+
+
+### Features
+
+* **components/molecule/inputTags:** add border-radius variable ([209cc47](https://github.com/SUI-Components/sui-components/commit/209cc472e5bc08fc6e26529bb58cc084509d77fc))
+
+
+
+# 2.16.0 (2021-05-06)
+
+
+### Features
+
+* **molecule/autosuggest:** wip ([a5b4f32](https://github.com/SUI-Components/sui-components/commit/a5b4f32269a147fcef8207e1dca974c5c0472f3b))
+* **molecule/inputTags:** work with object values ([a659887](https://github.com/SUI-Components/sui-components/commit/a6598879a5ffe0f87c41139d2ab57f8aa342161d))
+
+
+
+# 2.15.0 (2021-04-13)
+
+
+### Bug Fixes
+
+* **molecule/inputTags:** simplify check to add value to tags ([b3bd039](https://github.com/SUI-Components/sui-components/commit/b3bd039731d54101acc0e2393b43b637f24df09d))
+
+
+### Features
+
+* **molecule/inputTags:** add a prop to avoid entering the same tag more than once ([2d98568](https://github.com/SUI-Components/sui-components/commit/2d98568368580b028383e37aef5226bafc38cd93))
+
+
+
+# 2.14.0 (2021-04-06)
+
+
+### Bug Fixes
+
+* **molecule/inputTags:** add variable for disable background ([c16f04e](https://github.com/SUI-Components/sui-components/commit/c16f04e1418d7f0b432372ce7983dd3620aec455))
+
+
+### Features
+
+* **molecule/inputTags:** add disabled, maxTags and placeholder props to input tags ([c4219c1](https://github.com/SUI-Components/sui-components/commit/c4219c19bf365fd2029fdc64c1dc0c15a3e7c6fc))
+
+
+
+# 2.13.0 (2021-01-05)
+
+
+### Bug Fixes
+
+* **molecule/inputTags:** proptypes and tests ([09b4707](https://github.com/SUI-Components/sui-components/commit/09b4707aa06f42602253e6bc0fa2d7c589510455))
+
+
+
+# 2.12.0 (2020-11-24)
+
+
+### Features
+
+* **molecule/inputTags:** Use new jsx runtime ([b554d13](https://github.com/SUI-Components/sui-components/commit/b554d13390146625e10ed3b1c724e9a56314d3ab))
+
+
 
 # 2.11.0 (2020-09-16)
 
 
 ### Features
 
-* add wrapper focus by onClick and refactor ([a0e0587](https://github.com/SUI-Components/sui-components/commit/a0e058780284fdac678d1d305a2615e63439e3b1))
-* remove onClick event ([84e511e](https://github.com/SUI-Components/sui-components/commit/84e511e33349fb67d73974f04938620f504a70d2))
+* **molecule/inputTags:** add wrapper focus by onClick and refactor ([a0e0587](https://github.com/SUI-Components/sui-components/commit/a0e058780284fdac678d1d305a2615e63439e3b1))
+* **molecule/inputTags:** remove onClick event ([84e511e](https://github.com/SUI-Components/sui-components/commit/84e511e33349fb67d73974f04938620f504a70d2))
 
 
 
@@ -17,7 +80,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add assets folder to .npmignore ([5bee047](https://github.com/SUI-Components/sui-components/commit/5bee047f7df2795b993573b8abec5c0675d4bc81))
+* **molecule/inputTags:** add assets folder to .npmignore ([5bee047](https://github.com/SUI-Components/sui-components/commit/5bee047f7df2795b993573b8abec5c0675d4bc81))
 
 
 
@@ -26,7 +89,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([f85b7f4](https://github.com/SUI-Components/sui-components/commit/f85b7f453d797de9512c6dbce08df92e80036b0b))
+* **molecule/inputTags:** Use new [@s-ui-theme](https://github.com/s-ui-theme) ([f85b7f4](https://github.com/SUI-Components/sui-components/commit/f85b7f453d797de9512c6dbce08df92e80036b0b))
 
 
 
@@ -35,7 +98,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* use new atom/tag package name ([3935d8d](https://github.com/SUI-Components/sui-components/commit/3935d8d6a060e625335d642994e18a43834f0d4a))
+* **molecule/inputTags:** use new atom/tag package name ([3935d8d](https://github.com/SUI-Components/sui-components/commit/3935d8d6a060e625335d642994e18a43834f0d4a))
 
 
 
@@ -44,8 +107,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* added name in event handlers ([63a6eba](https://github.com/SUI-Components/sui-components/commit/63a6eba33e205c7227292dfd868b0c87f820154c))
-* removed console.log ([3955126](https://github.com/SUI-Components/sui-components/commit/3955126605021925ba48f604519dbf51300bf15d))
+* **molecule/inputTags:** added name in event handlers ([63a6eba](https://github.com/SUI-Components/sui-components/commit/63a6eba33e205c7227292dfd868b0c87f820154c))
+* **molecule/inputTags:** removed console.log ([3955126](https://github.com/SUI-Components/sui-components/commit/3955126605021925ba48f604519dbf51300bf15d))
 
 
 
@@ -54,7 +117,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* bumped version ([c062a60](https://github.com/SUI-Components/sui-components/commit/c062a6074dc93aab65d458c01434ee3a5b2ed84f))
+* **molecule/inputTags:** bumped version ([c062a60](https://github.com/SUI-Components/sui-components/commit/c062a6074dc93aab65d458c01434ee3a5b2ed84f))
 
 
 
@@ -63,7 +126,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* accept set of value/text as values ([0f69888](https://github.com/SUI-Components/sui-components/commit/0f69888a1dddfd684481f1f68110ca69f3cb09c6))
+* **molecule/inputTags:** accept set of value/text as values ([0f69888](https://github.com/SUI-Components/sui-components/commit/0f69888a1dddfd684481f1f68110ca69f3cb09c6))
 
 
 
@@ -72,7 +135,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add responsive atom tags ([96b42e3](https://github.com/SUI-Components/sui-components/commit/96b42e3ed20c6e774adf6745ae94cdd402ece84f))
+* **molecule/inputTags:** add responsive atom tags ([96b42e3](https://github.com/SUI-Components/sui-components/commit/96b42e3ed20c6e774adf6745ae94cdd402ece84f))
 
 
 
@@ -81,8 +144,8 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* add issue label ([6f937eb](https://github.com/SUI-Components/sui-components/commit/6f937eb5bdc6cf46d8c3aeb8a2374e08665ba0f0)), closes [#677](https://github.com/SUI-Components/sui-components/issues/677)
-* fix extra padding left ([5e2f073](https://github.com/SUI-Components/sui-components/commit/5e2f073c6a773e34440ccfcbec553350783ab8cb))
+* **molecule/inputTags:** add issue label ([6f937eb](https://github.com/SUI-Components/sui-components/commit/6f937eb5bdc6cf46d8c3aeb8a2374e08665ba0f0)), closes [#677](https://github.com/SUI-Components/sui-components/issues/677)
+* **molecule/inputTags:** fix extra padding left ([5e2f073](https://github.com/SUI-Components/sui-components/commit/5e2f073c6a773e34440ccfcbec553350783ab8cb))
 
 
 
@@ -91,7 +154,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update AtomInput major version ([7dfabb9](https://github.com/SUI-Components/sui-components/commit/7dfabb937ad5de9730860662682e3b6fe510fa0a))
+* **molecule/inputTags:** update AtomInput major version ([7dfabb9](https://github.com/SUI-Components/sui-components/commit/7dfabb937ad5de9730860662682e3b6fe510fa0a))
 
 
 
@@ -100,8 +163,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* added innerRefInput prop to get access of inner input ([9d83aee](https://github.com/SUI-Components/sui-components/commit/9d83aeeb2de555555af13cc067449787ae55f976))
-* cleaner demo w/ withStateValueTags ([6710e63](https://github.com/SUI-Components/sui-components/commit/6710e638b87ce027978cc818a3927d2025ad1267))
+* **molecule/inputTags:** added innerRefInput prop to get access of inner input ([9d83aee](https://github.com/SUI-Components/sui-components/commit/9d83aeeb2de555555af13cc067449787ae55f976))
+* **molecule/inputTags:** cleaner demo w/ withStateValueTags ([6710e63](https://github.com/SUI-Components/sui-components/commit/6710e638b87ce027978cc818a3927d2025ad1267))
 
 
 
@@ -110,14 +173,14 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* icons passed as components ([8a3c59b](https://github.com/SUI-Components/sui-components/commit/8a3c59bf2d05410861b7e427d51a2228cacec810))
-* updated AtomTag version ([bcaedee](https://github.com/SUI-Components/sui-components/commit/bcaedee4698ad064e84df5d62c9e818b7687b299))
-* updated way of passing icons to the component ([55b608a](https://github.com/SUI-Components/sui-components/commit/55b608af627b90e4e1e2e43730fc3642d54a140d))
+* **molecule/inputTags:** icons passed as components ([8a3c59b](https://github.com/SUI-Components/sui-components/commit/8a3c59bf2d05410861b7e427d51a2228cacec810))
+* **molecule/inputTags:** updated AtomTag version ([bcaedee](https://github.com/SUI-Components/sui-components/commit/bcaedee4698ad064e84df5d62c9e818b7687b299))
+* **molecule/inputTags:** updated way of passing icons to the component ([55b608a](https://github.com/SUI-Components/sui-components/commit/55b608af627b90e4e1e2e43730fc3642d54a140d))
 
 
 ### BREAKING CHANGES
 
-* icons passed as components
+* **molecule/inputTags:** icons passed as components
 
 
 
@@ -126,10 +189,10 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* removed console ([c0a156d](https://github.com/SUI-Components/sui-components/commit/c0a156d19e350c1e50835b87a83687cdbf9b92a2))
-* stateless regarding tags that will be passed always via props ([bf3b2d0](https://github.com/SUI-Components/sui-components/commit/bf3b2d0e93f49a73c4aea60b334b1c2748fa40e7))
-* updated AtomInput v2.0 & not add tag if emtpy value ([e641c86](https://github.com/SUI-Components/sui-components/commit/e641c869d77d960e236376d81712eaedce18f0a0))
-* value via props ([758ae81](https://github.com/SUI-Components/sui-components/commit/758ae81489a0217b1daeda59fa781341ea5cb20a))
+* **molecule/inputTags:** removed console ([c0a156d](https://github.com/SUI-Components/sui-components/commit/c0a156d19e350c1e50835b87a83687cdbf9b92a2))
+* **molecule/inputTags:** stateless regarding tags that will be passed always via props ([bf3b2d0](https://github.com/SUI-Components/sui-components/commit/bf3b2d0e93f49a73c4aea60b334b1c2748fa40e7))
+* **molecule/inputTags:** updated AtomInput v2.0 & not add tag if emtpy value ([e641c86](https://github.com/SUI-Components/sui-components/commit/e641c869d77d960e236376d81712eaedce18f0a0))
+* **molecule/inputTags:** value via props ([758ae81](https://github.com/SUI-Components/sui-components/commit/758ae81489a0217b1daeda59fa781341ea5cb20a))
 
 
 
@@ -138,10 +201,10 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* adjustments over latest atom-input and more examples on playground ([83644c0](https://github.com/SUI-Components/sui-components/commit/83644c08a55bd6757e56ea844eafc26872dc0001))
-* new component MoleculeAtomTags ([bf7e68a](https://github.com/SUI-Components/sui-components/commit/bf7e68a4e2b8d764b477be84fbb1fe0a9902b58a))
-* noBorder as AtomInput prop and sass linter ([993a212](https://github.com/SUI-Components/sui-components/commit/993a212fbddd89130ab5f5a58b2e4bf111c8bdeb))
-* readme and closeIcon isRequired ([0b642b9](https://github.com/SUI-Components/sui-components/commit/0b642b9da1bf8624204d833e56e2d68025583b1b))
+* **molecule/inputTags:** adjustments over latest atom-input and more examples on playground ([83644c0](https://github.com/SUI-Components/sui-components/commit/83644c08a55bd6757e56ea844eafc26872dc0001))
+* **molecule/inputTags:** new component MoleculeAtomTags ([bf7e68a](https://github.com/SUI-Components/sui-components/commit/bf7e68a4e2b8d764b477be84fbb1fe0a9902b58a))
+* **molecule/inputTags:** noBorder as AtomInput prop and sass linter ([993a212](https://github.com/SUI-Components/sui-components/commit/993a212fbddd89130ab5f5a58b2e4bf111c8bdeb))
+* **molecule/inputTags:** readme and closeIcon isRequired ([0b642b9](https://github.com/SUI-Components/sui-components/commit/0b642b9da1bf8624204d833e56e2d68025583b1b))
 
 
 

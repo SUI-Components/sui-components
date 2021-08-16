@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.1.0 (2021-08-02)
+
+
+### Bug Fixes
+
+* **components/molecule/drawer:** fix position when target is undefined ([a9e85c0](https://github.com/SUI-Components/sui-components/commit/a9e85c0b962d69b0e18471c686a647558703fd71))
+
+
+
 # 3.0.0 (2021-06-23)
 
 

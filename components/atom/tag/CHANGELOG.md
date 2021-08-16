@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.27.0 (2021-08-04)
+
+
+### Bug Fixes
+
+* **components/atom/tag:** add correct color variables ([4166162](https://github.com/SUI-Components/sui-components/commit/4166162a60575d181730253e74c4e7d47393544f))
+* **components/atom/tag:** PR comments ([c89a8a1](https://github.com/SUI-Components/sui-components/commit/c89a8a10b7b8584870b23a520dc98183014c8140))
+
+
+
 # 2.26.0 (2021-07-16)
 
 

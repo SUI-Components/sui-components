@@ -17,5 +17,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@s-ui/react-hooks": "1.28.0"
+  }
 }

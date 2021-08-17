@@ -1,0 +1,49 @@
+@import '~@s-ui/theme/lib/index';
+
+$s-pin-input-field: (
+  // 64px
+    xxlarge: $p-base * 8,
+  // 56px
+    xlarge: $p-base * 7,
+  // 48px
+    large: $p-base * 6,
+  // 40px
+    medium: $p-base * 5,
+  // 32px
+    small: $p-base * 4,
+  // 24px
+    xsmall: $p-base * 3,
+  // 16px
+    xxsmall: $p-base * 2
+) !default;
+
+.sui-PinInputField {
+  border-radius: $bdrs-base;
+  border: 1px solid $c-gray-light-3;
+  font-size: $fz-s;
+  font-weight: $fw-regular;
+  line-height: $lh-m;
+  margin-left: $m-m;
+  margin-right: $m-m;
+  outline: none;
+  text-align: center;
+
+  &:focus {
+    border: 1px solid $c-primary-dark;
+  }
+
+  &--error {
+    border: 1px solid $c-error;
+  }
+
+  &--undefined {
+    border: 1px solid $c-gray-light-3;
+  }
+
+  @each $size-key, $size-value in $s-pin-input-field {
+    &--#{$size-key} {
+      height: $size-value;
+      width: $size-value;
+    }
+  }
+}

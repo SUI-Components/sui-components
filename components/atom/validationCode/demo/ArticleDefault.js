@@ -28,8 +28,7 @@ const ArticleDefault = ({className}) => {
         }}
       >
         <PinInput
-          status="focus"
-          size="medium"
+          status="undefined"
           onChange={onChangeHandler}
           defaultValue={code}
         >

@@ -17,12 +17,12 @@ const PinInputContextProvider = forwardRef(
       children,
       defaultValue,
       mask,
+      maxLength,
       isOneTimeCode,
       placeholder,
       size,
       onChange,
       status,
-      type,
       value
     },
     forwardedRef
@@ -45,9 +45,9 @@ const PinInputContextProvider = forwardRef(
             onChange: onChangeHandler,
             isOneTimeCode,
             placeholder,
+            maxLength,
             size,
-            status,
-            type
+            status
           }}
         >
           {Children.toArray(children).map((child, index) =>
@@ -68,15 +68,12 @@ PinInputContextProvider.propTypes = {
   children: PropTypes.node,
   defaultValue: PropTypes.string,
   mask: PropTypes.string,
+  maxLength: PropTypes.number,
   isOneTimeCode: PropTypes.bool,
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(Object.values(SIZES)),
   status: PropTypes.oneOf(Object.values(STATUS)),
-  type: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.oneOf(Object.values(TYPES))
-  ]),
   value: PropTypes.string
 }
 

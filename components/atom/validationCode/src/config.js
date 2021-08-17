@@ -9,7 +9,8 @@ export const SIZES = {
 }
 export const BASE_CLASSNAME = 'sui-PinInput'
 export const STATUS = {ERROR: 'error', UNDEFINED: 'undefined', FOCUS: 'focus'}
-export const TYPES = {
-  ALPHANUMERIC: 'alphanumeric',
-  NUMBER: 'number'
+export const MASK = {
+  NUMBER: '[0-9]',
+  ALPHABETIC: '[A-Za-z]',
+  ALPHANUMERIC: '[A-Za-z0-9]'
 }

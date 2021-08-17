@@ -8,7 +8,7 @@ const CLASSNAME = BASE_CLASSNAME
 
 const PinInput = forwardRef(
   (
-    {onChange, children, isOneTimeCode = true, size = SIZES.MEDIUM, ...props},
+    {onChange, children, isOneTimeCode = true, size = SIZES.MEDIUM, maxLength = 1, ...props},
     forwardedRef
   ) => {
     return (
@@ -19,6 +19,7 @@ const PinInput = forwardRef(
           isOneTimeCode={isOneTimeCode}
           {...props}
           ref={forwardedRef}
+          maxLength={maxLength}
         >
           {children}
         </PinInputContextProvider>
@@ -32,6 +33,8 @@ PinInput.propTypes = {
   children: PropTypes.node,
   onChange: PropTypes.func,
   size: PropTypes.oneOf(Object.values(SIZES)),
-  isOneTimeCode: PropTypes.bool
+  isOneTimeCode: PropTypes.bool,
+  mask: PropTypes.string,
+  maxLength: PropTypes.number,
 }
 export default PinInput

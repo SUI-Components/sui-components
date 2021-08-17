@@ -14,3 +14,12 @@ export const MASK = {
   ALPHABETIC: '[A-Za-z]',
   ALPHANUMERIC: '[A-Za-z0-9]'
 }
+
+export const arrowKeysEventHandlingMapper = {
+  ArrowLeft: (index, setter) => {
+    setter(index - 1)
+  },
+  ArrowRight: (index, setter) => {
+    setter(index + 1)
+  }
+}

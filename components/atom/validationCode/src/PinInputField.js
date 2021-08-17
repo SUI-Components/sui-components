@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types'
 import './PinInputField.scss'
-import {forwardRef, useCallback} from 'react'
+import {forwardRef, useCallback, useRef} from 'react'
 import {usePinInputContext} from './PinInputContext'
 import cx from 'classnames'
-import {BASE_CLASSNAME, MASK} from './config.js'
+import {arrowKeysEventHandlingMapper, BASE_CLASSNAME, MASK} from './config.js'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
+import useKeyPress from './hooks/useKeyPress'
 
 const CLASSNAME = `${BASE_CLASSNAME}Field`
 
@@ -21,11 +23,14 @@ const valueChecker = ({length, mask}) => value => {
 
 const PinInputField = forwardRef(
   ({index, mask, maxLength, ...props}, forwardedRef) => {
+    const innerRef = useRef()
     const {
       value = [],
       onChange,
       size,
       status,
+      setFocusPosition,
+      focusPosition,
       mask: maskContext = MASK.NUMBER,
       maxLength: maxLengthContext = 1,
       isOneTimeCode
@@ -54,15 +59,24 @@ const PinInputField = forwardRef(
       }, Array(value.length))
       onChange(event, {value: result})
     }
+
+    useKeyPress(
+      event => {
+        console.log(focusPosition)
+        arrowKeysEventHandlingMapper[event.key](focusPosition, setFocusPosition)
+      },
+      {target: innerRef}
+    )
+
     return (
       <input
         className={getClassName({size, status})}
         value={value[index] === undefined ? '' : value[index]}
         onChange={onChangeHandler}
         maxLength={maxLength || maxLengthContext}
-        {...(index === 0 && {autoFocus: true})}
+        {...(index === focusPosition && {autoFocus: true})}
         {...(isOneTimeCode && {autocomplete: 'one-time-code'})}
-        ref={forwardedRef}
+        ref={useMergeRefs(forwardedRef, innerRef)}
         {...props}
       />
     )

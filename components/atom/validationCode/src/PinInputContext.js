@@ -4,10 +4,11 @@ import {
   useContext,
   forwardRef,
   Children,
-  cloneElement
+  cloneElement,
+  useState
 } from 'react'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
-import {SIZES, STATUS, TYPES} from './config'
+import {SIZES, STATUS} from './config'
 
 const PinInputContext = createContext({})
 
@@ -27,6 +28,7 @@ const PinInputContextProvider = forwardRef(
     },
     forwardedRef
   ) => {
+    const [focusPosition, setFocusPosition] = useState(0)
     const [innerValue, setInnerValue] = useControlledState(
       value ? value.split('') : undefined,
       defaultValue ? defaultValue.split('') : undefined
@@ -47,7 +49,9 @@ const PinInputContextProvider = forwardRef(
             placeholder,
             maxLength,
             size,
-            status
+            status,
+            focusPosition,
+            setFocusPosition
           }}
         >
           {Children.toArray(children).map((child, index) =>

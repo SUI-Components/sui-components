@@ -11,6 +11,8 @@ import {SIZES, STATUS, TYPES} from './config'
 
 const PinInputContext = createContext({})
 
+const InputReferenceStack = []
+
 const PinInputContextProvider = forwardRef(
   (
     {
@@ -51,7 +53,18 @@ const PinInputContextProvider = forwardRef(
           }}
         >
           {Children.toArray(children).map((child, index) =>
-            cloneElement(child, {index})
+            cloneElement(child, {
+              index,
+              ref: node => {
+                // Keep your own reference
+                InputReferenceStack[index] = node
+                // Call the original ref, if any
+                const {ref} = child
+                if (typeof ref === 'function') {
+                  ref(node)
+                }
+              }
+            })
           )}
         </PinInputContext.Provider>
         <input

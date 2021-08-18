@@ -43,7 +43,7 @@ $s-pin-input-field: (
     &--#{$size-key} {
       height: $size-value;
       width: $size-value;
-      font-size: $size-value - ($p-base * 2);
+      font-size: $size-value;
       border-radius: $bdrs-base;
     }
   }

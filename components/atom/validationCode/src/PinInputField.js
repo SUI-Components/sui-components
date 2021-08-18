@@ -66,17 +66,17 @@ const PinInputField = forwardRef(({index, mask, ...props}, forwardedRef) => {
     value[index] !== eventKey && onChange(event, {value: result})
   }
 
-  const onClickHandler = () => {
+  const onFocusHandler = () => {
     setFocus(index)
   }
 
   return (
     <input
       ref={useMergeRefs(innerRef, forwardedRef)}
-      onClick={onClickHandler}
       className={getClassName({size, status})}
       value={value[index] === undefined ? '' : value[index]}
       onKeyDown={onKeyDownHandler}
+      onFocus={onFocusHandler}
       maxLength="1"
       {...(isOneTimeCode && {autoComplete: 'one-time-code'})}
       {...props}

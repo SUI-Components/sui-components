@@ -2,17 +2,17 @@ import {useEffect} from 'react'
 
 const useKeyPress = (callback, {target}) => {
   const events = []
-  useEffect(() => {
+  return useEffect(() => {
     const element = target?.current
     if (element) {
       events.push(element.addEventListener('keydown', callback))
     }
     return () => {
       events.forEach(event => {
-        if (element) element.removeEventListener(event)
+        if (element) element.removeEventListener('keydown', callback)
       })
     }
-  }, [target])
+  }, [target, callback])
 }
 
 export default useKeyPress

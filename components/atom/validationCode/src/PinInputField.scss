@@ -20,7 +20,6 @@ $s-pin-input-field: (
 .sui-PinInputField {
   border-radius: $bdrs-base;
   border: 1px solid $c-gray-light-3;
-  font-size: $fz-s;
   font-weight: $fw-regular;
   line-height: $lh-m;
   margin-left: $m-m;
@@ -44,6 +43,8 @@ $s-pin-input-field: (
     &--#{$size-key} {
       height: $size-value;
       width: $size-value;
+      font-size: $size-value - ($p-base * 2);
+      border-radius: $bdrs-base;
     }
   }
 }

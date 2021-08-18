@@ -16,10 +16,16 @@ export const MASK = {
 }
 
 export const arrowKeysEventHandlingMapper = {
-  ArrowLeft: (index, setter) => {
-    setter(index - 1)
+  ArrowLeft: ({index, setter, elements}) => {
+    const newIndex = index - 1
+    setter(newIndex)
+    elements[newIndex].focus()
+    elements[newIndex].select()
   },
-  ArrowRight: (index, setter) => {
-    setter(index + 1)
+  ArrowRight: ({index, setter, elements}) => {
+    const newIndex = index + 1
+    setter(newIndex)
+    elements[newIndex].focus()
+    elements[newIndex].select()
   }
 }

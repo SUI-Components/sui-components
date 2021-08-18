@@ -297,6 +297,7 @@ export default () => (
       <AtomTag
         closeIcon={closeIcon}
         label="Close Tag"
+        value="Close Tag"
         onClose={() => window.alert('close!')}
         responsive
       />

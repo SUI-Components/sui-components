@@ -20,7 +20,7 @@ export default () => {
         </Paragraph>
         {/* <ArticleDefault className={CLASS_SECTION} />
         <br /> */}
-        <ArticleSizes className={CLASS_SECTION} />
+        {/* <ArticleSizes className={CLASS_SECTION} /> */}
         <br />
         {/* <ArticleMask className={CLASS_SECTION} /> */}
         {/* <ArticleDisabled /> */}

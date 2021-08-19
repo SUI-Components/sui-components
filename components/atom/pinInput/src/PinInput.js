@@ -5,8 +5,6 @@ import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 import {PinInputContextProvider} from './PinInputContext'
 import {BASE_CLASSNAME, SIZES} from './config.js'
 
-import './PinInput.scss'
-
 const CLASSNAME = BASE_CLASSNAME
 
 const PinInput = forwardRef(

@@ -6,8 +6,6 @@ import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 import {BASE_CLASSNAME, MASK} from './config.js'
 import {usePinInputContext} from './PinInputContext'
 
-import './PinInputField.scss'
-
 const CLASSNAME = `${BASE_CLASSNAME}Field`
 
 const getClassName = ({size, status}) => {

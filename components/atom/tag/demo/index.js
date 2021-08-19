@@ -32,6 +32,10 @@ const closeIcon = (
   </AtomIcon>
 )
 
+const handleClose = (_event, data) => {
+  window.alert(`Click on close icon for tag with data: ${JSON.stringify(data)}`)
+}
+
 const BASE_CLASS_DEMO = `DemoAtomTag`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
@@ -298,7 +302,7 @@ export default () => (
         closeIcon={closeIcon}
         label="Close Tag"
         value="Close Tag"
-        onClose={() => window.alert('close!')}
+        onClose={handleClose}
         responsive
       />
     </Article>
@@ -314,7 +318,7 @@ export default () => (
           closeIcon={closeIcon}
           icon={icon}
           label="Icon & Close Tag"
-          onClose={() => window.alert('close!')}
+          onClose={handleClose}
           responsive
           size={atomTagSizes.SMALL}
         />
@@ -330,14 +334,14 @@ export default () => (
           closeIcon={closeIcon}
           icon={icon}
           label="Icon & Close Tag"
-          onClose={() => window.alert('close!')}
+          onClose={handleClose}
           responsive
         />
         <AtomTag
           closeIcon={closeIcon}
           icon={icon}
           label="Icon & Close Tag"
-          onClose={() => window.alert('close!')}
+          onClose={handleClose}
           responsive
           size={atomTagSizes.LARGE}
         />

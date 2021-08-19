@@ -116,12 +116,14 @@ $atom-tag-types: (
 
 ### Value
 
-Use the prop value if you want to use this the value on you onClick handler
+Use the prop value if you want to use this value on your onClick/onClose handler.
 
 ```js
 <AtomTag
   label="Tag with value"
   onClick={(_, {value}) => alert('click! this is my value', value)}
+  onClose={(_, {value}) => alert('click! this is my value', value)}
+  iconClose={<IconClose />}
   value={'test}
 />
 ```

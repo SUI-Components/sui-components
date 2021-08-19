@@ -17,13 +17,13 @@ export default () => {
           digits. The most common application is for entering OTP or security
           codes.
         </Paragraph>
-        <ArticleDefault className={CLASS_SECTION} />
+        {/* <ArticleDefault className={CLASS_SECTION} />
         <br />
-        {/*<ArticleSizes className={CLASS_SECTION} />*/}
-        <br />
-        {/*<ArticleMask className={CLASS_SECTION} />*/}
-        <br />
-        {/*<ArticleReferenced className={CLASS_SECTION} />*/}
+        <ArticleSizes className={CLASS_SECTION} />
+        <br /> */}
+        <ArticleMask className={CLASS_SECTION} />
+        {/* <br />
+        <ArticleReferenced className={CLASS_SECTION} /> */}
       </div>
     </div>
   )

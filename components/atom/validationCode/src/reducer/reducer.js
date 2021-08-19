@@ -33,7 +33,14 @@ export const pinInputReducer = (state, {actionType, payload}) => {
   const {mask, key, shiftKey} = payload
   switch (actionType) {
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_MASK:
-      nextState = {...state, checker: valueChecker({mask})}
+      const newChecker = valueChecker({mask})
+      const isInvalid = innerValue.find(value => !newChecker(value))
+      nextState = {
+        ...state,
+        checker: newChecker,
+        mask,
+        innerValue: isInvalid ? [] : innerValue
+      }
       break
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_KEY:
       if (key.length > 1) {

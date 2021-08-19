@@ -36,7 +36,7 @@ const PinInputField = forwardRef(({index, mask, ...props}, forwardedRef) => {
       className={getClassName({size, status})}
       onFocus={onFocusHandler}
       onClick={onFocusHandler}
-      value={value[index]}
+      value={value[index] || ''}
       maxLength="1"
       {...(isOneTimeCode && {autoComplete: 'one-time-code'})}
       {...props}

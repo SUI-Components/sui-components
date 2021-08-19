@@ -12,25 +12,25 @@ import PinInputField from '../src/PinInputField'
 import {useState} from 'react'
 import {STATUS} from '../src/config'
 
-const ArticleStates = ({className}) => {
-  const [size, setSize] = useState()
+const ArticleStatus = ({className}) => {
+  const [status, setStatus] = useState()
 
   const onChangeHandler = (event, value) => {
-    setSize(value)
+    setStatus(value)
   }
 
   return (
     <Article className={className}>
-      <H2>States</H2>
+      <H2>Status</H2>
       <Paragraph>By default the element have an undefined state.</Paragraph>
-      <RadioButtonGroup value={size} onChange={onChangeHandler}>
-        {[...Object.values(STATUS)].map((sizeValue, key) => {
+      <RadioButtonGroup value={status} onChange={onChangeHandler}>
+        {[undefined, ...Object.values(STATUS)].map((statusValue, key) => {
           return (
             <RadioButton
-              checked={sizeValue === size}
-              value={sizeValue}
+              checked={statusValue === status}
+              value={statusValue}
               key={key}
-              label={sizeValue}
+              label={statusValue || 'undefined'}
             />
           )
         })}
@@ -46,7 +46,7 @@ const ArticleStates = ({className}) => {
           justifyContent: 'center'
         }}
       >
-        <PinInput status={status} size={size} defaultValue="827382">
+        <PinInput status={status} defaultValue="827382">
           <PinInputField />
           <PinInputField />
           <PinInputField />
@@ -59,8 +59,8 @@ const ArticleStates = ({className}) => {
   )
 }
 
-ArticleStates.propTypes = {
+ArticleStatus.propTypes = {
   className: PropTypes.string
 }
 
-export default ArticleStates
+export default ArticleStatus

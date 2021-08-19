@@ -36,6 +36,7 @@ const PinInputContextProvider = forwardRef(
       onChange,
       status,
       value,
+      disabled,
       targetRef
     },
     forwardedRef
@@ -44,13 +45,17 @@ const PinInputContextProvider = forwardRef(
     const [{innerValue, focusPosition}, dispatch] = usePinInputReducer({
       mask,
       defaultValue,
-      value
+      value,
+      disabled
     })
 
     useEffect(() => {
       setFocus(focusPosition)
     }, [focusPosition])
 
+    useEffect(() => {
+      dispatch(pinInputActions.setDisabled({disabled}))
+    }, [disabled])
     useEffect(() => {
       dispatch(pinInputActions.setMask({mask}))
     }, [mask])
@@ -86,6 +91,7 @@ const PinInputContextProvider = forwardRef(
         <PinInputContext.Provider
           value={{
             mask,
+            disabled,
             value: innerValue,
             isOneTimeCode,
             placeholder,

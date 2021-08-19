@@ -5,6 +5,7 @@ import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 export const getInitialPinInputReducerState = ({
   mask = MASK.NUMBER,
   value,
+  disabled = false,
   defaultValue = []
 }) => {
   const [innerValue] = useControlledState(
@@ -17,6 +18,7 @@ export const getInitialPinInputReducerState = ({
     innerValue: innerValue,
     status: undefined,
     checker: valueChecker({mask}),
+    disabled,
     elements: []
   }
 }
@@ -30,8 +32,11 @@ const focusElement = element =>
 export const pinInputReducer = (state, {actionType, payload}) => {
   let nextState = Object.assign({}, state)
   const {checker, innerValue, focusPosition, elements} = state
-  const {mask, key, shiftKey} = payload
+  const {disabled, mask, key, shiftKey} = payload
   switch (actionType) {
+    case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_DISABLED:
+      nextState = {...state, disabled}
+      break
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_MASK:
       const newChecker = valueChecker({mask})
       const isInvalid = innerValue.find(value => !newChecker(value))

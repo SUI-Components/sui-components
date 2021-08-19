@@ -16,11 +16,14 @@ const PinInput = forwardRef(
       children,
       isOneTimeCode = true,
       size = SIZES.MEDIUM,
+      status,
+      disabled,
       ...props
     },
     forwardedRef
   ) => {
     const innerRef = useRef()
+    console.log(status)
     return (
       <div className={CLASSNAME} ref={innerRef}>
         <PinInputContextProvider
@@ -28,7 +31,9 @@ const PinInput = forwardRef(
           targetRef={innerRef}
           onChange={onChange}
           size={size}
+          status={status}
           isOneTimeCode={isOneTimeCode}
+          disabled={disabled}
           {...props}
         >
           {children}
@@ -44,6 +49,6 @@ PinInput.propTypes = {
   onChange: PropTypes.func,
   size: PropTypes.oneOf(Object.values(SIZES)),
   isOneTimeCode: PropTypes.bool,
-  mask: PropTypes.string,
+  mask: PropTypes.string
 }
 export default PinInput

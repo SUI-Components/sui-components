@@ -10,25 +10,26 @@ import './PinInputField.scss'
 
 const CLASSNAME = `${BASE_CLASSNAME}Field`
 
-const getClassName = ({size, status}) =>
-  cx(CLASSNAME, {
-    [`${CLASSNAME}--${size}`]: size,
-    [`${CLASSNAME}--${status}`]: status
+const getClassName = ({size, status}) => {
+  return cx(CLASSNAME, {
+    [`${CLASSNAME}--size-${size}`]: size,
+    [`${CLASSNAME}--status-${status}`]: status
   })
+}
 
 const PinInputField = forwardRef(({index, mask, ...props}, forwardedRef) => {
   const innerRef = useRef()
   const {
-    value = [],
+    disabled,
+    isOneTimeCode,
+    mask: maskContext = MASK.NUMBER,
+    setFocus,
     size,
     status,
-    mask: maskContext = MASK.NUMBER,
-    isOneTimeCode,
-    setFocus
+    value = []
   } = usePinInputContext()
 
   const onFocusHandler = () => setFocus(index)
-
   return (
     <input
       ref={useMergeRefs(innerRef, forwardedRef)}
@@ -38,6 +39,7 @@ const PinInputField = forwardRef(({index, mask, ...props}, forwardedRef) => {
       onClick={onFocusHandler}
       value={value[index] || ''}
       maxLength="1"
+      disabled={disabled}
       {...(isOneTimeCode && {autoComplete: 'one-time-code'})}
       {...props}
     />

@@ -17,6 +17,12 @@ $s-pin-input-field: (
     xxsmall: $p-base * 2
 ) !default;
 
+$pin-input-field-status: (
+  error: $c-error,
+  success: $c-success,
+  warning: $c-alert
+) !default;
+
 .sui-PinInputField {
   border-radius: $bdrs-base;
   border: 1px solid $c-gray-light-3;
@@ -31,20 +37,17 @@ $s-pin-input-field: (
     border: 1px solid $c-primary-dark;
   }
 
-  &--error {
-    border: 1px solid $c-error;
-  }
-
-  &--undefined {
-    border: 1px solid $c-gray-light-3;
-  }
-
   @each $size-key, $size-value in $s-pin-input-field {
-    &--#{$size-key} {
+    &--size-#{$size-key} {
       height: $size-value;
       width: $size-value;
-      font-size: $size-value;
-      border-radius: $bdrs-base;
+      font-size: $size-value * 0.35;
+    }
+  }
+
+  @each $status-key, $status-value in $pin-input-field-status {
+    &--status-#{$status-key} {
+      border: 1px solid $status-value;
     }
   }
 }

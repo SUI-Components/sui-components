@@ -14,13 +14,16 @@ const setElement = ({node, index}) =>
 const setStatus = () => act(PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_STATUS)
 const setMask = ({mask = MASK.NUMBER}) =>
   act(PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_MASK, {mask})
+const setDisabled = ({disabled = false}) =>
+  act(PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_DISABLED, {disabled})
 
 const actions = {
   setKey,
   setFocus,
   setElement,
   setStatus,
-  setMask
+  setMask,
+  setDisabled
 }
 
 export default actions

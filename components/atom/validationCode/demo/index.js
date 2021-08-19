@@ -3,7 +3,8 @@ import ArticleDefault from './ArticleDefault'
 import ArticleSizes from './ArticleSizes'
 import ArticleMask from './ArticleMask'
 import ArticleReferenced from './ArticleReferenced'
-
+import ArticleDisabled from './ArticleDisabled'
+import ArticleStates from './ArticleStatus'
 const BASE_CLASS_DEMO = `DemoAtomValidationCode`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
@@ -18,10 +19,12 @@ export default () => {
           codes.
         </Paragraph>
         {/* <ArticleDefault className={CLASS_SECTION} />
-        <br />
-        <ArticleSizes className={CLASS_SECTION} />
         <br /> */}
-        <ArticleMask className={CLASS_SECTION} />
+        <ArticleSizes className={CLASS_SECTION} />
+        <br />
+        {/* <ArticleMask className={CLASS_SECTION} /> */}
+        {/* <ArticleDisabled /> */}
+        <ArticleStates />
         {/* <br />
         <ArticleReferenced className={CLASS_SECTION} /> */}
       </div>

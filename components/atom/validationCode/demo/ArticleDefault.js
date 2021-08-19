@@ -1,5 +1,12 @@
 import PropTypes from 'prop-types'
-import {Article, H2, Paragraph, Box, Input} from '@s-ui/documentation-library'
+import {
+  Article,
+  H2,
+  Paragraph,
+  Box,
+  Input,
+  Code
+} from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
 import PinInputField from '../src/PinInputField'
 import {useState} from 'react'
@@ -7,9 +14,11 @@ import {useState} from 'react'
 const ArticleDefault = ({className}) => {
   const [code, setCode] = useState('725412')
 
-  const onChangeHandler = (event, {value}) => {
-    setCode(value)
+  const onChangeHandler = (event, args) => {
+    console.log({event, ...args})
+    setCode(args.value)
   }
+
   return (
     <Article className={className}>
       <H2>Default</H2>
@@ -33,15 +42,19 @@ const ArticleDefault = ({className}) => {
           defaultValue={code}
         >
           <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
+          {/*<PinInputField />*/}
+          {/*<PinInputField />*/}
+          {/*<PinInputField />*/}
+          {/*<PinInputField />*/}
+          {/*<PinInputField />*/}
         </PinInput>
         <Input style={{textAlign: 'center'}} value={code} disabled />
       </Box>
       <br />
+      <Paragraph>
+        By default, it sets autocomplete="on-time-code" to its inner input
+        fields by the default true bolean prop <Code>isOneTimeCode</Code>.
+      </Paragraph>
     </Article>
   )
 }

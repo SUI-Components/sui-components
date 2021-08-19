@@ -15,17 +15,26 @@ export const MASK = {
   ALPHANUMERIC: '[A-Za-z0-9]'
 }
 
-export const arrowKeysEventHandlingMapper = {
-  ArrowLeft: ({index, setter, elements}) => {
-    const newIndex = index - 1
-    setter(newIndex)
-    elements[newIndex].focus()
-    elements[newIndex].select()
-  },
-  ArrowRight: ({index, setter, elements}) => {
-    const newIndex = index + 1
-    setter(newIndex)
-    elements[newIndex].focus()
-    elements[newIndex].select()
+export const valueChecker = ({length = 1, mask}) => value => {
+  const matchExpression = `${mask}{${length}}`
+  const regex = new RegExp(matchExpression)
+  return regex.test(value)
+}
+
+export const triggerInputChange = (node, inputValue) => {
+  const descriptor = Object.getOwnPropertyDescriptor(node, 'value')
+
+  node.value = `${inputValue}#`
+  if (descriptor && descriptor.configurable) {
+    delete node.value
+  }
+  node.value = inputValue
+
+  const e = document.createEvent('HTMLEvents')
+  e.initEvent('change', true, false)
+  node.dispatchEvent(e)
+
+  if (descriptor) {
+    Object.defineProperty(node, 'value', descriptor)
   }
 }

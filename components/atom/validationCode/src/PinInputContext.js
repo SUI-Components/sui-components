@@ -4,14 +4,23 @@ import {
   forwardRef,
   Children,
   cloneElement,
-  useState,
-  useCallback
+  useCallback,
+  useEffect,
+  useRef
 } from 'react'
 import PropTypes from 'prop-types'
-import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 
-import {arrowKeysEventHandlingMapper, SIZES, STATUS} from './config'
+import {SIZES, STATUS, triggerInputChange} from './config'
 import useKeyPress from './hooks/useKeyPress'
+import useUpdateEffect from './hooks/useUpdateEffect'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
+import {usePinInputReducer, actions as pinInputActions} from './reducer'
+
+const setValue = ({value, node}) => {
+  if (node && node.value !== value) {
+    triggerInputChange(node, value)
+  }
+}
 
 const PinInputContext = createContext({})
 
@@ -31,60 +40,44 @@ const PinInputContextProvider = forwardRef(
     },
     forwardedRef
   ) => {
-    const inputReferenceStack = []
-    const [focusPosition, setFocusPosition] = useState(0)
-    const [innerValue, setInnerValue] = useControlledState(
-      value ? value.split('') : undefined,
-      defaultValue ? defaultValue.split('') : undefined
-    )
-    const onChangeHandler = (event, {value}) => {
-      setInnerValue(value)
-      typeof onChange === 'function' &&
-        onChange(event, {value: value.filter(Boolean).join('')})
-    }
+    const innerRef = useRef()
+    const [{innerValue, focusPosition}, dispatch] = usePinInputReducer({
+      mask,
+      defaultValue,
+      value
+    })
+
+    useEffect(() => {
+      setFocus(focusPosition)
+    }, [focusPosition])
+
+    useEffect(() => {
+      dispatch(pinInputActions.setMask({mask}))
+    }, [mask])
 
     const setFocus = useCallback(
       position => {
-        if (inputReferenceStack[position]) {
-          setFocusPosition(position)
-          setTimeout(() => {
-            inputReferenceStack[position].focus()
-            inputReferenceStack[position].select()
-          }, 0)
-        } else {
-          setTimeout(() => {
-            inputReferenceStack[focusPosition].focus()
-            inputReferenceStack[focusPosition].select()
-          }, 0)
-        }
+        dispatch(pinInputActions.setFocus({focusPosition: position}))
       },
-      [setFocusPosition, inputReferenceStack]
+      [dispatch]
     )
 
     useKeyPress(
       event => {
-        let newIndex = focusPosition
-
-        switch (event.key) {
-          case 'ArrowLeft':
-            event.shiftKey
-            newIndex = newIndex - 1
-            setFocus(newIndex)
-            break
-          case 'ArrowRight':
-            newIndex = newIndex + 1
-            setFocus(newIndex)
-            break
-          case 'Tab':
-            newIndex = event.shiftKey ? newIndex - 1 : newIndex + 1
-            setFocus(newIndex)
-            break;
-          default:
-            break
-        }
+        dispatch(pinInputActions.setKey(event))
       },
       {target: targetRef}
     )
+
+    useUpdateEffect(() => {
+      const event = new Event('input', {bubbles: true, cancelable: true})
+      Object.defineProperty(event, 'target', {
+        value: innerRef.current,
+        enumerable: true
+      })
+      typeof onChange === 'function' &&
+        onChange(event, {value: innerValue.filter(Boolean).join('')})
+    }, [innerRef, innerValue, onChange])
 
     return (
       <>
@@ -92,7 +85,6 @@ const PinInputContextProvider = forwardRef(
           value={{
             mask,
             value: innerValue,
-            onChange: onChangeHandler,
             isOneTimeCode,
             placeholder,
             size,
@@ -105,9 +97,9 @@ const PinInputContextProvider = forwardRef(
             cloneElement(child, {
               index,
               ref: node => {
-                // Keep your own reference
-                if (node) inputReferenceStack[index] = node
-                // Call the original ref, if any
+                if (node) {
+                  dispatch(pinInputActions.setElement({node, index}))
+                }
                 const {ref} = child
                 if (typeof ref === 'function') {
                   ref(node)
@@ -118,8 +110,8 @@ const PinInputContextProvider = forwardRef(
         </PinInputContext.Provider>
         <input
           type="hidden"
-          ref={forwardedRef}
           value={innerValue.filter(Boolean).join('')}
+          ref={useMergeRefs(innerRef, forwardedRef)}
         />
       </>
     )

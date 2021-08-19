@@ -19,11 +19,11 @@ export default () => {
         </Paragraph>
         <ArticleDefault className={CLASS_SECTION} />
         <br />
-        <ArticleSizes className={CLASS_SECTION} />
+        {/*<ArticleSizes className={CLASS_SECTION} />*/}
         <br />
-        <ArticleMask className={CLASS_SECTION} />
+        {/*<ArticleMask className={CLASS_SECTION} />*/}
         <br />
-        <ArticleReferenced className={CLASS_SECTION} />
+        {/*<ArticleReferenced className={CLASS_SECTION} />*/}
       </div>
     </div>
   )

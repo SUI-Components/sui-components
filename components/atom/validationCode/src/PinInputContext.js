@@ -75,8 +75,10 @@ const PinInputContextProvider = forwardRef(
         value: innerRef.current,
         enumerable: true
       })
-      typeof onChange === 'function' &&
-        onChange(event, {value: innerValue.filter(Boolean).join('')})
+      const value = innerValue.filter(Boolean).join('')
+      if (typeof onChange === 'function') {
+        onChange(event, {value})
+      }
     }, [innerRef, innerValue])
 
     return (

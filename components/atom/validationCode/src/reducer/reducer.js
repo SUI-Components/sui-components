@@ -85,10 +85,13 @@ export const pinInputReducer = (state, {actionType, payload}) => {
             break
         }
       } else if (checker(key)) {
-        innerValue[focusPosition] = key
+        const isKeyChange = innerValue[focusPosition] !== key
+        if (isKeyChange) {
+          innerValue[focusPosition] = key
+        }
         nextState = {
           ...state,
-          innerValue: [...innerValue],
+          innerValue: isKeyChange ? [...innerValue] : innerValue,
           focusPosition: elements[focusPosition + 1]
             ? focusPosition + 1
             : focusPosition

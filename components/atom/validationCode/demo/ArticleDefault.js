@@ -42,11 +42,11 @@ const ArticleDefault = ({className}) => {
           defaultValue={code}
         >
           <PinInputField />
-          {/*<PinInputField />*/}
-          {/*<PinInputField />*/}
-          {/*<PinInputField />*/}
-          {/*<PinInputField />*/}
-          {/*<PinInputField />*/}
+          <PinInputField />
+          <PinInputField />
+          <PinInputField />
+          <PinInputField />
+          <PinInputField />
         </PinInput>
         <Input style={{textAlign: 'center'}} value={code} disabled />
       </Box>

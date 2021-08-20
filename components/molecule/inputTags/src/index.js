@@ -114,7 +114,7 @@ const MoleculeInputTags = ({
           onBlur={handleFocusOut}
           reference={innerRefInput}
           noBorder
-          placeholder={isEmpty && placeholder}
+          placeholder={isEmpty ? placeholder : undefined}
         />
       )}
     </div>

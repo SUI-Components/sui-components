@@ -8,7 +8,6 @@ import {
   Box
 } from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
-import PinInputField from '../src/PinInputField'
 import {useState} from 'react'
 import {SIZES} from '../src/config'
 
@@ -50,14 +49,7 @@ const ArticleSizes = ({className}) => {
           justifyContent: 'center'
         }}
       >
-        <PinInput status="focus" size={size} defaultValue="827382">
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-        </PinInput>
+        <PinInput status="focus" size={size} defaultValue="827382" />
       </Box>
     </Article>
   )

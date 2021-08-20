@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types'
 import {Article, H2, Paragraph, Box, Input} from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
-import PinInputField from '../src/PinInputField'
-import {useState, useRef} from 'react'
+import {useState} from 'react'
 
 const ArticleReferenced = ({className}) => {
   const [refValue, setRefValue] = useState()
@@ -35,14 +34,7 @@ const ArticleReferenced = ({className}) => {
           ref={node => {
             node && setRefValue(node.value)
           }}
-        >
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-        </PinInput>
+        />
         <Input style={{textAlign: 'center'}} value={code} disabled />
       </Box>
       <br />

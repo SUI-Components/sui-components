@@ -1,37 +1,25 @@
 import PropTypes from 'prop-types'
-import {
-  Article,
-  H2,
-  Paragraph,
-  Box,
-  Code,
-  RadioButton
-} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph, Box, Code} from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
 import {useState} from 'react'
+import Button from '@s-ui/documentation-library/lib/components/Button/Button'
 
-const ArticleDisabled = ({className}) => {
-  const [code, setCode] = useState('725412')
-  const [disabled, setDisabled] = useState(false)
+const ArticlePassword = ({className}) => {
+  const [code, setCode] = useState('')
+  const [isPassword, setIsPassword] = useState(false)
 
-  const onChangeHandler = (event, args) => {
+  const onChangeCodeHandler = (event, args) => {
     setCode(args.value)
   }
 
   return (
     <Article className={className}>
-      <H2>Disabled</H2>
+      <H2>Password</H2>
       <Paragraph>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cum earum
         nobis, deserunt voluptate labore illo, temporibus ex iure aliquam
         tempore accusamus, aliquid velit magni eius! A at molestias sunt!
       </Paragraph>
-      <RadioButton
-        value={disabled}
-        label="disabled"
-        checked={disabled}
-        onClick={() => setDisabled(!disabled)}
-      />
       <Box
         outline
         style={{
@@ -41,11 +29,11 @@ const ArticleDisabled = ({className}) => {
           justifyContent: 'center'
         }}
       >
+        <Button onClick={() => setIsPassword(!isPassword)}>Change</Button>
         <PinInput
-          status="undefined"
-          onChange={onChangeHandler}
+          isPassword={isPassword}
+          onChangeHandler={onChangeCodeHandler}
           defaultValue={code}
-          disabled={disabled}
         />
       </Box>
       <br />
@@ -57,8 +45,8 @@ const ArticleDisabled = ({className}) => {
   )
 }
 
-ArticleDisabled.propTypes = {
+ArticlePassword.propTypes = {
   className: PropTypes.string
 }
 
-export default ArticleDisabled
+export default ArticlePassword

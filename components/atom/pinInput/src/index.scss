@@ -1,4 +1,5 @@
-@import "../demo/index.scss";
+@import '../demo/index';
 
-@import './PinInput.scss';
-@import './PinInputField.scss';
+@import './PinInput';
+@import './PinInputChildren';
+@import './PinInputField';

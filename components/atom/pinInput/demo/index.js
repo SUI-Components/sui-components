@@ -5,6 +5,10 @@ import ArticleMask from './ArticleMask'
 import ArticleReferenced from './ArticleReferenced'
 import ArticleDisabled from './ArticleDisabled'
 import ArticleStates from './ArticleStatus'
+import ArticleChildren from './ArticleChildren'
+import ArticlePlaceHolder from './ArticlePlaceholder'
+import ArticlePassword from './ArticlePassword'
+import ArticleLenght from './ArticleLength'
 const BASE_CLASS_DEMO = `DemoAtomValidationCode`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
@@ -20,11 +24,21 @@ export default () => {
         </Paragraph>
         <ArticleDefault className={CLASS_SECTION} />
         <br />
+        <ArticlePlaceHolder className={CLASS_SECTION} />
+        <br />
+        <ArticlePassword />
+        <br />
         <ArticleSizes className={CLASS_SECTION} />
         <br />
+        <ArticleLenght className={CLASS_SECTION} />
+        <br />
         <ArticleMask className={CLASS_SECTION} />
-        <ArticleDisabled />
-        <ArticleStates />
+        <br />
+        <ArticleDisabled className={CLASS_SECTION} />
+        <br />
+        <ArticleStates className={CLASS_SECTION} />
+        <br />
+        <ArticleChildren className={CLASS_SECTION} />
         <br />
         <ArticleReferenced className={CLASS_SECTION} />
       </div>

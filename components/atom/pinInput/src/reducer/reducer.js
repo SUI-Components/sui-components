@@ -90,7 +90,9 @@ export const pinInputReducer = (state, {actionType, payload}) => {
               ...state,
               focusPosition: elements[newIndex] ? newIndex : focusPosition
             }
-            focusElement(elements[nextState.focusPosition])
+            if (newIndex < elements.length && newIndex > 0) {
+              focusElement(elements[nextState.focusPosition])
+            }
             break
           case 'Meta':
           default:
@@ -147,9 +149,7 @@ export const pinInputReducer = (state, {actionType, payload}) => {
     default:
       break
   }
-  if (
-    actionType === undefined
-  ) {
+  if (actionType === undefined) {
     null
   } else {
     console.log({nextState, actionType: actionType.toString()})

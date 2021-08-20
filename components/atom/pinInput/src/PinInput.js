@@ -1,12 +1,5 @@
 import PropTypes from 'prop-types'
-import {
-  Children,
-  cloneElement,
-  forwardRef,
-  useCallback,
-  useEffect,
-  useRef
-} from 'react'
+import {forwardRef, useCallback, useEffect, useRef} from 'react'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import {PinInputContextProvider} from './PinInputContext'
@@ -14,21 +7,25 @@ import {BASE_CLASSNAME, SIZES} from './config.js'
 import {actions as pinInputActions, usePinInputReducer} from './reducer'
 import useKeyPress from './hooks/useKeyPress'
 import useUpdateEffect from './hooks/useUpdateEffect'
+import PinInputChildren from './PinInputChildren'
 
 const CLASSNAME = BASE_CLASSNAME
 
 const PinInput = forwardRef(
   (
     {
-      value,
+      children,
       defaultValue = '',
+      disabled,
+      isOneTimeCode = true,
+      length = 6,
       mask,
       onChange,
-      children,
-      isOneTimeCode = true,
+      placeholder = '',
+      isPassword = false,
       size = SIZES.MEDIUM,
       status,
-      disabled,
+      value,
       ...props
     },
     forwardedRef
@@ -88,19 +85,21 @@ const PinInput = forwardRef(
     return (
       <div className={CLASSNAME} ref={targetRef}>
         <PinInputContextProvider
-          ref={forwardedRef}
-          targetRef={innerRef}
-          onChange={onChange}
+          disabled={disabled}
+          isPassword={isPassword}
           dispatch={dispatch}
           getIndex={getIndex}
+          isOneTimeCode={isOneTimeCode}
+          onChange={onChange}
+          placeholder={placeholder}
+          ref={forwardedRef}
           setFocus={setFocus}
           size={size}
           status={status}
-          isOneTimeCode={isOneTimeCode}
-          disabled={disabled}
+          targetRef={innerRef}
           value={innerValue}
         >
-          {children}
+          <PinInputChildren length={length}>{children}</PinInputChildren>
         </PinInputContextProvider>
         <input
           type="hidden"
@@ -118,6 +117,11 @@ PinInput.propTypes = {
   onChange: PropTypes.func,
   size: PropTypes.oneOf(Object.values(SIZES)),
   isOneTimeCode: PropTypes.bool,
-  mask: PropTypes.string
+  mask: PropTypes.string,
+  defaultValue: PropTypes.string,
+  disabled: PropTypes.bool,
+  length: PropTypes.number,
+  status: PropTypes.oneOf(Object.values(BASE_CLASSNAME)),
+  value: PropTypes.string
 }
 export default PinInput

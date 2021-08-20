@@ -1,22 +1,12 @@
 import PropTypes from 'prop-types'
-import {
-  Article,
-  H2,
-  Paragraph,
-  Box,
-  Input,
-  Code
-} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph, Box, Code} from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
-import PinInputField from '../src/PinInputField'
 import {useState} from 'react'
-import LayoutGrid, {LayoutGridItem} from '@s-ui/react-layout-grid'
 
 const ArticleDefault = ({className}) => {
-  const [code, setCode] = useState('725412')
+  const [code, setCode] = useState('')
 
   const onChangeHandler = (event, args) => {
-    console.log({event, ...args})
     setCode(args.value)
   }
 
@@ -37,24 +27,7 @@ const ArticleDefault = ({className}) => {
           justifyContent: 'center'
         }}
       >
-        <PinInput
-          status="undefined"
-          onChange={onChangeHandler}
-          defaultValue={code}
-        >
-          <LayoutGrid gutter={1}>
-            {Array(6)
-              .fill(null)
-              .map((_, index) => (
-                <LayoutGridItem colSpan={2}>
-                  <PinInputField isFullWidth/>
-                </LayoutGridItem>
-              ))}
-            <LayoutGridItem colSpan={12}>
-              <Input style={{textAlign: 'center'}} value={code} disabled />
-            </LayoutGridItem>
-          </LayoutGrid>
-        </PinInput>
+        <PinInput onChangeHandler={onChangeHandler} defaultValue={code} />
       </Box>
       <br />
       <Paragraph>

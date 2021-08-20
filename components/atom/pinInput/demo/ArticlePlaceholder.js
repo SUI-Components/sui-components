@@ -5,33 +5,31 @@ import {
   Paragraph,
   Box,
   Code,
-  RadioButton
+  Input
 } from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
 import {useState} from 'react'
 
-const ArticleDisabled = ({className}) => {
-  const [code, setCode] = useState('725412')
-  const [disabled, setDisabled] = useState(false)
+const ArticlePlaceHolder = ({className}) => {
+  const [code, setCode] = useState('')
+  const [placeholder, setPlaceholder] = useState('')
 
-  const onChangeHandler = (event, args) => {
+  const onChangePlaceHolderHandler = event => {
+    setPlaceholder(event.target.value)
+  }
+
+  const onChangeCodeHandler = (event, args) => {
     setCode(args.value)
   }
 
   return (
     <Article className={className}>
-      <H2>Disabled</H2>
+      <H2>Placeholder</H2>
       <Paragraph>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cum earum
         nobis, deserunt voluptate labore illo, temporibus ex iure aliquam
         tempore accusamus, aliquid velit magni eius! A at molestias sunt!
       </Paragraph>
-      <RadioButton
-        value={disabled}
-        label="disabled"
-        checked={disabled}
-        onClick={() => setDisabled(!disabled)}
-      />
       <Box
         outline
         style={{
@@ -41,11 +39,11 @@ const ArticleDisabled = ({className}) => {
           justifyContent: 'center'
         }}
       >
+        <Input onChange={onChangePlaceHolderHandler} />
         <PinInput
-          status="undefined"
-          onChange={onChangeHandler}
+          placeholder={placeholder}
+          onChangeHandler={onChangeCodeHandler}
           defaultValue={code}
-          disabled={disabled}
         />
       </Box>
       <br />
@@ -57,8 +55,8 @@ const ArticleDisabled = ({className}) => {
   )
 }
 
-ArticleDisabled.propTypes = {
+ArticlePlaceHolder.propTypes = {
   className: PropTypes.string
 }
 
-export default ArticleDisabled
+export default ArticlePlaceHolder

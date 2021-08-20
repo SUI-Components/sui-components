@@ -1,34 +1,14 @@
 import PropTypes from 'prop-types'
-import {
-  Article,
-  H2,
-  Paragraph,
-  Box,
-  Input,
-  Button
-} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph, Box, Button} from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
-import PinInputField from '../src/PinInputField'
 import {useState} from 'react'
 
 const ArticleLenght = ({className}) => {
-  const [code, setCode] = useState('725412')
-
-  const onChangeHandler = (event, {value}) => {
-    setCode(value)
-  }
+  const [length, setLength] = useState(6)
 
   const onClickHandler = e => {
-    if (e.target.innerText === '+1') setCode(code.concat('1'))
-    if (e.target.innerText === '-1') setCode(code.slice(0, -1))
-  }
-
-  const renderInputs = () => {
-    const inputs = []
-    for (let index = 0; index < code.length; index++) {
-      inputs.push(<PinInputField />)
-    }
-    return inputs
+    if (e.target.innerText === '+1') setLength(length + 1)
+    if (e.target.innerText === '-1' && length > 1) setLength(length - 1)
   }
 
   return (
@@ -48,14 +28,7 @@ const ArticleLenght = ({className}) => {
           justifyContent: 'center'
         }}
       >
-        <PinInput
-          status="undefined"
-          onChange={onChangeHandler}
-          defaultValue={code}
-        >
-          {renderInputs()}
-        </PinInput>
-        <Input style={{textAlign: 'center'}} value={code} disabled />
+        <PinInput length={length} />
       </Box>
       <br />
     </Article>

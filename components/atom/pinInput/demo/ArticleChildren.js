@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import {
   Article,
   H2,
+  H3,
   Paragraph,
   Box,
   Input,
@@ -9,7 +10,7 @@ import {
 } from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
 import PinInputField from '../src/PinInputField'
-import {useState} from 'react'
+import {useState, Fragment} from 'react'
 import LayoutGrid, {LayoutGridItem} from '@s-ui/react-layout-grid'
 
 const ArticleChildren = ({className}) => {
@@ -58,13 +59,18 @@ const ArticleChildren = ({className}) => {
           onChange={onChangeHandler}
           defaultValue={code}
         >
-          <LayoutGrid gutter={1}>
+          <LayoutGrid alignContent="center" gutter={1}>
             {Array(6)
               .fill(null)
               .map((_, index) => (
-                <LayoutGridItem key={index} colSpan={2}>
-                  <PinInputField isFullWidth />
-                </LayoutGridItem>
+                <Fragment key={index}>
+                  <LayoutGridItem>
+                    <PinInputField isFullWidth />
+                  </LayoutGridItem>
+                  <LayoutGridItem>
+                    <span>–</span>
+                  </LayoutGridItem>
+                </Fragment>
               ))}
             <LayoutGridItem colSpan={12}>
               <Input style={{textAlign: 'center'}} value={code} disabled />

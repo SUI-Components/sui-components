@@ -1,12 +1,5 @@
-// import PropTypes from 'prop-types'
+import ValidationCode from './validationCode'
+import {pinInputStatus} from '@s-ui/react-atom-pin-input'
 
-export default function MoleculeValidationCode() {
-  return (
-    <div className="sui-MoleculeValidationCode">
-      <h1>MoleculeValidationCode</h1>
-    </div>
-  )
-}
-
-MoleculeValidationCode.displayName = 'MoleculeValidationCode'
-MoleculeValidationCode.propTypes = {}
+export default ValidationCode
+export {pinInputStatus as validationCodeStatus}

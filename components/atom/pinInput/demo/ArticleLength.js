@@ -1,5 +1,13 @@
 import PropTypes from 'prop-types'
-import {Article, H2, Paragraph, Box, Button} from '@s-ui/documentation-library'
+import {
+  Article,
+  H2,
+  Paragraph,
+  Box,
+  Button,
+  Grid,
+  Cell
+} from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
 import {useState} from 'react'
 
@@ -17,19 +25,36 @@ const ArticleLenght = ({className}) => {
       <Paragraph>
         The element size is the same as the default value it's been provided.
       </Paragraph>
-      <Button onClick={onClickHandler}>+1</Button>
-      <Button onClick={onClickHandler}>-1</Button>
-      <Box
-        outline
-        style={{
-          maxWidth: 700,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <PinInput length={length} />
-      </Box>
+      <Grid cols={2} gutter={[8, 8]}>
+        <Cell
+          style={{
+            display: 'flex',
+            justifyContent: 'flex-start',
+            alignItems: 'center'
+          }}
+        >
+          <Button onClick={onClickHandler}>-1</Button>
+        </Cell>
+        <Cell
+          style={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+            alignItems: 'center'
+          }}
+        >
+          <Button onClick={onClickHandler}>+1</Button>
+        </Cell>
+        <Cell
+          style={{
+            display: 'flex',
+            justifyContent: 'flex-start',
+            alignItems: 'center'
+          }}
+          span={2}
+        >
+          <PinInput length={length} />
+        </Cell>
+      </Grid>
       <br />
     </Article>
   )

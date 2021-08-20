@@ -59,7 +59,7 @@ const ArticleChildren = ({className}) => {
           onChange={onChangeHandler}
           defaultValue={code}
         >
-          <LayoutGrid alignContent="center" gutter={1}>
+          <LayoutGrid alignItems="center" gutter={1}>
             {Array(6)
               .fill(null)
               .map((_, index) => (
@@ -67,9 +67,7 @@ const ArticleChildren = ({className}) => {
                   <LayoutGridItem>
                     <PinInputField isFullWidth />
                   </LayoutGridItem>
-                  <LayoutGridItem>
-                    <span>–</span>
-                  </LayoutGridItem>
+                  <LayoutGridItem>–</LayoutGridItem>
                 </Fragment>
               ))}
             <LayoutGridItem colSpan={12}>

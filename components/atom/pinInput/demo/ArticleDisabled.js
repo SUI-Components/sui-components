@@ -12,7 +12,7 @@ import {useState} from 'react'
 
 const ArticleDisabled = ({className}) => {
   const [code, setCode] = useState('725412')
-  const [disabled, setDisabled] = useState(false)
+  const [disabled, setDisabled] = useState(true)
 
   const onChangeHandler = (event, args) => {
     setCode(args.value)
@@ -32,27 +32,15 @@ const ArticleDisabled = ({className}) => {
         checked={disabled}
         onClick={() => setDisabled(!disabled)}
       />
-      <Box
-        outline
-        style={{
-          maxWidth: 480,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <PinInput
-          status="undefined"
-          onChange={onChangeHandler}
-          defaultValue={code}
-          disabled={disabled}
-        />
-      </Box>
       <br />
-      <Paragraph>
-        By default, it sets autocomplete="on-time-code" to its inner input
-        fields by the default true bolean prop <Code>isOneTimeCode</Code>.
-      </Paragraph>
+      <br />
+      <PinInput
+        status="undefined"
+        onChange={onChangeHandler}
+        defaultValue={code}
+        disabled={disabled}
+      />
+      <br />
     </Article>
   )
 }

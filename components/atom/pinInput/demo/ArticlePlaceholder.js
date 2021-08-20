@@ -3,23 +3,24 @@ import {
   Article,
   H2,
   Paragraph,
-  Box,
-  Code,
-  Input
+  Input,
+  Grid,
+  Cell,
+  Label
 } from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
 import {useState} from 'react'
 
 const ArticlePlaceHolder = ({className}) => {
   const [code, setCode] = useState('')
-  const [placeholder, setPlaceholder] = useState('')
+  const [placeholder, setPlaceholder] = useState('🍄')
 
   const onChangePlaceHolderHandler = event => {
     setPlaceholder(event.target.value)
   }
 
-  const onChangeCodeHandler = (event, args) => {
-    setCode(args.value)
+  const onChangeCodeHandler = (event, args = {}) => {
+    setCode(args.value || event.target.value)
   }
 
   return (
@@ -30,27 +31,24 @@ const ArticlePlaceHolder = ({className}) => {
         nobis, deserunt voluptate labore illo, temporibus ex iure aliquam
         tempore accusamus, aliquid velit magni eius! A at molestias sunt!
       </Paragraph>
-      <Box
-        outline
-        style={{
-          maxWidth: 480,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <Input onChange={onChangePlaceHolderHandler} />
-        <PinInput
-          placeholder={placeholder}
-          onChangeHandler={onChangeCodeHandler}
-          defaultValue={code}
-        />
-      </Box>
+      <Grid cols={2} gutter={[8, 8]} style={{width: 400}}>
+        <Cell style={{display: 'flex', flexDirection: 'column'}}>
+          <Label>placeholder</Label>
+          <Input onChange={onChangePlaceHolderHandler} value={placeholder} />
+        </Cell>
+        <Cell style={{display: 'flex', flexDirection: 'column'}}>
+          <Label>value</Label>
+          <Input onChange={onChangeCodeHandler} value={code} />
+        </Cell>
+        <Cell span={2}>
+          <PinInput
+            placeholder={placeholder}
+            onChangeHandler={onChangeCodeHandler}
+            value={code}
+          />
+        </Cell>
+      </Grid>
       <br />
-      <Paragraph>
-        By default, it sets autocomplete="on-time-code" to its inner input
-        fields by the default true bolean prop <Code>isOneTimeCode</Code>.
-      </Paragraph>
     </Article>
   )
 }

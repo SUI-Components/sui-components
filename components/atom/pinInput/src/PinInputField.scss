@@ -30,9 +30,11 @@ $pin-input-field-status: (
   line-height: $lh-m;
   outline: none;
   text-align: center;
+  cursor: pointer;
 
   &:focus {
     border: 1px solid $c-primary-dark;
+    cursor: text;
   }
 
   @each $size-key, $size-value in $s-pin-input-field {
@@ -51,5 +53,9 @@ $pin-input-field-status: (
 
   &--fullWidth {
     width: 100%;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    pointer-events: all;
   }
 }

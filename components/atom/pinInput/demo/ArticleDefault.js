@@ -18,18 +18,7 @@ const ArticleDefault = ({className}) => {
         nobis, deserunt voluptate labore illo, temporibus ex iure aliquam
         tempore accusamus, aliquid velit magni eius! A at molestias sunt!
       </Paragraph>
-      <Box
-        outline
-        style={{
-          maxWidth: 480,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <PinInput onChangeHandler={onChangeHandler} defaultValue={code} />
-      </Box>
-      <br />
+      <PinInput onChangeHandler={onChangeHandler} defaultValue={code} />
       <Paragraph>
         By default, it sets autocomplete="on-time-code" to its inner input
         fields by the default true bolean prop <Code>isOneTimeCode</Code>.

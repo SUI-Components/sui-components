@@ -10,7 +10,7 @@ export const getInitialPinInputReducerState = ({
 }) => {
   const [innerValue] = useControlledState(
     value ? value.split('') : undefined,
-    defaultValue ? defaultValue.split('') : undefined
+    defaultValue ? defaultValue.split('') : []
   )
   return {
     focusPosition: 0,
@@ -32,7 +32,7 @@ const focusElement = element =>
 export const pinInputReducer = (state, {actionType, payload}) => {
   let nextState = Object.assign({}, state)
   const {checker, innerValue, focusPosition, elements} = state
-  const {disabled, mask, key, shiftKey} = payload
+  const {disabled, mask, key, shiftKey, node} = payload
   switch (actionType) {
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_DISABLED:
       nextState = {...state, disabled}
@@ -118,25 +118,41 @@ export const pinInputReducer = (state, {actionType, payload}) => {
       const position = elements[payload.focusPosition]
         ? payload.focusPosition
         : focusPosition
-      focusElement(elements[position])
+      if (elements[position]) {
+        focusElement(elements[position])
+      }
+      break
+    case PIN_INPUT_ACTION_TYPES:
+      const index = state.elements.indexOf(node)
+      if (index >= 0) {
+        elements[index] = node
+      }
+      nextState = {state, elements: [...elements]}
       break
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_ELEMENT:
-      const {node, index} = payload
-      if (!state.elements.includes(node)) {
-        state.elements[index] = node
+      if (!elements.includes(node)) {
+        elements[elements.length] = node
+        nextState = {
+          ...state,
+          elements: [...elements]
+        }
       }
-      nextState = state
+      break
+    case PIN_INPUT_ACTION_TYPES.REMOVE_PIN_INPUT_ELEMENT:
+      nextState = {
+        ...state,
+        elements: elements.filter(element => node !== element)
+      }
       break
     default:
       break
   }
   if (
-    actionType === undefined ||
-    actionType === PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_ELEMENT
+    actionType === undefined
   ) {
     null
   } else {
-    // console.log({nextState, actionType: actionType.toString()})
+    console.log({nextState, actionType: actionType.toString()})
   }
   return nextState
 }

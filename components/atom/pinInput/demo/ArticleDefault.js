@@ -10,6 +10,7 @@ import {
 import PinInput from '../src/PinInput'
 import PinInputField from '../src/PinInputField'
 import {useState} from 'react'
+import LayoutGrid, {LayoutGridItem} from '@s-ui/react-layout-grid'
 
 const ArticleDefault = ({className}) => {
   const [code, setCode] = useState('725412')
@@ -41,14 +42,19 @@ const ArticleDefault = ({className}) => {
           onChange={onChangeHandler}
           defaultValue={code}
         >
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
+          <LayoutGrid gutter={1}>
+            {Array(6)
+              .fill(null)
+              .map((_, index) => (
+                <LayoutGridItem colSpan={2}>
+                  <PinInputField isFullWidth/>
+                </LayoutGridItem>
+              ))}
+            <LayoutGridItem colSpan={12}>
+              <Input style={{textAlign: 'center'}} value={code} disabled />
+            </LayoutGridItem>
+          </LayoutGrid>
         </PinInput>
-        <Input style={{textAlign: 'center'}} value={code} disabled />
       </Box>
       <br />
       <Paragraph>

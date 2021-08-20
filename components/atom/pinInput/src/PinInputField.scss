@@ -28,8 +28,6 @@ $pin-input-field-status: (
   border: 1px solid $c-gray-light-3;
   font-weight: $fw-regular;
   line-height: $lh-m;
-  margin-left: $m-m;
-  margin-right: $m-m;
   outline: none;
   text-align: center;
 
@@ -49,5 +47,9 @@ $pin-input-field-status: (
     &--status-#{$status-key} {
       border: 1px solid $status-value;
     }
+  }
+
+  &--fullWidth {
+    width: 100%;
   }
 }

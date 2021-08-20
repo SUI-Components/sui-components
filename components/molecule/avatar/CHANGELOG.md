@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.8.0 (2021-08-20)
+
+
+### Features
+
+* **components/molecule/avatar:** Allow to overwrite background color ([c20712f](https://github.com/SUI-Components/sui-components/commit/c20712febb02989057c4a5e03fd6e59941da7102))
+
+
+
 # 1.7.0 (2021-08-09)
 
 

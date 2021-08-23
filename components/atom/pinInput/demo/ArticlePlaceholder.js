@@ -19,8 +19,9 @@ const ArticlePlaceHolder = ({className}) => {
     setPlaceholder(event.target.value)
   }
 
-  const onChangeCodeHandler = (event, args = {}) => {
-    setCode(args.value || event.target.value)
+  const onChangeCodeHandler = (event, {value} = {}) => {
+    debugger;
+    setCode(value !== undefined ? value : event.target.value)
   }
 
   return (
@@ -43,7 +44,7 @@ const ArticlePlaceHolder = ({className}) => {
         <Cell span={2}>
           <PinInput
             placeholder={placeholder}
-            onChangeHandler={onChangeCodeHandler}
+            onChange={onChangeCodeHandler}
             value={code}
           />
         </Cell>

@@ -1,6 +1,5 @@
 import {MASK, valueChecker} from '../config'
 import PIN_INPUT_ACTION_TYPES from './actionTypes'
-import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 
 export const getInitialPinInputReducerState = ({
   mask = MASK.NUMBER,
@@ -8,14 +7,10 @@ export const getInitialPinInputReducerState = ({
   disabled = false,
   defaultValue = []
 }) => {
-  const [innerValue] = useControlledState(
-    value ? value.split('') : undefined,
-    defaultValue ? defaultValue.split('') : []
-  )
   return {
     focusPosition: 0,
     mask,
-    innerValue: innerValue,
+    innerValue: value ? value.split('') : defaultValue.split(''),
     status: undefined,
     checker: valueChecker({mask}),
     disabled,
@@ -36,6 +31,17 @@ export const pinInputReducer = (state, {actionType, payload}) => {
   switch (actionType) {
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_DISABLED:
       nextState = {...state, disabled}
+      break
+    case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_VALUE:
+      debugger
+      nextState = {
+        ...state,
+        ...{
+          innerValue: innerValue !== payload.innerValue && [
+            ...payload.innerValue
+          ]
+        }
+      }
       break
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_MASK:
       const newChecker = valueChecker({mask})

@@ -40,6 +40,13 @@ const PinInput = forwardRef(
     })
     const {innerValue, focusPosition, elements} = reducerState
 
+    // useEffect(() => {
+    //   debugger
+    //   dispatch(
+    //     pinInputActions.setValue({innerValue: value ? value.split('') : []})
+    //   )
+    // }, [value])
+
     useEffect(() => {
       dispatch(pinInputActions.setDisabled({disabled}))
     }, [disabled])
@@ -66,17 +73,40 @@ const PinInput = forwardRef(
       [elements]
     )
 
+    const handleOnChange = event => {
+      debugger
+      typeof onChange === 'function' &&
+        onChange(event, {
+          value: innerValue.filter(Boolean).join(''),
+          index: focusPosition,
+          key: innerValue[focusPosition] || ''
+        })
+    }
+
     useUpdateEffect(() => {
-      const event = new Event('input', {bubbles: true, cancelable: true})
-      Object.defineProperty(event, 'target', {
-        value: innerRef.current,
-        enumerable: true
+      const element = innerRef.current
+      const joinedValue = innerValue.filter(Boolean).join('')
+      
+      console.log({
+        value,
+        defaultValue,
+        joinedValue,
+        nativeValue: element.value
       })
-      const value = innerValue.filter(Boolean).join('')
-      if (typeof onChange === 'function') {
-        onChange(event, {value})
+      debugger;
+      if (typeof onChange === 'function' && value !== joinedValue) {
+        const event = new Event('input', {bubbles: true, cancelable: true})
+        Object.defineProperty(event, 'target', {
+          value: element,
+          enumerable: true
+        })
+        onChange(event, {value: joinedValue})
+      } else {
+        dispatch(
+          pinInputActions.setValue({innerValue: value ? value.split('') : []})
+        )
       }
-    }, [innerRef, innerValue, onChange])
+    }, [innerRef, innerValue, value, onChange])
 
     useUpdateEffect(() => {
       setFocus(focusPosition)
@@ -103,7 +133,7 @@ const PinInput = forwardRef(
         </PinInputContextProvider>
         <input
           type="hidden"
-          value={innerValue.filter(Boolean).join('')}
+          onChange={handleOnChange}
           ref={useMergeRefs(innerRef, forwardedRef)}
         />
       </div>

@@ -22,25 +22,25 @@ export default () => {
           digits. The most common application is for entering OTP or security
           codes.
         </Paragraph>
-        <ArticleDefault className={CLASS_SECTION} />
+        {/*<ArticleDefault className={CLASS_SECTION} />*/}
         <br />
         <ArticlePlaceHolder className={CLASS_SECTION} />
         <br />
-        <ArticlePassword />
+        {/*<ArticlePassword />*/}
         <br />
-        <ArticleSizes className={CLASS_SECTION} />
+        {/*<ArticleSizes className={CLASS_SECTION} />*/}
         <br />
-        <ArticleLenght className={CLASS_SECTION} />
+        {/*<ArticleLenght className={CLASS_SECTION} />*/}
         <br />
-        <ArticleMask className={CLASS_SECTION} />
+        {/*<ArticleMask className={CLASS_SECTION} />*/}
         <br />
-        <ArticleDisabled className={CLASS_SECTION} />
+        {/*<ArticleDisabled className={CLASS_SECTION} />*/}
         <br />
-        <ArticleStates className={CLASS_SECTION} />
+        {/*<ArticleStates className={CLASS_SECTION} />*/}
         <br />
-        <ArticleChildren className={CLASS_SECTION} />
+        {/*<ArticleChildren className={CLASS_SECTION} />*/}
         <br />
-        <ArticleReferenced className={CLASS_SECTION} />
+        {/*<ArticleReferenced className={CLASS_SECTION} />*/}
       </div>
     </div>
   )

@@ -32,7 +32,7 @@ const ArticlePassword = ({className}) => {
         <Button onClick={() => setIsPassword(!isPassword)}>Change</Button>
         <PinInput
           isPassword={isPassword}
-          onChangeHandler={onChangeCodeHandler}
+          onChange={onChangeCodeHandler}
           defaultValue={code}
         />
       </Box>

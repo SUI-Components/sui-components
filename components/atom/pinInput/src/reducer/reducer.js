@@ -7,7 +7,6 @@ export const getInitialPinInputReducerState = ({
   disabled = false,
   defaultValue = []
 }) => {
-  debugger;
   return {
     focusPosition: 0,
     mask,
@@ -28,13 +27,14 @@ const focusElement = element =>
 export const pinInputReducer = (state, {actionType, payload}) => {
   let nextState = Object.assign({}, state)
   const {checker, innerValue, focusPosition, elements} = state
-  const {disabled, mask, key, shiftKey, node} = payload
+  const {disabled, mask, node, onChange, event = {}} = payload
+  const {key, shiftKey} = event
+
   switch (actionType) {
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_DISABLED:
       nextState = {...state, disabled}
       break
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_VALUE:
-      debugger
       nextState = {
         ...state,
         ...{
@@ -109,6 +109,12 @@ export const pinInputReducer = (state, {actionType, payload}) => {
         const isKeyChange = innerValue[focusPosition] !== key
         if (isKeyChange) {
           innerValue[focusPosition] = key
+          typeof onChange === 'function' &&
+            onChange(event, {
+              value: innerValue.filter(Boolean).join(''),
+              key,
+              index: focusPosition
+            })
         }
         nextState = {
           ...state,
@@ -155,11 +161,6 @@ export const pinInputReducer = (state, {actionType, payload}) => {
       break
     default:
       break
-  }
-  if (actionType === undefined) {
-    null
-  } else {
-    console.log({nextState, actionType: actionType.toString()})
   }
   return nextState
 }

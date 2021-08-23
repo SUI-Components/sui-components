@@ -32,7 +32,6 @@ const PinInput = forwardRef(
   ) => {
     const innerRef = useRef()
     const targetRef = useRef()
-    debugger
     const [reducerState, dispatch] = usePinInputReducer({
       mask,
       defaultValue,
@@ -61,9 +60,9 @@ const PinInput = forwardRef(
 
     useKeyPress(
       event => {
-        dispatch(pinInputActions.setKey(event))
+        dispatch(pinInputActions.setKey({event, onChange}))
       },
-      {target: targetRef}
+      {target: targetRef, onChange}
     )
 
     const getIndex = useCallback(
@@ -72,18 +71,6 @@ const PinInput = forwardRef(
       },
       [elements]
     )
-
-    useUpdateEffect(() => {
-      const event = new Event('input', {bubbles: true, cancelable: true})
-      Object.defineProperty(event, 'target', {
-        value: innerRef.current,
-        enumerable: true
-      })
-      if (typeof onChange === 'function') {
-        debugger
-        onChange(event, {value: innerValue.filter(Boolean).join('')})
-      }
-    }, [innerRef, innerValue, onChange])
 
     useUpdateEffect(() => {
       setFocus(focusPosition)
@@ -97,7 +84,6 @@ const PinInput = forwardRef(
           dispatch={dispatch}
           getIndex={getIndex}
           isOneTimeCode={isOneTimeCode}
-          onChange={onChange}
           placeholder={placeholder}
           ref={forwardedRef}
           setFocus={setFocus}

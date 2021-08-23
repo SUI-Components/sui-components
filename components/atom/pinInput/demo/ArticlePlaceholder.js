@@ -20,7 +20,6 @@ const ArticlePlaceHolder = ({className}) => {
   }
 
   const onChangeCodeHandler = (event, {value} = {}) => {
-    debugger;
     setCode(value !== undefined ? value : event.target.value)
   }
 

@@ -28,6 +28,7 @@ const PinInputField = forwardRef(({isFullWidth, ...props}, forwardedRef) => {
     status,
     dispatch,
     getIndex,
+    onChange,
     value = []
   } = usePinInputContext()
 
@@ -53,12 +54,14 @@ const PinInputField = forwardRef(({isFullWidth, ...props}, forwardedRef) => {
       setFocus(index)
     }
   }
+
   return (
     <input
       className={getClassName({size, status, isFullWidth})}
       disabled={disabled}
       maxLength="1"
       onClick={onFocusHandler}
+      onChange={onChange}
       onFocus={onFocusHandler}
       placeholder={placeholder}
       readOnly

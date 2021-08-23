@@ -6,7 +6,7 @@ import PIN_INPUT_ACTION_TYPES from './actionTypes'
 
 const act = (actionType, payload = {}) => ({actionType, payload})
 
-const setKey = event => act(PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_KEY, event)
+const setKey = ({event, onChange}) => act(PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_KEY, {event, onChange})
 const setValue = ({innerValue}) =>
   act(PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_VALUE, {innerValue})
 const setFocus = ({focusPosition}) =>

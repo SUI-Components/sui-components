@@ -31,6 +31,9 @@ $pin-input-field-status: (
   outline: none;
   text-align: center;
   cursor: pointer;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 
   &:focus {
     border: 1px solid $c-primary-dark;

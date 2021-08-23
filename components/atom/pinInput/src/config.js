@@ -1,3 +1,5 @@
+export const BASE_CLASSNAME = 'sui-PinInput'
+
 export const SIZES = {
   XXSMALL: 'xxsmall',
   XSMALL: 'xsmall',
@@ -7,7 +9,6 @@ export const SIZES = {
   XLARGE: 'xlarge',
   XXLARGE: 'xxlarge'
 }
-export const BASE_CLASSNAME = 'sui-PinInput'
 export const STATUS = {
   ERROR: 'error',
   SUCCESS: 'success',

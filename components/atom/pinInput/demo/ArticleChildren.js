@@ -6,18 +6,56 @@ import {
   Paragraph,
   Box,
   Input,
-  Code
+  Code,
+  Button,
+  Grid,
+  Cell,
+  Label
 } from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
 import PinInputField from '../src/PinInputField'
-import {useState, Fragment} from 'react'
-import LayoutGrid, {LayoutGridItem} from '@s-ui/react-layout-grid'
+import {useState} from 'react'
+
+const getWeirdSumCombinationArray = (values = [], max) => {
+  const arrSum = arr => arr.reduce((a, b) => a + b, 0)
+  const arrShuffle = array => array.sort(() => Math.random() - 0.5)
+  const result = []
+  while (arrSum(result) < max) {
+    const possibleValues = values.filter(value => max - arrSum(result) >= value)
+    if (possibleValues.length === 0) {
+      break
+    } else {
+      const randomArrayIndex = array => Math.floor(Math.random() * array.length)
+      result.push(possibleValues[randomArrayIndex(possibleValues)])
+    }
+  }
+  return arrShuffle(result)
+}
+
+const possibleValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+const columnIndex = 12
 
 const ArticleChildren = ({className}) => {
-  const [code, setCode] = useState('725412')
+  const [weirdColumns, setWeirdColumns] = useState([
+    ...getWeirdSumCombinationArray(possibleValues, columnIndex),
+    ...getWeirdSumCombinationArray(possibleValues, columnIndex),
+    ...getWeirdSumCombinationArray(possibleValues, columnIndex)
+  ])
+
+  const [code, setCode] = useState(
+    `${Math.trunc(Math.random() * Math.pow(10, weirdColumns.length))}`
+  )
 
   const onChangeHandler = (event, args) => {
     setCode(args.value)
+  }
+
+  const setWeirdColumnsHandler = () => {
+    setWeirdColumns([
+      ...getWeirdSumCombinationArray(possibleValues, columnIndex),
+      ...getWeirdSumCombinationArray(possibleValues, columnIndex),
+      ...getWeirdSumCombinationArray(possibleValues, columnIndex)
+    ])
   }
 
   return (
@@ -28,54 +66,37 @@ const ArticleChildren = ({className}) => {
         nobis, deserunt voluptate labore illo, temporibus ex iure aliquam
         tempore accusamus, aliquid velit magni eius! A at molestias sunt!
       </Paragraph>
-      <Box
-        outline
-        style={{
-          maxWidth: 480,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <PinInput onChangeHandler={onChangeHandler} defaultValue={code} />
-      </Box>
+      <PinInput onChange={onChangeHandler} value={code} length={code.length} />
 
       <Paragraph>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cum earum
         nobis, deserunt voluptate labore illo, temporibus ex iure aliquam
         tempore accusamus, aliquid velit magni eius! A at molestias sunt!
       </Paragraph>
-      <Box
-        outline
-        style={{
-          maxWidth: 480,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <PinInput
-          status="undefined"
-          onChange={onChangeHandler}
-          defaultValue={code}
-        >
-          <LayoutGrid alignItems="center" gutter={1}>
-            {Array(6)
-              .fill(null)
-              .map((_, index) => (
-                <Fragment key={index}>
-                  <LayoutGridItem>
-                    <PinInputField isFullWidth />
-                  </LayoutGridItem>
-                  <LayoutGridItem>{index !== 5 ? '–' : ''}</LayoutGridItem>
-                </Fragment>
+      <Grid cols={1} gutter={[8, 8]}>
+        <Cell>
+          <Button onClick={setWeirdColumnsHandler}>shuffle</Button>
+        </Cell>
+        <Cell>
+          <PinInput onChange={onChangeHandler} value={code}>
+            <Grid cols={12} gutter={[8, 8]} style={{width: '100%'}}>
+              {weirdColumns.map((size, index) => (
+                <Cell key={index} span={size}>
+                  <PinInputField isFullWidth />
+                </Cell>
               ))}
-            <LayoutGridItem colSpan={12}>
-              <Input style={{textAlign: 'center'}} value={code} disabled />
-            </LayoutGridItem>
-          </LayoutGrid>
-        </PinInput>
-      </Box>
+              <Cell span={12}>
+                <Input
+                  style={{textAlign: 'center'}}
+                  value={code}
+                  disabled
+                  fullWidth
+                />
+              </Cell>
+            </Grid>
+          </PinInput>
+        </Cell>
+      </Grid>
       <br />
       <Paragraph>
         By default, it sets autocomplete="on-time-code" to its inner input

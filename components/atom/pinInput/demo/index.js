@@ -9,6 +9,7 @@ import ArticleChildren from './ArticleChildren'
 import ArticlePlaceHolder from './ArticlePlaceholder'
 import ArticlePassword from './ArticlePassword'
 import ArticleLength from './ArticleLength'
+import ArticleUncontrolled from './ArticleUncontrolled'
 const BASE_CLASS_DEMO = `DemoAtomValidationCode`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
@@ -23,6 +24,8 @@ export default () => {
           codes.
         </Paragraph>
         <ArticleDefault className={CLASS_SECTION} />
+        <br />
+        <ArticleUncontrolled className={CLASS_SECTION} />
         <br />
         <ArticlePlaceHolder className={CLASS_SECTION} />
         <br />

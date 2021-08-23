@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {Article, H2, Paragraph, Box, Code} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
 import {useState} from 'react'
 

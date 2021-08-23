@@ -7,6 +7,7 @@ export const getInitialPinInputReducerState = ({
   disabled = false,
   defaultValue = []
 }) => {
+  debugger;
   return {
     focusPosition: 0,
     mask,

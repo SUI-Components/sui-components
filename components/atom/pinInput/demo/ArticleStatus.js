@@ -4,8 +4,7 @@ import {
   H2,
   Paragraph,
   RadioButton,
-  RadioButtonGroup,
-  Box
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
 import {useState} from 'react'
@@ -36,17 +35,7 @@ const ArticleStatus = ({className}) => {
       </RadioButtonGroup>
       <br />
       <br />
-      <Box
-        outline
-        style={{
-          maxWidth: 480,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <PinInput status={status} defaultValue="827382" />
-      </Box>
+      <PinInput status={status} defaultValue="827382" />
     </Article>
   )
 }

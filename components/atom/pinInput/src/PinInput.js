@@ -32,6 +32,7 @@ const PinInput = forwardRef(
   ) => {
     const innerRef = useRef()
     const targetRef = useRef()
+    debugger
     const [reducerState, dispatch] = usePinInputReducer({
       mask,
       defaultValue,
@@ -40,12 +41,11 @@ const PinInput = forwardRef(
     })
     const {innerValue, focusPosition, elements} = reducerState
 
-    // useEffect(() => {
-    //   debugger
-    //   dispatch(
-    //     pinInputActions.setValue({innerValue: value ? value.split('') : []})
-    //   )
-    // }, [value])
+    useEffect(() => {
+      dispatch(
+        pinInputActions.setValue({innerValue: value ? value.split('') : []})
+      )
+    }, [value])
 
     useEffect(() => {
       dispatch(pinInputActions.setDisabled({disabled}))
@@ -73,40 +73,17 @@ const PinInput = forwardRef(
       [elements]
     )
 
-    const handleOnChange = event => {
-      debugger
-      typeof onChange === 'function' &&
-        onChange(event, {
-          value: innerValue.filter(Boolean).join(''),
-          index: focusPosition,
-          key: innerValue[focusPosition] || ''
-        })
-    }
-
     useUpdateEffect(() => {
-      const element = innerRef.current
-      const joinedValue = innerValue.filter(Boolean).join('')
-      
-      console.log({
-        value,
-        defaultValue,
-        joinedValue,
-        nativeValue: element.value
+      const event = new Event('input', {bubbles: true, cancelable: true})
+      Object.defineProperty(event, 'target', {
+        value: innerRef.current,
+        enumerable: true
       })
-      debugger;
-      if (typeof onChange === 'function' && value !== joinedValue) {
-        const event = new Event('input', {bubbles: true, cancelable: true})
-        Object.defineProperty(event, 'target', {
-          value: element,
-          enumerable: true
-        })
-        onChange(event, {value: joinedValue})
-      } else {
-        dispatch(
-          pinInputActions.setValue({innerValue: value ? value.split('') : []})
-        )
+      if (typeof onChange === 'function') {
+        debugger
+        onChange(event, {value: innerValue.filter(Boolean).join('')})
       }
-    }, [innerRef, innerValue, value, onChange])
+    }, [innerRef, innerValue, onChange])
 
     useUpdateEffect(() => {
       setFocus(focusPosition)
@@ -133,7 +110,7 @@ const PinInput = forwardRef(
         </PinInputContextProvider>
         <input
           type="hidden"
-          onChange={handleOnChange}
+          value={innerValue.filter(Boolean).join('')}
           ref={useMergeRefs(innerRef, forwardedRef)}
         />
       </div>

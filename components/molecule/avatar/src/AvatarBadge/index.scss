@@ -16,15 +16,6 @@ $bw-avatar-badge: (
   xsmall: 1px
 ) !default;
 
-$bw-avatar-badge-muted: (
-  xxlarge: 5px,
-  xlarge: 5px,
-  large: 4px,
-  medium: 4px,
-  small: 3px,
-  xsmall: 3px
-) !default;
-
 $bdc-avatar-badge: white !default;
 $bdc-avatar-badge-muted: #d7dcdf !default;
 
@@ -64,16 +55,19 @@ $bdc-avatar-badge-muted: #d7dcdf !default;
       border: $bw solid $bdc-avatar-badge;
     }
     &--#{$key-size}#{&}--muted {
-      border: map-get($bw-avatar-badge-muted, $key-size)
-        solid
-        $bdc-avatar-badge-muted;
-      box-shadow: inset
-          0
-          0
-          0
-          map-get($bw-avatar-badge-muted, $key-size)
-          $bdc-avatar-badge,
-        0 0 0 map-get($bw-avatar-badge-muted, $key-size) $bdc-avatar-badge;
+      background: $bdc-avatar-badge-muted;
+      &::before {
+        background-color: $bdc-avatar-badge;
+        border-radius: $bdrs-rounded;
+        content: '';
+        display: block;
+        height: map-get($s-avatar-badge, $key-size) / 4;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: map-get($s-avatar-badge, $key-size) / 4;
+      }
     }
   }
 }

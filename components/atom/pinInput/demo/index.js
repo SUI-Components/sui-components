@@ -23,27 +23,27 @@ export default () => {
           digits. The most common application is for entering OTP or security
           codes.
         </Paragraph>
-        {/*<ArticleDefault className={CLASS_SECTION} />*/}
-        {/*<br />*/}
-        {/*<ArticleValue className={CLASS_SECTION} />*/}
-        {/*<br />*/}
-        {/*<ArticlePlaceHolder className={CLASS_SECTION} />*/}
-        {/*<br />*/}
-        {/*<ArticlePassword />*/}
-        {/*<br />*/}
-        {/*<ArticleSizes className={CLASS_SECTION} />*/}
-        {/*<br />*/}
-        {/*<ArticleLength className={CLASS_SECTION} />*/}
-        {/*<br />*/}
-        {/*<ArticleMask className={CLASS_SECTION} />*/}
-        {/*<br />*/}
-        {/*<ArticleDisabled className={CLASS_SECTION} />*/}
-        {/*<br />*/}
-        {/*<ArticleStates className={CLASS_SECTION} />*/}
-        {/*<br />*/}
+        <ArticleDefault className={CLASS_SECTION} />
+        <br />
+        <ArticleValue className={CLASS_SECTION} />
+        <br />
+        <ArticlePlaceHolder className={CLASS_SECTION} />
+        <br />
+        <ArticlePassword className={CLASS_SECTION} />
+        <br />
+        <ArticleSizes className={CLASS_SECTION} />
+        <br />
+        <ArticleLength className={CLASS_SECTION} />
+        <br />
+        <ArticleMask className={CLASS_SECTION} />
+        <br />
+        <ArticleDisabled className={CLASS_SECTION} />
+        <br />
+        <ArticleStates className={CLASS_SECTION} />
+        <br />
         <ArticleChildren className={CLASS_SECTION} />
-        {/*<br />*/}
-        {/*<ArticleReferenced className={CLASS_SECTION} />*/}
+        <br />
+        <ArticleReferenced className={CLASS_SECTION} />
       </div>
     </div>
   )

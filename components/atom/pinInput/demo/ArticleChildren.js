@@ -2,15 +2,11 @@ import PropTypes from 'prop-types'
 import {
   Article,
   H2,
-  H3,
   Paragraph,
-  Box,
   Input,
-  Code,
   Button,
   Grid,
-  Cell,
-  Label
+  Cell
 } from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
 import PinInputField from '../src/PinInputField'
@@ -61,17 +57,13 @@ const ArticleChildren = ({className}) => {
   return (
     <Article className={className}>
       <H2>Children</H2>
-      <Paragraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cum earum
-        nobis, deserunt voluptate labore illo, temporibus ex iure aliquam
-        tempore accusamus, aliquid velit magni eius! A at molestias sunt!
-      </Paragraph>
-      <PinInput onChange={onChangeHandler} value={code} length={code.length} />
+      <Paragraph>Default look for PinInput component.</Paragraph>
+
+      <PinInput onChangeHandler={onChangeHandler} defaultValue={code} />
 
       <Paragraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cum earum
-        nobis, deserunt voluptate labore illo, temporibus ex iure aliquam
-        tempore accusamus, aliquid velit magni eius! A at molestias sunt!
+        We can customize children in the component using the PinInputField
+        component.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
@@ -98,10 +90,6 @@ const ArticleChildren = ({className}) => {
         </Cell>
       </Grid>
       <br />
-      <Paragraph>
-        By default, it sets autocomplete="on-time-code" to its inner input
-        fields by the default true bolean prop <Code>isOneTimeCode</Code>.
-      </Paragraph>
     </Article>
   )
 }

@@ -13,7 +13,7 @@ import Component from '../src/index'
 
 chai.use(chaiDOM)
 
-describe('AtomValidationCode', () => {
+describe('Pin Input', () => {
   const setup = setupEnvironment(Component)
 
   it('should render without crashing', () => {

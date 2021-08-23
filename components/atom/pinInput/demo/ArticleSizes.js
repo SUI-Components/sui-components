@@ -4,8 +4,7 @@ import {
   H2,
   Paragraph,
   RadioButton,
-  RadioButtonGroup,
-  Box
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
 import {useState} from 'react'
@@ -22,9 +21,8 @@ const ArticleSizes = ({className}) => {
     <Article className={className}>
       <H2>Sizes</H2>
       <Paragraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cum earum
-        nobis, deserunt voluptate labore illo, temporibus ex iure aliquam
-        tempore accusamus, aliquid velit magni eius! A at molestias sunt!
+        size prop allows to change the size of the pinInput inputs, working with
+        the following props:
       </Paragraph>
       <RadioButtonGroup value={size} onChange={onChangeHandler}>
         {[undefined, ...Object.values(SIZES)].map((sizeValue, key) => {

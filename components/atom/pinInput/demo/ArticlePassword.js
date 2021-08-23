@@ -10,7 +10,6 @@ import {
 } from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
 import {useState} from 'react'
-import Button from '@s-ui/documentation-library/lib/components/Button/Button'
 
 const ArticlePassword = ({className}) => {
   const [code, setCode] = useState('123456')
@@ -24,9 +23,7 @@ const ArticlePassword = ({className}) => {
     <Article className={className}>
       <H2>Password</H2>
       <Paragraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cum earum
-        nobis, deserunt voluptate labore illo, temporibus ex iure aliquam
-        tempore accusamus, aliquid velit magni eius! A at molestias sunt!
+        The isPassword props allow us to apply a password type to the input.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>

@@ -4,8 +4,7 @@ import {
   H2,
   Paragraph,
   RadioButton,
-  RadioButtonGroup,
-  Box
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
 import {useState} from 'react'
@@ -22,9 +21,8 @@ const ArticleMask = ({className}) => {
     <Article className={className}>
       <H2>Mask</H2>
       <Paragraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cum earum
-        nobis, deserunt voluptate labore illo, temporibus ex iure aliquam
-        tempore accusamus, aliquid velit magni eius! A at molestias sunt!
+        By using the prop mask we can define the mask is going to be applied to
+        the pinInput.
       </Paragraph>
       <RadioButtonGroup value={mask} onChange={onChangeHandler}>
         {[undefined, ...Object.keys(MASK)].map((maskValue, key) => {

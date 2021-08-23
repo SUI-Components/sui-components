@@ -18,7 +18,9 @@ const PinInputChildren = ({length, children}) => {
 }
 
 PinInputChildren.propTypes = {
+  /** number of input */
   length: PropTypes.number,
+  /** children to be rendered */
   children: PropTypes.node
 }
 

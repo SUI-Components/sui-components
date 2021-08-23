@@ -3,7 +3,7 @@ import {forwardRef, useCallback, useEffect, useRef} from 'react'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import {PinInputContextProvider} from './PinInputContext'
-import {BASE_CLASSNAME, SIZES} from './config.js'
+import {BASE_CLASSNAME, MASK, SIZES} from './config.js'
 import {actions as pinInputActions, usePinInputReducer} from './reducer'
 import useKeyPress from './hooks/useKeyPress'
 import useUpdateEffect from './hooks/useUpdateEffect'
@@ -106,15 +106,32 @@ const PinInput = forwardRef(
 
 PinInput.displayName = 'PinInput'
 PinInput.propTypes = {
+  /** children the components is gonna have  */
   children: PropTypes.node,
-  onChange: PropTypes.func,
-  size: PropTypes.oneOf(Object.values(SIZES)),
-  isOneTimeCode: PropTypes.bool,
-  mask: PropTypes.string,
+  /** default value for the input */
   defaultValue: PropTypes.string,
+  /** true for disabled false for default */
   disabled: PropTypes.bool,
+  /** true for autocomplete from keyboard false for default  */
+  isOneTimeCode: PropTypes.bool,
+  /** true to make the input type password false for text */
+  isPassword: PropTypes.bool,
+  /** defines the number of cells */
   length: PropTypes.number,
+  /** name of the custom mask (NUMBER, ALPHABETIC, ALPHANUMERIC) */
+  mask: PropTypes.oneOfType(
+    PropTypes.oneOf(Object.values(MASK)),
+    PropTypes.string
+  ),
+  /** function executed on value change */
+  onChange: PropTypes.func,
+  /** placeholder for the input */
+  placeholder: PropTypes.string,
+  /** set the size of the input (XXSMALL, XSMALL, SMALL, MEDIUM, LARGE, XLARGE, XXLARGE) */
+  size: PropTypes.oneOf(Object.values(SIZES)),
+  /** set the input status (ERROR, SUCCESS, WARNING) */
   status: PropTypes.oneOf(Object.values(BASE_CLASSNAME)),
+  /** input value */
   value: PropTypes.string
 }
 export default PinInput

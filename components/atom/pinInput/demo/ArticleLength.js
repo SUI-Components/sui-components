@@ -3,7 +3,6 @@ import {
   Article,
   H2,
   Paragraph,
-  Box,
   Button,
   Grid,
   Cell

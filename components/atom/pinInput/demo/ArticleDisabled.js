@@ -1,12 +1,5 @@
 import PropTypes from 'prop-types'
-import {
-  Article,
-  H2,
-  Paragraph,
-  Box,
-  Code,
-  RadioButton
-} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph, RadioButton} from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
 import {useState} from 'react'
 
@@ -22,9 +15,7 @@ const ArticleDisabled = ({className}) => {
     <Article className={className}>
       <H2>Disabled</H2>
       <Paragraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cum earum
-        nobis, deserunt voluptate labore illo, temporibus ex iure aliquam
-        tempore accusamus, aliquid velit magni eius! A at molestias sunt!
+        By setting the prop disabled to true we can disable the pinInput.
       </Paragraph>
       <RadioButton
         value={disabled}

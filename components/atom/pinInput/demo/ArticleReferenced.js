@@ -14,9 +14,8 @@ const ArticleReferenced = ({className}) => {
     <Article className={className}>
       <H2>Forward Referenced</H2>
       <Paragraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cum earum
-        nobis, deserunt voluptate labore illo, temporibus ex iure aliquam
-        tempore accusamus, aliquid velit magni eius! A at molestias sunt!
+        PinInput value is readed from a hidden input to get the full result of
+        the value and to be able to access it without having to transform data.
       </Paragraph>
       <Box
         outline

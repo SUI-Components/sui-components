@@ -27,9 +27,8 @@ const ArticlePlaceHolder = ({className}) => {
     <Article className={className}>
       <H2>Placeholder</H2>
       <Paragraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cum earum
-        nobis, deserunt voluptate labore illo, temporibus ex iure aliquam
-        tempore accusamus, aliquid velit magni eius! A at molestias sunt!
+        We can use a placeholder for the component. Each cell gonna use the
+        placeholder we defined.
       </Paragraph>
       <Grid cols={2} gutter={[8, 8]} style={{width: 400}}>
         <Cell style={{display: 'flex', flexDirection: 'column'}}>

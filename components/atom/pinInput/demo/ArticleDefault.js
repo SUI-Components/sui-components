@@ -13,11 +13,7 @@ const ArticleDefault = ({className}) => {
   return (
     <Article className={className}>
       <H2>Default</H2>
-      <Paragraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cum earum
-        nobis, deserunt voluptate labore illo, temporibus ex iure aliquam
-        tempore accusamus, aliquid velit magni eius! A at molestias sunt!
-      </Paragraph>
+      <Paragraph>Default style of InputComponent.</Paragraph>
       <PinInput onChangeHandler={onChangeHandler} defaultValue={code} />
       <Paragraph>
         By default, it sets autocomplete="on-time-code" to its inner input

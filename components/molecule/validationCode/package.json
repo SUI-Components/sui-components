@@ -17,5 +17,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@s-ui/react-atom-button": "^1.66.0"
+  }
 }

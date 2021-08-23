@@ -67,7 +67,7 @@ const ArticleChildren = ({className}) => {
                   <LayoutGridItem>
                     <PinInputField isFullWidth />
                   </LayoutGridItem>
-                  <LayoutGridItem>–</LayoutGridItem>
+                  <LayoutGridItem>{index !== 5 ? '–' : ''}</LayoutGridItem>
                 </Fragment>
               ))}
             <LayoutGridItem colSpan={12}>

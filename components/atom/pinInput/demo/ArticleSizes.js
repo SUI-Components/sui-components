@@ -40,17 +40,7 @@ const ArticleSizes = ({className}) => {
       </RadioButtonGroup>
       <br />
       <br />
-      <Box
-        outline
-        style={{
-          maxWidth: 480,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <PinInput status="focus" size={size} defaultValue="827382" />
-      </Box>
+      <PinInput status="focus" size={size} defaultValue="827382" />
     </Article>
   )
 }

@@ -40,17 +40,7 @@ const ArticleMask = ({className}) => {
       </RadioButtonGroup>
       <br />
       <br />
-      <Box
-        outline
-        style={{
-          maxWidth: 480,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <PinInput status="focus" mask={MASK[mask]} defaultValue="827382" />
-      </Box>
+      <PinInput status="focus" mask={MASK[mask]} defaultValue="827382" />
     </Article>
   )
 }

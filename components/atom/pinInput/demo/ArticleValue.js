@@ -10,7 +10,14 @@ import {
 import PinInput from '../src/PinInput'
 import {useState} from 'react'
 
-const ArticleUncontrolled = ({className}) => {
+const cellStyles = {
+  display: 'flex',
+  justifyContent: 'flex-start',
+  alignItems: 'flex-start',
+  flexDirection: 'column'
+}
+
+const ArticleValue = ({className}) => {
   const [controlledCode, setControlledCode] = useState('')
   const [uncontrolledCode, setUncontrolledCode] = useState('')
 
@@ -24,15 +31,9 @@ const ArticleUncontrolled = ({className}) => {
 
   return (
     <Article className={className}>
-      <H2>Controlled vs Uncontrolled</H2>
+      <H2>Controlled and Uncontrolled value</H2>
       <Grid cols={2} gutter={[8, 8]}>
-        <Cell
-          style={{
-            display: 'flex',
-            justifyContent: 'flex-start',
-            flexDirection: 'column'
-          }}
-        >
+        <Cell style={cellStyles}>
           <Label>Controlled</Label>
           <Input
             onChange={inputChangeHandler(setControlledCode)}
@@ -40,13 +41,7 @@ const ArticleUncontrolled = ({className}) => {
             value={controlledCode}
           />
         </Cell>
-        <Cell
-          style={{
-            display: 'flex',
-            justifyContent: 'flex-start',
-            flexDirection: 'column'
-          }}
-        >
+        <Cell style={cellStyles}>
           <Label>Uncontrolled</Label>
           <Input
             onChange={inputChangeHandler(setUncontrolledCode)}
@@ -71,8 +66,8 @@ const ArticleUncontrolled = ({className}) => {
   )
 }
 
-ArticleUncontrolled.propTypes = {
+ArticleValue.propTypes = {
   className: PropTypes.string
 }
 
-export default ArticleUncontrolled
+export default ArticleValue

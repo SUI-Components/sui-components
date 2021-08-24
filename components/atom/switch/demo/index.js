@@ -111,23 +111,33 @@ const TypesArticle = () => (
       This package gives 3 different <Code>type</Code> values provided under the{' '}
       <Code>atomSwitchTypes</Code> exported variable
     </Paragraph>
-    <Grid cols={3}>
+    <Grid cols={4}>
       {Object.values(atomSwitchTypes).map((type, index) => (
         <Cell key={index} style={flexCenteredStyle}>
           <Label>{type.toString()}</Label>
         </Cell>
       ))}
+      <Cell key="typeEmptyCell" style={flexCenteredStyle}>
+        <Label>Single right</Label>
+      </Cell>
       {Object.values(atomSwitchTypes).map((type, index) => (
         <Cell key={index} style={flexCenteredStyle}>
           <AtomSwitch
             labelLeft="labelLeft"
-            labelRight="labelRight"
+            labelRight={type !== atomSwitchTypes.SINGLE ? 'labelRight' : ''}
             label={<Small>label</Small>}
             name="name"
             type={type}
           />
         </Cell>
       ))}
+      <Cell key="typeEmptyCellSwitch" style={flexCenteredStyle}>
+        <AtomSwitch
+          labelRight="labelRight"
+          name="name"
+          type={atomSwitchTypes.SINGLE}
+        />
+      </Cell>
     </Grid>
   </Article>
 )

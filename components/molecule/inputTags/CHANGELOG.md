@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.18.0 (2021-08-20)
+
+
+### Bug Fixes
+
+* **components/molecule/inputTags:** remove warning on false placelholder property ([6b19a4d](https://github.com/SUI-Components/sui-components/commit/6b19a4d1af62f71933545d3f58122b245aa4d940))
+
+
+
 # 2.17.0 (2021-08-10)
 
 

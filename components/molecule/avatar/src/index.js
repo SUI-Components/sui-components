@@ -75,8 +75,8 @@ const MoleculeAvatar = forwardRef(
     return (
       <span
         style={{
-          ...style,
-          ...(!src && {backgroundColor})
+          ...(!src && {backgroundColor}),
+          ...style
         }}
         className={className}
         {...others}

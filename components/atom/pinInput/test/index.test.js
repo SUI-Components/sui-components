@@ -533,20 +533,22 @@ describe('AtomPinInput', () => {
     const setupHook = props => renderHook(() => usePinInputReducer(props))
     /** mask defaultValue value **/
 
-    const createElement = () => {
-
-    }
-
-    afterEach(cleanup)
-
-    it('NOT giving arguments gets initial store', () => {
+    const setupReducerEnvironment = (initialArgs = {}) => {
       // Given
-      const args = undefined
+      const elementsArray = [
+        document.createElement('input'),
+        document.createElement('input'),
+        document.createElement('input'),
+        document.createElement('input'),
+        document.createElement('input'),
+        document.createElement('input')
+      ]
 
       // When
-      const hook = setupHook(args)
+      const hook = setupHook(initialArgs)
       let [store, dispatch] = hook.result.current
-      const {
+
+      let {
         focusPosition,
         mask,
         innerValue,
@@ -560,8 +562,112 @@ describe('AtomPinInput', () => {
       expect(Object.getOwnPropertyNames(others).length).to.equal(0)
 
       // And
+      // Given
+      elementsArray.forEach(element => {
+        dispatch(atomPinInputActions.setElement({node: element}))
+      })
+
+      hook.rerender()
+
+      return hook
+    }
+
+    afterEach(cleanup)
+
+    it('NOT giving arguments gets initial store', () => {
+      // Given
+      const args = undefined
+
       // When
-      dispatch(atomPinInputActions.setElement({}))
+      const hook = setupReducerEnvironment(args)
+
+
+      // Then
+      let [store] = hook.result.current
+      let {
+        focusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+      expect(Object.getOwnPropertyNames(others).length).to.equal(0)
+      expect(focusPosition).to.equal(0)
+      expect(disabled).to.equal(false)
+      expect(mask).to.equal(MASK.NUMBER)
+    })
+
+    it('given a new valid focus set it to the store', () => {
+      // Given
+      const args = undefined
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      let [store, dispatch] = hook.result.current
+
+      let {
+        focusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+
+      // Then
+      expect(focusPosition).to.equal(0)
+
+      // And
+      // Given
+      const newFocusPosition = 1
+
+      // When
+      dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
+      hook.rerender()
+      store = hook.result.current[0]
+      focusPosition = store.focusPosition
+
+      // Then
+      expect(focusPosition).to.equal(newFocusPosition)
+    })
+
+    it('given a new invalid focus index preserves the older stored index', () => {
+      // Given
+      const args = undefined
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      let [store, dispatch] = hook.result.current
+
+      let {
+        focusPosition: initialFocusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+
+      // Then
+      expect(initialFocusPosition).to.equal(0)
+
+      // And
+      // Given
+      const newFocusPosition = -1
+
+      // When
+      dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
+      hook.rerender()
+      store = hook.result.current[0]
+      const focusPosition = store.focusPosition
+
+      // Then
+      expect(focusPosition).to.not.equal(newFocusPosition)
+      expect(focusPosition).to.equal(initialFocusPosition)
     })
   })
 

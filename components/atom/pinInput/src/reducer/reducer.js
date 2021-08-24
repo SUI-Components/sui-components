@@ -149,10 +149,10 @@ export const pinInputReducer = (state, {actionType, payload}) => {
       }
       break
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_FOCUS:
-      nextState = {...state, ...payload}
       const position = elements[payload.focusPosition]
         ? payload.focusPosition
         : focusPosition
+        nextState = {...state, focusPosition: position}
       if (elements[position]) {
         focusElement(elements[position])
       }

@@ -50,13 +50,15 @@ describe('AtomPinInput', () => {
 
   describe('pinInputMask', () => {
     describe('NUMBER', () => {
-      it('should return TRUE when giving numeric value and matching length', () => {
+      it('should return FALSE when value is undefined', () => {
         // Given
-        const value = '12345'
-        const expected = true
+        const value = undefined
+        const expected = false
 
         // When
-        const checker = valueChecker({mask: MASK.NUMBER, length: value.length})
+        const checker = valueChecker({
+          mask: MASK.NUMBER,
+        })
 
         // Then
         expect(checker).to.be.a('function')
@@ -123,6 +125,25 @@ describe('AtomPinInput', () => {
           mask: MASK.NUMBER,
           length: value.length
         })
+
+        // Then
+        expect(checker).to.be.a('function')
+
+        // And
+
+        // When
+        const result = checker(value)
+
+        // Then
+        expect(result).to.equal(expected)
+      })
+      it('should return TRUE when giving numeric value and matching length', () => {
+        // Given
+        const value = '12345'
+        const expected = true
+
+        // When
+        const checker = valueChecker({mask: MASK.NUMBER, length: value.length})
 
         // Then
         expect(checker).to.be.a('function')

@@ -7,16 +7,20 @@ export const getInitialPinInputReducerState = ({
   disabled = false,
   defaultValue = ''
 } = {}) => {
-  let innerValue = value ? value.split('') : defaultValue.split('')
-  const checker = valueChecker({mask, length: innerValue.length})
+  let innerValue =
+    value !== undefined ? value.split('') : defaultValue.split('')
 
-  innerValue = checker(innerValue.filter(Boolean).join('')) ? innerValue : []
+  innerValue = valueChecker({mask, length: innerValue.length})(
+    innerValue.filter(Boolean).join('')
+  )
+    ? innerValue
+    : []
 
   return {
     focusPosition: 0,
     mask,
     innerValue,
-    checker,
+    checker: valueChecker({mask}),
     disabled,
     elements: []
   }
@@ -28,11 +32,22 @@ const focusElement = element =>
     element.select()
   }, 0)
 
+const onChangeHandler = onChange => (event, state) => {
+  const {innerValue, focusPosition} = state
+  typeof onChange === 'function' &&
+    onChange(event, {
+      value: innerValue.filter(Boolean).join(''),
+      key: innerValue[focusPosition],
+      index: focusPosition
+    })
+}
+
 export const pinInputReducer = (state, {actionType, payload}) => {
   let nextState = Object.assign({}, state)
   const {checker, innerValue, focusPosition, elements} = state
-  const {disabled, mask, node, onChange, event = {}} = payload
+  const {disabled, mask, node, event = {}} = payload
   const {key, shiftKey} = event
+  const onChange = onChangeHandler(payload.onChange)
 
   switch (actionType) {
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_DISABLED:
@@ -88,12 +103,16 @@ export const pinInputReducer = (state, {actionType, payload}) => {
             nextState = {
               ...state,
               innerValue: [...innerValue],
-              focusPosition: focusPosition - 1
+              focusPosition: elements[focusPosition - 1]
+                ? focusPosition - 1
+                : focusPosition
             }
+            onChange(event, nextState)
             break
           case 'Delete':
             innerValue[focusPosition] = undefined
             nextState = {...state, innerValue: [...innerValue]}
+            onChange(event, nextState)
             break
           case 'Tab':
             const newIndex = shiftKey ? focusPosition - 1 : focusPosition + 1
@@ -113,12 +132,6 @@ export const pinInputReducer = (state, {actionType, payload}) => {
         const isKeyChange = innerValue[focusPosition] !== key
         if (isKeyChange) {
           innerValue[focusPosition] = key
-          typeof onChange === 'function' &&
-            onChange(event, {
-              value: innerValue.filter(Boolean).join(''),
-              key,
-              index: focusPosition
-            })
         }
         nextState = {
           ...state,
@@ -126,6 +139,9 @@ export const pinInputReducer = (state, {actionType, payload}) => {
           focusPosition: elements[focusPosition + 1]
             ? focusPosition + 1
             : focusPosition
+        }
+        if (isKeyChange) {
+          onChange(event, nextState)
         }
         focusElement(elements[nextState.focusPosition])
       } else {
@@ -159,5 +175,6 @@ export const pinInputReducer = (state, {actionType, payload}) => {
     default:
       break
   }
+  // console.log(actionType, {payload, nextState})
   return nextState
 }

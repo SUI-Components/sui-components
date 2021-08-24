@@ -9,10 +9,12 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import {act, cleanup, renderHook} from '@testing-library/react-hooks'
 import Component from '../src/index'
 import {
   actions as atomPinInputActions,
-  actionTypes as atomPinInputActionTypes
+  actionTypes as atomPinInputActionTypes,
+  usePinInputReducer
 } from 'components/atom/pinInput/src/reducer'
 import {getInitialPinInputReducerState} from 'components/atom/pinInput/src/reducer/reducer'
 import {MASK, valueChecker} from '../src/config'
@@ -165,6 +167,7 @@ describe('AtomPinInput', () => {
         expect(result).to.equal(expected)
       })
     })
+
     describe('ALPHABETIC', () => {
       it('should return FALSE when value is undefined', () => {
         // Given
@@ -426,9 +429,10 @@ describe('AtomPinInput', () => {
       expect(innerValue).to.be.an('array')
       expect(innerValue.length).to.equal(0)
       expect(checker).to.be.a('function')
-      expect(checker('1')).to.equal(false)
+      expect(checker('1')).to.equal(true)
+      expect(checker('11')).to.equal(false)
       expect(checker('A')).to.equal(false)
-      expect(checker('')).to.equal(true)
+      expect(checker('')).to.equal(false)
       expect(disabled).to.equal(false)
       expect(elements).to.be.an('array')
       expect(elements.length).to.equal(0)
@@ -462,8 +466,8 @@ describe('AtomPinInput', () => {
       expect(mask).to.be.a('string')
       expect(mask).to.equal(args.mask)
       expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
-      expect(checker(args.value)).to.equal(true)
-      expect(checker('A')).to.equal(false)
+      expect(checker(args.value)).to.equal(false)
+      expect(checker('A')).to.equal(true)
       expect(checker('1111')).to.equal(false)
     })
 
@@ -525,7 +529,41 @@ describe('AtomPinInput', () => {
     })
   })
 
-  describe('atomPinInputReducer', () => {})
+  describe('atomPinInputReducer', () => {
+    const setupHook = props => renderHook(() => usePinInputReducer(props))
+    /** mask defaultValue value **/
+
+    const createElement = () => {
+
+    }
+
+    afterEach(cleanup)
+
+    it('NOT giving arguments gets initial store', () => {
+      // Given
+      const args = undefined
+
+      // When
+      const hook = setupHook(args)
+      let [store, dispatch] = hook.result.current
+      const {
+        focusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+
+      // Then
+      expect(Object.getOwnPropertyNames(others).length).to.equal(0)
+
+      // And
+      // When
+      dispatch(atomPinInputActions.setElement({}))
+    })
+  })
 
   describe('atomPinInputActions', () => {
     describe('setKey', () => {

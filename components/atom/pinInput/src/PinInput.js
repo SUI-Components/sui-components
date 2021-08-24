@@ -32,15 +32,15 @@ const PinInput = forwardRef(
   ) => {
     const innerRef = useRef()
     const targetRef = useRef()
-    const [reducerState, dispatch] = usePinInputReducer({
+    const [reducerStore, dispatch] = usePinInputReducer({
       mask,
       defaultValue,
       value,
       disabled
     })
-    const {innerValue, focusPosition, elements} = reducerState
+    const {innerValue, focusPosition, elements} = reducerStore
 
-    useEffect(() => {
+    useUpdateEffect(() => {
       dispatch(
         pinInputActions.setValue({innerValue: value ? value.split('') : []})
       )

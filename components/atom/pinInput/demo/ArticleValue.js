@@ -19,8 +19,8 @@ const cellStyles = {
 }
 
 const ArticleValue = ({className}) => {
-  const [controlledCode, setControlledCode] = useState('')
-  const [uncontrolledCode, setUncontrolledCode] = useState('')
+  const [controlledCode, setControlledCode] = useState('123456')
+  const [uncontrolledCode, setUncontrolledCode] = useState('123456')
 
   const onChangeHandler = callback => (event, args) => {
     callback(args.value)

@@ -8,15 +8,16 @@ export const SingleSwitchTypeRender = forwardRef(
   (
     {
       disabled,
-      isFocus,
       isClick,
+      isFocus,
       isToggle,
       label,
       labelOptionalText,
+      labelRight,
       name,
       onBlur,
-      onFocus,
       onClick,
+      onFocus,
       onKeyDown,
       onToggle,
       size,
@@ -49,7 +50,7 @@ export const SingleSwitchTypeRender = forwardRef(
           onBlur={onBlur}
           ref={ref}
         >
-          {label && (
+          {label && !labelRight && (
             <AtomLabel
               name={name}
               text={label}
@@ -63,6 +64,13 @@ export const SingleSwitchTypeRender = forwardRef(
               })}
             />
           </div>
+          {labelRight && !label && (
+            <AtomLabel
+              name={name}
+              text={labelRight}
+              optionalText={labelOptionalText}
+            />
+          )}
         </div>
       </div>
     )
@@ -84,6 +92,10 @@ SingleSwitchTypeRender.propTypes = {
    * The optional label text. Proxy from label
    */
   labelOptionalText: PropTypes.string,
+  /**
+   * The optional right label text. Proxy from label
+   */
+  labelRight: PropTypes.string,
   /**
    * Size of switch: 'default', 'large'
    */

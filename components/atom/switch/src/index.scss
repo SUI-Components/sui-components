@@ -77,6 +77,9 @@ $atom-switch-transition-time: 0.3s !default;
     .sui-AtomLabel {
       margin-right: $m-l;
     }
+    .sui-AtomSwitch-inputContainer + .sui-AtomLabel {
+      margin-left: $m-l;
+    }
   }
 
   &-text {

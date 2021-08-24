@@ -3,6 +3,8 @@ import cx from 'classnames'
 import AtomLabel from '@s-ui/react-atom-label'
 import {suitClass, switchClassNames} from './helpers'
 import PropTypes from 'prop-types'
+import {LABELS} from '../config'
+const {RIGHT, LEFT} = LABELS
 
 export const SingleSwitchTypeRender = forwardRef(
   (
@@ -28,8 +30,12 @@ export const SingleSwitchTypeRender = forwardRef(
     ref
   ) => {
     const isActive = value !== undefined ? value : isToggle
-    const leftLabel = label || labelLeft
-    const rightLabel = labelRight && !label && !labelLeft
+
+    const defaultLabelLeft = labelLeft === LEFT
+    const defaultLabelRight = labelRight === RIGHT
+
+    const showLabelLeft = Boolean(label) || !defaultLabelLeft
+    const showLabelRight = !label && !defaultLabelRight && defaultLabelLeft
 
     return (
       <div
@@ -53,10 +59,10 @@ export const SingleSwitchTypeRender = forwardRef(
           onBlur={onBlur}
           ref={ref}
         >
-          {leftLabel && (
+          {showLabelLeft && (
             <AtomLabel
               name={name}
-              text={leftLabel}
+              text={defaultLabelLeft ? label : labelLeft}
               optionalText={labelOptionalText}
             />
           )}
@@ -67,7 +73,7 @@ export const SingleSwitchTypeRender = forwardRef(
               })}
             />
           </div>
-          {rightLabel && (
+          {showLabelRight && (
             <AtomLabel
               name={name}
               text={labelRight}

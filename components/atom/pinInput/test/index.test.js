@@ -10,12 +10,11 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import Component from '../src/index'
-import AtomPinInput from 'components/atom/pinInput'
 import {
-  reducer as atomPinInputReducer,
   actions as atomPinInputActions,
   actionTypes as atomPinInputActionTypes
 } from 'components/atom/pinInput/src/reducer'
+import {MASK} from '../src/config'
 
 chai.use(chaiDOM)
 
@@ -50,7 +49,6 @@ describe('AtomPinInput', () => {
   describe('atomPinInputReducer', () => {})
   describe('atomPinInputActions', () => {
     describe('setKey', () => {
-
       it('Matches reducer action', () => {
         // Given
         const args = {
@@ -100,14 +98,338 @@ describe('AtomPinInput', () => {
         expect(result.payload.event).to.equal(args.event)
         expect(result.payload.onChange).to.equal(args.onChange)
       })
-
     })
-    describe('setValue', () => {})
-    describe('setFocus', () => {})
-    describe('setElement', () => {})
-    describe('removeElement', () => {})
-    describe('setStatus', () => {})
-    describe('setMask', () => {})
-    describe('setDisabled', () => {})
+
+    describe('setValue', () => {
+      it('Matches reducer action', () => {
+        // Given
+        const args = {
+          innerValue: 'A'
+        }
+
+        // When
+        const result = atomPinInputActions.setValue(args)
+
+        // Then
+        expect(Object.getOwnPropertyNames(result).length).to.equal(2)
+        expect(Object.getOwnPropertyNames(result)).to.include.members([
+          'actionType',
+          'payload'
+        ])
+      })
+
+      it('Matches actionType', () => {
+        // Given
+        const args = {}
+
+        // When
+        const result = atomPinInputActions.setValue(args)
+
+        // Then
+        expect(typeof result.actionType).to.not.equal('string')
+        expect(typeof result.actionType).to.equal('symbol')
+        expect(result.actionType).to.equal(
+          atomPinInputActionTypes.SET_PIN_INPUT_VALUE
+        )
+      })
+
+      it('Matches payload', () => {
+        // Given
+        const args = {
+          innerValue: 'A'
+        }
+
+        // When
+        const result = atomPinInputActions.setValue(args)
+
+        // Then
+        expect(result.payload.event).to.equal(args.event)
+        expect(result.payload.onChange).to.equal(args.onChange)
+      })
+    })
+
+    describe('setFocus', () => {
+      it('Matches reducer action', () => {
+        // Given
+        const args = {
+          focusPosition: 1
+        }
+
+        // When
+        const result = atomPinInputActions.setFocus(args)
+
+        // Then
+        expect(Object.getOwnPropertyNames(result).length).to.equal(2)
+        expect(Object.getOwnPropertyNames(result)).to.include.members([
+          'actionType',
+          'payload'
+        ])
+      })
+
+      it('Matches actionType', () => {
+        // Given
+        const args = {}
+
+        // When
+        const result = atomPinInputActions.setFocus(args)
+
+        // Then
+        expect(typeof result.actionType).to.not.equal('string')
+        expect(typeof result.actionType).to.equal('symbol')
+        expect(result.actionType).to.equal(
+          atomPinInputActionTypes.SET_PIN_INPUT_FOCUS
+        )
+      })
+
+      it('Matches payload', () => {
+        // Given
+        const args = {
+          focusPosition: 1
+        }
+
+        // When
+        const result = atomPinInputActions.setValue(args)
+
+        // Then
+        expect(result.payload.event).to.equal(args.event)
+        expect(result.payload.onChange).to.equal(args.onChange)
+      })
+    })
+
+    describe('setElement', () => {
+      it('Matches reducer action', () => {
+        // Given
+        const args = {
+          node: {}
+        }
+
+        // When
+        const result = atomPinInputActions.setElement(args)
+
+        // Then
+        expect(Object.getOwnPropertyNames(result).length).to.equal(2)
+        expect(Object.getOwnPropertyNames(result)).to.include.members([
+          'actionType',
+          'payload'
+        ])
+      })
+
+      it('Matches actionType', () => {
+        // Given
+        const args = {}
+
+        // When
+        const result = atomPinInputActions.setElement(args)
+
+        // Then
+        expect(typeof result.actionType).to.not.equal('string')
+        expect(typeof result.actionType).to.equal('symbol')
+        expect(result.actionType).to.equal(
+          atomPinInputActionTypes.SET_PIN_INPUT_ELEMENT
+        )
+      })
+
+      it('Matches payload', () => {
+        // Given
+        const args = {
+          focusPosition: 1
+        }
+
+        // When
+        const result = atomPinInputActions.setElement(args)
+
+        // Then
+        expect(result.payload.event).to.equal(args.event)
+        expect(result.payload.onChange).to.equal(args.onChange)
+      })
+    })
+
+    describe('removeElement', () => {
+      it('Matches reducer action', () => {
+        // Given
+        const args = {
+          node: {}
+        }
+
+        // When
+        const result = atomPinInputActions.removeElement(args)
+
+        // Then
+        expect(Object.getOwnPropertyNames(result).length).to.equal(2)
+        expect(Object.getOwnPropertyNames(result)).to.include.members([
+          'actionType',
+          'payload'
+        ])
+      })
+
+      it('Matches actionType', () => {
+        // Given
+        const args = {}
+
+        // When
+        const result = atomPinInputActions.removeElement(args)
+
+        // Then
+        expect(typeof result.actionType).to.not.equal('string')
+        expect(typeof result.actionType).to.equal('symbol')
+        expect(result.actionType).to.equal(
+          atomPinInputActionTypes.REMOVE_PIN_INPUT_ELEMENT
+        )
+      })
+
+      it('Matches payload', () => {
+        // Given
+        const args = {
+          focusPosition: 1
+        }
+
+        // When
+        const result = atomPinInputActions.removeElement(args)
+
+        // Then
+        expect(result.payload.event).to.equal(args.event)
+        expect(result.payload.onChange).to.equal(args.onChange)
+      })
+    })
+
+    describe('setStatus', () => {
+      it('Matches reducer action', () => {
+        // Given
+        const args = {}
+
+        // When
+        const result = atomPinInputActions.setStatus(args)
+
+        // Then
+        expect(Object.getOwnPropertyNames(result).length).to.equal(2)
+        expect(Object.getOwnPropertyNames(result)).to.include.members([
+          'actionType',
+          'payload'
+        ])
+      })
+
+      it('Matches actionType', () => {
+        // Given
+        const args = {}
+
+        // When
+        const result = atomPinInputActions.setStatus(args)
+
+        // Then
+        expect(typeof result.actionType).to.not.equal('string')
+        expect(typeof result.actionType).to.equal('symbol')
+        expect(result.actionType).to.equal(
+          atomPinInputActionTypes.SET_PIN_INPUT_STATUS
+        )
+      })
+
+      it('Matches payload', () => {
+        // Given
+        const args = {}
+
+        // When
+        const result = atomPinInputActions.setStatus(args)
+
+        // Then
+        expect(result.payload.event).to.equal(args.event)
+        expect(result.payload.onChange).to.equal(args.onChange)
+      })
+    })
+
+    describe('setMask', () => {
+      it('Matches reducer action', () => {
+        // Given
+        const args = {
+          mask: MASK.NUMBER
+        }
+
+        // When
+        const result = atomPinInputActions.setMask(args)
+
+        // Then
+        expect(Object.getOwnPropertyNames(result).length).to.equal(2)
+        expect(Object.getOwnPropertyNames(result)).to.include.members([
+          'actionType',
+          'payload'
+        ])
+      })
+
+      it('Matches actionType', () => {
+        // Given
+        const args = {}
+
+        // When
+        const result = atomPinInputActions.setMask(args)
+
+        // Then
+        expect(typeof result.actionType).to.not.equal('string')
+        expect(typeof result.actionType).to.equal('symbol')
+        expect(result.actionType).to.equal(
+          atomPinInputActionTypes.SET_PIN_INPUT_MASK
+        )
+      })
+
+      it('Matches payload', () => {
+        // Given
+        const args = {
+          mask: MASK.NUMBER
+        }
+
+        // When
+        const result = atomPinInputActions.setMask(args)
+
+        // Then
+        expect(result.payload.event).to.equal(args.event)
+        expect(result.payload.onChange).to.equal(args.onChange)
+      })
+    })
+
+    describe('setDisabled', () => {
+      it('Matches reducer action', () => {
+        // Given
+        const args = {
+          disabled: false
+        }
+
+        // When
+        const result = atomPinInputActions.setDisabled(args)
+
+        // Then
+        expect(Object.getOwnPropertyNames(result).length).to.equal(2)
+        expect(Object.getOwnPropertyNames(result)).to.include.members([
+          'actionType',
+          'payload'
+        ])
+      })
+
+      it('Matches actionType', () => {
+        // Given
+        const args = {}
+
+        // When
+        const result = atomPinInputActions.setDisabled(args)
+
+        // Then
+        expect(typeof result.actionType).to.not.equal('string')
+        expect(typeof result.actionType).to.equal('symbol')
+        expect(result.actionType).to.equal(
+          atomPinInputActionTypes.SET_PIN_INPUT_DISABLED
+        )
+      })
+
+      it('Matches payload', () => {
+        // Given
+        const args = {
+          disabled: false
+        }
+
+        // When
+        const result = atomPinInputActions.setDisabled(args)
+
+        // Then
+        expect(result.payload.event).to.equal(args.event)
+        expect(result.payload.onChange).to.equal(args.onChange)
+      })
+    })
   })
 })

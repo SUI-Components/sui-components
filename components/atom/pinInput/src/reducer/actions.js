@@ -16,7 +16,6 @@ const setElement = ({node}) =>
   act(PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_ELEMENT, {node})
 const removeElement = ({node}) =>
   act(PIN_INPUT_ACTION_TYPES.REMOVE_PIN_INPUT_ELEMENT, {node})
-const setStatus = () => act(PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_STATUS)
 const setMask = ({mask = MASK.NUMBER}) =>
   act(PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_MASK, {mask})
 const setDisabled = ({disabled = false}) =>
@@ -28,7 +27,6 @@ const actions = {
   setFocus,
   setElement,
   removeElement,
-  setStatus,
   setMask,
   setDisabled
 }

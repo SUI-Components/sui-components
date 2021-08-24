@@ -11,7 +11,6 @@ export const getInitialPinInputReducerState = ({
     focusPosition: 0,
     mask,
     innerValue: value ? value.split('') : defaultValue.split(''),
-    status: undefined,
     checker: valueChecker({mask}),
     disabled,
     elements: []
@@ -136,13 +135,6 @@ export const pinInputReducer = (state, {actionType, payload}) => {
       if (elements[position]) {
         focusElement(elements[position])
       }
-      break
-    case PIN_INPUT_ACTION_TYPES:
-      const index = state.elements.indexOf(node)
-      if (index >= 0) {
-        elements[index] = node
-      }
-      nextState = {state, elements: [...elements]}
       break
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_ELEMENT:
       if (!elements.includes(node)) {

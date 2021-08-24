@@ -97,6 +97,11 @@ describe('AtomPinInput', () => {
         // Then
         expect(result.payload.event).to.equal(args.event)
         expect(result.payload.onChange).to.equal(args.onChange)
+        expect(Object.getOwnPropertyNames(result.payload).length).to.equal(2)
+        expect(Object.getOwnPropertyNames(result.payload)).to.include.members([
+          'event',
+          'onChange'
+        ])
       })
     })
 
@@ -143,8 +148,11 @@ describe('AtomPinInput', () => {
         const result = atomPinInputActions.setValue(args)
 
         // Then
-        expect(result.payload.event).to.equal(args.event)
-        expect(result.payload.onChange).to.equal(args.onChange)
+        expect(result.payload.innerValue).to.equal(args.innerValue)
+        expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
+        expect(Object.getOwnPropertyNames(result.payload)).to.include.members([
+          'innerValue'
+        ])
       })
     })
 
@@ -188,11 +196,14 @@ describe('AtomPinInput', () => {
         }
 
         // When
-        const result = atomPinInputActions.setValue(args)
+        const result = atomPinInputActions.setFocus(args)
 
         // Then
-        expect(result.payload.event).to.equal(args.event)
-        expect(result.payload.onChange).to.equal(args.onChange)
+        expect(result.payload.focusPosition).to.equal(args.focusPosition)
+        expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
+        expect(Object.getOwnPropertyNames(result.payload)).to.include.members([
+          'focusPosition'
+        ])
       })
     })
 
@@ -231,16 +242,23 @@ describe('AtomPinInput', () => {
 
       it('Matches payload', () => {
         // Given
+        const input = document.createElement('input')
+        input.type = 'text'
+        input.className = 'css-class-name'
         const args = {
-          focusPosition: 1
+          node: input
         }
 
         // When
         const result = atomPinInputActions.setElement(args)
 
         // Then
-        expect(result.payload.event).to.equal(args.event)
-        expect(result.payload.onChange).to.equal(args.onChange)
+        expect(result.payload.node).to.equal(args.node)
+        expect(result.payload.node.className).to.equal(input.className)
+        expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
+        expect(Object.getOwnPropertyNames(result.payload)).to.include.members([
+          'node'
+        ])
       })
     })
 
@@ -279,60 +297,23 @@ describe('AtomPinInput', () => {
 
       it('Matches payload', () => {
         // Given
+        const input = document.createElement('input')
+        input.type = 'text'
+        input.className = 'css-class-name'
         const args = {
-          focusPosition: 1
+          node: input
         }
 
         // When
         const result = atomPinInputActions.removeElement(args)
 
         // Then
-        expect(result.payload.event).to.equal(args.event)
-        expect(result.payload.onChange).to.equal(args.onChange)
-      })
-    })
-
-    describe('setStatus', () => {
-      it('Matches reducer action', () => {
-        // Given
-        const args = {}
-
-        // When
-        const result = atomPinInputActions.setStatus(args)
-
-        // Then
-        expect(Object.getOwnPropertyNames(result).length).to.equal(2)
-        expect(Object.getOwnPropertyNames(result)).to.include.members([
-          'actionType',
-          'payload'
+        expect(result.payload.node).to.equal(args.node)
+        expect(result.payload.node.className).to.equal(input.className)
+        expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
+        expect(Object.getOwnPropertyNames(result.payload)).to.include.members([
+          'node'
         ])
-      })
-
-      it('Matches actionType', () => {
-        // Given
-        const args = {}
-
-        // When
-        const result = atomPinInputActions.setStatus(args)
-
-        // Then
-        expect(typeof result.actionType).to.not.equal('string')
-        expect(typeof result.actionType).to.equal('symbol')
-        expect(result.actionType).to.equal(
-          atomPinInputActionTypes.SET_PIN_INPUT_STATUS
-        )
-      })
-
-      it('Matches payload', () => {
-        // Given
-        const args = {}
-
-        // When
-        const result = atomPinInputActions.setStatus(args)
-
-        // Then
-        expect(result.payload.event).to.equal(args.event)
-        expect(result.payload.onChange).to.equal(args.onChange)
       })
     })
 
@@ -379,8 +360,11 @@ describe('AtomPinInput', () => {
         const result = atomPinInputActions.setMask(args)
 
         // Then
-        expect(result.payload.event).to.equal(args.event)
-        expect(result.payload.onChange).to.equal(args.onChange)
+        expect(result.payload.mask).to.equal(args.mask)
+        expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
+        expect(Object.getOwnPropertyNames(result.payload)).to.include.members([
+          'mask'
+        ])
       })
     })
 
@@ -427,8 +411,11 @@ describe('AtomPinInput', () => {
         const result = atomPinInputActions.setDisabled(args)
 
         // Then
-        expect(result.payload.event).to.equal(args.event)
-        expect(result.payload.onChange).to.equal(args.onChange)
+        expect(result.payload.disabled).to.equal(args.disabled)
+        expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
+        expect(Object.getOwnPropertyNames(result.payload)).to.include.members([
+          'disabled'
+        ])
       })
     })
   })

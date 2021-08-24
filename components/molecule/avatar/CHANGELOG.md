@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.9.0 (2021-08-24)
+
+
+### Features
+
+* **components/molecule/avatar:** Add muted variant ([155658c](https://github.com/SUI-Components/sui-components/commit/155658cc04d7a90430f6ce4941907381cb44aa58))
+
+
+
 # 1.8.0 (2021-08-20)
 
 

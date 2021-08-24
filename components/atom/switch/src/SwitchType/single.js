@@ -12,6 +12,7 @@ export const SingleSwitchTypeRender = forwardRef(
       isFocus,
       isToggle,
       label,
+      labelLeft,
       labelOptionalText,
       labelRight,
       name,
@@ -27,6 +28,8 @@ export const SingleSwitchTypeRender = forwardRef(
     ref
   ) => {
     const isActive = value !== undefined ? value : isToggle
+    const leftLabel = label || labelLeft
+    const rightLabel = labelRight && !label && !labelLeft
 
     return (
       <div
@@ -50,10 +53,10 @@ export const SingleSwitchTypeRender = forwardRef(
           onBlur={onBlur}
           ref={ref}
         >
-          {label && !labelRight && (
+          {leftLabel && (
             <AtomLabel
               name={name}
-              text={label}
+              text={leftLabel}
               optionalText={labelOptionalText}
             />
           )}
@@ -64,7 +67,7 @@ export const SingleSwitchTypeRender = forwardRef(
               })}
             />
           </div>
-          {labelRight && !label && (
+          {rightLabel && (
             <AtomLabel
               name={name}
               text={labelRight}
@@ -88,6 +91,10 @@ SingleSwitchTypeRender.propTypes = {
    * The label itself. Proxy from label
    */
   label: PropTypes.string,
+  /**
+   * The optional left label text. Proxy from label
+   */
+  labelLeft: PropTypes.string,
   /**
    * The optional label text. Proxy from label
    */

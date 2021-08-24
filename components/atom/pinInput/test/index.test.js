@@ -15,8 +15,7 @@ import {
   actionTypes as atomPinInputActionTypes
 } from 'components/atom/pinInput/src/reducer'
 import {getInitialPinInputReducerState} from 'components/atom/pinInput/src/reducer/reducer'
-import {MASK} from '../src/config'
-import {valueChecker} from '../src/config'
+import {MASK, valueChecker} from '../src/config'
 
 chai.use(chaiDOM)
 
@@ -53,11 +52,12 @@ describe('AtomPinInput', () => {
       it('should return FALSE when value is undefined', () => {
         // Given
         const value = undefined
+        const mask = MASK.NUMBER
         const expected = false
 
         // When
         const checker = valueChecker({
-          mask: MASK.NUMBER,
+          mask
         })
 
         // Then
@@ -71,15 +71,17 @@ describe('AtomPinInput', () => {
         // Then
         expect(result).to.equal(expected)
       })
-      it('should return FALSE when giving numeric value and NOT matching length (shorter)', () => {
+      it('should return FALSE when given numeric value and NOT matching length (shorter)', () => {
         // Given
         const value = '12345'
+        const length = value.length - 1
+        const mask = MASK.NUMBER
         const expected = false
 
         // When
         const checker = valueChecker({
-          mask: MASK.NUMBER,
-          length: value.length - 1
+          mask,
+          length
         })
 
         // Then
@@ -93,15 +95,17 @@ describe('AtomPinInput', () => {
         // Then
         expect(result).to.equal(expected)
       })
-      it('should return FALSE when giving numeric value and NOT matching length (larger)', () => {
+      it('should return FALSE when given numeric value and NOT matching length (larger)', () => {
         // Given
         const value = '12345'
+        const mask = MASK.NUMBER
+        const length = value.length + 1
         const expected = false
 
         // When
         const checker = valueChecker({
-          mask: MASK.NUMBER,
-          length: value.length + 1
+          mask,
+          length
         })
 
         // Then
@@ -115,15 +119,17 @@ describe('AtomPinInput', () => {
         // Then
         expect(result).to.equal(expected)
       })
-      it('should return FALSE when giving NOT numeric value and matching length (larger)', () => {
+      it('should return FALSE when given NOT numeric value and matching length (larger)', () => {
         // Given
         const value = 'ASDF'
+        const mask = MASK.NUMBER
+        const length = value.length
         const expected = false
 
         // When
         const checker = valueChecker({
-          mask: MASK.NUMBER,
-          length: value.length
+          mask,
+          length
         })
 
         // Then
@@ -137,13 +143,15 @@ describe('AtomPinInput', () => {
         // Then
         expect(result).to.equal(expected)
       })
-      it('should return TRUE when giving numeric value and matching length', () => {
+      it('should return TRUE when given numeric value and matching length', () => {
         // Given
         const value = '12345'
+        const mask = MASK.NUMBER
+        const length = value.length
         const expected = true
 
         // When
-        const checker = valueChecker({mask: MASK.NUMBER, length: value.length})
+        const checker = valueChecker({mask, length})
 
         // Then
         expect(checker).to.be.a('function')
@@ -158,17 +166,238 @@ describe('AtomPinInput', () => {
       })
     })
     describe('ALPHABETIC', () => {
-      it('', () => {
+      it('should return FALSE when value is undefined', () => {
         // Given
+        const value = undefined
+        const mask = MASK.ALPHABETIC
+        const expected = false
+
         // When
+        const checker = valueChecker({
+          mask
+        })
+
         // Then
+        expect(checker).to.be.a('function')
+
+        // And
+
+        // When
+        const result = checker(value)
+
+        // Then
+        expect(result).to.equal(expected)
+      })
+      it('should return FALSE when given alphabetic value and NOT matching length (shorter)', () => {
+        // Given
+        const value = 'AAAA'
+        const length = value.length - 1
+        const mask = MASK.ALPHABETIC
+        const expected = false
+
+        // When
+        const checker = valueChecker({
+          mask,
+          length
+        })
+
+        // Then
+        expect(checker).to.be.a('function')
+
+        // And
+
+        // When
+        const result = checker(value)
+
+        // Then
+        expect(result).to.equal(expected)
+      })
+      it('should return FALSE when given alphabetic value and NOT matching length (larger)', () => {
+        // Given
+        const value = 'AAAA'
+        const mask = MASK.ALPHABETIC
+        const length = value.length + 1
+        const expected = false
+
+        // When
+        const checker = valueChecker({
+          mask,
+          length
+        })
+
+        // Then
+        expect(checker).to.be.a('function')
+
+        // And
+
+        // When
+        const result = checker(value)
+
+        // Then
+        expect(result).to.equal(expected)
+      })
+      it('should return FALSE when given NOT alphabetic value and matching length (larger)', () => {
+        // Given
+        const value = '123'
+        const mask = MASK.ALPHABETIC
+        const length = value.length
+        const expected = false
+
+        // When
+        const checker = valueChecker({
+          mask,
+          length
+        })
+
+        // Then
+        expect(checker).to.be.a('function')
+
+        // And
+
+        // When
+        const result = checker(value)
+
+        // Then
+        expect(result).to.equal(expected)
+      })
+      it('should return TRUE when given alphabetic value and matching length', () => {
+        // Given
+        const value = 'AAAA'
+        const mask = MASK.ALPHABETIC
+        const length = value.length
+        const expected = true
+
+        // When
+        const checker = valueChecker({mask, length})
+
+        // Then
+        expect(checker).to.be.a('function')
+
+        // And
+
+        // When
+        const result = checker(value)
+
+        // Then
+        expect(result).to.equal(expected)
       })
     })
+
     describe('ALPHANUMERIC', () => {
-      it('', () => {
+      it('should return FALSE when value is undefined', () => {
         // Given
+        const value = undefined
+        const mask = MASK.ALPHANUMERIC
+        const expected = false
+
         // When
+        const checker = valueChecker({
+          mask
+        })
+
         // Then
+        expect(checker).to.be.a('function')
+
+        // And
+
+        // When
+        const result = checker(value)
+
+        // Then
+        expect(result).to.equal(expected)
+      })
+      it('should return FALSE when given alphanumeric value and NOT matching length (shorter)', () => {
+        // Given
+        const value = 'A12A45'
+        const length = value.length - 1
+        const mask = MASK.ALPHANUMERIC
+        const expected = false
+
+        // When
+        const checker = valueChecker({
+          mask,
+          length
+        })
+
+        // Then
+        expect(checker).to.be.a('function')
+
+        // And
+
+        // When
+        const result = checker(value)
+
+        // Then
+        expect(result).to.equal(expected)
+      })
+      it('should return FALSE when given alphanumeric value and NOT matching length (larger)', () => {
+        // Given
+        const value = 'A12VB345'
+        const mask = MASK.ALPHANUMERIC
+        const length = value.length + 1
+        const expected = false
+
+        // When
+        const checker = valueChecker({
+          mask,
+          length
+        })
+
+        // Then
+        expect(checker).to.be.a('function')
+
+        // And
+
+        // When
+        const result = checker(value)
+
+        // Then
+        expect(result).to.equal(expected)
+      })
+      it('should return FALSE when given NOT alphanumeric value and matching length (larger)', () => {
+        // Given
+        const value = '#AS*DF'
+        const mask = MASK.ALPHANUMERIC
+        const length = value.length
+        const expected = false
+
+        // When
+        const checker = valueChecker({
+          mask,
+          length
+        })
+
+        // Then
+        expect(checker).to.be.a('function')
+
+        // And
+
+        // When
+        const result = checker(value)
+
+        // Then
+        expect(result).to.equal(expected)
+      })
+      it('should return TRUE when given alphanumeric value and matching length', () => {
+        // Given
+        const value = '1A23D45'
+        const mask = MASK.ALPHANUMERIC
+        const length = value.length
+        const expected = true
+
+        // When
+        const checker = valueChecker({mask, length})
+
+        // Then
+        expect(checker).to.be.a('function')
+
+        // And
+
+        // When
+        const result = checker(value)
+
+        // Then
+        expect(result).to.equal(expected)
       })
     })
   })
@@ -197,8 +426,102 @@ describe('AtomPinInput', () => {
       expect(innerValue).to.be.an('array')
       expect(innerValue.length).to.equal(0)
       expect(checker).to.be.a('function')
-      expect(checker('1')).to.equal(true)
+      expect(checker('1')).to.equal(false)
       expect(checker('A')).to.equal(false)
+      expect(checker('')).to.equal(true)
+      expect(disabled).to.equal(false)
+      expect(elements).to.be.an('array')
+      expect(elements.length).to.equal(0)
+    })
+
+    it('given disabled TRUE assigns it to the state', () => {
+      // Given
+      const args = {
+        disabled: true
+      }
+
+      // When
+      const {disabled} = getInitialPinInputReducerState(args)
+
+      // Then
+      expect(disabled).to.be.a('boolean')
+      expect(disabled).to.equal(args.disabled)
+    })
+
+    it('given an ALPHABETIC mask it assigns it to the state', () => {
+      // Given
+      const args = {
+        mask: MASK.ALPHABETIC,
+        value: 'ABCD'
+      }
+
+      // When
+      const {mask, innerValue, checker} = getInitialPinInputReducerState(args)
+
+      // Then
+      expect(mask).to.be.a('string')
+      expect(mask).to.equal(args.mask)
+      expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
+      expect(checker(args.value)).to.equal(true)
+      expect(checker('A')).to.equal(false)
+      expect(checker('1111')).to.equal(false)
+    })
+
+    it('given valid defaultValue assigns it to innerValue', () => {
+      // Given
+      const args = {
+        defaultValue: '435678'
+      }
+
+      // When
+      const {innerValue} = getInitialPinInputReducerState(args)
+
+      // Then
+      expect(innerValue).to.be.an('array')
+      expect(innerValue.filter(Boolean).join('')).to.equal(args.defaultValue)
+    })
+
+    it('given valid value assigns it to innerValue', () => {
+      // Given
+      const args = {
+        value: '435678'
+      }
+
+      // When
+      const {innerValue} = getInitialPinInputReducerState(args)
+
+      // Then
+      expect(innerValue).to.be.an('array')
+      expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
+    })
+
+    it('given valid value and default value sets value to innerValue', () => {
+      // Given
+      const args = {
+        value: '435678',
+        defaultValue: '356765'
+      }
+
+      // When
+      const {innerValue} = getInitialPinInputReducerState(args)
+
+      // Then
+      expect(innerValue).to.be.an('array')
+      expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
+    })
+
+    it('given invalid value assigns an empty innerValue', () => {
+      // Given
+      const args = {
+        value: 'AAA33'
+      }
+
+      // When
+      const {innerValue} = getInitialPinInputReducerState(args)
+
+      // Then
+      expect(innerValue).to.be.an('array')
+      expect(innerValue.filter(Boolean).join('')).to.equals('')
     })
   })
 

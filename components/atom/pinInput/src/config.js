@@ -21,6 +21,7 @@ export const MASK = {
 }
 
 export const valueChecker = ({length = 1, mask}) => (value = '') => {
+  if (length === 0 && value === '') return true
   if (value.length !== length) return false
   const matchExpression = `${mask}{${length}}`
   const regex = new RegExp(matchExpression)

@@ -7,11 +7,16 @@ export const getInitialPinInputReducerState = ({
   disabled = false,
   defaultValue = ''
 } = {}) => {
+  let innerValue = value ? value.split('') : defaultValue.split('')
+  const checker = valueChecker({mask, length: innerValue.length})
+
+  innerValue = checker(innerValue.filter(Boolean).join('')) ? innerValue : []
+
   return {
     focusPosition: 0,
     mask,
-    innerValue: value ? value.split('') : defaultValue.split(''),
-    checker: valueChecker({mask}),
+    innerValue,
+    checker,
     disabled,
     elements: []
   }

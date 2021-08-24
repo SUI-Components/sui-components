@@ -5,8 +5,8 @@ export const getInitialPinInputReducerState = ({
   mask = MASK.NUMBER,
   value,
   disabled = false,
-  defaultValue = []
-}) => {
+  defaultValue = ''
+} = {}) => {
   return {
     focusPosition: 0,
     mask,

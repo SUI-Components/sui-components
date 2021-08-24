@@ -14,7 +14,9 @@ import {
   actions as atomPinInputActions,
   actionTypes as atomPinInputActionTypes
 } from 'components/atom/pinInput/src/reducer'
+import {getInitialPinInputReducerState} from 'components/atom/pinInput/src/reducer/reducer'
 import {MASK} from '../src/config'
+import {valueChecker} from '../src/config'
 
 chai.use(chaiDOM)
 
@@ -46,7 +48,141 @@ describe('AtomPinInput', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
+  describe('pinInputMask', () => {
+    describe('NUMBER', () => {
+      it('should return TRUE when giving numeric value and matching length', () => {
+        // Given
+        const value = '12345'
+        const expected = true
+
+        // When
+        const checker = valueChecker({mask: MASK.NUMBER, length: value.length})
+
+        // Then
+        expect(checker).to.be.a('function')
+
+        // And
+
+        // When
+        const result = checker(value)
+
+        // Then
+        expect(result).to.equal(expected)
+      })
+      it('should return FALSE when giving numeric value and NOT matching length (shorter)', () => {
+        // Given
+        const value = '12345'
+        const expected = false
+
+        // When
+        const checker = valueChecker({
+          mask: MASK.NUMBER,
+          length: value.length - 1
+        })
+
+        // Then
+        expect(checker).to.be.a('function')
+
+        // And
+
+        // When
+        const result = checker(value)
+
+        // Then
+        expect(result).to.equal(expected)
+      })
+      it('should return FALSE when giving numeric value and NOT matching length (larger)', () => {
+        // Given
+        const value = '12345'
+        const expected = false
+
+        // When
+        const checker = valueChecker({
+          mask: MASK.NUMBER,
+          length: value.length + 1
+        })
+
+        // Then
+        expect(checker).to.be.a('function')
+
+        // And
+
+        // When
+        const result = checker(value)
+
+        // Then
+        expect(result).to.equal(expected)
+      })
+      it('should return FALSE when giving NOT numeric value and matching length (larger)', () => {
+        // Given
+        const value = 'ASDF'
+        const expected = false
+
+        // When
+        const checker = valueChecker({
+          mask: MASK.NUMBER,
+          length: value.length
+        })
+
+        // Then
+        expect(checker).to.be.a('function')
+
+        // And
+
+        // When
+        const result = checker(value)
+
+        // Then
+        expect(result).to.equal(expected)
+      })
+    })
+    describe('ALPHABETIC', () => {
+      it('', () => {
+        // Given
+        // When
+        // Then
+      })
+    })
+    describe('ALPHANUMERIC', () => {
+      it('', () => {
+        // Given
+        // When
+        // Then
+      })
+    })
+  })
+
+  describe('getInitialPinInputReducerState', () => {
+    it('default value', () => {
+      // Given
+      const args = {}
+
+      // When
+      const {
+        focusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = getInitialPinInputReducerState()
+
+      // Then
+      expect(Object.getOwnPropertyNames(others).length).to.equal(0)
+
+      expect(focusPosition).to.equal(0)
+      expect(mask).to.equal(MASK.NUMBER)
+      expect(innerValue).to.be.an('array')
+      expect(innerValue.length).to.equal(0)
+      expect(checker).to.be.a('function')
+      expect(checker('1')).to.equal(true)
+      expect(checker('A')).to.equal(false)
+    })
+  })
+
   describe('atomPinInputReducer', () => {})
+
   describe('atomPinInputActions', () => {
     describe('setKey', () => {
       it('Matches reducer action', () => {

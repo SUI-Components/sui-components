@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 
 export const AVATAR_BADGE_STATUSES = {
   ERROR: 'error',
-  SUCCESS: 'success'
+  SUCCESS: 'success',
+  ALERT: 'alert',
+  MUTED: 'muted'
 }
 
 export const AVATAR_BADGE_PLACEMENTS = {

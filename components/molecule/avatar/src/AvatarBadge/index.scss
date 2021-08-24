@@ -1,3 +1,6 @@
+$bdc-avatar-badge: white !default;
+$bdc-avatar-badge-muted: #d7dcdf !default;
+
 $s-avatar-badge: (
   xxlarge: 20px,
   xlarge: 16px,
@@ -16,7 +19,19 @@ $bw-avatar-badge: (
   xsmall: 1px
 ) !default;
 
-$bdc-avatar-badge: white !default;
+$bgc-avatar-badge: (
+  error: $c-error,
+  success: $c-success,
+  alert: $c-alert,
+  muted: $bdc-avatar-badge
+) !default;
+
+$bxsh-avatar-badge: (
+  error: inset 0 0 0 2px $c-error,
+  success: inset 0 0 0 2px $c-success,
+  alert: inset 0 0 0 2px $c-alert,
+  muted: inset 0 0 0 2px $bdc-avatar-badge-muted
+) !default;
 
 .sui-MoleculeAvatarBadge {
   border-radius: $bdrs-rounded;
@@ -25,20 +40,24 @@ $bdc-avatar-badge: white !default;
   right: 0;
   z-index: 1;
 
-  &--error {
-    background-color: $c-error;
-  }
-
-  &--success {
-    background-color: $c-success;
-  }
-
   &--top {
     top: 0;
   }
 
   &--bottom {
     bottom: 0;
+  }
+
+  @each $key-status, $bgc in $bgc-avatar-badge {
+    &--#{$key-status} {
+      background-color: $bgc;
+    }
+  }
+
+  @each $key-status, $bxsh in $bxsh-avatar-badge {
+    &--#{$key-status} {
+      box-shadow: $bxsh;
+    }
   }
 
   @each $key-size, $size in $s-avatar-badge {

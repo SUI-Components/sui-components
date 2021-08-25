@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.28.0 (2021-08-19)
+
+
+### Features
+
+* **components/atom/tag:** pass value and label to onClose event ([530bf8a](https://github.com/SUI-Components/sui-components/commit/530bf8a1b5d5aa5d96bc74a0dbd2ecf021e0d433))
+
+
+
 # 2.27.0 (2021-08-04)
 
 

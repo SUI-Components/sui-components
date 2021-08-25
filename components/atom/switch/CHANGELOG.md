@@ -1,5 +1,21 @@
 # CHANGELOG
 
+# 1.16.0 (2021-08-25)
+
+
+### Bug Fixes
+
+* **components/atom/switch:** Modify toggleType margin token ([f416fb0](https://github.com/SUI-Components/sui-components/commit/f416fb097336ddeded18ba24f165d095ac816489))
+
+
+### Features
+
+* **components/atom/switch:** Add right label option to atom switch single component ([2507206](https://github.com/SUI-Components/sui-components/commit/2507206e03dc4a46be3a488ceab4ff12848f4ba7))
+* **components/atom/switch:** Improve label render rules ([fe60811](https://github.com/SUI-Components/sui-components/commit/fe608114eb4a1c2554fd4dc22093aab7bb615666))
+* **components/atom/switch:** Modify component to maintain retro compatibility ([fe24869](https://github.com/SUI-Components/sui-components/commit/fe24869d413bab38d3e84cd2adf38c16664dd411))
+
+
+
 # 1.15.0 (2021-06-22)
 
 

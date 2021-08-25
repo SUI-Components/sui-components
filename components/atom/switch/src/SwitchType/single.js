@@ -3,20 +3,24 @@ import cx from 'classnames'
 import AtomLabel from '@s-ui/react-atom-label'
 import {suitClass, switchClassNames} from './helpers'
 import PropTypes from 'prop-types'
+import {LABELS} from '../config'
+const {RIGHT, LEFT} = LABELS
 
 export const SingleSwitchTypeRender = forwardRef(
   (
     {
       disabled,
-      isFocus,
       isClick,
+      isFocus,
       isToggle,
       label,
+      labelLeft,
       labelOptionalText,
+      labelRight,
       name,
       onBlur,
-      onFocus,
       onClick,
+      onFocus,
       onKeyDown,
       onToggle,
       size,
@@ -26,6 +30,12 @@ export const SingleSwitchTypeRender = forwardRef(
     ref
   ) => {
     const isActive = value !== undefined ? value : isToggle
+
+    const defaultLabelLeft = labelLeft === LEFT
+    const defaultLabelRight = labelRight === RIGHT
+
+    const showLabelLeft = Boolean(label) || !defaultLabelLeft
+    const showLabelRight = !label && !defaultLabelRight && defaultLabelLeft
 
     return (
       <div
@@ -49,10 +59,10 @@ export const SingleSwitchTypeRender = forwardRef(
           onBlur={onBlur}
           ref={ref}
         >
-          {label && (
+          {showLabelLeft && (
             <AtomLabel
               name={name}
-              text={label}
+              text={defaultLabelLeft ? label : labelLeft}
               optionalText={labelOptionalText}
             />
           )}
@@ -63,6 +73,13 @@ export const SingleSwitchTypeRender = forwardRef(
               })}
             />
           </div>
+          {showLabelRight && (
+            <AtomLabel
+              name={name}
+              text={labelRight}
+              optionalText={labelOptionalText}
+            />
+          )}
         </div>
       </div>
     )
@@ -81,9 +98,17 @@ SingleSwitchTypeRender.propTypes = {
    */
   label: PropTypes.string,
   /**
+   * The optional left label text. Proxy from label
+   */
+  labelLeft: PropTypes.string,
+  /**
    * The optional label text. Proxy from label
    */
   labelOptionalText: PropTypes.string,
+  /**
+   * The optional right label text. Proxy from label
+   */
+  labelRight: PropTypes.string,
   /**
    * Size of switch: 'default', 'large'
    */

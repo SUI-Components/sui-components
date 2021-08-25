@@ -47,17 +47,31 @@ describe('atom/switch', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
-  it.skip('example', () => {
-    // Example TO BE DELETED!!!!
-
+  it('should render single type with left label', () => {
     // Given
-    // const props = {}
+    const props = {label: 'label', name: 'name', type: 'single'}
 
     // When
-    // const {getByRole} = setup(props)
+    const {getByText} = setup(props)
 
     // Then
-    // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(false)
+    const label = getByText(props.label)
+    const childNodes = label.parentElement.childNodes
+
+    expect(childNodes[0]).to.be.eql(label)
+  })
+
+  it('should render single type with right label', () => {
+    // Given
+    const props = {labelRight: 'labelRight', name: 'name', type: 'single'}
+
+    // When
+    const {getByText} = setup(props)
+
+    // Then
+    const label = getByText(props.labelRight)
+    const childNodes = label.parentElement.childNodes
+
+    expect(childNodes[1]).to.be.eql(label)
   })
 })

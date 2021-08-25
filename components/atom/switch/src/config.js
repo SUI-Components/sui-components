@@ -11,4 +11,9 @@ export const TYPES = {
   SINGLE: 'single'
 }
 
+export const LABELS = {
+  LEFT: 'Off',
+  RIGHT: 'On'
+}
+
 export const SUPPORTED_KEYS = [' ', 'Enter', 'Spacebar']

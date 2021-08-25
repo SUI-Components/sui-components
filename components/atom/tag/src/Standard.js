@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const StandardTag = ({className, closeIcon, icon, label, onClose}) => {
+const StandardTag = ({className, closeIcon, icon, label, onClose, value}) => {
   const classNames = cx(className, closeIcon && 'sui-AtomTag-hasClose')
 
   const handleClick = ev => {
-    onClose(ev)
+    onClose(ev, {value, label})
     ev.stopPropagation()
   }
 
@@ -31,7 +31,8 @@ StandardTag.propTypes = {
   closeIcon: PropTypes.node,
   icon: PropTypes.node,
   label: PropTypes.string.isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 StandardTag.propTypes = {

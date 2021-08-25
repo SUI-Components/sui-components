@@ -2,7 +2,7 @@ import {useState, forwardRef} from 'react'
 import PropTypes from 'prop-types'
 import {ToggleSwitchTypeRender} from './SwitchType/toggle'
 import {SingleSwitchTypeRender} from './SwitchType/single'
-import {SIZES, TYPES, SUPPORTED_KEYS} from './config'
+import {LABELS, SIZES, SUPPORTED_KEYS, TYPES} from './config'
 
 const AtomSwitch = forwardRef((props, ref) => {
   const {initialValue, disabled, onToggle: onToggleCallback, type} = props
@@ -116,8 +116,8 @@ AtomSwitch.propTypes = {
 AtomSwitch.defaultProps = {
   disabled: false,
   initialValue: false,
-  labelLeft: 'Off',
-  labelRight: 'On',
+  labelLeft: LABELS.LEFT,
+  labelRight: LABELS.RIGHT,
   size: SIZES.DEFAULT,
   type: TYPES.TOGGLE
 }

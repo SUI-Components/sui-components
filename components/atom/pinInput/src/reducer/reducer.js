@@ -152,7 +152,7 @@ export const pinInputReducer = (state, {actionType, payload}) => {
       const position = elements[payload.focusPosition]
         ? payload.focusPosition
         : focusPosition
-        nextState = {...state, focusPosition: position}
+      nextState = {...state, focusPosition: position}
       if (elements[position]) {
         focusElement(elements[position])
       }
@@ -171,6 +171,7 @@ export const pinInputReducer = (state, {actionType, payload}) => {
         ...state,
         elements: elements.filter(element => node !== element)
       }
+
       break
     default:
       break

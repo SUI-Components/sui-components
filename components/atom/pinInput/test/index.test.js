@@ -18,6 +18,7 @@ import {
 } from 'components/atom/pinInput/src/reducer'
 import {getInitialPinInputReducerState} from 'components/atom/pinInput/src/reducer/reducer'
 import {MASK, valueChecker} from '../src/config'
+import {actionTypes} from '../src/reducer'
 
 chai.use(chaiDOM)
 
@@ -562,7 +563,7 @@ describe('AtomPinInput', () => {
       expect(Object.getOwnPropertyNames(others).length).to.equal(0)
 
       // And
-      // Given
+      // When
       elementsArray.forEach(element => {
         dispatch(atomPinInputActions.setElement({node: element}))
       })
@@ -574,13 +575,95 @@ describe('AtomPinInput', () => {
 
     afterEach(cleanup)
 
+    it('given a valid input sets it to the innerValue', () => {
+      // Given
+      const args = {
+        defaultValue: '12345'
+      }
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      let [store, dispatch] = hook.result.current
+
+      const {innerValue} = store
+
+      // Then
+      expect(innerValue.filter(Boolean).join('')).to.equal('12345')
+      // And
+      // Given
+      const newValue = '123456'
+      // When
+      dispatch(atomPinInputActions.setValue({innerValue: newValue}))
+      // Then
+      store = hook.result.current[0]
+      const newInnerValue = store.innerValue
+      expect(newInnerValue.filter(Boolean).join('')).to.equal(newValue)
+    })
+
+    it('given an invalid input does NOT set it to the innerValue', () => {
+      // Given
+      const args = {
+        defaultValue: '12345',
+        mask: MASK.NUMBER
+      }
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      let [store, dispatch] = hook.result.current
+
+      const {innerValue} = store
+
+      // Then
+      expect(innerValue.filter(Boolean).join('')).to.equal('12345')
+      // And
+      // Given
+      const newValue = '12345A'
+      // When
+      dispatch(atomPinInputActions.setValue({innerValue: newValue}))
+      // Then
+      store = hook.result.current[0]
+      const newInnerValue = store.innerValue
+      expect(newInnerValue.filter(Boolean).join('')).to.equal(newValue)
+    })
+
+    it('given valid position removes pin input element', () => {
+      // Given
+      const args = undefined
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      let [store, dispatch] = hook.result.current
+
+      let {
+        focusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+
+      // Then
+      expect(elements.length).to.equal(6)
+      // And
+      // Given
+      const node = null
+      // When
+      dispatch(atomPinInputActions.removeElement({node}))
+      store = hook.result.current[0]
+      console.log(store)
+      const newElements = store.elements
+      // Then
+      expect(newElements.length).to.equal(5)
+    })
+
     it('NOT giving arguments gets initial store', () => {
       // Given
       const args = undefined
 
       // When
       const hook = setupReducerEnvironment(args)
-
 
       // Then
       let [store] = hook.result.current
@@ -599,7 +682,7 @@ describe('AtomPinInput', () => {
       expect(mask).to.equal(MASK.NUMBER)
     })
 
-    it('given a new valid focus set it to the store', () => {
+    it('given a new valid focus position set it to the store', () => {
       // Given
       const args = undefined
 

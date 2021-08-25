@@ -54,12 +54,18 @@ export const pinInputReducer = (state, {actionType, payload}) => {
       nextState = {...state, disabled}
       break
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_VALUE:
-      nextState = {
-        ...state,
-        ...{
-          innerValue: innerValue !== payload.innerValue && [
-            ...payload.innerValue
-          ]
+      const isValidPayloadInnerValue = valueChecker({
+        mask: state.mask,
+        length: payload.innerValue.length
+      })(payload.innerValue.filter(Boolean).join(''))
+      if (isValidPayloadInnerValue) {
+        nextState = {
+          ...state,
+          ...{
+            innerValue: innerValue !== payload.innerValue && [
+              ...payload.innerValue
+            ]
+          }
         }
       }
       break
@@ -176,6 +182,6 @@ export const pinInputReducer = (state, {actionType, payload}) => {
     default:
       break
   }
-  // console.log(actionType, {payload, nextState})
+
   return nextState
 }

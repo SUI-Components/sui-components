@@ -536,13 +536,15 @@ describe('AtomPinInput', () => {
 
     const setupReducerEnvironment = (initialArgs = {}) => {
       // Given
+      const {elements: initialElements = []} = initialArgs
       const elementsArray = [
         document.createElement('input'),
         document.createElement('input'),
         document.createElement('input'),
         document.createElement('input'),
         document.createElement('input'),
-        document.createElement('input')
+        document.createElement('input'),
+        ...initialElements
       ]
 
       // When
@@ -575,7 +577,7 @@ describe('AtomPinInput', () => {
 
     afterEach(cleanup)
 
-    it('given a valid input sets it to the innerValue', () => {
+    it('given a valid value sets it to the innerValue', () => {
       // Given
       const args = {
         defaultValue: '12345'
@@ -593,14 +595,15 @@ describe('AtomPinInput', () => {
       // Given
       const newValue = '123456'
       // When
-      dispatch(atomPinInputActions.setValue({innerValue: newValue}))
+      dispatch(atomPinInputActions.setValue({innerValue: newValue.split('')}))
       // Then
+      hook.rerender()
       store = hook.result.current[0]
       const newInnerValue = store.innerValue
       expect(newInnerValue.filter(Boolean).join('')).to.equal(newValue)
     })
 
-    it('given an invalid input does NOT set it to the innerValue', () => {
+    it('given an invalid value does NOT set it to the innerValue', () => {
       // Given
       const args = {
         defaultValue: '12345',
@@ -619,16 +622,18 @@ describe('AtomPinInput', () => {
       // Given
       const newValue = '12345A'
       // When
-      dispatch(atomPinInputActions.setValue({innerValue: newValue}))
+      dispatch(atomPinInputActions.setValue({innerValue: newValue.split('')}))
       // Then
+      hook.rerender()
       store = hook.result.current[0]
       const newInnerValue = store.innerValue
-      expect(newInnerValue.filter(Boolean).join('')).to.equal(newValue)
+      expect(newInnerValue.filter(Boolean).join('')).to.not.equal(newValue)
     })
 
     it('given valid position removes pin input element', () => {
       // Given
-      const args = undefined
+      const node = document.createElement('input')
+      const args = {elements: [node]}
 
       // When
       const hook = setupReducerEnvironment(args)
@@ -645,17 +650,18 @@ describe('AtomPinInput', () => {
       } = store
 
       // Then
-      expect(elements.length).to.equal(6)
+      expect(elements.length).to.equal(7)
       // And
-      // Given
-      const node = null
+
       // When
       dispatch(atomPinInputActions.removeElement({node}))
+
+      hook.rerender()
       store = hook.result.current[0]
-      console.log(store)
       const newElements = store.elements
+
       // Then
-      expect(newElements.length).to.equal(5)
+      expect(newElements.length).to.equal(6)
     })
 
     it('NOT giving arguments gets initial store', () => {

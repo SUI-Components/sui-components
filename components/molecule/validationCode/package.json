@@ -19,6 +19,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@s-ui/react-atom-button": "^1.66.0"
+    "@s-ui/react-atom-button": "1.66.0",
+    "@s-ui/react-atom-pin-input": "1.0.0"
   }
 }

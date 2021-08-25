@@ -6,7 +6,8 @@ import {
   Input,
   Button,
   Grid,
-  Cell
+  Cell,
+  Label
 } from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
 import PinInputField from '../src/PinInputField'
@@ -31,6 +32,12 @@ const getWeirdSumCombinationArray = (values = [], max) => {
 const possibleValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 const columnIndex = 12
 
+const flexCentered = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
+}
+
 const ArticleChildren = ({className}) => {
   const [weirdColumns, setWeirdColumns] = useState([
     ...getWeirdSumCombinationArray(possibleValues, columnIndex),
@@ -42,16 +49,29 @@ const ArticleChildren = ({className}) => {
     `${Math.trunc(Math.random() * Math.pow(10, weirdColumns.length))}`
   )
 
+  const [cardCode, setCardCode] = useState(
+    `${Math.trunc(Math.random() * Math.pow(10, 16))}`
+  )
+  const [cardCVVCode, setCardCVVCode] = useState(
+    `${Math.trunc(Math.random() * Math.pow(10, 3))}`
+  )
+
   const onChangeHandler = (event, args) => {
     setCode(args.value)
   }
 
   const setWeirdColumnsHandler = () => {
-    setWeirdColumns([
+    const newWeirdSumCombinationArray = [
       ...getWeirdSumCombinationArray(possibleValues, columnIndex),
       ...getWeirdSumCombinationArray(possibleValues, columnIndex),
       ...getWeirdSumCombinationArray(possibleValues, columnIndex)
-    ])
+    ]
+    setWeirdColumns(newWeirdSumCombinationArray)
+    setCode(
+      `${Math.trunc(
+        Math.random() * Math.pow(10, newWeirdSumCombinationArray.length)
+      )}`
+    )
   }
 
   return (
@@ -65,6 +85,79 @@ const ArticleChildren = ({className}) => {
         We can customize children in the component using the PinInputField
         component.
       </Paragraph>
+      <Grid cols={12} gutter={[8, 8]}>
+        <Cell span={12}>
+          <Label>Card Number</Label>
+        </Cell>
+        <Cell span={12}>
+          <PinInput onChangeHandler={onChangeHandler} defaultValue={cardCode}>
+            <Grid cols={19} gutter={[8, 8]}>
+              <Cell>
+                <PinInputField isFullWidth />
+              </Cell>
+              <Cell>
+                <PinInputField isFullWidth />
+              </Cell>
+              <Cell>
+                <PinInputField isFullWidth />
+              </Cell>
+              <Cell>
+                <PinInputField isFullWidth />
+              </Cell>
+              <Cell style={flexCentered}>–</Cell>
+              <Cell>
+                <PinInputField isFullWidth />
+              </Cell>
+              <Cell>
+                <PinInputField isFullWidth />
+              </Cell>
+              <Cell>
+                <PinInputField isFullWidth />
+              </Cell>
+              <Cell>
+                <PinInputField isFullWidth />
+              </Cell>
+              <Cell style={flexCentered}>–</Cell>
+              <Cell>
+                <PinInputField isFullWidth />
+              </Cell>
+              <Cell>
+                <PinInputField isFullWidth />
+              </Cell>
+              <Cell>
+                <PinInputField isFullWidth />
+              </Cell>
+              <Cell>
+                <PinInputField isFullWidth />
+              </Cell>
+              <Cell style={flexCentered}>–</Cell>
+              <Cell>
+                <PinInputField isFullWidth />
+              </Cell>
+              <Cell>
+                <PinInputField isFullWidth />
+              </Cell>
+              <Cell>
+                <PinInputField isFullWidth />
+              </Cell>
+              <Cell>
+                <PinInputField isFullWidth />
+              </Cell>
+            </Grid>
+          </PinInput>
+        </Cell>
+        <Cell span={12}>
+          <Label>CVV</Label>
+        </Cell>
+        <Cell span={4}>
+          <PinInput
+            onChangeHandler={onChangeHandler}
+            defaultValue={cardCVVCode}
+            length={3}
+          />
+        </Cell>
+      </Grid>
+      <Paragraph>And many more...</Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
           <Button onClick={setWeirdColumnsHandler}>shuffle</Button>

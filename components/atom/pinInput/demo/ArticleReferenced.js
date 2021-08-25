@@ -1,5 +1,13 @@
 import PropTypes from 'prop-types'
-import {Article, H2, Paragraph, Box, Input} from '@s-ui/documentation-library'
+import {
+  Article,
+  H2,
+  Paragraph,
+  Input,
+  Grid,
+  Cell,
+  Label
+} from '@s-ui/documentation-library'
 import PinInput from '../src/PinInput'
 import {useState} from 'react'
 
@@ -17,27 +25,26 @@ const ArticleReferenced = ({className}) => {
         PinInput value is readed from a hidden input to get the full result of
         the value and to be able to access it without having to transform data.
       </Paragraph>
-      <Box
-        outline
-        style={{
-          maxWidth: 480,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <PinInput
-          status="undefined"
-          onChange={onChangeHandler}
-          defaultValue={code}
-          ref={node => {
-            node && setRefValue(node.value)
-          }}
-        />
-        <Input style={{textAlign: 'center'}} value={code} disabled />
-      </Box>
-      <br />
-      <Input value={refValue} />
+      <Grid cols={2} gutter={[8, 8]}>
+        <Cell span={2}>
+          <PinInput
+            status="undefined"
+            onChange={onChangeHandler}
+            defaultValue={code}
+            ref={node => {
+              node && setRefValue(node.value)
+            }}
+          />
+        </Cell>
+        <Cell style={{display: 'flex', flexDirection: 'column'}}>
+          <Label>onChange value</Label>
+          <Input style={{textAlign: 'center'}} value={code} disabled readonly />
+        </Cell>
+        <Cell style={{display: 'flex', flexDirection: 'column'}}>
+          <Label>byRef value</Label>
+          <Input value={refValue} disabled readonly />
+        </Cell>
+      </Grid>
     </Article>
   )
 }

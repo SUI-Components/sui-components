@@ -191,6 +191,7 @@ describe('AtomPinInput', () => {
         // Then
         expect(result).to.equal(expected)
       })
+
       it('should return FALSE when given alphabetic value and NOT matching length (shorter)', () => {
         // Given
         const value = 'AAAA'
@@ -215,6 +216,7 @@ describe('AtomPinInput', () => {
         // Then
         expect(result).to.equal(expected)
       })
+
       it('should return FALSE when given alphabetic value and NOT matching length (larger)', () => {
         // Given
         const value = 'AAAA'
@@ -777,6 +779,43 @@ describe('AtomPinInput', () => {
       // Then
       expect(focusPosition).to.not.equal(newFocusPosition)
       expect(focusPosition).to.equal(initialFocusPosition)
+    })
+
+    it('given a new mask clears value if it becomes invalid', () => {
+      // Given
+      const args = {value: '123456'}
+      const eventArgs = {mask: MASK.ALPHABETIC}
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      let [store, dispatch] = hook.result.current
+
+      let {
+        focusPosition: initialFocusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+
+      // Then
+      expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
+
+      // And
+      // Given
+
+      // When
+      dispatch(atomPinInputActions.setMask({mask: eventArgs.mask}))
+      hook.rerender()
+
+      // Then
+      store = hook.result.current[0]
+      const newInnerValue = store.innerValue
+      const focusPosition = store.focusPosition
+      expect(focusPosition).to.equal(initialFocusPosition)
+      expect(newInnerValue.filter(Boolean).join('')).to.equal('')
     })
 
     it('given an ArrowUp key event does NOT change the focusPosition and the innerValue', () => {

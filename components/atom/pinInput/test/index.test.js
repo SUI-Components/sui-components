@@ -745,6 +745,41 @@ describe('AtomPinInput', () => {
       expect(focusPosition).to.equal(newFocusPosition)
     })
 
+    it('given a new invalid focusPosition keeps the current focus', () => {
+      // Given
+      const args = undefined
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      let [store, dispatch] = hook.result.current
+
+      let {
+        focusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+
+      // Then
+      expect(focusPosition).to.equal(0)
+
+      // And
+      // Given
+      const newFocusPosition = focusPosition - 1
+
+      // When
+      dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
+      hook.rerender()
+      store = hook.result.current[0]
+      focusPosition = store.focusPosition
+
+      // Then
+      expect(focusPosition).to.equal(0)
+    })
+
     it('given a new invalid focusPosition index preserves the older stored index', () => {
       // Given
       const args = undefined

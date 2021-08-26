@@ -708,7 +708,7 @@ describe('AtomPinInput', () => {
       expect(mask).to.equal(MASK.NUMBER)
     })
 
-    it('given a new valid focus position set it to the store', () => {
+    it('given a new valid focusPosition set it to the store', () => {
       // Given
       const args = undefined
 
@@ -743,7 +743,7 @@ describe('AtomPinInput', () => {
       expect(focusPosition).to.equal(newFocusPosition)
     })
 
-    it('given a new invalid focus index preserves the older stored index', () => {
+    it('given a new invalid focusPosition index preserves the older stored index', () => {
       // Given
       const args = undefined
 
@@ -779,7 +779,7 @@ describe('AtomPinInput', () => {
       expect(focusPosition).to.equal(initialFocusPosition)
     })
 
-    it('given an ArrowUp key event does NOT change the focusIndex and the innerValue', () => {
+    it('given an ArrowUp key event does NOT change the focusPosition and the innerValue', () => {
       // Given
       const args = {value: '123456'}
       const eventArgs = {key: 'ArrowUp'}
@@ -819,7 +819,7 @@ describe('AtomPinInput', () => {
       expect(newInnerValue.filter(Boolean).join('')).to.equal(args.value)
     })
 
-    it('given an ArrowDown key event does NOT change the focusIndex and the innerValue', () => {
+    it('given an ArrowDown key event does NOT change the focusPosition and the innerValue', () => {
       // Given
       const args = {value: '123456'}
       const eventArgs = {key: 'ArrowDown'}
@@ -859,7 +859,7 @@ describe('AtomPinInput', () => {
       expect(newInnerValue.filter(Boolean).join('')).to.equal(args.value)
     })
 
-    it('given an ArrowLeft key event does NOT change the innerValue and the focusIndex  if it is the first one', () => {
+    it('given an ArrowLeft key event does NOT change the innerValue and the focusPosition  if it is the first one', () => {
       // Given
       const args = {value: '123456'}
       const eventArgs = {key: 'ArrowLeft'}
@@ -898,7 +898,8 @@ describe('AtomPinInput', () => {
       expect(focusPosition).to.equal(initialFocusPosition)
       expect(newInnerValue.filter(Boolean).join('')).to.equal(args.value)
     })
-    it('given an ArrowLeft key event does NOT change the innerValue but reduces the focusIndex if it is NOT the first one', () => {
+
+    it('given an ArrowLeft key event does NOT change the innerValue but reduces the focusPosition if it is NOT the first one', () => {
       // Given
       const args = {value: '123456'}
       const eventArgs = {key: 'ArrowLeft'}
@@ -949,7 +950,8 @@ describe('AtomPinInput', () => {
       expect(focusPosition).to.equal(newFocusPosition - 1)
       expect(newInnerValue.filter(Boolean).join('')).to.equal(args.value)
     })
-    it('given an ArrowRight key event does NOT change the innerValue and the focusIndex if it is NOT the last one', () => {
+
+    it('given an ArrowRight key event does NOT change the innerValue and the focusPosition if it is NOT the last one', () => {
       // Given
       const args = {value: '123456'}
       const eventArgs = {key: 'ArrowRight'}
@@ -999,7 +1001,8 @@ describe('AtomPinInput', () => {
       expect(focusPosition).to.equal(newFocusPosition)
       expect(newInnerValue.filter(Boolean).join('')).to.equal(args.value)
     })
-    it('given an ArrowRight key event does NOT change the innerValue but increments the focusIndex if it is NOT the last one', () => {
+
+    it('given an ArrowRight key event does NOT change the innerValue but increments the focusPosition if it is NOT the last one', () => {
       // Given
       const args = {value: '123456'}
       const eventArgs = {key: 'ArrowRight'}
@@ -1039,7 +1042,7 @@ describe('AtomPinInput', () => {
       expect(newInnerValue.filter(Boolean).join('')).to.equal(args.value)
     })
 
-    it('given an Backspace key event does changes the innerValue and also reduces the focusIndex if it is NOT the first one', () => {
+    it('given a Backspace key event does changes the innerValue and also reduces the focusPosition if it is NOT the first one', () => {
       // Given
       const args = {value: '123456'}
       const eventArgs = {key: 'Backspace'}
@@ -1094,6 +1097,290 @@ describe('AtomPinInput', () => {
           .filter((_, index) => index !== newFocusPosition)
           .join('')
       )
+    })
+
+    it('given a Backspace key event does changes the innerValue and also reduces the focusPosition if it is the first one', () => {
+      // Given
+      const args = {value: '123456'}
+      const eventArgs = {key: 'Backspace'}
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      let [store, dispatch] = hook.result.current
+
+      let {
+        focusPosition: initialFocusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+
+      // Then
+      expect(initialFocusPosition).to.equal(0)
+      expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
+
+      // And
+      // Given
+      const onChange = () => null
+      const keyboardEvent = new KeyboardEvent('keydown', {...eventArgs})
+
+      // When
+      dispatch(atomPinInputActions.setKey({event: keyboardEvent, onChange}))
+      hook.rerender()
+
+      // Then
+      store = hook.result.current[0]
+      const focusPosition = store.focusPosition
+      const newInnerValue = store.innerValue
+      expect(focusPosition).to.equal(initialFocusPosition)
+      expect(newInnerValue.filter(Boolean).join('')).to.equal(
+        args.value
+          .split('')
+          .filter((_, index) => index !== initialFocusPosition)
+          .join('')
+      )
+    })
+
+    it('given a Delete key event change the innerValue but does NOT change the focusPosition', () => {
+      // Given
+      const args = {value: '123456'}
+      const eventArgs = {key: 'Delete'}
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      let [store, dispatch] = hook.result.current
+
+      let {
+        focusPosition: initialFocusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+
+      // Then
+      expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
+
+      // And
+      // Given
+      const onChange = () => null
+      const keyboardEvent = new KeyboardEvent('keydown', {...eventArgs})
+
+      // When
+      dispatch(atomPinInputActions.setKey({event: keyboardEvent, onChange}))
+      hook.rerender()
+
+      // Then
+      store = hook.result.current[0]
+      const newInnerValue = store.innerValue
+      const focusPosition = store.focusPosition
+      expect(focusPosition).to.equal(0)
+      expect(newInnerValue.filter(Boolean).join('')).to.equal(
+        args.value
+          .split('')
+          .filter((_, index) => index !== 0)
+          .join('')
+      )
+    })
+
+    it('given a Tab key event does NOT change the innerValue but increment the focusPosition if it is NOT the last one', () => {
+      // Given
+      const args = {value: '123456'}
+      const eventArgs = {key: 'Tab', shiftKey: false}
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      let [store, dispatch] = hook.result.current
+
+      let {
+        focusPosition: initialFocusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+
+      // Then
+      expect(initialFocusPosition).to.equal(0)
+      expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
+
+      // And
+      // Given
+      const newFocusPosition = 3
+      // When
+      dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
+      hook.rerender()
+
+      // Then
+      store = hook.result.current[0]
+      expect(store.focusPosition).to.equal(newFocusPosition)
+
+      // And
+      // Given
+      const onChange = () => null
+      const keyboardEvent = new KeyboardEvent('keydown', {...eventArgs})
+
+      // When
+      dispatch(atomPinInputActions.setKey({event: keyboardEvent, onChange}))
+      hook.rerender()
+
+      // Then
+      store = hook.result.current[0]
+      const focusPosition = store.focusPosition
+      const newInnerValue = store.innerValue
+      expect(focusPosition).to.not.equal(newFocusPosition)
+      expect(focusPosition).to.equal(newFocusPosition + 1)
+      expect(newInnerValue.filter(Boolean).join('')).to.equal(args.value)
+    })
+
+    it('given a Tab key event does NOT change the innerValue but increment the focusPosition if it is the last one', () => {
+      // Given
+      const args = {value: '123456'}
+      const eventArgs = {key: 'Tab', shiftKey: false}
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      let [store, dispatch] = hook.result.current
+
+      let {
+        focusPosition: initialFocusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+
+      // Then
+      expect(initialFocusPosition).to.equal(0)
+      expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
+
+      // And
+      // Given
+      const newFocusPosition = elements.length - 1
+      // When
+      dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
+      hook.rerender()
+
+      // Then
+      store = hook.result.current[0]
+      expect(store.focusPosition).to.equal(newFocusPosition)
+
+      // And
+      // Given
+      const onChange = () => null
+      const keyboardEvent = new KeyboardEvent('keydown', {...eventArgs})
+
+      // When
+      dispatch(atomPinInputActions.setKey({event: keyboardEvent, onChange}))
+      hook.rerender()
+
+      // Then
+      store = hook.result.current[0]
+      const focusPosition = store.focusPosition
+      const newInnerValue = store.innerValue
+      expect(focusPosition).to.equal(newFocusPosition)
+      expect(newInnerValue.filter(Boolean).join('')).to.equal(args.value)
+    })
+
+    it('given a Shift+Tab key event does NOT change the innerValue but decrements the focusPosition if it is NOT the first one', () => {
+      // Given
+      const args = {value: '123456'}
+      const eventArgs = {key: 'Tab', shiftKey: true}
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      let [store, dispatch] = hook.result.current
+
+      let {
+        focusPosition: initialFocusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+
+      // Then
+      expect(initialFocusPosition).to.equal(0)
+      expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
+
+      // And
+      // Given
+      const newFocusPosition = 3
+      // When
+      dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
+      hook.rerender()
+
+      // Then
+      store = hook.result.current[0]
+      expect(store.focusPosition).to.equal(newFocusPosition)
+
+      // And
+      // Given
+      const onChange = () => null
+      const keyboardEvent = new KeyboardEvent('keydown', {...eventArgs})
+
+      // When
+      dispatch(atomPinInputActions.setKey({event: keyboardEvent, onChange}))
+      hook.rerender()
+
+      // Then
+      store = hook.result.current[0]
+      const focusPosition = store.focusPosition
+      const newInnerValue = store.innerValue
+      expect(focusPosition).to.not.equal(newFocusPosition)
+      expect(focusPosition).to.equal(newFocusPosition - 1)
+      expect(newInnerValue.filter(Boolean).join('')).to.equal(args.value)
+    })
+
+    it('given a Shift+Tab key event does NOT change the innerValue but decrements the focusPosition if it is the first one', () => {
+      // Given
+      const args = {value: '123456'}
+      const eventArgs = {key: 'Tab', shiftKey: true}
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      let [store, dispatch] = hook.result.current
+
+      let {
+        focusPosition: initialFocusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+
+      // Then
+      expect(initialFocusPosition).to.equal(0)
+      expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
+
+      // And
+      // Given
+      const onChange = () => null
+      const keyboardEvent = new KeyboardEvent('keydown', {...eventArgs})
+
+      // When
+      dispatch(atomPinInputActions.setKey({event: keyboardEvent, onChange}))
+      hook.rerender()
+
+      // Then
+      store = hook.result.current[0]
+      const focusPosition = store.focusPosition
+      const newInnerValue = store.innerValue
+      expect(focusPosition).to.equal(initialFocusPosition)
+      expect(newInnerValue.filter(Boolean).join('')).to.equal(args.value)
     })
   })
 

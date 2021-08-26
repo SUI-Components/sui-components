@@ -38,11 +38,11 @@ const ArticleReferenced = ({className}) => {
         </Cell>
         <Cell style={{display: 'flex', flexDirection: 'column'}}>
           <Label>onChange value</Label>
-          <Input style={{textAlign: 'center'}} value={code} disabled readonly />
+          <Input style={{textAlign: 'center'}} value={code} disabled readOnly />
         </Cell>
         <Cell style={{display: 'flex', flexDirection: 'column'}}>
           <Label>byRef value</Label>
-          <Input value={refValue} disabled readonly />
+          <Input value={refValue} disabled readOnly />
         </Cell>
       </Grid>
     </Article>

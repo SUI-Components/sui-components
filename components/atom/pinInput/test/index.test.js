@@ -19,6 +19,7 @@ import {
 import {getInitialPinInputReducerState} from 'components/atom/pinInput/src/reducer/reducer'
 import {MASK, valueChecker} from '../src/config'
 import {actionTypes} from '../src/reducer'
+import {pinInputReducer} from '../src/reducer/reducer'
 
 chai.use(chaiDOM)
 
@@ -576,6 +577,29 @@ describe('AtomPinInput', () => {
     }
 
     afterEach(cleanup)
+
+    it('given an invalid actionType executes default case', () => {
+      // Given
+      const args = {}
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      const [store, dispatch] = hook.result.current
+
+      // Then
+      // Given
+      const newValue = '34564'
+      const actionType = 'PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_VALUE'
+
+      const act = (actionType, payload = {}) => ({actionType, payload})
+
+      // When
+      dispatch(act(actionType, {innerValue: newValue.split('')}))
+      // Then
+      hook.rerender()
+      const newInnerValue = store.innerValue
+      expect(newInnerValue.filter(Boolean).join('')).to.equal('')
+    })
 
     it('given a valid value sets it to the innerValue', () => {
       // Given

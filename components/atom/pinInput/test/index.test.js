@@ -1039,7 +1039,7 @@ describe('AtomPinInput', () => {
       expect(newInnerValue.filter(Boolean).join('')).to.equal(args.value)
     })
 
-    it('given a Delete key event change the innerValue but does not increment the focusIndex', () => {
+    it('given a Delete key event change the innerValue but does NOT change the focusIndex', () => {
       // Given
       const args = {value: '123456'}
       const eventArgs = {key: 'Delete'}
@@ -1073,7 +1073,14 @@ describe('AtomPinInput', () => {
       // Then
       store = hook.result.current[0]
       const newInnerValue = store.innerValue
-      expect(newInnerValue.filter(Boolean).join('')).to.equal('23456')
+      const focusPosition = store.focusPosition
+      expect(focusPosition).to.equal(0)
+      expect(newInnerValue.filter(Boolean).join('')).to.equal(
+        args.value
+          .split('')
+          .filter((_, index) => index !== 0)
+          .join('')
+      )
     })
   })
 

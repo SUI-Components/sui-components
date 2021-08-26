@@ -409,9 +409,6 @@ describe('AtomPinInput', () => {
 
   describe('getInitialPinInputReducerState', () => {
     it('default value', () => {
-      // Given
-      const args = {}
-
       // When
       const {
         focusPosition,
@@ -550,9 +547,9 @@ describe('AtomPinInput', () => {
 
       // When
       const hook = setupHook(initialArgs)
-      let [store, dispatch] = hook.result.current
+      const [store, dispatch] = hook.result.current
 
-      let {
+      const {
         focusPosition,
         mask,
         innerValue,
@@ -586,8 +583,8 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
 
       // Then
-      let [store] = hook.result.current
-      let {
+      const [store] = hook.result.current
+      const {
         focusPosition,
         mask,
         innerValue,
@@ -612,7 +609,7 @@ describe('AtomPinInput', () => {
 
       // Then
       let [store, dispatch] = hook.result.current
-      let {
+      const {
         focusPosition,
         mask,
         innerValue,
@@ -719,15 +716,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {elements} = store
 
       // Then
       expect(elements.length).to.equal(7)
@@ -752,15 +741,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      let {focusPosition} = store
 
       // Then
       expect(focusPosition).to.equal(0)
@@ -787,15 +768,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      let {focusPosition} = store
 
       // Then
       expect(focusPosition).to.equal(0)
@@ -822,15 +795,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)
@@ -859,15 +824,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue} = store
 
       // Then
       expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
@@ -896,15 +853,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)
@@ -936,15 +885,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)
@@ -976,15 +917,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)
@@ -1016,15 +949,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)
@@ -1068,15 +993,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue, elements} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)
@@ -1119,15 +1036,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)
@@ -1159,15 +1068,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)
@@ -1216,15 +1117,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)
@@ -1261,15 +1154,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {innerValue} = store
 
       // Then
       expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
@@ -1305,15 +1190,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {innerValue} = store
 
       // Then
       expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
@@ -1344,15 +1221,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue} = store
 
       // Then
       expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
@@ -1383,15 +1252,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue} = store
 
       // Then
       expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
@@ -1422,15 +1283,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)
@@ -1474,15 +1327,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue, elements} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)
@@ -1525,15 +1370,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)
@@ -1577,15 +1414,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)
@@ -1617,15 +1446,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)
@@ -1665,15 +1486,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)
@@ -1723,15 +1536,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      let {
-        focusPosition: initialFocusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
+      const {focusPosition: initialFocusPosition, innerValue} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)

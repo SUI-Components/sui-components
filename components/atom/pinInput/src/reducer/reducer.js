@@ -49,12 +49,18 @@ export const pinInputReducer = (state, {actionType, payload}) => {
   const {key, shiftKey} = event
   const onChange = onChangeHandler(payload.onChange)
 
+  let isValidPayloadInnerValue
+  let newChecker
+  let isInvalid
+  let newIndex
+  let position
+
   switch (actionType) {
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_DISABLED:
       nextState = {...state, disabled}
       break
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_VALUE:
-      const isValidPayloadInnerValue = valueChecker({
+      isValidPayloadInnerValue = valueChecker({
         mask: state.mask,
         length: payload.innerValue.length
       })(payload.innerValue.filter(Boolean).join(''))
@@ -70,8 +76,8 @@ export const pinInputReducer = (state, {actionType, payload}) => {
       }
       break
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_MASK:
-      const newChecker = valueChecker({mask})
-      const isInvalid = innerValue.find(value => !newChecker(value))
+      newChecker = valueChecker({mask})
+      isInvalid = innerValue.find(value => !newChecker(value))
       nextState = {
         ...state,
         checker: newChecker,
@@ -121,7 +127,7 @@ export const pinInputReducer = (state, {actionType, payload}) => {
             onChange(event, nextState)
             break
           case 'Tab':
-            const newIndex = shiftKey ? focusPosition - 1 : focusPosition + 1
+            newIndex = shiftKey ? focusPosition - 1 : focusPosition + 1
             nextState = {
               ...state,
               focusPosition: elements[newIndex] ? newIndex : focusPosition
@@ -155,11 +161,10 @@ export const pinInputReducer = (state, {actionType, payload}) => {
       }
       break
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_FOCUS:
-      const position = elements[payload.focusPosition]
+      position = elements[payload.focusPosition]
         ? payload.focusPosition
         : focusPosition
       nextState = {...state, focusPosition: position}
-      debugger
       focusElement(elements[position])
 
       break

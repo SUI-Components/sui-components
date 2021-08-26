@@ -49,10 +49,8 @@ const ArticleChildren = ({className}) => {
     `${Math.trunc(Math.random() * Math.pow(10, weirdColumns.length))}`
   )
 
-  const [cardCode, setCardCode] = useState(
-    `${Math.trunc(Math.random() * Math.pow(10, 16))}`
-  )
-  const [cardCVVCode, setCardCVVCode] = useState(
+  const [cardCode] = useState(`${Math.trunc(Math.random() * Math.pow(10, 16))}`)
+  const [cardCVVCode] = useState(
     `${Math.trunc(Math.random() * Math.pow(10, 3))}`
   )
 

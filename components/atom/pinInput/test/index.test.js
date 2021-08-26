@@ -578,6 +578,64 @@ describe('AtomPinInput', () => {
 
     afterEach(cleanup)
 
+    it('given empty arguments gets initial store', () => {
+      // Given
+      const args = undefined
+
+      // When
+      const hook = setupReducerEnvironment(args)
+
+      // Then
+      let [store] = hook.result.current
+      let {
+        focusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+      expect(Object.getOwnPropertyNames(others).length).to.equal(0)
+      expect(focusPosition).to.equal(0)
+      expect(disabled).to.equal(false)
+      expect(mask).to.equal(MASK.NUMBER)
+    })
+
+    it('given existing node stored in elements ignores it', () => {
+      // Given
+      const node = document.createElement('input')
+      const args = {elements: [node]}
+
+      // When
+      const hook = setupReducerEnvironment(args)
+
+      // Then
+      let [store, dispatch] = hook.result.current
+      let {
+        focusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+      expect(Object.getOwnPropertyNames(others).length).to.equal(0)
+      expect(elements.includes(node)).to.equal(true)
+
+      // And
+      // When
+      dispatch(atomPinInputActions.setElement({node}))
+      hook.rerender()
+
+      // Then
+      store = hook.result.current[0]
+      expect(elements.includes(node)).to.equal(true)
+      expect(store.elements.includes(node)).to.equal(true)
+      expect(store.elements.length).to.equal(elements.length)
+    })
+
     it('given an invalid actionType executes default case', () => {
       // Given
       const args = {}
@@ -684,30 +742,6 @@ describe('AtomPinInput', () => {
 
       // Then
       expect(newElements.length).to.equal(6)
-    })
-
-    it('NOT giving arguments gets initial store', () => {
-      // Given
-      const args = undefined
-
-      // When
-      const hook = setupReducerEnvironment(args)
-
-      // Then
-      let [store] = hook.result.current
-      let {
-        focusPosition,
-        mask,
-        innerValue,
-        checker,
-        disabled,
-        elements,
-        ...others
-      } = store
-      expect(Object.getOwnPropertyNames(others).length).to.equal(0)
-      expect(focusPosition).to.equal(0)
-      expect(disabled).to.equal(false)
-      expect(mask).to.equal(MASK.NUMBER)
     })
 
     it('given a new valid focusPosition set it to the store', () => {

@@ -1547,6 +1547,104 @@ describe('AtomPinInput', () => {
           .join('')
       )
     })
+
+    it("given a valid charKey '1' key event changes the innerValue and maintains focusPosition if it is the last one", () => {
+      // Given
+      const args = {value: '123456'}
+      const eventArgs = {key: '9'}
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      let [store, dispatch] = hook.result.current
+
+      let {
+        focusPosition: initialFocusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+
+      // Then
+      expect(initialFocusPosition).to.equal(0)
+      expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
+
+      // And
+      // Given
+      const newFocusPosition = elements.length - 1
+      // When
+      dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
+      hook.rerender()
+
+      // Then
+      store = hook.result.current[0]
+      expect(store.focusPosition).to.equal(newFocusPosition)
+
+      // And
+      // Given
+      const onChange = () => null
+      const keyboardEvent = new KeyboardEvent('keydown', {...eventArgs})
+
+      // When
+      dispatch(atomPinInputActions.setKey({event: keyboardEvent, onChange}))
+      hook.rerender()
+
+      // Then
+      store = hook.result.current[0]
+      const focusPosition = store.focusPosition
+      const newInnerValue = store.innerValue
+      expect(focusPosition).to.equal(newFocusPosition)
+      expect(newInnerValue.filter(Boolean).join('')).to.equal(
+        args.value
+          .split('')
+          .map((value, index) =>
+            index === newFocusPosition ? eventArgs.key : value
+          )
+          .join('')
+      )
+    })
+
+    it("given a valid charKey '1' matching the existing key event maintains the innerValue and increments focusPosition if it is NOT the last one", () => {
+      // Given
+      const args = {value: '123456'}
+      const eventArgs = {key: '1'}
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      let [store, dispatch] = hook.result.current
+
+      let {
+        focusPosition: initialFocusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+
+      // Then
+      expect(initialFocusPosition).to.equal(0)
+      expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
+
+      // And
+      // Given
+      const onChange = () => null
+      const keyboardEvent = new KeyboardEvent('keydown', {...eventArgs})
+
+      // When
+      dispatch(atomPinInputActions.setKey({event: keyboardEvent, onChange}))
+      hook.rerender()
+
+      // Then
+      store = hook.result.current[0]
+      const focusPosition = store.focusPosition
+      const newInnerValue = store.innerValue
+      expect(focusPosition).to.equal(initialFocusPosition + 1)
+      expect(newInnerValue.filter(Boolean).join('')).to.equal(args.value)
+    })
   })
 
   describe('atomPinInputActions', () => {

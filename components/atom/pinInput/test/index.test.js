@@ -1486,7 +1486,7 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       let [store, dispatch] = hook.result.current
 
-      const {focusPosition: initialFocusPosition, innerValue} = store
+      const {focusPosition: initialFocusPosition, innerValue, elements} = store
 
       // Then
       expect(initialFocusPosition).to.equal(0)

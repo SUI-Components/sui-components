@@ -1038,6 +1038,43 @@ describe('AtomPinInput', () => {
       expect(focusPosition).to.equal(initialFocusPosition + 1)
       expect(newInnerValue.filter(Boolean).join('')).to.equal(args.value)
     })
+
+    it('given a Delete key event change the innerValue but does not increment the focusIndex', () => {
+      // Given
+      const args = {value: '123456'}
+      const eventArgs = {key: 'Delete'}
+
+      // When
+      const hook = setupReducerEnvironment(args)
+      let [store, dispatch] = hook.result.current
+
+      let {
+        focusPosition: initialFocusPosition,
+        mask,
+        innerValue,
+        checker,
+        disabled,
+        elements,
+        ...others
+      } = store
+
+      // Then
+      expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
+
+      // And
+      // Given
+      const onChange = () => null
+      const keyboardEvent = new KeyboardEvent('keydown', {...eventArgs})
+
+      // When
+      dispatch(atomPinInputActions.setKey({event: keyboardEvent, onChange}))
+      hook.rerender()
+
+      // Then
+      store = hook.result.current[0]
+      const newInnerValue = store.innerValue
+      expect(newInnerValue.filter(Boolean).join('')).to.equal('23456')
+    })
   })
 
   describe('atomPinInputActions', () => {

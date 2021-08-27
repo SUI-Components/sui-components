@@ -1,5 +1,3 @@
-@import '~@s-ui/theme/lib/index';
-
 $s-pin-input-field: (
   // 64px
     xxlarge: $p-base * 8,
@@ -24,10 +22,10 @@ $pin-input-field-status: (
 ) !default;
 
 .sui-PinInputField {
-  border-radius: $bdrs-base;
-  border: 1px solid $c-gray-light-3;
-  font-weight: $fw-regular;
-  line-height: $lh-m;
+  border-radius: $bdrs-pin-input-field;
+  border: $bdw-pin-input-field solid $bdc-pin-input-field;
+  font-weight: $fw-pin-input-field;
+  line-height: $lh-pin-input-field;
   outline: none;
   text-align: center;
   cursor: pointer;

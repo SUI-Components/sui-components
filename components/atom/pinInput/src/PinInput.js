@@ -80,10 +80,10 @@ const PinInput = forwardRef(
       <div className={CLASSNAME} ref={targetRef}>
         <PinInputContextProvider
           disabled={disabled}
-          isPassword={isPassword}
           dispatch={dispatch}
           getIndex={getIndex}
           isOneTimeCode={isOneTimeCode}
+          isPassword={isPassword}
           placeholder={placeholder}
           ref={forwardedRef}
           setFocus={setFocus}

@@ -24,31 +24,31 @@ $pin-input-field-status: (
 .sui-PinInputField {
   border-radius: $bdrs-pin-input-field;
   border: $bdw-pin-input-field solid $bdc-pin-input-field;
+  box-sizing: border-box;
+  cursor: pointer;
   font-weight: $fw-pin-input-field;
   line-height: $lh-pin-input-field;
-  outline: none;
-  text-align: center;
-  cursor: pointer;
-  padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  outline: none;
+  padding: 0;
+  text-align: center;
 
   &:focus {
-    border: 1px solid $c-primary-dark;
+    border: $bdw-s solid $c-primary-dark;
     cursor: text;
   }
 
   @each $size-key, $size-value in $s-pin-input-field {
     &--size-#{$size-key} {
+      font-size: $size-value * 0.35;
       height: $size-value;
       width: $size-value;
-      font-size: $size-value * 0.35;
     }
   }
 
   @each $status-key, $status-value in $pin-input-field-status {
     &--status-#{$status-key} {
-      border: 1px solid $status-value;
+      border: $bdw-s solid $status-value;
     }
   }
 

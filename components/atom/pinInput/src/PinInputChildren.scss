@@ -1,8 +1,8 @@
 .sui-PinInputFieldsWrapper {
-  margin: 0 #{-$m-s};
-  row-gap: $m-m;
   display: flex;
   flex-wrap: wrap;
+  margin: 0 #{-$m-s};
+  row-gap: $m-m;
   & > .sui-PinInputField {
     margin: 0 $m-s;
   }

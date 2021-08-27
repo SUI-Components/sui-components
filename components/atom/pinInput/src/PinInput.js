@@ -85,7 +85,6 @@ const PinInput = forwardRef(
           isOneTimeCode={isOneTimeCode}
           isPassword={isPassword}
           placeholder={placeholder}
-          ref={forwardedRef}
           setFocus={setFocus}
           size={size}
           status={status}

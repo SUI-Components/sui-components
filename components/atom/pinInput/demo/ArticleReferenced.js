@@ -42,7 +42,7 @@ const ArticleReferenced = ({className}) => {
         </Cell>
         <Cell style={{display: 'flex', flexDirection: 'column'}}>
           <Label>byRef value</Label>
-          <Input value={refValue} disabled readOnly />
+          {refValue && <Input value={refValue} disabled readOnly />}
         </Cell>
       </Grid>
     </Article>

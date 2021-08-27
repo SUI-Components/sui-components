@@ -1,0 +1,7 @@
+{
+  "name": "@s-ui/react-atom-validation-code-demo",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Demo for @s-ui/react-atom-validation-code",
+  "dependencies": {}
+}

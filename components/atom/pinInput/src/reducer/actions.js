@@ -1,9 +1,6 @@
 import {MASK} from '../config'
 import PIN_INPUT_ACTION_TYPES from './actionTypes'
 
-// SET_PIN_INPUT_KEY
-// SET_PIN_INPUT_MASK
-
 const act = (actionType, payload = {}) => ({actionType, payload})
 
 const setKey = ({event, onChange}) =>

@@ -2,10 +2,10 @@ import {MASK, valueChecker} from '../config'
 import PIN_INPUT_ACTION_TYPES from './actionTypes'
 
 export const getInitialPinInputReducerState = ({
-  mask = MASK.NUMBER,
-  value,
+  defaultValue = '',
   disabled = false,
-  defaultValue = ''
+  mask = MASK.NUMBER,
+  value
 } = {}) => {
   let innerValue =
     value !== undefined ? value.split('') : defaultValue.split('')

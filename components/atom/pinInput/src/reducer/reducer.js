@@ -1,5 +1,6 @@
 import {MASK, valueChecker} from '../config'
 import PIN_INPUT_ACTION_TYPES from './actionTypes'
+import {debounce} from '@s-ui/js/lib/function'
 
 export const getInitialPinInputReducerState = ({
   defaultValue = '',
@@ -26,11 +27,13 @@ export const getInitialPinInputReducerState = ({
   }
 }
 
-const focusElement = element =>
-  setTimeout(() => {
-    element.focus()
-    element.select()
-  }, 0)
+const focus = element => setTimeout(() => element.focus(), 0)
+
+const debouncedFocus = debounce(focus, 20)
+
+const focusElement = element => {
+  debouncedFocus(element)
+}
 
 const onChangeHandler = onChange => (event, state) => {
   const {innerValue, focusPosition} = state

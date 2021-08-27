@@ -19,6 +19,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@s-ui/js": "2.23.0",
     "@s-ui/react-hooks": "1.28.0"
   }
 }

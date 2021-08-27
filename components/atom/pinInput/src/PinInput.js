@@ -17,6 +17,7 @@ const PinInput = forwardRef(
       children,
       defaultValue = '',
       disabled,
+      inputMode,
       isOneTimeCode = true,
       length = 6,
       mask,
@@ -44,19 +45,22 @@ const PinInput = forwardRef(
       dispatch(
         pinInputActions.setValue({innerValue: value ? value.split('') : []})
       )
-    }, [value])
+    }, [value, dispatch])
 
     useEffect(() => {
       dispatch(pinInputActions.setDisabled({disabled}))
-    }, [disabled])
+    }, [disabled, dispatch])
 
     useEffect(() => {
       dispatch(pinInputActions.setMask({mask}))
-    }, [mask])
+    }, [mask, dispatch])
 
-    const setFocus = useCallback(position => {
-      dispatch(pinInputActions.setFocus({focusPosition: position}))
-    }, [])
+    const setFocus = useCallback(
+      position => {
+        dispatch(pinInputActions.setFocus({focusPosition: position}))
+      },
+      [dispatch]
+    )
 
     useKeyPress(
       event => {
@@ -79,12 +83,14 @@ const PinInput = forwardRef(
     return (
       <div className={CLASSNAME} ref={targetRef}>
         <PinInputContextProvider
-          disabled={disabled}
+          disabled={reducerStore.disabled}
           dispatch={dispatch}
           getIndex={getIndex}
+          inputMode={inputMode}
           isOneTimeCode={isOneTimeCode}
           isPassword={isPassword}
           placeholder={placeholder}
+          mask={reducerStore.mask}
           setFocus={setFocus}
           size={size}
           status={status}
@@ -111,6 +117,8 @@ PinInput.propTypes = {
   defaultValue: PropTypes.string,
   /** true for disabled false for default */
   disabled: PropTypes.bool,
+  /** inputmode **/
+  inputMode: PropTypes.string,
   /** true for autocomplete from keyboard false for default  */
   isOneTimeCode: PropTypes.bool,
   /** true to make the input type password false for text */

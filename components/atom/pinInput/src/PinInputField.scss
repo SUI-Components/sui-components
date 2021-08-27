@@ -36,6 +36,7 @@ $pin-input-field-status: (
   &:focus {
     border: $bdw-s solid $c-primary-dark;
     cursor: text;
+    caret-color: transparent;
   }
 
   @each $size-key, $size-value in $s-pin-input-field {

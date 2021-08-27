@@ -1,8 +1,8 @@
-import {forwardRef, useEffect, useRef, useCallback} from 'react'
+import {forwardRef, useEffect, useRef, useCallback, useMemo} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
-import {BASE_CLASSNAME} from './config.js'
+import {BASE_CLASSNAME, MASK} from './config.js'
 import {usePinInputContext} from './PinInputContext'
 import {actions as pinInputActions} from './reducer'
 
@@ -16,6 +16,15 @@ const getClassName = ({size, status, isFullWidth}) => {
   })
 }
 
+const getInputMode = ({inputMode, mask}) => {
+  const maskToInputMode = {
+    [MASK.NUMBER]: 'numeric',
+    [MASK.ALPHABETIC]: 'text',
+    [MASK.ALPHANUMERIC]: 'text'
+  }
+  return inputMode || maskToInputMode[mask]
+}
+
 const PinInputField = forwardRef(({isFullWidth, ...props}, forwardedRef) => {
   const innerRef = useRef()
   const {
@@ -23,24 +32,32 @@ const PinInputField = forwardRef(({isFullWidth, ...props}, forwardedRef) => {
     dispatch,
     getIndex,
     isOneTimeCode,
+    inputMode,
     isPassword,
-    onChange,
+    onChange = () => null,
     placeholder,
     setFocus,
     size,
+    mask,
     status,
     value = []
   } = usePinInputContext()
 
   const index = getIndex(innerRef.current)
 
-  const setElement = useCallback(node => {
-    dispatch(pinInputActions.setElement({node}))
-  }, [])
+  const setElement = useCallback(
+    node => {
+      dispatch(pinInputActions.setElement({node}))
+    },
+    [dispatch]
+  )
 
-  const removeElement = useCallback(node => {
-    dispatch(pinInputActions.removeElement({node}))
-  }, [])
+  const removeElement = useCallback(
+    node => {
+      dispatch(pinInputActions.removeElement({node}))
+    },
+    [dispatch]
+  )
 
   useEffect(() => {
     if (innerRef.current) {
@@ -55,6 +72,11 @@ const PinInputField = forwardRef(({isFullWidth, ...props}, forwardedRef) => {
     }
   }
 
+  const inputModeMemoized = useMemo(() => getInputMode({inputMode, mask}), [
+    mask,
+    inputMode
+  ])
+
   return (
     <input
       className={getClassName({size, status, isFullWidth})}
@@ -64,7 +86,7 @@ const PinInputField = forwardRef(({isFullWidth, ...props}, forwardedRef) => {
       onClick={onFocusHandler}
       onFocus={onFocusHandler}
       placeholder={placeholder}
-      readOnly
+      inputMode={inputModeMemoized}
       ref={useMergeRefs(innerRef, forwardedRef)}
       value={value[index] || ''}
       {...(isPassword && {type: 'password'})}

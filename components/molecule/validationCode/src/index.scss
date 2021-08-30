@@ -21,19 +21,20 @@
     }
   }
 
-  &-pinInput {
+  &-inputContainer {
+    box-sizing: content-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: $m-xl;
-  }
-
-  &-errorMessage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: $m-m;
+    &-pinInput {
+      box-sizing: border-box;
+      width: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      justify-content: flex-start;
+      margin-bottom: $m-xl;
+    }
   }
 
   &-footer {

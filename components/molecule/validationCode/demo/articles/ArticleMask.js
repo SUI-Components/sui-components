@@ -7,8 +7,8 @@ import {
   RadioButtonGroup
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
-import {MASK} from '../../src/config'
 import MoleculeValidationCode from '../../src/validationCode'
+import {validationCodeMask} from '../../src/config'
 
 const ArticleMask = ({className}) => {
   const [mask, setMask] = useState()
@@ -25,16 +25,18 @@ const ArticleMask = ({className}) => {
         the pinInput.
       </Paragraph>
       <RadioButtonGroup value={mask} onChange={onChangeHandler}>
-        {[undefined, ...Object.keys(MASK)].map((maskValue, key) => {
-          return (
-            <RadioButton
-              checked={maskValue === mask}
-              value={maskValue}
-              key={key}
-              label={maskValue || 'undefined'}
-            />
-          )
-        })}
+        {[undefined, ...Object.keys(validationCodeMask)].map(
+          (maskValue, key) => {
+            return (
+              <RadioButton
+                checked={maskValue === mask}
+                value={maskValue}
+                key={key}
+                label={maskValue || 'undefined'}
+              />
+            )
+          }
+        )}
       </RadioButtonGroup>
       <br />
       <br />
@@ -44,7 +46,7 @@ const ArticleMask = ({className}) => {
         labelText="Your verification code"
         resendButtonText="Resend"
         status="focus"
-        mask={MASK[mask]}
+        mask={validationCodeMask[mask]}
         defaultValue="827382"
       />
     </Article>

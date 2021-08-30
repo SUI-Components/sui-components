@@ -2,7 +2,11 @@ import PropTypes from 'prop-types'
 import PinInput from '@s-ui/react-atom-pin-input'
 import AtomButton, {atomButtonDesigns} from '@s-ui/react-atom-button'
 import ValidationText from '@s-ui/react-atom-validation-text'
-import {validationCodeStatus, SIZES, MASK} from './config'
+import {
+  validationCodeStatus,
+  validationCodeSizes,
+  validationCodeMask
+} from './config'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 import {forwardRef} from 'react'
 
@@ -50,24 +54,24 @@ const MoleculeValidationCode = forwardRef(
             {deleteButtonText}
           </AtomButton>
         </div>
-        <div className={`${baseClass}-pinInput`}>
-          <PinInput
-            length={length}
-            onChange={onChangeHandler}
-            value={innerValue}
-            status={status}
-            ref={forwardedRef}
-            placeholder={placeholder}
-            isPassword={isPassword}
-            size={size}
-            mask={mask}
-            disabled={disabled}
-          />
-        </div>
-        <div className={`${baseClass}-errorMessage`}>
-          {statusMessage !== undefined && (
-            <ValidationText text={statusMessage} type={status} />
-          )}
+        <div className={`${baseClass}-inputContainer`}>
+          <div className={`${baseClass}-inputContainer-pinInput`}>
+            <PinInput
+              length={length}
+              onChange={onChangeHandler}
+              value={innerValue}
+              status={status}
+              ref={forwardedRef}
+              placeholder={placeholder}
+              isPassword={isPassword}
+              size={size}
+              mask={mask}
+              disabled={disabled}
+            />
+            {statusMessage !== undefined && (
+              <ValidationText text={statusMessage} type={status} />
+            )}
+          </div>
         </div>
 
         <div className={`${baseClass}-footer`}>
@@ -83,22 +87,38 @@ const MoleculeValidationCode = forwardRef(
 
 MoleculeValidationCode.displayName = 'MoleculeValidationCode'
 MoleculeValidationCode.propTypes = {
+  /** text on the label */
   labelText: PropTypes.string,
+  /** text on delete button */
   deleteButtonText: PropTypes.string,
+  /** text on send button  */
   sendButtonText: PropTypes.string,
+  /** text on resend button */
   resendButtonText: PropTypes.string,
-  status: PropTypes.oneOf(Object.values(validationCodeStatus)),
+  /** message shown on status */
   statusMessage: PropTypes.string,
-  value: PropTypes.string,
-  defaultValue: PropTypes.string,
-  onChange: PropTypes.func,
+  /** function to be called when user presses clear button */
   onClear: PropTypes.func,
-  size: PropTypes.oneOf(Object.values(SIZES)),
-  placeholder: PropTypes.string,
-  length: PropTypes.number,
-  mask: PropTypes.oneOf(Object.values(MASK)),
+  /** default value for the input */
+  defaultValue: PropTypes.string,
+  /** true for disabled false for default */
   disabled: PropTypes.bool,
-  isPassword: PropTypes.bool
+  /** true to make the input type password false for text */
+  isPassword: PropTypes.bool,
+  /** defines the number of cells */
+  length: PropTypes.number,
+  /** name of the custom mask (NUMBER, ALPHABETIC, ALPHANUMERIC) */
+  mask: PropTypes.oneOf(Object.values(validationCodeMask)),
+  /** function executed on value change */
+  onChange: PropTypes.func,
+  /** placeholder for the input */
+  placeholder: PropTypes.string,
+  /** set the size of the input (XXSMALL, XSMALL, SMALL, MEDIUM, LARGE, XLARGE, XXLARGE) */
+  size: PropTypes.oneOf(Object.values(validationCodeSizes)),
+  /** set the input status (ERROR, SUCCESS, WARNING) */
+  status: PropTypes.oneOf(Object.values(validationCodeStatus)),
+  /** input value */
+  value: PropTypes.string
 }
 
 export default MoleculeValidationCode

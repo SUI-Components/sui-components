@@ -7,8 +7,8 @@ import {
   RadioButtonGroup
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
-import {SIZES} from '../../src/config'
 import MoleculeValidationCode from '../../src/validationCode'
+import {validationCodeSizes} from '../../src/config'
 
 const ArticleSizes = ({className}) => {
   const [size, setSize] = useState()
@@ -25,16 +25,18 @@ const ArticleSizes = ({className}) => {
         the following props:
       </Paragraph>
       <RadioButtonGroup value={size} onChange={onChangeHandler}>
-        {[undefined, ...Object.values(SIZES)].map((sizeValue, key) => {
-          return (
-            <RadioButton
-              checked={sizeValue === size}
-              value={sizeValue}
-              key={key}
-              label={sizeValue || 'undefined'}
-            />
-          )
-        })}
+        {[undefined, ...Object.values(validationCodeSizes)].map(
+          (sizeValue, key) => {
+            return (
+              <RadioButton
+                checked={sizeValue === size}
+                value={sizeValue}
+                key={key}
+                label={sizeValue || 'undefined'}
+              />
+            )
+          }
+        )}
       </RadioButtonGroup>
       <br />
       <br />

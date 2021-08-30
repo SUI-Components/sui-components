@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import {Article, H2, Paragraph, Input} from '@s-ui/documentation-library'
 import {useState} from 'react'
-import MoleculeValidationCode from '../src/validationCode'
+import MoleculeValidationCode from '../../src/validationCode'
 
 const ArticleDefault = ({className}) => {
   const [code, setCode] = useState('')
@@ -17,7 +17,7 @@ const ArticleDefault = ({className}) => {
       <MoleculeValidationCode
         sendButtonText="Send"
         deleteButtonText="Delete"
-        labelText="Your validation code"
+        labelText="Your verification code"
         resendButtonText="Resend"
         onChange={onChangeHandler}
       />

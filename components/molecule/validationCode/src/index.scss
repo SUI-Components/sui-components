@@ -28,6 +28,14 @@
     margin-bottom: $m-xl;
   }
 
+  &-errorMessage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: $m-m;
+  }
+
   &-footer {
     display: flex;
     flex-direction: column;

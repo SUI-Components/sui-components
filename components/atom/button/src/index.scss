@@ -166,7 +166,7 @@ $icon-stroke-color: currentColor !default;
   text-transform: $tt-atom-button;
   white-space: nowrap;
 
-  & + & {
+  :not(&--fullWidth) + & {
     margin-left: $m-consecutive-atom-button;
   }
 

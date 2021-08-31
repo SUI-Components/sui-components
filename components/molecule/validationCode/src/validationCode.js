@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import PinInput from '@s-ui/react-atom-pin-input'
+import PinInput, {getPinInputValueType} from '@s-ui/react-atom-pin-input'
 import AtomButton, {atomButtonDesigns} from '@s-ui/react-atom-button'
 import ValidationText from '@s-ui/react-atom-validation-text'
 import {
@@ -8,7 +8,14 @@ import {
   validationCodeMask
 } from './config'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
-import {forwardRef} from 'react'
+import {forwardRef, useMemo} from 'react'
+
+const normalizeValue = value => {
+  if (value === undefined) {
+    return value
+  }
+  return `${typeof value === 'string' ? value.split('') : value}`
+}
 
 const baseClass = 'sui-MoleculeValidationCode'
 const MoleculeValidationCode = forwardRef(
@@ -19,7 +26,7 @@ const MoleculeValidationCode = forwardRef(
       sendButtonText,
       resendButtonText,
       value,
-      defaultValue,
+      defaultValue = '',
       onChange,
       size,
       onClear,
@@ -33,17 +40,34 @@ const MoleculeValidationCode = forwardRef(
     },
     forwardedRef
   ) => {
-    const [innerValue, setInnerValue] = useControlledState(value, defaultValue)
+    const [innerValue, setInnerValue] = useControlledState(
+      normalizeValue(value),
+      normalizeValue(defaultValue)
+    )
 
-    const onChangeHandler = (event, {value}) => {
-      setInnerValue(value)
-      typeof onChange === 'function' && onChange(event, {value})
+    const arrayInnerValue =
+      innerValue.length > 0 ? innerValue.split(',') : innerValue
+
+    const valueType = useMemo(
+      () => getPinInputValueType({value, defaultValue}),
+      [value, defaultValue]
+    )
+
+    const onChangeHandler = (event, args) => {
+      setInnerValue(`${args.innerValue}`)
+      typeof onChange === 'function' &&
+        onChange(event, {
+          ...args,
+          value:
+            valueType === 'string' ? args.innerValue.join('') : args.innerValue
+        })
     }
 
     const onClearHandler = event => {
       setInnerValue('')
       typeof onClear === 'function' && onClear(event)
-      typeof onChange === 'function' && onChange(event, {value: ''})
+      typeof onChange === 'function' &&
+        onChange(event, {value: '', innerValue: []})
     }
 
     return (
@@ -59,7 +83,7 @@ const MoleculeValidationCode = forwardRef(
             <PinInput
               length={length}
               onChange={onChangeHandler}
-              value={innerValue}
+              value={arrayInnerValue}
               status={status}
               ref={forwardedRef}
               placeholder={placeholder}
@@ -78,7 +102,6 @@ const MoleculeValidationCode = forwardRef(
             )}
           </div>
         </div>
-
         <div className={`${baseClass}-footer`}>
           <AtomButton fullWidth>{sendButtonText}</AtomButton>
           <AtomButton fullWidth design={atomButtonDesigns.FLAT}>

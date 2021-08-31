@@ -42,10 +42,10 @@ const PinInput = forwardRef(
     const {innerValue, focusPosition, elements} = reducerStore
 
     useUpdateEffect(() => {
-      dispatch(
-        pinInputActions.setValue({innerValue: value ? value.split('') : []})
-      )
-    }, [value, dispatch])
+      const innerValue =
+        typeof value === 'string' ? value.split('') : value || []
+      dispatch(pinInputActions.setValue({innerValue}))
+    }, [`${value}`, dispatch])
 
     useEffect(() => {
       dispatch(pinInputActions.setDisabled({disabled}))
@@ -114,7 +114,10 @@ PinInput.propTypes = {
   /** children the components is gonna have  */
   children: PropTypes.node,
   /** default value for the input */
-  defaultValue: PropTypes.string,
+  defaultValue: PropTypes.oneOfType(
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ),
   /** true for disabled false for default */
   disabled: PropTypes.bool,
   /** inputmode **/
@@ -139,6 +142,9 @@ PinInput.propTypes = {
   /** set the input status (ERROR, SUCCESS, WARNING) */
   status: PropTypes.oneOf(Object.values(BASE_CLASSNAME)),
   /** input value */
-  value: PropTypes.string
+  value: PropTypes.oneOfType(
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  )
 }
 export default PinInput

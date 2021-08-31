@@ -27,3 +27,22 @@ export const valueChecker = ({length = 1, mask}) => (value = '') => {
   const regex = new RegExp(matchExpression)
   return regex.test(value)
 }
+
+export const getValueType = ({value, defaultValue}) => {
+  let valueType
+  if (typeof value === 'string') {
+    valueType = typeof value
+  } else if (typeof value === 'object' && value instanceof Array) {
+    valueType = 'array'
+  } else if (typeof defaultValue === 'string') {
+    valueType = typeof defaultValue
+  } else if (
+    typeof defaultValue === 'object' &&
+    defaultValue instanceof Array
+  ) {
+    valueType = 'array'
+  } else {
+    valueType = 'string'
+  }
+  return valueType
+}

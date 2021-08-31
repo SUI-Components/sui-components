@@ -102,6 +102,11 @@ $c-molecule-select-disabled: inherit !default;
   @each $state, $color in $states-atom-input {
     &#{$base-class}--#{$state} #{$base-class}-inputSelect-container {
       border-color: $color;
+
+      .sui-AtomInput-input,
+      .sui-AtomInput--withTags {
+        border-color: transparent;
+      }
     }
   }
 }

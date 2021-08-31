@@ -16,7 +16,7 @@ chai.use(chaiDOM)
 describe('MoleculeValidationCode', () => {
   const setup = setupEnvironment(Component)
 
-  it('should render without crashing', () => {
+  it.skip('should render without crashing', () => {
     // Given
     const props = {}
 
@@ -29,7 +29,7 @@ describe('MoleculeValidationCode', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
-  it('should NOT render null', () => {
+  it.skip('should NOT render null', () => {
     // Given
     const props = {}
 

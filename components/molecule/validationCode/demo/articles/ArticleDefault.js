@@ -4,10 +4,10 @@ import {useState} from 'react'
 import MoleculeValidationCode from '../../src/validationCode'
 
 const ArticleDefault = ({className}) => {
-  const [code, setCode] = useState('')
+  const [code, setCode] = useState([])
 
   const onChangeHandler = (event, args) => {
-    setCode(args.value)
+    setCode(args.innerValue)
   }
 
   return (
@@ -21,7 +21,7 @@ const ArticleDefault = ({className}) => {
         resendButtonText="Resend"
         onChange={onChangeHandler}
       />
-      <Input value={code} disabled />
+      <Input value={code.filter(Boolean).join('')} disabled />
     </Article>
   )
 }

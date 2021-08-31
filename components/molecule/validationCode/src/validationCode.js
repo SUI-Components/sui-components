@@ -69,7 +69,12 @@ const MoleculeValidationCode = forwardRef(
               disabled={disabled}
             />
             {statusMessage !== undefined && (
-              <ValidationText text={statusMessage} type={status} />
+              <ValidationText
+                text={statusMessage}
+                type={
+                  status === validationCodeStatus.WARNING ? 'alert' : status
+                }
+              />
             )}
           </div>
         </div>

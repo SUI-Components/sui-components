@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.43.0 (2021-08-31)
+
+
+### Bug Fixes
+
+* **components/molecule/select:** Remove input border when molecule has state ([7313f76](https://github.com/SUI-Components/sui-components/commit/7313f76605869f41306a3115ed517754407ab88d))
+
+
+
 # 1.42.0 (2021-07-16)
 
 

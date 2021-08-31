@@ -77,8 +77,8 @@ export const pinInputReducer = (state, {actionType, payload}) => {
       })(payload.innerValue.filter(Boolean).join(''))
       if (
         isValidPayloadInnerValue &&
-        innerValue?.length !== payload?.innerValue?.length &&
-        !innerValue.every((value, index) => value === payload.innerValue[index])
+        !(innerValue?.length === payload?.innerValue?.length &&
+        innerValue.every((value, index) => value === payload.innerValue[index]))
       ) {
         nextState = {
           ...state,

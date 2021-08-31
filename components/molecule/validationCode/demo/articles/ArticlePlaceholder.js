@@ -12,7 +12,7 @@ import {useState} from 'react'
 import MoleculeValidationCode from '../../src/validationCode'
 
 const ArticlePlaceHolder = ({className}) => {
-  const [code, setCode] = useState('')
+  const [code, setCode] = useState('1234')
   const [placeholder, setPlaceholder] = useState('🍄')
 
   const onChangePlaceHolderHandler = event => {

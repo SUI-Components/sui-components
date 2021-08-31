@@ -14,7 +14,8 @@ const normalizeValue = value => {
   if (value === undefined) {
     return value
   }
-  return `${typeof value === 'string' ? value.split('') : value}`
+  const result = `${typeof value === 'string' ? value.split('') : value}`
+  return result
 }
 
 const baseClass = 'sui-MoleculeValidationCode'
@@ -27,9 +28,11 @@ const MoleculeValidationCode = forwardRef(
       resendButtonText,
       value,
       defaultValue = '',
-      onChange,
-      size,
       onClear,
+      onChange,
+      onSend,
+      onResend,
+      size,
       isPassword,
       status,
       statusMessage,
@@ -70,6 +73,19 @@ const MoleculeValidationCode = forwardRef(
         onChange(event, {value: '', innerValue: []})
     }
 
+    const onHandler = handler => {
+      return handler
+        ? event => {
+            handler(event, {
+              value:
+                valueType === 'string'
+                  ? arrayInnerValue.filter(Boolean).join('')
+                  : arrayInnerValue
+            })
+          }
+        : undefined
+    }
+
     return (
       <div className={baseClass}>
         <div className={`${baseClass}-header`}>
@@ -93,18 +109,19 @@ const MoleculeValidationCode = forwardRef(
               disabled={disabled}
             />
             {statusMessage !== undefined && (
-              <ValidationText
-                text={statusMessage}
-                type={
-                  status === validationCodeStatus.WARNING ? 'alert' : status
-                }
-              />
+              <ValidationText text={statusMessage} type={status} />
             )}
           </div>
         </div>
         <div className={`${baseClass}-footer`}>
-          <AtomButton fullWidth>{sendButtonText}</AtomButton>
-          <AtomButton fullWidth design={atomButtonDesigns.FLAT}>
+          <AtomButton fullWidth onClick={onHandler(onSend)}>
+            {sendButtonText}
+          </AtomButton>
+          <AtomButton
+            fullWidth
+            design={atomButtonDesigns.FLAT}
+            onClick={onHandler(onResend)}
+          >
             {resendButtonText}
           </AtomButton>
         </div>
@@ -139,6 +156,10 @@ MoleculeValidationCode.propTypes = {
   mask: PropTypes.oneOf(Object.values(validationCodeMask)),
   /** function executed on value change */
   onChange: PropTypes.func,
+  /** function executed on pressing sending button */
+  onSend: PropTypes.func,
+  /** function executed on pressing re-sending button */
+  onResend: PropTypes.func,
   /** placeholder for the input */
   placeholder: PropTypes.string,
   /** set the size of the input (XXSMALL, XSMALL, SMALL, MEDIUM, LARGE, XLARGE, XXLARGE) */

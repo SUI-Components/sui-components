@@ -12,7 +12,7 @@ export const SIZES = {
 export const STATUS = {
   ERROR: 'error',
   SUCCESS: 'success',
-  WARNING: 'warning'
+  ALERT: 'alert'
 }
 export const MASK = {
   NUMBER: '[0-9]',

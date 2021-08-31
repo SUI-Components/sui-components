@@ -7,11 +7,11 @@ import {
   RadioButtonGroup
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
-import {STATUS} from '../../src/config'
 import MoleculeValidationCode from '../../src/validationCode'
 import Input from '@s-ui/documentation-library/lib/components/Input/Input'
 import {Cell} from '@s-ui/documentation-library/lib/components/Grid/Grid'
 import Label from '@s-ui/documentation-library/lib/components/Label/Label'
+import {validationCodeStatus} from '../../src/config'
 
 const ArticleStatus = ({className}) => {
   const [status, setStatus] = useState()
@@ -30,16 +30,18 @@ const ArticleStatus = ({className}) => {
       <H2>Status</H2>
       <Paragraph>By default the element have an undefined state.</Paragraph>
       <RadioButtonGroup value={status} onChange={onChangeHandler}>
-        {[undefined, ...Object.values(STATUS)].map((statusValue, key) => {
-          return (
-            <RadioButton
-              checked={statusValue === status}
-              value={statusValue}
-              key={key}
-              label={statusValue || 'undefined'}
-            />
-          )
-        })}
+        {[undefined, ...Object.values(validationCodeStatus)].map(
+          (statusValue, key) => {
+            return (
+              <RadioButton
+                checked={statusValue === status}
+                value={statusValue}
+                key={key}
+                label={statusValue || 'undefined'}
+              />
+            )
+          }
+        )}
       </RadioButtonGroup>
       <br />
       <Cell style={{display: 'flex', flexDirection: 'column'}}>

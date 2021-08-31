@@ -1,5 +1,9 @@
 import ValidationCode from './validationCode'
-import {validationCodeStatus} from './config'
+import {
+  validationCodeStatus,
+  validationCodeMask,
+  validationCodeSizes
+} from './config'
 
 export default ValidationCode
-export {validationCodeStatus}
+export {validationCodeStatus, validationCodeMask, validationCodeSizes}

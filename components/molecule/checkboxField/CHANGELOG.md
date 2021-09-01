@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.11.0 (2021-09-01)
+
+
+### Features
+
+* **components/molecule/checkboxField:** Add color token to molecule checkboxField ([8b90ff5](https://github.com/SUI-Components/sui-components/commit/8b90ff564f339e0cb4534527b8d84740f7682bf9))
+
+
+
 # 2.10.0 (2021-08-02)
 
 

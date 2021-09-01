@@ -46,7 +46,10 @@ $atom-switch-transition-time: 0.3s !default;
     height: $h-atom-switch-container-default;
     justify-content: center;
     outline: none;
-    padding: $p-atom-switch-container;
+
+    &:not(.sui-AtomSwitch-container--isDisabledPadding) {
+      padding: $p-atom-switch-container;
+    }
   }
 
   &--click {

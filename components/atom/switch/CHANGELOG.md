@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.19.0 (2021-09-01)
+
+
+### Bug Fixes
+
+* **components/atom/switch:** Add border to Fitted styles ([db88304](https://github.com/SUI-Components/sui-components/commit/db88304c1b224a8c4c50942d5143b4512efc1ad5))
+
+
+
 # 1.18.0 (2021-09-01)
 
 

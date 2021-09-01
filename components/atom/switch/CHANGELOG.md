@@ -1,5 +1,28 @@
 # CHANGELOG
 
+# 1.17.0 (2021-09-01)
+
+
+### Bug Fixes
+
+* **components/atom/switch:** Fix wrong naming ([adbfa38](https://github.com/SUI-Components/sui-components/commit/adbfa3820796b45e1384c2c628a474811d44a480))
+
+
+### Features
+
+* **components/atom/switch:** Add prop to disable the padding in the container ([e5d26d0](https://github.com/SUI-Components/sui-components/commit/e5d26d0f93126e38099f53505da20262554b659b))
+
+
+
+# 1.1.0 (2021-08-25)
+
+
+### Features
+
+* **components/atom/switch/demo:** Add switch single type demo section ([f85c83c](https://github.com/SUI-Components/sui-components/commit/f85c83c7ba37aa762807aecdea947865678941c5))
+
+
+
 # 1.16.0 (2021-08-25)
 
 

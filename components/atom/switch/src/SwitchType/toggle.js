@@ -8,7 +8,7 @@ export const ToggleSwitchTypeRender = forwardRef(
   (
     {
       disabled,
-      isDisabledPadding,
+      isFitted,
       isFocus,
       isClick,
       isToggle,
@@ -56,8 +56,8 @@ export const ToggleSwitchTypeRender = forwardRef(
         <div
           className={cx(suitClass({element: 'container'}), {
             [suitClass({
-              element: 'container--isDisabledPadding'
-            })]: isDisabledPadding
+              element: 'container--isFitted'
+            })]: isFitted
           })}
           tabIndex="0"
           onFocus={onFocus}
@@ -138,7 +138,7 @@ ToggleSwitchTypeRender.propTypes = {
   /**
    * The padding of the container is set to 0
    */
-  isDisabledPadding: PropTypes.bool,
+  isFitted: PropTypes.bool,
   /**
    * Is component toggle
    */

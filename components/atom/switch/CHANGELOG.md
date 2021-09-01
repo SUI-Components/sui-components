@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.18.0 (2021-09-01)
+
+
+### Features
+
+* **components/atom/switch:** Change naming to have the same as in the epic ([f0550f2](https://github.com/SUI-Components/sui-components/commit/f0550f28dfc4f975ae2dbcc4872f56ac0a4e0cd4))
+
+
+
 # 1.17.0 (2021-09-01)
 
 

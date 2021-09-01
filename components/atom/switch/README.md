@@ -24,7 +24,7 @@ import AtomSwitch from '@s-ui/react-atom-switch'
 return (
   <AtomSwitch
     disabled={false}
-    isDisabledPadding={false}
+    isFitted={false}
     initialValue={false}
     label="Label"
     labelLeft="Off"

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.12.0 (2021-09-01)
+
+
+### Bug Fixes
+
+* **components/molecule/checkboxField:** Fix label color when field state changes ([025d942](https://github.com/SUI-Components/sui-components/commit/025d9420e032ccd4ff0b008ad5495869e5e7a759))
+
+
+
 # 2.11.0 (2021-09-01)
 
 

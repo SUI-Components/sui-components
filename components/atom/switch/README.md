@@ -17,32 +17,35 @@ $ npm install @s-ui/react-atom-switch --save
 ## Usage
 
 ### Basic usage - Uncontrolled component
+
 ```js
 import AtomSwitch from '@s-ui/react-atom-switch'
 
 return (
   <AtomSwitch
     disabled={false}
+    isDisabledPadding={false}
     initialValue={false}
-    label='Label'
-    labelLeft='Off'
-    labelOptionalText='Optional label'
-    labelRight='On'
+    label="Label"
+    labelLeft="Off"
+    labelOptionalText="Optional label"
+    labelRight="On"
     onToggle={flag => console.log(`Switch value is ${flag}`)}
-    size='default'
-    type='toggle'
+    size="default"
+    type="toggle"
   />
 )
 ```
 
 ### Basic usage - Controlled component
+
 ```js
 import AtomSwitch from '@s-ui/react-atom-switch'
 
 return (
   <AtomSwitch
-    labelLeft='Off'
-    labelRight='On'
+    labelLeft="Off"
+    labelRight="On"
     onToggle={value => handleChangeFromParent(value)}
     type="toggle"
     value={value}

@@ -47,7 +47,7 @@ $atom-switch-transition-time: 0.3s !default;
     justify-content: center;
     outline: none;
 
-    &:not(.sui-AtomSwitch-container--isisDisabledPadding) {
+    &:not(.sui-AtomSwitch-container--isDisabledPadding) {
       padding: $p-atom-switch-container;
     }
   }

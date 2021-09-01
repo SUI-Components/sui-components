@@ -56,7 +56,7 @@ export const ToggleSwitchTypeRender = forwardRef(
         <div
           className={cx(suitClass({element: 'container'}), {
             [suitClass({
-              element: 'container--isisDisabledPadding'
+              element: 'container--isDisabledPadding'
             })]: isDisabledPadding
           })}
           tabIndex="0"

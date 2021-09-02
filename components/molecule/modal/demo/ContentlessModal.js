@@ -1,9 +1,10 @@
 /* eslint react/prop-types: 0 */
 /* eslint no-console: 0 */
 import {useState, useMemo} from 'react'
+import PropTypes from 'prop-types'
+import {loremIpsum} from 'lorem-ipsum'
 import MoleculeModal from 'components/molecule/modal/src'
 import {IconClose} from './helperComponents'
-import {loremIpsum} from 'lorem-ipsum'
 
 
 /** See: https://www.npmjs.com/package/lorem-ipsum **/

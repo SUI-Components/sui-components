@@ -26,10 +26,10 @@ const ArticleDisabled = ({className}) => {
       <br />
       <br />
       <MoleculeValidationCode
-        sendButtonText="Send"
-        deleteButtonText="Delete"
+        sendButtonTextLabel="Send"
+        deleteButtonTextLabel="Delete"
         labelText="Your verification code"
-        resendButtonText="Resend"
+        resendButtonTextLabel="Resend"
         status="undefined"
         onChange={onChangeHandler}
         defaultValue={code}

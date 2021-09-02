@@ -15,10 +15,10 @@ const ArticleDefault = ({className}) => {
       <H2>Default</H2>
       <Paragraph>Default style of InputComponent.</Paragraph>
       <MoleculeValidationCode
-        sendButtonText="Send"
-        deleteButtonText="Delete"
+        sendButtonTextLabel="Send"
+        deleteButtonTextLabel="Delete"
         labelText="Your verification code"
-        resendButtonText="Resend"
+        resendButtonTextLabel="Resend"
         onChange={onChangeHandler}
       />
       <Input value={code.filter(Boolean).join('')} disabled />

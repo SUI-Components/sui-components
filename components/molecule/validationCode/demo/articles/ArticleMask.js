@@ -41,10 +41,10 @@ const ArticleMask = ({className}) => {
       <br />
       <br />
       <MoleculeValidationCode
-        sendButtonText="Send"
-        deleteButtonText="Delete"
+        sendButtonTextLabel="Send"
+        deleteButtonTextLabel="Delete"
         labelText="Your verification code"
-        resendButtonText="Resend"
+        resendButtonTextLabel="Resend"
         status="focus"
         mask={validationCodeMask[mask]}
         defaultValue="827382"

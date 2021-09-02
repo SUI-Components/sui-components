@@ -52,10 +52,10 @@ const ArticleLenght = ({className}) => {
           span={2}
         >
           <MoleculeValidationCode
-            sendButtonText="Send"
-            deleteButtonText="Delete"
+            sendButtonTextLabel="Send"
+            deleteButtonTextLabel="Delete"
             labelText="Your verification code"
-            resendButtonText="Resend"
+            resendButtonTextLabel="Resend"
             length={length}
           />
         </Cell>

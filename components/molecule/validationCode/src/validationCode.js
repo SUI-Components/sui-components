@@ -23,9 +23,9 @@ const MoleculeValidationCode = forwardRef(
   (
     {
       labelText,
-      deleteButtonText,
-      sendButtonText,
-      resendButtonText,
+      deleteButtonTextLabel,
+      sendButtonTextLabel,
+      resendButtonTextLabel,
       value,
       defaultValue = '',
       onClear,
@@ -91,7 +91,7 @@ const MoleculeValidationCode = forwardRef(
         <div className={`${baseClass}-header`}>
           <p className={`${baseClass}-header-labelTitle`}>{labelText}</p>
           <AtomButton onClick={onClearHandler} design={atomButtonDesigns.FLAT}>
-            {deleteButtonText}
+            {deleteButtonTextLabel}
           </AtomButton>
         </div>
         <div className={`${baseClass}-inputContainer`}>
@@ -114,15 +114,15 @@ const MoleculeValidationCode = forwardRef(
           </div>
         </div>
         <div className={`${baseClass}-footer`}>
-          <AtomButton fullWidth onClick={onHandler(onSend)}>
-            {sendButtonText}
+          <AtomButton fullWidth onClick={() => onHandler(onSend)}>
+            {sendButtonTextLabel}
           </AtomButton>
           <AtomButton
             fullWidth
             design={atomButtonDesigns.FLAT}
-            onClick={onHandler(onResend)}
+            onClick={() => onHandler(onResend)}
           >
-            {resendButtonText}
+            {resendButtonTextLabel}
           </AtomButton>
         </div>
       </div>
@@ -135,11 +135,11 @@ MoleculeValidationCode.propTypes = {
   /** text on the label */
   labelText: PropTypes.string,
   /** text on delete button */
-  deleteButtonText: PropTypes.string,
+  deleteButtonTextLabel: PropTypes.string,
   /** text on send button  */
-  sendButtonText: PropTypes.string,
+  sendButtonTextLabel: PropTypes.string,
   /** text on resend button */
-  resendButtonText: PropTypes.string,
+  resendButtonTextLabel: PropTypes.string,
   /** message shown on status */
   statusMessage: PropTypes.string,
   /** function to be called when user presses clear button */

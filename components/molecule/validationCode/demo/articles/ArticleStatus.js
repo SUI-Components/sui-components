@@ -50,10 +50,10 @@ const ArticleStatus = ({className}) => {
       </Cell>
       <br />
       <MoleculeValidationCode
-        sendButtonText="Send"
-        deleteButtonText="Delete"
+        sendButtonTextLabel="Send"
+        deleteButtonTextLabel="Delete"
         labelText="Your verification code"
-        resendButtonText="Resend"
+        resendButtonTextLabel="Resend"
         status={status}
         statusMessage={errorMessage}
         defaultValue="827382"

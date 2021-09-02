@@ -59,20 +59,20 @@ const ArticleUncontrolled = ({className}) => {
         </Cell>
         <Cell>
           <MoleculeValidationCode
-            sendButtonText="Send"
+            sendButtonTextLabel="Send"
             deleteButtonText="Delete"
             labelText="Your verification code"
-            resendButtonText="Resend"
+            resendButtonTextLabel="Resend"
             onChange={onChangeHandler(setControlledCode)}
             value={controlledCode}
           />
         </Cell>
         <Cell>
           <MoleculeValidationCode
-            sendButtonText="Send"
-            deleteButtonText="Delete"
+            sendButtonTextLabel="Send"
+            deleteButtonTextLabel="Delete"
             labelText="Your verification code"
-            resendButtonText="Resend"
+            resendButtonTextLabel="Resend"
             onChange={onChangeHandler(setUncontrolledCode)}
             defaultValue={uncontrolledCode}
           />

@@ -35,10 +35,10 @@ const ArticlePassword = ({className}) => {
         </Cell>
         <Cell>
           <MoleculeValidationCode
-            sendButtonText="Send"
-            deleteButtonText="Delete"
+            sendButtonTextLabel="Send"
+            deleteButtonTextLabel="Delete"
             labelText="Your verification code"
-            resendButtonText="Resend"
+            resendButtonTextLabel="Resend"
             isPassword={isPassword}
             onChange={onChangeCodeHandler}
             value={code}

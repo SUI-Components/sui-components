@@ -41,10 +41,10 @@ const ArticleSizes = ({className}) => {
       <br />
       <br />
       <MoleculeValidationCode
-        sendButtonText="Send"
-        deleteButtonText="Delete"
+        sendButtonTextLabel="Send"
+        deleteButtonTextLabel="Delete"
         labelText="Your verification code"
-        resendButtonText="Resend"
+        resendButtonTextLabel="Resend"
         status="focus"
         size={size}
         defaultValue="827382"

@@ -29,10 +29,10 @@ const ArticleReferenced = ({className}) => {
         <Cell span={2}>
           <MoleculeValidationCode
             status="undefined"
-            sendButtonText="Send"
-            deleteButtonText="Delete"
+            sendButtonTextLabel="Send"
+            deleteButtonTextLabel="Delete"
             labelText="Your verification code"
-            resendButtonText="Resend"
+            resendButtonTextLabel="Resend"
             onChange={onChangeHandler}
             defaultValue={code}
             ref={node => {

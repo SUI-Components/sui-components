@@ -12,7 +12,6 @@ import chaiDOM from 'chai-dom'
 import userEvents from '@testing-library/user-event'
 import Component from '../src/index'
 import sinon from 'sinon'
-import {fireEvent} from '@testing-library/react'
 
 chai.use(chaiDOM)
 
@@ -85,7 +84,7 @@ describe('MoleculeValidationCode', () => {
     }
 
     // When
-    const {getByDisplayValue, debug, getByText, rerender} = setup(props)
+    const {getByDisplayValue, getByText} = setup(props)
 
     // Then
     const input = getByDisplayValue(props.value)
@@ -108,7 +107,7 @@ describe('MoleculeValidationCode', () => {
     }
 
     // When
-    const {getByText, rerender, getByDisplayValue} = setup(props)
+    const {getByText} = setup(props)
     // Then
     const resendButton = getByText(props.resendButtonTextLabel)
     expect(resendButton).to.exist

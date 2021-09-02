@@ -6,7 +6,6 @@ import {loremIpsum} from 'lorem-ipsum'
 import MoleculeModal from 'components/molecule/modal/src'
 import {IconClose} from './helperComponents'
 
-
 /** See: https://www.npmjs.com/package/lorem-ipsum **/
 const Lorem = ({
   count,
@@ -47,6 +46,7 @@ const Lorem = ({
       units
     ]
   )
+  return lorem
 }
 
 Lorem.propTypes = {

@@ -19,11 +19,11 @@ const PinInput = forwardRef(
       disabled,
       inputMode,
       isOneTimeCode = true,
+      isPassword = false,
       length = 6,
       mask,
       onChange,
       placeholder = '',
-      isPassword = false,
       size = SIZES.MEDIUM,
       status,
       value,
@@ -89,8 +89,8 @@ const PinInput = forwardRef(
           inputMode={inputMode}
           isOneTimeCode={isOneTimeCode}
           isPassword={isPassword}
-          placeholder={placeholder}
           mask={reducerStore.mask}
+          placeholder={placeholder}
           setFocus={setFocus}
           size={size}
           status={status}

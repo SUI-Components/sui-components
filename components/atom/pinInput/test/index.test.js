@@ -411,12 +411,12 @@ describe('AtomPinInput', () => {
     it('default value', () => {
       // When
       const {
-        focusPosition,
-        mask,
-        innerValue,
         checker,
         disabled,
         elements,
+        focusPosition,
+        innerValue,
+        mask,
         ...others
       } = getInitialPinInputReducerState()
 
@@ -550,12 +550,12 @@ describe('AtomPinInput', () => {
       const [store, dispatch] = hook.result.current
 
       const {
-        focusPosition,
-        mask,
-        innerValue,
         checker,
         disabled,
         elements,
+        focusPosition,
+        innerValue,
+        mask,
         ...others
       } = store
 
@@ -583,14 +583,13 @@ describe('AtomPinInput', () => {
       const hook = setupReducerEnvironment(args)
       // Then
       const [store] = hook.result.current
-      console.log(store)
       const {
-        focusPosition,
-        mask,
-        innerValue,
         checker,
         disabled,
         elements,
+        focusPosition,
+        innerValue,
+        mask,
         valueType,
         ...others
       } = store
@@ -612,12 +611,12 @@ describe('AtomPinInput', () => {
       // Then
       let [store, dispatch] = hook.result.current
       const {
-        focusPosition,
-        mask,
-        innerValue,
         checker,
         disabled,
         elements,
+        focusPosition,
+        innerValue,
+        mask,
         valueType,
         ...others
       } = store

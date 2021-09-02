@@ -21,24 +21,24 @@ const baseClass = 'sui-MoleculeValidationCode'
 const MoleculeValidationCode = forwardRef(
   (
     {
-      labelText,
-      deleteButtonTextLabel,
-      sendButtonTextLabel,
-      resendButtonTextLabel,
-      value,
       defaultValue = '',
-      onClear,
-      onChange,
-      onSend,
-      onResend,
-      size,
+      deleteButtonTextLabel,
+      disabled,
       isPassword,
-      status,
-      statusMessage,
-      placeholder,
+      labelText,
       length = 6,
       mask,
-      disabled
+      onChange,
+      onClear,
+      onResend,
+      onSend,
+      placeholder,
+      resendButtonTextLabel,
+      sendButtonTextLabel,
+      size,
+      status,
+      statusMessage,
+      value
     },
     forwardedRef
   ) => {
@@ -96,16 +96,16 @@ const MoleculeValidationCode = forwardRef(
         <div className={`${baseClass}-inputContainer`}>
           <div className={`${baseClass}-inputContainer-pinInput`}>
             <PinInput
-              length={length}
-              onChange={onChangeHandler}
-              value={arrayInnerValue}
-              status={status}
-              ref={forwardedRef}
-              placeholder={placeholder}
-              isPassword={isPassword}
-              size={size}
-              mask={mask}
               disabled={disabled}
+              isPassword={isPassword}
+              length={length}
+              mask={mask}
+              onChange={onChangeHandler}
+              placeholder={placeholder}
+              ref={forwardedRef}
+              size={size}
+              status={status}
+              value={arrayInnerValue}
             />
             {statusMessage !== undefined && (
               <ValidationText text={statusMessage} type={status} />
@@ -117,8 +117,8 @@ const MoleculeValidationCode = forwardRef(
             {sendButtonTextLabel}
           </AtomButton>
           <AtomButton
-            fullWidth
             design={atomButtonDesigns.FLAT}
+            fullWidth
             onClick={() => onHandler(onResend)}
           >
             {resendButtonTextLabel}

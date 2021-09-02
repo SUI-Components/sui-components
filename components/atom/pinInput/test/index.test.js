@@ -421,7 +421,7 @@ describe('AtomPinInput', () => {
       } = getInitialPinInputReducerState()
 
       // Then
-      expect(Object.getOwnPropertyNames(others).length).to.equal(0)
+      expect(Object.getOwnPropertyNames(others).length).to.equal(1)
 
       expect(focusPosition).to.equal(0)
       expect(mask).to.equal(MASK.NUMBER)
@@ -560,7 +560,8 @@ describe('AtomPinInput', () => {
       } = store
 
       // Then
-      expect(Object.getOwnPropertyNames(others).length).to.equal(0)
+      console.log(Object.getOwnPropertyNames(others).length)
+      expect(Object.getOwnPropertyNames(others).length).to.equal(1)
 
       // And
       // When
@@ -593,7 +594,8 @@ describe('AtomPinInput', () => {
         elements,
         ...others
       } = store
-      expect(Object.getOwnPropertyNames(others).length).to.equal(0)
+
+      expect(Object.getOwnPropertyNames(others).length).to.equal(1)
       expect(focusPosition).to.equal(0)
       expect(disabled).to.equal(false)
       expect(mask).to.equal(MASK.NUMBER)
@@ -618,7 +620,7 @@ describe('AtomPinInput', () => {
         elements,
         ...others
       } = store
-      expect(Object.getOwnPropertyNames(others).length).to.equal(0)
+      expect(Object.getOwnPropertyNames(others).length).to.equal(1)
       expect(elements.includes(node)).to.equal(true)
 
       // And

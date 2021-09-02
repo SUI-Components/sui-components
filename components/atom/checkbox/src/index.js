@@ -4,7 +4,7 @@ import cx from 'classnames'
 
 const BASE_CLASS = 'sui-AtomCheckbox'
 
-const CHECKBOX_STATES = {
+const CHECKBOX_STATUS = {
   ERROR: 'error',
   SUCCESS: 'success',
   ALERT: 'alert'
@@ -20,7 +20,7 @@ const AtomCheckbox = ({
   isNative: isNativeProp = false,
   name,
   onChange: onChangeFromProps = () => {},
-  state,
+  status,
   ...props
 }) => {
   const inputRef = useRef()
@@ -47,9 +47,9 @@ const AtomCheckbox = ({
     'is-disabled': disabled,
     'is-intermediate': isIntermediate,
     [`${BASE_CLASS}--native`]: isNative,
-    [`${BASE_CLASS}--state-${state}`]: Object.values(CHECKBOX_STATES).includes(
-      state
-    )
+    [`${BASE_CLASS}--status-${status}`]: Object.values(
+      CHECKBOX_STATUS
+    ).includes(status)
   })
 
   // Keep native indeterminate property updated every render
@@ -105,8 +105,8 @@ AtomCheckbox.propTypes = {
   onChange: PropTypes.func,
 
   /* Will set a red/green/orange border if set to 'error' / 'success' / 'alert' */
-  state: PropTypes.oneOf(Object.values(CHECKBOX_STATES))
+  status: PropTypes.oneOf(Object.values(CHECKBOX_STATUS))
 }
 
 export default AtomCheckbox
-export {CHECKBOX_STATES as checkboxStates}
+export {CHECKBOX_STATUS as checkboxStatus}

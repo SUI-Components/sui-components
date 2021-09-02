@@ -22,7 +22,7 @@ import './index.scss'
 const BASE_CLASS_DEMO = `DemoAtomCheckbox`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
-const CHECKBOX_STATES = ['', 'error', 'success', 'alert']
+const CHECKBOX_STATUS = ['', 'error', 'success', 'alert']
 
 const ICONS = {
   aiOutlineCheck: (
@@ -187,10 +187,10 @@ const Demo = () => {
       </Article>
       <br />
       <Article className={CLASS_SECTION}>
-        <H2>States</H2>
+        <H2>Status</H2>
         <Paragraph>
-          Checkbox has {CHECKBOX_STATES.length - 1} different values. It can be
-          used giving a valid <Code>state</Code> prop to the component.
+          Checkbox has {CHECKBOX_STATUS.length - 1} different values. It can be
+          used giving a valid <Code>status</Code> prop to the component.
         </Paragraph>
         <H3>Customized</H3>
         <Grid cols={4} gutter={[10, 10]}>
@@ -199,19 +199,19 @@ const Demo = () => {
             checked: {checked: true},
             intermediate: {intermediate: true},
             unchecked: {checked: false}
-          }).map(([label, props2], index2) => (
+          }).map(([label], index2) => (
             <Fragment key={index2}>
               <Cell style={flexCenteredStyle}>
                 <Label>{label}</Label>
               </Cell>
             </Fragment>
           ))}
-          {CHECKBOX_STATES.map((state, index) => (
+          {CHECKBOX_STATUS.map((status, index) => (
             <Fragment key={index}>
               <Cell
                 style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
               >
-                <Label>{state || 'UNDEFINED'}</Label>
+                <Label>{status || 'UNDEFINED'}</Label>
               </Cell>
               {Object.entries({
                 checked: {checked: true},
@@ -225,7 +225,7 @@ const Demo = () => {
                       checkedIcon={() => ICONS.aiOutlineCheck}
                       intermediateIcon={() => ICONS.aiOutlineLine}
                       {...{...props}}
-                      state={state}
+                      status={status}
                     />
                   </Cell>
                 </Fragment>

@@ -33,7 +33,7 @@ $c-atom-checkbox--success: $c-success !default;
 $c-atom-checkbox--error: $c-error !default;
 $c-atom-checkbox--alert: $c-alert !default;
 // Move to sui-theme
-$states-atom-checkbox: success $c-atom-checkbox--success,
+$status-atom-checkbox: success $c-atom-checkbox--success,
   error $c-atom-checkbox--error, alert $c-atom-checkbox--alert !default;
 
 .sui-AtomCheckbox {
@@ -89,9 +89,9 @@ $states-atom-checkbox: success $c-atom-checkbox--success,
       }
     }
 
-    &#{$self}--state {
-      @each $state, $color in $states-atom-checkbox {
-        &-#{$state} {
+    &#{$self}--status {
+      @each $status, $color in $status-atom-checkbox {
+        &-#{$status} {
           border-color: $color;
 
           &.is-checked,

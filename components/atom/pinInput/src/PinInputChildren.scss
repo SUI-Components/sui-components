@@ -1,9 +1,9 @@
 .sui-PinInputFieldsWrapper {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 #{- ($m-pin-input-children/2)};
+  margin: 0 #{- math.div($m-pin-input-children, 2)};
   row-gap: $m-pin-input-children;
   > .sui-PinInputField {
-    margin: 0 $m-pin-input-children/2;
+    margin: 0 math.div($m-pin-input-children, 2);
   }
 }

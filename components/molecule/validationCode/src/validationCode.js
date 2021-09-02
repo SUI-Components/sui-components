@@ -14,8 +14,7 @@ const normalizeValue = value => {
   if (value === undefined) {
     return value
   }
-  const result = `${typeof value === 'string' ? value.split('') : value}`
-  return result
+  return `${typeof value === 'string' ? value.split('') : value}`
 }
 
 const baseClass = 'sui-MoleculeValidationCode'

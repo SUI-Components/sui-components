@@ -9,14 +9,17 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import userEvents from '@testing-library/user-event'
 import Component from '../src/index'
+import sinon from 'sinon'
+import {fireEvent} from '@testing-library/react'
 
 chai.use(chaiDOM)
 
 describe('MoleculeValidationCode', () => {
   const setup = setupEnvironment(Component)
 
-  it.skip('should render without crashing', () => {
+  it('should render without crashing', () => {
     // Given
     const props = {}
 
@@ -29,7 +32,7 @@ describe('MoleculeValidationCode', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
-  it.skip('should NOT render null', () => {
+  it('should NOT render null', () => {
     // Given
     const props = {}
 
@@ -39,5 +42,78 @@ describe('MoleculeValidationCode', () => {
     // Then
     expect(container.innerHTML).to.be.a('string')
     expect(container.innerHTML).to.not.have.lengthOf(0)
+  })
+
+  it('should render the statusMessage', () => {
+    // Given
+    const props = {
+      statusMessage: 'Error',
+      status: 'error'
+    }
+
+    // When
+    const {getByText} = setup(props)
+    const statusText = getByText(props.statusMessage).innerText
+
+    // Then
+    expect(statusText).to.be.equal(props.statusMessage)
+  })
+
+  it('should format to string if value is an array', () => {
+    // Given
+    const props = {
+      value: [1, 2, 3, 4, 5]
+    }
+
+    const {getByDisplayValue} = setup(props)
+
+    // Then
+    props.value.map(value => {
+      const input = getByDisplayValue(value)
+      expect(input).to.exist
+    })
+  })
+
+  it('should clear value', () => {
+    // Given
+    const spy = sinon.spy()
+    const props = {
+      value: '123456',
+      deleteButtonTextLabel: 'Clear',
+      onClear: spy,
+      onChange: () => {}
+    }
+
+    // When
+    const {getByDisplayValue, debug, getByText, rerender} = setup(props)
+
+    // Then
+    const input = getByDisplayValue(props.value)
+    expect(input.value).to.exist
+
+    // And
+    // When
+    const deleteButton = getByText(props.deleteButtonTextLabel)
+    userEvents.click(deleteButton)
+    // Then
+    sinon.assert.called(spy)
+  })
+
+  it('resend button should work', () => {
+    // Given
+    const props = {
+      value: '12345',
+      resendButtonTextLabel: 'Resend',
+      onResend: () => {}
+    }
+
+    // When
+    const {getByText, rerender, getByDisplayValue} = setup(props)
+    // Then
+    const resendButton = getByText(props.resendButtonTextLabel)
+    expect(resendButton).to.exist
+
+    // When
+    userEvents.click(resendButton)
   })
 })

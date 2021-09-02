@@ -581,9 +581,9 @@ describe('AtomPinInput', () => {
 
       // When
       const hook = setupReducerEnvironment(args)
-
       // Then
       const [store] = hook.result.current
+      console.log(store)
       const {
         focusPosition,
         mask,
@@ -591,10 +591,11 @@ describe('AtomPinInput', () => {
         checker,
         disabled,
         elements,
+        valueType,
         ...others
       } = store
 
-      expect(Object.getOwnPropertyNames(others).length).to.equal(1)
+      expect(Object.getOwnPropertyNames(others).length).to.equal(0)
       expect(focusPosition).to.equal(0)
       expect(disabled).to.equal(false)
       expect(mask).to.equal(MASK.NUMBER)
@@ -617,9 +618,10 @@ describe('AtomPinInput', () => {
         checker,
         disabled,
         elements,
+        valueType,
         ...others
       } = store
-      expect(Object.getOwnPropertyNames(others).length).to.equal(1)
+      expect(Object.getOwnPropertyNames(others).length).to.equal(0)
       expect(elements.includes(node)).to.equal(true)
 
       // And

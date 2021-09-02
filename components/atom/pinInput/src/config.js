@@ -29,20 +29,10 @@ export const valueChecker = ({length = 1, mask}) => (value = '') => {
 }
 
 export const getValueType = ({value, defaultValue}) => {
-  let valueType
-  if (typeof value === 'string') {
-    valueType = typeof value
-  } else if (typeof value === 'object' && value instanceof Array) {
+  const val = value || defaultValue
+  let valueType = typeof val
+  if (typeof val === 'object' && val instanceof Array) {
     valueType = 'array'
-  } else if (typeof defaultValue === 'string') {
-    valueType = typeof defaultValue
-  } else if (
-    typeof defaultValue === 'object' &&
-    defaultValue instanceof Array
-  ) {
-    valueType = 'array'
-  } else {
-    valueType = 'string'
   }
   return valueType
 }

@@ -28,7 +28,17 @@ $c-atom-checkbox-is-disabled: color-variation($c-gray, -2) !default;
 $c-atom-checkbox-custom-is-disabled: $c-atom-checkbox-is-disabled;
 $c-atom-checkbox-is-intermediate: $c-atom-checkbox !default;
 
+// Move to sui-theme
+$c-atom-checkbox--success: $c-success !default;
+$c-atom-checkbox--error: $c-error !default;
+$c-atom-checkbox--alert: $c-alert !default;
+// Move to sui-theme
+$states-atom-checkbox: success $c-atom-checkbox--success,
+  error $c-atom-checkbox--error, alert $c-atom-checkbox--alert !default;
+
 .sui-AtomCheckbox {
+  $self: &;
+
   &:not(&--native) {
     align-items: center;
     background-color: $bgc-atom-checkbox;
@@ -76,6 +86,19 @@ $c-atom-checkbox-is-intermediate: $c-atom-checkbox !default;
 
       svg {
         fill: $c-atom-checkbox-custom-is-disabled;
+      }
+    }
+
+    &#{$self}--state {
+      @each $state, $color in $states-atom-checkbox {
+        &-#{$state} {
+          border-color: $color;
+
+          &.is-checked,
+          &.is-intermediate {
+            background-color: $color;
+          }
+        }
       }
     }
   }

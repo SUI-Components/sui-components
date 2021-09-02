@@ -560,7 +560,6 @@ describe('AtomPinInput', () => {
       } = store
 
       // Then
-      console.log(Object.getOwnPropertyNames(others).length)
       expect(Object.getOwnPropertyNames(others).length).to.equal(1)
 
       // And

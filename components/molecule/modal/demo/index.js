@@ -22,7 +22,7 @@ const fieldStyle = {
 }
 
 const Demo = () => (
-  <div>
+  <div className="sui-StudioPreview">
     <div className="sui-StudioPreview-content sui-StudioDemo-preview">
       <H1>Modal</H1>
       <Paragraph>dfghjkl</Paragraph>

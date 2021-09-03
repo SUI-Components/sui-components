@@ -1,11 +1,12 @@
 /* eslint-disable no-console */
 import {useState, Fragment} from 'react'
-import AtomCheckbox from 'components/atom/checkbox/src'
+import AtomCheckbox, {checkboxStatus} from 'components/atom/checkbox/src'
 import AtomIcon from '@s-ui/react-atom-icon'
 import {
   AntDesignIcon,
   H1,
   H2,
+  H3,
   Paragraph,
   Article,
   RadioButtonGroup,
@@ -20,6 +21,8 @@ import './index.scss'
 
 const BASE_CLASS_DEMO = `DemoAtomCheckbox`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
+
+const CHECKBOX_STATUS = ['', ...Object.values(checkboxStatus)]
 
 const ICONS = {
   aiOutlineCheck: (
@@ -174,6 +177,55 @@ const Demo = () => {
                       intermediateIcon={() => ICONS.aiOutlineLine}
                       disabled
                       {...{...props1, ...props2}}
+                    />
+                  </Cell>
+                </Fragment>
+              ))}
+            </Fragment>
+          ))}
+        </Grid>
+      </Article>
+      <br />
+      <Article className={CLASS_SECTION}>
+        <H2>Status</H2>
+        <Paragraph>
+          Checkbox has {CHECKBOX_STATUS.length - 1} different values. It can be
+          used giving a valid <Code>status</Code> prop to the component.
+        </Paragraph>
+        <H3>Customized</H3>
+        <Grid cols={4} gutter={[10, 10]}>
+          <Cell />
+          {Object.entries({
+            checked: {checked: true},
+            intermediate: {intermediate: true},
+            unchecked: {checked: false}
+          }).map(([label], index2) => (
+            <Fragment key={index2}>
+              <Cell style={flexCenteredStyle}>
+                <Label>{label}</Label>
+              </Cell>
+            </Fragment>
+          ))}
+          {CHECKBOX_STATUS.map((status, index) => (
+            <Fragment key={index}>
+              <Cell
+                style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
+              >
+                <Label>{status || 'UNDEFINED'}</Label>
+              </Cell>
+              {Object.entries({
+                checked: {checked: true},
+                intermediate: {intermediate: true},
+                unchecked: {checked: false}
+              }).map(([label, props], index2) => (
+                <Fragment key={index2}>
+                  <Cell style={flexCenteredStyle}>
+                    <AtomCheckbox
+                      id={`${index}-${index2}`}
+                      checkedIcon={() => ICONS.aiOutlineCheck}
+                      intermediateIcon={() => ICONS.aiOutlineLine}
+                      {...{...props}}
+                      status={status}
                     />
                   </Cell>
                 </Fragment>

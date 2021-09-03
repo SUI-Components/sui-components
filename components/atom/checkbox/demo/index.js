@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import {useState, Fragment} from 'react'
-import AtomCheckbox from 'components/atom/checkbox/src'
+import AtomCheckbox, {checkboxStatus} from 'components/atom/checkbox/src'
 import AtomIcon from '@s-ui/react-atom-icon'
 import {
   AntDesignIcon,
@@ -22,7 +22,7 @@ import './index.scss'
 const BASE_CLASS_DEMO = `DemoAtomCheckbox`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
-const CHECKBOX_STATUS = ['', 'error', 'success', 'alert']
+const CHECKBOX_STATUS = ['', ...Object.values(checkboxStatus)]
 
 const ICONS = {
   aiOutlineCheck: (

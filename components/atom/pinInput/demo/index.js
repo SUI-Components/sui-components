@@ -10,7 +10,7 @@ import ArticlePlaceHolder from './ArticlePlaceholder'
 import ArticlePassword from './ArticlePassword'
 import ArticleLength from './ArticleLength'
 import ArticleValue from './ArticleValue'
-const BASE_CLASS_DEMO = `DemoAtomValidationCode`
+const BASE_CLASS_DEMO = `DemoAtomPinInput`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
 export default () => {
@@ -19,9 +19,8 @@ export default () => {
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <H1>Pin Input</H1>
         <Paragraph>
-          The ValidationCode component is optimized for entering sequences of
-          digits. The most common application is for entering OTP or security
-          codes.
+          The Pin Input component is optimized for entering sequences of digits.
+          The most common application is for entering OTP or security codes.
         </Paragraph>
         <ArticleDefault className={CLASS_SECTION} />
         <br />

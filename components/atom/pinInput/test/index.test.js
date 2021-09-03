@@ -411,17 +411,17 @@ describe('AtomPinInput', () => {
     it('default value', () => {
       // When
       const {
-        focusPosition,
-        mask,
-        innerValue,
         checker,
         disabled,
         elements,
+        focusPosition,
+        innerValue,
+        mask,
         ...others
       } = getInitialPinInputReducerState()
 
       // Then
-      expect(Object.getOwnPropertyNames(others).length).to.equal(0)
+      expect(Object.getOwnPropertyNames(others).length).to.equal(1)
 
       expect(focusPosition).to.equal(0)
       expect(mask).to.equal(MASK.NUMBER)
@@ -550,17 +550,17 @@ describe('AtomPinInput', () => {
       const [store, dispatch] = hook.result.current
 
       const {
-        focusPosition,
-        mask,
-        innerValue,
         checker,
         disabled,
         elements,
+        focusPosition,
+        innerValue,
+        mask,
         ...others
       } = store
 
       // Then
-      expect(Object.getOwnPropertyNames(others).length).to.equal(0)
+      expect(Object.getOwnPropertyNames(others).length).to.equal(1)
 
       // And
       // When
@@ -581,18 +581,19 @@ describe('AtomPinInput', () => {
 
       // When
       const hook = setupReducerEnvironment(args)
-
       // Then
       const [store] = hook.result.current
       const {
-        focusPosition,
-        mask,
-        innerValue,
         checker,
         disabled,
         elements,
+        focusPosition,
+        innerValue,
+        mask,
+        valueType,
         ...others
       } = store
+
       expect(Object.getOwnPropertyNames(others).length).to.equal(0)
       expect(focusPosition).to.equal(0)
       expect(disabled).to.equal(false)
@@ -610,12 +611,13 @@ describe('AtomPinInput', () => {
       // Then
       let [store, dispatch] = hook.result.current
       const {
-        focusPosition,
-        mask,
-        innerValue,
         checker,
         disabled,
         elements,
+        focusPosition,
+        innerValue,
+        mask,
+        valueType,
         ...others
       } = store
       expect(Object.getOwnPropertyNames(others).length).to.equal(0)

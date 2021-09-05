@@ -18,7 +18,7 @@ $s-pin-input-field: (
 $pin-input-field-status: (
   error: $c-error,
   success: $c-success,
-  warning: $c-alert
+  alert: $c-alert
 ) !default;
 
 .sui-PinInputField {

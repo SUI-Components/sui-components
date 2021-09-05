@@ -1,4 +1,4 @@
-import {MASK, valueChecker} from '../config'
+import {MASK, valueChecker, getValueType} from '../config'
 import PIN_INPUT_ACTION_TYPES from './actionTypes'
 import {debounce} from '@s-ui/js/lib/function'
 
@@ -8,8 +8,11 @@ export const getInitialPinInputReducerState = ({
   mask = MASK.NUMBER,
   value
 } = {}) => {
-  let innerValue =
-    value !== undefined ? value.split('') : defaultValue.split('')
+  const valueType = getValueType({value, defaultValue})
+  const arrayValue = typeof value === 'string' ? value.split('') : value
+  const arrayDefaultValue =
+    typeof defaultValue === 'string' ? defaultValue.split('') : defaultValue
+  let innerValue = value !== undefined ? arrayValue : arrayDefaultValue
 
   innerValue = valueChecker({mask, length: innerValue.length})(
     innerValue.filter(Boolean).join('')
@@ -18,6 +21,7 @@ export const getInitialPinInputReducerState = ({
     : []
 
   return {
+    valueType,
     focusPosition: 0,
     mask,
     innerValue,
@@ -36,12 +40,16 @@ const focusElement = element => {
 }
 
 const onChangeHandler = onChange => (event, state) => {
-  const {innerValue, focusPosition} = state
+  const {innerValue, focusPosition, valueType} = state
   typeof onChange === 'function' &&
     onChange(event, {
-      value: innerValue.filter(Boolean).join(''),
+      value:
+        valueType === 'string'
+          ? innerValue.filter(Boolean).join('')
+          : innerValue,
       key: innerValue[focusPosition],
-      index: focusPosition
+      index: focusPosition,
+      innerValue: innerValue
     })
 }
 
@@ -67,13 +75,19 @@ export const pinInputReducer = (state, {actionType, payload}) => {
         mask: state.mask,
         length: payload.innerValue.length
       })(payload.innerValue.filter(Boolean).join(''))
-      if (isValidPayloadInnerValue) {
+      if (
+        isValidPayloadInnerValue &&
+        !(
+          innerValue?.length === payload?.innerValue?.length &&
+          innerValue.every(
+            (value, index) => value === payload.innerValue[index]
+          )
+        )
+      ) {
         nextState = {
           ...state,
           ...{
-            innerValue: innerValue !== payload.innerValue && [
-              ...payload.innerValue
-            ]
+            innerValue: [...payload.innerValue]
           }
         }
       }

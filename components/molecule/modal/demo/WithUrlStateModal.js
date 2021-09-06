@@ -1,6 +1,6 @@
 /* eslint react/prop-types: 0 */
 import {useState} from 'react'
-import {MoleculeModalWithUrlState} from 'components/molecule/modal/src'
+import {MoleculeModalWithURLState} from 'components/molecule/modal/src'
 import {Content, LoremIpsumParagraph, IconClose} from './helperComponents'
 
 const ModalWithUrlState = () => {
@@ -14,7 +14,7 @@ const ModalWithUrlState = () => {
       <button type="button" onClick={handleOpenModal}>
         Open modal
       </button>
-      <MoleculeModalWithUrlState
+      <MoleculeModalWithURLState
         isOpen={isOpen}
         closeOnOutsideClick
         closeOnEscKeyDown
@@ -29,7 +29,7 @@ const ModalWithUrlState = () => {
         <Content>
           <LoremIpsumParagraph />
         </Content>
-      </MoleculeModalWithUrlState>
+      </MoleculeModalWithURLState>
     </div>
   )
 }

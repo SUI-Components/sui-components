@@ -1,0 +1,45 @@
+@import '~@s-ui/theme/lib/index';
+@import '@s-ui/react-atom-pin-input/lib/index';
+@import '@s-ui/react-atom-validation-text/lib/index';
+@import '@s-ui/react-atom-button/lib/index';
+
+.sui-MoleculeValidationCode {
+  width: 100%;
+  &-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &-labelTitle {
+      color: $c-gray;
+      font-size: $fz-m;
+      font-weight: $fw-semi-bold;
+    }
+    &-delete {
+      color: $c-primary-dark-4;
+      font-size: $fz-m;
+      font-weight: $fw-regular;
+    }
+  }
+
+  &-inputContainer {
+    align-items: center;
+    box-sizing: content-box;
+    display: flex;
+    justify-content: center;
+    &-pinInput {
+      align-items: left;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-bottom: $m-xl;
+      width: fit-content;
+    }
+  }
+
+  &-footer {
+    display: flex;
+    flex-direction: column;
+    row-gap: $m-s;
+  }
+}

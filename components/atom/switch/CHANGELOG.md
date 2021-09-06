@@ -1,5 +1,46 @@
 # CHANGELOG
 
+# 1.19.0 (2021-09-01)
+
+
+### Bug Fixes
+
+* **components/atom/switch:** Add border to Fitted styles ([db88304](https://github.com/SUI-Components/sui-components/commit/db88304c1b224a8c4c50942d5143b4512efc1ad5))
+
+
+
+# 1.18.0 (2021-09-01)
+
+
+### Features
+
+* **components/atom/switch:** Change naming to have the same as in the epic ([f0550f2](https://github.com/SUI-Components/sui-components/commit/f0550f28dfc4f975ae2dbcc4872f56ac0a4e0cd4))
+
+
+
+# 1.17.0 (2021-09-01)
+
+
+### Bug Fixes
+
+* **components/atom/switch:** Fix wrong naming ([adbfa38](https://github.com/SUI-Components/sui-components/commit/adbfa3820796b45e1384c2c628a474811d44a480))
+
+
+### Features
+
+* **components/atom/switch:** Add prop to disable the padding in the container ([e5d26d0](https://github.com/SUI-Components/sui-components/commit/e5d26d0f93126e38099f53505da20262554b659b))
+
+
+
+# 1.1.0 (2021-08-25)
+
+
+### Features
+
+* **components/atom/switch/demo:** Add switch single type demo section ([f85c83c](https://github.com/SUI-Components/sui-components/commit/f85c83c7ba37aa762807aecdea947865678941c5))
+
+
+
 # 1.16.0 (2021-08-25)
 
 

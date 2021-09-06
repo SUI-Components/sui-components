@@ -31,14 +31,14 @@ const PinInputField = forwardRef(({isFullWidth, ...props}, forwardedRef) => {
     disabled,
     dispatch,
     getIndex,
-    isOneTimeCode,
     inputMode,
+    isOneTimeCode,
     isPassword,
+    mask,
     onChange = () => null,
     placeholder,
     setFocus,
     size,
-    mask,
     status,
     value = []
   } = usePinInputContext()

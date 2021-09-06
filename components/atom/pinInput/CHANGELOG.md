@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 1.2.0 (2021-09-03)
+
+
+### Features
+
+* **components/atom/pinInput:** ADD posibility to work with arrays on value and defaultValue ([301c0bd](https://github.com/SUI-Components/sui-components/commit/301c0bd147baf58ec6422d9a4d8f7b4f6637918d))
+* **components/atom/pinInput:** Applied suggested changes ([c9aff6c](https://github.com/SUI-Components/sui-components/commit/c9aff6ce03d717c839c95980ddf0b1c9b9cf0cb1))
+* **components/atom/pinInput:** Changed linter ([ce42d7a](https://github.com/SUI-Components/sui-components/commit/ce42d7a9cd01c2cc15c0a78dbf4468d7a75795ca))
+* **components/atom/pinInput:** Cleared console log and order props ([d4e1bca](https://github.com/SUI-Components/sui-components/commit/d4e1bca36228f3a9df6e254aab89a65cb0ba02cd))
+* **components/atom/pinInput:** Fixed linter ([1e63ce5](https://github.com/SUI-Components/sui-components/commit/1e63ce5e43eafea9369c102e1b697201c5b92936))
+* **components/atom/pinInput:** Fixed sass warning slash div ([504bca3](https://github.com/SUI-Components/sui-components/commit/504bca3968426db338f5a80a7e225c655498dbf7))
+* **Root:** Added validationCode molecule and fixed some demo texts in pinInput ([dcf9868](https://github.com/SUI-Components/sui-components/commit/dcf9868a06a2a924f01ced391a1702d040be1e37))
+
+
+
 # 1.1.0 (2021-08-27)
 
 

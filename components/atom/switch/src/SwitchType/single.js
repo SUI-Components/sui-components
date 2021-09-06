@@ -10,6 +10,7 @@ export const SingleSwitchTypeRender = forwardRef(
   (
     {
       disabled,
+      isFitted,
       isClick,
       isFocus,
       isToggle,
@@ -51,7 +52,11 @@ export const SingleSwitchTypeRender = forwardRef(
         onClick={() => onToggle()}
       >
         <div
-          className={suitClass({element: 'container'})}
+          className={cx(suitClass({element: 'container'}), {
+            [suitClass({
+              element: 'container--isFitted'
+            })]: isFitted
+          })}
           tabIndex="0"
           onKeyDown={onKeyDown}
           onFocus={onFocus}
@@ -121,6 +126,10 @@ SingleSwitchTypeRender.propTypes = {
    * Is Input disabled?
    */
   disabled: PropTypes.bool,
+  /**
+   * The padding of the container is set to 0
+   */
+  isFitted: PropTypes.bool,
   /**
    * Is component toggle
    */

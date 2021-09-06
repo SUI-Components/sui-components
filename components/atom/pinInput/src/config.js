@@ -12,7 +12,7 @@ export const SIZES = {
 export const STATUS = {
   ERROR: 'error',
   SUCCESS: 'success',
-  WARNING: 'warning'
+  ALERT: 'alert'
 }
 export const MASK = {
   NUMBER: '[0-9]',
@@ -26,4 +26,13 @@ export const valueChecker = ({length = 1, mask}) => (value = '') => {
   const matchExpression = `${mask}{${length}}`
   const regex = new RegExp(matchExpression)
   return regex.test(value)
+}
+
+export const getValueType = ({value, defaultValue}) => {
+  const val = value || defaultValue
+  let valueType = typeof val
+  if (typeof val === 'object' && val instanceof Array) {
+    valueType = 'array'
+  }
+  return valueType
 }

@@ -85,6 +85,9 @@ AtomSwitch.propTypes = {
   /** Is Input disabled? */
   disabled: PropTypes.bool,
 
+  /** The padding of the container is set to 0 */
+  isFitted: PropTypes.bool,
+
   /** Left label to be printed */
   labelLeft: PropTypes.string,
 
@@ -115,6 +118,7 @@ AtomSwitch.propTypes = {
 
 AtomSwitch.defaultProps = {
   disabled: false,
+  isFitted: false,
   initialValue: false,
   labelLeft: LABELS.LEFT,
   labelRight: LABELS.RIGHT,

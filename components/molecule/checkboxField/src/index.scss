@@ -3,15 +3,29 @@
 @import '~@s-ui/react-atom-checkbox/lib/index';
 
 $fw-molecule-checkbox-field-label: $fw-atom-label !default;
+$c-molecule-checkbox-field-label: $c-atom-label !default;
+
+$c-molecule-checkbox-field: (
+  success: $c-success,
+  error: $c-error,
+  alert: $c-alert
+) !default;
 
 .sui-MoleculeCheckboxField {
   input[type='checkbox'] {
     margin: 0;
   }
 
-  label {
+  .sui-AtomLabel {
     cursor: pointer;
     font-weight: $fw-molecule-checkbox-field-label;
+    color: $c-molecule-checkbox-field-label;
+
+    @each $colorName, $colorValue in $c-molecule-checkbox-field {
+      &--#{$colorName} {
+        color: $colorValue;
+      }
+    }
   }
 
   &-toggleIcon {

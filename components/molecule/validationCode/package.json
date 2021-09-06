@@ -1,0 +1,26 @@
+{
+  "name": "@s-ui/react-molecule-validation-code",
+  "version": "1.1.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepare": "npm run build:js && npm run build:styles",
+    "build:js": "babel --presets sui ./src --out-dir ./lib",
+    "build:styles": "cpx './src/**/*.scss' ./lib"
+  },
+  "peerDependencies": {
+    "@s-ui/theme": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@s-ui/react-atom-button": "1",
+    "@s-ui/react-atom-pin-input": "1",
+    "@s-ui/react-atom-validation-text": "1"
+  }
+}

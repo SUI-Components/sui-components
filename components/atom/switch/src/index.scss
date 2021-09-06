@@ -40,13 +40,16 @@ $atom-switch-transition-time: 0.3s !default;
 
   &-container {
     align-items: center;
-    border: $bdw-m solid transparent;
     box-shadow: none;
     display: flex;
     height: $h-atom-switch-container-default;
     justify-content: center;
     outline: none;
-    padding: $p-atom-switch-container;
+
+    &:not(.sui-AtomSwitch-container--isFitted) {
+      border: $bdw-m solid transparent;
+      padding: $p-atom-switch-container;
+    }
   }
 
   &--click {

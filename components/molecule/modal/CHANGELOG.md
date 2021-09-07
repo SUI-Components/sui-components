@@ -1,14 +1,153 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 1.36.0 (2021-09-07)
+
+
+### Bug Fixes
+
+* **Root:** hotfix for enabling the ci process ([9c06c92](https://github.com/SUI-Components/sui-components/commit/9c06c92da63147017caa16ff3e1d139f4b42b35d))
+
+
+### Features
+
+* **components/molecule/modal:** remove HoC refacto Modal demo ([81f24bb](https://github.com/SUI-Components/sui-components/commit/81f24bb11e49e964506319b7973c2dd310d7c407))
+
+
+
+# 1.35.0 (2021-05-20)
+
+
+### Bug Fixes
+
+* **molecule/modal:** fix modal for old browser ([4633419](https://github.com/SUI-Components/sui-components/commit/46334199043815db5b9ba5d79755da4e158c7b28))
+
+
+
+# 1.34.0 (2021-05-11)
+
+
+### Bug Fixes
+
+* **molecule/modal:** use explicit import on react hooks ([ed4d17a](https://github.com/SUI-Components/sui-components/commit/ed4d17a301474defd71f6c9f443a35afc26ab44a))
+
+
+
+# 1.33.0 (2021-05-11)
+
+
+### Features
+
+* **molecule/modal:** add full-width ([ac8df66](https://github.com/SUI-Components/sui-components/commit/ac8df663f67b0b703ed3d775b2de547930dd7ec1))
+* **molecule/modal:** change prop fitWindow ([30f1b4c](https://github.com/SUI-Components/sui-components/commit/30f1b4c548a3d81a3e16fc833de554c9e7362981))
+* **molecule/modal:** remove fitWindow prop + change class size ([c8d5500](https://github.com/SUI-Components/sui-components/commit/c8d55006e0571e0035a065d4ea96b3683bcd1c4e))
+
+
+
+# 1.32.0 (2021-04-29)
+
+
+### Features
+
+* **molecule/modal:** export a modal variation with disabled animation ([d419f50](https://github.com/SUI-Components/sui-components/commit/d419f50b22a309edcb54b9cd289b537618cb20d5))
+
+
+
+# 1.31.0 (2021-03-30)
+
+
+### Bug Fixes
+
+* **molecule/modal:** fix content styles ([d39b35e](https://github.com/SUI-Components/sui-components/commit/d39b35e4b176369b4c944ad9529f45a1e9883d56))
+
+
+
+# 1.30.0 (2021-03-17)
+
+
+### Features
+
+* **molecule/modal:** fix linter errors ([3189936](https://github.com/SUI-Components/sui-components/commit/3189936a72027761f8a0cafc939737d2e87e8201))
+* **molecule/modal:** fix width with size ([516c94e](https://github.com/SUI-Components/sui-components/commit/516c94e6200fbbd4e3428cf6eb0a0404b02a1847))
+
+
+
+# 1.29.0 (2021-03-10)
+
+
+### Bug Fixes
+
+* **molecule/modal:** wrong passed reference ([10dc9c7](https://github.com/SUI-Components/sui-components/commit/10dc9c7edea3e49bb67aadf00fef6dea01f866cb))
+
+
+### Features
+
+* **molecule/modal:** forward modal ref to wrapper component ([cf6b27a](https://github.com/SUI-Components/sui-components/commit/cf6b27a7626a8406ea092ed07d19265d9ac200bd))
+
+
+
+# 1.28.0 (2021-03-04)
+
+
+### Features
+
+* **molecule/modal:** add more doc ([4d1d621](https://github.com/SUI-Components/sui-components/commit/4d1d621f2769ed36500b1cb14bde322aaa075bdf))
+* **molecule/modal:** add size and contentless props ([7b7e6c1](https://github.com/SUI-Components/sui-components/commit/7b7e6c1e06257676d1fd723936461e015c9c85ab))
+
+
+
+# 1.27.0 (2021-02-01)
+
+
+### Bug Fixes
+
+* **molecule/modal:** fix close icon color and paddings ([1ee5bc3](https://github.com/SUI-Components/sui-components/commit/1ee5bc3fb2931e836a823f6a391bc0b3d12a1a8c))
+
+
+### Features
+
+* **molecule/modal:** molecule modal improvement ([1bb722c](https://github.com/SUI-Components/sui-components/commit/1bb722cc7b631c8b644a38798540698e185a2c5f))
+
+
+
+# 1.26.0 (2020-12-16)
+
+
+### Bug Fixes
+
+* **molecule/modal:** add padding to molecule modal content ([76715dc](https://github.com/SUI-Components/sui-components/commit/76715dc9f233c3462765d0779aedc351bf2247c3))
+
+
+
+# 1.25.0 (2020-12-07)
+
+
+### Bug Fixes
+
+* **molecule/modal:** fix package version to latest published version ([41b08fd](https://github.com/SUI-Components/sui-components/commit/41b08fde82f03180c7546bbaf93c8e03808eb217))
+* **molecule/modal:** migrate WithAnimation HoC to functional component and avoid react import error ([393e0bd](https://github.com/SUI-Components/sui-components/commit/393e0bd8c30d70e963609b5208de5321d3bb5860))
+
+
+### Features
+
+* **molecule/modal:** force release ([f27f654](https://github.com/SUI-Components/sui-components/commit/f27f6542e5fe523e680e6589b33843e23ca6d1aa))
+
+
 
 # 1.22.0 (2020-12-02)
 
 
 ### Features
 
-* add font weight header var ([a717ffd](https://github.com/SUI-Components/sui-components/commit/a717ffda4ca85d677d04ee4f8c9754b16feed1ce))
-* Use new jsx runtime ([3ea0abb](https://github.com/SUI-Components/sui-components/commit/3ea0abbe4d3b45c5709bde59beeb42669a8a0aa8))
+* **molecule/modal:** add font weight header var ([a717ffd](https://github.com/SUI-Components/sui-components/commit/a717ffda4ca85d677d04ee4f8c9754b16feed1ce))
+
+
+
+# 1.20.0 (2020-11-24)
+
+
+### Features
+
+* **molecule/modal:** Use new jsx runtime ([3ea0abb](https://github.com/SUI-Components/sui-components/commit/3ea0abbe4d3b45c5709bde59beeb42669a8a0aa8))
 
 
 
@@ -17,7 +156,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use correct displayName for each Component ([c279dc2](https://github.com/SUI-Components/sui-components/commit/c279dc2b35e9449fb12b8694c51d3c9f9cc0e554))
+* **molecule/modal:** Use correct displayName for each Component ([c279dc2](https://github.com/SUI-Components/sui-components/commit/c279dc2b35e9449fb12b8694c51d3c9f9cc0e554))
 
 
 
@@ -26,8 +165,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add condition to the modal close event ([8742149](https://github.com/SUI-Components/sui-components/commit/87421493efef2132e58356787b1aa59364096b46))
-* add new tokens ([bd36999](https://github.com/SUI-Components/sui-components/commit/bd36999616718c48d991a7fbed2d17d8953a2dc4))
+* **atom/table:** add new tokens ([bd36999](https://github.com/SUI-Components/sui-components/commit/bd36999616718c48d991a7fbed2d17d8953a2dc4))
+* **molecule/modal:** add condition to the modal close event ([8742149](https://github.com/SUI-Components/sui-components/commit/87421493efef2132e58356787b1aa59364096b46))
 
 
 
@@ -36,7 +175,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix pass event object to closeModal ([159ba58](https://github.com/SUI-Components/sui-components/commit/159ba58858a8edf7ab1dd0ce72d240eefbe87271))
+* **molecule/modal:** fix pass event object to closeModal ([159ba58](https://github.com/SUI-Components/sui-components/commit/159ba58858a8edf7ab1dd0ce72d240eefbe87271))
 
 
 
@@ -45,7 +184,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix stop propagation bug when click esc key or outside the modal ([152b333](https://github.com/SUI-Components/sui-components/commit/152b3336e7ba23945634257f62a1c1761cda7326))
+* **molecule/modal:** fix stop propagation bug when click esc key or outside the modal ([152b333](https://github.com/SUI-Components/sui-components/commit/152b3336e7ba23945634257f62a1c1761cda7326))
 
 
 
@@ -54,7 +193,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix close propagtion ([b55de18](https://github.com/SUI-Components/sui-components/commit/b55de18a57b8b3f6ee25b9cf99b521d70ec49586))
+* **molecule/modal:** fix close propagtion ([b55de18](https://github.com/SUI-Components/sui-components/commit/b55de18a57b8b3f6ee25b9cf99b521d70ec49586))
 
 
 
@@ -63,8 +202,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* fix margins ([f74da34](https://github.com/SUI-Components/sui-components/commit/f74da34c7bd69ec6a7227097ef6f13c5aec82a86))
-* fix margins ([c416678](https://github.com/SUI-Components/sui-components/commit/c416678241996c1d7f478b2cce62efec96959788))
+* **molecule/modal:** fix margins ([f74da34](https://github.com/SUI-Components/sui-components/commit/f74da34c7bd69ec6a7227097ef6f13c5aec82a86))
+* **molecule/modal:** fix margins ([c416678](https://github.com/SUI-Components/sui-components/commit/c416678241996c1d7f478b2cce62efec96959788))
 
 
 
@@ -73,7 +212,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add assets folder to .npmignore ([0b14a78](https://github.com/SUI-Components/sui-components/commit/0b14a78a25846089ca3fc32558f19aabbe651a1b))
+* **molecule/modal:** add assets folder to .npmignore ([0b14a78](https://github.com/SUI-Components/sui-components/commit/0b14a78a25846089ca3fc32558f19aabbe651a1b))
 
 
 
@@ -82,8 +221,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add withoutIndentation and floatingIconClose props ([96ddd56](https://github.com/SUI-Components/sui-components/commit/96ddd565f4d79563311c201da3edb3669691038d))
-* improve header and close components readability ([efa1152](https://github.com/SUI-Components/sui-components/commit/efa115222e9088f5d00c4c225a0e61bce33e3275))
+* **molecule/modal:** add withoutIndentation and floatingIconClose props ([96ddd56](https://github.com/SUI-Components/sui-components/commit/96ddd565f4d79563311c201da3edb3669691038d))
+* **molecule/modal:** improve header and close components readability ([efa1152](https://github.com/SUI-Components/sui-components/commit/efa115222e9088f5d00c4c225a0e61bce33e3275))
 
 
 
@@ -92,7 +231,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* add margin instead of padding to modal content ([499d074](https://github.com/SUI-Components/sui-components/commit/499d074f85151dd1fedefb736106856a4b4fccc0))
+* **molecule/modal:** add margin instead of padding to modal content ([499d074](https://github.com/SUI-Components/sui-components/commit/499d074f85151dd1fedefb736106856a4b4fccc0))
 
 
 
@@ -101,7 +240,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([ced5eee](https://github.com/SUI-Components/sui-components/commit/ced5eee88c974828d1c5f6eb3408a3a0f6d5e6a2))
+* **molecule/modal:** Use new [@s-ui-theme](https://github.com/s-ui-theme) ([ced5eee](https://github.com/SUI-Components/sui-components/commit/ced5eee88c974828d1c5f6eb3408a3a0f6d5e6a2))
 
 
 
@@ -110,18 +249,18 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* behaves only with defined hash ([37d818d](https://github.com/SUI-Components/sui-components/commit/37d818dc737d08198bb7874aa44f2bd55987a666))
-* close issue ([fc4fee2](https://github.com/SUI-Components/sui-components/commit/fc4fee2c64adaf5b503ec7223f3c22cb84da5d4b)), closes [#912](https://github.com/SUI-Components/sui-components/issues/912)
-* fix code format ([e852673](https://github.com/SUI-Components/sui-components/commit/e852673167c303ba16b187b8251d203c181d585a))
-* improve getUrl function ([7398f14](https://github.com/SUI-Components/sui-components/commit/7398f1454f3782edbed553a593264309e4466f8b))
-* improve method name ([571bad7](https://github.com/SUI-Components/sui-components/commit/571bad7c722d1ac114b003e48a7d2a49e5fc676a))
-* moving functions inside effects ([326b360](https://github.com/SUI-Components/sui-components/commit/326b3601fe4b73e9c7b395a2e958de95b1b27ff7))
-* use addEventListener instead onpopstate ([bae3a0d](https://github.com/SUI-Components/sui-components/commit/bae3a0dc1d7c9938cca36c628d840ee320dedbf9))
+* **molecule/modal:** behaves only with defined hash ([37d818d](https://github.com/SUI-Components/sui-components/commit/37d818dc737d08198bb7874aa44f2bd55987a666))
+* **molecule/modal:** close issue ([fc4fee2](https://github.com/SUI-Components/sui-components/commit/fc4fee2c64adaf5b503ec7223f3c22cb84da5d4b)), closes [#912](https://github.com/SUI-Components/sui-components/issues/912)
+* **molecule/modal:** fix code format ([e852673](https://github.com/SUI-Components/sui-components/commit/e852673167c303ba16b187b8251d203c181d585a))
+* **molecule/modal:** improve getUrl function ([7398f14](https://github.com/SUI-Components/sui-components/commit/7398f1454f3782edbed553a593264309e4466f8b))
+* **molecule/modal:** improve method name ([571bad7](https://github.com/SUI-Components/sui-components/commit/571bad7c722d1ac114b003e48a7d2a49e5fc676a))
+* **molecule/modal:** moving functions inside effects ([326b360](https://github.com/SUI-Components/sui-components/commit/326b3601fe4b73e9c7b395a2e958de95b1b27ff7))
+* **molecule/modal:** use addEventListener instead onpopstate ([bae3a0d](https://github.com/SUI-Components/sui-components/commit/bae3a0dc1d7c9938cca36c628d840ee320dedbf9))
 
 
 ### Features
 
-* use modal with url state behavior ([9bf7fd2](https://github.com/SUI-Components/sui-components/commit/9bf7fd2fc785dbe1a2fe65c547377d00f9a139e8))
+* **molecule/modal:** use modal with url state behavior ([9bf7fd2](https://github.com/SUI-Components/sui-components/commit/9bf7fd2fc785dbe1a2fe65c547377d00f9a139e8))
 
 
 
@@ -130,8 +269,8 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix onAnimationEnd ([2afa04e](https://github.com/SUI-Components/sui-components/commit/2afa04e1c60c7f9b77ca290d0c62b8f186aa9351)), closes [#733](https://github.com/SUI-Components/sui-components/issues/733)
-* fix onAnimationEnd execution ([4a5c09d](https://github.com/SUI-Components/sui-components/commit/4a5c09d719891ce227cbfdd412782b231768188c))
+* **molecule/modal:** fix onAnimationEnd ([2afa04e](https://github.com/SUI-Components/sui-components/commit/2afa04e1c60c7f9b77ca290d0c62b8f186aa9351)), closes [#733](https://github.com/SUI-Components/sui-components/issues/733)
+* **molecule/modal:** fix onAnimationEnd execution ([4a5c09d](https://github.com/SUI-Components/sui-components/commit/4a5c09d719891ce227cbfdd412782b231768188c))
 
 
 
@@ -140,8 +279,8 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix full screen on mobile with small content ([814a844](https://github.com/SUI-Components/sui-components/commit/814a844affa9dd39e74c1acecb5dc12a4d187289)), closes [#728](https://github.com/SUI-Components/sui-components/issues/728)
-* fix scss warnings ([e6fd0dc](https://github.com/SUI-Components/sui-components/commit/e6fd0dcc5ecf62594c25e7dd5eef7d6fb0e1085b))
+* **molecule/modal:** fix full screen on mobile with small content ([814a844](https://github.com/SUI-Components/sui-components/commit/814a844affa9dd39e74c1acecb5dc12a4d187289)), closes [#728](https://github.com/SUI-Components/sui-components/issues/728)
+* **molecule/modal:** fix scss warnings ([e6fd0dc](https://github.com/SUI-Components/sui-components/commit/e6fd0dcc5ecf62594c25e7dd5eef7d6fb0e1085b))
 
 
 
@@ -150,8 +289,8 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix Server Side Rendering for Molecule Notification ([084f785](https://github.com/SUI-Components/sui-components/commit/084f785caed4cde866222acb365843f1011ae875))
-* temp fix for ssr break ([57b4bfc](https://github.com/SUI-Components/sui-components/commit/57b4bfc1da70c0e5196dd997eef149809d5eaa6c))
+* **molecule/modal:** fix Server Side Rendering for Molecule Notification ([084f785](https://github.com/SUI-Components/sui-components/commit/084f785caed4cde866222acb365843f1011ae875))
+* **molecule/modal:** temp fix for ssr break ([57b4bfc](https://github.com/SUI-Components/sui-components/commit/57b4bfc1da70c0e5196dd997eef149809d5eaa6c))
 
 
 
@@ -160,7 +299,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* add prop to disable peventing scrolling in modal ([e8f08e5](https://github.com/SUI-Components/sui-components/commit/e8f08e51a5372a0cf358e6a1bd2db1cc9dc34506))
+* **molecule/modal:** add prop to disable peventing scrolling in modal ([e8f08e5](https://github.com/SUI-Components/sui-components/commit/e8f08e51a5372a0cf358e6a1bd2db1cc9dc34506))
 
 
 
@@ -169,7 +308,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix border radius for modal when header has no transparent background-color ([3f38087](https://github.com/SUI-Components/sui-components/commit/3f38087b05545c9b3aa27317be03be0e7f879c4b))
+* **molecule/modal:** fix border radius for modal when header has no transparent background-color ([3f38087](https://github.com/SUI-Components/sui-components/commit/3f38087b05545c9b3aa27317be03be0e7f879c4b))
 
 
 
@@ -178,7 +317,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* update modal version small relevant fix ([eb48d2a](https://github.com/SUI-Components/sui-components/commit/eb48d2a57d2eda9ac339a06ac35c91309fb1af33))
+* **molecule/modal:** update modal version small relevant fix ([eb48d2a](https://github.com/SUI-Components/sui-components/commit/eb48d2a57d2eda9ac339a06ac35c91309fb1af33))
 
 
 
@@ -187,12 +326,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix sass lint errors to prevent commit blocks ([8bff90f](https://github.com/SUI-Components/sui-components/commit/8bff90f527be41eb99e82404946ba8080078dbc7))
+* **Root:** fix sass lint errors to prevent commit blocks ([8bff90f](https://github.com/SUI-Components/sui-components/commit/8bff90f527be41eb99e82404946ba8080078dbc7))
 
 
 ### Features
 
-* responsive variable to fit content ([1e95c40](https://github.com/SUI-Components/sui-components/commit/1e95c40f2788f08b6c892e4065bf532df3c67928))
+* **molecule/modal:** responsive variable to fit content ([1e95c40](https://github.com/SUI-Components/sui-components/commit/1e95c40f2788f08b6c892e4065bf532df3c67928))
 
 
 
@@ -201,36 +340,36 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* set onclose as setstate cb ([299b3b5](https://github.com/SUI-Components/sui-components/commit/299b3b5c25338e3e7a88913e04a747c79e984c70))
+* **molecule/modal:** set onclose as setstate cb ([299b3b5](https://github.com/SUI-Components/sui-components/commit/299b3b5c25338e3e7a88913e04a747c79e984c70))
 
 
 ### Features
 
-* add content to the modal ([cbc78b9](https://github.com/SUI-Components/sui-components/commit/cbc78b9f68795f251c71b839c477b81a57b915b3))
-* add fadein/out animation ([edd126c](https://github.com/SUI-Components/sui-components/commit/edd126c1e3a502b21db482faadfbfdb61e8356a0))
-* added changes from QA comments ([5adc72b](https://github.com/SUI-Components/sui-components/commit/5adc72bd1d35829bbc5926acf730cfa3459b6a67))
-* added demo cases ([6d4a049](https://github.com/SUI-Components/sui-components/commit/6d4a0490d1f7807318a2f4808addd676010f0188))
-* added ESC handler and some refactor ([b5478ab](https://github.com/SUI-Components/sui-components/commit/b5478abf787ac037987702bcb727f2f187f86001))
-* added modal effects ([47cc159](https://github.com/SUI-Components/sui-components/commit/47cc1595ec4509ebecb1f5d35ca7ee251fc55ee1))
-* added modal effects ([3044c4d](https://github.com/SUI-Components/sui-components/commit/3044c4d193863eac6dfdd029ffa225f1eb649959))
-* added molecule modal ([d0f712b](https://github.com/SUI-Components/sui-components/commit/d0f712b89fbeb3e1501c3647a4888d41f8885402))
-* added portal and allow actions from inside the content to close the modal ([92ad74e](https://github.com/SUI-Components/sui-components/commit/92ad74e6b7aaf3027d5bf27c6f2cb3dfbcf04496))
-* changed mixin for placeholder ([bb8d4f5](https://github.com/SUI-Components/sui-components/commit/bb8d4f50ed9113a1b2a87fdc9bc8927a8d275df4))
-* changed padding content ([bae5334](https://github.com/SUI-Components/sui-components/commit/bae53344cfd645acdcd7b672c1089607f4b1fc23))
-* changed svg icon on playground ([e158d1b](https://github.com/SUI-Components/sui-components/commit/e158d1b031f449c94fb4b48be1dbd708389bdfe6))
-* changes from UI revision ([b67d5e3](https://github.com/SUI-Components/sui-components/commit/b67d5e3f1d84a45c2019caeff0e0dd610dfb2a41))
-* changes PR comments ([8d2d9ef](https://github.com/SUI-Components/sui-components/commit/8d2d9efaebecdbbbfec7a2551a9aea011070ca95))
-* component variables in _settings.scss ([b8636fd](https://github.com/SUI-Components/sui-components/commit/b8636fdd328c5f081913f826d777d8b9fbf1ddd8))
-* do not render header if no header and no icon presents ([7a006f5](https://github.com/SUI-Components/sui-components/commit/7a006f5e5660361b94a9e1b99e2c459a5be0ec41))
-* fix close button when no-header ([c67e1f2](https://github.com/SUI-Components/sui-components/commit/c67e1f2df91288a4a6c23c70fe38a3c8e92b9c77))
-* fix header padding ([d42d518](https://github.com/SUI-Components/sui-components/commit/d42d5186c7e0ea8458208bd6a9c6c98dc7e77cf3))
-* fix icon close position when no-header ([554e5d4](https://github.com/SUI-Components/sui-components/commit/554e5d40dcb0854ec1a7e15eace0b5da41c7252b))
-* fix required close icon in close icon ([edd470a](https://github.com/SUI-Components/sui-components/commit/edd470a9d252de31249f21132bd2b06f8ed9f02e))
-* fix z-index ([67491bb](https://github.com/SUI-Components/sui-components/commit/67491bb7e13aaa035994cd58a46d7f41a91ee22d))
-* make close button optional ([3e6b9f3](https://github.com/SUI-Components/sui-components/commit/3e6b9f3553dd8f7ca3ed8d65410c0335cacf8d35))
-* pR changes ([ec5be1b](https://github.com/SUI-Components/sui-components/commit/ec5be1b4d1ff9744f146cb7d29fca60736a74267))
-* pR comments changes ([5828315](https://github.com/SUI-Components/sui-components/commit/58283157b5e753474949d650c2a34437f6f98c6a))
-* update readme ([649c91c](https://github.com/SUI-Components/sui-components/commit/649c91c26830cd8da36080854db07abc52fc87fd))
+* **molecule/modal:** add content to the modal ([cbc78b9](https://github.com/SUI-Components/sui-components/commit/cbc78b9f68795f251c71b839c477b81a57b915b3))
+* **molecule/modal:** add fadein/out animation ([edd126c](https://github.com/SUI-Components/sui-components/commit/edd126c1e3a502b21db482faadfbfdb61e8356a0))
+* **molecule/modal:** added changes from QA comments ([5adc72b](https://github.com/SUI-Components/sui-components/commit/5adc72bd1d35829bbc5926acf730cfa3459b6a67))
+* **molecule/modal:** added demo cases ([6d4a049](https://github.com/SUI-Components/sui-components/commit/6d4a0490d1f7807318a2f4808addd676010f0188))
+* **molecule/modal:** added ESC handler and some refactor ([b5478ab](https://github.com/SUI-Components/sui-components/commit/b5478abf787ac037987702bcb727f2f187f86001))
+* **molecule/modal:** added modal effects ([47cc159](https://github.com/SUI-Components/sui-components/commit/47cc1595ec4509ebecb1f5d35ca7ee251fc55ee1))
+* **molecule/modal:** added modal effects ([3044c4d](https://github.com/SUI-Components/sui-components/commit/3044c4d193863eac6dfdd029ffa225f1eb649959))
+* **molecule/modal:** added molecule modal ([d0f712b](https://github.com/SUI-Components/sui-components/commit/d0f712b89fbeb3e1501c3647a4888d41f8885402))
+* **molecule/modal:** added portal and allow actions from inside the content to close the modal ([92ad74e](https://github.com/SUI-Components/sui-components/commit/92ad74e6b7aaf3027d5bf27c6f2cb3dfbcf04496))
+* **molecule/modal:** changed mixin for placeholder ([bb8d4f5](https://github.com/SUI-Components/sui-components/commit/bb8d4f50ed9113a1b2a87fdc9bc8927a8d275df4))
+* **molecule/modal:** changed padding content ([bae5334](https://github.com/SUI-Components/sui-components/commit/bae53344cfd645acdcd7b672c1089607f4b1fc23))
+* **molecule/modal:** changed svg icon on playground ([e158d1b](https://github.com/SUI-Components/sui-components/commit/e158d1b031f449c94fb4b48be1dbd708389bdfe6))
+* **molecule/modal:** changes from UI revision ([b67d5e3](https://github.com/SUI-Components/sui-components/commit/b67d5e3f1d84a45c2019caeff0e0dd610dfb2a41))
+* **molecule/modal:** changes PR comments ([8d2d9ef](https://github.com/SUI-Components/sui-components/commit/8d2d9efaebecdbbbfec7a2551a9aea011070ca95))
+* **molecule/modal:** component variables in _settings.scss ([b8636fd](https://github.com/SUI-Components/sui-components/commit/b8636fdd328c5f081913f826d777d8b9fbf1ddd8))
+* **molecule/modal:** do not render header if no header and no icon presents ([7a006f5](https://github.com/SUI-Components/sui-components/commit/7a006f5e5660361b94a9e1b99e2c459a5be0ec41))
+* **molecule/modal:** fix close button when no-header ([c67e1f2](https://github.com/SUI-Components/sui-components/commit/c67e1f2df91288a4a6c23c70fe38a3c8e92b9c77))
+* **molecule/modal:** fix header padding ([d42d518](https://github.com/SUI-Components/sui-components/commit/d42d5186c7e0ea8458208bd6a9c6c98dc7e77cf3))
+* **molecule/modal:** fix icon close position when no-header ([554e5d4](https://github.com/SUI-Components/sui-components/commit/554e5d40dcb0854ec1a7e15eace0b5da41c7252b))
+* **molecule/modal:** fix required close icon in close icon ([edd470a](https://github.com/SUI-Components/sui-components/commit/edd470a9d252de31249f21132bd2b06f8ed9f02e))
+* **molecule/modal:** fix z-index ([67491bb](https://github.com/SUI-Components/sui-components/commit/67491bb7e13aaa035994cd58a46d7f41a91ee22d))
+* **molecule/modal:** make close button optional ([3e6b9f3](https://github.com/SUI-Components/sui-components/commit/3e6b9f3553dd8f7ca3ed8d65410c0335cacf8d35))
+* **molecule/modal:** pR changes ([ec5be1b](https://github.com/SUI-Components/sui-components/commit/ec5be1b4d1ff9744f146cb7d29fca60736a74267))
+* **molecule/modal:** pR comments changes ([5828315](https://github.com/SUI-Components/sui-components/commit/58283157b5e753474949d650c2a34437f6f98c6a))
+* **molecule/modal:** update readme ([649c91c](https://github.com/SUI-Components/sui-components/commit/649c91c26830cd8da36080854db07abc52fc87fd))
 
 
 

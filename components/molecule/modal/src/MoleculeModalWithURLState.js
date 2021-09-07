@@ -10,8 +10,6 @@ const checkHash = hash => window.location.hash.includes(hash)
  * - useLocation
  */
 const MoleculeModalWithURLState = forwardRef((props, ref) => {
-  if (typeof window === 'undefined') return <BaseComponent {...props} />
-
   const {hash, openModalTrigger, onClose, ...rest} = props
   const {isOpen} = rest
   const [isPopStateChange, setIsPopStateChange] = useState(checkHash(hash))
@@ -47,6 +45,8 @@ const MoleculeModalWithURLState = forwardRef((props, ref) => {
     window.addEventListener('popstate', _handlePopState)
     return () => window.removeEventListener('popstate', _handlePopState)
   }, [hash]) // eslint-disable-line
+
+  if (typeof window === 'undefined') return <BaseComponent {...props} />
 
   return <MoleculeModal ref={ref} {...rest} onClose={onClose} />
 })

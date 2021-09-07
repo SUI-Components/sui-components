@@ -16,7 +16,7 @@ import {
   Input
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
-import MoleculeModal, {MoleculeModalSizes} from '../src'
+import MoleculeModal from '../src'
 import LoremIpsum from './LoremIpsum'
 
 const ONCLOSING_CALLBACKS = {
@@ -26,11 +26,8 @@ const ONCLOSING_CALLBACKS = {
 
 const ArticleDefault = ({className}) => {
   const [open, setOpen] = useState(false)
-  const [size, setSize] = useState(undefined)
-  const [fitContent, setFitContent] = useState(false)
   const [count, setCount] = useState(3)
   const [header, setHeader] = useState('')
-  const [enableContentScroll, setEnableContentScroll] = useState(false)
   const [onClosingFns, setOnClosingFns] = useState(
     Object.values(ONCLOSING_CALLBACKS)
   )
@@ -40,7 +37,6 @@ const ArticleDefault = ({className}) => {
   }
   const onChangeClosingHandler = (event, value) => {
     const label = event.target.innerHTML
-    console.log({onClosingFns, value, label})
     if (value === undefined && onClosingFns.length > 1) {
       setOnClosingFns(onClosingFns.filter(value => value !== label))
     } else if (value !== undefined && !onClosingFns.includes(label)) {
@@ -60,10 +56,6 @@ const ArticleDefault = ({className}) => {
     setOpen(false)
   }
 
-  const onChangeSizeHandler = (_, value) => {
-    setSize(value)
-  }
-
   const largeClickHandler = value => () => {
     const newValue = count + value
     if (newValue < 0 || newValue > 20) {
@@ -73,19 +65,17 @@ const ArticleDefault = ({className}) => {
     }
   }
 
-  const onFitContentHandler = () => {
-    setFitContent(!fitContent)
-  }
-  const onEnableContentScroll = () => {
-    setEnableContentScroll(!enableContentScroll)
-  }
-
   return (
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>
         By Default MoleculeModal exports the{' '}
-        <Code>MoleculeModalWithAnimation</Code> component.
+        <Code>MoleculeModalWithAnimation</Code> component. It's vertical
+        animated on its show/hide action.{' '}
+        <Anchor href="#MoleculeModalWithoutAnimation">
+          <Code>MoleculeModalWithoutAnimation</Code>
+        </Anchor>{' '}
+        gives the same component removing this effects.
       </Paragraph>
       <Paragraph>
         It can be controlled using the <Code>isOpen</Code> boolean prop.
@@ -96,7 +86,7 @@ const ArticleDefault = ({className}) => {
         </Cell>
         <Cell>
           <RadioButtonGroup value={open} onChange={onChangeHandler}>
-            <RadioButton value={true} label="true" checked={open === true} />
+            <RadioButton value label="true" checked={open === true} />
             <RadioButton value={false} label="false" checked={open === false} />
           </RadioButtonGroup>
         </Cell>
@@ -152,29 +142,6 @@ const ArticleDefault = ({className}) => {
           <Input value={header} onChange={onChangeHeader} />
         </Cell>
       </Grid>
-      <Paragraph>
-        Sizes can be customized under the <Code>size</Code> prop.
-      </Paragraph>
-      <Grid cols={1} gutter={[8, 8]}>
-        <Cell>
-          <RadioButtonGroup
-            value={size}
-            onChange={onChangeSizeHandler}
-            fullWidth
-          >
-            {[undefined, ...Object.values(MoleculeModalSizes)].map(
-              sizeValue => (
-                <RadioButton
-                  key={`${sizeValue}`}
-                  value={sizeValue}
-                  label={`${sizeValue}`}
-                  checked={size === sizeValue}
-                />
-              )
-            )}
-          </RadioButtonGroup>
-        </Cell>
-      </Grid>
       <MoleculeModal
         isOpen={open}
         onClose={onCloseHandler}
@@ -182,10 +149,7 @@ const ArticleDefault = ({className}) => {
           ONCLOSING_CALLBACKS.OUTSIDE_CLICK
         )}
         closeOnEscKeyDown={onClosingFns.includes(ONCLOSING_CALLBACKS.ESCAPE)}
-        enableContentScroll={enableContentScroll}
         header={header}
-        size={size}
-        fitContent={fitContent}
       >
         <Grid cols={5} gutter={[8, 8]}>
           <Cell>
@@ -217,77 +181,8 @@ const ArticleDefault = ({className}) => {
               Close
             </Button>
           </Cell>
-          <Cell span={2}>
-            <RadioButton
-              value={fitContent}
-              label={`fitContent ${fitContent === true}`}
-              onClick={onFitContentHandler}
-              fullWidth
-            />
-          </Cell>
-          <Cell span={3}>
-            <Paragraph>(mobile only)</Paragraph>
-          </Cell>
-          <Cell span={5}>
-            <RadioButton
-              value={enableContentScroll}
-              label={`enableContentScroll ${enableContentScroll === true}`}
-              onClick={onEnableContentScroll}
-              fullWidth
-            />
-          </Cell>
-          <Cell span={5}>
-            <RadioButtonGroup
-              value={size}
-              onChange={onChangeSizeHandler}
-              fullWidth
-            >
-              {[undefined, ...Object.values(MoleculeModalSizes)].map(
-                sizeValue => (
-                  <RadioButton
-                    key={`${sizeValue}`}
-                    value={sizeValue}
-                    label={`${sizeValue}`}
-                    checked={size === sizeValue}
-                  />
-                )
-              )}
-            </RadioButtonGroup>
-          </Cell>
         </Grid>
       </MoleculeModal>
-      <Paragraph>The package also have:</Paragraph>
-      <UnorderedList>
-        <ListItem>
-          <Code>MoleculeModal</Code>
-        </ListItem>
-        <ListItem>
-          <Anchor href="#MoleculeModalWithAnimation">
-            <Code>MoleculeModalWithAnimation</Code>
-          </Anchor>
-        </ListItem>
-        <ListItem>
-          <Anchor href="#MoleculeModalWithoutAnimation">
-            <Code>MoleculeModalWithoutAnimation</Code>
-          </Anchor>
-        </ListItem>
-        <ListItem>
-          <Anchor href="#MoleculeModalWithURLState">
-            <Code>MoleculeModalWithURLState</Code>
-          </Anchor>
-        </ListItem>
-      </UnorderedList>
-      <Paragraph>
-        User can also compound <Code>MoleculeModal</Code> using:
-      </Paragraph>
-      <UnorderedList>
-        <ListItem>
-          <Code>MoleculeModalContent</Code>
-        </ListItem>
-        <ListItem>
-          <Code>MoleculeModalFooter</Code>
-        </ListItem>
-      </UnorderedList>
     </Article>
   )
 }

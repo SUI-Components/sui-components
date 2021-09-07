@@ -1,4 +1,5 @@
 import {forwardRef} from 'react'
+import PropTypes from 'prop-types'
 import {MoleculeModal} from './index'
 
 const MoleculeModalWithoutAnimation = forwardRef(({...rest}, ref) => {

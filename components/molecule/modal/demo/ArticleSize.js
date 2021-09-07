@@ -4,16 +4,12 @@ import {
   H2,
   Paragraph,
   Code,
-  ListItem,
-  UnorderedList,
-  Anchor,
   RadioButton,
   RadioButtonGroup,
   Button,
   Label,
   Grid,
-  Cell,
-  Input
+  Cell
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
 import MoleculeModal, {MoleculeModalSizes} from '../src'
@@ -63,7 +59,7 @@ const ArticleSize = ({className}) => {
         </Cell>
         <Cell>
           <RadioButtonGroup value={open} onChange={onChangeHandler}>
-            <RadioButton value={true} label="true" checked={open === true} />
+            <RadioButton value label="true" checked={open === true} />
             <RadioButton value={false} label="false" checked={open === false} />
           </RadioButtonGroup>
         </Cell>
@@ -105,8 +101,8 @@ const ArticleSize = ({className}) => {
       <MoleculeModal
         isOpen={open}
         onClose={onCloseHandler}
-        closeOnOutsideClick={true}
-        closeOnEscKeyDown={true}
+        closeOnOutsideClick
+        closeOnEscKeyDown
         size={size}
         fitContent={fitContent}
       >

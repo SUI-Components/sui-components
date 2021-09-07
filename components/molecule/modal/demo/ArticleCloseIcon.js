@@ -4,21 +4,17 @@ import {
   H2,
   Paragraph,
   Code,
-  ListItem,
-  UnorderedList,
-  Anchor,
   RadioButton,
   RadioButtonGroup,
   Button,
   Label,
   Grid,
   Cell,
-  Input,
   AntDesignIcon
 } from '@s-ui/documentation-library'
 import AtomIcon from '@s-ui/react-atom-icon'
 import {useState} from 'react'
-import MoleculeModal, {MoleculeModalSizes} from '../src'
+import MoleculeModal from '../src'
 
 const icons = {
   AiOutlineClose: 'AiOutlineClose',
@@ -31,9 +27,14 @@ const icons = {
 const ArticleCloseIcon = ({className}) => {
   const [open, setOpen] = useState(false)
   const [icon, setIcon] = useState(icons.AiOutlineClose)
+  const [floatingIconClose, setFloatingIconClose] = useState(false)
 
   const onChangeHandler = (_, value) => {
     setOpen(value === undefined ? open : value)
+  }
+
+  const onChangeFloatingIconClose = (_, value) => {
+    setFloatingIconClose(value === undefined ? open : value)
   }
 
   const onCloseButtonHandler = () => {
@@ -44,7 +45,11 @@ const ArticleCloseIcon = ({className}) => {
     setOpen(false)
   }
 
-  const onChangeIconHandler = (_, value) => {}
+  const onChangeIconHandler = (_, value) => {
+    if (value !== undefined) {
+      setIcon(value)
+    }
+  }
 
   return (
     <Article className={className}>
@@ -55,13 +60,14 @@ const ArticleCloseIcon = ({className}) => {
         </Cell>
         <Cell>
           <RadioButtonGroup value={open} onChange={onChangeHandler}>
-            <RadioButton value={true} label="true" checked={open === true} />
+            <RadioButton value label="true" checked={open === true} />
             <RadioButton value={false} label="false" checked={open === false} />
           </RadioButtonGroup>
         </Cell>
       </Grid>
       <Paragraph>
-        Sizes can be customized under the <Code>size</Code> prop.
+        The closing icon can be customized using the <Code>iconClose</Code>{' '}
+        (node) prop.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
@@ -85,16 +91,40 @@ const ArticleCloseIcon = ({className}) => {
           </RadioButtonGroup>
         </Cell>
       </Grid>
+      <Paragraph>
+        The closing icon can be floating positioned also using the{' '}
+        <Code>floatingIconClose</Code> boolean prop.
+      </Paragraph>
+      <Grid cols={1} gutter={[8, 8]}>
+        <Cell>
+          <Label>floatingIconClose</Label>
+        </Cell>
+        <Cell>
+          <RadioButtonGroup value={open} onChange={onChangeFloatingIconClose}>
+            <RadioButton
+              value
+              label="true"
+              checked={floatingIconClose === true}
+            />
+            <RadioButton
+              value={false}
+              label="false"
+              checked={floatingIconClose === false}
+            />
+          </RadioButtonGroup>
+        </Cell>
+      </Grid>
       <MoleculeModal
         isOpen={open}
         onClose={onCloseHandler}
-        closeOnOutsideClick={true}
-        closeOnEscKeyDown={true}
-        closeIcon={
+        closeOnOutsideClick
+        closeOnEscKeyDown
+        iconClose={
           <AtomIcon>
             <AntDesignIcon icon={icon} />
           </AtomIcon>
         }
+        floatingIconClose={floatingIconClose}
       >
         <Grid cols={5} gutter={[8, 8]}>
           <Cell span={5}>
@@ -107,11 +137,25 @@ const ArticleCloseIcon = ({className}) => {
                 <RadioButton
                   key={`${iconValue}`}
                   value={iconValue}
-                  label={`${iconValue}`}
+                  label={
+                    <AtomIcon>
+                      <AntDesignIcon icon={iconValue} />
+                    </AtomIcon>
+                  }
                   checked={icon === iconValue}
                 />
               ))}
             </RadioButtonGroup>
+          </Cell>
+          <Cell span={5}>
+            <RadioButton
+              value
+              label={`floatingIconClose ${floatingIconClose}`}
+              onClick={(_, value) => {
+                setFloatingIconClose(value === true)
+              }}
+              checked={floatingIconClose === true}
+            />
           </Cell>
           <Cell span={5}>
             <Button onClick={onCloseButtonHandler} fullWidth>

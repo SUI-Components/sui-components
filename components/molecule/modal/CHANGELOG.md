@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.37.0 (2021-09-07)
+
+
+### Bug Fixes
+
+* **components/molecule/modal:** fix exported naming ([8161b3c](https://github.com/SUI-Components/sui-components/commit/8161b3c51de7dacb9cb712b6661ef3486e12b4d7))
+
+
+
 # 1.36.0 (2021-09-07)
 
 

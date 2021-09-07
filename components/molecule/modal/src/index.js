@@ -19,6 +19,7 @@ export {
   MoleculeModalContent,
   MoleculeModalFooter,
   MoleculeModalWithURLState,
+  MoleculeModalWithURLState as MoleculeModalWithUrlState,
   MoleculeModalWithAnimation,
   MoleculeModalWithoutAnimation
 }

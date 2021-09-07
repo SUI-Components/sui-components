@@ -72,9 +72,9 @@ $atom-switch-transition-time: 0.3s !default;
     margin-bottom: 0;
   }
 
-  &-toggleType &--focus {
-    .sui-AtomSwitch-container {
-      // margin-top: $m-l;
+  &-toggleType {
+    .sui-AtomLabel {
+      margin-bottom: $m-l;
     }
   }
 

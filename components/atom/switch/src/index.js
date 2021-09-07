@@ -7,7 +7,7 @@ import {LABELS, SIZES, SUPPORTED_KEYS, TYPES} from './config'
 const AtomSwitch = forwardRef((props, ref) => {
   const {initialValue, disabled, onToggle: onToggleCallback, type} = props
   const [isToggle, setIsToggle] = useState(initialValue)
-  const [isFocus, setIsFocus] = useState(true)
+  const [isFocus, setIsFocus] = useState(false)
   const [isClick, setIsClick] = useState(false)
 
   const onBlur = ev => {

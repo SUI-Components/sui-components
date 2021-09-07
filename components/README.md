@@ -13,3 +13,7 @@
 ## Current status
 
 <a href="https://pages.github.mpi-internal.com/scmspain/design-systems/sui/index.html" target="_blank">Performance dashboard</a>
+
+## Documentation
+
+<a href="https://github.com/SUI-Components/sui-components/tree/master/contributor-docs" target="_blank">Contributor</a>

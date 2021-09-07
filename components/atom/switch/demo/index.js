@@ -18,6 +18,7 @@ import AtomSwitch, {
   atomSwitchSizes,
   atomSwitchTypes
 } from 'components/atom/switch/src'
+import ArticleIsFitted from './ArticleIsFitted'
 
 const BASE_CLASS_DEMO = `DemoAtomSwitch`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
@@ -358,6 +359,8 @@ const Demo = () => {
         <DisabledArticle />
         <br />
         <TypesArticle />
+        <br />
+        <ArticleIsFitted />
         <br />
         <ControlledAndUncontrolledArticle />
         <br />

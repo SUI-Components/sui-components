@@ -1,7 +1,7 @@
 /* eslint react/prop-types: 0 */
 import {useState} from 'react'
-import {MoleculeModalWithUrlState} from 'components/molecule/modal/src'
-import {Content, LoremIpsumParagraph, IconClose} from './helperComponents'
+import {MoleculeModalWithURLState} from 'components/molecule/modal/src'
+import {Content, LoremIpsumParagraph} from './helperComponents'
 
 const ModalWithUrlState = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,12 +14,11 @@ const ModalWithUrlState = () => {
       <button type="button" onClick={handleOpenModal}>
         Open modal
       </button>
-      <MoleculeModalWithUrlState
+      <MoleculeModalWithURLState
         isOpen={isOpen}
         closeOnOutsideClick
         closeOnEscKeyDown
         disableScroll={false}
-        iconClose={<IconClose />}
         fitWindow
         header="My new brand modal"
         onClose={handleCloseModal}
@@ -29,7 +28,7 @@ const ModalWithUrlState = () => {
         <Content>
           <LoremIpsumParagraph />
         </Content>
-      </MoleculeModalWithUrlState>
+      </MoleculeModalWithURLState>
     </div>
   )
 }

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.15.0 (2021-09-09)
+
+
+### Bug Fixes
+
+* **components/molecule/accordion:** fix close action ([f627810](https://github.com/SUI-Components/sui-components/commit/f627810951de8977168afc25f8fa7a89abe1c021))
+
+
+
 # 1.14.0 (2021-09-09)
 
 

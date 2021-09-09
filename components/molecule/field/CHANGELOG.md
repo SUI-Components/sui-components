@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.31.0 (2021-09-09)
+
+
+### Features
+
+* **components/molecule/field:** forward disabled style for field ([cc9b5cf](https://github.com/SUI-Components/sui-components/commit/cc9b5cfa6015fc1d469711708017657cd3b90529))
+
+
+
 # 1.30.0 (2021-05-27)
 
 

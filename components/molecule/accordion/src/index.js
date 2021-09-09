@@ -15,7 +15,7 @@ const MoleculeAccordion = ({
     defaultOpenedTabs.includes(index)
   )
 
-  const [openTabs, setOpenTabs] = useState([])
+  const [openTabs, setOpenTabs] = useState(initialOpenTabs)
 
   const _handleOnToggle = index => event => {
     let newOpenTabs = []
@@ -31,21 +31,17 @@ const MoleculeAccordion = ({
 
   return (
     <div className={BASE_CLASS}>
-      {children.map((child, index) => {
-        const isDefaultOpenedTab = initialOpenTabs[index]
-        const isCurrentOpenedTab = openTabs[index]
-        return (
-          <Tab
-            isOpen={isDefaultOpenedTab || isCurrentOpenedTab}
-            key={index}
-            onToggle={_handleOnToggle(index)}
-            title={child.props.label}
-            {...tabProps}
-          >
-            {child.props.children}
-          </Tab>
-        )
-      })}
+      {children.map((child, index) => (
+        <Tab
+          isOpen={!!openTabs[index]}
+          key={index}
+          onToggle={_handleOnToggle(index)}
+          title={child.props.label}
+          {...tabProps}
+        >
+          {child.props.children}
+        </Tab>
+      ))}
     </div>
   )
 }

@@ -37,7 +37,8 @@ const MoleculeModal = forwardRef(
       usePortal = true,
       withoutIndentation = false,
       isContentless,
-      withAnimation = true
+      withAnimation = true,
+      dialogStyle
     },
     forwardedRef
   ) => {
@@ -123,7 +124,7 @@ const MoleculeModal = forwardRef(
           onAnimationEnd={onAnimationEnd}
           onClick={handleOutsideClick}
         >
-          <div className={dialogClassName}>
+          <div className={dialogClassName} style={dialogStyle}>
             {(iconClose || header) && (
               <HeaderRender
                 close={
@@ -251,7 +252,11 @@ MoleculeModal.propTypes = {
   /**
    * Determines if modal has open/close animation
    */
-  withAnimation: PropTypes.bool
+  withAnimation: PropTypes.bool,
+  /**
+   * Custom styling for dialog
+   */
+  dialogStyle: PropTypes.object
 }
 
 MoleculeModal.displayName = 'MoleculeModal'

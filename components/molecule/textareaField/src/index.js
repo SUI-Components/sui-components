@@ -35,6 +35,8 @@ const MoleculeTextareaField = ({
   const errorState = hasErrors({successText, errorText})
   const textAreaState = getState({successText, errorState, alertText})
 
+  const {disabled} = props
+
   const [internalValue, setInternalValue] = useState(value)
 
   useEffect(() => {
@@ -70,6 +72,7 @@ const MoleculeTextareaField = ({
       autoHideHelpText={autoHideHelpText}
       maxChars={maxChars}
       onChange={onChangeHandler}
+      disabled={disabled}
     >
       <AtomTextarea
         id={id}
@@ -127,6 +130,9 @@ MoleculeTextareaField.propTypes = {
 
   /** Boolean to decide if field elements should be set inline */
   inline: PropTypes.bool,
+
+  /** Boolean to decide if the field should appear as disabled */
+  disabled: PropTypes.bool,
 
   /** Boolean to decide if helptext should be auto hide */
   autoHideHelpText: PropTypes.bool

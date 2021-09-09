@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.5.0 (2021-09-09)
+
+
+### Features
+
+* **components/molecule/inputField:** forward disabled prop to field component ([9aebfab](https://github.com/SUI-Components/sui-components/commit/9aebfab586bc85a97fa8d20eca2e0a26c41cca1c))
+
+
+
 # 4.4.0 (2021-06-04)
 
 

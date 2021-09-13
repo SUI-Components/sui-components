@@ -31,7 +31,8 @@ export default function AtomIcon({
   children,
   color = ATOM_ICON_COLORS.currentColor,
   size = ATOM_ICON_SIZES.small,
-  render = ATOM_ICON_RENDERS.eager
+  render = ATOM_ICON_RENDERS.eager,
+  title
 }) {
   const className = cx(
     BASE_CLASS,
@@ -40,7 +41,11 @@ export default function AtomIcon({
   )
 
   const IconRender = render === ATOM_ICON_RENDERS.eager ? Icon : LazyIcon
-  return <IconRender className={className}>{children}</IconRender>
+  return (
+    <IconRender className={className} title={title}>
+      {children}
+    </IconRender>
+  )
 }
 
 AtomIcon.displayName = 'AtomIcon'
@@ -64,5 +69,9 @@ AtomIcon.propTypes = {
    * 'eager': The icon will be server-side rendered (default)
    * 'lazy': The icon will be loaded on client when visible
    */
-  render: PropTypes.oneOf(Object.values(ATOM_ICON_RENDERS))
+  render: PropTypes.oneOf(Object.values(ATOM_ICON_RENDERS)),
+  /**
+   * Adds a title for accesibility purposes
+   */
+  title: PropTypes.string
 }

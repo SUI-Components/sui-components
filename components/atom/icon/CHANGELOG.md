@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.11.0 (2021-09-13)
+
+
+### Features
+
+* **components/atom/icon:** Add title prop for accessibility ([aae4944](https://github.com/SUI-Components/sui-components/commit/aae4944249afa0c49263a53701ed7110032948aa))
+
+
+
 # 1.10.0 (2021-06-28)
 
 

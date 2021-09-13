@@ -1,9 +1,14 @@
-import {Children, cloneElement, isValidElement} from 'react'
+import {
+  Children,
+  useState,
+  useEffect,
+  cloneElement,
+  isValidElement
+} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import MoleculeTab from './components/MoleculeTab'
-import withStateActiveTab from './hoc/withStateActiveTab'
 
 const BASE_CLASS = `sui-MoleculeTabs`
 
@@ -26,8 +31,9 @@ const MoleculeTabs = ({variant, type, children, onChange}) => {
   const CLASS_TYPE = `${BASE_CLASS}--${type}`
 
   const className = cx(BASE_CLASS, CLASS_VARIANT, CLASS_TYPE)
+  const childrenArray = Children.toArray(children)
 
-  const extendedChildren = Children.toArray(children)
+  const extendedChildren = childrenArray
     .filter(child => isValidElement(child))
     .map((child, index) => {
       const numTab = index + 1
@@ -37,15 +43,12 @@ const MoleculeTabs = ({variant, type, children, onChange}) => {
       })
     })
 
-  const activeTabContent = Children.toArray(children).reduce(
-    (activeContent, child) => {
-      if (child) {
-        const {children: childrenChild, active} = child.props
-        return active ? childrenChild : activeContent
-      }
-    },
-    null
-  )
+  const activeTabContent = childrenArray.reduce((activeContent, child) => {
+    if (child) {
+      const {children: childrenChild, active} = child.props
+      return active ? childrenChild : activeContent
+    }
+  }, null)
 
   return (
     <div className={className}>
@@ -79,8 +82,52 @@ MoleculeTabs.defaultProps = {
   onChange: () => {}
 }
 
-const MoleculeTabsWithStateActive = withStateActiveTab(MoleculeTabs)
-MoleculeTabsWithStateActive.displayName = MoleculeTabs.displayName
+const MoleculeTabsWithStateActive = props => {
+  const [activeTab, setActiveTab] = useState(null)
+  const {children, onChange = () => {}} = props
+
+  useEffect(() => {
+    Children.forEach(children, (child, index) => {
+      if (child) {
+        const {active} = child.props
+        if (active) setActiveTab(index + 1)
+      }
+    })
+  }, []) // eslint-disable-line
+
+  const extendedChildren = () => {
+    return Children.toArray(children)
+      .filter(Boolean)
+      .map((child, index) => {
+        const numTab = index + 1
+        const active = activeTab === numTab
+        return cloneElement(child, {active})
+      })
+  }
+
+  const handleChange = (e, {numTab}) => {
+    setActiveTab(numTab)
+    onChange(e, {numTab})
+  }
+
+  return (
+    <MoleculeTabs {...props} onChange={handleChange}>
+      {extendedChildren()}
+    </MoleculeTabs>
+  )
+}
+
+MoleculeTabsWithStateActive.displayName = 'MoleculeTabsWithStateActive'
+MoleculeTabsWithStateActive.propTypes = {
+  /** value */
+  activeTab: PropTypes.any,
+
+  /** children of the component */
+  children: PropTypes.element,
+
+  /** onChange callback  */
+  onChange: PropTypes.func
+}
 
 export default MoleculeTabsWithStateActive
 export {

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.44.0 (2021-09-14)
+
+
+### Bug Fixes
+
+* **components/molecule/select:** remove select border when molecule is focused ([5ed05bb](https://github.com/SUI-Components/sui-components/commit/5ed05bb3167c5a16e8af8c021f45c35d70dba30e))
+
+
+
 # 1.43.0 (2021-08-31)
 
 

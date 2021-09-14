@@ -1,9 +1,6 @@
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import AtomInput from '@s-ui/react-atom-input'
-
-import withSelectUI from '../hoc/withSelectUI'
-
-const MoleculeInputSelect = withSelectUI(AtomInput)
+import MoleculeInputSelect from './MoleculeInputSelect'
 
 const MoleculeSelectSingleSelection = props => {
   /* eslint-disable react/prop-types */
@@ -50,7 +47,9 @@ const MoleculeSelectSingleSelection = props => {
         required={required}
         size={selectSize}
         tabIndex={tabIndex}
-      />
+      >
+        <AtomInput />
+      </MoleculeInputSelect>
       <MoleculeDropdownList
         size={size}
         visible={isOpen}

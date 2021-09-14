@@ -95,6 +95,11 @@ $c-molecule-select-disabled: inherit !default;
       &-container {
         @extend %sui-atom-input-select-focus;
         border: $bdw-s solid $c-primary;
+
+        .sui-AtomInput-input,
+        .sui-AtomInput--withTags {
+          border-color: transparent;
+        }
       }
     }
   }

@@ -19,7 +19,7 @@ const MoleculeInputSelect = props => {
   const extendedChildren = () =>
     Children.toArray(children)
       .filter(Boolean)
-      .map((child, index) => cloneElement(child, {...props}))
+      .map((child, index) => cloneElement(child, props))
 
   return (
     <div className={CLASS_CONTAINER} onClick={!disabled ? onClick : null}>

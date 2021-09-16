@@ -10,7 +10,7 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
-import {MoleculeTab} from 'components/molecule/tabs/src'
+import {MoleculeTab, MoleculeTabs} from 'components/molecule/tabs/src'
 
 chai.use(chaiDOM)
 

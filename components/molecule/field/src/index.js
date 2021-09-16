@@ -54,6 +54,7 @@ MoleculeLabel.propTypes = {
 }
 
 const MoleculeField = ({
+  disabled,
   inline,
   reverse,
   errorText,
@@ -110,6 +111,10 @@ const MoleculeField = ({
     typeValidationText = AtomValidationTextTypes.ALERT
   }
 
+  if (disabled) {
+    typeValidationLabel = AtomLabelTypes.DISABLED
+  }
+
   return (
     <div className={className}>
       {(label || nodeLabel) && (
@@ -131,7 +136,7 @@ const MoleculeField = ({
         )}
       >
         {!inline && extendedChildren}
-        {typeValidationText && (
+        {!disabled && typeValidationText && (
           <AtomValidationText
             type={typeValidationText}
             text={statusValidationText}
@@ -181,6 +186,9 @@ MoleculeField.propTypes = {
 
   /** Boolean to decide if elements should be set inline */
   inline: PropTypes.bool,
+
+  /** Boolean to decide if the field should appear as disabled */
+  disabled: PropTypes.bool,
 
   /** Boolean to decide if elements should be set inline but input first */
   reverse: PropTypes.bool,

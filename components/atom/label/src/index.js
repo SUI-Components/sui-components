@@ -7,7 +7,8 @@ const TYPES = {
   SUCCESS: 'success',
   ERROR: 'error',
   ALERT: 'alert',
-  CONTRAST: 'contrast'
+  CONTRAST: 'contrast',
+  DISABLED: 'disabled'
 }
 
 const FONT_SIZES = {

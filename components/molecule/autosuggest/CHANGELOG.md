@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.47.0 (2021-09-15)
+
+
+### Features
+
+* **components/molecule/autosuggest:** Add new component InputWithClearUi ([91d29c5](https://github.com/SUI-Components/sui-components/commit/91d29c51b77802c2788bf67445ebd5345bf7621d))
+* **components/molecule/autosuggest:** Remove HOC withClearUI ([51d0d81](https://github.com/SUI-Components/sui-components/commit/51d0d8100f8b138c571d4bfc13fb5475f2165bfd))
+
+
+
 # 2.46.0 (2021-07-21)
 
 

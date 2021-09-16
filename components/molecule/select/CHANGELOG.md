@@ -1,5 +1,28 @@
 # CHANGELOG
 
+# 1.45.0 (2021-09-14)
+
+
+### Features
+
+* **components/molecule/select:** Avoid recreating a new props object ([7823e3d](https://github.com/SUI-Components/sui-components/commit/7823e3db95fd4a8a1cae508182ccad6f02a5ca13))
+
+
+
+# 1.44.0 (2021-09-14)
+
+
+### Bug Fixes
+
+* **components/molecule/select:** remove select border when molecule is focused ([5ed05bb](https://github.com/SUI-Components/sui-components/commit/5ed05bb3167c5a16e8af8c021f45c35d70dba30e))
+
+
+### Features
+
+* **components/molecule/select:** Remove HOC withSelectUI and create component MoleculeInputSelect ([1e03ca9](https://github.com/SUI-Components/sui-components/commit/1e03ca96c4d69c1470922ab16a97ab58b47c48b9))
+
+
+
 # 1.43.0 (2021-08-31)
 
 

@@ -17,7 +17,7 @@ $ npm install @s-ui/react-molecule-modal --save
 
 Those are the named exports enabled:
 - MoleculeModal
-- MoleculeModalWithUrlState
+- MoleculeModalWithURLState
 - MoleculeModalWithAnimation
 - MoleculeModalWithoutAnimation
 
@@ -82,7 +82,7 @@ return (<ModalWrapper />)
 
 ### Usage with url state
 ```js
-import {MoleculeModalWithUrlState} from '@s-ui/react-molecule-modal'
+import {MoleculeModalWithURLState} from '@s-ui/react-molecule-modal'
 
 const ContentWithCloseButton = ({children, onClose}) => (
   <div>
@@ -121,7 +121,7 @@ class ModalWrapper extends React.Component {
         <button type="button" onClick={this.openModal}>
           Open modal with url state
         </button>
-        <MoleculeModalWithUrlState
+        <MoleculeModalWithURLState
           isOpen={this.state.open}
           closeOnOutsideClick
           closeOnEscKeyDown
@@ -134,7 +134,7 @@ class ModalWrapper extends React.Component {
           <ContentWithCloseButton>
             <p>This is my modal content</p>
           </ContentWithCloseButton>
-        </MoleculeModalWithUrlState>
+        </MoleculeModalWithURLState>
       </div>
     )
   }

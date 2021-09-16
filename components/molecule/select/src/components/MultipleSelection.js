@@ -1,9 +1,6 @@
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
-
-import withSelectUI from '../hoc/withSelectUI'
-
-const MoleculeInputSelect = withSelectUI(MoleculeInputTags)
+import MoleculeInputSelect from './MoleculeInputSelect'
 
 const MoleculeSelectFieldMultiSelection = props => {
   /* eslint-disable react/prop-types */
@@ -78,7 +75,9 @@ const MoleculeSelectFieldMultiSelection = props => {
         size={selectSize}
         tabIndex={tabIndex}
         maxTags={maxTags}
-      />
+      >
+        <MoleculeInputTags />
+      </MoleculeInputSelect>
       <MoleculeDropdownList
         checkbox
         size={size}

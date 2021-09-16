@@ -2,8 +2,8 @@
 /* eslint no-console: 0 */
 import {useState} from 'react'
 import MoleculeModal from 'components/molecule/modal/src'
+import LoremIpsum from './LoremIpsum'
 import {IconClose} from './helperComponents'
-import Lorem from 'react-lorem-component'
 
 const ContentlessModal = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -32,7 +32,7 @@ const ContentlessModal = () => {
         fitContent
       >
         <MoleculeModal.Content>
-          <Lorem count={30} />
+          <LoremIpsum count={30} />
         </MoleculeModal.Content>
 
         <MoleculeModal.Footer>Footer</MoleculeModal.Footer>

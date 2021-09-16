@@ -30,6 +30,7 @@ const MoleculeInputField = ({
 }) => {
   const errorState = getErrorState({successText, errorText})
   const inputState = getState({successText, errorState, alertText})
+  const {disabled} = props
 
   return (
     <MoleculeField
@@ -41,6 +42,7 @@ const MoleculeInputField = ({
       helpText={helpText}
       autoHideHelpText={autoHideHelpText}
       inline={inline}
+      disabled={disabled}
       onChange={onChange}
       useContrastLabel={useContrastLabel}
       fullWidth={fullWidth}
@@ -81,6 +83,9 @@ MoleculeInputField.propTypes = {
 
   /** Boolean to decide if elements should be set inline */
   inline: PropTypes.bool,
+
+  /** Boolean to decide if the field is disabled or not */
+  disabled: PropTypes.bool,
 
   /** Boolean to decide if helptext should be auto hide */
   autoHideHelpText: PropTypes.bool,

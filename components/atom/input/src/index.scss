@@ -1,8 +1,8 @@
 @import '~@s-ui/theme/lib/index';
 
-@import './Input/Features/Addon/index';
-@import './Input/Features/Icon/index';
-@import './Input/Features/WithButton/index';
+@import './Input/HOC/withAddons/index';
+@import './Input/HOC/withIcons/index';
+@import './Input/HOC/withButton/index';
 
 @import './Password/index';
 

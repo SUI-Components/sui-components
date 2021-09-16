@@ -11,9 +11,9 @@ const TYPES = {
 
 const getClassName = ({type}) => cx(BASE_CLASS, `${BASE_CLASS}--${type}`)
 
-const AddonHoC = WrappedInput => {
-  const Addon = ({leftAddon, rightAddon, ...props}) =>
-    leftAddon || rightAddon ? (
+const withAddons = WrappedInput => {
+  const Addon = ({leftAddon, rightAddon, ...props}) => {
+    return leftAddon || rightAddon ? (
       <div className={CLASS_ADDON_WRAPPER}>
         {leftAddon && (
           <span className={getClassName({type: TYPES.LEFT})}>{leftAddon}</span>
@@ -28,6 +28,7 @@ const AddonHoC = WrappedInput => {
     ) : (
       <WrappedInput {...props} />
     )
+  }
 
   Addon.propTypes = {
     /* Left addon component, text,... */
@@ -39,4 +40,4 @@ const AddonHoC = WrappedInput => {
   return Addon
 }
 
-export default AddonHoC
+export default withAddons

@@ -9,7 +9,7 @@ const MaskInput = ({name, onChange, mask: maskOptions, ...props}) => {
   useEffect(() => () => mask && mask.destroy(), [mask])
 
   const handleChange = (ev, {value}) => {
-    onChange(ev, {value})
+    typeof onChange === 'function' && onChange(ev, {value})
   }
 
   const handleFocus = () => {
@@ -40,10 +40,6 @@ MaskInput.propTypes = {
   name: PropTypes.string,
   /* Event launched on every input change */
   onChange: PropTypes.func
-}
-
-MaskInput.defaultProps = {
-  onChange: () => {}
 }
 
 export default MaskInput

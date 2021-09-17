@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.38.0 (2021-09-17)
+
+
+### Bug Fixes
+
+* **components/molecule/modal:** fix MoleculeModalWithURLState fow undefined window object (test) ([505cd01](https://github.com/SUI-Components/sui-components/commit/505cd01bcc58a6b3329f4e34f5f340040ee0e6fc))
+
+
+
 # 1.37.0 (2021-09-07)
 
 

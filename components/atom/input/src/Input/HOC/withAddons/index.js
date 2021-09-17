@@ -1,26 +1,19 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 
-const BASE_CLASS = 'sui-AtomInput-addon'
-const CLASS_ADDON_WRAPPER = 'sui-AtomInput-addonWrapper'
-
-const TYPES = {
-  LEFT: 'left',
-  RIGHT: 'right'
-}
-
-const getClassName = ({type}) => cx(BASE_CLASS, `${BASE_CLASS}--${type}`)
+import {BASE_CLASS_ADDON_WRAPPER, ADDON_TYPES, getClassName} from './config'
 
 const withAddons = WrappedInput => {
   const Addon = ({leftAddon, rightAddon, ...props}) => {
     return leftAddon || rightAddon ? (
-      <div className={CLASS_ADDON_WRAPPER}>
+      <div className={BASE_CLASS_ADDON_WRAPPER}>
         {leftAddon && (
-          <span className={getClassName({type: TYPES.LEFT})}>{leftAddon}</span>
+          <span className={getClassName({type: ADDON_TYPES.LEFT})}>
+            {leftAddon}
+          </span>
         )}
         <WrappedInput {...props} />
         {rightAddon && (
-          <span className={getClassName({type: TYPES.RIGHT})}>
+          <span className={getClassName({type: ADDON_TYPES.RIGHT})}>
             {rightAddon}
           </span>
         )}

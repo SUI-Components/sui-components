@@ -46,7 +46,7 @@ const MoleculeModalWithURLState = forwardRef((props, ref) => {
     return () => window.removeEventListener('popstate', _handlePopState)
   }, [hash]) // eslint-disable-line
 
-  if (typeof window === 'undefined') return <BaseComponent {...props} />
+  if (typeof window === 'undefined') return <MoleculeModal {...props} />
 
   return <MoleculeModal ref={ref} {...rest} onClose={onClose} />
 })

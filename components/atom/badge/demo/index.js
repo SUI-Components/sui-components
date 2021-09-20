@@ -74,7 +74,7 @@ const Demo = () => {
             />
             <AtomBadge
               label="primary"
-              type={atomBadgeTypes.SECUNDARY}
+              type={atomBadgeTypes.SECONDARY}
               transparent
             />
           </div>

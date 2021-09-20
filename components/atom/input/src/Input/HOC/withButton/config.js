@@ -1,3 +1,3 @@
 import {BASE} from '../../../config'
 
-export const BASE_CLASS_BUTTON = `${BASE}--widthButton`
+export const BASE_CLASS_BUTTON = `${BASE}--withButton`

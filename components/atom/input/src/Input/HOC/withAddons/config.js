@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import {BASE} from '../../../config'
 
-export const BASE_CLASS_ADDON = `${BASE}--widthAddon`
+export const BASE_CLASS_ADDON = `${BASE}--withAddon`
 export const BASE_CLASS_ADDON_WRAPPER = `${BASE_CLASS_ADDON}Wrapper`
 export const ADDON_TYPES = {
   LEFT: 'left',

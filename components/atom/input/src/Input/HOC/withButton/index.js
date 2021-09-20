@@ -1,15 +1,14 @@
 import PropTypes from 'prop-types'
+import {BASE_CLASS_BUTTON} from './config'
 
-const BASE_CLASS = 'sui-AtomInput-withButton'
-
-const InlineFormHoc = WrappedInput => {
+const withButton = WrappedInput => {
   const Input = ({button, ...props}) => {
     return button ? (
-      <div className={BASE_CLASS}>
-        <div className={`${BASE_CLASS}-input`}>
+      <div className={BASE_CLASS_BUTTON}>
+        <div className={`${BASE_CLASS_BUTTON}-input`}>
           <WrappedInput {...props} />
         </div>
-        <div className={`${BASE_CLASS}-button`}>{button}</div>
+        <div className={`${BASE_CLASS_BUTTON}-button`}>{button}</div>
       </div>
     ) : (
       <WrappedInput {...props} />
@@ -23,4 +22,4 @@ const InlineFormHoc = WrappedInput => {
   return Input
 }
 
-export default InlineFormHoc
+export default withButton

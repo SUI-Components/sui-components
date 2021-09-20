@@ -3,17 +3,7 @@ import PropTypes from 'prop-types'
 import Input, {inputSizes, inputStates} from './Input'
 import Password from './Password'
 import Mask from './Mask'
-
-const TYPES = {
-  DATE: 'date',
-  MASK: 'mask',
-  NUMBER: 'number',
-  PASSWORD: 'password',
-  SUI_PASSWORD: 'sui-password',
-  TEXT: 'text',
-  TEL: 'tel',
-  EMAIL: 'email'
-}
+import {TYPES} from './config'
 
 const AtomInput = ({type, ...props}) => {
   switch (type) {

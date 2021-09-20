@@ -1,17 +1,19 @@
 import {useState} from 'react'
 import PropTypes from 'prop-types'
 import Input from '../Input'
+import {
+  BASE_CLASS_PASSWORD,
+  BASE_CLASS_PASSWORD_TOGGLE_BUTTON,
+  TEXT,
+  PASSWORD
+} from './config'
 
-const BASE_CLASS = 'sui-AtomInput'
-const CLASS_PASSWORD = `${BASE_CLASS}-password`
-const CLASS_PASSWORD_TOGGLE_BUTTON = `${CLASS_PASSWORD}--toggleButton`
-
-const TEXT = 'text'
-const PASSWORD = 'password'
-const HIDE_LABEL = 'hide'
-const SHOW_LABEL = 'show'
-
-const Password = ({onChange, pwShowLabel, pwHideLabel, ...props}) => {
+const Password = ({
+  onChange,
+  pwShowLabel = 'show',
+  pwHideLabel = 'hide',
+  ...props
+}) => {
   const [type, setType] = useState(PASSWORD)
   const [value, setValue] = useState('')
 
@@ -22,13 +24,13 @@ const Password = ({onChange, pwShowLabel, pwHideLabel, ...props}) => {
 
   const handleChange = (ev, {value}) => {
     setValue(value)
-    onChange(ev, {value})
+    typeof onChange === 'function' && onChange(ev, {value})
   }
 
   return (
-    <div className={CLASS_PASSWORD}>
+    <div className={BASE_CLASS_PASSWORD}>
       <Input {...props} onChange={handleChange} value={value} type={type} />
-      <div onClick={toggle} className={CLASS_PASSWORD_TOGGLE_BUTTON}>
+      <div onClick={toggle} className={BASE_CLASS_PASSWORD_TOGGLE_BUTTON}>
         {type === PASSWORD ? pwShowLabel : pwHideLabel}
       </div>
     </div>
@@ -46,12 +48,6 @@ Password.propTypes = {
   name: PropTypes.string,
   /* The id of the control */
   id: PropTypes.string
-}
-
-Password.defaultProps = {
-  pwShowLabel: SHOW_LABEL,
-  pwHideLabel: HIDE_LABEL,
-  onChange: () => {}
 }
 
 export default Password

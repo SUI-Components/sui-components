@@ -1,50 +1,6 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 
-const BASE_CLASS = 'sui-AtomInput-input'
-
-const SIZES = {
-  MEDIUM: 'm',
-  SMALL: 's',
-  XSMALL: 'xs'
-}
-
-const INPUT_STATES = {
-  ERROR: 'error',
-  SUCCESS: 'success',
-  ALERT: 'alert'
-}
-
-const DEFAULT_PROPS = {
-  SIZE: SIZES.MEDIUM,
-  ON_ENTER_KEY: 'Enter',
-  TAB_INDEX: -1,
-  ON_KEY_DOWN: () => {},
-  ON_ENTER: () => {},
-  ON_CHANGE: () => {}
-}
-
-const getClassNames = ({
-  size,
-  charsSize,
-  hideInput,
-  noBorder,
-  readOnly,
-  errorState,
-  state
-}) => {
-  return cx(
-    BASE_CLASS,
-    `${BASE_CLASS}-${size}`,
-    charsSize && `${BASE_CLASS}--size`,
-    hideInput && `${BASE_CLASS}--hidden`,
-    noBorder && `${BASE_CLASS}--noBorder`,
-    readOnly && `${BASE_CLASS}--readOnly`,
-    errorState && `${BASE_CLASS}--${INPUT_STATES.ERROR}`,
-    errorState === false && `${BASE_CLASS}--${INPUT_STATES.SUCCESS}`,
-    state && `${BASE_CLASS}--${state}`
-  )
-}
+import {SIZES, INPUT_STATES, noop, getClassNames} from '../../config'
 
 const Input = ({
   disabled,
@@ -57,13 +13,13 @@ const Input = ({
   onFocus,
   placeholder,
   reference,
-  size = DEFAULT_PROPS.SIZE,
+  size = SIZES.MEDIUM,
   errorState,
   state,
   type,
   value,
   charsSize,
-  tabIndex = DEFAULT_PROPS.TAB_INDEX,
+  tabIndex = -1,
   ariaLabel,
   maxLength,
   minLength,
@@ -73,10 +29,10 @@ const Input = ({
   step,
   autoComplete,
   autoFocus,
-  onChange = DEFAULT_PROPS.ON_CHANGE,
-  onEnter = DEFAULT_PROPS.ON_ENTER,
-  onEnterKey = DEFAULT_PROPS.ON_ENTER_KEY,
-  onKeyDown = DEFAULT_PROPS.ON_KEY_DOWN,
+  onChange = noop,
+  onEnter = noop,
+  onEnterKey = 'Enter',
+  onKeyDown = noop,
   required,
   pattern,
   inputMode

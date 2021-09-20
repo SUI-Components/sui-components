@@ -6,7 +6,7 @@ $c-atom-input-addon: $c-gray-light !default;
 $p-atom-input-addon-left: $p-l !default;
 $p-atom-input-addon-right: $p-l !default;
 
-.sui-AtomInput-addon {
+.sui-AtomInput--widthAddon {
   &Wrapper {
     display: flex;
   }

@@ -5,7 +5,7 @@ export const ICON_TYPES = {
   RIGHT: 'right'
 }
 
-export const BASE_CLASS_ICON = `${BASE}--widthIcon`
+export const BASE_CLASS_ICON = `${BASE}--withIcon`
 export const BASE_CLASS_ICON_LEFT = `${BASE_CLASS_ICON}--${ICON_TYPES.LEFT}`
 export const BASE_CLASS_ICON_RIGHT = `${BASE_CLASS_ICON}--${ICON_TYPES.RIGHT}`
 export const BASE_CLASS_ICON_COMPONENT = `${BASE_CLASS_ICON}-icon`

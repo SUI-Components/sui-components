@@ -40,6 +40,10 @@ $badges: (
   primary: (
     bgc: $c-primary,
     c: $c-white
+  ),
+  secondary: (
+    bgc: $c-secondary,
+    c: $c-white
   )
 ) !default;
 
@@ -50,7 +54,8 @@ $badge-transparent: (
   info: $c-gray,
   new: $c-accent,
   neutral: $c-gray-dark-3,
-  primary: $c-primary
+  primary: $c-primary,
+  secondary: $c-secondary
 ) !default;
 
 $badge-soft: (
@@ -81,6 +86,10 @@ $badge-soft: (
   primary: (
     bgc: $c-primary-light-5,
     c: $c-primary
+  ),
+  secondary: (
+    bgc: $c-primary-light-5,
+    c: $c-secondary
   )
 ) !default;
 

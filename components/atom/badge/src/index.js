@@ -16,7 +16,8 @@ const TYPES = {
   ALERT: 'alert',
   NEW: 'new',
   NEUTRAL: 'neutral',
-  PRIMARY: 'primary'
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary'
 }
 
 export const DESIGNS = {

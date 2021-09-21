@@ -1,99 +1,9 @@
 @import '~@s-ui/theme/lib/index';
 
-$bdrs-atom-badge: $bdrs-m !default;
-$c-atom-badge: $c-white !default;
-$fz-atom-badge-l: $fz-m !default;
-$fz-atom-badge-m: $fz-s !default;
-$fz-atom-badge-s: $fz-xs !default;
-$h-atom-badge-l: 24px !default;
-$h-atom-badge-s: 16px !default;
-$m-atom-badge-l: $m-m !default;
-$m-atom-badge-s: $m-s !default;
-$p-atom-badge: 0 $p-m !default;
-$ws-atom-badge: nowrap !default;
-
-$badges: (
-  success: (
-    bgc: $c-success,
-    c: $c-white
-  ),
-  error: (
-    bgc: $c-error,
-    c: $c-white
-  ),
-  alert: (
-    bgc: $c-alert,
-    c: $c-white
-  ),
-  info: (
-    bgc: $c-gray,
-    c: $c-white
-  ),
-  new: (
-    bgc: $c-accent,
-    c: $c-white
-  ),
-  neutral: (
-    bgc: $c-white,
-    c: $c-gray-dark-3
-  ),
-  primary: (
-    bgc: $c-primary,
-    c: $c-white
-  ),
-  secondary: (
-    bgc: $c-secondary,
-    c: $c-white
-  )
-) !default;
-
-$badge-transparent: (
-  success: $c-success,
-  error: $c-error,
-  alert: $c-alert,
-  info: $c-gray,
-  new: $c-accent,
-  neutral: $c-gray-dark-3,
-  primary: $c-primary,
-  secondary: $c-secondary
-) !default;
-
-$badge-soft: (
-  success: (
-    bgc: $c-success-light-4,
-    c: $c-success
-  ),
-  error: (
-    bgc: $c-error-light-4,
-    c: $c-error
-  ),
-  alert: (
-    bgc: $c-alert-light-4,
-    c: $c-alert
-  ),
-  info: (
-    bgc: $c-gray-light-4,
-    c: $c-gray
-  ),
-  new: (
-    bgc: $c-accent-light-4,
-    c: $c-accent
-  ),
-  neutral: (
-    bgc: $c-gray-light-4,
-    c: $c-gray
-  ),
-  primary: (
-    bgc: $c-primary-light-5,
-    c: $c-primary
-  ),
-  secondary: (
-    bgc: $c-primary-light-5,
-    c: $c-secondary
-  )
-) !default;
+@import './config';
 
 .sui-AtomBadge {
+  $this: &;
   align-items: center;
   background-color: transparent;
   border-radius: $bdrs-atom-badge;
@@ -109,21 +19,20 @@ $badge-soft: (
     margin-right: 0;
   }
 
-  &-small {
+  &#{$this}-size-small {
     font-size: $fz-atom-badge-s;
     line-height: $h-atom-badge-s;
     height: $h-atom-badge-s;
     padding: $p-atom-badge;
   }
-
-  &-medium {
+  &#{$this}-size-medium {
     font-size: $fz-atom-badge-m;
     line-height: $h-atom-badge-s;
     height: $h-atom-badge-s;
     padding: $p-atom-badge;
   }
 
-  &-large {
+  &#{$this}-size-large {
     font-size: $fz-atom-badge-l;
     line-height: $h-atom-badge-l;
     height: $h-atom-badge-l;
@@ -147,31 +56,27 @@ $badge-soft: (
     padding: 0;
   }
 
-  @each $type, $element in $badges {
-    $bgc: map-get($element, bgc);
-    $c: map-get($element, c);
+  @each $design-key, $design-value in (solid: $badges, soft: $badge-soft) {
+    &#{$this}-design-#{$design-key} {
+      @each $type, $element in $design-value {
+        $bgc: map-get($element, bgc);
+        $c: map-get($element, c);
 
-    &-#{$type} {
-      background-color: $bgc;
-      @if ($c != $c-atom-badge) {
-        color: $c;
+        &#{$this}-type-#{$type} {
+          background-color: $bgc;
+          @if ($c != $c-atom-badge) {
+            color: $c;
+          }
+
+          &#{$this}--isTransparent {
+            background-color: transparent;
+            color: $bgc;
+            @if ($c != $c-white) {
+              color: $c;
+            }
+          }
+        }
       }
-    }
-  }
-
-  @each $type, $element in $badge-transparent {
-    &-#{$type}--transparent {
-      color: $element;
-    }
-  }
-
-  @each $type, $element in $badge-soft {
-    $bgc: map-get($element, bgc);
-    $c: map-get($element, c);
-
-    &-#{$type}--soft {
-      background-color: $bgc;
-      color: $c;
     }
   }
 }

@@ -1,0 +1,138 @@
+@import '~@s-ui/theme/lib/utils/colors';
+
+$c-white: #ffffff;
+
+$c-demo-theblue: #2900d2;
+$c-demo-wiggins: #ffd684;
+$c-demo-sky: #bde2ea;
+$c-demo-surfer: #d2d2d2;
+$c-demo-kiwi: #e2eb78;
+$c-demo-lavender: #a69af7;
+$c-demo-sugarcotton: #ecb3c7;
+$c-demo-jungle: #91b495;
+$c-demo-night: #292350;
+$c-demo-chilli: #ff6d69;
+$c-demo-apple: #45b480;
+
+$c-demo-badge: (
+  'theblue': (
+    bgc: $c-demo-theblue,
+    c: $c-white
+  ),
+  'wiggins': (
+    bgc: $c-demo-wiggins,
+    c: $c-white
+  ),
+  'sky': (
+    bgc: $c-demo-sky,
+    c: $c-white
+  ),
+  'surfer': (
+    bgc: $c-demo-surfer,
+    c: $c-white
+  ),
+  'kiwi': (
+    bgc: $c-demo-kiwi,
+    c: $c-white
+  ),
+  'lavender': (
+    bgc: $c-demo-lavender,
+    c: $c-white
+  ),
+  'sugarcotton': (
+    bgc: $c-demo-sugarcotton,
+    c: $c-white
+  ),
+  'jungle': (
+    bgc: $c-demo-jungle,
+    c: $c-white
+  ),
+  'night': (
+    bgc: $c-demo-night,
+    c: $c-white
+  ),
+  'chilli': (
+    bgc: $c-demo-chilli,
+    c: $c-white
+  ),
+  'apple': (
+    bgc: $c-demo-apple,
+    c: $c-white
+  )
+) !default;
+
+$c-demo-badge-soft: (
+  'theblue': (
+    bgc: color-variation($c-demo-theblue, 4),
+    c: $c-demo-theblue
+  ),
+  'wiggins': (
+    bgc: color-variation($c-demo-wiggins, 4),
+    c: $c-demo-wiggins
+  ),
+  'sky': (
+    bgc: color-variation($c-demo-sky, 4),
+    c: $c-demo-sky
+  ),
+  'surfer': (
+    bgc: color-variation($c-demo-surfer, 4),
+    c: $c-demo-surfer
+  ),
+  'kiwi': (
+    bgc: color-variation($c-demo-kiwi, 4),
+    c: $c-demo-kiwi
+  ),
+  'lavender': (
+    bgc: color-variation($c-demo-lavender, 4),
+    c: $c-demo-lavender
+  ),
+  'sugarcotton': (
+    bgc: color-variation($c-demo-sugarcotton, 4),
+    c: $c-demo-sugarcotton
+  ),
+  'jungle': (
+    bgc: color-variation($c-demo-jungle, 4),
+    c: $c-demo-jungle
+  ),
+  'night': (
+    bgc: color-variation($c-demo-night, 4),
+    c: $c-demo-night
+  ),
+  'chilli': (
+    bgc: color-variation($c-demo-chilli, 4),
+    c: $c-demo-chilli
+  ),
+  'apple': (
+    bgc: color-variation($c-demo-apple, 4),
+    c: $c-demo-apple
+  )
+) !default;
+
+.sui-AtomBadge {
+  $this: &;
+  @each $design-key,
+    $design-value in (solid: $c-demo-badge, soft: $c-demo-badge-soft)
+  {
+    &#{$this}-design-#{$design-key} {
+      @each $type, $element in $design-value {
+        $bgc: map-get($element, bgc);
+        $c: map-get($element, c);
+
+        &#{$this}-type-#{$type} {
+          background-color: $bgc;
+          @if ($c != $c-white) {
+            color: $c;
+          }
+
+          &#{$this}--isTransparent {
+            background-color: transparent;
+            color: $bgc;
+            @if ($c != $c-white) {
+              color: $c;
+            }
+          }
+        }
+      }
+    }
+  }
+}

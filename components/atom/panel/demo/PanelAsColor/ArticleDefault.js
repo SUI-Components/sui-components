@@ -5,7 +5,6 @@ import AtomPanel from '@s-ui/react-atom-panel'
 import {flexWrapper} from '../config'
 
 const ArticleDefault = ({className}) => {
-  console.log(atomPanelAlpha)
   return (
     <Article className={className}>
       <H2>Default</H2>

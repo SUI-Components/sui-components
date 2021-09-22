@@ -29,6 +29,7 @@ $ta-sui-molecule-tabs-vertical-item: center !default;
 $w-sui-molecule-tabs-vertical-item: 100% !default;
 $ws-sui-molecule-tabs-vertical-item: nowrap !default;
 $sz-sui-molecule-tabs-icon: $sz-icon-l !default;
+$sst-sui-molecule-tabs: x mandatory !default;
 
 .sui-MoleculeTabs {
   &-scroller {
@@ -283,6 +284,14 @@ $sz-sui-molecule-tabs-icon: $sz-icon-l !default;
       svg {
         fill: $c-sui-molecule-tabs-disabled;
       }
+    }
+  }
+
+  &-snap {
+    scroll-snap-type: $sst-sui-molecule-tabs;
+
+    & > li {
+      scroll-snap-align: start;
     }
   }
 }

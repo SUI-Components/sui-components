@@ -53,7 +53,8 @@ export const getClassNames = function({
   iconRight,
   size,
   transparent: isTransparent,
-  type
+  type,
+  isFitted
 }) {
   return cx(
     BASE_CLASS,
@@ -62,6 +63,7 @@ export const getClassNames = function({
     `${BASE_CLASS}-design-${design}`,
     {
       [`${BASE_CLASS}--isTransparent`]: isTransparent,
+      [`${BASE_CLASS}--isFitted`]: isFitted,
       [CLASS_ICON_RIGHT]: iconRight
     }
   )

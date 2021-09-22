@@ -52,8 +52,8 @@
     }
   }
 
-  &[class$='--transparent'] {
-    padding: 0;
+  &#{$this}--isFitted {
+    margin: 0;
   }
 
   @each $design-key, $design-value in (solid: $badges, soft: $badge-soft) {
@@ -71,6 +71,7 @@
           &#{$this}--isTransparent {
             background-color: transparent;
             color: $bgc;
+            padding: 0;
             @if ($c != $c-white) {
               color: $c;
             }

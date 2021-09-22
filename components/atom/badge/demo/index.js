@@ -6,6 +6,7 @@ import ArticleDesign from './ArticleDesign'
 import ArticleSizes from './ArticleSizes'
 import ArticleContent from './ArticleContent'
 import ArticleDarkMode from './ArticleDarkMode'
+import ArticleIsFitted from './ArticleIsFitted'
 
 const BASE_CLASS_DEMO = `DemoAtomBadge`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
@@ -30,6 +31,8 @@ const Demo = () => {
         <ArticleContent className={CLASS_SECTION} />
         <br />
         <ArticleDarkMode className={CLASS_SECTION} />
+        <br />
+        <ArticleIsFitted className={CLASS_SECTION} />
       </div>
     </div>
   )

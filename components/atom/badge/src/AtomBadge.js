@@ -20,6 +20,7 @@ const AtomBadge = ({
   size = SIZES.SMALL,
   type = TYPES.SUCCESS,
   design = DESIGNS.SOLID,
+  isFitted = false,
   ...props
 }) => {
   const truncatedLabel = truncateText(label)
@@ -30,6 +31,7 @@ const AtomBadge = ({
     size,
     type,
     design,
+    isFitted,
     ...props
   })
 
@@ -64,6 +66,9 @@ AtomBadge.propTypes = {
 
   /** Icon to the right (left by default) */
   iconRight: PropTypes.bool,
+
+  /** element becomes border-margin-padding-less */
+  isFitted: PropTypes.nool,
 
   /** Whether show a background color */
   transparent: PropTypes.bool,

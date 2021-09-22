@@ -74,13 +74,6 @@ const ArticleDesign = ({className}) => {
             />
           </Cell>
           <Cell>
-            <AtomBadge
-              design={atomBadgeDesigns.SOLID}
-              label="secondary"
-              type={atomBadgeTypes.SECONDARY}
-            />
-          </Cell>
-          <Cell>
             <Label>Soft</Label>
           </Cell>
           <Cell>
@@ -130,13 +123,6 @@ const ArticleDesign = ({className}) => {
               design={atomBadgeDesigns.SOFT}
               label="primary"
               type={atomBadgeTypes.PRIMARY}
-            />
-          </Cell>
-          <Cell>
-            <AtomBadge
-              design={atomBadgeDesigns.SOFT}
-              label="secondary"
-              type={atomBadgeTypes.SECONDARY}
             />
           </Cell>
         </Grid>

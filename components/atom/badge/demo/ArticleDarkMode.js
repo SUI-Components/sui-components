@@ -21,7 +21,6 @@ const ArticleDarkMode = ({className}) => {
         <AtomBadge label="new" type={atomBadgeTypes.NEW} />
         <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} />
         <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} />
-        <AtomBadge label="secondary" type={atomBadgeTypes.SECONDARY} />
       </div>
       <Paragraph>___</Paragraph>
       <div>
@@ -32,11 +31,6 @@ const ArticleDarkMode = ({className}) => {
         <AtomBadge label="new" type={atomBadgeTypes.NEW} transparent />
         <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} transparent />
         <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} transparent />
-        <AtomBadge
-          label="secondary"
-          type={atomBadgeTypes.SECONDARY}
-          transparent
-        />
       </div>
       <Paragraph>___</Paragraph>
       <div>
@@ -73,11 +67,6 @@ const ArticleDarkMode = ({className}) => {
         <AtomBadge
           label="primary"
           type={atomBadgeTypes.PRIMARY}
-          design={atomBadgeDesigns.SOFT}
-        />
-        <AtomBadge
-          label="secondary"
-          type={atomBadgeTypes.SECONDARY}
           design={atomBadgeDesigns.SOFT}
         />
       </div>

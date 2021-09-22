@@ -19,7 +19,6 @@ const ArticleType = ({className}) => {
         <AtomBadge label="new" type={atomBadgeTypes.NEW} />
         <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} />
         <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} />
-        <AtomBadge label="secondary" type={atomBadgeTypes.SECONDARY} />
       </div>
       <Paragraph>___</Paragraph>
       <div>
@@ -33,11 +32,6 @@ const ArticleType = ({className}) => {
         <AtomBadge label="new" type={atomBadgeTypes.NEW} transparent />
         <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} transparent />
         <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} transparent />
-        <AtomBadge
-          label="primary"
-          type={atomBadgeTypes.SECONDARY}
-          transparent
-        />
       </div>
     </Article>
   )

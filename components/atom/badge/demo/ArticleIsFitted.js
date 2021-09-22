@@ -21,7 +21,6 @@ const ArticleIsFitted = ({className}) => {
         <AtomBadge label="new" type={atomBadgeTypes.NEW} isFitted />
         <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} isFitted />
         <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} isFitted />
-        <AtomBadge label="secondary" type={atomBadgeTypes.SECONDARY} isFitted />
       </div>
     </Article>
   )

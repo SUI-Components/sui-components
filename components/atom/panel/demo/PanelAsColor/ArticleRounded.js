@@ -32,7 +32,7 @@ const ArticleRounded = ({className}) => {
   )
 }
 
-ArticleRounded.protoTypes = {
+ArticleRounded.propTypes = {
   className: PropTypes.string
 }
 

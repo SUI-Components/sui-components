@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import {Article, H2, Paragraph} from '@s-ui/documentation-library'
 import AtomPanel from '@s-ui/react-atom-panel'
-import atomPanelRounded from '../../src'
+import {atomPanelRounded} from '../../src'
 
 const ArticleRounded = ({className}) => {
   return (

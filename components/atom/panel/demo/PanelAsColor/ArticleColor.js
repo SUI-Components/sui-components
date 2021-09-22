@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {Article, H2, Paragraph} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
 import {atomPanelColors} from '../../src'
 import AtomPanel from '@s-ui/react-atom-panel'
 
@@ -7,7 +7,10 @@ const ArticleColor = ({className}) => {
   return (
     <Article className={className}>
       <H2>Color</H2>
-      <Paragraph>Structure - Color.</Paragraph>
+      <Paragraph>
+        {' '}
+        These are the available <Code>colors</Code>
+      </Paragraph>
       <div
         style={{
           backgroundColor: 'white',

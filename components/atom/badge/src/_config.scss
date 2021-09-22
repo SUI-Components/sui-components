@@ -1,0 +1,85 @@
+$bdrs-atom-badge: $bdrs-m !default;
+$c-atom-badge: $c-white !default;
+$fz-atom-badge-l: $fz-m !default;
+$fz-atom-badge-m: $fz-s !default;
+$fz-atom-badge-s: $fz-xs !default;
+$h-atom-badge-l: 24px !default;
+$h-atom-badge-s: 16px !default;
+$m-atom-badge-l: $m-m !default;
+$m-atom-badge-s: $m-s !default;
+$p-atom-badge: 0 $p-m !default;
+$ws-atom-badge: nowrap !default;
+
+$sizes-atom-badge: ('small', 'medium', 'large');
+
+$badges: (
+  success: (
+    bgc: $c-success,
+    c: $c-white
+  ),
+  error: (
+    bgc: $c-error,
+    c: $c-white
+  ),
+  alert: (
+    bgc: $c-alert,
+    c: $c-white
+  ),
+  info: (
+    bgc: $c-gray,
+    c: $c-white
+  ),
+  new: (
+    bgc: $c-accent,
+    c: $c-white
+  ),
+  neutral: (
+    bgc: $c-white,
+    c: $c-gray-dark-3
+  ),
+  primary: (
+    bgc: $c-primary,
+    c: $c-white
+  )
+) !default;
+
+$badge-transparent: (
+  success: $c-success,
+  error: $c-error,
+  alert: $c-alert,
+  info: $c-gray,
+  new: $c-accent,
+  neutral: $c-gray-dark-3,
+  primary: $c-primary
+) !default;
+
+$badge-soft: (
+  success: (
+    bgc: $c-success-light-4,
+    c: $c-success
+  ),
+  error: (
+    bgc: $c-error-light-4,
+    c: $c-error
+  ),
+  alert: (
+    bgc: $c-alert-light-4,
+    c: $c-alert
+  ),
+  info: (
+    bgc: $c-gray-light-4,
+    c: $c-gray
+  ),
+  new: (
+    bgc: $c-accent-light-4,
+    c: $c-accent
+  ),
+  neutral: (
+    bgc: $c-gray-light-4,
+    c: $c-gray
+  ),
+  primary: (
+    bgc: $c-primary-light-5,
+    c: $c-primary
+  )
+) !default;

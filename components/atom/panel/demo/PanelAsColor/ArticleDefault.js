@@ -7,8 +7,8 @@ import {flexWrapper} from '../config'
 const ArticleDefault = ({className}) => {
   return (
     <Article className={className}>
-      <H2>Default</H2>
-      <Paragraph>Default style of Panel Component.</Paragraph>
+      <H2>Alpha</H2>
+      <Paragraph>Alpha style of Panel Component.</Paragraph>
       <div
         style={Object.assign({}, flexWrapper, {
           background: 'white url(https://picsum.photos/1000/800)'

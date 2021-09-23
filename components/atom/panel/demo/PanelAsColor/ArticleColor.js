@@ -9,7 +9,7 @@ const ArticleColor = ({className}) => {
       <H2>Color</H2>
       <Paragraph>
         {' '}
-        These are the available <Code>colors</Code>
+        These are the options for the prop <Code>color</Code>{' '}
       </Paragraph>
       <div
         style={{

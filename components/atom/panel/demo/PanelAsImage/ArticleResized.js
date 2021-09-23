@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {Article, H2, Paragraph} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
 import AtomPanel from '@s-ui/react-atom-panel'
 import {flexWrapper, flexItem} from '../config'
 
@@ -7,7 +7,10 @@ const ArticleResized = ({className}) => {
   return (
     <Article className={className}>
       <H2>Resized</H2>
-      <Paragraph>Structure - Resized.</Paragraph>
+      <Paragraph>
+        {' '}
+        The prop <Code>resized</Code> is a boolean
+      </Paragraph>
       <div style={flexWrapper}>
         <div style={flexItem}>
           <div>

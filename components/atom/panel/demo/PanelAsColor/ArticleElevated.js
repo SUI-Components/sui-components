@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {Article, H2, Paragraph} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
 import {atomPanelElevation} from '../../src'
 import AtomPanel from '@s-ui/react-atom-panel'
 
@@ -7,7 +7,10 @@ const ArticleElevated = ({className}) => {
   return (
     <Article className={className}>
       <H2>Elevated</H2>
-      <Paragraph>Structure - Elevated.</Paragraph>
+      <Paragraph>
+        {' '}
+        These are the options for the prop <Code>elevation</Code>{' '}
+      </Paragraph>
       <div
         style={{
           backgroundColor: 'white',

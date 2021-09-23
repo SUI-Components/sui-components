@@ -1,4 +1,4 @@
-import ArticleDefault from './PanelAsColor/ArticleDefault'
+import ArticleAlpha from './PanelAsColor/ArticleAlpha'
 import ArticleColor from './PanelAsColor/ArticleColor'
 import ArticleRounded from './PanelAsColor/ArticleRounded'
 import ArticleElevated from './PanelAsColor/ArticleElevated'
@@ -24,7 +24,7 @@ export default () => {
           Just a background for your component, can be a color or an image with
           background/overlay
         </Paragraph>
-        <ArticleDefault className={CLASS_SECTION} />
+        <ArticleAlpha className={CLASS_SECTION} />
         <br />
         <ArticleColor className={CLASS_SECTION} />
         <br />

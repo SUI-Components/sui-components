@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {Article, H2, Paragraph} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
 import AtomPanel from '@s-ui/react-atom-panel'
 import {atomPanelRounded} from '../../src'
 
@@ -7,7 +7,10 @@ const ArticleRounded = ({className}) => {
   return (
     <Article className={className}>
       <H2>Rounded</H2>
-      <Paragraph>Structure - Rounded.</Paragraph>
+      <Paragraph>
+        {' '}
+        These are the options for the prop <Code>rounded</Code>
+      </Paragraph>
       <div
         style={{
           backgroundColor: 'white',

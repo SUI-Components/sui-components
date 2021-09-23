@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {Article, H2, Paragraph} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
 import AtomPanel from '@s-ui/react-atom-panel'
 import {atomPanelColors, atomPanelAlpha} from '../../src'
 import {flexWrapper, flexItem} from '../config'
@@ -8,7 +8,10 @@ const ArticleOverlay = ({className}) => {
   return (
     <Article className={className}>
       <H2>Overlay</H2>
-      <Paragraph>Structure - Overlay.</Paragraph>
+      <Paragraph>
+        {' '}
+        These are the options for the prop <Code>horizontalAlign</Code>{' '}
+      </Paragraph>
       <div>
         {Object.keys(atomPanelColors).map((color, idx) => (
           <div style={flexWrapper} key={idx}>

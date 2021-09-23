@@ -4,7 +4,7 @@ import {atomPanelAlpha, atomPanelColors} from '../../src'
 import AtomPanel from '@s-ui/react-atom-panel'
 import {flexWrapper} from '../config'
 
-const ArticleDefault = ({className}) => {
+const ArticleAlpha = ({className}) => {
   return (
     <Article className={className}>
       <H2>Alpha</H2>
@@ -33,8 +33,8 @@ const ArticleDefault = ({className}) => {
   )
 }
 
-ArticleDefault.propTypes = {
+ArticleAlpha.propTypes = {
   className: PropTypes.string
 }
 
-export default ArticleDefault
+export default ArticleAlpha

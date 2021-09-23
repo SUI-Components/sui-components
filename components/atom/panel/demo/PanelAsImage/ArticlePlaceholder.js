@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {Article, H2, Paragraph} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
 import AtomPanel from '@s-ui/react-atom-panel'
 import {atomPanelColors} from '../../src'
 
@@ -7,7 +7,10 @@ const ArticlePlaceholder = ({className}) => {
   return (
     <Article className={className}>
       <H2>Placeholder</H2>
-      <Paragraph>Structure - Placeholder.</Paragraph>
+      <Paragraph>
+        {' '}
+        This is the structure for the <Code>placeholder</Code>
+      </Paragraph>
       <div style={{backgroundColor: 'white'}}>
         <div style={{width: '200px', margin: 'auto'}}>
           <AtomPanel

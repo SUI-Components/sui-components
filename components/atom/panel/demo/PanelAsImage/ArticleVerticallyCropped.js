@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {Article, H2, Paragraph} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
 import AtomPanel from '@s-ui/react-atom-panel'
 import {flexItem} from '../config'
 import atomPanelVerticalAlign from '../../src'
@@ -8,7 +8,10 @@ const ArticleVerticallyCropped = ({className}) => {
   return (
     <Article className={className}>
       <H2>Vertically Cropped</H2>
-      <Paragraph>Structure - Vertically Cropped.</Paragraph>
+      <Paragraph>
+        {' '}
+        These are the options for the prop <Code>verticalAlign</Code>
+      </Paragraph>
       <div
         style={{
           background: 'white',

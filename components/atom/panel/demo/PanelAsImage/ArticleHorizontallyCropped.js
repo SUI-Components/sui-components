@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {Article, H2, Paragraph} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
 import AtomPanel from '@s-ui/react-atom-panel'
 import {flexWrapper, flexItem} from '../config'
 import atomPanelHorizontalAlign from '../../src'
@@ -8,7 +8,10 @@ const ArticleHorizontallyCropped = ({className}) => {
   return (
     <Article className={className}>
       <H2>Horizontally Cropped</H2>
-      <Paragraph>Structure - Horizontally Cropped.</Paragraph>
+      <Paragraph>
+        {' '}
+        These are the options for the prop <Code>horizontalAlign</Code>{' '}
+      </Paragraph>
       <div style={flexWrapper}>
         <div style={flexItem}>
           <div>

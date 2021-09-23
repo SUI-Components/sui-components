@@ -6,21 +6,15 @@ import {
   BASE_CLASS,
   CLASS_CONTENT,
   CLASS_SCROLLER,
-  CLASS_SNAP,
   TYPES,
   VARIANTS
 } from '../config'
 
-const MoleculeTabs = ({variant, type, children, onChange, snap}) => {
+const MoleculeTabs = ({variant, type, children, onChange}) => {
   const CLASS_VARIANT = `${BASE_CLASS}--${variant}`
   const CLASS_TYPE = `${BASE_CLASS}--${type}`
 
   const className = cx(BASE_CLASS, CLASS_VARIANT, CLASS_TYPE)
-
-  const classScroller = cx(CLASS_SCROLLER, {
-    [CLASS_SNAP]: snap
-  })
-
   const childrenArray = Children.toArray(children)
 
   const extendedChildren = childrenArray
@@ -42,7 +36,7 @@ const MoleculeTabs = ({variant, type, children, onChange, snap}) => {
 
   return (
     <div className={className}>
-      <ul className={classScroller}>{extendedChildren}</ul>
+      <ul className={CLASS_SCROLLER}>{extendedChildren}</ul>
       {activeTabContent ? (
         <div className={CLASS_CONTENT}>{activeTabContent}</div>
       ) : null}
@@ -63,10 +57,7 @@ MoleculeTabs.propTypes = {
   variant: PropTypes.oneOf(Object.values(VARIANTS)),
 
   /** type */
-  type: PropTypes.oneOf(Object.values(TYPES)),
-
-  /** scroll snap */
-  snap: PropTypes.bool
+  type: PropTypes.oneOf(Object.values(TYPES))
 }
 
 MoleculeTabs.defaultProps = {

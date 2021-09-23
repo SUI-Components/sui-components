@@ -140,17 +140,6 @@ const Demo = () => {
           </MoleculeTabs>
         </div>
 
-        <h3>Scroll snapping</h3>
-        <div className={CLASS_DEMO_SECTION}>
-          <MoleculeTabs snap>
-            {Object.values(configBasic).map(({content, ...props}, index) => (
-              <MoleculeTab key={index} numTab={index + 1} {...props}>
-                {content}
-              </MoleculeTab>
-            ))}
-          </MoleculeTabs>
-        </div>
-
         <h2>Static</h2>
 
         <h3>Basic</h3>

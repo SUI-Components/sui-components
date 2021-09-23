@@ -30,6 +30,7 @@ $w-sui-molecule-tabs-vertical-item: 100% !default;
 $ws-sui-molecule-tabs-vertical-item: nowrap !default;
 $sz-sui-molecule-tabs-icon: $sz-icon-l !default;
 $sst-sui-molecule-tabs: x mandatory !default;
+$ssa-sui-molecule-tabs: start !default;
 
 .sui-MoleculeTabs {
   &-scroller {
@@ -39,6 +40,7 @@ $sst-sui-molecule-tabs: x mandatory !default;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
+    scroll-snap-type: $sst-sui-molecule-tabs;
   }
 
   &--classic.sui-MoleculeTabs--horizontal,
@@ -246,6 +248,7 @@ $sst-sui-molecule-tabs: x mandatory !default;
     text-decoration: none;
     white-space: nowrap;
     width: 100%;
+    scroll-snap-align: $ssa-sui-molecule-tabs;
 
     &:first-of-type {
       margin: $m-sui-molecule-tabs-first-item;
@@ -284,14 +287,6 @@ $sst-sui-molecule-tabs: x mandatory !default;
       svg {
         fill: $c-sui-molecule-tabs-disabled;
       }
-    }
-  }
-
-  &-snap {
-    scroll-snap-type: $sst-sui-molecule-tabs;
-
-    & > li {
-      scroll-snap-align: start;
     }
   }
 }

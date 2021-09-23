@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-tabs",
-  "version": "2.24.0",
+  "version": "2.25.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

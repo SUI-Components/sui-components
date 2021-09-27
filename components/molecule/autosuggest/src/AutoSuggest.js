@@ -9,7 +9,6 @@ import {inputTypes} from '@s-ui/react-atom-input'
 import MoleculeAutosuggestSingleSelection from './components/SingleSelection'
 import MoleculeAutosuggestMultipleSelection from './components/MultipleSelection'
 
-import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 import {getTarget} from '@s-ui/js/lib/react'
 import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 
@@ -51,7 +50,7 @@ const MoleculeAutosuggest = ({
     refMoleculeAutosuggestFromProps
   )
 
-  const [isOpenState, setOpenState] = useControlledState(isOpen, undefined)
+  const [isOpenState, setOpenState] = useState(isOpen)
 
   const refsMoleculeAutosuggestOptions = useRef([])
   const innerRefMoleculeAutosuggestInput = useRef()
@@ -63,10 +62,7 @@ const MoleculeAutosuggest = ({
   const [focus, setFocus] = useState(false)
 
   const handleToggle = (event, {isOpen}) => {
-    setOpenState(
-      isOpen === undefined ? !isOpenState : !!isOpen,
-      isOpen !== undefined
-    )
+    setOpenState(isOpen === undefined ? !isOpenState : !!isOpen)
     typeof onToggle === 'function' && onToggle(event, {isOpen})
   }
 

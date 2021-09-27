@@ -1,7 +1,7 @@
 import {useEffect} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import {useNearScreen} from '@s-ui/react-hooks/lib/useOnScreen'
+import {useOnScreen} from '@s-ui/react-hooks'
 
 const BASE_CLASS = `sui-MoleculeTabs`
 
@@ -22,7 +22,7 @@ const MoleculeTab = ({
   label,
   numTab
 }) => {
-  const [isIntersecting, outerRef] = useNearScreen({offset: '0px'})
+  const [isIntersecting, outerRef] = useOnScreen()
 
   const handleChange = ev => {
     !disabled && onChange(ev, {numTab})

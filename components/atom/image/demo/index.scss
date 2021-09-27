@@ -1,6 +1,8 @@
 @import '~@s-ui/react-atom-spinner/lib/index';
 @import '~@s-ui/react-atom-icon/lib/index';
 
+@import '../src/index';
+
 .DemoAtomImage {
   &-section {
     .placeholder-demo,

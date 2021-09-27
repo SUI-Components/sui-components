@@ -1,5 +1,7 @@
+import {useEffect} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+import {useNearScreen} from '@s-ui/react-hooks/lib/useOnScreen'
 
 const BASE_CLASS = `sui-MoleculeTabs`
 
@@ -20,16 +22,28 @@ const MoleculeTab = ({
   label,
   numTab
 }) => {
+  const [isIntersecting, outerRef] = useNearScreen({offset: '0px'})
+
   const handleChange = ev => {
     !disabled && onChange(ev, {numTab})
   }
+
+  useEffect(() => {
+    if (active && isIntersecting) {
+      outerRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'start'
+      })
+    }
+  }, [active, outerRef, isIntersecting])
 
   const className = cx(CLASS_TAB, {
     [CLASS_TAB_ACTIVE]: active,
     [CLASS_TAB_DISABLED]: disabled
   })
   return (
-    <li className={className} onClick={handleChange}>
+    <li className={className} onClick={handleChange} ref={outerRef}>
       {icon && <span className={CLASS_TAB_ICON}>{icon}</span>}
       {!isNaN(count) && <span className={CLASS_TAB_COUNT}>{count}</span>}
       <span>{label}</span>

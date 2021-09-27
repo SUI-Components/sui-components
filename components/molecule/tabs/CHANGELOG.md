@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.25.0 (2021-09-23)
+
+
+### Features
+
+* **components/molecule/tabs:** Add scroll snap default behavior ([b880b67](https://github.com/SUI-Components/sui-components/commit/b880b679fe54bbecc70fdcdb5b5741b16f240809))
+* **components/molecule/tabs:** Add scroll snap option ([5fe4a03](https://github.com/SUI-Components/sui-components/commit/5fe4a034b725167a79c01cd988b3e1da27e713a8))
+
+
+
 # 2.24.0 (2021-09-14)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.2.0 (2021-09-23)
+
+
+### Bug Fixes
+
+* **components/molecule/drawer:** Fix drawer's overlay z-index ([debdca0](https://github.com/SUI-Components/sui-components/commit/debdca01304127c5bda52e69956e9096a2ec418b))
+
+
+
 # 3.1.0 (2021-08-02)
 
 

@@ -78,9 +78,9 @@ const writeThemesInDemoFolders = async themes => {
             writeFile(
               `${demoPath}/themes/${theme}.scss`,
               `@import 'themes/${theme}';
-        ${hasDemoStyles ? `@import '../index.scss';` : ''}
-        @import 'components/${category}/${component}/src/index.scss';
-        `
+${hasDemoStyles ? `@import '../index.scss';` : ''}
+@import 'components/${category}/${component}/src/index.scss';
+`
             )
           )
         )

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.5.0 (2021-09-20)
+
+
+### Bug Fixes
+
+* **components/atom/input:** fix class name ([84fe49a](https://github.com/SUI-Components/sui-components/commit/84fe49adf645c553445cbc3c91bd9997a799d2f6))
+
+
+
 # 5.4.0 (2021-09-16)
 
 

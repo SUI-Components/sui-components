@@ -63,7 +63,6 @@ const MoleculeAutosuggest = ({
   const [focus, setFocus] = useState(false)
 
   const handleToggle = (event, {isOpen}) => {
-    console.log('handleToggle')
     setOpenState(
       isOpen === undefined ? !isOpenState : !!isOpen,
       isOpen !== undefined

@@ -9,9 +9,9 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/hoc": "1",
     "@s-ui/js": "2",
     "@s-ui/react-atom-input": "4",
+    "@s-ui/react-hooks": "1",
     "@s-ui/react-molecule-dropdown-list": "1",
     "@s-ui/react-molecule-input-tags": "2",
     "lodash.isequal": "4.5"

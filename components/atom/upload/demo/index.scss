@@ -1,5 +1,7 @@
 @import '~@s-ui/react-atom-spinner/lib/index';
 
+@import '../src/index';
+
 .DemoAtomUpload {
   &-section {
     border: $bdw-s solid blue;

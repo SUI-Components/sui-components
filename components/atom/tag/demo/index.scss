@@ -1,5 +1,7 @@
 @import '~@s-ui/react-atom-icon/lib/index';
 
+@import '../src/index';
+
 $atom-tag-types: (
   'alert': (
     bgc: red,

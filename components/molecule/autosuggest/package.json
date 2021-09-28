@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-autosuggest",
-  "version": "2.47.0",
+  "version": "2.48.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

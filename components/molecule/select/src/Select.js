@@ -44,7 +44,7 @@ const MoleculeSelect = props => {
   const refsMoleculeSelectOptions = useRef([])
 
   const [isOpenState, setIsOpenState] = useState(isOpen)
-  useEffect(() => setIsOpenState(isOpen), [isOpen])
+  useEffect(() => setIsOpenState(isOpen), [isOpen, setIsOpenState])
 
   const [optionsData, setOptionsData] = useState(getOptionData(children))
   const [focus, setFocus] = useState(false)

@@ -1,4 +1,11 @@
-import {Children, createRef, cloneElement, useRef, useState} from 'react'
+import {
+  Children,
+  createRef,
+  cloneElement,
+  useRef,
+  useState,
+  useEffect
+} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -51,6 +58,9 @@ const MoleculeAutosuggest = ({
   )
 
   const [isOpenState, setOpenState] = useState(isOpen)
+  useEffect(() => {
+    setOpenState(isOpen)
+  }, [isOpen, setOpenState])
 
   const refsMoleculeAutosuggestOptions = useRef([])
   const innerRefMoleculeAutosuggestInput = useRef()

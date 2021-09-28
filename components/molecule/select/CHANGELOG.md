@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.46.0 (2021-09-28)
+
+
+### Features
+
+* **components/molecule/select:** remmove withOpenToggle HoC ([7ac7099](https://github.com/SUI-Components/sui-components/commit/7ac7099d10a6d2bc12f9bfb161fd66a1ffbadb9b))
+
+
+
 # 1.45.0 (2021-09-14)
 
 

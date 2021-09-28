@@ -9,7 +9,6 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/hoc": "1",
     "@s-ui/js": "2",
     "@s-ui/react-atom-input": "4",
     "@s-ui/react-molecule-dropdown-list": "1",

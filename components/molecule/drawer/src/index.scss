@@ -26,6 +26,8 @@
     z-index: $z-molecule-drawer;
     position: absolute;
     background-color: $bgc-molecule-drawer;
+    display: block;
+
     &--animationDuration {
       transition-property: transform;
       transition-timing-function: linear;

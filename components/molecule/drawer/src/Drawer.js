@@ -70,7 +70,7 @@ const MoleculeDrawer = forwardRef(
         )}
         ref={forwardedRef}
       >
-        <div className="react-MoleculeDrawer-content-body">{children}</div>
+        {children}
       </div>
     )
   }

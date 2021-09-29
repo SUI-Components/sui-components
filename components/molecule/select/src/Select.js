@@ -74,7 +74,7 @@ const MoleculeSelect = props => {
 
   const closeList = useCallback(
     (ev, {isOutsideEvent = false}) => {
-      handleToggle(ev, {isOpen: false})
+      setIsOpenState(false)
       if (!isOutsideEvent) {
         ev.preventDefault()
         ev.stopPropagation()

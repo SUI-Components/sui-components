@@ -74,7 +74,7 @@ const MoleculeSelect = props => {
 
   const closeList = useCallback(
     (ev, {isOutsideEvent = false}) => {
-      handleToggle(ev, {isOpen: false})
+      setIsOpenState(false)
       if (!isOutsideEvent) {
         ev.preventDefault()
         ev.stopPropagation()
@@ -128,7 +128,7 @@ const MoleculeSelect = props => {
     const domSourceEvent = ev.target
     const domMoleculeSelect = refMoleculeSelect.current
     if (!isOpenState && isEnabledKey) {
-      domSourceEvent === domMoleculeSelect && handleToggle(ev)
+      domSourceEvent === domMoleculeSelect && setIsOpenState(!isOpenState)
       setTimeout(() => focusFirstOption(ev))
     } else if (ev.key === 'Escape') {
       closeList(ev, {isOutsideEvent: true})

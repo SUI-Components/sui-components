@@ -9,6 +9,7 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
+    "@s-ui/react-hooks": "1",
     "imask": "3.4.0"
   },
   "peerDependencies": {

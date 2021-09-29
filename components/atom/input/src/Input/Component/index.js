@@ -1,100 +1,107 @@
+import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import {SIZES, INPUT_STATES, noop, getClassNames} from '../../config'
 
-const Input = ({
-  disabled,
-  readOnly,
-  hideInput,
-  noBorder,
-  id,
-  name,
-  onBlur,
-  onFocus,
-  placeholder,
-  reference,
-  size = SIZES.MEDIUM,
-  errorState,
-  state,
-  type,
-  value,
-  charsSize,
-  tabIndex = -1,
-  ariaLabel,
-  maxLength,
-  minLength,
-  defaultValue,
-  min,
-  max,
-  step,
-  autoComplete,
-  autoFocus,
-  onChange = noop,
-  onEnter = noop,
-  onEnterKey = 'Enter',
-  onKeyDown = noop,
-  required,
-  pattern,
-  inputMode
-}) => {
-  const changeHandler = ev => {
-    const {
-      target: {value, name}
-    } = ev
-    onChange(ev, {value, name})
+const Input = forwardRef(
+  (
+    {
+      disabled,
+      readOnly,
+      hideInput,
+      noBorder,
+      id,
+      name,
+      onBlur,
+      onFocus,
+      placeholder,
+      reference,
+      size = SIZES.MEDIUM,
+      errorState,
+      state,
+      type,
+      value,
+      charsSize,
+      tabIndex = -1,
+      ariaLabel,
+      maxLength,
+      minLength,
+      defaultValue,
+      min,
+      max,
+      step,
+      autoComplete,
+      autoFocus,
+      onChange = noop,
+      onEnter = noop,
+      onEnterKey = 'Enter',
+      onKeyDown = noop,
+      required,
+      pattern,
+      inputMode
+    },
+    forwardedRef
+  ) => {
+    const changeHandler = ev => {
+      const {
+        target: {value, name}
+      } = ev
+      onChange(ev, {value, name})
+    }
+
+    const handleKeyDown = ev => {
+      const {
+        target: {value, name}
+      } = ev
+      const {key} = ev
+      onKeyDown(ev, {value, name})
+      if (key === onEnterKey) onEnter(ev, {value, name})
+    }
+
+    const className = getClassNames({
+      size,
+      charsSize,
+      hideInput,
+      noBorder,
+      readOnly,
+      errorState,
+      state
+    })
+
+    return (
+      <input
+        className={className}
+        tabIndex={tabIndex}
+        aria-label={ariaLabel}
+        disabled={disabled}
+        readOnly={readOnly}
+        id={id}
+        name={name}
+        onChange={changeHandler}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        onKeyDown={handleKeyDown}
+        placeholder={placeholder}
+        ref={useMergeRefs(...[reference, forwardedRef].filter(Boolean))}
+        type={type}
+        value={value}
+        size={charsSize}
+        defaultValue={defaultValue}
+        maxLength={maxLength}
+        minLength={minLength}
+        max={max}
+        min={min}
+        step={step}
+        autoComplete={autoComplete}
+        autoFocus={autoFocus}
+        required={required}
+        pattern={pattern}
+        inputMode={inputMode}
+      />
+    )
   }
-
-  const handleKeyDown = ev => {
-    const {
-      target: {value, name}
-    } = ev
-    const {key} = ev
-    onKeyDown(ev, {value, name})
-    if (key === onEnterKey) onEnter(ev, {value, name})
-  }
-
-  const className = getClassNames({
-    size,
-    charsSize,
-    hideInput,
-    noBorder,
-    readOnly,
-    errorState,
-    state
-  })
-
-  return (
-    <input
-      className={className}
-      tabIndex={tabIndex}
-      aria-label={ariaLabel}
-      disabled={disabled}
-      readOnly={readOnly}
-      id={id}
-      name={name}
-      onChange={changeHandler}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      onKeyDown={handleKeyDown}
-      placeholder={placeholder}
-      ref={reference}
-      type={type}
-      value={value}
-      size={charsSize}
-      defaultValue={defaultValue}
-      maxLength={maxLength}
-      minLength={minLength}
-      max={max}
-      min={min}
-      step={step}
-      autoComplete={autoComplete}
-      autoFocus={autoFocus}
-      required={required}
-      pattern={pattern}
-      inputMode={inputMode}
-    />
-  )
-}
+)
 
 Input.propTypes = {
   /* This Boolean attribute prevents the user from interacting with the input */

@@ -1,5 +1,25 @@
 # CHANGELOG
 
+# 2.48.0 (2021-09-28)
+
+
+### Bug Fixes
+
+* **components/molecule/autosuggest:** isOpen controlled update ([ac05957](https://github.com/SUI-Components/sui-components/commit/ac059570ff5785956da64d26816165dc981ac588))
+* **components/molecule/autosuggest:** remove console.log ([b341282](https://github.com/SUI-Components/sui-components/commit/b341282e2e7ba5d219344073207d0a37fb1d0d8a))
+
+
+### Features
+
+* **components/molecule/autosuggest:** remove withOpenToogle HoC ([9270627](https://github.com/SUI-Components/sui-components/commit/9270627fb46cd76be39144605a626d166900ebe9))
+
+
+### Performance Improvements
+
+* **components/molecule/autosuggest:** remove unnecessary hook ([3a9511a](https://github.com/SUI-Components/sui-components/commit/3a9511a77ffc48f51679233a8f9f02e27e7ec2fc))
+
+
+
 # 2.47.0 (2021-09-15)
 
 

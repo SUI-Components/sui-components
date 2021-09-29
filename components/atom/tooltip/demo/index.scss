@@ -1,5 +1,6 @@
 @import '~@s-ui/theme/lib/index';
-@import 'components/atom/tooltip/src/index';
+
+@import '../src/index';
 
 .DemoTooltip {
   padding: $p-l;

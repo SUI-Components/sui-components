@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.10.0 (2021-09-27)
+
+
+### Bug Fixes
+
+* **components/molecule/avatar:** fix avatar demo styles ([9121117](https://github.com/SUI-Components/sui-components/commit/9121117c765bde719c546de84b9822a7f38bed8c))
+
+
+
 # 1.9.0 (2021-08-24)
 
 

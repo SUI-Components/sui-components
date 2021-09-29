@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-tabs",
-  "version": "2.25.0",
+  "version": "2.26.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "1",
+    "@s-ui/react-hooks": "1"
   },
   "keywords": [],
   "author": "",

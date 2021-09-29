@@ -1,5 +1,24 @@
 # CHANGELOG
 
+# 1.47.0 (2021-09-29)
+
+
+### Bug Fixes
+
+* **components/molecule/select:** close with no handler ([12fa9d1](https://github.com/SUI-Components/sui-components/commit/12fa9d1313636b7499694871efbdfd8b085372d4))
+* **components/molecule/select:** fix select handler ([15f1dd2](https://github.com/SUI-Components/sui-components/commit/15f1dd26e335020b149859afd0db529dd7d75f4c))
+
+
+
+# 1.46.0 (2021-09-28)
+
+
+### Features
+
+* **components/molecule/select:** remmove withOpenToggle HoC ([7ac7099](https://github.com/SUI-Components/sui-components/commit/7ac7099d10a6d2bc12f9bfb161fd66a1ffbadb9b))
+
+
+
 # 1.45.0 (2021-09-14)
 
 

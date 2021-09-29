@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.26.0 (2021-09-27)
+
+
+### Features
+
+* **components/molecule/tabs:** Add scroll into active tab ([47bac38](https://github.com/SUI-Components/sui-components/commit/47bac38f8861b2cbf6212a1d5bd848391adbe841))
+* **components/molecule/tabs:** Replace useNearScreen with useOnScreen ([1ae6fde](https://github.com/SUI-Components/sui-components/commit/1ae6fdee65eb4f74181b05e66f9948d84f7d99af))
+
+
+
 # 2.25.0 (2021-09-23)
 
 

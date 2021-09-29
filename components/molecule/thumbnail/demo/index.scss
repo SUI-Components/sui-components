@@ -1,5 +1,7 @@
 @import '~@s-ui/react-atom-spinner/lib/index';
 
+@import '../src/index';
+
 .DemoMoleculeThumbnail {
   padding: 20px;
 
@@ -12,5 +14,4 @@
     vertical-align: top;
     text-align: center;
   }
-
 }

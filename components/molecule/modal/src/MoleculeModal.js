@@ -23,6 +23,7 @@ const MoleculeModal = forwardRef(
       children,
       closeOnEscKeyDown = false,
       closeOnOutsideClick = false,
+      disablePageScroll = false,
       enableContentScroll = false,
       fitContent = false,
       floatingIconClose = false,
@@ -60,9 +61,12 @@ const MoleculeModal = forwardRef(
       ev => {
         ev && ev.stopPropagation()
         toggleWindowScroll(false)
+
+        if (disablePageScroll) document.body.style.overflow = 'auto'
+
         onClose()
       },
-      [onClose]
+      [disablePageScroll, onClose]
     )
 
     const onKeyDown = useCallback(
@@ -75,6 +79,10 @@ const MoleculeModal = forwardRef(
       },
       [isOpen, closeOnEscKeyDown, closeModal]
     )
+
+    useEffect(() => {
+      if (isOpen && disablePageScroll) document.body.style.overflow = 'hidden'
+    }, [isOpen, disablePageScroll])
 
     useEffect(() => {
       if (usePortal) setIsClientReady(true)
@@ -184,7 +192,11 @@ MoleculeModal.propTypes = {
    */
   children: PropTypes.node,
   /**
-   * true to prevent scroll
+   * true to prevent scroll body
+   */
+  disablePageScroll: PropTypes.node,
+  /**
+   * true to prevent scroll in content
    */
   enableContentScroll: PropTypes.bool,
   /**

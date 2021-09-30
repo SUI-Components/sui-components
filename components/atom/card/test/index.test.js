@@ -46,6 +46,19 @@ describe('atom/card', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
+  it('should NOT extend classNames', () => {
+    // Given
+    const props = {content: noop, className: 'extended-classNames'}
+    const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+
+    // When
+    const {container} = setup(props)
+    const findClassName = findSentence(props.className)
+
+    // Then
+    expect(findClassName(container.innerHTML)).to.be.null
+  })
+
   it('should have link class when having onClick', () => {
     const props = {
       onClick: () => console.log('Hello!'), // eslint-disable-line no-console

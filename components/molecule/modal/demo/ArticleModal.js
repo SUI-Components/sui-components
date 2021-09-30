@@ -79,7 +79,7 @@ const PROPS = {
 const ArticleModal = ({className}) => {
   const [open, setOpen] = useState(false)
   const [mode, setMode] = useState(Object.keys(PROPS)[0])
-  const [disablePageScroll, setDisablePageScroll] = useState(false)
+  const [isPageScrollable, setIsPageScrollable] = useState(false)
   const [enableContentScroll, setEnableContentScroll] = useState(false)
   const [withoutIdentation, setWithoutIdentation] = useState(false)
 
@@ -101,8 +101,8 @@ const ArticleModal = ({className}) => {
     setWithoutIdentation(value === undefined ? open : value)
   }
 
-  const onChangeDisablePageScrollHandler = (_, value) => {
-    setDisablePageScroll(value === undefined ? open : value)
+  const onChangeisPageScrollableHandler = (_, value) => {
+    setIsPageScrollable(value === undefined ? open : value)
   }
 
   const onCloseHandler = () => {
@@ -192,27 +192,27 @@ const ArticleModal = ({className}) => {
         </Cell>
       </Grid>
       <Paragraph>
-        <Code>disablePageScroll</Code> is a boolean prop which removes the
-        scroll of the body.
+        <Code>isPageScrollable</Code> is a boolean prop that if false removes
+        the scroll of the body.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
-          <Label>disablePageScroll</Label>
+          <Label>isPageScrollable</Label>
         </Cell>
         <Cell>
           <RadioButtonGroup
-            value={disablePageScroll}
-            onChange={onChangeDisablePageScrollHandler}
+            value={isPageScrollable}
+            onChange={onChangeisPageScrollableHandler}
           >
             <RadioButton
               value
               label="true"
-              checked={disablePageScroll === true}
+              checked={isPageScrollable === true}
             />
             <RadioButton
               value={false}
               label="false"
-              checked={disablePageScroll === false}
+              checked={isPageScrollable === false}
             />
           </RadioButtonGroup>
         </Cell>
@@ -250,7 +250,7 @@ const ArticleModal = ({className}) => {
         {...PROPS[mode]}
         enableContentScroll={enableContentScroll}
         withoutIndentation={withoutIdentation}
-        disablePageScroll={disablePageScroll}
+        isPageScrollable={isPageScrollable}
         children={PROPS[mode].children(PropsSelector)}
       />
     </Article>

@@ -62,7 +62,7 @@ const MoleculeModal = forwardRef(
         ev && ev.stopPropagation()
         toggleWindowScroll(false)
 
-        if (isPageScrollable) document.body.style.overflow = 'auto'
+        if (!isPageScrollable) document.body.style.overflow = 'auto'
 
         onClose()
       },
@@ -81,7 +81,7 @@ const MoleculeModal = forwardRef(
     )
 
     useEffect(() => {
-      if (isOpen && isPageScrollable) document.body.style.overflow = 'hidden'
+      if (isOpen && !isPageScrollable) document.body.style.overflow = 'hidden'
     }, [isOpen, isPageScrollable])
 
     useEffect(() => {

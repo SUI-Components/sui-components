@@ -45,6 +45,9 @@ const MoleculeModal = forwardRef(
     const wrapperRef = useRef()
     const ref = useMergeRefs(wrapperRef, forwardedRef)
 
+    const blockScrollPage = () => (document.body.style.overflow = 'hidden')
+    const enableScrollPage = () => (document.body.style.overflow = 'auto')
+
     const [isClientReady, setIsClientReady] = useState(false)
 
     const getContainer = () => {
@@ -62,7 +65,7 @@ const MoleculeModal = forwardRef(
         ev && ev.stopPropagation()
         toggleWindowScroll(false)
 
-        if (!isPageScrollable) document.body.style.overflow = 'auto'
+        if (!isPageScrollable) enableScrollPage()
 
         onClose()
       },
@@ -81,7 +84,10 @@ const MoleculeModal = forwardRef(
     )
 
     useEffect(() => {
-      if (isOpen && !isPageScrollable) document.body.style.overflow = 'hidden'
+      if (isOpen && !isPageScrollable) blockScrollPage()
+      else if (!isOpen && !isPageScrollable) enableScrollPage()
+
+      if (!isPageScrollable) return () => enableScrollPage()
     }, [isOpen, isPageScrollable])
 
     useEffect(() => {

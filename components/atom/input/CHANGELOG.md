@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.6.0 (2021-09-29)
+
+
+### Features
+
+* **components/atom/input:** remove HoC ([7c20d78](https://github.com/SUI-Components/sui-components/commit/7c20d78ef74649c4df61f4a0c38a7d6861fd7712))
+
+
+
 # 5.5.0 (2021-09-20)
 
 

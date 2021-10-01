@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 3.3.0 (2021-09-29)
+
+
+### Features
+
+* **components/molecule/drawer:** Allow Drawer content to grow vertically in order to fill the space ([49665b3](https://github.com/SUI-Components/sui-components/commit/49665b36e07a5a2cd82d597252fefa42e2ca9c0e))
+* **components/molecule/drawer:** Remove unnecesary content body ([d25ebeb](https://github.com/SUI-Components/sui-components/commit/d25ebebb42976ff571fb1c79f31889269711a3b1))
+
+
+
 # 3.2.0 (2021-09-23)
 
 

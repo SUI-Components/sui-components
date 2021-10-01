@@ -21,7 +21,6 @@ import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 
 import {
   BASE_CLASS,
-  CLASS_FOCUS,
   CLASS_DISABLED,
   AUTOSUGGEST_STATES,
   CLOSE_KEYS_LIST,
@@ -92,7 +91,6 @@ const MoleculeAutosuggest = ({
     errorState === false && `${BASE_CLASS}--${AUTOSUGGEST_STATES.SUCCESS}`,
     state && `${BASE_CLASS}--${state}`,
     {
-      [CLASS_FOCUS]: focus,
       [CLASS_DISABLED]: disabled
     }
   )

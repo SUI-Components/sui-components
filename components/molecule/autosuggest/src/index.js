@@ -14,7 +14,6 @@ import {getTarget} from '@s-ui/js/lib/react'
 import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 
 const BASE_CLASS = `sui-MoleculeAutosuggest`
-const CLASS_FOCUS = `${BASE_CLASS}--focus`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 
 const AUTOSUGGEST_STATES = {
@@ -88,7 +87,6 @@ const MoleculeAutosuggest = ({
     errorState === false && `${BASE_CLASS}--${AUTOSUGGEST_STATES.SUCCESS}`,
     state && `${BASE_CLASS}--${state}`,
     {
-      [CLASS_FOCUS]: focus,
       [CLASS_DISABLED]: disabled
     }
   )

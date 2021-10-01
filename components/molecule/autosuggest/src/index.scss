@@ -27,14 +27,6 @@ $bdw-autosuggest-container: $bdw-s !default;
     display: none;
   }
 
-  &--focus {
-    #{$class-input} {
-      &-container {
-        @extend %sui-molecule-autosuggest-focus;
-      }
-    }
-  }
-
   &--disabled {
     #{$class-input}-container {
       #{$base-class-atom-input}--withTags {

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.40.0 (2021-10-04)
+
+
+### Bug Fixes
+
+* **components/molecule/modal:** fix scroll ([9f58ff4](https://github.com/SUI-Components/sui-components/commit/9f58ff449d2fb5bd5d67f25426484dfc39a95c11))
+
+
+
 # 1.39.0 (2021-10-01)
 
 

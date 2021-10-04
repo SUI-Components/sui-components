@@ -32,9 +32,10 @@ const ArticleDefault = ({className}) => {
     Object.values(ONCLOSING_CALLBACKS)
   )
 
-  const onChangeHandler = (_, value) => {
-    setOpen(value === undefined ? open : value)
+  const onChangeHandler = () => {
+    setOpen(!open)
   }
+
   const onChangeClosingHandler = (event, value) => {
     const label = event.target.innerHTML
     if (value === undefined && onClosingFns.length > 1) {
@@ -80,17 +81,7 @@ const ArticleDefault = ({className}) => {
       <Paragraph>
         It can be controlled using the <Code>isOpen</Code> boolean prop.
       </Paragraph>
-      <Grid cols={1} gutter={[8, 8]}>
-        <Cell>
-          <Label>isOpen</Label>
-        </Cell>
-        <Cell>
-          <RadioButtonGroup value={open} onChange={onChangeHandler}>
-            <RadioButton value label="true" checked={open === true} />
-            <RadioButton value={false} label="false" checked={open === false} />
-          </RadioButtonGroup>
-        </Cell>
-      </Grid>
+      <Button onClick={onChangeHandler}>Open modal</Button>
       <Paragraph>
         Use <Code>onClose</Code> handler to toggle its value.
       </Paragraph>

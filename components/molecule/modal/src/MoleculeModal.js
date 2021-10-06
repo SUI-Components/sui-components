@@ -23,6 +23,7 @@ const MoleculeModal = forwardRef(
       children,
       closeOnEscKeyDown = false,
       closeOnOutsideClick = false,
+      isPageScrollable = true,
       enableContentScroll = false,
       fitContent = false,
       floatingIconClose = false,
@@ -44,6 +45,9 @@ const MoleculeModal = forwardRef(
     const wrapperRef = useRef()
     const ref = useMergeRefs(wrapperRef, forwardedRef)
 
+    const blockScrollPage = () => (document.body.style.overflow = 'hidden')
+    const enableScrollPage = () => (document.body.style.overflow = 'auto')
+
     const [isClientReady, setIsClientReady] = useState(false)
 
     const getContainer = () => {
@@ -60,9 +64,12 @@ const MoleculeModal = forwardRef(
       ev => {
         ev && ev.stopPropagation()
         toggleWindowScroll(false)
+
+        if (!isPageScrollable) enableScrollPage()
+
         onClose()
       },
-      [onClose]
+      [isPageScrollable, onClose]
     )
 
     const onKeyDown = useCallback(
@@ -75,6 +82,13 @@ const MoleculeModal = forwardRef(
       },
       [isOpen, closeOnEscKeyDown, closeModal]
     )
+
+    useEffect(() => {
+      if (isOpen && !isPageScrollable) blockScrollPage()
+      else if (!isOpen && !isPageScrollable) enableScrollPage()
+
+      if (!isPageScrollable) return () => enableScrollPage()
+    }, [isOpen, isPageScrollable])
 
     useEffect(() => {
       if (usePortal) setIsClientReady(true)
@@ -184,7 +198,11 @@ MoleculeModal.propTypes = {
    */
   children: PropTypes.node,
   /**
-   * true to prevent scroll
+   * false to prevent scroll body
+   */
+  isPageScrollable: PropTypes.node,
+  /**
+   * true to prevent scroll in content
    */
   enableContentScroll: PropTypes.bool,
   /**

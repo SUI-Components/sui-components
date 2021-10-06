@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-atom-skeleton",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Display the loading state of a component while avoding layout shift",
   "main": "lib/index.js",
   "scripts": {

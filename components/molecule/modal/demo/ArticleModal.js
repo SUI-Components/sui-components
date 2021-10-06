@@ -79,6 +79,7 @@ const PROPS = {
 const ArticleModal = ({className}) => {
   const [open, setOpen] = useState(false)
   const [mode, setMode] = useState(Object.keys(PROPS)[0])
+  const [isPageScrollable, setIsPageScrollable] = useState(false)
   const [enableContentScroll, setEnableContentScroll] = useState(false)
   const [withoutIdentation, setWithoutIdentation] = useState(false)
 
@@ -98,6 +99,10 @@ const ArticleModal = ({className}) => {
 
   const onChangeWithoutIdentationHandler = (_, value) => {
     setWithoutIdentation(value === undefined ? open : value)
+  }
+
+  const onChangeisPageScrollableHandler = (_, value) => {
+    setIsPageScrollable(value === undefined ? open : value)
   }
 
   const onCloseHandler = () => {
@@ -186,6 +191,32 @@ const ArticleModal = ({className}) => {
           </RadioButtonGroup>
         </Cell>
       </Grid>
+      <Paragraph>
+        <Code>isPageScrollable</Code> is a boolean prop that if false removes
+        the scroll of the body.
+      </Paragraph>
+      <Grid cols={1} gutter={[8, 8]}>
+        <Cell>
+          <Label>isPageScrollable</Label>
+        </Cell>
+        <Cell>
+          <RadioButtonGroup
+            value={isPageScrollable}
+            onChange={onChangeisPageScrollableHandler}
+          >
+            <RadioButton
+              value
+              label="true"
+              checked={isPageScrollable === true}
+            />
+            <RadioButton
+              value={false}
+              label="false"
+              checked={isPageScrollable === false}
+            />
+          </RadioButtonGroup>
+        </Cell>
+      </Grid>
     </>
   )
 
@@ -219,6 +250,7 @@ const ArticleModal = ({className}) => {
         {...PROPS[mode]}
         enableContentScroll={enableContentScroll}
         withoutIndentation={withoutIdentation}
+        isPageScrollable={isPageScrollable}
         children={PROPS[mode].children(PropsSelector)}
       />
     </Article>

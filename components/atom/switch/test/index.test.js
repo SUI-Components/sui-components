@@ -47,6 +47,23 @@ describe('atom/switch', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
+  it('should NOT extend classNames', () => {
+    // Given
+    const props = {
+      className: 'extended-classNames',
+      name: 'name',
+      label: 'label'
+    }
+    const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+
+    // When
+    const {container} = setup(props)
+    const findClassName = findSentence(props.className)
+
+    // Then
+    expect(findClassName(container.innerHTML)).to.be.null
+  })
+
   it('should render single type with left label', () => {
     // Given
     const props = {label: 'label', name: 'name', type: 'single'}

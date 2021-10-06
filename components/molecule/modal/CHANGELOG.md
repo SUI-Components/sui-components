@@ -1,5 +1,25 @@
 # CHANGELOG
 
+# 1.40.0 (2021-10-04)
+
+
+### Bug Fixes
+
+* **components/molecule/modal:** fix scroll ([9f58ff4](https://github.com/SUI-Components/sui-components/commit/9f58ff449d2fb5bd5d67f25426484dfc39a95c11))
+
+
+
+# 1.39.0 (2021-10-01)
+
+
+### Features
+
+* **components/molecule/modal:** add disablePageScroll ([9546b3e](https://github.com/SUI-Components/sui-components/commit/9546b3e753ca4b8123bca6947280324ab4778735))
+* **components/molecule/modal:** change name prop ([54261b1](https://github.com/SUI-Components/sui-components/commit/54261b15b0f8d307caadd85353e771c5302f5727))
+* **components/molecule/modal:** cond ([a5c1f11](https://github.com/SUI-Components/sui-components/commit/a5c1f110c672479ccfd618748d8fdd1399ad010e))
+
+
+
 # 1.38.0 (2021-09-17)
 
 

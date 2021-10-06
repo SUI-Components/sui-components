@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.49.0 (2021-10-06)
+
+
+### Bug Fixes
+
+* **components/molecule/autosuggest:** remove focus javascript logic and styles, in favor of input fo ([75249b1](https://github.com/SUI-Components/sui-components/commit/75249b19643e9a62b172091bea4adfe177387b1b))
+* **components/molecule/autosuggest:** we dont need autosuggest focus class, in favor of sui input ([b2a6e6c](https://github.com/SUI-Components/sui-components/commit/b2a6e6c4531e89b98c1390c5e3a55e4a277ff439))
+
+
+
 # 2.48.0 (2021-09-28)
 
 

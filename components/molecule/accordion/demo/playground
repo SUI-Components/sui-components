@@ -20,6 +20,14 @@ function GetIcon () {
   )
 }
 
+function GetIconCustomTitle () {
+  return  (
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 8 8">
+        <path d="M4 0c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm-1.5 1.78l1.5 1.5 1.5-1.5.72.72-1.5 1.5 1.5 1.5-.72.72-1.5-1.5-1.5 1.5-.72-.72 1.5-1.5-1.5-1.5.72-.72z" />
+      </svg>
+  )
+}
+
 function Demo ({children}) {
 return <div style={{width: '100%', padding: 20}}>{children}</div>
 }
@@ -127,6 +135,22 @@ return (
               <p style={{margin:0}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dictum magna non diam euismod blandit et eu ex. Vivamus pulvinar sodales tincidunt. Proin venenatis tristique quam, quis vehicula eros volutpat sed. Etiam sed tristique ante. Aenean commodo erat quis pulvinar luctus. Pellentesque ultricies lorem vitae ante euismod, at imperdiet est euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In dignissim porttitor sem, a varius nisl ullamcorper ut. Vivamus lacinia, quam eu placerat tempus, velit massa vulputate turpis, sit amet bibendum risus massa sit amet urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent finibus lobortis blandit. Vivamus scelerisque blandit purus a suscipit. Nunc mi elit, condimentum eget pulvinar eu, lacinia vitae ligula. Sed sit amet eros auctor ipsum tincidunt hendrerit ac mollis justo. Ut ac sagittis ipsum.</p>
             </div>
             <div label='Title 4'>
+              <p style={{margin:0}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dictum magna non diam euismod blandit et eu ex. Vivamus pulvinar sodales tincidunt. Proin venenatis tristique quam, quis vehicula eros volutpat sed. Etiam sed tristique ante. Aenean commodo erat quis pulvinar luctus. Pellentesque ultricies lorem vitae ante euismod, at imperdiet est euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In dignissim porttitor sem, a varius nisl ullamcorper ut. Vivamus lacinia, quam eu placerat tempus, velit massa vulputate turpis, sit amet bibendum risus massa sit amet urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent finibus lobortis blandit. Vivamus scelerisque blandit purus a suscipit. Nunc mi elit, condimentum eget pulvinar eu, lacinia vitae ligula. Sed sit amet eros auctor ipsum tincidunt hendrerit ac mollis justo. Ut ac sagittis ipsum.</p>
+            </div>
+          </MoleculeAccordion>
+        </div>
+      </Demo>
+      <Demo>
+        <h2>Accordion with custom components as titles</h2>
+        <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16, textAlign: 'left'}}>
+          <MoleculeAccordion withGap={true} maxHeight={100} withAutoClose={true} withTransition={true} icon={GetIcon()} withMultilineLabel>
+            <div customTitle={() => <h3 style={{margin: 0}}>H3 Title</h3>}>
+              <p style={{margin:0}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dictum magna non diam euismod blandit et eu ex. Vivamus pulvinar sodales tincidunt. Proin venenatis tristique quam, quis vehicula eros volutpat sed. Etiam sed tristique ante. Aenean commodo erat quis pulvinar luctus. Pellentesque ultricies lorem vitae ante euismod, at imperdiet est euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In dignissim porttitor sem, a varius nisl ullamcorper ut. Vivamus lacinia, quam eu placerat tempus, velit massa vulputate turpis, sit amet bibendum risus massa sit amet urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent finibus lobortis blandit. Vivamus scelerisque blandit purus a suscipit. Nunc mi elit, condimentum eget pulvinar eu, lacinia vitae ligula. Sed sit amet eros auctor ipsum tincidunt hendrerit ac mollis justo. Ut ac sagittis ipsum.</p>
+            </div>
+            <div customTitle={() => <h4 style={{margin: 0}}>H4 Title</h4>}>
+              <p style={{margin:0}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dictum magna non diam euismod blandit et eu ex. Vivamus pulvinar sodales tincidunt. Proin venenatis tristique quam, quis vehicula eros volutpat sed. Etiam sed tristique ante. Aenean commodo erat quis pulvinar luctus. Pellentesque ultricies lorem vitae ante euismod, at imperdiet est euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In dignissim porttitor sem, a varius nisl ullamcorper ut. Vivamus lacinia, quam eu placerat tempus, velit massa vulputate turpis, sit amet bibendum risus massa sit amet urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent finibus lobortis blandit. Vivamus scelerisque blandit purus a suscipit. Nunc mi elit, condimentum eget pulvinar eu, lacinia vitae ligula. Sed sit amet eros auctor ipsum tincidunt hendrerit ac mollis justo. Ut ac sagittis ipsum.</p>
+            </div>
+            <div customTitle={() => <><GetIconCustomTitle /><span style={{marginLeft: '8px'}}>Title with Icon and Button</span><button style={{marginLeft: '8px'}}>Button</button></>}>
               <p style={{margin:0}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dictum magna non diam euismod blandit et eu ex. Vivamus pulvinar sodales tincidunt. Proin venenatis tristique quam, quis vehicula eros volutpat sed. Etiam sed tristique ante. Aenean commodo erat quis pulvinar luctus. Pellentesque ultricies lorem vitae ante euismod, at imperdiet est euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In dignissim porttitor sem, a varius nisl ullamcorper ut. Vivamus lacinia, quam eu placerat tempus, velit massa vulputate turpis, sit amet bibendum risus massa sit amet urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent finibus lobortis blandit. Vivamus scelerisque blandit purus a suscipit. Nunc mi elit, condimentum eget pulvinar eu, lacinia vitae ligula. Sed sit amet eros auctor ipsum tincidunt hendrerit ac mollis justo. Ut ac sagittis ipsum.</p>
             </div>
           </MoleculeAccordion>

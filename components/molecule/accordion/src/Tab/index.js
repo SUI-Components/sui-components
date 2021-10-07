@@ -20,6 +20,7 @@ const Tab = ({
   maxHeight,
   onToggle,
   title,
+  customTitle: CustomTitleComponent,
   withScrollVisible,
   withTransition,
   withGap,
@@ -49,7 +50,13 @@ const Tab = ({
       <div className={containerClassName}>
         <button type="button" className={BUTTON_CLASS} onClick={onToggle}>
           <span className={BUTTON_CONTENT_CLASS} tabIndex="-1">
-            <span className={BUTTON_TITLE_CLASS}>{title}</span>
+            {CustomTitleComponent ? (
+              <div className={BUTTON_TITLE_CLASS}>
+                <CustomTitleComponent />
+              </div>
+            ) : (
+              <span className={BUTTON_TITLE_CLASS}>{title}</span>
+            )}
             <span className={iconClassName}>{icon}</span>
           </span>
         </button>
@@ -87,6 +94,10 @@ Tab.propTypes = {
    * Title tab
    */
   title: PropTypes.string.isRequired,
+  /**
+   * Custom component to use as title
+   */
+  customTitle: PropTypes.node,
   /**
    * Force scroll visible
    */

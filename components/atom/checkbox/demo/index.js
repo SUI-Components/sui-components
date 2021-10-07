@@ -2,6 +2,7 @@
 import {useState, Fragment} from 'react'
 import AtomCheckbox, {checkboxStatus} from 'components/atom/checkbox/src'
 import AtomIcon from '@s-ui/react-atom-icon'
+
 import {
   AntDesignIcon,
   H1,
@@ -73,6 +74,7 @@ const Demo = () => {
   })
   const setState = overrideState => setStatus({...state, ...overrideState})
   const {checkedIcon, intermediateIcon} = state
+  const [isChecked, setIsChecked] = useState(false)
 
   return (
     <div className="sui-StudioPreview">
@@ -81,6 +83,21 @@ const Demo = () => {
         The Checkbox component is used in forms when a user needs to select
         multiple values from several options.
       </Paragraph>
+
+      <Article className={CLASS_SECTION}>
+        <H2>Example</H2>
+        <br />
+
+        <AtomCheckbox
+          id="checkBoxExample"
+          checked={isChecked}
+          onChange={() => setIsChecked(!isChecked)}
+          checkedIcon={() => ICONS.aiOutlineCheck}
+          intermediateIcon={() => ICONS.aiOutlineLine}
+        />
+      </Article>
+      <br />
+
       <Article className={CLASS_SECTION}>
         <H2>Values</H2>
         <Paragraph>

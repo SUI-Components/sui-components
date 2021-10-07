@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 1.23.0 (2021-10-07)
+
+
+### Bug Fixes
+
+* **components/atom/badge:** change cursor to default ([1a3f551](https://github.com/SUI-Components/sui-components/commit/1a3f551a4f4a68475e0d55c7b0363d2e7048fd16)), closes [#1722](https://github.com/SUI-Components/sui-components/issues/1722)
+
+
+
+# 1.1.0 (2021-09-23)
+
+
+### Bug Fixes
+
+* **components/atom/badge/demo:** fix demo styles ([3c9326b](https://github.com/SUI-Components/sui-components/commit/3c9326b1e07137c8df13bda8fc6d78e3d8957d7d))
+
+
+
 # 1.22.0 (2021-09-22)
 
 

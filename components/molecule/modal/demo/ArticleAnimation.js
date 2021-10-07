@@ -19,8 +19,8 @@ const ArticleAnimation = ({className}) => {
   const [open, setOpen] = useState(false)
   const [animation, setAnimation] = useState(false)
 
-  const onChangeHandler = (_, value) => {
-    setOpen(value === undefined ? open : value)
+  const onChangeHandler = () => {
+    setOpen(!open)
   }
 
   const onCloseButtonHandler = () => {
@@ -56,13 +56,7 @@ const ArticleAnimation = ({className}) => {
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
-          <Label>isOpen</Label>
-        </Cell>
-        <Cell>
-          <RadioButtonGroup value={open} onChange={onChangeHandler}>
-            <RadioButton value label="true" checked={open === true} />
-            <RadioButton value={false} label="false" checked={open === false} />
-          </RadioButtonGroup>
+          <Button onClick={onChangeHandler}>Open modal</Button>
         </Cell>
         <Cell>
           <Label>Animate</Label>

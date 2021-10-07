@@ -83,9 +83,9 @@ const Demo = () => {
         The Checkbox component is used in forms when a user needs to select
         multiple values from several options.
       </Paragraph>
-
       <Article className={CLASS_SECTION}>
-        <H2>Example</H2>
+        <H2>Default</H2>
+        <Paragraph>Default style of AtomCheckbox.</Paragraph>
         <br />
 
         <AtomCheckbox
@@ -97,7 +97,6 @@ const Demo = () => {
         />
       </Article>
       <br />
-
       <Article className={CLASS_SECTION}>
         <H2>Values</H2>
         <Paragraph>

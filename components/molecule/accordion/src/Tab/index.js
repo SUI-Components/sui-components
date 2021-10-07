@@ -20,7 +20,6 @@ const Tab = ({
   maxHeight,
   onToggle,
   title,
-  customTitle: CustomTitleComponent,
   withScrollVisible,
   withTransition,
   withGap,
@@ -44,6 +43,8 @@ const Tab = ({
 
   const maxHeightType = autoHeight ? '' : `${maxHeight}px`
   const containerHeight = isOpen ? maxHeightType : `0px`
+
+  const CustomTitleComponent = typeof title === 'function' ? title : null
 
   return (
     <div className={wrapperClassName}>
@@ -91,13 +92,9 @@ Tab.propTypes = {
    */
   icon: PropTypes.node,
   /**
-   * Title tab
+   * Title tab, which can be string or a custom component
    */
-  title: PropTypes.string.isRequired,
-  /**
-   * Custom component to use as title
-   */
-  customTitle: PropTypes.node,
+  title: PropTypes.node.isRequired,
   /**
    * Force scroll visible
    */

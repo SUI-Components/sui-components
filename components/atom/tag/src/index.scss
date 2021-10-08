@@ -30,6 +30,7 @@ $base-class: '.sui-AtomTag';
   border: $bd-atom-tag;
   border-radius: ceil($h-atom-tag-m * 0.5);
   box-sizing: border-box;
+  cursor: default;
   display: inline-flex;
   font-size: $fz-s;
   height: $h-atom-tag-m;

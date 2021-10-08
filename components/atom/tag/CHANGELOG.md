@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.29.0 (2021-10-08)
+
+
+### Features
+
+* **components/atom/tag:** Set cursor to default on hover ([40821d5](https://github.com/SUI-Components/sui-components/commit/40821d5c4531b2c4a10e80a20ce2883e646c0d2a))
+
+
+
 # 2.28.0 (2021-08-19)
 
 

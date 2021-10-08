@@ -4,4 +4,10 @@ import IconStarOutline from './starOutline'
 import IconStarFilledCustom from './starFilledCustom'
 import IconStarOutlineCustom from './starOutlineCustom'
 
-export {IconStarFilled, IconStarHalfFilled, IconStarOutline, IconStarFilledCustom, IconStarOutlineCustom}
+export {
+  IconStarFilled,
+  IconStarHalfFilled,
+  IconStarOutline,
+  IconStarFilledCustom,
+  IconStarOutlineCustom
+}

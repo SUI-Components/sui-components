@@ -4,7 +4,7 @@ import MoleculeRating, {
   MoleculeRatingSizes
 } from 'components/molecule/rating/src'
 
-import {IconStarFilled, IconStarHalfFilled, IconStarOutline, IconStarFilledCustom, IconStarOutlineCustom} from './Icons'
+import {IconStarFilledCustom, IconStarOutlineCustom} from './Icons'
 
 const customPropsStar = {
   IconStarFilled: IconStarFilledCustom,

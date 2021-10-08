@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.16.0 (2021-10-08)
+
+
+### Features
+
+* **components/molecule/accordion:** add custom title prop to add custom components as tab titles ([48f2e0d](https://github.com/SUI-Components/sui-components/commit/48f2e0dfb228ee3cb203a3179989ebfe64a17279))
+* **components/molecule/accordion:** refactor to use the same label prop in both cases: string or co ([3809c93](https://github.com/SUI-Components/sui-components/commit/3809c93b197aad4e4bf23f94a5ff78da94a34143))
+
+
+
 # 1.15.0 (2021-09-09)
 
 

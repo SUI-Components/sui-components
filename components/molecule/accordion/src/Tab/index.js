@@ -44,20 +44,12 @@ const Tab = ({
   const maxHeightType = autoHeight ? '' : `${maxHeight}px`
   const containerHeight = isOpen ? maxHeightType : `0px`
 
-  const CustomTitleComponent = typeof title === 'function' ? title : null
-
   return (
     <div className={wrapperClassName}>
       <div className={containerClassName}>
         <button type="button" className={BUTTON_CLASS} onClick={onToggle}>
           <span className={BUTTON_CONTENT_CLASS} tabIndex="-1">
-            {CustomTitleComponent ? (
-              <div className={BUTTON_TITLE_CLASS}>
-                <CustomTitleComponent />
-              </div>
-            ) : (
-              <span className={BUTTON_TITLE_CLASS}>{title}</span>
-            )}
+            <div className={BUTTON_TITLE_CLASS}>{title}</div>
             <span className={iconClassName}>{icon}</span>
           </span>
         </button>

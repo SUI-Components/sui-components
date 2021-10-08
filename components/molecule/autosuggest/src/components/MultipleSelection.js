@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import {useRef} from 'react'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
-import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
+import MoleculeInputTags from '../../../inputTags/src'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 import isEqual from 'lodash.isequal'
 import {InputWithClearUI as MoleculeInputTagsWithClearUI} from './InputWithClearUI'
@@ -75,9 +75,11 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   }
 
   const handleClear = ev => {
-    onChange(null, {value: ''})
-    onChangeTags(null, {tags: []})
-    onClear(ev)
+    if (!disabled) {
+      onChange(null, {value: ''})
+      onChangeTags(null, {tags: []})
+      onClear(ev)
+    }
   }
 
   return (
@@ -91,7 +93,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         innerRefInput={moleculeInputRef}
         inputMode={inputMode}
         isOpen={isOpen}
-        isVisibleClear={tags.length}
+        isVisibleClear={!disabled && tags.length}
         noBorder
         onChange={handleChange}
         onChangeTags={handleChangeTags}

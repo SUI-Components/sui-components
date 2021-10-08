@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.3.0 (2021-10-08)
+
+
+### Features
+
+* **components/atom/pinInput:** Update styles on disabled state ([b109fcb](https://github.com/SUI-Components/sui-components/commit/b109fcbec09cd1d950c1561502166d363137ccad))
+
+
+
 # 1.2.0 (2021-09-03)
 
 

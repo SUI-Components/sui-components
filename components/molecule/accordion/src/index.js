@@ -37,7 +37,6 @@ const MoleculeAccordion = ({
           key={index}
           onToggle={_handleOnToggle(index)}
           title={child.props.label}
-          customTitle={child.props.customTitle}
           {...tabProps}
         >
           {child.props.children}

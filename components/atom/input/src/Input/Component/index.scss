@@ -23,6 +23,18 @@ $class-read-only: '#{$base-class}--readOnly';
     display: none;
   }
 
+  &--square {
+    border-radius: $bdrs-none;
+  }
+
+  &--rounded {
+    border-radius: $bdrs-m;
+  }
+
+  &--circle {
+    border-radius: $bdrs-xxxl;
+  }
+
   &#{$base-class}--noBorder,
   &#{$base-class}--noBorder:disabled {
     border: 0;

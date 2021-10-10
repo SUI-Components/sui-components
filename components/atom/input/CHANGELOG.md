@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.7.0 (2021-10-10)
+
+
+### Features
+
+* **components/atom/input:** add the shape prop ([8dd70ba](https://github.com/SUI-Components/sui-components/commit/8dd70ba2f7c3cc60004748ba6d911ed951b56eaa))
+
+
+
 # 5.6.0 (2021-09-29)
 
 

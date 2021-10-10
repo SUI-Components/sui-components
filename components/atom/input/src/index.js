@@ -126,7 +126,10 @@ AtomInput.propTypes = {
   pattern: PropTypes.string,
 
   /** To select input keyboard mode on mobile. It can be 'numeric', 'decimal', 'email', etc */
-  inputMode: PropTypes.string
+  inputMode: PropTypes.string,
+
+  /** Sets the shape of the input field. It can be 'rounded', 'square' or 'circle' */
+  shape: PropTypes.string
 }
 
 AtomInput.displayName = 'AtomInput'

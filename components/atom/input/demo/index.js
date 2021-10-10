@@ -540,6 +540,36 @@ const InlineFormDemo = () => (
   </Article>
 )
 
+const ShapeDemo = () => (
+  <Article>
+    <H2>Shape</H2>
+    <Paragraph>
+      The border radius of the input can be set using the <Code>shape</Code>{' '}
+      property.
+    </Paragraph>
+    <Grid cols={3} gutter={[8, 8]}>
+      <Cell>
+        <Label>rounded (default)</Label>
+      </Cell>
+      <Cell>
+        <Label>square</Label>
+      </Cell>
+      <Cell>
+        <Label>circle</Label>
+      </Cell>
+      <Cell>
+        <AtomInput shape="rounded" />
+      </Cell>
+      <Cell>
+        <AtomInput shape="square" />
+      </Cell>
+      <Cell>
+        <AtomInput shape="circle" />
+      </Cell>
+    </Grid>
+  </Article>
+)
+
 const Demo = () => (
   <div className="sui-StudioPreview">
     <div className="sui-StudioPreview-content sui-StudioDemo-preview">
@@ -568,6 +598,8 @@ const Demo = () => (
       <ErrorStatusDemo />
       <br />
       <InlineFormDemo />
+      <br />
+      <ShapeDemo />
       <br />
     </div>
   </div>

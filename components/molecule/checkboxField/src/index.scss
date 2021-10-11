@@ -13,7 +13,12 @@ $c-molecule-checkbox-field: (
 
 .sui-MoleculeCheckboxField {
   input[type='checkbox'] {
-    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  span {
+    margin: 4px 0 0 4px;
   }
 
   .sui-AtomLabel {

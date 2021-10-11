@@ -1,12 +1,21 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const StandardTag = ({className, closeIcon, icon, label, onClose, value}) => {
+const StandardTag = ({
+  className,
+  closeIcon,
+  icon,
+  label,
+  onClose,
+  value,
+  disabled
+}) => {
   const classNames = cx(className, closeIcon && 'sui-AtomTag-hasClose')
-
   const handleClick = ev => {
-    onClose(ev, {value, label})
-    ev.stopPropagation()
+    if (!disabled) {
+      onClose(ev, {value, label})
+      ev.stopPropagation()
+    }
   }
 
   return (
@@ -15,7 +24,7 @@ const StandardTag = ({className, closeIcon, icon, label, onClose, value}) => {
       <span className="sui-AtomTag-label" title={label}>
         {label}
       </span>
-      {closeIcon && (
+      {closeIcon && !disabled && (
         <span className="sui-AtomTag-closeable" onClick={handleClick}>
           <span className="sui-AtomTag-closeableIcon sui-AtomTag-secondary-icon">
             {closeIcon}
@@ -27,6 +36,7 @@ const StandardTag = ({className, closeIcon, icon, label, onClose, value}) => {
 }
 
 StandardTag.propTypes = {
+  disabled: PropTypes.bool,
   onClose: PropTypes.func,
   closeIcon: PropTypes.node,
   icon: PropTypes.node,

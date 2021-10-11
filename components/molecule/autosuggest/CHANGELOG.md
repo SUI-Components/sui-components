@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.51.0 (2021-10-11)
+
+
+### Bug Fixes
+
+* **components/molecule/autosuggest:** update disabled state ([7281f57](https://github.com/SUI-Components/sui-components/commit/7281f57c52583ae5e7319e5d8153fffbb9a07b97)), closes [#1792](https://github.com/SUI-Components/sui-components/issues/1792)
+
+
+
 # 2.50.0 (2021-10-08)
 
 

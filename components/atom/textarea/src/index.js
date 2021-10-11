@@ -1,31 +1,21 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-
-const BASE_CLASS = 'sui-AtomTextarea'
-const SIZES = {
-  SHORT: 'short',
-  LONG: 'long'
-}
-
-const TEXTAREA_STATES = {
-  ERROR: 'error',
-  SUCCESS: 'success',
-  ALERT: 'alert'
-}
-
-const DEFAULT_PROPS = {
-  size: SIZES.SHORT,
-  onChange: () => {},
-  onBlur: () => {}
-}
+import {
+  BASE_CLASS,
+  DEFAULT_PROPS,
+  TEXTAREA_RESIZES,
+  TEXTAREA_SIZES,
+  TEXTAREA_STATES
+} from './settings'
 
 const AtomTextarea = ({
-  onChange = DEFAULT_PROPS.onChange,
-  onBlur = DEFAULT_PROPS.onBlur,
-  size = DEFAULT_PROPS.size,
-  value,
   errorState,
+  onBlur = DEFAULT_PROPS.onBlur,
+  onChange = DEFAULT_PROPS.onChange,
+  resize,
+  size = DEFAULT_PROPS.size,
   state,
+  value,
   ...props
 }) => {
   const className = cx(
@@ -33,6 +23,7 @@ const AtomTextarea = ({
     `${BASE_CLASS}--${size}`,
     errorState && `${BASE_CLASS}--${TEXTAREA_STATES.ERROR}`,
     errorState === false && `${BASE_CLASS}--${TEXTAREA_STATES.SUCCESS}`,
+    resize && `${BASE_CLASS}--resize-${resize}`,
     state && `${BASE_CLASS}--${state}`
   )
 
@@ -56,7 +47,7 @@ AtomTextarea.displayName = 'AtomTextarea'
 
 AtomTextarea.propTypes = {
   /** Size of textarea: 'short', 'long' */
-  size: PropTypes.oneOf(Object.values(SIZES)),
+  size: PropTypes.oneOf(Object.values(TEXTAREA_SIZES)),
 
   /** Handler triggered on change */
   onChange: PropTypes.func,
@@ -70,9 +61,16 @@ AtomTextarea.propTypes = {
   /** true = error, false = success, null = neutral */
   errorState: PropTypes.bool,
 
+  /* Will set one of all allowed resizes. */
+  resize: PropTypes.oneOf(Object.values(TEXTAREA_RESIZES)),
+
   /* Will set a red/green/orange border if set to 'error' / 'success' / 'alert' */
   state: PropTypes.oneOf(Object.values(TEXTAREA_STATES))
 }
 
 export default AtomTextarea
-export {SIZES as AtomTextareaSizes, TEXTAREA_STATES as AtomTextareaStates}
+export {
+  TEXTAREA_RESIZES as AtomTextareaResizes,
+  TEXTAREA_SIZES as AtomTextareaSizes,
+  TEXTAREA_STATES as AtomTextareaStates
+}

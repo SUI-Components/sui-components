@@ -10,6 +10,7 @@ import {
 } from '@s-ui/documentation-library'
 
 import TextArea from '../src'
+import {TEXTAREA_RESIZES, TEXTAREA_STATES} from '../src/settings'
 
 const Demo = ({children}) => {
   return <div style={{width: '100%', padding: 20}}>{children}</div>
@@ -30,7 +31,7 @@ DemoWrapper.propTypes = {
 export default () => {
   return (
     <div>
-      <H1>Text-area</H1>
+      <H1>Textarea</H1>
       <Paragraph>
         The Textarea component allows you to easily create multi-line text
         inputs. AtomTextarea is a component that wraps a textarea displaying the
@@ -76,33 +77,44 @@ export default () => {
               name="textarea-4"
               placeholder="Write something cool here..."
               onChange={console.log}
-              state="success"
             />
           </Article>
           <br />
           <Article>
+            <H2>Resize</H2>
+            <Paragraph>
+              You can use one of all CSS3 resize attribute allowed, like:{' '}
+              <Code>{Object.values(TEXTAREA_RESIZES).join('|')}</Code>
+            </Paragraph>
+            {Object.keys(TEXTAREA_RESIZES).map((value, idx) => (
+              <>
+                <H3>{value.toLocaleLowerCase()}</H3>
+                <TextArea
+                  key={`textarea-6-${idx}`}
+                  name="textarea-6"
+                  value="Saul Bass on failure: Failure is built into creativity"
+                  onChange={console.log}
+                  resize={value.toLocaleLowerCase()}
+                />
+              </>
+            ))}
+          </Article>
+          <br />
+          <Article>
             <H2>States</H2>
-            <H3>Success</H3>
-            <TextArea
-              name="textarea-1"
-              placeholder="Write something cool here..."
-              onChange={console.log}
-              state="success"
-            />
-            <H3>Error</H3>
-            <TextArea
-              name="textarea-1"
-              placeholder="Write something cool here..."
-              onChange={console.log}
-              state="error"
-            />
-            <H3>Alert</H3>
-            <TextArea
-              name="textarea-1"
-              placeholder="Write something cool here..."
-              onChange={console.log}
-              state="alert"
-            />
+
+            {Object.keys(TEXTAREA_STATES).map((value, idx) => (
+              <>
+                <H3>{value.toLocaleLowerCase()}</H3>
+                <TextArea
+                  key={`textarea-6-${idx}`}
+                  name="textarea-6"
+                  value="Saul Bass on failure: Failure is built into creativity"
+                  onChange={console.log}
+                  state={value.toLocaleLowerCase()}
+                />
+              </>
+            ))}
           </Article>
         </Demo>
       </DemoWrapper>

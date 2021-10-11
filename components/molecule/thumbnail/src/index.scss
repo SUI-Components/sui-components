@@ -126,6 +126,10 @@ $ratios-molecule-thumbnail: (
     @each $key-size, $size in $sizes-molecule-thumbnail {
       &--#{$key-size} {
         width: $size;
+
+        .sui-MoleculeThumbnail-containerImage--1-1 {
+          width: $size;
+        }
       }
 
       @each $key-ratio, $ratio in $ratios-molecule-thumbnail {

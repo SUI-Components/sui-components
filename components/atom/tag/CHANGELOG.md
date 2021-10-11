@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.30.0 (2021-10-11)
+
+
+### Bug Fixes
+
+* **components/atom/tag:** update the disabled state of the tag ([81f3eb0](https://github.com/SUI-Components/sui-components/commit/81f3eb0d656877549cfa3d99dd961712899a42d4)), closes [#1792](https://github.com/SUI-Components/sui-components/issues/1792)
+
+
+
 # 2.29.0 (2021-10-08)
 
 

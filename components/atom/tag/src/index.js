@@ -13,7 +13,7 @@ import {
 import {filterKeys} from './helpers'
 
 const AtomTag = props => {
-  const {design, href, icon, onClick, responsive, size, type} = props
+  const {design, href, icon, onClick, responsive, size, type, disabled} = props
   const isActionable = onClick || href
   const classNames = cx(
     'sui-AtomTag',
@@ -21,7 +21,8 @@ const AtomTag = props => {
     design && `sui-AtomTag--${design}`,
     icon && 'sui-AtomTag-hasIcon',
     responsive && 'sui-AtomTag--responsive',
-    type && `sui-AtomTag--${type}`
+    type && `sui-AtomTag--${type}`,
+    disabled && 'sui-AtomTag--disabled'
   )
 
   /**
@@ -37,9 +38,17 @@ const AtomTag = props => {
   const getActionableProps = () => filterKeys(props, STANDARD_ONLY_PROPS)
 
   return isActionable ? (
-    <ActionableTag {...getActionableProps()} className={classNames} />
+    <ActionableTag
+      {...getActionableProps()}
+      disabled={disabled}
+      className={classNames}
+    />
   ) : (
-    <StandardTag {...getStandardProps()} className={classNames} />
+    <StandardTag
+      {...getStandardProps()}
+      disabled={disabled}
+      className={classNames}
+    />
   )
 }
 

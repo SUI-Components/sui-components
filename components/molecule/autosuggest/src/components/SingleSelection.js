@@ -47,8 +47,10 @@ const MoleculeAutosuggestSingleSelection = ({
   }
 
   const handleClear = ev => {
-    onChange(null, {value: ''})
-    onClear(ev)
+    if (!disabled) {
+      onChange(null, {value: ''})
+      onClear(ev)
+    }
   }
 
   const handleRightClick = ev => {

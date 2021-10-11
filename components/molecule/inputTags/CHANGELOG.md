@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.19.0 (2021-10-11)
+
+
+### Bug Fixes
+
+* **components/molecule/inputTags:** update disabled state ([eb09899](https://github.com/SUI-Components/sui-components/commit/eb09899b81afd0b43fa633ba49b11018c7821f51)), closes [#1792](https://github.com/SUI-Components/sui-components/issues/1792)
+
+
+
 # 2.18.0 (2021-08-20)
 
 

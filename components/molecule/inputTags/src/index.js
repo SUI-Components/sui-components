@@ -100,6 +100,7 @@ const MoleculeInputTags = ({
             label={label}
             size={atomTagSizes.SMALL}
             responsive
+            disabled={disabled}
           />
         )
       })}

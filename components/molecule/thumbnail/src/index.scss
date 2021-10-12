@@ -15,7 +15,6 @@ $bgc-molecule-thumbnail-caption: color-variation($c-gray-light, 3) !default;
 $c-molecule-thumbnail-caption: $c-primary !default;
 $fz-molecule-thumbnail-caption: $fz-s !default;
 $ta-molecule-thumbnail-caption: center !default;
-$w-molecule-thumbnail-caption: calc(100% - #{$p-m * 2} - #{$bdw-s * 2});
 $bd-molecule-thumbnail-container-image: 0 !default;
 
 $sizes-molecule-thumbnail: (
@@ -93,7 +92,6 @@ $ratios-molecule-thumbnail: (
     text-align: $ta-molecule-thumbnail-caption;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: $w-molecule-thumbnail-caption;
   }
 
   &-containerImage {

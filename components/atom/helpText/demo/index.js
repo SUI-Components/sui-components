@@ -1,7 +1,10 @@
 /* eslint-disable no-console */
+import {useState} from 'react'
 import AtomHelpText from '@s-ui/react-atom-help-text'
 import AtomInput from '@s-ui/react-atom-input'
 import AtomTextarea from '@s-ui/react-atom-textarea'
+import AtomCheckbox from '@s-ui/react-atom-checkbox'
+import AtomLabel from '@s-ui/react-atom-label'
 
 import {H1, H2, Paragraph, Article, Code} from '@s-ui/documentation-library'
 
@@ -26,6 +29,22 @@ const TextareaDemo = () => (
   </Article>
 )
 
+const CheckboxDemo = () => {
+  const [isChecked, setIsChecked] = useState(false)
+
+  return (
+    <Article>
+      <H2>Checkbox</H2>
+      <AtomCheckbox
+        checked={isChecked}
+        onChange={() => setIsChecked(!isChecked)}
+      />
+      <AtomLabel text="An important decision" inline="left" />
+      <AtomHelpText text="Write here why the user should check this" />
+    </Article>
+  )
+}
+
 const Demo = () => {
   return (
     <div className="sui-StudioPreview">
@@ -37,6 +56,8 @@ const Demo = () => {
       <InputDemo />
       <br />
       <TextareaDemo />
+      <br />
+      <CheckboxDemo />
     </div>
   )
 }

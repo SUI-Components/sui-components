@@ -86,105 +86,109 @@ export default () => {
   return (
     <div>
       <H1>Thumbnail</H1>
-      <Article>
-        <H2>Basic examples</H2>
-        <Grid cols={4}>
-          <Cell>
-            <H3>Link</H3>
-          </Cell>
-          <Cell>
-            <H3>No link</H3>
-          </Cell>
-          <Cell>
-            <H3>Caption</H3>
-          </Cell>
-          <Cell>
-            <H3>Circled</H3>
-          </Cell>
-          <Cell>
-            <MoleculeThumbnail
-              src={IMAGES.FINAL}
-              alt="Some alt"
-              href="https://someLink"
-              target="_blank"
-              spinner={<Spinner noBackground />}
-              placeholder={IMAGES.PLACEHOLDER}
-              size={moleculeThumbnailSize.MEDIUM}
-            />
-          </Cell>
-          <Cell>
-            <MoleculeThumbnail
-              src={IMAGES.FINAL}
-              alt="Some alt"
-              target="_blank"
-              spinner={<Spinner noBackground />}
-              placeholder={IMAGES.PLACEHOLDER}
-              size={moleculeThumbnailSize.MEDIUM}
-            />
-          </Cell>
-          <Cell>
-            <MoleculeThumbnail
-              src={IMAGES.FINAL}
-              alt="Some alt"
-              captionText="Show!"
-              spinner={<Spinner noBackground />}
-              placeholder={IMAGES.PLACEHOLDER}
-              size={moleculeThumbnailSize.MEDIUM}
-            />
-          </Cell>
-          <Cell>
-            <MoleculeThumbnail
-              src={IMAGES.FINAL}
-              alt="Some alt"
-              href="https://someLink"
-              target="_blank"
-              captionText="Show!"
-              spinner={<Spinner noBackground />}
-              placeholder={IMAGES.PLACEHOLDER}
-              shape={moleculeThumbnailShape.CIRCLED}
-              size={moleculeThumbnailSize.MEDIUM}
-            />
-          </Cell>
-        </Grid>
-      </Article>
-      <br />
-      <Article>
-        <H2>Squared & Ratio 1:1</H2>
-        {renderSizes()}
-      </Article>
-      <br />
-      <Article>
-        <H2>Squared & Ratio 4:3</H2>
-        {renderSizes(moleculeThumbnailRatio['4:3'])}
-      </Article>
-      <br />
-      <Article>
-        <H2>Squared & Ratio 16:9</H2>
-        {renderSizes(moleculeThumbnailRatio['16:9'])}
-      </Article>
+      <DemoWrapper>
+        <Demo>
+          <Article>
+            <H2>Basic examples</H2>
+            <Grid cols={4}>
+              <Cell>
+                <H3>Link</H3>
+              </Cell>
+              <Cell>
+                <H3>No link</H3>
+              </Cell>
+              <Cell>
+                <H3>Caption</H3>
+              </Cell>
+              <Cell>
+                <H3>Circled</H3>
+              </Cell>
+              <Cell>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.MEDIUM}
+                />
+              </Cell>
+              <Cell>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  target="_blank"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.MEDIUM}
+                />
+              </Cell>
+              <Cell>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  size={moleculeThumbnailSize.MEDIUM}
+                />
+              </Cell>
+              <Cell>
+                <MoleculeThumbnail
+                  src={IMAGES.FINAL}
+                  alt="Some alt"
+                  href="https://someLink"
+                  target="_blank"
+                  captionText="Show!"
+                  spinner={<Spinner noBackground />}
+                  placeholder={IMAGES.PLACEHOLDER}
+                  shape={moleculeThumbnailShape.CIRCLED}
+                  size={moleculeThumbnailSize.MEDIUM}
+                />
+              </Cell>
+            </Grid>
+          </Article>
+          <br />
+          <Article>
+            <H2>Squared & Ratio 1:1</H2>
+            {renderSizes()}
+          </Article>
+          <br />
+          <Article>
+            <H2>Squared & Ratio 4:3</H2>
+            {renderSizes(moleculeThumbnailRatio['4:3'])}
+          </Article>
+          <br />
+          <Article>
+            <H2>Squared & Ratio 16:9</H2>
+            {renderSizes(moleculeThumbnailRatio['16:9'])}
+          </Article>
 
-      <br />
-      <Article>
-        <H2>Circled & ratio 1:1</H2>
-        {renderSizes(
-          moleculeThumbnailRatio['1:1'],
-          moleculeThumbnailShape.CIRCLED
-        )}
-      </Article>
-      <br />
-      <Article>
-        <H2>Fallback example</H2>
-        <MoleculeThumbnail
-          src={IMAGES.BAD}
-          alt="Some alt"
-          captionText="Show!"
-          spinner={<Spinner noBackground />}
-          placeholder={IMAGES.PLACEHOLDER}
-          errorIcon={<ImageNotFoundIcon />}
-          errorText={defaultErrorText}
-          size={moleculeThumbnailSize.LARGE}
-        />
-      </Article>
+          <br />
+          <Article>
+            <H2>Circled & ratio 1:1</H2>
+            {renderSizes(
+              moleculeThumbnailRatio['1:1'],
+              moleculeThumbnailShape.CIRCLED
+            )}
+          </Article>
+          <br />
+          <Article>
+            <H2>Fallback example</H2>
+            <MoleculeThumbnail
+              src={IMAGES.BAD}
+              alt="Some alt"
+              captionText="Show!"
+              spinner={<Spinner noBackground />}
+              placeholder={IMAGES.PLACEHOLDER}
+              errorIcon={<ImageNotFoundIcon />}
+              errorText={defaultErrorText}
+              size={moleculeThumbnailSize.LARGE}
+            />
+          </Article>
+        </Demo>
+      </DemoWrapper>
     </div>
   )
 }

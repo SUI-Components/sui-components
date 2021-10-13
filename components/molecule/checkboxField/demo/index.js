@@ -11,6 +11,17 @@ const styleListItem = {
   marginTop: '50px'
 }
 
+const styleBorderedContainer = {
+  display: 'flex',
+  border: '1px dashed #000'
+}
+
+const styleCenteredText = {
+  flexGrow: 1,
+  display: 'flex',
+  alignItems: 'center'
+}
+
 const Demo = () => {
   return (
     <div className="sui-StudioPreview">
@@ -44,8 +55,8 @@ const Demo = () => {
               id="info-help-text"
               fullWidth
               nodeLabel={
-                <div style={{display: 'flex', border: '1px dashed #000'}}>
-                  <div style={{flexGrow: 1}}>I'm full width</div>
+                <div style={styleBorderedContainer}>
+                  <div style={styleCenteredText}>I'm full width</div>
                   <button>Action</button>
                 </div>
               }

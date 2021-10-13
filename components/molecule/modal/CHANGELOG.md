@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.41.0 (2021-10-07)
+
+
+### Bug Fixes
+
+* **components/molecule/modal:** replace radiobuttongroup with button ([fc3cd09](https://github.com/SUI-Components/sui-components/commit/fc3cd096a4fd0a93f0867ce16f1c6c7f99f82a92))
+
+
+
 # 1.40.0 (2021-10-04)
 
 

@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 2.30.0 (2021-10-11)
+
+
+### Bug Fixes
+
+* **components/atom/tag:** update the disabled state of the tag ([81f3eb0](https://github.com/SUI-Components/sui-components/commit/81f3eb0d656877549cfa3d99dd961712899a42d4)), closes [#1792](https://github.com/SUI-Components/sui-components/issues/1792)
+
+
+
+# 2.29.0 (2021-10-08)
+
+
+### Features
+
+* **components/atom/tag:** Set cursor to default on hover ([40821d5](https://github.com/SUI-Components/sui-components/commit/40821d5c4531b2c4a10e80a20ce2883e646c0d2a))
+
+
+
 # 2.28.0 (2021-08-19)
 
 

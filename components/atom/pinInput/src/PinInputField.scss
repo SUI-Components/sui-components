@@ -57,7 +57,8 @@ $pin-input-field-status: (
     width: 100%;
   }
   &:disabled {
-    cursor: not-allowed;
+    color: $c-gray-light-3;
+    cursor: default;
     pointer-events: all;
   }
 }

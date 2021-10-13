@@ -75,9 +75,11 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   }
 
   const handleClear = ev => {
-    onChange(null, {value: ''})
-    onChangeTags(null, {tags: []})
-    onClear(ev)
+    if (!disabled) {
+      onChange(null, {value: ''})
+      onChangeTags(null, {tags: []})
+      onClear(ev)
+    }
   }
 
   return (
@@ -91,7 +93,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         innerRefInput={moleculeInputRef}
         inputMode={inputMode}
         isOpen={isOpen}
-        isVisibleClear={tags.length}
+        isVisibleClear={!disabled && tags.length}
         noBorder
         onChange={handleChange}
         onChangeTags={handleChangeTags}

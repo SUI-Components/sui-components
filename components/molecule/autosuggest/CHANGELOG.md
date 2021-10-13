@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 2.51.0 (2021-10-11)
+
+
+### Bug Fixes
+
+* **components/molecule/autosuggest:** update disabled state ([7281f57](https://github.com/SUI-Components/sui-components/commit/7281f57c52583ae5e7319e5d8153fffbb9a07b97)), closes [#1792](https://github.com/SUI-Components/sui-components/issues/1792)
+
+
+
+# 2.50.0 (2021-10-08)
+
+
+### Features
+
+* **components/molecule/autosuggest:** Fix cursor on disabled autosuggest list ([6b383be](https://github.com/SUI-Components/sui-components/commit/6b383be74f9f5bb93bc81dba926527ec1c61bf64))
+
+
+
 # 2.49.0 (2021-10-06)
 
 

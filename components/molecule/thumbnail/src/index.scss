@@ -9,12 +9,12 @@ $bd-molecule-thumbnail: $bdw-s solid transparent !default;
 $bdc-molecule-thumbnail-hover: $c-primary !default;
 $bdrs-molecule-thumbnail: initial !default;
 $bs-molecule-thumbnail: none !default;
+$o-molecule-thumbnail: visible !default;
 $p-molecule-thumbnail-image: 0 !default;
 $bgc-molecule-thumbnail-caption: color-variation($c-gray-light, 3) !default;
 $c-molecule-thumbnail-caption: $c-primary !default;
 $fz-molecule-thumbnail-caption: $fz-s !default;
 $ta-molecule-thumbnail-caption: center !default;
-$o-molecule-thumbnail: visible !default;
 $bd-molecule-thumbnail-container-image: 0 !default;
 
 $sizes-molecule-thumbnail: (
@@ -39,8 +39,8 @@ $ratios-molecule-thumbnail: (
 
 .sui-MoleculeThumbnail {
   background-color: $bgc-molecule-thumbnail;
-  border: $bd-molecule-thumbnail;
   border-radius: $bdrs-molecule-thumbnail;
+  border: $bd-molecule-thumbnail;
   box-shadow: $bs-molecule-thumbnail;
   display: inline-block;
   margin: 0;
@@ -49,13 +49,13 @@ $ratios-molecule-thumbnail: (
   width: 100%;
 
   &-link {
-    display: inline-block;
     border: $bd-molecule-thumbnail;
+    display: inline-block;
     text-decoration: none;
 
     &:hover {
-      border-color: $bdc-molecule-thumbnail-hover;
       background-color: $bgc-molecule-thumbnail-hover;
+      border-color: $bdc-molecule-thumbnail-hover;
 
       .sui-MoleculeThumbnail-containerImage {
         border: $bd-molecule-thumbnail-container-image;
@@ -71,9 +71,9 @@ $ratios-molecule-thumbnail: (
     }
 
     .sui-MoleculeThumbnail-containerImage {
+      border: $bd-molecule-thumbnail-container-image;
       border-radius: $bdrs-rounded;
       overflow: hidden;
-      border: $bd-molecule-thumbnail-container-image;
     }
 
     .sui-MoleculeThumbnail-caption {
@@ -92,7 +92,7 @@ $ratios-molecule-thumbnail: (
     text-align: $ta-molecule-thumbnail-caption;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 100%;
+    width: auto;
   }
 
   &-containerImage {
@@ -126,6 +126,10 @@ $ratios-molecule-thumbnail: (
     @each $key-size, $size in $sizes-molecule-thumbnail {
       &--#{$key-size} {
         width: $size;
+
+        .sui-MoleculeThumbnail-containerImage--1-1 {
+          width: $size;
+        }
       }
 
       @each $key-ratio, $ratio in $ratios-molecule-thumbnail {

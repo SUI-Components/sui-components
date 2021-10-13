@@ -1,6 +1,6 @@
 @import '~@s-ui/theme/lib/index';
 
-$bgc-molecule-badge-counter: #ff0057 !default;
+$bgc-molecule-badge-counter: $c-error !default;
 $bg-molecule-badge-counter: $bgc-molecule-badge-counter !default; // deprecated
 $bdrs-molecule-badge-counter: $bdrs-xxl !default;
 $br-molecule-badge-counter: $bdrs-molecule-badge-counter !default; // deprecated

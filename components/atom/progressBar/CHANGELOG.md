@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.4.0 (2021-10-10)
+
+
+### Bug Fixes
+
+* **components/atom/progressBar:** fix bdrs ([8261b6c](https://github.com/SUI-Components/sui-components/commit/8261b6c60c467e6e1cc88dc465fc01b906502583)), closes [#1770](https://github.com/SUI-Components/sui-components/issues/1770)
+* **components/atom/progressBar:** fix bdrs remove whitespace ([2f02fd1](https://github.com/SUI-Components/sui-components/commit/2f02fd126e8341f3c4b96a381d6be5a4fb7bde5e)), closes [#1770](https://github.com/SUI-Components/sui-components/issues/1770)
+
+
+
 # 2.3.0 (2021-08-09)
 
 

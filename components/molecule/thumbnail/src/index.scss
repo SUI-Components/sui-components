@@ -92,6 +92,7 @@ $ratios-molecule-thumbnail: (
     text-align: $ta-molecule-thumbnail-caption;
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: auto;
   }
 
   &-containerImage {

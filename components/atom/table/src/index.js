@@ -1,18 +1,13 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const CELL_TYPE = {
-  header: 'th',
-  data: 'td'
-}
-
-const CELL_PADDING = {
-  xs: 'xs',
-  s: 's',
-  m: 'm',
-  l: 'l',
-  xl: 'l'
-}
+import {
+  BASE_CLASS,
+  CELL_BASE_CLASS,
+  ROW_BASE_CLASS,
+  TABLE_CELL_PADDING,
+  TABLE_CELL_TYPE
+} from './settings'
 
 const AtomTable = ({
   head = [],
@@ -27,16 +22,15 @@ const AtomTable = ({
   const hasHead = Boolean(head.length)
   const hasFoot = Boolean(foot.length)
   const isRowActionable = Boolean(onRowClick)
-  const baseClass = 'react-AtomTable'
-  const tableClass = cx(`${baseClass}`, {
-    [`${baseClass}--fullWidth`]: Boolean(fullWidth)
+  const tableClass = cx(`${BASE_CLASS}`, {
+    [`${BASE_CLASS}--fullWidth`]: Boolean(fullWidth)
   })
-  const headerClass = cx(`${baseClass}-cell`, `${baseClass}-headerCell`, {
-    [`${baseClass}-cell--${cellPadding}`]: Boolean(cellPadding)
+  const headerClass = cx(`${CELL_BASE_CLASS}`, `${BASE_CLASS}-headerCell`, {
+    [`${CELL_BASE_CLASS}--${cellPadding}`]: Boolean(cellPadding)
   })
-  const rowClass = cx(`${baseClass}-row`, {
-    [`${baseClass}-row--actionable`]: isRowActionable,
-    [`${baseClass}-row--zebraStriped`]: zebraStriped
+  const rowClass = cx(`${ROW_BASE_CLASS}`, {
+    [`${ROW_BASE_CLASS}--actionable`]: isRowActionable,
+    [`${ROW_BASE_CLASS}--zebraStriped`]: zebraStriped
   })
 
   const handleOnRowClick = index => onRowClick(index)
@@ -64,15 +58,15 @@ const AtomTable = ({
           >
             {row.map((cell, index) => {
               const {
-                type: Element = CELL_TYPE.data,
+                type: Element = TABLE_CELL_TYPE.data,
                 content = '',
                 isNowrap,
                 colspan = 1
               } = cell
-              const cellClassName = cx(`${baseClass}-cell`, {
-                [`${baseClass}-cell--noWrap`]: isNowrap,
-                [`${baseClass}-cell--${cellPadding}`]: Boolean(cellPadding),
-                [`${baseClass}-cell--borderBottom`]: Boolean(borderBottom)
+              const cellClassName = cx(`${CELL_BASE_CLASS}`, {
+                [`${CELL_BASE_CLASS}--noWrap`]: isNowrap,
+                [`${CELL_BASE_CLASS}--${cellPadding}`]: Boolean(cellPadding),
+                [`${CELL_BASE_CLASS}--borderBottom`]: Boolean(borderBottom)
               })
 
               return (
@@ -93,7 +87,7 @@ const AtomTable = ({
         <tfoot>
           <tr>
             {foot.map((element, index) => (
-              <td key={index} className={`${baseClass}-cell`}>
+              <td key={index} className={`${CELL_BASE_CLASS}`}>
                 {element}
               </td>
             ))}
@@ -124,7 +118,7 @@ AtomTable.propTypes = {
       PropTypes.shape({
         colspan: PropTypes.number,
         content: PropTypes.string.isRequired,
-        type: PropTypes.oneOf(Object.values(CELL_TYPE)),
+        type: PropTypes.oneOf(Object.values(TABLE_CELL_TYPE)),
         isNowrap: PropTypes.bool
       })
     )
@@ -132,7 +126,7 @@ AtomTable.propTypes = {
   /**
    * Cell padding size (xs,x,m,l,xl)
    */
-  cellPadding: PropTypes.oneOf(Object.values(CELL_PADDING)),
+  cellPadding: PropTypes.oneOf(Object.values(TABLE_CELL_PADDING)),
   /**
    * Table foot conntent
    */
@@ -155,5 +149,8 @@ AtomTable.propTypes = {
   zebraStriped: PropTypes.bool
 }
 
-export {CELL_TYPE as atomTableCellTypes, CELL_PADDING as atomTableCellPadding}
+export {
+  TABLE_CELL_TYPE as atomTableCellTypes,
+  TABLE_CELL_PADDING as atomTableCellPadding
+}
 export default AtomTable

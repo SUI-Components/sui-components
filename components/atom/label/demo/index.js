@@ -46,8 +46,8 @@ const Demo = () => {
                 <AtomLabel
                   name={`atomLabelName-${key}`}
                   for={`labelName-${key}`}
-                  text={`label ${value}`}
-                  optionalText="*"
+                  text={`Label ${value}`}
+                  optionalText="(Optional)"
                   type={value}
                 />
                 <Input />
@@ -77,8 +77,8 @@ const Demo = () => {
                   <AtomLabel
                     name={`atomLabelName-${value}`}
                     for={`labelName-${value}`}
-                    text={`label ${value}`}
-                    optionalText="*"
+                    text={`Label ${value}`}
+                    optionalText="(Optional)"
                     inline={value}
                   />
                   {value !== 'right' && component}
@@ -103,7 +103,7 @@ const Demo = () => {
                   <AtomLabel
                     name={`atomLabelName-${key}`}
                     for={`labelName-${key}`}
-                    text={`size ${value}`}
+                    text={`Size ${value}`}
                     fontSize={value}
                   />
                   <Input />

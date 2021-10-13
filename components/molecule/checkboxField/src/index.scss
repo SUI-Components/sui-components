@@ -4,6 +4,8 @@
 
 $fw-molecule-checkbox-field-label: $fw-atom-label !default;
 $c-molecule-checkbox-field-label: $c-atom-label !default;
+$w-molecule-checkbox-field-input: $p-base * 2 !default;
+$h-molecule-checkbox-field-input: $p-base * 2 !default;
 
 $c-molecule-checkbox-field: (
   success: $c-success,
@@ -12,8 +14,15 @@ $c-molecule-checkbox-field: (
 ) !default;
 
 .sui-MoleculeCheckboxField {
-  input[type='checkbox'] {
-    margin: 0;
+  .sui-AtomCheckbox {
+    width: $w-molecule-checkbox-field-input;
+    height: $h-molecule-checkbox-field-input;
+    display: flex;
+    align-items: center;
+
+    input[type='checkbox'] {
+      margin: 0;
+    }
   }
 
   .sui-AtomLabel {

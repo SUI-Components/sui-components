@@ -25,6 +25,16 @@ $c-atom-textarea-placeholder: initial !default;
 $w-atom-textarea: 100% !default;
 $rsz-atom-textarea: auto !default;
 
+$resizes-atom-textarea: (
+  auto,
+  both,
+  horizontal,
+  inherit,
+  initial,
+  none,
+  vertical
+);
+
 $base-class: '.sui-AtomTextarea';
 
 #{$base-class} {
@@ -71,6 +81,13 @@ $base-class: '.sui-AtomTextarea';
   @each $state, $color in $states-atom-input {
     &#{$base-class}--#{$state} {
       border-color: $color;
+    }
+  }
+
+  @each $resize in $resizes-atom-textarea {
+    &#{$base-class}--resize-#{$resize} {
+      overflow: auto;
+      resize: $resize;
     }
   }
 }

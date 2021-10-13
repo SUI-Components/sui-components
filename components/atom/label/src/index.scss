@@ -15,6 +15,7 @@ $fz-atom-label: $fz-base !default;
   color: $c-atom-label;
   font-size: $fz-atom-label;
   font-weight: $fw-atom-label;
+  margin-bottom: 4px;
 
   &-optionalText {
     color: $c-atom-label-optional;

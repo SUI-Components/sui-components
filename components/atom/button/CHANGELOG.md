@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.69.0 (2021-10-13)
+
+
+### Bug Fixes
+
+* **components/atom/button:** center isLoading spinner on atom button ([5a61724](https://github.com/SUI-Components/sui-components/commit/5a61724bf41f5f33442c0248195c01bd65b81477))
+
+
+
 # 1.68.0 (2021-08-31)
 
 

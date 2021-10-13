@@ -237,6 +237,8 @@ $icon-stroke-color: currentColor !default;
   }
 
   &-centerIcon {
+    align-items: center;
+    justify-content: center;
     position: absolute;
   }
 

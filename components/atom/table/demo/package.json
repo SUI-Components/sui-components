@@ -1,0 +1,9 @@
+{
+  "name": "@s-ui/react-atom-table-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Demo for @s-ui/react-atom-table",
+  "dependencies": {
+    "@s-ui/react-atom-button": "1"
+  }
+}

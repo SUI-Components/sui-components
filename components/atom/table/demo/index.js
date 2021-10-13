@@ -32,7 +32,7 @@ export default () => {
   return (
     <div>
       <Demo>
-        <H1>Thumbnail</H1>
+        <H1>Table</H1>
         <Paragraph>Atom Table to show tabular information</Paragraph>
         <DemoWrapper>
           <Demo>

@@ -1,29 +1,15 @@
 import PropTypes from 'prop-types'
 import AtomImage from '@s-ui/react-atom-image'
 import cx from 'classnames'
-
-const BASE_CLASS = 'sui-MoleculeThumbnail'
-const CAPTION_CLASS = `${BASE_CLASS}-caption`
-const LINK_CLASS = `${BASE_CLASS}-link`
-const CONTAINER_IMAGE = `${BASE_CLASS}-containerImage`
-
-const SIZES = {
-  LARGE: 'large',
-  MEDIUM: 'medium',
-  SMALL: 'small',
-  XSMALL: 'xsmall'
-}
-
-const RATIOS = {
-  '1:1': '1-1',
-  '4:3': '4-3',
-  '16:9': '16-9'
-}
-
-const SHAPES = {
-  SQUARED: 'squared',
-  CIRCLED: 'circled'
-}
+import {
+  BASE_CLASS,
+  CAPTION_CLASS,
+  CONTAINER_IMAGE,
+  LINK_CLASS,
+  THUMBNAIL_RATIOS,
+  THUMBNAIL_SHAPES,
+  THUMBNAIL_SIZES
+} from './settings'
 
 const MoleculeThumbnail = props => {
   const {
@@ -112,31 +98,31 @@ MoleculeThumbnail.propTypes = {
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
 
   /** Define the size (LARGE, MEDIUM, SMALL or XSMALL) */
-  size: PropTypes.oneOf(Object.values(SIZES)),
+  size: PropTypes.oneOf(Object.values(THUMBNAIL_SIZES)),
 
   /** Define the shape (SQUARED or CIRCLED) */
-  shape: PropTypes.oneOf(Object.values(SHAPES)),
+  shape: PropTypes.oneOf(Object.values(THUMBNAIL_SHAPES)),
 
   /** Define the ratio ('1:1', '4:3', '16:9') */
-  ratio: PropTypes.oneOf(Object.values(RATIOS)),
+  ratio: PropTypes.oneOf(Object.values(THUMBNAIL_RATIOS)),
 
   /** Factory used to create navigation links */
   linkFactory: PropTypes.func
 }
 
 MoleculeThumbnail.defaultProps = {
-  target: '_blank',
-  size: SIZES.MEDIUM,
-  shape: SHAPES.SQUARED,
-  ratio: RATIOS['1:1'],
   // eslint-disable-next-line react/prop-types
-  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>
+  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>,
+  ratio: THUMBNAIL_RATIOS['1:1'],
+  shape: THUMBNAIL_SHAPES.SQUARED,
+  size: THUMBNAIL_SIZES.MEDIUM,
+  target: '_blank'
 }
 
 export default MoleculeThumbnail
 
 export {
-  SIZES as moleculeThumbnailSize,
-  RATIOS as moleculeThumbnailRatio,
-  SHAPES as moleculeThumbnailShape
+  THUMBNAIL_RATIOS as moleculeThumbnailRatio,
+  THUMBNAIL_SHAPES as moleculeThumbnailShape,
+  THUMBNAIL_SIZES as moleculeThumbnailSize
 }

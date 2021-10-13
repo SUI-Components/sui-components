@@ -4,6 +4,7 @@ import cx from 'classnames'
 const CLASS = 'sui-MoleculeQuickAction'
 
 const SIZES = {
+  SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large'
 }
@@ -11,7 +12,7 @@ const SIZES = {
 const getClassName = variant => `${CLASS}--${variant}`
 
 const MoleculeQuickAction = ({
-  size = SIZES.MEDIUM,
+  size = SIZES.SMALL,
   children,
   leftIcon,
   rightIcon,

@@ -14,9 +14,12 @@ $bdrs-molecule-quick-action: $bdrs-base !default;
 $bgc-molecule-quick-action: $c-white !default;
 $bgc-molecule-quick-action-focused: color-variation($c-primary, 4) !default;
 
-$fz-molecule-quick-action-large: $fz-m !default;
-$fw-molecule-quick-action-large: $fw-semi-bold !default;
-$icon-sz-molecule-quick-action-large: $sz-icon-m !default;
+$fz-molecule-quick-action-medium: $fz-m !default;
+$icon-sz-molecule-quick-action-medium: $sz-icon-m !default;
+$p-molecule-quick-action-medium: $p-m + $p-s !default;
+
+$fz-molecule-quick-action-large: $fz-l !default;
+$icon-sz-molecule-quick-action-large: $sz-icon-l !default;
 $p-molecule-quick-action-large: $p-l !default;
 
 .sui-MoleculeQuickAction {
@@ -64,15 +67,26 @@ $p-molecule-quick-action-large: $p-l !default;
     margin-left: $icon-m-molecule-quick-action;
   }
 
-  &--medium {
+  &--small {
     font-size: $fz-molecule-quick-action;
     font-weight: $fw-molecule-quick-action;
     padding: $p-molecule-quick-action;
   }
 
+  &--medium {
+    font-size: $fz-molecule-quick-action-medium;
+    font-weight: $fw-molecule-quick-action;
+    padding: $p-molecule-quick-action-medium;
+
+    & #{$base-class}-leftIcon [class*='Icon'] {
+      height: $icon-sz-molecule-quick-action-medium;
+      width: $icon-sz-molecule-quick-action-medium;
+    }
+  }
+
   &--large {
     font-size: $fz-molecule-quick-action-large;
-    font-weight: $fw-molecule-quick-action-large;
+    font-weight: $fw-molecule-quick-action;
     padding: $p-molecule-quick-action-large;
 
     & #{$base-class}-leftIcon [class*='Icon'] {

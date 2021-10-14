@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-dropdown-option",
-  "version": "1.33.0",
+  "version": "1.34.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

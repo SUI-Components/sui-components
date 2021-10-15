@@ -42,13 +42,6 @@
     &--withOverflow {
       overflow-x: auto;
     }
-  }
-
-  &-container {
-    background-color: $bgc-collapsible-container;
-    position: relative;
-    text-align: $ta-collapsible-container;
-    width: 100%;
 
     &--center {
       text-align: center;
@@ -57,6 +50,13 @@
     &--right {
       text-align: right;
     }
+  }
+
+  &-container {
+    background-color: $bgc-collapsible-container;
+    position: relative;
+    text-align: $ta-collapsible-container;
+    width: 100%;
 
     &#{&}--withGradient.is-collapsed {
       &::before {

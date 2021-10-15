@@ -9,7 +9,7 @@ function Text() {
     )
 }
 
-function GetIcon () { 
+function GetIcon () {
     return  (
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 32 32">
             <path d="M30,9l1,1c1,1,1,2,0,2L17,25c-1,1-2,1-2,0 L2,12c-1-1-1-2,0-2l1-1c1-1,2-1,2,0L16,20L28,9 C28,8,29,8,30,9z"></path>
@@ -39,16 +39,16 @@ return (
             </Demo>
             <Demo>
                 <h2>Collapsible Center</h2>
-                <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16, textAlign: 'center'}}>
-                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText}>
+                <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16}}>
+                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} alignContent='center'>
                         <Text/>
                     </MoleculeCollapsible>
                 </div>
             </Demo>
             <Demo>
                 <h2>Collapsible Right</h2>
-                <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16, textAlign: 'right'}}>
-                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} >
+                <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16}}>
+                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} alignContent='right' >
                         <Text/>
                     </MoleculeCollapsible>
                 </div>

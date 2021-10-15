@@ -18,7 +18,7 @@ const CONTENT_ALIGN = {
 const MoleculeCollapsible = ({
   onClose = () => {},
   onOpen = () => {},
-  alignContainer,
+  alignContent,
   children,
   height = MIN_HEIGHT,
   icon,
@@ -56,12 +56,12 @@ const MoleculeCollapsible = ({
   })
   const containerClassName = cx(`${CONTAINER_BUTTON_CLASS}`, {
     [`${CONTAINER_BUTTON_CLASS}--withGradient`]: withGradient,
-    [COLLAPSED_CLASS]: collapsed,
-    [`${CONTAINER_BUTTON_CLASS}--${alignContainer}`]: alignContainer
+    [COLLAPSED_CLASS]: collapsed
   })
   const contentClassName = cx(`${CONTENT_CLASS}`, {
     [`${CONTENT_CLASS}--withTransition`]: withTransition,
-    [`${CONTENT_CLASS}--withOverflow`]: withOverflow
+    [`${CONTENT_CLASS}--withOverflow`]: withOverflow,
+    [`${CONTENT_CLASS}--${alignContent}`]: alignContent
   })
   const containerHeight = collapsed ? `${height}px` : `${maxHeight}px`
 
@@ -97,7 +97,7 @@ MoleculeCollapsible.propTypes = {
   /**
    * Container align center || right
    */
-  alignContainer: PropTypes.oneOf(Object.values(CONTENT_ALIGN)),
+  alignContent: PropTypes.oneOf(Object.values(CONTENT_ALIGN)),
   /**
    * Content to collapse
    */

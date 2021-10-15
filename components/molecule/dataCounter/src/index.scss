@@ -20,18 +20,26 @@ $h-atom-input--s: 32px !default;
     &--s {
       height: $h-atom-input--s;
 
-      .sui-AtomInput-input,
+      .sui-AtomInput-input {
+        height: $h-atom-input--s;
+      }
+
       .sui-AtomButton {
         height: $h-atom-input--s;
+        width: $h-atom-input--s;
       }
     }
 
     &--m {
       height: $h-atom-input--m;
 
-      .sui-AtomInput-input,
+      .sui-AtomInput-input {
+        height: $h-atom-input--m;
+      }
+
       .sui-AtomButton {
         height: $h-atom-input--m;
+        width: $h-atom-input--m;
       }
     }
   }

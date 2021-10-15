@@ -1,4 +1,7 @@
 import AtomLabel, {AtomLabelTypes, AtomLabelFontSizes} from '../src'
+import AtomInput from '@s-ui/react-atom-input'
+import AtomCheckbox from '@s-ui/react-atom-checkbox'
+import AtomButton from '@s-ui/react-atom-button'
 
 import {
   H1,
@@ -8,10 +11,7 @@ import {
   Grid,
   Cell,
   Box,
-  Input,
-  Code,
-  Radio,
-  Button
+  Code
 } from '@s-ui/documentation-library'
 
 const flexCenteredStyle = {
@@ -50,7 +50,7 @@ const Demo = () => {
                   optionalText="(Optional)"
                   type={value}
                 />
-                <Input />
+                <AtomInput />
               </Box>
             </Cell>
           ))}
@@ -66,9 +66,9 @@ const Demo = () => {
         </Paragraph>
         <Grid cols={3} gutter={[8, 8]}>
           {[
-            <Input key={0} />,
-            <Radio key={1} />,
-            <Button key={2}>Button</Button>
+            <AtomInput key={0} />,
+            <AtomCheckbox key={1} />,
+            <AtomButton key={2}>Button</AtomButton>
           ].map((component, index) =>
             ['left', undefined, 'right'].map((value, index) => (
               <Cell key={index} style={flexCenteredStyle}>
@@ -106,7 +106,7 @@ const Demo = () => {
                     text={`size ${value}`}
                     fontSize={value}
                   />
-                  <Input />
+                  <AtomInput />
                 </Box>
               </Cell>
             )

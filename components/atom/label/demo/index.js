@@ -1,4 +1,5 @@
 import AtomLabel, {AtomLabelTypes, AtomLabelFontSizes} from '../src'
+import AtomInput from '@s-ui/react-atom-input'
 
 import {
   H1,
@@ -50,7 +51,7 @@ const Demo = () => {
                   optionalText="(Optional)"
                   type={value}
                 />
-                <Input />
+                <AtomInput />
               </Box>
             </Cell>
           ))}
@@ -106,7 +107,7 @@ const Demo = () => {
                     text={`Size ${value}`}
                     fontSize={value}
                   />
-                  <Input />
+                  <AtomInput />
                 </Box>
               </Cell>
             )

@@ -146,7 +146,7 @@ const MoleculeDataCounter = forwardRef(
               disabled={decrementDisabled}
               isLoading={isLoading && lastAction === ACTIONS.LESS}
               onClick={decrementValue}
-              size={sizeConversor(size)}
+              size={sizeConversor[size]}
               type={BUTTON_TYPE}
             >
               {substractIcon}
@@ -170,7 +170,7 @@ const MoleculeDataCounter = forwardRef(
               disabled={incrementDisabled}
               isLoading={isLoading && lastAction === ACTIONS.MORE}
               onClick={incrementValue}
-              size={buttonSize}
+              size={sizeConversor[size]}
               type={BUTTON_TYPE}
             >
               {addIcon}

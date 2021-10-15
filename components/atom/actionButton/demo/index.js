@@ -1,13 +1,14 @@
-import {Fragment} from 'react'
+import {Fragment, useState} from 'react'
 
 import {
   H1,
   H2,
-  H4,
   Code,
   Label,
   Input,
   Paragraph,
+  RadioButtonGroup,
+  RadioButton,
   Article,
   Strong,
   Text,
@@ -85,6 +86,7 @@ const BASE_CLASS_DEMO = `DemoAtomActionButton`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
 const Demo = () => {
+  const [state, setState] = useState({content: 'button', link: false})
   return (
     <div className="sui-StudioPreview">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
@@ -95,7 +97,7 @@ const Demo = () => {
           <div>
             <Paragraph>
               These are the available <Code>color</Code> of action buttons,
-              which are "<Code>{atomActionButtonColors.PRIMARY}</Code>" by
+              which are <Code>{atomActionButtonColors.PRIMARY}</Code> by
               default.
             </Paragraph>
             <ActionButtonCatalog icon={icon} />
@@ -151,8 +153,10 @@ const Demo = () => {
         <Article className={CLASS_SECTION}>
           <H2>Link buttons</H2>
           <Paragraph>
-            Action-Buttons can also be used as anchors to redirect to a
-            different url once clicking on them.
+            ActionButtons can also be used as anchor elements to redirect to a
+            different url once clicking on them. This can be done by adding the{' '}
+            <Code>link</Code> boolean prop combined with the href prop for the
+            destination url.
           </Paragraph>
           <div>
             <Grid cols={4} gutter="10" style={{width: 600}}>
@@ -206,8 +210,7 @@ const Demo = () => {
         </Article>
         <br />
         <Article className={CLASS_SECTION}>
-          <H2>TYPES</H2>
-          <H4>Correct usage</H4>
+          <H2>Types</H2>
           <Paragraph>
             HTML button <Code>type</Code> attribute is used for specifying the
             behavior of button.
@@ -234,8 +237,8 @@ const Demo = () => {
           <br />
           <br />
           <form onSubmit={handleSubmit}>
-            <Grid cols={3} gutter={[8, 8]}>
-              <Cell span={3}>
+            <Grid cols={2} gutter={[8, 8]}>
+              <Cell span={2}>
                 <Input
                   fullWidth
                   type="text"
@@ -244,7 +247,7 @@ const Demo = () => {
                   placeholder="first name"
                 />
               </Cell>
-              <Cell span={3}>
+              <Cell span={2}>
                 <Input
                   fullWidth
                   type="text"
@@ -266,6 +269,54 @@ const Demo = () => {
             </Grid>
           </form>
         </Article>
+        <br />
+        <Article className={CLASS_SECTION} mode="light">
+          <H2>Other extra button boolean props</H2>
+          <Paragraph>
+            <Code>disabled</Code>: button is not trigerable.
+          </Paragraph>
+          <Paragraph>
+            <Code>focused</Code>: button status activated.
+          </Paragraph>
+          <Grid cols={2} gutter={10}>
+            <Cell
+              style={{
+                ...flexCenteredStyle,
+                justifyContent: 'flex-start',
+                flexDirection: 'column',
+                alignItems: 'flex-start'
+              }}
+            >
+              <Label>boolean props</Label>
+              <RadioButtonGroup
+                onChange={(event, value) => {
+                  const newState = {
+                    ...state,
+                    disabled: undefined,
+                    focused: undefined
+                  }
+                  switch (value) {
+                    case 'disabled':
+                      setState({...newState, disabled: true})
+                      break
+                    case 'focused':
+                      setState({...newState, focused: true})
+                      break
+                    default:
+                      setState({...newState})
+                      break
+                  }
+                }}
+              >
+                <RadioButton value="disabled" label="disabled" />
+                <RadioButton value="focused" label="focused" />
+              </RadioButtonGroup>
+            </Cell>
+          </Grid>
+          <ActionButtonCatalog icon={icon} {...state} />
+        </Article>
+        <br />
+        <br />
       </div>
     </div>
   )

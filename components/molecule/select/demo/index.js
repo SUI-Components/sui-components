@@ -41,7 +41,7 @@ const Demo = () => (
         instead
       </p>
       <p>
-        This demo is only displaying the defaukt <code>DropDownList</code> and{' '}
+        This demo is only displaying the default <code>DropDownList</code> and{' '}
         <code>DropdownOption</code>. There are many other options to customize{' '}
         them if it's necessary.
       </p>

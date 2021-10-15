@@ -1,10 +1,15 @@
+import {Fragment} from 'react'
+
 import {
   H1,
   H2,
+  H4,
   Code,
   Label,
+  Input,
   Paragraph,
   Article,
+  Strong,
   Text,
   DevIcon,
   Grid,
@@ -24,6 +29,10 @@ const flexCenteredStyle = {
   wrap: 'nowrap',
   alignItems: 'center',
   alignContent: 'center'
+}
+const handleSubmit = event => {
+  event.preventDefault()
+  alert('Form submitted!')
 }
 
 const ActionButtonCatalog = props => {
@@ -196,6 +205,67 @@ const Demo = () => {
           </div>
         </Article>
         <br />
+        <Article className={CLASS_SECTION}>
+          <H2>TYPES</H2>
+          <H4>Correct usage</H4>
+          <Paragraph>
+            HTML button <Code>type</Code> attribute is used for specifying the
+            behavior of button.
+          </Paragraph>
+          <Paragraph>
+            <Strong>Tip</Strong>: Always specify the type attribute for the
+            button element. Different browsers may use different default types
+            for the button element
+          </Paragraph>
+          <Grid cols={1} gutter={[8, 8]}>
+            {Object.entries({
+              button: 'The button is a clickable button',
+              submit: 'The button is a submit button (submits form-data)'
+            }).map(([key, value]) => (
+              <Fragment key={key}>
+                <Cell
+                  style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
+                >
+                  <Label>{key}</Label>: <Text>{value}</Text>
+                </Cell>
+              </Fragment>
+            ))}
+          </Grid>
+          <br />
+          <br />
+          <form onSubmit={handleSubmit}>
+            <Grid cols={3} gutter={[8, 8]}>
+              <Cell span={3}>
+                <Input
+                  fullWidth
+                  type="text"
+                  id="fname"
+                  name="fname"
+                  placeholder="first name"
+                />
+              </Cell>
+              <Cell span={3}>
+                <Input
+                  fullWidth
+                  type="text"
+                  id="lname"
+                  name="lname"
+                  placeholder="Last name"
+                />
+              </Cell>
+              <Cell>
+                <AtomActionButton icon={icon} type="submit">
+                  Submit
+                </AtomActionButton>
+              </Cell>
+              <Cell>
+                <AtomActionButton icon={icon} type="button">
+                  Button
+                </AtomActionButton>
+              </Cell>
+            </Grid>
+          </form>
+        </Article>
       </div>
     </div>
   )

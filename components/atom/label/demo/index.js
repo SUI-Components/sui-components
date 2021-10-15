@@ -47,7 +47,7 @@ const Demo = () => {
                   name={`atomLabelName-${key}`}
                   for={`labelName-${key}`}
                   text={`label ${value}`}
-                  optionalText="*"
+                  optionalText="(Optional)"
                   type={value}
                 />
                 <Input />
@@ -78,7 +78,7 @@ const Demo = () => {
                     name={`atomLabelName-${value}`}
                     for={`labelName-${value}`}
                     text={`label ${value}`}
-                    optionalText="*"
+                    optionalText="(Optional)"
                     inline={value}
                   />
                   {value !== 'right' && component}

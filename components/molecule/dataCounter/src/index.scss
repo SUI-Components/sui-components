@@ -15,6 +15,7 @@ $h-atom-input--s: 32px !default;
       min-height: inherit;
       text-align: center;
       width: inherit;
+      padding: unset;
     }
 
     &--s {
@@ -23,6 +24,7 @@ $h-atom-input--s: 32px !default;
       .sui-AtomInput-input,
       .sui-AtomButton {
         height: $h-atom-input--s;
+        padding: unset;
       }
     }
 
@@ -32,6 +34,7 @@ $h-atom-input--s: 32px !default;
       .sui-AtomInput-input,
       .sui-AtomButton {
         height: $h-atom-input--m;
+        padding: unset;
       }
     }
   }

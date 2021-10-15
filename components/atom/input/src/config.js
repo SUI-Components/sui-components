@@ -21,6 +21,7 @@ export const TYPES = {
 }
 
 export const SIZES = {
+  LARGE: 'l',
   MEDIUM: 'm',
   SMALL: 's',
   XSMALL: 'xs'

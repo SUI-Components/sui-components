@@ -13,6 +13,11 @@ const BUTTON_TYPE = 'secondary'
 const BASE_CLASS = `sui-MoleculeDataCounter`
 const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-container`
 
+const sizeConversor = {
+  [inputSizes.SMALL]: atomButtonSizes.SMALL,
+  [inputSizes.LARGE]: atomButtonSizes.LARGE
+}
+
 const MoleculeDataCounter = forwardRef(
   (
     {
@@ -64,17 +69,6 @@ const MoleculeDataCounter = forwardRef(
     const isMinValue = (number = internalValue) => number === numMin
     const isLowerThanMinValue = (number = internalValue) => number < numMin
     const isHigherThanMaxValue = (number = internalValue) => number > numMax
-    let buttonSize
-    switch (size) {
-      case inputSizes.SMALL:
-        buttonSize = atomButtonSizes.SMALL
-        break
-      case inputSizes.LARGE:
-        buttonSize = atomButtonSizes.LARGE
-        break
-      default:
-        buttonSize = null
-    }
 
     const decrementDisabled = disabled || internalValue <= numMin
     const incrementDisabled = disabled || internalValue >= numMax
@@ -152,7 +146,7 @@ const MoleculeDataCounter = forwardRef(
               disabled={decrementDisabled}
               isLoading={isLoading && lastAction === ACTIONS.LESS}
               onClick={decrementValue}
-              size={buttonSize}
+              size={sizeConversor(size)}
               type={BUTTON_TYPE}
             >
               {substractIcon}

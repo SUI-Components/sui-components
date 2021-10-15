@@ -128,17 +128,28 @@ const Demo = () => {
         />
       </div>
 
-      <h2>Size=SMALL</h2>
+      <h2>Sizes</h2>
       <div style={stylesSection}>
         <MoleculeDataCounter
           onChange={consoleValue}
-          label="Label"
+          label="Small"
           id="demo6"
           min={3}
           size={moleculeDataCounterSizes.SMALL}
           {...propsMessages}
         />
+        <br />
+
+        <MoleculeDataCounter
+            onChange={consoleValue}
+            label="Large"
+            id="demo6"
+            min={3}
+            size={moleculeDataCounterSizes.LARGE}
+            {...propsMessages}
+        />
       </div>
+
     </div>
   )
 }

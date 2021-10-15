@@ -29,6 +29,7 @@ $w-atom-input--s: $h-atom-input--s !default;
       .sui-AtomButton {
         height: $h-atom-input--s;
         width: $w-atom-input--s;
+        padding: 0;
       }
     }
 
@@ -51,6 +52,7 @@ $w-atom-input--s: $h-atom-input--s !default;
         display: flex;
         justify-content: center;
         align-items: center;
+      }
     }
   }
 }

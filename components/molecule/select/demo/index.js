@@ -27,9 +27,18 @@ const Demo = () => (
     <div className="sui-StudioPreview-content sui-StudioDemo-preview">
       <h1>Select</h1>
       <p>
-        El componente <code>select</code> sólo se usará para seleccionar
-        opciones de un listado cerrado. Utiliza <code>Autosuggest</code> si
-        necesitas añadir opciones fuera del listado cerrado
+        The component <code>select</code> should only be used to select a closed
+        list. If you need to display an open list use
+        <code>
+          <a
+            href="https://sui-components.vercel.app/workbench/molecule/autosuggest/demo"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Autosuggest
+          </a>
+        </code>
+        instead
       </p>
       <p>
         En esta demo sólo se utiliza el tamaño por defecto del{' '}

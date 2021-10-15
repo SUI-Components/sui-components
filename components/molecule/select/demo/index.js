@@ -41,10 +41,9 @@ const Demo = () => (
         instead
       </p>
       <p>
-        En esta demo sólo se utiliza el tamaño por defecto del{' '}
-        <code>DropdownList</code> y las opciones básicas de{' '}
-        <code>DropdownOption</code>. Recuerda que en dichos componentes existen
-        más posibilidades si son necesarias
+        This demo is only displaying the defaukt <code>DropDownList</code> and{' '}
+        <code>DropdownOption</code>. There are many other options to customize{' '}
+        them if it's necessary.
       </p>
 
       <h2>Single Selection</h2>

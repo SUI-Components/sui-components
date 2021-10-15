@@ -141,15 +141,14 @@ const Demo = () => {
         <br />
 
         <MoleculeDataCounter
-            onChange={consoleValue}
-            label="Large"
-            id="demo6"
-            min={3}
-            size={moleculeDataCounterSizes.LARGE}
-            {...propsMessages}
+          onChange={consoleValue}
+          label="Large"
+          id="demo6"
+          min={3}
+          size={moleculeDataCounterSizes.LARGE}
+          {...propsMessages}
         />
       </div>
-
     </div>
   )
 }

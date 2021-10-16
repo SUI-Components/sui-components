@@ -11,8 +11,7 @@ import {
   Grid,
   Cell,
   Box,
-  Code,
-  Radio
+  Code
 } from '@s-ui/documentation-library'
 
 const flexCenteredStyle = {

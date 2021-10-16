@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.34.0 (2021-10-14)
+
+
+### Bug Fixes
+
+* **components/molecule/dropdownOption:** fix border radius ([78f8aaa](https://github.com/SUI-Components/sui-components/commit/78f8aaa6597fc8dd3d6608a103dff1fb607450cb))
+
+
+
 # 1.33.0 (2021-10-07)
 
 

@@ -4,6 +4,7 @@
 
 $c-molecule-dropdown-option--highlight-mark: initial !default;
 $bdr-molecule-dropdown-option: 0 !default;
+$bdrs-molecule-dropdown-option: $bdr-molecule-dropdown-option !default;
 $bg-molecule-dropdown-option--highlight-mark: $c-highlight !default;
 $bg-molecule-dropdown-option-selected: none !default;
 $fw-molecule-dropdown-option-selected-text: $fw-bold !default;
@@ -24,7 +25,7 @@ $ml-molecule-dropdown-option: 0 !default;
 
 .sui-MoleculeDropdownOption {
   align-items: center;
-  border-radius: $bdr-molecule-dropdown-option;
+  border-radius: $bdrs-molecule-dropdown-option;
   display: flex;
   min-height: $mih-dropdown-option;
   padding: $pt-molecule-dropdown-option $pr-molecule-dropdown-option

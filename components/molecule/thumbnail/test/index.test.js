@@ -19,8 +19,8 @@ describe('molecule/thumbnail', () => {
   it('should render without crashing', () => {
     // Given
     const props = {
-      src: '#',
-      alt: 'alt'
+      alt: 'alt',
+      src: '#'
     }
 
     // When
@@ -35,8 +35,8 @@ describe('molecule/thumbnail', () => {
   it('should NOT render null', () => {
     // Given
     const props = {
-      src: '#',
-      alt: 'alt'
+      alt: 'alt',
+      src: '#'
     }
 
     // When
@@ -47,17 +47,20 @@ describe('molecule/thumbnail', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
-  it.skip('example', () => {
-    // Example TO BE DELETED!!!!
-
+  it.skip('should NOT extend classNames', () => {
     // Given
-    // const props = {}
+    const props = {
+      alt: 'alt',
+      className: 'extended-classNames',
+      src: '#'
+    }
+    const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
     // When
-    // const {getByRole} = setup(props)
+    const {container} = setup(props)
+    const findClassName = findSentence(props.className)
 
     // Then
-    // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(false)
+    expect(findClassName(container.innerHTML)).to.be.null
   })
 })

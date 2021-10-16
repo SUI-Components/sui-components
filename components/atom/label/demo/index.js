@@ -69,7 +69,7 @@ const Demo = () => {
           {[
             <AtomInput key={0} />,
             <AtomCheckbox key={1} />,
-            <AtomButton key={2}>Button</Button>
+            <AtomButton key={2}>Button</AtomButton>
           ].map((component, index) =>
             ['left', undefined, 'right'].map((value, index) => (
               <Cell key={index} style={flexCenteredStyle}>

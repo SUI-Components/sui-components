@@ -48,7 +48,8 @@ describe('molecule/field', () => {
   it('should NOT extend classNames', () => {
     // Given
     const props = {
-      className: 'extended-classNames'
+      className: 'extended-classNames',
+      name: 'name'
     }
     const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 

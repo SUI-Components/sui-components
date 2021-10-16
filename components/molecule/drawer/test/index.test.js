@@ -15,6 +15,7 @@ chai.use(chaiDOM)
 
 describe('MoleculeDrawer', () => {
   const Component = MoleculeDrawer
+  const setup = setupEnvironment(Component)
 
   it('should render without crashing', () => {
     // Given
@@ -40,5 +41,20 @@ describe('MoleculeDrawer', () => {
     const {getByText} = render(<Component {...props} />)
     // Then
     expect(getByText('I am a drawer')).to.be.visible
+  })
+
+  it('should NOT extend classNames', () => {
+    // Given
+    const props = {
+      className: 'extended-classNames'
+    }
+    const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+
+    // When
+    const {container} = setup(props)
+    const findClassName = findSentence(props.className)
+
+    // Then
+    expect(findClassName(container.innerHTML)).to.be.null
   })
 })

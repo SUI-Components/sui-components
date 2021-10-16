@@ -27,7 +27,7 @@ const Demo = () => {
   const labelTypes = [['default', ''], ...Object.entries(AtomLabelTypes)]
 
   return (
-    <div>
+    <div className="sui-StudioPreview">
       <H1>Label</H1>
       <Paragraph>
         The Label is the name of the associated field, that explains what is the

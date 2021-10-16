@@ -88,17 +88,40 @@ describe('molecule/photoUploader', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
-  it.skip('example', () => {
-    // Example TO BE DELETED!!!!
-
+  // https://github.com/SUI-Components/sui-components/issues/1546
+  it.skip('should NOT extend classNames', () => {
     // Given
-    // const props = {}
+    const props = {
+      addMorePhotosIcon: IconElement,
+      addPhotoTextSkeleton: 'addPhotoTextSkeleton',
+      addPhotoTextButton: 'addPhotoTextButton',
+      className: 'extended-classNames',
+      deleteIcon: IconElement,
+      dragPhotoDividerTextInitialContent: 'dragPhotoDividerTextInitialContent',
+      dragPhotoTextInitialContent: 'dragPhotoTextInitialContent',
+      dragPhotosIcon: IconElement,
+      dropPhotosHereText: 'dropPhotosHereText',
+      errorCorruptedPhotoUploadedText: 'errorCorruptedPhotoUploadedText',
+      errorFileExcededMaxSizeText: 'errorFileExcededMaxSizeText',
+      errorFormatPhotoUploadedText: 'errorFormatPhotoUploadedText',
+      errorInitialPhotoDownloadErrorText: 'errorInitialPhotoDownloadErrorText',
+      infoIcon: IconElement,
+      limitPhotosUploadedText: 'limitPhotosUploadedText',
+      limitPhotosUploadedNotification: 'limitPhotosUploadedNotification',
+      notificationErrorFormatPhotoUploaded:
+        'notificationErrorFormatPhotoUploaded',
+      rejectPhotosIcon: IconElement,
+      retryIcon: IconElement,
+      rotateIcon: IconElement,
+      uploadingPhotosText: 'uploadingPhotosText'
+    }
+    const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
     // When
-    // const {getByRole} = setup(props)
+    const {container} = setup(props)
+    const findClassName = findSentence(props.className)
 
     // Then
-    // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(false)
+    expect(findClassName(container.innerHTML)).to.be.null
   })
 })

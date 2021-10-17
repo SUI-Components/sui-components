@@ -3,7 +3,7 @@ $bxsh-breadcrumb: none !default;
 $p-breadcrumb-desktop: $p-m $p-l !default;
 $p-breadcrumb-mobile: $p-m $p-l !default;
 $c-breadcrumb-icon: $c-gray !default;
-$c-breadcrumb-link-hover: $c-accent !default;
+$c-breadcrumb-link-hover: color-variation($c-primary, -1) !default;
 $c-breadcrumb-link: $c-primary !default;
 $c-breadcrumb: $c-text-base !default;
 $m-breadcrumb-items: $m-s !default;

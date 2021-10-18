@@ -10,7 +10,6 @@ const MODIFIER_TWO_LINES = `twoLines`
 const MODIFIER_THREE_LINES = `threeLines`
 const MODIFIER_NO_WRAP = 'noWrap'
 const MODIFIER_LINE_WRAP = 'lineWrap'
-const CLASS_ITEM = `${BASE_CLASS}-item`
 const CLASS_TEXT = `${BASE_CLASS}-text`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 const CLASS_HIGHLIGHTED = `is-highlighted`
@@ -76,25 +75,15 @@ const MoleculeDropdownOption = ({
       endTag: '</mark>'
     })
 
-    if (highlightValue) {
-      return (
-        <div className={CLASS_ITEM}>
-          <span
-            onFocus={handleInnerFocus}
-            dangerouslySetInnerHTML={{__html: mark}}
-            className={innerClassName}
-          />
-          {children}
-        </div>
-      )
-    }
-
     return (
-      <span
-        onFocus={handleInnerFocus}
-        dangerouslySetInnerHTML={{__html: mark}}
-        className={innerClassName}
-      />
+      <>
+        <span
+          onFocus={handleInnerFocus}
+          dangerouslySetInnerHTML={{__html: mark}}
+          className={innerClassName}
+        />
+        {highlightValue ? children : null}
+      </>
     )
   }
   const handleInnerFocus = ev => {

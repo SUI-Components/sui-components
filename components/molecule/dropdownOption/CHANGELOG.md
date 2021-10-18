@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 1.35.0 (2021-10-18)
+
+
+### Features
+
+* **components/molecule/dropdownOption:** add demo ([4f5bab4](https://github.com/SUI-Components/sui-components/commit/4f5bab4eee034b88eeb5f73ea240228668cfb740))
+* **components/molecule/dropdownOption:** add highlight value for display custom content ([60497fa](https://github.com/SUI-Components/sui-components/commit/60497fad81850c8eb09cb606ac5fc98e148c3c21))
+* **components/molecule/dropdownOption:** remove prevent early return ([02fbd44](https://github.com/SUI-Components/sui-components/commit/02fbd44516d695b888d91ddce6102c75320929ec))
+* **components/molecule/dropdownOption:** update prop description ([17f4ca6](https://github.com/SUI-Components/sui-components/commit/17f4ca6bac1f5a57c4aeae5cee74006185b744a0))
+
+
+
 # 1.34.0 (2021-10-14)
 
 

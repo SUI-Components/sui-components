@@ -68,7 +68,16 @@ const Demo = () => (
             Indiana Jones
           </MoleculeDropdownOption>
         </div>
-
+        <h3>With text highlighted (custom children content)</h3>
+        <div className={CLASS_DEMO_OPTION}>
+          <MoleculeDropdownOption
+            value="indiana jones"
+            highlightQuery="indi"
+            highlightValue="indiana jones"
+          >
+            🤠 with custom children content (not value)
+          </MoleculeDropdownOption>
+        </div>
         <h3>With callback (click & enter)</h3>
         <div className={CLASS_DEMO_OPTION}>
           <MoleculeDropdownOption

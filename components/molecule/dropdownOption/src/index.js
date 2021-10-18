@@ -147,7 +147,7 @@ MoleculeDropdownOption.propTypes = {
   selected: PropTypes.bool,
   /** Text to be highlighted in the option text if found */
   highlightQuery: PropTypes.string,
-  /** Text to be highlighted in the option text if found */
+  /** Text to be display if used with highlight query with custom content */
   highlightValue: PropTypes.string,
   /* key to provoke the onClick callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values */
   onSelectKey: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),

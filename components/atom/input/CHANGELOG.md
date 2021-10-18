@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.8.0 (2021-10-18)
+
+
+### Bug Fixes
+
+* **components/atom/input:** password classname fix ([8575b3e](https://github.com/SUI-Components/sui-components/commit/8575b3efc267c5783e835dd3b4a7763fa61fd12a))
+
+
+
 # 5.7.0 (2021-10-10)
 
 

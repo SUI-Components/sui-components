@@ -237,7 +237,7 @@ const Demo = () => {
           <br />
           <br />
           <form onSubmit={handleSubmit}>
-            <Grid cols={2} gutter={[8, 8]}>
+            <Grid cols={2} gutter={[8, 8]} style={{width: 200}}>
               <Cell span={2}>
                 <Input
                   fullWidth

@@ -10,6 +10,7 @@ const MODIFIER_TWO_LINES = `twoLines`
 const MODIFIER_THREE_LINES = `threeLines`
 const MODIFIER_NO_WRAP = 'noWrap'
 const MODIFIER_LINE_WRAP = 'lineWrap'
+const CLASS_ITEM = `${BASE_CLASS}-item`
 const CLASS_TEXT = `${BASE_CLASS}-text`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 const CLASS_HIGHLIGHTED = `is-highlighted`
@@ -25,6 +26,7 @@ const MoleculeDropdownOption = ({
   children,
   disabled,
   highlightQuery,
+  highlightValue,
   innerRef,
   onSelectKey,
   onSelect,
@@ -73,6 +75,20 @@ const MoleculeDropdownOption = ({
       )}">`,
       endTag: '</mark>'
     })
+
+    if (highlightValue) {
+      return (
+        <div className={CLASS_ITEM}>
+          <span
+            onFocus={handleInnerFocus}
+            dangerouslySetInnerHTML={{__html: mark}}
+            className={innerClassName}
+          />
+          {children}
+        </div>
+      )
+    }
+
     return (
       <span
         onFocus={handleInnerFocus}
@@ -102,7 +118,7 @@ const MoleculeDropdownOption = ({
         />
       )}
       {highlightQuery ? (
-        renderHighlightOption(children)
+        renderHighlightOption(highlightValue || children)
       ) : (
         <span onFocus={handleInnerFocus} className={innerClassName}>
           {children}
@@ -131,6 +147,8 @@ MoleculeDropdownOption.propTypes = {
   selected: PropTypes.bool,
   /** Text to be highlighted in the option text if found */
   highlightQuery: PropTypes.string,
+  /** Text to be highlighted in the option text if found */
+  highlightValue: PropTypes.string,
   /* key to provoke the onClick callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values */
   onSelectKey: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   /** Custom ref handler that will be assigned to the "target" element */

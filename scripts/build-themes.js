@@ -29,6 +29,9 @@ const THEMES_PACKAGES = [
   '@adv-ui/mt-theme'
 ]
 
+const cwd = process.cwd()
+const {NPM_TOKEN} = process.env
+
 const writeFile = (path, body) =>
   fse
     .outputFile(path, body)
@@ -51,20 +54,17 @@ const getThemesList = async () => {
 
 const installThemesPkgs = () =>
   exec(`npm i ${THEMES_PACKAGES.join(' ')} ${INSTALL_FLAGS.join(' ')}`, {
-    cwd: process.cwd()
+    cwd
   })
 
 const writeThemesInDemoFolders = async themes => {
   await exec('rm -Rf components/**/**/demo/themes', {
-    cwd: process.cwd()
+    cwd
   })
 
   const paths = await globby(
-    [
-      path.join(process.cwd(), 'components', '**', '**', 'demo'),
-      '!**/node_modules/**'
-    ],
-    {onlyDirectories: true, cwd: process.cwd()}
+    [path.join(cwd, 'components', '**', '**', 'demo'), '!**/node_modules/**'],
+    {onlyDirectories: true, cwd}
   )
 
   paths
@@ -91,6 +91,8 @@ ${hasDemoStyles ? `@import '../index.scss';` : ''}
 }
 
 ;(async () => {
+  if (!NPM_TOKEN) return
+
   const themes = await getThemesList()
   await installThemesPkgs()
   await writeThemesInDemoFolders(themes)

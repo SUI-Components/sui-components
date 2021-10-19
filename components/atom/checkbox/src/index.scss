@@ -2,6 +2,8 @@
 
 $bdrs-atom-checkbox: $bdrs-m !default;
 $c-atom-checkbox: $c-white !default;
+$h-atom-checkbox-small: $sz-icon-s !default;
+$w-atom-checkbox-small: $sz-icon-s !default;
 $h-atom-checkbox: $sz-icon-m !default;
 $w-atom-checkbox: $sz-icon-m !default;
 $h-atom-checkbox-icon: $sz-icon-s !default;
@@ -37,6 +39,14 @@ $status-atom-checkbox: success $c-atom-checkbox--success,
 
 .sui-AtomCheckbox {
   $self: &;
+
+  &:not(&--native) {
+    &#{$self}--small {
+      height: $h-atom-checkbox-small;
+      width: $w-atom-checkbox-small;
+      min-width: $w-atom-checkbox-small;
+    }
+  }
 
   &:not(&--native) {
     align-items: center;

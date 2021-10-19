@@ -1,5 +1,5 @@
 {
-  "name": "@s-ui/react-molecule-data-counter-demo",
+  "name": "@s-ui/react-molecule-notification-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,5 +8,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+  }
 }

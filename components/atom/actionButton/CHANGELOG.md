@@ -35,7 +35,7 @@ All notable changes to this project will be documented in this file.
 
 * add basic config file for action button ([19e18fb](https://github.com/SUI-Components/sui-components/commit/19e18fb302d75187fe95c4182683b67fe326d596))
 * generate component ([84f13b0](https://github.com/SUI-Components/sui-components/commit/84f13b06913e4780bb0955c12ae97c43c2deee7a))
-* implement ActionButton component ([c780bf9](https://github.com/SUI-Components/sui-components/commit/c780bf96d98e73bb58835445540273066f47ff07))
+* implement ActionButtonWrapper component ([c780bf9](https://github.com/SUI-Components/sui-components/commit/c780bf96d98e73bb58835445540273066f47ff07))
 * implement main component ([505d3ed](https://github.com/SUI-Components/sui-components/commit/505d3ed8d4c458b0b7f5eb52fff3392eb6f24af0))
 * implement styles for component ([eb3fc84](https://github.com/SUI-Components/sui-components/commit/eb3fc8403ca159306ac5f50ba447ce5661e0d75d))
 * simplify styles, add variables for filledPositive bg color ([33fd49c](https://github.com/SUI-Components/sui-components/commit/33fd49cb2b39755ca0a56a0056c559c65b4a43ef))

@@ -40,7 +40,7 @@ $status-atom-checkbox: success $c-atom-checkbox--success,
 .sui-AtomCheckbox {
   $self: &;
 
-  &:not(&--native) {
+  &:not(&#{$self}--native) {
     &#{$self}--small {
       height: $h-atom-checkbox-small;
       width: $w-atom-checkbox-small;

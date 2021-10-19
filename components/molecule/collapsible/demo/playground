@@ -40,7 +40,7 @@ return (
             <Demo>
                 <h2>Collapsible Center</h2>
                 <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16}}>
-                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} alignContent='center'>
+                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} alignContainer='center'>
                         <Text/>
                     </MoleculeCollapsible>
                 </div>
@@ -48,7 +48,7 @@ return (
             <Demo>
                 <h2>Collapsible Right</h2>
                 <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16}}>
-                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} alignContent='right' >
+                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} alignContainer='right' >
                         <Text/>
                     </MoleculeCollapsible>
                 </div>

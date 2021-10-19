@@ -1,6 +1,9 @@
 /* eslint-disable no-console */
 import {useState, Fragment} from 'react'
-import AtomCheckbox, {checkboxStatus} from 'components/atom/checkbox/src'
+import AtomCheckbox, {
+  checkboxStatus,
+  checkboxSizes
+} from 'components/atom/checkbox/src'
 import AtomIcon from '@s-ui/react-atom-icon'
 
 import {
@@ -24,6 +27,7 @@ const BASE_CLASS_DEMO = `DemoAtomCheckbox`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
 const CHECKBOX_STATUS = ['', ...Object.values(checkboxStatus)]
+const CHECKBOX_SIZE = [...Object.values(checkboxSizes)]
 
 const ICONS = {
   aiOutlineCheck: (
@@ -95,6 +99,56 @@ const Demo = () => {
           checkedIcon={() => ICONS.aiOutlineCheck}
           intermediateIcon={() => ICONS.aiOutlineLine}
         />
+      </Article>
+      <br />
+      <Article className={CLASS_SECTION}>
+        <H2>Sizes</H2>
+        <Paragraph>
+          There are 2 options for <Code>size</Code> medium being the default
+          one. To change it to small one has to pass the value{' '}
+          <Code>"small"</Code> to the size prop.
+        </Paragraph>
+        <Grid cols={4} gutter={[10, 10]}>
+          <Cell />
+          {Object.entries({
+            checked: {checked: true},
+            intermediate: {intermediate: true},
+            unchecked: {checked: false}
+          }).map(([label], index2) => (
+            <Fragment key={index2}>
+              <Cell style={flexCenteredStyle}>
+                <Label>{label}</Label>
+              </Cell>
+            </Fragment>
+          ))}
+
+          {CHECKBOX_SIZE.map((size, index) => (
+            <Fragment key={index}>
+              <Cell
+                style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
+              >
+                <Label>{size || 'UNDEFINED'}</Label>
+              </Cell>
+              {Object.entries({
+                checked: {checked: true},
+                intermediate: {intermediate: true},
+                unchecked: {checked: false}
+              }).map(([label, props], index2) => (
+                <Fragment key={index2}>
+                  <Cell style={flexCenteredStyle}>
+                    <AtomCheckbox
+                      id={`${index}-${index2}`}
+                      checkedIcon={() => ICONS.aiOutlineCheck}
+                      intermediateIcon={() => ICONS.aiOutlineLine}
+                      {...{...props}}
+                      size={size}
+                    />
+                  </Cell>
+                </Fragment>
+              ))}
+            </Fragment>
+          ))}
+        </Grid>
       </Article>
       <br />
       <Article className={CLASS_SECTION}>

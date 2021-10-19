@@ -13,6 +13,11 @@ const BUTTON_TYPE = 'secondary'
 const BASE_CLASS = `sui-MoleculeDataCounter`
 const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-container`
 
+const sizeConversor = {
+  [inputSizes.SMALL]: atomButtonSizes.SMALL,
+  [inputSizes.LARGE]: atomButtonSizes.LARGE
+}
+
 const MoleculeDataCounter = forwardRef(
   (
     {
@@ -141,7 +146,7 @@ const MoleculeDataCounter = forwardRef(
               disabled={decrementDisabled}
               isLoading={isLoading && lastAction === ACTIONS.LESS}
               onClick={decrementValue}
-              size={size === inputSizes.SMALL ? atomButtonSizes.SMALL : null}
+              size={sizeConversor[size]}
               type={BUTTON_TYPE}
             >
               {substractIcon}
@@ -165,7 +170,7 @@ const MoleculeDataCounter = forwardRef(
               disabled={incrementDisabled}
               isLoading={isLoading && lastAction === ACTIONS.MORE}
               onClick={incrementValue}
-              size={size === inputSizes.SMALL ? atomButtonSizes.SMALL : null}
+              size={sizeConversor[size]}
               type={BUTTON_TYPE}
             >
               {addIcon}
@@ -222,7 +227,7 @@ MoleculeDataCounter.propTypes = {
   /* component disabled or not */
   disabled: PropTypes.bool,
 
-  /** 's' or 'm', default: 'm' */
+  /** 's', 'm' or 'l', default: 'm' */
   size: PropTypes.oneOf(Object.values(inputSizes)),
 
   /** use to show loading icon on apply an action */

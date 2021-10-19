@@ -1,6 +1,0 @@
-return ( 
-  <div>
-    <h1>sdfsd</h1>
-    <MoleculeProgressSteps />
-  </div>
-)

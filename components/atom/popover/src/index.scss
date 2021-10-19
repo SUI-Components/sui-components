@@ -19,6 +19,7 @@ $c-atom-popover-close-icon: currentColor !default;
 $mr-atom-popover-close-icon: $m-s !default;
 $mt-atom-popover-close-icon: $m-s !default;
 $sz-atom-popover-close-icon: $sz-icon-s !default;
+$z-atom-popover-placement: auto !default;
 
 $w-atom-popover-arrow: $p-m + $p-s !default;
 $h-atom-popover-arrow: $p-m !default;
@@ -94,6 +95,7 @@ $class-arrow: '#{$base-class}-arrow';
 
   &--top {
     margin: $mt-atom-popover 0;
+    z-index: $z-atom-popover-placement;
 
     #{$class-arrow} {
       bottom: -$h-atom-popover-arrow * 0.5;
@@ -103,6 +105,7 @@ $class-arrow: '#{$base-class}-arrow';
 
   &--right {
     margin: 0 $mr-atom-popover;
+    z-index: $z-atom-popover-placement;
 
     #{$class-arrow} {
       left: -$w-atom-popover-arrow * 0.5;
@@ -112,6 +115,7 @@ $class-arrow: '#{$base-class}-arrow';
 
   &--bottom {
     margin: $mb-atom-popover 0;
+    z-index: $z-atom-popover-placement;
 
     #{$class-arrow} {
       top: -$h-atom-popover-arrow * 0.5;
@@ -120,6 +124,7 @@ $class-arrow: '#{$base-class}-arrow';
 
   &--left {
     margin: 0 $ml-atom-popover;
+    z-index: $z-atom-popover-placement;
 
     #{$class-arrow} {
       right: -$w-atom-popover-arrow * 0.5;

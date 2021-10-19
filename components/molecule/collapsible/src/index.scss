@@ -42,13 +42,15 @@
     &--withOverflow {
       overflow-x: auto;
     }
+    
+    &--alignContainer {
+      &-center {
+        text-align: center;
+      }
 
-    &--center {
-      text-align: center;
-    }
-
-    &--right {
-      text-align: right;
+      &-right {
+        text-align: right;
+      }
     }
   }
 

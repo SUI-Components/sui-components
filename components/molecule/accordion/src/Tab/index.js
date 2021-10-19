@@ -49,7 +49,7 @@ const Tab = ({
       <div className={containerClassName}>
         <button type="button" className={BUTTON_CLASS} onClick={onToggle}>
           <span className={BUTTON_CONTENT_CLASS} tabIndex="-1">
-            <span className={BUTTON_TITLE_CLASS}>{title}</span>
+            <div className={BUTTON_TITLE_CLASS}>{title}</div>
             <span className={iconClassName}>{icon}</span>
           </span>
         </button>
@@ -84,9 +84,9 @@ Tab.propTypes = {
    */
   icon: PropTypes.node,
   /**
-   * Title tab
+   * Title tab, which can be string or a custom component
    */
-  title: PropTypes.string.isRequired,
+  title: PropTypes.node.isRequired,
   /**
    * Force scroll visible
    */

@@ -1,5 +1,35 @@
 # CHANGELOG
 
+# 2.16.0 (2021-10-19)
+
+
+
+# 1.1.0 (2021-10-19)
+
+
+### Bug Fixes
+
+* **components/atom/checkbox:** lint sass ([274c8e1](https://github.com/SUI-Components/sui-components/commit/274c8e143af86403ff651d40c129d174bf8902c9))
+* **components/atom/checkbox:** lint sass ([56c4c35](https://github.com/SUI-Components/sui-components/commit/56c4c35040180d213115b4a8f48acfbc4493cd31))
+
+
+### Features
+
+* **components/atom/checkbox/demo:** Add size demo ([101fc03](https://github.com/SUI-Components/sui-components/commit/101fc0366d7de30db7c56e35c54a79036c1e871c))
+* **components/atom/checkbox:** Add size option small and medium ([4b6cc31](https://github.com/SUI-Components/sui-components/commit/4b6cc3136263df436ec5a339b1aa5bb17f346079))
+
+
+
+# 2.15.0 (2021-10-07)
+
+
+### Features
+
+* **components/atom/checkbox:** Add basic checkbox to demo ([31b3189](https://github.com/SUI-Components/sui-components/commit/31b3189131eba69a401deff1d2010f5a3fb97a57))
+* **components/atom/checkbox:** Update title and add description ([97ba5dc](https://github.com/SUI-Components/sui-components/commit/97ba5dcdfe6cdef6762da0f7cd0be0af3e7c396c))
+
+
+
 # 2.14.0 (2021-09-03)
 
 

@@ -32,10 +32,10 @@ export default function AtomSkeleton({
     <>
       {Array.from(Array(count).keys()).map(index => (
         <span
+          {...others}
           key={index}
           className={className}
           style={{...style, width, height}}
-          {...others}
         >
           &zwnj;
         </span>

@@ -39,7 +39,8 @@ const Input = forwardRef(
       onKeyDown = noop,
       required,
       pattern,
-      inputMode
+      inputMode,
+      shape = 'rounded'
     },
     forwardedRef
   ) => {
@@ -66,7 +67,8 @@ const Input = forwardRef(
       noBorder,
       readOnly,
       errorState,
-      state
+      state,
+      shape
     })
 
     return (
@@ -169,7 +171,9 @@ Input.propTypes = {
   /** native pattern attribute */
   pattern: PropTypes.string,
   /** To select input keyboard mode on mobile. It can be 'numeric', 'decimal', 'email', etc */
-  inputMode: PropTypes.string
+  inputMode: PropTypes.string,
+  /** Sets the shape of the input field. It can be 'rounded', 'square' or 'circle' */
+  shape: PropTypes.string
 }
 
 export default Input

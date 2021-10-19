@@ -41,17 +41,18 @@ describe('molecule/dropdownOption', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
-  it.skip('example', () => {
-    // Example TO BE DELETED!!!!
-
+  it('should NOT extend classNames', () => {
     // Given
-    // const props = {}
+    const props = {
+      className: 'extended-classNames'
+    }
+    const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
     // When
-    // const {getByRole} = setup(props)
+    const {container} = setup(props)
+    const findClassName = findSentence(props.className)
 
     // Then
-    // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(false)
+    expect(findClassName(container.innerHTML)).to.be.null
   })
 })

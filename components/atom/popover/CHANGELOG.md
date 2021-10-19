@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 3.5.0 (2021-10-15)
+
+
+
+# 3.4.0 (2021-10-15)
+
+
+### Features
+
+* **components/atom/popover:** add z-index to popover placement box ([907bab0](https://github.com/SUI-Components/sui-components/commit/907bab03eaf10252d40d4965e0eadfc63d331012))
+* **components/atom/tooltip:** Wip ([2ce257d](https://github.com/SUI-Components/sui-components/commit/2ce257d40534784874fbc6ce861eea0600c37a93))
+
+
+
 # 3.3.0 (2021-07-19)
 
 

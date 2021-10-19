@@ -69,6 +69,20 @@ describe(json.name, () => {
       expect(container.innerHTML).to.be.a('string')
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
+
+    it('should NOT extend classNames', () => {
+      // Given
+      const props = {className: 'extended-classNames'}
+      const findSentence = str => string =>
+        string.match(new RegExp(`S*${str}S*`))
+
+      // When
+      const {container} = setup(props)
+      const findClassName = findSentence(props.className)
+
+      // Then
+      expect(findClassName(container.innerHTML)).to.be.null
+    })
   })
 
   describe('inputTypes', () => {
@@ -137,6 +151,7 @@ describe(json.name, () => {
       // Given
       const library = pkg
       const expected = {
+        LARGE: 'l',
         MEDIUM: 'm',
         SMALL: 's',
         XSMALL: 'xs'
@@ -144,7 +159,7 @@ describe(json.name, () => {
 
       // When
       const {inputSizes: actual} = library
-      const {MEDIUM, SMALL, XSMALL, ...others} = actual
+      const {LARGE, MEDIUM, SMALL, XSMALL, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

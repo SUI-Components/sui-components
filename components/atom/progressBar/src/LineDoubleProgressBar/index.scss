@@ -34,14 +34,14 @@ $trsdu-progress-exrta-bar: 500ms !default;
     background: $bg-progress-bar;
     border-radius: $br-progress-container;
     border: $bd-line-double-progress-container;
-    height: $h-progress-bar; /* Can be anything */
+    height: $h-progress-bar;
     position: relative;
   }
 
   &-extraBar {
     background-color: $c-progress-extra-bar-fill;
     border-radius: $br-progress-bar;
-    bottom: calc(#{$h-progress-bar} - 2px);
+    bottom: $h-progress-bar;
     display: block;
     height: 100%;
     overflow: hidden;

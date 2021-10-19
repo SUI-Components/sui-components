@@ -1,4 +1,4 @@
-import {useRef, useState, useEffect} from 'react'
+import {useCallback, useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -28,10 +28,13 @@ const MoleculeCollapsible = ({
   withOverflow = false,
   withTransition = true
 }) => {
-  const childrenContainer = useRef()
   const [collapsed, setCollapsed] = useState(true)
   const [showButton, setShowButton] = useState(true)
-  const [maxHeight, setMaxHeight] = useState(MIN_HEIGHT)
+  const [childrenHeight, setChildrenHeight] = useState(0)
+
+  const nodeCallback = useCallback(node => {
+    setChildrenHeight(node !== null ? node.getBoundingClientRect().height : 0)
+  }, [])
 
   const toggleCollapse = () => {
     if (showButton) {
@@ -40,13 +43,10 @@ const MoleculeCollapsible = ({
     }
   }
 
-  const offsetHeight = childrenContainer?.current?.offsetHeight
-
   useEffect(() => {
-    if (!offsetHeight) return
-    setShowButton(offsetHeight >= height)
-    setMaxHeight(offsetHeight)
-  }, [offsetHeight, height])
+    if (!childrenHeight) return
+    setShowButton(childrenHeight >= height)
+  }, [childrenHeight, height, setShowButton])
   const wrapperClassName = cx(`${BASE_CLASS}`, {
     [`${BASE_CLASS}--withGradient`]: withGradient,
     [COLLAPSED_CLASS]: collapsed
@@ -63,7 +63,7 @@ const MoleculeCollapsible = ({
     [`${CONTENT_CLASS}--withTransition`]: withTransition,
     [`${CONTENT_CLASS}--withOverflow`]: withOverflow
   })
-  const containerHeight = collapsed ? `${height}px` : `${maxHeight}px`
+  const containerHeight = collapsed ? `${height}px` : `${childrenHeight}px`
 
   return (
     <div className={wrapperClassName}>
@@ -71,7 +71,7 @@ const MoleculeCollapsible = ({
         className={contentClassName}
         style={{maxHeight: !showButton ? 'none' : containerHeight}}
       >
-        <div ref={childrenContainer}>{children}</div>
+        <div ref={nodeCallback}>{children}</div>
       </div>
       {showButton && (
         <div className={containerClassName}>

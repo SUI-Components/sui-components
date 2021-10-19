@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.13.0 (2021-10-13)
+
+
+### Bug Fixes
+
+* **components/molecule/checkboxField:** feature/1733 ([be96386](https://github.com/SUI-Components/sui-components/commit/be963869f39e03a7167a272c2af2fb785b55c138))
+
+
+
 # 2.12.0 (2021-09-01)
 
 

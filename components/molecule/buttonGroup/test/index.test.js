@@ -51,17 +51,22 @@ describe('molecule/buttonGroup', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
-  it.skip('example', () => {
-    // Example TO BE DELETED!!!!
-
+  it.skip('should NOT extend classNames', () => {
     // Given
-    // const props = {}
+    const props = {
+      children: [
+        <AtomButton key={0}>A</AtomButton>,
+        <AtomButton key={1}>B</AtomButton>
+      ],
+      className: 'extended-classNames'
+    }
+    const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
     // When
-    // const {getByRole} = setup(props)
+    const {container} = setup(props)
+    const findClassName = findSentence(props.className)
 
     // Then
-    // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(false)
+    expect(findClassName(container.innerHTML)).to.be.null
   })
 })

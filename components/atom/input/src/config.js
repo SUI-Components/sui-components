@@ -21,6 +21,7 @@ export const TYPES = {
 }
 
 export const SIZES = {
+  LARGE: 'l',
   MEDIUM: 'm',
   SMALL: 's',
   XSMALL: 'xs'
@@ -41,7 +42,8 @@ export const getClassNames = ({
   noBorder,
   readOnly,
   errorState,
-  state
+  state,
+  shape
 }) => {
   return cx(
     BASE_CLASS,
@@ -52,6 +54,7 @@ export const getClassNames = ({
     readOnly && `${BASE_CLASS}--readOnly`,
     errorState && `${BASE_CLASS}--${INPUT_STATES.ERROR}`,
     errorState === false && `${BASE_CLASS}--${INPUT_STATES.SUCCESS}`,
-    state && `${BASE_CLASS}--${state}`
+    state && `${BASE_CLASS}--${state}`,
+    shape && `${BASE_CLASS}--${shape}`
   )
 }

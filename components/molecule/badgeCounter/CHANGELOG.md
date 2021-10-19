@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.12.0 (2021-10-07)
+
+
+### Bug Fixes
+
+* **components/molecule/badgeCounter:** change hardcoded red to variable ([2809a2e](https://github.com/SUI-Components/sui-components/commit/2809a2ec24d5584d29e37d2da3785a2b36c8496d)), closes [#1723](https://github.com/SUI-Components/sui-components/issues/1723)
+
+
+
 # 1.11.0 (2021-09-07)
 
 

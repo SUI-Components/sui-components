@@ -63,6 +63,30 @@ describe('molecule/accordion', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
+  it('should NOT extend classNames', () => {
+    // Given
+    const props = {
+      className: 'extended-classNames',
+      children: [
+        <div key={0} label="label 1">
+          element 1
+        </div>,
+        <div key={1} label="label 2">
+          element 2
+        </div>
+      ],
+      icon: <svg />
+    }
+    const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+
+    // When
+    const {container} = setup(props)
+    const findClassName = findSentence(props.className)
+
+    // Then
+    expect(findClassName(container.innerHTML)).to.be.null
+  })
+
   it('should trigger onToggleTab when tab is clicked', () => {
     // Given
     const spy = sinon.spy()

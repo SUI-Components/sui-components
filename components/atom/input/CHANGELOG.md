@@ -1,5 +1,28 @@
 # CHANGELOG
 
+# 5.9.0 (2021-10-19)
+
+
+
+# 5.8.0 (2021-10-18)
+
+
+### Bug Fixes
+
+* **components/atom/input:** add large to input sizes ([c5f134b](https://github.com/SUI-Components/sui-components/commit/c5f134bd2ef9cfbe8699801bab279ec30efbffd5)), closes [#1737](https://github.com/SUI-Components/sui-components/issues/1737)
+* **components/atom/input:** password classname fix ([8575b3e](https://github.com/SUI-Components/sui-components/commit/8575b3efc267c5783e835dd3b4a7763fa61fd12a))
+
+
+
+# 5.7.0 (2021-10-10)
+
+
+### Features
+
+* **components/atom/input:** add the shape prop ([8dd70ba](https://github.com/SUI-Components/sui-components/commit/8dd70ba2f7c3cc60004748ba6d911ed951b56eaa))
+
+
+
 # 5.6.0 (2021-09-29)
 
 

@@ -77,17 +77,35 @@ describe('organism/nestedCheckboxes', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
-  it.skip('example', () => {
-    // Example TO BE DELETED!!!!
-
+  it('should NOT extend classNames', () => {
     // Given
-    // const props = {}
+    const props = {
+      children: [
+        {id: 'nested-01', label: 'Nested 1', checked: true},
+        {id: 'nested-02', label: 'Nested 2', checked: false},
+        {id: 'nested-03', label: 'Nested 3', checked: true},
+        {id: 'nested-04', label: 'Nested 4', checked: true},
+        {id: 'nested-05', label: 'Nested 5', checked: true}
+      ].map(({checked, id, label}, index) => (
+        <MoleculeCheckboxField
+          key={id}
+          id={id}
+          checked={checked}
+          checkedIcon={() => null}
+          intermediateIcon={() => null}
+          onChange={() => null}
+          label={label}
+        />
+      )),
+      className: 'extended-classNames'
+    }
+    const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
     // When
-    // const {getByRole} = setup(props)
+    const {container} = setup(props)
+    const findClassName = findSentence(props.className)
 
     // Then
-    // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(false)
+    expect(findClassName(container.innerHTML)).to.be.null
   })
 })

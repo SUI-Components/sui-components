@@ -30,7 +30,7 @@ const THEMES_PACKAGES = [
 ]
 
 const cwd = process.cwd()
-const {NPM_TOKEN} = process.env
+const {CI, NPM_TOKEN} = process.env
 
 const writeFile = (path, body) =>
   fse
@@ -46,18 +46,22 @@ const writeFile = (path, body) =>
 const checkFileExists = path => fse.pathExists(path)
 
 const getThemesList = async () => {
+  console.log('[sui-studio] Getting themes list...')
   const files = await fs.readdir(path.join(__dirname, '..', 'themes'))
   return files
     .filter(file => !file.startsWith('_'))
     .map(file => file.split('.')[0])
 }
 
-const installThemesPkgs = () =>
-  exec(`npm i ${THEMES_PACKAGES.join(' ')} ${INSTALL_FLAGS.join(' ')}`, {
+const installThemesPkgs = () => {
+  console.log('[sui-studio] Installing themes packages...')
+  return exec(`npm i ${THEMES_PACKAGES.join(' ')} ${INSTALL_FLAGS.join(' ')}`, {
     cwd
   })
+}
 
 const writeThemesInDemoFolders = async themes => {
+  console.log('[sui-studio] Writing themes files on demos...')
   await exec('rm -Rf components/**/**/demo/themes', {
     cwd
   })
@@ -85,13 +89,18 @@ ${hasDemoStyles ? `@import '../index.scss';` : ''}
           )
         )
       } catch (e) {
-        console.log('Err:', e)
+        console.log('Error:', e)
       }
     })
 }
 
 ;(async () => {
-  if (!NPM_TOKEN) return
+  if (CI && !NPM_TOKEN) {
+    console.log(
+      '[sui-studio] Skipping themes installation as NPM_TOKEN is not available'
+    )
+    return
+  }
 
   const themes = await getThemesList()
   await installThemesPkgs()

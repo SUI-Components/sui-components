@@ -31,8 +31,8 @@ return (
         <DemoWrapper >
             <Demo>
                 <h2>Collapsible Left</h2>
-                <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16, textAlign: 'left'}}>
-                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText}>
+                <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16}}>
+                    <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} alignContainer='left'>
                         <Text/>
                     </MoleculeCollapsible>
                 </div>

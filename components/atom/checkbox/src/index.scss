@@ -41,14 +41,6 @@ $status-atom-checkbox: success $c-atom-checkbox--success,
   $self: &;
 
   &:not(&--native) {
-    &#{$self}--small {
-      height: $h-atom-checkbox-small;
-      width: $w-atom-checkbox-small;
-      min-width: $w-atom-checkbox-small;
-    }
-  }
-
-  &:not(&--native) {
     align-items: center;
     background-color: $bgc-atom-checkbox;
     border-radius: $bdrs-atom-checkbox;
@@ -61,6 +53,12 @@ $status-atom-checkbox: success $c-atom-checkbox--success,
     vertical-align: top;
     width: $w-atom-checkbox;
     min-width: $w-atom-checkbox;
+
+    &#{$self}--small {
+      height: $h-atom-checkbox-small;
+      width: $w-atom-checkbox-small;
+      min-width: $w-atom-checkbox-small;
+    }
 
     span {
       /* Center custom icons */

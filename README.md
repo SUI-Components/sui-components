@@ -15,10 +15,10 @@ SUI Components is an Open-Source, high quality library of React components that 
 
 ## 🧪 Test Coverage
 
-![statements](https://shields.io/badge/statements-62.27%25-red)
+![statements](https://shields.io/badge/statements-62.24%25-red)
 ![branches](https://shields.io/badge/branches-42.95%25-550000)
-![functions](https://shields.io/badge/functions-45.18%25-550000)
-![lines](https://shields.io/badge/lines-64.23%25-red)
+![functions](https://shields.io/badge/functions-45.04%25-550000)
+![lines](https://shields.io/badge/lines-64.2%25-red)
 
 ## ✨ Features
 

@@ -1,5 +1,5 @@
 {
-  "name": "@s-ui/react-atom-checkbox-demo",
+  "name": "atom-action-button",
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
@@ -8,8 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@s-ui/react-atom-icon": "1"
-  }
+  "license": "ISC"
 }

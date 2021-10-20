@@ -1,6 +1,6 @@
 {
-  "name": "@s-ui/react-molecule-data-counter-demo",
-  "version": "1.1.0",
+  "name": "@s-ui/react-molecule-collapsible-demo",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@s-ui/hoc": "1"
+  }
 }

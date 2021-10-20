@@ -32,43 +32,13 @@ jobs:
       with:
         name: public-folder
         path: public
-
-  testing:
+        
+  echo:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with: 
         node-version: 16
-    - name: Install xvfb for headless testing
-      run: sudo apt-get install xvfb
-
-    - name: Setup Max User Watches for Testing
-      run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-
-    - name: Testing
-      run: |
-        npm run phoenix:ci
-        npm run lint
-        xvfb-run --auto-servernum npm run test -- --ci
-
-  coverage:
-    needs: testing
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - uses: actions/setup-node@v1
-      with: 
-        node-version: 16
-        registry-url: 'https://registry.npmjs.org'
-    - name: Release components
-      run: |
-        npm install @s-ui/mono@2 --no-audit --no-optional --no-fund
-        npx @s-ui/ci release
-      env:
-        GITHUB_EMAIL: cloud-accounts@scmspain.com
-        GITHUB_TOKEN: ${{github.token}}
-        GITHUB_USER: sui-bot
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Echo hello world
+      run: echo "hello world"

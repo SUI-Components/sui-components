@@ -9,6 +9,7 @@ const CHECKBOX_STATUS = {
   SUCCESS: 'success',
   ALERT: 'alert'
 }
+const CHECKBOX_SIZES = {SMALL: 'small', MEDIUM: 'medium'}
 
 const AtomCheckbox = ({
   checked = false,
@@ -21,6 +22,7 @@ const AtomCheckbox = ({
   name,
   onChange: onChangeFromProps = () => {},
   status,
+  size = CHECKBOX_SIZES.MEDIUM,
   ...props
 }) => {
   const inputRef = useRef()
@@ -43,6 +45,7 @@ const AtomCheckbox = ({
   }
 
   const className = cx(BASE_CLASS, {
+    [`${BASE_CLASS}--${size}`]: Object.values(CHECKBOX_SIZES).includes(size),
     'is-checked': checked,
     'is-disabled': disabled,
     'is-intermediate': isIntermediate,
@@ -80,6 +83,9 @@ AtomCheckbox.propTypes = {
   /* The DOM id global attribute. */
   id: PropTypes.string,
 
+  /* Determine the size of the checkbox. (default: CHECKBOX_SIZES.MEDIUM) */
+  size: PropTypes.string,
+
   /* Name attribute for the input */
   name: PropTypes.string,
 
@@ -110,3 +116,4 @@ AtomCheckbox.propTypes = {
 
 export default AtomCheckbox
 export {CHECKBOX_STATUS as checkboxStatus}
+export {CHECKBOX_SIZES as checkboxSizes}

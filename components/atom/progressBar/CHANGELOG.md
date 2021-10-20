@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.5.0 (2021-10-19)
+
+
+### Bug Fixes
+
+* **components/atom/progressBar:** fix double progress bar alignment ([1e656d3](https://github.com/SUI-Components/sui-components/commit/1e656d36eeb68cdf4e0603e9043bc36da5588576))
+
+
+
 # 2.4.0 (2021-10-10)
 
 

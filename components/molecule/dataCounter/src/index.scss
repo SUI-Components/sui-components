@@ -4,7 +4,9 @@
 @import '~@s-ui/react-molecule-field/lib/index';
 
 $h-atom-input--m: 40px !default;
+$w-atom-input--m: $h-atom-input--m !default;
 $h-atom-input--s: 32px !default;
+$w-atom-input--s: $h-atom-input--s !default;
 
 .sui-MoleculeDataCounter {
   &-container {
@@ -20,18 +22,35 @@ $h-atom-input--s: 32px !default;
     &--s {
       height: $h-atom-input--s;
 
-      .sui-AtomInput-input,
+      .sui-AtomInput-input {
+        height: $h-atom-input--s;
+      }
+
       .sui-AtomButton {
         height: $h-atom-input--s;
+        width: $w-atom-input--s;
       }
     }
 
     &--m {
       height: $h-atom-input--m;
 
-      .sui-AtomInput-input,
+      .sui-AtomInput-input {
+        height: $h-atom-input--m;
+      }
+
       .sui-AtomButton {
         height: $h-atom-input--m;
+        width: $w-atom-input--m;
+      }
+    }
+
+    &--m,
+    &--s {
+      .sui-AtomButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }

@@ -151,6 +151,7 @@ describe(json.name, () => {
       // Given
       const library = pkg
       const expected = {
+        LARGE: 'l',
         MEDIUM: 'm',
         SMALL: 's',
         XSMALL: 'xs'
@@ -158,7 +159,7 @@ describe(json.name, () => {
 
       // When
       const {inputSizes: actual} = library
-      const {MEDIUM, SMALL, XSMALL, ...others} = actual
+      const {LARGE, MEDIUM, SMALL, XSMALL, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

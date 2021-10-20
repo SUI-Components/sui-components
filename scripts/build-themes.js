@@ -30,7 +30,7 @@ const THEMES_PACKAGES = [
 ]
 
 const cwd = process.cwd()
-const {CI, NPM_TOKEN} = process.env
+const {CI, NODE_AUTH_TOKEN} = process.env
 
 const writeFile = (path, body) =>
   fse
@@ -95,9 +95,9 @@ ${hasDemoStyles ? `@import '../index.scss';` : ''}
 }
 
 ;(async () => {
-  if (CI && !NPM_TOKEN) {
+  if (CI && !NODE_AUTH_TOKEN) {
     console.log(
-      '[sui-studio] Skipping themes installation as NPM_TOKEN is not available'
+      '[sui-studio] Skipping themes installation as NODE_AUTH_TOKEN is not available'
     )
     return
   }

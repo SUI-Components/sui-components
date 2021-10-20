@@ -79,7 +79,7 @@ AtomActionButton.propTypes = {
    */
   children: PropTypes.node,
   /**
-   * Classes to add to button
+   * Classes to add to button (DEPRECATED)
    */
   className: PropTypes.any,
   /**

@@ -1,4 +1,5 @@
 import AtomLabel, {AtomLabelTypes, AtomLabelFontSizes} from '../src'
+import AtomIcon from '@s-ui/react-atom-icon'
 import AtomInput from '@s-ui/react-atom-input'
 import AtomCheckbox from '@s-ui/react-atom-checkbox'
 import AtomButton from '@s-ui/react-atom-button'
@@ -11,7 +12,8 @@ import {
   Grid,
   Cell,
   Box,
-  Code
+  Code,
+  AntDesignIcon
 } from '@s-ui/documentation-library'
 
 const flexCenteredStyle = {
@@ -67,7 +69,25 @@ const Demo = () => {
         <Grid cols={3} gutter={[8, 8]}>
           {[
             <AtomInput key={0} />,
-            <AtomCheckbox key={1} />,
+            <AtomCheckbox
+              key={1}
+              checkedIcon={() => (
+                <AtomIcon>
+                  <AntDesignIcon
+                    icon="AiOutlineCheck"
+                    style={{color: 'currentColor'}}
+                  />
+                </AtomIcon>
+              )}
+              intermediateIcon={() => (
+                <AtomIcon>
+                  <AntDesignIcon
+                    icon="AiOutlineLine"
+                    style={{color: 'currentColor'}}
+                  />
+                </AtomIcon>
+              )}
+            />,
             <AtomButton key={2}>Button</AtomButton>
           ].map((component, index) =>
             ['left', undefined, 'right'].map((value, index) => (

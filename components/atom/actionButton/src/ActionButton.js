@@ -1,72 +1,145 @@
+import ActionButtonWrapper from './ActionButtonWrapper'
+import AtomIcon, {
+  ATOM_ICON_COLORS,
+  ATOM_ICON_SIZES
+} from '@s-ui/react-atom-icon'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-const ActionButton = ({
+import {
+  BASE_CLASS,
+  COLORS,
+  MODIFIERS,
+  SIZES,
+  STYLES,
+  CLASSES,
+  COLOR_CLASSES
+} from './config'
+
+const AtomActionButton = ({
   children,
-  href,
-  target,
+  className,
+  color = COLORS.PRIMARY,
   disabled,
-  isSubmit,
+  focused,
+  href,
+  icon,
   isButton,
+  isSubmit,
   link,
-  linkFactory: Link,
-  ...attrs
+  linkFactory,
+  size = SIZES.MEDIUM,
+  style = STYLES.FILLED_NEGATIVE,
+  target,
+  title,
+  ...restProps
 }) => {
-  if (isSubmit) attrs.type = 'submit'
-  if (isButton) attrs.type = 'button'
-  return link ? (
-    <Link
-      {...attrs}
-      href={href}
-      target={target}
-      rel={target === '_blank' ? 'noopener' : undefined}
-    >
-      {children}
-    </Link>
-  ) : (
-    <button {...attrs} disabled={disabled}>
-      {children}
-    </button>
+  const classNames = cx(
+    BASE_CLASS,
+    COLOR_CLASSES[color],
+    CLASSES[style],
+    CLASSES[size],
+    focused && CLASSES[MODIFIERS.ACTIVE_FOCUSED],
+    disabled && CLASSES[MODIFIERS.DISABLED],
+    link && CLASSES[MODIFIERS.LINK],
+    className
+  )
+
+  const buttonProps = {
+    href,
+    isButton,
+    isSubmit,
+    link,
+    linkFactory,
+    target,
+    title,
+    ...restProps
+  }
+
+  return (
+    <ActionButtonWrapper {...buttonProps} className={classNames}>
+      <div className={`${BASE_CLASS}-icon`}>
+        <AtomIcon
+          size={ATOM_ICON_SIZES.medium}
+          color={ATOM_ICON_COLORS.currentColor}
+        >
+          {icon}
+        </AtomIcon>
+      </div>
+      <div className={`${BASE_CLASS}-text`}>{children}</div>
+    </ActionButtonWrapper>
   )
 }
 
-ActionButton.propTypes = {
+AtomActionButton.displayName = 'AtomActionButton'
+
+AtomActionButton.propTypes = {
   /**
    * Content to be included in the button
    */
   children: PropTypes.node,
   /**
-   * Disable: faded with no interaction.
+   * Classes to add to button (DEPRECATED)
+   */
+  className: PropTypes.any,
+  /**
+   * Color of button:
+   * 'primary' (default),
+   * 'accent',
+   * 'neutral'
+   */
+  color: PropTypes.oneOf(Object.values(COLORS)),
+  /**
+   * Disabled: faded with no interaction.
    */
   disabled: PropTypes.bool,
+  /**
+   * Modifier: state of :active, :focus
+   */
+  focused: PropTypes.bool,
   /**
    * URL to be added on the HTML link
    */
   href: PropTypes.string,
   /**
+   * Icon to be displayed (required)
+   */
+  icon: PropTypes.node.isRequired,
+  /**
    * HTML element: if true, render a link. Otherwise render a button
    */
   link: PropTypes.bool,
   /**
-   * Factory used to create navigation links
+   * Size of the icon
+   * {SMALL: 'small',
+   * MEDIUM: 'medium',
+   * LARGE: 'large'}
    */
-  linkFactory: PropTypes.func,
+  size: PropTypes.oneOf(Object.values(SIZES)),
   /**
-   * if true, type="submit" (needed when several buttons coexist under the same form)
+   * Style of the button: 'filledNegative' (default), 'filledPositive', 'outline', 'flat'
    */
-  isSubmit: PropTypes.bool,
-  /**
-   * if true, type="button" (needed when several buttons coexist under the same form)
-   */
-  isButton: PropTypes.bool,
+  style: PropTypes.oneOf(Object.values(STYLES)),
   /**
    * Target to be added on the HTML link
    */
-  target: PropTypes.string
+  target: PropTypes.string,
+  /**
+   * Title to be added on button or link
+   */
+  title: PropTypes.string,
+  /**
+   * Factory used to create navigation link
+   */
+  linkFactory: PropTypes.func,
+  /**
+   * if true, type="submit" (needed when several action buttons coexist under the same form)
+   */
+  isSubmit: PropTypes.bool,
+  /**
+   * if true, type="button" (needed when several action buttons coexist under the same form)
+   */
+  isButton: PropTypes.bool
 }
 
-ActionButton.defaultProps = {
-  // eslint-disable-next-line react/prop-types
-  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>
-}
-
-export default ActionButton
+export default AtomActionButton

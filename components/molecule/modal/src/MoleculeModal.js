@@ -39,7 +39,7 @@ const MoleculeModal = forwardRef(
       withoutIndentation = false,
       isContentless,
       withAnimation = true,
-      visibleOverflow = false
+      isOverflowVisible = false
     },
     forwardedRef
   ) => {
@@ -129,7 +129,7 @@ const MoleculeModal = forwardRef(
         [suitClass({element: 'dialog--out'})]: isClosing,
         [suitClass({element: 'dialog--fit'})]: fitContent,
         [suitClass({element: `dialog--size-${size}`})]: !!size,
-        [suitClass({element: 'dialog--visible'})]: visibleOverflow
+        [suitClass({element: 'dialog--overflowVisible'})]: isOverflowVisible
       })
 
       return (
@@ -161,7 +161,7 @@ const MoleculeModal = forwardRef(
               <MoleculeModalContent
                 enableContentScroll={enableContentScroll}
                 withoutIndentation={withoutIndentation}
-                visibleOverflow={visibleOverflow}
+                isOverflowVisible={isOverflowVisible}
               >
                 {renderChildren()}
               </MoleculeModalContent>
@@ -276,7 +276,7 @@ MoleculeModal.propTypes = {
   /**
    * Determines if the modal overflow is visible or not
    */
-  visibleOverflow: PropTypes.bool
+  isOverflowVisible: PropTypes.bool
 }
 
 MoleculeModal.displayName = 'MoleculeModal'

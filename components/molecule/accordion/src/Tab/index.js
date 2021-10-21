@@ -37,7 +37,8 @@ const Tab = ({
     [OPEN_CLASS]: isOpen
   })
   const contentClassName = cx(CONTENT_CONTAINER_CLASS, {
-    [`${CONTENT_CONTAINER_CLASS}--withTransition`]: withTransition,
+    [`${CONTENT_CONTAINER_CLASS}--withTransition`]:
+      !autoHeight && withTransition,
     [`${CONTENT_CONTAINER_CLASS}--withScrollVisible`]: withScrollVisible
   })
 

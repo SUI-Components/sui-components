@@ -5,8 +5,10 @@
 $base-class: '.sui-AtomTag';
 
 @mixin icon-atom-tag($type) {
+  align-items: center;
   @include sui-icon--small;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   line-height: initial;
   vertical-align: middle;
 }

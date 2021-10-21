@@ -32,12 +32,7 @@ const Demo = () => {
         placement={moleculeDrawerPlacements.BOTTOM}
         size={moleculeDrawerSizes.M}
         isOpen={isOpen}
-        onOpen={(event, {isOpen}) => {
-          setIsOpen(isOpen)
-        }}
-        onClose={(event, {isOpen}) => {
-          setIsOpen(isOpen)
-        }}
+        onClose={() => setIsOpen(false)}
       >
         <Paragraph>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis,

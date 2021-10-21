@@ -33,6 +33,7 @@ const MoleculeDrawer = forwardRef(
       event.preventDefault()
       if (event.key === 'Escape') {
         setIsOpenState(false, true)
+        onClose(event, {isOpen: false})
       }
     })
 

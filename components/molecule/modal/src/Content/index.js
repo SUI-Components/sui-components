@@ -6,12 +6,14 @@ const MoleculeModalContent = ({
   className: classNameProp,
   enableContentScroll,
   withoutIndentation,
+  visibleOverflow,
   ...others
 }) => {
   const baseClassName = 'sui-MoleculeModalContent'
   const contentRef = useRef()
   const className = cx(baseClassName, {
-    [`${baseClassName}--without-indentation`]: withoutIndentation
+    [`${baseClassName}--without-indentation`]: withoutIndentation,
+    [`${baseClassName}--visible-overflow`]: visibleOverflow
   })
 
   const preventScrollIfNeeded = ev => {
@@ -45,7 +47,8 @@ const MoleculeModalContent = ({
 MoleculeModalContent.propTypes = {
   className: PropTypes.string,
   enableContentScroll: PropTypes.bool,
-  withoutIndentation: PropTypes.bool
+  withoutIndentation: PropTypes.bool,
+  visibleOverflow: PropTypes.bool
 }
 
 export default MoleculeModalContent

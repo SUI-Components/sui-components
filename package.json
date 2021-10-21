@@ -27,7 +27,7 @@
     "start": "sui-studio start",
     "test": "sui-studio test -- --coverage && npm run update:coverage",
     "test:watch": "sui-studio test --watch",
-    "update:coverage": "node scripts/replace-coverage-badges.js && git add README.md && git commit -m \"chore(root): update coverage metrics\""
+    "update:coverage": "node scripts/replace-coverage-badges.js && git add README.md"
   },
   "repository": {
     "type": "git",

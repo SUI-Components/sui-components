@@ -7,7 +7,7 @@ $base-class: '.sui-AtomTag';
 @mixin icon-atom-tag($type) {
   align-items: center;
   @include sui-icon--small;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   line-height: initial;
   vertical-align: middle;

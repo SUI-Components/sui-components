@@ -129,7 +129,7 @@ const MoleculeModal = forwardRef(
         [suitClass({element: 'dialog--out'})]: isClosing,
         [suitClass({element: 'dialog--fit'})]: fitContent,
         [suitClass({element: `dialog--size-${size}`})]: !!size,
-        [suitClass({element: 'dialog--overflowVisible'})]: isOverflowVisible
+        [suitClass({element: 'dialog--visible-overflow'})]: isOverflowVisible
       })
 
       return (

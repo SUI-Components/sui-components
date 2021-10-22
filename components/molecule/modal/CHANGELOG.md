@@ -1,5 +1,21 @@
 # CHANGELOG
 
+# 1.42.0 (2021-10-22)
+
+
+### Bug Fixes
+
+* **components/molecule/modal:** fix variable naming ([52102cb](https://github.com/SUI-Components/sui-components/commit/52102cb839d2b879c0062a0908e805976a36e186))
+* **components/molecule/modal:** fix variable naming ([568f1bf](https://github.com/SUI-Components/sui-components/commit/568f1bf61f5833b89c52e24d7db11cad69616171))
+
+
+### Features
+
+* **components/molecule/modal:** Add a new prop to determine if the modal content overflow is visibl ([e010318](https://github.com/SUI-Components/sui-components/commit/e010318973785f84c1c0480d22e366bf775a3b66))
+* **components/molecule/modal:** Add a new prop to determine if the modal overflow is visible or not ([17fc814](https://github.com/SUI-Components/sui-components/commit/17fc81402c955887d37daf30c73c36b3511767a2))
+
+
+
 # 1.41.0 (2021-10-07)
 
 

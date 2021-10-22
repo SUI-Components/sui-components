@@ -91,6 +91,10 @@ $base-class: '.sui-MoleculeAccordion-tab';
       overflow: auto;
     }
 
+    :not(.is-open) & {
+      border-top: $bd-accordion-tab-container-none;
+    }
+
     &--withScrollVisible {
       .is-open & {
         overflow-y: scroll;
@@ -108,10 +112,26 @@ $base-class: '.sui-MoleculeAccordion-tab';
   }
 
   &TitleContainer {
+    $self: &;
     background-color: $bgc-accordion-tab-container;
     position: relative;
     width: 100%;
     border-radius: $bdrs-accordion-tab;
+
+    &--withTransition.is-open {
+      border-bottom: $bd-accordion-tab-container; // this avoids glitches
+      transition: $trs-accordion-tab-title;
+    }
+
+    &.is-open {
+      border-bottom: $bd-accordion-tab-container; // border without transition
+    }
+
+    &:not(.is-open)#{$self}--withTransition {
+      border-bottom: $bd-accordion-tab-container-none;
+      transition: $trs-close-accordion-tab-title;
+      transition-delay: 230ms;
+    }
   }
 
   &Icon {

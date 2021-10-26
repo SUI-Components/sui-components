@@ -11,7 +11,7 @@ $base-class: '.sui-AtomInput-input';
 $class-read-only: '#{$base-class}--readOnly';
 
 #{$base-class} {
-  @extend %sui-atom-input-input;
+  @include sui-atom-input-input;
   border-radius: $bdrs-atom-input;
   min-height: auto;
   text-overflow: $tov-atom-input-placeholder;
@@ -63,7 +63,7 @@ $class-read-only: '#{$base-class}--readOnly';
   }
 
   &:focus {
-    @extend %sui-atom-input-input-focus;
+    @include sui-atom-input-input-focus;
   }
 
   @each $type, $attr in $sizes-atom-input {

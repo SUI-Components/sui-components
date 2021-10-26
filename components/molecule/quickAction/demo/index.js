@@ -1,7 +1,6 @@
 import {H1} from '@s-ui/documentation-library'
 import ArticleDefault from './ArticleDefault'
-import ArticleMedium from './ArticleMedium'
-import ArticleLarge from './ArticleLarge'
+import ArticleSize from './ArticleSize'
 import ArticleDisabled from './ArticleDisabled'
 import {handleOnClick, getLeftIcon, getRightIcon} from './config'
 const BASE_CLASS_DEMO = `DemoQuickAction`
@@ -19,26 +18,20 @@ export default () => {
           getRightIcon={getRightIcon}
         />
         <br />
-        <ArticleMedium
-          className={CLASS_SECTION}
-          handleOnClick={handleOnClick}
-          getLeftIcon={getLeftIcon}
-          getRightIcon={getRightIcon}
-        />
-        <br />
-        <ArticleLarge
-          className={CLASS_SECTION}
-          handleOnClick={handleOnClick}
-          getLeftIcon={getLeftIcon}
-          getRightIcon={getRightIcon}
-        />
-        <br />
         <ArticleDisabled
           className={CLASS_SECTION}
           handleOnClick={handleOnClick}
           getLeftIcon={getLeftIcon}
           getRightIcon={getRightIcon}
         />
+        <br />
+        <ArticleSize
+          className={CLASS_SECTION}
+          handleOnClick={handleOnClick}
+          getLeftIcon={getLeftIcon}
+          getRightIcon={getRightIcon}
+        />
+        <br />
       </div>
     </div>
   )

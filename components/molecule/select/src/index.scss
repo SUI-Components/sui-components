@@ -93,7 +93,7 @@ $c-molecule-select-disabled: inherit !default;
   &--focus {
     #{$class-input} {
       &-container {
-        @extend %sui-atom-input-select-focus;
+        @include sui-atom-input-select-focus;
         border: $bdw-s solid $c-primary;
 
         .sui-AtomInput-input,

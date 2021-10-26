@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {Article, H2} from '@s-ui/documentation-library'
+import {Article, H2, Code, Paragraph} from '@s-ui/documentation-library'
 import MoleculeQuickAction from '../src'
 
 const ArticleDisabled = ({
@@ -11,6 +11,10 @@ const ArticleDisabled = ({
   return (
     <Article className={className}>
       <H2>Disabled</H2>
+      <Paragraph>
+        {' '}
+        The prop <Code>disabled</Code> is a boolean by default false{' '}
+      </Paragraph>
       <MoleculeQuickAction
         onClick={handleOnClick}
         leftIcon={getLeftIcon()}

@@ -1,5 +1,12 @@
 import PropTypes from 'prop-types'
-import {Article, H2} from '@s-ui/documentation-library'
+import {
+  Article,
+  H2,
+  Paragraph,
+  Code,
+  ListItem,
+  UnorderedList
+} from '@s-ui/documentation-library'
 import MoleculeQuickAction from '../src'
 
 const ArticleDefault = ({
@@ -11,6 +18,21 @@ const ArticleDefault = ({
   return (
     <Article className={className}>
       <H2>Default</H2>
+      <Paragraph>
+        These are the minimum required props to get the default
+        MoleculeQuickAction:
+      </Paragraph>
+      <UnorderedList>
+        <ListItem>
+          <Code>onClick</Code>: Specifies the onClick function.
+        </ListItem>
+        <ListItem>
+          <Code>leftIcon</Code>: Specifies the left Icon.
+        </ListItem>
+        <ListItem>
+          <Code>rightIcon</Code>: Specifies the right Icon.
+        </ListItem>
+      </UnorderedList>
       <MoleculeQuickAction
         onClick={handleOnClick}
         leftIcon={getLeftIcon()}

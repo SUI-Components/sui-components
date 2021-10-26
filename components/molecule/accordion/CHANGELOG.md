@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.17.0 (2021-10-26)
+
+
+### Bug Fixes
+
+* **components/molecule/accordion:** fix autoHeight borders behaviour ([57d848c](https://github.com/SUI-Components/sui-components/commit/57d848cb6dcb5f997579a9ae1e40efae3b14304e)), closes [#1711](https://github.com/SUI-Components/sui-components/issues/1711)
+* **components/molecule/accordion:** fixed disappearing border on safari ([65a41de](https://github.com/SUI-Components/sui-components/commit/65a41dedf3d9a23d84e9b17b2f125caf5d09b04c))
+
+
+
 # 1.16.0 (2021-10-08)
 
 

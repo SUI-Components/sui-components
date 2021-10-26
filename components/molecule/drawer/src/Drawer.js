@@ -1,4 +1,4 @@
-import {forwardRef, useEffect, useState, useCallback} from 'react'
+import {forwardRef, useEffect, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import useEventListener from '@s-ui/react-hooks/lib/useEventListener'
@@ -20,7 +20,6 @@ const MoleculeDrawer = forwardRef(
     forwardedRef
   ) => {
     const [isOpenState, setIsOpenState] = useControlledState(isOpen) // inner state
-    const [isOpenedState, setIsOpenedState] = useState(isOpen) // transition delayed state
     useEffect(() => {
       if (target !== undefined) {
         target.current.style.position = 'relative'
@@ -33,23 +32,19 @@ const MoleculeDrawer = forwardRef(
       event.preventDefault()
       if (event.key === 'Escape') {
         setIsOpenState(false, true)
+        onClose(event, {isOpen: false})
       }
     })
 
     const onTransitionEndHandler = useCallback(
       event => {
-        setIsOpenedState(isOpenState)
-        if (isOpenState && !isOpenedState && typeof onOpen === 'function') {
+        if (isOpenState && typeof onOpen === 'function') {
           onOpen(event, {isOpen: isOpenState})
-        } else if (
-          !isOpenState &&
-          isOpenedState &&
-          typeof onClose === 'function'
-        ) {
+        } else if (!isOpenState && typeof onClose === 'function') {
           onClose(event, {isOpen: isOpenState})
         }
       },
-      [setIsOpenedState, isOpenState, isOpenedState, onClose, onOpen]
+      [isOpenState, onClose, onOpen]
     )
 
     return (

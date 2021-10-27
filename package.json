@@ -27,7 +27,7 @@
     "start": "sui-studio start",
     "test": "sui-studio test -- --coverage",
     "test:watch": "sui-studio test --watch",
-    "update:coverage": "node scripts/replace-coverage-badges.js && git add README.md"
+    "update:coverage": "node scripts/replace-coverage-badges.js"
   },
   "repository": {
     "type": "git",

@@ -60,7 +60,6 @@ jobs:
         git config --global user.name "${GITHUB_USER}"
         git status
         git add README.md
-        git commit -m "chore(Root): Update Coverage" --no-verify
         git status
   release:
     needs: testing

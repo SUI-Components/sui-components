@@ -321,6 +321,7 @@ const AddonAndIconDemo = () => {
             rightIcon={icon === 'rightIcon' ? valueIcon : undefined}
             leftAddon={leftAddon}
             rightAddon={rightAddon}
+            shape="square"
           />
         </Cell>
         <Cell>

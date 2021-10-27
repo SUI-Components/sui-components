@@ -13,7 +13,17 @@ import {
 import {filterKeys} from './helpers'
 
 const AtomTag = props => {
-  const {design, href, icon, onClick, responsive, size, type, disabled} = props
+  const {
+    design,
+    href,
+    icon,
+    onClick,
+    responsive,
+    size,
+    type,
+    disabled,
+    isFitted = false
+  } = props
   const isActionable = onClick || href
   const classNames = cx(
     'sui-AtomTag',
@@ -22,7 +32,8 @@ const AtomTag = props => {
     icon && 'sui-AtomTag-hasIcon',
     responsive && 'sui-AtomTag--responsive',
     type && `sui-AtomTag--${type}`,
-    disabled && 'sui-AtomTag--disabled'
+    disabled && 'sui-AtomTag--disabled',
+    isFitted && 'sui-AtomTag--isFitted'
   )
 
   /**
@@ -107,7 +118,9 @@ AtomTag.propTypes = {
   /**
    * Value of the tag to be returned on actionable tags
    */
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** element becomes border-margin-padding-less */
+  isFitted: PropTypes.nool
 }
 
 AtomTag.defaultProps = {

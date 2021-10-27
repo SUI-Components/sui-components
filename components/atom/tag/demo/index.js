@@ -19,6 +19,7 @@ import {
 import ArticleTypes from './ArticleTypes'
 
 import './index.scss'
+import ArticleIsFitted from './ArticleIsFitted'
 
 const icon = (
   <AtomIcon size={ATOM_ICON_SIZES.small}>
@@ -349,5 +350,7 @@ export default () => (
     </Article>
     <br />
     <ArticleTypes className={CLASS_SECTION} icon={icon} />
+    <br />
+    <ArticleIsFitted className={CLASS_SECTION} icon={icon} />
   </div>
 )

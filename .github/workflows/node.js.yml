@@ -74,7 +74,10 @@ jobs:
         GITHUB_TOKEN: ${{github.token}}
         GITHUB_USER: sui-bot
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
+    - name: git status
+      run: |
+        git log --pretty=format:"%h - %an, %ar : %s" -n 15 --graph | cat
+        git status
   deploy:
     needs: [build, testing]
     runs-on: ubuntu-latest

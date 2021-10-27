@@ -42,6 +42,10 @@ $base-class: '.sui-AtomTag';
   position: relative;
   white-space: nowrap;
 
+  &--isFitted {
+    margin: 0;
+  }
+
   * ~ #{$base-class}-label {
     margin: 0 0 0 $m-s;
   }

@@ -1,66 +1,10 @@
-import MoleculeCollapsible from '../src'
-import PropTypes from 'prop-types'
-
-function GetIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      x="0px"
-      y="0px"
-      width="16px"
-      height="16px"
-      viewBox="0 0 32 32"
-    >
-      <path d="M30,9l1,1c1,1,1,2,0,2L17,25c-1,1-2,1-2,0 L2,12c-1-1-1-2,0-2l1-1c1-1,2-1,2,0L16,20L28,9 C28,8,29,8,30,9z" />
-    </svg>
-  )
-}
-
-GetIcon.propTypes = {}
-
-function Section({children}) {
-  return (
-    <div style={{flexBasis: 400, flexGrow: 0, flexShrink: 0, padding: 20}}>
-      {children}
-    </div>
-  )
-}
-
-Section.propTypes = {
-  children: PropTypes.node
-}
-
-function Text() {
-  return (
-    <p style={{margin: 0}}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dictum
-      magna non diam euismod blandit et eu ex. Vivamus pulvinar sodales
-      tincidunt. Proin venenatis tristique quam, quis vehicula eros volutpat
-      sed. Etiam sed tristique ante. Aenean commodo erat quis pulvinar luctus.
-      Pellentesque ultricies lorem vitae ante euismod, at imperdiet est euismod.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent
-      taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-      himenaeos. In dignissim porttitor sem, a varius nisl ullamcorper ut.
-      Vivamus lacinia, quam eu placerat tempus, velit massa vulputate turpis,
-      sit amet bibendum risus massa sit amet urna. Vestibulum ante ipsum primis
-      in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent
-      finibus lobortis blandit. Vivamus scelerisque blandit purus a suscipit.
-      Nunc mi elit, condimentum eget pulvinar eu, lacinia vitae ligula. Sed sit
-      amet eros auctor ipsum tincidunt hendrerit ac mollis justo. Ut ac sagittis
-      ipsum.
-    </p>
-  )
-}
-
-Text.propTypes = {}
-
-function DemoWrapper({children}) {
-  return <div style={{display: 'flex', flexWrap: 'wrap'}}>{children}</div>
-}
-
-DemoWrapper.propTypes = {
-  children: PropTypes.node
-}
+import {GetIcon} from './config'
+import ArticleAlignment from './ArticleAlignment'
+import ArticleGradient from './ArticleGradient'
+import ArticleTransition from './ArticleTransition'
+import ArticleCustomHeight from './ArticleCustomHeight'
+import ArticleNoCollapse from './ArticleNoCollapse'
+import {Paragraph} from '@s-ui/documentation-library'
 
 const Demo = () => {
   const icon = GetIcon()
@@ -72,128 +16,37 @@ const Demo = () => {
     <div className="sui-StudioPreview">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <h1>Collapsible</h1>
-        <DemoWrapper>
-          <Section>
-            <h2>Collapsible Left</h2>
-            <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16}}>
-              <MoleculeCollapsible
-                icon={icon}
-                showText={showText}
-                hideText={hideText}
-                alignContainer="left"
-              >
-                <Text />
-              </MoleculeCollapsible>
-            </div>
-          </Section>
-          <Section>
-            <h2>Collapsible Center</h2>
-            <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16}}>
-              <MoleculeCollapsible
-                icon={icon}
-                showText={showText}
-                hideText={hideText}
-                alignContainer="center"
-              >
-                <Text />
-              </MoleculeCollapsible>
-            </div>
-          </Section>
-          <Section>
-            <h2>Collapsible Right</h2>
-            <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16}}>
-              <MoleculeCollapsible
-                icon={icon}
-                showText={showText}
-                hideText={hideText}
-                alignContainer="right"
-              >
-                <Text />
-              </MoleculeCollapsible>
-            </div>
-          </Section>
-          <Section>
-            <h2>Collapsible Without Gradient</h2>
-            <div
-              style={{
-                backgroundColor: '#fff',
-                fontSize: 14,
-                padding: 16,
-                textAlign: 'left'
-              }}
-            >
-              <MoleculeCollapsible
-                icon={icon}
-                showText={showText}
-                hideText={hideText}
-                withGradient={false}
-              >
-                <Text />
-              </MoleculeCollapsible>
-            </div>
-          </Section>
-          <Section>
-            <h2>Collapsible Without Transition</h2>
-            <div
-              style={{
-                backgroundColor: '#fff',
-                fontSize: 14,
-                padding: 16,
-                textAlign: 'left'
-              }}
-            >
-              <MoleculeCollapsible
-                icon={icon}
-                showText={showText}
-                hideText={hideText}
-                withTransition={false}
-              >
-                <Text />
-              </MoleculeCollapsible>
-            </div>
-          </Section>
-          <Section>
-            <h2>Collapsible setting custom height </h2>
-            <div
-              style={{
-                backgroundColor: '#fff',
-                fontSize: 14,
-                padding: 16,
-                textAlign: 'left'
-              }}
-            >
-              <MoleculeCollapsible
-                icon={icon}
-                showText={showText}
-                hideText={hideText}
-                height={height}
-              >
-                <Text />
-              </MoleculeCollapsible>
-            </div>
-          </Section>
-          <Section>
-            <h2>No need to collapse</h2>
-            <div
-              style={{
-                backgroundColor: '#fff',
-                fontSize: 14,
-                padding: 16,
-                textAlign: 'left'
-              }}
-            >
-              <MoleculeCollapsible
-                icon={icon}
-                showText={showText}
-                hideText={hideText}
-              >
-                <p style={{margin: 0}}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-              </MoleculeCollapsible>
-            </div>
-          </Section>
-        </DemoWrapper>
+        <Paragraph>
+          The collapsible component allows the user to expand or collapse
+          content. We use this component to lightweight the content of a page or
+          section.
+        </Paragraph>
+        <ArticleAlignment icon={icon} showText={showText} hideText={hideText} />
+        <br />
+        <br />
+        <ArticleGradient icon={icon} showText={showText} hideText={hideText} />
+        <br />
+        <br />
+        <ArticleTransition
+          icon={icon}
+          showText={showText}
+          hideText={hideText}
+        />
+        <br />
+        <br />
+        <ArticleCustomHeight
+          icon={icon}
+          showText={showText}
+          hideText={hideText}
+          height={height}
+        />
+        <br />
+        <br />
+        <ArticleNoCollapse
+          icon={icon}
+          showText={showText}
+          hideText={hideText}
+        />
       </div>
     </div>
   )

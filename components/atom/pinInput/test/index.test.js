@@ -21,7 +21,7 @@ import {MASK, valueChecker} from '../src/config'
 
 chai.use(chaiDOM)
 
-describe.skip('AtomPinInput', () => {
+describe('AtomPinInput', () => {
   const setup = setupEnvironment(Component)
 
   it('should render without crashing', () => {

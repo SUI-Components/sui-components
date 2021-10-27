@@ -58,7 +58,7 @@ jobs:
         npm run update:coverage
         git status
         git add README.md
-        git commit --amend --no-edit
+        git commit -m "chore(Root): Update Coverage" --no-verify
         git status
   release:
     needs: testing

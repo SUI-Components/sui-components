@@ -56,10 +56,11 @@ jobs:
     - name: Update Coverage
       run: |
         npm run update:coverage
-        git config --global user.email "${GITHUB_USER}
-        git config --global user.name "${githubUser}"
+        git config --global user.email "${GITHUB_EMAIL}
+        git config --global user.name "${GITHUB_USER}"
         git status
         git add README.md
+        git commit -m "chore(Root): Update Coverage" --no-verify
         git status
   release:
     needs: testing

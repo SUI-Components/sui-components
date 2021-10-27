@@ -143,6 +143,10 @@ body.is-MoleculeModal-open {
       }
     }
 
+    &--visible-overflow {
+      overflow: visible;
+    }
+
     @each $key-size, $size in $s-molecule-modal-dialog {
       &--size-#{$key-size} {
         width: 100%;

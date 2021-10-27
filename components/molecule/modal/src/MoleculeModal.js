@@ -38,7 +38,8 @@ const MoleculeModal = forwardRef(
       usePortal = true,
       withoutIndentation = false,
       isContentless,
-      withAnimation = true
+      withAnimation = true,
+      isOverflowVisible = false
     },
     forwardedRef
   ) => {
@@ -127,7 +128,8 @@ const MoleculeModal = forwardRef(
       const dialogClassName = cx(suitClass({element: 'dialog'}), {
         [suitClass({element: 'dialog--out'})]: isClosing,
         [suitClass({element: 'dialog--fit'})]: fitContent,
-        [suitClass({element: `dialog--size-${size}`})]: !!size
+        [suitClass({element: `dialog--size-${size}`})]: !!size,
+        [suitClass({element: 'dialog--visible-overflow'})]: isOverflowVisible
       })
 
       return (
@@ -159,6 +161,7 @@ const MoleculeModal = forwardRef(
               <MoleculeModalContent
                 enableContentScroll={enableContentScroll}
                 withoutIndentation={withoutIndentation}
+                isOverflowVisible={isOverflowVisible}
               >
                 {renderChildren()}
               </MoleculeModalContent>
@@ -269,7 +272,11 @@ MoleculeModal.propTypes = {
   /**
    * Determines if modal has open/close animation
    */
-  withAnimation: PropTypes.bool
+  withAnimation: PropTypes.bool,
+  /**
+   * Determines if the modal overflow is visible or not
+   */
+  isOverflowVisible: PropTypes.bool
 }
 
 MoleculeModal.displayName = 'MoleculeModal'

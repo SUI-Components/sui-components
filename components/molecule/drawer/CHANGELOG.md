@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 3.4.0 (2021-10-26)
+
+
+### Bug Fixes
+
+* **components/molecule/drawer:** inner state gets unsyncronized when using ESCAPE key ([55804f6](https://github.com/SUI-Components/sui-components/commit/55804f662e942289c4ed4a7cd54441e9bf019d0a))
+* **components/molecule/drawer:** remove unused state ([27647a2](https://github.com/SUI-Components/sui-components/commit/27647a2eaba433b4664c2f1f82c884ddc85214e9))
+
+
+
 # 3.3.0 (2021-09-29)
 
 

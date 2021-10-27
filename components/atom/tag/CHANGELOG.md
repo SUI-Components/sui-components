@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.31.0 (2021-10-21)
+
+
+### Bug Fixes
+
+* **components/atom/tag:** fix icon alignment ([b0a4720](https://github.com/SUI-Components/sui-components/commit/b0a4720d816183629276fd14873ceabab8184800)), closes [#1844](https://github.com/SUI-Components/sui-components/issues/1844)
+
+
+
 # 2.30.0 (2021-10-11)
 
 

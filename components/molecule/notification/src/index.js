@@ -195,7 +195,7 @@ MoleculeNotification.propTypes = {
   text: PropTypes.string,
 
   /** Notification type: 'info', 'success', 'warning', 'error', 'system'. */
-  type: PropTypes.string,
+  type: PropTypes.PropTypes.oneOf(Object.keys(TYPES)),
 
   /** Color variation of the notification: 'positive' with washed out colors, 'negative' with bold colors */
   variation: PropTypes.oneOf(Object.keys(VARIATIONS)),

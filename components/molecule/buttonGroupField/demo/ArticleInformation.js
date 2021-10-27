@@ -8,8 +8,7 @@ export const ArticleInformation = ({className}) => {
     <Article className={`${className}-section`}>
       <H2>With Information HelpText</H2>
       <Paragraph>
-        The prop <Code>helpText</Code> is used to set the description text and
-        color styles.
+        The prop <Code>helpText</Code> is used add extra information.
       </Paragraph>
       <MoleculeButtonGroupField
         id="info-help-text"

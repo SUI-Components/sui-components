@@ -54,6 +54,7 @@ jobs:
         npm run lint
         xvfb-run --auto-servernum npm run test -- --ci --coverage
         npm run update:coverage
+        git status
   release:
     needs: testing
     runs-on: ubuntu-latest

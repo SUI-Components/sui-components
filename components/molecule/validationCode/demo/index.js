@@ -9,6 +9,7 @@ import ArticleMask from './articles/ArticleMask'
 import ArticleDisabled from './articles/ArticleDisabled'
 import ArticleStatus from './articles/ArticleStatus'
 import ArticleReferenced from './articles/ArticleForwardRef'
+import ArticleWithoutResend from './articles/ArticleWithoutResend'
 
 const BASE_CLASS_DEMO = `DemoMoleculeValidationCode`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
@@ -43,6 +44,8 @@ export default () => {
         <ArticleStatus />
         <br />
         <ArticleReferenced />
+        <br />
+        <ArticleWithoutResend />
       </div>
     </div>
   )

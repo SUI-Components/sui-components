@@ -34,8 +34,8 @@ export const ArticleSemantic = ({className}) => {
           <Code>alertText:</Code> prop type string, used to show an alert.
         </ListItem>
         <ListItem>
-          <Code>successText:</Code> prop type string, used to show a success.
-          text
+          <Code>successText:</Code> prop type string, used to show a success
+          text.
         </ListItem>
         <ListItem>
           <Code>errorText:</Code> prop type string, used to show an error text.

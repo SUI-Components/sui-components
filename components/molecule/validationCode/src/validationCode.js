@@ -89,9 +89,14 @@ const MoleculeValidationCode = forwardRef(
       <div className={baseClass}>
         <div className={`${baseClass}-header`}>
           <p className={`${baseClass}-header-labelTitle`}>{labelText}</p>
-          <AtomButton onClick={onClearHandler} design={atomButtonDesigns.FLAT}>
-            {deleteButtonTextLabel}
-          </AtomButton>
+          {deleteButtonTextLabel && (
+            <AtomButton
+              onClick={onClearHandler}
+              design={atomButtonDesigns.FLAT}
+            >
+              {deleteButtonTextLabel}
+            </AtomButton>
+          )}
         </div>
         <div className={`${baseClass}-inputContainer`}>
           <div className={`${baseClass}-inputContainer-pinInput`}>
@@ -107,7 +112,7 @@ const MoleculeValidationCode = forwardRef(
               status={status}
               value={arrayInnerValue}
             />
-            {statusMessage !== undefined && (
+            {statusMessage && (
               <ValidationText text={statusMessage} type={status} />
             )}
           </div>
@@ -116,13 +121,15 @@ const MoleculeValidationCode = forwardRef(
           <AtomButton fullWidth onClick={() => onHandler(onSend)}>
             {sendButtonTextLabel}
           </AtomButton>
-          <AtomButton
-            design={atomButtonDesigns.FLAT}
-            fullWidth
-            onClick={() => onHandler(onResend)}
-          >
-            {resendButtonTextLabel}
-          </AtomButton>
+          {resendButtonTextLabel && (
+            <AtomButton
+              design={atomButtonDesigns.FLAT}
+              fullWidth
+              onClick={() => onHandler(onResend)}
+            >
+              {resendButtonTextLabel}
+            </AtomButton>
+          )}
         </div>
       </div>
     )
@@ -132,11 +139,11 @@ const MoleculeValidationCode = forwardRef(
 MoleculeValidationCode.displayName = 'MoleculeValidationCode'
 MoleculeValidationCode.propTypes = {
   /** text on the label */
-  labelText: PropTypes.string,
+  labelText: PropTypes.string.isRequired,
   /** text on delete button */
   deleteButtonTextLabel: PropTypes.string,
   /** text on send button  */
-  sendButtonTextLabel: PropTypes.string,
+  sendButtonTextLabel: PropTypes.string.isRequired,
   /** text on resend button */
   resendButtonTextLabel: PropTypes.string,
   /** message shown on status */

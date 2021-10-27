@@ -19,10 +19,10 @@ import MoleculeValidationCode from '@s-ui/react-molecule-validation-code'
 
 return (
   <MoleculeValidationCode
-    sendButtonText="Send"
-    deleteButtonText="Delete"
+    sendButtonTextLabel="Send"
+    deleteButtonTextLabel="Delete"
     labelText="Your verification code"
-    resendButtonText="Resend"
+    resendButtonTextLabel="Resend"
     onChange={onChangeHandler}
   />
 )

@@ -4,6 +4,7 @@ import ArticleGradient from './ArticleGradient'
 import ArticleTransition from './ArticleTransition'
 import ArticleCustomHeight from './ArticleCustomHeight'
 import ArticleNoCollapse from './ArticleNoCollapse'
+import {Paragraph} from '@s-ui/documentation-library'
 
 const Demo = () => {
   const icon = GetIcon()
@@ -15,6 +16,11 @@ const Demo = () => {
     <div className="sui-StudioPreview">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <h1>Collapsible</h1>
+        <Paragraph>
+          The collapsible component allows the user to expand or collapse
+          content. We use this component to lightweight the content of a page or
+          section.
+        </Paragraph>
         <ArticleAlignment icon={icon} showText={showText} hideText={hideText} />
         <br />
         <br />

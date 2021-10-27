@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.32.0 (2021-10-27)
+
+
+### Features
+
+* **components/atom/tag:** add isFitted prop to disable the padding in the container ([457ddf7](https://github.com/SUI-Components/sui-components/commit/457ddf7c36e966422fc836452f0ea528d67971c0)), closes [#1708](https://github.com/SUI-Components/sui-components/issues/1708)
+
+
+
 # 2.31.0 (2021-10-21)
 
 

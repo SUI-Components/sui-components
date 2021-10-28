@@ -23,24 +23,27 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
+    const libraryExportedMembers = [
+      'inputTypes',
+      'inputSizes',
+      'inputStates',
+      'inputShapes',
+      'default'
+    ]
 
     // When
     const {
       inputTypes,
       inputSizes,
       inputStates,
+      inputShapes,
       default: AtomInput,
       ...others
     } = library
 
     // Then
-    expect(Object.keys(library).length).to.equal(4)
-    expect(Object.keys(library)).to.have.members([
-      'inputTypes',
-      'inputSizes',
-      'inputStates',
-      'default'
-    ])
+    expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
+    expect(Object.keys(library)).to.have.members(libraryExportedMembers)
     expect(Object.keys(others).length).to.equal(0)
   })
 
@@ -151,6 +154,7 @@ describe(json.name, () => {
       // Given
       const library = pkg
       const expected = {
+        XLARGE: 'xl',
         LARGE: 'l',
         MEDIUM: 'm',
         SMALL: 's',
@@ -159,7 +163,7 @@ describe(json.name, () => {
 
       // When
       const {inputSizes: actual} = library
-      const {LARGE, MEDIUM, SMALL, XSMALL, ...others} = actual
+      const {XLARGE, LARGE, MEDIUM, SMALL, XSMALL, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)
@@ -195,6 +199,41 @@ describe(json.name, () => {
       // When
       const {inputStates: actual} = library
       const {ERROR, SUCCESS, ALERT, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('inputShapes', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {inputShapes: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        ROUNDED: 'rounded',
+        SQUARE: 'square',
+        CIRCLE: 'circle'
+      }
+
+      // When
+      const {inputShapes: actual} = library
+      const {ROUNDED, SQUARE, CIRCLE, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

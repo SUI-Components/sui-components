@@ -15,7 +15,8 @@ const MoleculeDrawer = forwardRef(
       onClose,
       placement = PLACEMENTS.LEFT,
       size = SIZES.AUTO,
-      target
+      target,
+      closeOnOutsiteClick = false
     },
     forwardedRef
   ) => {
@@ -31,6 +32,14 @@ const MoleculeDrawer = forwardRef(
       if (isOpenState === false) return
       event.preventDefault()
       if (event.key === 'Escape') {
+        setIsOpenState(false, true)
+        onClose(event, {isOpen: false})
+      }
+    })
+
+    useEventListener('mousedown', event => {
+      if (isOpenState === false || !forwardedRef || !closeOnOutsiteClick) return
+      if (!forwardedRef.current.contains(event.target)) {
         setIsOpenState(false, true)
         onClose(event, {isOpen: false})
       }
@@ -88,7 +97,9 @@ MoleculeDrawer.propTypes = {
   /** Size of the drawer content */
   size: PropTypes.oneOf(Object.values(SIZES)),
   /** DOM Element which wraps the component. **/
-  target: PropTypes.node
+  target: PropTypes.node,
+  /** Tells if drawer should be closed when clicked outsite the drawer area, needs ref to be defined **/
+  closeOnOutsiteClick: PropTypes.bool
 }
 
 export default MoleculeDrawer

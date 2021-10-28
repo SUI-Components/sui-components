@@ -8,7 +8,7 @@ import {
   Label,
   Button
 } from '@s-ui/documentation-library'
-import {useState} from 'react'
+import {useState, useRef} from 'react'
 import {
   MoleculeDrawer,
   moleculeDrawerPlacements,
@@ -26,6 +26,7 @@ const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
 const Demo = () => {
   const [isOpen, setIsOpen] = useState()
+  const drawerRef = useRef()
   return (
     <>
       <MoleculeDrawer
@@ -33,6 +34,8 @@ const Demo = () => {
         size={moleculeDrawerSizes.M}
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
+        closeOnOutsiteClick
+        ref={drawerRef}
       >
         <Paragraph>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis,

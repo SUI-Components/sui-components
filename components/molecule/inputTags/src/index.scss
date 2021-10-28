@@ -12,7 +12,7 @@ $bg-input-tag-disable: $c-gray-light-4 !default;
 $bdrs-molecule-input-tags: 0 !default;
 
 #{$class-tags} {
-  @extend %sui-atom-input-input;
+  @include sui-atom-input-input;
   border-radius: $bdrs-molecule-input-tags;
   align-items: center;
   display: flex;
@@ -20,7 +20,7 @@ $bdrs-molecule-input-tags: 0 !default;
   padding: 0 0 0 $p-m;
 
   &--focus {
-    @extend %sui-atom-input-input-focus;
+    @include sui-atom-input-input-focus;
   }
 
   &--disabled {

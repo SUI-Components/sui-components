@@ -63,7 +63,7 @@ $base-class: '.sui-AtomTextarea';
   }
 
   &:focus {
-    @extend %sui-atom-input-input-focus;
+    @include sui-atom-input-input-focus;
   }
 
   &--short {

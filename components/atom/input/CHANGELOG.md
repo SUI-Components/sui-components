@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.10.0 (2021-10-28)
+
+
+### Features
+
+* **components/atom/input:** use mixin instead of extend for base class styles ([d1bc70d](https://github.com/SUI-Components/sui-components/commit/d1bc70d464a3efab510357d87a9f59ff16bff8f6))
+
+
+
 # 5.9.0 (2021-10-19)
 
 

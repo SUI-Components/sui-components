@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.20.0 (2021-10-28)
+
+
+### Features
+
+* **components/molecule/inputTags:** use mixin instead of extend for base class styles ([2242511](https://github.com/SUI-Components/sui-components/commit/2242511968892721caba72e54d8096e2abc2b2f1))
+
+
+
 # 2.19.0 (2021-10-11)
 
 

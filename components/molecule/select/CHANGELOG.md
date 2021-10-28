@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.48.0 (2021-10-28)
+
+
+### Features
+
+* **components/molecule/select:** use mixin instead of extend for base class styles ([496a382](https://github.com/SUI-Components/sui-components/commit/496a382e488e70462e5941c3e5d3c9c59c655be8))
+
+
+
 # 1.47.0 (2021-09-29)
 
 

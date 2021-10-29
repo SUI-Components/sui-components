@@ -68,7 +68,7 @@ AtomBadge.propTypes = {
   iconRight: PropTypes.bool,
 
   /** element becomes border-margin-padding-less */
-  isFitted: PropTypes.nool,
+  isFitted: PropTypes.bool,
 
   /** Whether show a background color */
   transparent: PropTypes.bool,

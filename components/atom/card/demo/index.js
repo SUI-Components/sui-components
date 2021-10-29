@@ -147,7 +147,7 @@ const DefaultDemo = () => {
               <PlaceHolder
                 width={200}
                 text="media area"
-                style={{width: '100%'}}
+                style={{width: '100%', display: 'block'}}
               />
             ))
           }
@@ -192,7 +192,7 @@ const DefaultDemo = () => {
                       width={100}
                       height={100}
                       text="media"
-                      style={{width: '100%'}}
+                      style={{width: '100%', display: 'block'}}
                     />
                   ))
                 }
@@ -200,7 +200,7 @@ const DefaultDemo = () => {
                   content &&
                   (() => (
                     <div>
-                      <H3>content title</H3>
+                      <H3 style={{margin: 0}}>content title</H3>
                       <Text>content text</Text>
                     </div>
                   ))
@@ -235,7 +235,7 @@ const DefaultDemo = () => {
                       width={100}
                       height={100}
                       text="media"
-                      style={{width: '100%'}}
+                      style={{width: '100%', display: 'block'}}
                     />
                   ))
                 }
@@ -243,7 +243,7 @@ const DefaultDemo = () => {
                   content &&
                   (() => (
                     <div style={{textAlign: 'left'}}>
-                      <H3>content title</H3>
+                      <H3 style={{margin: 0}}>content title</H3>
                       <Text>content text</Text>
                     </div>
                   ))

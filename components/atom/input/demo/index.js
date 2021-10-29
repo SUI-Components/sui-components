@@ -563,7 +563,7 @@ const ShapeDemo = () => (
       )}
     </Grid>
     <Paragraph>
-      In even preserves its own shaping combined ith addons and sizes also.
+      In even preserves its own shaping combined with addons and sizes also.
     </Paragraph>
     <Grid cols={Object.values(inputShapes).length + 1 + 1} gutter={[8, 8]}>
       <Cell />

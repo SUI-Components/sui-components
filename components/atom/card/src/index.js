@@ -35,7 +35,7 @@ const AtomCard = ({
   tabIndex
 }) => {
   const redirectToHref = () => {
-    if (href) window.location.href = href
+    if (href) window.open(href, '_blank')
   }
 
   const redirectOnEnter = e => {

@@ -1,0 +1,10 @@
+$l-atom-input-icon: $gutter !default;
+$r-atom-input-icon: $gutter !default;
+$w-atom-input-icon: $sz-icon-m !default;
+$h-atom-input-icon: $sz-icon-m !default;
+$t-atom-input-icon: 50% !default;
+$trf-ty-atom-input-icon: -50% !default;
+$pl-atom-input-icon: 50px !default;
+$pl-atom-input-input: $w-atom-input-icon + $l-atom-input-icon + $p-s !default;
+$pr-atom-input-input: $w-atom-input-icon + $r-atom-input-icon + $p-s !default;
+$c-atom-input-icon: $c-primary !default;

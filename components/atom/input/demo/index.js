@@ -1,7 +1,8 @@
 import AtomInput, {
   inputSizes,
   inputTypes,
-  inputStates
+  inputStates,
+  inputShapes
 } from 'components/atom/input/src'
 import {useState} from 'react'
 import {
@@ -61,7 +62,7 @@ const SizeDemo = () => (
       The element gets {Object.values(inputSizes).length} different size
       configurations using its <Code>size</Code> prop.
     </Paragraph>
-    <Grid gutter={[8, 8]} cols={4}>
+    <Grid gutter={[8, 8]} cols={Object.values(inputSizes).length + 1}>
       {[['default', undefined], ...Object.entries(inputSizes)].map(
         ([key], index) => (
           <Cell
@@ -547,25 +548,51 @@ const ShapeDemo = () => (
       The border radius of the input can be set using the <Code>shape</Code>{' '}
       property.
     </Paragraph>
-    <Grid cols={3} gutter={[8, 8]}>
-      <Cell>
-        <Label>rounded (default)</Label>
-      </Cell>
-      <Cell>
-        <Label>square</Label>
-      </Cell>
-      <Cell>
-        <Label>circle</Label>
-      </Cell>
-      <Cell>
-        <AtomInput shape="rounded" />
-      </Cell>
-      <Cell>
-        <AtomInput shape="square" />
-      </Cell>
-      <Cell>
-        <AtomInput shape="circle" />
-      </Cell>
+    <Grid cols={Object.values(inputShapes).length + 1} gutter={[8, 8]}>
+      {Object.entries({default: undefined, ...inputShapes}).map(([key]) => (
+        <Cell key={key}>
+          <Label>{`${key}`}</Label>
+        </Cell>
+      ))}
+      {Object.entries({default: undefined, ...inputShapes}).map(
+        ([key, value]) => (
+          <Cell key={key}>
+            <AtomInput shape={value} />
+          </Cell>
+        )
+      )}
+    </Grid>
+    <Paragraph>
+      In even preserves its own shaping combined with addons and sizes also.
+    </Paragraph>
+    <Grid cols={Object.values(inputShapes).length + 1 + 1} gutter={[8, 8]}>
+      <Cell />
+      {Object.entries({default: undefined, ...inputShapes}).map(([key]) => (
+        <Cell key={key}>
+          <Label>{`${key}`}</Label>
+        </Cell>
+      ))}
+      {Object.entries({default: undefined, ...inputSizes}).map(
+        ([sizeKey, sizeValue]) => (
+          <>
+            <Cell key={sizeKey}>
+              <Label>{`${sizeKey}`}</Label>
+            </Cell>
+            {Object.entries({default: undefined, ...inputShapes}).map(
+              ([shapeKey, shapeValue]) => (
+                <Cell key={`${shapeKey}-${sizeKey}`}>
+                  <AtomInput
+                    shape={shapeValue}
+                    size={sizeValue}
+                    leftAddon={<span>left</span>}
+                    rightAddon={<span>right</span>}
+                  />
+                </Cell>
+              )
+            )}
+          </>
+        )
+      )}
     </Grid>
   </Article>
 )

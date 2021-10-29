@@ -6,43 +6,65 @@
   $sz-defaultValue
 ) {
   $this: &;
-  > *,
-  .sui-AtomInput-input {
-    border-radius: 0;
-  }
-  > *:first-child {
-    border-top-left-radius: $bdrs-defaultValue;
-    border-bottom-left-radius: $bdrs-defaultValue;
-  }
-  > *:last-child {
-    border-top-right-radius: $bdrs-defaultValue;
-    border-bottom-right-radius: $bdrs-defaultValue;
-  }
-  @each $shapeMapKey, $shapeMapValue in $shapeMap {
-    &.#{$baseClassName}-shape-#{$shapeMapKey} {
-      > *,
-      .sui-AtomInput-input {
-        border-radius: 0;
-      }
+  @if #{'sui-AtomInput-input'} == $baseClassName {
+    @each $shapeMapKey, $shapeMapValue in $shapeMap {
       @if $shapeMapKey != 'circle' {
-        > *:first-child {
-          border-top-left-radius: $shapeMapValue;
-          border-bottom-left-radius: $shapeMapValue;
-        }
-        > *:last-child {
-          border-top-right-radius: $shapeMapValue;
-          border-bottom-right-radius: $shapeMapValue;
+        &.#{$baseClassName}-shape-#{$shapeMapKey} {
+          border-radius: $shapeMapValue;
         }
       } @else {
         @each $sizeKey, $sizeValue in $sizesMap {
-          &.#{$baseClassName}-size-#{$sizeKey} {
-            > *:first-child {
-              border-top-left-radius: $sizeValue * 0.5;
-              border-bottom-left-radius: $sizeValue * 0.5;
-            }
-            > *:last-child {
-              border-top-right-radius: $sizeValue * 0.5;
-              border-bottom-right-radius: $sizeValue * 0.5;
+          &.#{$baseClassName}-shape-#{$shapeMapKey}.#{$baseClassName}-size-#{$sizeKey} {
+            border-radius: $sizeValue * 0.5;
+          }
+        }
+      }
+    }
+  } @else {
+    > *,
+    .sui-AtomInput-input {
+      border-radius: 0;
+    }
+    > *:first-child {
+      border-top-left-radius: $bdrs-defaultValue;
+      border-bottom-left-radius: $bdrs-defaultValue;
+    }
+    > *:last-child {
+      border-top-right-radius: $bdrs-defaultValue;
+      border-bottom-right-radius: $bdrs-defaultValue;
+    }
+    @each $shapeMapKey, $shapeMapValue in $shapeMap {
+      &.#{$baseClassName}-shape-#{$shapeMapKey} {
+        > *,
+        .sui-AtomInput-input {
+          border-radius: 0;
+        }
+        @if $shapeMapKey != 'circle' {
+          border-radius: $shapeMapValue;
+          > *:first-child {
+            border-top-left-radius: $shapeMapValue;
+            border-bottom-left-radius: $shapeMapValue;
+          }
+          > *:last-child {
+            border-top-right-radius: $shapeMapValue;
+            border-bottom-right-radius: $shapeMapValue;
+          }
+        } @else {
+          @each $sizeKey, $sizeValue in $sizesMap {
+            &.#{$baseClassName}-shape-#{$shapeMapKey}.#{$baseClassName}-size-#{$sizeKey} {
+              border-radius: $sizeValue * 0.5;
+              > *,
+              .sui-AtomInput-input {
+                border-radius: 0;
+              }
+              > *:first-child {
+                border-top-left-radius: $sizeValue * 0.5;
+                border-bottom-left-radius: $sizeValue * 0.5;
+              }
+              > *:last-child {
+                border-top-right-radius: $sizeValue * 0.5;
+                border-bottom-right-radius: $sizeValue * 0.5;
+              }
             }
           }
         }

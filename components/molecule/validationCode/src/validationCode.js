@@ -36,6 +36,25 @@ const MoleculeValidationCode = forwardRef(
       resendButtonTextLabel,
       sendButtonTextLabel,
       size,
+      footer: Footer = ({
+        onSubmit,
+        onResend,
+        sendButtonTextLabel,
+        resendButtonTextLabel
+      }) => (
+        <>
+          <AtomButton fullWidth onClick={onSubmit}>
+            {sendButtonTextLabel}
+          </AtomButton>
+          <AtomButton
+            design={atomButtonDesigns.FLAT}
+            fullWidth
+            onClick={onResend}
+          >
+            {resendButtonTextLabel}
+          </AtomButton>
+        </>
+      ),
       status,
       statusMessage,
       value
@@ -113,16 +132,12 @@ const MoleculeValidationCode = forwardRef(
           </div>
         </div>
         <div className={`${baseClass}-footer`}>
-          <AtomButton fullWidth onClick={() => onHandler(onSend)}>
-            {sendButtonTextLabel}
-          </AtomButton>
-          <AtomButton
-            design={atomButtonDesigns.FLAT}
-            fullWidth
-            onClick={() => onHandler(onResend)}
-          >
-            {resendButtonTextLabel}
-          </AtomButton>
+          <Footer
+            onSubmit={onHandler(onSend)}
+            onResend={onHandler(onResend)}
+            sendButtonTextLabel={sendButtonTextLabel}
+            resendButtonTextLabel={resendButtonTextLabel}
+          />
         </div>
       </div>
     )
@@ -166,7 +181,9 @@ MoleculeValidationCode.propTypes = {
   /** set the input status (ERROR, SUCCESS, WARNING) */
   status: PropTypes.oneOf(Object.values(validationCodeStatus)),
   /** input value */
-  value: PropTypes.string
+  value: PropTypes.string,
+  /** React node ith injected onSubmit onResend prop handlers ({onSubmit, onResend}) => () **/
+  footer: PropTypes.node
 }
 
 export default MoleculeValidationCode

@@ -36,7 +36,7 @@ const DefaultDemo = () => {
         <Paragraph>
           By default, the component encapsulates inner elements on a wrapper.
         </Paragraph>
-        <Paragraph>This have 3 different containing areas:</Paragraph>
+        <Paragraph>This have 2 different containing areas:</Paragraph>
         <UnorderedList>
           <ListItem>
             <Code>media</Code>: (React element) – An area specially defined for

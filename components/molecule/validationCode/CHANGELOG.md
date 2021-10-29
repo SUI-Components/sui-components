@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.2.0 (2021-10-29)
+
+
+### Features
+
+* **components/molecule/validationCode:** validationCode Footer becomes customizable ([a3e21a2](https://github.com/SUI-Components/sui-components/commit/a3e21a2c5f88dab5f2574d8e24c98a4c1f8f6fbc))
+
+
+
 # 1.1.0 (2021-09-03)
 
 

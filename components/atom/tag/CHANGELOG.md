@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.33.0 (2021-11-01)
+
+
+### Bug Fixes
+
+* **components/atom/tag:** fix typo in isFitted prop type ([80a1611](https://github.com/SUI-Components/sui-components/commit/80a1611f059364261fa1b2e73f7b01e02015cebe)), closes [#1708](https://github.com/SUI-Components/sui-components/issues/1708)
+
+
+
 # 2.32.0 (2021-10-27)
 
 

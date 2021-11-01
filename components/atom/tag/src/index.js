@@ -120,7 +120,7 @@ AtomTag.propTypes = {
    */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** element becomes border-margin-padding-less */
-  isFitted: PropTypes.nool
+  isFitted: PropTypes.bool
 }
 
 AtomTag.defaultProps = {

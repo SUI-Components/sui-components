@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.24.0 (2021-11-01)
+
+
+### Bug Fixes
+
+* **components/atom/badge:** fix typo in isFitted prop type ([bbf5f68](https://github.com/SUI-Components/sui-components/commit/bbf5f6869dbaebf18b89f3fb476a56244f8c1612)), closes [#1708](https://github.com/SUI-Components/sui-components/issues/1708)
+
+
+
 # 1.23.0 (2021-10-07)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.52.0 (2021-11-03)
+
+
+### Bug Fixes
+
+* **components/molecule/autosuggest:** Width of the dropdown is different from the input ([8b8fe64](https://github.com/SUI-Components/sui-components/commit/8b8fe64c58796552910158a78b8d57add8cda9c7))
+
+
+
 # 2.51.0 (2021-10-11)
 
 

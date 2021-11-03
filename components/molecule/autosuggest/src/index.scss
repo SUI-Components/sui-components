@@ -17,6 +17,7 @@ $bdw-autosuggest-container: $bdw-s !default;
 #{$base-class} {
   position: relative;
   outline: none;
+  box-sizing: border-box;
 
   .sui-MoleculeDropdownList {
     position: absolute;

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.17.0 (2021-10-28)
+
+
+### Features
+
+* **components/atom/textarea:** use mixin instead of extend for base class styles ([c2f519e](https://github.com/SUI-Components/sui-components/commit/c2f519eb7112c0bb7fb8b3a1c30e9e028b20b4af))
+
+
+
 # 2.16.0 (2021-10-13)
 
 

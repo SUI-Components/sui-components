@@ -1,16 +1,4 @@
-$bdw-atom-input-addon-right: $bdrs-s $bdrs-s $bdrs-s 0 !default;
-$bdw-atom-input-addon-left: $bdrs-s 0 $bdrs-s $bdrs-s !default;
-$bgc-atom-input-addon: $c-gray-lightest !default;
-$bdc-atom-input-addon: $c-gray-light !default;
-$c-atom-input-addon: $c-gray-light !default;
-$p-atom-input-addon-left: $p-l !default;
-$p-atom-input-addon-right: $p-l !default;
-
 .sui-AtomInput--withAddon {
-  &Wrapper {
-    display: flex;
-  }
-
   align-items: center;
   background-color: $bgc-atom-input-addon;
   border-color: $bdc-atom-input-addon;
@@ -30,5 +18,16 @@ $p-atom-input-addon-right: $p-l !default;
 
   &--left {
     border-width: $bdw-atom-input-addon-left;
+  }
+
+  &Wrapper {
+    display: flex;
+    @include atom-input-shape-wrapper(
+      #{'sui-AtomInput--withAddonWrapper'},
+      $bdrs-atom-input-shapes,
+      $sizes-atom-input,
+      $bdrs-atom-input,
+      $h-atom-input--m
+    );
   }
 }

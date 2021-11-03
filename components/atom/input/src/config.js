@@ -21,6 +21,7 @@ export const TYPES = {
 }
 
 export const SIZES = {
+  XLARGE: 'xl',
   LARGE: 'l',
   MEDIUM: 'm',
   SMALL: 's',
@@ -31,6 +32,12 @@ export const INPUT_STATES = {
   ERROR: 'error',
   SUCCESS: 'success',
   ALERT: 'alert'
+}
+
+export const INPUT_SHAPES = {
+  ROUNDED: 'rounded',
+  SQUARE: 'square',
+  CIRCLE: 'circle'
 }
 
 export const noop = () => null
@@ -47,14 +54,14 @@ export const getClassNames = ({
 }) => {
   return cx(
     BASE_CLASS,
-    `${BASE_CLASS}-${size}`,
-    charsSize && `${BASE_CLASS}--size`,
+    size && `${BASE_CLASS}-size-${size}`,
+    charsSize && `${BASE_CLASS}--charsSize`,
     hideInput && `${BASE_CLASS}--hidden`,
     noBorder && `${BASE_CLASS}--noBorder`,
     readOnly && `${BASE_CLASS}--readOnly`,
     errorState && `${BASE_CLASS}--${INPUT_STATES.ERROR}`,
     errorState === false && `${BASE_CLASS}--${INPUT_STATES.SUCCESS}`,
     state && `${BASE_CLASS}--${state}`,
-    shape && `${BASE_CLASS}--${shape}`
+    shape && `${BASE_CLASS}-shape-${shape}`
   )
 }

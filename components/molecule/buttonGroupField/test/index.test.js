@@ -9,6 +9,7 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import AtomButton from '@s-ui/react-atom-button'
 
 chai.use(chaiDOM)
 

@@ -1,21 +1,11 @@
-$bgc-atom-input-disabled: $c-gray-lightest !default;
-$c-atom-input-placeholder: $c-gray-dark !default;
-$c-atom-input-disabled: $c-atom-input-placeholder !default;
-$bd-atom-input-disabled: $bd-atom-input-base !default;
-$m-atom-input-type-left: $m-m !default;
-$m-atom-input-type-right: $m-m !default;
-$bdrs-atom-input: 0 !default;
-$tov-atom-input-placeholder: unset !default;
-
-$base-class: '.sui-AtomInput-input';
+$base-class: 'sui-AtomInput-input';
 $class-read-only: '#{$base-class}--readOnly';
-
-#{$base-class} {
-  @extend %sui-atom-input-input;
+.#{$base-class} {
+  @include sui-atom-input-input;
   border-radius: $bdrs-atom-input;
   min-height: auto;
   text-overflow: $tov-atom-input-placeholder;
-  &--size {
+  &--charsSize {
     width: inherit;
   }
 
@@ -23,22 +13,17 @@ $class-read-only: '#{$base-class}--readOnly';
     display: none;
   }
 
-  &--square {
-    border-radius: $bdrs-none;
-  }
+  @include atom-input-shape-wrapper(
+    $base-class,
+    $bdrs-atom-input-shapes,
+    $sizes-atom-input,
+    $bdrs-atom-input,
+    $h-atom-input--m
+  );
 
-  &--rounded {
-    border-radius: $bdrs-m;
-  }
-
-  &--circle {
-    border-radius: $bdrs-xxxl;
-  }
-
-  &#{$base-class}--noBorder,
-  &#{$base-class}--noBorder:disabled {
+  &.#{$base-class}--noBorder,
+  &.#{$base-class}--noBorder:disabled {
     border: 0;
-
     &:focus {
       border: 0;
       box-shadow: none;
@@ -53,7 +38,7 @@ $class-read-only: '#{$base-class}--readOnly';
   &:disabled {
     pointer-events: none;
 
-    &:not(#{$class-read-only}) {
+    &:not(.#{$class-read-only}) {
       -webkit-text-fill-color: $c-atom-input-disabled;
 
       background: $bgc-atom-input-disabled;
@@ -63,11 +48,11 @@ $class-read-only: '#{$base-class}--readOnly';
   }
 
   &:focus {
-    @extend %sui-atom-input-input-focus;
+    @include sui-atom-input-input-focus;
   }
 
   @each $type, $attr in $sizes-atom-input {
-    &-#{$type} {
+    &-size-#{$type} {
       height: $attr;
       min-height: $attr;
     }

@@ -2,7 +2,13 @@ import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
-import {SIZES, INPUT_STATES, noop, getClassNames} from '../../config'
+import {
+  SIZES,
+  INPUT_STATES,
+  INPUT_SHAPES,
+  noop,
+  getClassNames
+} from '../../config'
 
 const Input = forwardRef(
   (
@@ -17,7 +23,7 @@ const Input = forwardRef(
       onFocus,
       placeholder,
       reference,
-      size = SIZES.MEDIUM,
+      size,
       errorState,
       state,
       type,
@@ -40,7 +46,7 @@ const Input = forwardRef(
       required,
       pattern,
       inputMode,
-      shape = 'rounded'
+      shape
     },
     forwardedRef
   ) => {
@@ -173,7 +179,7 @@ Input.propTypes = {
   /** To select input keyboard mode on mobile. It can be 'numeric', 'decimal', 'email', etc */
   inputMode: PropTypes.string,
   /** Sets the shape of the input field. It can be 'rounded', 'square' or 'circle' */
-  shape: PropTypes.string
+  shape: PropTypes.oneOf(Object.values(INPUT_SHAPES))
 }
 
 export default Input

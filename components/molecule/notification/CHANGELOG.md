@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.29.0 (2021-10-27)
+
+
+### Bug Fixes
+
+* **components/molecule/notification:** fix type prop types ([c0e9413](https://github.com/SUI-Components/sui-components/commit/c0e9413ec3f2761990b2a3cda1667fb8e1fb8ca0))
+
+
+
 # 1.28.0 (2021-06-22)
 
 

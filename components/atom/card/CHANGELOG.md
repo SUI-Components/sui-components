@@ -1,13 +1,79 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 1.21.0 (2021-11-03)
+
+
+### Bug Fixes
+
+* **components/atom/card:** fix copy component description ([9319d88](https://github.com/SUI-Components/sui-components/commit/9319d882fc5a388e4504df0a60585718fe0d1308))
+* **components/atom/card:** fix heading margin and img container ([01b7a25](https://github.com/SUI-Components/sui-components/commit/01b7a25364f8fb2131140720003be8c6f389454e))
+* **components/atom/card:** fix href demo behaviour ([9de8f4f](https://github.com/SUI-Components/sui-components/commit/9de8f4ffd2148dc000b024d080a5f306f5f70546))
+* **components/atom/card:** fix href open a new tab ([1d381bd](https://github.com/SUI-Components/sui-components/commit/1d381bdcfdf6645522c63fc19c0ca3d692038017))
+
+
+
+# 1.20.0 (2021-05-06)
+
+
+### Features
+
+* **atom/card:** add box-shadow and border-radious property ([771bd79](https://github.com/SUI-Components/sui-components/commit/771bd795fc935b82e368debdf4df7bdc9af49fd6))
+
+
+
+# 1.19.0 (2021-04-26)
+
+
+### Features
+
+* **atom/card:** add hover class when have onclick prop ([31b41e9](https://github.com/SUI-Components/sui-components/commit/31b41e9884c62831c0c47ee6b4670c6562eafdfc))
+* **Root:** normalize bborder variables ([b5da148](https://github.com/SUI-Components/sui-components/commit/b5da1482ca96b523f0c168c7040783ce78a7f14d))
+
+
+
+# 1.18.0 (2021-01-05)
+
+
+### Bug Fixes
+
+* **atom/card:** a11y ([c4599f8](https://github.com/SUI-Components/sui-components/commit/c4599f8792ca215ffd38eddbcbcbbae8b8fb44d2))
+
+
+
+# 1.17.0 (2020-12-22)
+
+
+### Features
+
+* **atom/card:** add background and background color variables to atom/card media element ([5dd35eb](https://github.com/SUI-Components/sui-components/commit/5dd35eb7cf8c3fe138f432177881115afdc5a8eb))
+* **atom/card:** remove unnecessary variable ([f8ad8d9](https://github.com/SUI-Components/sui-components/commit/f8ad8d96e3304ecb080a197145f4c896a90fcb39))
+
+
+
+# 1.16.0 (2020-12-15)
+
+
+### Bug Fixes
+
+* **atom/card:** content not necesary ([3d546d0](https://github.com/SUI-Components/sui-components/commit/3d546d0b3e43cfbe60d0d916077888cc68f067ee))
+
+
+
+# 1.15.0 (2020-11-24)
+
+
+### Features
+
+* **atom/card:** Use new jsx runtime ([f3b907b](https://github.com/SUI-Components/sui-components/commit/f3b907bd503073f051c8c6bb98cdc723fff2cc70))
+
+
 
 # 1.14.0 (2020-05-29)
 
 
 ### Features
 
-* add assets folder to .npmignore ([0353fff](https://github.com/SUI-Components/sui-components/commit/0353fff7ffe05b0e9d99fd7033c49edec4884222))
+* **atom/card:** add assets folder to .npmignore ([0353fff](https://github.com/SUI-Components/sui-components/commit/0353fff7ffe05b0e9d99fd7033c49edec4884222))
 
 
 
@@ -16,7 +82,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* using $bgc-atom-card-hover to keep styles backwards compatible ([3cf9815](https://github.com/SUI-Components/sui-components/commit/3cf981502586a23550529ec222b1c6214fd2f868))
+* **atom/card:** using $bgc-atom-card-hover to keep styles backwards compatible ([3cf9815](https://github.com/SUI-Components/sui-components/commit/3cf981502586a23550529ec222b1c6214fd2f868))
 
 
 
@@ -25,7 +91,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add var to backgroun color for atom card link ([4eca723](https://github.com/SUI-Components/sui-components/commit/4eca723ba392d331e8ba908c5bf6ce9e9f3de56e))
+* **atom/card:** add var to backgroun color for atom card link ([4eca723](https://github.com/SUI-Components/sui-components/commit/4eca723ba392d331e8ba908c5bf6ce9e9f3de56e))
 
 
 
@@ -34,7 +100,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add  min width to fix issue in container width ([87285ed](https://github.com/SUI-Components/sui-components/commit/87285ed5f2b9818bdf83e3511fa6b8ae823f8311))
+* **atom/card:** add  min width to fix issue in container width ([87285ed](https://github.com/SUI-Components/sui-components/commit/87285ed5f2b9818bdf83e3511fa6b8ae823f8311))
 
 
 
@@ -43,7 +109,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add new highlight bgc hover variable ([a2506bb](https://github.com/SUI-Components/sui-components/commit/a2506bbd4abd8631b218a4466a2e7826e54b1289))
+* **atom/card:** add new highlight bgc hover variable ([a2506bb](https://github.com/SUI-Components/sui-components/commit/a2506bbd4abd8631b218a4466a2e7826e54b1289))
 
 
 
@@ -56,9 +122,9 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add flex grow to atomCard info ([d6e53a4](https://github.com/SUI-Components/sui-components/commit/d6e53a43294b9fcab599bd821623a65095865ea0))
-* add media param optional in atom card ([5665caa](https://github.com/SUI-Components/sui-components/commit/5665caa59fb05fa96d7d6a0e57ce06e55ff40699))
-* remove unnedded fragment ([f327055](https://github.com/SUI-Components/sui-components/commit/f327055d2a6f7ff76712d9c6e962b16e21c0be0a))
+* **atom/card:** add flex grow to atomCard info ([d6e53a4](https://github.com/SUI-Components/sui-components/commit/d6e53a43294b9fcab599bd821623a65095865ea0))
+* **atom/card:** add media param optional in atom card ([5665caa](https://github.com/SUI-Components/sui-components/commit/5665caa59fb05fa96d7d6a0e57ce06e55ff40699))
+* **atom/card:** remove unnedded fragment ([f327055](https://github.com/SUI-Components/sui-components/commit/f327055d2a6f7ff76712d9c6e962b16e21c0be0a))
 
 
 
@@ -67,7 +133,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([7f0e216](https://github.com/SUI-Components/sui-components/commit/7f0e21698e1c54a300015eda6e4fc240e596d835))
+* **atom/card:** Use new [@s-ui-theme](https://github.com/s-ui-theme) ([7f0e216](https://github.com/SUI-Components/sui-components/commit/7f0e21698e1c54a300015eda6e4fc240e596d835))
 
 
 
@@ -76,7 +142,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add hover mediaquery ([b595e2b](https://github.com/SUI-Components/sui-components/commit/b595e2bb903b4d5ab82983d1205a4a3dd2e65616))
+* **atom/card:** add hover mediaquery ([b595e2b](https://github.com/SUI-Components/sui-components/commit/b595e2bb903b4d5ab82983d1205a4a3dd2e65616))
 
 
 
@@ -85,7 +151,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add mobile padding on card component ([2f6efeb](https://github.com/SUI-Components/sui-components/commit/2f6efeb157d7e5a16f340acc58ebdb5b59aae510))
+* **atom/card:** add mobile padding on card component ([2f6efeb](https://github.com/SUI-Components/sui-components/commit/2f6efeb157d7e5a16f340acc58ebdb5b59aae510))
 
 
 
@@ -94,7 +160,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add component vars for card ([f130a8e](https://github.com/SUI-Components/sui-components/commit/f130a8e9578cba15eba14e8d163e1af196869a21))
+* **atom/card:** add component vars for card ([f130a8e](https://github.com/SUI-Components/sui-components/commit/f130a8e9578cba15eba14e8d163e1af196869a21))
 
 
 
@@ -103,7 +169,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix href prop ([4c5d4e6](https://github.com/SUI-Components/sui-components/commit/4c5d4e679bc1907af8f976db6efee01ad043e393))
+* **atom/card:** fix href prop ([4c5d4e6](https://github.com/SUI-Components/sui-components/commit/4c5d4e679bc1907af8f976db6efee01ad043e393))
 
 
 
@@ -112,7 +178,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add scss responsive behavior to atom card if receives responsive prop ([30fea53](https://github.com/SUI-Components/sui-components/commit/30fea53f88d9cb194b6a1385decff53e7d15af27)), closes [#664](https://github.com/SUI-Components/sui-components/issues/664)
+* **atom/card:** add scss responsive behavior to atom card if receives responsive prop ([30fea53](https://github.com/SUI-Components/sui-components/commit/30fea53f88d9cb194b6a1385decff53e7d15af27)), closes [#664](https://github.com/SUI-Components/sui-components/issues/664)
 
 
 
@@ -121,23 +187,23 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* using sui-theme variable for highlight ([8418a1d](https://github.com/SUI-Components/sui-components/commit/8418a1d2e68f786bc4551359871743916541f6e5))
+* **atom/card:** using sui-theme variable for highlight ([8418a1d](https://github.com/SUI-Components/sui-components/commit/8418a1d2e68f786bc4551359871743916541f6e5))
 
 
 ### Features
 
-* atomCard implementation ([cd21950](https://github.com/SUI-Components/sui-components/commit/cd2195073b9c50e2ccb04dbd128b04b15ddb4487))
-* blocks classes ([fc97b0e](https://github.com/SUI-Components/sui-components/commit/fc97b0ef254a8960306f5f8ba7e6b05e3cb7358b))
-* component creation ([dc98ca0](https://github.com/SUI-Components/sui-components/commit/dc98ca0cd33650c2b56aef93abb8b4677504e24e))
-* cursor pointer and class organization ([0ed2c4d](https://github.com/SUI-Components/sui-components/commit/0ed2c4df2fa3149191c0964525a8ad1c88252497))
-* fixed default issue ([8afec0b](https://github.com/SUI-Components/sui-components/commit/8afec0b23fc5c44f4e756d6802d433521735fb0d))
-* imporvements after review ([80361a9](https://github.com/SUI-Components/sui-components/commit/80361a9b8df3510061f6388ff9919b79b92801cd))
-* improvents after review ([8930b64](https://github.com/SUI-Components/sui-components/commit/8930b64f01b97871d5fae3edee055b9cdfc75fc1))
-* modifactions from review feedback ([f810b0c](https://github.com/SUI-Components/sui-components/commit/f810b0ca43f5fa382d179441d11da8c3a97b7d63))
-* refactoring ([ae1af4f](https://github.com/SUI-Components/sui-components/commit/ae1af4f7b8d3725a080efdb4adf14857d6f18324))
-* scss linter fixing ([35e1cc8](https://github.com/SUI-Components/sui-components/commit/35e1cc8ed9e50efee775be49b5db87bebd768827))
-* updated variable name ([646155f](https://github.com/SUI-Components/sui-components/commit/646155f917cdbd0216deb7b579f68ad1245d80cd))
-* vertical mode and tabindex ([8dadd4e](https://github.com/SUI-Components/sui-components/commit/8dadd4e5484fda5309e3c20caace25430d075e9b))
+* **atom/card:** atomCard implementation ([cd21950](https://github.com/SUI-Components/sui-components/commit/cd2195073b9c50e2ccb04dbd128b04b15ddb4487))
+* **atom/card:** blocks classes ([fc97b0e](https://github.com/SUI-Components/sui-components/commit/fc97b0ef254a8960306f5f8ba7e6b05e3cb7358b))
+* **atom/card:** component creation ([dc98ca0](https://github.com/SUI-Components/sui-components/commit/dc98ca0cd33650c2b56aef93abb8b4677504e24e))
+* **atom/card:** cursor pointer and class organization ([0ed2c4d](https://github.com/SUI-Components/sui-components/commit/0ed2c4df2fa3149191c0964525a8ad1c88252497))
+* **atom/card:** fixed default issue ([8afec0b](https://github.com/SUI-Components/sui-components/commit/8afec0b23fc5c44f4e756d6802d433521735fb0d))
+* **atom/card:** imporvements after review ([80361a9](https://github.com/SUI-Components/sui-components/commit/80361a9b8df3510061f6388ff9919b79b92801cd))
+* **atom/card:** improvents after review ([8930b64](https://github.com/SUI-Components/sui-components/commit/8930b64f01b97871d5fae3edee055b9cdfc75fc1))
+* **atom/card:** modifactions from review feedback ([f810b0c](https://github.com/SUI-Components/sui-components/commit/f810b0ca43f5fa382d179441d11da8c3a97b7d63))
+* **atom/card:** refactoring ([ae1af4f](https://github.com/SUI-Components/sui-components/commit/ae1af4f7b8d3725a080efdb4adf14857d6f18324))
+* **atom/card:** scss linter fixing ([35e1cc8](https://github.com/SUI-Components/sui-components/commit/35e1cc8ed9e50efee775be49b5db87bebd768827))
+* **atom/card:** updated variable name ([646155f](https://github.com/SUI-Components/sui-components/commit/646155f917cdbd0216deb7b579f68ad1245d80cd))
+* **atom/card:** vertical mode and tabindex ([8dadd4e](https://github.com/SUI-Components/sui-components/commit/8dadd4e5484fda5309e3c20caace25430d075e9b))
 
 
 

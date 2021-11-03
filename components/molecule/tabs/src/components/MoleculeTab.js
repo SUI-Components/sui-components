@@ -62,7 +62,7 @@ MoleculeTab.propTypes = {
   count: PropTypes.string,
 
   /** text to display */
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 
   /** Tab number */
   numTab: PropTypes.number,

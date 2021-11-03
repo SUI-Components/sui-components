@@ -162,6 +162,7 @@ const DefaultDemo = () => {
           }
           vertical={vertical}
           href={HREF && 'http://www.google.com'}
+          blank={HREF}
           highlight={highlight}
           onClick={actionable ? () => alert('Hello!') : undefined}
         />

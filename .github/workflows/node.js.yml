@@ -53,16 +53,16 @@ jobs:
         npm run phoenix:ci
         npm run lint
         xvfb-run --auto-servernum npm run test -- --ci --coverage
-    - name: status
+    - name: setup gh secrets
       run: |
-        ls -lisa
-        sleep 2
-        git status
-    - run: git config --global user.email "${GITHUB_EMAIL}"
-    - run: git config --global user.name "${GITHUB_USER}"
+        git config --global user.email "${GITHUB_EMAIL}"
+        git config --global user.name "${GITHUB_USER}"
     - name: Update Coverage
       run: npm run update:coverage
-    - run: git status
+    - name: Update Coverage badges
+      run: |
+        git add README.md
+        git status
   release:
     needs: testing
     runs-on: ubuntu-latest

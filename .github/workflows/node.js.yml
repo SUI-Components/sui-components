@@ -58,6 +58,11 @@ jobs:
         ls -lisa
         sleep 2
         git status
+    - name: Update Coverage
+      run: |
+        git config --global user.email "${GITHUB_EMAIL}
+        git config --global user.name "${GITHUB_USER}"
+        git status
   release:
     needs: testing
     runs-on: ubuntu-latest

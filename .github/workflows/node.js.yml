@@ -58,7 +58,7 @@ jobs:
         ls -lisa
         sleep 2
         git status
-    - run: git config --global user.email "${GITHUB_EMAIL}
+    - run: git config --global user.email "${GITHUB_EMAIL}"
     - run: git config --global user.name "${GITHUB_USER}"
     - name: Update Coverage
       run: npm run update:coverage

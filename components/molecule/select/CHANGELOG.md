@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.49.0 (2021-11-03)
+
+
+### Features
+
+* **components/molecule/select:** forward aria-label property ([fa8f072](https://github.com/SUI-Components/sui-components/commit/fa8f0721fd7a9d43ef0a55a460f9a0a6bac3daf4))
+
+
+
 # 1.48.0 (2021-10-28)
 
 

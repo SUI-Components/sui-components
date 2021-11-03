@@ -38,7 +38,8 @@ const MoleculeSelect = props => {
     disabled,
     keysSelection,
     multiselection,
-    refMoleculeSelect: refMoleculeSelectFromProps
+    refMoleculeSelect: refMoleculeSelectFromProps,
+    'aria-label': ariaLabel
   } = props
   const refMoleculeSelect = useRef(refMoleculeSelectFromProps)
   const refsMoleculeSelectOptions = useRef([])
@@ -157,6 +158,7 @@ const MoleculeSelect = props => {
       onFocus={handleFocusIn}
       onBlur={handleFocusOut}
       onClick={handleClick}
+      aria-label={ariaLabel}
     >
       {multiselection ? (
         <MoleculeSelectMultipleSelection
@@ -245,7 +247,10 @@ MoleculeSelect.propTypes = {
   selectSize: PropTypes.oneOf(Object.values(SELECT_SIZES)),
 
   /* native tabIndex html attribute */
-  tabIndex: PropTypes.number
+  tabIndex: PropTypes.number,
+
+  /* Optional aria-label */
+  'aria-label': PropTypes.string
 }
 
 MoleculeSelect.defaultProps = {

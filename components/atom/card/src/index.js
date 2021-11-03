@@ -31,10 +31,12 @@ const AtomCard = ({
   elevation,
   highlight,
   href,
+  blank,
   onClick,
   tabIndex
 }) => {
   const redirectToHref = () => {
+    if (href && blank) return window.open(href, '_blank')
     if (href) window.location.href = href
   }
 
@@ -100,6 +102,9 @@ AtomCard.propTypes = {
 
   /** url target of the card */
   href: PropTypes.string,
+
+  /** true to open a new tab */
+  blank: PropTypes.bool,
 
   /** tab order */
   tabIndex: PropTypes.string,

@@ -36,7 +36,7 @@ const DefaultDemo = () => {
         <Paragraph>
           By default, the component encapsulates inner elements on a wrapper.
         </Paragraph>
-        <Paragraph>This have 3 different containing areas:</Paragraph>
+        <Paragraph>This have 2 different containing areas:</Paragraph>
         <UnorderedList>
           <ListItem>
             <Code>media</Code>: (React element) – An area specially defined for
@@ -147,7 +147,7 @@ const DefaultDemo = () => {
               <PlaceHolder
                 width={200}
                 text="media area"
-                style={{width: '100%'}}
+                style={{width: '100%', display: 'block'}}
               />
             ))
           }
@@ -162,6 +162,7 @@ const DefaultDemo = () => {
           }
           vertical={vertical}
           href={HREF && 'http://www.google.com'}
+          blank={HREF}
           highlight={highlight}
           onClick={actionable ? () => alert('Hello!') : undefined}
         />
@@ -192,7 +193,7 @@ const DefaultDemo = () => {
                       width={100}
                       height={100}
                       text="media"
-                      style={{width: '100%'}}
+                      style={{width: '100%', display: 'block'}}
                     />
                   ))
                 }
@@ -200,7 +201,7 @@ const DefaultDemo = () => {
                   content &&
                   (() => (
                     <div>
-                      <H3>content title</H3>
+                      <H3 style={{margin: 0}}>content title</H3>
                       <Text>content text</Text>
                     </div>
                   ))
@@ -235,7 +236,7 @@ const DefaultDemo = () => {
                       width={100}
                       height={100}
                       text="media"
-                      style={{width: '100%'}}
+                      style={{width: '100%', display: 'block'}}
                     />
                   ))
                 }
@@ -243,7 +244,7 @@ const DefaultDemo = () => {
                   content &&
                   (() => (
                     <div style={{textAlign: 'left'}}>
-                      <H3>content title</H3>
+                      <H3 style={{margin: 0}}>content title</H3>
                       <Text>content text</Text>
                     </div>
                   ))

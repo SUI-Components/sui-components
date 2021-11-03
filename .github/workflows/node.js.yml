@@ -55,10 +55,13 @@ jobs:
         xvfb-run --auto-servernum npm run test -- --ci --coverage
     - name: Update Coverage
       run: |
+        sleep 2
+        ls -lisa
         npm run update:coverage
         git config --global user.email "${GITHUB_EMAIL}
         git config --global user.name "${GITHUB_USER}"
         git status
+        ls -lisa
   release:
     needs: testing
     runs-on: ubuntu-latest

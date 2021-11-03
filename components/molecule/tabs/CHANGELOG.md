@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 2.27.0 (2021-11-03)
+
+
+### Features
+
+* **components/molecule/tabs:** accept node element as label ([442e569](https://github.com/SUI-Components/sui-components/commit/442e569f61c3ed38a7b1ce74a29fee1a5520c076))
+
+
+
+# 1.1.0 (2021-09-28)
+
+
+### Features
+
+* **components/molecule/tabs/demo:** import component styles in demo ([36f53fd](https://github.com/SUI-Components/sui-components/commit/36f53fd8f6722ea562a1554cff60f9e0dd93ee74))
+
+
+
 # 2.26.0 (2021-09-27)
 
 

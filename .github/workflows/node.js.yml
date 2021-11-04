@@ -62,7 +62,8 @@ jobs:
     - name: Update Coverage badges
       run: git add README.md
     - name: Log
-      run: git log --pretty=format:"%h - %an, %ar : %s" -n 15 --graph | cat
+      run: |-
+        git log --pretty=format:"%h - %an, %ar : %s" -n 15 --graph | cat
   release:
     needs: testing
     runs-on: ubuntu-latest

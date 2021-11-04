@@ -53,15 +53,14 @@ jobs:
           npm run phoenix:ci
           npm run lint
           xvfb-run --auto-servernum npm run test -- --ci --coverage
-      - name: setup gh secrets
-        run: |
-          git config --global user.email "${GITHUB_EMAIL}"
-          git config --global user.name "${GITHUB_USER}"
       - name: Update Coverage
         run: npm run update:coverage
       - name: Update Coverage badges
-        run: git add README.md
-      - run: git commit --amend --no-verify --no-edit
+      -  run: |
+          git config --global user.email "${GITHUB_EMAIL}"
+          git config --global user.name "${GITHUB_USER}"
+          git add README.md
+          git commit --amend --no-verify --no-edit
       - name: Log
         run: git log --pretty=format:"%h - %an, %ar ~ %s" -n 15 --graph | cat
   release:

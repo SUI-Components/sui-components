@@ -61,6 +61,9 @@ jobs:
           git config --global user.name "${GITHUB_USER}"
           git add README.md
           git commit --amend --no-verify --no-edit
+        env:
+          GITHUB_EMAIL: cloud-accounts@scmspain.com
+          GITHUB_TOKEN: ${{github.token}}
       - name: Log
         run: git log --pretty=format:"%h - %an, %ar ~ %s" -n 15 --graph | cat
   release:

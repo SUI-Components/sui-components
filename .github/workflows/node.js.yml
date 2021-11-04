@@ -59,7 +59,7 @@ jobs:
       run: echo "event type is:" ${{ github.event.action }}
     - name: Comment Test Coverage
       uses: AthleticNet/comment-test-coverage@1.1
-      if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action === 'synchronize')
+      if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize')
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         path: coverage/coverage.json

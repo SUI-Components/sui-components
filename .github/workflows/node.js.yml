@@ -10,99 +10,100 @@ jobs:
   check-skip:
     runs-on: ubuntu-latest
     steps:
-    - name: Cancel Previous Redundant Builds
-      uses: styfle/cancel-workflow-action@0.6.0
-      with:
-        access_token: ${{ github.token }}
+      - name: Cancel Previous Redundant Builds
+        uses: styfle/cancel-workflow-action@0.6.0
+        with:
+          access_token: ${{ github.token }}
 
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with: 
-        node-version: 16
-        registry-url: 'https://registry.npmjs.org'
-    - name: Build dependencies
-      run: |
-        npm run phoenix:ci
-        npm run install:themes
-        npm run build
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-    - uses: actions/upload-artifact@v2
-      with:
-        name: public-folder
-        path: public
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          registry-url: 'https://registry.npmjs.org'
+      - name: Build dependencies
+        run: |
+          npm run phoenix:ci
+          npm run install:themes
+          npm run build
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: public-folder
+          path: public
 
   testing:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with: 
-        node-version: 16
-    - name: Install xvfb for headless testing
-      run: sudo apt-get install xvfb
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - name: Install xvfb for headless testing
+        run: sudo apt-get install xvfb
 
-    - name: Setup Max User Watches for Testing
-      run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+      - name: Setup Max User Watches for Testing
+        run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
-    - name: Testing
-      run: |
-        npm run phoenix:ci
-        npm run lint
-        xvfb-run --auto-servernum npm run test -- --ci --coverage
-    - name: setup gh secrets
-      run: |
-        git config --global user.email "${GITHUB_EMAIL}"
-        git config --global user.name "${GITHUB_USER}"
-    - name: Update Coverage
-      run: npm run update:coverage
-    - name: Update Coverage badges
-      run: git add README.md
-    - name: Log
-      run: git log --pretty=format:"%h - %an, %ar ~ %s" -n 15 --graph | cat
+      - name: Testing
+        run: |
+          npm run phoenix:ci
+          npm run lint
+          xvfb-run --auto-servernum npm run test -- --ci --coverage
+      - name: setup gh secrets
+        run: |
+          git config --global user.email "${GITHUB_EMAIL}"
+          git config --global user.name "${GITHUB_USER}"
+      - name: Update Coverage
+        run: npm run update:coverage
+      - name: Update Coverage badges
+        run: git add README.md
+      - run: git commit --amend --no-verify --no-edit
+      - name: Log
+        run: git log --pretty=format:"%h - %an, %ar ~ %s" -n 15 --graph | cat
   release:
     needs: testing
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - uses: actions/setup-node@v1
-      with: 
-        node-version: 16
-        registry-url: 'https://registry.npmjs.org'
-    - name: Release components
-      run: |
-        npm install @s-ui/mono@2 --no-audit --no-optional --no-fund
-        npx @s-ui/ci release
-      env:
-        GITHUB_EMAIL: cloud-accounts@scmspain.com
-        GITHUB_TOKEN: ${{github.token}}
-        GITHUB_USER: sui-bot
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          registry-url: 'https://registry.npmjs.org'
+      - name: Release components
+        run: |
+          npm install @s-ui/mono@2 --no-audit --no-optional --no-fund
+          npx @s-ui/ci release
+        env:
+          GITHUB_EMAIL: cloud-accounts@scmspain.com
+          GITHUB_TOKEN: ${{github.token}}
+          GITHUB_USER: sui-bot
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   deploy:
     needs: [build, testing]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: 16
-    - uses: actions/download-artifact@v2
-      with:
-        name: public-folder
-    - name: Deploy
-      id: deploy
-      run: |
-        npm i -g vercel --no-save --no-fund --no-audit --no-optional --no-scripts
-        DEPLOYMENT_URL=$(vercel --token $VERCEL_TOKEN --confirm $VERCEL_PARAMS)
-        echo "::set-output name=url::$(echo $DEPLOYMENT_URL)"
-      env:
-        VERCEL_PARAMS: ${{ github.event_name != 'pull_request' && '--prod' || ''}}
-        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - uses: actions/download-artifact@v2
+        with:
+          name: public-folder
+      - name: Deploy
+        id: deploy
+        run: |
+          npm i -g vercel --no-save --no-fund --no-audit --no-optional --no-scripts
+          DEPLOYMENT_URL=$(vercel --token $VERCEL_TOKEN --confirm $VERCEL_PARAMS)
+          echo "::set-output name=url::$(echo $DEPLOYMENT_URL)"
+        env:
+          VERCEL_PARAMS: ${{ github.event_name != 'pull_request' && '--prod' || ''}}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
     environment:
       name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}
       url: ${{ steps.deploy.outputs.url }}

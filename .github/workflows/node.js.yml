@@ -56,7 +56,7 @@ jobs:
       - name: Update Coverage
         run: npm run update:coverage
       - name: Update Coverage badges
-      -  run: |
+      - run: |
           git config --global user.email "${GITHUB_EMAIL}"
           git config --global user.name "${GITHUB_USER}"
           git add README.md

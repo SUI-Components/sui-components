@@ -60,10 +60,9 @@ jobs:
     - name: Update Coverage
       run: npm run update:coverage
     - name: Update Coverage badges
-      run: |
-        git add README.md
-        git log --pretty=format:"%h - %an, %ar : %s" -n 15 --graph | cat
-        git status
+      run: git add README.md
+    - name: Log
+      run: git log --pretty=format:"%h - %an, %ar : %s" -n 15 --graph | cat
   release:
     needs: testing
     runs-on: ubuntu-latest

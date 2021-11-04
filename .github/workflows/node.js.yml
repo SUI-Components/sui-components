@@ -53,7 +53,9 @@ jobs:
         npm run phoenix:ci
         npm run lint
         xvfb-run --auto-servernum npm run test -- --ci --coverage
-
+    - name: Log event
+    - run: echo "event name is:" ${{ github.event_name }}
+    - run: echo "event type is:" ${{ github.event.action }}
     - name: Comment Test Coverage
       uses: AthleticNet/comment-test-coverage@1.1
       if: github.event_name == 'pull_request' && github.event.action == 'opened'

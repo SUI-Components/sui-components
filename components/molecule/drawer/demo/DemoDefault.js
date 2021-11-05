@@ -17,6 +17,7 @@ const DemoDefault = ({className}) => {
   const ref = useRef()
   const [isOpen, setIsOpen] = useState()
   const [showOverlay, setShowOverlay] = useState(false)
+  const drawerRef = useRef()
   return (
     <Article className={className}>
       <H2>Default</H2>
@@ -51,6 +52,8 @@ const DemoDefault = ({className}) => {
           onClose={(event, {isOpen}) => {
             setIsOpen(isOpen)
           }}
+          closeOnOutsiteClick
+          ref={drawerRef}
         >
           <H4>Drawer Content</H4>
           <RadioButton

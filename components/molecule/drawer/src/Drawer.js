@@ -1,8 +1,7 @@
-import {forwardRef, useEffect, useCallback} from 'react'
+import {forwardRef, useEffect, useCallback, useState} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import useEventListener from '@s-ui/react-hooks/lib/useEventListener'
-import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 import {ANIMATION_DURATION, PLACEMENTS, SIZES} from './settings'
 
 const MoleculeDrawer = forwardRef(
@@ -20,7 +19,10 @@ const MoleculeDrawer = forwardRef(
     },
     forwardedRef
   ) => {
-    const [isOpenState, setIsOpenState] = useControlledState(isOpen) // inner state
+    const [isOpenState, setIsOpenState] = useState(isOpen) // inner state
+    useEffect(() => {
+      setIsOpenState(isOpen)
+    }, [isOpen])
     useEffect(() => {
       if (target !== undefined) {
         target.current.style.position = 'relative'
@@ -32,7 +34,7 @@ const MoleculeDrawer = forwardRef(
       if (isOpenState === false) return
       event.preventDefault()
       if (event.key === 'Escape') {
-        setIsOpenState(false, true)
+        setIsOpenState(false)
         onClose(event, {isOpen: false})
       }
     })
@@ -40,7 +42,7 @@ const MoleculeDrawer = forwardRef(
     useEventListener('mousedown', event => {
       if (isOpenState === false || !forwardedRef || !closeOnOutsiteClick) return
       if (!forwardedRef.current.contains(event.target)) {
-        setIsOpenState(false, true)
+        setIsOpenState(false)
         onClose(event, {isOpen: false})
       }
     })

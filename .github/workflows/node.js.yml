@@ -70,10 +70,10 @@ jobs:
           path: coverage/coverage.json
           title: Test Coverage results
       - name: Update Coverage
-        if: github.event_name == 'push'
+        # if: github.event_name == 'push'
         run: npm run update:coverage
       - name: Update Coverage badges
-        if: github.event_name == 'push'
+        # if: github.event_name == 'push'
         env:
           GITHUB_EMAIL: cloud-accounts@scmspain.com
           GITHUB_TOKEN: ${{github.token}}

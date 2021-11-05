@@ -69,16 +69,14 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: coverage/coverage.json
           title: Test Coverage results
-      - name: Update Coverage
-        if: github.event_name == 'push'
-        run: npm run update:coverage
-      - name: Update Coverage badges
+      - name: Update Coverage badges on README.md
         if: github.event_name == 'push'
         env:
           GITHUB_EMAIL: cloud-accounts@scmspain.com
           GITHUB_TOKEN: ${{github.token}}
           GITHUB_USER: sui-bot
         run: |
+          npm run update:coverage
           git config --global user.email "${GITHUB_EMAIL}"
           git config --global user.name "${GITHUB_USER}"
           git add README.md

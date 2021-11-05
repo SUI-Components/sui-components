@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 4.0.0 (2021-11-05)
+
+
+### Bug Fixes
+
+* **components/molecule/drawer:** Allow close the drawer by clicking outsite the drawer's area ([e06143f](https://github.com/SUI-Components/sui-components/commit/e06143f42c2d831cc73c0ddb7493202ede5965cb)), closes [#1740](https://github.com/SUI-Components/sui-components/issues/1740)
+
+
+### Features
+
+* **components/molecule/drawer:** Not use useControlledState ([b184c5c](https://github.com/SUI-Components/sui-components/commit/b184c5cfed8c7be0abca6d410c69ebc99ff19623))
+* **components/molecule/drawer:** remove transitions ([ba4034d](https://github.com/SUI-Components/sui-components/commit/ba4034ddfd1a9cb65a19e12fe9a010df5ebee5eb))
+
+
+
 # 3.4.0 (2021-10-26)
 
 

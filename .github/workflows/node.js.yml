@@ -85,8 +85,8 @@ jobs:
           git commit --amend --no-verify --no-edit
       - name: Log
         run: git log --pretty=format:"%h - %an, %ar ~ %s" -n 15 --graph | cat
-      - name: Show current branch name
-        run: git branch --show-current
+      - name: Show changes
+        run: git log -1 --stat | cat
 
   release:
     needs: testing

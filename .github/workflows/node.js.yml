@@ -86,7 +86,7 @@ jobs:
       - name: Log
         run: git log --pretty=format:"%h - %an, %ar ~ %s" -n 15 --graph | cat
       - name: Show changes
-        run: git log -1 --stat | cat
+        run: git log -p README.md | cat
 
   release:
     needs: testing

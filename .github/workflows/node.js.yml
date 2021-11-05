@@ -70,10 +70,10 @@ jobs:
           path: coverage/coverage.json
           title: Test Coverage results
       - name: Update Coverage
-        # if: github.event_name == 'push'
+        if: github.event_name == 'push'
         run: npm run update:coverage
       - name: Update Coverage badges
-        # if: github.event_name == 'push'
+        if: github.event_name == 'push'
         env:
           GITHUB_EMAIL: cloud-accounts@scmspain.com
           GITHUB_TOKEN: ${{github.token}}
@@ -83,10 +83,6 @@ jobs:
           git config --global user.name "${GITHUB_USER}"
           git add README.md
           git commit --amend --no-verify --no-edit
-      - name: Log
-        run: git log --pretty=format:"%h - %an, %ar ~ %s" -n 15 --graph | cat
-      - name: Show changes
-        run: git log -p README.md | cat
 
   release:
     needs: testing
@@ -108,6 +104,7 @@ jobs:
           GITHUB_TOKEN: ${{github.token}}
           GITHUB_USER: sui-bot
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
   deploy:
     needs: [build, testing]
     runs-on: ubuntu-latest
@@ -128,6 +125,7 @@ jobs:
         env:
           VERCEL_PARAMS: ${{ github.event_name != 'pull_request' && '--prod' || ''}}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
     environment:
       name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}
       url: ${{ steps.deploy.outputs.url }}

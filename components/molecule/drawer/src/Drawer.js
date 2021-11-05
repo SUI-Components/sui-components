@@ -1,4 +1,4 @@
-import {forwardRef, useEffect, useCallback, useState} from 'react'
+import {forwardRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import useEventListener from '@s-ui/react-hooks/lib/useEventListener'
@@ -15,14 +15,10 @@ const MoleculeDrawer = forwardRef(
       placement = PLACEMENTS.LEFT,
       size = SIZES.AUTO,
       target,
-      closeOnOutsiteClick = false
+      closeOnOutsideClick = false
     },
     forwardedRef
   ) => {
-    const [isOpenState, setIsOpenState] = useState(isOpen) // inner state
-    useEffect(() => {
-      setIsOpenState(isOpen)
-    }, [isOpen])
     useEffect(() => {
       if (target !== undefined) {
         target.current.style.position = 'relative'
@@ -31,44 +27,28 @@ const MoleculeDrawer = forwardRef(
     }, [target])
 
     useEventListener('keydown', event => {
-      if (isOpenState === false) return
+      if (isOpen === false) return
       event.preventDefault()
       if (event.key === 'Escape') {
-        setIsOpenState(false)
         onClose(event, {isOpen: false})
       }
     })
 
     useEventListener('mousedown', event => {
-      if (isOpenState === false || !forwardedRef || !closeOnOutsiteClick) return
+      if (isOpen === false || !forwardedRef || !closeOnOutsideClick) return
       if (!forwardedRef.current.contains(event.target)) {
-        setIsOpenState(false)
         onClose(event, {isOpen: false})
       }
     })
 
-    const onTransitionEndHandler = useCallback(
-      event => {
-        if (isOpenState && typeof onOpen === 'function') {
-          onOpen(event, {isOpen: isOpenState})
-        } else if (!isOpenState && typeof onClose === 'function') {
-          onClose(event, {isOpen: isOpenState})
-        }
-      },
-      [isOpenState, onClose, onOpen]
-    )
-
     return (
       <div
-        onTransitionEnd={onTransitionEndHandler}
         className={cx(
           'react-MoleculeDrawer-content',
           `react-MoleculeDrawer-content--placement-${placement}`,
           `react-MoleculeDrawer-content--size-${size}`,
           `react-MoleculeDrawer-content--animationDuration-${animationDuration}`,
-          `react-MoleculeDrawer-content--state-${
-            isOpenState ? 'opened' : 'closed'
-          }`,
+          `react-MoleculeDrawer-content--state-${isOpen ? 'opened' : 'closed'}`,
           {
             'react-MoleculeDrawer-content--placement':
               typeof target === 'undefined'
@@ -100,8 +80,8 @@ MoleculeDrawer.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZES)),
   /** DOM Element which wraps the component. **/
   target: PropTypes.node,
-  /** Tells if drawer should be closed when clicked outsite the drawer area, needs ref to be defined **/
-  closeOnOutsiteClick: PropTypes.bool
+  /** Tells if drawer should be closed when clicked outside the drawer area, needs ref to be defined **/
+  closeOnOutsideClick: PropTypes.bool
 }
 
 export default MoleculeDrawer

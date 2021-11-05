@@ -52,7 +52,7 @@ const DemoDefault = ({className}) => {
           onClose={(event, {isOpen}) => {
             setIsOpen(isOpen)
           }}
-          closeOnOutsiteClick
+          closeOnOutsideClick
           ref={drawerRef}
         >
           <H4>Drawer Content</H4>

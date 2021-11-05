@@ -34,7 +34,7 @@ const Demo = () => {
         size={moleculeDrawerSizes.M}
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        closeOnOutsiteClick
+        closeOnOutsideClick
         ref={drawerRef}
       >
         <Paragraph>

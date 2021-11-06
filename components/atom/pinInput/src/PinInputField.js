@@ -97,6 +97,9 @@ const PinInputField = forwardRef(({isFullWidth, ...props}, forwardedRef) => {
 })
 
 PinInputField.displayName = 'PinInputField'
+PinInputField.defaultProps = {
+  isFullWidth: false
+}
 PinInputField.propTypes = {
   /** number value position */
   index: PropTypes.number,

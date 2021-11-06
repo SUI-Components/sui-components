@@ -91,55 +91,55 @@ const ArticleChildren = ({className}) => {
           <PinInput onChangeHandler={onChangeHandler} defaultValue={cardCode}>
             <Grid cols={19} gutter={[8, 8]}>
               <Cell>
-                <PinInputField isFullWidth={false} />
+                <PinInputField />
               </Cell>
               <Cell>
-                <PinInputField isFullWidth={false} />
+                <PinInputField />
               </Cell>
               <Cell>
-                <PinInputField isFullWidth={false} />
+                <PinInputField />
               </Cell>
               <Cell>
-                <PinInputField isFullWidth={false} />
-              </Cell>
-              <Cell style={flexCentered}>–</Cell>
-              <Cell>
-                <PinInputField isFullWidth={false} />
-              </Cell>
-              <Cell>
-                <PinInputField isFullWidth={false} />
-              </Cell>
-              <Cell>
-                <PinInputField isFullWidth={false} />
-              </Cell>
-              <Cell>
-                <PinInputField isFullWidth={false} />
+                <PinInputField />
               </Cell>
               <Cell style={flexCentered}>–</Cell>
               <Cell>
-                <PinInputField isFullWidth={false} />
+                <PinInputField />
               </Cell>
               <Cell>
-                <PinInputField isFullWidth={false} />
+                <PinInputField />
               </Cell>
               <Cell>
-                <PinInputField isFullWidth={false} />
+                <PinInputField />
               </Cell>
               <Cell>
-                <PinInputField isFullWidth={false} />
+                <PinInputField />
               </Cell>
               <Cell style={flexCentered}>–</Cell>
               <Cell>
-                <PinInputField isFullWidth={false} />
+                <PinInputField />
               </Cell>
               <Cell>
-                <PinInputField isFullWidth={false} />
+                <PinInputField />
               </Cell>
               <Cell>
-                <PinInputField isFullWidth={false} />
+                <PinInputField />
               </Cell>
               <Cell>
-                <PinInputField isFullWidth={false} />
+                <PinInputField />
+              </Cell>
+              <Cell style={flexCentered}>–</Cell>
+              <Cell>
+                <PinInputField />
+              </Cell>
+              <Cell>
+                <PinInputField />
+              </Cell>
+              <Cell>
+                <PinInputField />
+              </Cell>
+              <Cell>
+                <PinInputField />
               </Cell>
             </Grid>
           </PinInput>
@@ -152,7 +152,6 @@ const ArticleChildren = ({className}) => {
             onChangeHandler={onChangeHandler}
             defaultValue={cardCVVCode}
             length={3}
-            isFullWidth={false}
           />
         </Cell>
       </Grid>

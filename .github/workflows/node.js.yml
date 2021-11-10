@@ -95,8 +95,8 @@ jobs:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
       - name: ECHO coverage report
-          #if: github.event_name == 'push'
-          run: echo "${{(needs.testing.outputs.coverage)}}"
+        #if: github.event_name == 'push'
+        run: echo "${{(needs.testing.outputs.coverage)}}"
       - name: Get the coverage report
         #if: github.event_name == 'push'
         run: echo "${{fromJson(needs.testing.outputs.coverage)}}"

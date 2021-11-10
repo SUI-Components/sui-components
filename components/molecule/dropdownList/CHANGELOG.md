@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 1.22.0 (2021-11-10)
+
+
+### Bug Fixes
+
+* **components/molecule/dropdownList:** upgrade @s-ui/react-atom-input@v5 ([9a374b8](https://github.com/SUI-Components/sui-components/commit/9a374b86c084a4346438497345ed3fa7e326b690))
+
+
+
+# 1.1.0 (2021-09-28)
+
+
+### Features
+
+* **components/molecule/dropdownList/demo:** import component styles in demo ([218b87b](https://github.com/SUI-Components/sui-components/commit/218b87b43db44943951e0d04afb15c58b9337123))
+
+
+
 # 1.21.0 (2021-06-11)
 
 

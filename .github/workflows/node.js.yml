@@ -47,7 +47,7 @@ jobs:
   testing:
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.set-report.outputs.coverage }}
+      coverage: ${{ steps.set-report.outputs.coverage }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -71,7 +71,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: coverage/coverage.json
           title: Test Coverage results
-      - name: Stores the coverage
+      - name: Outputs the coverage
         #if: github.event_name == 'push'
         id: set-report
         run: |
@@ -91,7 +91,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Get the coverage report
         #if: github.event_name == 'push'
-        run: echo "${{fromJson(steps.set-report.outputs.coverage)}}"
+        run: echo "${{fromJson(needs.testing.outputs.coverage)}}"
       - name: Release components
         run: |
           npm install @s-ui/mono@2 --no-audit --no-optional --no-fund

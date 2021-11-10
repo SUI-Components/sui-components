@@ -101,7 +101,7 @@ jobs:
         run: echo "${{fromJson(needs.testing.outputs.coverage)}}"
       - name: create json-sumamry coverage file
         run: |
-          echo {\"total\":${{(needs.testing.outputs.coverage)}}} > coverage/coverage1.json
+          echo {\"total\":${{(needs.testing.outputs.coverage)}}} > coverage/coverage.json
           cat coverage/coverage.json
       - name: Release components
         run: |

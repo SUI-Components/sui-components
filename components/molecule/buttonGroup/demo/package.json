@@ -12,6 +12,6 @@
   "dependencies": {
     "@s-ui/react-atom-button": "1",
     "@s-ui/react-atom-icon": "1",
-    "@s-ui/react-atom-input": "1"
+    "@s-ui/react-atom-input": "5"
   }
 }

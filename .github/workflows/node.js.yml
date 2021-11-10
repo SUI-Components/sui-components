@@ -71,16 +71,13 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: coverage/coverage.json
           title: Test Coverage results
-      - run: npm install execa
       - name: Outputs the coverage
         uses: actions/github-script@v5
         with:
           script: |
             const coverage = require('./coverage/coverage.json')
 
-            const { stdout } = await execa('echo', ['hello', 'world'])
-
-            console.log(stdout)
+            console.log(context)
       #- name: Outputs the coverage
         #if: github.event_name == 'push'
         #id: set-report

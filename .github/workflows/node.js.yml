@@ -76,12 +76,12 @@ jobs:
         uses: notiz-dev/github-action-json-property@release
         id: get-report
         with:
-          path: 'version.json'
-          prop_path: 'version'
+          path: 'coverage/coverage.json'
+          prop_path: 'total'
       - name: Outputs the coverage
         #if: github.event_name == 'push'
         id: set-report
-        run: echo "::set-output name=coverage::${{steps.version.outputs.prop}}"
+        run: echo "::set-output name=coverage::${{steps.get-report.outputs.prop}}"
 
   release:
     needs: testing

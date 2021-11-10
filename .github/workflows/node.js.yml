@@ -79,7 +79,7 @@ jobs:
           script: |
             const coverage = require('./coverage/coverage.json')
             console.log(coverage)
-            return JSON.stringify(coverage)
+            return JSON.stringify(coverage).replaceAll('}', '/}').replaceAll('{', '/{')
           result-encoding: string
 
   release:

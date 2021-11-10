@@ -47,7 +47,7 @@ jobs:
   testing:
     runs-on: ubuntu-latest
     outputs:
-      coverage: ${{ steps.set-coverage.outputs.coverage }}
+      coverage: ${{ steps.set-coverage.outputs.result }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -78,9 +78,7 @@ jobs:
         with:
           script: |
             const coverage = require('./coverage/coverage.json')
-
             console.log(coverage.total)
-
             return coverage.total
           result-encoding: string
 

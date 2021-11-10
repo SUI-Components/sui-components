@@ -100,8 +100,9 @@ jobs:
           GITHUB_TOKEN: ${{github.token}}
           GITHUB_USER: sui-bot
         run: |
-          echo {\"total\":${{(needs.testing.outputs.coverage)}}} > coverage.json
-          npm run update:coverage ./coverage.json
+          mkdir ./coverage
+          echo {\"total\":${{(needs.testing.outputs.coverage)}}} > ./coverage/coverage.json
+          npm run update:coverage
           git config --global user.email "${GITHUB_EMAIL}"
           git config --global user.name "${GITHUB_USER}"
           git add README.md

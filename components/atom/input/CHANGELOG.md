@@ -1,5 +1,22 @@
 # CHANGELOG
 
+# 5.11.0 (2021-11-10)
+
+
+### Bug Fixes
+
+* **components/atom/input:** combine shapes sizes and addons ([e2985d6](https://github.com/SUI-Components/sui-components/commit/e2985d631cc94554c9c0f1cd1bc494e87600d0a1))
+
+
+### Features
+
+* **components/atom/input:** Change settings scss for theme ([0bb08df](https://github.com/SUI-Components/sui-components/commit/0bb08df78365ebe4c71bb9797d477c5fe306fbec))
+* **components/atom/input:** Change settings scss for theme ([f6e0047](https://github.com/SUI-Components/sui-components/commit/f6e0047aa5382b28f7cc230541323f2a2b70dde6))
+* **components/atom/input:** fix combiniation of prop styles ([9fc26d8](https://github.com/SUI-Components/sui-components/commit/9fc26d87f00e38e3cd65e7d95c15fb45314f19d3))
+* **components/atom/input:** last changes ([6b30b97](https://github.com/SUI-Components/sui-components/commit/6b30b973b69af62cd111f25e69de52caf2ff13ca))
+
+
+
 # 5.10.0 (2021-10-28)
 
 

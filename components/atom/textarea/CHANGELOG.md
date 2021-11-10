@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.18.0 (2021-11-10)
+
+
+### Bug Fixes
+
+* **components/atom/textarea:** upgrade @s-ui/react-atom-input@v5 ([d2312ed](https://github.com/SUI-Components/sui-components/commit/d2312edd3f77fa9166e485e1a562fa8f7c0bbe61))
+
+
+
 # 2.17.0 (2021-10-28)
 
 

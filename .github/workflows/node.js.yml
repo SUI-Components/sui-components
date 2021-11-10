@@ -101,8 +101,8 @@ jobs:
           GITHUB_USER: sui-bot
         run: |
           mkdir ./coverage
-          echo ${{(needs.testing.outputs.coverage)}}
-          echo {\"total\":${{(needs.testing.outputs.coverage)}}} > ./coverage/coverage.json
+          echo ${{(fromJson(needs.testing.outputs.coverage))}}
+          echo {\"total\":${{(fromJSON(needs.testing.outputs.coverage))}}} > ./coverage/coverage.json
           cat ./coverage/coverage.json
       - name: Release components
         run: |

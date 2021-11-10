@@ -76,7 +76,7 @@ jobs:
         with:
           script: |
             const coverage = require('./coverage/coverage.json')
-            console.log(stdout)
+            console.log(coverage)
       #- name: Outputs the coverage
         #if: github.event_name == 'push'
         #id: set-report

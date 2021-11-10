@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.21.0 (2021-11-10)
+
+
+### Bug Fixes
+
+* **components/molecule/inputTags:** upgrade @s-ui/react-atom-input@v5 ([161d6c2](https://github.com/SUI-Components/sui-components/commit/161d6c2d60314222e44efeee5151a14c30108914))
+
+
+
 # 2.20.0 (2021-10-28)
 
 

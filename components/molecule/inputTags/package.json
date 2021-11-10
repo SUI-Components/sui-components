@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-input-tags",
-  "version": "2.20.0",
+  "version": "2.21.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

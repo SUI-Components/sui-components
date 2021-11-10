@@ -93,16 +93,19 @@ jobs:
         with:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
-      - name: ECHO coverage report
-        #if: github.event_name == 'push'
-        run: echo "${{(needs.testing.outputs.coverage)}}"
-      - name: Get the coverage report
-        #if: github.event_name == 'push'
-        run: echo "${{fromJson(needs.testing.outputs.coverage)}}"
       - name: create json-sumamry coverage file
+        # if: github.event_name == 'push'
+        env:
+          GITHUB_EMAIL: cloud-accounts@scmspain.com
+          GITHUB_TOKEN: ${{github.token}}
+          GITHUB_USER: sui-bot
         run: |
           echo {\"total\":${{(needs.testing.outputs.coverage)}}} > coverage.json
-          cat coverage.json
+          npm run update:coverage coverage.json
+          git config --global user.email "${GITHUB_EMAIL}"
+          git config --global user.name "${GITHUB_USER}"
+          git add README.md
+          git commit --amend --no-verify --no-edit
       - name: Release components
         run: |
           npm install @s-ui/mono@2 --no-audit --no-optional --no-fund

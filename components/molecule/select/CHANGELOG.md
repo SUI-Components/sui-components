@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.50.0 (2021-11-10)
+
+
+### Bug Fixes
+
+* **components/molecule/select:** upgrade @s-ui/react-atom-input@v5 ([173853f](https://github.com/SUI-Components/sui-components/commit/173853f22282c06ca6e036c2a51ae78274450010))
+
+
+
 # 1.49.0 (2021-11-03)
 
 

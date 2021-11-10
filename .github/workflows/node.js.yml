@@ -99,6 +99,10 @@ jobs:
       - name: Get the coverage report
         #if: github.event_name == 'push'
         run: echo "${{fromJson(needs.testing.outputs.coverage)}}"
+      - name: create json-sumamry coverage file
+        run: |
+          echo {\"total\":${{(needs.testing.outputs.coverage)}}} > coverage/coverage1.json
+          cat coverage/coverage.json
       - name: Release components
         run: |
           npm install @s-ui/mono@2 --no-audit --no-optional --no-fund

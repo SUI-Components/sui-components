@@ -47,7 +47,7 @@ jobs:
   testing:
     runs-on: ubuntu-latest
     outputs:
-      coverage: ${{ steps.set-report.outputs.coverage }}
+      coverage: ${{ steps.set-coverage.outputs.coverage }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -72,23 +72,17 @@ jobs:
           path: coverage/coverage.json
           title: Test Coverage results
       - name: Outputs the coverage
+        #if: github.event_name == 'push'
         uses: actions/github-script@v5
+        id: set-coverage
         with:
           script: |
             const coverage = require('./coverage/coverage.json')
 
-            console.log(context)
-      #- name: Outputs the coverage
-        #if: github.event_name == 'push'
-        #id: set-report
-        #run: |
-          #COVERAGE=`cat ./coverage/coverage.json`
-          # the following lines are only required for multi line json
-          #content="${content//'%'/'%25'}"
-          #content="${content//$'\n'/'%0A'}"
-          #content="${content//$'\r'/'%0D'}"
-          # end of optional handling for multi line json
-          #echo "::set-output name=coverage::fromJSON($COVERAGE).total"
+            console.log(coverage.total)
+
+            return coverage.total
+          result-encoding: string
 
   release:
     needs: testing

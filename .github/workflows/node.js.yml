@@ -75,8 +75,8 @@ jobs:
         #if: github.event_name == 'push'
         id: set-report
         run: |
-          content=`cat ./coverage/coverage.json`
-          echo "::set-output name=coverage::$content"
+          COVERAGE=$(cat ./coverage/coverage.json)
+          echo "::set-output name=coverage::${COVERAGE//'%'/'%25'}"
 
   release:
     needs: testing
@@ -91,7 +91,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Get the coverage report
         #if: github.event_name == 'push'
-        run: echo "${{needs.testing.outputs.coverage}}"
+        run: echo "${{fromJson(needs.testing.outputs.coverage)}}"
       - name: Release components
         run: |
           npm install @s-ui/mono@2 --no-audit --no-optional --no-fund

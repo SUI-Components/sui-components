@@ -79,7 +79,7 @@ jobs:
           script: |
             const coverage = require('./coverage/coverage.json')
             console.log(coverage.total)
-            return coverage.total
+            return JSON.stringify(coverage.total)
           result-encoding: string
 
   release:

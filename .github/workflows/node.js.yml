@@ -46,6 +46,8 @@ jobs:
 
   testing:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-report.outputs.coverage }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -69,18 +71,12 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: coverage/coverage.json
           title: Test Coverage results
-      - name: Update Coverage badges on README.md
-        if: github.event_name == 'push'
-        env:
-          GITHUB_EMAIL: cloud-accounts@scmspain.com
-          GITHUB_TOKEN: ${{github.token}}
-          GITHUB_USER: sui-bot
+      - name: Stores the coverage
+        #if: github.event_name == 'push'
+        id: set-report
         run: |
-          npm run update:coverage
-          git config --global user.email "${GITHUB_EMAIL}"
-          git config --global user.name "${GITHUB_USER}"
-          git add README.md
-          git commit --amend --no-verify --no-edit
+          content=`cat ./coverage/coverage.json`
+          echo "::set-output name=coverage::$content"
 
   release:
     needs: testing
@@ -93,8 +89,9 @@ jobs:
         with:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
-      - name: List files
-        run: ls -lisa
+      - name: Get the coverage report
+        #if: github.event_name == 'push'
+        run: echo "${{fromJson(steps.set-report.outputs.coverage)}}"
       - name: Release components
         run: |
           npm install @s-ui/mono@2 --no-audit --no-optional --no-fund

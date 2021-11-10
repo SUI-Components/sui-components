@@ -91,7 +91,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Get the coverage report
         #if: github.event_name == 'push'
-        run: echo "${{fromJson(needs.testing.outputs.coverage)}}"
+        run: echo "${{needs.testing.outputs.coverage}}"
       - name: Release components
         run: |
           npm install @s-ui/mono@2 --no-audit --no-optional --no-fund

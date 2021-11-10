@@ -71,17 +71,17 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: coverage/coverage.json
           title: Test Coverage results
-      - name: Gets the total coverage
-        #if: github.event_name == 'push'
-        uses: notiz-dev/github-action-json-property@release
-        id: get-report
-        with:
-          path: 'coverage/coverage.json'
-          prop_path: 'total'
       - name: Outputs the coverage
         #if: github.event_name == 'push'
         id: set-report
-        run: echo "::set-output name=coverage::${{toJSON(steps.get-report.outputs.prop)}}"
+        run: |
+          COVERAGE=`cat ./coverage/coverage.json`
+          # the following lines are only required for multi line json
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          # end of optional handling for multi line json
+          echo "::set-output name=coverage::$COVERAGE"
 
   release:
     needs: testing

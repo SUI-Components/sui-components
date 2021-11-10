@@ -81,7 +81,7 @@ jobs:
       - name: Outputs the coverage
         #if: github.event_name == 'push'
         id: set-report
-        run: echo "::set-output name=coverage::${{steps.get-report.outputs.prop}}"
+        run: echo "::set-output name=coverage::${{toJSON(steps.get-report.outputs.prop)}}"
 
   release:
     needs: testing

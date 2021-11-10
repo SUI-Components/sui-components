@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.53.0 (2021-11-10)
+
+
+### Bug Fixes
+
+* **components/molecule/autosuggest:** upgrade @s-ui/react-atom-input@v5 ([7ea2938](https://github.com/SUI-Components/sui-components/commit/7ea293899dfb7b541f745495c21228aaa1f5238c))
+
+
+
 # 2.52.0 (2021-11-03)
 
 

@@ -102,7 +102,11 @@ jobs:
         run: |
           mkdir ./coverage
           echo ${{needs.testing.outputs.coverage}} > ./coverage/coverage.json
-          cat ./coverage/coverage.json
+          npm run update:coverage
+          git config --global user.email "${GITHUB_EMAIL}"
+          git config --global user.name "${GITHUB_USER}"
+          git add README.md
+          git commit --amend --no-verify --no-edit
       - name: Release components
         run: |
           npm install @s-ui/mono@2 --no-audit --no-optional --no-fund

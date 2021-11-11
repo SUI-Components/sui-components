@@ -24,6 +24,18 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log context
+        uses: actions/github-script@v5
+        id: context
+        with:
+          script: |
+            const coverage = require('./coverage/coverage.json')
+            // comment coverage results in PR on every push in the branch
+            console.log(JSON.strignify(context))
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -71,17 +83,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: coverage/coverage.json
           title: Test Coverage results
-      - name: Outputs the coverage
-        #if: github.event_name == 'push'
-        uses: actions/github-script@v5
-        id: set-coverage
-        with:
-          script: |
-            const coverage = require('./coverage/coverage.json')
-            // comment coverage results in PR on every push in the branch
-            console.log(JSON.stringify(github))
-
-          result-encoding: string
 
   release:
     needs: testing

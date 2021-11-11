@@ -32,8 +32,6 @@ jobs:
         id: context
         with:
           script: |
-            const coverage = require('./coverage/coverage.json')
-            // comment coverage results in PR on every push in the branch
             console.log(JSON.strignify(context))
 
   build:

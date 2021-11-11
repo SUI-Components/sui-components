@@ -89,11 +89,11 @@ jobs:
               })
             }
             // update the coverage shields in README.md
-            else if(github.event_name == 'push') {
+            # else if(github.event_name == 'push') {
 
-            }
+            # }
             # console.log({github, context})
-            return encodeURI(JSON.stringify({total: {...coverage.total} }))
+            return JSON.stringify({total: {...coverage.total} })
           result-encoding: string
 
   release:

@@ -50,7 +50,7 @@ jobs:
                 repo: context.repo.repo,
                 body: `|            |          %          |         COVERED        |         TOTAL        |
             |-----------:|:---------------------------------:|:------------------------------------:|:----------------------------------:|
-            |      LINES |    ${coverage.total.lines.pct}%   |     ${overage.total.lines.covered}   |    ${overage.total.lines.total}    |
+            |      LINES |    ${coverage.total.lines.pct}%   |    ${coverage.total.lines.covered}   |    ${coverage.total.lines.total}   |
             | STATEMENTS | ${coverage.total.statements.pct}% | ${coverage.total.statements.covered} | ${coverage.total.statements.total} |
             |  FUNCTIONS | ${coverage.total.functions.pct}}% |  ${coverage.total.functions.covered} |  ${coverage.total.functions.total} |
             |   BRANCHES |  ${coverage.total.branches.pct}}% |  ${coverage.total.branches.covered}  |  ${coverage.total.branches.total}  |`

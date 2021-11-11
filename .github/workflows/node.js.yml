@@ -79,7 +79,7 @@ jobs:
           script: |
             const coverage = require('./coverage/coverage.json')
             // comment coverage results in PR on every push in the branch
-            console.log({JSON.strignify(github)})
+            console.log(JSON.stringify(github))
 
           result-encoding: string
 

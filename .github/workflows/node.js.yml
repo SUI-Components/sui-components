@@ -32,7 +32,8 @@ jobs:
         id: context
         with:
           script: |
-            console.log(JSON.stringify(context))
+            console.log(context.repo)
+            console.log(context)
 
   build:
     runs-on: ubuntu-latest

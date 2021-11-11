@@ -33,8 +33,13 @@ jobs:
         with:
           script: |
             console.log(context.repo)
-            console.log(context)
-
+            console.log(context.issue)
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Thanks for reporting!'
+            })
   build:
     runs-on: ubuntu-latest
     steps:

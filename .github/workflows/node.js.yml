@@ -92,7 +92,7 @@ jobs:
             else if(github.event_name == 'push') {
 
             }
-            console.log({github, context})
+            # console.log({github, context})
             return encodeURI(JSON.stringify({total: {...coverage.total} }))
           result-encoding: string
 

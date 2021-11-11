@@ -32,7 +32,7 @@ jobs:
         id: context
         with:
           script: |
-            console.log(JSON.strignify(context))
+            console.log(JSON.stringify(context))
 
   build:
     runs-on: ubuntu-latest

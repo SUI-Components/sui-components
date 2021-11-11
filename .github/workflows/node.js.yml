@@ -80,7 +80,14 @@ jobs:
             const coverage = require('./coverage/coverage.json')
             // comment coverage results in PR on every push in the branch
             if (github.event_name === 'pull_request' && (github.event.action === 'opened' || github.event.action === 'synchronize')) {
-              console.log('PR')
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: '👋 Thanks for reporting!'
+              })
+            } else if (github.event_name === 'push') {
+              console.log('PUSH')
             }
           result-encoding: string
 

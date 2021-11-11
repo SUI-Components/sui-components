@@ -78,7 +78,10 @@ jobs:
         with:
           script: |
             const coverage = require('./coverage/coverage.json')
-            return coverage;
+            // comment coverage results in PR on every push in the branch
+            if (github.event_name === 'pull_request' && (github.event.action === 'opened' || github.event.action === 'synchronize')) {
+              console.log('PR')
+            }
           result-encoding: string
 
   release:

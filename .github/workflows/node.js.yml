@@ -78,8 +78,8 @@ jobs:
         with:
           script: |
             const coverage = require('./coverage/coverage.json')
-            console.log(JSON.stringify({ total: {...coverage.total} }))
-            return JSON.stringify({total: {...coverage.total} })
+            console.log({github, context})
+            return encodeURI(JSON.stringify({total: {...coverage.total} }))
           result-encoding: string
 
   release:

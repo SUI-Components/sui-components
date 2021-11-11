@@ -32,14 +32,30 @@ jobs:
         id: context
         with:
           script: |
+            const coverage = {
+              "total": {
+                "lines": {"total": 2958, "covered": 1901, "skipped": 0, "pct": 64.26},
+                "statements": {"total": 3151, "covered": 1962, "skipped": 0, "pct": 62.26},
+                "functions": {"total": 705, "covered": 319, "skipped": 0, "pct": 45.24},
+                "branches": {"total": 1988, "covered": 858, "skipped": 0, "pct": 43.15},
+                "branchesTrue": {"total": 0, "covered": 0, "skipped": 0, "pct": 100}
+              }
+            }
             console.log(context.repo)
             console.log(context.issue)
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '👋 Thanks for reporting!'
-            })
+            if (context.eventName === 'pull_request' && ['opened', 'synchronize'].includes(context.payload.action)) {
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `|            |          %          |         COVERED        |         TOTAL        |
+            |-----------:|:---------------------------------:|:------------------------------------:|:----------------------------------:|
+            |      LINES |    ${coverage.total.lines.pct}%   |     ${overage.total.lines.covered}   |    ${overage.total.lines.total}    |
+            | STATEMENTS | ${coverage.total.statements.pct}% | ${coverage.total.statements.covered} | ${coverage.total.statements.total} |
+            |  FUNCTIONS | ${coverage.total.functions.pct}}% |  ${coverage.total.functions.covered} |  ${coverage.total.functions.total} |
+            |   BRANCHES |  ${coverage.total.branches.pct}}% |  ${coverage.total.branches.covered}  |  ${coverage.total.branches.total}  |`
+              })
+            }
   build:
     runs-on: ubuntu-latest
     steps:

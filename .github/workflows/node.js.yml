@@ -29,9 +29,9 @@ jobs:
     steps:
       - name: Install xvfb for headless testing
         run: |
-          mkdir ./coverage
-          node ./scripts/get-master-coverage.js > ./coverage/coverage-master.json
-          cat ./coverage/coverage-master.json
+          mkdir coverage
+          node scripts/get-master-coverage.js > ./coverage/coverage-master.json
+          cat coverage/coverage-master.json
       - name: Log context
         uses: actions/github-script@v5
         id: context

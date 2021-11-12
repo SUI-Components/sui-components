@@ -48,7 +48,6 @@ jobs:
         with:
           script: |
             const oldCoverage = require('./coverage/coverage-master.json')
-            const exec = require('@actions/exec');
             const coverage = {
               "total": {
                 "lines": {"total": 2958, "covered": 1901, "skipped": 0, "pct": 64.26},

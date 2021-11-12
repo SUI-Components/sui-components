@@ -63,7 +63,7 @@ jobs:
               Object.entries(oldCoverage).forEach(([key, value]) => {
                 coverageDiff[key] = value === 0 ? '' : ` **≍ ${Math.round(Math.abs(value - coverage.total[key].pct)*100)/100}${SYMBOL[Math.sign(value - coverage.total[key].pct)]}**`
               })
-              github.rest.issues.createComment({
+              await github.rest.issues.createComment({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -76,9 +76,9 @@ jobs:
             |      LINES |    ${coverage.total.lines.pct}%${coverageDiff.lines}        |    ${coverage.total.lines.covered}   |    ${coverage.total.lines.total}   |`
               })
             // } else if (context.eventName === 'push') {
-              Object.entries(coverage).forEach(([key, value]) => {
-                await exec.exec('echo', ['::set-output', `name=COVERAGE_${key.toUpperCase()}::${value.pct}`]);
-              })
+            //  Object.entries(coverage).forEach(([key, value]) => {
+            //    await exec.exec('echo', ['::set-output', `name=COVERAGE_${key.toUpperCase()}::${value.pct}`]);
+            //  })
             }
   build:
     runs-on: ubuntu-latest

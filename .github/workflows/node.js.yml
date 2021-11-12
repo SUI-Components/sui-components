@@ -42,6 +42,7 @@ jobs:
         id: context
         with:
           script: |
+            const oldCoverage = require('./coverage/coverage-master.json')
             const coverage = {
               "total": {
                 "lines": {"total": 2958, "covered": 1901, "skipped": 0, "pct": 64.26},
@@ -51,20 +52,23 @@ jobs:
                 "branchesTrue": {"total": 0, "covered": 0, "skipped": 0, "pct": 100}
               }
             }
-            console.log(context.repo)
-            console.log(context.issue)
             if (context.eventName === 'pull_request' && ['opened', 'synchronize'].includes(context.payload.action)) {
+              const coverageDiff = {statements: '', branches: '', functions: '', lines: '' }
+              const SYMBOLS = { 1: '↑', 0: '＝', -0: '＝', -1: '↓' }
+              Object.entries(oldCoverage).forEach(([key, value]) => {
+                coverageDiff[key] = value === 0 ? '' : `(${SYMBOL[Math.sign(value - coverage[key].statements.pct)]}${value - coverage[key].statements.pct})%`
+              })
               github.rest.issues.createComment({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 body: `
-            |            |          %          |         COVERED        |         TOTAL        |
-            |-----------:|:---------------------------------:|:------------------------------------:|:----------------------------------:|
-            | STATEMENTS | ${coverage.total.statements.pct}% | ${coverage.total.statements.covered} | ${coverage.total.statements.total} |
-            |   BRANCHES |  ${coverage.total.branches.pct}%  |  ${coverage.total.branches.covered}  |  ${coverage.total.branches.total}  |
-            |  FUNCTIONS | ${coverage.total.functions.pct}%  |  ${coverage.total.functions.covered} |  ${coverage.total.functions.total} |
-            |      LINES |    ${coverage.total.lines.pct}%   |    ${coverage.total.lines.covered}   |    ${coverage.total.lines.total}   |`
+            |            |                               %                             |              COVERED                 |                 TOTAL              |
+            |-----------:|:-----------------------------------------------------------:|:------------------------------------:|:----------------------------------:|
+            | STATEMENTS | ${coverage.total.statements.pct}%${coverageDiff.statements} | ${coverage.total.statements.covered} | ${coverage.total.statements.total} |
+            |   BRANCHES |  ${coverage.total.branches.pct}%${coverageDiff.branches}    |  ${coverage.total.branches.covered}  |  ${coverage.total.branches.total}  |
+            |  FUNCTIONS | ${coverage.total.functions.pct}%${coverageDiff.functions}   |  ${coverage.total.functions.covered} |  ${coverage.total.functions.total} |
+            |      LINES |    ${coverage.total.lines.pct}%${coverageDiff.lines}        |    ${coverage.total.lines.covered}   |    ${coverage.total.lines.total}   |`
               })
             }
   build:

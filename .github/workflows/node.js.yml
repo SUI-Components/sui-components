@@ -54,7 +54,7 @@ jobs:
             }
             if (context.eventName === 'pull_request' && ['opened', 'synchronize'].includes(context.payload.action)) {
               const coverageDiff = {statements: '', branches: '', functions: '', lines: '' }
-              const SYMBOLS = { 1: '↑', 0: '＝', -0: '＝', -1: '↓' }
+              const SYMBOLS = { 1: '↑', 0: '＝', [-0]: '＝', [-1]: '↓' }
               Object.entries(oldCoverage).forEach(([key, value]) => {
                 coverageDiff[key] = value === 0 ? '' : `(${SYMBOL[Math.sign(value - coverage[key].statements.pct)]}${value - coverage[key].statements.pct})%`
               })

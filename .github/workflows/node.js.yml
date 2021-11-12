@@ -26,6 +26,11 @@ jobs:
 
   log:
     runs-on: ubuntu-latest
+    outputs:
+      statements: ${{ steps.context.outputs.COVERAGE_STATEMENTS }}
+      branches: ${{ steps.context.outputs.COVERAGE_BRANCHES }}
+      functions: ${{ steps.context.outputs.COVERAGE_FUNCTIONS }}
+      lines: ${{ steps.context.outputs.COVERAGE_LINES }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -43,6 +48,7 @@ jobs:
         with:
           script: |
             const oldCoverage = require('./coverage/coverage-master.json')
+            const exec = require('@actions/exec');
             const coverage = {
               "total": {
                 "lines": {"total": 2958, "covered": 1901, "skipped": 0, "pct": 64.26},
@@ -70,6 +76,10 @@ jobs:
             |  FUNCTIONS | ${coverage.total.functions.pct}%${coverageDiff.functions}   |  ${coverage.total.functions.covered} |  ${coverage.total.functions.total} |
             |      LINES |    ${coverage.total.lines.pct}%${coverageDiff.lines}        |    ${coverage.total.lines.covered}   |    ${coverage.total.lines.total}   |`
               })
+            // } else if (context.eventName === 'push') {
+              Object.entries(coverage).forEach(([key, value]) => {
+                await exec.exec('echo', ['::set-output', `name=COVERAGE_${key.toUpperCase()}::${value.pct}`]);
+              })
             }
   build:
     runs-on: ubuntu-latest
@@ -93,13 +103,19 @@ jobs:
 
   testing:
     runs-on: ubuntu-latest
-    outputs:
-      coverage: ${{ steps.set-coverage.outputs.result }}
+    # outputs:
+      # coverage: ${{ steps.set-coverage.outputs.result }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 16
+      - name: log previous coverage
+        run: |
+          echo ${{jobs.log.outputs.statements}}
+          echo ${{jobs.log.outputs.branches}}
+          echo ${{jobs.log.outputs.functions}}
+          echo ${{jobs.log.outputs.lines}}
       - name: Install xvfb for headless testing
         run: sudo apt-get install xvfb
 

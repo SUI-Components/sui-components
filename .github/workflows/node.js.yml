@@ -103,6 +103,7 @@ jobs:
 
   testing:
     runs-on: ubuntu-latest
+    needs: log
     # outputs:
       # coverage: ${{ steps.set-coverage.outputs.result }}
     steps:
@@ -112,10 +113,10 @@ jobs:
           node-version: 16
       - name: log previous coverage
         run: |
-          echo ${{jobs.log.outputs.statements}}
-          echo ${{jobs.log.outputs.branches}}
-          echo ${{jobs.log.outputs.functions}}
-          echo ${{jobs.log.outputs.lines}}
+          echo ${{needs.log.outputs.statements}}
+          echo ${{needs.log.outputs.branches}}
+          echo ${{needs.log.outputs.functions}}
+          echo ${{needs.log.outputs.lines}}
       - name: Install xvfb for headless testing
         run: sudo apt-get install xvfb
 

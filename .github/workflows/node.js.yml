@@ -56,7 +56,7 @@ jobs:
               const coverageDiff = {statements: '', branches: '', functions: '', lines: '' }
               const SYMBOL = { 1: '↑', 0: '＝', [-0]: '＝', [-1]: '↓' }
               Object.entries(oldCoverage).forEach(([key, value]) => {
-                coverageDiff[key] = value === 0 ? '' : ` ⟺ ${Math.round(Math.abs(value - coverage.total[key].pct)*100)/100}**${SYMBOL[Math.sign(value - coverage.total[key].pct)]}**`
+                coverageDiff[key] = value === 0 ? '' : ` ≍ ${Math.round(Math.abs(value - coverage.total[key].pct)*100)/100}**${SYMBOL[Math.sign(value - coverage.total[key].pct)]}**`
               })
               github.rest.issues.createComment({
                 issue_number: context.issue.number,

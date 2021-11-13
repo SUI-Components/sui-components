@@ -33,7 +33,10 @@ module.exports = async function exportCoverageFromMarkdown(
 
   const matches = markdownContent.matchAll(regex.shield)
 
+  console.log(matches)
+
   for (const match of matches) {
+    console.log(match)
     const {alt, filename, optionalPart} = match?.groups
     const [type, pct] = (filename.match(regex.pct) || [''])[0].split('-')
     if (type) {

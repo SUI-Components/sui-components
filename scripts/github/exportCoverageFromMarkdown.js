@@ -37,7 +37,7 @@ module.exports = async function exportCoverageFromMarkdown(
 
   for (const match of matches) {
     console.log(match)
-    const {alt, filename, optionalPart} = match?.groups
+    const {alt, filename, optionalPart} = match.groups
     const [type, pct] = (filename.match(regex.pct) || [''])[0].split('-')
     if (type) {
       core.exportVariable(`coverage_${type}_master`, parseFloat(pct))

@@ -49,7 +49,7 @@ jobs:
         id: coverage
         with:
           script: |
-            const script = require('./scripts/exportCoverageFromMarkdown')
+            const script = require('./scripts/github/exportCoverageFromMarkdown.js')
             await script({github, context, core, exec}, './README.md')
 
   log-later:

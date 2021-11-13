@@ -27,13 +27,15 @@ jobs:
   log:
     runs-on: ubuntu-latest
     outputs:
-      statements: ${{ steps.context.outputs.COVERAGE_STATEMENTS }}
-      branches: ${{ steps.context.outputs.COVERAGE_BRANCHES }}
-      functions: ${{ steps.context.outputs.COVERAGE_FUNCTIONS }}
-      lines: ${{ steps.context.outputs.COVERAGE_LINES }}
+      coverage_statements_master: ${{ steps.context.coverage.coverage_statements_master }}
+      coverage_branches_master: ${{ steps.context.coverage.coverage_branches_master }}
+      coverage_functions_master: ${{ steps.context.coverage.coverage_functions_master }}
+      coverage_lines_master: ${{ steps.context.coverage.coverage_lines_master }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Chekout ${{ github.repository }}@${{ github.ref }}
+        uses: actions/checkout@v2
+      - name: Configure node@16
+        uses: actions/setup-node@v1
         with:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
@@ -44,153 +46,18 @@ jobs:
           cat coverage/coverage-master.json
       - name: Log context
         uses: actions/github-script@v5
-        id: context
+        id: coverage
         with:
           script: |
-            const oldCoverage = require('./coverage/coverage-master.json')
-            const coverage = {
-              "total": {
-                "lines": {"total": 2958, "covered": 1901, "skipped": 0, "pct": 64.26},
-                "statements": {"total": 3151, "covered": 1962, "skipped": 0, "pct": 62.26},
-                "functions": {"total": 705, "covered": 319, "skipped": 0, "pct": 45.24},
-                "branches": {"total": 1988, "covered": 858, "skipped": 0, "pct": 43.15},
-                "branchesTrue": {"total": 0, "covered": 0, "skipped": 0, "pct": 100}
-              }
-            }
-            if (context.eventName === 'pull_request' && ['opened', 'synchronize'].includes(context.payload.action)) {
-              const coverageDiff = {statements: '', branches: '', functions: '', lines: '' }
-              const SYMBOL = { 1: '↑', 0: '＝', [-0]: '＝', [-1]: '↓' }
-              Object.entries(oldCoverage).forEach(([key, value]) => {
-                coverageDiff[key] = value === 0 ? '' : ` **≍ ${Math.round(Math.abs(value - coverage.total[key].pct)*100)/100}${SYMBOL[Math.sign(value - coverage.total[key].pct)]}**`
-              })
-              await github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: `
-            |            |                               %                             |              COVERED                 |                 TOTAL              |
-            |-----------:|:-----------------------------------------------------------:|:------------------------------------:|:----------------------------------:|
-            | STATEMENTS | ${coverage.total.statements.pct}%${coverageDiff.statements} | ${coverage.total.statements.covered} | ${coverage.total.statements.total} |
-            |   BRANCHES |  ${coverage.total.branches.pct}%${coverageDiff.branches}    |  ${coverage.total.branches.covered}  |  ${coverage.total.branches.total}  |
-            |  FUNCTIONS | ${coverage.total.functions.pct}%${coverageDiff.functions}   |  ${coverage.total.functions.covered} |  ${coverage.total.functions.total} |
-            |      LINES |    ${coverage.total.lines.pct}%${coverageDiff.lines}        |    ${coverage.total.lines.covered}   |    ${coverage.total.lines.total}   |`
-              })
-            // } else if (context.eventName === 'push') {
-            //  Object.entries(coverage).forEach(([key, value]) => {
-            //    await exec.exec('echo', ['::set-output', `name=COVERAGE_${key.toUpperCase()}::${value.pct}`]);
-            //  })
-            }
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 16
-          registry-url: 'https://registry.npmjs.org'
-      - name: Build dependencies
-        run: |
-          npm run phoenix:ci
-          npm run install:themes
-          npm run build
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - uses: actions/upload-artifact@v2
-        with:
-          name: public-folder
-          path: public
+            const script = require('./scripts/exportCoverageFromMarkdoen')
+            await script({github, context, core, exec}, './README.md')
 
-  testing:
+  log-later:
     runs-on: ubuntu-latest
     needs: log
-    # outputs:
-      # coverage: ${{ steps.set-coverage.outputs.result }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 16
-      - name: log previous coverage
-        run: |
-          echo ${{needs.log.outputs.statements}}
-          echo ${{needs.log.outputs.branches}}
-          echo ${{needs.log.outputs.functions}}
-          echo ${{needs.log.outputs.lines}}
-      - name: Install xvfb for headless testing
-        run: sudo apt-get install xvfb
-
-      - name: Setup Max User Watches for Testing
-        run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-
-      - name: Testing
-        run: |
-          npm run phoenix:ci
-          npm run lint
-          xvfb-run --auto-servernum npm run test -- --ci --coverage
-      - name: Comment Test Coverage
-        uses: AthleticNet/comment-test-coverage@1.1
-        if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize')
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          path: coverage/coverage.json
-          title: Test Coverage results
-
-  release:
-    needs: testing
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 16
-          registry-url: 'https://registry.npmjs.org'
-      - name: create json-sumamry coverage file
-        # if: github.event_name == 'push'
-        env:
-          GITHUB_EMAIL: cloud-accounts@scmspain.com
-          GITHUB_TOKEN: ${{github.token}}
-          GITHUB_USER: sui-bot
-        run: |
-          mkdir ./coverage
-          echo ${{needs.testing.outputs.coverage}} > ./coverage/coverage.json
-          npm run update:coverage
-          git config --global user.email "${GITHUB_EMAIL}"
-          git config --global user.name "${GITHUB_USER}"
-          git add README.md
-          git commit --amend --no-verify --no-edit
-      - name: Release components
-        run: |
-          npm install @s-ui/mono@2 --no-audit --no-optional --no-fund
-          npx @s-ui/ci release
-        env:
-          GITHUB_EMAIL: cloud-accounts@scmspain.com
-          GITHUB_TOKEN: ${{github.token}}
-          GITHUB_USER: sui-bot
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  deploy:
-    needs: [build, testing]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 16
-      - uses: actions/download-artifact@v2
-        with:
-          name: public-folder
-      - name: Deploy
-        id: deploy
-        run: |
-          npm i -g vercel --no-save --no-fund --no-audit --no-optional --no-scripts
-          DEPLOYMENT_URL=$(vercel --token $VERCEL_TOKEN --confirm $VERCEL_PARAMS)
-          echo "::set-output name=url::$(echo $DEPLOYMENT_URL)"
-        env:
-          VERCEL_PARAMS: ${{ github.event_name != 'pull_request' && '--prod' || ''}}
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-
-    environment:
-      name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}
-      url: ${{ steps.deploy.outputs.url }}
+      - run: |
+          echo ${{needs.log.outputs.coverage_statements_master}}
+          echo ${{needs.log.outputs.coverage_branches_master}}
+          echo ${{needs.log.outputs.coverage_functions_master}}
+          echo ${{needs.log.outputs.coverage_lines_master}}

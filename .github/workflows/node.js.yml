@@ -27,10 +27,10 @@ jobs:
   log:
     runs-on: ubuntu-latest
     outputs:
-      coverage_statements_master: ${{ steps.context.coverage.coverage_statements_master }}
-      coverage_branches_master: ${{ steps.context.coverage.coverage_branches_master }}
-      coverage_functions_master: ${{ steps.context.coverage.coverage_functions_master }}
-      coverage_lines_master: ${{ steps.context.coverage.coverage_lines_master }}
+      coverage_statements_master: ${{ steps.coverage.outputs.coverage_statements_master }}
+      coverage_branches_master: ${{ steps.coverage.outputs.coverage_branches_master }}
+      coverage_functions_master: ${{ steps.coverage.outputs.coverage_functions_master }}
+      coverage_lines_master: ${{ steps.coverage.outputs.coverage_lines_master }}
     steps:
       - name: Chekout ${{ github.repository }}@${{ github.ref }}
         uses: actions/checkout@v2

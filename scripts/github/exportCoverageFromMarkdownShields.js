@@ -14,7 +14,7 @@ const regex = {
  * }} param0
  * @param {string} markdownFilePath: MD coverage badge file
  */
-module.exports = async function exportCoverageFromMarkdown(
+module.exports = async function exportCoverageFromMarkdownShields(
   {github, context, core, exec},
   markdownFilePath
 ) {
@@ -40,8 +40,8 @@ module.exports = async function exportCoverageFromMarkdown(
     const {alt, filename, optionalPart} = match.groups
     const [type, pct] = (filename.match(regex.pct) || [''])[0].split('-')
     if (type) {
-      core.info(`Output: coverage_${type}_master: ${parseFloat(pct)}/n`)
-      core.setOutput(`coverage_${type}_master`, parseFloat(pct))
+      core.info(`Output: coverage_${type}_pct_master: ${parseFloat(pct)}`)
+      core.setOutput(`coverage_${type}_pct_master`, parseFloat(pct))
     }
   }
 }

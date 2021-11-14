@@ -27,10 +27,24 @@ jobs:
   log:
     runs-on: ubuntu-latest
     outputs:
-      coverage_statements_master: ${{ steps.coverage.outputs.coverage_statements_master }}
-      coverage_branches_master: ${{ steps.coverage.outputs.coverage_branches_master }}
-      coverage_functions_master: ${{ steps.coverage.outputs.coverage_functions_master }}
-      coverage_lines_master: ${{ steps.coverage.outputs.coverage_lines_master }}
+      coverage_statements_pct_master: ${{ steps.coverage-master.outputs.coverage_statements_pct_master }}
+      coverage_branches_pct_master: ${{ steps.coverage-master.outputs.coverage_branches_pct_master }}
+      coverage_functions_pct_master: ${{ steps.coverage-master.outputs.coverage_functions_pct_master }}
+      coverage_lines_pct_master: ${{ steps.coverage-master.outputs.coverage_lines_pct_master }}
+      coverage_statements_pct_current: ${{ steps.coverage-current.outputs.coverage_statements_pct_current }}
+      coverage_branches_pct_current: ${{ steps.coverage-current.outputs.coverage_branches_pct_current }}
+      coverage_functions_pct_current: ${{ steps.coverage-current.outputs.coverage_functions_pct_current }}
+      coverage_lines_pct_current: ${{ steps.coverage-current.outputs.coverage_lines_pct_current }}
+      coverage_statements_total_current: ${{ steps.coverage-current.outputs.coverage_statements_total_current }}
+      coverage_branches_total_current: ${{ steps.coverage-current.outputs.coverage_branches_total_current }}
+      coverage_functions_total_current: ${{ steps.coverage-current.outputs.coverage_functions_total_current }}
+      coverage_lines_total_current: ${{ steps.coverage-current.outputs.coverage_lines_total_current }}
+      coverage_statements_covered_current: ${{ steps.coverage-current.outputs.coverage_statements_covered_current }}
+      coverage_branches_covered_current: ${{ steps.coverage-current.outputs.coverage_branches_covered_current }}
+      coverage_functions_covered_current: ${{ steps.coverage-current.outputs.coverage_functions_covered_current }}
+      coverage_lines_covered_current: ${{ steps.coverage-current.outputs.coverage_lines_covered_current }}
+      total
+      covered
     steps:
       - name: Chekout ${{ github.repository }}@${{ github.ref }}
         uses: actions/checkout@v2
@@ -41,18 +55,36 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Log Master Coverage
         uses: actions/github-script@v5
-        id: coverage
+        id: coverage-master
         with:
           script: |
-            const script = require('./scripts/github/exportCoverageFromMarkdown')
+            const script = require('./scripts/github/exportCoverageFromMarkdownShields')
             await script({github, context, core, exec}, './README.md')
-
+      - name: Log Current Coverage
+        uses: actions/github-script@v5
+        id: coverage-current
+        with:
+          script: |
+            const script = require('./scripts/github/exportCoverageFromMarkdownShields')
+            await script({github, context, core, exec}, './coverage/coverage.json')
   log-later:
     runs-on: ubuntu-latest
     needs: log
     steps:
       - run: |
-          echo ${{needs.log.outputs.coverage_statements_master}}
-          echo ${{needs.log.outputs.coverage_branches_master}}
-          echo ${{needs.log.outputs.coverage_functions_master}}
-          echo ${{needs.log.outputs.coverage_lines_master}}
+          echo ${{needs.log.outputs.coverage_statements_pct_master}}
+          echo ${{needs.log.outputs.coverage_branches_pct_master}}
+          echo ${{needs.log.outputs.coverage_functions_pct_master}}
+          echo ${{needs.log.outputs.coverage_lines_pct_master}}
+          echo ${{needs.log.outputs.coverage_statements_pct_current}}
+          echo ${{needs.log.outputs.coverage_branches_pct_current}}
+          echo ${{needs.log.outputs.coverage_functions_pct_current}}
+          echo ${{needs.log.outputs.coverage_lines_pct_current}}
+          echo ${{needs.log.outputs.coverage_statements_total_current}}
+          echo ${{needs.log.outputs.coverage_branches_total_current}}
+          echo ${{needs.log.outputs.coverage_functions_total_current}}
+          echo ${{needs.log.outputs.coverage_lines_total_current}}
+          echo ${{needs.log.outputs.coverage_statements_covered_current}}
+          echo ${{needs.log.outputs.coverage_branches_covered_current}}
+          echo ${{needs.log.outputs.coverage_functions_covered_current}}
+          echo ${{needs.log.outputs.coverage_lines_covered_current}}

@@ -1,20 +1,25 @@
+const SYMBOL = {1: '↑', 0: '＝', [-0]: '＝', [-1]: '↓'}
+
 const getCommentBody = ({currentCoverage, masterCoverage}) => {
-  const coverageDiff = {statements: '', branches: '', functions: '', lines: ''}
-  const SYMBOL = {1: '↑', 0: '＝', [-0]: '＝', [-1]: '↓'}
+  const coverageDiff = {statements: {}, branches: {}, functions: {}, lines: {}}
   Object.entries(masterCoverage).forEach(([key, value]) => {
-    coverageDiff[key].pct =
-      value.pct === 0
-        ? ''
-        : ` **≍ ${Math.round(
-            Math.abs(value.pct - currentCoverage[key].pct) * 100
-          ) / 100}${SYMBOL[Math.sign(value.pct - currentCoverage[key].pct)]}**`
+    coverageDiff[key] = {
+      pct:
+        value.pct === 0
+          ? ''
+          : `**≍ ${Math.round(
+              Math.abs(value.pct - currentCoverage[key].pct) * 100
+            ) / 100}${
+              SYMBOL[Math.sign(value.pct - currentCoverage[key].pct)]
+            }**`
+    }
   })
   return `
-|       |                              STATEMENTS                               |                            BRANCHES                                   |                                   FUNCTIONS                             |                                LINES                             |
-|------:|:---------------------------------------------------------------------:|:---------------------------------------------------------------------:|:-----------------------------------------------------------------------:|:----------------------------------------------------------------:|
-|   ≍   |                      ${coverageDiff.statements}                       |                  ${coverageDiff.branches}                             |                           ${coverageDiff.functions}                     |                      ${coverageDiff.functions}                   |
-|   %   |                   ${currentCoverage.branches.pct}                     |              ${currentCoverage.branches.pct}                          |                       ${currentCoverage.functions.pct}                  |                    ${currentCoverage.lines.pct}                  |
-|  ABS  | ${currentCoverage.branches.covered}/${currentCoverage.branches.total} | ${currentCoverage.branches.covered}/${currentCoverage.branches.total} | ${currentCoverage.functions.covered}/${currentCoverage.functions.total} | ${currentCoverage.lines.covered}/${currentCoverage.lines.total}  |
+|     |                              STATEMENTS                               |                            BRANCHES                                   |                                   FUNCTIONS                             |                                LINES                             |
+|----:|:---------------------------------------------------------------------:|:---------------------------------------------------------------------:|:-----------------------------------------------------------------------:|:----------------------------------------------------------------:|
+|   ≍ |                      ${coverageDiff.statements}                       |                  ${coverageDiff.branches}                             |                           ${coverageDiff.functions}                     |                      ${coverageDiff.functions}                   |
+|   % |                   ${currentCoverage.branches.pct}                     |              ${currentCoverage.branches.pct}                          |                       ${currentCoverage.functions.pct}                  |                    ${currentCoverage.lines.pct}                  |
+| ABS | ${currentCoverage.branches.covered}/${currentCoverage.branches.total} | ${currentCoverage.branches.covered}/${currentCoverage.branches.total} | ${currentCoverage.functions.covered}/${currentCoverage.functions.total} | ${currentCoverage.lines.covered}/${currentCoverage.lines.total}  |
 `
 }
 

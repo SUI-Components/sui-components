@@ -40,6 +40,11 @@ jobs:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
       - name: Master Coverage
+        run: |
+          mkdir coverage
+          node scripts/get-master-coverage.js > ./coverage/coverage-master.json
+          cat coverage/coverage-master.json
+      - name: Master Coverage
         uses: actions/github-script@v5
         id: coverage
         with:

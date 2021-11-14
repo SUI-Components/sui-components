@@ -37,7 +37,11 @@ module.exports = async function exportCoverageFromMarkdownShields(
 
   matches.length && core.info('Badges loaded')
   for (const match of matches) {
-    const {alt, filename, optionalPart} = match.groups
+    const {
+      //alt,
+      filename
+      //optionalPart
+    } = match.groups
     const [type, pct] = (filename.match(regex.pct) || [''])[0].split('-')
     if (type) {
       core.info(`Output: coverage_${type}_pct_master: ${parseFloat(pct)}`)

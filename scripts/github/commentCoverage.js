@@ -2,19 +2,20 @@ const getCommentBody = ({currentCoverage, masterCoverage}) => {
   const coverageDiff = {statements: '', branches: '', functions: '', lines: ''}
   const SYMBOL = {1: '↑', 0: '＝', [-0]: '＝', [-1]: '↓'}
   Object.entries(masterCoverage).forEach(([key, value]) => {
-    coverageDiff[key] =
-      value === 0
+    coverageDiff[key].pct =
+      value.pct === 0
         ? ''
-        : ` **≍ ${Math.round(Math.abs(value - currentCoverage[key].pct) * 100) /
-            100}${SYMBOL[Math.sign(value - currentCoverage[key].pct)]}**`
+        : ` **≍ ${Math.round(
+            Math.abs(value.pct - currentCoverage[key].pct) * 100
+          ) / 100}${SYMBOL[Math.sign(value.pct - currentCoverage[key].pct)]}**`
   })
   return `
-|            |                               %                             |              COVERED                 |                 TOTAL              |
-|-----------:|:------------------------------------------------------------:|:------------------------------------:|:----------------------------------:|
-| STATEMENTS | ${currentCoverage.statements.pct}%${coverageDiff.statements} | ${currentCoverage.statements.covered} | ${currentCoverage.statements.total} |
-|   BRANCHES |  ${currentCoverage.branches.pct}%${coverageDiff.branches}    |  ${currentCoverage.branches.covered}  |  ${currentCoverage.branches.total}  |
-|  FUNCTIONS | ${currentCoverage.functions.pct}%${coverageDiff.functions}   |  ${currentCoverage.functions.covered} |  ${currentCoverage.functions.total} |
-|      LINES |    ${currentCoverage.lines.pct}%${coverageDiff.lines}        |    ${currentCoverage.lines.covered}   |    ${currentCoverage.lines.total}   |`
+|       |                              STATEMENTS                               |                            BRANCHES                                   |                                   FUNCTIONS                             |                                LINES                             |
+|------:|:---------------------------------------------------------------------:|:---------------------------------------------------------------------:|:-----------------------------------------------------------------------:|:----------------------------------------------------------------:|
+|   ≍   |                      ${coverageDiff.statements}                       |                  ${coverageDiff.branches}                             |                           ${coverageDiff.functions}                     |                      ${coverageDiff.functions}                   |
+|   %   |                   ${currentCoverage.branches.pct}                     |              ${currentCoverage.branches.pct}                          |                       ${currentCoverage.functions.pct}                  |                    ${currentCoverage.lines.pct}                  |
+|  ABS  | ${currentCoverage.branches.covered}/${currentCoverage.branches.total} | ${currentCoverage.branches.covered}/${currentCoverage.branches.total} | ${currentCoverage.functions.covered}/${currentCoverage.functions.total} | ${currentCoverage.lines.covered}/${currentCoverage.lines.total}  |
+`
 }
 
 /**
@@ -28,9 +29,63 @@ const getCommentBody = ({currentCoverage, masterCoverage}) => {
  */
 module.exports = async function commentCoverage(
   {github, context, core, exec},
-  currentCoverage = {statements: 0, branches: 0, functions: 0, lines: 0},
-  masterCoverage = {statements: 0, branches: 0, functions: 0, lines: 0}
+  {
+    masterPCTStatements = 0,
+    masterPCTBranches = 0,
+    masterPCTFunctions = 0,
+    masterPCTLines = 0
+  },
+  {
+    currentPCTStatements = 0,
+    currentPCTBranches = 0,
+    currentPCTFunctions = 0,
+    currentPCTLines = 0,
+    currentTotalStatements = 0,
+    currentTotalBranches = 0,
+    currentTotalFunctions = 0,
+    currentTotalLines = 0,
+    currentCoveredStatements = 0,
+    currentCoveredBranches = 0,
+    currentCoveredFunctions = 0,
+    currentCoveredLines = 0
+  }
 ) {
+  const currentCoverage = {
+    statements: {
+      pct: parseFloat(currentPCTStatements),
+      total: parseFloat(currentTotalStatements),
+      covered: parseFloat(currentCoveredStatements)
+    },
+    branches: {
+      pct: parseFloat(currentPCTBranches),
+      total: parseFloat(currentTotalBranches),
+      covered: parseFloat(currentCoveredBranches)
+    },
+    functions: {
+      pct: parseFloat(currentPCTFunctions),
+      total: parseFloat(currentTotalFunctions),
+      covered: parseFloat(currentCoveredFunctions)
+    },
+    lines: {
+      pct: parseFloat(currentPCTLines),
+      total: parseFloat(currentTotalLines),
+      covered: parseFloat(currentCoveredLines)
+    }
+  }
+  const masterCoverage = {
+    statements: {
+      pct: parseFloat(masterPCTStatements)
+    },
+    branches: {
+      pct: parseFloat(masterPCTBranches)
+    },
+    functions: {
+      pct: parseFloat(masterPCTFunctions)
+    },
+    lines: {
+      pct: parseFloat(masterPCTLines)
+    }
+  }
   await github.rest.issues.createComment({
     issue_number: context.issue.number,
     owner: context.repo.owner,

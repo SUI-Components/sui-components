@@ -123,6 +123,35 @@ jobs:
           echo ${{needs.testing.outputs.coverage_branches_covered_current}}
           echo ${{needs.testing.outputs.coverage_functions_covered_current}}
           echo ${{needs.testing.outputs.coverage_lines_covered_current}}
+      - name: Comment Coverage
+        if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize')
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const script = require('./scripts/github/commentCoverage')
+            await script(
+              {github, context, core, exec},
+              {
+                masterPCTStatements: needs.testing.outputs.coverage_statements_pct_master,
+                masterPCTBranches: needs.testing.outputs.coverage_branches_pct_master,
+                masterPCTFunctions: needs.testing.outputs.coverage_functions_pct_master,
+                masterPCTLines: needs.testing.outputs.coverage_lines_pct_master
+              },
+              {
+                currentPCTStatements: needs.testing.outputs.coverage_statements_pct_current,
+                currentPCTBranches: needs.testing.outputs.coverage_branches_pct_current,
+                currentPCTFunctions: needs.testing.outputs.coverage_functions_pct_current,
+                currentPCTLines: needs.testing.outputs.coverage_lines_pct_current,
+                currentTotalStatements: needs.testing.outputs.coverage_statements_total_current,
+                currentTotalBranches: needs.testing.outputs.coverage_branches_total_current,
+                currentTotalFunctions: needs.testing.outputs.coverage_functions_total_current,
+                currentTotalLines: needs.testing.outputs.coverage_lines_total_current,
+                currentCoveredStatements: needs.testing.outputs.coverage_statements_covered_current,
+                currentCoveredBranches: needs.testing.outputs.coverage_branches_covered_current,
+                currentCoveredFunctions: needs.testing.outputs.coverage_functions_covered_current,
+                currentCoveredLines: needs.testing.outputs.coverage_lines_covered_current
+              }
+            )
       - name: Release components
         run: |
           npm install @s-ui/mono@2 --no-audit --no-optional --no-fund
@@ -134,7 +163,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   deploy:
-    needs: [ build, testing ]
+    needs: [build, testing]
     runs-on: ubuntu-latest
     environment:
       name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}
@@ -156,4 +185,3 @@ jobs:
         env:
           VERCEL_PARAMS: ${{ github.event_name != 'pull_request' && '--prod' || ''}}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-

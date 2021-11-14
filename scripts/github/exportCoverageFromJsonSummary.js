@@ -36,12 +36,10 @@ module.exports = async function exportCoverageFromJsonSummary(
 
   core.info('Loading current coverages')
   Object.entries(coverageContent.total).forEach(([type]) => {
-    core.info(`Loading coverage ${type}`)
     Object.entries(coverageContent.total[type]).forEach(([key, value]) => {
       core.info(`Output: coverage_${type}_${key}_current: ${parseFloat(value)}`)
       core.setOutput(`coverage_${type}_${key}_current`, parseFloat(value))
     })
-    core.info(`Loaded coverage ${type}`)
   })
   core.info('Current coverages loaded')
 }

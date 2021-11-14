@@ -43,8 +43,6 @@ jobs:
       coverage_branches_covered_current: ${{ steps.coverage-current.outputs.coverage_branches_covered_current }}
       coverage_functions_covered_current: ${{ steps.coverage-current.outputs.coverage_functions_covered_current }}
       coverage_lines_covered_current: ${{ steps.coverage-current.outputs.coverage_lines_covered_current }}
-      total
-      covered
     steps:
       - name: Chekout ${{ github.repository }}@${{ github.ref }}
         uses: actions/checkout@v2

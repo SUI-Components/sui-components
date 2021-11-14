@@ -11,11 +11,11 @@ const getCommentBody = ({currentCoverage, masterCoverage}) => {
           ) / 100}${SYMBOL[Math.sign(value.pct - currentCoverage[key].pct)]}**`
   })
   return `
-|     |                              STATEMENTS                               |                            BRANCHES                                   |                                   FUNCTIONS                             |                                LINES                             |
-|----:|:---------------------------------------------------------------------:|:---------------------------------------------------------------------:|:-----------------------------------------------------------------------:|:----------------------------------------------------------------:|
-|   ≍ |                      ${coverageDiff.statements}                       |                  ${coverageDiff.branches}                             |                           ${coverageDiff.functions}                     |                      ${coverageDiff.functions}                   |
-|   % |                   ${currentCoverage.branches.pct}                     |              ${currentCoverage.branches.pct}                          |                       ${currentCoverage.functions.pct}                  |                    ${currentCoverage.lines.pct}                  |
-| ABS | ${currentCoverage.branches.covered}/${currentCoverage.branches.total} | ${currentCoverage.branches.covered}/${currentCoverage.branches.total} | ${currentCoverage.functions.covered}/${currentCoverage.functions.total} | ${currentCoverage.lines.covered}/${currentCoverage.lines.total}  |
+|     |                               STATEMENTS                                |                             BRANCHES                                    |                                    FUNCTIONS                              |                                 LINES                              |
+|----:|:-----------------------------------------------------------------------:|:-----------------------------------------------------------------------:|:-------------------------------------------------------------------------:|:------------------------------------------------------------------:|
+|   ≍ |                       ${coverageDiff.statements}                        |                   ${coverageDiff.branches}                              |                            ${coverageDiff.functions}                      |                       ${coverageDiff.functions}                    |
+|   % |                    ${currentCoverage.branches.pct}                      |               ${currentCoverage.branches.pct}                           |                        ${currentCoverage.functions.pct}                   |                     ${currentCoverage.lines.pct}                   |
+| ABS | ${currentCoverage.branches.covered} / ${currentCoverage.branches.total} | ${currentCoverage.branches.covered} / ${currentCoverage.branches.total} | ${currentCoverage.functions.covered} / ${currentCoverage.functions.total} | ${currentCoverage.lines.covered} / ${currentCoverage.lines.total}  |
 `
 }
 

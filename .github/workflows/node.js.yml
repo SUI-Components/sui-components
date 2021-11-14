@@ -130,7 +130,6 @@ jobs:
           script: |
             const script = require('./scripts/github/commentCoverage')
             const needsObject = ${{ toJSON(needs) }}
-            core.info(needsObject)
             await script(
               {github, context, core, exec},
               {

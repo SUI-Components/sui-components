@@ -16,10 +16,12 @@ module.exports = async function exportCoverageFromJsonSummary(
   core.info('Loading JSON summary coverage')
   let coverageContent
   try {
-    coverageContent = fs.readFileSync(JSONSummaryFilePath, {
-      flag: 'r',
-      encoding: 'utf8'
-    })
+    coverageContent = JSON.parse(
+      fs.readFileSync(JSONSummaryFilePath, {
+        flag: 'r',
+        encoding: 'utf8'
+      })
+    )
     core.info('JSON summary loaded')
   } catch (error) {
     core.error(

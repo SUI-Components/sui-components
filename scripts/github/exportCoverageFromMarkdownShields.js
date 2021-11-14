@@ -2,7 +2,7 @@ const fs = require('fs')
 
 const regex = {
   shield: /!\[(?<alt>.*?)]\((?<filename>.*?)(?="|\))(?<optionalPart>".*")?\)/g,
-  pct: /(?<=\/shields.io\/badge\/)(?<pct>.*?)(?=%25\-)/g
+  pct: /(?<=\/shields.io\/badge\/)(?<pct>.*?)(?=%25-)/g
 }
 
 /**
@@ -38,9 +38,9 @@ module.exports = async function exportCoverageFromMarkdownShields(
   matches.length && core.info('Badges loaded')
   for (const match of matches) {
     const {
-      //alt,
+      // alt,
       filename
-      //optionalPart
+      // optionalPart
     } = match.groups
     const [type, pct] = (filename.match(regex.pct) || [''])[0].split('-')
     if (type) {

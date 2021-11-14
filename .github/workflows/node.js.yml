@@ -107,22 +107,22 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Log
         run: |
-          echo ${{needs.log.outputs.coverage_statements_pct_master}}
-          echo ${{needs.log.outputs.coverage_branches_pct_master}}
-          echo ${{needs.log.outputs.coverage_functions_pct_master}}
-          echo ${{needs.log.outputs.coverage_lines_pct_master}}
-          echo ${{needs.log.outputs.coverage_statements_pct_current}}
-          echo ${{needs.log.outputs.coverage_branches_pct_current}}
-          echo ${{needs.log.outputs.coverage_functions_pct_current}}
-          echo ${{needs.log.outputs.coverage_lines_pct_current}}
-          echo ${{needs.log.outputs.coverage_statements_total_current}}
-          echo ${{needs.log.outputs.coverage_branches_total_current}}
-          echo ${{needs.log.outputs.coverage_functions_total_current}}
-          echo ${{needs.log.outputs.coverage_lines_total_current}}
-          echo ${{needs.log.outputs.coverage_statements_covered_current}}
-          echo ${{needs.log.outputs.coverage_branches_covered_current}}
-          echo ${{needs.log.outputs.coverage_functions_covered_current}}
-          echo ${{needs.log.outputs.coverage_lines_covered_current}}
+          echo ${{needs.testing.outputs.coverage_statements_pct_master}}
+          echo ${{needs.testing.outputs.coverage_branches_pct_master}}
+          echo ${{needs.testing.outputs.coverage_functions_pct_master}}
+          echo ${{needs.testing.outputs.coverage_lines_pct_master}}
+          echo ${{needs.testing.outputs.coverage_statements_pct_current}}
+          echo ${{needs.testing.outputs.coverage_branches_pct_current}}
+          echo ${{needs.testing.outputs.coverage_functions_pct_current}}
+          echo ${{needs.testing.outputs.coverage_lines_pct_current}}
+          echo ${{needs.testing.outputs.coverage_statements_total_current}}
+          echo ${{needs.testing.outputs.coverage_branches_total_current}}
+          echo ${{needs.testing.outputs.coverage_functions_total_current}}
+          echo ${{needs.testing.outputs.coverage_lines_total_current}}
+          echo ${{needs.testing.outputs.coverage_statements_covered_current}}
+          echo ${{needs.testing.outputs.coverage_branches_covered_current}}
+          echo ${{needs.testing.outputs.coverage_functions_covered_current}}
+          echo ${{needs.testing.outputs.coverage_lines_covered_current}}
       - name: Release components
         run: |
           npm install @s-ui/mono@2 --no-audit --no-optional --no-fund

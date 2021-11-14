@@ -39,7 +39,7 @@ jobs:
         with:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
-      - name: Master Coverage
+      - name: Log Master Coverage
         uses: actions/github-script@v5
         id: coverage
         with:

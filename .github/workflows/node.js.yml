@@ -178,8 +178,8 @@ jobs:
           GITHUB_EMAIL: cloud-accounts@scmspain.com
         with:
           add: 'README.md'
-          author_name: ${{ GITHUB_USER }}
-          author_email: ${{ GITHUB_EMAIL }}
+          author_name: ${{ env.GITHUB_USER }}
+          author_email: ${{ env.GITHUB_EMAIL }}
           message: 'update coverage badges'
       - name: Release components
         run: |

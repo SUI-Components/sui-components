@@ -157,6 +157,7 @@ jobs:
         run: |
           git config --global user.email "${GITHUB_EMAIL}"
           git config --global user.name "${GITHUB_USER}"
+          git config pull.rebase false
         env:
           GITHUB_EMAIL: cloud-accounts@scmspain.com
           GITHUB_USER: sui-bot

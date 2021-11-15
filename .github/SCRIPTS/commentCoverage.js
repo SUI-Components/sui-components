@@ -7,15 +7,15 @@ const getCommentBody = ({currentCoverage, masterCoverage}) => {
       value.pct === 0
         ? ''
         : `**≍ ${Math.round(
-            Math.abs(value.pct - currentCoverage[key].pct) * 100
-          ) / 100}${SYMBOL[Math.sign(value.pct - currentCoverage[key].pct)]}**`
+            Math.abs(currentCoverage[key].pct - value.pct) * 100
+          ) / 100}${SYMBOL[Math.sign(currentCoverage[key].pct - value.pct)]}**`
   })
   return `
-|     |                               STATEMENTS                                |                             BRANCHES                                    |                                    FUNCTIONS                              |                                 LINES                              |
-|----:|:-----------------------------------------------------------------------:|:-----------------------------------------------------------------------:|:-------------------------------------------------------------------------:|:------------------------------------------------------------------:|
-|   ≍ |                       ${coverageDiff.statements}                        |                   ${coverageDiff.branches}                              |                            ${coverageDiff.functions}                      |                       ${coverageDiff.functions}                    |
-|   % |                    ${currentCoverage.branches.pct}                      |               ${currentCoverage.branches.pct}                           |                        ${currentCoverage.functions.pct}                   |                     ${currentCoverage.lines.pct}                   |
-| ABS | ${currentCoverage.branches.covered} / ${currentCoverage.branches.total} | ${currentCoverage.branches.covered} / ${currentCoverage.branches.total} | ${currentCoverage.functions.covered} / ${currentCoverage.functions.total} | ${currentCoverage.lines.covered} / ${currentCoverage.lines.total}  |
+|     |                               STATEMENTS                                    |                             BRANCHES                                    |                                    FUNCTIONS                              |                                 LINES                              |
+|----:|:---------------------------------------------------------------------------:|:-----------------------------------------------------------------------:|:-------------------------------------------------------------------------:|:------------------------------------------------------------------:|
+|   ≍ |                       ${coverageDiff.statements}                            |                   ${coverageDiff.branches}                              |                            ${coverageDiff.functions}                      |                       ${coverageDiff.functions}                    |
+|   % |                    ${currentCoverage.statements.pct}                        |               ${currentCoverage.branches.pct}                           |                        ${currentCoverage.functions.pct}                   |                     ${currentCoverage.lines.pct}                   |
+| ABS | ${currentCoverage.statements.covered} / ${currentCoverage.statements.total} | ${currentCoverage.branches.covered} / ${currentCoverage.branches.total} | ${currentCoverage.functions.covered} / ${currentCoverage.functions.total} | ${currentCoverage.lines.covered} / ${currentCoverage.lines.total}  |
 `
 }
 

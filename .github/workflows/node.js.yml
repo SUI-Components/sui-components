@@ -144,7 +144,7 @@ jobs:
             const needsObject = ${{ toJSON(needs) }}
             await script(
               {github, context, core, exec},
-              '../README.md',
+              './README.md',
               {
                 masterPCTStatements: needsObject.testing.outputs.coverage_statements_pct_current,
                 masterPCTBranches: needsObject.testing.outputs.coverage_branches_pct_current,

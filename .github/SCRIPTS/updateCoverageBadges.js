@@ -41,16 +41,16 @@ const getShield = ({key, value}) => {
   )}-${encodeURIComponent(value)}%25-${color}`
 }
 
-const readReadmeContent = () => {
-  const file = fs.readFileSync(path.join(__dirname, '..', 'README.md'), {
+const readReadmeContent = path => {
+  const file = fs.readFileSync(path, {
     flag: 'r',
     encoding: 'utf8'
   })
   return file
 }
 
-const saveReadmeContent = string =>
-  fs.writeFileSync(path.join(__dirname, '..', 'README.md'), string, {
+const saveReadmeContent = (string, path) =>
+  fs.writeFileSync(path, string, {
     encoding: 'utf8'
   })
 
@@ -87,7 +87,7 @@ module.exports = async function exportCoverageFromMarkdownShields(
   }
 
   core.info('Loading markdown')
-  let readmeContent = readReadmeContent()
+  let readmeContent = readReadmeContent(markdownFilePath)
   core.info('markdown loaded')
 
   core.info('Loading badges')
@@ -103,6 +103,6 @@ module.exports = async function exportCoverageFromMarkdownShields(
   }
 
   core.info('Updating markdown badges')
-  saveReadmeContent(readmeContent)
+  saveReadmeContent(readmeContent, markdownFilePath)
   core.info('Updated markdown badges')
 }

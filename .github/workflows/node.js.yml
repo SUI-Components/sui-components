@@ -135,12 +135,12 @@ jobs:
                 currentCoveredLines: needsObject.testing.outputs.coverage_lines_covered_current
               }
             )
-      - name: Comment Coverage
+      - name: Update Coverage Badges
         # if: github.event_name == 'push'
         uses: actions/github-script@v5
         with:
           script: |
-            const script = require('./.github/SCRIPTS/commentCoverage')
+            const script = require('./.github/SCRIPTS/updateCoverageBadges')
             const needsObject = ${{ toJSON(needs) }}
             await script(
               {github, context, core, exec},

@@ -105,24 +105,6 @@ jobs:
         with:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
-      - name: Log
-        run: |
-          echo ${{needs.testing.outputs.coverage_statements_pct_master}}
-          echo ${{needs.testing.outputs.coverage_branches_pct_master}}
-          echo ${{needs.testing.outputs.coverage_functions_pct_master}}
-          echo ${{needs.testing.outputs.coverage_lines_pct_master}}
-          echo ${{needs.testing.outputs.coverage_statements_pct_current}}
-          echo ${{needs.testing.outputs.coverage_branches_pct_current}}
-          echo ${{needs.testing.outputs.coverage_functions_pct_current}}
-          echo ${{needs.testing.outputs.coverage_lines_pct_current}}
-          echo ${{needs.testing.outputs.coverage_statements_total_current}}
-          echo ${{needs.testing.outputs.coverage_branches_total_current}}
-          echo ${{needs.testing.outputs.coverage_functions_total_current}}
-          echo ${{needs.testing.outputs.coverage_lines_total_current}}
-          echo ${{needs.testing.outputs.coverage_statements_covered_current}}
-          echo ${{needs.testing.outputs.coverage_branches_covered_current}}
-          echo ${{needs.testing.outputs.coverage_functions_covered_current}}
-          echo ${{needs.testing.outputs.coverage_lines_covered_current}}
       - name: Comment Coverage
         if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize')
         uses: actions/github-script@v5
@@ -164,10 +146,10 @@ jobs:
               {github, context, core, exec},
               './README.md',
               {
-                masterPCTStatements: needsObject.testing.outputs.coverage_statements_pct_current,
-                masterPCTBranches: needsObject.testing.outputs.coverage_branches_pct_current,
-                masterPCTFunctions: needsObject.testing.outputs.coverage_functions_pct_current,
-                masterPCTLines: needsObject.testing.outputs.coverage_lines_pct_current
+                currentPCTStatements: needsObject.testing.outputs.coverage_statements_pct_current,
+                currentPCTBranches: needsObject.testing.outputs.coverage_branches_pct_current,
+                currentPCTFunctions: needsObject.testing.outputs.coverage_functions_pct_current,
+                currentPCTLines: needsObject.testing.outputs.coverage_lines_pct_current
               }
             )
       - name: Update README.md Coverage badges

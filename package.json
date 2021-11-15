@@ -26,8 +26,7 @@
     "release": "sui-mono release",
     "start": "sui-studio start",
     "test": "sui-studio test -- --coverage",
-    "test:watch": "sui-studio test --watch",
-    "update:coverage": "node scripts/replace-coverage-badges.js"
+    "test:watch": "sui-studio test --watch"
   },
   "repository": {
     "type": "git",

@@ -46,6 +46,23 @@ jobs:
 
   testing:
     runs-on: ubuntu-latest
+    outputs:
+      coverage_statements_pct_master: ${{ steps.coverage-master.outputs.coverage_statements_pct_master }}
+      coverage_branches_pct_master: ${{ steps.coverage-master.outputs.coverage_branches_pct_master }}
+      coverage_functions_pct_master: ${{ steps.coverage-master.outputs.coverage_functions_pct_master }}
+      coverage_lines_pct_master: ${{ steps.coverage-master.outputs.coverage_lines_pct_master }}
+      coverage_statements_pct_current: ${{ steps.coverage-current.outputs.coverage_statements_pct_current }}
+      coverage_branches_pct_current: ${{ steps.coverage-current.outputs.coverage_branches_pct_current }}
+      coverage_functions_pct_current: ${{ steps.coverage-current.outputs.coverage_functions_pct_current }}
+      coverage_lines_pct_current: ${{ steps.coverage-current.outputs.coverage_lines_pct_current }}
+      coverage_statements_total_current: ${{ steps.coverage-current.outputs.coverage_statements_total_current }}
+      coverage_branches_total_current: ${{ steps.coverage-current.outputs.coverage_branches_total_current }}
+      coverage_functions_total_current: ${{ steps.coverage-current.outputs.coverage_functions_total_current }}
+      coverage_lines_total_current: ${{ steps.coverage-current.outputs.coverage_lines_total_current }}
+      coverage_statements_covered_current: ${{ steps.coverage-current.outputs.coverage_statements_covered_current }}
+      coverage_branches_covered_current: ${{ steps.coverage-current.outputs.coverage_branches_covered_current }}
+      coverage_functions_covered_current: ${{ steps.coverage-current.outputs.coverage_functions_covered_current }}
+      coverage_lines_covered_current: ${{ steps.coverage-current.outputs.coverage_lines_covered_current }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -62,25 +79,20 @@ jobs:
           npm run phoenix:ci
           npm run lint
           xvfb-run --auto-servernum npm run test -- --ci --coverage
-      - name: Comment Test Coverage
-        uses: AthleticNet/comment-test-coverage@1.1
-        if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize')
+      - name: Log Master Coverage
+        uses: actions/github-script@v5
+        id: coverage-master
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          path: coverage/coverage.json
-          title: Test Coverage results
-      - name: Update Coverage badges on README.md
-        if: github.event_name == 'push'
-        env:
-          GITHUB_EMAIL: cloud-accounts@scmspain.com
-          GITHUB_TOKEN: ${{github.token}}
-          GITHUB_USER: sui-bot
-        run: |
-          npm run update:coverage
-          git config --global user.email "${GITHUB_EMAIL}"
-          git config --global user.name "${GITHUB_USER}"
-          git add README.md
-          git commit --amend --no-verify --no-edit
+          script: |
+            const script = require('./.github/SCRIPTS/exportCoverageFromMarkdownShields')
+            await script({github, context, core, exec}, './README.md')
+      - name: Log Current Coverage
+        uses: actions/github-script@v5
+        id: coverage-current
+        with:
+          script: |
+            const script = require('./.github/SCRIPTS/exportCoverageFromJsonSummary')
+            await script({github, context, core, exec}, './coverage/coverage.json')
 
   release:
     needs: testing
@@ -93,6 +105,66 @@ jobs:
         with:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
+      - name: Comment Coverage
+        if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize')
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const script = require('./.github/SCRIPTS/commentCoverage')
+            const needsObject = ${{ toJSON(needs) }}
+            await script(
+              {github, context, core, exec},
+              {
+                masterPCTStatements: needsObject.testing.outputs.coverage_statements_pct_master,
+                masterPCTBranches: needsObject.testing.outputs.coverage_branches_pct_master,
+                masterPCTFunctions: needsObject.testing.outputs.coverage_functions_pct_master,
+                masterPCTLines: needsObject.testing.outputs.coverage_lines_pct_master
+              },
+              {
+                currentPCTStatements: needsObject.testing.outputs.coverage_statements_pct_current,
+                currentPCTBranches: needsObject.testing.outputs.coverage_branches_pct_current,
+                currentPCTFunctions: needsObject.testing.outputs.coverage_functions_pct_current,
+                currentPCTLines: needsObject.testing.outputs.coverage_lines_pct_current,
+                currentTotalStatements: needsObject.testing.outputs.coverage_statements_total_current,
+                currentTotalBranches: needsObject.testing.outputs.coverage_branches_total_current,
+                currentTotalFunctions: needsObject.testing.outputs.coverage_functions_total_current,
+                currentTotalLines: needsObject.testing.outputs.coverage_lines_total_current,
+                currentCoveredStatements: needsObject.testing.outputs.coverage_statements_covered_current,
+                currentCoveredBranches: needsObject.testing.outputs.coverage_branches_covered_current,
+                currentCoveredFunctions: needsObject.testing.outputs.coverage_functions_covered_current,
+                currentCoveredLines: needsObject.testing.outputs.coverage_lines_covered_current
+              }
+            )
+      - name: Update Coverage Badges
+        if: github.event_name == 'push'
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const script = require('./.github/SCRIPTS/updateCoverageBadges')
+            const needsObject = ${{ toJSON(needs) }}
+            await script(
+              {github, context, core, exec},
+              './README.md',
+              {
+                masterPCTStatements: needsObject.testing.outputs.coverage_statements_pct_current,
+                masterPCTBranches: needsObject.testing.outputs.coverage_branches_pct_current,
+                masterPCTFunctions: needsObject.testing.outputs.coverage_functions_pct_current,
+                masterPCTLines: needsObject.testing.outputs.coverage_lines_pct_current
+              }
+            )
+      - name: setup gh secrets
+        if: github.event_name == 'push'
+        run: |
+          git config --global user.email "${GITHUB_EMAIL}"
+          git config --global user.name "${GITHUB_USER}"
+        env:
+          GITHUB_EMAIL: cloud-accounts@scmspain.com
+          GITHUB_USER: sui-bot
+      - name: Update README.md Coverage badges
+        if: github.event_name == 'push'
+        run: |
+          git add README.md
+          git commit --amend --no-verify --no-edit
       - name: Release components
         run: |
           npm install @s-ui/mono@2 --no-audit --no-optional --no-fund
@@ -106,6 +178,9 @@ jobs:
   deploy:
     needs: [build, testing]
     runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}
+      url: ${{ steps.deploy.outputs.url }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -123,7 +198,3 @@ jobs:
         env:
           VERCEL_PARAMS: ${{ github.event_name != 'pull_request' && '--prod' || ''}}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-
-    environment:
-      name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}
-      url: ${{ steps.deploy.outputs.url }}

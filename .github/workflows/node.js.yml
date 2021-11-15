@@ -153,6 +153,7 @@ jobs:
               }
             )
       - name: setup gh secrets
+        if: github.event_name == 'push'
         run: |
           git config --global user.email "${GITHUB_EMAIL}"
           git config --global user.name "${GITHUB_USER}"
@@ -160,6 +161,7 @@ jobs:
           GITHUB_EMAIL: cloud-accounts@scmspain.com
           GITHUB_USER: sui-bot
       - name: Update README.md Coverage badges
+        if: github.event_name == 'push'
         run: |
           git add README.md
           git commit --amend --no-verify --no-edit

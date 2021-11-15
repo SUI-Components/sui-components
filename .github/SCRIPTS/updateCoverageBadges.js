@@ -97,6 +97,7 @@ module.exports = async function exportCoverageFromMarkdownShields(
   for (const match of matches) {
     const {alt} = match.groups
     if (currentCoverage[alt]) {
+      core.info(`Updating ${alt}: ${currentCoverage[alt].pct}`)
       const shield = getShield({key: alt, value: currentCoverage[alt].pct})
       readmeContent = readmeContent.replace(match[0], `![${alt}](${shield})`)
     }

@@ -156,6 +156,9 @@ jobs:
         run: |
           git config --global user.email "${GITHUB_EMAIL}"
           git config --global user.name "${GITHUB_USER}"
+        env:
+          GITHUB_EMAIL: cloud-accounts@scmspain.com
+          GITHUB_USER: sui-bot
       - name: Log changes
         run: git log -1 --stat | cat
       - name: Update README.md Coverage badges

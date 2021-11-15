@@ -152,20 +152,17 @@ jobs:
                 masterPCTLines: needsObject.testing.outputs.coverage_lines_pct_current
               }
             )
-      - name: setup gh secrets
+      - name: Update README.md Coverage badges
         if: github.event_name == 'push'
-        run: |
-          git config --global user.email "${GITHUB_EMAIL}"
-          git config --global user.name "${GITHUB_USER}"
-          git config pull.rebase false
         env:
           GITHUB_EMAIL: cloud-accounts@scmspain.com
           GITHUB_USER: sui-bot
-      - name: Update README.md Coverage badges
-        if: github.event_name == 'push'
-        run: |
-          git add README.md
-          git commit --amend --no-verify --no-edit
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: 'README.md'
+          author_name: ${GITHUB_USER}
+          author_email: ${GITHUB_EMAIL}
+          message: 'update coverage badges'
       - name: Release components
         run: |
           npm install @s-ui/mono@2 --no-audit --no-optional --no-fund

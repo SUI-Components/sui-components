@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-input-tags",
-  "version": "2.20.0",
+  "version": "2.21.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/react-atom-input": "4",
+    "@s-ui/react-atom-input": "5",
     "@s-ui/react-atom-tag": "2"
   },
   "peerDependencies": {

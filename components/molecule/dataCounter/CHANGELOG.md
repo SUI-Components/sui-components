@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.11.0 (2021-11-10)
+
+
+### Bug Fixes
+
+* **components/molecule/dataCounter:** upgrade @s-ui/react-atom-input@v5 ([8043b39](https://github.com/SUI-Components/sui-components/commit/8043b393869b210a319ead977add889286613bea))
+
+
+
 # 1.10.0 (2021-10-19)
 
 
@@ -12,6 +21,10 @@
 * **components/molecule/dataCounter/demo:** add large data counter size to demo ([9ead611](https://github.com/SUI-Components/sui-components/commit/9ead611240d24cee8e6b4702dccfb4571fcb4c1d)), closes [#1737](https://github.com/SUI-Components/sui-components/issues/1737)
 * **components/molecule/dataCounter/demo:** fix linting issues ([32bef6c](https://github.com/SUI-Components/sui-components/commit/32bef6c937e0b78333c260b6d09d758ebce6b270))
 * **components/molecule/dataCounter:** add large to sizes ([94bb73f](https://github.com/SUI-Components/sui-components/commit/94bb73f1ea3279a0dd8f56f13d39430faead0c7d)), closes [#1737](https://github.com/SUI-Components/sui-components/issues/1737)
+* **components/molecule/dataCounter:** center button label ([d65b7e9](https://github.com/SUI-Components/sui-components/commit/d65b7e92df4502c5b3454bbb4f62821b83f17aa7))
+* **components/molecule/dataCounter:** fix unnecesary scss rule ([20e4deb](https://github.com/SUI-Components/sui-components/commit/20e4deb1bbe55ab218fa8ddd5110157a813062a7))
+* **components/molecule/dataCounter:** flexbox-justify-center-align comandment buttons ([7c2a178](https://github.com/SUI-Components/sui-components/commit/7c2a1783138067e3578b402609d8773d277524ea))
+* **components/molecule/dataCounter:** make buttons square ([aa83bfa](https://github.com/SUI-Components/sui-components/commit/aa83bfae07d058e0586f1e16860be7fdd6ce5235)), closes [#1738](https://github.com/SUI-Components/sui-components/issues/1738)
 
 
 

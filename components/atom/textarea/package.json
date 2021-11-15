@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-atom-textarea",
-  "version": "2.17.0",
+  "version": "2.18.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -9,6 +9,7 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
+    "@s-ui/react-atom-input": "5",
     "@s-ui/react-atom-help-text": "1"
   },
   "peerDependencies": {

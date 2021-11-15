@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-autosuggest",
-  "version": "2.52.0",
+  "version": "2.53.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/js": "2",
-    "@s-ui/react-atom-input": "4",
+    "@s-ui/react-atom-input": "5",
     "@s-ui/react-hooks": "1",
     "@s-ui/react-molecule-dropdown-list": "1",
     "@s-ui/react-molecule-input-tags": "2",

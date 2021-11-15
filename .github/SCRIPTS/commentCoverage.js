@@ -8,7 +8,7 @@ const getCommentBody = ({currentCoverage, masterCoverage}) => {
         ? ''
         : `**≍ ${Math.round(
             Math.abs(currentCoverage[key].pct - value.pct) * 100
-          ) / 100}${SYMBOL[Math.sign(value.pct - currentCoverage[key].pct)]}**`
+          ) / 100}${SYMBOL[Math.sign(currentCoverage[key].pct - value.pct)]}**`
   })
   return `
 |     |                               STATEMENTS                                |                             BRANCHES                                    |                                    FUNCTIONS                              |                                 LINES                              |

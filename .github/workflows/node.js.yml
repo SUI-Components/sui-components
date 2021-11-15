@@ -136,7 +136,7 @@ jobs:
               }
             )
       - name: Update Coverage Badges
-        # if: github.event_name == 'push'
+        if: github.event_name == 'push'
         uses: actions/github-script@v5
         with:
           script: |
@@ -159,14 +159,10 @@ jobs:
         env:
           GITHUB_EMAIL: cloud-accounts@scmspain.com
           GITHUB_USER: sui-bot
-      - name: Log changes
-        run: git log -1 --stat | cat
       - name: Update README.md Coverage badges
         run: |
           git add README.md
           git commit --amend --no-verify --no-edit
-      - name: Log changes
-        run: git log -1 --stat | cat
       - name: Release components
         run: |
           npm install @s-ui/mono@2 --no-audit --no-optional --no-fund

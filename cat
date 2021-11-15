@@ -1,9 +1,0 @@
-commit 12bf71d67fcc22fc1e9594d79eeec4dbaa7a6773
-Author: andresin87 <andresin87@gmail.com>
-Date:   Mon Nov 15 00:11:50 2021 +0100
-
-    chore(Root): wip
-
- .github/workflows/node.js.yml     |  1 -
- scripts/github/commentCoverage.js | 10 +++++-----
- 2 files changed, 5 insertions(+), 6 deletions(-)

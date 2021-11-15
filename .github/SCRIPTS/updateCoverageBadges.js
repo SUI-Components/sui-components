@@ -95,7 +95,7 @@ module.exports = async function exportCoverageFromMarkdownShields(
   matches.length && core.info('Badges loaded')
 
   for (const match of matches) {
-    const {alt} = match?.groups
+    const {alt} = match.groups
     if (currentCoverage[alt]) {
       const shield = getShield({key: alt, value: currentCoverage[alt].pct})
       readmeContent = readmeContent.replace(match[0], `![${alt}](${shield})`)

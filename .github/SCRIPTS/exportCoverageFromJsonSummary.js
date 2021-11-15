@@ -29,11 +29,6 @@ module.exports = async function exportCoverageFromJsonSummary(
     )
   }
 
-  // statements
-  // branches
-  // functions
-  // lines
-
   core.info('Loading current coverages')
   Object.entries(coverageContent.total).forEach(([type]) => {
     Object.entries(coverageContent.total[type]).forEach(([key, value]) => {

@@ -84,14 +84,14 @@ jobs:
         id: coverage-master
         with:
           script: |
-            const script = require('./scripts/github/exportCoverageFromMarkdownShields')
+            const script = require('./.github/SCRIPTS/exportCoverageFromMarkdownShields')
             await script({github, context, core, exec}, './README.md')
       - name: Log Current Coverage
         uses: actions/github-script@v5
         id: coverage-current
         with:
           script: |
-            const script = require('./scripts/github/exportCoverageFromJsonSummary')
+            const script = require('./.github/SCRIPTS/exportCoverageFromJsonSummary')
             await script({github, context, core, exec}, './coverage/coverage.json')
 
   release:
@@ -105,30 +105,12 @@ jobs:
         with:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
-      - name: Log
-        run: |
-          echo ${{needs.testing.outputs.coverage_statements_pct_master}}
-          echo ${{needs.testing.outputs.coverage_branches_pct_master}}
-          echo ${{needs.testing.outputs.coverage_functions_pct_master}}
-          echo ${{needs.testing.outputs.coverage_lines_pct_master}}
-          echo ${{needs.testing.outputs.coverage_statements_pct_current}}
-          echo ${{needs.testing.outputs.coverage_branches_pct_current}}
-          echo ${{needs.testing.outputs.coverage_functions_pct_current}}
-          echo ${{needs.testing.outputs.coverage_lines_pct_current}}
-          echo ${{needs.testing.outputs.coverage_statements_total_current}}
-          echo ${{needs.testing.outputs.coverage_branches_total_current}}
-          echo ${{needs.testing.outputs.coverage_functions_total_current}}
-          echo ${{needs.testing.outputs.coverage_lines_total_current}}
-          echo ${{needs.testing.outputs.coverage_statements_covered_current}}
-          echo ${{needs.testing.outputs.coverage_branches_covered_current}}
-          echo ${{needs.testing.outputs.coverage_functions_covered_current}}
-          echo ${{needs.testing.outputs.coverage_lines_covered_current}}
       - name: Comment Coverage
         if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize')
         uses: actions/github-script@v5
         with:
           script: |
-            const script = require('./scripts/github/commentCoverage')
+            const script = require('./.github/SCRIPTS/commentCoverage')
             const needsObject = ${{ toJSON(needs) }}
             await script(
               {github, context, core, exec},
@@ -153,6 +135,35 @@ jobs:
                 currentCoveredLines: needsObject.testing.outputs.coverage_lines_covered_current
               }
             )
+      - name: Comment Coverage
+        # if: github.event_name == 'push'
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const script = require('./.github/SCRIPTS/commentCoverage')
+            const needsObject = ${{ toJSON(needs) }}
+            await script(
+              {github, context, core, exec},
+              ./README.md
+              {
+                masterPCTStatements: needsObject.testing.outputs.coverage_statements_pct_current,
+                masterPCTBranches: needsObject.testing.outputs.coverage_branches_pct_current,
+                masterPCTFunctions: needsObject.testing.outputs.coverage_functions_pct_current,
+                masterPCTLines: needsObject.testing.outputs.coverage_lines_pct_current
+              }
+            )
+      - name: setup gh secrets
+        run: |
+          git config --global user.email "${GITHUB_EMAIL}"
+          git config --global user.name "${GITHUB_USER}"
+      - name: Log changes
+        run: git log -1 --stat | cat
+      - name: Update README.md Coverage badges
+        run: |
+          git add README.md
+          git commit --amend --no-verify --no-edit
+      - name: Log changes
+        run: git log -1 --stat | cat
       - name: Release components
         run: |
           npm install @s-ui/mono@2 --no-audit --no-optional --no-fund

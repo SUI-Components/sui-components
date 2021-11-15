@@ -25,8 +25,27 @@ const getCommentBody = ({currentCoverage, masterCoverage}) => {
  *  context: import('@actions/github/lib/context').Context,
  *  core: import('@actions/core'),
  *  exec: import('@actions/exec')
- * }} param0
- * @param {string} readmeFilePath: MD coverage badge file
+ * }} param0,
+ * @param {{
+ *  masterPCTStatements: {Number},
+ *  masterPCTBranches: {Number},
+ *  masterPCTFunctions: {Number},
+ *  masterPCTLines: {Number}
+ * }} param1,
+ * @param {{
+ *  currentPCTStatements: {Number},
+ *  currentPCTBranches: {Number},
+ *  currentPCTFunctions: {Number},
+ *  currentPCTLines: {Number},
+ *  currentTotalStatements: {Number},
+ *  currentTotalBranches: {Number},
+ *  currentTotalFunctions: {Number},
+ *  currentTotalLines: {Number},
+ *  currentCoveredStatements: {Number},
+ *  currentCoveredBranches: {Number},
+ *  currentCoveredFunctions: {Number},
+ *  currentCoveredLines: {Number}
+ * }} param2
  */
 module.exports = async function commentCoverage(
   {github, context, core, exec},

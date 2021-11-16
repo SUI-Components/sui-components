@@ -233,7 +233,7 @@ MoleculePagination.displayName = 'MoleculePagination'
 
 MoleculePagination.propTypes = {
   /** Total number of pages */
-  totalPages: isValidTotalPages,
+  totalPages: isValidTotalPages.isRequired,
 
   /** Current page selected */
   page: isValidPage,

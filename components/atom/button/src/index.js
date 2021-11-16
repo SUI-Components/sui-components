@@ -5,6 +5,7 @@ import Button from './Button'
 import ButtonIcon from './ButtonIcon'
 import ButtonSpinnerIcon from './buttonSpinnerIcon'
 import {
+  createClasses,
   CLASS,
   COLORS,
   DESIGNS,
@@ -18,9 +19,6 @@ import {
   SHAPES,
   TYPES_CONVERSION
 } from './config'
-
-const createClasses = (array, sufix = '') =>
-  array.reduce((res, key) => ({...res, [key]: `${CLASS}--${key}${sufix}`}), {})
 
 const CLASSES = createClasses([
   ...COLORS,

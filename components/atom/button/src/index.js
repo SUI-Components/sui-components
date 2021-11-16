@@ -94,7 +94,6 @@ const typeConversion = ({type, design, color, link, href, ...other}) => {
     default:
       result.type = type
       result.color = color || 'primary'
-      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID)
       break
   }
   return result

@@ -336,6 +336,42 @@ describe(json.name, () => {
       })
     })
 
+    describe('getPropsWithDefaultValues', () => {
+      it("should add default design='solid' classname if any given prop", () => {
+        // Given
+        const props = {}
+        const classes = createClasses([...Object.values(atomButtonDesigns)])
+        const findSentence = str => string =>
+          string.match(new RegExp(`S*${str}S*`))
+
+        // When
+        const {container} = setup(props)
+        const findDesignClassName = findSentence(
+          classes[atomButtonDesigns.SOLID]
+        )
+
+        // Then
+        expect(findDesignClassName(container.innerHTML)).to.not.be.null
+      })
+
+      it("should add default design=link' classname if link='true'", () => {
+        // Given
+        const props = {link: true}
+        const classes = createClasses([...Object.values(atomButtonDesigns)])
+        const findSentence = str => string =>
+          string.match(new RegExp(`S*${str}S*`))
+
+        // When
+        const {container} = setup(props)
+        const findDesignClassName = findSentence(
+          classes[atomButtonDesigns.LINK]
+        )
+
+        // Then
+        expect(findDesignClassName(container.innerHTML)).to.not.be.null
+      })
+    })
+
     it('should show loader if loading', () => {
       // Given
       const text = 'Text'

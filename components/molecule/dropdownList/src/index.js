@@ -9,6 +9,11 @@ const BASE_CLASS = `sui-MoleculeDropdownList`
 const CLASS_HIDDEN = `is-hidden`
 const DEBOUNCE_TIME = 500
 
+const DESIGNS = {
+  FLAT: 'flat',
+  SOLID: 'solid'
+}
+
 const SIZES = {
   SMALL: 'small',
   MEDIUM: 'medium',
@@ -21,6 +26,7 @@ const MoleculeDropdownList = forwardRef(
       children,
       onSelect,
       alwaysRender = true,
+      design = DESIGNS.SOLID,
       size = SIZES.SMALL,
       value,
       visible,
@@ -35,9 +41,14 @@ const MoleculeDropdownList = forwardRef(
     const [typedWord, setTypedWord] = useState('')
     const debouncedTypedWord = useDebounce(typedWord, DEBOUNCE_TIME)
 
-    const classNames = cx(BASE_CLASS, `${BASE_CLASS}--${size}`, {
-      [CLASS_HIDDEN]: !visible
-    })
+    const classNames = cx(
+      BASE_CLASS,
+      `${BASE_CLASS}--${design}`,
+      `${BASE_CLASS}--${size}`,
+      {
+        [CLASS_HIDDEN]: !visible
+      }
+    )
 
     const getFocusedOptionIndex = options => {
       const currentElementFocused = document.activeElement
@@ -123,6 +134,9 @@ MoleculeDropdownList.propTypes = {
   /** callback on select option */
   onSelect: PropTypes.func,
 
+  /** design (flat|solid) of the list */
+  design: PropTypes.oneOf(Object.values(DESIGNS)),
+
   /** size (height) of the list */
   size: PropTypes.oneOf(Object.values(SIZES)),
 
@@ -137,4 +151,5 @@ MoleculeDropdownList.propTypes = {
 }
 
 export default MoleculeDropdownList
+export {DESIGNS as moleculeDropdownListDesigns}
 export {SIZES as moleculeDropdownListSizes}

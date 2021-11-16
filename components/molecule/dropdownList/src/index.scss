@@ -13,9 +13,7 @@ $bxz-dropdown-list: inherit !default;
 
 .sui-MoleculeDropdownList {
   background: $bc-dropdown-list;
-  border: $bd-dropdown-list;
   border-radius: $bdrs-dropdown-list;
-  box-shadow: $bxsh-dropdown-list;
   box-sizing: $bxz-dropdown-list;
   margin: 0;
   overflow-y: scroll;
@@ -24,6 +22,11 @@ $bxz-dropdown-list: inherit !default;
 
   &.is-hidden {
     display: none;
+  }
+
+  &--solid {
+    border: $bd-dropdown-list;
+    box-shadow: $bxsh-dropdown-list;
   }
 
   &--small {

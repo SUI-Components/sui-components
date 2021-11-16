@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
 import MoleculeDropdownList, {
+  moleculeDropdownListDesigns,
   moleculeDropdownListSizes
 } from 'components/molecule/dropdownList/src'
 
@@ -11,7 +12,6 @@ import withStateSingle from './hoc/withStateSingle'
 import withStateMulti from './hoc/withStateMulti'
 
 import './index.scss'
-import {moleculeDropdownListDesigns} from '../src'
 
 const BASE_CLASS_DEMO = 'DemoMoleculeDropdownList'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`

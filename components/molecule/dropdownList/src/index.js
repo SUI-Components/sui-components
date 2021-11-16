@@ -43,7 +43,7 @@ const MoleculeDropdownList = forwardRef(
 
     const classNames = cx(
       BASE_CLASS,
-      `${BASE_CLASS}--${design}`,
+      `${BASE_CLASS}--design-${design}`,
       `${BASE_CLASS}--${size}`,
       {
         [CLASS_HIDDEN]: !visible

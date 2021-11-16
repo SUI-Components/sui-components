@@ -24,9 +24,11 @@ $bxz-dropdown-list: inherit !default;
     display: none;
   }
 
-  &--solid {
-    border: $bd-dropdown-list;
-    box-shadow: $bxsh-dropdown-list;
+  &--design {
+    &-solid {
+      border: $bd-dropdown-list;
+      box-shadow: $bxsh-dropdown-list;
+    }
   }
 
   &--small {

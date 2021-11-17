@@ -1,7 +1,6 @@
-$bdw-pin-input-field: $bdw-s;
-$bdc-pin-input-field: $c-gray-light-3;
-$lh-pin-input-field: $lh-m;
-$fw-pin-input-field: $fw-regular;
-$bdrs-pin-input-field: $bdrs-base;
-
+$bdc-pin-input-field: $c-gray-light-3 !default;
+$bdrs-pin-input-field: $bdrs-base !default;
+$bdw-pin-input-field: $bdw-s !default;
+$fw-pin-input-field: $fw-regular !default;
+$lh-pin-input-field: $lh-m !default;
 $m-pin-input-children: $m-m !default;

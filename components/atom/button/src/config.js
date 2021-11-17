@@ -129,3 +129,6 @@ export const TYPES_CONVERSION = {
   secondary: {design: DESIGNS.OUTLINE, color: 'primary'},
   tertiary: {design: DESIGNS.FLAT, color: 'primary'}
 }
+
+export const createClasses = (array, sufix = '') =>
+  array.reduce((res, key) => ({...res, [key]: `${CLASS}--${key}${sufix}`}), {})

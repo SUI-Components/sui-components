@@ -5,6 +5,7 @@ import Button from './Button'
 import ButtonIcon from './ButtonIcon'
 import ButtonSpinnerIcon from './buttonSpinnerIcon'
 import {
+  createClasses,
   CLASS,
   COLORS,
   DESIGNS,
@@ -18,9 +19,6 @@ import {
   SHAPES,
   TYPES_CONVERSION
 } from './config'
-
-const createClasses = (array, sufix = '') =>
-  array.reduce((res, key) => ({...res, [key]: `${CLASS}--${key}${sufix}`}), {})
 
 const CLASSES = createClasses([
   ...COLORS,
@@ -96,7 +94,6 @@ const typeConversion = ({type, design, color, link, href, ...other}) => {
     default:
       result.type = type
       result.color = color || 'primary'
-      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID)
       break
   }
   return result

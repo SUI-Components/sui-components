@@ -26,6 +26,7 @@ const Demo = () => {
   const [placement, setPlacement] = useState(selectPopoverPlacements.RIGHT)
   const [hasEvents, setHasEvents] = useState(false)
   const [isFullWidth, setIsFullWidth] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(false)
   const [actionsAreHidden, setActionsAreHidden] = useState(false)
   const [addCustomButton, setAddCustomButton] = useState(false)
   const [customContentWrapper, setCustomContentWrapper] = useState(false)
@@ -164,6 +165,16 @@ const Demo = () => {
             Custom content wrapper as a modal
           </label>
         </div>
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              checked={isDisabled}
+              onChange={ev => setIsDisabled(ev.target.checked)}
+            />
+            Disabled
+          </label>
+        </div>
 
         <h3>Component</h3>
         <MoleculeSelectPopover
@@ -179,6 +190,7 @@ const Demo = () => {
           fullWidth={isFullWidth}
           hideActions={actionsAreHidden}
           iconArrowDown={IconArrowDown}
+          isDisabled={isDisabled}
           isSelected={isSelected}
           onAccept={() => setItems(unconfirmedItems)}
           onCancel={() => setUnconfirmedItems(items)}

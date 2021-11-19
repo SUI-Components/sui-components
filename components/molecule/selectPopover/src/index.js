@@ -25,6 +25,7 @@ function MoleculeSelectPopover({
   fullWidth,
   hideActions,
   iconArrowDown: IconArrowDown,
+  isDisabled = false,
   isSelected = false,
   onAccept = () => {},
   onCancel = () => {},
@@ -165,6 +166,7 @@ function MoleculeSelectPopover({
   const classNames = cx(
     BASE_CLASS,
     fullWidth && `${BASE_CLASS}--fullWidth`,
+    isDisabled && 'is-disabled',
     renderContentWrapperProp && `${BASE_CLASS}--hasCustomWrapper`
   )
 
@@ -206,6 +208,7 @@ MoleculeSelectPopover.propTypes = {
   fullWidth: PropTypes.bool,
   hideActions: PropTypes.bool,
   iconArrowDown: PropTypes.elementType.isRequired,
+  isDisabled: PropTypes.bool,
   isSelected: PropTypes.bool,
   onAccept: PropTypes.func,
   onCancel: PropTypes.func,

@@ -2,7 +2,6 @@ import {useEffect, useRef} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import {useOnScreen} from '@s-ui/react-hooks'
-import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 const BASE_CLASS = `sui-MoleculeTabs`
 
@@ -25,7 +24,6 @@ const MoleculeTab = ({
 }) => {
   const [isIntersecting, outerRef] = useOnScreen()
   const innerRef = useRef()
-
   const handleChange = ev => {
     !disabled && onChange(ev, {numTab})
   }
@@ -48,7 +46,12 @@ const MoleculeTab = ({
     <li
       className={className}
       onClick={handleChange}
-      ref={useMergeRefs(innerRef, outerRef)}
+      ref={el => {
+        if (el) {
+          innerRef.current = el
+          outerRef.current = el.parentElement
+        }
+      }}
     >
       {icon && <span className={CLASS_TAB_ICON}>{icon}</span>}
       {!isNaN(count) && <span className={CLASS_TAB_COUNT}>{count}</span>}

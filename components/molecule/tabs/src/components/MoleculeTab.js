@@ -1,4 +1,4 @@
-import {useEffect} from 'react'
+import {useEffect, useRef} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import {useOnScreen} from '@s-ui/react-hooks'
@@ -23,6 +23,7 @@ const MoleculeTab = ({
   numTab
 }) => {
   const [isIntersecting, outerRef] = useOnScreen()
+  const innerRef = useRef()
 
   const handleChange = ev => {
     !disabled && onChange(ev, {numTab})
@@ -30,20 +31,29 @@ const MoleculeTab = ({
 
   useEffect(() => {
     if (active && isIntersecting) {
-      outerRef.current.scrollIntoView({
+      innerRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'nearest',
         inline: 'start'
       })
     }
-  }, [active, outerRef, isIntersecting])
+  }, [active, innerRef, isIntersecting])
 
   const className = cx(CLASS_TAB, {
     [CLASS_TAB_ACTIVE]: active,
     [CLASS_TAB_DISABLED]: disabled
   })
   return (
-    <li className={className} onClick={handleChange} ref={outerRef}>
+    <li
+      className={className}
+      onClick={handleChange}
+      ref={el => {
+        if (el) {
+          innerRef.current = el
+          outerRef.current = el.parentElement
+        }
+      }}
+    >
       {icon && <span className={CLASS_TAB_ICON}>{icon}</span>}
       {!isNaN(count) && <span className={CLASS_TAB_COUNT}>{count}</span>}
       <span>{label}</span>

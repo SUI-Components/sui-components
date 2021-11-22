@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 2.28.0 (2021-11-22)
+
+
+### Bug Fixes
+
+* **components/molecule/tabs:** Fix scroll into active tab breaking when is out of the viewport ([970bb62](https://github.com/SUI-Components/sui-components/commit/970bb62a81849e3dcffba277fc76062ef9435af8))
+
+
+### Features
+
+* **components/molecule/tabs:** Refactor to use mergeRefs hook ([775871a](https://github.com/SUI-Components/sui-components/commit/775871ad0ef230c9a4aeda50a716dbecc81c0490))
+
+
+
 # 2.27.0 (2021-11-03)
 
 

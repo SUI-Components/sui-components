@@ -77,6 +77,5 @@ export const getClassNames = function({
  * @param  {boolean} options.transparent
  * @return {boolean}
  */
-export const shouldRenderIcon = function({icon, size, transparent}) {
-  return icon && (size !== SIZES.SMALL || transparent)
-}
+export const shouldRenderIcon = ({icon, size, transparent}) =>
+  Boolean(icon && (size !== SIZES.SMALL || transparent))

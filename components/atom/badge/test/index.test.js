@@ -13,6 +13,8 @@ import chaiDOM from 'chai-dom'
 import * as pkg from '../src'
 
 import json from '../package.json'
+import {truncateText, shouldRenderIcon, MAX_LABEL_LENGTH} from '../src/config'
+import {atomBadgeSizes} from '../lib'
 
 chai.use(chaiDOM)
 
@@ -206,6 +208,125 @@ describe(json.name, () => {
         expect(Object.keys(actual).includes(expectedKey)).to.be.true
         expect(actual[expectedKey]).to.equal(expectedValue)
       })
+    })
+  })
+
+  describe('truncateText', () => {
+    it('given small string should return full string', () => {
+      // Given
+      const expected = 'Lorem ipsum dolor sit amet'
+
+      // When
+      const actual = truncateText(expected)
+
+      // Then
+      expect(actual).to.equal(expected)
+    })
+
+    it('given large string should return first part of the string', () => {
+      // Given
+      const expected =
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent luctus, massa nec tincidunt semper, ex ipsum fermentum elit, convallis auctor sem nunc ut neque. Proin a mi eu libero condimentum viverra a a metus. Phasellus tincidunt placerat viverra. Cras in consectetur ex, eget viverra leo. Phasellus lacinia hendrerit cursus. Nulla facilisi. Nunc cursus ligula metus, eget pretium urna lacinia a. Morbi vel convallis elit. Donec sollicitudin augue non vulputate pellentesque.'
+
+      // When
+      const actual = truncateText(expected)
+
+      // Then
+      expect(actual.length).to.equal(MAX_LABEL_LENGTH)
+      expect(actual).to.equal(expected.slice(0, MAX_LABEL_LENGTH))
+    })
+  })
+
+  describe('shouldRenderIcon', () => {
+    const Icon = () => <svg />
+
+    it('NOT given an icon should return false', () => {
+      // Given
+      const args = {icon: undefined, size: undefined, transparent: undefined}
+
+      // When
+      const actual = shouldRenderIcon(args)
+
+      // Then
+      expect(actual).to.be.false
+    })
+
+    it('given an icon should return false', () => {
+      // Given
+      const args = {icon: <Icon />, size: undefined, transparent: undefined}
+
+      // When
+      const actual = shouldRenderIcon(args)
+
+      // Then
+      expect(actual).to.be.true
+    })
+
+    it("given an icon and transparent='true' should return true", () => {
+      // Given
+      const args = {icon: <Icon />, size: undefined, transparent: true}
+
+      // When
+      const actual = shouldRenderIcon(args)
+
+      // Then
+      expect(actual).to.be.true
+    })
+
+    it("given an icon and transparent='false' should return true", () => {
+      // Given
+      const args = {icon: <Icon />, size: undefined, transparent: true}
+
+      // When
+      const actual = shouldRenderIcon(args)
+
+      // Then
+      expect(actual).to.be.true
+    })
+
+    it("given an icon and size=!'SMALL' should return true", () => {
+      // Given
+      const args = {
+        icon: <Icon />,
+        size: atomBadgeSizes.MEDIUM,
+        transparent: undefined
+      }
+
+      // When
+      const actual = shouldRenderIcon(args)
+
+      // Then
+      expect(actual).to.be.true
+    })
+
+    it("given an icon and size='SMALL' should return false", () => {
+      // Given
+      const args = {
+        icon: <Icon />,
+        size: atomBadgeSizes.SMALL,
+        transparent: undefined
+      }
+
+      // When
+      const actual = shouldRenderIcon(args)
+
+      // Then
+      expect(actual).to.be.false
+    })
+
+    it("given an icon and size='SMALL' and transparent='true' should return true", () => {
+      // Given
+      const args = {
+        icon: <Icon />,
+        size: atomBadgeSizes.SMALL,
+        transparent: true
+      }
+
+      // When
+      const actual = shouldRenderIcon(args)
+
+      // Then
+      expect(actual).to.be.true
     })
   })
 })

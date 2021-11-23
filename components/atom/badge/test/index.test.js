@@ -14,7 +14,6 @@ import * as pkg from '../src'
 
 import json from '../package.json'
 import {truncateText, shouldRenderIcon, MAX_LABEL_LENGTH} from '../src/config'
-import {atomBadgeSizes} from '../lib'
 
 chai.use(chaiDOM)
 
@@ -288,7 +287,7 @@ describe(json.name, () => {
       // Given
       const args = {
         icon: <Icon />,
-        size: atomBadgeSizes.MEDIUM,
+        size: pkg.atomBadgeSizes.MEDIUM,
         transparent: undefined
       }
 
@@ -303,7 +302,7 @@ describe(json.name, () => {
       // Given
       const args = {
         icon: <Icon />,
-        size: atomBadgeSizes.SMALL,
+        size: pkg.atomBadgeSizes.SMALL,
         transparent: undefined
       }
 
@@ -318,7 +317,7 @@ describe(json.name, () => {
       // Given
       const args = {
         icon: <Icon />,
-        size: atomBadgeSizes.SMALL,
+        size: pkg.atomBadgeSizes.SMALL,
         transparent: true
       }
 

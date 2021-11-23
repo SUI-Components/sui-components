@@ -164,6 +164,7 @@ jobs:
           author_email: ${{ env.GITHUB_EMAIL }}
           message: 'update coverage badges'
       - name: Release components
+        if: github.event_name == 'push'
         run: |
           npm install @s-ui/mono@2 --no-audit --no-optional --no-fund
           npx @s-ui/ci release

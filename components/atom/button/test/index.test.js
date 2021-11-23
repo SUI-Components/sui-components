@@ -13,13 +13,13 @@ import json from '../package.json'
 
 import {createClasses} from '../src/config'
 
-import {atomButtonColors, atomButtonDesigns} from '../src'
-
 chai.use(chaiDOM)
 
 describe(json.name, () => {
   const {default: Component} = pkg
   const setup = setupEnvironment(Component)
+
+  const {atomButtonColors, atomButtonDesigns} = pkg
 
   it('library should include defined exported elements', () => {
     // Given
@@ -424,6 +424,260 @@ describe(json.name, () => {
       // Then
       expect(queryByText(loadingText)).to.be.null
       expect(getByTestId(loaderId)).to.be.visible
+    })
+
+    it('should show default loading spinner if isLoading and there is content', () => {
+      // Given
+      const loadingText = 'Loading'
+      const props = {
+        loadingText,
+        children: 'Button',
+        isLoading: true
+      }
+
+      // When
+      const {getByText, getByRole} = setup(props)
+
+      // Then
+      expect(getByText(loadingText)).to.be.visible
+      expect(getByRole('status')).to.be.visible
+    })
+  })
+
+  describe('atomButtonGroupPositions', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomButtonGroupPositions: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        FIRST: 'first',
+        MIDDLE: 'middle',
+        LAST: 'last'
+      }
+
+      // When
+      const {atomButtonGroupPositions: actual} = library
+      const {FIRST, MIDDLE, LAST, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('atomButtonColors', () => {
+    it('value must be an array', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomButtonColors: actual} = library
+
+      // Then
+      expect(actual).to.be.an('array')
+    })
+
+    it('value must contain the defined array values', () => {
+      // Given
+      const library = pkg
+      const expected = [
+        'primary',
+        'accent',
+        'neutral',
+        'success',
+        'alert',
+        'error',
+        'social-facebook',
+        'social-twitter',
+        'social-google',
+        'social-youtube',
+        'social-whatsapp',
+        'social-instagram'
+      ]
+
+      // When
+      const {atomButtonColors: actual} = library
+
+      // Then
+      expect(actual.length).to.equal(expected.length)
+      expect(actual).to.have.members(expected)
+    })
+  })
+
+  describe('atomButtonDesigns', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomButtonDesigns: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        SOLID: 'solid',
+        OUTLINE: 'outline',
+        FLAT: 'flat',
+        LINK: 'link'
+      }
+
+      // When
+      const {atomButtonDesigns: actual} = library
+      const {SOLID, OUTLINE, FLAT, LINK, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('atomButtonSizes', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomButtonSizes: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {SMALL: 'small', LARGE: 'large'}
+
+      // When
+      const {atomButtonSizes: actual} = library
+      const {SMALL, LARGE, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('atomButtonTypes', () => {
+    it('value must be an array', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomButtonTypes: actual} = library
+
+      // Then
+      expect(actual).to.be.an('array')
+    })
+
+    it('value must contain the defined array values', () => {
+      // Given
+      const library = pkg
+      const expected = ['primary', 'accent', 'secondary', 'tertiary']
+
+      // When
+      const {atomButtonTypes: actual} = library
+
+      // Then
+      expect(actual.length).to.equal(expected.length)
+      expect(actual).to.have.members(expected)
+    })
+  })
+
+  describe('atomButtonAlignment', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomButtonAlignment: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        CENTER: 'center',
+        LEFT: 'left',
+        RIGHT: 'right'
+      }
+
+      // When
+      const {atomButtonAlignment: actual} = library
+      const {CENTER, LEFT, RIGHT, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('atomButtonShapes', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomButtonShapes: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        SQUARED: 'squared',
+        ROUNDED: 'rounded',
+        CIRCULAR: 'circular'
+      }
+
+      // When
+      const {atomButtonShapes: actual} = library
+      const {SQUARED, ROUNDED, CIRCULAR, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
     })
   })
 })

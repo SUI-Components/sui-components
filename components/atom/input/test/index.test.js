@@ -184,6 +184,286 @@ describe(json.name, () => {
     })
   })
 
+  describe(`${Component.displayName} DEFAULT Wrappers`, () => {
+    describe(`${Component.displayName} DEFAULT Wrappers Addons`, () => {
+      it('should render without crashing', () => {
+        // Given
+        const testIdPrefix = 'testID'
+        const getTestID = position =>
+          `${testIdPrefix} ${testIdPrefix}-${position}`
+        const props = {
+          leftAddon: <div data-testid={getTestID('leftAddon')}>leftAddon</div>,
+          rightAddon: (
+            <div data-testid={getTestID('rightAddon')}>rightAddon</div>
+          )
+        }
+
+        // When
+        const component = <Component {...props} />
+
+        // Then
+        const div = document.createElement('div')
+        ReactDOM.render(component, div)
+        ReactDOM.unmountComponentAtNode(div)
+      })
+
+      it('should NOT render null', () => {
+        // Given
+        const testIdPrefix = 'testID'
+        const getTestID = position =>
+          `${testIdPrefix} ${testIdPrefix}-${position}`
+        const props = {
+          leftAddon: <div data-testid={getTestID('leftAddon')}>leftAddon</div>,
+          rightAddon: (
+            <div data-testid={getTestID('rightAddon')}>rightAddon</div>
+          )
+        }
+
+        // When
+        const {container} = setup(props)
+
+        // Then
+        expect(container.innerHTML).to.be.a('string')
+        expect(container.innerHTML).to.not.have.lengthOf(0)
+      })
+
+      it('should NOT extend classNames', () => {
+        // Given
+        const testIdPrefix = 'testID'
+        const getTestID = position =>
+          `${testIdPrefix} ${testIdPrefix}-${position}`
+        const props = {
+          leftAddon: <div data-testid={getTestID('leftAddon')}>leftAddon</div>,
+          rightAddon: (
+            <div data-testid={getTestID('rightAddon')}>rightAddon</div>
+          ),
+          className: 'extended-classNames'
+        }
+        const findSentence = str => string =>
+          string.match(new RegExp(`S*${str}S*`))
+
+        // When
+        const {container} = setup(props)
+        const findClassName = findSentence(props.className)
+
+        // Then
+        expect(findClassName(container.innerHTML)).to.be.null
+      })
+
+      it('given addon props should return it rendered', () => {
+        // Given
+        const testIdPrefix = 'testID'
+        const props = {
+          leftAddon: <div data-testid={testIdPrefix}>leftAddon</div>,
+          rightAddon: <div data-testid={testIdPrefix}>rightAddon</div>
+        }
+
+        // When
+        const {getAllByTestId} = setup(props)
+
+        // Then
+        expect(getAllByTestId(testIdPrefix))
+          .to.be.an('array')
+          .to.have.lengthOf(2)
+      })
+
+      it('given addon props should return it rendered with its own shape', () => {
+        // Given
+        const testID = 'testID'
+        const props = {
+          leftAddon: <div data-testid={testID}>leftAddon</div>,
+          rightAddon: <div data-testid={testID}>rightAddon</div>,
+          shape: pkg.inputShapes.CIRCLE
+        }
+
+        // When
+        const {getAllByTestId} = setup(props)
+
+        // Then
+        expect(getAllByTestId(testID))
+          .to.be.an('array')
+          .to.have.lengthOf(2)
+      })
+    })
+
+    describe(`${Component.displayName} DEFAULT Wrappers Button`, () => {
+      it('should render without crashing', () => {
+        // Given
+        const testId = 'testID'
+        const props = {
+          button: <button data-testid={testId}>leftAddon</button>
+        }
+
+        // When
+        const component = <Component {...props} />
+
+        // Then
+        const div = document.createElement('div')
+        ReactDOM.render(component, div)
+        ReactDOM.unmountComponentAtNode(div)
+      })
+
+      it('should NOT render null', () => {
+        // Given
+        const testId = 'testID'
+        const props = {
+          button: <button data-testid={testId}>leftAddon</button>
+        }
+
+        // When
+        const {container} = setup(props)
+
+        // Then
+        expect(container.innerHTML).to.be.a('string')
+        expect(container.innerHTML).to.not.have.lengthOf(0)
+      })
+
+      it('should NOT extend classNames', () => {
+        // Given
+        const testId = 'testID'
+        const props = {
+          button: <button data-testid={testId}>leftAddon</button>
+        }
+        const findSentence = str => string =>
+          string.match(new RegExp(`S*${str}S*`))
+
+        // When
+        const {container} = setup(props)
+        const findClassName = findSentence(props.className)
+
+        // Then
+        expect(findClassName(container.innerHTML)).to.be.null
+      })
+
+      it('given addon props should return it rendered', () => {
+        // Given
+        const testIdPrefix = 'testID'
+        const props = {
+          leftAddon: <div data-testid={testIdPrefix}>leftAddon</div>,
+          rightAddon: <div data-testid={testIdPrefix}>rightAddon</div>
+        }
+
+        // When
+        const {getAllByTestId} = setup(props)
+
+        // Then
+        expect(getAllByTestId(testIdPrefix))
+          .to.be.an('array')
+          .to.have.lengthOf(2)
+      })
+
+      it('given a button prop should return it rendered with its own shape', () => {
+        // Given
+        const testId = 'testID'
+        const props = {
+          button: <button data-testid={testId}>leftAddon</button>
+        }
+
+        // When
+        const {getAllByTestId} = setup(props)
+
+        // Then
+        expect(getAllByTestId(testId))
+          .to.be.an('array')
+          .to.have.lengthOf(1)
+      })
+    })
+
+    describe(`${Component.displayName} DEFAULT Wrappers Icons`, () => {
+      it('should render without crashing', () => {
+        // Given
+        const testIdPrefix = 'testID'
+        const getTestID = position =>
+          `${testIdPrefix} ${testIdPrefix}-${position}`
+        const props = {
+          leftIcon: <svg data-testid={getTestID('leftAddon')} />,
+          rightIcon: <svg data-testid={getTestID('rightAddon')} />
+        }
+
+        // When
+        const component = <Component {...props} />
+
+        // Then
+        const div = document.createElement('div')
+        ReactDOM.render(component, div)
+        ReactDOM.unmountComponentAtNode(div)
+      })
+
+      it('should NOT render null', () => {
+        // Given
+        const testIdPrefix = 'testID'
+        const getTestID = position =>
+          `${testIdPrefix} ${testIdPrefix}-${position}`
+        const props = {
+          leftIcon: <svg data-testid={getTestID('leftAddon')} />,
+          rightIcon: <svg data-testid={getTestID('rightAddon')} />
+        }
+
+        // When
+        const {container} = setup(props)
+
+        // Then
+        expect(container.innerHTML).to.be.a('string')
+        expect(container.innerHTML).to.not.have.lengthOf(0)
+      })
+
+      it('should NOT extend classNames', () => {
+        // Given
+        const testIdPrefix = 'testID'
+        const getTestID = position =>
+          `${testIdPrefix} ${testIdPrefix}-${position}`
+        const props = {
+          leftIcon: <svg data-testid={getTestID('leftAddon')} />,
+          rightIcon: <svg data-testid={getTestID('rightAddon')} />
+        }
+        const findSentence = str => string =>
+          string.match(new RegExp(`S*${str}S*`))
+
+        // When
+        const {container} = setup(props)
+        const findClassName = findSentence(props.className)
+
+        // Then
+        expect(findClassName(container.innerHTML)).to.be.null
+      })
+
+      it('given icon props should return it rendered', () => {
+        // Given
+        const testID = 'testID'
+        const props = {
+          leftIcon: <svg data-testid={testID} />,
+          rightIcon: <svg data-testid={testID} />
+        }
+
+        // When
+        const {getAllByTestId} = setup(props)
+
+        // Then
+        expect(getAllByTestId(testID))
+          .to.be.an('array')
+          .to.have.lengthOf(2)
+      })
+
+      it('given addon props should return it rendered with its own shape', () => {
+        // Given
+        const testIdPrefix = 'testID'
+        const props = {
+          leftAddon: <div data-testid={testIdPrefix}>leftAddon</div>,
+          rightAddon: <div data-testid={testIdPrefix}>rightAddon</div>,
+          shape: pkg.inputShapes.CIRCLE
+        }
+
+        // When
+        const {getAllByTestId} = setup(props)
+
+        // Then
+        expect(getAllByTestId(testIdPrefix))
+          .to.be.an('array')
+          .to.have.lengthOf(2)
+      })
+    })
+  })
+
   describe('inputTypes', () => {
     it('value must be an object enum', () => {
       // Given

@@ -43,13 +43,14 @@ const MoleculeValidationCode = forwardRef(
         resendButtonTextLabel
       }) => (
         <>
-          <AtomButton fullWidth onClick={onSubmit}>
+          <AtomButton fullWidth onClick={onSubmit} isFitted>
             {sendButtonTextLabel}
           </AtomButton>
           <AtomButton
             design={atomButtonDesigns.FLAT}
             fullWidth
             onClick={onResend}
+            isFitted
           >
             {resendButtonTextLabel}
           </AtomButton>

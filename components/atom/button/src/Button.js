@@ -10,6 +10,7 @@ const Button = ({
   isButton, // eslint-disable-line react/prop-types
   link,
   linkFactory: Link,
+  routeState,
   forwardingRef, // eslint-disable-line react/prop-types
   ...attrs
 }) => {
@@ -20,7 +21,14 @@ const Button = ({
   const rel = attrs.rel || defaultRel
 
   return link ? (
-    <Link {...attrs} href={href} target={target} rel={rel} ref={forwardingRef}>
+    <Link
+      {...attrs}
+      href={href}
+      target={target}
+      rel={rel}
+      ref={forwardingRef}
+      state={routeState}
+    >
       {children}
     </Link>
   ) : (
@@ -54,7 +62,11 @@ Button.propTypes = {
   /**
    * Factory used to create navigation links
    */
-  linkFactory: PropTypes.func
+  linkFactory: PropTypes.func,
+  /**
+   * Object to pass state between react routes
+   */
+  routeState: PropTypes.object
 }
 
 Button.defaultProps = {

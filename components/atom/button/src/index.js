@@ -329,7 +329,11 @@ AtomButton.propTypes = {
   /**
    * if true, type="button" (needed when several buttons coexist under the same form)
    */
-  isButton: PropTypes.bool
+  isButton: PropTypes.bool,
+  /**
+   * Object to pass state between react routes
+   */
+  routeState: PropTypes.object
 }
 
 export default AtomButton

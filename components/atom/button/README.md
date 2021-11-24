@@ -159,4 +159,28 @@ output:
 <a class="sui-AtomButton sui-AtomButton--link" href="http://www.schibsted.com/" target='_blank'>Link</a>
 ```
 
+### Rendering a link with a custom react router state
+When `link` and `routeState` properties are passed, the component will render an html link with a custom state that will be passed through `react-router` to the react route to which the anchor refers.
+
+```js
+import Button from '@s-ui/react-atom-button'
+
+const customState = {isCustomState: true}
+
+return (
+  <Button link href='/sui/react-custom-route' routeState={customState}>Link</Button>
+)
+
+```
+
+output:
+
+```js
+const ReactRouteStatePage = ({location}) => {
+  const {state} = location
+  console.log(state) // {isCustomState: true}
+
+}
+```
+
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/button).**

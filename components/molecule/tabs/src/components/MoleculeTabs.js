@@ -1,6 +1,7 @@
 import {Children, cloneElement, isValidElement} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+import useOnScreen from '@s-ui/react-hooks/lib/useOnScreen'
 
 import {
   BASE_CLASS,
@@ -11,11 +12,13 @@ import {
 } from '../config'
 
 const MoleculeTabs = ({variant, type, children, onChange}) => {
-  const CLASS_VARIANT = `${BASE_CLASS}--${variant}`
-  const CLASS_TYPE = `${BASE_CLASS}--${type}`
-
-  const className = cx(BASE_CLASS, CLASS_VARIANT, CLASS_TYPE)
+  const className = cx(BASE_CLASS, {
+    [`${BASE_CLASS}--${variant}`]: variant,
+    [`${BASE_CLASS}--${type}`]: type
+  })
   const childrenArray = Children.toArray(children)
+
+  const [isIntersecting, outerRef] = useOnScreen()
 
   const extendedChildren = childrenArray
     .filter(child => isValidElement(child))
@@ -23,7 +26,8 @@ const MoleculeTabs = ({variant, type, children, onChange}) => {
       const numTab = index + 1
       return cloneElement(child, {
         onChange,
-        numTab
+        numTab,
+        isIntersecting
       })
     })
 
@@ -36,7 +40,9 @@ const MoleculeTabs = ({variant, type, children, onChange}) => {
 
   return (
     <div className={className}>
-      <ul className={CLASS_SCROLLER}>{extendedChildren}</ul>
+      <ul ref={outerRef} className={CLASS_SCROLLER}>
+        {extendedChildren}
+      </ul>
       {activeTabContent ? (
         <div className={CLASS_CONTENT}>{activeTabContent}</div>
       ) : null}

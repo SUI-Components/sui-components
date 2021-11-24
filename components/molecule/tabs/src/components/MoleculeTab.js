@@ -1,64 +1,55 @@
-import {useEffect, useRef} from 'react'
+import {useEffect, useRef, forwardRef} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import {useOnScreen} from '@s-ui/react-hooks'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
-const BASE_CLASS = `sui-MoleculeTabs`
+import {
+  CLASS_TAB,
+  CLASS_TAB_ICON,
+  CLASS_TAB_COUNT,
+  CLASS_TAB_ACTIVE,
+  CLASS_TAB_DISABLED
+} from './config'
 
-const CLASS_TAB = `${BASE_CLASS}-item`
-const CLASS_TAB_ICON = `${CLASS_TAB}-icon`
-const CLASS_TAB_COUNT = `${CLASS_TAB}-count`
+const MoleculeTab = forwardRef(
+  (
+    {active, onChange, disabled, icon, count, label, numTab, isIntersecting},
+    forwardedRef
+  ) => {
+    const innerRef = useRef()
 
-/* status */
-const CLASS_TAB_ACTIVE = `is-active`
-const CLASS_TAB_DISABLED = `is-disabled`
-
-const MoleculeTab = ({
-  active,
-  onChange,
-  disabled,
-  icon,
-  count,
-  label,
-  numTab
-}) => {
-  const [isIntersecting, outerRef] = useOnScreen()
-  const innerRef = useRef()
-  const handleChange = ev => {
-    !disabled && onChange(ev, {numTab})
-  }
-
-  useEffect(() => {
-    if (active && isIntersecting) {
-      innerRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'start'
-      })
+    const handleChange = ev => {
+      !disabled && onChange(ev, {numTab})
     }
-  }, [active, innerRef, isIntersecting])
 
-  const className = cx(CLASS_TAB, {
-    [CLASS_TAB_ACTIVE]: active,
-    [CLASS_TAB_DISABLED]: disabled
-  })
-  return (
-    <li
-      className={className}
-      onClick={handleChange}
-      ref={el => {
-        if (el) {
-          innerRef.current = el
-          outerRef.current = el.parentElement
-        }
-      }}
-    >
-      {icon && <span className={CLASS_TAB_ICON}>{icon}</span>}
-      {!isNaN(count) && <span className={CLASS_TAB_COUNT}>{count}</span>}
-      <span>{label}</span>
-    </li>
-  )
-}
+    useEffect(() => {
+      if (active && isIntersecting) {
+        innerRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'start'
+        })
+      }
+    }, [active, innerRef])
+
+    const className = cx(CLASS_TAB, {
+      [CLASS_TAB_ACTIVE]: active,
+      [CLASS_TAB_DISABLED]: disabled
+    })
+
+    return (
+      <li
+        className={className}
+        onClick={handleChange}
+        ref={useMergeRefs(innerRef, forwardedRef)}
+      >
+        {icon && <span className={CLASS_TAB_ICON}>{icon}</span>}
+        {!isNaN(count) && <span className={CLASS_TAB_COUNT}>{count}</span>}
+        <span>{label}</span>
+      </li>
+    )
+  }
+)
 
 MoleculeTab.propTypes = {
   /** Handler on Change Tabs */
@@ -80,7 +71,10 @@ MoleculeTab.propTypes = {
   active: PropTypes.bool,
 
   /** is disabled */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+
+  /** determines if the cntainer element is intersectiong in the view **/
+  isIntersecting: PropTypes.bool
 }
 
 export default MoleculeTab

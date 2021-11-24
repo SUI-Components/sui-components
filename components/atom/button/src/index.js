@@ -135,7 +135,8 @@ const AtomButton = forwardRef((props, ref) => {
     size,
     title,
     type,
-    shape
+    shape,
+    isFitted
   } = getPropsWithDefaultValues(typeConversion(props))
 
   const classNames = cx(
@@ -152,7 +153,8 @@ const AtomButton = forwardRef((props, ref) => {
     !children && CLASSES.empty,
     {[`${CLASS}--${shape}`]: Object.values(SHAPES).includes(shape)},
     {
-      [`${CLASS}--loading`]: isLoading
+      [`${CLASS}--loading`]: isLoading,
+      [`${CLASS}--fitted`]: isFitted
     },
     className
   )
@@ -329,7 +331,11 @@ AtomButton.propTypes = {
   /**
    * if true, type="button" (needed when several buttons coexist under the same form)
    */
-  isButton: PropTypes.bool
+  isButton: PropTypes.bool,
+  /**
+   * if true, the element becomes (border+padding+margin)-less
+   */
+  isFitted: PropTypes.bool
 }
 
 export default AtomButton

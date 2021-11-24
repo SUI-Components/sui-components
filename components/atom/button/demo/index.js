@@ -27,7 +27,9 @@ import {
   RadioButton,
   Input,
   Strong,
-  Text
+  Text,
+  UnorderedList,
+  ListItem
 } from '@s-ui/documentation-library'
 
 const BASE_CLASS_DEMO = `DemoAtomButton`
@@ -330,6 +332,7 @@ const TypeDeprecatedArticle = () => {
 
 const Demo = () => {
   const [state, setState] = useState({content: 'button', link: false})
+  const [isFitted, setIsFitted] = useState()
   const {
     negative,
     content,
@@ -869,6 +872,38 @@ const Demo = () => {
           </Cell>
         </Grid>
       </Article>
+      <br />
+      <Article className={CLASS_SECTION}>
+        <H2>isFitted</H2>
+        <div>
+          <Paragraph>
+            <Code>isFitted</Code> Boolean prop for make buttons have no:
+          </Paragraph>
+          <UnorderedList>
+            <ListItem>Border</ListItem>
+            <ListItem>Padding</ListItem>
+            <ListItem>Margin</ListItem>
+          </UnorderedList>
+          <Paragraph>
+            Default <Code>undefined</Code> value.
+          </Paragraph>
+          <RadioButton
+            onClick={() => {
+              setIsFitted(!isFitted)
+            }}
+            value={isFitted}
+            label={`isFitted ${isFitted}`}
+          />
+          <Box>
+            <AtomButton isFitted={isFitted}>button 1</AtomButton>
+            <AtomButton isFitted={isFitted}>button 2</AtomButton>
+            <AtomButton isFitted={isFitted}>button 3</AtomButton>
+            <AtomButton isFitted={isFitted}>button 4</AtomButton>
+            <AtomButton isFitted={isFitted}>button 5</AtomButton>
+          </Box>
+        </div>
+      </Article>
+      <br />
     </div>
   )
 }

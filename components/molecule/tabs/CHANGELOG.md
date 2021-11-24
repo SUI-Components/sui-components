@@ -1,5 +1,21 @@
 # CHANGELOG
 
+# 2.29.0 (2021-11-24)
+
+
+### Bug Fixes
+
+* **components/molecule/tabs:** Fix scrolling into active tab when is out of the viewport ([4c3c370](https://github.com/SUI-Components/sui-components/commit/4c3c370965db220b4966631a7bc1c6bc3d9f5149))
+
+
+### Features
+
+* **components/molecule/tabs:** Add missing dep ([346ee07](https://github.com/SUI-Components/sui-components/commit/346ee07cc1aa8ed12d65c67ffb04a66d56458945))
+* **components/molecule/tabs:** Restore demo settings ([3d76bc0](https://github.com/SUI-Components/sui-components/commit/3d76bc0f52d15f34fb072361506e3e63cb417d0f))
+* **components/molecule/tabs:** wip ([8f6d1f6](https://github.com/SUI-Components/sui-components/commit/8f6d1f63e4219f222ff623cd540317ab0b584627))
+
+
+
 # 2.28.0 (2021-11-22)
 
 

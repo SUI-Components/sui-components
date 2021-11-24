@@ -22,23 +22,15 @@ export const configBasic = {
   2: {
     label: 'Pago',
     content: <Content2 />,
-    disabled: true
+    active: true
   },
   3: {
     label: 'Tu compra',
-    content: <Content3 />
+    content: <Content3 />,
+    disabled: true
   },
   4: {
     label: 'Valoración',
-    content: <Content4 />,
-    active: true
-  },
-  5: {
-    label: 'Valoración 5',
-    content: <Content4 />
-  },
-  6: {
-    label: 'Valoración 6',
     content: <Content4 />
   }
 }

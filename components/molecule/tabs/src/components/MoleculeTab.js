@@ -73,7 +73,7 @@ MoleculeTab.propTypes = {
   /** is disabled */
   disabled: PropTypes.bool,
 
-  /** determines if the cntainer element is intersectiong in the view **/
+  /** determines if the container element is intersecting in the view **/
   isIntersecting: PropTypes.bool
 }
 

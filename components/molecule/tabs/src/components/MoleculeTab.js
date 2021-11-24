@@ -30,7 +30,7 @@ const MoleculeTab = forwardRef(
           inline: 'start'
         })
       }
-    }, [active, innerRef])
+    }, [active, isIntersecting, innerRef])
 
     const className = cx(CLASS_TAB, {
       [CLASS_TAB_ACTIVE]: active,

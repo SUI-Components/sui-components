@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.70.0 (2021-11-24)
+
+
+### Features
+
+* **components/atom/button:** isFitted removes borders paddings and margins ([201a639](https://github.com/SUI-Components/sui-components/commit/201a639d9b9dbddc461ca0154d4170a388528040))
+
+
+
 # 1.69.0 (2021-10-13)
 
 

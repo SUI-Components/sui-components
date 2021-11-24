@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.3.0 (2021-11-24)
+
+
+### Features
+
+* **components/molecule/validationCode:** add isFitted button dependancy default footer ([d58c4a4](https://github.com/SUI-Components/sui-components/commit/d58c4a45c6e1d5d651ca2d0e9eed6ce7f667ba8d))
+
+
+
 # 1.2.0 (2021-10-29)
 
 

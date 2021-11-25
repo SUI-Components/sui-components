@@ -6,6 +6,7 @@ $bgc-atom-table-row: $c-gray-light-4 !default;
 $bdrs-atom-table: 0 !default;
 $bgc-atom-table-row-actionable--hover: $c-gray-light-4 !default;
 $bgc-atom-table-row-actionable--active: $c-gray-light-3 !default;
+$bd-atom-table-row: $bdw-s solid $c-gray-light-5 !default;
 
 .react-AtomTable {
   background-color: $bgc-atom-table;
@@ -48,7 +49,7 @@ $bgc-atom-table-row-actionable--active: $c-gray-light-3 !default;
 
   &-cell {
     &--borderBottom {
-      border-bottom: $bdw-s solid $c-gray-light-5;
+      border-bottom: $bd-atom-table-row;
     }
 
     &--xs {

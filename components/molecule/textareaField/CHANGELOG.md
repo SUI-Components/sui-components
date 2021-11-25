@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.5.0 (2021-11-25)
+
+
+### Bug Fixes
+
+* **components/molecule/textareaField:** use empty string for null values ([5a65193](https://github.com/SUI-Components/sui-components/commit/5a6519399f5296abcd9f1fe9a2d48000f252f350))
+
+
+
 # 3.4.0 (2021-09-09)
 
 

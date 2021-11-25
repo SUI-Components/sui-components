@@ -37,7 +37,7 @@ const MoleculeTextareaField = ({
 
   const {disabled} = props
 
-  const [internalValue, setInternalValue] = useState(value)
+  const [internalValue, setInternalValue] = useState(value ?? '')
 
   useEffect(() => {
     setInternalValue(value)

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.71.0 (2021-11-25)
+
+
+### Bug Fixes
+
+* **components/atom/button:** fix isFitted and groupPosition props margins behavior ([e66f8a8](https://github.com/SUI-Components/sui-components/commit/e66f8a8e4af9641aba74d65b31d3a82b040cdb82))
+
+
+
 # 1.70.0 (2021-11-24)
 
 

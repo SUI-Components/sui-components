@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.22.0 (2021-11-25)
+
+
+### Features
+
+* **components/molecule/selectPopover:** ad new variable background select ([a0f5ccc](https://github.com/SUI-Components/sui-components/commit/a0f5ccc8b5e8de00a303b7b8bd57a4e9ce8d5528))
+
+
+
 # 1.21.0 (2021-06-21)
 
 
@@ -14,8 +23,8 @@
 
 ### Features
 
-* **components/molecule/selectPopover:** add new renderContentWrapper prop ([a1a8556](https://github.com/SUI-Components/sui-components/commit/a1a8556f36d7c840a25e81be43260e9e80effb12))
 * **components/molecule/selectPopover/demo:** use actionsAreHidden in renderContentWrapper ([d783507](https://github.com/SUI-Components/sui-components/commit/d7835078efc2112f93c5f2d960165d353b2d587b))
+* **components/molecule/selectPopover:** add new renderContentWrapper prop ([a1a8556](https://github.com/SUI-Components/sui-components/commit/a1a8556f36d7c840a25e81be43260e9e80effb12))
 
 
 

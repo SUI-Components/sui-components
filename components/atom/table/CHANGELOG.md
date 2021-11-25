@@ -1,13 +1,32 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 1.12.0 (2021-11-25)
+
+
+### Features
+
+* **components/atom/table:** Add token to describe border between rows ([a1b332a](https://github.com/SUI-Components/sui-components/commit/a1b332a6e605addc312a769e4632db931da324c0))
+* **components/atom/table:** Added token for header cell color ([e712827](https://github.com/SUI-Components/sui-components/commit/e712827d45c9b70be932931e6b23619f57843f20))
+* **components/atom/table:** fix lint issue ([f6edd95](https://github.com/SUI-Components/sui-components/commit/f6edd953892971a68c076234d876384e8785c014))
+* **Root:** normalize bborder variables ([b5da148](https://github.com/SUI-Components/sui-components/commit/b5da1482ca96b523f0c168c7040783ce78a7f14d))
+
+
+
+# 1.11.0 (2020-11-24)
+
+
+### Features
+
+* **atom/table:** Use new jsx runtime ([8376d79](https://github.com/SUI-Components/sui-components/commit/8376d797715c018fa1020acb13092c2f43f6c059))
+
+
 
 # 1.10.0 (2020-11-02)
 
 
 ### Bug Fixes
 
-* remove Optiona Chaining to generate the API documentation ([44d26aa](https://github.com/SUI-Components/sui-components/commit/44d26aa3bfe6e67b70fd6e8e06e3aae391ece7f3))
+* **atom/table:** remove Optiona Chaining to generate the API documentation ([44d26aa](https://github.com/SUI-Components/sui-components/commit/44d26aa3bfe6e67b70fd6e8e06e3aae391ece7f3))
 
 
 
@@ -16,7 +35,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add prop background color to atom table ([49bc213](https://github.com/SUI-Components/sui-components/commit/49bc2136aa410383f63e92808cc2909c8e64a039))
+* **atom/table:** add prop background color to atom table ([49bc213](https://github.com/SUI-Components/sui-components/commit/49bc2136aa410383f63e92808cc2909c8e64a039))
 
 
 
@@ -25,15 +44,15 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add new tokens ([bd36999](https://github.com/SUI-Components/sui-components/commit/bd36999616718c48d991a7fbed2d17d8953a2dc4))
-* add prop isZebra ([8c909be](https://github.com/SUI-Components/sui-components/commit/8c909be7eca7c31cfcfd89f008dd980d2a7b125d))
-* rename prop ([80b02fd](https://github.com/SUI-Components/sui-components/commit/80b02fdd4fc966ee4fe1c364de7299ceeec78514))
-* update ([0cb28ad](https://github.com/SUI-Components/sui-components/commit/0cb28ade043b97d296a8deffe383521eda0ab6ec))
-* update ([609c845](https://github.com/SUI-Components/sui-components/commit/609c84556791b2c7b15b1af98af0e8baf20daa3b))
-* update ([1dafcf6](https://github.com/SUI-Components/sui-components/commit/1dafcf6081d34469fa593e80fdd204be12c163f8))
-* update ([53bc6a8](https://github.com/SUI-Components/sui-components/commit/53bc6a85f8f3f07b2f72e5a2debb89c4bfba879c))
-* update ([2c18b18](https://github.com/SUI-Components/sui-components/commit/2c18b186eade8e65c51f065d2633ef2d6fb85277))
-* update color ([ca9537f](https://github.com/SUI-Components/sui-components/commit/ca9537f0994d907f52c97ee922fba8619a2fcb3d))
+* **atom/table:** add new tokens ([bd36999](https://github.com/SUI-Components/sui-components/commit/bd36999616718c48d991a7fbed2d17d8953a2dc4))
+* **atom/table:** add prop isZebra ([8c909be](https://github.com/SUI-Components/sui-components/commit/8c909be7eca7c31cfcfd89f008dd980d2a7b125d))
+* **atom/table:** rename prop ([80b02fd](https://github.com/SUI-Components/sui-components/commit/80b02fdd4fc966ee4fe1c364de7299ceeec78514))
+* **atom/table:** update ([0cb28ad](https://github.com/SUI-Components/sui-components/commit/0cb28ade043b97d296a8deffe383521eda0ab6ec))
+* **atom/table:** update ([609c845](https://github.com/SUI-Components/sui-components/commit/609c84556791b2c7b15b1af98af0e8baf20daa3b))
+* **atom/table:** update ([1dafcf6](https://github.com/SUI-Components/sui-components/commit/1dafcf6081d34469fa593e80fdd204be12c163f8))
+* **atom/table:** update ([53bc6a8](https://github.com/SUI-Components/sui-components/commit/53bc6a85f8f3f07b2f72e5a2debb89c4bfba879c))
+* **atom/table:** update ([2c18b18](https://github.com/SUI-Components/sui-components/commit/2c18b186eade8e65c51f065d2633ef2d6fb85277))
+* **atom/table:** update color ([ca9537f](https://github.com/SUI-Components/sui-components/commit/ca9537f0994d907f52c97ee922fba8619a2fcb3d))
 
 
 
@@ -42,10 +61,10 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* actionable onClick on atom table ([9e4659c](https://github.com/SUI-Components/sui-components/commit/9e4659ccd65f6a3231cf9c719bdc502d071ec3fe))
-* add action on atom table ([c01b00a](https://github.com/SUI-Components/sui-components/commit/c01b00ac3f0e63d21aa62333e2c79a70acef14f9))
-* change to onRowClick prop on atom/table ([22a6130](https://github.com/SUI-Components/sui-components/commit/22a6130e87f9af9eb90fea425be3a406b675e528))
-* refactor atom/table isRowActionable ([900af04](https://github.com/SUI-Components/sui-components/commit/900af04f50f544e21e972251e52ae078b6b1893d))
+* **atom/table:** actionable onClick on atom table ([9e4659c](https://github.com/SUI-Components/sui-components/commit/9e4659ccd65f6a3231cf9c719bdc502d071ec3fe))
+* **atom/table:** add action on atom table ([c01b00a](https://github.com/SUI-Components/sui-components/commit/c01b00ac3f0e63d21aa62333e2c79a70acef14f9))
+* **atom/table:** change to onRowClick prop on atom/table ([22a6130](https://github.com/SUI-Components/sui-components/commit/22a6130e87f9af9eb90fea425be3a406b675e528))
+* **atom/table:** refactor atom/table isRowActionable ([900af04](https://github.com/SUI-Components/sui-components/commit/900af04f50f544e21e972251e52ae078b6b1893d))
 
 
 
@@ -54,7 +73,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* small fix colspan to colSpan ([614e6e7](https://github.com/SUI-Components/sui-components/commit/614e6e7286bfe60bb39b36b5a60dc2b432d317da))
+* **atom/table:** small fix colspan to colSpan ([614e6e7](https://github.com/SUI-Components/sui-components/commit/614e6e7286bfe60bb39b36b5a60dc2b432d317da))
 
 
 
@@ -67,11 +86,11 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add assets folder to .npmignore ([2942832](https://github.com/SUI-Components/sui-components/commit/2942832a8c3eccb2c25ea2fcc24d39fb54fc9b94))
-* applied PR suggestions, thanks Rafa ([ed5d633](https://github.com/SUI-Components/sui-components/commit/ed5d633ce5c3e4f154a6eddc3edc68ffc85e1978))
-* applied the PR suggestions, thanks Andrés and Kiko ([e523595](https://github.com/SUI-Components/sui-components/commit/e52359592e395625e133eff22e559ed10c67b321))
-* refactor component, added cellPadding & borderBottom props ([56fdc36](https://github.com/SUI-Components/sui-components/commit/56fdc36b6c19ef85acc88bfc7eb8ab91b73c1912))
-* removed default value in props and updated demo ([2d8ac7b](https://github.com/SUI-Components/sui-components/commit/2d8ac7bda15762b5df7abd0f432fd8da6d175922))
+* **atom/table:** add assets folder to .npmignore ([2942832](https://github.com/SUI-Components/sui-components/commit/2942832a8c3eccb2c25ea2fcc24d39fb54fc9b94))
+* **atom/table:** applied PR suggestions, thanks Rafa ([ed5d633](https://github.com/SUI-Components/sui-components/commit/ed5d633ce5c3e4f154a6eddc3edc68ffc85e1978))
+* **atom/table:** applied the PR suggestions, thanks Andrés and Kiko ([e523595](https://github.com/SUI-Components/sui-components/commit/e52359592e395625e133eff22e559ed10c67b321))
+* **atom/table:** refactor component, added cellPadding & borderBottom props ([56fdc36](https://github.com/SUI-Components/sui-components/commit/56fdc36b6c19ef85acc88bfc7eb8ab91b73c1912))
+* **atom/table:** removed default value in props and updated demo ([2d8ac7b](https://github.com/SUI-Components/sui-components/commit/2d8ac7bda15762b5df7abd0f432fd8da6d175922))
 
 
 
@@ -80,7 +99,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* added the colspan feature ([040ce75](https://github.com/SUI-Components/sui-components/commit/040ce7563a696c8694298b8dfaf9fceac3b2666e))
+* **atom/table:** added the colspan feature ([040ce75](https://github.com/SUI-Components/sui-components/commit/040ce7563a696c8694298b8dfaf9fceac3b2666e))
 
 
 
@@ -89,7 +108,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([8b28b54](https://github.com/SUI-Components/sui-components/commit/8b28b542f4ae38adeb1c0ee0cfafd83753a735be))
+* **atom/table:** Use new [@s-ui-theme](https://github.com/s-ui-theme) ([8b28b54](https://github.com/SUI-Components/sui-components/commit/8b28b542f4ae38adeb1c0ee0cfafd83753a735be))
 
 
 
@@ -98,12 +117,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fixed typo in var names ([29935bd](https://github.com/SUI-Components/sui-components/commit/29935bd0febb24b51c265f91f02bbfe48ae2de33))
+* **atom/table:** fixed typo in var names ([29935bd](https://github.com/SUI-Components/sui-components/commit/29935bd0febb24b51c265f91f02bbfe48ae2de33))
 
 
 ### Features
 
-* new component Atom Table ([1f91c67](https://github.com/SUI-Components/sui-components/commit/1f91c674572a82a1affd827a55eabce4d096f303))
+* **atom/table:** new component Atom Table ([1f91c67](https://github.com/SUI-Components/sui-components/commit/1f91c674572a82a1affd827a55eabce4d096f303))
 
 
 

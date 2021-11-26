@@ -10,20 +10,25 @@ import MoleculeProgressSteps, {
 import './index.scss'
 
 import {IconFillCheck} from './Icons'
+import {H1} from '@s-ui/documentation-library'
 import {configBasic, configBasic6Steps, configWithIcons} from './config'
 import DynamicProgressSteps from './DynamicProgressSteps'
+import JustifyContentProgressBarArticle from './JustifyContentProgressBarArticle'
 
 const BASE_CLASS_DEMO = 'DemoMoleculeProgressSteps'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
 const CLASS_DEMO_SECTION_VERTICAL = `${CLASS_DEMO_SECTION}--vertical`
 const CLASS_DEMO_SECTION_RESPONSIVE = `${CLASS_DEMO_SECTION}-responsive`
-const CLASS_DEMO_CONTENT_STEP = `${BASE_CLASS_DEMO}-contentStep`
+
+const baseClass = 'DemoMoleculeProgressSteps'
+const articleClass = `${baseClass}-article`
 
 const Demo = () => {
   return (
     <div className="sui-StudioPreview">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
-        <h1>Progress Steps</h1>
+        <H1>Progress Steps</H1>
+        <JustifyContentProgressBarArticle className={articleClass} />
         <h2>Dynamic</h2>
         <h3>Basic (Responsive)</h3>
         <div className={CLASS_DEMO_SECTION_RESPONSIVE}>

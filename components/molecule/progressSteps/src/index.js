@@ -2,21 +2,24 @@ import {Children, cloneElement, useRef} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
+import {
+  BASE_CLASS,
+  CLASS_STEPS,
+  CLASS_CONTENT,
+  CLASS_COMPRESSED_INFO,
+  CLASS_VERTICAL,
+  CLASS_COMPRESSED,
+  PROGRESS_BAR_JUSTIFY_CONTENT
+} from './config'
 import MoleculeProgressStep, {STATUSES} from './components/MoleculeProgressStep'
 
-const BASE_CLASS = `sui-MoleculeProgressSteps`
-
-const CLASS_STEPS = `${BASE_CLASS}-path`
-const CLASS_CONTENT = `${BASE_CLASS}-content`
-const CLASS_COMPRESSED_INFO = `${BASE_CLASS}-compressedInfo`
-
-const CLASS_VERTICAL = `${BASE_CLASS}--vertical`
-const CLASS_COMPRESSED = `${BASE_CLASS}--compressed`
 const MoleculeProgressSteps = ({
   vertical,
   children,
   iconStepDone,
-  compressed
+  compressed,
+  isProgressBarAutoSizedLength = true,
+  progressBarJustifyContent
 }) => {
   const activeStepContent = useRef()
 
@@ -67,6 +70,8 @@ const MoleculeProgressSteps = ({
         numStep,
         lastStep,
         icon,
+        isProgressBarAutoSizedLength,
+        progressBarJustifyContent,
         compressed
       })
     })
@@ -95,8 +100,21 @@ MoleculeProgressSteps.propTypes = {
   compressed: PropTypes.bool,
 
   /** Vertical mode */
-  vertical: PropTypes.bool
+  vertical: PropTypes.bool,
+
+  /** adds/fixes bar length between step numbers autosize**/
+  isProgressBarAutoSizedLength: PropTypes.bool,
+
+  /** justify the progressbar elements in its area following the element declared **/
+  progressBarJustifyContent: PropTypes.oneOf(
+    Object.values(PROGRESS_BAR_JUSTIFY_CONTENT)
+  )
 }
 
 export default MoleculeProgressSteps
-export {MoleculeProgressStep, STATUSES}
+export {
+  MoleculeProgressStep,
+  STATUSES,
+  STATUSES as moleculeProgressStepsStatuses,
+  PROGRESS_BAR_JUSTIFY_CONTENT as moleculeProgressStepsJustifyContentBar
+}

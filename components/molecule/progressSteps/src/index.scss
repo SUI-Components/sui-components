@@ -9,10 +9,26 @@ $c-progress-steps-active: $c-primary !default;
 $fz-progress-steps-description: inherit !default;
 
 $bdw-progress-steps-bar: 2px !default;
+
 $h-progress-steps-bar: $bdw-progress-steps-bar * 2 !default;
 
 $mw-progress-steps-path: 100% !default;
 $w-progress-steps-description: 100px !default;
+
+$justify-content-bar: (
+  'center',
+  'start',
+  'end',
+  'flex-start',
+  'flex-end',
+  'left',
+  'right',
+  'normal',
+  'space-between',
+  'space-around',
+  'space-evenly',
+  'stretch'
+);
 
 $base-class: '.sui-MoleculeProgressSteps';
 
@@ -21,7 +37,7 @@ $base-class: '.sui-MoleculeProgressSteps';
     align-items: center;
     display: flex;
     max-width: $mw-progress-steps-path;
-    margin: auto;
+    justify-content: space-evenly;
 
     &-bar {
       background: $c-progress-steps-bar;
@@ -30,11 +46,19 @@ $base-class: '.sui-MoleculeProgressSteps';
       border-style: solid;
       border-width: $bdw-progress-steps-bar;
       height: $h-progress-steps-bar;
-      width: 100%;
+      min-width: 20px;
 
       &--visited {
         background: $c-progress-steps-active;
         border-color: $c-progress-steps-active;
+      }
+      &--grow {
+        flex-grow: 1;
+      }
+      @each $justifyContent in $justify-content-bar {
+        &--justifyContent-#{$justifyContent} {
+          justify-content: $justifyContent;
+        }
       }
     }
 
@@ -141,10 +165,11 @@ $base-class: '.sui-MoleculeProgressSteps';
       }
 
       &-bar {
-        height: 100%;
-        margin: 20px 0;
+        min-height: 30px;
         transform: translateY(0);
-        width: 1px;
+        width: $h-progress-steps-bar;
+        border-width: $bdw-progress-steps-bar;
+        min-width: 0;
       }
     }
 

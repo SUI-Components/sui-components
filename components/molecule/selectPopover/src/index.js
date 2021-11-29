@@ -132,6 +132,15 @@ function MoleculeSelectPopover({
     </>
   )
 
+  const renderProp = (render, props) => {
+    return typeof render === 'function'
+      ? render(props)
+      : cloneElement(render, {
+          ...render.props,
+          ...props
+        })
+  }
+
   const renderSelect = () => {
     const newSelectProps = {
       ref: selectRef,
@@ -141,12 +150,7 @@ function MoleculeSelectPopover({
     }
 
     if (renderSelectProp) {
-      return typeof renderSelectProp === 'function'
-        ? renderSelectProp(newSelectProps)
-        : cloneElement(renderSelectProp, {
-            ...renderSelectProp.props,
-            ...newSelectProps
-          })
+      return renderProp(renderSelectProp, newSelectProps)
     }
 
     return (
@@ -171,7 +175,9 @@ function MoleculeSelectPopover({
     /**
      * Custom content wrapper from render prop
      */
-    if (renderContentWrapperProp) return renderContentWrapperProp(pieces)
+    if (renderContentWrapperProp) {
+      return renderProp(renderContentWrapperProp, pieces)
+    }
 
     /**
      * Default content wrapper as a popover

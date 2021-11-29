@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.23.0 (2021-11-29)
+
+
+### Features
+
+* **components/molecule/selectPopover:** add renderSelect prop ([52eaf61](https://github.com/SUI-Components/sui-components/commit/52eaf61c099730df0b578eef406244f39757a633))
+* **components/molecule/selectPopover:** render content wrapper when is react element ([fd345a4](https://github.com/SUI-Components/sui-components/commit/fd345a4718b5854ca8527e772d1673d955af5439))
+* **components/molecule/selectPopover:** update renderContentWrapper prop-type ([1bf1b24](https://github.com/SUI-Components/sui-components/commit/1bf1b24cf0a0f259ff6faded7381d53450166022))
+
+
+
 # 1.22.0 (2021-11-25)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.4.0 (2021-11-29)
+
+
+### Bug Fixes
+
+* **components/molecule/validationCode:** avoid filter when property has no value ([8e2869d](https://github.com/SUI-Components/sui-components/commit/8e2869d308af30bcbdd97c1e5428bccf3fa376af))
+
+
+
 # 1.3.0 (2021-11-24)
 
 

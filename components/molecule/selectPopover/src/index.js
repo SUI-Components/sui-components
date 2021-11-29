@@ -238,7 +238,7 @@ MoleculeSelectPopover.propTypes = {
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
   placement: PropTypes.string,
-  renderContentWrapper: PropTypes.func,
+  renderContentWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   renderSelect: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   selectText: PropTypes.string.isRequired,
   size: PropTypes.string,

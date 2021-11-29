@@ -29,6 +29,7 @@ const Demo = () => {
   const [actionsAreHidden, setActionsAreHidden] = useState(false)
   const [addCustomButton, setAddCustomButton] = useState(false)
   const [customContentWrapper, setCustomContentWrapper] = useState(false)
+  const [renderSelect, setRenderSelect] = useState(false)
 
   const handleChangeItem = event => {
     const {target} = event
@@ -164,6 +165,16 @@ const Demo = () => {
             Custom content wrapper as a modal
           </label>
         </div>
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              checked={renderSelect}
+              onChange={ev => setRenderSelect(ev.target.checked)}
+            />
+            Render select like a button
+          </label>
+        </div>
 
         <h3>Component</h3>
         <MoleculeSelectPopover
@@ -176,6 +187,7 @@ const Demo = () => {
             color: 'accent'
           }}
           renderContentWrapper={customContentWrapper && renderContentWrapper}
+          renderSelect={renderSelect && <button>Now I'm a button!</button>}
           fullWidth={isFullWidth}
           hideActions={actionsAreHidden}
           iconArrowDown={IconArrowDown}

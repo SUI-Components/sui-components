@@ -98,7 +98,7 @@ const MoleculeValidationCode = forwardRef(
             handler(event, {
               value:
                 valueType === 'string'
-                  ? arrayInnerValue.filter(Boolean).join('')
+                  ? arrayInnerValue && arrayInnerValue.filter(Boolean).join('')
                   : arrayInnerValue
             })
           }

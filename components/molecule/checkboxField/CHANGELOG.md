@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 2.14.0 (2021-11-30)
+
+
+### Features
+
+* **components/molecule/checkboxField:** Add specificity to molecule checkbox selector ([5f0a134](https://github.com/SUI-Components/sui-components/commit/5f0a13460ca2a3bf0f7b29a0e22deea59823a8bc))
+
+
+
+# 1.1.0 (2021-10-13)
+
+
+### Bug Fixes
+
+* **components/molecule/checkboxField/demo:** Centered text ([1627834](https://github.com/SUI-Components/sui-components/commit/16278349cf0a496d61487f10214eb9c5a11314e7))
+
+
+
 # 2.13.0 (2021-10-13)
 
 

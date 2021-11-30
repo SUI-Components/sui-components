@@ -24,7 +24,8 @@ export const ToggleSwitchTypeRender = forwardRef(
       onToggle,
       size,
       type,
-      value
+      value,
+      fullWidth
     },
     ref
   ) => {
@@ -43,7 +44,8 @@ export const ToggleSwitchTypeRender = forwardRef(
           isActive,
           isFocus,
           isClick,
-          disabled
+          disabled,
+          fullWidth
         )}
       >
         {label && (
@@ -57,7 +59,10 @@ export const ToggleSwitchTypeRender = forwardRef(
           className={cx(suitClass({element: 'container'}), {
             [suitClass({
               element: 'container--isFitted'
-            })]: isFitted
+            })]: isFitted,
+            [suitClass({
+              element: 'container--fullWidth'
+            })]: fullWidth
           })}
           tabIndex="0"
           onFocus={onFocus}
@@ -174,5 +179,9 @@ ToggleSwitchTypeRender.propTypes = {
   /**
    * Value for controlled component
    */
-  value: PropTypes.bool
+  value: PropTypes.bool,
+  /**
+   * Modifier: full width (100%)
+   */
+  fullWidth: PropTypes.bool
 }

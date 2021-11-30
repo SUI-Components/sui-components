@@ -21,6 +21,8 @@ $c-atom-switch--active: color-variation($c-primary, 1) !default;
 $c-atom-switch--active-shadow: rgba($c-black, 0.2);
 $c-atom-switch--default: color-variation($c-gray, 3) !default;
 
+$bxsh-atom-switch-container: 0 0 4px 0 transparent !default;
+
 $atom-switch-transition-time: 0.3s !default;
 
 .sui-AtomSwitch {
@@ -48,7 +50,7 @@ $atom-switch-transition-time: 0.3s !default;
 
     &:not(.sui-AtomSwitch-container--isFitted) {
       border: $bdw-m solid transparent;
-      box-shadow: 0 0 4px 0 transparent;
+      box-shadow: $bxsh-atom-switch-container;
       margin: -#{$bdw-m};
       padding: $p-atom-switch-container;
       outline: none;

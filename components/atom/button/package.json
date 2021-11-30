@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-atom-button",
-  "version": "1.71.0",
+  "version": "1.71.1",
   "description": "Atom Element: SUI button",
   "main": "lib/index.js",
   "scripts": {

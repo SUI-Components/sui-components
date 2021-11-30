@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.51.0 (2021-11-30)
+
+
+### Features
+
+* **components/molecule/select:** add new variable: border molecule select focus ([bd70462](https://github.com/SUI-Components/sui-components/commit/bd7046294389d2159ba842a0d79e06cdf6741d26))
+
+
+
 # 1.50.0 (2021-11-10)
 
 

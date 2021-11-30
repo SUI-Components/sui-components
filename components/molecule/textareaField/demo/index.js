@@ -6,7 +6,7 @@ import withState from './withState'
 
 const MoleculeTextareaFieldWithState = withState(MoleculeTextareaField)
 
-const exceedLenghtText = exceedAmmount => {
+const computeExceedLengthErrorText = exceedAmmount => {
   return `Has excedido ${exceedAmmount} carácteres el texto máximo.`
 }
 
@@ -40,7 +40,7 @@ const Demo = () => {
           <div>
             <MoleculeTextareaFieldWithState
               exceedLength
-              exceedLengthText={exceedLenghtText}
+              computeExceedLengthErrorText={computeExceedLengthErrorText}
               id="commentd"
               label="Text that exceed the maxChars"
               maxChars={10}

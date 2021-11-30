@@ -39,11 +39,11 @@ const Demo = () => {
           <h2 className="sui-Studio-h2">Text exceed</h2>
           <div>
             <MoleculeTextareaFieldWithState
+              exceedLength
+              exceedLengthText={exceedLenghtText}
               id="commentd"
               label="Text that exceed the maxChars"
               maxChars={10}
-              exceedLength
-              exceedLengthText={exceedLenghtText}
               placeholder="Please, write text that exceeds the maxLength..."
             />
           </div>

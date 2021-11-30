@@ -61,6 +61,9 @@ const MoleculeTextareaField = ({
         value.length - maxChars
       )}`
     }
+    if (showMaxLengthError) {
+      return `${internalValue.length}/${maxChars} ${textCharacters}.`
+    }
     return errorText
   }
 

@@ -71,6 +71,7 @@
   &-link {
     @include reset-link;
     color: $c-breadcrumb-link;
+    text-decoration: $td-breadcrumb-link;
 
     &:hover {
       color: $c-breadcrumb-link-hover;

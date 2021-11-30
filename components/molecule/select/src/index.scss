@@ -21,6 +21,7 @@ $bgc-atom-input-disabled: $c-gray-lightest !default;
 
 $bg-molecule-select-disabled: $bgc-atom-input-disabled !default;
 $bd-molecule-select-disabled: $bd-atom-input-base !default;
+$bd-molecule-select-focus: $bdw-s solid $c-primary !default;
 $c-molecule-select-arrow-disabled: $c-select-list-arrow-fill !default;
 $c-molecule-select-disabled: inherit !default;
 
@@ -94,7 +95,7 @@ $c-molecule-select-disabled: inherit !default;
     #{$class-input} {
       &-container {
         @include sui-atom-input-select-focus;
-        border: $bdw-s solid $c-primary;
+        border: $bd-molecule-select-focus;
 
         .sui-AtomInput-input,
         .sui-AtomInput--withTags {

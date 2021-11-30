@@ -136,7 +136,8 @@ const AtomButton = forwardRef((props, ref) => {
     title,
     type,
     shape,
-    isFitted
+    isFitted,
+    selected
   } = getPropsWithDefaultValues(typeConversion(props))
 
   const classNames = cx(
@@ -146,6 +147,7 @@ const AtomButton = forwardRef((props, ref) => {
     alignment && CLASSES[alignment],
     groupPosition && `${CLASS}-group ${CLASS}-group--${groupPosition}`,
     groupPosition && focused && `${CLASS}-group--focused`,
+    groupPosition && selected && `${CLASS}-group--selected`,
     size && CLASSES[size],
     getModifiers({...props, disabled: disabled || isLoading}).map(
       key => CLASSES[key]
@@ -335,7 +337,11 @@ AtomButton.propTypes = {
   /**
    * if true, the element becomes (border+padding+margin)-less
    */
-  isFitted: PropTypes.bool
+  isFitted: PropTypes.bool,
+  /**
+   *  Selected: style for selected button in a button group.
+   */
+  selected: PropTypes.bool
 }
 
 export default AtomButton

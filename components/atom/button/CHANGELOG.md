@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.72.0 (2021-11-30)
+
+
+### Features
+
+* **components/atom/buttom:** atom button selected ([274b9d6](https://github.com/SUI-Components/sui-components/commit/274b9d6cab34b890f26e3ff9beb38572006e330a))
+* **components/atom/button:** bump ([0f0992b](https://github.com/SUI-Components/sui-components/commit/0f0992b89200dc986ca5bc11935b988de80fa651))
+
+
+
 # 1.71.0 (2021-11-25)
 
 

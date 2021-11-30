@@ -19,21 +19,24 @@ const getState = ({successText, errorState, alertText}) => {
 }
 
 const MoleculeTextareaField = ({
+  alertText,
+  autoHideHelpText = false,
+  errorText,
+  exceedLength,
+  helpText,
   id,
   label,
   maxChars,
-  textCharacters = 'characters',
-  successText,
-  errorText,
-  alertText,
-  autoHideHelpText = false,
-  helpText,
-  value = '',
   onChange = () => {},
+  exceedLengthText,
+  successText,
+  textCharacters = 'characters',
+  value = '',
   ...props
 }) => {
   const errorState = hasErrors({successText, errorText})
   const textAreaState = getState({successText, errorState, alertText})
+  const [showMaxLengthError, setShowMaxLengthError] = useState(false)
 
   const {disabled} = props
 
@@ -44,9 +47,21 @@ const MoleculeTextareaField = ({
   }, [value])
 
   const computeHelpText = () => {
+    if (showMaxLengthError) return ''
     const numCharacters = internalValue.length
     const dynamicText = `${numCharacters}/${maxChars} ${textCharacters}`
     return helpText ? `${helpText} - ${dynamicText}` : dynamicText
+  }
+
+  const computeErrorText = () => {
+    if (showMaxLengthError && exceedLengthText) {
+      return `${
+        internalValue.length
+      }/${maxChars} ${textCharacters}. ${exceedLengthText(
+        value.length - maxChars
+      )}`
+    }
+    return errorText
   }
 
   const onChangeHandler = ev => {
@@ -55,10 +70,17 @@ const MoleculeTextareaField = ({
     if (value.length <= maxChars) {
       setInternalValue(value)
       onChange(ev, {value})
+      setShowMaxLengthError(false)
+    }
+    if (value.length > maxChars && exceedLength) {
+      setInternalValue(value)
+      onChange(ev, {value})
+      setShowMaxLengthError(true)
     }
   }
 
   const helpTextComputed = computeHelpText()
+  const errorTextComputed = computeErrorText()
 
   return (
     <MoleculeField
@@ -66,7 +88,7 @@ const MoleculeTextareaField = ({
       label={label}
       textCharacters={textCharacters}
       successText={successText}
-      errorText={errorText}
+      errorText={errorTextComputed}
       alertText={alertText}
       helpText={helpTextComputed}
       autoHideHelpText={autoHideHelpText}
@@ -135,7 +157,13 @@ MoleculeTextareaField.propTypes = {
   disabled: PropTypes.bool,
 
   /** Boolean to decide if helptext should be auto hide */
-  autoHideHelpText: PropTypes.bool
+  autoHideHelpText: PropTypes.bool,
+
+  /** Prop to handle if the user can exceed the maxChars length  */
+  exceedLength: PropTypes.bool,
+
+  /** Handler triggered when the user exceeds the maxChars length and returns the exceed ammount  */
+  exceedLengthText: PropTypes.func
 }
 
 export default MoleculeTextareaField

@@ -7,6 +7,10 @@ import withState from './withState'
 const MoleculeTextareaFieldWithState = withState(MoleculeTextareaField)
 
 const Demo = () => {
+  const exceedLenghtText = exceedAmmount => {
+    return `Has excedido ${exceedAmmount} caracteres el texto máximo`
+  }
+
   return (
     <div className="sui-StudioPreview">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
@@ -28,6 +32,19 @@ const Demo = () => {
               id="commentd"
               label="with NO placeholder"
               maxChars={100}
+            />
+          </div>
+        </div>
+        <div className="sui-Studio-wrapper--light">
+          <h2 className="sui-Studio-h2">Text exceed</h2>
+          <div>
+            <MoleculeTextareaFieldWithState
+              id="commentd"
+              label="Text that exceed the maxChars"
+              maxChars={10}
+              exceedLength
+              exceedLengthText={exceedLenghtText}
+              placeholder="Please, write text that exceeds the maxLength..."
             />
           </div>
         </div>

@@ -15,8 +15,10 @@ $c-molecule-checkbox-field: (
 
 .sui-MoleculeCheckboxField {
   .sui-AtomCheckbox {
-    width: $w-molecule-checkbox-field-input;
-    height: $h-molecule-checkbox-field-input;
+    &--native {
+      width: $w-molecule-checkbox-field-input;
+      height: $h-molecule-checkbox-field-input;
+    }
     display: flex;
     align-items: center;
 

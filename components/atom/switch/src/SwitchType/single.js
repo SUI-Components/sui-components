@@ -26,7 +26,8 @@ export const SingleSwitchTypeRender = forwardRef(
       onToggle,
       size,
       type,
-      value
+      value,
+      fullWidth
     },
     ref
   ) => {
@@ -47,7 +48,8 @@ export const SingleSwitchTypeRender = forwardRef(
           isActive,
           isFocus,
           isClick,
-          disabled
+          disabled,
+          fullWidth
         )}
         onClick={() => onToggle()}
       >
@@ -55,7 +57,10 @@ export const SingleSwitchTypeRender = forwardRef(
           className={cx(suitClass({element: 'container'}), {
             [suitClass({
               element: 'container--isFitted'
-            })]: isFitted
+            })]: isFitted,
+            [suitClass({
+              element: 'container--fullWidth'
+            })]: fullWidth
           })}
           tabIndex="0"
           onKeyDown={onKeyDown}
@@ -165,5 +170,9 @@ SingleSwitchTypeRender.propTypes = {
   /**
    * Value for controlled component
    */
-  value: PropTypes.bool
+  value: PropTypes.bool,
+  /**
+   * Modifier: full width (100%)
+   */
+  fullWidth: PropTypes.bool
 }

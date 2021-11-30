@@ -5,6 +5,7 @@ const CLASS_ACTIVE = `${BASE_CLASS}--active`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`
 const CLASS_CLICK = `${BASE_CLASS}--click`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
+const CLASS_FULL_WIDTH = `${BASE_CLASS}--fullWidth`
 
 export function switchClassNames(
   size,
@@ -13,7 +14,8 @@ export function switchClassNames(
   isToggle,
   isFocus,
   isClick,
-  isDisabled
+  isDisabled,
+  fullWidth
 ) {
   const CLASS_TYPE = `${BASE_CLASS}-${classType}`
   const CLASS_SIZE = `${BASE_CLASS}--${size}`
@@ -22,7 +24,8 @@ export function switchClassNames(
     [CLASS_ACTIVE]: isToggle || type === TYPES.SELECT,
     [CLASS_CLICK]: isClick,
     [CLASS_FOCUS]: isFocus && !isClick,
-    [CLASS_DISABLED]: isDisabled
+    [CLASS_DISABLED]: isDisabled,
+    [CLASS_FULL_WIDTH]: fullWidth
   })
   return className
 }

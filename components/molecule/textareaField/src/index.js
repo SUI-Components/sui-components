@@ -18,17 +18,18 @@ const getState = ({successText, errorState, alertText}) => {
   if (alertText) return AtomTextareaStates.ALERT
 }
 
+const NOOP = () => {}
+
 const MoleculeTextareaField = ({
   alertText,
   autoHideHelpText = false,
   errorText,
   exceedLength = false,
-  computeExceedLengthErrorText,
   helpText,
   id,
   label,
   maxChars,
-  onChange = () => {},
+  onChange = NOOP,
   successText,
   textCharacters = 'characters',
   value = '',
@@ -53,23 +54,10 @@ const MoleculeTextareaField = ({
     return helpText ? `${helpText} - ${dynamicText}` : dynamicText
   }
 
-  const computeErrorText = () => {
-    if (showMaxLengthError && computeExceedLengthErrorText) {
-      return `${
-        internalValue.length
-      }/${maxChars} ${textCharacters}. ${computeExceedLengthErrorText(
-        value.length - maxChars
-      )}`
-    }
-    if (showMaxLengthError) {
-      return `${internalValue.length}/${maxChars} ${textCharacters}.`
-    }
-    return errorText
-  }
-
   const onChangeHandler = ev => {
     ev.persist()
     const value = ev.target.value
+
     if (value.length <= maxChars) {
       setInternalValue(value)
       onChange(ev, {value})
@@ -83,7 +71,6 @@ const MoleculeTextareaField = ({
   }
 
   const helpTextComputed = computeHelpText()
-  const errorTextComputed = computeErrorText()
 
   return (
     <MoleculeField
@@ -91,7 +78,7 @@ const MoleculeTextareaField = ({
       label={label}
       textCharacters={textCharacters}
       successText={successText}
-      errorText={errorTextComputed}
+      errorText={errorText}
       alertText={alertText}
       helpText={helpTextComputed}
       autoHideHelpText={autoHideHelpText}
@@ -163,10 +150,7 @@ MoleculeTextareaField.propTypes = {
   autoHideHelpText: PropTypes.bool,
 
   /** Prop to handle if the user can exceed the maxChars length  */
-  exceedLength: PropTypes.bool,
-
-  /** Handler triggered when the user exceeds the maxChars length and returns the exceed ammount  */
-  computeExceedLengthErrorText: PropTypes.func
+  exceedLength: PropTypes.bool
 }
 
 export default MoleculeTextareaField

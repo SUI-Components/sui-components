@@ -1,7 +1,7 @@
 # Each line is a file pattern followed by one or more owners.
 
 # These owners will be the default owners for everything in the repo.
-* @midudev @jcger @kikoruiz @andresin87 @rmoralp
+* @midudev @jcger @kikoruiz @andresin87 @rmoralp @sui-bot
 
 # Order is important. The last matching pattern has the most precedence.
 # So if a pull request only touches javascript files, only these owners

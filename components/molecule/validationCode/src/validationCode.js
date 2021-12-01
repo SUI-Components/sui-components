@@ -22,7 +22,7 @@ const MoleculeValidationCode = forwardRef(
   (
     {
       defaultValue = '',
-      deleteButtonTextLabel = '',
+      deleteButtonTextLabel,
       disabled,
       isPassword,
       labelText,

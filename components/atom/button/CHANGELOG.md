@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.73.0 (2021-12-01)
+
+
+### Features
+
+* **components/atom/button:** adds token to button group padding ([7862c92](https://github.com/SUI-Components/sui-components/commit/7862c922045fdc6f6e34f9c7ab840adcc276d3d8))
+* **components/atom/button:** improvements ([3a5736d](https://github.com/SUI-Components/sui-components/commit/3a5736d497b8fdf2fd1abdafab310761d7eacab6))
+
+
+
 # 1.72.0 (2021-11-30)
 
 

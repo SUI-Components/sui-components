@@ -99,6 +99,7 @@ $bxsh-atom-button-group-selected: none !default;
 $bd-atom-button-group-focused: 1px solid !default;
 $bdrs-atom-button-first: $bdrs-m 0 0 $bdrs-m !default;
 $bdrs-atom-button-last: 0 $bdrs-m $bdrs-m 0 !default;
+$p-atom-button-group-sides: $p-l !default;
 
 $bxsh-atom-button-solid-primary: none !default;
 $bxsh-atom-button-solid-primary-negative: none !default;
@@ -175,6 +176,7 @@ $icon-stroke-color: currentColor !default;
   &-group {
     margin-left: -1px;
     margin-right: 0;
+    padding: 0 $p-atom-button-group-sides;
 
     & + & {
       margin-left: -1px;

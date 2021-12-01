@@ -18,8 +18,7 @@ const MoleculeProgressSteps = ({
   children,
   iconStepDone,
   compressed,
-  isProgressBarAutoSizedLength = true,
-  progressBarJustifyContent
+  progressBarJustifyContent = PROGRESS_BAR_JUSTIFY_CONTENT.LEGACY
 }) => {
   const activeStepContent = useRef()
 
@@ -70,7 +69,6 @@ const MoleculeProgressSteps = ({
         numStep,
         lastStep,
         icon,
-        isProgressBarAutoSizedLength,
         progressBarJustifyContent,
         compressed
       })
@@ -79,9 +77,21 @@ const MoleculeProgressSteps = ({
   return (
     <div className={className}>
       {compressed && (
-        <p className={CLASS_COMPRESSED_INFO}>{getCompressedInfoSteps()}</p>
+        <p
+          className={cx(CLASS_COMPRESSED_INFO, {
+            [`${CLASS_COMPRESSED_INFO}--justifyContent-${progressBarJustifyContent}`]: progressBarJustifyContent
+          })}
+        >
+          {getCompressedInfoSteps()}
+        </p>
       )}
-      <div className={CLASS_STEPS}>{extendedChildren}</div>
+      <div
+        className={cx(CLASS_STEPS, {
+          [`${CLASS_STEPS}--justifyContent-${progressBarJustifyContent}`]: progressBarJustifyContent
+        })}
+      >
+        {extendedChildren}
+      </div>
       <div className={CLASS_CONTENT}>{activeStepContent.current}</div>
     </div>
   )
@@ -101,9 +111,6 @@ MoleculeProgressSteps.propTypes = {
 
   /** Vertical mode */
   vertical: PropTypes.bool,
-
-  /** adds/fixes bar length between step numbers autosize**/
-  isProgressBarAutoSizedLength: PropTypes.bool,
 
   /** justify the progressbar elements in its area following the element declared **/
   progressBarJustifyContent: PropTypes.oneOf(

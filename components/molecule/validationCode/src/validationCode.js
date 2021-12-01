@@ -109,9 +109,14 @@ const MoleculeValidationCode = forwardRef(
       <div className={baseClass}>
         <div className={`${baseClass}-header`}>
           <p className={`${baseClass}-header-labelTitle`}>{labelText}</p>
-          <AtomButton onClick={onClearHandler} design={atomButtonDesigns.FLAT}>
-            {deleteButtonTextLabel}
-          </AtomButton>
+          {deleteButtonTextLabel && (
+            <AtomButton
+              onClick={onClearHandler}
+              design={atomButtonDesigns.FLAT}
+            >
+              {deleteButtonTextLabel}
+            </AtomButton>
+          )}
         </div>
         <div className={`${baseClass}-inputContainer`}>
           <div className={`${baseClass}-inputContainer-pinInput`}>

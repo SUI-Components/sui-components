@@ -22,7 +22,7 @@ const MoleculeTextareaField = ({
   alertText,
   autoHideHelpText = false,
   errorText,
-  exceedLength,
+  exceedLength = false,
   computeExceedLengthErrorText,
   helpText,
   id,

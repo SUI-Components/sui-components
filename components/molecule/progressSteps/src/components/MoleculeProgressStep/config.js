@@ -11,6 +11,7 @@ export const CLASS_STEP_ICON = `${CLASS_STEP}-icon`
 export const CLASS_STEP_DESCRIPTION = `${CLASS_STEP}-description`
 
 /* status */
+export const CLASS_BAR_ACTIVE = `${CLASS_BAR}--active`
 export const CLASS_BAR_VISITED = `${CLASS_BAR}--visited`
 export const CLASS_STEP_ACTIVE = `${CLASS_STEP}--active`
 export const CLASS_STEP_VISITED = `${CLASS_STEP}--visited`
@@ -26,6 +27,6 @@ export const isActive = status => status === STATUSES.ACTIVE
 
 export const getStatusClass = status => {
   if (isVisited(status)) return [CLASS_STEP_VISITED, CLASS_BAR_VISITED]
-  if (isActive(status)) return [CLASS_STEP_ACTIVE, '']
+  if (isActive(status)) return [CLASS_STEP_ACTIVE, CLASS_BAR_ACTIVE]
   return ['', '']
 }

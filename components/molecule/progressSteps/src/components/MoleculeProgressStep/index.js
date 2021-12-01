@@ -1,4 +1,3 @@
-import {useMemo} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
@@ -18,22 +17,10 @@ const MoleculeProgressStep = ({
   label,
   numStep,
   lastStep,
-  compressed,
-  isProgressBarAutoSizedLength = true,
-  progressBarJustifyContent
+  compressed
 }) => {
-  const [CLASS_STEP_STATUS, CLASS_BAR_STATUS] = useMemo(
-    getStatusClass.bind(this, status),
-    [status]
-  )
-  const bar = (
-    <hr
-      className={cx(CLASS_BAR, CLASS_BAR_STATUS, {
-        [`${CLASS_BAR}--grow`]: isProgressBarAutoSizedLength,
-        [`${CLASS_BAR}--justifyContent-${progressBarJustifyContent}`]: progressBarJustifyContent
-      })}
-    />
-  )
+  const [CLASS_STEP_STATUS, CLASS_BAR_STATUS] = getStatusClass(status)
+  const bar = <hr className={cx(CLASS_BAR, CLASS_BAR_STATUS)} />
   return (
     <>
       {!compressed && (

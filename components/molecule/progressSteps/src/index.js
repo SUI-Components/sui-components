@@ -39,8 +39,25 @@ const MoleculeProgressSteps = ({
       []
     )
     const stepPositionInfo = `${numActiveStep}/${totalSteps}`
-    return `${stepPositionInfo}: ${activeLabel}`
+    return numActiveStep ? `${stepPositionInfo}: ${activeLabel}` : ' '
   }
+
+  const compressedInfoSteps = Children.toArray(children)
+    .filter(Boolean)
+    .map((child, index, children) => {
+      const {label, status} = child.props
+      const totalSteps = children.length
+      return (
+        <div
+          className={cx(`${CLASS_COMPRESSED_INFO}-item`, {
+            [`${CLASS_COMPRESSED_INFO}-item--active`]:
+              status === STATUSES.ACTIVE
+          })}
+        >
+          {`${index + 1}/${totalSteps}: ${label}`}
+        </div>
+      )
+    })
 
   const extendedChildren = Children.toArray(children)
     .filter(Boolean)
@@ -74,16 +91,31 @@ const MoleculeProgressSteps = ({
       })
     })
 
+  const childrenContent = Children.toArray(children)
+    .filter(Boolean)
+    .map((child, index, children) => {
+      const {children: childrenChild, status} = child.props
+      return (
+        <div
+          className={cx(`${CLASS_CONTENT}-item`, {
+            [`${CLASS_CONTENT}-item--active`]: status === STATUSES.ACTIVE
+          })}
+        >
+          {childrenChild}
+        </div>
+      )
+    })
+
   return (
     <div className={className}>
       {compressed && (
-        <p
+        <div
           className={cx(CLASS_COMPRESSED_INFO, {
             [`${CLASS_COMPRESSED_INFO}--justifyContent-${progressBarJustifyContent}`]: progressBarJustifyContent
           })}
         >
-          {getCompressedInfoSteps()}
-        </p>
+          {compressedInfoSteps}
+        </div>
       )}
       <div
         className={cx(CLASS_STEPS, {
@@ -92,7 +124,8 @@ const MoleculeProgressSteps = ({
       >
         {extendedChildren}
       </div>
-      <div className={CLASS_CONTENT}>{activeStepContent.current}</div>
+      {/*<div className={CLASS_CONTENT}>{activeStepContent.current}</div>*/}
+      <div className={CLASS_CONTENT}>{childrenContent}</div>
     </div>
   )
 }

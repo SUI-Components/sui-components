@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.23.0 (2021-12-02)
+
+
+### Features
+
+* **components/molecule/breadcrumb:** add variable: text-decoration to breadcrumb link ([9bf1b07](https://github.com/SUI-Components/sui-components/commit/9bf1b07050c86212b58e1220c6a4d958ac9f9868))
+
+
+
 # 1.22.0 (2021-10-19)
 
 

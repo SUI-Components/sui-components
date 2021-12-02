@@ -44,7 +44,7 @@ const MoleculeTextareaField = ({
   const [internalValue, setInternalValue] = useState(value ?? '')
 
   useEffect(() => {
-    setInternalValue(value)
+    setInternalValue(value ?? '')
   }, [value])
 
   const computeHelpText = () => {

@@ -24,7 +24,7 @@ const MoleculeTextareaField = ({
   alertText,
   autoHideHelpText = false,
   errorText,
-  canExceedLenth = false,
+  canExceedLength = false,
   helpText,
   id,
   label,
@@ -58,15 +58,11 @@ const MoleculeTextareaField = ({
     ev.persist()
     const value = ev.target.value
 
-    if (value.length <= maxChars) {
+    console.log(canExceedLength)
+    if (value.length <= maxChars || canExceedLength) {
       setInternalValue(value)
       onChange(ev, {value})
-      setShowMaxLengthError(false)
-    }
-    if (value.length > maxChars && canExceedLenth) {
-      setInternalValue(value)
-      onChange(ev, {value})
-      setShowMaxLengthError(true)
+      setShowMaxLengthError(value.length > maxChars)
     }
   }
 
@@ -150,7 +146,7 @@ MoleculeTextareaField.propTypes = {
   autoHideHelpText: PropTypes.bool,
 
   /** Prop to handle if the user can exceed the maxChars length  */
-  canExceedLenth: PropTypes.bool
+  canExceedLength: PropTypes.bool
 }
 
 export default MoleculeTextareaField

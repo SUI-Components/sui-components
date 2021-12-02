@@ -68,7 +68,7 @@ const Demo = () => {
           <div>
             <MoleculeTextareaField
               errorText={errorText}
-              canExceedLength
+              isMaxCharBlocked
               id="commentd"
               label="Text that exceed the maxChars"
               maxChars={maxChars}

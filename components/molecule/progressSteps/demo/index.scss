@@ -4,7 +4,6 @@
   $this: &;
   .DemoMoleculeProgressSteps {
     padding: 20px;
-
     h3 {
       margin-top: 40px;
     }
@@ -13,6 +12,7 @@
       margin: 0;
     }
     &-contentStep {
+      margin: 10px 0 0;
       background: #ddd;
       padding: 10px;
       box-sizing: border-box;
@@ -51,10 +51,17 @@
       resize: horizontal;
     }
   }
-  &:not(&--vertical) {
+  &:not(&--compressed):not(&--vertical) {
     .DemoMoleculeProgressSteps {
       &-contentStep {
         margin: 60px 0 0;
+      }
+    }
+  }
+  &--vertical {
+    .DemoMoleculeProgressSteps {
+      &-contentStep {
+        margin: 0;
       }
     }
   }

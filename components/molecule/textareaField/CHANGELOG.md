@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.7.0 (2021-12-02)
+
+
+### Bug Fixes
+
+* **components/molecule/textareaField:** set default empty string on prop change ([43bd36e](https://github.com/SUI-Components/sui-components/commit/43bd36e5ba095147801d451bac2a23ebad90844f))
+
+
+
 # 3.6.0 (2021-12-02)
 
 

@@ -27,21 +27,6 @@ const MoleculeProgressSteps = ({
     [CLASS_COMPRESSED]: compressed
   })
 
-  const getCompressedInfoSteps = () => {
-    const childrenNodes = Children.toArray(children)
-    const totalSteps = childrenNodes.length
-    const [activeLabel, numActiveStep] = childrenNodes.reduce(
-      (acc, child, index) => {
-        const {status} = child.props
-        if (status === STATUSES.ACTIVE) acc = [child.props.label, index + 1]
-        return acc
-      },
-      []
-    )
-    const stepPositionInfo = `${numActiveStep}/${totalSteps}`
-    return numActiveStep ? `${stepPositionInfo}: ${activeLabel}` : ' '
-  }
-
   const compressedInfoSteps = Children.toArray(children)
     .filter(Boolean)
     .map((child, index, children) => {
@@ -49,6 +34,7 @@ const MoleculeProgressSteps = ({
       const totalSteps = children.length
       return (
         <div
+          key={index}
           className={cx(`${CLASS_COMPRESSED_INFO}-item`, {
             [`${CLASS_COMPRESSED_INFO}-item--active`]:
               status === STATUSES.ACTIVE
@@ -97,6 +83,7 @@ const MoleculeProgressSteps = ({
       const {children: childrenChild, status} = child.props
       return (
         <div
+          key={index}
           className={cx(`${CLASS_CONTENT}-item`, {
             [`${CLASS_CONTENT}-item--active`]: status === STATUSES.ACTIVE
           })}
@@ -124,7 +111,6 @@ const MoleculeProgressSteps = ({
       >
         {extendedChildren}
       </div>
-      {/*<div className={CLASS_CONTENT}>{activeStepContent.current}</div>*/}
       <div className={CLASS_CONTENT}>{childrenContent}</div>
     </div>
   )

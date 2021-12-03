@@ -17,7 +17,7 @@ $mw-progress-steps-path: 100% !default;
 $w-progress-steps-description: 100px !default;
 
 $sz-progress-steps-icon: $sz-icon-xl !default;
-$sz-progress-steps-bar: 6 * $sz-base !default;
+$sz-progress-steps-bar: 3 * $sz-base !default;
 
 $m-progress-steps-icon: $m-s !default;
 $m-progress-steps-bar: $m-s !default;
@@ -126,6 +126,15 @@ $base-class: '.sui-MoleculeProgressSteps';
     }
   }
 
+  &-compressedInfo {
+    @each $justifyContent in $justify-content-path {
+      &--justifyContent-#{$justifyContent} {
+        @if $justifyContent != 'legacy' {
+          justify-content: $justifyContent;
+        }
+      }
+    }
+  }
   &-compressedInfo,
   &-content {
     overflow: hidden;
@@ -136,8 +145,16 @@ $base-class: '.sui-MoleculeProgressSteps';
       flex-basis: 100%;
       flex-shrink: 0;
       &--active {
-        margin-right: 100%;
+        margin-right: 0;
         visibility: inherit;
+      }
+    }
+  }
+
+  #{$base-class}-compressedInfo {
+    &-item {
+      &--active {
+        margin-right: 0;
       }
     }
   }
@@ -189,18 +206,17 @@ $base-class: '.sui-MoleculeProgressSteps';
 
     &#{$base-class}--compressed {
       #{$base-class}-compressedInfo {
+        display: flex;
         flex-direction: column;
-        flex-shrink: 0;
+        flex-basis: auto;
         flex-grow: 1;
+        flex-shrink: 0;
         &-item {
-          flex-basis: auto;
-          flex-shrink: 0;
-          flex-grow: 1;
-          writing-mode: vertical-rl;
-          text-orientation: mixed;
+          display: inline-flex;
+          justify-content: flex-end;
+          align-content: flex-start;
+          margin-top: -100%;
           margin-right: 0;
-          position: relative;
-          top: 0;
           &--active {
             margin-right: 0;
             margin-top: 0;
@@ -208,7 +224,6 @@ $base-class: '.sui-MoleculeProgressSteps';
         }
       }
       #{$base-class}-path {
-        margin-right: 0;
         margin: 0 $m-progress-steps-bar;
       }
     }
@@ -235,7 +250,7 @@ $base-class: '.sui-MoleculeProgressSteps';
           margin: 0 0 $m-progress-steps-bar 0;
         }
         &:last-child {
-          margin: 0 0 $m-progress-steps-bar 0;
+          margin: $m-progress-steps-bar 0 0 0;
         }
         transform: translateY(0);
         width: $h-progress-steps-bar;

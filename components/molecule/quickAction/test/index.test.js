@@ -82,7 +82,7 @@ describe(json.name, () => {
       expect(findClassName(container.innerHTML)).to.be.null
     })
 
-    it('should render leftIcon when giving', () => {
+    it('should render leftIcon when given', () => {
       // Given
       const props = {leftIcon: 'leftIcon'}
 

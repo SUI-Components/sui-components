@@ -13,6 +13,7 @@ import chaiDOM from 'chai-dom'
 import * as pkg from '../src'
 
 import json from '../package.json'
+import {MoleculeProgressStep} from '../src'
 
 chai.use(chaiDOM)
 
@@ -92,6 +93,99 @@ describe(json.name, () => {
 
       // Then
       expect(findClassName(container.innerHTML)).to.be.null
+    })
+
+    it('should render all children contents', () => {
+      // Given
+      const childrenPropsArray = [
+        {
+          label: 'label1',
+          content: 'content1',
+          status: pkg.moleculeProgressStepsStatuses.VISITED
+        },
+        {
+          label: 'label2',
+          content: 'content2',
+          status: pkg.moleculeProgressStepsStatuses.ACTIVE
+        },
+        {
+          label: 'label3',
+          content: 'content3',
+          status: pkg.moleculeProgressStepsStatuses.NORMAL
+        }
+      ]
+      const props = {
+        iconStepDone: <svg />,
+        children: childrenPropsArray.map(
+          ({label, content, status, icon = <svg />}, index) => (
+            <MoleculeProgressStep
+              key={index}
+              label={label}
+              status={status}
+              icon={icon}
+            >
+              {content}
+            </MoleculeProgressStep>
+          )
+        )
+      }
+
+      // When
+      const {container, getByText} = setup(props)
+
+      // Then
+      expect(container.innerHTML).to.be.a('string')
+      expect(container.innerHTML).to.not.have.lengthOf(0)
+      childrenPropsArray.forEach(child => {
+        expect(getByText(child.content).innerHTML).to.equal(child.content)
+      })
+    })
+
+    it('should render all children contents in compressed mode', () => {
+      // Given
+      const childrenPropsArray = [
+        {
+          label: 'label1',
+          content: 'content1',
+          status: pkg.moleculeProgressStepsStatuses.VISITED
+        },
+        {
+          label: 'label2',
+          content: 'content2',
+          status: pkg.moleculeProgressStepsStatuses.ACTIVE
+        },
+        {
+          label: 'label3',
+          content: 'content3',
+          status: pkg.moleculeProgressStepsStatuses.NORMAL
+        }
+      ]
+      const props = {
+        iconStepDone: <svg />,
+        compressed: true,
+        children: childrenPropsArray.map(
+          ({label, content, status, icon = <svg />}, index) => (
+            <MoleculeProgressStep
+              key={index}
+              label={label}
+              status={status}
+              icon={icon}
+            >
+              {content}
+            </MoleculeProgressStep>
+          )
+        )
+      }
+
+      // When
+      const {container, getByText} = setup(props)
+
+      // Then
+      expect(container.innerHTML).to.be.a('string')
+      expect(container.innerHTML).to.not.have.lengthOf(0)
+      childrenPropsArray.forEach(child => {
+        expect(getByText(child.content).innerHTML).to.equal(child.content)
+      })
     })
   })
 

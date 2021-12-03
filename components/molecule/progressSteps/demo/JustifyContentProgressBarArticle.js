@@ -114,7 +114,7 @@ const JustifyContentProgressBarArticle = ({className}) => {
               ...Object.values(moleculeProgressStepsJustifyContentBar)
             ].map(justifyContentValue => (
               <RadioButton
-                key={justifyContentValue}
+                key={`${justifyContentValue}`}
                 value={justifyContentValue}
                 checked={justifyContentBarStatus === justifyContentValue}
                 label={`${justifyContentValue}`}
@@ -147,7 +147,7 @@ const JustifyContentProgressBarArticle = ({className}) => {
           >
             {Object.values(configBasic).map(({label, content, icon}, index) => (
               <MoleculeProgressStep
-                key={index}
+                key={`${index}`}
                 label={label}
                 status={getStatus(step, index)}
                 icon={icon}

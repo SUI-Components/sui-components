@@ -10,10 +10,13 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import {createRef} from 'react'
+import MoleculeDropDownOption from '@s-ui/react-molecule-dropdown-option'
 
 import * as pkg from '../src'
 
 import json from '../package.json'
+import sinon from 'sinon'
+import {fireEvent} from '@testing-library/react'
 
 chai.use(chaiDOM)
 
@@ -150,6 +153,40 @@ describe(json.name, () => {
         expect(getAllByTestId(testID))
           .to.be.an('array')
           .to.have.lengthOf(1)
+      })
+    })
+
+    describe('handlers', () => {
+      describe('onFocus', () => {
+        it('1', async () => {
+          // Given
+          // const spy = sinon.spy()
+          const values = [1, 2, 3]
+          const props = {
+            children: values.map(value => (
+              <MoleculeDropDownOption key={value} value={value}>
+                {value}
+              </MoleculeDropDownOption>
+            )),
+            // onClick: spy,
+            disabled: false
+          }
+
+          // When
+          const {debug, getByRole} = setup(props)
+          debug()
+
+          console.log(getByRole('textbox'))
+          // Then
+          // expect(getByText(props.children).innerHTML).to.equal(props.children)
+
+          // And
+          // When
+          // fireEvent.click(getByText(props.children))
+
+          // sinon.assert.called(spy)
+          // sinon.assert.calledOnce(spy)
+        })
       })
     })
   })

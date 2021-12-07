@@ -49,36 +49,38 @@ const MoleculeAutosuggestFieldMultiSelection = ({
       newTags.push(value)
     }
 
-    onChangeTags(ev, {
-      value: '',
-      tags: newTags
-    })
-    onSelect(ev, {
-      value: '',
-      tags: newTags
-    })
-    autoClose && onToggle(ev, {isOpen: false})
+    typeof onChangeTags === 'function' &&
+      onChangeTags(ev, {
+        value: '',
+        tags: newTags
+      })
+    typeof onSelect === 'function' &&
+      onSelect(ev, {
+        value: '',
+        tags: newTags
+      })
+    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen: false})
     innerRefInput.current && innerRefInput.current.focus()
   }
 
   const handleChangeTags = (ev, {tags, value}) => {
     const isOpen = Boolean(value)
-    onChangeTags(ev, {tags})
-    autoClose && onToggle(ev, {isOpen})
+    typeof onChangeTags === 'function' && onChangeTags(ev, {tags})
+    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen})
     innerRefInput.current && innerRefInput.current.focus()
   }
 
   const handleChange = (ev, {value}) => {
     const isOpen = Boolean(value)
-    onChange(ev, {value})
-    autoClose && onToggle(ev, {isOpen})
+    typeof onChange === 'function' && onChange(ev, {value})
+    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen})
   }
 
   const handleClear = ev => {
     if (!disabled) {
-      onChange(null, {value: ''})
-      onChangeTags(null, {tags: []})
-      onClear(ev)
+      typeof onChange === 'function' && onChange(null, {value: ''})
+      typeof onChangeTags === 'function' && onChangeTags(null, {tags: []})
+      typeof onClear === 'function' && onClear(ev)
     }
   }
 

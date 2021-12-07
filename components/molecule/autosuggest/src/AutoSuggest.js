@@ -38,13 +38,13 @@ const MoleculeAutosuggest = ({
   keysCloseList = CLOSE_KEYS_LIST,
   keysSelection = SELECT_KEYS_LIST,
   multiselection,
-  onBlur = () => {},
-  onChange = () => {},
-  onClear = () => {},
-  onEnter = () => {},
-  onFocus = () => {},
-  onSelect = () => {},
-  onToggle = () => {},
+  onBlur,
+  onChange,
+  onClear,
+  onEnter,
+  onFocus,
+  onSelect,
+  onToggle,
   refMoleculeAutosuggest: refMoleculeAutosuggestFromProps = {},
   refMoleculeAutosuggestInput: refMoleculeAutosuggestInputFromProps = {},
   state,
@@ -98,7 +98,9 @@ const MoleculeAutosuggest = ({
   const closeList = ev => {
     const {current: domMoleculeAutosuggest} = innerRefMoleculeAutosuggest
     handleToggle(ev, {isOpen: false})
-    if (multiselection) onChange(ev, {value: ''})
+    if (multiselection && typeof onChange === 'function') {
+      onChange(ev, {value: ''})
+    }
     domMoleculeAutosuggest && !focus && domMoleculeAutosuggest.focus()
     setFocus(false)
     ev.preventDefault()
@@ -134,14 +136,14 @@ const MoleculeAutosuggest = ({
         focusFirstOption(ev, {options})
       else if (isSomeOptionFocused) handleFocusIn(ev)
       if (key === 'Enter') {
-        onEnter(ev)
+        typeof onEnter === 'function' && onEnter(ev)
         innerRefInput && innerRefInput.focus()
       }
     }
   }
 
   const handleFocusIn = ev => {
-    onFocus(ev)
+    typeof onFocus === 'function' && onFocus(ev)
     setFocus(true)
   }
 
@@ -162,7 +164,7 @@ const MoleculeAutosuggest = ({
           closeList(ev)
         } else {
           setFocus(false)
-          onBlur()
+          typeof onBlur === 'function' && onBlur()
         }
       }
     }, 1)
@@ -173,8 +175,8 @@ const MoleculeAutosuggest = ({
     const {key} = ev
     if (key !== 'ArrowDown') ev.stopPropagation()
     if (key === 'Enter') {
-      onEnter(ev)
-      onEnter && autoClose && closeList(ev)
+      typeof onEnter === 'function' && onEnter(ev)
+      onEnter && typeof onEnter === 'function' && autoClose && closeList(ev)
     }
   }
 

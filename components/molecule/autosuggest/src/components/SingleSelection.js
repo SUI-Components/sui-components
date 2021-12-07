@@ -36,25 +36,25 @@ const MoleculeAutosuggestSingleSelection = ({
   value = ''
 }) => {
   const handleSelection = (ev, {value}) => {
-    onChange(ev, {value})
-    onSelect(ev, {value})
-    autoClose && onToggle(ev, {isOpen: false})
+    typeof onChange === 'function' && onChange(ev, {value})
+    typeof onSelect === 'function' && onSelect(ev, {value})
+    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen: false})
   }
 
   const handleChange = (ev, {value}) => {
-    onChange(ev, {value})
-    autoClose && onToggle(ev, {isOpen: true})
+    typeof onChange === 'function' && onChange(ev, {value})
+    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen: true})
   }
 
   const handleClear = ev => {
     if (!disabled) {
-      onChange(null, {value: ''})
-      onClear(ev)
+      typeof onChange === 'function' && onChange(null, {value: ''})
+      typeof onClear === 'function' && onClear(ev)
     }
   }
 
   const handleRightClick = ev => {
-    onClickRightIcon(ev, {value})
+    typeof onClickRightIcon === 'function' && onClickRightIcon(ev, {value})
   }
 
   return (

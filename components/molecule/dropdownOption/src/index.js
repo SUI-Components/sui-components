@@ -98,6 +98,7 @@ const MoleculeDropdownOption = ({
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       onFocus={handleFocus}
+      role="option"
     >
       {checkbox && (
         <AtomCheckbox

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.36.0 (2021-12-07)
+
+
+### Bug Fixes
+
+* **components/molecule/dropdownOption:** add a11y role option ([80d5133](https://github.com/SUI-Components/sui-components/commit/80d513362e86e39a2c1437ec115e6cb3989d3517))
+
+
+
 # 1.35.0 (2021-10-18)
 
 

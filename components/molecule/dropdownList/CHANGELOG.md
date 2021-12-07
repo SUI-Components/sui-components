@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.24.0 (2021-12-07)
+
+
+### Bug Fixes
+
+* **components/molecule/dropdownList:** add a11y role listbox ([9bc4315](https://github.com/SUI-Components/sui-components/commit/9bc4315d6995875c4e851ccfaaf77dcfe5067c2b))
+
+
+
 # 1.23.0 (2021-11-16)
 
 

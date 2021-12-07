@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import sinon from 'sinon'
+import {fireEvent} from '@testing-library/react'
 
 import * as pkg from '../src'
 
@@ -441,6 +443,67 @@ describe(json.name, () => {
       // Then
       expect(getByText(loadingText)).to.be.visible
       expect(getByRole('status')).to.be.visible
+    })
+
+    describe('disabled', () => {
+      it('should NOT render null when disabled', () => {
+        // Given
+        const props = {
+          disabled: true
+        }
+
+        // When
+        const {container} = setup(props)
+
+        // Then
+        expect(container.innerHTML).to.be.a('string')
+        expect(container.innerHTML).to.not.have.lengthOf(0)
+      })
+
+      it('should fire onClick event when clicking on it if is enabled', async () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          children: 'children',
+          onClick: spy,
+          disabled: false
+        }
+
+        // When
+        const {getByText} = setup(props)
+
+        // Then
+        expect(getByText(props.children).innerHTML).to.equal(props.children)
+
+        // And
+        // When
+        fireEvent.click(getByText(props.children))
+
+        sinon.assert.called(spy)
+        sinon.assert.calledOnce(spy)
+      })
+
+      it('should NOT fire onClick event when clicking on it disabled', async () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          children: 'Button',
+          onClick: spy,
+          disabled: true
+        }
+
+        // When
+        const {getByText} = setup(props)
+
+        // Then
+        expect(getByText(props.children).innerHTML).to.equal(props.children)
+
+        // And
+        // When
+        fireEvent.click(getByText(props.children))
+
+        sinon.assert.notCalled(spy)
+      })
     })
   })
 

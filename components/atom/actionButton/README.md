@@ -16,7 +16,7 @@ $ npm install @s-ui/react-atom-action-button
 ### Basic usage
 
 ```js
-import AtomActionButton from '@s-ui/react-action-atom-button'
+import AtomActionButton from '@s-ui/react-atom-action-button'
 
 const Icon = () => {
   return (

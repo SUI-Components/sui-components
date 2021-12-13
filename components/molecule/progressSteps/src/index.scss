@@ -18,6 +18,7 @@ $w-progress-steps-description: 100px !default;
 
 $sz-progress-steps-icon: $sz-icon-xl !default;
 $sz-progress-steps-bar: 3 * $sz-base !default;
+$sz-progress-steps-bar-compressed: $sz-progress-steps-bar !default;
 
 $m-progress-steps-icon: $m-s !default;
 $m-progress-steps-bar: $m-s !default;
@@ -175,6 +176,7 @@ $base-class: '.sui-MoleculeProgressSteps';
 
     #{$base-class}-path {
       &-bar {
+        flex-basis: $sz-progress-steps-bar-compressed;
         margin: 0 $m-progress-steps-bar;
         &:first-child {
           margin: 0 $m-progress-steps-bar 0 0;

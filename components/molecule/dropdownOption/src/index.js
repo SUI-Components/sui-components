@@ -14,12 +14,14 @@ const CLASS_TEXT = `${BASE_CLASS}-text`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 const CLASS_HIGHLIGHTED = `is-highlighted`
 const CLASS_HIGHLIGHTED_MARK = `${BASE_CLASS}-mark`
+
 const TEXT_WRAP_STYLES = {
   NO_WRAP: 'noWrap',
   TWO_LINES: 'twoLines',
   THREE_LINES: 'threeLines',
   LINE_WRAP: 'lineWrap'
 }
+
 const MoleculeDropdownOption = ({
   checkbox,
   children,

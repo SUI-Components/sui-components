@@ -145,12 +145,11 @@ function MoleculeSelectPopover({
     const newSelectProps = {
       ref: selectRef,
       className: selectClassName,
-      onClick: handleOpenToggle,
-      isOpen
+      onClick: handleOpenToggle
     }
 
     if (renderSelectProp) {
-      return renderProp(renderSelectProp, newSelectProps)
+      return renderProp(renderSelectProp, {...newSelectProps, isOpen})
     }
 
     return (

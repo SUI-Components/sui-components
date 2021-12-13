@@ -67,7 +67,7 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
   }
 
   li {
-    align-items: end;
+    align-items: flex-end;
     background-position-x: center;
     background-position-y: -15px;
     display: flex;

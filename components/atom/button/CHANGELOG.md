@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.78.0 (2021-12-13)
+
+
+### Bug Fixes
+
+* **components/atom/button:** add isFitted as Atom Button own props ([84f3382](https://github.com/SUI-Components/sui-components/commit/84f3382ba5d8dafd7d5a454ee7863417a55c204c))
+
+
+
 # 1.77.0 (2021-12-02)
 
 

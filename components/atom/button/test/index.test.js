@@ -46,7 +46,7 @@ describe(json.name, () => {
       atomButtonTypes,
       atomButtonAlignment,
       atomButtonShapes,
-      default: AtomInput,
+      default: AtomButton,
       ...others
     } = library
 

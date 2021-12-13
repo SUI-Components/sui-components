@@ -96,6 +96,7 @@ export const OWN_PROPS = [
   'className',
   'color',
   'design',
+  'isFitted',
   'focused',
   'fullWidth',
   'groupPosition',

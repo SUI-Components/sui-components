@@ -10,8 +10,8 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import {createRef} from 'react'
-import sinon from 'sinon'
-import {fireEvent} from '@testing-library/react'
+// import sinon from 'sinon'
+// import {fireEvent} from '@testing-library/react'
 import MoleculeDropDownOption from '@s-ui/react-molecule-dropdown-option'
 
 import * as pkg from '../src'
@@ -221,70 +221,153 @@ describe(json.name, () => {
       // Then
       expect(getByRole('combobox').innerHTML).to.be.a('string')
       expect(getByRole('combobox').innerHTML).to.not.have.lengthOf(0)
-      expect(getByRole('textbox').value).to.equal('1')
-      expect(() => getByRole('list', {hidden: true})).to.not.throw()
+      expect(getByRole('textbox').value).to.equal(props.value)
+      expect(() => getByRole('listbox', {hidden: true})).to.not.throw()
       expect(() =>
-        getAllByRole('listitem', {
+        getAllByRole('option', {
           hidden: true
         })
       ).to.not.throw()
       expect(
-        getAllByRole('listitem', {
+        getAllByRole('option', {
           hidden: true
         }).length
       ).to.equal(values.length)
     })
-    it('should NOT render options if there is NO option matching the value', () => {})
-    it('should render options filtered if there is some options matching the value', () => {})
+    it('should render options even if there is NO option matching the value', () => {
+      // Given
+      const values = [
+        '1a',
+        '1b',
+        '1c',
+        '1d',
+        '2a',
+        '2b',
+        '2c',
+        '3a',
+        '3b',
+        '4a'
+      ]
+      const props = {
+        value: '5',
+        children: values.map(value => (
+          <MoleculeDropDownOption key={value} value={value}>
+            {value}
+          </MoleculeDropDownOption>
+        ))
+      }
+
+      // When
+      const {getByRole, getAllByRole} = setup(props)
+
+      // Then
+      expect(getByRole('combobox').innerHTML).to.be.a('string')
+      expect(getByRole('combobox').innerHTML).to.not.have.lengthOf(0)
+      expect(getByRole('textbox').value).to.equal(props.value)
+      expect(() => getByRole('listbox', {hidden: true})).to.not.throw()
+      expect(() =>
+        getAllByRole('option', {
+          hidden: true
+        })
+      ).to.not.throw()
+      expect(
+        getAllByRole('option', {
+          hidden: true
+        }).length
+      ).to.equal(values.length)
+    })
+
+    it('should render options filtered if there is some options matching the value', () => {
+      // Given
+      const values = [
+        '1a',
+        '1b',
+        '1c',
+        '1d',
+        '2a',
+        '2b',
+        '2c',
+        '3a',
+        '3b',
+        '4a'
+      ]
+      const props = {
+        value: '2a',
+        children: values.map(value => (
+          <MoleculeDropDownOption key={value} value={value}>
+            {value}
+          </MoleculeDropDownOption>
+        ))
+      }
+
+      // When
+      const {getByRole, getAllByRole} = setup(props)
+
+      // Then
+      expect(getByRole('combobox').innerHTML).to.be.a('string')
+      expect(getByRole('combobox').innerHTML).to.not.have.lengthOf(0)
+      expect(getByRole('textbox').value).to.equal(props.value)
+      expect(() => getByRole('listbox', {hidden: true})).to.not.throw()
+      expect(() =>
+        getAllByRole('option', {
+          hidden: true
+        })
+      ).to.not.throw()
+      expect(
+        getAllByRole('option', {
+          hidden: true
+        }).length
+      ).to.equal(values.length)
+    })
 
     describe('handlers', () => {
       describe('onFocus', () => {
-        it('1', async () => {
-          // Given
-          const spy = sinon.spy()
-          const keyDownEvents = [{key: 'a'}, {key: 's'}, {key: 'd'}, {key: 'f'}]
-          const changeEvent = {target: {value: 'asdf'}}
-          const values = [1, 2, 3]
-          const props = {
-            value: undefined,
-            children: values.map(value => (
-              <MoleculeDropDownOption key={value} value={value}>
-                {value}
-              </MoleculeDropDownOption>
-            )),
-            onToogle: spy,
-            disabled: false,
-            onChange: (_, {value: newValue}) => {
-              props.value = newValue
-            }
-          }
-
-          // When
-          const {debug, getByRole, rerender} = setup(props)
-          debug()
-
-          console.log(getByRole('combobox'))
-          console.log(getByRole('textbox'))
-          expect(() => getByRole('listbox')).to.throw()
-
-          keyDownEvents.forEach(keyDownEvent =>
-            fireEvent.keyDown(getByRole('combobox'), keyDownEvent)
-          )
-          fireEvent.change(getByRole('textbox'), changeEvent)
-
-          // Then
-          // expect(getByText(props.children).innerHTML).to.equal(props.children)
-          console.log(document.activeElement)
-          rerender(<Component {...props} />)
-          debug()
-          console.log(getByRole('textbox').value)
-          // And
-          // When
-          // fireEvent.click(getByText(props.children))
-
-          // sinon.assert.called(spy)
-          // sinon.assert.calledOnce(spy)
-        })
+        // it('1', async () => {
+        //   // Given
+        //   const spy = sinon.spy()
+        //   const keyDownEvents = [{key: 'a'}, {key: 's'}, {key: 'd'}, {key: 'f'}]
+        //   const changeEvent = {target: {value: 'asdf'}}
+        //   const values = [1, 2, 3]
+        //   const props = {
+        //     value: undefined,
+        //     children: values.map(value => (
+        //       <MoleculeDropDownOption key={value} value={value}>
+        //         {value}
+        //       </MoleculeDropDownOption>
+        //     )),
+        //     onToogle: spy,
+        //     disabled: false,
+        //     onChange: (_, {value: newValue}) => {
+        //       props.value = newValue
+        //     }
+        //   }
+        //
+        //   // When
+        //   const {debug, getByRole, rerender} = setup(props)
+        //   debug()
+        //
+        //   console.log(getByRole('combobox'))
+        //   console.log(getByRole('textbox'))
+        //   expect(() => getByRole('listbox')).to.throw()
+        //
+        //   keyDownEvents.forEach(keyDownEvent =>
+        //     fireEvent.keyDown(getByRole('combobox'), keyDownEvent)
+        //   )
+        //   fireEvent.change(getByRole('textbox'), changeEvent)
+        //
+        //   // Then
+        //   // expect(getByText(props.children).innerHTML).to.equal(props.children)
+        //   console.log(document.activeElement)
+        //   rerender(<Component {...props} />)
+        //   debug()
+        //   console.log(getByRole('textbox').value)
+        //   // And
+        //   // When
+        //   // fireEvent.click(getByText(props.children))
+        //
+        //   // sinon.assert.called(spy)
+        //   // sinon.assert.calledOnce(spy)
+        // })
       })
     })
   })

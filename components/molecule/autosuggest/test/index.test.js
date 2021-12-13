@@ -10,13 +10,13 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import {createRef} from 'react'
+import sinon from 'sinon'
+import {fireEvent} from '@testing-library/react'
 import MoleculeDropDownOption from '@s-ui/react-molecule-dropdown-option'
 
 import * as pkg from '../src'
 
 import json from '../package.json'
-import sinon from 'sinon'
-import {fireEvent} from '@testing-library/react'
 
 chai.use(chaiDOM)
 
@@ -156,30 +156,128 @@ describe(json.name, () => {
       })
     })
 
+    it('should NOT render options if there is no value', () => {
+      // Given
+      const values = [
+        '1a',
+        '1b',
+        '1c',
+        '1d',
+        '2a',
+        '2b',
+        '2c',
+        '3a',
+        '3b',
+        '4a'
+      ]
+      const props = {
+        value: undefined,
+        children: values.map(value => (
+          <MoleculeDropDownOption key={value} value={value}>
+            {value}
+          </MoleculeDropDownOption>
+        ))
+      }
+
+      // When
+      const {getByRole} = setup(props)
+      const autoSuggestElement = getByRole('combobox')
+      const autoSuggestInputElement = getByRole('textbox')
+
+      // Then
+      expect(() => getByRole('listbox')).to.throw()
+      expect(() => getByRole('option')).to.throw()
+      expect(autoSuggestElement.innerHTML).to.be.a('string')
+      expect(autoSuggestElement.innerHTML).to.not.have.lengthOf(0)
+      expect(autoSuggestInputElement.value).to.equal('')
+    })
+
+    it('should render options if there is a value', () => {
+      // Given
+      const values = [
+        '1a',
+        '1b',
+        '1c',
+        '1d',
+        '2a',
+        '2b',
+        '2c',
+        '3a',
+        '3b',
+        '4a'
+      ]
+      const props = {
+        value: '1',
+        children: values.map(value => (
+          <MoleculeDropDownOption key={value} value={value}>
+            {value}
+          </MoleculeDropDownOption>
+        ))
+      }
+
+      // When
+      const {getByRole, getAllByRole} = setup(props)
+
+      // Then
+      expect(getByRole('combobox').innerHTML).to.be.a('string')
+      expect(getByRole('combobox').innerHTML).to.not.have.lengthOf(0)
+      expect(getByRole('textbox').value).to.equal('1')
+      expect(() => getByRole('list', {hidden: true})).to.not.throw()
+      expect(() =>
+        getAllByRole('listitem', {
+          hidden: true
+        })
+      ).to.not.throw()
+      expect(
+        getAllByRole('listitem', {
+          hidden: true
+        }).length
+      ).to.equal(values.length)
+    })
+    it('should NOT render options if there is NO option matching the value', () => {})
+    it('should render options filtered if there is some options matching the value', () => {})
+
     describe('handlers', () => {
       describe('onFocus', () => {
         it('1', async () => {
           // Given
-          // const spy = sinon.spy()
+          const spy = sinon.spy()
+          const keyDownEvents = [{key: 'a'}, {key: 's'}, {key: 'd'}, {key: 'f'}]
+          const changeEvent = {target: {value: 'asdf'}}
           const values = [1, 2, 3]
           const props = {
+            value: undefined,
             children: values.map(value => (
               <MoleculeDropDownOption key={value} value={value}>
                 {value}
               </MoleculeDropDownOption>
             )),
-            // onClick: spy,
-            disabled: false
+            onToogle: spy,
+            disabled: false,
+            onChange: (_, {value: newValue}) => {
+              props.value = newValue
+            }
           }
 
           // When
-          const {debug, getByRole} = setup(props)
+          const {debug, getByRole, rerender} = setup(props)
           debug()
 
+          console.log(getByRole('combobox'))
           console.log(getByRole('textbox'))
+          expect(() => getByRole('listbox')).to.throw()
+
+          keyDownEvents.forEach(keyDownEvent =>
+            fireEvent.keyDown(getByRole('combobox'), keyDownEvent)
+          )
+          fireEvent.change(getByRole('textbox'), changeEvent)
+
           // Then
           // expect(getByText(props.children).innerHTML).to.equal(props.children)
-
+          console.log(document.activeElement)
+          rerender(<Component {...props} />)
+          debug()
+          console.log(getByRole('textbox').value)
           // And
           // When
           // fireEvent.click(getByText(props.children))

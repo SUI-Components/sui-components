@@ -125,7 +125,7 @@ const MoleculeAutosuggest = ({
     const isSelectionKey = keysSelection.includes(key)
 
     if (isTypeableKey) {
-      if (!isSelectionKey) domInnerInput.focus()
+      if (!isSelectionKey && domInnerInput) domInnerInput.focus()
     }
 
     if (isOpenState) {

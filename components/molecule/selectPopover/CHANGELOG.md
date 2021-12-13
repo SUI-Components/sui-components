@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.24.0 (2021-12-13)
+
+
+### Bug Fixes
+
+* **components/molecule/selectPopover:** fix warnings in console ([cb06421](https://github.com/SUI-Components/sui-components/commit/cb064212840f8a4d7397ad5107c5b91a6be3545f))
+
+
+
 # 1.23.0 (2021-11-29)
 
 

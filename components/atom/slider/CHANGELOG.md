@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.22.0 (2021-12-13)
+
+
+### Bug Fixes
+
+* **components/atom/slider:** fix align items incorrect value ([17bbdd6](https://github.com/SUI-Components/sui-components/commit/17bbdd6fdfdb296acee8ef2d7db1e70bc39eec01))
+
+
+
 # 1.21.0 (2021-06-08)
 
 

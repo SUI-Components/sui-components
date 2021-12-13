@@ -10,8 +10,8 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import {createRef} from 'react'
-// import sinon from 'sinon'
-// import {fireEvent} from '@testing-library/react'
+import sinon from 'sinon'
+import {fireEvent} from '@testing-library/react'
 import MoleculeDropDownOption from '@s-ui/react-molecule-dropdown-option'
 
 import * as pkg from '../src'
@@ -322,52 +322,102 @@ describe(json.name, () => {
 
     describe('handlers', () => {
       describe('onFocus', () => {
-        // it('1', async () => {
-        //   // Given
-        //   const spy = sinon.spy()
-        //   const keyDownEvents = [{key: 'a'}, {key: 's'}, {key: 'd'}, {key: 'f'}]
-        //   const changeEvent = {target: {value: 'asdf'}}
-        //   const values = [1, 2, 3]
-        //   const props = {
-        //     value: undefined,
-        //     children: values.map(value => (
-        //       <MoleculeDropDownOption key={value} value={value}>
-        //         {value}
-        //       </MoleculeDropDownOption>
-        //     )),
-        //     onToogle: spy,
-        //     disabled: false,
-        //     onChange: (_, {value: newValue}) => {
-        //       props.value = newValue
-        //     }
-        //   }
-        //
-        //   // When
-        //   const {debug, getByRole, rerender} = setup(props)
-        //   debug()
-        //
-        //   console.log(getByRole('combobox'))
-        //   console.log(getByRole('textbox'))
-        //   expect(() => getByRole('listbox')).to.throw()
-        //
-        //   keyDownEvents.forEach(keyDownEvent =>
-        //     fireEvent.keyDown(getByRole('combobox'), keyDownEvent)
-        //   )
-        //   fireEvent.change(getByRole('textbox'), changeEvent)
-        //
-        //   // Then
-        //   // expect(getByText(props.children).innerHTML).to.equal(props.children)
-        //   console.log(document.activeElement)
-        //   rerender(<Component {...props} />)
-        //   debug()
-        //   console.log(getByRole('textbox').value)
-        //   // And
-        //   // When
-        //   // fireEvent.click(getByText(props.children))
-        //
-        //   // sinon.assert.called(spy)
-        //   // sinon.assert.calledOnce(spy)
-        // })
+        describe('SingleSelection', () => {
+          it('should change its inner value when typing', async () => {
+            // Given
+            const spy = sinon.spy()
+            const keyDownEvents = [
+              {key: 'a'},
+              {key: 's'},
+              {key: 'd'},
+              {key: 'f'}
+            ]
+            const changeEvent = {target: {value: 'asdf'}}
+            const values = [1, 2, 3]
+            const props = {
+              value: undefined,
+              children: values.map(value => (
+                <MoleculeDropDownOption key={value} value={value}>
+                  {value}
+                </MoleculeDropDownOption>
+              )),
+              onToggle: spy,
+              disabled: false,
+              onChange: (_, {value: newValue}) => {
+                props.value = newValue
+              }
+            }
+
+            // When
+            const {getByRole, rerender} = setup(props)
+            keyDownEvents.forEach(keyDownEvent =>
+              fireEvent.keyDown(getByRole('combobox'), keyDownEvent)
+            )
+            fireEvent.change(getByRole('textbox'), changeEvent)
+
+            // Then
+            expect(getByRole('textbox').value).to.equal('')
+
+            // And
+            // When
+
+            rerender(<Component {...props} />)
+
+            expect(getByRole('textbox').value).to.equal(
+              changeEvent.target.value
+            )
+            sinon.assert.called(spy)
+          })
+        })
+
+        describe('MultiSelection', () => {
+          it('should change its inner value when typing', async () => {
+            // Given
+            const spy = sinon.spy()
+            const keyDownEvents = [
+              {key: 'a'},
+              {key: 's'},
+              {key: 'd'},
+              {key: 'f'}
+            ]
+            const changeEvent = {target: {value: 'asdf'}}
+            const values = [1, 2, 3]
+            const props = {
+              value: undefined,
+              children: values.map(value => (
+                <MoleculeDropDownOption key={value} value={value}>
+                  {value}
+                </MoleculeDropDownOption>
+              )),
+              onToggle: spy,
+              disabled: false,
+              onChange: (_, {value: newValue}) => {
+                props.value = newValue
+              },
+              multiselection: true
+            }
+
+            // When
+            const {getByRole, rerender} = setup(props)
+            keyDownEvents.forEach(keyDownEvent =>
+              fireEvent.keyDown(getByRole('combobox'), keyDownEvent)
+            )
+            fireEvent.change(getByRole('textbox'), changeEvent)
+
+            // Then
+            expect(getByRole('textbox').value).to.equal('')
+
+            // And
+            // When
+
+            rerender(<Component {...props} />)
+
+            expect(getByRole('textbox').value).to.equal(
+              changeEvent.target.value
+            )
+            sinon.assert.called(spy)
+          })
+        })
       })
     })
   })

@@ -7,7 +7,7 @@ import {
   RadioButtonGroup
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
-import MoleculeValidationCode from '../../src/validationCode'
+import MoleculeValidationCode from '../../src'
 import {validationCodeSizes} from '../../src/config'
 
 const ArticleSizes = ({className}) => {

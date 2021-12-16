@@ -1,13 +1,38 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 1.9.0 (2021-12-16)
+
+
+### Features
+
+* **components/molecule/selectField:** forward nodeLabel property ([7fed626](https://github.com/SUI-Components/sui-components/commit/7fed6268f0db5e8b645ad50f649ef19ec72bbdd2))
+
+
+
+# 1.8.0 (2021-01-05)
+
+
+### Bug Fixes
+
+* **molecule/selectField:** proptype and tests ([ee02fb6](https://github.com/SUI-Components/sui-components/commit/ee02fb663614825575d72863fd14319bfb316575))
+
+
+
+# 1.7.0 (2020-11-24)
+
+
+### Features
+
+* **molecule/selectField:** Use new jsx runtime ([a05dba0](https://github.com/SUI-Components/sui-components/commit/a05dba02255b2f14104c13623e58e66c2378b772))
+
+
 
 # 1.6.0 (2020-05-29)
 
 
 ### Features
 
-* add assets folder to .npmignore ([98dc6f7](https://github.com/SUI-Components/sui-components/commit/98dc6f703ac7519f1814b3ab4a0f08426812cd4b))
+* **molecule/selectField:** add assets folder to .npmignore ([98dc6f7](https://github.com/SUI-Components/sui-components/commit/98dc6f703ac7519f1814b3ab4a0f08426812cd4b))
 
 
 
@@ -16,7 +41,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* pass down id to molecule/select component ([59359a6](https://github.com/SUI-Components/sui-components/commit/59359a606d32300f31ea8a78b3feb5ae5fbb5c40))
+* **molecule/selectField:** pass down id to molecule/select component ([59359a6](https://github.com/SUI-Components/sui-components/commit/59359a606d32300f31ea8a78b3feb5ae5fbb5c40))
 
 
 
@@ -25,7 +50,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([68aeb36](https://github.com/SUI-Components/sui-components/commit/68aeb36753a464a028bbfc8b23036a011f798896))
+* **molecule/selectField:** Use new [@s-ui-theme](https://github.com/s-ui-theme) ([68aeb36](https://github.com/SUI-Components/sui-components/commit/68aeb36753a464a028bbfc8b23036a011f798896))
 
 
 
@@ -34,7 +59,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add alert state ([19d66a4](https://github.com/SUI-Components/sui-components/commit/19d66a4def16b0436d07237c6c22a6ec4df55173))
+* **molecule/selectField:** add alert state ([19d66a4](https://github.com/SUI-Components/sui-components/commit/19d66a4def16b0436d07237c6c22a6ec4df55173))
 
 
 
@@ -43,8 +68,8 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix on change propagation ([f632904](https://github.com/SUI-Components/sui-components/commit/f632904d275bfe4a29c15ecbb1e0a220e2d414b2))
-* rename onChange ([2646ea7](https://github.com/SUI-Components/sui-components/commit/2646ea7078b1d8c332e1f4b28bffbdaa413e6374))
+* **molecule/selectField:** fix on change propagation ([f632904](https://github.com/SUI-Components/sui-components/commit/f632904d275bfe4a29c15ecbb1e0a220e2d414b2))
+* **molecule/selectField:** rename onChange ([2646ea7](https://github.com/SUI-Components/sui-components/commit/2646ea7078b1d8c332e1f4b28bffbdaa413e6374))
 
 
 
@@ -53,12 +78,12 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* hasErrors ([23765a0](https://github.com/SUI-Components/sui-components/commit/23765a03ff59149b09e4eb35fbb80ba0376f98df))
-* little fixing after code review ([3fd7abe](https://github.com/SUI-Components/sui-components/commit/3fd7abec5e84d4286ee47b525fad0363f9f5a430))
-* readme ([f773f81](https://github.com/SUI-Components/sui-components/commit/f773f81634697a77f49593fa57661c5f79c6baa9))
-* readme selectField ([d7efdeb](https://github.com/SUI-Components/sui-components/commit/d7efdeb5f50e4bbe803afd459247b48f3413686d))
-* select field demo ([12bc09c](https://github.com/SUI-Components/sui-components/commit/12bc09c4d73018b06b3539da4738921849dbeb82))
-* selectFiled demo use cases ([3fa3ecc](https://github.com/SUI-Components/sui-components/commit/3fa3ecc13e6e4d40217ae0e41df3a7cbdfefa15d))
+* **molecule/selectField:** hasErrors ([23765a0](https://github.com/SUI-Components/sui-components/commit/23765a03ff59149b09e4eb35fbb80ba0376f98df))
+* **molecule/selectField:** little fixing after code review ([3fd7abe](https://github.com/SUI-Components/sui-components/commit/3fd7abec5e84d4286ee47b525fad0363f9f5a430))
+* **molecule/selectField:** readme ([f773f81](https://github.com/SUI-Components/sui-components/commit/f773f81634697a77f49593fa57661c5f79c6baa9))
+* **molecule/selectField:** readme selectField ([d7efdeb](https://github.com/SUI-Components/sui-components/commit/d7efdeb5f50e4bbe803afd459247b48f3413686d))
+* **molecule/selectField:** select field demo ([12bc09c](https://github.com/SUI-Components/sui-components/commit/12bc09c4d73018b06b3539da4738921849dbeb82))
+* **molecule/selectField:** selectFiled demo use cases ([3fa3ecc](https://github.com/SUI-Components/sui-components/commit/3fa3ecc13e6e4d40217ae0e41df3a7cbdfefa15d))
 
 
 

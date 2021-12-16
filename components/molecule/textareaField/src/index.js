@@ -28,6 +28,7 @@ const MoleculeTextareaField = ({
   helpText,
   id,
   label,
+  nodeLabel,
   maxChars,
   onChange = NOOP,
   successText,
@@ -71,6 +72,7 @@ const MoleculeTextareaField = ({
     <MoleculeField
       name={id}
       label={label}
+      nodeLabel={nodeLabel}
       textCharacters={textCharacters}
       successText={successText}
       errorText={errorText}
@@ -119,6 +121,9 @@ MoleculeTextareaField.propTypes = {
 
   /** Text to be displayed as label */
   label: PropTypes.string,
+
+  /** React node to be displayed as label if there is not a label */
+  nodeLabel: PropTypes.element,
 
   /** used as for attribute and textarea id */
   id: PropTypes.string,

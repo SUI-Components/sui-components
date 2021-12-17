@@ -6,6 +6,7 @@ import MoleculeButtonGroup from '@s-ui/react-molecule-button-group'
 const MoleculeButtonGroupField = ({
   id,
   label,
+  nodeLabel,
   successText,
   errorText,
   alertText,
@@ -18,6 +19,7 @@ const MoleculeButtonGroupField = ({
     <MoleculeField
       name={id}
       label={label}
+      nodeLabel={nodeLabel}
       successText={successText}
       errorText={errorText}
       alertText={alertText}
@@ -37,6 +39,9 @@ MoleculeButtonGroupField.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element),
   /** Text to be displayed as label */
   label: PropTypes.string.isRequired,
+
+  /** React node to be displayed as label if there is not a label */
+  nodeLabel: PropTypes.element,
 
   /** used as label for attribute and input element id */
   id: PropTypes.string,

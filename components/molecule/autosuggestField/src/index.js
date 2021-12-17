@@ -26,6 +26,7 @@ function MoleculeAutosuggestField({
   id,
   inline,
   label,
+  nodeLabel,
   onChange,
   successText,
   useContrastLabel,
@@ -45,6 +46,7 @@ function MoleculeAutosuggestField({
     <MoleculeField
       name={id}
       label={label}
+      nodeLabel={nodeLabel}
       successText={successText}
       errorText={errorText}
       alertText={alertText}
@@ -72,6 +74,9 @@ MoleculeAutosuggestField.displayName = 'MoleculeAutosuggestField'
 MoleculeAutosuggestField.propTypes = {
   /** Text to be displayed as label */
   label: PropTypes.string.isRequired,
+
+  /** React node to be displayed as label if there is not a label */
+  nodeLabel: PropTypes.element,
 
   /** used as label for attribute and Autosuggest element id */
   id: PropTypes.string,

@@ -9,7 +9,7 @@ import {
   Cell,
   Label
 } from '@s-ui/documentation-library'
-import PinInput from '../src/PinInput'
+import PinInput from '../src'
 import PinInputField from '../src/PinInputField'
 import {useState} from 'react'
 

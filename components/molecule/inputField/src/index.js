@@ -17,6 +17,7 @@ const getState = ({successText, errorState, alertText}) => {
 const MoleculeInputField = ({
   id,
   label,
+  nodeLabel,
   successText,
   errorText,
   alertText,
@@ -36,6 +37,7 @@ const MoleculeInputField = ({
     <MoleculeField
       name={id}
       label={label}
+      nodeLabel={nodeLabel}
       successText={successText}
       errorText={errorText}
       alertText={alertText}
@@ -62,6 +64,9 @@ MoleculeInputField.displayName = 'MoleculeInputField'
 MoleculeInputField.propTypes = {
   /** Text to be displayed as label */
   label: PropTypes.string.isRequired,
+
+  /** React node to be displayed as label if there is not a label */
+  nodeLabel: PropTypes.element,
 
   /** used as label for attribute and input element id */
   id: PropTypes.string,

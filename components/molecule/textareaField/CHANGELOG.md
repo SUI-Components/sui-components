@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.8.0 (2021-12-16)
+
+
+### Features
+
+* **components/molecule/textareaField:** forward nodeLabel property ([3df1041](https://github.com/SUI-Components/sui-components/commit/3df10412a87dc3bae6dcc7ee2bf4cbf6cdf6619c))
+
+
+
 # 3.7.0 (2021-12-02)
 
 

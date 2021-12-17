@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.6.0 (2021-12-16)
+
+
+### Features
+
+* **components/molecule/inputField:** forward nodeLabel property ([1f142ee](https://github.com/SUI-Components/sui-components/commit/1f142ee469619642625d3ea2399b3d6f3c7fddd8))
+
+
+
 # 4.5.0 (2021-09-09)
 
 

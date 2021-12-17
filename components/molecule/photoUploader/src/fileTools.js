@@ -110,6 +110,7 @@ export const prepareFiles = ({
   currentFiles,
   defaultFormatToBase64Options,
   errorCorruptedPhotoUploadedText,
+  errorSaveImageEndpoint,
   handlePhotosRejected,
   newFiles,
   setCorruptedFileError,
@@ -152,22 +153,26 @@ export const prepareFiles = ({
               blob,
               callbackUploadPhoto
             )
-            currentFiles.push({
-              blob,
-              file,
-              hasErrors,
-              isModified: false,
-              isNew: true,
-              originalBase64,
-              properties: {
-                path: nextFile.path,
-                size: nextFile.size,
-                lastModified: nextFile.lastModified
-              },
-              preview: croppedBase64,
-              rotation,
-              url
-            })
+            if (!url) {
+              setCorruptedFileError(errorSaveImageEndpoint)
+            } else {
+              currentFiles.push({
+                blob,
+                file,
+                hasErrors,
+                isModified: false,
+                isNew: true,
+                originalBase64,
+                properties: {
+                  path: nextFile.path,
+                  size: nextFile.size,
+                  lastModified: nextFile.lastModified
+                },
+                preview: croppedBase64,
+                rotation,
+                url
+              })
+            }
           }
         }
       )

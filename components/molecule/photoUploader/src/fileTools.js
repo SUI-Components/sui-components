@@ -153,7 +153,7 @@ export const prepareFiles = ({
               blob,
               callbackUploadPhoto
             )
-            if (!url) {
+            if (callbackUploadPhoto && !url) {
               setCorruptedFileError(errorSaveImageEndpoint)
             } else {
               currentFiles.push({

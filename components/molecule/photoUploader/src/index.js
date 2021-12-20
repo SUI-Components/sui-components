@@ -28,6 +28,7 @@ import {
   DEFAULT_FILE_TYPES_ACCEPTED,
   DEFAULT_MAX_FILE_SIZE_ACCEPTED,
   DEFAULT_NOTIFICATION_ERROR,
+  DEFAULT_SAVE_IMAGE_ERROR,
   DRAG_STATE_STATUS_REJECTED,
   ROTATION_DIRECTION,
   REJECT_FILES_REASONS,
@@ -62,7 +63,7 @@ const MoleculePhotoUploader = forwardRef(
       errorFileExcededMaxSizeText,
       errorFormatPhotoUploadedText,
       errorInitialPhotoDownloadErrorText,
-      errorSaveImageEndpoint,
+      errorSaveImageEndpoint = DEFAULT_SAVE_IMAGE_ERROR,
       infoIcon = noop,
       initialPhotos = [],
       limitPhotosUploadedText,
@@ -437,7 +438,7 @@ MoleculePhotoUploader.propTypes = {
   errorInitialPhotoDownloadErrorText: PropTypes.string.isRequired,
 
   /** Text showed at error notification when the saveImages endpoint returns an error  */
-  errorSaveImageEndpoint: PropTypes.string.isRequired,
+  errorSaveImageEndpoint: PropTypes.string,
 
   /** Info icon */
   infoIcon: PropTypes.func.isRequired,

@@ -24,6 +24,8 @@ export const DEFAULT_FILE_TYPES_ACCEPTED =
   'image/jpeg, image/gif, image/png, image/webp, image/bmp'
 export const DEFAULT_MAX_FILE_SIZE_ACCEPTED = 5e7
 export const DEFAULT_NOTIFICATION_ERROR = {isError: false, text: ''}
+export const DEFAULT_SAVE_IMAGE_ERROR =
+  'An error has occurred, please try again'
 export const DEFAULT_HAS_ERRORS_STATUS = false
 
 export const DRAG_STATE_STATUS_ACCEPTED = 'accepted'

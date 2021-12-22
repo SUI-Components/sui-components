@@ -3,7 +3,7 @@ import {Children} from 'react'
 
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import AtomInput from '@s-ui/react-atom-input'
-import {InputWithClearUI as AtomInputWithClearUI} from './InputWithClearUI'
+import {InputWithClearUI} from './InputWithClearUI'
 
 const MoleculeAutosuggestSingleSelection = ({
   autoClose,
@@ -59,13 +59,14 @@ const MoleculeAutosuggestSingleSelection = ({
 
   return (
     <>
-      <AtomInputWithClearUI
+      <InputWithClearUI
         ariaLabel={ariaLabel}
         autoComplete={autoComplete}
         button={rightButton}
         disabled={disabled}
         iconClear={!disabled && iconClear}
         id={id}
+        reference={refInput}
         inputMode={inputMode}
         isVisibleClear={value}
         leftIcon={leftIcon}
@@ -76,7 +77,6 @@ const MoleculeAutosuggestSingleSelection = ({
         onClickRightIcon={handleRightClick}
         onKeyDown={onInputKeyDown}
         placeholder={placeholder}
-        reference={refInput}
         required={required}
         rightIcon={rightIcon}
         tabIndex={tabIndex}
@@ -84,7 +84,7 @@ const MoleculeAutosuggestSingleSelection = ({
         value={value}
       >
         <AtomInput />
-      </AtomInputWithClearUI>
+      </InputWithClearUI>
       {value && (
         <MoleculeDropdownList
           size={size}

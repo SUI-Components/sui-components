@@ -4,7 +4,7 @@ import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 import isEqual from 'lodash.isequal'
-import {InputWithClearUI as MoleculeInputTagsWithClearUI} from './InputWithClearUI'
+import {InputWithClearUI} from './InputWithClearUI'
 
 const MoleculeAutosuggestFieldMultiSelection = ({
   autoClose,
@@ -86,7 +86,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
 
   return (
     <>
-      <MoleculeInputTagsWithClearUI
+      <InputWithClearUI
         allowDuplicates={allowDuplicates}
         autoComplete={autoComplete}
         disabled={disabled}
@@ -111,7 +111,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         value={value}
       >
         <MoleculeInputTags />
-      </MoleculeInputTagsWithClearUI>
+      </InputWithClearUI>
       <MoleculeDropdownList
         checkbox
         highlightQuery={value}

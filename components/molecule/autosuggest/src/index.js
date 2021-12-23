@@ -170,7 +170,6 @@ const MoleculeAutosuggest = ({
 
   const handleInputKeyDown = ev => {
     const {key} = ev
-    if (key !== 'ArrowDown') ev.stopPropagation()
     if (key === 'Enter') {
       typeof onEnter === 'function' && onEnter(ev)
       onEnter && typeof onEnter === 'function' && autoClose && closeList(ev)

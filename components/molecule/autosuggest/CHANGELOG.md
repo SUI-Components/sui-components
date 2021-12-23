@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.54.0 (2021-12-23)
+
+
+### Bug Fixes
+
+* **components/molecule/autosuggest:** autosuggest prevent key handle ([78e89fa](https://github.com/SUI-Components/sui-components/commit/78e89fa224a653581b3e2d88611be64cb8233b36))
+
+
+
 # 2.53.0 (2021-11-10)
 
 

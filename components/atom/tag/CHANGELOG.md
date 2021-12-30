@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.34.0 (2021-12-30)
+
+
+### Features
+
+* **components/atom/tag:** add border color and hover border color in custom type tags ([2e851f3](https://github.com/SUI-Components/sui-components/commit/2e851f3530547dd74314be43d59b452e11860e61))
+
+
+
 # 2.33.0 (2021-11-01)
 
 
@@ -269,7 +278,6 @@
 * **atom/tag:** add rel prop and linkTypes options to atom/tag component ([a7fae8e](https://github.com/SUI-Components/sui-components/commit/a7fae8e84ccffb2de81e57c4aba155fa81ed80ad))
 * **atom/tag:** handle optional props, rel, in atom/tag component ([2f147f7](https://github.com/SUI-Components/sui-components/commit/2f147f705dc16f0264cd78a61c3a6e147b8b3c55))
 * **atom/tag:** refactor proptypes validation on atom/tag component ([4ceee47](https://github.com/SUI-Components/sui-components/commit/4ceee47e4aff63ab2c50b8fb6f3e842d81496737))
-* **atom/tag:** resolve package-lock conflicts ([9c0d613](https://github.com/SUI-Components/sui-components/commit/9c0d613fb95760daa5ba510b6ffa534dc6844b17))
 
 
 

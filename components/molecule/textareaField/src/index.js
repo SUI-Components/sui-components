@@ -18,32 +18,38 @@ const getState = ({successText, errorState, alertText}) => {
   if (alertText) return AtomTextareaStates.ALERT
 }
 
+const NOOP = () => {}
+
 const MoleculeTextareaField = ({
-  id,
-  label,
-  maxChars,
-  textCharacters = 'characters',
-  successText,
-  errorText,
   alertText,
   autoHideHelpText = false,
+  errorText,
+  isMaxCharBlocked = false,
   helpText,
+  id,
+  label,
+  nodeLabel,
+  maxChars,
+  onChange = NOOP,
+  successText,
+  textCharacters = 'characters',
   value = '',
-  onChange = () => {},
   ...props
 }) => {
   const errorState = hasErrors({successText, errorText})
   const textAreaState = getState({successText, errorState, alertText})
+  const [showMaxLengthError, setShowMaxLengthError] = useState(false)
 
   const {disabled} = props
 
-  const [internalValue, setInternalValue] = useState(value)
+  const [internalValue, setInternalValue] = useState(value ?? '')
 
   useEffect(() => {
-    setInternalValue(value)
+    setInternalValue(value ?? '')
   }, [value])
 
   const computeHelpText = () => {
+    if (showMaxLengthError) return ''
     const numCharacters = internalValue.length
     const dynamicText = `${numCharacters}/${maxChars} ${textCharacters}`
     return helpText ? `${helpText} - ${dynamicText}` : dynamicText
@@ -52,9 +58,11 @@ const MoleculeTextareaField = ({
   const onChangeHandler = ev => {
     ev.persist()
     const value = ev.target.value
-    if (value.length <= maxChars) {
+
+    if (value.length <= maxChars || isMaxCharBlocked) {
       setInternalValue(value)
       onChange(ev, {value})
+      setShowMaxLengthError(value.length > maxChars)
     }
   }
 
@@ -64,6 +72,7 @@ const MoleculeTextareaField = ({
     <MoleculeField
       name={id}
       label={label}
+      nodeLabel={nodeLabel}
       textCharacters={textCharacters}
       successText={successText}
       errorText={errorText}
@@ -113,6 +122,9 @@ MoleculeTextareaField.propTypes = {
   /** Text to be displayed as label */
   label: PropTypes.string,
 
+  /** React node to be displayed as label if there is not a label */
+  nodeLabel: PropTypes.element,
+
   /** used as for attribute and textarea id */
   id: PropTypes.string,
 
@@ -135,7 +147,10 @@ MoleculeTextareaField.propTypes = {
   disabled: PropTypes.bool,
 
   /** Boolean to decide if helptext should be auto hide */
-  autoHideHelpText: PropTypes.bool
+  autoHideHelpText: PropTypes.bool,
+
+  /** Prop to handle if the user can exceed the maxChars length  */
+  isMaxCharBlocked: PropTypes.bool
 }
 
 export default MoleculeTextareaField

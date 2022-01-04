@@ -102,6 +102,7 @@ const MoleculeDropdownList = forwardRef(
         tabIndex={0}
         onKeyDown={handleKeyDown}
         className={classNames}
+        role="listbox"
       >
         {Children.toArray(children)
           .filter(Boolean)

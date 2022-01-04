@@ -1,5 +1,26 @@
 # CHANGELOG
 
+# 2.7.0 (2021-12-23)
+
+
+### Bug Fixes
+
+* **components/molecule/photoUploader:** Add condition to prepareFiles to know when callbackUploadPho ([9a3e964](https://github.com/SUI-Components/sui-components/commit/9a3e9644656213b37550a7781c5d9e7b21e5b23b))
+* **components/molecule/photoUploader:** Change condition to show error on upload image endpoint erro ([2aa2bb8](https://github.com/SUI-Components/sui-components/commit/2aa2bb8ba6d75dfa7ba2e13effa290c82a9a0244))
+
+
+
+# 2.6.0 (2021-12-20)
+
+
+### Features
+
+* **components/molecule/photoUploader:** Add errorSaveImageEndpoint prop ([ea87331](https://github.com/SUI-Components/sui-components/commit/ea87331a1cafccbe0d685cafc76b68c9aa455a19))
+* **components/molecule/photoUploader:** Add url control in prepareFile function ([4d4d711](https://github.com/SUI-Components/sui-components/commit/4d4d71102a5e01bd3ec29019f75ddd8a4136782e))
+* **components/molecule/photoUploader:** Remove required from errorSaveImageEndpoint prop ([70c578c](https://github.com/SUI-Components/sui-components/commit/70c578c74d7cf306ec2c11acfd5a8459483d0a24))
+
+
+
 # 2.5.0 (2021-07-30)
 
 

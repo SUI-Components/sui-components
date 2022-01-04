@@ -357,6 +357,20 @@ const ToogleArticle = () => {
   )
 }
 
+const FullWidthArticle = () => (
+  <Article className={CLASS_SECTION}>
+    <H2>fullWidth</H2>
+    <Paragraph>
+      Use <Code>fullWidth</Code> to fill the container
+    </Paragraph>
+    <Grid cols={1} style={{width: 400}}>
+      <Cell style={flexCenteredStyle}>
+        <AtomSwitch fullWidth type="single" label="fullWidth" />
+      </Cell>
+    </Grid>
+  </Article>
+)
+
 const Demo = () => {
   return (
     <div className="sui-StudioPreview">
@@ -384,6 +398,8 @@ const Demo = () => {
         <ControlledAndUncontrolledArticle />
         <br />
         <ToogleArticle />
+        <br />
+        <FullWidthArticle />
         <br />
       </div>
     </div>

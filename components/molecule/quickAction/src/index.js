@@ -1,22 +1,14 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const CLASS = 'sui-MoleculeQuickAction'
-
-const SIZES = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large'
-}
-
-const getClassName = variant => `${CLASS}--${variant}`
+import {CLASS, SIZES, getClassName} from './config'
 
 const MoleculeQuickAction = ({
   size = SIZES.SMALL,
   children,
   leftIcon,
   rightIcon,
-  onClick = () => {},
+  onClick,
   disabled = false
 }) => {
   const sizeKey = size.toUpperCase()
@@ -27,7 +19,8 @@ const MoleculeQuickAction = ({
     disabled && getClassName('disabled')
   )
 
-  const handleClick = ev => isEnabled && onClick(ev)
+  const handleClick = ev =>
+    isEnabled && typeof onClick === 'function' && onClick(ev)
 
   return (
     <div className={classNames} onClick={handleClick}>

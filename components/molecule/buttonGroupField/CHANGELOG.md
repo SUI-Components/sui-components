@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.7.0 (2021-12-16)
+
+
+### Features
+
+* **components/molecule/buttonGroupField:** forward nodeLabel property ([2da3233](https://github.com/SUI-Components/sui-components/commit/2da3233dc91d3502febee621a85065ffb505a334))
+
+
+
 # 1.6.0 (2021-10-27)
 
 

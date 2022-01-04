@@ -2,17 +2,7 @@ import PropTypes from 'prop-types'
 import LineProgressBar from './LineProgressBar'
 import CircleProgressBar from './CircleProgressBar'
 import LineDoubleProgressBar from './LineDoubleProgressBar'
-
-const TYPES = {
-  CIRCLE: 'circle',
-  LINE: 'line',
-  LINE_DOUBLE_BAR: 'lineDoubleBar'
-}
-
-const SIZES = {
-  LARGE: 'large',
-  SMALL: 'small'
-}
+import {TYPES, SIZES} from './config'
 
 const AtomProgressBar = ({type, size, ...props}) => {
   switch (type) {

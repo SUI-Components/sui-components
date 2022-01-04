@@ -10,6 +10,9 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import {createRef} from 'react'
+import sinon from 'sinon'
+import {fireEvent} from '@testing-library/react'
+import MoleculeDropDownOption from '@s-ui/react-molecule-dropdown-option'
 
 import * as pkg from '../src'
 
@@ -150,6 +153,271 @@ describe(json.name, () => {
         expect(getAllByTestId(testID))
           .to.be.an('array')
           .to.have.lengthOf(1)
+      })
+    })
+
+    it('should NOT render options if there is no value', () => {
+      // Given
+      const values = [
+        '1a',
+        '1b',
+        '1c',
+        '1d',
+        '2a',
+        '2b',
+        '2c',
+        '3a',
+        '3b',
+        '4a'
+      ]
+      const props = {
+        value: undefined,
+        children: values.map(value => (
+          <MoleculeDropDownOption key={value} value={value}>
+            {value}
+          </MoleculeDropDownOption>
+        ))
+      }
+
+      // When
+      const {getByRole} = setup(props)
+      const autoSuggestElement = getByRole('combobox')
+      const autoSuggestInputElement = getByRole('textbox')
+
+      // Then
+      expect(() => getByRole('listbox')).to.throw()
+      expect(() => getByRole('option')).to.throw()
+      expect(autoSuggestElement.innerHTML).to.be.a('string')
+      expect(autoSuggestElement.innerHTML).to.not.have.lengthOf(0)
+      expect(autoSuggestInputElement.value).to.equal('')
+    })
+
+    it('should render options if there is a value', () => {
+      // Given
+      const values = [
+        '1a',
+        '1b',
+        '1c',
+        '1d',
+        '2a',
+        '2b',
+        '2c',
+        '3a',
+        '3b',
+        '4a'
+      ]
+      const props = {
+        value: '1',
+        children: values.map(value => (
+          <MoleculeDropDownOption key={value} value={value}>
+            {value}
+          </MoleculeDropDownOption>
+        ))
+      }
+
+      // When
+      const {getByRole, getAllByRole} = setup(props)
+
+      // Then
+      expect(getByRole('combobox').innerHTML).to.be.a('string')
+      expect(getByRole('combobox').innerHTML).to.not.have.lengthOf(0)
+      expect(getByRole('textbox').value).to.equal(props.value)
+      expect(() => getByRole('listbox', {hidden: true})).to.not.throw()
+      expect(() =>
+        getAllByRole('option', {
+          hidden: true
+        })
+      ).to.not.throw()
+      expect(
+        getAllByRole('option', {
+          hidden: true
+        }).length
+      ).to.equal(values.length)
+    })
+    it('should render options even if there is NO option matching the value', () => {
+      // Given
+      const values = [
+        '1a',
+        '1b',
+        '1c',
+        '1d',
+        '2a',
+        '2b',
+        '2c',
+        '3a',
+        '3b',
+        '4a'
+      ]
+      const props = {
+        value: '5',
+        children: values.map(value => (
+          <MoleculeDropDownOption key={value} value={value}>
+            {value}
+          </MoleculeDropDownOption>
+        ))
+      }
+
+      // When
+      const {getByRole, getAllByRole} = setup(props)
+
+      // Then
+      expect(getByRole('combobox').innerHTML).to.be.a('string')
+      expect(getByRole('combobox').innerHTML).to.not.have.lengthOf(0)
+      expect(getByRole('textbox').value).to.equal(props.value)
+      expect(() => getByRole('listbox', {hidden: true})).to.not.throw()
+      expect(() =>
+        getAllByRole('option', {
+          hidden: true
+        })
+      ).to.not.throw()
+      expect(
+        getAllByRole('option', {
+          hidden: true
+        }).length
+      ).to.equal(values.length)
+    })
+
+    it('should render options filtered if there is some options matching the value', () => {
+      // Given
+      const values = [
+        '1a',
+        '1b',
+        '1c',
+        '1d',
+        '2a',
+        '2b',
+        '2c',
+        '3a',
+        '3b',
+        '4a'
+      ]
+      const props = {
+        value: '2a',
+        children: values.map(value => (
+          <MoleculeDropDownOption key={value} value={value}>
+            {value}
+          </MoleculeDropDownOption>
+        ))
+      }
+
+      // When
+      const {getByRole, getAllByRole} = setup(props)
+
+      // Then
+      expect(getByRole('combobox').innerHTML).to.be.a('string')
+      expect(getByRole('combobox').innerHTML).to.not.have.lengthOf(0)
+      expect(getByRole('textbox').value).to.equal(props.value)
+      expect(() => getByRole('listbox', {hidden: true})).to.not.throw()
+      expect(() =>
+        getAllByRole('option', {
+          hidden: true
+        })
+      ).to.not.throw()
+      expect(
+        getAllByRole('option', {
+          hidden: true
+        }).length
+      ).to.equal(values.length)
+    })
+
+    describe('handlers', () => {
+      describe('onFocus', () => {
+        describe('SingleSelection', () => {
+          it('should change its inner value when typing', async () => {
+            // Given
+            const spy = sinon.spy()
+            const keyDownEvents = [
+              {key: 'a'},
+              {key: 's'},
+              {key: 'd'},
+              {key: 'f'}
+            ]
+            const changeEvent = {target: {value: 'asdf'}}
+            const values = [1, 2, 3]
+            const props = {
+              value: undefined,
+              children: values.map(value => (
+                <MoleculeDropDownOption key={value} value={value}>
+                  {value}
+                </MoleculeDropDownOption>
+              )),
+              onToggle: spy,
+              disabled: false,
+              onChange: (_, {value: newValue}) => {
+                props.value = newValue
+              }
+            }
+
+            // When
+            const {getByRole, rerender} = setup(props)
+            keyDownEvents.forEach(keyDownEvent =>
+              fireEvent.keyDown(getByRole('combobox'), keyDownEvent)
+            )
+            fireEvent.change(getByRole('textbox'), changeEvent)
+
+            // Then
+            expect(getByRole('textbox').value).to.equal('')
+
+            // And
+            // When
+
+            rerender(<Component {...props} />)
+
+            expect(getByRole('textbox').value).to.equal(
+              changeEvent.target.value
+            )
+            sinon.assert.called(spy)
+          })
+        })
+
+        describe('MultiSelection', () => {
+          it('should change its inner value when typing', async () => {
+            // Given
+            const spy = sinon.spy()
+            const keyDownEvents = [
+              {key: 'a'},
+              {key: 's'},
+              {key: 'd'},
+              {key: 'f'}
+            ]
+            const changeEvent = {target: {value: 'asdf'}}
+            const values = [1, 2, 3]
+            const props = {
+              value: undefined,
+              children: values.map(value => (
+                <MoleculeDropDownOption key={value} value={value}>
+                  {value}
+                </MoleculeDropDownOption>
+              )),
+              onToggle: spy,
+              disabled: false,
+              onChange: (_, {value: newValue}) => {
+                props.value = newValue
+              },
+              multiselection: true
+            }
+
+            // When
+            const {getByRole, rerender} = setup(props)
+            keyDownEvents.forEach(keyDownEvent =>
+              fireEvent.keyDown(getByRole('combobox'), keyDownEvent)
+            )
+            fireEvent.change(getByRole('textbox'), changeEvent)
+
+            // Then
+            expect(getByRole('textbox').value).to.equal('')
+
+            // And
+            // When
+
+            rerender(<Component {...props} />)
+
+            expect(getByRole('textbox').value).to.equal(
+              changeEvent.target.value
+            )
+            sinon.assert.called(spy)
+          })
+        })
       })
     })
   })

@@ -1,13 +1,46 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 2.0.0 (2021-12-13)
+
+
+### Bug Fixes
+
+* **components/molecule/progressSteps:** justify bar alignment prop and fix compressed current tab vi ([e2efe97](https://github.com/SUI-Components/sui-components/commit/e2efe9752beddb97755d07420187d9dace985a45))
+* **components/molecule/progressSteps:** refactor ([732be1b](https://github.com/SUI-Components/sui-components/commit/732be1b7512344288d77c9f9926ca49486a3c937))
+
+
+### Features
+
+* **components/molecule/progressSteps:** create a token for differentiate the bar min-size in compre ([05acc68](https://github.com/SUI-Components/sui-components/commit/05acc68c413a94390c33306236d6fefb0c225154))
+* **components/molecule/progressSteps:** wip ([3910e9e](https://github.com/SUI-Components/sui-components/commit/3910e9eab3d0c37358618471d06d6cd34fb4080a))
+* **components/molecule/progressSteps:** wip ([b6a9c97](https://github.com/SUI-Components/sui-components/commit/b6a9c97fef3c0eda5788456f32e3994ce3060546))
+
+
+
+# 1.5.0 (2021-02-03)
+
+
+### Features
+
+* **molecule/progressSteps:** add width & font-size tokens ([5df9b27](https://github.com/SUI-Components/sui-components/commit/5df9b270234629a3a8b7244e12c4def233386407))
+
+
+
+# 1.4.0 (2020-11-24)
+
+
+### Features
+
+* **molecule/progressSteps:** Use new jsx runtime ([ab8e07c](https://github.com/SUI-Components/sui-components/commit/ab8e07c7db5c00e879fadc049fb08fab372f61e5))
+
+
 
 # 1.3.0 (2020-05-29)
 
 
 ### Features
 
-* add assets folder to .npmignore ([e33ca11](https://github.com/SUI-Components/sui-components/commit/e33ca116c0c8acaca27cf331a722deadbc6ed3a2))
+* **molecule/progressSteps:** add assets folder to .npmignore ([e33ca11](https://github.com/SUI-Components/sui-components/commit/e33ca116c0c8acaca27cf331a722deadbc6ed3a2))
 
 
 
@@ -16,7 +49,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([66fd3a8](https://github.com/SUI-Components/sui-components/commit/66fd3a89d6593e66cc5dd98f434784fc3a55e732))
+* **molecule/progressSteps:** Use new [@s-ui-theme](https://github.com/s-ui-theme) ([66fd3a8](https://github.com/SUI-Components/sui-components/commit/66fd3a89d6593e66cc5dd98f434784fc3a55e732))
 
 
 
@@ -25,29 +58,29 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* component creation & config steps ([17fa716](https://github.com/SUI-Components/sui-components/commit/17fa716d9b00ea4a1a191f1185051371dcfc6395))
-* compressed mode ([e4ea0fa](https://github.com/SUI-Components/sui-components/commit/e4ea0fa4d26f7155bacf76969af08bf88b3992ce))
-* compressed mode improved and demo ([2d5f393](https://github.com/SUI-Components/sui-components/commit/2d5f39384ca4ea032178d1d02cbf8d46c8d2bda8))
-* content child & demo w/ config ([53edb72](https://github.com/SUI-Components/sui-components/commit/53edb727bcb7eb83d51d79992391c691491dfffb))
-* fill svg ([79fd41f](https://github.com/SUI-Components/sui-components/commit/79fd41fa7dbf98cfadd16906150abe47339d1bd8))
-* icons alignment ([63ffce0](https://github.com/SUI-Components/sui-components/commit/63ffce024121632f98cce00e86eeb07ba199f3f5))
-* icons status ([b8f72d8](https://github.com/SUI-Components/sui-components/commit/b8f72d87b480abda3360eca62a944dc55e4c448b))
-* linter sass ([cc08b12](https://github.com/SUI-Components/sui-components/commit/cc08b12c2f7c62eb83ed3606db2ad1a8a360e451))
-* linter sass ([7c99264](https://github.com/SUI-Components/sui-components/commit/7c99264d7ec852f8c1ed14991ae40e865a6fd04a))
-* linter sass ([36916ce](https://github.com/SUI-Components/sui-components/commit/36916cefe2925150d034194e93204b31425fdd0f))
-* linter sass ([ff7d969](https://github.com/SUI-Components/sui-components/commit/ff7d969018efb6d45c6f61207f8975b4e8a4a738))
-* margins adjusted to avoid weird movements ([fcd30af](https://github.com/SUI-Components/sui-components/commit/fcd30af2a2605f835257ca3b3081e2393e8ca5a9))
-* moleculeProgressStep ([0587313](https://github.com/SUI-Components/sui-components/commit/0587313e00eda900b694f42b8fbb68e67fd40342))
-* readme ([1e98523](https://github.com/SUI-Components/sui-components/commit/1e985232c8d5163cacffc6bed0cd917cf350486d))
-* removed unnecesary children prop ([ea82c79](https://github.com/SUI-Components/sui-components/commit/ea82c792b7985658a99a553d24054c85386126d5))
-* removed unnecesary line ([d4f7f19](https://github.com/SUI-Components/sui-components/commit/d4f7f193494a17ec4faed6a7af598dc852639fc2))
-* styles status ([b0953cc](https://github.com/SUI-Components/sui-components/commit/b0953cc15a7df42ae5224529611475c0f218c070))
-* sui-theme variables ([5b1f939](https://github.com/SUI-Components/sui-components/commit/5b1f93967d078814cb044b95a8735dd96e9ee48c))
-* svg progressSteps ([59fe615](https://github.com/SUI-Components/sui-components/commit/59fe615c4daed8ce646168fbced7364bcfceb99b))
-* variables sass ([4bef236](https://github.com/SUI-Components/sui-components/commit/4bef2361b45584aa2234f95821e0f5c564e46777))
-* vertical improved ([1831738](https://github.com/SUI-Components/sui-components/commit/18317385cb9c48164d11b729a7d4268568addcf3))
-* vertical spacing ([ec0c90f](https://github.com/SUI-Components/sui-components/commit/ec0c90fdb6009d1d5d393ce2a61b1e6062b998d5))
-* vetical mode ([584c0f1](https://github.com/SUI-Components/sui-components/commit/584c0f18bd3c0155fe3c430922395fd15315b1a4))
+* **molecule/progressSteps:** component creation & config steps ([17fa716](https://github.com/SUI-Components/sui-components/commit/17fa716d9b00ea4a1a191f1185051371dcfc6395))
+* **molecule/progressSteps:** compressed mode ([e4ea0fa](https://github.com/SUI-Components/sui-components/commit/e4ea0fa4d26f7155bacf76969af08bf88b3992ce))
+* **molecule/progressSteps:** compressed mode improved and demo ([2d5f393](https://github.com/SUI-Components/sui-components/commit/2d5f39384ca4ea032178d1d02cbf8d46c8d2bda8))
+* **molecule/progressSteps:** content child & demo w/ config ([53edb72](https://github.com/SUI-Components/sui-components/commit/53edb727bcb7eb83d51d79992391c691491dfffb))
+* **molecule/progressSteps:** fill svg ([79fd41f](https://github.com/SUI-Components/sui-components/commit/79fd41fa7dbf98cfadd16906150abe47339d1bd8))
+* **molecule/progressSteps:** icons alignment ([63ffce0](https://github.com/SUI-Components/sui-components/commit/63ffce024121632f98cce00e86eeb07ba199f3f5))
+* **molecule/progressSteps:** icons status ([b8f72d8](https://github.com/SUI-Components/sui-components/commit/b8f72d87b480abda3360eca62a944dc55e4c448b))
+* **molecule/progressSteps:** linter sass ([cc08b12](https://github.com/SUI-Components/sui-components/commit/cc08b12c2f7c62eb83ed3606db2ad1a8a360e451))
+* **molecule/progressSteps:** linter sass ([7c99264](https://github.com/SUI-Components/sui-components/commit/7c99264d7ec852f8c1ed14991ae40e865a6fd04a))
+* **molecule/progressSteps:** linter sass ([36916ce](https://github.com/SUI-Components/sui-components/commit/36916cefe2925150d034194e93204b31425fdd0f))
+* **molecule/progressSteps:** linter sass ([ff7d969](https://github.com/SUI-Components/sui-components/commit/ff7d969018efb6d45c6f61207f8975b4e8a4a738))
+* **molecule/progressSteps:** margins adjusted to avoid weird movements ([fcd30af](https://github.com/SUI-Components/sui-components/commit/fcd30af2a2605f835257ca3b3081e2393e8ca5a9))
+* **molecule/progressSteps:** moleculeProgressStep ([0587313](https://github.com/SUI-Components/sui-components/commit/0587313e00eda900b694f42b8fbb68e67fd40342))
+* **molecule/progressSteps:** readme ([1e98523](https://github.com/SUI-Components/sui-components/commit/1e985232c8d5163cacffc6bed0cd917cf350486d))
+* **molecule/progressSteps:** removed unnecesary children prop ([ea82c79](https://github.com/SUI-Components/sui-components/commit/ea82c792b7985658a99a553d24054c85386126d5))
+* **molecule/progressSteps:** removed unnecesary line ([d4f7f19](https://github.com/SUI-Components/sui-components/commit/d4f7f193494a17ec4faed6a7af598dc852639fc2))
+* **molecule/progressSteps:** styles status ([b0953cc](https://github.com/SUI-Components/sui-components/commit/b0953cc15a7df42ae5224529611475c0f218c070))
+* **molecule/progressSteps:** sui-theme variables ([5b1f939](https://github.com/SUI-Components/sui-components/commit/5b1f93967d078814cb044b95a8735dd96e9ee48c))
+* **molecule/progressSteps:** svg progressSteps ([59fe615](https://github.com/SUI-Components/sui-components/commit/59fe615c4daed8ce646168fbced7364bcfceb99b))
+* **molecule/progressSteps:** variables sass ([4bef236](https://github.com/SUI-Components/sui-components/commit/4bef2361b45584aa2234f95821e0f5c564e46777))
+* **molecule/progressSteps:** vertical improved ([1831738](https://github.com/SUI-Components/sui-components/commit/18317385cb9c48164d11b729a7d4268568addcf3))
+* **molecule/progressSteps:** vertical spacing ([ec0c90f](https://github.com/SUI-Components/sui-components/commit/ec0c90fdb6009d1d5d393ce2a61b1e6062b998d5))
+* **molecule/progressSteps:** vetical mode ([584c0f1](https://github.com/SUI-Components/sui-components/commit/584c0f18bd3c0155fe3c430922395fd15315b1a4))
 
 
 

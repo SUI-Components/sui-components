@@ -4,24 +4,38 @@ $c-progress-steps-bar: $c-gray-light !default;
 $c-progress-steps-label: $c-gray-dark-2 !default;
 $c-progress-steps-icon: $c-gray-light !default;
 
-$c-progress-steps-active: $c-primary !default;
+$c-progress-steps-active: $c-primary-light-1 !default;
+$c-progress-steps-visited: $c-primary !default;
 
 $fz-progress-steps-description: inherit !default;
 
 $bdw-progress-steps-bar: 2px !default;
+
 $h-progress-steps-bar: $bdw-progress-steps-bar * 2 !default;
 
 $mw-progress-steps-path: 100% !default;
 $w-progress-steps-description: 100px !default;
 
+$sz-progress-steps-icon: $sz-icon-xl !default;
+$sz-progress-steps-bar: 3 * $sz-base !default;
+$sz-progress-steps-bar-compressed: $sz-progress-steps-bar !default;
+
+$m-progress-steps-icon: $m-s !default;
+$m-progress-steps-bar: $m-s !default;
+
+@function contains($list, $item) {
+  @return index($list, $item) != null;
+}
+
+$justify-content-path: (legacy, center, flex-start, flex-end);
+
 $base-class: '.sui-MoleculeProgressSteps';
 
-.sui-MoleculeProgressSteps {
+#{$base-class} {
   &-path {
     align-items: center;
     display: flex;
     max-width: $mw-progress-steps-path;
-    margin: auto;
 
     &-bar {
       background: $c-progress-steps-bar;
@@ -30,11 +44,28 @@ $base-class: '.sui-MoleculeProgressSteps';
       border-style: solid;
       border-width: $bdw-progress-steps-bar;
       height: $h-progress-steps-bar;
-      width: 100%;
+      margin: 0;
+      flex-shrink: 1;
 
       &--visited {
-        background: $c-progress-steps-active;
-        border-color: $c-progress-steps-active;
+        background: $c-progress-steps-visited;
+        border-color: $c-progress-steps-visited;
+      }
+    }
+    @each $justifyContent in $justify-content-path {
+      &--justifyContent-#{$justifyContent} {
+        @if $justifyContent != 'legacy' {
+          justify-content: $justifyContent;
+        }
+        #{$base-class}-path-bar {
+          flex-basis: $sz-progress-steps-bar;
+          flex-shrink: 0;
+          @if contains((legacy), $justifyContent) {
+            flex-grow: 1;
+          } @else {
+            flex-grow: 0;
+          }
+        }
       }
     }
 
@@ -44,6 +75,8 @@ $base-class: '.sui-MoleculeProgressSteps';
       display: flex;
       flex-direction: column;
       position: relative;
+      flex-basis: $sz-progress-steps-icon;
+      flex-shrink: 0;
 
       svg,
       use {
@@ -52,11 +85,11 @@ $base-class: '.sui-MoleculeProgressSteps';
 
       &--active,
       &--visited {
-        color: $c-progress-steps-active;
+        color: $c-progress-steps-visited;
 
         svg,
         use {
-          fill: $c-progress-steps-active;
+          fill: $c-progress-steps-visited;
         }
       }
 
@@ -64,11 +97,11 @@ $base-class: '.sui-MoleculeProgressSteps';
       &-icon {
         align-items: center;
         display: flex;
-        height: 40px;
-        margin: 5px;
+        height: $sz-progress-steps-icon;
+        margin: $m-progress-steps-icon;
         padding: 0;
-        width: 40px;
-
+        width: $sz-progress-steps-icon;
+        flex-basis: $sz-progress-steps-icon;
         svg {
           width: 100%;
         }
@@ -94,17 +127,67 @@ $base-class: '.sui-MoleculeProgressSteps';
     }
   }
 
+  &-compressedInfo {
+    @each $justifyContent in $justify-content-path {
+      &--justifyContent-#{$justifyContent} {
+        @if $justifyContent != 'legacy' {
+          justify-content: $justifyContent;
+        }
+      }
+    }
+  }
+  &-compressedInfo,
+  &-content {
+    overflow: hidden;
+    display: flex;
+    &-item {
+      margin-right: -100%;
+      visibility: hidden;
+      flex-basis: 100%;
+      flex-shrink: 0;
+      &--active {
+        margin-right: 0;
+        visibility: inherit;
+      }
+    }
+  }
+
+  #{$base-class}-compressedInfo {
+    &-item {
+      &--active {
+        margin-right: 0;
+      }
+    }
+  }
+
   &--compressed {
     #{$base-class}-compressedInfo {
       margin: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      @each $justifyContent in $justify-content-path {
+        &--justifyContent-#{$justifyContent} {
+          @if $justifyContent != 'legacy' {
+            justify-content: $justifyContent;
+          }
+        }
+      }
     }
 
     #{$base-class}-path {
       &-bar {
-        margin-right: 10px;
-
+        flex-basis: $sz-progress-steps-bar-compressed;
+        margin: 0 $m-progress-steps-bar;
+        &:first-child {
+          margin: 0 $m-progress-steps-bar 0 0;
+        }
         &:last-child {
-          margin-right: 0;
+          margin: 0 0 0 $m-progress-steps-bar;
+        }
+
+        &--active {
+          background: $c-progress-steps-active;
+          border-color: $c-progress-steps-active;
         }
       }
 
@@ -123,9 +206,32 @@ $base-class: '.sui-MoleculeProgressSteps';
     display: flex;
     height: 100%;
 
+    &#{$base-class}--compressed {
+      #{$base-class}-compressedInfo {
+        display: flex;
+        flex-direction: column;
+        flex-basis: auto;
+        flex-grow: 1;
+        flex-shrink: 0;
+        &-item {
+          display: inline-flex;
+          justify-content: flex-end;
+          align-content: flex-start;
+          margin-top: -100%;
+          margin-right: 0;
+          &--active {
+            margin-right: 0;
+            margin-top: 0;
+          }
+        }
+      }
+      #{$base-class}-path {
+        margin: 0 $m-progress-steps-bar;
+      }
+    }
+
     #{$base-class}-path {
       flex-direction: column;
-      justify-content: space-between;
       margin-right: 100px;
 
       &-step {
@@ -141,10 +247,17 @@ $base-class: '.sui-MoleculeProgressSteps';
       }
 
       &-bar {
-        height: 100%;
-        margin: 20px 0;
+        margin: $m-progress-steps-bar 0;
+        &:first-child {
+          margin: 0 0 $m-progress-steps-bar 0;
+        }
+        &:last-child {
+          margin: $m-progress-steps-bar 0 0 0;
+        }
         transform: translateY(0);
-        width: 1px;
+        width: $h-progress-steps-bar;
+        border-width: $bdw-progress-steps-bar;
+        min-width: 0;
       }
     }
 

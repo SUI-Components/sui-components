@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-input-field",
-  "version": "4.5.0",
+  "version": "4.6.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

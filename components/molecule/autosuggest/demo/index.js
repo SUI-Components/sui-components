@@ -214,7 +214,7 @@ const Demo = () => {
           <ComboCountries />
         </div>
 
-        <h2>Autosugegst list is open</h2>
+        <h2>Autosuggest list is open</h2>
         <div className={CLASS_DEMO_SECTION}>
           <h3>With preselected Value</h3>
           <MoleculeAutosuggestWithStateTagsLabels

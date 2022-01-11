@@ -10,6 +10,7 @@ const MoleculeAutosuggestSingleSelection = ({
   ariaLabel,
   autoComplete = 'nope',
   children,
+  design,
   disabled,
   iconClear,
   id,
@@ -33,8 +34,7 @@ const MoleculeAutosuggestSingleSelection = ({
   size,
   tabIndex,
   type,
-  value = '',
-  design
+  value = ''
 }) => {
   const handleSelection = (ev, {value}) => {
     typeof onChange === 'function' && onChange(ev, {value})

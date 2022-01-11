@@ -7,14 +7,15 @@ import isEqual from 'lodash.isequal'
 import {InputWithClearUI as MoleculeInputTagsWithClearUI} from './InputWithClearUI'
 
 const MoleculeAutosuggestFieldMultiSelection = ({
+  allowDuplicates,
   autoClose,
   autoComplete = 'nope',
   children,
+  design,
   disabled = false,
   iconClear,
   iconCloseTag = <span />,
   id,
-  allowDuplicates,
   innerRefInput: refInput = {},
   inputMode,
   isOpen,
@@ -31,8 +32,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   tabIndex,
   tags = [],
   type,
-  value = '',
-  design
+  value = ''
 }) => {
   const innerRefInput = useRef()
   const moleculeInputRef = useMergeRefs(innerRefInput, refInput)

@@ -33,7 +33,8 @@ const MoleculeAutosuggestSingleSelection = ({
   size,
   tabIndex,
   type,
-  value = ''
+  value = '',
+  design
 }) => {
   const handleSelection = (ev, {value}) => {
     typeof onChange === 'function' && onChange(ev, {value})
@@ -93,6 +94,7 @@ const MoleculeAutosuggestSingleSelection = ({
           value={value}
           highlightQuery={value}
           onKeyDown={onKeyDown}
+          design={design}
         >
           {children}
         </MoleculeDropdownList>

@@ -1,76 +1,5 @@
+@import './settings.scss';
 @import '~@s-ui/theme/lib/index';
-
-$fz-atom-tooltip: $fz-m !default;
-$lh-atom-tooltip: $lh-m !default;
-$wlc-atom-tooltip: 4 !default; // -webkit-line-clamp → lines to show
-
-$maw-atom-tooltip: 250px !default;
-$mah-atom-tooltip: 100px !default;
-$c-atom-tooltip: $c-white !default;
-$bgc-atom-tooltip: $c-black !default;
-$bdc-atom-tooltip: $bgc-atom-tooltip !default;
-$bdrs-atom-tooltip: $bdrs-l !default;
-$op-atom-tooltip: 1 !default;
-$pt-atom-tooltip: $p-m !default;
-$pr-atom-tooltip: $p-m !default;
-$pb-atom-tooltip: $p-m !default;
-$pl-atom-tooltip: $p-m !default;
-$p-atom-tooltip: $pt-atom-tooltip $pr-atom-tooltip $pb-atom-tooltip
-  $pl-atom-tooltip !default;
-$mt-atom-tooltip: $m-m !default;
-$mb-atom-tooltip: $m-m !default;
-$ml-atom-tooltip: $m-m !default;
-$mr-atom-tooltip: $m-m !default;
-$m-atom-tooltip: $mt-atom-tooltip $mr-atom-tooltip $mb-atom-tooltip
-  $ml-atom-tooltip !default;
-$ta-atom-tooltip: left !default;
-$z-atom-tooltip: 1070 !default;
-
-$c-atom-tooltip-target: inherit !default;
-$fz-atom-tooltip-target: inherit !default;
-$ml-atom-tooltip-target: 0 !default;
-
-$w-atom-tooltip-arrow: $p-m + $p-s !default;
-$h-atom-tooltip-arrow: $p-m !default;
-$c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
-
-$bdw-atom-tooltip: 0 !default;
-
-$base-class: '.sui-AtomTooltip';
-$class-inner: '#{$base-class}-inner';
-$class-arrow: '#{$base-class}-arrow';
-$class-target: '#{$base-class}-target';
-
-$c-atom-tooltip-colors: (
-  'primary': (
-    $c-primary,
-    $c-white
-  ),
-  'secondary': (
-    $c-secondary,
-    $c-white
-  ),
-  'accent': (
-    $c-accent,
-    $c-white
-  ),
-  'neutral': (
-    $c-gray,
-    $c-white
-  ),
-  'success': (
-    $c-success,
-    $c-white
-  ),
-  'alert': (
-    $c-alert,
-    $c-white
-  ),
-  'error': (
-    $c-error,
-    $c-white
-  )
-) !default;
 
 #{$class-target} {
   color: $c-atom-tooltip-target;
@@ -198,6 +127,7 @@ $c-atom-tooltip-colors: (
     &[x-placement*='left'] {
       @extend #{$base-class}--left;
     }
+
     &[x-placement*='top'],
     &[x-placement*='bottom'] {
       &[x-placement*='start'] {
@@ -206,6 +136,7 @@ $c-atom-tooltip-colors: (
           left: auto !important;
         }
       }
+
       &[x-placement*='end'] {
         #{$class-arrow} {
           left: $bdrs-atom-tooltip !important;
@@ -226,17 +157,11 @@ $c-atom-tooltip-colors: (
         color: $color-invert;
       }
 
-      #{$base-class}--top,
-      #{$base-class}--right,
-      #{$base-class}--bottom,
-      #{$base-class}--left,
-      #{$base-class}--auto {
-        #{$class-arrow} {
-          &::before,
-          &::after {
-            border-color: transparent;
-            border-bottom-color: $color;
-          }
+      #{$class-arrow} {
+        &::before,
+        &::after {
+          border-color: transparent;
+          border-bottom-color: $color;
         }
       }
     }

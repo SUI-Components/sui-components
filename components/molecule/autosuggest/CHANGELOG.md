@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.55.0 (2022-01-12)
+
+
+### Features
+
+* **components/molecule/autosuggest:** adds new props to be able to pass it to moleculeDropdownList ([cc149ee](https://github.com/SUI-Components/sui-components/commit/cc149eeaa98dcb356ae808a2d2e2cbf3bb6c37ac))
+* **components/molecule/autosuggest:** sorts props ([e8624ef](https://github.com/SUI-Components/sui-components/commit/e8624ef3059456d911ab8386b4b359d3925a3227))
+
+
+
 # 2.54.0 (2021-12-23)
 
 
@@ -175,7 +185,6 @@
 
 * **molecule/autosuggest:** add ev to onClear ([3292db0](https://github.com/SUI-Components/sui-components/commit/3292db0881c71713a391c54ae2a4d480adac6b0f))
 * **molecule/autosuggest:** create onClear prop ([468aac1](https://github.com/SUI-Components/sui-components/commit/468aac1afefd0fbf45be88ef0f6a0310a81698f9))
-* **molecule/autosuggest:** update ([db4742b](https://github.com/SUI-Components/sui-components/commit/db4742bce9b0c4bda155ec62ed40c409148e0098))
 
 
 

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.1.0 (2022-01-12)
+
+
+### Features
+
+* **components/atom/tooltip:** Put again a line to import @s-ui/theme on index.scss ([8f84f42](https://github.com/SUI-Components/sui-components/commit/8f84f42aba6c8827b0d283a522ead529062d9ec3))
+* **components/atom/tooltip:** Separate settings file and improve css output ([c1777d0](https://github.com/SUI-Components/sui-components/commit/c1777d0c19a1f4bc6fcf7f4b5a7b6540122e16c4))
+
+
+
 # 2.0.0 (2021-08-02)
 
 

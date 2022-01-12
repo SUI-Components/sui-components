@@ -7,14 +7,15 @@ import isEqual from 'lodash.isequal'
 import {InputWithClearUI} from './InputWithClearUI'
 
 const MoleculeAutosuggestFieldMultiSelection = ({
+  allowDuplicates,
   autoClose,
   autoComplete = 'nope',
   children,
+  design,
   disabled = false,
   iconClear,
   iconCloseTag = <span />,
   id,
-  allowDuplicates,
   innerRefInput: refInput = {},
   inputMode,
   isOpen,
@@ -120,6 +121,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         size={size}
         value={tags}
         visible={isOpen}
+        design={design}
       >
         {children}
       </MoleculeDropdownList>

@@ -2,7 +2,7 @@ import {cloneElement, useState, useEffect, useRef, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import {htmlImgProps} from './types'
+import {htmlImgProps} from './types.js'
 
 const BASE_CLASS = 'sui-AtomImage'
 const BASE_CLASS_FIGURE = `${BASE_CLASS}-figure`

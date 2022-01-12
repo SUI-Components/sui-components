@@ -10,6 +10,7 @@ const MoleculeAutosuggestSingleSelection = ({
   ariaLabel,
   autoComplete = 'nope',
   children,
+  design,
   disabled,
   iconClear,
   id,
@@ -93,6 +94,7 @@ const MoleculeAutosuggestSingleSelection = ({
           value={value}
           highlightQuery={value}
           onKeyDown={onKeyDown}
+          design={design}
         >
           {children}
         </MoleculeDropdownList>

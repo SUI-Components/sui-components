@@ -7,6 +7,7 @@ import {InputWithClearUI} from './InputWithClearUI'
 
 const MoleculeAutosuggestSingleSelection = ({
   autoClose,
+  autoFocus,
   ariaLabel,
   autoComplete = 'nope',
   children,
@@ -63,6 +64,7 @@ const MoleculeAutosuggestSingleSelection = ({
       <InputWithClearUI
         ariaLabel={ariaLabel}
         autoComplete={autoComplete}
+        autoFocus={autoFocus}
         button={rightButton}
         disabled={disabled}
         iconClear={!disabled && iconClear}

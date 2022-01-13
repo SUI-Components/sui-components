@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 2.30.0 (2022-01-12)
+
+
+### Bug Fixes
+
+* **components/molecule/tabs:** Change token order to avoid errors when compiling ([fc2dde8](https://github.com/SUI-Components/sui-components/commit/fc2dde828aa01f2caaa4c91e0ba7f2fbaebaa901))
+
+
+### Features
+
+* **components/molecule/tabs:** Add a SCSS variable to be able to define the Molecule/Tabs font weig ([4cdfccc](https://github.com/SUI-Components/sui-components/commit/4cdfccc2ad624ab76f29b9cada76b91efc5f66f8))
+
+
+
 # 2.29.0 (2021-11-24)
 
 

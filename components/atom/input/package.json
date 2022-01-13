@@ -4,8 +4,8 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "prepare": "npm run build:js && npm run build:styles",
-    "build:js": "babel --presets sui ./src --out-dir ./lib",
+    "prepare": "rimraf ./lib && npm run build:js && npm run build:styles",
+    "build:js": "sui-js-compiler",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {

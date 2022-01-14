@@ -9,6 +9,7 @@ import {InputWithClearUI} from './InputWithClearUI'
 const MoleculeAutosuggestFieldMultiSelection = ({
   allowDuplicates,
   autoClose,
+  autoFocus,
   autoComplete = 'nope',
   children,
   design,
@@ -90,6 +91,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
       <InputWithClearUI
         allowDuplicates={allowDuplicates}
         autoComplete={autoComplete}
+        autoFocus={autoFocus}
         disabled={disabled}
         iconClear={iconClear}
         id={id}

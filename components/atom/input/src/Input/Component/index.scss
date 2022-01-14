@@ -1,6 +1,10 @@
 $base-class: 'sui-AtomInput-input';
 $class-read-only: '#{$base-class}--readOnly';
 .#{$base-class} {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
   @include sui-atom-input-input;
   border-radius: $bdrs-atom-input;
   min-height: auto;

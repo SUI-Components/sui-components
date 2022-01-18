@@ -13,7 +13,7 @@ const InitialState = ({
   buttonDesign = BUTTON_DESIGN,
   buttonColor = BUTTON_COLOR,
   buttonText,
-  buttonShape = atomButtonShapes.ROUNDED,
+  buttonShape,
   buttonSize = BUTTON_SIZE,
   icon,
   text,

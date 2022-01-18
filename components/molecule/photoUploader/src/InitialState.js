@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import Button from '@s-ui/react-atom-button'
+import Button, {atomButtonShapes} from '@s-ui/react-atom-button'
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
 import {BASE_CLASS_NAME} from './config'
@@ -13,6 +13,7 @@ const InitialState = ({
   buttonDesign = BUTTON_DESIGN,
   buttonColor = BUTTON_COLOR,
   buttonText,
+  buttonShape,
   buttonSize = BUTTON_SIZE,
   icon,
   text,
@@ -34,6 +35,7 @@ const InitialState = ({
           color={buttonColor}
           design={buttonDesign}
           isButton
+          shape={buttonShape}
           size={buttonSize}
         >
           {buttonText}
@@ -49,6 +51,7 @@ InitialState.propTypes = {
   buttonColor: PropTypes.string,
   buttonDesign: PropTypes.string,
   buttonText: PropTypes.string.isRequired,
+  buttonShape: PropTypes.oneOf(Object.values(atomButtonShapes)),
   buttonSize: PropTypes.string,
   icon: PropTypes.node.isRequired,
   text: PropTypes.string.isRequired,

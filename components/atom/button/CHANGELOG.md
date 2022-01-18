@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.79.0 (2022-01-14)
+
+
+### Features
+
+* **components/atom/button:** add new variable: text-decoration to button link ([64ddebb](https://github.com/SUI-Components/sui-components/commit/64ddebb0ec5db2f0a1ba6893267acc20d53a0b74))
+
+
+
 # 1.78.0 (2021-12-13)
 
 

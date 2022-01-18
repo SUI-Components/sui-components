@@ -62,6 +62,7 @@ const MoleculePhotoUploader = forwardRef(
       errorFileExcededMaxSizeText,
       errorFormatPhotoUploadedText,
       errorInitialPhotoDownloadErrorText,
+      errorSaveImageEndpoint,
       infoIcon = noop,
       initialPhotos = [],
       limitPhotosUploadedText,
@@ -205,6 +206,7 @@ const MoleculePhotoUploader = forwardRef(
         newFiles: validFiles,
         defaultFormatToBase64Options: DEFAULT_FORMAT_TO_BASE_64_OPTIONS,
         errorCorruptedPhotoUploadedText,
+        errorSaveImageEndpoint,
         setCorruptedFileError: errorText => {
           setNotificationError({
             isError: true,
@@ -433,6 +435,9 @@ MoleculePhotoUploader.propTypes = {
 
   /** Text showed at error notification when some file of the initialPhotos fails */
   errorInitialPhotoDownloadErrorText: PropTypes.string.isRequired,
+
+  /** Text showed at error notification when the saveImages endpoint returns an error  */
+  errorSaveImageEndpoint: PropTypes.string,
 
   /** Info icon */
   infoIcon: PropTypes.func.isRequired,

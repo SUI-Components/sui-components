@@ -26,6 +26,7 @@ $ml-molecule-dropdown-option: 0 !default;
 .sui-MoleculeDropdownOption {
   align-items: center;
   border-radius: $bdrs-molecule-dropdown-option;
+  color: $c-dropdown-option;
   display: flex;
   min-height: $mih-dropdown-option;
   padding: $pt-molecule-dropdown-option $pr-molecule-dropdown-option

@@ -1,5 +1,49 @@
 # CHANGELOG
 
+# 2.30.0 (2022-01-12)
+
+
+### Bug Fixes
+
+* **components/molecule/tabs:** Change token order to avoid errors when compiling ([fc2dde8](https://github.com/SUI-Components/sui-components/commit/fc2dde828aa01f2caaa4c91e0ba7f2fbaebaa901))
+
+
+### Features
+
+* **components/molecule/tabs:** Add a SCSS variable to be able to define the Molecule/Tabs font weig ([4cdfccc](https://github.com/SUI-Components/sui-components/commit/4cdfccc2ad624ab76f29b9cada76b91efc5f66f8))
+
+
+
+# 2.29.0 (2021-11-24)
+
+
+### Bug Fixes
+
+* **components/molecule/tabs:** Fix scrolling into active tab when is out of the viewport ([4c3c370](https://github.com/SUI-Components/sui-components/commit/4c3c370965db220b4966631a7bc1c6bc3d9f5149))
+
+
+### Features
+
+* **components/molecule/tabs:** Add missing dep ([346ee07](https://github.com/SUI-Components/sui-components/commit/346ee07cc1aa8ed12d65c67ffb04a66d56458945))
+* **components/molecule/tabs:** Restore demo settings ([3d76bc0](https://github.com/SUI-Components/sui-components/commit/3d76bc0f52d15f34fb072361506e3e63cb417d0f))
+* **components/molecule/tabs:** wip ([8f6d1f6](https://github.com/SUI-Components/sui-components/commit/8f6d1f63e4219f222ff623cd540317ab0b584627))
+
+
+
+# 2.28.0 (2021-11-22)
+
+
+### Bug Fixes
+
+* **components/molecule/tabs:** Fix scroll into active tab breaking when is out of the viewport ([970bb62](https://github.com/SUI-Components/sui-components/commit/970bb62a81849e3dcffba277fc76062ef9435af8))
+
+
+### Features
+
+* **components/molecule/tabs:** Refactor to use mergeRefs hook ([775871a](https://github.com/SUI-Components/sui-components/commit/775871ad0ef230c9a4aeda50a716dbecc81c0490))
+
+
+
 # 2.27.0 (2021-11-03)
 
 

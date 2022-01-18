@@ -10,127 +10,227 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
+import * as pkg from '../src'
+
+import json from '../package.json'
+
 chai.use(chaiDOM)
 
-describe('atom/card', () => {
-  const Component = AtomCard
-  const noop = () => null
+describe(json.name, () => {
+  const {default: Component} = pkg
   const setup = setupEnvironment(Component)
+  const noop = () => null
 
-  it('should render without crashing', () => {
+  it('library should include defined exported elements', () => {
     // Given
-    const props = {
-      content: noop
-    }
+    const library = pkg
+    const libraryExportedMembers = [
+      'atomCardRounded',
+      'atomCardElevation',
+      'default'
+    ]
 
     // When
-    const component = <Component {...props} />
+    const {
+      atomCardRounded,
+      atomCardElevation,
+      default: AtomCard,
+      ...others
+    } = library
 
     // Then
-    const div = document.createElement('div')
-    ReactDOM.render(component, div)
-    ReactDOM.unmountComponentAtNode(div)
+    expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
+    expect(Object.keys(library)).to.have.members(libraryExportedMembers)
+    expect(Object.keys(others).length).to.equal(0)
   })
 
-  it('should NOT render null', () => {
-    // Given
-    const props = {
-      content: noop
-    }
+  describe(Component.displayName, () => {
+    it('should render without crashing', () => {
+      // Given
+      const props = {
+        content: noop
+      }
 
-    // When
-    const {container} = setup(props)
+      // When
+      const component = <Component {...props} />
 
-    // Then
-    expect(container.innerHTML).to.be.a('string')
-    expect(container.innerHTML).to.not.have.lengthOf(0)
+      // Then
+      const div = document.createElement('div')
+      ReactDOM.render(component, div)
+      ReactDOM.unmountComponentAtNode(div)
+    })
+
+    it('should NOT render null', () => {
+      // Given
+      const props = {
+        content: noop
+      }
+
+      // When
+      const {container} = setup(props)
+
+      // Then
+      expect(container.innerHTML).to.be.a('string')
+      expect(container.innerHTML).to.not.have.lengthOf(0)
+    })
+
+    it('should NOT extend classNames', () => {
+      // Given
+      const props = {content: noop, className: 'extended-classNames'}
+      const findSentence = str => string =>
+        string.match(new RegExp(`S*${str}S*`))
+
+      // When
+      const {container} = setup(props)
+      const findClassName = findSentence(props.className)
+
+      // Then
+      expect(findClassName(container.innerHTML)).to.be.null
+    })
+
+    it('should have link class when having onClick', () => {
+      const props = {
+        onClick: () => console.log('Hello!'), // eslint-disable-line no-console
+        content: () => <span>card with click</span>
+      }
+      const {getByRole} = setup(props)
+      const card = getByRole('button')
+      expect(card).to.have.class('sui-AtomCard-link')
+    })
+
+    it('should have link class when having href', () => {
+      const props = {
+        href: 'http://www.google.com',
+        content: () => <span>card with click</span>
+      }
+      const {getByRole} = setup(props)
+      const card = getByRole('button')
+      expect(card).to.have.class('sui-AtomCard-link')
+    })
+
+    it('should NOT have link class when not having href or onClick', () => {
+      const props = {
+        content: () => <span>card with click</span>
+      }
+      const {getByRole} = setup(props)
+      const card = getByRole('button')
+      expect(card).to.have.not.class('sui-AtomCard-link')
+    })
+
+    it('should have rounded class when having borders rounded', () => {
+      const props = {
+        rounded: 's',
+        content: () => <span>card</span>
+      }
+      const {getByRole} = setup(props)
+      const card = getByRole('button')
+      expect(card).to.have.class('sui-AtomCard--rounded-s')
+      expect(card).to.have.not.class('sui-AtomCard--rounded-m')
+      expect(card).to.have.not.class('sui-AtomCard--rounded-l')
+    })
+
+    it('should NOT have rounded class when not having border rounded ', () => {
+      const props = {
+        content: () => <span>card</span>
+      }
+      const {getByRole} = setup(props)
+      const card = getByRole('button')
+      expect(card).to.have.not.class('sui-AtomCard--rounded-s')
+      expect(card).to.have.not.class('sui-AtomCard--rounded-m')
+      expect(card).to.have.not.class('sui-AtomCard--rounded-l')
+    })
+
+    it('should have box-shadow class when having elevated border', () => {
+      const props = {
+        elevation: 's',
+        content: () => <span>card</span>
+      }
+      const {getByRole} = setup(props)
+      const card = getByRole('button')
+      expect(card).to.have.class('sui-AtomCard--elevation-s')
+      expect(card).to.have.not.class('sui-AtomCard--elevation-m')
+      expect(card).to.have.not.class('sui-AtomCard--elevation-l')
+    })
+
+    it('should NOT have rounded class when not having elevated border ', () => {
+      const props = {
+        content: () => <span>card</span>
+      }
+      const {getByRole} = setup(props)
+      const card = getByRole('button')
+      expect(card).to.have.not.class('sui-AtomCard--elevation-s')
+      expect(card).to.have.not.class('sui-AtomCard--elevation-m')
+      expect(card).to.have.not.class('sui-AtomCard--elevation-l')
+    })
   })
 
-  it('should NOT extend classNames', () => {
-    // Given
-    const props = {content: noop, className: 'extended-classNames'}
-    const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+  describe('atomCardRounded', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
 
-    // When
-    const {container} = setup(props)
-    const findClassName = findSentence(props.className)
+      // When
+      const {atomCardRounded: actual} = library
 
-    // Then
-    expect(findClassName(container.innerHTML)).to.be.null
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        S: 's',
+        M: 'm',
+        L: 'l'
+      }
+
+      // When
+      const {atomCardRounded: actual} = library
+      const {S, M, L, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
   })
 
-  it('should have link class when having onClick', () => {
-    const props = {
-      onClick: () => console.log('Hello!'), // eslint-disable-line no-console
-      content: () => <span>card with click</span>
-    }
-    const {getByRole} = setup(props)
-    const card = getByRole('button')
-    expect(card).to.have.class('sui-AtomCard-link')
-  })
+  describe('atomCardElevation', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
 
-  it('should have link class when having href', () => {
-    const props = {
-      href: 'http://www.google.com',
-      content: () => <span>card with click</span>
-    }
-    const {getByRole} = setup(props)
-    const card = getByRole('button')
-    expect(card).to.have.class('sui-AtomCard-link')
-  })
+      // When
+      const {atomCardElevation: actual} = library
 
-  it('should NOT have link class when not having href or onClick', () => {
-    const props = {
-      content: () => <span>card with click</span>
-    }
-    const {getByRole} = setup(props)
-    const card = getByRole('button')
-    expect(card).to.have.not.class('sui-AtomCard-link')
-  })
+      // Then
+      expect(actual).to.be.an('object')
+    })
 
-  it('should have rounded class when having borders rounded', () => {
-    const props = {
-      rounded: 's',
-      content: () => <span>card</span>
-    }
-    const {getByRole} = setup(props)
-    const card = getByRole('button')
-    expect(card).to.have.class('sui-AtomCard--rounded-s')
-    expect(card).to.have.not.class('sui-AtomCard--rounded-m')
-    expect(card).to.have.not.class('sui-AtomCard--rounded-l')
-  })
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        S: 's',
+        M: 'm',
+        L: 'l'
+      }
 
-  it('should NOT have rounded class when not having border rounded ', () => {
-    const props = {
-      content: () => <span>card</span>
-    }
-    const {getByRole} = setup(props)
-    const card = getByRole('button')
-    expect(card).to.have.not.class('sui-AtomCard--rounded-s')
-    expect(card).to.have.not.class('sui-AtomCard--rounded-m')
-    expect(card).to.have.not.class('sui-AtomCard--rounded-l')
-  })
+      // When
+      const {atomCardElevation: actual} = library
+      const {S, M, L, ...others} = actual
 
-  it('should have box-shadow class when having elevated border', () => {
-    const props = {
-      elevation: 's',
-      content: () => <span>card</span>
-    }
-    const {getByRole} = setup(props)
-    const card = getByRole('button')
-    expect(card).to.have.class('sui-AtomCard--elevation-s')
-    expect(card).to.have.not.class('sui-AtomCard--elevation-m')
-    expect(card).to.have.not.class('sui-AtomCard--elevation-l')
-  })
-
-  it('should NOT have rounded class when not having elevated border ', () => {
-    const props = {
-      content: () => <span>card</span>
-    }
-    const {getByRole} = setup(props)
-    const card = getByRole('button')
-    expect(card).to.have.not.class('sui-AtomCard--elevation-s')
-    expect(card).to.have.not.class('sui-AtomCard--elevation-m')
-    expect(card).to.have.not.class('sui-AtomCard--elevation-l')
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
   })
 })

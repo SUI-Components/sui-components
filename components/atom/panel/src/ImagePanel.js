@@ -21,24 +21,21 @@ const getClassNames = function({
   verticalAlign,
   horizontalAlign,
   resized,
-  overlayColor,
-  overlayAlpha = DEFAULT_ALPHA,
+  overlayColor = COLORS[DEFAULT_COLOR],
+  overlayAlpha = ALPHA[DEFAULT_ALPHA],
   color,
   rounded,
   elevation
 }) {
   const BASE_CLASS = 'sui-atom-panel'
   const IMAGE_PANEL_CLASS = `${BASE_CLASS}-image`
-  const overlayAlphaValue = ALPHA[overlayAlpha] || DEFAULT_ALPHA
-  const overlayColorValue = COLORS[overlayColor] || DEFAULT_COLOR
 
   return cx(
     BASE_CLASS,
     rounded !== BORDER_RADIUS.NONE && `${BASE_CLASS}--rounded-${rounded}`,
     `${IMAGE_PANEL_CLASS}--vertical-${verticalAlign}`,
     `${IMAGE_PANEL_CLASS}--horizontal-${horizontalAlign}`,
-    overlayColor &&
-      `${BASE_CLASS}--${overlayColorValue}-overlay-${overlayAlphaValue}`,
+    overlayColor && `${BASE_CLASS}--${overlayColor}-overlay-${overlayAlpha}`,
     `${BASE_CLASS}-color--${color}`,
     resized && `${IMAGE_PANEL_CLASS}--resized`,
     elevation !== ELEVATION.NONE && `${BASE_CLASS}--elevation-${elevation}`

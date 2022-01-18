@@ -1,5 +1,34 @@
 # CHANGELOG
 
+# 1.24.0 (2021-12-13)
+
+
+### Bug Fixes
+
+* **components/molecule/selectPopover:** fix warnings in console ([cb06421](https://github.com/SUI-Components/sui-components/commit/cb064212840f8a4d7397ad5107c5b91a6be3545f))
+
+
+
+# 1.23.0 (2021-11-29)
+
+
+### Features
+
+* **components/molecule/selectPopover:** add renderSelect prop ([52eaf61](https://github.com/SUI-Components/sui-components/commit/52eaf61c099730df0b578eef406244f39757a633))
+* **components/molecule/selectPopover:** render content wrapper when is react element ([fd345a4](https://github.com/SUI-Components/sui-components/commit/fd345a4718b5854ca8527e772d1673d955af5439))
+* **components/molecule/selectPopover:** update renderContentWrapper prop-type ([1bf1b24](https://github.com/SUI-Components/sui-components/commit/1bf1b24cf0a0f259ff6faded7381d53450166022))
+
+
+
+# 1.22.0 (2021-11-25)
+
+
+### Features
+
+* **components/molecule/selectPopover:** ad new variable background select ([a0f5ccc](https://github.com/SUI-Components/sui-components/commit/a0f5ccc8b5e8de00a303b7b8bd57a4e9ce8d5528))
+
+
+
 # 1.21.0 (2021-06-21)
 
 
@@ -14,8 +43,8 @@
 
 ### Features
 
-* **components/molecule/selectPopover:** add new renderContentWrapper prop ([a1a8556](https://github.com/SUI-Components/sui-components/commit/a1a8556f36d7c840a25e81be43260e9e80effb12))
 * **components/molecule/selectPopover/demo:** use actionsAreHidden in renderContentWrapper ([d783507](https://github.com/SUI-Components/sui-components/commit/d7835078efc2112f93c5f2d960165d353b2d587b))
+* **components/molecule/selectPopover:** add new renderContentWrapper prop ([a1a8556](https://github.com/SUI-Components/sui-components/commit/a1a8556f36d7c840a25e81be43260e9e80effb12))
 
 
 

@@ -9,7 +9,7 @@ import {
   Label
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
-import MoleculeValidationCode from '../../src/validationCode'
+import MoleculeValidationCode from '../../src'
 
 const ArticleReferenced = ({className}) => {
   const [refValue, setRefValue] = useState()

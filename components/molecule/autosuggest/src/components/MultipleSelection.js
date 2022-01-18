@@ -4,17 +4,19 @@ import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 import isEqual from 'lodash.isequal'
-import {InputWithClearUI as MoleculeInputTagsWithClearUI} from './InputWithClearUI'
+import {InputWithClearUI} from './InputWithClearUI'
 
 const MoleculeAutosuggestFieldMultiSelection = ({
+  allowDuplicates,
   autoClose,
+  autoFocus,
   autoComplete = 'nope',
   children,
+  design,
   disabled = false,
   iconClear,
   iconCloseTag = <span />,
   id,
-  allowDuplicates,
   innerRefInput: refInput = {},
   inputMode,
   isOpen,
@@ -49,44 +51,47 @@ const MoleculeAutosuggestFieldMultiSelection = ({
       newTags.push(value)
     }
 
-    onChangeTags(ev, {
-      value: '',
-      tags: newTags
-    })
-    onSelect(ev, {
-      value: '',
-      tags: newTags
-    })
-    autoClose && onToggle(ev, {isOpen: false})
+    typeof onChangeTags === 'function' &&
+      onChangeTags(ev, {
+        value: '',
+        tags: newTags
+      })
+    typeof onSelect === 'function' &&
+      onSelect(ev, {
+        value: '',
+        tags: newTags
+      })
+    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen: false})
     innerRefInput.current && innerRefInput.current.focus()
   }
 
   const handleChangeTags = (ev, {tags, value}) => {
     const isOpen = Boolean(value)
-    onChangeTags(ev, {tags})
-    autoClose && onToggle(ev, {isOpen})
+    typeof onChangeTags === 'function' && onChangeTags(ev, {tags})
+    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen})
     innerRefInput.current && innerRefInput.current.focus()
   }
 
   const handleChange = (ev, {value}) => {
     const isOpen = Boolean(value)
-    onChange(ev, {value})
-    autoClose && onToggle(ev, {isOpen})
+    typeof onChange === 'function' && onChange(ev, {value})
+    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen})
   }
 
   const handleClear = ev => {
     if (!disabled) {
-      onChange(null, {value: ''})
-      onChangeTags(null, {tags: []})
-      onClear(ev)
+      typeof onChange === 'function' && onChange(null, {value: ''})
+      typeof onChangeTags === 'function' && onChangeTags(null, {tags: []})
+      typeof onClear === 'function' && onClear(ev)
     }
   }
 
   return (
     <>
-      <MoleculeInputTagsWithClearUI
+      <InputWithClearUI
         allowDuplicates={allowDuplicates}
         autoComplete={autoComplete}
+        autoFocus={autoFocus}
         disabled={disabled}
         iconClear={iconClear}
         id={id}
@@ -109,7 +114,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         value={value}
       >
         <MoleculeInputTags />
-      </MoleculeInputTagsWithClearUI>
+      </InputWithClearUI>
       <MoleculeDropdownList
         checkbox
         highlightQuery={value}
@@ -118,6 +123,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         size={size}
         value={tags}
         visible={isOpen}
+        design={design}
       >
         {children}
       </MoleculeDropdownList>

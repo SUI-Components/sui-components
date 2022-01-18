@@ -4,6 +4,7 @@
 
 $bd-select-popover: 1px solid $c-gray-light-2 !default;
 $c-select-popover: $c-black !default;
+$bgc-select-popover: transparent !default;
 $bgc-select-popover-hover: $c-primary-light-4 !default;
 $bdc-select-popover-hover: $c-primary-light-4 !default;
 $c-select-popover--is-open: $c-primary !default;
@@ -35,6 +36,7 @@ $z-select-popover-select-popover: $z-tooltips !default;
   &-select {
     $select: &;
     align-items: center;
+    background: $bgc-select-popover;
     border: $bd-select-popover;
     border-radius: $bdrs-select-popover;
     box-sizing: $bxz-select-popover-select;

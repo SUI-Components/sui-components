@@ -1,13 +1,8 @@
-import {
-  getMessageErrorRequired,
-  getMessageErrorNumber,
-  getMessageErrorPositive
-} from './helpers'
+import {getMessageErrorNumber, getMessageErrorPositive} from './helpers'
 
 const isValidTotalPages = (props, propName, componentName) => {
   const totalPages = props[propName]
-  if (!totalPages)
-    return new Error(getMessageErrorRequired({propName, componentName}))
+  if (totalPages === undefined) return null
   if (typeof totalPages !== 'number')
     return new Error(getMessageErrorNumber({propName, componentName}))
   if (totalPages <= 0)

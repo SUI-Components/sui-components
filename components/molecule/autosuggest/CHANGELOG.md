@@ -1,5 +1,35 @@
 # CHANGELOG
 
+# 2.56.0 (2022-01-14)
+
+
+### Features
+
+* **components/molecule/autosuggest:** adds demo with the new prop ([1954edf](https://github.com/SUI-Components/sui-components/commit/1954edf95333b2e1c8b3aadfb88a5f1d840b672a))
+* **components/molecule/autosuggest:** adds new prop ([dbf1a64](https://github.com/SUI-Components/sui-components/commit/dbf1a6460eeff688832019fce7a66a329c6e3448))
+* **components/molecule/autosuggest:** adds new props ([0670702](https://github.com/SUI-Components/sui-components/commit/0670702fdb20ff2b331b82f013701722dcbb6345))
+
+
+
+# 2.55.0 (2022-01-12)
+
+
+### Features
+
+* **components/molecule/autosuggest:** adds new props to be able to pass it to moleculeDropdownList ([cc149ee](https://github.com/SUI-Components/sui-components/commit/cc149eeaa98dcb356ae808a2d2e2cbf3bb6c37ac))
+* **components/molecule/autosuggest:** sorts props ([e8624ef](https://github.com/SUI-Components/sui-components/commit/e8624ef3059456d911ab8386b4b359d3925a3227))
+
+
+
+# 2.54.0 (2021-12-23)
+
+
+### Bug Fixes
+
+* **components/molecule/autosuggest:** autosuggest prevent key handle ([78e89fa](https://github.com/SUI-Components/sui-components/commit/78e89fa224a653581b3e2d88611be64cb8233b36))
+
+
+
 # 2.53.0 (2021-11-10)
 
 
@@ -166,7 +196,6 @@
 
 * **molecule/autosuggest:** add ev to onClear ([3292db0](https://github.com/SUI-Components/sui-components/commit/3292db0881c71713a391c54ae2a4d480adac6b0f))
 * **molecule/autosuggest:** create onClear prop ([468aac1](https://github.com/SUI-Components/sui-components/commit/468aac1afefd0fbf45be88ef0f6a0310a81698f9))
-* **molecule/autosuggest:** update ([db4742b](https://github.com/SUI-Components/sui-components/commit/db4742bce9b0c4bda155ec62ed40c409148e0098))
 
 
 

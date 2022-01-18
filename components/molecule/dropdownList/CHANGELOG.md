@@ -1,5 +1,24 @@
 # CHANGELOG
 
+# 1.24.0 (2021-12-07)
+
+
+### Bug Fixes
+
+* **components/molecule/dropdownList:** add a11y role listbox ([9bc4315](https://github.com/SUI-Components/sui-components/commit/9bc4315d6995875c4e851ccfaaf77dcfe5067c2b))
+
+
+
+# 1.23.0 (2021-11-16)
+
+
+### Features
+
+* **components/molecule/dropdownList:** add flat design ([8e3f7a5](https://github.com/SUI-Components/sui-components/commit/8e3f7a57a9072d3602ccb94053de4c8f5ca9b287))
+* **components/molecule/dropdownList:** rename design token ([d6f78cd](https://github.com/SUI-Components/sui-components/commit/d6f78cdefd1d3a7de2a4afec84a52fa63f9170b2))
+
+
+
 # 1.22.0 (2021-11-10)
 
 

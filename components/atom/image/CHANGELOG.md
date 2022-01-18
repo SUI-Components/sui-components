@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.10.0 (2022-01-11)
+
+
+### Features
+
+* **components/atom/image:** Add file extension and force new release ([de7e252](https://github.com/SUI-Components/sui-components/commit/de7e2527444575bce85e82fe7ae3b31ca51a66ef))
+
+
+
 # 2.9.0 (2021-07-12)
 
 

@@ -1,5 +1,33 @@
 # CHANGELOG
 
+# 1.5.0 (2021-12-01)
+
+
+### Bug Fixes
+
+* **components/molecule/validationCode:** avoid rendering empty delete button ([9c0452b](https://github.com/SUI-Components/sui-components/commit/9c0452b0bf1c8baca342a1accc3d2cf717490bb9))
+* **components/molecule/validationCode:** remove default value ([aa578b3](https://github.com/SUI-Components/sui-components/commit/aa578b3ab510fbd85373e433124b16b090fb9b25))
+
+
+
+# 1.4.0 (2021-11-29)
+
+
+### Bug Fixes
+
+* **components/molecule/validationCode:** avoid filter when property has no value ([8e2869d](https://github.com/SUI-Components/sui-components/commit/8e2869d308af30bcbdd97c1e5428bccf3fa376af))
+
+
+
+# 1.3.0 (2021-11-24)
+
+
+### Features
+
+* **components/molecule/validationCode:** add isFitted button dependancy default footer ([d58c4a4](https://github.com/SUI-Components/sui-components/commit/d58c4a45c6e1d5d651ca2d0e9eed6ce7f667ba8d))
+
+
+
 # 1.2.0 (2021-10-29)
 
 

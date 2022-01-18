@@ -26,8 +26,7 @@
     "release": "sui-mono release",
     "start": "sui-studio start",
     "test": "sui-studio test -- --coverage",
-    "test:watch": "sui-studio test --watch",
-    "update:coverage": "node scripts/replace-coverage-badges.js"
+    "test:watch": "sui-studio test --watch"
   },
   "repository": {
     "type": "git",
@@ -41,13 +40,12 @@
     "@s-ui/helpers": "1",
     "@s-ui/mono": "2",
     "@s-ui/precommit": "2",
-    "@s-ui/studio": "10",
+    "@s-ui/studio": "beta",
     "fs-extra": "10.0.0",
     "globby": "11.0.3",
     "husky": "4.3.0",
     "sinon": "11.1.1",
-    "validate-commit-msg": "2.12.2",
-    "webpack": "4"
+    "validate-commit-msg": "2.12.2"
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1"

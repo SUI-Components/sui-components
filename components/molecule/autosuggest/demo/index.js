@@ -214,7 +214,7 @@ const Demo = () => {
           <ComboCountries />
         </div>
 
-        <h2>Autosugegst list is open</h2>
+        <h2>Autosuggest list is open</h2>
         <div className={CLASS_DEMO_SECTION}>
           <h3>With preselected Value</h3>
           <MoleculeAutosuggestWithStateTagsLabels
@@ -312,6 +312,19 @@ const Demo = () => {
               </MoleculeAutosuggestOption>
             ))}
           </MoleculeAutosuggestField>
+
+          <div className={CLASS_DEMO_SECTION}>
+            <h3>with autoFocus</h3>
+            <MoleculeAutosuggestWithStateTags
+              autoFocus
+              placeholder="Type a Country name..."
+              onChangeTags={(_, {tags}) => console.log(tags)}
+              onClear={() => console.log('Clear pressed')}
+              iconCloseTag={<IconClose />}
+              iconClear={<IconClose />}
+              multiselection
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -1,26 +1,18 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
-const BASE_CLASS = 'sui-AtomCard'
-const CLASS_MEDIA = `${BASE_CLASS}-media`
-const CLASS_INFO = `${BASE_CLASS}-info`
-
-const CLASS_VERTICAL = `${BASE_CLASS}--vertical`
-const CLASS_RESPONSIVE = `${BASE_CLASS}--responsive`
-const CLASS_HIGHLIGHT = `${BASE_CLASS}--highlight`
-const CLASS_LINK = `${BASE_CLASS}-link`
-
-const BORDER_RADIUS = {
-  S: 's',
-  M: 'm',
-  L: 'l'
-}
-
-const ELEVATION = {
-  S: 's',
-  M: 'm',
-  L: 'l'
-}
+import {
+  BASE_CLASS,
+  BORDER_RADIUS,
+  CLASS_HIGHLIGHT,
+  CLASS_INFO,
+  CLASS_LINK,
+  CLASS_MEDIA,
+  CLASS_RESPONSIVE,
+  CLASS_VERTICAL,
+  ELEVATION,
+  redirectToHref
+} from './config'
 
 const AtomCard = ({
   media: Media,
@@ -35,13 +27,11 @@ const AtomCard = ({
   onClick,
   tabIndex
 }) => {
-  const redirectToHref = () => {
-    if (href && blank) return window.open(href, '_blank')
-    if (href) window.location.href = href
+  const onClickHandler = e => {
+    typeof onClick === 'function' ? onClick(e) : redirectToHref({href, blank})
   }
-
   const redirectOnEnter = e => {
-    if (e.key === 'Enter') redirectToHref()
+    if (e.key === 'Enter') redirectToHref({href, blank})
   }
 
   const isVertical = vertical && !responsive
@@ -62,7 +52,7 @@ const AtomCard = ({
       className={classNames}
       tabIndex={tabIndex}
       role="button"
-      onClick={onClick ?? redirectToHref}
+      onClick={onClickHandler}
       onKeyDown={redirectOnEnter}
     >
       {Media && (
@@ -114,4 +104,5 @@ AtomCard.propTypes = {
 }
 
 export default AtomCard
+
 export {BORDER_RADIUS as atomCardRounded, ELEVATION as atomCardElevation}

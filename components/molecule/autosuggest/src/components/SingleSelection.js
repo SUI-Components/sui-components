@@ -3,13 +3,15 @@ import {Children} from 'react'
 
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import AtomInput from '@s-ui/react-atom-input'
-import {InputWithClearUI as AtomInputWithClearUI} from './InputWithClearUI'
+import {InputWithClearUI} from './InputWithClearUI'
 
 const MoleculeAutosuggestSingleSelection = ({
   autoClose,
+  autoFocus,
   ariaLabel,
   autoComplete = 'nope',
   children,
+  design,
   disabled,
   iconClear,
   id,
@@ -36,36 +38,38 @@ const MoleculeAutosuggestSingleSelection = ({
   value = ''
 }) => {
   const handleSelection = (ev, {value}) => {
-    onChange(ev, {value})
-    onSelect(ev, {value})
-    autoClose && onToggle(ev, {isOpen: false})
+    typeof onChange === 'function' && onChange(ev, {value})
+    typeof onSelect === 'function' && onSelect(ev, {value})
+    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen: false})
   }
 
   const handleChange = (ev, {value}) => {
-    onChange(ev, {value})
-    autoClose && onToggle(ev, {isOpen: true})
+    typeof onChange === 'function' && onChange(ev, {value})
+    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen: true})
   }
 
   const handleClear = ev => {
     if (!disabled) {
-      onChange(null, {value: ''})
-      onClear(ev)
+      typeof onChange === 'function' && onChange(null, {value: ''})
+      typeof onClear === 'function' && onClear(ev)
     }
   }
 
   const handleRightClick = ev => {
-    onClickRightIcon(ev, {value})
+    typeof onClickRightIcon === 'function' && onClickRightIcon(ev, {value})
   }
 
   return (
     <>
-      <AtomInputWithClearUI
+      <InputWithClearUI
         ariaLabel={ariaLabel}
         autoComplete={autoComplete}
+        autoFocus={autoFocus}
         button={rightButton}
         disabled={disabled}
         iconClear={!disabled && iconClear}
         id={id}
+        reference={refInput}
         inputMode={inputMode}
         isVisibleClear={value}
         leftIcon={leftIcon}
@@ -76,7 +80,6 @@ const MoleculeAutosuggestSingleSelection = ({
         onClickRightIcon={handleRightClick}
         onKeyDown={onInputKeyDown}
         placeholder={placeholder}
-        reference={refInput}
         required={required}
         rightIcon={rightIcon}
         tabIndex={tabIndex}
@@ -84,7 +87,7 @@ const MoleculeAutosuggestSingleSelection = ({
         value={value}
       >
         <AtomInput />
-      </AtomInputWithClearUI>
+      </InputWithClearUI>
       {value && (
         <MoleculeDropdownList
           size={size}
@@ -93,6 +96,7 @@ const MoleculeAutosuggestSingleSelection = ({
           value={value}
           highlightQuery={value}
           onKeyDown={onKeyDown}
+          design={design}
         >
           {children}
         </MoleculeDropdownList>

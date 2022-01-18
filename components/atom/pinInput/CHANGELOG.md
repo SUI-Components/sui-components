@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.4.0 (2021-11-17)
+
+
+### Features
+
+* **components/atom/pinInput:** add default value to be able to change on themes ([9b15e3f](https://github.com/SUI-Components/sui-components/commit/9b15e3ffecef6ed7a3e3d1d62f0a5640a59a5079))
+
+
+
 # 1.3.0 (2021-10-08)
 
 

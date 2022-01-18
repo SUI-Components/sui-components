@@ -94,9 +94,12 @@ $icon-m-atom-button-large: $m-m !default;
 $p-atom-button-large: $p-l !default;
 $m-consecutive-atom-button: $m-m !default;
 
+$bdrs-atom-button-group-selected: none !default;
+$bxsh-atom-button-group-selected: none !default;
 $bd-atom-button-group-focused: 1px solid !default;
 $bdrs-atom-button-first: $bdrs-m 0 0 $bdrs-m !default;
 $bdrs-atom-button-last: 0 $bdrs-m $bdrs-m 0 !default;
+$p-atom-button-group-sides: $p-l !default;
 
 $bxsh-atom-button-solid-primary: none !default;
 $bxsh-atom-button-solid-primary-negative: none !default;
@@ -105,6 +108,8 @@ $tt-atom-button: none !default;
 
 $icon-fill-color: currentColor !default;
 $icon-stroke-color: currentColor !default;
+
+$td-atom-button-link: none !default;
 
 // Sets active states when button is not disabled
 @mixin button-focused {
@@ -166,13 +171,14 @@ $icon-stroke-color: currentColor !default;
   text-transform: $tt-atom-button;
   white-space: nowrap;
 
-  & + & {
+  & + &:not(&--fitted):not(&-group) {
     margin-left: $m-consecutive-atom-button;
   }
 
   &-group {
     margin-left: -1px;
     margin-right: 0;
+    padding: 0 $p-atom-button-group-sides;
 
     & + & {
       margin-left: -1px;
@@ -194,6 +200,13 @@ $icon-stroke-color: currentColor !default;
     &--last {
       &#{$base-class} {
         border-radius: $bdrs-atom-button-last;
+      }
+    }
+
+    &--selected {
+      &#{$base-class} {
+        border-radius: $bdrs-atom-button-group-selected;
+        box-shadow: $bxsh-atom-button-group-selected;
       }
     }
 
@@ -250,7 +263,7 @@ $icon-stroke-color: currentColor !default;
     padding: 0;
     justify-content: center;
     text-align: center;
-    text-decoration: none;
+    text-decoration: $td-atom-button-link;
     @include button-focused {
       background: transparent;
     }

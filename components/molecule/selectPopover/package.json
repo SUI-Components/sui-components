@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-select-popover",
-  "version": "1.21.0",
+  "version": "1.24.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

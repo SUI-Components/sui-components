@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef, useCallback} from 'react'
+import {useState, useEffect, useRef, useCallback, cloneElement} from 'react'
 import Button from '@s-ui/react-atom-button'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -34,6 +34,7 @@ function MoleculeSelectPopover({
   onOpen = () => {},
   placement = PLACEMENTS.RIGHT,
   renderContentWrapper: renderContentWrapperProp,
+  renderSelect: renderSelectProp,
   selectText,
   size = 'm',
   title
@@ -132,6 +133,36 @@ function MoleculeSelectPopover({
     </>
   )
 
+  const renderProp = (render, props) => {
+    return typeof render === 'function'
+      ? render(props)
+      : cloneElement(render, {
+          ...render.props,
+          ...props
+        })
+  }
+
+  const renderSelect = () => {
+    const newSelectProps = {
+      ref: selectRef,
+      className: selectClassName,
+      onClick: handleOpenToggle
+    }
+
+    if (renderSelectProp) {
+      return renderProp(renderSelectProp, {...newSelectProps, isOpen})
+    }
+
+    return (
+      <div className={selectClassName} {...newSelectProps}>
+        <span className={`${BASE_CLASS}-selectText`}>{selectText}</span>
+        <div className={`${BASE_CLASS}-selectIcon`}>
+          <IconArrowDown />
+        </div>
+      </div>
+    )
+  }
+
   const renderContentWrapper = () => {
     const pieces = {
       actions: renderActions(),
@@ -144,7 +175,9 @@ function MoleculeSelectPopover({
     /**
      * Custom content wrapper from render prop
      */
-    if (renderContentWrapperProp) return renderContentWrapperProp(pieces)
+    if (renderContentWrapperProp) {
+      return renderProp(renderContentWrapperProp, pieces)
+    }
 
     /**
      * Default content wrapper as a popover
@@ -172,16 +205,7 @@ function MoleculeSelectPopover({
 
   return (
     <div className={classNames} title={title}>
-      <div
-        ref={selectRef}
-        className={selectClassName}
-        onClick={handleOpenToggle}
-      >
-        <span className={`${BASE_CLASS}-selectText`}>{selectText}</span>
-        <div className={`${BASE_CLASS}-selectIcon`}>
-          <IconArrowDown />
-        </div>
-      </div>
+      {renderSelect()}
       {renderContentWrapper()}
     </div>
   )
@@ -216,7 +240,8 @@ MoleculeSelectPopover.propTypes = {
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
   placement: PropTypes.string,
-  renderContentWrapper: PropTypes.func,
+  renderContentWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
+  renderSelect: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   selectText: PropTypes.string.isRequired,
   size: PropTypes.string,
   title: PropTypes.string

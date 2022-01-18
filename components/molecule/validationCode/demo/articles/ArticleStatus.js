@@ -7,7 +7,7 @@ import {
   RadioButtonGroup
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
-import MoleculeValidationCode from '../../src/validationCode'
+import MoleculeValidationCode from '../../src'
 import Input from '@s-ui/documentation-library/lib/components/Input/Input'
 import {Cell} from '@s-ui/documentation-library/lib/components/Grid/Grid'
 import Label from '@s-ui/documentation-library/lib/components/Label/Label'

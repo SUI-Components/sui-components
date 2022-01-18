@@ -8,7 +8,7 @@ import {
   Input,
   Paragraph
 } from '@s-ui/documentation-library'
-import PinInput from '../src/PinInput'
+import PinInput from '../src'
 import {useState} from 'react'
 
 const cellStyles = {

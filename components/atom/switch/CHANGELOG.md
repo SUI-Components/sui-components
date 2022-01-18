@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 1.22.0 (2022-01-14)
+
+
+### Features
+
+* **components/atom/switch:** Add new variable: border ([95fadec](https://github.com/SUI-Components/sui-components/commit/95fadec962b5b8c1f888ef1ca33997c30552b613))
+
+
+
+# 1.21.0 (2021-11-30)
+
+
+### Features
+
+* **components/atom/switch:** bump ([02fc989](https://github.com/SUI-Components/sui-components/commit/02fc9890aead2de8defe5921f6b831994976f486))
+
+
+
 # 1.20.0 (2021-09-07)
 
 

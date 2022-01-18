@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
 import MoleculeDropdownList, {
+  moleculeDropdownListDesigns,
   moleculeDropdownListSizes
 } from 'components/molecule/dropdownList/src'
 
@@ -100,6 +101,60 @@ const Demo = () => (
           <MoleculeDropdownList
             visible={isOpen}
             size={moleculeDropdownListSizes.LARGE}
+          >
+            {countries.map((option, index) => (
+              <MoleculeDropdownOption
+                value={option}
+                key={index}
+                selected={option === 'Canary Islands'}
+              >
+                {option}
+              </MoleculeDropdownOption>
+            ))}
+          </MoleculeDropdownList>
+        </div>
+        <h3>
+          Basic (<code>size → false</code>)
+        </h3>
+        <div className={CLASS_DEMO_LIST}>
+          <MoleculeDropdownList visible={isOpen} size={false}>
+            {countries.map((option, index) => (
+              <MoleculeDropdownOption
+                value={option}
+                key={index}
+                selected={option === 'Canary Islands'}
+              >
+                {option}
+              </MoleculeDropdownOption>
+            ))}
+          </MoleculeDropdownList>
+        </div>
+        <h3>
+          Basic (<code>design → FLAT</code>)
+        </h3>
+        <div className={CLASS_DEMO_LIST}>
+          <MoleculeDropdownList
+            visible={isOpen}
+            design={moleculeDropdownListDesigns.FLAT}
+          >
+            {countries.map((option, index) => (
+              <MoleculeDropdownOption
+                value={option}
+                key={index}
+                selected={option === 'Canary Islands'}
+              >
+                {option}
+              </MoleculeDropdownOption>
+            ))}
+          </MoleculeDropdownList>
+        </div>
+        <h3>
+          Basic (<code>design → SOLID: default</code>)
+        </h3>
+        <div className={CLASS_DEMO_LIST}>
+          <MoleculeDropdownList
+            visible={isOpen}
+            design={moleculeDropdownListDesigns.SOLID}
           >
             {countries.map((option, index) => (
               <MoleculeDropdownOption

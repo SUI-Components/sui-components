@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.12.0 (2022-01-14)
+
+
+### Features
+
+* **components/atom/input:** removes default appearance of input ([f0fc6a0](https://github.com/SUI-Components/sui-components/commit/f0fc6a04525c58972348331c223a163ea6a4ea11))
+
+
+
 # 5.11.0 (2021-11-10)
 
 
@@ -562,7 +571,6 @@
 * **atom/input:** iconRight & clickHander & hoc features reorganization ([5c89813](https://github.com/SUI-Components/sui-components/commit/5c89813d83bf42c6b2a86e2695cc013caba78118))
 * **atom/input:** improved documentation ([fbe91ab](https://github.com/SUI-Components/sui-components/commit/fbe91ab4f3f0b557d6ba601e89f7d2a5fcecd2f5))
 * **atom/input:** left & right icon managed by HOC ([45dac5d](https://github.com/SUI-Components/sui-components/commit/45dac5d304c12a823c1ed58892f2da64d80bade1))
-* **atom/input:** merge master & solved conflicts ([a90cb72](https://github.com/SUI-Components/sui-components/commit/a90cb7282feffdc7a46a81128ffe397eec56eab5))
 
 
 
@@ -605,7 +613,6 @@
 * **atom/input:** charsSize ([8ea729c](https://github.com/SUI-Components/sui-components/commit/8ea729c01da243fd94d7b819a2afd9df21ad77ae))
 * **atom/input:** demo fix ([33496e6](https://github.com/SUI-Components/sui-components/commit/33496e6d64c022df1a740652db37550f0862427e))
 * **atom/input:** icon Left ([df6bedc](https://github.com/SUI-Components/sui-components/commit/df6bedc4f74b8d4ea837fba607840a5c93f6ae49))
-* **atom/input:** merged latest changes ([a2f4b7d](https://github.com/SUI-Components/sui-components/commit/a2f4b7d1bf4306a683369454ec9bfca52ed5af47))
 * **atom/input:** modifications after code review comments ([fff3cb0](https://github.com/SUI-Components/sui-components/commit/fff3cb09d7150c5d1c9dd8fac17a9fc076c787b5))
 * **atom/input:** removed unnecesary dependency ([2f68b77](https://github.com/SUI-Components/sui-components/commit/2f68b77f9cbd0468d2532bec33d9c933461c7863))
 * **atom/input:** sizeChars ([4144365](https://github.com/SUI-Components/sui-components/commit/41443650550046732e7cf97a2e1ea87d71b997f1))

@@ -2,14 +2,7 @@ import {useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const BASE_CLASS = 'sui-AtomCheckbox'
-
-const CHECKBOX_STATUS = {
-  ERROR: 'error',
-  SUCCESS: 'success',
-  ALERT: 'alert'
-}
-const CHECKBOX_SIZES = {SMALL: 'small', MEDIUM: 'medium'}
+import {BASE_CLASS, CHECKBOX_STATUS, CHECKBOX_SIZES} from './config'
 
 const AtomCheckbox = ({
   checked = false,

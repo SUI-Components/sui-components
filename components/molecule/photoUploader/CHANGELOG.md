@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.8.0 (2022-01-18)
+
+
+### Features
+
+* **components/molecule/photoUploader:** add new prop to modify button shape on initial state ([6b00a94](https://github.com/SUI-Components/sui-components/commit/6b00a949fbe4550316f2ce316353fd7e23225e98))
+* **components/molecule/photoUploader:** remove default prop value ([c784bc4](https://github.com/SUI-Components/sui-components/commit/c784bc426ed78278612a3e075d44bf074df50c08))
+
+
+
 # 2.7.0 (2021-12-23)
 
 
@@ -373,7 +383,6 @@
 ### Features
 
 * **molecule/photoUploader:** ad some variables ([808f55e](https://github.com/SUI-Components/sui-components/commit/808f55eca219d77e9f72928ccd86a6ff5dd2a79b))
-* **molecule/photoUploader:** add buttonsize in initial state ([3f788a6](https://github.com/SUI-Components/sui-components/commit/3f788a6a8ad0ff0658b295036acb349cc4ea7d79))
 * **molecule/photoUploader:** add color to button, to avoid use deprecated props ([797407b](https://github.com/SUI-Components/sui-components/commit/797407bd93bf24b55e7701e8f9e3416ce77a5864))
 * **molecule/photoUploader:** add initial rotation based on EXIF metadata ([7018d7a](https://github.com/SUI-Components/sui-components/commit/7018d7a6773b50eadeb0f85554fcf5f205a8143e))
 * **molecule/photoUploader:** add new callback: callbackPhotosRejected ([27e94d2](https://github.com/SUI-Components/sui-components/commit/27e94d2023a1619eb548b769bca7a2010129bdd6))

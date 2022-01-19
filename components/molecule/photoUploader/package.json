@@ -14,8 +14,8 @@
     "@s-ui/react-atom-icon": "1",
     "@s-ui/react-hooks": "1",
     "@s-ui/react-molecule-notification": "1",
-    "react-dropzone": "10.2.1",
-    "react-sortablejs": "2.0.11"
+    "react-dropzone": "11.5",
+    "react-sortablejs": "6.0"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

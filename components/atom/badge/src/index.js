@@ -77,10 +77,10 @@ AtomBadge.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZES)),
 
   /** Determine the type of the badge */
-  type: PropTypes.oneOfType(
+  type: PropTypes.oneOfType([
     PropTypes.oneOf(Object.values(TYPES)), // Better use one of defined types
     PropTypes.string // Can even custom your own type
-  )
+  ])
 }
 
 export default AtomBadge

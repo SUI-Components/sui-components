@@ -6,57 +6,100 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+
+import * as pkg from '../src'
+import json from '../package.json'
+
+import {getColSpanClassNamesTransform} from 'components/layout/grid/src/gridItem'
 import {
   LayoutGridAlignContent,
   LayoutGridAlignItems,
-  LayoutGridJustifyContent,
-  LayoutGridGutterValues,
+  LayoutGridBreakpoints,
   LayoutGridCellNumbers,
-  LayoutGridBreakpoints
-} from 'components/layout/grid/src/'
-import {getColSpanClassNamesTransform} from 'components/layout/grid/src/gridItem'
+  LayoutGridGutterValues,
+  LayoutGridJustifyContent
+} from '../src'
 
 chai.use(chaiDOM)
 
-describe('layout/grid', () => {
-  const Component = LayoutGrid
+describe(json.name, () => {
+  const {default: Component} = pkg
   const setup = setupEnvironment(Component)
 
-  it('should render without crashing', () => {
-    // given
-    const props = {}
-    // when
-    const component = <Component {...props} />
-    // then
-    const div = document.createElement('div')
-    ReactDOM.render(component, div)
-    ReactDOM.unmountComponentAtNode(div)
-  })
-
-  it('should NOT render null', () => {
-    // given
-    const props = {}
-    // when
-    const {container} = setup(props)
-    // then
-    expect(container.innerHTML).to.be.a('string')
-    expect(container.innerHTML).to.not.have.lengthOf(0)
-  })
-
-  it('should NOT extend classNames', () => {
+  it('library should include defined exported elements', () => {
     // Given
-    const props = {className: 'extended-classNames'}
-    const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+    const library = pkg
+    const libraryExportedMembers = [
+      'default',
+      'DeprecatedLayoutGrid',
+      'LayoutGridItem',
+      'LayoutGridAlignContent',
+      'LayoutGridAlignItems',
+      'LayoutGridJustifyContent',
+      'LayoutGridGutterValues',
+      'LayoutGridCellNumbers',
+      'LayoutGridBreakpoints'
+    ]
 
     // When
-    const {container} = setup(props)
-    const findClassName = findSentence(props.className)
+    const {
+      default: LayoutGrid,
+      DeprecatedLayoutGrid,
+      LayoutGridItem,
+      LayoutGridAlignContent,
+      LayoutGridAlignItems,
+      LayoutGridJustifyContent,
+      LayoutGridGutterValues,
+      LayoutGridCellNumbers,
+      LayoutGridBreakpoints,
+      ...others
+    } = library
 
     // Then
-    expect(findClassName(container.innerHTML)).to.be.null
+    expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
+    expect(Object.keys(library)).to.have.members(libraryExportedMembers)
+    expect(Object.keys(others).length).to.equal(0)
+  })
+
+  describe(Component.displayName, () => {
+    it('should render without crashing', () => {
+      // given
+      const props = {}
+      // when
+      const component = <Component {...props} />
+      // then
+      const div = document.createElement('div')
+      ReactDOM.render(component, div)
+      ReactDOM.unmountComponentAtNode(div)
+    })
+
+    it('should NOT render null', () => {
+      // given
+      const props = {}
+      // when
+      const {container} = setup(props)
+      // then
+      expect(container.innerHTML).to.be.a('string')
+      expect(container.innerHTML).to.not.have.lengthOf(0)
+    })
+
+    it('should NOT extend classNames', () => {
+      // Given
+      const props = {className: 'extended-classNames'}
+      const findSentence = str => string =>
+        string.match(new RegExp(`S*${str}S*`))
+
+      // When
+      const {container} = setup(props)
+      const findClassName = findSentence(props.className)
+
+      // Then
+      expect(findClassName(container.innerHTML)).to.be.null
+    })
   })
 
   describe('LayoutGridAlignContent', () => {
+    const {LayoutGridAlignContent} = pkg
     it('enum', () => {
       // given
       const actual = LayoutGridAlignContent
@@ -87,7 +130,9 @@ describe('layout/grid', () => {
       })
     })
   })
+
   describe('LayoutGridAlignItems', () => {
+    const {LayoutGridAlignItems} = pkg
     it('enum', () => {
       // given
       const actual = LayoutGridAlignItems
@@ -116,7 +161,9 @@ describe('layout/grid', () => {
       })
     })
   })
+
   describe('LayoutGridJustifyContent', () => {
+    const {LayoutGridJustifyContent} = pkg
     it('enum', () => {
       // given
       const actual = LayoutGridJustifyContent
@@ -145,7 +192,9 @@ describe('layout/grid', () => {
       })
     })
   })
+
   describe('LayoutGridBreakpoints', () => {
+    const {LayoutGridBreakpoints} = pkg
     it('enum', () => {
       // given
       const actual = LayoutGridBreakpoints
@@ -176,7 +225,9 @@ describe('layout/grid', () => {
       })
     })
   })
+
   describe('LayoutGridGutterValues', () => {
+    const {LayoutGridGutterValues} = pkg
     it('array', () => {
       // given
       const actual = LayoutGridGutterValues
@@ -192,7 +243,9 @@ describe('layout/grid', () => {
       })
     })
   })
+
   describe('LayoutGridCellNumbers', () => {
+    const {LayoutGridCellNumbers} = pkg
     it('array', () => {
       // given
       const actual = LayoutGridCellNumbers

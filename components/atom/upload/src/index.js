@@ -47,7 +47,7 @@ const AtomUpload = ({
         className={cx(BASE_CLASS, `${BASE_CLASS}--${status}`)}
         {...getRootProps()}
       >
-        <input type="hiden" {...getInputProps()}/>
+        <input type="hiden" {...getInputProps()} />
         <span className={classNameIcon}>{IconStatus}</span>
         <div className={CLASS_BLOCK_TEXT}>
           <h4 className={CLASS_BLOCK_TEXT_MAIN}>{textStatus}</h4>

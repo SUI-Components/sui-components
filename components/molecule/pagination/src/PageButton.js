@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import {isValidPage} from './customPropTypes'
+import {BASE_CLASS} from './settings'
 
 const PageButton = ({onSelectPage, page, design, color, ...props}) => {
   const _onSelectPage = e => {

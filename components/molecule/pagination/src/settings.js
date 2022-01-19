@@ -3,6 +3,6 @@ export const PAGE_NUMBER_HOLDER = '%{pageNumber}'
 export const DIVIDER = '···'
 
 export const defaultCreateUrl = ({pageNumber, urlPattern}) =>
-urlPattern.replace(PAGE_NUMBER_HOLDER, pageNumber)
+  urlPattern.replace(PAGE_NUMBER_HOLDER, pageNumber)
 
 export const noop = () => {}

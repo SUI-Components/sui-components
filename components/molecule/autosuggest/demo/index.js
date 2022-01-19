@@ -48,7 +48,9 @@ const options = [
 const Demo = () => {
   const [tags, setTags] = useState([{key: 1, label: 'Label'}])
   const [value, setValue] = useState()
+  const [keepInputFocus, setKeepInputFocus] = useState(true)
   const [singleValue, setSingleValue] = useState()
+
   return (
     <div className="sui-StudioPreview">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
@@ -313,18 +315,60 @@ const Demo = () => {
             ))}
           </MoleculeAutosuggestField>
 
-          <div className={CLASS_DEMO_SECTION}>
-            <h3>with autoFocus</h3>
-            <MoleculeAutosuggestWithStateTags
-              autoFocus
-              placeholder="Type a Country name..."
-              onChangeTags={(_, {tags}) => console.log(tags)}
-              onClear={() => console.log('Clear pressed')}
-              iconCloseTag={<IconClose />}
-              iconClear={<IconClose />}
-              multiselection
-            />
-          </div>
+          <h3>With autoFocus</h3>
+          <MoleculeAutosuggestWithStateTags
+            autoFocus
+            placeholder="Type a Country name..."
+            onChangeTags={(_, {tags}) => console.log(tags)}
+            onClear={() => console.log('Clear pressed')}
+            iconCloseTag={<IconClose />}
+            iconClear={<IconClose />}
+            multiselection
+          />
+
+          <h3>With keepInputFocus</h3>
+
+          <MoleculeAutosuggestField
+            iconClear={<IconClose />}
+            iconCloseTag={<IconClose />}
+            label={
+              <div style={{marginBottom: '12px'}}>
+                <label style={{marginRight: '24px'}}>
+                  Keep input focus when clicking a suggestion
+                </label>
+                <input
+                  type="checkbox"
+                  checked={keepInputFocus}
+                  onChange={ev => {
+                    console.log({ev: ev.target.checked})
+                    setKeepInputFocus(ev.target.checked)
+                  }}
+                />
+              </div>
+            }
+            keepInputFocus={keepInputFocus}
+            allowDuplicates={false}
+            value={singleValue}
+            onChange={(_, {value}) => {
+              console.log('onChange', value)
+              setSingleValue(value)
+            }}
+            onClear={() => {
+              console.log('Clear pressed')
+              setSingleValue(undefined)
+            }}
+            onEnter={() => console.log('onEnter')}
+            onSelect={(_, {value}) => {
+              setSingleValue(value.label)
+            }}
+            placeholder="Selecciona el value a asignar al campo"
+          >
+            {options.map(({key, label}) => (
+              <MoleculeAutosuggestOption key={key} value={{key, label}}>
+                {label}
+              </MoleculeAutosuggestOption>
+            ))}
+          </MoleculeAutosuggestField>
         </div>
       </div>
     </div>

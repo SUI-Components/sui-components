@@ -32,6 +32,7 @@ const MoleculeAutosuggest = ({
   errorState,
   id = '',
   isOpen,
+  keepInputFocus = true,
   keysCloseList = CLOSE_KEYS_LIST,
   keysSelection = SELECT_KEYS_LIST,
   multiselection,
@@ -134,7 +135,7 @@ const MoleculeAutosuggest = ({
       else if (isSomeOptionFocused) handleFocusIn(ev)
       if (key === 'Enter') {
         typeof onEnter === 'function' && onEnter(ev)
-        innerRefInput && innerRefInput.focus()
+        keepInputFocus && innerRefInput && innerRefInput.focus()
       }
     }
   }
@@ -178,7 +179,7 @@ const MoleculeAutosuggest = ({
 
   const handleClick = () => {
     const {current: innerRefInput} = innerRefMoleculeAutosuggestInput
-    innerRefInput && innerRefInput.focus()
+    keepInputFocus && innerRefInput && innerRefInput.focus()
   }
 
   const autosuggestSelectionProps = {
@@ -253,6 +254,9 @@ MoleculeAutosuggest.propTypes = {
 
   /** if list of options is displayed or not */
   isOpen: PropTypes.bool,
+
+  /** keep input focus when clicking a suggestion */
+  keepInputFocus: PropTypes.bool,
 
   /** list of key identifiers that will close the list */
   keysCloseList: PropTypes.array,

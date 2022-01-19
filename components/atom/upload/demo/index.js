@@ -4,10 +4,10 @@ import {Component} from 'react'
 import AtomUpload, {uploadStatuses} from 'components/atom/upload/src'
 import LayoutMediaQuery from '@s-ui/react-layout-media-query'
 import AtomSpinner from '@s-ui/react-atom-spinner'
-import AtomButton from '@s-ui/react-atom-button'
 import IconActive from './icons/iconActive.js'
 import IconSuccess from './icons/iconSuccess.js'
 import IconError from './icons/iconError.js'
+import {Button} from '@s-ui/documentation-library'
 
 import './index.scss'
 
@@ -97,7 +97,7 @@ const Demo = () => {
             textSuccess={textSuccess}
             iconError={IconError}
             textError={textError}
-            actionButton={<AtomButton>Click to upload your files</AtomButton>}
+            actionButton={<Button>Click to upload your files</Button>}
           />
         </div>
         <h2>Accept only one file</h2>
@@ -117,7 +117,7 @@ const Demo = () => {
             iconError={IconError}
             textError={textError}
             multiple={false}
-            actionButton={<AtomButton>Click to upload your files</AtomButton>}
+            actionButton={<Button>Click to upload your files</Button>}
           />
         </div>
         <h2>accept prop = ".pdf" -> Only PDF files</h2>

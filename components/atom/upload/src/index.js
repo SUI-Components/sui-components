@@ -35,7 +35,7 @@ const AtomUpload = ({
     setReady(true)
   }, [])
 
-  const renderStatusBlock = status => {
+  const renderStatusBlock = (status, getRootProps, getInputProps) => {
     const classNameIcon = `${BASE_CLASS}-icon${capitalize(status)}`
     const IconStatus = props[`icon${capitalize(status)}`]
     const textStatus = props[`text${capitalize(status)}`]
@@ -43,7 +43,11 @@ const AtomUpload = ({
     const hasTextExplanation = Boolean(textExplanation)
     const hasButton = Boolean(Button)
     return (
-      <div className={cx(BASE_CLASS, `${BASE_CLASS}--${status}`)}>
+      <div
+        className={cx(BASE_CLASS, `${BASE_CLASS}--${status}`)}
+        {...getRootProps()}
+      >
+        <input type="hiden" {...getInputProps()}/>
         <span className={classNameIcon}>{IconStatus}</span>
         <div className={CLASS_BLOCK_TEXT}>
           <h4 className={CLASS_BLOCK_TEXT_MAIN}>{textStatus}</h4>
@@ -71,7 +75,9 @@ const AtomUpload = ({
         multiple={multiple}
         onDrop={onFilesSelection}
       >
-        {renderStatusBlock(status)}
+        {({getRootProps, getInputProps}) =>
+          renderStatusBlock(status, getRootProps, getInputProps)
+        }
       </Dropzone>
     )
   )

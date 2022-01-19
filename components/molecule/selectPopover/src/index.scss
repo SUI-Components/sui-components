@@ -19,12 +19,19 @@ $c-select-popover-selected: $c-primary !default;
 $bxz-select-popover-select: border-box !default;
 $cur-select-popover-select: auto !default;
 
+$op-select-popover: 0.4 !default;
+
 $z-select-popover-select-popover: $z-tooltips !default;
 
 .sui-MoleculeSelectPopover {
   $self: &;
   display: inline-block;
   position: relative;
+
+  &.is-disabled {
+    opacity: $op-select-popover;
+    pointer-events: none;
+  }
 
   &-select {
     $select: &;

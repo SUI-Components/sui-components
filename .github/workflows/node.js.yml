@@ -164,7 +164,7 @@ jobs:
           add: 'README.md'
           author_name: ${{ env.GITHUB_USER }}
           author_email: ${{ env.GITHUB_EMAIL }}
-          message: 'update coverage badges'
+          message: 'chore(Root): Update coverage badges'
       - name: Release components
         if: github.event_name == 'push'
         run: |

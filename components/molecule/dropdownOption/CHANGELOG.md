@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.37.0 (2022-01-12)
+
+
+### Features
+
+* **components/molecule/dropdownOption:** Add a SCSS variable to be able to define color for the dro ([dcd4b27](https://github.com/SUI-Components/sui-components/commit/dcd4b2762aeb55cf6bf95ece906dc1e7dbadedf5))
+
+
+
 # 1.36.0 (2021-12-07)
 
 
@@ -294,11 +303,6 @@
 
 
 # 1.8.0 (2018-12-13)
-
-
-### Bug Fixes
-
-* **molecule/dropdownOption:** merge & fixed issues ([c7b915a](https://github.com/SUI-Components/sui-components/commit/c7b915a92c509f4dcfe957aa5b9a7efe9dda6175))
 
 
 ### Features

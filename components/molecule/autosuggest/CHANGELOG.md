@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.56.0 (2022-01-14)
+
+
+### Features
+
+* **components/molecule/autosuggest:** adds demo with the new prop ([1954edf](https://github.com/SUI-Components/sui-components/commit/1954edf95333b2e1c8b3aadfb88a5f1d840b672a))
+* **components/molecule/autosuggest:** adds new prop ([dbf1a64](https://github.com/SUI-Components/sui-components/commit/dbf1a6460eeff688832019fce7a66a329c6e3448))
+* **components/molecule/autosuggest:** adds new props ([0670702](https://github.com/SUI-Components/sui-components/commit/0670702fdb20ff2b331b82f013701722dcbb6345))
+
+
+
 # 2.55.0 (2022-01-12)
 
 

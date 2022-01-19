@@ -46,6 +46,7 @@ const MoleculePhotoUploader = forwardRef(
       addPhotoButtonColor,
       addPhotoButtonDesign,
       addPhotoTextButton,
+      addPhotoButtonShape,
       addPhotoButtonSize,
       addPhotoTextSkeleton,
       callbackPhotosRejected = noop,
@@ -270,6 +271,7 @@ const MoleculePhotoUploader = forwardRef(
                 buttonColor={addPhotoButtonColor}
                 buttonDesign={addPhotoButtonDesign}
                 buttonText={addPhotoTextButton}
+                buttonShape={addPhotoButtonShape}
                 buttonSize={addPhotoButtonSize}
                 icon={dragPhotosIcon()}
                 text={dragPhotoTextInitialContent}
@@ -361,12 +363,13 @@ MoleculePhotoUploader.propTypes = {
   addMorePhotosIcon: PropTypes.func.isRequired,
 
   /** Button color of the initial state button */
-
   addPhotoButtonColor: PropTypes.string,
 
   /** Button design of the initial state button */
-
   addPhotoButtonDesign: PropTypes.string,
+
+  /** Button shape of the initial state button */
+  addPhotoButtonShape: PropTypes.string,
 
   /** Button size of the initial state button */
   addPhotoButtonSize: PropTypes.string,

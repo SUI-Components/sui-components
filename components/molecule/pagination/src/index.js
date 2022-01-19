@@ -6,44 +6,13 @@ import {
   isValidTotalPages,
   isValidShowPages
 } from './customPropTypes'
-
-const BASE_CLASS = 'sui-MoleculePagination'
-const PAGE_NUMBER_HOLDER = '%{pageNumber}'
-const DIVIDER = '···'
-
-const PageButton = ({onSelectPage, page, design, color, ...props}) => {
-  const _onSelectPage = e => {
-    onSelectPage(e, {page})
-  }
-  return (
-    <li className={`${BASE_CLASS}-item`}>
-      <AtomButton
-        onClick={_onSelectPage}
-        design={design}
-        color={color}
-        {...props}
-      />
-    </li>
-  )
-}
-
-PageButton.propTypes = {
-  /** Callback that will be called with (event, page) on each page button click */
-  onSelectPage: PropTypes.func,
-  /** Current page selected */
-  page: isValidPage,
-  /** Design to be used for the page button. Design types 'solid', 'outline' or 'flat' */
-  design: PropTypes.string,
-  /** Button color */
-  color: PropTypes.string,
-  /** Factory used to create navigation links */
-  linkFactory: PropTypes.func
-}
-
-const defaultCreateUrl = ({pageNumber, urlPattern}) =>
-  urlPattern.replace(PAGE_NUMBER_HOLDER, pageNumber)
-
-const noop = () => {}
+import PageButton from './PageButton'
+import {
+  BASE_CLASS,
+  DIVIDER,
+  defaultCreateUrl,
+  noop
+} from './settings'
 
 const MoleculePagination = ({
   onSelectNext = noop,

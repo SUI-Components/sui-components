@@ -115,10 +115,10 @@ PinInput.propTypes = {
   /** children the components is gonna have  */
   children: PropTypes.node,
   /** default value for the input */
-  defaultValue: PropTypes.oneOfType(
+  defaultValue: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string)
-  ),
+  ]),
   /** true for disabled false for default */
   disabled: PropTypes.bool,
   /** inputmode **/
@@ -130,10 +130,10 @@ PinInput.propTypes = {
   /** defines the number of cells */
   length: PropTypes.number,
   /** name of the custom mask (NUMBER, ALPHABETIC, ALPHANUMERIC) */
-  mask: PropTypes.oneOfType(
+  mask: PropTypes.oneOfType([
     PropTypes.oneOf(Object.values(MASK)),
     PropTypes.string
-  ),
+  ]),
   /** function executed on value change */
   onChange: PropTypes.func,
   /** placeholder for the input */
@@ -143,10 +143,10 @@ PinInput.propTypes = {
   /** set the input status (ERROR, SUCCESS, WARNING) */
   status: PropTypes.oneOf(Object.values(BASE_CLASSNAME)),
   /** input value */
-  value: PropTypes.oneOfType(
+  value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string)
-  )
+  ])
 }
 export default PinInput
 

@@ -11,14 +11,6 @@ import * as pkg from '../src'
 import json from '../package.json'
 
 import {getColSpanClassNamesTransform} from 'components/layout/grid/src/gridItem'
-import {
-  LayoutGridAlignContent,
-  LayoutGridAlignItems,
-  LayoutGridBreakpoints,
-  LayoutGridCellNumbers,
-  LayoutGridGutterValues,
-  LayoutGridJustifyContent
-} from '../src'
 
 chai.use(chaiDOM)
 

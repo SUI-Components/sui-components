@@ -7,12 +7,7 @@ import {
   isValidShowPages
 } from './customPropTypes'
 import PageButton from './PageButton'
-import {
-  BASE_CLASS,
-  DIVIDER,
-  defaultCreateUrl,
-  noop
-} from './settings'
+import {BASE_CLASS, DIVIDER, defaultCreateUrl, noop} from './settings'
 
 const MoleculePagination = ({
   onSelectNext = noop,

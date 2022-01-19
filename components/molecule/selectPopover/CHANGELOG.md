@@ -1,5 +1,13 @@
 # CHANGELOG
 
+# 1.25.0 (2022-01-19)
+
+
+
+# 1.2.0 (2022-01-19)
+
+
+
 # 1.24.0 (2021-12-13)
 
 
@@ -25,7 +33,9 @@
 
 ### Features
 
+* **components/molecule/selectPopover/demo:** update demo ([126d710](https://github.com/SUI-Components/sui-components/commit/126d710ad32052ebb63ac36ddac074d439bd82ad))
 * **components/molecule/selectPopover:** ad new variable background select ([a0f5ccc](https://github.com/SUI-Components/sui-components/commit/a0f5ccc8b5e8de00a303b7b8bd57a4e9ce8d5528))
+* **components/molecule/selectPopover:** Add isDisabled prop ([ef3a78d](https://github.com/SUI-Components/sui-components/commit/ef3a78d60e9b7fa224d57f4eb07f41592aa0f211))
 
 
 

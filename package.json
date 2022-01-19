@@ -24,7 +24,7 @@
     "phoenix": "npx @s-ui/mono@2 run 'rm -rf ./node_modules' && rm -rf ./node_modules && npm install",
     "phoenix:ci": "npm run phoenix -- --no-optional --no-fund --no-audit",
     "release": "sui-mono release",
-    "start": "npx http-server public",
+    "start": "sui-studio start",
     "test": "sui-studio test -- --coverage",
     "test:watch": "sui-studio test --watch"
   },
@@ -36,7 +36,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@s-ui/js-compiler": "1",
     "@s-ui/documentation-library": "1",
     "@s-ui/helpers": "1",
     "@s-ui/mono": "2",

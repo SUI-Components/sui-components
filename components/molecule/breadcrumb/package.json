@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "prepare": "rimraf ./lib && npm run build:js && npm run build:styles",
-    "build:js": "sui-js-compiler",
+    "build:js": "babel --presets sui ./src --out-dir ./lib",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "keywords": [],

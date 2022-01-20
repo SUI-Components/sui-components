@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 3.5.0 (2022-01-20)
+
+
+### Bug Fixes
+
+* **Root:** lint ([dbfeeb6](https://github.com/SUI-Components/sui-components/commit/dbfeeb6f15cd103984db448a485737d531e1ed9c))
+
+
+### Features
+
+* **components/atom/upload:** update react-dropzone dependency and fix demo ([7dccf3c](https://github.com/SUI-Components/sui-components/commit/7dccf3c7ccbcde2b6f74d6a1cf916e16631c5068))
+
+
+
 # 3.4.0 (2021-07-06)
 
 

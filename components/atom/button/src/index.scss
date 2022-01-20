@@ -351,6 +351,7 @@ $td-atom-button-link: none !default;
       }
       &#{$base-class}--link:not(#{$base-class}--solid):not(#{$base-class}--outline):not(#{$base-class}--flat) {
         $c-atom-button-focused: color-variation($color, -1) !default;
+        $c-atom-button-link-focused: $c-atom-button-focused !default;
         $c-atom-button-focused-invert: color-variation(
           $color-invert,
           -1
@@ -358,7 +359,7 @@ $td-atom-button-link: none !default;
 
         color: $color;
         @include button-focused {
-          color: $c-atom-button-focused;
+          color: $c-atom-button-link-focused;
         }
 
         &#{$base-class}--negative {

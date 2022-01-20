@@ -10,7 +10,7 @@ import {useState} from 'react'
 import Input from '@s-ui/documentation-library/lib/components/Input/Input'
 import {Cell} from '@s-ui/documentation-library/lib/components/Grid/Grid'
 import Label from '@s-ui/documentation-library/lib/components/Label/Label'
-import MoleculeValidationCode from '../../src.js'
+import MoleculeValidationCode from '../../src/index.js'
 import {validationCodeStatus} from '../../src/config.js'
 
 const ArticleStatus = ({className}) => {

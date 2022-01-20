@@ -7,7 +7,7 @@ import MoleculeThumbnail, {
   moleculeThumbnailSize,
   moleculeThumbnailRatio,
   moleculeThumbnailShape
-} from '../src.js'
+} from '../src/index.js'
 
 const Demo = ({children}) => {
   return <div style={{width: '100%', padding: 20}}>{children}</div>

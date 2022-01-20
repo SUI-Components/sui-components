@@ -9,7 +9,7 @@ import {
   Box,
   Input
 } from '@s-ui/documentation-library'
-import AtomSlider from '../src.js'
+import AtomSlider from '../src/index.js'
 
 const ArticleSliderControlledState = ({className}) => {
   const [controlledState, setControlledState] = useState(50)

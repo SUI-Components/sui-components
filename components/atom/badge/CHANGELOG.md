@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.25.0 (2022-01-20)
+
+
+### Bug Fixes
+
+* **components/atom/badge:** proptype error ([2190f35](https://github.com/SUI-Components/sui-components/commit/2190f35da8139f8ac2f33ff81c174df0d1db4c5b))
+
+
+
 # 1.24.0 (2021-11-01)
 
 

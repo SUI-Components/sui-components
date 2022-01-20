@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.5.0 (2022-01-20)
+
+
+### Bug Fixes
+
+* **components/atom/pinInput:** proptype error ([3bad573](https://github.com/SUI-Components/sui-components/commit/3bad57316c3b7288ad3d93486247cb1484451537))
+
+
+
 # 1.4.0 (2021-11-17)
 
 
@@ -47,13 +56,11 @@
 * **components/atom/pinInput:** context ref not needed ([764bcff](https://github.com/SUI-Components/sui-components/commit/764bcff77b07212219da2b6399fd1c1a926f907c))
 * **components/atom/pinInput:** demo makeup and mini fixes ([7c3c439](https://github.com/SUI-Components/sui-components/commit/7c3c439c8b4b5f9cf9a395e387c32eb517d26186))
 * **components/atom/pinInput:** remove comments ([65144bb](https://github.com/SUI-Components/sui-components/commit/65144bb4f1517589e7df52ed66004a4f380b8159))
-* **components/atom/pinInput:** resolve conflics ([a40b205](https://github.com/SUI-Components/sui-components/commit/a40b2051b6ceeef60350f071abf5de5f0cd3fc09))
 * **components/atom/pinInput:** tokened styles ([57e6f0c](https://github.com/SUI-Components/sui-components/commit/57e6f0c0aae11cb0835a95994d354071584e5e6e))
 * **components/atom/pinInput:** tokenice pin-input-children spacing ([5a1d37e](https://github.com/SUI-Components/sui-components/commit/5a1d37e294c08598055ebed7e628e40e40e5f6a6))
 * **components/atom/pinInput:** wip ([2076246](https://github.com/SUI-Components/sui-components/commit/20762469142cbe114f54f6159db2067f55581631))
 * **components/atom/pinInput:** wip ([10427b1](https://github.com/SUI-Components/sui-components/commit/10427b1ff63d8cff256ced0a22a6003b0f326d7a))
 * **components/atom/pinInput:** wip ([9e7d26d](https://github.com/SUI-Components/sui-components/commit/9e7d26d934f9f7c2cb989536e67504135e910322))
-* **components/atom/pinInput:** wip ([f735247](https://github.com/SUI-Components/sui-components/commit/f7352478dc0bbe5f556bbfcd538965ce70770573))
 * **components/atom/pinInput:** wip ([7653700](https://github.com/SUI-Components/sui-components/commit/7653700db8824d4dc99e91a81182846454ad5307))
 * **components/atom/pinInput:** wip ([dd089a5](https://github.com/SUI-Components/sui-components/commit/dd089a5dab582aafd5ced0b9a6041c4db51e9add))
 

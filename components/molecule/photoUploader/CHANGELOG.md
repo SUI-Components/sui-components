@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.9.0 (2022-01-20)
+
+
+### Features
+
+* **components/molecule/photoUploader:** update react-dropzone and react-sortablejs ([452fda7](https://github.com/SUI-Components/sui-components/commit/452fda7f48a9a7cf6f013238ddbf4828f4b7123e))
+
+
+
 # 2.8.0 (2022-01-18)
 
 

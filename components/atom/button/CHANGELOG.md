@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.80.0 (2022-01-20)
+
+
+### Features
+
+* **components/atom/button:** add new scss variable to custom focus text color on link type buttons ([528fe43](https://github.com/SUI-Components/sui-components/commit/528fe430dda5ab2ecdfb9916e142260204e0bc7b))
+
+
+
 # 1.79.0 (2022-01-14)
 
 

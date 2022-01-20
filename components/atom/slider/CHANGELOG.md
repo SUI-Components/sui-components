@@ -1,5 +1,21 @@
 # CHANGELOG
 
+# 1.23.0 (2022-01-20)
+
+
+### Bug Fixes
+
+* **components/atom/slider:** re-render for ssr ([9474990](https://github.com/SUI-Components/sui-components/commit/9474990c77f00ea7278b1aae40817e41d316b4f1))
+* **Root:** fix file extensions ([75a5b34](https://github.com/SUI-Components/sui-components/commit/75a5b341905c3ab8d18680952b25454905747285))
+
+
+### Features
+
+* **components/atom/slider:** fix rc-slider update integration ([86960b8](https://github.com/SUI-Components/sui-components/commit/86960b86294a3a7726d5ff70c25b8ead54b7c0a9))
+* **components/atom/slider:** update rc-slider dependency ([49fe1fb](https://github.com/SUI-Components/sui-components/commit/49fe1fbcf2d876551cfec27ced3ebd4fdb008ddf))
+
+
+
 # 1.22.0 (2021-12-13)
 
 
@@ -210,7 +226,6 @@
 * **atom/slider:** add label formatter callback ([99088e5](https://github.com/SUI-Components/sui-components/commit/99088e5187a0a0aee82aa0b63fbd6bd043208848))
 * **atom/slider:** add value as label ([16df239](https://github.com/SUI-Components/sui-components/commit/16df239f8ce9083e67c21b24919178962677a48b))
 * **atom/slider:** custom marks ([60a3052](https://github.com/SUI-Components/sui-components/commit/60a30525bc72ed9fb8ca31995c86bc5746ac6d9e))
-* **atom/slider:** use hidetooltip prop in demo ([75f0ef3](https://github.com/SUI-Components/sui-components/commit/75f0ef33f3046c637df8d144dc25659cf5816079))
 
 
 

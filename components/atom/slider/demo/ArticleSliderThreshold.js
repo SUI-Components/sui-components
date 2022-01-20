@@ -11,7 +11,7 @@ import {
   Box,
   Input
 } from '@s-ui/documentation-library'
-import AtomSlider from '../src.js'
+import AtomSlider from '../src/index.js'
 
 const ArticleSliderThreshold = ({className, max = 100, min = -100}) => {
   const [thresholdedState, setThresholdedState] = useState(

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import {Article, H2, Paragraph, Input} from '@s-ui/documentation-library'
 import {useState} from 'react'
-import MoleculeValidationCode from '../../src.js'
+import MoleculeValidationCode from '../../src/index.js'
 
 const ArticleDefault = ({className}) => {
   const [code, setCode] = useState([])

@@ -7,7 +7,7 @@ import {
   RadioButtonGroup
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
-import MoleculeValidationCode from '../../src.js'
+import MoleculeValidationCode from '../../src/index.js'
 import {validationCodeMask} from '../../src/config.js'
 
 const ArticleMask = ({className}) => {

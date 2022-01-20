@@ -9,7 +9,7 @@ import {
   Paragraph
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
-import MoleculeValidationCode from '../../src.js'
+import MoleculeValidationCode from '../../src/index.js'
 
 const cellStyles = {
   display: 'flex',

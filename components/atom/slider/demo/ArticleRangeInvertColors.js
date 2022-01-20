@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import {H2, Article, Paragraph, Code, Box} from '@s-ui/documentation-library'
-import AtomSlider from '../src.js'
+import AtomSlider from '../src/index.js'
 
 const ArticleRangeInvertColors = ({className}) => {
   return (

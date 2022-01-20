@@ -8,7 +8,7 @@ import {
   Code,
   Box
 } from '@s-ui/documentation-library'
-import AtomSlider from '../src.js'
+import AtomSlider from '../src/index.js'
 
 const ArticleRangeDefault = ({className}) => {
   const [uncontrolledRangeState, setUncontrolledRangeState] = useState([0, 100])

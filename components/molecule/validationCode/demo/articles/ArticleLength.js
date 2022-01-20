@@ -8,7 +8,7 @@ import {
   Cell
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
-import MoleculeValidationCode from '../../src'
+import MoleculeValidationCode from '../../src.js'
 
 const ArticleLenght = ({className}) => {
   const [length, setLength] = useState(6)

@@ -1,7 +1,7 @@
 import {Children, cloneElement, useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 
-import {TYPES, VARIANTS} from './config'
+import {TYPES, VARIANTS} from './config.js'
 
 import MoleculeTab from './components/MoleculeTab'
 import MoleculeTabs from './components/MoleculeTabs'

@@ -2,8 +2,8 @@ import {useState} from 'react'
 import MoleculeTextareaField, {
   MoleculeTextareaSizes
 } from 'components/molecule/textareaField/src'
-import TextareaUpdatingValue from './updatingValue'
-import withState from './withState'
+import TextareaUpdatingValue from './updatingValue.js'
+import withState from './withState.js'
 
 const MoleculeTextareaFieldWithState = withState(MoleculeTextareaField)
 

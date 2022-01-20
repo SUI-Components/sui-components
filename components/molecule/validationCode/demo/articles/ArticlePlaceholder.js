@@ -9,7 +9,7 @@ import {
   Label
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
-import MoleculeValidationCode from '../../src'
+import MoleculeValidationCode from '../../src.js'
 
 const ArticlePlaceHolder = ({className}) => {
   const [code, setCode] = useState('1234')

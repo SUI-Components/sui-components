@@ -1,17 +1,17 @@
-import {useState, useEffect, useRef, useCallback} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import loadable from '@loadable/component'
 import markerFactory from './markerFactory'
-import createHandler from './createHandler'
+import Handler from './Handler'
 
-const BASE_CLASS = `sui-AtomSlider`
-const CLASS_DISABLED = `${BASE_CLASS}--disabled`
-const CLASS_INVERSE = `${BASE_CLASS}--inverse`
-
-const Range = loadable(() => import('rc-slider/lib/Range'), {ssr: true})
-const Slider = loadable(() => import('rc-slider/lib/Slider'), {ssr: true})
-const Label = loadable(() => import('./Label'), {ssr: true})
+import {
+  Slider,
+  Range,
+  Label,
+  BASE_CLASS,
+  CLASS_DISABLED,
+  CLASS_INVERSE
+} from './settings'
 
 const AtomSlider = ({
   onChange,
@@ -48,8 +48,6 @@ const AtomSlider = ({
 
   const [internalValue, setInternalValue] = useState(initialStateValue)
 
-  const createHandle = useCallback(createHandler, [refAtomSlider, hideTooltip])
-
   useEffect(() => {
     if (value !== undefined) {
       setInternalValue(range ? value.map(Number) : Number(value))
@@ -73,7 +71,13 @@ const AtomSlider = ({
   }
 
   const customProps = {
-    handle: createHandle(refAtomSlider, hideTooltip),
+    handle: props => (
+      <Handler
+        refAtomSlider={refAtomSlider}
+        hideTooltip={hideTooltip}
+        {...props}
+      />
+    ),
     onChange: handleChange,
     onAfterChange: handleAfterChange,
     disabled,

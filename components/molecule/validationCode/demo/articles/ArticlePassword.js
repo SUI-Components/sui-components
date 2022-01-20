@@ -9,7 +9,7 @@ import {
   RadioButton
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
-import MoleculeValidationCode from '../../src'
+import MoleculeValidationCode from '../../src.js'
 
 const ArticlePassword = ({className}) => {
   const [code, setCode] = useState('123456')

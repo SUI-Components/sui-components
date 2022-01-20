@@ -11,7 +11,7 @@ import {
   validationCodeSizes,
   normalizeValue,
   BASE_CLASS as baseClass
-} from './config'
+} from './config.js'
 
 const MoleculeValidationCode = forwardRef(
   (

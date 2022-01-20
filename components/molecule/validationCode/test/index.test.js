@@ -10,7 +10,7 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import userEvents from '@testing-library/user-event'
-import Component from '../src/index'
+import Component from '../src/index.js'
 import sinon from 'sinon'
 
 chai.use(chaiDOM)

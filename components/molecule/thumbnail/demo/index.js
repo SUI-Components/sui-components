@@ -1,23 +1,13 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 import PropTypes from 'prop-types'
-import {
-  Article,
-  Cell,
-  Code,
-  Emphasis,
-  Grid,
-  H1,
-  H2,
-  H3,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Grid, H1, H2, H3} from '@s-ui/documentation-library'
 import Spinner from '@s-ui/react-atom-spinner'
 
 import MoleculeThumbnail, {
   moleculeThumbnailSize,
   moleculeThumbnailRatio,
   moleculeThumbnailShape
-} from '../src'
+} from '../src.js'
 
 const Demo = ({children}) => {
   return <div style={{width: '100%', padding: 20}}>{children}</div>

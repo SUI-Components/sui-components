@@ -9,7 +9,7 @@ import {
   THUMBNAIL_RATIOS,
   THUMBNAIL_SHAPES,
   THUMBNAIL_SIZES
-} from './settings'
+} from './settings.js'
 
 const MoleculeThumbnail = props => {
   const {

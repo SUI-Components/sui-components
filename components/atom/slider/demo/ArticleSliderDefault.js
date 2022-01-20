@@ -1,0 +1,42 @@
+import {useState} from 'react'
+import PropTypes from 'prop-types'
+import {
+  H2,
+  Article,
+  Paragraph,
+  Label,
+  Code,
+  Box
+} from '@s-ui/documentation-library'
+import AtomSlider from '../src.js'
+
+const ArticleSliderDefault = ({className}) => {
+  const [uncontrolledState, setUncontrolledState] = useState(50)
+  return (
+    <Article className={className}>
+      <H2>Default</H2>
+      <Paragraph>
+        By default, the component gets a 0-100 thresholds and uses its own
+        internal status getting the half range value by default.
+      </Paragraph>
+      <Paragraph>
+        The <Code>defaultValue</Code> prop can modify the starting value.
+      </Paragraph>
+      <Label>value</Label>: {uncontrolledState}
+      <Box>
+        <AtomSlider
+          onChange={(event, {value}) => {
+            setUncontrolledState(value)
+            console.log(event, {value})
+          }}
+        />
+      </Box>
+    </Article>
+  )
+}
+
+ArticleSliderDefault.propTypes = {
+  className: PropTypes.string
+}
+
+export default ArticleSliderDefault

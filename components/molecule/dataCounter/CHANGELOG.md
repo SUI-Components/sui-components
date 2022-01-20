@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.12.0 (2022-01-20)
+
+
+### Bug Fixes
+
+* **components/molecule/dataCounter:** minor changes ([c8c6d3e](https://github.com/SUI-Components/sui-components/commit/c8c6d3eaca6f30dc3e383d17f1861229a2b54921))
+
+
+
 # 1.11.0 (2021-11-10)
 
 

@@ -1,15 +1,9 @@
 import {useState} from 'react'
 import PropTypes from 'prop-types'
 import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
-import {IconStarOutline} from '../Icons'
 import cx from 'classnames'
 
-const BASE_CLASS = `sui-MoleculeRating-Star`
-
-const DEFAULTS = {
-  ratingValues: [1, 2, 3, 4, 5],
-  IconStarEmpty: IconStarOutline
-}
+import {DEFAULTS_STAR_HOVER as DEFAULTS, BASE_CLASS} from './settings.js'
 
 const MoleculeRatingStarHover = ({
   iconStar = DEFAULTS.IconStarEmpty,

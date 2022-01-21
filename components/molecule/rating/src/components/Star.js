@@ -1,17 +1,6 @@
 import PropTypes from 'prop-types'
 import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
-import {IconStarFilled, IconStarHalfFilled, IconStarOutline} from '../Icons'
-
-const BASE_CLASS = `sui-MoleculeRating-Star`
-
-const DEFAULTS = {
-  value: 0,
-  fullValue: 1,
-  halfValue: 0.5,
-  IconStarFilled: IconStarFilled,
-  IconStarHalfFilled: IconStarHalfFilled,
-  IconStarEmpty: IconStarOutline
-}
+import {BASE_CLASS, DEFAULTS_STAR as DEFAULTS} from './settings.js'
 
 const MoleculeRatingStar = ({
   value = DEFAULTS.value,

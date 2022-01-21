@@ -12,7 +12,7 @@ import chaiDOM from 'chai-dom'
 import {fireEvent} from '@testing-library/react'
 import sinon from 'sinon'
 
-import * as pkg from '../src'
+import * as pkg from '../src/index.js'
 
 import json from '../package.json'
 

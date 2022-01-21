@@ -1,4 +1,4 @@
-export const CLASS = 'sui-MoleculeQuickAction'
+export const BASE_CLASS = 'sui-MoleculeQuickAction'
 
 export const SIZES = {
   SMALL: 'small',
@@ -6,4 +6,4 @@ export const SIZES = {
   LARGE: 'large'
 }
 
-export const getClassName = variant => `${CLASS}--${variant}`
+export const getClassName = variant => `${BASE_CLASS}--${variant}`

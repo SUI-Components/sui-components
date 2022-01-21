@@ -1,8 +1,9 @@
 import {H1} from '@s-ui/documentation-library'
-import ArticleDefault from './ArticleDefault'
-import ArticleSize from './ArticleSize'
-import ArticleDisabled from './ArticleDisabled'
-import {handleOnClick, getLeftIcon, getRightIcon} from './config'
+import ArticleDefault from './ArticleDefault.js'
+import ArticleSize from './ArticleSize.js'
+import ArticleDisabled from './ArticleDisabled.js'
+import {handleOnClick, getLeftIcon, getRightIcon} from './config.js'
+
 const BASE_CLASS_DEMO = `DemoQuickAction`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 

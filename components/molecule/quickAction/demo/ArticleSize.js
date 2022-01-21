@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
-import MoleculeQuickAction from '../src'
+
+import MoleculeQuickAction from '../src/index.js'
 
 const ArticleSize = ({className, handleOnClick, getLeftIcon, getRightIcon}) => {
   return (

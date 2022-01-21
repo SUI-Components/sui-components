@@ -1,20 +1,16 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
-import Star from './components/Star'
-import StarHover from './components/StarHover'
+import Star from './components/Star.js'
+import StarHover from './components/StarHover.js'
 
-const SIZES = {
-  SMALL: ATOM_ICON_SIZES.small,
-  MEDIUM: ATOM_ICON_SIZES.medium,
-  LARGE: ATOM_ICON_SIZES.large
-}
-
-const BASE_CLASS = `sui-MoleculeRating`
-const CLASS_CONTAINER_STARS = `${BASE_CLASS}-containerStars`
-const CLASS_LABEL = `${BASE_CLASS}-label`
-const CLASS_LINK = `${BASE_CLASS}--withLink`
-const CLASS_LABEL_LINK = `${CLASS_LABEL}Link`
+import {
+  BASE_CLASS,
+  CLASS_CONTAINER_STARS,
+  CLASS_LABEL,
+  CLASS_LINK,
+  CLASS_LABEL_LINK,
+  SIZES
+} from './settings.js'
 
 const MoleculeRating = ({
   iconStar,

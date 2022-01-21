@@ -1,8 +1,8 @@
-import IconStarFilled from './starFilled'
-import IconStarHalfFilled from './starHalfFilled'
-import IconStarOutline from './starOutline'
-import IconStarFilledCustom from './starFilledCustom'
-import IconStarOutlineCustom from './starOutlineCustom'
+import IconStarFilled from './starFilled.js'
+import IconStarHalfFilled from './starHalfFilled.js'
+import IconStarOutline from './starOutline.js'
+import IconStarFilledCustom from './starFilledCustom.js'
+import IconStarOutlineCustom from './starOutlineCustom.js'
 
 export {
   IconStarFilled,

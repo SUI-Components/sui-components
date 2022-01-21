@@ -1,4 +1,4 @@
-import {BASE_CLASS} from '../config'
+import {BASE_CLASS} from '../config.js'
 
 export const CLASS_TAB = `${BASE_CLASS}-item`
 export const CLASS_TAB_ICON = `${CLASS_TAB}-icon`

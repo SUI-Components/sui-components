@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 import {TYPES, VARIANTS} from './config.js'
 
-import MoleculeTab from './components/MoleculeTab'
-import MoleculeTabs from './components/MoleculeTabs'
+import MoleculeTab from './components/MoleculeTab.js'
+import MoleculeTabs from './components/MoleculeTabs.js'
 
 const MoleculeTabsWithStateActive = props => {
   const [activeTab, setActiveTab] = useState(null)

@@ -1,7 +1,7 @@
 import {Children, cloneElement, useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
-const BASE_CLASS = 'sui-MoleculeRadioButtonGroup'
+import {BASE_CLASS} from './settings.js'
 
 const MoleculeRadioButtonGroup = ({
   id,

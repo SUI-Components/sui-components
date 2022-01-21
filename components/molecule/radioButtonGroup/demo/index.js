@@ -4,9 +4,10 @@ import {useState} from 'react'
 import AtomRadioButton from '@s-ui/react-atom-radio-button'
 import MoleculeRadioButtonField from '@s-ui/react-molecule-radio-button-field'
 import AtomLabel from '@s-ui/react-atom-label'
-import MoleculeRadioButtonGroup from 'components/molecule/radioButtonGroup/src'
 
-import RadioButtonGroupIcons from './components/radioButtonGroupIcons'
+import MoleculeRadioButtonGroup from '../src/index.js'
+import RadioButtonGroupIcons from './components/radioButtonGroupIcons.js'
+
 import './index.scss'
 
 const BASE_CLASS_DEMO = `DemoMoleculeRadioButtonGroup`

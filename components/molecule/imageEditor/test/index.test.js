@@ -13,7 +13,7 @@ import Component from '../src/index'
 
 chai.use(chaiDOM)
 
-describe('MoleculeImageEditor', () => {
+describe.skip('MoleculeImageEditor', () => {
   const setup = setupEnvironment(Component)
 
   it('should render without crashing', () => {

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
-import {isValidPage} from './customPropTypes'
-import {BASE_CLASS} from './settings'
+import AtomButton from '@s-ui/react-atom-button'
+import {isValidPage} from './customPropTypes/index.js'
+import {BASE_CLASS} from './settings.js'
 
 const PageButton = ({onSelectPage, page, design, color, ...props}) => {
   const _onSelectPage = e => {

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.16.0 (2022-01-21)
+
+
+### Bug Fixes
+
+* **components/molecule/pagination:** fix missing import ([fa5d18f](https://github.com/SUI-Components/sui-components/commit/fa5d18f8c8ee819eeacf67a87b824ad6bd1307e9))
+
+
+
 # 2.15.0 (2022-01-20)
 
 

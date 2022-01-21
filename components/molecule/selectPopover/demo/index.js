@@ -4,12 +4,12 @@ import IconClose from '@s-ui/react-icons/lib/Close'
 import MoleculeModal from '@s-ui/react-molecule-modal'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
-import MoleculeCheckboxField from 'components/molecule/checkboxField/src/'
+import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 import MoleculeSelectPopover, {
   selectPopoverSizes,
   selectPopoverPlacements
-} from 'components/molecule/selectPopover/src/'
-import {IconCheck, IconHalfCheck, IconArrowDown} from './Icons'
+} from 'components/molecule/selectPopover/src/index.js'
+import {IconCheck, IconHalfCheck, IconArrowDown} from './Icons/index.js'
 
 import './index.scss'
 

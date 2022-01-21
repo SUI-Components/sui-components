@@ -2,9 +2,7 @@ import {useState, useEffect, useRef, useCallback, cloneElement} from 'react'
 import Button from '@s-ui/react-atom-button'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import {SIZES, PLACEMENTS} from './config'
-
-const BASE_CLASS = 'sui-MoleculeSelectPopover'
+import {SIZES, PLACEMENTS, BASE_CLASS} from './config.js'
 
 function usePrevious(value) {
   const ref = useRef()

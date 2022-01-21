@@ -1,6 +1,7 @@
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import AtomInput from '@s-ui/react-atom-input'
-import MoleculeInputSelect from './MoleculeInputSelect'
+
+import MoleculeInputSelect from './MoleculeInputSelect.js'
 
 const MoleculeSelectSingleSelection = props => {
   /* eslint-disable react/prop-types */

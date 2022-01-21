@@ -2,11 +2,12 @@ import {Children, cloneElement} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-const BASE_CLASS = `sui-MoleculeSelect-inputSelect`
-const CLASS_CONTAINER = `${BASE_CLASS}-container`
-const CLASS_ARROW = `${BASE_CLASS}-arrow`
-const CLASS_ARROW_DOWN = `${CLASS_ARROW}--down`
-const CLASS_ARROW_UP = `${CLASS_ARROW}--up`
+import {
+  CLASS_CONTAINER,
+  CLASS_ARROW,
+  CLASS_ARROW_DOWN,
+  CLASS_ARROW_UP
+} from './config.js'
 
 const MoleculeInputSelect = props => {
   const {onClick, iconArrowDown: iconArrow, isOpen, disabled, children} = props

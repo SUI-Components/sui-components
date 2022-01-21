@@ -1,20 +1,18 @@
 /* eslint-disable no-console */
 import {withStateValue} from '@s-ui/hoc'
+import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 
 import MoleculeSelect, {
   moleculeSelectSizes,
   moleculeSelectStates
-} from 'components/molecule/select/src'
+} from 'components/molecule/select/src/index.js'
+import {IconCloseTag, IconArrowDown, IconClock} from './Icons/index.js'
+import ComboCountries from './components/ComboCountries.js'
+import MoleculeSelectUseEffect from './components/MoleculeSelectUseEffect.js'
 
-import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
-
-import {IconCloseTag, IconArrowDown, IconClock} from './Icons'
-
-import ComboCountries from './components/ComboCountries'
-import MoleculeSelectUseEffect from './components/MoleculeSelectUseEffect'
-
-import {countries as countriesList} from './data'
+import {countries as countriesList} from './data/index.js'
 import countriesData from './data/countries.json'
+
 import './index.scss'
 
 const MoleculeSelectWithState = withStateValue(MoleculeSelect)

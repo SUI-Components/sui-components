@@ -22,9 +22,9 @@ import {
   getOptionData,
   SELECT_STATES,
   SELECTION_KEYS
-} from './config'
-import MoleculeSelectMultipleSelection from './components/MultipleSelection'
-import MoleculeSelectSingleSelection from './components/SingleSelection'
+} from './config.js'
+import MoleculeSelectMultipleSelection from './components/MultipleSelection.js'
+import MoleculeSelectSingleSelection from './components/SingleSelection.js'
 
 const MoleculeSelect = props => {
   const {
@@ -71,16 +71,13 @@ const MoleculeSelect = props => {
     }
   )
 
-  const closeList = useCallback(
-    (ev, {isOutsideEvent = false}) => {
-      setIsOpenState(false)
-      if (!isOutsideEvent) {
-        ev.preventDefault()
-        ev.stopPropagation()
-      }
-    },
-    [onToggle]
-  )
+  const closeList = useCallback((ev, {isOutsideEvent = false}) => {
+    setIsOpenState(false)
+    if (!isOutsideEvent) {
+      ev.preventDefault()
+      ev.stopPropagation()
+    }
+  }, [])
 
   const handleOutsideClick = useCallback(
     ev => {

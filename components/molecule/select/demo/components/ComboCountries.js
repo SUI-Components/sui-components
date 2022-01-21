@@ -3,11 +3,10 @@ import {useState} from 'react'
 import axios from 'axios'
 import {withStateValue} from '@s-ui/hoc'
 
-import MoleculeSelect from 'components/molecule/select/src'
-
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 
-import {IconArrowDown} from '../Icons/'
+import MoleculeSelect from '../../src/index.js'
+import {IconArrowDown} from '../Icons/index.js'
 import regions from '../data/regions.json'
 
 const MoleculeSelectWithState = withStateValue(MoleculeSelect)

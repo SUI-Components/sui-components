@@ -9,7 +9,7 @@ import {
   CLASS_SCROLLER,
   TYPES,
   VARIANTS
-} from '../config'
+} from '../config.js'
 
 const MoleculeTabs = ({variant, type, children, onChange}) => {
   const className = cx(BASE_CLASS, {

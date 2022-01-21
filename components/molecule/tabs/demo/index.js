@@ -2,29 +2,27 @@
 
 import cx from 'classnames'
 
-// import LayoutMediaQuery from '@s-ui/react-layout-media-query'
 import MoleculeTabs, {
   MoleculeTabs as StaticMoleculeTabs,
   MoleculeTab,
   moleculeTabsTypes,
   moleculeTabsVariants
-} from 'components/molecule/tabs/src'
-
+} from 'components/molecule/tabs/src/index.js'
 import {
   configBasic,
-  configBasic6Steps,
+  // configBasic6Steps,
   configWithIcons,
   configWhitCount
-} from './config'
-import {IconLineBackup, IconLineDashboard, IconLineExtension} from './Icons'
+} from './config.js'
+import {IconLineBackup, IconLineDashboard, IconLineExtension} from './Icons.js'
 
 import './index.scss'
 
 const BASE_CLASS_DEMO = 'DemoMoleculeTabs'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
-const CLASS_DEMO_SECTION_VERTICAL = `${CLASS_DEMO_SECTION}--vertical`
-const CLASS_DEMO_SECTION_RESPONSIVE = `${CLASS_DEMO_SECTION}-responsive`
-const CLASS_DEMO_CONTENT_STEP = `${BASE_CLASS_DEMO}-contentStep`
+// const CLASS_DEMO_SECTION_VERTICAL = `${CLASS_DEMO_SECTION}--vertical`
+// const CLASS_DEMO_SECTION_RESPONSIVE = `${CLASS_DEMO_SECTION}-responsive`
+// const CLASS_DEMO_CONTENT_STEP = `${BASE_CLASS_DEMO}-contentStep`
 
 const Demo = () => {
   return (

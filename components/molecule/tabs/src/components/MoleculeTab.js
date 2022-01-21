@@ -9,7 +9,7 @@ import {
   CLASS_TAB_COUNT,
   CLASS_TAB_ACTIVE,
   CLASS_TAB_DISABLED
-} from './config'
+} from './config.js'
 
 const MoleculeTab = forwardRef(
   (

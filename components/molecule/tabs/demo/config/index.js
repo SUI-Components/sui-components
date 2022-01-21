@@ -5,14 +5,14 @@ import {
   Content4,
   Content5,
   Content6
-} from '../components/Contents'
+} from '../components/Contents.js'
 
 import {
   IconLineBackup,
   IconLineDashboard,
   IconLineExtension,
   IconLineHttps
-} from '../Icons'
+} from '../Icons.js'
 
 export const configBasic = {
   1: {

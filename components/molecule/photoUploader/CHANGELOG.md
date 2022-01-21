@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.10.0 (2022-01-21)
+
+
+### Bug Fixes
+
+* **components/molecule/photoUploader:** Add missing dependency when using legacy-peer-deps ([6c6c67c](https://github.com/SUI-Components/sui-components/commit/6c6c67cc78dbe1a874d41819c47eee07c25bae57))
+
+
+
 # 2.9.0 (2022-01-20)
 
 

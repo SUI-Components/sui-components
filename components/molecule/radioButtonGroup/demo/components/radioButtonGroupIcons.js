@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import {useState} from 'react'
-
-import AtomRadioButton from 'components/atom/radioButton/src'
+import AtomRadioButton from '@s-ui/react-atom-radio-button'
 
 const logoHouse =
   'https://cdn4.iconfinder.com/data/icons/icon-flat-icon-set/50/home-512.png'

@@ -7,7 +7,8 @@ import {
   ListItem,
   UnorderedList
 } from '@s-ui/documentation-library'
-import MoleculeQuickAction from '../src'
+
+import MoleculeQuickAction from '../src/index.js'
 
 const ArticleDefault = ({
   className,

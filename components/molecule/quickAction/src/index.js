@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import {CLASS, SIZES, getClassName} from './config'
+import {BASE_CLASS, SIZES, getClassName} from './config.js'
 
 const MoleculeQuickAction = ({
   size = SIZES.SMALL,
@@ -14,7 +14,7 @@ const MoleculeQuickAction = ({
   const sizeKey = size.toUpperCase()
   const isEnabled = disabled === false
   const classNames = cx(
-    CLASS,
+    BASE_CLASS,
     size && getClassName(SIZES[sizeKey]),
     disabled && getClassName('disabled')
   )
@@ -24,13 +24,15 @@ const MoleculeQuickAction = ({
 
   return (
     <div className={classNames} onClick={handleClick}>
-      {leftIcon && <span className={`${CLASS}-leftIcon`}>{leftIcon}</span>}
+      {leftIcon && <span className={`${BASE_CLASS}-leftIcon`}>{leftIcon}</span>}
       {leftIcon || rightIcon ? (
-        <span className={`${CLASS}-text`}>{children}</span>
+        <span className={`${BASE_CLASS}-text`}>{children}</span>
       ) : (
         children
       )}
-      {rightIcon && <span className={`${CLASS}-rightIcon`}>{rightIcon}</span>}
+      {rightIcon && (
+        <span className={`${BASE_CLASS}-rightIcon`}>{rightIcon}</span>
+      )}
     </div>
   )
 }

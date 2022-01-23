@@ -1,15 +1,9 @@
 /* eslint-disable react/prop-types */
-import PropTypes from 'prop-types'
-
 import {useState} from 'react'
+import PropTypes from 'prop-types'
 import Chevronright from '@s-ui/react-icons/lib/Chevronright'
-import cx from 'classnames'
 
-const breadcrumbClassName = ({isExpanded, isScrollable}) =>
-  cx('sui-BreadcrumbBasic', {
-    'is-expanded': isExpanded,
-    'is-scrollable': isScrollable
-  })
+import {breadcrumbClassName} from './settings.js'
 
 export default function BreadcrumbBasic({
   items,

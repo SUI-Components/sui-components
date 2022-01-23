@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
+import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
 import MoleculeDropdownList, {
   moleculeDropdownListDesigns,
   moleculeDropdownListSizes
-} from 'components/molecule/dropdownList/src'
+} from 'components/molecule/dropdownList/src/index.js'
 
-import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
-import {countries} from './data'
+import withStateSingle from './hoc/withStateSingle.js'
+import withStateMulti from './hoc/withStateMulti.js'
 
-import withStateSingle from './hoc/withStateSingle'
-import withStateMulti from './hoc/withStateMulti'
+import {countries} from './data/index.js'
 
 import './index.scss'
 

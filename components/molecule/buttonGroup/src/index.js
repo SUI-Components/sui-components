@@ -2,7 +2,7 @@ import {Children, cloneElement} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const BASE_CLASS = 'sui-MoleculeButtonGroup'
+import {BASE_CLASS} from './settings.js'
 
 const getGroupPosition = (groupPositions, numChildren, index) => {
   if (index === 0) return groupPositions.FIRST

@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console, no-debugger */
-
 import {Component} from 'react'
 
-import MoleculeButtonGroup from 'components/molecule/buttonGroup/src'
 import AtomButton from '@s-ui/react-atom-button'
 
+import MoleculeButtonGroup from 'components/molecule/buttonGroup/src/index.js'
 import {
   IconSquare,
   IconTriangle,
@@ -12,7 +11,7 @@ import {
   IconEllipse,
   IconStar,
   IconMinus
-} from '../icons'
+} from '../icons/index.js'
 
 class SimpleCheckboxRadioForm extends Component {
   constructor() {

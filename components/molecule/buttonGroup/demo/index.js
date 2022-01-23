@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
-
 import {useState} from 'react'
 
-import MoleculeButtonGroup from 'components/molecule/buttonGroup/src'
 import AtomButton, {atomButtonGroupPositions} from '@s-ui/react-atom-button'
 
-import SimpleOptionsRadioForm from './inputRadio'
-import SimpleOptionsCheckboxForm from './inputCheckbox'
+import MoleculeButtonGroup from 'components/molecule/buttonGroup/src/index.js'
+
+import SimpleOptionsRadioForm from './inputRadio/index.js'
+import SimpleOptionsCheckboxForm from './inputCheckbox/index.js'
+
 import './index.scss'
 
 const ButtonDesignByState = () => {

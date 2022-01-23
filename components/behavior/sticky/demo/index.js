@@ -1,16 +1,16 @@
 import {createRef} from 'react'
-import './index.scss'
 
 import BehaviorSticky, {
   BehaviorStickyProvider
-} from 'components/behavior/sticky/src'
-
+} from 'components/behavior/sticky/src/index.js'
 import {
   Content,
   HeaderFixed,
   FooterFixed,
   HeaderWithButtons
-} from './components'
+} from './components/index.js'
+
+import './index.scss'
 
 const BASE_CLASS_DEMO = 'DemoBehaviorSticky'
 const CLASS_DEMO_FIXED_HEADER = `${BASE_CLASS_DEMO}-fixed-header`

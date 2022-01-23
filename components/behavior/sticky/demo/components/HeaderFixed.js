@@ -1,4 +1,4 @@
-import {IconMenu} from '../icons'
+import {IconMenu} from '../icons/index.js'
 
 export default ({className}) => ( // eslint-disable-line
   <header className={className}>

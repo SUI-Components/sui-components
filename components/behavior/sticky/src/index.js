@@ -1,8 +1,7 @@
 import cx from 'classnames'
 import * as ReactSticky from 'react-stickup'
 
-const BASE_CLASS = 'sui-BehaviorSticky'
-const CLASS_ANIMATE = `${BASE_CLASS}--animate`
+import {BASE_CLASS, CLASS_ANIMATE} from './settings.js'
 
 const BehaviorStickyProvider = ReactSticky.StickyProvider
 

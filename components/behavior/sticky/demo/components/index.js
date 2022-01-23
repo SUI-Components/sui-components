@@ -1,6 +1,6 @@
-import Content from './Content'
-import HeaderWithButtons from './HeaderWithButtons'
-import HeaderFixed from './HeaderFixed'
-import FooterFixed from './FooterFixed'
+import Content from './Content.js'
+import HeaderWithButtons from './HeaderWithButtons.js'
+import HeaderFixed from './HeaderFixed.js'
+import FooterFixed from './FooterFixed.js'
 
 export {Content, HeaderFixed, FooterFixed, HeaderWithButtons}

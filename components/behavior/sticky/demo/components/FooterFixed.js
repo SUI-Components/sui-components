@@ -1,4 +1,4 @@
-import {IconAdd} from '../icons'
+import {IconAdd} from '../icons/index.js'
 
 export default (
   {className} // eslint-disable-line

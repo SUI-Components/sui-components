@@ -1,8 +1,8 @@
 import {useState} from 'react'
 import PropTypes from 'prop-types'
-import Tab from './Tab'
 
-const BASE_CLASS = 'sui-MoleculeAccordion'
+import Tab from './Tab/index.js'
+import {BASE_CLASS} from './settings.js'
 
 const MoleculeAccordion = ({
   children,

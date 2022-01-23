@@ -2,12 +2,13 @@
 
 import MoleculeDropdownOption, {
   MoleculeDropdownOptionTextWrapStyles
-} from 'components/molecule/dropdownOption/src'
-import './index.scss'
+} from 'components/molecule/dropdownOption/src/index.js'
 
-import BasicDropdownOptions from './BasicDropdownOptions'
-import CheckboxDropdownOptions from './CheckboxDropdownOptions'
-import HighlightDropdownOptions from './HighlightDropdownOptions'
+import BasicDropdownOptions from './BasicDropdownOptions/index.js'
+import CheckboxDropdownOptions from './CheckboxDropdownOptions/index.js'
+import HighlightDropdownOptions from './HighlightDropdownOptions/index.js'
+
+import './index.scss'
 
 const BASE_CLASS_DEMO = 'DemoMoleculeDropdownOption'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`

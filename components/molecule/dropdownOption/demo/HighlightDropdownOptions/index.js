@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
 import {Component} from 'react'
-import MoleculeDropdownOption from 'components/molecule/dropdownOption/src'
 import AtomInput from '@s-ui/react-atom-input'
+
+import MoleculeDropdownOption from 'components/molecule/dropdownOption/src/index.js'
 
 const BASE_CLASS_DEMO = 'DemoMoleculeDropdownOption'
 const CLASS_DEMO_OPTION = `${BASE_CLASS_DEMO}-option`

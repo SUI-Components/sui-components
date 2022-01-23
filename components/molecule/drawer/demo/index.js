@@ -9,15 +9,17 @@ import {
   Button
 } from '@s-ui/documentation-library'
 import {useState, useRef} from 'react'
+
 import {
   MoleculeDrawer,
   moleculeDrawerPlacements,
   moleculeDrawerSizes
-} from '../src'
-import DemoDefault from './DemoDefault'
-import DemoPlacement from './DemoPlacement'
-import DemoSize from './DemoSize'
-import DemoAnimationDuration from './DemoAnimationDuration'
+} from '../src/index.js'
+
+import DemoDefault from './DemoDefault.js'
+import DemoPlacement from './DemoPlacement.js'
+import DemoSize from './DemoSize.js'
+import DemoAnimationDuration from './DemoAnimationDuration.js'
 
 import '../src/index.scss'
 

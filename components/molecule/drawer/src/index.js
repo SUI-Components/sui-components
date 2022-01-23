@@ -1,14 +1,16 @@
 import {forwardRef, useEffect} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+
 import useEventListener from '@s-ui/react-hooks/lib/useEventListener'
+
 import {
   PLACEMENTS as moleculeDrawerPlacements,
   SIZES as moleculeDrawerSizes,
   ANIMATION_DURATION as moleculeDrawerAnimationDuration
-} from './settings'
+} from './settings.js'
 
-import MoleculeDrawerOverlay from './Overlay'
+import MoleculeDrawerOverlay from './Overlay.js'
 
 const MoleculeDrawer = forwardRef(
   (

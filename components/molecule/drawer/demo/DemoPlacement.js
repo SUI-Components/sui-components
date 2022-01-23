@@ -12,10 +12,11 @@ import {
   Box,
   AntDesignIcon
 } from '@s-ui/documentation-library'
+
 import MoleculeDrawer, {
   MoleculeDrawerOverlay,
   moleculeDrawerPlacements
-} from '../src'
+} from '../src/index.js'
 
 const flexCenteredStyle = {
   display: 'flex',

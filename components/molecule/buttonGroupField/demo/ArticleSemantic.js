@@ -12,8 +12,9 @@ import {
   Grid,
   Bold
 } from '@s-ui/documentation-library'
-import MoleculeButtonGroupField from 'components/molecule/buttonGroupField/src'
 import AtomButtom from '@s-ui/react-atom-button'
+
+import MoleculeButtonGroupField from 'components/molecule/buttonGroupField/src/index.js'
 
 export const ArticleSemantic = ({className}) => {
   const [successText, setSuccessText] = useState('successText')

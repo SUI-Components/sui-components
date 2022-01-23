@@ -1,6 +1,7 @@
-import ArticleInformation from './ArticleInformation'
-import ArticleSemantic from './ArticleSemantic'
 import {H1} from '@s-ui/documentation-library'
+
+import ArticleInformation from './ArticleInformation.js'
+import ArticleSemantic from './ArticleSemantic.js'
 
 const BASE_CLASS_DEMO = 'DemoMoleculeButtonGroupField'
 

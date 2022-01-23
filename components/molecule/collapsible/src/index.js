@@ -2,18 +2,17 @@ import {useCallback, useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const BASE_CLASS = 'sui-MoleculeCollapsible'
-const CONTENT_CLASS = `${BASE_CLASS}-content`
-const CONTAINER_BUTTON_CLASS = `${BASE_CLASS}-container`
-const COLLAPSED_CLASS = 'is-collapsed'
-const BUTTON_CLASS = `${BASE_CLASS}-btn`
-const BUTTON_CONTENT_CLASS = `${BUTTON_CLASS}-content`
-const ICON_CLASS = `${BASE_CLASS}-icon`
-const MIN_HEIGHT = 100 // px
-const CONTENT_ALIGN = {
-  CENTER: 'center',
-  RIGHT: 'right'
-}
+import {
+  BASE_CLASS,
+  CONTENT_CLASS,
+  CONTAINER_BUTTON_CLASS,
+  COLLAPSED_CLASS,
+  BUTTON_CLASS,
+  BUTTON_CONTENT_CLASS,
+  ICON_CLASS,
+  MIN_HEIGHT,
+  CONTENT_ALIGN
+} from './settings.js'
 
 const MoleculeCollapsible = ({
   onClose = () => {},

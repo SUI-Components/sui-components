@@ -1,10 +1,11 @@
-import {GetIcon} from './config'
-import ArticleAlignment from './ArticleAlignment'
-import ArticleGradient from './ArticleGradient'
-import ArticleTransition from './ArticleTransition'
-import ArticleCustomHeight from './ArticleCustomHeight'
-import ArticleNoCollapse from './ArticleNoCollapse'
 import {Paragraph} from '@s-ui/documentation-library'
+
+import {GetIcon} from './config/index.js'
+import ArticleAlignment from './ArticleAlignment.js'
+import ArticleGradient from './ArticleGradient.js'
+import ArticleTransition from './ArticleTransition.js'
+import ArticleCustomHeight from './ArticleCustomHeight.js'
+import ArticleNoCollapse from './ArticleNoCollapse.js'
 
 const Demo = () => {
   const icon = GetIcon()

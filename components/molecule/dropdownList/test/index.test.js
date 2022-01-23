@@ -12,7 +12,7 @@ import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
-import * as pkg from '../src'
+import * as pkg from '../src/index.js'
 
 import json from '../package.json'
 

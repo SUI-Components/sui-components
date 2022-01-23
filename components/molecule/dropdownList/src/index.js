@@ -1,24 +1,18 @@
 import {Children, forwardRef, useState, useEffect, useRef} from 'react'
-import useDebounce from '@s-ui/react-hooks/lib/useDebounce'
-import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import ExtendedChildren from './ExtendedChildren'
 
-const BASE_CLASS = `sui-MoleculeDropdownList`
-const CLASS_HIDDEN = `is-hidden`
-const DEBOUNCE_TIME = 500
+import useDebounce from '@s-ui/react-hooks/lib/useDebounce'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
-const DESIGNS = {
-  FLAT: 'flat',
-  SOLID: 'solid'
-}
-
-const SIZES = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large'
-}
+import ExtendedChildren from './ExtendedChildren.js'
+import {
+  BASE_CLASS,
+  CLASS_HIDDEN,
+  DEBOUNCE_TIME,
+  DESIGNS,
+  SIZES
+} from './config.js'
 
 const MoleculeDropdownList = forwardRef(
   (

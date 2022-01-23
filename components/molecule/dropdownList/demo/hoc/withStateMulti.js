@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
-
 import {Component} from 'react'
 
 const BASE_CLASS_DEMO = 'DemoMoleculeDropdownList'

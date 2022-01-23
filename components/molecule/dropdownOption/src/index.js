@@ -1,9 +1,11 @@
 import {createRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+
 import {highlightText} from '@s-ui/js/lib/string'
 import AtomCheckbox from '@s-ui/react-atom-checkbox'
-import handlersFactory from './handlersFactory'
+
+import handlersFactory from './handlersFactory/index.js'
 import {
   BASE_CLASS,
   CLASS_CHECKBOX,
@@ -16,7 +18,7 @@ import {
   CLASS_HIGHLIGHTED,
   CLASS_HIGHLIGHTED_MARK,
   TEXT_WRAP_STYLES
-} from './config'
+} from './config.js'
 
 const MoleculeDropdownOption = ({
   checkbox,

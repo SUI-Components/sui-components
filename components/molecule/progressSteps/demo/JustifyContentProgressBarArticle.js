@@ -18,9 +18,9 @@ import MoleculeProgressSteps, {
   MoleculeProgressStep,
   moleculeProgressStepsJustifyContentBar,
   moleculeProgressStepsStatuses
-} from '../src'
-import {IconFillCheck} from './Icons'
-import {configBasic} from './config'
+} from '../src/index.js'
+import {IconFillCheck} from './Icons/index.js'
+import {configBasic} from './config/index.js'
 
 const getStatus = (step, index) => {
   if (index + 1 === step) {

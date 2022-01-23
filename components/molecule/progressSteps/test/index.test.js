@@ -10,10 +10,9 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
-import * as pkg from '../src'
+import * as pkg from '../src/index.js'
 
 import json from '../package.json'
-import {MoleculeProgressStep} from '../src'
 
 chai.use(chaiDOM)
 
@@ -49,6 +48,8 @@ describe(json.name, () => {
   })
 
   describe(Component.displayName, () => {
+    const library = pkg
+    const {MoleculeProgressStep, moleculeProgressStepsStatuses} = library
     it('should render without crashing', () => {
       // Given
       const props = {
@@ -101,17 +102,17 @@ describe(json.name, () => {
         {
           label: 'label1',
           content: 'content1',
-          status: pkg.moleculeProgressStepsStatuses.VISITED
+          status: moleculeProgressStepsStatuses.VISITED
         },
         {
           label: 'label2',
           content: 'content2',
-          status: pkg.moleculeProgressStepsStatuses.ACTIVE
+          status: moleculeProgressStepsStatuses.ACTIVE
         },
         {
           label: 'label3',
           content: 'content3',
-          status: pkg.moleculeProgressStepsStatuses.NORMAL
+          status: moleculeProgressStepsStatuses.NORMAL
         }
       ]
       const props = {
@@ -147,17 +148,17 @@ describe(json.name, () => {
         {
           label: 'label1',
           content: 'content1',
-          status: pkg.moleculeProgressStepsStatuses.VISITED
+          status: moleculeProgressStepsStatuses.VISITED
         },
         {
           label: 'label2',
           content: 'content2',
-          status: pkg.moleculeProgressStepsStatuses.ACTIVE
+          status: moleculeProgressStepsStatuses.ACTIVE
         },
         {
           label: 'label3',
           content: 'content3',
-          status: pkg.moleculeProgressStepsStatuses.NORMAL
+          status: moleculeProgressStepsStatuses.NORMAL
         }
       ]
       const props = {

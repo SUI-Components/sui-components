@@ -10,8 +10,10 @@ import {
   CLASS_VERTICAL,
   CLASS_COMPRESSED,
   PROGRESS_BAR_JUSTIFY_CONTENT
-} from './config'
-import MoleculeProgressStep, {STATUSES} from './components/MoleculeProgressStep'
+} from './config.js'
+import MoleculeProgressStep, {
+  STATUSES
+} from './components/MoleculeProgressStep/index.js'
 
 const MoleculeProgressSteps = ({
   vertical,

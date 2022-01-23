@@ -12,9 +12,9 @@ import {
   Button
 } from '@s-ui/documentation-library'
 
-import LayoutGrid, {LayoutGridItem} from 'components/layout/grid/src'
-import DemoWrapper from './demoWrapper'
-import DemoBox from './demoBox'
+import LayoutGrid, {LayoutGridItem} from 'components/layout/grid/src/index.js'
+import DemoWrapper from './demoWrapper.js'
+import DemoBox from './demoBox.js'
 
 const getWeirdSumCombinationArray = (values = [], max) => {
   const arrSum = arr => arr.reduce((a, b) => a + b, 0)

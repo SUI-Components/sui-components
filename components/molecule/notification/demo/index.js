@@ -1,11 +1,12 @@
 import {useRef} from 'react'
+
 import MoleculeNotification, {
   TYPES,
   VARIATIONS,
   BRDS_SIZE
-} from 'components/molecule/notification/src'
-import PositionNotification from './PositionNotification'
-import {getButtons, logClose, TEXT, Title} from './utils'
+} from 'components/molecule/notification/src/index.js'
+import PositionNotification from './PositionNotification.js'
+import {getButtons, logClose, TEXT, Title} from './utils.js'
 
 const Demo = () => {
   const targetRef = useRef()

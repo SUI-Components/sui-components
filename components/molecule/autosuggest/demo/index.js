@@ -1,20 +1,19 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 import {useState} from 'react'
-import {withStateValue, withStateValueTags} from '@s-ui/hoc'
 
-import MoleculeAutosuggest, {
-  MoleculeAutosuggestStates
-} from 'components/molecule/autosuggest/src'
+import {withStateValue, withStateValueTags} from '@s-ui/hoc'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
 import MoleculeAutosuggestField from '@s-ui/react-molecule-autosuggest-field'
 import SuiButton from '@s-ui/react-atom-button'
 
-import withDynamicOptions from './hoc/withDynamicOptions'
+import MoleculeAutosuggest, {
+  MoleculeAutosuggestStates
+} from 'components/molecule/autosuggest/src/index.js'
+import withDynamicOptions from './hoc/withDynamicOptions.js'
+import ComboCountries from './components/ComboCountries.js'
+import {IconClose, IconSearch} from './Icons/index.js'
+import {getAsyncCountriesFromQuery} from './services/index.js'
 
-import ComboCountries from './components/ComboCountries'
-
-import {IconClose, IconSearch} from './Icons'
-import {getAsyncCountriesFromQuery} from './services'
 import './index.scss'
 
 const MoleculeAutosuggestWithDynamicOptions = withDynamicOptions(

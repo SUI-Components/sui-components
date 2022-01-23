@@ -3,7 +3,7 @@ import {Component} from 'react'
 import MoleculeAutosuggest from 'components/molecule/autosuggest/src'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
 
-import {getAsyncCountriesFromQuery} from '../services'
+import {getAsyncCountriesFromQuery} from '../services/index.js'
 
 export default class AutosuggestSingleWithAsyncOptions extends Component {
   state = {value: '', options: []}

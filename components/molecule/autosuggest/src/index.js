@@ -21,9 +21,9 @@ import {
   CLOSE_KEYS_LIST,
   getIsTypeableKey,
   SELECT_KEYS_LIST
-} from './config'
-import MoleculeAutosuggestMultipleSelection from './components/MultipleSelection'
-import MoleculeAutosuggestSingleSelection from './components/SingleSelection'
+} from './config.js'
+import MoleculeAutosuggestMultipleSelection from './components/MultipleSelection/index.js'
+import MoleculeAutosuggestSingleSelection from './components/SingleSelection/index.js'
 
 const MoleculeAutosuggest = ({
   autoClose = true,

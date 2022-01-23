@@ -1,16 +1,16 @@
 /* eslint-disable no-console */
 import {useState} from 'react'
 import axios from 'axios'
+
 import {withStateValue} from '@s-ui/hoc'
-
 import MoleculeSelect from '@s-ui/react-molecule-select'
-import MoleculeAutosuggest from 'components/molecule/autosuggest/src'
-
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
+import MoleculeAutosuggest from 'components/molecule/autosuggest/src/index.js'
+import {IconArrowDown} from '../Icons/index.js'
+import {filterOptionsCodeValue} from '../services/index.js'
+
 import regions from '../data/regions.json'
-import {IconArrowDown} from '../Icons/'
-import {filterOptionsCodeValue} from '../services/'
 
 const MoleculeSelectWithState = withStateValue(MoleculeSelect)
 const MoleculeAutosuggestWithState = withStateValue(MoleculeAutosuggest)

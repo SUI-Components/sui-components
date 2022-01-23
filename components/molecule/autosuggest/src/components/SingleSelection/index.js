@@ -3,7 +3,8 @@ import {Children} from 'react'
 
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import AtomInput from '@s-ui/react-atom-input'
-import {InputWithClearUI} from './InputWithClearUI'
+
+import {InputWithClearUI} from '../InputWithClearUI/index.js'
 
 const MoleculeAutosuggestSingleSelection = ({
   autoClose,

@@ -1,6 +1,11 @@
 import {memo, useState, useEffect, useCallback, useRef} from 'react'
-import cx from 'classnames'
+import {createPortal} from 'react-dom'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
+
+import Button from '@s-ui/react-atom-button'
+import IconClose from '@s-ui/react-icons/lib/Close'
+
 import {
   CLASS,
   TYPES,
@@ -13,10 +18,7 @@ import {
   BRDS_SIZE,
   POSITION,
   EMPTY_METHOD
-} from './settings'
-import Button from '@s-ui/react-atom-button'
-import IconClose from '@s-ui/react-icons/lib/Close'
-import {createPortal} from 'react-dom'
+} from './settings.js'
 
 const getContainer = ref => {
   const hasRef = ref !== undefined

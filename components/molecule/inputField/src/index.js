@@ -1,18 +1,9 @@
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
-import AtomInput, {inputStates} from '@s-ui/react-atom-input'
+import AtomInput from '@s-ui/react-atom-input'
 
-const getErrorState = ({successText, errorText}) => {
-  if (successText) return false
-  if (errorText) return true
-}
-
-const getState = ({successText, errorState, alertText}) => {
-  if (successText) return inputStates.SUCCESS
-  if (errorState) return inputStates.ERROR
-  if (alertText) return inputStates.ALERT
-}
+import {getErrorState, getState} from './config.js'
 
 const MoleculeInputField = ({
   id,

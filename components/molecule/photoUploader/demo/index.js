@@ -1,6 +1,6 @@
 import MoleculePhotoUploader, {
   MoleculePhotoUploaderRotationDirection
-} from 'components/molecule/photoUploader/src'
+} from 'components/molecule/photoUploader/src/index.js'
 
 const lineStyles = {
   color: 'black',

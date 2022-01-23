@@ -1,17 +1,19 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-
 import {ReactSortable} from 'react-sortablejs'
 
-import ThumbCard from './ThumbCard'
-import SkeletonCard from './SkeletonCard'
 import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
-import {formatToBase64, cropAndRotateImage, base64ToBlob} from './photoTools'
-import {callbackUploadPhotoHandler} from './fileTools'
+import ThumbCard from '../ThumbCard/index.js'
+import SkeletonCard from '../SkeletonCard/index.js'
+import {
+  formatToBase64,
+  cropAndRotateImage,
+  base64ToBlob
+} from '../photoTools.js'
+import {callbackUploadPhotoHandler} from '../fileTools.js'
 
 import {
-  BASE_CLASS_NAME,
   THUMB_CLASS_NAME,
   THUMB_SORTABLE_CLASS_NAME,
   DEFAULT_NOTIFICATION_ERROR,
@@ -22,9 +24,8 @@ import {
   DEFAULT_MAX_IMAGE_HEIGHT,
   DEFAULT_MAX_IMAGE_WIDTH,
   ACTIONS
-} from './config'
-
-const PREVIEW_CARD_CLASS_NAME = `${BASE_CLASS_NAME}-preview`
+} from '../config.js'
+import {PREVIEW_CARD_CLASS_NAME} from './config.js'
 
 const PhotosPreview = ({
   _callbackPhotosUploaded,

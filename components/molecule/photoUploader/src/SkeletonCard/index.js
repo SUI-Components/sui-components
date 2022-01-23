@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types'
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
-import {BASE_CLASS_NAME} from './config'
-const SKELETON_CLASS_NAME = `${BASE_CLASS_NAME}-skeleton`
+import {SKELETON_CLASS_NAME} from './config.js'
 
 const SkeletonCard = ({icon, text}) => {
   return (

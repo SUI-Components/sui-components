@@ -1,22 +1,18 @@
 import {useState, forwardRef} from 'react'
 import {useDropzone} from 'react-dropzone'
 import {getTarget} from '@s-ui/js/lib/react'
-
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import useMount from '@s-ui/react-hooks/lib/useMount'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
-
-import {filterValidFiles, prepareFiles, loadInitialPhotos} from './fileTools'
-
-import DragNotification from './DragNotification'
-import DragState from './DragState'
-import InitialState from './InitialState'
-import PhotosPreview from './PhotosPreview'
-
 import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
+import {filterValidFiles, prepareFiles, loadInitialPhotos} from './fileTools.js'
+import DragNotification from './DragNotification/index.js'
+import DragState from './DragState/index.js'
+import InitialState from './InitialState/index.js'
+import PhotosPreview from './PhotosPreview/index.js'
 import {
   BASE_CLASS_NAME,
   DROPZONE_CLASS_NAME,
@@ -32,7 +28,7 @@ import {
   ROTATION_DIRECTION,
   REJECT_FILES_REASONS,
   ACTIONS
-} from './config'
+} from './config.js'
 
 const noop = () => {}
 

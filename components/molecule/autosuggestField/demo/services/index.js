@@ -1,4 +1,5 @@
 import countries from '../data/countries.json'
+
 const options = countries.map(({name}) => name)
 
 const delayedFilterOptions = query =>

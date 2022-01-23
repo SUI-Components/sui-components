@@ -1,13 +1,12 @@
 /* eslint-disable no-console */
 import {withStateValue, withStateValueTags} from '@s-ui/hoc'
-
-import MoleculeAutosuggestField from 'components/molecule/autosuggestField/src'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
 
-import withDynamicOptions from './hoc/withDynamicOptions'
+import withDynamicOptions from './hoc/withDynamicOptions.js'
+import {IconClose} from './Icons/index.js'
+import {getAsyncCountriesFromQuery} from './services/index.js'
+import MoleculeAutosuggestField from 'components/molecule/autosuggestField/src/index.js'
 
-import {IconClose} from './Icons'
-import {getAsyncCountriesFromQuery} from './services'
 import './index.scss'
 
 const MoleculeAutosuggestFieldWithDynamicOptions = withDynamicOptions(

@@ -1,17 +1,18 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
+import {BASE_CLASS_NAME} from './settings.js'
+
 const MoleculeAvatarFallbackName = ({
   name: nameProp,
   size,
   className: classNameProp,
   ...others
 }) => {
-  const baseClassName = 'sui-MoleculeAvatarFallbackName'
   const className = cx(
-    baseClassName,
+    BASE_CLASS_NAME,
     classNameProp,
-    `${baseClassName}--${size}`
+    `${BASE_CLASS_NAME}--${size}`
   )
   const [firstName, lastName] = nameProp.split(' ')
   const name =

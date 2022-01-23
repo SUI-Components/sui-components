@@ -11,7 +11,7 @@ import {
   Code
 } from '@s-ui/documentation-library'
 
-import MoleculeAvatar, {MOLECULE_AVATAR_SIZES} from '../src/index'
+import MoleculeAvatar, {MOLECULE_AVATAR_SIZES} from '../src/index.js'
 
 const ArticleSize = ({className}) => {
   return (

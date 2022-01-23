@@ -12,15 +12,15 @@ import AtomSkeleton, {
   ATOM_SKELETON_VARIANTS,
   ATOM_SKELETON_ANIMATIONS
 } from '@s-ui/react-atom-skeleton'
-import useConvertStringToHex from './useConvertStringToHex'
-import AvatarFallback from './AvatarFallback'
+
+import useConvertStringToHex from './useConvertStringToHex.js'
+import {baseClassName, AVATAR_SIZES} from './settings.js'
+import AvatarFallback from './AvatarFallback/index.js'
 import AvatarBadge, {
   AVATAR_BADGE_STATUSES,
   AVATAR_BADGE_PLACEMENTS,
   AVATAR_BADGE_SIZES
-} from './AvatarBadge'
-
-import {baseClassName, AVATAR_SIZES} from './settings'
+} from './AvatarBadge/index.js'
 
 const MoleculeAvatar = forwardRef(
   (

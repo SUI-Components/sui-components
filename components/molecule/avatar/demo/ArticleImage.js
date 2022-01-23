@@ -12,7 +12,7 @@ import {
 } from '@s-ui/documentation-library'
 import AtomIcon from '@s-ui/react-atom-icon'
 
-import MoleculeAvatar from '../src/index'
+import MoleculeAvatar from '../src/index.js'
 
 const ArticleImage = ({className}) => {
   const [src, setSrc] = useState(

@@ -1,5 +1,6 @@
 import {useState} from 'react'
-import MoleculeImageEditor from 'components/molecule/imageEditor/src'
+
+import MoleculeImageEditor from 'components/molecule/imageEditor/src/index.js'
 
 const DEMO_IMAGE =
   'https://lp-cms-production.imgix.net/features/2019/06/panda-d55d15231c4f.jpg?auto=compress&fit=crop&fm=auto&sharp=10&vib=20&w=1200&h=800'

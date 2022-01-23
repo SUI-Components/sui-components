@@ -3,11 +3,8 @@ import PropTypes from 'prop-types'
 import Cropper from 'react-easy-crop'
 import AtomSlider from '@s-ui/react-atom-slider'
 
-import getCroppedImg from './utils/cropImage'
-
-const baseClass = 'react-MoleculeImageEditor'
-const DEFAULT_ASPECT = 4 / 3
-const noop = () => {}
+import getCroppedImg from './utils/cropImage.js'
+import {baseClass, DEFAULT_ASPECT, noop} from './config.js'
 
 export default function MoleculeImageEditor({
   aspect = DEFAULT_ASPECT,

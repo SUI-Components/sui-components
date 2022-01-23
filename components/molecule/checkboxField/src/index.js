@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import MoleculeField from '@s-ui/react-molecule-field'
 import AtomCheckbox from '@s-ui/react-atom-checkbox'
 
-const BASE_CLASS = 'sui-MoleculeCheckboxField'
+import {BASE_CLASS} from './settings.js'
 
 const MoleculeCheckboxField = ({
   id,

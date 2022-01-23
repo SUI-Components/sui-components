@@ -1,7 +1,8 @@
 /* eslint react/prop-types: 0 */
 import {useState} from 'react'
-import {MoleculeModalWithURLState} from 'components/molecule/modal/src'
-import {Content, LoremIpsumParagraph} from './helperComponents'
+
+import {MoleculeModalWithURLState} from 'components/molecule/modal/src/index.js'
+import {Content, LoremIpsumParagraph} from './helperComponents.js'
 
 const ModalWithUrlState = () => {
   const [isOpen, setIsOpen] = useState(false)

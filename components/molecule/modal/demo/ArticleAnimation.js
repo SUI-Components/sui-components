@@ -13,7 +13,10 @@ import {
   Cell
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
-import MoleculeModalWithAnimation, {MoleculeModalWithoutAnimation} from '../lib'
+
+import MoleculeModalWithAnimation, {
+  MoleculeModalWithoutAnimation
+} from '../lib/index.js'
 
 const ArticleAnimation = ({className}) => {
   const [open, setOpen] = useState(false)

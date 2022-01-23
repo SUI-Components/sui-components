@@ -11,11 +11,12 @@ import {createPortal} from 'react-dom'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
-import {MODAL_SIZES, SUPPORTED_KEYS, toggleWindowScroll} from './config'
-import {suitClass} from './helpers'
-import {HeaderRender} from './HeaderRender'
-import {Close} from './Close'
-import MoleculeModalContent from './Content'
+
+import {MODAL_SIZES, SUPPORTED_KEYS, toggleWindowScroll} from './config.js'
+import {suitClass} from './helpers.js'
+import {HeaderRender} from './HeaderRender/index.js'
+import {Close} from './Close/index.js'
+import MoleculeModalContent from './Content/index.js'
 
 const MoleculeModal = forwardRef(
   (

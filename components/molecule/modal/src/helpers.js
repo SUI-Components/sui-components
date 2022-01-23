@@ -1,4 +1,4 @@
-import {BASE_CLASS} from './config'
+import {BASE_CLASS} from './config.js'
 
 export function suitClass({element, modifier, component = BASE_CLASS} = {}) {
   let className = component

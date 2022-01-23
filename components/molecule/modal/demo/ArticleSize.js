@@ -11,8 +11,9 @@ import {
   Cell
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
-import MoleculeModal, {MoleculeModalSizes} from '../src'
-import LoremIpsum from './LoremIpsum'
+
+import MoleculeModal, {MoleculeModalSizes} from '../src/index.js'
+import LoremIpsum from './LoremIpsum.js'
 
 const ArticleSize = ({className}) => {
   const [open, setOpen] = useState(false)

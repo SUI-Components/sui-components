@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
-import {H1, H2, Paragraph} from '@s-ui/documentation-library'
+import {H1, Paragraph} from '@s-ui/documentation-library'
 
 import ArticleDefault from './ArticleDefault.js'
-import ArticleLoading from './ArticleLoadin.jsg'
+import ArticleLoading from './ArticleLoading.js'
 import ArticleSize from './ArticleSize.js'
 import ArticleName from './ArticleName.js'
 import ArticleImage from './ArticleImage.js'

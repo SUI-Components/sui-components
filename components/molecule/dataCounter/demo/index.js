@@ -1,9 +1,10 @@
 import {useState} from 'react'
-import MoleculeDataCounter, {
-  moleculeDataCounterSizes
-} from 'components/molecule/dataCounter/src'
 
 import {AntDesignIcon} from '@s-ui/documentation-library'
+
+import MoleculeDataCounter, {
+  moleculeDataCounterSizes
+} from 'components/molecule/dataCounter/src/index.js'
 
 const stylesSection = {
   border: '1px solid #CCC',

@@ -2,21 +2,17 @@ import {useState, useEffect, forwardRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import AtomButton, {atomButtonSizes} from '@s-ui/react-atom-button'
+import AtomButton from '@s-ui/react-atom-button'
 import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
 import MoleculeField from '@s-ui/react-molecule-field'
 
-import {ACTIONS} from './config'
-
-const BUTTON_TYPE = 'secondary'
-
-const BASE_CLASS = `sui-MoleculeDataCounter`
-const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-container`
-
-const sizeConversor = {
-  [inputSizes.SMALL]: atomButtonSizes.SMALL,
-  [inputSizes.LARGE]: atomButtonSizes.LARGE
-}
+import {
+  ACTIONS,
+  BUTTON_TYPE,
+  BASE_CLASS,
+  CLASS_INPUT_CONTAINER,
+  sizeConversor
+} from './config.js'
 
 const MoleculeDataCounter = forwardRef(
   (

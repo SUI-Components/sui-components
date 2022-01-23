@@ -7,16 +7,7 @@ import MoleculeAutosuggest, {
   MoleculeAutosuggestDropdownListSizes
 } from '@s-ui/react-molecule-autosuggest'
 
-const getErrorState = ({successText, errorText}) => {
-  if (successText) return false
-  if (errorText) return true
-}
-
-const getState = ({successText, errorState, alertText}) => {
-  if (successText) return MoleculeAutosuggestStates.SUCCESS
-  if (errorState) return MoleculeAutosuggestStates.ERROR
-  if (alertText) return MoleculeAutosuggestStates.ALERT
-}
+import {getErrorState, getState} from './settings.js'
 
 function MoleculeAutosuggestField({
   alertText,

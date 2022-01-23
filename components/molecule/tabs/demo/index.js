@@ -13,8 +13,12 @@ import {
   // configBasic6Steps,
   configWithIcons,
   configWhitCount
-} from './config.js'
-import {IconLineBackup, IconLineDashboard, IconLineExtension} from './Icons.js'
+} from './config/index.js'
+import {
+  IconLineBackup,
+  IconLineDashboard,
+  IconLineExtension
+} from './Icons/index.js'
 
 import './index.scss'
 

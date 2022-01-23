@@ -12,7 +12,7 @@ import {
   IconLineDashboard,
   IconLineExtension,
   IconLineHttps
-} from '../Icons.js'
+} from '../Icons/index.js'
 
 export const configBasic = {
   1: {

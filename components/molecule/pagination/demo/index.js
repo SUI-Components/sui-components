@@ -2,9 +2,10 @@
 
 import LayoutMediaQuery from '@s-ui/react-layout-media-query'
 
-import MoleculePagination from 'components/molecule/pagination/src'
-import DynamicMoleculePagination from './DynamicMoleculePagination'
-import {prevButtonIcon, nextButtonIcon} from './Icons'
+import MoleculePagination from 'components/molecule/pagination/src/index.js'
+import DynamicMoleculePagination from './DynamicMoleculePagination/index.js'
+import {prevButtonIcon, nextButtonIcon} from './Icons/index.js'
+
 import './index.scss'
 
 const prevButtonText = 'Anterior'

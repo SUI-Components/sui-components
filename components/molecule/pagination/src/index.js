@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
 import AtomButton, {atomButtonSizes} from '@s-ui/react-atom-button'
-import * as pagination from './helpers/pagination'
+import * as pagination from './helpers/pagination/index.js'
 import {
   isValidPage,
   isValidTotalPages,
   isValidShowPages
-} from './customPropTypes'
-import PageButton from './PageButton'
-import {BASE_CLASS, DIVIDER, defaultCreateUrl, noop} from './settings'
+} from './customPropTypes/index.js'
+import PageButton from './PageButton.js'
+import {BASE_CLASS, DIVIDER, defaultCreateUrl, noop} from './settings.js'
 
 const MoleculePagination = ({
   onSelectNext = noop,

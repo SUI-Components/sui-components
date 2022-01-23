@@ -9,10 +9,11 @@ import {
   Code,
   Button
 } from '@s-ui/documentation-library'
+
 import MoleculeBadgeCounter, {
   moleculeBadgeCounterVariants,
   moleculeBadgeCounterSizes
-} from '../src'
+} from '../src/index.js'
 
 const ArticleVariant = ({className}) => {
   return (

@@ -8,7 +8,8 @@ import {
   Code,
   Button
 } from '@s-ui/documentation-library'
-import MoleculeBadgeCounter, {moleculeBadgeCounterStatus} from '../src'
+
+import MoleculeBadgeCounter, {moleculeBadgeCounterStatus} from '../src/index.js'
 
 const ArticleStatus = ({className}) => {
   return (

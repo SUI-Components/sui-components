@@ -13,7 +13,8 @@ import {
   RadioButtonGroup,
   Button
 } from '@s-ui/documentation-library'
-import MoleculeBadgeCounter, {moleculeBadgeCounterSizes} from '../src'
+
+import MoleculeBadgeCounter, {moleculeBadgeCounterSizes} from '../src/index.js'
 
 const ArticleSizes = ({className}) => {
   const [label, setLabel] = useState('')

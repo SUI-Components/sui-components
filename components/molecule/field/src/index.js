@@ -8,14 +8,16 @@ import AtomValidationText, {
 import AtomLabel, {AtomLabelTypes} from '@s-ui/react-atom-label'
 import AtomHelpText from '@s-ui/react-atom-help-text'
 
-const BASE_CLASS = 'sui-MoleculeField'
-const CLASS_INLINE = `${BASE_CLASS}--inline`
-const CLASS_AUTOHIDE = `${BASE_CLASS}--autohide`
-const CLASS_FULLWIDTH = `${BASE_CLASS}--fullWidth`
-const CLASS_INLINE_REVERSE = `${CLASS_INLINE}-reverse`
-const CLASS_NODE_LABEL_CONTAINER = `${BASE_CLASS}-nodeLabelContainer`
-const CLASS_INPUT_CONTAINER = `${BASE_CLASS}-inputContainer`
-const CLASS_LABEL_CONTAINER = `${BASE_CLASS}-labelContainer`
+import {
+  BASE_CLASS,
+  CLASS_INLINE,
+  CLASS_AUTO_HIDE,
+  CLASS_FULLWIDTH,
+  CLASS_INLINE_REVERSE,
+  CLASS_NODE_LABEL_CONTAINER,
+  CLASS_INPUT_CONTAINER,
+  CLASS_LABEL_CONTAINER
+} from './config.js'
 
 const MoleculeLabel = ({
   label,
@@ -76,7 +78,7 @@ const MoleculeField = ({
     BASE_CLASS,
     inline && CLASS_INLINE,
     inline && reverse && CLASS_INLINE_REVERSE,
-    autoHideHelpText && CLASS_AUTOHIDE,
+    autoHideHelpText && CLASS_AUTO_HIDE,
     fullWidth && CLASS_FULLWIDTH
   )
 

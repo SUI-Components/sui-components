@@ -1,7 +1,8 @@
-import {Content1, Content2, Content3, Content4} from '../components/Contents'
 import {AntDesignIcon} from '@s-ui/documentation-library'
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
-import {STATUSES} from 'components/molecule/progressSteps/src'
+
+import {STATUSES} from 'components/molecule/progressSteps/src/index.js'
+import {Content1, Content2, Content3, Content4} from '../components/Contents.js'
 
 export const configBasic = {
   1: {

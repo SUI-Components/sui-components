@@ -1,4 +1,4 @@
-import {BASE_CLASS} from '../../config'
+import {BASE_CLASS} from '../../config.js'
 
 export const CLASS_STEPS = `${BASE_CLASS}-path`
 

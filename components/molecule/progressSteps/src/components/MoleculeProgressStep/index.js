@@ -9,7 +9,7 @@ import {
   CLASS_STEP_DESCRIPTION,
   STATUSES,
   getStatusClass
-} from './config'
+} from './config.js'
 
 const MoleculeProgressStep = ({
   status,

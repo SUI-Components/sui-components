@@ -15,8 +15,8 @@ import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 import MoleculeProgressSteps, {
   MoleculeProgressStep,
   moleculeProgressStepsStatuses
-} from '../src'
-import {configWithIcons} from './config'
+} from '../src/index.js'
+import {configWithIcons} from './config/index.js'
 
 const getStatus = (step, index) => {
   if (index + 1 === step) {

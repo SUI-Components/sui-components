@@ -9,11 +9,12 @@ import {
   Label,
   H4
 } from '@s-ui/documentation-library'
+
 import {
   moleculeDrawerAnimationDuration,
   moleculeDrawerSizes,
   MoleculeDrawer
-} from '../src'
+} from '../src/index.js'
 
 const DemoAnimationDuration = ({className}) => {
   const noneRef = useRef()

@@ -11,7 +11,8 @@ import {
   RadioButtonGroup,
   AntDesignIcon
 } from '@s-ui/documentation-library'
-import {MoleculeDrawer, MoleculeDrawerOverlay} from '../src'
+
+import {MoleculeDrawer, MoleculeDrawerOverlay} from '../src/index.js'
 
 const DemoDefault = ({className}) => {
   const ref = useRef()

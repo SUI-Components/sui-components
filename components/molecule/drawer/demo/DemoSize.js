@@ -15,7 +15,8 @@ import {
   UnorderedList,
   Bold
 } from '@s-ui/documentation-library'
-import {moleculeDrawerSizes, MoleculeDrawer} from '../src'
+
+import {moleculeDrawerSizes, MoleculeDrawer} from '../src/index.js'
 
 const flexCenteredStyle = {
   display: 'flex',

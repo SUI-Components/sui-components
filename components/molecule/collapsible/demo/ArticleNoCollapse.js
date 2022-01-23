@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
-import {DemoWrapper} from './config'
 import {Article, H2, Paragraph} from '@s-ui/documentation-library'
-import MoleculeCollapsible from '../src'
+
+import MoleculeCollapsible from '../src/index.js'
+import {DemoWrapper} from './config/index.js'
 
 const ArticleNoCollapse = ({className, icon, showText, hideText, height}) => {
   return (

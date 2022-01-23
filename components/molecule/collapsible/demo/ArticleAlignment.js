@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
-import {Text, DemoWrapper} from './config'
 import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
-import MoleculeCollapsible from '../src'
+
+import MoleculeCollapsible from '../src/index.js'
+import {Text, DemoWrapper} from './config/index.js'
 
 const ArticleAlignment = ({className, icon, showText, hideText}) => {
   return (

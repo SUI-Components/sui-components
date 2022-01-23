@@ -1,8 +1,10 @@
 import {cloneElement} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import AvatarFallbackName from '../AvatarFallbackName'
-import AvatarFallbackIcon from '../AvatarFallbackIcon'
+
+import AvatarFallbackName from '../AvatarFallbackName/index.js'
+import AvatarFallbackIcon from '../AvatarFallbackIcon/index.js'
+import {BASE_CLASS_NAME as FALLBACK_ICON_CLASS_NAME} from '../AvatarFallbackIcon/settings.js'
 
 const MoleculeAvatarFallback = ({
   name,
@@ -10,7 +12,7 @@ const MoleculeAvatarFallback = ({
   className: classNameProp,
   ...others
 }) => {
-  const className = cx(classNameProp, 'sui-MoleculeAvatarFallbackIcon')
+  const className = cx(classNameProp, FALLBACK_ICON_CLASS_NAME)
   return name ? (
     <AvatarFallbackName name={name} {...others} />
   ) : (

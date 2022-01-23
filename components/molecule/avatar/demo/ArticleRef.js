@@ -2,7 +2,7 @@ import {useRef, useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {Article, H2, Paragraph, Label} from '@s-ui/documentation-library'
 
-import MoleculeAvatar from '../src/index'
+import MoleculeAvatar from '../src/index.js'
 
 const ArticleRef = ({className}) => {
   const ref = useRef()

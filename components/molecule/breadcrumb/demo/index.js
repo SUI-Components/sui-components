@@ -1,6 +1,7 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
-import ArticleDefault from './ArticleDefaut'
-import ArticleScrollable from './ArticleScrollable'
+
+import ArticleDefault from './ArticleDefaut.js'
+import ArticleScrollable from './ArticleScrollable.js'
 
 const BASE_CLASS_DEMO = `DemoAtomValidationCode`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`

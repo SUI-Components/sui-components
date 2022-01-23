@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
-import MoleculeBreadcrumb from '../src/index'
+
+import MoleculeBreadcrumb from '../src/index.js'
 
 const ArticleDefault = ({className, items, icon}) => {
   return (

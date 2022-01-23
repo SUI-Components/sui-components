@@ -11,10 +11,11 @@ import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import {createRef} from 'react'
 import sinon from 'sinon'
+
 import {fireEvent} from '@testing-library/react'
 import MoleculeDropDownOption from '@s-ui/react-molecule-dropdown-option'
 
-import * as pkg from '../src'
+import * as pkg from '../src/index.js'
 
 import json from '../package.json'
 

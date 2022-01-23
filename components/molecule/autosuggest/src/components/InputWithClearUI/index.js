@@ -1,8 +1,7 @@
 import {Children, cloneElement} from 'react'
 import PropTypes from 'prop-types'
-const BASE_CLASS = `sui-MoleculeAutosuggest-input`
-const CLASS_CONTAINER = `${BASE_CLASS}-container`
-const CLASS_ICON_CLEAR = `${BASE_CLASS}-icon`
+
+import {CLASS_CONTAINER, CLASS_ICON_CLEAR} from './config.js'
 
 export const InputWithClearUI = props => {
   const {onClickClear, isVisibleClear, iconClear, children} = props

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import MoleculeAccordion from '../src'
+import MoleculeAccordion from '../src/index.js'
 
 const Demo = ({children}) => {
   return <div style={{width: '100%', padding: 20}}>{children}</div>
@@ -68,7 +68,7 @@ export default () => {
               withTransition
               icon={icon}
               onToggleTab={(e, {index}) => {
-                console.log('tab toggled:', index)
+                console.log('tab toggled:', index) // eslint-disable-line no-console
               }}
             >
               <div label="Title">

@@ -1,5 +1,5 @@
-import prevPage from './prevPage'
-import nextPage from './nextPage'
-import range from './range'
+import prevPage from './prevPage.js'
+import nextPage from './nextPage.js'
+import range from './range.js'
 
 export {prevPage, nextPage, range}

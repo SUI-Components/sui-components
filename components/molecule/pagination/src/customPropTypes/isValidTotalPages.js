@@ -1,4 +1,4 @@
-import {getMessageErrorNumber, getMessageErrorPositive} from './helpers'
+import {getMessageErrorNumber, getMessageErrorPositive} from './helpers.js'
 
 const isValidTotalPages = (props, propName, componentName) => {
   const totalPages = props[propName]

@@ -11,7 +11,8 @@ import {
   Code,
   Button
 } from '@s-ui/documentation-library'
-import MoleculeBadgeCounter from '../src'
+
+import MoleculeBadgeCounter from '../src/index.js'
 
 const ArticleLabel = ({className}) => {
   const [label, setLabel] = useState('0')

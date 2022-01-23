@@ -16,7 +16,7 @@ import {
   SIZES,
   STATUS,
   VARIANTS
-} from './config'
+} from './config.js'
 
 const MoleculeBadgeCounter = ({
   children,

@@ -12,8 +12,13 @@ import {
   Cell
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
-import {MoleculeModal, MoleculeModalFooter, MoleculeModalContent} from '../src'
-import LoremIpsum from './LoremIpsum'
+
+import {
+  MoleculeModal,
+  MoleculeModalFooter,
+  MoleculeModalContent
+} from '../src/index.js'
+import LoremIpsum from './LoremIpsum.js'
 
 const PROPS = {
   BASE: {

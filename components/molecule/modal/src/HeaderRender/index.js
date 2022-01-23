@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
-import {suitClass} from '../helpers'
 import cx from 'classnames'
+
+import {suitClass} from '../helpers.js'
 
 export const HeaderRender = ({header, close, floatingIconClose}) => {
   const HEADER_CLASS = cx({

@@ -16,8 +16,9 @@ import {
   Input
 } from '@s-ui/documentation-library'
 import {useState} from 'react'
-import MoleculeModal from '../src'
-import LoremIpsum from './LoremIpsum'
+
+import MoleculeModal from '../src/index.js'
+import LoremIpsum from './LoremIpsum.js'
 
 const ONCLOSING_CALLBACKS = {
   ESCAPE: 'closeOnEscKeyDown',

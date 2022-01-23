@@ -14,7 +14,8 @@ import {
 } from '@s-ui/documentation-library'
 import AtomIcon from '@s-ui/react-atom-icon'
 import {useState} from 'react'
-import MoleculeModal from '../src'
+
+import MoleculeModal from '../src/index.js'
 
 const icons = {
   AiOutlineClose: 'AiOutlineClose',

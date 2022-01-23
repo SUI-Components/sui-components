@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import {suitClass} from '../helpers'
+
+import {suitClass} from '../helpers.js'
 
 export const Close = ({icon, onClick, floating}) => {
   const BUTTON_CLASS = cx(suitClass({element: 'close'}), {

@@ -1,6 +1,7 @@
 import {forwardRef, useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
-import MoleculeModal from './MoleculeModal'
+
+import MoleculeModal from './MoleculeModal.js'
 
 const checkHash = hash =>
   typeof window !== 'undefined' && window.location.hash.includes(hash)

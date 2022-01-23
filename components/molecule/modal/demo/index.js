@@ -8,11 +8,11 @@ import {
   UnorderedList,
   Text
 } from '@s-ui/documentation-library'
-import ArticleDefault from './ArticleDefault'
-import ArticleSize from './ArticleSize'
-import ArticleCloseIcon from './ArticleCloseIcon'
-import ArticleAnimation from './ArticleAnimation'
-import ArticleModal from './ArticleModal'
+import ArticleDefault from './ArticleDefault.js'
+import ArticleSize from './ArticleSize.js'
+import ArticleCloseIcon from './ArticleCloseIcon.js'
+import ArticleAnimation from './ArticleAnimation.js'
+import ArticleModal from './ArticleModal.js'
 
 const BASE_CLASS_DEMO = `DemoMoleculeModal`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`

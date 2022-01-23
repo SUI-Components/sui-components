@@ -4,11 +4,10 @@ import cx from 'classnames'
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
 import {
-  BASE_CLASS_NAME,
   DRAG_STATE_STATUS_ACCEPTED,
   DRAG_STATE_STATUS_REJECTED
-} from './config'
-const DRAG_STATE_CLASS_NAME = `${BASE_CLASS_NAME}-dragState`
+} from '../config.js'
+import {DRAG_STATE_CLASS_NAME} from './config.js'
 
 const DragState = ({icon, status = DRAG_STATE_STATUS_ACCEPTED, text}) => {
   const dropzoneClassName = cx(DRAG_STATE_CLASS_NAME, {

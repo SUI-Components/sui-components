@@ -2,13 +2,14 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
-import {BASE_CLASS_NAME} from './config'
-const THUMB_CARD_CLASS_NAME = `${BASE_CLASS_NAME}-thumbCard`
-const IMAGE_THUMB_CARD_CLASS_NAME = `${THUMB_CARD_CLASS_NAME}-image`
-const ICON_THUMB_CARD_CLASS_NAME = `${THUMB_CARD_CLASS_NAME}-iconContainer`
-const CONTAINER_THUMB_CARD_CLASS_NAME = `${THUMB_CARD_CLASS_NAME}-imageContainer`
-const ACTION_THUMB_CARD_CLASS_NAME = `${THUMB_CARD_CLASS_NAME}-actions`
-const BUTTON_THUMB_CARD_CLASS_NAME = `${THUMB_CARD_CLASS_NAME}-button`
+import {
+  THUMB_CARD_CLASS_NAME,
+  IMAGE_THUMB_CARD_CLASS_NAME,
+  ICON_THUMB_CARD_CLASS_NAME,
+  CONTAINER_THUMB_CARD_CLASS_NAME,
+  ACTION_THUMB_CARD_CLASS_NAME,
+  BUTTON_THUMB_CARD_CLASS_NAME
+} from './config.js'
 
 const ThumbCard = ({
   iconSize = ATOM_ICON_SIZES.small,

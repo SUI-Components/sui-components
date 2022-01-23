@@ -3,7 +3,7 @@ import {
   DEFAULT_FILE_TYPE_EXPORTED,
   DEFAULT_IMAGE_QUALITY_EXPORTED,
   DEFAULT_IMAGE_ROTATION_DEGREES
-} from './config'
+} from './config.js'
 
 export function formatToBase64({
   file,

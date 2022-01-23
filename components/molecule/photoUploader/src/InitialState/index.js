@@ -3,11 +3,18 @@ import PropTypes from 'prop-types'
 import Button, {atomButtonShapes} from '@s-ui/react-atom-button'
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
-import {BASE_CLASS_NAME} from './config'
-const ALTERNATIVE_ACTION_TEXT = '- o -'
-const BUTTON_COLOR = 'primary'
-const BUTTON_DESIGN = 'solid'
-const BUTTON_SIZE = 'small'
+import {
+  INITIAL_STATE_CLASS_NAME,
+  ALTERNATIVE_ACTION_TEXT,
+  BUTTON_COLOR,
+  BUTTON_DESIGN,
+  BUTTON_SIZE,
+  ICON_INITIAL_STATE_CLASS_NAME,
+  TEXT_STATE_CLASS_NAME,
+  TEXT_STATE_TEXT_CLASS_NAME,
+  TEXT_STATE_DIVIDER_CLASS_NAME,
+  BUTTON_STATE_CLASS_NAME
+} from './config.js'
 
 const InitialState = ({
   buttonDesign = BUTTON_DESIGN,
@@ -20,17 +27,15 @@ const InitialState = ({
   dividerText = ALTERNATIVE_ACTION_TEXT
 }) => {
   return (
-    <div className={`${BASE_CLASS_NAME}-initialState`}>
-      <div className={`${BASE_CLASS_NAME}-iconInitialState`}>
+    <div className={INITIAL_STATE_CLASS_NAME}>
+      <div className={ICON_INITIAL_STATE_CLASS_NAME}>
         <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>{icon}</AtomIcon>
       </div>
-      <div className={`${BASE_CLASS_NAME}-textState`}>
-        <span className={`${BASE_CLASS_NAME}-textStateText`}>{text}</span>
-        <span className={`${BASE_CLASS_NAME}-textStateDivider`}>
-          {dividerText}
-        </span>
+      <div className={TEXT_STATE_CLASS_NAME}>
+        <span className={TEXT_STATE_TEXT_CLASS_NAME}>{text}</span>
+        <span className={TEXT_STATE_DIVIDER_CLASS_NAME}>{dividerText}</span>
       </div>
-      <div className={`${BASE_CLASS_NAME}-buttonState`}>
+      <div className={BUTTON_STATE_CLASS_NAME}>
         <Button
           color={buttonColor}
           design={buttonDesign}

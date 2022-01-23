@@ -1,12 +1,14 @@
 /* eslint-disable no-console */
 import {useRef} from 'react'
-import './index.scss'
-
-import MoleculeInputTags, {inputSizes} from 'components/molecule/inputTags/src'
-
 import {withStateValueTags} from '@s-ui/hoc'
-import {CloseIcon} from './icons'
-import {beatles, ledZeppelin, queen, beatlesArrayObject} from './data'
+
+import MoleculeInputTags, {
+  inputSizes
+} from 'components/molecule/inputTags/src/index.js'
+import {CloseIcon} from './icons/index.js'
+import {beatles, ledZeppelin, queen, beatlesArrayObject} from './data/index.js'
+
+import './index.scss'
 
 const BASE_CLASS_DEMO = 'DemoMoleculeInputTags'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`

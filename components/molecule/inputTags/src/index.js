@@ -1,29 +1,18 @@
 import {useState} from 'react'
 import PropTypes from 'prop-types'
-import AtomTag, {atomTagSizes} from '@s-ui/react-atom-tag'
-import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
 import cx from 'classnames'
+import {atomTagSizes} from '@s-ui/react-atom-tag'
+import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
 
-const BASE_CLASS = 'sui-AtomInput'
-const CLASS_TAGS = `${BASE_CLASS}--withTags`
-const CLASS_TAGS_FOCUS = `${CLASS_TAGS}--focus`
-const CLASS_TAGS_ERROR = `${CLASS_TAGS}--error`
-const CLASS_TAGS_SUCCESS = `${CLASS_TAGS}--success`
-const CLASS_TAGS_DISABLED = `${CLASS_TAGS}--disabled`
-
-// eslint-disable-next-line react/prop-types
-const AtomTagItem = ({onClose = () => {}, id, ...restProps}) => {
-  const handleClose = e => onClose(e, {id})
-
-  return <AtomTag onClose={handleClose} {...restProps} />
-}
-
-const isDuplicate = (values, newValue) => {
-  const upperTags = values.map(val =>
-    typeof val === 'object' ? val.label.toUpperCase() : val.toUpperCase()
-  )
-  return upperTags.includes(newValue.toUpperCase())
-}
+import {
+  CLASS_TAGS,
+  CLASS_TAGS_FOCUS,
+  CLASS_TAGS_ERROR,
+  CLASS_TAGS_SUCCESS,
+  CLASS_TAGS_DISABLED,
+  isDuplicate,
+  AtomTagItem
+} from './config.js'
 
 const MoleculeInputTags = ({
   errorState,

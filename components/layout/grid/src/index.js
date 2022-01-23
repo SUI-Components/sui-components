@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import LayoutGridItem from './gridItem'
 import cx from 'classnames'
 
 import {
@@ -10,7 +9,8 @@ import {
   GUTTER_VALUES,
   CELL_NUMBERS,
   BREAKPOINTS
-} from './settings'
+} from './settings.js'
+import LayoutGridItem from './gridItem/index.js'
 
 const transition = ({isGapless, ...oldProps}) => {
   const gutter = oldProps.gutter || isGapless ? 0 : undefined

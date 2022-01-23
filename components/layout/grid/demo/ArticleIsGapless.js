@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types'
 import {H2, H4, Paragraph, Article, Code} from '@s-ui/documentation-library'
 
-import {DeprecatedLayoutGrid, LayoutGridItem} from 'components/layout/grid/src'
-import DemoWrapper from './demoWrapper'
-import DemoBox from './demoBox'
+import {
+  DeprecatedLayoutGrid,
+  LayoutGridItem
+} from 'components/layout/grid/src/index.js'
+import DemoWrapper from './demoWrapper.js'
+import DemoBox from './demoBox.js'
 
 const ArticleIsGapless = ({classname}) => {
   return (

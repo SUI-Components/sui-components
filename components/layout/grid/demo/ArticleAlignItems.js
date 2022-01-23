@@ -12,9 +12,9 @@ import {
 import LayoutGrid, {
   LayoutGridAlignItems,
   LayoutGridItem
-} from 'components/layout/grid/src'
-import DemoWrapper from './demoWrapper'
-import DemoBox from './demoBox'
+} from 'components/layout/grid/src/index.js'
+import DemoWrapper from './demoWrapper.js'
+import DemoBox from './demoBox.js'
 
 const ArticleAlignItems = ({classname}) => {
   const [alignItemsState, setAlignItemsState] = useState()

@@ -10,14 +10,15 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import {cleanup, renderHook} from '@testing-library/react-hooks'
-import Component from '../src/index'
+
+import Component from '../src/index.js'
 import {
   actions as atomPinInputActions,
   actionTypes as atomPinInputActionTypes,
   usePinInputReducer
-} from 'components/atom/pinInput/src/reducer'
-import {getInitialPinInputReducerState} from 'components/atom/pinInput/src/reducer/reducer'
-import {MASK, valueChecker} from '../src/config'
+} from 'components/atom/pinInput/src/reducer/index.js'
+import {getInitialPinInputReducerState} from 'components/atom/pinInput/src/reducer/reducer.js'
+import {MASK, valueChecker} from '../src/config.js'
 
 chai.use(chaiDOM)
 

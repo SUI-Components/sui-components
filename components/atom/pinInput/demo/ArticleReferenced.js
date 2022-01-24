@@ -1,4 +1,6 @@
+import {useState} from 'react'
 import PropTypes from 'prop-types'
+
 import {
   Article,
   H2,
@@ -8,8 +10,8 @@ import {
   Cell,
   Label
 } from '@s-ui/documentation-library'
-import PinInput from '../src'
-import {useState} from 'react'
+
+import PinInput from '../src/index.js'
 
 const ArticleReferenced = ({className}) => {
   const [refValue, setRefValue] = useState()

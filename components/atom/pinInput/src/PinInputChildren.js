@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
-import {BASE_CLASSNAME} from './config'
-import PinInputField from './PinInputField'
+
+import {BASE_CLASSNAME} from './config.js'
+import PinInputField from './PinInputField.js'
 
 const CLASSNAME = `${BASE_CLASSNAME}FieldsWrapper`
 

@@ -1,4 +1,6 @@
+import {useState} from 'react'
 import PropTypes from 'prop-types'
+
 import {
   Article,
   H2,
@@ -7,10 +9,10 @@ import {
   Grid,
   Cell
 } from '@s-ui/documentation-library'
-import PinInput from '../src'
-import {useState} from 'react'
 
-const ArticleLenght = ({className}) => {
+import PinInput from '../src/index.js'
+
+const ArticleLength = ({className}) => {
   const [length, setLength] = useState(6)
 
   const onClickHandler = e => {
@@ -59,8 +61,8 @@ const ArticleLenght = ({className}) => {
   )
 }
 
-ArticleLenght.propTypes = {
+ArticleLength.propTypes = {
   className: PropTypes.string
 }
 
-export default ArticleLenght
+export default ArticleLength

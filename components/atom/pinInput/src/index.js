@@ -1,14 +1,18 @@
 import {forwardRef, useCallback, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
+
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
-import {MASK, SIZES, STATUS, getValueType, BASE_CLASSNAME} from './config'
-import useUpdateEffect from './hooks/useUpdateEffect'
-import useKeyPress from './hooks/useKeyPress'
-import {actions as pinInputActions, usePinInputReducer} from './reducer'
-import {PinInputContextProvider} from './PinInputContext'
-import PinInputChildren from './PinInputChildren'
-import PinInputField from './PinInputField'
+import {MASK, SIZES, STATUS, getValueType, BASE_CLASSNAME} from './config.js'
+import useUpdateEffect from './hooks/useUpdateEffect.js'
+import useKeyPress from './hooks/useKeyPress.js'
+import {
+  actions as pinInputActions,
+  usePinInputReducer
+} from './reducer/index.js'
+import {PinInputContextProvider} from './PinInputContext.js'
+import PinInputChildren from './PinInputChildren.js'
+import PinInputField from './PinInputField.js'
 
 const CLASSNAME = BASE_CLASSNAME
 

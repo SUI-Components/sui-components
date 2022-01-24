@@ -1,6 +1,8 @@
 import {useReducer, useMemo} from 'react'
+
 import useMountedState from '@s-ui/react-hooks/lib/useMountedState'
-import {getInitialPinInputReducerState, pinInputReducer} from './reducer'
+
+import {getInitialPinInputReducerState, pinInputReducer} from './reducer.js'
 
 const usePinInputReducer = ({mask, defaultValue, value} = {}) => {
   const isMounted = useMountedState()
@@ -12,7 +14,7 @@ const usePinInputReducer = ({mask, defaultValue, value} = {}) => {
       isMountedState
         ? initialState
         : getInitialPinInputReducerState({mask, defaultValue, value}),
-    [isMountedState]
+    [isMountedState] // eslint-disable-line react-hooks/exhaustive-deps
   )
   return useReducer(pinInputReducer, initialState)
 }

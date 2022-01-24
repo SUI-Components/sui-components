@@ -1,7 +1,13 @@
 import {useState, useEffect, useRef, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import {AUTO_CLOSE_TIMES, BASE_CLASS, EFFECT_DELAY, POSITIONS} from './config'
+
+import {
+  AUTO_CLOSE_TIMES,
+  BASE_CLASS,
+  EFFECT_DELAY,
+  POSITIONS
+} from './config.js'
 
 function AtomToast({
   autoClose = true,

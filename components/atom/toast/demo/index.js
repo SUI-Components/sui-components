@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
-
 import {useState} from 'react'
+
 import Button from '@s-ui/react-atom-button'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 import IconClose from '@s-ui/react-icons/lib/Close'
-import {IconArrowDown} from './Icons'
+
+import {IconArrowDown} from './Icons/index.js'
 
 import AtomToast, {
   atomToastPositions,

@@ -11,7 +11,7 @@ import {
   CLASS_ICON,
   CLASS_TEXT,
   CLASS_ICON_RIGHT
-} from './config'
+} from './config.js'
 
 const AtomBadge = ({
   icon,

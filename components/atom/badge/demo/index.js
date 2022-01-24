@@ -1,15 +1,13 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import ArticleType from './ArticleType'
-import ArticleCustomType from './ArticleCustomType'
-import ArticleDesign from './ArticleDesign'
-import ArticleSizes from './ArticleSizes'
-import ArticleContent from './ArticleContent'
-import ArticleDarkMode from './ArticleDarkMode'
-import ArticleIsFitted from './ArticleIsFitted'
-
-const BASE_CLASS_DEMO = `DemoAtomBadge`
-const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
+import ArticleType from './ArticleType.js'
+import ArticleCustomType from './ArticleCustomType.js'
+import ArticleDesign from './ArticleDesign.js'
+import ArticleSizes from './ArticleSizes.js'
+import ArticleContent from './ArticleContent.js'
+import ArticleDarkMode from './ArticleDarkMode.js'
+import ArticleIsFitted from './ArticleIsFitted.js'
+import {CLASS_SECTION} from './settings.js'
 
 const Demo = () => {
   return (

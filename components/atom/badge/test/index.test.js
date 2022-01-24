@@ -10,10 +10,14 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
-import * as pkg from '../src'
+import * as pkg from '../src/index.js'
+import {
+  truncateText,
+  shouldRenderIcon,
+  MAX_LABEL_LENGTH
+} from '../src/config.js'
 
 import json from '../package.json'
-import {truncateText, shouldRenderIcon, MAX_LABEL_LENGTH} from '../src/config'
 
 chai.use(chaiDOM)
 

@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
+
 import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
-import AtomBadge, {atomBadgeTypes} from '../src'
+import AtomBadge, {atomBadgeTypes} from '../src/index.js'
 
 const ArticleIsFitted = ({className}) => {
   return (

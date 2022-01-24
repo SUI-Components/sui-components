@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
+
 import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
-import AtomBadge, {atomBadgeDesigns, atomBadgeTypes} from '../src'
+import AtomBadge, {atomBadgeDesigns, atomBadgeTypes} from '../src/index.js'
 
 const ArticleDarkMode = ({className}) => {
   return (

@@ -1,23 +1,16 @@
 import {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
-import loadable from '@loadable/component'
 import cx from 'classnames'
 
-const Dropzone = loadable(() => import('react-dropzone'), {ssr: true})
-
-const STATUSES = {
-  ACTIVE: 'active',
-  UPLOAD: 'upload',
-  SUCCESS: 'success',
-  ERROR: 'error'
-}
-
-const BASE_CLASS = 'sui-AtomUpload'
-const CLASS_BLOCK_TEXT = `${BASE_CLASS}-blockText`
-const CLASS_BLOCK_TEXT_MAIN = `${CLASS_BLOCK_TEXT}-main`
-const CLASS_BLOCK_TEXT_SECONDARY = `${CLASS_BLOCK_TEXT}-secondary`
-
-const capitalize = text => text[0].toUpperCase() + text.substr(1)
+import {
+  Dropzone,
+  STATUSES,
+  BASE_CLASS,
+  CLASS_BLOCK_TEXT,
+  CLASS_BLOCK_TEXT_MAIN,
+  CLASS_BLOCK_TEXT_SECONDARY,
+  capitalize
+} from './settings.js'
 
 const AtomUpload = ({
   status,

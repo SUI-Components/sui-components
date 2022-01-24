@@ -34,7 +34,7 @@ const ArticleSliderDisabled = ({className}) => {
         <AtomSlider
           disabled
           onChange={(event, {value}) => {
-            console.log(value)
+            console.log(value) // eslint-disable-line no-console
             setDisabledState(value)
           }}
           value={parseInt(disabledState)}

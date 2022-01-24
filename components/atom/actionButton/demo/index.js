@@ -12,78 +12,21 @@ import {
   Article,
   Strong,
   Text,
-  DevIcon,
   Grid,
   Cell
 } from '@s-ui/documentation-library'
 import AtomActionButton, {
   atomActionButtonColors,
-  atomActionButtonStyles,
   atomActionButtonSizes
 } from '@s-ui/react-atom-action-button'
 
-const icon = <DevIcon icon="DiGithubBadge" />
-
-const flexCenteredStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  wrap: 'nowrap',
-  alignItems: 'center',
-  alignContent: 'center'
-}
-const handleSubmit = event => {
-  event.preventDefault()
-  alert('Form submitted!')
-}
-
-const ActionButtonCatalog = props => {
-  return (
-    <Grid
-      cols={Object.values(atomActionButtonColors).length + 1}
-      gutter="10"
-      style={{width: 800}}
-    >
-      <Cell />
-      {Object.values(atomActionButtonColors).map(
-        (atomActionButtonColor, key) => (
-          <Cell key={key}>
-            <Text>
-              <Label>{atomActionButtonColor}</Label>
-            </Text>
-          </Cell>
-        )
-      )}
-      {Object.values(atomActionButtonStyles).map(
-        (atomActionButtonStyle, index) => (
-          <>
-            <Cell>
-              <Text>
-                <Label>{atomActionButtonStyle}</Label>
-              </Text>
-            </Cell>
-            {Object.values(atomActionButtonColors).map(
-              (atomActionButtonColor, iterator) => (
-                <Cell key={iterator}>
-                  <AtomActionButton
-                    style={atomActionButtonStyle}
-                    color={atomActionButtonColor}
-                    icon={icon}
-                    {...props}
-                  >
-                    Button
-                  </AtomActionButton>
-                </Cell>
-              )
-            )}
-          </>
-        )
-      )}
-    </Grid>
-  )
-}
-
-const BASE_CLASS_DEMO = `DemoAtomActionButton`
-const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
+import {
+  icon,
+  flexCenteredStyle,
+  handleSubmit,
+  CLASS_SECTION
+} from './settings.js'
+import ActionButtonCatalog from './ActionButtonCatalog.js'
 
 const Demo = () => {
   const [state, setState] = useState({content: 'button', link: false})

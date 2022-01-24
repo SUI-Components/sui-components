@@ -1,5 +1,6 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+
 import AtomIcon, {
   ATOM_ICON_COLORS,
   ATOM_ICON_SIZES
@@ -13,8 +14,8 @@ import {
   MODIFIERS,
   SIZES,
   STYLES
-} from './config'
-import ActionButtonWrapper from './ActionButtonWrapper'
+} from './config.js'
+import ActionButtonWrapper from './ActionButtonWrapper.js'
 
 const AtomActionButton = ({
   children,

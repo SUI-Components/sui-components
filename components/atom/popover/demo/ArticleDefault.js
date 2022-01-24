@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import PropTypes from 'prop-types'
+
 import {
   Article,
   H2,
@@ -13,8 +14,9 @@ import {
   Separator,
   Bold
 } from '@s-ui/documentation-library'
-import AtomPopover from 'components/atom/popover/src'
-import ReMountDebounced from './ReMountDebounced'
+
+import AtomPopover from 'components/atom/popover/src/index.js'
+import ReMountDebounced from './ReMountDebounced.js'
 
 const PopIt = ({
   isVisible,

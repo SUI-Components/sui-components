@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import PropTypes from 'prop-types'
+
 import {
   Article,
   H2,
@@ -13,7 +14,8 @@ import {
   ListItem,
   Label
 } from '@s-ui/documentation-library'
-import AtomPopover from 'components/atom/popover/src'
+
+import AtomPopover from 'components/atom/popover/src/index.js'
 
 const ArticlePosition = ({className, content: Content}) => {
   const [position, setPosition] = useState(undefined)

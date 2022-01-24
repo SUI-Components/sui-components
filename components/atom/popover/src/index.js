@@ -1,19 +1,20 @@
 import {useRef, forwardRef} from 'react'
 import PropTypes from 'prop-types'
-import loadable from '@loadable/component'
-import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
-import {PLACEMENTS, TRIGGERS} from './config'
-import PopoverExtendChildren from './PopoverExtendChildren'
 
-const BASE_CLASS = 'sui-AtomPopover'
-const CLASS_INNER = `${BASE_CLASS}-inner`
-const PREFIX_PLACEMENT = `${BASE_CLASS}-`
-const DEFAULT_OFFSET = 'auto,4px'
-const DEFAULT_TRIGGER = TRIGGERS.LEGACY
-const DEFAULT_DELAY = 0
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
 
-// https://github.com/reactstrap/reactstrap/blob/8.9.0/src/Popover.js
-const Popover = loadable(() => import('reactstrap/lib/Popover'), {ssr: true})
+import {
+  PLACEMENTS,
+  TRIGGERS,
+  BASE_CLASS,
+  CLASS_INNER,
+  PREFIX_PLACEMENT,
+  DEFAULT_OFFSET,
+  DEFAULT_TRIGGER,
+  DEFAULT_DELAY,
+  Popover
+} from './config.js'
+import PopoverExtendChildren from './PopoverExtendChildren.js'
 
 const AtomPopover = forwardRef(
   (

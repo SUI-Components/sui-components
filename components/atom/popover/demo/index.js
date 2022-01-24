@@ -1,14 +1,17 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
 import {forwardRef} from 'react'
-import './index.scss'
+
 import {H1, Paragraph, Anchor} from '@s-ui/documentation-library'
-import ArticleDefault from './ArticleDefault'
-import ArticlePosition from './ArticlePosition'
-import ArticleCloseIcon from './ArticleCloseIcon'
-import ArticleArrow from './ArticleArrow'
-import ArticleRef from './ArticleRef'
-import ArticleBehavior from './ArticleBehavior'
+
+import ArticleDefault from './ArticleDefault.js'
+import ArticlePosition from './ArticlePosition.js'
+import ArticleCloseIcon from './ArticleCloseIcon.js'
+import ArticleArrow from './ArticleArrow.js'
+import ArticleRef from './ArticleRef.js'
+import ArticleBehavior from './ArticleBehavior.js'
+
+import './index.scss'
 
 const BASE_CLASS_DEMO = `DemoAtomPopover`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`

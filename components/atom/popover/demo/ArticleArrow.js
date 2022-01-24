@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import PropTypes from 'prop-types'
+
 import {
   Article,
   H2,
@@ -9,8 +10,11 @@ import {
   RadioButtonGroup,
   Code
 } from '@s-ui/documentation-library'
-import AtomPopover, {atomPopoverTriggers} from 'components/atom/popover/src'
-import ReMountDebounced from './ReMountDebounced'
+
+import AtomPopover, {
+  atomPopoverTriggers
+} from 'components/atom/popover/src/index.js'
+import ReMountDebounced from './ReMountDebounced.js'
 
 const ArticleArrow = ({className, content: Content}) => {
   const [isHidden, setIsHidden] = useState('false')

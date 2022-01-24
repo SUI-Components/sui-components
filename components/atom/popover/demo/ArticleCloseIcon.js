@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import PropTypes from 'prop-types'
+
 import {
   Article,
   H2,
@@ -10,8 +11,11 @@ import {
   Code,
   Label
 } from '@s-ui/documentation-library'
-import AtomPopover, {atomPopoverTriggers} from 'components/atom/popover/src'
-import IconClose from './Icons/IconClose'
+
+import AtomPopover, {
+  atomPopoverTriggers
+} from 'components/atom/popover/src/index.js'
+import IconClose from './Icons/IconClose.js'
 
 const ArticleCloseIcon = ({className, content: Content}) => {
   const [isVisible, setIsVisible] = useState('true')

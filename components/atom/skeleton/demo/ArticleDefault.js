@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import PropTypes from 'prop-types'
+
 import {
   H1,
   H2,
@@ -14,7 +15,8 @@ import {
   Cell,
   Label
 } from '@s-ui/documentation-library'
-import AtomSkeleton from '../lib'
+
+import AtomSkeleton from '../src/index.js'
 
 const loremIpsum =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet ...'

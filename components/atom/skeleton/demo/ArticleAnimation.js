@@ -9,24 +9,24 @@ import {
   Label,
   Code
 } from '@s-ui/documentation-library'
-import AtomSkeleton, {ATOM_SKELETON_ANIMATIONS} from '../lib'
+import AtomSkeleton, {atomSkeletonAnimations} from '../src/index.js'
 
 const ArticleAnimation = ({className}) => {
   return (
     <Article className={className}>
       <H2>Animation</H2>
       <Paragraph>
-        There are {Object.keys(ATOM_SKELETON_ANIMATIONS).length} different
-        animation props under the <Code>ATOM_SKELETON_ANIMATIONS</Code> exported
+        There are {Object.keys(atomSkeletonAnimations).length} different
+        animation props under the <Code>atomSkeletonAnimations</Code> exported
         object. Possible values are{' '}
-        {Object.values(ATOM_SKELETON_ANIMATIONS).join(', ')}.
+        {Object.values(atomSkeletonAnimations).join(', ')}.
       </Paragraph>
       <Paragraph>
-        By default, the animation is {ATOM_SKELETON_ANIMATIONS.wave}, and can be
+        By default, the animation is {atomSkeletonAnimations.wave}, and can be
         customized using the prop <Code>animation</Code>
       </Paragraph>
       <Grid cols={10} gutter={[8, 8]}>
-        {Object.entries(ATOM_SKELETON_ANIMATIONS).map(([key, value]) => {
+        {Object.entries(atomSkeletonAnimations).map(([key, value]) => {
           return (
             <Fragment key={key}>
               <Cell>

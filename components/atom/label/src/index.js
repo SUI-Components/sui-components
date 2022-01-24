@@ -1,30 +1,6 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 
-const CLASSNAME = 'sui-AtomLabel'
-
-const TYPES = {
-  SUCCESS: 'success',
-  ERROR: 'error',
-  ALERT: 'alert',
-  CONTRAST: 'contrast',
-  DISABLED: 'disabled'
-}
-
-const FONT_SIZES = {
-  LARGE: 'large',
-  MEDIUM: 'medium',
-  SMALL: 'small',
-  XSMALL: 'xsmall'
-}
-
-const getClass = ({type, inline, fontSize}) =>
-  cx(CLASSNAME, {
-    [`${CLASSNAME}--${fontSize}`]: fontSize,
-    [`${CLASSNAME}--${type}`]: type,
-    [`${CLASSNAME}--inlineLeft`]: inline === 'left',
-    [`${CLASSNAME}--inlineRight`]: inline === 'right'
-  })
+import {TYPES, FONT_SIZES, getClass} from './settings.js'
 
 const AtomLabel = ({
   name,

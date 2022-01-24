@@ -1,9 +1,7 @@
-import AtomLabel, {AtomLabelTypes, AtomLabelFontSizes} from '../src'
 import AtomIcon from '@s-ui/react-atom-icon'
 import AtomInput from '@s-ui/react-atom-input'
 import AtomCheckbox from '@s-ui/react-atom-checkbox'
 import AtomButton from '@s-ui/react-atom-button'
-
 import {
   H1,
   H2,
@@ -15,6 +13,8 @@ import {
   Code,
   AntDesignIcon
 } from '@s-ui/documentation-library'
+
+import AtomLabel, {AtomLabelTypes, AtomLabelFontSizes} from '../src/index.js'
 
 const flexCenteredStyle = {
   display: 'flex',

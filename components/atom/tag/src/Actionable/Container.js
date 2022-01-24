@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
-import {LINK_TYPES} from '../constants'
+
+import {LINK_TYPES} from '../constants.js'
 
 /**
  * Component treated as an anchor when href is defined

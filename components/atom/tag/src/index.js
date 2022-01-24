@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import ActionableTag from './Actionable'
-import StandardTag from './Standard'
+import ActionableTag from './Actionable/index.js'
+import StandardTag from './Standard.js'
 import {
   ACTIONABLE_ONLY_PROPS,
   STANDARD_ONLY_PROPS,
   SIZES,
   LINK_TYPES,
   DESIGNS
-} from './constants'
-import {filterKeys} from './helpers'
+} from './constants.js'
+import {filterKeys} from './helpers.js'
 
 const AtomTag = props => {
   const {

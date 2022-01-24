@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-const IMG_ROLE = 'img'
+import {IMG_ROLE} from './settings.js'
 
 export default function AtomIcon({className, children, outerRef, title}) {
   const a11yAttributes = title

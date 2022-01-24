@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import {
   Article,
   Bold,
@@ -12,7 +13,7 @@ import {
   UnorderedList
 } from '@s-ui/documentation-library'
 
-import AtomBadge, {atomBadgeSizes} from '../src'
+import AtomBadge, {atomBadgeSizes} from '../src/index.js'
 
 const icon = <DevIcon icon="DiGithubBadge" />
 

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import {
   Article,
   Cell,
@@ -9,7 +10,7 @@ import {
   Paragraph
 } from '@s-ui/documentation-library'
 
-import AtomBadge, {atomBadgeSizes} from '../src'
+import AtomBadge, {atomBadgeSizes} from '../src/index.js'
 
 const ArticleSizes = ({className}) => {
   return (

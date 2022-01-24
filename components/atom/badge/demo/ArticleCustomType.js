@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import {
   Article,
   H2,
@@ -8,8 +9,8 @@ import {
   Label
 } from '@s-ui/documentation-library'
 
-import AtomBadge from '../src'
-import {extendedColors} from './config'
+import AtomBadge from '../src/index.js'
+import {extendedColors} from './settings.js'
 
 const ArticleCustomType = ({className}) => {
   return (

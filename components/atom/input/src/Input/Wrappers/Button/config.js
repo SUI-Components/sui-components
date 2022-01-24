@@ -1,3 +1,3 @@
-import {BASE} from '../../../config'
+import {BASE} from '../../../config.js'
 
 export const BASE_CLASS_BUTTON = `${BASE}--withButton`

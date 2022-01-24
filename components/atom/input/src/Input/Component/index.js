@@ -1,5 +1,6 @@
 import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
+
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import {
@@ -8,7 +9,7 @@ import {
   INPUT_SHAPES,
   noop,
   getClassNames
-} from '../../config'
+} from '../../config.js'
 
 const Input = forwardRef(
   (

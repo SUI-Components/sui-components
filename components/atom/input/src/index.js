@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 
-import Input, {inputSizes, inputStates} from './Input'
-import Password from './Password'
-import Mask from './Mask'
-import {TYPES, INPUT_SHAPES} from './config'
+import Input, {inputSizes, inputStates} from './Input/index.js'
+import Password from './Password/index.js'
+import Mask from './Mask/index.js'
+import {TYPES, INPUT_SHAPES} from './config.js'
 
 const AtomInput = ({type, ...props}) => {
   switch (type) {
@@ -135,6 +135,7 @@ AtomInput.propTypes = {
 AtomInput.displayName = 'AtomInput'
 
 export default AtomInput
+
 export {
   inputSizes,
   inputStates,

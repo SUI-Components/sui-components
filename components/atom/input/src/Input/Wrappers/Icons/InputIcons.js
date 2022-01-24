@@ -9,7 +9,7 @@ import {
   BASE_CLASS_ICON_COMPONENT_HANDLER,
   BASE_CLASS_ICON_COMPONENT_LEFT,
   BASE_CLASS_ICON_COMPONENT_RIGHT
-} from './config'
+} from './config.js'
 
 const InputIcons = ({
   leftIcon,

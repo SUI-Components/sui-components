@@ -2,7 +2,7 @@ import {useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import {BASE_CLASS, CHECKBOX_STATUS, CHECKBOX_SIZES} from './config'
+import {BASE_CLASS, CHECKBOX_STATUS, CHECKBOX_SIZES} from './config.js'
 
 const AtomCheckbox = ({
   checked = false,
@@ -108,5 +108,6 @@ AtomCheckbox.propTypes = {
 }
 
 export default AtomCheckbox
+
 export {CHECKBOX_STATUS as checkboxStatus}
 export {CHECKBOX_SIZES as checkboxSizes}

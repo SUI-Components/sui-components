@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 
-const AtomHelpText = ({text}) => (
-  <span className="sui-AtomHelpText">{text}</span>
-)
+import {BASE_CLASS} from './settings.js'
+
+const AtomHelpText = ({text}) => <span className={BASE_CLASS}>{text}</span>
 
 AtomHelpText.displayName = 'AtomHelpText'
 

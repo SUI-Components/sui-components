@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+
 import {
   BASE_CLASS,
   DEFAULT_PROPS,
   TEXTAREA_RESIZES,
   TEXTAREA_SIZES,
   TEXTAREA_STATES
-} from './settings'
+} from './settings.js'
 
 const AtomTextarea = ({
   errorState,

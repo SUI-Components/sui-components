@@ -7,7 +7,7 @@ import {CLASS_SECTION} from './settings.js'
 
 const Demo = () => {
   return (
-    <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+    <div className="sui-StudioPreview">
       <H1>Spinner</H1>
       <Paragraph>
         An animated loop used for giving users feedback while the content of a

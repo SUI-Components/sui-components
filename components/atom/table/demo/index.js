@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import {
   Article,
   Code,
@@ -9,8 +10,8 @@ import {
   Paragraph
 } from '@s-ui/documentation-library'
 
-import AtomTable, {atomTableCellPadding} from '../src'
-import {contentBodyMook, contentHeadMook, contentFootMook} from './settings'
+import AtomTable, {atomTableCellPadding} from '../src/index.js'
+import {contentBodyMook, contentHeadMook, contentFootMook} from './settings.js'
 
 const Demo = ({children}) => {
   return <div style={{width: '100%', padding: 20}}>{children}</div>

@@ -1,21 +1,16 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import {COLORS, ALPHA, BORDER_RADIUS, ELEVATION} from './constants'
 
-const HORIZONTAL_ALIGNMENTS = {
-  LEFT: 'left',
-  CENTER: 'center',
-  RIGHT: 'right'
-}
-
-const VERTICAL_ALIGNMENTS = {
-  TOP: 'top',
-  CENTER: 'center',
-  BOTTOM: 'bottom'
-}
-
-const DEFAULT_ALPHA = 'CONTRAST'
-const DEFAULT_COLOR = 'ACCENT'
+import {
+  COLORS,
+  ALPHA,
+  BORDER_RADIUS,
+  ELEVATION,
+  HORIZONTAL_ALIGNMENTS,
+  VERTICAL_ALIGNMENTS,
+  DEFAULT_ALPHA,
+  DEFAULT_COLOR
+} from './constants.js'
 
 const getClassNames = function({
   verticalAlign,

@@ -12,7 +12,7 @@ import {
   CLASS_VERTICAL,
   ELEVATION,
   redirectToHref
-} from './config'
+} from './config.js'
 
 const AtomCard = ({
   media: Media,

@@ -2,10 +2,11 @@ import {forwardRef, useCallback, useEffect} from 'react'
 import {createPortal} from 'react-dom'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+
 import {getTarget} from '@s-ui/js/lib/react'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 
-import calcBackToTopEngine, {isDocumentElement} from './calcBackToTopEngine'
+import calcBackToTopEngine, {isDocumentElement} from './calcBackToTopEngine.js'
 import {
   STYLES,
   SCROLL_BEHAVIOR,
@@ -15,7 +16,7 @@ import {
   CLASS_HIDE,
   CLASS_ICON,
   CLASS_TEXT
-} from './config'
+} from './config.js'
 
 const AtomBackToTop = forwardRef(
   (

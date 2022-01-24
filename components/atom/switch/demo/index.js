@@ -1,4 +1,5 @@
 import {useState, useRef} from 'react'
+
 import {
   H1,
   H2,
@@ -17,7 +18,7 @@ import {
 import AtomSwitch, {
   atomSwitchSizes,
   atomSwitchTypes
-} from 'components/atom/switch/src'
+} from 'components/atom/switch/src/index.js'
 
 const BASE_CLASS_DEMO = `DemoAtomSwitch`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`

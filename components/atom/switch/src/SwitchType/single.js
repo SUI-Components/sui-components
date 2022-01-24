@@ -1,9 +1,12 @@
 import {forwardRef} from 'react'
 import cx from 'classnames'
-import AtomLabel from '@s-ui/react-atom-label'
-import {suitClass, switchClassNames} from './helpers'
 import PropTypes from 'prop-types'
-import {LABELS} from '../config'
+
+import AtomLabel from '@s-ui/react-atom-label'
+
+import {suitClass, switchClassNames} from './helpers.js'
+import {LABELS} from '../config.js'
+
 const {RIGHT, LEFT} = LABELS
 
 export const SingleSwitchTypeRender = forwardRef(

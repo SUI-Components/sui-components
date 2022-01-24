@@ -1,4 +1,6 @@
+import {useState} from 'react'
 import PropTypes from 'prop-types'
+
 import {
   Article,
   H2,
@@ -6,9 +8,9 @@ import {
   RadioButton,
   RadioButtonGroup
 } from '@s-ui/documentation-library'
-import PinInput from '../src'
-import {useState} from 'react'
-import {STATUS} from '../src/config'
+
+import PinInput from '../src/index.js'
+import {STATUS} from '../src/config.js'
 
 const ArticleStatus = ({className}) => {
   const [status, setStatus] = useState()

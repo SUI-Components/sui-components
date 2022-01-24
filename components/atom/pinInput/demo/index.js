@@ -1,16 +1,18 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
-import ArticleDefault from './ArticleDefault'
-import ArticleSizes from './ArticleSizes'
-import ArticleMask from './ArticleMask'
-import ArticleReferenced from './ArticleReferenced'
-import ArticleDisabled from './ArticleDisabled'
-import ArticleStates from './ArticleStatus'
-import ArticleChildren from './ArticleChildren'
-import ArticlePlaceHolder from './ArticlePlaceholder'
-import ArticlePassword from './ArticlePassword'
-import ArticleLength from './ArticleLength'
-import ArticleValue from './ArticleValue'
-const BASE_CLASS_DEMO = `DemoAtomPinInput`
+
+import ArticleDefault from './ArticleDefault.js'
+import ArticleSizes from './ArticleSizes.js'
+import ArticleMask from './ArticleMask.js'
+import ArticleReferenced from './ArticleReferenced.js'
+import ArticleDisabled from './ArticleDisabled.js'
+import ArticleStates from './ArticleStatus.js'
+import ArticleChildren from './ArticleChildren.js'
+import ArticlePlaceHolder from './ArticlePlaceholder.js'
+import ArticlePassword from './ArticlePassword.js'
+import ArticleLength from './ArticleLength.js'
+import ArticleValue from './ArticleValue.js'
+const BASE_CLASS_DEMO = `DemoAtomPinInput.js`
+
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
 export default () => {

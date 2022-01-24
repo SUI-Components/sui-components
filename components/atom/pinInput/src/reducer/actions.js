@@ -1,5 +1,5 @@
-import {MASK} from '../config'
-import PIN_INPUT_ACTION_TYPES from './actionTypes'
+import {MASK} from '../config.js'
+import PIN_INPUT_ACTION_TYPES from './actionTypes.js'
 
 const act = (actionType, payload = {}) => ({actionType, payload})
 

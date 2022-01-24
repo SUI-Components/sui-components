@@ -1,4 +1,6 @@
+import {useState} from 'react'
 import PropTypes from 'prop-types'
+
 import {
   Article,
   H2,
@@ -9,9 +11,9 @@ import {
   Cell,
   Label
 } from '@s-ui/documentation-library'
-import PinInput from '../src'
-import PinInputField from '../src/PinInputField'
-import {useState} from 'react'
+
+import PinInput from '../src/index.js'
+import PinInputField from '../src/PinInputField.js'
 
 const getWeirdSumCombinationArray = (values = [], max) => {
   const arrSum = arr => arr.reduce((a, b) => a + b, 0)

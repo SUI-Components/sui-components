@@ -12,7 +12,7 @@ const useKeyPress = (callback, {target, onChange}) => {
         if (element) element.removeEventListener('keydown', callback)
       })
     }
-  }, [target, callback, onChange])
+  }, [target, callback, onChange]) // eslint-disable-line react-hooks/exhaustive-deps
 }
 
 export default useKeyPress

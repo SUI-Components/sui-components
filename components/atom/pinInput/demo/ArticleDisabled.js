@@ -1,7 +1,9 @@
-import PropTypes from 'prop-types'
-import {Article, H2, Paragraph, RadioButton} from '@s-ui/documentation-library'
-import PinInput from '../src'
 import {useState} from 'react'
+import PropTypes from 'prop-types'
+
+import {Article, H2, Paragraph, RadioButton} from '@s-ui/documentation-library'
+
+import PinInput from '../src/index.js'
 
 const ArticleDisabled = ({className}) => {
   const [code, setCode] = useState('725412')

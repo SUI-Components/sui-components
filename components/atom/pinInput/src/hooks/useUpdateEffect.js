@@ -4,7 +4,7 @@ import {useEffect, useRef} from 'react'
  * @param {Function} effect
  * @param {Array<any>} dependencies
  */
-const useUpdateEffect = (effect, dependencies = []) => {
+const useUpdateEffect = (effect = () => null, dependencies = []) => {
   const isInitialMount = useRef(true)
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const useUpdateEffect = (effect, dependencies = []) => {
     } else {
       return effect()
     }
-  }, dependencies)
+  }, dependencies) // eslint-disable-line react-hooks/exhaustive-deps
 }
 
 export default useUpdateEffect

@@ -8,6 +8,7 @@ import {
   Code,
   Box
 } from '@s-ui/documentation-library'
+
 import AtomSlider from '../src/index.js'
 
 const ArticleRangeDefault = ({className}) => {
@@ -32,7 +33,7 @@ const ArticleRangeDefault = ({className}) => {
           defaultValue={uncontrolledRangeState}
           onChange={(event, {value}) => {
             setUncontrolledRangeState(value)
-            console.log(event, {value})
+            console.log(event, {value}) // eslint-disable-line no-console
           }}
         />
       </Box>

@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import PropTypes from 'prop-types'
+
 import {
   H2,
   Article,
@@ -9,6 +10,7 @@ import {
   Box,
   Input
 } from '@s-ui/documentation-library'
+
 import AtomSlider from '../src/index.js'
 
 const ArticleSliderDisabled = ({className}) => {

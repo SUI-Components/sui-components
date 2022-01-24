@@ -1,7 +1,8 @@
 import {useRef, useState, useEffect} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import {Handle, Tooltip, BASE_CLASS} from './settings'
+
+import {Handle, Tooltip, BASE_CLASS} from './settings.js'
 
 const Handler = ({
   value,
@@ -15,8 +16,8 @@ const Handler = ({
   const refHandle = useRef()
   const [ready, setReady] = useState(false)
   useEffect(() => {
-    setReady(!ready)
-  }, [])
+    if (!ready) setReady(!ready)
+  }, [ready])
   if (!refAtomSlider?.current) {
     return null
   }

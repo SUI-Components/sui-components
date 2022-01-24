@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import PropTypes from 'prop-types'
+
 import {
   H2,
   Article,
@@ -8,6 +9,7 @@ import {
   Code,
   Box
 } from '@s-ui/documentation-library'
+
 import AtomSlider from '../src/index.js'
 
 const ArticleSliderDefault = ({className}) => {
@@ -27,7 +29,7 @@ const ArticleSliderDefault = ({className}) => {
         <AtomSlider
           onChange={(event, {value}) => {
             setUncontrolledState(value)
-            console.log(event, {value})
+            console.log(event, {value}) // eslint-disable-line no-console
           }}
         />
       </Box>

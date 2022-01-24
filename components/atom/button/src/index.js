@@ -1,120 +1,28 @@
 import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import Button from './Button'
-import ButtonIcon from './ButtonIcon'
-import ButtonSpinnerIcon from './buttonSpinnerIcon'
+
+import Button from './Button.js'
+import ButtonIcon from './ButtonIcon.js'
+import ButtonSpinnerIcon from './buttonSpinnerIcon/index.js'
 import {
-  createClasses,
   CLASS,
   COLORS,
   DESIGNS,
   ALIGNMENT,
   ICON_POSITIONS,
   GROUP_POSITIONS,
-  MODIFIERS,
-  OWN_PROPS,
   SIZES,
   TYPES,
   SHAPES,
-  TYPES_CONVERSION
-} from './config'
-
-const CLASSES = createClasses([
-  ...COLORS,
-  ...Object.values(DESIGNS),
-  ...Object.values(ALIGNMENT),
-  ...MODIFIERS,
-  ...Object.values(SIZES),
-  'empty'
-])
-
-/**
- * Get props cleaning out AtomButton own props
- * @param  {Object} props
- * @return {Object}
- */
-const cleanProps = props => {
-  const newProps = {...props}
-  OWN_PROPS.forEach(key => delete newProps[key])
-  return newProps
-}
-
-/**
- * Get modifiers to apply according to props
- * @param  {Object} props
- * @return {Array<String>}
- */
-const getModifiers = props => {
-  return Object.keys(props).filter(
-    name => props[name] && MODIFIERS.includes(name)
-  )
-}
-
-function deprecated(
-  validator,
-  callback = (props, propName, componentName) => {
-    const deprecatedMessage = `The prop ${'\x1b[32m'}${propName}${'\u001b[39m'} is DEPRECATED on ${'\x1b[32m'}${componentName}${'\u001b[39m'}.`
-    console.warn(deprecatedMessage) // eslint-disable-line
-  }
-) {
-  return function deprecated(props, propName, componentName, ...rest) {
-    if (props[propName] != null && process.env.NODE_ENV === 'development') {
-      callback(props, propName, componentName, ...rest)
-    }
-    return validator(props, propName, componentName, ...rest)
-  }
-}
-
-const typeConversion = ({type, design, color, link, href, ...other}) => {
-  const result = {
-    design,
-    color,
-    link,
-    href,
-    ...other
-  }
-  switch (type) {
-    case 'primary':
-      result.color = color || 'primary'
-      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID)
-      break
-    case 'accent':
-      result.color = color || 'accent'
-      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID)
-      break
-    case 'secondary':
-      result.color = color || 'primary'
-      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.OUTLINE)
-      break
-    case 'tertiary':
-      result.color = color || 'primary'
-      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.FLAT)
-      break
-    default:
-      result.type = type
-      result.color = color || 'primary'
-      break
-  }
-  return result
-}
-
-const getPropsWithDefaultValues = ({
-  type,
-  design,
-  color,
-  alignment,
-  link,
-  href,
-  ...other
-}) => ({
-  ...other,
-  link,
-  type,
-  design: design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID),
-  color: color || 'colors',
-  alignment: alignment || ALIGNMENT.CENTER
-})
+  TYPES_CONVERSION,
+  CLASSES,
+  cleanProps,
+  getModifiers,
+  deprecated,
+  typeConversion,
+  getPropsWithDefaultValues
+} from './config.js'
 
 const AtomButton = forwardRef((props, ref) => {
   const {

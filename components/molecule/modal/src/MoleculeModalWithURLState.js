@@ -2,7 +2,8 @@ import {forwardRef, useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import MoleculeModal from './MoleculeModal'
 
-const checkHash = hash => window.location.hash.includes(hash)
+const checkHash = hash =>
+  typeof window !== 'undefined' && window.location.hash.includes(hash)
 
 /**
  * It must be refactored with react-router hooks (in React Router > 5)

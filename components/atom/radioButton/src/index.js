@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const BASE_CLASS = 'sui-AtomRadioButton'
-const CLASS_HIDDEN = `is-hidden`
+import {BASE_CLASS, CLASS_HIDDEN} from './settings.js'
 
 const AtomRadioButton = ({
   id,

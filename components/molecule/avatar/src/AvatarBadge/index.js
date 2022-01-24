@@ -35,3 +35,5 @@ MoleculeAvatarBadge.propTypes = {
 }
 
 export default MoleculeAvatarBadge
+
+export {AVATAR_BADGE_STATUSES, AVATAR_BADGE_PLACEMENTS, AVATAR_BADGE_SIZES}

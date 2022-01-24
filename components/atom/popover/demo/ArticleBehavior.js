@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import PropTypes from 'prop-types'
+
 import {
   Article,
   H2,
@@ -16,10 +17,11 @@ import {
   Button,
   Text
 } from '@s-ui/documentation-library'
+
 import AtomPopover, {
   atomPopoverTriggers,
   atomPopoverPositions
-} from 'components/atom/popover/src'
+} from 'components/atom/popover/src/index.js'
 
 const StatusDisplayer = ({value, values = []}) => (
   <Box fullWidth>

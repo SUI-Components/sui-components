@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
-import LineProgressBar from './LineProgressBar'
-import CircleProgressBar from './CircleProgressBar'
-import LineDoubleProgressBar from './LineDoubleProgressBar'
-import {TYPES, SIZES} from './config'
+
+import LineProgressBar from './LineProgressBar/index.js'
+import CircleProgressBar from './CircleProgressBar/index.js'
+import LineDoubleProgressBar from './LineDoubleProgressBar/index.js'
+import {TYPES, SIZES} from './config.js'
 
 const AtomProgressBar = ({type, size, ...props}) => {
   switch (type) {

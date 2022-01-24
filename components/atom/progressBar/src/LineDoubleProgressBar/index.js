@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const BASE_CLASS = 'sui-AtomLineDoubleProgressBarV2'
-const CLASS_INDICATOR = `${BASE_CLASS}-indicator`
-const CLASS_CONTAINER_BAR = `${BASE_CLASS}-container`
-const CLASS_BAR = `${BASE_CLASS}-bar`
-const CLASS_BAR_ANIMATED = `${CLASS_BAR}--animated`
-const CLASS_EXTRA_BAR = `${BASE_CLASS}-extraBar`
-const CLASS_EXTRA_BAR_ANIMATED = `${CLASS_EXTRA_BAR}--animated`
+import {
+  BASE_CLASS,
+  CLASS_INDICATOR,
+  CLASS_CONTAINER_BAR,
+  CLASS_BAR,
+  CLASS_BAR_ANIMATED,
+  CLASS_EXTRA_BAR,
+  CLASS_EXTRA_BAR_ANIMATED
+} from './settings.js'
 
 // eslint-disable-next-line react/prop-types
 const Indicator = ({indicatorBottom, indicatorTotal, mainBarPercentage}) => {

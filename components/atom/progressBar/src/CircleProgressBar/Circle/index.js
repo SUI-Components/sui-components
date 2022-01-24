@@ -2,18 +2,7 @@ import {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const SIZES = {
-  LARGE: 'large',
-  SMALL: 'small'
-}
-
-const MODIFIERS = {
-  LOADING: 'loading',
-  PROGRESS: 'progress',
-  ERROR: 'error'
-}
-
-const MAX_TRANSITION_TIME_IN_MS = 1250
+import {SIZES, MODIFIERS, MAX_TRANSITION_TIME_IN_MS} from './settings.js'
 
 const Circle = ({
   baseClassName,

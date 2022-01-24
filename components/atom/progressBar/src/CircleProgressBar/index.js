@@ -1,27 +1,14 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import Circle from './Circle'
 
-const SIZES = {
-  LARGE: 'large',
-  MEDIUM: 'medium',
-  SMALL: 'small'
-}
-
-const STATUS = {
-  LOADING: 'loading',
-  PROGRESS: 'progress',
-  ERROR: 'error'
-}
-
-const SIZE_TO_WIDTH_LINE_MAP = {
-  [SIZES.LARGE]: 4,
-  [SIZES.MEDIUM]: 8,
-  [SIZES.SMALL]: 8
-}
-
-const BASE_CLASS_NAME = 'sui-AtomCircleProgressBarV2'
-const INDICATOR_CLASS_NAME = `${BASE_CLASS_NAME}-indicator`
+import Circle from './Circle/index.js'
+import {
+  BASE_CLASS_NAME,
+  INDICATOR_CLASS_NAME,
+  SIZES,
+  STATUS,
+  SIZE_TO_WIDTH_LINE_MAP
+} from './settings.js'
 
 const Indicator = ({percentage, status, errorIcon, size, children}) => {
   if (status === STATUS.LOADING) return null

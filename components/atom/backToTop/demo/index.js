@@ -1,36 +1,20 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 import {useState, useEffect} from 'react'
+
 import {
   H1,
   Article,
   Button,
   RadioButton,
   RadioButtonGroup,
-  Paragraph,
-  BoxIcon
+  Paragraph
 } from '@s-ui/documentation-library'
 import useMountedState from '@s-ui/react-hooks/lib/useMountedState'
 
-import AtomBackToTop, {backToTopStyles} from '../src/index'
+import {CLASS_SECTION, IconTop, LoremIpsum} from './settings.js'
+import AtomBackToTop, {backToTopStyles} from '../src/index.js'
 
 import './index.scss'
-
-const BASE_CLASS_DEMO = `DemoAtomBackToTop`
-const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
-
-const IconTop = () => <BoxIcon icon="BiUpArrow" />
-
-const LoremIpsum = () => (
-  <Paragraph>
-    Lorem ipsum dolor sit amet consectetur adipiscing, elit dignissim etiam
-    congue ultricies. Commodo sociis massa a potenti dictumst turpis laoreet
-    elementum, pulvinar hendrerit risus vivamus rhoncus etiam sapien congue sem,
-    luctus tristique sagittis mollis ac convallis cubilia. Conubia dictum
-    maecenas eleifend tincidunt nibh nam turpis fringilla vulputate, volutpat
-    pretium neque platea phasellus tempus interdum habitant, sociis convallis
-    taciti viverra aliquam nec metus auctor.
-  </Paragraph>
-)
 
 const Demo = () => {
   const isMounted = useMountedState()

@@ -3,22 +3,16 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import {htmlImgProps} from './types.js'
-
-const BASE_CLASS = 'sui-AtomImage'
-const BASE_CLASS_FIGURE = `${BASE_CLASS}-figure`
-const CLASS_PLACEHOLDER = `${BASE_CLASS_FIGURE}--placeholder`
-const CLASS_SKELETON = `${BASE_CLASS_FIGURE}--skeleton`
-const CLASS_IMAGE = `${BASE_CLASS}-image`
-const CLASS_SPINNER = `${BASE_CLASS}-spinner`
-const CLASS_ERROR = `${BASE_CLASS}-error`
-
-/* eslint-disable-next-line react/prop-types */
-const ErrorImage = ({className, icon: Icon, text}) => (
-  <div className={className}>
-    {Icon}
-    {Boolean(text) && <p>{text}</p>}
-  </div>
-)
+import {
+  BASE_CLASS,
+  BASE_CLASS_FIGURE,
+  CLASS_PLACEHOLDER,
+  CLASS_SKELETON,
+  CLASS_IMAGE,
+  CLASS_SPINNER,
+  CLASS_ERROR
+} from './settings.js'
+import ErrorImage from './ErrorImage.js'
 
 const AtomImage = ({
   placeholder,

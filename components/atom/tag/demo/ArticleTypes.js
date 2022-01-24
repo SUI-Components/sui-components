@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import PropTypes from 'prop-types'
+
 import {
   Article,
   H2,
@@ -10,7 +11,8 @@ import {
   Label,
   Code
 } from '@s-ui/documentation-library'
-import AtomTag, {atomTagDesigns} from 'components/atom/tag/src'
+
+import AtomTag, {atomTagDesigns} from 'components/atom/tag/src/index.js'
 
 const noop = () => null
 

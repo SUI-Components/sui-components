@@ -1,8 +1,6 @@
 import {Fragment} from 'react'
-import AtomTag, {atomTagDesigns, atomTagSizes} from 'components/atom/tag/src'
-import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
+
 import {
-  AntDesignIcon,
   Label,
   H1,
   H2,
@@ -16,38 +14,22 @@ import {
   UnorderedList,
   ListItem
 } from '@s-ui/documentation-library'
-import ArticleTypes from './ArticleTypes'
+
+import AtomTag, {
+  atomTagDesigns,
+  atomTagSizes
+} from 'components/atom/tag/src/index.js'
+import ArticleTypes from './ArticleTypes.js'
+import ArticleIsFitted from './ArticleIsFitted.js'
+import {
+  icon,
+  closeIcon,
+  handleClose,
+  CLASS_SECTION,
+  flexCenteredStyle
+} from './settings.js'
 
 import './index.scss'
-import ArticleIsFitted from './ArticleIsFitted'
-
-const icon = (
-  <AtomIcon size={ATOM_ICON_SIZES.small}>
-    <AntDesignIcon icon="AiOutlineCoffee" style={{color: 'currentColor'}} />
-  </AtomIcon>
-)
-
-const closeIcon = (
-  <AtomIcon size={ATOM_ICON_SIZES.small}>
-    <AntDesignIcon icon="AiOutlineClose" style={{color: 'currentColor'}} />
-  </AtomIcon>
-)
-
-const handleClose = (_event, data) => {
-  window.alert(`Click on close icon for tag with data: ${JSON.stringify(data)}`)
-}
-
-const BASE_CLASS_DEMO = `DemoAtomTag`
-const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
-
-const flexCenteredStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  flexDirection: 'row',
-  wrap: 'nowrap',
-  alignItems: 'center',
-  alignContent: 'center'
-}
 
 export default () => (
   <div className="sui-StudioPreview">

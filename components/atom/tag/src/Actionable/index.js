@@ -1,20 +1,13 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import ActionableTagContainer from './Container'
-import {LINK_TYPES} from '../constants'
 
-const RIGHT_ICON_PLACEMENT = 'right'
-const LEFT_ICON_PLACEMENT = 'left'
-
-const getClassNames = function({className, disabled}) {
-  return cx(
-    'sui-AtomTag-actionable',
-    disabled && 'sui-AtomTag--disabled',
-    className
-  )
-}
-
-const getLinkTypesString = types => types && types.join(' ')
+import ActionableTagContainer from './Container.js'
+import {LINK_TYPES} from '../constants.js'
+import {
+  RIGHT_ICON_PLACEMENT,
+  LEFT_ICON_PLACEMENT,
+  getClassNames,
+  getLinkTypesString
+} from './settings.js'
 
 const ActionableTag = function({
   icon,

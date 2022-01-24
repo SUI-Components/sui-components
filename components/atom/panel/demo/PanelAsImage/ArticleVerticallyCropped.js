@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types'
+
 import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
 import AtomPanel from '@s-ui/react-atom-panel'
-import {flexItem} from '../config'
-import atomPanelVerticalAlign from '../../src'
+
+import {flexItem} from '../config.js'
+import atomPanelVerticalAlign from '../../src/index.js'
 
 const ArticleVerticallyCropped = ({className}) => {
   return (

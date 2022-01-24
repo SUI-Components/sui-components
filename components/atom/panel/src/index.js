@@ -1,14 +1,17 @@
 import PropTypes from 'prop-types'
-import ColorPanel from './ColorPanel'
+
+import ColorPanel from './ColorPanel.js'
 import ImagePanel, {
   HORIZONTAL_ALIGNMENTS,
   VERTICAL_ALIGNMENTS
-} from './ImagePanel'
-import {COLORS, ALPHA, BORDER_RADIUS, ELEVATION} from './constants'
-
-const isImagePanel = function({src}) {
-  return !!src
-}
+} from './ImagePanel.js'
+import {
+  COLORS,
+  ALPHA,
+  BORDER_RADIUS,
+  ELEVATION,
+  isImagePanel
+} from './constants.js'
 
 const AtomPanel = function({
   alpha = ALPHA.CONTRAST,

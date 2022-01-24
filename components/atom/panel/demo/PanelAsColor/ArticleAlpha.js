@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types'
+
 import {Article, H2, Paragraph} from '@s-ui/documentation-library'
-import {atomPanelAlpha, atomPanelColors} from '../../src'
 import AtomPanel from '@s-ui/react-atom-panel'
-import {flexWrapper} from '../config'
+
+import {atomPanelAlpha, atomPanelColors} from '../../src/index.js'
+import {flexWrapper} from '../config.js'
 
 const ArticleAlpha = ({className}) => {
   return (

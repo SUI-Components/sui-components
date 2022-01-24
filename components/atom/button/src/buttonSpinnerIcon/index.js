@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
-import {BASE_CLASSNAME} from './config'
+
+import {BASE_CLASSNAME} from './config.js'
 
 const ButtonSpinnerIcon = ({role = 'status', ...props}) => {
   return <div role="status" {...props} className={BASE_CLASSNAME} />

@@ -2,16 +2,15 @@
 
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import ArticleDefault from './ArticleDefault'
-import ArticleAnimation from './ArticleAnimation'
-import ArticleSize from './ArticleSize'
-import ArticleVariant from './ArticleVariant'
-import ArticleCount from './ArticleCount'
+import ArticleDefault from './ArticleDefault.js'
+import ArticleAnimation from './ArticleAnimation.js'
+import ArticleSize from './ArticleSize.js'
+import ArticleVariant from './ArticleVariant.js'
+import ArticleCount from './ArticleCount.js'
+
+import {CLASS_SECTION} from './settings.js'
 
 import './index.scss'
-
-const BASE_CLASS_DEMO = `DemoAtomSkeleton`
-const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
 const Demo = () => {
   return (

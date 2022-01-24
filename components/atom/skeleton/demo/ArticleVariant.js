@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import PropTypes from 'prop-types'
+
 import {
   H2,
   Article,
@@ -9,7 +10,8 @@ import {
   RadioButton,
   RadioButtonGroup
 } from '@s-ui/documentation-library'
-import AtomSkeleton, {ATOM_SKELETON_VARIANTS} from '../lib'
+
+import AtomSkeleton, {atomSkeletonVariants} from '../src/index.js'
 
 const ArticleVariant = ({className}) => {
   const [variantState, setVariantState] = useState()
@@ -17,18 +19,18 @@ const ArticleVariant = ({className}) => {
     <Article className={className}>
       <H2>Variant</H2>
       <Paragraph>
-        The component provides the <Code>ATOM_SKELETON_VARIANTS</Code> constants
-        object with includes {Object.values(ATOM_SKELETON_VARIANTS).join(', ')}{' '}
+        The component provides the <Code>atomSkeletonVariants</Code> constants
+        object with includes {Object.values(atomSkeletonVariants).join(', ')}{' '}
         valid values.
       </Paragraph>
       <Paragraph>
-        The default variant is <Bold>'{ATOM_SKELETON_VARIANTS.round}'</Bold>
+        The default variant is <Bold>'{atomSkeletonVariants.round}'</Bold>
       </Paragraph>
       <RadioButtonGroup
         defaultValue={`${variantState}`}
         onChange={(ev, value) => setVariantState(value)}
       >
-        {[undefined, ...Object.values(ATOM_SKELETON_VARIANTS)].map(
+        {[undefined, ...Object.values(atomSkeletonVariants)].map(
           variantMode => (
             <RadioButton
               key={`${variantMode}`}

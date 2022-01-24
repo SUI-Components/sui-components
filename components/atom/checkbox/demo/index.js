@@ -1,13 +1,8 @@
 /* eslint-disable no-console */
 import {useState, Fragment} from 'react'
-import AtomCheckbox, {
-  checkboxStatus,
-  checkboxSizes
-} from 'components/atom/checkbox/src'
-import AtomIcon from '@s-ui/react-atom-icon'
+import AtomCheckbox from 'components/atom/checkbox/src'
 
 import {
-  AntDesignIcon,
   H1,
   H2,
   H3,
@@ -20,56 +15,15 @@ import {
   Cell,
   Label
 } from '@s-ui/documentation-library'
+import {
+  CLASS_SECTION,
+  CHECKBOX_STATUS,
+  CHECKBOX_SIZE,
+  ICONS,
+  flexCenteredStyle
+} from './settings.js'
 
 import './index.scss'
-
-const BASE_CLASS_DEMO = `DemoAtomCheckbox`
-const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
-
-const CHECKBOX_STATUS = ['', ...Object.values(checkboxStatus)]
-const CHECKBOX_SIZE = [...Object.values(checkboxSizes)]
-
-const ICONS = {
-  aiOutlineCheck: (
-    <AtomIcon>
-      <AntDesignIcon icon="AiOutlineCheck" style={{color: 'currentColor'}} />
-    </AtomIcon>
-  ),
-  aiOutlineClose: (
-    <AtomIcon>
-      <AntDesignIcon icon="AiOutlineClose" style={{color: 'currentColor'}} />
-    </AtomIcon>
-  ),
-  aiOutlineLine: (
-    <AtomIcon>
-      <AntDesignIcon icon="AiOutlineLine" style={{color: 'currentColor'}} />
-    </AtomIcon>
-  ),
-  aiOutlineInfo: (
-    <AtomIcon>
-      <AntDesignIcon icon="AiOutlineInfo" style={{color: 'currentColor'}} />
-    </AtomIcon>
-  ),
-  aiOutlinePause: (
-    <AtomIcon>
-      <AntDesignIcon icon="AiOutlinePause" style={{color: 'currentColor'}} />
-    </AtomIcon>
-  ),
-  aiOutlinePlus: (
-    <AtomIcon>
-      <AntDesignIcon icon="AiOutlinePlus" style={{color: 'currentColor'}} />
-    </AtomIcon>
-  )
-}
-
-const flexCenteredStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  flexDirection: 'row',
-  wrap: 'nowrap',
-  alignItems: 'center',
-  alignContent: 'center'
-}
 
 const Demo = () => {
   const [state, setStatus] = useState({

@@ -1,9 +1,9 @@
 import {useState, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import markerFactory from './markerFactory'
-import Handler from './Handler'
 
+import markerFactory from './markerFactory.js'
+import Handler from './Handler.js'
 import {
   Slider,
   Range,
@@ -11,7 +11,7 @@ import {
   BASE_CLASS,
   CLASS_DISABLED,
   CLASS_INVERSE
-} from './settings'
+} from './settings.js'
 
 const AtomSlider = ({
   onChange,

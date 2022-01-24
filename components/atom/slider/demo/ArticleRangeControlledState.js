@@ -9,6 +9,7 @@ import {
   Box,
   Input
 } from '@s-ui/documentation-library'
+
 import AtomSlider from '../src/index.js'
 
 const ArticleRangeControlledState = ({className}) => {
@@ -51,7 +52,7 @@ const ArticleRangeControlledState = ({className}) => {
           range
           onChange={(event, {value}) => {
             setControlledRangeState(value)
-            console.log(event, {value})
+            console.log(event, {value}) // eslint-disable-line no-console
           }}
           value={controlledRangeState}
         />

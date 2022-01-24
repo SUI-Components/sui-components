@@ -2,7 +2,8 @@ import Range from 'rc-slider/lib/Range'
 import Slider from 'rc-slider/lib/Slider'
 import Handle from 'rc-slider/lib/Handle'
 import Tooltip from 'rc-tooltip/lib/Tooltip'
-import Label from './Label'
+
+import Label from './Label.js'
 
 const SliderTooltip = Slider
 const RangeTooltip = Range

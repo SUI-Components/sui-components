@@ -1,4 +1,4 @@
-import {BASE_CLASS} from '../config'
+import {BASE_CLASS} from '../config.js'
 
 export const BASE_CLASS_PASSWORD = `${BASE_CLASS}-password`
 export const BASE_CLASS_PASSWORD_TOGGLE_BUTTON = `${BASE_CLASS_PASSWORD}--toggleButton`

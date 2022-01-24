@@ -1,10 +1,5 @@
-import AtomInput, {
-  inputSizes,
-  inputTypes,
-  inputStates,
-  inputShapes
-} from 'components/atom/input/src'
 import {useState} from 'react'
+
 import {
   H1,
   H2,
@@ -27,21 +22,13 @@ import {
   AntDesignIcon
 } from '@s-ui/documentation-library'
 
-const flexCenteredStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  flexDirection: 'row',
-  wrap: 'nowrap',
-  alignItems: 'center',
-  alignContent: 'center'
-}
-
-const stackMap = (arr = [], ...mappingCallbacks) =>
-  mappingCallbacks.flatMap(function(e, index) {
-    return this.map((value, innerIndex) =>
-      e(value, innerIndex + this.length * index)
-    )
-  }, arr)
+import AtomInput, {
+  inputSizes,
+  inputTypes,
+  inputStates,
+  inputShapes
+} from 'components/atom/input/src/index.js'
+import {flexCenteredStyle, stackMap} from './settings.js'
 
 const DefaultDemo = () => (
   <Article>

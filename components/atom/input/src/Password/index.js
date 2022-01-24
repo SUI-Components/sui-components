@@ -1,12 +1,13 @@
 import {useState} from 'react'
 import PropTypes from 'prop-types'
-import Input from '../Input'
+
+import Input from '../Input/index.js'
 import {
   BASE_CLASS_PASSWORD,
   BASE_CLASS_PASSWORD_TOGGLE_BUTTON,
   TEXT,
   PASSWORD
-} from './config'
+} from './config.js'
 
 const Password = ({
   onChange,

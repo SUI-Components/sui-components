@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
-import {BASE_CLASS_BUTTON} from './config'
+
+import {BASE_CLASS_BUTTON} from './config.js'
 
 const InputButton = ({button, children}) => {
   if (button === undefined) {

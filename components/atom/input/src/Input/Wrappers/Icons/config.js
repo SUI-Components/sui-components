@@ -1,4 +1,4 @@
-import {BASE} from '../../../config'
+import {BASE} from '../../../config.js'
 
 export const ICON_TYPES = {
   LEFT: 'left',

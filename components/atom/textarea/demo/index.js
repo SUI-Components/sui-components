@@ -9,8 +9,8 @@ import {
   Paragraph
 } from '@s-ui/documentation-library'
 
-import TextArea from '../src'
-import {TEXTAREA_RESIZES, TEXTAREA_STATES} from '../src/settings'
+import TextArea from '../src/index.js'
+import {TEXTAREA_RESIZES, TEXTAREA_STATES} from '../src/settings.js'
 
 const Demo = ({children}) => {
   return <div style={{width: '100%', padding: 20}}>{children}</div>
@@ -47,7 +47,7 @@ export default () => {
             <TextArea
               name="textarea-1"
               value="Saul Bass on failure: Failure is built into creativity"
-              onChange={console.log}
+              onChange={console.log} // eslint-disable-line no-console, react/jsx-handler-names
             />
           </Article>
           <br />
@@ -57,7 +57,7 @@ export default () => {
               name="textarea-2"
               value="Saul Bass on failure: Failure is built into creativity"
               size="long"
-              onChange={console.log}
+              onChange={console.log} // eslint-disable-line no-console, react/jsx-handler-names
             />
           </Article>
           <br />
@@ -66,7 +66,7 @@ export default () => {
             <TextArea
               name="textarea-3"
               value="Saul Bass on failure: Failure is built into creativity"
-              onChange={console.log}
+              onChange={console.log} // eslint-disable-line no-console, react/jsx-handler-names
               disabled
             />
           </Article>
@@ -76,7 +76,7 @@ export default () => {
             <TextArea
               name="textarea-4"
               placeholder="Write something cool here..."
-              onChange={console.log}
+              onChange={console.log} // eslint-disable-line no-console, react/jsx-handler-names
             />
           </Article>
           <br />
@@ -93,7 +93,7 @@ export default () => {
                   key={`textarea-6-${idx}`}
                   name="textarea-6"
                   value="Saul Bass on failure: Failure is built into creativity"
-                  onChange={console.log}
+                  onChange={console.log} // eslint-disable-line no-console, react/jsx-handler-names
                   resize={value.toLocaleLowerCase()}
                 />
               </>
@@ -110,7 +110,7 @@ export default () => {
                   key={`textarea-6-${idx}`}
                   name="textarea-6"
                   value="Saul Bass on failure: Failure is built into creativity"
-                  onChange={console.log}
+                  onChange={console.log} // eslint-disable-line no-console, react/jsx-handler-names
                   state={value.toLocaleLowerCase()}
                 />
               </>

@@ -7,7 +7,7 @@ import {
   ROW_BASE_CLASS,
   TABLE_CELL_PADDING,
   TABLE_CELL_TYPE
-} from './settings'
+} from './settings.js'
 
 const AtomTable = ({
   head = [],

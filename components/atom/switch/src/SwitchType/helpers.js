@@ -1,5 +1,6 @@
 import cx from 'classnames'
-import {BASE_CLASS, TYPES} from '../config'
+
+import {BASE_CLASS, TYPES} from '../config.js'
 
 const CLASS_ACTIVE = `${BASE_CLASS}--active`
 const CLASS_FOCUS = `${BASE_CLASS}--focus`

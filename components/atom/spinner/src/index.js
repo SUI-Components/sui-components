@@ -1,29 +1,14 @@
 import {useState, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
-import SUILoader from './SUILoader'
 
-const TYPES = {
-  FULL: 'full',
-  SECTION: 'section'
-}
-
-const DELAY = 500 // ms
-const BASE_CLASS = 'sui-AtomSpinner'
-const CLASS_FULL = `${BASE_CLASS}--fullPage`
-const CLASS_NO_BACKGROUND = `${BASE_CLASS}--noBackground`
-
-const getParentClassName = ({type, noBackground}) =>
-  cx({
-    [BASE_CLASS]: type === TYPES.SECTION,
-    [CLASS_FULL]: type === TYPES.FULL,
-    [CLASS_NO_BACKGROUND]: noBackground
-  })
-
-const addParentClass = parentNodeClassList => parentClassName =>
-  parentNodeClassList.add(...parentClassName.split(' '))
-const removeParentClass = parentNodeClassList => parentClassName =>
-  parentNodeClassList.remove(...parentClassName.split(' '))
+import SUILoader from './SUILoader/index.js'
+import {
+  TYPES,
+  DELAY,
+  getParentClassName,
+  addParentClass,
+  removeParentClass
+} from './settings.js'
 
 const AtomSpinner = ({
   delayed: delayedFromProps,

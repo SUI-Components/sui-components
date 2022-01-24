@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.43.0 (2022-01-24)
+
+
+### Features
+
+* **components/molecule/modal:** adds the check if  window exists to avoid errors on the server ([ae039f9](https://github.com/SUI-Components/sui-components/commit/ae039f9a4fc65bc59110d48de5ee8d3bd48da252))
+
+
+
 # 1.42.0 (2021-10-22)
 
 

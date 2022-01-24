@@ -10,7 +10,8 @@ import {
   Input
 } from '@s-ui/documentation-library'
 import PropTypes from 'prop-types'
-import AtomTooltip, {AtomTooltipTriggers} from '../src'
+
+import AtomTooltip, {AtomTooltipTriggers} from '../src/index.js'
 
 const DelayArticle = ({className, trigger}) => {
   const [all, setAll] = useState(0)

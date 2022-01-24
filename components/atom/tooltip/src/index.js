@@ -17,7 +17,7 @@ import {
   PLACEMENTS,
   PREFIX_PLACEMENT,
   TRIGGERS
-} from './config'
+} from './config.js'
 import TooltipExtendChildren from './TooltipExtendChildren.js'
 
 const Tooltip = loadable(() => import('reactstrap/lib/Tooltip'), {ssr: true})

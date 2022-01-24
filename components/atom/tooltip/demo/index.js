@@ -12,12 +12,12 @@ import {
   Label
 } from '@s-ui/documentation-library'
 
-import DefaultArticle from './DefaultArticle'
-import ControlledAndUncontrolledArticle from './ControlledAndUncontrolledArticle'
-import PlacementArticle from './PlacementArticle'
-import DelayArticle from './DelayArticle'
-import ColorArticle from './ColorArticle'
-import IsArrowedArticle from './IsArrowedArticle'
+import DefaultArticle from './DefaultArticle.js'
+import ControlledAndUncontrolledArticle from './ControlledAndUncontrolledArticle.js'
+import PlacementArticle from './PlacementArticle.js'
+import DelayArticle from './DelayArticle.js'
+import ColorArticle from './ColorArticle.js'
+import IsArrowedArticle from './IsArrowedArticle.js'
 
 const baseClass = 'DemoTooltip'
 const articleClass = `${baseClass}-article`

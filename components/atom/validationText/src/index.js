@@ -1,14 +1,6 @@
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 
-const BASE_CLASS = 'sui-AtomValidationText'
-const TYPES = {
-  SUCCESS: 'success',
-  ERROR: 'error',
-  ALERT: 'alert'
-}
-
-const getClassNames = type => cx(BASE_CLASS, `${BASE_CLASS}--${type}`)
+import {TYPES, getClassNames} from './settings.js'
 
 const AtomValidationText = function({type, text}) {
   return <span className={getClassNames(type)}>{text}</span>

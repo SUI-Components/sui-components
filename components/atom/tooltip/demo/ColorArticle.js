@@ -8,7 +8,11 @@ import {
   Label
 } from '@s-ui/documentation-library'
 import PropTypes from 'prop-types'
-import AtomTooltip, {AtomTooltipTriggers, AtomTooltipColors} from '../src'
+
+import AtomTooltip, {
+  AtomTooltipTriggers,
+  AtomTooltipColors
+} from '../src/index.js'
 
 const ColorArticle = ({className, trigger}) => {
   return (

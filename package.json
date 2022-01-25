@@ -21,7 +21,7 @@
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
     "install:themes": "node scripts/build-themes.js",
-    "phoenix": "npx @s-ui/mono@2 run 'rm -rf ./node_modules' && rm -rf ./node_modules && npm install",
+    "phoenix": "npx @s-ui/mono@2 run 'rm -rf ./node_modules' && rm -rf ./node_modules package-lock.json && npm install",
     "phoenix:ci": "npm run phoenix -- --no-optional --no-fund --no-audit",
     "release": "sui-mono release",
     "start": "sui-studio start",

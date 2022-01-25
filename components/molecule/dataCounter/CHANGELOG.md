@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.13.0 (2022-01-25)
+
+
+### Bug Fixes
+
+* **components/molecule/dataCounter:** button by default is submit and causing form submit ([b6c78df](https://github.com/SUI-Components/sui-components/commit/b6c78df6be438daf90c2d906e6712b8b04cd51a4))
+
+
+
 # 1.12.0 (2022-01-20)
 
 

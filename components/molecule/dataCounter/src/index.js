@@ -2,13 +2,12 @@ import {useState, useEffect, forwardRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import AtomButton from '@s-ui/react-atom-button'
+import AtomButton, {atomButtonDesigns} from '@s-ui/react-atom-button'
 import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
 import MoleculeField from '@s-ui/react-molecule-field'
 
 import {
   ACTIONS,
-  BUTTON_TYPE,
   BASE_CLASS,
   CLASS_INPUT_CONTAINER,
   sizeConversor
@@ -139,11 +138,12 @@ const MoleculeDataCounter = forwardRef(
             )}
           >
             <AtomButton
+              design={atomButtonDesigns.OUTLINE}
               disabled={decrementDisabled}
+              isButton
               isLoading={isLoading && lastAction === ACTIONS.LESS}
               onClick={decrementValue}
               size={sizeConversor[size]}
-              type={BUTTON_TYPE}
             >
               {substractIcon}
             </AtomButton>
@@ -163,11 +163,12 @@ const MoleculeDataCounter = forwardRef(
               value={internalValue}
             />
             <AtomButton
+              design={atomButtonDesigns.OUTLINE}
               disabled={incrementDisabled}
+              isButton
               isLoading={isLoading && lastAction === ACTIONS.MORE}
               onClick={incrementValue}
               size={sizeConversor[size]}
-              type={BUTTON_TYPE}
             >
               {addIcon}
             </AtomButton>

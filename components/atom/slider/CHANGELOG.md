@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.24.0 (2022-01-25)
+
+
+### Bug Fixes
+
+* **components/atom/slider:** add import file extensions and fixes a hook usage ([d96b25e](https://github.com/SUI-Components/sui-components/commit/d96b25e8326d9a2bd6c83fe48e100d4ef6eae76a))
+
+
+
 # 1.23.0 (2022-01-20)
 
 

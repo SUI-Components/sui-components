@@ -1,42 +1,39 @@
-const styleList = {
-  listStyle: 'none'
-}
+import {H1, H2, UnorderedList, ListItem} from '@s-ui/documentation-library'
 
-const styleListItem = {
-  marginTop: '50px'
-}
+import MoleculeRadioButtonField from '../src/index.js'
+import {styleList, styleListItem} from './settings.js'
 
-return (
-  <div>
-    <h1>Radio-button Field</h1>
-    <ul style={styleList}>
-      <li style={styleListItem}>
-        <h2>With Information HelpText</h2>
+const Demo = () => (
+  <div className="sui-StudioPreview">
+    <H1>Radio-button Field</H1>
+    <UnorderedList style={styleList}>
+      <ListItem style={styleListItem}>
+        <H2>With Information HelpText</H2>
         <MoleculeRadioButtonField
           id="description-inline2"
           label="Description"
           helpText="Tu descripción en Latin"
         />
-      </li>
-      <li style={styleListItem}>
-        <h2>With Information HelpText checked</h2>
+      </ListItem>
+      <ListItem style={styleListItem}>
+        <H2>With Information HelpText checked</H2>
         <MoleculeRadioButtonField
           id="description-inline2"
           label="Description"
           checked
           helpText="Tu descripción en Latin"
         />
-      </li>
-      <li style={styleListItem}>
-        <h2>With Success Validation HelpText</h2>
+      </ListItem>
+      <ListItem style={styleListItem}>
+        <H2>With Success Validation HelpText</H2>
         <MoleculeRadioButtonField
           id="description2"
           label="Description"
           value="In some place of La Mancha which name..."
           successText="Everything ok!"
         />
-      </li>
-      <li style={styleListItem}>
+      </ListItem>
+      <ListItem style={styleListItem}>
         <h2>With Success Validation HelpText checked</h2>
         <MoleculeRadioButtonField
           checked
@@ -45,18 +42,18 @@ return (
           value="In some place of La Mancha which name..."
           successText="Everything ok!"
         />
-      </li>
-      <li style={styleListItem}>
-        <h2>With Error validation HelpText</h2>
+      </ListItem>
+      <ListItem style={styleListItem}>
+        <H2>With Error validation HelpText</H2>
         <MoleculeRadioButtonField
           id="notes"
           label="Notes"
           errorText="All wrong!"
           value="In some place of La Mancha which name..."
         />
-      </li>
-      <li style={styleListItem}>
-        <h2>With Error validation HelpText checked</h2>
+      </ListItem>
+      <ListItem style={styleListItem}>
+        <H2>With Error validation HelpText checked</H2>
         <MoleculeRadioButtonField
           id="notes"
           checked
@@ -64,18 +61,18 @@ return (
           errorText="All wrong!"
           value="In some place of La Mancha which name..."
         />
-      </li>
-      <li style={styleListItem}>
-        <h2>With Alert validation HelpText</h2>
+      </ListItem>
+      <ListItem style={styleListItem}>
+        <H2>With Alert validation HelpText</H2>
         <MoleculeRadioButtonField
           id="notes"
           label="Notes"
           alertText="Something meh..."
           value="In some place of La Mancha which name..."
         />
-      </li>
-      <li style={styleListItem}>
-        <h2>With Alert validation HelpText checked</h2>
+      </ListItem>
+      <ListItem style={styleListItem}>
+        <H2>With Alert validation HelpText checked</H2>
         <MoleculeRadioButtonField
           id="notes"
           checked
@@ -83,9 +80,9 @@ return (
           alertText="Something meh..."
           value="In some place of La Mancha which name..."
         />
-      </li>
-      <li style={styleListItem}>
-        <h2>With nodeLabel</h2>
+      </ListItem>
+      <ListItem style={styleListItem}>
+        <H2>With nodeLabel</H2>
         <MoleculeRadioButtonField
           id="with-node-label"
           nodeLabel={
@@ -96,7 +93,9 @@ return (
           }
           helpText="Tu descripción en Latin"
         />
-      </li>
-    </ul>
+      </ListItem>
+    </UnorderedList>
   </div>
 )
+
+export default Demo

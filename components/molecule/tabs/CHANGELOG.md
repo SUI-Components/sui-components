@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.31.0 (2022-01-25)
+
+
+### Features
+
+* **components/atom/slider:** fix rc-slider update integration ([86960b8](https://github.com/SUI-Components/sui-components/commit/86960b86294a3a7726d5ff70c25b8ead54b7c0a9))
+* **components/molecule/tabs:** include esxension for es-modules compatibility ([8b7d47e](https://github.com/SUI-Components/sui-components/commit/8b7d47e8ba8e104d8184441eacbb15751ad9cebe))
+
+
+
 # 2.30.0 (2022-01-12)
 
 

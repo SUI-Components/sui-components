@@ -1,0 +1,6 @@
+@mixin action-button-icon($size) {
+  & #{$base-class}-icon {
+    height: $size;
+    width: $size;
+  }
+}

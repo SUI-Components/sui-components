@@ -1,0 +1,18 @@
+$base-class: '.sui-AtomBackToTop';
+
+$z-back-to-top: $z-navigation !default;
+$op-back-to-top: 0.8 !default;
+$bdrs-back-to-top: $bdrs-m !default;
+$sz-back-to-top-icon: $sz-icon-s !default;
+$trsdu-back-to-top--show: 0.25s !default;
+$trsdu-back-to-top--hide: 0.25s !default;
+
+$sz-back-to-top: $p-base * 4 !default;
+
+$bg-back-to-top--dark: $c-gray-dark !default;
+$c-back-to-top--dark: $c-white !default;
+$bg-back-to-top--light: $c-white !default;
+$c-back-to-top--light: $c-primary !default;
+
+$b-back-to-top: $p-xl !default;
+$r-back-to-top: $p-xl !default;

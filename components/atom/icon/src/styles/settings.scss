@@ -1,0 +1,20 @@
+$base-class: '.sui-AtomIcon';
+
+$atom-icon-sizes: (
+  'extraSmall': $sz-icon-xs,
+  'small': $sz-icon-s,
+  'medium': $sz-icon-m,
+  'large': $sz-icon-l,
+  'extraLarge': $sz-icon-xl,
+  'extraExtraLarge': $sz-icon-xxl
+);
+
+$atom-icon-colors: (
+  'accent': $c-accent,
+  'alert': $c-alert,
+  'currentColor': currentColor,
+  'error': $c-error,
+  'primary': $c-primary,
+  'success': $c-success,
+  'gray': $c-gray
+);

@@ -1,0 +1,28 @@
+#{$base-class} {
+  // Colors
+  @each $key, $value in $atom-icon-colors {
+    &--#{$key} svg {
+      fill: $value;
+    }
+  }
+
+  // Sizes
+  @each $key, $value in $atom-icon-sizes {
+    &--#{$key} svg {
+      height: $value;
+      width: $value;
+    }
+  }
+
+  > span {
+    display: inherit;
+  }
+
+  svg {
+    vertical-align: middle;
+
+    path {
+      stroke: none !important; // !important usage for AtomButton compatibility
+    }
+  }
+}

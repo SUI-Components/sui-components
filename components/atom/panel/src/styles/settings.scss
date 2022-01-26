@@ -1,0 +1,34 @@
+$base-class: '.sui-atom-panel';
+
+$bdrs-atom-panel-rounded: (
+  'm': $bdrs-m,
+  'l': $bdrs-m * 2,
+  'xl': $bdrs-m * 3
+) !default;
+$bxsh-atom-panel-elevation: (
+  's': $bxsh-s,
+  'm': $bxsh-m,
+  'l': $bxsh-l
+) !default;
+$bgc-atom-panel: color-variation($c-gray, -2) !default;
+$bgc-panels: (
+  'canvas': $c-white,
+  'contrast': $c-black,
+  'accent': $c-accent,
+  'corporate': $c-primary,
+  'base': color-variation($c-gray, 3),
+  'dark': color-variation($c-gray, -1),
+  'default': $c-gray-lightest,
+  'highlight': color-variation($c-accent, 4),
+  'success': $c-success,
+  'alert': $c-alert,
+  'error': $c-error
+) !default;
+$c-atom-panel: $c-black !default;
+$horizontal-alignments-atom-panel: ('left', 'center', 'right') !default;
+$vertical-alignments-atom-panel: ('top', 'center', 'bottom') !default;
+
+%sui-atom-panel-image {
+  background-color: $bgc-atom-panel; //default bg color
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,53 @@
+#{base-class} {
+  @each $type, $attr in $bdrs-atom-panel-rounded {
+    &--rounded-#{$type} {
+      border-radius: $attr;
+    }
+  }
+
+  @each $type, $attr in $bxsh-atom-panel-elevation {
+    &--elevation-#{$type} {
+      box-shadow: $attr;
+    }
+  }
+
+  &-content {
+    position: relative;
+  }
+
+  @each $type, $attr in $bgc-panels {
+    &--#{$type} {
+      @include bgcolor-overlay-opacity($attr);
+    }
+  }
+
+  &-color {
+    @each $type, $attr in $bgc-panels {
+      &--#{$type} {
+        @include bgcolor-opacity($attr);
+      }
+    }
+  }
+
+  &-image {
+    @extend %sui-atom-panel-image;
+
+    &--resized {
+      background-size: cover;
+    }
+
+    @each $alignment in $horizontal-alignments-atom-panel {
+      &--horizontal-#{$alignment} {
+        @extend %sui-atom-panel-image;
+        background-position-x: #{$alignment};
+      }
+    }
+
+    @each $alignment in $vertical-alignments-atom-panel {
+      &--vertical-#{$alignment} {
+        @extend %sui-atom-panel-image;
+        background-position-y: #{$alignment};
+      }
+    }
+  }
+}

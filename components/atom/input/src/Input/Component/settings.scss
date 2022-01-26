@@ -1,3 +1,6 @@
+$base-class-input: '#{$base-class}-input';
+$class-read-only: '#{$base-class-input}--readOnly';
+
 $bgc-atom-input-disabled: $c-gray-lightest !default;
 $c-atom-input-placeholder: $c-gray-dark !default;
 $c-atom-input-disabled: $c-atom-input-placeholder !default;

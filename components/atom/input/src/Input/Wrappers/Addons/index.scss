@@ -1,4 +1,4 @@
-.sui-AtomInput--withAddon {
+#{$base-class}--withAddon {
   align-items: center;
   background-color: $bgc-atom-input-addon;
   border-color: $bdc-atom-input-addon;
@@ -23,7 +23,8 @@
   &Wrapper {
     display: flex;
     @include atom-input-shape-wrapper(
-      #{'sui-AtomInput--withAddonWrapper'},
+      $base-class,
+      #{'.sui-AtomInput--withAddonWrapper'},
       $bdrs-atom-input-shapes,
       $sizes-atom-input,
       $bdrs-atom-input,

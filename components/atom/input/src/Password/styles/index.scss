@@ -1,0 +1,14 @@
+#{$base-class-password} {
+  position: relative;
+  width: 100%;
+
+  &--toggleButton {
+    color: $c-atom-input-password-toggle-button;
+    cursor: pointer;
+    position: absolute;
+    right: $r-atom-input-password-toggle-button;
+    top: 50%;
+    transform: translateY(-50%);
+    user-select: none;
+  }
+}

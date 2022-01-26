@@ -1,6 +1,4 @@
-$base-class: 'sui-AtomInput-input';
-$class-read-only: '#{$base-class}--readOnly';
-.#{$base-class} {
+#{$base-class-input} {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -19,14 +17,15 @@ $class-read-only: '#{$base-class}--readOnly';
 
   @include atom-input-shape-wrapper(
     $base-class,
+    $base-class-input,
     $bdrs-atom-input-shapes,
     $sizes-atom-input,
     $bdrs-atom-input,
     $h-atom-input--m
   );
 
-  &.#{$base-class}--noBorder,
-  &.#{$base-class}--noBorder:disabled {
+  &#{$base-class-input}--noBorder,
+  &#{$base-class-input}--noBorder:disabled {
     border: 0;
     &:focus {
       border: 0;
@@ -42,7 +41,7 @@ $class-read-only: '#{$base-class}--readOnly';
   &:disabled {
     pointer-events: none;
 
-    &:not(.#{$class-read-only}) {
+    &:not(#{$class-read-only}) {
       -webkit-text-fill-color: $c-atom-input-disabled;
 
       background: $bgc-atom-input-disabled;

@@ -1,19 +1,2 @@
-@import '~@s-ui/theme/lib/index';
-
-$r-atom-input-password-toggle-button: $gutter !default;
-$c-atom-input-password-toggle-button: $c-primary !default;
-
-.sui-AtomInput-input-password {
-  position: relative;
-  width: 100%;
-
-  &--toggleButton {
-    color: $c-atom-input-password-toggle-button;
-    cursor: pointer;
-    position: absolute;
-    right: $r-atom-input-password-toggle-button;
-    top: 50%;
-    transform: translateY(-50%);
-    user-select: none;
-  }
-}
+@import './styles/settings.scss';
+@import './styles/index.scss';

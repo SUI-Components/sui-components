@@ -1,10 +1,4 @@
 @import '~@s-ui/theme/lib/index';
 
-@import './settings';
-
-@import './mixins';
-
-@import './Input/Wrappers/index';
-@import './Password/index';
-
-@import './Input/Component/index';
+@import './styles/settings';
+@import './styles/index';

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.81.0 (2022-01-26)
+
+
+### Features
+
+* **components/atom/button:** Separate settings file ([74dee0f](https://github.com/SUI-Components/sui-components/commit/74dee0f690336da43f8664d1717d0052473e0b24))
+
+
+
 # 1.80.0 (2022-01-20)
 
 

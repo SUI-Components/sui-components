@@ -1,0 +1,120 @@
+#{$base-class} {
+  display: contents;
+  font-size: $fz-atom-popover;
+  margin: $m-atom-popover;
+  position: absolute;
+  z-index: $z-atom-popover;
+
+  #{$class-inner} {
+    background-color: $bgc-atom-popover;
+    border-color: $bdc-atom-popover;
+    border-radius: $bdrs-atom-popover;
+    border-style: solid;
+    border-width: $bdw-atom-popover;
+    box-shadow: $bxsh-atom-popover;
+    color: $c-atom-popover;
+    line-height: $lh-atom-popover;
+    overflow: hidden;
+    padding: $p-atom-popover;
+    text-align: left;
+  }
+
+  &-closeIcon {
+    cursor: pointer;
+    position: absolute;
+    right: $mr-atom-popover-close-icon;
+    top: $mt-atom-popover-close-icon;
+    z-index: $z-tooltips;
+
+    svg {
+      fill: $c-atom-popover-close-icon !important;
+      height: $sz-atom-popover-close-icon;
+      width: $sz-atom-popover-close-icon;
+    }
+  }
+
+  #{$class-arrow} {
+    display: block;
+    height: $h-atom-popover-arrow;
+    position: absolute;
+    width: $w-atom-popover-arrow;
+
+    &::before {
+      border-color: transparent;
+      border-bottom-color: $c-atom-popover-arrow;
+      border-style: solid;
+      border-width: 0 $w-atom-popover-arrow * 0.5 $w-atom-popover-arrow * 0.5;
+      bottom: $h-atom-popover-arrow * 0.5;
+      content: '';
+      position: absolute;
+    }
+
+    &::after {
+      border-width: 0 $w-atom-popover-arrow * 0.5 $w-atom-popover-arrow * 0.5
+        $w-atom-popover-arrow * 0.5;
+      border-color: transparent;
+      border-bottom-color: $bgc-atom-popover;
+      border-style: solid;
+      content: '';
+      display: block;
+      position: absolute;
+    }
+  }
+
+  &--top {
+    margin: $mt-atom-popover 0;
+    z-index: $z-atom-popover-placement;
+
+    #{$class-arrow} {
+      bottom: -$h-atom-popover-arrow * 0.5;
+      transform: rotate(180deg);
+    }
+  }
+
+  &--right {
+    margin: 0 $mr-atom-popover;
+    z-index: $z-atom-popover-placement;
+
+    #{$class-arrow} {
+      left: -$w-atom-popover-arrow * 0.5;
+      transform: rotate(-90deg);
+    }
+  }
+
+  &--bottom {
+    margin: $mb-atom-popover 0;
+    z-index: $z-atom-popover-placement;
+
+    #{$class-arrow} {
+      top: -$h-atom-popover-arrow * 0.5;
+    }
+  }
+
+  &--left {
+    margin: 0 $ml-atom-popover;
+    z-index: $z-atom-popover-placement;
+
+    #{$class-arrow} {
+      right: -$w-atom-popover-arrow * 0.5;
+      transform: rotate(90deg);
+    }
+  }
+
+  &--auto {
+    &[x-placement^='top'] {
+      @extend #{$base-class}--top;
+    }
+
+    &[x-placement^='right'] {
+      @extend #{$base-class}--right;
+    }
+
+    &[x-placement^='bottom'] {
+      @extend #{$base-class}--bottom;
+    }
+
+    &[x-placement^='left'] {
+      @extend #{$base-class}--left;
+    }
+  }
+}

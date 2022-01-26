@@ -1,0 +1,83 @@
+$base-class: '.sui-AtomActionButton';
+
+$bdsz-atom-action-button-icon-outline: $bdw-s;
+
+$c-atom-action-button-neutral: color-variation($c-gray, 2);
+
+$c-atom-action-button-accent-active: color-variation($c-accent, -2) !default;
+$c-atom-action-button-neutral-active: color-variation(
+  $c-atom-action-button-neutral,
+  -2
+) !default;
+$c-atom-action-button-primary-active: color-variation($c-primary, -2) !default;
+
+$c-atom-action-button-accent-disabled: color-variation($c-accent, 4) !default;
+$c-atom-action-button-neutral-disabled: color-variation(
+  $c-atom-action-button-neutral,
+  4
+) !default;
+$c-atom-action-button-primary-disabled: color-variation($c-primary, 4) !default;
+
+$c-atom-action-button-accent-hover: color-variation($c-accent, 1) !default;
+$c-atom-action-button-neutral-hover: color-variation($c-gray, 3) !default;
+$c-atom-action-button-primary-hover: color-variation($c-primary, 1) !default;
+
+$c-atom-action-button-accent-hover-2: color-variation($c-accent, 4) !default;
+$c-atom-action-button-neutral-hover-2: color-variation($c-gray, 5) !default;
+$c-atom-action-button-primary-hover-2: color-variation($c-primary, 4) !default;
+
+$c-atom-action-button-accent-icon-bg: color-variation($c-accent, 3) !default;
+$c-atom-action-button-neutral-icon-bg: color-variation(
+  $c-atom-action-button-neutral,
+  3
+) !default;
+$c-atom-action-button-primary-icon-bg: color-variation($c-primary, 3) !default;
+
+$c-atom-action-button-colors: (
+  'accent': (
+    $c-accent,
+    $c-white,
+    $c-atom-action-button-accent-active,
+    $c-atom-action-button-accent-disabled,
+    $c-atom-action-button-accent-hover,
+    $c-atom-action-button-accent-hover-2,
+    $c-atom-action-button-accent-icon-bg
+  ),
+  'neutral': (
+    $c-atom-action-button-neutral,
+    $c-white,
+    $c-atom-action-button-neutral-active,
+    $c-atom-action-button-neutral-disabled,
+    $c-atom-action-button-neutral-hover,
+    $c-atom-action-button-neutral-hover-2,
+    $c-atom-action-button-neutral-icon-bg
+  ),
+  'primary': (
+    $c-primary,
+    $c-white,
+    $c-atom-action-button-primary-active,
+    $c-atom-action-button-primary-disabled,
+    $c-atom-action-button-primary-hover,
+    $c-atom-action-button-primary-hover-2,
+    $c-atom-action-button-primary-icon-bg
+  )
+) !default;
+
+$bdrs-atom-action-button: $bdrs-m !default;
+$bdrs-atom-action-button-icon: $bdrs-rounded !default;
+
+$ff-atom-action-button: $ff-sans-serif !default;
+$fz-atom-action-button: $fz-m !default;
+$fw-atom-action-button: $fw-semi-bold !default;
+
+$sz-atom-action-button-icon-small: $sz-icon-l !default;
+$sz-atom-action-button-icon: $sz-icon-xl !default;
+$sz-atom-action-button-icon-large: $sz-icon-xxl !default;
+
+$p-atom-action-button: $p-m !default;
+$sz-atom-action-button: $p-base * 5 !default;
+
+$tt-atom-action-button: none !default;
+
+$c-atom-action-icon-fill: currentColor !default;
+$c-atom-action-icon-stroke: currentColor !default;

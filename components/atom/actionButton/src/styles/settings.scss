@@ -81,10 +81,3 @@ $tt-atom-action-button: none !default;
 
 $c-atom-action-icon-fill: currentColor !default;
 $c-atom-action-icon-stroke: currentColor !default;
-
-@mixin action-button-icon($size) {
-  & #{$base-class}-icon {
-    height: $size;
-    width: $size;
-  }
-}

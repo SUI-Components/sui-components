@@ -1,6 +1,31 @@
+$base-class: '.sui-PinInput';
+
 $bdc-pin-input-field: $c-gray-light-3 !default;
 $bdrs-pin-input-field: $bdrs-base !default;
 $bdw-pin-input-field: $bdw-s !default;
 $fw-pin-input-field: $fw-regular !default;
 $lh-pin-input-field: $lh-m !default;
 $m-pin-input-children: $m-m !default;
+
+$s-pin-input-field: (
+  // 64px
+    xxlarge: $p-base * 8,
+  // 56px
+    xlarge: $p-base * 7,
+  // 48px
+    large: $p-base * 6,
+  // 40px
+    medium: $p-base * 5,
+  // 32px
+    small: $p-base * 4,
+  // 24px
+    xsmall: $p-base * 3,
+  // 16px
+    xxsmall: $p-base * 2
+) !default;
+
+$pin-input-field-status: (
+  error: $c-error,
+  success: $c-success,
+  alert: $c-alert
+) !default;

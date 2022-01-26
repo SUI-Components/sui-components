@@ -1,0 +1,68 @@
+#{$base-class} {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &-figure {
+    background-color: $bgc-atom-image;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100%;
+
+    &--skeleton {
+      background-size: $bgs-atom-image-skeleton;
+    }
+
+    &--placeholder {
+      background-size: $bgs-atom-image-placeholder;
+    }
+
+    #{$base-class}.is-loading &--placeholder {
+      filter: blur(5px);
+    }
+
+    #{$base-class}.is-loaded &--placeholder {
+      filter: blur(0);
+      transition: $trsdu-atom-image filter linear;
+    }
+  }
+
+  &.is-loaded &-spinner {
+    display: none;
+  }
+
+  &-image {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &.is-loading &-image {
+    opacity: 0;
+  }
+
+  &.is-loaded &-image {
+    opacity: 1;
+  }
+
+  &.is-error &-image {
+    display: none;
+  }
+
+  &-error,
+  &-spinner {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

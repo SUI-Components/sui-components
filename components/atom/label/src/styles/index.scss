@@ -1,0 +1,43 @@
+.#{$base-class} {
+  display: block;
+  color: $c-atom-label;
+  font-size: $fz-atom-label;
+  font-weight: $fw-atom-label;
+
+  &-optionalText {
+    color: $c-atom-label-optional;
+    margin-left: $m-s;
+  }
+
+  &--xsmall {
+    font-size: $fz-xs;
+  }
+
+  &--small {
+    font-size: $fz-s;
+  }
+
+  &--medium {
+    font-size: $fz-m;
+  }
+
+  &--large {
+    font-size: $fz-l;
+  }
+
+  &--inlineLeft {
+    display: inline;
+    margin-right: $m-m;
+  }
+
+  &--inlineRight {
+    display: inline;
+    margin-left: $m-m;
+  }
+
+  @each $type, $color in $c-atom-label-type {
+    &--#{$type} {
+      color: $color;
+    }
+  }
+}

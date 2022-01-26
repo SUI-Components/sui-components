@@ -1,4 +1,4 @@
-#{$base-class} {
+.#{$base-class} {
   display: block;
   color: $c-atom-label;
   font-size: $fz-atom-label;
@@ -33,12 +33,6 @@
   &--inlineRight {
     display: inline;
     margin-left: $m-m;
-  }
-
-  &--disabled {
-    cursor: default;
-    opacity: 0.3;
-    pointer-events: none;
   }
 
   @each $type, $color in $c-atom-label-type {

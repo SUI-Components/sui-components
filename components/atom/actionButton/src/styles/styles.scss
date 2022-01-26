@@ -1,0 +1,123 @@
+#{$base-class} {
+  @include reset-button;
+  @include action-button-icon($sz-atom-action-button-icon);
+
+  align-items: center;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font: {
+    family: $ff-atom-action-button;
+    size: $fz-atom-action-button;
+    weight: $fw-atom-action-button;
+  }
+  line-height: normal;
+  min-width: $sz-atom-action-button;
+  outline: 0;
+  padding: $p-atom-action-button;
+  text-transform: $tt-atom-action-button;
+  white-space: nowrap;
+
+  & + & {
+    margin-left: $m-m;
+  }
+
+  &-inner {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  // Icon
+  &-icon {
+    align-items: center;
+    border-radius: $bdrs-atom-action-button-icon;
+    display: flex;
+    justify-content: center;
+    margin-bottom: $m-m;
+
+    svg {
+      fill: $c-atom-action-icon-fill;
+      stroke: $c-atom-action-icon-stroke;
+    }
+  }
+
+  // Types and colors
+  @each $name, $pair in $c-atom-action-button-colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+    $color-active: nth($pair, 3);
+    $color-disabled: nth($pair, 4);
+    $color-hover: nth($pair, 5);
+    $color-hover-2: nth($pair, 6);
+    $color-positive-icon-bg: nth($pair, 7);
+
+    &--#{$name}Color {
+      color: $color;
+
+      &#{$base-class}--filledNegative {
+        & #{$base-class}-icon {
+          background: $color;
+          color: $color-invert;
+        }
+        &:hover #{$base-class}-icon {
+          background: $color-hover;
+          color: $color-invert;
+        }
+      }
+
+      &#{$base-class}--filledPositive {
+        & #{$base-class}-icon {
+          background: $color-positive-icon-bg;
+        }
+        &:hover #{$base-class}-icon {
+          background: $color-hover-2;
+        }
+      }
+
+      &#{$base-class}--outline {
+        & #{$base-class}-icon {
+          background: none;
+          border: $bdsz-atom-action-button-icon-outline solid $color;
+        }
+        &:hover #{$base-class}-icon {
+          background: $color-hover-2;
+        }
+      }
+
+      &#{$base-class}--flat {
+        & #{$base-class}-icon {
+          background: none;
+        }
+        &:hover {
+          background: $color-hover-2;
+        }
+      }
+    }
+  }
+
+  // Modifiers
+  &--disabled {
+    cursor: default;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  &--small {
+    @include action-button-icon($sz-atom-action-button-icon-small);
+  }
+
+  &--large {
+    @include action-button-icon($sz-atom-action-button-icon-large);
+  }
+
+  &--link {
+    &,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

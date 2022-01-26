@@ -1,0 +1,91 @@
+#{$base-class} {
+  $self: &;
+
+  &:not(&--native) {
+    align-items: center;
+    background-color: $bgc-atom-checkbox;
+    border-radius: $bdrs-atom-checkbox;
+    border: $bd-atom-checkbox;
+    cursor: pointer;
+    display: inline-flex;
+    height: $h-atom-checkbox;
+    justify-content: center;
+    text-align: center;
+    vertical-align: top;
+    width: $w-atom-checkbox;
+    min-width: $w-atom-checkbox;
+
+    &#{$self}--small {
+      height: $h-atom-checkbox-small;
+      width: $w-atom-checkbox-small;
+      min-width: $w-atom-checkbox-small;
+    }
+
+    span {
+      /* Center custom icons */
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    svg {
+      width: $w-atom-checkbox-icon;
+      height: $h-atom-checkbox-icon;
+    }
+
+    &.is-checked {
+      background-color: $bgc-checked-atom-checkbox;
+      border: $bd-atom-checkbox--checked;
+      color: $c-atom-checkbox;
+      svg {
+        fill: $c-atom-checkbox;
+      }
+    }
+
+    &.is-intermediate {
+      background-color: $bgc-checked-atom-checkbox-is-intermediate;
+      border: $bd-atom-checkbox-is-intermediate;
+      color: $c-atom-checkbox-is-intermediate;
+    }
+
+    &.is-disabled {
+      background-color: $bgc-checked-atom-checkbox-is-disabled;
+      border-color: $bdc-atom-checkbox-is-disabled;
+
+      svg {
+        fill: $c-atom-checkbox-custom-is-disabled;
+      }
+    }
+
+    &#{$self}--status {
+      @each $status, $color in $status-atom-checkbox {
+        &-#{$status} {
+          border-color: $color;
+
+          &.is-checked,
+          &.is-intermediate {
+            background-color: $color;
+          }
+        }
+      }
+    }
+  }
+
+  &.is-checked {
+    color: $c-atom-checkbox;
+  }
+
+  input[type='checkbox'] {
+    display: none;
+  }
+
+  &--native {
+    input[type='checkbox'] {
+      display: inline;
+    }
+  }
+
+  &.is-disabled {
+    color: $c-atom-checkbox-is-disabled;
+  }
+}

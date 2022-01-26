@@ -1,0 +1,38 @@
+$base-class: '.sui-AtomCheckbox';
+
+$bdrs-atom-checkbox: $bdrs-m !default;
+$c-atom-checkbox: $c-white !default;
+$h-atom-checkbox-small: $sz-icon-s !default;
+$w-atom-checkbox-small: $sz-icon-s !default;
+$h-atom-checkbox: $sz-icon-m !default;
+$w-atom-checkbox: $sz-icon-m !default;
+$h-atom-checkbox-icon: $sz-icon-s !default;
+$w-atom-checkbox-icon: $sz-icon-s !default;
+
+$fs-atom-checkbox-label: 14px !default;
+$lh-atom-checkbox-label: 130% !default;
+$maw-atom-checkbox: 32px !default;
+$mt-atom-checkbox-input: 3px !default;
+
+$m-atom-checkbox-type-left: $m-m !default;
+$m-atom-checkbox-type-right: $m-m !default;
+
+$bgc-atom-checkbox: $c-white !default;
+$bgc-checked-atom-checkbox: $c-primary !default;
+$bd-atom-checkbox: $bdw-s solid $c-gray !default;
+$bd-atom-checkbox--checked: $bdw-s solid $c-primary !default;
+$bd-atom-checkbox-is-intermediate: $bd-atom-checkbox--checked !default;
+
+$bdc-atom-checkbox-is-disabled: color-variation($c-gray, 1) !default;
+$bgc-checked-atom-checkbox-is-disabled: color-variation($c-gray, 3) !default;
+$bgc-checked-atom-checkbox-is-intermediate: $bgc-checked-atom-checkbox !default;
+$c-atom-checkbox-is-disabled: color-variation($c-gray, -2) !default;
+$c-atom-checkbox-custom-is-disabled: $c-atom-checkbox-is-disabled;
+$c-atom-checkbox-is-intermediate: $c-atom-checkbox !default;
+
+$c-atom-checkbox--success: $c-success !default;
+$c-atom-checkbox--error: $c-error !default;
+$c-atom-checkbox--alert: $c-alert !default;
+
+$status-atom-checkbox: success $c-atom-checkbox--success,
+  error $c-atom-checkbox--error, alert $c-atom-checkbox--alert !default;

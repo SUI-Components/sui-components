@@ -1,6 +1,6 @@
 @use 'sass:math';
 
-.sui-PinInputFieldsWrapper {
+#{$base-class}FieldsWrapper {
   display: flex;
   flex-wrap: wrap;
   margin: 0 #{- math.div($m-pin-input-children, 2)};

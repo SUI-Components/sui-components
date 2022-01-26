@@ -1,0 +1,80 @@
+#{$base-class} {
+  $this: &;
+  align-items: center;
+  background-color: transparent;
+  border-radius: $bdrs-atom-badge;
+  box-sizing: border-box;
+  color: $c-atom-badge;
+  fill: currentColor;
+  display: inline-flex;
+  justify-content: center;
+  margin-right: $m-atom-badge-l;
+  white-space: $ws-atom-badge;
+  cursor: default;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &#{$this}-size-small {
+    font-size: $fz-atom-badge-s;
+    line-height: $h-atom-badge-s;
+    height: $h-atom-badge-s;
+    padding: $p-atom-badge;
+  }
+  &#{$this}-size-medium {
+    font-size: $fz-atom-badge-m;
+    line-height: $h-atom-badge-s;
+    height: $h-atom-badge-s;
+    padding: $p-atom-badge;
+  }
+
+  &#{$this}-size-large {
+    font-size: $fz-atom-badge-l;
+    line-height: $h-atom-badge-l;
+    height: $h-atom-badge-l;
+    padding: $p-atom-badge;
+  }
+
+  &-icon {
+    @include sui-icon--small;
+    align-items: center;
+    display: flex;
+    line-height: initial;
+    margin-right: $m-atom-badge-s;
+
+    &--iconRight {
+      margin-left: $m-atom-badge-s;
+      margin-right: 0;
+    }
+  }
+
+  &#{$this}--isFitted {
+    margin: 0;
+  }
+
+  @each $design-key, $design-value in (solid: $badges, soft: $badge-soft) {
+    &#{$this}-design-#{$design-key} {
+      @each $type, $element in $design-value {
+        $bgc: map-get($element, bgc);
+        $c: map-get($element, c);
+
+        &#{$this}-type-#{$type} {
+          background-color: $bgc;
+          @if ($c != $c-atom-badge) {
+            color: $c;
+          }
+
+          &#{$this}--isTransparent {
+            background-color: transparent;
+            color: $bgc;
+            padding: 0;
+            @if ($c != $c-white) {
+              color: $c;
+            }
+          }
+        }
+      }
+    }
+  }
+}

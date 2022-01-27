@@ -14,10 +14,12 @@ import {
   MODIFIER_NO_WRAP,
   MODIFIER_LINE_WRAP,
   CLASS_TEXT,
+  CLASS_DESCRIPTION,
   CLASS_DISABLED,
   CLASS_HIGHLIGHTED,
   CLASS_HIGHLIGHTED_MARK,
-  TEXT_WRAP_STYLES
+  TEXT_WRAP_STYLES,
+  CLASS_WITH_DESCRIPTION
 } from './config.js'
 
 const MoleculeDropdownOption = ({
@@ -32,11 +34,13 @@ const MoleculeDropdownOption = ({
   selected,
   textWrap,
   value,
+  description,
   withTwoLinesText
 }) => {
   const className = cx(BASE_CLASS, {
     [CLASS_CHECKBOX]: checkbox,
     [CLASS_DISABLED]: disabled,
+    [CLASS_WITH_DESCRIPTION]: !!description,
     'is-selected': selected
   })
   const innerClassName = cx([
@@ -114,6 +118,7 @@ const MoleculeDropdownOption = ({
           {children}
         </span>
       )}
+      {description && <span className={CLASS_DESCRIPTION}>{description}</span>}
     </li>
   )
 }
@@ -146,7 +151,9 @@ MoleculeDropdownOption.propTypes = {
   /** Text with css clamp = 2 */
   withTwoLinesText: PropTypes.bool,
   /** Text wrapping options */
-  textWrap: PropTypes.oneOf(Object.values(TEXT_WRAP_STYLES))
+  textWrap: PropTypes.oneOf(Object.values(TEXT_WRAP_STYLES)),
+  /** Text to be displayed as a description of the value */
+  description: PropTypes.string
 }
 MoleculeDropdownOption.defaultProps = {
   checkbox: false,

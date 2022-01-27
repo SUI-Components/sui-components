@@ -162,6 +162,15 @@ const Demo = () => (
             aliquip ex ea commodo consequat.
           </MoleculeDropdownOption>
         </div>
+        <h3>With description</h3>
+        <div className={CLASS_DEMO_OPTION}>
+          <MoleculeDropdownOption
+            value="option-basic"
+            description="Ut enim ad minim veniam"
+          >
+            Lorem ipsum dolor sit amet.
+          </MoleculeDropdownOption>
+        </div>
       </div>
     </div>
   </div>

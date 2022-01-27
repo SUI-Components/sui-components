@@ -40,7 +40,7 @@ const MoleculeDropdownOption = ({
   const className = cx(BASE_CLASS, {
     [CLASS_CHECKBOX]: checkbox,
     [CLASS_DISABLED]: disabled,
-    [CLASS_WITH_DESCRIPTION]: !!description,
+    [CLASS_WITH_DESCRIPTION]: description,
     'is-selected': selected
   })
   const innerClassName = cx([

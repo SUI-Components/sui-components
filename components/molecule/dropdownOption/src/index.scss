@@ -14,6 +14,7 @@ $lh-molecule-dropdown-option-line-wrap-text: $lh-m !default;
 $ln-molecule-dropdown-option-two-lines-text: $lh-molecule-dropdown-option-line-wrap-text !default; // deprecated
 $ml-molecule-dropdown-option-text: $m-s !default;
 $c-molecule-dropdown-option-description: $c-gray !default;
+$fz-molecule-dropdown-option-description: inherit !default;
 $mt-molecule-dropdown-option-description: $m-s !default;
 $mr-molecule-dropdown-option-description: 0 !default;
 $mb-molecule-dropdown-option-description: 0 !default;
@@ -90,6 +91,7 @@ $pt-molecule-dropdown-option-with-description: $p-molecule-dropdown-option-with-
       $mr-molecule-dropdown-option-description
       $mb-molecule-dropdown-option-description
       $ml-molecule-dropdown-option-description;
+    font-size: $fz-molecule-dropdown-option-description;
   }
 
   &.is-selected:not(&-checkbox) {

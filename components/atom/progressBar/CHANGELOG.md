@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.6.0 (2022-01-28)
+
+
+### Features
+
+* **components/atom/progressBar:** full refactor ([275e8be](https://github.com/SUI-Components/sui-components/commit/275e8beefbb91d1ec10bc975605654ad258b0bb8))
+
+
+
 # 2.5.0 (2021-10-19)
 
 

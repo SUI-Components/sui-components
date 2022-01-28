@@ -1,0 +1,24 @@
+$base-class-line: '#{$base-class}Line';
+$bg-progress-bar: $c-gray-lightest !default;
+$bc-progress-bar: $c-gray-light !default;
+$c-progress-bar-fill: $c-primary !default;
+
+$trsdu-progress-bar: 500ms !default;
+$trstf-progress-bar: linear !default;
+
+$bd-line-progress-container: $bdw-s solid $bc-progress-bar !default;
+$bd-line-double-progress-container: $bdw-s solid $bc-progress-bar !default;
+
+$br-progress-container: $bdrs-l !default;
+//$br-progress-container: $bdrs-base !default;
+$bdrs-progress-container: $br-progress-container !default;
+
+$br-progress-bar: $bdrs-l !default;
+//$br-progress-bar: $bdrs-base !default;
+$bdrs-progress-bar: $br-progress-bar !default;
+$h-progress-bar: $m-base !default;
+$h-progress-bar: $m-base !default;
+$c-progress-extra-bar-fill: $c-primary-dark-3 !default;
+
+$trsdu-progress-exrta-bar: 500ms !default;
+// this component uses $bdrs for border radius

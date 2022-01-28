@@ -8,8 +8,8 @@ class StaticWithAnimation extends Component {
     super()
     this.state = {
       percentage: 0,
-      mainBarPercentage: 0,
-      extraBarPercentage: 0
+      mainBarPercentage: undefined,
+      extraBarPercentage: undefined
     }
     this.timeoutId = null
   }

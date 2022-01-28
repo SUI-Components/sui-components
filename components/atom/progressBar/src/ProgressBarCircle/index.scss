@@ -1,7 +1,8 @@
 @import '~@s-ui/theme/lib/index';
-@import './settings';
 
-.sui-AtomCircleProgressBarV2 {
+@import './settings.scss';
+
+#{$base-class-circle} {
   background-color: transparent;
   font-size: $fz-atom-circle-progress-bar-text--outer;
   position: relative;

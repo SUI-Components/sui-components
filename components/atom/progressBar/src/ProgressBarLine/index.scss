@@ -1,0 +1,49 @@
+#{$base-class} {
+  &-indicator {
+    display: inline-block;
+    font-size: $fz-s;
+    line-height: $lh-s;
+
+    &--top {
+      margin-bottom: $m-base;
+    }
+
+    &--bottom {
+      margin-top: $m-base;
+    }
+  }
+  &-container {
+    background: $bg-progress-bar;
+    border: $bd-line-progress-container;
+    border-radius: $bdrs-progress-container;
+    height: $h-progress-bar; /* Can be anything */
+    position: relative;
+  }
+
+  &Line {
+    background-color: $c-progress-bar-fill;
+    border-radius: $bdrs-progress-bar;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+
+    &--animated {
+      transition: width $trsdu-progress-bar $trstf-progress-bar;
+    }
+  }
+  &ExtraLine {
+    background-color: $c-progress-extra-bar-fill;
+    border-radius: $br-progress-bar;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+
+    &--animated {
+      transition: width
+        calc(#{$trsdu-progress-bar} + #{$trsdu-progress-exrta-bar})
+        $trstf-progress-bar;
+    }
+  }
+}

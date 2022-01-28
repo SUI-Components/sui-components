@@ -4,37 +4,14 @@ import cx from 'classnames'
 import Circle from './Circle/index.js'
 import {
   BASE_CLASS_NAME,
-  INDICATOR_CLASS_NAME,
   SIZES,
   STATUS,
   SIZE_TO_WIDTH_LINE_MAP
 } from './settings.js'
 
-const Indicator = ({percentage, status, errorIcon, size, children}) => {
-  if (status === STATUS.LOADING) return null
-  return (
-    <span
-      className={cx(
-        INDICATOR_CLASS_NAME,
-        `${INDICATOR_CLASS_NAME}--${status}`,
-        `${INDICATOR_CLASS_NAME}--${size}`
-      )}
-    >
-      {status === STATUS.PROGRESS && (children || `${percentage}%`)}
-      {status === STATUS.ERROR && errorIcon}
-    </span>
-  )
-}
+import Indicator from './Indicator.js'
 
-Indicator.propTypes = {
-  percentage: PropTypes.number.isRequired,
-  status: PropTypes.oneOf(Object.values(STATUS)),
-  errorIcon: PropTypes.node,
-  size: PropTypes.oneOf(Object.values(SIZES)),
-  children: PropTypes.node
-}
-
-const CircleProgressBar = ({
+const ProgressBarCircle = ({
   percentage,
   status,
   errorIcon,
@@ -75,9 +52,9 @@ const CircleProgressBar = ({
   )
 }
 
-CircleProgressBar.displayName = 'LineProgressBar'
+ProgressBarCircle.displayName = 'ProgressBarCircle'
 
-CircleProgressBar.propTypes = {
+ProgressBarCircle.propTypes = {
   /** Percentage value to be displayed as number and as bar width  */
   percentage: PropTypes.number.isRequired,
 
@@ -99,10 +76,10 @@ CircleProgressBar.propTypes = {
   children: PropTypes.node
 }
 
-CircleProgressBar.defaultProps = {
+ProgressBarCircle.defaultProps = {
   isAnimatedOnChange: false,
   status: STATUS.PROGRESS,
   hideIndicator: false
 }
 
-export default CircleProgressBar
+export default ProgressBarCircle

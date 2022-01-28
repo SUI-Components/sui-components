@@ -1,4 +1,7 @@
-export const BASE_CLASS_NAME = 'sui-AtomCircleProgressBarV2'
+import {BASE_CLASS} from '../settings.js'
+
+export const BASE_CLASS_NAME = `${BASE_CLASS}Circle`
+
 export const INDICATOR_CLASS_NAME = `${BASE_CLASS_NAME}-indicator`
 
 export const SIZES = {

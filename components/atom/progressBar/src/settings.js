@@ -1,3 +1,5 @@
+export const BASE_CLASS = 'sui-AtomProgressBarV2'
+
 export const TYPES = {
   CIRCLE: 'circle',
   LINE: 'line',

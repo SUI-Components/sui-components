@@ -47,6 +47,12 @@ $fz-atom-label: $fz-base !default;
     margin-left: $m-m;
   }
 
+  &--disabled {
+    cursor: default;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
   @each $type, $color in $c-atom-label-type {
     &--#{$type} {
       color: $color;

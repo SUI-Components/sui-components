@@ -1,0 +1,30 @@
+#{$base-class} {
+  background-color: $bgc-skeleton;
+  background-repeat: no-repeat;
+  display: inline-block;
+  line-height: 1;
+  width: 100%;
+
+  &--wave {
+    background-image: linear-gradient(
+      90deg,
+      $bgc-skeleton,
+      $bgc-skeleton-highlight,
+      $bgc-skeleton
+    );
+    background-size: 200px 100%;
+    animation: wave $delay-skeleton-wave ease-in-out infinite;
+  }
+
+  &--pulse {
+    animation: pulse $delay-skeleton-pulse ease-in-out infinite;
+  }
+
+  &--round {
+    border-radius: $bdrs-skeleton;
+  }
+
+  &--circle {
+    border-radius: $bdrs-rounded;
+  }
+}

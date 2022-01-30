@@ -1,46 +1,4 @@
 @import '~@s-ui/theme/lib/index';
 
-$w-atom-radiobutton: $sz-icon-s !default;
-$h-atom-radiobutton: $sz-icon-s !default;
-$bc-atom-radiobutton: $c-gray !default;
-$bc-atom-radiobutton-disabled: $c-gray-light-3 !default;
-$bw-atom-radiobutton: $bdw-s !default;
-$bc-atom-radiobutton-checked: $c-primary !default;
-$bw-atom-radiobutton-checked: 6px !default;
-$bg-atom-radiobutton-checked: transparent !default;
-
-$m-atom-radiobutton-type-left: $m-m !default;
-$m-atom-radiobutton-type-right: $m-m !default;
-
-.sui-AtomRadioButton {
-  -webkit-appearance: none;
-  border-width: $bw-atom-radiobutton;
-  border-style: solid;
-  border-color: $bc-atom-radiobutton;
-  border-radius: $bdrs-rounded;
-  cursor: pointer;
-  display: inline-block;
-  flex-shrink: 0;
-  height: $h-atom-radiobutton;
-  margin-left: $m-atom-radiobutton-type-left;
-  margin-right: $m-atom-radiobutton-type-right;
-  outline: none;
-  padding: 0;
-  vertical-align: top;
-  width: $w-atom-radiobutton;
-
-  &.is-hidden {
-    display: none;
-  }
-
-  &:checked {
-    background: $bg-atom-radiobutton-checked;
-    border-color: $bc-atom-radiobutton-checked;
-    border-width: $bw-atom-radiobutton-checked;
-  }
-
-  &:disabled {
-    border-color: $bc-atom-radiobutton-disabled;
-    cursor: not-allowed;
-  }
-}
+@import './styles/settings.scss';
+@import './styles/index.scss';

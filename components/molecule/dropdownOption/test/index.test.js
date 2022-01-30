@@ -98,6 +98,22 @@ describe(json.name, () => {
       expect(() => getByRole('option')).to.not.throw()
       expect(getByRole('option').innerText).to.equal(props.children)
     })
+
+    it('should have an option description', () => {
+      // Given
+      const props = {
+        value: 'value',
+        children: 'children',
+        description: 'this value have a description'
+      }
+
+      // When
+      const {getByText} = setup(props)
+
+      // Then
+      const description = getByText(props.description)
+      expect(description).to.exist
+    })
   })
 
   describe('MoleculeDropdownOptionTextWrapStyles', () => {

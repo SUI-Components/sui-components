@@ -41,7 +41,7 @@
     "@s-ui/helpers": "1",
     "@s-ui/mono": "2",
     "@s-ui/precommit": "2",
-    "@s-ui/studio": "beta",
+    "@s-ui/studio": "11",
     "fs-extra": "10.0.0",
     "globby": "11.0.3",
     "husky": "4.3.0",

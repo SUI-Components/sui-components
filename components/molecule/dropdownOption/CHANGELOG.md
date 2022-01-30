@@ -1,5 +1,21 @@
 # CHANGELOG
 
+# 1.38.0 (2022-01-27)
+
+
+
+# 1.1.0 (2022-01-27)
+
+
+### Features
+
+* **components/molecule/dropdownOption/demo:** add example with description ([95b4d42](https://github.com/SUI-Components/sui-components/commit/95b4d425d44fa3e528e072d16726bc7545a32876))
+* **components/molecule/dropdownOption:** assign font size as a variable ([f82c6fc](https://github.com/SUI-Components/sui-components/commit/f82c6fcc748031c68d4dacf92b5c64c44000d1fa))
+* **components/molecule/dropdownOption:** do not convert description as a boolean in classname assig ([bf03221](https://github.com/SUI-Components/sui-components/commit/bf032217aaf4a554fadd032fcfec6a95c22d42d2))
+* **components/molecule/dropdownOption:** if description is coming from props render it with some st ([aed4a9d](https://github.com/SUI-Components/sui-components/commit/aed4a9d9d6657cb31cf00f427d6419446ac8fd08))
+
+
+
 # 1.37.0 (2022-01-12)
 
 

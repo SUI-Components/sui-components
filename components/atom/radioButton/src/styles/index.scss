@@ -1,0 +1,32 @@
+#{$base-class} {
+  -webkit-appearance: none;
+  border-width: $bw-atom-radiobutton;
+  border-style: solid;
+  border-color: $bc-atom-radiobutton;
+  border-radius: $bdrs-rounded;
+  cursor: pointer;
+  display: inline-block;
+  flex-shrink: 0;
+  height: $h-atom-radiobutton;
+  margin-left: $m-atom-radiobutton-type-left;
+  margin-right: $m-atom-radiobutton-type-right;
+  outline: none;
+  padding: 0;
+  vertical-align: top;
+  width: $w-atom-radiobutton;
+
+  &.is-hidden {
+    display: none;
+  }
+
+  &:checked {
+    background: $bg-atom-radiobutton-checked;
+    border-color: $bc-atom-radiobutton-checked;
+    border-width: $bw-atom-radiobutton-checked;
+  }
+
+  &:disabled {
+    border-color: $bc-atom-radiobutton-disabled;
+    cursor: not-allowed;
+  }
+}

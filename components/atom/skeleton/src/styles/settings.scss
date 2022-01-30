@@ -1,0 +1,28 @@
+$base-class: '.sui-AtomSkeleton';
+
+$bgc-skeleton: $c-gray-light-3 !default;
+$bgc-skeleton-highlight: $c-gray-light-4 !default;
+$bdrs-skeleton: $bdrs-base !default;
+$delay-skeleton-wave: 1.2s !default;
+$delay-skeleton-pulse: 1.5s !default;
+
+@keyframes wave {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

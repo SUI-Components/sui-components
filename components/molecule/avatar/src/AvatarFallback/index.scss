@@ -1,8 +1,8 @@
-@import '../AvatarFallbackName/index';
-@import '../AvatarFallbackIcon/index';
+@import '../AvatarFallbackName/index.scss';
+@import '../AvatarFallbackIcon/index.scss';
 
-$c-avatar-fallback-icon: inherit !default;
+$base-class-fallback-icon: '#{$base-class}FallbackIcon';
 
-.sui-MoleculeAvatarFallbackIcon {
+#{$base-class} {
   fill: $c-avatar-fallback-icon;
 }

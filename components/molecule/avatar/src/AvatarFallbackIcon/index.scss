@@ -1,4 +1,6 @@
-.sui-MoleculeAvatarFallbackIcon {
+$base-class-fallback-icon: '#{$base-class}FallbackIcon';
+
+#{$base-class-fallback-icon} {
   width: 100%;
   height: 100%;
 }

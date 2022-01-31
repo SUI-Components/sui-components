@@ -1,0 +1,92 @@
+$base-class: '.sui-MoleculeDropdownOption';
+
+#{$base-class} {
+  align-items: center;
+  border-radius: $bdrs-molecule-dropdown-option;
+  color: $c-dropdown-option;
+  display: flex;
+  min-height: $mih-dropdown-option;
+  padding: $pt-molecule-dropdown-option $pr-molecule-dropdown-option
+    $pb-molecule-dropdown-option $pl-molecule-dropdown-option;
+  margin: $mt-molecule-dropdown-option $mr-molecule-dropdown-option
+    $mb-molecule-dropdown-option $ml-molecule-dropdown-option;
+
+  &-mark {
+    color: $c-molecule-dropdown-option--highlight-mark;
+    &.is-highlighted {
+      background-color: $bg-molecule-dropdown-option--highlight-mark;
+      font-weight: $fw-molecule-dropdown-option--highlight-mark;
+    }
+  }
+
+  &-checkbox {
+    padding-left: $p-s;
+  }
+
+  &-text {
+    font-size: $fz-molecule-dropdown-option-text;
+    flex-basis: 100%;
+    overflow: hidden;
+    margin-left: $ml-molecule-dropdown-option-text;
+    text-overflow: ellipsis;
+
+    &--noWrap {
+      white-space: nowrap;
+    }
+
+    &--lineWrap,
+    &--twoLines,
+    &--threeLines {
+      line-height: $lh-molecule-dropdown-option-line-wrap-text;
+    }
+
+    &--twoLines,
+    &--threeLines {
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+    }
+
+    &--twoLines {
+      -webkit-line-clamp: 2;
+    }
+    &--threeLines {
+      -webkit-line-clamp: 3;
+    }
+  }
+
+  &-description {
+    color: $c-molecule-dropdown-option-description;
+    margin: $mt-molecule-dropdown-option-description
+      $mr-molecule-dropdown-option-description
+      $mb-molecule-dropdown-option-description
+      $ml-molecule-dropdown-option-description;
+    font-size: $fz-molecule-dropdown-option-description;
+  }
+
+  &.is-selected:not(&-checkbox) {
+    background: $bg-molecule-dropdown-option-selected;
+  }
+
+  &.is-selected:not(&-checkbox) &-text {
+    font-weight: $fw-molecule-dropdown-option-selected-text;
+  }
+
+  &--disabled {
+    color: $c-dropdown-option-disabled;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $bgc-dropdown-option-hover;
+    cursor: pointer;
+    outline: none;
+  }
+
+  &--withDescription {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: $pt-molecule-dropdown-option-with-description
+      $pl-molecule-dropdown-option;
+  }
+}

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.18.0 (2022-01-31)
+
+
+### Bug Fixes
+
+* **components/molecule/pagination:** resolve conflicts ([bd475a1](https://github.com/SUI-Components/sui-components/commit/bd475a158bdc4af1a5a07e2eca8b01a5425a8709))
+
+
+
 # 2.17.0 (2022-01-31)
 
 

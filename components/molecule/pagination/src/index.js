@@ -1,5 +1,10 @@
 import PropTypes from 'prop-types'
-import AtomButton, {atomButtonSizes} from '@s-ui/react-atom-button'
+import AtomButton, {
+  atomButtonColors,
+  atomButtonDesigns,
+  atomButtonShapes,
+  atomButtonSizes
+} from '@s-ui/react-atom-button'
 import * as pagination from './helpers/pagination/index.js'
 import {
   isValidPage,
@@ -22,12 +27,13 @@ const MoleculePagination = ({
   nextButtonIcon: NextButtonIcon,
   compressed = false,
   hideDisabled,
-  selectedPageButtonDesign = 'solid',
+  selectedPageButtonDesign = atomButtonDesigns.SOLID,
   showEdges,
-  nonSelectedPageButtonDesign = 'flat',
-  prevButtonDesign = 'flat',
-  nextButtonDesign = 'flat',
+  nonSelectedPageButtonDesign = atomButtonDesigns.FLAT,
+  prevButtonDesign = atomButtonDesigns.FLAT,
+  nextButtonDesign = atomButtonDesigns.FLAT,
   selectedPageButtonColor = 'primary',
+  shape,
   size,
   nonSelectedPageButtonColor = 'primary',
   prevButtonColor = 'primary',
@@ -78,6 +84,7 @@ const MoleculePagination = ({
             design={prevButtonDesign}
             color={prevButtonColor}
             disabled={!prevPage}
+            shape={shape}
             size={size}
             leftIcon={PrevButtonIcon && <PrevButtonIcon />}
             {...linkProps(prevPage)}
@@ -92,6 +99,7 @@ const MoleculePagination = ({
           design={selectedPageButtonDesign}
           color={selectedPageButtonColor}
           onSelectPage={onSelectPage}
+          shape={shape}
           size={size}
           {...linkProps(page)}
         >
@@ -114,6 +122,7 @@ const MoleculePagination = ({
                     : nonSelectedPageButtonColor
                 }
                 onSelectPage={onSelectPage}
+                shape={shape}
                 size={size}
                 {...linkProps(FIRST_PAGE)}
               >
@@ -139,6 +148,7 @@ const MoleculePagination = ({
                   : nonSelectedPageButtonColor
               }
               onSelectPage={onSelectPage}
+              shape={shape}
               size={size}
               {...linkProps(pageRange)}
             >
@@ -165,6 +175,7 @@ const MoleculePagination = ({
                       : nonSelectedPageButtonColor
                   }
                   onSelectPage={onSelectPage}
+                  shape={shape}
                   size={size}
                   {...linkProps(totalPages)}
                 >
@@ -181,6 +192,7 @@ const MoleculePagination = ({
             design={nextButtonDesign}
             color={nextButtonColor}
             disabled={!nextPage}
+            shape={shape}
             size={size}
             rightIcon={NextButtonIcon && <NextButtonIcon />}
             {...linkProps(nextPage)}
@@ -204,6 +216,9 @@ MoleculePagination.propTypes = {
 
   /** Number of pages to be displayed in the range (10 by default) */
   showPages: isValidShowPages,
+
+  /** Shape of buttons */
+  shape: PropTypes.oneOf(Object.values(atomButtonShapes)),
 
   /** Size of buttons */
   size: PropTypes.oneOf(Object.values(atomButtonSizes)),
@@ -248,19 +263,19 @@ MoleculePagination.propTypes = {
   nextButtonDesign: PropTypes.string,
 
   /** Color to be used for the selected page. */
-  selectedPageButtonColor: PropTypes.string,
+  selectedPageButtonColor: PropTypes.oneOf(atomButtonColors),
 
   /** Makes first and last always visible. */
   showEdges: PropTypes.bool,
 
   /** Color to be used for the selected page. */
-  nonSelectedPageButtonColor: PropTypes.string,
+  nonSelectedPageButtonColor: PropTypes.oneOf(atomButtonColors),
 
   /** Color to be used for the previous button if its visible. */
-  prevButtonColor: PropTypes.string,
+  prevButtonColor: PropTypes.oneOf(atomButtonColors),
 
   /** Color to be used for the next button if its visible. */
-  nextButtonColor: PropTypes.string,
+  nextButtonColor: PropTypes.oneOf(atomButtonColors),
 
   /** Factory used to create navigation links */
   linkFactory: PropTypes.func,
@@ -273,6 +288,12 @@ MoleculePagination.propTypes = {
 
   /** tells wether to render links as anchor tags or as buttons */
   renderLinks: PropTypes.bool
+}
+
+export {
+  atomButtonDesigns as moleculePaginationButtonDesigns,
+  atomButtonShapes as moleculePaginationButtonShapes,
+  atomButtonSizes as moleculePaginationButtonSizes
 }
 
 export default MoleculePagination

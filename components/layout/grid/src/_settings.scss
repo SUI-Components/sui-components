@@ -75,3 +75,22 @@ $jc-layout-grid: flex-start center flex-end space-between space-around;
     }
   }
 }
+
+/////
+
+$grid-columns: 12;
+$grid-gutters: 10;
+
+@mixin grid-parent($gap) {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0 (-$gap);
+  row-gap: #{2 * $gap};
+}
+
+@mixin grid-flex-basis($columns) {
+  $w-column: math.div(100%, $grid-columns) * $columns;
+  flex-basis: $w-column;
+  max-width: $w-column;
+}

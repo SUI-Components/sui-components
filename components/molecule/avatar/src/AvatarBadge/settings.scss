@@ -1,0 +1,34 @@
+$bdc-avatar-badge: white !default;
+$bdc-avatar-badge-muted: #d7dcdf !default;
+
+$s-avatar-badge: (
+  xxlarge: 20px,
+  xlarge: 16px,
+  large: 14px,
+  medium: 12px,
+  small: 8px,
+  xsmall: 8px
+) !default;
+
+$bw-avatar-badge: (
+  xxlarge: 3px,
+  xlarge: 2px,
+  large: 2px,
+  medium: 2px,
+  small: 1px,
+  xsmall: 1px
+) !default;
+
+$bgc-avatar-badge: (
+  error: $c-error,
+  success: $c-success,
+  alert: $c-alert,
+  muted: $bdc-avatar-badge
+) !default;
+
+$bxsh-avatar-badge: (
+  error: inset 0 0 0 2px $c-error,
+  success: inset 0 0 0 2px $c-success,
+  alert: inset 0 0 0 2px $c-alert,
+  muted: inset 0 0 0 2px $bdc-avatar-badge-muted
+) !default;

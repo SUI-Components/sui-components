@@ -1,58 +1,6 @@
 @import '~@s-ui/theme/lib/index';
 @import '~@s-ui/react-atom-image/lib/index';
 @import '~@s-ui/react-atom-skeleton/lib/index';
-@import './AvatarFallback/index';
-@import './AvatarBadge/index';
 
-$s-avatar: (
-  xxlarge: 80px,
-  xlarge: 64px,
-  large: 48px,
-  medium: 40px,
-  small: 32px,
-  xsmall: 24px
-) !default;
-
-$fz-avatar: (
-  xxlarge: 30px,
-  xlarge: 24px,
-  large: 18px,
-  medium: 15px,
-  small: 12px,
-  xsmall: 8px
-) !default;
-
-$c-avatar: white !default;
-$bgc-avatar: $c-gray-light-3 !default;
-
-.sui-MoleculeAvatar {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $c-avatar;
-  background-color: $bgc-avatar;
-
-  &,
-  & > * {
-    border-radius: $bdrs-rounded;
-  }
-
-  &--loading {
-    background-color: transparent;
-  }
-
-  @each $key-size, $size in $s-avatar {
-    &--#{$key-size} {
-      width: $size;
-      min-width: $size;
-      height: $size;
-    }
-  }
-
-  @each $key-size, $fz in $fz-avatar {
-    &--#{$key-size} {
-      font-size: $fz;
-    }
-  }
-}
+@import './styles/settings.scss';
+@import './styles/index.scss';

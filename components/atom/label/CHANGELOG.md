@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.18.0 (2022-01-31)
+
+
+### Bug Fixes
+
+* **components/atom/checkbox:** lint sass ([56c4c35](https://github.com/SUI-Components/sui-components/commit/56c4c35040180d213115b4a8f48acfbc4493cd31))
+* **components/atom/label:** add disabled style ([c7ec1f1](https://github.com/SUI-Components/sui-components/commit/c7ec1f18e667a185a78d87856c257881dd69559d))
+
+
+
 # 1.17.0 (2021-10-16)
 
 

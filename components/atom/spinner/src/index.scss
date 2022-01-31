@@ -1,44 +1,7 @@
 @import '~@s-ui/theme/lib/index';
-@import './SUILoader/index';
 
-$bgc-atom-spinner: rgba($c-white, 0.6) !default;
-$z-atom-spinner: 1 !default;
+@import './styles/settings.scss';
+@import './SUILoader/settings.scss';
 
-%spinner-layer {
-  background-color: $bgc-atom-spinner;
-  bottom: 0;
-  content: '';
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: $z-atom-spinner;
-}
-
-.sui-AtomSpinner {
-  position: relative;
-
-  &::before {
-    @extend %spinner-layer;
-    position: absolute;
-  }
-
-  &--noBackground::before {
-    background-color: transparent;
-  }
-
-  &--fullPage {
-    &::before {
-      @extend %spinner-layer;
-      position: fixed;
-    }
-
-    .sui-AtomSpinner-loader {
-      display: block;
-      position: fixed;
-    }
-  }
-
-  #{&}-loader {
-    display: block;
-  }
-}
+@import './styles/index.scss';
+@import './SUILoader/index.scss';

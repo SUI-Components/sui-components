@@ -1,0 +1,28 @@
+$c-progress-steps-bar: $c-gray-light !default;
+$c-progress-steps-label: $c-gray-dark-2 !default;
+$c-progress-steps-icon: $c-gray-light !default;
+
+$c-progress-steps-active: $c-primary-light-1 !default;
+$c-progress-steps-visited: $c-primary !default;
+
+$fz-progress-steps-description: inherit !default;
+
+$bdw-progress-steps-bar: 2px !default;
+
+$h-progress-steps-bar: $bdw-progress-steps-bar * 2 !default;
+
+$mw-progress-steps-path: 100% !default;
+$w-progress-steps-description: 100px !default;
+
+$sz-progress-steps-icon: $sz-icon-xl !default;
+$sz-progress-steps-bar: 3 * $sz-base !default;
+$sz-progress-steps-bar-compressed: $sz-progress-steps-bar !default;
+
+$m-progress-steps-icon: $m-s !default;
+$m-progress-steps-bar: $m-s !default;
+
+@function contains($list, $item) {
+  @return index($list, $item) != null;
+}
+
+$justify-content-path: (legacy, center, flex-start, flex-end);

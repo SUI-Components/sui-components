@@ -291,9 +291,9 @@ MoleculePagination.propTypes = {
 }
 
 export {
-  atomButtonDesigns as moleculePaginationButtonDesigns,
-  atomButtonShapes as moleculePaginationButtonShapes,
-  atomButtonSizes as moleculePaginationButtonSizes
+  atomButtonDesigns as moleculePaginationDesigns,
+  atomButtonShapes as moleculePaginationShapes,
+  atomButtonSizes as moleculePaginationSizes
 }
 
 export default MoleculePagination

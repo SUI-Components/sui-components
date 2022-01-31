@@ -1,0 +1,19 @@
+$ff-molecule-quick-action: $ff-sans-serif !default;
+$fz-molecule-quick-action: $fz-s !default;
+$fw-molecule-quick-action: $fw-semi-bold !default;
+$icon-c-molecule-quick-action: $c-primary;
+$icon-sz-molecule-quick-action: $sz-icon-s !default;
+$icon-m-molecule-quick-action: $m-m !default;
+$p-molecule-quick-action: $p-m !default;
+$bxsh-molecule-quick-action: $bxsh-l !default;
+$bdrs-molecule-quick-action: $bdrs-base !default;
+$bgc-molecule-quick-action: $c-white !default;
+$bgc-molecule-quick-action-focused: color-variation($c-primary, 4) !default;
+
+$fz-molecule-quick-action-medium: $fz-m !default;
+$icon-sz-molecule-quick-action-medium: $sz-icon-m !default;
+$p-molecule-quick-action-medium: $p-m + $p-s !default;
+
+$fz-molecule-quick-action-large: $fz-l !default;
+$icon-sz-molecule-quick-action-large: $sz-icon-l !default;
+$p-molecule-quick-action-large: $p-l !default;

@@ -37,7 +37,7 @@ const MoleculeCheckboxField = ({
         isAligned
         disabled={disabled}
       >
-        <AtomCheckbox id={id} {...props} />
+        <AtomCheckbox id={id} {...props} disabled={disabled} />
         {ToggleIcon && (
           <span
             className={`${BASE_CLASS}-toggleIcon`}

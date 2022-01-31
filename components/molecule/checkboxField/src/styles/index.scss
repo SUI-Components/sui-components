@@ -1,0 +1,35 @@
+$base-class: '.sui-MoleculeCheckboxField';
+
+#{$base-class} {
+  .sui-AtomCheckbox {
+    &--native {
+      width: $w-molecule-checkbox-field-input;
+      height: $h-molecule-checkbox-field-input;
+    }
+    display: flex;
+    align-items: center;
+
+    input[type='checkbox'] {
+      margin: 0;
+    }
+  }
+
+  .sui-AtomLabel {
+    cursor: pointer;
+    font-weight: $fw-molecule-checkbox-field-label;
+    color: $c-molecule-checkbox-field-label;
+
+    @each $colorName, $colorValue in $c-molecule-checkbox-field {
+      &--#{$colorName} {
+        color: $colorValue;
+      }
+    }
+  }
+
+  &-toggleIcon {
+    cursor: pointer;
+    order: 1;
+    position: absolute;
+    right: 0;
+  }
+}

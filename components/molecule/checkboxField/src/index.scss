@@ -2,47 +2,5 @@
 @import '~@s-ui/react-molecule-field/lib/index';
 @import '~@s-ui/react-atom-checkbox/lib/index';
 
-$fw-molecule-checkbox-field-label: $fw-atom-label !default;
-$c-molecule-checkbox-field-label: $c-atom-label !default;
-$w-molecule-checkbox-field-input: $p-base * 2 !default;
-$h-molecule-checkbox-field-input: $p-base * 2 !default;
-
-$c-molecule-checkbox-field: (
-  success: $c-success,
-  error: $c-error,
-  alert: $c-alert
-) !default;
-
-.sui-MoleculeCheckboxField {
-  .sui-AtomCheckbox {
-    &--native {
-      width: $w-molecule-checkbox-field-input;
-      height: $h-molecule-checkbox-field-input;
-    }
-    display: flex;
-    align-items: center;
-
-    input[type='checkbox'] {
-      margin: 0;
-    }
-  }
-
-  .sui-AtomLabel {
-    cursor: pointer;
-    font-weight: $fw-molecule-checkbox-field-label;
-    color: $c-molecule-checkbox-field-label;
-
-    @each $colorName, $colorValue in $c-molecule-checkbox-field {
-      &--#{$colorName} {
-        color: $colorValue;
-      }
-    }
-  }
-
-  &-toggleIcon {
-    cursor: pointer;
-    order: 1;
-    position: absolute;
-    right: 0;
-  }
-}
+@import './styles/settings.scss';
+@import './styles/index.scss';

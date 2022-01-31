@@ -1,0 +1,54 @@
+$base-class: '.sui-MoleculeField';
+$atomLabel-class: '.sui-AtomLabel';
+$atomHelpText-class: '.sui-AtomHelpText';
+
+#{$base-class} {
+  &--inline {
+    display: flex;
+    width: 100%;
+
+    &-reverse {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      #{$atomLabel-class} {
+        align-items: center;
+      }
+
+      #{$base-class}-nodeLabelContainer {
+        margin-left: $ml-molecule-field-label;
+      }
+    }
+  }
+
+  &--fullWidth #{$base-class}-nodeLabelContainer {
+    min-width: 0; // https://css-tricks.com/flexbox-truncated-text/
+    width: 100%;
+  }
+
+  &-labelContainer {
+    align-items: $ai-molecule-field-label-container;
+    display: flex;
+    font-weight: $fw-molecule-field-label;
+    margin-bottom: $mb-molecule-field-label;
+  }
+
+  &-inputContainer {
+    width: 100%;
+    &--aligned {
+      padding-left: $p-xl;
+    }
+  }
+
+  &--autohide {
+    #{$atomHelpText-class} {
+      display: none;
+    }
+    #{$base-class}-inputContainer {
+      & *:focus + #{$atomHelpText-class} {
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+$base-class: '.sui-MoleculeAutosuggest';
+$base-class-atom-input: '.sui-AtomInput';
+$class-input: '#{$base-class}-input';
+$base-class-atom-input-input: '#{$base-class-atom-input}-input';
+
+#{$base-class} {
+  position: relative;
+  outline: none;
+  box-sizing: border-box;
+
+  .sui-MoleculeDropdownList {
+    position: absolute;
+    z-index: $z-autosuggest-list;
+  }
+
+  input::-ms-clear {
+    display: none;
+  }
+
+  &--disabled {
+    #{$class-input}-container {
+      #{$base-class-atom-input}--withTags {
+        background: $c-gray-lightest;
+      }
+    }
+  }
+
+  #{$class-input} {
+    &-container {
+      align-items: center;
+      border: $bdw-autosuggest-container solid transparent;
+      cursor: default;
+      display: flex;
+      min-height: $h-atom-input--m;
+    }
+
+    &-icon {
+      display: flex;
+      flex-direction: column;
+      height: $h-atom-input--m;
+      justify-content: center;
+      margin-left: $mr-autosuggest-icon-clear;
+      width: $w-autosuggest-icon-clear;
+    }
+  }
+
+  @each $state, $color in $states-atom-input {
+    &#{$base-class}--#{$state} #{$base-class-atom-input-input} {
+      border-color: $color;
+    }
+  }
+}

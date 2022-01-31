@@ -1,0 +1,64 @@
+$base-class: '.sui-AtomUpload';
+
+#{$base-class} {
+  align-items: $ai-atom-upload;
+  background-color: $bg-atom-upload;
+  border: $bd-atom-upload;
+  border-radius: $bdrs-atom-upload;
+  color: $c-atom-upload;
+  display: flex;
+  flex-direction: $fd-atom-upload;
+  font-family: $ff-atom-upload;
+  justify-content: $jc-atom-upload;
+  padding: $p-atom-upload;
+  text-align: center;
+
+  &-blockText {
+    align-items: $ai-atom-upload-block-text;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &-main,
+    &-secondary {
+      margin: 0;
+    }
+
+    &-main {
+      color: $c-atom-upload-text-main;
+      font-size: $fz-atom-upload-text;
+      font-weight: $fw-atom-upload-text-main;
+      margin: $m-atom-upload-main-text;
+    }
+
+    &-secondary {
+      color: $c-atom-upload-text-secondary;
+      font-size: $fz-atom-upload-text-secondary;
+      font-weight: $fw-atom-upload-text-secondary;
+      margin: $m-atom-upload-text-secondary;
+    }
+  }
+
+  &-iconActive,
+  &-iconUpload,
+  &-iconSuccess,
+  &-iconError {
+    align-items: center;
+    display: flex;
+    height: $h-atom-upload-icon;
+    justify-content: center;
+    width: $w-atom-upload-icon;
+
+    & > * {
+      width: 100%;
+    }
+  }
+
+  &--active {
+    cursor: pointer;
+  }
+
+  &--upload {
+    justify-content: $jc-atom-upload-content;
+  }
+}

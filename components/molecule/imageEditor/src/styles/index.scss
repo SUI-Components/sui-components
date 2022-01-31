@@ -1,0 +1,41 @@
+$base-class: '.sui-MoleculeImageEditor';
+
+#{$base-class} {
+  &-crop {
+    position: relative;
+    height: $h-molecule-image-editor;
+    margin-bottom: $m-xxl;
+  }
+
+  &-slider {
+    align-items: center;
+    display: flex;
+    margin-top: $m-xl;
+
+    .sui-AtomSlider {
+      flex: 1;
+    }
+  }
+
+  &-label {
+    align-items: center;
+    color: $c-gray;
+    display: flex;
+    margin-right: $m-l;
+
+    &Icon {
+      display: flex;
+
+      svg {
+        fill: currentColor !important;
+        height: $sz-icon-s;
+        width: $sz-icon-s;
+      }
+    }
+
+    &Text {
+      margin-left: $m-m;
+      width: $w-molecule-image-editor-label-text;
+    }
+  }
+}

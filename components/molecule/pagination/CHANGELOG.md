@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.17.0 (2022-01-31)
+
+
+### Features
+
+* **components/molecule/pagination:** add shape button prop, add scss margin var, add button config ([34b4e60](https://github.com/SUI-Components/sui-components/commit/34b4e60d0b05c95f09b94ed7269d05f89ad72dfd))
+* **components/molecule/pagination:** fix test ([6c2b639](https://github.com/SUI-Components/sui-components/commit/6c2b639c9e9b3d444ac7ac355ee5e56226e1e462))
+
+
+
 # 2.16.0 (2022-01-21)
 
 

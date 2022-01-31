@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 2.15.0 (2022-01-31)
+
+
+### Bug Fixes
+
+* **components/molecule/checkboxField:** add checkboxField disabled ([2b1de65](https://github.com/SUI-Components/sui-components/commit/2b1de6503146bf10d88f7480136fd472a12741f6))
+
+
+### Features
+
+* **components/molecule/checkboxField:** add disabled prop ([309ad69](https://github.com/SUI-Components/sui-components/commit/309ad69ef910719924e4843c7f3734af6ef44f28))
+
+
+
 # 2.14.0 (2021-11-30)
 
 

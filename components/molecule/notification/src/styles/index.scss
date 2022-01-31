@@ -1,0 +1,170 @@
+$base-class: '.sui-MoleculeNotification';
+
+#{$base-class} {
+  border-radius: $bdrs-notification-content;
+  max-height: $mh-notification;
+
+  &-content {
+    display: flex;
+    justify-content: space-between;
+    padding: $p-l;
+  }
+
+  &-children,
+  &-text {
+    align-items: $ai-notification-content;
+    display: flex;
+    flex: 1 1 auto;
+    font-size: $fz-m;
+    line-height: $lh-notification-text;
+    margin-top: $mt-notification-text;
+  }
+
+  &-buttonsContainer {
+    padding: $p-l;
+    padding-top: 0;
+    text-align: right;
+  }
+
+  &-icon {
+    display: flex;
+    align-items: center;
+    svg {
+      fill: currentColor !important;
+    }
+
+    &Left {
+      svg {
+        height: $sz-notification-icon;
+        width: $sz-notification-icon;
+      }
+      @include media-breakpoint-up(xs) {
+        display: block;
+      }
+      display: none;
+      margin-right: $m-m;
+
+      &--show {
+        display: block;
+      }
+    }
+
+    &Close {
+      svg {
+        height: $sz-icon-m;
+        width: $sz-icon-m;
+      }
+      @include media-breakpoint-up(xs) {
+        margin-left: $m-m;
+      }
+      cursor: pointer;
+      margin-left: $m-l;
+    }
+  }
+
+  // Type
+  @each $key, $value in $notification-type-colors {
+    $color: map-get($notification-type-font-colors, $key);
+
+    &--#{$key} {
+      background-color: #{$value};
+      color: $color;
+    }
+  }
+
+  // Variation
+  &--positive {
+    color: $c-notification-positive;
+
+    // Type text in positive variations
+    @each $key, $value in $notification-type-positive-text-colors {
+      &#{$base-class}--#{$key} {
+        color: $value !important;
+      }
+    }
+
+    // Type variations
+    @each $key, $value in $notification-type-colors {
+      &#{$base-class}--#{$key} {
+        background: color-variation($value, $c-light-step * 2);
+      }
+    }
+  }
+
+  &--outline {
+    background-color: $bgc-notification-outline;
+    border-style: solid;
+    border-width: $bdw-notification-outline;
+    box-shadow: $bxsh-notification-outline;
+    color: $c-notification-outline;
+
+    // Type variations
+    @each $key, $value in $notification-type-colors {
+      &#{$base-class}--#{$key} {
+        border-color: #{$value};
+        #{$base-class}-iconLeft svg {
+          fill: #{$value} !important;
+        }
+      }
+    }
+  }
+
+  // Rounded corners
+  @each $key, $value in $bdrs-notification {
+    &#{$base-class}-roundedCorners--#{$key} {
+      border-radius: $value;
+    }
+  }
+
+  // Position
+  &--relative {
+    position: relative;
+  }
+
+  &--top {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: $w-notification;
+    z-index: $z-notification;
+  }
+
+  &--bottom {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: $w-notification;
+    z-index: $z-notification;
+  }
+
+  // Effect
+  &-effect {
+    &--top {
+      transition: $notification-effect-slide-top-in;
+    }
+
+    &--top#{&}--hide {
+      top: -50%;
+      transition: $notification-effect-slide-top-out;
+    }
+
+    &--bottom {
+      transition: $notification-effect-slide-bottom-in;
+    }
+
+    &--bottom#{&}--hide {
+      bottom: -50%;
+      transition: $notification-effect-slide-bottom-out;
+    }
+
+    &--relative {
+      transition: $notification-effect-fade-in;
+    }
+
+    &--relative#{&}--hide {
+      max-height: 0;
+      opacity: 0;
+      transition: $notification-effect-fade-out;
+    }
+  }
+}

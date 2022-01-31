@@ -52,13 +52,13 @@ const MoleculeDrawer = forwardRef(
     return (
       <div
         className={cx(
-          'react-MoleculeDrawer-content',
-          `react-MoleculeDrawer-content--placement-${placement}`,
-          `react-MoleculeDrawer-content--size-${size}`,
-          `react-MoleculeDrawer-content--animationDuration-${animationDuration}`,
-          `react-MoleculeDrawer-content--state-${isOpen ? 'opened' : 'closed'}`,
+          'sui-MoleculeDrawer-content',
+          `sui-MoleculeDrawer-content--placement-${placement}`,
+          `sui-MoleculeDrawer-content--size-${size}`,
+          `sui-MoleculeDrawer-content--animationDuration-${animationDuration}`,
+          `sui-MoleculeDrawer-content--state-${isOpen ? 'opened' : 'closed'}`,
           {
-            'react-MoleculeDrawer-content--placement':
+            'sui-MoleculeDrawer-content--placement':
               typeof target === 'undefined'
           }
         )}

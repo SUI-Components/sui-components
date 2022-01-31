@@ -20,3 +20,12 @@ $trsdu-molecule-drawer-map: (
 
 $bgc-molecule-drawer-overlay-start: rgba(0, 0, 0, 0.4) !default;
 $bgc-molecule-drawer-overlay-finish: rgba(0, 0, 0, 0.6) !default;
+
+@keyframes bg-overlay {
+  0% {
+    background-color: $bgc-molecule-drawer-overlay-start;
+  }
+  100% {
+    background-color: $bgc-molecule-drawer-overlay-finish;
+  }
+}

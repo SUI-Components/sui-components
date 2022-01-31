@@ -36,11 +36,6 @@ $c-atom-tooltip-arrow: $bgc-atom-tooltip !default;
 
 $bdw-atom-tooltip: 0 !default;
 
-$base-class: '.sui-AtomTooltip';
-$class-inner: '#{$base-class}-inner';
-$class-arrow: '#{$base-class}-arrow';
-$class-target: '#{$base-class}-target';
-
 $c-atom-tooltip-colors: (
   'primary': (
     $c-primary,

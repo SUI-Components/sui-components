@@ -1,0 +1,171 @@
+$base-class: '.sui-AtomTooltip';
+$class-inner: '#{$base-class}-inner';
+$class-arrow: '#{$base-class}-arrow';
+$class-target: '#{$base-class}-target';
+
+#{$class-target} {
+  color: $c-atom-tooltip-target;
+  font-size: $fz-atom-tooltip-target;
+  margin-left: $ml-atom-tooltip-target;
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+
+  &--wrapper {
+    display: inline-flex;
+  }
+}
+
+#{$base-class} {
+  display: contents;
+  font-size: $fz-atom-tooltip;
+  margin: $m-atom-tooltip;
+  // Avoid flick on hover
+  pointer-events: none;
+
+  position: absolute;
+  // Allow breaking very long words so they don't overflow the tooltip's bounds
+  word-wrap: break-word;
+  z-index: $z-atom-tooltip;
+
+  // Wrapper for the tooltip content
+  #{$class-inner} {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $wlc-atom-tooltip;
+    background-color: $bgc-atom-tooltip;
+    border-color: $bdc-atom-tooltip;
+    border-radius: $bdrs-atom-tooltip;
+    border-style: solid;
+    border-width: $bdw-atom-tooltip;
+    color: $c-atom-tooltip;
+    display: -webkit-box;
+    line-height: $lh-atom-tooltip;
+    max-height: $mah-atom-tooltip;
+    max-width: $maw-atom-tooltip;
+    padding: $p-atom-tooltip;
+    overflow: hidden;
+    text-align: $ta-atom-tooltip;
+    text-overflow: ellipsis;
+  }
+
+  #{$class-arrow} {
+    display: block;
+    height: $h-atom-tooltip-arrow;
+    position: absolute;
+    width: $w-atom-tooltip-arrow;
+
+    &::before {
+      border-color: transparent;
+      border-bottom-color: $c-atom-tooltip-arrow;
+      border-style: solid;
+      border-width: 0 $w-atom-tooltip-arrow * 0.5 $w-atom-tooltip-arrow * 0.5;
+      bottom: $h-atom-tooltip-arrow * 0.5;
+      content: '';
+      position: absolute;
+    }
+
+    &::after {
+      border-width: 0 $w-atom-tooltip-arrow * 0.5 $w-atom-tooltip-arrow * 0.5
+        $w-atom-tooltip-arrow * 0.5;
+      border-color: transparent;
+      border-bottom-color: $bgc-atom-tooltip;
+      border-style: solid;
+      content: '';
+      display: block;
+      position: absolute;
+    }
+  }
+
+  &--top {
+    margin: $mt-atom-tooltip 0;
+
+    #{$class-arrow} {
+      bottom: -$h-atom-tooltip-arrow * 0.5;
+      transform: rotate(180deg);
+    }
+  }
+
+  &--right {
+    margin: 0 $mr-atom-tooltip;
+
+    #{$class-arrow} {
+      left: -$w-atom-tooltip-arrow * 0.5;
+      transform: rotate(-90deg);
+    }
+  }
+
+  &--bottom {
+    margin: $mb-atom-tooltip 0;
+
+    #{$class-arrow} {
+      top: -$h-atom-tooltip-arrow * 0.5;
+    }
+  }
+
+  &--left {
+    margin: 0 $ml-atom-tooltip;
+
+    #{$class-arrow} {
+      right: -$w-atom-tooltip-arrow * 0.5;
+      transform: rotate(90deg);
+    }
+  }
+
+  &--auto {
+    &[x-placement*='top'] {
+      @extend #{$base-class}--top;
+    }
+
+    &[x-placement*='bottom'] {
+      @extend #{$base-class}--bottom;
+    }
+
+    &[x-placement*='right'] {
+      @extend #{$base-class}--right;
+    }
+
+    &[x-placement*='left'] {
+      @extend #{$base-class}--left;
+    }
+
+    &[x-placement*='top'],
+    &[x-placement*='bottom'] {
+      &[x-placement*='start'] {
+        #{$class-arrow} {
+          right: $bdrs-atom-tooltip;
+          left: auto !important;
+        }
+      }
+
+      &[x-placement*='end'] {
+        #{$class-arrow} {
+          left: $bdrs-atom-tooltip !important;
+          right: auto;
+        }
+      }
+    }
+  }
+
+  @each $name, $pair in $c-atom-tooltip-colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &--#{$name}Color {
+      #{$class-inner} {
+        background-color: $color;
+        border-color: $color;
+        color: $color-invert;
+      }
+
+      #{$class-arrow} {
+        &::before,
+        &::after {
+          border-color: transparent;
+          border-bottom-color: $color;
+        }
+      }
+    }
+  }
+}

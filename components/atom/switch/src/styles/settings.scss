@@ -1,0 +1,25 @@
+/* DEFAULT SIZE */
+$h-atom-switch-container-default: 34px !default;
+$h-atom-switch-default: 24px !default;
+$w-atom-switch-default: 40px !default;
+$w-atom-switch-circle-default: 22px !default;
+$m-atom-switch-circle-default--active: $m-l !default;
+$p-atom-switch-container: $p-s !default;
+
+/* LARGE SIZE */
+$h-atom-switch-container-large: 42px !default;
+$h-atom-switch-large: 32px !default;
+$w-atom-switch-large: 56px !default;
+$w-atom-switch-circle-large: 32px !default;
+$m-atom-switch-circle-large--active: $m-xl !default;
+$h-atom-switch-input-container-large: 32px !default;
+
+$c-atom-switch--active: color-variation($c-primary, 1) !default;
+$c-atom-switch--active-shadow: rgba($c-black, 0.2);
+$c-atom-switch--default: color-variation($c-gray, 3) !default;
+
+$bd-atom-switch-default: $bdw-s solid
+  color-variation($c-atom-switch--default, $c-dark-step) !default;
+$bxsh-atom-switch-container: 0 0 4px 0 transparent !default;
+
+$atom-switch-transition-time: 0.3s !default;

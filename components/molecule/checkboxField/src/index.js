@@ -17,6 +17,7 @@ const MoleculeCheckboxField = ({
   onChange,
   toggleIcon: ToggleIcon,
   toggleIconOnChange = () => {},
+  disabled,
   ...props
 }) => {
   return (
@@ -34,7 +35,7 @@ const MoleculeCheckboxField = ({
         inline
         reverse
         isAligned
-        disabled
+        disabled={disabled}
       >
         <AtomCheckbox id={id} {...props} />
         {ToggleIcon && (

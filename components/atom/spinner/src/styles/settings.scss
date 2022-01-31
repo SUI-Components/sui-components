@@ -1,0 +1,14 @@
+$bgc-atom-spinner: rgba($c-white, 0.6) !default;
+$z-atom-spinner: 1 !default;
+
+%spinner-layer {
+  background-color: $bgc-atom-spinner;
+  bottom: 0;
+  content: '';
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: $z-atom-spinner;
+}
+
+@import '../SUILoader/settings.scss';

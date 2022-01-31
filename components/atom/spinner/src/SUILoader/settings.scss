@@ -1,0 +1,42 @@
+$c-atom-spinner-loader-accent: color-variation($c-accent, 1) !default;
+$c-atom-spinner-loader-primary: color-variation($c-primary, -1) !default;
+$sz-atom-spinner-oval: $sz-icon-s !default;
+$sz-atom-spinner: $sz-atom-spinner-oval * 2 !default;
+$z-atom-spinner-loader: 999;
+$c-atom-spinner-loader-accent: color-variation($c-accent, 1) !default;
+$c-atom-spinner-loader-primary: color-variation($c-primary, -1) !default;
+$sz-atom-spinner-oval: $sz-icon-s !default;
+$sz-atom-spinner: $sz-atom-spinner-oval * 2 !default;
+$z-atom-spinner-loader: 999;
+
+@keyframes atom-spinner {
+  0% {
+    box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner-oval
+        $c-atom-spinner-loader-accent,
+      0 $sz-atom-spinner $c-atom-spinner-loader-primary;
+  }
+
+  25% {
+    box-shadow: 0 $sz-atom-spinner-oval $c-atom-spinner-loader-accent,
+      -$sz-atom-spinner-oval $sz-atom-spinner $c-atom-spinner-loader-primary;
+  }
+
+  50% {
+    box-shadow: 0 $sz-atom-spinner $c-atom-spinner-loader-accent,
+      -$sz-atom-spinner-oval $sz-atom-spinner-oval $c-atom-spinner-loader-primary;
+  }
+
+  75% {
+    box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner
+        $c-atom-spinner-loader-accent,
+      0 $sz-atom-spinner-oval $c-atom-spinner-loader-primary;
+  }
+
+  100% {
+    box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner-oval
+        $c-atom-spinner-loader-accent,
+      0 $sz-atom-spinner $c-atom-spinner-loader-primary;
+  }
+}
+
+$anim-atom-spinner: atom-spinner 1.5s ease-in-out infinite;

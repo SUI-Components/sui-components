@@ -1,0 +1,30 @@
+$base-class: '.sui-AtomSpinner';
+
+#{$base-class} {
+  position: relative;
+
+  &::before {
+    @extend %spinner-layer;
+    position: absolute;
+  }
+
+  &--noBackground::before {
+    background-color: transparent;
+  }
+
+  &--fullPage {
+    &::before {
+      @extend %spinner-layer;
+      position: fixed;
+    }
+
+    #{$base-class}-loader {
+      display: block;
+      position: fixed;
+    }
+  }
+
+  #{&}-loader {
+    display: block;
+  }
+}

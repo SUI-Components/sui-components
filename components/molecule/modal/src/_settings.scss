@@ -69,3 +69,55 @@ $pt-molecule-modal-footer: $p-l !default;
 $pb-molecule-modal-footer: $p-l !default;
 $pr-molecule-modal-footer: $pr-molecule-modal-content !default;
 $pl-molecule-modal-footer: $pl-molecule-modal-content !default;
+
+%modal-position {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+@keyframes modal-overlay {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-overlay-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-content-in {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modal-content-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+}

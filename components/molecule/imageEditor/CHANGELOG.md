@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.3.0 (2022-01-31)
+
+
+### Bug Fixes
+
+* **components/molecule/imageEditor:** split scsss and fix componnet class name ([42f1f9a](https://github.com/SUI-Components/sui-components/commit/42f1f9a1199db1b553224bb31ba2015e0ad99796))
+
+
+
 # 1.2.0 (2021-06-16)
 
 

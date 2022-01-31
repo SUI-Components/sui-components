@@ -1,0 +1,112 @@
+$base-class: '.sui-MoleculeBadgeCounter';
+
+#{$base-class} {
+  display: inline-block;
+  position: relative;
+
+  &-bullet {
+    $bullet: &;
+    align-items: center;
+    background-color: $bgc-molecule-badge-counter;
+    border-color: $bdc-molecule-badge-counter;
+    border-style: $bds-molecule-badge-counter;
+    border-width: $bdw-molecule-badge-counter;
+    border-radius: 100%;
+    box-sizing: border-box;
+    color: $c-molecule-badge-counter;
+    display: inline-flex;
+    font-size: $fz-molecule-badge-counter;
+    justify-content: center;
+
+    &.is-disabled {
+      background-color: $bgc-molecule-badge-counter-disabled;
+      color: $c-molecule-badge-counter-disabled;
+    }
+
+    &.is-selected {
+      background-color: $bgc-molecule-badge-counter-selected;
+      color: $c-molecule-badge-counter-selected;
+    }
+
+    &-dot {
+      background-color: $c-white;
+      border-style: solid;
+      border-color: $bgc-molecule-badge-counter;
+    }
+
+    &-exclamation {
+      &::after {
+        content: '!';
+      }
+    }
+
+    &-small {
+      height: $molecule-badge-counter-small-diameter;
+      width: $molecule-badge-counter-small-diameter;
+
+      .sui-MoleculeBadgeCounter--withChildren & {
+        position: absolute;
+        right: $molecule-badge-counter-small-offset-right;
+        top: $molecule-badge-counter-small-offset-top;
+        z-index: $z-molecule-badge-counter;
+      }
+
+      &#{$bullet}-dot {
+        border-width: $molecule-badge-counter-small-diameter-dot;
+      }
+    }
+
+    &-medium {
+      height: $molecule-badge-counter-medium-diameter;
+      min-width: $molecule-badge-counter-medium-diameter;
+
+      .sui-MoleculeBadgeCounter--withChildren & {
+        position: absolute;
+        right: $molecule-badge-counter-medium-offset-right;
+        top: $molecule-badge-counter-medium-offset-top;
+        z-index: $z-molecule-badge-counter;
+      }
+
+      &#{$bullet}-dot {
+        border-width: $molecule-badge-counter-medium-diameter-dot;
+      }
+
+      &#{$bullet}-extended {
+        border-radius: $bdrs-molecule-badge-counter;
+        padding: $p-molecule-badge-counter-medium;
+      }
+
+      &--threeCharacters {
+        border-radius: $bdrs-molecule-badge-counter;
+        padding: 0 $p-s;
+      }
+    }
+
+    &-large {
+      font-size: $fz-molecule-badge-counter-large;
+      height: $molecule-badge-counter-large-diameter;
+      min-width: $molecule-badge-counter-large-diameter;
+
+      .sui-MoleculeBadgeCounter--withChildren & {
+        position: absolute;
+        right: $molecule-badge-counter-large-offset-right;
+        top: $molecule-badge-counter-large-offset-top;
+        z-index: $z-molecule-badge-counter;
+      }
+
+      &#{$bullet}-dot {
+        border-width: $molecule-badge-counter-large-diameter-dot;
+      }
+
+      &#{$bullet}-extended {
+        border-radius: $bdrs-molecule-badge-counter;
+        padding: $p-molecule-badge-counter-large;
+      }
+
+      &--threeCharacters {
+        border-radius: $bdrs-molecule-badge-counter;
+        padding: 0 $p-m;
+      }
+    }
+  }
+}

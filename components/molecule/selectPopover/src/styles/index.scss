@@ -1,0 +1,104 @@
+$base-class: '.sui-MoleculeSelectPopover ';
+
+#{$base-class} {
+  $self: &;
+  display: inline-block;
+  position: relative;
+
+  &.is-disabled {
+    opacity: $op-select-popover;
+    pointer-events: none;
+  }
+
+  &-select {
+    $select: &;
+    align-items: center;
+    background: $bgc-select-popover;
+    border: $bd-select-popover;
+    border-radius: $bdrs-select-popover;
+    box-sizing: $bxz-select-popover-select;
+    color: $c-select-popover;
+    cursor: $cur-select-popover-select;
+    display: flex;
+    justify-content: space-between;
+    max-width: $mw-select-popover;
+    padding: $p-m $p-l;
+    user-select: none;
+
+    &Text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &Icon {
+      margin-left: $m-m;
+    }
+
+    &:hover,
+    &.is-open,
+    &.is-selected {
+      background-color: $bgc-select-popover-hover;
+      border-color: $bdc-select-popover-hover;
+    }
+
+    &.is-open {
+      color: $c-select-popover--is-open;
+
+      #{$select}Icon {
+        transform: rotate(180deg);
+      }
+    }
+
+    &.is-selected {
+      border-color: $bdc-select-popover-selected;
+      color: $c-select-popover-selected;
+    }
+
+    @each $type, $attr in $sizes-molecule-select-popover-heights {
+      &--#{$type} {
+        height: $attr;
+      }
+    }
+  }
+
+  &-popover {
+    background-color: $bgc-select-popover-content;
+    border: $bd-select-popover-content;
+    border-radius: $bdrs-select-popover-content;
+    box-shadow: $bxsh-select-popover;
+    margin-top: $m-m;
+    position: absolute;
+    min-width: $w-select-popover;
+    z-index: $z-select-popover-select-popover;
+
+    &ActionBar {
+      border-top: $bdt-select-popover-action-bar;
+      padding: $p-l;
+      text-align: right;
+    }
+
+    // placements
+    &--right {
+      left: 0;
+    }
+
+    &--left {
+      right: 0;
+    }
+  }
+
+  &--fullWidth {
+    display: block;
+
+    #{$self}-select {
+      max-width: none;
+    }
+  }
+
+  &--hasCustomWrapper {
+    #{$self}-selectIcon {
+      transform: rotate(-90deg) !important;
+    }
+  }
+}

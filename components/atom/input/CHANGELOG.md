@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 5.13.0 (2022-01-31)
+
+
+### Bug Fixes
+
+* **components/atom/input:** Fix atom input focus box shadow when have state ([ea84125](https://github.com/SUI-Components/sui-components/commit/ea84125060dfb09e2251929f1bef139a584f3902))
+* **components/atom/input:** Use variable ([b51f84e](https://github.com/SUI-Components/sui-components/commit/b51f84e0369838d3c77168ef4d06055076606a8f))
+
+
+
 # 5.12.0 (2022-01-14)
 
 

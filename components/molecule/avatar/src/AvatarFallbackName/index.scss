@@ -1,5 +1,5 @@
-$c-avatar-fallback-name: inherit !default;
+$base-class-fallback-name: '#{$base-class}FallbackName';
 
-.sui-MoleculeAvatarFallbackName {
+#{$base-class-fallback-name} {
   color: $c-avatar-fallback-name;
 }

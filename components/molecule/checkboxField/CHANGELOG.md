@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 2.17.0 (2022-01-31)
+
+
+### Bug Fixes
+
+* **components/molecule/checkboxField:** add disabled prop to atom checkbox ([f04dd2e](https://github.com/SUI-Components/sui-components/commit/f04dd2e227c9082834cb7a4e71a6d3b20115629b))
+
+
+
+# 2.16.0 (2022-01-31)
+
+
+### Bug Fixes
+
+* **components/molecule/checkboxField:** disabled was always true ([0088479](https://github.com/SUI-Components/sui-components/commit/0088479eab3c75d03c958af113b62d5dc9c59276))
+
+
+
 # 2.15.0 (2022-01-31)
 
 

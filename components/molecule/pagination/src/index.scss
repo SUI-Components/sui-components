@@ -6,13 +6,14 @@
 $trf-pagination-prev-button-icon: none !default;
 $trf-pagination-next-button-icon: none !default;
 $c-pagination-button-icon-path: inherit !default;
+$m-pagination-items: $m-s !default;
 
 .sui-MoleculePagination {
   @include reset-list;
   display: flex;
 
   &-item:not(:first-child) {
-    margin-left: $m-s;
+    margin-left: $m-pagination-items;
   }
 
   &-divider {

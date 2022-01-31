@@ -1,0 +1,97 @@
+$base-class: '.sui-MoleculeSelect';
+$class-input: '#{$base-class}-inputSelect';
+$class-select-atom-input: '.sui-AtomInput';
+$class-select-atom-input-input: '#{$class-select-atom-input}-input';
+$class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
+
+#{$base-class} {
+  outline: none;
+  position: relative;
+
+  .sui-MoleculeDropdownList {
+    position: absolute;
+    z-index: $z-select-list;
+  }
+
+  &-inputSelect {
+    &-container {
+      align-items: center;
+      border: $bd-select;
+      border-radius: $bdrs-select;
+      cursor: pointer;
+      display: flex;
+
+      .is-disabled & {
+        cursor: default;
+        #{$class-select-atom-input-input} {
+          -webkit-text-fill-color: $c-molecule-select-disabled;
+
+          background: $bg-molecule-select-disabled;
+          border: $bd-molecule-select-disabled;
+          color: $c-molecule-select-disabled;
+        }
+
+        #{$class-input}-arrow {
+          svg {
+            fill: $c-molecule-select-arrow-disabled !important;
+          }
+        }
+      }
+
+      #{$class-select-atom-input-input}:disabled {
+        opacity: 1;
+        -webkit-appearance: none;
+      }
+
+      #{$class-select-atom-input-input}:first-child,
+      #{$class-select-atom-input-tags} {
+        padding-right: $pr-select-atom-input-tags;
+      }
+    }
+
+    &-arrow {
+      height: $h-select-list-arrow;
+      margin-left: $mr-select-list-arrow;
+      width: $w-select-list-arrow;
+
+      &--down {
+        transform: rotate(0deg);
+      }
+
+      &--up {
+        transform: rotate(180deg);
+      }
+
+      svg {
+        fill: $c-select-list-arrow-fill !important;
+        height: $h-select-list-arrow;
+        width: $w-select-list-arrow;
+      }
+    }
+  }
+
+  &--focus {
+    #{$class-input} {
+      &-container {
+        @include sui-atom-input-select-focus;
+        border: $bd-molecule-select-focus;
+
+        .sui-AtomInput-input,
+        .sui-AtomInput--withTags {
+          border-color: transparent;
+        }
+      }
+    }
+  }
+
+  @each $state, $color in $states-atom-input {
+    &#{$base-class}--#{$state} #{$base-class}-inputSelect-container {
+      border-color: $color;
+
+      .sui-AtomInput-input,
+      .sui-AtomInput--withTags {
+        border-color: transparent;
+      }
+    }
+  }
+}

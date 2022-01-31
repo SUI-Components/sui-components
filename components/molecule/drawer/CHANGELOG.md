@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.1.0 (2022-01-31)
+
+
+### Bug Fixes
+
+* **components/molecule/drawer:** split scss and fix component classname ([8f2ba1e](https://github.com/SUI-Components/sui-components/commit/8f2ba1ed57a1bd3a9faaeae0774e369936b68b61))
+
+
+
 # 4.0.0 (2021-11-05)
 
 

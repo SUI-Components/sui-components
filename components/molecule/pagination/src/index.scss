@@ -3,23 +3,5 @@
 @import '~@s-ui/react-molecule-button-group/lib/index';
 @import '~@s-ui/react-atom-button/lib/index';
 
-$trf-pagination-prev-button-icon: none !default;
-$trf-pagination-next-button-icon: none !default;
-$c-pagination-button-icon-path: inherit !default;
-$m-pagination-items: $m-s !default;
-
-.sui-MoleculePagination {
-  @include reset-list;
-  display: flex;
-
-  &-item:not(:first-child) {
-    margin-left: $m-pagination-items;
-  }
-
-  &-divider {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    margin-left: $m-s;
-  }
-}
+@import './styles/settings.scss';
+@import './styles/index.scss';

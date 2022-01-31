@@ -1,0 +1,91 @@
+$base-class: '.sui-MoleculeCollapsible';
+
+#{$base-class} {
+  background-color: $bgc-collapsible-container;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+
+  &-btn {
+    background: none;
+    border: 0;
+    color: $c-collapsible-btn;
+    cursor: pointer;
+    font-size: $fz-collapsible-btn;
+    height: $mh-collapsible-btn;
+    margin-top: $mt-collapsible-btn;
+    padding: $p-collapsible-btn 0;
+
+    &-content {
+      display: flex;
+    }
+
+    &:focus,
+    &-content:focus {
+      outline: none;
+    }
+
+    &:focus &-content {
+      box-shadow: 0 0 6px 3px color-variation($c-primary, 1);
+    }
+  }
+
+  &-content {
+    overflow: hidden;
+    text-align: $ta-collapsible-content;
+
+    &--withTransition {
+      transition: $trs-collapsible-content;
+    }
+
+    &--withOverflow {
+      overflow-x: auto;
+    }
+
+    &--alignContainer {
+      &-center {
+        text-align: center;
+      }
+
+      &-right {
+        text-align: right;
+      }
+    }
+  }
+
+  &-container {
+    background-color: $bgc-collapsible-container;
+    position: relative;
+    text-align: $ta-collapsible-container;
+    width: 100%;
+
+    &#{&}--withGradient.is-collapsed {
+      &::before {
+        background: $bg-collapsible-container-gradient;
+        content: '';
+        height: $h-collapsible-container-gradient;
+        left: 0;
+        position: absolute;
+        top: -100%;
+        width: 100%;
+      }
+    }
+  }
+
+  &-icon {
+    padding-left: $p-collapsible-btn;
+    vertical-align: middle;
+
+    svg {
+      fill: currentColor;
+      transform: scale(-1);
+      width: 10px;
+    }
+
+    &.is-collapsed {
+      svg {
+        transform: scale(1);
+      }
+    }
+  }
+}

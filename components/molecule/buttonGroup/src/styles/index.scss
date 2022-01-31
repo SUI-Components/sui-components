@@ -1,0 +1,9 @@
+$base-class: '.sui-MoleculeButtonGroup';
+
+#{$base-class} {
+  display: flex;
+
+  &--fullWidth {
+    display: flex;
+  }
+}

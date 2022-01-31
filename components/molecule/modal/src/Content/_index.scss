@@ -1,4 +1,6 @@
-.sui-MoleculeModalContent {
+$base-class-content: '#{$base-class}Content';
+
+#{$base-class-content} {
   -webkit-overflow-scrolling: touch;
   flex: 1 1 auto;
   margin: $m-molecule-modal-content;

@@ -1,0 +1,16 @@
+$base-class: '.sui-BehaviorSticky';
+
+#{$base-class} {
+  overflow: hidden;
+  position: fixed;
+  transform-style: flat;
+  z-index: $z-navigation;
+
+  &--animate {
+    animation: slide-down 0.7s;
+
+    * {
+      z-index: 0;
+    }
+  }
+}

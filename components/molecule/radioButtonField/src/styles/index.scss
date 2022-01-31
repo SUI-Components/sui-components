@@ -1,0 +1,18 @@
+$base-class: '.sui-MoleculeRadioButtonField';
+
+#{$base-class} {
+  margin: $m-molecule-radio-button-field-container;
+  input[type='radio'] {
+    margin: $m-molecule-radio-button-field;
+    &:disabled {
+      + .sui-MoleculeField-nodeLabelContainer .sui-AtomLabel {
+        color: $c-molecule-radio-button-field-label--disabled;
+      }
+    }
+  }
+  .sui-AtomLabel {
+    cursor: pointer;
+    left: 23px;
+    top: -1px;
+  }
+}

@@ -1,0 +1,12 @@
+$base-class: '.sui-AtomValidationText';
+
+#{$base-class} {
+  display: block;
+  font-size: $fz-atom-validation-text;
+  margin: $m-s 0 0;
+  @each $type, $color in $validation {
+    &--#{$type} {
+      color: $color;
+    }
+  }
+}

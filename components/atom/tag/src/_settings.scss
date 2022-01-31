@@ -37,3 +37,23 @@ $c-atom-tag-closable-icon--hover: $c-gray-light-3 !default;
 
 // types
 $atom-tag-types: () !default;
+
+@mixin icon-atom-tag($type) {
+  align-items: center;
+  @include sui-icon--small;
+  display: flex;
+  justify-content: center;
+  line-height: initial;
+  vertical-align: middle;
+}
+
+@mixin icon-secondary-clickable-area($size) {
+  &::before {
+    content: '';
+    height: $size;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $w-atom-tag-clickable;
+  }
+}

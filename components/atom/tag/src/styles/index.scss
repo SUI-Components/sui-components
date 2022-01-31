@@ -1,0 +1,231 @@
+$base-class: '.sui-AtomTag';
+
+#{$base-class} {
+  $self: &;
+  align-items: center;
+  align-content: center;
+  background-color: $bgc-atom-tag;
+  border: $bd-atom-tag;
+  border-radius: ceil($h-atom-tag-m * 0.5);
+  box-sizing: border-box;
+  cursor: default;
+  display: inline-flex;
+  font-size: $fz-s;
+  height: $h-atom-tag-m;
+  justify-content: center;
+  margin: 0 $m-atom-tag $m-atom-tag 0;
+  padding: $p-atom-tag-m;
+  position: relative;
+  white-space: nowrap;
+
+  &--isFitted {
+    margin: 0;
+  }
+
+  * ~ #{$base-class}-label {
+    margin: 0 0 0 $m-s;
+  }
+
+  #{$base-class}-label + * {
+    margin: 0 0 0 $m-s;
+  }
+
+  #{$base-class}-label {
+    // max width - 2 icon size
+    $w-label-base: $mw-label - ($p-l * 2);
+    display: inline-block;
+    line-height: $h-atom-tag-m;
+    max-width: $w-label-base;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    // if only one icon is set
+    .sui-AtomTag-hasIcon &,
+    .sui-AtomTag-hasClose & {
+      max-width: $w-label-base - ($p-l + $m-s);
+    }
+
+    // if both icons are set
+    .sui-AtomTag-hasIcon.sui-AtomTag-hasClose & {
+      max-width: $w-label-base - ($p-l + $m-s) * 2;
+    }
+  }
+
+  &-closeable {
+    @include icon-secondary-clickable-area($h-atom-tag-m);
+
+    &Icon {
+      cursor: pointer;
+      line-height: initial;
+      position: relative;
+      border-radius: $bdrs-rounded;
+      background-color: $bgc-atom-tag-closable-icon;
+      fill: $c-atom-tag-closable-icon;
+      color: $c-atom-tag-closable-icon;
+
+      &:hover {
+        background-color: $bgc-atom-tag-closable-icon--hover;
+        fill: $c-atom-tag-closable-icon--hover;
+        color: $c-atom-tag-closable-icon--hover;
+      }
+    }
+  }
+
+  &-icon {
+    @include icon-atom-tag(icon);
+  }
+
+  &-secondary-icon {
+    @include icon-atom-tag(icon-secondary);
+  }
+  &-actionable {
+    background-color: $bgc-atom-tag-actionable;
+    border: $bd-atom-tag-actionable;
+    color: $c-atom-tag-actionable;
+    cursor: pointer;
+    fill: $c-atom-tag-actionable;
+    text-decoration: none;
+
+    &#{$base-class}--disabled {
+      cursor: default;
+      opacity: 0.3;
+    }
+
+    &:not(#{$base-class}--disabled) {
+      &:hover,
+      &:active {
+        background-color: $bgc-atom-tag-actionable--hover;
+        color: $c-atom-tag-actionable;
+        cursor: pointer;
+        fill: $c-atom-tag-actionable;
+      }
+    }
+
+    &#{$self}--outline {
+      border-color: $c-atom-tag-actionable-invert;
+      color: $c-atom-tag-actionable-invert;
+      fill: $c-atom-tag-actionable-invert;
+
+      &:not(#{$base-class}--disabled) {
+        &:hover,
+        &:active {
+          background-color: $bgc-atom-tag-actionable-invert--hover;
+          color: $c-atom-tag-actionable-invert--hover;
+          fill: $c-atom-tag-actionable-invert--hover;
+        }
+      }
+    }
+  }
+
+  &-small {
+    height: $h-atom-tag-s;
+    padding: $p-atom-tag-s;
+
+    & .sui-AtomTag-label {
+      line-height: $h-atom-tag-s;
+    }
+
+    .sui-AtomTag-closeable {
+      @include icon-secondary-clickable-area($h-atom-tag-s);
+    }
+
+    .sui-AtomTag-icon {
+      margin-left: 0;
+    }
+
+    .sui-AtomTag-secondary-icon {
+      margin-right: 0;
+    }
+  }
+
+  &-large {
+    border-radius: ceil($h-atom-tag-l * 0.5);
+    height: $h-atom-tag-l;
+    padding: $p-atom-tag-l;
+
+    & .sui-AtomTag-label {
+      line-height: $h-atom-tag-l;
+    }
+
+    .sui-AtomTag-closeable {
+      @include icon-secondary-clickable-area($h-atom-tag-l);
+    }
+  }
+
+  &--responsive {
+    @include media-breakpoint-down(s) {
+      border-radius: ceil($h-atom-tag-l * 0.5);
+      height: $h-atom-tag-l;
+      padding: $p-atom-tag-l;
+
+      & .sui-AtomTag-label {
+        line-height: $h-atom-tag-l;
+      }
+
+      .sui-AtomTag-closeable {
+        @include icon-secondary-clickable-area($h-atom-tag-l);
+      }
+    }
+  }
+
+  &--outline {
+    background-color: $bgc-atom-tag-outline;
+    border: $bdw-atom-tag-outline solid $bc-atom-tag-outline;
+  }
+
+  @each $name, $type in $atom-tag-types {
+    $bgc: map-get($type, bgc);
+    $c: map-get($type, c);
+    $bgc-hover: map-get($type, bgc-hover);
+    $c-hover: map-get($type, c-hover);
+    $bdc: map-get($type, bdc);
+    $bdc-hover: map-get($type, bdc-hover);
+
+    &--#{$name} {
+      background-color: $bgc;
+      color: $c;
+      fill: $c;
+      &#{$self}-actionable {
+        background-color: $bgc;
+        border-color: $bdc;
+        color: $c;
+        fill: $c;
+      }
+      &#{$self}--outline {
+        border-color: $bgc;
+        color: $bgc;
+        background-color: $c;
+        fill: $bgc;
+      }
+
+      @if $bgc-hover or $c-hover {
+        @media (hover: hover) {
+          &:not(#{$self}--disabled) {
+            &:hover,
+            &:active {
+              background-color: $bgc-hover;
+              border-color: $bdc-hover;
+              color: $c-hover;
+              &#{$self}--outline {
+                background-color: $bgc;
+                border-color: $bgc;
+                color: $c;
+                fill: $c;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media print {
+    border: {
+      color: $bgc-atom-tag;
+      style: solid;
+      width: $bdrs-s;
+    }
+  }
+}

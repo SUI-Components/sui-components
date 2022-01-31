@@ -1,0 +1,102 @@
+$base-class: '.sui-MoleculeDrawer';
+
+#{$base-class} {
+  &-overlay {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: $z-molecule-drawer-overlay;
+    animation: bg-overlay 1s both;
+  }
+
+  &-content {
+    $this: &;
+    z-index: $z-molecule-drawer;
+    position: absolute;
+    background-color: $bgc-molecule-drawer;
+    display: block;
+
+    &--animationDuration {
+      transition-property: transform;
+      transition-timing-function: linear;
+      @each $transition-duration-name,
+        $transition-duration-value in $trsdu-molecule-drawer-map
+      {
+        &-#{$transition-duration-name} {
+          transition-duration: $transition-duration-value;
+        }
+      }
+    }
+    &--placement {
+      position: fixed;
+      &-left {
+        left: -100%;
+        top: 0px;
+      }
+      &-right {
+        right: -100%;
+        top: 0;
+      }
+      &-top {
+        top: -100%;
+        left: 0;
+      }
+      &-bottom {
+        bottom: -100%;
+        left: 0;
+      }
+    }
+
+    @each $size-name, $size-value in $z-molecule-drawer-map {
+      &--size-#{$size-name} {
+        &#{$this}--placement-left {
+          height: 100%;
+          width: $size-value;
+          max-width: 100%;
+          overflow-x: scroll;
+        }
+        &#{$this}--placement-right {
+          height: 100%;
+          width: $size-value;
+          max-width: 100%;
+          overflow-x: scroll;
+        }
+        &#{$this}--placement-top {
+          width: 100%;
+          height: $size-value;
+          max-height: 100%;
+          overflow-y: scroll;
+        }
+        &#{$this}--placement-bottom {
+          width: 100%;
+          height: $size-value;
+          max-height: 100%;
+          overflow-y: scroll;
+        }
+      }
+    }
+    &--state-opened {
+      box-shadow: $bxsh-molecule-drawer;
+      &#{$this}--placement {
+        &-left {
+          left: 0;
+          top: 0;
+        }
+        &-right {
+          right: 0;
+          top: 0;
+        }
+        &-top {
+          top: 0;
+          left: 0;
+        }
+        &-bottom {
+          bottom: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+}

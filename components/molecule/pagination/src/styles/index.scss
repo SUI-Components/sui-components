@@ -1,0 +1,17 @@
+$base-class: '.sui-MoleculePagination';
+
+#{$base-class} {
+  @include reset-list;
+  display: flex;
+
+  &-item:not(:first-child) {
+    margin-left: $m-s;
+  }
+
+  &-divider {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: $m-s;
+  }
+}

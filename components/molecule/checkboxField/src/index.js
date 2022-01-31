@@ -34,6 +34,7 @@ const MoleculeCheckboxField = ({
         inline
         reverse
         isAligned
+        disabled
       >
         <AtomCheckbox id={id} {...props} />
         {ToggleIcon && (
@@ -86,7 +87,10 @@ MoleculeCheckboxField.propTypes = {
   toggleIcon: PropTypes.elementType,
 
   /* onChange callback for toggle icon */
-  toggleIconOnChange: PropTypes.func
+  toggleIconOnChange: PropTypes.func,
+
+  /* Boolean to decide if elements should be disabled */
+  disabled: PropTypes.bool
 }
 
 export default MoleculeCheckboxField

@@ -93,6 +93,16 @@ const Demo = () => {
               onChange={(e, {name, value}) => console.log({[name]: value})}
             />
           </li>
+          <li style={styleListItem}>
+            <h2>Disabled</h2>
+            <MoleculeCheckboxField
+              id="disabled"
+              label="Hide salary"
+              value="In some place of La Mancha which name..."
+              onChange={(e, {name, value}) => console.log({[name]: value})}
+              disabled
+            />
+          </li>
         </ul>
       </div>
     </div>

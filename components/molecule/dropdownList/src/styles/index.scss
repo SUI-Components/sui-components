@@ -1,0 +1,38 @@
+$base-class: '.sui-MoleculeDropdownList';
+
+#{$base-class} {
+  background: $bc-dropdown-list;
+  border-radius: $bdrs-dropdown-list;
+  box-sizing: $bxz-dropdown-list;
+  margin: 0;
+  overflow-y: scroll;
+  padding: $p-dropdown-list;
+  width: 100%;
+
+  &.is-hidden {
+    display: none;
+  }
+
+  &--design {
+    &-solid {
+      border: $bd-dropdown-list;
+      box-shadow: $bxsh-dropdown-list;
+    }
+  }
+
+  &--small {
+    max-height: $h-dropdown-list--small;
+  }
+
+  &--medium {
+    max-height: $h-dropdown-list--medium;
+  }
+
+  &--large {
+    max-height: $h-dropdown-list--large;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

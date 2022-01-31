@@ -64,6 +64,10 @@
   @each $state, $color in $states-atom-input {
     &.sui-AtomInput-input--#{$state} {
       border-color: $color;
+
+      &:focus {
+        box-shadow: $bxsh-atom-input-size $color;
+      }
     }
   }
 

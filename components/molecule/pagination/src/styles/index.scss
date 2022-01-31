@@ -5,7 +5,7 @@ $base-class: '.sui-MoleculePagination';
   display: flex;
 
   &-item:not(:first-child) {
-    margin-left: $m-s;
+    margin-left: $m-pagination-items;
   }
 
   &-divider {

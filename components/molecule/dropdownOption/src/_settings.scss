@@ -3,3 +3,32 @@ $c-dropdown-option-disabled: color-variation($c-gray, 3) !default;
 $mih-dropdown-option: 40px !default;
 $h-dropdown-option: $mih-dropdown-option !default; // deprecated
 $bgc-dropdown-option-hover: $c-gray-light-4 !default;
+
+$c-molecule-dropdown-option--highlight-mark: initial !default;
+$bdr-molecule-dropdown-option: 0 !default;
+$bdrs-molecule-dropdown-option: $bdr-molecule-dropdown-option !default;
+$bg-molecule-dropdown-option--highlight-mark: $c-highlight !default;
+$bg-molecule-dropdown-option-selected: none !default;
+$fw-molecule-dropdown-option-selected-text: $fw-bold !default;
+$fz-molecule-dropdown-option-text: inherit !default;
+$fw-molecule-dropdown-option--highlight-mark: normal !default;
+$lh-molecule-dropdown-option-line-wrap-text: $lh-m !default;
+$ln-molecule-dropdown-option-two-lines-text: $lh-molecule-dropdown-option-line-wrap-text !default; // deprecated
+$ml-molecule-dropdown-option-text: $m-s !default;
+$c-molecule-dropdown-option-description: $c-gray !default;
+$fz-molecule-dropdown-option-description: inherit !default;
+$mt-molecule-dropdown-option-description: $m-s !default;
+$mr-molecule-dropdown-option-description: 0 !default;
+$mb-molecule-dropdown-option-description: 0 !default;
+$ml-molecule-dropdown-option-description: $m-s !default;
+$p-molecule-dropdown-option: $p-l !default;
+$pl-molecule-dropdown-option: $p-molecule-dropdown-option !default;
+$pr-molecule-dropdown-option: $p-molecule-dropdown-option !default;
+$pt-molecule-dropdown-option: 0 !default;
+$pb-molecule-dropdown-option: 0 !default;
+$mt-molecule-dropdown-option: 0 !default;
+$mr-molecule-dropdown-option: 0 !default;
+$mb-molecule-dropdown-option: 0 !default;
+$ml-molecule-dropdown-option: 0 !default;
+$p-molecule-dropdown-option-with-description: $p-m !default;
+$pt-molecule-dropdown-option-with-description: $p-molecule-dropdown-option-with-description;

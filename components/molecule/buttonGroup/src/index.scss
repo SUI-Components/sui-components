@@ -1,7 +1,4 @@
-.sui-MoleculeButtonGroup {
-  display: flex;
+@import '~@s-ui/theme/lib/index';
 
-  &--fullWidth {
-    display: flex;
-  }
-}
+@import './styles/settings.scss';
+@import './styles/index.scss';

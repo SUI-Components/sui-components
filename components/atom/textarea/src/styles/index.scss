@@ -1,0 +1,56 @@
+$base-class: '.sui-AtomTextarea';
+
+#{$base-class} {
+  background: $bgc-atom-textarea;
+  border: $bd-atom-textarea;
+  border-radius: $bdrs-atom-textarea;
+  box-sizing: border-box;
+  color: $c-atom-textarea;
+  font-family: $ff-atom-textarea;
+  font-size: $fz-atom-textarea;
+  line-height: $lh-atom-textarea;
+  padding: $p-atom-textarea;
+  padding-left: $pl-atom-textarea;
+  padding-top: $pt-atom-textarea;
+  resize: $rsz-atom-textarea;
+  width: $w-atom-textarea;
+
+  &[disabled] {
+    background: $bgc-atom-textarea--disabled;
+    border: $bd-atom-textarea--disabled;
+    color: $c-atom-textarea--disabled;
+  }
+
+  &::placeholder {
+    color: $c-atom-textarea-placeholder;
+  }
+
+  &:focus {
+    @include sui-atom-input-input-focus;
+  }
+
+  &--short {
+    height: calc(
+      (#{$lh-atom-textarea} * #{$short-num-lines-atom-textarea}) + #{$pt-atom-textarea}
+    );
+  }
+
+  &--long {
+    height: calc(
+      (#{$lh-atom-textarea} * #{$long-num-lines-atom-textarea}) + #{$pt-atom-textarea}
+    );
+  }
+
+  @each $state, $color in $states-atom-input {
+    &#{$base-class}--#{$state} {
+      border-color: $color;
+    }
+  }
+
+  @each $resize in $resizes-atom-textarea {
+    &#{$base-class}--resize-#{$resize} {
+      overflow: auto;
+      resize: $resize;
+    }
+  }
+}

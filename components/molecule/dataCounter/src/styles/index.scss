@@ -1,0 +1,49 @@
+$base-class: '.sui-MoleculeDataCounter';
+
+#{$base-class} {
+  &-container {
+    display: flex;
+
+    .sui-AtomInput-input {
+      margin: 0 $m-s;
+      min-height: inherit;
+      text-align: center;
+      width: inherit;
+    }
+
+    &--s {
+      height: $h-atom-input--s;
+
+      .sui-AtomInput-input {
+        height: $h-atom-input--s;
+      }
+
+      .sui-AtomButton {
+        height: $h-atom-input--s;
+        width: $w-atom-input--s;
+      }
+    }
+
+    &--m {
+      height: $h-atom-input--m;
+
+      .sui-AtomInput-input {
+        height: $h-atom-input--m;
+      }
+
+      .sui-AtomButton {
+        height: $h-atom-input--m;
+        width: $w-atom-input--m;
+      }
+    }
+
+    &--m,
+    &--s {
+      .sui-AtomButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

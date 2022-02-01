@@ -91,7 +91,7 @@ $class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
 
         .sui-AtomInput-input,
         .sui-AtomInput--withTags {
-          border-color: $bc-molecule-select-input-with-state;
+          border-color: $bdc-molecule-select-input-with-state;
         }
       }
       &#{$base-class}--focus #{$base-class}-inputSelect-container {

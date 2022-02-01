@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.52.0 (2022-02-01)
+
+
+### Features
+
+* **components/molecule/select:** add border color token ([384c676](https://github.com/SUI-Components/sui-components/commit/384c67609ec00376dd341cae6def7c635b8c89c5))
+* **components/molecule/select:** fix token name ([9d3ccd9](https://github.com/SUI-Components/sui-components/commit/9d3ccd978f44633c30575874d94824c02b91854d))
+* **components/molecule/select:** use new token only if select its not focused ([be89965](https://github.com/SUI-Components/sui-components/commit/be89965804faafdf0e6f216db4d2fb3be76de873))
+
+
+
 # 1.51.0 (2021-11-30)
 
 

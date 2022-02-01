@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.17.0 (2022-02-01)
+
+
+### Bug Fixes
+
+* **components/molecule/rating:** infra ([730f1c1](https://github.com/SUI-Components/sui-components/commit/730f1c1053dc5973cf15a44e53b8817d1d4eaf62))
+
+
+
 # 1.16.0 (2022-02-01)
 
 

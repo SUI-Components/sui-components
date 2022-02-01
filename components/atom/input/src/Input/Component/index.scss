@@ -1,3 +1,6 @@
+$base-class-input: '#{$base-class}-input';
+$class-read-only: '#{$base-class-input}--readOnly';
+
 #{$base-class-input} {
   appearance: none;
   -moz-appearance: none;

@@ -340,4 +340,106 @@ describe(json.name, () => {
       })
     })
   })
+
+  describe('moleculePaginationDesigns', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {moleculePaginationDesigns: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        SOLID: 'solid',
+        OUTLINE: 'outline',
+        FLAT: 'flat',
+        LINK: 'link'
+      }
+
+      // When
+      const {moleculePaginationDesigns: actual} = library
+      const {SOLID, OUTLINE, FLAT, LINK, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('moleculePaginationShapes', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {moleculePaginationShapes: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        SQUARED: 'squared',
+        ROUNDED: 'rounded',
+        CIRCULAR: 'circular'
+      }
+
+      // When
+      const {moleculePaginationShapes: actual} = library
+      const {SQUARED, ROUNDED, CIRCULAR, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('moleculePaginationSizes', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {moleculePaginationSizes: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {SMALL: 'small', LARGE: 'large'}
+
+      // When
+      const {moleculePaginationSizes: actual} = library
+      const {SMALL, LARGE, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
 })

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.14.0 (2022-02-01)
+
+
+### Bug Fixes
+
+* **components/atom/input:** Fix password toggle button styles breaking because of wrong baseclass ([3410af3](https://github.com/SUI-Components/sui-components/commit/3410af37f69be0b77e1362b53117ab1927e2ffd1))
+
+
+
 # 5.13.0 (2022-01-31)
 
 

@@ -2,7 +2,10 @@
   "name": "@s-ui/react-molecule-breadcrumb",
   "version": "1.23.0",
   "description": "SUI Breadcrumb Basic",
-  "main": "lib/index.js",
+  "type": "module",
+  "exports": {
+    ".":  "./lib/index.js"
+  },
   "scripts": {
     "prepare": "rimraf ./lib && npm run build:js && npm run build:styles",
     "build:js": "babel --presets sui ./src --out-dir ./lib",

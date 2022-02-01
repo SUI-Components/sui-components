@@ -2,7 +2,10 @@
   "name": "@s-ui/react-atom-skeleton",
   "version": "1.4.0",
   "description": "Display the loading state of a component while avoding layout shift",
-  "main": "lib/index.js",
+  "type": "module",
+  "exports": {
+    ".":  "./lib/index.js"
+  },
   "scripts": {
     "prepare": "rimraf ./lib && npm run build:js && npm run build:styles",
     "build:js": "babel --presets sui ./src --out-dir ./lib",

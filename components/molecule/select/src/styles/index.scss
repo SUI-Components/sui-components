@@ -85,12 +85,20 @@ $class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
   }
 
   @each $state, $color in $states-atom-input {
-    &#{$base-class}--#{$state} #{$base-class}-inputSelect-container {
-      border-color: $color;
+    &#{$base-class}--#{$state} {
+      & #{$base-class}-inputSelect-container {
+        border-color: $color;
 
-      .sui-AtomInput-input,
-      .sui-AtomInput--withTags {
-        border-color: transparent;
+        .sui-AtomInput-input,
+        .sui-AtomInput--withTags {
+          border-color: $bdc-molecule-select-input-with-state;
+        }
+      }
+      &#{$base-class}--focus #{$base-class}-inputSelect-container {
+        .sui-AtomInput-input,
+        .sui-AtomInput--withTags {
+          border-color: transparent;
+        }
       }
     }
   }

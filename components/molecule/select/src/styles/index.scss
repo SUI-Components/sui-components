@@ -90,7 +90,7 @@ $class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
 
       .sui-AtomInput-input,
       .sui-AtomInput--withTags {
-        border-color: transparent;
+        border-color: $bc-molecule-select-input-with-state;
       }
     }
   }

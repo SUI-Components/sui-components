@@ -1,3 +1,19 @@
+$base-class: '.sui-AtomSlider';
+$base-class-rc-slider: '.rc-slider';
+$class-handle: '#{$base-class-rc-slider}-handle';
+$class-disabled: '#{$base-class-rc-slider}-disabled';
+$class-rail: '#{$base-class-rc-slider}-rail';
+$class-track: '#{$base-class-rc-slider}-track';
+$class-dot: '#{$base-class-rc-slider}-dot';
+$class-mark: '#{$base-class-rc-slider}-mark';
+$class-mark-text: '#{$base-class-rc-slider}-mark-text';
+$class-mark-text-active: '#{$base-class-rc-slider}-mark-text-active';
+$class-tooltip: '#{$base-class-rc-slider}-tooltip';
+$class-tooltip-content: '#{$class-tooltip}-content';
+$class-tooltip-inner: '#{$class-tooltip}-inner';
+$class-tooltip-arrow: '#{$class-tooltip}-arrow';
+$class-tooltip-hidden: '#{$class-tooltip}-hidden';
+
 #{$base-class} {
   font-family: $ff-atom-slider;
   font-size: $fz-atom-slider;

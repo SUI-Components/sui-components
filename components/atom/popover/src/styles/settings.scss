@@ -22,8 +22,3 @@ $z-atom-popover-placement: auto !default;
 $w-atom-popover-arrow: $p-m + $p-s !default;
 $h-atom-popover-arrow: $p-m !default;
 $c-atom-popover-arrow: $bdc-atom-popover !default;
-
-$base-class: '.sui-AtomPopover';
-$class-inner: '#{$base-class}-inner';
-
-$class-arrow: '#{$base-class}-arrow';

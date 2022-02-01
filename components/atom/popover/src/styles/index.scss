@@ -1,3 +1,8 @@
+$base-class: '.sui-AtomPopover';
+$class-inner: '#{$base-class}-inner';
+
+$class-arrow: '#{$base-class}-arrow';
+
 #{$base-class} {
   display: contents;
   font-size: $fz-atom-popover;

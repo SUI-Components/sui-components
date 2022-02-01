@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.12.0 (2022-02-01)
+
+
+### Bug Fixes
+
+* **components/atom/icon:** infra ([7b630f8](https://github.com/SUI-Components/sui-components/commit/7b630f8eeb5933d24ea9bb4953754e205aa2e1c1))
+
+
+
 # 1.11.0 (2021-09-13)
 
 

@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 1.16.0 (2022-02-01)
+
+
+### Bug Fixes
+
+* **components/molecule/rating:** infra ([530e922](https://github.com/SUI-Components/sui-components/commit/530e922a64e21fa096f7ce0e06518ae288770d4c))
+
+
+
+# 1.1.0 (2021-10-10)
+
+
+### Bug Fixes
+
+* **components/molecule/rating/demo:** Fix SVG look and feel ([b039aa8](https://github.com/SUI-Components/sui-components/commit/b039aa822012088b12a4c0bcbc2ccb16145b4669)), closes [#1800](https://github.com/SUI-Components/sui-components/issues/1800)
+
+
+
 # 1.15.0 (2021-10-08)
 
 

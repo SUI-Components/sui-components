@@ -1,3 +1,5 @@
+$base-class: '.sui-AtomActionButton';
+
 #{$base-class} {
   @include reset-button;
   @include action-button-icon($sz-atom-action-button-icon);

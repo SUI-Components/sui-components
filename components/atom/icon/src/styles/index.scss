@@ -1,3 +1,5 @@
+$base-class: '.sui-AtomIcon';
+
 #{$base-class} {
   // Colors
   @each $key, $value in $atom-icon-colors {

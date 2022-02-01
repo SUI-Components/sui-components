@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.13.0 (2022-02-01)
+
+
+### Bug Fixes
+
+* **components/atom/icon:** declare concrete css colors rule ([7c9410e](https://github.com/SUI-Components/sui-components/commit/7c9410e14023507ae38634c3e29bb64b9d5c7699))
+
+
+
 # 1.12.0 (2022-02-01)
 
 

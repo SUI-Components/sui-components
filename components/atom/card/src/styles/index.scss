@@ -1,3 +1,6 @@
+$base-class: '.sui-AtomCard';
+$class-media: '#{$base-class}-media';
+
 #{$base-class} {
   background: $bg-atom-card;
   border-radius: $bdrs-atom-card;

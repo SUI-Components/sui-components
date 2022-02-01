@@ -3,14 +3,14 @@ $base-class: '.sui-AtomIcon';
 #{$base-class} {
   // Colors
   @each $key, $value in $atom-icon-colors {
-    &--#{$key} svg {
+    &#{$base-class}--#{$key} svg {
       fill: $value;
     }
   }
 
   // Sizes
   @each $key, $value in $atom-icon-sizes {
-    &--#{$key} svg {
+    &#{$base-class}--#{$key} svg {
       height: $value;
       width: $value;
     }

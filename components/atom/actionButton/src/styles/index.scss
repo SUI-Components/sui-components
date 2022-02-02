@@ -7,6 +7,7 @@ $base-class: '.sui-AtomActionButton';
   align-items: center;
   background: none;
   border: none;
+  border-radius: $bdrs-atom-action-button;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.7.0 (2022-02-02)
+
+
+### Features
+
+* **components/atom/actionButton:** Add a SCSS token to customize border radius of atom/actionButton ([bcc615c](https://github.com/SUI-Components/sui-components/commit/bcc615c5d4a95d1b506567372c86b86525c19b1d))
+
+
+
 # 1.6.0 (2021-12-09)
 
 

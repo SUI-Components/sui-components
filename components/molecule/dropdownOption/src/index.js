@@ -24,6 +24,7 @@ import {
 
 const MoleculeDropdownOption = ({
   checkbox,
+  checkboxProps,
   children,
   disabled,
   highlightQuery,
@@ -109,6 +110,7 @@ const MoleculeDropdownOption = ({
           checked={selected}
           disabled={disabled}
           onFocus={handleInnerFocus}
+          {...checkboxProps}
         />
       )}
       {highlightQuery ? (
@@ -134,6 +136,8 @@ MoleculeDropdownOption.propTypes = {
   children: PropTypes.node,
   /** Contains checkbox */
   checkbox: PropTypes.bool,
+  /** Addtional props to set up the checkbox */
+  checkboxProps: PropTypes.object,
   /** Is disabled */
   disabled: PropTypes.bool,
   /** onSelect callback (ev, {value}) */

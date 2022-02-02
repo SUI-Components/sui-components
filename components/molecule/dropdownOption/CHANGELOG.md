@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.39.0 (2022-02-02)
+
+
+### Features
+
+* **components/molecule/dropdownOption:** Add new props in order to customize the inner AtomCheckbox ([d599c60](https://github.com/SUI-Components/sui-components/commit/d599c60bc74c8dd817fbaed83b590b07a79e19c8))
+
+
+
 # 1.38.0 (2022-01-27)
 
 

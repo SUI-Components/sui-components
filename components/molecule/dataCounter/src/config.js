@@ -12,5 +12,12 @@ export const ACTIONS = {
 
 export const sizeConversor = {
   [inputSizes.SMALL]: atomButtonSizes.SMALL,
+  [inputSizes.MEDIUM]: atomButtonSizes.MEDIUM,
   [inputSizes.LARGE]: atomButtonSizes.LARGE
 }
+
+export const moleculeDataCounterSizes = Object.fromEntries(
+  Object.entries(inputSizes).filter(([, value]) =>
+    Object.keys(sizeConversor).includes(value)
+  )
+)

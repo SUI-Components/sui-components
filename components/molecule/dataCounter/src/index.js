@@ -10,7 +10,8 @@ import {
   ACTIONS,
   BASE_CLASS,
   CLASS_INPUT_CONTAINER,
-  sizeConversor
+  sizeConversor,
+  moleculeDataCounterSizes
 } from './config.js'
 
 const MoleculeDataCounter = forwardRef(
@@ -241,4 +242,4 @@ MoleculeDataCounter.propTypes = {
 }
 
 export default MoleculeDataCounter
-export {inputSizes as moleculeDataCounterSizes}
+export {moleculeDataCounterSizes}

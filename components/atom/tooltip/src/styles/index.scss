@@ -25,10 +25,8 @@ $class-target: '#{$base-class}-target';
   // Avoid flick on hover
   pointer-events: none;
 
-  position: absolute;
   // Allow breaking very long words so they don't overflow the tooltip's bounds
   word-wrap: break-word;
-  z-index: $z-atom-tooltip;
 
   // Wrapper for the tooltip content
   #{$class-inner} {
@@ -114,6 +112,8 @@ $class-target: '#{$base-class}-target';
   }
 
   &--auto {
+    z-index: $z-atom-tooltip;
+
     &[x-placement*='top'] {
       @extend #{$base-class}--top;
     }

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.2.0 (2022-02-03)
+
+
+### Bug Fixes
+
+* **components/atom/tooltip:** Fix zindex in atom tooltip ([fda35ab](https://github.com/SUI-Components/sui-components/commit/fda35abe6429543560fd6eecb7f43ebb56c39e01))
+
+
+
 # 2.1.0 (2022-01-12)
 
 

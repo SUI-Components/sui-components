@@ -1,19 +1,16 @@
 @import 'components/atom/radioButton/src/index';
 @import 'components/molecule/radioButtonField/src/index';
-
 @import '../src/index';
 
 .DemoMoleculeRadioButtonGroup {
   padding: 20px;
-
   &-section {
-    border: 1px solid #ddd;
     margin: 20px 20px 20px 0;
-    max-width: 800px;
     min-width: 300px;
     padding: 10px;
+    background: white;
+    color: grey;
   }
-
   .sui-MoleculeRadioButtonField {
     margin-bottom: 15px;
   }

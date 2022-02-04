@@ -1,13 +1,13 @@
 /* eslint-disable */
 import {useRef, useEffect} from 'react'
 
-const useMouseHold = (onClickHandler, {interval, delay}) => {
+const useMouseHold = (onClickHandler, {interval, delay, disabled}) => {
   const delayedIntervalRef = useRef(null)
   const intervalRef = useRef(null)
 
   useEffect(() => {
     return () => stopHold()
-  }, [])
+  }, [disabled])
 
   const startHold = event => {
     if (delayedIntervalRef.current) return
@@ -19,7 +19,7 @@ const useMouseHold = (onClickHandler, {interval, delay}) => {
     }, delay)
   }
 
-  const stopHold = (event) => {
+  const stopHold = event => {
     if (delayedIntervalRef.current) {
       clearTimeout(delayedIntervalRef.current)
       delayedIntervalRef.current = null
@@ -34,7 +34,7 @@ const useMouseHold = (onClickHandler, {interval, delay}) => {
     onClick: onClickHandler,
     onMouseDown: startHold,
     onMouseUp: stopHold,
-    onMouseLeave: stopHold,
+    onMouseLeave: stopHold
   }
 }
 

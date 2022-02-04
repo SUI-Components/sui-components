@@ -140,7 +140,11 @@ const MoleculeDataCounter = forwardRef(
               isButton
               isLoading={isLoading && lastAction === ACTIONS.LESS}
               size={sizeConversor[size]}
-              {...useMouseHold(decrementValue, {interval: 100, delay: 500})}
+              {...useMouseHold(decrementValue, {
+                interval: 100,
+                delay: 500,
+                disabled: decrementDisabled
+              })}
             >
               {substractIcon}
             </AtomButton>
@@ -165,7 +169,11 @@ const MoleculeDataCounter = forwardRef(
               isButton
               isLoading={isLoading && lastAction === ACTIONS.MORE}
               size={sizeConversor[size]}
-              {...useMouseHold(incrementValue, {interval: 100, delay: 500})}
+              {...useMouseHold(incrementValue, {
+                interval: 100,
+                delay: 500,
+                disabled: incrementDisabled
+              })}
             >
               {addIcon}
             </AtomButton>

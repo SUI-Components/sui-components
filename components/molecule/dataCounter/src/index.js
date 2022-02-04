@@ -13,6 +13,7 @@ import {
   sizeConversor,
   moleculeDataCounterSizes
 } from './config.js'
+import useMouseHold from './useMouseHold.js'
 
 const MoleculeDataCounter = forwardRef(
   (
@@ -69,39 +70,34 @@ const MoleculeDataCounter = forwardRef(
     const decrementDisabled = disabled || internalValue <= numMin
     const incrementDisabled = disabled || internalValue >= numMax
 
-    const assignValue = (event, {newValue, lastAction}) => {
-      if (value === undefined) {
-        // uncontrolled component
-        setInternalValue(newValue)
-      }
-      if (lastAction) {
-        setLastActions(lastAction)
-      }
-      if (typeof onChange === 'function') {
-        onChange(event, {value: String(newValue), action: lastAction})
-      }
+    const assignDiff = (event, {diff, lastAction}) => {
+      setInternalValue(currentValue => {
+        typeof onChange === 'function' &&
+          onChange(event, {
+            value: String(currentValue + diff),
+            action: lastAction
+          })
+        return value === undefined ? currentValue + diff : currentValue
+      })
+      lastAction && setLastActions(lastAction)
     }
 
     const incrementValue = event => {
-      let newValue = internalValue + 1
-      if (isHigherThanMaxValue(newValue)) {
-        newValue = internalValue
-      }
-      assignValue(event, {newValue, lastAction: ACTIONS.MORE})
+      const diff = isHigherThanMaxValue(internalValue + 1) ? 0 : 1
+      const lastAction = ACTIONS.MORE
+      assignDiff(event, {diff, lastAction})
     }
 
     const decrementValue = event => {
-      let newValue = internalValue - 1
-      if (isLowerThanMinValue(newValue)) {
-        newValue = internalValue
-      }
-      assignValue(event, {newValue, lastAction: ACTIONS.LESS})
+      const diff = isLowerThanMinValue(internalValue - 1) ? 0 : -1
+      const lastAction = ACTIONS.LESS
+      assignDiff(event, {diff, lastAction})
     }
 
     const handleChange = (event, {value}) => {
       const newValue = parseInt(value, 10)
-      assignValue(event, {
-        newValue: isNaN(newValue) ? '' : newValue,
+      assignDiff(event, {
+        diff: isNaN(newValue) ? undefined : 0,
         lastAction: ACTIONS.CHANGE
       })
     }
@@ -143,8 +139,8 @@ const MoleculeDataCounter = forwardRef(
               disabled={decrementDisabled}
               isButton
               isLoading={isLoading && lastAction === ACTIONS.LESS}
-              onClick={decrementValue}
               size={sizeConversor[size]}
+              {...useMouseHold(decrementValue, {interval: 100, delay: 500})}
             >
               {substractIcon}
             </AtomButton>
@@ -168,8 +164,8 @@ const MoleculeDataCounter = forwardRef(
               disabled={incrementDisabled}
               isButton
               isLoading={isLoading && lastAction === ACTIONS.MORE}
-              onClick={incrementValue}
               size={sizeConversor[size]}
+              {...useMouseHold(incrementValue, {interval: 100, delay: 500})}
             >
               {addIcon}
             </AtomButton>

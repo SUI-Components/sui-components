@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.14.0 (2022-02-04)
+
+
+### Bug Fixes
+
+* **components/molecule/dataCounter:** export sizes constant ([543ff7d](https://github.com/SUI-Components/sui-components/commit/543ff7d95cc1ad6c14b784dcc9fc53899b1b41a7))
+* **components/molecule/dataCounter:** fix dataCounter default value when declaring custom ranges to ([e855138](https://github.com/SUI-Components/sui-components/commit/e855138b36c10169a582befd0b810d18c775435a))
+
+
+
 # 1.13.0 (2022-01-25)
 
 

@@ -99,6 +99,7 @@ const ArticleBounds = ({className}) => {
             min={min}
             max={max}
             value={value}
+            onChange={(event, {value}) => setValue(value)}
             {...propsMessages}
           />
         </Cell>

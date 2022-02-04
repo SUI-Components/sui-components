@@ -49,7 +49,7 @@ const MoleculeDataCounter = forwardRef(
     } else if (initialValue !== undefined) {
       initialStateValue = Number(initialValue)
     } else {
-      initialStateValue = Math.trunc((numMax - numMin) / 2)
+      initialStateValue = numMin + Math.trunc((numMax - numMin) / 2)
     }
 
     const [lastAction, setLastActions] = useState()
@@ -184,7 +184,7 @@ MoleculeDataCounter.displayName = 'MoleculeDataCounter'
 
 MoleculeDataCounter.propTypes = {
   /** Text to be displayed as label */
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
 
   /** used as label for attribute and input element id */
   id: PropTypes.string,

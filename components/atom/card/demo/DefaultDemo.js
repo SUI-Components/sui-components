@@ -45,20 +45,20 @@ const DefaultDemo = () => {
         </UnorderedList>
         <Paragraph>–––</Paragraph>
         <Paragraph>
-          The component can become clickable adding an url to it{' '}
-          <Code>href</Code> prop.
-        </Paragraph>
-        <Paragraph>
-          Card can highlight its content with a <Code>highlight</Code> boolean
-          prop.
-        </Paragraph>
-        <Paragraph>
           Card can give a vertical orientation of elements under the{' '}
           <Code>vertical</Code> boolean prop.
         </Paragraph>
         <Paragraph>
           Card can be actionable and trigger an event clicking on it under{' '}
           <Code>onClick</Code> prop.
+        </Paragraph>
+        <Paragraph>
+          The component can become clickable adding an url to it{' '}
+          <Code>href</Code> prop.
+        </Paragraph>
+        <Paragraph>
+          Card can highlight its content with a <Code>highlight</Code> boolean
+          prop. It is only possible if has an onClick action or a href declared.
         </Paragraph>
         <Grid cols={6} gutter={[8, 8]}>
           <Cell>

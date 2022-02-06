@@ -40,9 +40,9 @@ const AtomCard = ({
     BASE_CLASS,
     isVertical && CLASS_VERTICAL,
     responsive && CLASS_RESPONSIVE,
-    highlight && CLASS_HIGHLIGHT,
     href && CLASS_LINK,
     onClick && CLASS_LINK,
+    highlight && (href || onClick) && CLASS_HIGHLIGHT,
     rounded && `${BASE_CLASS}--rounded-${rounded}`,
     elevation && `${BASE_CLASS}--elevation-${elevation}`
   )

@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 1.15.0 (2022-02-06)
+
+
+### Bug Fixes
+
+* **components/molecule/dataCounter:** minor bug when getting max/min value ([a4dc44d](https://github.com/SUI-Components/sui-components/commit/a4dc44dd4e21a62b52759ec4bf4a46f7ea8f3116))
+
+
+### Features
+
+* **components/molecule/dataCounter:** holdClick ([0a8154b](https://github.com/SUI-Components/sui-components/commit/0a8154ba20e6710abcdd29cc577f4ec56e812bb0))
+
+
+
 # 1.14.0 (2022-02-04)
 
 

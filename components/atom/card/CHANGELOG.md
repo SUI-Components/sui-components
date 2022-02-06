@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.22.0 (2022-02-06)
+
+
+### Bug Fixes
+
+* **components/atom/card:** hightlight only available if onClick actionable or href declared ([e2187e6](https://github.com/SUI-Components/sui-components/commit/e2187e6ab0d1f4081416bc7f2fde3fd876c8cae6)), closes [#1730](https://github.com/SUI-Components/sui-components/issues/1730)
+
+
+
 # 1.21.0 (2021-11-03)
 
 

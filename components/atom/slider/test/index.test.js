@@ -12,7 +12,7 @@ import chaiDOM from 'chai-dom'
 
 chai.use(chaiDOM)
 
-describe.skip('atom/slider', () => {
+describe('atom/slider', () => {
   const Component = AtomSlider
   const setup = setupEnvironment(Component)
 

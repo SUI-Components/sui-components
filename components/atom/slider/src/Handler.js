@@ -1,8 +1,7 @@
-import {useRef, useState, useEffect} from 'react'
-import cx from 'classnames'
+import {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
-import {Handle, Tooltip, BASE_CLASS} from './settings.js'
+import {Handle} from './settings.js'
 
 const Handler = ({
   value,
@@ -13,36 +12,18 @@ const Handler = ({
   className: handleClassName,
   ...restProps
 }) => {
-        const refHandle = useRef()
-        const [ready, setReady] = useState(false)
-        useEffect(() => {
-          if (!ready) setReady(!ready)
-        }, [ready])
-        if (!refAtomSlider?.current) {
-          return null
-        }
-        if (hideTooltip) {
-          return <Handle value={value} {...restProps} />
-        }
-        return null
-        // return (
-        //   <Tooltip
-        //     getTooltipContainer={() => refHandle?.current?.handle}
-        //     prefixCls="rc-slider-tooltip"
-        //     overlay={value}
-        //     placement="top"
-        //     visible
-        //     key={index}
-        //   >
-        //     <Handle
-        //       ref={refHandle}
-        //       value={value}
-        //       {...restProps}
-        //       className={cx(`${BASE_CLASS}-handle`, handleClassName)}
-        //     />
-        //   </Tooltip>
-        // )
-      }
+  const [ready, setReady] = useState(false)
+  useEffect(() => {
+    if (!ready) setReady(!ready)
+  }, [ready])
+  if (!refAtomSlider?.current) {
+    return null
+  }
+  if (hideTooltip) {
+    return <Handle value={value} {...restProps} />
+  }
+  return null
+}
 
 Handler.propTypes = {
   /** value  */

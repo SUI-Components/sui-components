@@ -13,35 +13,36 @@ const Handler = ({
   className: handleClassName,
   ...restProps
 }) => {
-  const refHandle = useRef()
-  const [ready, setReady] = useState(false)
-  useEffect(() => {
-    if (!ready) setReady(!ready)
-  }, [ready])
-  if (!refAtomSlider?.current) {
-    return null
-  }
-  if (hideTooltip) {
-    return <Handle value={value} {...restProps} />
-  }
-  return (
-    <Tooltip
-      getTooltipContainer={() => refHandle?.current?.handle}
-      prefixCls="rc-slider-tooltip"
-      overlay={value}
-      placement="top"
-      visible
-      key={index}
-    >
-      <Handle
-        ref={refHandle}
-        value={value}
-        {...restProps}
-        className={cx(`${BASE_CLASS}-handle`, handleClassName)}
-      />
-    </Tooltip>
-  )
-}
+        const refHandle = useRef()
+        const [ready, setReady] = useState(false)
+        useEffect(() => {
+          if (!ready) setReady(!ready)
+        }, [ready])
+        if (!refAtomSlider?.current) {
+          return null
+        }
+        if (hideTooltip) {
+          return <Handle value={value} {...restProps} />
+        }
+        return null
+        // return (
+        //   <Tooltip
+        //     getTooltipContainer={() => refHandle?.current?.handle}
+        //     prefixCls="rc-slider-tooltip"
+        //     overlay={value}
+        //     placement="top"
+        //     visible
+        //     key={index}
+        //   >
+        //     <Handle
+        //       ref={refHandle}
+        //       value={value}
+        //       {...restProps}
+        //       className={cx(`${BASE_CLASS}-handle`, handleClassName)}
+        //     />
+        //   </Tooltip>
+        // )
+      }
 
 Handler.propTypes = {
   /** value  */

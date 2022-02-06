@@ -79,6 +79,7 @@ jobs:
       - name: Testing
         run: |
           npm run phoenix:ci
+          npm run lint
           xvfb-run --auto-servernum npm run test -- --ci --coverage
       - name: Log Master Coverage
         uses: actions/github-script@v5

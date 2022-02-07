@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 1.6.0 (2022-02-07)
+
+
+### Bug Fixes
+
+* **Root:** fix file extensions ([75a5b34](https://github.com/SUI-Components/sui-components/commit/75a5b341905c3ab8d18680952b25454905747285))
+
+
+### Features
+
+* **components/atom/slider:** fix rc-slider update integration ([86960b8](https://github.com/SUI-Components/sui-components/commit/86960b86294a3a7726d5ff70c25b8ead54b7c0a9))
+* **components/molecule/validationCode:** add autofocus prop to spread to the pinInput component ([31cba67](https://github.com/SUI-Components/sui-components/commit/31cba672557379a00dab5dc6de7777e8a456d345))
+
+
+
 # 1.5.0 (2021-12-01)
 
 

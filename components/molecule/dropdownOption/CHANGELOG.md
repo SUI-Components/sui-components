@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.40.0 (2022-02-07)
+
+
+### Bug Fixes
+
+* **components/molecule/dropdownOption:** disabled options should have default cursor ([d4534cd](https://github.com/SUI-Components/sui-components/commit/d4534cd202dd6d7d2c18b70bcf2a2b6aa14c2cc6)), closes [#1744](https://github.com/SUI-Components/sui-components/issues/1744)
+
+
+
 # 1.39.0 (2022-02-02)
 
 

@@ -1,5 +1,6 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 import ArticleUncontrolled from './articles/ArticleUncontrolled.js'
+import ArticleAutoFocus from './articles/ArticleAutoFocus.js'
 import ArticleDefault from './articles/ArticleDefault.js'
 import ArticlePlaceHolder from './articles/ArticlePlaceholder.js'
 import ArticlePassword from './articles/ArticlePassword.js'
@@ -25,6 +26,8 @@ export default () => {
         </Paragraph>
         <br />
         <ArticleDefault className={CLASS_SECTION} />
+        <br />
+        <ArticleAutoFocus className={CLASS_SECTION} />
         <br />
         <ArticleUncontrolled />
         <br />

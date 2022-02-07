@@ -16,6 +16,7 @@ import {
 const MoleculeValidationCode = forwardRef(
   (
     {
+      autoFocus = false,
       defaultValue = '',
       deleteButtonTextLabel,
       disabled,
@@ -116,6 +117,7 @@ const MoleculeValidationCode = forwardRef(
         <div className={`${baseClass}-inputContainer`}>
           <div className={`${baseClass}-inputContainer-pinInput`}>
             <PinInput
+              autoFocus={autoFocus}
               disabled={disabled}
               isPassword={isPassword}
               length={length}
@@ -147,6 +149,8 @@ const MoleculeValidationCode = forwardRef(
 
 MoleculeValidationCode.displayName = 'MoleculeValidationCode'
 MoleculeValidationCode.propTypes = {
+  /** boolean to autoFocus the first input */
+  autoFocus: PropTypes.bool,
   /** text on the label */
   labelText: PropTypes.string,
   /** text on delete button */

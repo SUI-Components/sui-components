@@ -1,5 +1,6 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleAutoFocus from './ArticleAutoFocus.js'
 import ArticleDefault from './ArticleDefault.js'
 import ArticleSizes from './ArticleSizes.js'
 import ArticleMask from './ArticleMask.js'
@@ -25,6 +26,8 @@ export default () => {
           The most common application is for entering OTP or security codes.
         </Paragraph>
         <ArticleDefault className={CLASS_SECTION} />
+        <br />
+        <ArticleAutoFocus className={CLASS_SECTION} />
         <br />
         <ArticleValue className={CLASS_SECTION} />
         <br />

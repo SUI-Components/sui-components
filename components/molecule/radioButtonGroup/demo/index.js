@@ -22,8 +22,11 @@ const Demo = () => {
           or "MoleculeRadioButtonField" to simplify its use.
         </Paragraph>
         <ArticleAtomRadioButton className={CLASS_SECTION} />
+        <br />
         <ArticleMoleculeRadioButtonField className={CLASS_SECTION} />
+        <br />
         <ArticleWithIcos className={CLASS_SECTION} />
+        <br />
         <ArticleChangeProps className={CLASS_SECTION} />
       </div>
     </div>

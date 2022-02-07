@@ -14,7 +14,7 @@ import Component from '../src/index.js'
 
 chai.use(chaiDOM)
 
-describe.skip('MoleculeImageEditor', () => {
+describe('MoleculeImageEditor', () => {
   const setup = setupEnvironment(Component)
 
   it('should render without crashing', () => {

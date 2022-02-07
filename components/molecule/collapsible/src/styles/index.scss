@@ -12,9 +12,11 @@ $base-class: '.sui-MoleculeCollapsible';
     color: $c-collapsible-btn;
     cursor: pointer;
     font-size: $fz-collapsible-btn;
+    font-weight: $fw-collapsible-btn;
     height: $mh-collapsible-btn;
     margin-top: $mt-collapsible-btn;
     padding: $p-collapsible-btn 0;
+    text-decoration: $td-collapsible-btn;
 
     &-content {
       display: flex;

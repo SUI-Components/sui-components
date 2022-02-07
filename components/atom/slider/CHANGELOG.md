@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.25.0 (2022-02-07)
+
+
+### Bug Fixes
+
+* **components/atom/slider:** handler client side rendered only ([c9f16a8](https://github.com/SUI-Components/sui-components/commit/c9f16a8f3244f592da7a606a45f36beac456677c))
+
+
+
 # 1.24.0 (2022-01-25)
 
 

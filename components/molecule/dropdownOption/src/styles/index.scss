@@ -73,6 +73,7 @@ $base-class: '.sui-MoleculeDropdownOption';
 
   &--disabled {
     color: $c-dropdown-option-disabled;
+    cursor: default;
   }
 
   &:hover,

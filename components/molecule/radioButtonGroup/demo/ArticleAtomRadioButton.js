@@ -1,11 +1,13 @@
-import AtomRadioButton from '@s-ui/react-atom-radio-button'
 import PropTypes from 'prop-types'
-import {H2, Paragraph} from '@s-ui/documentation-library'
+
+import {H2, Paragraph, Article} from '@s-ui/documentation-library'
+import AtomRadioButton from '@s-ui/react-atom-radio-button'
+
 import MoleculeRadioButtonGroup from '../src/index.js'
 
 const ArticleAtomRadioButton = ({className}) => {
   return (
-    <div className={className}>
+    <Article className={className}>
       <H2>With AtomRadioButton</H2>
       <Paragraph>
         For this demo, you will need to implement the container
@@ -27,7 +29,7 @@ const ArticleAtomRadioButton = ({className}) => {
         <AtomRadioButton value="ringo" />
         <AtomRadioButton value="martin" disabled />
       </MoleculeRadioButtonGroup>
-    </div>
+    </Article>
   )
 }
 ArticleAtomRadioButton.propTypes = {

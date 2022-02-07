@@ -1,16 +1,19 @@
 import PropTypes from 'prop-types'
-import {H2} from '@s-ui/documentation-library'
+
+import {H2, Article} from '@s-ui/documentation-library'
+
 import RadioButtonGroupIcons from './components/radioButtonGroupIcons.js'
-const ArticleWithIcos = ({className}) => {
+
+const ArticleWithIcons = ({className}) => {
   return (
-    <div className={className}>
+    <Article className={className}>
       <H2>With Icons</H2>
       <RadioButtonGroupIcons />
-    </div>
+    </Article>
   )
 }
-ArticleWithIcos.propTypes = {
+ArticleWithIcons.propTypes = {
   className: PropTypes.string
 }
 
-export default ArticleWithIcos
+export default ArticleWithIcons

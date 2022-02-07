@@ -1,32 +1,14 @@
 import PropTypes from 'prop-types'
-import {H2, Paragraph} from '@s-ui/documentation-library'
-import MoleculeRadioButtonGroup from '../src/index.js'
+
+import {H2, Paragraph, Article} from '@s-ui/documentation-library'
 import MoleculeRadioButtonField from '@s-ui/react-molecule-radio-button-field'
-import AtomLabel from '@s-ui/react-atom-label'
 
-const CustomLabel = ({text, type, name, onClickLabel}) => (
-  <>
-    <AtomLabel
-      name={name}
-      text={text}
-      inline="left"
-      onClick={onClickLabel}
-      type={type}
-    />
-    <span>I am out of the label</span>
-  </>
-)
-
-CustomLabel.propTypes = {
-  text: PropTypes.string,
-  type: PropTypes.string,
-  name: PropTypes.string,
-  onClickLabel: PropTypes.func
-}
+import MoleculeRadioButtonGroup from '../src/index.js'
+import CustomLabel from './components/CustomLabel.js'
 
 const ArticleMoleculeRadioButtonField = ({className}) => {
   return (
-    <div className={className}>
+    <Article className={className}>
       <H2>With MoleculeRadioButtonField</H2>
       <Paragraph>
         For this demo, you will need to implement the container
@@ -67,7 +49,7 @@ const ArticleMoleculeRadioButtonField = ({className}) => {
           disabled
         />
       </MoleculeRadioButtonGroup>
-    </div>
+    </Article>
   )
 }
 ArticleMoleculeRadioButtonField.propTypes = {

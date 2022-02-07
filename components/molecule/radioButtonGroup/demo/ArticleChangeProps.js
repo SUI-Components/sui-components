@@ -1,13 +1,15 @@
 import {useState} from 'react'
 import PropTypes from 'prop-types'
-import {H2, Paragraph} from '@s-ui/documentation-library'
-import MoleculeRadioButtonGroup from '../src/index.js'
+
+import {H2, Paragraph, Article} from '@s-ui/documentation-library'
 import MoleculeRadioButtonField from '@s-ui/react-molecule-radio-button-field'
+
+import MoleculeRadioButtonGroup from '../src/index.js'
 
 const ArticleChangeProps = ({className}) => {
   const [value, setValue] = useState('john')
   return (
-    <div className={className}>
+    <Article className={className}>
       <H2>Change props from parent</H2>
       <Paragraph />
       <br />
@@ -55,7 +57,7 @@ const ArticleChangeProps = ({className}) => {
           helpText="Ringo Star"
         />
       </MoleculeRadioButtonGroup>
-    </div>
+    </Article>
   )
 }
 ArticleChangeProps.propTypes = {

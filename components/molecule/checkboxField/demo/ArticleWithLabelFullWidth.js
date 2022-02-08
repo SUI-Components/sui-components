@@ -15,7 +15,7 @@ const styleCenteredText = {
 
 export const ArticleWithLabelFullWidth = ({className}) => {
   return (
-    <Article className={`${className}-section`}>
+    <Article>
       <H2>With Html Label + fullWidth</H2>
       <Paragraph>
         For this demo we need to set the prop <Code>fullWidth</Code> to true.

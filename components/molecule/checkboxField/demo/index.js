@@ -8,8 +8,6 @@ import ArticleDisabled from './ArticleDisabled.js'
 import {H1, Paragraph} from '@s-ui/documentation-library'
 import './index.scss'
 
-const CLASS_NAME = 'DemoAtomCheckboxField'
-
 const Demo = () => {
   return (
     <div className="sui-StudioPreview">
@@ -19,17 +17,17 @@ const Demo = () => {
           "MoleculeCheckboxField" is the combination of and "AtomCheckbox" and a
           "MoleculeField"
         </Paragraph>
-        <ArticleWithHelpText className={CLASS_NAME} />
+        <ArticleWithHelpText />
         <br />
-        <ArticleWithLabelFullWidth className={CLASS_NAME} />
+        <ArticleWithLabelFullWidth />
         <br />
-        <ArticleSuccessHelpText className={CLASS_NAME} />
+        <ArticleSuccessHelpText />
         <br />
-        <ArticleErrorHelpText className={CLASS_NAME} />
+        <ArticleErrorHelpText />
         <br />
-        <ArticleAlertHelpText className={CLASS_NAME} />
+        <ArticleAlertHelpText />
         <br />
-        <ArticleDisabled className={CLASS_NAME} />
+        <ArticleDisabled />
       </div>
     </div>
   )

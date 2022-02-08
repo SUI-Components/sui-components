@@ -4,7 +4,7 @@ import MoleculeCheckboxField from 'components/molecule/checkboxField/src'
 
 export const ArticleSuccessHelpText = ({className}) => {
   return (
-    <Article className={`${className}-section`}>
+    <Article>
       <H2>With Success Validation HelpText</H2>
       <Paragraph>
         Use the prop <Code>successText</Code> to show a successful validation.

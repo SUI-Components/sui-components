@@ -4,7 +4,7 @@ import MoleculeCheckboxField from 'components/molecule/checkboxField/src'
 
 export const ArticleDisabled = ({className}) => {
   return (
-    <Article>
+    <Article className={`${className}-section`}>
       <H2>Disabled</H2>
       <Paragraph>
         For this demo we need to set the prop <Code>disabled</Code> to true.

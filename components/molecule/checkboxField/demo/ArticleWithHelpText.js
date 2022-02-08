@@ -4,7 +4,7 @@ import MoleculeCheckboxField from 'components/molecule/checkboxField/src'
 
 export const ArticleWithHelpText = ({className}) => {
   return (
-    <Article>
+    <Article className={`${className}-section`}>
       <H2>With Information HelpText</H2>
       <Paragraph>
         The prop <Code>helpText</Code> is used to add extra information.

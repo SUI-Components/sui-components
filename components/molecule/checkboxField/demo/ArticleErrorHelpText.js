@@ -4,7 +4,7 @@ import MoleculeCheckboxField from 'components/molecule/checkboxField/src'
 
 export const ArticleErrorHelpText = ({className}) => {
   return (
-    <Article>
+    <Article className={`${className}-section`}>
       <H2>With Error validation HelpText</H2>
       <Paragraph>
         Use the prop <Code>errorText</Code> to show an error during the

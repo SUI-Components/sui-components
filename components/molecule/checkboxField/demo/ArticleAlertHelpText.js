@@ -4,7 +4,7 @@ import MoleculeCheckboxField from 'components/molecule/checkboxField/src'
 
 export const ArticleAlertHelpText = ({className}) => {
   return (
-    <Article className={`${className}-section`}>
+    <Article>
       <H2>With Alert validation HelpText</H2>
       <Paragraph>
         Use the prop <Code>alertText</Code> to show an alert during the

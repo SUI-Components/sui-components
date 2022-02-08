@@ -3,13 +3,7 @@
 @import '../src/index';
 
 .DemoAtomCheckboxField {
-  padding: 20px;
-
   &-section {
-    border: $bdw-s solid #ddd;
-    margin: 20px 20px 20px 0;
-    max-width: 800px;
-    min-width: 300px;
-    padding: 10px;
+    margin: 10px;
   }
 }

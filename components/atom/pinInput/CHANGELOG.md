@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.6.0 (2022-02-07)
+
+
+### Features
+
+* **components/atom/pinInput:** add autofocus prop to focus the first input ([d80d52e](https://github.com/SUI-Components/sui-components/commit/d80d52e0304f6e74c50bf931972aabfcc4ed660d))
+
+
+
 # 1.5.0 (2022-01-20)
 
 

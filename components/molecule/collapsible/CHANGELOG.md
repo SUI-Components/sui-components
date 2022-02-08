@@ -1,11 +1,33 @@
 # CHANGELOG
 
-# 1.15.0 (2021-10-10)
+# 1.16.0 (2022-02-08)
+
+
+### Features
+
+* **components/molecule/collapsible:** add new tokens for show more collapsible button ([4a7bbf5](https://github.com/SUI-Components/sui-components/commit/4a7bbf51c73ad9b5463d4987c8a933e69319f8ff))
+* **components/molecule/collapsible:** use regular value from theme ([0b9ae8a](https://github.com/SUI-Components/sui-components/commit/0b9ae8a4cba287eca365990887519d47722c9360))
+
+
+
+# 1.1.0 (2021-10-27)
+
+
+### Features
+
+* **components/molecule/collapsible/demo:** Add description on collapsible demo ([c15da74](https://github.com/SUI-Components/sui-components/commit/c15da741da1276306122cc8bc4d2747a74b8f5ff))
+* **components/molecule/collapsible/demo:** Refactor collapsible demo ([89c7d81](https://github.com/SUI-Components/sui-components/commit/89c7d81d634ac322fe6066b8576cb2e5f71c2223))
+
+
+
+# 1.15.0 (2021-10-19)
 
 
 ### Bug Fixes
 
-* **components/molecule/collapsible:** fix height behavior ([b96377a](https://github.com/SUI-Components/sui-components/commit/b96377a3fedded9ea27d5be1a5ff7251bb2cb671))
+* **components/molecule/collapsible:** content alignement ([2dc1614](https://github.com/SUI-Components/sui-components/commit/2dc1614a0793745f6a42b4aae083ccfa3570b208))
+* **components/molecule/collapsible:** fix height behavior ([303d9a9](https://github.com/SUI-Components/sui-components/commit/303d9a9b85486afbd09b5f6f09a62ad8ab6cea9c))
+* **components/molecule/collapsible:** fix text alignment ([6aa9c17](https://github.com/SUI-Components/sui-components/commit/6aa9c17a2e5c7042546e9cc416b8bae1c6f50a11)), closes [#1736](https://github.com/SUI-Components/sui-components/issues/1736)
 
 
 

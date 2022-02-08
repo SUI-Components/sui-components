@@ -19,6 +19,7 @@ const CLASSNAME = BASE_CLASSNAME
 const PinInput = forwardRef(
   (
     {
+      autoFocus = false,
       children,
       defaultValue = '',
       disabled,
@@ -102,7 +103,9 @@ const PinInput = forwardRef(
           targetRef={innerRef}
           value={innerValue}
         >
-          <PinInputChildren length={length}>{children}</PinInputChildren>
+          <PinInputChildren length={length} autoFocus={autoFocus}>
+            {children}
+          </PinInputChildren>
         </PinInputContextProvider>
         <input
           type="hidden"
@@ -116,6 +119,8 @@ const PinInput = forwardRef(
 
 PinInput.displayName = 'PinInput'
 PinInput.propTypes = {
+  /** boolean to autoFocus the first input */
+  autoFocus: PropTypes.bool,
   /** children the components is gonna have  */
   children: PropTypes.node,
   /** default value for the input */

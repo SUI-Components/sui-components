@@ -36,11 +36,9 @@ const breakpointColumns = {
 }
 
 const getKey = (object, value) => {
-  const result = Object.entries(object).find(([key, iteratorValue]) => {
-    if (value === iteratorValue) {
-      return key
-    }
-  })
+  const result = Object.entries(object).find(
+    ([key, iteratorValue]) => value === iteratorValue
+  )
   return result?.['0']
 }
 

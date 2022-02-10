@@ -8,7 +8,7 @@ export const flexCenteredStyle = {
 }
 
 export const stackMap = (arr = [], ...mappingCallbacks) =>
-  mappingCallbacks.flatMap(function(e, index) {
+  mappingCallbacks.flatMap(function (e, index) {
     return this.map((value, innerIndex) =>
       e(value, innerIndex + this.length * index)
     )

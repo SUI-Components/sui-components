@@ -36,7 +36,7 @@ export const ELEVATION = {
   L: 'l'
 }
 
-export const isImagePanel = function({src}) {
+export const isImagePanel = function ({src}) {
   return !!src
 }
 
@@ -55,7 +55,7 @@ export const VERTICAL_ALIGNMENTS = {
 export const DEFAULT_ALPHA = 'CONTRAST'
 export const DEFAULT_COLOR = 'ACCENT'
 
-export const getClassNames = function({color, alpha, rounded, elevation}) {
+export const getClassNames = function ({color, alpha, rounded, elevation}) {
   const BASE_CLASS = 'sui-atom-panel'
   const COLOR_PANEL_CLASS = 'sui-atom-panel-color'
   return cx(

@@ -14,7 +14,7 @@
     "build": "sui-studio build",
     "check:release": "sui-studio check-release",
     "co": "sui-mono commit",
-    "commitmsg": "validate-commit-msg",
+    "commit-msg": "validate-commit-msg",
     "dev": "sui-studio dev",
     "generate": "sui-studio generate -S s-ui -P react",
     "lint": "npm run lint:js && npm run lint:sass",
@@ -27,7 +27,9 @@
     "start": "sui-studio start",
     "serve": "npm run build && npx http-server public",
     "test": "sui-studio test -- --coverage",
-    "test:watch": "sui-studio test --watch"
+    "test:watch": "sui-studio test --watch",
+    "pre-commit": "npm run lint",
+    "pre-push": "npm run test"
   },
   "repository": {
     "type": "git",
@@ -40,11 +42,10 @@
     "@s-ui/documentation-library": "1",
     "@s-ui/helpers": "1",
     "@s-ui/mono": "2",
-    "@s-ui/precommit": "2",
+    "@s-ui/precommit": "3",
     "@s-ui/studio": "11",
     "fs-extra": "10.0.0",
     "globby": "11.0.3",
-    "husky": "4.3.0",
     "sinon": "11.1.1",
     "validate-commit-msg": "2.12.2"
   },
@@ -84,10 +85,5 @@
   "stylelint": {
     "extends": "./node_modules/@s-ui/lint/stylelint.config.js"
   },
-  "prettier": "./node_modules/@s-ui/lint/.prettierrc.js",
-  "husky": {
-    "hooks": {
-      "pre-commit": "sui-precommit run"
-    }
-  }
+  "prettier": "./node_modules/@s-ui/lint/.prettierrc.js"
 }

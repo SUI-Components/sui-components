@@ -73,9 +73,7 @@ describe('molecule/textareaField', () => {
     const {getAllByText, getAllByPlaceholderText} = setup(props)
 
     // Then
-    expect(getAllByText(props.label))
-      .to.be.an('array')
-      .to.have.lengthOf(1)
+    expect(getAllByText(props.label)).to.be.an('array').to.have.lengthOf(1)
     expect(getAllByText(defaultHelpTextComputed))
       .to.be.an('array')
       .to.have.lengthOf(1)

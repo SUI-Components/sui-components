@@ -8,7 +8,7 @@ import SpanDemo from './SpanDemo.js'
 
 import './index.scss'
 
-export default function() {
+export default function () {
   return (
     <div className="sui-StudioPreview">
       <H1>Icon</H1>

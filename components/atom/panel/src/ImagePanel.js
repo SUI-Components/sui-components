@@ -12,7 +12,7 @@ import {
   DEFAULT_COLOR
 } from './constants.js'
 
-const getClassNames = function({
+const getClassNames = function ({
   verticalAlign,
   horizontalAlign,
   resized,
@@ -37,14 +37,14 @@ const getClassNames = function({
   )
 }
 
-const getStyles = function({src}) {
+const getStyles = function ({src}) {
   const url = `url(${src})`
   return {
     backgroundImage: url
   }
 }
 
-const ImagePanel = function({children, ...props}) {
+const ImagePanel = function ({children, ...props}) {
   return (
     <div className={getClassNames(props)} style={getStyles(props)}>
       {children}

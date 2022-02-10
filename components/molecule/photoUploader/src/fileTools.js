@@ -20,7 +20,7 @@ export const filterValidFiles = ({
   const excedingMaxSizeFiles = []
 
   const notExcedingMaxSizeFilesFilter = filesToFilter =>
-    filesToFilter.map(fileToFilter => {
+    filesToFilter.forEach(fileToFilter => {
       if (fileToFilter.size >= acceptedFileMaxSize) {
         excedingMaxSizeFiles.push({
           rejectedFile: fileToFilter,
@@ -35,12 +35,13 @@ export const filterValidFiles = ({
   const repeatedFiles = []
 
   const notRepeatedFilesFilter = filesToFilter =>
-    filesToFilter.map(fileToFilter => {
+    filesToFilter.forEach(fileToFilter => {
       const {
         path: newFilePath,
         size: newFileSize,
         lastModified: newFileLastModified
       } = fileToFilter
+
       const isFileAlready = files.some(file => {
         const {url, properties} = file
         if (url) return false
@@ -51,6 +52,7 @@ export const filterValidFiles = ({
           lastModified === newFileLastModified
         )
       })
+
       if (isFileAlready) {
         repeatedFiles.push({
           rejectedFile: fileToFilter,

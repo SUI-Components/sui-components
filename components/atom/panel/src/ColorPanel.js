@@ -8,7 +8,7 @@ import {
   getClassNames
 } from './constants.js'
 
-const ColorPanel = function({children, ...props}) {
+const ColorPanel = function ({children, ...props}) {
   return <div className={getClassNames(props)}>{children}</div>
 }
 

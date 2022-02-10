@@ -31,6 +31,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   onToggle,
   placeholder,
   required,
+  shape,
   size,
   tabIndex,
   tags = [],
@@ -109,6 +110,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         onKeyDown={onInputKeyDown}
         placeholder={!tags.length ? placeholder : ''}
         required={required}
+        shape={shape}
         tabIndex={tabIndex}
         tags={tags}
         tagsCloseIcon={iconCloseTag}

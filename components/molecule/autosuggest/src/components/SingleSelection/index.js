@@ -33,6 +33,7 @@ const MoleculeAutosuggestSingleSelection = ({
   required,
   rightButton,
   rightIcon,
+  shape,
   size,
   tabIndex,
   type,
@@ -83,6 +84,7 @@ const MoleculeAutosuggestSingleSelection = ({
         placeholder={placeholder}
         required={required}
         rightIcon={rightIcon}
+        shape={shape}
         tabIndex={tabIndex}
         type={type}
         value={value}

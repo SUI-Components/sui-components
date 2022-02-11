@@ -13,7 +13,7 @@ import {
   isImagePanel
 } from './constants.js'
 
-const AtomPanel = function({
+const AtomPanel = function ({
   alpha = ALPHA.CONTRAST,
   color = COLORS.DEFAULT,
   elevation = ELEVATION.NONE,

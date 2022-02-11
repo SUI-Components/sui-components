@@ -34,7 +34,7 @@ export const CLASS_TEXT = `${CLASS_ICON}-text`
  * @param  {string} label
  * @return {string}
  */
-export const truncateText = function(label) {
+export const truncateText = function (label) {
   return label.length < MAX_LABEL_LENGTH
     ? label
     : label.substr(0, MAX_LABEL_LENGTH)
@@ -48,7 +48,7 @@ export const truncateText = function(label) {
  * @param  {string} options.type
  * @return {string}
  */
-export const getClassNames = function({
+export const getClassNames = function ({
   design,
   iconRight,
   size,

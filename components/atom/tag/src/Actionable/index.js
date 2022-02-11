@@ -9,7 +9,7 @@ import {
   getLinkTypesString
 } from './settings.js'
 
-const ActionableTag = function({
+const ActionableTag = function ({
   icon,
   href,
   iconPlacement,

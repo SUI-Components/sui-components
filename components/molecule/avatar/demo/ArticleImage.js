@@ -42,9 +42,7 @@ const ArticleImage = ({className}) => {
             <AtomIcon>
               <AntDesignIcon icon={fallbackIcon} />
             </AtomIcon>
-          ) : (
-            undefined
-          )
+          ) : undefined
         }
       />
       <H2>FallbackIcon</H2>
@@ -95,9 +93,7 @@ const ArticleImage = ({className}) => {
                 style={{color: 'currentColor'}}
               />
             </AtomIcon>
-          ) : (
-            undefined
-          )
+          ) : undefined
         }
       />
     </Article>

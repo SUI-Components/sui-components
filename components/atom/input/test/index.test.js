@@ -280,9 +280,7 @@ describe(json.name, () => {
         const {getAllByTestId} = setup(props)
 
         // Then
-        expect(getAllByTestId(testID))
-          .to.be.an('array')
-          .to.have.lengthOf(2)
+        expect(getAllByTestId(testID)).to.be.an('array').to.have.lengthOf(2)
       })
     })
 
@@ -363,9 +361,7 @@ describe(json.name, () => {
         const {getAllByTestId} = setup(props)
 
         // Then
-        expect(getAllByTestId(testId))
-          .to.be.an('array')
-          .to.have.lengthOf(1)
+        expect(getAllByTestId(testId)).to.be.an('array').to.have.lengthOf(1)
       })
     })
 
@@ -439,9 +435,7 @@ describe(json.name, () => {
         const {getAllByTestId} = setup(props)
 
         // Then
-        expect(getAllByTestId(testID))
-          .to.be.an('array')
-          .to.have.lengthOf(2)
+        expect(getAllByTestId(testID)).to.be.an('array').to.have.lengthOf(2)
       })
 
       it('given addon props should return it rendered with its own shape', () => {

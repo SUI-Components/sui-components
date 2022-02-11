@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.7.0 (2022-02-11)
+
+
+### Bug Fixes
+
+* **components/atom/pinInput:** fix lint errors ([bed74b6](https://github.com/SUI-Components/sui-components/commit/bed74b6464c23bbe341f767b450638b70dec4cfa))
+
+
+
 # 1.6.0 (2022-02-07)
 
 

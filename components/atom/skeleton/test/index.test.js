@@ -63,8 +63,6 @@ describe('AtomSkeleton', () => {
     const {getAllByTestId} = setup(props)
 
     // Then
-    expect(getAllByTestId(testid))
-      .to.be.an('array')
-      .to.have.lengthOf(count)
+    expect(getAllByTestId(testid)).to.be.an('array').to.have.lengthOf(count)
   })
 })

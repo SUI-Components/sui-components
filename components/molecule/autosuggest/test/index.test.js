@@ -151,9 +151,7 @@ describe(json.name, () => {
         const {getAllByTestId} = setup(props)
 
         // Then
-        expect(getAllByTestId(testID))
-          .to.be.an('array')
-          .to.have.lengthOf(1)
+        expect(getAllByTestId(testID)).to.be.an('array').to.have.lengthOf(1)
       })
     })
 

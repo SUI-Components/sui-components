@@ -282,7 +282,7 @@ function getExifOrientation(file) {
   const reader = new window.FileReader()
 
   return new Promise((resolve, reject) => {
-    reader.onload = function(e) {
+    reader.onload = function (e) {
       const view = new DataView(e.target.result)
 
       if (view.getUint16(0, false) !== 0xffd8) {

@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 2.57.0 (2022-02-11)
+
+
+
+# 1.1.0 (2022-02-11)
+
+
+### Features
+
+* **components/molecule/autosuggest/demo:** update shape demo ([19e8316](https://github.com/SUI-Components/sui-components/commit/19e831674cd893f0dc9c688e486630729903bcac))
+* **components/molecule/autosuggest:** add atom/input shape prop ([9210a6b](https://github.com/SUI-Components/sui-components/commit/9210a6b71e74aed4f65fe6505b4b886763b9db4f))
+
+
+
 # 2.56.0 (2022-01-14)
 
 

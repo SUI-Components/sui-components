@@ -1,16 +1,41 @@
 /* eslint-disable no-console */
 /* eslint-disable react/prop-types */
-export function getButtons(variation = 'negative') {
+
+const variationAdapter = {
+  negative: 'solid',
+  positive: 'solid',
+  outline: 'outline'
+}
+
+const typeAdapter = {
+  info: 'primary',
+  error: 'error',
+  success: 'success',
+  system: 'neutral',
+  warning: 'alert'
+}
+
+const negativeAdapter = {
+  negative: true,
+  positive: false,
+  outline: false
+}
+
+export function getButtons(variation, type) {
   return [
     {
-      type: variation !== 'negative' ? 'primary' : 'secondary',
-      children: 'Secondary',
-      negative: true
+      design: variationAdapter[variation],
+      color: typeAdapter[type],
+      children: 'btn 1',
+      negative: negativeAdapter[variation],
+      size: 'small'
     },
     {
-      type: variation !== 'negative' ? 'primary' : 'secondary',
-      children: 'Primary',
-      negative: true
+      design: variationAdapter[variation],
+      color: typeAdapter[type],
+      children: 'btn 2',
+      negative: negativeAdapter[variation],
+      size: 'small'
     }
   ]
 }

@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
 
-import {H1, H2} from '@s-ui/documentation-library'
-import ArticleAtomRadioButton from './ArticleAtomRadioButton'
-import ArticleMoleculeRadioButtonField from './ArticleMoleculeRadioButtonField'
+import {H1, H2, Paragraph} from '@s-ui/documentation-library'
+
+import ArticleAtomRadioButton from './ArticleAtomRadioButton.js'
+import ArticleMoleculeRadioButtonField from './ArticleMoleculeRadioButtonField.js'
+import ArticleWithIcons from './ArticleWithIcons.js'
+import ArticleChangeProps from './ArticleChangeProps.js'
+
 import './index.scss'
-import Paragraph from '@s-ui/documentation-library/lib/components/Paragraph/Paragraph'
-import ArticleWithIcos from './ArticleWithIcons'
-import ArticleChangeProps from './ArticleChangeProps'
 
 const BASE_CLASS_DEMO = `DemoMoleculeRadioButtonGroup`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
@@ -25,7 +26,7 @@ const Demo = () => {
         <br />
         <ArticleMoleculeRadioButtonField className={CLASS_SECTION} />
         <br />
-        <ArticleWithIcos className={CLASS_SECTION} />
+        <ArticleWithIcons className={CLASS_SECTION} />
         <br />
         <ArticleChangeProps className={CLASS_SECTION} />
       </div>

@@ -163,6 +163,19 @@ const Demo = () => {
           />
         </div>
 
+        <div className={CLASS_DEMO_SECTION}>
+          <h3>with Shape</h3>
+          <MoleculeAutosuggestWithState
+            leftIcon={<IconSearch />}
+            placeholder="Type a Country name..."
+            onChange={(_, {value}) => console.log(value)}
+            onEnter={() => console.log('Enter pressed')}
+            onClear={() => console.log('Clear pressed')}
+            iconClear={<IconClose />}
+            shape="circle"
+          />
+        </div>
+
         <h2>Multiple Selection</h2>
         <p>
           Este componente permite añadir nuevas opciones (como tags) aunque no

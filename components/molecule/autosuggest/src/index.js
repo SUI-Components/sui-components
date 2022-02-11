@@ -12,7 +12,7 @@ import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-
 import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 import {getTarget} from '@s-ui/js/lib/react'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
-import {inputTypes} from '@s-ui/react-atom-input'
+import {inputTypes, inputShapes} from '@s-ui/react-atom-input'
 
 import {
   AUTOSUGGEST_STATES,
@@ -322,6 +322,9 @@ MoleculeAutosuggest.propTypes = {
 
   /** Will set a red/green/orange border if set to 'error' / 'success' / 'alert' */
   state: PropTypes.oneOf(Object.values(AUTOSUGGEST_STATES)),
+
+  /** Sets the shape of the input field. It can be 'rounded', 'square' or 'circle' */
+  shape: PropTypes.oneOf(Object.values(inputShapes)),
 
   /** native tabIndex html attribute */
   tabIndex: PropTypes.number,

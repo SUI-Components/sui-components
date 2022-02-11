@@ -98,11 +98,17 @@ $base-class: '.sui-MoleculeNotification';
     box-shadow: $bxsh-notification-outline;
     color: $c-notification-outline;
 
+    #{$base-class}-content {
+      padding: $p-l - $bdw-notification-outline;
+    }
+
     // Type variations
     @each $key, $value in $notification-type-colors {
       &#{$base-class}--#{$key} {
         border-color: #{$value};
-        #{$base-class}-iconLeft svg {
+        color: #{$value};
+        #{$base-class}-iconLeft svg,
+        #{$base-class}-iconClose svg {
           fill: #{$value} !important;
         }
       }

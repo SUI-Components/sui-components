@@ -47,8 +47,8 @@ export const TRANSITION_DELAY = 1000 // ms
 export const BUTTONS_MAX = 3 // buttons
 
 export const VARIATIONS = {
-  negative: 'negative',
   positive: 'positive',
+  negative: 'negative',
   outline: 'outline'
 }
 

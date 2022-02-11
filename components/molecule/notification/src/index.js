@@ -209,5 +209,16 @@ MoleculeNotification.propTypes = {
   targetRef: PropTypes.string
 }
 
-export {POSITION, AUTO_CLOSE, TYPES, VARIATIONS, BRDS_SIZE}
+export {
+  POSITION,
+  POSITION as moleculeNotificationPosition,
+  AUTO_CLOSE,
+  AUTO_CLOSE as moleculeNotificationAutoClose,
+  TYPES,
+  TYPES as moleculeNotificationTypes,
+  VARIATIONS,
+  VARIATIONS as moleculeNotificationVariations,
+  BRDS_SIZE,
+  BRDS_SIZE as moleculeNotificationBorderSizes
+}
 export default memo(MoleculeNotification)

@@ -28,6 +28,7 @@ function MoleculeSelectPopover({
   onAccept = () => {},
   onCancel = () => {},
   onCustomAction = () => {},
+  onClickCancelButton = () => {},
   onClose = () => {},
   onOpen = () => {},
   placement = PLACEMENTS.RIGHT,
@@ -79,6 +80,11 @@ function MoleculeSelectPopover({
     onCustomAction()
   }
 
+  const handleOnClickCancelButton = () => {
+    onClickCancelButton()
+    handleOnCancel()
+  }
+
   const handleOnCancel = useCallback(() => {
     setIsOpen(false)
     onCancel()
@@ -119,7 +125,11 @@ function MoleculeSelectPopover({
         </Button>
       ) : null}
       {cancelButtonText ? (
-        <Button onClick={handleOnCancel} design="flat" {...cancelButtonOptions}>
+        <Button
+          onClick={handleOnClickCancelButton}
+          design="flat"
+          {...cancelButtonOptions}
+        >
           {cancelButtonText}
         </Button>
       ) : null}
@@ -235,6 +245,7 @@ MoleculeSelectPopover.propTypes = {
   onAccept: PropTypes.func,
   onCancel: PropTypes.func,
   onCustomAction: PropTypes.func,
+  onClickCancelButton: PropTypes.func,
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
   placement: PropTypes.string,

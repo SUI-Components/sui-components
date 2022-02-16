@@ -1,5 +1,5 @@
 import {useState, useEffect, useRef, useCallback, cloneElement} from 'react'
-import Button from '@s-ui/react-atom-button'
+import Button, {atomButtonDesigns} from '@s-ui/react-atom-button'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import {SIZES, PLACEMENTS, BASE_CLASS} from './config.js'
@@ -80,7 +80,7 @@ function MoleculeSelectPopover({
     onCustomAction()
   }
 
-  const handleOnClickCancelButton = () => {
+  const handleClickCancelButton = () => {
     onClickCancelButton()
     handleOnCancel()
   }
@@ -126,8 +126,8 @@ function MoleculeSelectPopover({
       ) : null}
       {cancelButtonText ? (
         <Button
-          onClick={handleOnClickCancelButton}
-          design="flat"
+          onClick={handleClickCancelButton}
+          design={atomButtonDesigns.FLAT}
           {...cancelButtonOptions}
         >
           {cancelButtonText}

@@ -80,7 +80,7 @@ function MoleculeSelectPopover({
     onCustomAction()
   }
 
-  const handleClickCancelButton = () => {
+  const handleCancelButtonClick = () => {
     onCancelButtonClick()
     handleOnCancel()
   }
@@ -126,7 +126,7 @@ function MoleculeSelectPopover({
       ) : null}
       {cancelButtonText ? (
         <Button
-          onClick={handleClickCancelButton}
+          onClick={handleCancelButtonClick}
           design={atomButtonDesigns.FLAT}
           {...cancelButtonOptions}
         >

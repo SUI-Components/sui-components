@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.26.0 (2022-02-16)
+
+
+### Features
+
+* **components/molecule/selectPopover:** add event onClickCancelButton ([b291522](https://github.com/SUI-Components/sui-components/commit/b291522891faa2ce9810416c530496dbb1aa1104))
+* **components/molecule/selectPopover:** comments PR ([17930a6](https://github.com/SUI-Components/sui-components/commit/17930a66e8b25207d7bb13960cd3c414f2dcd087))
+
+
+
 # 1.25.0 (2022-01-19)
 
 

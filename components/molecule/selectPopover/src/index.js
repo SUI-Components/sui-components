@@ -1,5 +1,5 @@
 import {useState, useEffect, useRef, useCallback, cloneElement} from 'react'
-import Button from '@s-ui/react-atom-button'
+import Button, {atomButtonDesigns} from '@s-ui/react-atom-button'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import {SIZES, PLACEMENTS, BASE_CLASS} from './config.js'
@@ -28,6 +28,7 @@ function MoleculeSelectPopover({
   onAccept = () => {},
   onCancel = () => {},
   onCustomAction = () => {},
+  onClickCancelButton = () => {},
   onClose = () => {},
   onOpen = () => {},
   placement = PLACEMENTS.RIGHT,
@@ -79,6 +80,11 @@ function MoleculeSelectPopover({
     onCustomAction()
   }
 
+  const handleClickCancelButton = () => {
+    onClickCancelButton()
+    handleOnCancel()
+  }
+
   const handleOnCancel = useCallback(() => {
     setIsOpen(false)
     onCancel()
@@ -119,7 +125,11 @@ function MoleculeSelectPopover({
         </Button>
       ) : null}
       {cancelButtonText ? (
-        <Button onClick={handleOnCancel} design="flat" {...cancelButtonOptions}>
+        <Button
+          onClick={handleClickCancelButton}
+          design={atomButtonDesigns.FLAT}
+          {...cancelButtonOptions}
+        >
           {cancelButtonText}
         </Button>
       ) : null}
@@ -235,6 +245,7 @@ MoleculeSelectPopover.propTypes = {
   onAccept: PropTypes.func,
   onCancel: PropTypes.func,
   onCustomAction: PropTypes.func,
+  onClickCancelButton: PropTypes.func,
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
   placement: PropTypes.string,

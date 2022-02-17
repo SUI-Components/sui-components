@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.28.0 (2022-02-17)
+
+
+### Features
+
+* **components/molecule/selectPopover:** render select can trigger parent onClick prop ([af50978](https://github.com/SUI-Components/sui-components/commit/af509781636a006b7339efc07efdd126cd29e9e0))
+
+
+
 # 1.27.0 (2022-02-16)
 
 

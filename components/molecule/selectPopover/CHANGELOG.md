@@ -1,5 +1,34 @@
 # CHANGELOG
 
+# 1.28.0 (2022-02-17)
+
+
+### Features
+
+* **components/molecule/selectPopover:** render select can trigger parent onClick prop ([af50978](https://github.com/SUI-Components/sui-components/commit/af509781636a006b7339efc07efdd126cd29e9e0))
+
+
+
+# 1.27.0 (2022-02-16)
+
+
+### Features
+
+* **components/molecule/selectPopover:** change handle name ([df7a693](https://github.com/SUI-Components/sui-components/commit/df7a6932e09972e5235004c0a1a9ca8c0b34b7c4))
+* **components/molecule/selectPopover:** change name ([5ba2fac](https://github.com/SUI-Components/sui-components/commit/5ba2fac94afc7ad5d6484354265f1b62147148e3))
+
+
+
+# 1.26.0 (2022-02-16)
+
+
+### Features
+
+* **components/molecule/selectPopover:** add event onClickCancelButton ([b291522](https://github.com/SUI-Components/sui-components/commit/b291522891faa2ce9810416c530496dbb1aa1104))
+* **components/molecule/selectPopover:** comments PR ([17930a6](https://github.com/SUI-Components/sui-components/commit/17930a66e8b25207d7bb13960cd3c414f2dcd087))
+
+
+
 # 1.25.0 (2022-01-19)
 
 

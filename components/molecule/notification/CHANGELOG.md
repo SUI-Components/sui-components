@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.30.0 (2022-02-11)
+
+
+### Bug Fixes
+
+* **components/molecule/notification:** fix demo and outline styles ([2066b3a](https://github.com/SUI-Components/sui-components/commit/2066b3a10d91a63af85b40ece5e69f303cc14e7c)), closes [#2013](https://github.com/SUI-Components/sui-components/issues/2013)
+
+
+
 # 1.29.0 (2021-10-27)
 
 

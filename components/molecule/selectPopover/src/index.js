@@ -1,5 +1,5 @@
 import {useState, useEffect, useRef, useCallback, cloneElement} from 'react'
-import Button from '@s-ui/react-atom-button'
+import Button, {atomButtonDesigns} from '@s-ui/react-atom-button'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import {SIZES, PLACEMENTS, BASE_CLASS} from './config.js'
@@ -27,8 +27,9 @@ function MoleculeSelectPopover({
   isSelected = false,
   onAccept = () => {},
   onCancel = () => {},
-  onCustomAction = () => {},
+  onCancelButtonClick = () => {},
   onClose = () => {},
+  onCustomAction = () => {},
   onOpen = () => {},
   placement = PLACEMENTS.RIGHT,
   renderContentWrapper: renderContentWrapperProp,
@@ -79,6 +80,11 @@ function MoleculeSelectPopover({
     onCustomAction()
   }
 
+  const handleCancelButtonClick = () => {
+    onCancelButtonClick()
+    handleOnCancel()
+  }
+
   const handleOnCancel = useCallback(() => {
     setIsOpen(false)
     onCancel()
@@ -119,7 +125,11 @@ function MoleculeSelectPopover({
         </Button>
       ) : null}
       {cancelButtonText ? (
-        <Button onClick={handleOnCancel} design="flat" {...cancelButtonOptions}>
+        <Button
+          onClick={handleCancelButtonClick}
+          design={atomButtonDesigns.FLAT}
+          {...cancelButtonOptions}
+        >
           {cancelButtonText}
         </Button>
       ) : null}
@@ -148,7 +158,18 @@ function MoleculeSelectPopover({
     }
 
     if (renderSelectProp) {
-      return renderProp(renderSelectProp, {...newSelectProps, isOpen})
+      const newRenderSelectProps = {
+        ...newSelectProps,
+        isOpen,
+        onClick: renderSelectProp.props?.onClick
+          ? ev => {
+              renderSelectProp.props.onClick(ev)
+              handleOpenToggle(ev)
+            }
+          : handleOpenToggle
+      }
+
+      return renderProp(renderSelectProp, newRenderSelectProps)
     }
 
     return (
@@ -234,8 +255,9 @@ MoleculeSelectPopover.propTypes = {
   isSelected: PropTypes.bool,
   onAccept: PropTypes.func,
   onCancel: PropTypes.func,
-  onCustomAction: PropTypes.func,
+  onCancelButtonClick: PropTypes.func,
   onClose: PropTypes.func,
+  onCustomAction: PropTypes.func,
   onOpen: PropTypes.func,
   placement: PropTypes.string,
   renderContentWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),

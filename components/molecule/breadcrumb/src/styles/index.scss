@@ -1,6 +1,7 @@
 $base-class: '.sui-BreadcrumbBasic';
 #{$base-class} {
   @include media-breakpoint-up(m) {
+    border-radius: $bdrs-breadcrumb-desktop;
     padding: $p-breadcrumb-desktop;
   }
   background-color: $bgc-breadcrumb;

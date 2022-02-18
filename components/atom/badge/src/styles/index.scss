@@ -22,20 +22,20 @@ $base-class: '.sui-AtomBadge';
     font-size: $fz-atom-badge-s;
     line-height: $h-atom-badge-s;
     height: $h-atom-badge-s;
-    padding: $p-atom-badge;
+    padding: $p-atom-badge-s;
   }
   &#{$this}-size-medium {
     font-size: $fz-atom-badge-m;
-    line-height: $h-atom-badge-s;
-    height: $h-atom-badge-s;
-    padding: $p-atom-badge;
+    line-height: $h-atom-badge-m;
+    height: $h-atom-badge-m;
+    padding: $p-atom-badge-m;
   }
 
   &#{$this}-size-large {
     font-size: $fz-atom-badge-l;
     line-height: $h-atom-badge-l;
     height: $h-atom-badge-l;
-    padding: $p-atom-badge;
+    padding: $p-atom-badge-l;
   }
 
   &-icon {

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.24.0 (2022-02-18)
+
+
+### Features
+
+* **components/molecule/breadcrumb:** add border radius token for desktop resolutions, set 0 as defa ([490780f](https://github.com/SUI-Components/sui-components/commit/490780f2c10970f12f3276176eabbcda3785968a))
+
+
+
 # 1.23.0 (2021-12-02)
 
 

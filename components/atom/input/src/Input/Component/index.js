@@ -30,7 +30,7 @@ const Input = forwardRef(
       type,
       value,
       charsSize,
-      tabIndex = -1,
+      tabIndex,
       ariaLabel,
       maxLength,
       minLength,

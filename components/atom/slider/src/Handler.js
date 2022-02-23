@@ -13,12 +13,15 @@ const Handler = ({
   ...restProps
 }) => {
   const refHandle = useRef()
-
-  if (!refAtomSlider?.current) {
-    return null
-  }
   if (hideTooltip) {
-    return <Handle value={value} {...restProps} />
+    return (
+      <Handle
+        ref={refHandle}
+        value={value}
+        {...restProps}
+        className={cx(`${BASE_CLASS}-handle`, handleClassName)}
+      />
+    )
   }
 
   return (

@@ -1,23 +1,20 @@
 import Range from 'rc-slider/lib/Range'
 import Slider from 'rc-slider/lib/Slider'
 import Handle from 'rc-slider/lib/Handle'
-import Tooltip from 'rc-tooltip/lib/Tooltip'
+import SliderTooltip from 'rc-slider/lib/common/SliderTooltip.js'
 
 import Label from './Label.js'
-
-const SliderTooltip = Slider
-const RangeTooltip = Range
 
 const BASE_CLASS = `sui-AtomSlider`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 const CLASS_INVERSE = `${BASE_CLASS}--inverse`
 
 export {
-  RangeTooltip as Range,
-  SliderTooltip as Slider,
+  Range,
+  Slider,
   Label,
   Handle,
-  Tooltip,
+  SliderTooltip,
   BASE_CLASS,
   CLASS_DISABLED,
   CLASS_INVERSE

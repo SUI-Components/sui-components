@@ -2,7 +2,7 @@ import {useRef} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {Handle, Tooltip, BASE_CLASS} from './settings.js'
+import {Handle, SliderTooltip, BASE_CLASS} from './settings.js'
 
 const Handler = ({
   value,
@@ -14,6 +14,7 @@ const Handler = ({
   ...restProps
 }) => {
   const refHandle = useRef()
+
   if (!refAtomSlider?.current) {
     return null
   }
@@ -22,23 +23,21 @@ const Handler = ({
   }
 
   return (
-    process.browser && (
-      <Tooltip
-        getTooltipContainer={() => refHandle?.current?.handle}
-        prefixCls="rc-slider-tooltip"
-        overlay={value}
-        placement="top"
-        visible
-        key={index}
-      >
-        <Handle
-          ref={refHandle}
-          value={value}
-          {...restProps}
-          className={cx(`${BASE_CLASS}-handle`, handleClassName)}
-        />
-      </Tooltip>
-    )
+    <SliderTooltip
+      getTooltipContainer={() => refHandle?.current?.handle}
+      prefixCls="rc-slider-tooltip"
+      overlay={value}
+      placement="top"
+      visible
+      key={index}
+    >
+      <Handle
+        ref={refHandle}
+        value={value}
+        {...restProps}
+        className={cx(`${BASE_CLASS}-handle`, handleClassName)}
+      />
+    </SliderTooltip>
   )
 }
 

@@ -6,7 +6,6 @@ import {Handle, SliderTooltip, BASE_CLASS} from './settings.js'
 
 const Handler = ({
   value,
-  index,
   dragging,
   refAtomSlider,
   hideTooltip,
@@ -24,12 +23,10 @@ const Handler = ({
 
   return (
     <SliderTooltip
-      getTooltipContainer={() => refHandle?.current?.handle}
       prefixCls="rc-slider-tooltip"
       overlay={value}
       placement="top"
       visible
-      key={index}
     >
       <Handle
         ref={refHandle}
@@ -47,7 +44,6 @@ Handler.propTypes = {
     PropTypes.number,
     PropTypes.arrayOf(PropTypes.number)
   ]),
-  index: PropTypes.number,
   dragging: PropTypes.bool,
   refAtomSlider: PropTypes.func,
   hideTooltip: PropTypes.bool,

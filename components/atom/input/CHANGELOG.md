@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.15.0 (2022-02-23)
+
+
+### Bug Fixes
+
+* **components/atom/input:** default input tabindex -1 removed ([f599999](https://github.com/SUI-Components/sui-components/commit/f599999d139a685ddd0ecc7ac89f92628eb1b01d))
+
+
+
 # 5.14.0 (2022-02-01)
 
 

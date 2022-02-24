@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.26.0 (2022-02-23)
+
+
+### Bug Fixes
+
+* **components/atom/slider:** fix handler ([ba4c6d2](https://github.com/SUI-Components/sui-components/commit/ba4c6d2aa8aa99e354ff22aa34a49a8be71342cd))
+* **components/atom/slider:** handle error fix ([93c62d2](https://github.com/SUI-Components/sui-components/commit/93c62d2c7bebd882fa10bde8912c79dcbcd92e7a)), closes [#1974](https://github.com/SUI-Components/sui-components/issues/1974)
+* **components/atom/slider:** slider handler fix ([5a0c2b9](https://github.com/SUI-Components/sui-components/commit/5a0c2b9cba4cb7cac1e2c25a5d97dd5cc73f316b))
+
+
+
 # 1.25.0 (2022-02-07)
 
 

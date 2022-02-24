@@ -3,7 +3,7 @@ import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
 
 import MoleculeBreadcrumb from '../src/index.js'
 
-const ArticleDefault = ({className, items, icon}) => {
+const ArticleDefault = ({className, items}) => {
   return (
     <Article className={className}>
       <H2>Default</H2>
@@ -11,17 +11,18 @@ const ArticleDefault = ({className, items, icon}) => {
         MoleculeBreadcrumb must have valid <Code>items</Code>, which is an array
         of elements (object) with label and url.
       </Paragraph>
-      <MoleculeBreadcrumb items={items} icon={icon} />
+      <MoleculeBreadcrumb items={items} />
     </Article>
   )
 }
+
+ArticleDefault.displayName = 'ArticleDefault'
 
 ArticleDefault.propTypes = {
   className: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({label: PropTypes.string, url: PropTypes.string})
-  ),
-  icon: PropTypes.func
+  )
 }
 
 export default ArticleDefault

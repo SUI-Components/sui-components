@@ -82,7 +82,7 @@ describe('MoleculeValidationCode', () => {
     const {getByDisplayValue} = setup(props)
 
     // Then
-    props.value.map(value => {
+    props.value.forEach(value => {
       const input = getByDisplayValue(value)
       expect(input).to.exist
     })

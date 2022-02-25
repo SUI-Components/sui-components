@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.32.0 (2022-02-25)
+
+
+### Bug Fixes
+
+* **components/molecule/field:** patch ([b0d8b08](https://github.com/SUI-Components/sui-components/commit/b0d8b0804202999bd7543390f60c454978cc5361))
+* **components/molecule/field:** small error ([db7e753](https://github.com/SUI-Components/sui-components/commit/db7e753affc757089f777751e7430691682abe34))
+
+
+
 # 1.31.0 (2021-09-09)
 
 
@@ -209,7 +219,6 @@
 
 ### Features
 
-* **META:** merge master ([1877e1e](https://github.com/SUI-Components/sui-components/commit/1877e1ece55b4443a98c7d64e4e1588e8f0dc011))
 * **molecule/field:** allow to use property to set the type of the label ([82c3aae](https://github.com/SUI-Components/sui-components/commit/82c3aaef504014a0be0a8b12c1ea899d32685ab7))
 * **molecule/field:** revert order change for props ([6d0ccf3](https://github.com/SUI-Components/sui-components/commit/6d0ccf350de097e55ccc2f80a7441dc7c635fcdd))
 * **molecule/field:** update prop name and ussage ([557c99c](https://github.com/SUI-Components/sui-components/commit/557c99cbb2a09a7ae06ba6e538c0db64457be7f8))

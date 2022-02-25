@@ -2,7 +2,10 @@ import {cloneElement, Children} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import {AtomValidationTextTypes} from '@s-ui/react-atom-validation-text'
+import AtomValidationText, {
+  AtomValidationTextTypes
+} from '@s-ui/react-atom-validation-text'
+import AtomHelpText from '@s-ui/react-atom-help-text'
 
 import {
   BASE_CLASS,
@@ -13,7 +16,7 @@ import {
   CLASS_INPUT_CONTAINER,
   CLASS_LABEL_CONTAINER
 } from './config.js'
-import useStatusHelpText from './useStatusHelpText.js'
+import useStatusValidationText from './useStatusValidationText.js'
 import useTypeValidationLabel from './useTypeValidationLabel.js'
 import MoleculeLabel from './Label.js'
 
@@ -63,16 +66,13 @@ const MoleculeField = ({
   })
 
   const {
-    text: helpTextValue,
-    status: helpTextStatus,
-    element: HelpTextElement
-  } = useStatusHelpText({
+    text: validationTextValue,
+    status: validationTextStatus
+  } = useStatusValidationText({
     successText,
     errorText,
     alertText,
-    helpText,
-    status,
-    disabled
+    status
   })
 
   return (
@@ -96,7 +96,13 @@ const MoleculeField = ({
         )}
       >
         {!inline && extendedChildren}
-        <HelpTextElement type={helpTextStatus} text={helpTextValue} />
+        {!disabled && validationTextValue && (
+          <AtomValidationText
+            type={validationTextStatus}
+            text={validationTextValue}
+          />
+        )}
+        {helpText && <AtomHelpText text={helpText} />}
       </div>
     </div>
   )

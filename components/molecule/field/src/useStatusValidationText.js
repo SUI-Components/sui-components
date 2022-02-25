@@ -10,10 +10,11 @@ const useStatusValidationText = ({
   successText,
   errorText,
   alertText,
-  status
+  status,
+  statusText
 }) => {
   return {
-    text: alertText || successText || errorText,
+    text: alertText || successText || errorText || statusText,
     status: status || textStatusConverter({alertText, successText, errorText})
   }
 }

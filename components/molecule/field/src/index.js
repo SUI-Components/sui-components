@@ -34,6 +34,7 @@ const MoleculeField = ({
   helpText,
   name,
   status,
+  statusText,
   onClickLabel,
   onChange: onChangeFromProps,
   children,
@@ -72,7 +73,8 @@ const MoleculeField = ({
     successText,
     errorText,
     alertText,
-    status
+    status,
+    statusText
   })
 
   return (
@@ -163,7 +165,10 @@ MoleculeField.propTypes = {
   isAligned: PropTypes.bool,
 
   /** set the field status (ERROR, SUCCESS, ALERT) */
-  status: PropTypes.oneOf(Object.values(AtomValidationTextTypes))
+  status: PropTypes.oneOf(Object.values(AtomValidationTextTypes)),
+
+  /** status field text **/
+  statusText: PropTypes.string
 }
 
 export default MoleculeField

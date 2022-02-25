@@ -15,6 +15,7 @@ const MoleculeRadioButtonField = ({
   alertText,
   helpText,
   status,
+  statusText,
   onChange,
   onClickLabel,
   fullWidth,
@@ -32,6 +33,7 @@ const MoleculeRadioButtonField = ({
         helpText={helpText}
         onChange={onChange}
         status={status}
+        statusText={statusText}
         onClickLabel={onClickLabel}
         fullWidth={fullWidth}
         inline
@@ -81,7 +83,10 @@ MoleculeRadioButtonField.propTypes = {
   fullWidth: PropTypes.bool,
 
   /** set the field status (ERROR, SUCCESS, ALERT) */
-  status: PropTypes.oneOf(Object.values(AtomValidationTextTypes))
+  status: PropTypes.oneOf(Object.values(AtomValidationTextTypes)),
+
+  /** status field text **/
+  statusText: PropTypes.string
 }
 
 export default MoleculeRadioButtonField

@@ -15,7 +15,7 @@ import MoleculeRadioButtonField, {
 } from '../src/index.js'
 
 const ArticleStatus = ({className, ...props}) => {
-  const [text, setText] = useState('helpText')
+  const [text, setText] = useState('statusText')
   const [status, setStatus] = useState(MoleculeRadioButtonFieldStatus.SUCCESS)
   return (
     <Article className={className}>
@@ -43,7 +43,12 @@ const ArticleStatus = ({className, ...props}) => {
       </RadioButtonGroup>
       <br />
       <br />
-      <MoleculeRadioButtonField status={status} label="label" helpText={text} />
+      <MoleculeRadioButtonField
+        status={status}
+        label="label"
+        helpText="helpText"
+        statusText={text}
+      />
     </Article>
   )
 }

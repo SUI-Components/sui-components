@@ -5,8 +5,18 @@ const useTypeValidationLabel = ({
   errorText,
   successText,
   alertText,
-  disabled
+  disabled,
+  status
 }) => {
+  if (
+    status &&
+    [
+      AtomLabelTypes.SUCCESS,
+      AtomLabelTypes.ERROR,
+      AtomLabelTypes.ALERT
+    ].includes(status)
+  )
+    return status
   if (disabled) return AtomLabelTypes.DISABLED
   if (alertText) return AtomLabelTypes.ALERT
   if (successText) return AtomLabelTypes.SUCCESS

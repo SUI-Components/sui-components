@@ -58,7 +58,8 @@ const MoleculeField = ({
     errorText,
     successText,
     alertText,
-    disabled
+    disabled,
+    status
   })
 
   const {

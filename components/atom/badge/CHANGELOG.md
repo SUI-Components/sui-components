@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.26.0 (2022-03-01)
+
+
+### Features
+
+* **components/atom/badge:** Allow control badge M individually ([91c0282](https://github.com/SUI-Components/sui-components/commit/91c0282e7f0828b715a884c179d9e9d211067a5d))
+
+
+
 # 1.25.0 (2022-01-20)
 
 

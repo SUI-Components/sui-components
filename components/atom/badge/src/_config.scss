@@ -5,9 +5,13 @@ $fz-atom-badge-m: $fz-s !default;
 $fz-atom-badge-s: $fz-xs !default;
 $h-atom-badge-l: 24px !default;
 $h-atom-badge-s: 16px !default;
+$h-atom-badge-m: $h-atom-badge-s !default;
 $m-atom-badge-l: $m-m !default;
 $m-atom-badge-s: $m-s !default;
 $p-atom-badge: 0 $p-m !default;
+$p-atom-badge-l: $p-atom-badge !default;
+$p-atom-badge-m: $p-atom-badge !default;
+$p-atom-badge-s: $p-atom-badge !default;
 $ws-atom-badge: nowrap !default;
 
 $sizes-atom-badge: ('small', 'medium', 'large');

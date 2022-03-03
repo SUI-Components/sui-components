@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@s-ui/js": "2",
-    "@s-ui/react-atom-checkbox": "2"
+    "@s-ui/react-atom-checkbox": "2",
+    "@s-ui/react-hooks": "1"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

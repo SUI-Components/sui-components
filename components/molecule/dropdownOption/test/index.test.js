@@ -25,7 +25,8 @@ describe(json.name, () => {
     const library = pkg
     const libraryExportedMembers = [
       'handlersFactory',
-      'MoleculeDropdownOptionTextWrapStyles',
+      'MoleculeDropdownOptionTextWrapStyles', // deprecated
+      'moleculeDropdownOptionTextWrapStyles',
       'default'
     ]
 
@@ -33,6 +34,7 @@ describe(json.name, () => {
     const {
       handlersFactory,
       MoleculeDropdownOptionTextWrapStyles,
+      moleculeDropdownOptionTextWrapStyles,
       default: MoleculeDropDownOption,
       ...others
     } = library
@@ -140,6 +142,42 @@ describe(json.name, () => {
 
       // When
       const {MoleculeDropdownOptionTextWrapStyles: actual} = library
+      const {NO_WRAP, TWO_LINES, THREE_LINES, LINE_WRAP, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('moleculeDropdownOptionTextWrapStyles', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {moleculeDropdownOptionTextWrapStyles: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        NO_WRAP: 'noWrap',
+        TWO_LINES: 'twoLines',
+        THREE_LINES: 'threeLines',
+        LINE_WRAP: 'lineWrap'
+      }
+
+      // When
+      const {moleculeDropdownOptionTextWrapStyles: actual} = library
       const {NO_WRAP, TWO_LINES, THREE_LINES, LINE_WRAP, ...others} = actual
 
       // Then

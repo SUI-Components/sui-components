@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 3.6.0 (2022-03-04)
+
+
+### Features
+
+* **components/atom/popover:** Improve variables naming ([e7824ce](https://github.com/SUI-Components/sui-components/commit/e7824ce491625d95566e90caaf2333135357ad89))
+* **components/atom/popover:** Retrieve scheduleUpdate function when rendering AtomPopover ([e33052f](https://github.com/SUI-Components/sui-components/commit/e33052f846061738ac0a9c7add2c9c4bdb7a2728))
+* **components/atom/popover:** Use a clearer function name ([fbd0009](https://github.com/SUI-Components/sui-components/commit/fbd000966a4a76b97c59da879082d23aa07da259))
+
+
+
 # 3.5.0 (2021-10-15)
 
 

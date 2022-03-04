@@ -33,5 +33,25 @@ import AtomPopover, { atomPopoverPositions } from '@s-ui/react-atom-popover'
 
 ```
 
+Some times you may need to programmatically recalculate the `AtomPopover` position in order to fix visual inconsistencies (i.e. a change on the popover content could change the popover size, and therefore recalculating the position may be needed to ensure that popover is displayed as expected). To do so, it's possible to provide a component in the `AtomPopover`'s `content` property, this component will receive a function inside a property named `update`, calling this function will result on a popover's position recalculation.
+
+```js
+<AtomPopover
+  placement={atomPopoverPositions.BOTTOM}
+  onClose={() => console.log("CLOSE POPOVER!")}
+  content={({update}) =>
+    <>
+      Hello <strong>world</strong>!
+      <button onClick={update}>Click me to recalculate the popover position!</button>
+    </>
+  }
+>
+  <div>
+    Show Popover
+  </div>
+</AtomPopover>
+
+```
+
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/popover/demo).**

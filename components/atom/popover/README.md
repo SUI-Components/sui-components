@@ -53,5 +53,7 @@ Some times you may need to programmatically recalculate the `AtomPopover` positi
 
 ```
 
+The `update` prop is a function provided by `Popper` (v1), which is the library in charge of rendering and positioning the popover component. You can get more information about this function here: https://popper.js.org/docs/v1/#Popper.scheduleUpdate
+
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/popover/demo).**

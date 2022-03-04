@@ -79,7 +79,7 @@ const AtomPopover = forwardRef(
                   </div>
                 )}
 
-                <ContentComponent scheduleUpdate={scheduleUpdate} />
+                <ContentComponent recalculatePopoverLocation={scheduleUpdate} />
               </>
             )
           }}

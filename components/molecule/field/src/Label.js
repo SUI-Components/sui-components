@@ -1,4 +1,5 @@
 import {cloneElement} from 'react'
+import {isElement} from 'react-is'
 import PropTypes from 'prop-types'
 
 import AtomLabel, {AtomLabelTypes} from '@s-ui/react-atom-label'
@@ -13,7 +14,14 @@ const MoleculeLabel = ({
   onClick
 }) => {
   const innerLabel = () => {
-    if (label) {
+    if (isElement(label) || nodeLabel) {
+      const clonedLabel = isElement(label) ? label : nodeLabel
+      return cloneElement(clonedLabel, {
+        type: typeValidationLabel,
+        name,
+        onClick
+      })
+    } else if (label) {
       return (
         <AtomLabel
           type={typeValidationLabel}
@@ -22,13 +30,8 @@ const MoleculeLabel = ({
           onClick={onClick}
         />
       )
-    } else if (nodeLabel) {
-      return cloneElement(nodeLabel, {
-        type: typeValidationLabel,
-        name,
-        onClick
-      })
     }
+    return null
   }
   return <div className={CLASS_NODE_LABEL_CONTAINER}>{innerLabel()}</div>
 }

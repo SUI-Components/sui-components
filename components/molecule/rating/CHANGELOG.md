@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.18.0 (2022-03-04)
+
+
+### Features
+
+* **components/molecule/rating:** Add cursor pointer when hover ([57d3374](https://github.com/SUI-Components/sui-components/commit/57d3374220a82236c76f4b6123277b480944b4b9))
+
+
+
 # 1.17.0 (2022-02-01)
 
 

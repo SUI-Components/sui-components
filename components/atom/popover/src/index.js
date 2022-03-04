@@ -43,6 +43,10 @@ const AtomPopover = forwardRef(
         ? typeof onClose === 'function' && onClose(ev)
         : typeof onOpen === 'function' && onOpen(ev)
     }
+
+    const ContentComponent =
+      typeof content === 'function' ? content : () => content
+
     return (
       <>
         <PopoverExtendChildren ref={targetRef} onToggle={handleToggle}>
@@ -64,10 +68,7 @@ const AtomPopover = forwardRef(
           placement={placement}
           offset={DEFAULT_OFFSET}
         >
-          {({scheduleUpdate}) => {
-            const ContentComponent =
-              typeof content === 'function' ? content : () => content
-
+          {({scheduleUpdate: update}) => {
             return (
               <>
                 {closeIcon && (
@@ -79,7 +80,7 @@ const AtomPopover = forwardRef(
                   </div>
                 )}
 
-                <ContentComponent recalculatePopoverLocation={scheduleUpdate} />
+                <ContentComponent update={update} />
               </>
             )
           }}

@@ -78,7 +78,13 @@ const MoleculeField = ({
   })
 
   return (
-    <div className={className}>
+    <div
+      className={className}
+      {...(validationTextStatus &&
+        Object.values(AtomValidationTextTypes).includes(
+          validationTextStatus
+        ) && {'data-status': validationTextStatus})}
+    >
       {(label || nodeLabel) && (
         <div className={CLASS_LABEL_CONTAINER}>
           {inline && extendedChildren}
@@ -117,10 +123,10 @@ MoleculeField.propTypes = {
   children: PropTypes.any,
 
   /** Text to be displayed as label of the textarea */
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 
   /** React node to be displayed as label of the textarea if there is not a given label value */
-  nodeLabel: PropTypes.element,
+  nodeLabel: PropTypes.element, // deprecated (use label)
 
   /** Makes nodeLabelContainer full width */
   fullWidth: PropTypes.bool,
@@ -172,3 +178,5 @@ MoleculeField.propTypes = {
 }
 
 export default MoleculeField
+
+export {AtomValidationTextTypes as moleculeFieldStatus}

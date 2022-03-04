@@ -36,6 +36,7 @@ const MoleculeTabs = ({variant, type, children, onChange}) => {
       const {children: childrenChild, active} = child.props
       return active ? childrenChild : activeContent
     }
+    return activeContent
   }, null)
 
   return (

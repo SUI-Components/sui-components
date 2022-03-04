@@ -25,7 +25,7 @@ const MoleculeRatingStarHover = ({
   const renderStars = () =>
     ratingValues.map(value => {
       const isActive = rating >= value || value <= selectedRating
-      const className = cx(BASE_CLASS, {
+      const className = cx(BASE_CLASS, 'is-hoverable', {
         [`is-active`]: isActive
       })
       return (

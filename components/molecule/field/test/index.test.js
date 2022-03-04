@@ -154,7 +154,7 @@ describe(json.name, () => {
         }
 
         // When
-        const {container} = setup(props)
+        const {container, findByText} = setup(props)
 
         // Then
         expect(container.innerHTML).to.be.a('string')
@@ -176,7 +176,7 @@ describe(json.name, () => {
         }
 
         // When
-        const {container} = setup(props)
+        const {container, findByText} = setup(props)
 
         // Then
         expect(container.innerHTML).to.be.a('string')
@@ -198,7 +198,7 @@ describe(json.name, () => {
         }
 
         // When
-        const {container} = setup(props)
+        const {container, findByText} = setup(props)
 
         // Then
         expect(container.innerHTML).to.be.a('string')
@@ -220,7 +220,7 @@ describe(json.name, () => {
         }
 
         // When
-        const {container} = setup(props)
+        const {container, findByText} = setup(props)
 
         // Then
         expect(container.innerHTML).to.be.a('string')
@@ -242,7 +242,7 @@ describe(json.name, () => {
         }
 
         // When
-        const {container} = setup(props)
+        const {container, findByText} = setup(props)
 
         // Then
         expect(container.innerHTML).to.be.a('string')
@@ -264,7 +264,7 @@ describe(json.name, () => {
         }
 
         // When
-        const {container} = setup(props)
+        const {container, findByText} = setup(props)
 
         // Then
         expect(container.innerHTML).to.be.a('string')

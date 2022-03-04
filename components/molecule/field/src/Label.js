@@ -14,15 +14,14 @@ const MoleculeLabel = ({
   onClick
 }) => {
   const innerLabel = () => {
-    if (isElement(label) || nodeLabel) {
-      const clonedLabel = isElement(label) ? label : nodeLabel
-      return cloneElement(clonedLabel, {
-        type: typeValidationLabel,
-        name,
-        onClick
-      })
-    } else if (label) {
-      return (
+    if (label) {
+      return isElement(label) ? (
+        cloneElement(label, {
+          type: typeValidationLabel,
+          name,
+          onClick
+        })
+      ) : (
         <AtomLabel
           type={typeValidationLabel}
           name={name}
@@ -30,6 +29,12 @@ const MoleculeLabel = ({
           onClick={onClick}
         />
       )
+    } else if (nodeLabel) {
+      return cloneElement(nodeLabel, {
+        type: typeValidationLabel,
+        name,
+        onClick
+      })
     }
     return null
   }

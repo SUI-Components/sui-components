@@ -1,6 +1,11 @@
 $base-class: '.sui-MoleculeTabs';
+$base-class-full-width: '#{$base-class}--fullWidth';
+$item-base-class: '#{$base-class}-item';
 
 #{$base-class} {
+  background-color: yellow;
+  border-radius: $bdrs-sui-molecule-tabs;
+
   &-scroller {
     @include reset-list;
     align-items: flex-start;
@@ -11,9 +16,29 @@ $base-class: '.sui-MoleculeTabs';
     scroll-snap-type: $sst-sui-molecule-tabs;
   }
 
+  &-scroller,
+  &--horizontal,
+  &--classic {
+    #{$item-base-class} {
+      &:first-of-type,
+      &:first-of-type .is-active {
+        border-radius: $bdrs-sui-molecule-tabs 0 0 0;
+      }
+    }
+
+    #{$base-class-full-width} & {
+      #{$item-base-class} {
+        &:last-of-type,
+        &:last-of-type .is-active {
+          border-radius: 0 $bdrs-sui-molecule-tabs 0 0;
+        }
+      }
+    }
+  }
+
   &--classic.sui-MoleculeTabs--horizontal,
   &--classic.sui-MoleculeTabs--fullWidth {
-    .sui-MoleculeTabs-item {
+    #{$item-base-class} {
       background: $bgc-sui-molecule-tabs;
       border: $bdw-s solid transparent;
       border-bottom-color: $bdc-sui-molecule-tabs;
@@ -50,7 +75,7 @@ $base-class: '.sui-MoleculeTabs';
   }
 
   &--classic.sui-MoleculeTabs--vertical {
-    .sui-MoleculeTabs-item {
+    #{$item-base-class} {
       background: $bgc-sui-molecule-tabs;
       border: $bdw-s solid transparent;
       border-right-color: $bdc-sui-molecule-tabs;
@@ -83,7 +108,7 @@ $base-class: '.sui-MoleculeTabs';
   &--highlighted.sui-MoleculeTabs--fullWidth {
     border-bottom: $bb-sui-molecule-tabs-fullwidth;
 
-    .sui-MoleculeTabs-item {
+    #{$item-base-class} {
       background: $bgc-sui-molecule-tabs;
       border: 0 none transparent;
       border-bottom: $bdw-sui-molecule-tabs-highlighted solid
@@ -122,7 +147,7 @@ $base-class: '.sui-MoleculeTabs';
   &--highlighted.sui-MoleculeTabs--vertical {
     border-right: 1px solid $bdc-sui-molecule-tabs-highlighted-vertical-right;
 
-    .sui-MoleculeTabs-item {
+    #{$item-base-class} {
       background: $bgc-sui-molecule-tabs;
       border: 0 none transparent;
       cursor: pointer;
@@ -182,7 +207,7 @@ $base-class: '.sui-MoleculeTabs';
       align-self: stretch;
     }
 
-    .sui-MoleculeTabs-item {
+    #{$item-base-class} {
       padding: $p-sui-molecule-tabs-vertical-item;
       text-align: $ta-sui-molecule-tabs-vertical-item;
       white-space: $ws-sui-molecule-tabs-vertical-item;

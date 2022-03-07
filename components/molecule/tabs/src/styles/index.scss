@@ -3,7 +3,6 @@ $base-class-full-width: '#{$base-class}--fullWidth';
 $item-base-class: '#{$base-class}-item';
 
 #{$base-class} {
-  background-color: yellow;
   border-radius: $bdrs-sui-molecule-tabs;
 
   &-scroller {

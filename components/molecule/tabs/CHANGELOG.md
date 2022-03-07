@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 2.32.0 (2022-03-07)
+
+
+### Bug Fixes
+
+* **components/molecule/tabs:** fix file import ([ef9149f](https://github.com/SUI-Components/sui-components/commit/ef9149f33ffc63463471c4e08e8a73e095be65a2))
+* **components/molecule/tabs:** remove test color ([46f5e47](https://github.com/SUI-Components/sui-components/commit/46f5e475683505a6573a9f1a217ba22e50b827f9))
+* **components/molecule/tabs:** rename file ([1d9414a](https://github.com/SUI-Components/sui-components/commit/1d9414a24573558b9411737108ffe9fc2e4d9977))
+* **components/molecule/tabs:** undo file changes ([d44f561](https://github.com/SUI-Components/sui-components/commit/d44f5611350239789f835ed4bbf165764dbd3fc7))
+
+
+### Features
+
+* **components/molecule/tabs:** add new token for tab border radius ([5c5b794](https://github.com/SUI-Components/sui-components/commit/5c5b794c4cc06d1ea30fb6cde6fe3c635886bbac))
+* **components/molecule/tabs:** use new token for tab items border radius and re use sass variable ([a1989e6](https://github.com/SUI-Components/sui-components/commit/a1989e69dd58b9c832834a4becbe8b169596eac1))
+
+
+
 # 2.31.0 (2022-01-25)
 
 

@@ -141,8 +141,10 @@ $content-class: $base-class + '-content';
 
   #{$base-class}-compressedInfo {
     &-item {
+      visibility: hidden;
       &--active {
         margin-right: 0;
+        visibility: inherit;
       }
     }
   }

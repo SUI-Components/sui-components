@@ -9,7 +9,7 @@ export const CONTENT_STYLE = {
 }
 
 export const CLASS_COMPRESSED = `${BASE_CLASS}--compressed`
-export const CLASS_COMPRESSED_INFO = `${CLASS_COMPRESSED}Info`
+export const CLASS_COMPRESSED_INFO = `${BASE_CLASS}-compressedInfo`
 export const CLASS_VERTICAL = `${BASE_CLASS}--vertical`
 
 export const PROGRESS_BAR_JUSTIFY_CONTENT = {

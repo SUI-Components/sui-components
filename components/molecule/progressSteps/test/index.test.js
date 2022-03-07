@@ -28,6 +28,7 @@ describe(json.name, () => {
       'STATUSES',
       'moleculeProgressStepsStatuses',
       'moleculeProgressStepsJustifyContentBar',
+      'MoleculeProgressContentStyle',
       'default'
     ]
 
@@ -37,6 +38,7 @@ describe(json.name, () => {
       STATUSES,
       moleculeProgressStepsStatuses,
       moleculeProgressStepsJustifyContentBar,
+      MoleculeProgressContentStyle,
       default: MoleculeProgressSteps,
       ...others
     } = library

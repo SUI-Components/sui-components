@@ -13,7 +13,7 @@ const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
 const Demo = () => {
   return (
-    <div>
+    <div className="sui-StudioPreview">
       <H1>Notification</H1>
       <Paragraph>
         Notifications offer users information on the system. The content may

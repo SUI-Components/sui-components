@@ -10,7 +10,7 @@ import ArticleDisabled from './Articles/ArticleDisabled.js'
 
 const Demo = () => {
   return (
-    <div>
+    <div className="sui-StudioPreview">
       <H1>Data Counter</H1>
       <Paragraph>
         <Code>MoleculeDataCounter</Code> is an input type number controller we

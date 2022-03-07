@@ -21,7 +21,7 @@ const AtomPopover = forwardRef(
     {
       children,
       closeIcon,
-      content,
+      content: Content,
       onClose,
       onOpen,
       placement = PLACEMENTS.BOTTOM,
@@ -43,9 +43,6 @@ const AtomPopover = forwardRef(
         ? typeof onClose === 'function' && onClose(ev)
         : typeof onOpen === 'function' && onOpen(ev)
     }
-
-    const ContentComponent =
-      typeof content === 'function' ? content : () => content
 
     return (
       <>
@@ -79,8 +76,11 @@ const AtomPopover = forwardRef(
                     {closeIcon}
                   </div>
                 )}
-
-                <ContentComponent update={update} />
+                {typeof Content === 'function' ? (
+                  <Content update={update} />
+                ) : (
+                  Content
+                )}
               </>
             )
           }}

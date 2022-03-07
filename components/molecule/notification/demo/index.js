@@ -12,7 +12,7 @@ const Demo = () => {
   const targetRef = useRef()
 
   return (
-    <div>
+    <div className="sui-StudioPreview">
       <h1>Notification</h1>
       <h2>Types and variations</h2>
       {Object.values(TYPES).map(type =>

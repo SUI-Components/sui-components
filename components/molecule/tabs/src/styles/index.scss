@@ -3,7 +3,13 @@ $base-class-full-width: '#{$base-class}--fullWidth';
 $item-base-class: '#{$base-class}-item';
 
 #{$base-class} {
+  background-color: $bgc-sui-molecule-tabs;
   border-radius: $bdrs-sui-molecule-tabs;
+  overflow: hidden;
+
+  &-content {
+    background: $bg-sui-molecule-tabs-content;
+  }
 
   &-scroller {
     @include reset-list;
@@ -38,7 +44,6 @@ $item-base-class: '#{$base-class}-item';
   &--classic.sui-MoleculeTabs--horizontal,
   &--classic.sui-MoleculeTabs--fullWidth {
     #{$item-base-class} {
-      background: $bgc-sui-molecule-tabs;
       border: $bdw-s solid transparent;
       border-bottom-color: $bdc-sui-molecule-tabs;
       display: flex;
@@ -75,7 +80,6 @@ $item-base-class: '#{$base-class}-item';
 
   &--classic.sui-MoleculeTabs--vertical {
     #{$item-base-class} {
-      background: $bgc-sui-molecule-tabs;
       border: $bdw-s solid transparent;
       border-right-color: $bdc-sui-molecule-tabs;
       font-weight: $fw-sui-molecule-tabs;
@@ -108,7 +112,6 @@ $item-base-class: '#{$base-class}-item';
     border-bottom: $bb-sui-molecule-tabs-fullwidth;
 
     #{$item-base-class} {
-      background: $bgc-sui-molecule-tabs;
       border: 0 none transparent;
       border-bottom: $bdw-sui-molecule-tabs-highlighted solid
         $bc-sui-molecule-tabs-highlighted;
@@ -147,7 +150,6 @@ $item-base-class: '#{$base-class}-item';
     border-right: 1px solid $bdc-sui-molecule-tabs-highlighted-vertical-right;
 
     #{$item-base-class} {
-      background: $bgc-sui-molecule-tabs;
       border: 0 none transparent;
       cursor: pointer;
       font-weight: $fw-sui-molecule-tabs;
@@ -234,7 +236,7 @@ $item-base-class: '#{$base-class}-item';
   &-item {
     @include reset-link;
     align-items: center;
-    background: transparent;
+    background: $bg-sui-molecule-tab-item;
     color: $c-sui-molecule-tabs;
     flex: 1 1 auto;
     font-size: $fz-sui-molecule-tabs;

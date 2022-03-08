@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.33.0 (2022-03-08)
+
+
+### Features
+
+* **components/molecule/tabs:** new tokens for molecule/tabs bg colors ([bfc74d4](https://github.com/SUI-Components/sui-components/commit/bfc74d40c5cc993d2a034ed9c3e104e378946ea7))
+* **components/molecule/tabs:** use new bg and bgc tokens on component styles ([b5c1df9](https://github.com/SUI-Components/sui-components/commit/b5c1df9620170bafe19916dec239e20c742ce776))
+
+
+
 # 2.32.0 (2022-03-07)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.14.0 (2022-03-09)
+
+
+### Features
+
+* **components/atom/icon:** allow to inherit display to the main class ([af0a442](https://github.com/SUI-Components/sui-components/commit/af0a442983f7acecc60d56189f3429fda9ceebff))
+
+
+
 # 1.13.0 (2022-02-01)
 
 

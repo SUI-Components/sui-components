@@ -17,7 +17,7 @@ import {
 import MoleculeProgressSteps, {
   MoleculeProgressStep,
   moleculeProgressStepsStatuses,
-  MoleculeProgressContentStyle
+  moleculeProgressContentStyle
 } from '../src/index.js'
 import {IconFillCheck} from './Icons/index.js'
 import {configBasic} from './config/index.js'
@@ -43,7 +43,7 @@ const getLabel = (index, keys) => {
 const DefaultProgressStepsArticle = ({className}) => {
   const [step, setStep] = useState(1)
   const [contentType, setContentType] = useState(
-    MoleculeProgressContentStyle.FIXED
+    moleculeProgressContentStyle.FIXED
   )
 
   const setStatus = useCallback(
@@ -58,7 +58,7 @@ const DefaultProgressStepsArticle = ({className}) => {
       <Paragraph>
         The progress steps content type can be custom using the{' '}
         <Code>contentStyle</Code> enum prop. It must be provided using one of
-        the values defined under the <Code>MoleculeProgressContentStyle</Code>{' '}
+        the values defined under the <Code>moleculeProgressContentStyle</Code>{' '}
         different enum values:
       </Paragraph>
       <UnorderedList>
@@ -105,13 +105,13 @@ const DefaultProgressStepsArticle = ({className}) => {
             onChange={(event, value) => setContentType(value)}
           >
             <RadioButton
-              value={MoleculeProgressContentStyle.FIXED}
-              checked={contentType === MoleculeProgressContentStyle.FIXED}
+              value={moleculeProgressContentStyle.FIXED}
+              checked={contentType === moleculeProgressContentStyle.FIXED}
               label="Fixed"
             />
             <RadioButton
-              value={MoleculeProgressContentStyle.FLUID}
-              checked={contentType === MoleculeProgressContentStyle.FLUID}
+              value={moleculeProgressContentStyle.FLUID}
+              checked={contentType === moleculeProgressContentStyle.FLUID}
               label="Fluid"
             />
           </RadioButtonGroup>

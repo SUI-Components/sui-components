@@ -1,5 +1,5 @@
 $base-class: '.sui-MoleculeProgressSteps';
-$content-class: $base-class + '-content';
+$content-class: '#{$base-class}-content';
 
 #{$base-class} {
   &-path {

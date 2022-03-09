@@ -88,7 +88,7 @@ const MoleculeProgressSteps = ({
       return (
         <div
           key={index}
-          className={cx(`${CLASS_CONTENT}-item `, {
+          className={cx(`${CLASS_CONTENT}-item`, {
             [`${CLASS_CONTENT}-item--active`]: status === STATUSES.ACTIVE
           })}
         >
@@ -115,9 +115,7 @@ const MoleculeProgressSteps = ({
       >
         {extendedChildren}
       </div>
-      <div className={`${CLASS_CONTENT} ${contentStyle}`}>
-        {childrenContent}
-      </div>
+      <div className={cx(CLASS_CONTENT, contentStyle)}>{childrenContent}</div>
     </div>
   )
 }
@@ -152,5 +150,5 @@ export {
   STATUSES,
   STATUSES as moleculeProgressStepsStatuses,
   PROGRESS_BAR_JUSTIFY_CONTENT as moleculeProgressStepsJustifyContentBar,
-  CONTENT_STYLE as MoleculeProgressContentStyle
+  CONTENT_STYLE as moleculeProgressContentStyle
 }

@@ -202,11 +202,13 @@ $content-class: $base-class + '-content';
         flex-basis: auto;
         flex-grow: 1;
         flex-shrink: 0;
+        justify-content: space-between;
         &-item {
           display: inline-flex;
+          flex-basis: inherit;
           justify-content: flex-end;
           align-content: flex-start;
-          margin-top: -100%;
+          margin-top: 0;
           margin-right: 0;
           &--active {
             margin-right: 0;

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.1.0 (2022-03-09)
+
+
+### Features
+
+* **components/molecule/progressSteps:** add content type ([#2042](https://github.com/SUI-Components/sui-components/issues/2042)) ([fe05ed8](https://github.com/SUI-Components/sui-components/commit/fe05ed8428203cf9ca7674b9bfbcdc1880910afe))
+
+
+
 # 2.0.0 (2021-12-13)
 
 

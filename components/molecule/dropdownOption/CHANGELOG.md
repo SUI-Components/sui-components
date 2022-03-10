@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.41.0 (2022-03-10)
+
+
+### Features
+
+* **components/molecule/dropdownOption:** add fwdRef and stateFull selected ([c40375e](https://github.com/SUI-Components/sui-components/commit/c40375e9284865993c2aba947f0de90fe4a6ee47))
+
+
+
 # 1.40.0 (2022-02-07)
 
 

@@ -32,12 +32,12 @@ return (
 )
 ```
 
-### With `checkbox` disabled
+### With disabled
 ```js
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
 return (
-  <MoleculeDropdownOption value="option1" checkbox disabled>
+  <MoleculeDropdownOption value="option1" disabled>
     Option 1
   </MoleculeDropdownOption>
 )

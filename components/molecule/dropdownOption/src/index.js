@@ -182,7 +182,6 @@ MoleculeDropdownOption.propTypes = {
   description: PropTypes.string
 }
 MoleculeDropdownOption.defaultProps = {
-  checkbox: false,
   disabled: false,
   onSelect: () => {},
   defaultSelected: false,

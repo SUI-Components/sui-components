@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.6.0 (2022-03-11)
+
+
+### Bug Fixes
+
+* **components/atom/upload:** add preview to the handler method ([156b2de](https://github.com/SUI-Components/sui-components/commit/156b2de9a9108d378d51aab753c30b0955584ecb)), closes [#2056](https://github.com/SUI-Components/sui-components/issues/2056)
+
+
+
 # 3.5.0 (2022-01-20)
 
 

@@ -1,6 +1,5 @@
 export const BASE_CLASS_DEMO = 'DemoMoleculeDropdownList'
 export const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
-export const CLASS_DEMO_LIST = `${BASE_CLASS_DEMO}-list`
 
 export const OPTIONS = [
   'Option 1',

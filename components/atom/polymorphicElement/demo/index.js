@@ -10,7 +10,10 @@ function Demo() {
   return (
     <div className="sui-StudioPreview">
       <H1>PolymorphicElement</H1>
-      <Paragraph>PolymorphicElement is ...</Paragraph>
+      <Paragraph>
+        PolymorphicElement is an element capable of rendering a specified html
+        tag or component when passed with the <Code>as</Code> property.
+      </Paragraph>
       <Article className="DemoAtomPolymorphicElement">
         <H2>Default</H2>
         <Paragraph>

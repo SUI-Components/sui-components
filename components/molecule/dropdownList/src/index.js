@@ -11,7 +11,8 @@ import {
   CLASS_HIDDEN,
   DEBOUNCE_TIME,
   DESIGNS,
-  SIZES
+  SIZES,
+  moleculeDropdownListSelectHandler
 } from './config.js'
 
 const MoleculeDropdownList = forwardRef(
@@ -129,6 +130,9 @@ MoleculeDropdownList.propTypes = {
   /** callback on select option */
   onSelect: PropTypes.func,
 
+  /** checkbox contained in all DropdownOption **/
+  checkbox: PropTypes.bool,
+
   /** design (flat|solid) of the list */
   design: PropTypes.oneOf(Object.values(DESIGNS)),
 
@@ -148,3 +152,4 @@ MoleculeDropdownList.propTypes = {
 export default MoleculeDropdownList
 export {DESIGNS as moleculeDropdownListDesigns}
 export {SIZES as moleculeDropdownListSizes}
+export {moleculeDropdownListSelectHandler}

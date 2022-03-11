@@ -61,7 +61,7 @@ const ImagePanel = function ({as = 'div', children, ...props}) {
 ImagePanel.displayName = 'ImagePanel'
 
 ImagePanel.propTypes = {
-  ...PolymorphicElement.propTypes,
+  as: PropTypes.elementType,
   children: PropTypes.node,
   /**
    * Background color while loading the image

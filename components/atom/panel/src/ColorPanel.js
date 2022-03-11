@@ -21,7 +21,7 @@ const ColorPanel = function ({as = 'div', children, ...props}) {
 ColorPanel.displayName = 'ColorPanel'
 
 ColorPanel.propTypes = {
-  ...PolymorphicElement.propTypes,
+  as: PropTypes.elementType,
   children: PropTypes.node,
   color: PropTypes.oneOf(Object.values(COLORS)),
   alpha: PropTypes.oneOf(Object.values(ALPHA)),

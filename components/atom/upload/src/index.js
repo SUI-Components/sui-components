@@ -14,7 +14,7 @@ import {
 
 const AtomUpload = ({
   status,
-  onFilesSelection = () => {},
+  onFilesSelection,
   textExplanation,
   actionButton: Button,
   multiple,
@@ -57,6 +57,19 @@ const AtomUpload = ({
 
   const hasValidStatus = Object.values(STATUSES).includes(status)
   const shouldRender = hasValidStatus && ready
+  const onDrop = onFilesSelection => {
+    if (typeof onFilesSelection === 'function') {
+      return files =>
+        onFilesSelection(
+          files.map(file =>
+            Object.assign(file, {
+              preview: URL.createObjectURL(file)
+            })
+          )
+        )
+    }
+    return undefined
+  }
 
   return (
     shouldRender && (
@@ -66,7 +79,7 @@ const AtomUpload = ({
         disabled={status !== STATUSES.ACTIVE}
         maxSize={maxSize}
         multiple={multiple}
-        onDrop={onFilesSelection}
+        onDrop={onDrop}
       >
         {({getRootProps, getInputProps}) =>
           renderStatusBlock(status, getRootProps, getInputProps)

@@ -30,7 +30,7 @@ DemoWrapper.propTypes = {
 
 export default () => {
   return (
-    <div>
+    <div className="sui-StudioPreview">
       <H1>Textarea</H1>
       <Paragraph>
         The Textarea component allows you to easily create multi-line text

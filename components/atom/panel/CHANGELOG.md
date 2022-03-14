@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.13.0 (2022-03-14)
+
+
+### Bug Fixes
+
+* **components/atom/panel:** fix base class definition ([8f8eba5](https://github.com/SUI-Components/sui-components/commit/8f8eba5baf59fdb91aa32684c49e14295c0923b5))
+
+
+
 # 1.12.0 (2022-03-14)
 
 

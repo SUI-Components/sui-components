@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.2.0 (2022-03-14)
+
+
+### Bug Fixes
+
+* **components/molecule/progressSteps:** add styles to allows a visible overflow in fluid container ([#2069](https://github.com/SUI-Components/sui-components/issues/2069)) ([577c371](https://github.com/SUI-Components/sui-components/commit/577c3711935ec521412ed76883d0ed617846fffe))
+
+
+
 # 2.1.0 (2022-03-09)
 
 

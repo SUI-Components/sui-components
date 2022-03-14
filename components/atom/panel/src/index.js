@@ -75,7 +75,11 @@ AtomPanel.propTypes = {
   /**
    * Specify the opacity
    */
-  alpha: PropTypes.oneOf(Object.values(ALPHA))
+  alpha: PropTypes.oneOf(Object.values(ALPHA)),
+  /**
+   * Specify the HTML tag element or component to render in the DOM.
+   */
+  as: PropTypes.elementType
 }
 
 export default AtomPanel

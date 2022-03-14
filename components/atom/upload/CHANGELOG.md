@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.7.0 (2022-03-14)
+
+
+### Bug Fixes
+
+* **components/atom/upload:** fix the HoF handler usage ([208ae66](https://github.com/SUI-Components/sui-components/commit/208ae66d527919789e436ba683baec9517e72321))
+
+
+
 # 3.6.0 (2022-03-11)
 
 

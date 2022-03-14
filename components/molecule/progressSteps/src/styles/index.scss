@@ -129,11 +129,13 @@ $content-class: '#{$base-class}-content';
     }
 
     &--fluid {
+      display: inherit;
+      overflow: inherit;
       #{$content-class}-item {
         display: none;
 
         &--active {
-          display: flex;
+          display: inherit;
         }
       }
     }

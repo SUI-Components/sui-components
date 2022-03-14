@@ -69,7 +69,7 @@ const Demo = () => {
                 </Cell>
               ))}
               {atomButtonDesignsIterator.map(([{design}], index) => (
-                <>
+                <Fragment key={index}>
                   <Cell
                     style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
                   >
@@ -82,7 +82,7 @@ const Demo = () => {
                       </AtomButton>
                     </Cell>
                   ))}
-                </>
+                </Fragment>
               ))}
             </Grid>
           </Article>

@@ -28,6 +28,7 @@ describe(json.name, () => {
     const libraryExportedMembers = [
       'moleculeDropdownListDesigns',
       'moleculeDropdownListSizes',
+      'moleculeDropdownListSelectHandler',
       'default'
     ]
 
@@ -35,6 +36,7 @@ describe(json.name, () => {
     const {
       moleculeDropdownListDesigns,
       moleculeDropdownListSizes,
+      moleculeDropdownListSelectHandler,
       default: MoleculeDropDownList,
       ...others
     } = library

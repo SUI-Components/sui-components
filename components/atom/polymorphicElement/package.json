@@ -1,6 +1,6 @@
 {
-  "name": "@s-ui/react-molecule-dropdown-option",
-  "version": "1.42.0",
+  "name": "@s-ui/react-atom-polymorphic-element",
+  "version": "1.1.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -8,13 +8,12 @@
     "build:js": "babel --presets sui ./src --out-dir ./lib",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
-  "dependencies": {
-    "@s-ui/js": "2",
-    "@s-ui/react-atom-checkbox": "2",
-    "@s-ui/react-hooks": "1"
-  },
   "peerDependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/theme": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components"
   },
   "keywords": [],
   "author": "",

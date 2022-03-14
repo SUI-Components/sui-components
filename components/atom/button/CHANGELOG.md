@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.82.0 (2022-03-11)
+
+
+### Bug Fixes
+
+* **components/atom/button:** atom icon sizes explicit declaration ([d3f2c6a](https://github.com/SUI-Components/sui-components/commit/d3f2c6a95a7118448406df128d25ff6936f21e5d)), closes [#2052](https://github.com/SUI-Components/sui-components/issues/2052)
+
+
+
 # 1.81.0 (2022-01-26)
 
 

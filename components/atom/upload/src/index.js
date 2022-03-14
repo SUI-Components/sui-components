@@ -57,10 +57,10 @@ const AtomUpload = ({
 
   const hasValidStatus = Object.values(STATUSES).includes(status)
   const shouldRender = hasValidStatus && ready
-  const onDrop = onFilesSelection => {
-    if (typeof onFilesSelection === 'function') {
+  const onDrop = handler => {
+    if (typeof handler === 'function') {
       return files =>
-        onFilesSelection(
+        handler(
           files.map(file =>
             Object.assign(file, {
               preview: URL.createObjectURL(file)
@@ -79,7 +79,7 @@ const AtomUpload = ({
         disabled={status !== STATUSES.ACTIVE}
         maxSize={maxSize}
         multiple={multiple}
-        onDrop={onDrop}
+        onDrop={onDrop(onFilesSelection)}
       >
         {({getRootProps, getInputProps}) =>
           renderStatusBlock(status, getRootProps, getInputProps)

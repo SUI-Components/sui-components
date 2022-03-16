@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.84.0 (2022-03-16)
+
+
+### Bug Fixes
+
+* **components/atom/button:** isloading spinner isloading size ([b08b9f5](https://github.com/SUI-Components/sui-components/commit/b08b9f53f4e9e21f338ca9524c3aee0e0213a368)), closes [#2052](https://github.com/SUI-Components/sui-components/issues/2052)
+
+
+
 # 1.83.0 (2022-03-16)
 
 

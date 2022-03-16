@@ -66,6 +66,7 @@ $content-class: '#{$base-class}-content';
       &-number,
       &-icon {
         align-items: center;
+        justify-content: center;
         display: flex;
         height: $sz-progress-steps-icon;
         margin: $m-progress-steps-icon;

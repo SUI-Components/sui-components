@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.83.0 (2022-03-16)
+
+
+### Bug Fixes
+
+* **components/atom/button:** fix button icon position ([47aa5a4](https://github.com/SUI-Components/sui-components/commit/47aa5a4c82d97dcd535beefb54780c1bd86f2a46)), closes [#2052](https://github.com/SUI-Components/sui-components/issues/2052)
+
+
+
 # 1.82.0 (2022-03-11)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.3.0 (2022-03-16)
+
+
+### Features
+
+* **components/molecule/progressSteps:** center progress steps icon ([4573d91](https://github.com/SUI-Components/sui-components/commit/4573d915b7d7934a058b01c65db5bf326c1ed0c1))
+
+
+
 # 2.2.0 (2022-03-14)
 
 

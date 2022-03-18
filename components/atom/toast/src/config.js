@@ -1,12 +1,12 @@
 export const BASE_CLASS = 'sui-AtomToast'
 
 export const POSITIONS = {
-  bottom: 'bottom',
-  bottomLeft: 'bottom-left',
-  bottomRight: 'bottom-right',
-  top: 'top',
   topLeft: 'top-left',
-  topRight: 'top-right'
+  top: 'top',
+  topRight: 'top-right',
+  bottomLeft: 'bottom-left',
+  bottom: 'bottom',
+  bottomRight: 'bottom-right'
 }
 
 export const AUTO_CLOSE_TIMES = {

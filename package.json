@@ -13,6 +13,7 @@
   "scripts": {
     "build": "sui-studio build",
     "check:release": "sui-studio check-release",
+    "clean": "rm -rf ./node_modules && rm -f package-lock.json",
     "co": "sui-mono commit",
     "commit-msg": "validate-commit-msg",
     "dev": "sui-studio dev",
@@ -20,6 +21,8 @@
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
+    "respawn": "npm run clean && npm run install:dependencies && npm run phoenix && npm run install:themes",
+    "install:dependencies": "npm install --prefer-online --legacy-peer-deps\n",
     "install:themes": "node scripts/build-themes.js",
     "phoenix": "npx @s-ui/mono@2 run 'rm -rf ./node_modules' && rm -rf ./node_modules package-lock.json && npm install --legacy-peer-deps",
     "phoenix:ci": "npm run phoenix -- --no-optional --no-fund --no-audit",

@@ -41,8 +41,8 @@ $item-base-class: '#{$base-class}-item';
     }
   }
 
-  &--classic.sui-MoleculeTabs--horizontal,
-  &--classic.sui-MoleculeTabs--fullWidth {
+  &--classic#{$base-class}--horizontal,
+  &--classic#{$base-class}--fullWidth {
     #{$item-base-class} {
       border: $bdw-s solid transparent;
       border-bottom-color: $bdc-sui-molecule-tabs;
@@ -78,7 +78,7 @@ $item-base-class: '#{$base-class}-item';
     }
   }
 
-  &--classic.sui-MoleculeTabs--vertical {
+  &--classic#{$base-class}--vertical {
     #{$item-base-class} {
       border: $bdw-s solid transparent;
       border-right-color: $bdc-sui-molecule-tabs;
@@ -107,8 +107,8 @@ $item-base-class: '#{$base-class}-item';
     }
   }
 
-  &--highlighted.sui-MoleculeTabs--horizontal,
-  &--highlighted.sui-MoleculeTabs--fullWidth {
+  &--highlighted#{$base-class}--horizontal,
+  &--highlighted#{$base-class}--fullWidth {
     border-bottom: $bb-sui-molecule-tabs-fullwidth;
 
     #{$item-base-class} {
@@ -146,7 +146,7 @@ $item-base-class: '#{$base-class}-item';
     }
   }
 
-  &--highlighted.sui-MoleculeTabs--vertical {
+  &--highlighted#{$base-class}--vertical {
     border-right: 1px solid $bdc-sui-molecule-tabs-highlighted-vertical-right;
 
     #{$item-base-class} {
@@ -183,7 +183,7 @@ $item-base-class: '#{$base-class}-item';
 
   &--horizontal,
   &--fullWidth {
-    .sui-MoleculeTabs-scroller {
+    #{$base-class}-scroller {
       max-width: 100%;
       overflow-x: auto;
       white-space: nowrap;
@@ -199,12 +199,12 @@ $item-base-class: '#{$base-class}-item';
     display: flex;
     align-items: flex-start;
 
-    .sui-MoleculeTabs-scroller {
+    #{$base-class}-scroller {
       flex-direction: column;
     }
 
-    .sui-MoleculeTabs-content {
-      padding-left: 20px;
+    #{$base-class}-content {
+      //padding-left: 20px;
       align-self: stretch;
     }
 
@@ -212,6 +212,7 @@ $item-base-class: '#{$base-class}-item';
       padding: $p-sui-molecule-tabs-vertical-item;
       text-align: $ta-sui-molecule-tabs-vertical-item;
       white-space: $ws-sui-molecule-tabs-vertical-item;
+      box-sizing: border-box;
       width: 100%;
 
       @include media-breakpoint-up(m) {
@@ -227,7 +228,7 @@ $item-base-class: '#{$base-class}-item';
   &--fullWidth {
     display: block;
 
-    .sui-MoleculeTabs-scroller {
+    #{$base-class}-scroller {
       display: flex;
       min-width: 100%;
     }

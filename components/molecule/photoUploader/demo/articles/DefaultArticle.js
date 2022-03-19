@@ -89,10 +89,8 @@ const DefaultArticle = ({className}) => {
           ]
         ].map(([key, propType, text]) => (
           <ListItem>
-            <Code>
-              {key} ({propType})
-            </Code>
-            : {text}
+            <Code>{key}</Code>
+            {propType}: {text}
           </ListItem>
         ))}
       </UnorderedList>

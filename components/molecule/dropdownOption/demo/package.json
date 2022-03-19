@@ -12,6 +12,6 @@
   "dependencies": {
     "@s-ui/react-atom-input": "5",
     "@s-ui/react-hooks": "1",
-    "lorem-ipsum": "^2.0.3"
+    "lorem-ipsum": "2.0.4"
   }
 }

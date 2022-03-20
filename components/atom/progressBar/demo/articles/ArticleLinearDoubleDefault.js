@@ -12,14 +12,13 @@ import {
   RadioButton,
   RadioButtonGroup
 } from '@s-ui/documentation-library'
-import {atomProgressBarTypes} from '../../lib'
 
 import AtomProgressBar, {
   atomProgressBarSizes,
-  atomProgressBarStatus
+  atomProgressBarStatus,
+  atomProgressBarTypes
 } from '../../src/index.js'
-
-const getShuffledValue = () => Math.trunc(Math.random() * 100 + 1)
+import {getShuffledValue} from '../settings.js'
 
 const ArticleLinearDoubleDefault = ({className}) => {
   const [value, setValue] = useState(50)

@@ -15,10 +15,10 @@ import {
 
 import AtomProgressBar, {
   atomProgressBarSizes,
-  atomProgressBarStatus
+  atomProgressBarStatus,
+  atomProgressBarTypes
 } from '../../src/index.js'
-
-const getShuffledValue = () => Math.trunc(Math.random() * 100 + 1)
+import {getShuffledValue} from '../settings.js'
 
 const ArticleLinearDefault = ({className}) => {
   const [value, setValue] = useState(50)
@@ -147,6 +147,7 @@ const ArticleLinearDefault = ({className}) => {
         </Cell>
         <Cell span={2}>
           <AtomProgressBar
+            type={atomProgressBarTypes.LINE}
             percentage={value}
             isAnimatedOnChange={isAnimated}
             status={status}

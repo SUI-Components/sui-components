@@ -8,5 +8,12 @@ export const TYPES = {
 
 export const SIZES = {
   LARGE: 'large',
+  MEDIUM: 'medium',
   SMALL: 'small'
+}
+
+export const STATUS = {
+  LOADING: 'loading',
+  PROGRESS: 'progress',
+  ERROR: 'error'
 }

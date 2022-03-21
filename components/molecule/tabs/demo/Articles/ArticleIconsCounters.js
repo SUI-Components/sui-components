@@ -4,7 +4,6 @@ import AtomIcon from '@s-ui/react-atom-icon'
 import {
   Article,
   H2,
-  H4,
   Paragraph,
   AntDesignIcon,
   Code
@@ -39,7 +38,7 @@ const ArticleType = ({className}) => {
           .map((v, index) => (
             <MoleculeTab
               key={index + 1}
-              label={<H4 style={{padding: '0 8px'}}>Label {index + 1}</H4>}
+              label={<span style={{padding: '0 8px'}}>Label {index + 1}</span>}
               numTab={index + 1}
               active={index + 1 === 1}
               count={index + 1}

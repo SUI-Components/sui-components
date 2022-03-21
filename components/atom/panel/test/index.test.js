@@ -475,4 +475,242 @@ describe(json.name, () => {
 
     // atomPanelElevation
   })
+
+  describe('atomPanelHorizontalAlign', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomPanelHorizontalAlign: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        LEFT: 'left',
+        CENTER: 'center',
+        RIGHT: 'right'
+      }
+
+      // When
+      const {atomPanelHorizontalAlign: actual} = library
+      const {LEFT, CENTER, RIGHT, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('atomPanelVerticalAlign', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomPanelVerticalAlign: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        TOP: 'top',
+        CENTER: 'center',
+        BOTTOM: 'bottom'
+      }
+
+      // When
+      const {atomPanelVerticalAlign: actual} = library
+      const {TOP, CENTER, BOTTOM, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+  describe('atomPanelColors', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomPanelColors: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        CANVAS: 'canvas',
+        ACCENT: 'accent',
+        BASE: 'base',
+        DARK: 'dark',
+        CONTRAST: 'contrast',
+        CORPORATE: 'corporate',
+        DEFAULT: 'default',
+        HIGHLIGHT: 'highlight',
+        SUCCESS: 'success',
+        ALERT: 'alert',
+        ERROR: 'error'
+      }
+
+      // When
+      const {atomPanelColors: actual} = library
+      const {
+        CANVAS,
+        ACCENT,
+        BASE,
+        DARK,
+        CONTRAST,
+        CORPORATE,
+        DEFAULT,
+        HIGHLIGHT,
+        SUCCESS,
+        ALERT,
+        ERROR,
+        ...others
+      } = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+  describe('atomPanelAlpha', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomPanelAlpha: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        CONTRAST: '100',
+        OVERLAY_D4: '75',
+        OVERLAY_D3: '50',
+        OVERLAY_D2: '25',
+        OVERLAY_D1: '15'
+      }
+
+      // When
+      const {atomPanelAlpha: actual} = library
+      const {
+        CONTRAST,
+        OVERLAY_D4,
+        OVERLAY_D3,
+        OVERLAY_D2,
+        OVERLAY_D1,
+        ...others
+      } = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+  describe('atomPanelRounded', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomPanelRounded: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        NONE: 'none',
+        M: 'm',
+        L: 'l',
+        XL: 'xl'
+      }
+
+      // When
+      const {atomPanelRounded: actual} = library
+      const {NONE, M, L, XL, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+  describe('atomPanelElevation', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomPanelElevation: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        NONE: 'none',
+        S: 's',
+        M: 'm',
+        L: 'l'
+      }
+
+      // When
+      const {atomPanelElevation: actual} = library
+      const {NONE, S, M, L, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
 })

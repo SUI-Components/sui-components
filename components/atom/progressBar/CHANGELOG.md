@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.7.0 (2022-03-21)
+
+
+### Bug Fixes
+
+* **components/atom/progressBar:** minor fixes ([a79a0bc](https://github.com/SUI-Components/sui-components/commit/a79a0bc3301e8700679badb7b82b6ceb8f654e45))
+* **components/atom/progressBar:** minor fixes ([116209a](https://github.com/SUI-Components/sui-components/commit/116209ae6cfcbec36013480251124304219b7206))
+
+
+
 # 2.6.0 (2022-01-28)
 
 

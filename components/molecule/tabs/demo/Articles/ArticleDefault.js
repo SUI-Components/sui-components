@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {Article, H2, H4, Paragraph, Code} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
 
 import MoleculeTabs, {MoleculeTab} from 'components/molecule/tabs/src/index.js'
 import Content from '../components/Content.js'
@@ -25,7 +25,7 @@ const ArticleType = ({className}) => {
           .map((v, index) => (
             <MoleculeTab
               key={index + 1}
-              label={<H4 style={{padding: '0 8px'}}>Label {index + 1}</H4>}
+              label={<span style={{padding: '0 8px'}}>Label {index + 1}</span>}
               numTab={index + 1}
               active={index + 1 === 1}
               disabled={index + 1 === 4}

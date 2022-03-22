@@ -33,7 +33,7 @@ describe(json.name, () => {
       ATOM_SKELETON_ANIMATIONS,
       atomSkeletonVariants,
       atomSkeletonAnimations,
-      default: AtomActionButton,
+      default: AtomSkeleton,
       ...others
     } = library
 

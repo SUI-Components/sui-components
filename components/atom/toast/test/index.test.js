@@ -156,7 +156,7 @@ describe(json.name, () => {
       }
 
       // When
-      const {atomToastPositions: actual} = library
+      const {atomToastAutoCloseTimes: actual} = library
       const {short, medium, long, ...others} = actual
 
       // Then

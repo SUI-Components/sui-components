@@ -28,7 +28,7 @@ describe(json.name, () => {
     const libraryExportedMembers = ['default']
 
     // When
-    const {default: AtomAccordion, ...others} = library
+    const {default: MoleculeAccordion, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)

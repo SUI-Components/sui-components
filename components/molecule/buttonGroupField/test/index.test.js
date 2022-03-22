@@ -11,146 +11,167 @@ import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import AtomButton from '@s-ui/react-atom-button'
 
+import * as pkg from '../src/index.js'
+
+import json from '../package.json'
+
 chai.use(chaiDOM)
 
-describe('molecule/buttonGroupField', () => {
-  const Component = MoleculeButtonGroupField
+describe(json.name, () => {
+  const {default: Component} = pkg
   const setup = setupEnvironment(Component)
 
-  it('should render without crashing', () => {
+  it('library should include defined exported elements', () => {
     // Given
-    const props = {
-      label: 'label',
-      children: [
-        <AtomButton key={1}>BUTTON 1</AtomButton>,
-        <AtomButton key={2}>BUTTON 2</AtomButton>
-      ]
-    }
+    const library = pkg
+    const libraryExportedMembers = ['default']
 
     // When
-    const component = <Component {...props} />
+    const {default: MoleculeButtonGroupField, ...others} = library
 
     // Then
-    const div = document.createElement('div')
-    ReactDOM.render(component, div)
-    ReactDOM.unmountComponentAtNode(div)
+    expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
+    expect(Object.keys(library)).to.have.members(libraryExportedMembers)
+    expect(Object.keys(others).length).to.equal(0)
   })
 
-  it('should NOT render null', () => {
-    // Given
-    const props = {
-      label: 'label',
-      children: [
-        <AtomButton key={1}>BUTTON 1</AtomButton>,
-        <AtomButton key={2}>BUTTON 2</AtomButton>
-      ]
-    }
+  describe(Component.displayName, () => {
+    it('should render without crashing', () => {
+      // Given
+      const props = {
+        label: 'label',
+        children: [
+          <AtomButton key={1}>BUTTON 1</AtomButton>,
+          <AtomButton key={2}>BUTTON 2</AtomButton>
+        ]
+      }
 
-    // When
-    const {container} = setup(props)
+      // When
+      const component = <Component {...props} />
 
-    // Then
-    expect(container.innerHTML).to.be.a('string')
-    expect(container.innerHTML).to.not.have.lengthOf(0)
-  })
+      // Then
+      const div = document.createElement('div')
+      ReactDOM.render(component, div)
+      ReactDOM.unmountComponentAtNode(div)
+    })
 
-  it.skip('should NOT extend classNames', () => {
-    // Given
-    const props = {
-      label: 'label',
-      children: [
-        <AtomButton key={0}>A</AtomButton>,
-        <AtomButton key={1}>B</AtomButton>
-      ],
-      className: 'extended-classNames'
-    }
-    const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+    it('should NOT render null', () => {
+      // Given
+      const props = {
+        label: 'label',
+        children: [
+          <AtomButton key={1}>BUTTON 1</AtomButton>,
+          <AtomButton key={2}>BUTTON 2</AtomButton>
+        ]
+      }
 
-    // When
-    const {container} = setup(props)
-    const findClassName = findSentence(props.className)
+      // When
+      const {container} = setup(props)
 
-    // Then
-    expect(findClassName(container.innerHTML)).to.be.null
-  })
+      // Then
+      expect(container.innerHTML).to.be.a('string')
+      expect(container.innerHTML).to.not.have.lengthOf(0)
+    })
 
-  it('should see a label before button group', () => {
-    // Given
-    const props = {
-      id: 'testId',
-      label: 'Test Label',
-      helpText: 'Test description here',
-      children: [
-        <AtomButton key={1}>BUTTON 1</AtomButton>,
-        <AtomButton key={2}>BUTTON 2</AtomButton>
-      ]
-    }
+    it.skip('should NOT extend classNames', () => {
+      // Given
+      const props = {
+        label: 'label',
+        children: [
+          <AtomButton key={0}>A</AtomButton>,
+          <AtomButton key={1}>B</AtomButton>
+        ],
+        className: 'extended-classNames'
+      }
+      const findSentence = str => string =>
+        string.match(new RegExp(`S*${str}S*`))
 
-    // When
-    const {getByText} = setup(props)
+      // When
+      const {container} = setup(props)
+      const findClassName = findSentence(props.className)
 
-    // Then
-    const expected = getByText(props.label)
-    expect(expected).to.be.exist
-  })
+      // Then
+      expect(findClassName(container.innerHTML)).to.be.null
+    })
 
-  it('should see successHelpText after button group', () => {
-    // Given
-    const props = {
-      id: 'testId',
-      label: 'Test Label',
-      successText: 'Test Everything ok!',
-      children: [
-        <AtomButton key={1}>BUTTON 1</AtomButton>,
-        <AtomButton key={2}>BUTTON 2</AtomButton>
-      ]
-    }
+    it('should see a label before button group', () => {
+      // Given
+      const props = {
+        id: 'testId',
+        label: 'Test Label',
+        helpText: 'Test description here',
+        children: [
+          <AtomButton key={1}>BUTTON 1</AtomButton>,
+          <AtomButton key={2}>BUTTON 2</AtomButton>
+        ]
+      }
 
-    // When
-    const {getByText} = setup(props)
+      // When
+      const {getByText} = setup(props)
 
-    // Then
-    const expected = getByText(props.successText)
-    expect(expected).to.be.exist
-  })
+      // Then
+      const expected = getByText(props.label)
+      expect(expected).to.be.exist
+    })
 
-  it('should see errorHelpText after button group', () => {
-    // Given
-    const props = {
-      id: 'testId',
-      label: 'Test Label',
-      errorText: 'Test All wrong!',
-      children: [
-        <AtomButton key={1}>BUTTON 1</AtomButton>,
-        <AtomButton key={2}>BUTTON 2</AtomButton>
-      ]
-    }
+    it('should see successHelpText after button group', () => {
+      // Given
+      const props = {
+        id: 'testId',
+        label: 'Test Label',
+        successText: 'Test Everything ok!',
+        children: [
+          <AtomButton key={1}>BUTTON 1</AtomButton>,
+          <AtomButton key={2}>BUTTON 2</AtomButton>
+        ]
+      }
 
-    // When
-    const {getByText} = setup(props)
+      // When
+      const {getByText} = setup(props)
 
-    // Then
-    const expected = getByText(props.errorText)
-    expect(expected).to.be.exist
-  })
+      // Then
+      const expected = getByText(props.successText)
+      expect(expected).to.be.exist
+    })
 
-  it('should see alertHelpText after button group', () => {
-    // Given
-    const props = {
-      id: 'testId',
-      label: 'Test Label',
-      alertText: 'Test Alert!!!',
-      children: [
-        <AtomButton key={1}>BUTTON 1</AtomButton>,
-        <AtomButton key={2}>BUTTON 2</AtomButton>
-      ]
-    }
+    it('should see errorHelpText after button group', () => {
+      // Given
+      const props = {
+        id: 'testId',
+        label: 'Test Label',
+        errorText: 'Test All wrong!',
+        children: [
+          <AtomButton key={1}>BUTTON 1</AtomButton>,
+          <AtomButton key={2}>BUTTON 2</AtomButton>
+        ]
+      }
 
-    // When
-    const {getByText} = setup(props)
+      // When
+      const {getByText} = setup(props)
 
-    // Then
-    const expected = getByText(props.alertText)
-    expect(expected).to.be.exist
+      // Then
+      const expected = getByText(props.errorText)
+      expect(expected).to.be.exist
+    })
+
+    it('should see alertHelpText after button group', () => {
+      // Given
+      const props = {
+        id: 'testId',
+        label: 'Test Label',
+        alertText: 'Test Alert!!!',
+        children: [
+          <AtomButton key={1}>BUTTON 1</AtomButton>,
+          <AtomButton key={2}>BUTTON 2</AtomButton>
+        ]
+      }
+
+      // When
+      const {getByText} = setup(props)
+
+      // Then
+      const expected = getByText(props.alertText)
+      expect(expected).to.be.exist
+    })
   })
 })

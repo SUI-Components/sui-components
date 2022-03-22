@@ -6,9 +6,8 @@ import {TYPES, VARIANTS} from './config.js'
 import MoleculeTab from './components/MoleculeTab.js'
 import MoleculeTabs from './components/MoleculeTabs.js'
 
-const MoleculeTabsWithStateActive = props => {
+const MoleculeTabsWithStateActive = ({children, onChange, ...props}) => {
   const [activeTab, setActiveTab] = useState(null)
-  const {children, onChange = () => {}} = props
 
   useEffect(() => {
     Children.forEach(children, (child, index) => {
@@ -31,7 +30,7 @@ const MoleculeTabsWithStateActive = props => {
 
   const handleChange = (e, {numTab}) => {
     setActiveTab(numTab)
-    onChange(e, {numTab})
+    typeof onChange === 'function' && onChange(e, {numTab})
   }
 
   return (
@@ -43,9 +42,6 @@ const MoleculeTabsWithStateActive = props => {
 
 MoleculeTabsWithStateActive.displayName = 'MoleculeTabsWithStateActive'
 MoleculeTabsWithStateActive.propTypes = {
-  /** value */
-  activeTab: PropTypes.any,
-
   /** children of the component */
   children: PropTypes.element,
 

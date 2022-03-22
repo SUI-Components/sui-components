@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import Line from './Line.js'
 
 import {
   BASE_CLASS,
+  BASE_CLASS_LINE,
   CLASS_CONTAINER_BAR,
   BASE_CLASS_LINE_SIMPLE,
   BASE_CLASS_LINE_DOUBLE
 } from './settings.js'
+import Line from './Line.js'
 import useIndicator from './useIndicator.js'
 import usePercentage from './usePercentage.js'
+import {SIZES, STATUS} from '../settings.js'
 
 const ProgressBarLine = ({
   hideIndicator,
@@ -18,7 +20,9 @@ const ProgressBarLine = ({
   isAnimatedOnChange,
   percentage,
   mainBarPercentage,
-  extraBarPercentage
+  extraBarPercentage,
+  status,
+  size = SIZES.MEDIUM
 }) => {
   const percentageArray = usePercentage({
     percentage,
@@ -35,7 +39,11 @@ const ProgressBarLine = ({
   return (
     <div className={BASE_CLASS}>
       {!hideIndicator && !indicatorBottom && indicatorTopElement}
-      <div className={CLASS_CONTAINER_BAR}>
+      <div
+        className={cx(CLASS_CONTAINER_BAR, {
+          [`${CLASS_CONTAINER_BAR}--size-${size}`]: size
+        })}
+      >
         {percentageArray.map((percentageValue, currentIndex, array) => {
           const index = array.length - 1 - currentIndex
           const isExtra = array.length === 2 && currentIndex === 0
@@ -44,7 +52,8 @@ const ProgressBarLine = ({
               key={index}
               className={cx({
                 [BASE_CLASS_LINE_SIMPLE]: array.length === 1,
-                [BASE_CLASS_LINE_DOUBLE]: array.length === 2
+                [BASE_CLASS_LINE_DOUBLE]: array.length === 2,
+                [`${BASE_CLASS_LINE}--status-${status}`]: status
               })}
               isAnimatedOnChange={isAnimatedOnChange}
               percentage={array[index]}
@@ -76,7 +85,11 @@ ProgressBarLine.propTypes = {
   /** Percentage value to be displayed in main bar as number and as bar width  */
   mainBarPercentage: PropTypes.number,
   /** Percentage value to be displayed in extra bar as number  */
-  extraBarPercentage: PropTypes
+  extraBarPercentage: PropTypes.number,
+  /** Current status of the progress [progress, loading, error]  */
+  status: PropTypes.oneOf(Object.values(STATUS)),
+  /** The size of the circle, it can be "small" or "large"  */
+  size: PropTypes.oneOf(Object.values(SIZES))
 }
 
 export default ProgressBarLine

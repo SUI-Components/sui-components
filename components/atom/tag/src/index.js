@@ -131,4 +131,5 @@ AtomTag.defaultProps = {
 export default AtomTag
 export {DESIGNS as atomTagDesigns}
 export {LINK_TYPES as linkTypes}
+export {LINK_TYPES as atomTagLinkTypes}
 export {SIZES as atomTagSizes}

@@ -103,7 +103,12 @@ MoleculeAvatar.propTypes = {
 MoleculeAvatar.Badge = AvatarBadge
 
 export {AVATAR_SIZES as MOLECULE_AVATAR_SIZES}
+export {AVATAR_SIZES as moleculeAvatarSizes}
 export {AVATAR_BADGE_STATUSES as MOLECULE_AVATAR_BADGE_STATUSES}
+export {AVATAR_BADGE_STATUSES as moleculeAvatarBadgeStatuses}
 export {AVATAR_BADGE_PLACEMENTS as MOLECULE_AVATAR_BADGE_PLACEMENTS}
+export {AVATAR_BADGE_PLACEMENTS as moleculeAvatarBadgePlacements}
 export {AVATAR_BADGE_SIZES as MOLECULE_AVATAR_BADGE_SIZES}
+export {AVATAR_BADGE_SIZES as moleculeAvatarBadgeSizes}
+
 export default MoleculeAvatar

@@ -41,7 +41,7 @@ describe(json.name, () => {
       atomPanelAlpha,
       atomPanelRounded,
       atomPanelElevation,
-      default: MoleculeAutosuggest,
+      default: AtomPanel,
       ...others
     } = library
 

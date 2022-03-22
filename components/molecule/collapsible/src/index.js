@@ -141,4 +141,4 @@ MoleculeCollapsible.propTypes = {
 
 export default MoleculeCollapsible
 
-export {CONTENT_ALIGN}
+export {CONTENT_ALIGN, CONTENT_ALIGN as moleculeCollapsibleContentAlign}

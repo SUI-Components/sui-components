@@ -33,7 +33,7 @@ describe(json.name, () => {
     const {
       checkboxStatus,
       checkboxSizes,
-      default: AtomButton,
+      default: AtomCheckbox,
       ...others
     } = library
 

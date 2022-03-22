@@ -48,7 +48,7 @@ describe(json.name, () => {
       pinInputSizes,
       pinInputStatus,
       getPinInputValueType,
-      default: AtomActionButton,
+      default: AtomPinInput,
       ...others
     } = library
 

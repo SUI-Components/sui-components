@@ -19,6 +19,20 @@ describe(json.name, () => {
   const {default: Component} = pkg
   const setup = setupEnvironment(Component)
 
+  it('library should include defined exported elements', () => {
+    // Given
+    const library = pkg
+    const libraryExportedMembers = ['moleculeFieldStatus', 'default']
+
+    // When
+    const {moleculeFieldStatus, default: AtomActionButton, ...others} = library
+
+    // Then
+    expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
+    expect(Object.keys(library)).to.have.members(libraryExportedMembers)
+    expect(Object.keys(others).length).to.equal(0)
+  })
+
   describe(Component.displayName, () => {
     it('should render without crashing', () => {
       // Given

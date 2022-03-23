@@ -6,121 +6,191 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
+import * as pkg from '../src/index.js'
+
+import json from '../package.json'
+
 chai.use(chaiDOM)
 
-describe('molecule/inputTags', () => {
-  const Component = MoleculeInputTags
+describe(json.name, () => {
+  const {default: Component} = pkg
   const setup = setupEnvironment(Component)
 
-  it('should render without crashing', () => {
+  it('library should include defined exported elements', () => {
     // Given
-    const props = {}
+    const library = pkg
+    const libraryExportedMembers = [
+      'inputSizes',
+      'moleculeInputTagsInputSizes',
+      'default'
+    ]
 
     // When
-    const component = <Component {...props} />
+    const {
+      inputSizes,
+      moleculeInputTagsInputSizes,
+      default: MoleculeInputTags,
+      ...others
+    } = library
 
     // Then
-    const div = document.createElement('div')
-    ReactDOM.render(component, div)
-    ReactDOM.unmountComponentAtNode(div)
+    expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
+    expect(Object.keys(library)).to.have.members(libraryExportedMembers)
+    expect(Object.keys(others).length).to.equal(0)
   })
 
-  it('should NOT render null', () => {
-    // Given
-    const props = {}
-
-    // When
-    const {container} = setup(props)
-
-    // Then
-    expect(container.innerHTML).to.be.a('string')
-    expect(container.innerHTML).to.not.have.lengthOf(0)
-  })
-
-  it('should NOT extend classNames', () => {
-    // Given
-    const props = {
-      className: 'extended-classNames'
-    }
-    const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
-
-    // When
-    const {container} = setup(props)
-    const findClassName = findSentence(props.className)
-
-    // Then
-    expect(findClassName(container.innerHTML)).to.be.null
-  })
-
-  describe('when the is disabled', () => {
-    it('should be disabled', () => {
+  describe(Component.displayName, () => {
+    it('should render without crashing', () => {
       // Given
-      const props = {disabled: true}
+      const props = {}
 
       // When
-      const {queryByRole} = setup(props)
-      const input = queryByRole('textbox')
+      const component = <Component {...props} />
 
       // Then
-      expect(input).to.be.null
+      const div = document.createElement('div')
+      ReactDOM.render(component, div)
+      ReactDOM.unmountComponentAtNode(div)
     })
-  })
 
-  describe('when has placeholder', () => {
-    it('should display the placeholder if no tags avaiable', () => {
+    it('should NOT render null', () => {
       // Given
-      const props = {placeholder: 'Type your favorite beetle'}
+      const props = {}
 
       // When
-      const {getByPlaceholderText} = setup(props)
-      const expected = getByPlaceholderText(props.placeholder)
+      const {container} = setup(props)
 
       // Then
-      expect(expected).to.be.visible
+      expect(container.innerHTML).to.be.a('string')
+      expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it('should not display the placeholder after adding tags', async () => {
-      // Given
-      const props = {placeholder: 'Type your favorite beetle', tags: ['Lenon']}
-
-      // When
-      const {queryByPlaceholderText} = setup(props)
-      const expected = queryByPlaceholderText(props.placeholder)
-
-      // then
-      expect(expected).to.be.null
-    })
-  })
-
-  describe('when has maxTags', () => {
-    it('should allow add tags if max not reached', () => {
+    it('should NOT extend classNames', () => {
       // Given
       const props = {
-        maxTags: 4,
-        tags: []
+        className: 'extended-classNames'
+      }
+      const findSentence = str => string =>
+        string.match(new RegExp(`S*${str}S*`))
+
+      // When
+      const {container} = setup(props)
+      const findClassName = findSentence(props.className)
+
+      // Then
+      expect(findClassName(container.innerHTML)).to.be.null
+    })
+
+    describe('when the is disabled', () => {
+      it('should be disabled', () => {
+        // Given
+        const props = {disabled: true}
+
+        // When
+        const {queryByRole} = setup(props)
+        const input = queryByRole('textbox')
+
+        // Then
+        expect(input).to.be.null
+      })
+    })
+
+    describe('when has placeholder', () => {
+      it('should display the placeholder if no tags avaiable', () => {
+        // Given
+        const props = {placeholder: 'Type your favorite beetle'}
+
+        // When
+        const {getByPlaceholderText} = setup(props)
+        const expected = getByPlaceholderText(props.placeholder)
+
+        // Then
+        expect(expected).to.be.visible
+      })
+
+      it('should not display the placeholder after adding tags', async () => {
+        // Given
+        const props = {
+          placeholder: 'Type your favorite beetle',
+          tags: ['Lenon']
+        }
+
+        // When
+        const {queryByPlaceholderText} = setup(props)
+        const expected = queryByPlaceholderText(props.placeholder)
+
+        // then
+        expect(expected).to.be.null
+      })
+    })
+
+    describe('when has maxTags', () => {
+      it('should allow add tags if max not reached', () => {
+        // Given
+        const props = {
+          maxTags: 4,
+          tags: []
+        }
+
+        // When
+        const {getByRole} = setup(props)
+        const expected = getByRole('textbox')
+
+        // Then
+        expect(expected).to.be.visible
+      })
+
+      it('should not allow add tags if max reached', () => {
+        // Given
+        const props = {
+          maxTags: 4,
+          tags: ['Paul', 'John', 'Ringo', 'George']
+        }
+
+        // When
+        const {queryByRole} = setup(props)
+        const expected = queryByRole('textbox')
+
+        // Then
+        expect(expected).to.be.null
+      })
+    })
+  })
+
+  describe('moleculeInputTagsInputSizes', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {moleculeInputTagsInputSizes: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        XLARGE: 'xl',
+        LARGE: 'l',
+        MEDIUM: 'm',
+        SMALL: 's',
+        XSMALL: 'xs'
       }
 
       // When
-      const {getByRole} = setup(props)
-      const expected = getByRole('textbox')
+      const {moleculeInputTagsInputSizes: actual} = library
+      const {XLARGE, LARGE, MEDIUM, SMALL, XSMALL, ...others} = actual
 
       // Then
-      expect(expected).to.be.visible
-    })
-
-    it('should not allow add tags if max reached', () => {
-      // Given
-      const props = {
-        maxTags: 4,
-        tags: ['Paul', 'John', 'Ringo', 'George']
-      }
-
-      // When
-      const {queryByRole} = setup(props)
-      const expected = queryByRole('textbox')
-
-      // Then
-      expect(expected).to.be.null
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
     })
   })
 })

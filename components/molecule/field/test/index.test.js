@@ -25,7 +25,7 @@ describe(json.name, () => {
     const libraryExportedMembers = ['moleculeFieldStatus', 'default']
 
     // When
-    const {moleculeFieldStatus, default: AtomActionButton, ...others} = library
+    const {moleculeFieldStatus, default: MoleculeField, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)

@@ -30,7 +30,7 @@ describe(json.name, () => {
     // When
     const {
       moleculeQuickActionSizes,
-      default: MoleculeAutosuggest,
+      default: MoleculeQuickAction,
       ...others
     } = library
 

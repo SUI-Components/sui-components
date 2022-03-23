@@ -566,6 +566,96 @@ describe(json.name, () => {
           sinon.match({value: value.filter(val => val !== newValue), selected})
         )
       })
+
+      it('if the newValue selected does not exist in the selected state it must remove that value and maintain the undefined selected state', () => {
+        // Given
+        const value = ['value 1', 'value 2']
+        const newValue = value[0]
+        const selected = undefined
+        const library = pkg
+        const {moleculeDropdownListSelectHandler} = library
+        const spy = sinon.spy()
+        const expected = {
+          value,
+          onSelect: spy
+        }
+
+        // When
+        const eventHandler = moleculeDropdownListSelectHandler.multiple(
+          expected
+        )
+
+        // Then
+        expect(eventHandler).to.be.a('function')
+
+        // And
+
+        // Given
+        const args = {
+          value: newValue,
+          selected
+        }
+
+        // When
+        const response = eventHandler(event, args)
+
+        // Then
+        expect(response).to.equal(undefined)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          undefined,
+          sinon.match({
+            value: value.filter(val => val !== newValue),
+            selected
+          })
+        )
+      })
+
+      it('if the newValue selected does not exist in the selected initial empty state it must add that value', () => {
+        // Given
+        const value = undefined
+        const newValue = 'newValue'
+        const selected = undefined
+        const library = pkg
+        const {moleculeDropdownListSelectHandler} = library
+        const spy = sinon.spy()
+        const expected = {
+          value,
+          onSelect: spy
+        }
+
+        // When
+        const eventHandler = moleculeDropdownListSelectHandler.multiple(
+          expected
+        )
+
+        // Then
+        expect(eventHandler).to.be.a('function')
+
+        // And
+
+        // Given
+        const args = {
+          value: newValue,
+          selected
+        }
+
+        // When
+        const response = eventHandler(event, args)
+
+        // Then
+        expect(response).to.equal(undefined)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          undefined,
+          sinon.match({
+            value: [newValue],
+            selected
+          })
+        )
+      })
     })
   })
 })

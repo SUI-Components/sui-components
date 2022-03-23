@@ -10,6 +10,7 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import sinon from 'sinon'
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
 import * as pkg from '../src/index.js'
@@ -363,6 +364,207 @@ describe(json.name, () => {
       Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
         expect(Object.keys(actual).includes(expectedKey)).to.be.true
         expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('moleculeDropdownListSelectHandler', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {moleculeDropdownListSelectHandler: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        single: () => {},
+        multiple: () => {}
+      }
+
+      // When
+      const {moleculeDropdownListSelectHandler: actual} = library
+      const {single, multiple, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+      })
+    })
+
+    describe('moleculeDropdownListSelectHandler.single', () => {
+      it('if the newValue selected does not exist in the selected state it must replace that value', () => {
+        // Given
+        const value = 'value'
+        const newValue = 'newValue'
+        const selected = value !== newValue
+        const library = pkg
+        const {moleculeDropdownListSelectHandler} = library
+        const spy = sinon.spy()
+        const expected = {
+          value,
+          onSelect: spy
+        }
+
+        // When
+        const eventHandler = moleculeDropdownListSelectHandler.single(expected)
+
+        // Then
+        expect(eventHandler).to.be.a('function')
+
+        // And
+
+        // Given
+        const args = {
+          value: newValue,
+          selected
+        }
+
+        // When
+        const response = eventHandler(event, args)
+
+        // Then
+        expect(response).to.equal(undefined)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          undefined,
+          sinon.match({value: newValue, selected})
+        )
+      })
+
+      it('if the newValue selected does not exist in the selected state it must remove that value', () => {
+        // Given
+        const value = 'value'
+        const newValue = value
+        const selected = value !== newValue
+        const library = pkg
+        const {moleculeDropdownListSelectHandler} = library
+        const spy = sinon.spy()
+        const expected = {
+          value,
+          onSelect: spy
+        }
+
+        // When
+        const eventHandler = moleculeDropdownListSelectHandler.single(expected)
+
+        // Then
+        expect(eventHandler).to.be.a('function')
+
+        // And
+
+        // Given
+        const args = {
+          value: newValue,
+          selected
+        }
+
+        // When
+        const response = eventHandler(event, args)
+
+        // Then
+        expect(response).to.equal(undefined)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          undefined,
+          sinon.match({value: undefined, selected})
+        )
+      })
+    })
+
+    describe('moleculeDropdownListSelectHandler.multiple', () => {
+      it('if the newValue selected does not exist in the selected state it must replace that value', () => {
+        // Given
+        const value = ['value 1', 'value 2']
+        const newValue = 'newValue'
+        const selected = !value.includes(newValue)
+        const library = pkg
+        const {moleculeDropdownListSelectHandler} = library
+        const spy = sinon.spy()
+        const expected = {
+          value,
+          onSelect: spy
+        }
+
+        // When
+        const eventHandler = moleculeDropdownListSelectHandler.multiple(
+          expected
+        )
+
+        // Then
+        expect(eventHandler).to.be.a('function')
+
+        // And
+
+        // Given
+        const args = {
+          value: newValue,
+          selected
+        }
+
+        // When
+        const response = eventHandler(event, args)
+
+        // Then
+        expect(response).to.equal(undefined)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          undefined,
+          sinon.match({value: [...value, newValue], selected})
+        )
+      })
+
+      it('if the newValue selected does not exist in the selected state it must remove that value', () => {
+        // Given
+        const value = ['value 1', 'value 2']
+        const newValue = value[0]
+        const selected = !value.includes(newValue)
+        const library = pkg
+        const {moleculeDropdownListSelectHandler} = library
+        const spy = sinon.spy()
+        const expected = {
+          value,
+          onSelect: spy
+        }
+
+        // When
+        const eventHandler = moleculeDropdownListSelectHandler.multiple(
+          expected
+        )
+
+        // Then
+        expect(eventHandler).to.be.a('function')
+
+        // And
+
+        // Given
+        const args = {
+          value: newValue,
+          selected
+        }
+
+        // When
+        const response = eventHandler(event, args)
+
+        // Then
+        expect(response).to.equal(undefined)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          undefined,
+          sinon.match({value: value.filter(val => val !== newValue), selected})
+        )
       })
     })
   })

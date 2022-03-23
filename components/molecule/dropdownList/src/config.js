@@ -16,23 +16,23 @@ export const SIZES = {
 export const moleculeDropdownListSelectHandler = {
   single: ({value, onSelect}) => (
     event,
-    {value: valueHandled, selected: selectedHandler, ...args}
+    {value: valueHandled, selected: selectedHandled, ...args}
   ) => {
     typeof onSelect === 'function' &&
       onSelect(event, {
         value:
-          selectedHandler || value !== valueHandled ? valueHandled : undefined,
-        selected: selectedHandler,
+          selectedHandled || value !== valueHandled ? valueHandled : undefined,
+        selected: selectedHandled,
         ...args
       })
   },
   multiple: ({value: valueState = [], onSelect}) => (
     event,
-    {value: valueHandled, selected: selectedHandler, ...args}
+    {value: valueHandled, selected: selectedHandled, ...args}
   ) => {
     let selected = !valueState.includes(valueHandled)
-    if (selectedHandler === undefined) {
-      selected = selectedHandler
+    if (selectedHandled === undefined) {
+      selected = selectedHandled
     }
     const value = selected
       ? [...valueState.filter(val => val !== valueHandled), valueHandled]

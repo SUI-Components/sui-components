@@ -52,6 +52,7 @@ MoleculeModalWithAnimation.Footer = MoleculeModalFooter
 
 export {
   MODAL_SIZES as MoleculeModalSizes,
+  MODAL_SIZES as moleculeModalSizes,
   MODAL_SIZES,
   MoleculeModal,
   MoleculeModalContent,

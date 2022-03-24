@@ -14,8 +14,6 @@ export const SingleSwitchTypeRender = forwardRef(
     {
       disabled,
       isFitted,
-      isClick,
-      isFocus,
       isToggle,
       label,
       labelLeft,
@@ -23,7 +21,6 @@ export const SingleSwitchTypeRender = forwardRef(
       labelRight,
       name,
       onBlur,
-      onClick,
       onFocus,
       onKeyDown,
       onToggle,
@@ -49,11 +46,11 @@ export const SingleSwitchTypeRender = forwardRef(
           type,
           'singleType',
           isActive,
-          isFocus,
-          isClick,
           disabled,
           fullWidth
         )}
+        role="switch"
+        tabIndex={0}
         onClick={() => onToggle()}
       >
         <div
@@ -65,10 +62,8 @@ export const SingleSwitchTypeRender = forwardRef(
               element: 'container--fullWidth'
             })]: fullWidth
           })}
-          tabIndex="0"
           onKeyDown={onKeyDown}
           onFocus={onFocus}
-          onClick={onClick}
           onBlur={onBlur}
           ref={ref}
         >
@@ -143,21 +138,9 @@ SingleSwitchTypeRender.propTypes = {
    */
   isToggle: PropTypes.bool,
   /**
-   * Is component focus
-   */
-  isFocus: PropTypes.bool,
-  /**
-   * Is component click
-   */
-  isClick: PropTypes.bool,
-  /**
    * Callback on focus element
    */
   onFocus: PropTypes.func,
-  /**
-   * Callback on click element
-   */
-  onClick: PropTypes.func,
   /**
    * Callback on toggle element
    */

@@ -13,39 +13,33 @@ $base-class: '.sui-AtomSwitch';
 
   &-container {
     align-items: center;
-    box-shadow: none;
     display: flex;
     height: $h-atom-switch-container-default;
     justify-content: center;
     outline: none;
+    box-shadow: none;
 
     &--fullWidth {
       justify-content: space-between;
     }
 
     &:not(#{$base-class}-container--isFitted) {
-      border: $bdw-m solid transparent;
-      box-shadow: $bxsh-atom-switch-container;
-      margin: -#{$bdw-m};
       padding: $p-atom-switch-container;
-      outline: none;
     }
   }
 
-  &--click {
+  &:focus {
     #{$base-class}-container {
       border: $bdw-m solid transparent;
       box-shadow: none;
       margin: -#{$bdw-m};
     }
   }
-
-  &--focus {
+  &:focus-visible {
     #{$base-class}-container {
       border: $bdw-m solid color-variation($c-primary, 1);
       box-shadow: 0 0 4px 0 color-variation($c-primary, 1);
       margin: -#{$bdw-m};
-      outline: none;
     }
   }
 
@@ -123,7 +117,7 @@ $base-class: '.sui-AtomSwitch';
     }
   }
 
-  &--active {
+  &--checked {
     & #{$base-class}-container {
       #{$base-class}-inputContainer {
         background-color: $c-atom-switch--active;

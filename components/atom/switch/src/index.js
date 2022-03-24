@@ -8,26 +8,17 @@ import {LABELS, SIZES, SUPPORTED_KEYS, TYPES} from './config.js'
 const AtomSwitch = forwardRef((props, ref) => {
   const {initialValue, disabled, onToggle: onToggleCallback, type} = props
   const [isToggle, setIsToggle] = useState(initialValue)
-  const [isFocus, setIsFocus] = useState(false)
-  const [isClick, setIsClick] = useState(false)
 
   const onBlur = ev => {
     const {onBlur} = props
-    setIsFocus(false)
-    setIsClick(false)
     typeof onBlur === 'function' && onBlur(ev)
   }
 
   const onFocus = ev => {
     const {onFocus} = props
     setTimeout(() => {
-      setIsFocus(true)
       typeof onFocus === 'function' && onFocus(ev)
     }, 150)
-  }
-
-  const onClick = () => {
-    setIsClick(true)
   }
 
   const onToggle = forceValue => {
@@ -54,11 +45,8 @@ const AtomSwitch = forwardRef((props, ref) => {
 
   const commonProps = {
     ...props,
-    isFocus,
-    isClick,
     isToggle,
     onBlur,
-    onClick,
     onFocus,
     onKeyDown,
     onToggle

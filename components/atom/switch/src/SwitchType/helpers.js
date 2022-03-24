@@ -2,9 +2,7 @@ import cx from 'classnames'
 
 import {BASE_CLASS, TYPES} from '../config.js'
 
-const CLASS_ACTIVE = `${BASE_CLASS}--active`
-const CLASS_FOCUS = `${BASE_CLASS}--focus`
-const CLASS_CLICK = `${BASE_CLASS}--click`
+const CLASS_CHECKED = `${BASE_CLASS}--checked`
 const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 const CLASS_FULL_WIDTH = `${BASE_CLASS}--fullWidth`
 
@@ -13,8 +11,6 @@ export function switchClassNames(
   type,
   classType,
   isToggle,
-  isFocus,
-  isClick,
   isDisabled,
   fullWidth
 ) {
@@ -22,9 +18,7 @@ export function switchClassNames(
   const CLASS_SIZE = `${BASE_CLASS}--${size}`
 
   const className = cx(BASE_CLASS, CLASS_TYPE, CLASS_SIZE, {
-    [CLASS_ACTIVE]: isToggle || type === TYPES.SELECT,
-    [CLASS_CLICK]: isClick,
-    [CLASS_FOCUS]: isFocus && !isClick,
+    [CLASS_CHECKED]: isToggle || type === TYPES.SELECT,
     [CLASS_DISABLED]: isDisabled,
     [CLASS_FULL_WIDTH]: fullWidth
   })

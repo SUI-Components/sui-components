@@ -13,11 +13,11 @@ $base-class: '.sui-AtomSwitch';
 
   &-container {
     align-items: center;
+    box-shadow: none;
     display: flex;
     height: $h-atom-switch-container-default;
     justify-content: center;
     outline: none;
-    box-shadow: none;
 
     &--fullWidth {
       justify-content: space-between;

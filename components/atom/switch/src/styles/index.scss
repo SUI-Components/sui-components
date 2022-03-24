@@ -102,7 +102,7 @@ $base-class: '.sui-AtomSwitch';
     }
   }
 
-  &--disabled {
+  &[aria-disabled='true'] {
     color: $c-gray;
     cursor: not-allowed;
 
@@ -117,7 +117,7 @@ $base-class: '.sui-AtomSwitch';
     }
   }
 
-  &--checked {
+  &[aria-checked='true'] {
     & #{$base-class}-container {
       #{$base-class}-inputContainer {
         background-color: $c-atom-switch--active;

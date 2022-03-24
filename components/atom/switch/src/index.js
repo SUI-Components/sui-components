@@ -9,18 +9,6 @@ const AtomSwitch = forwardRef((props, ref) => {
   const {initialValue, disabled, onToggle: onToggleCallback, type} = props
   const [isToggle, setIsToggle] = useState(initialValue)
 
-  const onBlur = ev => {
-    const {onBlur} = props
-    typeof onBlur === 'function' && onBlur(ev)
-  }
-
-  const onFocus = ev => {
-    const {onFocus} = props
-    setTimeout(() => {
-      typeof onFocus === 'function' && onFocus(ev)
-    }, 150)
-  }
-
   const onToggle = forceValue => {
     if (disabled === true) return
     const newIsToggle = forceValue !== undefined ? forceValue : !isToggle
@@ -46,8 +34,6 @@ const AtomSwitch = forwardRef((props, ref) => {
   const commonProps = {
     ...props,
     isToggle,
-    onBlur,
-    onFocus,
     onKeyDown,
     onToggle
   }

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import AtomLabel from '@s-ui/react-atom-label'
 
 import {suitClass, switchClassNames} from './helpers.js'
+import {TYPES} from '../config.js'
 
 export const ToggleSwitchTypeRender = forwardRef(
   (
@@ -28,23 +29,22 @@ export const ToggleSwitchTypeRender = forwardRef(
     },
     ref
   ) => {
-    const isActive = value !== undefined ? value : isToggle
+    const isChecked = value !== undefined ? value : isToggle
 
     const onKeyDownHandler = event => {
-      onKeyDown(event, isActive)
+      onKeyDown(event, isChecked)
     }
 
     return (
       <div
-        className={switchClassNames(
+        className={switchClassNames({
           size,
-          type,
-          'toggleType',
-          isActive,
-          disabled,
+          classType: 'toggleType',
           fullWidth
-        )}
+        })}
         role="switch"
+        aria-checked={isChecked || type === TYPES.SELECT}
+        aria-disabled={disabled}
         tabIndex={0}
       >
         {label && (
@@ -83,7 +83,7 @@ export const ToggleSwitchTypeRender = forwardRef(
           >
             <div
               className={cx(suitClass({element: 'circle'}), {
-                [suitClass({modifier: 'toggle'})]: isActive
+                [suitClass({modifier: 'toggle'})]: isChecked
               })}
             />
           </div>

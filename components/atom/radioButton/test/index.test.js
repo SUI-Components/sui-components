@@ -9,6 +9,8 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import sinon from 'sinon'
+import userEvents from '@testing-library/user-event'
 
 import * as pkg from '../src/index.js'
 
@@ -59,5 +61,130 @@ describe(json.name, () => {
       expect(container.innerHTML).to.be.a('string')
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
+  })
+
+  it('should NOT fire onChange handler when the disabled element is clicked', () => {
+    // Given
+    const spy = sinon.spy()
+    const props = {
+      onChange: spy,
+      disabled: true
+    }
+
+    // When
+    const {getByRole} = setup(props)
+
+    // Then
+    const element = getByRole('radio')
+    userEvents.click(element)
+    sinon.assert.notCalled(spy)
+  })
+
+  it('should fire onChange handler value when the element is clicked when checked is undefined', () => {
+    // Given
+    const spy = sinon.spy()
+    const props = {
+      onChange: spy,
+      name: 'name',
+      value: 'value'
+    }
+
+    // When
+    const {getByRole} = setup(props)
+
+    // Then
+    const element = getByRole('radio')
+    userEvents.click(element)
+    sinon.assert.called(spy)
+    sinon.assert.callCount(spy, 1)
+    sinon.assert.calledWith(
+      spy,
+      sinon.match.truthy,
+      sinon.match({name: props.name, value: props.value, checked: true})
+    )
+  })
+
+  it('should NOT fire onChange handler value when the element is clicked when checked is true', () => {
+    // Given
+    const spy = sinon.spy()
+    const props = {
+      onChange: spy,
+      name: 'name',
+      value: 'value',
+      checked: true
+    }
+
+    // When
+    const {getByRole} = setup(props)
+
+    // Then
+    const element = getByRole('radio')
+    userEvents.click(element)
+    sinon.assert.notCalled(spy)
+  })
+
+  it('should fire onChange handler value when the element is clicked when checked is false', () => {
+    // Given
+    const spy = sinon.spy()
+    const props = {
+      onChange: spy,
+      name: 'name',
+      value: 'value',
+      checked: false
+    }
+
+    // When
+    const {getByRole} = setup(props)
+
+    // Then
+    const element = getByRole('radio')
+    userEvents.click(element)
+    sinon.assert.called(spy)
+    sinon.assert.callCount(spy, 1)
+    sinon.assert.calledWith(
+      spy,
+      sinon.match.truthy,
+      sinon.match({name: props.name, value: props.value, checked: true})
+    )
+  })
+
+  it('should NOT fire onChange handler value when the disabled element is clicked when checked is undefined', () => {
+    // Given
+    const spy = sinon.spy()
+    const props = {
+      onChange: spy,
+      name: 'name',
+      value: 'value',
+      checked: undefined,
+      disabled: true
+    }
+
+    // When
+    const {getByRole} = setup(props)
+
+    // Then
+    const element = getByRole('radio')
+    userEvents.click(element)
+    sinon.assert.notCalled(spy)
+  })
+
+  it('should NOT fire onChange handler value when the disabled element is clicked when checked is false', () => {
+    // Given
+    const spy = sinon.spy()
+    const props = {
+      onChange: spy,
+      name: 'name',
+      value: 'value',
+      checked: false,
+      disabled: true
+    }
+
+    // When
+    const {getByRole} = setup(props)
+
+    // Then
+    const element = getByRole('radio')
+    userEvents.click(element)
+    sinon.assert.notCalled(spy)
   })
 })

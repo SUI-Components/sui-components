@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.8.0 (2022-03-24)
+
+
+### Bug Fixes
+
+* **components/atom/upload:** forward arguments on selection ([ca48d3a](https://github.com/SUI-Components/sui-components/commit/ca48d3a8fb9a34082e008a0f3f1b8653d3b14956))
+
+
+
 # 3.7.0 (2022-03-14)
 
 

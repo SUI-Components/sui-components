@@ -59,13 +59,15 @@ const AtomUpload = ({
   const shouldRender = hasValidStatus && ready
   const onDrop = handler => {
     if (typeof handler === 'function') {
-      return files =>
+      return (acceptedFiles, rejectedFiles, event) =>
         handler(
-          files.map(file =>
+          acceptedFiles.map(file =>
             Object.assign(file, {
               preview: URL.createObjectURL(file)
             })
-          )
+          ),
+          rejectedFiles,
+          event
         )
     }
     return undefined

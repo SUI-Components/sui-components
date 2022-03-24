@@ -11,8 +11,6 @@ export const ToggleSwitchTypeRender = forwardRef(
     {
       disabled,
       isFitted,
-      isFocus,
-      isClick,
       isToggle,
       label,
       labelLeft,
@@ -21,7 +19,6 @@ export const ToggleSwitchTypeRender = forwardRef(
       name,
       onBlur,
       onFocus,
-      onClick,
       onKeyDown,
       onToggle,
       size,
@@ -44,11 +41,11 @@ export const ToggleSwitchTypeRender = forwardRef(
           type,
           'toggleType',
           isActive,
-          isFocus,
-          isClick,
           disabled,
           fullWidth
         )}
+        role="switch"
+        tabIndex={0}
       >
         {label && (
           <AtomLabel
@@ -66,9 +63,7 @@ export const ToggleSwitchTypeRender = forwardRef(
               element: 'container--fullWidth'
             })]: fullWidth
           })}
-          tabIndex="0"
           onFocus={onFocus}
-          onClick={onClick}
           onBlur={onBlur}
           onKeyDown={onKeyDownHandler}
           ref={ref}
@@ -151,21 +146,9 @@ ToggleSwitchTypeRender.propTypes = {
    */
   isToggle: PropTypes.bool,
   /**
-   * Is component focus
-   */
-  isFocus: PropTypes.bool,
-  /**
-   * Is component click
-   */
-  isClick: PropTypes.bool,
-  /**
    * Callback on focus element
    */
   onFocus: PropTypes.func,
-  /**
-   * Callback on click element
-   */
-  onClick: PropTypes.func,
   /**
    * Callback on blur element
    */

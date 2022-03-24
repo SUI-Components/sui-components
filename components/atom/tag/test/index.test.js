@@ -94,13 +94,18 @@ describe(json.name, () => {
     })
 
     it('should not trigger click when disabled', () => {
+      // Given
       const spy = sinon.spy()
-      const {getByRole} = setup({
+      const props = {
         disabled: true,
         onClick: spy,
         label: 'Actionable'
-      })
+      }
 
+      // When
+      const {getByRole} = setup(props)
+
+      // Then
       const tag = getByRole('button', {name: /actionable/i})
       userEvents.click(tag)
       sinon.assert.notCalled(spy)

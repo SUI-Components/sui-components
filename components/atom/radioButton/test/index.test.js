@@ -75,8 +75,8 @@ describe(json.name, () => {
     const {getByRole} = setup(props)
 
     // Then
-    const tag = getByRole('radio')
-    userEvents.click(tag)
+    const element = getByRole('radio')
+    userEvents.click(element)
     sinon.assert.notCalled(spy)
   })
 
@@ -93,8 +93,8 @@ describe(json.name, () => {
     const {getByRole} = setup(props)
 
     // Then
-    const tag = getByRole('radio')
-    userEvents.click(tag)
+    const element = getByRole('radio')
+    userEvents.click(element)
     sinon.assert.called(spy)
     sinon.assert.callCount(spy, 1)
     sinon.assert.calledWith(
@@ -118,8 +118,8 @@ describe(json.name, () => {
     const {getByRole} = setup(props)
 
     // Then
-    const tag = getByRole('radio')
-    userEvents.click(tag)
+    const element = getByRole('radio')
+    userEvents.click(element)
     sinon.assert.notCalled(spy)
   })
 
@@ -137,8 +137,8 @@ describe(json.name, () => {
     const {getByRole} = setup(props)
 
     // Then
-    const tag = getByRole('radio')
-    userEvents.click(tag)
+    const element = getByRole('radio')
+    userEvents.click(element)
     sinon.assert.called(spy)
     sinon.assert.callCount(spy, 1)
     sinon.assert.calledWith(
@@ -163,8 +163,8 @@ describe(json.name, () => {
     const {getByRole} = setup(props)
 
     // Then
-    const tag = getByRole('radio')
-    userEvents.click(tag)
+    const element = getByRole('radio')
+    userEvents.click(element)
     sinon.assert.notCalled(spy)
   })
 
@@ -183,8 +183,8 @@ describe(json.name, () => {
     const {getByRole} = setup(props)
 
     // Then
-    const tag = getByRole('radio')
-    userEvents.click(tag)
+    const element = getByRole('radio')
+    userEvents.click(element)
     sinon.assert.notCalled(spy)
   })
 })

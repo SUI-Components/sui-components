@@ -52,6 +52,10 @@ export default () => {
       <h1>Accordion</h1>
       <DemoWrapper>
         <Demo>
+          <h2>Accordion with opened tabs state managed via prop</h2>
+          <p>
+            Opened tabs: {openedTabs?.length ? openedTabs.join(',') : 'none'}
+          </p>
           <div
             style={{
               backgroundColor: '#fff',
@@ -64,10 +68,11 @@ export default () => {
             <MoleculeAccordion
               maxHeight={100}
               openedTabs={openedTabs}
-              withAutoClose
+              withAutoClose={false}
               withTransition
               icon={icon}
               onToggleTab={(e, {index, openedTabs}) => {
+                console.log({openedTabs})
                 setOpenedTabs(openedTabs)
                 console.log('tab toggled:', index) // eslint-disable-line no-console
               }}

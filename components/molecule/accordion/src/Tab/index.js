@@ -58,7 +58,9 @@ const Tab = ({
         </button>
       </div>
       <div
+        {...(isOpen ? {'aria-expanded': true} : {'aria-hidden': true})}
         className={contentClassName}
+        role="tab"
         style={{maxHeight: `${containerHeight}`}}
       >
         <div className={CONTENT_CLASS}>{children}</div>

@@ -132,7 +132,7 @@ describe(json.name, () => {
       sinon.assert.called(spy)
     })
 
-    it('should show the second and third tab open', () => {
+    it('should show the second and third tab open when set via openedTabs prop', () => {
       // Given
       const spy = sinon.spy()
       const props = {

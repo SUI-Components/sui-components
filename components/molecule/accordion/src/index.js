@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 
 import Tab from './Tab/index.js'
@@ -7,6 +7,7 @@ import {BASE_CLASS} from './settings.js'
 const MoleculeAccordion = ({
   children,
   defaultOpenedTabs = [],
+  forceClose = false,
   onToggleTab = () => {},
   withAutoClose,
   ...tabProps
@@ -16,6 +17,10 @@ const MoleculeAccordion = ({
   )
 
   const [openTabs, setOpenTabs] = useState(initialOpenTabs)
+
+  useEffect(() => {
+    forceClose && setOpenTabs(children.map(() => false))
+  }, [children, forceClose])
 
   const _handleOnToggle = index => event => {
     let newOpenTabs = []
@@ -57,6 +62,7 @@ MoleculeAccordion.propTypes = {
    * Array with tab indexes to be opened by default
    */
   defaultOpenedTabs: PropTypes.arrayOf(PropTypes.Number),
+  forceClose: PropTypes.bool,
   /**
    * Icon for the button
    */

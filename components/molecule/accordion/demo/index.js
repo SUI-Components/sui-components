@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeAccordion from '../src/index.js'
@@ -19,6 +20,7 @@ DemoWrapper.propTypes = {
 }
 
 export default () => {
+  const [openedTabs, setOpenedTabs] = useState([1])
   const text =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dictum magna non diam euismod blandit et eu ex. Vivamus pulvinar sodales tincidunt. Proin venenatis tristique quam, quis vehicula eros volutpat sed. Etiam sed tristique ante. Aenean commodo erat quis pulvinar luctus. Pellentesque ultricies lorem vitae ante euismod, at imperdiet est euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In dignissim porttitor sem, a varius nisl ullamcorper ut. Vivamus lacinia, quam eu placerat tempus, velit massa vulputate turpis, sit amet bibendum risus massa sit amet urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent finibus lobortis blandit. Vivamus scelerisque blandit purus a suscipit. Nunc mi elit, condimentum eget pulvinar eu, lacinia vitae ligula. Sed sit amet eros auctor ipsum tincidunt hendrerit ac mollis justo. Ut ac sagittis ipsum.'
 
@@ -50,6 +52,46 @@ export default () => {
       <h1>Accordion</h1>
       <DemoWrapper>
         <Demo>
+          <div
+            style={{
+              backgroundColor: '#fff',
+              fontSize: 14,
+              padding: 16,
+              textAlign: 'left'
+            }}
+          >
+            <button onClick={() => setOpenedTabs([])}>Close Tabs</button>
+            <MoleculeAccordion
+              maxHeight={100}
+              openedTabs={openedTabs}
+              withAutoClose
+              withTransition
+              icon={icon}
+              onToggleTab={(e, {index, openedTabs}) => {
+                setOpenedTabs(openedTabs)
+                console.log('tab toggled:', index) // eslint-disable-line no-console
+              }}
+            >
+              <div label="Title 1">
+                <p style={{margin: 0}}>{text}</p>
+              </div>
+              <div label="Title 2">
+                <p style={{margin: 0}}>{text}</p>
+                <p style={{margin: 0}}>{text}</p>
+                <p style={{margin: 0}}>{text}</p>
+              </div>
+              <div label="Title 3">
+                <p style={{margin: 0}}>{text}</p>
+                <p style={{margin: 0}}>{text}</p>
+                <p style={{margin: 0}}>{text}</p>
+              </div>
+              <div label="Title 4">
+                <p style={{margin: 0}}>{text}</p>
+                <p style={{margin: 0}}>{text}</p>
+                <p style={{margin: 0}}>{text}</p>
+              </div>
+            </MoleculeAccordion>
+          </div>
           <h2>
             Accordion with transition, autoclose, max height and onToggleTab
             handler

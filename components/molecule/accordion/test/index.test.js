@@ -131,5 +131,38 @@ describe(json.name, () => {
       // Then
       sinon.assert.called(spy)
     })
+
+    it('should show the second and third tab open when set via openedTabs prop', () => {
+      // Given
+      const spy = sinon.spy()
+      const props = {
+        children: [
+          <div key={0} label="label 1">
+            element 1
+          </div>,
+          <div key={1} label="label 2">
+            element 2
+          </div>,
+          <div key={2} label="label 3">
+            element 3
+          </div>
+        ],
+        icon: <svg />,
+        onToggleTab: spy,
+        openedTabs: [1, 2]
+      }
+      const {getAllByRole} = setup(props)
+
+      // When
+      const tabs = getAllByRole('tab')
+
+      // Then
+      tabs.forEach((tab, index) => {
+        expect(Boolean(tab.hasAttribute('aria-expanded'))).to.be.true
+        expect(Boolean(tab.hasAttribute('aria-hidden'))).to.be.false
+        expect(['element 2', 'element 3'].some(text => tab.innerText === text))
+          .to.be.true
+      })
+    })
   })
 })

@@ -17,6 +17,8 @@ export const SingleSwitchTypeRender = forwardRef(
       isToggle,
       label,
       labelLeft,
+      iconLeft,
+      iconRight,
       labelOptionalText,
       labelRight,
       name,
@@ -48,7 +50,7 @@ export const SingleSwitchTypeRender = forwardRef(
         })}
         role="switch"
         tabIndex={0}
-        onClick={() => onToggle()}
+        onClick={onToggle()}
         aria-checked={isChecked || type === TYPES.SELECT}
         aria-disabled={disabled}
       >
@@ -73,13 +75,22 @@ export const SingleSwitchTypeRender = forwardRef(
               optionalText={labelOptionalText}
             />
           )}
-          <div className={suitClass({element: 'inputContainer'})}>
-            <div
-              className={cx(suitClass({element: 'circle'}), {
-                [suitClass({modifier: 'toggle'})]: isChecked
-              })}
-            />
-          </div>
+          <button
+            className={cx(suitClass({element: 'inputContainer'}), {
+              [suitClass({
+                element: 'inputContainer',
+                modifier: 'right'
+              })]: isChecked
+            })}
+          >
+            <div className={cx(suitClass({element: 'icon-left'}))}>
+              {iconLeft}
+            </div>
+            <div className={cx(suitClass({element: 'circle'}))} />
+            <div className={cx(suitClass({element: 'icon-right'}))}>
+              {iconRight}
+            </div>
+          </button>
           {showLabelRight && (
             <AtomLabel
               name={name}
@@ -159,5 +170,9 @@ SingleSwitchTypeRender.propTypes = {
   /**
    * Modifier: full width (100%)
    */
-  fullWidth: PropTypes.bool
+  fullWidth: PropTypes.bool,
+  /** element node which appears inside the switch circle when it's in left position **/
+  iconLeft: PropTypes.node,
+  /** element node which appears inside the switch circle when it's in right position **/
+  iconRight: PropTypes.node
 }

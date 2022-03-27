@@ -2,6 +2,8 @@ export const BASE_CLASS = 'sui-AtomSwitch'
 
 export const SIZES = {
   DEFAULT: 'default',
+  SMALL: 'small',
+  MEDIUM: 'medium',
   LARGE: 'large'
 }
 

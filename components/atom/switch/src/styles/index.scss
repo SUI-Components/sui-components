@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 $base-class: '.sui-AtomSwitch';
 
 #{$base-class} {
@@ -83,23 +85,65 @@ $base-class: '.sui-AtomSwitch';
     border-radius: $w-atom-switch-default * 0.5;
     cursor: pointer;
     height: $h-atom-switch-default;
-    min-width: $w-atom-switch-default;
-    transition: all $atom-switch-transition-time ease-in-out;
+    transition: margin-left $atom-switch-transition-time ease-in-out;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+
+    #{$base-class}-icon-right,
+    #{$base-class}-icon-left {
+      position: absolute;
+      box-sizing: border-box;
+      font-size: 1rem;
+      top: 0;
+      bottom: 0;
+      vertical-align: middle;
+      display: inline-flex;
+      align-items: center;
+      width: $w-atom-switch-circle-default;
+      justify-content: center;
+      margin: -2px;
+      overflow: hidden;
+    }
+    #{$base-class}-icon-right {
+      right: 0;
+      transition: color $atom-switch-transition-time ease-in-out;
+      color: transparent;
+    }
+    #{$base-class}-icon-left {
+      left: 0;
+      transition: color $atom-switch-transition-time ease-in-out
+        $atom-switch-transition-time;
+      color: $bd-atom-switch-default;
+    }
+
+    &--right {
+      #{$base-class}-circle {
+        box-shadow: -2px 0 2px 0 $c-atom-switch--active-shadow;
+        margin-left: $m-atom-switch-circle-default--active;
+      }
+      #{$base-class}-icon-right {
+        transition: color $atom-switch-transition-time ease-in-out
+          $atom-switch-transition-time;
+      }
+      #{$base-class}-icon-left {
+        transition: color $atom-switch-transition-time ease-in-out;
+      }
+    }
+  }
+  #{$base-class}-inputContainer {
+    width: $w-atom-switch-default;
   }
 
   &-circle {
-    background-color: $c-white;
+    background-color: $c-atom-switch-circle;
     border-radius: ($h-atom-switch-default - 2) * 0.5;
-    border: $bdw-s solid $c-white;
+    border: $bdw-s solid $c-atom-switch-circle;
     box-shadow: 2px 0 2px 0 $c-gray-light;
     height: $h-atom-switch-default - 2;
-    transition: all $atom-switch-transition-time ease-in-out;
-    width: $h-atom-switch-default - 2;
-
-    &#{$base-class}--toggle {
-      box-shadow: -2px 0 2px 0 $c-atom-switch--active-shadow;
-      margin-left: $m-atom-switch-circle-default--active;
-    }
+    transition: margin-left $atom-switch-transition-time ease-in-out;
+    width: $w-atom-switch-circle-default - 2;
+    margin: -1px;
   }
 
   &[aria-disabled='true'] {
@@ -111,7 +155,6 @@ $base-class: '.sui-AtomSwitch';
       border: $bdw-s solid $c-gray-lightest;
       cursor: not-allowed;
     }
-
     #{$base-class}-circle {
       background-color: $c-gray-lightest;
     }
@@ -123,6 +166,20 @@ $base-class: '.sui-AtomSwitch';
         background-color: $c-atom-switch--active;
         border: $bdw-s solid $c-atom-switch--active;
         cursor: pointer;
+        #{$base-class}-icon-left {
+          color: $c-atom-switch--active;
+        }
+        #{$base-class}-icon-right {
+          color: transparent;
+        }
+        &--right {
+          #{$base-class}-icon-left {
+            color: transparent;
+          }
+          #{$base-class}-icon-right {
+            color: $c-atom-switch--active;
+          }
+        }
       }
     }
 
@@ -131,29 +188,59 @@ $base-class: '.sui-AtomSwitch';
     }
   }
 
-  &--large {
-    #{$base-class}-container {
-      height: $h-atom-switch-container-large;
-      padding-bottom: $p-s;
-      padding-top: $p-s;
+  &--size {
+    &-small {
+      #{$base-class}-container {
+        height: $h-atom-switch-container-small;
+        padding-bottom: $p-s;
+        padding-top: $p-s;
 
-      #{$base-class}-text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        #{$base-class}-inputContainer {
+          height: $h-atom-switch-input-container-small;
+          width: $w-atom-switch-small;
+
+          #{$base-class}-circle {
+            border-radius: $w-atom-switch-small * 0.5;
+            height: $h-atom-switch-input-container-small - 2;
+            width: $h-atom-switch-input-container-small - 2;
+          }
+          &--right {
+            #{$base-class}-circle {
+              margin-left: $m-atom-switch-circle-small--active;
+            }
+          }
+          #{$base-class}-icon-right,
+          #{$base-class}-icon-left {
+            font-size: math.div(2, 3) * 1rem;
+            width: $h-atom-switch-input-container-small;
+          }
+        }
       }
+    }
+    &-large {
+      #{$base-class}-container {
+        height: $h-atom-switch-container-large;
+        padding-bottom: $p-s;
+        padding-top: $p-s;
 
-      #{$base-class}-inputContainer {
-        height: $h-atom-switch-input-container-large;
-        width: $w-atom-switch-large;
+        #{$base-class}-inputContainer {
+          height: $h-atom-switch-input-container-large;
+          width: $w-atom-switch-large;
 
-        #{$base-class}-circle {
-          border-radius: $w-atom-switch-large * 0.5;
-          height: $h-atom-switch-input-container-large - 2;
-          width: $h-atom-switch-input-container-large - 2;
-
-          &#{$base-class}--toggle {
-            margin-left: $m-atom-switch-circle-large--active;
+          #{$base-class}-circle {
+            border-radius: $w-atom-switch-large * 0.5;
+            height: $h-atom-switch-input-container-large - 2;
+            width: $h-atom-switch-input-container-large - 2;
+          }
+          &--right {
+            #{$base-class}-circle {
+              margin-left: $m-atom-switch-circle-large--active;
+            }
+          }
+          #{$base-class}-icon-right,
+          #{$base-class}-icon-left {
+            font-size: math.div(3, 2) * 1rem;
+            width: $h-atom-switch-input-container-large;
           }
         }
       }

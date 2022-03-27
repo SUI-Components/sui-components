@@ -9,7 +9,7 @@ const AtomSwitch = forwardRef((props, ref) => {
   const {initialValue, disabled, onToggle: onToggleCallback, type} = props
   const [isToggle, setIsToggle] = useState(initialValue)
 
-  const onToggle = forceValue => {
+  const onToggle = forceValue => event => {
     if (disabled === true) return
     const newIsToggle = forceValue !== undefined ? forceValue : !isToggle
     setIsToggle(newIsToggle)
@@ -88,7 +88,11 @@ AtomSwitch.propTypes = {
   onBlur: PropTypes.func,
 
   /** Whether switch is checked. Controlled state component. Don't combine with initialValue prop! */
-  value: PropTypes.bool
+  value: PropTypes.bool,
+  /** element node which appears inside the switch circle when it's in left position **/
+  iconLeft: PropTypes.node,
+  /** element node which appears inside the switch circle when it's in right position **/
+  iconRight: PropTypes.node
 }
 
 AtomSwitch.defaultProps = {

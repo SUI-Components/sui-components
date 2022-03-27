@@ -11,7 +11,6 @@ import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import sinon from 'sinon'
 import userEvents from '@testing-library/user-event'
-// import {atomSwitchTypes} from '../src/index.js'
 
 import * as pkg from '../src/index.js'
 

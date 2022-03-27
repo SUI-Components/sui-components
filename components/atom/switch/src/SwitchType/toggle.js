@@ -15,6 +15,8 @@ export const ToggleSwitchTypeRender = forwardRef(
       isToggle,
       label,
       labelLeft,
+      iconLeft,
+      iconRight,
       labelOptionalText,
       labelRight,
       name,
@@ -73,26 +75,35 @@ export const ToggleSwitchTypeRender = forwardRef(
               suitClass({element: 'text'}),
               suitClass({element: 'left'})
             )}
-            onClick={() => onToggle(false)}
+            onClick={onToggle(false)}
           >
             {labelLeft}
           </span>
-          <div
-            className={cx(suitClass({element: 'inputContainer'}))}
-            onClick={() => onToggle()}
+          <button
+            className={cx(suitClass({element: 'inputContainer'}), {
+              [suitClass({
+                element: 'inputContainer',
+                modifier: 'right'
+              })]: isChecked
+            })}
+            onClick={onToggle()}
           >
-            <div
-              className={cx(suitClass({element: 'circle'}), {
-                [suitClass({modifier: 'toggle'})]: isChecked
-              })}
-            />
-          </div>
+            {
+              <div className={cx(suitClass({element: 'icon-left'}))}>
+                {iconLeft}
+              </div>
+            }
+            <div className={cx(suitClass({element: 'circle'}))} />
+            <div className={cx(suitClass({element: 'icon-right'}))}>
+              {iconRight}
+            </div>
+          </button>
           <span
             className={cx(
               suitClass({element: 'text'}),
               suitClass({element: 'right'})
             )}
-            onClick={() => onToggle(true)}
+            onClick={onToggle(true)}
           >
             {labelRight}
           </span>
@@ -168,5 +179,9 @@ ToggleSwitchTypeRender.propTypes = {
   /**
    * Modifier: full width (100%)
    */
-  fullWidth: PropTypes.bool
+  fullWidth: PropTypes.bool,
+  /** element node which appears inside the switch circle when it's in left position **/
+  iconLeft: PropTypes.node,
+  /** element node which appears inside the switch circle when it's in right position **/
+  iconRight: PropTypes.node
 }

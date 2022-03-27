@@ -9,6 +9,9 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import sinon from 'sinon'
+import userEvents from '@testing-library/user-event'
+// import {atomSwitchTypes} from '../src/index.js'
 
 import * as pkg from '../src/index.js'
 
@@ -119,6 +122,25 @@ describe(json.name, () => {
       const childNodes = label.parentElement.childNodes
 
       expect(childNodes[1]).to.be.eql(label)
+    })
+
+    describe('action handlers', () => {
+      it('should switch the status after click', () => {
+        // Given
+        const spy = sinon.spy()
+        const {atomSwitchTypes} = pkg
+        const props = {
+          onToggle: spy,
+          type: atomSwitchTypes.SINGLE
+        }
+        // When
+        const {getByRole} = setup(props)
+
+        // Then
+        const element = getByRole('switch')
+        userEvents.click(element)
+        sinon.assert.callCount(spy, 1)
+      })
     })
   })
 

@@ -133,6 +133,7 @@ describe(json.name, () => {
           onToggle: spy,
           type: atomSwitchTypes.SINGLE
         }
+
         // When
         const {getByRole} = setup(props)
 
@@ -152,6 +153,7 @@ describe(json.name, () => {
           type: atomSwitchTypes.SINGLE,
           value: true
         }
+
         // When
         const {getByRole} = setup(props)
 
@@ -171,6 +173,7 @@ describe(json.name, () => {
           type: atomSwitchTypes.SINGLE,
           value: false
         }
+
         // When
         const {getByRole} = setup(props)
 
@@ -190,6 +193,7 @@ describe(json.name, () => {
           onToggle: spy,
           type: atomSwitchTypes.SINGLE
         }
+
         // When
         const {getByRole} = setup(props)
 

@@ -24,17 +24,15 @@ export const SingleSwitchTypeRender = forwardRef(
       name,
       onBlur,
       onFocus,
-      onKeyDown,
       onToggle,
       size,
       type,
       value,
-      fullWidth
+      fullWidth,
+      isChecked
     },
     ref
   ) => {
-    const isChecked = value !== undefined ? value : isToggle
-
     const defaultLabelLeft = labelLeft === LEFT
     const defaultLabelRight = labelRight === RIGHT
 
@@ -48,11 +46,6 @@ export const SingleSwitchTypeRender = forwardRef(
           classType: 'singleType',
           fullWidth
         })}
-        role="switch"
-        tabIndex={0}
-        onClick={onToggle()}
-        aria-checked={isChecked || type === TYPES.SELECT}
-        aria-disabled={disabled}
       >
         <div
           className={cx(suitClass({element: 'container'}), {
@@ -63,7 +56,6 @@ export const SingleSwitchTypeRender = forwardRef(
               element: 'container--fullWidth'
             })]: fullWidth
           })}
-          onKeyDown={onKeyDown}
           onFocus={onFocus}
           onBlur={onBlur}
           ref={ref}
@@ -82,6 +74,12 @@ export const SingleSwitchTypeRender = forwardRef(
                 modifier: 'right'
               })]: isChecked
             })}
+            role="switch"
+            onClick={onToggle()}
+            aria-checked={isChecked || type === TYPES.SELECT}
+            aria-disabled={disabled}
+            disabled={disabled}
+            {...(!disabled && {tabIndex: 0})}
           >
             <div className={cx(suitClass({element: 'icon-left'}))}>
               {iconLeft}
@@ -160,10 +158,6 @@ SingleSwitchTypeRender.propTypes = {
    */
   onToggle: PropTypes.func,
   /**
-   * Callback on keydown on the switch
-   */
-  onKeyDown: PropTypes.func,
-  /**
    * Value for controlled component
    */
   value: PropTypes.bool,
@@ -174,5 +168,7 @@ SingleSwitchTypeRender.propTypes = {
   /** element node which appears inside the switch circle when it's in left position **/
   iconLeft: PropTypes.node,
   /** element node which appears inside the switch circle when it's in right position **/
-  iconRight: PropTypes.node
+  iconRight: PropTypes.node,
+  /** element in right or left position (checked means right)**/
+  isChecked: PropTypes.bool
 }

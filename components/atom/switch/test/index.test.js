@@ -125,7 +125,7 @@ describe(json.name, () => {
     })
 
     describe('action handlers', () => {
-      it('should switch the status after click', () => {
+      it('given undefined value should switch the status to true after click', () => {
         // Given
         const spy = sinon.spy()
         const {atomSwitchTypes} = pkg
@@ -140,6 +140,45 @@ describe(json.name, () => {
         const element = getByRole('switch')
         userEvents.click(element)
         sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(spy, sinon.match(!props.value))
+      })
+
+      it('given true value should switch the status to false after click', () => {
+        // Given
+        const spy = sinon.spy()
+        const {atomSwitchTypes} = pkg
+        const props = {
+          onToggle: spy,
+          type: atomSwitchTypes.SINGLE,
+          value: true
+        }
+        // When
+        const {getByRole} = setup(props)
+
+        // Then
+        const element = getByRole('switch')
+        userEvents.click(element)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(spy, sinon.match(!props.value))
+      })
+
+      it('given false value should switch the status to false after click', () => {
+        // Given
+        const spy = sinon.spy()
+        const {atomSwitchTypes} = pkg
+        const props = {
+          onToggle: spy,
+          type: atomSwitchTypes.SINGLE,
+          value: false
+        }
+        // When
+        const {getByRole} = setup(props)
+
+        // Then
+        const element = getByRole('switch')
+        userEvents.click(element)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(spy, sinon.match(!props.value))
       })
     })
   })
@@ -161,12 +200,14 @@ describe(json.name, () => {
       const library = pkg
       const expected = {
         DEFAULT: 'default',
+        SMALL: 'small',
+        MEDIUM: 'medium',
         LARGE: 'large'
       }
 
       // When
       const {atomSwitchSizes: actual} = library
-      const {DEFAULT, LARGE, ...others} = actual
+      const {DEFAULT, SMALL, MEDIUM, LARGE, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

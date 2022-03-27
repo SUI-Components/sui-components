@@ -22,21 +22,15 @@ export const ToggleSwitchTypeRender = forwardRef(
       name,
       onBlur,
       onFocus,
-      onKeyDown,
       onToggle,
       size,
       type,
       value,
-      fullWidth
+      fullWidth,
+      isChecked
     },
     ref
   ) => {
-    const isChecked = value !== undefined ? value : isToggle
-
-    const onKeyDownHandler = event => {
-      onKeyDown(event, isChecked)
-    }
-
     return (
       <div
         className={switchClassNames({
@@ -44,10 +38,6 @@ export const ToggleSwitchTypeRender = forwardRef(
           classType: 'toggleType',
           fullWidth
         })}
-        role="switch"
-        aria-checked={isChecked || type === TYPES.SELECT}
-        aria-disabled={disabled}
-        tabIndex={0}
       >
         {label && (
           <AtomLabel
@@ -67,7 +57,6 @@ export const ToggleSwitchTypeRender = forwardRef(
           })}
           onFocus={onFocus}
           onBlur={onBlur}
-          onKeyDown={onKeyDownHandler}
           ref={ref}
         >
           <span
@@ -76,6 +65,7 @@ export const ToggleSwitchTypeRender = forwardRef(
               suitClass({element: 'left'})
             )}
             onClick={onToggle(false)}
+            aria-disabled={disabled}
           >
             {labelLeft}
           </span>
@@ -86,6 +76,11 @@ export const ToggleSwitchTypeRender = forwardRef(
                 modifier: 'right'
               })]: isChecked
             })}
+            role="switch"
+            aria-checked={isChecked || type === TYPES.SELECT}
+            aria-disabled={disabled}
+            disabled={disabled}
+            {...(!disabled && {tabIndex: 0})}
             onClick={onToggle()}
           >
             {
@@ -104,6 +99,7 @@ export const ToggleSwitchTypeRender = forwardRef(
               suitClass({element: 'right'})
             )}
             onClick={onToggle(true)}
+            aria-disabled={disabled}
           >
             {labelRight}
           </span>
@@ -169,10 +165,6 @@ ToggleSwitchTypeRender.propTypes = {
    */
   onToggle: PropTypes.func,
   /**
-   * Callback on keydown on the switch
-   */
-  onKeyDown: PropTypes.func,
-  /**
    * Value for controlled component
    */
   value: PropTypes.bool,
@@ -183,5 +175,7 @@ ToggleSwitchTypeRender.propTypes = {
   /** element node which appears inside the switch circle when it's in left position **/
   iconLeft: PropTypes.node,
   /** element node which appears inside the switch circle when it's in right position **/
-  iconRight: PropTypes.node
+  iconRight: PropTypes.node,
+  /** element in right or left position (checked means right)**/
+  isChecked: PropTypes.bool
 }

@@ -180,6 +180,24 @@ describe(json.name, () => {
         sinon.assert.callCount(spy, 1)
         sinon.assert.calledWith(spy, sinon.match(!props.value))
       })
+
+      it('given undefined value and disabled element should NOT call the callback', () => {
+        // Given
+        const spy = sinon.spy()
+        const {atomSwitchTypes} = pkg
+        const props = {
+          disabled: true,
+          onToggle: spy,
+          type: atomSwitchTypes.SINGLE
+        }
+        // When
+        const {getByRole} = setup(props)
+
+        // Then
+        const element = getByRole('switch')
+        userEvents.click(element)
+        sinon.assert.callCount(spy, 0)
+      })
     })
   })
 

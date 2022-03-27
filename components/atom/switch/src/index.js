@@ -6,18 +6,11 @@ import {SingleSwitchTypeRender} from './SwitchType/single.js'
 import {LABELS, SIZES, TYPES} from './config.js'
 
 const AtomSwitch = forwardRef((props, ref) => {
-  const {
-    initialValue,
-    disabled,
-    onToggle: onToggleCallback,
-    type,
-    value
-  } = props
+  const {initialValue, onToggle: onToggleCallback, type, value} = props
   const [isToggle, setIsToggle] = useState(initialValue)
   const isChecked = value !== undefined ? value : isToggle
 
   const onToggle = forcedValue => event => {
-    if (disabled === true) return
     let newIsToggle = forcedValue !== undefined ? forcedValue : !isToggle
     if (props.value === undefined) {
       // if its uncontrolled component

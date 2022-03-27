@@ -3,39 +3,37 @@ import PropTypes from 'prop-types'
 
 import {ToggleSwitchTypeRender} from './SwitchType/toggle.js'
 import {SingleSwitchTypeRender} from './SwitchType/single.js'
-import {LABELS, SIZES, SUPPORTED_KEYS, TYPES} from './config.js'
+import {LABELS, SIZES, TYPES} from './config.js'
 
 const AtomSwitch = forwardRef((props, ref) => {
-  const {initialValue, disabled, onToggle: onToggleCallback, type} = props
+  const {
+    initialValue,
+    disabled,
+    onToggle: onToggleCallback,
+    type,
+    value
+  } = props
   const [isToggle, setIsToggle] = useState(initialValue)
+  const isChecked = value !== undefined ? value : isToggle
 
-  const onToggle = forceValue => event => {
+  const onToggle = forcedValue => event => {
     if (disabled === true) return
-    const newIsToggle = forceValue !== undefined ? forceValue : !isToggle
-    setIsToggle(newIsToggle)
-    typeof onToggleCallback === 'function' && onToggleCallback(newIsToggle)
-  }
-
-  const onKeyDown = ev => {
-    if (disabled === true) return
-
-    if (SUPPORTED_KEYS.includes(ev.key)) {
-      if (props.value === undefined) {
-        // if its uncontrolled component
-        onToggle()
-      }
-      if (typeof onToggleCallback === 'function') {
-        onToggleCallback()
-      }
-      ev.preventDefault()
+    let newIsToggle = forcedValue !== undefined ? forcedValue : !isToggle
+    if (props.value === undefined) {
+      // if its uncontrolled component
+      setIsToggle(newIsToggle)
+    } else {
+      newIsToggle = !props.value
     }
+    typeof onToggleCallback === 'function' && onToggleCallback(newIsToggle)
   }
 
   const commonProps = {
     ...props,
     isToggle,
-    onKeyDown,
-    onToggle
+    isChecked,
+    onToggle,
+    value
   }
 
   return type === TYPES.SINGLE ? (

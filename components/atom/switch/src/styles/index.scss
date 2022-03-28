@@ -142,19 +142,19 @@ $base-class: '.sui-AtomSwitch';
       position: absolute;
       box-sizing: border-box;
       font-size: 1rem;
-      top: 2px;
-      bottom: 2px;
+      top: 0;
+      bottom: 0;
       vertical-align: middle;
       display: inline-flex;
       align-items: center;
-      width: $w-atom-switch-circle-default;
-      height: $w-atom-switch-circle-default;
+      width: $w-atom-switch-circle-default - 2px;
+      height: $w-atom-switch-circle-default - 2px;
       justify-content: center;
-      margin: -1px;
+      margin: 0;
       overflow: hidden;
     }
     #{$base-class}-icon-right {
-      right: -1px;
+      right: 0;
       transition: color math.div($atom-switch-transition-time, 2) ease-in-out;
       color: transparent;
     }
@@ -213,8 +213,8 @@ $base-class: '.sui-AtomSwitch';
           #{$base-class}-icon-right,
           #{$base-class}-icon-left {
             font-size: math.div(2, 3) * 1rem;
-            width: $h-atom-switch-input-container-small;
-            height: $h-atom-switch-input-container-small;
+            width: $h-atom-switch-input-container-small - 2px;
+            height: $h-atom-switch-input-container-small - 2px;
           }
         }
       }
@@ -242,8 +242,8 @@ $base-class: '.sui-AtomSwitch';
           #{$base-class}-icon-right,
           #{$base-class}-icon-left {
             font-size: math.div(3, 2) * 1rem;
-            width: $h-atom-switch-input-container-large;
-            height: $h-atom-switch-input-container-large;
+            width: $h-atom-switch-input-container-large - 2px;
+            height: $h-atom-switch-input-container-large - 2px;
           }
         }
       }

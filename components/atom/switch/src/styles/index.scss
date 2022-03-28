@@ -83,7 +83,7 @@ $base-class: '.sui-AtomSwitch';
 
     &:focus {
       #{$base-class}-circle {
-        border: $bdw-m solid transparent;
+        border: $bdw-s solid $c-atom-switch-circle;
         box-shadow: none;
       }
     }
@@ -130,10 +130,10 @@ $base-class: '.sui-AtomSwitch';
       border-radius: ($h-atom-switch-default - 2) * 0.5;
       border: $bdw-s solid $c-atom-switch-circle;
       box-shadow: 2px 0 2px 0 $c-gray-light;
-      height: $h-atom-switch-default;
-      width: $w-atom-switch-circle-default;
+      height: $h-atom-switch-default - 2px;
+      width: $w-atom-switch-circle-default - 2px;
       transition: margin-left $atom-switch-transition-time ease-in-out;
-      margin: -1px;
+      margin: 0px;
       display: block;
     }
 
@@ -142,8 +142,8 @@ $base-class: '.sui-AtomSwitch';
       position: absolute;
       box-sizing: border-box;
       font-size: 1rem;
-      top: 0;
-      bottom: 0;
+      top: 2px;
+      bottom: 2px;
       vertical-align: middle;
       display: inline-flex;
       align-items: center;
@@ -202,8 +202,8 @@ $base-class: '.sui-AtomSwitch';
 
           #{$base-class}-circle {
             border-radius: $w-atom-switch-small * 0.5;
-            height: $h-atom-switch-input-container-small;
-            width: $h-atom-switch-input-container-small;
+            height: $h-atom-switch-input-container-small - 2px;
+            width: $h-atom-switch-input-container-small - 2px;
           }
           &--right {
             #{$base-class}-circle {
@@ -231,8 +231,8 @@ $base-class: '.sui-AtomSwitch';
 
           #{$base-class}-circle {
             border-radius: $w-atom-switch-large * 0.5;
-            height: $h-atom-switch-input-container-large;
-            width: $h-atom-switch-input-container-large;
+            height: $h-atom-switch-input-container-large - 2px;
+            width: $h-atom-switch-input-container-large - 2px;
           }
           &--right {
             #{$base-class}-circle {

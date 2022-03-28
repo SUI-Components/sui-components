@@ -10,9 +10,18 @@ import {
   getClassNames
 } from './constants.js'
 
-const ColorPanel = function ({as = 'div', children, ...props}) {
+const ColorPanel = function ({
+  as = 'div',
+  alpha = ALPHA.CONTRAST,
+  color = COLORS.DEFAULT,
+  children,
+  ...otherProps
+}) {
   return (
-    <PolymorphicElement as={as} className={getClassNames(props)}>
+    <PolymorphicElement
+      as={as}
+      className={getClassNames({alpha, color, ...otherProps})}
+    >
       {children}
     </PolymorphicElement>
   )

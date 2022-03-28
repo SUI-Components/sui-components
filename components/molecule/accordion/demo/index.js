@@ -72,9 +72,8 @@ export default () => {
               withTransition
               icon={icon}
               onToggleTab={(e, {index, openedTabs}) => {
-                console.log({openedTabs})
                 setOpenedTabs(openedTabs)
-                console.log('tab toggled:', index) // eslint-disable-line no-console
+                console.log('tab toggled:', {index, openedTabs}) // eslint-disable-line no-console
               }}
             >
               <div label="Title 1">

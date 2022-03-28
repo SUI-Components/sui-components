@@ -4,21 +4,19 @@ import cx from 'classnames'
 import PolymorphicElement from '@s-ui/react-atom-polymorphic-element'
 
 import {
-  COLORS,
   ALPHA,
   BORDER_RADIUS,
   ELEVATION,
   HORIZONTAL_ALIGNMENTS,
   VERTICAL_ALIGNMENTS,
-  DEFAULT_ALPHA,
-  DEFAULT_COLOR
+  DEFAULT_ALPHA
 } from './constants.js'
 
 const getClassNames = function ({
   verticalAlign,
   horizontalAlign,
   resized,
-  overlayColor = COLORS[DEFAULT_COLOR],
+  overlayColor,
   overlayAlpha = ALPHA[DEFAULT_ALPHA],
   color,
   rounded,

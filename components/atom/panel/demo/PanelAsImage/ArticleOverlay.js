@@ -24,8 +24,8 @@ const ArticleOverlay = ({className}) => {
               >
                 <AtomPanel
                   src="https://picsum.photos/250/200"
-                  overlayColor={color}
-                  overlayAlpha={alpha}
+                  overlayColor={atomPanelColors[color]}
+                  overlayAlpha={atomPanelAlpha[alpha]}
                 >
                   <div style={{height: '150px'}} />
                 </AtomPanel>

@@ -9,6 +9,7 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import {atomPanelColors} from '../lib'
 
 import * as pkg from '../src/index.js'
 
@@ -156,7 +157,7 @@ describe(json.name, () => {
         ReactDOM.unmountComponentAtNode(div)
       })
 
-      it('should add overlayAlpha if its defined in props', () => {
+      it('should NOT add overlayAlpha if its defined in props only the overlay', () => {
         // Given
         const props = {src: '#', overlayAlpha: pkg.atomPanelAlpha.OVERLAY_D1}
         const findSentence = str => string =>
@@ -166,6 +167,26 @@ describe(json.name, () => {
         const {container} = setup(props)
         const findClassName = findSentence(
           `sui-atom-panel--accent-overlay-${pkg.atomPanelAlpha.OVERLAY_D1}`
+        )
+
+        // Then
+        expect(findClassName(container.innerHTML)).to.be.null
+      })
+
+      it('should add overlayAlpha if its defined in props the overlay and the color', () => {
+        // Given
+        const props = {
+          src: '#',
+          overlayAlpha: pkg.atomPanelAlpha.OVERLAY_D1,
+          overlayColor: atomPanelColors.ACCENT
+        }
+        const findSentence = str => string =>
+          string.match(new RegExp(`S*${str}S*`))
+
+        // When
+        const {container} = setup(props)
+        const findClassName = findSentence(
+          `sui-atom-panel--${atomPanelColors.ACCENT}-overlay-${pkg.atomPanelAlpha.OVERLAY_D1}`
         )
 
         // Then

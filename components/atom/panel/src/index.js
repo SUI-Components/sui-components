@@ -14,8 +14,8 @@ import {
 } from './constants.js'
 
 const AtomPanel = function ({
-  alpha = ALPHA.CONTRAST,
-  color = COLORS.DEFAULT,
+  alpha,
+  color,
   elevation = ELEVATION.NONE,
   horizontalAlign = HORIZONTAL_ALIGNMENTS.CENTER,
   rounded = BORDER_RADIUS.NONE,

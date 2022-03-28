@@ -9,7 +9,6 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
-import {atomPanelColors} from '../lib'
 
 import * as pkg from '../src/index.js'
 
@@ -178,7 +177,7 @@ describe(json.name, () => {
         const props = {
           src: '#',
           overlayAlpha: pkg.atomPanelAlpha.OVERLAY_D1,
-          overlayColor: atomPanelColors.ACCENT
+          overlayColor: pkg.atomPanelColors.ACCENT
         }
         const findSentence = str => string =>
           string.match(new RegExp(`S*${str}S*`))
@@ -186,7 +185,7 @@ describe(json.name, () => {
         // When
         const {container} = setup(props)
         const findClassName = findSentence(
-          `sui-atom-panel--${atomPanelColors.ACCENT}-overlay-${pkg.atomPanelAlpha.OVERLAY_D1}`
+          `sui-atom-panel--${pkg.atomPanelColors.ACCENT}-overlay-${pkg.atomPanelAlpha.OVERLAY_D1}`
         )
 
         // Then

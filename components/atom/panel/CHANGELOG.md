@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.14.0 (2022-03-28)
+
+
+### Bug Fixes
+
+* **components/atom/panel:** background colors hotfix ([e3364a5](https://github.com/SUI-Components/sui-components/commit/e3364a53cfe0b5825ea6a5d4a30ae5de2688b667))
+* **components/atom/panel:** fix the test ([f4eef15](https://github.com/SUI-Components/sui-components/commit/f4eef15d0e174343817b38dd1d2bf57c287bb222))
+
+
+
 # 1.13.0 (2022-03-14)
 
 

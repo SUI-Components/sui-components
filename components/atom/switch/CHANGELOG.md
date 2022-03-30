@@ -1,5 +1,27 @@
 # CHANGELOG
 
+# 1.23.0 (2022-03-30)
+
+
+### Bug Fixes
+
+* **components/atom/switch:** circle size ([34eb795](https://github.com/SUI-Components/sui-components/commit/34eb7953b72e1e68db807a8407fc4eb1f7e40024))
+* **components/atom/switch:** icons position ([7d2cee0](https://github.com/SUI-Components/sui-components/commit/7d2cee09380119b54b0fd88045f3150236b2c76f))
+
+
+### Features
+
+* **components/atom/switch:** a11y ([0061d60](https://github.com/SUI-Components/sui-components/commit/0061d60d35a522d7f70cea3f213f6c75a8667024))
+* **components/atom/switch:** a11y and icons ([990074d](https://github.com/SUI-Components/sui-components/commit/990074dc0ec09cd7a90dbd48b3b64fe042aad220))
+* **components/atom/switch:** a11y n performance ([03d3af4](https://github.com/SUI-Components/sui-components/commit/03d3af4e56fbf91b888f31a325abbbb10f9a5ed2))
+
+
+### Performance Improvements
+
+* **components/atom/switch:** remove unnecesary inner handlers ([b95671c](https://github.com/SUI-Components/sui-components/commit/b95671c362e6731a15e7a2eba17d81061267e1be))
+
+
+
 # 1.22.0 (2022-01-14)
 
 

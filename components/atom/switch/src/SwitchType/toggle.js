@@ -70,6 +70,7 @@ export const ToggleSwitchTypeRender = forwardRef(
             {labelLeft}
           </span>
           <button
+            type="button"
             className={cx(suitClass({element: 'inputContainer'}), {
               [suitClass({
                 element: 'inputContainer',

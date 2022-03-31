@@ -2,7 +2,8 @@ $w-notification: 100% !default;
 $z-notification: 1000 !default;
 $mh-notification: 500px !default;
 $sz-notification-icon: $sz-icon-m !default;
-$ai-notification-content: normal !default;
+$ai-notification-content: stretch space-around space-between center flex-start flex-end;
+$ai-notification-text: normal !default;
 $bdrs-notification-content: initial !default;
 $lh-notification-text: inherit !default;
 $mt-notification-text: 0 !default;
@@ -66,3 +67,11 @@ $notification-effect-fade-in: opacity 0.5s ease-out 0.5s,
   max-height 0.5s ease 0s !default;
 $notification-effect-fade-out: opacity 0.3s ease-in 0s,
   max-height 0.5s ease 0.3s !default;
+
+  @mixin notification-align-items($properties) {
+    @each $value in $properties {
+      &--ai-#{$value} {
+        align-items: $value;
+      }
+    }
+  }

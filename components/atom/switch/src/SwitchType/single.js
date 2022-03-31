@@ -14,7 +14,6 @@ export const SingleSwitchTypeRender = forwardRef(
     {
       disabled,
       isFitted,
-      isToggle,
       label,
       labelLeft,
       iconLeft,
@@ -81,6 +80,7 @@ export const SingleSwitchTypeRender = forwardRef(
             aria-disabled={disabled}
             disabled={disabled}
             {...(!disabled && {tabIndex: 0})}
+            {...(name && {id: name})}
           >
             <div className={cx(suitClass({element: 'icon-left'}))}>
               {iconLeft}

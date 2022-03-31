@@ -224,6 +224,7 @@ MoleculeNotification.propTypes = {
 export {
   POSITION,
   POSITION as moleculeNotificationPosition,
+  ALIGN_ITEMS,
   ALIGN_ITEMS as moleculeNotificationAlignItems,
   AUTO_CLOSE,
   AUTO_CLOSE as moleculeNotificationAutoClose,

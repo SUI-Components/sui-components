@@ -25,10 +25,12 @@ describe(json.name, () => {
     const library = pkg
     const libraryExportedMembers = [
       'POSITION',
+      'ALIGN_ITEMS',
       'AUTO_CLOSE',
       'TYPES',
       'VARIATIONS',
       'BRDS_SIZE',
+      'moleculeNotificationAlignItems',
       'moleculeNotificationPosition',
       'moleculeNotificationAutoClose',
       'moleculeNotificationTypes',
@@ -40,11 +42,13 @@ describe(json.name, () => {
     // When
     const {
       POSITION,
+      ALIGN_ITEMS,
       AUTO_CLOSE,
       TYPES,
       VARIATIONS,
       BRDS_SIZE,
       moleculeNotificationPosition,
+      moleculeNotificationAlignItems,
       moleculeNotificationAutoClose,
       moleculeNotificationTypes,
       moleculeNotificationVariations,

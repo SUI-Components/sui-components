@@ -68,6 +68,7 @@ export const SingleSwitchTypeRender = forwardRef(
             />
           )}
           <button
+            type="button"
             className={cx(suitClass({element: 'inputContainer'}), {
               [suitClass({
                 element: 'inputContainer',

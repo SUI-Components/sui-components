@@ -79,8 +79,8 @@ export const SingleSwitchTypeRender = forwardRef(
             aria-checked={isChecked || type === TYPES.SELECT}
             aria-disabled={disabled}
             disabled={disabled}
+            id={name}
             {...(!disabled && {tabIndex: 0})}
-            {...(name !== undefined && {id: name})}
           >
             <div className={cx(suitClass({element: 'icon-left'}))}>
               {iconLeft}

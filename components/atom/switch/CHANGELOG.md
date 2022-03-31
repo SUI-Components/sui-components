@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.24.0 (2022-03-31)
+
+
+### Bug Fixes
+
+* **components/atom/switch:** prevent form submit when switch is clicked ([ddb135f](https://github.com/SUI-Components/sui-components/commit/ddb135f36f594827202c91f290c3569cbdccba81))
+
+
+
 # 1.23.0 (2022-03-30)
 
 

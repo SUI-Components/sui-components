@@ -25,7 +25,6 @@ describe(json.name, () => {
     const library = pkg
     const libraryExportedMembers = [
       'POSITION',
-      'ALIGN_ITEMS',
       'AUTO_CLOSE',
       'TYPES',
       'VARIATIONS',
@@ -42,7 +41,6 @@ describe(json.name, () => {
     // When
     const {
       POSITION,
-      ALIGN_ITEMS,
       AUTO_CLOSE,
       TYPES,
       VARIATIONS,
@@ -279,6 +277,50 @@ describe(json.name, () => {
       // When
       const {moleculeNotificationBorderSizes: actual} = library
       const {extraLarge, large, medium, small, extraSmall, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('moleculeNotificationAlignItems', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {moleculeNotificationAlignItems: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        BASELINE: 'baseline',
+        CENTER: 'center',
+        FLEX_START: 'flex-start',
+        FLEX_END: 'flex-end',
+        STRETCH: 'stretch'
+      }
+
+      // When
+      const {moleculeNotificationAlignItems: actual} = library
+      const {
+        BASELINE,
+        CENTER,
+        FLEX_START,
+        FLEX_END,
+        STRETCH,
+        ...others
+      } = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

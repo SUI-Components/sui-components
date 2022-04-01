@@ -31,7 +31,7 @@ const getContainer = ref => {
 
 const MoleculeNotification = memo(
   ({
-    alignContent = ALIGN_ITEMS.FLEX_START,
+    alignItems = ALIGN_ITEMS.FLEX_START,
     autoClose: autoCloseTiming = AUTO_CLOSE.short,
     onClose = EMPTY_METHOD,
     effect = true,
@@ -117,7 +117,7 @@ const MoleculeNotification = memo(
       [`${CLASS}-iconLeft--show`]: showLeftIconMobile
     })
 
-    const contentClassName = `${CLASS}-content ${CLASS}-content--ai-${alignContent}`
+    const contentClassName = `${CLASS}-content ${CLASS}-content--ai-${alignItems}`
 
     if (!show && !delay) {
       return null
@@ -163,7 +163,7 @@ MoleculeNotification.displayName = 'MoleculeNotification'
 
 MoleculeNotification.propTypes = {
   /** Vertical alignment for content */
-  alignContent: PropTypes.oneOf(Object.keys(ALIGN_ITEMS)),
+  alignItems: PropTypes.oneOf(Object.keys(ALIGN_ITEMS)),
 
   /** Auto close time: 'short' (3s), 'medium' (6s), 'long' (9s), 'manual' or null (disabled) */
   autoClose: PropTypes.string,
@@ -224,7 +224,6 @@ MoleculeNotification.propTypes = {
 export {
   POSITION,
   POSITION as moleculeNotificationPosition,
-  ALIGN_ITEMS,
   ALIGN_ITEMS as moleculeNotificationAlignItems,
   AUTO_CLOSE,
   AUTO_CLOSE as moleculeNotificationAutoClose,

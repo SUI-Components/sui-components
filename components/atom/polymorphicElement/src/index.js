@@ -1,8 +1,11 @@
+import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 
-function PolymorphicElement({as: Component = 'span', ...props}) {
-  return <Component {...props} />
-}
+const PolymorphicElement = forwardRef(
+  ({as: Component = 'span', ...props}, forwardedRef) => {
+    return <Component ref={forwardedRef} {...props} />
+  }
+)
 
 PolymorphicElement.displayName = 'PolymorphicElement'
 PolymorphicElement.propTypes = {

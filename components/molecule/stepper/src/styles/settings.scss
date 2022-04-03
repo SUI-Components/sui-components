@@ -1,0 +1,10 @@
+// justify-content-types
+$jc-molecule-stepper: (
+  legacy: flex-start,
+  flex-start: flex-start,
+  center: center,
+  flex-end: flex-end,
+  space-between: space-between,
+  space-around: space-around,
+  space-evenly: space-evenly
+);

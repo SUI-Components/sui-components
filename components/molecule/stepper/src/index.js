@@ -66,23 +66,33 @@ const MoleculeStepper = forwardRef(
 
 MoleculeStepper.displayName = 'MoleculeStepper'
 MoleculeStepper.propTypes = {
+  /** element tag **/
   as: PropTypes.element,
+  /** element children's tag **/
   asSteps: PropTypes.element,
+  /** element orientation **/
   alignment: PropTypes.oneOf(Object.values(ALIGNMENT)),
+  /** inner content **/
   children: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.instanceOf(Step),
-      PropTypes.instanceOf(Connector)
-    ])
+    PropTypes.oneOfType([PropTypes.instanceOf(Step)])
   ),
+  /** different look and feels **/
   design: PropTypes.oneOf(Object.values(DESIGN)),
+  /** element position alignements **/
   justifyContent: PropTypes.oneOf(Object.values(JUSTIFY_CONTENT)),
+  /** an array of step tags if there is no children declared **/
   labels: PropTypes.arrayOf(PropTypes.string),
+  /** number of steps needed to be inner created **/
   steps: naturalNumber,
+  /** current step position **/
   step: naturalNumber,
+  /** react-node icon passed to all inner steps **/
   icon: PropTypes.node,
+  /** react-node icon passed to all inner visited steps **/
   visitedIcon: PropTypes.node,
+  /** react-node icon passed to inner current steps **/
   currentIcon: PropTypes.node,
+  /** change handler to get the step fired **/
   onChange: PropTypes.func
 }
 

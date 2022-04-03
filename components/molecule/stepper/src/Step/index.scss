@@ -8,39 +8,107 @@ $base-class-step: #{$base-class}Step;
   flex-direction: column;
   align-items: center;
   #{$base-class-step}Label {
-    width: 100px;
-    display: flex;
-    align-items: center;
     color: $c-gray-dark-2;
   }
-  #{$base-class-step}Icon {
-    width: 5 * $sz-base;
-    height: 5 * $sz-base;
-    padding: $sz-base;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  + #{$base-class-step}Connector {
-    flex-shrink: 0;
-    flex-basis: 24px;
-    #{$base-class-step}ConnectorLine {
-      border-radius: math.div($sz-base, 2);
-      background-color: $c-gray-light-2;
-    }
-    &:last-of-type {
-      display: none;
-    }
-  }
 
-  &--justifyContent {
-    @each $jc-key, $jc-value in $jc-molecule-stepper {
-      &-#{$jc-key} {
-        @if #{$jc-key} == 'legacy' {
-          flex-grow: 0;
-          + #{$base-class-step}Connector {
-            flex-grow: 1;
+  &--design {
+    &-default {
+      #{$base-class-step}Label {
+        width: 100px;
+        display: flex;
+        align-items: center;
+      }
+      #{$base-class-step}Icon {
+        width: 5 * $sz-base;
+        height: 5 * $sz-base;
+        padding: $sz-base;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      + #{$base-class-step}Connector {
+        flex-shrink: 0;
+        flex-basis: 24px;
+        #{$base-class-step}ConnectorLine {
+          border-radius: math.div($sz-base, 2);
+          background-color: $c-gray-light-2;
+        }
+        &:last-of-type {
+          display: none;
+        }
+      }
+      &#{$base-class-step}--justifyContent {
+        @each $jc-key, $jc-value in $jc-molecule-stepper {
+          &-#{$jc-key} {
+            @if #{$jc-key} == 'legacy' {
+              flex-grow: 0;
+              + #{$base-class-step}Connector {
+                flex-grow: 1;
+              }
+            }
+          }
+        }
+      }
+      &#{$base-class-step}--alignment {
+        &-vertical {
+          max-height: 6 * $sz-base;
+          #{$base-class-step}Label {
+            text-align: start;
+            justify-content: flex-start;
+          }
+        }
+        &-horizontal {
+          max-width: 6 * $sz-base;
+          #{$base-class-step}Label {
+            text-align: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+    &-compressed {
+      flex-basis: 24px;
+      flex-shrink: 0;
+      //#{$base-class-step}Icon {
+      //}
+      + #{$base-class-step}Connector {
+        display: none;
+      }
+      &#{$base-class-step}--alignment {
+        //&-vertical {
+        //}
+        &-horizontal {
+          flex-direction: column-reverse;
+          align-items: flex-start;
+          #{$base-class-step}Label {
+            min-height: 1rem;
+          }
+
+          #{$base-class-step}Icon {
+            width: 100%;
+            height: $sz-base;
+            background-color: $c-gray-light;
+            border-radius: math.div($sz-base, 2);
+          }
+          &#{$base-class-step}--current {
+            #{$base-class-step}Icon {
+              background-color: $c-primary-light-1;
+            }
+          }
+          &#{$base-class-step}--visited {
+            #{$base-class-step}Icon {
+              background-color: $c-primary;
+            }
+          }
+        }
+      }
+      &#{$base-class-step}--justifyContent {
+        @each $jc-key, $jc-value in $jc-molecule-stepper {
+          &-#{$jc-key} {
+            @if #{$jc-key} == 'legacy' {
+              flex-grow: 1;
+            }
           }
         }
       }
@@ -51,16 +119,9 @@ $base-class-step: #{$base-class}Step;
     &-vertical {
       justify-content: flex-start;
       flex-direction: row;
-      max-height: 6 * $sz-base;
       width: 100%;
-      #{$base-class-step}Label {
-        text-align: start;
-        justify-content: flex-start;
-      }
-
       + #{$base-class-step}Connector {
         width: 100%;
-
         #{$base-class-step}ConnectorLine {
           width: $sz-base;
           height: 100%;
@@ -70,16 +131,9 @@ $base-class-step: #{$base-class}Step;
     }
     &-horizontal {
       flex-direction: column;
-      max-width: 6 * $sz-base;
       height: 100%;
-      #{$base-class-step}Label {
-        text-align: center;
-        justify-content: center;
-      }
-
       + #{$base-class-step}Connector {
         height: 100%;
-
         #{$base-class-step}ConnectorLine {
           width: 100%;
           height: $sz-base;

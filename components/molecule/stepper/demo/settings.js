@@ -1,12 +1,6 @@
-import AtomIcon from '@s-ui/react-atom-icon'
-import Element from '@s-ui/react-atom-polymorphic-element'
 import {AntDesignIcon} from '@s-ui/documentation-library'
 
-const Icon = ({icon, as}) => (
-  <AtomIcon>
-    <Element as={as} icon={icon} style={{fill: 'currentColor'}} />
-  </AtomIcon>
-)
+import Icon from './Icon.js'
 
 export const visitedIcon = (
   <Icon icon={'AiOutlineStepForward'} as={AntDesignIcon} />

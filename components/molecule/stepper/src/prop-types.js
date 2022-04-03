@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types'
-
 export const naturalNumber = function (props, propName, componentName) {
   if (
     typeof props[propName] !== 'number' ||

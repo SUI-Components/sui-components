@@ -9,11 +9,6 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
-import {
-  moleculeStepperAlignment,
-  moleculeStepperDesign,
-  moleculeStepperJustifyContent
-} from '../src/index.js'
 
 import * as pkg from '../src/index.js'
 
@@ -21,7 +16,7 @@ import json from '../package.json'
 
 chai.use(chaiDOM)
 
-describe('MoleculeStepper', () => {
+describe(json.name, () => {
   const {default: Component} = pkg
   const setup = setupEnvironment(Component)
 

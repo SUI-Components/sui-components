@@ -18,9 +18,6 @@ import MoleculeStepper, {
 } from 'components/molecule/stepper/src/index.js'
 import LoremIpsum from './LoremIpsum.js'
 import {
-  successIcon,
-  errorIcon,
-  alertIcon,
   visitedIcon as iconVisited,
   currentIcon as iconCurrent,
   defaultIcon as iconDefault
@@ -114,7 +111,7 @@ export default () => {
               ))}
           </RadioButtonGroup>
         </Cell>
-        <Cell>
+        <Cell style={{display: 'flex', alignItems: 'center'}}>
           <Button
             disabled={steps <= 0}
             onClick={() => updateSteps(steps - 1)}
@@ -172,7 +169,7 @@ export default () => {
             ))}
           </MoleculeStepper>
         </Cell>
-        <Cell>
+        <Cell style={{display: 'flex', alignItems: 'center'}}>
           <Button onClick={() => updateSteps(steps + 1)} fullWidth>
             ➕
           </Button>

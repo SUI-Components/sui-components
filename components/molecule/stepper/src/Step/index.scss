@@ -1,0 +1,101 @@
+@use 'sass:math';
+
+$base-class-step: #{$base-class}Step;
+
+#{$base-class-step} {
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  #{$base-class-step}Label {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    color: $c-gray-dark-2;
+  }
+  #{$base-class-step}Icon {
+    width: 5 * $sz-base;
+    height: 5 * $sz-base;
+    padding: $sz-base;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  + #{$base-class-step}Connector {
+    flex-shrink: 0;
+    flex-basis: 24px;
+    #{$base-class-step}ConnectorLine {
+      border-radius: math.div($sz-base, 2);
+      background-color: $c-gray-light-2;
+    }
+    &:last-of-type {
+      display: none;
+    }
+  }
+
+  &--justifyContent {
+    @each $jc-key, $jc-value in $jc-molecule-stepper {
+      &-#{$jc-key} {
+        @if #{$jc-key} == 'legacy' {
+          flex-grow: 0;
+          + #{$base-class-step}Connector {
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+  }
+
+  &--alignment {
+    &-vertical {
+      justify-content: flex-start;
+      flex-direction: row;
+      max-height: 6 * $sz-base;
+      width: 100%;
+      #{$base-class-step}Label {
+        text-align: start;
+        justify-content: flex-start;
+      }
+
+      + #{$base-class-step}Connector {
+        width: 100%;
+
+        #{$base-class-step}ConnectorLine {
+          width: $sz-base;
+          height: 100%;
+          margin-left: 3 * $sz-base;
+        }
+      }
+    }
+    &-horizontal {
+      flex-direction: column;
+      max-width: 6 * $sz-base;
+      height: 100%;
+      #{$base-class-step}Label {
+        text-align: center;
+        justify-content: center;
+      }
+
+      + #{$base-class-step}Connector {
+        height: 100%;
+
+        #{$base-class-step}ConnectorLine {
+          width: 100%;
+          height: $sz-base;
+          margin-top: 3 * $sz-base;
+        }
+      }
+    }
+  }
+
+  &--current {
+    color: $c-primary-light-1;
+  }
+  &--visited {
+    color: $c-primary;
+    + #{$base-class-step}Connector #{$base-class-step}ConnectorLine {
+      background-color: $c-primary;
+    }
+  }
+}

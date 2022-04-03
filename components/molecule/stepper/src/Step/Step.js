@@ -6,7 +6,8 @@ import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs/index.js'
 import Poly from '@s-ui/react-atom-polymorphic-element'
 
 import {naturalNumber} from '../prop-types.js'
-import {BASE_CLASS_STEP, getIcon} from './settings.js'
+import {BASE_CLASS_STEP, getIcon, getLabel} from './settings.js'
+import {ALIGNMENT, DESIGN} from '../settings.js'
 import {useStepsContext} from '../StepsProvider.js'
 
 const Step = forwardRef(
@@ -27,10 +28,11 @@ const Step = forwardRef(
   ) => {
     const {
       as: asContext,
+      alignment,
+      design,
+      steps,
       useContextRef,
       useContextUnRef,
-      design,
-      alignment,
       justifyContent,
       icon: iconContext,
       visitedIcon: visitedIconContext,
@@ -42,6 +44,7 @@ const Step = forwardRef(
     const As = as || asContext
     useContextUnRef(innerRef)
     const resultingIcon = getIcon({
+      design,
       visited,
       current,
       step,
@@ -82,7 +85,20 @@ const Step = forwardRef(
               <div className={cx(`${BASE_CLASS_STEP}Icon`)}>
                 {resultingIcon}
               </div>
-              <div className={cx(`${BASE_CLASS_STEP}Label`)}>{label}</div>
+              <div
+                className={cx(`${BASE_CLASS_STEP}Label`)}
+                {...(design === DESIGN.COMPRESSED &&
+                  current &&
+                  alignment === ALIGNMENT.HORIZONTAL && {
+                    style: {
+                      marginLeft: `calc(-${(step - 1) * 100}% - ${
+                        (step - 1) * 8
+                      }px)`
+                    }
+                  })}
+              >
+                {getLabel({steps, step, design, label, current})}
+              </div>
             </>
           )}
         </Poly>

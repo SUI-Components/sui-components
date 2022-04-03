@@ -18,13 +18,15 @@ const useRefs = () => {
   const useContextUnRef = ref =>
     useLayoutEffect(() => () => refs.current.delete(ref.current), [ref])
 
-  return {useContextRef, useContextUnRef}
+  return {useContextRef, useContextUnRef, steps: refs.current.size}
 }
 
 export const StepsProvider = ({children, ...props}) => {
-  const {useContextRef, useContextUnRef} = useRefs()
+  const {useContextRef, useContextUnRef, steps} = useRefs()
   return (
-    <StepsContext.Provider value={{...props, useContextRef, useContextUnRef}}>
+    <StepsContext.Provider
+      value={{...props, useContextRef, useContextUnRef, steps}}
+    >
       {children}
     </StepsContext.Provider>
   )
@@ -43,5 +45,6 @@ export const useStepsContext = () =>
     useContextUnRef: () => null,
     design: DESIGN.DEFAULT,
     alignment: ALIGNMENT.HORIZONTAL,
-    justifyContent: JUSTIFY_CONTENT.LEGACY
+    justifyContent: JUSTIFY_CONTENT.LEGACY,
+    steps: 0
   }

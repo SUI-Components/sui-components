@@ -89,23 +89,34 @@ $base-class-step: #{$base-class}Step;
       }
       &#{$base-class-step}--alignment {
         &-vertical {
+          width: 50px;
           flex-direction: row-reverse;
-          align-items: center;
+          align-items: flex-end;
+          gap: $sz-base;
           #{$base-class-step}Icon {
             width: $sz-base;
-            margin-left: $sz-base;
             height: 100%;
           }
           #{$base-class-step}Label {
-            //transform: rotate(-90deg);
-            max-width: 100px;
+            transform: rotate(180deg);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            max-height: 100px;
+            width: calc(50px - 8px * 2);
+            display: flex;
+            align-items: flex-end;
           }
         }
         &-horizontal {
+          width: 50px;
           flex-direction: column-reverse;
           align-items: flex-start;
+          gap: $sz-base;
           #{$base-class-step}Label {
-            min-height: 1rem;
+            height: calc(50px - 8px * 2);
+            max-width: 100px;
+            display: flex;
+            align-items: flex-end;
           }
           #{$base-class-step}Icon {
             width: 100%;

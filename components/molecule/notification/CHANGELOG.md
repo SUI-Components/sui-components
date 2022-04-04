@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 1.31.0 (2022-04-04)
+
+
+### Bug Fixes
+
+* **components/molecule/notification:** Fix PR comments ([ae58515](https://github.com/SUI-Components/sui-components/commit/ae5851574d048124b9e9695964ad706147481a6b))
+* **components/molecule/notification:** Fix PR comments ([5386acd](https://github.com/SUI-Components/sui-components/commit/5386acde2bfeff860a7086bde479f7590ab9736e))
+* **components/molecule/notification:** Fix PR comments and add demo ([80c28b7](https://github.com/SUI-Components/sui-components/commit/80c28b7df2146bc44351f86bd82dbccc3421671f))
+* **components/molecule/notification:** Fix tests ([ed12a11](https://github.com/SUI-Components/sui-components/commit/ed12a111eb595da468f92edeaff5d82caf86dcd6))
+
+
+### Features
+
+* **components/molecule/notification:** Add items alignment feature ([9c3e113](https://github.com/SUI-Components/sui-components/commit/9c3e1135e3a673dcccc40ac9adfac84c2a3767f9))
+* **components/molecule/notification:** Fix lint ([df10e5d](https://github.com/SUI-Components/sui-components/commit/df10e5d6ab450c45e61b1ece86e5a15dba90d91c))
+
+
+
 # 1.30.0 (2022-02-11)
 
 

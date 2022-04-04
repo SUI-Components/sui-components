@@ -117,7 +117,7 @@ const MoleculeNotification = memo(
       [`${CLASS}-iconLeft--show`]: showLeftIconMobile
     })
 
-    const contentClassName = `${CLASS}-content ${CLASS}-content--ai-${alignItems}`
+    const contentClassName = `${CLASS}-content ${CLASS}-content--alignItems-${alignItems}`
 
     if (!show && !delay) {
       return null

@@ -71,7 +71,7 @@ $notification-effect-fade-out: opacity 0.3s ease-in 0s,
 
 @mixin notification-align-items($properties) {
   @each $value in $properties {
-    &--ai-#{$value} {
+    &--alignItems-#{$value} {
       align-items: $value;
     }
   }

@@ -70,36 +70,46 @@ $base-class-step: #{$base-class}Step;
     &-compressed {
       flex-basis: 24px;
       flex-shrink: 0;
-      //#{$base-class-step}Icon {
-      //}
+      #{$base-class-step}Icon {
+        background-color: $c-gray-light;
+        border-radius: math.div($sz-base, 2);
+      }
       + #{$base-class-step}Connector {
         display: none;
       }
+      &#{$base-class-step}--current {
+        #{$base-class-step}Icon {
+          background-color: $c-primary-light-1;
+        }
+      }
+      &#{$base-class-step}--visited {
+        #{$base-class-step}Icon {
+          background-color: $c-primary;
+        }
+      }
       &#{$base-class-step}--alignment {
-        //&-vertical {
-        //}
+        &-vertical {
+          flex-direction: row-reverse;
+          align-items: center;
+          #{$base-class-step}Icon {
+            width: $sz-base;
+            margin-left: $sz-base;
+            height: 100%;
+          }
+          #{$base-class-step}Label {
+            //transform: rotate(-90deg);
+            max-width: 100px;
+          }
+        }
         &-horizontal {
           flex-direction: column-reverse;
           align-items: flex-start;
           #{$base-class-step}Label {
             min-height: 1rem;
           }
-
           #{$base-class-step}Icon {
             width: 100%;
             height: $sz-base;
-            background-color: $c-gray-light;
-            border-radius: math.div($sz-base, 2);
-          }
-          &#{$base-class-step}--current {
-            #{$base-class-step}Icon {
-              background-color: $c-primary-light-1;
-            }
-          }
-          &#{$base-class-step}--visited {
-            #{$base-class-step}Icon {
-              background-color: $c-primary;
-            }
           }
         }
       }

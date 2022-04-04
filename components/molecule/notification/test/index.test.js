@@ -313,14 +313,7 @@ describe(json.name, () => {
 
       // When
       const {moleculeNotificationAlignItems: actual} = library
-      const {
-        BASELINE,
-        CENTER,
-        FLEX_START,
-        FLEX_END,
-        STRETCH,
-        ...others
-      } = actual
+      const { BASELINE, CENTER, FLEX_START, FLEX_END, STRETCH, ...others } = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

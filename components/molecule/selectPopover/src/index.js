@@ -1,7 +1,9 @@
 import {useState, useEffect, useRef, useCallback, cloneElement} from 'react'
-import Button, {atomButtonDesigns} from '@s-ui/react-atom-button'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+
+import Button, {atomButtonDesigns} from '@s-ui/react-atom-button'
+
 import {SIZES, PLACEMENTS, BASE_CLASS} from './config.js'
 
 function usePrevious(value) {

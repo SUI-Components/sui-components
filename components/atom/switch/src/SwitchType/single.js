@@ -14,7 +14,6 @@ export const SingleSwitchTypeRender = forwardRef(
     {
       disabled,
       isFitted,
-      isToggle,
       label,
       labelLeft,
       iconLeft,
@@ -68,6 +67,7 @@ export const SingleSwitchTypeRender = forwardRef(
             />
           )}
           <button
+            type="button"
             className={cx(suitClass({element: 'inputContainer'}), {
               [suitClass({
                 element: 'inputContainer',
@@ -79,6 +79,7 @@ export const SingleSwitchTypeRender = forwardRef(
             aria-checked={isChecked || type === TYPES.SELECT}
             aria-disabled={disabled}
             disabled={disabled}
+            id={name}
             {...(!disabled && {tabIndex: 0})}
           >
             <div className={cx(suitClass({element: 'icon-left'}))}>

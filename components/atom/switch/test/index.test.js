@@ -201,6 +201,27 @@ describe(json.name, () => {
         userEvents.click(element)
         sinon.assert.callCount(spy, 0)
       })
+
+      it('given a label and name should switch the status to true after label click', () => {
+        // Given
+        const spy = sinon.spy()
+        const {atomSwitchTypes} = pkg
+        const props = {
+          onToggle: spy,
+          type: atomSwitchTypes.SINGLE,
+          label: 'label-test',
+          name: 'name-test'
+        }
+
+        // When
+        const {getByLabelText} = setup(props)
+
+        // Then
+        const element = getByLabelText(props.label)
+        userEvents.click(element)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(spy, sinon.match(!props.value))
+      })
     })
   })
 

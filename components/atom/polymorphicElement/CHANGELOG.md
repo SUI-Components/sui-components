@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.2.0 (2022-04-02)
+
+
+### Features
+
+* **components/atom/polymorphicElement:** adds forwardRef ([b0cb80f](https://github.com/SUI-Components/sui-components/commit/b0cb80f0d2d2f86ccf8863c104813ecd60f18b7f))
+
+
+
 # 1.1.0 (2022-03-11)
 
 

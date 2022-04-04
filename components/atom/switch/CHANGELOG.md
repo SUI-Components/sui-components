@@ -1,5 +1,25 @@
 # CHANGELOG
 
+# 1.25.0 (2022-04-01)
+
+
+### Bug Fixes
+
+* **components/atom/switch:** allow single switch be accessible by label ([aada0dc](https://github.com/SUI-Components/sui-components/commit/aada0dc456b37c1ca4d18f0d10ab707bab4a5364))
+* **components/atom/switch:** code quality ([2828eaa](https://github.com/SUI-Components/sui-components/commit/2828eaa2c8925553681169f6ca463750c83d9eec))
+* **components/atom/switch:** improve code ([76484b1](https://github.com/SUI-Components/sui-components/commit/76484b1c28efc0f3b256a73cf0c8e1288131a55c))
+
+
+
+# 1.24.0 (2022-03-31)
+
+
+### Bug Fixes
+
+* **components/atom/switch:** prevent form submit when switch is clicked ([ddb135f](https://github.com/SUI-Components/sui-components/commit/ddb135f36f594827202c91f290c3569cbdccba81))
+
+
+
 # 1.23.0 (2022-03-30)
 
 

@@ -62,6 +62,9 @@ const MoleculePhotoUploader = forwardRef(
       errorSaveImageEndpoint,
       infoIcon = noop,
       initialPhotos = [],
+      labels = [],
+      labelsArrowIcon: LabelsArrowIcon,
+      labelsPlaceholder,
       limitPhotosUploadedText,
       limitPhotosUploadedNotification,
       mainPhotoLabel,
@@ -125,7 +128,8 @@ const MoleculePhotoUploader = forwardRef(
           hasErrors,
           file,
           preview,
-          id
+          id,
+          label
         } = currentFile
         array.push({
           blob,
@@ -135,7 +139,8 @@ const MoleculePhotoUploader = forwardRef(
           hasErrors,
           file,
           previewUrl: preview,
-          id
+          id,
+          label
         })
         return [...array]
       }, [])
@@ -289,6 +294,9 @@ const MoleculePhotoUploader = forwardRef(
                 }
                 files={files}
                 isPhotoUploaderFully={isPhotoUploaderFully}
+                labels={labels}
+                labelsArrowIcon={<LabelsArrowIcon />}
+                labelsPlaceholder={labelsPlaceholder}
                 mainPhotoLabel={mainPhotoLabel}
                 outputImageAspectRatioDisabled={outputImageAspectRatioDisabled}
                 rejectPhotosIcon={rejectPhotosIcon}
@@ -384,7 +392,7 @@ MoleculePhotoUploader.propTypes = {
 
   /**
    *  Callback that returns an array of files.
-   *  It's executed everytime an image is added, or is deleted, or is rotated, or is sorted
+   *  It's executed everytime an image is added, or is deleted, or is rotated, or is sorted, or it's label change
    */
   callbackPhotosUploaded: PropTypes.func,
 
@@ -443,6 +451,15 @@ MoleculePhotoUploader.propTypes = {
 
   /** An array containing URLs of default images to be loaded into the preview */
   initialPhotos: PropTypes.arrayOf(PropTypes.string),
+
+  /** An array containing a list of labels to tag photos */
+  labels: PropTypes.arrayOf(PropTypes.string),
+
+  /** Icon placed in the select that change the photo label */
+  labelsArrowIcon: PropTypes.func.isRequired,
+
+  /** Placeholder to show on the label selection */
+  labelsPlaceholder: PropTypes.string,
 
   /** Text showed at dropzone when the user drag (but not drop) some images and maxPhotos has been reached */
   limitPhotosUploadedText: PropTypes.string.isRequired,

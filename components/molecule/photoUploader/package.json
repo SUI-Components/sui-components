@@ -13,7 +13,9 @@
     "@s-ui/react-atom-button": "1",
     "@s-ui/react-atom-icon": "1",
     "@s-ui/react-hooks": "1",
+    "@s-ui/react-molecule-dropdown-option": "1",
     "@s-ui/react-molecule-notification": "1",
+    "@s-ui/react-molecule-select": "1",
     "react-dropzone": "11.5",
     "react-sortablejs": "6.0",
     "sortablejs": "1.14.0"

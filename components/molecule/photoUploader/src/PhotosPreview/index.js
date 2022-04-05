@@ -39,12 +39,15 @@ const PhotosPreview = ({
   errorInitialPhotoDownloadErrorText,
   files,
   isPhotoUploaderFully,
+  labels,
+  labelsArrowIcon,
+  labelsPlaceholder,
   mainPhotoLabel,
   outputImageAspectRatioDisabled,
   rejectPhotosIcon,
+  retryIcon,
   rotateIcon,
   rotationDirection,
-  retryIcon,
   setFiles,
   setIsLoading,
   setNotificationError,
@@ -61,6 +64,26 @@ const PhotosPreview = ({
     setNotificationError(DEFAULT_NOTIFICATION_ERROR)
     _callbackPhotosUploaded(list, {
       action: ACTIONS.DELETE,
+      data: {
+        itemIndex: index,
+        item: files[index]
+      }
+    })
+  }
+
+  const _labelItem = ({index, label}) => {
+    console.log('labelItem', {index, label})
+    const list = [...files]
+    const item = list[index]
+    console.log('item', item)
+    list[index] = {
+      ...item,
+      label
+    }
+    console.log('list[index]', list)
+    setFiles(list)
+    _callbackPhotosUploaded(list, {
+      action: ACTIONS.LABELED,
       data: {
         itemIndex: index,
         item: files[index]
@@ -166,18 +189,22 @@ const PhotosPreview = ({
           onClick={e => e.stopPropagation()}
         >
           <ThumbCard
+            callbackDeleteItem={_deleteItem}
+            callbackLabelItem={_labelItem}
+            callbackRetryUpload={_retryUpload}
+            callbackRotateItem={_rotateItem}
+            deleteIcon={deleteIcon()}
             iconSize={thumbIconSize}
             image={file}
             index={index}
+            labels={labels}
+            labelsArrowIcon={labelsArrowIcon}
+            labelsPlaceholder={labelsPlaceholder}
             mainPhotoLabel={mainPhotoLabel}
-            callbackDeleteItem={_deleteItem}
-            callbackRetryUpload={_retryUpload}
-            callbackRotateItem={_rotateItem}
-            rotateIcon={rotateIcon()}
-            deleteIcon={deleteIcon()}
-            retryIcon={retryIcon()}
-            rejectPhotosIcon={rejectPhotosIcon()}
             outputImageAspectRatioDisabled={outputImageAspectRatioDisabled}
+            rejectPhotosIcon={rejectPhotosIcon()}
+            retryIcon={retryIcon()}
+            rotateIcon={rotateIcon()}
           />
         </li>
       )
@@ -229,6 +256,9 @@ PhotosPreview.propTypes = {
   errorInitialPhotoDownloadErrorText: PropTypes.string.isRequired,
   files: PropTypes.array.isRequired,
   isPhotoUploaderFully: PropTypes.bool.isRequired,
+  labels: PropTypes.array,
+  labelsArrowIcon: PropTypes.func.isRequired,
+  labelsPlaceholder: PropTypes.string,
   mainPhotoLabel: PropTypes.string.isRequired,
   outputImageAspectRatioDisabled: PropTypes.isRequired,
   rejectPhotosIcon: PropTypes.node.isRequired,

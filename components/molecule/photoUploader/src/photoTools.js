@@ -69,7 +69,7 @@ export function formatToBase64({
       }
     })
   } else {
-    const {url, id} = item
+    const {url, id, label} = item
     return new Promise((resolve, reject) => {
       cropAndRotateImage({
         imageURL: url,
@@ -81,11 +81,12 @@ export function formatToBase64({
             url,
             blob,
             croppedBase64: base64,
-            id
+            id,
+            label
           })
         })
         .catch(e => {
-          resolve({url, id, hasErrors: true})
+          resolve({url, id, hasErrors: true, label})
         })
     })
   }

@@ -207,7 +207,8 @@ export const loadInitialPhotos = ({
         croppedBase64,
         url,
         hasErrors = DEFAULT_HAS_ERRORS_STATUS,
-        id
+        id,
+        label
       }) => ({
         blob,
         url,
@@ -217,7 +218,8 @@ export const loadInitialPhotos = ({
         rotation: DEFAULT_IMAGE_ROTATION_DEGREES,
         isNew: false,
         isModified: false,
-        id
+        id,
+        label
       })
     )
     if (readyPhotos.some(photos => photos.hasErrors)) {

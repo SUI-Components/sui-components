@@ -11,6 +11,7 @@ import {
   _callbackPhotosUploaded,
   _callbackUploadPhoto,
   _dragDelay,
+  _dragPhotoDividerTextInitialContent,
   _dragPhotoTextInitialContent,
   _dropPhotosHere,
   _errorCorruptedPhotoUploaded,
@@ -25,13 +26,15 @@ import {
   _rotationDirection,
   _uploadingPhotosText,
   initialPhotos,
-  _dragPhotoDividerTextInitialContent
+  labels,
+  labelsPlaceholder
 } from '../config.js'
 import {
   _addMorePhotosIcon,
   _deleteIcon,
   _dragPhotosIcon,
   _infoIcon,
+  _labelsArrowIcon,
   _rejectPhotosIcon,
   _retryErrorPhotosIcon,
   _rotateIcon
@@ -86,6 +89,9 @@ const DefaultArticle = ({className}) => {
         errorInitialPhotoDownloadErrorText={_errorInitialPhotoDownloadError}
         infoIcon={_infoIcon}
         initialPhotos={initialPhotos}
+        labels={labels}
+        labelsArrowIcon={_labelsArrowIcon}
+        labelsPlaceholder={labelsPlaceholder}
         limitPhotosUploadedText={_limitPhotosUploaded}
         limitPhotosUploadedNotification={_limitPhotosUploadedNotification}
         mainPhotoLabel={_mainPhotoLabel}

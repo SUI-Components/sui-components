@@ -33,25 +33,49 @@ export const _uploadingPhotosText = 'Uploading images...'
 export const _rotationDirection =
   MoleculePhotoUploaderRotationDirection.clockwise
 
+export const labels = [
+  'Comedor', 'Cocina', 'Baño', 'Garaje', 'Habitación'
+]
+
+export const labelsPlaceholder = "Choose one"
+
 export const initialPhotos = [
   {
-    url: 'https://picsum.photos/seed/---all---/200/200',
-    id: '9cded3e2-7fc6-4999-acc5-1fd42d6ea49a'
+    id: '9cded3e2-7fc6-4999-acc5-1fd42d6ea49a',
+    label: 'Comedor',
+    url: 'https://picsum.photos/seed/---all---/200/200'
   },
   {
-    url: 'https://picsum.photos/seed/--your---/800/300',
-    id: '6c7ee3d8-97db-4142-8520-5136fccfc40b'
+    id: '6c7ee3d8-97db-4142-8520-5136fccfc40b',
+    url: 'https://picsum.photos/seed/--your---/800/300'
   },
-  {url: 'https://FAILUM.FAILED/FAIL/--base---/200/800'},
-  {url: 'https://picsum.photos/seed/---are---/800/600'},
-  {url: 'https://picsum.photos/seed/--belong-/200/300'},
-  {url: 'https://picsum.photos/seed/---to----/200/300'},
-  {url: 'https://picsum.photos/seed/---us----/200/300'}
+  {
+    id: '9cded3e2-7fc6-4299-acc5-1fd42d6ea49a',
+    url: 'https://FAILUM.FAILED/FAIL/--base---/200/800'
+  },
+  {
+    id: '9cded3e2-7fc6-49x9-acc5-1fd42d6ea49a',
+    url: 'https://picsum.photos/seed/---are---/800/600'
+  },
+  {
+    id: '9cded3e2-7fc6-4999-acc5-1fd12d6ea49a',
+    label: 'Baño',
+    url: 'https://picsum.photos/seed/--belong-/200/300'
+  },
+  {
+    id: '9cded312-7fc6-4999-acc5-1fd42d6ea49a',
+    url: 'https://picsum.photos/seed/---to----/200/300'
+  },
+  {
+    id: '9cded3e2-7fc2-4999-acc5-1fd42d6ea49a',
+    url: 'https://picsum.photos/seed/---us----/200/300'
+  }
 ]
 
 export const _callbackPhotosUploaded = list => {
   console.log('_callbackPhotosUploaded: ', list) // eslint-disable-line no-console
 }
+
 export const _callbackPhotosRejected = list => {
   console.log('_callbackPhotosRejected: ', list) // eslint-disable-line no-console
 }

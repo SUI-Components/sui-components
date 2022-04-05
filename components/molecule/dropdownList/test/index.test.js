@@ -497,9 +497,8 @@ describe(json.name, () => {
         }
 
         // When
-        const eventHandler = moleculeDropdownListSelectHandler.multiple(
-          expected
-        )
+        const eventHandler =
+          moleculeDropdownListSelectHandler.multiple(expected)
 
         // Then
         expect(eventHandler).to.be.a('function')
@@ -539,9 +538,8 @@ describe(json.name, () => {
         }
 
         // When
-        const eventHandler = moleculeDropdownListSelectHandler.multiple(
-          expected
-        )
+        const eventHandler =
+          moleculeDropdownListSelectHandler.multiple(expected)
 
         // Then
         expect(eventHandler).to.be.a('function')
@@ -581,9 +579,8 @@ describe(json.name, () => {
         }
 
         // When
-        const eventHandler = moleculeDropdownListSelectHandler.multiple(
-          expected
-        )
+        const eventHandler =
+          moleculeDropdownListSelectHandler.multiple(expected)
 
         // Then
         expect(eventHandler).to.be.a('function')
@@ -626,9 +623,8 @@ describe(json.name, () => {
         }
 
         // When
-        const eventHandler = moleculeDropdownListSelectHandler.multiple(
-          expected
-        )
+        const eventHandler =
+          moleculeDropdownListSelectHandler.multiple(expected)
 
         // Then
         expect(eventHandler).to.be.a('function')

@@ -7,6 +7,7 @@ import ArticlePosition from './ArticlePosition.js'
 import ArticleRoundedCorners from './ArticleRoundedCorners.js'
 import ArticleMobileLeftIcon from './ArticleMobileLeftIcon.js'
 import ArticleContainerOverride from './ArticleContainerOverride.js'
+import ArticleAlignItems from './ArticleAlignItems.js'
 
 const BASE_CLASS_DEMO = `DemoMoleculeNotification`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
@@ -33,6 +34,8 @@ const Demo = () => {
       <ArticleMobileLeftIcon className={CLASS_SECTION} />
       <br />
       <ArticleContainerOverride className={CLASS_SECTION} />
+      <br />
+      <ArticleAlignItems className={CLASS_SECTION} />
     </div>
   )
 }

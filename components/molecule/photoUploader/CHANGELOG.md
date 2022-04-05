@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.11.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/molecule/photoUploader:** resolve linting errors ([c981bb9](https://github.com/SUI-Components/sui-components/commit/c981bb93a845392b4dea720aa9ecd5e4177931e2))
+
+
+
 # 2.10.0 (2022-01-21)
 
 

@@ -15,16 +15,12 @@ import AtomSwitch from '../../src/index.js'
 import {flexCenteredStyle} from '../settings.js'
 
 const ArticleToggle = ({className}) => {
-  const [uncontrolledValueDemoState, setUncontrolledValueDemoState] = useState(
-    false
-  )
-  const [controlledValueDemoState, setControlledValueDemoState] = useState(
-    false
-  )
-  const [
-    controlledValueDemoFocusState,
-    setControlledValueDemoFocusState
-  ] = useState(false)
+  const [uncontrolledValueDemoState, setUncontrolledValueDemoState] =
+    useState(false)
+  const [controlledValueDemoState, setControlledValueDemoState] =
+    useState(false)
+  const [controlledValueDemoFocusState, setControlledValueDemoFocusState] =
+    useState(false)
   const uncontrolledAtomSwitch = useRef(null)
   const controlledAtomSwitch = useRef(null)
   const onButtonClick = (ref, action, value) => () => {

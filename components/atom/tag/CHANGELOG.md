@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.35.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/atom/tag:** resolve linting errors ([2a87305](https://github.com/SUI-Components/sui-components/commit/2a873053c44483d3e7557f04a8d4c7cf9650335e))
+
+
+
 # 2.34.0 (2021-12-30)
 
 

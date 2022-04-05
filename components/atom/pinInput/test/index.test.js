@@ -1694,9 +1694,9 @@ describe(json.name, () => {
           expect(result.payload.event).to.equal(args.event)
           expect(result.payload.onChange).to.equal(args.onChange)
           expect(Object.getOwnPropertyNames(result.payload).length).to.equal(2)
-          expect(
-            Object.getOwnPropertyNames(result.payload)
-          ).to.include.members(['event', 'onChange'])
+          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(
+            ['event', 'onChange']
+          )
         })
       })
 
@@ -1745,9 +1745,9 @@ describe(json.name, () => {
           // Then
           expect(result.payload.innerValue).to.equal(args.innerValue)
           expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
-          expect(
-            Object.getOwnPropertyNames(result.payload)
-          ).to.include.members(['innerValue'])
+          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(
+            ['innerValue']
+          )
         })
       })
 
@@ -1796,9 +1796,9 @@ describe(json.name, () => {
           // Then
           expect(result.payload.focusPosition).to.equal(args.focusPosition)
           expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
-          expect(
-            Object.getOwnPropertyNames(result.payload)
-          ).to.include.members(['focusPosition'])
+          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(
+            ['focusPosition']
+          )
         })
       })
 
@@ -1851,9 +1851,9 @@ describe(json.name, () => {
           expect(result.payload.node).to.equal(args.node)
           expect(result.payload.node.className).to.equal(input.className)
           expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
-          expect(
-            Object.getOwnPropertyNames(result.payload)
-          ).to.include.members(['node'])
+          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(
+            ['node']
+          )
         })
       })
 
@@ -1906,9 +1906,9 @@ describe(json.name, () => {
           expect(result.payload.node).to.equal(args.node)
           expect(result.payload.node.className).to.equal(input.className)
           expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
-          expect(
-            Object.getOwnPropertyNames(result.payload)
-          ).to.include.members(['node'])
+          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(
+            ['node']
+          )
         })
       })
 
@@ -1957,9 +1957,9 @@ describe(json.name, () => {
           // Then
           expect(result.payload.mask).to.equal(args.mask)
           expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
-          expect(
-            Object.getOwnPropertyNames(result.payload)
-          ).to.include.members(['mask'])
+          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(
+            ['mask']
+          )
         })
       })
 
@@ -2008,9 +2008,9 @@ describe(json.name, () => {
           // Then
           expect(result.payload.disabled).to.equal(args.disabled)
           expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
-          expect(
-            Object.getOwnPropertyNames(result.payload)
-          ).to.include.members(['disabled'])
+          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(
+            ['disabled']
+          )
         })
       })
     })

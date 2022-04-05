@@ -15,7 +15,7 @@ import MoleculeProgressSteps, {
   MoleculeProgressStep,
   moleculeProgressStepsStatuses
 } from '../src/index.js'
-import {IconFillCheck} from './Icons/index.js'
+import {iconFillCheck} from './Icons/index.js'
 import {configBasic} from './config/index.js'
 
 const getStatus = (step, index) => {
@@ -85,7 +85,7 @@ const VerticalProgressBarArticle = ({className}) => {
         </Cell>
         <Cell>
           <MoleculeProgressSteps
-            iconStepDone={<IconFillCheck />}
+            iconStepDone={iconFillCheck}
             vertical={isVertical}
           >
             {Object.values(configBasic).map(({label, content, icon}, index) => (

@@ -78,7 +78,7 @@ const CustomIconsProgressStepsArticle = ({className}) => {
         <Cell>
           <MoleculeProgressSteps
             iconStepDone={
-              <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>
+              <AtomIcon size={ATOM_ICON_SIZES.large}>
                 <AntDesignIcon
                   icon="AiFillCheckCircle"
                   style={{color: 'currentColor'}}

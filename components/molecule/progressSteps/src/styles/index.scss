@@ -2,9 +2,15 @@ $base-class: '.sui-MoleculeProgressSteps';
 $content-class: '#{$base-class}-content';
 
 #{$base-class} {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  &--vertical {
+    flex-direction: row;
+  }
   &-path {
-    align-items: center;
     display: flex;
+    align-items: center;
     max-width: $mw-progress-steps-path;
 
     &-bar {

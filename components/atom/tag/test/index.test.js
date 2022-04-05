@@ -172,15 +172,8 @@ describe(json.name, () => {
 
       // When
       const {atomTagLinkTypes: actual} = library
-      const {
-        NOFOLLOW,
-        NOOPENER,
-        NOREFERRER,
-        PREV,
-        NEXT,
-        TAG,
-        ...others
-      } = actual
+      const {NOFOLLOW, NOOPENER, NOREFERRER, PREV, NEXT, TAG, ...others} =
+        actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

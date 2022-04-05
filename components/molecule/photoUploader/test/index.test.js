@@ -214,7 +214,8 @@ describe(json.name, () => {
         ROTATE: 'ROTATE',
         UPLOAD: 'UPLOAD',
         RETRY_UPLOAD: 'RETRY_UPLOAD',
-        INITIAL_LOAD: 'INITIAL_LOAD'
+        INITIAL_LOAD: 'INITIAL_LOAD',
+        LABELED: 'LABELED'
       }
 
       // When
@@ -226,6 +227,7 @@ describe(json.name, () => {
         UPLOAD,
         RETRY_UPLOAD,
         INITIAL_LOAD,
+        LABELED,
         ...others
       } = actual
 

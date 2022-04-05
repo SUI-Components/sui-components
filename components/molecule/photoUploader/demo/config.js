@@ -33,13 +33,7 @@ export const _uploadingPhotosText = 'Uploading images...'
 export const _rotationDirection =
   MoleculePhotoUploaderRotationDirection.clockwise
 
-export const labels = [
-  'Comedor',
-  'Cocina',
-  'Baño',
-  'Garaje',
-  'Habitación'
-]
+export const labels = ['Comedor', 'Cocina', 'Baño', 'Garaje', 'Habitación']
 
 export const labelsPlaceholder = 'Choose one'
 

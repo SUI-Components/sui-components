@@ -211,7 +211,8 @@ const PhotosPreview = ({
     })
 
   const previewCardClass = cx(PREVIEW_CARD_CLASS_NAME, {
-    [`${PREVIEW_CARD_CLASS_NAME}--ratioDisabled`]: outputImageAspectRatioDisabled
+    [`${PREVIEW_CARD_CLASS_NAME}--ratioDisabled`]:
+      outputImageAspectRatioDisabled
   })
 
   return (

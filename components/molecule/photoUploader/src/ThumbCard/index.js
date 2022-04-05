@@ -39,7 +39,8 @@ const ThumbCard = ({
   })
 
   const imageThumbClass = cx(IMAGE_THUMB_CARD_CLASS_NAME, {
-    [`${IMAGE_THUMB_CARD_CLASS_NAME}--ratioDisabled`]: outputImageAspectRatioDisabled
+    [`${IMAGE_THUMB_CARD_CLASS_NAME}--ratioDisabled`]:
+      outputImageAspectRatioDisabled
   })
 
   return (

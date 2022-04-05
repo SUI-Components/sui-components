@@ -34,10 +34,14 @@ export const _rotationDirection =
   MoleculePhotoUploaderRotationDirection.clockwise
 
 export const labels = [
-  'Comedor', 'Cocina', 'Baño', 'Garaje', 'Habitación'
+  'Comedor',
+  'Cocina',
+  'Baño',
+  'Garaje',
+  'Habitación'
 ]
 
-export const labelsPlaceholder = "Choose one"
+export const labelsPlaceholder = 'Choose one'
 
 export const initialPhotos = [
   {

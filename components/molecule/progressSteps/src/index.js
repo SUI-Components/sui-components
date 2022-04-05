@@ -1,6 +1,12 @@
-import {Children, cloneElement, useRef} from 'react'
+import {Children, useState, useEffect} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+
+import MoleculeStepper, {
+  moleculeStepperDesign,
+  moleculeStepperAlignment,
+  Step
+} from '@s-ui/react-molecule-stepper'
 
 import {
   BASE_CLASS,
@@ -22,102 +28,96 @@ const MoleculeProgressSteps = ({
   iconStepDone,
   compressed,
   progressBarJustifyContent = PROGRESS_BAR_JUSTIFY_CONTENT.LEGACY,
-  contentStyle = CONTENT_STYLE.FIXED
+  contentStyle = CONTENT_STYLE.FIXED,
+  onChange
 }) => {
-  const activeStepContent = useRef()
+  const [step, setStep] = useState()
 
   const className = cx(BASE_CLASS, {
     [CLASS_VERTICAL]: vertical,
     [CLASS_COMPRESSED]: compressed
   })
 
-  const compressedInfoSteps = Children.toArray(children)
-    .filter(Boolean)
-    .map((child, index, children) => {
-      const {label, status} = child.props
-      const totalSteps = children.length
-      return (
-        <div
-          key={index}
-          className={cx(`${CLASS_COMPRESSED_INFO}-item`, {
-            [`${CLASS_COMPRESSED_INFO}-item--active`]:
-              status === STATUSES.ACTIVE
-          })}
-        >
-          {`${index + 1}/${totalSteps}: ${label}`}
-        </div>
-      )
-    })
+  useEffect(() => {
+    let currentStep = Children.toArray(children)
+      .filter(Boolean)
+      .map((child, index, elements) => child.props.status)
+      .lastIndexOf(STATUSES.ACTIVE)
+    let lastVisitedStep = Children.toArray(children)
+      .filter(Boolean)
+      .map((child, index, elements) => child.props.status)
+      .lastIndexOf(STATUSES.VISITED)
+    let steps = Children.toArray(children).filter(Boolean).length
 
-  const extendedChildren = Children.toArray(children)
-    .filter(Boolean)
-    .map((child, index, children) => {
-      const {
-        icon: iconChild,
-        iconActive,
-        status,
-        children: childrenChild
-      } = child.props
+    if (currentStep >= 0 && step !== currentStep) {
+      setStep(currentStep)
+    } else if (steps - 1 === lastVisitedStep && step !== steps) {
+      setStep(steps)
+    } else if (lastVisitedStep === -1 && currentStep === -1) {
+      setStep(-1)
+    }
+  }, [children, step])
 
-      const totalChildren = children.length
-      const numStep = index + 1
-      const lastStep = index >= totalChildren - 1
-
-      const isVisited = status === STATUSES.VISITED
-      const isActive = status === STATUSES.ACTIVE
-      let icon = iconChild
-      if (isVisited) icon = iconStepDone
-      if (isActive) {
-        icon = iconActive || iconChild
-        activeStepContent.current = childrenChild
-      }
-
-      return cloneElement(child, {
-        numStep,
-        lastStep,
-        icon,
-        progressBarJustifyContent,
-        compressed
-      })
-    })
-
-  const childrenContent = Children.toArray(children)
-    .filter(Boolean)
-    .map((child, index, children) => {
-      const {children: childrenChild, status} = child.props
-      return (
-        <div
-          key={index}
-          className={cx(`${CLASS_CONTENT}-item`, {
-            [`${CLASS_CONTENT}-item--active`]: status === STATUSES.ACTIVE
-          })}
-        >
-          {childrenChild}
-        </div>
-      )
-    })
+  const onChangeHandler = (event, {step, ...args}) => {
+    typeof onChange === 'function' && onChange(event, {step, ...args})
+  }
 
   return (
     <div className={className}>
-      {compressed && (
-        <div
-          className={cx(CLASS_COMPRESSED_INFO, {
-            [`${CLASS_COMPRESSED_INFO}--justifyContent-${progressBarJustifyContent}`]:
-              progressBarJustifyContent
+      <MoleculeStepper
+        steps={Children.toArray(children).length}
+        step={step}
+        visitedIcon={iconStepDone}
+        labels={Children.toArray(children)
+          .filter(Boolean)
+          .map(({props: {label} = {}, index}) => {
+            return label
           })}
-        >
-          {compressedInfoSteps}
-        </div>
-      )}
-      <div
-        className={cx(CLASS_STEPS, {
-          [`${CLASS_STEPS}--justifyContent-${progressBarJustifyContent}`]:
-            progressBarJustifyContent
-        })}
+        justifyContent={progressBarJustifyContent}
+        design={
+          compressed
+            ? moleculeStepperDesign.COMPRESSED
+            : moleculeStepperDesign.DEFAULT
+        }
+        alignment={
+          vertical
+            ? moleculeStepperAlignment.VERTICAL
+            : moleculeStepperAlignment.HORIZONTAL
+        }
+        onChange={onChangeHandler}
       >
-        {extendedChildren}
+        {Children.toArray(children)
+          .filter(Boolean)
+          .map((child, index, elements) => (
+            <Step
+              key={index}
+              steps={elements.length}
+              step={index + 1}
+              visited={index < step}
+              current={step === index}
+              label={child?.props?.label}
+              icon={child?.props?.icon}
+              currentIcon={child?.props?.iconActive}
+            />
+          ))}
+      </MoleculeStepper>
+      <div className={cx(CLASS_CONTENT, contentStyle)}>
+        {Children.toArray(children)
+          .filter(Boolean)
+          .map((child, index) => {
+            const {children: childrenChild, status} = child.props
+            return (
+              <div
+                key={index}
+                className={cx(`${CLASS_CONTENT}-item`, {
+                  [`${CLASS_CONTENT}-item--active`]: status === STATUSES.ACTIVE
+                })}
+              >
+                {childrenChild}
+              </div>
+            )
+          })}
       </div>
-      <div className={cx(CLASS_CONTENT, contentStyle)}>{childrenContent}</div>
     </div>
   )
 }

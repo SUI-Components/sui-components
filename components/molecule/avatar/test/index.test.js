@@ -140,8 +140,7 @@ describe(json.name, () => {
       const name = 'Jon Snow'
       const props = {
         name,
-        src:
-          'https://vignette.wikia.nocookie.net/gameofthrones/images/d/d0/JonSnow8x06.PNG/revision/latest?cb=20190714094440'
+        src: 'https://vignette.wikia.nocookie.net/gameofthrones/images/d/d0/JonSnow8x06.PNG/revision/latest?cb=20190714094440'
       }
 
       // When

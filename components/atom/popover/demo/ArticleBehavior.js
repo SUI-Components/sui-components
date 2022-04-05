@@ -65,13 +65,15 @@ const BehaviorDisplayer = ({
   const [hover, setHover] = useState('')
   const [focus, setFocus] = useState('')
   const [visible, setVisible] = useState('')
-  const timeout = (callbackFn, args, fnHandler = () => null) => () => {
-    callbackFn(...args)
-    setTimeout(() => {
-      callbackFn('')
-      fnHandler()
-    }, 50)
-  }
+  const timeout =
+    (callbackFn, args, fnHandler = () => null) =>
+    () => {
+      callbackFn(...args)
+      setTimeout(() => {
+        callbackFn('')
+        fnHandler()
+      }, 50)
+    }
   const onHandle = (log, callbackFn) => () => callbackFn(...log)
   return (
     <Box style={{display: 'flex', justifyContent: 'center', padding: 0}}>

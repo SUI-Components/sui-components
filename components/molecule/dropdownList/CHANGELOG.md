@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.26.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/molecule/dropdownList:** resolve linting errors ([08d3efd](https://github.com/SUI-Components/sui-components/commit/08d3efd2aa51efaa75c98e99123af8a2c5cf2348))
+
+
+
 # 1.25.0 (2022-03-11)
 
 

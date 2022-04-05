@@ -44,9 +44,8 @@ const AtomCheckbox = ({
     'is-disabled': disabled,
     'is-intermediate': isIntermediate,
     [`${BASE_CLASS}--native`]: isNative,
-    [`${BASE_CLASS}--status-${status}`]: Object.values(
-      CHECKBOX_STATUS
-    ).includes(status)
+    [`${BASE_CLASS}--status-${status}`]:
+      Object.values(CHECKBOX_STATUS).includes(status)
   })
 
   // Keep native indeterminate property updated every render

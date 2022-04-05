@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.8.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/atom/actionButton:** resolve linting errors ([d43022e](https://github.com/SUI-Components/sui-components/commit/d43022e59327489f0c0477d9dc19526e89a84619))
+
+
+
 # 1.7.0 (2022-02-02)
 
 

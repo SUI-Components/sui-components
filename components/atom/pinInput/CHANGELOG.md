@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.8.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/atom/pinInput:** resolve linting errors ([d7a0f9c](https://github.com/SUI-Components/sui-components/commit/d7a0f9c998f8ddf6e52abd451cc4ab20f3fc18df))
+
+
+
 # 1.7.0 (2022-02-11)
 
 

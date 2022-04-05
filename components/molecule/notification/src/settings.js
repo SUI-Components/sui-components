@@ -59,3 +59,11 @@ export const BRDS_SIZE = {
   small: 's',
   extraSmall: 'xs'
 }
+
+export const ALIGN_ITEMS = {
+  BASELINE: 'baseline',
+  CENTER: 'center',
+  FLEX_START: 'flex-start',
+  FLEX_END: 'flex-end',
+  STRETCH: 'stretch'
+}

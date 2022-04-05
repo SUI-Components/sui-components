@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.3.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/atom/slider:** handle error fix ([93c62d2](https://github.com/SUI-Components/sui-components/commit/93c62d2c7bebd882fa10bde8912c79dcbcd92e7a)), closes [#1974](https://github.com/SUI-Components/sui-components/issues/1974)
+* **components/atom/tooltip:** resolve linting errors ([245a06d](https://github.com/SUI-Components/sui-components/commit/245a06df72c2d108999bc633c71b5dd39353d6f2))
+
+
+
 # 2.2.0 (2022-02-03)
 
 

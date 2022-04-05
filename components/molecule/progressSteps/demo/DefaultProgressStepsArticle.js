@@ -14,7 +14,7 @@ import MoleculeProgressSteps, {
   MoleculeProgressStep,
   moleculeProgressStepsStatuses
 } from '../src/index.js'
-import {IconFillCheck} from './Icons/index.js'
+import {iconFillCheck} from './Icons/index.js'
 import {configBasic} from './config/index.js'
 
 const getStatus = (step, index) => {
@@ -75,7 +75,7 @@ const DefaultProgressStepsArticle = ({className}) => {
           </RadioButtonGroup>
         </Cell>
         <Cell>
-          <MoleculeProgressSteps iconStepDone={<IconFillCheck />}>
+          <MoleculeProgressSteps iconStepDone={iconFillCheck}>
             {Object.values(configBasic).map(({label, content, icon}, index) => (
               <MoleculeProgressStep
                 key={index}

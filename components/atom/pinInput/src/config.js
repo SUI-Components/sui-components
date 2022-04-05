@@ -20,13 +20,15 @@ export const MASK = {
   ALPHANUMERIC: '[A-Za-z0-9]'
 }
 
-export const valueChecker = ({length = 1, mask}) => (value = '') => {
-  if (length === 0 && value === '') return true
-  if (value.length !== length) return false
-  const matchExpression = `${mask}{${length}}`
-  const regex = new RegExp(matchExpression)
-  return regex.test(value)
-}
+export const valueChecker =
+  ({length = 1, mask}) =>
+  (value = '') => {
+    if (length === 0 && value === '') return true
+    if (value.length !== length) return false
+    const matchExpression = `${mask}{${length}}`
+    const regex = new RegExp(matchExpression)
+    return regex.test(value)
+  }
 
 export const getValueType = ({value, defaultValue}) => {
   const val = value || defaultValue

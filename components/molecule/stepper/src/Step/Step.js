@@ -22,7 +22,7 @@ const Step = forwardRef(
       icon,
       visitedIcon,
       currentIcon,
-      onClick,
+      onClick
     },
     forwardedRef
   ) => {

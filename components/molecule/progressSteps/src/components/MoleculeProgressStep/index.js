@@ -17,14 +17,17 @@ const MoleculeProgressStep = ({
   label,
   numStep,
   lastStep,
-  compressed
+  compressed,
+  onClick
 }) => {
   const [CLASS_STEP_STATUS, CLASS_BAR_STATUS] = getStatusClass(status)
-  const bar = <hr className={cx(CLASS_BAR, CLASS_BAR_STATUS)} />
+  const bar = (
+    <hr onClick={onClick} className={cx(CLASS_BAR, CLASS_BAR_STATUS)} />
+  )
   return (
     <>
       {!compressed && (
-        <div className={cx(CLASS_STEP, CLASS_STEP_STATUS)}>
+        <div className={cx(CLASS_STEP, CLASS_STEP_STATUS)} onClick={onClick}>
           {icon ? (
             <div className={CLASS_STEP_ICON}>{icon}</div>
           ) : (
@@ -55,7 +58,10 @@ MoleculeProgressStep.propTypes = {
   lastStep: PropTypes.bool,
 
   /** Compressed */
-  compressed: PropTypes.bool
+  compressed: PropTypes.bool,
+
+  /** onClick handler **/
+  onClick: PropTypes.func
 }
 
 export default MoleculeProgressStep

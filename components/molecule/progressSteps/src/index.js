@@ -68,6 +68,8 @@ const MoleculeProgressSteps = ({
         <MoleculeStepper
           steps={Children.toArray(children).length}
           step={step}
+          as="div"
+          asSteps="div"
           visitedIcon={iconStepDone}
           labels={Children.toArray(children)
             .filter(Boolean)

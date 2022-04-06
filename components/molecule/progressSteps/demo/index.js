@@ -6,6 +6,7 @@ import VerticalProgressBarArticle from './VerticalProgressBarArticle.js'
 import CompressedProgressBarArticle from './CompressedProgressBarArticle.js'
 import JustifyContentProgressBarArticle from './JustifyContentProgressBarArticle.js'
 import ContentTypeProgressStepsArticle from './ContentTypeProgressStepsArticle.js'
+import OnChangeHandlerProgressStepsArticle from './OnChangeHandlerProgressStepsArticle.js'
 
 import './index.scss'
 
@@ -28,6 +29,8 @@ const Demo = () => {
         <JustifyContentProgressBarArticle className={articleClass} />
         <br />
         <ContentTypeProgressStepsArticle className={articleClass} />
+        <br />
+        <OnChangeHandlerProgressStepsArticle className={articleClass} />
         <br />
       </div>
     </div>

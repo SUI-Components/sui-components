@@ -72,15 +72,12 @@ const PhotosPreview = ({
   }
 
   const _labelItem = ({index, label}) => {
-    console.log('labelItem', {index, label})
     const list = [...files]
     const item = list[index]
-    console.log('item', item)
     list[index] = {
       ...item,
       label
     }
-    console.log('list[index]', list)
     setFiles(list)
     _callbackPhotosUploaded(list, {
       action: ACTIONS.LABELED,

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.33.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/molecule/field:** resolve linting errors ([3da73fb](https://github.com/SUI-Components/sui-components/commit/3da73fb1ef41ebfec97eaa53a130870e3439d981))
+
+
+
 # 1.32.0 (2022-02-25)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.11.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/molecule/avatar:** resolve linting errors ([f53b904](https://github.com/SUI-Components/sui-components/commit/f53b90485e7717866ec3a09a192cd5a826ae40e9))
+
+
+
 # 1.10.0 (2021-09-27)
 
 

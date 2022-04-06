@@ -31,7 +31,7 @@
     "serve": "npm run build && npx http-server public",
     "test": "sui-studio test -- --coverage",
     "test:watch": "sui-studio test --watch",
-    "pre-commit": "npm run lint",
+    "pre-commit": "npm run lint:js  -- --staged && npm run lint:sass -- --staged",
     "pre-push": "npm run test"
   },
   "repository": {

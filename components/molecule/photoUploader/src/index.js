@@ -392,7 +392,7 @@ MoleculePhotoUploader.propTypes = {
 
   /**
    *  Callback that returns an array of files.
-   *  It's executed everytime an image is added, or is deleted, or is rotated, or is sorted, or it's label change
+   *  It's executed everytime an image is added, deleted, rotated, sorted or its label is changed
    */
   callbackPhotosUploaded: PropTypes.func,
 

@@ -108,12 +108,8 @@ describe(json.name, () => {
       ]
 
       // When
-      const {
-        isValidPage,
-        isValidShowPages,
-        isValidTotalPages,
-        ...others
-      } = library
+      const {isValidPage, isValidShowPages, isValidTotalPages, ...others} =
+        library
       // Then
       expect(Object.keys(library).length).to.equal(
         libraryExportedMembers.length

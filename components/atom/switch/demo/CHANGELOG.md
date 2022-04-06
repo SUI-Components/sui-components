@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 1.3.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/atom/switch/demo:** resolve linting errors ([ecb03b7](https://github.com/SUI-Components/sui-components/commit/ecb03b7a48329ad5b0175a33e3fc71ebfe74827d))
+
+
+### Features
+
+* **components/atom/switch:** a11y and icons ([990074d](https://github.com/SUI-Components/sui-components/commit/990074dc0ec09cd7a90dbd48b3b64fe042aad220))
+
+
+
 # 1.2.0 (2021-09-07)
 
 

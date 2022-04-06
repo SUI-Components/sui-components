@@ -102,7 +102,8 @@ const MoleculeProgressSteps = ({
       {compressed && (
         <div
           className={cx(CLASS_COMPRESSED_INFO, {
-            [`${CLASS_COMPRESSED_INFO}--justifyContent-${progressBarJustifyContent}`]: progressBarJustifyContent
+            [`${CLASS_COMPRESSED_INFO}--justifyContent-${progressBarJustifyContent}`]:
+              progressBarJustifyContent
           })}
         >
           {compressedInfoSteps}
@@ -110,7 +111,8 @@ const MoleculeProgressSteps = ({
       )}
       <div
         className={cx(CLASS_STEPS, {
-          [`${CLASS_STEPS}--justifyContent-${progressBarJustifyContent}`]: progressBarJustifyContent
+          [`${CLASS_STEPS}--justifyContent-${progressBarJustifyContent}`]:
+            progressBarJustifyContent
         })}
       >
         {extendedChildren}

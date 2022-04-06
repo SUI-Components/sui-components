@@ -8,11 +8,12 @@ $base-class: '.sui-MoleculeNotification';
     display: flex;
     justify-content: space-between;
     padding: $p-l;
+    @include notification-align-items($ai-notification-content);
   }
 
   &-children,
   &-text {
-    align-items: $ai-notification-content;
+    align-items: $ai-notification-text;
     display: flex;
     flex: 1 1 auto;
     font-size: $fz-m;

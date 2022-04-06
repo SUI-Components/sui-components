@@ -117,16 +117,8 @@ const MoleculePhotoUploader = forwardRef(
 
     const _callbackPhotosUploaded = (list, ...rest) => {
       const blobsArray = list.reduce((array, currentFile) => {
-        const {
-          blob,
-          url,
-          isNew,
-          isModified,
-          hasErrors,
-          file,
-          preview,
-          id
-        } = currentFile
+        const {blob, url, isNew, isModified, hasErrors, file, preview, id} =
+          currentFile
         array.push({
           blob,
           url,

@@ -1,3 +1,26 @@
+// Colors
+$c-stepper: $c-gray-light !default; // $c-progress-steps-bar
+$c-stepper-label: $c-gray-dark-2 !default; // $c-progress-steps-label
+$c-stepper-icon: $c-gray-light !default; // $c-progress-steps-icon
+
+$c-stepper-active: $c-primary-light-1 !default; // $c-progress-steps-active
+$c-stepper-visited: $c-primary !default; // $c-progress-steps-visited
+
+// Size and Spacing
+$bdw-stepper: 2px !default; // $bdw-progress-steps-bar
+$h-stepper: $bdw-stepper * 2 !default; // $h-progress-steps-bar
+$mw-stepper: 100% !default; // $mw-progress-steps-path
+$sz-stepper: 3 * $sz-base !default; // $sz-progress-steps-bar
+$sz-stepper-compressed: $sz-stepper !default; // $sz-progress-steps-bar-compressed
+$sz-stepper-icon: $sz-icon-xl !default; // $sz-progress-steps-icon
+$w-stepper-label: 100px !default; // $w-progress-steps-description
+
+$m-stepper-icon: $m-s !default; // $m-progress-steps-icon
+$m-stepper: $m-s !default; // $m-progress-steps-bar
+
+// Typography
+$fz-stepper-description: inherit !default; // $fz-progress-steps-description
+
 // justify-content-types
 $jc-molecule-stepper: (
   legacy: flex-start,
@@ -7,4 +30,4 @@ $jc-molecule-stepper: (
   space-between: space-between,
   space-around: space-around,
   space-evenly: space-evenly
-);
+); // $justify-content-path

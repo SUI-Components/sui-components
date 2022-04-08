@@ -33,6 +33,7 @@ const PhotosPreview = ({
   addMorePhotosIcon,
   addPhotoTextSkeleton,
   callbackUploadPhoto,
+  content,
   defaultFormatToBase64Options,
   deleteIcon,
   dragDelay,
@@ -173,6 +174,7 @@ const PhotosPreview = ({
             callbackDeleteItem={_deleteItem}
             callbackRetryUpload={_retryUpload}
             callbackRotateItem={_rotateItem}
+            content={() => content(file, index)}
             rotateIcon={rotateIcon()}
             deleteIcon={deleteIcon()}
             retryIcon={retryIcon()}
@@ -224,6 +226,7 @@ PhotosPreview.propTypes = {
   addMorePhotosIcon: PropTypes.node.isRequired,
   addPhotoTextSkeleton: PropTypes.string.isRequired,
   callbackUploadPhoto: PropTypes.func,
+  content: PropTypes.func,
   defaultFormatToBase64Options: PropTypes.object.isRequired,
   deleteIcon: PropTypes.node.isRequired,
   dragDelay: PropTypes.number.isRequired,

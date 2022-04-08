@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import {Article, H2, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculePhotoUploader from '../../src/index.js'
+import MoleculeSelect from '@s-ui/react-molecule-select'
+import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
+
 import {
   _addPhotoTextButton,
   _addPhotoTextSkeleton,
@@ -10,6 +13,7 @@ import {
   _callbackPhotosRejected,
   _callbackPhotosUploaded,
   _callbackUploadPhoto,
+  _callbackLabelItem,
   _dragDelay,
   _dragPhotoTextInitialContent,
   _dropPhotosHere,
@@ -24,18 +28,38 @@ import {
   _notificationErrorFormatPhotoUploaded,
   _rotationDirection,
   _uploadingPhotosText,
+  _dragPhotoDividerTextInitialContent,
   initialPhotos,
-  _dragPhotoDividerTextInitialContent
+  labels,
+  labelsPlaceholder
 } from '../config.js'
 import {
   _addMorePhotosIcon,
   _deleteIcon,
   _dragPhotosIcon,
   _infoIcon,
+  _labelsArrowIcon,
   _rejectPhotosIcon,
   _retryErrorPhotosIcon,
   _rotateIcon
 } from '../icons.js'
+
+const _content = (image, index) => {
+  return (
+    <MoleculeSelect
+      value={image.label}
+      onChange={(e, {value}) => _callbackLabelItem({index, label: value})}
+      iconArrowDown={_labelsArrowIcon()}
+      placeholder={labelsPlaceholder}
+    >
+      {labels.map(label => (
+        <MoleculeSelectOption key={label} value={label}>
+          {label}
+        </MoleculeSelectOption>
+      ))}
+    </MoleculeSelect>
+  )
+}
 
 const DefaultArticle = ({className}) => {
   return (
@@ -74,6 +98,7 @@ const DefaultArticle = ({className}) => {
         callbackPhotosRejected={_callbackPhotosRejected}
         callbackPhotosUploaded={_callbackPhotosUploaded}
         callbackUploadPhoto={_callbackUploadPhoto}
+        content={_content}
         deleteIcon={_deleteIcon}
         dragDelay={_dragDelay}
         dragPhotosIcon={_dragPhotosIcon}

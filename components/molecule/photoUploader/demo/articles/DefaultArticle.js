@@ -88,7 +88,7 @@ const DefaultArticle = ({className}) => {
             'a preview url to use if you wanna preview the images outside the photoUploader component'
           ]
         ].map(([key, propType, text]) => (
-          <ListItem>
+          <ListItem key={key}>
             <Code>{key}</Code>
             {propType}: {text}
           </ListItem>

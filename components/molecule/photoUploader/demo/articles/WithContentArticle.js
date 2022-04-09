@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import {Article, H2, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculePhotoUploader from '../../src/index.js'
+import MoleculeSelect from '@s-ui/react-molecule-select'
+import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 
 import {
   _addPhotoTextButton,
@@ -11,6 +13,7 @@ import {
   _callbackPhotosRejected,
   _callbackPhotosUploaded,
   _callbackUploadPhoto,
+  _callbackLabelItem,
   _dragDelay,
   _dragPhotoTextInitialContent,
   _dropPhotosHere,
@@ -26,46 +29,45 @@ import {
   _rotationDirection,
   _uploadingPhotosText,
   _dragPhotoDividerTextInitialContent,
-  initialPhotos
+  initialPhotosWithLabels,
+  labels,
+  labelsPlaceholder
 } from '../config.js'
 import {
   _addMorePhotosIcon,
   _deleteIcon,
   _dragPhotosIcon,
   _infoIcon,
+  _labelsArrowIcon,
   _rejectPhotosIcon,
   _retryErrorPhotosIcon,
   _rotateIcon
 } from '../icons.js'
 
+const _content = ({index, file}) => { // eslint-disable-line
+  const {label} = file // eslint-disable-line
+
+  return (
+    <MoleculeSelect
+      value={label}
+      onChange={(e, {value}) => _callbackLabelItem({index, label: value})}
+      iconArrowDown={_labelsArrowIcon()}
+      placeholder={labelsPlaceholder}
+    >
+      {labels.map(label => (
+        <MoleculeSelectOption key={label} value={label}>
+          {label}
+        </MoleculeSelectOption>
+      ))}
+    </MoleculeSelect>
+  )
+}
+
 const DefaultArticle = ({className}) => {
   return (
     <Article className={className}>
-      <H2>Initial Photos</H2>
-      <Paragraph>
-        A set of initial images can be load with an array of URLs passed by
-        props.
-      </Paragraph>
-      <Paragraph>
-        After they are loaded, the images can be sorted, rotated or deleted from
-        the list.
-      </Paragraph>
-      <Paragraph>
-        This example has an array of URLs passed by props, and the third one
-        fails on load, so it shows an error notification.
-      </Paragraph>
-      <Paragraph>
-        Also, in this example we're blocking .bmp images, which are accepted by
-        default.
-      </Paragraph>
-      <Paragraph>
-        Also, rotation direction is set to clockwise. rotateIcon not changed,
-        though :P
-      </Paragraph>
-      <Paragraph>
-        Also, dragDelay time set to 0, it must be 0 to improve user experience
-        in desktop!
-      </Paragraph>
+      <H2>With Content - Select example</H2>
+      <Paragraph>Use Content prop to show a select as example.</Paragraph>
       <MoleculePhotoUploader
         acceptedFileTypes="image/jpeg, image/gif, image/png, image/webp"
         addMorePhotosIcon={_addMorePhotosIcon}
@@ -75,6 +77,7 @@ const DefaultArticle = ({className}) => {
         callbackPhotosRejected={_callbackPhotosRejected}
         callbackPhotosUploaded={_callbackPhotosUploaded}
         callbackUploadPhoto={_callbackUploadPhoto}
+        content={_content}
         deleteIcon={_deleteIcon}
         dragDelay={_dragDelay}
         dragPhotosIcon={_dragPhotosIcon}
@@ -86,7 +89,7 @@ const DefaultArticle = ({className}) => {
         errorFormatPhotoUploadedText={_errorFormatPhotoUploaded}
         errorInitialPhotoDownloadErrorText={_errorInitialPhotoDownloadError}
         infoIcon={_infoIcon}
-        initialPhotos={initialPhotos}
+        initialPhotos={initialPhotosWithLabels}
         limitPhotosUploadedText={_limitPhotosUploaded}
         limitPhotosUploadedNotification={_limitPhotosUploadedNotification}
         mainPhotoLabel={_mainPhotoLabel}

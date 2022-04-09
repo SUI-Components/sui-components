@@ -4,6 +4,7 @@ import {CLASS_DEMO_SECTION} from './config.js'
 
 import DefaultArticle from './articles/DefaultArticle.js'
 import InitialPhotosArticle from './articles/InitialPhotosArticle.js'
+import WithContentArticle from './articles/WithContentArticle.js'
 
 const Demo = () => {
   return (
@@ -17,6 +18,8 @@ const Demo = () => {
       <DefaultArticle className={CLASS_DEMO_SECTION} />
       <br />
       <InitialPhotosArticle className={CLASS_DEMO_SECTION} />
+      <br />
+      <WithContentArticle className={CLASS_DEMO_SECTION} />
     </div>
   )
 }

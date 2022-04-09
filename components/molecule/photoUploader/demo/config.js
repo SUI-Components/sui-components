@@ -39,12 +39,28 @@ export const labelsPlaceholder = 'Choose one'
 
 export const initialPhotos = [
   {
-    id: '9cded3e2-7fc6-4999-acc5-1fd42d6ea49a',
+    url: 'https://picsum.photos/seed/---all---/200/200',
+    id: '9cded3e2-7fc6-4999-acc5-1fd42d6ea49a'
+  },
+  {
+    url: 'https://picsum.photos/seed/--your---/800/300',
+    id: '6c7ee3d8-97db-4142-8520-5136fccfc40b'
+  },
+  {url: 'https://FAILUM.FAILED/FAIL/--base---/200/800'},
+  {url: 'https://picsum.photos/seed/---are---/800/600'},
+  {url: 'https://picsum.photos/seed/--belong-/200/300'},
+  {url: 'https://picsum.photos/seed/---to----/200/300'},
+  {url: 'https://picsum.photos/seed/---us----/200/300'}
+]
+
+export const initialPhotosWithLabels = [
+  {
+    id: '9cded3e2-7fc6-4999-acc5-1fd42d6ea48a',
     label: 'Comedor',
     url: 'https://picsum.photos/seed/---all---/200/200'
   },
   {
-    id: '6c7ee3d8-97db-4142-8520-5136fccfc40b',
+    id: '6c7ee3d8-97db-4142-8520-5136fccfc41b',
     url: 'https://picsum.photos/seed/--your---/800/300'
   },
   {
@@ -84,11 +100,10 @@ export const _callbackUploadPhoto = (file, oldUrl) => {
 }
 
 export const _callbackLabelItem = ({index, label}) => {
-  const list = [...initialPhotos]
-  const item = list[index]
-  list[index] = {
+  const item = initialPhotosWithLabels[index]
+  initialPhotosWithLabels[index] = {
     ...item,
     label
   }
-  _callbackPhotosUploaded(list)
+  _callbackPhotosUploaded(initialPhotosWithLabels)
 }

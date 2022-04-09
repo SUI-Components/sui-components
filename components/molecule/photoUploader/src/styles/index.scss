@@ -205,10 +205,6 @@ $skeleton-class: '#{$base-class}-skeleton';
       }
     }
 
-    &-content {
-      padding: $p-photo-uploader-content;
-    }
-
     &-actions {
       cursor: pointer;
       display: flex;

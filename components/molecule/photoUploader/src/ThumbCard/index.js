@@ -7,7 +7,6 @@ import {
   IMAGE_THUMB_CARD_CLASS_NAME,
   ICON_THUMB_CARD_CLASS_NAME,
   CONTAINER_THUMB_CARD_CLASS_NAME,
-  CONTENT_THUMB_CARD_CLASS_NAME,
   ACTION_THUMB_CARD_CLASS_NAME,
   BUTTON_THUMB_CARD_CLASS_NAME
 } from './config.js'
@@ -54,7 +53,7 @@ const ThumbCard = ({
           <img src={image.preview} className={imageThumbClass} />
         )}
       </div>
-      <div className={CONTENT_THUMB_CARD_CLASS_NAME}>{content()}</div>
+      {content()}
       <div className={ACTION_THUMB_CARD_CLASS_NAME}>
         <div
           className={BUTTON_THUMB_CARD_CLASS_NAME}

@@ -48,7 +48,7 @@ const MoleculePhotoUploader = forwardRef(
       callbackPhotosRejected = noop,
       callbackPhotosUploaded = noop,
       callbackUploadPhoto,
-      content,
+      content = noop,
       deleteIcon,
       disableScrollToBottom = false,
       dragDelay = DEFAULT_DRAG_DELAY_TIME,

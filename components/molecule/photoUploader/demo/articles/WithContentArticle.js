@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import PropTypes from 'prop-types'
 
 import {Article, H2, Paragraph} from '@s-ui/documentation-library'
@@ -44,26 +45,33 @@ import {
   _rotateIcon
 } from '../icons.js'
 
-const _content = ({index, file}) => { // eslint-disable-line
-  const {label} = file // eslint-disable-line
-
-  return (
-    <MoleculeSelect
-      value={label}
-      onChange={(e, {value}) => _callbackLabelItem({index, label: value})}
-      iconArrowDown={_labelsArrowIcon()}
-      placeholder={labelsPlaceholder}
-    >
-      {labels.map(label => (
-        <MoleculeSelectOption key={label} value={label}>
-          {label}
-        </MoleculeSelectOption>
-      ))}
-    </MoleculeSelect>
-  )
-}
-
 const DefaultArticle = ({className}) => {
+  const [photos, setPhotos] = useState(initialPhotosWithLabels)
+
+  const handlePhotosChange = ({index, label}) => {
+    const updatedPhotos = _callbackLabelItem({index, label})
+    setPhotos(updatedPhotos)
+  }
+
+  const _content = ({index, file}) => { // eslint-disable-line
+    const {label} = file // eslint-disable-line
+
+    return (
+      <MoleculeSelect
+        value={label}
+        onChange={(e, {value}) => handlePhotosChange({index, label: value})}
+        iconArrowDown={_labelsArrowIcon()}
+        placeholder={labelsPlaceholder}
+      >
+        {labels.map(label => (
+          <MoleculeSelectOption key={label} value={label}>
+            {label}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelect>
+    )
+  }
+
   return (
     <Article className={className}>
       <H2>With Content - Select example</H2>
@@ -89,7 +97,7 @@ const DefaultArticle = ({className}) => {
         errorFormatPhotoUploadedText={_errorFormatPhotoUploaded}
         errorInitialPhotoDownloadErrorText={_errorInitialPhotoDownloadError}
         infoIcon={_infoIcon}
-        initialPhotos={initialPhotosWithLabels}
+        initialPhotos={photos}
         limitPhotosUploadedText={_limitPhotosUploaded}
         limitPhotosUploadedNotification={_limitPhotosUploadedNotification}
         mainPhotoLabel={_mainPhotoLabel}

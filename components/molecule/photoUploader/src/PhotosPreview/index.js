@@ -174,7 +174,7 @@ const PhotosPreview = ({
             callbackDeleteItem={_deleteItem}
             callbackRetryUpload={_retryUpload}
             callbackRotateItem={_rotateItem}
-            content={() => content({file, index})}
+            content={content.bind(undefined, {file, index})}
             rotateIcon={rotateIcon()}
             deleteIcon={deleteIcon()}
             retryIcon={retryIcon()}

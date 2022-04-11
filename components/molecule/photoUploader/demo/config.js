@@ -105,5 +105,5 @@ export const _callbackLabelItem = ({index, label}) => {
     ...item,
     label
   }
-  _callbackPhotosUploaded(initialPhotosWithLabels)
+  return initialPhotosWithLabels
 }

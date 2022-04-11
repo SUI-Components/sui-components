@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.19.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/molecule/pagination:** resolve linting errors ([4f2704e](https://github.com/SUI-Components/sui-components/commit/4f2704e6856adc3a0eb61ee53eff0304bc0c5c95))
+
+
+
 # 2.18.0 (2022-01-31)
 
 

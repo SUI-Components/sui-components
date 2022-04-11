@@ -9,7 +9,8 @@ import {
   CLASS_COMPRESSED_INFO,
   CLASS_VERTICAL,
   CLASS_COMPRESSED,
-  PROGRESS_BAR_JUSTIFY_CONTENT
+  PROGRESS_BAR_JUSTIFY_CONTENT,
+  CONTENT_STYLE
 } from './config.js'
 import MoleculeProgressStep, {
   STATUSES
@@ -20,7 +21,8 @@ const MoleculeProgressSteps = ({
   children,
   iconStepDone,
   compressed,
-  progressBarJustifyContent = PROGRESS_BAR_JUSTIFY_CONTENT.LEGACY
+  progressBarJustifyContent = PROGRESS_BAR_JUSTIFY_CONTENT.LEGACY,
+  contentStyle = CONTENT_STYLE.FIXED
 }) => {
   const activeStepContent = useRef()
 
@@ -100,7 +102,8 @@ const MoleculeProgressSteps = ({
       {compressed && (
         <div
           className={cx(CLASS_COMPRESSED_INFO, {
-            [`${CLASS_COMPRESSED_INFO}--justifyContent-${progressBarJustifyContent}`]: progressBarJustifyContent
+            [`${CLASS_COMPRESSED_INFO}--justifyContent-${progressBarJustifyContent}`]:
+              progressBarJustifyContent
           })}
         >
           {compressedInfoSteps}
@@ -108,12 +111,13 @@ const MoleculeProgressSteps = ({
       )}
       <div
         className={cx(CLASS_STEPS, {
-          [`${CLASS_STEPS}--justifyContent-${progressBarJustifyContent}`]: progressBarJustifyContent
+          [`${CLASS_STEPS}--justifyContent-${progressBarJustifyContent}`]:
+            progressBarJustifyContent
         })}
       >
         {extendedChildren}
       </div>
-      <div className={CLASS_CONTENT}>{childrenContent}</div>
+      <div className={cx(CLASS_CONTENT, contentStyle)}>{childrenContent}</div>
     </div>
   )
 }
@@ -133,6 +137,9 @@ MoleculeProgressSteps.propTypes = {
   /** Vertical mode */
   vertical: PropTypes.bool,
 
+  /** Fit the content size */
+  contentStyle: PropTypes.oneOf(Object.values(CONTENT_STYLE)),
+
   /** justify the progressbar elements in its area following the element declared **/
   progressBarJustifyContent: PropTypes.oneOf(
     Object.values(PROGRESS_BAR_JUSTIFY_CONTENT)
@@ -144,5 +151,6 @@ export {
   MoleculeProgressStep,
   STATUSES,
   STATUSES as moleculeProgressStepsStatuses,
-  PROGRESS_BAR_JUSTIFY_CONTENT as moleculeProgressStepsJustifyContentBar
+  PROGRESS_BAR_JUSTIFY_CONTENT as moleculeProgressStepsJustifyContentBar,
+  CONTENT_STYLE as moleculeProgressContentStyle
 }

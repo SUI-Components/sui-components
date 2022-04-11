@@ -1,9 +1,11 @@
-import {createRef} from 'react'
+import {createRef, forwardRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import {highlightText} from '@s-ui/js/lib/string'
 import AtomCheckbox from '@s-ui/react-atom-checkbox'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs/index.js'
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
 
 import handlersFactory from './handlersFactory/index.js'
 import {
@@ -22,108 +24,126 @@ import {
   CLASS_WITH_DESCRIPTION
 } from './config.js'
 
-const MoleculeDropdownOption = ({
-  checkbox,
-  checkboxProps,
-  children,
-  disabled,
-  highlightQuery,
-  highlightValue,
-  innerRef,
-  onSelectKey,
-  onSelect,
-  selected,
-  textWrap,
-  value,
-  description,
-  withTwoLinesText
-}) => {
-  const className = cx(BASE_CLASS, {
-    [CLASS_CHECKBOX]: checkbox,
-    [CLASS_DISABLED]: disabled,
-    [CLASS_WITH_DESCRIPTION]: description,
-    'is-selected': selected
-  })
-  const innerClassName = cx([
-    CLASS_TEXT,
-    (withTwoLinesText || textWrap === TEXT_WRAP_STYLES.TWO_LINES) &&
-      `${CLASS_TEXT}--${MODIFIER_TWO_LINES}`,
-    textWrap === TEXT_WRAP_STYLES.THREE_LINES &&
-      `${CLASS_TEXT}--${MODIFIER_THREE_LINES}`,
-    textWrap === TEXT_WRAP_STYLES.LINE_WRAP &&
-      `${CLASS_TEXT}--${MODIFIER_LINE_WRAP}`,
-    ((!withTwoLinesText && !textWrap) ||
-      textWrap === TEXT_WRAP_STYLES.NO_WRAP) &&
-      `${CLASS_TEXT}--${MODIFIER_NO_WRAP}`
-  ])
-  const {handleClick, handleKeyDown, handleFocus} = handlersFactory({
-    disabled,
-    onSelectKey,
-    onSelect,
-    value
-  })
-  const renderHighlightOption = option => {
-    if (typeof option !== 'string') {
+const MoleculeDropdownOption = forwardRef(
+  (
+    {
+      checkbox,
+      checkboxProps,
+      children,
+      disabled,
+      highlightQuery,
+      highlightValue,
+      innerRef,
+      onSelectKey,
+      onSelect,
+      selected,
+      defaultSelected,
+      textWrap,
+      value,
+      description,
+      withTwoLinesText
+    },
+    forwardedRef
+  ) => {
+    const ref = useMergeRefs(innerRef, forwardedRef)
+    const [innerSelected, setInnerSelected] = useControlledState(
+      selected,
+      defaultSelected
+    )
+    const className = cx(BASE_CLASS, {
+      [CLASS_CHECKBOX]: checkbox,
+      [CLASS_DISABLED]: disabled,
+      [CLASS_WITH_DESCRIPTION]: description,
+      'is-selected': innerSelected
+    })
+    const innerClassName = cx([
+      CLASS_TEXT,
+      (withTwoLinesText || textWrap === TEXT_WRAP_STYLES.TWO_LINES) &&
+        `${CLASS_TEXT}--${MODIFIER_TWO_LINES}`,
+      textWrap === TEXT_WRAP_STYLES.THREE_LINES &&
+        `${CLASS_TEXT}--${MODIFIER_THREE_LINES}`,
+      textWrap === TEXT_WRAP_STYLES.LINE_WRAP &&
+        `${CLASS_TEXT}--${MODIFIER_LINE_WRAP}`,
+      ((!withTwoLinesText && !textWrap) ||
+        textWrap === TEXT_WRAP_STYLES.NO_WRAP) &&
+        `${CLASS_TEXT}--${MODIFIER_NO_WRAP}`
+    ])
+    const {handleClick, handleKeyDown, handleFocus} = handlersFactory({
+      disabled,
+      onSelectKey,
+      onSelect,
+      selected: innerSelected,
+      setInnerSelected,
+      value
+    })
+    const renderHighlightOption = option => {
+      if (typeof option !== 'string') {
+        return (
+          <span onFocus={handleInnerFocus} className={innerClassName}>
+            {option}
+          </span>
+        )
+      }
+      const mark = highlightText({
+        value: option,
+        query: highlightQuery,
+        startTag: `<mark class="${cx(
+          CLASS_HIGHLIGHTED_MARK,
+          CLASS_HIGHLIGHTED
+        )}">`,
+        endTag: '</mark>'
+      })
+
       return (
-        <span onFocus={handleInnerFocus} className={innerClassName}>
-          {option}
-        </span>
+        <>
+          <span
+            onFocus={handleInnerFocus}
+            dangerouslySetInnerHTML={{__html: mark}}
+            className={innerClassName}
+          />
+          {highlightValue ? children : null}
+        </>
       )
     }
-    const mark = highlightText({
-      value: option,
-      query: highlightQuery,
-      startTag: `<mark class="${cx(
-        CLASS_HIGHLIGHTED_MARK,
-        CLASS_HIGHLIGHTED
-      )}">`,
-      endTag: '</mark>'
-    })
-
+    const handleInnerFocus = ev => {
+      ev.preventDefault()
+      innerRef.current.focus()
+    }
     return (
-      <>
-        <span
-          onFocus={handleInnerFocus}
-          dangerouslySetInnerHTML={{__html: mark}}
-          className={innerClassName}
-        />
-        {highlightValue ? children : null}
-      </>
+      <li
+        ref={ref}
+        tabIndex="0"
+        className={className}
+        onClick={handleClick}
+        onKeyDown={handleKeyDown}
+        onFocus={handleFocus}
+        role="option"
+        data-value={value}
+        aria-checked={innerSelected}
+      >
+        {checkbox && (
+          <AtomCheckbox
+            checked={innerSelected}
+            disabled={disabled}
+            onFocus={handleInnerFocus}
+            {...checkboxProps}
+          />
+        )}
+        {highlightQuery ? (
+          renderHighlightOption(highlightValue || children)
+        ) : (
+          <span onFocus={handleInnerFocus} className={innerClassName}>
+            {children}
+          </span>
+        )}
+        {description && (
+          <span className={CLASS_DESCRIPTION}>{description}</span>
+        )}
+      </li>
     )
   }
-  const handleInnerFocus = ev => {
-    ev.preventDefault()
-    innerRef.current.focus()
-  }
-  return (
-    <li
-      ref={innerRef}
-      tabIndex="0"
-      className={className}
-      onClick={handleClick}
-      onKeyDown={handleKeyDown}
-      onFocus={handleFocus}
-      role="option"
-    >
-      {checkbox && (
-        <AtomCheckbox
-          checked={selected}
-          disabled={disabled}
-          onFocus={handleInnerFocus}
-          {...checkboxProps}
-        />
-      )}
-      {highlightQuery ? (
-        renderHighlightOption(highlightValue || children)
-      ) : (
-        <span onFocus={handleInnerFocus} className={innerClassName}>
-          {children}
-        </span>
-      )}
-      {description && <span className={CLASS_DESCRIPTION}>{description}</span>}
-    </li>
-  )
-}
+)
+
 MoleculeDropdownOption.displayName = 'MoleculeDropdownOption'
 MoleculeDropdownOption.propTypes = {
   /** option value */
@@ -142,8 +162,10 @@ MoleculeDropdownOption.propTypes = {
   disabled: PropTypes.bool,
   /** onSelect callback (ev, {value}) */
   onSelect: PropTypes.func,
-  /** Is initial selected */
+  /** Selected html controlled property */
   selected: PropTypes.bool,
+  /** Initial selected **/
+  defaultSelected: PropTypes.bool,
   /** Text to be highlighted in the option text if found */
   highlightQuery: PropTypes.string,
   /** Text to be display if used with highlight query with custom content */
@@ -160,13 +182,13 @@ MoleculeDropdownOption.propTypes = {
   description: PropTypes.string
 }
 MoleculeDropdownOption.defaultProps = {
-  checkbox: false,
   disabled: false,
   onSelect: () => {},
-  selected: false,
+  defaultSelected: false,
   onSelectKey: 'Enter',
   innerRef: createRef()
 }
 export default MoleculeDropdownOption
 export {handlersFactory}
-export {TEXT_WRAP_STYLES as MoleculeDropdownOptionTextWrapStyles}
+export {TEXT_WRAP_STYLES as MoleculeDropdownOptionTextWrapStyles} // Deprecate
+export {TEXT_WRAP_STYLES as moleculeDropdownOptionTextWrapStyles}

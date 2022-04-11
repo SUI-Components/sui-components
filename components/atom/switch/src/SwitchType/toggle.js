@@ -5,50 +5,39 @@ import PropTypes from 'prop-types'
 import AtomLabel from '@s-ui/react-atom-label'
 
 import {suitClass, switchClassNames} from './helpers.js'
+import {TYPES} from '../config.js'
 
 export const ToggleSwitchTypeRender = forwardRef(
   (
     {
       disabled,
       isFitted,
-      isFocus,
-      isClick,
       isToggle,
       label,
       labelLeft,
+      iconLeft,
+      iconRight,
       labelOptionalText,
       labelRight,
       name,
       onBlur,
       onFocus,
-      onClick,
-      onKeyDown,
       onToggle,
       size,
       type,
       value,
-      fullWidth
+      fullWidth,
+      isChecked
     },
     ref
   ) => {
-    const isActive = value !== undefined ? value : isToggle
-
-    const onKeyDownHandler = event => {
-      onKeyDown(event, isActive)
-    }
-
     return (
       <div
-        className={switchClassNames(
+        className={switchClassNames({
           size,
-          type,
-          'toggleType',
-          isActive,
-          isFocus,
-          isClick,
-          disabled,
+          classType: 'toggleType',
           fullWidth
-        )}
+        })}
       >
         {label && (
           <AtomLabel
@@ -66,11 +55,8 @@ export const ToggleSwitchTypeRender = forwardRef(
               element: 'container--fullWidth'
             })]: fullWidth
           })}
-          tabIndex="0"
           onFocus={onFocus}
-          onClick={onClick}
           onBlur={onBlur}
-          onKeyDown={onKeyDownHandler}
           ref={ref}
         >
           <span
@@ -78,26 +64,43 @@ export const ToggleSwitchTypeRender = forwardRef(
               suitClass({element: 'text'}),
               suitClass({element: 'left'})
             )}
-            onClick={() => onToggle(false)}
+            onClick={onToggle(false)}
+            aria-disabled={disabled}
           >
             {labelLeft}
           </span>
-          <div
-            className={cx(suitClass({element: 'inputContainer'}))}
-            onClick={() => onToggle()}
+          <button
+            type="button"
+            className={cx(suitClass({element: 'inputContainer'}), {
+              [suitClass({
+                element: 'inputContainer',
+                modifier: 'right'
+              })]: isChecked
+            })}
+            role="switch"
+            aria-checked={isChecked || type === TYPES.SELECT}
+            aria-disabled={disabled}
+            disabled={disabled}
+            {...(!disabled && {tabIndex: 0})}
+            onClick={onToggle()}
           >
-            <div
-              className={cx(suitClass({element: 'circle'}), {
-                [suitClass({modifier: 'toggle'})]: isActive
-              })}
-            />
-          </div>
+            {
+              <div className={cx(suitClass({element: 'icon-left'}))}>
+                {iconLeft}
+              </div>
+            }
+            <div className={cx(suitClass({element: 'circle'}))} />
+            <div className={cx(suitClass({element: 'icon-right'}))}>
+              {iconRight}
+            </div>
+          </button>
           <span
             className={cx(
               suitClass({element: 'text'}),
               suitClass({element: 'right'})
             )}
-            onClick={() => onToggle(true)}
+            onClick={onToggle(true)}
+            aria-disabled={disabled}
           >
             {labelRight}
           </span>
@@ -151,21 +154,9 @@ ToggleSwitchTypeRender.propTypes = {
    */
   isToggle: PropTypes.bool,
   /**
-   * Is component focus
-   */
-  isFocus: PropTypes.bool,
-  /**
-   * Is component click
-   */
-  isClick: PropTypes.bool,
-  /**
    * Callback on focus element
    */
   onFocus: PropTypes.func,
-  /**
-   * Callback on click element
-   */
-  onClick: PropTypes.func,
   /**
    * Callback on blur element
    */
@@ -175,15 +166,17 @@ ToggleSwitchTypeRender.propTypes = {
    */
   onToggle: PropTypes.func,
   /**
-   * Callback on keydown on the switch
-   */
-  onKeyDown: PropTypes.func,
-  /**
    * Value for controlled component
    */
   value: PropTypes.bool,
   /**
    * Modifier: full width (100%)
    */
-  fullWidth: PropTypes.bool
+  fullWidth: PropTypes.bool,
+  /** element node which appears inside the switch circle when it's in left position **/
+  iconLeft: PropTypes.node,
+  /** element node which appears inside the switch circle when it's in right position **/
+  iconRight: PropTypes.node,
+  /** element in right or left position (checked means right)**/
+  isChecked: PropTypes.bool
 }

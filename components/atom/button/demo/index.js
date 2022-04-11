@@ -37,15 +37,8 @@ import TypeDeprecatedArticle from './TypeDeprecatedArticle.js'
 const Demo = () => {
   const [state, setState] = useState({content: 'button', link: false})
   const [isFitted, setIsFitted] = useState()
-  const {
-    negative,
-    content,
-    icon,
-    leftIcon,
-    rightIcon,
-    socialButtons,
-    link
-  } = state
+  const {negative, content, icon, leftIcon, rightIcon, socialButtons, link} =
+    state
   return (
     <div className="sui-StudioPreview">
       <H1>Button</H1>
@@ -69,7 +62,7 @@ const Demo = () => {
                 </Cell>
               ))}
               {atomButtonDesignsIterator.map(([{design}], index) => (
-                <>
+                <Fragment key={index}>
                   <Cell
                     style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
                   >
@@ -82,7 +75,7 @@ const Demo = () => {
                       </AtomButton>
                     </Cell>
                   ))}
-                </>
+                </Fragment>
               ))}
             </Grid>
           </Article>

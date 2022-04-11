@@ -61,4 +61,11 @@ AtomIcon.propTypes = {
 
 export default AtomIcon
 
-export {BASE_CLASS, ATOM_ICON_COLORS, ATOM_ICON_SIZES, ATOM_ICON_RENDERS}
+export {
+  ATOM_ICON_COLORS,
+  ATOM_ICON_SIZES,
+  ATOM_ICON_RENDERS,
+  ATOM_ICON_COLORS as atomIconColors,
+  ATOM_ICON_SIZES as atomIconSizes,
+  ATOM_ICON_RENDERS as atomIconRenders
+}

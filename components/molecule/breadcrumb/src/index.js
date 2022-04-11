@@ -5,12 +5,12 @@ import Chevronright from '@s-ui/react-icons/lib/Chevronright'
 
 import {breadcrumbClassName} from './settings.js'
 
-export default function BreadcrumbBasic({
+const BreadcrumbBasic = ({
   items,
   icon,
   linkFactory: Link,
   isScrollable = false
-}) {
+}) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const expandBreadcrumb = () => setIsExpanded(true)
 
@@ -83,3 +83,5 @@ BreadcrumbBasic.defaultProps = {
     </a>
   )
 }
+
+export default BreadcrumbBasic

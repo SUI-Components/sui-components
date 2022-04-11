@@ -61,9 +61,9 @@ export const atomButtonSocialColorsIterator = atomButtonColors
   )
   .map((color, index) => [{color}, index])
 
-export const atomButtonDesignsIterator = Object.values(
-  atomButtonDesigns
-).map((design, index) => [{design}, index])
+export const atomButtonDesignsIterator = Object.values(atomButtonDesigns).map(
+  (design, index) => [{design}, index]
+)
 
 export const atomButtonSizesIterator = [
   atomButtonSizes.SMALL,
@@ -77,9 +77,9 @@ export const atomButtonAlignmentIterator = [
   atomButtonAlignment.RIGHT
 ].map((alignment, index) => [{alignment}, index])
 
-export const atomButtonShapesIterator = Object.values(
-  atomButtonShapes
-).map((shape, index) => [{shape}, index])
+export const atomButtonShapesIterator = Object.values(atomButtonShapes).map(
+  (shape, index) => [{shape}, index]
+)
 
 export const socialIconsMapper = {
   'social-facebook': facebookIcon,

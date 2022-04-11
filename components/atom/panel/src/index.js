@@ -14,8 +14,8 @@ import {
 } from './constants.js'
 
 const AtomPanel = function ({
-  alpha = ALPHA.CONTRAST,
-  color = COLORS.DEFAULT,
+  alpha,
+  color,
   elevation = ELEVATION.NONE,
   horizontalAlign = HORIZONTAL_ALIGNMENTS.CENTER,
   rounded = BORDER_RADIUS.NONE,
@@ -75,7 +75,11 @@ AtomPanel.propTypes = {
   /**
    * Specify the opacity
    */
-  alpha: PropTypes.oneOf(Object.values(ALPHA))
+  alpha: PropTypes.oneOf(Object.values(ALPHA)),
+  /**
+   * Specify the HTML tag element or component to render in the DOM.
+   */
+  as: PropTypes.elementType
 }
 
 export default AtomPanel

@@ -2,18 +2,34 @@ import {cloneElement} from 'react'
 import PropTypes from 'prop-types'
 import isEqual from 'lodash.isequal'
 
-const ExtendedChildren = ({value, children, index, ...props}) => {
-  const {value: valueChild} = children.props
-  let selected = false
-  if (Array.isArray(value)) {
-    selected = value.some(innerValue => isEqual(valueChild, innerValue))
-  } else {
-    selected = isEqual(value, valueChild)
+const ExtendedChildren = ({
+  value,
+  children,
+  index,
+  onSelect: onSelectListHandler,
+  checkbox,
+  ...props
+}) => {
+  const {
+    value: valueChild,
+    onSelect: onSelectOptionHandler,
+    selected: selectedChild,
+    checkbox: checkboxChild
+  } = children.props
+  const selected = Array.isArray(value)
+    ? value.some(innerValue => isEqual(valueChild, innerValue))
+    : isEqual(value, valueChild)
+  const onSelectHandler = (...args) => {
+    typeof onSelectOptionHandler === 'function' &&
+      onSelectOptionHandler(...args)
+    typeof onSelectListHandler === 'function' && onSelectListHandler(...args)
   }
   return cloneElement(children, {
     ...props,
     index,
-    selected
+    selected: selectedChild === undefined ? selected : selectedChild,
+    onSelect: onSelectHandler,
+    checkbox: checkboxChild === undefined ? checkbox : checkboxChild
   })
 }
 

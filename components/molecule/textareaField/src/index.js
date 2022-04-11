@@ -73,7 +73,6 @@ const MoleculeTextareaField = ({
       name={id}
       label={label}
       nodeLabel={nodeLabel}
-      textCharacters={textCharacters}
       successText={successText}
       errorText={errorText}
       alertText={alertText}

@@ -6,7 +6,7 @@ import AtomSlider from '@s-ui/react-atom-slider'
 import getCroppedImg from './utils/cropImage.js'
 import {baseClass, DEFAULT_ASPECT, noop} from './config.js'
 
-export default function MoleculeImageEditor({
+const MoleculeImageEditor = ({
   aspect = DEFAULT_ASPECT,
   cropLabelIcon,
   cropLabelText,
@@ -15,7 +15,7 @@ export default function MoleculeImageEditor({
   onCropping = noop,
   rotateLabelIcon,
   rotateLabelText
-}) {
+}) => {
   const [crop, setCrop] = useState({x: 0, y: 0})
   const [rotation, setRotation] = useState(0)
   const [zoom, setZoom] = useState(0)
@@ -105,3 +105,5 @@ MoleculeImageEditor.propTypes = {
   rotateLabelIcon: PropTypes.node,
   rotateLabelText: PropTypes.string
 }
+
+export default MoleculeImageEditor

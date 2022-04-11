@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.18.0 (2022-03-26)
+
+
+### Features
+
+* **components/molecule/accordion:** add new prop openedTabs to component, refactor component state ([7dc3d55](https://github.com/SUI-Components/sui-components/commit/7dc3d5532c149cd3fea8b4dd319681158cd35756))
+* **components/molecule/accordion:** improve component a11y by adding aria attributes ([e552334](https://github.com/SUI-Components/sui-components/commit/e55233480ab024252fc74cf1d34cdae47071b967))
+
+
+
 # 1.17.0 (2021-10-26)
 
 

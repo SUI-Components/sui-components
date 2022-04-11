@@ -2,12 +2,9 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import Circle from './Circle/index.js'
-import {
-  BASE_CLASS_NAME,
-  SIZES,
-  STATUS,
-  SIZE_TO_WIDTH_LINE_MAP
-} from './settings.js'
+import {BASE_CLASS_NAME, SIZE_TO_WIDTH_LINE_MAP} from './settings.js'
+
+import {STATUS, SIZES} from '../settings.js'
 
 import Indicator from './Indicator.js'
 
@@ -79,7 +76,8 @@ ProgressBarCircle.propTypes = {
 ProgressBarCircle.defaultProps = {
   isAnimatedOnChange: false,
   status: STATUS.PROGRESS,
-  hideIndicator: false
+  hideIndicator: false,
+  size: SIZES.LARGE
 }
 
 export default ProgressBarCircle

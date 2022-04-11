@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 3.9.0 (2022-03-30)
+
+
+### Bug Fixes
+
+* **components/molecule/textareaField:** Remove unused prop ([d41fc65](https://github.com/SUI-Components/sui-components/commit/d41fc65361303cbbb8dbb1a83063f6d618d56f36))
+
+
+### Features
+
+* **components/atom/slider:** fix rc-slider update integration ([86960b8](https://github.com/SUI-Components/sui-components/commit/86960b86294a3a7726d5ff70c25b8ead54b7c0a9))
+
+
+
 # 3.8.0 (2021-12-16)
 
 

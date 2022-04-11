@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 1.26.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/molecule/dropdownList:** resolve linting errors ([08d3efd](https://github.com/SUI-Components/sui-components/commit/08d3efd2aa51efaa75c98e99123af8a2c5cf2348))
+
+
+
+# 1.25.0 (2022-03-11)
+
+
+### Features
+
+* **components/molecule/dropdownList:** preserves the option children's configuration over the list ([529ab37](https://github.com/SUI-Components/sui-components/commit/529ab372337d268b8b99758fd53a55848d9bfb25)), closes [#2053](https://github.com/SUI-Components/sui-components/issues/2053)
+
+
+
 # 1.24.0 (2021-12-07)
 
 

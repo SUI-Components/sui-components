@@ -123,10 +123,13 @@ $td-atom-button-link: none !default;
   & #{$base-class}-leftIcon,
   & #{$base-class}-rightIcon,
   & #{$base-class}-centerIcon {
-    &,
-    & [class*='Icon'] {
+    &:not(& [class*='Icon']) {
       height: $size;
       width: $size;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
     }
   }
 

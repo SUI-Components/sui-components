@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.7.0 (2022-03-08)
+
+
+### Bug Fixes
+
+* **components/atom/popover:** Avoid unexpected renders by not forcing the encapsulation of content i ([a8190ef](https://github.com/SUI-Components/sui-components/commit/a8190ef06e14b147362ab1b2558f11029fabc456))
+
+
+
 # 3.6.0 (2022-03-04)
 
 

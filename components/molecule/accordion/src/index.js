@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 
 import Tab from './Tab/index.js'
@@ -8,32 +8,46 @@ const MoleculeAccordion = ({
   children,
   defaultOpenedTabs = [],
   onToggleTab = () => {},
+  openedTabs,
   withAutoClose,
   ...tabProps
 }) => {
-  const initialOpenTabs = children.map((_, index) =>
-    defaultOpenedTabs.includes(index)
+  const [openedTabsState, setOpenedTabsState] = useState(
+    openedTabs || defaultOpenedTabs
   )
 
-  const [openTabs, setOpenTabs] = useState(initialOpenTabs)
+  useEffect(() => {
+    if (openedTabs !== undefined) {
+      if (openedTabsState.length !== openedTabs?.length) {
+        setOpenedTabsState(openedTabs)
+      } else if (
+        openedTabs?.sort().join('') !== openedTabsState.sort().join('')
+      ) {
+        setOpenedTabsState(openedTabs)
+      }
+    }
+  }, [openedTabs, openedTabsState])
 
   const _handleOnToggle = index => event => {
-    let newOpenTabs = []
+    let newOpenedTabsState = []
     if (withAutoClose) {
-      newOpenTabs[index] = openTabs[index] ? undefined : true
+      newOpenedTabsState = openedTabsState.includes(index) ? [] : [index]
     } else {
-      newOpenTabs = [...openTabs]
-      newOpenTabs[index] = newOpenTabs[index] ? undefined : true
+      newOpenedTabsState = openedTabsState.includes(index)
+        ? openedTabsState.filter(tabIndex => tabIndex !== index)
+        : [...openedTabsState, index].sort()
     }
-    onToggleTab(event, {index, openTabs: [...newOpenTabs]})
-    setOpenTabs([...newOpenTabs])
+    onToggleTab(event, {index, openedTabs: [...newOpenedTabsState]})
+    if (openedTabs === undefined) {
+      setOpenedTabsState([...newOpenedTabsState])
+    }
   }
 
   return (
-    <div className={BASE_CLASS}>
+    <div className={BASE_CLASS} role="tablist">
       {children.map((child, index) => (
         <Tab
-          isOpen={!!openTabs[index]}
+          isOpen={openedTabsState.includes(index)}
           key={index}
           onToggle={_handleOnToggle(index)}
           title={child.props.label}
@@ -73,6 +87,10 @@ MoleculeAccordion.propTypes = {
    * On toggle tab callback
    */
   onToggleTab: PropTypes.func,
+  /**
+   * Array with tab indexes to be opened
+   */
+  openedTabs: PropTypes.arrayOf(PropTypes.Number),
   /**
    * Activate/deactivate autoclose
    */

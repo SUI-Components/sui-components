@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import {INDICATOR_CLASS_NAME, SIZES, STATUS} from './settings.js'
+import {SIZES, STATUS} from '../settings.js'
+import {INDICATOR_CLASS_NAME} from './settings.js'
 
 const Indicator = ({percentage, status, errorIcon, size, children}) => {
   if (status === STATUS.LOADING) return null

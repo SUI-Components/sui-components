@@ -1,22 +1,22 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
+import PolymorphicElement from '@s-ui/react-atom-polymorphic-element'
+
 import {
-  COLORS,
   ALPHA,
   BORDER_RADIUS,
   ELEVATION,
   HORIZONTAL_ALIGNMENTS,
   VERTICAL_ALIGNMENTS,
-  DEFAULT_ALPHA,
-  DEFAULT_COLOR
+  DEFAULT_ALPHA
 } from './constants.js'
 
 const getClassNames = function ({
   verticalAlign,
   horizontalAlign,
   resized,
-  overlayColor = COLORS[DEFAULT_COLOR],
+  overlayColor,
   overlayAlpha = ALPHA[DEFAULT_ALPHA],
   color,
   rounded,
@@ -44,17 +44,22 @@ const getStyles = function ({src}) {
   }
 }
 
-const ImagePanel = function ({children, ...props}) {
+const ImagePanel = function ({as = 'div', children, ...props}) {
   return (
-    <div className={getClassNames(props)} style={getStyles(props)}>
+    <PolymorphicElement
+      as={as}
+      className={getClassNames(props)}
+      style={getStyles(props)}
+    >
       {children}
-    </div>
+    </PolymorphicElement>
   )
 }
 
 ImagePanel.displayName = 'ImagePanel'
 
 ImagePanel.propTypes = {
+  as: PropTypes.elementType,
   children: PropTypes.node,
   /**
    * Background color while loading the image

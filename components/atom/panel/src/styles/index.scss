@@ -1,6 +1,6 @@
 $base-class: '.sui-atom-panel';
 
-#{base-class} {
+#{$base-class} {
   @each $type, $attr in $bdrs-atom-panel-rounded {
     &--rounded-#{$type} {
       border-radius: $attr;

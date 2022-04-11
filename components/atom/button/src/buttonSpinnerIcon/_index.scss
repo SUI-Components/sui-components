@@ -14,7 +14,8 @@
   border-style: solid;
   border-radius: 9999px;
   animation: spin 1s linear infinite;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1em;
+  height: 1em;
+  box-sizing: border-box;
   position: absolute;
 }

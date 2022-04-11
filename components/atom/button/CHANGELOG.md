@@ -1,5 +1,32 @@
 # CHANGELOG
 
+# 1.84.0 (2022-03-16)
+
+
+### Bug Fixes
+
+* **components/atom/button:** isloading spinner isloading size ([b08b9f5](https://github.com/SUI-Components/sui-components/commit/b08b9f53f4e9e21f338ca9524c3aee0e0213a368)), closes [#2052](https://github.com/SUI-Components/sui-components/issues/2052)
+
+
+
+# 1.83.0 (2022-03-16)
+
+
+### Bug Fixes
+
+* **components/atom/button:** fix button icon position ([47aa5a4](https://github.com/SUI-Components/sui-components/commit/47aa5a4c82d97dcd535beefb54780c1bd86f2a46)), closes [#2052](https://github.com/SUI-Components/sui-components/issues/2052)
+
+
+
+# 1.82.0 (2022-03-11)
+
+
+### Bug Fixes
+
+* **components/atom/button:** atom icon sizes explicit declaration ([d3f2c6a](https://github.com/SUI-Components/sui-components/commit/d3f2c6a95a7118448406df128d25ff6936f21e5d)), closes [#2052](https://github.com/SUI-Components/sui-components/issues/2052)
+
+
+
 # 1.81.0 (2022-01-26)
 
 

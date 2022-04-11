@@ -1,5 +1,25 @@
 # CHANGELOG
 
+# 2.34.0 (2022-03-21)
+
+
+### Bug Fixes
+
+* **components/molecule/tabs:** fix classes, mod demo and unnecesary propsTypes declaration and defau ([5648880](https://github.com/SUI-Components/sui-components/commit/56488809574915b9673c60a581a4789b74da789e))
+* **components/molecule/tabs:** remove style comment ([66e8cb7](https://github.com/SUI-Components/sui-components/commit/66e8cb7507f3c3f41164a92201428690b5a96c33))
+
+
+
+# 2.33.0 (2022-03-08)
+
+
+### Features
+
+* **components/molecule/tabs:** new tokens for molecule/tabs bg colors ([bfc74d4](https://github.com/SUI-Components/sui-components/commit/bfc74d40c5cc993d2a034ed9c3e104e378946ea7))
+* **components/molecule/tabs:** use new bg and bgc tokens on component styles ([b5c1df9](https://github.com/SUI-Components/sui-components/commit/b5c1df9620170bafe19916dec239e20c742ce776))
+
+
+
 # 2.32.0 (2022-03-07)
 
 

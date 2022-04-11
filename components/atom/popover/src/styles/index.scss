@@ -77,11 +77,8 @@ $class-arrow: '#{$base-class}-arrow';
     }
 
     @each $type-key, $type-value in $popover-type {
-      $bgc: map-get($type-value, bgc);
-      $bdc: map-get($type-value, bdc);
-
       &--type-#{$type-key}::after {
-        border-bottom-color: $bgc;
+        border-bottom-color: map-get($type-value, bgc);
       }
     }
   }

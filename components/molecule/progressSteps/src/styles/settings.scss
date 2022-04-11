@@ -1,28 +1,33 @@
-$c-progress-steps-bar: $c-gray-light !default;
-$c-progress-steps-label: $c-gray-dark-2 !default;
-$c-progress-steps-icon: $c-gray-light !default;
+@import '~@s-ui/react-molecule-stepper/lib/styles/settings.scss';
 
-$c-progress-steps-active: $c-primary-light-1 !default;
-$c-progress-steps-visited: $c-primary !default;
+// Colors
+$c-progress-steps-bar: $c-stepper !default;
+$c-progress-steps-label: $c-stepper-label !default;
+$c-progress-steps-icon: $c-stepper-icon !default;
 
-$fz-progress-steps-description: inherit !default;
+$c-progress-steps-active: $c-stepper-current !default;
+$c-progress-steps-visited: $c-stepper-visited !default;
 
-$bdw-progress-steps-bar: 2px !default;
+// Size and Spacing
+$h-progress-steps-bar: $h-stepper !default;
+$mw-progress-steps-path: $w-stepper !default;
+$bdw-progress-steps-bar: $bdw-stepper !default;
 
-$h-progress-steps-bar: $bdw-progress-steps-bar * 2 !default;
-
-$mw-progress-steps-path: 100% !default;
-$w-progress-steps-description: 100px !default;
+$w-progress-steps-description: $w-stepper-label !default;
 
 $sz-progress-steps-icon: $sz-icon-xl !default;
 $sz-progress-steps-bar: 3 * $sz-base !default;
 $sz-progress-steps-bar-compressed: $sz-progress-steps-bar !default;
 
 $m-progress-steps-icon: $m-s !default;
+$p-progress-steps-icon: $sz-base !default; // $p-progress-steps-bar
 $m-progress-steps-bar: $m-s !default;
+
+// Typography
+$fz-progress-steps-description: $fz-stepper-label !default;
+
+$justify-content-path: (legacy, center, flex-start, flex-end);
 
 @function contains($list, $item) {
   @return index($list, $item) != null;
 }
-
-$justify-content-path: (legacy, center, flex-start, flex-end);

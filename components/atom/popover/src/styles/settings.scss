@@ -22,3 +22,10 @@ $z-atom-popover-placement: auto !default;
 $w-atom-popover-arrow: $p-m + $p-s !default;
 $h-atom-popover-arrow: $p-m !default;
 $c-atom-popover-arrow: $bdc-atom-popover !default;
+
+$popover-type: (
+  dark: (
+    bgc: $c-gray-dark-3,
+    bdc: $c-gray-dark-3
+  )
+) !default;

@@ -22,22 +22,26 @@ $base-class-step: #{$base-class}Step;
         width: 100px;
         display: flex;
         align-items: center;
+        font-size: $fz-stepper-label;
       }
       #{$base-class-step}Icon {
-        width: 5 * $sz-base;
-        height: 5 * $sz-base;
-        padding: $sz-base;
-        font-size: 24px;
+        width: $sz-stepper-icon;
+        height: $sz-stepper-icon;
+        padding: $p-stepper;
+        font-size: $fz-stepper-icon;
         display: flex;
         align-items: center;
         justify-content: center;
       }
       + #{$base-class-step}Connector {
         flex-shrink: 0;
-        flex-basis: 24px;
+        flex-basis: $sz-stepper;
         #{$base-class-step}ConnectorLine {
-          border-radius: math.div($sz-base, 2);
-          background-color: $c-gray-light-2;
+          border-radius: math.div($bdw-stepper + $h-stepper, 2);
+          background-color: $c-stepper;
+          border-style: solid;
+          border-color: $c-stepper;
+          border-width: $bdw-stepper;
         }
         &:last-of-type {
           display: none;
@@ -73,10 +77,10 @@ $base-class-step: #{$base-class}Step;
       }
     }
     &-compressed {
-      flex-basis: 24px;
+      flex-basis: $sz-stepper-compressed;
       flex-shrink: 0;
       #{$base-class-step}Icon {
-        background-color: $c-gray-light;
+        background-color: $c-stepper-icon;
         border-radius: math.div($sz-base, 2);
       }
       + #{$base-class-step}Connector {
@@ -84,17 +88,17 @@ $base-class-step: #{$base-class}Step;
       }
       &#{$base-class-step}--current {
         #{$base-class-step}Icon {
-          background-color: $c-primary-light-1;
+          background-color: $c-stepper-current;
         }
       }
       &#{$base-class-step}--visited {
         #{$base-class-step}Icon {
-          background-color: $c-primary;
+          background-color: $c-stepper-visited;
         }
       }
       &#{$base-class-step}--alignment {
         &-vertical {
-          width: 50px;
+          width: math.div($w-stepper-label, 2);
           flex-direction: row-reverse;
           align-items: flex-end;
           gap: $sz-base;
@@ -106,20 +110,20 @@ $base-class-step: #{$base-class}Step;
             transform: rotate(180deg);
             writing-mode: vertical-rl;
             text-orientation: mixed;
-            max-height: 100px;
-            width: calc(50px - 8px * 2);
+            max-height: $w-stepper-label;
+            width: calc(math.div($w-stepper-label, 2) - $sz-base * 2);
             display: flex;
             align-items: flex-end;
           }
         }
         &-horizontal {
-          width: 50px;
+          width: math.div($w-stepper-label, 2);
           flex-direction: column-reverse;
           align-items: flex-start;
           gap: $sz-base;
           #{$base-class-step}Label {
-            height: calc(50px - 8px * 2);
-            max-width: 100px;
+            height: calc(math.div($w-stepper-label, 2) - $sz-base * 2);
+            max-width: $w-stepper-label;
             display: flex;
             align-items: flex-end;
           }
@@ -149,9 +153,9 @@ $base-class-step: #{$base-class}Step;
       + #{$base-class-step}Connector {
         width: 100%;
         #{$base-class-step}ConnectorLine {
-          width: $sz-base;
-          height: 100%;
-          margin-left: 3 * $sz-base;
+          width: $h-stepper;
+          height: calc(100% - #{2 * ($m-stepper + $bdw-stepper)});
+          margin: $m-stepper 0 $m-stepper 3 * $sz-base;
         }
       }
     }
@@ -161,27 +165,28 @@ $base-class-step: #{$base-class}Step;
       + #{$base-class-step}Connector {
         height: 100%;
         #{$base-class-step}ConnectorLine {
-          width: 100%;
-          height: $sz-base;
-          margin-top: 3 * $sz-base;
+          width: calc(100% - #{2 * ($m-stepper+ $bdw-stepper)});
+          height: $h-stepper;
+          margin: 3 * $sz-base $m-stepper 0 $m-stepper;
         }
       }
     }
   }
 
   &--current {
-    color: $c-primary-light-1;
+    color: $c-stepper-current;
     #{$base-class-step}Icon > * {
-      color: $c-primary-light-1;
+      color: $c-stepper-current;
     }
   }
   &--visited {
-    color: $c-primary;
+    color: $c-stepper-visited;
     + #{$base-class-step}Connector #{$base-class-step}ConnectorLine {
-      background-color: $c-primary;
+      background-color: $c-stepper-visited;
+      border-color: $c-stepper-visited;
     }
     #{$base-class-step}Icon > * {
-      color: $c-primary;
+      color: $c-stepper-visited;
     }
   }
 }

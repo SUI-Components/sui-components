@@ -46,6 +46,9 @@ $base-class-stepper-bar: '#{$base-class-stepper-path}Connector';
       svg {
         fill: $c-progress-steps-icon;
       }
+      #{$base-class-stepper-path}Label {
+        width: $w-progress-steps-description;
+      }
 
       &#{$base-class-stepper-path}--current,
       &#{$base-class-stepper-path}--visited {
@@ -57,7 +60,6 @@ $base-class-stepper-bar: '#{$base-class-stepper-path}Connector';
         }
         #{$base-class-stepper-path}Label {
           color: $c-progress-steps-label;
-          width: $w-progress-steps-description;
         }
       }
       &#{$base-class-stepper-path}--visited {
@@ -115,6 +117,13 @@ $base-class-stepper-bar: '#{$base-class-stepper-path}Connector';
       &:not(#{$base-class-stepper}--design-compressed) {
         #{$base-class-stepper-path} {
           max-width: none;
+        }
+      }
+      &#{$base-class-stepper}--design-compressed {
+        #{$base-class-stepper-path}Label {
+          width: calc(
+            math.div($w-progress-steps-description, 2) - $sz-base * 2
+          );
         }
       }
       #{$base-class-stepper-bar} {

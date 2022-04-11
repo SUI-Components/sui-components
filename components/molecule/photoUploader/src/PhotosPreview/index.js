@@ -51,6 +51,7 @@ const PhotosPreview = ({
   setNotificationError,
   thumbIconSize
 }) => {
+  // console.log('files', files)
   const _onSortEnd = event => {
     _callbackPhotosUploaded(files, {action: ACTIONS.SORT, data: event})
   }

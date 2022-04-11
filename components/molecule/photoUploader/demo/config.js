@@ -98,12 +98,3 @@ export const _callbackUploadPhoto = (file, oldUrl) => {
   const url = {url: `https://pre.cdn.coches.net/${Date.now()}`}
   return Promise.resolve(url)
 }
-
-export const _callbackLabelItem = ({index, label}) => {
-  const item = initialPhotosWithLabels[index]
-  initialPhotosWithLabels[index] = {
-    ...item,
-    label
-  }
-  return initialPhotosWithLabels
-}

@@ -14,7 +14,6 @@ import {
   _callbackPhotosRejected,
   _callbackPhotosUploaded,
   _callbackUploadPhoto,
-  _callbackLabelItem,
   _dragDelay,
   _dragPhotoTextInitialContent,
   _dropPhotosHere,
@@ -49,7 +48,14 @@ const DefaultArticle = ({className}) => {
   const [photos, setPhotos] = useState(initialPhotosWithLabels)
 
   const handlePhotosChange = ({index, label}) => {
-    const updatedPhotos = _callbackLabelItem({index, label})
+    const updatedPhotos = photos.map((photo, i) => {
+      if (i !== index) return photo
+      return {
+        ...photo,
+        label
+      }
+    })
+
     setPhotos(updatedPhotos)
   }
 

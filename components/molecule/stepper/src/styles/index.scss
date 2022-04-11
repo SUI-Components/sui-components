@@ -11,11 +11,11 @@ $base-class: '.sui-MoleculeStepper';
   &--alignment {
     &-vertical {
       flex-direction: column;
-      height: 100%;
+      height: $w-stepper;
     }
     &-horizontal {
       flex-direction: row;
-      width: 100%;
+      width: $w-stepper;
     }
   }
   &--justifyContent {

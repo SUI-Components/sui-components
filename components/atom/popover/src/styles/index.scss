@@ -4,6 +4,7 @@ $class-inner: '#{$base-class}-inner';
 $class-arrow: '#{$base-class}-arrow';
 
 #{$base-class} {
+  $this: &;
   display: contents;
   font-size: $fz-atom-popover;
   margin: $m-atom-popover;
@@ -22,6 +23,16 @@ $class-arrow: '#{$base-class}-arrow';
     overflow: hidden;
     padding: $p-atom-popover;
     text-align: left;
+
+    @each $type-key, $type-value in $popover-type {
+      $bgc: map-get($type-value, bgc);
+      $bdc: map-get($type-value, bdc);
+
+      &--type-#{$type-key} {
+        background-color: $bgc;
+        border-color: $bdc;
+      }
+    }
   }
 
   &-closeIcon {
@@ -63,6 +74,12 @@ $class-arrow: '#{$base-class}-arrow';
       content: '';
       display: block;
       position: absolute;
+    }
+
+    @each $type-key, $type-value in $popover-type {
+      &--type-#{$type-key}::after {
+        border-bottom-color: map-get($type-value, bgc);
+      }
     }
   }
 

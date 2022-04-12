@@ -66,6 +66,7 @@ const Step = forwardRef(
           ref={ref}
           role="listitem"
           data-step={`${step}`}
+          {...(current && {'aria-current': 'step'})}
           className={cx(
             BASE_CLASS_STEP,
             [
@@ -102,7 +103,12 @@ const Step = forwardRef(
             </>
           )}
         </Poly>
-        <Poly as={As} className={cx(`${BASE_CLASS_STEP}Connector`)}>
+        <Poly
+          role="separator"
+          {...(steps === step && {'aria-hidden': true})}
+          as={As}
+          className={cx(`${BASE_CLASS_STEP}Connector`)}
+        >
           <div className={cx(`${BASE_CLASS_STEP}ConnectorLine`)} />
         </Poly>
       </>

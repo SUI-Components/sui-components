@@ -64,43 +64,45 @@ const MoleculeProgressSteps = ({
 
   return (
     <div className={className}>
-      <MoleculeStepper
-        steps={Children.toArray(children).length}
-        step={step}
-        visitedIcon={iconStepDone}
-        labels={Children.toArray(children)
-          .filter(Boolean)
-          .map(({props: {label} = {}, index}) => {
-            return label
-          })}
-        justifyContent={progressBarJustifyContent}
-        design={
-          compressed
-            ? moleculeStepperDesign.COMPRESSED
-            : moleculeStepperDesign.DEFAULT
-        }
-        alignment={
-          vertical
-            ? moleculeStepperAlignment.VERTICAL
-            : moleculeStepperAlignment.HORIZONTAL
-        }
-        onChange={onChangeHandler}
-      >
-        {Children.toArray(children)
-          .filter(Boolean)
-          .map((child, index, elements) => (
-            <Step
-              key={index}
-              steps={elements.length}
-              step={index + 1}
-              visited={index < step}
-              current={step === index}
-              label={child?.props?.label}
-              icon={child?.props?.icon}
-              currentIcon={child?.props?.iconActive}
-            />
-          ))}
-      </MoleculeStepper>
+      {children && (
+        <MoleculeStepper
+          steps={Children.toArray(children).length}
+          step={step}
+          visitedIcon={iconStepDone}
+          labels={Children.toArray(children)
+            .filter(Boolean)
+            .map(({props: {label} = {}, index}) => {
+              return label
+            })}
+          justifyContent={progressBarJustifyContent}
+          design={
+            compressed
+              ? moleculeStepperDesign.COMPRESSED
+              : moleculeStepperDesign.DEFAULT
+          }
+          alignment={
+            vertical
+              ? moleculeStepperAlignment.VERTICAL
+              : moleculeStepperAlignment.HORIZONTAL
+          }
+          onChange={onChangeHandler}
+        >
+          {Children.toArray(children)
+            .filter(Boolean)
+            .map((child, index, elements) => (
+              <Step
+                key={index}
+                steps={elements.length}
+                step={index + 1}
+                visited={index < step}
+                current={step === index}
+                label={child?.props?.label}
+                icon={child?.props?.icon}
+                currentIcon={child?.props?.iconActive}
+              />
+            ))}
+        </MoleculeStepper>
+      )}
       <div className={cx(CLASS_CONTENT, contentStyle)}>
         {Children.toArray(children)
           .filter(Boolean)

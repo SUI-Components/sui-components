@@ -8,7 +8,7 @@ import Poly from '@s-ui/react-atom-polymorphic-element'
 import {naturalNumber} from './prop-types.js'
 import {BASE_CLASS, JUSTIFY_CONTENT, ALIGNMENT, DESIGN} from './settings.js'
 import Stepper from './Stepper/Stepper.js'
-import {StepsProvider} from './StepsProvider.js'
+import {StepsProvider, useStepsContext} from './StepsProvider.js'
 
 import Step from './Step/Step.js'
 
@@ -101,7 +101,8 @@ export default MoleculeStepper
 export {
   ALIGNMENT as moleculeStepperAlignment,
   DESIGN as moleculeStepperDesign,
-  JUSTIFY_CONTENT as moleculeStepperJustifyContent
+  JUSTIFY_CONTENT as moleculeStepperJustifyContent,
+  useStepsContext
 }
 
 export {Step}

@@ -48,7 +48,7 @@ const MoleculePhotoUploader = forwardRef(
       callbackPhotosRejected = noop,
       callbackPhotosUploaded = noop,
       callbackUploadPhoto,
-      content = noop,
+      content,
       deleteIcon,
       disableScrollToBottom = false,
       dragDelay = DEFAULT_DRAG_DELAY_TIME,
@@ -390,7 +390,7 @@ MoleculePhotoUploader.propTypes = {
   callbackUploadPhoto: PropTypes.func,
 
   /** Component to render inside content space */
-  content: PropTypes.func,
+  content: PropTypes.elementType,
 
   /** Icon placed in the button that deletes image */
   deleteIcon: PropTypes.func.isRequired,

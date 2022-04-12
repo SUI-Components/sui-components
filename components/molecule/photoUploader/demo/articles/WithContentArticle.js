@@ -55,21 +55,23 @@ const DefaultArticle = ({className}) => {
   }
 
   // eslint-disable-next-line react/prop-types
-  const _content = ({file}, index, files) => (
-    <MoleculeSelect
-      value={formState[index]?.label}
-      onChange={(e, {value}) =>
-        handlePhotosChange({file: {...file, label: value}}, index, files)
-      }
-      iconArrowDown={_labelsArrowIcon()}
-      placeholder={labelsPlaceholder}
-    >
-      {labels.map(label => (
-        <MoleculeSelectOption key={label} value={label}>
-          {label}
-        </MoleculeSelectOption>
-      ))}
-    </MoleculeSelect>
+  const _content = ({file, index}) => (
+    <div className="demo-child-body">
+      <MoleculeSelect
+        value={formState[index]?.label}
+        onChange={(e, {value}) =>
+          handlePhotosChange({file: {...file, label: value}}, index)
+        }
+        iconArrowDown={_labelsArrowIcon()}
+        placeholder={labelsPlaceholder}
+      >
+        {labels.map(label => (
+          <MoleculeSelectOption key={label} value={label}>
+            {label}
+          </MoleculeSelectOption>
+        ))}
+      </MoleculeSelect>
+    </div>
   )
 
   return (
@@ -85,7 +87,9 @@ const DefaultArticle = ({className}) => {
         callbackPhotosRejected={_callbackPhotosRejected}
         callbackPhotosUploaded={(files, action, ...args) => {
           if (action.action === 'DELETE') {
-            const {itemIndex} = action
+            const {
+              data: {itemIndex}
+            } = action
             formState.splice(itemIndex, 1)
             setFormState(formState)
           }

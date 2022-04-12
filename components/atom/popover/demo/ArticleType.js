@@ -8,9 +8,10 @@ const ArticleType = ({className, content: Content}) => {
   return (
     <Article className={className} style={{display: 'flex', alignItems: 'end'}}>
       <div>
-        <H2>Type</H2>
+        <H2>Custom Types</H2>
         <Paragraph>
-          The type of the popover could be custom or select the dark mode
+          You can even define some other extra types defining your own vertical
+          custom types and looping this defined keys through scss.
         </Paragraph>
       </div>
 

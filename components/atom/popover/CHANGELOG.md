@@ -1,5 +1,26 @@
 # CHANGELOG
 
+# 3.8.0 (2022-04-12)
+
+
+### Features
+
+* **components/atom/popover:** create new prop to be able to change the background-color of the atom ([6556db6](https://github.com/SUI-Components/sui-components/commit/6556db6cc9642ef5100038bee4c68e7842838f1e))
+* **components/atom/popover:** fix demo ([a91433e](https://github.com/SUI-Components/sui-components/commit/a91433e75143a691bfca39f18d2f12b95286fd02))
+* **components/atom/popover:** improves code ([a0dc1af](https://github.com/SUI-Components/sui-components/commit/a0dc1af7e12f992986ac274721e1ed1dd952f100))
+* **components/atom/popover:** update demo ([88c0a0f](https://github.com/SUI-Components/sui-components/commit/88c0a0fc13227f41bb12557fbc862a4cefb0f711))
+
+
+
+# 1.1.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/atom/popover/demo:** resolve linting errors ([8428420](https://github.com/SUI-Components/sui-components/commit/8428420dbe8cf517decb5835c5a8ac3304affec3))
+
+
+
 # 3.7.0 (2022-03-08)
 
 

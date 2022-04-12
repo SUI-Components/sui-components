@@ -1,4 +1,5 @@
 import loadable from '@loadable/component'
+import cx from 'classnames'
 
 export const TRIGGERS = {
   CLICK: 'click',
@@ -36,4 +37,12 @@ export const PLACEMENTS = {
   LEFT: 'left',
   LEFT_START: 'left-start',
   LEFT_END: 'left-end'
+}
+
+export const TYPES = {}
+
+export const getClassName = ({defaultClass, type}) => {
+  return cx(defaultClass, {
+    [`${defaultClass}--type-${type}`]: Boolean(type)
+  })
 }

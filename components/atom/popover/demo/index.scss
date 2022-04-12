@@ -1,13 +1,13 @@
 @import '~@s-ui/theme/lib/index';
 
-@import '../src/index';
-
 $popover-type: (
   dark: (
     bgc: $c-gray-dark-3,
     bdc: $c-gray-dark-3
   )
 );
+
+@import '../src/index';
 
 .DemoAtomPopover-section {
   .blink {

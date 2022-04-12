@@ -10,9 +10,7 @@ import MoleculeStepper, {
 
 import {
   BASE_CLASS,
-  CLASS_STEPS,
   CLASS_CONTENT,
-  CLASS_COMPRESSED_INFO,
   CLASS_VERTICAL,
   CLASS_COMPRESSED,
   PROGRESS_BAR_JUSTIFY_CONTENT,
@@ -39,22 +37,24 @@ const MoleculeProgressSteps = ({
   })
 
   useEffect(() => {
-    let currentStep = Children.toArray(children)
-      .filter(Boolean)
-      .map((child, index, elements) => child.props.status)
-      .lastIndexOf(STATUSES.ACTIVE)
-    let lastVisitedStep = Children.toArray(children)
-      .filter(Boolean)
-      .map((child, index, elements) => child.props.status)
-      .lastIndexOf(STATUSES.VISITED)
-    let steps = Children.toArray(children).filter(Boolean).length
+    if (children) {
+      const currentStep = Children.toArray(children)
+        .filter(Boolean)
+        .map((child, index, elements) => child.props.status)
+        .lastIndexOf(STATUSES.ACTIVE)
+      const lastVisitedStep = Children.toArray(children)
+        .filter(Boolean)
+        .map((child, index, elements) => child.props.status)
+        .lastIndexOf(STATUSES.VISITED)
+      const steps = Children.toArray(children).filter(Boolean).length
 
-    if (currentStep >= 0 && step !== currentStep) {
-      setStep(currentStep)
-    } else if (steps - 1 === lastVisitedStep && step !== steps) {
-      setStep(steps)
-    } else if (lastVisitedStep === -1 && currentStep === -1) {
-      setStep(-1)
+      if (currentStep >= 0 && step !== currentStep) {
+        setStep(currentStep)
+      } else if (steps - 1 === lastVisitedStep && step !== steps) {
+        setStep(steps)
+      } else if (lastVisitedStep === -1 && currentStep === -1) {
+        setStep(-1)
+      }
     }
   }, [children, step])
 
@@ -143,7 +143,9 @@ MoleculeProgressSteps.propTypes = {
   /** justify the progressbar elements in its area following the element declared **/
   progressBarJustifyContent: PropTypes.oneOf(
     Object.values(PROGRESS_BAR_JUSTIFY_CONTENT)
-  )
+  ),
+  /** change handler **/
+  onChange: PropTypes.func
 }
 
 export default MoleculeProgressSteps

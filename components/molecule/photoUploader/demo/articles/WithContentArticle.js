@@ -29,9 +29,10 @@ import {
   _rotationDirection,
   _uploadingPhotosText,
   _dragPhotoDividerTextInitialContent,
-  initialPhotosWithLabels,
   labels,
-  labelsPlaceholder
+  labelsPlaceholder,
+  initialFormValues,
+  initialPhotos
 } from '../config.js'
 import {
   _addMorePhotosIcon,
@@ -45,38 +46,31 @@ import {
 } from '../icons.js'
 
 const DefaultArticle = ({className}) => {
-  const [photos, setPhotos] = useState(initialPhotosWithLabels)
+  const [formState, setFormState] = useState(initialFormValues)
 
-  const handlePhotosChange = ({index, label}) => {
-    const updatedPhotos = photos.map((photo, i) => {
-      if (i !== index) return photo
-      return {
-        ...photo,
-        label
-      }
-    })
-
-    setPhotos(updatedPhotos)
-  }
-
-  const _content = ({index, file}) => { // eslint-disable-line
-    const {label} = file // eslint-disable-line
-
-    return (
-      <MoleculeSelect
-        value={label}
-        onChange={(e, {value}) => handlePhotosChange({index, label: value})}
-        iconArrowDown={_labelsArrowIcon()}
-        placeholder={labelsPlaceholder}
-      >
-        {labels.map(label => (
-          <MoleculeSelectOption key={label} value={label}>
-            {label}
-          </MoleculeSelectOption>
-        ))}
-      </MoleculeSelect>
+  const handlePhotosChange = ({file: {label}}, index) => {
+    setFormState(
+      formState.map((currentLabel, i) => (index === i ? {label} : currentLabel))
     )
   }
+
+  // eslint-disable-next-line react/prop-types
+  const _content = ({file}, index, files) => (
+    <MoleculeSelect
+      value={formState[index]?.label}
+      onChange={(e, {value}) =>
+        handlePhotosChange({file: {...file, label: value}}, index, files)
+      }
+      iconArrowDown={_labelsArrowIcon()}
+      placeholder={labelsPlaceholder}
+    >
+      {labels.map(label => (
+        <MoleculeSelectOption key={label} value={label}>
+          {label}
+        </MoleculeSelectOption>
+      ))}
+    </MoleculeSelect>
+  )
 
   return (
     <Article className={className}>
@@ -89,7 +83,14 @@ const DefaultArticle = ({className}) => {
         addPhotoTextSkeleton={_addPhotoTextSkeleton}
         allowUploadDuplicatedPhotos={_allowUploadDuplicatedPhotos}
         callbackPhotosRejected={_callbackPhotosRejected}
-        callbackPhotosUploaded={_callbackPhotosUploaded}
+        callbackPhotosUploaded={(files, action, ...args) => {
+          if (action.action === 'DELETE') {
+            const {itemIndex} = action
+            formState.splice(itemIndex, 1)
+            setFormState(formState)
+          }
+          _callbackPhotosUploaded(files, action, ...args)
+        }}
         callbackUploadPhoto={_callbackUploadPhoto}
         content={_content}
         deleteIcon={_deleteIcon}
@@ -103,7 +104,7 @@ const DefaultArticle = ({className}) => {
         errorFormatPhotoUploadedText={_errorFormatPhotoUploaded}
         errorInitialPhotoDownloadErrorText={_errorInitialPhotoDownloadError}
         infoIcon={_infoIcon}
-        initialPhotos={photos}
+        initialPhotos={initialPhotos}
         limitPhotosUploadedText={_limitPhotosUploaded}
         limitPhotosUploadedNotification={_limitPhotosUploadedNotification}
         mainPhotoLabel={_mainPhotoLabel}

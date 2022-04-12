@@ -81,7 +81,6 @@ const MoleculePhotoUploader = forwardRef(
     },
     forwardedRef
   ) => {
-    // console.log('initialPhotos', initialPhotos)
     const [files, setFiles] = useState([])
     const [isLoading, setIsLoading] = useState(Boolean(initialPhotos.length))
     const [notificationError, setNotificationError] = useState(

@@ -53,41 +53,18 @@ export const initialPhotos = [
   {url: 'https://picsum.photos/seed/---us----/200/300'}
 ]
 
-export const initialPhotosWithLabels = [
-  {
-    id: '9cded3e2-7fc6-4999-acc5-1fd42d6ea48a',
-    label: 'Comedor',
-    url: 'https://picsum.photos/seed/---all---/200/200'
-  },
-  {
-    id: '6c7ee3d8-97db-4142-8520-5136fccfc41b',
-    url: 'https://picsum.photos/seed/--your---/800/300'
-  },
-  {
-    id: '9cded3e2-7fc6-4299-acc5-1fd42d6ea49a',
-    url: 'https://FAILUM.FAILED/FAIL/--base---/200/800'
-  },
-  {
-    id: '9cded3e2-7fc6-49x9-acc5-1fd42d6ea49a',
-    url: 'https://picsum.photos/seed/---are---/800/600'
-  },
-  {
-    id: '9cded3e2-7fc6-4999-acc5-1fd12d6ea49a',
-    label: 'Baño',
-    url: 'https://picsum.photos/seed/--belong-/200/300'
-  },
-  {
-    id: '9cded312-7fc6-4999-acc5-1fd42d6ea49a',
-    url: 'https://picsum.photos/seed/---to----/200/300'
-  },
-  {
-    id: '9cded3e2-7fc2-4999-acc5-1fd42d6ea49a',
-    url: 'https://picsum.photos/seed/---us----/200/300'
-  }
+export const initialFormValues = [
+  {label: 'Comedor'},
+  {},
+  {},
+  {},
+  {label: 'Baño'},
+  {},
+  {}
 ]
 
-export const _callbackPhotosUploaded = list => {
-  console.log('_callbackPhotosUploaded: ', list) // eslint-disable-line no-console
+export const _callbackPhotosUploaded = (list, ...args) => {
+  console.log('_callbackPhotosUploaded: ', list, ...args) // eslint-disable-line no-console
 }
 
 export const _callbackPhotosRejected = list => {

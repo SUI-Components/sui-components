@@ -51,7 +51,6 @@ const PhotosPreview = ({
   setNotificationError,
   thumbIconSize
 }) => {
-  // console.log('files', files)
   const _onSortEnd = event => {
     _callbackPhotosUploaded(files, {action: ACTIONS.SORT, data: event})
   }
@@ -164,24 +163,26 @@ const PhotosPreview = ({
       return (
         <li
           className={thumbClassName}
-          key={`${file.preview}${index}`}
+          key={`${file?.preview}${index}`}
           onClick={e => e.stopPropagation()}
         >
-          <ThumbCard
-            iconSize={thumbIconSize}
-            image={file}
-            index={index}
-            mainPhotoLabel={mainPhotoLabel}
-            callbackDeleteItem={_deleteItem}
-            callbackRetryUpload={_retryUpload}
-            callbackRotateItem={_rotateItem}
-            content={content.bind(undefined, {file, index})}
-            rotateIcon={rotateIcon()}
-            deleteIcon={deleteIcon()}
-            retryIcon={retryIcon()}
-            rejectPhotosIcon={rejectPhotosIcon()}
-            outputImageAspectRatioDisabled={outputImageAspectRatioDisabled}
-          />
+          {file && (
+            <ThumbCard
+              iconSize={thumbIconSize}
+              image={file}
+              index={index}
+              mainPhotoLabel={mainPhotoLabel}
+              callbackDeleteItem={_deleteItem}
+              callbackRetryUpload={_retryUpload}
+              callbackRotateItem={_rotateItem}
+              content={content.bind(undefined, {file}, index, files)}
+              rotateIcon={rotateIcon()}
+              deleteIcon={deleteIcon()}
+              retryIcon={retryIcon()}
+              rejectPhotosIcon={rejectPhotosIcon()}
+              outputImageAspectRatioDisabled={outputImageAspectRatioDisabled}
+            />
+          )}
         </li>
       )
     })

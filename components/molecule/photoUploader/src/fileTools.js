@@ -188,7 +188,7 @@ export const prepareFiles = ({
   }, Promise.resolve())
 }
 
-export const loadInitialPhotos = ({
+export const loadInitialPhotos = async ({
   initialPhotos,
   defaultFormatToBase64Options,
   setInitialDownloadError,
@@ -200,33 +200,33 @@ export const loadInitialPhotos = ({
     formatToBase64({item, options: defaultFormatToBase64Options})
   )
 
-  Promise.all(filesWithBase64).then(newFiles => {
-    const readyPhotos = newFiles.map(
-      ({
-        blob,
-        croppedBase64,
-        url,
-        hasErrors = DEFAULT_HAS_ERRORS_STATUS,
-        id,
-        ...rest
-      }) => ({
-        blob,
-        url,
-        hasErrors,
-        originalBase64: croppedBase64,
-        preview: croppedBase64,
-        rotation: DEFAULT_IMAGE_ROTATION_DEGREES,
-        isNew: false,
-        isModified: false,
-        id,
-        ...rest
-      })
-    )
-    if (readyPhotos.some(photos => photos.hasErrors)) {
-      setInitialDownloadError()
-    }
-    setFiles([...readyPhotos])
-    _callbackPhotosUploaded(readyPhotos, {action: ACTIONS.INITIAL_LOAD})
-    setIsLoading(false)
-  })
+  const newFiles = await Promise.all(filesWithBase64)
+
+  const readyPhotos = newFiles.map(
+    ({
+      blob,
+      croppedBase64,
+      url,
+      hasErrors = DEFAULT_HAS_ERRORS_STATUS,
+      id,
+      ...rest
+    }) => ({
+      blob,
+      url,
+      hasErrors,
+      originalBase64: croppedBase64,
+      preview: croppedBase64,
+      rotation: DEFAULT_IMAGE_ROTATION_DEGREES,
+      isNew: false,
+      isModified: false,
+      id,
+      ...rest
+    })
+  )
+  if (readyPhotos.some(photos => photos.hasErrors)) {
+    setInitialDownloadError()
+  }
+  setFiles([...readyPhotos])
+  _callbackPhotosUploaded(readyPhotos, {action: ACTIONS.INITIAL_LOAD})
+  setIsLoading(false)
 }

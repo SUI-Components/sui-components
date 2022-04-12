@@ -144,7 +144,7 @@ MoleculeProgressSteps.propTypes = {
   progressBarJustifyContent: PropTypes.oneOf(
     Object.values(PROGRESS_BAR_JUSTIFY_CONTENT)
   ),
-  /** change handler **/
+  /** callback fired every time page changes **/
   onChange: PropTypes.func
 }
 

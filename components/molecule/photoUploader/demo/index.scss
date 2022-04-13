@@ -1,0 +1,9 @@
+@import '../src/index';
+@import 'components/molecule/select/src/index.scss';
+@import 'components/molecule/dropdownOption/src/index.scss';
+
+.demo-child-body {
+  padding: 8px;
+  border-bottom: 1px solid #222222;
+  background-color: white;
+}

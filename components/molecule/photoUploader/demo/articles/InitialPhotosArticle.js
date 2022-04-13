@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {Article, H2, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculePhotoUploader from '../../src/index.js'
+
 import {
   _addPhotoTextButton,
   _addPhotoTextSkeleton,
@@ -24,8 +25,8 @@ import {
   _notificationErrorFormatPhotoUploaded,
   _rotationDirection,
   _uploadingPhotosText,
-  initialPhotos,
-  _dragPhotoDividerTextInitialContent
+  _dragPhotoDividerTextInitialContent,
+  initialPhotos
 } from '../config.js'
 import {
   _addMorePhotosIcon,

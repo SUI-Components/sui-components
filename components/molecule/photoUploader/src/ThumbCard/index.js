@@ -16,6 +16,7 @@ const ThumbCard = ({
   callbackDeleteItem,
   callbackRetryUpload,
   callbackRotateItem,
+  content: Content = () => null,
   deleteIcon,
   index,
   image,
@@ -52,6 +53,7 @@ const ThumbCard = ({
           <img src={image.preview} className={imageThumbClass} />
         )}
       </div>
+      <Content file={image} index={index} />
       <div className={ACTION_THUMB_CARD_CLASS_NAME}>
         <div
           className={BUTTON_THUMB_CARD_CLASS_NAME}
@@ -86,6 +88,7 @@ ThumbCard.propTypes = {
   callbackDeleteItem: PropTypes.func,
   callbackRetryUpload: PropTypes.func,
   callbackRotateItem: PropTypes.func,
+  content: PropTypes.func,
   deleteIcon: PropTypes.node.isRequired,
   index: PropTypes.number,
   image: PropTypes.object.isRequired,

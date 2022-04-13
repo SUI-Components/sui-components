@@ -48,6 +48,7 @@ const MoleculePhotoUploader = forwardRef(
       callbackPhotosRejected = noop,
       callbackPhotosUploaded = noop,
       callbackUploadPhoto,
+      content,
       deleteIcon,
       disableScrollToBottom = false,
       dragDelay = DEFAULT_DRAG_DELAY_TIME,
@@ -273,6 +274,7 @@ const MoleculePhotoUploader = forwardRef(
                 addMorePhotosIcon={addMorePhotosIcon}
                 addPhotoTextSkeleton={addPhotoTextSkeleton}
                 callbackUploadPhoto={callbackUploadPhoto}
+                content={content}
                 defaultFormatToBase64Options={DEFAULT_FORMAT_TO_BASE_64_OPTIONS}
                 deleteIcon={deleteIcon}
                 dragDelay={dragDelay}
@@ -386,6 +388,9 @@ MoleculePhotoUploader.propTypes = {
    * If the callback returns the new URL it will be added to the image.
    */
   callbackUploadPhoto: PropTypes.func,
+
+  /** Component to render inside content space */
+  content: PropTypes.elementType,
 
   /** Icon placed in the button that deletes image */
   deleteIcon: PropTypes.func.isRequired,

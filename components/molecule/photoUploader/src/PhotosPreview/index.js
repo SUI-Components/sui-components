@@ -33,6 +33,7 @@ const PhotosPreview = ({
   addMorePhotosIcon,
   addPhotoTextSkeleton,
   callbackUploadPhoto,
+  content,
   defaultFormatToBase64Options,
   deleteIcon,
   dragDelay,
@@ -162,23 +163,26 @@ const PhotosPreview = ({
       return (
         <li
           className={thumbClassName}
-          key={`${file.preview}${index}`}
+          key={`${file?.preview}${index}`}
           onClick={e => e.stopPropagation()}
         >
-          <ThumbCard
-            iconSize={thumbIconSize}
-            image={file}
-            index={index}
-            mainPhotoLabel={mainPhotoLabel}
-            callbackDeleteItem={_deleteItem}
-            callbackRetryUpload={_retryUpload}
-            callbackRotateItem={_rotateItem}
-            rotateIcon={rotateIcon()}
-            deleteIcon={deleteIcon()}
-            retryIcon={retryIcon()}
-            rejectPhotosIcon={rejectPhotosIcon()}
-            outputImageAspectRatioDisabled={outputImageAspectRatioDisabled}
-          />
+          {file && (
+            <ThumbCard
+              iconSize={thumbIconSize}
+              image={file}
+              index={index}
+              mainPhotoLabel={mainPhotoLabel}
+              callbackDeleteItem={_deleteItem}
+              callbackRetryUpload={_retryUpload}
+              callbackRotateItem={_rotateItem}
+              content={content}
+              rotateIcon={rotateIcon()}
+              deleteIcon={deleteIcon()}
+              retryIcon={retryIcon()}
+              rejectPhotosIcon={rejectPhotosIcon()}
+              outputImageAspectRatioDisabled={outputImageAspectRatioDisabled}
+            />
+          )}
         </li>
       )
     })
@@ -224,6 +228,7 @@ PhotosPreview.propTypes = {
   addMorePhotosIcon: PropTypes.node.isRequired,
   addPhotoTextSkeleton: PropTypes.string.isRequired,
   callbackUploadPhoto: PropTypes.func,
+  content: PropTypes.func,
   defaultFormatToBase64Options: PropTypes.object.isRequired,
   deleteIcon: PropTypes.node.isRequired,
   dragDelay: PropTypes.number.isRequired,

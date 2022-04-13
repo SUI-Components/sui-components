@@ -33,6 +33,10 @@ export const _uploadingPhotosText = 'Uploading images...'
 export const _rotationDirection =
   MoleculePhotoUploaderRotationDirection.clockwise
 
+export const labels = ['Comedor', 'Cocina', 'Baño', 'Garaje', 'Habitación']
+
+export const labelsPlaceholder = 'Choose one'
+
 export const initialPhotos = [
   {
     url: 'https://picsum.photos/seed/---all---/200/200',
@@ -49,9 +53,20 @@ export const initialPhotos = [
   {url: 'https://picsum.photos/seed/---us----/200/300'}
 ]
 
-export const _callbackPhotosUploaded = list => {
-  console.log('_callbackPhotosUploaded: ', list) // eslint-disable-line no-console
+export const initialFormValues = [
+  {label: 'Comedor'},
+  {},
+  {},
+  {},
+  {label: 'Baño'},
+  {},
+  {}
+]
+
+export const _callbackPhotosUploaded = (list, ...args) => {
+  console.log('_callbackPhotosUploaded: ', list, ...args) // eslint-disable-line no-console
 }
+
 export const _callbackPhotosRejected = list => {
   console.log('_callbackPhotosRejected: ', list) // eslint-disable-line no-console
 }

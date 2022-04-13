@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.5.0 (2022-04-13)
+
+
+### Bug Fixes
+
+* **components/molecule/progressSteps:** resolve linting errors ([b396196](https://github.com/SUI-Components/sui-components/commit/b396196a509fa3bcbc8344db6ee4c615f482c506))
+* **components/molecule/progressSteps:** Use correct release version ([44855f7](https://github.com/SUI-Components/sui-components/commit/44855f7fe3a72a105b2d7bff68998f26bb2cad61))
+
+
+
 # 2.3.0 (2022-03-16)
 
 

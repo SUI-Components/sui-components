@@ -1,5 +1,25 @@
 # CHANGELOG
 
+# 2.14.0 (2022-04-13)
+
+
+### Bug Fixes
+
+* **components/molecule/photoUploader:** Fix release version ([e1218c5](https://github.com/SUI-Components/sui-components/commit/e1218c58c0299d712fc77a795afe6ca33cde10e4))
+* **components/molecule/photoUploader:** JSX Content ([d6bb641](https://github.com/SUI-Components/sui-components/commit/d6bb64116012e206ef41d0a3d9ee2872813ba9e0))
+* **components/molecule/photoUploader:** maintain the status managing ([bf3b250](https://github.com/SUI-Components/sui-components/commit/bf3b250b435e0d7bfadb24866ae1582543da9980))
+
+
+### Features
+
+* **components/molecule/photoUploader:** add content feature on molecule photoUploader component ([29421e9](https://github.com/SUI-Components/sui-components/commit/29421e92b84ac9bd248a46e49680a3ec533baa12))
+* **components/molecule/photoUploader:** apply feedback ([a066e0f](https://github.com/SUI-Components/sui-components/commit/a066e0fd6d760d4df802e38a7feb56bc8029e66b))
+* **components/molecule/photoUploader:** apply feedback ([433f9e4](https://github.com/SUI-Components/sui-components/commit/433f9e464fac3650d76eb9acad008548652e3392))
+* **components/molecule/photoUploader:** Force new release of the pkg ([0d977b0](https://github.com/SUI-Components/sui-components/commit/0d977b0813d2f98ae4ca655fe255e46cb90d58cf))
+* **components/molecule/photoUploader:** update component ([afae83e](https://github.com/SUI-Components/sui-components/commit/afae83e8e7bef4bd731bb78d4de6b3d66c418eef))
+
+
+
 # 2.11.0 (2022-04-05)
 
 

@@ -48,7 +48,7 @@
     "@s-ui/mono": "2",
     "@s-ui/precommit": "3",
     "@s-ui/studio": "11",
-    "fs-extra": "10.0.0",
+    "fs-extra": "10.0.1",
     "globby": "11.0.3",
     "sinon": "11.1.1",
     "validate-commit-msg": "2.12.2"

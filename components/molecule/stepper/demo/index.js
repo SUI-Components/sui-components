@@ -152,6 +152,7 @@ export default () => {
           <MoleculeStepper
             alignment={alignment}
             design={design}
+            steps={steps}
             justifyContent={justifyContent}
             visitedIcon={visitedIcon && iconVisited}
             currentIcon={currentIcon && iconCurrent}

@@ -37,7 +37,7 @@ const MoleculeStepper = forwardRef(
       <Poly
         as={as}
         ref={ref}
-        role={onChange ? 'group' : 'list'}
+        role="list"
         data-steps={`${steps}`}
         className={cx(BASE_CLASS, [
           `${BASE_CLASS}--design-${design}`,

@@ -64,7 +64,7 @@ const Step = forwardRef(
         <Poly
           as={As}
           ref={ref}
-          role={onClick || onChange ? 'button' : 'listitem'}
+          role="listitem"
           data-step={`${step}`}
           {...(current && {'aria-current': 'step'})}
           className={cx(

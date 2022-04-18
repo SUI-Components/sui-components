@@ -16,6 +16,7 @@ import MoleculeStepper, {
   moleculeStepperDesign,
   moleculeStepperJustifyContent
 } from 'components/molecule/stepper/src/index.js'
+import CustomStep from './CustomStep.js'
 import LoremIpsum from './LoremIpsum.js'
 import {
   visitedIcon as iconVisited,
@@ -164,9 +165,11 @@ export default () => {
                 label={<LoremIpsum units="words" count={2} format="plain" />}
                 step={index + 1}
                 visited={index < step}
-                onClick={(event, {step}) => setStep(getStep(step))}
                 current={step === index}
-              />
+                onClick={(event, {step}) => setStep(getStep(step))}
+              >
+                <CustomStep />
+              </Step>
             ))}
           </MoleculeStepper>
         </Cell>

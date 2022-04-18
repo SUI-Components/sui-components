@@ -198,13 +198,12 @@ describe(json.name, () => {
         }
 
         // When
-        const {getAllByRole, debug} = setup(props)
+        const {getAllByRole} = setup(props)
         const listElements = getAllByRole('list')
         const listItemElements = getAllByRole('listitem')
         const listItemSeparators = getAllByRole('separator')
 
         // Then
-        debug()
         expect(listElements.length).to.equal(1)
         expect(listItemElements.length).to.equal(props.steps)
         expect(listItemSeparators.length).to.equal(props.steps)

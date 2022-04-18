@@ -27,7 +27,7 @@ $fz-stepper-label: inherit !default; // $fz-progress-steps-description
 
 // justify-content-types
 $jc-molecule-stepper: (
-  legacy: flex-start,
+  legacy: space-around,
   flex-start: flex-start,
   center: center,
   flex-end: flex-end,

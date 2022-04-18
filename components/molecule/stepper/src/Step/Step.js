@@ -6,15 +6,16 @@ import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs/index.js'
 import Poly from '@s-ui/react-atom-polymorphic-element'
 
 import {naturalNumber} from '../prop-types.js'
-import {BASE_CLASS_STEP, getIcon, getLabel} from './settings.js'
-import {ALIGNMENT, DESIGN} from '../settings.js'
+import {BASE_CLASS_STEP} from './settings.js'
+import DefaultStep from './DefaultStep.js'
+import Children from '../Children.js'
 import {useStepsContext} from '../StepsProvider.js'
 
 const Step = forwardRef(
   (
     {
       as,
-      children,
+      children = <DefaultStep />,
       label,
       current,
       visited,
@@ -37,24 +38,13 @@ const Step = forwardRef(
       icon: iconContext,
       visitedIcon: visitedIconContext,
       currentIcon: currentIconContext,
+      hasConnector = true,
       onChange
     } = useStepsContext()
     const innerRef = useRef()
     const ref = useMergeRefs(forwardedRef, innerRef, useContextRef)
     const As = as || asContext
     useContextUnRef(innerRef)
-    const resultingIcon = getIcon({
-      design,
-      visited,
-      current,
-      step,
-      icon,
-      iconContext,
-      visitedIcon,
-      visitedIconContext,
-      currentIcon,
-      currentIconContext
-    })
     const onClickHandler = event => {
       typeof onClick === 'function' && onClick(event, {step})
       typeof onChange === 'function' && onChange(event, {step})
@@ -81,36 +71,31 @@ const Step = forwardRef(
           )}
           onClick={onClickHandler}
         >
-          {children || (
-            <>
-              <div className={cx(`${BASE_CLASS_STEP}Icon`)}>
-                {resultingIcon}
-              </div>
-              <div
-                className={cx(`${BASE_CLASS_STEP}Label`)}
-                {...(design === DESIGN.COMPRESSED &&
-                  current &&
-                  alignment === ALIGNMENT.HORIZONTAL && {
-                    style: {
-                      marginLeft: `calc(-${(step - 1) * 100}% - ${
-                        (step - 1) * 8
-                      }px)`
-                    }
-                  })}
-              >
-                {getLabel({steps, step, design, label, current})}
-              </div>
-            </>
-          )}
+          <Children
+            alignment={alignment}
+            design={design}
+            label={label}
+            step={step}
+            steps={steps}
+            current={current}
+            visited={visited}
+            icon={icon || iconContext}
+            visitedIcon={visitedIcon || visitedIconContext}
+            currentIcon={currentIcon || currentIconContext}
+          >
+            {children}
+          </Children>
         </Poly>
-        <Poly
-          role="separator"
-          {...(steps === step && {'aria-hidden': true})}
-          as={As}
-          className={cx(`${BASE_CLASS_STEP}Connector`)}
-        >
-          <div className={cx(`${BASE_CLASS_STEP}ConnectorLine`)} />
-        </Poly>
+        {hasConnector && steps !== step && (
+          <Poly
+            role="separator"
+            {...(steps === step && {'aria-hidden': true})}
+            as={As}
+            className={cx(`${BASE_CLASS_STEP}Connector`)}
+          >
+            <div className={cx(`${BASE_CLASS_STEP}ConnectorLine`)} />
+          </Poly>
+        )}
       </>
     )
   }
@@ -138,7 +123,9 @@ Step.propTypes = {
   /** react-node icon passed to inner current steps **/
   currentIcon: PropTypes.node,
   /** change handler to get the step fired **/
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  /** has or not a connector element between steps **/
+  hasConnector: PropTypes.bool
 }
 
 export default Step

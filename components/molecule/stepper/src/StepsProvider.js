@@ -1,4 +1,10 @@
-import {createContext, useContext, useRef, useLayoutEffect} from 'react'
+import {
+  createContext,
+  useContext,
+  useRef,
+  useLayoutEffect,
+  useState
+} from 'react'
 import PropTypes from 'prop-types'
 
 import {ALIGNMENT, DESIGN, JUSTIFY_CONTENT} from './settings.js'
@@ -7,6 +13,7 @@ const StepsContext = createContext({})
 
 const useRefs = () => {
   const refs = useRef(new Set())
+  const [steps, setSteps] = useState(0)
 
   const useContextRef = node => {
     if (node === null) return
@@ -14,11 +21,18 @@ const useRefs = () => {
       refs.current.delete(node)
     }
     refs.current.add(node)
+    setSteps(refs.current.size)
   }
   const useContextUnRef = ref =>
-    useLayoutEffect(() => () => refs.current.delete(ref.current), [ref])
+    useLayoutEffect(
+      () => () => {
+        refs.current.delete(ref.current)
+        setSteps(refs.current.size)
+      },
+      [ref, steps]
+    )
 
-  return {useContextRef, useContextUnRef, steps: refs.current.size}
+  return {useContextRef, useContextUnRef, steps}
 }
 
 export const StepsProvider = ({children, ...props}) => {

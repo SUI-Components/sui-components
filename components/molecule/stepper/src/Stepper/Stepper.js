@@ -2,7 +2,8 @@ import PropTypes from 'prop-types'
 
 import {naturalNumber} from '../prop-types.js'
 
-import {Step} from '../index.js'
+import {Step, useStepsContext} from '../index.js'
+import Children from '../Children.js'
 
 const Stepper = ({
   children,
@@ -10,7 +11,24 @@ const Stepper = ({
   step: currentStep,
   labels = []
 }) => {
-  if (children) return children
+  const {design, alignment, icon, visitedIcon, currentIcon, onChange} =
+    useStepsContext()
+  if (children)
+    return (
+      <Children
+        steps={stepsNumber}
+        step={currentStep}
+        labels={labels}
+        design={design}
+        alignment={alignment}
+        icon={icon}
+        visitedIcon={visitedIcon}
+        currentIcon={currentIcon}
+        onChange={onChange}
+      >
+        {children}
+      </Children>
+    )
   else if (stepsNumber === undefined) return null
 
   return Array(Math.max(stepsNumber, labels.length))
@@ -31,6 +49,7 @@ Stepper.displayName = 'Stepper'
 
 Stepper.propTypes = {
   children: PropTypes.node,
+  labels: PropTypes.arrayOf(PropTypes.string),
   steps: naturalNumber,
   step: naturalNumber
 }

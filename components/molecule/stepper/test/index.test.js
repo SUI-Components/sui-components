@@ -144,7 +144,7 @@ describe(json.name, () => {
         // Then
         expect(listElements.length).to.equal(1)
         expect(listItemElements.length).to.equal(props.steps)
-        expect(listItemSeparators.length).to.equal(props.steps)
+        expect(listItemSeparators.length).to.equal(props.steps - 1)
         // expect(listItemElements[props.step].ariaCurrent).to.equal('step')
         props.labels.forEach(label => {
           expect(getByText(label).innerText).to.equal(label)
@@ -164,7 +164,7 @@ describe(json.name, () => {
         // Then
         expect(listElements.length).to.equal(1)
         expect(listItemElements.length).to.equal(props.steps)
-        expect(listItemSeparators.length).to.equal(props.steps)
+        expect(listItemSeparators.length).to.equal(props.steps - 1)
         // expect(listItemElements[props.step].ariaCurrent).to.equal('step')
 
         // And
@@ -180,7 +180,7 @@ describe(json.name, () => {
         // Then
         expect(listElements.length).to.equal(1)
         expect(listItemElements.length).to.equal(nextProps.steps)
-        expect(listItemSeparators.length).to.equal(nextProps.steps)
+        expect(listItemSeparators.length).to.equal(nextProps.steps - 1)
         // expect(listItemElements[nextProps.step].ariaCurrent).to.equal('step')
       })
     })
@@ -206,7 +206,7 @@ describe(json.name, () => {
         // Then
         expect(listElements.length).to.equal(1)
         expect(listItemElements.length).to.equal(props.steps)
-        expect(listItemSeparators.length).to.equal(props.steps)
+        expect(listItemSeparators.length).to.equal(props.steps - 1)
         // expect(listItemElements[props.step].ariaCurrent).to.equal('step')
       })
     })

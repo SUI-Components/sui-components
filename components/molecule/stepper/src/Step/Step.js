@@ -86,7 +86,7 @@ const Step = forwardRef(
             {children}
           </Children>
         </Poly>
-        {hasConnector && steps !== step && (
+        {hasConnector && steps !== step - 1 && (
           <Poly
             role="separator"
             {...(steps === step && {'aria-hidden': true})}

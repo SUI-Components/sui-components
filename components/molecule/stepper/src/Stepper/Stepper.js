@@ -38,8 +38,8 @@ const Stepper = ({
         key={index}
         steps={stepsNumber}
         step={index + 1}
-        visited={index < currentStep}
-        current={currentStep === index}
+        visited={index + 1 < currentStep}
+        current={currentStep === index + 1}
         label={labels[index]}
       />
     ))

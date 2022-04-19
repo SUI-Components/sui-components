@@ -1,3 +1,4 @@
+import {useEffect, useRef, useState} from 'react'
 import PropTypes from 'prop-types'
 
 import {
@@ -6,7 +7,8 @@ import {
   Paragraph,
   UnorderedList,
   ListItem,
-  Code
+  Code,
+  Box
 } from '@s-ui/documentation-library'
 
 import MoleculeStepper from '../../src/index.js'
@@ -19,6 +21,12 @@ const labels = Array(steps)
   .map((v, index) => <LoremIpsum units="words" count={2} format="plain" />)
 
 const ArticleDefault = ({className}) => {
+  const ref = useRef()
+  const [, setRefState] = useState()
+
+  useEffect(() => {
+    setRefState(ref)
+  }, [ref, setRefState])
   return (
     <Article className={className}>
       <H2>Default</H2>
@@ -46,7 +54,19 @@ const ArticleDefault = ({className}) => {
           </Paragraph>
         </ListItem>
       </UnorderedList>
-      <MoleculeStepper steps={steps} step={step} labels={labels} />
+      <Box>
+        <MoleculeStepper ref={ref} steps={steps} step={step} labels={labels} />
+      </Box>
+      <Paragraph>The default component is also forward Referenced</Paragraph>
+      <Paragraph
+        style={{
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis'
+        }}
+      >
+        {ref?.current?.outerHTML}
+      </Paragraph>
     </Article>
   )
 }

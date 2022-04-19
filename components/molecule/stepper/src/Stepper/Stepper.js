@@ -2,7 +2,8 @@ import PropTypes from 'prop-types'
 
 import {naturalNumber} from '../prop-types.js'
 
-import {Step, useStepsContext} from '../index.js'
+import Step from '../Step/Step.js'
+import {useStepsContext} from '../context/index.js'
 import Children from '../Children.js'
 
 const Stepper = ({

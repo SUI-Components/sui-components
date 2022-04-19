@@ -11,8 +11,15 @@ const Stepper = ({
   step: currentStep,
   labels = []
 }) => {
-  const {design, alignment, icon, visitedIcon, currentIcon, onChange} =
-    useStepsContext()
+  const {
+    design,
+    alignment,
+    icon,
+    visitedIcon,
+    currentIcon,
+    onChange,
+    hasConnector
+  } = useStepsContext()
   if (children)
     return (
       <Children
@@ -24,6 +31,7 @@ const Stepper = ({
         icon={icon}
         visitedIcon={visitedIcon}
         currentIcon={currentIcon}
+        hasConnector={hasConnector}
         onChange={onChange}
       >
         {children}

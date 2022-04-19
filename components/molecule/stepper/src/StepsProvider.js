@@ -29,7 +29,7 @@ const useRefs = () => {
         refs.current.delete(ref.current)
         setSteps(refs.current.size)
       },
-      [ref, steps]
+      [ref]
     )
 
   return {useContextRef, useContextUnRef, steps}
@@ -57,6 +57,7 @@ export const useStepsContext = () =>
     as: 'li',
     useContextRef: () => null,
     useContextUnRef: () => null,
+    hasConnector: true,
     design: DESIGN.DEFAULT,
     alignment: ALIGNMENT.HORIZONTAL,
     justifyContent: JUSTIFY_CONTENT.LEGACY,

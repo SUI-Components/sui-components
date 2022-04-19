@@ -27,11 +27,9 @@ import {
   defaultIcon as iconDefault
 } from '../settings.js'
 
-const getStep = step => step - 1
-
 const ArticlePlayground = ({className}) => {
   const [steps, setSteps] = useState(5)
-  const [step, setStep] = useState(Math.trunc(steps / 2))
+  const [step, setStep] = useState(Math.ceil(steps / 2))
   const [alignment, setAlignment] = useState(
     moleculeStepperAlignment.HORIZONTAL
   )
@@ -99,9 +97,7 @@ const ArticlePlayground = ({className}) => {
         <Cell span={6}>
           <RadioButtonGroup
             value={step}
-            onChange={(e, value) =>
-              value !== undefined && setStep(getStep(value))
-            }
+            onChange={(e, value) => value !== undefined && setStep(value)}
             fullWidth
           >
             {Array(steps + 2)
@@ -111,7 +107,7 @@ const ArticlePlayground = ({className}) => {
                   key={index}
                   label={index}
                   value={index}
-                  checked={step === getStep(index)}
+                  checked={step === index}
                 />
               ))}
           </RadioButtonGroup>
@@ -144,7 +140,7 @@ const ArticlePlayground = ({className}) => {
             alignment={alignment}
             design={design}
             justifyContent={justifyContent}
-            onChange={(event, {step}) => setStep(getStep(step))}
+            onChange={(event, {step}) => setStep(step)}
             visitedIcon={visitedIcon && iconVisited}
             currentIcon={currentIcon && iconCurrent}
             icon={icon && iconDefault}
@@ -168,9 +164,9 @@ const ArticlePlayground = ({className}) => {
                 key={index}
                 label={<LoremIpsum units="words" count={2} format="plain" />}
                 step={index + 1}
-                visited={index < step}
-                current={step === index}
-                onClick={(event, {step}) => setStep(getStep(step))}
+                visited={index + 1 < step}
+                current={step === index + 1}
+                onClick={(event, {step}) => setStep(step)}
               >
                 <CustomStep />
               </Step>

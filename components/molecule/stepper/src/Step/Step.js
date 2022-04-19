@@ -23,6 +23,7 @@ const Step = forwardRef(
       icon,
       visitedIcon,
       currentIcon,
+      hasConnector,
       onClick
     },
     forwardedRef
@@ -38,13 +39,15 @@ const Step = forwardRef(
       icon: iconContext,
       visitedIcon: visitedIconContext,
       currentIcon: currentIconContext,
-      hasConnector = true,
+      hasConnector: hasConnectorContext,
       onChange
     } = useStepsContext()
     const innerRef = useRef()
     const ref = useMergeRefs(forwardedRef, innerRef, useContextRef)
     const As = as || asContext
     useContextUnRef(innerRef)
+    const hasConnectorResult =
+      hasConnector === undefined ? hasConnectorContext : hasConnector
     const onClickHandler = event => {
       typeof onClick === 'function' && onClick(event, {step})
       typeof onChange === 'function' && onChange(event, {step})
@@ -86,7 +89,7 @@ const Step = forwardRef(
             {children}
           </Children>
         </Poly>
-        {hasConnector && steps !== step - 1 && (
+        {hasConnectorResult && steps !== step - 1 && (
           <Poly
             role="separator"
             {...(steps === step && {'aria-hidden': true})}
@@ -122,10 +125,10 @@ Step.propTypes = {
   visitedIcon: PropTypes.node,
   /** react-node icon passed to inner current steps **/
   currentIcon: PropTypes.node,
-  /** change handler to get the step fired **/
-  onClick: PropTypes.func,
   /** has or not a connector element between steps **/
-  hasConnector: PropTypes.bool
+  hasConnector: PropTypes.bool,
+  /** change handler to get the step fired **/
+  onClick: PropTypes.func
 }
 
 export default Step

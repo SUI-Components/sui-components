@@ -2,6 +2,7 @@ import {H1, Paragraph} from '@s-ui/documentation-library'
 
 import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleDesignAlignment from './articles/ArticleDesignAlignment.js'
+import ArticleIconsConnector from './articles/ArticleIconsConnector.js'
 import ArticlePlayground from './articles/ArticlePlayground.js'
 
 const BASE_CLASS_DEMO = `DemoMoleculeStepper`
@@ -19,6 +20,8 @@ export default () => {
       <ArticleDefault className={CLASS_SECTION} />
       <br />
       <ArticleDesignAlignment className={CLASS_SECTION} />
+      <br />
+      <ArticleIconsConnector className={CLASS_SECTION} />
       <br />
       <ArticlePlayground className={CLASS_SECTION} />
     </div>

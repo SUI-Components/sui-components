@@ -27,6 +27,7 @@ const MoleculeStepper = forwardRef(
       icon,
       visitedIcon,
       currentIcon,
+      hasConnector = true,
       onChange
     },
     forwardedRef
@@ -53,6 +54,7 @@ const MoleculeStepper = forwardRef(
           currentIcon={currentIcon}
           justifyContent={justifyContent}
           as={asSteps}
+          hasConnector={hasConnector}
           onChange={onChange}
         >
           <Stepper steps={steps} step={step} labels={labels}>
@@ -92,6 +94,8 @@ MoleculeStepper.propTypes = {
   visitedIcon: PropTypes.node,
   /** react-node icon passed to inner current steps **/
   currentIcon: PropTypes.node,
+  /** has or not a connector element between steps **/
+  hasConnector: PropTypes.bool,
   /** change handler to get the step fired **/
   onChange: PropTypes.func
 }

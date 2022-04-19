@@ -9,7 +9,7 @@ import {naturalNumber} from '../prop-types.js'
 import {BASE_CLASS_STEP} from './settings.js'
 import DefaultStep from './DefaultStep.js'
 import Children from '../Children.js'
-import {useStepsContext} from '../StepsProvider.js'
+import {useStepsContext} from '../context/index.js'
 
 const Step = forwardRef(
   (
@@ -23,7 +23,7 @@ const Step = forwardRef(
       icon,
       visitedIcon,
       currentIcon,
-      hasConnector,
+      hasConnector: hasConnectorProp,
       onClick
     },
     forwardedRef
@@ -44,10 +44,10 @@ const Step = forwardRef(
     } = useStepsContext()
     const innerRef = useRef()
     const ref = useMergeRefs(forwardedRef, innerRef, useContextRef)
-    const As = as || asContext
+    const As = as || asContext || 'li'
+    const hasConnector =
+      hasConnectorProp === undefined ? hasConnectorContext : hasConnectorProp
     useContextUnRef(innerRef)
-    const hasConnectorResult =
-      hasConnector === undefined ? hasConnectorContext : hasConnector
     const onClickHandler = event => {
       typeof onClick === 'function' && onClick(event, {step})
       typeof onChange === 'function' && onChange(event, {step})
@@ -89,7 +89,7 @@ const Step = forwardRef(
             {children}
           </Children>
         </Poly>
-        {hasConnectorResult && steps !== step - 1 && (
+        {hasConnector && steps !== step - 1 && (
           <Poly
             role="separator"
             {...(steps === step && {'aria-hidden': true})}

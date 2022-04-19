@@ -7,6 +7,10 @@ $base-class-step: #{$base-class}Step;
   display: flex;
   flex-direction: column;
   align-items: center;
+  list-style: none;
+  + #{$base-class-step}Connector {
+    list-style: none;
+  }
   #{$base-class-step}Icon {
     & > * {
       color: $c-gray-light;
@@ -149,9 +153,7 @@ $base-class-step: #{$base-class}Step;
     &-vertical {
       justify-content: flex-start;
       flex-direction: row;
-      width: 100%;
       + #{$base-class-step}Connector {
-        width: 100%;
         #{$base-class-step}ConnectorLine {
           width: $h-stepper;
           height: calc(100% - #{2 * ($m-stepper + $bdw-stepper)});

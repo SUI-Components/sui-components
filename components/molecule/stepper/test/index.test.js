@@ -17,7 +17,7 @@ import json from '../package.json'
 
 chai.use(chaiDOM)
 
-describe(json.name, () => {
+describe.skip(json.name, () => {
   const {default: Component} = pkg
   const setup = setupEnvironment(Component)
 

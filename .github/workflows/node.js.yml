@@ -195,7 +195,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   deploy:
-    needs: [build, testing]
+    needs: [build, lint, testing]
     runs-on: ubuntu-latest
     environment:
       name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}

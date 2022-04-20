@@ -38,6 +38,11 @@ jobs:
           npm run install:themes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: setup
+          path: .
+          retention-days: 1
 
   build:
     needs: install
@@ -63,6 +68,9 @@ jobs:
         with:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
+      - uses: actions/download-artifact@v2
+        with:
+          name: setup
       - name: Testing
         run: |
           npm run lint
@@ -91,6 +99,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
+      - uses: actions/download-artifact@v2
+        with:
+          name: setup
       - name: Install xvfb for headless testing
         run: sudo apt-get install xvfb
 

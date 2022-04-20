@@ -208,7 +208,9 @@ jobs:
           name: public-folder
           path: .
       - name: Uncompress public directory
-        run: tar -zxvf public-dir.tar.gz -C ./public
+        run: |
+          ls -lisa
+          tar -zxvf public-dir.tar.gz -C ./public
       - name: Deploy
         id: deploy
         run: |

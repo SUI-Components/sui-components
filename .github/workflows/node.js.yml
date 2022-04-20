@@ -39,10 +39,12 @@ jobs:
           npm run build
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Compress public directory
+        run: tar -zcvf public-dir.tar.gz ./public/
       - uses: actions/upload-artifact@v2
         with:
           name: public-folder
-          path: public
+          path: public-dir.tar.gz
 
   lint:
     runs-on: ubuntu-latest
@@ -204,6 +206,8 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: public-folder
+      - name: Compress public directory
+        run: tar -zxvf public-dir.tar.gz -C ./public
       - name: Deploy
         id: deploy
         run: |

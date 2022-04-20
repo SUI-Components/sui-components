@@ -210,9 +210,9 @@ jobs:
           path: .
       - name: Uncompress public directory
         run: |
-          ls -lisa
           mkdir public
           tar -zxvf ./public-dir.tar.gz -C ./public
+          rm ./public-dir.tar.gz
       - name: Deploy
         id: deploy
         run: |

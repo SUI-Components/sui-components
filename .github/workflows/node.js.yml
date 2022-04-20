@@ -37,6 +37,8 @@ jobs:
           npm run phoenix:ci
           npm run install:themes
           npm run build
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: actions/upload-artifact@v2
         with:
           name: public-folder
@@ -45,6 +47,9 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v1
         with:
           node-version: 16
@@ -74,6 +79,9 @@ jobs:
       coverage_functions_covered_current: ${{ steps.coverage-current.outputs.coverage_functions_covered_current }}
       coverage_lines_covered_current: ${{ steps.coverage-current.outputs.coverage_lines_covered_current }}
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v1
         with:
           node-version: 16

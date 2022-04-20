@@ -1,0 +1,50 @@
+@use 'sass:math';
+@import '../../../src/index.scss';
+
+$custom-text-step-base-class: '.textCustomStep';
+
+#{$custom-text-step-base-class} {
+  color: $c-stepper;
+  box-sizing: content-box;
+  display: none;
+  font-size: 1.3rem;
+  &#{$custom-text-step-base-class}--current {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $sz-base;
+    #{$custom-text-step-base-class}ButtonPrevious,
+    #{$custom-text-step-base-class}ButtonNext {
+      user-select: none;
+      border: none;
+      margin: 0;
+      padding: $sz-base;
+      width: auto;
+      overflow: visible;
+      background: transparent;
+
+      /* inherit font & color from ancestor */
+      color: inherit;
+      font: inherit;
+      &:disabled {
+        opacity: 50%;
+        cursor: not-allowed;
+      }
+    }
+    #{$custom-text-step-base-class}Container {
+      display: flex;
+      gap: $sz-base;
+    }
+  }
+  &#{$custom-text-step-base-class}--alignment {
+    &-vertical {
+      transform: rotate(180deg);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      min-height: 240px;
+    }
+    &-horizontal {
+      min-width: 240px;
+    }
+  }
+}

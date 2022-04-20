@@ -1,4 +1,4 @@
-import {useRef, useState} from 'react'
+import {useState} from 'react'
 import PropTypes from 'prop-types'
 
 import {
@@ -20,12 +20,10 @@ import {
   moleculeStepperDesign
 } from '../../src/index.js'
 import {StepsProvider} from '../../src/context/index.js'
-// import {defaultIcon} from '../settings.js'
 
 const steps = 3
 
 const ArticleDefaultStep = ({className}) => {
-  const ref = useRef()
   const [alignment, setAlignment] = useState(
     moleculeStepperAlignment.HORIZONTAL
   )
@@ -67,7 +65,6 @@ const ArticleDefaultStep = ({className}) => {
                 <Step
                   as="li"
                   key={i}
-                  ref={ref}
                   hasConnector
                   onClick={(event, {step}) => setStep(step)}
                   label="label"

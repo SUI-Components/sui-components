@@ -4,6 +4,7 @@ import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleDesignAlignment from './articles/ArticleDesignAlignment.js'
 import ArticleIconsConnector from './articles/ArticleIconsConnector.js'
 import ArticleDefaultStep from './articles/ArticleDefaultStep.js'
+import ArticleCustomStep from './articles/ArticleCustomStep.js'
 import ArticlePlayground from './articles/ArticlePlayground.js'
 
 const BASE_CLASS_DEMO = `DemoMoleculeStepper`
@@ -34,6 +35,8 @@ export default () => {
         <Code>import {'{Step}'} from '@s-ui/react-molecule-stepper'</Code>
       </Paragraph>
       <ArticleDefaultStep className={CLASS_SECTION} />
+      <br />
+      <ArticleCustomStep className={CLASS_SECTION} />
       <br />
       <ArticlePlayground className={CLASS_SECTION} />
     </div>

@@ -24,28 +24,7 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-  install:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 16
-          registry-url: 'https://registry.npmjs.org'
-      - name: Install dependencies
-        run: |
-          npm run phoenix:ci
-          npm run install:themes
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - uses: actions/upload-artifact@v2
-        with:
-          name: setup
-          path: .
-          retention-days: 1
-
   build:
-    needs: install
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -54,29 +33,28 @@ jobs:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
       - name: Build dependencies
-        run: npm run build
+        run: |
+          npm run phoenix:ci
+          npm run install:themes
+          npm run build
       - uses: actions/upload-artifact@v2
         with:
           name: public-folder
           path: public
 
   lint:
-    needs: install
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
-      - uses: actions/download-artifact@v2
-        with:
-          name: setup
       - name: Testing
         run: |
+          npm run phoenix:ci
           npm run lint
 
   testing:
-    needs: install
     runs-on: ubuntu-latest
     outputs:
       coverage_statements_pct_master: ${{ steps.coverage-master.outputs.coverage_statements_pct_master }}
@@ -99,9 +77,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
-      - uses: actions/download-artifact@v2
-        with:
-          name: setup
       - name: Install xvfb for headless testing
         run: sudo apt-get install xvfb
 
@@ -109,7 +84,9 @@ jobs:
         run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
       - name: Testing
-        run: xvfb-run --auto-servernum npm run test -- --ci --coverage
+        run: |
+          npm run phoenix:ci
+          xvfb-run --auto-servernum npm run test -- --ci --coverage
       - name: Log Master Coverage
         uses: actions/github-script@v5
         id: coverage-master

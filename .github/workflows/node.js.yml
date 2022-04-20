@@ -24,7 +24,23 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        run: |
+          npm run phoenix:ci
+          npm run install:themes
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
   build:
+    needs: install
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -33,18 +49,26 @@ jobs:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
       - name: Build dependencies
-        run: |
-          npm run phoenix:ci
-          npm run install:themes
-          npm run build
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm run build
       - uses: actions/upload-artifact@v2
         with:
           name: public-folder
           path: public
 
+  lint:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          registry-url: 'https://registry.npmjs.org'
+      - name: Testing
+        run: |
+          npm run lint
+
   testing:
+    needs: install
     runs-on: ubuntu-latest
     outputs:
       coverage_statements_pct_master: ${{ steps.coverage-master.outputs.coverage_statements_pct_master }}
@@ -64,9 +88,6 @@ jobs:
       coverage_functions_covered_current: ${{ steps.coverage-current.outputs.coverage_functions_covered_current }}
       coverage_lines_covered_current: ${{ steps.coverage-current.outputs.coverage_lines_covered_current }}
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@v1
         with:
           node-version: 16
@@ -77,10 +98,7 @@ jobs:
         run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
       - name: Testing
-        run: |
-          npm run phoenix:ci
-          npm run lint
-          xvfb-run --auto-servernum npm run test -- --ci --coverage
+        run: xvfb-run --auto-servernum npm run test -- --ci --coverage
       - name: Log Master Coverage
         uses: actions/github-script@v5
         id: coverage-master
@@ -97,7 +115,7 @@ jobs:
             await script({github, context, core, exec}, './coverage/coverage.json')
 
   release:
-    needs: testing
+    needs: [lint, testing]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

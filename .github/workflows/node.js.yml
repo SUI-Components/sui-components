@@ -212,6 +212,8 @@ jobs:
         run: |
           mkdir public
           tar -zxvf ./public-dir.tar.gz -C ./public
+          ls -lisa
+          ls -lisa ./public/
           rm ./public-dir.tar.gz
       - name: Deploy
         id: deploy

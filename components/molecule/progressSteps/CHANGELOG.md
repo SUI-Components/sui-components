@@ -1,5 +1,27 @@
 # CHANGELOG
 
+# 2.6.0 (2022-04-21)
+
+
+### Bug Fixes
+
+* **components/molecule/progressSteps:** add the removed error condition ([d7f65b2](https://github.com/SUI-Components/sui-components/commit/d7f65b23c93d81bcc8b9941a62d9c7b9c9780124))
+* **components/molecule/progressSteps:** conflicts ([f626fd1](https://github.com/SUI-Components/sui-components/commit/f626fd1dd4373341abf502fe5959a622720be402))
+* **components/molecule/progressSteps:** lint ([7862258](https://github.com/SUI-Components/sui-components/commit/786225821f4f01fd266a2f18df93f61d1ea3e567))
+* **components/molecule/stepper:** syles ([54cd932](https://github.com/SUI-Components/sui-components/commit/54cd93283210a88b9961942761c42666559b0998))
+
+
+### Features
+
+* **components/molecule/progressSteps:** add onClick handler ([a66bfb0](https://github.com/SUI-Components/sui-components/commit/a66bfb0acdced2f2d0903ef5e2fce21393e815a3))
+* **components/molecule/progressSteps:** keep ancient element type tags ([4a19579](https://github.com/SUI-Components/sui-components/commit/4a195793317582c7d80eaff45d13422828f67256))
+* **components/molecule/progressSteps:** label width fix ([173c349](https://github.com/SUI-Components/sui-components/commit/173c34985db8483871f2bf46c854bc1fe300fa9d))
+* **components/molecule/progressSteps:** refactor use stepper ([716ac3a](https://github.com/SUI-Components/sui-components/commit/716ac3a79aeca63431a2874fd5316f23a6f7b9f3))
+* **components/molecule/progressSteps:** refactor use stepper ([6e67423](https://github.com/SUI-Components/sui-components/commit/6e674230474ff3fa3b818f6b47ae33cc2927a2d2))
+* **components/molecule/stepper:** tokenizer ([9ca0589](https://github.com/SUI-Components/sui-components/commit/9ca0589b099824e9c085b43f540b3288941a6dd0))
+
+
+
 # 2.5.0 (2022-04-13)
 
 

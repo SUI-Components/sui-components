@@ -12,6 +12,7 @@ $base-class-stepper-bar: '#{$base-class-stepper-path}Connector';
   #{$base-class-stepper} {
     max-width: $mw-progress-steps-path;
     #{$base-class-stepper-bar} {
+      flex-basis: $sz-progress-steps-bar;
       #{$base-class-stepper-bar}Line {
         background: $c-progress-steps-bar;
         border-color: $c-progress-steps-bar;
@@ -127,6 +128,7 @@ $base-class-stepper-bar: '#{$base-class-stepper-path}Connector';
         }
       }
       #{$base-class-stepper-bar} {
+        flex-basis: $sz-progress-steps-bar;
         #{$base-class-stepper-bar}Line {
           width: $h-progress-steps-bar;
           border-width: $bdw-progress-steps-bar;

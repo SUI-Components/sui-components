@@ -112,6 +112,16 @@ jobs:
           script: |
             const script = require('./.github/SCRIPTS/exportCoverageFromJsonSummary')
             await script({github, context, core, exec}, './coverage/coverage.json')
+      - name: prepare coverage directory
+        run: |
+          mkdir _coverage
+          cp -rf ./coverage/coverage.xml ./coverage/coverage.json ./coverage/report-html/* ./_coverage/
+      - name: Compress coverage directory
+        run: tar -zcvf coverage-dir.tar.gz ./_coverage/
+      - uses: actions/upload-artifact@v2
+        with:
+          name: coverage-folder
+          path: coverage-dir.tar.gz
   # Publish the necessary npm new package versions
   release:
     needs: [lint, testing]
@@ -208,13 +218,18 @@ jobs:
         with:
           name: public-folder
           path: .
+      - uses: actions/download-artifact@v2
+        with:
+          name: coverage-folder
+          path: .
       - name: Uncompress public directory
         run: |
-          mkdir public
-          tar -zxvf ./public-dir.tar.gz -C ./public/
-          ls -lisa
-          ls -lisa ./public/
+          tar -zxvf ./public-dir.tar.gz
           rm ./public-dir.tar.gz
+      - name: Uncompress coverage directory
+        run: |
+          tar -zxvf ./coverage-dir.tar.gz -C ./public/
+          rm ./coverage-dir.tar.gz
       - name: Deploy
         id: deploy
         run: |

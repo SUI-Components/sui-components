@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.7.0 (2022-04-21)
+
+
+### Bug Fixes
+
+* **components/molecule/progressSteps:** hotfix ([07f465b](https://github.com/SUI-Components/sui-components/commit/07f465ba814e9e1340dd3aaaed2c90c38cb816de))
+
+
+
 # 2.6.0 (2022-04-21)
 
 

@@ -9,7 +9,7 @@ const MoleculeAccordion = ({
   defaultOpenedTabs = [],
   onToggleTab = () => {},
   openedTabs,
-  withAutoClose,
+  withAutoClose = true,
   ...tabProps
 }) => {
   const [openedTabsState, setOpenedTabsState] = useState(
@@ -111,9 +111,6 @@ MoleculeAccordion.propTypes = {
    * Activate/deactivate multiline label
    */
   withMultilineLabel: PropTypes.bool
-}
-MoleculeAccordion.defaultProps = {
-  withAutoClose: true
 }
 
 export default MoleculeAccordion

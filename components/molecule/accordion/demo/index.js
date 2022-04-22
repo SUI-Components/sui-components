@@ -1,7 +1,8 @@
 import {useState} from 'react'
 
-import {text, icon, customTitle} from './settings.js'
+import {H1, Paragraph} from '@s-ui/documentation-library'
 
+import {text, icon, customTitle} from './settings.js'
 import MoleculeAccordion from '../src/index.js'
 import Demo from './Demo.js'
 import DemoWrapper from './DemoWrapper.js'
@@ -9,8 +10,16 @@ import DemoWrapper from './DemoWrapper.js'
 export default () => {
   const [openedTabs, setOpenedTabs] = useState([1])
   return (
-    <div>
-      <h1>Accordion</h1>
+    <div className="sui-StudioPreview">
+      <H1>Accordion</H1>
+      <Paragraph>
+        An accordion is a vertically stacked set of interactive headings that
+        each contain a title, content snippet, or thumbnail representing a
+        section of content. The headings function as controls that enable users
+        to reveal or hide their associated sections of content. Accordions are
+        commonly used to reduce the need to scroll when presenting multiple
+        sections of content on a single page.
+      </Paragraph>
       <DemoWrapper>
         <Demo>
           <h2>Accordion with opened tabs state managed via prop</h2>

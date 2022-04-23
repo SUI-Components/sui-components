@@ -25,10 +25,27 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = ['inject', 'default']
+    const libraryExportedMembers = [
+      'inject',
+      'combineHandler',
+      'combineHandlers',
+      'combineStyles',
+      'combineClassNames',
+      'combineProps',
+      'default'
+    ]
 
     // When
-    const {inject, default: MoleculeInjector, ...others} = library
+    const {
+      inject,
+      combineHandler,
+      combineHandlers,
+      combineStyles,
+      combineClassNames,
+      combineProps,
+      default: MoleculeInjector,
+      ...others
+    } = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)

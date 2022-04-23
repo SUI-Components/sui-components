@@ -4,6 +4,7 @@
   "private": true,
   "description": "Demo for @s-ui/react-primitive-injector",
   "dependencies": {
+    "react-is": "18.0.0",
     "react-json-view": "1.21.3"
   },
   "devDependencies": {

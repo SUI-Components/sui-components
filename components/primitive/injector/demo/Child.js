@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import JSONView from 'react-json-view'
 
 const Child = ({name, ...props}) => {
@@ -29,6 +30,10 @@ const Child = ({name, ...props}) => {
       />
     </div>
   )
+}
+
+Child.propTypes = {
+  name: PropTypes.string
 }
 
 export default Child

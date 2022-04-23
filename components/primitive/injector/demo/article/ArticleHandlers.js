@@ -6,8 +6,10 @@ import Injector from 'components/primitive/injector/src/index.js'
 import Child from '../Child.js'
 
 const ArticleHandlers = ({className}) => {
-  const onHandler = (eventName, elementName) => (...args) =>
-    console.log(eventName, elementName, ...args)
+  const onHandler =
+    (eventName, elementName) =>
+    (...args) =>
+      console.log(eventName, elementName, ...args)
   return (
     <Article className={className}>
       <H2>Handlers</H2>

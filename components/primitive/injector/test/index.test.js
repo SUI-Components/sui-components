@@ -9,6 +9,8 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import userEvents from '@testing-library/user-event'
+import sinon from 'sinon'
 
 import * as pkg from '../src/index.js'
 
@@ -23,10 +25,10 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = ['default']
+    const libraryExportedMembers = ['inject', 'default']
 
     // When
-    const {default: MoleculeInjector, ...others} = library
+    const {inject, default: MoleculeInjector, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -81,7 +83,47 @@ describe(json.name, () => {
 
       // Then
       expect(Object.entries(injectedProps).length).to.not.equal(0)
-      Object.entries(injectedProps).map(([propKey, propValue]) => {
+      Object.entries(injectedProps).forEach(([propKey, propValue]) => {
+        if (typeof injectedProps[propKey] === 'boolean') {
+          if (injectedProps[propKey] === true) {
+            expect(textElement.getAttribute(propKey)).to.equal('')
+          } else {
+            expect(textElement.getAttribute(propKey)).to.equal(null)
+          }
+        } else if (typeof injectedProps[propKey] === 'string') {
+          expect(textElement.getAttribute(propKey)).to.equal(propValue)
+        } else if (typeof injectedProps[propKey] === 'number') {
+          expect(textElement.getAttribute(propKey)).to.equal(`${propValue}`)
+        }
+      })
+    })
+
+    it('given an children Fragment wrapped it should receive injector props', () => {
+      // Given
+      const text = 'text'
+      const injectedProps = {
+        type: 'text',
+        readOnly: true,
+        checked: false,
+        value: 3,
+        placeholder: text
+      }
+      const props = {
+        ...injectedProps,
+        children: (
+          <>
+            <input />
+          </>
+        )
+      }
+
+      // When
+      const {getByPlaceholderText} = setup(props)
+      const textElement = getByPlaceholderText(text)
+
+      // Then
+      expect(Object.entries(injectedProps).length).to.not.equal(0)
+      Object.entries(injectedProps).forEach(([propKey, propValue]) => {
         if (typeof injectedProps[propKey] === 'boolean') {
           if (injectedProps[propKey] === true) {
             expect(textElement.getAttribute(propKey)).to.equal('')
@@ -138,5 +180,86 @@ describe(json.name, () => {
     })
   })
 
-  describe('styles', () => {})
+  describe('styles', () => {
+    it('given the same style rule name it will take the children style rule over the injector', () => {
+      // Given
+      const text = 'text'
+      const injectorStyleRules = {display: 'block'}
+      const childrenStyleRules = {display: 'flex'}
+      const props = {
+        style: injectorStyleRules,
+        children: [
+          <span key="1" style={childrenStyleRules}>
+            {text}
+          </span>
+        ]
+      }
+
+      // When
+      const {getByText} = setup(props)
+
+      // Then
+      expect(getByText(text).style.getPropertyValue('display')).to.equal(
+        childrenStyleRules.display
+      )
+    })
+
+    it('given the different style rule name between children and injector it will join them', () => {
+      // Given
+      const text = 'text'
+      const injectorStyleRules = {display: 'flex'}
+      const childrenStyleRules = {gap: '8px'}
+      const props = {
+        style: injectorStyleRules,
+        children: [
+          <span key="1" style={childrenStyleRules}>
+            {text}
+          </span>
+        ]
+      }
+
+      // When
+      const {getByText} = setup(props)
+      const element = getByText(text)
+
+      // Then
+      Object.entries({
+        ...injectorStyleRules,
+        ...childrenStyleRules
+      }).forEach(([styleKey, styleValue]) => {
+        expect(element.style.getPropertyValue(styleKey)).to.equal(styleValue)
+      })
+    })
+  })
+
+  describe('handlers', () => {
+    it('given same handler event to Injector and a children element it will fire all of them', () => {
+      // Given
+      const text = 'text'
+      const injectorHandlers = {onClick: sinon.spy()}
+      const childrenHandlers = {onClick: sinon.spy()}
+      const props = {
+        ...injectorHandlers,
+        children: [
+          <span key="1" {...childrenHandlers}>
+            {text}
+          </span>
+        ]
+      }
+
+      // When
+      const {getByText} = setup(props)
+      const element = getByText(text)
+      userEvents.click(element)
+
+      // Then
+      Object.entries({
+        ...injectorHandlers,
+        ...childrenHandlers
+      }).forEach(([styleKey]) => {
+        sinon.assert.called(injectorHandlers[styleKey])
+        sinon.assert.called(childrenHandlers[styleKey])
+      })
+    })
+  })
 })

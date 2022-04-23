@@ -1,64 +1,32 @@
-import {
-  Children as ReactChildren,
-  isValidElement,
-  cloneElement,
-  useMemo
-} from 'react'
 import PropTypes from 'prop-types'
 
 import {
+  inject,
   combineHandler,
   combineHandlers,
   combineStyles,
-  combineClassNames
+  combineClassNames,
+  combineProps
 } from './settings.js'
 
-const PrimitiveInjector = ({
-  children,
-  combineProps = (
-    {className: ownClassNames, style: ownStyle = {}, ...ownProps} = {},
-    {className: childClassNames, style: childStyle = {}, ...childProps} = {},
-    {combineHandlers, combineStyles, combineClassNames}
-  ) => {
-    const combinedHandlers = combineHandlers(ownProps, childProps)
-    const style = useMemo(() => combineStyles(ownStyle, childStyle), [
-      ownStyle,
-      childStyle
-    ])
-    const className = useMemo(
-      () => combineClassNames(childClassNames, ownClassNames),
-      [childClassNames, ownClassNames]
-    )
-    return {
-      ...(className && {className}),
-      ...(style && {style}),
-      ...ownProps,
-      ...childProps,
-      ...combinedHandlers
-    }
-  },
-  ...props
-}) => {
-  return ReactChildren.toArray(children).map((child, index) =>
-    isValidElement(child)
-      ? cloneElement(
-          child,
-          combineProps(props, child?.props, {
-            combineHandler,
-            combineHandlers,
-            combineStyles,
-            combineClassNames
-          })
-        )
-      : child
-  )
+const PrimitiveInjector = ({children, combineProps, ...props}) => {
+  return inject(props, children, combineProps)
 }
 
 PrimitiveInjector.displayName = 'PrimitiveInjector'
 
 PrimitiveInjector.propTypes = {
   children: PropTypes.node,
-  mergeProps: PropTypes.func
+  combineProps: PropTypes.func
 }
 
 export default PrimitiveInjector
+
+export {
+  inject,
+  combineHandler,
+  combineHandlers,
+  combineStyles,
+  combineClassNames,
+  combineProps
+}

@@ -1,1 +1,1 @@
-export const demoBaseClassName = 'PrimitiveInjectorDemo';
+export const demoBaseClassName = 'PrimitiveInjectorDemo'

@@ -9,7 +9,7 @@ const ArticleHandlers = ({className}) => {
   const onHandler =
     (eventName, elementName) =>
     (...args) =>
-      console.log(eventName, elementName, ...args)
+      console.log(eventName, elementName, ...args) // eslint-disable-line no-console
   return (
     <Article className={className}>
       <H2>Handlers</H2>

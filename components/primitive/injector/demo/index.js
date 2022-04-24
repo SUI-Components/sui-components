@@ -6,6 +6,7 @@ import ArticleStyles from './article/ArticleStyles.js'
 import ArticleProps from './article/ArticleProps.js'
 import ArticleHandlers from './article/ArticleHandlers.js'
 import ArticleFragment from './article/ArticleFragment.js'
+import ArticleProviso from './article/ArticleProviso.js'
 
 import {demoBaseClassName} from './settings.js'
 
@@ -29,5 +30,7 @@ export default () => (
     <ArticleHandlers className={demoBaseClassName} />
     <br />
     <ArticleFragment className={demoBaseClassName} />
+    <br />
+    <ArticleProviso className={demoBaseClassName} />
   </div>
 )

@@ -26,7 +26,7 @@ describe(json.name, () => {
     const libraryExportedMembers = ['default']
 
     // When
-    const {default: AtomPolymorphicElement, ...others} = library
+    const {default: PolymorphicElement, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)

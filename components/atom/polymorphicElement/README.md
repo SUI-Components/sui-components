@@ -2,6 +2,8 @@
 
 > Render a basic polymorphic element capable of rendering a specified html tag or component when passed as a property.
 
+This package is no-longer maintained. Please use `@s-ui/react-primitive-polymorphic-element`
+
 ## Installation
 
 ```sh
@@ -15,16 +17,16 @@ $ npm install @s-ui/react-atom-polymorphic-element
 #### Import package and use the component
 
 ```js
-import PolymorphicElement from '@s-ui/react-atom-polymorphic-element'
+import PolymorphicElement from 'components/atom/polymorphicElement/lib/index.js'
 
-function Component () {}
+function Component() {}
 
 return (
-  <>
-    <PolymorphicElement as="div" />
-    <PolymorphicElement as="h1" />
-    <PolymorphicElement as={Component} />
-  </>
+<>
+  <PolymorphicElement as="div"/>
+  <PolymorphicElement as="h1"/>
+  <PolymorphicElement as={Component}/>
+</>
 )
 ```
 

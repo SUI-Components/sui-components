@@ -1,4 +1,4 @@
-import PolymorphicElement from 'components/atom/polymorphicElement/src'
+import PolymorphicElement from 'components/primitive/polymorphicElement/src'
 
 import {H1, H2, Paragraph, Article, Code} from '@s-ui/documentation-library'
 
@@ -14,7 +14,12 @@ function Demo() {
         PolymorphicElement is an element capable of rendering a specified html
         tag or component when passed with the <Code>as</Code> property.
       </Paragraph>
-      <Article className="DemoAtomPolymorphicElement">
+      <Paragraph>
+        This package has been moved from atom to primitive and is no longer
+        maintained. Please install{' '}
+        <Code>@s-ui/react-primitive-polymorphic-element</Code>
+      </Paragraph>
+      <Article className="DemoPrimitivePolymorphicElement">
         <H2>Default</H2>
         <Paragraph>
           By default, the component assigns an span as a default tag element

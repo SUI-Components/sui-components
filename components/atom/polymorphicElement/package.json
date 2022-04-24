@@ -4,9 +4,9 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "prepare": "rimraf ./lib && npm run build:js && npm run build:styles",
-    "build:js": "babel --presets sui ./src --out-dir ./lib",
-    "build:styles": "cpx './src/**/*.scss' ./lib"
+    "prepare": "rimraf lib && npm run build:js && npm run build:styles",
+    "build:js": "babel --presets sui src --out-dir ./lib",
+    "build:styles": "cpx './src/**/*.scss' lib"
   },
   "peerDependencies": {
     "@s-ui/theme": "8"
@@ -17,5 +17,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@s-ui/react-primitive-polymorphic-element": "1"
+  }
 }

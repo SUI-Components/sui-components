@@ -1,6 +1,6 @@
 {
-  "name": "@s-ui/react-atom-polymorphic-element-demo",
+  "name": "@s-ui/react-primitive-polymorphic-element-demo",
   "version": "1.0.0",
   "private": true,
-  "description": "Demo for @s-ui/react-atom-polymorphic-element"
+  "description": "Demo for @s-ui/react-primitive-polymorphic-element"
 }

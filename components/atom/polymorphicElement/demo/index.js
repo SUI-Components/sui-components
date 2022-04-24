@@ -1,6 +1,6 @@
-import PolymorphicElement from 'components/primitive/polymorphicElement/src'
-
 import {H1, H2, Paragraph, Article, Code} from '@s-ui/documentation-library'
+
+import PolymorphicElement from '../src/index.js'
 
 function StrongText(props) {
   return <span style={{fontWeight: 700}} {...props} />

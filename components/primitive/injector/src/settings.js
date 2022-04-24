@@ -1,6 +1,7 @@
 import {Children, isValidElement, cloneElement} from 'react'
 import {isFragment} from 'react-is'
 import cx from 'classnames'
+import PrimitiveInjector from './index.js'
 
 const isUpperCaseChar = char => char.length === 1 && char === char.toUpperCase()
 const isFunction = handler => typeof handler === 'function'
@@ -12,13 +13,17 @@ export const combineHandler =
   (...args) =>
     handlers.filter(isFunction).forEach(handler => handler(...args))
 
-export const combineHandlers = (ownProps, childProps) =>
+export const combineHandlers = (
+  ownProps,
+  childProps,
+  cHandler = combineHandler
+) =>
   Object.keys({...ownProps, ...childProps})
     .filter(isHandler)
     .reduce(
       (response, currentKey, index, combinedKeys) => ({
         ...response,
-        [currentKey]: combineHandler(
+        [currentKey]: cHandler(
           ...[ownProps[currentKey], childProps[currentKey]].filter(isFunction)
         )
       }),
@@ -40,11 +45,21 @@ export const combineClassNames = (...classNames) => cx(...classNames)
 export const combineProps = (
   {className: ownClassNames, style: ownStyle = {}, ...ownProps},
   {className: childClassNames, style: childStyle = {}, ...childProps},
-  {combineHandlers, combineStyles, combineClassNames}
+  {
+    combineHandlers: cHandlers,
+    combineStyles: cStyles,
+    combineClassNames: cClassNames,
+    combineHandler: cHandler
+  } = {
+    combineHandler,
+    combineHandlers,
+    combineStyles,
+    combineClassNames
+  }
 ) => {
-  const combinedHandlers = combineHandlers(ownProps, childProps)
-  const style = combineStyles(ownStyle, childStyle)
-  const className = combineClassNames(childClassNames, ownClassNames)
+  const combinedHandlers = cHandlers(ownProps, childProps, cHandler)
+  const style = cStyles(ownStyle, childStyle)
+  const className = cClassNames(childClassNames, ownClassNames)
   return {
     ...(className && {className}),
     ...(style && {style}),
@@ -54,25 +69,40 @@ export const combineProps = (
   }
 }
 
-export const inject = (props, children, combinePropsFn = combineProps) =>
-  Children.toArray(children).map((child, index) => {
-    if (isFragment(child)) {
+export const inject = (children, settings = []) =>
+  Children.toArray(children).map(child => {
+    if (!isValidElement(child)) {
+      return child
+    } else if (isFragment(child)) {
       return cloneElement(
         child,
         child?.props,
-        inject(props, child?.props.children, combinePropsFn)
+        inject(child?.props.children, settings)
       )
+    } else if (child?.type === PrimitiveInjector) {
+      const {
+        proviso = () => true,
+        combine = combineProps,
+        children,
+        ...otherProps
+      } = child?.props || {}
+      return inject(children, [
+        {proviso, combine, props: otherProps},
+        ...settings
+      ])
     } else {
-      return isValidElement(child)
-        ? cloneElement(
-            child,
-            combinePropsFn(props, child?.props, {
+      return cloneElement(
+        child,
+        settings
+          .filter(({proviso}) => proviso(child))
+          .reduce((acc, {props, combine}) => {
+            return combine(props, acc, {
               combineHandler,
               combineHandlers,
               combineStyles,
               combineClassNames
             })
-          )
-        : child
+          }, child?.props)
+      )
     }
   })

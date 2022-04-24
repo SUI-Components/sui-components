@@ -154,6 +154,33 @@ describe(json.name, () => {
         }
       })
     })
+
+    it('given a children Injector it keeps the proviso-combine-props settings relation to its children', () => {
+      // Given
+      const Injector = pkg.default
+      const text = 'text'
+      const injectedProps = {
+        value: 3
+      }
+      const deepInjectedProps = {
+        value: 4
+      }
+      const props = {
+        ...injectedProps,
+        children: (
+          <Injector {...deepInjectedProps}>
+            <input placeholder={text} onChange={() => null} />
+          </Injector>
+        )
+      }
+
+      // When
+      const {getByPlaceholderText} = setup(props)
+      const textElement = getByPlaceholderText(text)
+
+      // Then
+      expect(textElement.value).to.equal(deepInjectedProps.value.toString())
+    })
   })
 
   describe('classnames', () => {

@@ -47,6 +47,8 @@ The package also provides the default injector behavior as an equivalent functio
 ```js
 import {inject} from '@s-ui/react-primitive-injector'
 
+// inject(children<React.Node/>, settings<Array>{props, combine, proviso}</Array)
+
 const Component = ({
   children,
   className = 'injectorClassName',
@@ -54,14 +56,14 @@ const Component = ({
   ignoredProp = false
 }) => {
   return inject(
-    {className, injectedProp, ignoredProp},
     <>
       <Children className="childrenClassName" ignoredProp keptProp />
       <>
         <Children className="fragmentChildrenClassName" ignoredProp keptProp />
       </>
       {children}
-    </>
+    </>,
+    [{props: {className, injectedProp, ignoredProp}}]
   )
 }
 ```

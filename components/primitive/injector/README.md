@@ -33,9 +33,9 @@ const Component = ({
       ignoredProp={ignoredProp}
     >
       <Children className="childrenClassName" ignoredProp keptProp />
-      <>
+      <Fragment>
         <Children className="fragmentChildrenClassName" ignoredProp keptProp />
-      </>
+      </Fragment>
       {children}
     </Injector>
   )

@@ -42,9 +42,11 @@ $base-class: '.sui-AtomSwitch';
   &-singleType {
     .sui-AtomLabel {
       margin-right: $m-l;
+      text-align: right;
     }
     #{$base-class}-inputContainer + .sui-AtomLabel {
       margin-left: $m-l;
+      text-align: left;
     }
   }
 
@@ -56,10 +58,12 @@ $base-class: '.sui-AtomSwitch';
 
     &#{$base-class}-right {
       padding-left: $p-m;
+      text-align: left;
     }
 
     &#{$base-class}-left {
       padding-right: $p-m;
+      text-align: right;
     }
 
     &[aria-disabled='true'] {

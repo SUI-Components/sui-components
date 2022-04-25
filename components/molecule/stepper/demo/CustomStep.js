@@ -34,8 +34,6 @@ const CustomStep = ({
 CustomStep.displayName = 'CustomStep'
 
 CustomStep.propTypes = {
-  /** inner content **/
-  children: PropTypes.node,
   /** element orientation **/
   alignment: PropTypes.oneOf(Object.values(ALIGNMENT)),
   /** different look and feels **/
@@ -55,9 +53,7 @@ CustomStep.propTypes = {
   /** react-node icon passed to all inner visited steps **/
   visitedIcon: PropTypes.node,
   /** react-node icon passed to inner current steps **/
-  currentIcon: PropTypes.node,
-  /** change handler to get the step fired **/
-  onClick: PropTypes.func
+  currentIcon: PropTypes.node
 }
 
 export default CustomStep

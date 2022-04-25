@@ -42,9 +42,11 @@ $base-class: '.sui-AtomSwitch';
   &-singleType {
     .sui-AtomLabel {
       margin-right: $m-l;
+      text-align: right;
     }
     #{$base-class}-inputContainer + .sui-AtomLabel {
       margin-left: $m-l;
+      text-align: left;
     }
   }
 
@@ -56,10 +58,12 @@ $base-class: '.sui-AtomSwitch';
 
     &#{$base-class}-right {
       padding-left: $p-m;
+      text-align: left;
     }
 
     &#{$base-class}-left {
       padding-right: $p-m;
+      text-align: right;
     }
 
     &[aria-disabled='true'] {
@@ -72,14 +76,15 @@ $base-class: '.sui-AtomSwitch';
     background-color: $c-atom-switch--default;
     border: $bd-atom-switch-default;
     border-radius: $w-atom-switch-default * 0.5;
+    box-sizing: border-box;
     cursor: pointer;
     height: $h-atom-switch-default;
-    width: $w-atom-switch-default;
-    transition: margin-left $atom-switch-transition-time ease-in-out;
-    padding: 0;
-    box-sizing: border-box;
-    position: relative;
+    min-width: $w-atom-switch-default;
     outline: none;
+    padding: 0;
+    position: relative;
+    transition: margin-left $atom-switch-transition-time ease-in-out;
+    width: $w-atom-switch-default;
 
     &:focus {
       #{$base-class}-circle {
@@ -198,6 +203,7 @@ $base-class: '.sui-AtomSwitch';
 
         #{$base-class}-inputContainer {
           height: $h-atom-switch-input-container-small;
+          min-width: $w-atom-switch-small;
           width: $w-atom-switch-small;
 
           #{$base-class}-circle {
@@ -227,6 +233,7 @@ $base-class: '.sui-AtomSwitch';
 
         #{$base-class}-inputContainer {
           height: $h-atom-switch-input-container-large;
+          min-width: $w-atom-switch-large;
           width: $w-atom-switch-large;
 
           #{$base-class}-circle {

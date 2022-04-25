@@ -199,6 +199,7 @@ $base-class: '.sui-AtomSwitch';
 
         #{$base-class}-inputContainer {
           height: $h-atom-switch-input-container-small;
+          min-width: $w-atom-switch-small;
           width: $w-atom-switch-small;
 
           #{$base-class}-circle {
@@ -228,6 +229,7 @@ $base-class: '.sui-AtomSwitch';
 
         #{$base-class}-inputContainer {
           height: $h-atom-switch-input-container-large;
+          min-width: $w-atom-switch-large;
           width: $w-atom-switch-large;
 
           #{$base-class}-circle {

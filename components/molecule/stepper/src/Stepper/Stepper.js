@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types'
 
+import Injector from '@s-ui/react-primitive-injector'
+
 import {naturalNumber} from '../prop-types.js'
 
 import Step from '../Step/Step.js'
 import {useStepsContext} from '../context/index.js'
-import Children from '../Children.js'
 
 const Stepper = ({
   children,
@@ -23,7 +24,7 @@ const Stepper = ({
   } = useStepsContext()
   if (children)
     return (
-      <Children
+      <Injector
         steps={stepsNumber}
         step={currentStep}
         labels={labels}
@@ -36,7 +37,7 @@ const Stepper = ({
         onChange={onChange}
       >
         {children}
-      </Children>
+      </Injector>
     )
   else if (stepsNumber === undefined) return null
 

@@ -19,4 +19,4 @@
 <a href="https://github.com/SUI-Components/sui-components/tree/master/contributor-docs" target="_blank">Contributor</a>
 
 ## Coverage
-<a href="_coverage/index.html" target="_blank">Contributor</a>
+<a href="coverage/index.html" target="_blank">Contributor</a>

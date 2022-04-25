@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 1.4.0 (2022-04-25)
+
+
+### Bug Fixes
+
+* **components/atom/polymorphicElement:** remove extension ([a320c2e](https://github.com/SUI-Components/sui-components/commit/a320c2e107857d848fe772bcf2c0369fdc28a1ee))
+
+
+### Reverts
+
+* Revert "chore(Root): remove renamed package" ([986073e](https://github.com/SUI-Components/sui-components/commit/986073e7ca79c28ec0c450d13a7419caa257644f))
+
+
+
 # 1.3.0 (2022-04-25)
 
 

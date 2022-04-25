@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs/index.js'
-import Poly from '@s-ui/react-atom-polymorphic-element'
+import Poly from '@s-ui/react-primitive-polymorphic-element'
+import Injector from '@s-ui/react-primitive-injector'
 
 import {naturalNumber} from '../prop-types.js'
 import {BASE_CLASS_STEP} from './settings.js'
 import DefaultStep from './DefaultStep.js'
-import Children from '../Children.js'
 import {useStepsContext} from '../context/index.js'
 
 const Step = forwardRef(
@@ -74,7 +74,7 @@ const Step = forwardRef(
           )}
           onClick={onClickHandler}
         >
-          <Children
+          <Injector
             alignment={alignment}
             design={design}
             label={label}
@@ -87,7 +87,7 @@ const Step = forwardRef(
             currentIcon={currentIcon || currentIconContext}
           >
             {children}
-          </Children>
+          </Injector>
         </Poly>
         {hasConnector && steps !== step - 1 && (
           <Poly

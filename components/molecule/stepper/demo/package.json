@@ -5,8 +5,9 @@
   "description": "Demo for sui-molecule-stepper",
   "dependencies": {
     "@s-ui/react-atom-icon": "1",
-    "@s-ui/react-atom-polymorphic-element": "1",
     "@s-ui/react-hooks": "1",
+    "@s-ui/react-primitive-polymorphic-element": "1",
+    "@s-ui/react-primitive-injector": "1.1.0",
     "lorem-ipsum": "2.0.4"
   }
 }

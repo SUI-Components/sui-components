@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs/index.js'
-import Poly from '@s-ui/react-atom-polymorphic-element'
+import Poly from '@s-ui/react-primitive-polymorphic-element'
 
 import {naturalNumber} from './prop-types.js'
 import {BASE_CLASS, JUSTIFY_CONTENT, ALIGNMENT, DESIGN} from './settings.js'

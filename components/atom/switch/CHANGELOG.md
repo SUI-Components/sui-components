@@ -1,5 +1,29 @@
 # CHANGELOG
 
+# 1.26.0 (2022-04-25)
+
+
+### Bug Fixes
+
+* **components/atom/switch:** fix min-width input container atom switch ([bbb11d6](https://github.com/SUI-Components/sui-components/commit/bbb11d662824bb5689e35cd23f6938927e439be3))
+* **components/atom/switch:** text-aligns ([54bb757](https://github.com/SUI-Components/sui-components/commit/54bb7573662683fdbc0b621bbadfb61ba122797b))
+
+
+### Features
+
+* **components/atom/switch:** add large and small size ([1357534](https://github.com/SUI-Components/sui-components/commit/1357534bdb58cf0bc0e4ba74a54c7e6d9280b890))
+
+
+
+# 1.3.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/atom/switch/demo:** resolve linting errors ([ecb03b7](https://github.com/SUI-Components/sui-components/commit/ecb03b7a48329ad5b0175a33e3fc71ebfe74827d))
+
+
+
 # 1.25.0 (2022-04-01)
 
 

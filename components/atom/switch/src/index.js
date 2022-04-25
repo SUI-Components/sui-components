@@ -3,65 +3,30 @@ import PropTypes from 'prop-types'
 
 import {ToggleSwitchTypeRender} from './SwitchType/toggle.js'
 import {SingleSwitchTypeRender} from './SwitchType/single.js'
-import {LABELS, SIZES, SUPPORTED_KEYS, TYPES} from './config.js'
+import {LABELS, SIZES, TYPES} from './config.js'
 
 const AtomSwitch = forwardRef((props, ref) => {
-  const {initialValue, disabled, onToggle: onToggleCallback, type} = props
+  const {initialValue, onToggle: onToggleCallback, type, value} = props
   const [isToggle, setIsToggle] = useState(initialValue)
-  const [isFocus, setIsFocus] = useState(false)
-  const [isClick, setIsClick] = useState(false)
+  const isChecked = value !== undefined ? value : isToggle
 
-  const onBlur = ev => {
-    const {onBlur} = props
-    setIsFocus(false)
-    setIsClick(false)
-    typeof onBlur === 'function' && onBlur(ev)
-  }
-
-  const onFocus = ev => {
-    const {onFocus} = props
-    setTimeout(() => {
-      setIsFocus(true)
-      typeof onFocus === 'function' && onFocus(ev)
-    }, 150)
-  }
-
-  const onClick = () => {
-    setIsClick(true)
-  }
-
-  const onToggle = forceValue => {
-    if (disabled === true) return
-    const newIsToggle = forceValue !== undefined ? forceValue : !isToggle
-    setIsToggle(newIsToggle)
-    typeof onToggleCallback === 'function' && onToggleCallback(newIsToggle)
-  }
-
-  const onKeyDown = ev => {
-    if (disabled === true) return
-
-    if (SUPPORTED_KEYS.includes(ev.key)) {
-      if (props.value === undefined) {
-        // if its uncontrolled component
-        onToggle()
-      }
-      if (typeof onToggleCallback === 'function') {
-        onToggleCallback()
-      }
-      ev.preventDefault()
+  const onToggle = forcedValue => event => {
+    let newIsToggle = forcedValue !== undefined ? forcedValue : !isToggle
+    if (props.value === undefined) {
+      // if its uncontrolled component
+      setIsToggle(newIsToggle)
+    } else {
+      newIsToggle = !props.value
     }
+    typeof onToggleCallback === 'function' && onToggleCallback(newIsToggle)
   }
 
   const commonProps = {
     ...props,
-    isFocus,
-    isClick,
     isToggle,
-    onBlur,
-    onClick,
-    onFocus,
-    onKeyDown,
-    onToggle
+    isChecked,
+    onToggle,
+    value
   }
 
   return type === TYPES.SINGLE ? (
@@ -114,7 +79,11 @@ AtomSwitch.propTypes = {
   onBlur: PropTypes.func,
 
   /** Whether switch is checked. Controlled state component. Don't combine with initialValue prop! */
-  value: PropTypes.bool
+  value: PropTypes.bool,
+  /** element node which appears inside the switch circle when it's in left position **/
+  iconLeft: PropTypes.node,
+  /** element node which appears inside the switch circle when it's in right position **/
+  iconRight: PropTypes.node
 }
 
 AtomSwitch.defaultProps = {

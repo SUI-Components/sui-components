@@ -1,0 +1,44 @@
+$base-class: '.sui-MoleculeStepper';
+
+#{$base-class} {
+  box-sizing: content-box;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  &--alignment {
+    &-vertical {
+      flex-direction: column;
+      height: $w-stepper;
+    }
+    &-horizontal {
+      flex-direction: row;
+      width: $w-stepper;
+    }
+  }
+  &--justifyContent {
+    @each $jc-key, $jc-value in $jc-molecule-stepper {
+      &-#{$jc-key} {
+        justify-content: $jc-value;
+      }
+    }
+  }
+  &--design {
+    &-default {
+      // do your magic
+    }
+    &-compressed {
+      &#{$base-class}--alignment {
+        &-vertical {
+          row-gap: $sz-base;
+        }
+        &-horizontal {
+          position: relative;
+          gap: $sz-base;
+        }
+      }
+    }
+  }
+}

@@ -1,11 +1,13 @@
 export const BASE_CLASS = `sui-MoleculeProgressSteps`
 
-export const CLASS_STEPS = `${BASE_CLASS}-path`
 export const CLASS_CONTENT = `${BASE_CLASS}-content`
-export const CLASS_COMPRESSED_INFO = `${BASE_CLASS}-compressedInfo`
+export const CONTENT_STYLE = {
+  FIXED: `${CLASS_CONTENT}--fixed`,
+  FLUID: `${CLASS_CONTENT}--fluid`
+}
 
-export const CLASS_VERTICAL = `${BASE_CLASS}--vertical`
 export const CLASS_COMPRESSED = `${BASE_CLASS}--compressed`
+export const CLASS_VERTICAL = `${BASE_CLASS}--vertical`
 
 export const PROGRESS_BAR_JUSTIFY_CONTENT = {
   /** inner-bars are going to be growing for getting 100% of the width **/

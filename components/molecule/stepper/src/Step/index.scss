@@ -1,0 +1,194 @@
+@use 'sass:math';
+
+$base-class-step: #{$base-class}Step;
+
+#{$base-class-step} {
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  + #{$base-class-step}Connector {
+    list-style: none;
+  }
+  #{$base-class-step}Icon {
+    & > * {
+      color: $c-gray-light;
+    }
+  }
+  #{$base-class-step}Label {
+    color: $c-gray-dark-2;
+  }
+
+  &--design {
+    &-default {
+      #{$base-class-step}Label {
+        width: 100px;
+        display: flex;
+        align-items: center;
+        font-size: $fz-stepper-label;
+      }
+      #{$base-class-step}Icon {
+        width: $sz-stepper-icon;
+        height: $sz-stepper-icon;
+        padding: $p-stepper;
+        font-size: $fz-stepper-icon;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      + #{$base-class-step}Connector {
+        flex-shrink: 0;
+        flex-basis: $sz-stepper;
+        #{$base-class-step}ConnectorLine {
+          border-radius: math.div($bdw-stepper + $h-stepper, 2);
+          background-color: $c-stepper;
+          border-style: solid;
+          border-color: $c-stepper;
+          border-width: $bdw-stepper;
+        }
+        &:last-of-type {
+          display: none;
+        }
+      }
+      &#{$base-class-step}--justifyContent {
+        @each $jc-key, $jc-value in $jc-molecule-stepper {
+          &-#{$jc-key} {
+            @if #{$jc-key} == 'legacy' {
+              flex-grow: 0;
+              + #{$base-class-step}Connector {
+                flex-grow: 1;
+              }
+            }
+          }
+        }
+      }
+      &#{$base-class-step}--alignment {
+        &-vertical {
+          max-height: 6 * $sz-base;
+          #{$base-class-step}Label {
+            text-align: start;
+            justify-content: flex-start;
+          }
+        }
+        &-horizontal {
+          max-width: 6 * $sz-base;
+          #{$base-class-step}Label {
+            text-align: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+    &-compressed {
+      flex-basis: $sz-stepper-compressed;
+      flex-shrink: 0;
+      #{$base-class-step}Icon {
+        background-color: $c-stepper-icon;
+        border-radius: math.div($sz-base, 2);
+      }
+      + #{$base-class-step}Connector {
+        display: none;
+      }
+      &#{$base-class-step}--current {
+        #{$base-class-step}Icon {
+          background-color: $c-stepper-current;
+        }
+      }
+      &#{$base-class-step}--visited {
+        #{$base-class-step}Icon {
+          background-color: $c-stepper-visited;
+        }
+      }
+      &#{$base-class-step}--alignment {
+        &-vertical {
+          width: math.div($w-stepper-label, 2);
+          flex-direction: row-reverse;
+          align-items: flex-end;
+          gap: $sz-base;
+          #{$base-class-step}Icon {
+            width: $sz-base;
+            height: 100%;
+          }
+          #{$base-class-step}Label {
+            transform: rotate(180deg);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            max-height: $w-stepper-label;
+            width: calc(math.div($w-stepper-label, 2) - $sz-base * 2);
+            display: flex;
+            align-items: flex-end;
+          }
+        }
+        &-horizontal {
+          width: math.div($w-stepper-label, 2);
+          flex-direction: column-reverse;
+          align-items: flex-start;
+          gap: $sz-base;
+          #{$base-class-step}Label {
+            height: calc(math.div($w-stepper-label, 2) - $sz-base * 2);
+            max-width: $w-stepper-label;
+            display: flex;
+            align-items: flex-end;
+          }
+          #{$base-class-step}Icon {
+            width: 100%;
+            height: $sz-base;
+          }
+        }
+      }
+      &#{$base-class-step}--justifyContent {
+        @each $jc-key, $jc-value in $jc-molecule-stepper {
+          &-#{$jc-key} {
+            @if #{$jc-key} == 'legacy' {
+              flex-grow: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &--alignment {
+    &-vertical {
+      justify-content: flex-start;
+      flex-direction: row;
+      + #{$base-class-step}Connector {
+        #{$base-class-step}ConnectorLine {
+          width: $h-stepper;
+          height: calc(100% - #{2 * ($m-stepper + $bdw-stepper)});
+          margin: $m-stepper 0 $m-stepper 3 * $sz-base;
+        }
+      }
+    }
+    &-horizontal {
+      flex-direction: column;
+      height: 100%;
+      + #{$base-class-step}Connector {
+        height: 100%;
+        #{$base-class-step}ConnectorLine {
+          width: calc(100% - #{2 * ($m-stepper+ $bdw-stepper)});
+          height: $h-stepper;
+          margin: 3 * $sz-base $m-stepper 0 $m-stepper;
+        }
+      }
+    }
+  }
+
+  &--current {
+    color: $c-stepper-current;
+    #{$base-class-step}Icon > * {
+      color: $c-stepper-current;
+    }
+  }
+  &--visited {
+    color: $c-stepper-visited;
+    + #{$base-class-step}Connector #{$base-class-step}ConnectorLine {
+      background-color: $c-stepper-visited;
+      border-color: $c-stepper-visited;
+    }
+    #{$base-class-step}Icon > * {
+      color: $c-stepper-visited;
+    }
+  }
+}

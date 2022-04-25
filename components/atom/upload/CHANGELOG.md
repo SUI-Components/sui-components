@@ -1,5 +1,32 @@
 # CHANGELOG
 
+# 3.8.0 (2022-03-24)
+
+
+### Bug Fixes
+
+* **components/atom/upload:** forward arguments on selection ([ca48d3a](https://github.com/SUI-Components/sui-components/commit/ca48d3a8fb9a34082e008a0f3f1b8653d3b14956))
+
+
+
+# 3.7.0 (2022-03-14)
+
+
+### Bug Fixes
+
+* **components/atom/upload:** fix the HoF handler usage ([208ae66](https://github.com/SUI-Components/sui-components/commit/208ae66d527919789e436ba683baec9517e72321))
+
+
+
+# 3.6.0 (2022-03-11)
+
+
+### Bug Fixes
+
+* **components/atom/upload:** add preview to the handler method ([156b2de](https://github.com/SUI-Components/sui-components/commit/156b2de9a9108d378d51aab753c30b0955584ecb)), closes [#2056](https://github.com/SUI-Components/sui-components/issues/2056)
+
+
+
 # 3.5.0 (2022-01-20)
 
 

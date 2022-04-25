@@ -26,6 +26,7 @@ describe(json.name, () => {
     const libraryExportedMembers = [
       'atomProgressBarTypes',
       'atomProgressBarSizes',
+      'atomProgressBarStatus',
       'default'
     ]
 
@@ -33,6 +34,7 @@ describe(json.name, () => {
     const {
       atomProgressBarTypes,
       atomProgressBarSizes,
+      atomProgressBarStatus,
       default: AtomProgressBar,
       ...others
     } = library
@@ -151,12 +153,48 @@ describe(json.name, () => {
       const library = pkg
       const expected = {
         LARGE: 'large',
+        MEDIUM: 'medium',
         SMALL: 'small'
       }
 
       // When
       const {atomProgressBarSizes: actual} = library
-      const {LARGE, SMALL, ...others} = actual
+      const {LARGE, MEDIUM, SMALL, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('atomProgressBarStatus', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomProgressBarStatus: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        LOADING: 'loading',
+        PROGRESS: 'progress',
+        ERROR: 'error'
+      }
+
+      // When
+      const {atomProgressBarStatus: actual} = library
+      const {LOADING, PROGRESS, ERROR, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

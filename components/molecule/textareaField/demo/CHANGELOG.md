@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 1.2.0 (2022-04-13)
+
+
+### Bug Fixes
+
+* **components/molecule/textareaField/demo:** resolve linting errors ([119fb12](https://github.com/SUI-Components/sui-components/commit/119fb12ccd3bb898e36b9bfed4997e583085e0b5))
+
+
+### Features
+
+* **components/atom/slider:** fix rc-slider update integration ([86960b8](https://github.com/SUI-Components/sui-components/commit/86960b86294a3a7726d5ff70c25b8ead54b7c0a9))
+
+
+
 # 1.1.0 (2021-12-02)
 
 

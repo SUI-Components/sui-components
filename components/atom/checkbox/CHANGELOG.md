@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.17.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/atom/checkbox:** resolve linting errors ([0b4d331](https://github.com/SUI-Components/sui-components/commit/0b4d3311706e9cb5b76cdf4717ebfd8edf0775d6))
+
+
+
 # 2.16.0 (2021-10-19)
 
 

@@ -10,6 +10,7 @@ import ArticleCloseIcon from './ArticleCloseIcon.js'
 import ArticleArrow from './ArticleArrow.js'
 import ArticleRef from './ArticleRef.js'
 import ArticleBehavior from './ArticleBehavior.js'
+import ArticleType from './ArticleType.js'
 
 import './index.scss'
 
@@ -19,7 +20,7 @@ const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 const Content = forwardRef((props, forwardedRef) => {
   return (
     <div ref={forwardedRef} style={{width: '200px', padding: '8px'}}>
-      <span>
+      <span {...props}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id mauris
         ornare, imperdiet nunc a, interdum dolor.
       </span>
@@ -57,6 +58,10 @@ const Demo = () => {
         <br />
         <ArticleRef className={CLASS_SECTION} content={Content} />
         <br />
+        <ArticleType
+          className={CLASS_SECTION}
+          content={<Content style={{color: 'white'}} />}
+        />
       </div>
     </div>
   )

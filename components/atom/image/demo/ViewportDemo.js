@@ -5,19 +5,7 @@ import {CLASS_SECTION} from './settings.js'
 
 const ViewportDemo = () => {
   const sizes = [
-    360,
-    540,
-    480,
-    640,
-    720,
-    960,
-    1280,
-    1600,
-    1920,
-    2048,
-    2160,
-    2560,
-    3200
+    360, 540, 480, 640, 720, 960, 1280, 1600, 1920, 2048, 2160, 2560, 3200
   ]
   return (
     <Article className={CLASS_SECTION}>

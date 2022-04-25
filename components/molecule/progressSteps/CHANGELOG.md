@@ -1,5 +1,82 @@
 # CHANGELOG
 
+# 2.8.0 (2022-04-21)
+
+
+### Bug Fixes
+
+* **components/molecule/progressSteps:** fix flex-basis connector progressSteps ([33095d8](https://github.com/SUI-Components/sui-components/commit/33095d89b284e0b21fb356bcd3a51a91dba636cf))
+
+
+
+# 2.7.0 (2022-04-21)
+
+
+### Bug Fixes
+
+* **components/molecule/progressSteps:** hotfix ([07f465b](https://github.com/SUI-Components/sui-components/commit/07f465ba814e9e1340dd3aaaed2c90c38cb816de))
+
+
+
+# 2.6.0 (2022-04-21)
+
+
+### Bug Fixes
+
+* **components/molecule/progressSteps:** add the removed error condition ([d7f65b2](https://github.com/SUI-Components/sui-components/commit/d7f65b23c93d81bcc8b9941a62d9c7b9c9780124))
+* **components/molecule/progressSteps:** conflicts ([f626fd1](https://github.com/SUI-Components/sui-components/commit/f626fd1dd4373341abf502fe5959a622720be402))
+* **components/molecule/progressSteps:** lint ([7862258](https://github.com/SUI-Components/sui-components/commit/786225821f4f01fd266a2f18df93f61d1ea3e567))
+* **components/molecule/stepper:** syles ([54cd932](https://github.com/SUI-Components/sui-components/commit/54cd93283210a88b9961942761c42666559b0998))
+
+
+### Features
+
+* **components/molecule/progressSteps:** add onClick handler ([a66bfb0](https://github.com/SUI-Components/sui-components/commit/a66bfb0acdced2f2d0903ef5e2fce21393e815a3))
+* **components/molecule/progressSteps:** keep ancient element type tags ([4a19579](https://github.com/SUI-Components/sui-components/commit/4a195793317582c7d80eaff45d13422828f67256))
+* **components/molecule/progressSteps:** label width fix ([173c349](https://github.com/SUI-Components/sui-components/commit/173c34985db8483871f2bf46c854bc1fe300fa9d))
+* **components/molecule/progressSteps:** refactor use stepper ([716ac3a](https://github.com/SUI-Components/sui-components/commit/716ac3a79aeca63431a2874fd5316f23a6f7b9f3))
+* **components/molecule/progressSteps:** refactor use stepper ([6e67423](https://github.com/SUI-Components/sui-components/commit/6e674230474ff3fa3b818f6b47ae33cc2927a2d2))
+* **components/molecule/stepper:** tokenizer ([9ca0589](https://github.com/SUI-Components/sui-components/commit/9ca0589b099824e9c085b43f540b3288941a6dd0))
+
+
+
+# 2.5.0 (2022-04-13)
+
+
+### Bug Fixes
+
+* **components/molecule/progressSteps:** resolve linting errors ([b396196](https://github.com/SUI-Components/sui-components/commit/b396196a509fa3bcbc8344db6ee4c615f482c506))
+* **components/molecule/progressSteps:** Use correct release version ([44855f7](https://github.com/SUI-Components/sui-components/commit/44855f7fe3a72a105b2d7bff68998f26bb2cad61))
+
+
+
+# 2.3.0 (2022-03-16)
+
+
+### Features
+
+* **components/molecule/progressSteps:** center progress steps icon ([4573d91](https://github.com/SUI-Components/sui-components/commit/4573d915b7d7934a058b01c65db5bf326c1ed0c1))
+
+
+
+# 2.2.0 (2022-03-14)
+
+
+### Bug Fixes
+
+* **components/molecule/progressSteps:** add styles to allows a visible overflow in fluid container ([#2069](https://github.com/SUI-Components/sui-components/issues/2069)) ([577c371](https://github.com/SUI-Components/sui-components/commit/577c3711935ec521412ed76883d0ed617846fffe))
+
+
+
+# 2.1.0 (2022-03-09)
+
+
+### Features
+
+* **components/molecule/progressSteps:** add content type ([#2042](https://github.com/SUI-Components/sui-components/issues/2042)) ([fe05ed8](https://github.com/SUI-Components/sui-components/commit/fe05ed8428203cf9ca7674b9bfbcdc1880910afe))
+
+
+
 # 2.0.0 (2021-12-13)
 
 

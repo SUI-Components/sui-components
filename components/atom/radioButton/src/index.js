@@ -14,8 +14,8 @@ const AtomRadioButton = ({
 }) => {
   const handleChange = ev => {
     if (!disabled) {
-      const {name, value} = ev.target
-      typeof onChange === 'function' && onChange(ev, {name, value})
+      const {name, value, checked} = ev.target
+      typeof onChange === 'function' && onChange(ev, {name, value, checked})
     }
   }
 

@@ -169,4 +169,4 @@ MoleculeInputTags.defaultProps = {
 }
 
 export default MoleculeInputTags
-export {inputSizes}
+export {inputSizes, inputSizes as moleculeInputTagsInputSizes}

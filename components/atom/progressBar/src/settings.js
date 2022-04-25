@@ -7,6 +7,13 @@ export const TYPES = {
 }
 
 export const SIZES = {
-  LARGE: 'large',
-  SMALL: 'small'
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large'
+}
+
+export const STATUS = {
+  LOADING: 'loading',
+  PROGRESS: 'progress',
+  ERROR: 'error'
 }

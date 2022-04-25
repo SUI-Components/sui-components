@@ -137,14 +137,13 @@ $skeleton-class: '#{$base-class}-skeleton';
   box-shadow: $bxsh-photo-uploader-thumb-card;
   cursor: grab;
   display: inline-block;
-  overflow: hidden;
 
   &Card {
     background: $bg-photo-uploader-thumb-card;
     display: flex;
     flex-direction: column;
     min-width: 0;
-    overflow: hidden;
+
     position: relative;
     height: 100%;
 

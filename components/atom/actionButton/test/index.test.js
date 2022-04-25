@@ -212,13 +212,8 @@ describe(json.name, () => {
 
       // When
       const {atomActionButtonStyles: actual} = library
-      const {
-        FILLED_NEGATIVE,
-        FILLED_POSITIVE,
-        OUTLINE,
-        FLAT,
-        ...others
-      } = actual
+      const {FILLED_NEGATIVE, FILLED_POSITIVE, OUTLINE, FLAT, ...others} =
+        actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

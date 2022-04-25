@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
 
 import {
+  getClassName,
+  TYPES,
   PLACEMENTS,
   TRIGGERS,
   BASE_CLASS,
@@ -21,14 +23,15 @@ const AtomPopover = forwardRef(
     {
       children,
       closeIcon,
-      content,
+      content: Content,
       onClose,
       onOpen,
       placement = PLACEMENTS.BOTTOM,
       isVisible,
       defaultIsVisible,
       hideArrow = true,
-      trigger = DEFAULT_TRIGGER
+      trigger = DEFAULT_TRIGGER,
+      type
     },
     outRef
   ) => {
@@ -44,9 +47,6 @@ const AtomPopover = forwardRef(
         : typeof onOpen === 'function' && onOpen(ev)
     }
 
-    const ContentComponent =
-      typeof content === 'function' ? content : () => content
-
     return (
       <>
         <PopoverExtendChildren ref={targetRef} onToggle={handleToggle}>
@@ -59,8 +59,11 @@ const AtomPopover = forwardRef(
           target={targetRef}
           className={BASE_CLASS}
           popperClassName="popperClassName"
-          innerClassName={CLASS_INNER}
-          arrowClassName={`${BASE_CLASS}-arrow`}
+          innerClassName={getClassName({defaultClass: CLASS_INNER, type})}
+          arrowClassName={getClassName({
+            defaultClass: `${BASE_CLASS}-arrow`,
+            type
+          })}
           innerRef={outRef}
           hideArrow={hideArrow}
           placementPrefix={PREFIX_PLACEMENT}
@@ -79,8 +82,11 @@ const AtomPopover = forwardRef(
                     {closeIcon}
                   </div>
                 )}
-
-                <ContentComponent update={update} />
+                {typeof Content === 'function' ? (
+                  <Content update={update} />
+                ) : (
+                  Content
+                )}
               </>
             )
           }}
@@ -115,6 +121,11 @@ AtomPopover.propTypes = {
   trigger: PropTypes.oneOfType([
     PropTypes.oneOf(Object.values(TRIGGERS)),
     PropTypes.arrayOf(PropTypes.oneOf(Object.values(TRIGGERS)))
+  ]),
+  /** Determine the type of the popover */
+  type: PropTypes.oneOfType([
+    PropTypes.oneOf(Object.values(TYPES)),
+    PropTypes.string // Can even custom your own type
   ])
 }
 

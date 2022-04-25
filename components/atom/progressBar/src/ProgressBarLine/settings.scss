@@ -21,3 +21,13 @@ $c-progress-extra-bar-fill: $c-primary-dark-3 !default;
 
 $trsdu-progress-exrta-bar: 500ms !default;
 // this component uses $bdrs for border radius
+
+$c-atom-line-progress-bar-status--progress: $c-primary !default;
+$c-atom-line-progress-bar-status--error: $c-alert !default;
+$c-atom-line-progress-bar-status--loading: $c-gray-lightest !default;
+
+$size-atom-line-progress-bar: (
+  small: $sz-base * 0.5,
+  medium: $sz-base,
+  large: $sz-base * 2
+);

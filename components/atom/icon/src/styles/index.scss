@@ -1,6 +1,8 @@
 $base-class: '.sui-AtomIcon';
 
 #{$base-class} {
+  display: inherit;
+
   // Colors
   @each $key, $value in $atom-icon-colors {
     &#{$base-class}--#{$key} svg {

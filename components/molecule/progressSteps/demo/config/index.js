@@ -32,12 +32,12 @@ export const configWithIcons = {
     label: 'Selección de Productos',
     content: <Content1 />,
     icon: (
-      <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>
+      <AtomIcon size={ATOM_ICON_SIZES.large}>
         <AntDesignIcon icon="AiFillApi" style={{color: 'currentColor'}} />
       </AtomIcon>
     ),
     iconActive: (
-      <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>
+      <AtomIcon size={ATOM_ICON_SIZES.large}>
         <AntDesignIcon icon="AiFillStar" style={{color: 'currentColor'}} />
       </AtomIcon>
     ),
@@ -47,12 +47,12 @@ export const configWithIcons = {
     label: 'Tu pago seguro',
     content: <Content2 />,
     icon: (
-      <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>
+      <AtomIcon size={ATOM_ICON_SIZES.large}>
         <AntDesignIcon icon="AiFillBug" style={{color: 'currentColor'}} />
       </AtomIcon>
     ),
     iconActive: (
-      <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>
+      <AtomIcon size={ATOM_ICON_SIZES.large}>
         <AntDesignIcon icon="AiFillStar" style={{color: 'currentColor'}} />
       </AtomIcon>
     ),
@@ -62,12 +62,12 @@ export const configWithIcons = {
     label: 'Resumen de tu compra',
     content: <Content3 />,
     icon: (
-      <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>
+      <AtomIcon size={ATOM_ICON_SIZES.large}>
         <AntDesignIcon icon="AiFillFire" style={{color: 'currentColor'}} />
       </AtomIcon>
     ),
     iconActive: (
-      <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>
+      <AtomIcon size={ATOM_ICON_SIZES.large}>
         <AntDesignIcon icon="AiFillStar" style={{color: 'currentColor'}} />
       </AtomIcon>
     ),
@@ -77,12 +77,12 @@ export const configWithIcons = {
     label: 'Valoración del proceso',
     content: <Content4 />,
     icon: (
-      <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>
+      <AtomIcon size={ATOM_ICON_SIZES.large}>
         <AntDesignIcon icon="AiFillTrophy" style={{color: 'currentColor'}} />
       </AtomIcon>
     ),
     iconActive: (
-      <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>
+      <AtomIcon size={ATOM_ICON_SIZES.large}>
         <AntDesignIcon icon="AiFillStar" style={{color: 'currentColor'}} />
       </AtomIcon>
     ),

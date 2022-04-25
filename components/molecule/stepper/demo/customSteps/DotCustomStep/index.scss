@@ -1,0 +1,21 @@
+@use 'sass:math';
+@import '../../../src/index.scss';
+
+$custom-dot-step-base-class: '.dotCustomStep';
+
+$sz-custom-dot-step: $sz-base * 2;
+
+#{$custom-dot-step-base-class} {
+  height: $sz-custom-dot-step;
+  width: $sz-custom-dot-step;
+  background-color: $c-stepper;
+  box-sizing: content-box;
+  border: math.div($sz-custom-dot-step, 8) solid $c-stepper;
+  border-radius: $sz-custom-dot-step;
+  &#{$custom-dot-step-base-class}--visited {
+    background-color: $c-stepper-visited;
+  }
+  &#{$custom-dot-step-base-class}--current {
+    background-color: $c-stepper-current;
+  }
+}

@@ -1,237 +1,147 @@
 $base-class: '.sui-MoleculeProgressSteps';
+$content-class: '#{$base-class}-content';
+
+$base-class-stepper: '.sui-MoleculeStepper';
+$base-class-stepper-path: '#{$base-class-stepper}Step';
+$base-class-stepper-bar: '#{$base-class-stepper-path}Connector';
 
 #{$base-class} {
-  &-path {
-    align-items: center;
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  #{$base-class-stepper} {
     max-width: $mw-progress-steps-path;
-
-    &-bar {
-      background: $c-progress-steps-bar;
-      border-color: $c-progress-steps-bar;
-      border-radius: 10px;
-      border-style: solid;
-      border-width: $bdw-progress-steps-bar;
-      height: $h-progress-steps-bar;
-      margin: 0;
-      flex-shrink: 1;
-
-      &--visited {
-        background: $c-progress-steps-visited;
-        border-color: $c-progress-steps-visited;
+    #{$base-class-stepper-bar} {
+      flex-basis: $sz-progress-steps-bar;
+      #{$base-class-stepper-bar}Line {
+        background: $c-progress-steps-bar;
+        border-color: $c-progress-steps-bar;
+        border-width: $bdw-progress-steps-bar;
+        height: $h-progress-steps-bar;
+        width: calc(
+          100% - #{2 * ($m-progress-steps-icon + $bdw-progress-steps-bar)}
+        );
+        margin: #{math.div(
+            $sz-progress-steps-icon - $bdw-progress-steps-bar -
+              $h-progress-steps-bar,
+            2
+          ) + $m-progress-steps-icon + $p-progress-steps-icon} $m-progress-steps-icon
+          0 $m-progress-steps-icon;
       }
     }
-    @each $justifyContent in $justify-content-path {
-      &--justifyContent-#{$justifyContent} {
-        @if $justifyContent != 'legacy' {
-          justify-content: $justifyContent;
+    &:not(#{$base-class-stepper}--design-compressed) {
+      #{$base-class-stepper-path} {
+        max-width: $sz-progress-steps-icon + 2 * $p-progress-steps-icon;
+        #{$base-class-stepper-path}Icon {
+          height: $sz-progress-steps-icon;
+          width: $sz-progress-steps-icon;
+          margin: $m-progress-steps-icon;
+          padding: $p-progress-steps-icon;
+          flex-basis: $sz-progress-steps-icon;
         }
-        #{$base-class}-path-bar {
-          flex-basis: $sz-progress-steps-bar;
-          flex-shrink: 0;
-          @if contains((legacy), $justifyContent) {
-            flex-grow: 1;
-          } @else {
-            flex-grow: 0;
+      }
+    }
+    #{$base-class-stepper-path} {
+      color: $c-progress-steps-label;
+      flex-basis: $sz-progress-steps-icon;
+      svg {
+        fill: $c-progress-steps-icon;
+      }
+      #{$base-class-stepper-path}Label {
+        width: $w-progress-steps-description;
+      }
+
+      &#{$base-class-stepper-path}--current,
+      &#{$base-class-stepper-path}--visited {
+        #{$base-class-stepper-path}Icon {
+          color: $c-progress-steps-visited;
+          svg {
+            fill: $c-progress-steps-visited;
+          }
+        }
+        #{$base-class-stepper-path}Label {
+          color: $c-progress-steps-label;
+        }
+      }
+      &#{$base-class-stepper-path}--visited {
+        + #{$base-class-stepper-bar} {
+          #{$base-class-stepper-bar}Line {
+            background: $c-progress-steps-visited;
+            border-color: $c-progress-steps-visited;
+            svg {
+              fill: $c-progress-steps-visited;
+            }
           }
         }
       }
     }
-
-    &-step {
-      align-items: center;
-      color: $c-progress-steps-label;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      flex-basis: $sz-progress-steps-icon;
-      flex-shrink: 0;
-
-      svg,
-      use {
-        fill: $c-progress-steps-icon;
-      }
-
-      &--active,
-      &--visited {
-        color: $c-progress-steps-visited;
-
-        svg,
-        use {
-          fill: $c-progress-steps-visited;
-        }
-      }
-
-      &-number,
-      &-icon {
-        align-items: center;
-        display: flex;
-        height: $sz-progress-steps-icon;
-        margin: $m-progress-steps-icon;
-        padding: 0;
-        width: $sz-progress-steps-icon;
-        flex-basis: $sz-progress-steps-icon;
-        svg {
-          width: 100%;
-        }
-      }
-
-      &-number {
-        align-items: center;
-        display: flex;
-        font-size: $fz-xxl;
-        justify-content: center;
-      }
-
-      &-description {
-        color: $c-progress-steps-label;
-        hyphens: auto;
-        margin-top: 55px;
-        overflow-wrap: break-word;
-        position: absolute;
-        text-align: center;
-        width: $w-progress-steps-description;
-        word-wrap: break-word;
-      }
-    }
   }
 
-  &-compressedInfo {
-    @each $justifyContent in $justify-content-path {
-      &--justifyContent-#{$justifyContent} {
-        @if $justifyContent != 'legacy' {
-          justify-content: $justifyContent;
-        }
-      }
-    }
-  }
-  &-compressedInfo,
-  &-content {
-    overflow: hidden;
+  #{$content-class} {
     display: flex;
+    overflow: hidden;
     &-item {
       margin-right: -100%;
-      visibility: hidden;
       flex-basis: 100%;
       flex-shrink: 0;
       &--active {
         margin-right: 0;
-        visibility: inherit;
       }
     }
-  }
 
-  #{$base-class}-compressedInfo {
-    &-item {
-      &--active {
-        margin-right: 0;
-      }
-    }
-  }
-
-  &--compressed {
-    #{$base-class}-compressedInfo {
-      margin: 0;
-      display: flex;
-      flex-wrap: nowrap;
-      @each $justifyContent in $justify-content-path {
-        &--justifyContent-#{$justifyContent} {
-          @if $justifyContent != 'legacy' {
-            justify-content: $justifyContent;
-          }
+    &--fixed {
+      #{$content-class}-item {
+        visibility: hidden;
+        &--active {
+          visibility: inherit;
         }
       }
     }
 
-    #{$base-class}-path {
-      &-bar {
-        flex-basis: $sz-progress-steps-bar-compressed;
-        margin: 0 $m-progress-steps-bar;
-        &:first-child {
-          margin: 0 $m-progress-steps-bar 0 0;
-        }
-        &:last-child {
-          margin: 0 0 0 $m-progress-steps-bar;
-        }
+    &--fluid {
+      display: inherit;
+      overflow: inherit;
+      #{$content-class}-item {
+        display: none;
 
         &--active {
-          background: $c-progress-steps-active;
-          border-color: $c-progress-steps-active;
-        }
-      }
-
-      &-step {
-        &-description {
-          font-size: $fz-progress-steps-description;
-          left: 0;
-          margin: 0;
-          text-align: left;
+          display: inherit;
         }
       }
     }
   }
 
   &--vertical {
-    display: flex;
     height: 100%;
-
-    &#{$base-class}--compressed {
-      #{$base-class}-compressedInfo {
-        display: flex;
-        flex-direction: column;
-        flex-basis: auto;
-        flex-grow: 1;
-        flex-shrink: 0;
-        &-item {
-          display: inline-flex;
-          justify-content: flex-end;
-          align-content: flex-start;
-          margin-top: -100%;
-          margin-right: 0;
-          &--active {
-            margin-right: 0;
-            margin-top: 0;
-          }
+    flex-direction: row;
+    #{$base-class-stepper} {
+      &:not(#{$base-class-stepper}--design-compressed) {
+        #{$base-class-stepper-path} {
+          max-width: none;
         }
       }
-      #{$base-class}-path {
-        margin: 0 $m-progress-steps-bar;
-      }
-    }
-
-    #{$base-class}-path {
-      flex-direction: column;
-      margin-right: 100px;
-
-      &-step {
-        flex-direction: row;
-        position: relative;
-
-        &-description {
-          left: 45px;
-          margin-top: 0;
-          position: absolute;
-          text-align: left;
+      &#{$base-class-stepper}--design-compressed {
+        #{$base-class-stepper-path}Label {
+          width: calc(
+            math.div($w-progress-steps-description, 2) - $sz-base * 2
+          );
         }
       }
-
-      &-bar {
-        margin: $m-progress-steps-bar 0;
-        &:first-child {
-          margin: 0 0 $m-progress-steps-bar 0;
+      #{$base-class-stepper-bar} {
+        flex-basis: $sz-progress-steps-bar;
+        #{$base-class-stepper-bar}Line {
+          width: $h-progress-steps-bar;
+          border-width: $bdw-progress-steps-bar;
+          height: calc(
+            100% - #{2 * ($m-progress-steps-icon + $bdw-progress-steps-bar)}
+          );
+          margin: $m-progress-steps-icon 0 $m-progress-steps-icon #{math.div(
+              $sz-progress-steps-icon - $bdw-progress-steps-bar -
+                $h-progress-steps-bar,
+              2
+            ) + $m-progress-steps-icon + $p-progress-steps-icon};
         }
-        &:last-child {
-          margin: $m-progress-steps-bar 0 0 0;
-        }
-        transform: translateY(0);
-        width: $h-progress-steps-bar;
-        border-width: $bdw-progress-steps-bar;
-        min-width: 0;
       }
-    }
-
-    #{$base-class}-path-step-icon + #{$base-class}-path-step-description {
-      left: 55px;
     }
   }
 }

@@ -1,20 +1,8 @@
-import {BASE_CLASS} from '../settings.js'
+import {BASE_CLASS, SIZES} from '../settings.js'
 
 export const BASE_CLASS_NAME = `${BASE_CLASS}Circle`
 
 export const INDICATOR_CLASS_NAME = `${BASE_CLASS_NAME}-indicator`
-
-export const SIZES = {
-  LARGE: 'large',
-  MEDIUM: 'medium',
-  SMALL: 'small'
-}
-
-export const STATUS = {
-  LOADING: 'loading',
-  PROGRESS: 'progress',
-  ERROR: 'error'
-}
 
 export const SIZE_TO_WIDTH_LINE_MAP = {
   [SIZES.LARGE]: 4,

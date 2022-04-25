@@ -1,5 +1,47 @@
 # CHANGELOG
 
+# 1.25.0 (2022-04-01)
+
+
+### Bug Fixes
+
+* **components/atom/switch:** allow single switch be accessible by label ([aada0dc](https://github.com/SUI-Components/sui-components/commit/aada0dc456b37c1ca4d18f0d10ab707bab4a5364))
+* **components/atom/switch:** code quality ([2828eaa](https://github.com/SUI-Components/sui-components/commit/2828eaa2c8925553681169f6ca463750c83d9eec))
+* **components/atom/switch:** improve code ([76484b1](https://github.com/SUI-Components/sui-components/commit/76484b1c28efc0f3b256a73cf0c8e1288131a55c))
+
+
+
+# 1.24.0 (2022-03-31)
+
+
+### Bug Fixes
+
+* **components/atom/switch:** prevent form submit when switch is clicked ([ddb135f](https://github.com/SUI-Components/sui-components/commit/ddb135f36f594827202c91f290c3569cbdccba81))
+
+
+
+# 1.23.0 (2022-03-30)
+
+
+### Bug Fixes
+
+* **components/atom/switch:** circle size ([34eb795](https://github.com/SUI-Components/sui-components/commit/34eb7953b72e1e68db807a8407fc4eb1f7e40024))
+* **components/atom/switch:** icons position ([7d2cee0](https://github.com/SUI-Components/sui-components/commit/7d2cee09380119b54b0fd88045f3150236b2c76f))
+
+
+### Features
+
+* **components/atom/switch:** a11y ([0061d60](https://github.com/SUI-Components/sui-components/commit/0061d60d35a522d7f70cea3f213f6c75a8667024))
+* **components/atom/switch:** a11y and icons ([990074d](https://github.com/SUI-Components/sui-components/commit/990074dc0ec09cd7a90dbd48b3b64fe042aad220))
+* **components/atom/switch:** a11y n performance ([03d3af4](https://github.com/SUI-Components/sui-components/commit/03d3af4e56fbf91b888f31a325abbbb10f9a5ed2))
+
+
+### Performance Improvements
+
+* **components/atom/switch:** remove unnecesary inner handlers ([b95671c](https://github.com/SUI-Components/sui-components/commit/b95671c362e6731a15e7a2eba17d81061267e1be))
+
+
+
 # 1.22.0 (2022-01-14)
 
 

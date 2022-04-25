@@ -13,7 +13,7 @@ const AtomCheckbox = ({
   intermediateIcon: IntermediateIcon,
   isNative: isNativeProp = false,
   name,
-  onChange: onChangeFromProps = () => {},
+  onChange: onChangeFromProps,
   status,
   size = CHECKBOX_SIZES.MEDIUM,
   ...props
@@ -34,7 +34,8 @@ const AtomCheckbox = ({
     updateNativeIndeterminate()
 
     const {checked, name} = ev.target
-    if (!disabled) onChangeFromProps(ev, {name, value: checked})
+    if (!disabled && typeof onChangeFromProps === 'function')
+      onChangeFromProps(ev, {name, value: checked})
   }
 
   const className = cx(BASE_CLASS, {
@@ -43,9 +44,8 @@ const AtomCheckbox = ({
     'is-disabled': disabled,
     'is-intermediate': isIntermediate,
     [`${BASE_CLASS}--native`]: isNative,
-    [`${BASE_CLASS}--status-${status}`]: Object.values(
-      CHECKBOX_STATUS
-    ).includes(status)
+    [`${BASE_CLASS}--status-${status}`]:
+      Object.values(CHECKBOX_STATUS).includes(status)
   })
 
   // Keep native indeterminate property updated every render

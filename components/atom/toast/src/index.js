@@ -16,7 +16,7 @@ function AtomToast({
   effect = true,
   globalClose = false,
   iconClose = null,
-  onClose = () => {},
+  onClose,
   position = POSITIONS.topRight,
   show: showFromProps = true
 }) {
@@ -39,7 +39,7 @@ function AtomToast({
   const handleClose = useCallback(() => {
     if (effect) setDelay(true)
     setShow(false)
-    if (!effect) onClose()
+    if (!effect && typeof onClose === 'function') onClose()
   }, [effect, onClose])
 
   useEffect(() => {
@@ -68,7 +68,7 @@ function AtomToast({
     if (effect && !show) {
       delayTimeout.current = setTimeout(() => {
         setDelay(false)
-        onClose()
+        typeof onClose === 'function' && onClose()
       }, EFFECT_DELAY.close)
     }
 

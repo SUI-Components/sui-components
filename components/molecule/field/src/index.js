@@ -66,16 +66,14 @@ const MoleculeField = ({
     status
   })
 
-  const {
-    text: validationTextValue,
-    status: validationTextStatus
-  } = useStatusValidationText({
-    successText,
-    errorText,
-    alertText,
-    status,
-    statusText
-  })
+  const {text: validationTextValue, status: validationTextStatus} =
+    useStatusValidationText({
+      successText,
+      errorText,
+      alertText,
+      status,
+      statusText
+    })
 
   return (
     <div

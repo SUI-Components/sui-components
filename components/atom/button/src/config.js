@@ -246,9 +246,8 @@ export const isAtomIcon = icon =>
  * @param {string} options.size Size of the button to grab the correct icon size
  */
 export const prepareAtomIcon = (atomIconElement, {size}) => {
-  const atomIconSize = ATOM_ICON_SIZES_MAPPER[size]
   return cloneElement(atomIconElement, {
     color: undefined,
-    size: atomIconSize
+    size: atomIconElement?.props?.size || ATOM_ICON_SIZES_MAPPER[size]
   })
 }

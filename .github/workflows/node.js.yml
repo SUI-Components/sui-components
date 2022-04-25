@@ -7,6 +7,7 @@ on:
     branches: [master]
 
 jobs:
+  # Cancel Previous Redundant Builds
   check-skip:
     runs-on: ubuntu-latest
     steps:
@@ -14,7 +15,7 @@ jobs:
         uses: styfle/cancel-workflow-action@0.6.0
         with:
           access_token: ${{ github.token }}
-
+  # Assigns the event creator to the PR
   assign_pr_owner:
     runs-on: ubuntu-latest
     steps:
@@ -23,7 +24,7 @@ jobs:
         if: github.event_name == 'pull_request' && github.event.action == 'opened'
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-
+  # Creates a build and uploads an artifact
   build:
     runs-on: ubuntu-latest
     steps:
@@ -39,11 +40,28 @@ jobs:
           npm run build
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Compress public directory
+        run: tar -zcvf public-dir.tar.gz ./public/
       - uses: actions/upload-artifact@v2
         with:
           name: public-folder
-          path: public
-
+          path: public-dir.tar.gz
+  # Lint the code
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          registry-url: 'https://registry.npmjs.org'
+      - name: Linting
+        run: |
+          npm run phoenix:ci
+          npm run lint
+  # Test components
   testing:
     runs-on: ubuntu-latest
     outputs:
@@ -79,7 +97,6 @@ jobs:
       - name: Testing
         run: |
           npm run phoenix:ci
-          npm run lint
           xvfb-run --auto-servernum npm run test -- --ci --coverage
       - name: Log Master Coverage
         uses: actions/github-script@v5
@@ -95,9 +112,19 @@ jobs:
           script: |
             const script = require('./.github/SCRIPTS/exportCoverageFromJsonSummary')
             await script({github, context, core, exec}, './coverage/coverage.json')
-
+      - name: prepare coverage directory
+        run: |
+          mkdir _coverage
+          cp -rf ./coverage/coverage.xml ./coverage/coverage.json ./coverage/report-html/* ./_coverage/
+      - name: Compress coverage directory
+        run: tar -zcvf coverage-dir.tar.gz ./_coverage/
+      - uses: actions/upload-artifact@v2
+        with:
+          name: coverage-folder
+          path: coverage-dir.tar.gz
+  # Publish the necessary npm new package versions
   release:
-    needs: testing
+    needs: [lint, testing]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -175,9 +202,9 @@ jobs:
           GITHUB_TOKEN: ${{github.token}}
           GITHUB_USER: sui-bot
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
+  # Deploy artifact to Vercel
   deploy:
-    needs: [build, testing]
+    needs: [build, lint, testing]
     runs-on: ubuntu-latest
     environment:
       name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}
@@ -190,6 +217,19 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: public-folder
+          path: .
+      - uses: actions/download-artifact@v2
+        with:
+          name: coverage-folder
+          path: .
+      - name: Uncompress public directory
+        run: |
+          tar -zxvf ./public-dir.tar.gz
+          rm ./public-dir.tar.gz
+      - name: Uncompress coverage directory
+        run: |
+          tar -zxvf ./coverage-dir.tar.gz -C ./public/
+          rm ./coverage-dir.tar.gz
       - name: Deploy
         id: deploy
         run: |

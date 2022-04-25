@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.3.0 (2022-04-25)
+
+
+### Features
+
+* **components/atom/polymorphicElement:** deprecate package and point to primitivePolymorphicElement ([880fb87](https://github.com/SUI-Components/sui-components/commit/880fb87adabc508578c02b220aeaa94107bea79a))
+
+
+
 # 1.2.0 (2022-04-02)
 
 

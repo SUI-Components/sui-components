@@ -13,20 +13,20 @@ $z-molecule-badge-counter: 1 !default;
 $molecule-badge-counter-small-diameter: 12px !default;
 $molecule-badge-counter-small-diameter-dot: 4px !default;
 $molecule-badge-counter-small-offset-top: -4px !default;
-$molecule-badge-counter-small-offset-right: -6px !default;
+$molecule-badge-counter-small-offset-right: -($sz-base - $sz-base * 0.25) !default;
 
 /* medium */
 $molecule-badge-counter-medium-diameter: 16px !default;
 $molecule-badge-counter-medium-diameter-dot: 5px !default;
 $molecule-badge-counter-medium-offset-top: -6px !default;
-$molecule-badge-counter-medium-offset-right: -8px !default;
+$molecule-badge-counter-medium-offset-right: -$sz-base !default;
 $p-molecule-badge-counter-medium: 0 $p-s !default;
 
 /* large */
 $molecule-badge-counter-large-diameter: 24px !default;
 $molecule-badge-counter-large-diameter-dot: 6px !default;
 $molecule-badge-counter-large-offset-top: -12px !default;
-$molecule-badge-counter-large-offset-right: -12px !default;
+$molecule-badge-counter-large-offset-right: -($sz-base + $sz-base * 0.5) !default;
 $fz-molecule-badge-counter-large: $fz-xs !default;
 $p-molecule-badge-counter-large: 0 $p-base !default;
 

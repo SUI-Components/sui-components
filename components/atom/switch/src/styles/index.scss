@@ -72,14 +72,15 @@ $base-class: '.sui-AtomSwitch';
     background-color: $c-atom-switch--default;
     border: $bd-atom-switch-default;
     border-radius: $w-atom-switch-default * 0.5;
+    box-sizing: border-box;
     cursor: pointer;
     height: $h-atom-switch-default;
-    width: $w-atom-switch-default;
-    transition: margin-left $atom-switch-transition-time ease-in-out;
-    padding: 0;
-    box-sizing: border-box;
-    position: relative;
+    min-width: $w-atom-switch-default;
     outline: none;
+    padding: 0;
+    position: relative;
+    transition: margin-left $atom-switch-transition-time ease-in-out;
+    width: $w-atom-switch-default;
 
     &:focus {
       #{$base-class}-circle {

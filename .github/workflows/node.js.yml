@@ -114,8 +114,10 @@ jobs:
             await script({github, context, core, exec}, './coverage/coverage.json')
       - name: prepare coverage directory
         run: |
-          mkdir coverage
-          cp -rf ./coverage/coverage.xml ./coverage/coverage.json ./coverage/report-html/* ./coverage/
+          mkdir _coverage
+          cp -rf ./coverage/coverage.xml ./coverage/coverage.json ./coverage/report-html/* ./_coverage/
+          rm -rf coverage/
+          mv _coverage coverage
       - name: Compress coverage directory
         run: tar -zcvf coverage-dir.tar.gz ./coverage/
       - uses: actions/upload-artifact@v2

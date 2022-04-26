@@ -1,10 +1,10 @@
 {
-  "name": "@s-ui/react-atom-polymorphic-element",
-  "version": "1.2.0",
+  "name": "@s-ui/react-primitive-injector",
+  "version": "1.1.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "prepare": "rimraf ./lib && npm run build:js && npm run build:styles",
+    "prepare": "npm run build:js && npm run build:styles",
     "build:js": "babel --presets sui ./src --out-dir ./lib",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },

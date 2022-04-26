@@ -1,5 +1,5 @@
 import AtomIcon from '@s-ui/react-atom-icon'
-import Element from '@s-ui/react-atom-polymorphic-element'
+import Element from '@s-ui/react-primitive-polymorphic-element'
 import PropTypes from 'prop-types'
 
 const Icon = ({as, icon}) => (

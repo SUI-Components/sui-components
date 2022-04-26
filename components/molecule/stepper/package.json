@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-stepper",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -19,7 +19,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@s-ui/react-atom-polymorphic-element": "1",
-    "@s-ui/react-hooks": "1"
+    "@s-ui/react-hooks": "1",
+    "@s-ui/react-primitive-polymorphic-element": "1",
+    "@s-ui/react-primitive-injector": "1"
   }
 }

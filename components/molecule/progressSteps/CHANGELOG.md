@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.8.0 (2022-04-21)
+
+
+### Bug Fixes
+
+* **components/molecule/progressSteps:** fix flex-basis connector progressSteps ([33095d8](https://github.com/SUI-Components/sui-components/commit/33095d89b284e0b21fb356bcd3a51a91dba636cf))
+
+
+
 # 2.7.0 (2022-04-21)
 
 

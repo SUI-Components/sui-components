@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.13.0 (2022-04-25)
+
+
+### Bug Fixes
+
+* **components/molecule/badgeCounter:** Fix aligment badge counter to the respect children ([70a8b87](https://github.com/SUI-Components/sui-components/commit/70a8b87ad1a6aeaccd377cb8371b72f057f468e4))
+
+
+
 # 1.12.0 (2021-10-07)
 
 

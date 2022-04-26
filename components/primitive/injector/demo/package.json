@@ -1,0 +1,9 @@
+{
+  "name": "@s-ui/react-primitive-injector-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Demo for @s-ui/react-primitive-injector",
+  "dependencies": {
+    "react-json-view": "1.21.3"
+  }
+}

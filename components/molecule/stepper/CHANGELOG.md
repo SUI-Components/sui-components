@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.1.0 (2022-04-25)
+
+
+### Features
+
+* **components/molecule/stepper:** remove Children component. use the Primitive Injector ([87936ab](https://github.com/SUI-Components/sui-components/commit/87936ab26929615061bca284501f4a01053a82c8))
+
+
+
 # 2.0.0 (2022-04-21)
 
 

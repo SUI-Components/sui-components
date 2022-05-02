@@ -1,116 +1,66 @@
-import {useEffect, useState} from 'react'
+import {forwardRef, Fragment} from 'react'
+import {isFragment} from 'react-is'
 import PropTypes from 'prop-types'
 
-import Tab from './Tab/index.js'
-import {BASE_CLASS} from './settings.js'
+import Poly from '@s-ui/react-primitive-polymorphic-element'
 
-const MoleculeAccordion = ({
-  children,
-  defaultOpenedTabs = [],
-  onToggleTab = () => {},
-  openedTabs,
-  withAutoClose = true,
-  ...tabProps
-}) => {
-  const [openedTabsState, setOpenedTabsState] = useState(
-    openedTabs || defaultOpenedTabs
-  )
+import {BASE_CLASS, BEHAVIOR, SPACING} from './settings.js'
+import {AccordionProvider} from './context/index.js'
+import AccordionItem from './AccordionItem.js'
+import AccordionItemHeader from './AccordionItemHeader.js'
+import AccordionItemHeaderIcon from './AccordionItemHeaderIcon.js'
+import AccordionItemPanel from './AccordionItemPanel.js'
 
-  useEffect(() => {
-    if (openedTabs !== undefined) {
-      if (openedTabsState.length !== openedTabs?.length) {
-        setOpenedTabsState(openedTabs)
-      } else if (
-        openedTabs?.sort().join('') !== openedTabsState.sort().join('')
-      ) {
-        setOpenedTabsState(openedTabs)
-      }
-    }
-  }, [openedTabs, openedTabsState])
-
-  const _handleOnToggle = index => event => {
-    let newOpenedTabsState = []
-    if (withAutoClose) {
-      newOpenedTabsState = openedTabsState.includes(index) ? [] : [index]
-    } else {
-      newOpenedTabsState = openedTabsState.includes(index)
-        ? openedTabsState.filter(tabIndex => tabIndex !== index)
-        : [...openedTabsState, index].sort()
-    }
-    onToggleTab(event, {index, openedTabs: [...newOpenedTabsState]})
-    if (openedTabs === undefined) {
-      setOpenedTabsState([...newOpenedTabsState])
-    }
-  }
-
-  return (
-    <div className={BASE_CLASS} role="tablist">
-      {children.map((child, index) => (
-        <Tab
-          isOpen={openedTabsState.includes(index)}
-          key={index}
-          onToggle={_handleOnToggle(index)}
-          title={child.props.label}
-          {...tabProps}
+const Index = forwardRef(
+  (
+    {as = Fragment, values, defaultValues = [], onChange, behavior, children},
+    forwardedRef
+  ) => {
+    return (
+      <Poly
+        as={as}
+        {...(isFragment(as) && {ref: forwardedRef, className: BASE_CLASS})}
+      >
+        <AccordionProvider
+          values={values}
+          defaultValues={defaultValues}
+          onChange={onChange}
+          behavior={behavior}
         >
-          {child.props.children}
-        </Tab>
-      ))}
-    </div>
-  )
+          {children}
+        </AccordionProvider>
+      </Poly>
+    )
+  }
+)
+
+Index.displayName = 'Accordion'
+
+Index.propTypes = {
+  /** The elementType of the wrapper **/
+  as: PropTypes.elementType,
+  /** The opened values **/
+  values: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  ),
+  /** The initial opened values **/
+  defaultValues: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  ),
+  /** The change default behavior **/
+  behavior: PropTypes.oneOf(Object.values(BEHAVIOR)),
+  /** The space AccordionItems **/
+  gap: PropTypes.oneOf(Object.values(SPACING)),
+  /** handler fired everytime an item changes its collapsed/expanded state **/
+  onChange: PropTypes.func
 }
 
-MoleculeAccordion.displayName = 'MoleculeAccordion'
-
-MoleculeAccordion.propTypes = {
-  /**
-   * Children to put into Accordion Tabs
-   */
-  children: PropTypes.instanceOf(Object).isRequired,
-  /**
-   * Array with tab indexes to be opened by default
-   */
-  defaultOpenedTabs: PropTypes.arrayOf(PropTypes.Number),
-  /**
-   * Icon for the button
-   */
-  icon: PropTypes.node.isRequired,
-  /**
-   * Define the max height visible
-   */
-  maxHeight: PropTypes.number,
-  /**
-   * Define the auto height
-   */
-  autoHeight: PropTypes.bool,
-  /**
-   * On toggle tab callback
-   */
-  onToggleTab: PropTypes.func,
-  /**
-   * Array with tab indexes to be opened
-   */
-  openedTabs: PropTypes.arrayOf(PropTypes.Number),
-  /**
-   * Activate/deactivate autoclose
-   */
-  withAutoClose: PropTypes.bool,
-  /**
-   * Force scroll visible
-   */
-  withScrollVisible: PropTypes.bool,
-  /**
-   * Activate/deactivate transition
-   */
-  withTransition: PropTypes.bool,
-  /**
-   * Activate/deactivate gap between tabs
-   */
-  withGap: PropTypes.bool,
-  /**
-   * Activate/deactivate multiline label
-   */
-  withMultilineLabel: PropTypes.bool
+export {
+  Index,
+  AccordionItem,
+  AccordionItemHeader,
+  AccordionItemHeaderIcon,
+  AccordionItemPanel
 }
 
-export default MoleculeAccordion
+export default Index

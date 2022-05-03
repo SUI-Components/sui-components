@@ -137,6 +137,7 @@ $skeleton-class: '#{$base-class}-skeleton';
   box-shadow: $bxsh-photo-uploader-thumb-card;
   cursor: grab;
   display: inline-block;
+  overflow: hidden;
 
   &Card {
     background: $bg-photo-uploader-thumb-card;

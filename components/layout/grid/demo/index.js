@@ -9,6 +9,7 @@ import ArticleCombine from './ArticleCombine.js'
 import ArticleJustifyContent from './ArticleJustifyContent.js'
 import ArticleAlignItems from './ArticleAlignItems.js'
 import ArticleAlignContent from './ArticleAlignContent.js'
+import ArticleInject from './ArticleInject.js'
 
 const BASE_CLASS_DEMO = `DemoLayoutGrid`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
@@ -38,6 +39,8 @@ export default () => (
     <ArticleAlignItems classname={CLASS_SECTION} />
     <br />
     <ArticleAlignContent classname={CLASS_SECTION} />
+    <br />
+    <ArticleInject classname={CLASS_SECTION} />
     <br />
   </div>
 )

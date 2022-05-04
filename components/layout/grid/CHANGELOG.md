@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.10.0 (2022-05-04)
+
+
+### Features
+
+* **components/layout/grid:** inject default gridItem props by the Grid props ([831a461](https://github.com/SUI-Components/sui-components/commit/831a461e3b9415b1fb2035196a0c172b26701edb))
+
+
+
 # 2.9.0 (2022-05-04)
 
 

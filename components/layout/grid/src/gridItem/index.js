@@ -7,6 +7,7 @@ import {getColSpanClassNamesTransform} from './settings.js'
 
 export default function LayoutGridItem({
   children,
+  className = '',
   colSpan = 1,
   l,
   lOffset,
@@ -36,7 +37,8 @@ export default function LayoutGridItem({
     mOffset && `${BASE_CLASS}-item--mOffset-${mOffset}`,
     lOffset && `${BASE_CLASS}-item--lOffset-${lOffset}`,
     xlOffset && `${BASE_CLASS}-item--xlOffset-${xlOffset}`,
-    xxlOffset && `${BASE_CLASS}-item--xxlOffset-${xxlOffset}`
+    xxlOffset && `${BASE_CLASS}-item--xxlOffset-${xxlOffset}`,
+    className
   )
 
   return <div className={classNames}>{children}</div>
@@ -49,6 +51,10 @@ LayoutGridItem.propTypes = {
    * The content of the component.
    */
   children: PropTypes.node,
+  /**
+   * Allows you to add extra styles and avoid extra DOM elements to style purposes.
+   */
+  className: PropTypes.string,
   /***
    * Defines the number of columns an item should span
    */

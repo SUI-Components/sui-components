@@ -38,7 +38,8 @@ function LayoutGrid({
   alignItems,
   children,
   justifyContent,
-  gutter
+  gutter,
+  className = ''
 }) {
   const classNames = cx(
     `${BASE_CLASS}`,
@@ -48,7 +49,8 @@ function LayoutGrid({
       `${BASE_CLASS}--ai-${alignItems}`,
     Object.values(JUSTIFY_CONTENT).includes(justifyContent) &&
       `${BASE_CLASS}--jc-${justifyContent}`,
-    getGutterClassNames(gutter)
+    getGutterClassNames(gutter),
+    className
   )
 
   return <div className={classNames}>{children}</div>
@@ -69,6 +71,10 @@ LayoutGrid.propTypes = {
    * Sets the align-self value on all direct children as a group. It's applied for all screen sizes.
    */
   alignItems: PropTypes.oneOf(Object.values(ALIGN_ITEMS)),
+  /**
+   * Allows you to add extra styles and avoid extra DOM elements to style purposes.
+   */
+  className: PropTypes.string,
   /**
    * Distribute space between and around content items. It's applied for all screen sizes.
    */

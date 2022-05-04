@@ -8,8 +8,11 @@
     "build:js": "babel --presets sui ./src --out-dir ./lib",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@s-ui/component-dependencies": "1"
+  },
+  "dependencies": {
+    "@s-ui/react-primitive-polymorphic-element": "1"
   },
   "keywords": [],
   "author": "",

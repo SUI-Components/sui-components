@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
 
 import {
   ALIGN_ITEMS,
@@ -11,31 +12,12 @@ import {
   BREAKPOINTS
 } from './settings.js'
 import LayoutGridItem from './gridItem/index.js'
-
-const transition = ({isGapless, ...oldProps}) => {
-  const gutter = oldProps.gutter || isGapless ? 0 : undefined
-  return {gutter, ...oldProps}
-}
-
-const getGutterClassNames = (gutterConfig = {}) => {
-  if (GUTTER_VALUES.includes(gutterConfig)) {
-    return `${BASE_CLASS}--gutter-${BREAKPOINTS.XXS}-${gutterConfig}`
-  } else if (typeof gutterConfig === 'object') {
-    return Object.entries(gutterConfig)
-      .map(([key, value]) =>
-        Object.values(BREAKPOINTS).includes(key)
-          ? `${BASE_CLASS}--gutter-${key}-${value}`
-          : null
-      )
-      .filter(value => value !== null)
-      .join(' ')
-  }
-  return null
-}
+import {getGutterClassNames, transition} from './helpers.js'
 
 function LayoutGrid({
   alignContent,
   alignItems,
+  as = 'div',
   children,
   justifyContent,
   gutter
@@ -51,12 +33,17 @@ function LayoutGrid({
     getGutterClassNames(gutter)
   )
 
-  return <div className={classNames}>{children}</div>
+  return (
+    <PolymorphicElement as={as} className={classNames}>
+      {children}
+    </PolymorphicElement>
+  )
 }
 
 LayoutGrid.displayName = 'LayoutGrid'
 
 LayoutGrid.propTypes = {
+  as: PropTypes.elementType,
   /**
    * The content of the component.
    */

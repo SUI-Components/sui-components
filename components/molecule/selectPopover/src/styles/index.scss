@@ -36,8 +36,7 @@ $base-class: '.sui-MoleculeSelectPopover ';
     }
 
     &:hover,
-    &.is-open,
-    &.is-selected {
+    &.is-open {
       background-color: $bgc-select-popover-hover;
       border-color: $bdc-select-popover-hover;
     }
@@ -51,6 +50,7 @@ $base-class: '.sui-MoleculeSelectPopover ';
     }
 
     &.is-selected {
+      background-color: $bgc-select-popover-selected;
       border-color: $bdc-select-popover-selected;
       color: $c-select-popover-selected;
     }

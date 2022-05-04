@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.29.0 (2022-05-02)
+
+
+### Features
+
+* **components/atom/polymorphicElement:** adds forwardRef ([b0cb80f](https://github.com/SUI-Components/sui-components/commit/b0cb80f0d2d2f86ccf8863c104813ecd60f18b7f))
+* **components/molecule/selectPopover:** define default selected bg color ([7c5726e](https://github.com/SUI-Components/sui-components/commit/7c5726e3a9c2ec02059a97bcfdd7654ff0b1fb4f))
+
+
+
 # 1.28.0 (2022-02-17)
 
 

@@ -1,10 +1,16 @@
+import {useState} from 'react'
 import PropTypes from 'prop-types'
 
 import {Article, H2, H3, Paragraph, Code} from '@s-ui/documentation-library'
 
-import Accordion, {AccordionItem} from '../../src/index.js'
+import Accordion, {
+  MoleculeAccordionItem as AccordionItem,
+  moleculeAccordionBehavior
+} from '../../src/index.js'
+import LoremIpsum from '../LoremIpsum.js'
 
 const ArticleDefault = ({className}) => {
+  const [values] = useState([])
   const onChange = (event, {values, value, isExpanded}) => {
     console.log('onChange', event, {values, value, isExpanded})
   }
@@ -17,21 +23,37 @@ const ArticleDefault = ({className}) => {
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>paragraph</Paragraph>
-      <Accordion onChange={onChange}>
+      <Accordion
+        onChange={onChange}
+        defaultValues={values}
+        behavior={moleculeAccordionBehavior.MULTIPLE}
+      >
         <AccordionItem
           value="value-1"
-          label="Header 1"
           onClick={onItemClick('header1')}
-        >
-          Accordion Item Children 1
-        </AccordionItem>
+          label="Accordion Item Header 1"
+          content={
+            <>
+              <p>Accordion Item Content 1</p>
+              <p>
+                <LoremIpsum units="words" count={200} format="plain" />
+              </p>
+            </>
+          }
+        />
         <AccordionItem
           value="value-3"
-          label="Header 2"
           onClick={onItemClick('header1')}
-        >
-          Accordion Item Children 2
-        </AccordionItem>
+          label="Accordion Item Header 2"
+          content={
+            <>
+              <p>Accordion Item Content 2</p>
+              <p>
+                <LoremIpsum units="words" count={200} format="plain" />
+              </p>
+            </>
+          }
+        />
       </Accordion>
       <H3>Handlers</H3>
       <Code>onChange</Code>

@@ -2,15 +2,16 @@ import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 
 import Poly from '@s-ui/react-primitive-polymorphic-element'
-import Injector, {combineHandler} from '@s-ui/react-primitive-injector'
+import {
+  combineHandler,
+  inject,
+  combineProps
+} from '@s-ui/react-primitive-injector'
 
 import AccordionItemHeaderDefaultChildren from './AccordionItemHeaderDefaultChildren.js'
 import {useAccordionContext} from './context/index.js'
 
-import {
-  BASE_CLASS_ITEM_HEADER,
-  isAccordionItemPanelExpanded
-} from './settings.js'
+import {BASE_CLASS_ITEM_HEADER, getBehavior} from './settings.js'
 
 const AccordionItemHeader = forwardRef(
   (
@@ -19,26 +20,20 @@ const AccordionItemHeader = forwardRef(
       icon,
       children = <AccordionItemHeaderDefaultChildren />,
       value,
-      isExpanded: isExpandedProp,
       label,
       disabled,
       onClick
     },
     forwardedRef
   ) => {
-    const {values, onChange} = useAccordionContext()
-    const isExpanded = isAccordionItemPanelExpanded({
-      isExpanded: isExpandedProp,
-      values,
-      value
-    })
-    const handleClick = combineHandler(
-      onChange,
-      event =>
-        typeof onClick === 'function' &&
-        onClick(event, {value, isExpanded, values})
-    )
-    console.log({...(label && {children: label})})
+    const {values, onChange, behavior, setValues} = useAccordionContext({value})
+
+    const handleClick = event => {
+      const response = getBehavior(behavior)({value, values})
+      setValues(response.values)
+      combineHandler(onChange(event, response), onClick(event, response))
+    }
+
     return (
       <Poly
         as={as}
@@ -53,22 +48,25 @@ const AccordionItemHeader = forwardRef(
         <button
           type="button"
           className={`${BASE_CLASS_ITEM_HEADER}Button`}
-          aria-pressed={isExpanded}
+          aria-pressed={values.includes(value)}
           {...{
             ...(disabled && {'aria-disabled': disabled})
           }}
           onClick={handleClick}
         >
-          <Injector
-            icon={icon}
-            isExpanded={isExpanded}
-            values={values}
-            value={value}
-            disabled={disabled}
-            {...(label && {children: label})}
-          >
-            {children}
-          </Injector>
+          {inject(children, [
+            {
+              props: {
+                ...(label && {children: label}),
+                disabled,
+                icon,
+                values,
+                value
+              },
+              proviso: () => true,
+              combine: combineProps
+            }
+          ])}
         </button>
       </Poly>
     )

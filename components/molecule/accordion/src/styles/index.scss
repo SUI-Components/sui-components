@@ -3,10 +3,27 @@ $base-class: '.sui-MoleculeAccordion';
 $base-class-item: '#{$base-class}Item';
 $base-class-item-header: '#{$base-class-item}Header';
 $base-class-item-header-icon: '#{$base-class-item-header}Icon';
-$base-class-item-panel: '#{$base-class-item}panel';
+$base-class-item-panel: '#{$base-class-item}Panel';
+
+#{$base-class-item-header},
+#{$base-class-item-panel} {
+  box-sizing: border-box;
+  border-color: $c-gray;
+  border-style: solid;
+  border-width: 0;
+}
+#{$base-class-item-header} {
+  //border-bottom-width: 1px;
+  //border-top-width: 1px;
+}
 
 #{$base-class-item-header} {
+  border-left-width: $bdw-accordion-item;
+  border-right-width: $bdw-accordion-item;
+  border-bottom-width: $bdw-accordion-item;
+  border-top-width: $bdw-accordion-item;
   #{$base-class-item-header}Button {
+    box-sizing: inherit;
     border: none;
     margin: 0;
     padding: 0;
@@ -17,6 +34,7 @@ $base-class-item-panel: '#{$base-class-item}panel';
     height: 100%;
     text-align: inherit;
     #{$base-class-item-header}ButtonContent {
+      box-sizing: inherit;
       width: 100%;
       height: 100%;
       line-height: 1.15;
@@ -29,5 +47,26 @@ $base-class-item-panel: '#{$base-class-item}panel';
       font-size: $fz-base;
       color: $c-text-base;
     }
+  }
+  + #{$base-class-item-panel} {
+    margin-top: -$bdw-accordion-item;
+  }
+}
+
+#{$base-class-item-panel} {
+  border-left-width: $bdw-accordion-item;
+  border-right-width: $bdw-accordion-item;
+  border-bottom-width: $bdw-accordion-item;
+  border-top-width: $bdw-accordion-item;
+  overflow: hidden;
+  &[aria-expanded='false'] {
+    max-height: 0;
+    border-bottom: 0;
+  }
+  #{$base-class-item-panel}Content {
+    padding: 2 * $sz-base;
+  }
+  + #{$base-class-item-header} {
+    margin-top: -$bdw-accordion-item;
   }
 }

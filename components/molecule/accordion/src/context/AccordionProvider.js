@@ -21,6 +21,8 @@ const AccordionProvider = ({
       value={{
         ...defaultAccordionContext,
         ...props,
+        behavior,
+        onChange,
         values: stateValues,
         setValues: setStateValues
       }}

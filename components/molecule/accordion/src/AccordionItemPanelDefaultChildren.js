@@ -1,27 +1,20 @@
 import {Fragment} from 'react'
 import PropTypes from 'prop-types'
-import {
-  BASE_CLASS_ITEM_PANEL
-} from './settings.js'
+import {BASE_CLASS_ITEM_PANEL_CONTENT} from './settings.js'
 
-const AccordionItemPanelDefaultChildren = ({
-  label,
-  icon,
-  isExpanded,
-  values,
-  value,
-  disabled
-}) => {
+const AccordionItemPanelDefaultChildren = ({children}) => {
   return (
     <Fragment>
-      <div className={`${BASE_CLASS_ITEM_HEADER_ICON}Wrapper`}>{icon}</div>
+      <div className={BASE_CLASS_ITEM_PANEL_CONTENT}>{children}</div>
     </Fragment>
   )
 }
 
-AccordionItemHeaderDefaultChildren.displayName =
+AccordionItemPanelDefaultChildren.displayName =
   'AccordionItemHeaderDefaultChildren'
 
-AccordionItemHeaderDefaultChildren.propTypes = {}
+AccordionItemPanelDefaultChildren.propTypes = {
+  children: PropTypes.node
+}
 
-export default AccordionItemHeaderDefaultChildren
+export default AccordionItemPanelDefaultChildren

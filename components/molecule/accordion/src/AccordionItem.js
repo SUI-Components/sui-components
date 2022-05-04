@@ -1,17 +1,33 @@
 import {forwardRef, Fragment} from 'react'
+import {isFragment} from 'react-is'
 import PropTypes from 'prop-types'
 
-import {AccordionItemHeader, AccordionItemPanel} from './index.js'
+import Poly from '@s-ui/react-primitive-polymorphic-element'
+
+import {
+  MoleculeAccordionItemHeader as AccordionItemHeader,
+  MoleculeAccordionItemPanel as AccordionItemPanel
+} from './index.js'
 
 const AccordionItem = forwardRef(
   (
-    {header, children, headerIcon, disabled, isExpanded, value, label, onClick, content},
+    {
+      as = Fragment,
+      header,
+      children,
+      headerIcon,
+      disabled,
+      isExpanded,
+      value,
+      label,
+      onClick,
+      content
+    },
     forwardedRef
   ) => {
     return (
-      <Fragment ref={forwardedRef}>
+      <Poly as={as} {...(isFragment(as) && {ref: forwardedRef})}>
         <AccordionItemHeader
-          isExpanded={isExpanded}
           disabled={disabled}
           value={value}
           headerIcon={headerIcon}
@@ -28,7 +44,7 @@ const AccordionItem = forwardRef(
         >
           {children}
         </AccordionItemPanel>
-      </Fragment>
+      </Poly>
     )
   }
 )

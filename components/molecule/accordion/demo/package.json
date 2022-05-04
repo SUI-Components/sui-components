@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lorem-ipsum": "2.0.4"
+    "@s-ui/react-hooks": "1.29.0",
+    "lorem-ipsum": "2.0.4",
+    "react-use": "17.3.2"
   }
 }

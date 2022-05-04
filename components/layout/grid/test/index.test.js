@@ -75,7 +75,7 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it('should allows you to add custom classNames to add styles', () => {
+    it('should allows you to add custom classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
       const findSentence = str => string =>

@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 2.9.0 (2022-05-04)
+
+
+### Bug Fixes
+
+* **Root:** lint ([dbfeeb6](https://github.com/SUI-Components/sui-components/commit/dbfeeb6f15cd103984db448a485737d531e1ed9c))
+
+
+### Features
+
+* **components/layout/grid:** add polymorphism support ([1564ca1](https://github.com/SUI-Components/sui-components/commit/1564ca1e2d93aac4dcd78120ccae78a91fe65707))
+* **components/layout/grid:** keep component-dependenciees pkg as a dependency ([16acdd9](https://github.com/SUI-Components/sui-components/commit/16acdd99ddc891c6661660d0e1cc1da6391f8815))
+
+
+
 # 2.8.0 (2021-06-23)
 
 

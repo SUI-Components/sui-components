@@ -1,11 +1,13 @@
 import {useMemo} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
 
 import {BASE_CLASS, CELL_NUMBERS} from '../settings.js'
 import {getColSpanClassNamesTransform} from './settings.js'
 
 export default function LayoutGridItem({
+  as = 'div',
   children,
   colSpan = 1,
   l,
@@ -39,12 +41,17 @@ export default function LayoutGridItem({
     xxlOffset && `${BASE_CLASS}-item--xxlOffset-${xxlOffset}`
   )
 
-  return <div className={classNames}>{children}</div>
+  return (
+    <PolymorphicElement as={as} className={classNames}>
+      {children}
+    </PolymorphicElement>
+  )
 }
 
 LayoutGridItem.displayName = 'LayoutGridItem'
 
 LayoutGridItem.propTypes = {
+  as: PropTypes.elementType,
   /**
    * The content of the component.
    */

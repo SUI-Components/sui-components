@@ -88,6 +88,28 @@ describe(json.name, () => {
       // Then
       expect(findClassName(container.innerHTML)).to.exist
     })
+
+    it('should render a div when `as` prop has not been passed', () => {
+      // given
+      const props = {}
+      // when
+      const {container} = setup(props)
+      // then
+      expect(container.innerHTML).to.be.a('string')
+      expect(container.innerHTML).to.not.have.lengthOf(0)
+      expect(container.innerHTML).to.contain('div')
+    })
+
+    it('should render an article when `as` prop has this value', () => {
+      // given
+      const props = {as: 'article'}
+      // when
+      const {container} = setup(props)
+      // then
+      expect(container.innerHTML).to.be.a('string')
+      expect(container.innerHTML).to.not.have.lengthOf(0)
+      expect(container.innerHTML).to.contain('article')
+    })
   })
 
   describe('LayoutGridAlignContent', () => {

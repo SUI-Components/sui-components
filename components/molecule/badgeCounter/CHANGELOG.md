@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.15.0 (2022-05-05)
+
+
+### Features
+
+* **components/molecule/badgeCounter:** Change style to three characteres badge counter ([6454c75](https://github.com/SUI-Components/sui-components/commit/6454c757b1e8bbf8f4ccf4ca5d82047ded6585cd))
+
+
+
 # 1.14.0 (2022-05-05)
 
 

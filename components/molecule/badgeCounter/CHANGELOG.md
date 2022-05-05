@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.14.0 (2022-05-05)
+
+
+### Features
+
+* **components/molecule/badgeCounter:** Dummy commit to force release ([82d49bb](https://github.com/SUI-Components/sui-components/commit/82d49bb51ee76884c4dee9a2935e672912188538))
+
+
+
 # 1.13.0 (2022-04-25)
 
 

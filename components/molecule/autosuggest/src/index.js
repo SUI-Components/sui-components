@@ -53,10 +53,13 @@ const MoleculeAutosuggest = ({
     refMoleculeAutosuggestFromProps
   )
 
-  const [isOpenState, setOpenState] = useState(isOpen)
+  const [isOpenState, setIsOpenState] = useState(!!isOpen)
+  const hasIsOpen = isOpen !== undefined
+
   useEffect(() => {
-    setOpenState(isOpen)
-  }, [isOpen, setOpenState])
+    if (!hasIsOpen) return
+    setIsOpenState(isOpen)
+  }, [isOpen, hasIsOpen, setIsOpenState])
 
   const refsMoleculeAutosuggestOptions = useRef([])
   const innerRefMoleculeAutosuggestInput = useRef()
@@ -67,9 +70,18 @@ const MoleculeAutosuggest = ({
 
   const [focus, setFocus] = useState(false)
 
-  const handleToggle = (event, {isOpen}) => {
-    setOpenState(isOpen === undefined ? !isOpenState : !!isOpen)
-    typeof onToggle === 'function' && onToggle(event, {isOpen})
+  const handleToggle = (ev, {isOpen: nextIsOpenState}) => {
+    const {type} = ev
+
+    if (type !== 'change' && autoClose) {
+      setIsOpenState(nextIsOpenState)
+    } else {
+      if (!isOpenState) {
+        setIsOpenState(nextIsOpenState)
+      }
+    }
+
+    typeof onToggle === 'function' && onToggle(ev, {isOpen: nextIsOpenState})
   }
 
   const extendedChildren = Children.toArray(children)
@@ -94,7 +106,7 @@ const MoleculeAutosuggest = ({
 
   const closeList = ev => {
     const {current: domMoleculeAutosuggest} = innerRefMoleculeAutosuggest
-    handleToggle(ev, {isOpen: false})
+    !hasIsOpen && handleToggle(ev, {isOpen: false})
     if (multiselection && typeof onChange === 'function') {
       onChange(ev, {value: ''})
     }
@@ -186,9 +198,10 @@ const MoleculeAutosuggest = ({
     children: extendedChildren,
     disabled,
     errorState,
+    hasIsOpen,
     id,
     innerRefInput: refMoleculeAutosuggestInput,
-    isOpen: isOpenState,
+    isOpenState,
     keysCloseList,
     keysSelection,
     onBlur,

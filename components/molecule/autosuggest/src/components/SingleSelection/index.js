@@ -7,18 +7,18 @@ import AtomInput from '@s-ui/react-atom-input'
 import {InputWithClearUI} from '../InputWithClearUI/index.js'
 
 const MoleculeAutosuggestSingleSelection = ({
-  autoClose,
   autoFocus,
   ariaLabel,
   autoComplete = 'nope',
   children,
   design,
   disabled,
+  hasIsOpen,
   iconClear,
   id,
   innerRefInput: refInput = {},
   inputMode,
-  isOpen,
+  isOpenState,
   leftIcon,
   maxLength,
   minLength,
@@ -42,12 +42,14 @@ const MoleculeAutosuggestSingleSelection = ({
   const handleSelection = (ev, {value}) => {
     typeof onChange === 'function' && onChange(ev, {value})
     typeof onSelect === 'function' && onSelect(ev, {value})
-    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen: false})
+    !hasIsOpen &&
+      typeof onToggle === 'function' &&
+      onToggle(ev, {isOpen: false})
   }
 
   const handleChange = (ev, {value}) => {
     typeof onChange === 'function' && onChange(ev, {value})
-    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen: true})
+    !hasIsOpen && typeof onToggle === 'function' && onToggle(ev, {isOpen: true})
   }
 
   const handleClear = ev => {
@@ -91,11 +93,11 @@ const MoleculeAutosuggestSingleSelection = ({
       >
         <AtomInput />
       </InputWithClearUI>
-      {value && (
+      {(value || isOpenState) && (
         <MoleculeDropdownList
           size={size}
-          visible={isOpen && Children.count(children) > 0}
           onSelect={handleSelection}
+          visible={isOpenState && Children.count(children) > 0}
           value={value}
           highlightQuery={value}
           onKeyDown={onKeyDown}

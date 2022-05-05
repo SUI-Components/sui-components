@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import {useRef} from 'react'
+import {useRef, Children} from 'react'
 import isEqual from 'lodash.isequal'
 
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
@@ -10,18 +10,18 @@ import {InputWithClearUI} from '../InputWithClearUI/index.js'
 
 const MoleculeAutosuggestFieldMultiSelection = ({
   allowDuplicates,
-  autoClose,
   autoFocus,
   autoComplete = 'nope',
   children,
   design,
   disabled = false,
+  hasIsOpen,
   iconClear,
   iconCloseTag = <span />,
   id,
   innerRefInput: refInput = {},
   inputMode,
-  isOpen,
+  isOpenState,
   onChange,
   onChangeTags,
   onClear,
@@ -64,21 +64,23 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         value: '',
         tags: newTags
       })
-    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen: false})
+    !hasIsOpen &&
+      typeof onToggle === 'function' &&
+      onToggle(ev, {isOpen: false})
     innerRefInput.current && innerRefInput.current.focus()
   }
 
   const handleChangeTags = (ev, {tags, value}) => {
     const isOpen = Boolean(value)
     typeof onChangeTags === 'function' && onChangeTags(ev, {tags})
-    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen})
+    !hasIsOpen && typeof onToggle === 'function' && onToggle(ev, {isOpen})
     innerRefInput.current && innerRefInput.current.focus()
   }
 
   const handleChange = (ev, {value}) => {
     const isOpen = Boolean(value)
     typeof onChange === 'function' && onChange(ev, {value})
-    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen})
+    !hasIsOpen && typeof onToggle === 'function' && onToggle(ev, {isOpen})
   }
 
   const handleClear = ev => {
@@ -100,7 +102,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         id={id}
         innerRefInput={moleculeInputRef}
         inputMode={inputMode}
-        isOpen={isOpen}
+        isOpen={isOpenState}
         isVisibleClear={!disabled && tags.length}
         noBorder
         onChange={handleChange}
@@ -119,18 +121,20 @@ const MoleculeAutosuggestFieldMultiSelection = ({
       >
         <MoleculeInputTags />
       </InputWithClearUI>
-      <MoleculeDropdownList
-        checkbox
-        highlightQuery={value}
-        onSelect={handleMultiSelection}
-        onKeyDown={onKeyDown}
-        size={size}
-        value={tags}
-        visible={isOpen}
-        design={design}
-      >
-        {children}
-      </MoleculeDropdownList>
+      {isOpenState && (
+        <MoleculeDropdownList
+          checkbox
+          highlightQuery={value}
+          onSelect={handleMultiSelection}
+          onKeyDown={onKeyDown}
+          size={size}
+          value={tags}
+          visible={isOpenState && Children.count(children) > 0}
+          design={design}
+        >
+          {children}
+        </MoleculeDropdownList>
+      )}
     </>
   )
 }

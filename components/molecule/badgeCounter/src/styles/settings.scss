@@ -30,6 +30,10 @@ $molecule-badge-counter-large-offset-right: -($sz-base + $sz-base * 0.5) !defaul
 $fz-molecule-badge-counter-large: $fz-xs !default;
 $p-molecule-badge-counter-large: 0 $p-base !default;
 
+/* threeCharacters */
+$bdrs-molecule-badge-counter-threeCharacters: $bdrs-xxxl !default;
+$molecule-badge-counter-threeCharacters-diameter: 36px !default;
+
 /* disabled */
 $bgc-molecule-badge-counter-disabled: $c-gray-light-3 !default;
 $c-molecule-badge-counter-disabled: $c-gray !default;

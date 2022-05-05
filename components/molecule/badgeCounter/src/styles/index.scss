@@ -77,7 +77,8 @@ $base-class: '.sui-MoleculeBadgeCounter';
       }
 
       &--threeCharacters {
-        border-radius: $bdrs-molecule-badge-counter;
+        border-radius: $bdrs-molecule-badge-counter-threeCharacters;
+        min-width: $molecule-badge-counter-threeCharacters-diameter;
         padding: 0 $p-s;
       }
     }

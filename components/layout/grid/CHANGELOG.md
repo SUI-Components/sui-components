@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.11.0 (2022-05-05)
+
+
+### Bug Fixes
+
+* **components/layout/grid:** fix typo readme ([aeba17d](https://github.com/SUI-Components/sui-components/commit/aeba17d825812d702a069f1cc4273ed17aa65f3a))
+
+
+
 # 2.10.0 (2022-05-04)
 
 
@@ -20,6 +29,7 @@
 ### Features
 
 * **components/layout/grid:** add polymorphism support ([1564ca1](https://github.com/SUI-Components/sui-components/commit/1564ca1e2d93aac4dcd78120ccae78a91fe65707))
+* **components/layout/grid:** allow pass custom classNames to avoid extra DOM elements ([8abef4e](https://github.com/SUI-Components/sui-components/commit/8abef4e52f1b8e1e3fc7db0eb3de2e84497d5c64))
 * **components/layout/grid:** keep component-dependenciees pkg as a dependency ([16acdd9](https://github.com/SUI-Components/sui-components/commit/16acdd99ddc891c6661660d0e1cc1da6391f8815))
 
 

@@ -1,7 +1,7 @@
 # LayoutGrid
 
 > The layout grid component adapts to screen size (responsive), ensuring consistency across layouts.
-> The grid creates visual consistency between layouts while allowing flexibility across a wide variety of designs. Based on our design principles, this component is based on a 12 column grid layout.
+> The grid creates visual consistency between layouts while allowing flexibility across a wide variety of designs. Based on our design principles, this component is based on a 12 columns grid layout.
 
 ## Installation
 
@@ -52,7 +52,11 @@ With breakpooints
 With `alignItems` and `justifyContent` and `alignContent` props
 
 ```js
-<LayoutGrid alignItems="center" justifyContent="space-around" alignContent="stretch">
+<LayoutGrid
+  alignItems="center"
+  justifyContent="space-around"
+  alignContent="stretch"
+>
   <LayoutGridItem s={4} xl={6}>
     ...
   </LayoutGridItem>

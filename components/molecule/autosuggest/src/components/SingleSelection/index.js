@@ -13,7 +13,6 @@ const MoleculeAutosuggestSingleSelection = ({
   children,
   design,
   disabled,
-  hasIsOpen,
   iconClear,
   id,
   innerRefInput: refInput = {},
@@ -42,14 +41,12 @@ const MoleculeAutosuggestSingleSelection = ({
   const handleSelection = (ev, {value}) => {
     typeof onChange === 'function' && onChange(ev, {value})
     typeof onSelect === 'function' && onSelect(ev, {value})
-    !hasIsOpen &&
-      typeof onToggle === 'function' &&
-      onToggle(ev, {isOpen: false})
+    typeof onToggle === 'function' && onToggle(ev, {isOpen: false})
   }
 
   const handleChange = (ev, {value}) => {
     typeof onChange === 'function' && onChange(ev, {value})
-    !hasIsOpen && typeof onToggle === 'function' && onToggle(ev, {isOpen: true})
+    typeof onToggle === 'function' && onToggle(ev, {isOpen: true})
   }
 
   const handleClear = ev => {

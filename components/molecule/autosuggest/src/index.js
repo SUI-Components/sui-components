@@ -1,11 +1,4 @@
-import {
-  Children,
-  cloneElement,
-  createRef,
-  useEffect,
-  useRef,
-  useState
-} from 'react'
+import {Children, cloneElement, createRef, useRef, useState} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
@@ -13,6 +6,7 @@ import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 import {getTarget} from '@s-ui/js/lib/react'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 import {inputTypes, inputShapes} from '@s-ui/react-atom-input'
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 
 import {
   AUTOSUGGEST_STATES,
@@ -53,13 +47,7 @@ const MoleculeAutosuggest = ({
     refMoleculeAutosuggestFromProps
   )
 
-  const [isOpenState, setIsOpenState] = useState(!!isOpen)
-  const hasIsOpen = isOpen !== undefined
-
-  useEffect(() => {
-    if (!hasIsOpen) return
-    setIsOpenState(isOpen)
-  }, [isOpen, hasIsOpen, setIsOpenState])
+  const [isOpenState, setIsOpenState] = useControlledState(isOpen, !!isOpen)
 
   const refsMoleculeAutosuggestOptions = useRef([])
   const innerRefMoleculeAutosuggestInput = useRef()
@@ -73,12 +61,10 @@ const MoleculeAutosuggest = ({
   const handleToggle = (ev, {isOpen: nextIsOpenState}) => {
     const {type} = ev
 
-    if (type !== 'change' && autoClose) {
-      setIsOpenState(nextIsOpenState)
-    } else {
-      if (!isOpenState) {
-        setIsOpenState(nextIsOpenState)
-      }
+    if (type !== 'change') {
+      setIsOpenState(nextIsOpenState, autoClose !== false)
+    } else if (!isOpenState) {
+      setIsOpenState(nextIsOpenState, nextIsOpenState && isOpen !== false)
     }
 
     typeof onToggle === 'function' && onToggle(ev, {isOpen: nextIsOpenState})
@@ -106,7 +92,7 @@ const MoleculeAutosuggest = ({
 
   const closeList = ev => {
     const {current: domMoleculeAutosuggest} = innerRefMoleculeAutosuggest
-    !hasIsOpen && handleToggle(ev, {isOpen: false})
+    handleToggle(ev, {isOpen: false})
     if (multiselection && typeof onChange === 'function') {
       onChange(ev, {value: ''})
     }
@@ -198,7 +184,6 @@ const MoleculeAutosuggest = ({
     children: extendedChildren,
     disabled,
     errorState,
-    hasIsOpen,
     id,
     innerRefInput: refMoleculeAutosuggestInput,
     isOpenState,

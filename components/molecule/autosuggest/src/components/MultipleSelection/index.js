@@ -15,7 +15,6 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   children,
   design,
   disabled = false,
-  hasIsOpen,
   iconClear,
   iconCloseTag = <span />,
   id,
@@ -64,23 +63,22 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         value: '',
         tags: newTags
       })
-    !hasIsOpen &&
-      typeof onToggle === 'function' &&
-      onToggle(ev, {isOpen: false})
+
+    typeof onToggle === 'function' && onToggle(ev, {isOpen: false})
     innerRefInput.current && innerRefInput.current.focus()
   }
 
   const handleChangeTags = (ev, {tags, value}) => {
     const isOpen = Boolean(value)
     typeof onChangeTags === 'function' && onChangeTags(ev, {tags})
-    !hasIsOpen && typeof onToggle === 'function' && onToggle(ev, {isOpen})
+    typeof onToggle === 'function' && onToggle(ev, {isOpen})
     innerRefInput.current && innerRefInput.current.focus()
   }
 
   const handleChange = (ev, {value}) => {
     const isOpen = Boolean(value)
     typeof onChange === 'function' && onChange(ev, {value})
-    !hasIsOpen && typeof onToggle === 'function' && onToggle(ev, {isOpen})
+    typeof onToggle === 'function' && onToggle(ev, {isOpen})
   }
 
   const handleClear = ev => {

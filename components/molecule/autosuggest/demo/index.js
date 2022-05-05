@@ -73,9 +73,6 @@ const Demo = () => {
             onChange={(_, {value}) => console.log(value)}
             onEnter={() => console.log('Enter pressed')}
             onClear={() => console.log('Clear pressed')}
-            onToggle={(e, {isOpen}) =>
-              console.log('Toggle fired', e.type, isOpen)
-            }
             iconClear={<IconClose />}
           />
         </div>

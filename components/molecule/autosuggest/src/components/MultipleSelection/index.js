@@ -20,7 +20,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   id,
   innerRefInput: refInput = {},
   inputMode,
-  isOpenState,
+  isOpen,
   onChange,
   onChangeTags,
   onClear,
@@ -100,7 +100,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         id={id}
         innerRefInput={moleculeInputRef}
         inputMode={inputMode}
-        isOpen={isOpenState}
+        isOpen={isOpen}
         isVisibleClear={!disabled && tags.length}
         noBorder
         onChange={handleChange}
@@ -119,7 +119,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
       >
         <MoleculeInputTags />
       </InputWithClearUI>
-      {isOpenState && (
+      {isOpen && (
         <MoleculeDropdownList
           checkbox
           highlightQuery={value}
@@ -127,7 +127,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
           onKeyDown={onKeyDown}
           size={size}
           value={tags}
-          visible={isOpenState && Children.count(children) > 0}
+          visible={isOpen && Children.count(children) > 0}
           design={design}
         >
           {children}

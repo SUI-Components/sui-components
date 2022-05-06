@@ -186,7 +186,7 @@ const MoleculeAutosuggest = ({
     errorState,
     id,
     innerRefInput: refMoleculeAutosuggestInput,
-    isOpenState,
+    isOpen: isOpenState,
     keysCloseList,
     keysSelection,
     onBlur,

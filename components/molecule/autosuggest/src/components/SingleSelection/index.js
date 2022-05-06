@@ -17,7 +17,7 @@ const MoleculeAutosuggestSingleSelection = ({
   id,
   innerRefInput: refInput = {},
   inputMode,
-  isOpenState,
+  isOpen,
   leftIcon,
   maxLength,
   minLength,
@@ -90,11 +90,11 @@ const MoleculeAutosuggestSingleSelection = ({
       >
         <AtomInput />
       </InputWithClearUI>
-      {(value || isOpenState) && (
+      {(value || isOpen) && (
         <MoleculeDropdownList
           size={size}
           onSelect={handleSelection}
-          visible={isOpenState && Children.count(children) > 0}
+          visible={isOpen && Children.count(children) > 0}
           value={value}
           highlightQuery={value}
           onKeyDown={onKeyDown}

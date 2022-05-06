@@ -24,5 +24,5 @@ const delayedFilterOptions = (options, query) =>
 
 export const getAsyncCountriesFromQuery = async ({query}) => {
   const options = countries.map(({name}) => name)
-  return !query ? [] : delayedFilterOptions(options, query)
+  return !query ? options : delayedFilterOptions(options, query)
 }

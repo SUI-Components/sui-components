@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import {useRef} from 'react'
+import {useRef, Children} from 'react'
 import isEqual from 'lodash.isequal'
 
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
@@ -10,7 +10,6 @@ import {InputWithClearUI} from '../InputWithClearUI/index.js'
 
 const MoleculeAutosuggestFieldMultiSelection = ({
   allowDuplicates,
-  autoClose,
   autoFocus,
   autoComplete = 'nope',
   children,
@@ -64,21 +63,22 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         value: '',
         tags: newTags
       })
-    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen: false})
+
+    typeof onToggle === 'function' && onToggle(ev, {isOpen: false})
     innerRefInput.current && innerRefInput.current.focus()
   }
 
   const handleChangeTags = (ev, {tags, value}) => {
     const isOpen = Boolean(value)
     typeof onChangeTags === 'function' && onChangeTags(ev, {tags})
-    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen})
+    typeof onToggle === 'function' && onToggle(ev, {isOpen})
     innerRefInput.current && innerRefInput.current.focus()
   }
 
   const handleChange = (ev, {value}) => {
     const isOpen = Boolean(value)
     typeof onChange === 'function' && onChange(ev, {value})
-    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen})
+    typeof onToggle === 'function' && onToggle(ev, {isOpen})
   }
 
   const handleClear = ev => {
@@ -119,18 +119,20 @@ const MoleculeAutosuggestFieldMultiSelection = ({
       >
         <MoleculeInputTags />
       </InputWithClearUI>
-      <MoleculeDropdownList
-        checkbox
-        highlightQuery={value}
-        onSelect={handleMultiSelection}
-        onKeyDown={onKeyDown}
-        size={size}
-        value={tags}
-        visible={isOpen}
-        design={design}
-      >
-        {children}
-      </MoleculeDropdownList>
+      {isOpen && (
+        <MoleculeDropdownList
+          checkbox
+          highlightQuery={value}
+          onSelect={handleMultiSelection}
+          onKeyDown={onKeyDown}
+          size={size}
+          value={tags}
+          visible={isOpen && Children.count(children) > 0}
+          design={design}
+        >
+          {children}
+        </MoleculeDropdownList>
+      )}
     </>
   )
 }

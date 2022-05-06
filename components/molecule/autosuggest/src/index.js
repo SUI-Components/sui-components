@@ -1,11 +1,4 @@
-import {
-  Children,
-  cloneElement,
-  createRef,
-  useEffect,
-  useRef,
-  useState
-} from 'react'
+import {Children, cloneElement, createRef, useRef, useState} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
@@ -13,6 +6,7 @@ import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 import {getTarget} from '@s-ui/js/lib/react'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 import {inputTypes, inputShapes} from '@s-ui/react-atom-input'
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 
 import {
   AUTOSUGGEST_STATES,
@@ -53,10 +47,7 @@ const MoleculeAutosuggest = ({
     refMoleculeAutosuggestFromProps
   )
 
-  const [isOpenState, setOpenState] = useState(isOpen)
-  useEffect(() => {
-    setOpenState(isOpen)
-  }, [isOpen, setOpenState])
+  const [isOpenState, setIsOpenState] = useControlledState(isOpen, !!isOpen)
 
   const refsMoleculeAutosuggestOptions = useRef([])
   const innerRefMoleculeAutosuggestInput = useRef()
@@ -67,9 +58,16 @@ const MoleculeAutosuggest = ({
 
   const [focus, setFocus] = useState(false)
 
-  const handleToggle = (event, {isOpen}) => {
-    setOpenState(isOpen === undefined ? !isOpenState : !!isOpen)
-    typeof onToggle === 'function' && onToggle(event, {isOpen})
+  const handleToggle = (ev, {isOpen: nextIsOpenState}) => {
+    const {type} = ev
+
+    if (type !== 'change') {
+      setIsOpenState(nextIsOpenState, autoClose !== false)
+    } else if (!isOpenState) {
+      setIsOpenState(nextIsOpenState, nextIsOpenState && isOpen !== false)
+    }
+
+    typeof onToggle === 'function' && onToggle(ev, {isOpen: nextIsOpenState})
   }
 
   const extendedChildren = Children.toArray(children)

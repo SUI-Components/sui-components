@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.16.0 (2022-05-06)
+
+
+### Features
+
+* **components/molecule/photoUploader:** center text when text dont fit on container ([f0ab9c3](https://github.com/SUI-Components/sui-components/commit/f0ab9c3b02dfb8df48f71b8ec0e9311fb3a5b446))
+* **components/molecule/photoUploader:** make mininum height a default scss var to modify its value ([d4101af](https://github.com/SUI-Components/sui-components/commit/d4101afd0d3bbc7c03c4b738abe75eaa869ba921))
+
+
+
 # 2.15.0 (2022-05-04)
 
 

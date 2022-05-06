@@ -3,6 +3,7 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
 import ArticleDefault from './articles/ArticleDefault.js'
+import ArticleBehavior from './articles/ArticleBehavior.js'
 import {CLASS_SECTION} from './settings.js'
 
 export default () => {
@@ -18,6 +19,8 @@ export default () => {
         sections of content on a single page.
       </Paragraph>
       <ArticleDefault className={CLASS_SECTION} />
+      <br />
+      <ArticleBehavior className={CLASS_SECTION} />
     </div>
   )
 }

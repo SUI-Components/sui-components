@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 import {inject, combineProps} from '@s-ui/react-primitive-injector'
-import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import {useAccordionContext} from './context/index.js'
 import {
@@ -17,11 +16,13 @@ const AccordionItemPanel = forwardRef(
   (
     {
       as = 'div',
+      id,
       content,
       children = <AccordionItemPanelDefaultChildren />,
       isExpanded,
       value,
-      animationDuration: animationDurationProp
+      animationDuration: animationDurationProp,
+      label
     },
     forwardedRef
   ) => {
@@ -33,9 +34,12 @@ const AccordionItemPanel = forwardRef(
     return (
       <Poly
         as={as}
+        id={id}
         ref={forwardedRef}
+        role="region"
         className={BASE_CLASS_ITEM_PANEL}
         aria-expanded={values.includes(value)}
+        arial-labeledby={label}
         style={{
           ...(values.includes(value) && {maxHeight: height}),
           transition: `max-height ${animationDuration}ms ${

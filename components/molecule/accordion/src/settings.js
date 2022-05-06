@@ -48,9 +48,14 @@ export const SPACING = {
   XL: 'xl'
 }
 
-export var ANIMATION_DURATION = {
+export const ANIMATION_DURATION = {
   NONE: 0,
   FAST: 100,
   NORMAL: 300,
   SLOW: 500
+}
+
+export const HEADER_ICON_POSITION = {
+  LEFT: 'left',
+  RIGHT: 'right'
 }

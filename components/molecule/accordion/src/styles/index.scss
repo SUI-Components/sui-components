@@ -33,6 +33,33 @@ $base-class-item-panel: '#{$base-class-item}Panel';
     width: 100%;
     height: 100%;
     text-align: inherit;
+    min-height: $sz-base * 5;
+    display: flex;
+    align-items: center;
+    &#{$base-class-item-header}Button--icon-position {
+      &-left {
+        flex-direction: row-reverse;
+        #{$base-class-item-header}IconWrapper {
+          #{$base-class-item-header}Icon {
+            &:empty {
+              transform: rotate(-90deg);
+              &#{$base-class-item-header}Icon--expanded {
+                transform: rotate(0deg);
+              }
+            }
+          }
+        }
+        #{$base-class-item-header}ButtonContent {
+          margin-right: $sz-base;
+        }
+      }
+      &-right {
+        flex-direction: row;
+        #{$base-class-item-header}ButtonContent {
+          margin-left: $sz-base;
+        }
+      }
+    }
     #{$base-class-item-header}ButtonContent {
       box-sizing: inherit;
       width: 100%;
@@ -40,12 +67,47 @@ $base-class-item-panel: '#{$base-class-item}Panel';
       line-height: 1.15;
       font-weight: 400;
       overflow: hidden;
-      padding: $sz-base $sz-base * 2;
       text-align: inherit;
       text-overflow: ellipsis;
       white-space: nowrap;
       font-size: $fz-base;
+    }
+    #{$base-class-item-header}ButtonContent,
+    #{$base-class-item-header}IconWrapper {
       color: $c-text-base;
+      #{$base-class-item-header}Icon {
+        display: flex;
+        margin: $sz-base;
+        &:empty {
+          $sz-empty-icon: $sz-icon-xs;
+          min-width: $sz-empty-icon;
+          min-height: $sz-empty-icon;
+          position: relative;
+          overflow: hidden;
+          transform: rotate(90deg);
+          &::before,
+          &::after {
+            position: absolute;
+            content: '';
+            top: 50%;
+            bottom: 50%;
+            width: 100%;
+            border-bottom: 1px solid $c-gray;
+            box-sizing: border-box;
+          }
+          &::before {
+            transform: rotate(-45deg);
+            left: 33%;
+          }
+          &::after {
+            transform: rotate(-135deg);
+            right: 33%;
+          }
+        }
+        &#{$base-class-item-header}Icon--expanded {
+          transform: rotate(0deg);
+        }
+      }
     }
   }
   + #{$base-class-item-panel} {

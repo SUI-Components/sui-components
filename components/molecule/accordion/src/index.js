@@ -4,7 +4,13 @@ import PropTypes from 'prop-types'
 
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 
-import {BASE_CLASS, BEHAVIOR, SPACING, ANIMATION_DURATION} from './settings.js'
+import {
+  BASE_CLASS,
+  BEHAVIOR,
+  SPACING,
+  ANIMATION_DURATION,
+  HEADER_ICON_POSITION
+} from './settings.js'
 import {AccordionProvider} from './context/index.js'
 import AccordionItem from './AccordionItem.js'
 import AccordionItemHeader from './AccordionItemHeader.js'
@@ -20,7 +26,9 @@ const MoleculeAccordion = forwardRef(
       onChange,
       behavior,
       children,
-      animationDuration = ANIMATION_DURATION.NORMAL
+      animationDuration = ANIMATION_DURATION.NORMAL,
+      headerIcon,
+      headerIconPosition = HEADER_ICON_POSITION.RIGHT
     },
     forwardedRef
   ) => {
@@ -35,6 +43,8 @@ const MoleculeAccordion = forwardRef(
           onChange={onChange}
           behavior={behavior}
           animationDuration={animationDuration}
+          headerIcon={headerIcon}
+          headerIconPosition={headerIconPosition}
         >
           {children}
         </AccordionProvider>

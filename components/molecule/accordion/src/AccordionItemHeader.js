@@ -1,5 +1,6 @@
 import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 import {
@@ -8,7 +9,7 @@ import {
   combineProps
 } from '@s-ui/react-primitive-injector'
 
-import AccordionItemHeaderDefaultChildren from './AccordionItemHeaderDefaultChildren.js'
+import AccordionItemHeaderChildrenDefault from './AccordionItemHeaderChildrenDefault.js'
 import {useAccordionContext} from './context/index.js'
 
 import {BASE_CLASS_ITEM_HEADER, getBehavior} from './settings.js'
@@ -17,8 +18,12 @@ const AccordionItemHeader = forwardRef(
   (
     {
       as = 'div',
-      icon,
-      children = <AccordionItemHeaderDefaultChildren />,
+      id,
+      panelId,
+      icon: iconProp,
+      iconPosition: iconPositionProp,
+      children = <AccordionItemHeaderChildrenDefault />,
+      animationDuration: animationDurationProp,
       value,
       label,
       disabled,
@@ -26,31 +31,46 @@ const AccordionItemHeader = forwardRef(
     },
     forwardedRef
   ) => {
-    const {values, onChange, behavior, setValues} = useAccordionContext({value})
+    const {
+      values,
+      onChange,
+      behavior,
+      setValues,
+      headerIcon: iconContext,
+      headerIconPosition: iconPositionContext,
+      animationDuration: animationDurationContext
+    } = useAccordionContext({value})
 
     const handleClick = event => {
       const response = getBehavior(behavior)({value, values})
       setValues(response.values)
-      combineHandler(onChange(event, response), onClick(event, response))
+      ;[onChange, onClick].forEach(onHandler => {
+        typeof onHandler === 'function' && onHandler(event, response)
+      })
     }
 
+    const icon = iconProp || iconContext
+    const iconPosition = iconPositionProp || iconPositionContext
+    const animationDuration = animationDurationProp || animationDurationContext
     return (
       <Poly
         as={as}
         ref={forwardedRef}
         className={BASE_CLASS_ITEM_HEADER}
         role="heading"
-        {...{
-          ...(label && {'aria-label': label}),
-          ...(disabled && {'aria-disabled': disabled})
-        }}
       >
         <button
           type="button"
-          className={`${BASE_CLASS_ITEM_HEADER}Button`}
+          id={id}
+          className={cx(
+            `${BASE_CLASS_ITEM_HEADER}Button`,
+            `${BASE_CLASS_ITEM_HEADER}Button--icon-position-${iconPosition}`
+          )}
           aria-pressed={values.includes(value)}
+          aria-controls={panelId}
           {...{
-            ...(disabled && {'aria-disabled': disabled})
+            ...(disabled && {'aria-disabled': disabled}),
+            ...(label && {'aria-label': label})
           }}
           onClick={handleClick}
         >
@@ -60,8 +80,10 @@ const AccordionItemHeader = forwardRef(
                 ...(label && {children: label}),
                 disabled,
                 icon,
+                iconPosition,
                 values,
-                value
+                value,
+                animationDuration
               },
               proviso: () => true,
               combine: combineProps
@@ -79,7 +101,7 @@ AccordionItemHeader.propTypes = {
   /** The elementType of the wrapper **/
   as: PropTypes.elementType,
   /** appropriate for the information architecture of the page **/
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
 }
 
 export default AccordionItemHeader

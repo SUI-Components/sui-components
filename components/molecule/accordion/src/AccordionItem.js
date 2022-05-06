@@ -8,14 +8,17 @@ import {
   MoleculeAccordionItemHeader as AccordionItemHeader,
   MoleculeAccordionItemPanel as AccordionItemPanel
 } from './index.js'
+import {HEADER_ICON_POSITION} from './settings.js'
 
 const AccordionItem = forwardRef(
   (
     {
       as = Fragment,
+      id,
       header,
       children,
       headerIcon,
+      headerIconPosition,
       disabled,
       isExpanded,
       value,
@@ -29,18 +32,23 @@ const AccordionItem = forwardRef(
       <Poly as={as} {...(isFragment(as) && {ref: forwardedRef})}>
         <AccordionItemHeader
           disabled={disabled}
+          id={`header-${id === undefined ? value : id}`}
+          panelId={`panel-${id === undefined ? value : id}`}
           value={value}
-          headerIcon={headerIcon}
+          icon={headerIcon}
+          iconPosition={headerIconPosition}
           label={label}
           onClick={onClick}
         >
           {header}
         </AccordionItemHeader>
         <AccordionItemPanel
+          id={`panel-${id === undefined ? value : id}`}
           isExpanded={isExpanded}
           disabled={disabled}
           value={value}
           content={content}
+          label={label}
         >
           {children}
         </AccordionItemPanel>
@@ -55,6 +63,7 @@ AccordionItem.propTypes = {
   /** The elementType of the wrapper **/
   as: PropTypes.elementType,
   headerIcon: PropTypes.node,
+  headerIconPosition: PropTypes.oneOf(Object.values(HEADER_ICON_POSITION)),
   children: PropTypes.node,
   isExpanded: PropTypes.bool,
   label: PropTypes.string.isRequired

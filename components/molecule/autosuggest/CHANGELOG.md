@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 2.58.0 (2022-05-06)
+
+
+### Bug Fixes
+
+* **components/molecule/autosuggest:** autoClose and isOpen controlled and uncontrolled ([4fc3670](https://github.com/SUI-Components/sui-components/commit/4fc367081e32dc0a364be9caca4e5452e207f63e))
+
+
+### Features
+
+* **components/molecule/autosuggest:** isOpen controlled and uncontrolled ([48406d7](https://github.com/SUI-Components/sui-components/commit/48406d74dac4660a3a9d3107842a09066525452b))
+
+
+
 # 2.57.0 (2022-02-11)
 
 

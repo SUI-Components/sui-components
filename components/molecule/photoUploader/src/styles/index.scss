@@ -52,6 +52,7 @@ $skeleton-class: '#{$base-class}-skeleton';
     align-items: center;
     display: flex;
     flex-direction: column;
+    text-align: center;
 
     &Text {
       margin-top: $m-m;

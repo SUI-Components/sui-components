@@ -29,7 +29,8 @@ const MoleculeAccordion = forwardRef(
       animationDuration = ANIMATION_DURATION.NORMAL,
       headerIconExpanded,
       headerIconCollapsed,
-      headerIconPosition = HEADER_ICON_POSITION.RIGHT
+      headerIconPosition = HEADER_ICON_POSITION.RIGHT,
+      maxHeight = 0
     },
     forwardedRef
   ) => {
@@ -47,6 +48,7 @@ const MoleculeAccordion = forwardRef(
           headerIconExpanded={headerIconExpanded}
           headerIconCollapsed={headerIconCollapsed}
           headerIconPosition={headerIconPosition}
+          maxHeight={maxHeight}
         >
           {children}
         </AccordionProvider>

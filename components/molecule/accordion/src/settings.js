@@ -7,7 +7,7 @@ export const BASE_CLASS_ITEM_PANEL_CONTENT = `${BASE_CLASS_ITEM}PanelContent`
 
 export const BEHAVIOR = {
   SINGLE: 'single',
-  MULTIPLE: 'mutiple'
+  MULTIPLE: 'multiple'
 }
 
 const behaviors = {

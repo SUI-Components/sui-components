@@ -13,7 +13,7 @@ import {BASE_CLASS_ITEM_HEADER, getBehavior, getIcon} from './settings.js'
 const AccordionItemHeader = forwardRef(
   (
     {
-      as = 'div',
+      as = 'h1',
       id,
       panelId,
       icon: iconProp,
@@ -54,16 +54,15 @@ const AccordionItemHeader = forwardRef(
     )
     const iconPosition = iconPositionProp || iconPositionContext
     const animationDuration = animationDurationProp || animationDurationContext
+    const isHeadingElement = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(as)
     return (
       <Poly
         as={as}
         ref={forwardedRef}
         className={BASE_CLASS_ITEM_HEADER}
         {...{
-          ...(level && {'aria-level': level}),
-          ...(!['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(as) && {
-            role: 'heading'
-          })
+          ...(!isHeadingElement && {role: 'heading'}),
+          ...(!isHeadingElement && level && {'aria-level': level})
         }}
       >
         <button

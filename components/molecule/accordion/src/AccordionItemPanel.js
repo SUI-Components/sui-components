@@ -20,6 +20,7 @@ const AccordionItemPanel = forwardRef(
       content,
       children = <AccordionItemPanelDefaultChildren />,
       isExpanded,
+      maxHeight: maxHeightProp,
       value,
       animationDuration: animationDurationProp,
       label
@@ -28,8 +29,13 @@ const AccordionItemPanel = forwardRef(
   ) => {
     const [contentRef, {height}] = useMeasure()
 
-    const {values, animationDuration: animationDurationContext} =
-      useAccordionContext({isExpanded, value})
+    const {
+      values,
+      animationDuration: animationDurationContext,
+      maxHeight: maxHeightContext
+    } = useAccordionContext({isExpanded, value})
+    const maxHeight =
+      maxHeightProp !== undefined ? maxHeightProp : maxHeightContext
     const animationDuration = animationDurationProp || animationDurationContext
     return (
       <Poly
@@ -41,7 +47,10 @@ const AccordionItemPanel = forwardRef(
         aria-expanded={values.includes(value)}
         arial-labeledby={label}
         style={{
-          ...(values.includes(value) && {maxHeight: height}),
+          ...(values.includes(value) && {
+            maxHeight: maxHeight === 0 ? height : maxHeight,
+            overflowY: height < maxHeight ? 'hidden' : 'scroll'
+          }),
           transition: `max-height ${animationDuration}ms ${
             values.includes(value) ? 'ease-out' : 'ease-in'
           }`

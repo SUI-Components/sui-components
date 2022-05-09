@@ -22,6 +22,7 @@ $base-class-item-panel: '#{$base-class-item}Panel';
   border-right-width: $bdw-accordion-item;
   border-bottom-width: $bdw-accordion-item;
   border-top-width: $bdw-accordion-item;
+  margin: 0;
   #{$base-class-item-header}Button {
     box-sizing: inherit;
     border: none;

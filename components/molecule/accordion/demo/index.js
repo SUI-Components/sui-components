@@ -4,6 +4,7 @@ import {H1, Paragraph} from '@s-ui/documentation-library'
 
 import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleBehavior from './articles/ArticleBehavior.js'
+import ArticleHeight from './articles/ArticleHeight.js'
 import ArticleTransition from './articles/ArticleTransition.js'
 import ArticleIcon from './articles/ArticleIcon.js'
 import {CLASS_SECTION} from './settings.js'
@@ -23,6 +24,8 @@ export default () => {
       <ArticleDefault className={CLASS_SECTION} />
       <br />
       <ArticleBehavior className={CLASS_SECTION} />
+      <br />
+      <ArticleHeight className={CLASS_SECTION} />
       <br />
       <ArticleTransition className={CLASS_SECTION} />
       <br />

@@ -42,7 +42,7 @@ $base-class-item-panel: '#{$base-class-item}Panel';
         #{$base-class-item-header}IconWrapper {
           #{$base-class-item-header}Icon {
             &:empty {
-              transform: rotate(-90deg);
+              transform: rotate(-180deg);
               &#{$base-class-item-header}Icon--expanded {
                 transform: rotate(0deg);
               }
@@ -75,16 +75,18 @@ $base-class-item-panel: '#{$base-class-item}Panel';
     #{$base-class-item-header}ButtonContent,
     #{$base-class-item-header}IconWrapper {
       color: $c-text-base;
+    }
+    #{$base-class-item-header}IconWrapper {
+      padding: $sz-base;
       #{$base-class-item-header}Icon {
         display: flex;
-        margin: $sz-base;
         &:empty {
           $sz-empty-icon: $sz-icon-xs;
           min-width: $sz-empty-icon;
           min-height: $sz-empty-icon;
           position: relative;
           overflow: hidden;
-          transform: rotate(90deg);
+          transform: rotate(180deg);
           &::before,
           &::after {
             position: absolute;

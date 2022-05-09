@@ -7,7 +7,8 @@ import {
   Paragraph,
   Grid,
   Cell,
-  Label
+  Label,
+  Code
 } from '@s-ui/documentation-library'
 
 import Accordion, {
@@ -30,7 +31,16 @@ const ArticleBehavior = ({className}) => {
   return (
     <Article className={className}>
       <H2>Behavior</H2>
-      <Paragraph>paragraph</Paragraph>
+      <Paragraph>
+        Use the Accordion as a controlled component using the{' '}
+        <Code>values</Code> (array of ids) prop. Change the containing expanded
+        ids using the <Code>onChange</Code> Accordion handler.
+      </Paragraph>
+      <Paragraph>
+        The onChange handler has the event and an object which contains the
+        expanded id <Code>values</Code>, the clicked id <Code>value</Code> and
+        its current state under the <Code>isExpanded</Code> boolean state.
+      </Paragraph>
       <Accordion values={values} onChange={onChange}>
         <AccordionItem
           value="value-1"
@@ -58,7 +68,8 @@ const ArticleBehavior = ({className}) => {
         />
       </Accordion>
       <Paragraph>
-        By default, there are two main behaviors provided by the package:
+        By default, there are two main behaviors provided by the package to
+        declare its default behavior:
       </Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         {Object.values(moleculeAccordionBehavior).map(

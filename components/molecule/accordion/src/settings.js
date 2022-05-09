@@ -40,6 +40,16 @@ const behaviors = {
 
 export const getBehavior = behaviorName => behaviors[behaviorName]
 
+export const getIcon = (
+  {iconProp, isExpanded},
+  {iconExpanded, iconCollapsed}
+) => {
+  if (iconProp) {
+    return iconProp
+  }
+  return isExpanded ? iconExpanded : iconCollapsed
+}
+
 export const SPACING = {
   XS: 'xs',
   S: 's',

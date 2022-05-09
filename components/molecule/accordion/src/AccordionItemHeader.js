@@ -3,16 +3,12 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import Poly from '@s-ui/react-primitive-polymorphic-element'
-import {
-  combineHandler,
-  inject,
-  combineProps
-} from '@s-ui/react-primitive-injector'
+import {inject, combineProps} from '@s-ui/react-primitive-injector'
 
 import AccordionItemHeaderChildrenDefault from './AccordionItemHeaderChildrenDefault.js'
 import {useAccordionContext} from './context/index.js'
 
-import {BASE_CLASS_ITEM_HEADER, getBehavior} from './settings.js'
+import {BASE_CLASS_ITEM_HEADER, getBehavior, getIcon} from './settings.js'
 
 const AccordionItemHeader = forwardRef(
   (
@@ -26,6 +22,7 @@ const AccordionItemHeader = forwardRef(
       animationDuration: animationDurationProp,
       value,
       label,
+      level,
       disabled,
       onClick
     },
@@ -36,7 +33,8 @@ const AccordionItemHeader = forwardRef(
       onChange,
       behavior,
       setValues,
-      headerIcon: iconContext,
+      headerIconExpanded: iconExpandedContext,
+      headerIconCollapsed: iconCollapsedContext,
       headerIconPosition: iconPositionContext,
       animationDuration: animationDurationContext
     } = useAccordionContext({value})
@@ -49,7 +47,11 @@ const AccordionItemHeader = forwardRef(
       })
     }
 
-    const icon = iconProp || iconContext
+    const isExpanded = values.includes(value)
+    const icon = getIcon(
+      {icon: iconProp, isExpanded},
+      {iconExpanded: iconExpandedContext, iconCollapsed: iconCollapsedContext}
+    )
     const iconPosition = iconPositionProp || iconPositionContext
     const animationDuration = animationDurationProp || animationDurationContext
     return (
@@ -57,7 +59,12 @@ const AccordionItemHeader = forwardRef(
         as={as}
         ref={forwardedRef}
         className={BASE_CLASS_ITEM_HEADER}
-        role="heading"
+        {...{
+          ...(level && {'aria-level': level}),
+          ...(!['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(as) && {
+            role: 'heading'
+          })
+        }}
       >
         <button
           type="button"
@@ -66,7 +73,7 @@ const AccordionItemHeader = forwardRef(
             `${BASE_CLASS_ITEM_HEADER}Button`,
             `${BASE_CLASS_ITEM_HEADER}Button--icon-position-${iconPosition}`
           )}
-          aria-pressed={values.includes(value)}
+          aria-pressed={isExpanded}
           aria-controls={panelId}
           {...{
             ...(disabled && {'aria-disabled': disabled}),
@@ -101,7 +108,7 @@ AccordionItemHeader.propTypes = {
   /** The elementType of the wrapper **/
   as: PropTypes.elementType,
   /** appropriate for the information architecture of the page **/
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired
 }
 
 export default AccordionItemHeader

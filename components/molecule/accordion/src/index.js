@@ -27,7 +27,8 @@ const MoleculeAccordion = forwardRef(
       behavior,
       children,
       animationDuration = ANIMATION_DURATION.NORMAL,
-      headerIcon,
+      headerIconExpanded,
+      headerIconCollapsed,
       headerIconPosition = HEADER_ICON_POSITION.RIGHT
     },
     forwardedRef
@@ -43,7 +44,8 @@ const MoleculeAccordion = forwardRef(
           onChange={onChange}
           behavior={behavior}
           animationDuration={animationDuration}
-          headerIcon={headerIcon}
+          headerIconExpanded={headerIconExpanded}
+          headerIconCollapsed={headerIconCollapsed}
           headerIconPosition={headerIconPosition}
         >
           {children}
@@ -82,7 +84,9 @@ export {
   AccordionItemHeader as MoleculeAccordionItemHeader,
   AccordionItemHeaderIcon as MoleculeAccordionItemHeaderIcon,
   AccordionItemPanel as MoleculeAccordionItemPanel,
-  BEHAVIOR as moleculeAccordionBehavior
+  BEHAVIOR as moleculeAccordionBehavior,
+  ANIMATION_DURATION as moleculeAnimationDuration,
+  HEADER_ICON_POSITION as moleculeAccordionHeaderIconPosition
 }
 
 export default MoleculeAccordion

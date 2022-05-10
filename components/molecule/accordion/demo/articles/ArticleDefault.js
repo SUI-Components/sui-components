@@ -12,12 +12,12 @@ import LoremIpsum from '../LoremIpsum.js'
 const ArticleDefault = ({className}) => {
   const [values] = useState([])
   const onChange = (event, {values, value, isExpanded}) => {
-    console.log('onChange', event, {values, value, isExpanded})
+    console.log('onChange', event, {values, value, isExpanded}) // eslint-disable-line no-console
   }
   const onItemClick =
     item =>
     (event, {value, isExpanded, values}) =>
-      console.log('onItemClick', item, event, {value, isExpanded, values})
+      console.log('onItemClick', item, event, {value, isExpanded, values}) // eslint-disable-line no-console
 
   return (
     <Article className={className}>

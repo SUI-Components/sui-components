@@ -8,7 +8,12 @@ import {inject, combineProps} from '@s-ui/react-primitive-injector'
 import AccordionItemHeaderChildrenDefault from './AccordionItemHeaderChildrenDefault.js'
 import {useAccordionContext} from './context/index.js'
 
-import {BASE_CLASS_ITEM_HEADER, getBehavior, getIcon} from './settings.js'
+import {
+  BASE_CLASS_ITEM_HEADER,
+  getBehavior,
+  getIcon,
+  HEADER_ICON_POSITION
+} from './settings.js'
 
 const AccordionItemHeader = forwardRef(
   (
@@ -75,7 +80,7 @@ const AccordionItemHeader = forwardRef(
           aria-pressed={isExpanded}
           aria-controls={panelId}
           {...{
-            ...(disabled && {'aria-disabled': disabled}),
+            ...(disabled && {'aria-disabled': disabled, disabled}),
             ...(label && {'aria-label': label})
           }}
           onClick={handleClick}
@@ -106,8 +111,28 @@ AccordionItemHeader.displayName = 'AccordionItemHeader'
 AccordionItemHeader.propTypes = {
   /** The elementType of the wrapper **/
   as: PropTypes.elementType,
+  /** The animation duration in ms **/
+  animationDuration: PropTypes.number,
+  /** child element **/
+  children: PropTypes.node,
+  /** element enabled or not **/
+  disabled: PropTypes.bool,
+  /** unique identifier **/
+  id: PropTypes.string,
+  /** unique identifier of the controlled panel **/
+  panelId: PropTypes.string,
+  /** The header Icn element **/
+  icon: PropTypes.node,
+  /** where the icon is header positioned */
+  iconPosition: PropTypes.oneOf(Object.values(HEADER_ICON_POSITION)),
   /** appropriate for the information architecture of the page **/
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
+  /** the unique value of the element **/
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  /** the heading level **/
+  level: PropTypes.oneOf(['1', '2', '3', '4', '5', '6', 1, 2, 3, 4, 5, 6]),
+  /** header clicking handler **/
+  onClick: PropTypes.func
 }
 
 export default AccordionItemHeader

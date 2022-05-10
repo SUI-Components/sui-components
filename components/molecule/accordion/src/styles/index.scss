@@ -11,10 +11,17 @@ $base-class-item-panel: '#{$base-class-item}Panel';
   border-color: $c-gray;
   border-style: solid;
   border-width: 0;
-}
-#{$base-class-item-header} {
-  //border-bottom-width: 1px;
-  //border-top-width: 1px;
+  #{$base-class-item-header}Button,
+  & {
+    &[aria-disabled='true'] {
+      cursor: not-allowed;
+      #{$base-class-item-header}ButtonContent,
+      #{$base-class-item-header-icon}Wrapper,
+      #{$base-class-item-panel}ContentWrapper {
+        opacity: 0.5;
+      }
+    }
+  }
 }
 
 #{$base-class-item-header} {
@@ -129,7 +136,7 @@ $base-class-item-panel: '#{$base-class-item}Panel';
     border-bottom: 0;
   }
   #{$base-class-item-panel}Content {
-    padding: 2 * $sz-base;
+    padding: $sz-base;
   }
   + #{$base-class-item-header} {
     margin-top: -$bdw-accordion-item;

@@ -4,13 +4,14 @@ import AccordionContext from './AccordionContext.js'
 
 export const useAccordionContext = ({isExpanded, value}) => {
   const context = useContext(AccordionContext)
+  const {setValues, values} = context
   useLayoutEffect(() => {
-    if (isExpanded === true && !context.values.includes(value)) {
-      context.setValues([...context.values, value])
-    } else if (isExpanded === false && context.values.includes(value)) {
-      context.setValues(context.values.filter(val => val !== value))
+    if (isExpanded === true && !values.includes(value)) {
+      setValues([...values, value])
+    } else if (isExpanded === false && values.includes(value)) {
+      setValues(values.filter(val => val !== value))
     }
-  }, [isExpanded, value])
+  }, [isExpanded, value, setValues, values])
   return context
 }
 

@@ -7,6 +7,8 @@ import ArticleBehavior from './articles/ArticleBehavior.js'
 import ArticleHeight from './articles/ArticleHeight.js'
 import ArticleTransition from './articles/ArticleTransition.js'
 import ArticleIcon from './articles/ArticleIcon.js'
+import ArticleSpacing from './articles/ArticleSpacing.js'
+import ArticleDisabled from './articles/ArticleDisabled.js'
 import {CLASS_SECTION} from './settings.js'
 
 export default () => {
@@ -30,6 +32,10 @@ export default () => {
       <ArticleTransition className={CLASS_SECTION} />
       <br />
       <ArticleIcon className={CLASS_SECTION} />
+      <br />
+      <ArticleSpacing className={CLASS_SECTION} />
+      <br />
+      <ArticleDisabled className={CLASS_SECTION} />
     </div>
   )
 }

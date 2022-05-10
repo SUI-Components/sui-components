@@ -62,22 +62,32 @@ MoleculeAccordion.displayName = 'MoleculeAccordion'
 MoleculeAccordion.propTypes = {
   /** The elementType of the wrapper **/
   as: PropTypes.elementType,
-  /** The opened values **/
-  values: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  ),
+  /** The animation duration in ms **/
+  animationDuration: PropTypes.number,
+  /** The change default behavior **/
+  behavior: PropTypes.oneOf(Object.values(BEHAVIOR)),
+  /** child element **/
+  children: PropTypes.node,
+  /** The space AccordionItems **/
+  gap: PropTypes.oneOf(Object.values(SPACING)),
+  /** the max height limit a panel can reach when its expanded **/
+  maxHeight: PropTypes.number,
   /** The initial opened values **/
   defaultValues: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   ),
-  /** The change default behavior **/
-  behavior: PropTypes.oneOf(Object.values(BEHAVIOR)),
-  /** The animation duration in ms **/
-  animationDuration: PropTypes.number,
-  /** The space AccordionItems **/
-  gap: PropTypes.oneOf(Object.values(SPACING)),
+  /** The opened values **/
+  values: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  ),
   /** handler fired everytime an item changes its collapsed/expanded state **/
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  /** The header Icon element expanded **/
+  headerIconExpanded: PropTypes.node,
+  /** The header Icon element collapsed **/
+  headerIconCollapsed: PropTypes.node,
+  /** where the icon is header positioned */
+  headerIconPosition: PropTypes.oneOf(Object.values(HEADER_ICON_POSITION))
 }
 
 export {

@@ -14,7 +14,6 @@ import {
   Code
 } from '@s-ui/documentation-library'
 import AtomIcon, {atomIconSizes} from '@s-ui/react-atom-icon'
-import AccordionItemHeader from '../../lib/AccordionItemHeader.js'
 
 import LoremIpsum from '../LoremIpsum.js'
 import Accordion, {

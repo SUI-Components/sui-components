@@ -23,7 +23,8 @@ const AccordionItemPanel = forwardRef(
       maxHeight: maxHeightProp,
       value,
       animationDuration: animationDurationProp,
-      label
+      label,
+      disabled
     },
     forwardedRef
   ) => {
@@ -45,15 +46,17 @@ const AccordionItemPanel = forwardRef(
         role="region"
         className={BASE_CLASS_ITEM_PANEL}
         aria-expanded={values.includes(value)}
-        arial-labeledby={label}
+        aria-labeledby={label}
+        aria-disabled={disabled}
         style={{
-          ...(values.includes(value) && {
-            maxHeight: maxHeight === 0 ? height : maxHeight,
-            overflowY: height < maxHeight ? 'hidden' : 'scroll'
-          }),
+          overflowY:
+            height > maxHeight && maxHeight !== 0 ? 'scroll' : 'hidden',
           transition: `max-height ${animationDuration}ms ${
             values.includes(value) ? 'ease-out' : 'ease-in'
-          }`
+          }`,
+          ...(values.includes(value) && {
+            maxHeight: maxHeight === 0 ? height : maxHeight
+          })
         }}
       >
         <div
@@ -66,7 +69,8 @@ const AccordionItemPanel = forwardRef(
                 ...(content && {children: content}),
                 isExpanded,
                 values,
-                value
+                value,
+                disabled
               },
               proviso: () => true,
               combine: combineProps
@@ -82,7 +86,25 @@ AccordionItemPanel.displayName = 'AccordionItemPanel'
 
 AccordionItemPanel.propTypes = {
   /** The elementType of the wrapper **/
-  as: PropTypes.elementType
+  as: PropTypes.elementType,
+  /** The animation duration in ms **/
+  animationDuration: PropTypes.number,
+  /** child element **/
+  children: PropTypes.node,
+  /** panel inner content **/
+  content: PropTypes.node,
+  /** element enabled or not **/
+  disabled: PropTypes.bool,
+  /** unique identifier **/
+  id: PropTypes.string,
+  /** controlled expanded accordion item behavior */
+  isExpanded: PropTypes.bool,
+  /** a required string indicating the content **/
+  label: PropTypes.string.isRequired,
+  /** the max height limit a panel can reach when its expanded **/
+  maxHeight: PropTypes.number,
+  /** the unique value of the element **/
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
 }
 
 export default AccordionItemPanel

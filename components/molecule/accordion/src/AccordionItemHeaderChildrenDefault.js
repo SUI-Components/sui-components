@@ -1,4 +1,5 @@
 import {Fragment} from 'react'
+import PropTypes from 'prop-types'
 
 import Injector from '@s-ui/react-primitive-injector'
 
@@ -33,6 +34,19 @@ const AccordionItemHeaderChildrenDefault = ({
 AccordionItemHeaderChildrenDefault.displayName =
   'AccordionItemHeaderChildrenDefault'
 
-AccordionItemHeaderChildrenDefault.propTypes = {}
+AccordionItemHeaderChildrenDefault.propTypes = {
+  /** The animation duration in ms **/
+  animationDuration: PropTypes.number,
+  /** child element **/
+  children: PropTypes.node,
+  /** The header Icon element **/
+  icon: PropTypes.node,
+  /** the unique value of the element **/
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  /** The opened values **/
+  values: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  )
+}
 
 export default AccordionItemHeaderChildrenDefault

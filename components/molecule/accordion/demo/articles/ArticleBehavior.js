@@ -20,7 +20,7 @@ import LoremIpsum from '../LoremIpsum.js'
 const ArticleBehavior = ({className}) => {
   const [values, setValues] = useState([])
   const onChange = (event, {values, value, isExpanded}) => {
-    console.log('onChange', event, {values, value, isExpanded})
+    console.log('onChange', event, {values, value, isExpanded}) // eslint-disable-line no-console
     setValues(
       values.includes(value)
         ? values.filter(v => v !== value)

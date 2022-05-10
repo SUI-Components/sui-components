@@ -29,6 +29,15 @@ const AccordionItemHeaderIconDefault = forwardRef(
 
 AccordionItemHeaderIconDefault.displayName = 'AccordionItemHeaderIconDefault'
 
-AccordionItemHeaderIconDefault.propTypes = {}
+AccordionItemHeaderIconDefault.propTypes = {
+  /** The elementType of the wrapper **/
+  as: PropTypes.elementType,
+  /** The animation duration in ms **/
+  animationDuration: PropTypes.number,
+  /** child element **/
+  children: PropTypes.node,
+  /** controlled expanded accordion item behavior */
+  isExpanded: PropTypes.bool
+}
 
 export default AccordionItemHeaderIconDefault

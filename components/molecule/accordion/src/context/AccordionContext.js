@@ -1,14 +1,10 @@
 import {createContext} from 'react'
-import {
-  ALIGNMENT,
-  DESIGN,
-  JUSTIFY_CONTENT,
-  HEADER_ICON_POSITION
-} from '../settings.js'
+import {HEADER_ICON_POSITION} from '../settings.js'
 
 export const defaultAccordionContext = {
   icon: undefined,
-  headerIconPosition: HEADER_ICON_POSITION.RIGHT
+  headerIconPosition: HEADER_ICON_POSITION.RIGHT,
+  values: []
 }
 
 const AccordionContext = createContext(defaultAccordionContext)

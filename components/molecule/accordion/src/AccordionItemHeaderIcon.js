@@ -2,10 +2,10 @@ import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 
 import Poly from '@s-ui/react-primitive-polymorphic-element'
-import {combineProps, inject} from '@s-ui/react-primitive-injector'
+import Injector from '@s-ui/react-primitive-injector'
 
 import AccordionItemHeaderIconDefault from './AccordionItemHeaderIconDefault.js'
-import {BASE_CLASS} from './settings.js'
+import {BASE_CLASS_ITEM_HEADER_ICON} from './settings.js'
 
 const AccordionItemHeaderIcon = forwardRef(
   (
@@ -14,26 +14,20 @@ const AccordionItemHeaderIcon = forwardRef(
       children = <AccordionItemHeaderIconDefault />,
       isExpanded,
       disabled,
-      icon
+      animationDuration
     },
     forwardedRef
-  ) => {
-    return (
-      <Poly as={as} ref={forwardedRef} className={BASE_CLASS}>
-        {inject(children, [
-          {
-            props: {
-              disabled,
-              isExpanded,
-              children: icon
-            },
-            proviso: () => true,
-            combine: combineProps
-          }
-        ])}
-      </Poly>
-    )
-  }
+  ) => (
+    <Poly as={as} ref={forwardedRef} className={BASE_CLASS_ITEM_HEADER_ICON}>
+      <Injector
+        disabled={disabled}
+        isExpanded={isExpanded}
+        animationDuration={animationDuration}
+      >
+        {children}
+      </Injector>
+    </Poly>
+  )
 )
 
 AccordionItemHeaderIcon.displayName = 'AccordionItemHeaderIcon'
@@ -41,14 +35,14 @@ AccordionItemHeaderIcon.displayName = 'AccordionItemHeaderIcon'
 AccordionItemHeaderIcon.propTypes = {
   /** The elementType of the wrapper **/
   as: PropTypes.elementType,
+  /** The animation duration in ms **/
+  animationDuration: PropTypes.number,
   /** child element **/
   children: PropTypes.node,
   /** element enabled or not **/
   disabled: PropTypes.bool,
   /** controlled expanded accordion item behavior */
-  isExpanded: PropTypes.bool,
-  /** The header Icon element **/
-  icon: PropTypes.node
+  isExpanded: PropTypes.bool
 }
 
 export default AccordionItemHeaderIcon

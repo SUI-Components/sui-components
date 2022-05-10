@@ -31,7 +31,7 @@ const ArticleDefault = ({className}) => {
         <AccordionItem
           value="value-1"
           onClick={onItemClick('header1')}
-          label="Accordion Item Header 1"
+          label="Accordion Item Label 1"
           content={
             <>
               <p>Accordion Item Content 1</p>

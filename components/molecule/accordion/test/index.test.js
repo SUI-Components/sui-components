@@ -67,14 +67,14 @@ describe(json.name, () => {
             key={0}
             label="label 1"
             value={1}
-            header="header 1"
+            id={1}
             content="content 1"
           />,
           <MoleculeAccordionItem
             key={1}
             label="label 2"
             value={2}
-            header="header 2"
+            id={2}
             content="content 2"
           />
         ]
@@ -91,6 +91,7 @@ describe(json.name, () => {
 
     it('should NOT render null', () => {
       // Given
+      const {MoleculeAccordionItem} = pkg
       const props = {
         children: [
           <MoleculeAccordionItem
@@ -120,6 +121,7 @@ describe(json.name, () => {
 
     it('should NOT extend classNames', () => {
       // Given
+      const {MoleculeAccordionItem} = pkg
       const props = {
         className: 'extended-classNames',
         children: [
@@ -153,6 +155,7 @@ describe(json.name, () => {
     it('should trigger onChange when tab is clicked', () => {
       // Given
       const spy = sinon.spy()
+      const {MoleculeAccordionItem} = pkg
       const props = {
         children: [
           <MoleculeAccordionItem
@@ -185,27 +188,25 @@ describe(json.name, () => {
     it('should show the second and third tab open when set via openedTabs prop', () => {
       // Given
       const spy = sinon.spy()
+      const {MoleculeAccordionItem} = pkg
       const props = {
         children: [
           <MoleculeAccordionItem
             key={0}
             label="label 1"
             value={1}
-            header="header 1"
             content="content 1"
           />,
           <MoleculeAccordionItem
             key={1}
             label="label 2"
             value={2}
-            header="header 2"
             content="content 2"
           />,
           <MoleculeAccordionItem
             key={2}
             label="label 3"
             value={3}
-            header="header 3"
             content="content 3"
           />
         ],

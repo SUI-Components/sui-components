@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import Poly from '@s-ui/react-primitive-polymorphic-element'
-import {inject, combineProps} from '@s-ui/react-primitive-injector'
+import Injector from '@s-ui/react-primitive-injector'
 
 import AccordionItemHeaderChildrenDefault from './AccordionItemHeaderChildrenDefault.js'
 import {useAccordionContext} from './context/index.js'
@@ -85,21 +85,17 @@ const AccordionItemHeader = forwardRef(
           }}
           onClick={handleClick}
         >
-          {inject(children, [
-            {
-              props: {
-                ...(label && {children: label}),
-                disabled,
-                icon,
-                iconPosition,
-                values,
-                value,
-                animationDuration
-              },
-              proviso: () => true,
-              combine: combineProps
-            }
-          ])}
+          <Injector
+            disabled={disabled}
+            animationDuration={animationDuration}
+            icon={icon}
+            iconPosition={iconPosition}
+            values={values}
+            value={value}
+            label={label}
+          >
+            {children}
+          </Injector>
         </button>
       </Poly>
     )

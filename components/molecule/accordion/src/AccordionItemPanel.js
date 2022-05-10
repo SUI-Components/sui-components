@@ -17,13 +17,13 @@ const AccordionItemPanel = forwardRef(
     {
       as = 'div',
       id,
+      headerId,
       content,
       children = <AccordionItemPanelDefaultChildren />,
       isExpanded,
       maxHeight: maxHeightProp,
       value,
       animationDuration: animationDurationProp,
-      label,
       disabled
     },
     forwardedRef
@@ -46,7 +46,7 @@ const AccordionItemPanel = forwardRef(
         role="region"
         className={BASE_CLASS_ITEM_PANEL}
         aria-expanded={values.includes(value)}
-        aria-labeledby={label}
+        aria-labelledby={headerId}
         aria-disabled={disabled}
         style={{
           overflowY:
@@ -97,10 +97,10 @@ AccordionItemPanel.propTypes = {
   disabled: PropTypes.bool,
   /** unique identifier **/
   id: PropTypes.string,
+  /** a required string indicating the button id controlling the panel **/
+  headerId: PropTypes.string.isRequired,
   /** controlled expanded accordion item behavior */
   isExpanded: PropTypes.bool,
-  /** a required string indicating the content **/
-  label: PropTypes.string.isRequired,
   /** the max height limit a panel can reach when its expanded **/
   maxHeight: PropTypes.number,
   /** the unique value of the element **/

@@ -28,12 +28,14 @@ const AccordionItem = forwardRef(
     },
     forwardedRef
   ) => {
+    const headerId = `header-${id === undefined ? value : id}`
+    const panelId = `panel-${id === undefined ? value : id}`
     return (
       <Poly as={as} {...(isFragment(as) && {ref: forwardedRef})}>
         <AccordionItemHeader
           disabled={disabled}
-          id={`header-${id === undefined ? value : id}`}
-          panelId={`panel-${id === undefined ? value : id}`}
+          id={headerId}
+          panelId={panelId}
           value={value}
           icon={headerIcon}
           iconPosition={headerIconPosition}
@@ -43,12 +45,12 @@ const AccordionItem = forwardRef(
           {header}
         </AccordionItemHeader>
         <AccordionItemPanel
-          id={`panel-${id === undefined ? value : id}`}
+          id={panelId}
+          headerId={headerId}
           isExpanded={isExpanded}
           disabled={disabled}
           value={value}
           content={content}
-          label={label}
         >
           {children}
         </AccordionItemPanel>

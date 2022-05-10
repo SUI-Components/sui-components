@@ -86,6 +86,9 @@ const AccordionItemHeader = forwardRef(
           onClick={handleClick}
         >
           <Injector
+            headerIconExpanded={iconExpandedContext}
+            headerIconCollapsed={iconCollapsedContext}
+            headerIconPosition={iconPositionContext}
             disabled={disabled}
             animationDuration={animationDuration}
             icon={icon}

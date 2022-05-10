@@ -7,7 +7,6 @@ import {
 } from './settings.js'
 
 const AccordionItemHeaderChildrenDefault = ({
-  children,
   label,
   icon,
   value,
@@ -16,9 +15,7 @@ const AccordionItemHeaderChildrenDefault = ({
   animationDuration
 }) => (
   <>
-    <div className={`${BASE_CLASS_ITEM_HEADER}ButtonContent`}>
-      {children === undefined ? label : children}
-    </div>
+    <div className={`${BASE_CLASS_ITEM_HEADER}ButtonContent`}>{label}</div>
     <div className={`${BASE_CLASS_ITEM_HEADER_ICON}Wrapper`}>
       <AccordionItemHeaderIcon
         isExpanded={values.includes(value)}
@@ -37,8 +34,6 @@ AccordionItemHeaderChildrenDefault.displayName =
 AccordionItemHeaderChildrenDefault.propTypes = {
   /** The animation duration in ms **/
   animationDuration: PropTypes.number,
-  /** child element **/
-  children: PropTypes.node,
   /** element enabled or not **/
   disabled: PropTypes.bool,
   /** The header Icon element **/

@@ -14,6 +14,9 @@ const AccordionItem = forwardRef(
   (
     {
       as = Fragment,
+      headerAs,
+      headerLevel,
+      panelAs,
       id,
       header,
       children,
@@ -24,7 +27,8 @@ const AccordionItem = forwardRef(
       value,
       label,
       onClick,
-      content
+      content,
+      maxHeight
     },
     forwardedRef
   ) => {
@@ -33,6 +37,8 @@ const AccordionItem = forwardRef(
     return (
       <Poly as={as} {...(isFragment(as) && {ref: forwardedRef})}>
         <AccordionItemHeader
+          as={headerAs}
+          level={headerLevel}
           disabled={disabled}
           id={headerId}
           panelId={panelId}
@@ -45,12 +51,14 @@ const AccordionItem = forwardRef(
           {header}
         </AccordionItemHeader>
         <AccordionItemPanel
+          as={panelAs}
           id={panelId}
           headerId={headerId}
           isExpanded={isExpanded}
           disabled={disabled}
           value={value}
           content={content}
+          maxHeight={maxHeight}
         >
           {children}
         </AccordionItemPanel>
@@ -64,6 +72,25 @@ AccordionItem.displayName = 'AccordionItem'
 AccordionItem.propTypes = {
   /** The elementType of the wrapper **/
   as: PropTypes.elementType,
+  /** The elementType of the button header wrapper **/
+  headerAs: PropTypes.elementType,
+  /** the heading level **/
+  headerLevel: PropTypes.oneOf([
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ]),
+  /** The elementType of the panel **/
+  panelAs: PropTypes.elementType,
   /** child element **/
   children: PropTypes.node,
   /** panel inner content **/
@@ -82,6 +109,8 @@ AccordionItem.propTypes = {
   isExpanded: PropTypes.bool,
   /** a required string indicating the content **/
   label: PropTypes.string.isRequired,
+  /** the max height limit a panel can reach when its expanded **/
+  maxHeight: PropTypes.number,
   /** the unique value of the element **/
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   /** header clicking handler **/

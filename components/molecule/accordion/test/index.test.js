@@ -152,11 +152,13 @@ describe(json.name, () => {
       expect(findClassName(container.innerHTML)).to.be.null
     })
 
-    it('should trigger onChange when tab is clicked', () => {
+    it('should trigger onChange when tab is clicked given single behavior', () => {
       // Given
       const spy = sinon.spy()
       const {MoleculeAccordionItem} = pkg
       const props = {
+        maxHeight: 20,
+        behavior: 'single',
         children: [
           <MoleculeAccordionItem
             key={0}
@@ -164,6 +166,81 @@ describe(json.name, () => {
             value={1}
             header="header 1"
             content="content 1"
+            maxHeight={100}
+            isExpanded
+          />,
+          <MoleculeAccordionItem
+            key={1}
+            label="label 2"
+            value={2}
+            header="header 2"
+            content="content 2"
+          />
+        ],
+        onChange: spy
+      }
+      const {getByText} = setup(props)
+
+      // When
+      const tab = getByText('header 1')
+      userEvents.click(tab)
+
+      // Then
+      sinon.assert.called(spy)
+    })
+
+    it('should trigger onChange when tab is clicked given undefined behavior', () => {
+      // Given
+      const spy = sinon.spy()
+      const {MoleculeAccordionItem} = pkg
+      const props = {
+        maxHeight: 20,
+        children: [
+          <MoleculeAccordionItem
+            key={0}
+            label="label 1"
+            value={1}
+            header="header 1"
+            content="content 1"
+            maxHeight={100}
+            isExpanded
+          />,
+          <MoleculeAccordionItem
+            key={1}
+            label="label 2"
+            value={2}
+            header="header 2"
+            content="content 2"
+          />
+        ],
+        onChange: spy
+      }
+      const {getByText} = setup(props)
+
+      // When
+      const tab = getByText('header 1')
+      userEvents.click(tab)
+
+      // Then
+      sinon.assert.called(spy)
+    })
+
+    it('should trigger onChange when tab is clicked given multiple behavior', () => {
+      // Given
+      const spy = sinon.spy()
+      const {MoleculeAccordionItem} = pkg
+      const props = {
+        maxHeight: 20,
+        behavior: 'multiple',
+        children: [
+          <MoleculeAccordionItem
+            key={0}
+            label="label 1"
+            value={1}
+            header="header 1"
+            content="content 1"
+            maxHeight={100}
+            isExpanded
           />,
           <MoleculeAccordionItem
             key={1}
@@ -190,18 +267,28 @@ describe(json.name, () => {
       const spy = sinon.spy()
       const {MoleculeAccordionItem} = pkg
       const props = {
+        maxHeight: 50,
+        behavior: 'multiple',
         children: [
           <MoleculeAccordionItem
             key={0}
+            as="section"
+            headerAs="header"
+            headerLevel={1}
             label="label 1"
             value={1}
             content="content 1"
+            maxHeight={100}
           />,
           <MoleculeAccordionItem
             key={1}
+            as="section"
+            headerAs="header"
+            headerLevel={1}
             label="label 2"
             value={2}
             content="content 2"
+            maxHeight={100}
           />,
           <MoleculeAccordionItem
             key={2}

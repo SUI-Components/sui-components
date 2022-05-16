@@ -15,6 +15,7 @@ $p-stepper: $sz-base !default; // $p-progress-steps-bar
 $bdw-stepper: math.div($h-stepper, 2) !default; // $bdw-progress-steps-bar
 $sz-stepper: 3 * $sz-base !default; // $sz-progress-steps-bar
 $sz-stepper-compressed: $sz-stepper !default; // $sz-progress-steps-bar-compressed
+$sz-stepper-basic: $sz-stepper !default; // $sz-progress-steps-bar-basic
 $sz-stepper-icon: $sz-icon-xl !default; // $sz-progress-steps-icon
 $fz-stepper-icon: $fz-xxl !default; // $sz-progress-steps-icon
 $w-stepper-label: 100px !default; // $w-progress-steps-description

@@ -147,6 +147,55 @@ $base-class-step: #{$base-class}Step;
         }
       }
     }
+    &-basic {
+      flex-basis: $sz-stepper-basic;
+      flex-shrink: 0;
+      #{$base-class-step}Icon {
+        background-color: $c-stepper-icon;
+        border-radius: math.div($sz-base, 2);
+      }
+      &#{$base-class-step}--current {
+        #{$base-class-step}Icon {
+          background-color: $c-stepper-current;
+        }
+        #{$base-class-step}Label {
+          color: $c-stepper-current;
+        }
+      }
+      &#{$base-class-step}--visited {
+        #{$base-class-step}Icon {
+          background-color: $c-stepper-visited;
+        }
+        #{$base-class-step}Label {
+          color: $c-stepper-visited;
+        }
+      }
+      &#{$base-class-step}--alignment {
+        &-horizontal {
+          width: math.div($w-stepper-label, 2);
+          flex-direction: column-reverse;
+          gap: $sz-base;
+          #{$base-class-step}Label {
+            height: calc(math.div($w-stepper-label, 2) - $sz-base * 2);
+            display: flex;
+            align-items: flex-end;
+          }
+          #{$base-class-step}Icon {
+            width: 100%;
+            height: $sz-base;
+          }
+        }
+      }
+      &#{$base-class-step}--justifyContent {
+        @each $jc-key, $jc-value in $jc-molecule-stepper {
+          &-#{$jc-key} {
+            @if #{$jc-key} == 'legacy' {
+              flex-grow: 1;
+            }
+          }
+        }
+      }
+    }
   }
 
   &--alignment {

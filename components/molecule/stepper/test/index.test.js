@@ -210,5 +210,33 @@ describe(json.name, () => {
         // expect(listItemElements[props.step].ariaCurrent).to.equal('step')
       })
     })
+
+    describe('design basic', () => {
+      it('given a current step an a number of steps it should set that number of given steps as listItems and the step number as the current', () => {
+        // Given
+        const props = {
+          steps: 6,
+          step: 2,
+          design: pkg.moleculeStepperDesign.BASIC,
+          labels: Array(6)
+            .fill(null)
+            .map((_, index) => `step-${index}`)
+        }
+
+        // When
+        const {getAllByRole, getByText} = setup(props)
+        const listElements = getAllByRole('list')
+        const listItemElements = getAllByRole('listitem')
+        const listItemSeparators = getAllByRole('separator')
+
+        // Then
+        expect(listElements.length).to.equal(1)
+        expect(listItemElements.length).to.equal(props.steps)
+        expect(listItemSeparators.length).to.equal(props.steps - 1)
+        props.labels.forEach(label => {
+          expect(getByText(label)).to.be.displayed
+        })
+      })
+    })
   })
 })

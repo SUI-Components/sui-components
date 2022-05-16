@@ -15,6 +15,7 @@ export const getIcon = ({
   currentIconContext
 }) => {
   if (design === DESIGN.COMPRESSED) return null
+  else if (design === DESIGN.BASIC) return null
   else if (visited && !current) {
     return visitedIcon || visitedIconContext || step
   } else if (current && !visited) {
@@ -25,6 +26,7 @@ export const getIcon = ({
 
 export const getLabel = ({label, steps, step, design, current}) => {
   if (design === DESIGN.DEFAULT) return label
+  else if (design === DESIGN.BASIC) return label
   else if (design === DESIGN.COMPRESSED && current)
     return (
       <>

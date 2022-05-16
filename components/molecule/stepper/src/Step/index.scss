@@ -154,6 +154,9 @@ $base-class-step: #{$base-class}Step;
         background-color: $c-stepper-icon;
         border-radius: math.div($sz-base, 2);
       }
+      + #{$base-class-step}Connector {
+        display: none;
+      }
       &#{$base-class-step}--current {
         #{$base-class-step}Icon {
           background-color: $c-stepper-current;
@@ -171,6 +174,23 @@ $base-class-step: #{$base-class}Step;
         }
       }
       &#{$base-class-step}--alignment {
+        &-vertical {
+          width: math.div($w-stepper-label, 2);
+          flex-direction: row-reverse;
+          gap: $sz-base;
+          #{$base-class-step}Icon {
+            width: $sz-base;
+            height: 100%;
+          }
+          #{$base-class-step}Label {
+            transform: rotate(180deg);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            width: calc(math.div($w-stepper-label, 2) - $sz-base * 2);
+            display: flex;
+            align-items: flex-end;
+          }
+        }
         &-horizontal {
           width: math.div($w-stepper-label, 2);
           flex-direction: column-reverse;

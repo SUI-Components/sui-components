@@ -1,11 +1,13 @@
 import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 import {inject, combineProps} from '@s-ui/react-primitive-injector'
 
 import {useAccordionContext} from './context/index.js'
 import {
+  BASE_CLASS_ELEMENT,
   BASE_CLASS_ITEM_PANEL,
   BASE_CLASS_ITEM_PANEL_CONTENT
 } from './settings.js'
@@ -28,6 +30,7 @@ const AccordionItemPanel = forwardRef(
     },
     forwardedRef
   ) => {
+
     const [contentRef, {height}] = useMeasure()
 
     const {
@@ -44,7 +47,7 @@ const AccordionItemPanel = forwardRef(
         id={id}
         ref={forwardedRef}
         role="region"
-        className={BASE_CLASS_ITEM_PANEL}
+        className={cx(BASE_CLASS_ITEM_PANEL, BASE_CLASS_ELEMENT)}
         aria-expanded={values.includes(value)}
         aria-labelledby={headerId}
         aria-disabled={disabled}
@@ -53,7 +56,9 @@ const AccordionItemPanel = forwardRef(
             height > maxHeight && maxHeight !== 0 ? 'scroll' : 'hidden',
           transition: `max-height ${animationDuration}ms ${
             values.includes(value) ? 'ease-out' : 'ease-in'
-          }`,
+          }, opacity 0s linear ${
+            values.includes(value) ? 0 : animationDuration
+          }ms`,
           ...(values.includes(value) && {
             maxHeight: maxHeight === 0 ? height : maxHeight
           })

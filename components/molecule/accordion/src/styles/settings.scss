@@ -1,3 +1,35 @@
 @import '../_settings.scss';
 
-$bdw-accordion-item: 1px !default;
+// Colors
+$c-accordion-item-header: $c-text-base !default;
+$bdc-accordion-item: $c-gray-dark-3 !default;
+
+// Size and Spacing
+$h-accordion-item-button: $h-accordion-tab-btn;
+$p-accordion-item-button: $p-accordion-tab-btn;
+$bdw-accordion-item: $bdw-s !default;
+$bdrs-accordion-item: $bdrs-accordion-tab !default;
+
+// Typography
+$fz-molecule-accordion-header: $fz-base !default;
+$ff-molecule-accordion-header: $ff-molecule-accordion-title;
+$fw-molecule-accordion-header: $fw-molecule-accordion-title;
+
+$bdrs-accordion-tab: 0 !default;
+$bdrs-accordion-tab-scrollbar-thumb: $bdrs-l !default;
+$bdw-accordion-tab-scrollbar: $bdw-base !default;
+$bgc-accordion-tab-container: $c-white !default;
+$c-accordion-tab-icon: $c-primary !default;
+$sz-accordion-tab-icon: $sz-icon-s !default;
+$c-accordion-tab-text: $c-text-base !default;
+$c-accordion-tab-scrollbar-thumb: $c-gray !default;
+$p-accordion-tab-btn: $p-m !default;
+$p-accordion-tab-content: $p-l !default;
+$p-accordion-title: $p-m $p-l !default;
+$ff-molecule-accordion-title: $ff-sans-serif !default;
+$fw-molecule-accordion-title: $fw-regular !default;
+$bxsh-accordion-tab-scrollbar-thumb: 0 0 1px $c-gray-lightest !default;
+$trs-accordion-tab-content: max-height 0.25s ease-in-out !default;
+$trs-accordion-tab-title: border-bottom 20ms ease-out !default;
+$trs-close-accordion-tab-title: border-bottom 0 ease-out !default;
+$m-accordion-tab-btn: $m-m !default;

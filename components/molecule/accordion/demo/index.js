@@ -9,6 +9,7 @@ import ArticleTransition from './articles/ArticleTransition.js'
 import ArticleIcon from './articles/ArticleIcon.js'
 import ArticleSpacing from './articles/ArticleSpacing.js'
 import ArticleDisabled from './articles/ArticleDisabled.js'
+import ArticleCustom from './articles/ArticleCustom.js'
 import {CLASS_SECTION} from './settings.js'
 
 export default () => {
@@ -36,6 +37,8 @@ export default () => {
       <ArticleSpacing className={CLASS_SECTION} />
       <br />
       <ArticleDisabled className={CLASS_SECTION} />
+      <br />
+      <ArticleCustom className={CLASS_SECTION} />
     </div>
   )
 }

@@ -13,7 +13,7 @@ import {
 
 import Accordion, {
   MoleculeAccordionItem as AccordionItem,
-  moleculeAnimationDuration
+  moleculeAccordionAnimationDuration
 } from '../../src/index.js'
 import LoremIpsum from '../LoremIpsum.js'
 
@@ -63,13 +63,14 @@ const ArticleTransition = ({className}) => {
         <Code>animationDuration</Code> (number) value. The value must be
         declared in milliseconds. The packages also provides the{' '}
         <Code>moleculeAnimationDuration</Code> enum with{' '}
-        {Object.values(moleculeAnimationDuration).length} different values.
+        {Object.values(moleculeAccordionAnimationDuration).length} different
+        values.
       </Paragraph>
       <Grid
-        cols={Object.values(moleculeAnimationDuration).length}
+        cols={Object.values(moleculeAccordionAnimationDuration).length}
         gutter={[8, 8]}
       >
-        {Object.entries(moleculeAnimationDuration).map(
+        {Object.entries(moleculeAccordionAnimationDuration).map(
           (
             [moleculeAnimationDurationKey, moleculeAnimationDurationValue],
             index
@@ -82,7 +83,7 @@ const ArticleTransition = ({className}) => {
             </Cell>
           )
         )}
-        {Object.values(moleculeAnimationDuration).map(
+        {Object.values(moleculeAccordionAnimationDuration).map(
           (moleculeAnimationDuration, index) => (
             <Cell key={index}>
               <Accordion

@@ -9,6 +9,7 @@ import AccordionItemHeaderChildrenDefault from './AccordionItemHeaderChildrenDef
 import {useAccordionContext} from './context/index.js'
 
 import {
+  BASE_CLASS_ELEMENT,
   BASE_CLASS_ITEM_HEADER,
   getBehavior,
   getIcon,
@@ -43,7 +44,6 @@ const AccordionItemHeader = forwardRef(
       headerIconPosition: iconPositionContext,
       animationDuration: animationDurationContext
     } = useAccordionContext({value})
-
     const handleClick = event => {
       const response = getBehavior(behavior)({value, values})
       setValues(response.values)
@@ -64,11 +64,17 @@ const AccordionItemHeader = forwardRef(
       <Poly
         as={as}
         ref={forwardedRef}
-        className={BASE_CLASS_ITEM_HEADER}
+        className={cx(BASE_CLASS_ITEM_HEADER, BASE_CLASS_ELEMENT)}
         {...{
           ...(!isHeadingElement && {role: 'heading'}),
           ...(!isHeadingElement && level && {'aria-level': level})
         }}
+        style={{
+          transition: `border-radius 0s linear ${
+            isExpanded ? 0 : animationDuration
+          }ms`
+        }}
+        data-expanded={isExpanded}
       >
         <button
           type="button"
@@ -95,6 +101,7 @@ const AccordionItemHeader = forwardRef(
             iconPosition={iconPosition}
             values={values}
             value={value}
+            isExpanded={values.includes(value)}
             label={label}
           >
             {children}

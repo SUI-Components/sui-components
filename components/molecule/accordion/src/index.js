@@ -20,7 +20,7 @@ import AccordionItemPanel from './AccordionItemPanel.js'
 const MoleculeAccordion = forwardRef(
   (
     {
-      as = Fragment,
+      as: As = Fragment,
       values,
       defaultValues = [],
       onChange,
@@ -36,8 +36,8 @@ const MoleculeAccordion = forwardRef(
   ) => {
     return (
       <Poly
-        as={as}
-        {...(isFragment(as) && {ref: forwardedRef, className: BASE_CLASS})}
+        as={As}
+        {...(!isFragment(<As />) && {ref: forwardedRef, className: BASE_CLASS})}
       >
         <AccordionProvider
           values={values}
@@ -97,7 +97,7 @@ export {
   AccordionItemHeaderIcon as MoleculeAccordionItemHeaderIcon,
   AccordionItemPanel as MoleculeAccordionItemPanel,
   BEHAVIOR as moleculeAccordionBehavior,
-  ANIMATION_DURATION as moleculeAnimationDuration,
+  ANIMATION_DURATION as moleculeAccordionAnimationDuration,
   HEADER_ICON_POSITION as moleculeAccordionHeaderIconPosition
 }
 

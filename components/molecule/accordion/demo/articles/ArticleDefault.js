@@ -22,7 +22,15 @@ const ArticleDefault = ({className}) => {
   return (
     <Article className={className}>
       <H2>Default</H2>
-      <Paragraph>paragraph</Paragraph>
+      <Paragraph>
+        The <Code>MoleculeAccordion</Code> component is a Fragment wrapper which
+        contains a list of <Code>MoleculeAccordionItem</Code> components.
+      </Paragraph>
+      <Paragraph>
+        An <Code>MoleculeAccordionItem</Code> is a Fragment wrapper of a{' '}
+        <Code>MoleculeAccordionItemHeader</Code> and a{' '}
+        <Code>MoleculeAccordionItemPanel</Code>.
+      </Paragraph>
       <Accordion
         onChange={onChange}
         defaultValues={values}
@@ -42,12 +50,38 @@ const ArticleDefault = ({className}) => {
           }
         />
         <AccordionItem
-          value="value-3"
-          onClick={onItemClick('header1')}
+          value="value-2"
+          onClick={onItemClick('header2')}
           label="Accordion Item Header 2"
           content={
             <>
               <p>Accordion Item Content 2</p>
+              <p>
+                <LoremIpsum units="words" count={200} format="plain" />
+              </p>
+            </>
+          }
+        />
+        <AccordionItem
+          value="value-3"
+          onClick={onItemClick('header3')}
+          label="Accordion Item Header 3"
+          content={
+            <>
+              <p>Accordion Item Content 3</p>
+              <p>
+                <LoremIpsum units="words" count={200} format="plain" />
+              </p>
+            </>
+          }
+        />
+        <AccordionItem
+          value="value-4"
+          onClick={onItemClick('header4')}
+          label="Accordion Item Header 4"
+          content={
+            <>
+              <p>Accordion Item Content 4</p>
               <p>
                 <LoremIpsum units="words" count={200} format="plain" />
               </p>

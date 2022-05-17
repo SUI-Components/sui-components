@@ -1,6 +1,7 @@
 import {forwardRef, Fragment} from 'react'
 import {isFragment} from 'react-is'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 
@@ -8,12 +9,12 @@ import {
   MoleculeAccordionItemHeader as AccordionItemHeader,
   MoleculeAccordionItemPanel as AccordionItemPanel
 } from './index.js'
-import {HEADER_ICON_POSITION} from './settings.js'
+import {HEADER_ICON_POSITION, BASE_CLASS_ITEM} from './settings.js'
 
 const AccordionItem = forwardRef(
   (
     {
-      as = Fragment,
+      as: As = Fragment,
       headerAs,
       headerLevel,
       panelAs,
@@ -28,14 +29,20 @@ const AccordionItem = forwardRef(
       label,
       onClick,
       content,
-      maxHeight
+      maxHeight,
     },
     forwardedRef
   ) => {
     const headerId = `header-${id === undefined ? value : id}`
     const panelId = `panel-${id === undefined ? value : id}`
     return (
-      <Poly as={as} {...(isFragment(as) && {ref: forwardedRef})}>
+      <Poly
+        as={As}
+        {...(!isFragment(<As />) && {
+          ref: forwardedRef,
+          className: cx(BASE_CLASS_ITEM)
+        })}
+      >
         <AccordionItemHeader
           as={headerAs}
           level={headerLevel}
@@ -100,7 +107,7 @@ AccordionItem.propTypes = {
   /** unique identifier **/
   id: PropTypes.string,
   /** header button inner content */
-  header: PropTypes.string,
+  header: PropTypes.node,
   /** The header Icon element **/
   headerIcon: PropTypes.node,
   /** where the icon is header positioned */

@@ -1,4 +1,5 @@
 export const BASE_CLASS = 'sui-MoleculeAccordion'
+export const BASE_CLASS_ELEMENT = 'sui-MoleculeAccordionElement'
 export const BASE_CLASS_ITEM = `${BASE_CLASS}Item`
 export const BASE_CLASS_ITEM_HEADER = `${BASE_CLASS_ITEM}Header`
 export const BASE_CLASS_ITEM_HEADER_ICON = `${BASE_CLASS_ITEM_HEADER}Icon`

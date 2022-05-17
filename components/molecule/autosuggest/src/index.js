@@ -135,7 +135,7 @@ const MoleculeAutosuggest = ({
       else if (isSomeOptionFocused) handleFocusIn(ev)
       if (key === 'Enter') {
         typeof onEnter === 'function' && onEnter(ev)
-        innerRefInput && innerRefInput.focus()
+        innerRefInput && (!isControlled || autoClose) && innerRefInput.focus()
       }
     }
   }

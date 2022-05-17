@@ -47,7 +47,10 @@ const MoleculeAutosuggest = ({
     refMoleculeAutosuggestFromProps
   )
 
-  const [isOpenState, setIsOpenState] = useControlledState(isOpen, !!isOpen)
+  const [isOpenState, setIsOpenState, isControlled] = useControlledState(
+    isOpen,
+    !!isOpen
+  )
 
   const refsMoleculeAutosuggestOptions = useRef([])
   const innerRefMoleculeAutosuggestInput = useRef()
@@ -176,7 +179,7 @@ const MoleculeAutosuggest = ({
 
   const handleClick = () => {
     const {current: innerRefInput} = innerRefMoleculeAutosuggestInput
-    innerRefInput && innerRefInput.focus()
+    innerRefInput && (!isControlled || autoClose) && innerRefInput.focus()
   }
 
   const autosuggestSelectionProps = {

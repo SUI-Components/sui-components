@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.60.0 (2022-05-17)
+
+
+### Bug Fixes
+
+* **components/molecule/autosuggest/demo:** make demo private ([c587352](https://github.com/SUI-Components/sui-components/commit/c5873527e57a0ea2ae0035be90059f9de4bb05a7))
+* **components/molecule/autosuggest:** fix conditional ([2c8e829](https://github.com/SUI-Components/sui-components/commit/2c8e829d4a5c7c8352d6d92b81a16d48283f1319))
+* **components/molecule/autosuggest:** fix version ([8ba35c1](https://github.com/SUI-Components/sui-components/commit/8ba35c15883042426963d9b99c3710a667333425))
+
+
+
 # 2.58.0 (2022-05-06)
 
 

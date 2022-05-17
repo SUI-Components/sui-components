@@ -70,16 +70,16 @@ $base-class-item-panel: '#{$base-class-item}Panel';
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
-  //&[data-expanded='false']:nth-last-of-type(1) {
-  //  background-color: lightpink;
-  //  border-bottom-left-radius: $bdrs-accordion-item;
-  //  border-bottom-right-radius: $bdrs-accordion-item;
-  //}
-  //&:nth-last-of-type(1) {
-  //  background-color: lightcoral;
-  //  border-bottom-left-radius: $bdrs-accordion-item;
-  //  border-bottom-right-radius: $bdrs-accordion-item;
-  //}
+  &[data-expanded='false']:nth-last-of-type(1) {
+    background-color: lightpink;
+    border-bottom-left-radius: $bdrs-accordion-item;
+    border-bottom-right-radius: $bdrs-accordion-item;
+  }
+  &:nth-last-of-type(1) {
+    background-color: lightcoral;
+    border-bottom-left-radius: $bdrs-accordion-item;
+    border-bottom-right-radius: $bdrs-accordion-item;
+  }
 }
 
 //#{$base-class-element}[aria-expanded='false']:nth-last-of-type(1),

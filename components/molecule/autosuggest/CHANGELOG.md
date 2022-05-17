@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.61.0 (2022-05-17)
+
+
+### Bug Fixes
+
+* **components/molecule/autosuggest:** fix conditional enter ([e3af45e](https://github.com/SUI-Components/sui-components/commit/e3af45e289a11e627c6d2a4e74076c4b78aa7ea5))
+
+
+
 # 2.60.0 (2022-05-17)
 
 

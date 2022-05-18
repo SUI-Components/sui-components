@@ -14,9 +14,12 @@ function usePrevious(value) {
   return ref.current
 }
 
+const popoverBaseClass = `${BASE_CLASS}-popover`
+
 function MoleculeSelectPopover({
   acceptButtonText,
   acceptButtonOptions,
+  autoPlacement = false,
   cancelButtonText,
   cancelButtonOptions,
   customButtonText,
@@ -41,7 +44,13 @@ function MoleculeSelectPopover({
   title
 }) {
   const [isOpen, setIsOpen] = useState(false)
+  const [popoverClassName, setPopoverClassName] = useState(
+    cx(`${popoverBaseClass}`, `${popoverBaseClass}--${placement}`)
+  )
+
   const previousIsOpen = usePrevious(isOpen)
+  const selectRef = useRef()
+  const contentWrapperRef = useRef()
 
   useEffect(() => {
     /**
@@ -52,12 +61,35 @@ function MoleculeSelectPopover({
     if (typeof previousIsOpen === 'undefined' || isOpen === previousIsOpen) {
       return
     }
+
+    if (isOpen && autoPlacement) {
+      setPopoverClassName(getPopoverClassName())
+    }
+
     const openEvent = isOpen ? onOpen : onClose
     openEvent()
   }, [isOpen, onClose, onOpen, previousIsOpen])
 
-  const selectRef = useRef()
-  const contentWrapperRef = useRef()
+  useEffect(() => {
+    setPopoverClassName(
+      cx(`${popoverBaseClass}`, `${popoverBaseClass}--${placement}`)
+    )
+  }, [placement])
+
+  const getPopoverClassName = () => {
+    const {left, right} = contentWrapperRef.current?.getBoundingClientRect()
+    const outFromTheLeftSide = left < 0
+    const outFromTheRightSide =
+      right > (window.innerWidth || document.documentElement.clientWidth)
+
+    if (outFromTheRightSide) {
+      return cx(`${popoverBaseClass}`, `${popoverBaseClass}--left`)
+    } else if (outFromTheLeftSide) {
+      return cx(`${popoverBaseClass}`, `${popoverBaseClass}--right`)
+    }
+
+    return popoverClassName
+  }
 
   const selectClassName = cx(
     `${BASE_CLASS}-select`,
@@ -66,11 +98,6 @@ function MoleculeSelectPopover({
       'is-open': isOpen,
       'is-selected': isSelected
     }
-  )
-
-  const popoverClassName = cx(
-    `${BASE_CLASS}-popover`,
-    `${BASE_CLASS}-popover--${placement}`
   )
 
   const handleOnAccept = () => {
@@ -239,6 +266,7 @@ MoleculeSelectPopover.propTypes = {
     design: PropTypes.string,
     negative: PropTypes.bool
   }),
+  autoPlacement: PropTypes.bool,
   cancelButtonText: PropTypes.string,
   cancelButtonOptions: PropTypes.shape({
     design: PropTypes.string,

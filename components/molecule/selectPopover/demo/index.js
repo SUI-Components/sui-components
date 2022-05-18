@@ -31,7 +31,6 @@ const Demo = () => {
   const [addCustomButton, setAddCustomButton] = useState(false)
   const [customContentWrapper, setCustomContentWrapper] = useState(false)
   const [renderSelect, setRenderSelect] = useState(false)
-  const [autoPlacement, setAutoPlacement] = useState(false)
 
   const handleChangeItem = event => {
     const {target} = event
@@ -189,20 +188,9 @@ const Demo = () => {
             Disabled
           </label>
         </div>
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              checked={autoPlacement}
-              onChange={ev => setAutoPlacement(ev.target.checked)}
-            />
-            Auto placement
-          </label>
-        </div>
 
         <h3>Component</h3>
         <MoleculeSelectPopover
-          autoPlacement={autoPlacement}
           acceptButtonText="Aceptar"
           cancelButtonText="Cancelar"
           customButtonText={addCustomButton && 'Borrar'}

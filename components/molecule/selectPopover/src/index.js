@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import Button, {atomButtonDesigns} from '@s-ui/react-atom-button'
 
-import {SIZES, PLACEMENTS, BASE_CLASS} from './config.js'
+import {BASE_CLASS, getPlacement, PLACEMENTS, SIZES} from './config.js'
 
 function usePrevious(value) {
   const ref = useRef()
@@ -19,7 +19,6 @@ const popoverBaseClass = `${BASE_CLASS}-popover`
 function MoleculeSelectPopover({
   acceptButtonText,
   acceptButtonOptions,
-  autoPlacement = false,
   cancelButtonText,
   cancelButtonOptions,
   customButtonText,
@@ -36,7 +35,7 @@ function MoleculeSelectPopover({
   onClose = () => {},
   onCustomAction = () => {},
   onOpen = () => {},
-  placement = PLACEMENTS.RIGHT,
+  placement,
   renderContentWrapper: renderContentWrapperProp,
   renderSelect: renderSelectProp,
   selectText,
@@ -45,7 +44,7 @@ function MoleculeSelectPopover({
 }) {
   const [isOpen, setIsOpen] = useState(false)
   const [popoverClassName, setPopoverClassName] = useState(
-    cx(`${popoverBaseClass}`, `${popoverBaseClass}--${placement}`)
+    cx(`${popoverBaseClass}`, `${popoverBaseClass}--${getPlacement(placement)}`)
   )
 
   const previousIsOpen = usePrevious(isOpen)
@@ -62,7 +61,10 @@ function MoleculeSelectPopover({
       return
     }
 
-    if (isOpen && autoPlacement) {
+    if (
+      isOpen &&
+      [PLACEMENTS.AUTO_END, PLACEMENTS.AUTO_START].includes(placement)
+    ) {
       setPopoverClassName(getPopoverClassName())
     }
 
@@ -72,7 +74,10 @@ function MoleculeSelectPopover({
 
   useEffect(() => {
     setPopoverClassName(
-      cx(`${popoverBaseClass}`, `${popoverBaseClass}--${placement}`)
+      cx(
+        `${popoverBaseClass}`,
+        `${popoverBaseClass}--${getPlacement(placement)}`
+      )
     )
   }, [placement])
 
@@ -266,7 +271,6 @@ MoleculeSelectPopover.propTypes = {
     design: PropTypes.string,
     negative: PropTypes.bool
   }),
-  autoPlacement: PropTypes.bool,
   cancelButtonText: PropTypes.string,
   cancelButtonOptions: PropTypes.shape({
     design: PropTypes.string,
@@ -289,7 +293,12 @@ MoleculeSelectPopover.propTypes = {
   onClose: PropTypes.func,
   onCustomAction: PropTypes.func,
   onOpen: PropTypes.func,
-  placement: PropTypes.string,
+  placement: PropTypes.oneOf([
+    PLACEMENTS.AUTO_END,
+    PLACEMENTS.AUTO_START,
+    PLACEMENTS.LEFT,
+    PLACEMENTS.RIGHT
+  ]),
   renderContentWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   renderSelect: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   selectText: PropTypes.string.isRequired,

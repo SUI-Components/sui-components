@@ -27,9 +27,17 @@ $base-class-item-panel: '#{$base-class-item}Panel';
   }
 }
 
+#{$base-class} {
+  border-color: $bdc-accordion-item;
+  border-style: solid;
+  border-radius: $bdrs-accordion;
+  border-width: $bdw-accordion-item;
+  overflow: hidden;
+}
+
 #{$base-class-item} {
   border-width: $bdw-accordion-item;
-  border-radius: $bdrs-accordion-item;
+  border-radius: $bdrs-accordion;
   overflow: hidden;
   #{$base-class-item-header},
   #{$base-class-item-panel} {
@@ -39,77 +47,25 @@ $base-class-item-panel: '#{$base-class-item}Panel';
     border-bottom-width: $bdw-accordion-item;
   }
 }
+#{$base-class-item-panel},
+#{$base-class-item-header} {
+  border-top-width: $bdw-accordion-item;
+  border-bottom-width: $bdw-accordion-item;
+}
 
-#{$base-class-element} {
-  background-color: lightblue;
-  border-radius: $bdrs-accordion-item;
-  + #{$base-class-element} {
-    &#{$base-class-item-header} {
-      &[data-expanded='false'] {
-        background-color: lightpink;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-      }
-      &[data-expanded='true'] {
-        background-color: lightgreen;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-      }
+#{$base-class} {
+  > #{$base-class-item-header},
+  > #{$base-class-item-panel} {
+    border-top-width: $bdw-accordion-item;
+    border-bottom-width: 0;
+    &:nth-child(1) {
+      border-top-width: 0;
     }
-    background-color: lightpink;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-  + #{$base-class-element}#{$base-class-item-header}:not(:nth-last-of-type(1)),
-  + #{$base-class-element}#{$base-class-item-panel}:not(:nth-last-of-type(1)) {
-    background-color: lightgoldenrodyellow;
-    border-radius: 0;
-  }
-  &:nth-of-type(1) {
-    background-color: lightcyan;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  &[data-expanded='false']:nth-last-of-type(1) {
-    background-color: lightpink;
-    border-bottom-left-radius: $bdrs-accordion-item;
-    border-bottom-right-radius: $bdrs-accordion-item;
-  }
-  &:nth-last-of-type(1) {
-    background-color: lightcoral;
-    border-bottom-left-radius: $bdrs-accordion-item;
-    border-bottom-right-radius: $bdrs-accordion-item;
   }
 }
 
-//#{$base-class-element}[aria-expanded='false']:nth-last-of-type(1),
-//#{$base-class-element}[aria-expanded='true']:last-of-type {
-//  background-color: lightcoral;
-//  border-radius: 0 0 $bdrs-accordion-item $bdrs-accordion-item;
-//}
-//
-//#{$base-class-element}[data-expanded='true']:nth-last-of-type(1) {
-//  background-color: lightpink;
-//  border-radius: 0;
-//}
-//#{$base-class-element}[data-expanded='false']:nth-last-of-type(1) {
-//  background-color: lightsalmon;
-//  border-radius: 0 0 $bdrs-accordion-item $bdrs-accordion-item;
-//}
-
-//#{$base-class-element} {
-//  background-color: lightsalmon;
-//  border-radius: 0 0 $bdrs-accordion-item $bdrs-accordion-item;
-//  & + *:not([class~='#{$base-name}']) {
-//  }
-//}
-
 #{$base-class-item-header} {
   overflow: hidden;
-  border-left-width: $bdw-accordion-item;
-  border-right-width: $bdw-accordion-item;
-  border-bottom-width: $bdw-accordion-item;
-  border-top-width: $bdw-accordion-item;
   margin: 0;
   #{$base-class-item-header}Button {
     box-sizing: inherit;
@@ -172,10 +128,11 @@ $base-class-item-panel: '#{$base-class-item}Panel';
     }
     #{$base-class-item-header-icon} {
       padding: $sz-base;
+      color: $c-accordion-item-header-icon;
       #{$base-class-item-header-icon}Default {
         display: flex;
         &:empty {
-          $sz-empty-icon: $sz-icon-xs;
+          $sz-empty-icon: $sz-accordion-item-icon;
           min-width: $sz-empty-icon;
           min-height: $sz-empty-icon;
           position: relative;
@@ -188,7 +145,7 @@ $base-class-item-panel: '#{$base-class-item}Panel';
             top: 50%;
             bottom: 50%;
             width: 100%;
-            border-bottom: $bdw-s solid $bdc-accordion-item;
+            border-bottom: $bdw-s solid $c-accordion-item-header-icon;
             box-sizing: border-box;
           }
           &::before {
@@ -212,11 +169,6 @@ $base-class-item-panel: '#{$base-class-item}Panel';
 }
 
 #{$base-class-item-panel} {
-  overflow: hidden;
-  border-left-width: $bdw-accordion-item;
-  border-right-width: $bdw-accordion-item;
-  border-bottom-width: $bdw-accordion-item;
-  border-top-width: $bdw-accordion-item;
   overflow: hidden;
   &[aria-expanded='false'] {
     max-height: 0;

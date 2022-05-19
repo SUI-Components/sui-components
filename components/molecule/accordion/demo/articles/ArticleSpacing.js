@@ -1,3 +1,4 @@
+import {Fragment} from 'react'
 import PropTypes from 'prop-types'
 
 import {
@@ -26,7 +27,7 @@ const ArticleDemo = ({className}) => {
         This can be used combined with the Compound Component principle to give
         space between Items using a layoutGrid in the Accordion.
       </Paragraph>
-      <Accordion behavior="multiple">
+      <Accordion behavior="multiple" as={Fragment}>
         <Grid cols={1} gutter={[8, 8]}>
           <Cell>
             <AccordionItem

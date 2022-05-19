@@ -1,4 +1,4 @@
-import {forwardRef, Fragment} from 'react'
+import {forwardRef} from 'react'
 import {isFragment} from 'react-is'
 import PropTypes from 'prop-types'
 
@@ -20,7 +20,7 @@ import AccordionItemPanel from './AccordionItemPanel.js'
 const MoleculeAccordion = forwardRef(
   (
     {
-      as: As = Fragment,
+      as: As = 'div',
       values,
       defaultValues = [],
       onChange,

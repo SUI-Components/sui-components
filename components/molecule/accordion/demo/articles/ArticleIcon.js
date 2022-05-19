@@ -100,14 +100,14 @@ const ArticleIcon = ({className}) => {
             behavior="single"
             headerIconCollapsed={
               `${icon}` !== `${undefined}` ? (
-                <AtomIcon size={atomIconSizes.small}>
+                <AtomIcon size={atomIconSizes.extraSmall}>
                   <AntDesignIcon icon={availableIcons[icon].collapsed} />
                 </AtomIcon>
               ) : undefined
             }
             headerIconExpanded={
               `${icon}` !== `${undefined}` ? (
-                <AtomIcon size={atomIconSizes.small}>
+                <AtomIcon size={atomIconSizes.extraSmall}>
                   <AntDesignIcon icon={availableIcons[icon].expanded} />
                 </AtomIcon>
               ) : undefined

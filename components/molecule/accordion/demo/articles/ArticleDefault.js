@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, Fragment} from 'react'
 import PropTypes from 'prop-types'
 
 import {Article, H2, H3, Paragraph, Code} from '@s-ui/documentation-library'
@@ -90,7 +90,73 @@ const ArticleDefault = ({className}) => {
         />
       </Accordion>
       <H3>Handlers</H3>
-      <Code>onChange</Code>
+      <Paragraph>
+        <Code>onChange</Code>: Accordion handler fired every single panel is
+        toggled between its expand-collapse view using its header button
+        behavior.
+      </Paragraph>
+      <Paragraph>
+        It can also work with no wrapping borders using a Fragment logical react
+        component as the MoleculeAccordion element.
+      </Paragraph>
+      <Accordion
+        onChange={onChange}
+        behavior={moleculeAccordionBehavior.MULTIPLE}
+        as={Fragment}
+      >
+        <AccordionItem
+          value="value-1"
+          onClick={onItemClick('header1')}
+          label="Accordion Item Label 1"
+          content={
+            <>
+              <p>Accordion Item Content 1</p>
+              <p>
+                <LoremIpsum units="words" count={200} format="plain" />
+              </p>
+            </>
+          }
+        />
+        <AccordionItem
+          value="value-2"
+          onClick={onItemClick('header2')}
+          label="Accordion Item Header 2"
+          content={
+            <>
+              <p>Accordion Item Content 2</p>
+              <p>
+                <LoremIpsum units="words" count={200} format="plain" />
+              </p>
+            </>
+          }
+        />
+        <AccordionItem
+          value="value-3"
+          onClick={onItemClick('header3')}
+          label="Accordion Item Header 3"
+          content={
+            <>
+              <p>Accordion Item Content 3</p>
+              <p>
+                <LoremIpsum units="words" count={200} format="plain" />
+              </p>
+            </>
+          }
+        />
+        <AccordionItem
+          value="value-4"
+          onClick={onItemClick('header4')}
+          label="Accordion Item Header 4"
+          content={
+            <>
+              <p>Accordion Item Content 4</p>
+              <p>
+                <LoremIpsum units="words" count={200} format="plain" />
+              </p>
+            </>
+          }
+        />
+      </Accordion>
     </Article>
   )
 }

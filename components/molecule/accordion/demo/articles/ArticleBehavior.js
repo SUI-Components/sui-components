@@ -66,6 +66,30 @@ const ArticleBehavior = ({className}) => {
             </>
           }
         />
+        <AccordionItem
+          value="value-3"
+          label="Accordion Item Header 3"
+          content={
+            <>
+              <p>Accordion Item Content 3</p>
+              <p>
+                <LoremIpsum units="words" count={200} format="plain" />
+              </p>
+            </>
+          }
+        />
+        <AccordionItem
+          value="value-4"
+          label="Accordion Item Header 4"
+          content={
+            <>
+              <p>Accordion Item Content 4</p>
+              <p>
+                <LoremIpsum units="words" count={200} format="plain" />
+              </p>
+            </>
+          }
+        />
       </Accordion>
       <Paragraph>
         By default, there are two main behaviors provided by the package to
@@ -95,6 +119,30 @@ const ArticleBehavior = ({className}) => {
                   content={
                     <>
                       <p>Accordion Item Content 2</p>
+                      <p>
+                        <LoremIpsum units="words" count={200} format="plain" />
+                      </p>
+                    </>
+                  }
+                />
+                <AccordionItem
+                  value="value-3"
+                  label="Accordion Item Header 3"
+                  content={
+                    <>
+                      <p>Accordion Item Content 3</p>
+                      <p>
+                        <LoremIpsum units="words" count={200} format="plain" />
+                      </p>
+                    </>
+                  }
+                />
+                <AccordionItem
+                  value="value-4"
+                  label="Accordion Item Header 4"
+                  content={
+                    <>
+                      <p>Accordion Item Content 4</p>
                       <p>
                         <LoremIpsum units="words" count={200} format="plain" />
                       </p>

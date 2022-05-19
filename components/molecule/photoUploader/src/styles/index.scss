@@ -52,6 +52,7 @@ $skeleton-class: '#{$base-class}-skeleton';
     align-items: center;
     display: flex;
     flex-direction: column;
+    text-align: center;
 
     &Text {
       margin-top: $m-m;
@@ -140,6 +141,7 @@ $skeleton-class: '#{$base-class}-skeleton';
 
   &Card {
     background: $bg-photo-uploader-thumb-card;
+    border-radius: $bdrs-photo-uploader-thumb-card;
     display: flex;
     flex-direction: column;
     min-width: 0;
@@ -172,6 +174,8 @@ $skeleton-class: '#{$base-class}-skeleton';
 
     &-iconContainer {
       background-color: rgba($c-primary, 0.1);
+      border-radius: $bdrs-photo-uploader-thumb-card
+        $bdrs-photo-uploader-thumb-card 0 0;
       display: flex;
       flex-direction: column;
       height: 100%;
@@ -186,6 +190,8 @@ $skeleton-class: '#{$base-class}-skeleton';
     }
 
     &-image {
+      border-radius: $bdrs-photo-uploader-thumb-card
+        $bdrs-photo-uploader-thumb-card 0 0;
       height: 100%;
       object-fit: cover;
       width: $w-photo-uploader-thumb-image;
@@ -200,6 +206,8 @@ $skeleton-class: '#{$base-class}-skeleton';
       }
 
       &Container {
+        border-radius: $bdrs-photo-uploader-thumb-card
+          $bdrs-photo-uploader-thumb-card 0 0;
         display: flex;
         height: 100%;
       }
@@ -221,6 +229,13 @@ $skeleton-class: '#{$base-class}-skeleton';
       justify-content: center;
       padding: $p-photo-uploader-action-buttons;
       width: 50%;
+
+      &:first-of-type {
+        border-radius: 0 0 0 $bdrs-photo-uploader-thumb-card;
+      }
+      &:last-of-type {
+        border-radius: 0 0 $bdrs-photo-uploader-thumb-card 0;
+      }
 
       &:hover {
         @include media-breakpoint-up(m) {

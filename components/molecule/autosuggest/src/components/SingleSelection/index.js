@@ -7,7 +7,6 @@ import AtomInput from '@s-ui/react-atom-input'
 import {InputWithClearUI} from '../InputWithClearUI/index.js'
 
 const MoleculeAutosuggestSingleSelection = ({
-  autoClose,
   autoFocus,
   ariaLabel,
   autoComplete = 'nope',
@@ -42,12 +41,12 @@ const MoleculeAutosuggestSingleSelection = ({
   const handleSelection = (ev, {value}) => {
     typeof onChange === 'function' && onChange(ev, {value})
     typeof onSelect === 'function' && onSelect(ev, {value})
-    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen: false})
+    typeof onToggle === 'function' && onToggle(ev, {isOpen: false})
   }
 
   const handleChange = (ev, {value}) => {
     typeof onChange === 'function' && onChange(ev, {value})
-    autoClose && typeof onToggle === 'function' && onToggle(ev, {isOpen: true})
+    typeof onToggle === 'function' && onToggle(ev, {isOpen: true})
   }
 
   const handleClear = ev => {
@@ -91,11 +90,11 @@ const MoleculeAutosuggestSingleSelection = ({
       >
         <AtomInput />
       </InputWithClearUI>
-      {value && (
+      {(value || isOpen) && (
         <MoleculeDropdownList
           size={size}
-          visible={isOpen && Children.count(children) > 0}
           onSelect={handleSelection}
+          visible={isOpen && Children.count(children) > 0}
           value={value}
           highlightQuery={value}
           onKeyDown={onKeyDown}

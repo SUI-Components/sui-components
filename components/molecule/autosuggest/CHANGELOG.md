@@ -1,5 +1,39 @@
 # CHANGELOG
 
+# 2.61.0 (2022-05-17)
+
+
+### Bug Fixes
+
+* **components/molecule/autosuggest:** fix conditional enter ([e3af45e](https://github.com/SUI-Components/sui-components/commit/e3af45e289a11e627c6d2a4e74076c4b78aa7ea5))
+
+
+
+# 2.60.0 (2022-05-17)
+
+
+### Bug Fixes
+
+* **components/molecule/autosuggest/demo:** make demo private ([c587352](https://github.com/SUI-Components/sui-components/commit/c5873527e57a0ea2ae0035be90059f9de4bb05a7))
+* **components/molecule/autosuggest:** fix conditional ([2c8e829](https://github.com/SUI-Components/sui-components/commit/2c8e829d4a5c7c8352d6d92b81a16d48283f1319))
+* **components/molecule/autosuggest:** fix version ([8ba35c1](https://github.com/SUI-Components/sui-components/commit/8ba35c15883042426963d9b99c3710a667333425))
+
+
+
+# 2.58.0 (2022-05-06)
+
+
+### Bug Fixes
+
+* **components/molecule/autosuggest:** autoClose and isOpen controlled and uncontrolled ([4fc3670](https://github.com/SUI-Components/sui-components/commit/4fc367081e32dc0a364be9caca4e5452e207f63e))
+
+
+### Features
+
+* **components/molecule/autosuggest:** isOpen controlled and uncontrolled ([48406d7](https://github.com/SUI-Components/sui-components/commit/48406d74dac4660a3a9d3107842a09066525452b))
+
+
+
 # 2.57.0 (2022-02-11)
 
 

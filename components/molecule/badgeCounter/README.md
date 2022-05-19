@@ -14,7 +14,7 @@ $ npm install @s-ui/react-molecule-badge-counter --save
 import MoleculeBadgeCounter, {
   moleculeBadgeCounterVariants,
   moleculeBadgeCounterSizes
-} from "@s-ui/react-molecule-badge-counter"
+} from '@s-ui/react-molecule-badge-counter'
 ```
 
 ### Basic (Small)

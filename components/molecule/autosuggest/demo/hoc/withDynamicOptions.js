@@ -13,11 +13,17 @@ export default (BaseComponent, BaseChildComponent) => getDynamicOptions => {
 
     state = {options: []}
 
+    async componentDidMount() {
+      const {value: query} = this.props
+      const options = await getDynamicOptions({query})
+      this.setState({options})
+    }
+
     async componentDidUpdate({value: prevQuery}) {
       const {value: query} = this.props
       if (query !== prevQuery) {
         const options = await getDynamicOptions({query})
-        this.setState({options}) // eslint-disable-line
+        this.setState({options})
       }
     }
 

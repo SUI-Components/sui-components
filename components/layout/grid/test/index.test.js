@@ -75,7 +75,7 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it('should NOT extend classNames', () => {
+    it('should allows you to add custom classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
       const findSentence = str => string =>
@@ -86,7 +86,29 @@ describe(json.name, () => {
       const findClassName = findSentence(props.className)
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
+      expect(findClassName(container.innerHTML)).to.exist
+    })
+
+    it('should render a div when `as` prop has not been passed', () => {
+      // given
+      const props = {}
+      // when
+      const {container} = setup(props)
+      // then
+      expect(container.innerHTML).to.be.a('string')
+      expect(container.innerHTML).to.not.have.lengthOf(0)
+      expect(container.innerHTML).to.contain('div')
+    })
+
+    it('should render an article when `as` prop has this value', () => {
+      // given
+      const props = {as: 'article'}
+      // when
+      const {container} = setup(props)
+      // then
+      expect(container.innerHTML).to.be.a('string')
+      expect(container.innerHTML).to.not.have.lengthOf(0)
+      expect(container.innerHTML).to.contain('article')
     })
   })
 

@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.2.0 (2022-05-16)
+
+
+### Features
+
+* **components/molecule/stepper:** add design basic step renderization ([f339ca7](https://github.com/SUI-Components/sui-components/commit/f339ca7cbc797afc70a46abd4a650c0699314104))
+* **components/molecule/stepper:** add styles for basic horizonatal design ([aabc6a5](https://github.com/SUI-Components/sui-components/commit/aabc6a53d7f890769750a80cb46cb6ef7600f1ac))
+* **components/molecule/stepper:** add styles for horizontal and vertical ([f195782](https://github.com/SUI-Components/sui-components/commit/f19578280157ab2ac3e4c46470c857d4fbb8e046))
+
+
+
 # 2.1.0 (2022-04-25)
 
 

@@ -40,5 +40,16 @@ $base-class: '.sui-MoleculeStepper';
         }
       }
     }
+    &-basic {
+      &#{$base-class}--alignment {
+        &-vertical {
+          row-gap: $sz-base;
+        }
+        &-horizontal {
+          position: relative;
+          gap: $sz-base;
+        }
+      }
+    }
   }
 }

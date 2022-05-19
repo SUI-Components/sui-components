@@ -1,5 +1,25 @@
 # CHANGELOG
 
+# 2.16.0 (2022-05-06)
+
+
+### Features
+
+* **components/molecule/photoUploader:** center text when text dont fit on container ([f0ab9c3](https://github.com/SUI-Components/sui-components/commit/f0ab9c3b02dfb8df48f71b8ec0e9311fb3a5b446))
+* **components/molecule/photoUploader:** make mininum height a default scss var to modify its value ([d4101af](https://github.com/SUI-Components/sui-components/commit/d4101afd0d3bbc7c03c4b738abe75eaa869ba921))
+
+
+
+# 2.15.0 (2022-05-04)
+
+
+### Features
+
+* **components/molecule/photoUploader:** add overflow hidden to make visible the defined border-radi ([651f3c7](https://github.com/SUI-Components/sui-components/commit/651f3c73dd9c8142cbf80d643d54b19cb635f7a7))
+* **components/molecule/photoUploader:** fix border-radius avoiding the use of overflow hidden ([ec030b8](https://github.com/SUI-Components/sui-components/commit/ec030b846e16208d94e0788692dfa55cfb326688))
+
+
+
 # 2.14.0 (2022-04-13)
 
 

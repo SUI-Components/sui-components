@@ -3,13 +3,14 @@ import {useState} from 'react'
 import PropTypes from 'prop-types'
 import Chevronright from '@s-ui/react-icons/lib/Chevronright'
 
-import {breadcrumbClassName} from './settings.js'
+import {breadcrumbClassName, BASE_CLASS} from './settings.js'
 
 const BreadcrumbBasic = ({
   items,
   icon,
   linkFactory: Link,
-  isScrollable = false
+  isScrollable = false,
+  children
 }) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const expandBreadcrumb = () => setIsExpanded(true)
@@ -20,17 +21,18 @@ const BreadcrumbBasic = ({
   return (
     <nav aria-label="breadcrumb" role="navigation">
       <div className={breadcrumbClassName({isExpanded, isScrollable})}>
-        <button onClick={expandBreadcrumb} className="sui-BreadcrumbBasic-btn">
+        {children && <div className={`${BASE_CLASS}-children`}>{children}</div>}
+        <button onClick={expandBreadcrumb} className={`${BASE_CLASS}-btn`}>
           ...
         </button>
-        <ul className="sui-BreadcrumbBasic-list">
+        <ul className={`${BASE_CLASS}-list`}>
           {items.map(({url, label}, index) => (
-            <li className="sui-BreadcrumbBasic-listItem" key={index}>
+            <li className={`${BASE_CLASS}-listItem`} key={index}>
               {index !== 0 && index <= numItems && (
-                <IconAngle svgClass="sui-BreadcrumbBasic-icon" />
+                <IconAngle svgClass={`${BASE_CLASS}-icon`} />
               )}
               {url ? (
-                <Link to={url} href={url} className="sui-BreadcrumbBasic-link">
+                <Link to={url} href={url} className={`${BASE_CLASS}-link`}>
                   {label}
                 </Link>
               ) : (
@@ -73,7 +75,11 @@ BreadcrumbBasic.propTypes = {
   /**
    * Boolean that allows us to show the items with a horizontal scroll
    */
-  isScrollable: PropTypes.bool
+  isScrollable: PropTypes.bool,
+  /**
+   * Children to render before breadcrumb
+   */
+  children: PropTypes.node
 }
 
 BreadcrumbBasic.defaultProps = {

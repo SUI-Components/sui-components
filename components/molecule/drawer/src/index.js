@@ -5,12 +5,15 @@ import PropTypes from 'prop-types'
 import useEventListener from '@s-ui/react-hooks/lib/useEventListener'
 
 import {
+  BASE_CLASS,
   PLACEMENTS as moleculeDrawerPlacements,
   SIZES as moleculeDrawerSizes,
   ANIMATION_DURATION as moleculeDrawerAnimationDuration
 } from './settings.js'
 
 import MoleculeDrawerOverlay from './Overlay.js'
+
+const DRAWER_CONTENT_CLASS = `${BASE_CLASS}-content`
 
 const MoleculeDrawer = forwardRef(
   (
@@ -52,13 +55,13 @@ const MoleculeDrawer = forwardRef(
     return (
       <div
         className={cx(
-          'sui-MoleculeDrawer-content',
-          `sui-MoleculeDrawer-content--placement-${placement}`,
-          `sui-MoleculeDrawer-content--size-${size}`,
-          `sui-MoleculeDrawer-content--animationDuration-${animationDuration}`,
-          `sui-MoleculeDrawer-content--state-${isOpen ? 'opened' : 'closed'}`,
+          DRAWER_CONTENT_CLASS,
+          `${DRAWER_CONTENT_CLASS}--placement-${placement}`,
+          `${DRAWER_CONTENT_CLASS}--size-${size}`,
+          `${DRAWER_CONTENT_CLASS}--animationDuration-${animationDuration}`,
+          `${DRAWER_CONTENT_CLASS}--state-${isOpen ? 'opened' : 'closed'}`,
           {
-            'sui-MoleculeDrawer-content--placement':
+            [`${DRAWER_CONTENT_CLASS}--placement`]:
               typeof target === 'undefined'
           }
         )}

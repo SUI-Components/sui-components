@@ -10,7 +10,7 @@ const BreadcrumbBasic = ({
   icon,
   linkFactory: Link,
   isScrollable = false,
-  children
+  leftAddon
 }) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const expandBreadcrumb = () => setIsExpanded(true)
@@ -21,7 +21,9 @@ const BreadcrumbBasic = ({
   return (
     <nav aria-label="breadcrumb" role="navigation">
       <div className={breadcrumbClassName({isExpanded, isScrollable})}>
-        {children && <div className={`${BASE_CLASS}-children`}>{children}</div>}
+        {leftAddon && (
+          <div className={`${BASE_CLASS}-leftAddon`}>{leftAddon}</div>
+        )}
         <button onClick={expandBreadcrumb} className={`${BASE_CLASS}-btn`}>
           ...
         </button>
@@ -77,9 +79,9 @@ BreadcrumbBasic.propTypes = {
    */
   isScrollable: PropTypes.bool,
   /**
-   * Children to render before breadcrumb
+   * Element to render at the left
    */
-  children: PropTypes.node
+  leftAddon: PropTypes.node
 }
 
 BreadcrumbBasic.defaultProps = {

@@ -10,7 +10,7 @@ $base-class: '.sui-BreadcrumbBasic';
   display: flex;
   padding: $p-breadcrumb-mobile;
 
-  &-children {
+  &-leftAddon {
     display: none;
     @include media-breakpoint-up(m) {
       display: block;

@@ -39,7 +39,12 @@ const BreadcrumbBasic = ({
 
   return (
     <nav aria-label="breadcrumb" role="navigation">
-      <div className={breadcrumbClassName({isExpanded, isScrollable})}>
+      <div
+        className={breadcrumbClassName({
+          isExpanded: isExpandedState,
+          isScrollable
+        })}
+      >
         <button onClick={handleClick} className={`${BASE_CLASS}-btn`}>
           ...
         </button>
@@ -94,10 +99,6 @@ BreadcrumbBasic.propTypes = {
    * Boolean that allows us to show the items with a horizontal scroll
    */
   isScrollable: PropTypes.bool,
-  /**
-   * Element to render at the left
-   */
-  leftAddon: PropTypes.node,
   /**
    * The controlled value of the expanded l&f of the component
    */

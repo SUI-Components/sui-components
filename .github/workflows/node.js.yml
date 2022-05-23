@@ -35,7 +35,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Build dependencies
         run: |
-          npm run phoenix
+          npm run phoenix:ci
           npm run install:themes
           npm run build
         env:

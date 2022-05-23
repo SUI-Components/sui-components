@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.3.0 (2022-05-23)
+
+
+### Bug Fixes
+
+* **components/molecule/drawer:** fixed overlay ([b1984b1](https://github.com/SUI-Components/sui-components/commit/b1984b170e7a65acd2057aee450baa74f96c89cf))
+
+
+
 # 4.2.0 (2022-05-20)
 
 

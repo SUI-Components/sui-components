@@ -154,13 +154,15 @@ describe(json.name, () => {
       // Given
       const library = pkg
       const expected = {
+        AUTO_START: 'auto-start',
+        AUTO_END: 'auto-end',
         LEFT: 'left',
         RIGHT: 'right'
       }
 
       // When
       const {selectPopoverPlacements: actual} = library
-      const {LEFT, RIGHT, ...others} = actual
+      const {LEFT, RIGHT, AUTO_START, AUTO_END, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

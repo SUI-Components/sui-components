@@ -181,10 +181,14 @@ $base-class: '.sui-AtomTag';
     $bgc-hover: map-get($type, bgc-hover);
     $c-hover: map-get($type, c-hover);
     $bdc: map-get($type, bdc);
+    $bds: map-get($type, bds);
+    $bdw: map-get($type, bdw);
     $bdc-hover: map-get($type, bdc-hover);
 
     &--#{$name} {
       background-color: $bgc;
+      border-style: $bds;
+      border-width: $bdw;
       color: $c;
       fill: $c;
       &#{$self}-actionable {

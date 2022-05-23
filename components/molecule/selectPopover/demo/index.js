@@ -102,7 +102,9 @@ const Demo = () => {
         <label>Placements</label>
         <MoleculeSelect
           value={placement}
-          onChange={(ev, {value}) => setPlacement(value)}
+          onChange={(ev, {value}) => {
+            setPlacement(value)
+          }}
           placeholder="Select a size..."
           iconArrowDown={<IconArrowDown />}
         >

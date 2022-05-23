@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.2.0 (2022-05-20)
+
+
+### Bug Fixes
+
+* **components/molecule/drawer:** fix broken class for drawer overlay ([d1c035d](https://github.com/SUI-Components/sui-components/commit/d1c035d6f7e7cf268b93c8d5a33423d9030421a8))
+
+
+
 # 4.1.0 (2022-01-31)
 
 

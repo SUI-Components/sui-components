@@ -1,3 +1,5 @@
+export const BASE_CLASS = 'sui-MoleculeDrawer'
+
 export const PLACEMENTS = {
   TOP: 'top',
   RIGHT: 'right',

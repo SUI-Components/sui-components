@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 1.30.0 (2022-05-23)
+
+
+### Features
+
+* **components/molecule/selectPopover/demo:** Adapt demo for the autoplacement prop ([2015678](https://github.com/SUI-Components/sui-components/commit/201567807f4ce459f9c8ad87baeb8eb7af36f332))
+* **components/molecule/selectPopover/demo:** remove autoPlacement exmaple from the demo ([d583a48](https://github.com/SUI-Components/sui-components/commit/d583a48ded005e92bd2603578141718c1a1f75ba))
+* **components/molecule/selectPopover:** adapt demo to the new placements ([6737089](https://github.com/SUI-Components/sui-components/commit/67370899bba188f1bd0a6793eeae08ca2015556b))
+* **components/molecule/selectPopover:** Add autoplacement prop to the select popover ([542bb66](https://github.com/SUI-Components/sui-components/commit/542bb6631730d2b405d8d3850726e3e697f034db))
+* **components/molecule/selectPopover:** remove autoplacement prop ([d4e2f5e](https://github.com/SUI-Components/sui-components/commit/d4e2f5efc599d71c03882a461e554936ed776831))
+* **components/molecule/selectPopover:** set new placements congifuration ([8380035](https://github.com/SUI-Components/sui-components/commit/8380035a1822504d183a666e3a418fd0931e4bdb))
+
+
+
 # 1.29.0 (2022-05-02)
 
 

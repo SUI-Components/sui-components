@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, Children} from 'react'
 import PropTypes from 'prop-types'
 
 import Tab from './Tab/index.js'
@@ -45,7 +45,7 @@ const MoleculeAccordion = ({
 
   return (
     <div className={BASE_CLASS} role="tablist">
-      {children.map((child, index) => (
+      {Children.map(children, (child, index) => (
         <Tab
           isOpen={openedTabsState.includes(index)}
           key={index}

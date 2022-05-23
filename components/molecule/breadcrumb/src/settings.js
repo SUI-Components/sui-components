@@ -7,3 +7,5 @@ export const breadcrumbClassName = ({isExpanded, isScrollable}) =>
     'is-expanded': isExpanded,
     'is-scrollable': isScrollable
   })
+
+export const isFunction = fn => typeof fn === 'function'

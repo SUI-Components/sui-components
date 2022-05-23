@@ -1,30 +1,46 @@
-/* eslint-disable react/prop-types */
-import {useState} from 'react'
 import PropTypes from 'prop-types'
-import Chevronright from '@s-ui/react-icons/lib/Chevronright'
 
-import {breadcrumbClassName, BASE_CLASS} from './settings.js'
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
+import ChevronRight from '@s-ui/react-icons/lib/Chevronright'
+
+import {breadcrumbClassName, BASE_CLASS, isFunction} from './settings.js'
 
 const BreadcrumbBasic = ({
   items,
   icon,
-  linkFactory: Link,
+  linkFactory: Link = ({to, href, className, children}) => (
+    <a href={to || href} className={className}>
+      {children}
+    </a>
+  ),
   isScrollable = false,
-  leftAddon
+  isExpanded,
+  defaultIsExpanded = false,
+  onExpand,
+  onCollapse,
+  onClick
 }) => {
-  const [isExpanded, setIsExpanded] = useState(false)
-  const expandBreadcrumb = () => setIsExpanded(true)
+  const [isExpandedState, setIsExpandedState] = useControlledState(
+    isExpanded,
+    defaultIsExpanded
+  )
+  const handleClick = event => {
+    setIsExpandedState(!isExpandedState)
+    isFunction(onClick) && onClick(event, {value: !isExpandedState})
+    if (isExpandedState) {
+      isFunction(onCollapse) && onCollapse(event, {value: false})
+    } else {
+      isFunction(onExpand) && onExpand(event, {value: true})
+    }
+  }
 
-  const IconAngle = icon || Chevronright
+  const IconAngle = icon || ChevronRight
   const numItems = items.length - 1
 
   return (
     <nav aria-label="breadcrumb" role="navigation">
       <div className={breadcrumbClassName({isExpanded, isScrollable})}>
-        {leftAddon && (
-          <div className={`${BASE_CLASS}-leftAddon`}>{leftAddon}</div>
-        )}
-        <button onClick={expandBreadcrumb} className={`${BASE_CLASS}-btn`}>
+        <button onClick={handleClick} className={`${BASE_CLASS}-btn`}>
           ...
         </button>
         <ul className={`${BASE_CLASS}-list`}>
@@ -81,15 +97,21 @@ BreadcrumbBasic.propTypes = {
   /**
    * Element to render at the left
    */
-  leftAddon: PropTypes.node
-}
-
-BreadcrumbBasic.defaultProps = {
-  linkFactory: ({to, href, className, children}) => (
-    <a href={to || href} className={className}>
-      {children}
-    </a>
-  )
+  leftAddon: PropTypes.node,
+  /**
+   * The controlled value of the expanded l&f of the component
+   */
+  isExpanded: PropTypes.bool,
+  /**
+   * The initial value of the expanded l&f of the component
+   */
+  defaultIsExpanded: PropTypes.bool,
+  /** expand handler **/
+  onExpand: PropTypes.func,
+  /** collapse handler **/
+  onCollapse: PropTypes.func,
+  /** click handler (expand or collapse) **/
+  onClick: PropTypes.func
 }
 
 export default BreadcrumbBasic

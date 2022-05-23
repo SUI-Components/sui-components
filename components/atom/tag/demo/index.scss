@@ -1,9 +1,9 @@
 @import '~@s-ui/react-atom-icon/lib/index';
 
-@import '../src/index';
-
 $atom-tag-types: (
   'alert': (
+    bds: double,
+    bdw: 4px,
     bgc: red,
     c: white,
     bgc-hover: color-variation(red, 2),
@@ -28,3 +28,5 @@ $atom-tag-types: (
     c-hover: white
   )
 );
+
+@import '../src/index';

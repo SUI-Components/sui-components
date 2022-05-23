@@ -55,6 +55,10 @@ $skeleton-class: '#{$base-class}-skeleton';
 
     &Text {
       margin-top: $m-m;
+
+      &.isSpaced {
+        margin-bottom: $m-m;
+      }
     }
     &Divider {
       margin: $m-m 0;

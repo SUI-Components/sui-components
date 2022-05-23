@@ -10,16 +10,6 @@ $base-class: '.sui-BreadcrumbBasic';
   display: flex;
   padding: $p-breadcrumb-mobile;
 
-  &-leftAddon {
-    display: none;
-    @include media-breakpoint-up(m) {
-      display: block;
-    }
-    .is-expanded & {
-      display: block;
-    }
-  }
-
   &-btn {
     @include reset-button;
     @include media-breakpoint-up(m) {

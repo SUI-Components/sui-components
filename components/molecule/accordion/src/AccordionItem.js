@@ -29,7 +29,7 @@ const AccordionItem = forwardRef(
       label,
       onClick,
       content,
-      maxHeight,
+      maxHeight
     },
     forwardedRef
   ) => {

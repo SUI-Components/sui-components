@@ -65,7 +65,12 @@ const HeaderCustom = ({
 
 HeaderCustom.displayName = 'HeaderCustom'
 HeaderCustom.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  tags: PropTypes.arrayOf(PropTypes.string),
+  onClose: PropTypes.func,
+  title: PropTypes.string,
+  isExpanded: PropTypes.bool,
+  step: PropTypes.number
 }
 
 export default HeaderCustom

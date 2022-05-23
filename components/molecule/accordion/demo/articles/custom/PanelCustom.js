@@ -42,7 +42,12 @@ const PanelCustom = ({
 
 PanelCustom.displayName = 'PanelCustom'
 PanelCustom.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  children: PropTypes.node,
+  onNext: PropTypes.func,
+  onPrevious: PropTypes.func,
+  step: PropTypes.number,
+  stepsNumber: PropTypes.number
 }
 
 export default PanelCustom

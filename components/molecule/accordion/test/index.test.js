@@ -18,7 +18,7 @@ import json from '../package.json'
 
 chai.use(chaiDOM)
 
-describe.skip(json.name, () => {
+describe(json.name, () => {
   const {default: Component} = pkg
   const setup = setupEnvironment(Component)
 
@@ -32,7 +32,7 @@ describe.skip(json.name, () => {
       'MoleculeAccordionItemHeaderIcon',
       'MoleculeAccordionItemPanel',
       'moleculeAccordionBehavior',
-      'moleculeAnimationDuration',
+      'moleculeAccordionAnimationDuration',
       'moleculeAccordionHeaderIconPosition',
       'default'
     ]
@@ -45,7 +45,7 @@ describe.skip(json.name, () => {
       MoleculeAccordionItemHeaderIcon,
       MoleculeAccordionItemPanel,
       moleculeAccordionBehavior,
-      moleculeAnimationDuration,
+      moleculeAccordionAnimationDuration,
       moleculeAccordionHeaderIconPosition,
       default: MoleculeAccordionDefault,
       ...others
@@ -355,13 +355,13 @@ describe.skip(json.name, () => {
     })
   })
 
-  describe('moleculeAnimationDuration', () => {
+  describe('moleculeAccordionAnimationDuration', () => {
     it('value must be an object enum', () => {
       // Given
       const library = pkg
 
       // When
-      const {moleculeAnimationDuration: actual} = library
+      const {moleculeAccordionAnimationDuration: actual} = library
 
       // Then
       expect(actual).to.be.an('object')
@@ -378,7 +378,7 @@ describe.skip(json.name, () => {
       }
 
       // When
-      const {moleculeAnimationDuration: actual} = library
+      const {moleculeAccordionAnimationDuration: actual} = library
       const {NONE, FAST, NORMAL, SLOW, ...others} = actual
 
       // Then

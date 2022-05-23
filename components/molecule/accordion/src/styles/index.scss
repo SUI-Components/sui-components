@@ -33,6 +33,14 @@ $base-class-item-panel: '#{$base-class-item}Panel';
   border-radius: $bdrs-accordion;
   border-width: $bdw-accordion-item;
   overflow: hidden;
+  > #{$base-class-item-header},
+  > #{$base-class-item-panel} {
+    border-top-width: $bdw-accordion-item;
+    border-bottom-width: 0;
+    &:nth-child(1) {
+      border-top-width: 0;
+    }
+  }
 }
 
 #{$base-class-item} {
@@ -57,17 +65,6 @@ $base-class-item-panel: '#{$base-class-item}Panel';
 #{$base-class-item-header} {
   border-top-width: $bdw-accordion-item;
   border-bottom-width: $bdw-accordion-item;
-}
-
-#{$base-class} {
-  > #{$base-class-item-header},
-  > #{$base-class-item-panel} {
-    border-top-width: $bdw-accordion-item;
-    border-bottom-width: 0;
-    &:nth-child(1) {
-      border-top-width: 0;
-    }
-  }
 }
 
 #{$base-class-item-header} {

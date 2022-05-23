@@ -1,4 +1,4 @@
-import cx from 'classname'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import Button, {atomButtonShapes} from '@s-ui/react-atom-button'
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'

@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 3.10.0 (2022-05-23)
+
+
+### Bug Fixes
+
+* **components/atom/popover/demo:** do not publish ([2173668](https://github.com/SUI-Components/sui-components/commit/217366800ad2dbad799262166a833530bb190dc7))
+* **components/atom/popover:** bump ([c1dfdca](https://github.com/SUI-Components/sui-components/commit/c1dfdca454e27cc6d7782ef49988db320205f24a))
+* **components/atom/popover:** bump ([5d1403d](https://github.com/SUI-Components/sui-components/commit/5d1403db3d6503c43267f78bdc1778dcc4034976))
+
+
+
 # 3.8.0 (2022-04-12)
 
 

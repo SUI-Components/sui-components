@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import Button, {atomButtonDesigns} from '@s-ui/react-atom-button'
 
-import {SIZES, PLACEMENTS, BASE_CLASS} from './config.js'
+import {BASE_CLASS, getPlacement, PLACEMENTS, SIZES} from './config.js'
 
 function usePrevious(value) {
   const ref = useRef()
@@ -13,6 +13,8 @@ function usePrevious(value) {
   }, [value])
   return ref.current
 }
+
+const popoverBaseClass = `${BASE_CLASS}-popover`
 
 function MoleculeSelectPopover({
   acceptButtonText,
@@ -33,7 +35,7 @@ function MoleculeSelectPopover({
   onClose = () => {},
   onCustomAction = () => {},
   onOpen = () => {},
-  placement = PLACEMENTS.RIGHT,
+  placement,
   renderContentWrapper: renderContentWrapperProp,
   renderSelect: renderSelectProp,
   selectText,
@@ -41,7 +43,13 @@ function MoleculeSelectPopover({
   title
 }) {
   const [isOpen, setIsOpen] = useState(false)
+  const [popoverClassName, setPopoverClassName] = useState(
+    cx(`${popoverBaseClass}`, `${popoverBaseClass}--${getPlacement(placement)}`)
+  )
+
   const previousIsOpen = usePrevious(isOpen)
+  const selectRef = useRef()
+  const contentWrapperRef = useRef()
 
   useEffect(() => {
     /**
@@ -52,12 +60,41 @@ function MoleculeSelectPopover({
     if (typeof previousIsOpen === 'undefined' || isOpen === previousIsOpen) {
       return
     }
+
+    if (
+      isOpen &&
+      [PLACEMENTS.AUTO_END, PLACEMENTS.AUTO_START].includes(placement)
+    ) {
+      setPopoverClassName(getPopoverClassName())
+    }
+
     const openEvent = isOpen ? onOpen : onClose
     openEvent()
   }, [isOpen, onClose, onOpen, previousIsOpen])
 
-  const selectRef = useRef()
-  const contentWrapperRef = useRef()
+  useEffect(() => {
+    setPopoverClassName(
+      cx(
+        `${popoverBaseClass}`,
+        `${popoverBaseClass}--${getPlacement(placement)}`
+      )
+    )
+  }, [placement])
+
+  const getPopoverClassName = () => {
+    const {left, right} = contentWrapperRef.current?.getBoundingClientRect()
+    const outFromTheLeftSide = left < 0
+    const outFromTheRightSide =
+      right > (window.innerWidth || document.documentElement.clientWidth)
+
+    if (outFromTheRightSide) {
+      return cx(`${popoverBaseClass}`, `${popoverBaseClass}--left`)
+    } else if (outFromTheLeftSide) {
+      return cx(`${popoverBaseClass}`, `${popoverBaseClass}--right`)
+    }
+
+    return popoverClassName
+  }
 
   const selectClassName = cx(
     `${BASE_CLASS}-select`,
@@ -66,11 +103,6 @@ function MoleculeSelectPopover({
       'is-open': isOpen,
       'is-selected': isSelected
     }
-  )
-
-  const popoverClassName = cx(
-    `${BASE_CLASS}-popover`,
-    `${BASE_CLASS}-popover--${placement}`
   )
 
   const handleOnAccept = () => {
@@ -261,7 +293,12 @@ MoleculeSelectPopover.propTypes = {
   onClose: PropTypes.func,
   onCustomAction: PropTypes.func,
   onOpen: PropTypes.func,
-  placement: PropTypes.string,
+  placement: PropTypes.oneOf([
+    PLACEMENTS.AUTO_END,
+    PLACEMENTS.AUTO_START,
+    PLACEMENTS.LEFT,
+    PLACEMENTS.RIGHT
+  ]),
   renderContentWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   renderSelect: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   selectText: PropTypes.string.isRequired,

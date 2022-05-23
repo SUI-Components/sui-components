@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 2.37.0 (2022-05-23)
+
+
+### Bug Fixes
+
+* **components/atom/tag:** bump ([544da45](https://github.com/SUI-Components/sui-components/commit/544da45c1b8717814696b173a7feb76f472727a0))
+
+
+
+# 2.36.0 (2022-05-23)
+
+
+### Features
+
+* **components/atom/tag:** add border style and width in types token ([54bd66d](https://github.com/SUI-Components/sui-components/commit/54bd66d04313544572e2bc16804b66432f1e2213))
+
+
+
 # 2.35.0 (2022-04-05)
 
 

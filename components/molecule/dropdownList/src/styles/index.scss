@@ -5,7 +5,7 @@ $base-class: '.sui-MoleculeDropdownList';
   border-radius: $bdrs-dropdown-list;
   box-sizing: $bxz-dropdown-list;
   margin: 0;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding: $p-dropdown-list;
   width: 100%;
 

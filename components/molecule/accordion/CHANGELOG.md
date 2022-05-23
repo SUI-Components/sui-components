@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 1.19.0 (2022-05-23)
+
+
+### Bug Fixes
+
+* **components/atom/panel:** background colors hotfix ([e3364a5](https://github.com/SUI-Components/sui-components/commit/e3364a53cfe0b5825ea6a5d4a30ae5de2688b667))
+
+
+### Features
+
+* **components/molecule/accordion:** render children with React Children.map fn to handle single chi ([2b3cd84](https://github.com/SUI-Components/sui-components/commit/2b3cd84ce5554838c041516e4ae9f50c9d2df228))
+
+
+
 # 1.18.0 (2022-03-26)
 
 

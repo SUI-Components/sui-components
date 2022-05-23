@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-atom-popover",
-  "version": "3.8.1",
+  "version": "3.9.1",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

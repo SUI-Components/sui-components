@@ -46,6 +46,12 @@ $base-class-item-panel: '#{$base-class-item}Panel';
   #{$base-class-item-header} {
     border-bottom-width: $bdw-accordion-item;
   }
+  #{$base-class-item-panel}[aria-expanded='false'] {
+    border-top-width: 0;
+  }
+  #{$base-class-item-panel}[aria-expanded='true'] {
+    border-top-width: $bdw-accordion-item;
+  }
 }
 #{$base-class-item-panel},
 #{$base-class-item-header} {
@@ -65,15 +71,12 @@ $base-class-item-panel: '#{$base-class-item}Panel';
 }
 
 #{$base-class-item-header} {
-  overflow: hidden;
   margin: 0;
   #{$base-class-item-header}Button {
     box-sizing: inherit;
     border: none;
-    margin: 0;
-    padding: 0;
+    padding: $p-accordion-item-header;
     overflow: visible;
-    background: transparent;
     cursor: pointer;
     width: 100%;
     height: 100%;
@@ -81,9 +84,10 @@ $base-class-item-panel: '#{$base-class-item}Panel';
     min-height: $h-accordion-item-button;
     display: flex;
     align-items: center;
+    background-color: $bgc-accordion-item-header;
     &:focus-visible {
       outline: $bdw-accordion-item solid $c-primary;
-      box-shadow: 0 0 $m-s $m-xs $c-primary;
+      box-shadow: inset 0 0 $m-xs $m-xs $c-primary;
     }
     &#{$base-class-item-header}Button--icon-position {
       &-left {
@@ -104,9 +108,6 @@ $base-class-item-panel: '#{$base-class-item}Panel';
       }
       &-right {
         flex-direction: row;
-        #{$base-class-item-header}ButtonContent {
-          margin-left: $sz-base;
-        }
       }
     }
     #{$base-class-item-header}ButtonContent {
@@ -114,6 +115,7 @@ $base-class-item-panel: '#{$base-class-item}Panel';
       width: 100%;
       height: 100%;
       line-height: 1.15;
+      color: $c-accordion-item-header;
       font-weight: $fw-molecule-accordion-header;
       font-size: $fz-base;
       font-family: $ff-molecule-accordion-header;
@@ -170,6 +172,7 @@ $base-class-item-panel: '#{$base-class-item}Panel';
 
 #{$base-class-item-panel} {
   overflow: hidden;
+  background-color: $bgc-accordion-item-panel;
   &[aria-expanded='false'] {
     max-height: 0;
     opacity: 0;
@@ -179,7 +182,7 @@ $base-class-item-panel: '#{$base-class-item}Panel';
     opacity: 1;
   }
   #{$base-class-item-panel}Content {
-    padding: $sz-base;
+    padding: $p-accordion-item-panel;
   }
   + #{$base-class-item-header} {
     margin-top: -$bdw-accordion-item;

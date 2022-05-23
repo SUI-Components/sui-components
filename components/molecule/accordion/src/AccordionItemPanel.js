@@ -30,7 +30,6 @@ const AccordionItemPanel = forwardRef(
     },
     forwardedRef
   ) => {
-
     const [contentRef, {height}] = useMeasure()
 
     const {
@@ -57,6 +56,8 @@ const AccordionItemPanel = forwardRef(
           transition: `max-height ${animationDuration}ms ${
             values.includes(value) ? 'ease-out' : 'ease-in'
           }, opacity 0s linear ${
+            values.includes(value) ? 0 : animationDuration
+          }ms, border-top-width 0s linear ${
             values.includes(value) ? 0 : animationDuration
           }ms`,
           ...(values.includes(value) && {

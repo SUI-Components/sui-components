@@ -2,30 +2,21 @@
 
 // Colors
 $bdc-accordion-item: $c-gray-dark-3 !default;
-$c-accordion-item-header: $c-text-base !default;
+$c-accordion-item-header: $c-accordion-tab-text !default;
 $c-accordion-item-header-icon: $c-accordion-tab-icon !default;
+$bgc-accordion-item-header: $c-white !default;
+$bgc-accordion-item-panel: $bgc-accordion-tab-container !default;
 
 // Size and Spacing
 $bdrs-accordion: $bdrs-accordion-tab !default;
-$h-accordion-item-button: $h-accordion-tab-btn;
-$p-accordion-item-button: $p-accordion-tab-btn;
-$sz-accordion-item-icon: $sz-accordion-tab-icon;
 $bdw-accordion-item: $bdw-s !default;
-
+$h-accordion-item-button: $h-accordion-tab-btn !default;
+$p-accordion-item-button: $p-accordion-tab-btn !default;
+$p-accordion-item-header: $p-accordion-title !default;
+$sz-accordion-item-icon: $sz-accordion-tab-icon !default;
+$p-accordion-item-panel: $p-accordion-tab-content !default;
 
 // Typography
 $fz-molecule-accordion-header: $fz-base !default;
 $ff-molecule-accordion-header: $ff-molecule-accordion-title;
 $fw-molecule-accordion-header: $fw-molecule-accordion-title;
-
-$bgc-accordion-tab-container: $c-white !default;
-
-$c-accordion-tab-text: $c-text-base !default;
-$c-accordion-tab-scrollbar-thumb: $c-gray !default;
-$p-accordion-tab-btn: $p-m !default;
-$p-accordion-tab-content: $p-l !default;
-$p-accordion-title: $p-m $p-l !default;
-$trs-accordion-tab-content: max-height 0.25s ease-in-out !default;
-$trs-accordion-tab-title: border-bottom 20ms ease-out !default;
-$trs-close-accordion-tab-title: border-bottom 0 ease-out !default;
-$m-accordion-tab-btn: $m-m !default;

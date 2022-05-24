@@ -20,7 +20,7 @@ $base-class-item-panel: '#{$base-class-item}Panel';
       cursor: not-allowed;
       #{$base-class-item-header}ButtonContent,
       #{$base-class-item-header-icon},
-      #{$base-class-item-panel}ContentWrapper {
+      #{$base-class-item-panel}Content {
         opacity: 0.5;
       }
     }
@@ -61,107 +61,108 @@ $base-class-item-panel: '#{$base-class-item}Panel';
     border-top-width: $bdw-accordion-item;
   }
 }
-#{$base-class-item-panel},
-#{$base-class-item-header} {
-  border-top-width: $bdw-accordion-item;
-  border-bottom-width: $bdw-accordion-item;
+
+#{$base-class-item-header}Button {
+  box-sizing: border-box;
+  width: 100%;
+  text-align: inherit;
+  border: none;
+  padding: $p-accordion-item-header;
+  overflow: visible;
+  cursor: pointer;
+  min-height: $h-accordion-item-button;
+  display: flex;
+  align-items: center;
+  background-color: $bgc-accordion-item-header;
+  &:focus-visible {
+    outline: $bdw-accordion-item solid $c-primary;
+    box-shadow: inset 0 0 $m-xs $m-xs $c-primary;
+  }
+  &#{$base-class-item-header}Button--icon-position {
+    &-left {
+      flex-direction: row-reverse;
+      #{$base-class-item-header-icon} {
+        #{$base-class-item-header-icon}Default {
+          &:empty {
+            transform: rotate(-180deg);
+            &#{$base-class-item-header-icon}Default--expanded {
+              transform: rotate(0deg);
+            }
+          }
+        }
+      }
+      #{$base-class-item-header}ButtonContent {
+        margin-right: $sz-base;
+      }
+    }
+    &-right {
+      flex-direction: row;
+    }
+  }
+  #{$base-class-item-header}ButtonContent {
+    box-sizing: inherit;
+    width: 100%;
+    height: 100%;
+    line-height: 1.15;
+    color: $c-accordion-item-header;
+    font-weight: $fw-molecule-accordion-header;
+    font-size: $fz-base;
+    font-family: $ff-molecule-accordion-header;
+    overflow: hidden;
+    text-align: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  #{$base-class-item-header}ButtonContent,
+  #{$base-class-item-header}Icon {
+    color: $c-accordion-item-header;
+  }
+  #{$base-class-item-header-icon} {
+    padding: $sz-base;
+    color: $c-accordion-item-header-icon;
+    #{$base-class-item-header-icon}Default {
+      display: flex;
+      &:empty {
+        $sz-empty-icon: $sz-accordion-item-icon;
+        min-width: $sz-empty-icon;
+        min-height: $sz-empty-icon;
+        position: relative;
+        overflow: hidden;
+        transform: rotate(180deg);
+        &::before,
+        &::after {
+          position: absolute;
+          content: '';
+          top: 50%;
+          bottom: 50%;
+          width: 100%;
+          border-bottom: $bdw-s solid $c-accordion-item-header-icon;
+          box-sizing: border-box;
+        }
+        &::before {
+          transform: rotate(-45deg);
+          left: 33%;
+        }
+        &::after {
+          transform: rotate(-135deg);
+          right: 33%;
+        }
+      }
+      &#{$base-class-item-header-icon}Default--expanded {
+        transform: rotate(0deg);
+      }
+    }
+  }
+}
+#{$base-class-item-header}ButtonContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 #{$base-class-item-header} {
   margin: 0;
-  #{$base-class-item-header}Button {
-    box-sizing: inherit;
-    border: none;
-    padding: $p-accordion-item-header;
-    overflow: visible;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    text-align: inherit;
-    min-height: $h-accordion-item-button;
-    display: flex;
-    align-items: center;
-    background-color: $bgc-accordion-item-header;
-    &:focus-visible {
-      outline: $bdw-accordion-item solid $c-primary;
-      box-shadow: inset 0 0 $m-xs $m-xs $c-primary;
-    }
-    &#{$base-class-item-header}Button--icon-position {
-      &-left {
-        flex-direction: row-reverse;
-        #{$base-class-item-header-icon} {
-          #{$base-class-item-header-icon}Default {
-            &:empty {
-              transform: rotate(-180deg);
-              &#{$base-class-item-header-icon}Default--expanded {
-                transform: rotate(0deg);
-              }
-            }
-          }
-        }
-        #{$base-class-item-header}ButtonContent {
-          margin-right: $sz-base;
-        }
-      }
-      &-right {
-        flex-direction: row;
-      }
-    }
-    #{$base-class-item-header}ButtonContent {
-      box-sizing: inherit;
-      width: 100%;
-      height: 100%;
-      line-height: 1.15;
-      color: $c-accordion-item-header;
-      font-weight: $fw-molecule-accordion-header;
-      font-size: $fz-base;
-      font-family: $ff-molecule-accordion-header;
-      overflow: hidden;
-      text-align: inherit;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    #{$base-class-item-header}ButtonContent,
-    #{$base-class-item-header}Icon {
-      color: $c-accordion-item-header;
-    }
-    #{$base-class-item-header-icon} {
-      padding: $sz-base;
-      color: $c-accordion-item-header-icon;
-      #{$base-class-item-header-icon}Default {
-        display: flex;
-        &:empty {
-          $sz-empty-icon: $sz-accordion-item-icon;
-          min-width: $sz-empty-icon;
-          min-height: $sz-empty-icon;
-          position: relative;
-          overflow: hidden;
-          transform: rotate(180deg);
-          &::before,
-          &::after {
-            position: absolute;
-            content: '';
-            top: 50%;
-            bottom: 50%;
-            width: 100%;
-            border-bottom: $bdw-s solid $c-accordion-item-header-icon;
-            box-sizing: border-box;
-          }
-          &::before {
-            transform: rotate(-45deg);
-            left: 33%;
-          }
-          &::after {
-            transform: rotate(-135deg);
-            right: 33%;
-          }
-        }
-        &#{$base-class-item-header-icon}Default--expanded {
-          transform: rotate(0deg);
-        }
-      }
-    }
-  }
   + #{$base-class-item-panel} {
     margin-top: -$bdw-accordion-item;
   }
@@ -180,8 +181,5 @@ $base-class-item-panel: '#{$base-class-item}Panel';
   }
   #{$base-class-item-panel}Content {
     padding: $p-accordion-item-panel;
-  }
-  + #{$base-class-item-header} {
-    margin-top: -$bdw-accordion-item;
   }
 }

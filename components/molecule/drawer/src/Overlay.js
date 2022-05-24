@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import {useEffect, forwardRef} from 'react'
 
-import {BASE_CLASS} from './settings'
+import {BASE_CLASS} from './settings.js'
 
 const DRAWER_OVERLAY_CLASS = `${BASE_CLASS}-overlay`
 

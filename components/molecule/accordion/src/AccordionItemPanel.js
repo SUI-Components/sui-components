@@ -1,9 +1,10 @@
 import {forwardRef} from 'react'
+import {isFragment} from 'react-is'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import Poly from '@s-ui/react-primitive-polymorphic-element'
 import {inject, combineProps} from '@s-ui/react-primitive-injector'
+import Poly from '@s-ui/react-atom-polymorphic-element'
 
 import {useAccordionContext} from './context/index.js'
 import {
@@ -17,7 +18,7 @@ import AccordionItemPanelDefaultChildren from './AccordionItemPanelDefaultChildr
 const AccordionItemPanel = forwardRef(
   (
     {
-      as = 'div',
+      as,
       id,
       headerId,
       content,
@@ -41,8 +42,7 @@ const AccordionItemPanel = forwardRef(
       maxHeightProp !== undefined ? maxHeightProp : maxHeightContext
     const animationDuration = animationDurationProp || animationDurationContext
     return (
-      <Poly
-        as={as}
+      <div
         id={id}
         ref={forwardedRef}
         role="region"
@@ -65,25 +65,34 @@ const AccordionItemPanel = forwardRef(
           })
         }}
       >
-        <div
-          ref={contentRef}
-          className={`${BASE_CLASS_ITEM_PANEL_CONTENT}Wrapper`}
+        <Poly
+          as={as}
+          {...{
+            ...(!isFragment && {
+              className: `${BASE_CLASS_ITEM_PANEL_CONTENT}Wrapper`
+            })
+          }}
         >
-          {inject(children, [
-            {
-              props: {
-                ...(content && {children: content}),
-                isExpanded,
-                values,
-                value,
-                disabled
-              },
-              proviso: () => true,
-              combine: combineProps
-            }
-          ])}
-        </div>
-      </Poly>
+          <div
+            className={`${BASE_CLASS_ITEM_PANEL_CONTENT}WrapperRef`}
+            ref={contentRef}
+          >
+            {inject(children, [
+              {
+                props: {
+                  ...(content && {children: content}),
+                  isExpanded,
+                  values,
+                  value,
+                  disabled
+                },
+                proviso: () => true,
+                combine: combineProps
+              }
+            ])}
+          </div>
+        </Poly>
+      </div>
     )
   }
 )

@@ -1,4 +1,7 @@
 import PropTypes from 'prop-types'
+import cx from 'classnames'
+
+import Poly from '@s-ui/react-primitive-polymorphic-element'
 
 import AccordionItemHeaderIcon from './AccordionItemHeaderIcon.js'
 import {
@@ -7,6 +10,7 @@ import {
 } from './settings.js'
 
 const AccordionItemHeaderChildrenDefault = ({
+  as = 'div',
   label,
   icon,
   value,
@@ -14,7 +18,7 @@ const AccordionItemHeaderChildrenDefault = ({
   disabled,
   animationDuration
 }) => (
-  <>
+  <Poly as={as} className={cx(`${BASE_CLASS_ITEM_HEADER}ButtonContainer`)}>
     <div className={`${BASE_CLASS_ITEM_HEADER}ButtonContent`}>{label}</div>
     <div className={`${BASE_CLASS_ITEM_HEADER_ICON}Wrapper`}>
       <AccordionItemHeaderIcon
@@ -25,13 +29,15 @@ const AccordionItemHeaderChildrenDefault = ({
         {icon}
       </AccordionItemHeaderIcon>
     </div>
-  </>
+  </Poly>
 )
 
 AccordionItemHeaderChildrenDefault.displayName =
   'AccordionItemHeaderChildrenDefault'
 
 AccordionItemHeaderChildrenDefault.propTypes = {
+  /** The elementType of the wrapper **/
+  as: PropTypes.elementType,
   /** The animation duration in ms **/
   animationDuration: PropTypes.number,
   /** element enabled or not **/

@@ -1,4 +1,5 @@
 import {forwardRef} from 'react'
+import {isFragment} from 'react-is'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -19,7 +20,7 @@ import {
 const AccordionItemHeader = forwardRef(
   (
     {
-      as = 'h1',
+      as: As = 'h1',
       id,
       panelId,
       icon: iconProp,
@@ -52,6 +53,7 @@ const AccordionItemHeader = forwardRef(
       })
     }
 
+    const isFragmentProp = isFragment(<As />)
     const isExpanded = values.includes(value)
     const icon = getIcon(
       {icon: iconProp, isExpanded},
@@ -59,22 +61,28 @@ const AccordionItemHeader = forwardRef(
     )
     const iconPosition = iconPositionProp || iconPositionContext
     const animationDuration = animationDurationProp || animationDurationContext
-    const isHeadingElement = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(as)
+    const isHeadingElement = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(As)
     return (
       <Poly
-        as={as}
-        ref={forwardedRef}
-        className={cx(BASE_CLASS_ITEM_HEADER, BASE_CLASS_ELEMENT)}
+        as={As}
         {...{
-          ...(!isHeadingElement && {role: 'heading'}),
-          ...(!isHeadingElement && level && {'aria-level': level})
+          ...(!isFragmentProp && {
+            className: cx(BASE_CLASS_ITEM_HEADER, BASE_CLASS_ELEMENT),
+            ref: forwardedRef
+          }),
+          ...(!isHeadingElement && !isFragmentProp && {role: 'heading'}),
+          ...(!isHeadingElement &&
+            level &&
+            !isFragmentProp && {'aria-level': level}),
+          ...(!isFragmentProp && {'data-expanded': isExpanded}),
+          ...(!isFragmentProp && {
+            style: {
+              transition: `border-radius 0s linear ${
+                isExpanded ? 0 : animationDuration
+              }ms`
+            }
+          })
         }}
-        style={{
-          transition: `border-radius 0s linear ${
-            isExpanded ? 0 : animationDuration
-          }ms`
-        }}
-        data-expanded={isExpanded}
       >
         <button
           type="button"

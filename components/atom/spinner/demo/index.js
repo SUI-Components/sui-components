@@ -46,6 +46,14 @@ const Demo = () => {
         </Paragraph>
         <AtomSpinner noBackground />
       </Article>
+      <br />
+      <Article className={CLASS_SECTION}>
+        <H2>Negative overlay spinner</H2>
+        <Paragraph>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        </Paragraph>
+        <AtomSpinner negative />
+      </Article>
     </div>
   )
 }

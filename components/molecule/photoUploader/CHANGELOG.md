@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.17.0 (2022-05-24)
+
+
+### Features
+
+* **components/molecule/photoUploader:** optional divider ([37069c5](https://github.com/SUI-Components/sui-components/commit/37069c504685d82ccb5f9cee935247ecf11f74cf))
+
+
+
 # 2.16.0 (2022-05-06)
 
 

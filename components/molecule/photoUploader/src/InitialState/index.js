@@ -1,5 +1,5 @@
+import cx from 'classnames'
 import PropTypes from 'prop-types'
-
 import Button, {atomButtonShapes} from '@s-ui/react-atom-button'
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
@@ -32,8 +32,15 @@ const InitialState = ({
         <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>{icon}</AtomIcon>
       </div>
       <div className={TEXT_STATE_CLASS_NAME}>
-        <span className={TEXT_STATE_TEXT_CLASS_NAME}>{text}</span>
-        <span className={TEXT_STATE_DIVIDER_CLASS_NAME}>{dividerText}</span>
+        <span
+          className={cx(TEXT_STATE_TEXT_CLASS_NAME, {isSpaced: !dividerText})}
+        >
+          {text}
+        </span>
+
+        {dividerText ? (
+          <span className={TEXT_STATE_DIVIDER_CLASS_NAME}>{dividerText}</span>
+        ) : null}
       </div>
       <div className={BUTTON_STATE_CLASS_NAME}>
         <Button

@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 1.29.0 (2022-05-24)
+
+
+### Bug Fixes
+
+* **components/molecule/dropdownList/demo:** do not publish ([d8686c9](https://github.com/SUI-Components/sui-components/commit/d8686c9140adf31017d931f7970f460eb0c7e176))
+* **components/molecule/dropdownList:** bump ([7b9bac7](https://github.com/SUI-Components/sui-components/commit/7b9bac7c741c49011c3afc520b7b824781b5594c))
+* **components/molecule/dropdownList:** bump ([c0b247f](https://github.com/SUI-Components/sui-components/commit/c0b247fcce9c9ddb4c09adaa2ab2f6417e69c1cf))
+* **components/molecule/dropdownList:** make overflow automatic ([dd14e90](https://github.com/SUI-Components/sui-components/commit/dd14e90a3f9d349f2d19a77378a841e88c096b58))
+
+
+
 # 1.26.0 (2022-04-05)
 
 

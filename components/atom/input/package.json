@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@s-ui/react-hooks": "1",
+    "@s-ui/react-primitive-polymorphic-element": "1",
     "imask": "3.4.0"
   },
   "peerDependencies": {

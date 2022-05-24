@@ -11,16 +11,21 @@ import {
 } from './settings.js'
 
 const AtomSpinner = ({
-  delayed: delayedFromProps,
-  loader,
-  type,
-  noBackground
+  delayed: delayedFromProps = false,
+  loader = <SUILoader />,
+  negative = false,
+  noBackground = false,
+  type = TYPES.SECTION
 }) => {
   const [delayed, setDelayed] = useState(delayedFromProps)
   const refSpinner = useRef()
 
   useEffect(() => {
-    const parentClassName = getParentClassName({type, noBackground})
+    const parentClassName = getParentClassName({
+      negative,
+      noBackground,
+      type
+    })
     const parentNodeClassList = refSpinner.current.parentNode.classList
 
     if (!delayed) addParentClass(parentNodeClassList)(parentClassName)
@@ -52,17 +57,14 @@ AtomSpinner.propTypes = {
   /** Makes the spinner appear after 500 ms */
   delayed: PropTypes.bool,
 
+  /** Alternate overlay color */
+  negative: PropTypes.bool,
+
   /** No background */
   noBackground: PropTypes.bool,
 
   /** Loader to be shown in the middle of the container */
   loader: PropTypes.object
-}
-
-AtomSpinner.defaultProps = {
-  delayed: false,
-  type: TYPES.SECTION,
-  loader: <SUILoader />
 }
 
 export default AtomSpinner

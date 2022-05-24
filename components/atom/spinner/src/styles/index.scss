@@ -8,6 +8,10 @@ $base-class: '.sui-AtomSpinner';
     position: absolute;
   }
 
+  &--negative::before {
+    background-color: $bgc-atom-spinner-negative;
+  }
+
   &--noBackground::before {
     background-color: transparent;
   }

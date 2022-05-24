@@ -1,5 +1,21 @@
 # CHANGELOG
 
+# 1.25.0 (2022-05-24)
+
+
+### Bug Fixes
+
+* **components/molecule/breadcrumb:** undo ([21eace2](https://github.com/SUI-Components/sui-components/commit/21eace2d764ebe15caa6ee856b21ff1b893b56ab))
+
+
+### Features
+
+* **components/molecule/breadcrumb:** Add children prop and refactor base class ([50bb1c8](https://github.com/SUI-Components/sui-components/commit/50bb1c840f6eccb656c58bf53dc1bce24ebdc293))
+* **components/molecule/breadcrumb:** expand prop contorlled-uncontrolled ([1ec9b15](https://github.com/SUI-Components/sui-components/commit/1ec9b15169c4dbbf5d65e9c304f7bd0941b285fd))
+* **components/molecule/breadcrumb:** Rename parameter in breadcrumbClassName ([bfdc65c](https://github.com/SUI-Components/sui-components/commit/bfdc65c9a67bccd7937c9edd278701ab205ffff7))
+
+
+
 # 1.24.0 (2022-02-18)
 
 

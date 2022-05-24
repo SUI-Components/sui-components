@@ -111,7 +111,7 @@ const Input = forwardRef(
         required={required}
         pattern={pattern}
         inputMode={inputMode}
-        children={children}
+        children={as === 'input' ? undefined : children}
       />
     )
   }

@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-accordion",
-  "version": "1.20.0",
+  "version": "1.20.1",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -9,11 +9,7 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
-    "@s-ui/react-hooks": "1",
-    "@s-ui/react-primitive-injector": "1",
-    "@s-ui/react-primitive-polymorphic-element": "1",
-    "react-use": "17.3.2"
+    "@s-ui/component-dependencies": "1"
   },
   "keywords": [],
   "author": "",

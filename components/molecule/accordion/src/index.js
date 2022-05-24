@@ -1,104 +1,119 @@
-import {forwardRef} from 'react'
-import {isFragment} from 'react-is'
+import {useEffect, useState, Children} from 'react'
 import PropTypes from 'prop-types'
 
-import Poly from '@s-ui/react-primitive-polymorphic-element'
+import Tab from './Tab/index.js'
+import {BASE_CLASS} from './settings.js'
 
-import {
-  BASE_CLASS,
-  BEHAVIOR,
-  SPACING,
-  ANIMATION_DURATION,
-  HEADER_ICON_POSITION
-} from './settings.js'
-import {AccordionProvider} from './context/index.js'
-import AccordionItem from './AccordionItem.js'
-import AccordionItemHeader from './AccordionItemHeader.js'
-import AccordionItemHeaderIcon from './AccordionItemHeaderIcon.js'
-import AccordionItemPanel from './AccordionItemPanel.js'
+const MoleculeAccordion = ({
+  children,
+  defaultOpenedTabs = [],
+  onToggleTab = () => {},
+  openedTabs,
+  withAutoClose,
+  ...tabProps
+}) => {
+  const [openedTabsState, setOpenedTabsState] = useState(
+    openedTabs || defaultOpenedTabs
+  )
 
-const MoleculeAccordion = forwardRef(
-  (
-    {
-      as: As = 'div',
-      values,
-      defaultValues = [],
-      onChange,
-      behavior,
-      children,
-      animationDuration = ANIMATION_DURATION.NORMAL,
-      headerIconExpanded,
-      headerIconCollapsed,
-      headerIconPosition = HEADER_ICON_POSITION.RIGHT,
-      maxHeight = 0
-    },
-    forwardedRef
-  ) => {
-    return (
-      <Poly
-        as={As}
-        {...(!isFragment(<As />) && {ref: forwardedRef, className: BASE_CLASS})}
-      >
-        <AccordionProvider
-          values={values}
-          defaultValues={defaultValues}
-          onChange={onChange}
-          behavior={behavior}
-          animationDuration={animationDuration}
-          headerIconExpanded={headerIconExpanded}
-          headerIconCollapsed={headerIconCollapsed}
-          headerIconPosition={headerIconPosition}
-          maxHeight={maxHeight}
-        >
-          {children}
-        </AccordionProvider>
-      </Poly>
-    )
+  useEffect(() => {
+    if (openedTabs !== undefined) {
+      if (openedTabsState.length !== openedTabs?.length) {
+        setOpenedTabsState(openedTabs)
+      } else if (
+        openedTabs?.sort().join('') !== openedTabsState.sort().join('')
+      ) {
+        setOpenedTabsState(openedTabs)
+      }
+    }
+  }, [openedTabs, openedTabsState])
+
+  const _handleOnToggle = index => event => {
+    let newOpenedTabsState = []
+    if (withAutoClose) {
+      newOpenedTabsState = openedTabsState.includes(index) ? [] : [index]
+    } else {
+      newOpenedTabsState = openedTabsState.includes(index)
+        ? openedTabsState.filter(tabIndex => tabIndex !== index)
+        : [...openedTabsState, index].sort()
+    }
+    onToggleTab(event, {index, openedTabs: [...newOpenedTabsState]})
+    if (openedTabs === undefined) {
+      setOpenedTabsState([...newOpenedTabsState])
+    }
   }
-)
+
+  return (
+    <div className={BASE_CLASS} role="tablist">
+      {Children.map(children, (child, index) => (
+        <Tab
+          isOpen={openedTabsState.includes(index)}
+          key={index}
+          onToggle={_handleOnToggle(index)}
+          title={child.props.label}
+          {...tabProps}
+        >
+          {child.props.children}
+        </Tab>
+      ))}
+    </div>
+  )
+}
 
 MoleculeAccordion.displayName = 'MoleculeAccordion'
 
 MoleculeAccordion.propTypes = {
-  /** The elementType of the wrapper **/
-  as: PropTypes.elementType,
-  /** The animation duration in ms **/
-  animationDuration: PropTypes.number,
-  /** The change default behavior **/
-  behavior: PropTypes.oneOf(Object.values(BEHAVIOR)),
-  /** child element **/
-  children: PropTypes.node,
-  /** The space AccordionItems **/
-  gap: PropTypes.oneOf(Object.values(SPACING)),
-  /** the max height limit a panel can reach when its expanded **/
+  /**
+   * Children to put into Accordion Tabs
+   */
+  children: PropTypes.instanceOf(Object).isRequired,
+  /**
+   * Array with tab indexes to be opened by default
+   */
+  defaultOpenedTabs: PropTypes.arrayOf(PropTypes.Number),
+  /**
+   * Icon for the button
+   */
+  icon: PropTypes.node.isRequired,
+  /**
+   * Define the max height visible
+   */
   maxHeight: PropTypes.number,
-  /** The initial opened values **/
-  defaultValues: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  ),
-  /** The opened values **/
-  values: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  ),
-  /** handler fired everytime an item changes its collapsed/expanded state **/
-  onChange: PropTypes.func,
-  /** The header Icon element expanded **/
-  headerIconExpanded: PropTypes.node,
-  /** The header Icon element collapsed **/
-  headerIconCollapsed: PropTypes.node,
-  /** where the icon is header positioned */
-  headerIconPosition: PropTypes.oneOf(Object.values(HEADER_ICON_POSITION))
+  /**
+   * Define the auto height
+   */
+  autoHeight: PropTypes.bool,
+  /**
+   * On toggle tab callback
+   */
+  onToggleTab: PropTypes.func,
+  /**
+   * Array with tab indexes to be opened
+   */
+  openedTabs: PropTypes.arrayOf(PropTypes.Number),
+  /**
+   * Activate/deactivate autoclose
+   */
+  withAutoClose: PropTypes.bool,
+  /**
+   * Force scroll visible
+   */
+  withScrollVisible: PropTypes.bool,
+  /**
+   * Activate/deactivate transition
+   */
+  withTransition: PropTypes.bool,
+  /**
+   * Activate/deactivate gap between tabs
+   */
+  withGap: PropTypes.bool,
+  /**
+   * Activate/deactivate multiline label
+   */
+  withMultilineLabel: PropTypes.bool
 }
-
-export {
-  MoleculeAccordion,
-  AccordionItem as MoleculeAccordionItem,
-  AccordionItemHeader as MoleculeAccordionItemHeader,
-  AccordionItemHeaderIcon as MoleculeAccordionItemHeaderIcon,
-  AccordionItemPanel as MoleculeAccordionItemPanel,
-  BEHAVIOR as moleculeAccordionBehavior,
-  ANIMATION_DURATION as moleculeAccordionAnimationDuration,
-  HEADER_ICON_POSITION as moleculeAccordionHeaderIconPosition
+MoleculeAccordion.defaultProps = {
+  withAutoClose: true
 }
 
 export default MoleculeAccordion

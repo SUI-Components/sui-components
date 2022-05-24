@@ -25,10 +25,31 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = ['default']
+    const libraryExportedMembers = [
+      'MoleculeAccordion',
+      'MoleculeAccordionItem',
+      'MoleculeAccordionItemHeader',
+      'MoleculeAccordionItemHeaderIcon',
+      'MoleculeAccordionItemPanel',
+      'moleculeAccordionBehavior',
+      'moleculeAccordionAnimationDuration',
+      'moleculeAccordionHeaderIconPosition',
+      'default'
+    ]
 
     // When
-    const {default: MoleculeAccordion, ...others} = library
+    const {
+      MoleculeAccordion,
+      MoleculeAccordionItem,
+      MoleculeAccordionItemHeader,
+      MoleculeAccordionItemHeaderIcon,
+      MoleculeAccordionItemPanel,
+      moleculeAccordionBehavior,
+      moleculeAccordionAnimationDuration,
+      moleculeAccordionHeaderIconPosition,
+      default: MoleculeAccordionDefault,
+      ...others
+    } = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -39,16 +60,24 @@ describe(json.name, () => {
   describe(Component.displayName, () => {
     it('should render without crashing', () => {
       // Given
+      const {MoleculeAccordionItem} = pkg
       const props = {
         children: [
-          <div key={0} label="label 1">
-            element 1
-          </div>,
-          <div key={1} label="label 2">
-            element 2
-          </div>
-        ],
-        icon: <svg />
+          <MoleculeAccordionItem
+            key={0}
+            label="label 1"
+            value={1}
+            id={1}
+            content="content 1"
+          />,
+          <MoleculeAccordionItem
+            key={1}
+            label="label 2"
+            value={2}
+            id={2}
+            content="content 2"
+          />
+        ]
       }
 
       // When
@@ -62,16 +91,24 @@ describe(json.name, () => {
 
     it('should NOT render null', () => {
       // Given
+      const {MoleculeAccordionItem} = pkg
       const props = {
         children: [
-          <div key={0} label="label 1">
-            element 1
-          </div>,
-          <div key={1} label="label 2">
-            element 2
-          </div>
-        ],
-        icon: <svg />
+          <MoleculeAccordionItem
+            key={0}
+            label="label 1"
+            value={1}
+            header="header 1"
+            content="content 1"
+          />,
+          <MoleculeAccordionItem
+            key={1}
+            label="label 2"
+            value={2}
+            header="header 2"
+            content="content 2"
+          />
+        ]
       }
 
       // When
@@ -84,17 +121,25 @@ describe(json.name, () => {
 
     it('should NOT extend classNames', () => {
       // Given
+      const {MoleculeAccordionItem} = pkg
       const props = {
         className: 'extended-classNames',
         children: [
-          <div key={0} label="label 1">
-            element 1
-          </div>,
-          <div key={1} label="label 2">
-            element 2
-          </div>
-        ],
-        icon: <svg />
+          <MoleculeAccordionItem
+            key={0}
+            label="label 1"
+            value={1}
+            header="header 1"
+            content="content 1"
+          />,
+          <MoleculeAccordionItem
+            key={1}
+            label="label 2"
+            value={2}
+            header="header 2"
+            content="content 2"
+          />
+        ]
       }
       const findSentence = str => string =>
         string.match(new RegExp(`S*${str}S*`))
@@ -107,25 +152,110 @@ describe(json.name, () => {
       expect(findClassName(container.innerHTML)).to.be.null
     })
 
-    it('should trigger onToggleTab when tab is clicked', () => {
+    it('should trigger onChange when tab is clicked given single behavior', () => {
       // Given
       const spy = sinon.spy()
+      const {MoleculeAccordionItem} = pkg
       const props = {
+        maxHeight: 20,
+        behavior: 'single',
         children: [
-          <div key={0} label="label 1">
-            element 1
-          </div>,
-          <div key={1} label="label 2">
-            element 2
-          </div>
+          <MoleculeAccordionItem
+            key={0}
+            label="label 1"
+            value={1}
+            header="header 1"
+            content="content 1"
+            maxHeight={100}
+            isExpanded
+          />,
+          <MoleculeAccordionItem
+            key={1}
+            label="label 2"
+            value={2}
+            header="header 2"
+            content="content 2"
+          />
         ],
-        icon: <svg />,
-        onToggleTab: spy
+        onChange: spy
       }
       const {getByText} = setup(props)
 
       // When
-      const tab = getByText('label 1')
+      const tab = getByText('header 1')
+      userEvents.click(tab)
+
+      // Then
+      sinon.assert.called(spy)
+    })
+
+    it('should trigger onChange when tab is clicked given undefined behavior', () => {
+      // Given
+      const spy = sinon.spy()
+      const {MoleculeAccordionItem} = pkg
+      const props = {
+        maxHeight: 20,
+        children: [
+          <MoleculeAccordionItem
+            key={0}
+            label="label 1"
+            value={1}
+            header="header 1"
+            content="content 1"
+            maxHeight={100}
+            isExpanded
+          />,
+          <MoleculeAccordionItem
+            key={1}
+            label="label 2"
+            value={2}
+            header="header 2"
+            content="content 2"
+          />
+        ],
+        onChange: spy
+      }
+      const {getByText} = setup(props)
+
+      // When
+      const tab = getByText('header 1')
+      userEvents.click(tab)
+
+      // Then
+      sinon.assert.called(spy)
+    })
+
+    it('should trigger onChange when tab is clicked given multiple behavior', () => {
+      // Given
+      const spy = sinon.spy()
+      const {MoleculeAccordionItem} = pkg
+      const props = {
+        maxHeight: 20,
+        behavior: 'multiple',
+        children: [
+          <MoleculeAccordionItem
+            key={0}
+            label="label 1"
+            value={1}
+            header="header 1"
+            content="content 1"
+            maxHeight={100}
+            isExpanded
+          />,
+          <MoleculeAccordionItem
+            key={1}
+            label="label 2"
+            value={2}
+            header="header 2"
+            content="content 2"
+          />
+        ],
+        onChange: spy
+      }
+      const {getByText} = setup(props)
+
+      // When
+      const tab = getByText('header 1')
       userEvents.click(tab)
 
       // Then
@@ -135,33 +265,162 @@ describe(json.name, () => {
     it('should show the second and third tab open when set via openedTabs prop', () => {
       // Given
       const spy = sinon.spy()
+      const {MoleculeAccordionItem} = pkg
       const props = {
+        maxHeight: 50,
+        behavior: 'multiple',
         children: [
-          <div key={0} label="label 1">
-            element 1
-          </div>,
-          <div key={1} label="label 2">
-            element 2
-          </div>,
-          <div key={2} label="label 3">
-            element 3
-          </div>
+          <MoleculeAccordionItem
+            key={0}
+            as="section"
+            headerAs="header"
+            headerLevel={1}
+            label="label 1"
+            value={1}
+            content="content 1"
+            maxHeight={100}
+          />,
+          <MoleculeAccordionItem
+            key={1}
+            as="section"
+            headerAs="header"
+            headerLevel={1}
+            label="label 2"
+            value={2}
+            content="content 2"
+            maxHeight={100}
+          />,
+          <MoleculeAccordionItem
+            key={2}
+            label="label 3"
+            value={3}
+            content="content 3"
+          />
         ],
-        icon: <svg />,
-        onToggleTab: spy,
-        openedTabs: [1, 2]
+        onChange: spy,
+        values: [1, 2]
       }
       const {getAllByRole} = setup(props)
 
       // When
-      const tabs = getAllByRole('tab')
+      const panels = getAllByRole('region')
 
       // Then
-      tabs.forEach((tab, index) => {
-        expect(Boolean(tab.hasAttribute('aria-expanded'))).to.be.true
-        expect(Boolean(tab.hasAttribute('aria-hidden'))).to.be.false
-        expect(['element 2', 'element 3'].some(text => tab.innerText === text))
-          .to.be.true
+      panels.forEach(panel => {
+        if (['content 1', 'content 2'].includes(panel.innerText)) {
+          expect(Boolean(panel.hasAttribute('aria-expanded'))).to.be.true
+        } else if (['content 3'].includes(panel.innerText)) {
+          expect(Boolean(panel.hasAttribute('aria-collapsed'))).to.be.false
+        }
+        expect(
+          ['content 1', 'content 2', 'content 3'].some(
+            text => panel.innerText === text
+          )
+        ).to.be.true
+      })
+    })
+  })
+
+  describe('moleculeAccordionBehavior', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {moleculeAccordionBehavior: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        SINGLE: 'single',
+        MULTIPLE: 'multiple'
+      }
+
+      // When
+      const {moleculeAccordionBehavior: actual} = library
+      const {SINGLE, MULTIPLE, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('moleculeAccordionAnimationDuration', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {moleculeAccordionAnimationDuration: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        NONE: 0,
+        FAST: 100,
+        NORMAL: 300,
+        SLOW: 500
+      }
+
+      // When
+      const {moleculeAccordionAnimationDuration: actual} = library
+      const {NONE, FAST, NORMAL, SLOW, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('moleculeAccordionHeaderIconPosition', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {moleculeAccordionHeaderIconPosition: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        LEFT: 'left',
+        RIGHT: 'right'
+      }
+
+      // When
+      const {moleculeAccordionHeaderIconPosition: actual} = library
+      const {LEFT, RIGHT, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
       })
     })
   })

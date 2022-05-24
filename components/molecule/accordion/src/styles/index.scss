@@ -1,152 +1,185 @@
-$base-class: '.sui-MoleculeAccordion-tab';
+$base-name: 'sui-MoleculeAccordion';
+$base-class: '.#{$base-name}';
+
+$base-class-element: '.#{$base-name}Element';
+$base-class-item: '#{$base-class}Item';
+$base-class-item-header: '#{$base-class-item}Header';
+$base-class-item-header-icon: '#{$base-class-item-header}Icon';
+$base-class-item-panel: '#{$base-class-item}Panel';
+
+#{$base-class-item},
+#{$base-class-item-header},
+#{$base-class-item-panel} {
+  box-sizing: border-box;
+  border-color: $bdc-accordion-item;
+  border-style: solid;
+  border-width: 0;
+  #{$base-class-item-header}Button,
+  & {
+    &[aria-disabled='true'] {
+      cursor: not-allowed;
+      #{$base-class-item-header}ButtonContent,
+      #{$base-class-item-header-icon},
+      #{$base-class-item-panel}Content {
+        opacity: 0.5;
+      }
+    }
+  }
+}
 
 #{$base-class} {
-  background-color: $bgc-accordion-tab-container;
-  border: $bd-accordion-tab-container;
-  border-bottom: $bd-accordion-tab-container-none;
-  color: $c-accordion-tab-text;
-  display: flex;
-  flex-direction: column;
-  font-size: $fz-base;
-  margin: 0;
-  padding: 0;
-  position: relative;
+  border-color: $bdc-accordion-item;
+  border-style: solid;
+  border-radius: $bdrs-accordion;
+  border-width: $bdw-accordion-item;
+  overflow: hidden;
+  > #{$base-class-item-header},
+  > #{$base-class-item-panel} {
+    border-top-width: $bdw-accordion-item;
+    border-bottom-width: 0;
+    &:nth-child(1) {
+      border-top-width: 0;
+    }
+  }
+}
+
+#{$base-class-item} {
+  border-width: $bdw-accordion-item;
+  border-radius: $bdrs-accordion;
+  overflow: hidden;
+  #{$base-class-item-header},
+  #{$base-class-item-panel} {
+    border-width: 0;
+  }
+  #{$base-class-item-header} {
+    border-bottom-width: $bdw-accordion-item;
+  }
+  #{$base-class-item-panel}[aria-expanded='false'] {
+    border-top-width: 0;
+  }
+  #{$base-class-item-panel}[aria-expanded='true'] {
+    border-top-width: $bdw-accordion-item;
+  }
+}
+
+#{$base-class-item-header}Button {
+  box-sizing: border-box;
   width: 100%;
-  border-radius: $bdrs-accordion-tab;
-
-  &:last-child {
-    border-bottom: $bd-accordion-tab-container;
+  text-align: inherit;
+  border: none;
+  padding: $p-accordion-item-header;
+  overflow: visible;
+  cursor: pointer;
+  min-height: $h-accordion-item-button;
+  display: flex;
+  align-items: center;
+  background-color: $bgc-accordion-item-header;
+  &:focus-visible {
+    outline: $bdw-accordion-item solid $c-primary;
+    box-shadow: inset 0 0 $m-xs $m-xs $c-primary;
   }
-
-  &--withGap {
-    border-bottom: $bd-accordion-tab-container;
-    margin-bottom: $m-accordion-tab-btn;
+  &#{$base-class-item-header}Button--icon-position {
+    &-left {
+      flex-direction: row-reverse;
+      #{$base-class-item-header-icon} {
+        #{$base-class-item-header-icon}Default {
+          &:empty {
+            transform: rotate(-180deg);
+            &#{$base-class-item-header-icon}Default--expanded {
+              transform: rotate(0deg);
+            }
+          }
+        }
+      }
+      #{$base-class-item-header}ButtonContent {
+        margin-right: $sz-base;
+      }
+    }
+    &-right {
+      flex-direction: row;
+    }
   }
-
-  &Btn {
-    background: none;
-    border: 0;
-    color: $c-accordion-tab-text;
-    cursor: pointer;
+  #{$base-class-item-header}ButtonContent {
+    box-sizing: inherit;
+    width: 100%;
+    height: 100%;
+    line-height: 1.15;
+    color: $c-accordion-item-header;
+    font-weight: $fw-molecule-accordion-header;
     font-size: $fz-base;
-    height: $h-accordion-tab-btn;
-    padding: 0;
-    width: 100%;
-
-    #{$base-class}--withMultilineLabel & {
-      height: auto;
-      min-height: $h-accordion-tab-btn;
-    }
-
-    &Content {
-      align-items: center;
-      display: flex;
-    }
-
-    &Title {
-      flex: 1 0 0;
-      font-family: $ff-molecule-accordion-title;
-      font-weight: $fw-molecule-accordion-title;
-      overflow: hidden;
-      padding: $p-accordion-title;
-      text-align: left;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-
-      #{$base-class}--withMultilineLabel & {
-        white-space: normal;
-      }
-    }
-
-    &:focus,
-    &Content:focus {
-      outline: none;
-    }
-
-    &:focus &Content {
-      box-shadow: 0 0 6px 3px color-variation($c-primary, 1);
-    }
-  }
-
-  &Content {
-    padding: $p-accordion-tab-content;
-  }
-
-  &ContentContainer {
-    border: $bd-accordion-tab-container-none;
-    display: block;
+    font-family: $ff-molecule-accordion-header;
     overflow: hidden;
-    text-align: left;
-    width: 100%;
-
-    &--withTransition {
-      transition: $trs-accordion-tab-content;
-    }
-
-    .is-open & {
-      border-top: $bd-accordion-tab-container;
-      overflow: auto;
-    }
-
-    :not(.is-open) & {
-      border-top: $bd-accordion-tab-container-none;
-    }
-
-    &--withScrollVisible {
-      .is-open & {
-        overflow-y: scroll;
-        &::-webkit-scrollbar {
-          -webkit-appearance: none;
-          width: $bdw-accordion-tab-scrollbar;
+    text-align: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  #{$base-class-item-header}ButtonContent,
+  #{$base-class-item-header}Icon {
+    color: $c-accordion-item-header;
+  }
+  #{$base-class-item-header-icon} {
+    padding: $sz-base;
+    color: $c-accordion-item-header-icon;
+    #{$base-class-item-header-icon}Default {
+      display: flex;
+      &:empty {
+        $sz-empty-icon: $sz-accordion-item-icon;
+        min-width: $sz-empty-icon;
+        min-height: $sz-empty-icon;
+        position: relative;
+        overflow: hidden;
+        transform: rotate(180deg);
+        &::before,
+        &::after {
+          position: absolute;
+          content: '';
+          top: 50%;
+          bottom: 50%;
+          width: 100%;
+          border-bottom: $bdw-s solid $c-accordion-item-header-icon;
+          box-sizing: border-box;
         }
-        &::-webkit-scrollbar-thumb {
-          border-radius: $bdrs-accordion-tab-scrollbar-thumb;
-          background-color: $c-accordion-tab-scrollbar-thumb;
-          -webkit-box-shadow: $bxsh-accordion-tab-scrollbar-thumb;
+        &::before {
+          transform: rotate(-45deg);
+          left: 33%;
         }
+        &::after {
+          transform: rotate(-135deg);
+          right: 33%;
+        }
+      }
+      &#{$base-class-item-header-icon}Default--expanded {
+        transform: rotate(0deg);
       }
     }
   }
+}
+#{$base-class-item-header}ButtonContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
 
-  &TitleContainer {
-    $self: &;
-    background-color: $bgc-accordion-tab-container;
-    position: relative;
-    width: 100%;
-    border-radius: $bdrs-accordion-tab;
-
-    &--withTransition.is-open {
-      border-bottom: $bd-accordion-tab-container; // this avoids glitches
-      transition: $trs-accordion-tab-title;
-    }
-
-    &.is-open {
-      border-bottom: $bd-accordion-tab-container; // border without transition
-    }
-
-    &:not(.is-open)#{$self}--withTransition {
-      border-bottom: $bd-accordion-tab-container-none;
-      transition: $trs-close-accordion-tab-title;
-      transition-delay: 230ms;
-    }
+#{$base-class-item-header} {
+  margin: 0;
+  + #{$base-class-item-panel} {
+    margin-top: -$bdw-accordion-item;
   }
+}
 
-  &Icon {
-    color: $c-accordion-tab-icon;
-    padding-left: $p-accordion-tab-btn;
-    padding-right: $p-accordion-tab-btn;
-    vertical-align: middle;
-
-    svg {
-      fill: currentColor;
-      transform: scale(1);
-      width: $sz-accordion-tab-icon;
-    }
-
-    &.is-open {
-      svg {
-        transform: scale(-1);
-      }
-    }
+#{$base-class-item-panel} {
+  overflow: hidden;
+  background-color: $bgc-accordion-item-panel;
+  &[aria-expanded='false'] {
+    max-height: 0;
+    opacity: 0;
+    border-bottom: 0;
+  }
+  &[aria-collapsed='true'] {
+    opacity: 1;
+  }
+  #{$base-class-item-panel}Content {
+    padding: $p-accordion-item-panel;
   }
 }

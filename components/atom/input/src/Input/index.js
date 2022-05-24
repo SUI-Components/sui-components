@@ -37,12 +37,9 @@ const BaseInput = forwardRef(
             onClickLeftIcon={onClickLeftIcon}
             onClickRightIcon={onClickRightIcon}
           >
-            <Input
-              ref={forwardedRef}
-              children={children}
-              {...inputProps}
-              size={size}
-            />
+            <Input ref={forwardedRef} {...inputProps} size={size}>
+              {children}
+            </Input>
           </InputIcons>
         </InputAddons>
       </InputButton>

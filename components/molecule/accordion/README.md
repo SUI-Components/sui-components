@@ -15,52 +15,19 @@ import MoleculeAccordion from '@s-ui/react-molecule-accordion'
 ```
 
 ### Basic usage
-```js
-<MoleculeAccordion 
-    icon={svgIcon} 
-    maxHeight={300}
-    withAutoClose={false}
-    withTransition={false}
->
-    <div label='Place holder 1'>
-        <p>Text...</p>
-        <p>Text...</p>
-    </div>
-    <div label='Place holder 2'>
-        <p>Text...</p>
-        <p>Text...</p>
-    </div>
-</MoleculeAccordion>
-```
 
-### Properties
-#### maxHeight
-It sets the maximum height in pixels for the uncollapsed children. By default it is set to 100px.
 ```js
-<MoleculeAccordion 
-    maxHeight={100}
->
-    ...
-</MoleculeAccordion>
-```
-
-#### withTransition
-It can be set True or False. It will activate or deactivate transition effect when toggle. By default it is True.
-```js
-<MoleculeAccordion 
-    withTransition={true}
->
-    ...
-</MoleculeAccordion>
-```
-
-#### withAutoClose
-It can be set True or False. It will activate or deactivate autoclose of siblings when toggle.
-```js
-<MoleculeAccordion 
-    withAutoClose={true}
->
-    ...
+<MoleculeAccordion behavior={moleculeAccordionBehavior.SINGLE}>
+  <AccordionItem
+    value="value-1"
+    label="Accordion Item Label 1"
+    content="content 1"
+  />
+  <AccordionItem
+  value="value-2"
+  label="Accordion Item Label 2"
+  content="content 2"
+  />
 </MoleculeAccordion>
 ```
 

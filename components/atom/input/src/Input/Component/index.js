@@ -1,6 +1,7 @@
 import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 
+import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import {
@@ -14,6 +15,7 @@ import {
 const Input = forwardRef(
   (
     {
+      as = 'input',
       disabled,
       readOnly,
       hideInput,
@@ -47,7 +49,8 @@ const Input = forwardRef(
       required,
       pattern,
       inputMode,
-      shape
+      shape,
+      children
     },
     forwardedRef
   ) => {
@@ -79,7 +82,8 @@ const Input = forwardRef(
     })
 
     return (
-      <input
+      <PolymorphicElement
+        as={as}
         className={className}
         tabIndex={tabIndex}
         aria-label={ariaLabel}
@@ -107,12 +111,15 @@ const Input = forwardRef(
         required={required}
         pattern={pattern}
         inputMode={inputMode}
+        children={as === 'input' ? undefined : children}
       />
     )
   }
 )
 
 Input.propTypes = {
+  /* Render the passed value as the correspondent HTML tag or the component if a function is passed */
+  as: PropTypes.elementType,
   /* This Boolean attribute prevents the user from interacting with the input */
   disabled: PropTypes.bool,
   /* This Boolean attribute prevents the user from interacting with the input but without disabled styles */
@@ -180,7 +187,9 @@ Input.propTypes = {
   /** To select input keyboard mode on mobile. It can be 'numeric', 'decimal', 'email', etc */
   inputMode: PropTypes.string,
   /** Sets the shape of the input field. It can be 'rounded', 'square' or 'circle' */
-  shape: PropTypes.oneOf(Object.values(INPUT_SHAPES))
+  shape: PropTypes.oneOf(Object.values(INPUT_SHAPES)),
+  /** Nodes to be rendered inside the component */
+  children: PropTypes.node
 }
 
 export default Input

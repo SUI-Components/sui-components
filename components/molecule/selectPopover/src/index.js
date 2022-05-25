@@ -51,6 +51,21 @@ function MoleculeSelectPopover({
   const selectRef = useRef()
   const contentWrapperRef = useRef()
 
+  const getPopoverClassName = () => {
+    const {left, right} = contentWrapperRef.current?.getBoundingClientRect()
+    const outFromTheLeftSide = left < 0
+    const outFromTheRightSide =
+      right > (window.innerWidth || document.documentElement.clientWidth)
+
+    if (outFromTheRightSide) {
+      return cx(`${popoverBaseClass}`, `${popoverBaseClass}--left`)
+    } else if (outFromTheLeftSide) {
+      return cx(`${popoverBaseClass}`, `${popoverBaseClass}--right`)
+    }
+
+    return popoverClassName
+  }
+
   useEffect(() => {
     /**
      * Only run open events:
@@ -70,7 +85,7 @@ function MoleculeSelectPopover({
 
     const openEvent = isOpen ? onOpen : onClose
     openEvent()
-  }, [isOpen, onClose, onOpen, previousIsOpen])
+  }, [isOpen, onClose, onOpen, previousIsOpen, getPopoverClassName])
 
   useEffect(() => {
     setPopoverClassName(
@@ -80,21 +95,6 @@ function MoleculeSelectPopover({
       )
     )
   }, [placement])
-
-  const getPopoverClassName = () => {
-    const {left, right} = contentWrapperRef.current?.getBoundingClientRect()
-    const outFromTheLeftSide = left < 0
-    const outFromTheRightSide =
-      right > (window.innerWidth || document.documentElement.clientWidth)
-
-    if (outFromTheRightSide) {
-      return cx(`${popoverBaseClass}`, `${popoverBaseClass}--left`)
-    } else if (outFromTheLeftSide) {
-      return cx(`${popoverBaseClass}`, `${popoverBaseClass}--right`)
-    }
-
-    return popoverClassName
-  }
 
   const selectClassName = cx(
     `${BASE_CLASS}-select`,

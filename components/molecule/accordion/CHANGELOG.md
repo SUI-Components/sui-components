@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 2.1.0 (2022-05-25)
+
+
+### Bug Fixes
+
+* **components/molecule/accordion:** demo ([b47f3a8](https://github.com/SUI-Components/sui-components/commit/b47f3a8e81d440b58dc53b8c9afa80912cbf92ab))
+
+
+### Features
+
+* **components/molecule/accordion:** bump ([48e0f76](https://github.com/SUI-Components/sui-components/commit/48e0f765813d6eaa45dd07cf1195c721e0dd0524))
+* **components/molecule/accordion:** major canges for molecule/accordion ([b448e00](https://github.com/SUI-Components/sui-components/commit/b448e00c2eeb3522037997432480abcab142f943))
+
+
+
 # 1.21.0 (2022-05-24)
 
 

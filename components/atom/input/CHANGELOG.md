@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 5.16.0 (2022-05-25)
+
+
+### Bug Fixes
+
+* **components/atom/button:** atom icon sizes explicit declaration ([d3f2c6a](https://github.com/SUI-Components/sui-components/commit/d3f2c6a95a7118448406df128d25ff6936f21e5d)), closes [#2052](https://github.com/SUI-Components/sui-components/issues/2052)
+
+
+### Features
+
+* **components/atom/input:** add missing dep ([bfcb281](https://github.com/SUI-Components/sui-components/commit/bfcb2815fdda3cdd0970fb72a96a5dfb97057868))
+* **components/atom/input:** add ref ([9abc652](https://github.com/SUI-Components/sui-components/commit/9abc6525154faf10539986102351c7c0fa874a64))
+* **components/atom/input:** change children position ([0d55f11](https://github.com/SUI-Components/sui-components/commit/0d55f1128dcda1b84bf8c5d6c816099834532e85))
+* **components/atom/input:** update children prop ([b28e876](https://github.com/SUI-Components/sui-components/commit/b28e876ad380b102c9312cf1d981defff20afb75))
+* **components/atom/input:** use polymorphic input ([4e37214](https://github.com/SUI-Components/sui-components/commit/4e37214c4a433335d71d3b117016444e0f397687))
+
+
+
 # 5.15.0 (2022-02-23)
 
 

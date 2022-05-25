@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.2.0 (2022-05-25)
+
+
+### Bug Fixes
+
+* **components/molecule/accordion:** performance ([ba48970](https://github.com/SUI-Components/sui-components/commit/ba4897058b217dedebd034b76b5f775f69907f2f))
+
+
+
 # 2.1.0 (2022-05-25)
 
 

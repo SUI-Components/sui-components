@@ -1,3 +1,4 @@
+import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 
 import Input, {inputSizes, inputStates} from './Input/index.js'
@@ -5,16 +6,16 @@ import Password from './Password/index.js'
 import Mask from './Mask/index.js'
 import {TYPES, INPUT_SHAPES} from './config.js'
 
-const AtomInput = ({type, ...props}) => {
+const AtomInput = forwardRef(({type, ...props}, ref) => {
   switch (type) {
     case 'sui-password':
-      return <Password {...props} />
+      return <Password ref={ref} {...props} />
     case 'mask':
-      return <Mask {...props} />
+      return <Mask ref={ref} {...props} />
     default:
-      return <Input {...props} type={type} />
+      return <Input ref={ref} {...props} type={type} />
   }
-}
+})
 
 AtomInput.propTypes = {
   /** native types (text, date, ...), 'sui-password' */

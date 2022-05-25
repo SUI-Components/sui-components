@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.21.0 (2022-05-24)
+
+
+### Bug Fixes
+
+* **components/molecule/accordion:** revert 1.20 ([bddf11e](https://github.com/SUI-Components/sui-components/commit/bddf11e8769d683c3db992fe4acc2da241620c98))
+
+
+
 # 1.20.0 (2022-05-24)
 
 

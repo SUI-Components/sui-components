@@ -1,1 +1,22 @@
 @import '../_settings.scss';
+
+// Colors
+$bdc-accordion-item: $c-gray-dark-3 !default;
+$c-accordion-item-header: $c-accordion-tab-text !default;
+$c-accordion-item-header-icon: $c-accordion-tab-icon !default;
+$bgc-accordion-item-header: $c-white !default;
+$bgc-accordion-item-panel: $bgc-accordion-tab-container !default;
+
+// Size and Spacing
+$bdrs-accordion: $bdrs-accordion-tab !default;
+$bdw-accordion-item: $bdw-s !default;
+$h-accordion-item-button: $h-accordion-tab-btn !default;
+$p-accordion-item-button: $p-accordion-tab-btn !default;
+$p-accordion-item-header: $p-accordion-title !default;
+$sz-accordion-item-icon: $sz-accordion-tab-icon !default;
+$p-accordion-item-panel: $p-accordion-tab-content !default;
+
+// Typography
+$fz-molecule-accordion-header: $fz-base !default;
+$ff-molecule-accordion-header: $ff-molecule-accordion-title;
+$fw-molecule-accordion-header: $fw-molecule-accordion-title;

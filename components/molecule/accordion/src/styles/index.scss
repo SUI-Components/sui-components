@@ -79,7 +79,7 @@ $base-class-item-panel: '#{$base-class-item}Panel';
     box-shadow: inset 0 0 $m-xs $m-xs $c-primary;
   }
   &#{$base-class-item-header}Button--icon-position {
-    &-left {
+    &-left #{$base-class-item-header}ButtonContainer {
       flex-direction: row-reverse;
       #{$base-class-item-header-icon} {
         #{$base-class-item-header-icon}Default {
@@ -95,7 +95,7 @@ $base-class-item-panel: '#{$base-class-item}Panel';
         margin-right: $sz-base;
       }
     }
-    &-right {
+    &-right #{$base-class-item-header}ButtonContainer {
       flex-direction: row;
     }
   }

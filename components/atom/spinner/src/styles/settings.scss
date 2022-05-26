@@ -1,8 +1,32 @@
 $bgc-atom-spinner: rgba($c-white, 0.6) !default;
-$z-atom-spinner: 1 !default;
+
+$bgc-atom-spinner-accent: rgba($c-accent, 0.6) !default;
+$bgc-atom-spinner-dark: rgba($c-black, 0.6) !default;
+$bgc-atom-spinner-light: $bgc-atom-spinner !default;
+$bgc-atom-spinner-primary: rgba($c-primary, 0.6) !default;
+$bgc-atom-spinner-transparent: transparent !default;
+
+$z-atom-spinner: 999 !default;
+
+$atom-spinner-overlay-types: (
+  accent: (
+    bgc: $bgc-atom-spinner-accent
+  ),
+  dark: (
+    bgc: $bgc-atom-spinner-dark
+  ),
+  light: (
+    bgc: $bgc-atom-spinner-light
+  ),
+  primary: (
+    bgc: $bgc-atom-spinner-primary
+  ),
+  transparent: (
+    bgc: $bgc-atom-spinner-transparent
+  )
+) !default;
 
 %spinner-layer {
-  background-color: $bgc-atom-spinner;
   bottom: 0;
   content: '';
   left: 0;

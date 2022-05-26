@@ -8,8 +8,16 @@ $base-class: '.sui-AtomSpinner';
     position: absolute;
   }
 
-  &--noBackground::before {
-    background-color: transparent;
+  &-content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
   &--fullPage {
@@ -26,5 +34,13 @@ $base-class: '.sui-AtomSpinner';
 
   #{&}-loader {
     display: block;
+  }
+
+  @each $name, $type in $atom-spinner-overlay-types {
+    $bgc: map-get($type, bgc);
+
+    &--#{$name}::before {
+      background-color: $bgc;
+    }
   }
 }

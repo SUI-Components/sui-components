@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.3.0 (2022-05-26)
+
+
+### Bug Fixes
+
+* **components/molecule/accordion:** fix icon alignment ([9a57074](https://github.com/SUI-Components/sui-components/commit/9a5707420c65b99633060d2731e0a172c6c580e8))
+
+
+
 # 2.2.0 (2022-05-25)
 
 

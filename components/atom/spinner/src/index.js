@@ -19,14 +19,14 @@ const AtomSpinner = forwardRef(
   (
     {
       children = <DefaultSpinner />,
-      delayed: delayedFromProps = false,
+      isDelayed: isDelayedFromProps = false,
       loader = <SUILoader />,
       overlayType = OVERLAY_TYPES.LIGHT,
       type = TYPES.SECTION
     },
     forwardedRef
   ) => {
-    const [delayed, setDelayed] = useState(delayedFromProps)
+    const [isDelayed, setIsDelayed] = useState(isDelayedFromProps)
     const refSpinner = useRef()
 
     useEffect(() => {
@@ -36,10 +36,10 @@ const AtomSpinner = forwardRef(
       })
       const parentNodeClassList = refSpinner.current.parentNode.classList
 
-      if (!delayed) addParentClass(parentNodeClassList)(parentClassName)
+      if (!isDelayed) addParentClass(parentNodeClassList)(parentClassName)
 
       const timer = setTimeout(() => {
-        setDelayed(false)
+        setIsDelayed(false)
         addParentClass(parentNodeClassList)(parentClassName)
       }, DELAY)
 
@@ -47,12 +47,12 @@ const AtomSpinner = forwardRef(
         clearTimeout(timer)
         removeParentClass(parentNodeClassList)(parentClassName)
       }
-    }, [delayed, overlayType, type])
+    }, [isDelayed, overlayType, type])
 
     return (
       <div ref={refSpinner} className="sui-AtomSpinner-content">
         <Injector
-          delayed={delayed}
+          isDelayed={isDelayed}
           loader={loader}
           overlayType={overlayType}
           ref={forwardedRef}
@@ -72,7 +72,7 @@ AtomSpinner.propTypes = {
   children: PropTypes.elementType,
 
   /** Makes the spinner appear after 500 ms */
-  delayed: PropTypes.bool,
+  isDelayed: PropTypes.bool,
 
   /** Loader to be shown in the middle of the container */
   loader: PropTypes.elementType,

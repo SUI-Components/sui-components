@@ -28,7 +28,7 @@ const Demo = () => {
         <Paragraph>
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
         </Paragraph>
-        <AtomSpinner delayed />
+        <AtomSpinner isDelayed />
       </Article>
       <br />
       <Article className={CLASS_SECTION}>

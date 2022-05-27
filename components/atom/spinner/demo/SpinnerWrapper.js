@@ -17,7 +17,7 @@ const SpinnerWrapper = () => {
   ) : (
     <Paragraph style={dashStyle}>
       Slowly loading content, delayed spinner will be shown
-      <AtomSpinner delayed />
+      <AtomSpinner isDelayed />
     </Paragraph>
   )
 }

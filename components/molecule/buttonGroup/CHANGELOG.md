@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.6.0 (2022-05-27)
+
+
+### Bug Fixes
+
+* **components/molecule/buttonGroup:** fix relative import error ([7b06a3b](https://github.com/SUI-Components/sui-components/commit/7b06a3bae4a38331281a2daab45f038be9ea91c3))
+
+
+
 # 2.5.0 (2022-05-27)
 
 

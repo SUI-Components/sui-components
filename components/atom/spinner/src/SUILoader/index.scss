@@ -2,7 +2,6 @@
 
 #{$base-class} {
   &-loader {
-    animation: $anim-atom-spinner;
     border-radius: $bdrs-rounded;
     height: $sz-atom-spinner-oval;
     left: 0;
@@ -12,5 +11,18 @@
     top: calc(50% - #{$sz-atom-spinner});
     width: $sz-atom-spinner-oval;
     z-index: $z-atom-spinner-loader;
+  }
+}
+
+@each $name, $type in $atom-spinner-overlay-types {
+  $loaderColorOne: map-get($type, loaderColorOne);
+  $loaderColorTwo: map-get($type, loaderColorTwo);
+
+  @include animation-atom-spinner($name, $loaderColorOne, $loaderColorTwo);
+
+  .sui-AtomSpinner--#{$name} {
+    & .sui-AtomSpinner-loader {
+      animation: atom-spinner-#{$name} 1.5s ease-in-out infinite;
+    }
   }
 }

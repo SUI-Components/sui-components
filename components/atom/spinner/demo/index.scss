@@ -1,0 +1,44 @@
+@import '../src/index.scss';
+
+.demo-AtomSpinner {
+  &-children {
+    color: $c-black;
+    font-size: $fz-l;
+    font-weight: $fw-bold;
+    margin-top: $m-l;
+    text-align: center;
+    z-index: 999;
+
+    &--dark {
+      color: $c-white;
+    }
+
+    &--fullPage {
+      margin-top: $m-xxxl * 2;
+      position: fixed;
+    }
+  }
+
+  &-loaderContainer {
+    height: 32px;
+    width: 32px;
+    position: relative;
+  }
+
+  &-customLoader {
+    perspective: 500px;
+    z-index: 999;
+
+    & > * {
+      animation: rotateAnimation 2s linear infinite;
+      height: 188px;
+      width: 333px;
+    }
+
+    @keyframes rotateAnimation {
+      100% {
+        transform: rotateY(360deg);
+      }
+    }
+  }
+}

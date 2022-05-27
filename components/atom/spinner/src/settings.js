@@ -5,16 +5,22 @@ export const TYPES = {
   SECTION: 'section'
 }
 
+export const OVERLAY_TYPES = {
+  ACCENT: 'accent',
+  DARK: 'dark',
+  LIGHT: 'light',
+  PRIMARY: 'primary',
+  TRANSPARENT: 'transparent'
+}
+
 export const DELAY = 500 // ms
 export const BASE_CLASS = 'sui-AtomSpinner'
 export const CLASS_FULL = `${BASE_CLASS}--fullPage`
-export const CLASS_NO_BACKGROUND = `${BASE_CLASS}--noBackground`
 
-export const getParentClassName = ({type, noBackground}) =>
-  cx({
+export const getParentClassName = ({overlayType, type}) =>
+  cx(`${BASE_CLASS}--${overlayType}`, {
     [BASE_CLASS]: type === TYPES.SECTION,
-    [CLASS_FULL]: type === TYPES.FULL,
-    [CLASS_NO_BACKGROUND]: noBackground
+    [CLASS_FULL]: type === TYPES.FULL
   })
 
 export const addParentClass = parentNodeClassList => parentClassName =>

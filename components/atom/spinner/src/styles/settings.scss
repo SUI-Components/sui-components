@@ -1,8 +1,56 @@
 $bgc-atom-spinner: rgba($c-white, 0.6) !default;
-$z-atom-spinner: 1 !default;
+$c-atom-spinner-loader-accent: color-variation($c-accent, 1) !default;
+$c-atom-spinner-loader-primary: color-variation($c-primary, -1) !default;
+$c-atom-spinner-loader-white: $c-white !default;
+
+$bgc-atom-spinner-accent: rgba($c-accent, 0.6) !default;
+$bgc-atom-spinner-dark: rgba($c-black, 0.6) !default;
+$bgc-atom-spinner-light: $bgc-atom-spinner !default;
+$bgc-atom-spinner-primary: rgba($c-primary, 0.6) !default;
+$bgc-atom-spinner-transparent: transparent !default;
+
+$c-atom-spinner-loader-accent-one: $c-atom-spinner-loader-white !default;
+$c-atom-spinner-loader-accent-two: $c-atom-spinner-loader-primary !default;
+$c-atom-spinner-loader-dark-one: $c-atom-spinner-loader-accent !default;
+$c-atom-spinner-loader-dark-two: $c-atom-spinner-loader-white !default;
+$c-atom-spinner-loader-light-one: $c-atom-spinner-loader-accent !default;
+$c-atom-spinner-loader-light-two: $c-atom-spinner-loader-primary !default;
+$c-atom-spinner-loader-primary-one: $c-atom-spinner-loader-accent !default;
+$c-atom-spinner-loader-primary-two: $c-atom-spinner-loader-white !default;
+$c-atom-spinner-loader-transparent-one: $c-atom-spinner-loader-accent !default;
+$c-atom-spinner-loader-transparent-two: $c-atom-spinner-loader-primary !default;
+
+$z-atom-spinner: 999 !default;
+
+$atom-spinner-overlay-types: (
+  accent: (
+    bgc: $bgc-atom-spinner-accent,
+    loaderColorOne: $c-atom-spinner-loader-accent-one,
+    loaderColorTwo: $c-atom-spinner-loader-accent-two
+  ),
+  dark: (
+    bgc: $bgc-atom-spinner-dark,
+    loaderColorOne: $c-atom-spinner-loader-dark-one,
+    loaderColorTwo: $c-atom-spinner-loader-dark-two
+  ),
+  light: (
+    bgc: $bgc-atom-spinner-light,
+    loaderColorOne: $c-atom-spinner-loader-light-one,
+    loaderColorTwo: $c-atom-spinner-loader-light-two
+  ),
+  primary: (
+    bgc: $bgc-atom-spinner-primary,
+    loaderColorOne: $c-atom-spinner-loader-primary-one,
+    loaderColorTwo: $c-atom-spinner-loader-primary-two
+  ),
+  transparent: (
+    bgc: $bgc-atom-spinner-transparent,
+    loaderColorOne: $c-atom-spinner-loader-transparent-one,
+    loaderColorTwo: $c-atom-spinner-loader-transparent-two
+  )
+) !default;
 
 %spinner-layer {
-  background-color: $bgc-atom-spinner;
   bottom: 0;
   content: '';
   left: 0;

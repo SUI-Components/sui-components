@@ -1,42 +1,32 @@
-$c-atom-spinner-loader-accent: color-variation($c-accent, 1) !default;
-$c-atom-spinner-loader-primary: color-variation($c-primary, -1) !default;
 $sz-atom-spinner-oval: $sz-icon-s !default;
 $sz-atom-spinner: $sz-atom-spinner-oval * 2 !default;
-$z-atom-spinner-loader: 999;
-$c-atom-spinner-loader-accent: color-variation($c-accent, 1) !default;
-$c-atom-spinner-loader-primary: color-variation($c-primary, -1) !default;
-$sz-atom-spinner-oval: $sz-icon-s !default;
-$sz-atom-spinner: $sz-atom-spinner-oval * 2 !default;
-$z-atom-spinner-loader: 999;
+$z-atom-spinner-loader: 999 !default;
 
-@keyframes atom-spinner {
-  0% {
-    box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner-oval
-        $c-atom-spinner-loader-accent,
-      0 $sz-atom-spinner $c-atom-spinner-loader-primary;
-  }
+@mixin animation-atom-spinner($name, $color1, $color2) {
+  @keyframes atom-spinner-#{$name} {
+    0% {
+      box-shadow: -$sz-atom-spinner-oval * 0.5 $sz-atom-spinner-oval $color1,
+        $sz-atom-spinner-oval * 0.5 $sz-atom-spinner $color2;
+    }
 
-  25% {
-    box-shadow: 0 $sz-atom-spinner-oval $c-atom-spinner-loader-accent,
-      -$sz-atom-spinner-oval $sz-atom-spinner $c-atom-spinner-loader-primary;
-  }
+    25% {
+      box-shadow: $sz-atom-spinner-oval * 0.5 $sz-atom-spinner-oval $color1,
+        -$sz-atom-spinner-oval * 0.5 $sz-atom-spinner $color2;
+    }
 
-  50% {
-    box-shadow: 0 $sz-atom-spinner $c-atom-spinner-loader-accent,
-      -$sz-atom-spinner-oval $sz-atom-spinner-oval $c-atom-spinner-loader-primary;
-  }
+    50% {
+      box-shadow: $sz-atom-spinner-oval * 0.5 $sz-atom-spinner $color1,
+        -$sz-atom-spinner-oval * 0.5 $sz-atom-spinner-oval $color2;
+    }
 
-  75% {
-    box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner
-        $c-atom-spinner-loader-accent,
-      0 $sz-atom-spinner-oval $c-atom-spinner-loader-primary;
-  }
+    75% {
+      box-shadow: -$sz-atom-spinner-oval * 0.5 $sz-atom-spinner $color1,
+        $sz-atom-spinner-oval * 0.5 $sz-atom-spinner-oval $color2;
+    }
 
-  100% {
-    box-shadow: -$sz-atom-spinner-oval $sz-atom-spinner-oval
-        $c-atom-spinner-loader-accent,
-      0 $sz-atom-spinner $c-atom-spinner-loader-primary;
+    100% {
+      box-shadow: -$sz-atom-spinner-oval * 0.5 $sz-atom-spinner-oval $color1,
+        $sz-atom-spinner-oval * 0.5 $sz-atom-spinner $color2;
+    }
   }
 }
-
-$anim-atom-spinner: atom-spinner 1.5s ease-in-out infinite;

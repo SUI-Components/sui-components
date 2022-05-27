@@ -1,34 +1,29 @@
-import {Component} from 'react'
+/* eslint-disable react/prop-types */
+import {useState} from 'react'
 import {Button} from '@s-ui/documentation-library'
 
-import AtomSpinner, {AtomSpinnerTypes} from '../src/index.js'
+import AtomSpinner, {atomSpinnerTypes} from '../src/index.js'
 
-class FullScreenSpinner extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {show: false}
+const FullScreenSpinner = ({children, overlayType}) => {
+  const [show, setShow] = useState(false)
 
-    this.handleClick = this.handleClick.bind(this)
+  const handleOnClick = () => {
+    setShow(true)
+    setTimeout(() => setShow(false), 5000)
   }
-
-  handleClick(ev) {
-    this.setState({show: true})
-    setTimeout(() => this.setState({show: false}), 5000)
-  }
-
-  render() {
-    return (
-      <>
-        <Button onClick={this.handleClick}>
-          Click to show fullscreen spinner for 5 seconds
-        </Button>
-        {this.state.show && <AtomSpinner type={AtomSpinnerTypes.FULL} />}
-      </>
-    )
-  }
+  return (
+    <>
+      <Button onClick={handleOnClick}>
+        Click to show fullscreen spinner for 5 seconds
+      </Button>
+      {show && (
+        <AtomSpinner overlayType={overlayType} type={atomSpinnerTypes.FULL}>
+          {children}
+        </AtomSpinner>
+      )}
+    </>
+  )
 }
-
-FullScreenSpinner.proptypes = {}
 
 FullScreenSpinner.displayName = 'FullScreenSpinner'
 

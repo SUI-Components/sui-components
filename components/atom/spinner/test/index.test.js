@@ -23,10 +23,19 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = ['AtomSpinnerTypes', 'default']
+    const libraryExportedMembers = [
+      'atomSpinnerOverlayTypes',
+      'atomSpinnerTypes',
+      'default'
+    ]
 
     // When
-    const {AtomSpinnerTypes, default: AtomSpinner, ...others} = library
+    const {
+      atomSpinnerOverlayTypes,
+      atomSpinnerTypes,
+      default: AtomSpinner,
+      ...others
+    } = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -75,13 +84,13 @@ describe(json.name, () => {
     })
   })
 
-  describe('AtomSpinnerTypes', () => {
+  describe('atomSpinnerTypes', () => {
     it('value must be an object enum', () => {
       // Given
       const library = pkg
 
       // When
-      const {AtomSpinnerTypes: actual} = library
+      const {atomSpinnerTypes: actual} = library
 
       // Then
       expect(actual).to.be.an('object')
@@ -96,8 +105,45 @@ describe(json.name, () => {
       }
 
       // When
-      const {AtomSpinnerTypes: actual} = library
+      const {atomSpinnerTypes: actual} = library
       const {FULL, SECTION, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('atomSpinnerOverlayTypes', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomSpinnerOverlayTypes: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        ACCENT: 'accent',
+        DARK: 'dark',
+        LIGHT: 'light',
+        PRIMARY: 'primary',
+        TRANSPARENT: 'transparent'
+      }
+
+      // When
+      const {atomSpinnerOverlayTypes: actual} = library
+      const {ACCENT, DARK, LIGHT, PRIMARY, TRANSPARENT, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

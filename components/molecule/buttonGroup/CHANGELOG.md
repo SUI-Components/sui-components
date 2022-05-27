@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 2.5.0 (2022-05-27)
+
+
+### Features
+
+* **components/molecule/buttonGroup:** add size, design, negative, onClick common props ([28c1ba2](https://github.com/SUI-Components/sui-components/commit/28c1ba27161658bde47227aff4d66dbb45d8d8c6))
+
+
+
+# 1.1.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/molecule/buttonGroup/demo:** resolve linting errors ([723b9be](https://github.com/SUI-Components/sui-components/commit/723b9be23fd033da1f7f669ee5419e8581d2ed90))
+
+
+
 # 2.4.0 (2022-01-31)
 
 

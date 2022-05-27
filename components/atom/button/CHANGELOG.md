@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 1.85.0 (2022-05-27)
+
+
+### Features
+
+* **components/atom/button:** button can get a value ([c504a5d](https://github.com/SUI-Components/sui-components/commit/c504a5ddc562f87892af6f45ceceba9070cd1899))
+
+
+
+# 1.1.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/atom/button/demo:** resolve linting errors ([e0ebb21](https://github.com/SUI-Components/sui-components/commit/e0ebb2121be6059a0d2517883e621f004ad058ee))
+
+
+
 # 1.84.0 (2022-03-16)
 
 

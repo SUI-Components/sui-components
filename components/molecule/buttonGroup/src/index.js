@@ -1,4 +1,3 @@
-import {DESIGNS, SIZES} from '@s-ui/react-atom-button/src/config.js'
 import {Children, cloneElement} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
@@ -85,11 +84,11 @@ MoleculeButtonGroup.propTypes = {
   /**
    * Design style of button: 'solid' (default), 'outline', 'flat', 'link'
    */
-  design: PropTypes.oneOf(Object.values(DESIGNS)),
+  design: PropTypes.oneOf(Object.values(atomButtonDesigns)),
   /**
    * Size of button 'small' (default), 'large'
    */
-  size: PropTypes.oneOf(Object.values(SIZES)),
+  size: PropTypes.oneOf(Object.values(atomButtonSizes)),
 
   /**
    * common click handler fired every inner button is triggered.

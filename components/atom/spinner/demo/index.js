@@ -43,7 +43,10 @@ const Demo = () => {
       <br />
 
       <H2>Overlay types</H2>
-      <Paragraph>Different background overlay types.</Paragraph>
+      <Paragraph>
+        Different background overlay types. Also the colors of the loader are
+        modified.
+      </Paragraph>
       <Article className={CLASS_SECTION}>
         <H2>Light overlay type, the default one</H2>
         <Paragraph>

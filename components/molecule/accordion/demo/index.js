@@ -10,7 +10,7 @@ import ArticleDisabled from './articles/ArticleDisabled.js'
 import ArticleCustom from './articles/ArticleCustom.js'
 import {CLASS_SECTION} from './settings.js'
 
-export default () => {
+const Demo = () => {
   return (
     <div className="sui-StudioPreview">
       <H1>Accordion</H1>
@@ -40,3 +40,5 @@ export default () => {
     </div>
   )
 }
+
+export default Demo

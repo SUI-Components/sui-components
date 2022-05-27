@@ -1,54 +1,100 @@
+import {DESIGNS, SIZES} from '@s-ui/react-atom-button/src/config.js'
 import {Children, cloneElement} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import {BASE_CLASS} from './settings.js'
+import Poly from '@s-ui/react-primitive-polymorphic-element'
+import {atomButtonDesigns, atomButtonSizes} from '@s-ui/react-atom-button'
 
-const getGroupPosition = (groupPositions, numChildren, index) => {
-  if (index === 0) return groupPositions.FIRST
-  if (index === numChildren - 1) return groupPositions.LAST
-  return groupPositions.MIDDLE
-}
+import {BASE_CLASS, isFunction} from './settings.js'
+
+const getGroupPosition =
+  ({groupPositions, numChildren}) =>
+  index => {
+    if (index === 0) return groupPositions.FIRST
+    if (index === numChildren - 1) return groupPositions.LAST
+    return groupPositions.MIDDLE
+  }
 
 const MoleculeButtonGroup = ({
+  as = 'div',
   children,
   fullWidth,
+  size: sizeProp,
+  design: designProp,
+  negative: negativeProp,
   groupPositions,
+  onClick,
   ...props
 }) => {
   const numChildren = children.length
-  const getGroupPositionByIndex = getGroupPosition.bind(
-    null,
+  const getGroupPositionByIndex = getGroupPosition({
     groupPositions,
     numChildren
-  )
+  })
   const extendedChildren = Children.toArray(children)
     .filter(Boolean)
     .map((child, index) => {
+      const {
+        size: sizeChild,
+        design: designChild,
+        negativeChild,
+        onClick: onClickChild
+      } = child.props
       const groupPosition = getGroupPositionByIndex(index)
+      const clickHandler = (event, ...args) => {
+        isFunction(onClickChild) && onClickChild(event, ...args)
+        isFunction(onClick) && onClick(event, ...args)
+      }
       return cloneElement(child, {
         ...props,
+        negative: negativeChild || negativeProp,
+        size: sizeChild || sizeProp,
+        design: designChild || designProp,
         groupPosition,
-        fullWidth
+        fullWidth,
+        onClick: clickHandler
       })
     })
   return (
-    <div className={cx(BASE_CLASS, fullWidth && `${BASE_CLASS}--fullWidth`)}>
+    <Poly className={cx(BASE_CLASS, fullWidth && `${BASE_CLASS}--fullWidth`)}>
       {extendedChildren}
-    </div>
+    </Poly>
   )
 }
 
 MoleculeButtonGroup.displayName = 'MoleculeButtonGroup'
 
 MoleculeButtonGroup.propTypes = {
+  /** the html element tag type of teh component **/
+  as: PropTypes.elementType,
+
   children: PropTypes.arrayOf(PropTypes.element),
 
   /** If buttons should stretch to fit the width of container */
   fullWidth: PropTypes.bool,
 
   /** groupPositions constants (FIRST, MIDDLE, LAST) */
-  groupPositions: PropTypes.object
+  groupPositions: PropTypes.object,
+
+  /**
+   * Negative: style for dark backgrounds.
+   */
+  negative: PropTypes.bool,
+
+  /**
+   * Design style of button: 'solid' (default), 'outline', 'flat', 'link'
+   */
+  design: PropTypes.oneOf(Object.values(DESIGNS)),
+  /**
+   * Size of button 'small' (default), 'large'
+   */
+  size: PropTypes.oneOf(Object.values(SIZES)),
+
+  /**
+   * common click handler fired every inner button is triggered.
+   */
+  onClick: PropTypes.func
 }
 
 MoleculeButtonGroup.defaultProps = {
@@ -60,3 +106,8 @@ MoleculeButtonGroup.defaultProps = {
 }
 
 export default MoleculeButtonGroup
+
+export {
+  atomButtonDesigns as moleculeButtonGroupDesigns,
+  atomButtonSizes as moleculeButtonGroupSizes
+}

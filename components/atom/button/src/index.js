@@ -45,7 +45,8 @@ const AtomButton = forwardRef((props, ref) => {
     type,
     shape,
     isFitted,
-    selected
+    selected,
+    value
   } = getPropsWithDefaultValues(typeConversion(props))
 
   const classNames = cx(
@@ -80,6 +81,7 @@ const AtomButton = forwardRef((props, ref) => {
       title={title}
       disabled={disabled || isLoading}
       forwardingRef={ref}
+      value={value}
     >
       <span className={`${CLASS}-inner`}>
         {isLoading ? (
@@ -249,7 +251,12 @@ AtomButton.propTypes = {
   /**
    *  Selected: style for selected button in a button group.
    */
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
+  /**
+   * Defines the value associated with the button's name when it's submitted with the form data.
+   * This value is passed to the server in params when the form is submitted using this button.
+   */
+  value: PropTypes.oneOf([PropTypes.number, PropTypes.string, PropTypes.bool])
 }
 
 export default AtomButton

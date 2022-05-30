@@ -39,7 +39,7 @@ $base-class: '.sui-AtomSpinner';
   @each $name, $type in $atom-spinner-overlay-types {
     $bgc: map-get($type, bgc);
 
-    &--#{$name}::before {
+    &--#{'' + $name}::before {
       background-color: $bgc;
     }
   }

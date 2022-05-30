@@ -3,7 +3,7 @@ $sz-atom-spinner: $sz-atom-spinner-oval * 2 !default;
 $z-atom-spinner-loader: 999 !default;
 
 @mixin animation-atom-spinner($name, $color1, $color2) {
-  @keyframes atom-spinner-#{$name} {
+  @keyframes atom-spinner-#{'' + $name} {
     0% {
       box-shadow: -$sz-atom-spinner-oval * 0.5 $sz-atom-spinner-oval $color1,
         $sz-atom-spinner-oval * 0.5 $sz-atom-spinner $color2;

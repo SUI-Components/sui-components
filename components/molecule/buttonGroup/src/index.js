@@ -5,7 +5,7 @@ import cx from 'classnames'
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 import {atomButtonDesigns, atomButtonSizes} from '@s-ui/react-atom-button'
 
-import {BASE_CLASS, isFunction} from './settings.js'
+import {BASE_CLASS, isFunction, combineProps} from './settings.js'
 
 const getGroupPosition =
   ({groupPositions, numChildren}) =>
@@ -37,7 +37,7 @@ const MoleculeButtonGroup = ({
       const {
         size: sizeChild,
         design: designChild,
-        negativeChild,
+        negative: negativeChild,
         onClick: onClickChild
       } = child.props
       const groupPosition = getGroupPositionByIndex(index)
@@ -47,9 +47,9 @@ const MoleculeButtonGroup = ({
       }
       return cloneElement(child, {
         ...props,
-        negative: negativeChild || negativeProp,
-        size: sizeChild || sizeProp,
-        design: designChild || designProp,
+        negative: combineProps(negativeChild, negativeProp),
+        size: combineProps(sizeChild, sizeProp),
+        design: combineProps(designChild, designProp),
         groupPosition,
         fullWidth,
         onClick: clickHandler

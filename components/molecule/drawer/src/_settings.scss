@@ -4,6 +4,8 @@ $z-molecule-drawer: $z-modal !default;
 $z-molecule-drawer-overlay: $z-modal - 1 !default;
 $bxsh-molecule-drawer: 0 0 6px rgba(0, 0, 0, 0.4) !default;
 $bgc-molecule-drawer: $c-white !default;
+$bdtlrs-molecule-drawer-content: 0 !default;
+$bdtrrs-molecule-drawer-content: 0 !default;
 
 $z-molecule-drawer-map: (
   auto: auto,

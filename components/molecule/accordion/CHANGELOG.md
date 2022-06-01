@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.4.0 (2022-06-01)
+
+
+### Features
+
+* **components/molecule/accordion:** add @s-ui/react-atom-polymorphic-element dependency ([72566a3](https://github.com/SUI-Components/sui-components/commit/72566a3856657c49ef85d49c2aa4a104cacd0e8f))
+* **components/molecule/accordion:** remove @s-ui/react-atom-polymorphic-element since we're using t ([2e24c54](https://github.com/SUI-Components/sui-components/commit/2e24c54a853f4cadce63aac26194c17b2b4dde03))
+
+
+
 # 2.3.0 (2022-05-26)
 
 

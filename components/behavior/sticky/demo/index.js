@@ -1,56 +1,133 @@
-import {createRef} from 'react'
+import cx from 'classnames'
 
-import BehaviorSticky, {
-  BehaviorStickyProvider
-} from 'components/behavior/sticky/src/index.js'
 import {
-  Content,
-  HeaderFixed,
-  FooterFixed,
-  HeaderWithButtons
-} from './components/index.js'
+  H1,
+  H4,
+  Paragraph,
+  Code,
+  ListItem,
+  UnorderedList,
+  Box,
+  Separator
+} from '@s-ui/documentation-library'
+import BehaviorSticky, {BehaviorStickyProvider} from '../src/index.js'
+
+import LoremIpsum from './LoremIpsum.js'
+import {BASE_CLASS_DEMO, CLASS_DEMO_SECTION} from './settings.js'
+import ArticleDefault from './articles/ArticleDefault.js'
+import ArticleScrollUp from './articles/ArticleScrollUp.js'
+import ArticleStacked from './articles/ArticleStacked.js'
+import ArticleGridDemo from './articles/ArticleGridDemo.js'
 
 import './index.scss'
 
-const BASE_CLASS_DEMO = 'DemoBehaviorSticky'
-const CLASS_DEMO_FIXED_HEADER = `${BASE_CLASS_DEMO}-fixed-header`
-const CLASS_DEMO_FIXED_FOOTER = `${BASE_CLASS_DEMO}-fixed-footer`
-const CLASS_DEMO_FIXED_BUTTONS = `${BASE_CLASS_DEMO}-fixed-header-buttons`
-const CLASS_DEMO_CONTENT = `${BASE_CLASS_DEMO}-content`
-
-const container1 = createRef()
-const container2 = createRef()
-
 const Demo = () => (
-  <BehaviorStickyProvider>
-    {/* @begin STICKY  */}
-    <BehaviorSticky>
-      <HeaderFixed className={CLASS_DEMO_FIXED_HEADER} />
-    </BehaviorSticky>
-    {/* @end STICKY  */}
-
-    <Content className={CLASS_DEMO_CONTENT} />
-
-    {/* @begin STICKY IN CONTAINER */}
-    <div ref={container1}>
-      <BehaviorSticky container={container1} defaultOffsetTop={45} animate>
-        <HeaderWithButtons className={CLASS_DEMO_FIXED_BUTTONS} />
-      </BehaviorSticky>
-      <Content className={CLASS_DEMO_CONTENT} />
-    </div>
-    {/* @end STICKY IN CONTAINER  */}
-
-    {/* @begin STICKY IN CONTAINER */}
-    <div ref={container2}>
-      <BehaviorSticky container={container2} defaultOffsetTop={45} animate>
-        <HeaderWithButtons className={CLASS_DEMO_FIXED_BUTTONS} />
-      </BehaviorSticky>
-      <Content className={CLASS_DEMO_CONTENT} />
-    </div>
-    {/* @end STICKY IN CONTAINER  */}
-
-    <FooterFixed className={CLASS_DEMO_FIXED_FOOTER} />
-  </BehaviorStickyProvider>
+  <div className={cx('sui-StudioPreview', BASE_CLASS_DEMO)}>
+    <BehaviorStickyProvider>
+      <H1>Behavior Sticky</H1>
+      <Paragraph>
+        The <Code>BehaviorSticky</Code> package have 3 different components:
+      </Paragraph>
+      <UnorderedList>
+        <ListItem>
+          <Code>BehaviorStickyProvider</Code>: a logical wrapper
+        </ListItem>
+        <ListItem>
+          <Code>BehaviorSticky</Code> (default): Sticky component like position:
+          sticky with options for elements bigger than the viewport.
+        </ListItem>
+        <ListItem>
+          <Code>BehaviorStickyScrollUp</Code> (default): component that is only
+          visible when scrolling up.
+        </ListItem>
+      </UnorderedList>
+      <ArticleDefault className={CLASS_DEMO_SECTION} />
+      <br />
+      <ArticleScrollUp className={CLASS_DEMO_SECTION} />
+      <br />
+      <ArticleStacked className={CLASS_DEMO_SECTION} />
+      <br />
+      <ArticleGridDemo className={CLASS_DEMO_SECTION} />
+      <br />
+      <Box
+        style={{
+          minHeight: '200vh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignContent: 'space-between',
+          justifyContent: 'space-between'
+        }}
+      >
+        <div>
+          <Separator />
+          <H4>Next text is just padding added to check the Sticky behavior</H4>
+        </div>
+        <BehaviorSticky>
+          <Box
+            mode="dark"
+            style={{
+              height: 80,
+              boxSizing: 'border-box',
+              display: 'flex',
+              alignItems: 'center'
+            }}
+          >
+            <H4>BehaviorSticky content with no content ref provided (body)</H4>
+          </Box>
+        </BehaviorSticky>
+        <BehaviorSticky defaultOffsetTop={80 + 8}>
+          <Box
+            mode="dark"
+            style={{
+              height: 80,
+              boxSizing: 'border-box',
+              display: 'flex',
+              alignItems: 'center'
+            }}
+          >
+            <H4>
+              BehaviorSticky content with no content ref provided (body) and
+              animate boolean prop true setted.
+            </H4>
+          </Box>
+        </BehaviorSticky>
+        <Paragraph>
+          <LoremIpsum units="words" count={200} format="plain" />
+        </Paragraph>
+        <Paragraph>
+          <LoremIpsum units="words" count={200} format="plain" />
+        </Paragraph>
+        <Paragraph>
+          <LoremIpsum units="words" count={200} format="plain" />
+        </Paragraph>
+        <Paragraph>
+          <LoremIpsum units="words" count={200} format="plain" />
+        </Paragraph>
+        <Paragraph>
+          <LoremIpsum units="words" count={200} format="plain" />
+        </Paragraph>
+        <Paragraph>
+          <LoremIpsum units="words" count={200} format="plain" />
+        </Paragraph>
+        <Paragraph>
+          <LoremIpsum units="words" count={200} format="plain" />
+        </Paragraph>
+        <Paragraph>
+          <LoremIpsum units="words" count={200} format="plain" />
+        </Paragraph>
+        <Paragraph>
+          <LoremIpsum units="words" count={200} format="plain" />
+        </Paragraph>
+        <div>
+          <H4>
+            Previous text is just padding added to check the Sticky behavior
+          </H4>
+          <Separator />
+        </div>
+      </Box>
+      <br />
+    </BehaviorStickyProvider>
+  </div>
 )
 
 export default Demo

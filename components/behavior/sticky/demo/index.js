@@ -72,7 +72,7 @@ const Demo = () => (
               alignItems: 'center'
             }}
           >
-            <H4>BehaviorSticky content with no content ref provided (body)</H4>
+            <H4>BehaviorSticky content with no content ref provided (body).</H4>
           </Box>
         </BehaviorSticky>
         <BehaviorSticky defaultOffsetTop={80 + 8}>
@@ -85,10 +85,7 @@ const Demo = () => (
               alignItems: 'center'
             }}
           >
-            <H4>
-              BehaviorSticky content with no content ref provided (body) and
-              animate boolean prop true setted.
-            </H4>
+            <H4>BehaviorSticky content with no content ref provided (body).</H4>
           </Box>
         </BehaviorSticky>
         <Paragraph>

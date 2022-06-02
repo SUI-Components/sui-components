@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.15.0 (2022-06-02)
+
+
+### Bug Fixes
+
+* **components/atom/icon:** aria label ([6328de2](https://github.com/SUI-Components/sui-components/commit/6328de27cc1715c959732cb8733ecb793aae6491))
+
+
+
 # 1.14.0 (2022-03-09)
 
 

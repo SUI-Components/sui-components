@@ -2,17 +2,17 @@ import cx from 'classnames'
 
 import {
   H1,
-  H4,
+  // H4,
   Paragraph,
   Code,
   ListItem,
   UnorderedList,
-  Box,
-  Separator
+  // Box,
+  // Separator
 } from '@s-ui/documentation-library'
-import BehaviorSticky, {BehaviorStickyProvider} from '../src/index.js'
+// import BehaviorSticky, {BehaviorStickyProvider} from '../src/index.js'
 
-import LoremIpsum from './LoremIpsum.js'
+// import LoremIpsum from './LoremIpsum.js'
 import {BASE_CLASS_DEMO, CLASS_DEMO_SECTION} from './settings.js'
 import ArticleDefault from './articles/ArticleDefault.js'
 // import ArticleScrollUp from './articles/ArticleScrollUp.js'
@@ -23,7 +23,7 @@ import './index.scss'
 
 const Demo = () => (
   <div className={cx('sui-StudioPreview', BASE_CLASS_DEMO)}>
-    <BehaviorStickyProvider>
+    {/*<BehaviorStickyProvider>*/}
       <H1>Behavior Sticky</H1>
       <Paragraph>
         The <Code>BehaviorSticky</Code> package have 3 different components:
@@ -123,7 +123,7 @@ const Demo = () => (
       {/*  </div>*/}
       {/*</Box>*/}
       <br />
-    </BehaviorStickyProvider>
+    {/*</BehaviorStickyProvider>*/}
   </div>
 )
 

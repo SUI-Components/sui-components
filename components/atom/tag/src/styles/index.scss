@@ -140,6 +140,12 @@ $base-class: '.sui-AtomTag';
     }
   }
 
+  &-medium {
+    &.sui-AtomTag-hasIcon.sui-AtomTag-hasClose {
+      padding: $p-atom-tag-medium-hasIcon-hasClose;
+    }
+  }
+
   &-large {
     border-radius: ceil($h-atom-tag-l * 0.5);
     height: $h-atom-tag-l;

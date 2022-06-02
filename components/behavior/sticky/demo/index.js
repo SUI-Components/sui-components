@@ -13,8 +13,8 @@ import {
 // import BehaviorSticky, {BehaviorStickyProvider} from '../src/index.js'
 
 // import LoremIpsum from './LoremIpsum.js'
-import {BASE_CLASS_DEMO, CLASS_DEMO_SECTION} from './settings.js'
-import ArticleDefault from './articles/ArticleDefault.js'
+import {BASE_CLASS_DEMO} from './settings.js'
+// import ArticleDefault from './articles/ArticleDefault.js'
 // import ArticleScrollUp from './articles/ArticleScrollUp.js'
 // import ArticleStacked from './articles/ArticleStacked.js'
 // import ArticleGridDemo from './articles/ArticleGridDemo.js'
@@ -40,8 +40,6 @@ const Demo = () => (
         visible when scrolling up.
       </ListItem>
     </UnorderedList>
-    <ArticleDefault className={CLASS_DEMO_SECTION} />
-    <br />
   </div>
 )
 

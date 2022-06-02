@@ -3,20 +3,15 @@ import PropTypes from 'prop-types'
 import {IMG_ROLE} from './settings.js'
 
 export default function AtomIcon({className, children, outerRef, title}) {
-  const a11yAttributes = title
+  const atrributes = title
     ? {
         role: IMG_ROLE,
-        ariaLabel: title
+        'aria-label': title
       }
     : {}
 
   return (
-    <span
-      className={className}
-      title={title}
-      ref={outerRef}
-      {...a11yAttributes}
-    >
+    <span className={className} title={title} ref={outerRef} {...atrributes}>
       {children}
     </span>
   )

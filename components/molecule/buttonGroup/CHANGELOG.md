@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.7.0 (2022-05-31)
+
+
+### Bug Fixes
+
+* **components/molecule/buttonGroup:** fix the combined props behavior ([2f2a740](https://github.com/SUI-Components/sui-components/commit/2f2a740a7b3d845c770ac6828c9e454a61933642))
+
+
+
 # 2.6.0 (2022-05-27)
 
 

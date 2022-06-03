@@ -25,3 +25,11 @@ export const ATOM_ICON_RENDERS = {
 }
 
 export const IMG_ROLE = 'img'
+
+export const getAttributes = title =>
+  title
+    ? {
+        role: IMG_ROLE,
+        'aria-label': title
+      }
+    : {}

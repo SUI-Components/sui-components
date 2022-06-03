@@ -1,25 +1,29 @@
 import PropTypes from 'prop-types'
 
-import {IMG_ROLE} from './settings.js'
+import Poly from '@s-ui/react-primitive-polymorphic-element'
 
-export default function AtomIcon({className, children, outerRef, title}) {
-  const atrributes = title
-    ? {
-        role: IMG_ROLE,
-        'aria-label': title
-      }
-    : {}
+import {getAttributes} from './settings.js'
 
+const AtomIcon = ({as, className, children, outerRef, title}) => {
   return (
-    <span className={className} title={title} ref={outerRef} {...atrributes}>
+    <Poly
+      as={as}
+      className={className}
+      title={title}
+      ref={outerRef}
+      {...getAttributes(title)}
+    >
       {children}
-    </span>
+    </Poly>
   )
 }
 
 AtomIcon.propTypes = {
+  as: PropTypes.elementType,
   className: PropTypes.string,
   children: PropTypes.element,
   outerRef: PropTypes.func,
   title: PropTypes.string
 }
+
+export default AtomIcon

@@ -11,6 +11,7 @@ import {
 } from './settings.js'
 
 const AtomIcon = ({
+  as = 'span',
   children,
   color = ATOM_ICON_COLORS.currentColor,
   size = ATOM_ICON_SIZES.small,
@@ -25,7 +26,7 @@ const AtomIcon = ({
 
   const IconRender = render === ATOM_ICON_RENDERS.eager ? Icon : LazyIcon
   return (
-    <IconRender className={className} title={title}>
+    <IconRender as={as} className={className} title={title}>
       {children}
     </IconRender>
   )
@@ -33,6 +34,8 @@ const AtomIcon = ({
 
 AtomIcon.displayName = 'AtomIcon'
 AtomIcon.propTypes = {
+  /* Render the passed value as the correspondent HTML tag or the component if a function is passed */
+  as: PropTypes.elementType,
   /**
    * Determine color of the icon
    * Besides the primary color types, you could use currentColor to inherit the color from the parent.

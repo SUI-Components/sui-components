@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
 
+import Poly from '@s-ui/react-primitive-polymorphic-element'
+
 import {IMG_ROLE} from './settings.js'
 
 export default function AtomIcon({className, children, outerRef, title}) {
@@ -11,14 +13,14 @@ export default function AtomIcon({className, children, outerRef, title}) {
     : {}
 
   return (
-    <span
+    <Poly
       className={className}
       title={title}
       ref={outerRef}
       {...a11yAttributes}
     >
       {children}
-    </span>
+    </Poly>
   )
 }
 

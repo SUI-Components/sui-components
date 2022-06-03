@@ -9,6 +9,7 @@ import {MoleculeAccordionItemHeaderIcon} from '../../../src/index.js'
 
 const HeaderCustom = ({
   className,
+  animationDuration,
   tags = {},
   onClose,
   title,
@@ -56,7 +57,10 @@ const HeaderCustom = ({
                   />
                 )
             )}
-          <MoleculeAccordionItemHeaderIcon isExpanded={isExpanded} />
+          <MoleculeAccordionItemHeaderIcon
+            isExpanded={isExpanded}
+            animationDuration={animationDuration}
+          />
         </Cell>
       </Grid>
     </div>
@@ -65,6 +69,7 @@ const HeaderCustom = ({
 
 HeaderCustom.displayName = 'HeaderCustom'
 HeaderCustom.propTypes = {
+  animationDuration: PropTypes.number,
   className: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
   onClose: PropTypes.func,

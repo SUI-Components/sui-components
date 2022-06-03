@@ -4,7 +4,7 @@ import Poly from '@s-ui/react-primitive-polymorphic-element'
 
 import {IMG_ROLE} from './settings.js'
 
-export default function AtomIcon({className, children, outerRef, title}) {
+export default function AtomIcon({as, className, children, outerRef, title}) {
   const a11yAttributes = title
     ? {
         role: IMG_ROLE,
@@ -14,6 +14,7 @@ export default function AtomIcon({className, children, outerRef, title}) {
 
   return (
     <Poly
+      as={as}
       className={className}
       title={title}
       ref={outerRef}
@@ -25,6 +26,7 @@ export default function AtomIcon({className, children, outerRef, title}) {
 }
 
 AtomIcon.propTypes = {
+  as: PropTypes.elementType,
   className: PropTypes.string,
   children: PropTypes.element,
   outerRef: PropTypes.func,

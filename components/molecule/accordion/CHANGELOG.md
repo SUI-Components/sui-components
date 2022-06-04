@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.5.0 (2022-06-03)
+
+
+### Bug Fixes
+
+* **components/molecule/accordion:** animationDuration on custom header icons and background color to ([972f807](https://github.com/SUI-Components/sui-components/commit/972f8076f810df30d54fea753376a1bafb977f89))
+
+
+
 # 2.4.0 (2022-06-01)
 
 

@@ -51,9 +51,6 @@ $base-class-item-panel: '#{$base-class-item}Panel';
   #{$base-class-item-panel} {
     border-width: 0;
   }
-  #{$base-class-item-header} {
-    //border-bottom-width: $bdw-accordion-item;
-  }
   #{$base-class-item-panel}[aria-expanded='false'] {
     border-top-width: 0;
   }
@@ -166,9 +163,6 @@ $base-class-item-panel: '#{$base-class-item}Panel';
 
 #{$base-class-item-header} {
   margin: 0;
-  + #{$base-class-item-panel} {
-    //margin-top: -$bdw-accordion-item;
-  }
 }
 
 #{$base-class-item-panel} {

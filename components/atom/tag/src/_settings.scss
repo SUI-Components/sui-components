@@ -11,6 +11,12 @@ $p-atom-tag-l: 0 $p-l !default;
 $p-atom-tag-m: 0 $p-l !default;
 $p-atom-tag-s: 0 $p-m !default;
 
+$p-atom-tag-hasIcon-hasClose: (
+  small: $p-atom-tag-s,
+  medium: $p-atom-tag-m,
+  large: $p-atom-tag-l
+) !default;
+
 // outline
 $bc-atom-tag-outline: color-variation($c-gray, 3) !default;
 $bdw-atom-tag-outline: $bdw-s !default;

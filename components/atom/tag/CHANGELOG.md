@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.38.0 (2022-06-07)
+
+
+### Features
+
+* **components/atom/tag:** remove unnecessary [@media](https://github.com/media) ([5dca12f](https://github.com/SUI-Components/sui-components/commit/5dca12fb530e5dd60f1bf8ff18c471b4700ab0cb))
+
+
+
 # 2.37.0 (2022-05-23)
 
 

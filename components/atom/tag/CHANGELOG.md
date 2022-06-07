@@ -1,10 +1,16 @@
 # CHANGELOG
 
+# 2.39.0 (2022-06-07)
+
+
+
 # 2.38.0 (2022-06-07)
 
 
 ### Features
 
+* **components/atom/tag:** add customizable padding ([b5be0cc](https://github.com/SUI-Components/sui-components/commit/b5be0cc46cb2b7e1235f8cc49fdf85fdd1275ff6))
+* **components/atom/tag:** improve padding for tag ([1dc0729](https://github.com/SUI-Components/sui-components/commit/1dc07298ed79c7af85a1daa26b9ce861a4c48d89))
 * **components/atom/tag:** remove unnecessary [@media](https://github.com/media) ([5dca12f](https://github.com/SUI-Components/sui-components/commit/5dca12fb530e5dd60f1bf8ff18c471b4700ab0cb))
 
 

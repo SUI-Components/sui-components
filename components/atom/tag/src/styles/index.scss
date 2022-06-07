@@ -122,6 +122,9 @@ $base-class: '.sui-AtomTag';
   &-small {
     height: $h-atom-tag-s;
     padding: $p-atom-tag-s;
+    &.sui-AtomTag-hasIcon.sui-AtomTag-hasClose {
+      padding: map-get($p-atom-tag-hasIcon-hasClose, 'small');
+    }
 
     & .sui-AtomTag-label {
       line-height: $h-atom-tag-s;
@@ -140,10 +143,19 @@ $base-class: '.sui-AtomTag';
     }
   }
 
+  &-medium {
+    &.sui-AtomTag-hasIcon.sui-AtomTag-hasClose {
+      padding: map-get($p-atom-tag-hasIcon-hasClose, 'medium');
+    }
+  }
+
   &-large {
     border-radius: ceil($h-atom-tag-l * 0.5);
     height: $h-atom-tag-l;
     padding: $p-atom-tag-l;
+    &.sui-AtomTag-hasIcon.sui-AtomTag-hasClose {
+      padding: map-get($p-atom-tag-hasIcon-hasClose, 'large');
+    }
 
     & .sui-AtomTag-label {
       line-height: $h-atom-tag-l;

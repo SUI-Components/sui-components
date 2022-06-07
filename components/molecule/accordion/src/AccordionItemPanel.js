@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import {inject, combineProps} from '@s-ui/react-primitive-injector'
-import Poly from '@s-ui/react-atom-polymorphic-element'
+import Poly from '@s-ui/react-primitive-polymorphic-element'
 
 import {useAccordionContext} from './context/index.js'
 import {

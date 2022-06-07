@@ -13,6 +13,8 @@ $base-class: '.sui-MoleculeDrawer';
 
   &-content {
     $this: &;
+    border-top-left-radius: $bdtlrs-molecule-drawer-content;
+    border-top-right-radius: $bdtrrs-molecule-drawer-content;
     z-index: $z-molecule-drawer;
     position: absolute;
     background-color: $bgc-molecule-drawer;

@@ -4,6 +4,7 @@ import {H1, Paragraph, Code} from '@s-ui/documentation-library'
 import ColorsAndSizesDemo from './ColorsAndSizesDemo.js'
 import ColorInheritanceDemo from './ColorInheritanceDemo.js'
 import LazyDemo from './LazyDemo.js'
+import PolymorphicDemo from './PolymorphicDemo.js'
 import SpanDemo from './SpanDemo.js'
 
 import './index.scss'
@@ -20,6 +21,8 @@ export default function () {
       <ColorsAndSizesDemo />
       <br />
       <ColorInheritanceDemo />
+      <br />
+      <PolymorphicDemo />
       <br />
       <LazyDemo />
       <br />

@@ -191,12 +191,14 @@ $base-class: '.sui-AtomTag';
       border-width: $bdw;
       color: $c;
       fill: $c;
+
       &#{$self}-actionable {
         background-color: $bgc;
         border-color: $bdc;
         color: $c;
         fill: $c;
       }
+
       &#{$self}--outline {
         border-color: $bgc;
         color: $bgc;
@@ -205,19 +207,17 @@ $base-class: '.sui-AtomTag';
       }
 
       @if $bgc-hover or $c-hover {
-        @media (hover: hover) {
-          &:not(#{$self}--disabled) {
-            &:hover,
-            &:active {
-              background-color: $bgc-hover;
-              border-color: $bdc-hover;
-              color: $c-hover;
-              &#{$self}--outline {
-                background-color: $bgc;
-                border-color: $bgc;
-                color: $c;
-                fill: $c;
-              }
+        &:not(#{$self}--disabled) {
+          &:hover,
+          &:active {
+            background-color: $bgc-hover;
+            border-color: $bdc-hover;
+            color: $c-hover;
+            &#{$self}--outline {
+              background-color: $bgc;
+              border-color: $bgc;
+              color: $c;
+              fill: $c;
             }
           }
         }

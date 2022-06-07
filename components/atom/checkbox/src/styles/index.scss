@@ -44,7 +44,7 @@ $base-class: '.sui-AtomCheckbox';
       }
     }
 
-    &.is-intermediate {
+    &.is-indeterminate {
       background-color: $bgc-checked-atom-checkbox-is-intermediate;
       border: $bd-atom-checkbox-is-intermediate;
       color: $c-atom-checkbox-is-intermediate;
@@ -65,7 +65,7 @@ $base-class: '.sui-AtomCheckbox';
           border-color: $color;
 
           &.is-checked,
-          &.is-intermediate {
+          &.is-indeterminate {
             background-color: $color;
           }
         }

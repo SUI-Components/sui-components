@@ -26,15 +26,15 @@ describe(json.name, () => {
     // Given
     const library = pkg
     const libraryExportedMembers = [
-      'checkboxStatus',
-      'checkboxSizes',
+      'atomCheckboxStatus',
+      'atomCheckboxSizes',
       'default'
     ]
 
     // When
     const {
-      checkboxStatus,
-      checkboxSizes,
+      atomCheckboxStatus,
+      atomCheckboxSizes,
       default: AtomCheckbox,
       ...others
     } = library
@@ -104,7 +104,6 @@ describe(json.name, () => {
 
     it('should fire onChange handler value when the element is clicked when checked is undefined', () => {
       // Given
-      const {version} = json
       const spy = sinon.spy()
       const props = {
         onChange: spy,
@@ -120,20 +119,16 @@ describe(json.name, () => {
       userEvents.click(element)
       sinon.assert.called(spy)
       sinon.assert.callCount(spy, 1)
-      if (parseInt(version[0]) === 2) {
-        // The returned value must change to the given element value and the callback should return the checked value under that attribute
-        sinon.assert.calledWith(
-          spy,
-          sinon.match.truthy,
-          sinon.match({name: props.name, value: true})
-        )
-      } else {
-        sinon.assert.calledWith(
-          spy,
-          sinon.match.truthy,
-          sinon.match({name: props.name, value: props.value, checked: true})
-        )
-      }
+      sinon.assert.calledWith(
+        spy,
+        sinon.match.truthy,
+        sinon.match({
+          name: props.name,
+          value: props.value,
+          checked: true,
+          indeterminate: false
+        })
+      )
     })
 
     it('should fire onChange handler value when the element is clicked when checked is true', () => {
@@ -182,7 +177,7 @@ describe(json.name, () => {
         onChange: spy,
         name: 'name',
         value: 'value',
-        intermediate: true
+        indeterminate: true
       }
 
       // When
@@ -319,15 +314,15 @@ describe(json.name, () => {
         // Given
         const testId = 'testId'
         const testContent = 'testContent'
-        const intermediateIcon = () => (
+        const indeterminateIcon = () => (
           <span data-testid={testId}>{testContent}</span>
         )
         const props = {
           isNative: false,
           name: 'name',
           value: 'value',
-          intermediate: true,
-          intermediateIcon: intermediateIcon
+          indeterminate: true,
+          indeterminateIcon: indeterminateIcon
         }
 
         // When
@@ -340,13 +335,13 @@ describe(json.name, () => {
     })
   })
 
-  describe('checkboxStatus', () => {
+  describe('atomCheckboxStatus', () => {
     it('value must be an object enum', () => {
       // Given
       const library = pkg
 
       // When
-      const {checkboxStatus: actual} = library
+      const {atomCheckboxStatus: actual} = library
 
       // Then
       expect(actual).to.be.an('object')
@@ -362,7 +357,7 @@ describe(json.name, () => {
       }
 
       // When
-      const {checkboxStatus: actual} = library
+      const {atomCheckboxStatus: actual} = library
       const {ERROR, SUCCESS, ALERT, ...others} = actual
 
       // Then
@@ -375,13 +370,13 @@ describe(json.name, () => {
     })
   })
 
-  describe('checkboxSizes', () => {
+  describe('atomCheckboxSizes', () => {
     it('value must be an object enum', () => {
       // Given
       const library = pkg
 
       // When
-      const {checkboxSizes: actual} = library
+      const {atomCheckboxSizes: actual} = library
 
       // Then
       expect(actual).to.be.an('object')
@@ -393,7 +388,7 @@ describe(json.name, () => {
       const expected = {SMALL: 'small', MEDIUM: 'medium'}
 
       // When
-      const {checkboxSizes: actual} = library
+      const {atomCheckboxSizes: actual} = library
       const {SMALL, MEDIUM, ...others} = actual
 
       // Then

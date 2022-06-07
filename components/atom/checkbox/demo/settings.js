@@ -1,13 +1,13 @@
 import {AntDesignIcon} from '@s-ui/documentation-library'
 import AtomIcon from '@s-ui/react-atom-icon'
 
-import {checkboxSizes, checkboxStatus} from '../src/index.js'
+import {atomCheckboxSizes, atomCheckboxStatus} from '../src/index.js'
 
 export const BASE_CLASS_DEMO = `DemoAtomCheckbox`
 export const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
-export const CHECKBOX_STATUS = ['', ...Object.values(checkboxStatus)]
-export const CHECKBOX_SIZE = [...Object.values(checkboxSizes)]
+export const CHECKBOX_STATUS = ['', ...Object.values(atomCheckboxStatus)]
+export const CHECKBOX_SIZE = [...Object.values(atomCheckboxSizes)]
 
 export const ICONS = {
   aiOutlineCheck: (
@@ -41,6 +41,23 @@ export const ICONS = {
     </AtomIcon>
   )
 }
+
+export const PROPS_STATUS = {
+  UNCHECKED: {
+    checked: false,
+    indeterminate: false
+  },
+  INDETERMINATE: {
+    checked: false,
+    indeterminate: true
+  },
+  CHECKED: {
+    checked: true,
+    indeterminate: false
+  }
+}
+export const propsFromStatus = (status = PROPS_STATUS.UNCHECKED) =>
+  PROPS_STATUS[status]
 
 export const flexCenteredStyle = {
   display: 'flex',

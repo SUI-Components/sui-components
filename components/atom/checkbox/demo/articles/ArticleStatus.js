@@ -11,6 +11,7 @@ import {
   Label,
   Paragraph
 } from '@s-ui/documentation-library'
+
 import AtomCheckbox from '../../src/index.js'
 import {CHECKBOX_STATUS, flexCenteredStyle, ICONS} from '../settings.js'
 

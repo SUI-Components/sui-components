@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.19.0 (2022-06-08)
+
+
+### Features
+
+* **components/molecule/rating:** Add margin for small and medium stars ([c65fd1c](https://github.com/SUI-Components/sui-components/commit/c65fd1c293d394e2373180ad24918ce92b7a9d0f))
+
+
+
 # 1.18.0 (2022-03-04)
 
 

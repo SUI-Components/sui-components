@@ -1,96 +1,111 @@
-/*
- * Remember: YOUR COMPONENT IS DEFINED GLOBALLY
- * */
+import {useCallback, useState} from 'react'
+import Cropper from 'react-easy-crop'
 
-/* eslint react/jsx-no-undef:0 */
-/* eslint no-undef:0 */
+import PropTypes from 'prop-types'
 
-import ReactDOM from 'react-dom'
+import AtomSlider from '@s-ui/react-atom-slider'
 
-import chai, {expect} from 'chai'
-import chaiDOM from 'chai-dom'
-import getCroppedImg from '../src/utils/cropImage.js'
+import getCroppedImg from './utils/cropImage.js'
+import {baseClass, DEFAULT_ASPECT, noop} from './config.js'
 
-import * as pkg from '../src/index.js'
+const MoleculeImageEditor = ({
+  aspect = DEFAULT_ASPECT,
+  cropLabelIcon,
+  cropLabelText,
+  image,
+  onChange,
+  onCropping = noop,
+  rotateLabelIcon,
+  rotateLabelText
+}) => {
+  const [crop, setCrop] = useState({x: 0, y: 0})
+  const [rotation, setRotation] = useState(0)
+  const [zoom, setZoom] = useState(0)
 
-import json from '../package.json'
+  const getRotationDegrees = rotation => (rotation * 360) / 100
 
-const IMG =
-  'https://lp-cms-production.imgix.net/features/2019/06/panda-d55d15231c4f.jpg?auto=compress&fit=crop&fm=auto&sharp=10&vib=20&w=1200&h=800'
+  const onCropComplete = useCallback(
+    async (croppedArea, croppedAreaPixels) => {
+      const rotationDegrees = getRotationDegrees(rotation)
+      onCropping(true)
+      const croppedImage = await getCroppedImg(
+        image,
+        croppedAreaPixels,
+        rotationDegrees
+      )
+      onChange(croppedImage)
+      onCropping(false)
+    },
+    [rotation, onCropping, image, onChange]
+  )
 
-chai.use(chaiDOM)
+  return (
+    <div className={baseClass}>
+      <div className={`${baseClass}-crop`}>
+        <Cropper
+          image={image}
+          crop={crop}
+          zoom={1 + zoom / 100}
+          rotation={getRotationDegrees(rotation)}
+          aspect={aspect}
+          onCropChange={setCrop}
+          onCropComplete={onCropComplete}
+          onRotationChange={setRotation}
+          onZoomChange={zoom => setZoom((zoom - 1) * 100)}
+        />
+      </div>
+      <div className={`${baseClass}-slider`}>
+        {(cropLabelIcon || cropLabelText) && (
+          <div className={`${baseClass}-label`}>
+            {cropLabelIcon && (
+              <span className={`${baseClass}-labelIcon`}>{cropLabelIcon}</span>
+            )}
+            {cropLabelText && (
+              <span className={`${baseClass}-labelText`}>{cropLabelText}</span>
+            )}
+          </div>
+        )}
+        <AtomSlider
+          onChange={(event, {value}) => setZoom(value)}
+          value={zoom}
+          hideMarks
+        />
+      </div>
+      <div className={`${baseClass}-slider`}>
+        {(rotateLabelIcon || rotateLabelText) && (
+          <div className={`${baseClass}-label`}>
+            {rotateLabelIcon && (
+              <span className={`${baseClass}-labelIcon`}>
+                {rotateLabelIcon}
+              </span>
+            )}
+            {rotateLabelText && (
+              <span className={`${baseClass}-labelText`}>
+                {rotateLabelText}
+              </span>
+            )}
+          </div>
+        )}
+        <AtomSlider
+          onChange={(event, {value}) => setRotation(value)}
+          value={rotation}
+          hideMarks
+        />
+      </div>
+    </div>
+  )
+}
 
-describe(json.name, () => {
-  const {default: Component} = pkg
-  const setup = setupEnvironment(Component)
+MoleculeImageEditor.displayName = 'MoleculeImageEditor'
+MoleculeImageEditor.propTypes = {
+  aspect: PropTypes.number,
+  cropLabelIcon: PropTypes.node,
+  cropLabelText: PropTypes.string,
+  image: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onCropping: PropTypes.func,
+  rotateLabelIcon: PropTypes.node,
+  rotateLabelText: PropTypes.string
+}
 
-  it('library should include defined exported elements', () => {
-    // Given
-    const library = pkg
-    const libraryExportedMembers = ['default']
-
-    // When
-    const {default: MoleculeImageEditor, ...others} = library
-
-    // Then
-    expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
-    expect(Object.keys(library)).to.have.members(libraryExportedMembers)
-    expect(Object.keys(others).length).to.equal(0)
-  })
-
-  it('utils should crop the image', async () => {
-    const cropOptions = {
-      unit: 'px', // Can be 'px' or '%'
-      width: 100,
-      height: 100
-    }
-
-    const imgBlob = await getCroppedImg(IMG, cropOptions)
-
-    const img = document.createElement('img')
-    img.src = URL.createObjectURL(imgBlob)
-  })
-
-  describe(Component.displayName, () => {
-    it('should render without crashing', () => {
-      // Given
-      const props = {}
-
-      // When
-      const component = <Component {...props} />
-
-      // Then
-      const div = document.createElement('div')
-      ReactDOM.render(component, div)
-      ReactDOM.unmountComponentAtNode(div)
-    })
-
-    it('should NOT render null', () => {
-      // Given
-      const props = {}
-
-      // When
-      const {container} = setup(props)
-
-      // Then
-      expect(container.innerHTML).to.be.a('string')
-      expect(container.innerHTML).to.not.have.lengthOf(0)
-    })
-
-    it('should NOT extend classNames', () => {
-      // Given
-      const props = {
-        className: 'extended-classNames'
-      }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
-
-      // When
-      const {container} = setup(props)
-      const findClassName = findSentence(props.className)
-
-      // Then
-      expect(findClassName(container.innerHTML)).to.be.null
-    })
-  })
-})
+export default MoleculeImageEditor

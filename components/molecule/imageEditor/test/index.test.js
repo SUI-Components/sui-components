@@ -9,10 +9,14 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import getCroppedImg from '../src/utils/cropImage.js'
 
 import * as pkg from '../src/index.js'
 
 import json from '../package.json'
+
+const IMG =
+  'https://lp-cms-production.imgix.net/features/2019/06/panda-d55d15231c4f.jpg?auto=compress&fit=crop&fm=auto&sharp=10&vib=20&w=1200&h=800'
 
 chai.use(chaiDOM)
 
@@ -32,6 +36,19 @@ describe(json.name, () => {
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
     expect(Object.keys(library)).to.have.members(libraryExportedMembers)
     expect(Object.keys(others).length).to.equal(0)
+  })
+
+  it('utils should crop the image', async () => {
+    const cropOptions = {
+      unit: 'px', // Can be 'px' or '%'
+      width: 100,
+      height: 100
+    }
+
+    const imgBlob = await getCroppedImg(IMG, cropOptions)
+
+    const img = document.createElement('img')
+    img.src = URL.createObjectURL(imgBlob)
   })
 
   describe(Component.displayName, () => {

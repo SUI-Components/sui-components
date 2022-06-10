@@ -25,7 +25,7 @@
     "install:dependencies": "npm install --prefer-online --legacy-peer-deps",
     "install:themes": "node scripts/build-themes.js",
     "phoenix": "npx @s-ui/mono@2 run 'rm -rf ./node_modules' && rm -rf ./node_modules package-lock.json && npm install --legacy-peer-deps --no-optional --no-fund --no-audit && npx -y ultra-runner --raw --recursive prepublishOnly &>/dev/null",
-    "phoenix:ci": "npm install --legacy-peer-deps --no-optional --no-fund --no-audit && npx -y ultra-runner --raw --recursive prepublishOnly &>/dev/null",
+    "phoenix:ci": "npm install --legacy-peer-deps --no-optional --no-fund --no-audit && npx -y ultra-runner --raw --recursive prepublishOnly",
     "release": "sui-mono release",
     "start": "sui-studio start",
     "serve": "npm run build && npx http-server public",

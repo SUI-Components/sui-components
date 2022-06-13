@@ -20,7 +20,7 @@
 
   @include animation-atom-spinner($name, $loaderColorOne, $loaderColorTwo);
 
-  .sui-AtomSpinner--#{$name} {
+  .sui-AtomSpinner--#{'' + $name} {
     & .sui-AtomSpinner-loader {
       animation: atom-spinner-#{$name} 1.5s ease-in-out infinite;
     }

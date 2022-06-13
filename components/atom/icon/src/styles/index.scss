@@ -2,6 +2,11 @@ $base-class: '.sui-AtomIcon';
 
 #{$base-class} {
   display: inherit;
+  border: none;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
 
   // Colors
   @each $key, $value in $atom-icon-colors {

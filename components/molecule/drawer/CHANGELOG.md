@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 4.4.0 (2022-05-31)
+
+
+### Features
+
+* **components/molecule/accordion:** fully naked accordion view ([c4cda80](https://github.com/SUI-Components/sui-components/commit/c4cda8036cae1604eb11359d4a50abd46bd06f94))
+* **components/molecule/drawer:** add customizable border radius ([f604e47](https://github.com/SUI-Components/sui-components/commit/f604e477b5c61d84b68d2f0e4e6721b34322117c))
+
+
+
 # 4.3.0 (2022-05-23)
 
 

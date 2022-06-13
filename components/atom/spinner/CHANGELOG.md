@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.1.0 (2022-05-30)
+
+
+### Features
+
+* **components/atom/spinner:** remove warnings ([c7a1ced](https://github.com/SUI-Components/sui-components/commit/c7a1cedf18e1014bd893441e45ce562f3d33fa54))
+
+
+
 # 2.0.0 (2022-05-27)
 
 

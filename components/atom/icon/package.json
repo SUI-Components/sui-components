@@ -1,15 +1,16 @@
 {
   "name": "@s-ui/react-atom-icon",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "prepare": "rimraf ./lib && npm run build:js && npm run build:styles",
+    "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
     "build:js": "babel --presets sui ./src --out-dir ./lib",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/react-hooks": "1"
+    "@s-ui/react-hooks": "1",
+    "@s-ui/react-primitive-polymorphic-element": "1"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

@@ -1,12 +1,7 @@
-/*
- * Remember: YOUR COMPONENT IS DEFINED GLOBALLY
- * */
-
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
 import ReactDOM from 'react-dom'
-
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
@@ -89,6 +84,16 @@ describe(json.name, () => {
 
       // Then
       expect(findClassName(container.innerHTML)).to.be.null
+    })
+
+    it('should be accessible if title is set', () => {
+      // Given
+      const title = 'title'
+      const props = {title}
+      // When
+      const {getByRole} = setup(props)
+      // Then
+      expect(getByRole('img', {name: title})).to.be.visible
     })
   })
 

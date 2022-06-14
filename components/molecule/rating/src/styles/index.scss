@@ -45,6 +45,7 @@ $class-label-link: '#{$class-label}Link';
     #{$class-star} {
       height: $h-molecule-rating-small;
       width: $w-molecule-rating-small;
+      margin-left: $m-l-molecule-small-rating-stars;
     }
 
     #{$class-label} {
@@ -58,6 +59,7 @@ $class-label-link: '#{$class-label}Link';
     #{$class-star} {
       height: $h-molecule-rating-medium;
       width: $w-molecule-rating-medium;
+      margin-left: $m-l-molecule-small-rating-stars;
     }
 
     #{$class-label} {

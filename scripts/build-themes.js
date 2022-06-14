@@ -11,7 +11,6 @@ const globby = require('globby')
 
 const INSTALL_FLAGS = [
   '--silent',
-  '--no-optional',
   '--no-save',
   '--no-audit',
   '--no-fund',

@@ -1,6 +1,8 @@
-import {useState, useCallback} from 'react'
-import PropTypes from 'prop-types'
+import {useCallback, useState} from 'react'
 import Cropper from 'react-easy-crop'
+
+import PropTypes from 'prop-types'
+
 import AtomSlider from '@s-ui/react-atom-slider'
 
 import getCroppedImg from './utils/cropImage.js'

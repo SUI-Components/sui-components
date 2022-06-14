@@ -1,3 +1,4 @@
+import {useMemo, useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 
 import {
@@ -32,6 +33,11 @@ const getElementStyles = (refs = [], index) => {
 const ArticleGridDemo = ({className}) => {
   const [getContainerRef, setContainerRef] = useRefs()
   const [, setBoxRef, getBoxRefs] = useRefs()
+  const [, setLength] = useState()
+  const length = useMemo(() => getBoxRefs().length, [getBoxRefs().length])
+  useEffect(() => {
+    setLength(length)
+  }, [length])
   return (
     <Article className={className}>
       <H2>Sticky grid demo</H2>

@@ -1,3 +1,4 @@
+import {useState, useMemo, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
 import {
@@ -50,6 +51,11 @@ const loop = (n, {setRef, getRef, getRefs}, {setStackRef, getStackRefs}) => {
 const ArticleStacked = ({className}) => {
   const [getRef, setRef, getRefs] = useRefs()
   const [getStackRef, setStackRef, getStackRefs] = useRefs()
+  const [, setLength] = useState()
+  const length = useMemo(() => getStackRefs().length, [getStackRefs().length])
+  useEffect(() => {
+    setLength(length)
+  }, [length])
   return (
     <Article className={className}>
       <H2>Sticky Stacked</H2>

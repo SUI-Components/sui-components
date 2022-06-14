@@ -20,7 +20,7 @@ describe(json.name, () => {
   const {default: Component, BehaviorStickyProvider} = pkg
   const TestedComponent = props => (
     <BehaviorStickyProvider>
-      <BehaviorSticky {...props} />
+      <Component {...props} />
     </BehaviorStickyProvider>
   )
   const setup = setupEnvironment(TestedComponent)
@@ -31,6 +31,7 @@ describe(json.name, () => {
     const libraryExportedMembers = [
       'BehaviorStickyScrollUp',
       'BehaviorStickyProvider',
+      'BehaviorSticky',
       'default'
     ]
 
@@ -38,7 +39,8 @@ describe(json.name, () => {
     const {
       BehaviorStickyProvider,
       BehaviorStickyScrollUp,
-      default: BehaviorSticky,
+      BehaviorSticky,
+      default: BehaviorStickyDefault,
       ...others
     } = library
 

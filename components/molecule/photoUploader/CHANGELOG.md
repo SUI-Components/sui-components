@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.18.0 (2022-06-15)
+
+
+### Features
+
+* **components/molecule/photoUploader:** add padding to photo uploader ([23d0dbb](https://github.com/SUI-Components/sui-components/commit/23d0dbb57881270bc6c9128f1cd19289fe0412fc))
+
+
+
 # 2.17.0 (2022-05-24)
 
 

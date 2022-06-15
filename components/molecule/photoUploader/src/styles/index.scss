@@ -32,6 +32,7 @@ $skeleton-class: '#{$base-class}-skeleton';
   }
   &-initialState {
     align-items: center;
+    padding: $p-photo-uploader-initial-state;
     background: $bg-photo-uploader-initial-state;
     border: $bd-photo-uploader;
     border-radius: $bdrs-photo-uploader-initial-state;

@@ -199,6 +199,7 @@ $base-class: '.sui-AtomTag';
 
     &--#{$name} {
       background-color: $bgc;
+      border-color: $bdc;
       border-style: $bds;
       border-width: $bdw;
       color: $c;

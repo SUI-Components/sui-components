@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.40.0 (2022-06-16)
+
+
+### Features
+
+* **components/atom/tag:** Allow setting bdc from tag types ([5eb0075](https://github.com/SUI-Components/sui-components/commit/5eb0075aea59c4c6028bbc283d046db53d7b53e5))
+
+
+
 # 2.39.0 (2022-06-07)
 
 

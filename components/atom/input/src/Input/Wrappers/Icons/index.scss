@@ -21,9 +21,11 @@
     top: $t-atom-input-icon;
     transform: translateY($trf-ty-atom-input-icon);
     width: $w-atom-input-icon;
+    pointer-events: none;
 
     &--withHandler {
       cursor: pointer;
+      pointer-events: auto;
     }
 
     &--left {

@@ -7,12 +7,12 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import sinon from 'sinon'
+
 import {fireEvent} from '@testing-library/react'
 
-import * as pkg from '../src/index.js'
-import {createClasses} from '../src/config.js'
-
 import json from '../package.json'
+import {createClasses} from '../src/config.js'
+import * as pkg from '../src/index.js'
 
 chai.use(chaiDOM)
 
@@ -139,7 +139,7 @@ describe(json.name, () => {
             type: 'primary'
           }
           const classes = createClasses([
-            ...atomButtonColors,
+            ...Object.values(atomButtonColors),
             ...Object.values(atomButtonDesigns)
           ])
           const findSentence = str => string =>
@@ -164,7 +164,7 @@ describe(json.name, () => {
             link: true
           }
           const classes = createClasses([
-            ...atomButtonColors,
+            ...Object.values(atomButtonColors),
             ...Object.values(atomButtonDesigns)
           ])
           const findSentence = str => string =>
@@ -190,7 +190,7 @@ describe(json.name, () => {
             type: 'accent'
           }
           const classes = createClasses([
-            ...atomButtonColors,
+            ...Object.values(atomButtonColors),
             ...Object.values(atomButtonDesigns)
           ])
           const findSentence = str => string =>
@@ -215,7 +215,7 @@ describe(json.name, () => {
             link: true
           }
           const classes = createClasses([
-            ...atomButtonColors,
+            ...Object.values(atomButtonColors),
             ...Object.values(atomButtonDesigns)
           ])
           const findSentence = str => string =>
@@ -241,7 +241,7 @@ describe(json.name, () => {
             type: 'secondary'
           }
           const classes = createClasses([
-            ...atomButtonColors,
+            ...Object.values(atomButtonColors),
             ...Object.values(atomButtonDesigns)
           ])
           const findSentence = str => string =>
@@ -266,7 +266,7 @@ describe(json.name, () => {
             link: true
           }
           const classes = createClasses([
-            ...atomButtonColors,
+            ...Object.values(atomButtonColors),
             ...Object.values(atomButtonDesigns)
           ])
           const findSentence = str => string =>
@@ -292,7 +292,7 @@ describe(json.name, () => {
             type: 'tertiary'
           }
           const classes = createClasses([
-            ...atomButtonColors,
+            ...Object.values(atomButtonColors),
             ...Object.values(atomButtonDesigns)
           ])
           const findSentence = str => string =>
@@ -317,7 +317,7 @@ describe(json.name, () => {
             link: true
           }
           const classes = createClasses([
-            ...atomButtonColors,
+            ...Object.values(atomButtonColors),
             ...Object.values(atomButtonDesigns)
           ])
           const findSentence = str => string =>
@@ -542,7 +542,7 @@ describe(json.name, () => {
   })
 
   describe('atomButtonColors', () => {
-    it('value must be an array', () => {
+    it('value must be a dictionary', () => {
       // Given
       const library = pkg
 
@@ -550,7 +550,8 @@ describe(json.name, () => {
       const {atomButtonColors: actual} = library
 
       // Then
-      expect(actual).to.be.an('array')
+      expect(actual).to.be.an('object')
+      expect(Object.values(actual)).to.be.an('array')
     })
 
     it('value must contain the defined array values', () => {
@@ -572,7 +573,8 @@ describe(json.name, () => {
       ]
 
       // When
-      const {atomButtonColors: actual} = library
+      const {atomButtonColors} = library
+      const actual = Object.values(atomButtonColors)
 
       // Then
       expect(actual.length).to.equal(expected.length)

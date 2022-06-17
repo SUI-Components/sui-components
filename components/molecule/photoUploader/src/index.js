@@ -35,16 +35,16 @@ const noop = () => {}
 const MoleculePhotoUploader = forwardRef(
   (
     {
-      acceptedFileTypes = DEFAULT_FILE_TYPES_ACCEPTED,
       acceptedFileMaxSize = DEFAULT_MAX_FILE_SIZE_ACCEPTED,
-      allowUploadDuplicatedPhotos = false,
+      acceptedFileTypes = DEFAULT_FILE_TYPES_ACCEPTED,
       addMorePhotosIcon,
       addPhotoButtonColor,
       addPhotoButtonDesign,
-      addPhotoTextButton,
       addPhotoButtonShape,
       addPhotoButtonSize,
+      addPhotoTextButton,
       addPhotoTextSkeleton,
+      allowUploadDuplicatedPhotos = false,
       callbackPhotosRejected = noop,
       callbackPhotosUploaded = noop,
       callbackUploadPhoto,
@@ -52,9 +52,9 @@ const MoleculePhotoUploader = forwardRef(
       deleteIcon,
       disableScrollToBottom = false,
       dragDelay = DEFAULT_DRAG_DELAY_TIME,
+      dragPhotoDividerTextInitialContent,
       dragPhotosIcon = noop,
       dragPhotoTextInitialContent,
-      dragPhotoDividerTextInitialContent,
       dropPhotosHereText,
       errorCorruptedPhotoUploadedText,
       errorFileExcededMaxSizeText,
@@ -63,21 +63,23 @@ const MoleculePhotoUploader = forwardRef(
       errorSaveImageEndpoint,
       infoIcon = noop,
       initialPhotos = [],
-      limitPhotosUploadedText,
       limitPhotosUploadedNotification,
+      limitPhotosUploadedText,
       mainPhotoLabel,
       maxImageHeight = DEFAULT_MAX_IMAGE_HEIGHT,
-      maxPhotos,
       maxImageWidth = DEFAULT_MAX_IMAGE_WIDTH,
+      maxPhotos,
       notificationErrorFormatPhotoUploaded,
-      outputImageAspectRatioDisabled = false,
+      onDropFiles = noop,
+      onFileDialogOpen = noop,
       outputImageAspectRatio = DEFAULT_IMAGE_ASPECT_RATIO,
+      outputImageAspectRatioDisabled = false,
       rejectPhotosIcon,
       retryIcon,
       rotateIcon,
       rotationDirection = ROTATION_DIRECTION.counterclockwise,
-      uploadingPhotosText,
-      thumbIconSize
+      thumbIconSize,
+      uploadingPhotosText
     },
     forwardedRef
   ) => {
@@ -222,6 +224,8 @@ const MoleculePhotoUploader = forwardRef(
       noClick: isPhotoUploaderFully(),
       noKeyboard: isPhotoUploaderFully(),
       accept: acceptedFileTypes,
+      onDrop: onDropFiles,
+      onFileDialogOpen: onFileDialogOpen,
       onDropAccepted: acceptedFiles => _onDropAccepted(acceptedFiles),
       onDropRejected: rejectedFiles => _onDropRejected(rejectedFiles)
     })
@@ -476,6 +480,12 @@ MoleculePhotoUploader.propTypes = {
 
   /** Text showed at error notification when a file with not allowed MIME filetype is dropped */
   notificationErrorFormatPhotoUploaded: PropTypes.string.isRequired,
+
+  /** Func to be executed when files, valids or not, are dropped */
+  onDropFiles: PropTypes.func,
+
+  /** Func to be executed when file dialog is opened */
+  onFileDialogOpen: PropTypes.func,
 
   /**
    *  Ratio to crop the dropped images.

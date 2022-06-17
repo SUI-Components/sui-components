@@ -1,36 +1,37 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
-import {useState, Fragment} from 'react'
+import {Fragment, useState} from 'react'
 
 import AtomButton, {atomButtonGroupPositions} from 'components/atom/button/src'
+
 import {
-  Label,
-  H1,
-  H2,
-  Box,
-  Paragraph,
   Article,
+  Box,
+  Cell,
   Code,
   Grid,
-  Cell,
-  RadioButtonGroup,
-  RadioButton,
+  H1,
+  H2,
   Input,
-  UnorderedList,
-  ListItem
+  Label,
+  ListItem,
+  Paragraph,
+  RadioButton,
+  RadioButtonGroup,
+  UnorderedList
 } from '@s-ui/documentation-library'
 
 import {
-  CLASS_SECTION,
-  starIcon,
-  atomButtonColorsIterator,
-  atomButtonSocialColorsIterator,
-  atomButtonDesignsIterator,
-  atomButtonSizesIterator,
   atomButtonAlignmentIterator,
+  atomButtonColorsIterator,
+  atomButtonDesignsIterator,
   atomButtonShapesIterator,
+  atomButtonSizesIterator,
+  atomButtonSocialColorsIterator,
+  CLASS_SECTION,
+  flexCenteredStyle,
   socialIconsMapper,
-  flexCenteredStyle
+  starIcon
 } from './settings.js'
 import TypeDeprecatedArticle from './TypeDeprecatedArticle.js'
 

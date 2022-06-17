@@ -40,7 +40,7 @@ export const starIcon = (
   <AntDesignIcon icon="AiFillStar" style={{color: 'currentColor'}} />
 )
 
-export const atomButtonColorsIterator = atomButtonColors
+export const atomButtonColorsIterator = Object.values(atomButtonColors)
   .filter(color =>
     ['primary', 'accent', 'neutral', 'success', 'alert', 'error'].includes(
       color
@@ -48,7 +48,7 @@ export const atomButtonColorsIterator = atomButtonColors
   )
   .map((color, index) => [{color}, index])
 
-export const atomButtonSocialColorsIterator = atomButtonColors
+export const atomButtonSocialColorsIterator = Object.values(atomButtonColors)
   .filter(color =>
     [
       'social-facebook',

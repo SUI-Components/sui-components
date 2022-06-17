@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.19.0 (2022-06-17)
+
+
+### Features
+
+* **components/molecule/photoUploader:** add two func props: onDrop and onFileDialogOpen ([90efe9b](https://github.com/SUI-Components/sui-components/commit/90efe9b296c44197a34ed040d84b8ba02ff92b46))
+
+
+
 # 2.18.0 (2022-06-15)
 
 

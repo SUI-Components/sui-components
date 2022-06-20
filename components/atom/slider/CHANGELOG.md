@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.27.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/slider:** Avoid publishing huge CHANGELOG.md ([009232c](https://github.com/SUI-Components/sui-components/commit/009232c2a118ddeaa3d8579ecb699ff938e242e2))
+
+
+
 # 1.26.0 (2022-02-23)
 
 

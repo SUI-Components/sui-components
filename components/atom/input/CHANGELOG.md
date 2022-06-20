@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.17.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/input:** disable pointer events if there is no handler ([40bbcc4](https://github.com/SUI-Components/sui-components/commit/40bbcc4d58b1e093188431f9edf936a740e7dab7))
+
+
+
 # 5.16.0 (2022-05-25)
 
 

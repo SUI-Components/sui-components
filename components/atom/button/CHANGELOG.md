@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.86.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/button:** Avoid publishing huge CHANGELOG.md ([7de1487](https://github.com/SUI-Components/sui-components/commit/7de1487581bdfe9e70bf6e81f55f225b4487e6bf))
+
+
+
 # 1.85.0 (2022-05-27)
 
 

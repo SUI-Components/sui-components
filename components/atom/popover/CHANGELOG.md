@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.11.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/popover:** Avoid publishing huge CHANGELOG.md ([5d123b4](https://github.com/SUI-Components/sui-components/commit/5d123b4bd48c0f2c494daf9145008af7280f848c))
+
+
+
 # 3.10.0 (2022-05-23)
 
 

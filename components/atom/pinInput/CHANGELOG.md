@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.9.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/pinInput:** Avoid publishing huge CHANGELOG.md ([071dfb4](https://github.com/SUI-Components/sui-components/commit/071dfb46f6dcce4f0520fb85cadd299055f2738c))
+* **components/molecule/accordion:** wip ([7240662](https://github.com/SUI-Components/sui-components/commit/724066230d165cf64878b6b03fb689e76ff4f213))
+
+
+
 # 1.8.0 (2022-04-05)
 
 

@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.2.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/backToTop:** Avoid publishing huge CHANGELOG.md ([f835065](https://github.com/SUI-Components/sui-components/commit/f835065d304f695a14b8514ed69c628d71add98d))
+* **components/molecule/accordion:** wip ([7240662](https://github.com/SUI-Components/sui-components/commit/724066230d165cf64878b6b03fb689e76ff4f213))
+* **components/molecule/photoUploader:** Force new release of the pkg ([0d977b0](https://github.com/SUI-Components/sui-components/commit/0d977b0813d2f98ae4ca655fe255e46cb90d58cf))
+
+
+
 # 2.1.0 (2021-07-14)
 
 

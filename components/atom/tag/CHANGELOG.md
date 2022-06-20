@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.41.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/tag:** Avoid publishing huge CHANGELOG.md ([5b8bc6a](https://github.com/SUI-Components/sui-components/commit/5b8bc6a07e4f104211ade6a861c9f2a26f3ba4fe))
+
+
+
 # 2.40.0 (2022-06-16)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.2.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/spinner:** Avoid publishing huge CHANGELOG.md ([bf493eb](https://github.com/SUI-Components/sui-components/commit/bf493eba250c79a271a2e024fd880ae706fcbbf3))
+
+
+
 # 2.1.0 (2022-05-30)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.23.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/card:** Avoid publishing huge CHANGELOG.md ([e0efe33](https://github.com/SUI-Components/sui-components/commit/e0efe338199bba47e0ef76dcc2290dbe12e4c8b1))
+
+
+
 # 1.22.0 (2022-02-06)
 
 

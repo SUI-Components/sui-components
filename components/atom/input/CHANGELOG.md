@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.18.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/input:** Avoid publishing huge CHANGELOG.md ([ad399f9](https://github.com/SUI-Components/sui-components/commit/ad399f9a7b24368c5704b9f1af8cabb0a7dbefc9))
+
+
+
 # 5.17.0 (2022-06-20)
 
 

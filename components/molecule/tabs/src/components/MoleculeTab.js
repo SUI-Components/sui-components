@@ -1,19 +1,31 @@
-import {useEffect, useRef, forwardRef} from 'react'
+import {forwardRef, useEffect, useRef} from 'react'
+
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import {
   CLASS_TAB,
-  CLASS_TAB_ICON,
-  CLASS_TAB_COUNT,
   CLASS_TAB_ACTIVE,
-  CLASS_TAB_DISABLED
+  CLASS_TAB_COUNT,
+  CLASS_TAB_DISABLED,
+  CLASS_TAB_ICON
 } from './config.js'
 
 const MoleculeTab = forwardRef(
   (
-    {active, onChange, disabled, icon, count, label, numTab, isIntersecting},
+    {
+      autoScrollIntoView = true,
+      active,
+      onChange,
+      disabled,
+      icon,
+      count,
+      label,
+      numTab,
+      isIntersecting
+    },
     forwardedRef
   ) => {
     const innerRef = useRef()
@@ -23,14 +35,14 @@ const MoleculeTab = forwardRef(
     }
 
     useEffect(() => {
-      if (active && isIntersecting) {
+      if (autoScrollIntoView && active && isIntersecting) {
         innerRef.current.scrollIntoView({
           behavior: 'smooth',
           block: 'nearest',
           inline: 'start'
         })
       }
-    }, [active, isIntersecting, innerRef])
+    }, [autoScrollIntoView, active, isIntersecting, innerRef])
 
     const className = cx(CLASS_TAB, {
       [CLASS_TAB_ACTIVE]: active,
@@ -52,6 +64,9 @@ const MoleculeTab = forwardRef(
 )
 
 MoleculeTab.propTypes = {
+  /** Enable scroll into view funcionality */
+  autoScrollIntoView: PropTypes.bool,
+
   /** Handler on Change Tabs */
   onChange: PropTypes.func,
 

@@ -1,6 +1,8 @@
 import {Children, cloneElement, isValidElement} from 'react'
+
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+
 import useOnScreen from '@s-ui/react-hooks/lib/useOnScreen'
 
 import {
@@ -11,7 +13,13 @@ import {
   VARIANTS
 } from '../config.js'
 
-const MoleculeTabs = ({variant, type, children, onChange}) => {
+const MoleculeTabs = ({
+  autoScrollIntoView = true,
+  children,
+  onChange,
+  type,
+  variant
+}) => {
   const className = cx(BASE_CLASS, {
     [`${BASE_CLASS}--${variant}`]: variant,
     [`${BASE_CLASS}--${type}`]: type
@@ -25,9 +33,10 @@ const MoleculeTabs = ({variant, type, children, onChange}) => {
     .map((child, index) => {
       const numTab = index + 1
       return cloneElement(child, {
-        onChange,
+        autoScrollIntoView,
+        isIntersecting,
         numTab,
-        isIntersecting
+        onChange
       })
     })
 
@@ -54,6 +63,9 @@ const MoleculeTabs = ({variant, type, children, onChange}) => {
 MoleculeTabs.displayName = 'MoleculeTabs'
 
 MoleculeTabs.propTypes = {
+  /** Enable scroll into view funcionality */
+  autoScrollIntoView: PropTypes.bool,
+
   /** children */
   children: PropTypes.any,
 

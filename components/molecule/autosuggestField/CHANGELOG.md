@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.10.0 (2022-06-22)
+
+
+### Features
+
+* **components/molecule/autosuggestField:** Avoid publishing huge CHANGELOG.md ([927445d](https://github.com/SUI-Components/sui-components/commit/927445d5d060233f457853cfb2e8322e9205e891))
+
+
+
 # 2.9.0 (2021-12-16)
 
 
@@ -109,7 +118,6 @@
 
 ### Features
 
-* **META:** merge master ([1877e1e](https://github.com/SUI-Components/sui-components/commit/1877e1ece55b4443a98c7d64e4e1588e8f0dc011))
 * **molecule/autosuggestField:** allow autosuggest field to specify a type for the label ([30b1c86](https://github.com/SUI-Components/sui-components/commit/30b1c861db94b72f4828f7dd90c55c5fab49f99a))
 * **molecule/autosuggestField:** update prop name and ussage ([a58dd7d](https://github.com/SUI-Components/sui-components/commit/a58dd7d8068dfccc02506b7e0b1bc5f159b8679f))
 

@@ -35,8 +35,12 @@ const ArticleDisabled = ({className}) => (
         </Fragment>
       ))}
       {Object.entries({
-        customized: {isNative: false},
-        native: {isNative: true}
+        native: {},
+        customized: {
+          checkedIcon: ICONS.aiOutlineCheck,
+          indeterminateIcon: ICONS.aiOutlineLine,
+          uncheckedIcon: ICONS.aiOutlineClose
+        }
       }).map(([label, props1], index1) => (
         <Fragment key={index1}>
           <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
@@ -51,8 +55,6 @@ const ArticleDisabled = ({className}) => (
               <Cell style={flexCenteredStyle}>
                 <AtomCheckbox
                   id={`${index1}-${index2}`}
-                  checkedIcon={() => ICONS.aiOutlineCheck}
-                  indeterminateIcon={() => ICONS.aiOutlineLine}
                   disabled
                   {...{...props1, ...props2}}
                 />

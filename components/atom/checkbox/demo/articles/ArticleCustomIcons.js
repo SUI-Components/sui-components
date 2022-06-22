@@ -42,20 +42,20 @@ const ArticleCustomIcons = ({className}) => {
           >
             <RadioButton
               value="aiOutlineCheck"
-              label={ICONS.aiOutlineCheck}
+              label={<ICONS.aiOutlineCheck />}
               checked={state.checkedIcon === 'aiOutlineCheck'}
             />
             <RadioButton
               value="aiOutlineClose"
-              label={ICONS.aiOutlineClose}
+              label={<ICONS.aiOutlineClose />}
               checked={state.checkedIcon === 'aiOutlineClose'}
             />
           </RadioButtonGroup>
         </Cell>
         <Cell style={flexCenteredStyle}>
           <AtomCheckbox
-            checkedIcon={() => ICONS[checkedIcon] || null}
-            indeterminateIcon={() => ICONS[indeterminateIcon] || null}
+            checkedIcon={ICONS[checkedIcon] || null}
+            indeterminateIcon={ICONS[indeterminateIcon] || null}
             checked
           />
         </Cell>
@@ -75,30 +75,30 @@ const ArticleCustomIcons = ({className}) => {
           >
             <RadioButton
               value="aiOutlineLine"
-              label={ICONS.aiOutlineLine}
+              label={<ICONS.aiOutlineLine />}
               checked={state.indeterminateIcon === 'aiOutlineLine'}
             />
             <RadioButton
               value="aiOutlineInfo"
-              label={ICONS.aiOutlineInfo}
+              label={<ICONS.aiOutlineInfo />}
               checked={state.indeterminateIcon === 'aiOutlineInfo'}
             />
             <RadioButton
               value="aiOutlinePause"
-              label={ICONS.aiOutlinePause}
+              label={<ICONS.aiOutlinePause />}
               checked={state.indeterminateIcon === 'aiOutlinePause'}
             />
             <RadioButton
               value="aiOutlinePlus"
-              label={ICONS.aiOutlinePlus}
+              label={<ICONS.aiOutlinePlus />}
               checked={state.indeterminateIcon === 'aiOutlinePlus'}
             />
           </RadioButtonGroup>
         </Cell>
         <Cell style={flexCenteredStyle}>
           <AtomCheckbox
-            checkedIcon={() => ICONS[checkedIcon] || null}
-            indeterminateIcon={() => ICONS[indeterminateIcon] || null}
+            checkedIcon={ICONS[checkedIcon] || null}
+            indeterminateIcon={ICONS[indeterminateIcon] || null}
             indeterminate
           />
         </Cell>

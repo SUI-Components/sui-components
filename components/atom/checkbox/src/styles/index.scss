@@ -1,93 +1,153 @@
 $base-class: '.sui-AtomCheckbox';
+$class-icon: '#{$base-class}--Icon';
 
 #{$base-class} {
-  $self: &;
-
-  &:not(&--native) {
-    align-items: center;
-    background-color: $bgc-atom-checkbox;
-    border-radius: $bdrs-atom-checkbox;
-    border: $bd-atom-checkbox;
-    cursor: pointer;
-    display: inline-flex;
-    height: $h-atom-checkbox;
-    justify-content: center;
-    text-align: center;
-    vertical-align: top;
-    width: $w-atom-checkbox;
-    min-width: $w-atom-checkbox;
-
-    &#{$self}--small {
-      height: $h-atom-checkbox-small;
-      width: $w-atom-checkbox-small;
-      min-width: $w-atom-checkbox-small;
-    }
-
-    span {
-      /* Center custom icons */
+  display: inline-block;
+  box-sizing: border-box;
+  color: $c-atom-checkbox;
+  &#{$base-class}--native-disabled {
+    #{$class-icon} {
+      padding: 0;
+      cursor: default;
       align-items: center;
-      display: flex;
+      border-width: 1.5px;
+      border-style: solid;
+      display: inline-flex;
       justify-content: center;
-    }
+      text-align: center;
+      vertical-align: top;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.15em;
+      outline-offset: 2px;
 
-    svg {
-      width: $w-atom-checkbox-icon;
-      height: $h-atom-checkbox-icon;
-    }
+      &:focus {
+        outline: none;
+      }
+      &:focus-visible {
+        outline: 2px solid transparentize($c-primary, 0.6);
+      }
 
-    &.is-checked {
-      background-color: $bgc-checked-atom-checkbox;
-      border: $bd-atom-checkbox--checked;
-      color: $c-atom-checkbox;
-      svg {
-        fill: $c-atom-checkbox;
+      span {
+        /* Center custom icons */
+        align-items: center;
+        display: flex;
+        justify-content: center;
       }
     }
-
-    &.is-indeterminate {
-      background-color: $bgc-checked-atom-checkbox-is-intermediate;
-      border: $bd-atom-checkbox-is-intermediate;
-      color: $c-atom-checkbox-is-intermediate;
+    input[type='checkbox'] {
+      display: none;
     }
+  }
 
-    &.is-disabled {
-      background-color: $bgc-checked-atom-checkbox-is-disabled;
-      border-color: $bdc-atom-checkbox-is-disabled;
-
-      svg {
-        fill: $c-atom-checkbox-custom-is-disabled;
-      }
-    }
-
-    &#{$self}--status {
-      @each $status, $color in $status-atom-checkbox {
-        &-#{$status} {
-          border-color: $color;
-
-          &.is-checked,
-          &.is-indeterminate {
-            background-color: $color;
-          }
+  @each $size-name, $size-values in $sz-icon {
+    $width: map-get($size-values, width);
+    $height: map-get($size-values, height);
+    &#{$base-class}--size-#{$size-name} {
+      width: $width;
+      height: $height;
+      &#{$base-class}--native-enabled {
+        input[type='checkbox'] {
+          width: $width;
+          height: $height;
         }
       }
     }
   }
 
-  &.is-checked {
-    color: $c-atom-checkbox;
-  }
-
-  input[type='checkbox'] {
-    display: none;
-  }
-
-  &--native {
-    input[type='checkbox'] {
-      display: inline;
+  // semantic status
+  &#{$base-class}--native-disabled #{$class-icon},
+  &#{$base-class}--native-enabled input[type='checkbox'] {
+    border-color: $c-primary;
+    color: $c-primary;
+    background-color: $c-atom-checkbox;
+    &::before {
+      box-shadow: inset 1em 1em $c-primary;
+    }
+    &.is-checked,
+    &.is-indeterminate,
+    &:checked,
+    &:indeterminate {
+      border-color: $c-primary;
+      color: $c-atom-checkbox;
+      background-color: $c-primary;
+      &::before {
+        box-shadow: inset 1em 1em $c-atom-checkbox;
+      }
+    }
+    &:disabled {
+      color: $bdc-atom-checkbox-is-disabled;
+      background-color: $bgc-checked-atom-checkbox-is-disabled;
+      border-color: $bdc-atom-checkbox-is-disabled;
+    }
+    @each $status, $color in $status-atom-checkbox {
+      &[data-status='#{$status}']:not(:disabled) {
+        border-color: $color;
+        color: $color;
+        background-color: $c-atom-checkbox;
+        &.is-checked,
+        &.is-indeterminate,
+        &:checked,
+        &:indeterminate {
+          color: $c-atom-checkbox;
+          border-color: $color;
+          background-color: $color;
+        }
+      }
     }
   }
 
-  &.is-disabled {
-    color: $c-atom-checkbox-is-disabled;
+  &#{$base-class}--native-enabled {
+    input[type='checkbox'] {
+      appearance: none;
+      background-color: transparent;
+      margin: 0;
+      font: inherit;
+      color: currentColor;
+      border-width: 1.5px;
+      border-style: solid;
+      border-radius: 0.15em;
+      display: flex;
+      &::before {
+        margin: 10%;
+        content: '';
+        width: 80%;
+        height: 80%;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        transform-origin: bottom left;
+      }
+      &:checked {
+        &::before {
+          transform: scale(1);
+          clip-path: polygon(
+            10% 40%,
+            0% 55%,
+            50% 90%,
+            100% 10%,
+            85% 0%,
+            46% 65%
+          );
+        }
+      }
+      &:indeterminate {
+        &::before {
+          transform: scale(1);
+          clip-path: polygon(0% 44%, 100% 44%, 100% 56%, 0% 56%);
+        }
+      }
+      &:focus {
+        outline: none;
+      }
+      &:focus-visible {
+        outline: 2px solid transparentize($c-primary, 0.6);
+      }
+      &:disabled {
+        &:before {
+          background-color: $bdc-atom-checkbox-is-disabled;
+          box-shadow: none;
+        }
+      }
+    }
   }
 }

@@ -7,11 +7,14 @@ import {
   Code,
   Grid,
   H2,
+  H3,
+  H4,
+  Separator,
   Label,
   Paragraph
 } from '@s-ui/documentation-library'
 
-import AtomCheckbox from '../../src/index.js'
+import AtomCheckbox, {atomCheckboxStatus} from '../../src/index.js'
 import {flexCenteredStyle, ICONS} from '../settings.js'
 
 const ArticleValues = ({className}) => (
@@ -26,6 +29,10 @@ const ArticleValues = ({className}) => (
       boolean prop also.
     </Paragraph>
     <Grid cols={4} gutter={[10, 10]}>
+      <Cell span={4}>
+        <H3>Default</H3>
+        <Separator />
+      </Cell>
       <Cell />
       {Object.entries({
         checked: {checked: true},
@@ -39,8 +46,12 @@ const ArticleValues = ({className}) => (
         </Fragment>
       ))}
       {Object.entries({
-        customized: {isNative: false},
-        native: {isNative: true}
+        customized: {
+          checkedIcon: ICONS.aiOutlineCheck,
+          indeterminateIcon: ICONS.aiOutlineLine
+          // unCheckedIcon: ICONS.bsDot
+        },
+        native: {}
       }).map(([label, props1], index1) => (
         <Fragment key={index1}>
           <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
@@ -55,11 +66,84 @@ const ArticleValues = ({className}) => (
               <Cell style={flexCenteredStyle}>
                 <AtomCheckbox
                   id={`${index1}-${index2}`}
-                  checkedIcon={() => ICONS.aiOutlineCheck}
-                  indeterminateIcon={() => ICONS.aiOutlineLine}
                   {...{...props1, ...props2}}
                 />
               </Cell>
+            </Fragment>
+          ))}
+        </Fragment>
+      ))}
+      <Cell span={4}>
+        <H3>Disabled</H3>
+        <Separator />
+      </Cell>
+      {Object.entries({
+        customized: {
+          checkedIcon: ICONS.aiOutlineCheck,
+          indeterminateIcon: ICONS.aiOutlineLine
+          // unCheckedIcon: ICONS.bsDot
+        },
+        native: {}
+      }).map(([label, props1], index1) => (
+        <Fragment key={index1}>
+          <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
+            <Label>{label}</Label>
+          </Cell>
+          {Object.entries({
+            checked: {checked: true},
+            indeterminate: {indeterminate: true},
+            unchecked: {checked: false}
+          }).map(([label, props2], index2) => (
+            <Fragment key={index2}>
+              <Cell style={flexCenteredStyle}>
+                <AtomCheckbox
+                  disabled
+                  id={`${index1}-${index2}`}
+                  {...{...props1, ...props2}}
+                />
+              </Cell>
+            </Fragment>
+          ))}
+        </Fragment>
+      ))}
+      <Cell span={4}>
+        <H3>Semantic</H3>
+        <Separator />
+      </Cell>
+      {Object.values(atomCheckboxStatus).map((status, index) => (
+        <Fragment key={status}>
+          <Cell span={4}>
+            <H4>{status}</H4>
+          </Cell>
+          {Object.entries({
+            customized: {
+              checkedIcon: ICONS.aiOutlineCheck,
+              indeterminateIcon: ICONS.aiOutlineLine
+              // unCheckedIcon: ICONS.bsDot
+            },
+            native: {}
+          }).map(([label, props1], index1) => (
+            <Fragment key={index1}>
+              <Cell
+                style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
+              >
+                <Label>{label}</Label>
+              </Cell>
+              {Object.entries({
+                checked: {checked: true},
+                indeterminate: {indeterminate: true},
+                unchecked: {checked: false}
+              }).map(([label, props2], index2) => (
+                <Fragment key={index2}>
+                  <Cell style={flexCenteredStyle}>
+                    <AtomCheckbox
+                      id={`${index1}-${index2}`}
+                      {...{...props1, ...props2}}
+                      status={status}
+                    />
+                  </Cell>
+                </Fragment>
+              ))}
             </Fragment>
           ))}
         </Fragment>

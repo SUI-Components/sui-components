@@ -9,6 +9,7 @@ import ArticleValues from './articles/ArticleValues.js'
 import ArticleDisabled from './articles/ArticleDisabled.js'
 import ArticleStatus from './articles/ArticleStatus.js'
 import ArticleCustomIcons from './articles/ArticleCustomIcons.js'
+import ArticlePlayground from './articles/ArticlePlayground.js'
 
 import './index.scss'
 
@@ -31,6 +32,8 @@ const Demo = () => {
       <ArticleStatus className={CLASS_SECTION} />
       <br />
       <ArticleCustomIcons className={CLASS_SECTION} />
+      <br />
+      <ArticlePlayground className={CLASS_SECTION} />
     </div>
   )
 }

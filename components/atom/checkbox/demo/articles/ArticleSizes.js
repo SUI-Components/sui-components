@@ -50,8 +50,8 @@ const ArticleSizes = ({className}) => (
               <Cell style={flexCenteredStyle}>
                 <AtomCheckbox
                   id={`${index}-${index2}`}
-                  checkedIcon={() => ICONS.aiOutlineCheck}
-                  indeterminateIcon={() => ICONS.aiOutlineLine}
+                  checkedIcon={ICONS.aiOutlineCheck}
+                  indeterminateIcon={ICONS.aiOutlineLine}
                   {...{...props}}
                   size={size}
                 />

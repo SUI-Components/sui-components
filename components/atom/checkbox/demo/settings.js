@@ -1,4 +1,4 @@
-import {AntDesignIcon} from '@s-ui/documentation-library'
+import {AntDesignIcon, BootstrapIcon} from '@s-ui/documentation-library'
 import AtomIcon from '@s-ui/react-atom-icon'
 
 import {atomCheckboxSizes, atomCheckboxStatus} from '../src/index.js'
@@ -10,34 +10,68 @@ export const CHECKBOX_STATUS = ['', ...Object.values(atomCheckboxStatus)]
 export const CHECKBOX_SIZE = [...Object.values(atomCheckboxSizes)]
 
 export const ICONS = {
-  aiOutlineCheck: (
-    <AtomIcon>
+  aiOutlineCheck: ({as, size}) => (
+    <AtomIcon as={as} size={size}>
       <AntDesignIcon icon="AiOutlineCheck" style={{color: 'currentColor'}} />
     </AtomIcon>
   ),
-  aiOutlineClose: (
-    <AtomIcon>
+  aiOutlineClose: ({as, size}) => (
+    <AtomIcon as={as} size={size}>
       <AntDesignIcon icon="AiOutlineClose" style={{color: 'currentColor'}} />
     </AtomIcon>
   ),
-  aiOutlineLine: (
-    <AtomIcon>
+  aiOutlineLine: ({as, size}) => (
+    <AtomIcon as={as} size={size}>
       <AntDesignIcon icon="AiOutlineLine" style={{color: 'currentColor'}} />
     </AtomIcon>
   ),
-  aiOutlineInfo: (
-    <AtomIcon>
+  aiOutlineInfo: ({as, size}) => (
+    <AtomIcon as={as} size={size}>
       <AntDesignIcon icon="AiOutlineInfo" style={{color: 'currentColor'}} />
     </AtomIcon>
   ),
-  aiOutlinePause: (
-    <AtomIcon>
+  aiOutlinePause: ({as, size}) => (
+    <AtomIcon as={as} size={size}>
       <AntDesignIcon icon="AiOutlinePause" style={{color: 'currentColor'}} />
     </AtomIcon>
   ),
-  aiOutlinePlus: (
-    <AtomIcon>
+  aiOutlinePlus: ({as, size}) => (
+    <AtomIcon as={as} size={size}>
       <AntDesignIcon icon="AiOutlinePlus" style={{color: 'currentColor'}} />
+    </AtomIcon>
+  ),
+  bsSquare: ({as, size}) => (
+    <AtomIcon as={as} size={size}>
+      <BootstrapIcon icon="BsSquare" style={{color: 'currentColor'}} />
+    </AtomIcon>
+  ),
+  bsDot: ({as, size}) => (
+    <AtomIcon as={as} size={size}>
+      <BootstrapIcon icon="BsDot" style={{color: 'currentColor'}} />
+    </AtomIcon>
+  ),
+  bsFillEmojiSmileFill: ({as, size}) => (
+    <AtomIcon as={as} size={size}>
+      <BootstrapIcon
+        icon="BsFillEmojiSmileFill"
+        style={{color: 'currentColor'}}
+      />
+    </AtomIcon>
+  ),
+  bsFillEmojiNeutralFill: ({as, size}) => (
+    <AtomIcon as={as} size={size}>
+      <BootstrapIcon
+        icon="BsFillEmojiNeutralFill"
+        style={{color: 'currentColor'}}
+      />
+    </AtomIcon>
+  ),
+  bsFillEmojiFrownFill: ({as, size}) => (
+    <AtomIcon as={as} size={size}>
+      <BootstrapIcon
+        icon="BsFillEmojiFrownFill"
+        style={{color: 'currentColor'}}
+      />
     </AtomIcon>
   )
 }

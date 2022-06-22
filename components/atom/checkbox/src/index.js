@@ -1,26 +1,35 @@
-import {useRef, forwardRef, useState} from 'react'
+import {useRef, forwardRef} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
+import CheckboxIcon from './CheckboxIcon.js'
 
 import {
   BASE_CLASS,
   CHECKBOX_STATUS,
   CHECKBOX_SIZES,
-  updateStatus
+  getIcon,
+  updateStatus,
+  isFunction,
+  pressedValue,
+  getIsNative
 } from './config.js'
 
 const AtomCheckbox = forwardRef(
   (
     {
-      checked: checkedProp = false,
+      defaultChecked: defaultCheckedProp = false,
+      checked: checkedProp,
       checkedIcon: CheckedIcon,
+      uncheckedIcon: UncheckedIcon,
       disabled,
       id,
-      indeterminate: indeterminateProp = false,
+      defaultIndeterminate: defaultIndeterminateProp = false,
+      indeterminate: indeterminateProp,
       indeterminateIcon: IndeterminateIcon,
-      isNative: isNativeProp = false,
+      icon: IconProp,
       name,
       onChange: onChangeFromProps,
       status,
@@ -31,43 +40,76 @@ const AtomCheckbox = forwardRef(
     forwardedRef
   ) => {
     const inputRef = useRef()
-    const [{checked, indeterminate}, setStatus] = useState({
-      checked: checkedProp,
-      indeterminate: indeterminateProp
-    })
+    const [checked, setChecked, isCheckedControlled] = useControlledState(
+      checkedProp,
+      defaultCheckedProp
+    )
+    const [indeterminate, setIndeterminate, isIndeterminateControlled] =
+      useControlledState(indeterminateProp, defaultIndeterminateProp)
+
     const ref = useMergeRefs(
       node =>
         updateStatus(
           node,
-          {isChecked: checkedProp, isIndeterminate: indeterminateProp},
-          setStatus
+          {isChecked: checked, isIndeterminate: indeterminate},
+          {setChecked, setIndeterminate}
         ),
       inputRef,
       forwardedRef
     )
-    const hasNotCustomIcons = !CheckedIcon && !IndeterminateIcon
-    const isNative = isNativeProp || hasNotCustomIcons
+    const isNative = getIsNative(
+      {checked, indeterminate},
+      {CheckedIcon, UncheckedIcon, IndeterminateIcon, Icon: IconProp}
+    )
+    const Icon = getIcon(
+      {isNative, checked, indeterminate},
+      {CheckedIcon, UncheckedIcon, IndeterminateIcon, Icon: IconProp}
+    )
 
-    const handleChange = ev => {
-      const {name, value} = ev.target
-      if (!disabled && typeof onChangeFromProps === 'function')
-        onChangeFromProps(ev, {name, value, checked: !checked, indeterminate})
+    const handleChange = ref => event => {
+      if (!disabled) {
+        const {name, value} = event.target
+        setChecked(checked)
+        setIndeterminate(indeterminate)
+        isFunction(onChangeFromProps) &&
+          onChangeFromProps(event, {
+            name,
+            value,
+            checked: isCheckedControlled ? checked : event.target.checked,
+            indeterminate: isIndeterminateControlled
+              ? indeterminate
+              : event.target.indeterminate
+          })
+        ref.current.focus()
+      }
     }
 
-    const className = cx(BASE_CLASS, {
-      [`${BASE_CLASS}--${size}`]: Object.values(CHECKBOX_SIZES).includes(size),
-      'is-checked': checked,
-      'is-disabled': disabled,
-      'is-indeterminate': indeterminate,
-      [`${BASE_CLASS}--native`]: isNative,
-      [`${BASE_CLASS}--status-${status}`]:
-        Object.values(CHECKBOX_STATUS).includes(status)
-    })
+    const handleClick = ref => event => {
+      event.preventDefault()
+      event.stopPropagation()
+      if (!disabled) {
+        const {name, value} = event.target
+        setChecked(!checked)
+        setIndeterminate(false)
+        isFunction(onChangeFromProps) &&
+          onChangeFromProps(event, {
+            name,
+            value,
+            checked: isCheckedControlled ? checked : !checked,
+            indeterminate: isIndeterminateControlled ? indeterminate : false
+          })
+        ref.current.focus()
+      }
+    }
 
     return (
-      <label className={className}>
-        {!isNative && checked && <CheckedIcon />}
-        {!isNative && indeterminate && <IndeterminateIcon />}
+      <label
+        className={cx(
+          BASE_CLASS,
+          `${BASE_CLASS}--native-${isNative ? 'enabled' : 'disabled'}`,
+          `${BASE_CLASS}--size-${size}`
+        )}
+      >
         <input
           ref={ref}
           type="checkbox"
@@ -76,9 +118,24 @@ const AtomCheckbox = forwardRef(
           value={value}
           disabled={disabled}
           checked={checked}
+          {...(Object.values(CHECKBOX_STATUS).includes(status) && {
+            'data-status': status
+          })}
+          aria-hidden={!isNative}
+          aria-checked={pressedValue({checked, indeterminate})}
           indeterminate={indeterminate ? 'true' : undefined}
-          onChange={handleChange}
+          {...(isNative && {onChange: handleChange(inputRef)})}
+          {...(!isNative && {readOnly: true})}
           {...props}
+        />
+        <CheckboxIcon
+          disabled={disabled}
+          size={size}
+          status={status}
+          checked={checked}
+          indeterminate={indeterminate}
+          onClick={handleClick}
+          icon={Icon}
         />
       </label>
     )
@@ -106,11 +163,20 @@ AtomCheckbox.propTypes = {
   /* This Boolean attribute prevents the user from interacting with the input */
   disabled: PropTypes.bool,
 
+  /* Mark the input as default initial selected */
+  defaultChecked: PropTypes.bool,
+
   /* Mark the input as selected */
   checked: PropTypes.bool,
 
   /* AtomIcon when checkbox is checked */
   checkedIcon: PropTypes.elementType,
+
+  /* AtomIcon when checkbox is unchecked */
+  uncheckedIcon: PropTypes.elementType,
+
+  /* Mark the input as default initial selected */
+  defaultIndeterminate: PropTypes.bool,
 
   /* Mark the input as indeterminate */
   indeterminate: PropTypes.bool,
@@ -118,8 +184,8 @@ AtomCheckbox.propTypes = {
   /* AtomIcon when checkbox is intermediate */
   indeterminateIcon: PropTypes.elementType,
 
-  /* Uses browser's native look and feel instead of custom icons */
-  isNative: PropTypes.bool,
+  /** mandatory icon shown not depending on its state. Change it depending on the checkbox state to emulate the behavior. **/
+  icon: PropTypes.elementType,
 
   /* onChange callback */
   onChange: PropTypes.func,

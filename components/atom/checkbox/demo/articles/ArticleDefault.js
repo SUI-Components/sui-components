@@ -50,10 +50,50 @@ const ArticleDefault = ({className}) => {
     console.log(args) // eslint-disable-line no-console
     return undefined
   }
+
+  const clickHandler = (event, args) => console.log(...args)
   return (
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>Default style of AtomCheckbox.</Paragraph>
+      <Grid cols={3} gutter={[8, 8]}>
+        <Cell>
+          <AtomCheckbox
+            value="checkBox-default-unchecked"
+            name="checkBox-default-unchecked"
+            id="checkBox-default-unchecked"
+            checkedIcon={ICONS.aiOutlineCheck}
+            indeterminateIcon={ICONS.aiOutlineLine}
+            defaultIndeterminate={PROPS_STATUS.UNCHECKED.indeterminate}
+            defaultChecked={PROPS_STATUS.UNCHECKED.checked}
+            onClick={clickHandler}
+          />
+        </Cell>
+        <Cell>
+          <AtomCheckbox
+            value="checkBox-default-indeterminate"
+            name="checkBox-default-indeterminate"
+            id="checkBox-default-indeterminate"
+            defaultChecked={PROPS_STATUS.INDETERMINATE.checked}
+            checkedIcon={ICONS.aiOutlineCheck}
+            defaultIndeterminate={PROPS_STATUS.INDETERMINATE.indeterminate}
+            indeterminateIcon={ICONS.aiOutlineLine}
+            onClick={clickHandler}
+          />
+        </Cell>
+        <Cell>
+          <AtomCheckbox
+            value="checkBox-default-checked"
+            name="checkBox-default-checked"
+            id="checkBox-default-checked"
+            defaultChecked={PROPS_STATUS.CHECKED.checked}
+            checkedIcon={ICONS.aiOutlineCheck}
+            defaultIndeterminate={PROPS_STATUS.CHECKED.indeterminate}
+            indeterminateIcon={ICONS.aiOutlineLine}
+            onClick={clickHandler}
+          />
+        </Cell>
+      </Grid>
       <Paragraph>
         It combines and updates its inner <Code>checked</Code> and{' '}
         <Code>indeterminate</Code> states.
@@ -80,8 +120,8 @@ const ArticleDefault = ({className}) => {
             name="checkBoxName"
             id="checkBoxExample"
             onChange={handler('AtomCheckbox')}
-            checkedIcon={() => ICONS.aiOutlineCheck}
-            indeterminateIcon={() => ICONS.aiOutlineLine}
+            checkedIcon={ICONS.aiOutlineCheck}
+            indeterminateIcon={ICONS.aiOutlineLine}
             indeterminate={indeterminate}
             checked={checked}
           />

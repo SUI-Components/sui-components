@@ -16,15 +16,15 @@ import {
 const MoleculeTab = forwardRef(
   (
     {
-      autoScrollIntoView = true,
       active,
-      onChange,
+      autoScrollIntoView = true,
+      count,
       disabled,
       icon,
-      count,
+      isIntersecting,
       label,
       numTab,
-      isIntersecting
+      onChange
     },
     forwardedRef
   ) => {

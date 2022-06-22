@@ -7,6 +7,10 @@ $base-class: '.sui-AtomIcon';
   width: auto;
   overflow: visible;
   background: transparent;
+  color: inherit;
+  &:focus-visible {
+    outline-width: 0;
+  }
 
   // Colors
   @each $key, $value in $atom-icon-colors {

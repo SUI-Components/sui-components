@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.26.0 (2022-06-22)
+
+
+### Features
+
+* **components/molecule/breadcrumb:** Avoid publishing huge CHANGELOG.md ([e77a828](https://github.com/SUI-Components/sui-components/commit/e77a828786b4ad53a889107323c6c56f12256bb1))
+
+
+
 # 1.25.0 (2022-05-24)
 
 

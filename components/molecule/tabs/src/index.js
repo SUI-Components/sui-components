@@ -1,10 +1,10 @@
 import {Children, cloneElement, useEffect, useState} from 'react'
-import PropTypes from 'prop-types'
 
-import {TYPES, VARIANTS} from './config.js'
+import PropTypes from 'prop-types'
 
 import MoleculeTab from './components/MoleculeTab.js'
 import MoleculeTabs from './components/MoleculeTabs.js'
+import {TYPES, VARIANTS} from './config.js'
 
 const MoleculeTabsWithStateActive = ({children, onChange, ...props}) => {
   const [activeTab, setActiveTab] = useState(null)

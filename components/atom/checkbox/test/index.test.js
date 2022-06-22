@@ -207,7 +207,7 @@ describe(json.name, () => {
       }
     })
 
-    it('should fire onChange handler value when the element is clicked when status is intermediate = true', () => {
+    it('should fire onChange handler value when the element is clicked when status is indetermiante = true', () => {
       // Given
       const {version} = json
       const spy = sinon.spy()
@@ -245,7 +245,7 @@ describe(json.name, () => {
       }
     })
 
-    it('should fire onChange handler value when the element is clicked when status is defaultIntermediate = true', () => {
+    it('should fire onChange handler value when the element is clicked when status is defaultIndeterminate = true', () => {
       // Given
       const {version} = json
       const spy = sinon.spy()
@@ -253,7 +253,7 @@ describe(json.name, () => {
         onChange: spy,
         name: 'name',
         value: 'value',
-        defaultIntermediate: true
+        defaultIndeterminate: true
       }
 
       // When

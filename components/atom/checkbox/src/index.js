@@ -49,11 +49,10 @@ const AtomCheckbox = forwardRef(
 
     const ref = useMergeRefs(
       node =>
-        updateStatus(
-          node,
-          {isChecked: checked, isIndeterminate: indeterminate},
-          {setChecked, setIndeterminate}
-        ),
+        updateStatus(node, {
+          isChecked: checked,
+          isIndeterminate: indeterminate
+        }),
       inputRef,
       forwardedRef
     )
@@ -69,16 +68,18 @@ const AtomCheckbox = forwardRef(
     const handleChange = ref => event => {
       if (!disabled) {
         const {name, value} = event.target
-        setChecked(checked)
-        setIndeterminate(indeterminate)
+        const newChecked = isCheckedControlled ? checked : event.target.checked
+        const newIndeterminate = isIndeterminateControlled
+          ? indeterminate
+          : event.target.indeterminate
+        setChecked(newChecked)
+        setIndeterminate(newIndeterminate)
         isFunction(onChangeFromProps) &&
           onChangeFromProps(event, {
             name,
             value,
-            checked: isCheckedControlled ? checked : event.target.checked,
-            indeterminate: isIndeterminateControlled
-              ? indeterminate
-              : event.target.indeterminate
+            checked: newChecked,
+            indeterminate: newIndeterminate
           })
         ref.current.focus()
       }
@@ -89,18 +90,24 @@ const AtomCheckbox = forwardRef(
       event.stopPropagation()
       if (!disabled) {
         const {name, value} = event.target
-        setChecked(!checked)
+        const newChecked = isCheckedControlled ? checked : !checked
+        const newIndetermiante = isIndeterminateControlled
+          ? indeterminate
+          : false
+        setChecked(newChecked)
         setIndeterminate(false)
         isFunction(onChangeFromProps) &&
           onChangeFromProps(event, {
             name,
             value,
-            checked: isCheckedControlled ? checked : !checked,
-            indeterminate: isIndeterminateControlled ? indeterminate : false
+            checked: newChecked,
+            indeterminate: newIndetermiante
           })
         ref.current.focus()
       }
     }
+
+    console.log({checked, indeterminate})
 
     return (
       <label

@@ -58,24 +58,14 @@ export const getIcon = (
 
 export const updateStatus = (
   element,
-  {isIndeterminate = false, isChecked = false},
-  {setChecked, setIndeterminate}
+  {isIndeterminate = false, isChecked = false}
 ) => {
   if (!element) {
     return
   }
-  const {checked, indeterminate} = element
-  if (isChecked !== checked) {
-    element.checked = isChecked
+  const {indeterminate} = element
+  if (isIndeterminate !== indeterminate) {
     element.indeterminate = isChecked ? false : isIndeterminate
-    setChecked(isChecked)
-    setIndeterminate(isChecked ? false : isIndeterminate)
-    return
-  } else if (isIndeterminate !== indeterminate) {
-    element.indeterminate = isChecked ? false : isIndeterminate
-    element.checked = false
-    setChecked(false)
-    setIndeterminate(isChecked ? false : isIndeterminate)
     return
   }
   return undefined

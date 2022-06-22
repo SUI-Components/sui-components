@@ -40,7 +40,7 @@ const ArticleDefault = ({className}) => {
   const handler = setter => (event, args) => {
     if (setter === 'AtomCheckbox') {
       const {checked} = args
-      setStatus(checked === true ? 'CHECKED' : 'UNCHECKED')
+      setStatus(checked === true ? 'UNCHECKED' : 'CHECKED')
       return undefined
     } else if (setter === 'RadioButtonGroup') {
       if (args !== undefined) {
@@ -51,7 +51,9 @@ const ArticleDefault = ({className}) => {
     return undefined
   }
 
-  const clickHandler = (event, args) => console.log(...args)
+  const clickHandler = (event, args) => {
+    console.log(args)
+  }
   return (
     <Article className={className}>
       <H2>Default</H2>
@@ -66,7 +68,7 @@ const ArticleDefault = ({className}) => {
             indeterminateIcon={ICONS.aiOutlineLine}
             defaultIndeterminate={PROPS_STATUS.UNCHECKED.indeterminate}
             defaultChecked={PROPS_STATUS.UNCHECKED.checked}
-            onClick={clickHandler}
+            onChange={clickHandler}
           />
         </Cell>
         <Cell>
@@ -78,7 +80,7 @@ const ArticleDefault = ({className}) => {
             checkedIcon={ICONS.aiOutlineCheck}
             defaultIndeterminate={PROPS_STATUS.INDETERMINATE.indeterminate}
             indeterminateIcon={ICONS.aiOutlineLine}
-            onClick={clickHandler}
+            onChange={clickHandler}
           />
         </Cell>
         <Cell>
@@ -90,7 +92,7 @@ const ArticleDefault = ({className}) => {
             checkedIcon={ICONS.aiOutlineCheck}
             defaultIndeterminate={PROPS_STATUS.CHECKED.indeterminate}
             indeterminateIcon={ICONS.aiOutlineLine}
-            onClick={clickHandler}
+            onChange={clickHandler}
           />
         </Cell>
       </Grid>

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.16.0 (2022-06-22)
+
+
+### Features
+
+* **components/molecule/badgeCounter:** Avoid publishing huge CHANGELOG.md ([7be1753](https://github.com/SUI-Components/sui-components/commit/7be1753a46b8ac904c48235ba1da77a7784ed5a0))
+
+
+
 # 1.15.0 (2022-05-05)
 
 

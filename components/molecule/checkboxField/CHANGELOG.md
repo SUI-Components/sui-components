@@ -1,5 +1,26 @@
 # CHANGELOG
 
+# 2.18.0 (2022-06-22)
+
+
+### Features
+
+* **components/molecule/checkboxField:** Avoid publishing huge CHANGELOG.md ([17b7ecc](https://github.com/SUI-Components/sui-components/commit/17b7ecc59163440a641e9fe95b3531509cf10da5))
+
+
+
+# 1.2.0 (2022-02-09)
+
+
+### Features
+
+* **components/molecule/checkboxField/demo:** Add articles for checkboxField ([ce60d7b](https://github.com/SUI-Components/sui-components/commit/ce60d7b0bc11663dc35fb0639c52be6c2753e6db))
+* **components/molecule/checkboxField/demo:** Add classname ([d19e149](https://github.com/SUI-Components/sui-components/commit/d19e149231a218517c7d990e79b1c79207443fde))
+* **components/molecule/checkboxField/demo:** minor fix ([5e0232b](https://github.com/SUI-Components/sui-components/commit/5e0232b73c662f3516ec34eb38c312971da3cf87))
+* **components/molecule/checkboxField/demo:** remove className ([7c6f327](https://github.com/SUI-Components/sui-components/commit/7c6f32783c980ed88a34aafaf78ffcff4879d483))
+
+
+
 # 2.17.0 (2022-01-31)
 
 

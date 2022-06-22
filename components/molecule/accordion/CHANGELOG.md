@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 2.6.0 (2022-06-20)
+
+
+### Bug Fixes
+
+* **components/molecule/accordion:** fix accordion styles ([e1c0647](https://github.com/SUI-Components/sui-components/commit/e1c0647c8456a01ce6a796a632aacd7e64b8aead))
+
+
+### Features
+
+* **components/molecule/accordion:** Avoid publishing huge CHANGELOG.md ([aca2075](https://github.com/SUI-Components/sui-components/commit/aca20755b7ce774fe071ede849faef1564f37d86))
+
+
+
 # 2.5.0 (2022-06-03)
 
 

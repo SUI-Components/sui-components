@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.18.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/checkbox:** Avoid publishing huge CHANGELOG.md ([35f5a78](https://github.com/SUI-Components/sui-components/commit/35f5a78fa84cf898776ba828210ad4fa82f8d486))
+
+
+
 # 2.17.0 (2022-04-05)
 
 

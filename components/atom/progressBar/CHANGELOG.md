@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.8.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/progressBar:** Avoid publishing huge CHANGELOG.md ([c88e622](https://github.com/SUI-Components/sui-components/commit/c88e622c016295903dd3e3c9bfbc21bae2b15aa2))
+
+
+
 # 2.7.0 (2022-03-21)
 
 

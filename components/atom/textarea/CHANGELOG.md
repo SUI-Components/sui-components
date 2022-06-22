@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.19.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/textarea:** Avoid publishing huge CHANGELOG.md ([cc0f5df](https://github.com/SUI-Components/sui-components/commit/cc0f5df546b8ed8bf1d1e7de47c574b9d391b036))
+
+
+
 # 2.18.0 (2021-11-10)
 
 

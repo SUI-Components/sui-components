@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.9.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/upload:** Avoid publishing huge CHANGELOG.md ([e7fe23f](https://github.com/SUI-Components/sui-components/commit/e7fe23f568049bf35be5d97f8bae71c0d0bf4f53))
+
+
+
 # 3.8.0 (2022-03-24)
 
 

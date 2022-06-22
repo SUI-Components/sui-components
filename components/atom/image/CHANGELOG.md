@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 2.11.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/image:** Avoid publishing huge CHANGELOG.md ([426e446](https://github.com/SUI-Components/sui-components/commit/426e4463583354fcace286a51ca1a4e6c783638f))
+
+
+
+# 1.1.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/atom/image/demo:** resolve linting errors ([f00fe69](https://github.com/SUI-Components/sui-components/commit/f00fe692ee64281268b94aba4e46ce4230be22db))
+
+
+
 # 2.10.0 (2022-01-11)
 
 

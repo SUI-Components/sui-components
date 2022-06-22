@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.5.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/skeleton:** Avoid publishing huge CHANGELOG.md ([e67cce7](https://github.com/SUI-Components/sui-components/commit/e67cce79518ab12501d4b7e4f0994ee9d6dde057))
+
+
+
 # 1.4.0 (2021-10-06)
 
 

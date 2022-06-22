@@ -1,5 +1,30 @@
 # CHANGELOG
 
+# 1.8.0 (2022-06-22)
+
+
+
+# 1.7.0 (2022-06-20)
+
+
+### Bug Fixes
+
+* **components/behavior/sticky/demo:** wip ([93a066b](https://github.com/SUI-Components/sui-components/commit/93a066bdcc3898111ddbf8f8b6c7b97c5fbcd515))
+* **components/behavior/sticky/demo:** wip ([2e4c5be](https://github.com/SUI-Components/sui-components/commit/2e4c5be82e5c51dee95c53d458c19addbb78173a))
+* **components/behavior/sticky/demo:** wip ([89cf1bc](https://github.com/SUI-Components/sui-components/commit/89cf1bceb5518a2d19663875aa3e714a7ce0a1ce))
+* **components/behavior/sticky/demo:** wip ([4d15239](https://github.com/SUI-Components/sui-components/commit/4d152391cb533f62c70097a6da6729671441d2fc))
+* **components/behavior/sticky/demo:** wip ([a01ccde](https://github.com/SUI-Components/sui-components/commit/a01ccdec40bcd6b68f1d3216494b69572988d387))
+* **components/behavior/sticky:** demo ([7f0b5cb](https://github.com/SUI-Components/sui-components/commit/7f0b5cb2b5cff7158cbd96141a13a7ef635b60b2))
+* **components/behavior/sticky:** wip ([af715a8](https://github.com/SUI-Components/sui-components/commit/af715a809a90640444c7577b2dcc86b93329860e))
+
+
+### Features
+
+* **components/behavior/sticky:** Avoid publishing huge CHANGELOG.md ([36050c3](https://github.com/SUI-Components/sui-components/commit/36050c398587827839a9ca7f56849dbf85a1afd0))
+* **components/behavior/sticky:** export extra component and redesign teh demo ([a006cc4](https://github.com/SUI-Components/sui-components/commit/a006cc49217c29378218d527788e7a643bdebf71))
+
+
+
 # 1.6.0 (2022-01-20)
 
 

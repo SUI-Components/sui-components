@@ -20,7 +20,7 @@ describe(json.name, () => {
   const {default: Component, BehaviorStickyProvider} = pkg
   const TestedComponent = props => (
     <BehaviorStickyProvider>
-      <BehaviorSticky {...props} />
+      <Component {...props} />
     </BehaviorStickyProvider>
   )
   const setup = setupEnvironment(TestedComponent)
@@ -28,10 +28,21 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = ['BehaviorStickyProvider', 'default']
+    const libraryExportedMembers = [
+      'BehaviorStickyScrollUp',
+      'BehaviorStickyProvider',
+      'BehaviorSticky',
+      'default'
+    ]
 
     // When
-    const {BehaviorStickyProvider, default: BehaviorSticky, ...others} = library
+    const {
+      BehaviorStickyProvider,
+      BehaviorStickyScrollUp,
+      BehaviorSticky,
+      default: BehaviorStickyDefault,
+      ...others
+    } = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)

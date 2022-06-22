@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.15.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/panel:** Avoid publishing huge CHANGELOG.md ([532c560](https://github.com/SUI-Components/sui-components/commit/532c560f2613acbdd6b5ff987c6ed838cca23d50))
+
+
+
 # 1.14.0 (2022-03-28)
 
 

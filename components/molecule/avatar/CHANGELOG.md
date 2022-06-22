@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.12.0 (2022-06-22)
+
+
+### Features
+
+* **components/molecule/avatar:** Avoid publishing huge CHANGELOG.md ([a02d08b](https://github.com/SUI-Components/sui-components/commit/a02d08bdd3378742ffa317d3a4aefb96d99c66cb))
+
+
+
 # 1.11.0 (2022-04-05)
 
 

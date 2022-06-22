@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.7.0 (2022-06-20)
+
+
+### Features
+
+* **components/behavior/sticky:** Avoid publishing huge CHANGELOG.md ([36050c3](https://github.com/SUI-Components/sui-components/commit/36050c398587827839a9ca7f56849dbf85a1afd0))
+
+
+
 # 1.6.0 (2022-01-20)
 
 

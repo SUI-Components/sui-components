@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.4.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/tooltip:** Avoid publishing huge CHANGELOG.md ([724d8e8](https://github.com/SUI-Components/sui-components/commit/724d8e828de1cbade40697e11156f6a9b9ffc903))
+
+
+
 # 2.3.0 (2022-04-05)
 
 

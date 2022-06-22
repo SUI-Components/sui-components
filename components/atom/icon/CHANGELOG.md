@@ -1,11 +1,14 @@
 # CHANGELOG
 
-# 1.15.0 (2022-06-02)
+# 1.16.0 (2022-06-20)
 
 
-### Bug Fixes
+### Features
 
-* **components/atom/icon:** aria label ([6328de2](https://github.com/SUI-Components/sui-components/commit/6328de27cc1715c959732cb8733ecb793aae6491))
+* **components/atom/icon:** add polymorphism to teh icon ([b3a5818](https://github.com/SUI-Components/sui-components/commit/b3a581878160ed1becb5f85da3497130098d2375))
+* **components/atom/icon:** Avoid publishing huge CHANGELOG.md ([2e507eb](https://github.com/SUI-Components/sui-components/commit/2e507eb33277b78b2d4efa6b26375024d26adb9d))
+* **components/atom/icon:** polymorphic icon ([53e8d84](https://github.com/SUI-Components/sui-components/commit/53e8d84d0f572d45b6df60390d0c11c34c7fd30d))
+* **components/atom/icon:** resolve conflicts ([afea3ec](https://github.com/SUI-Components/sui-components/commit/afea3ecc9dbddba2dd68fc9089c36d24ccfc88e1))
 
 
 

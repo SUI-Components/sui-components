@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.12.0 (2022-06-20)
+
+
+### Features
+
+* **components/layout/grid:** Avoid publishing huge CHANGELOG.md ([c8da369](https://github.com/SUI-Components/sui-components/commit/c8da3690407ea3bf292cd0f02e17f685d4842fbf))
+
+
+
 # 2.11.0 (2022-05-05)
 
 

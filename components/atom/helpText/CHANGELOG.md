@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.7.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/helpText:** Avoid publishing huge CHANGELOG.md ([ec58c4e](https://github.com/SUI-Components/sui-components/commit/ec58c4eee9b7ceb36e1fd1ba2fc34181ca99b90f))
+
+
+
 # 1.6.0 (2021-10-07)
 
 

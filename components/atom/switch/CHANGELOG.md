@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.27.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/switch:** Avoid publishing huge CHANGELOG.md ([9826bb6](https://github.com/SUI-Components/sui-components/commit/9826bb6d80dcf655f76d7f6857b7cbff013a1402))
+
+
+
 # 1.26.0 (2022-04-25)
 
 

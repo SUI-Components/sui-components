@@ -1,73 +1,10 @@
-@import '~@s-ui/react-atom-button/lib/index';
-
 @import '../src/index';
 
+$h-times: 6;
+$h-demo-behavior-sticky: $h-times * 100vh;
 .DemoBehaviorSticky {
-  padding: 20px;
-  background: #f1f1f1;
-
-  &-section {
-    border: $bdw-s solid blue;
-    margin: 10px;
-  }
-
-  &-content {
-    background: #f1f1f1;
-    padding: 20px 0;
-  }
-
-  &-fixed-footer {
-    bottom: 10px;
-    position: fixed;
-    width: 100%;
-    z-index: 2000;
-    & > * {
-      border-radius: 100%;
-      background: white;
-      display: flex;
-      height: 50px;
-      margin: auto;
-      width: 50px;
-      path {
-        fill: #0091c4;
-      }
-    }
-  }
-
-  &-fixed-header {
-    background: #0091c4;
-    color: white;
-    margin: 0;
-    padding: 10px;
-
-    &-buttons {
-      display: flex;
-      justify-content: center;
-      padding: 10px;
-      background: white;
-      * {
-        z-index: 1;
-      }
-    }
-
-    h1 {
-      display: flex;
-      align-items: center;
-      font-size: 20px;
-      font-weight: normal;
-      margin: 0;
-      padding: 0;
-      path {
-        fill: white;
-      }
-      span {
-        margin-left: 10px;
-      }
-    }
-  }
-
-  pre {
-    padding: 16px;
-    width: 300px;
+  height: $h-demo-behavior-sticky;
+  &-placeholder {
+    max-height: 100vh;
   }
 }

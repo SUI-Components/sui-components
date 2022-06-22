@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.27.0 (2022-06-20)
+
+
+### Features
+
+* **components/atom/badge:** Avoid publishing huge CHANGELOG.md ([3822e19](https://github.com/SUI-Components/sui-components/commit/3822e19aff062ac523243a62916b591e9022b0db))
+
+
+
 # 1.26.0 (2022-03-01)
 
 

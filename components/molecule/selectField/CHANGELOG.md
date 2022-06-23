@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.10.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/selectField:** Avoid publishing huge CHANGELOG.md ([eb997b2](https://github.com/SUI-Components/sui-components/commit/eb997b22036bdb4374075333b18b70bf6e3a8a89))
+
+
+
 # 1.9.0 (2021-12-16)
 
 

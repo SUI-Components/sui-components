@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 
 import {
-  inject,
+  combineClassNames,
   combineHandler,
   combineHandlers,
+  combineProps,
   combineStyles,
-  combineClassNames,
-  combineProps
+  inject
 } from './settings.js'
 
 const PrimitiveInjector = ({

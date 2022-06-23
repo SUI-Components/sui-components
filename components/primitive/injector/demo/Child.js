@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
 import JSONView from 'react-json-view'
+
+import PropTypes from 'prop-types'
 
 const Child = ({name, ...props}) => {
   const [jsonDisplayedProps, handlers] = Object.entries(props).reduce(

@@ -1,6 +1,8 @@
-import {Children, isValidElement, cloneElement} from 'react'
+import {Children, cloneElement, isValidElement} from 'react'
 import {isFragment} from 'react-is'
+
 import cx from 'classnames'
+
 import PrimitiveInjector from './index.js'
 
 const isUpperCaseChar = char => char.length === 1 && char === char.toUpperCase()

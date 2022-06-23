@@ -4,7 +4,8 @@ import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 import MoleculeNotification, {
   BRDS_SIZE
 } from '@s-ui/react-molecule-notification'
-import {NOTIFICATION_CLASS_NAME, MOLECULE_NOTIFICATION_TYPE} from './config.js'
+
+import {MOLECULE_NOTIFICATION_TYPE, NOTIFICATION_CLASS_NAME} from './config.js'
 
 const DragNotification = ({
   icon,

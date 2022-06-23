@@ -1,10 +1,9 @@
-import {H1, Paragraph, Code} from '@s-ui/documentation-library'
-
-import {CLASS_DEMO_SECTION} from './config.js'
+import {Code, H1, Paragraph} from '@s-ui/documentation-library'
 
 import DefaultArticle from './articles/DefaultArticle.js'
 import InitialPhotosArticle from './articles/InitialPhotosArticle.js'
 import WithContentArticle from './articles/WithContentArticle.js'
+import {CLASS_DEMO_SECTION} from './config.js'
 
 const Demo = () => {
   return (

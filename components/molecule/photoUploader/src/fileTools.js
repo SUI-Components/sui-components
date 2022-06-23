@@ -1,10 +1,10 @@
-import {formatToBase64} from './photoTools.js'
 import {
   ACTIONS,
   DEFAULT_HAS_ERRORS_STATUS,
   DEFAULT_IMAGE_ROTATION_DEGREES,
   REJECT_FILES_REASONS
 } from './config.js'
+import {formatToBase64} from './photoTools.js'
 
 export const filterValidFiles = ({
   files,

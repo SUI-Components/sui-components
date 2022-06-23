@@ -1,12 +1,12 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {Article, H2, Paragraph} from '@s-ui/documentation-library'
+import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
+import MoleculeSelect from '@s-ui/react-molecule-select'
 
 import MoleculePhotoUploader from '../../src/index.js'
-import MoleculeSelect from '@s-ui/react-molecule-select'
-import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
-
 import {
   _addPhotoTextButton,
   _addPhotoTextSkeleton,
@@ -15,6 +15,7 @@ import {
   _callbackPhotosUploaded,
   _callbackUploadPhoto,
   _dragDelay,
+  _dragPhotoDividerTextInitialContent,
   _dragPhotoTextInitialContent,
   _dropPhotosHere,
   _errorCorruptedPhotoUploaded,
@@ -28,11 +29,10 @@ import {
   _notificationErrorFormatPhotoUploaded,
   _rotationDirection,
   _uploadingPhotosText,
-  _dragPhotoDividerTextInitialContent,
-  labels,
-  labelsPlaceholder,
   initialFormValues,
-  initialPhotos
+  initialPhotos,
+  labels,
+  labelsPlaceholder
 } from '../config.js'
 import {
   _addMorePhotosIcon,

@@ -1,11 +1,11 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import ViewportDemo from './ViewportDemo.js'
-import FallbackImageDemo from './FallbackImageDemo.js'
 import DefaultDemo from './DefaultDemo.js'
+import FallbackImageDemo from './FallbackImageDemo.js'
 import PlaceHolderDemo from './PlaceHolderDemo.js'
 import SkeletonDemo from './SkeletonDemo.js'
 import SpinnerDemo from './SpinnerDemo.js'
+import ViewportDemo from './ViewportDemo.js'
 
 import './index.scss'
 

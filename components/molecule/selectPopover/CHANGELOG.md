@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.31.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/accordion:** major canges for molecule/accordion ([b448e00](https://github.com/SUI-Components/sui-components/commit/b448e00c2eeb3522037997432480abcab142f943))
+* **components/molecule/selectPopover:** Avoid publishing huge CHANGELOG.md ([1a8fc00](https://github.com/SUI-Components/sui-components/commit/1a8fc00192a098e5cc8fe1fb6cff1a83a4fcba53))
+
+
+
 # 1.30.0 (2022-05-23)
 
 

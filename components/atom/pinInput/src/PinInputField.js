@@ -1,6 +1,7 @@
-import {forwardRef, useEffect, useRef, useCallback, useMemo} from 'react'
-import PropTypes from 'prop-types'
+import {forwardRef, useCallback, useEffect, useMemo, useRef} from 'react'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 

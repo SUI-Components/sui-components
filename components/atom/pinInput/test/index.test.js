@@ -9,19 +9,18 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
-import {cleanup, renderHook} from '@testing-library/react-hooks'
-
 import {
   actions as atomPinInputActions,
   actionTypes as atomPinInputActionTypes,
   usePinInputReducer
 } from 'components/atom/pinInput/src/reducer/index.js'
 import {getInitialPinInputReducerState} from 'components/atom/pinInput/src/reducer/reducer.js'
-import {MASK, valueChecker} from '../src/config.js'
 
-import * as pkg from '../src/index.js'
+import {cleanup, renderHook} from '@testing-library/react-hooks'
 
 import json from '../package.json'
+import {MASK, valueChecker} from '../src/config.js'
+import * as pkg from '../src/index.js'
 
 chai.use(chaiDOM)
 

@@ -79,12 +79,19 @@ $class-icon: '#{$base-class}--Icon';
       color: $bdc-atom-checkbox-is-disabled;
       background-color: $bgc-checked-atom-checkbox-is-disabled;
       border-color: $bdc-atom-checkbox-is-disabled;
+      &::before {
+        background-color: $bdc-atom-checkbox-is-disabled;
+        box-shadow: none;
+      }
     }
     @each $status, $color in $status-atom-checkbox {
       &[data-status='#{$status}']:not(:disabled) {
         border-color: $color;
         color: $color;
         background-color: $c-atom-checkbox;
+        &::before {
+          box-shadow: inset 1em 1em $c-atom-checkbox;
+        }
         &.is-checked,
         &.is-indeterminate,
         &:checked,
@@ -92,6 +99,9 @@ $class-icon: '#{$base-class}--Icon';
           color: $c-atom-checkbox;
           border-color: $color;
           background-color: $color;
+          &::before {
+            box-shadow: inset 1em 1em $c-atom-checkbox;
+          }
         }
       }
     }
@@ -141,12 +151,6 @@ $class-icon: '#{$base-class}--Icon';
       }
       &:focus-visible {
         outline: 2px solid transparentize($c-primary, 0.6);
-      }
-      &:disabled {
-        &:before {
-          background-color: $bdc-atom-checkbox-is-disabled;
-          box-shadow: none;
-        }
       }
     }
   }

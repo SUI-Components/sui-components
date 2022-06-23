@@ -1,21 +1,22 @@
 import {forwardRef} from 'react'
 import {isFragment} from 'react-is'
+
 import PropTypes from 'prop-types'
 
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 
-import {
-  BASE_CLASS,
-  BEHAVIOR,
-  SPACING,
-  ANIMATION_DURATION,
-  HEADER_ICON_POSITION
-} from './settings.js'
 import {AccordionProvider} from './context/index.js'
 import AccordionItem from './AccordionItem.js'
 import AccordionItemHeader from './AccordionItemHeader.js'
 import AccordionItemHeaderIcon from './AccordionItemHeaderIcon.js'
 import AccordionItemPanel from './AccordionItemPanel.js'
+import {
+  ANIMATION_DURATION,
+  BASE_CLASS,
+  BEHAVIOR,
+  HEADER_ICON_POSITION,
+  SPACING
+} from './settings.js'
 
 const MoleculeAccordion = forwardRef(
   (

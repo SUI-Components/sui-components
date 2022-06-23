@@ -1,14 +1,14 @@
 import {forwardRef} from 'react'
 import {isFragment} from 'react-is'
-import PropTypes from 'prop-types'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
-import Poly from '@s-ui/react-primitive-polymorphic-element'
 import Injector from '@s-ui/react-primitive-injector'
+import Poly from '@s-ui/react-primitive-polymorphic-element'
 
-import AccordionItemHeaderChildrenDefault from './AccordionItemHeaderChildrenDefault.js'
 import {useAccordionContext} from './context/index.js'
-
+import AccordionItemHeaderChildrenDefault from './AccordionItemHeaderChildrenDefault.js'
 import {
   BASE_CLASS_ELEMENT,
   BASE_CLASS_ITEM_HEADER,

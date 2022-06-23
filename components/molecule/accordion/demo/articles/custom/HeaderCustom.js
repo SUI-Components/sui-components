@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
-import {Grid, Cell, AntDesignIcon} from '@s-ui/documentation-library'
-import AtomTag, {atomTagSizes} from '@s-ui/react-atom-tag'
+import {AntDesignIcon, Cell, Grid} from '@s-ui/documentation-library'
 import AtomIcon from '@s-ui/react-atom-icon'
+import AtomTag, {atomTagSizes} from '@s-ui/react-atom-tag'
 
 import {MoleculeAccordionItemHeaderIcon} from '../../../src/index.js'
 

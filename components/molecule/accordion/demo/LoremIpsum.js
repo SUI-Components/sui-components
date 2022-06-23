@@ -1,6 +1,7 @@
 import {useMemo} from 'react'
-import PropTypes from 'prop-types'
+
 import {loremIpsum} from 'lorem-ipsum'
+import PropTypes from 'prop-types'
 
 /** See: https://www.npmjs.com/package/lorem-ipsum **/
 const LoremIpsum = ({

@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
-import {Grid, Cell, Button} from '@s-ui/documentation-library'
+import {Button, Cell, Grid} from '@s-ui/documentation-library'
 
 const PanelCustom = ({
   className,

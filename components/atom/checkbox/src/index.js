@@ -1,8 +1,9 @@
 import {useRef} from 'react'
-import PropTypes from 'prop-types'
-import cx from 'classnames'
 
-import {BASE_CLASS, CHECKBOX_STATUS, CHECKBOX_SIZES} from './config.js'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+
+import {BASE_CLASS, CHECKBOX_SIZES, CHECKBOX_STATUS} from './config.js'
 
 const AtomCheckbox = ({
   checked = false,

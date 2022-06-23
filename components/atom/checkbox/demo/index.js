@@ -1,26 +1,28 @@
 /* eslint-disable no-console */
-import {useState, Fragment} from 'react'
+import {Fragment, useState} from 'react'
+
 import AtomCheckbox from 'components/atom/checkbox/src'
 
 import {
+  Article,
+  Cell,
+  Code,
+  Grid,
   H1,
   H2,
   H3,
+  Label,
   Paragraph,
-  Article,
-  RadioButtonGroup,
   RadioButton,
-  Code,
-  Grid,
-  Cell,
-  Label
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
+
 import {
-  CLASS_SECTION,
-  CHECKBOX_STATUS,
   CHECKBOX_SIZE,
-  ICONS,
-  flexCenteredStyle
+  CHECKBOX_STATUS,
+  CLASS_SECTION,
+  flexCenteredStyle,
+  ICONS
 } from './settings.js'
 
 import './index.scss'

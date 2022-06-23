@@ -1,15 +1,17 @@
 import {useRef, useState} from 'react'
+
 import PropTypes from 'prop-types'
+
 import {
+  AntDesignIcon,
   Article,
-  Code,
   Box,
+  Code,
   H2,
   H4,
   Paragraph,
   RadioButton,
-  RadioButtonGroup,
-  AntDesignIcon
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 
 import {MoleculeDrawer, MoleculeDrawerOverlay} from '../src/index.js'

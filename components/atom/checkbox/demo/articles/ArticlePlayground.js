@@ -82,14 +82,11 @@ const ArticlePlayground = ({className}) => {
     <Article className={className}>
       <H2>Playground</H2>
       <Paragraph>paragraph</Paragraph>
-      <Grid gutter={[8, 8]} cols={1}>
+      <Grid gutter={[8, 8]} cols={2}>
         <Cell>
-          <Grid gutter={[0, 8]} cols={2}>
+          <Grid gutter={[0, 8]} cols={1}>
             <Cell>
               <Label>name</Label>
-            </Cell>
-            <Cell>
-              <Label>value</Label>
             </Cell>
             <Cell>
               <Input
@@ -98,20 +95,21 @@ const ArticlePlayground = ({className}) => {
               />
             </Cell>
             <Cell>
+              <Label>value</Label>
+            </Cell>
+            <Cell>
               <Input
                 value={value}
                 onChange={event => setValue(event.target.value)}
               />
             </Cell>
           </Grid>
-        </Cell>
-        <Cell>
-          <Grid gutter={[0, 8]} cols={2}>
+          <Grid cols={2} gutter={[0, 8]}>
             <Cell>
               <Label>defaultChecked</Label>
             </Cell>
             <Cell>
-              <Label>checked</Label>
+              <Label>defaultIndeterminate</Label>
             </Cell>
             <Cell>
               <RadioButtonGroup
@@ -133,6 +131,20 @@ const ArticlePlayground = ({className}) => {
                   checked={defaultChecked}
                 />
               </RadioButtonGroup>
+            </Cell>
+            <Cell>
+              <RadioButton
+                value={[false, true]}
+                label="indeterminate"
+                checked={defaultIndeterminate}
+                onClick={() => setDefaultState([false, true])}
+              />
+            </Cell>
+            <Cell>
+              <Label>checked</Label>
+            </Cell>
+            <Cell>
+              <Label>indeterminate</Label>
             </Cell>
             <Cell>
               <RadioButtonGroup
@@ -158,20 +170,6 @@ const ArticlePlayground = ({className}) => {
               </RadioButtonGroup>
             </Cell>
             <Cell>
-              <Label>defaultIndeterminate</Label>
-            </Cell>
-            <Cell>
-              <Label>indeterminate</Label>
-            </Cell>
-            <Cell>
-              <RadioButton
-                value={[false, true]}
-                label="indeterminate"
-                checked={defaultIndeterminate}
-                onClick={() => setDefaultState([false, true])}
-              />
-            </Cell>
-            <Cell>
               <RadioButtonGroup
                 onChange={(event, indeterminate) => {
                   setState([indeterminate ? false : checked, indeterminate])
@@ -195,14 +193,89 @@ const ArticlePlayground = ({className}) => {
               </RadioButtonGroup>
             </Cell>
           </Grid>
-        </Cell>
-        <Cell>
-          <Grid gutter={[0, 8]} cols={2}>
+          <Grid cols={1} gutter={[0, 8]}>
             <Cell>
-              <Label>size</Label>
+              <Label>checkedIcon</Label>
             </Cell>
             <Cell>
-              <Label>status</Label>
+              <RadioButtonGroup
+                onChange={(event, icon) => {
+                  setCheckedIcon(icon)
+                }}
+              >
+                <RadioButton
+                  value={undefined}
+                  label="undefined"
+                  checked={checkedIcon === undefined}
+                />
+                <RadioButton
+                  value="AiOutlineCheck"
+                  label={<ICONS.AiOutlineCheck />}
+                  checked={checkedIcon === 'AiOutlineCheck'}
+                />
+                <RadioButton
+                  value="BsFillEmojiSmileFill"
+                  label={<ICONS.BsFillEmojiSmileFill />}
+                  checked={checkedIcon === 'BsFillEmojiSmileFill'}
+                />
+              </RadioButtonGroup>
+            </Cell>
+            <Cell>
+              <Label>indeterminateIcon</Label>
+            </Cell>
+            <Cell>
+              <RadioButtonGroup
+                onChange={(event, icon) => {
+                  setIndeterminateIcon(icon)
+                }}
+              >
+                <RadioButton
+                  value={undefined}
+                  label="undefined"
+                  checked={indeterminateIcon === undefined}
+                />
+                <RadioButton
+                  value="AiOutlineLine"
+                  label={<ICONS.AiOutlineLine />}
+                  checked={indeterminateIcon === 'AiOutlineLine'}
+                />
+                <RadioButton
+                  value="BsFillEmojiNeutralFill"
+                  label={<ICONS.BsFillEmojiNeutralFill />}
+                  checked={indeterminateIcon === 'BsFillEmojiNeutralFill'}
+                />
+              </RadioButtonGroup>
+            </Cell>
+            <Cell>
+              <Label>uncheckedIcon</Label>
+            </Cell>
+            <Cell>
+              <RadioButtonGroup
+                onChange={(event, icon) => {
+                  setUncheckedIcon(icon)
+                }}
+              >
+                <RadioButton
+                  value={undefined}
+                  label="undefined"
+                  checked={uncheckedIcon === undefined}
+                />
+                <RadioButton
+                  value="AiOutlineClose"
+                  label={<ICONS.AiOutlineClose />}
+                  checked={uncheckedIcon === 'AiOutlineClose'}
+                />
+                <RadioButton
+                  value="BsFillEmojiFrownFill"
+                  label={<ICONS.BsFillEmojiFrownFill />}
+                  checked={uncheckedIcon === 'BsFillEmojiFrownFill'}
+                />
+              </RadioButtonGroup>
+            </Cell>
+          </Grid>
+          <Grid cols={1} gutter={[0, 8]}>
+            <Cell>
+              <Label>size</Label>
             </Cell>
             <Cell>
               <RadioButtonGroup
@@ -226,6 +299,9 @@ const ArticlePlayground = ({className}) => {
                   checked={size === atomCheckboxSizes.MEDIUM}
                 />
               </RadioButtonGroup>
+            </Cell>
+            <Cell>
+              <Label>status</Label>
             </Cell>
             <Cell>
               <RadioButtonGroup
@@ -256,96 +332,20 @@ const ArticlePlayground = ({className}) => {
               </RadioButtonGroup>
             </Cell>
           </Grid>
-        </Cell>
-        <Cell>
-          <Grid cols={3} gutter={[0, 8]}>
-            <Cell>
-              <Label>checkedIcon</Label>
-            </Cell>
-            <Cell>
-              <Label>indeterminateIcon</Label>
-            </Cell>
-            <Cell>
-              <Label>uncheckedIcon</Label>
-            </Cell>
-            <Cell>
-              <RadioButtonGroup
-                onChange={(event, icon) => {
-                  setCheckedIcon(icon)
-                }}
-              >
-                <RadioButton
-                  value={undefined}
-                  label="undefined"
-                  checked={checkedIcon === undefined}
-                />
-                <RadioButton
-                  value="AiOutlineCheck"
-                  label={<ICONS.AiOutlineCheck />}
-                  checked={checkedIcon === 'AiOutlineCheck'}
-                />
-                <RadioButton
-                  value="BsFillEmojiSmileFill"
-                  label={<ICONS.BsFillEmojiSmileFill />}
-                  checked={checkedIcon === 'BsFillEmojiSmileFill'}
-                />
-              </RadioButtonGroup>
-            </Cell>
-            <Cell>
-              <RadioButtonGroup
-                onChange={(event, icon) => {
-                  setIndeterminateIcon(icon)
-                }}
-              >
-                <RadioButton
-                  value={undefined}
-                  label="undefined"
-                  checked={indeterminateIcon === undefined}
-                />
-                <RadioButton
-                  value="AiOutlineLine"
-                  label={<ICONS.AiOutlineLine />}
-                  checked={indeterminateIcon === 'AiOutlineLine'}
-                />
-                <RadioButton
-                  value="BsFillEmojiNeutralFill"
-                  label={<ICONS.BsFillEmojiNeutralFill />}
-                  checked={indeterminateIcon === 'BsFillEmojiNeutralFill'}
-                />
-              </RadioButtonGroup>
-            </Cell>
-            <Cell>
-              <RadioButtonGroup
-                onChange={(event, icon) => {
-                  setUncheckedIcon(icon)
-                }}
-              >
-                <RadioButton
-                  value={undefined}
-                  label="undefined"
-                  checked={uncheckedIcon === undefined}
-                />
-                <RadioButton
-                  value="AiOutlineClose"
-                  label={<ICONS.AiOutlineClose />}
-                  checked={uncheckedIcon === 'AiOutlineClose'}
-                />
-                <RadioButton
-                  value="BsFillEmojiFrownFill"
-                  label={<ICONS.BsFillEmojiFrownFill />}
-                  checked={uncheckedIcon === 'BsFillEmojiFrownFill'}
-                />
-              </RadioButtonGroup>
-            </Cell>
-          </Grid>
-        </Cell>
-        <Cell>
-          <Grid gutter={[0, 8]} cols={2}>
-            <Cell>
-              <Label>Reload</Label>
-            </Cell>
+          <Grid cols={1} gutter={[0, 8]}>
             <Cell>
               <Label>Disabled</Label>
+            </Cell>
+            <Cell>
+              <RadioButton
+                value={disabled}
+                label="disabled"
+                checked={disabled}
+                onClick={() => setDisabled(!disabled)}
+              />
+            </Cell>
+            <Cell>
+              <Label>Reload</Label>
             </Cell>
             <Cell>
               <Button
@@ -360,89 +360,70 @@ const ArticlePlayground = ({className}) => {
                 </AtomIcon>
               </Button>
             </Cell>
-            <Cell>
-              <RadioButton
-                value={disabled}
-                label="disabled"
-                checked={disabled}
-                onClick={() => setDisabled(!disabled)}
-              />
-            </Cell>
           </Grid>
         </Cell>
         <Cell>
-          <Grid cols={2} gutter={[0, 8]}>
+          <Grid cols={1} gutter={[8, 0]}>
             <Cell>
-              <Grid gutter={[8, 0]} cols={1}>
-                <Cell>
-                  <H3>Element</H3>
-                </Cell>
-                <Cell>
-                  {!loading && (
-                    <AtomCheckbox
-                      ref={ref}
-                      name={name}
-                      value={value}
-                      defaultChecked={defaultChecked}
-                      defaultIndeterminate={defaultIndeterminate}
-                      checked={checked}
-                      indeterminate={indeterminate}
-                      size={size}
-                      status={status}
-                      disabled={disabled}
-                      checkedIcon={CheckedIcon}
-                      uncheckedIcon={UncheckedIcon}
-                      indeterminateIcon={IndeterminateIcon}
-                      onChange={handleClick}
-                    />
-                  )}
-                </Cell>
-                <Cell>
-                  <H3>Results:</H3>
-                </Cell>
-                <Cell>
-                  <Label>Checked:</Label> <Code>{`${values.checked}`}</Code>
-                </Cell>
-                <Cell>
-                  <Label>Indeterminate:</Label>{' '}
-                  <Code>{`${values.indeterminate}`}</Code>
-                </Cell>
-                <Cell>
-                  <Paragraph elementType="div">
-                    <Label>ref</Label>: {outerHTML}
-                  </Paragraph>
-                </Cell>
-              </Grid>
+              <H3>Results:</H3>
             </Cell>
             <Cell>
-              <Grid cols={1} gutter={[8, 0]}>
-                <Cell>
-                  <Cell>
-                    <H3>Props:</H3>
-                  </Cell>
-                </Cell>
-                <Cell>
-                  <JSONView
-                    src={{
-                      name,
-                      value,
-                      defaultChecked,
-                      defaultIndeterminate,
-                      checked,
-                      indeterminate,
-                      size,
-                      status,
-                      checkedIcon,
-                      uncheckedIcon,
-                      indeterminateIcon
-                    }}
-                    iconStyle="circle"
-                    displayDataTypes={false}
-                    displayObjectSize={false}
-                    indentWidth={2}
-                  />
-                </Cell>
-              </Grid>
+              {!loading && (
+                <AtomCheckbox
+                  ref={ref}
+                  name={name}
+                  value={value}
+                  defaultChecked={defaultChecked}
+                  defaultIndeterminate={defaultIndeterminate}
+                  checked={checked}
+                  indeterminate={indeterminate}
+                  size={size}
+                  status={status}
+                  disabled={disabled}
+                  checkedIcon={CheckedIcon}
+                  uncheckedIcon={UncheckedIcon}
+                  indeterminateIcon={IndeterminateIcon}
+                  onChange={handleClick}
+                />
+              )}
+            </Cell>
+            <Cell>
+              <Label>Checked:</Label> <Code>{`${values.checked}`}</Code>
+            </Cell>
+            <Cell>
+              <Label>Indeterminate:</Label>{' '}
+              <Code>{`${values.indeterminate}`}</Code>
+            </Cell>
+            <Cell>
+              <Paragraph elementType="div">
+                <Label>ref</Label>: {outerHTML}
+              </Paragraph>
+            </Cell>
+            <Cell>
+              <Cell>
+                <H3>Props:</H3>
+              </Cell>
+            </Cell>
+            <Cell>
+              <JSONView
+                src={{
+                  name,
+                  value,
+                  defaultChecked,
+                  defaultIndeterminate,
+                  checked,
+                  indeterminate,
+                  size,
+                  status,
+                  checkedIcon,
+                  uncheckedIcon,
+                  indeterminateIcon
+                }}
+                iconStyle="circle"
+                displayDataTypes={false}
+                displayObjectSize={false}
+                indentWidth={2}
+              />
             </Cell>
           </Grid>
         </Cell>

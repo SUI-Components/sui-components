@@ -1,13 +1,13 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import ArticleDefault from './ArticleDefault.js'
+import ArticleAlignItems from './ArticleAlignItems.js'
 import ArticleAutoClose from './ArticleAutoClose.js'
-import ArticleTypeAndVariation from './ArticleTypeAndVariation.js'
+import ArticleContainerOverride from './ArticleContainerOverride.js'
+import ArticleDefault from './ArticleDefault.js'
+import ArticleMobileLeftIcon from './ArticleMobileLeftIcon.js'
 import ArticlePosition from './ArticlePosition.js'
 import ArticleRoundedCorners from './ArticleRoundedCorners.js'
-import ArticleMobileLeftIcon from './ArticleMobileLeftIcon.js'
-import ArticleContainerOverride from './ArticleContainerOverride.js'
-import ArticleAlignItems from './ArticleAlignItems.js'
+import ArticleTypeAndVariation from './ArticleTypeAndVariation.js'
 
 const BASE_CLASS_DEMO = `DemoMoleculeNotification`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`

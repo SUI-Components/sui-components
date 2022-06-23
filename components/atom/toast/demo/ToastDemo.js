@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types'
 import JSONView from 'react-json-view'
 
-import {Article, Grid, Cell, Label} from '@s-ui/documentation-library'
+import PropTypes from 'prop-types'
+
+import {Article, Cell, Grid, Label} from '@s-ui/documentation-library'
 
 import AtomToast from '../src/index.js'
 

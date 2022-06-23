@@ -1,9 +1,9 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleCustomIcon from './ArticleCustomIcon.js'
 import ArticleDefault from './ArticleDefaut.js'
 import ArticleScrollable from './ArticleScrollable.js'
-import ArticleCustomIcon from './ArticleCustomIcon.js'
-import {CLASS_SECTION, breadcrumbItems} from './settings.js'
+import {breadcrumbItems, CLASS_SECTION} from './settings.js'
 
 export default () => {
   return (

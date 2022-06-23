@@ -7,13 +7,16 @@ import {
   useRef,
   useState
 } from 'react'
-import {getTarget} from '@s-ui/js/lib/react'
+
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
+import {getTarget} from '@s-ui/js/lib/react'
 import {inputSizes as SELECT_SIZES} from '@s-ui/react-atom-input'
+import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
 
+import MoleculeSelectMultipleSelection from './components/MultipleSelection.js'
+import MoleculeSelectSingleSelection from './components/SingleSelection.js'
 import {
   BASE_CLASS,
   CLASS_DISABLED,
@@ -23,8 +26,6 @@ import {
   SELECT_STATES,
   SELECTION_KEYS
 } from './config.js'
-import MoleculeSelectMultipleSelection from './components/MultipleSelection.js'
-import MoleculeSelectSingleSelection from './components/SingleSelection.js'
 
 const MoleculeSelect = props => {
   const {

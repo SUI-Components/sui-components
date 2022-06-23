@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types'
+
 import {
   Article,
-  H2,
-  Grid,
+  Button,
   Cell,
-  Paragraph,
   Code,
-  Button
+  Grid,
+  H2,
+  Paragraph
 } from '@s-ui/documentation-library'
 
 import MoleculeBadgeCounter, {moleculeBadgeCounterStatus} from '../src/index.js'

@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 4.7.0 (2022-06-23)
+
+
+### Bug Fixes
+
+* **components/molecule/imageEditor:** split scsss and fix componnet class name ([42f1f9a](https://github.com/SUI-Components/sui-components/commit/42f1f9a1199db1b553224bb31ba2015e0ad99796))
+
+
+### Features
+
+* **components/molecule/inputField:** Avoid publishing huge CHANGELOG.md ([8ea255a](https://github.com/SUI-Components/sui-components/commit/8ea255a9cc6c2a0040a836821d41021e46c38745))
+
+
+
 # 4.6.0 (2021-12-16)
 
 

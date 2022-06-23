@@ -1,4 +1,5 @@
 import {Component, createRef} from 'react'
+
 import PropTypes from 'prop-types'
 
 import AtomProgressBar from '../src/index.js'

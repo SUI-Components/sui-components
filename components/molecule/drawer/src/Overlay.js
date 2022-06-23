@@ -1,5 +1,6 @@
+import {forwardRef, useEffect} from 'react'
+
 import PropTypes from 'prop-types'
-import {useEffect, forwardRef} from 'react'
 
 import {BASE_CLASS} from './settings.js'
 

@@ -1,6 +1,7 @@
 import React from 'react'
+
+import {Article, Box, H1, H2, Paragraph} from '@s-ui/documentation-library'
 import {withStateValue} from '@s-ui/hoc'
-import {H1, H2, Box, Paragraph, Article} from '@s-ui/documentation-library'
 
 import MoleculeInputField from '../src/index.js'
 

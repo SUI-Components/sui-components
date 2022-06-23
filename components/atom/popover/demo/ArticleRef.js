@@ -1,17 +1,17 @@
 import {useRef, useState} from 'react'
+
+import AtomPopover from 'components/atom/popover/src/index.js'
 import PropTypes from 'prop-types'
 
 import {
   Article,
-  H2,
-  Paragraph,
-  Grid,
-  Cell,
   Button,
-  Label
+  Cell,
+  Grid,
+  H2,
+  Label,
+  Paragraph
 } from '@s-ui/documentation-library'
-
-import AtomPopover from 'components/atom/popover/src/index.js'
 
 const ArticleRef = ({className, content: Content}) => {
   const innerRef = useRef()

@@ -1,6 +1,6 @@
 import {debounce} from '@s-ui/js/lib/function'
 
-import {MASK, valueChecker, getValueType} from '../config.js'
+import {getValueType, MASK, valueChecker} from '../config.js'
 import PIN_INPUT_ACTION_TYPES from './actionTypes.js'
 
 export const getInitialPinInputReducerState = ({

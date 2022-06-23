@@ -1,26 +1,28 @@
-import {useState, useCallback} from 'react'
+import {useCallback, useState} from 'react'
+
 import PropTypes from 'prop-types'
+
 import {
-  H2,
-  Paragraph,
   Article,
-  RadioButton,
-  RadioButtonGroup,
-  Grid,
+  Bold,
   Cell,
   Code,
-  UnorderedList,
+  Grid,
+  H2,
   ListItem,
-  Bold
+  Paragraph,
+  RadioButton,
+  RadioButtonGroup,
+  UnorderedList
 } from '@s-ui/documentation-library'
 
 import MoleculeProgressSteps, {
+  moleculeProgressContentStyle,
   MoleculeProgressStep,
-  moleculeProgressStepsStatuses,
-  moleculeProgressContentStyle
+  moleculeProgressStepsStatuses
 } from '../src/index.js'
-import {iconFillCheck} from './Icons/index.js'
 import {configBasic} from './config/index.js'
+import {iconFillCheck} from './Icons/index.js'
 
 const getStatus = (step, index) => {
   if (index + 1 === step) {

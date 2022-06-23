@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import {Article, H2, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculePhotoUploader from '../../src/index.js'
-
 import {
   _addPhotoTextButton,
   _addPhotoTextSkeleton,
@@ -12,6 +11,7 @@ import {
   _callbackPhotosUploaded,
   _callbackUploadPhoto,
   _dragDelay,
+  _dragPhotoDividerTextInitialContent,
   _dragPhotoTextInitialContent,
   _dropPhotosHere,
   _errorCorruptedPhotoUploaded,
@@ -25,7 +25,6 @@ import {
   _notificationErrorFormatPhotoUploaded,
   _rotationDirection,
   _uploadingPhotosText,
-  _dragPhotoDividerTextInitialContent,
   initialPhotos
 } from '../config.js'
 import {

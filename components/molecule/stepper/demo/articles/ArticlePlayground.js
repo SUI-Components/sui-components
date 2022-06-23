@@ -1,30 +1,31 @@
 import {useState} from 'react'
+
+import MoleculeStepper, {
+  moleculeStepperAlignment,
+  moleculeStepperDesign,
+  moleculeStepperJustifyContent,
+  Step
+} from 'components/molecule/stepper/src/index.js'
 import PropTypes from 'prop-types'
 
 import {
-  H2,
   Article,
-  Paragraph,
   Button,
-  Grid,
   Cell,
-  RadioButtonGroup,
+  Grid,
+  H2,
+  Label,
+  Paragraph,
   RadioButton,
-  Label
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 
-import MoleculeStepper, {
-  Step,
-  moleculeStepperAlignment,
-  moleculeStepperDesign,
-  moleculeStepperJustifyContent
-} from 'components/molecule/stepper/src/index.js'
 import CustomStep from '../CustomStep.js'
 import LoremIpsum from '../LoremIpsum.js'
 import {
-  visitedIcon as iconVisited,
   currentIcon as iconCurrent,
-  defaultIcon as iconDefault
+  defaultIcon as iconDefault,
+  visitedIcon as iconVisited
 } from '../settings.js'
 
 const ArticlePlayground = ({className}) => {

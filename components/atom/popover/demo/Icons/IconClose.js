@@ -1,5 +1,5 @@
-import AtomIcon from '@s-ui/react-atom-icon'
 import {AntDesignIcon} from '@s-ui/documentation-library'
+import AtomIcon from '@s-ui/react-atom-icon'
 
 const IconClose = () => (
   <AtomIcon size="xs">

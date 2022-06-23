@@ -1,14 +1,15 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
-  H2,
   Article,
-  Paragraph,
+  Cell,
   Code,
-  RadioButton,
   Grid,
-  Cell
+  H2,
+  Paragraph,
+  RadioButton
 } from '@s-ui/documentation-library'
 
 import MoleculeDataCounter from '../../src/index.js'

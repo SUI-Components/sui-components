@@ -1,20 +1,20 @@
-import AtomIcon from '@s-ui/react-atom-icon'
-import AtomInput from '@s-ui/react-atom-input'
-import AtomCheckbox from '@s-ui/react-atom-checkbox'
-import AtomButton from '@s-ui/react-atom-button'
 import {
+  AntDesignIcon,
+  Article,
+  Box,
+  Cell,
+  Code,
+  Grid,
   H1,
   H2,
-  Paragraph,
-  Article,
-  Grid,
-  Cell,
-  Box,
-  Code,
-  AntDesignIcon
+  Paragraph
 } from '@s-ui/documentation-library'
+import AtomButton from '@s-ui/react-atom-button'
+import AtomCheckbox from '@s-ui/react-atom-checkbox'
+import AtomIcon from '@s-ui/react-atom-icon'
+import AtomInput from '@s-ui/react-atom-input'
 
-import AtomLabel, {AtomLabelTypes, AtomLabelFontSizes} from '../src/index.js'
+import AtomLabel, {AtomLabelFontSizes, AtomLabelTypes} from '../src/index.js'
 
 const flexCenteredStyle = {
   display: 'flex',

@@ -1,15 +1,17 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
+
 import {
   Article,
+  Button,
+  Cell,
+  Code,
+  Grid,
   H2,
   Input,
-  Grid,
-  Cell,
   Label,
-  Paragraph,
-  Code,
-  Button
+  Paragraph
 } from '@s-ui/documentation-library'
 
 import MoleculeBadgeCounter from '../src/index.js'

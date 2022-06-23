@@ -1,15 +1,15 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleAlignContent from './ArticleAlignContent.js'
+import ArticleAlignItems from './ArticleAlignItems.js'
+import ArticleCombine from './ArticleCombine.js'
 import ArticleDefault from './ArticleDefault.js'
+import ArticleGutter from './ArticleGutter.js'
+import ArticleInject from './ArticleInject.js'
+import ArticleIsGapless from './ArticleIsGapless.js'
+import ArticleJustifyContent from './ArticleJustifyContent.js'
 import ArticleOffset from './ArticleOffset.js'
 import ArticleResponsive from './ArticleResponsive.js'
-import ArticleIsGapless from './ArticleIsGapless.js'
-import ArticleGutter from './ArticleGutter.js'
-import ArticleCombine from './ArticleCombine.js'
-import ArticleJustifyContent from './ArticleJustifyContent.js'
-import ArticleAlignItems from './ArticleAlignItems.js'
-import ArticleAlignContent from './ArticleAlignContent.js'
-import ArticleInject from './ArticleInject.js'
 
 const BASE_CLASS_DEMO = `DemoLayoutGrid`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`

@@ -1,4 +1,4 @@
-import {useReducer, useMemo} from 'react'
+import {useMemo, useReducer} from 'react'
 
 import useMountedState from '@s-ui/react-hooks/lib/useMountedState'
 

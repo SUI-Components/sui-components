@@ -1,4 +1,5 @@
-import {useMemo, useEffect, useState} from 'react'
+import {useEffect, useMemo, useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
@@ -11,8 +12,8 @@ import {
 } from '@s-ui/documentation-library'
 
 import BehaviorSticky, {BehaviorStickyProvider} from '../../src/index.js'
-import {COLORS, getLoremParagraphs, CLASS_DEMO_BACKGROUND} from '../settings.js'
 import useRefs from '../hooks/useRefs.js'
+import {CLASS_DEMO_BACKGROUND, COLORS, getLoremParagraphs} from '../settings.js'
 
 const loremParagraphs = getLoremParagraphs(Object.values(COLORS).length, 20)
 

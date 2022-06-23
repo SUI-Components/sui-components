@@ -1,24 +1,25 @@
-import {memo, useState, useEffect, useCallback, useRef} from 'react'
+import {memo, useCallback, useEffect, useRef, useState} from 'react'
 import {createPortal} from 'react-dom'
-import PropTypes from 'prop-types'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import Button from '@s-ui/react-atom-button'
 import IconClose from '@s-ui/react-icons/lib/Close'
 
 import {
-  CLASS,
-  TYPES,
-  ICONS,
+  ALIGN_ITEMS,
   AUTO_CLOSE,
   AUTO_CLOSE_TIME,
-  TRANSITION_DELAY,
-  BUTTONS_MAX,
-  VARIATIONS,
   BRDS_SIZE,
-  POSITION,
+  BUTTONS_MAX,
+  CLASS,
   EMPTY_METHOD,
-  ALIGN_ITEMS
+  ICONS,
+  POSITION,
+  TRANSITION_DELAY,
+  TYPES,
+  VARIATIONS
 } from './settings.js'
 
 const getContainer = ref => {

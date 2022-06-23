@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import {useState} from 'react'
+
 import {Button} from '@s-ui/documentation-library'
 
 import AtomSpinner, {atomSpinnerTypes} from '../src/index.js'

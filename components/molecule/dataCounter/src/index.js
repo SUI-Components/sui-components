@@ -1,6 +1,7 @@
-import {useState, useEffect, forwardRef} from 'react'
-import PropTypes from 'prop-types'
+import {forwardRef, useEffect, useState} from 'react'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import AtomButton, {atomButtonDesigns} from '@s-ui/react-atom-button'
 import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
@@ -10,8 +11,8 @@ import {
   ACTIONS,
   BASE_CLASS,
   CLASS_INPUT_CONTAINER,
-  sizeConversor,
-  moleculeDataCounterSizes
+  moleculeDataCounterSizes,
+  sizeConversor
 } from './config.js'
 import useMouseHold from './useMouseHold.js'
 

@@ -1,15 +1,14 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import ArticleState from './articles/ArticleState.js'
-import ArticleSizes from './articles/ArticleSizes.js'
-import ArticleToggle from './articles/ArticleToggle.js'
 import ArticleCircleIcons from './articles/ArticleCircleIcons.js'
-import ArticleTypes from './articles/ArticleTypes.js'
-import ArticleIsFitted from './articles/ArticleIsFitted.js'
+import ArticleControlledAndUncontrolled from './articles/ArticleControlledAndUncontrolled.js'
 import ArticleDisabled from './articles/ArticleDisabled.js'
 import ArticleFullWidth from './articles/ArticleFullWidth.js'
-import ArticleControlledAndUncontrolled from './articles/ArticleControlledAndUncontrolled.js'
-
+import ArticleIsFitted from './articles/ArticleIsFitted.js'
+import ArticleSizes from './articles/ArticleSizes.js'
+import ArticleState from './articles/ArticleState.js'
+import ArticleToggle from './articles/ArticleToggle.js'
+import ArticleTypes from './articles/ArticleTypes.js'
 import {CLASS_SECTION} from './settings.js'
 
 const Demo = () => {

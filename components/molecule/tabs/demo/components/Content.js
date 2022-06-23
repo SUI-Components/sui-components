@@ -1,7 +1,8 @@
 import {useMemo} from 'react'
+
 import PropTypes from 'prop-types'
 
-import {H3, H4, Article, Paragraph} from '@s-ui/documentation-library'
+import {Article, H3, H4, Paragraph} from '@s-ui/documentation-library'
 
 import LoremIpsum from './LoremIpsum.js'
 

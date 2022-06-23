@@ -1,15 +1,16 @@
 import {forwardRef} from 'react'
+
 import PropTypes from 'prop-types'
 
-import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
+import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
 
 import {
-  SIZES,
-  INPUT_STATES,
+  getClassNames,
   INPUT_SHAPES,
+  INPUT_STATES,
   noop,
-  getClassNames
+  SIZES
 } from '../../config.js'
 
 const Input = forwardRef(

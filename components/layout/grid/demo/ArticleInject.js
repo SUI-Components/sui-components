@@ -1,17 +1,19 @@
 import {useState} from 'react'
-import PropTypes from 'prop-types'
-import {
-  Label,
-  H2,
-  Paragraph,
-  Article,
-  RadioButtonGroup,
-  RadioButton
-} from '@s-ui/documentation-library'
 
 import LayoutGrid, {LayoutGridItem} from 'components/layout/grid/src/index.js'
-import DemoWrapper from './demoWrapper.js'
+import PropTypes from 'prop-types'
+
+import {
+  Article,
+  H2,
+  Label,
+  Paragraph,
+  RadioButton,
+  RadioButtonGroup
+} from '@s-ui/documentation-library'
+
 import DemoBox from './demoBox.js'
+import DemoWrapper from './demoWrapper.js'
 
 const ArticleInjectDemo = ({columns, rows = 3}) => {
   const elements = columns * rows

@@ -1,14 +1,14 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
 import Star from './components/Star.js'
 import StarHover from './components/StarHover.js'
-
 import {
   BASE_CLASS,
   CLASS_CONTAINER_STARS,
   CLASS_LABEL,
-  CLASS_LINK,
   CLASS_LABEL_LINK,
+  CLASS_LINK,
   SIZES
 } from './settings.js'
 

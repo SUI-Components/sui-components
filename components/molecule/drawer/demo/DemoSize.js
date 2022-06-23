@@ -1,22 +1,24 @@
 import {useRef, useState} from 'react'
+
 import PropTypes from 'prop-types'
+
 import {
   Article,
+  Bold,
   Box,
+  Cell,
   Code,
+  Grid,
   H2,
+  H4,
+  Label,
+  ListItem,
   Paragraph,
   RadioButton,
-  Grid,
-  Cell,
-  Label,
-  H4,
-  ListItem,
-  UnorderedList,
-  Bold
+  UnorderedList
 } from '@s-ui/documentation-library'
 
-import {moleculeDrawerSizes, MoleculeDrawer} from '../src/index.js'
+import {MoleculeDrawer, moleculeDrawerSizes} from '../src/index.js'
 
 const flexCenteredStyle = {
   display: 'flex',

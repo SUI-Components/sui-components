@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.32.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/notification:** Avoid publishing huge CHANGELOG.md ([a569ff6](https://github.com/SUI-Components/sui-components/commit/a569ff6e65f08d91d4b1600b9f6f3abf5768126c))
+
+
+
 # 1.31.0 (2022-04-04)
 
 

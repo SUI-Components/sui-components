@@ -1,21 +1,22 @@
 import {useState} from 'react'
+
+import AtomPopover from 'components/atom/popover/src/index.js'
 import PropTypes from 'prop-types'
 
 import {
   Article,
+  Bold,
+  Cell,
+  Code,
+  Grid,
   H2,
   H4,
   Paragraph,
-  RadioButtonGroup,
   RadioButton,
-  Grid,
-  Cell,
-  Code,
-  Separator,
-  Bold
+  RadioButtonGroup,
+  Separator
 } from '@s-ui/documentation-library'
 
-import AtomPopover from 'components/atom/popover/src/index.js'
 import ReMountDebounced from './ReMountDebounced.js'
 
 const PopIt = ({

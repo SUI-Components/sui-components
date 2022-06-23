@@ -1,11 +1,12 @@
 import {forwardRef} from 'react'
+
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import AtomLabel from '@s-ui/react-atom-label'
 
-import {suitClass, switchClassNames} from './helpers.js'
 import {LABELS, TYPES} from '../config.js'
+import {suitClass, switchClassNames} from './helpers.js'
 
 const {RIGHT, LEFT} = LABELS
 

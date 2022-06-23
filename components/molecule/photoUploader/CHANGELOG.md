@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.20.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/photoUploader:** Avoid publishing huge CHANGELOG.md ([03c82db](https://github.com/SUI-Components/sui-components/commit/03c82dba9709b4bbb4f1bbe690da9040268a3a65))
+
+
+
 # 2.19.0 (2022-06-17)
 
 

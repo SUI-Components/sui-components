@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import AtomButton from '@s-ui/react-atom-button'
 
 import {isValidPage} from './customPropTypes/index.js'

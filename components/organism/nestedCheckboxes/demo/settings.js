@@ -1,5 +1,5 @@
-import AtomIcon from '@s-ui/react-atom-icon/src/index.js'
 import {AntDesignIcon} from '@s-ui/documentation-library'
+import AtomIcon from '@s-ui/react-atom-icon/src/index.js'
 
 const BASE_CLASS_DEMO = `DemoMoleculeDrawer`
 export const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`

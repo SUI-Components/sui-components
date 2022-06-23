@@ -1,13 +1,14 @@
 import {useRef} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
   Article,
-  H2,
-  Paragraph,
-  Box,
   Bold,
-  Code
+  Box,
+  Code,
+  H2,
+  Paragraph
 } from '@s-ui/documentation-library'
 
 import BehaviorSticky, {BehaviorStickyProvider} from '../../src/index.js'

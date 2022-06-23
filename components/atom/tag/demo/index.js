@@ -1,32 +1,33 @@
 import {Fragment} from 'react'
 
-import {
-  Label,
-  H1,
-  H2,
-  Paragraph,
-  Article,
-  Small,
-  Code,
-  Grid,
-  Cell,
-  Bold,
-  UnorderedList,
-  ListItem
-} from '@s-ui/documentation-library'
-
 import AtomTag, {
   atomTagDesigns,
   atomTagSizes
 } from 'components/atom/tag/src/index.js'
-import ArticleTypes from './ArticleTypes.js'
-import ArticleIsFitted from './ArticleIsFitted.js'
+
 import {
-  icon,
-  closeIcon,
-  handleClose,
+  Article,
+  Bold,
+  Cell,
+  Code,
+  Grid,
+  H1,
+  H2,
+  Label,
+  ListItem,
+  Paragraph,
+  Small,
+  UnorderedList
+} from '@s-ui/documentation-library'
+
+import ArticleIsFitted from './ArticleIsFitted.js'
+import ArticleTypes from './ArticleTypes.js'
+import {
   CLASS_SECTION,
-  flexCenteredStyle
+  closeIcon,
+  flexCenteredStyle,
+  handleClose,
+  icon
 } from './settings.js'
 
 import './index.scss'

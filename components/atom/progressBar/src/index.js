@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 import ProgressBarCircle from './ProgressBarCircle/index.js'
 import ProgressBarLine from './ProgressBarLine/index.js'
-import {TYPES, SIZES, STATUS} from './settings.js'
+import {SIZES, STATUS, TYPES} from './settings.js'
 
 const AtomProgressBar = ({type, size, ...props}) => {
   switch (type) {

@@ -1,13 +1,13 @@
 import {forwardRef, useState} from 'react'
+
 import PropTypes from 'prop-types'
 
+import MoleculeModalContent from './Content/index.js'
+import MoleculeModalFooter from './Footer/index.js'
 import {MODAL_SIZES} from './config.js'
 import MoleculeModal from './MoleculeModal.js'
 import MoleculeModalWithoutAnimation from './MoleculeModalWithoutAnimation.js'
 import MoleculeModalWithURLState from './MoleculeModalWithURLState.js'
-
-import MoleculeModalContent from './Content/index.js'
-import MoleculeModalFooter from './Footer/index.js'
 
 const MoleculeModalWithAnimation = forwardRef(
   ({onClose, onAnimationEnd, ...rest}, ref) => {

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
-import {BEHAVIOR} from '../settings.js'
 
+import {BEHAVIOR} from '../settings.js'
 import AccordionContext, {defaultAccordionContext} from './index.js'
 
 const AccordionProvider = ({

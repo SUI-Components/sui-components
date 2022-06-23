@@ -1,20 +1,20 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
-import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
 import Injector from '@s-ui/react-primitive-injector'
+import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
 
-import {
-  ALIGN_ITEMS,
-  ALIGN_CONTENT,
-  BASE_CLASS,
-  JUSTIFY_CONTENT,
-  GUTTER_VALUES,
-  CELL_NUMBERS,
-  BREAKPOINTS
-} from './settings.js'
 import LayoutGridItem from './gridItem/index.js'
 import {getGutterClassNames, transition} from './helpers.js'
+import {
+  ALIGN_CONTENT,
+  ALIGN_ITEMS,
+  BASE_CLASS,
+  BREAKPOINTS,
+  CELL_NUMBERS,
+  GUTTER_VALUES,
+  JUSTIFY_CONTENT
+} from './settings.js'
 
 function LayoutGrid({
   alignContent,

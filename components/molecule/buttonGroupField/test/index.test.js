@@ -9,11 +9,11 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+
 import AtomButton from '@s-ui/react-atom-button'
 
-import * as pkg from '../src/index.js'
-
 import json from '../package.json'
+import * as pkg from '../src/index.js'
 
 chai.use(chaiDOM)
 

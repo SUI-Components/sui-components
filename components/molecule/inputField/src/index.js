@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
-import MoleculeField from '@s-ui/react-molecule-field'
 import AtomInput from '@s-ui/react-atom-input'
+import MoleculeField from '@s-ui/react-molecule-field'
 
 import {getErrorState, getState} from './config.js'
 

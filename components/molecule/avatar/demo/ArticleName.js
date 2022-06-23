@@ -1,6 +1,8 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
-import {Article, H2, Input, Paragraph, Code} from '@s-ui/documentation-library'
+
+import {Article, Code, H2, Input, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculeAvatar from '../src/index.js'
 

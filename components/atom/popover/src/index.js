@@ -1,20 +1,21 @@
-import {useRef, forwardRef} from 'react'
+import {forwardRef, useRef} from 'react'
+
 import PropTypes from 'prop-types'
 
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
 
 import {
-  getClassName,
-  TYPES,
-  PLACEMENTS,
-  TRIGGERS,
   BASE_CLASS,
   CLASS_INNER,
-  PREFIX_PLACEMENT,
+  DEFAULT_DELAY,
   DEFAULT_OFFSET,
   DEFAULT_TRIGGER,
-  DEFAULT_DELAY,
-  Popover
+  getClassName,
+  PLACEMENTS,
+  Popover,
+  PREFIX_PLACEMENT,
+  TRIGGERS,
+  TYPES
 } from './config.js'
 import PopoverExtendChildren from './PopoverExtendChildren.js'
 

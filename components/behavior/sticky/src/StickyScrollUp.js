@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
 import {StickyScrollUp} from 'react-stickup'
+
+import PropTypes from 'prop-types'
 
 import {CLASS_SCROLL_UP, STICKY_CLASS_CONTAINER} from './settings.js'
 

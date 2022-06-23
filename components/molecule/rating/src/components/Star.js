@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
+
 import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
+
 import {BASE_CLASS, DEFAULTS_STAR as DEFAULTS} from './settings.js'
 
 const MoleculeRatingStar = ({

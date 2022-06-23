@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
-import {useState, useEffect} from 'react'
+import {useEffect, useState} from 'react'
 
 import {
-  H1,
   Article,
   Button,
+  H1,
+  Paragraph,
   RadioButton,
-  RadioButtonGroup,
-  Paragraph
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 import useMountedState from '@s-ui/react-hooks/lib/useMountedState'
 
-import {CLASS_SECTION, IconTop, LoremIpsum} from './settings.js'
 import AtomBackToTop, {backToTopStyles} from '../src/index.js'
+import {CLASS_SECTION, IconTop, LoremIpsum} from './settings.js'
 
 import './index.scss'
 

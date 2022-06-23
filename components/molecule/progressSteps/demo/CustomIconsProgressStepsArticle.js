@@ -1,14 +1,16 @@
-import {useState, useCallback} from 'react'
+import {useCallback, useState} from 'react'
+
 import PropTypes from 'prop-types'
+
 import {
-  H2,
   AntDesignIcon,
-  Paragraph,
   Article,
-  RadioButton,
-  RadioButtonGroup,
+  Cell,
   Grid,
-  Cell
+  H2,
+  Paragraph,
+  RadioButton,
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 

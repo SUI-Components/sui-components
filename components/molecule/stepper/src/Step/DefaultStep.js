@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
-import {naturalNumber} from '../prop-types.js'
+import PropTypes from 'prop-types'
 
+import {naturalNumber} from '../prop-types.js'
 import {ALIGNMENT, DESIGN} from '../settings.js'
-import {BASE_CLASS_STEP, getLabel, getIcon} from './settings.js'
+import {BASE_CLASS_STEP, getIcon, getLabel} from './settings.js'
 
 const DefaultStep = ({
   alignment,

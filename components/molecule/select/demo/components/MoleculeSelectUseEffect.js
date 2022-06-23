@@ -1,13 +1,14 @@
 /* eslint-disable no-console */
-import {useState, useEffect} from 'react'
+import {useEffect, useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {withStateValue} from '@s-ui/hoc'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 
 import MoleculeSelect from '../../src/index.js'
-import {IconArrowDown} from '../Icons/index.js'
 import regions from '../data/regions.json'
+import {IconArrowDown} from '../Icons/index.js'
 
 const MoleculeSelectWithState = withStateValue(MoleculeSelect)
 

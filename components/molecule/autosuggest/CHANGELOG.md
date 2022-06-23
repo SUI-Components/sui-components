@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.62.0 (2022-06-22)
+
+
+### Features
+
+* **components/molecule/autosuggest:** Avoid publishing huge CHANGELOG.md ([70704af](https://github.com/SUI-Components/sui-components/commit/70704afd64d05e3788e052f8852be47c29ebb8ed))
+
+
+
 # 2.61.0 (2022-05-17)
 
 

@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 3.10.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/textareaField:** Avoid publishing huge CHANGELOG.md ([d759316](https://github.com/SUI-Components/sui-components/commit/d7593161bb54add7e354d5828d71cafc9493eef2))
+
+
+
+# 1.2.0 (2022-04-13)
+
+
+### Bug Fixes
+
+* **components/molecule/textareaField/demo:** resolve linting errors ([119fb12](https://github.com/SUI-Components/sui-components/commit/119fb12ccd3bb898e36b9bfed4997e583085e0b5))
+
+
+
 # 3.9.0 (2022-03-30)
 
 

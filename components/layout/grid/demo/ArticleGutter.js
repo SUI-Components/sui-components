@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types'
-import {H2, Paragraph, Article, Code, Text} from '@s-ui/documentation-library'
-
 import LayoutGrid, {LayoutGridItem} from 'components/layout/grid/src/index.js'
-import DemoWrapper from './demoWrapper.js'
+import PropTypes from 'prop-types'
+
+import {Article, Code, H2, Paragraph, Text} from '@s-ui/documentation-library'
+
 import DemoBox from './demoBox.js'
+import DemoWrapper from './demoWrapper.js'
 
 const ArticleGutter = ({classname}) => {
   return (

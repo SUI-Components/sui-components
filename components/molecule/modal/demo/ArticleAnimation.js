@@ -1,18 +1,20 @@
-import PropTypes from 'prop-types'
-import {
-  Article,
-  H2,
-  Paragraph,
-  Code,
-  Anchor,
-  RadioButton,
-  RadioButtonGroup,
-  Button,
-  Label,
-  Grid,
-  Cell
-} from '@s-ui/documentation-library'
 import {useState} from 'react'
+
+import PropTypes from 'prop-types'
+
+import {
+  Anchor,
+  Article,
+  Button,
+  Cell,
+  Code,
+  Grid,
+  H2,
+  Label,
+  Paragraph,
+  RadioButton,
+  RadioButtonGroup
+} from '@s-ui/documentation-library'
 
 import MoleculeModalWithAnimation, {
   MoleculeModalWithoutAnimation

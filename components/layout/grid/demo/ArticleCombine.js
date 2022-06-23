@@ -1,18 +1,20 @@
 import {useState} from 'react'
+
+import LayoutGrid, {LayoutGridItem} from 'components/layout/grid/src/index.js'
 import PropTypes from 'prop-types'
+
 import {
+  Article,
+  Cell,
+  Grid,
   H2,
   H4,
   Paragraph,
-  Article,
-  Grid,
-  Cell,
   RadioButton
 } from '@s-ui/documentation-library'
 
-import LayoutGrid, {LayoutGridItem} from 'components/layout/grid/src/index.js'
-import DemoWrapper from './demoWrapper.js'
 import DemoBox from './demoBox.js'
+import DemoWrapper from './demoWrapper.js'
 
 const Sites = {
   BarSite: ({left, right}) => {

@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
+import MoleculePagination from 'components/molecule/pagination/src/index.js'
+
 import LayoutMediaQuery from '@s-ui/react-layout-media-query'
 
-import MoleculePagination from 'components/molecule/pagination/src/index.js'
 import DynamicMoleculePagination from './DynamicMoleculePagination/index.js'
-import {prevButtonIcon, nextButtonIcon} from './Icons/index.js'
+import {nextButtonIcon, prevButtonIcon} from './Icons/index.js'
 
 import './index.scss'
 

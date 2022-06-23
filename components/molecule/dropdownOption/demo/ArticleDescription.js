@@ -1,15 +1,16 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
   Article,
-  H2,
-  Paragraph,
-  Grid,
   Cell,
-  Label,
+  Code,
+  Grid,
+  H2,
   Input,
-  Code
+  Label,
+  Paragraph
 } from '@s-ui/documentation-library'
 
 import MoleculeDropdownOption from '../src/index.js'

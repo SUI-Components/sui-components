@@ -1,5 +1,5 @@
-import lowRange from './lowRange.js'
 import highRange from './highRange.js'
+import lowRange from './lowRange.js'
 
 /**
  * Gets the proper range for the page number according to the number of pages to display

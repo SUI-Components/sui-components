@@ -5,14 +5,15 @@ import {
   H1,
   ListItem,
   Paragraph,
-  UnorderedList,
-  Text
+  Text,
+  UnorderedList
 } from '@s-ui/documentation-library'
-import ArticleDefault from './ArticleDefault.js'
-import ArticleSize from './ArticleSize.js'
-import ArticleCloseIcon from './ArticleCloseIcon.js'
+
 import ArticleAnimation from './ArticleAnimation.js'
+import ArticleCloseIcon from './ArticleCloseIcon.js'
+import ArticleDefault from './ArticleDefault.js'
 import ArticleModal from './ArticleModal.js'
+import ArticleSize from './ArticleSize.js'
 
 const BASE_CLASS_DEMO = `DemoMoleculeModal`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`

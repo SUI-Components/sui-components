@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.2.0 (2022-06-23)
+
+
+### Features
+
+* **components/primitive/injector:** Avoid publishing huge CHANGELOG.md ([0a54466](https://github.com/SUI-Components/sui-components/commit/0a54466ab9bf00d105a01e3a00b091211af2b231))
+
+
+
 # 1.1.0 (2022-04-25)
 
 

@@ -1,6 +1,7 @@
 import {useState} from 'react'
-import PropTypes from 'prop-types'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 

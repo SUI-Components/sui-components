@@ -1,10 +1,10 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import {CLASS_SECTION} from './settings.js'
-import ArticleTypes from './articles/ArticleTypes.js'
-import ArticleLinearDefault from './articles/ArticleLinearDefault.js'
 import ArticleCircleDefault from './articles/ArticleCircleDefault.js'
+import ArticleLinearDefault from './articles/ArticleLinearDefault.js'
 import ArticleLinearDoubleDefault from './articles/ArticleLinearDoubleDefault.js'
+import ArticleTypes from './articles/ArticleTypes.js'
+import {CLASS_SECTION} from './settings.js'
 
 const Demo = () => {
   return (

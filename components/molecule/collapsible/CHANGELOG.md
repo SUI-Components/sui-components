@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.17.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/collapsible:** Avoid publishing huge CHANGELOG.md ([6a6ff0c](https://github.com/SUI-Components/sui-components/commit/6a6ff0c0397822ebc02942e7040a367e3c82f6b8))
+
+
+
 # 1.16.0 (2022-02-08)
 
 

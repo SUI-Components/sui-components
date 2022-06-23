@@ -1,18 +1,19 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
   Article,
-  H2,
-  Paragraph,
-  Grid,
   Cell,
+  Grid,
+  H2,
+  Input,
   Label,
-  Input
+  Paragraph
 } from '@s-ui/documentation-library'
 
 import MoleculeDropdownOption from '../src/index.js'
-import {OPTIONS, CLASS_DEMO_OPTION} from './config.js'
+import {CLASS_DEMO_OPTION, OPTIONS} from './config.js'
 
 const ArticleBehavior = ({className}) => {
   const [singleData, setSingleData] = useState([])

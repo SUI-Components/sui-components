@@ -1,10 +1,11 @@
 import {forwardRef} from 'react'
+
 import PropTypes from 'prop-types'
 
 import Input, {inputSizes, inputStates} from './Input/index.js'
-import Password from './Password/index.js'
 import Mask from './Mask/index.js'
-import {TYPES, INPUT_SHAPES} from './config.js'
+import Password from './Password/index.js'
+import {INPUT_SHAPES, TYPES} from './config.js'
 
 const AtomInput = forwardRef(({type, ...props}, ref) => {
   switch (type) {

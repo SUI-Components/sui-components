@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import Icon from './Icon.js'
 import LazyIcon from './LazyIcon.js'
 import {
-  BASE_CLASS,
   ATOM_ICON_COLORS,
+  ATOM_ICON_RENDERS,
   ATOM_ICON_SIZES,
-  ATOM_ICON_RENDERS
+  BASE_CLASS
 } from './settings.js'
 
 const AtomIcon = ({

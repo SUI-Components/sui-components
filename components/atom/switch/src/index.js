@@ -1,8 +1,9 @@
-import {useState, forwardRef} from 'react'
+import {forwardRef, useState} from 'react'
+
 import PropTypes from 'prop-types'
 
-import {ToggleSwitchTypeRender} from './SwitchType/toggle.js'
 import {SingleSwitchTypeRender} from './SwitchType/single.js'
+import {ToggleSwitchTypeRender} from './SwitchType/toggle.js'
 import {LABELS, SIZES, TYPES} from './config.js'
 
 const AtomSwitch = forwardRef((props, ref) => {

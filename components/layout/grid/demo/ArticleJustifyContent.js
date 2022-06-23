@@ -1,20 +1,22 @@
 import {useState} from 'react'
-import PropTypes from 'prop-types'
-import {
-  H2,
-  Paragraph,
-  Article,
-  Code,
-  RadioButton,
-  RadioButtonGroup
-} from '@s-ui/documentation-library'
 
 import LayoutGrid, {
   LayoutGridItem,
   LayoutGridJustifyContent
 } from 'components/layout/grid/src/index.js'
-import DemoWrapper from './demoWrapper.js'
+import PropTypes from 'prop-types'
+
+import {
+  Article,
+  Code,
+  H2,
+  Paragraph,
+  RadioButton,
+  RadioButtonGroup
+} from '@s-ui/documentation-library'
+
 import DemoBox from './demoBox.js'
+import DemoWrapper from './demoWrapper.js'
 
 const ArticleJustifyContent = ({classname}) => {
   const [justifyContentState, setJustifyContentState] = useState()

@@ -1,5 +1,18 @@
 # CHANGELOG
 
+# 2.9.0 (2022-06-22)
+
+
+
+# 2.8.0 (2022-06-22)
+
+
+### Features
+
+* **components/molecule/buttonGroup:** Avoid publishing huge CHANGELOG.md ([73dacf1](https://github.com/SUI-Components/sui-components/commit/73dacf13b32f7406f547715301c249764899a1a4))
+
+
+
 # 2.7.0 (2022-05-31)
 
 

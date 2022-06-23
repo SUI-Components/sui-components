@@ -2,14 +2,14 @@
 
 import {forwardRef} from 'react'
 
-import {H1, Paragraph, Anchor} from '@s-ui/documentation-library'
+import {Anchor, H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleArrow from './ArticleArrow.js'
+import ArticleBehavior from './ArticleBehavior.js'
+import ArticleCloseIcon from './ArticleCloseIcon.js'
 import ArticleDefault from './ArticleDefault.js'
 import ArticlePosition from './ArticlePosition.js'
-import ArticleCloseIcon from './ArticleCloseIcon.js'
-import ArticleArrow from './ArticleArrow.js'
 import ArticleRef from './ArticleRef.js'
-import ArticleBehavior from './ArticleBehavior.js'
 import ArticleType from './ArticleType.js'
 
 import './index.scss'

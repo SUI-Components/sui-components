@@ -1,11 +1,12 @@
 import {Children, cloneElement} from 'react'
-import PropTypes from 'prop-types'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
-import Poly from '@s-ui/react-primitive-polymorphic-element'
 import {atomButtonDesigns, atomButtonSizes} from '@s-ui/react-atom-button'
+import Poly from '@s-ui/react-primitive-polymorphic-element'
 
-import {BASE_CLASS, isFunction, combineProps} from './settings.js'
+import {BASE_CLASS, combineProps, isFunction} from './settings.js'
 
 const getGroupPosition =
   ({groupPositions, numChildren}) =>

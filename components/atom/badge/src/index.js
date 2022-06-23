@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import {
+  CLASS_ICON,
+  CLASS_ICON_RIGHT,
+  CLASS_TEXT,
   DESIGNS,
-  TYPES,
-  SIZES,
-  truncateText,
   getClassNames,
   shouldRenderIcon,
-  CLASS_ICON,
-  CLASS_TEXT,
-  CLASS_ICON_RIGHT
+  SIZES,
+  truncateText,
+  TYPES
 } from './config.js'
 
 const AtomBadge = ({

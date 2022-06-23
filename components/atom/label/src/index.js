@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {TYPES, FONT_SIZES, getClass} from './settings.js'
+import {FONT_SIZES, getClass, TYPES} from './settings.js'
 
 const AtomLabel = ({
   name,

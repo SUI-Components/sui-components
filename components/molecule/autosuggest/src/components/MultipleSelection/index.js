@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
-import {useRef, Children} from 'react'
+import {Children, useRef} from 'react'
+
 import isEqual from 'lodash.isequal'
 
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
-import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import {InputWithClearUI} from '../InputWithClearUI/index.js'
 

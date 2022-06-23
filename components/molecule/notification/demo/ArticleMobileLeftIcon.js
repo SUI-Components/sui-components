@@ -2,11 +2,11 @@ import PropTypes from 'prop-types'
 
 import {
   Article,
-  H2,
-  Paragraph,
+  Cell,
   Code,
   Grid,
-  Cell
+  H2,
+  Paragraph
 } from '@s-ui/documentation-library'
 
 import MoleculeNotification from '../src/index.js'

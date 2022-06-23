@@ -1,11 +1,13 @@
 /* eslint-disable no-console */
-import ArticleWithHelpText from './ArticleWithHelpText.js'
-import ArticleWithLabelFullWidth from './ArticleWithLabelFullWidth.js'
-import ArticleSuccessHelpText from './ArticleSuccessHelpText.js'
-import ArticleErrorHelpText from './ArticleErrorHelpText.js'
+import {H1, Paragraph} from '@s-ui/documentation-library'
+
 import ArticleAlertHelpText from './ArticleAlertHelpText.js'
 import ArticleDisabled from './ArticleDisabled.js'
-import {H1, Paragraph} from '@s-ui/documentation-library'
+import ArticleErrorHelpText from './ArticleErrorHelpText.js'
+import ArticleSuccessHelpText from './ArticleSuccessHelpText.js'
+import ArticleWithHelpText from './ArticleWithHelpText.js'
+import ArticleWithLabelFullWidth from './ArticleWithLabelFullWidth.js'
+
 import './index.scss'
 
 const CLASS_NAME = 'DemoAtomCheckboxField'

@@ -1,4 +1,7 @@
+import {useState} from 'react'
+
 import PropTypes from 'prop-types'
+
 import {
   Article,
   H2,
@@ -6,9 +9,9 @@ import {
   RadioButton,
   RadioButtonGroup
 } from '@s-ui/documentation-library'
-import {useState} from 'react'
-import MoleculeValidationCode from '../../src/index.js'
+
 import {validationCodeMask} from '../../src/config.js'
+import MoleculeValidationCode from '../../src/index.js'
 
 const ArticleMask = ({className}) => {
   const [mask, setMask] = useState()

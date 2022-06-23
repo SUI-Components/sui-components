@@ -1,19 +1,21 @@
+import {useState} from 'react'
+
 import PropTypes from 'prop-types'
+
 import {
+  AntDesignIcon,
   Article,
-  H2,
-  Paragraph,
-  Code,
-  RadioButton,
-  RadioButtonGroup,
   Button,
-  Label,
-  Grid,
   Cell,
-  AntDesignIcon
+  Code,
+  Grid,
+  H2,
+  Label,
+  Paragraph,
+  RadioButton,
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 import AtomIcon from '@s-ui/react-atom-icon'
-import {useState} from 'react'
 
 import MoleculeModal from '../src/index.js'
 

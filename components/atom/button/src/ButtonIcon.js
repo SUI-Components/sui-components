@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import {
   CLASS,
   ICON_POSITIONS,
-  SIZES,
   isAtomIcon,
-  prepareAtomIcon
+  prepareAtomIcon,
+  SIZES
 } from './config.js'
 
 const ButtonIcon = ({children, position, size}) => {

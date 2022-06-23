@@ -1,8 +1,8 @@
-import {AtomValidationTextTypes} from '@s-ui/react-atom-validation-text'
 import PropTypes from 'prop-types'
 
-import MoleculeField from '@s-ui/react-molecule-field'
 import AtomRadioButton from '@s-ui/react-atom-radio-button'
+import {AtomValidationTextTypes} from '@s-ui/react-atom-validation-text'
+import MoleculeField from '@s-ui/react-molecule-field'
 
 import {BASE_CLASS} from './settings.js'
 

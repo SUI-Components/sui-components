@@ -1,17 +1,19 @@
 import {useState} from 'react'
-import PropTypes from 'prop-types'
+
 import cx from 'classnames'
-import {atomTagSizes} from '@s-ui/react-atom-tag'
+import PropTypes from 'prop-types'
+
 import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
+import {atomTagSizes} from '@s-ui/react-atom-tag'
 
 import {
+  AtomTagItem,
   CLASS_TAGS,
-  CLASS_TAGS_FOCUS,
-  CLASS_TAGS_ERROR,
-  CLASS_TAGS_SUCCESS,
   CLASS_TAGS_DISABLED,
-  isDuplicate,
-  AtomTagItem
+  CLASS_TAGS_ERROR,
+  CLASS_TAGS_FOCUS,
+  CLASS_TAGS_SUCCESS,
+  isDuplicate
 } from './config.js'
 
 const MoleculeInputTags = ({

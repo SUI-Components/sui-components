@@ -1,18 +1,19 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
   Article,
-  H2,
-  Paragraph,
-  Input,
-  Grid,
   Cell,
+  Code,
+  Grid,
+  H2,
+  Input,
   Label,
-  Code
+  Paragraph
 } from '@s-ui/documentation-library'
-import {moleculeAccordionBehavior} from '../../lib/index.js'
 
+import {moleculeAccordionBehavior} from '../../lib/index.js'
 import Accordion, {
   MoleculeAccordionItem as AccordionItem
 } from '../../src/index.js'

@@ -1,25 +1,26 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
+  AntDesignIcon,
   Article,
+  Cell,
+  Code,
+  Grid,
   H2,
+  Label,
   Paragraph,
   RadioButton,
-  Grid,
-  Cell,
-  RadioButtonGroup,
-  AntDesignIcon,
-  Label,
-  Code
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 import AtomIcon, {atomIconSizes} from '@s-ui/react-atom-icon'
 
-import LoremIpsum from '../LoremIpsum.js'
 import Accordion, {
-  MoleculeAccordionItem as AccordionItem,
-  moleculeAccordionHeaderIconPosition
+  moleculeAccordionHeaderIconPosition,
+  MoleculeAccordionItem as AccordionItem
 } from '../../src/index.js'
+import LoremIpsum from '../LoremIpsum.js'
 
 const availableIcons = {
   undefined: {expanded: undefined, collapsed: undefined},

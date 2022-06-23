@@ -1,25 +1,26 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
   Article,
-  H2,
-  Paragraph,
-  Code,
   Box,
-  Grid,
   Cell,
+  Code,
+  Grid,
+  H2,
   Label,
-  RadioButtonGroup,
-  RadioButton
+  Paragraph,
+  RadioButton,
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 
-import {
-  Step,
-  moleculeStepperAlignment,
-  moleculeStepperDesign
-} from '../../src/index.js'
 import {StepsProvider} from '../../src/context/index.js'
+import {
+  moleculeStepperAlignment,
+  moleculeStepperDesign,
+  Step
+} from '../../src/index.js'
 
 const steps = 3
 

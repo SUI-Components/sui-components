@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "build": "sui-studio build",
-    "check:release": "sui-mono check-release",
+    "check:release": "sui-mono check",
     "clean": "rm -rf ./node_modules && rm -f package-lock.json",
     "co": "sui-mono commit",
     "commit-msg": "validate-commit-msg",

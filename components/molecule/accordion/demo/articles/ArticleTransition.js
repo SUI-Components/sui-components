@@ -1,19 +1,20 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
   Article,
-  H2,
-  Paragraph,
-  Grid,
   Cell,
+  Code,
+  Grid,
+  H2,
   Label,
-  Code
+  Paragraph
 } from '@s-ui/documentation-library'
 
 import Accordion, {
-  MoleculeAccordionItem as AccordionItem,
-  moleculeAccordionAnimationDuration
+  moleculeAccordionAnimationDuration,
+  MoleculeAccordionItem as AccordionItem
 } from '../../src/index.js'
 import LoremIpsum from '../LoremIpsum.js'
 

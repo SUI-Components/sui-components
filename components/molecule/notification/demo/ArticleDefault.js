@@ -1,18 +1,18 @@
 import {useState} from 'react'
+
+import MoleculeNotification from 'components/molecule/notification/src/index.js'
 import PropTypes from 'prop-types'
 
 import {
   Article,
-  H2,
-  Paragraph,
-  Input,
   Box,
-  Grid,
+  Button,
   Cell,
-  Button
+  Grid,
+  H2,
+  Input,
+  Paragraph
 } from '@s-ui/documentation-library'
-
-import MoleculeNotification from 'components/molecule/notification/src/index.js'
 
 const ArticleDefault = ({className}) => {
   const [children, setChildren] = useState('children')

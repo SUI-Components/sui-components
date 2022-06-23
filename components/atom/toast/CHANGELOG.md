@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.9.0 (2022-06-23)
+
+
+### Features
+
+* **components/atom/toast:** lint ([29cb8d4](https://github.com/SUI-Components/sui-components/commit/29cb8d4e1cce6794f9c7bd3cff495985f3ae3405))
+
+
+
 # 1.8.0 (2022-06-20)
 
 

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.35.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/tabs:** Allow to disable scroll into view funcionality ([2dcb5e2](https://github.com/SUI-Components/sui-components/commit/2dcb5e2756d17cf5b601cb92e61901a565495a7f))
+* **components/molecule/tabs:** Avoid publishing huge CHANGELOG.md ([e612454](https://github.com/SUI-Components/sui-components/commit/e6124549e874ab8adc30e832206fac3f9be9f2fa))
+
+
+
 # 2.34.0 (2022-03-21)
 
 

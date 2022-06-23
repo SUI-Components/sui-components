@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types'
 
 import {
-  H2,
   Article,
-  Paragraph,
+  Cell,
   Code,
   Grid,
-  Cell,
-  UnorderedList,
-  ListItem
+  H2,
+  ListItem,
+  Paragraph,
+  UnorderedList
 } from '@s-ui/documentation-library'
 
 import MoleculeDataCounter, {moleculeDataCounterSizes} from '../../src/index.js'

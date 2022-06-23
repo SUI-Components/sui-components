@@ -1,17 +1,18 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
-  H2,
   Article,
-  Paragraph,
+  Cell,
   Code,
+  Grid,
+  H2,
   Input,
   Label,
-  Grid,
-  Cell,
-  UnorderedList,
-  ListItem
+  ListItem,
+  Paragraph,
+  UnorderedList
 } from '@s-ui/documentation-library'
 
 import MoleculeDataCounter from '../../src/index.js'

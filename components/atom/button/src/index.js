@@ -1,27 +1,28 @@
 import {forwardRef} from 'react'
-import PropTypes from 'prop-types'
-import cx from 'classnames'
 
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+
+import ButtonSpinnerIcon from './buttonSpinnerIcon/index.js'
 import Button from './Button.js'
 import ButtonIcon from './ButtonIcon.js'
-import ButtonSpinnerIcon from './buttonSpinnerIcon/index.js'
 import {
-  CLASS,
-  COLORS,
-  DESIGNS,
   ALIGNMENT,
-  ICON_POSITIONS,
-  GROUP_POSITIONS,
-  SIZES,
-  TYPES,
-  SHAPES,
-  TYPES_CONVERSION,
+  CLASS,
   CLASSES,
   cleanProps,
-  getModifiers,
+  COLORS,
   deprecated,
+  DESIGNS,
+  getModifiers,
+  getPropsWithDefaultValues,
+  GROUP_POSITIONS,
+  ICON_POSITIONS,
+  SHAPES,
+  SIZES,
   typeConversion,
-  getPropsWithDefaultValues
+  TYPES,
+  TYPES_CONVERSION
 } from './config.js'
 
 const AtomButton = forwardRef((props, ref) => {

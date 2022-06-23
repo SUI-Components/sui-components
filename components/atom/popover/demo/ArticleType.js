@@ -1,8 +1,7 @@
+import AtomPopover from 'components/atom/popover/src/index.js'
 import PropTypes from 'prop-types'
 
-import {Article, H2, Paragraph, Button} from '@s-ui/documentation-library'
-
-import AtomPopover from 'components/atom/popover/src/index.js'
+import {Article, Button, H2, Paragraph} from '@s-ui/documentation-library'
 
 const ArticleType = ({className, content: Content}) => {
   return (

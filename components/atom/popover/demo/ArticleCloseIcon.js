@@ -1,20 +1,21 @@
 import {useState} from 'react'
-import PropTypes from 'prop-types'
-
-import {
-  Article,
-  H2,
-  Paragraph,
-  Box,
-  RadioButton,
-  RadioButtonGroup,
-  Code,
-  Label
-} from '@s-ui/documentation-library'
 
 import AtomPopover, {
   atomPopoverTriggers
 } from 'components/atom/popover/src/index.js'
+import PropTypes from 'prop-types'
+
+import {
+  Article,
+  Box,
+  Code,
+  H2,
+  Label,
+  Paragraph,
+  RadioButton,
+  RadioButtonGroup
+} from '@s-ui/documentation-library'
+
 import IconClose from './Icons/IconClose.js'
 
 const ArticleCloseIcon = ({className, content: Content}) => {

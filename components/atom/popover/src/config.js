@@ -1,5 +1,6 @@
-import loadable from '@loadable/component'
 import cx from 'classnames'
+
+import loadable from '@loadable/component'
 
 export const TRIGGERS = {
   CLICK: 'click',

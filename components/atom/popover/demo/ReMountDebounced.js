@@ -1,14 +1,15 @@
-import {useState, useEffect, Children, cloneElement} from 'react'
-import PropTypes from 'prop-types'
-import {useDebounce} from 'react-use'
+import {Children, cloneElement, useEffect, useState} from 'react'
 import {
-  typeOf,
+  ContextConsumer as isContextConsumer,
+  ContextProvider as isContextProvider,
   Element as isElement,
   Fragment as isFragment,
   Portal as isPortal,
-  ContextProvider as isContextProvider,
-  ContextConsumer as isContextConsumer
+  typeOf
 } from 'react-is'
+import {useDebounce} from 'react-use'
+
+import PropTypes from 'prop-types'
 
 const style = {opacity: 0.2}
 

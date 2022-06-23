@@ -1,11 +1,21 @@
 # CHANGELOG
 
+# 3.0.0 (2022-06-23)
+
+
+### Features
+
+* **components/atom/checkbox:** v3 ([9576301](https://github.com/SUI-Components/sui-components/commit/9576301bfdacdee5d150645cf7068fd676992297))
+
+
+
 # 2.18.0 (2022-06-20)
 
 
 ### Features
 
 * **components/atom/checkbox:** Avoid publishing huge CHANGELOG.md ([35f5a78](https://github.com/SUI-Components/sui-components/commit/35f5a78fa84cf898776ba828210ad4fa82f8d486))
+* **components/atom/checkbox:** checked and indeterminate props work with dom and vdom as well ([c45bd2c](https://github.com/SUI-Components/sui-components/commit/c45bd2c12373cd4842789a35481026ffde56ae09))
 
 
 

@@ -1,13 +1,15 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
+
 import {
-  H2,
   Article,
-  Paragraph,
-  Label,
-  Code,
   Box,
-  Input
+  Code,
+  H2,
+  Input,
+  Label,
+  Paragraph
 } from '@s-ui/documentation-library'
 
 import AtomSlider from '../src/index.js'

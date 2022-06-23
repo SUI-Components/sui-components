@@ -1,16 +1,17 @@
-import {useState, useEffect, useRef} from 'react'
-import PropTypes from 'prop-types'
-import cx from 'classnames'
+import {useEffect, useRef, useState} from 'react'
 
-import markerFactory from './markerFactory.js'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+
 import Handler from './Handler.js'
+import markerFactory from './markerFactory.js'
 import {
-  Slider,
-  Range,
-  Label,
   BASE_CLASS,
   CLASS_DISABLED,
-  CLASS_INVERSE
+  CLASS_INVERSE,
+  Label,
+  Range,
+  Slider
 } from './settings.js'
 
 const AtomSlider = ({

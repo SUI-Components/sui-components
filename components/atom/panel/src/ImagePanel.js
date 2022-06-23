@@ -1,15 +1,15 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import PolymorphicElement from '@s-ui/react-atom-polymorphic-element'
 
 import {
   ALPHA,
   BORDER_RADIUS,
+  DEFAULT_ALPHA,
   ELEVATION,
   HORIZONTAL_ALIGNMENTS,
-  VERTICAL_ALIGNMENTS,
-  DEFAULT_ALPHA
+  VERTICAL_ALIGNMENTS
 } from './constants.js'
 
 const getClassNames = function ({

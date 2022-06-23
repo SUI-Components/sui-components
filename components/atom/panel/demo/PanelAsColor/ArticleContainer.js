@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 
-import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
+import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
 import AtomPanel, {atomPanelColors} from '../../src/index.js'
-import {flexWrapper, flexItem} from '../config.js'
+import {flexItem, flexWrapper} from '../config.js'
 
 const ArticleContainer = ({className}) => {
   return (

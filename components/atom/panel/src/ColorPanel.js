@@ -4,8 +4,8 @@ import PolymorphicElement from '@s-ui/react-atom-polymorphic-element'
 
 import {
   ALPHA,
-  COLORS,
   BORDER_RADIUS,
+  COLORS,
   ELEVATION,
   getClassNames
 } from './constants.js'

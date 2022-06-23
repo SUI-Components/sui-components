@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
-import {Article, H2, Code, Paragraph} from '@s-ui/documentation-library'
+
+import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculeQuickAction from '../src/index.js'
 

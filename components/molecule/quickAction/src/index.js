@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
-import {BASE_CLASS, SIZES, getClassName} from './config.js'
+import {BASE_CLASS, getClassName, SIZES} from './config.js'
 
 const MoleculeQuickAction = ({
   size = SIZES.SMALL,

@@ -2,10 +2,9 @@ import PropTypes from 'prop-types'
 
 import Injector from '@s-ui/react-primitive-injector'
 
-import {naturalNumber} from '../prop-types.js'
-
-import Step from '../Step/Step.js'
 import {useStepsContext} from '../context/index.js'
+import {naturalNumber} from '../prop-types.js'
+import Step from '../Step/Step.js'
 
 const Stepper = ({
   children,

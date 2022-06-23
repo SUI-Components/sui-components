@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import {naturalNumber} from '../src/prop-types.js'
 import {ALIGNMENT, DESIGN} from '../src/settings.js'
 import DefaultStep from '../src/Step/DefaultStep.js'

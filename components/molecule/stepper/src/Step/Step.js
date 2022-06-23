@@ -1,15 +1,16 @@
-import {useRef, forwardRef} from 'react'
-import PropTypes from 'prop-types'
+import {forwardRef, useRef} from 'react'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs/index.js'
-import Poly from '@s-ui/react-primitive-polymorphic-element'
 import Injector from '@s-ui/react-primitive-injector'
+import Poly from '@s-ui/react-primitive-polymorphic-element'
 
-import {naturalNumber} from '../prop-types.js'
-import {BASE_CLASS_STEP} from './settings.js'
-import DefaultStep from './DefaultStep.js'
 import {useStepsContext} from '../context/index.js'
+import {naturalNumber} from '../prop-types.js'
+import DefaultStep from './DefaultStep.js'
+import {BASE_CLASS_STEP} from './settings.js'
 
 const Step = forwardRef(
   (

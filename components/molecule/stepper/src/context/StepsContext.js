@@ -1,4 +1,5 @@
 import {createContext} from 'react'
+
 import {ALIGNMENT, DESIGN, JUSTIFY_CONTENT} from '../settings.js'
 
 export const defaultStepsContext = {

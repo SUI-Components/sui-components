@@ -1,27 +1,28 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
-  H2,
   Article,
-  Paragraph,
   Box,
+  Cell,
+  Code,
+  Grid,
+  H2,
+  Label,
+  ListItem,
+  Paragraph,
   RadioButton,
   RadioButtonGroup,
-  Grid,
-  Cell,
-  Label,
-  Code,
-  UnorderedList,
-  ListItem
+  UnorderedList
 } from '@s-ui/documentation-library'
 
 import MoleculeStepper from '../../src/index.js'
 import LoremIpsum from '../LoremIpsum.js'
 import {
-  visitedIcon as iconVisited,
   currentIcon as iconCurrent,
-  defaultIcon as iconDefault
+  defaultIcon as iconDefault,
+  visitedIcon as iconVisited
 } from '../settings.js'
 
 const steps = 5

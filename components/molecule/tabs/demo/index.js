@@ -1,10 +1,10 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import {CLASS_DEMO_SECTION} from './config.js'
 import ArticleDefault from './Articles/ArticleDefault.js'
+import ArticleIconsCounters from './Articles/ArticleIconsCounters.js'
 import ArticleType from './Articles/ArticleType.js'
 import ArticleVariant from './Articles/ArticleVariant.js'
-import ArticleIconsCounters from './Articles/ArticleIconsCounters.js'
+import {CLASS_DEMO_SECTION} from './config.js'
 
 import './index.scss'
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.3.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/stepper:** Avoid publishing huge CHANGELOG.md ([fb89bb2](https://github.com/SUI-Components/sui-components/commit/fb89bb2be5628e596d2341a3c6e37a86f21bdd7b))
+
+
+
 # 2.2.0 (2022-05-16)
 
 

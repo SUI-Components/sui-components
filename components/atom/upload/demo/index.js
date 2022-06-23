@@ -2,12 +2,14 @@
 import {Component} from 'react'
 
 import AtomUpload, {uploadStatuses} from 'components/atom/upload/src'
-import LayoutMediaQuery from '@s-ui/react-layout-media-query'
-import AtomSpinner from '@s-ui/react-atom-spinner'
-import IconActive from './icons/iconActive.js'
-import IconSuccess from './icons/iconSuccess.js'
-import IconError from './icons/iconError.js'
+
 import {Button} from '@s-ui/documentation-library'
+import AtomSpinner from '@s-ui/react-atom-spinner'
+import LayoutMediaQuery from '@s-ui/react-layout-media-query'
+
+import IconActive from './icons/iconActive.js'
+import IconError from './icons/iconError.js'
+import IconSuccess from './icons/iconSuccess.js'
 
 import './index.scss'
 

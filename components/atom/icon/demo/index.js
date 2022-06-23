@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
-import {H1, Paragraph, Code} from '@s-ui/documentation-library'
+import {Code, H1, Paragraph} from '@s-ui/documentation-library'
 
-import ColorsAndSizesDemo from './ColorsAndSizesDemo.js'
 import ColorInheritanceDemo from './ColorInheritanceDemo.js'
+import ColorsAndSizesDemo from './ColorsAndSizesDemo.js'
 import LazyDemo from './LazyDemo.js'
 import PolymorphicDemo from './PolymorphicDemo.js'
 import SpanDemo from './SpanDemo.js'

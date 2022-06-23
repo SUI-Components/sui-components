@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.15.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/radioButtonField:** Avoid publishing huge CHANGELOG.md ([406bbf8](https://github.com/SUI-Components/sui-components/commit/406bbf8a6c0f586634584c99d2a62395094840ac))
+
+
+
 # 1.14.0 (2022-02-25)
 
 

@@ -1,11 +1,10 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import ArticleDefault from './ArticleDefault.js'
 import ArticleBehavior from './ArticleBehavior.js'
-import ArticleHighLight from './ArticleHighLight.js'
+import ArticleDefault from './ArticleDefault.js'
 import ArticleDescription from './ArticleDescription.js'
+import ArticleHighLight from './ArticleHighLight.js'
 import ArticleTextWrap from './ArticleTextWrap.js'
-
 import {CLASS_DEMO_SECTION} from './config.js'
 
 import './index.scss'

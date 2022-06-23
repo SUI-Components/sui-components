@@ -1,20 +1,21 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
   Article,
+  Code,
   H2,
   Paragraph,
-  RadioButtonGroup,
   RadioButton,
-  Code
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 
 import MoleculeDropdownOption, {
   moleculeDropdownOptionTextWrapStyles
 } from '../src/index.js'
-import LoremIpsum from './LoremIpsum.js'
 import {CLASS_DEMO_OPTION} from './config.js'
+import LoremIpsum from './LoremIpsum.js'
 
 const ArticleTextWrap = ({className}) => {
   const [textWrap, setTextWrap] = useState()

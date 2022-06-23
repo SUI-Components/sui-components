@@ -1,27 +1,28 @@
 import {createRef, forwardRef} from 'react'
-import PropTypes from 'prop-types'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import {highlightText} from '@s-ui/js/lib/string'
 import AtomCheckbox from '@s-ui/react-atom-checkbox'
-import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs/index.js'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs/index.js'
 
 import handlersFactory from './handlersFactory/index.js'
 import {
   BASE_CLASS,
   CLASS_CHECKBOX,
-  MODIFIER_TWO_LINES,
-  MODIFIER_THREE_LINES,
-  MODIFIER_NO_WRAP,
-  MODIFIER_LINE_WRAP,
-  CLASS_TEXT,
   CLASS_DESCRIPTION,
   CLASS_DISABLED,
   CLASS_HIGHLIGHTED,
   CLASS_HIGHLIGHTED_MARK,
-  TEXT_WRAP_STYLES,
-  CLASS_WITH_DESCRIPTION
+  CLASS_TEXT,
+  CLASS_WITH_DESCRIPTION,
+  MODIFIER_LINE_WRAP,
+  MODIFIER_NO_WRAP,
+  MODIFIER_THREE_LINES,
+  MODIFIER_TWO_LINES,
+  TEXT_WRAP_STYLES
 } from './config.js'
 
 const MoleculeDropdownOption = forwardRef(

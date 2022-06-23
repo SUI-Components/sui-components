@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.22.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/inputTags:** Avoid publishing huge CHANGELOG.md ([5abb460](https://github.com/SUI-Components/sui-components/commit/5abb46051a28a329dcdeea843102ac672fc71f84))
+
+
+
 # 2.21.0 (2021-11-10)
 
 

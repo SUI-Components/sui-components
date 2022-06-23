@@ -1,11 +1,12 @@
 import {forwardRef} from 'react'
+
 import PropTypes from 'prop-types'
 
-import InputButton from './Wrappers/Button/InputButton.js'
-import InputAddons from './Wrappers/Addons/InputAddons.js'
-import InputIcons from './Wrappers/Icons/InputIcons.js'
-import Input, {inputStates, inputSizes} from './Component/index.js'
 import {SIZES} from '../config.js'
+import Input, {inputSizes, inputStates} from './Component/index.js'
+import InputAddons from './Wrappers/Addons/InputAddons.js'
+import InputButton from './Wrappers/Button/InputButton.js'
+import InputIcons from './Wrappers/Icons/InputIcons.js'
 
 const BaseInput = forwardRef(
   (

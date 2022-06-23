@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
-import {BASE_CLASS_ADDON_WRAPPER, ADDON_TYPES, getClassName} from './config.js'
 import {INPUT_SHAPES, SIZES} from '../../../config.js'
+import {ADDON_TYPES, BASE_CLASS_ADDON_WRAPPER, getClassName} from './config.js'
 
 const InputAddon = ({leftAddon, rightAddon, shape, size, children}) => {
   if (!(leftAddon || rightAddon)) {

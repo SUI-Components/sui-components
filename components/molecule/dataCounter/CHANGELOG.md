@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.16.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/dataCounter:** Avoid publishing huge CHANGELOG.md ([1ae911a](https://github.com/SUI-Components/sui-components/commit/1ae911a77c93f6daf6272e75656184eb7274e296))
+
+
+
 # 1.15.0 (2022-02-06)
 
 

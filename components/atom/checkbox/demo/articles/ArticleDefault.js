@@ -43,14 +43,12 @@ const ArticleDefault = ({className}) => {
     if (setter === 'AtomCheckbox') {
       const {checked} = args
       setStatus(checked === true ? 'UNCHECKED' : 'CHECKED')
-      return undefined
     } else if (setter === 'RadioButtonGroup') {
       if (args !== undefined) {
         setStatus(args)
       }
     }
     console.log(args) // eslint-disable-line no-console
-    return undefined
   }
 
   const clickHandler = (event, args) => console.log(args) // eslint-disable-line no-console

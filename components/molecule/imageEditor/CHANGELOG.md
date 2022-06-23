@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.4.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/imageEditor:** Avoid publishing huge CHANGELOG.md ([9492288](https://github.com/SUI-Components/sui-components/commit/94922880137c5bb848e9419d6ae7a14cafb516cc))
+
+
+
 # 1.3.0 (2022-01-31)
 
 

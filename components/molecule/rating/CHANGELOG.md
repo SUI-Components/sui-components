@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.20.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/rating:** Avoid publishing huge CHANGELOG.md ([0ca04c7](https://github.com/SUI-Components/sui-components/commit/0ca04c7c50c0e486bad2d0374141d0f53e8e0d0d))
+
+
+
 # 1.19.0 (2022-06-08)
 
 

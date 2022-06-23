@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 1.43.0 (2022-06-23)
+
+
+### Bug Fixes
+
+* **components/molecule/tabs:** fix classes, mod demo and unnecesary propsTypes declaration and defau ([5648880](https://github.com/SUI-Components/sui-components/commit/56488809574915b9673c60a581a4789b74da789e))
+
+
+### Features
+
+* **components/molecule/dropdownOption:** Avoid publishing huge CHANGELOG.md ([31f3c21](https://github.com/SUI-Components/sui-components/commit/31f3c2153589092cf52017a8d0e02243c2d02edd))
+
+
+
 # 1.42.0 (2022-03-11)
 
 

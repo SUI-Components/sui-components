@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {H2, Article} from '@s-ui/documentation-library'
+import {Article, H2} from '@s-ui/documentation-library'
 
 import RadioButtonGroupIcons from './components/radioButtonGroupIcons.js'
 

@@ -1,5 +1,6 @@
-import AtomLabel from '@s-ui/react-atom-label'
 import PropTypes from 'prop-types'
+
+import AtomLabel from '@s-ui/react-atom-label'
 
 const CustomLabel = ({text, type, name, onClickLabel}) => (
   <>

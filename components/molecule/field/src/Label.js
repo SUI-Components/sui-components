@@ -1,5 +1,6 @@
 import {cloneElement} from 'react'
 import {isElement} from 'react-is'
+
 import PropTypes from 'prop-types'
 
 import AtomLabel, {AtomLabelTypes} from '@s-ui/react-atom-label'

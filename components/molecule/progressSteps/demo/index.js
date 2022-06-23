@@ -1,12 +1,12 @@
 import {H1} from '@s-ui/documentation-library'
 
-import DefaultProgressStepsArticle from './DefaultProgressStepsArticle.js'
-import CustomIconsProgressStepsArticle from './CustomIconsProgressStepsArticle.js'
-import VerticalProgressBarArticle from './VerticalProgressBarArticle.js'
 import CompressedProgressBarArticle from './CompressedProgressBarArticle.js'
-import JustifyContentProgressBarArticle from './JustifyContentProgressBarArticle.js'
 import ContentTypeProgressStepsArticle from './ContentTypeProgressStepsArticle.js'
+import CustomIconsProgressStepsArticle from './CustomIconsProgressStepsArticle.js'
+import DefaultProgressStepsArticle from './DefaultProgressStepsArticle.js'
+import JustifyContentProgressBarArticle from './JustifyContentProgressBarArticle.js'
 import OnChangeHandlerProgressStepsArticle from './OnChangeHandlerProgressStepsArticle.js'
+import VerticalProgressBarArticle from './VerticalProgressBarArticle.js'
 
 import './index.scss'
 

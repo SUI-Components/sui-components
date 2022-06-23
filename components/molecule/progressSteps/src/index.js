@@ -1,24 +1,25 @@
-import {Children, useState, useEffect} from 'react'
+import {Children, useEffect, useState} from 'react'
+
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import MoleculeStepper, {
-  moleculeStepperDesign,
   moleculeStepperAlignment,
+  moleculeStepperDesign,
   Step
 } from '@s-ui/react-molecule-stepper'
 
-import {
-  BASE_CLASS,
-  CLASS_CONTENT,
-  CLASS_VERTICAL,
-  CLASS_COMPRESSED,
-  PROGRESS_BAR_JUSTIFY_CONTENT,
-  CONTENT_STYLE
-} from './config.js'
 import MoleculeProgressStep, {
   STATUSES
 } from './components/MoleculeProgressStep/index.js'
+import {
+  BASE_CLASS,
+  CLASS_COMPRESSED,
+  CLASS_CONTENT,
+  CLASS_VERTICAL,
+  CONTENT_STYLE,
+  PROGRESS_BAR_JUSTIFY_CONTENT
+} from './config.js'
 
 const MoleculeProgressSteps = ({
   vertical,

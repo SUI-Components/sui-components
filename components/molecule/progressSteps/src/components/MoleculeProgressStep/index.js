@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 import {
   CLASS_BAR,
   CLASS_STEP,
-  CLASS_STEP_NUMBER,
-  CLASS_STEP_ICON,
   CLASS_STEP_DESCRIPTION,
-  STATUSES,
-  getStatusClass
+  CLASS_STEP_ICON,
+  CLASS_STEP_NUMBER,
+  getStatusClass,
+  STATUSES
 } from './config.js'
 
 const MoleculeProgressStep = ({

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import {Article, H2, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculeCollapsible from '../src/index.js'

@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
-import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
+
+import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculeCollapsible from '../src/index.js'
-import {Text, DemoWrapper} from './config/index.js'
+import {DemoWrapper, Text} from './config/index.js'
 
 const ArticleGradient = ({className, icon, showText, hideText}) => {
   return (

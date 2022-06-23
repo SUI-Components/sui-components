@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types'
-import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
 import MoleculeCheckboxField from 'components/molecule/checkboxField/src'
+import PropTypes from 'prop-types'
+
+import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
 export const ArticleWithHelpText = ({className}) => {
   return (

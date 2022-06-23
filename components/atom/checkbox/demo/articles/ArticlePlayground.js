@@ -55,11 +55,9 @@ const ArticlePlayground = ({className}) => {
   const [checkedIcon, setCheckedIcon] = useState()
   const [uncheckedIcon, setUncheckedIcon] = useState()
   const [indeterminateIcon, setIndeterminateIcon] = useState()
-
   const CheckedIcon = ICONS[checkedIcon]
   const UncheckedIcon = ICONS[uncheckedIcon]
   const IndeterminateIcon = ICONS[indeterminateIcon]
-
   const [values, setValues] = useState({checked, indeterminate})
   const [outerHTML, setOuterHTML] = useState('')
   const ref = useMergeRefs(node => {

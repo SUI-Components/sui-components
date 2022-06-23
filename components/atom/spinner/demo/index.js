@@ -1,11 +1,11 @@
-import {H1, H2, Paragraph, Article} from '@s-ui/documentation-library'
+import {Article, H1, H2, Paragraph} from '@s-ui/documentation-library'
 
 import AtomSpinner, {atomSpinnerOverlayTypes} from '../src/index.js'
 import CustomChildren from './CustomChildren.js'
 import CustomLoader from './CustomLoader.js'
 import FullScreenSpinner from './FullScreenSpinner.js'
-import SpinnerWrapper from './SpinnerWrapper.js'
 import {CLASS_SECTION} from './settings.js'
+import SpinnerWrapper from './SpinnerWrapper.js'
 
 const Demo = () => {
   return (

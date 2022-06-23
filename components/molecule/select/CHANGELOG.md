@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.53.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/select:** Avoid publishing huge CHANGELOG.md ([d01dd7a](https://github.com/SUI-Components/sui-components/commit/d01dd7a4da3c26d17d132dbca124a300e5831ba9))
+
+
+
 # 1.52.0 (2022-02-01)
 
 

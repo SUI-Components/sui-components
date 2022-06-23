@@ -2,14 +2,14 @@
 
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import {CLASS_SECTION} from './settings.js'
-import ArticleDefault from './articles/ArticleDefault.js'
-import ArticleSizes from './articles/ArticleSizes.js'
-import ArticleValues from './articles/ArticleValues.js'
-import ArticleDisabled from './articles/ArticleDisabled.js'
-import ArticleStatus from './articles/ArticleStatus.js'
 import ArticleCustomIcons from './articles/ArticleCustomIcons.js'
+import ArticleDefault from './articles/ArticleDefault.js'
+import ArticleDisabled from './articles/ArticleDisabled.js'
 import ArticlePlayground from './articles/ArticlePlayground.js'
+import ArticleSizes from './articles/ArticleSizes.js'
+import ArticleStatus from './articles/ArticleStatus.js'
+import ArticleValues from './articles/ArticleValues.js'
+import {CLASS_SECTION} from './settings.js'
 
 import './index.scss'
 

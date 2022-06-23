@@ -1,4 +1,5 @@
 import {Fragment} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
@@ -12,7 +13,7 @@ import {
 } from '@s-ui/documentation-library'
 
 import AtomCheckbox from '../../src/index.js'
-import {flexCenteredStyle, ICONS, CHECKBOX_SIZE} from '../settings.js'
+import {CHECKBOX_SIZE, flexCenteredStyle, ICONS} from '../settings.js'
 
 const ArticleSizes = ({className}) => (
   <Article className={className}>
@@ -50,8 +51,8 @@ const ArticleSizes = ({className}) => (
               <Cell style={flexCenteredStyle}>
                 <AtomCheckbox
                   id={`${index}-${index2}`}
-                  checkedIcon={ICONS.aiOutlineCheck}
-                  indeterminateIcon={ICONS.aiOutlineLine}
+                  checkedIcon={ICONS.AiOutlineCheck}
+                  indeterminateIcon={ICONS.AiOutlineLine}
                   {...{...props}}
                   size={size}
                 />

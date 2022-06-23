@@ -1,4 +1,5 @@
 import {Fragment} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
@@ -9,9 +10,9 @@ import {
   H2,
   H3,
   H4,
-  Separator,
   Label,
-  Paragraph
+  Paragraph,
+  Separator
 } from '@s-ui/documentation-library'
 
 import AtomCheckbox, {atomCheckboxStatus} from '../../src/index.js'
@@ -47,9 +48,9 @@ const ArticleValues = ({className}) => (
       ))}
       {Object.entries({
         customized: {
-          checkedIcon: ICONS.aiOutlineCheck,
-          indeterminateIcon: ICONS.aiOutlineLine
-          // unCheckedIcon: ICONS.bsDot
+          checkedIcon: ICONS.AiOutlineCheck,
+          indeterminateIcon: ICONS.AiOutlineLine
+          // unCheckedIcon: ICONS.BsDot
         },
         native: {}
       }).map(([label, props1], index1) => (
@@ -79,9 +80,9 @@ const ArticleValues = ({className}) => (
       </Cell>
       {Object.entries({
         customized: {
-          checkedIcon: ICONS.aiOutlineCheck,
-          indeterminateIcon: ICONS.aiOutlineLine
-          // unCheckedIcon: ICONS.bsDot
+          checkedIcon: ICONS.AiOutlineCheck,
+          indeterminateIcon: ICONS.AiOutlineLine
+          // unCheckedIcon: ICONS.BsDot
         },
         native: {}
       }).map(([label, props1], index1) => (
@@ -117,9 +118,9 @@ const ArticleValues = ({className}) => (
           </Cell>
           {Object.entries({
             customized: {
-              checkedIcon: ICONS.aiOutlineCheck,
-              indeterminateIcon: ICONS.aiOutlineLine
-              // unCheckedIcon: ICONS.bsDot
+              checkedIcon: ICONS.AiOutlineCheck,
+              indeterminateIcon: ICONS.AiOutlineLine
+              // unCheckedIcon: ICONS.BsDot
             },
             native: {}
           }).map(([label, props1], index1) => (

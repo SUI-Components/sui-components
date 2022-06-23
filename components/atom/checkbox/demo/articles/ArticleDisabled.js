@@ -1,4 +1,5 @@
 import {Fragment} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
@@ -37,9 +38,9 @@ const ArticleDisabled = ({className}) => (
       {Object.entries({
         native: {},
         customized: {
-          checkedIcon: ICONS.aiOutlineCheck,
-          indeterminateIcon: ICONS.aiOutlineLine,
-          uncheckedIcon: ICONS.aiOutlineClose
+          checkedIcon: ICONS.AiOutlineCheck,
+          indeterminateIcon: ICONS.AiOutlineLine,
+          uncheckedIcon: ICONS.AiOutlineClose
         }
       }).map(([label, props1], index1) => (
         <Fragment key={index1}>

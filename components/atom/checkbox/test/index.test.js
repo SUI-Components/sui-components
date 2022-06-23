@@ -133,7 +133,6 @@ describe(json.name, () => {
 
     it('should fire onChange handler value when the element is clicked when checked is true', () => {
       // Given
-      const {version} = json
       const spy = sinon.spy()
       const props = {
         onChange: spy,
@@ -149,29 +148,20 @@ describe(json.name, () => {
       const element = getByRole('checkbox')
       userEvents.click(element)
       sinon.assert.callCount(spy, 1)
-      if (parseInt(version[0]) === 2) {
-        // The returned value must change to the given element value and the callback should return the checked value under that attribute
-        sinon.assert.calledWith(
-          spy,
-          sinon.match.truthy,
-          sinon.match({name: props.name, value: !props.checked})
-        )
-      } else {
-        sinon.assert.calledWith(
-          spy,
-          sinon.match.truthy,
-          sinon.match({
-            name: props.name,
-            value: props.value,
-            checked: props.checked
-          })
-        )
-      }
+      sinon.assert.calledWith(
+        spy,
+        sinon.match.truthy,
+        sinon.match({
+          name: props.name,
+          value: props.value,
+          checked: props.checked,
+          indeterminate: false
+        })
+      )
     })
 
     it('should fire onChange handler value when the element is clicked when defaultChecked is true', () => {
       // Given
-      const {version} = json
       const spy = sinon.spy()
       const props = {
         onChange: spy,
@@ -187,34 +177,26 @@ describe(json.name, () => {
       const element = getByRole('checkbox')
       userEvents.click(element)
       sinon.assert.callCount(spy, 1)
-      if (parseInt(version[0]) === 2) {
-        // The returned value must change to the given element value and the callback should return the checked value under that attribute
-        sinon.assert.calledWith(
-          spy,
-          sinon.match.truthy,
-          sinon.match({name: props.name, value: !props.checked})
-        )
-      } else {
-        sinon.assert.calledWith(
-          spy,
-          sinon.match.truthy,
-          sinon.match({
-            name: props.name,
-            value: props.value,
-            checked: !props.defaultChecked
-          })
-        )
-      }
+      sinon.assert.calledWith(
+        spy,
+        sinon.match.truthy,
+        sinon.match({
+          name: props.name,
+          value: props.value,
+          checked: !props.defaultChecked,
+          indeterminate: false
+        })
+      )
     })
 
-    it('should fire onChange handler value when the element is clicked when status is indetermiante = true', () => {
+    it('should fire onChange handler value when the element is clicked when status is indeterminate = true', () => {
       // Given
-      const {version} = json
       const spy = sinon.spy()
       const props = {
         onChange: spy,
         name: 'name',
         value: 'value',
+        checked: false,
         indeterminate: true
       }
 
@@ -225,29 +207,20 @@ describe(json.name, () => {
       const element = getByRole('checkbox')
       userEvents.click(element)
       sinon.assert.callCount(spy, 1)
-      if (parseInt(version[0]) === 2) {
-        // The returned value must change to the given element value and the callback should return the checked value under that attribute
-        sinon.assert.calledWith(
-          spy,
-          sinon.match.truthy,
-          sinon.match({name: props.name, value: !props.checked})
-        )
-      } else {
-        sinon.assert.calledWith(
-          spy,
-          sinon.match.truthy,
-          sinon.match({
-            name: props.name,
-            value: props.value,
-            checked: !props.checked
-          })
-        )
-      }
+      sinon.assert.calledWith(
+        spy,
+        sinon.match.truthy,
+        sinon.match({
+          name: props.name,
+          value: props.value,
+          checked: false,
+          indeterminate: props.indeterminate
+        })
+      )
     })
 
     it('should fire onChange handler value when the element is clicked when status is defaultIndeterminate = true', () => {
       // Given
-      const {version} = json
       const spy = sinon.spy()
       const props = {
         onChange: spy,
@@ -263,29 +236,20 @@ describe(json.name, () => {
       const element = getByRole('checkbox')
       userEvents.click(element)
       sinon.assert.callCount(spy, 1)
-      if (parseInt(version[0]) === 2) {
-        // The returned value must change to the given element value and the callback should return the checked value under that attribute
-        sinon.assert.calledWith(
-          spy,
-          sinon.match.truthy,
-          sinon.match({name: props.name, value: !props.checked})
-        )
-      } else {
-        sinon.assert.calledWith(
-          spy,
-          sinon.match.truthy,
-          sinon.match({
-            name: props.name,
-            value: props.value,
-            checked: !props.checked
-          })
-        )
-      }
+      sinon.assert.calledWith(
+        spy,
+        sinon.match.truthy,
+        sinon.match({
+          name: props.name,
+          value: props.value,
+          checked: !props.checked,
+          indeterminate: false
+        })
+      )
     })
 
     it('should fire onChange handler value when the element is clicked when checked is false', () => {
       // Given
-      const {version} = json
       const spy = sinon.spy()
       const props = {
         onChange: spy,
@@ -302,29 +266,20 @@ describe(json.name, () => {
       userEvents.click(element)
       sinon.assert.called(spy)
       sinon.assert.callCount(spy, 1)
-      if (parseInt(version[0]) === 2) {
-        // The returned value must change to the given element value and the callback should return the checked value under that attribute
-        sinon.assert.calledWith(
-          spy,
-          sinon.match.truthy,
-          sinon.match({name: props.name, value: !props.checked})
-        )
-      } else {
-        sinon.assert.calledWith(
-          spy,
-          sinon.match.truthy,
-          sinon.match({
-            name: props.name,
-            value: props.value,
-            checked: props.checked
-          })
-        )
-      }
+      sinon.assert.calledWith(
+        spy,
+        sinon.match.truthy,
+        sinon.match({
+          name: props.name,
+          value: props.value,
+          checked: props.checked,
+          indeterminate: false
+        })
+      )
     })
 
     it('should fire onChange handler value when the element is clicked when defaultChecked is false', () => {
       // Given
-      const {version} = json
       const spy = sinon.spy()
       const props = {
         onChange: spy,
@@ -341,24 +296,16 @@ describe(json.name, () => {
       userEvents.click(element)
       sinon.assert.called(spy)
       sinon.assert.callCount(spy, 1)
-      if (parseInt(version[0]) === 2) {
-        // The returned value must change to the given element value and the callback should return the checked value under that attribute
-        sinon.assert.calledWith(
-          spy,
-          sinon.match.truthy,
-          sinon.match({name: props.name, value: !props.checked})
-        )
-      } else {
-        sinon.assert.calledWith(
-          spy,
-          sinon.match.truthy,
-          sinon.match({
-            name: props.name,
-            value: props.value,
-            checked: !props.defaultChecked
-          })
-        )
-      }
+      sinon.assert.calledWith(
+        spy,
+        sinon.match.truthy,
+        sinon.match({
+          name: props.name,
+          value: props.value,
+          checked: !props.defaultChecked,
+          indeterminate: false
+        })
+      )
     })
 
     it('should NOT fire onChange handler value when the disabled element is clicked when checked is undefined', () => {

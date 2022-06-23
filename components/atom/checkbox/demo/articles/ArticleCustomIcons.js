@@ -1,4 +1,5 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
@@ -41,14 +42,14 @@ const ArticleCustomIcons = ({className}) => {
             onChange={(event, value) => value && setState({checkedIcon: value})}
           >
             <RadioButton
-              value="aiOutlineCheck"
-              label={<ICONS.aiOutlineCheck />}
-              checked={state.checkedIcon === 'aiOutlineCheck'}
+              value="AiOutlineCheck"
+              label={<ICONS.AiOutlineCheck />}
+              checked={state.checkedIcon === 'AiOutlineCheck'}
             />
             <RadioButton
-              value="aiOutlineClose"
-              label={<ICONS.aiOutlineClose />}
-              checked={state.checkedIcon === 'aiOutlineClose'}
+              value="AiOutlineClose"
+              label={<ICONS.AiOutlineClose />}
+              checked={state.checkedIcon === 'AiOutlineClose'}
             />
           </RadioButtonGroup>
         </Cell>
@@ -74,24 +75,24 @@ const ArticleCustomIcons = ({className}) => {
             }
           >
             <RadioButton
-              value="aiOutlineLine"
-              label={<ICONS.aiOutlineLine />}
-              checked={state.indeterminateIcon === 'aiOutlineLine'}
+              value="AiOutlineLine"
+              label={<ICONS.AiOutlineLine />}
+              checked={state.indeterminateIcon === 'AiOutlineLine'}
             />
             <RadioButton
-              value="aiOutlineInfo"
-              label={<ICONS.aiOutlineInfo />}
-              checked={state.indeterminateIcon === 'aiOutlineInfo'}
+              value="AiOutlineInfo"
+              label={<ICONS.AiOutlineInfo />}
+              checked={state.indeterminateIcon === 'AiOutlineInfo'}
             />
             <RadioButton
-              value="aiOutlinePause"
-              label={<ICONS.aiOutlinePause />}
-              checked={state.indeterminateIcon === 'aiOutlinePause'}
+              value="AiOutlinePause"
+              label={<ICONS.AiOutlinePause />}
+              checked={state.indeterminateIcon === 'AiOutlinePause'}
             />
             <RadioButton
-              value="aiOutlinePlus"
-              label={<ICONS.aiOutlinePlus />}
-              checked={state.indeterminateIcon === 'aiOutlinePlus'}
+              value="AiOutlinePlus"
+              label={<ICONS.AiOutlinePlus />}
+              checked={state.indeterminateIcon === 'AiOutlinePlus'}
             />
           </RadioButtonGroup>
         </Cell>

@@ -1,4 +1,5 @@
 import {Fragment} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
@@ -50,8 +51,8 @@ const ArticleStatus = ({className}) => (
               <Cell style={flexCenteredStyle}>
                 <AtomCheckbox
                   id={`${index}-${index2}`}
-                  checkedIcon={ICONS.aiOutlineCheck}
-                  indeterminateIcon={ICONS.aiOutlineLine}
+                  checkedIcon={ICONS.AiOutlineCheck}
+                  indeterminateIcon={ICONS.AiOutlineLine}
                   {...{...props}}
                   status={status}
                 />

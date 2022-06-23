@@ -1,20 +1,21 @@
-import {useRef, forwardRef} from 'react'
-import PropTypes from 'prop-types'
+import {forwardRef, useRef} from 'react'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
-import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
-import CheckboxIcon from './CheckboxIcon.js'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
+import CheckboxIcon from './CheckboxIcon.js'
 import {
   BASE_CLASS,
-  CHECKBOX_STATUS,
   CHECKBOX_SIZES,
+  CHECKBOX_STATUS,
   getIcon,
-  updateStatus,
+  getIsNative,
   isFunction,
   pressedValue,
-  getIsNative
+  updateStatus
 } from './config.js'
 
 const AtomCheckbox = forwardRef(
@@ -56,6 +57,7 @@ const AtomCheckbox = forwardRef(
       inputRef,
       forwardedRef
     )
+    const isControlled = isCheckedControlled || isIndeterminateControlled
     const isNative = getIsNative(
       {checked, indeterminate},
       {CheckedIcon, UncheckedIcon, IndeterminateIcon, Icon: IconProp}
@@ -68,8 +70,8 @@ const AtomCheckbox = forwardRef(
     const handleChange = ref => event => {
       if (!disabled) {
         const {name, value} = event.target
-        const newChecked = isCheckedControlled ? checked : event.target.checked
-        const newIndeterminate = isIndeterminateControlled
+        const newChecked = isControlled ? checked : event.target.checked
+        const newIndeterminate = isControlled
           ? indeterminate
           : event.target.indeterminate
         setChecked(newChecked)
@@ -90,10 +92,8 @@ const AtomCheckbox = forwardRef(
       event.stopPropagation()
       if (!disabled) {
         const {name, value} = event.target
-        const newChecked = isCheckedControlled ? checked : !checked
-        const newIndetermiante = isIndeterminateControlled
-          ? indeterminate
-          : false
+        const newChecked = isControlled ? checked : !checked
+        const newIndetermiante = isControlled ? indeterminate : false
         setChecked(newChecked)
         setIndeterminate(false)
         isFunction(onChangeFromProps) &&
@@ -106,8 +106,6 @@ const AtomCheckbox = forwardRef(
         ref.current.focus()
       }
     }
-
-    console.log({checked, indeterminate})
 
     return (
       <label

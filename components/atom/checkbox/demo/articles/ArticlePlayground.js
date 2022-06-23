@@ -1,21 +1,22 @@
 import {useState} from 'react'
+import JSONView from 'react-json-view'
+
 import PropTypes from 'prop-types'
 
-import JSONView from 'react-json-view'
 import {
+  AntDesignIcon,
   Article,
+  Button,
+  Cell,
+  Code,
+  Grid,
   H2,
   H3,
-  Paragraph,
-  Grid,
-  Cell,
-  RadioButton,
-  RadioButtonGroup,
-  Button,
-  AntDesignIcon,
   Input,
   Label,
-  Code
+  Paragraph,
+  RadioButton,
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 import AtomIcon from '@s-ui/react-atom-icon'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
@@ -279,14 +280,14 @@ const ArticlePlayground = ({className}) => {
                   checked={checkedIcon === undefined}
                 />
                 <RadioButton
-                  value="aiOutlineCheck"
-                  label={<ICONS.aiOutlineCheck />}
-                  checked={checkedIcon === 'aiOutlineCheck'}
+                  value="AiOutlineCheck"
+                  label={<ICONS.AiOutlineCheck />}
+                  checked={checkedIcon === 'AiOutlineCheck'}
                 />
                 <RadioButton
-                  value="bsFillEmojiSmileFill"
-                  label={<ICONS.bsFillEmojiSmileFill />}
-                  checked={checkedIcon === 'bsFillEmojiSmileFill'}
+                  value="BsFillEmojiSmileFill"
+                  label={<ICONS.BsFillEmojiSmileFill />}
+                  checked={checkedIcon === 'BsFillEmojiSmileFill'}
                 />
               </RadioButtonGroup>
             </Cell>
@@ -302,14 +303,14 @@ const ArticlePlayground = ({className}) => {
                   checked={indeterminateIcon === undefined}
                 />
                 <RadioButton
-                  value="aiOutlineLine"
-                  label={<ICONS.aiOutlineLine />}
-                  checked={indeterminateIcon === 'aiOutlineLine'}
+                  value="AiOutlineLine"
+                  label={<ICONS.AiOutlineLine />}
+                  checked={indeterminateIcon === 'AiOutlineLine'}
                 />
                 <RadioButton
-                  value="bsFillEmojiNeutralFill"
-                  label={<ICONS.bsFillEmojiNeutralFill />}
-                  checked={indeterminateIcon === 'bsFillEmojiNeutralFill'}
+                  value="BsFillEmojiNeutralFill"
+                  label={<ICONS.BsFillEmojiNeutralFill />}
+                  checked={indeterminateIcon === 'BsFillEmojiNeutralFill'}
                 />
               </RadioButtonGroup>
             </Cell>
@@ -325,14 +326,14 @@ const ArticlePlayground = ({className}) => {
                   checked={uncheckedIcon === undefined}
                 />
                 <RadioButton
-                  value="aiOutlineClose"
-                  label={<ICONS.aiOutlineClose />}
-                  checked={uncheckedIcon === 'aiOutlineClose'}
+                  value="AiOutlineClose"
+                  label={<ICONS.AiOutlineClose />}
+                  checked={uncheckedIcon === 'AiOutlineClose'}
                 />
                 <RadioButton
-                  value="bsFillEmojiFrownFill"
-                  label={<ICONS.bsFillEmojiFrownFill />}
-                  checked={uncheckedIcon === 'bsFillEmojiFrownFill'}
+                  value="BsFillEmojiFrownFill"
+                  label={<ICONS.BsFillEmojiFrownFill />}
+                  checked={uncheckedIcon === 'BsFillEmojiFrownFill'}
                 />
               </RadioButtonGroup>
             </Cell>

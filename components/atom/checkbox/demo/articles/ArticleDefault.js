@@ -1,21 +1,23 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
   Article,
-  H2,
-  Paragraph,
-  RadioButtonGroup,
-  RadioButton,
+  Cell,
   Code,
-  Label,
   Grid,
-  Cell
+  H2,
+  H3,
+  Label,
+  Paragraph,
+  RadioButton,
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import AtomCheckbox from '../../src/index.js'
-import {ICONS, propsFromStatus, PROPS_STATUS} from '../settings.js'
+import {ICONS, PROPS_STATUS, propsFromStatus} from '../settings.js'
 
 const ArticleDefault = ({className}) => {
   const [status, setStatus] = useState('CHECKED')
@@ -51,21 +53,21 @@ const ArticleDefault = ({className}) => {
     return undefined
   }
 
-  const clickHandler = (event, args) => {
-    console.log(args)
-  }
+  const clickHandler = (event, args) => console.log(args) // eslint-disable-line no-console
+
   return (
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>Default style of AtomCheckbox.</Paragraph>
+      <H3>Uncontrolled</H3>
       <Grid cols={3} gutter={[8, 8]}>
         <Cell>
           <AtomCheckbox
             value="checkBox-default-unchecked"
             name="checkBox-default-unchecked"
             id="checkBox-default-unchecked"
-            checkedIcon={ICONS.aiOutlineCheck}
-            indeterminateIcon={ICONS.aiOutlineLine}
+            checkedIcon={ICONS.AiOutlineCheck}
+            indeterminateIcon={ICONS.AiOutlineLine}
             defaultIndeterminate={PROPS_STATUS.UNCHECKED.indeterminate}
             defaultChecked={PROPS_STATUS.UNCHECKED.checked}
             onChange={clickHandler}
@@ -77,9 +79,9 @@ const ArticleDefault = ({className}) => {
             name="checkBox-default-indeterminate"
             id="checkBox-default-indeterminate"
             defaultChecked={PROPS_STATUS.INDETERMINATE.checked}
-            checkedIcon={ICONS.aiOutlineCheck}
+            checkedIcon={ICONS.AiOutlineCheck}
             defaultIndeterminate={PROPS_STATUS.INDETERMINATE.indeterminate}
-            indeterminateIcon={ICONS.aiOutlineLine}
+            indeterminateIcon={ICONS.AiOutlineLine}
             onChange={clickHandler}
           />
         </Cell>
@@ -89,9 +91,48 @@ const ArticleDefault = ({className}) => {
             name="checkBox-default-checked"
             id="checkBox-default-checked"
             defaultChecked={PROPS_STATUS.CHECKED.checked}
-            checkedIcon={ICONS.aiOutlineCheck}
+            checkedIcon={ICONS.AiOutlineCheck}
             defaultIndeterminate={PROPS_STATUS.CHECKED.indeterminate}
-            indeterminateIcon={ICONS.aiOutlineLine}
+            indeterminateIcon={ICONS.AiOutlineLine}
+            onChange={clickHandler}
+          />
+        </Cell>
+      </Grid>
+      <H3>Controlled</H3>
+      <Grid cols={3} gutter={[8, 8]}>
+        <Cell>
+          <AtomCheckbox
+            value="checkBox-default-unchecked"
+            name="checkBox-default-unchecked"
+            id="checkBox-default-unchecked"
+            checkedIcon={ICONS.AiOutlineCheck}
+            indeterminateIcon={ICONS.AiOutlineLine}
+            indeterminate={PROPS_STATUS.UNCHECKED.indeterminate}
+            checked={PROPS_STATUS.UNCHECKED.checked}
+            onChange={clickHandler}
+          />
+        </Cell>
+        <Cell>
+          <AtomCheckbox
+            value="checkBox-default-indeterminate"
+            name="checkBox-default-indeterminate"
+            id="checkBox-default-indeterminate"
+            checked={PROPS_STATUS.INDETERMINATE.checked}
+            checkedIcon={ICONS.AiOutlineCheck}
+            indeterminate={PROPS_STATUS.INDETERMINATE.indeterminate}
+            indeterminateIcon={ICONS.AiOutlineLine}
+            onChange={clickHandler}
+          />
+        </Cell>
+        <Cell>
+          <AtomCheckbox
+            value="checkBox-default-checked"
+            name="checkBox-default-checked"
+            id="checkBox-default-checked"
+            checked={PROPS_STATUS.CHECKED.checked}
+            checkedIcon={ICONS.AiOutlineCheck}
+            indeterminate={PROPS_STATUS.CHECKED.indeterminate}
+            indeterminateIcon={ICONS.AiOutlineLine}
             onChange={clickHandler}
           />
         </Cell>
@@ -122,8 +163,8 @@ const ArticleDefault = ({className}) => {
             name="checkBoxName"
             id="checkBoxExample"
             onChange={handler('AtomCheckbox')}
-            checkedIcon={ICONS.aiOutlineCheck}
-            indeterminateIcon={ICONS.aiOutlineLine}
+            checkedIcon={ICONS.AiOutlineCheck}
+            indeterminateIcon={ICONS.AiOutlineLine}
             indeterminate={indeterminate}
             checked={checked}
           />

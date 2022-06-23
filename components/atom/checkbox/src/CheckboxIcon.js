@@ -1,11 +1,12 @@
 import {useRef} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
-  CHECKBOX_STATUS,
   CHECKBOX_SIZES,
-  pressedValue,
-  className
+  CHECKBOX_STATUS,
+  className,
+  pressedValue
 } from './config.js'
 
 const CheckboxIcon = ({

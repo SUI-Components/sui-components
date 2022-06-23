@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.20.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/pagination:** Avoid publishing huge CHANGELOG.md ([dc4c8b8](https://github.com/SUI-Components/sui-components/commit/dc4c8b8fe0c2523737f6dc754e7b9d1064e1b96f))
+
+
+
 # 2.19.0 (2022-04-05)
 
 

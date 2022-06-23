@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import {SIZES, STATUS} from '../settings.js'
 import {INDICATOR_CLASS_NAME} from './settings.js'

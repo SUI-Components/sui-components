@@ -1,12 +1,10 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
+import {SIZES, STATUS} from '../settings.js'
 import Circle from './Circle/index.js'
-import {BASE_CLASS_NAME, SIZE_TO_WIDTH_LINE_MAP} from './settings.js'
-
-import {STATUS, SIZES} from '../settings.js'
-
 import Indicator from './Indicator.js'
+import {BASE_CLASS_NAME, SIZE_TO_WIDTH_LINE_MAP} from './settings.js'
 
 const ProgressBarCircle = ({
   percentage,

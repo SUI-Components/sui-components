@@ -1,6 +1,8 @@
-import PropTypes from 'prop-types'
-import AtomImage from '@s-ui/react-atom-image'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
+import AtomImage from '@s-ui/react-atom-image'
+
 import {
   BASE_CLASS,
   CAPTION_CLASS,

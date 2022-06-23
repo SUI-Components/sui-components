@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 import PropTypes from 'prop-types'
+
 import {Article, Cell, Grid, H1, H2, H3} from '@s-ui/documentation-library'
 import Spinner from '@s-ui/react-atom-spinner'
 
 import MoleculeThumbnail, {
-  moleculeThumbnailSize,
   moleculeThumbnailRatio,
-  moleculeThumbnailShape
+  moleculeThumbnailShape,
+  moleculeThumbnailSize
 } from '../src/index.js'
 
 const Demo = ({children}) => {

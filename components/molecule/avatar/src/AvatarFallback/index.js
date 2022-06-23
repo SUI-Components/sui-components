@@ -1,10 +1,11 @@
 import {cloneElement} from 'react'
+
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import AvatarFallbackName from '../AvatarFallbackName/index.js'
 import AvatarFallbackIcon from '../AvatarFallbackIcon/index.js'
 import {BASE_CLASS_NAME as FALLBACK_ICON_CLASS_NAME} from '../AvatarFallbackIcon/settings.js'
+import AvatarFallbackName from '../AvatarFallbackName/index.js'
 
 const MoleculeAvatarFallback = ({
   name,

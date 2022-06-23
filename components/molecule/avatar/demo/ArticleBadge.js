@@ -1,20 +1,21 @@
 import PropTypes from 'prop-types'
+
 import {
   Article,
-  H2,
-  Grid,
   Cell,
-  Label,
-  Paragraph,
   Code,
-  UnorderedList,
-  ListItem
+  Grid,
+  H2,
+  Label,
+  ListItem,
+  Paragraph,
+  UnorderedList
 } from '@s-ui/documentation-library'
 
 import MoleculeAvatar, {
-  MOLECULE_AVATAR_BADGE_STATUSES,
   MOLECULE_AVATAR_BADGE_PLACEMENTS,
-  MOLECULE_AVATAR_BADGE_SIZES
+  MOLECULE_AVATAR_BADGE_SIZES,
+  MOLECULE_AVATAR_BADGE_STATUSES
 } from '../src/index.js'
 
 const ArticleBadge = ({className}) => {

@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types'
+
 import {
   Article,
-  H2,
-  Grid,
   Cell,
+  Code,
+  Grid,
+  H2,
   Label,
-  Paragraph,
-  UnorderedList,
   ListItem,
-  Code
+  Paragraph,
+  UnorderedList
 } from '@s-ui/documentation-library'
 
 import MoleculeAvatar, {MOLECULE_AVATAR_SIZES} from '../src/index.js'

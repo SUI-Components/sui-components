@@ -1,6 +1,8 @@
-import {useRef, useState, useEffect} from 'react'
+import {useEffect, useRef, useState} from 'react'
+
 import PropTypes from 'prop-types'
-import {Article, H2, Paragraph, Label} from '@s-ui/documentation-library'
+
+import {Article, H2, Label, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculeAvatar from '../src/index.js'
 

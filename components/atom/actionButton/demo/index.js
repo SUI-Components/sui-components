@@ -1,32 +1,32 @@
 import {Fragment, useState} from 'react'
 
 import {
+  Article,
+  Cell,
+  Code,
+  Grid,
   H1,
   H2,
-  Code,
-  Label,
   Input,
+  Label,
   Paragraph,
-  RadioButtonGroup,
   RadioButton,
-  Article,
+  RadioButtonGroup,
   Strong,
-  Text,
-  Grid,
-  Cell
+  Text
 } from '@s-ui/documentation-library'
 import AtomActionButton, {
   atomActionButtonColors,
   atomActionButtonSizes
 } from '@s-ui/react-atom-action-button'
 
+import ActionButtonCatalog from './ActionButtonCatalog.js'
 import {
-  icon,
+  CLASS_SECTION,
   flexCenteredStyle,
   handleSubmit,
-  CLASS_SECTION
+  icon
 } from './settings.js'
-import ActionButtonCatalog from './ActionButtonCatalog.js'
 
 const Demo = () => {
   const [state, setState] = useState({content: 'button', link: false})

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.7.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/validationCode:** Avoid publishing huge CHANGELOG.md ([099175a](https://github.com/SUI-Components/sui-components/commit/099175a50a18d45f51e3fd44abdf6e3a6976a500))
+
+
+
 # 1.6.0 (2022-02-07)
 
 

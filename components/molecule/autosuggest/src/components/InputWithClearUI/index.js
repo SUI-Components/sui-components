@@ -1,4 +1,5 @@
 import {Children, cloneElement} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {CLASS_CONTAINER, CLASS_ICON_CLEAR} from './config.js'

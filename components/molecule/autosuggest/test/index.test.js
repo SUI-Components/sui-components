@@ -5,19 +5,19 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
+import {createRef} from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
-import {createRef} from 'react'
 import sinon from 'sinon'
 
 import {fireEvent} from '@testing-library/react'
+
 import MoleculeDropDownOption from '@s-ui/react-molecule-dropdown-option'
 
-import * as pkg from '../src/index.js'
-
 import json from '../package.json'
+import * as pkg from '../src/index.js'
 
 chai.use(chaiDOM)
 

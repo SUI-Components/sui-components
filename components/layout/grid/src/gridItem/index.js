@@ -1,6 +1,8 @@
 import {useMemo} from 'react'
-import PropTypes from 'prop-types'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
 import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
 
 import {BASE_CLASS, CELL_NUMBERS} from '../settings.js'

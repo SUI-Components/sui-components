@@ -1,19 +1,21 @@
-import {useEffect, useState, Fragment} from 'react'
-import PropTypes from 'prop-types'
-import {
-  Label,
-  H2,
-  Paragraph,
-  Article,
-  Code,
-  UnorderedList,
-  ListItem
-} from '@s-ui/documentation-library'
+import {Fragment, useEffect, useState} from 'react'
 import {useWindowSize} from 'react-use'
 
 import LayoutGrid, {LayoutGridItem} from 'components/layout/grid/src/index.js'
-import DemoWrapper from './demoWrapper.js'
+import PropTypes from 'prop-types'
+
+import {
+  Article,
+  Code,
+  H2,
+  Label,
+  ListItem,
+  Paragraph,
+  UnorderedList
+} from '@s-ui/documentation-library'
+
 import DemoBox from './demoBox.js'
+import DemoWrapper from './demoWrapper.js'
 
 const breakpoints = {
   xxs: 0,

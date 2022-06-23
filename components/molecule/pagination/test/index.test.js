@@ -10,15 +10,14 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
-import * as pkg from '../src/index.js'
-import * as customPropTypes from '../src/customPropTypes/index.js'
-import {
-  getMessageErrorNumber,
-  getMessageErrorPositive,
-  getMessageErrorInRange
-} from '../src/customPropTypes/helpers.js'
-
 import json from '../package.json'
+import {
+  getMessageErrorInRange,
+  getMessageErrorNumber,
+  getMessageErrorPositive
+} from '../src/customPropTypes/helpers.js'
+import * as customPropTypes from '../src/customPropTypes/index.js'
+import * as pkg from '../src/index.js'
 
 chai.use(chaiDOM)
 

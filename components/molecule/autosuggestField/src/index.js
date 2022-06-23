@@ -1,11 +1,12 @@
 import {useRef} from 'react'
+
 import PropTypes from 'prop-types'
 
-import MoleculeField from '@s-ui/react-molecule-field'
 import MoleculeAutosuggest, {
-  MoleculeAutosuggestStates,
-  MoleculeAutosuggestDropdownListSizes
+  MoleculeAutosuggestDropdownListSizes,
+  MoleculeAutosuggestStates
 } from '@s-ui/react-molecule-autosuggest'
+import MoleculeField from '@s-ui/react-molecule-field'
 
 import {getErrorState, getState} from './settings.js'
 

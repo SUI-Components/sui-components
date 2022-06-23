@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 2.13.0 (2022-06-23)
+
+
+### Bug Fixes
+
+* **Root:** fix file extensions ([75a5b34](https://github.com/SUI-Components/sui-components/commit/75a5b341905c3ab8d18680952b25454905747285))
+
+
+### Features
+
+* **components/atom/slider:** fix rc-slider update integration ([86960b8](https://github.com/SUI-Components/sui-components/commit/86960b86294a3a7726d5ff70c25b8ead54b7c0a9))
+* **components/molecule/thumbnail:** Avoid publishing huge CHANGELOG.md ([822ac22](https://github.com/SUI-Components/sui-components/commit/822ac22a83308601f733a0e09d056f5740462dc2))
+
+
+
 # 2.12.0 (2021-10-13)
 
 

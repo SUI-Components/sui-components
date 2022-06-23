@@ -1,20 +1,21 @@
 import React, {useState} from 'react'
-import PropTypes from 'prop-types'
-import {
-  Article,
-  H2,
-  Paragraph,
-  UnorderedList,
-  ListItem,
-  Code,
-  Input,
-  Cell,
-  Grid,
-  Bold
-} from '@s-ui/documentation-library'
-import AtomButtom from '@s-ui/react-atom-button'
 
 import MoleculeButtonGroupField from 'components/molecule/buttonGroupField/src/index.js'
+import PropTypes from 'prop-types'
+
+import {
+  Article,
+  Bold,
+  Cell,
+  Code,
+  Grid,
+  H2,
+  Input,
+  ListItem,
+  Paragraph,
+  UnorderedList
+} from '@s-ui/documentation-library'
+import AtomButtom from '@s-ui/react-atom-button'
 
 export const ArticleSemantic = ({className}) => {
   const [successText, setSuccessText] = useState('successText')

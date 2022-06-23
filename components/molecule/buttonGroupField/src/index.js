@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
-import MoleculeField from '@s-ui/react-molecule-field'
 import MoleculeButtonGroup from '@s-ui/react-molecule-button-group'
+import MoleculeField from '@s-ui/react-molecule-field'
 
 const MoleculeButtonGroupField = ({
   id,

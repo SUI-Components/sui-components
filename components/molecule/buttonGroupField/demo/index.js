@@ -1,4 +1,4 @@
-import {H1, Paragraph, Code, Anchor} from '@s-ui/documentation-library'
+import {Anchor, Code, H1, Paragraph} from '@s-ui/documentation-library'
 
 import ArticleInformation from './ArticleInformation.js'
 import ArticleSemantic from './ArticleSemantic.js'

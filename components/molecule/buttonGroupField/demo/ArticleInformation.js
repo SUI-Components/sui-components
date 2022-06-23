@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types'
-import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
-import AtomButtom from '@s-ui/react-atom-button'
-
 import MoleculeButtonGroupField from 'components/molecule/buttonGroupField/src/index.js'
+import PropTypes from 'prop-types'
+
+import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
+import AtomButtom from '@s-ui/react-atom-button'
 
 export const ArticleInformation = ({className}) => {
   return (

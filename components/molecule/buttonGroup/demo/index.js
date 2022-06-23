@@ -2,8 +2,8 @@ import {H1, Paragraph} from '@s-ui/documentation-library'
 
 import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleDesign from './articles/ArticleDesign.js'
-import ArticleSize from './articles/ArticleSize.js'
 import ArticleMode from './articles/ArticleMode.js'
+import ArticleSize from './articles/ArticleSize.js'
 import {CLASS_SECTION} from './settings.js'
 
 import './index.scss'

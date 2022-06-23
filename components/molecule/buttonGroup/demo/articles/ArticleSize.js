@@ -1,17 +1,17 @@
-import AtomButton from '@s-ui/react-atom-button'
 import PropTypes from 'prop-types'
 
 import {
   Article,
-  H2,
-  Paragraph,
-  Grid,
   Cell,
+  Code,
+  Grid,
+  H2,
   Label,
-  UnorderedList,
   ListItem,
-  Code
+  Paragraph,
+  UnorderedList
 } from '@s-ui/documentation-library'
+import AtomButton from '@s-ui/react-atom-button'
 
 import MoleculeButtonGroup, {moleculeButtonGroupSizes} from '../../src/index.js'
 

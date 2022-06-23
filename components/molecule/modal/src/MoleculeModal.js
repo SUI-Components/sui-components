@@ -2,21 +2,23 @@ import {
   Children,
   cloneElement,
   forwardRef,
-  useRef,
-  useState,
+  useCallback,
   useEffect,
-  useCallback
+  useRef,
+  useState
 } from 'react'
 import {createPortal} from 'react-dom'
-import PropTypes from 'prop-types'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
-import {MODAL_SIZES, SUPPORTED_KEYS, toggleWindowScroll} from './config.js'
-import {suitClass} from './helpers.js'
-import {HeaderRender} from './HeaderRender/index.js'
 import {Close} from './Close/index.js'
 import MoleculeModalContent from './Content/index.js'
+import {HeaderRender} from './HeaderRender/index.js'
+import {MODAL_SIZES, SUPPORTED_KEYS, toggleWindowScroll} from './config.js'
+import {suitClass} from './helpers.js'
 
 const MoleculeModal = forwardRef(
   (

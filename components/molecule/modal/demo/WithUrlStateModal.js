@@ -2,6 +2,7 @@
 import {useState} from 'react'
 
 import {MoleculeModalWithURLState} from 'components/molecule/modal/src/index.js'
+
 import {Content, LoremIpsumParagraph} from './helperComponents.js'
 
 const ModalWithUrlState = () => {

@@ -3,8 +3,9 @@
 import {useState} from 'react'
 
 import MoleculeModal from 'components/molecule/modal/src/index.js'
-import LoremIpsum from './LoremIpsum.js'
+
 import {IconClose} from './helperComponents.js'
+import LoremIpsum from './LoremIpsum.js'
 
 const ContentlessModal = () => {
   const [isOpen, setIsOpen] = useState(false)

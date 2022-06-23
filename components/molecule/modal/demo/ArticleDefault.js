@@ -1,21 +1,23 @@
+import {useState} from 'react'
+
 import PropTypes from 'prop-types'
+
 import {
-  Article,
-  H2,
-  Paragraph,
-  Code,
-  ListItem,
-  UnorderedList,
   Anchor,
+  Article,
+  Button,
+  Cell,
+  Code,
+  Grid,
+  H2,
+  Input,
+  Label,
+  ListItem,
+  Paragraph,
   RadioButton,
   RadioButtonGroup,
-  Button,
-  Label,
-  Grid,
-  Cell,
-  Input
+  UnorderedList
 } from '@s-ui/documentation-library'
-import {useState} from 'react'
 
 import MoleculeModal from '../src/index.js'
 import LoremIpsum from './LoremIpsum.js'

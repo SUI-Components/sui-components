@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 
-import ActionableTagContainer from './Container.js'
 import {LINK_TYPES} from '../constants.js'
+import ActionableTagContainer from './Container.js'
 import {
-  RIGHT_ICON_PLACEMENT,
-  LEFT_ICON_PLACEMENT,
   getClassNames,
-  getLinkTypesString
+  getLinkTypesString,
+  LEFT_ICON_PLACEMENT,
+  RIGHT_ICON_PLACEMENT
 } from './settings.js'
 
 const ActionableTag = function ({

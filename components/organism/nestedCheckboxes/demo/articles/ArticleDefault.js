@@ -1,7 +1,8 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
-import {Article, Paragraph, H2} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph} from '@s-ui/documentation-library'
 
 import OrganismNestedCheckboxes from '../../src/index.js'
 import CheckboxField from '../components/CheckboxField.js'

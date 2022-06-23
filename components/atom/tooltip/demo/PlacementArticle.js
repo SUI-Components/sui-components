@@ -1,18 +1,20 @@
 import {useState} from 'react'
-import {
-  H2,
-  Paragraph,
-  Code,
-  Article,
-  Grid,
-  Cell,
-  ListItem,
-  UnorderedList,
-  Label,
-  Box,
-  RadioButton
-} from '@s-ui/documentation-library'
+
 import PropTypes from 'prop-types'
+
+import {
+  Article,
+  Box,
+  Cell,
+  Code,
+  Grid,
+  H2,
+  Label,
+  ListItem,
+  Paragraph,
+  RadioButton,
+  UnorderedList
+} from '@s-ui/documentation-library'
 
 import AtomTooltip, {AtomTooltipTriggers} from '../src/index.js'
 

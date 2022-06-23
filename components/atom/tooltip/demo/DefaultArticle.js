@@ -1,16 +1,17 @@
-import {
-  H2,
-  Paragraph,
-  Code,
-  Article,
-  Grid,
-  Cell,
-  ListItem,
-  UnorderedList,
-  Label,
-  Box
-} from '@s-ui/documentation-library'
 import PropTypes from 'prop-types'
+
+import {
+  Article,
+  Box,
+  Cell,
+  Code,
+  Grid,
+  H2,
+  Label,
+  ListItem,
+  Paragraph,
+  UnorderedList
+} from '@s-ui/documentation-library'
 
 import AtomTooltip, {AtomTooltipTriggers} from '../src/index.js'
 

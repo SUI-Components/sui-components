@@ -1,23 +1,24 @@
-import {useState, useEffect} from 'react'
+import {useEffect, useState} from 'react'
+
 import {
-  H1,
-  Paragraph,
-  RadioButtonGroup,
-  RadioButton,
   AntDesignIcon,
-  ListItem,
-  UnorderedList,
   Bold,
   Code,
-  Label
+  H1,
+  Label,
+  ListItem,
+  Paragraph,
+  RadioButton,
+  RadioButtonGroup,
+  UnorderedList
 } from '@s-ui/documentation-library'
 
-import DefaultArticle from './DefaultArticle.js'
-import ControlledAndUncontrolledArticle from './ControlledAndUncontrolledArticle.js'
-import PlacementArticle from './PlacementArticle.js'
-import DelayArticle from './DelayArticle.js'
 import ColorArticle from './ColorArticle.js'
+import ControlledAndUncontrolledArticle from './ControlledAndUncontrolledArticle.js'
+import DefaultArticle from './DefaultArticle.js'
+import DelayArticle from './DelayArticle.js'
 import IsArrowedArticle from './IsArrowedArticle.js'
+import PlacementArticle from './PlacementArticle.js'
 
 const baseClass = 'DemoTooltip'
 const articleClass = `${baseClass}-article`

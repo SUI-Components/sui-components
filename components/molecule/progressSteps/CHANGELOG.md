@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.9.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/progressSteps:** Avoid publishing huge CHANGELOG.md ([68c1e53](https://github.com/SUI-Components/sui-components/commit/68c1e53b972bac9909f0c9d42241b926e354962b))
+
+
+
 # 2.8.0 (2022-04-21)
 
 

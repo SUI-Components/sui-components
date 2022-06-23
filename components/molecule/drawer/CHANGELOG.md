@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.5.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/drawer:** Avoid publishing huge CHANGELOG.md ([63e9d41](https://github.com/SUI-Components/sui-components/commit/63e9d41bf35559da743b7ab7115cda3372e433b0))
+
+
+
 # 4.4.0 (2022-05-31)
 
 

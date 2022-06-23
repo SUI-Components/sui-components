@@ -1,16 +1,18 @@
 import {forwardRef, useMemo} from 'react'
+
 import PropTypes from 'prop-types'
-import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
+
 import AtomButton, {atomButtonDesigns} from '@s-ui/react-atom-button'
-import ValidationText from '@s-ui/react-atom-validation-text'
 import PinInput, {getPinInputValueType} from '@s-ui/react-atom-pin-input'
+import ValidationText from '@s-ui/react-atom-validation-text'
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 
 import {
-  validationCodeStatus,
+  BASE_CLASS as baseClass,
+  normalizeValue,
   validationCodeMask,
   validationCodeSizes,
-  normalizeValue,
-  BASE_CLASS as baseClass
+  validationCodeStatus
 } from './config.js'
 
 const MoleculeValidationCode = forwardRef(

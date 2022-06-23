@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.9.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/quickAction:** Avoid publishing huge CHANGELOG.md ([cca2581](https://github.com/SUI-Components/sui-components/commit/cca258194b396921fc73dc8ede691a54f9452280))
+
+
+
 # 1.8.0 (2021-10-26)
 
 

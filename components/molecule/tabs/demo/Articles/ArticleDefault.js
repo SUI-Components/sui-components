@@ -1,8 +1,8 @@
+import MoleculeTabs, {MoleculeTab} from 'components/molecule/tabs/src/index.js'
 import PropTypes from 'prop-types'
 
-import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
+import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
-import MoleculeTabs, {MoleculeTab} from 'components/molecule/tabs/src/index.js'
 import Content from '../components/Content.js'
 import {CLASS_DEMO_CONTENT_TAB} from '../config.js'
 

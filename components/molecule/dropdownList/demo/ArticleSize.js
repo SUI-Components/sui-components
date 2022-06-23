@@ -1,21 +1,22 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
   Article,
+  Cell,
+  Code,
+  Grid,
   H2,
   Paragraph,
-  Grid,
-  Cell,
-  RadioButtonGroup,
   RadioButton,
-  Code
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
 import MoleculeDropdownList, {
-  moleculeDropdownListSizes,
-  moleculeDropdownListSelectHandler
+  moleculeDropdownListSelectHandler,
+  moleculeDropdownListSizes
 } from '../src/index.js'
 import {OPTIONS} from './config.js'
 

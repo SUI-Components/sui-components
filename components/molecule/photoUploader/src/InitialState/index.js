@@ -1,19 +1,20 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+
 import Button, {atomButtonShapes} from '@s-ui/react-atom-button'
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
 import {
-  INITIAL_STATE_CLASS_NAME,
   ALTERNATIVE_ACTION_TEXT,
   BUTTON_COLOR,
   BUTTON_DESIGN,
   BUTTON_SIZE,
+  BUTTON_STATE_CLASS_NAME,
   ICON_INITIAL_STATE_CLASS_NAME,
+  INITIAL_STATE_CLASS_NAME,
   TEXT_STATE_CLASS_NAME,
-  TEXT_STATE_TEXT_CLASS_NAME,
   TEXT_STATE_DIVIDER_CLASS_NAME,
-  BUTTON_STATE_CLASS_NAME
+  TEXT_STATE_TEXT_CLASS_NAME
 } from './config.js'
 
 const InitialState = ({

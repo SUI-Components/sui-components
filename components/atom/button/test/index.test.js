@@ -7,12 +7,12 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import sinon from 'sinon'
+
 import {fireEvent} from '@testing-library/react'
 
-import * as pkg from '../src/index.js'
-import {createClasses} from '../src/config.js'
-
 import json from '../package.json'
+import {createClasses} from '../src/config.js'
+import * as pkg from '../src/index.js'
 
 chai.use(chaiDOM)
 

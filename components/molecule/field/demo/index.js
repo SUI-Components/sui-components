@@ -1,4 +1,4 @@
-import {H1, H2, Paragraph, Code, Anchor} from '@s-ui/documentation-library'
+import {Anchor, Code, H1, H2, Paragraph} from '@s-ui/documentation-library'
 
 const Demo = () => (
   <div className="sui-StudioPreview">

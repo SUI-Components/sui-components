@@ -6,6 +6,7 @@ import AtomIcon, {
   ATOM_ICON_SIZES
 } from '@s-ui/react-atom-icon'
 
+import ActionButtonWrapper from './ActionButtonWrapper.js'
 import {
   BASE_CLASS,
   CLASSES,
@@ -15,7 +16,6 @@ import {
   SIZES,
   STYLES
 } from './config.js'
-import ActionButtonWrapper from './ActionButtonWrapper.js'
 
 const AtomActionButton = ({
   children,

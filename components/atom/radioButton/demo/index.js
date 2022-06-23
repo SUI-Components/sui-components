@@ -1,12 +1,12 @@
 import {
-  H1,
-  H2,
-  Paragraph,
   Article,
+  Cell,
   Code,
   Grid,
-  Cell,
-  Label
+  H1,
+  H2,
+  Label,
+  Paragraph
 } from '@s-ui/documentation-library'
 
 import AtomRadioButton from '../src/index.js'

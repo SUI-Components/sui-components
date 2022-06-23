@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {H2, Paragraph, Article} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph} from '@s-ui/documentation-library'
 import AtomRadioButton from '@s-ui/react-atom-radio-button'
 
 import MoleculeRadioButtonGroup from '../src/index.js'

@@ -5,15 +5,14 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
+import {createRef} from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
-import {createRef} from 'react'
-
-import * as pkg from '../src/index.js'
 
 import json from '../package.json'
+import * as pkg from '../src/index.js'
 
 chai.use(chaiDOM)
 

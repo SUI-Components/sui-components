@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types'
+
 import {
   Article,
-  H2,
-  Paragraph,
   Code,
+  H2,
   ListItem,
+  Paragraph,
   UnorderedList
 } from '@s-ui/documentation-library'
 

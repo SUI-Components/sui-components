@@ -1,24 +1,25 @@
-import {cloneElement, Children} from 'react'
-import PropTypes from 'prop-types'
-import cx from 'classnames'
+import {Children, cloneElement} from 'react'
 
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+
+import AtomHelpText from '@s-ui/react-atom-help-text'
 import AtomValidationText, {
   AtomValidationTextTypes
 } from '@s-ui/react-atom-validation-text'
-import AtomHelpText from '@s-ui/react-atom-help-text'
 
 import {
   BASE_CLASS,
-  CLASS_INLINE,
   CLASS_AUTO_HIDE,
   CLASS_FULLWIDTH,
+  CLASS_INLINE,
   CLASS_INLINE_REVERSE,
   CLASS_INPUT_CONTAINER,
   CLASS_LABEL_CONTAINER
 } from './config.js'
+import MoleculeLabel from './Label.js'
 import useStatusValidationText from './useStatusValidationText.js'
 import useTypeValidationLabel from './useTypeValidationLabel.js'
-import MoleculeLabel from './Label.js'
 
 const MoleculeField = ({
   disabled,

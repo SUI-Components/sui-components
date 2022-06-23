@@ -1,14 +1,15 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
   Article,
-  H2,
-  Paragraph,
-  Input,
-  Grid,
   Cell,
-  Label
+  Grid,
+  H2,
+  Input,
+  Label,
+  Paragraph
 } from '@s-ui/documentation-library'
 
 import PinInput from '../src/index.js'

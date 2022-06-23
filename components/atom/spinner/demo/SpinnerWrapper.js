@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react'
+
 import {Paragraph} from '@s-ui/documentation-library'
 
 import AtomSpinner from '../src/index.js'

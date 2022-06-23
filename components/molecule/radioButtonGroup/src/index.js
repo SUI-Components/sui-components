@@ -1,4 +1,5 @@
-import {Children, cloneElement, useState, useEffect} from 'react'
+import {Children, cloneElement, useEffect, useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {BASE_CLASS} from './settings.js'

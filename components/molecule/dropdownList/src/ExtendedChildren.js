@@ -1,6 +1,7 @@
 import {cloneElement} from 'react'
-import PropTypes from 'prop-types'
+
 import isEqual from 'lodash.isequal'
+import PropTypes from 'prop-types'
 
 const ExtendedChildren = ({
   value,

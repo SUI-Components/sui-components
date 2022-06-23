@@ -1,9 +1,10 @@
 import {Fragment} from 'react'
-import PropTypes from 'prop-types'
-
-import {H2, H3, Paragraph, Article, Box} from '@s-ui/documentation-library'
 
 import Injector from 'components/primitive/injector/src/index.js'
+import PropTypes from 'prop-types'
+
+import {Article, Box, H2, H3, Paragraph} from '@s-ui/documentation-library'
+
 import Child from '../Child.js'
 
 const ArticleFragment = ({className}) => {

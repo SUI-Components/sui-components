@@ -1,12 +1,14 @@
 /* eslint-disable no-console */
 import {useRef} from 'react'
-import {withStateValueTags} from '@s-ui/hoc'
 
 import MoleculeInputTags, {
   inputSizes
 } from 'components/molecule/inputTags/src/index.js'
+
+import {withStateValueTags} from '@s-ui/hoc'
+
+import {beatles, beatlesArrayObject, ledZeppelin, queen} from './data/index.js'
 import {CloseIcon} from './icons/index.js'
-import {beatles, ledZeppelin, queen, beatlesArrayObject} from './data/index.js'
 
 import './index.scss'
 

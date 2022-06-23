@@ -1,24 +1,25 @@
 import {useState} from 'react'
-import PropTypes from 'prop-types'
-
-import {
-  Article,
-  H2,
-  Paragraph,
-  RadioButtonGroup,
-  RadioButton,
-  Grid,
-  Cell,
-  Label,
-  Code,
-  UnorderedList,
-  ListItem
-} from '@s-ui/documentation-library'
 
 import MoleculeTabs, {
   MoleculeTab,
   moleculeTabsTypes
 } from 'components/molecule/tabs/src/index.js'
+import PropTypes from 'prop-types'
+
+import {
+  Article,
+  Cell,
+  Code,
+  Grid,
+  H2,
+  Label,
+  ListItem,
+  Paragraph,
+  RadioButton,
+  RadioButtonGroup,
+  UnorderedList
+} from '@s-ui/documentation-library'
+
 import Content from '../components/Content.js'
 import {CLASS_DEMO_CONTENT_TAB} from '../config.js'
 

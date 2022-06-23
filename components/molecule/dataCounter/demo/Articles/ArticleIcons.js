@@ -1,17 +1,18 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
+  AntDesignIcon,
+  Article,
+  Cell,
+  Code,
+  Grid,
   H2,
   H4,
-  Article,
   Paragraph,
-  Code,
   RadioButton,
-  RadioButtonGroup,
-  Grid,
-  Cell,
-  AntDesignIcon
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 
 import MoleculeDataCounter from '../../src/index.js'

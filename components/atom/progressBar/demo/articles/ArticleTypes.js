@@ -1,18 +1,19 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
+  Anchor,
   Article,
-  H2,
-  Paragraph,
-  Grid,
   Cell,
-  Label,
   Code,
+  Grid,
+  H2,
   H4,
-  UnorderedList,
+  Label,
   ListItem,
-  Anchor
+  Paragraph,
+  UnorderedList
 } from '@s-ui/documentation-library'
 
 import AtomProgressBar, {atomProgressBarTypes} from '../../src/index.js'

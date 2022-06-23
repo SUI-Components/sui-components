@@ -1,22 +1,23 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
   Article,
+  Box,
+  Cell,
+  Grid,
   H2,
   H3,
   H4,
-  Paragraph,
-  Box,
-  Grid,
-  Cell,
   Label,
-  RadioButtonGroup,
-  RadioButton
+  Paragraph,
+  RadioButton,
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 
-import {Step, moleculeStepperAlignment} from '../../src/index.js'
 import {StepsProvider} from '../../src/context/index.js'
+import {moleculeStepperAlignment, Step} from '../../src/index.js'
 import DotCustomStep from '../customSteps/DotCustomStep/DotCustomStep.js'
 import TextCustomStep from '../customSteps/TextCustomStep/TextCustomStep.js'
 

@@ -1,11 +1,12 @@
-import {useState, Fragment} from 'react'
+import {Fragment, useState} from 'react'
+
 import PropTypes from 'prop-types'
 
-import {Article, H2, H3, Paragraph, Code} from '@s-ui/documentation-library'
+import {Article, Code, H2, H3, Paragraph} from '@s-ui/documentation-library'
 
 import Accordion, {
-  MoleculeAccordionItem as AccordionItem,
-  moleculeAccordionBehavior
+  moleculeAccordionBehavior,
+  MoleculeAccordionItem as AccordionItem
 } from '../../src/index.js'
 import LoremIpsum from '../LoremIpsum.js'
 

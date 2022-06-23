@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
 import {forwardRef} from 'react'
+
+import PropTypes from 'prop-types'
 
 const DefaultSpinner = forwardRef(({isDelayed, loader}, forwardedRef) => {
   return <span ref={forwardedRef}>{!isDelayed ? loader : <noscript />}</span>

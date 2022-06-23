@@ -1,12 +1,12 @@
-import {H1, Paragraph, Code} from '@s-ui/documentation-library'
+import {Code, H1, Paragraph} from '@s-ui/documentation-library'
 
-import {CLASS_SECTION} from './settings.js'
-import ArticleState from './Articles/ArticleState.js'
 import ArticleBounds from './Articles/ArticleBounds.js'
+import ArticleDisabled from './Articles/ArticleDisabled.js'
+import ArticleIcons from './Articles/ArticleIcons.js'
 import ArticleLoading from './Articles/ArticleLoading.js'
 import ArticleSizes from './Articles/ArticleSizes.js'
-import ArticleIcons from './Articles/ArticleIcons.js'
-import ArticleDisabled from './Articles/ArticleDisabled.js'
+import ArticleState from './Articles/ArticleState.js'
+import {CLASS_SECTION} from './settings.js'
 
 const Demo = () => {
   return (

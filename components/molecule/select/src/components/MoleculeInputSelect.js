@@ -1,12 +1,13 @@
 import {Children, cloneElement} from 'react'
+
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import {
-  CLASS_CONTAINER,
   CLASS_ARROW,
   CLASS_ARROW_DOWN,
-  CLASS_ARROW_UP
+  CLASS_ARROW_UP,
+  CLASS_CONTAINER
 } from './config.js'
 
 const MoleculeInputSelect = props => {

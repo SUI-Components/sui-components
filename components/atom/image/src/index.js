@@ -1,18 +1,19 @@
-import {cloneElement, useState, useEffect, useRef, useCallback} from 'react'
-import PropTypes from 'prop-types'
-import cx from 'classnames'
+import {cloneElement, useCallback, useEffect, useRef, useState} from 'react'
 
-import {htmlImgProps} from './types.js'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+
+import ErrorImage from './ErrorImage.js'
 import {
   BASE_CLASS,
   BASE_CLASS_FIGURE,
+  CLASS_ERROR,
+  CLASS_IMAGE,
   CLASS_PLACEHOLDER,
   CLASS_SKELETON,
-  CLASS_IMAGE,
-  CLASS_SPINNER,
-  CLASS_ERROR
+  CLASS_SPINNER
 } from './settings.js'
-import ErrorImage from './ErrorImage.js'
+import {htmlImgProps} from './types.js'
 
 const AtomImage = ({
   placeholder,

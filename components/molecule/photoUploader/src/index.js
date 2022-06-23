@@ -1,34 +1,35 @@
-import {useState, forwardRef} from 'react'
+import {forwardRef, useState} from 'react'
 import {useDropzone} from 'react-dropzone'
-import {getTarget} from '@s-ui/js/lib/react'
+
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import useMount from '@s-ui/react-hooks/lib/useMount'
-import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
+import {getTarget} from '@s-ui/js/lib/react'
 import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
+import useMount from '@s-ui/react-hooks/lib/useMount'
 
-import {filterValidFiles, prepareFiles, loadInitialPhotos} from './fileTools.js'
 import DragNotification from './DragNotification/index.js'
 import DragState from './DragState/index.js'
 import InitialState from './InitialState/index.js'
 import PhotosPreview from './PhotosPreview/index.js'
 import {
+  ACTIONS,
   BASE_CLASS_NAME,
-  DROPZONE_CLASS_NAME,
   DEFAULT_DRAG_DELAY_TIME,
-  DEFAULT_IMAGE_ROTATION_DEGREES,
+  DEFAULT_FILE_TYPES_ACCEPTED,
   DEFAULT_IMAGE_ASPECT_RATIO,
+  DEFAULT_IMAGE_ROTATION_DEGREES,
+  DEFAULT_MAX_FILE_SIZE_ACCEPTED,
   DEFAULT_MAX_IMAGE_HEIGHT,
   DEFAULT_MAX_IMAGE_WIDTH,
-  DEFAULT_FILE_TYPES_ACCEPTED,
-  DEFAULT_MAX_FILE_SIZE_ACCEPTED,
   DEFAULT_NOTIFICATION_ERROR,
   DRAG_STATE_STATUS_REJECTED,
-  ROTATION_DIRECTION,
+  DROPZONE_CLASS_NAME,
   REJECT_FILES_REASONS,
-  ACTIONS
+  ROTATION_DIRECTION
 } from './config.js'
+import {filterValidFiles, loadInitialPhotos, prepareFiles} from './fileTools.js'
 
 const noop = () => {}
 

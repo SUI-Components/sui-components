@@ -1,19 +1,20 @@
 import {forwardRef} from 'react'
 import {isFragment} from 'react-is'
-import PropTypes from 'prop-types'
-import cx from 'classnames'
 
-import {inject, combineProps} from '@s-ui/react-primitive-injector'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+
+import {combineProps, inject} from '@s-ui/react-primitive-injector'
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 
 import {useAccordionContext} from './context/index.js'
+import useMeasure from './hook/useMeasure.js'
+import AccordionItemPanelDefaultChildren from './AccordionItemPanelDefaultChildren.js'
 import {
   BASE_CLASS_ELEMENT,
   BASE_CLASS_ITEM_PANEL,
   BASE_CLASS_ITEM_PANEL_CONTENT
 } from './settings.js'
-import useMeasure from './hook/useMeasure.js'
-import AccordionItemPanelDefaultChildren from './AccordionItemPanelDefaultChildren.js'
 
 const AccordionItemPanel = forwardRef(
   (

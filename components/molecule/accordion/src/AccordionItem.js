@@ -1,7 +1,8 @@
 import {forwardRef, Fragment} from 'react'
 import {isFragment} from 'react-is'
-import PropTypes from 'prop-types'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 
@@ -9,7 +10,7 @@ import {
   MoleculeAccordionItemHeader as AccordionItemHeader,
   MoleculeAccordionItemPanel as AccordionItemPanel
 } from './index.js'
-import {HEADER_ICON_POSITION, BASE_CLASS_ITEM} from './settings.js'
+import {BASE_CLASS_ITEM, HEADER_ICON_POSITION} from './settings.js'
 
 const AccordionItem = forwardRef(
   (

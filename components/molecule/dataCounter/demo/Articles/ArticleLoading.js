@@ -1,7 +1,8 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
-import {H2, Article, Paragraph, Code} from '@s-ui/documentation-library'
+import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculeDataCounter from '../../src/index.js'
 import {propsMessages} from '../settings.js'

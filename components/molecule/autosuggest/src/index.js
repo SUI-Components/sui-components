@@ -1,13 +1,17 @@
 import {Children, cloneElement, createRef, useRef, useState} from 'react'
+
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
+
 import {getCurrentElementFocused} from '@s-ui/js/lib/dom'
 import {getTarget} from '@s-ui/js/lib/react'
-import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
-import {inputTypes, inputShapes} from '@s-ui/react-atom-input'
+import {inputShapes, inputTypes} from '@s-ui/react-atom-input'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
+import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
 
+import MoleculeAutosuggestMultipleSelection from './components/MultipleSelection/index.js'
+import MoleculeAutosuggestSingleSelection from './components/SingleSelection/index.js'
 import {
   AUTOSUGGEST_STATES,
   BASE_CLASS,
@@ -16,8 +20,6 @@ import {
   getIsTypeableKey,
   SELECT_KEYS_LIST
 } from './config.js'
-import MoleculeAutosuggestMultipleSelection from './components/MultipleSelection/index.js'
-import MoleculeAutosuggestSingleSelection from './components/SingleSelection/index.js'
 
 const MoleculeAutosuggest = ({
   autoClose = true,

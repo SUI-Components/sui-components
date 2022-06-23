@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types'
-
-import {H2, Paragraph, Article, Box, Code} from '@s-ui/documentation-library'
+import {Fragment} from 'react'
 
 import Injector from 'components/primitive/injector/src/index.js'
-import {Fragment} from 'react'
+import PropTypes from 'prop-types'
+
+import {Article, Box, Code, H2, Paragraph} from '@s-ui/documentation-library'
+
 import Child from '../Child.js'
 import OtherChild from '../OtherChild.js'
 

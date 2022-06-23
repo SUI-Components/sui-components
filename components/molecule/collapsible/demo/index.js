@@ -2,10 +2,10 @@ import {Paragraph} from '@s-ui/documentation-library'
 
 import {GetIcon} from './config/index.js'
 import ArticleAlignment from './ArticleAlignment.js'
-import ArticleGradient from './ArticleGradient.js'
-import ArticleTransition from './ArticleTransition.js'
 import ArticleCustomHeight from './ArticleCustomHeight.js'
+import ArticleGradient from './ArticleGradient.js'
 import ArticleNoCollapse from './ArticleNoCollapse.js'
+import ArticleTransition from './ArticleTransition.js'
 
 const Demo = () => {
   const icon = GetIcon()

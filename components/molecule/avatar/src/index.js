@@ -1,26 +1,28 @@
 import {
   Children,
-  isValidElement,
   cloneElement,
-  useCallback,
-  forwardRef
+  forwardRef,
+  isValidElement,
+  useCallback
 } from 'react'
+
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+
 import AtomImage from '@s-ui/react-atom-image'
 import AtomSkeleton, {
-  ATOM_SKELETON_VARIANTS,
-  ATOM_SKELETON_ANIMATIONS
+  ATOM_SKELETON_ANIMATIONS,
+  ATOM_SKELETON_VARIANTS
 } from '@s-ui/react-atom-skeleton'
 
-import useConvertStringToHex from './useConvertStringToHex.js'
-import {baseClassName, AVATAR_SIZES} from './settings.js'
-import AvatarFallback from './AvatarFallback/index.js'
 import AvatarBadge, {
-  AVATAR_BADGE_STATUSES,
   AVATAR_BADGE_PLACEMENTS,
-  AVATAR_BADGE_SIZES
+  AVATAR_BADGE_SIZES,
+  AVATAR_BADGE_STATUSES
 } from './AvatarBadge/index.js'
+import AvatarFallback from './AvatarFallback/index.js'
+import {AVATAR_SIZES, baseClassName} from './settings.js'
+import useConvertStringToHex from './useConvertStringToHex.js'
 
 const MoleculeAvatar = forwardRef(
   (

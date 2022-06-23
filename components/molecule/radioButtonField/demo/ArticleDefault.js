@@ -1,11 +1,13 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
+
 import {
   Article,
-  H2,
-  Paragraph,
-  Input,
   Code,
+  H2,
+  Input,
+  Paragraph,
   RadioButton
 } from '@s-ui/documentation-library'
 

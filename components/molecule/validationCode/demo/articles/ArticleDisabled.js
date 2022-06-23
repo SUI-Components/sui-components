@@ -1,6 +1,9 @@
-import PropTypes from 'prop-types'
-import {Article, H2, Paragraph, RadioButton} from '@s-ui/documentation-library'
 import {useState} from 'react'
+
+import PropTypes from 'prop-types'
+
+import {Article, H2, Paragraph, RadioButton} from '@s-ui/documentation-library'
+
 import MoleculeValidationCode from '../../src/index.js'
 
 const ArticleDisabled = ({className}) => {

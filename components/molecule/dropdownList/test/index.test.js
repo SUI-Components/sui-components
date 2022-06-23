@@ -11,11 +11,11 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import sinon from 'sinon'
+
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
-import * as pkg from '../src/index.js'
-
 import json from '../package.json'
+import * as pkg from '../src/index.js'
 
 chai.use(chaiDOM)
 

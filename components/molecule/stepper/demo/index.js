@@ -1,10 +1,10 @@
-import {H1, Paragraph, Code} from '@s-ui/documentation-library'
+import {Code, H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleCustomStep from './articles/ArticleCustomStep.js'
 import ArticleDefault from './articles/ArticleDefault.js'
+import ArticleDefaultStep from './articles/ArticleDefaultStep.js'
 import ArticleDesignAlignment from './articles/ArticleDesignAlignment.js'
 import ArticleIconsConnector from './articles/ArticleIconsConnector.js'
-import ArticleDefaultStep from './articles/ArticleDefaultStep.js'
-import ArticleCustomStep from './articles/ArticleCustomStep.js'
 import ArticlePlayground from './articles/ArticlePlayground.js'
 
 const BASE_CLASS_DEMO = `DemoMoleculeStepper`

@@ -1,8 +1,9 @@
 import {useRef} from 'react'
+
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {Handle, SliderTooltip, BASE_CLASS} from './settings.js'
+import {BASE_CLASS, Handle, SliderTooltip} from './settings.js'
 
 const Handler = ({
   value,

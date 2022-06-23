@@ -1,16 +1,16 @@
-import {useRef, forwardRef} from 'react'
-import PropTypes from 'prop-types'
+import {forwardRef, useRef} from 'react'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs/index.js'
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 
-import {naturalNumber} from './prop-types.js'
-import {BASE_CLASS, JUSTIFY_CONTENT, ALIGNMENT, DESIGN} from './settings.js'
-import Stepper from './Stepper/Stepper.js'
 import {StepsProvider, useStepsContext} from './context/index.js'
-
 import Step from './Step/Step.js'
+import Stepper from './Stepper/Stepper.js'
+import {naturalNumber} from './prop-types.js'
+import {ALIGNMENT, BASE_CLASS, DESIGN, JUSTIFY_CONTENT} from './settings.js'
 
 const MoleculeStepper = forwardRef(
   (

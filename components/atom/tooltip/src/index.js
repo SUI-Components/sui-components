@@ -1,8 +1,10 @@
-import {forwardRef, useCallback, useRef, useMemo} from 'react'
+import {forwardRef, useCallback, useMemo, useRef} from 'react'
+import useIntersection from 'react-use/lib/useIntersection'
+
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import UAParser from 'ua-parser-js'
-import useIntersection from 'react-use/lib/useIntersection'
+
 import loadable from '@loadable/component'
 
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState'

@@ -1,17 +1,18 @@
 import {Fragment} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
   Article,
   Cell,
+  Code,
   Grid,
   H2,
   Label,
-  Paragraph,
-  Code
+  Paragraph
 } from '@s-ui/documentation-library'
 
-import AtomSwitch, {atomSwitchTypes, atomSwitchSizes} from '../../src/index.js'
+import AtomSwitch, {atomSwitchSizes, atomSwitchTypes} from '../../src/index.js'
 import {flexCenteredStyle} from '../settings.js'
 
 const ArticleCircleIcons = ({className}) => (

@@ -1,21 +1,22 @@
-import {useState, useRef} from 'react'
+import {useRef, useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
   Article,
-  H2,
-  Paragraph,
-  Input,
-  RadioButton,
-  Label,
-  Grid,
   Cell,
-  Code
+  Code,
+  Grid,
+  H2,
+  Input,
+  Label,
+  Paragraph,
+  RadioButton
 } from '@s-ui/documentation-library'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs/index.js'
 
-import {CLASS_DEMO_OPTION} from './config.js'
 import MoleculeDropdownOption from '../src/index.js'
+import {CLASS_DEMO_OPTION} from './config.js'
 
 const ArticleDefault = ({className}) => {
   const [children, setChildren] = useState('children')

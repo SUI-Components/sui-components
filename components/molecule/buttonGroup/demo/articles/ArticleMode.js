@@ -1,15 +1,16 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
-import AtomButton from '@s-ui/react-atom-button'
 import {
   Article,
-  H2,
-  Paragraph,
-  Grid,
   Cell,
-  Label
+  Grid,
+  H2,
+  Label,
+  Paragraph
 } from '@s-ui/documentation-library'
+import AtomButton from '@s-ui/react-atom-button'
 
 import MoleculeButtonGroup from '../../src/index.js'
 

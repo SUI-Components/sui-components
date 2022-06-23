@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types'
-import cx from 'classnames'
 import {Sticky, StickyProvider} from 'react-stickup'
 
-import BehaviorStickyScrollUp from './StickyScrollUp.js'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+
 import {BASE_CLASS, CLASS_ANIMATE} from './settings.js'
+import BehaviorStickyScrollUp from './StickyScrollUp.js'
 
 const BehaviorSticky = ({children, animate, ...props}) => {
   return (

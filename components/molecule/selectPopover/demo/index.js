@@ -1,15 +1,18 @@
 /* eslint-disable react/prop-types */
 import {useState} from 'react'
+
+import MoleculeSelectPopover, {
+  selectPopoverPlacements,
+  selectPopoverSizes
+} from 'components/molecule/selectPopover/src/index.js'
+
 import IconClose from '@s-ui/react-icons/lib/Close'
+import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
+import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 import MoleculeModal from '@s-ui/react-molecule-modal'
 import MoleculeSelect from '@s-ui/react-molecule-select'
-import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
-import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
-import MoleculeSelectPopover, {
-  selectPopoverSizes,
-  selectPopoverPlacements
-} from 'components/molecule/selectPopover/src/index.js'
-import {IconCheck, IconHalfCheck, IconArrowDown} from './Icons/index.js'
+
+import {IconArrowDown, IconCheck, IconHalfCheck} from './Icons/index.js'
 
 import './index.scss'
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.8.0 (2022-06-22)
+
+
+### Features
+
+* **components/molecule/buttonGroupField:** Avoid publishing huge CHANGELOG.md ([fbee282](https://github.com/SUI-Components/sui-components/commit/fbee28250ab683c2fbc7a1e634bde0450d8b2236))
+
+
+
 # 1.7.0 (2021-12-16)
 
 

@@ -1,15 +1,16 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
-import ArticleUncontrolled from './articles/ArticleUncontrolled.js'
+
 import ArticleAutoFocus from './articles/ArticleAutoFocus.js'
 import ArticleDefault from './articles/ArticleDefault.js'
-import ArticlePlaceHolder from './articles/ArticlePlaceholder.js'
-import ArticlePassword from './articles/ArticlePassword.js'
-import ArticleSizes from './articles/ArticleSizes.js'
+import ArticleDisabled from './articles/ArticleDisabled.js'
+import ArticleReferenced from './articles/ArticleForwardRef.js'
 import ArticleLenght from './articles/ArticleLength.js'
 import ArticleMask from './articles/ArticleMask.js'
-import ArticleDisabled from './articles/ArticleDisabled.js'
+import ArticlePassword from './articles/ArticlePassword.js'
+import ArticlePlaceHolder from './articles/ArticlePlaceholder.js'
+import ArticleSizes from './articles/ArticleSizes.js'
 import ArticleStatus from './articles/ArticleStatus.js'
-import ArticleReferenced from './articles/ArticleForwardRef.js'
+import ArticleUncontrolled from './articles/ArticleUncontrolled.js'
 
 const BASE_CLASS_DEMO = `DemoMoleculeValidationCode`
 const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`

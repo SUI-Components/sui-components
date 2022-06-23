@@ -1,11 +1,11 @@
-import {forwardRef, useState, useEffect, useRef} from 'react'
+import {forwardRef, useEffect, useRef, useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import Injector from '@s-ui/react-primitive-injector'
 
-import DefaultSpinner from './DefaultSpinner.js'
 import SUILoader from './SUILoader/index.js'
-
+import DefaultSpinner from './DefaultSpinner.js'
 import {
   addParentClass,
   DELAY,

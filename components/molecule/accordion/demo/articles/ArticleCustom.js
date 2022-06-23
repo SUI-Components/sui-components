@@ -1,24 +1,25 @@
 import {useState} from 'react'
-import PropTypes from 'prop-types'
 import JSONView from 'react-json-view'
+
+import PropTypes from 'prop-types'
 
 import {
   Article,
+  Button,
+  Cell,
+  Code,
+  Grid,
   H2,
   H4,
-  Paragraph,
-  Button,
-  Grid,
-  Cell,
   Input,
   Label,
-  Code
+  Paragraph
 } from '@s-ui/documentation-library'
 
 import Accordion, {
-  MoleculeAccordionItem as AccordionItem,
+  moleculeAccordionAnimationDuration,
   moleculeAccordionBehavior,
-  moleculeAccordionAnimationDuration
+  MoleculeAccordionItem as AccordionItem
 } from '../../src/index.js'
 import HeaderCustom from './custom/HeaderCustom.js'
 import PanelCustom from './custom/PanelCustom.js'

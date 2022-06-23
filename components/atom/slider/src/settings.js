@@ -1,7 +1,7 @@
+import SliderTooltip from 'rc-slider/lib/common/SliderTooltip.js'
+import Handle from 'rc-slider/lib/Handle'
 import Range from 'rc-slider/lib/Range'
 import Slider from 'rc-slider/lib/Slider'
-import Handle from 'rc-slider/lib/Handle'
-import SliderTooltip from 'rc-slider/lib/common/SliderTooltip.js'
 
 import Label from './Label.js'
 

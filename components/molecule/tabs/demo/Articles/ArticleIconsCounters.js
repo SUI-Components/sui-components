@@ -1,15 +1,15 @@
+import MoleculeTabs, {MoleculeTab} from 'components/molecule/tabs/src/index.js'
 import PropTypes from 'prop-types'
 
-import AtomIcon from '@s-ui/react-atom-icon'
 import {
-  Article,
-  H2,
-  Paragraph,
   AntDesignIcon,
-  Code
+  Article,
+  Code,
+  H2,
+  Paragraph
 } from '@s-ui/documentation-library'
+import AtomIcon from '@s-ui/react-atom-icon'
 
-import MoleculeTabs, {MoleculeTab} from 'components/molecule/tabs/src/index.js'
 import Content from '../components/Content.js'
 import {CLASS_DEMO_CONTENT_TAB} from '../config.js'
 

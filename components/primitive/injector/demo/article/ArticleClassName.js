@@ -1,8 +1,8 @@
+import Injector from 'components/primitive/injector/src/index.js'
 import PropTypes from 'prop-types'
 
-import {H2, Paragraph, Article, Box} from '@s-ui/documentation-library'
+import {Article, Box, H2, Paragraph} from '@s-ui/documentation-library'
 
-import Injector from 'components/primitive/injector/src/index.js'
 import Child from '../Child.js'
 
 const ArticleClassName = ({className}) => {

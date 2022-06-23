@@ -2,12 +2,11 @@
 
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import ArticleDefault from './ArticleDefault.js'
 import ArticleAnimation from './ArticleAnimation.js'
+import ArticleCount from './ArticleCount.js'
+import ArticleDefault from './ArticleDefault.js'
 import ArticleSize from './ArticleSize.js'
 import ArticleVariant from './ArticleVariant.js'
-import ArticleCount from './ArticleCount.js'
-
 import {CLASS_SECTION} from './settings.js'
 
 import './index.scss'

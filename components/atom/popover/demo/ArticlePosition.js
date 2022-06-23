@@ -1,21 +1,21 @@
 import {useState} from 'react'
+
+import AtomPopover from 'components/atom/popover/src/index.js'
 import PropTypes from 'prop-types'
 
 import {
   Article,
+  Box,
+  Cell,
+  Code,
+  Grid,
   H2,
+  Label,
+  ListItem,
   Paragraph,
   RadioButton,
-  Grid,
-  Cell,
-  Box,
-  Code,
-  UnorderedList,
-  ListItem,
-  Label
+  UnorderedList
 } from '@s-ui/documentation-library'
-
-import AtomPopover from 'components/atom/popover/src/index.js'
 
 const ArticlePosition = ({className, content: Content}) => {
   const [position, setPosition] = useState(undefined)

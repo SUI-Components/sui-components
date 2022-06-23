@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import {useState, useCallback} from 'react'
+import {useCallback, useState} from 'react'
 
 export default BaseComponent =>
   ({value, onChange, ...otherProps}) => {

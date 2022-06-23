@@ -1,17 +1,18 @@
-import {useCallback, useState, useEffect} from 'react'
-import PropTypes from 'prop-types'
+import {useCallback, useEffect, useState} from 'react'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import {
   BASE_CLASS,
-  CONTENT_CLASS,
-  CONTAINER_BUTTON_CLASS,
-  COLLAPSED_CLASS,
   BUTTON_CLASS,
   BUTTON_CONTENT_CLASS,
+  COLLAPSED_CLASS,
+  CONTAINER_BUTTON_CLASS,
+  CONTENT_ALIGN,
+  CONTENT_CLASS,
   ICON_CLASS,
-  MIN_HEIGHT,
-  CONTENT_ALIGN
+  MIN_HEIGHT
 } from './settings.js'
 
 const MoleculeCollapsible = ({

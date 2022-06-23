@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
+import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
 import AtomPanel, {atomPanelRounded} from '../../src/index.js'
 

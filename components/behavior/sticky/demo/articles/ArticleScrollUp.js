@@ -1,14 +1,15 @@
 import {useRef} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
   Article,
+  Bold,
+  Box,
+  Code,
   H2,
   H4,
-  Paragraph,
-  Box,
-  Bold,
-  Code
+  Paragraph
 } from '@s-ui/documentation-library'
 
 import {

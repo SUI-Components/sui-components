@@ -1,9 +1,11 @@
 import {useState} from 'react'
-import PropTypes from 'prop-types'
-import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
-import cx from 'classnames'
 
-import {DEFAULTS_STAR_HOVER as DEFAULTS, BASE_CLASS} from './settings.js'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+
+import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
+
+import {BASE_CLASS, DEFAULTS_STAR_HOVER as DEFAULTS} from './settings.js'
 
 const MoleculeRatingStarHover = ({
   iconStar = DEFAULTS.IconStarEmpty,

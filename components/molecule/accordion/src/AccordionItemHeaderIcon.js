@@ -1,8 +1,9 @@
 import {forwardRef} from 'react'
+
 import PropTypes from 'prop-types'
 
-import Poly from '@s-ui/react-primitive-polymorphic-element'
 import Injector from '@s-ui/react-primitive-injector'
+import Poly from '@s-ui/react-primitive-polymorphic-element'
 
 import AccordionItemHeaderIconDefault from './AccordionItemHeaderIconDefault.js'
 import {BASE_CLASS_ITEM_HEADER_ICON} from './settings.js'

@@ -1,17 +1,17 @@
 import {forwardRef, useEffect} from 'react'
+
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import useEventListener from '@s-ui/react-hooks/lib/useEventListener'
 
+import MoleculeDrawerOverlay from './Overlay.js'
 import {
+  ANIMATION_DURATION as moleculeDrawerAnimationDuration,
   BASE_CLASS,
   PLACEMENTS as moleculeDrawerPlacements,
-  SIZES as moleculeDrawerSizes,
-  ANIMATION_DURATION as moleculeDrawerAnimationDuration
+  SIZES as moleculeDrawerSizes
 } from './settings.js'
-
-import MoleculeDrawerOverlay from './Overlay.js'
 
 const DRAWER_CONTENT_CLASS = `${BASE_CLASS}-content`
 

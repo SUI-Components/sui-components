@@ -2,11 +2,11 @@ import PropTypes from 'prop-types'
 
 import {
   Article,
+  Code,
   H2,
-  Paragraph,
-  UnorderedList,
   ListItem,
-  Code
+  Paragraph,
+  UnorderedList
 } from '@s-ui/documentation-library'
 
 import MoleculePhotoUploader from '../../src/index.js'

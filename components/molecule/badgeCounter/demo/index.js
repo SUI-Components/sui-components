@@ -1,12 +1,11 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import {CLASS_SECTION} from './config.js'
-
 import ArticleDefault from './ArticleDefault.js'
-import ArticleSizes from './ArticleSizes.js'
 import ArticleLabel from './ArticleLabel.js'
-import ArticleVariant from './ArticleVariant.js'
+import ArticleSizes from './ArticleSizes.js'
 import ArticleStatus from './ArticleStatus.js'
+import ArticleVariant from './ArticleVariant.js'
+import {CLASS_SECTION} from './config.js'
 
 export default () => {
   return (

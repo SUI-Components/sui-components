@@ -1,13 +1,13 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleBehavior from './articles/ArticleBehavior.js'
+import ArticleCustom from './articles/ArticleCustom.js'
+import ArticleDefault from './articles/ArticleDefault.js'
+import ArticleDisabled from './articles/ArticleDisabled.js'
 import ArticleHeight from './articles/ArticleHeight.js'
-import ArticleTransition from './articles/ArticleTransition.js'
 import ArticleIcon from './articles/ArticleIcon.js'
 import ArticleSpacing from './articles/ArticleSpacing.js'
-import ArticleDisabled from './articles/ArticleDisabled.js'
-import ArticleCustom from './articles/ArticleCustom.js'
+import ArticleTransition from './articles/ArticleTransition.js'
 import {CLASS_SECTION} from './settings.js'
 
 const Demo = () => {

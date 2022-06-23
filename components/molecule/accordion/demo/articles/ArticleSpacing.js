@@ -1,13 +1,14 @@
 import {Fragment} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
   Article,
-  H2,
-  Paragraph,
-  Grid,
   Cell,
-  Code
+  Code,
+  Grid,
+  H2,
+  Paragraph
 } from '@s-ui/documentation-library'
 
 import Accordion, {

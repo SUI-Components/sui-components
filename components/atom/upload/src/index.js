@@ -1,15 +1,16 @@
-import {useState, useEffect} from 'react'
-import PropTypes from 'prop-types'
+import {useEffect, useState} from 'react'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import {
-  Dropzone,
-  STATUSES,
   BASE_CLASS,
+  capitalize,
   CLASS_BLOCK_TEXT,
   CLASS_BLOCK_TEXT_MAIN,
   CLASS_BLOCK_TEXT_SECONDARY,
-  capitalize
+  Dropzone,
+  STATUSES
 } from './settings.js'
 
 const AtomUpload = ({

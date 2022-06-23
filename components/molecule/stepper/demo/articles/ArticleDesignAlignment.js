@@ -1,20 +1,21 @@
 import {Fragment, useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
-  H2,
   Article,
-  Paragraph,
-  UnorderedList,
-  ListItem,
+  Cell,
   Code,
+  Grid,
+  H2,
   H3,
   H4,
-  Grid,
-  Cell,
-  RadioButtonGroup,
+  Label,
+  ListItem,
+  Paragraph,
   RadioButton,
-  Label
+  RadioButtonGroup,
+  UnorderedList
 } from '@s-ui/documentation-library'
 
 import MoleculeStepper, {

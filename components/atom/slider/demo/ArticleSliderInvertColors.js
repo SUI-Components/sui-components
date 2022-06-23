@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {H2, Article, Paragraph, Code, Box} from '@s-ui/documentation-library'
+import {Article, Box, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
 import AtomSlider from '../src/index.js'
 

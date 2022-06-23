@@ -1,14 +1,15 @@
 import {useEffect, useRef, useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
-  H2,
   Article,
-  Paragraph,
-  UnorderedList,
-  ListItem,
+  Box,
   Code,
-  Box
+  H2,
+  ListItem,
+  Paragraph,
+  UnorderedList
 } from '@s-ui/documentation-library'
 
 import MoleculeStepper from '../../src/index.js'

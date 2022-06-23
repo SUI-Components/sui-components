@@ -2,9 +2,9 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import {
-  AVATAR_BADGE_STATUSES,
   AVATAR_BADGE_PLACEMENTS,
-  AVATAR_BADGE_SIZES
+  AVATAR_BADGE_SIZES,
+  AVATAR_BADGE_STATUSES
 } from './settings.js'
 
 const MoleculeAvatarBadge = ({

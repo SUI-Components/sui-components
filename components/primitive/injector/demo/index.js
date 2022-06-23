@@ -1,13 +1,12 @@
-import {H1, Paragraph, Code} from '@s-ui/documentation-library'
+import {Code, H1, Paragraph} from '@s-ui/documentation-library'
 
-import ArticleDefault from './article/ArticleDefault.js'
 import ArticleClassName from './article/ArticleClassName.js'
-import ArticleStyles from './article/ArticleStyles.js'
-import ArticleProps from './article/ArticleProps.js'
-import ArticleHandlers from './article/ArticleHandlers.js'
+import ArticleDefault from './article/ArticleDefault.js'
 import ArticleFragment from './article/ArticleFragment.js'
+import ArticleHandlers from './article/ArticleHandlers.js'
+import ArticleProps from './article/ArticleProps.js'
 import ArticleProviso from './article/ArticleProviso.js'
-
+import ArticleStyles from './article/ArticleStyles.js'
 import {demoBaseClassName} from './settings.js'
 
 export default () => (

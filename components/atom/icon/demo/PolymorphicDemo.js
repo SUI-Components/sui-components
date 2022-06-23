@@ -3,11 +3,11 @@ import {useState} from 'react'
 import {
   AntDesignIcon,
   Article,
+  Code,
   H2,
   Paragraph,
   RadioButton,
-  RadioButtonGroup,
-  Code
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 
 import AtomIcon, {ATOM_ICON_SIZES} from '../src/index.js'

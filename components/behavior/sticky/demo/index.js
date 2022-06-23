@@ -1,23 +1,23 @@
 import cx from 'classnames'
 
 import {
+  Box,
+  Code,
   H1,
   H4,
-  Paragraph,
-  Code,
   ListItem,
-  UnorderedList,
-  Box,
-  Separator
+  Paragraph,
+  Separator,
+  UnorderedList
 } from '@s-ui/documentation-library'
-import BehaviorSticky, {BehaviorStickyProvider} from '../src/index.js'
 
-import LoremIpsum from './LoremIpsum.js'
-import {BASE_CLASS_DEMO, CLASS_DEMO_SECTION} from './settings.js'
+import BehaviorSticky, {BehaviorStickyProvider} from '../src/index.js'
 import ArticleDefault from './articles/ArticleDefault.js'
+import ArticleGridDemo from './articles/ArticleGridDemo.js'
 import ArticleScrollUp from './articles/ArticleScrollUp.js'
 import ArticleStacked from './articles/ArticleStacked.js'
-import ArticleGridDemo from './articles/ArticleGridDemo.js'
+import LoremIpsum from './LoremIpsum.js'
+import {BASE_CLASS_DEMO, CLASS_DEMO_SECTION} from './settings.js'
 
 import './index.scss'
 

@@ -1,10 +1,10 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import {CLASS_DEMO_SECTION} from './config.js'
+import ArticleCheckbox from './ArticleCheckbox.js'
 import ArticleDefault from './ArticleDefault.js'
 import ArticleDesign from './ArticleDesign.js'
 import ArticleSize from './ArticleSize.js'
-import ArticleCheckbox from './ArticleCheckbox.js'
+import {CLASS_DEMO_SECTION} from './config.js'
 
 import './index.scss'
 

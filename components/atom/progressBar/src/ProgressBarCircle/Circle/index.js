@@ -1,8 +1,9 @@
-import {useState, useEffect} from 'react'
-import PropTypes from 'prop-types'
-import cx from 'classnames'
+import {useEffect, useState} from 'react'
 
-import {SIZES, MODIFIERS, MAX_TRANSITION_TIME_IN_MS} from './settings.js'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+
+import {MAX_TRANSITION_TIME_IN_MS, MODIFIERS, SIZES} from './settings.js'
 
 const Circle = ({
   baseClassName,

@@ -1,14 +1,17 @@
 import {Fragment} from 'react'
+
 import PropTypes from 'prop-types'
+
 import {
-  H2,
   Article,
-  Paragraph,
-  Grid,
   Cell,
+  Code,
+  Grid,
+  H2,
   Label,
-  Code
+  Paragraph
 } from '@s-ui/documentation-library'
+
 import AtomSkeleton, {atomSkeletonAnimations} from '../src/index.js'
 
 const ArticleAnimation = ({className}) => {

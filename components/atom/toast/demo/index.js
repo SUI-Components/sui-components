@@ -1,28 +1,29 @@
 import {useState} from 'react'
 
 import {
+  atomToastAutoCloseTimes,
+  atomToastPositions
+} from 'components/atom/toast/src/index.js'
+
+import {
+  AntDesignIcon,
+  Article,
+  Box,
   Button,
+  Cell,
+  Code,
+  Grid,
   H1,
   H2,
   H3,
-  Paragraph,
-  Code,
-  Article,
-  Grid,
-  Cell,
-  Box,
-  Label,
   Input,
+  Label,
+  Paragraph,
   RadioButton,
-  RadioButtonGroup,
-  AntDesignIcon
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 import AtomIcon from '@s-ui/react-atom-icon'
 
-import {
-  atomToastPositions,
-  atomToastAutoCloseTimes
-} from 'components/atom/toast/src/index.js'
 import ToastDemo from './ToastDemo.js'
 
 import './index.scss'

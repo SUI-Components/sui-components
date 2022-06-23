@@ -2,13 +2,13 @@ import PropTypes from 'prop-types'
 
 import {
   Article,
-  H2,
-  Paragraph,
-  UnorderedList,
-  ListItem,
+  Cell,
   Code,
   Grid,
-  Cell
+  H2,
+  ListItem,
+  Paragraph,
+  UnorderedList
 } from '@s-ui/documentation-library'
 
 import MoleculeNotification, {

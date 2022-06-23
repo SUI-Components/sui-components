@@ -1,33 +1,34 @@
 import {useState} from 'react'
 
+import AtomInput, {
+  inputShapes,
+  inputSizes,
+  inputStates,
+  inputTypes
+} from 'components/atom/input/src/index.js'
+
 import {
+  Anchor,
+  AntDesignIcon,
+  Article,
+  Box,
+  Button,
+  Cell,
+  Code,
+  Grid,
   H1,
   H2,
   H3,
   H4,
-  Box,
-  UnorderedList,
-  ListItem,
-  Anchor,
-  Paragraph,
-  Article,
-  Grid,
-  Cell,
-  Label,
-  Code,
   Input,
-  Button,
+  Label,
+  ListItem,
+  Paragraph,
   RadioButton,
   RadioButtonGroup,
-  AntDesignIcon
+  UnorderedList
 } from '@s-ui/documentation-library'
 
-import AtomInput, {
-  inputSizes,
-  inputTypes,
-  inputStates,
-  inputShapes
-} from 'components/atom/input/src/index.js'
 import {flexCenteredStyle, stackMap} from './settings.js'
 
 const DefaultDemo = () => (

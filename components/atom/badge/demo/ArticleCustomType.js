@@ -2,11 +2,11 @@ import PropTypes from 'prop-types'
 
 import {
   Article,
-  H2,
-  Paragraph,
-  Grid,
   Cell,
-  Label
+  Grid,
+  H2,
+  Label,
+  Paragraph
 } from '@s-ui/documentation-library'
 
 import AtomBadge from '../src/index.js'

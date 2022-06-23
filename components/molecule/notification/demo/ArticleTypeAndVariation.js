@@ -1,22 +1,23 @@
 import {Fragment} from 'react'
-import PropTypes from 'prop-types'
-
-import {
-  Article,
-  H2,
-  Paragraph,
-  Grid,
-  Cell,
-  Code,
-  Label,
-  UnorderedList,
-  ListItem
-} from '@s-ui/documentation-library'
 
 import MoleculeNotification, {
   moleculeNotificationTypes,
   moleculeNotificationVariations
 } from 'components/molecule/notification/src/index.js'
+import PropTypes from 'prop-types'
+
+import {
+  Article,
+  Cell,
+  Code,
+  Grid,
+  H2,
+  Label,
+  ListItem,
+  Paragraph,
+  UnorderedList
+} from '@s-ui/documentation-library'
+
 import {getButtons} from './utils.js'
 
 const ArticleTypeAndVariation = ({className}) => {

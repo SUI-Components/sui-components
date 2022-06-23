@@ -1,17 +1,17 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
+import {SIZES, STATUS} from '../settings.js'
+import Line from './Line.js'
 import {
   BASE_CLASS,
   BASE_CLASS_LINE,
-  CLASS_CONTAINER_BAR,
+  BASE_CLASS_LINE_DOUBLE,
   BASE_CLASS_LINE_SIMPLE,
-  BASE_CLASS_LINE_DOUBLE
+  CLASS_CONTAINER_BAR
 } from './settings.js'
-import Line from './Line.js'
 import useIndicator from './useIndicator.js'
 import usePercentage from './usePercentage.js'
-import {SIZES, STATUS} from '../settings.js'
 
 const ProgressBarLine = ({
   hideIndicator,

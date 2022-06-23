@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
 import ChevronRight from '@s-ui/react-icons/lib/Chevronright'
 
-import {breadcrumbClassName, BASE_CLASS, isFunction} from './settings.js'
+import {BASE_CLASS, breadcrumbClassName, isFunction} from './settings.js'
 
 const BreadcrumbBasic = ({
   items,

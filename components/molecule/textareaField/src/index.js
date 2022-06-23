@@ -1,11 +1,12 @@
-import {useState, useEffect} from 'react'
+import {useEffect, useState} from 'react'
+
 import PropTypes from 'prop-types'
 
-import MoleculeField from '@s-ui/react-molecule-field'
 import AtomTextarea, {
   AtomTextareaSizes as SIZES,
   AtomTextareaStates
 } from '@s-ui/react-atom-textarea'
+import MoleculeField from '@s-ui/react-molecule-field'
 
 const hasErrors = ({successText, errorText}) => {
   if (errorText) return true

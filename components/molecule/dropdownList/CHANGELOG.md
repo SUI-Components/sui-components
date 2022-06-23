@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.30.0 (2022-06-23)
+
+
+### Features
+
+* **components/molecule/dropdownList:** Avoid publishing huge CHANGELOG.md ([1794e23](https://github.com/SUI-Components/sui-components/commit/1794e23bc207f085a2ba0a85ef1bbdd0532f64ea))
+
+
+
 # 1.29.0 (2022-05-24)
 
 

@@ -2,6 +2,7 @@ export const BASE_CLASS = `sui-MoleculeBadgeCounter`
 export const CLASS_WITH_CHILDREN = `${BASE_CLASS}--withChildren`
 
 export const CLASS_BULLET = `${BASE_CLASS}-bullet`
+export const CLASS_BULLET_WITH_CHILDREN = `${CLASS_BULLET}--withChildren`
 
 export const CLASS_SMALL = `${CLASS_BULLET}-small`
 export const CLASS_MEDIUM = `${CLASS_BULLET}-medium`

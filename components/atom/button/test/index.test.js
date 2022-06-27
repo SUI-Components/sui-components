@@ -551,7 +551,6 @@ describe(json.name, () => {
 
       // Then
       expect(actual).to.be.an('object')
-      expect(Object.values(actual)).to.be.an('array')
     })
 
     it('value must contain the defined object values', () => {
@@ -575,11 +574,9 @@ describe(json.name, () => {
 
       // When
       const {atomButtonColors} = library
-      const actual = Object.values(atomButtonColors)
 
       // Then
-      expect(actual.length).to.equal(expected.length)
-      expect(actual).to.be.an('object')
+      expect(atomButtonColors.length).to.equal(expected.length)
     })
   })
 

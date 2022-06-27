@@ -577,6 +577,10 @@ describe(json.name, () => {
 
       // Then
       expect(atomButtonColors.length).to.equal(expected.length)
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(atomButtonColors).includes(expectedKey)).to.be.true
+        expect(atomButtonColors[expectedKey]).to.equal(expectedValue)
+      })
     })
   })
 

@@ -579,7 +579,7 @@ describe(json.name, () => {
 
       // Then
       expect(actual.length).to.equal(expected.length)
-      expect(actual).to.have.members(expected)
+      expect(actual).to.be.an('object')
     })
   })
 

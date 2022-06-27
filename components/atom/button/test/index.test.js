@@ -542,7 +542,7 @@ describe(json.name, () => {
   })
 
   describe('atomButtonColors', () => {
-    it('value must be an object enum, () => {
+    it('value must be an object enum', () => {
       // Given
       const library = pkg
 

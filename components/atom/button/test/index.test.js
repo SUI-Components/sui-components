@@ -554,23 +554,24 @@ describe(json.name, () => {
       expect(Object.values(actual)).to.be.an('array')
     })
 
-    it('value must contain the defined array values', () => {
+    it('value must contain the defined object values', () => {
       // Given
       const library = pkg
-      const expected = [
-        'primary',
-        'accent',
-        'neutral',
-        'success',
-        'alert',
-        'error',
-        'social-facebook',
-        'social-twitter',
-        'social-google',
-        'social-youtube',
-        'social-whatsapp',
-        'social-instagram'
-      ]
+
+      const expected = {
+        PRIMARY: 'primary',
+        ACCENT: 'accent',
+        NEUTRAL: 'neutral',
+        SUCCESS: 'success',
+        ALERT: 'alert',
+        ERROR: 'error',
+        SOCIAL_FACEBOOK: 'social-facebook',
+        SOCIAL_TWITTER: 'social-twitter',
+        SOCIAL_GOOGLE: 'social-google',
+        SOCIAL_YOUTUBE: 'social-youtube',
+        SOCIAL_WHATSAPP: 'social-whatsapp',
+        SOCIAL_INSTAGRAM: 'social-instagram'
+      }
 
       // When
       const {atomButtonColors} = library

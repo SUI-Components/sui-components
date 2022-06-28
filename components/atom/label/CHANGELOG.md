@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.20.0 (2022-06-28)
+
+
+### Features
+
+* **components/atom/label:** allow customization for AtomLabel line-height ([6027f7f](https://github.com/SUI-Components/sui-components/commit/6027f7f23be185fc7996954c5e271df34fb5accd))
+
+
+
 # 1.19.0 (2022-06-20)
 
 

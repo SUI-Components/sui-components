@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.21.0 (2022-06-30)
+
+
+### Bug Fixes
+
+* **components/atom/label:** change default line height value to inherit ([fadab00](https://github.com/SUI-Components/sui-components/commit/fadab00f3cb16817a0216f433c75cdc0b993dd2f))
+
+
+
 # 1.20.0 (2022-06-28)
 
 

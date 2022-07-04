@@ -139,7 +139,7 @@ AtomButton.propTypes = {
    * 'social-whatsapp',
    * 'social-instagram'
    */
-  color: PropTypes.oneOf(COLORS),
+  color: PropTypes.oneOf(Object.values(COLORS)),
   /**
    * Shape of button
    */

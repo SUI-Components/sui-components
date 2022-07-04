@@ -1,10 +1,9 @@
 /* eslint-disable no-console */
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import ArticleAlertHelpText from './ArticleAlertHelpText.js'
 import ArticleDisabled from './ArticleDisabled.js'
-import ArticleErrorHelpText from './ArticleErrorHelpText.js'
-import ArticleSuccessHelpText from './ArticleSuccessHelpText.js'
+import ArticleSize from './ArticleSize.js'
+import ArticleStatus from './ArticleStatus.js'
 import ArticleWithHelpText from './ArticleWithHelpText.js'
 import ArticleWithLabelFullWidth from './ArticleWithLabelFullWidth.js'
 
@@ -25,11 +24,9 @@ const Demo = () => {
         <br />
         <ArticleWithLabelFullWidth className={CLASS_NAME} />
         <br />
-        <ArticleSuccessHelpText className={CLASS_NAME} />
+        <ArticleSize className={CLASS_NAME} />
         <br />
-        <ArticleErrorHelpText className={CLASS_NAME} />
-        <br />
-        <ArticleAlertHelpText className={CLASS_NAME} />
+        <ArticleStatus className={CLASS_NAME} />
         <br />
         <ArticleDisabled className={CLASS_NAME} />
       </div>

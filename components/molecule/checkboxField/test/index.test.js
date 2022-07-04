@@ -22,10 +22,19 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = ['default']
+    const libraryExportedMembers = [
+      'moleculeCheckboxFieldSizes',
+      'moleculeCheckboxFieldStatus',
+      'default'
+    ]
 
     // When
-    const {default: MoleculeCheckboxField, ...others} = library
+    const {
+      default: MoleculeCheckboxField,
+      moleculeCheckboxFieldSizes,
+      moleculeCheckboxFieldStatus,
+      ...others
+    } = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -140,6 +149,72 @@ describe(json.name, () => {
           expect(labelElement.classList.contains('sui-AtomLabel')).to.be.true
           expect(labelElement.classList.contains('testNodeLabel')).to.be.false
         })
+      })
+    })
+  })
+
+  describe('moleculeCheckboxFieldSizes', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {moleculeCheckboxFieldSizes: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {SMALL: 'small', MEDIUM: 'medium'}
+
+      // When
+      const {moleculeCheckboxFieldSizes: actual} = library
+      const {SMALL, MEDIUM, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('moleculeCheckboxFieldStatus', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {moleculeCheckboxFieldStatus: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        ERROR: 'error',
+        SUCCESS: 'success',
+        ALERT: 'alert'
+      }
+
+      // When
+      const {moleculeCheckboxFieldStatus: actual} = library
+      const {ERROR, SUCCESS, ALERT, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
       })
     })
   })

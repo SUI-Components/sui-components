@@ -556,7 +556,6 @@ describe(json.name, () => {
     it('value must contain the defined object values', () => {
       // Given
       const library = pkg
-
       const expected = {
         PRIMARY: 'primary',
         ACCENT: 'accent',

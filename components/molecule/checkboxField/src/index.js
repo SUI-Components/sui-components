@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types'
 
-import AtomCheckbox from '@s-ui/react-atom-checkbox'
+import AtomCheckbox, {
+  atomCheckboxStatus,
+  atomCheckboxSizes
+} from '@s-ui/react-atom-checkbox'
 import MoleculeField from '@s-ui/react-molecule-field'
 
 import {BASE_CLASS} from './settings.js'
@@ -15,8 +18,6 @@ const MoleculeCheckboxField = ({
   alertText,
   helpText,
   onChange,
-  toggleIcon: ToggleIcon,
-  toggleIconOnChange = () => {},
   disabled,
   ...props
 }) => {
@@ -37,15 +38,12 @@ const MoleculeCheckboxField = ({
         isAligned
         disabled={disabled}
       >
-        <AtomCheckbox id={id} {...props} disabled={disabled} />
-        {ToggleIcon && (
-          <span
-            className={`${BASE_CLASS}-toggleIcon`}
-            onClick={toggleIconOnChange}
-          >
-            <ToggleIcon />
-          </span>
-        )}
+        <AtomCheckbox
+          id={id}
+          disabled={disabled}
+          {...props}
+          onChange={onChange}
+        />
       </MoleculeField>
     </div>
   )
@@ -84,14 +82,13 @@ MoleculeCheckboxField.propTypes = {
   /** Boolean to decide if elements should be set inline */
   inline: PropTypes.bool,
 
-  /* Icon to show as toggle */
-  toggleIcon: PropTypes.elementType,
-
-  /* onChange callback for toggle icon */
-  toggleIconOnChange: PropTypes.func,
-
   /* Boolean to decide if elements should be disabled */
   disabled: PropTypes.bool
 }
 
 export default MoleculeCheckboxField
+
+export {
+  atomCheckboxStatus as moleculeCheckboxFieldStatus,
+  atomCheckboxSizes as moleculeCheckboxFieldSizes
+}

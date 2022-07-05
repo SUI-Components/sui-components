@@ -12,8 +12,10 @@ import {
   Label,
   Paragraph
 } from '@s-ui/documentation-library'
+import AtomButton from '@s-ui/react-atom-button'
 
-import MoleculeBadgeCounter from '../src/index.js'
+import MoleculeBadgeCounter, {moleculeBadgeCounterSizes} from '../src/index.js'
+import {infoIcon} from './config.js'
 
 const ArticleDefault = ({className}) => {
   const [label, setLabel] = useState('0')
@@ -45,6 +47,20 @@ const ArticleDefault = ({className}) => {
           <MoleculeBadgeCounter label={label}>{children}</MoleculeBadgeCounter>
         </Cell>
       </Grid>
+      <Cell span={2}>
+        <AtomButton
+          leftIcon={
+            <MoleculeBadgeCounter
+              size={moleculeBadgeCounterSizes.MEDIUM}
+              label={label}
+            >
+              {infoIcon}
+            </MoleculeBadgeCounter>
+          }
+        >
+          {children}
+        </AtomButton>
+      </Cell>
       <Paragraph>
         If the number of the bullet exceeds the maximum defined (99) it will
         show the maximum.

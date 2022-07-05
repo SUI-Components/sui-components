@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.0.0 (2022-07-05)
+
+
+### Features
+
+* **components/molecule/checkboxField:** update to checkboxv3 ([4d4c9e1](https://github.com/SUI-Components/sui-components/commit/4d4c9e150ab03cdd0290f932a85ec1cde5e71e99))
+
+
+
 # 2.18.0 (2022-06-22)
 
 

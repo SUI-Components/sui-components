@@ -1,21 +1,5 @@
 # CHANGELOG
 
-# 1.17.0 (2022-06-27)
-
-
-### Bug Fixes
-
-* **components/molecule/badgeCounter:** fix height of children on molecule/badgeCounter ([7df2251](https://github.com/SUI-Components/sui-components/commit/7df2251d803e9c753812a43818fb7d36d79d883f))
-
-
-### Features
-
-* **components/molecule/badgeCounter/demo:** add new demo with button and icon ([a74f19b](https://github.com/SUI-Components/sui-components/commit/a74f19b4c626607c59345e710a4ec17b4834d33e))
-* **components/molecule/badgeCounter/demo:** add new deps to demo, icon and button ([c162d7f](https://github.com/SUI-Components/sui-components/commit/c162d7fb1095f65afcbf8f33f31d82294e2b10f6))
-* **components/molecule/badgeCounter:** add new class sui-MoleculeBadgeCounter-bullet--withChildren ([3da230f](https://github.com/SUI-Components/sui-components/commit/3da230fcc209103bd18d9c06199369ae9affc3c0))
-
-
-
 # 1.16.0 (2022-06-22)
 
 

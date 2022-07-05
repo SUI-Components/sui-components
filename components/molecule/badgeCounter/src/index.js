@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import {
   BASE_CLASS,
   CLASS_BULLET,
-  CLASS_BULLET_WITH_CHILDREN,
   CLASS_DISABLED,
   CLASS_LARGE,
   CLASS_LARGE_THREE_CHARS,
@@ -52,14 +51,14 @@ const MoleculeBadgeCounter = ({
     CLASS_VARIANT,
     CLASS_LENGTH_LABEL,
     {
-      [CLASS_BULLET_WITH_CHILDREN]: Boolean(children)
+      [CLASS_WITH_CHILDREN]: Boolean(children)
     }
   )
 
   return (
     <span className={className}>
       <span className={classNameBullet}>{processedLabel}</span>
-      {children}
+      <span>{children}</span>
     </span>
   )
 }

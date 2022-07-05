@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
+import PolymorphicElement from '@s-ui/react-atom-polymorphic-element'
 
 import {
   ALPHA,
@@ -15,13 +15,11 @@ const ColorPanel = function ({
   alpha = ALPHA.CONTRAST,
   color = COLORS.DEFAULT,
   children,
-  id,
   ...otherProps
 }) {
   return (
     <PolymorphicElement
       as={as}
-      id={id}
       className={getClassNames({alpha, color, ...otherProps})}
     >
       {children}
@@ -33,7 +31,6 @@ ColorPanel.displayName = 'ColorPanel'
 
 ColorPanel.propTypes = {
   as: PropTypes.elementType,
-  id: PropTypes.string,
   children: PropTypes.node,
   color: PropTypes.oneOf(Object.values(COLORS)),
   alpha: PropTypes.oneOf(Object.values(ALPHA)),

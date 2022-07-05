@@ -12,10 +12,8 @@ import {
   Label,
   Paragraph
 } from '@s-ui/documentation-library'
-import AtomButton from '@s-ui/react-atom-button'
 
-import MoleculeBadgeCounter, {moleculeBadgeCounterSizes} from '../src/index.js'
-import {infoIcon} from './config.js'
+import MoleculeBadgeCounter from '../src/index.js'
 
 const ArticleDefault = ({className}) => {
   const [label, setLabel] = useState('0')
@@ -45,20 +43,6 @@ const ArticleDefault = ({className}) => {
         </Cell>
         <Cell span={2}>
           <MoleculeBadgeCounter label={label}>{children}</MoleculeBadgeCounter>
-        </Cell>
-        <Cell span={2}>
-          <AtomButton
-            leftIcon={
-              <MoleculeBadgeCounter
-                size={moleculeBadgeCounterSizes.MEDIUM}
-                label={label}
-              >
-                {infoIcon}
-              </MoleculeBadgeCounter>
-            }
-          >
-            {children}
-          </AtomButton>
         </Cell>
       </Grid>
       <Paragraph>

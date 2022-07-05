@@ -1,14 +1,5 @@
 # CHANGELOG
 
-# 1.17.0 (2022-06-23)
-
-
-### Features
-
-* **components/atom/icon:** polymorphism style reset ([2b7ac7b](https://github.com/SUI-Components/sui-components/commit/2b7ac7bf12e34bf5fe48592f2503c487f3e7f802))
-
-
-
 # 1.16.0 (2022-06-20)
 
 

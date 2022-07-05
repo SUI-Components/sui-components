@@ -4,10 +4,6 @@ $base-class: '.sui-MoleculeBadgeCounter';
   display: inline-block;
   position: relative;
 
-  &--withChildren {
-    height: 100%;
-  }
-
   &-bullet {
     $bullet: &;
     align-items: center;
@@ -48,7 +44,7 @@ $base-class: '.sui-MoleculeBadgeCounter';
       height: $molecule-badge-counter-small-diameter;
       width: $molecule-badge-counter-small-diameter;
 
-      &.sui-MoleculeBadgeCounter-bullet--withChildren {
+      .sui-MoleculeBadgeCounter--withChildren & {
         position: absolute;
         right: $molecule-badge-counter-small-offset-right;
         top: $molecule-badge-counter-small-offset-top;
@@ -64,7 +60,7 @@ $base-class: '.sui-MoleculeBadgeCounter';
       height: $molecule-badge-counter-medium-diameter;
       min-width: $molecule-badge-counter-medium-diameter;
 
-      &.sui-MoleculeBadgeCounter-bullet--withChildren {
+      .sui-MoleculeBadgeCounter--withChildren & {
         position: absolute;
         right: $molecule-badge-counter-medium-offset-right;
         top: $molecule-badge-counter-medium-offset-top;
@@ -91,7 +87,7 @@ $base-class: '.sui-MoleculeBadgeCounter';
       height: $molecule-badge-counter-large-diameter;
       min-width: $molecule-badge-counter-large-diameter;
 
-      &.sui-MoleculeBadgeCounter-bullet--withChildren {
+      .sui-MoleculeBadgeCounter--withChildren & {
         position: absolute;
         right: $molecule-badge-counter-large-offset-right;
         top: $molecule-badge-counter-large-offset-top;

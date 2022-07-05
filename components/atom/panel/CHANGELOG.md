@@ -1,14 +1,5 @@
 # CHANGELOG
 
-# 1.16.0 (2022-06-30)
-
-
-### Features
-
-* **components/atom/panel:** pass id property ([96dcea6](https://github.com/SUI-Components/sui-components/commit/96dcea685051a2a41e865f0a179de7cebfb223e2))
-
-
-
 # 1.15.0 (2022-06-20)
 
 

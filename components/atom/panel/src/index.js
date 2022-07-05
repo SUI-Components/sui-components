@@ -79,11 +79,7 @@ AtomPanel.propTypes = {
   /**
    * Specify the HTML tag element or component to render in the DOM.
    */
-  as: PropTypes.elementType,
-  /**
-   * Specify the element id
-   */
-  id: PropTypes.string
+  as: PropTypes.elementType
 }
 
 export default AtomPanel

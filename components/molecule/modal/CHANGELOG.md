@@ -1,14 +1,5 @@
 # CHANGELOG
 
-# 1.45.0 (2022-06-27)
-
-
-### Bug Fixes
-
-* **components/molecule/modal:** footer base class ([fc07c53](https://github.com/SUI-Components/sui-components/commit/fc07c536003dc96eeabff5ef36343b460a6f4033))
-
-
-
 # 1.44.0 (2022-06-23)
 
 

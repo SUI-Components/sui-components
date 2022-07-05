@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.0.0 (2022-06-23)
+
+
+### Features
+
+* **components/atom/checkbox:** v3 ([9576301](https://github.com/SUI-Components/sui-components/commit/9576301bfdacdee5d150645cf7068fd676992297))
+
+
+
 # 2.20.0 (2022-06-23)
 
 
@@ -7,15 +16,6 @@
 
 * **components/atom/checkbox:** v2 ([982a2f0](https://github.com/SUI-Components/sui-components/commit/982a2f04f41cf941b19e5c174d991d7f5e83df61))
 * **components/atom/checkbox:** v2 ([e9c09ec](https://github.com/SUI-Components/sui-components/commit/e9c09ec893466a91ffa41d4b6720c506601e0e3a))
-
-
-
-# 3.0.0 (2022-06-23)
-
-
-### Features
-
-* **components/atom/checkbox:** v3 ([9576301](https://github.com/SUI-Components/sui-components/commit/9576301bfdacdee5d150645cf7068fd676992297))
 
 
 

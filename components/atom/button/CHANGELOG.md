@@ -1,12 +1,29 @@
 # CHANGELOG
 
+# 1.87.0 (2022-06-27)
+
+
+### Features
+
+* **components/atom/button:** Add expected values for atomButtonColors ([708d8df](https://github.com/SUI-Components/sui-components/commit/708d8df22e826b4eec65d5397b076382765d7efa))
+* **components/atom/button:** add test for atomButtonColors ([1b383b1](https://github.com/SUI-Components/sui-components/commit/1b383b179c5bf0c1a3c8da0dddb01feb5ca665b3))
+* **components/atom/button:** Add test for atomButtonColors ([be13b74](https://github.com/SUI-Components/sui-components/commit/be13b74a87a1820476bac22a62d470b213566a11))
+* **components/atom/button:** Add test for atomButtonColors ([d618633](https://github.com/SUI-Components/sui-components/commit/d6186337436ebd41e0cd3569b20dace55f7c9005))
+
+
+
 # 1.86.0 (2022-06-20)
+
+
+### Bug Fixes
+
+* **components/atom/button:** Use a dictionary instead an array to be able to use in components ([251d5fa](https://github.com/SUI-Components/sui-components/commit/251d5fac3f49dff9446eaa72352a612bf0a63b99))
 
 
 ### Features
 
 * **components/atom/button:** Avoid publishing huge CHANGELOG.md ([7de1487](https://github.com/SUI-Components/sui-components/commit/7de1487581bdfe9e70bf6e81f55f225b4487e6bf))
-
+* **components/atom/button:** Use colors as dictionary instead array ([61d7b90](https://github.com/SUI-Components/sui-components/commit/61d7b90b7760b2e56cc15389f702cd6cf1052cba))
 
 
 # 1.85.0 (2022-05-27)

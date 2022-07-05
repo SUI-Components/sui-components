@@ -139,7 +139,7 @@ describe(json.name, () => {
             type: 'primary'
           }
           const classes = createClasses([
-            ...atomButtonColors,
+            ...Object.values(atomButtonColors),
             ...Object.values(atomButtonDesigns)
           ])
           const findSentence = str => string =>
@@ -164,7 +164,7 @@ describe(json.name, () => {
             link: true
           }
           const classes = createClasses([
-            ...atomButtonColors,
+            ...Object.values(atomButtonColors),
             ...Object.values(atomButtonDesigns)
           ])
           const findSentence = str => string =>
@@ -190,7 +190,7 @@ describe(json.name, () => {
             type: 'accent'
           }
           const classes = createClasses([
-            ...atomButtonColors,
+            ...Object.values(atomButtonColors),
             ...Object.values(atomButtonDesigns)
           ])
           const findSentence = str => string =>
@@ -215,7 +215,7 @@ describe(json.name, () => {
             link: true
           }
           const classes = createClasses([
-            ...atomButtonColors,
+            ...Object.values(atomButtonColors),
             ...Object.values(atomButtonDesigns)
           ])
           const findSentence = str => string =>
@@ -241,7 +241,7 @@ describe(json.name, () => {
             type: 'secondary'
           }
           const classes = createClasses([
-            ...atomButtonColors,
+            ...Object.values(atomButtonColors),
             ...Object.values(atomButtonDesigns)
           ])
           const findSentence = str => string =>
@@ -266,7 +266,7 @@ describe(json.name, () => {
             link: true
           }
           const classes = createClasses([
-            ...atomButtonColors,
+            ...Object.values(atomButtonColors),
             ...Object.values(atomButtonDesigns)
           ])
           const findSentence = str => string =>
@@ -292,7 +292,7 @@ describe(json.name, () => {
             type: 'tertiary'
           }
           const classes = createClasses([
-            ...atomButtonColors,
+            ...Object.values(atomButtonColors),
             ...Object.values(atomButtonDesigns)
           ])
           const findSentence = str => string =>
@@ -317,7 +317,7 @@ describe(json.name, () => {
             link: true
           }
           const classes = createClasses([
-            ...atomButtonColors,
+            ...Object.values(atomButtonColors),
             ...Object.values(atomButtonDesigns)
           ])
           const findSentence = str => string =>
@@ -542,7 +542,7 @@ describe(json.name, () => {
   })
 
   describe('atomButtonColors', () => {
-    it('value must be an array', () => {
+    it('value must be an object enum', () => {
       // Given
       const library = pkg
 
@@ -550,33 +550,36 @@ describe(json.name, () => {
       const {atomButtonColors: actual} = library
 
       // Then
-      expect(actual).to.be.an('array')
+      expect(actual).to.be.an('object')
     })
 
-    it('value must contain the defined array values', () => {
+    it('value must contain the defined object values', () => {
       // Given
       const library = pkg
-      const expected = [
-        'primary',
-        'accent',
-        'neutral',
-        'success',
-        'alert',
-        'error',
-        'social-facebook',
-        'social-twitter',
-        'social-google',
-        'social-youtube',
-        'social-whatsapp',
-        'social-instagram'
-      ]
+      const expected = {
+        PRIMARY: 'primary',
+        ACCENT: 'accent',
+        NEUTRAL: 'neutral',
+        SUCCESS: 'success',
+        ALERT: 'alert',
+        ERROR: 'error',
+        SOCIAL_FACEBOOK: 'social-facebook',
+        SOCIAL_TWITTER: 'social-twitter',
+        SOCIAL_GOOGLE: 'social-google',
+        SOCIAL_YOUTUBE: 'social-youtube',
+        SOCIAL_WHATSAPP: 'social-whatsapp',
+        SOCIAL_INSTAGRAM: 'social-instagram'
+      }
 
       // When
-      const {atomButtonColors: actual} = library
+      const {atomButtonColors} = library
 
       // Then
-      expect(actual.length).to.equal(expected.length)
-      expect(actual).to.have.members(expected)
+      expect(atomButtonColors.length).to.equal(expected.length)
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(atomButtonColors).includes(expectedKey)).to.be.true
+        expect(atomButtonColors[expectedKey]).to.equal(expectedValue)
+      })
     })
   })
 

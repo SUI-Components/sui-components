@@ -46,21 +46,21 @@ const ArticleDefault = ({className}) => {
         <Cell span={2}>
           <MoleculeBadgeCounter label={label}>{children}</MoleculeBadgeCounter>
         </Cell>
+        <Cell span={2}>
+          <AtomButton
+            leftIcon={
+              <MoleculeBadgeCounter
+                size={moleculeBadgeCounterSizes.MEDIUM}
+                label={label}
+              >
+                {infoIcon}
+              </MoleculeBadgeCounter>
+            }
+          >
+            {children}
+          </AtomButton>
+        </Cell>
       </Grid>
-      <Cell span={2}>
-        <AtomButton
-          leftIcon={
-            <MoleculeBadgeCounter
-              size={moleculeBadgeCounterSizes.MEDIUM}
-              label={label}
-            >
-              {infoIcon}
-            </MoleculeBadgeCounter>
-          }
-        >
-          {children}
-        </AtomButton>
-      </Cell>
       <Paragraph>
         If the number of the bullet exceeds the maximum defined (99) it will
         show the maximum.

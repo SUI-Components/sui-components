@@ -52,11 +52,12 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
 
   #{$class-handle} {
     background-color: $c-white;
-    border: $bdw-s solid $c-primary;
+    border: $b-atom-slider-handle;
     height: $h-atom-slider-handle;
     margin-left: $ml-atom-slider-handle;
     margin-top: -8px;
     width: $w-atom-slider-handle;
+    box-shadow: $bxsh-atom-slider-handle;
   }
 
   #{$class-rail} {

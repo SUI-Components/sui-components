@@ -1,8 +1,8 @@
 import {useState} from 'react'
 
-import AtomIcon from 'components/atom/icon/src'
-import MoleculeCheckboxField from 'components/molecule/checkboxField/src'
-import OrganismNestedCheckboxes from 'components/organism/nestedCheckboxes/src'
+import AtomIcon from '@s-ui/react-atom-icon'
+import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
+import OrganismNestedCheckboxes from '../src/index.js'
 
 import './index.scss'
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.28.0 (2022-07-06)
+
+
+### Features
+
+* **components/atom/slider:** update styles ([8ef2dfa](https://github.com/SUI-Components/sui-components/commit/8ef2dfa1d84d9981eb446f1752fc4017cea5ec84))
+
+
+
 # 1.27.0 (2022-06-20)
 
 

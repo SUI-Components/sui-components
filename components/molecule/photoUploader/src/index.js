@@ -66,6 +66,7 @@ const MoleculePhotoUploader = forwardRef(
       initialPhotos = [],
       limitPhotosUploadedNotification,
       limitPhotosUploadedText,
+      onLimitPhotosUploaded,
       mainPhotoLabel,
       maxImageHeight = DEFAULT_MAX_IMAGE_HEIGHT,
       maxImageWidth = DEFAULT_MAX_IMAGE_WIDTH,
@@ -151,15 +152,24 @@ const MoleculePhotoUploader = forwardRef(
       callbackPhotosRejected(rejectedFilesWithReason)
     }
 
+    const _onLimitPhotosUpload = () => {
+      if (onLimitPhotosUploaded) {
+        onLimitPhotosUploaded()
+        return
+      }
+
+      setNotificationError({
+        isError: true,
+        text: limitPhotosUploadedNotification
+      })
+    }
+
     const _onDropAccepted = acceptedFiles => {
       setNotificationError(DEFAULT_NOTIFICATION_ERROR)
       if (isLoading) return false
 
       if (isPhotoUploaderFully()) {
-        setNotificationError({
-          isError: true,
-          text: limitPhotosUploadedNotification
-        })
+        _onLimitPhotosUpload()
         _scrollToBottom()
         return false
       }
@@ -179,10 +189,7 @@ const MoleculePhotoUploader = forwardRef(
           _scrollToBottom()
         },
         setMaxPhotosError: () => {
-          setNotificationError({
-            isError: true,
-            text: limitPhotosUploadedNotification
-          })
+          _onLimitPhotosUpload()
         },
         allowUploadDuplicatedPhotos,
         maxPhotos
@@ -226,7 +233,7 @@ const MoleculePhotoUploader = forwardRef(
       noKeyboard: isPhotoUploaderFully(),
       accept: acceptedFileTypes,
       onDrop: onDropFiles,
-      onFileDialogOpen: onFileDialogOpen,
+      onFileDialogOpen,
       onDropAccepted: acceptedFiles => _onDropAccepted(acceptedFiles),
       onDropRejected: rejectedFiles => _onDropRejected(rejectedFiles)
     })
@@ -451,6 +458,9 @@ MoleculePhotoUploader.propTypes = {
 
   /** Text showed at error notification when the user drops more images than the max allowed at maxPhotos */
   limitPhotosUploadedNotification: PropTypes.string.isRequired,
+
+  /** Function called when the user drops more images than the max allowed at maxPhotos. If defined no notification will be displayed */
+  onLimitPhotosUploaded: PropTypes.func,
 
   /**
    *  Text placed at badge of the preview first item.

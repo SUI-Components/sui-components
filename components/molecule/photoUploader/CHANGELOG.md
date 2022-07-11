@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.21.0 (2022-07-11)
+
+
+### Features
+
+* **components/molecule/photoUploader:** add photo uploader max callback ([77f540d](https://github.com/SUI-Components/sui-components/commit/77f540dbe19ac99f25fb7a2aeadd46e48b74ba56))
+
+
+
 # 2.20.0 (2022-06-23)
 
 

@@ -41,10 +41,7 @@ StandardTag.propTypes = {
   onClose: PropTypes.func,
   closeIcon: PropTypes.node,
   icon: PropTypes.node,
-  label: PropTypes.oneOfType([
-    PropTypes.string.isRequired,
-    PropTypes.node.isRequired
-  ]),
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   className: PropTypes.string,
   title: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])

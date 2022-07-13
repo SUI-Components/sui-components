@@ -67,10 +67,7 @@ AtomTag.displayName = 'AtomTag'
 
 AtomTag.propTypes = {
   disabled: PropTypes.bool,
-  label: PropTypes.oneOfType([
-    PropTypes.string.isRequired,
-    PropTypes.node.isRequired
-  ]),
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   icon: PropTypes.node,
   onClose: PropTypes.func,
   /**

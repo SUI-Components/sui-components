@@ -54,10 +54,7 @@ const ActionableTag = function ({
 ActionableTag.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  label: PropTypes.oneOfType([
-    PropTypes.string.isRequired,
-    PropTypes.node.isRequired
-  ]),
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   icon: PropTypes.node,
   href: PropTypes.string,
   iconPlacement: PropTypes.oneOf([LEFT_ICON_PLACEMENT, RIGHT_ICON_PLACEMENT]),

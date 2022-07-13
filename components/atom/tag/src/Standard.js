@@ -8,7 +8,8 @@ const StandardTag = ({
   label,
   onClose,
   value,
-  disabled
+  disabled,
+  title
 }) => {
   const classNames = cx(className, closeIcon && 'sui-AtomTag-hasClose')
   const handleClick = ev => {
@@ -21,7 +22,7 @@ const StandardTag = ({
   return (
     <span className={classNames}>
       {icon && <span className="sui-AtomTag-icon">{icon}</span>}
-      <span className="sui-AtomTag-label" title={label}>
+      <span className="sui-AtomTag-label" title={title || label}>
         {label}
       </span>
       {closeIcon && !disabled && (
@@ -40,8 +41,12 @@ StandardTag.propTypes = {
   onClose: PropTypes.func,
   closeIcon: PropTypes.node,
   icon: PropTypes.node,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.node.isRequired
+  ]),
   className: PropTypes.string,
+  title: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 

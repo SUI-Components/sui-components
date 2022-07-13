@@ -67,7 +67,10 @@ AtomTag.displayName = 'AtomTag'
 
 AtomTag.propTypes = {
   disabled: PropTypes.bool,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.node.isRequired
+  ]),
   icon: PropTypes.node,
   onClose: PropTypes.func,
   /**
@@ -102,6 +105,10 @@ AtomTag.propTypes = {
    * Tag size
    */
   size: PropTypes.oneOf(Object.values(SIZES)),
+  /**
+   * Tag title
+   */
+  title: PropTypes.string,
   /**
    * Tag type in order to color it as desired
    * from a high order component.

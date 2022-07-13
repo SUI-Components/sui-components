@@ -12,7 +12,8 @@
     "@s-ui/react-atom-input": "5",
     "@s-ui/react-hooks": "1",
     "@s-ui/react-molecule-dropdown-option": "1",
-    "lodash.isequal": "4.5"
+    "lodash.isequal": "4.5",
+    "undefined": "^0.1.0"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

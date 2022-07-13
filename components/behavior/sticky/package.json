@@ -9,7 +9,8 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "react-stickup": "1.12"
+    "react-stickup": "1.12",
+    "undefined": "^0.1.0"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

@@ -15,6 +15,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@s-ui/react-hooks": "1"
+    "@s-ui/react-hooks": "1",
+    "undefined": "^0.1.0"
   }
 }

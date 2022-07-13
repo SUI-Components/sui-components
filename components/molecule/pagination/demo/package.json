@@ -14,6 +14,7 @@
     "@s-ui/react-atom-button": "1",
     "@s-ui/react-atom-input": "5",
     "@s-ui/react-layout-media-query": "1",
-    "@s-ui/react-molecule-button-group": "2"
+    "@s-ui/react-molecule-button-group": "2",
+    "undefined": "^0.1.0"
   }
 }

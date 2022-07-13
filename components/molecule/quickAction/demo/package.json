@@ -10,5 +10,7 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "dependencies": {}
+    "dependencies": {
+        "undefined": "^0.1.0"
+    }
 }

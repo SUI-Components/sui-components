@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@s-ui/react-molecule-autosuggest": "2",
-    "@s-ui/react-molecule-field": "1"
+    "@s-ui/react-molecule-field": "1",
+    "undefined": "^0.1.0"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

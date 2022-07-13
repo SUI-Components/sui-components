@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-primitive-injector": "1"
+    "@s-ui/react-primitive-injector": "1",
+    "undefined": "^0.1.0"
   },
   "keywords": [],
   "author": "",

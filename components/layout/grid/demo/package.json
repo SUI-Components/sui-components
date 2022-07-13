@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "react-use": "17"
+    "react-use": "17",
+    "undefined": "^0.1.0"
   }
 }

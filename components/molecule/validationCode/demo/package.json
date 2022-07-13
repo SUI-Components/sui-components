@@ -2,5 +2,8 @@
       "name": "@s-ui/react-molecule-validation-code-demo",
       "version": "1.0.0",
       "private": true,
-      "description": "Demo for @s-ui/react-molecule-validation-code"
-    }
+      "description": "Demo for @s-ui/react-molecule-validation-code",
+      "dependencies": {
+            "undefined": "^0.1.0"
+      }
+}

@@ -11,7 +11,8 @@
   "dependencies": {
     "@s-ui/react-hooks": "1",
     "@s-ui/react-primitive-polymorphic-element": "1",
-    "imask": "3.4.0"
+    "imask": "3.4.0",
+    "undefined": "^0.1.0"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

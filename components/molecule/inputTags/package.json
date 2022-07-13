@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@s-ui/react-atom-input": "5",
-    "@s-ui/react-atom-tag": "2"
+    "@s-ui/react-atom-tag": "2",
+    "undefined": "^0.1.0"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

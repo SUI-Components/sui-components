@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@s-ui/react-atom-icon": "1",
-    "react-json-view": "1.21.3"
+    "react-json-view": "1.21.3",
+    "undefined": "^0.1.0"
   }
 }

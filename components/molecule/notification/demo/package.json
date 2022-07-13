@@ -11,5 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "undefined": "^0.1.0"
   }
 }

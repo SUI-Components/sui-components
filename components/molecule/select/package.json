@@ -12,7 +12,8 @@
     "@s-ui/js": "2",
     "@s-ui/react-atom-input": "5",
     "@s-ui/react-molecule-dropdown-list": "1",
-    "@s-ui/react-molecule-input-tags": "2"
+    "@s-ui/react-molecule-input-tags": "2",
+    "undefined": "^0.1.0"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

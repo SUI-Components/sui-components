@@ -20,6 +20,7 @@
   "dependencies": {
     "@s-ui/component-dependencies": "1",
     "@s-ui/react-hooks": "1",
-    "@s-ui/react-icons": "1"
+    "@s-ui/react-icons": "1",
+    "undefined": "^0.1.0"
   }
 }

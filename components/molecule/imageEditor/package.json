@@ -20,6 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "@s-ui/react-atom-slider": "1",
-    "react-easy-crop": "3.4.0"
+    "react-easy-crop": "3.4.0",
+    "undefined": "^0.1.0"
   }
 }

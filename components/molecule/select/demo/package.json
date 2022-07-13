@@ -13,6 +13,7 @@
   "dependencies": {
     "@s-ui/hoc": "1",
     "@s-ui/react-molecule-dropdown-option": "1",
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "undefined": "^0.1.0"
   }
 }

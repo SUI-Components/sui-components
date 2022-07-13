@@ -9,7 +9,8 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "latest"
+    "@s-ui/component-dependencies": "latest",
+    "undefined": "^0.1.0"
   },
   "keywords": [],
   "author": "",

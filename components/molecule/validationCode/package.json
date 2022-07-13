@@ -21,6 +21,7 @@
   "dependencies": {
     "@s-ui/react-atom-button": "1",
     "@s-ui/react-atom-pin-input": "1",
-    "@s-ui/react-atom-validation-text": "1"
+    "@s-ui/react-atom-validation-text": "1",
+    "undefined": "^0.1.0"
   }
 }

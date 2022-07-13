@@ -17,6 +17,7 @@
     "@s-ui/react-molecule-dropdown-option": "1",
     "@s-ui/react-molecule-input-tags": "2",
     "@s-ui/react-molecule-select": "1",
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "undefined": "^0.1.0"
   }
 }

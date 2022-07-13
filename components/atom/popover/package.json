@@ -12,7 +12,8 @@
     "@loadable/component": "5.15.x",
     "@s-ui/hoc": "1",
     "@s-ui/react-hooks": "1",
-    "reactstrap": "8.9.0"
+    "reactstrap": "8.9.0",
+    "undefined": "^0.1.0"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

@@ -13,6 +13,7 @@
   "dependencies": {
     "@s-ui/react-hooks": "1",
     "lorem-ipsum": "2.0.4",
-    "react-use": "17.4.0"
+    "react-use": "17.4.0",
+    "undefined": "^0.1.0"
   }
 }

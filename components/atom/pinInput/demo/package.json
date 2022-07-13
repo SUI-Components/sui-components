@@ -3,5 +3,7 @@
   "version": "1.2.0",
   "private": true,
   "description": "Demo for @s-ui/react-atom-validation-code",
-  "dependencies": {}
+  "dependencies": {
+    "undefined": "^0.1.0"
+  }
 }

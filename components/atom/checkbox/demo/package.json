@@ -13,6 +13,7 @@
   "dependencies": {
     "@s-ui/react-atom-icon": "1",
     "react-json-view": "1.21.3",
-    "react-use": "17.4.0"
+    "react-use": "17.4.0",
+    "undefined": "^0.1.0"
   }
 }

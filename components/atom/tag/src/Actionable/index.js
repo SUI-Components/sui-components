@@ -20,6 +20,7 @@ const ActionableTag = function ({
   linkFactory,
   className,
   disabled,
+  title,
   value = null
 }) {
   return (
@@ -40,7 +41,7 @@ const ActionableTag = function ({
       {icon && iconPlacement === LEFT_ICON_PLACEMENT && (
         <span className="sui-AtomTag-icon">{icon}</span>
       )}
-      <span className="sui-AtomTag-label" title={label}>
+      <span className="sui-AtomTag-label" title={title || label}>
         {label}
       </span>
       {icon && iconPlacement === RIGHT_ICON_PLACEMENT && (
@@ -53,7 +54,7 @@ const ActionableTag = function ({
 ActionableTag.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   icon: PropTypes.node,
   href: PropTypes.string,
   iconPlacement: PropTypes.oneOf([LEFT_ICON_PLACEMENT, RIGHT_ICON_PLACEMENT]),
@@ -61,6 +62,7 @@ ActionableTag.propTypes = {
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   rel: PropTypes.arrayOf(PropTypes.oneOf(Object.values(LINK_TYPES))),
   linkFactory: PropTypes.func,
+  title: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 

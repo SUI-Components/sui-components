@@ -2,8 +2,5 @@
   "name": "@s-ui/react-primitive-polymorphic-element-demo",
   "version": "1.0.0",
   "private": true,
-  "description": "Demo for @s-ui/react-primitive-polymorphic-element",
-  "dependencies": {
-    "undefined": "^0.1.0"
-  }
+  "description": "Demo for @s-ui/react-primitive-polymorphic-element"
 }

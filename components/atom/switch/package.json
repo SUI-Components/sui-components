@@ -9,8 +9,7 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/react-atom-label": "1",
-    "undefined": "^0.1.0"
+    "@s-ui/react-atom-label": "1"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

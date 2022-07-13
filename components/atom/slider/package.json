@@ -9,8 +9,7 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "rc-slider": "9",
-    "undefined": "^0.1.0"
+    "rc-slider": "9"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

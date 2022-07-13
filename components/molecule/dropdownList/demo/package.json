@@ -11,7 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@s-ui/react-molecule-dropdown-option": "1",
-    "undefined": "^0.1.0"
+    "@s-ui/react-molecule-dropdown-option": "1"
   }
 }

@@ -13,7 +13,6 @@
   "dependencies": {
     "@s-ui/react-atom-button": "1",
     "@s-ui/react-atom-spinner": "1",
-    "@s-ui/react-layout-media-query": "1",
-    "undefined": "^0.1.0"
+    "@s-ui/react-layout-media-query": "1"
   }
 }

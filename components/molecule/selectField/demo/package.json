@@ -14,7 +14,6 @@
     "@s-ui/hoc": "1",
     "@s-ui/react-molecule-dropdown-option": "1",
     "@s-ui/react-molecule-field": "1",
-    "@s-ui/react-molecule-select": "1",
-    "undefined": "^0.1.0"
+    "@s-ui/react-molecule-select": "1"
   }
 }

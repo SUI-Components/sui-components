@@ -18,6 +18,12 @@ $class-read-only: '#{$base-class-input}--readOnly';
     display: none;
   }
 
+  &--readOnly {
+    background: $bgc-atom-input-read-only;
+    border: $bd-atom-input-read-only;
+    color: $c-atom-input-read-only;
+  }
+
   @include atom-input-shape-wrapper(
     $base-class,
     $base-class-input,

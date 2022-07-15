@@ -22,7 +22,12 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = ['default']
+    const libraryExportedMembers = [
+      'default',
+      'DECODING',
+      'FETCHPRIORITY',
+      'LOADING'
+    ]
 
     // When
     const {default: AtomImage, ...others} = library
@@ -30,7 +35,7 @@ describe(json.name, () => {
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
     expect(Object.keys(library)).to.have.members(libraryExportedMembers)
-    expect(Object.keys(others).length).to.equal(0)
+    expect(Object.keys(others).length).to.equal(3)
   })
 
   describe(Component.displayName, () => {

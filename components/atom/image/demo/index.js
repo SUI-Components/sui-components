@@ -2,6 +2,8 @@ import {H1, Paragraph} from '@s-ui/documentation-library'
 
 import DefaultDemo from './DefaultDemo.js'
 import FallbackImageDemo from './FallbackImageDemo.js'
+import LazyImageDemo from './LazyImageDemo.js'
+import LcpImageDemo from './LcpImageDemo.js'
 import PlaceHolderDemo from './PlaceHolderDemo.js'
 import SkeletonDemo from './SkeletonDemo.js'
 import SpinnerDemo from './SpinnerDemo.js'
@@ -20,6 +22,8 @@ const Demo = () => {
         loaded. This component will also show an Error Box if the image could't
         be loaded
       </Paragraph>
+      <LcpImageDemo />
+      <br />
       <DefaultDemo />
       <br />
       <PlaceHolderDemo />
@@ -31,6 +35,8 @@ const Demo = () => {
       <SpinnerDemo />
       <br />
       <ViewportDemo />
+      <br />
+      <LazyImageDemo />
       <br />
     </div>
   )

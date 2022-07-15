@@ -11,40 +11,46 @@ import {
   CLASS_IMAGE,
   CLASS_PLACEHOLDER,
   CLASS_SKELETON,
-  CLASS_SPINNER
+  CLASS_SPINNER,
+  DECODING,
+  FETCHPRIORITY,
+  LOADING
 } from './settings.js'
 import {htmlImgProps} from './types.js'
 
 const AtomImage = ({
-  placeholder,
-  skeleton,
+  alt,
   bgStyles,
-  spinner: Spinner,
+  decoding = DECODING.auto,
   errorIcon,
   errorText,
-  onError,
-  onLoad,
+  fetchpriority = FETCHPRIORITY.auto,
+  loading = LOADING.eager,
+  onError = () => {},
+  onLoad = () => {},
+  placeholder,
+  skeleton,
   sources = [],
-  alt,
+  spinner: Spinner,
   ...imgProps
 }) => {
   const imageRef = useRef()
-  const [loading, setLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(false)
   const {src} = imgProps
 
   useEffect(() => {
-    setLoading(true)
+    setIsLoading(true)
     setError(false)
-  }, [src, setLoading, setError])
+  }, [src, setIsLoading, setError])
 
   const handleLoad = useCallback(() => {
     const loadCompleted = imageRef?.current?.complete
     if (loadCompleted === true) {
-      setLoading(!loadCompleted)
+      setIsLoading(!loadCompleted)
       onLoad && onLoad()
     }
-  }, [onLoad, setLoading])
+  }, [onLoad, setIsLoading])
 
   useEffect(() => {
     handleLoad()
@@ -52,7 +58,7 @@ const AtomImage = ({
 
   const classNames = cx(
     BASE_CLASS,
-    `is-${loading ? 'loading' : 'loaded'}`,
+    `is-${isLoading ? 'isLoading' : 'loaded'}`,
     error && `is-error`
   )
 
@@ -63,7 +69,7 @@ const AtomImage = ({
   )
 
   const handleError = () => {
-    setLoading(false)
+    setIsLoading(false)
     setError(true)
     onError && onError()
   }
@@ -89,16 +95,19 @@ const AtomImage = ({
             <source key={idx} {...source} />
           ))}
           <img
-            className={CLASS_IMAGE}
-            onLoad={handleLoad}
-            onError={handleError}
-            ref={imageRef}
             alt={alt}
+            className={CLASS_IMAGE}
+            decoding={decoding}
+            fetchpriority={fetchpriority}
+            loading={loading}
+            onError={handleError}
+            onLoad={handleLoad}
+            ref={imageRef}
             {...imgProps}
           />
         </picture>
       </figure>
-      {!error && loading && SpinnerExtended}
+      {!error && isLoading && SpinnerExtended}
       {error && (
         <ErrorImage className={CLASS_ERROR} icon={errorIcon} text={errorText} />
       )}
@@ -113,6 +122,24 @@ AtomImage.propTypes = {
 
   /** Description of the image */
   alt: PropTypes.string.isRequired,
+
+  /**
+   * Provides an image decoding hint to the browser
+   * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-decoding
+   */
+  decoding: PropTypes.oneOf(Object.values(DECODING)),
+
+  /**
+   * Provides a hint of the relative priority to use when fetching the image
+   * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-fetchpriority
+   */
+  fetchpriority: PropTypes.oneOf(Object.values(FETCHPRIORITY)),
+
+  /**
+   * Indicates how the browser should load the image
+   * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-loading
+   */
+  loading: PropTypes.oneOf(Object.values(LOADING)),
 
   /** Image displayed (blurred) while the final image is being loaded */
   placeholder: PropTypes.string,
@@ -151,3 +178,5 @@ AtomImage.propTypes = {
 }
 
 export default AtomImage
+
+export {DECODING, FETCHPRIORITY, LOADING}

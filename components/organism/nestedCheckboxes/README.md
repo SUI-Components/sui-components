@@ -1,6 +1,6 @@
 # OrganismNestedCheckboxes
 
-This component show a parent checkbox with children that their controls his own state.
+This component shows a parent checkbox with children that their controls his own state.
 
 ## Installation
 

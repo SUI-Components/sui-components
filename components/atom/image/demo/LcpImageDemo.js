@@ -39,7 +39,7 @@ const LcpImageDemo = () => (
       </ListItem>
       <ListItem>
         <Code>loading</Code>: Indicates how the browser should load the image,
-        `eager`, `eager`.
+        `eager`, `lazy`.
       </ListItem>
     </UnorderedList>
     <Paragraph>
@@ -51,9 +51,9 @@ const LcpImageDemo = () => (
       <AtomImage
         src={IMAGES.FINAL}
         alt="Optimized image for LCP"
-        decoding={DECODING.sync}
-        fetchpriority={FETCHPRIORITY.high}
-        loading={LOADING.eager}
+        decoding={DECODING.SYNC}
+        fetchpriority={FETCHPRIORITY.HIGH}
+        loading={LOADING.EAGER}
       />
     </div>
   </Article>

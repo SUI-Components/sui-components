@@ -17,7 +17,7 @@ const LazyImageDemo = () => (
     <Paragraph>
       Attributes to optimize image that is a{' '}
       <a href="https://web.dev/lcp" target="_blank">
-        LCP
+        off the viewport / lazy loaded
       </a>{' '}
       element, usually the first image in the viewport.
     </Paragraph>
@@ -39,7 +39,7 @@ const LazyImageDemo = () => (
       </ListItem>
       <ListItem>
         <Code>loading</Code>: Indicates how the browser should load the image,
-        `eager`, `eager`.
+        `eager`, `lazy`.
       </ListItem>
     </UnorderedList>
     <Paragraph>
@@ -50,10 +50,10 @@ const LazyImageDemo = () => (
     <div style={{height: 300}}>
       <AtomImage
         src={IMAGES.FINAL}
-        alt="Optimized image for LCP"
-        decoding={DECODING.async}
-        fetchpriority={FETCHPRIORITY.low}
-        loading={LOADING.lazy}
+        alt="Optimized image for lazy loading"
+        decoding={DECODING.ASYNC}
+        fetchpriority={FETCHPRIORITY.LOW}
+        loading={LOADING.LAZY}
       />
     </div>
   </Article>

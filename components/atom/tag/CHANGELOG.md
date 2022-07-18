@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.42.0 (2022-07-13)
+
+
+### Features
+
+* **components/atom/tag:** add title as a new prop and also allow the label as node proptype ([0c47869](https://github.com/SUI-Components/sui-components/commit/0c478693775d384c00b414a19ba6f362d2b15c1e))
+* **components/atom/tag:** improvement ([9408cf8](https://github.com/SUI-Components/sui-components/commit/9408cf8830fc977ee76ca48b2279ca7beccbb5d2))
+
+
+
 # 2.41.0 (2022-06-20)
 
 

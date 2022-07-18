@@ -1,5 +1,29 @@
 # CHANGELOG
 
+# 2.13.0 (2022-07-18)
+
+
+### Bug Fixes
+
+* **components/atom/image:** fix loading classname ([e93b4f9](https://github.com/SUI-Components/sui-components/commit/e93b4f907722f230b908120cba46266432f2e3ad))
+
+
+
+# 2.12.0 (2022-07-18)
+
+
+### Bug Fixes
+
+* **components/atom/image:** fix capitalize object key ([489ac99](https://github.com/SUI-Components/sui-components/commit/489ac991933f635df63157dec6067bb8120b635b))
+
+
+### Features
+
+* **components/atom/image/demo:** add demo and test ([4f57bce](https://github.com/SUI-Components/sui-components/commit/4f57bceabde1eae40f32dc992492bf31199a2e50))
+* **components/atom/image:** add attributtes to improve the image loading ([a48547b](https://github.com/SUI-Components/sui-components/commit/a48547bee27a8b4582e55e0c4998ccb2926b371a))
+
+
+
 # 2.11.0 (2022-06-20)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.54.0 (2022-07-18)
+
+
+### Features
+
+* **components/molecule/select:** Add readOnly styles to select component ([3b84f9d](https://github.com/SUI-Components/sui-components/commit/3b84f9d9ad053c51ea06e3ee31b07ef78aebd7b2))
+
+
+
 # 1.53.0 (2022-06-23)
 
 

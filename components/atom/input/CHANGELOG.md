@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 5.19.0 (2022-07-14)
+
+
+### Features
+
+* **components/atom/input:** Add readonly styles with a specific class ([1fd8bc7](https://github.com/SUI-Components/sui-components/commit/1fd8bc727a575149c151de70a3a5926a24bddb25))
+* **Root:** Delete undefined dependencies ([c145905](https://github.com/SUI-Components/sui-components/commit/c145905350328925ba6fda2a462d7f8b508c8ea0))
+* **Root:** Merge commit ([d3735d0](https://github.com/SUI-Components/sui-components/commit/d3735d0644332e674d5a5b6291680697f0d6f7c4))
+
+
+
 # 5.18.0 (2022-06-20)
 
 

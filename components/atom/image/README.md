@@ -80,5 +80,43 @@ Loads 50x50 image when the viewport is under 480px, elsewise it loads a 150x150 
   ]}
 ```
 
+### With Web Performance attributes
+
+Attributes to optimize image that is a [LCP](https://web.dev/lcp) element,
+usually the first image in the viewport
+
+```js
+
+import AtomImage, {DECODING, FETCHPRIORITY, LOADING} from '@s-ui/react-atom-image'
+
+<AtomImage
+  src='https://via.placeholder.com/50'
+  alt='Optimized image for LCP'
+  decoding={DECODING.sync}
+  fetchpriority={FETCHPRIORITY.high}
+  loading={LOADING.eager}
+  sources={[
+    {srcset: 'https://via.placeholder.com/150', media: '(min-width: 480px)'}
+  ]}
+```
+
+Attributes to optimize image that is not a [LCP](https://web.dev/lcp) element,
+usually the the images out of the viewport
+
+```js
+
+import AtomImage, {DECODING, FETCHPRIORITY, LOADING} from '@s-ui/react-atom-image'
+
+<AtomImage
+  src='https://via.placeholder.com/50'
+  alt='Optimized image to lazy load and low the priority'
+  decoding={DECODING.async}
+  fetchpriority={FETCHPRIORITY.low}
+  loading={LOADING.lazy}
+  sources={[
+    {srcset: 'https://via.placeholder.com/150', media: '(min-width: 480px)'}
+  ]}
+```
+
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/image/demo).**

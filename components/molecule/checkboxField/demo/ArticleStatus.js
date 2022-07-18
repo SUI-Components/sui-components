@@ -1,16 +1,17 @@
-import MoleculeCheckboxField, {
-  moleculeCheckboxFieldStatus
-} from '../src/index.js'
 import PropTypes from 'prop-types'
 
 import {
   Article,
+  Cell,
   Code,
-  H2,
-  Paragraph,
   Grid,
-  Cell
+  H2,
+  Paragraph
 } from '@s-ui/documentation-library'
+
+import MoleculeCheckboxField, {
+  moleculeCheckboxFieldStatus
+} from '../src/index.js'
 
 export const ArticleStatus = ({className}) => {
   return (
@@ -30,9 +31,9 @@ export const ArticleStatus = ({className}) => {
             value="In some place of La Mancha which name..."
             status={moleculeCheckboxFieldStatus.SUCCESS}
             successText="Everything ok!"
-            // eslint-disable-next-line no-console
-            onChange={(e, {name, value, ...props}) =>
-              console.log({[name]: value, ...props})
+            onChange={
+              (e, {name, value, ...props}) =>
+                console.log({[name]: value, ...props}) // eslint-disable-line no-console
             }
             checked={false}
           />
@@ -44,9 +45,9 @@ export const ArticleStatus = ({className}) => {
             value="In some place of La Mancha which name..."
             status={moleculeCheckboxFieldStatus.ERROR}
             errorText="All wrong!"
-            // eslint-disable-next-line no-console
-            onChange={(e, {name, value, ...props}) =>
-              console.log({[name]: value, ...props})
+            onChange={
+              (e, {name, value, ...props}) =>
+                console.log({[name]: value, ...props}) // eslint-disable-line no-console
             }
             checked={false}
           />
@@ -58,9 +59,9 @@ export const ArticleStatus = ({className}) => {
             value="In some place of La Mancha which name..."
             status={moleculeCheckboxFieldStatus.ALERT}
             alertText="Something meh..."
-            // eslint-disable-next-line no-console
-            onChange={(e, {name, value, ...props}) =>
-              console.log({[name]: value, ...props})
+            onChange={
+              (e, {name, value, ...props}) =>
+                console.log({[name]: value, ...props}) // eslint-disable-line no-console
             }
             checked={false}
           />
@@ -72,9 +73,9 @@ export const ArticleStatus = ({className}) => {
             value="In some place of La Mancha which name..."
             status={moleculeCheckboxFieldStatus.SUCCESS}
             successText="Everything ok!"
-            // eslint-disable-next-line no-console
-            onChange={(e, {name, value, ...props}) =>
-              console.log({[name]: value, ...props})
+            onChange={
+              (e, {name, value, ...props}) =>
+                console.log({[name]: value, ...props}) // eslint-disable-line no-console
             }
             checked
           />
@@ -86,9 +87,9 @@ export const ArticleStatus = ({className}) => {
             value="In some place of La Mancha which name..."
             status={moleculeCheckboxFieldStatus.ERROR}
             errorText="All wrong!"
-            // eslint-disable-next-line no-console
-            onChange={(e, {name, value, ...props}) =>
-              console.log({[name]: value, ...props})
+            onChange={
+              (e, {name, value, ...props}) =>
+                console.log({[name]: value, ...props}) // eslint-disable-line no-console
             }
             checked
           />
@@ -100,9 +101,9 @@ export const ArticleStatus = ({className}) => {
             value="In some place of La Mancha which name..."
             status={moleculeCheckboxFieldStatus.ALERT}
             alertText="Something meh..."
-            // eslint-disable-next-line no-console
-            onChange={(e, {name, value, ...props}) =>
-              console.log({[name]: value, ...props})
+            onChange={
+              (e, {name, value, ...props}) =>
+                console.log({[name]: value, ...props}) // eslint-disable-line no-console
             }
             checked
           />

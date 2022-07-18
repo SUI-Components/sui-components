@@ -12,6 +12,7 @@ import chaiDOM from 'chai-dom'
 import sinon from 'sinon'
 
 import userEvents from '@testing-library/user-event'
+import {atomCheckboxStatus} from '../lib/index.js'
 
 import json from '../package.json'
 import * as pkg from '../src/index.js'
@@ -85,267 +86,1243 @@ describe(json.name, () => {
       expect(findClassName(container.innerHTML)).to.be.null
     })
 
-    it('should NOT fire onChange handler when the disabled element is clicked', () => {
-      // Given
-      const spy = sinon.spy()
-      const props = {
-        onChange: spy,
-        disabled: true
-      }
+    describe('native (no icons)', () => {
+      it('should fire onChange handler value when the element is clicked when checked is undefined', () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          onChange: spy,
+          name: 'name',
+          value: 'value',
+          readOnly: true
+        }
 
-      // When
-      const {getByRole} = setup(props)
+        // When
+        const {getByRole} = setup(props)
 
-      // Then
-      const element = getByRole('checkbox')
-      userEvents.click(element)
-      sinon.assert.notCalled(spy)
-    })
+        // Then
+        const element = getByRole('checkbox')
+        userEvents.click(element)
+        sinon.assert.called(spy)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          sinon.match.truthy,
+          sinon.match({
+            name: props.name,
+            value: props.value,
+            checked: false,
+            indeterminate: false
+          })
+        )
+      })
 
-    it('should fire onChange handler value when the element is clicked when checked is undefined', () => {
-      // Given
-      const spy = sinon.spy()
-      const props = {
-        onChange: spy,
-        name: 'name',
-        value: 'value'
-      }
+      it('should fire onChange handler value when the element is clicked when checked is true', () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          onChange: spy,
+          name: 'name',
+          value: 'value',
+          checked: true
+        }
 
-      // When
-      const {getByRole} = setup(props)
+        // When
+        const {getByRole} = setup(props)
 
-      // Then
-      const element = getByRole('checkbox')
-      userEvents.click(element)
-      sinon.assert.called(spy)
-      sinon.assert.callCount(spy, 1)
-      sinon.assert.calledWith(
-        spy,
-        sinon.match.truthy,
-        sinon.match({
-          name: props.name,
-          value: props.value,
-          checked: true,
-          indeterminate: false
-        })
-      )
-    })
+        // Then
+        const element = getByRole('checkbox')
+        userEvents.click(element)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          sinon.match.truthy,
+          sinon.match({
+            name: props.name,
+            value: props.value,
+            checked: !props.checked,
+            indeterminate: false
+          })
+        )
+      })
 
-    it('should fire onChange handler value when the element is clicked when checked is true', () => {
-      // Given
-      const spy = sinon.spy()
-      const props = {
-        onChange: spy,
-        name: 'name',
-        value: 'value',
-        checked: true
-      }
+      it('should fire onChange handler value when the element is clicked when defaultChecked is true', () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          onChange: spy,
+          name: 'name',
+          value: 'value',
+          defaultChecked: true
+        }
 
-      // When
-      const {getByRole} = setup(props)
+        // When
+        const {getByRole} = setup(props)
 
-      // Then
-      const element = getByRole('checkbox')
-      userEvents.click(element)
-      sinon.assert.callCount(spy, 1)
-      sinon.assert.calledWith(
-        spy,
-        sinon.match.truthy,
-        sinon.match({
-          name: props.name,
-          value: props.value,
-          checked: props.checked,
-          indeterminate: false
-        })
-      )
-    })
+        // Then
+        const element = getByRole('checkbox')
+        userEvents.click(element)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          sinon.match.truthy,
+          sinon.match({
+            name: props.name,
+            value: props.value,
+            checked: !props.defaultChecked,
+            indeterminate: false
+          })
+        )
+      })
 
-    it('should fire onChange handler value when the element is clicked when defaultChecked is true', () => {
-      // Given
-      const spy = sinon.spy()
-      const props = {
-        onChange: spy,
-        name: 'name',
-        value: 'value',
-        defaultChecked: true
-      }
-
-      // When
-      const {getByRole} = setup(props)
-
-      // Then
-      const element = getByRole('checkbox')
-      userEvents.click(element)
-      sinon.assert.callCount(spy, 1)
-      sinon.assert.calledWith(
-        spy,
-        sinon.match.truthy,
-        sinon.match({
-          name: props.name,
-          value: props.value,
-          checked: !props.defaultChecked,
-          indeterminate: false
-        })
-      )
-    })
-
-    it('should fire onChange handler value when the element is clicked when status is indeterminate = true', () => {
-      // Given
-      const spy = sinon.spy()
-      const props = {
-        onChange: spy,
-        name: 'name',
-        value: 'value',
-        checked: false,
-        indeterminate: true
-      }
-
-      // When
-      const {getByRole} = setup(props)
-
-      // Then
-      const element = getByRole('checkbox')
-      userEvents.click(element)
-      sinon.assert.callCount(spy, 1)
-      sinon.assert.calledWith(
-        spy,
-        sinon.match.truthy,
-        sinon.match({
-          name: props.name,
-          value: props.value,
+      it('should fire onChange handler value when the element is clicked when status is indeterminate = true', () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          onChange: spy,
+          name: 'name',
+          value: 'value',
           checked: false,
-          indeterminate: props.indeterminate
+          indeterminate: true
+        }
+
+        // When
+        const {getByRole} = setup(props)
+
+        // Then
+        const element = getByRole('checkbox')
+        userEvents.click(element)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          sinon.match.truthy,
+          sinon.match({
+            name: props.name,
+            value: props.value,
+            checked: !props.checked,
+            indeterminate: !props.indeterminate
+          })
+        )
+      })
+
+      it('should fire onChange handler value when the element is clicked when status is defaultIndeterminate = true', () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          onChange: spy,
+          name: 'name',
+          value: 'value',
+          defaultIndeterminate: true
+        }
+
+        // When
+        const {getByRole} = setup(props)
+
+        // Then
+        const element = getByRole('checkbox')
+        userEvents.click(element)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          sinon.match.truthy,
+          sinon.match({
+            name: props.name,
+            value: props.value,
+            checked: !props.checked,
+            indeterminate: false
+          })
+        )
+      })
+
+      it('should fire onChange handler value when the element is clicked when checked is false', () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          onChange: spy,
+          name: 'name',
+          value: 'value',
+          checked: false
+        }
+
+        // When
+        const {getByRole} = setup(props)
+
+        // Then
+        const element = getByRole('checkbox')
+        userEvents.click(element)
+        sinon.assert.called(spy)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          sinon.match.truthy,
+          sinon.match({
+            name: props.name,
+            value: props.value,
+            checked: !props.checked,
+            indeterminate: false
+          })
+        )
+      })
+
+      it('should fire onChange handler value when the element is clicked when defaultChecked is false', () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          onChange: spy,
+          name: 'name',
+          value: 'value',
+          defaultChecked: false
+        }
+
+        // When
+        const {getByRole} = setup(props)
+
+        // Then
+        const element = getByRole('checkbox')
+        userEvents.click(element)
+        sinon.assert.called(spy)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          sinon.match.truthy,
+          sinon.match({
+            name: props.name,
+            value: props.value,
+            checked: !props.defaultChecked,
+            indeterminate: false
+          })
+        )
+      })
+
+      describe('readOnly', () => {
+        it('should fire onChange handler value when the element is clicked when checked is undefined', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            readOnly: true
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('checkbox')
+          userEvents.click(element)
+          sinon.assert.called(spy)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: false,
+              indeterminate: false
+            })
+          )
         })
-      )
-    })
 
-    it('should fire onChange handler value when the element is clicked when status is defaultIndeterminate = true', () => {
-      // Given
-      const spy = sinon.spy()
-      const props = {
-        onChange: spy,
-        name: 'name',
-        value: 'value',
-        defaultIndeterminate: true
-      }
+        it('should fire onChange handler value when the element is clicked when checked is true', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            checked: true,
+            readOnly: true
+          }
 
-      // When
-      const {getByRole} = setup(props)
+          // When
+          const {getByRole} = setup(props)
 
-      // Then
-      const element = getByRole('checkbox')
-      userEvents.click(element)
-      sinon.assert.callCount(spy, 1)
-      sinon.assert.calledWith(
-        spy,
-        sinon.match.truthy,
-        sinon.match({
-          name: props.name,
-          value: props.value,
-          checked: !props.checked,
-          indeterminate: false
+          // Then
+          const element = getByRole('checkbox')
+          userEvents.click(element)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: props.checked,
+              indeterminate: false
+            })
+          )
         })
-      )
-    })
 
-    it('should fire onChange handler value when the element is clicked when checked is false', () => {
-      // Given
-      const spy = sinon.spy()
-      const props = {
-        onChange: spy,
-        name: 'name',
-        value: 'value',
-        checked: false
-      }
+        it('should fire onChange handler value when the element is clicked when defaultChecked is true', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            defaultChecked: true,
+            readOnly: true
+          }
 
-      // When
-      const {getByRole} = setup(props)
+          // When
+          const {getByRole} = setup(props)
 
-      // Then
-      const element = getByRole('checkbox')
-      userEvents.click(element)
-      sinon.assert.called(spy)
-      sinon.assert.callCount(spy, 1)
-      sinon.assert.calledWith(
-        spy,
-        sinon.match.truthy,
-        sinon.match({
-          name: props.name,
-          value: props.value,
-          checked: props.checked,
-          indeterminate: false
+          // Then
+          const element = getByRole('checkbox')
+          userEvents.click(element)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: props.defaultChecked,
+              indeterminate: false
+            })
+          )
         })
-      )
-    })
 
-    it('should fire onChange handler value when the element is clicked when defaultChecked is false', () => {
-      // Given
-      const spy = sinon.spy()
-      const props = {
-        onChange: spy,
-        name: 'name',
-        value: 'value',
-        defaultChecked: false
-      }
+        it('should fire onChange handler value when the element is clicked when status is indeterminate = true', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            checked: false,
+            indeterminate: true,
+            readOnly: true
+          }
 
-      // When
-      const {getByRole} = setup(props)
+          // When
+          const {getByRole} = setup(props)
 
-      // Then
-      const element = getByRole('checkbox')
-      userEvents.click(element)
-      sinon.assert.called(spy)
-      sinon.assert.callCount(spy, 1)
-      sinon.assert.calledWith(
-        spy,
-        sinon.match.truthy,
-        sinon.match({
-          name: props.name,
-          value: props.value,
-          checked: !props.defaultChecked,
-          indeterminate: false
+          // Then
+          const element = getByRole('checkbox')
+          userEvents.click(element)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: props.checked,
+              indeterminate: props.indeterminate
+            })
+          )
         })
-      )
+
+        it('should fire onChange handler value when the element is clicked when status is defaultIndeterminate = true', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            defaultIndeterminate: true,
+            readOnly: true
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('checkbox')
+          userEvents.click(element)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: !!props.checked,
+              indeterminate: props.defaultIndeterminate
+            })
+          )
+        })
+
+        it('should fire onChange handler value when the element is clicked when checked is false', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            checked: false,
+            readOnly: true
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('checkbox')
+          userEvents.click(element)
+          sinon.assert.called(spy)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: props.checked,
+              indeterminate: false
+            })
+          )
+        })
+
+        it('should fire onChange handler value when the element is clicked when defaultChecked is false', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            defaultChecked: false,
+            readOnly: true
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('checkbox')
+          userEvents.click(element)
+          sinon.assert.called(spy)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: props.defaultChecked,
+              indeterminate: false
+            })
+          )
+        })
+
+        it('should fire onChange handler value when the readOnly element is clicked when checked is undefined', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            checked: undefined,
+            readOnly: true
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('checkbox')
+          userEvents.click(element)
+          sinon.assert.called(spy)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: !!props.checked,
+              indeterminate: false
+            })
+          )
+        })
+
+        it('should fire onChange handler value when the readOnly element is clicked when checked is false', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            checked: false,
+            readOnly: true
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('checkbox')
+          userEvents.click(element)
+          sinon.assert.called(spy)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: !!props.checked,
+              indeterminate: false
+            })
+          )
+        })
+      })
+
+      describe('disabled', () => {
+        it('should NOT fire onChange handler when the disabled element is clicked', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            disabled: true
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('checkbox')
+          userEvents.click(element)
+          sinon.assert.notCalled(spy)
+        })
+
+        it('should NOT fire onChange handler value when the disabled element is clicked when checked is undefined', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            checked: undefined,
+            disabled: true
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('checkbox')
+          userEvents.click(element)
+          sinon.assert.notCalled(spy)
+        })
+
+        it('should NOT fire onChange handler value when the disabled element is clicked when checked is false', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            checked: false,
+            disabled: true
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('checkbox')
+          userEvents.click(element)
+          sinon.assert.notCalled(spy)
+        })
+      })
     })
+    describe('icons', () => {
+      it('should fire onChange handler value when the element is clicked when checked is undefined', () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          onChange: spy,
+          name: 'name',
+          value: 'value',
+          readOnly: true,
+          checkedIcon: () => <i />,
+          uncheckedIcon: () => <i />,
+          indeterminateIcon: () => <i />
+        }
 
-    it('should NOT fire onChange handler value when the disabled element is clicked when checked is undefined', () => {
-      // Given
-      const spy = sinon.spy()
-      const props = {
-        onChange: spy,
-        name: 'name',
-        value: 'value',
-        checked: undefined,
-        disabled: true
-      }
+        // When
+        const {getByRole} = setup(props)
 
-      // When
-      const {getByRole} = setup(props)
+        // Then
+        const element = getByRole('button')
+        userEvents.click(element)
+        sinon.assert.called(spy)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          sinon.match.truthy,
+          sinon.match({
+            name: props.name,
+            value: props.value,
+            checked: false,
+            indeterminate: false
+          })
+        )
+      })
 
-      // Then
-      const element = getByRole('checkbox')
-      userEvents.click(element)
-      sinon.assert.notCalled(spy)
-    })
+      it('should fire onChange handler value when the element is clicked when checked is true', () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          onChange: spy,
+          name: 'name',
+          value: 'value',
+          checked: true,
+          checkedIcon: () => <i />,
+          uncheckedIcon: () => <i />,
+          indeterminateIcon: () => <i />
+        }
 
-    it('should NOT fire onChange handler value when the disabled element is clicked when checked is false', () => {
-      // Given
-      const spy = sinon.spy()
-      const props = {
-        onChange: spy,
-        name: 'name',
-        value: 'value',
-        checked: false,
-        disabled: true
-      }
+        // When
+        const {getByRole} = setup(props)
 
-      // When
-      const {getByRole} = setup(props)
+        // Then
+        const element = getByRole('button')
+        userEvents.click(element)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          sinon.match.truthy,
+          sinon.match({
+            name: props.name,
+            value: props.value,
+            checked: !props.checked,
+            indeterminate: false
+          })
+        )
+      })
 
-      // Then
-      const element = getByRole('checkbox')
-      userEvents.click(element)
-      sinon.assert.notCalled(spy)
+      it('should fire onChange handler value when the element is clicked when defaultChecked is true', () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          onChange: spy,
+          name: 'name',
+          value: 'value',
+          defaultChecked: true,
+          checkedIcon: () => <i />,
+          uncheckedIcon: () => <i />,
+          indeterminateIcon: () => <i />
+        }
+
+        // When
+        const {getByRole} = setup(props)
+
+        // Then
+        const element = getByRole('button')
+        userEvents.click(element)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          sinon.match.truthy,
+          sinon.match({
+            name: props.name,
+            value: props.value,
+            checked: !props.defaultChecked,
+            indeterminate: false
+          })
+        )
+      })
+
+      it('should fire onChange handler value when the element is clicked when status is indeterminate = true', () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          onChange: spy,
+          name: 'name',
+          value: 'value',
+          checked: false,
+          indeterminate: true,
+          checkedIcon: () => <i />,
+          uncheckedIcon: () => <i />,
+          indeterminateIcon: () => <i />
+        }
+
+        // When
+        const {getByRole} = setup(props)
+
+        // Then
+        const element = getByRole('button')
+        userEvents.click(element)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          sinon.match.truthy,
+          sinon.match({
+            name: props.name,
+            value: props.value,
+            checked: !props.checked,
+            indeterminate: !props.indeterminate
+          })
+        )
+      })
+
+      it('should fire onChange handler value when the element is clicked when status is defaultIndeterminate = true', () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          onChange: spy,
+          name: 'name',
+          value: 'value',
+          defaultIndeterminate: true,
+          checkedIcon: () => <i />,
+          uncheckedIcon: () => <i />,
+          indeterminateIcon: () => <i />
+        }
+
+        // When
+        const {getByRole} = setup(props)
+
+        // Then
+        const element = getByRole('button')
+        userEvents.click(element)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          sinon.match.truthy,
+          sinon.match({
+            name: props.name,
+            value: props.value,
+            checked: !props.checked,
+            indeterminate: false
+          })
+        )
+      })
+
+      it('should fire onChange handler value when the element is clicked when checked is false', () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          onChange: spy,
+          name: 'name',
+          value: 'value',
+          checked: false,
+          checkedIcon: () => <i />,
+          uncheckedIcon: () => <i />,
+          indeterminateIcon: () => <i />
+        }
+
+        // When
+        const {getByRole} = setup(props)
+
+        // Then
+        const element = getByRole('button')
+        userEvents.click(element)
+        sinon.assert.called(spy)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          sinon.match.truthy,
+          sinon.match({
+            name: props.name,
+            value: props.value,
+            checked: !props.checked,
+            indeterminate: false
+          })
+        )
+      })
+
+      it('should fire onChange handler value when the element is clicked when defaultChecked is false', () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          onChange: spy,
+          name: 'name',
+          value: 'value',
+          defaultChecked: false,
+          checkedIcon: () => <i />,
+          uncheckedIcon: () => <i />,
+          indeterminateIcon: () => <i />
+        }
+
+        // When
+        const {getByRole} = setup(props)
+
+        // Then
+        const element = getByRole('button')
+        userEvents.click(element)
+        sinon.assert.called(spy)
+        sinon.assert.callCount(spy, 1)
+        sinon.assert.calledWith(
+          spy,
+          sinon.match.truthy,
+          sinon.match({
+            name: props.name,
+            value: props.value,
+            checked: !props.defaultChecked,
+            indeterminate: false
+          })
+        )
+      })
+
+      describe('readOnly', () => {
+        it('should fire onChange handler value when the element is clicked when checked is undefined', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            readOnly: true,
+            checkedIcon: () => <i />,
+            uncheckedIcon: () => <i />,
+            indeterminateIcon: () => <i />
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('button')
+          userEvents.click(element)
+          sinon.assert.called(spy)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: false,
+              indeterminate: false
+            })
+          )
+        })
+
+        it('should fire onChange handler value when the element is clicked when checked is true', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            checked: true,
+            readOnly: true,
+            checkedIcon: () => <i />,
+            uncheckedIcon: () => <i />,
+            indeterminateIcon: () => <i />
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('button')
+          userEvents.click(element)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: props.checked,
+              indeterminate: false
+            })
+          )
+        })
+
+        it('should fire onChange handler value when the element is clicked when defaultChecked is true', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            defaultChecked: true,
+            readOnly: true,
+            checkedIcon: () => <i />,
+            uncheckedIcon: () => <i />,
+            indeterminateIcon: () => <i />
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('button')
+          userEvents.click(element)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: props.defaultChecked,
+              indeterminate: false
+            })
+          )
+        })
+
+        it('should fire onChange handler value when the element is clicked when status is indeterminate = true', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            checked: false,
+            indeterminate: true,
+            readOnly: true,
+            checkedIcon: () => <i />,
+            uncheckedIcon: () => <i />,
+            indeterminateIcon: () => <i />
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('button')
+          userEvents.click(element)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: props.checked,
+              indeterminate: props.indeterminate
+            })
+          )
+        })
+
+        it('should fire onChange handler value when the element is clicked when status is defaultIndeterminate = true', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            defaultIndeterminate: true,
+            readOnly: true,
+            checkedIcon: () => <i />,
+            uncheckedIcon: () => <i />,
+            indeterminateIcon: () => <i />
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('button')
+          userEvents.click(element)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: !!props.checked,
+              indeterminate: props.defaultIndeterminate
+            })
+          )
+        })
+
+        it('should fire onChange handler value when the element is clicked when checked is false', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            checked: false,
+            readOnly: true,
+            checkedIcon: () => <i />,
+            uncheckedIcon: () => <i />,
+            indeterminateIcon: () => <i />
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('button')
+          userEvents.click(element)
+          sinon.assert.called(spy)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: props.checked,
+              indeterminate: false
+            })
+          )
+        })
+
+        it('should fire onChange handler value when the element is clicked when defaultChecked is false', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            defaultChecked: false,
+            readOnly: true,
+            checkedIcon: () => <i />,
+            uncheckedIcon: () => <i />,
+            indeterminateIcon: () => <i />
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('button')
+          userEvents.click(element)
+          sinon.assert.called(spy)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: props.defaultChecked,
+              indeterminate: false
+            })
+          )
+        })
+
+        it('should fire onChange handler value when the readOnly element is clicked when checked is undefined', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            checked: undefined,
+            readOnly: true,
+            checkedIcon: () => <i />,
+            uncheckedIcon: () => <i />,
+            indeterminateIcon: () => <i />
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('button')
+          userEvents.click(element)
+          sinon.assert.called(spy)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: !!props.checked,
+              indeterminate: false
+            })
+          )
+        })
+
+        it('should fire onChange handler value when the readOnly element is clicked when checked is false', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            checked: false,
+            readOnly: true,
+            checkedIcon: () => <i />,
+            uncheckedIcon: () => <i />,
+            indeterminateIcon: () => <i />
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('button')
+          userEvents.click(element)
+          sinon.assert.called(spy)
+          sinon.assert.callCount(spy, 1)
+          sinon.assert.calledWith(
+            spy,
+            sinon.match.truthy,
+            sinon.match({
+              name: props.name,
+              value: props.value,
+              checked: !!props.checked,
+              indeterminate: false
+            })
+          )
+        })
+      })
+
+      describe('disabled', () => {
+        it('should NOT fire onChange handler when the disabled element is clicked', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            disabled: true,
+            checkedIcon: () => <i />,
+            uncheckedIcon: () => <i />,
+            indeterminateIcon: () => <i />
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('button')
+          userEvents.click(element)
+          sinon.assert.notCalled(spy)
+        })
+
+        it('should NOT fire onChange handler value when the disabled element is clicked when checked is undefined', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            checked: undefined,
+            disabled: true,
+            checkedIcon: () => <i />,
+            uncheckedIcon: () => <i />,
+            indeterminateIcon: () => <i />
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('button')
+          userEvents.click(element)
+          sinon.assert.notCalled(spy)
+        })
+
+        it('should NOT fire onChange handler value when the disabled element is clicked when checked is false', () => {
+          // Given
+          const spy = sinon.spy()
+          const props = {
+            onChange: spy,
+            name: 'name',
+            value: 'value',
+            checked: false,
+            disabled: true,
+            checkedIcon: () => <i />,
+            uncheckedIcon: () => <i />,
+            indeterminateIcon: () => <i />
+          }
+
+          // When
+          const {getByRole} = setup(props)
+
+          // Then
+          const element = getByRole('button')
+          userEvents.click(element)
+          sinon.assert.notCalled(spy)
+        })
+      })
+
+      describe('status', () => {
+        describe('native', () => {
+          it('should NOT render null when status is alert', () => {
+            // Given
+            const props = {
+              status: atomCheckboxStatus.ALERT
+            }
+
+            // When
+            const {container} = setup(props)
+
+            // Then
+            expect(container.innerHTML).to.be.a('string')
+            expect(container.innerHTML).to.not.have.lengthOf(0)
+          })
+
+          it('should NOT render null when status is success', () => {
+            // Given
+            const props = {
+              status: atomCheckboxStatus.SUCCESS
+            }
+
+            // When
+            const {container} = setup(props)
+
+            // Then
+            expect(container.innerHTML).to.be.a('string')
+            expect(container.innerHTML).to.not.have.lengthOf(0)
+          })
+
+          it('should NOT render null when status is error', () => {
+            // Given
+            const props = {
+              status: atomCheckboxStatus.ERROR
+            }
+
+            // When
+            const {container} = setup(props)
+
+            // Then
+            expect(container.innerHTML).to.be.a('string')
+            expect(container.innerHTML).to.not.have.lengthOf(0)
+          })
+        })
+
+        describe('not native (icon)', () => {
+          it('should NOT render null when status is alert', () => {
+            // Given
+            const props = {
+              status: atomCheckboxStatus.ALERT,
+              icon: () => <i />
+            }
+
+            // When
+            const {container} = setup(props)
+
+            // Then
+            expect(container.innerHTML).to.be.a('string')
+            expect(container.innerHTML).to.not.have.lengthOf(0)
+          })
+
+          it('should NOT render null when status is success', () => {
+            // Given
+            const props = {
+              status: atomCheckboxStatus.SUCCESS,
+              icon: () => <i />
+            }
+
+            // When
+            const {container} = setup(props)
+
+            // Then
+            expect(container.innerHTML).to.be.a('string')
+            expect(container.innerHTML).to.not.have.lengthOf(0)
+          })
+
+          it('should NOT render null when status is error', () => {
+            // Given
+            const props = {
+              status: atomCheckboxStatus.ERROR,
+              icon: () => <i />
+            }
+
+            // When
+            const {container} = setup(props)
+
+            // Then
+            expect(container.innerHTML).to.be.a('string')
+            expect(container.innerHTML).to.not.have.lengthOf(0)
+          })
+        })
+      })
     })
   })
 

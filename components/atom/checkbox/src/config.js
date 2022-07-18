@@ -38,6 +38,16 @@ export const getIsNative = (
   return false
 }
 
+export const getReadOnly = ({readOnly, disabled, isNative}) => {
+  if (disabled) return {}
+  else if (readOnly && isNative) {
+    return {readOnly: true}
+  } else if (!isNative) {
+    return {readOnly: true}
+  }
+  return {}
+}
+
 export const getIcon = (
   {isNative, checked, indeterminate},
   {CheckedIcon, UncheckedIcon, IndeterminateIcon, Icon}

@@ -46,19 +46,25 @@ const ArticleSizes = ({className}) => (
             checked: {checked: true},
             indeterminate: {indeterminate: true},
             unchecked: {checked: false}
-          }).map(([label, props], index2) => (
-            <Fragment key={index2}>
-              <Cell style={flexCenteredStyle}>
-                <AtomCheckbox
-                  id={`${index}-${index2}`}
-                  checkedIcon={ICONS.AiOutlineCheck}
-                  indeterminateIcon={ICONS.AiOutlineLine}
-                  {...{...props}}
-                  size={size}
-                />
-              </Cell>
-            </Fragment>
-          ))}
+          }).map(
+            (
+              [label, {checked: propChecked, indeterminate: propIndeterminate}],
+              index2
+            ) => (
+              <Fragment key={index2}>
+                <Cell style={flexCenteredStyle}>
+                  <AtomCheckbox
+                    id={`${index}-${index2}`}
+                    checkedIcon={ICONS.AiOutlineCheck}
+                    indeterminateIcon={ICONS.AiOutlineLine}
+                    checked={propChecked}
+                    indeterminate={propIndeterminate}
+                    size={size}
+                  />
+                </Cell>
+              </Fragment>
+            )
+          )}
         </Fragment>
       ))}
     </Grid>

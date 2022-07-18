@@ -58,7 +58,7 @@ const AtomImage = ({
 
   const classNames = cx(
     BASE_CLASS,
-    `is-${isLoading ? 'isLoading' : 'loaded'}`,
+    `is-${isLoading ? 'loading' : 'loaded'}`,
     error && `is-error`
   )
 

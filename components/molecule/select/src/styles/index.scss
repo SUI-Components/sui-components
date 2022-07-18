@@ -21,6 +21,11 @@ $class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
       cursor: pointer;
       display: flex;
 
+      #{$class-select-atom-input-input}--readOnly {
+        background: $bgc-atom-input;
+        color: $c-atom-input;
+      }
+
       .is-disabled & {
         cursor: default;
         #{$class-select-atom-input-input} {

@@ -1,20 +1,87 @@
 $base-class: '.sui-OrganismNestedCheckboxes';
+$container-class: '#{$base-class}Container';
+$button-class: '#{$base-class}Button';
+$child-class: '#{$base-class}Child';
 
 #{$base-class} {
   list-style: none;
   padding: 0;
 
-  &-list {
+  #{$container-class} {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #{$button-class} {
     padding: 0;
-
-    &Item {
-      list-style: none;
-      margin-top: $mt-organism-nested-checkboxes;
-      padding-left: $pl-organism-nested-checkboxes;
-
-      &--joined {
-        padding-left: 0;
+    cursor: default;
+    align-items: center;
+    border-width: 0;
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+    vertical-align: top;
+    border-radius: 0.15em;
+    outline-offset: 2px;
+    background-color: transparent;
+    &:empty {
+      $sz-empty-icon: $sz-icon-xs;
+      min-width: $sz-empty-icon;
+      min-height: $sz-empty-icon;
+      position: relative;
+      overflow: hidden;
+      transform: rotate(0deg);
+      transition: transform 100ms ease;
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+        top: 50%;
+        bottom: 50%;
+        width: 100%;
+        border-bottom: $bdw-s solid $c-gray-dark-3;
+        box-sizing: border-box;
       }
+      &::before {
+        transform: rotate(-45deg);
+        right: 33%;
+      }
+      &::after {
+        transform: rotate(-135deg);
+        left: 33%;
+      }
+    }
+    &#{$button-class}--expanded {
+      &:empty {
+        transform: rotate(-180deg);
+      }
+    }
+    &#{$button-class}--hidden {
+      &:empty {
+        &::after {
+          background-color: red;
+        }
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+    &:focus-visible {
+      outline: 2px solid transparentize($c-primary, 0.6);
+    }
+  }
+
+  #{$child-class} {
+    padding: 0;
+    margin: 0;
+    &[aria-hidden='true'] {
+      display: none;
+    }
+    &--indented {
+      padding-left: $pl-organism-nested-checkboxes;
     }
   }
 }

@@ -227,6 +227,7 @@ OrganismNestedCheckboxes.propTypes = {
   /* Mark the input as selected */
   checked: PropTypes.bool,
   /* AtomIcon when checkbox is checked */
+
   checkedIcon: PropTypes.elementType,
 
   /* AtomIcon when checkbox is unchecked */

@@ -50,7 +50,6 @@ const ArticleValues = ({className}) => (
         customized: {
           checkedIcon: ICONS.AiOutlineCheck,
           indeterminateIcon: ICONS.AiOutlineLine
-          // unCheckedIcon: ICONS.BsDot
         },
         native: {}
       }).map(([label, props1], index1) => (
@@ -82,7 +81,6 @@ const ArticleValues = ({className}) => (
         customized: {
           checkedIcon: ICONS.AiOutlineCheck,
           indeterminateIcon: ICONS.AiOutlineLine
-          // unCheckedIcon: ICONS.BsDot
         },
         native: {}
       }).map(([label, props1], index1) => (
@@ -98,9 +96,41 @@ const ArticleValues = ({className}) => (
             <Fragment key={index2}>
               <Cell style={flexCenteredStyle}>
                 <AtomCheckbox
-                  disabled
                   id={`${index1}-${index2}`}
                   {...{...props1, ...props2}}
+                  disabled
+                />
+              </Cell>
+            </Fragment>
+          ))}
+        </Fragment>
+      ))}
+      <Cell span={4}>
+        <H3>readOnly</H3>
+        <Separator />
+      </Cell>
+      {Object.entries({
+        customized: {
+          checkedIcon: ICONS.AiOutlineCheck,
+          indeterminateIcon: ICONS.AiOutlineLine
+        },
+        native: {}
+      }).map(([label, props1], index1) => (
+        <Fragment key={index1}>
+          <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
+            <Label>{label}</Label>
+          </Cell>
+          {Object.entries({
+            checked: {checked: true},
+            indeterminate: {indeterminate: true},
+            unchecked: {checked: false}
+          }).map(([label, props2], index2) => (
+            <Fragment key={index2}>
+              <Cell style={flexCenteredStyle}>
+                <AtomCheckbox
+                  id={`${index1}-${index2}`}
+                  {...{...props1, ...props2}}
+                  readOnly
                 />
               </Cell>
             </Fragment>
@@ -120,7 +150,6 @@ const ArticleValues = ({className}) => (
             customized: {
               checkedIcon: ICONS.AiOutlineCheck,
               indeterminateIcon: ICONS.AiOutlineLine
-              // unCheckedIcon: ICONS.BsDot
             },
             native: {}
           }).map(([label, props1], index1) => (

@@ -13,6 +13,7 @@ import {
   CHECKBOX_STATUS,
   getIcon,
   getIsNative,
+  getReadOnly,
   isFunction,
   pressedValue,
   updateStatus
@@ -26,6 +27,7 @@ const AtomCheckbox = forwardRef(
       checkedIcon: CheckedIcon,
       uncheckedIcon: UncheckedIcon,
       disabled,
+      readOnly: readOnlyProp,
       id,
       defaultIndeterminate: defaultIndeterminateProp = false,
       indeterminate: indeterminateProp,
@@ -62,6 +64,11 @@ const AtomCheckbox = forwardRef(
       {checked, indeterminate},
       {CheckedIcon, UncheckedIcon, IndeterminateIcon, Icon: IconProp}
     )
+    const readOnlyAttributes = getReadOnly({
+      readOnly: readOnlyProp,
+      disabled,
+      isNative
+    })
     const Icon = getIcon(
       {isNative, checked, indeterminate},
       {CheckedIcon, UncheckedIcon, IndeterminateIcon, Icon: IconProp}
@@ -70,12 +77,22 @@ const AtomCheckbox = forwardRef(
     const handleChange = ref => event => {
       if (!disabled) {
         const {name, value} = event.target
-        const newChecked = isControlled ? checked : event.target.checked
-        const newIndeterminate = isControlled
-          ? indeterminate
-          : event.target.indeterminate
-        setChecked(newChecked)
-        setIndeterminate(newIndeterminate)
+        let newChecked = isControlled
+          ? indeterminate || !checked
+          : event.target.checked
+        let newIndeterminate = false
+
+        if (!isControlled) {
+          setChecked(newChecked)
+          setIndeterminate(newIndeterminate)
+        }
+        if (readOnlyProp) {
+          newChecked = checked
+          newIndeterminate = indeterminate
+          setChecked(checked)
+          setIndeterminate(indeterminate)
+          event.target.indeterminate = indeterminate
+        }
         isFunction(onChangeFromProps) &&
           onChangeFromProps(event, {
             name,
@@ -91,17 +108,25 @@ const AtomCheckbox = forwardRef(
       event.preventDefault()
       event.stopPropagation()
       if (!disabled) {
-        const {name, value} = event.target
-        const newChecked = isControlled ? checked : !checked
-        const newIndetermiante = isControlled ? indeterminate : false
-        setChecked(newChecked)
-        setIndeterminate(false)
+        let newChecked = indeterminate || !checked
+        let newIndeterminate = false
+        if (!isControlled) {
+          setChecked(newChecked)
+          setIndeterminate(newIndeterminate)
+        }
+        if (readOnlyProp) {
+          newChecked = checked
+          newIndeterminate = indeterminate
+          setChecked(checked)
+          setIndeterminate(indeterminate)
+          event.target.indeterminate = indeterminate
+        }
         isFunction(onChangeFromProps) &&
           onChangeFromProps(event, {
             name,
             value,
             checked: newChecked,
-            indeterminate: newIndetermiante
+            indeterminate: newIndeterminate
           })
         ref.current.focus()
       }
@@ -122,6 +147,7 @@ const AtomCheckbox = forwardRef(
           name={name || id}
           value={value}
           disabled={disabled}
+          {...readOnlyAttributes}
           checked={checked}
           {...(Object.values(CHECKBOX_STATUS).includes(status) && {
             'data-status': status
@@ -130,7 +156,6 @@ const AtomCheckbox = forwardRef(
           aria-checked={pressedValue({checked, indeterminate})}
           indeterminate={indeterminate ? 'true' : undefined}
           {...(isNative && {onChange: handleChange(inputRef)})}
-          {...(!isNative && {readOnly: true})}
           {...props}
         />
         <CheckboxIcon
@@ -167,6 +192,9 @@ AtomCheckbox.propTypes = {
 
   /* This Boolean attribute prevents the user from interacting with the input */
   disabled: PropTypes.bool,
+
+  /* A read-only field cannot be modified. However, a user can tab to it, highlight it, and copy the text from it. */
+  readOnly: PropTypes.bool,
 
   /* Mark the input as default initial selected */
   defaultChecked: PropTypes.bool,

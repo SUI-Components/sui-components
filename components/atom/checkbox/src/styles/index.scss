@@ -3,6 +3,7 @@ $class-icon: '#{$base-class}--Icon';
 
 #{$base-class} {
   display: inline-block;
+  vertical-align: middle;
   box-sizing: border-box;
   color: $c-atom-checkbox;
   &#{$base-class}--native-disabled {
@@ -58,8 +59,7 @@ $class-icon: '#{$base-class}--Icon';
   // semantic status
   &#{$base-class}--native-disabled #{$class-icon},
   &#{$base-class}--native-enabled input[type='checkbox'] {
-    border-color: $c-primary;
-    color: $c-primary;
+    border-color: inherit;
     background-color: $c-atom-checkbox;
     &::before {
       box-shadow: inset 1em 1em $c-primary;
@@ -110,10 +110,9 @@ $class-icon: '#{$base-class}--Icon';
   &#{$base-class}--native-enabled {
     input[type='checkbox'] {
       appearance: none;
-      background-color: transparent;
+      background-color: $c-atom-checkbox;
       margin: 0;
       font: inherit;
-      color: currentColor;
       border-width: 1.5px;
       border-style: solid;
       border-radius: 0.15em;

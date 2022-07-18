@@ -30,6 +30,12 @@ AiOutlineClose.propTypes = {
   as: PropTypes.element,
   size: PropTypes.oneOf(Object.values(CHECKBOX_SIZES))
 }
+
+const EmptyIcon = ({as, size}) => <AtomIcon as={as} size={size}></AtomIcon>
+EmptyIcon.propTypes = {
+  as: PropTypes.element,
+  size: PropTypes.oneOf(Object.values(CHECKBOX_SIZES))
+}
 const AiOutlineLine = ({as, size}) => (
   <AtomIcon as={as} size={size}>
     <AntDesignIcon icon="AiOutlineLine" style={{color: 'currentColor'}} />
@@ -129,6 +135,7 @@ export const ICONS = {
   AiOutlinePause,
   AiOutlinePlus,
   BsSquare,
+  EmptyIcon,
   BsDot,
   BsFillEmojiSmileFill,
   BsFillEmojiNeutralFill,

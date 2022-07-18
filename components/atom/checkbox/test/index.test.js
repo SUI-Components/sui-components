@@ -12,7 +12,6 @@ import chaiDOM from 'chai-dom'
 import sinon from 'sinon'
 
 import userEvents from '@testing-library/user-event'
-import {atomCheckboxStatus} from '../lib/index.js'
 
 import json from '../package.json'
 import * as pkg from '../src/index.js'
@@ -1279,6 +1278,7 @@ describe(json.name, () => {
         describe('not native (icon)', () => {
           it('should NOT render null when status is alert', () => {
             // Given
+            const {atomCheckboxStatus} = pkg
             const props = {
               status: atomCheckboxStatus.ALERT,
               icon: () => <i />
@@ -1294,6 +1294,7 @@ describe(json.name, () => {
 
           it('should NOT render null when status is success', () => {
             // Given
+            const {atomCheckboxStatus} = pkg
             const props = {
               status: atomCheckboxStatus.SUCCESS,
               icon: () => <i />
@@ -1309,6 +1310,7 @@ describe(json.name, () => {
 
           it('should NOT render null when status is error', () => {
             // Given
+            const {atomCheckboxStatus} = pkg
             const props = {
               status: atomCheckboxStatus.ERROR,
               icon: () => <i />

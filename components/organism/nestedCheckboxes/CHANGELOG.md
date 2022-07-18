@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 3.0.0 (2022-07-18)
+
+
+### Features
+
+* **components/molecule/checkboxField:** update to checkbox v3 ([249f3cf](https://github.com/SUI-Components/sui-components/commit/249f3cf02bfc110de702c7c37b9d496f22caa201))
+* **components/organism/nestedCheckboxes:** upgrade checkbox v3 ([f1d74e9](https://github.com/SUI-Components/sui-components/commit/f1d74e9496dad198b95d807d0569698e56cfaf55))
+
+
+
 # 2.8.0 (2022-06-23)
 
 

@@ -1,11 +1,17 @@
 # CHANGELOG
 
-# 3.0.0 (2022-06-23)
+# 3.1.0 (2022-07-18)
+
+
+### Bug Fixes
+
+* **components/atom/checkbox:** text-alignment, gray-unchecked, controlled handler, read-only ([5c5f3c0](https://github.com/SUI-Components/sui-components/commit/5c5f3c08304a33ee799596087737031bb3bad12d))
+* **components/atom/checkbox:** text-alignment, gray-unchecked, controlled handler, read-only ([f576a06](https://github.com/SUI-Components/sui-components/commit/f576a068952bd5155651911319325c4254756914))
 
 
 ### Features
 
-* **components/atom/checkbox:** v3 ([9576301](https://github.com/SUI-Components/sui-components/commit/9576301bfdacdee5d150645cf7068fd676992297))
+* **components/molecule/checkboxField:** update to checkboxv3 ([4d4c9e1](https://github.com/SUI-Components/sui-components/commit/4d4c9e150ab03cdd0290f932a85ec1cde5e71e99))
 
 
 
@@ -16,6 +22,15 @@
 
 * **components/atom/checkbox:** v2 ([982a2f0](https://github.com/SUI-Components/sui-components/commit/982a2f04f41cf941b19e5c174d991d7f5e83df61))
 * **components/atom/checkbox:** v2 ([e9c09ec](https://github.com/SUI-Components/sui-components/commit/e9c09ec893466a91ffa41d4b6720c506601e0e3a))
+
+
+
+# 3.0.0 (2022-06-23)
+
+
+### Features
+
+* **components/atom/checkbox:** v3 ([9576301](https://github.com/SUI-Components/sui-components/commit/9576301bfdacdee5d150645cf7068fd676992297))
 
 
 

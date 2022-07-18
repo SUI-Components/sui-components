@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.13.0 (2022-07-18)
+
+
+### Bug Fixes
+
+* **components/atom/image:** fix loading classname ([e93b4f9](https://github.com/SUI-Components/sui-components/commit/e93b4f907722f230b908120cba46266432f2e3ad))
+
+
+
 # 2.12.0 (2022-07-18)
 
 

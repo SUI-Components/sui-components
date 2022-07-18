@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 
 import AtomCheckbox, {
-  atomCheckboxStatus,
-  atomCheckboxSizes
+  atomCheckboxSizes,
+  atomCheckboxStatus
 } from '@s-ui/react-atom-checkbox'
 import MoleculeField from '@s-ui/react-molecule-field'
 

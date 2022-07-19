@@ -92,8 +92,7 @@ describe(json.name, () => {
         const props = {
           onChange: spy,
           name: 'name',
-          value: 'value',
-          readOnly: true
+          value: 'value'
         }
 
         // When
@@ -110,7 +109,7 @@ describe(json.name, () => {
           sinon.match({
             name: props.name,
             value: props.value,
-            checked: false,
+            checked: true,
             indeterminate: false
           })
         )

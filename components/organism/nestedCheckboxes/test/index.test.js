@@ -51,7 +51,7 @@ describe(json.name, () => {
             id={id}
             checked={checked}
             checkedIcon={() => null}
-            intermediateIcon={() => null}
+            indeterminateIcon={() => null}
             onChange={() => null}
             label={label}
           />
@@ -82,7 +82,7 @@ describe(json.name, () => {
             id={id}
             checked={checked}
             checkedIcon={() => null}
-            intermediateIcon={() => null}
+            indeterminateIcon={() => null}
             onChange={() => null}
             label={label}
           />
@@ -112,7 +112,7 @@ describe(json.name, () => {
             id={id}
             checked={checked}
             checkedIcon={() => null}
-            intermediateIcon={() => null}
+            indeterminateIcon={() => null}
             onChange={() => null}
             label={label}
           />

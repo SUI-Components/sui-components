@@ -277,6 +277,7 @@ describe(json.name, () => {
               value: props.value,
               checked: !props.checked,
               indeterminate: false,
+              expanded: true,
               values: []
             })
           )
@@ -347,7 +348,8 @@ describe(json.name, () => {
               name: props.name,
               value: props.value,
               checked: !props.defaultChecked,
-              indeterminate: false
+              indeterminate: false,
+              expanded: true
             })
           )
         })
@@ -418,7 +420,8 @@ describe(json.name, () => {
               name: props.name,
               value: props.value,
               checked: !props.checked,
-              indeterminate: !props.indeterminate
+              indeterminate: !props.indeterminate,
+              expanded: true
             })
           )
         })
@@ -488,7 +491,8 @@ describe(json.name, () => {
               name: props.name,
               value: props.value,
               checked: !props.checked,
-              indeterminate: false
+              indeterminate: false,
+              expanded: true
             })
           )
         })
@@ -559,7 +563,8 @@ describe(json.name, () => {
               name: props.name,
               value: props.value,
               checked: !props.checked,
-              indeterminate: false
+              indeterminate: false,
+              expanded: true
             })
           )
         })
@@ -630,7 +635,8 @@ describe(json.name, () => {
               name: props.name,
               value: props.value,
               checked: !props.defaultChecked,
-              indeterminate: false
+              indeterminate: false,
+              expanded: true
             })
           )
         })
@@ -694,6 +700,7 @@ describe(json.name, () => {
               name: props.name,
               checked: false,
               indeterminate: true,
+              expanded: true,
               values: sinon.match.array
             })
           )
@@ -757,6 +764,7 @@ describe(json.name, () => {
               name: props.name,
               checked: false,
               indeterminate: true,
+              expanded: true,
               values: sinon.match.array
             })
           )
@@ -821,6 +829,7 @@ describe(json.name, () => {
             name: props.name,
             checked: true,
             indeterminate: false,
+            expanded: true,
             values: sinon.match.array
           })
         )

@@ -55,7 +55,7 @@ const OrganismNestedCheckboxes = ({
     isFunction(onExpandToggle) &&
       onExpandToggle(event, {
         checked: checkedValue,
-        expanded: isExpandedValue,
+        expanded: !isExpandedValue,
         indeterminate: indeterminateValue,
         name,
         value
@@ -120,6 +120,7 @@ const OrganismNestedCheckboxes = ({
       onChange(event, {
         value,
         name,
+        expanded: isExpandedValue,
         checked,
         indeterminate,
         values: Array.from(values)
@@ -159,6 +160,7 @@ const OrganismNestedCheckboxes = ({
         ...opts,
         checked,
         indeterminate,
+        expanded: isExpandedValue,
         values: Array.from(values)
       })
     }

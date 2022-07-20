@@ -53,10 +53,9 @@ body:
       label: Which operating systems have you used?
       description: You may select more than one.
       options:
-        - label: Desktop
-        - label: Tablet
-        - label: Mobile
-        - label: smartTV
+        - label: Windows
+        - label: Linux
+        - label: macOS
   - type: textarea
     attributes:
       label: browser and version

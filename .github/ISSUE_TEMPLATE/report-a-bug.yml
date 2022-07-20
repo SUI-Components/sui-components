@@ -1,0 +1,74 @@
+name: Report a bug / issue
+description: Report a bug / issue to help us improve SUI
+title: '[BUG] <title>'
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: URL to find the bug
+      placeholder: https://sui-components.now.sh/
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: steps to reproduce your bug.
+      placeholder: |
+        1. Click on '....'
+        2. Scroll down to '....'
+        3. See error
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Expected Behavior
+      description: A concise description of what you expected to happen.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem.
+    validations:
+      required: false
+  - type: checkboxes
+    id: device
+    attributes:
+      label: Which device have you used?
+      description: You may select more than one.
+      options:
+        - label: Desktop
+        - label: Tablet
+        - label: Mobile
+        - label: smartTV
+  - type: checkboxes
+    id: operating-system
+    attributes:
+      label: Which operating systems have you used?
+      description: You may select more than one.
+      options:
+        - label: Desktop
+        - label: Tablet
+        - label: Mobile
+        - label: smartTV
+  - type: textarea
+    attributes:
+      label: browser and version
+      description: which browser and versions are you using?
+      placeholder: |
+        - node v.
+        - npm v.
+        - chrome v.
+  - type: textarea
+    attributes:
+      label: Additional info
+      description: Add any other context about the problem here.
+    validations:
+      required: false
+

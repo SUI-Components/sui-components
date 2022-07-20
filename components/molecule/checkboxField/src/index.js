@@ -41,8 +41,8 @@ const MoleculeCheckboxField = ({
         <AtomCheckbox
           id={id}
           disabled={disabled}
-          {...props}
           onChange={onChange}
+          {...props}
         />
       </MoleculeField>
     </div>

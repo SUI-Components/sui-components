@@ -42,7 +42,8 @@ const MoleculeDropdownOption = forwardRef(
       textWrap,
       value,
       description,
-      withTwoLinesText
+      withTwoLinesText,
+      ...props
     },
     forwardedRef
   ) => {
@@ -119,8 +120,16 @@ const MoleculeDropdownOption = forwardRef(
         onKeyDown={handleKeyDown}
         onFocus={handleFocus}
         role="option"
-        data-value={value}
+        {...(['string', 'number'].includes(typeof value) && {
+          'data-value': value,
+          'aria-label': value
+        })}
         aria-checked={innerSelected}
+        {...Object.fromEntries(
+          Object.entries(props).filter(
+            ([key]) => !['className', 'style'].includes(key)
+          )
+        )}
       >
         {checkbox && (
           <AtomCheckbox

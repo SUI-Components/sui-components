@@ -129,13 +129,11 @@ const OrganismNestedCheckboxes = ({
   })
 
   const onChangeHandler = (event, opts) => {
-    let {checked, indeterminate} = opts
+    const {checked, indeterminate} = opts
     const [checkboxes] = getInnerCheckboxes(ref.current, {
       checked,
       indeterminate
     })
-    indeterminate = false
-    checked = !checked
     checkboxes.forEach(element => {
       if (element.checked !== checked) {
         element.click()

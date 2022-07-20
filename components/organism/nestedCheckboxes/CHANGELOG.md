@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 3.1.0 (2022-07-20)
+
+
+### Features
+
+* **components/organism/nestedCheckboxes:** remove unnecesary lines ([6339679](https://github.com/SUI-Components/sui-components/commit/633967945b38296dd61597aa8c748a0950540b0a))
+* **components/organism/nestedCheckboxes:** review expanded behavior when testing ([17370c2](https://github.com/SUI-Components/sui-components/commit/17370c25da6c6f0cd4113b4502eed375fbc9b089))
+
+
+
 # 3.0.0 (2022-07-18)
 
 

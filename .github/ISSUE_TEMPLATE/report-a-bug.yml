@@ -1,6 +1,6 @@
 name: Report a bug / issue
 description: Report a bug / issue to help us improve SUI
-title: '[BUG] <title>'
+title: '🪲 '
 labels: []
 body:
   - type: markdown
@@ -63,7 +63,7 @@ body:
       placeholder: |
         - node v.
         - npm v.
-        - chrome v.
+        - browser v.
   - type: textarea
     attributes:
       label: Additional info

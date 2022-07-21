@@ -11,14 +11,14 @@ SUI Components is an Open-Source, high quality library of React components that 
 ## 🖥 Environment Support
 
 - Modern browsers and Internet Explorer 11+ (with [polyfills](https://github.com/SUI-Components/sui/tree/master/packages/sui-polyfills))
-- Server-side Rendering
+- Server-Side Rendering
 
 ## 🧪 Test Coverage
 
 ![statements](https://shields.io/badge/statements-71.55%25-orange)
-![branches](https://shields.io/badge/branches-57.43%25-AA0000)
-![functions](https://shields.io/badge/functions-57.63%25-AA0000)
-![lines](https://shields.io/badge/lines-73.26%25-orange)
+![branches](https://shields.io/badge/branches-57.47%25-AA0000)
+![functions](https://shields.io/badge/functions-57.69%25-AA0000)
+![lines](https://shields.io/badge/lines-73.27%25-orange)
 
 ## ✨ Features
 

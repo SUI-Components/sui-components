@@ -27,6 +27,7 @@ const MoleculeDropdownList = forwardRef(
       value,
       visible,
       onKeyDown,
+      'aria-label': ariaLabel,
       ...props
     },
     forwardedRef
@@ -99,6 +100,7 @@ const MoleculeDropdownList = forwardRef(
         onKeyDown={handleKeyDown}
         className={classNames}
         role="listbox"
+        aria-label={ariaLabel}
       >
         {Children.toArray(children)
           .filter(Boolean)
@@ -124,6 +126,9 @@ MoleculeDropdownList.displayName = 'MoleculeDropdownList'
 MoleculeDropdownList.propTypes = {
   /** No matter if is visible or invisible, render always the content */
   alwaysRender: PropTypes.bool,
+
+  /** aria-label for accessibility */
+  'aria-label': PropTypes.string,
 
   /** Content to be included in the list (MoleculeDropdownOption) */
   children: PropTypes.node,

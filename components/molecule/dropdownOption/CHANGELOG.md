@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.44.0 (2022-07-21)
+
+
+### Features
+
+* **components/molecule/dropdownOption:** add prop spreading ([6820c7f](https://github.com/SUI-Components/sui-components/commit/6820c7fce87252633e0ab3fa728d87ffd77454b4))
+
+
+
 # 1.43.0 (2022-06-23)
 
 

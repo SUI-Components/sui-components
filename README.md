@@ -11,7 +11,7 @@ SUI Components is an Open-Source, high quality library of React components that 
 ## 🖥 Environment Support
 
 - Modern browsers and Internet Explorer 11+ (with [polyfills](https://github.com/SUI-Components/sui/tree/master/packages/sui-polyfills))
-- Server-side Rendering
+- Server-Side Rendering
 
 ## 🧪 Test Coverage
 

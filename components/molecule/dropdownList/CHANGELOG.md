@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.31.0 (2022-07-21)
+
+
+### Features
+
+* **components/molecule/dropdownList:** add aria label property ([0a04268](https://github.com/SUI-Components/sui-components/commit/0a042688f58536a9f3dc756a2d7fa5f09cea7166))
+
+
+
 # 1.30.0 (2022-06-23)
 
 

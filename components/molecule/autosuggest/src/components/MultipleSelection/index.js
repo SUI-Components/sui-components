@@ -41,7 +41,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   const innerRefInput = useRef()
   const moleculeInputRef = useMergeRefs(innerRefInput, refInput)
 
-  const handleMultiSelection = (ev, args) => {
+  const handleMultiSelection = (ev, args = {}) => {
     const {value} = args
     let newTags = [...tags]
     const existsTag = tags.some(tagValue => isEqual(tagValue, value))
@@ -56,11 +56,13 @@ const MoleculeAutosuggestFieldMultiSelection = ({
 
     typeof onChangeTags === 'function' &&
       onChangeTags(ev, {
+        ...args,
         value: '',
         tags: newTags
       })
     typeof onSelect === 'function' &&
       onSelect(ev, {
+        ...args,
         value: '',
         tags: newTags
       })
@@ -69,16 +71,17 @@ const MoleculeAutosuggestFieldMultiSelection = ({
     innerRefInput.current && innerRefInput.current.focus()
   }
 
-  const handleChangeTags = (ev, {tags, value}) => {
+  const handleChangeTags = (ev, {tags, value, ...args}) => {
     const isOpen = Boolean(value)
-    typeof onChangeTags === 'function' && onChangeTags(ev, {tags})
+    typeof onChangeTags === 'function' &&
+      onChangeTags(ev, {tags, value, ...args})
     typeof onToggle === 'function' && onToggle(ev, {isOpen})
     innerRefInput.current && innerRefInput.current.focus()
   }
 
-  const handleChange = (ev, {value}) => {
+  const handleChange = (ev, {value, ...args}) => {
     const isOpen = Boolean(value)
-    typeof onChange === 'function' && onChange(ev, {value})
+    typeof onChange === 'function' && onChange(ev, {value, ...args})
     typeof onToggle === 'function' && onToggle(ev, {isOpen})
   }
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.32.0 (2022-07-26)
+
+
+### Features
+
+* **components/molecule/dropdownList:** simplify the props provided ([3f89188](https://github.com/SUI-Components/sui-components/commit/3f891885fcea81a8aab00abd9f762b40681660e5))
+
+
+
 # 1.31.0 (2022-07-21)
 
 

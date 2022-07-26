@@ -197,7 +197,7 @@ jobs:
       - name: Release components
         if: github.event_name == 'push'
         run: |
-          npm install @s-ui/mono@2 --no-audit --no-fund
+          npm install @s-ui/mono@2 --no-audit --no-fund --legacy-peer-deps
           npx @s-ui/ci release
         env:
           GITHUB_EMAIL: cloud-accounts@scmspain.com

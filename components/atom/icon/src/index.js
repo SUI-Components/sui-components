@@ -12,24 +12,22 @@ import {
 
 const AtomIcon = ({
   as = 'span',
-  className,
   children,
   color = ATOM_ICON_COLORS.currentColor,
   size = ATOM_ICON_SIZES.small,
   render = ATOM_ICON_RENDERS.eager,
   ...props
 }) => {
-  const styles = cx(
+  const className = cx(
     BASE_CLASS,
     `${BASE_CLASS}--${size}`,
-    color && `${BASE_CLASS}--${color}`,
-    className
+    color && `${BASE_CLASS}--${color}`
   )
 
   const IconRender = render === ATOM_ICON_RENDERS.eager ? Icon : LazyIcon
 
   return (
-    <IconRender as={as} className={styles} {...props}>
+    <IconRender as={as} {...props} className={className}>
       {children}
     </IconRender>
   )
@@ -39,10 +37,6 @@ AtomIcon.displayName = 'AtomIcon'
 AtomIcon.propTypes = {
   /* Render the passed value as the correspondent HTML tag or the component if a function is passed */
   as: PropTypes.elementType,
-  /**
-   * Optional custom class.
-   */
-  className: PropTypes.string,
   /**
    * Determine color of the icon
    * Besides the primary color types, you could use currentColor to inherit the color from the parent.

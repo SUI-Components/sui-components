@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.32.0 (2022-07-26)
+
+
+### Features
+
+* **components/molecule/selectPopover:** add an object as default to avoid problems when there is no ([66cf0ae](https://github.com/SUI-Components/sui-components/commit/66cf0ae0dfb6df0ad24475730e85122620847e22))
+
+
+
 # 1.31.0 (2022-06-23)
 
 

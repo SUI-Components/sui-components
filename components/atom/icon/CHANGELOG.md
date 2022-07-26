@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.18.0 (2022-07-26)
+
+
+### Features
+
+* **components/atom/icon:** props spreading atom icon ([00f4415](https://github.com/SUI-Components/sui-components/commit/00f4415f28c5a73a012da8f512037a5cd31d8ba1))
+
+
+
 # 1.17.0 (2022-06-23)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.63.0 (2022-07-26)
+
+
+### Features
+
+* **components/molecule/autosuggest:** extend teh handlers ([be000ce](https://github.com/SUI-Components/sui-components/commit/be000ce1d20cbbca281a921a16a2c7018adbd642))
+
+
+
 # 2.62.0 (2022-06-22)
 
 

@@ -53,7 +53,8 @@ function MoleculeSelectPopover({
   const contentWrapperRef = useRef()
 
   const getPopoverClassName = () => {
-    const {left, right} = contentWrapperRef.current?.getBoundingClientRect()
+    const {left, right} =
+      contentWrapperRef.current?.getBoundingClientRect() || {}
     const outFromTheLeftSide = left < 0
     const outFromTheRightSide =
       right > (window.innerWidth || document.documentElement.clientWidth)

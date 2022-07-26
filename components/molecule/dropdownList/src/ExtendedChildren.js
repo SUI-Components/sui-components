@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 const ExtendedChildren = ({
   value,
   children,
-  index,
   onSelect: onSelectListHandler,
   checkbox,
   ...props
@@ -27,7 +26,6 @@ const ExtendedChildren = ({
   }
   return cloneElement(children, {
     ...props,
-    index,
     selected: selectedChild === undefined ? selected : selectedChild,
     onSelect: onSelectHandler,
     checkbox: checkboxChild === undefined ? checkbox : checkboxChild
@@ -37,10 +35,8 @@ const ExtendedChildren = ({
 ExtendedChildren.propTypes = {
   /** selected value */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  /** each sinle node to be included in the list (MoleculeDropdownOption) */
-  children: PropTypes.node,
-  /** numeric identifier **/
-  index: PropTypes.number
+  /** each single node to be included in the list (MoleculeDropdownOption) */
+  children: PropTypes.node
 }
 
 export default ExtendedChildren

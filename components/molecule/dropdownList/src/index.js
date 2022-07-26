@@ -107,10 +107,8 @@ const MoleculeDropdownList = forwardRef(
           .map((child, index) => (
             <ExtendedChildren
               key={index}
-              index={index}
               value={value}
               onSelect={onSelect}
-              onKeyDown={onKeyDown}
               {...props}
             >
               {child}

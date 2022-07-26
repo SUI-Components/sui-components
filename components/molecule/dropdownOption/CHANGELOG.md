@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.45.0 (2022-07-22)
+
+
+### Features
+
+* **components/molecule/dropdownOption:** change data and aria attributes condition ([e6262a5](https://github.com/SUI-Components/sui-components/commit/e6262a5dd8df8ef4ead4e108c42092a251089985))
+
+
+
 # 1.44.0 (2022-07-21)
 
 

@@ -38,26 +38,27 @@ const MoleculeAutosuggestSingleSelection = ({
   type,
   value = ''
 }) => {
-  const handleSelection = (ev, {value}) => {
-    typeof onChange === 'function' && onChange(ev, {value})
-    typeof onSelect === 'function' && onSelect(ev, {value})
+  const handleSelection = (ev, {value, ...args}) => {
+    typeof onChange === 'function' && onChange(ev, {value, ...args})
+    typeof onSelect === 'function' && onSelect(ev, {value, ...args})
     typeof onToggle === 'function' && onToggle(ev, {isOpen: false})
   }
 
-  const handleChange = (ev, {value}) => {
-    typeof onChange === 'function' && onChange(ev, {value})
+  const handleChange = (ev, {value, ...args}) => {
+    typeof onChange === 'function' && onChange(ev, {value, ...args})
     typeof onToggle === 'function' && onToggle(ev, {isOpen: true})
   }
 
-  const handleClear = ev => {
+  const handleClear = (ev, args = {}) => {
     if (!disabled) {
-      typeof onChange === 'function' && onChange(null, {value: ''})
+      typeof onChange === 'function' && onChange(null, {...args, value: ''})
       typeof onClear === 'function' && onClear(ev)
     }
   }
 
-  const handleRightClick = ev => {
-    typeof onClickRightIcon === 'function' && onClickRightIcon(ev, {value})
+  const handleRightClick = (ev, args = {}) => {
+    typeof onClickRightIcon === 'function' &&
+      onClickRightIcon(ev, {...args, value})
   }
 
   return (

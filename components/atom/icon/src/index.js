@@ -16,6 +16,7 @@ const AtomIcon = ({
   color = ATOM_ICON_COLORS.currentColor,
   size = ATOM_ICON_SIZES.small,
   render = ATOM_ICON_RENDERS.eager,
+  style: _ignoredStyle, // eslint-disable-line react/prop-types
   ...props
 }) => {
   const className = cx(

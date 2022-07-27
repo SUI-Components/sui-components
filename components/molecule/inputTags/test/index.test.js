@@ -80,8 +80,8 @@ describe(json.name, () => {
       expect(findClassName(container.innerHTML)).to.be.null
     })
 
-    describe('when the is disabled', () => {
-      it('should be disabled', () => {
+    describe('when the element is disabled', () => {
+      it('input should be disabled', () => {
         // Given
         const props = {disabled: true}
 
@@ -90,7 +90,23 @@ describe(json.name, () => {
         const input = queryByRole('textbox')
 
         // Then
-        expect(input).to.be.null
+        expect(input).to.be.visible
+        expect(input.disabled).to.be.true
+      })
+    })
+
+    describe('when the element is readOnly', () => {
+      it('input should be readOnly', () => {
+        // Given
+        const props = {readOnly: true}
+
+        // When
+        const {queryByRole} = setup(props)
+        const input = queryByRole('textbox')
+
+        // Then
+        expect(input).to.be.visible
+        expect(input.readOnly).to.be.true
       })
     })
 

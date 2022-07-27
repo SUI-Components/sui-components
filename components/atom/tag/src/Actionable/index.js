@@ -6,6 +6,7 @@ import {
   getClassNames,
   getLinkTypesString,
   LEFT_ICON_PLACEMENT,
+  onHandler,
   RIGHT_ICON_PLACEMENT
 } from './settings.js'
 
@@ -14,28 +15,28 @@ const ActionableTag = function ({
   href,
   iconPlacement,
   label,
-  onClick = () => {},
+  onClick,
   target,
   rel,
   linkFactory,
   className,
+  readOnly,
   disabled,
   title,
   value = null
 }) {
   return (
     <ActionableTagContainer
-      className={getClassNames({className, disabled})}
+      className={getClassNames({className})}
       Link={linkFactory}
-      onClick={ev => {
-        if (disabled) {
-          return
-        }
-        onClick(ev, {value, label})
-      }}
+      onClick={onHandler({disabled, readOnly}, onClick, {
+        value,
+        label
+      })}
       href={href}
       target={target}
       rel={rel}
+      readOnly={readOnly}
       disabled={disabled}
     >
       {icon && iconPlacement === LEFT_ICON_PLACEMENT && (
@@ -54,6 +55,7 @@ const ActionableTag = function ({
 ActionableTag.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
+  readOnly: PropTypes.bool,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   icon: PropTypes.node,
   href: PropTypes.string,

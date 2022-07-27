@@ -3,13 +3,12 @@ import PropTypes from 'prop-types'
 
 import ActionableTag from './Actionable/index.js'
 import {
-  ACTIONABLE_ONLY_PROPS,
   DESIGNS,
+  getActionableProps,
+  getStandardProps,
   LINK_TYPES,
-  SIZES,
-  STANDARD_ONLY_PROPS
+  SIZES
 } from './constants.js'
-import {filterKeys} from './helpers.js'
 import StandardTag from './Standard.js'
 
 const AtomTag = props => {
@@ -21,6 +20,7 @@ const AtomTag = props => {
     responsive,
     size,
     type,
+    readOnly,
     disabled,
     isFitted = false
   } = props
@@ -32,32 +32,21 @@ const AtomTag = props => {
     icon && 'sui-AtomTag-hasIcon',
     responsive && 'sui-AtomTag--responsive',
     type && `sui-AtomTag--${type}`,
-    disabled && 'sui-AtomTag--disabled',
     isFitted && 'sui-AtomTag--isFitted'
   )
 
-  /**
-   * Removes all actionable tag props from the react props
-   * @return {Object}
-   */
-  const getStandardProps = () => filterKeys(props, ACTIONABLE_ONLY_PROPS)
-
-  /**
-   * Removes all standard tag props from the react props
-   * @return {Object}
-   */
-  const getActionableProps = () => filterKeys(props, STANDARD_ONLY_PROPS)
-
   return isActionable ? (
     <ActionableTag
-      {...getActionableProps()}
+      {...getActionableProps(props)}
       disabled={disabled}
+      readOnly={readOnly}
       className={classNames}
     />
   ) : (
     <StandardTag
-      {...getStandardProps()}
+      {...getStandardProps(props)}
       disabled={disabled}
+      readOnly={readOnly}
       className={classNames}
     />
   )
@@ -66,6 +55,9 @@ const AtomTag = props => {
 AtomTag.displayName = 'AtomTag'
 
 AtomTag.propTypes = {
+  /* This Boolean attribute prevents the user from interacting with the input but without disabled styles */
+  readOnly: PropTypes.bool,
+  /* This Boolean attribute prevents the user from interacting with the input */
   disabled: PropTypes.bool,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   icon: PropTypes.node,

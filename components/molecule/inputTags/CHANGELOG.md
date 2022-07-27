@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.23.0 (2022-07-27)
+
+
+### Features
+
+* **components/molecule/inputTags:** improvements and refactor ([4de8a58](https://github.com/SUI-Components/sui-components/commit/4de8a58a61b1509047fe909e760eff5309bc834c))
+
+
+
 # 2.22.0 (2022-06-23)
 
 

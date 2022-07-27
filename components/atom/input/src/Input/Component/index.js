@@ -68,7 +68,11 @@ const Input = forwardRef(
       } = ev
       const {key} = ev
       onKeyDown(ev, {value, name})
-      if (key === onEnterKey) onEnter(ev, {value, name})
+      if (typeof onEnterKey === 'string') {
+        key === onEnterKey && onEnter(ev, {value, name})
+      } else if (Array.isArray(onEnterKey)) {
+        onEnterKey.includes(key) && onEnter(ev, {value, name})
+      }
     }
 
     const className = getClassNames({
@@ -139,8 +143,11 @@ Input.propTypes = {
   onFocus: PropTypes.func,
   /* onEnter callback */
   onEnter: PropTypes.func,
-  /* key to provoke the onEnter callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values */
-  onEnterKey: PropTypes.string,
+  /* key(s) to provoke the onEnter callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values */
+  onEnterKey: PropTypes.oneOfType(
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ),
   /* A hint to the user of what can be entered in the control. The placeholder text must not contain carriage returns or line-feeds. */
   placeholder: PropTypes.string,
   /* 's' or 'm', default: 'm' */

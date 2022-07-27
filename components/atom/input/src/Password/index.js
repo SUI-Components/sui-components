@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {forwardRef, useState} from 'react'
 
 import PropTypes from 'prop-types'
 
@@ -10,34 +10,40 @@ import {
   TEXT
 } from './config.js'
 
-const Password = ({
-  onChange,
-  pwShowLabel = 'show',
-  pwHideLabel = 'hide',
-  ...props
-}) => {
-  const [type, setType] = useState(PASSWORD)
-  const [value, setValue] = useState('')
+const Password = forwardRef(
+  (
+    {onChange, pwShowLabel = 'show', pwHideLabel = 'hide', ...props},
+    forwardedRef
+  ) => {
+    const [type, setType] = useState(PASSWORD)
+    const [value, setValue] = useState('')
 
-  const toggle = () => {
-    const inputType = type === PASSWORD ? TEXT : PASSWORD
-    setType(inputType)
-  }
+    const toggle = () => {
+      const inputType = type === PASSWORD ? TEXT : PASSWORD
+      setType(inputType)
+    }
 
-  const handleChange = (ev, {value}) => {
-    setValue(value)
-    typeof onChange === 'function' && onChange(ev, {value})
-  }
+    const handleChange = (ev, {value}) => {
+      setValue(value)
+      typeof onChange === 'function' && onChange(ev, {value})
+    }
 
-  return (
-    <div className={BASE_CLASS_PASSWORD}>
-      <Input {...props} onChange={handleChange} value={value} type={type} />
-      <div onClick={toggle} className={BASE_CLASS_PASSWORD_TOGGLE_BUTTON}>
-        {type === PASSWORD ? pwShowLabel : pwHideLabel}
+    return (
+      <div className={BASE_CLASS_PASSWORD}>
+        <Input
+          ref={forwardedRef}
+          {...props}
+          onChange={handleChange}
+          value={value}
+          type={type}
+        />
+        <div onClick={toggle} className={BASE_CLASS_PASSWORD_TOGGLE_BUTTON}>
+          {type === PASSWORD ? pwShowLabel : pwHideLabel}
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
+)
 
 Password.propTypes = {
   /* Text to be shown in order to show the password on click */

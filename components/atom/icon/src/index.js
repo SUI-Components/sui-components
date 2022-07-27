@@ -16,7 +16,8 @@ const AtomIcon = ({
   color = ATOM_ICON_COLORS.currentColor,
   size = ATOM_ICON_SIZES.small,
   render = ATOM_ICON_RENDERS.eager,
-  title
+  style: _ignoredStyle, // eslint-disable-line react/prop-types
+  ...props
 }) => {
   const className = cx(
     BASE_CLASS,
@@ -25,8 +26,9 @@ const AtomIcon = ({
   )
 
   const IconRender = render === ATOM_ICON_RENDERS.eager ? Icon : LazyIcon
+
   return (
-    <IconRender as={as} className={className} title={title}>
+    <IconRender as={as} {...props} className={className}>
       {children}
     </IconRender>
   )
@@ -55,11 +57,7 @@ AtomIcon.propTypes = {
    * 'eager': The icon will be server-side rendered (default)
    * 'lazy': The icon will be loaded on client when visible
    */
-  render: PropTypes.oneOf(Object.values(ATOM_ICON_RENDERS)),
-  /**
-   * Adds a title for accesibility purposes
-   */
-  title: PropTypes.string
+  render: PropTypes.oneOf(Object.values(ATOM_ICON_RENDERS))
 }
 
 export default AtomIcon

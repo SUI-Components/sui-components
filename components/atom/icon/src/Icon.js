@@ -4,7 +4,7 @@ import Poly from '@s-ui/react-primitive-polymorphic-element'
 
 import {getAttributes} from './settings.js'
 
-const AtomIcon = ({as, className, children, outerRef, title}) => {
+const AtomIcon = ({as, className, children, outerRef, title, ...props}) => {
   return (
     <Poly
       as={as}
@@ -12,6 +12,7 @@ const AtomIcon = ({as, className, children, outerRef, title}) => {
       title={title}
       ref={outerRef}
       {...getAttributes(title)}
+      {...props}
     >
       {children}
     </Poly>

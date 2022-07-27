@@ -54,11 +54,11 @@ const ArticleDefault = ({className, content: Content}) => {
   const [defaultIsVisible, setDefaultIsVisible] = useState(undefined)
   const possibleProps = {
     uncontrolled: {
-      defaultIsVisible: defaultIsVisible,
+      defaultIsVisible,
       content: <Content />
     },
     controlled: {
-      isVisible: isVisible,
+      isVisible,
       content: <Content />,
       onOpen: () => setIsVisible(true),
       onClose: () => setIsVisible(false)

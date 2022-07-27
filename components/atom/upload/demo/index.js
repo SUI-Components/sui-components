@@ -35,7 +35,7 @@ class DynamicStatusContainer extends Component {
     const fileNames = files.map(({name}) => name)
     const status = files.length ? uploadStatuses.SUCCESS : uploadStatuses.ERROR
     this.setState({
-      status: status,
+      status,
       files: fileNames
     })
   }

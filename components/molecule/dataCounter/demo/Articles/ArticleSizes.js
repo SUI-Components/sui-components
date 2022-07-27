@@ -35,7 +35,7 @@ const ArticleSize = ({className}) => {
       </UnorderedList>
       <Grid cols={4} gutter={[8, 8]}>
         {Object.entries({
-          undefined: undefined,
+          undefined,
           ...moleculeDataCounterSizes
         }).map(([key, value]) => (
           <Cell key={key}>

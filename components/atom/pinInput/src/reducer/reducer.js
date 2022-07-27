@@ -50,7 +50,7 @@ const onChangeHandler = onChange => (event, state) => {
           : innerValue,
       key: innerValue[focusPosition],
       index: focusPosition,
-      innerValue: innerValue
+      innerValue
     })
 }
 

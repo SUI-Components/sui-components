@@ -11,8 +11,8 @@ export const DEFAULTS_STAR = {
   value: 0,
   fullValue: 1,
   halfValue: 0.5,
-  IconStarFilled: IconStarFilled,
-  IconStarHalfFilled: IconStarHalfFilled,
+  IconStarFilled,
+  IconStarHalfFilled,
   IconStarEmpty: IconStarOutline
 }
 

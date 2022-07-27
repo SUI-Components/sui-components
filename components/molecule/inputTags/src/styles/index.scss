@@ -15,8 +15,12 @@ $class-input: '#{$base-class}-input';
     @include sui-atom-input-input-focus;
   }
 
-  &--disabled {
+  &[aria-disabled='true'] {
     background-color: $bg-input-tag-disable;
+    & #{$class-input}:disabled {
+      border: 0;
+      background-color: transparent;
+    }
   }
 
   & #{$class-input} {

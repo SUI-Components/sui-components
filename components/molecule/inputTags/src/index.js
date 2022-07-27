@@ -1,117 +1,162 @@
-import {useState} from 'react'
+import {forwardRef, useState} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
-import {atomTagSizes} from '@s-ui/react-atom-tag'
+import AtomTag, {atomTagSizes} from '@s-ui/react-atom-tag'
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import {
-  AtomTagItem,
   CLASS_TAGS,
   CLASS_TAGS_DISABLED,
   CLASS_TAGS_ERROR,
   CLASS_TAGS_FOCUS,
   CLASS_TAGS_SUCCESS,
-  isDuplicate
+  isDuplicate,
+  isFunction
 } from './config.js'
 
-const MoleculeInputTags = ({
-  errorState,
-  innerRefInput,
-  onChange: onInputChange,
-  onChangeTags,
-  optionsData,
-  size,
-  tags: tagsFromProps,
-  tagsCloseIcon,
-  value,
-  maxTags,
-  placeholder,
-  disabled,
-  allowDuplicates,
-  name,
-  ...restProps
-}) => {
-  const [focus, setFocus] = useState(false)
+const MoleculeInputTags = forwardRef(
+  (
+    {
+      errorState,
+      innerRefInput, // might be deprecated
+      onChange: onInputChange,
+      onChangeTags,
+      optionsData,
+      size = inputSizes.MEDIUM,
+      defaultTags = [],
+      tags: tagsFromProps,
+      tagsCloseIcon,
+      defaultValue = '',
+      value: valueFromProps,
+      maxTags,
+      placeholder = '',
+      disabled = false,
+      allowDuplicates = true,
+      readOnly,
+      name,
+      ...restProps
+    },
+    forwardedRef
+  ) => {
+    const [focus, setFocus] = useState(false)
 
-  const isFull = maxTags && tagsFromProps?.length >= maxTags
+    const ref = useMergeRefs(...[forwardedRef, innerRefInput].filter(Boolean))
 
-  const isEmpty = tagsFromProps.length === 0
+    const [tags, setTags] = useControlledState(tagsFromProps, defaultTags)
+    const [value, setValue] = useControlledState(valueFromProps, defaultValue)
 
-  const shouldRenderInput = !isFull && !disabled
+    const isFull = maxTags && tags?.length >= maxTags
 
-  const className = cx(CLASS_TAGS, {
-    [CLASS_TAGS_FOCUS]: focus === true,
-    [CLASS_TAGS_ERROR]: errorState === true,
-    [CLASS_TAGS_SUCCESS]: errorState === false,
-    [CLASS_TAGS_DISABLED]: disabled === true || isFull === true,
-    [`${CLASS_TAGS}-${size}`]: size
-  })
+    const isEmpty = tags.length === 0
 
-  const removeTag = (ev, {id: indexTag}) => {
-    let tags = tagsFromProps.filter((_, i) => i !== indexTag)
-    if (optionsData) {
-      const keys = Object.keys(optionsData)
-      tags = keys.filter(key => tags.includes(optionsData[key]))
-    }
-    onChangeTags(ev, {name, tags})
-  }
+    const className = cx(CLASS_TAGS, {
+      [CLASS_TAGS_FOCUS]: focus === true,
+      [CLASS_TAGS_ERROR]: errorState === true,
+      [CLASS_TAGS_SUCCESS]: errorState === false,
+      [CLASS_TAGS_DISABLED]: disabled === true || isFull === true,
+      [`${CLASS_TAGS}-${size}`]: size
+    })
 
-  const addTag = ev => {
-    ev.preventDefault()
-    if (value) {
-      const tags = [...tagsFromProps]
-      if (allowDuplicates || !isDuplicate(tags, value)) {
-        tags.push(value)
+    const removeTag =
+      ({id: indexTag, label, value: removedValue}) =>
+      ev => {
+        let nextTags = tags.filter((_, i) => i !== indexTag)
+        if (optionsData) {
+          const keys = Object.keys(optionsData)
+          nextTags = keys.filter(key => tags.includes(optionsData[key]))
+        }
+        setTags(nextTags)
+        isFunction(onChangeTags) &&
+          onChangeTags(ev, {
+            name,
+            tags: nextTags,
+            value,
+            tag: removedValue,
+            label
+          })
       }
-      onChangeTags(ev, {tags, name, value: ''})
+
+    const addTag = ev => {
+      ev.preventDefault()
+      if (value) {
+        const nextTags = tags
+        if (allowDuplicates || !isDuplicate(tags, value)) {
+          nextTags.push(value)
+        }
+        setTags(nextTags)
+        setValue('')
+        isFunction(onChangeTags) &&
+          onChangeTags(ev, {
+            name,
+            tags: nextTags,
+            value: '',
+            tag: value,
+            label: value
+          })
+      }
     }
-  }
 
-  const handleInputChange = (ev, valuesToPropagate) => {
-    onInputChange(ev, valuesToPropagate)
-  }
+    const handleInputChange = (ev, {value, args}) => {
+      setValue(value)
+      isFunction(onInputChange) && onInputChange(ev, {...args, value, tags})
+    }
 
-  const handleFocusIn = () => setFocus(true)
+    const handleFocusIn = () => setFocus(true)
 
-  const handleFocusOut = () => setFocus(false)
+    const handleFocusOut = () => setFocus(false)
 
-  return (
-    <div className={className}>
-      {tagsFromProps.map((value, index) => {
-        const label = typeof value === 'object' ? value.label : value
-        const key = typeof value === 'object' ? value.key : index
-        return (
-          <AtomTagItem
-            key={key}
-            id={index}
-            closeIcon={tagsCloseIcon}
-            onClose={removeTag}
-            label={label}
-            size={atomTagSizes.SMALL}
-            responsive
+    return (
+      <div
+        className={className}
+        {...(disabled && {'aria-disabled': disabled})}
+        {...(readOnly && !disabled && {'aria-readonly': readOnly})}
+      >
+        {tags.map((value, index) => {
+          const label = typeof value === 'object' ? value.label : value
+          const key = typeof value === 'object' ? value.key : index
+          return (
+            <AtomTag
+              key={key}
+              id={index}
+              closeIcon={tagsCloseIcon}
+              value={value}
+              onClose={removeTag({
+                id: key === undefined ? index : key,
+                value,
+                label
+              })}
+              label={label}
+              size={atomTagSizes.SMALL}
+              responsive
+              readOnly={readOnly}
+              disabled={disabled}
+            />
+          )
+        })}
+        {!isFull && (
+          <AtomInput
+            ref={ref}
+            {...restProps}
+            name={name}
+            value={value}
+            onChange={handleInputChange}
+            onEnter={addTag}
+            onFocus={handleFocusIn}
+            onBlur={handleFocusOut}
+            noBorder
+            readOnly={readOnly}
             disabled={disabled}
+            placeholder={isEmpty ? placeholder : undefined}
           />
-        )
-      })}
-      {shouldRenderInput && (
-        <AtomInput
-          {...restProps}
-          name={name}
-          value={value}
-          onChange={handleInputChange}
-          onEnter={addTag}
-          onFocus={handleFocusIn}
-          onBlur={handleFocusOut}
-          reference={innerRefInput}
-          noBorder
-          placeholder={isEmpty ? placeholder : undefined}
-        />
-      )}
-    </div>
-  )
-}
+        )}
+      </div>
+    )
+  }
+)
 
 MoleculeInputTags.displayName = 'MoleculeInputTags'
 
@@ -128,8 +173,14 @@ MoleculeInputTags.propTypes = {
   /* list of pairs value/text to be handled */
   optionsData: PropTypes.object,
 
+  /* list of values displayed as tags on first render */
+  defaultTags: PropTypes.array,
+
   /* list of values displayed as tags */
   tags: PropTypes.array,
+
+  /* value of the input on first render */
+  defaultValue: PropTypes.string,
 
   /* value of the input */
   value: PropTypes.string,
@@ -152,22 +203,14 @@ MoleculeInputTags.propTypes = {
   /* prop to indicate that the field is disable (will not render the input) */
   disabled: PropTypes.bool,
 
+  /* This Boolean attribute prevents the user from interacting with the input but without disabled styles */
+  readOnly: PropTypes.bool,
+
   /* prop to determinate if the field allows to introduce duplicate values for the tags (case insensitive) */
   allowDuplicates: PropTypes.bool,
 
   /* input name */
   name: PropTypes.string
-}
-
-MoleculeInputTags.defaultProps = {
-  size: inputSizes.MEDIUM,
-  value: '',
-  tags: [],
-  onChangeTags: () => {},
-  onChange: () => {},
-  placeholder: '',
-  disabled: false,
-  allowDuplicates: true
 }
 
 export default MoleculeInputTags

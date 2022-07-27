@@ -1,5 +1,3 @@
-import AtomTag from '@s-ui/react-atom-tag'
-
 export const BASE_CLASS = 'sui-AtomInput'
 export const CLASS_TAGS = `${BASE_CLASS}--withTags`
 export const CLASS_TAGS_FOCUS = `${CLASS_TAGS}--focus`
@@ -14,9 +12,4 @@ export const isDuplicate = (values, newValue) => {
   return upperTags.includes(newValue.toUpperCase())
 }
 
-// eslint-disable-next-line react/prop-types
-export const AtomTagItem = ({onClose = () => {}, id, ...restProps}) => {
-  const handleClose = e => onClose(e, {id})
-
-  return <AtomTag onClose={handleClose} {...restProps} />
-}
+export const isFunction = fn => typeof fn === 'function'

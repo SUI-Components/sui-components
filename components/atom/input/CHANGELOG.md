@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.20.0 (2022-07-27)
+
+
+### Features
+
+* **components/atom/input:** define enterkey array valid and forwardref ([b4c870c](https://github.com/SUI-Components/sui-components/commit/b4c870c1a354bd5154b62f59de9fa02e30df65f8))
+
+
+
 # 5.19.0 (2022-07-14)
 
 

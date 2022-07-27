@@ -10,23 +10,22 @@ const ActionableTagContainer = ({
   href,
   target,
   rel,
+  readOnly,
   disabled,
   children,
   ...props
 }) => {
-  return href && !disabled ? (
-    <Link
-      role="button"
-      href={href}
-      target={target}
-      rel={rel}
-      disabled={disabled}
-      {...props}
-    >
+  return href && !(disabled || readOnly) ? (
+    <Link role="button" href={href} target={target} rel={rel} {...props}>
       {children}
     </Link>
   ) : (
-    <span role="button" {...props} disabled={disabled}>
+    <span
+      role="button"
+      {...props}
+      {...(disabled && {'aria-disabled': disabled})}
+      {...(readOnly && !disabled && {'aria-readonly': readOnly})}
+    >
       {children}
     </span>
   )
@@ -37,6 +36,7 @@ ActionableTagContainer.propTypes = {
   href: PropTypes.string,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   rel: PropTypes.arrayOf(PropTypes.oneOf(Object.values(LINK_TYPES))),
+  readOnly: PropTypes.bool,
   disabled: PropTypes.bool,
   children: PropTypes.node.isRequired
 }

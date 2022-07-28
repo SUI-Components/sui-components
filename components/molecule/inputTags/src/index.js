@@ -83,7 +83,7 @@ const MoleculeInputTags = forwardRef(
     const addTag = ev => {
       ev.preventDefault()
       if (value) {
-        const nextTags = tags
+        const nextTags = [...tags]
         if (allowDuplicates || !isDuplicate(tags, value)) {
           nextTags.push(value)
         }

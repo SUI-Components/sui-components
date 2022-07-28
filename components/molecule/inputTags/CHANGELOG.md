@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.25.0 (2022-07-28)
+
+
+### Bug Fixes
+
+* **components/molecule/inputTags:** filter indexed value ([6640871](https://github.com/SUI-Components/sui-components/commit/66408718db0e6ec32e45c8207dc9feccee636283))
+
+
+
 # 2.24.0 (2022-07-28)
 
 

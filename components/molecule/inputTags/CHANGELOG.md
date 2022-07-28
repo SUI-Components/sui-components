@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.24.0 (2022-07-28)
+
+
+### Bug Fixes
+
+* **components/molecule/inputTags:** mutation on asignation ([42fcf63](https://github.com/SUI-Components/sui-components/commit/42fcf63cd53f452eb8c4dd0d95ebf8bc70ca6e60))
+
+
+
 # 2.23.0 (2022-07-27)
 
 

@@ -24,9 +24,9 @@ const ArticleDefault = ({className}) => {
       </Paragraph>
       <MoleculeInputTags
         ref={ref}
-        name="inputTagsBeatles1"
-        defaultTags={tags}
-        defaultValue={value}
+        name="ArticleDefault1"
+        defaultTags={Data.beattles}
+        defaultValue="George Martin"
         tagsCloseIcon={closeIcon}
         onChange={(event, {name, tags, value, ...other}) => {
           console.log('onChange', {value, name, tags, ...other}) // eslint-disable-line no-console
@@ -42,7 +42,7 @@ const ArticleDefault = ({className}) => {
         <Code>tags</Code> (array) props.
       </Paragraph>
       <MoleculeInputTags
-        name="inputTagsBeatles2"
+        name="ArticleDefault2"
         value={value}
         tags={tags}
         tagsCloseIcon={closeIcon}

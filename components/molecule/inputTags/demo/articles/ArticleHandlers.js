@@ -34,9 +34,9 @@ const ArticleHandlers = ({className}) => {
         </ListItem>
       </UnorderedList>
       <MoleculeInputTags
-        name="inputTagsBeatles1"
-        defaultTags={tags}
-        defaultValue={value}
+        name="ArticleHandlers1"
+        defaultTags={Data.beattles}
+        defaultValue="George Martin"
         tagsCloseIcon={closeIcon}
         onChange={(event, {name, tags, value, ...other}) => {
           console.log('onChange', {value, name, tags, ...other}) // eslint-disable-line no-console

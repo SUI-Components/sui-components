@@ -35,7 +35,7 @@ const ArticleSemantic = ({className}) => {
             <Cell>
               <MoleculeInputTags
                 errorState={value}
-                name="inputTagsBeatles1"
+                name="ArticleSemantic1"
                 defaultTags={Data.beattles}
                 defaultValue="George Martin"
                 tagsCloseIcon={closeIcon}

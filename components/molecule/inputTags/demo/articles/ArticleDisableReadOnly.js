@@ -14,7 +14,7 @@ const ArticleDisableReadOnly = ({className}) => {
       <H3>ReadOnly</H3>
       <MoleculeInputTags
         readOnly
-        name="inputTagsBeatles1"
+        name="ArticleDisableReadOnly1"
         defaultTags={Data.beattles}
         defaultValue={'George Martin'}
         tagsCloseIcon={closeIcon}
@@ -28,7 +28,7 @@ const ArticleDisableReadOnly = ({className}) => {
       <H3>Disabled</H3>
       <MoleculeInputTags
         disabled
-        name="inputTagsBeatles2"
+        name="ArticleDisableReadOnly2"
         defaultTags={Data.beattles}
         defaultValue={'George Martin'}
         tagsCloseIcon={closeIcon}

@@ -19,7 +19,7 @@ const ArticleMaxTagsAndAllowDuplicates = ({className}) => {
         <Code>allowDuplicates</Code> (boolean) prop. Default true
       </Paragraph>
       <MoleculeInputTags
-        name="inputTagsBeatles1"
+        name="ArticleMaxTagsAndAllowDuplicates1"
         defaultTags={Data.beattles}
         defaultValue="George Martin"
         tagsCloseIcon={closeIcon}

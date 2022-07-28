@@ -38,6 +38,7 @@ const ArticleSize = ({className}) => {
                 <MoleculeInputTags
                   defaultTags={Data.beattles}
                   defaultValue="George Martin"
+                  name={`ArticleSize-${moleculeInputTagsInputSize}`}
                   size={moleculeInputTagsInputSize}
                   tagsCloseIcon={closeIcon}
                   onChange={(event, {name, tags, value, ...other}) => {

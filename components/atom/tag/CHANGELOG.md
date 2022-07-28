@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.43.0 (2022-07-27)
+
+
+### Features
+
+* **components/atom/tag:** refactoring and readOnly ([42450ac](https://github.com/SUI-Components/sui-components/commit/42450ac5bbe88d20ac664e36a1bbb71754a4afa8))
+
+
+
 # 2.42.0 (2022-07-13)
 
 

@@ -88,12 +88,12 @@ $base-class: '.sui-AtomTag';
     fill: $c-atom-tag-actionable;
     text-decoration: none;
 
-    &#{$base-class}--disabled {
+    &[aria-disabled='true'] {
       cursor: default;
       opacity: 0.3;
     }
 
-    &:not(#{$base-class}--disabled) {
+    &:not([aria-disabled='true']) {
       &:hover,
       &:active {
         background-color: $bgc-atom-tag-actionable--hover;
@@ -108,7 +108,7 @@ $base-class: '.sui-AtomTag';
       color: $c-atom-tag-actionable-invert;
       fill: $c-atom-tag-actionable-invert;
 
-      &:not(#{$base-class}--disabled) {
+      &:not([aria-disabled='true']) {
         &:hover,
         &:active {
           background-color: $bgc-atom-tag-actionable-invert--hover;
@@ -220,7 +220,7 @@ $base-class: '.sui-AtomTag';
       }
 
       @if $bgc-hover or $c-hover {
-        &:not(#{$self}--disabled) {
+        &:not([aria-disabled='true']) {
           &:hover,
           &:active {
             background-color: $bgc-hover;

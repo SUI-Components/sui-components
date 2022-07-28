@@ -1,6 +1,8 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
+import {onHandler} from './constants.js'
+
 const StandardTag = ({
   className,
   closeIcon,
@@ -8,25 +10,29 @@ const StandardTag = ({
   label,
   onClose,
   value,
+  readOnly,
   disabled,
   title
 }) => {
   const classNames = cx(className, closeIcon && 'sui-AtomTag-hasClose')
-  const handleClick = ev => {
-    if (!disabled) {
-      onClose(ev, {value, label})
-      ev.stopPropagation()
-    }
-  }
-
   return (
-    <span className={classNames}>
+    <span
+      className={classNames}
+      {...(disabled && {'aria-disabled': disabled})}
+      {...(readOnly && !disabled && {'aria-readonly': readOnly})}
+    >
       {icon && <span className="sui-AtomTag-icon">{icon}</span>}
       <span className="sui-AtomTag-label" title={title || label}>
         {label}
       </span>
-      {closeIcon && !disabled && (
-        <span className="sui-AtomTag-closeable" onClick={handleClick}>
+      {closeIcon && !(disabled || readOnly) && (
+        <span
+          className="sui-AtomTag-closeable"
+          onClick={onHandler({disabled, readOnly}, onClose, {
+            value,
+            label
+          })}
+        >
           <span className="sui-AtomTag-closeableIcon sui-AtomTag-secondary-icon">
             {closeIcon}
           </span>
@@ -37,6 +43,7 @@ const StandardTag = ({
 }
 
 StandardTag.propTypes = {
+  readOnly: PropTypes.bool,
   disabled: PropTypes.bool,
   onClose: PropTypes.func,
   closeIcon: PropTypes.node,

@@ -67,7 +67,7 @@ const MoleculeInputTags = forwardRef(
         let nextTags = tags.filter((_, i) => i !== indexTag)
         if (optionsData) {
           const keys = Object.keys(optionsData)
-          nextTags = keys.filter(key => tags.includes(optionsData[key]))
+          nextTags = keys.filter(key => nextTags.includes(optionsData[key]))
         }
         setTags(nextTags)
         isFunction(onChangeTags) &&

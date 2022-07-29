@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.55.0 (2022-07-29)
+
+
+### Bug Fixes
+
+* **components/molecule/select:** read-only clickable inputTag behavior ([550d650](https://github.com/SUI-Components/sui-components/commit/550d6508a9346778b64abafe11235dd7ff109a47))
+
+
+
 # 1.54.0 (2022-07-18)
 
 

@@ -44,7 +44,6 @@ const MoleculeSelectSingleSelection = props => {
         iconArrowDown={iconArrowDown}
         placeholder={placeholder}
         autoComplete="off"
-        readOnly
         required={required}
         size={selectSize}
         tabIndex={tabIndex}

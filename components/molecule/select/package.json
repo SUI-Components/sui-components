@@ -11,8 +11,10 @@
   "dependencies": {
     "@s-ui/js": "2",
     "@s-ui/react-atom-input": "5",
+    "@s-ui/react-hooks": "1",
     "@s-ui/react-molecule-dropdown-list": "1",
-    "@s-ui/react-molecule-input-tags": "2"
+    "@s-ui/react-molecule-input-tags": "2",
+    "@s-ui/react-primitive-injector": "1"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

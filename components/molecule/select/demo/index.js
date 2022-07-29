@@ -130,7 +130,7 @@ const Demo = () => (
 
       <div className={CLASS_DEMO_SECTION}>
         <h3>Small size</h3>
-        <MoleculeSelect
+        <MoleculeSelectWithState
           placeholder="Select a Country..."
           onChange={(_, {value}) => console.log(value)}
           iconArrowDown={<IconArrowDown />}
@@ -141,7 +141,7 @@ const Demo = () => (
               {name}
             </MoleculeSelectOption>
           ))}
-        </MoleculeSelect>
+        </MoleculeSelectWithState>
       </div>
 
       <div className={CLASS_DEMO_SECTION}>
@@ -150,7 +150,7 @@ const Demo = () => (
           State to highlight that can be <code>success</code>,{' '}
           <code>error</code> or <code>alert</code>
         </p>
-        <MoleculeSelect
+        <MoleculeSelectWithState
           placeholder="Select a Country..."
           onChange={(_, {value}) => console.log(value)}
           iconArrowDown={<IconArrowDown />}
@@ -161,7 +161,7 @@ const Demo = () => (
               {name}
             </MoleculeSelectOption>
           ))}
-        </MoleculeSelect>
+        </MoleculeSelectWithState>
       </div>
 
       <h2>Multiple Selection</h2>

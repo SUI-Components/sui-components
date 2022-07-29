@@ -21,13 +21,15 @@ $class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
       cursor: pointer;
       display: flex;
 
-      #{$class-select-atom-input-input}--readOnly {
+      #{$class-select-atom-input-input} {
+        caret-color: transparent;
         background: $bgc-atom-input;
         color: $c-atom-input;
       }
 
       .is-disabled & {
         cursor: default;
+
         #{$class-select-atom-input-input} {
           -webkit-text-fill-color: $c-molecule-select-disabled;
 
@@ -99,6 +101,7 @@ $class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
           border-color: $bdc-molecule-select-input-with-state;
         }
       }
+
       &#{$base-class}--focus #{$base-class}-inputSelect-container {
         .sui-AtomInput-input,
         .sui-AtomInput--withTags {

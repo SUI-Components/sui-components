@@ -5,29 +5,28 @@ import {
   useCallback,
   useEffect,
   useRef,
-  useState
+  useState,
+  forwardRef
 } from 'react'
 
-import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import {getTarget} from '@s-ui/js/lib/react'
 import {inputSizes as SELECT_SIZES} from '@s-ui/react-atom-input'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
 
 import MoleculeSelectMultipleSelection from './components/MultipleSelection.js'
 import MoleculeSelectSingleSelection from './components/SingleSelection.js'
 import {
-  BASE_CLASS,
-  CLASS_DISABLED,
-  CLASS_FOCUS,
   ENABLED_KEYS,
   getOptionData,
   SELECT_STATES,
-  SELECTION_KEYS
+  SELECTION_KEYS,
+  getClassName
 } from './config.js'
 
-const MoleculeSelect = props => {
+const MoleculeSelect = forwardRef((props, forwardedRef) => {
   const {
     isOpen,
     onToggle,
@@ -42,6 +41,7 @@ const MoleculeSelect = props => {
   } = props
   const refMoleculeSelect = useRef(refMoleculeSelectFromProps)
   const refsMoleculeSelectOptions = useRef([])
+  const ref = useMergeRefs(forwardedRef, refMoleculeSelect)
 
   const [isOpenState, setIsOpenState] = useState(isOpen)
   useEffect(() => setIsOpenState(isOpen), [isOpen, setIsOpenState])
@@ -61,16 +61,7 @@ const MoleculeSelect = props => {
       })
     })
 
-  const className = cx(
-    BASE_CLASS,
-    errorState && `${BASE_CLASS}--${SELECT_STATES.ERROR}`,
-    errorState === false && `${BASE_CLASS}--${SELECT_STATES.SUCCESS}`,
-    state && `${BASE_CLASS}--${state}`,
-    {
-      [CLASS_FOCUS]: focus,
-      [CLASS_DISABLED]: disabled
-    }
-  )
+  const className = getClassName({state, errorState, focus, disabled})
 
   const closeList = useCallback((ev, {isOutsideEvent = false}) => {
     setIsOpenState(false)
@@ -144,10 +135,13 @@ const MoleculeSelect = props => {
       setTimeout(() => focusFirstOption(ev))
     }
   }
+  const Select = multiselection
+    ? MoleculeSelectMultipleSelection
+    : MoleculeSelectSingleSelection
 
   return (
     <div
-      ref={refMoleculeSelect}
+      ref={ref}
       tabIndex="0"
       className={className}
       onKeyDown={handleKeyDown}
@@ -156,30 +150,18 @@ const MoleculeSelect = props => {
       onClick={handleClick}
       aria-label={ariaLabel}
     >
-      {multiselection ? (
-        <MoleculeSelectMultipleSelection
-          refMoleculeSelect={refMoleculeSelect}
-          optionsData={optionsData}
-          isOpen={isOpenState}
-          onToggle={handleToggle}
-          {...props}
-        >
-          {extendedChildren}
-        </MoleculeSelectMultipleSelection>
-      ) : (
-        <MoleculeSelectSingleSelection
-          refMoleculeSelect={refMoleculeSelect}
-          optionsData={optionsData}
-          isOpen={isOpenState}
-          onToggle={handleToggle}
-          {...props}
-        >
-          {extendedChildren}
-        </MoleculeSelectSingleSelection>
-      )}
+      <Select
+        refMoleculeSelect={refMoleculeSelect}
+        optionsData={optionsData}
+        isOpen={isOpenState}
+        onToggle={handleToggle}
+        {...props}
+      >
+        {extendedChildren}
+      </Select>
     </div>
   )
-}
+})
 
 MoleculeSelect.propTypes = {
   /** children */

@@ -70,12 +70,12 @@ const MoleculeSelectFieldMultiSelection = props => {
         placeholder={!values.length ? placeholder : ''}
         optionsData={optionsData}
         autoComplete="off"
-        readOnly
         noBorder
         required={required}
         size={selectSize}
         tabIndex={tabIndex}
         maxTags={maxTags}
+        value=""
       >
         <MoleculeInputTags />
       </MoleculeInputSelect>

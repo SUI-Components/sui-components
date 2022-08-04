@@ -84,8 +84,14 @@ const MoleculeInputTags = forwardRef(
       ev.preventDefault()
       if (value) {
         const nextTags = [...tags]
+        let options
         if (allowDuplicates || !isDuplicate(tags, value)) {
-          nextTags.push(value)
+          if (optionsData) {
+            options = optionsData.filter(
+              optionData => optionData.label === value
+            )[0]
+          }
+          nextTags.push(options || value)
         }
         setTags(nextTags)
         setValue('')
@@ -100,7 +106,7 @@ const MoleculeInputTags = forwardRef(
       }
     }
 
-    const handleInputChange = (ev, {value, args}) => {
+    const handleInputChange = (ev, {value, ...args}) => {
       setValue(value)
       isFunction(onInputChange) && onInputChange(ev, {...args, value, tags})
     }

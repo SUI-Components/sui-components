@@ -5,6 +5,9 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import sinon from 'sinon'
+
+import userEvents from '@testing-library/user-event'
 
 import json from '../package.json'
 import * as pkg from '../src/index.js'
@@ -80,6 +83,342 @@ describe(json.name, () => {
       expect(findClassName(container.innerHTML)).to.be.null
     })
 
+    describe('handlers', () => {
+      it('NOT given an changing input value does NOT fire the onChange handler', () => {
+        // Given
+        const spy = sinon.spy()
+        const props = {
+          onChange: spy,
+          name: 'name'
+        }
+
+        // When
+        setup(props)
+
+        // Then
+        sinon.assert.callCount(spy, 0)
+      })
+
+      it('Given an changing input value fires the onChange handler n value.length times', () => {
+        // Given
+        const spy = sinon.spy()
+        const value = 'value'
+        const props = {
+          name: 'name',
+          onChange: spy
+        }
+
+        // When
+        const {queryByRole} = setup(props)
+        const input = queryByRole('textbox')
+
+        // Then
+        sinon.assert.callCount(spy, 0)
+
+        // And
+        // When
+        userEvents.type(input, value)
+
+        // Then
+        sinon.assert.callCount(spy, value.length)
+        sinon.assert.calledWith(
+          spy.getCall(value.length - 1),
+          sinon.match.truthy,
+          sinon.match({
+            tags: [],
+            name: props.name,
+            value: value
+          })
+        )
+      })
+
+      it('Given an changing input value fires the onChange handler n value.length times and predefined tags', () => {
+        // Given
+        const spy = sinon.spy()
+        const value = 'value'
+        const props = {
+          name: 'name',
+          onChange: spy,
+          tags: ['tag1', 'tag2']
+        }
+
+        // When
+        const {queryByRole} = setup(props)
+        const input = queryByRole('textbox')
+
+        // Then
+        sinon.assert.callCount(spy, 0)
+
+        // And
+        // When
+        userEvents.type(input, value)
+
+        // Then
+        sinon.assert.callCount(spy, value.length)
+        sinon.assert.calledWith(
+          spy.getCall(value.length - 1),
+          sinon.match.truthy,
+          sinon.match({
+            tags: props.tags,
+            name: props.name,
+            value: value
+          })
+        )
+      })
+
+      it('Given an changing input value and triggering the default onEnterKey does NOT fire the onChange handler and add value to the tags array', () => {
+        // Given
+        const onChangeSpy = sinon.spy()
+        const onChangeTagsSpy = sinon.spy()
+        const value = 'value'
+        const props = {
+          name: 'name',
+          tags: [],
+          onChange: onChangeSpy,
+          onChangeTags: onChangeTagsSpy,
+          value
+        }
+
+        // When
+        const {queryByRole} = setup(props)
+        const input = queryByRole('textbox')
+
+        // Then
+        sinon.assert.callCount(onChangeSpy, 0)
+        sinon.assert.callCount(onChangeTagsSpy, 0)
+
+        // And
+        // When
+        userEvents.type(input, '{enter}')
+
+        // Then
+        sinon.assert.callCount(onChangeSpy, 0)
+        sinon.assert.callCount(onChangeTagsSpy, 1)
+        sinon.assert.calledWith(
+          onChangeTagsSpy,
+          sinon.match.truthy,
+          sinon.match({
+            tags: [...props.tags, value],
+            tag: value,
+            name: props.name,
+            value: ''
+          })
+        )
+      })
+
+      it('Given an changing input value and triggering the default onEnterKey does NOT fire the onChange handler and add value at the end of the tags array', () => {
+        // Given
+        const onChangeSpy = sinon.spy()
+        const onChangeTagsSpy = sinon.spy()
+        const value = 'value'
+        const props = {
+          name: 'name',
+          tags: ['tag1', 'tag2'],
+          onChange: onChangeSpy,
+          onChangeTags: onChangeTagsSpy,
+          value
+        }
+
+        // When
+        const {queryByRole} = setup(props)
+        const input = queryByRole('textbox')
+
+        // Then
+        sinon.assert.callCount(onChangeSpy, 0)
+        sinon.assert.callCount(onChangeTagsSpy, 0)
+
+        // And
+        // When
+        userEvents.type(input, '{enter}')
+
+        // Then
+        sinon.assert.callCount(onChangeSpy, 0)
+        sinon.assert.callCount(onChangeTagsSpy, 1)
+        sinon.assert.calledWith(
+          onChangeTagsSpy,
+          sinon.match.truthy,
+          sinon.match({
+            tags: [...props.tags, value],
+            tag: value,
+            name: props.name,
+            value: ''
+          })
+        )
+      })
+
+      it('Given an changing input value and triggering the default onEnterKey and setting allowDuplicates to false removes the value and returns the tags array', () => {
+        // Given
+        const onChangeSpy = sinon.spy()
+        const onChangeTagsSpy = sinon.spy()
+        const value = 'tag1'
+        const props = {
+          name: 'name',
+          tags: [value, 'tag2'],
+          onChange: onChangeSpy,
+          onChangeTags: onChangeTagsSpy,
+          allowDuplicates: false,
+          value
+        }
+
+        // When
+        const {queryByRole} = setup(props)
+        const input = queryByRole('textbox')
+
+        // Then
+        sinon.assert.callCount(onChangeSpy, 0)
+        sinon.assert.callCount(onChangeTagsSpy, 0)
+
+        // And
+        // When
+        userEvents.type(input, '{enter}')
+
+        // Then
+        sinon.assert.callCount(onChangeSpy, 0)
+        sinon.assert.callCount(onChangeTagsSpy, 1)
+        sinon.assert.calledWith(
+          onChangeTagsSpy,
+          sinon.match.truthy,
+          sinon.match({
+            tags: [...props.tags],
+            tag: value,
+            name: props.name,
+            value: ''
+          })
+        )
+      })
+
+      it('Given an changing input value and triggering the default onEnterKey and setting allowDuplicates to false removes the value and returns the tags array even if they match its capitalized value', () => {
+        // Given
+        const onChangeSpy = sinon.spy()
+        const onChangeTagsSpy = sinon.spy()
+        const value = 'tag1'
+        const props = {
+          name: 'name',
+          tags: [value.toUpperCase(), 'tag2'],
+          onChange: onChangeSpy,
+          onChangeTags: onChangeTagsSpy,
+          allowDuplicates: false,
+          value
+        }
+
+        // When
+        const {queryByRole} = setup(props)
+        const input = queryByRole('textbox')
+
+        // Then
+        sinon.assert.callCount(onChangeSpy, 0)
+        sinon.assert.callCount(onChangeTagsSpy, 0)
+
+        // And
+        // When
+        userEvents.type(input, '{enter}')
+
+        // Then
+        sinon.assert.callCount(onChangeSpy, 0)
+        sinon.assert.callCount(onChangeTagsSpy, 1)
+        sinon.assert.calledWith(
+          onChangeTagsSpy,
+          sinon.match.truthy,
+          sinon.match({
+            tags: [...props.tags],
+            tag: value,
+            name: props.name,
+            value: ''
+          })
+        )
+      })
+
+      it('Given an changing input value and triggering the default onEnterKey and setting allowDuplicates to false removes the value and returns the tags array if it does not match an optionsData valid value', () => {
+        // Given
+        const onChangeSpy = sinon.spy()
+        const onChangeTagsSpy = sinon.spy()
+        const optionsData = [
+          {key: 'val0', label: 'lab0'},
+          {key: 'val1', label: 'lab1'},
+          {key: 'val2', label: 'lab2'},
+          {key: 'val3', label: 'lab3'}
+        ]
+        const value = optionsData[3].label
+        const props = {
+          name: 'name',
+          tags: [optionsData[0], optionsData[1]],
+          optionsData,
+          onChange: onChangeSpy,
+          onChangeTags: onChangeTagsSpy,
+          allowDuplicates: false,
+          value
+        }
+
+        // When
+        const {queryByRole} = setup(props)
+        const input = queryByRole('textbox')
+
+        // Then
+        sinon.assert.callCount(onChangeSpy, 0)
+        sinon.assert.callCount(onChangeTagsSpy, 0)
+
+        // And
+        // When
+        userEvents.type(input, '{enter}')
+
+        // Then
+        sinon.assert.callCount(onChangeSpy, 0)
+        sinon.assert.callCount(onChangeTagsSpy, 1)
+        sinon.assert.calledWith(
+          onChangeTagsSpy,
+          sinon.match.truthy,
+          sinon.match({
+            tags: [...props.tags, optionsData[3]],
+            tag: value,
+            name: props.name,
+            value: ''
+          })
+        )
+      })
+
+      it('Triggering the closeIcon on a tag removes it', () => {
+        // Given
+        const onChangeSpy = sinon.spy()
+        const onChangeTagsSpy = sinon.spy()
+        const value = 'tag1'
+        const props = {
+          name: 'name',
+          tags: [value, 'tag2'],
+          onChange: onChangeSpy,
+          onChangeTags: onChangeTagsSpy,
+          allowDuplicates: false,
+          value,
+          tagsCloseIcon: <button />
+        }
+
+        // When
+        const {getAllByRole} = setup(props)
+        const buttons = getAllByRole('button')
+
+        // Then
+        sinon.assert.callCount(onChangeSpy, 0)
+        sinon.assert.callCount(onChangeTagsSpy, 0)
+
+        // And
+        // When
+        userEvents.click(buttons[0])
+
+        // Then
+        sinon.assert.callCount(onChangeSpy, 0)
+        sinon.assert.callCount(onChangeTagsSpy, 1)
+        sinon.assert.calledWith(
+          onChangeTagsSpy,
+          sinon.match.truthy,
+          sinon.match({
+            tags: [...props.tags.slice(1)],
+            tag: value,
+            name: props.name,
+            value
+          })
+        )
+      })
+    })
+
     describe('when the element is disabled', () => {
       it('input should be disabled', () => {
         // Given
@@ -110,7 +449,7 @@ describe(json.name, () => {
       })
     })
 
-    describe('when has placeholder', () => {
+    describe('placeholder', () => {
       it('should display the placeholder if no tags avaiable', () => {
         // Given
         const props = {placeholder: 'Type your favorite beetle'}
@@ -139,7 +478,9 @@ describe(json.name, () => {
       })
     })
 
-    describe('when has maxTags', () => {
+    describe('allowDuplicates', () => {})
+
+    describe('maxTags', () => {
       it('should allow add tags if max not reached', () => {
         // Given
         const props = {

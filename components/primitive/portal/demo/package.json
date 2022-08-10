@@ -1,0 +1,12 @@
+{
+  "name": "@s-ui/react-primitive-portal-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Demo for sui-primitive-portal",
+  "dependencies": {
+    "@s-ui/js": "2.26.0",
+    "@s-ui/react-atom-icon": "1.18.0",
+    "@s-ui/react-primitive-injector": "1.2.0",
+    "@s-ui/react-primitive-polymorphic-element": "1.2.0"
+  }
+}

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.13.0 (2022-08-12)
+
+
+### Features
+
+* **components/molecule/avatar:** add dependecy to useCallback ([1896f4c](https://github.com/SUI-Components/sui-components/commit/1896f4c20fb3e9f7efbff1bc9dcab0c1833b7032))
+* **components/molecule/avatar:** add imageProps to pass directly to AtomImage ([3d206da](https://github.com/SUI-Components/sui-components/commit/3d206da0827ab18ca388d2d9bb08daae0815f891))
+
+
+
 # 1.12.0 (2022-06-22)
 
 

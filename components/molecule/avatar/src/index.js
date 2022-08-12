@@ -78,7 +78,16 @@ const MoleculeAvatar = forwardRef(
           {!isLoading && children}
         </>
       )
-    }, [isLoading, skeleton, children, src, name, fallbackIcon, size])
+    }, [
+      children,
+      fallbackIcon,
+      isLoading,
+      name,
+      size,
+      skeleton,
+      src,
+      imageProps
+    ])
 
     return (
       <span

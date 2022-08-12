@@ -42,6 +42,7 @@ const MoleculeAvatar = forwardRef(
       fallbackIcon,
       style,
       isLoading,
+      imageProps = {},
       children: childrenProp,
       ...others
     },
@@ -65,7 +66,12 @@ const MoleculeAvatar = forwardRef(
       return (
         <>
           {src ? (
-            <AtomImage src={src} alt={name} errorIcon={fallback} />
+            <AtomImage
+              src={src}
+              alt={name}
+              errorIcon={fallback}
+              {...imageProps}
+            />
           ) : (
             fallback
           )}
@@ -99,6 +105,7 @@ MoleculeAvatar.propTypes = {
   fallbackIcon: PropTypes.element,
   skeleton: PropTypes.element,
   isLoading: PropTypes.bool,
+  imageProps: PropTypes.object,
   children: PropTypes.node,
   size: PropTypes.oneOf(Object.values(AVATAR_SIZES))
 }

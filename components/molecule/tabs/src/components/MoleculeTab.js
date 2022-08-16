@@ -54,6 +54,9 @@ const MoleculeTab = forwardRef(
         className={className}
         onClick={handleChange}
         ref={useMergeRefs(innerRef, forwardedRef)}
+        role="tab"
+        aria-selected={active}
+        aria-controls={`molecule-tab-content-${numTab}`}
       >
         {icon && <span className={CLASS_TAB_ICON}>{icon}</span>}
         {!isNaN(count) && <span className={CLASS_TAB_COUNT}>{count}</span>}

@@ -42,10 +42,9 @@ const MoleculeTabs = ({
 
   const activeTabContent = childrenArray.reduce((activeContent, child) => {
     if (child) {
-      const {children: childrenChild, active, label, numTab} = child.props
+      const {children: childrenChild, active, numTab} = child.props
       return active ? (
         <div
-          aria-labelledby={label}
           className={CLASS_CONTENT}
           id={`molecule-tab-content-${numTab}`}
           role="tabpanel"
@@ -53,10 +52,10 @@ const MoleculeTabs = ({
           {childrenChild}
         </div>
       ) : (
-        <div className={CLASS_CONTENT}>{activeContent}</div>
+        activeContent
       )
     }
-    return <div className={CLASS_CONTENT}>{activeContent}</div>
+    return activeContent
   }, null)
 
   return (

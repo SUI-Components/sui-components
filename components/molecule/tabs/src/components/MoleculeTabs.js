@@ -25,6 +25,7 @@ const MoleculeTabs = ({
     [`${BASE_CLASS}--${type}`]: type
   })
   const childrenArray = Children.toArray(children)
+  const isVerticalOrientation = type === TYPES.VERTICAL
 
   const [isIntersecting, outerRef] = useOnScreen()
 
@@ -60,7 +61,14 @@ const MoleculeTabs = ({
 
   return (
     <div className={className}>
-      <ul ref={outerRef} className={CLASS_SCROLLER} role="tablist">
+      <ul
+        ref={outerRef}
+        className={CLASS_SCROLLER}
+        role="tablist"
+        aria-orientation={
+          isVerticalOrientation ? TYPES.VERTICAL : TYPES.HORIZONTAL
+        }
+      >
         {extendedChildren}
       </ul>
       {activeTabContent || null}

@@ -109,7 +109,7 @@ $base-class: '.sui-AtomButton';
 
   &#{$base-class}--link:not(#{$base-class}--solid):not(#{$base-class}--outline):not(#{$base-class}--flat) {
     background: transparent;
-
+    user-select: text;
     border: none;
     @include link();
     padding: 0;

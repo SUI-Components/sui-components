@@ -224,7 +224,7 @@ const Demo = () => {
             button. If it's not set no shadow will be shown.
           </Paragraph>
         </div>
-        <Grid cols={2} gutter={10}>
+        <Grid cols={atomButtonElevationsIterator.length} gutter={10}>
           {atomButtonElevationsIterator.map(([{elevation}], index) => (
             <Fragment key={index}>
               <Cell style={flexCenteredStyle}>

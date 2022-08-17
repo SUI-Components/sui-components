@@ -178,7 +178,7 @@ import Button from '@s-ui/react-atom-button'
 return (
   <Button
     link
-    href="http://www.schibsted.com/"
+    href="https://www.adevinta.com"
     target="_blank"
     rel="nofollow noopener"
   >
@@ -192,7 +192,7 @@ output:
 ```html
 <a
   class="sui-AtomButton sui-AtomButton--link"
-  href="http://www.schibsted.com/"
+  href="https://www.adevinta.com"
   target="_blank"
   >Link</a
 >

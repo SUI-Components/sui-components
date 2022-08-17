@@ -1,4 +1,4 @@
-import {forwardRef, Fragment, useMemo} from 'react'
+import {forwardRef, Fragment, useMemo, useState, useEffect} from 'react'
 import {createPortal} from 'react-dom'
 import {isFragment} from 'react-is'
 
@@ -6,37 +6,39 @@ import PropTypes from 'prop-types'
 
 import Injector from '@s-ui/react-primitive-injector'
 import Poly from '@s-ui/react-primitive-polymorphic-element'
-import {getTarget} from '@s-ui/js/lib/react/index.js'
+import useMountedState from '@s-ui/react-hooks/lib/useMountedState'
+
+import {BASE_CLASS, getContainer} from './settings.js'
 
 const PrimitivePortal = forwardRef(
-  (
-    {
-      container = globalThis?.document?.body,
-      as: AsProp = Fragment,
-      children,
-      ...props
-    },
-    forwardedRef
-  ) => {
-    const target = useMemo(() => getTarget(container), [container])
+  ({target, as: AsProp = Fragment, children, ...props}, forwardedRef) => {
+    const isMounted = useMountedState()
+    const hasForwardRef = forwardedRef !== null
+    const [container, setContainer] = useState('')
+
+    useEffect(() => {
+      if (isMounted()) {
+        setContainer(() => getContainer(target), [target])
+      }
+    }, [target, setContainer, isMounted, getContainer])
+
     const As = useMemo(
-      () =>
-        isFragment(<AsProp />) && forwardedRef !== undefined ? 'div' : AsProp,
-      [AsProp, forwardedRef]
+      () => (isFragment(<AsProp />) && hasForwardRef ? 'div' : AsProp),
+      [AsProp, hasForwardRef]
     )
-    return target
+
+    return container
       ? createPortal(
           <Poly
             as={As}
-            {...(!isFragment(<AsProp />) ||
-              (forwardedRef !== undefined && {
-                className: 'sui-PrimitivePortal',
-                ref: forwardedRef
-              }))}
+            {...(!isFragment(<AsProp /> || hasForwardRef) && {
+              className: BASE_CLASS,
+              ref: forwardedRef
+            })}
           >
             <Injector {...props}>{children}</Injector>
           </Poly>,
-          target
+          container
         )
       : null
   }
@@ -44,8 +46,11 @@ const PrimitivePortal = forwardRef(
 
 PrimitivePortal.displayName = 'PrimitivePortal'
 PrimitivePortal.propTypes = {
+  /* Render the passed value as the correspondent HTML tag or the component if a function is passed */
   as: PropTypes.elementType,
-  container: PropTypes.object,
+  /** Element where portal should be rendered, by default new div element is created and appended to document.body */
+  target: PropTypes.object,
+  /** inner virtual-dom elements **/
   children: PropTypes.node
 }
 

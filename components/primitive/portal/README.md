@@ -2,12 +2,15 @@
 
 > Description
 
+Renders a React subtree in a different part of the DOM.
+
+
 <!-- ![](./assets/preview.png) -->
 
 ## Installation
 
 ```sh
-$ npm install sui-primitive-portal
+$ npm install @s-ui/primitive-portal
 ```
 
 ## Usage
@@ -17,9 +20,11 @@ $ npm install sui-primitive-portal
 #### Import package and use the component
 
 ```js
-import PrimitivePortal from 'sui-primitive-portal'
+import PrimitivePortal from '@s-ui/primitive-portal'
 
-return (<PrimitivePortal />)
+return (
+  <PrimitivePortal >{children}</PrimitivePortal>
+)
 ```
 
 #### Import the styles (Sass)
@@ -27,7 +32,7 @@ return (<PrimitivePortal />)
 ```css
 @import '~@s-ui/theme/lib/index';
 /* @import 'your theme'; */
-@import '~sui-primitive-portal/lib/index';
+@import '~@s-ui/primitive-portal/lib/index';
 ```
 
 

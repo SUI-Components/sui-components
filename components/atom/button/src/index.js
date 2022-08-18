@@ -14,6 +14,7 @@ import {
   COLORS,
   deprecated,
   DESIGNS,
+  ELEVATIONS,
   getModifiers,
   getPropsWithDefaultValues,
   GROUP_POSITIONS,
@@ -45,6 +46,7 @@ const AtomButton = forwardRef((props, ref) => {
     title,
     type,
     shape,
+    elevation,
     isFitted,
     selected,
     value
@@ -66,7 +68,8 @@ const AtomButton = forwardRef((props, ref) => {
     {[`${CLASS}--${shape}`]: Object.values(SHAPES).includes(shape)},
     {
       [`${CLASS}--loading`]: isLoading,
-      [`${CLASS}--fitted`]: isFitted
+      [`${CLASS}--fitted`]: isFitted,
+      [`${CLASS}--elevation-${elevation}`]: !!elevation
     },
     className
   )
@@ -218,6 +221,10 @@ AtomButton.propTypes = {
    */
   fullWidth: PropTypes.bool,
   /**
+   * Size of button shadow
+   */
+  elevation: PropTypes.oneOf(Object.values(ELEVATIONS)),
+  /**
    * Icon to be added on the left of the content
    */
   leftIcon: PropTypes.node,
@@ -268,3 +275,4 @@ export {SIZES as atomButtonSizes}
 export {TYPES as atomButtonTypes}
 export {ALIGNMENT as atomButtonAlignment}
 export {SHAPES as atomButtonShapes}
+export {ELEVATIONS as atomButtonElevations}

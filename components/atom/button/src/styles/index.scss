@@ -244,6 +244,24 @@ $base-class: '.sui-AtomButton';
     }
   }
 
+  @each $key-bxsh, $bxsh in $bxsh-atom-button {
+    &--elevation-#{$key-bxsh} {
+      box-shadow: $bxsh;
+
+      &#{$base-class}--primary {
+        box-shadow: $bxsh;
+
+        &#{$base-class}--negative {
+          box-shadow: $bxsh;
+        }
+      }
+    }
+  }
+
+  &:focus {
+    box-shadow: $bxsh-atom-button-focus;
+  }
+
   &--squared {
     border-radius: 0;
   }

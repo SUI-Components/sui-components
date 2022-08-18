@@ -33,6 +33,7 @@ describe(json.name, () => {
       'atomButtonTypes',
       'atomButtonAlignment',
       'atomButtonShapes',
+      'atomButtonElevations',
       'default'
     ]
 
@@ -45,6 +46,7 @@ describe(json.name, () => {
       atomButtonTypes,
       atomButtonAlignment,
       atomButtonShapes,
+      atomButtonElevations,
       default: AtomButton,
       ...others
     } = library

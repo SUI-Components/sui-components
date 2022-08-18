@@ -33,15 +33,6 @@ $base-class-atom-input-input: '#{$base-class-atom-input}-input';
       display: flex;
       min-height: $h-atom-input--m;
     }
-
-    &-icon {
-      display: flex;
-      flex-direction: column;
-      height: $h-atom-input--m;
-      justify-content: center;
-      margin-left: $mr-autosuggest-icon-clear;
-      width: $w-autosuggest-icon-clear;
-    }
   }
 
   @each $state, $color in $states-atom-input {

@@ -1,7 +1,8 @@
 $base-class: '.sui-MoleculeAutosuggest';
-$base-class-atom-input: '.sui-AtomInput';
+$class-atom-input: '.sui-AtomInput';
 $class-input: '#{$base-class}-input';
-$base-class-atom-input-input: '#{$base-class-atom-input}-input';
+$class-input-container: '#{$class-input}-container';
+$class-atom-input-input: '#{$class-atom-input}-input';
 
 #{$base-class} {
   position: relative;
@@ -18,25 +19,41 @@ $base-class-atom-input-input: '#{$base-class-atom-input}-input';
   }
 
   &--disabled {
-    #{$class-input}-container {
-      #{$base-class-atom-input}--withTags {
+    #{$class-input-container} {
+      #{$class-atom-input}--withTags {
         background: $c-gray-lightest;
       }
     }
   }
 
-  #{$class-input} {
-    &-container {
-      align-items: center;
-      border: $bdw-autosuggest-container solid transparent;
-      cursor: default;
+  #{$class-input-container} {
+    #{$class-atom-input}--withIcon {
       display: flex;
-      min-height: $h-atom-input--m;
+      flex-grow: 1;
+      width: unset;
+    }
+    #{$class-input} {
+      &-container {
+        align-items: center;
+        border: $bdw-autosuggest-container solid transparent;
+        cursor: default;
+        display: flex;
+        min-height: $h-atom-input--m;
+      }
+
+      &-icon,
+      &-clear-icon {
+        display: flex;
+        flex-direction: column;
+        height: $h-atom-input--m;
+        justify-content: center;
+        fill: $c-gray;
+      }
     }
   }
 
   @each $state, $color in $states-atom-input {
-    &#{$base-class}--#{$state} #{$base-class-atom-input-input} {
+    &#{$base-class}--#{$state} #{$class-atom-input-input} {
       border-color: $color;
     }
   }

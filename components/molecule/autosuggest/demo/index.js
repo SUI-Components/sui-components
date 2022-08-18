@@ -1,49 +1,30 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 import {useState} from 'react'
 
-import MoleculeAutosuggest, {
-  MoleculeAutosuggestStates
-} from 'components/molecule/autosuggest/src/index.js'
+import {MoleculeAutosuggestStates} from 'components/molecule/autosuggest/src/index.js'
 
-import {withStateValue, withStateValueTags} from '@s-ui/hoc'
 import SuiButton from '@s-ui/react-atom-button'
 import MoleculeAutosuggestField from '@s-ui/react-molecule-autosuggest-field'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
 
 import ComboCountries from './components/ComboCountries.js'
-import withDynamicOptions from './hoc/withDynamicOptions.js'
-import {IconClose, IconSearch} from './Icons/index.js'
-import {getAsyncCountriesFromQuery} from './services/index.js'
+import {
+  iconClose,
+  iconSearch,
+  iconAlert,
+  iconInfo,
+  iconError
+} from './Icons/index.js'
+
+import {
+  CLASS_DEMO_SECTION,
+  options,
+  MoleculeAutosuggestWithState,
+  MoleculeAutosuggestWithStateTags,
+  MoleculeAutosuggestWithStateTagsLabels
+} from './config.js'
 
 import './index.scss'
-
-const MoleculeAutosuggestWithDynamicOptions = withDynamicOptions(
-  MoleculeAutosuggest,
-  MoleculeAutosuggestOption
-)(getAsyncCountriesFromQuery)
-
-const MoleculeAutosuggestWithState = withStateValue(
-  MoleculeAutosuggestWithDynamicOptions
-)
-
-const MoleculeAutosuggestWithStateTags = withStateValueTags(
-  MoleculeAutosuggestWithDynamicOptions
-)
-
-const MoleculeAutosuggestWithStateTagsLabels = withStateValueTags(
-  MoleculeAutosuggestField
-)
-
-const BASE_CLASS_DEMO = 'DemoMoleculeAutosuggest'
-const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
-
-const options = [
-  {key: 'C10', label: 'Reservado'},
-  {key: 'C20', label: 'Llamar'},
-  {key: 'C30', label: 'No se Rick'},
-  {key: 'C40', label: 'Comisión'},
-  {key: '100', label: 'Mola'}
-]
 
 const Demo = () => {
   const [tags, setTags] = useState([{key: 1, label: 'Label'}])
@@ -69,14 +50,14 @@ const Demo = () => {
         <div className={CLASS_DEMO_SECTION}>
           <h3>with Placeholder</h3>
           <MoleculeAutosuggestWithState
-            leftIcon={<IconSearch />}
+            leftIcon={iconSearch}
             placeholder="Type a Country name..."
             onChange={(_, {value, ...args}) => console.log({value, ...args})}
             onEnter={(_, {value, ...args} = {}) => {
               console.log('onEnter', {value, ...args}, _.target)
             }}
             onClear={() => console.log('Clear pressed')}
-            iconClear={<IconClose />}
+            iconClear={iconClose}
           />
         </div>
 
@@ -89,7 +70,7 @@ const Demo = () => {
               console.log('onEnter', {value, ...args})
             }
             onClear={() => console.log('Clear pressed')}
-            iconClear={<IconClose />}
+            iconClear={iconClose}
           />
         </div>
 
@@ -102,7 +83,7 @@ const Demo = () => {
               console.log('onEnter', {value, ...args})
             }
             onClear={() => console.log('Clear pressed')}
-            iconClear={<IconClose />}
+            iconClear={iconClose}
             disabled
           />
         </div>
@@ -116,7 +97,7 @@ const Demo = () => {
               console.log('onEnter', {value, ...args})
             }
             onClear={() => console.log('Clear pressed')}
-            iconClear={<IconClose />}
+            iconClear={iconClose}
             autoComplete="off"
           />
         </div>
@@ -139,7 +120,8 @@ const Demo = () => {
             }
             onClear={() => console.log('Clear pressed')}
             state={MoleculeAutosuggestStates.SUCCESS}
-            iconClear={<IconClose />}
+            iconClear={iconClose}
+            rightIcon={iconInfo}
           />
         </div>
 
@@ -153,7 +135,8 @@ const Demo = () => {
             }
             onClear={() => console.log('Clear pressed')}
             state={MoleculeAutosuggestStates.ERROR}
-            iconClear={<IconClose />}
+            iconClear={iconClose}
+            rightIcon={iconError}
           />
         </div>
 
@@ -167,7 +150,8 @@ const Demo = () => {
             }
             state={MoleculeAutosuggestStates.ALERT}
             onClear={() => console.log('Clear pressed')}
-            iconClear={<IconClose />}
+            iconClear={iconClose}
+            rightIcon={iconAlert}
           />
         </div>
 
@@ -186,14 +170,14 @@ const Demo = () => {
         <div className={CLASS_DEMO_SECTION}>
           <h3>with Shape</h3>
           <MoleculeAutosuggestWithState
-            leftIcon={<IconSearch />}
+            leftIcon={iconSearch}
             placeholder="Type a Country name..."
             onChange={(_, {value, ...args}) => console.log({value, ...args})}
             onEnter={(_, {value, ...args} = {}) =>
               console.log('onEnter', {value, ...args})
             }
             onClear={() => console.log('Clear pressed')}
-            iconClear={<IconClose />}
+            iconClear={iconClose}
             shape="circle"
           />
         </div>
@@ -213,8 +197,8 @@ const Demo = () => {
               console.log('onChangeTags', {tags, ...args})
             }
             onClear={() => console.log('Clear pressed')}
-            iconCloseTag={<IconClose />}
-            iconClear={<IconClose />}
+            iconCloseTag={iconClose}
+            iconClear={iconClose}
             multiselection
           />
         </div>
@@ -227,8 +211,8 @@ const Demo = () => {
               console.log('onChangeTags', {tags, ...args})
             }
             onClear={() => console.log('Clear pressed')}
-            iconCloseTag={<IconClose />}
-            iconClear={<IconClose />}
+            iconCloseTag={iconClose}
+            iconClear={iconClose}
             multiselection
           />
         </div>
@@ -241,8 +225,8 @@ const Demo = () => {
               console.log('onChangeTags', {tags, ...args})
             }
             onClear={() => console.log('Clear pressed')}
-            iconCloseTag={<IconClose />}
-            iconClear={<IconClose />}
+            iconCloseTag={iconClose}
+            iconClear={iconClose}
             multiselection
             disabled
           />
@@ -258,8 +242,8 @@ const Demo = () => {
         <div className={CLASS_DEMO_SECTION}>
           <h3>With preselected Value</h3>
           <MoleculeAutosuggestWithStateTagsLabels
-            iconClear={<IconClose />}
-            iconCloseTag={<IconClose />}
+            iconClear={iconClose}
+            iconCloseTag={iconClose}
             label="Etiquetas"
             isOpen
             multiselection
@@ -293,8 +277,8 @@ const Demo = () => {
 
           <h3>Single selection</h3>
           <MoleculeAutosuggestField
-            iconClear={<IconClose />}
-            iconCloseTag={<IconClose />}
+            iconClear={iconClose}
+            iconCloseTag={iconClose}
             label="Etiquetas"
             allowDuplicates={false}
             value={singleValue}
@@ -325,8 +309,8 @@ const Demo = () => {
 
           <h3>Multiselection</h3>
           <MoleculeAutosuggestField
-            iconClear={<IconClose />}
-            iconCloseTag={<IconClose />}
+            iconClear={iconClose}
+            iconCloseTag={iconClose}
             label="Etiquetas"
             multiselection
             allowDuplicates={false}
@@ -367,8 +351,8 @@ const Demo = () => {
                 console.log('onChangeTags', {tags, ...args})
               }
               onClear={() => console.log('Clear pressed')}
-              iconCloseTag={<IconClose />}
-              iconClear={<IconClose />}
+              iconCloseTag={iconClose}
+              iconClear={iconClose}
               multiselection
             />
           </div>

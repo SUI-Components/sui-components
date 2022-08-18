@@ -1,4 +1,30 @@
-const IconClose = () => (
+import PropTypes from 'prop-types'
+
+import AtomIcon, {atomIconColors, atomIconSizes} from '@s-ui/react-atom-icon'
+import {AntDesignIcon} from '@s-ui/documentation-library'
+
+const alert = (
+  <AntDesignIcon icon="AiFillAlert" style={{color: 'currentcolor'}} />
+)
+const info = <AntDesignIcon icon="AiFillBulb" style={{color: 'currentcolor'}} />
+const error = (
+  <AntDesignIcon icon="AiOutlineExclamation" style={{color: 'currentcolor'}} />
+)
+
+const Icon = ({children, ...props}) => (
+  <AtomIcon size={atomIconSizes.small} {...props}>
+    {children}
+  </AtomIcon>
+)
+Icon.propTypes = {
+  children: PropTypes.node
+}
+
+const iconAlert = <Icon color={atomIconColors.alert}>{alert}</Icon>
+const iconInfo = <Icon color={atomIconColors.success}>{info}</Icon>
+const iconError = <Icon color={atomIconColors.error}>{error}</Icon>
+
+const iconClose = (
   <svg viewBox="0 0 24 24">
     <path
       id="IconClose"
@@ -7,7 +33,7 @@ const IconClose = () => (
   </svg>
 )
 
-const IconArrowDown = () => (
+const iconArrowDown = (
   <svg>
     <defs>
       <path
@@ -27,7 +53,7 @@ const IconArrowDown = () => (
   </svg>
 )
 
-const IconSearch = () => (
+const iconSearch = (
   <svg viewBox="0 0 24 24">
     <path
       d="M18.8,17.4l5.7,5.7c0.4,0.4,0.4,1,0,1.4s-1,0.4-1.4,0l-5.7-5.7c-1.6,1.3-3.6,2-5.7,2c-5.1,0-9.2-4.1-9.2-9.2
@@ -37,4 +63,4 @@ s-7.2,3.2-7.2,7.2S7.7,18.8,11.7,18.8z"
   </svg>
 )
 
-export {IconClose, IconArrowDown, IconSearch}
+export {iconClose, iconArrowDown, iconSearch, iconAlert, iconInfo, iconError}

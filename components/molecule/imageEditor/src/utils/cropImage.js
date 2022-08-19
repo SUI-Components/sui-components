@@ -16,8 +16,14 @@ function getRadianAngle(degreeValue) {
  * @param {File} image - Image File url
  * @param {Object} pixelCrop - pixelCrop Object provided by react-easy-crop
  * @param {number} rotation - optional rotation parameter
+ * @param {Boolean} returnBlobObject - If true, returns a blob object, if not returns the blob's accessible url
  */
-export default async function getCroppedImg(imageSrc, pixelCrop, rotation = 0) {
+export default async function getCroppedImg(
+  imageSrc,
+  pixelCrop,
+  rotation = 0,
+  returnBlobObject
+) {
   const image = await createImage(imageSrc)
   const canvas = document.createElement('canvas')
   const ctx = canvas.getContext('2d')
@@ -57,7 +63,8 @@ export default async function getCroppedImg(imageSrc, pixelCrop, rotation = 0) {
   // As a blob
   return new Promise(resolve => {
     canvas.toBlob(file => {
-      resolve(URL.createObjectURL(file))
+      const result = returnBlobObject ? file : URL.createObjectURL(file)
+      resolve(result)
     }, 'image/jpeg')
   })
 }

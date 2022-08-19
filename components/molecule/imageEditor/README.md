@@ -25,6 +25,7 @@ return (
     onChange={handleChange}
     rotateLabelIcon={<RotateIcon>}
     rotateLabelText="Rotate"
+    returnBlobObject={true}
   />
 )
 ```

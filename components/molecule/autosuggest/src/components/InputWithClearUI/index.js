@@ -1,30 +1,40 @@
-import {Children, cloneElement} from 'react'
-
 import PropTypes from 'prop-types'
+
+import Injector from '@s-ui/react-primitive-injector'
 
 import {CLASS_CONTAINER, CLASS_ICON_CLEAR} from './config.js'
 
-export const InputWithClearUI = props => {
-  const {onClickClear, isVisibleClear, iconClear, children} = props
-
-  const extendedChildren = () =>
-    Children.toArray(children)
-      .filter(Boolean)
-      .map((child, index) => cloneElement(child, props))
-
+const InputWithClearUI = ({
+  onClickClear,
+  isVisibleClear,
+  iconClear,
+  rightIcon,
+  children,
+  ...props
+}) => {
   return (
     <div className={CLASS_CONTAINER}>
-      {extendedChildren()}
-      {!!isVisibleClear && iconClear && (
-        <span className={CLASS_ICON_CLEAR} onClick={onClickClear}>
-          {iconClear}
-        </span>
-      )}
+      <Injector
+        {...props}
+        rightIcon={
+          isVisibleClear && iconClear ? (
+            <span className={CLASS_ICON_CLEAR} onClick={onClickClear}>
+              {iconClear}
+            </span>
+          ) : (
+            rightIcon
+          )
+        }
+      >
+        {children}
+      </Injector>
     </div>
   )
 }
 
 InputWithClearUI.propTypes = {
+  rightIcon: PropTypes.element,
+
   children: PropTypes.element,
 
   iconClear: PropTypes.node,
@@ -35,3 +45,5 @@ InputWithClearUI.propTypes = {
 }
 
 InputWithClearUI.displayName = 'InputWithClearUI'
+
+export default InputWithClearUI

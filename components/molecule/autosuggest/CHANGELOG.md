@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 2.64.0 (2022-08-19)
+
+
+### Bug Fixes
+
+* **components/molecule/autosuggest:** icon changes ([407b0e0](https://github.com/SUI-Components/sui-components/commit/407b0e00a1083115af4881a2b3f846d52fc11a44))
+
+
+### Features
+
+* **components/molecule/autosuggest:** clear icon as right icon ([0113932](https://github.com/SUI-Components/sui-components/commit/011393227cea46145e2a0196c2ee5a8861de631e))
+
+
+
 # 2.63.0 (2022-07-26)
 
 

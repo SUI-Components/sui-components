@@ -15,7 +15,6 @@ const MoleculeImageEditor = ({
   image,
   onChange,
   onCropping = noop,
-  returnBlobObject = false,
   rotateLabelIcon,
   rotateLabelText
 }) => {
@@ -29,13 +28,12 @@ const MoleculeImageEditor = ({
     async (croppedArea, croppedAreaPixels) => {
       const rotationDegrees = getRotationDegrees(rotation)
       onCropping(true)
-      const croppedImage = await getCroppedImg(
+      const [croppedImageUrl, croppedImageBlobObject] = await getCroppedImg(
         image,
         croppedAreaPixels,
-        rotationDegrees,
-        returnBlobObject
+        rotationDegrees
       )
-      onChange(croppedImage)
+      onChange(croppedImageUrl, croppedImageBlobObject)
       onCropping(false)
     },
     [rotation, onCropping, image, onChange]
@@ -106,7 +104,6 @@ MoleculeImageEditor.propTypes = {
   image: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onCropping: PropTypes.func,
-  returnBlobObject: PropTypes.bool,
   rotateLabelIcon: PropTypes.node,
   rotateLabelText: PropTypes.string
 }

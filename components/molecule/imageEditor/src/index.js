@@ -28,12 +28,12 @@ const MoleculeImageEditor = ({
     async (croppedArea, croppedAreaPixels) => {
       const rotationDegrees = getRotationDegrees(rotation)
       onCropping(true)
-      const croppedImage = await getCroppedImg(
+      const [croppedImageUrl, croppedImageBlobObject] = await getCroppedImg(
         image,
         croppedAreaPixels,
         rotationDegrees
       )
-      onChange(croppedImage)
+      onChange(croppedImageUrl, croppedImageBlobObject)
       onCropping(false)
     },
     [rotation, onCropping, image, onChange]

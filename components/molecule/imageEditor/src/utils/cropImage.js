@@ -58,7 +58,7 @@ export default async function getCroppedImg(imageSrc, pixelCrop, rotation = 0) {
   return new Promise(resolve => {
     canvas.toBlob(file => {
       const fileUrl = URL.createObjectURL(file)
-      resolve(fileUrl, file)
+      resolve([fileUrl, file])
     }, 'image/jpeg')
   })
 }

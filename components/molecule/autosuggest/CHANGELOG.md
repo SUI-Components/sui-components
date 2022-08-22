@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.65.0 (2022-08-22)
+
+
+### Features
+
+* **components/molecule/autosuggest:** default icon ([d467bb8](https://github.com/SUI-Components/sui-components/commit/d467bb8f1a41bf39e3bc6c693515594f76a4aa6f))
+
+
+
 # 2.64.0 (2022-08-19)
 
 

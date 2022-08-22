@@ -8,7 +8,9 @@
     "build:js": "babel --presets sui ./src --out-dir ./lib",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
-  "dependencies": {},
+  "dependencies": {
+    "buffer": "6.0.3"
+  },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"
   },

@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.5.0 (2022-08-22)
+
+
+### Features
+
+* **components/molecule/imageEditor:** Add a parameter to moleculeImageEditor to directly receive a ([8ae1aff](https://github.com/SUI-Components/sui-components/commit/8ae1affa6e125892a60e9945ef96bbfb965fe49c))
+* **components/molecule/imageEditor:** Put two params resolved by croppedImage function of imageEdit ([838851b](https://github.com/SUI-Components/sui-components/commit/838851ba80356fd029883593234d00ffb03367f1))
+* **components/molecule/imageEditor:** Retrieve image blob object as a second parameter when using t ([c033336](https://github.com/SUI-Components/sui-components/commit/c03333689aa5f38fd18b3910dd8f07b6667a092d))
+
+
+
 # 1.4.0 (2022-06-23)
 
 

@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.6.0 (2022-08-23)
+
+
+### Features
+
+* **components/molecule/imageEditor:** Add a preview mode to molecule/imageEditor to optimize image ([baaf82f](https://github.com/SUI-Components/sui-components/commit/baaf82f91d9feb584bb6f39f3fb5fdf0a14ef641))
+* **components/molecule/imageEditor:** Improve performance by debouncing some critical functions exe ([a168c9d](https://github.com/SUI-Components/sui-components/commit/a168c9dff72d40fa8da583cc2e4f6486a9b53e49))
+* **components/molecule/imageEditor:** Revert previous approach ([b812aa6](https://github.com/SUI-Components/sui-components/commit/b812aa6ca24a23f904a8fc880def36c1b95daddd))
+
+
+
 # 1.5.0 (2022-08-22)
 
 

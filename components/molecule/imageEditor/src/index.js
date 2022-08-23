@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useRef, useState} from 'react'
+import {useCallback, useState} from 'react'
 import Cropper from 'react-easy-crop'
 
 import PropTypes from 'prop-types'
@@ -10,7 +10,6 @@ import {baseClass, DEFAULT_ASPECT, noop} from './config.js'
 
 const MoleculeImageEditor = ({
   aspect = DEFAULT_ASPECT,
-  previewOnlyMode = false,
   cropLabelIcon,
   cropLabelText,
   image,
@@ -22,17 +21,11 @@ const MoleculeImageEditor = ({
   const [crop, setCrop] = useState({x: 0, y: 0})
   const [rotation, setRotation] = useState(0)
   const [zoom, setZoom] = useState(0)
-  const getRotationDegrees = rotation => (rotation * 360) / 100
 
-  const lastCrop = useRef(null)
+  const getRotationDegrees = rotation => (rotation * 360) / 100
 
   const onCropComplete = useCallback(
     async (croppedArea, croppedAreaPixels) => {
-      if (previewOnlyMode) {
-        lastCrop.current = {croppedArea, croppedAreaPixels}
-        return
-      }
-
       const rotationDegrees = getRotationDegrees(rotation)
       onCropping(true)
       const [croppedImageUrl, croppedImageBlobObject] = await getCroppedImg(
@@ -43,15 +36,8 @@ const MoleculeImageEditor = ({
       onChange(croppedImageUrl, croppedImageBlobObject)
       onCropping(false)
     },
-    [previewOnlyMode, rotation, onCropping, image, onChange]
+    [rotation, onCropping, image, onChange]
   )
-
-  useEffect(() => {
-    if (!previewOnlyMode && lastCrop.current !== null) {
-      const {croppedArea, croppedAreaPixels} = lastCrop.current
-      onCropComplete(croppedArea, croppedAreaPixels)
-    }
-  }, [previewOnlyMode, onCropComplete])
 
   return (
     <div className={baseClass}>
@@ -113,7 +99,6 @@ const MoleculeImageEditor = ({
 MoleculeImageEditor.displayName = 'MoleculeImageEditor'
 MoleculeImageEditor.propTypes = {
   aspect: PropTypes.number,
-  previewOnlyMode: PropTypes.bool,
   cropLabelIcon: PropTypes.node,
   cropLabelText: PropTypes.string,
   image: PropTypes.string.isRequired,

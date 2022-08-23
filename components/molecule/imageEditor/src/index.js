@@ -3,10 +3,11 @@ import Cropper from 'react-easy-crop'
 
 import PropTypes from 'prop-types'
 
+import {debounce} from '@s-ui/js/lib/function/debounce.js'
 import AtomSlider from '@s-ui/react-atom-slider'
 
 import getCroppedImg from './utils/cropImage.js'
-import {baseClass, DEFAULT_ASPECT, noop} from './config.js'
+import {baseClass, DEBOUNCING_TIME, DEFAULT_ASPECT, noop} from './config.js'
 
 const MoleculeImageEditor = ({
   aspect = DEFAULT_ASPECT,
@@ -18,24 +19,30 @@ const MoleculeImageEditor = ({
   rotateLabelIcon,
   rotateLabelText
 }) => {
-  const [crop, setCrop] = useState({x: 0, y: 0})
-  const [rotation, setRotation] = useState(0)
-  const [zoom, setZoom] = useState(0)
+  const [crop, cropSetter] = useState({x: 0, y: 0})
+  const [rotation, rotationSetter] = useState(0)
+  const [zoom, zoomSetter] = useState(0)
+
+  const setCrop = debounce(cropSetter, DEBOUNCING_TIME)
+  const setRotation = debounce(rotationSetter, DEBOUNCING_TIME)
+  const setZoom = debounce(zoomSetter, DEBOUNCING_TIME)
 
   const getRotationDegrees = rotation => (rotation * 360) / 100
 
+  const cropCompleteHandler = async (croppedArea, croppedAreaPixels) => {
+    const rotationDegrees = getRotationDegrees(rotation)
+    onCropping(true)
+    const [croppedImageUrl, croppedImageBlobObject] = await getCroppedImg(
+      image,
+      croppedAreaPixels,
+      rotationDegrees
+    )
+    onChange(croppedImageUrl, croppedImageBlobObject)
+    onCropping(false)
+  }
+
   const onCropComplete = useCallback(
-    async (croppedArea, croppedAreaPixels) => {
-      const rotationDegrees = getRotationDegrees(rotation)
-      onCropping(true)
-      const [croppedImageUrl, croppedImageBlobObject] = await getCroppedImg(
-        image,
-        croppedAreaPixels,
-        rotationDegrees
-      )
-      onChange(croppedImageUrl, croppedImageBlobObject)
-      onCropping(false)
-    },
+    debounce(cropCompleteHandler, DEBOUNCING_TIME),
     [rotation, onCropping, image, onChange]
   )
 
@@ -67,7 +74,7 @@ const MoleculeImageEditor = ({
         )}
         <AtomSlider
           onChange={(event, {value}) => setZoom(value)}
-          value={zoom}
+          defaultValue={zoom}
           hideMarks
         />
       </div>
@@ -88,7 +95,7 @@ const MoleculeImageEditor = ({
         )}
         <AtomSlider
           onChange={(event, {value}) => setRotation(value)}
-          value={rotation}
+          defaultValue={rotation}
           hideMarks
         />
       </div>

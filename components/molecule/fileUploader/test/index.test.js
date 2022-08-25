@@ -227,11 +227,10 @@ describe('Model', () => {
 
       it('given af File value should return a FileView', async () => {
         // Given
-        const incommingFile = new File([fileContent], fileName)
-        // const {result: base64FileData} = await File.read(incommingFile)
+        const file = new File([fileContent], fileName)
 
         // When
-        const current = await new FileView(incommingFile)
+        const current = await new FileView(file)
 
         // Then
         expect(Object.keys(current).length).to.equal(0)
@@ -239,15 +238,15 @@ describe('Model', () => {
         expect(current.value).to.not.be.undefined
         expect(current.defaultValue).to.not.be.undefined
         expect(current.name).to.not.be.undefined
-        expect(current.name).to.equal(incommingFile.name)
+        expect(current.name).to.equal(file.name)
         expect(current.defaultName).to.not.be.undefined
         expect(current.defaultName).to.equal(current.name)
       })
 
       it('given af FileReader result should return a FileView', async () => {
         // Given
-        const incommingFile = new File([fileContent], fileName)
-        const {result: base64FileData} = await FileView.read(incommingFile)
+        const file = new File([fileContent], fileName)
+        const {result: base64FileData} = await FileView.read(file)
 
         // When
         const current = await new FileView(base64FileData)
@@ -264,8 +263,8 @@ describe('Model', () => {
 
       it('given af FileReader rand its filename esult should return a FileView', async () => {
         // Given
-        const incommingFile = new File([fileContent], fileName)
-        const {result: base64FileData} = await FileView.read(incommingFile)
+        const file = new File([fileContent], fileName)
+        const {result: base64FileData} = await FileView.read(file)
 
         // When
         const current = await new FileView(base64FileData, fileName)
@@ -276,7 +275,7 @@ describe('Model', () => {
         expect(current.value).to.not.be.undefined
         expect(current.defaultValue).to.not.be.undefined
         expect(current.name).to.not.be.undefined
-        expect(current.name).to.equal(incommingFile.name)
+        expect(current.name).to.equal(file.name)
         expect(current.defaultName).to.not.be.undefined
         expect(current.defaultName).to.equal(current.name)
       })
@@ -308,7 +307,7 @@ describe('Model', () => {
       })
       it('given File value should get an object', async () => {
         // Given
-        const incommingFile = new File([fileContent], fileName)
+        const file = new File([fileContent], fileName)
         const expected = {
           name: fileName,
           value: `data:application/octet-stream;base64,${btoa(fileContent)}`,
@@ -316,7 +315,7 @@ describe('Model', () => {
         }
 
         // When
-        const current = await new FileView(incommingFile)
+        const current = await new FileView(file)
         const actual = current.get()
         const {name, value, status, ...others} = actual
 
@@ -334,31 +333,306 @@ describe('Model', () => {
     })
     describe('status', () => {
       describe('get', () => {
-        it('todo', () => {})
+        it('given an empty file the status might be empty', async () => {
+          // Given
+
+          // When
+          const current = await new FileView(undefined, undefined)
+
+          // Then
+          expect(current.status).to.equal(FileView.STATUS.EMPTY)
+        })
+
+        it('given a  file the status might be ready', async () => {
+          // Given
+          const file = new File([fileContent], fileName)
+
+          // When
+          const current = await new FileView(file)
+
+          // Then
+          expect(current.status).to.equal(FileView.STATUS.READY)
+        })
+
+        it('given a fileReader the status might be ready', async () => {
+          // Given
+          const file = new File([fileContent], fileName)
+          const {result: base64FileData} = await FileView.read(file)
+
+          // When
+          const current = await new FileView(base64FileData)
+
+          // Then
+          expect(current.status).to.equal(FileView.STATUS.READY)
+        })
+      })
+
+      describe('set', () => {
+        it('given an status the status might NOT change', async () => {
+          // Given
+          const status = FileView.STATUS.READY
+          const fileView = await new FileView(undefined, undefined)
+
+          // When
+
+          // Then
+          expect(() => fileView.status = status).to.throw('Cannot set property status of #<FileView> which has only a getter')
+        })
       })
     })
     describe('value', () => {
       describe('get', () => {
-        it('todo', () => {})
+        it('given an empty file the value might be empty', async () => {
+          // Given
+
+          // When
+          const current = await new FileView(undefined, undefined)
+
+          // Then
+          expect(current.value).to.be.undefined
+        })
+
+        it('given a  file the value might exist', async () => {
+          // Given
+          const file = new File([fileContent], fileName)
+
+          // When
+          const current = await new FileView(file)
+
+          // Then
+          expect(current.value).to.not.be.undefined
+          expect(atob(current.value.split(',')[1])).to.equal(fileContent)
+        })
+
+        it('given a fileReader the value might exist', async () => {
+          // Given
+          const file = new File([fileContent], fileName)
+          const {result: base64FileData} = await FileView.read(file)
+
+          // When
+          const current = await new FileView(base64FileData)
+
+          // Then
+          expect(current.value).to.not.be.undefined
+          expect(atob(current.value.split(',')[1])).to.equal(fileContent)
+        })
+      })
+
+      describe('set', () => {
+        it('given a value the value might NOT change', async () => {
+          // Given
+          const value = btoa(fileContent)
+          const fileView = await new FileView(undefined, undefined)
+
+          // When
+
+          // Then
+          expect(() => fileView.value = value).to.throw('Cannot set property value of #<FileView> which has only a getter')
+        })
       })
     })
     describe('defaultValue', () => {
       describe('get', () => {
-        it('todo', () => {})
+        it('given an empty file the defaultValue might be empty', async () => {
+          // Given
+
+          // When
+          const current = await new FileView(undefined, undefined)
+
+          // Then
+          expect(current.defaultValue).to.be.undefined
+        })
+
+        it('given a  file the defaultValue might exist', async () => {
+          // Given
+          const file = new File([fileContent], fileName)
+
+          // When
+          const current = await new FileView(file)
+
+          // Then
+          expect(current.defaultValue).to.not.be.undefined
+          expect(atob(current.defaultValue.split(',')[1])).to.equal(fileContent)
+        })
+
+        it('given a fileReader the defaultValue might exist', async () => {
+          // Given
+          const file = new File([fileContent], fileName)
+          const {result: base64FileData} = await FileView.read(file)
+
+          // When
+          const current = await new FileView(base64FileData)
+
+          // Then
+          expect(current.defaultValue).to.not.be.undefined
+          expect(atob(current.defaultValue.split(',')[1])).to.equal(fileContent)
+        })
+      })
+
+      describe('set', () => {
+        it('given a value the defaultValue might NOT change', async () => {
+          // Given
+          const defaultValue = btoa(fileContent)
+          const fileView = await new FileView(undefined, undefined)
+
+          // When
+
+          // Then
+          expect(() => fileView.defaultValue = defaultValue).to.throw('Cannot set property defaultValue of #<FileView> which has only a getter')
+        })
       })
     })
     describe('name', () => {
       describe('get', () => {
-        it('todo', () => {})
+        it('given an empty file the name might be empty', async () => {
+          // Given
+
+          // When
+          const current = await new FileView(undefined, undefined)
+
+          // Then
+          expect(current.name).to.be.undefined
+        })
+
+        it('given an empty file and a name the name might NOT be undefined', async () => {
+          // Given
+          const filename = fileName
+
+          // When
+          const current = await new FileView(undefined, filename)
+
+          // Then
+          expect(current.name).to.not.be.undefined
+          expect(current.name).to.equal(filename)
+        })
+
+        it('given a file the name might exist', async () => {
+          // Given
+          const file = new File([fileContent], fileName)
+
+          // When
+          const current = await new FileView(file)
+
+          // Then
+          expect(current.name).to.not.be.undefined
+          expect(current.name).to.equal(fileName)
+        })
+
+        it('given a fileReader the name might NOT exist', async () => {
+          // Given
+          const file = new File([fileContent], fileName)
+          const {result: base64FileData} = await FileView.read(file)
+
+          // When
+          const current = await new FileView(base64FileData)
+
+          // Then
+          expect(current.name).to.be.undefined
+        })
+
+        it('given a fileReader and filename the name might exist', async () => {
+          // Given
+          const file = new File([fileContent], fileName)
+          const {result: base64FileData} = await FileView.read(file)
+
+          // When
+          const current = await new FileView(base64FileData, fileName)
+
+          // Then
+          expect(current.name).to.not.be.undefined
+          expect(current.name).to.equal(fileName)
+        })
       })
-      describe('setnbnbbbbxdsddna0003' +
-               '', () => {
-        it('todo', () => {})
+
+      describe('set', () => {
+        it('given a value the value might NOT change', async () => {
+          // Given
+          const filename = 'newFilename'
+          const fileView = await new FileView(undefined, undefined)
+
+          // When
+          fileView.name = filename
+
+          // Then
+          expect(fileView.name).to.not.be.undefined
+          expect(fileView.name).to.not.equal(fileName)
+          expect(fileView.name).to.equal(filename)
+        })
       })
     })
     describe('defaultName', () => {
       describe('get', () => {
-        it('todo', () => {})
+        it('given an empty file the defaultName might be empty', async () => {
+          // Given
+
+          // When
+          const current = await new FileView(undefined, undefined)
+
+          // Then
+          expect(current.defaultName).to.be.undefined
+        })
+
+        it('given an empty file and a name the defaultName might NOT be undefined', async () => {
+          // Given
+          const filename = fileName
+
+          // When
+          const current = await new FileView(undefined, filename)
+
+          // Then
+          expect(current.defaultName).to.not.be.undefined
+          expect(current.defaultName).to.equal(filename)
+        })
+
+        it('given a file the defaultName might exist', async () => {
+          // Given
+          const file = new File([fileContent], fileName)
+
+          // When
+          const current = await new FileView(file)
+
+          // Then
+          expect(current.defaultName).to.not.be.undefined
+          expect(current.defaultName).to.equal(fileName)
+        })
+
+        it('given a fileReader the defaultName might NOT exist', async () => {
+          // Given
+          const file = new File([fileContent], fileName)
+          const {result: base64FileData} = await FileView.read(file)
+
+          // When
+          const current = await new FileView(base64FileData)
+
+          // Then
+          expect(current.defaultName).to.be.undefined
+        })
+
+        it('given a fileReader and filename the defaultName might exist', async () => {
+          // Given
+          const file = new File([fileContent], fileName)
+          const {result: base64FileData} = await FileView.read(file)
+
+          // When
+          const current = await new FileView(base64FileData, fileName)
+
+          // Then
+          expect(current.defaultName).to.not.be.undefined
+          expect(current.defaultName).to.equal(fileName)
+        })
+      })
+
+      describe('set', () => {
+        it('given a value the defaultName might NOT change', async () => {
+          // Given
+          const defaultName = 'newDefaultName'
+          const fileView = await new FileView(undefined, undefined)
+
+          // When
+
+          // Then
+          expect(() => fileView.defaultName = defaultName).to.throw('Cannot set property defaultName of #<FileView> which has only a getter')
+        })
       })
     })
   })

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.33.0 (2022-08-25)
+
+
+### Features
+
+* **components/molecule/selectPopover:** Change cursor to pointer [#2294](https://github.com/SUI-Components/sui-components/issues/2294) ([df5c488](https://github.com/SUI-Components/sui-components/commit/df5c4880617fe018d35fc2b8d78570de85e5301e))
+
+
+
 # 1.32.0 (2022-07-26)
 
 

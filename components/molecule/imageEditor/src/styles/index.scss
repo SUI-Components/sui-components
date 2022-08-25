@@ -40,12 +40,12 @@ $base-class: '.sui-MoleculeImageEditor';
   }
 
   &-helpText {
-    margin-top: 40px;
+    margin-top: $m-xxxl;
   }
 
   &-rowLayout {
     display: flex;
-    gap: $gap-molecule-image-editor-rowLayout;
+    gap: $g-molecule-image-editor-rowLayout;
 
     #{$base-class}-crop {
       width: $w-molecule-image-editor-crop-rowLayout;

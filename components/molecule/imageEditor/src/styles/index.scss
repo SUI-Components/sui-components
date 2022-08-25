@@ -38,4 +38,32 @@ $base-class: '.sui-MoleculeImageEditor';
       width: $w-molecule-image-editor-label-text;
     }
   }
+
+  &-helpText {
+    margin-top: 40px;
+  }
+
+  &-rowLayout {
+    display: flex;
+    gap: $gap-molecule-image-editor-rowLayout;
+
+    #{$base-class}-crop {
+      width: $w-molecule-image-editor-crop-rowLayout;
+      margin-bottom: 0;
+    }
+
+    #{$base-class}-sliders {
+      width: $w-molecule-image-editor-sliders-rowLayout;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #{$base-class}-slider {
+      margin-top: $m-l;
+    }
+
+    #{$base-class}-helpText {
+      margin-top: auto;
+    }
+  }
 }

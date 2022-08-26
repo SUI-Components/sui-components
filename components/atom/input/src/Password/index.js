@@ -2,6 +2,8 @@ import {forwardRef, useState} from 'react'
 
 import PropTypes from 'prop-types'
 
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
+
 import Input from '../Input/index.js'
 import {
   BASE_CLASS_PASSWORD,
@@ -12,11 +14,18 @@ import {
 
 const Password = forwardRef(
   (
-    {onChange, pwShowLabel = 'show', pwHideLabel = 'hide', ...props},
+    {
+      onChange,
+      pwShowLabel = 'show',
+      pwHideLabel = 'hide',
+      value,
+      defaultValue = '',
+      ...props
+    },
     forwardedRef
   ) => {
     const [type, setType] = useState(PASSWORD)
-    const [value, setValue] = useState('')
+    const [innerValue, setInnerValue] = useControlledState(value, defaultValue)
 
     const toggle = () => {
       const inputType = type === PASSWORD ? TEXT : PASSWORD
@@ -24,7 +33,7 @@ const Password = forwardRef(
     }
 
     const handleChange = (ev, {value}) => {
-      setValue(value)
+      setInnerValue(value)
       typeof onChange === 'function' && onChange(ev, {value})
     }
 
@@ -34,7 +43,7 @@ const Password = forwardRef(
           ref={forwardedRef}
           {...props}
           onChange={handleChange}
-          value={value}
+          value={innerValue}
           type={type}
         />
         <div onClick={toggle} className={BASE_CLASS_PASSWORD_TOGGLE_BUTTON}>
@@ -55,7 +64,11 @@ Password.propTypes = {
   /* The name of the control */
   name: PropTypes.string,
   /* The id of the control */
-  id: PropTypes.string
+  id: PropTypes.string,
+  /* The value of the control */
+  value: PropTypes.string,
+  /* The default value of the control */
+  defaultValue: PropTypes.string
 }
 
 export default Password

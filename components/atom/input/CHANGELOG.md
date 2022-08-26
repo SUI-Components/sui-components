@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.21.0 (2022-08-26)
+
+
+### Bug Fixes
+
+* **components/atom/input:** combine controlled and uncontrolled values ([8906936](https://github.com/SUI-Components/sui-components/commit/89069369cdd93071b4694488924642c68ee9d256))
+
+
+
 # 5.20.0 (2022-07-27)
 
 

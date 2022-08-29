@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.8.0 (2022-08-29)
+
+
+### Features
+
+* **components/molecule/imageEditor:** Parametrize the margin bottom from the image editor crop elem ([4733fb1](https://github.com/SUI-Components/sui-components/commit/4733fb10f8978344e79f75972623e13796d17a29))
+* **components/molecule/imageEditor:** Parametrize the margin top of molecule/imageEditor slider ele ([9fc29e4](https://github.com/SUI-Components/sui-components/commit/9fc29e40d3c0f310535785befd170dc5876b673d))
+
+
+
 # 1.7.0 (2022-08-29)
 
 

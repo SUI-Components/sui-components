@@ -21,12 +21,10 @@ return (
   <MoleculeImageEditor 
     cropLabelIcon={<CropIcon>}
     cropLabelText="Crop"
-    helpText="Some indication helpful for the user"
     image={image}
     onChange={handleChange}
     rotateLabelIcon={<RotateIcon>}
     rotateLabelText="Rotate"
-    useRowLayout={false}
   />
 )
 ```

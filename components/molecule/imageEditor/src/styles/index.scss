@@ -10,7 +10,7 @@ $base-class: '.sui-MoleculeImageEditor';
   &-slider {
     align-items: center;
     display: flex;
-    margin-top: $m-xl;
+    margin-top: $mt-molecule-image-editor-slider;
 
     .sui-AtomSlider {
       flex: 1;

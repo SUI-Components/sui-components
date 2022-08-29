@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 1.7.0 (2022-08-29)
+
+
+### Features
+
+* **components/molecule/imageEditor:** abstract children ([9a5373f](https://github.com/SUI-Components/sui-components/commit/9a5373fca5fc68ca8a8dbbc237cc835ce686db13))
+* **components/molecule/imageEditor:** Add row layout and help text to molecule image editor ([5040a8a](https://github.com/SUI-Components/sui-components/commit/5040a8aad30e078b35b4994551b51817038c1444))
+* **components/molecule/imageEditor:** Modify demo and readme from molecule/imageEditor ([9db66be](https://github.com/SUI-Components/sui-components/commit/9db66be6fea63a070045c255da7f62edb9f083de))
+* **components/molecule/imageEditor:** Use scss tokens instead of absolut values in molecule/imageEd ([ca30dbd](https://github.com/SUI-Components/sui-components/commit/ca30dbdef8286323e05e61a96d6fafe4e8162d8e))
+
+
+
 # 1.6.0 (2022-08-23)
 
 

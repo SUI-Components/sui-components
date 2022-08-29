@@ -10,7 +10,7 @@ const Demo = () => (
     <Paragraph>
       The ImageEditor component offers an interface with which an existing image
       can be cropped, rotated, and then exported to a blob object. In practice,
-      this component allows to select an image (both from a existing public url
+      This component allows selecting an image (both from an existing public URL
       and by getting a blob object url from a local file), edit it, and then
       receive the edited image as a blob object to store it or send to any kind
       of service.

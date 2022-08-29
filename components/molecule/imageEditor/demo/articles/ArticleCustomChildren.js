@@ -13,7 +13,7 @@ const ArticleCustomChildren = ({className}) => {
 
   return (
     <Article className={className}>
-      <H2>Custom Children</H2>
+      <H2>Customise the layout using a custom Children</H2>
       <Paragraph>
         The developer is able to change the default layout giving a custom
         children. It had to contain the <Code>MoleculeImageEditorSliders</Code>{' '}

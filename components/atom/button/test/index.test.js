@@ -33,6 +33,7 @@ describe(json.name, () => {
       'atomButtonTypes',
       'atomButtonAlignment',
       'atomButtonShapes',
+      'atomButtonElevations',
       'default'
     ]
 
@@ -45,6 +46,7 @@ describe(json.name, () => {
       atomButtonTypes,
       atomButtonAlignment,
       atomButtonShapes,
+      atomButtonElevations,
       default: AtomButton,
       ...others
     } = library
@@ -735,6 +737,40 @@ describe(json.name, () => {
       // When
       const {atomButtonShapes: actual} = library
       const {SQUARED, ROUNDED, CIRCULAR, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('atomButtonElevations', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomButtonElevations: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        MEDIUM: 'medium',
+        LARGE: 'large'
+      }
+
+      // When
+      const {atomButtonElevations: actual} = library
+      const {MEDIUM, LARGE, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

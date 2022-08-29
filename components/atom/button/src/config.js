@@ -20,6 +20,14 @@ export const DESIGNS = {
   LINK: 'link'
 }
 
+/**
+ * A set of elevations that define the box shadow
+ */
+export const ELEVATIONS = {
+  MEDIUM: 'medium',
+  LARGE: 'large'
+}
+
 export const ALIGNMENT = {
   CENTER: 'center',
   LEFT: 'left',

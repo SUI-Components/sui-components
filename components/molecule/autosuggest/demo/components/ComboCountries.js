@@ -9,7 +9,7 @@ import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 
 import regions from '../data/regions.json'
-import {IconArrowDown} from '../Icons/index.js'
+import {iconArrowDown} from '../Icons/index.js'
 import {filterOptionsCodeValue} from '../services/index.js'
 
 const MoleculeSelectWithState = withStateValue(MoleculeSelect)
@@ -50,7 +50,7 @@ const ComboCountries = () => {
         <MoleculeSelectWithState
           placeholder="Select a Region..."
           onChange={handleChange}
-          iconArrowDown={<IconArrowDown />}
+          iconArrowDown={iconArrowDown}
         >
           {regions.map(({code, text}, i) => (
             <MoleculeDropdownOption key={i} value={code}>

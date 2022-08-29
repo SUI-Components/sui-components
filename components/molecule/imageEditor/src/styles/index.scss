@@ -4,7 +4,7 @@ $base-class: '.sui-MoleculeImageEditor';
   &-crop {
     position: relative;
     height: $h-molecule-image-editor;
-    margin-bottom: $m-xxl;
+    margin-bottom: $mb-molecule-image-editor-crop;
   }
 
   &-slider {

@@ -29,7 +29,12 @@ describe(json.name, () => {
     ]
 
     // When
-    const {default: MoleculeImageEditor, ...others} = library
+    const {
+      default: MoleculeImageEditor,
+      MoleculeImageEditorCropper,
+      MoleculeImageEditorSliders,
+      ...others
+    } = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)

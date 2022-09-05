@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-image-editor",
-  "version": "1.4.0",
+  "version": "1.8.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -19,7 +19,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@s-ui/js": "2",
     "@s-ui/react-atom-slider": "1",
+    "@s-ui/react-primitive-injector": "1",
+    "classnames": "2.2.5",
     "react-easy-crop": "3.4.0"
   }
 }

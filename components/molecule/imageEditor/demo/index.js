@@ -1,24 +1,22 @@
-import {useState} from 'react'
+import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import MoleculeImageEditor from 'components/molecule/imageEditor/src/index.js'
+import {CLASS_SECTION} from './settings.js'
+import ArticleDefault from './articles/ArticleDefault.js'
+import ArticleCustomChildren from './articles/ArticleCustomChildren.js'
 
-const DEMO_IMAGE =
-  'https://lp-cms-production.imgix.net/features/2019/06/panda-d55d15231c4f.jpg?auto=compress&fit=crop&fm=auto&sharp=10&vib=20&w=1200&h=800'
+const Demo = () => (
+  <div className="sui-StudioPreview">
+    <H1>Image Editor</H1>
+    <Paragraph>
+      This component allows selecting an image (both from an existing public URL
+      and by getting a blob object url from a local file), edit it, and then
+      receive the edited image as a blob object to store it or send to any kind
+      of service.
+    </Paragraph>
+    <ArticleDefault className={CLASS_SECTION} />
+    <br />
+    <ArticleCustomChildren className={CLASS_SECTION} />
+  </div>
+)
 
-export default () => {
-  const [croppedImage, setCroppedImage] = useState()
-
-  return (
-    <div>
-      <h1>Component</h1>
-      <MoleculeImageEditor
-        onChange={setCroppedImage}
-        image={DEMO_IMAGE}
-        cropLabelText="Crop"
-        rotateLabelText="Rotate"
-      />
-      <h1>Result</h1>
-      <img src={croppedImage} style={{width: '300px'}} />
-    </div>
-  )
-}
+export default Demo

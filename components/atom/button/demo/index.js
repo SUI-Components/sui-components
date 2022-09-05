@@ -25,6 +25,7 @@ import {
   atomButtonAlignmentIterator,
   atomButtonColorsIterator,
   atomButtonDesignsIterator,
+  atomButtonElevationsIterator,
   atomButtonShapesIterator,
   atomButtonSizesIterator,
   atomButtonSocialColorsIterator,
@@ -209,6 +210,31 @@ const Demo = () => {
           {atomButtonSizesIterator.map(([{size}], index) => (
             <Cell key={index} style={flexCenteredStyle}>
               <AtomButton size={size} color="primary">
+                Button
+              </AtomButton>
+            </Cell>
+          ))}
+        </Grid>
+      </Article>
+      <Article className={CLASS_SECTION}>
+        <H2>Elevation</H2>
+        <div>
+          <Paragraph>
+            Use <Code>elevation</Code> prop to display a shadow around the
+            button. If it's not set no shadow will be shown.
+          </Paragraph>
+        </div>
+        <Grid cols={atomButtonElevationsIterator.length} gutter={10}>
+          {atomButtonElevationsIterator.map(([{elevation}], index) => (
+            <Fragment key={index}>
+              <Cell style={flexCenteredStyle}>
+                <Label>{elevation}</Label>
+              </Cell>
+            </Fragment>
+          ))}
+          {atomButtonElevationsIterator.map(([{elevation}], index) => (
+            <Cell key={index} style={flexCenteredStyle}>
+              <AtomButton elevation={elevation} color="primary">
                 Button
               </AtomButton>
             </Cell>

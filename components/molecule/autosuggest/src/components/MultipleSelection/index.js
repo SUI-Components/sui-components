@@ -7,7 +7,7 @@ import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
 
-import {InputWithClearUI} from '../InputWithClearUI/index.js'
+import InputWithClearUI from '../InputWithClearUI/index.js'
 
 const MoleculeAutosuggestFieldMultiSelection = ({
   allowDuplicates,

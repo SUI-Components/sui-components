@@ -109,7 +109,7 @@ $base-class: '.sui-AtomButton';
 
   &#{$base-class}--link:not(#{$base-class}--solid):not(#{$base-class}--outline):not(#{$base-class}--flat) {
     background: transparent;
-
+    user-select: text;
     border: none;
     @include link();
     padding: 0;
@@ -242,6 +242,24 @@ $base-class: '.sui-AtomButton';
         box-shadow: $bxsh-atom-button-solid-primary-negative;
       }
     }
+  }
+
+  @each $key-bxsh, $bxsh in $bxsh-atom-button {
+    &--elevation-#{$key-bxsh} {
+      box-shadow: $bxsh;
+
+      &#{$base-class}--primary {
+        box-shadow: $bxsh;
+
+        &#{$base-class}--negative {
+          box-shadow: $bxsh;
+        }
+      }
+    }
+  }
+
+  &:focus {
+    box-shadow: $bxsh-atom-button-focus;
   }
 
   &--squared {

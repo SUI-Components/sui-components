@@ -4,6 +4,7 @@ import {
   atomButtonAlignment,
   atomButtonColors,
   atomButtonDesigns,
+  atomButtonElevations,
   atomButtonShapes,
   atomButtonSizes
 } from '../src/index.js'
@@ -64,6 +65,10 @@ export const atomButtonSocialColorsIterator = Object.values(atomButtonColors)
 export const atomButtonDesignsIterator = Object.values(atomButtonDesigns).map(
   (design, index) => [{design}, index]
 )
+
+export const atomButtonElevationsIterator = Object.values(
+  atomButtonElevations
+).map((elevation, index) => [{elevation}, index])
 
 export const atomButtonSizesIterator = [
   atomButtonSizes.SMALL,

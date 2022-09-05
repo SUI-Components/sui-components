@@ -99,6 +99,12 @@ $p-atom-button-group-sides: $p-l !default;
 $bxsh-atom-button-solid-primary: none !default;
 $bxsh-atom-button-solid-primary-negative: none !default;
 
+$bxsh-atom-button: (
+  large: $bxsh-l,
+  medium: $bxsh-m
+) !default;
+$bxsh-atom-button-focus: none !default;
+
 $tt-atom-button: none !default;
 
 $icon-fill-color: currentColor !default;

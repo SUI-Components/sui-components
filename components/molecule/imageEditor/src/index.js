@@ -6,21 +6,22 @@ import {debounce} from '@s-ui/js/lib/function/debounce.js'
 import Injector from '@s-ui/react-primitive-injector'
 
 import getCroppedImg from './utils/cropImage.js'
-import ImageEditorDefault from './ImageEditorDefault.js'
-import ImageEditorCropper from './ImageEditorCropper.js'
-import ImageEditorSliders from './ImageEditorSliders.js'
 import {
   baseClass,
   DEBOUNCING_TIME,
   DEFAULT_ASPECT,
-  noop,
-  getRotationDegrees
+  getRotationDegrees,
+  noop
 } from './config.js'
+import ImageEditorCropper from './ImageEditorCropper.js'
+import ImageEditorDefault from './ImageEditorDefault.js'
+import ImageEditorSliders from './ImageEditorSliders.js'
 
 const MoleculeImageEditor = ({
   aspect = DEFAULT_ASPECT,
   cropLabelIcon,
   cropLabelText,
+  debouncingTime = DEBOUNCING_TIME,
   image,
   onChange,
   onCropping = noop,
@@ -32,9 +33,16 @@ const MoleculeImageEditor = ({
   const [rotation, rotationSetter] = useState(0)
   const [zoom, zoomSetter] = useState(0)
 
-  const setCrop = debounce(cropSetter, DEBOUNCING_TIME)
-  const setRotation = debounce(rotationSetter, DEBOUNCING_TIME)
-  const setZoom = debounce(zoomSetter, DEBOUNCING_TIME)
+  const setCrop =
+    debouncingTime > 0 ? debounce(cropSetter, debouncingTime) : cropSetter
+
+  const setRotation =
+    debouncingTime > 0
+      ? debounce(rotationSetter, debouncingTime)
+      : rotationSetter
+
+  const setZoom =
+    debouncingTime > 0 ? debounce(zoomSetter, debouncingTime) : zoomSetter
 
   const cropCompleteHandler = async (croppedArea, croppedAreaPixels) => {
     const rotationDegrees = getRotationDegrees(rotation)
@@ -49,7 +57,9 @@ const MoleculeImageEditor = ({
   }
 
   const onCropComplete = useCallback(
-    debounce(cropCompleteHandler, DEBOUNCING_TIME),
+    debouncingTime > 0
+      ? debounce(cropCompleteHandler, debouncingTime)
+      : cropCompleteHandler,
     [rotation, onCropping, image, onChange]
   )
 
@@ -83,6 +93,7 @@ MoleculeImageEditor.propTypes = {
   aspect: PropTypes.number,
   cropLabelIcon: PropTypes.node,
   cropLabelText: PropTypes.string,
+  debouncingTime: PropTypes.number,
   image: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onCropping: PropTypes.func,

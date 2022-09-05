@@ -1,4 +1,4 @@
-export const debouncingTime = function (props, propName, componentName) {
+export const debouncingTimePropType = function (props, propName, componentName) {
   const prop = props[propName]
   if (typeof prop !== 'number' || prop < 1) {
     return new Error(

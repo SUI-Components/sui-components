@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.9.0 (2022-09-05)
+
+
+### Features
+
+* **components/molecule/imageEditor:** Add debouncingTime as a customizable property ([db6fc3b](https://github.com/SUI-Components/sui-components/commit/db6fc3b67189344c0b8f8d808f7be0d23aa29ef4))
+* **components/molecule/imageEditor:** Add type checker. Improve code flow. ([5a024ae](https://github.com/SUI-Components/sui-components/commit/5a024ae511dff4aa1496a4dadaf0b316b52cfa36))
+* **components/molecule/imageEditor:** Apply lint styles ([4bdbfe3](https://github.com/SUI-Components/sui-components/commit/4bdbfe31bb4a5bd5cee99cefd56da0283b6d03f6))
+
+
+
 # 1.8.0 (2022-08-29)
 
 

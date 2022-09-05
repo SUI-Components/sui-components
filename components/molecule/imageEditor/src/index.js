@@ -10,7 +10,7 @@ import {baseClass, DEFAULT_ASPECT, getRotationDegrees, noop} from './config.js'
 import ImageEditorCropper from './ImageEditorCropper.js'
 import ImageEditorDefault from './ImageEditorDefault.js'
 import ImageEditorSliders from './ImageEditorSliders.js'
-import {debouncingTime} from './prop-types.js'
+import {debouncingTimePropType} from './prop-types.js'
 
 const MoleculeImageEditor = ({
   aspect = DEFAULT_ASPECT,

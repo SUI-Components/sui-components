@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
-
 import Cropper from 'react-easy-crop'
+
+import PropTypes from 'prop-types'
 
 import {baseClass, getRotationDegrees} from './config.js'
 

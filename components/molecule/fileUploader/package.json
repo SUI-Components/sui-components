@@ -9,6 +9,8 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
+    "@s-ui/react-atom-icon": "1.18.0",
+    "@s-ui/react-primitive-injector": "1",
     "buffer": "6.0.3"
   },
   "peerDependencies": {

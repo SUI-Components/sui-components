@@ -1,4 +1,3 @@
-import file from '../../lib/Model/File.js'
 import {
   arrayBuffer2string,
   string2arrayBuffer,
@@ -9,7 +8,7 @@ import {
   STATUS
 } from './helpers.js'
 
-class FileView {
+class FileModel {
   static FILE_READER = FILE_READER
   static READY_STATE = READY_STATE
   static STATUS = STATUS
@@ -40,7 +39,7 @@ class FileView {
       this.#defaultValue = value
       this.#value = value
       this.#status =
-        value === undefined ? FileView.STATUS.EMPTY : FileView.STATUS.READY
+        value === undefined ? FileModel.STATUS.EMPTY : FileModel.STATUS.READY
       resolve(this)
     }
 
@@ -90,4 +89,4 @@ class FileView {
   render() {}
 }
 
-export default FileView
+export default FileModel

@@ -15,12 +15,12 @@ import chaiDOM from 'chai-dom'
 import json from '../package.json'
 import * as pkg from '../src/index.js'
 
-import FileView from '../src/Model/FileView.js'
+import FileModel from '../src/Model/FileModel.js'
 
 chai.use(chaiDOM)
 
 describe('Model', () => {
-  describe('FileView', () => {
+  describe('FileModel', () => {
     const fileContent = 'fileContent'
     const name = 'filename'
     const fileExtension = 'txt'
@@ -32,7 +32,7 @@ describe('Model', () => {
           // Given
 
           // When
-          const {FILE_READER: actual} = FileView
+          const {FILE_READER: actual} = FileModel
 
           // Then
           expect(actual).to.be.an('object')
@@ -48,7 +48,7 @@ describe('Model', () => {
           }
 
           // When
-          const {FILE_READER: actual} = FileView
+          const {FILE_READER: actual} = FileModel
           const {
             DATA_URL,
             ARRAY_BUFFER,
@@ -72,7 +72,7 @@ describe('Model', () => {
           // Given
 
           // When
-          const {READY_STATE: actual} = FileView
+          const {READY_STATE: actual} = FileModel
 
           // Then
           expect(actual).to.be.an('object')
@@ -87,7 +87,7 @@ describe('Model', () => {
           }
 
           // When
-          const {READY_STATE: actual} = FileView
+          const {READY_STATE: actual} = FileModel
           const {EMPTY, LOADING, DONE, ...others} = actual
 
           // Then
@@ -106,12 +106,12 @@ describe('Model', () => {
           const file = new File([fileContent], fileName)
 
           // When
-          const {error, readyState, result, ...others} = await FileView.read(
+          const {error, readyState, result, ...others} = await FileModel.read(
             file
           )
           // Then
           expect(error).to.be.null
-          expect(readyState).to.equal(FileView.READY_STATE.DONE)
+          expect(readyState).to.equal(FileModel.READY_STATE.DONE)
           expect(Object.keys(others).length).to.equal(0)
           expect(result).to.be.string
           expect(atob(result.split(',')[1])).to.equal(fileContent)
@@ -122,13 +122,13 @@ describe('Model', () => {
           const file = new File([fileContent], fileName)
 
           // When
-          const {error, readyState, result, ...others} = await FileView.read(
-            file,
-            FileView.FILE_READER.DATA_URL.DATA_URL
+          const {error, readyState, result, ...others} = await FileModel.read(
+          file,
+          FileModel.FILE_READER.DATA_URL.DATA_URL
           )
           // Then
           expect(error).to.be.null
-          expect(readyState).to.equal(FileView.READY_STATE.DONE)
+          expect(readyState).to.equal(FileModel.READY_STATE.DONE)
           expect(Object.keys(others).length).to.equal(0)
           expect(result).to.be.string
           expect(atob(result.split(',')[1])).to.equal(fileContent)
@@ -139,17 +139,17 @@ describe('Model', () => {
           const file = new File([fileContent], fileName)
 
           // When
-          const {error, readyState, result, ...others} = await FileView.read(
+          const {error, readyState, result, ...others} = await FileModel.read(
             file,
             undefined,
-            [FileView.FILE_READER.ARRAY_BUFFER]
+            [FileModel.FILE_READER.ARRAY_BUFFER]
           )
           // Then
           expect(error).to.be.null
-          expect(readyState).to.equal(FileView.READY_STATE.DONE)
+          expect(readyState).to.equal(FileModel.READY_STATE.DONE)
           expect(Object.keys(others).length).to.equal(0)
           expect(result).to.be.string
-          expect(FileView.arrayBuffer2string(result)).to.equal(fileContent)
+          expect(FileModel.arrayBuffer2string(result)).to.equal(fileContent)
         })
 
         it('given a file should return the data when file reader is text', async () => {
@@ -157,14 +157,14 @@ describe('Model', () => {
           const file = new File([fileContent], fileName)
 
           // When
-          const {error, readyState, result, ...others} = await FileView.read(
+          const {error, readyState, result, ...others} = await FileModel.read(
             file,
             undefined,
-            [FileView.FILE_READER.TEXT]
+            [FileModel.FILE_READER.TEXT]
           )
           // Then
           expect(error).to.be.null
-          expect(readyState).to.equal(FileView.READY_STATE.DONE)
+          expect(readyState).to.equal(FileModel.READY_STATE.DONE)
           expect(Object.keys(others).length).to.equal(0)
           expect(result).to.be.string
           expect(result).to.equal(fileContent)
@@ -177,7 +177,7 @@ describe('Model', () => {
           // When
 
           // Then
-          await FileView.read(file).catch(error => {
+          await FileModel.read(file).catch(error => {
             expect(error.message).to.equal(
               "Failed to execute 'readAsDataURL' on 'FileReader': parameter 1 is not of type 'Blob'."
             )
@@ -200,7 +200,7 @@ describe('Model', () => {
           // When
 
           // Then
-          await FileView.read(file, resolver).catch(error => {
+          await FileModel.read(file, resolver).catch(error => {
             expect(error.message).to.equal(
               'An ongoing operation was aborted, typically with a call to abort().'
             )
@@ -210,31 +210,31 @@ describe('Model', () => {
     })
 
     describe('constructor', async () => {
-      it('given undefined value should return an empty FileView', async () => {
+      it('given undefined value should return an empty FileModel', async () => {
         // Given
 
         // When
-        const current = await new FileView(undefined, undefined)
+        const current = await new FileModel(undefined, undefined)
 
         // Then
         expect(Object.keys(current).length).to.equal(0)
-        expect(current.status).to.equal(FileView.STATUS.EMPTY)
+        expect(current.status).to.equal(FileModel.STATUS.EMPTY)
         expect(current.value).to.be.undefined
         expect(current.defaultValue).to.be.undefined
         expect(current.name).to.be.undefined
         expect(current.defaultName).to.be.undefined
       })
 
-      it('given af File value should return a FileView', async () => {
+      it('given af File value should return a FileModel', async () => {
         // Given
         const file = new File([fileContent], fileName)
 
         // When
-        const current = await new FileView(file)
+        const current = await new FileModel(file)
 
         // Then
         expect(Object.keys(current).length).to.equal(0)
-        expect(current.status).to.equal(FileView.STATUS.READY)
+        expect(current.status).to.equal(FileModel.STATUS.READY)
         expect(current.value).to.not.be.undefined
         expect(current.defaultValue).to.not.be.undefined
         expect(current.name).to.not.be.undefined
@@ -243,17 +243,17 @@ describe('Model', () => {
         expect(current.defaultName).to.equal(current.name)
       })
 
-      it('given af FileReader result should return a FileView', async () => {
+      it('given af FileReader result should return a FileModel', async () => {
         // Given
         const file = new File([fileContent], fileName)
-        const {result: base64FileData} = await FileView.read(file)
+        const {result: base64FileData} = await FileModel.read(file)
 
         // When
-        const current = await new FileView(base64FileData)
+        const current = await new FileModel(base64FileData)
 
         // Then
         expect(Object.keys(current).length).to.equal(0)
-        expect(current.status).to.equal(FileView.STATUS.READY)
+        expect(current.status).to.equal(FileModel.STATUS.READY)
         expect(current.value).to.not.be.undefined
         expect(current.defaultValue).to.not.be.undefined
         expect(current.name).to.be.undefined
@@ -261,17 +261,17 @@ describe('Model', () => {
         expect(current.defaultName).to.equal(current.name)
       })
 
-      it('given af FileReader rand its filename esult should return a FileView', async () => {
+      it('given af FileReader rand its filename result should return a FileModel', async () => {
         // Given
         const file = new File([fileContent], fileName)
-        const {result: base64FileData} = await FileView.read(file)
+        const {result: base64FileData} = await FileModel.read(file)
 
         // When
-        const current = await new FileView(base64FileData, fileName)
+        const current = await new FileModel(base64FileData, fileName)
 
         // Then
         expect(Object.keys(current).length).to.equal(0)
-        expect(current.status).to.equal(FileView.STATUS.READY)
+        expect(current.status).to.equal(FileModel.STATUS.READY)
         expect(current.value).to.not.be.undefined
         expect(current.defaultValue).to.not.be.undefined
         expect(current.name).to.not.be.undefined
@@ -286,11 +286,11 @@ describe('Model', () => {
         const expected = {
           name: undefined,
           value: undefined,
-          status: FileView.STATUS.EMPTY
+          status: FileModel.STATUS.EMPTY
         }
 
         // When
-        const current = await new FileView(undefined, undefined)
+        const current = await new FileModel(undefined, undefined)
         const actual = current.get()
         const {name, value, status, ...others} = actual
 
@@ -311,11 +311,11 @@ describe('Model', () => {
         const expected = {
           name: fileName,
           value: `data:application/octet-stream;base64,${btoa(fileContent)}`,
-          status: FileView.STATUS.READY
+          status: FileModel.STATUS.READY
         }
 
         // When
-        const current = await new FileView(file)
+        const current = await new FileModel(file)
         const actual = current.get()
         const {name, value, status, ...others} = actual
 
@@ -337,10 +337,10 @@ describe('Model', () => {
           // Given
 
           // When
-          const current = await new FileView(undefined, undefined)
+          const current = await new FileModel(undefined, undefined)
 
           // Then
-          expect(current.status).to.equal(FileView.STATUS.EMPTY)
+          expect(current.status).to.equal(FileModel.STATUS.EMPTY)
         })
 
         it('given a  file the status might be ready', async () => {
@@ -348,35 +348,35 @@ describe('Model', () => {
           const file = new File([fileContent], fileName)
 
           // When
-          const current = await new FileView(file)
+          const current = await new FileModel(file)
 
           // Then
-          expect(current.status).to.equal(FileView.STATUS.READY)
+          expect(current.status).to.equal(FileModel.STATUS.READY)
         })
 
         it('given a fileReader the status might be ready', async () => {
           // Given
           const file = new File([fileContent], fileName)
-          const {result: base64FileData} = await FileView.read(file)
+          const {result: base64FileData} = await FileModel.read(file)
 
           // When
-          const current = await new FileView(base64FileData)
+          const current = await new FileModel(base64FileData)
 
           // Then
-          expect(current.status).to.equal(FileView.STATUS.READY)
+          expect(current.status).to.equal(FileModel.STATUS.READY)
         })
       })
 
       describe('set', () => {
         it('given an status the status might NOT change', async () => {
           // Given
-          const status = FileView.STATUS.READY
-          const fileView = await new FileView(undefined, undefined)
+          const status = FileModel.STATUS.READY
+          const fileModel = await new FileModel(undefined, undefined)
 
           // When
 
           // Then
-          expect(() => fileView.status = status).to.throw('Cannot set property status of #<FileView> which has only a getter')
+          expect(() => fileModel.status = status).to.throw('Cannot set property status of #<FileModel> which has only a getter')
         })
       })
     })
@@ -386,7 +386,7 @@ describe('Model', () => {
           // Given
 
           // When
-          const current = await new FileView(undefined, undefined)
+          const current = await new FileModel(undefined, undefined)
 
           // Then
           expect(current.value).to.be.undefined
@@ -397,7 +397,7 @@ describe('Model', () => {
           const file = new File([fileContent], fileName)
 
           // When
-          const current = await new FileView(file)
+          const current = await new FileModel(file)
 
           // Then
           expect(current.value).to.not.be.undefined
@@ -407,10 +407,10 @@ describe('Model', () => {
         it('given a fileReader the value might exist', async () => {
           // Given
           const file = new File([fileContent], fileName)
-          const {result: base64FileData} = await FileView.read(file)
+          const {result: base64FileData} = await FileModel.read(file)
 
           // When
-          const current = await new FileView(base64FileData)
+          const current = await new FileModel(base64FileData)
 
           // Then
           expect(current.value).to.not.be.undefined
@@ -422,12 +422,12 @@ describe('Model', () => {
         it('given a value the value might NOT change', async () => {
           // Given
           const value = btoa(fileContent)
-          const fileView = await new FileView(undefined, undefined)
+          const fileModel = await new FileModel(undefined, undefined)
 
           // When
 
           // Then
-          expect(() => fileView.value = value).to.throw('Cannot set property value of #<FileView> which has only a getter')
+          expect(() => fileModel.value = value).to.throw('Cannot set property value of #<FileModel> which has only a getter')
         })
       })
     })
@@ -437,7 +437,7 @@ describe('Model', () => {
           // Given
 
           // When
-          const current = await new FileView(undefined, undefined)
+          const current = await new FileModel(undefined, undefined)
 
           // Then
           expect(current.defaultValue).to.be.undefined
@@ -448,7 +448,7 @@ describe('Model', () => {
           const file = new File([fileContent], fileName)
 
           // When
-          const current = await new FileView(file)
+          const current = await new FileModel(file)
 
           // Then
           expect(current.defaultValue).to.not.be.undefined
@@ -458,10 +458,10 @@ describe('Model', () => {
         it('given a fileReader the defaultValue might exist', async () => {
           // Given
           const file = new File([fileContent], fileName)
-          const {result: base64FileData} = await FileView.read(file)
+          const {result: base64FileData} = await FileModel.read(file)
 
           // When
-          const current = await new FileView(base64FileData)
+          const current = await new FileModel(base64FileData)
 
           // Then
           expect(current.defaultValue).to.not.be.undefined
@@ -473,12 +473,12 @@ describe('Model', () => {
         it('given a value the defaultValue might NOT change', async () => {
           // Given
           const defaultValue = btoa(fileContent)
-          const fileView = await new FileView(undefined, undefined)
+          const fileModel = await new FileModel(undefined, undefined)
 
           // When
 
           // Then
-          expect(() => fileView.defaultValue = defaultValue).to.throw('Cannot set property defaultValue of #<FileView> which has only a getter')
+          expect(() => fileModel.defaultValue = defaultValue).to.throw('Cannot set property defaultValue of #<FileModel> which has only a getter')
         })
       })
     })
@@ -488,7 +488,7 @@ describe('Model', () => {
           // Given
 
           // When
-          const current = await new FileView(undefined, undefined)
+          const current = await new FileModel(undefined, undefined)
 
           // Then
           expect(current.name).to.be.undefined
@@ -499,7 +499,7 @@ describe('Model', () => {
           const filename = fileName
 
           // When
-          const current = await new FileView(undefined, filename)
+          const current = await new FileModel(undefined, filename)
 
           // Then
           expect(current.name).to.not.be.undefined
@@ -511,7 +511,7 @@ describe('Model', () => {
           const file = new File([fileContent], fileName)
 
           // When
-          const current = await new FileView(file)
+          const current = await new FileModel(file)
 
           // Then
           expect(current.name).to.not.be.undefined
@@ -521,10 +521,10 @@ describe('Model', () => {
         it('given a fileReader the name might NOT exist', async () => {
           // Given
           const file = new File([fileContent], fileName)
-          const {result: base64FileData} = await FileView.read(file)
+          const {result: base64FileData} = await FileModel.read(file)
 
           // When
-          const current = await new FileView(base64FileData)
+          const current = await new FileModel(base64FileData)
 
           // Then
           expect(current.name).to.be.undefined
@@ -533,10 +533,10 @@ describe('Model', () => {
         it('given a fileReader and filename the name might exist', async () => {
           // Given
           const file = new File([fileContent], fileName)
-          const {result: base64FileData} = await FileView.read(file)
+          const {result: base64FileData} = await FileModel.read(file)
 
           // When
-          const current = await new FileView(base64FileData, fileName)
+          const current = await new FileModel(base64FileData, fileName)
 
           // Then
           expect(current.name).to.not.be.undefined
@@ -548,15 +548,15 @@ describe('Model', () => {
         it('given a value the value might NOT change', async () => {
           // Given
           const filename = 'newFilename'
-          const fileView = await new FileView(undefined, undefined)
+          const fileModel = await new FileModel(undefined, undefined)
 
           // When
-          fileView.name = filename
+          fileModel.name = filename
 
           // Then
-          expect(fileView.name).to.not.be.undefined
-          expect(fileView.name).to.not.equal(fileName)
-          expect(fileView.name).to.equal(filename)
+          expect(fileModel.name).to.not.be.undefined
+          expect(fileModel.name).to.not.equal(fileName)
+          expect(fileModel.name).to.equal(filename)
         })
       })
     })
@@ -566,7 +566,7 @@ describe('Model', () => {
           // Given
 
           // When
-          const current = await new FileView(undefined, undefined)
+          const current = await new FileModel(undefined, undefined)
 
           // Then
           expect(current.defaultName).to.be.undefined
@@ -577,7 +577,7 @@ describe('Model', () => {
           const filename = fileName
 
           // When
-          const current = await new FileView(undefined, filename)
+          const current = await new FileModel(undefined, filename)
 
           // Then
           expect(current.defaultName).to.not.be.undefined
@@ -589,7 +589,7 @@ describe('Model', () => {
           const file = new File([fileContent], fileName)
 
           // When
-          const current = await new FileView(file)
+          const current = await new FileModel(file)
 
           // Then
           expect(current.defaultName).to.not.be.undefined
@@ -599,10 +599,10 @@ describe('Model', () => {
         it('given a fileReader the defaultName might NOT exist', async () => {
           // Given
           const file = new File([fileContent], fileName)
-          const {result: base64FileData} = await FileView.read(file)
+          const {result: base64FileData} = await FileModel.read(file)
 
           // When
-          const current = await new FileView(base64FileData)
+          const current = await new FileModel(base64FileData)
 
           // Then
           expect(current.defaultName).to.be.undefined
@@ -611,10 +611,10 @@ describe('Model', () => {
         it('given a fileReader and filename the defaultName might exist', async () => {
           // Given
           const file = new File([fileContent], fileName)
-          const {result: base64FileData} = await FileView.read(file)
+          const {result: base64FileData} = await FileModel.read(file)
 
           // When
-          const current = await new FileView(base64FileData, fileName)
+          const current = await new FileModel(base64FileData, fileName)
 
           // Then
           expect(current.defaultName).to.not.be.undefined
@@ -626,12 +626,12 @@ describe('Model', () => {
         it('given a value the defaultName might NOT change', async () => {
           // Given
           const defaultName = 'newDefaultName'
-          const fileView = await new FileView(undefined, undefined)
+          const fileModel = await new FileModel(undefined, undefined)
 
           // When
 
           // Then
-          expect(() => fileView.defaultName = defaultName).to.throw('Cannot set property defaultName of #<FileView> which has only a getter')
+          expect(() => fileModel.defaultName = defaultName).to.throw('Cannot set property defaultName of #<FileModel> which has only a getter')
         })
       })
     })

@@ -92,7 +92,7 @@ MoleculeImageEditor.propTypes = {
   aspect: PropTypes.number,
   cropLabelIcon: PropTypes.node,
   cropLabelText: PropTypes.string,
-  debouncingTime,
+  debouncingTime: debouncingTimePropType,
   image: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onCropping: PropTypes.func,
